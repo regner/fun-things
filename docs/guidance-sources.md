@@ -45,8 +45,18 @@ formatting and lifecycle behavior remain separate from project-owned code.
   Collision, navigation, occlusion data, and debug overlays remain separate.
 - Retain documented style and manual review. The existing gdstyle configuration
   does not include VCS's custom spacing/documentation wrapper or its smoke tests.
-- Describe compiler/resource/art checks and CI as future tooling. Copying task names
-  without their implementations would create a misleading development workflow.
+- Current foundation tooling is accepted at fixture scope through
+  [S01 resource/source evidence](spikes/s01.md#evidence-and-reproduction) and
+  [combined P0-03/S03 acceptance](spikes/s03.md#integration-validation).
+  `mise run gdstyle:check` checks pinned formatting/lint; `gdscript:check` explicitly
+  compiles every discovered owned script, including unused scripts, in a fresh
+  dependency mirror. `resources:check`, `s01:clean` and `s01:reexport` validate the
+  focused S01 resource/source/identity workflow; `spike:s03` runs the bounded
+  two-process ENet fixture and `tools:check` checks runner/discovery behavior.
+  These are implemented tasks in `mise.toml` and `tools/`, not copied VCS names.
+  Manual purpose-comment/spacing review remains required. CI, a preserving formatter
+  wrapper and broader production asset/gameplay/network coverage remain M1-D1 work;
+  focused success does not certify full-project plugin diagnostics, Steam or Deck.
 - The user requires completed tasks to be removed from `TODO.md` and committed
   together with their resolving changes. This supersedes the earlier adaptation
   that left automatic TODO commits optional. Do not copy VCS's version-bump/tag

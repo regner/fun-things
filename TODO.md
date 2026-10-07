@@ -179,20 +179,8 @@ asset acceptance.
 These are documentation work, owned by a delegated documentation worker with
 independent review; they do not reopen completed proofs or require hardware access.
 Assign a named worker before starting. Finish before P0-GATE uses the reconciled guides.
-
-- [ ] **P0-DOC1 — Reconcile current foundation tooling/status with accepted evidence.**
-  Needs: [S01 evidence](docs/spikes/s01.md),
-  [combined P0-03/S03 acceptance](docs/spikes/s03.md#integration-validation) and
-  [first checkpoint findings](docs/reviews/plan-check-2026-10-07.md#documentation-findings).
-  Update `docs/guidance-sources.md` (compiler/resource checks are no longer all future),
-  `docs/assets.md` (focused source fingerprints/reexport tools now exist),
-  `docs/reviews/p0-06.md` (current-status supplement to its historical P0-03 deferral)
-  and `docs/spikes/s01.md` (current-status supplement to its closing P0-03-open claim).
-  Preserve original experiment/dry-run observations; link subsequent accepted evidence.
-  Done when: each named stale claim distinguishes completed fixture tooling from
-  future CI/production coverage, links exact evidence, and preserves rejected child
-  override, full-project diagnostics and unproven Steam/Deck/gameplay limits.
-  Check command names/scopes against `mise.toml` and `tools/`; validate links/diff.
+P0-DOC1 is complete; [its reconciliation record](docs/reviews/p0-doc1.md) retains
+current tooling scope, accepted evidence and historical limitations.
 
 - [ ] **P0-DOC2 — Reassign remaining proof/acceptance ownership after S03 completion.**
   Needs: [S03 limitations](docs/spikes/s03.md#alternatives-limitations-and-resulting-work),
@@ -355,7 +343,8 @@ implementation. Save editor mutations before playtests; preserve unsaved work.
   [art-review evidence](docs/reviews/p0-07.md),
   [GDScript review evidence](docs/reviews/p0-06.md),
   [P0-05 workflow record](docs/decisions/p0-05-asset-workflow.md),
-  [S01 pipeline evidence](docs/spikes/s01.md), S02, P0-DOC1/P0-DOC2,
+  [S01 pipeline evidence](docs/spikes/s01.md), S02,
+  [P0-DOC1 reconciliation](docs/reviews/p0-doc1.md), P0-DOC2,
   [completed S03 proof](docs/spikes/s03.md), S03-R/S03-S and S04 through S08.
   Done when: critical design/feasibility assumptions required to begin M1 are resolved;
   the user ratifies scope, chosen art/layout and camera/control choices against

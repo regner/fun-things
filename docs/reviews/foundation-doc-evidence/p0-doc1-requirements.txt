@@ -1,0 +1,13 @@
+- [ ] **P0-DOC1 — Reconcile current foundation tooling/status with accepted evidence.**
+  Needs: [S01 evidence](docs/spikes/s01.md),
+  [combined P0-03/S03 acceptance](docs/spikes/s03.md#integration-validation) and
+  [first checkpoint findings](docs/reviews/plan-check-2026-10-07.md#documentation-findings).
+  Update `docs/guidance-sources.md` (compiler/resource checks are no longer all future),
+  `docs/assets.md` (focused source fingerprints/reexport tools now exist),
+  `docs/reviews/p0-06.md` (current-status supplement to its historical P0-03 deferral)
+  and `docs/spikes/s01.md` (current-status supplement to its closing P0-03-open claim).
+  Preserve original experiment/dry-run observations; link subsequent accepted evidence.
+  Done when: each named stale claim distinguishes completed fixture tooling from
+  future CI/production coverage, links exact evidence, and preserves rejected child
+  override, full-project diagnostics and unproven Steam/Deck/gameplay limits.
+  Check command names/scopes against `mise.toml` and `tools/`; validate links/diff.

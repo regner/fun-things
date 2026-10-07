@@ -98,8 +98,18 @@ to every GLB/texture, import sidecar, material, prefab/inherited variant and aff
 sector. Shared sources list **all** component outputs and dependents; shared
 materials/textures list consumers. Link shared rig/material records rather than
 copy their details. Check reverse dependencies with repository searches and the
-editor, since the manual list can become stale. Automated authoring-source
-fingerprints/export tools are deferred until a demonstrated need. Gameplay-derived
+editor, since the manual list can become stale. Focused S01 tooling now exists:
+`mise run s01:reexport` runs [the reexport tool](../tools/s01/reexport.py) on both
+committed Blender fixture sources, validates scratch outputs and rejects stale GLBs
+by byte comparison. It records source/export SHA256 fingerprints; the accepted
+[committed fingerprints](spikes/s01-evidence/fingerprints.json) and
+[combined acceptance](spikes/s03.md#integration-validation) retain the evidence.
+Its explicit `--install` path replaces both validated GLBs while preserving import
+sidecars; follow the save/reopen workflow below when sources change.
+`resources:check` and `s01:clean` cover the focused source-link/resource/identity
+checks and isolated clean-import failure probes. This is not general catalogue
+or production-asset automation: the catalogue remains manual, and broader checks/CI
+remain M1-D1 work. Gameplay-derived
 navigation/minimap data requires the scene contract's bake fingerprint from first
 use; that content-handshake requirement is separate from catalogue automation.
 
