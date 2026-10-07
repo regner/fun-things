@@ -184,18 +184,6 @@ P0-DOC1 and P0-DOC2 are complete. The [tooling reconciliation](docs/reviews/p0-d
 and [proof-ownership reconciliation](docs/reviews/p0-doc2.md) retain accepted evidence,
 current fixture scope, historical observations and active owners for unproved cases.
 
-- [ ] **P0-DOC3 — Reconcile README's blanket networking disclaimer.**
-  Owner: delegated documentation worker; independent documentation review.
-  Affected doc: `README.md`, closing Project guidance disclaimer that networking
-  does not exist here. Accepted source: [S03](docs/spikes/s03.md) and
-  [foundation reconciliation](docs/reviews/p0-doc1.md); the README's own introduction
-  and runner section already acknowledge the isolated ENet proof.
-  Needs: those accepted records; no editor, device, Steam or new engine proof.
-  Done when: the disclaimer distinguishes implemented fixture networking/tooling
-  from unimplemented production gameplay/Steam integration, preserves provisional
-  targets/gates, and passes local links/anchors and independent review. Remove this
-  item with its resolving change; do not rewrite unrelated guides or claim new tests.
-
 ## Phase-zero technical spikes
 
 Each spike gets a short `docs/spikes/<id>.md`: question/hypothesis, alternatives,
@@ -373,7 +361,7 @@ implementation. Save editor mutations before playtests; preserve unsaved work.
   [S01 pipeline evidence](docs/spikes/s01.md), S02,
   [P0-DOC1 reconciliation](docs/reviews/p0-doc1.md),
   [P0-DOC2 reconciliation](docs/reviews/p0-doc2.md),
-  P0-DOC3,
+  [S03 fixture boundary](docs/spikes/s03.md#fixture-and-boundary),
   [completed S03 proof](docs/spikes/s03.md), S03-R/S03-S and S04 through S08.
   Done when: critical design/feasibility assumptions required to begin M1 are resolved;
   the user ratifies scope, chosen art/layout and camera/control choices against
@@ -588,7 +576,8 @@ experiments can start; their final Steam decisions remain open. S05/S06 need act
 car/actor envelopes, and S07 needs their representative fixtures. Its physical Deck
 cost measurement remains deferred. No production M1 work is ungated by availability
 answers; P0-GATE still needs the missing feasibility/access/device/user decisions.
-P0-DOC3 is ready documentation work; P0-PROFILES is deferred outside P0-GATE.
+The [S03 fixture boundary](docs/spikes/s03.md#fixture-and-boundary) records the
+current isolated networking scope; P0-PROFILES remains deferred outside P0-GATE.
 The table describes dependency stages, not a claim that deferred proofs are runnable.
 
 | When | Work that can run together | Must wait |

@@ -69,6 +69,9 @@ checks and later tasks own gameplay, Steam, exports and target compatibility.
   what was generalized, and what was intentionally left there.
 
 The guides set working conventions and describe future implementation choices.
-They do not imply that VCS tools, tests, Steam integration, or networking already
-exist here. Add executable tasks alongside their implementations and document
-only commands that work in this checkout.
+This checkout has executable foundation checks and an isolated ENet session-contract
+fixture/runner, but no production gameplay networking or Steam integration. The
+fixture's Linux loopback evidence does not establish Steam or Deck compatibility;
+engine/input decisions, P0-GATE and profile work remain deferred. Add executable
+tasks alongside their implementations and document only commands that work in this
+checkout.
