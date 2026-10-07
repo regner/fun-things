@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://b4ml1xnm5y68a"]
+
+[ext_resource type="Script" uid="uid://ccodwfs5fdyy3" path="res://tests/fixtures/s01/fixture_identity.gd" id="1_b4ory"]
+[ext_resource type="PackedScene" uid="uid://byi8aq2hhf4pf" path="res://art/models/spikes/s01_rig.glb" id="2_yddo3"]
+
+[node name="RigPrefab" type="Node3D" unique_id=1938459241]
+script = ExtResource("1_b4ory")
+
+[node name="Visuals" type="Node3D" parent="." unique_id=2110032410]
+
+[node name="Model" parent="Visuals" unique_id=1250189904 instance=ExtResource("2_yddo3")]

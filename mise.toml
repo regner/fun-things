@@ -22,3 +22,23 @@ run = "godot --editor --path ."
 [tasks.play]
 description = "Run the project with the pinned Godot version"
 run = "godot --path ."
+
+[tasks."gdstyle:check"]
+description = "Lint owned scripts; preserve comments/spacing through manual review"
+run = "python tools/check.py style"
+
+[tasks."gdscript:check"]
+description = "Explicitly compile every owned script, including unused scripts"
+run = "python tools/check.py scripts"
+
+[tasks."resources:check"]
+description = "Check S01 source/resource/identity/animation contracts"
+run = "python tools/check.py resources"
+
+[tasks."s01:clean"]
+description = "Isolated clean import and S01 contract failure probes; retains logs"
+run = "python tools/s01/clean_import.py"
+
+[tasks."s01:reexport"]
+description = "Re-export both committed Blender sources and reject stale GLBs"
+run = "python tools/s01/reexport.py"

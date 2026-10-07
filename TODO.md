@@ -95,13 +95,24 @@ S02/S04/S06 and measured cost remains S07/P0-GATE work.
 
 P0-06's project GDScript review skill and independent dry-run evidence are recorded
 in [the review-skill completion record](docs/reviews/p0-06.md). The skill reads the
-P0-02 contract drafts when reviewing affected systems; P0-03 checks and gameplay
-proofs remain future work.
+P0-02 contract drafts when reviewing affected systems; P0-03's remaining runner
+and gameplay proofs remain future work.
+
+S01's bounded Blender/GLB/linked-prefab workflow is complete in
+[the evidence record](docs/spikes/s01.md), with two committed source/export fixtures,
+repeated instances, wrapper-level inherited material tuning, source reexport,
+asset-profile clean import and editor close/reopen. Direct imported-child identity
+churn is a rejected alternative on the unchanged engine pin; full-project plugin
+and editor diagnostics, Deck compatibility and production art/gameplay acceptance
+remain outside that result. S01 is removed from the active task list with its
+resolving change.
 
 - [ ] **P0-03 — Add only the tooling needed for reproducible foundation proofs.**
   Needs: [ratified brief](docs/design.md) and the first owned spike scripts/resources.
-  Output: working style/lint and explicit all-owned-script compilation tasks,
-  focused resource/source-link checks, and a bounded two-process runner. Preserve
+  Implemented by S01: pinned style/lint, explicit all-owned-script compilation,
+  focused source/resource/UID/animation checks, scratch re-export verification and
+  isolated clean asset import/failure probes; see [development tasks](docs/development.md#foundation-validation-tasks).
+  Remaining owner/workstream: S03 adds the bounded two-process runner. Preserve
   repository comment/spacing rules with manual review until a preserving wrapper exists.
   Runner uses production-facing APIs, distinct user/log directories, configurable
   ports, readiness/results, deadlines, retained logs, and stops only its own children.
@@ -147,19 +158,6 @@ changes. Start with a proposed **1–2 focused days per experiment**, adjusted b
 work; this is an effort cap, not a delivery promise. If inconclusive, record the
 next bounded question and whether it blocks M1. Do not expand into full feature
 implementation. Save editor mutations before playtests; preserve unsaved work.
-
-- [ ] **S01 — Blender/import/prefab/scene roundtrip.**
-  Needs: [ratified brief](docs/design.md), [scene draft](docs/scene-structure.md) and
-  [asset workflow](docs/assets.md); minimal P0-03 checks.
-  Question: which pinned Blender/GLB/import settings preserve our source/scene contract?
-  Minimum: one static prefab and one rigged fixture, repeated instances and one
-  inherited variant; reexport, clean import, save/reopen and inspect identity/overrides.
-  Decision: tool/settings pin and accepted source/prefab workflow. Evidence includes
-  scale/axes/pivots/sockets, no copied model data, no lost authored transforms or
-  unresolved dependencies, and revised asset/scene contracts. Verify the project
-  -Z model front, exported sockets/bone attachments, clip names/loops and external
-  material/texture remaps. Record exact Blender/exporter/import settings and
-  refresh/reopen the existing editor as well as testing an isolated clean import.
 
 - [ ] **S02 — GTA2-style foot controls, camera and aiming.**
   Needs: [ratified brief](docs/design.md), [accepted art/city brief](docs/art-direction.md)

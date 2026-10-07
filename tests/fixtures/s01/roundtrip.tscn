@@ -1,0 +1,51 @@
+[gd_scene format=3 uid="uid://b1twmq7vtpaep"]
+
+[ext_resource type="PackedScene" uid="uid://dxr4pwbyxxmmh" path="res://tests/fixtures/s01/static_prefab.tscn" id="1_dc7vo"]
+[ext_resource type="PackedScene" uid="uid://bc1n5y0cqkt8a" path="res://tests/fixtures/s01/static_variant.tscn" id="3_csx0f"]
+[ext_resource type="PackedScene" uid="uid://b4ml1xnm5y68a" path="res://tests/fixtures/s01/rig_prefab.tscn" id="4_vc4e6"]
+
+[sub_resource type="Environment" id="Environment_dc7vo"]
+background_mode = 1
+background_color = Color(0.12, 0.15, 0.18, 1)
+ambient_light_source = 3
+ambient_light_color = Color(1, 1, 1, 1)
+ambient_light_energy = 0.6
+
+[node name="Roundtrip" type="Node3D" unique_id=969918472]
+
+[node name="StaticA" parent="." unique_id=1824963814 instance=ExtResource("1_dc7vo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0, 0)
+world_id = &"s01/roundtrip/statica"
+
+[node name="StaticB" parent="." unique_id=777232903 instance=ExtResource("1_dc7vo")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 0, 0)
+world_id = &"s01/roundtrip/staticb"
+
+[node name="Variant" parent="." unique_id=850868017 instance=ExtResource("3_csx0f")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, 0)
+world_id = &"s01/roundtrip/variant"
+
+[node name="RigA" parent="." unique_id=1938459241 instance=ExtResource("4_vc4e6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, 0, 3)
+world_id = &"s01/roundtrip/riga"
+
+[node name="RigB" parent="." unique_id=417947930 instance=ExtResource("4_vc4e6")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 1.5, 0, 3)
+world_id = &"s01/roundtrip/rigb"
+
+[node name="OverviewCamera" type="Camera3D" parent="." unique_id=1456054903]
+transform = Transform3D(1, 0, 0, 0, 0.83957016, 0.5432513, 0, -0.5432513, 0.83957016, 0, 6, 10)
+current = true
+fov = 50.0
+
+[node name="GameplayReference" type="Camera3D" parent="." unique_id=2078970913]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 47, 0)
+fov = 50.0
+far = 100.0
+
+[node name="Sun" type="DirectionalLight3D" parent="." unique_id=1469169028]
+transform = Transform3D(0.8660254, 0.43301272, -0.24999999, 0, 0.49999997, 0.86602545, 0.5, -0.75, 0.43301266, 0, 0, 0)
+light_energy = 1.2
+
+[node name="Environment" type="WorldEnvironment" parent="." unique_id=1730942376]
+environment = SubResource("Environment_dc7vo")

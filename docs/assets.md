@@ -1,8 +1,9 @@
 # Concept, asset and world workflow
 
 Keep editable sources, explicit exports, imported model instances, reusable prefabs
-and saved world placement connected. This is the P0-05 specification, not evidence
-that an asset or toolchain has passed it. The [product brief](design.md) owns scope;
+and saved world placement connected. This is the P0-05 specification, refined by
+the bounded [S01 proof](spikes/s01.md); it is not production asset acceptance.
+The [product brief](design.md) owns scope;
 [repository guidance](../AGENTS.md), [development](development.md) and
 [multiplayer](multiplayer.md) own editing, validation and authority rules.
 The [P0-05 record](decisions/p0-05-asset-workflow.md) lists unresolved inputs and proofs.
@@ -15,8 +16,9 @@ The accepted [art direction](art-direction.md) and [world layout](world-layout.m
 own the Petrol & Coral starting kit, vertical perspective camera and provisional
 city/asset dimensions. Use those inputs in asset briefs; do not choose competing
 paths, gameplay rules or visual directions here. Spikes refine the drafts before
-production. S01 selects exact Blender/export/import settings and proves the
-roundtrip on the chosen Godot pin; no Blender version is selected here.
+production. [S01](spikes/s01.md) selects Blender 5.2.2 LTS / glTF exporter 5.2.40
+and records exact export/import settings on the existing Godot 4.8-dev7 pin.
+That asset-profile proof does not certify full-project plugin or Deck compatibility.
 
 ## Owners and handoffs
 
@@ -254,7 +256,14 @@ recorded overrides;
 do not copy imported vertex data into owned `.tscn`/`.tres` files. Trace each visual
 from placed instance → prefab → GLB import → catalogue record → committed `.blend`;
 the catalogue retains the authoring source link without importing `.blend` directly.
-Derived prefabs may inherit a wrapper for intentional variants. Save/reopen wrappers
+Derived prefabs may inherit a wrapper for intentional variants. On the current
+pin, use exported wrapper-level appearance parameters: S01 proves they preserve
+saved identities through reexport. Direct imported-child overrides changed a saved
+child `unique_id` in S01 and remain rejected for identity-sensitive variants.
+Keep imported children noneditable for the accepted route; presentation may apply
+the authored material parameter to the linked mesh, without copying geometry or
+changing placement. Production consumers still review their own appearance API.
+Save/reopen wrappers
 and inherited variants after reexport; compare paths, ancestry, material/component overrides and
 identities. Unexpected embedded mesh data rejects review.
 

@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://bc1n5y0cqkt8a"]
+
+[ext_resource type="PackedScene" uid="uid://dxr4pwbyxxmmh" path="res://tests/fixtures/s01/static_prefab.tscn" id="1"]
+[ext_resource type="Material" uid="uid://bs0swxuv4lqby" path="res://art/materials/s01_coral.tres" id="2_jh6j8"]
+
+[node name="StaticPrefab" unique_id=850868017 instance=ExtResource("1")]
+body_material = ExtResource("2_jh6j8")

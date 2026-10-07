@@ -172,30 +172,44 @@ Standalone deterministic fixtures may use fixed stepping; live network tests nee
 normal paced simulation and wall-clock deadlines. Compare authoritative states at
 matching ticks, not a smoothed current client transform to an earlier host transform.
 
-## Tooling to add as code arrives
+## Foundation validation tasks
 
-Only `editor` and `play` Mise tasks exist today. The following are useful future
-tasks, adapted from VCS, rather than commands currently available here:
+S01 adds only the P0-03 tooling required for its owned fixtures. Run the installed
+pins through Mise; `GODOT_BIN` and `GDSTYLE_BIN` can select those same binaries when
+Mise trust-state writes are unavailable. `tools/check.py` checks versions and honors
+hidden/`.gdignore` trees, excluding the two current vendor addons explicitly.
 
-- `gdstyle:check` and `gdstyle:fix`: cover every owned script directory, including
-  owned addons, while excluding vendor code. Preserve the documented export-group
-  spacing and comment attachment; VCS uses a custom Python wrapper for this.
-- `gdscript:check`: discover all `.gd` files, honor hidden and `.gdignore` directories,
-  and explicitly load/reload each script in Godot. Report all failures and return
-  nonzero. Import or `--editor --quit` alone is insufficient for unused scripts.
-- `resources:check`: verify saved identities and dependencies with the pinned
-  engine, including clean-cache checks. An optional resource-save utility must
-  preserve imported/inherited identities and avoid rewriting vendor resources.
-- Focused gameplay tests and a small two-process multiplayer runner; add CI using
-  the same tasks once those tasks exist. Pin CI dependencies and retain useful logs.
+| Task | Scope |
+| --- | --- |
+| `mise run gdstyle:check` | Every discovered owned `.gd`, pinned lint with zero warnings; comments/export/function spacing still reviewed manually |
+| `mise run gdscript:check` | Explicit `--check-only --script` invocation for every owned script, including unused scripts; retains per-script logs |
+| `mise run resources:check` | S01 source/export links, unique resource UIDs, external files/no copied meshes, engine dependencies and UID/path agreement, dimensions/axes/sockets/clips, saved IDs/transforms/inheritance |
+| `mise run s01:reexport` | Opens both committed Blender sources with the selected Blender version, exports validated scratch GLBs and requires byte equality with committed outputs |
+| `mise run s01:clean` | Isolated asset-profile clean import and resource checks, compares persisted files, then proves focused corruptions fail |
 
-The currently available import command is:
+Logs default to ignored `builds/`; subprocesses have deadlines/private user dirs
+and do not stop unrelated processes. Checks fail on error/warning logs as well as
+exit status. The clean asset profile omits development autoload/editor plugins and
+ignores vendor addons only in its temporary copy; it preserves owned resources and
+renderer/physics settings. This isolates source/resource checks from known
+full-project plugin diagnostics, retained in [S01](spikes/s01.md). It is not a
+full-project, packaged-export, gameplay or transport compatibility test.
+
+After changing a Blender source, `python tools/s01/reexport.py --install` validates
+both scratch outputs before installing them, preserving `.import` sidecars. Refresh
+and close/reopen/save affected scenes in the existing editor separately; headless
+checks cannot synchronize an open tab. S01 records the toolkit helper required by
+this session's limited callable surface and the direct-child identity limitation.
+
+A preserving formatter/fix wrapper, broader production resource discovery/coverage,
+CI and gameplay checks remain future work. The bounded two-process runner is S03's
+P0-03 responsibility; no network runner is included in S01. Import remains separate:
 
 ```sh
 mise exec -- godot --headless --editor --path . --import
 ```
 
-This imports the project; it is not an all-script compiler or a gameplay test.
+An import command's success does not mean scripts compiled or logs were clean.
 
 ## Versions and releases
 

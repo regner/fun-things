@@ -1,7 +1,9 @@
 # Scene and authored-resource contracts
 
 P0-02 draft, 7 October 2026. These are reserved production paths and proposed node
-contracts; none of these scenes currently exists. Create directories only when
+contracts; none of these production scenes currently exists. Isolated S01 fixtures
+now exercise linked imports and wrapper-level material inheritance; see
+[the proof and limitations](spikes/s01.md). Create directories only when
 their first resource is needed. [Architecture](architecture.md) owns responsibilities;
 [API contracts](api-contracts.md) owns identity/data/lifecycle. S01/S06 refine the
 resource and topology details before P0-GATE.
@@ -144,15 +146,26 @@ Install lifecycle/equipment/health/collision before movement, then bind the loca
 once baseline application succeeds. Spawn fails atomically if any required setup fails.
 
 An inherited prefab may override exported tuning, approved materials and collision
-variants. Preserve required paths/sockets and imported ancestry. Do not duplicate
+variants. S01 accepts exported wrapper-level material tuning on the current engine
+pin; direct editable imported-child overrides changed serialized child identities
+and are not accepted by that proof. The fixture appearance script applies its
+saved parameter to the linked mesh after tree entry, without changing placement.
+Production component/body/socket APIs remain their own downstream contracts.
+Preserve required paths/sockets and imported ancestry. Do not duplicate
 embedded model vertex data, detach the model import or silently change a saved ID.
 Reexport the source and outputs together; reopen/save affected base and inherited
 scenes through Godot to check overrides, identities and authored instance transforms.
 
-S01 acceptance covers repeated instances, inherited variants, source reexport and
-save/reload identity. S02/S04 check actual actor/camera/vehicle clearance; S06 checks
+[S01 evidence](spikes/s01.md) covers repeated instances, a wrapper-level inherited
+material variant, source reexport and saved wrapper/resource/node identity. The
+asset-profile clean import excludes development/Steam plugins in the temporary
+copy; full-project import still has recorded addon/editor diagnostics. No engine
+pin change or direct imported-child identity acceptance is implied.
+S02/S04 check actual actor/camera/vehicle clearance; S06 checks
 two-sector seams, routes and map alignment. S03 checks fixed RPC paths, pre-tree
-replica setup and exactly one local rig. P0-03 will supply resource checks; none is
-available today. This documentation change does not create scenes or prove their
-engine roundtrip. Use the [asset workflow](assets.md) for handoffs/catalogue conventions;
-S01 still pins export/import settings and proves their roundtrip.
+replica setup and exactly one local rig. P0-03 now provides focused
+source/resource/UID/animation checks and explicit owned
+script compilation through the [development tasks](development.md#foundation-validation-tasks).
+Its two-process runner remains S03 work. Use the [asset workflow](assets.md) for
+handoffs/catalogue conventions; S01 is a bounded technical workflow, not production
+art, actor movement or multiplayer acceptance.

@@ -1,0 +1,11 @@
+Godot Engine v4.8.dev7.official.c971f93e7 - https://godotengine.org
+
+ERROR: S01: inherited coral override
+   at: push_error (core/variant/variant_utility.cpp:1024)
+   GDScript backtrace (most recent call first):
+       [0] _run (res://tests/fixtures/s01/check_s01.gd:38)
+ERROR: S01: UID/path agree: uid://cbmqvw8h0sths::::res://art/materials/s01_coral.tres
+   at: push_error (core/variant/variant_utility.cpp:1024)
+   GDScript backtrace (most recent call first):
+       [0] _run (res://tests/fixtures/s01/check_s01.gd:38)
+S01_RESULT checks complete; failures=2

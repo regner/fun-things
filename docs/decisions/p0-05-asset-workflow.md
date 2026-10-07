@@ -76,3 +76,14 @@ performance check ran. Such checks need the owned S01/S02 fixtures and later pro
 Only documentation changed; no scripts, engine scenes/resources, art outputs,
 tool pins or vendor addons changed. P0-05 removal and downstream record references
 are committed with this specification.
+
+## Subsequent S01 evidence, 7 October 2026
+
+The [S01 record](../spikes/s01.md) now supplies Blender 5.2.2 LTS/exporter 5.2.40
+settings, static and rigged fixtures, repeated/inherited wrappers, source reexport,
+asset-profile clean import, existing-editor close/reopen and focused executable
+checks. Earlier sections describe P0-05's historical specification-only evidence.
+The catalogue now contains those two technical fixtures. S01 accepts wrapper-level
+appearance overrides; direct imported-child saved identity churn is a rejected
+route on the unchanged engine pin. Full-project plugin/editor diagnostics, Deck
+compatibility and production movement/art cases remain explicitly unproven.
