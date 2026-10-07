@@ -99,6 +99,11 @@ in [the review-skill completion record](docs/reviews/p0-06.md). The skill reads 
 P0-02 contract drafts when reviewing affected systems; remaining gameplay proofs
 are tracked below.
 
+P0-07's project art review skill and independent isolated-prefab exercise are recorded
+in [the art-review evidence](docs/reviews/p0-07.md). It covers source/scene/style and
+measured acceptance while keeping unfinished camera, movement, load and Deck gates
+explicit. The dry run is a technical review proof, not production asset acceptance.
+
 S01's bounded Blender/GLB/linked-prefab workflow is complete in
 [the evidence record](docs/spikes/s01.md), with two committed source/export fixtures,
 repeated instances, wrapper-level inherited material tuning, source reexport,
@@ -114,16 +119,6 @@ Pinned formatting/lint, explicit compilation of every owned script, focused
 resource/source-link checks and a bounded two-process runner can rerun the fixtures
 and retain useful failure evidence. Manual purpose-comment/spacing review remains
 required; preserving formatter tooling, CI and broader coverage belong to M1-D1.
-
-- [ ] **P0-07 — Create a project art review skill.**
-  Needs: [accepted art/city brief](docs/art-direction.md) and
-  [asset workflow](docs/assets.md); use S01/S02 artifacts for the dry run.
-  Output: `.agents/skills/art-review/SKILL.md`, linked to art/source/scene contracts.
-  Review concept/style consistency, Blender provenance and import ancestry,
-  gameplay-camera readability, scale/pivots/sockets/rigs, materials, collision/routes,
-  VFX bounds/overdraw, LOD/culling and measured performance.
-  Done when: frontmatter/links validate and an isolated flawed asset/prefab receives
-  useful evidence-based findings. Screenshots alone do not certify movement or load.
 
 S03's minimum ENet session proof is complete on 7 October 2026; its
 [evidence and limitations](docs/spikes/s03.md) retain the code, real-process results,
@@ -285,7 +280,9 @@ implementation. Save editor mutations before playtests; preserve unsaved work.
 - [ ] **P0-GATE — Review the foundation evidence and revise the milestone plan.**
   Needs: [ratified brief](docs/design.md), [ownership](docs/architecture.md),
   [scene](docs/scene-structure.md) and [API](docs/api-contracts.md) drafts,
-  [accepted art/city brief](docs/art-direction.md), [foundation tooling evidence](docs/spikes/s03.md#integration-validation)/P0-07,
+  [accepted art/city brief](docs/art-direction.md),
+  [foundation tooling evidence](docs/spikes/s03.md#integration-validation),
+  [art-review evidence](docs/reviews/p0-07.md),
   [GDScript review evidence](docs/reviews/p0-06.md),
   [P0-05 workflow record](docs/decisions/p0-05-asset-workflow.md), S01/S02,
   [completed S03 proof](docs/spikes/s03.md), S03-R/S03-S and S04 through S08.

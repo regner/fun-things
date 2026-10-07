@@ -1,0 +1,50 @@
+--- base/project.godot
++++ candidate/project.godot
+@@ -14,18 +14,10 @@
+ config/features=PackedStringArray("4.8", "Forward Plus")
+ config/icon="res://icon.svg"
+ 
+-[autoload]
+-
+-MCPRuntimeServer="*res://addons/godot_mcp_toolkit/runtime/mcp_runtime_server.gd"
+-
+ [display]
+ 
+ window/stretch/mode="canvas_items"
+ window/stretch/aspect="expand"
+-
+-[editor_plugins]
+-
+-enabled=PackedStringArray("res://addons/godot_mcp_toolkit/plugin.cfg", "res://addons/godotsteam/plugin.cfg")
+ 
+ [gui]
+ 
+--- base/tests/fixtures/s01/roundtrip.tscn
++++ candidate/tests/fixtures/s01/roundtrip.tscn
+@@ -19,7 +19,7 @@
+ 
+ [node name="StaticB" parent="." unique_id=777232903 instance=ExtResource("1_dc7vo")]
+ transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 0, 0)
+-world_id = &"s01/roundtrip/staticb"
++world_id = &"s01/roundtrip/statica"
+ 
+ [node name="Variant" parent="." unique_id=850868017 instance=ExtResource("3_csx0f")]
+ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, 0)
+--- base/tests/fixtures/s01/static_prefab.tscn
++++ candidate/tests/fixtures/s01/static_prefab.tscn
+@@ -4,7 +4,7 @@
+ [ext_resource type="PackedScene" uid="uid://b3yy7e8tyou0w" path="res://art/models/spikes/s01_static.glb" id="1_qh2te"]
+ 
+ [sub_resource type="BoxShape3D" id="BoxShape3D_fv7hq"]
+-size = Vector3(2, 1, 1)
++size = Vector3(4, 1, 1)
+ 
+ [node name="StaticPrefab" type="Node3D" unique_id=1824963814]
+ script = ExtResource("1_fv7hq")
+@@ -18,5 +18,5 @@
+ [node name="Body" type="StaticBody3D" parent="Collision" unique_id=509442393]
+ 
+ [node name="Shape" type="CollisionShape3D" parent="Collision/Body" unique_id=192461399]
+-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
++transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
+ shape = SubResource("BoxShape3D_fv7hq")

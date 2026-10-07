@@ -1,0 +1,24 @@
+{
+  "project": "/tmp/p0-07-baseline-_5nejchg/project",
+  "checks": [
+    {
+      "command": [
+        "/home/regner/.local/share/mise/installs/github-godotengine-godot-builds/4.8-dev7/godot",
+        "--headless",
+        "--path",
+        "/tmp/p0-07-baseline-_5nejchg/project",
+        "--editor",
+        "--import"
+      ],
+      "exit": 0,
+      "diagnostics": [
+        "ERROR: Condition \"_sock == -1\" is true. Returning: FAILED",
+        "ERROR: Condition \"p_image.is_null()\" is true.",
+        "ERROR: Condition \"err != OK\" is true. Returning: ERR_CANT_CREATE",
+        "ERROR: Condition \"p_image.is_null()\" is true.",
+        "ERROR: Condition \"_sock == -1\" is true. Returning: FAILED",
+        "ERROR: Condition \"err != OK\" is true. Returning: ERR_CANT_CREATE"
+      ]
+    }
+  ]
+}

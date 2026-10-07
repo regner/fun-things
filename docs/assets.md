@@ -22,6 +22,11 @@ That asset-profile proof does not certify full-project plugin or Deck compatibil
 
 ## Owners and handoffs
 
+For requested art/asset handoff reviews, use the project
+[`art-review` skill](../.agents/skills/art-review/SKILL.md). It traces these contracts
+and reports observed defects separately from missing gameplay/device evidence;
+review does not replace the acceptance checks below.
+
 Assign a named person/agent to each applicable role in the asset's
 [handoff record](templates/asset-handoff.md) before work. Codex initially owns the
 brief, concept preparation, Blender source, technical integration, gameplay review

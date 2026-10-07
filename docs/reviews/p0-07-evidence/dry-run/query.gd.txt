@@ -1,0 +1,93 @@
+extends SceneTree
+## Read-only fresh-process inspection of the supplied S01 candidate.
+
+
+## Starts after SceneTree initialization.
+func _initialize() -> void:
+	inspect.call_deferred()
+
+
+## Prints engine-resolved geometry, identity, ancestry and appearance without saving.
+func inspect() -> void:
+	var paths: Array[String] = [
+		"res://tests/fixtures/s01/static_prefab.tscn",
+		"res://tests/fixtures/s01/static_variant.tscn",
+		"res://tests/fixtures/s01/roundtrip.tscn",
+	]
+	for path: String in paths:
+		var packed: PackedScene = load(path)
+		var scene: Node3D = packed.instantiate()
+		root.add_child(scene)
+		await process_frame
+		print("SCENE ", path)
+		walk(scene, scene)
+		if path.ends_with("roundtrip.tscn"):
+			var base_mesh: Mesh = scene.get_node("StaticA/Visuals/Model/Body").mesh
+			print("SHARING ", JSON.stringify({
+				"static_a_b": base_mesh == scene.get_node("StaticB/Visuals/Model/Body").mesh,
+				"static_variant": base_mesh == scene.get_node("Variant/Visuals/Model/Body").mesh,
+				"rig_a_b": scene.get_node("RigA/Visuals/Model/Rig/Skeleton3D/Skin").mesh == scene.get_node("RigB/Visuals/Model/Rig/Skeleton3D/Skin").mesh,
+			}))
+		scene.queue_free()
+		await process_frame
+	var visited: Array[String] = []
+	dependencies(paths[2], visited)
+	print("QUERY_COMPLETE")
+	quit(0)
+
+
+## Inspects saved instances in local and scene coordinates.
+func walk(node: Node, scene: Node3D) -> void:
+	var row: Dictionary = {"node": str(scene.get_path_to(node)), "type": node.get_class()}
+	if node is Node3D:
+		row["transform"] = str(node.transform)
+	if not node.scene_file_path.is_empty():
+		row["scene_file_path"] = node.scene_file_path
+	if node.get_script() != null and node.get_script().resource_path.ends_with("fixture_identity.gd"):
+		row["world_id"] = str(node.get("world_id"))
+		row["body_material"] = material_path(node.get("body_material"))
+	if node is MeshInstance3D:
+		row["mesh_local_aabb"] = str(node.get_aabb())
+		row["scene_aabb"] = str(scene.global_transform.affine_inverse() * node.global_transform * node.get_aabb())
+		row["mesh_resource"] = node.mesh.resource_path
+		row["material_override"] = material_path(node.material_override)
+		row["active_material"] = material_path(node.get_active_material(0))
+		row["surface_material"] = material_path(node.mesh.surface_get_material(0))
+		row["surface_name"] = node.mesh.surface_get_name(0)
+	if node is CollisionShape3D and node.shape is BoxShape3D:
+		row["shape_size"] = str(node.shape.size)
+		row["disabled"] = node.disabled
+		row["scene_aabb"] = str(scene.global_transform.affine_inverse() * node.global_transform * AABB(-node.shape.size / 2, node.shape.size))
+		row["direct_parent"] = node.get_parent().get_class()
+	if node is StaticBody3D:
+		row["collision_layer"] = node.collision_layer
+		row["collision_mask"] = node.collision_mask
+	if node is Camera3D:
+		row["camera"] = {"projection": node.projection, "fov": node.fov, "near": node.near, "far": node.far, "current": node.current}
+	print(JSON.stringify(row))
+	for child: Node in node.get_children():
+		walk(child, scene)
+
+
+## Makes null material values explicit.
+func material_path(material: Material) -> String:
+	return "<none>" if material == null else material.resource_path
+
+
+## Records resolved dependencies and UID agreement independently of fallback loading.
+func dependencies(path: String, visited: Array[String]) -> void:
+	if path in visited:
+		return
+	visited.append(path)
+	for dependency: String in ResourceLoader.get_dependencies(path):
+		var parts: PackedStringArray = dependency.split("::")
+		var fallback: String = parts[parts.size() - 1]
+		var row: Dictionary = {"from": path, "dependency": dependency, "exists": ResourceLoader.exists(fallback)}
+		if dependency.begins_with("uid://"):
+			var uid: int = ResourceUID.text_to_id(parts[0])
+			row["registered"] = ResourceUID.has_id(uid)
+			if ResourceUID.has_id(uid):
+				row["uid_path"] = ResourceUID.get_id_path(uid)
+				row["uid_matches_fallback"] = row["uid_path"] == fallback
+		print("DEPENDENCY ", JSON.stringify(row))
+		dependencies(fallback, visited)

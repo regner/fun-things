@@ -1,0 +1,73 @@
+{
+  "persisted_files_checked": 33,
+  "changed": [],
+  "added_outside_cache": [],
+  "checks": [
+    {
+      "label": "godot_version",
+      "exit_code": 0,
+      "timed_out": false,
+      "diagnostics": []
+    },
+    {
+      "label": "import_sandbox",
+      "exit_code": 0,
+      "timed_out": false,
+      "diagnostics": [
+        "ERROR: Condition \"_sock == -1\" is true. Returning: FAILED",
+        "ERROR: Condition \"p_image.is_null()\" is true.",
+        "ERROR: Condition \"err != OK\" is true. Returning: ERR_CANT_CREATE",
+        "ERROR: Condition \"p_image.is_null()\" is true.",
+        "ERROR: Condition \"_sock == -1\" is true. Returning: FAILED",
+        "ERROR: Condition \"err != OK\" is true. Returning: ERR_CANT_CREATE"
+      ]
+    },
+    {
+      "label": "import_escalated",
+      "exit_code": 0,
+      "timed_out": false,
+      "diagnostics": []
+    },
+    {
+      "label": "source_links",
+      "exit_code": 0,
+      "timed_out": false,
+      "diagnostics": []
+    },
+    {
+      "label": "resource_check",
+      "exit_code": 1,
+      "timed_out": false,
+      "diagnostics": [
+        "ERROR: S01: StaticB authored world_id",
+        "ERROR: S01: StaticB distinct world_id",
+        "ERROR: S01: deliberate static collision envelope",
+        "ERROR: S01: collision ground datum"
+      ]
+    },
+    {
+      "label": "independent_query",
+      "exit_code": 0,
+      "timed_out": false,
+      "diagnostics": []
+    },
+    {
+      "label": "compile_identity",
+      "exit_code": 0,
+      "timed_out": false,
+      "diagnostics": []
+    },
+    {
+      "label": "compile_check",
+      "exit_code": 0,
+      "timed_out": false,
+      "diagnostics": []
+    },
+    {
+      "label": "compile_editor_probe",
+      "exit_code": 0,
+      "timed_out": false,
+      "diagnostics": []
+    }
+  ]
+}

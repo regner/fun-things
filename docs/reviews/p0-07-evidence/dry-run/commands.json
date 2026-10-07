@@ -1,0 +1,424 @@
+{
+  "candidate_text.command.json": {
+    "label": "candidate_text",
+    "command": [
+      "bash",
+      "-c",
+      "rg --files -uu art tests tools; for f in tests/fixtures/s01/*.tscn tests/fixtures/s01/*.gd tests/fixtures/s01/*.uid art/materials/*.tres art/models/spikes/*.import art/textures/spikes/*.import project.godot tools/check.py; do echo \"FILE: $f\"; nl -ba \"$f\"; done"
+    ],
+    "cwd": "/tmp/p0-07-review-irdbxx5x/project",
+    "deadline_seconds": 10.0,
+    "elapsed_seconds": 0.03182405799816479,
+    "exit_code": 0,
+    "timed_out": false,
+    "environment": {
+      "XDG_DATA_HOME": "/tmp/p0-07-review-irdbxx5x/reviewer/xdg-data",
+      "XDG_CONFIG_HOME": "/tmp/p0-07-review-irdbxx5x/reviewer/xdg-config",
+      "XDG_CACHE_HOME": "/tmp/p0-07-review-irdbxx5x/reviewer/xdg-cache"
+    }
+  },
+  "compile_check.command.json": {
+    "label": "compile_check",
+    "command": [
+      "/home/regner/.local/share/mise/installs/github-godotengine-godot-builds/4.8-dev7/godot",
+      "--headless",
+      "--path",
+      "/tmp/p0-07-review-irdbxx5x/project",
+      "--check-only",
+      "--script",
+      "tests/fixtures/s01/check_s01.gd"
+    ],
+    "cwd": "/tmp/p0-07-review-irdbxx5x/project",
+    "deadline_seconds": 30.0,
+    "elapsed_seconds": 0.16383485400001518,
+    "exit_code": 0,
+    "timed_out": false,
+    "environment": {
+      "XDG_DATA_HOME": "/tmp/p0-07-review-irdbxx5x/reviewer/xdg-data",
+      "XDG_CONFIG_HOME": "/tmp/p0-07-review-irdbxx5x/reviewer/xdg-config",
+      "XDG_CACHE_HOME": "/tmp/p0-07-review-irdbxx5x/reviewer/xdg-cache"
+    }
+  },
+  "compile_editor_probe.command.json": {
+    "label": "compile_editor_probe",
+    "command": [
+      "/home/regner/.local/share/mise/installs/github-godotengine-godot-builds/4.8-dev7/godot",
+      "--headless",
+      "--path",
+      "/tmp/p0-07-review-irdbxx5x/project",
+      "--check-only",
+      "--script",
+      "tools/s01/editor_probe.gd"
+    ],
+    "cwd": "/tmp/p0-07-review-irdbxx5x/project",
+    "deadline_seconds": 30.0,
+    "elapsed_seconds": 0.1639078830012295,
+    "exit_code": 0,
+    "timed_out": false,
+    "environment": {
+      "XDG_DATA_HOME": "/tmp/p0-07-review-irdbxx5x/reviewer/xdg-data",
+      "XDG_CONFIG_HOME": "/tmp/p0-07-review-irdbxx5x/reviewer/xdg-config",
+      "XDG_CACHE_HOME": "/tmp/p0-07-review-irdbxx5x/reviewer/xdg-cache"
+    }
+  },
+  "compile_identity.command.json": {
+    "label": "compile_identity",
+    "command": [
+      "/home/regner/.local/share/mise/installs/github-godotengine-godot-builds/4.8-dev7/godot",
+      "--headless",
+      "--path",
+      "/tmp/p0-07-review-irdbxx5x/project",
+      "--check-only",
+      "--script",
+      "tests/fixtures/s01/fixture_identity.gd"
+    ],
+    "cwd": "/tmp/p0-07-review-irdbxx5x/project",
+    "deadline_seconds": 30.0,
+    "elapsed_seconds": 0.16403929000080097,
+    "exit_code": 0,
+    "timed_out": false,
+    "environment": {
+      "XDG_DATA_HOME": "/tmp/p0-07-review-irdbxx5x/reviewer/xdg-data",
+      "XDG_CONFIG_HOME": "/tmp/p0-07-review-irdbxx5x/reviewer/xdg-config",
+      "XDG_CACHE_HOME": "/tmp/p0-07-review-irdbxx5x/reviewer/xdg-cache"
+    }
+  },
+  "consumers.command.json": {
+    "label": "consumers",
+    "command": [
+      "rg",
+      "-n",
+      "--glob",
+      "*.tscn",
+      "--glob",
+      "*.tres",
+      "--glob",
+      "*.gd",
+      "--glob",
+      "*.py",
+      "s01_static|s01_rig|static_prefab|static_variant|rig_prefab|s01_petrol|s01_coral|s01_palette|world_id",
+      "art",
+      "tests",
+      "tools"
+    ],
+    "cwd": "/tmp/p0-07-review-irdbxx5x/project",
+    "deadline_seconds": 10.0,
+    "elapsed_seconds": 0.007580322999274358,
+    "exit_code": 0,
+    "timed_out": false,
+    "environment": {
+      "XDG_DATA_HOME": "/tmp/p0-07-review-irdbxx5x/reviewer/xdg-data",
+      "XDG_CONFIG_HOME": "/tmp/p0-07-review-irdbxx5x/reviewer/xdg-config",
+      "XDG_CACHE_HOME": "/tmp/p0-07-review-irdbxx5x/reviewer/xdg-cache"
+    }
+  },
+  "contract_locations.command.json": {
+    "label": "contract_locations",
+    "command": [
+      "rg",
+      "-n",
+      "Body 2|Collision/Body|Five saved|StaticA|StaticB|world_id|Preserve|Save/reopen|Unknown rights|source/export freshness|Byte|byte|pending|accepted|not applicable",
+      "docs/assets/s01_static.md",
+      "docs/scene-structure.md",
+      "docs/assets.md",
+      "docs/spikes/s01.md"
+    ],
+    "cwd": "/home/regner/.paseo/worktrees/0u71f39f/p0-07-art-review",
+    "deadline_seconds": 10.0,
+    "elapsed_seconds": 0.015557163002085872,
+    "exit_code": 0,
+    "timed_out": false,
+    "environment": {
+      "XDG_DATA_HOME": "/tmp/p0-07-review-irdbxx5x/reviewer/xdg-data",
+      "XDG_CONFIG_HOME": "/tmp/p0-07-review-irdbxx5x/reviewer/xdg-config",
+      "XDG_CACHE_HOME": "/tmp/p0-07-review-irdbxx5x/reviewer/xdg-cache"
+    }
+  },
+  "contracts_assets.command.json": {
+    "label": "contracts_assets",
+    "command": [
+      "cat",
+      "docs/assets.md"
+    ],
+    "cwd": "/home/regner/.paseo/worktrees/0u71f39f/p0-07-art-review",
+    "deadline_seconds": 10.0,
+    "elapsed_seconds": 0.0014497929987555835,
+    "exit_code": 0,
+    "timed_out": false,
+    "environment": {
+      "XDG_DATA_HOME": "/tmp/p0-07-review-irdbxx5x/reviewer/xdg-data",
+      "XDG_CONFIG_HOME": "/tmp/p0-07-review-irdbxx5x/reviewer/xdg-config",
+      "XDG_CACHE_HOME": "/tmp/p0-07-review-irdbxx5x/reviewer/xdg-cache"
+    }
+  },
+  "contracts_direction.command.json": {
+    "label": "contracts_direction",
+    "command": [
+      "cat",
+      "docs/art-direction.md",
+      "docs/world-layout.md",
+      "docs/asset-catalogue.md"
+    ],
+    "cwd": "/home/regner/.paseo/worktrees/0u71f39f/p0-07-art-review",
+    "deadline_seconds": 10.0,
+    "elapsed_seconds": 0.0015799789980519563,
+    "exit_code": 0,
+    "timed_out": false,
+    "environment": {
+      "XDG_DATA_HOME": "/tmp/p0-07-review-irdbxx5x/reviewer/xdg-data",
+      "XDG_CONFIG_HOME": "/tmp/p0-07-review-irdbxx5x/reviewer/xdg-config",
+      "XDG_CACHE_HOME": "/tmp/p0-07-review-irdbxx5x/reviewer/xdg-cache"
+    }
+  },
+  "contracts_scene.command.json": {
+    "label": "contracts_scene",
+    "command": [
+      "cat",
+      "docs/scene-structure.md",
+      "docs/assets/s01_static.md",
+      "docs/assets/s01_rig.md"
+    ],
+    "cwd": "/home/regner/.paseo/worktrees/0u71f39f/p0-07-art-review",
+    "deadline_seconds": 10.0,
+    "elapsed_seconds": 0.001466704998165369,
+    "exit_code": 0,
+    "timed_out": false,
+    "environment": {
+      "XDG_DATA_HOME": "/tmp/p0-07-review-irdbxx5x/reviewer/xdg-data",
+      "XDG_CONFIG_HOME": "/tmp/p0-07-review-irdbxx5x/reviewer/xdg-config",
+      "XDG_CACHE_HOME": "/tmp/p0-07-review-irdbxx5x/reviewer/xdg-cache"
+    }
+  },
+  "contracts_scope.command.json": {
+    "label": "contracts_scope",
+    "command": [
+      "cat",
+      "AGENTS.md",
+      ".agents/skills/art-review/SKILL.md",
+      "docs/design.md",
+      "TODO.md"
+    ],
+    "cwd": "/home/regner/.paseo/worktrees/0u71f39f/p0-07-art-review",
+    "deadline_seconds": 10.0,
+    "elapsed_seconds": 0.001580027997988509,
+    "exit_code": 0,
+    "timed_out": false,
+    "environment": {
+      "XDG_DATA_HOME": "/tmp/p0-07-review-irdbxx5x/reviewer/xdg-data",
+      "XDG_CONFIG_HOME": "/tmp/p0-07-review-irdbxx5x/reviewer/xdg-config",
+      "XDG_CACHE_HOME": "/tmp/p0-07-review-irdbxx5x/reviewer/xdg-cache"
+    }
+  },
+  "contracts_validation.command.json": {
+    "label": "contracts_validation",
+    "command": [
+      "cat",
+      "docs/spikes/s01.md",
+      "docs/development.md",
+      "mise.toml"
+    ],
+    "cwd": "/home/regner/.paseo/worktrees/0u71f39f/p0-07-art-review",
+    "deadline_seconds": 10.0,
+    "elapsed_seconds": 0.0014966820017434657,
+    "exit_code": 0,
+    "timed_out": false,
+    "environment": {
+      "XDG_DATA_HOME": "/tmp/p0-07-review-irdbxx5x/reviewer/xdg-data",
+      "XDG_CONFIG_HOME": "/tmp/p0-07-review-irdbxx5x/reviewer/xdg-config",
+      "XDG_CACHE_HOME": "/tmp/p0-07-review-irdbxx5x/reviewer/xdg-cache"
+    }
+  },
+  "final_audit.command.json": {
+    "label": "final_audit",
+    "command": [
+      "python",
+      "final_audit.py"
+    ],
+    "cwd": "/tmp/p0-07-review-irdbxx5x/reviewer",
+    "deadline_seconds": 10.0,
+    "elapsed_seconds": 0.03167652400225052,
+    "exit_code": 0,
+    "timed_out": false,
+    "environment": {
+      "XDG_DATA_HOME": "/tmp/p0-07-review-irdbxx5x/reviewer/xdg-data",
+      "XDG_CONFIG_HOME": "/tmp/p0-07-review-irdbxx5x/reviewer/xdg-config",
+      "XDG_CACHE_HOME": "/tmp/p0-07-review-irdbxx5x/reviewer/xdg-cache"
+    }
+  },
+  "focused_dependencies.command.json": {
+    "label": "focused_dependencies",
+    "command": [
+      "cat",
+      "tests/fixtures/s01/fixture_identity.gd",
+      "art/materials/s01_petrol.tres",
+      "art/materials/s01_coral.tres",
+      "tools/s01/export_settings.json",
+      "tools/s01/export.py",
+      "tools/s01/reexport.py"
+    ],
+    "cwd": "/tmp/p0-07-review-irdbxx5x/project",
+    "deadline_seconds": 10.0,
+    "elapsed_seconds": 0.0015246350012603216,
+    "exit_code": 0,
+    "timed_out": false,
+    "environment": {
+      "XDG_DATA_HOME": "/tmp/p0-07-review-irdbxx5x/reviewer/xdg-data",
+      "XDG_CONFIG_HOME": "/tmp/p0-07-review-irdbxx5x/reviewer/xdg-config",
+      "XDG_CACHE_HOME": "/tmp/p0-07-review-irdbxx5x/reviewer/xdg-cache"
+    }
+  },
+  "godot_version.command.json": {
+    "label": "godot_version",
+    "command": [
+      "/home/regner/.local/share/mise/installs/github-godotengine-godot-builds/4.8-dev7/godot",
+      "--version"
+    ],
+    "cwd": "/tmp/p0-07-review-irdbxx5x/project",
+    "deadline_seconds": 10.0,
+    "elapsed_seconds": 0.031738645000586985,
+    "exit_code": 0,
+    "timed_out": false,
+    "environment": {
+      "XDG_DATA_HOME": "/tmp/p0-07-review-irdbxx5x/reviewer/xdg-data",
+      "XDG_CONFIG_HOME": "/tmp/p0-07-review-irdbxx5x/reviewer/xdg-config",
+      "XDG_CACHE_HOME": "/tmp/p0-07-review-irdbxx5x/reviewer/xdg-cache"
+    }
+  },
+  "import_escalated.command.json": {
+    "label": "import_escalated",
+    "command": [
+      "/home/regner/.local/share/mise/installs/github-godotengine-godot-builds/4.8-dev7/godot",
+      "--headless",
+      "--editor",
+      "--path",
+      "/tmp/p0-07-review-irdbxx5x/project",
+      "--import"
+    ],
+    "cwd": "/tmp/p0-07-review-irdbxx5x/project",
+    "deadline_seconds": 60.0,
+    "elapsed_seconds": 2.1164856270006567,
+    "exit_code": 0,
+    "timed_out": false,
+    "environment": {
+      "XDG_DATA_HOME": "/tmp/p0-07-review-irdbxx5x/reviewer/xdg-data",
+      "XDG_CONFIG_HOME": "/tmp/p0-07-review-irdbxx5x/reviewer/xdg-config",
+      "XDG_CACHE_HOME": "/tmp/p0-07-review-irdbxx5x/reviewer/xdg-cache"
+    }
+  },
+  "import_sandbox.command.json": {
+    "label": "import_sandbox",
+    "command": [
+      "/home/regner/.local/share/mise/installs/github-godotengine-godot-builds/4.8-dev7/godot",
+      "--headless",
+      "--editor",
+      "--path",
+      "/tmp/p0-07-review-irdbxx5x/project",
+      "--import"
+    ],
+    "cwd": "/tmp/p0-07-review-irdbxx5x/project",
+    "deadline_seconds": 60.0,
+    "elapsed_seconds": 2.7176205459982157,
+    "exit_code": 0,
+    "timed_out": false,
+    "environment": {
+      "XDG_DATA_HOME": "/tmp/p0-07-review-irdbxx5x/reviewer/xdg-data",
+      "XDG_CONFIG_HOME": "/tmp/p0-07-review-irdbxx5x/reviewer/xdg-config",
+      "XDG_CACHE_HOME": "/tmp/p0-07-review-irdbxx5x/reviewer/xdg-cache"
+    }
+  },
+  "independent_query.command.json": {
+    "label": "independent_query",
+    "command": [
+      "/home/regner/.local/share/mise/installs/github-godotengine-godot-builds/4.8-dev7/godot",
+      "--headless",
+      "--path",
+      "/tmp/p0-07-review-irdbxx5x/project",
+      "--script",
+      "/tmp/p0-07-review-irdbxx5x/reviewer/query.gd"
+    ],
+    "cwd": "/tmp/p0-07-review-irdbxx5x/project",
+    "deadline_seconds": 30.0,
+    "elapsed_seconds": 0.2641844219979248,
+    "exit_code": 0,
+    "timed_out": false,
+    "environment": {
+      "XDG_DATA_HOME": "/tmp/p0-07-review-irdbxx5x/reviewer/xdg-data",
+      "XDG_CONFIG_HOME": "/tmp/p0-07-review-irdbxx5x/reviewer/xdg-config",
+      "XDG_CACHE_HOME": "/tmp/p0-07-review-irdbxx5x/reviewer/xdg-cache"
+    }
+  },
+  "raw_inventory.command.json": {
+    "label": "raw_inventory",
+    "command": [
+      "python",
+      "inspect_raw.py"
+    ],
+    "cwd": "/tmp/p0-07-review-irdbxx5x/reviewer",
+    "deadline_seconds": 30.0,
+    "elapsed_seconds": 0.11383214300076361,
+    "exit_code": 0,
+    "timed_out": false,
+    "environment": {
+      "XDG_DATA_HOME": "/tmp/p0-07-review-irdbxx5x/reviewer/xdg-data",
+      "XDG_CONFIG_HOME": "/tmp/p0-07-review-irdbxx5x/reviewer/xdg-config",
+      "XDG_CACHE_HOME": "/tmp/p0-07-review-irdbxx5x/reviewer/xdg-cache"
+    }
+  },
+  "raw_inventory_corrected.command.json": {
+    "label": "raw_inventory_corrected",
+    "command": [
+      "python",
+      "inspect_raw.py"
+    ],
+    "cwd": "/tmp/p0-07-review-irdbxx5x/reviewer",
+    "deadline_seconds": 30.0,
+    "elapsed_seconds": 0.1138866630026314,
+    "exit_code": 0,
+    "timed_out": false,
+    "environment": {
+      "XDG_DATA_HOME": "/tmp/p0-07-review-irdbxx5x/reviewer/xdg-data",
+      "XDG_CONFIG_HOME": "/tmp/p0-07-review-irdbxx5x/reviewer/xdg-config",
+      "XDG_CACHE_HOME": "/tmp/p0-07-review-irdbxx5x/reviewer/xdg-cache"
+    }
+  },
+  "resource_check.command.json": {
+    "label": "resource_check",
+    "command": [
+      "/home/regner/.local/share/mise/installs/github-godotengine-godot-builds/4.8-dev7/godot",
+      "--headless",
+      "--path",
+      "/tmp/p0-07-review-irdbxx5x/project",
+      "--script",
+      "tests/fixtures/s01/check_s01.gd"
+    ],
+    "cwd": "/tmp/p0-07-review-irdbxx5x/project",
+    "deadline_seconds": 30.0,
+    "elapsed_seconds": 0.16393278900068253,
+    "exit_code": 1,
+    "timed_out": false,
+    "environment": {
+      "XDG_DATA_HOME": "/tmp/p0-07-review-irdbxx5x/reviewer/xdg-data",
+      "XDG_CONFIG_HOME": "/tmp/p0-07-review-irdbxx5x/reviewer/xdg-config",
+      "XDG_CACHE_HOME": "/tmp/p0-07-review-irdbxx5x/reviewer/xdg-cache"
+    }
+  },
+  "source_links.command.json": {
+    "label": "source_links",
+    "command": [
+      "python",
+      "-B",
+      "-c",
+      "import runpy; from pathlib import Path; c=runpy.run_path(\"tools/check.py\"); c[\"source_links\"](Path.cwd())"
+    ],
+    "cwd": "/tmp/p0-07-review-irdbxx5x/project",
+    "deadline_seconds": 15.0,
+    "elapsed_seconds": 0.06373703000281239,
+    "exit_code": 0,
+    "timed_out": false,
+    "environment": {
+      "XDG_DATA_HOME": "/tmp/p0-07-review-irdbxx5x/reviewer/xdg-data",
+      "XDG_CONFIG_HOME": "/tmp/p0-07-review-irdbxx5x/reviewer/xdg-config",
+      "XDG_CACHE_HOME": "/tmp/p0-07-review-irdbxx5x/reviewer/xdg-cache"
+    }
+  }
+}
