@@ -264,3 +264,68 @@ merge, archive, push, agent launch or shared-surface mutation occurred. Every ow
 subprocess completed; there are no owned verification sessions or writers left.
 Reviewer returns quiescent for the author's correction, retention and exact-final
 review request. Shared authoring remains with its existing owner.
+
+
+## Renewed corrected-candidate disposition — 7 October 2026
+
+Reviewer: Paseo `0abb281b-ed5b-4db4-860d-c07f79ac07f9`,
+`codex/gpt-6.1-sol`, high reasoning, auto-review; same independent review session.
+Exact frozen candidate: **`3e15941609672a6f0dd44e21fc8791f6efafee43`**.
+Held local main/base: **`35adb47042fe6b27c1653d38636f5eaf7d47578b`**.
+Previously reviewed candidate: `b6b16d6896cb0c7a9cc057d8fecd343135afc1b8`.
+
+**ACCEPT the exact corrected checkpoint candidate; no actionable findings.**
+Original P3 is **CLOSED**. DOC4 now names README's broad profile deferral, cites
+this assessment/current P0-PROFILES stage, and requires the ready proposal versus
+deferred authorized configuration/representative launch distinction. The dated
+record assigns the same correction. Existing owner, independent review,
+prerequisites and pre-P0-GATE completion remain. README itself is unchanged.
+
+The added design follow-up is factual and appropriately bounded. At
+`docs/design.md:225-234`, the original P0-01 toolchain observations say Linux
+graphics/driver and Windows compatibility were untested. Accepted S02 capture
+logs and `docs/reviews/s02-art-b826d38.md:52,70` subsequently document actual Linux
+Forward+ / Vulkan 1.4.312 / NVIDIA GTX 1070 graphical rendering, with packaged
+Windows/Linux compatibility and all Deck/target acceptance still unproved.
+DOC4 assigns a supplement to that historical section, preserves the original
+observation, and explicitly retains Windows/Deck/export/driver-target gaps. Its
+six-guide done criteria require linked accepted evidence and historical/current
+scope distinctions. This does not certify a general driver matrix or add a new
+technical task. No canonical guide was repaired. TODO's introductory discovery
+of the bounded S02 fixture is accurate and retains no-production-gameplay scope.
+
+Meaningful renewed static checks, all completed successfully:
+
+- HEAD/main/clean status exactly match the supplied candidate and held base.
+  Candidate's sole parent is b6b16d6; base-to-candidate range remains merge-free.
+- Independent explicit four-path delta check: only TODO, dated record, original
+  report retention and `worker-checks-b6b16d6.txt`. Every other b6b16d6 tree blob,
+  including index/watermark, earlier history, raw requirements, checker, JSON,
+  canonical guides, code/assets/settings/policy and accepted evidence is identical.
+- Original retained report was **19,736 bytes, byte-for-byte identical** to the
+  original `/tmp` report before this appendix. The initial seven-line worker
+  receipt correctly identifies b6b16d6, 96 links and clean status as historical.
+- All 28 task IDs/order unchanged; no completion/removal/recreated task or new
+  capacity owner. The checker confirms every current task is covered once.
+- `python3 docs/reviews/plan-check-03-evidence/check.py`: exit 0; 12 accepted
+  commits, preserved historical bytes, **99 local links/anchors**, two JSON files
+  with duplicate-key rejection, allowed scope, LF/whitespace, no main advance,
+  and clean tracked/untracked status before the permitted appendix.
+- `git diff --check b6b16d6..3e15941`: pass. The profile assessment anchor/source
+  and accepted named desktop-rendering receipts were read independently.
+
+The earlier substantive assessments otherwise remain valid: only scoped profile
+proposal readiness, separate authorized configuration and launch validation;
+Sol leads versus necessary bounded Astra specialists; pending S03-R as session
+friction only; one existing implementation lead/new-fixture lease; S02 current
+native-focus/physical-key/feel/readability gaps; S07 preparation without measured
+capacity; no Steam/Deck availability waiver or ratified six-block scope expansion.
+The examined watermark is still the held base, not this candidate or pending work.
+
+No engine/gameplay/network/visual/export/device tests, fresh web/source experiment,
+profile/provider launch validation or shared-surface inspection/mutation occurred.
+Only this appendix was written in the repository, left uncommitted for author
+retention; original report bytes remain an unchanged prefix. No delegation,
+commit, merge, archive or push. All owned subprocesses finished; reviewer quiescent.
+A report-only retention commit still requires the requested brief exact-final-HEAD
+confirmation; this disposition does not automatically cover its unseen SHA.
