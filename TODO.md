@@ -319,7 +319,8 @@ implementation. Save editor mutations before playtests; preserve unsaved work.
   representative capacity measurements remain unexecuted. S07 is the single owner
   of the map/content envelope and diagnostic/organization recommendations.
   Needs for representative experiments: [S01 pipeline evidence](docs/spikes/s01.md),
-  accepted S02 camera/controller, real S04 actor/car envelope, S06 saved seam/topology
+  reviewed S02 desktop camera/controller within its scoped assumptions (final feel/
+  handheld gates remain open), real S02 actor/S04 car envelope, S06 saved seam/topology
   and relevant S05 chain/effect load. Capability research/run-sheet preparation can
   proceed earlier; stand-ins cannot certify missing gameplay or residency costs.
   Physical LCD/OLED and real Steam cases remain DEFERRED with S08/S03-S availability;
