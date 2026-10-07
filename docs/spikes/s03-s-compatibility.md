@@ -236,7 +236,24 @@ returns the expected assertion/nonzero exit before source interpretation.
 requested/effective Sol6.1 HIGH and supported review routing; zero installed
 profiles, no profile/config change or representative launch.
 
-Independent clean-context exact-candidate review/report and final receipt are retained
-with the resolving work; technical acceptance belongs to that reviewer. Root alone
+Sole independent clean-context reviewer `ed0c2c1d-f028-497d-822c-c3be476c314e`,
+requested/effective GPT-6.1-Sol HIGH, **ACCEPTED** exact substantive candidate
+`64825b51e92e9b5f0eb94a5be5dda1f57cdb0f66`, with no actionable findings or fixes.
+The [full original report](../reviews/s03-s-compatibility-review.md) is retained
+verbatim with [retention hashes](../reviews/s03-s-compatibility-evidence/retention.json)
+and independent source/static/1,555-trace/negative-guard/registration evidence.
+These synthetic checks are distinct from native delivery/lifecycle acceptance.
+The same reviewer must explicitly approve exact final retention/rebase HEAD;
+the full final receipt and worker handoff are retained in local
+`refs/notes/paseo-orchestration` without altering that reviewed HEAD.
+Retention validation initially rejected intentional empty stdout and then raw
+Godot JSON without a terminal newline. Both [first failure](s03-s-compatibility-evidence/retention-check-initial.log)
+and [second failure](s03-s-compatibility-evidence/retention-check-second.log)
+are retained. The scoped checker now verifies every copied raw review receipt by
+exact size/hash and preserves its original bytes; source/doc newline checks remain.
+[Final retention integrity check](s03-s-compatibility-evidence/retention-check-final.log)
+passes. This is a tooling/receipt correction, not a native experiment or technical
+candidate finding; no probe/runtime rerun was needed. Technical acceptance belongs
+to that reviewer. Root alone
 integrates local main and archives. All owned fetch/registration/static children
 completed; no shared lease or owned runtime is left. No merge/archive/push.

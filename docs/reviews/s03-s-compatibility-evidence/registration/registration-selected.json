@@ -1,0 +1,1106 @@
+{
+  "kind": "registration/API presence only; no native delivery/lifecycle",
+  "engine": {
+    "build": "official",
+    "hash": "c971f93e7e76b0ef919bf6009e7b868bea04db7f",
+    "hex": 264192,
+    "major": 4,
+    "minor": 8,
+    "patch": 0,
+    "status": "dev7",
+    "string": "4.8-dev7 (official)",
+    "timestamp": 0
+  },
+  "version": "4.23",
+  "auto_init": false,
+  "max_channels": 4,
+  "methods": {
+    "sendMessageToConnection": {
+      "args": [
+        {
+          "class_name": "",
+          "hint": 0,
+          "hint_string": "",
+          "name": "connection_handle",
+          "type": 2,
+          "usage": 6
+        },
+        {
+          "class_name": "",
+          "hint": 0,
+          "hint_string": "",
+          "name": "message",
+          "type": 29,
+          "usage": 6
+        },
+        {
+          "class_name": "",
+          "hint": 0,
+          "hint_string": "",
+          "name": "flags",
+          "type": 2,
+          "usage": 6
+        }
+      ],
+      "default_args": [],
+      "flags": 1,
+      "id": 1992,
+      "name": "sendMessageToConnection",
+      "return": {
+        "class_name": "",
+        "hint": 0,
+        "hint_string": "",
+        "name": "",
+        "type": 27,
+        "usage": 6
+      }
+    },
+    "sendMessages": {
+      "args": [
+        {
+          "class_name": "",
+          "hint": 0,
+          "hint_string": "",
+          "name": "connection_handle",
+          "type": 2,
+          "usage": 6
+        },
+        {
+          "class_name": "",
+          "hint": 0,
+          "hint_string": "",
+          "name": "messages",
+          "type": 28,
+          "usage": 6
+        },
+        {
+          "class_name": "",
+          "hint": 0,
+          "hint_string": "",
+          "name": "flags",
+          "type": 2,
+          "usage": 6
+        },
+        {
+          "class_name": "",
+          "hint": 0,
+          "hint_string": "",
+          "name": "delete_failed_messages",
+          "type": 1,
+          "usage": 6
+        }
+      ],
+      "default_args": [],
+      "flags": 1,
+      "id": 1991,
+      "name": "sendMessages",
+      "return": {
+        "class_name": "",
+        "hint": 0,
+        "hint_string": "",
+        "name": "",
+        "type": 31,
+        "usage": 6
+      }
+    },
+    "configureConnectionLanes": {
+      "args": [
+        {
+          "class_name": "",
+          "hint": 0,
+          "hint_string": "",
+          "name": "connection",
+          "type": 2,
+          "usage": 6
+        },
+        {
+          "class_name": "",
+          "hint": 0,
+          "hint_string": "",
+          "name": "lanes",
+          "type": 2,
+          "usage": 6
+        },
+        {
+          "class_name": "",
+          "hint": 0,
+          "hint_string": "",
+          "name": "priorities",
+          "type": 28,
+          "usage": 6
+        },
+        {
+          "class_name": "",
+          "hint": 0,
+          "hint_string": "",
+          "name": "weights",
+          "type": 28,
+          "usage": 6
+        }
+      ],
+      "default_args": [],
+      "flags": 1,
+      "id": 1962,
+      "name": "configureConnectionLanes",
+      "return": {
+        "class_name": "",
+        "hint": 0,
+        "hint_string": "",
+        "name": "",
+        "type": 2,
+        "usage": 6
+      }
+    },
+    "receiveMessagesOnConnection": {
+      "args": [
+        {
+          "class_name": "",
+          "hint": 0,
+          "hint_string": "",
+          "name": "connection_handle",
+          "type": 2,
+          "usage": 6
+        },
+        {
+          "class_name": "",
+          "hint": 0,
+          "hint_string": "",
+          "name": "max_messages",
+          "type": 2,
+          "usage": 6
+        }
+      ],
+      "default_args": [],
+      "flags": 1,
+      "id": 1987,
+      "name": "receiveMessagesOnConnection",
+      "return": {
+        "class_name": "",
+        "hint": 0,
+        "hint_string": "",
+        "name": "",
+        "type": 28,
+        "usage": 6
+      }
+    },
+    "receiveMessagesOnPollGroup": {
+      "args": [
+        {
+          "class_name": "",
+          "hint": 0,
+          "hint_string": "",
+          "name": "poll_group",
+          "type": 2,
+          "usage": 6
+        },
+        {
+          "class_name": "",
+          "hint": 0,
+          "hint_string": "",
+          "name": "max_messages",
+          "type": 2,
+          "usage": 6
+        }
+      ],
+      "default_args": [],
+      "flags": 1,
+      "id": 1988,
+      "name": "receiveMessagesOnPollGroup",
+      "return": {
+        "class_name": "",
+        "hint": 0,
+        "hint_string": "",
+        "name": "",
+        "type": 28,
+        "usage": 6
+      }
+    },
+    "getConnectionRealTimeStatus": {
+      "args": [
+        {
+          "class_name": "",
+          "hint": 0,
+          "hint_string": "",
+          "name": "connection_handle",
+          "type": 2,
+          "usage": 6
+        },
+        {
+          "class_name": "",
+          "hint": 0,
+          "hint_string": "",
+          "name": "lanes",
+          "type": 2,
+          "usage": 6
+        },
+        {
+          "class_name": "",
+          "hint": 0,
+          "hint_string": "",
+          "name": "get_status",
+          "type": 1,
+          "usage": 6
+        }
+      ],
+      "default_args": [
+        true
+      ],
+      "flags": 1,
+      "id": 1978,
+      "name": "getConnectionRealTimeStatus",
+      "return": {
+        "class_name": "",
+        "hint": 0,
+        "hint_string": "",
+        "name": "",
+        "type": 27,
+        "usage": 6
+      }
+    },
+    "getConnectionInfo": {
+      "args": [
+        {
+          "class_name": "",
+          "hint": 0,
+          "hint_string": "",
+          "name": "connection_handle",
+          "type": 2,
+          "usage": 6
+        }
+      ],
+      "default_args": [],
+      "flags": 1,
+      "id": 1976,
+      "name": "getConnectionInfo",
+      "return": {
+        "class_name": "",
+        "hint": 0,
+        "hint_string": "",
+        "name": "",
+        "type": 27,
+        "usage": 6
+      }
+    },
+    "closeConnection": {
+      "args": [
+        {
+          "class_name": "",
+          "hint": 0,
+          "hint_string": "",
+          "name": "connection_handle",
+          "type": 2,
+          "usage": 6
+        },
+        {
+          "class_name": "",
+          "hint": 0,
+          "hint_string": "",
+          "name": "reason",
+          "type": 2,
+          "usage": 6
+        },
+        {
+          "class_name": "",
+          "hint": 0,
+          "hint_string": "",
+          "name": "debug_message",
+          "type": 4,
+          "usage": 6
+        },
+        {
+          "class_name": "",
+          "hint": 0,
+          "hint_string": "",
+          "name": "linger",
+          "type": 1,
+          "usage": 6
+        }
+      ],
+      "default_args": [],
+      "flags": 1,
+      "id": 1960,
+      "name": "closeConnection",
+      "return": {
+        "class_name": "",
+        "hint": 0,
+        "hint_string": "",
+        "name": "",
+        "type": 1,
+        "usage": 6
+      }
+    },
+    "connectP2P": {
+      "args": [
+        {
+          "class_name": "",
+          "hint": 0,
+          "hint_string": "",
+          "name": "remote_steam_id",
+          "type": 2,
+          "usage": 6
+        },
+        {
+          "class_name": "",
+          "hint": 0,
+          "hint_string": "",
+          "name": "virtual_port",
+          "type": 2,
+          "usage": 6
+        },
+        {
+          "class_name": "",
+          "hint": 0,
+          "hint_string": "",
+          "name": "options",
+          "type": 27,
+          "usage": 6
+        }
+      ],
+      "default_args": [],
+      "flags": 1,
+      "id": 1963,
+      "name": "connectP2P",
+      "return": {
+        "class_name": "",
+        "hint": 0,
+        "hint_string": "",
+        "name": "",
+        "type": 2,
+        "usage": 6
+      }
+    },
+    "createListenSocketP2P": {
+      "args": [
+        {
+          "class_name": "",
+          "hint": 0,
+          "hint_string": "",
+          "name": "virtual_port",
+          "type": 2,
+          "usage": 6
+        },
+        {
+          "class_name": "",
+          "hint": 0,
+          "hint_string": "",
+          "name": "options",
+          "type": 27,
+          "usage": 6
+        }
+      ],
+      "default_args": [],
+      "flags": 1,
+      "id": 1968,
+      "name": "createListenSocketP2P",
+      "return": {
+        "class_name": "",
+        "hint": 0,
+        "hint_string": "",
+        "name": "",
+        "type": 2,
+        "usage": 6
+      }
+    },
+    "setConnectionUserData": {
+      "args": [
+        {
+          "class_name": "",
+          "hint": 0,
+          "hint_string": "",
+          "name": "connection_handle",
+          "type": 2,
+          "usage": 6
+        },
+        {
+          "class_name": "",
+          "hint": 0,
+          "hint_string": "",
+          "name": "user_data",
+          "type": 2,
+          "usage": 6
+        }
+      ],
+      "default_args": [],
+      "flags": 1,
+      "id": 1996,
+      "name": "setConnectionUserData",
+      "return": {
+        "class_name": "",
+        "hint": 0,
+        "hint_string": "",
+        "name": "",
+        "type": 1,
+        "usage": 6
+      }
+    },
+    "createLobby": {
+      "args": [
+        {
+          "class_name": "Steam.LobbyType",
+          "hint": 0,
+          "hint_string": "",
+          "name": "lobby_type",
+          "type": 2,
+          "usage": 65542
+        },
+        {
+          "class_name": "",
+          "hint": 0,
+          "hint_string": "",
+          "name": "max_members",
+          "type": 2,
+          "usage": 6
+        }
+      ],
+      "default_args": [
+        2
+      ],
+      "flags": 1,
+      "id": 1895,
+      "name": "createLobby",
+      "return": {
+        "class_name": "",
+        "hint": 0,
+        "hint_string": "",
+        "name": "",
+        "type": 0,
+        "usage": 6
+      }
+    },
+    "joinLobby": {
+      "args": [
+        {
+          "class_name": "",
+          "hint": 0,
+          "hint_string": "",
+          "name": "steam_lobby_id",
+          "type": 2,
+          "usage": 6
+        }
+      ],
+      "default_args": [],
+      "flags": 1,
+      "id": 1896,
+      "name": "joinLobby",
+      "return": {
+        "class_name": "",
+        "hint": 0,
+        "hint_string": "",
+        "name": "",
+        "type": 0,
+        "usage": 6
+      }
+    },
+    "leaveLobby": {
+      "args": [
+        {
+          "class_name": "",
+          "hint": 0,
+          "hint_string": "",
+          "name": "steam_lobby_id",
+          "type": 2,
+          "usage": 6
+        }
+      ],
+      "default_args": [],
+      "flags": 1,
+      "id": 1897,
+      "name": "leaveLobby",
+      "return": {
+        "class_name": "",
+        "hint": 0,
+        "hint_string": "",
+        "name": "",
+        "type": 0,
+        "usage": 6
+      }
+    }
+  },
+  "peer_extension_methods": [
+    {
+      "args": [
+        {
+          "class_name": "",
+          "hint": 30,
+          "hint_string": "const uint8_t *",
+          "name": "r_buffer",
+          "type": 2,
+          "usage": 6
+        },
+        {
+          "class_name": "",
+          "hint": 30,
+          "hint_string": "int32_t",
+          "name": "r_buffer_size",
+          "type": 2,
+          "usage": 6
+        }
+      ],
+      "default_args": [],
+      "flags": 8,
+      "id": 0,
+      "name": "_get_packet",
+      "return": {
+        "class_name": "Error",
+        "hint": 0,
+        "hint_string": "",
+        "name": "",
+        "type": 2,
+        "usage": 65542
+      }
+    },
+    {
+      "args": [
+        {
+          "class_name": "",
+          "hint": 30,
+          "hint_string": "const uint8_t",
+          "name": "buffer",
+          "type": 2,
+          "usage": 6
+        },
+        {
+          "class_name": "",
+          "hint": 0,
+          "hint_string": "",
+          "name": "buffer_size",
+          "type": 2,
+          "usage": 6
+        }
+      ],
+      "default_args": [],
+      "flags": 8,
+      "id": 0,
+      "name": "_put_packet",
+      "return": {
+        "class_name": "Error",
+        "hint": 0,
+        "hint_string": "",
+        "name": "",
+        "type": 2,
+        "usage": 65542
+      }
+    },
+    {
+      "args": [],
+      "default_args": [],
+      "flags": 140,
+      "id": 0,
+      "name": "_get_available_packet_count",
+      "return": {
+        "class_name": "",
+        "hint": 0,
+        "hint_string": "",
+        "name": "",
+        "type": 2,
+        "usage": 6
+      }
+    },
+    {
+      "args": [],
+      "default_args": [],
+      "flags": 140,
+      "id": 0,
+      "name": "_get_max_packet_size",
+      "return": {
+        "class_name": "",
+        "hint": 0,
+        "hint_string": "",
+        "name": "",
+        "type": 2,
+        "usage": 6
+      }
+    },
+    {
+      "args": [],
+      "default_args": [],
+      "flags": 8,
+      "id": 0,
+      "name": "_get_packet_script",
+      "return": {
+        "class_name": "",
+        "hint": 0,
+        "hint_string": "",
+        "name": "",
+        "type": 29,
+        "usage": 6
+      }
+    },
+    {
+      "args": [
+        {
+          "class_name": "",
+          "hint": 0,
+          "hint_string": "",
+          "name": "buffer",
+          "type": 29,
+          "usage": 6
+        }
+      ],
+      "default_args": [],
+      "flags": 8,
+      "id": 0,
+      "name": "_put_packet_script",
+      "return": {
+        "class_name": "Error",
+        "hint": 0,
+        "hint_string": "",
+        "name": "",
+        "type": 2,
+        "usage": 65542
+      }
+    },
+    {
+      "args": [],
+      "default_args": [],
+      "flags": 140,
+      "id": 0,
+      "name": "_get_packet_channel",
+      "return": {
+        "class_name": "",
+        "hint": 0,
+        "hint_string": "",
+        "name": "",
+        "type": 2,
+        "usage": 6
+      }
+    },
+    {
+      "args": [],
+      "default_args": [],
+      "flags": 140,
+      "id": 0,
+      "name": "_get_packet_mode",
+      "return": {
+        "class_name": "MultiplayerPeer.TransferMode",
+        "hint": 0,
+        "hint_string": "",
+        "name": "",
+        "type": 2,
+        "usage": 65542
+      }
+    },
+    {
+      "args": [
+        {
+          "class_name": "",
+          "hint": 0,
+          "hint_string": "",
+          "name": "channel",
+          "type": 2,
+          "usage": 6
+        }
+      ],
+      "default_args": [],
+      "flags": 136,
+      "id": 0,
+      "name": "_set_transfer_channel",
+      "return": {
+        "class_name": "",
+        "hint": 0,
+        "hint_string": "",
+        "name": "",
+        "type": 0,
+        "usage": 6
+      }
+    },
+    {
+      "args": [],
+      "default_args": [],
+      "flags": 140,
+      "id": 0,
+      "name": "_get_transfer_channel",
+      "return": {
+        "class_name": "",
+        "hint": 0,
+        "hint_string": "",
+        "name": "",
+        "type": 2,
+        "usage": 6
+      }
+    },
+    {
+      "args": [
+        {
+          "class_name": "MultiplayerPeer.TransferMode",
+          "hint": 0,
+          "hint_string": "",
+          "name": "mode",
+          "type": 2,
+          "usage": 65542
+        }
+      ],
+      "default_args": [],
+      "flags": 136,
+      "id": 0,
+      "name": "_set_transfer_mode",
+      "return": {
+        "class_name": "",
+        "hint": 0,
+        "hint_string": "",
+        "name": "",
+        "type": 0,
+        "usage": 6
+      }
+    },
+    {
+      "args": [],
+      "default_args": [],
+      "flags": 140,
+      "id": 0,
+      "name": "_get_transfer_mode",
+      "return": {
+        "class_name": "MultiplayerPeer.TransferMode",
+        "hint": 0,
+        "hint_string": "",
+        "name": "",
+        "type": 2,
+        "usage": 65542
+      }
+    },
+    {
+      "args": [
+        {
+          "class_name": "",
+          "hint": 0,
+          "hint_string": "",
+          "name": "peer",
+          "type": 2,
+          "usage": 6
+        }
+      ],
+      "default_args": [],
+      "flags": 136,
+      "id": 0,
+      "name": "_set_target_peer",
+      "return": {
+        "class_name": "",
+        "hint": 0,
+        "hint_string": "",
+        "name": "",
+        "type": 0,
+        "usage": 6
+      }
+    },
+    {
+      "args": [],
+      "default_args": [],
+      "flags": 140,
+      "id": 0,
+      "name": "_get_packet_peer",
+      "return": {
+        "class_name": "",
+        "hint": 0,
+        "hint_string": "",
+        "name": "",
+        "type": 2,
+        "usage": 6
+      }
+    },
+    {
+      "args": [],
+      "default_args": [],
+      "flags": 140,
+      "id": 0,
+      "name": "_is_server",
+      "return": {
+        "class_name": "",
+        "hint": 0,
+        "hint_string": "",
+        "name": "",
+        "type": 1,
+        "usage": 6
+      }
+    },
+    {
+      "args": [],
+      "default_args": [],
+      "flags": 136,
+      "id": 0,
+      "name": "_poll",
+      "return": {
+        "class_name": "",
+        "hint": 0,
+        "hint_string": "",
+        "name": "",
+        "type": 0,
+        "usage": 6
+      }
+    },
+    {
+      "args": [],
+      "default_args": [],
+      "flags": 136,
+      "id": 0,
+      "name": "_close",
+      "return": {
+        "class_name": "",
+        "hint": 0,
+        "hint_string": "",
+        "name": "",
+        "type": 0,
+        "usage": 6
+      }
+    },
+    {
+      "args": [
+        {
+          "class_name": "",
+          "hint": 0,
+          "hint_string": "",
+          "name": "peer",
+          "type": 2,
+          "usage": 6
+        },
+        {
+          "class_name": "",
+          "hint": 0,
+          "hint_string": "",
+          "name": "force",
+          "type": 1,
+          "usage": 6
+        }
+      ],
+      "default_args": [],
+      "flags": 136,
+      "id": 0,
+      "name": "_disconnect_peer",
+      "return": {
+        "class_name": "",
+        "hint": 0,
+        "hint_string": "",
+        "name": "",
+        "type": 0,
+        "usage": 6
+      }
+    },
+    {
+      "args": [],
+      "default_args": [],
+      "flags": 140,
+      "id": 0,
+      "name": "_get_unique_id",
+      "return": {
+        "class_name": "",
+        "hint": 0,
+        "hint_string": "",
+        "name": "",
+        "type": 2,
+        "usage": 6
+      }
+    },
+    {
+      "args": [
+        {
+          "class_name": "",
+          "hint": 0,
+          "hint_string": "",
+          "name": "enable",
+          "type": 1,
+          "usage": 6
+        }
+      ],
+      "default_args": [],
+      "flags": 8,
+      "id": 0,
+      "name": "_set_refuse_new_connections",
+      "return": {
+        "class_name": "",
+        "hint": 0,
+        "hint_string": "",
+        "name": "",
+        "type": 0,
+        "usage": 6
+      }
+    },
+    {
+      "args": [],
+      "default_args": [],
+      "flags": 12,
+      "id": 0,
+      "name": "_is_refusing_new_connections",
+      "return": {
+        "class_name": "",
+        "hint": 0,
+        "hint_string": "",
+        "name": "",
+        "type": 1,
+        "usage": 6
+      }
+    },
+    {
+      "args": [],
+      "default_args": [],
+      "flags": 12,
+      "id": 0,
+      "name": "_is_server_relay_supported",
+      "return": {
+        "class_name": "",
+        "hint": 0,
+        "hint_string": "",
+        "name": "",
+        "type": 1,
+        "usage": 6
+      }
+    },
+    {
+      "args": [],
+      "default_args": [],
+      "flags": 140,
+      "id": 0,
+      "name": "_get_connection_status",
+      "return": {
+        "class_name": "MultiplayerPeer.ConnectionStatus",
+        "hint": 0,
+        "hint_string": "",
+        "name": "",
+        "type": 2,
+        "usage": 65542
+      }
+    }
+  ],
+  "signals": [
+    {
+      "args": [
+        {
+          "class_name": "",
+          "hint": 0,
+          "hint_string": "",
+          "name": "connect",
+          "type": 2,
+          "usage": 6
+        },
+        {
+          "class_name": "",
+          "hint": 0,
+          "hint_string": "",
+          "name": "lobby_id",
+          "type": 2,
+          "usage": 6
+        }
+      ],
+      "default_args": [],
+      "flags": 1,
+      "id": 0,
+      "name": "lobby_created",
+      "return": {
+        "class_name": "",
+        "hint": 0,
+        "hint_string": "",
+        "name": "",
+        "type": 0,
+        "usage": 6
+      }
+    },
+    {
+      "args": [
+        {
+          "class_name": "",
+          "hint": 0,
+          "hint_string": "",
+          "name": "lobby",
+          "type": 2,
+          "usage": 6
+        },
+        {
+          "class_name": "",
+          "hint": 0,
+          "hint_string": "",
+          "name": "permissions",
+          "type": 2,
+          "usage": 6
+        },
+        {
+          "class_name": "",
+          "hint": 0,
+          "hint_string": "",
+          "name": "locked",
+          "type": 1,
+          "usage": 6
+        },
+        {
+          "class_name": "",
+          "hint": 0,
+          "hint_string": "",
+          "name": "response",
+          "type": 2,
+          "usage": 6
+        }
+      ],
+      "default_args": [],
+      "flags": 1,
+      "id": 0,
+      "name": "lobby_joined",
+      "return": {
+        "class_name": "",
+        "hint": 0,
+        "hint_string": "",
+        "name": "",
+        "type": 0,
+        "usage": 6
+      }
+    },
+    {
+      "args": [
+        {
+          "class_name": "",
+          "hint": 0,
+          "hint_string": "",
+          "name": "connect_handle",
+          "type": 2,
+          "usage": 6
+        },
+        {
+          "class_name": "",
+          "hint": 0,
+          "hint_string": "",
+          "name": "connection",
+          "type": 27,
+          "usage": 6
+        },
+        {
+          "class_name": "",
+          "hint": 0,
+          "hint_string": "",
+          "name": "old_state",
+          "type": 2,
+          "usage": 6
+        }
+      ],
+      "default_args": [],
+      "flags": 1,
+      "id": 0,
+      "name": "network_connection_status_changed",
+      "return": {
+        "class_name": "",
+        "hint": 0,
+        "hint_string": "",
+        "name": "",
+        "type": 0,
+        "usage": 6
+      }
+    }
+  ],
+  "commands": [
+    {
+      "command": [
+        "/home/regner/.local/share/mise/installs/github-godotengine-godot-builds/4.8-dev7/godot",
+        "--version"
+      ],
+      "returncode": 0,
+      "timeout_s": 30
+    },
+    {
+      "command": [
+        "/home/regner/.local/share/mise/installs/github-godotengine-godot-builds/4.8-dev7/godot",
+        "--headless",
+        "--path",
+        "/tmp/s03-s-compatibility-review/registration/project",
+        "--script",
+        "res://probe.gd"
+      ],
+      "returncode": 0,
+      "timeout_s": 30
+    }
+  ]
+}

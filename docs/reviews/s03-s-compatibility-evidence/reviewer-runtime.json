@@ -1,0 +1,93 @@
+{
+  "status": "running",
+  "snapshot": {
+    "id": "ed0c2c1d-f028-497d-822c-c3be476c314e",
+    "provider": "codex",
+    "cwd": "/home/regner/.paseo/worktrees/0u71f39f/s03-s-compatibility-design-probe",
+    "workspaceId": "wks_18746ba26c666eb7",
+    "model": "gpt-6.1-sol",
+    "thinkingOptionId": "high",
+    "effectiveThinkingOptionId": "high",
+    "runtimeInfo": {
+      "provider": "codex",
+      "sessionId": "01a118b8-101d-7ef1-b032-bdd1dd784c8f",
+      "model": "gpt-6.1-sol",
+      "thinkingOptionId": "high",
+      "modeId": "auto-review",
+      "extra": {
+        "collaborationMode": "Default"
+      }
+    },
+    "createdAt": "2026-10-07T23:34:38.363Z",
+    "updatedAt": "2026-10-07T23:36:54.085Z",
+    "lastUserMessageAt": "2026-10-07T23:34:40.142Z",
+    "status": "running",
+    "activeTurn": {
+      "turnId": "codex-turn-0",
+      "startedAt": "2026-10-07T23:34:38.457Z"
+    },
+    "capabilities": {
+      "supportsStreaming": true,
+      "supportsSessionPersistence": true,
+      "supportsSessionListing": true,
+      "supportsDynamicModes": false,
+      "supportsMcpServers": true,
+      "supportsReasoningStream": true,
+      "supportsToolInvocations": true,
+      "supportsRewindConversation": true,
+      "supportsRewindFiles": false,
+      "supportsRewindBoth": false
+    },
+    "currentModeId": "auto-review",
+    "availableModes": [
+      {
+        "id": "auto",
+        "label": "Default Permissions",
+        "description": "Edit files and run commands with Codex's default approval flow."
+      },
+      {
+        "id": "auto-review",
+        "label": "Auto-review",
+        "description": "Same workspace-write permissions as Default, but eligible `on-request` approvals are routed through the auto-reviewer subagent."
+      },
+      {
+        "id": "full-access",
+        "label": "Full Access",
+        "description": "Edit files, run commands, and access the network without additional prompts."
+      }
+    ],
+    "features": [
+      {
+        "type": "toggle",
+        "id": "plan_mode",
+        "label": "Plan",
+        "description": "Switch Codex into planning-only collaboration mode",
+        "tooltip": "Toggle plan mode",
+        "icon": "list-todo",
+        "value": false
+      }
+    ],
+    "pendingPermissions": [],
+    "persistence": {
+      "provider": "codex",
+      "sessionId": "01a118b8-101d-7ef1-b032-bdd1dd784c8f",
+      "metadata": {
+        "cwd": "/home/regner/.paseo/worktrees/0u71f39f/s03-s-compatibility-design-probe"
+      }
+    },
+    "title": "S03-S independent compatibility review",
+    "labels": {
+      "paseo.parent-agent-id": "6a768b9c-b35d-4008-b94f-e713554dd1a5"
+    },
+    "lastUsage": {
+      "inputTokens": 145740,
+      "cachedInputTokens": 139520,
+      "outputTokens": 236,
+      "contextWindowMaxTokens": 258400,
+      "contextWindowUsedTokens": 145976
+    },
+    "requiresAttention": false,
+    "attentionReason": null,
+    "attentionTimestamp": null
+  }
+}

@@ -1,0 +1,8 @@
+PASS exact frozen HEAD/base, clean status, one linear commit, 20 scoped paths
+PASS 940 unaffected base mode/blob entries and working bytes
+PASS 27 TODO blocks; all bytes outside S03-S unchanged; 9 accepted preparation paths retained
+PASS all 22 native hashes; JSON/LF/newline/Python AST; exact probe reproduction
+PASS 1555 finite traces: duplicates/reordering/loss prefixes and independent stream projection
+PASS modified-source guard: exit 1 before emitting interpreted facts
+PASS fresh registered method/signal/virtual/getter projection and logs identical excluding scratch command paths
+PASS final clean HEAD/base and no Git operation/lock

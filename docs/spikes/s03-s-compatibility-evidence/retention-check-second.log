@@ -1,0 +1,7 @@
+Traceback (most recent call last):
+  File "/home/regner/.paseo/worktrees/0u71f39f/s03-s-compatibility-design-probe/docs/spikes/s03-s-compatibility-evidence/check_static.py", line 62, in <module>
+    assert data.endswith(b'\n') or (
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+        not data and path.suffix in ['.stdout', '.stderr', '.log']), name
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: docs/reviews/s03-s-compatibility-evidence/registration/project/registration.json

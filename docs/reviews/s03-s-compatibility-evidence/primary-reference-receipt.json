@@ -1,0 +1,21 @@
+{
+  "date": "2026-10-08",
+  "evidence_kind": "fresh public browser documentation; mutable, not SDK1.65 runtime proof",
+  "pages": [
+    {
+      "url": "https://partner.steamgames.com/doc/api/ISteamNetworkingSockets",
+      "checked_sections": ["SendMessageToConnection", "SendMessages", "ReceiveMessagesOnConnection", "SetConnectionUserData", "ConfigureConnectionLanes"],
+      "result": "success"
+    },
+    {
+      "url": "https://partner.steamgames.com/doc/api/steamnetworkingtypes",
+      "result": "success; current page search did not expose m_idxLane/NoDelay directly; Sockets page supplied relevant lane/error context"
+    },
+    {
+      "url": "https://docs.godotengine.org/en/stable/classes/class_multiplayerpeerextension.html",
+      "checked_sections": ["required virtual methods", "packet channel/mode/sender", "poll/close", "script packet methods"],
+      "result": "success; exact pinned presence independently reflected"
+    }
+  ],
+  "raw_source_browser_failure": "Internal Error for exact Codeberg godotsteam.cpp raw URL; independent four-file download retry succeeded, separately retained"
+}

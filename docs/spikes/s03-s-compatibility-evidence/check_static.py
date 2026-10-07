@@ -33,6 +33,15 @@ def headings(text: str) -> set[str]:
     return result
 
 
+retention = ROOT / 'docs/reviews/s03-s-compatibility-evidence/retention.json'
+raw_receipts = set()
+if retention.exists():
+    for row in json.loads(retention.read_text())['artifacts']:
+        data = (ROOT / row['retained']).read_bytes()
+        assert len(data) == row['bytes']
+        assert hashlib.sha256(data).hexdigest() == row['sha256'], row['retained']
+        raw_receipts.add(row['retained'])
+
 changed = set(git('diff', '--name-only', BASE).splitlines())
 changed.update(git('ls-files', '--others', '--exclude-standard').splitlines())
 assert changed and all(allowed(p) for p in changed), changed
@@ -58,7 +67,8 @@ links = 0
 for name in sorted(changed):
     path = ROOT / name
     data = path.read_bytes()
-    assert b'\r' not in data and data.endswith(b'\n'), name
+    assert b'\r' not in data, name
+    assert name in raw_receipts or data.endswith(b'\n'), name
     if path.suffix in ['.py', '.md', '.json', '.txt']:
         assert all(line.rstrip() == line for line in data.splitlines()), name
     if path.suffix == '.json':
