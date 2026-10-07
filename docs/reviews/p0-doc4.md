@@ -40,4 +40,23 @@ and source inspection of `tools/s02/run.py`, `tools/s02/reexport.py`,
 `tools/script_checks.py`, capture/focus tools and Mise task definitions. No documented
 engine/gameplay/import/reexport/export command was executed; no fresh web claim,
 shared editor/Blender/service inspection or profile/tool/configuration mutation.
-Independent review and exact-final receipt will be retained before handoff.
+Independent clean-context [full review](p0-doc4-review.md):
+`/root/p0_doc4_review`, GPT-6.1-Sol medium, ACCEPT with no actionable findings on
+`15466b8cd5a179dc3a5fd0c715f86c8175e8db4f`. No fixes were required. This is the
+resolving commit containing all six guides and P0-DOC4's TODO removal. The report
+is retained byte-for-byte from the reviewer's original. Final retention HEAD still
+requires the reviewer's explicit disposition, stored in local
+`refs/notes/paseo-orchestration` on that exact HEAD before integration/archive.
+
+Worker checks: `python3 /tmp/p0-doc4-check.py` passed 182 local links/anchors across
+the eight resolving paths, permitted scope, LF/whitespace, static argparse flags,
+only DOC4 removal and all 27 remaining task blocks (only P0-GATE evidence link changed),
+unchanged checkpoint/source bytes, base ancestry and merge-free range.
+`git diff --check 814ac3a..15466b8` passed. An additional tree/history comparison
+verified 748 unaffected entries and original P0-01 toolchain/world starting-table
+bytes. Logs are retained at `/tmp/p0-doc4-check-15466b8.txt`; the independent full
+report retains its separately performed checks, including raw focus-log inspection.
+Clean-boundary `git rebase refs/heads/main` reported up to date at local main
+`814ac3ac324836a99832aebe63b6c4d47bf75b5a`; no unchecked advance or rewritten SHA.
+All owned static subprocesses exited. No editor/source work was opened; worker and
+reviewer are saved/quiescent for root's local integration. No merge/archive/push.
