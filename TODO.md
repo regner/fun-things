@@ -153,14 +153,17 @@ asset acceptance.
 
 ### Deferred orchestration configuration
 
-- [ ] **P0-PROFILES — Create Paseo profiles from observed session requirements (DEFERRED).**
+- [ ] **P0-PROFILES — Create Paseo profiles from observed session requirements (configuration DEFERRED).**
   Owner: delegated workflow worker; orchestrator coordinates readiness and review.
-  **Still ineligible at the second checkpoint.** Reassess at a later plan/profile
-  checkpoint after additional representative implementation, independent review and
-  visual/3D/spatial sessions accumulate beyond the first baseline. An empty inventory
-  or existing runs alone does not satisfy the requested wait; no fixed date is implied.
+  **Scoped requirements/proposal stage is ready at the third checkpoint.** Accepted
+  S02 implementation and completed independent code/visual reviews now supplement
+  the earlier documentation/network-preparation sessions. Inventory remains empty;
+  readiness comes from those outcomes, not the inventory or elapsed time. Propose
+  Sol lead/review and bounded Astra specialist routing separately. This does not
+  authorize installation or claim that post-policy launches/capabilities are validated.
   Needs: [checkpoint/profile baseline](docs/reviews/plan-check-2026-10-07.md#profile-baseline)
   and [second assessment](docs/reviews/plan-check-2026-10-07-02.md#profile-assessment)
+  and [third assessment](docs/reviews/plan-check-2026-10-07-03.md#profile-assessment)
   plus those later sessions' prompts, settings, outcomes, permission/tool limitations
   and repeated operational friction, reconciled with supported provider capabilities.
   Review evidence by actual task category, model/effort, tools/capabilities, permission
@@ -190,6 +193,26 @@ Assign a named worker before starting. Finish before P0-GATE uses the reconciled
 P0-DOC1 and P0-DOC2 are complete. The [tooling reconciliation](docs/reviews/p0-doc1.md)
 and [proof-ownership reconciliation](docs/reviews/p0-doc2.md) retain accepted evidence,
 current fixture scope, historical observations and active owners for unproved cases.
+P0-DOC3's README networking disclaimer is resolved in `62e0800`.
+
+- [ ] **P0-DOC4 — Reconcile accepted S02 discovery and S07 proof ownership in guides.**
+  Owner: delegated Sol documentation worker; assign a named owner on launch and
+  obtain independent review. Needs: [S02 desktop handoff](docs/spikes/s02.md#reviewed-desktop-handoff),
+  [source handoff](docs/assets/s02_kit.md), [S07 preparation](docs/spikes/s07.md)
+  and their committed reviews at accepted `fc6845f` / `35adb470`. Ready without
+  devices/accounts; finish before P0-GATE's canonical-guide reconciliation.
+  Affected docs: `README.md` and `docs/development.md` omit S02 fixture/runner
+  discovery and its supplementary resource/outcome scope; `docs/art-direction.md`
+  still describes actual-camera evidence as entirely future; `docs/world-layout.md`
+  lacks a link distinguishing its historical 50° start from the provisional 42°
+  desktop candidate. `docs/architecture.md` describes S07 only as renderer/rendering
+  budgets rather than the single map/content-capacity and diagnostic owner.
+  Done when: these five guides link the accepted evidence, distinguish historical
+  starting values from current candidates and unproved feel/physical-key/native-focus/
+  Deck gates, and name S07's preparation-only state and sole capacity ownership with
+  S06 topology/S08 export/M1-D3 acceptance boundaries. Verify documented S02 commands
+  and flags against committed tools, local links/anchors and diff integrity. No new
+  runtime measurement, tuning/pin change, production readiness or hardware request.
 
 ## Phase-zero technical spikes
 
@@ -262,8 +285,14 @@ implementation. Save editor mutations before playtests; preserve unsaved work.
   Full invitation races and gameplay acceptance belong in M1-A/D.
 
 - [ ] **S03-R — Networked on-foot responsiveness.**
-  Needs: S02, [S03 evidence](docs/spikes/s03.md) and S03-S;
-  ENet measurements can start before the Steam proof.
+  Needs for desktop/ENet: [reviewed S02 controller/envelope](docs/spikes/s02.md#reviewed-desktop-handoff)
+  within its provisional assumptions and [S03 evidence](docs/spikes/s03.md).
+  Active desktop/ENet owner: Sol lead in `s03-r-enet-foot-response`; root
+  assigns the sole shared editor/new-fixture lease. Original S02/S03 resources stay
+  immutable. Pending reports/candidates are not accepted evidence or task completion.
+  Final responsiveness decisions need S02 human feel/target evidence and S03-S's
+  real Steam route. Desktop/ENet can proceed with explicit target assumptions and
+  rerun affected cases after S02 choices; fixed-step S02 does not prove prediction replay.
   Question: does the actual foot controller meet the feel target over the selected network envelope?
   Minimum: two processes walking/turning/aiming under representative latency/loss,
   repeated through ENet and Steam;
@@ -272,7 +301,11 @@ implementation. Save editor mutations before playtests; preserve unsaved work.
   limits and evidence; independent of the vehicle prediction choice. Required for M1-A2.
 
 - [ ] **S04 — Arcade car physics and network response.**
-  Needs: S02 and [S03 evidence](docs/spikes/s03.md); finish with S03-S evidence.
+  Needs for desktop/ENet: [S02 desktop actor/camera envelope](docs/spikes/s02.md)
+  within its scoped assumptions and [S03 evidence](docs/spikes/s03.md).
+  Preparation/body experiments are ready for assignment after a serialized fixture
+  lease; finish with S02 feel/target and S03-S evidence. Recheck affected rows if
+  provisional camera/actor choices change; full S02 is not required to start desktop work.
   Use a Blender car fixture.
   Question: which simple body/control approach gives fun handling and tractable replication?
   Minimum: compare a small kinematic/custom dynamic candidate on one track, fast
@@ -384,6 +417,7 @@ implementation. Save editor mutations before playtests; preserve unsaved work.
   [S01 pipeline evidence](docs/spikes/s01.md), S02,
   [P0-DOC1 reconciliation](docs/reviews/p0-doc1.md),
   [P0-DOC2 reconciliation](docs/reviews/p0-doc2.md),
+  P0-DOC4 guide reconciliation,
   [S03 fixture boundary](docs/spikes/s03.md#fixture-and-boundary),
   [completed S03 proof](docs/spikes/s03.md), S03-R/S03-S and S04 through S08.
   S07 supplies the documented capacity envelope, limiting axes, organization and
@@ -598,18 +632,22 @@ waiting for unrelated gameplay systems.
 
 ## Parallel work and dependency checkpoints
 
-Current readiness: continue the owned S02 desktop experiment; bounded S03-S
-compatibility research and S08 desktop export/dependency preparation can be assigned
-without physical devices or multiple accounts, subject to explicit writer ownership.
-After accepted S02 controller/envelope evidence, S03-R ENet and S04 desktop/ENet
-experiments can start; their final Steam decisions remain open. S05/S06 need actual
+Current readiness: accepted bounded S02 controller/envelope evidence now supports
+the active S03-R desktop/ENet experiment and assignable S04 desktop/ENet preparation.
+S03-R alone holds the shared Godot new-fixture writer lease; no duplicate worker or
+mutation of original S02/S03 fixtures. S02 native-focus/physical-key/feel/readability
+follow-up remains open and needs its own serialized lease/user observations.
+P0-DOC4, a scoped P0-PROFILES proposal, bounded S03-S compatibility research and S08
+desktop export/dependency preparation can be assigned without devices or multiple
+accounts, subject to explicit ownership; profile configuration remains deferred.
+Final S03-R/S04 Steam/feel/target decisions remain open. S05/S06 need actual
 car/actor envelopes, and S07 needs their representative fixtures. S07 capacity
-research/method preparation is available now; measured growth starts after those
+research/method preparation is accepted; measured growth starts after those
 fixtures and estimates headroom without expanding M1. Its physical Deck cost
 measurement remains deferred. No production M1 work is ungated by availability
 answers; P0-GATE still needs the missing feasibility/access/device/user decisions.
 The [S03 fixture boundary](docs/spikes/s03.md#fixture-and-boundary) records the
-current isolated networking scope; P0-PROFILES remains deferred outside P0-GATE.
+current isolated networking scope; P0-PROFILES remains outside P0-GATE.
 The table describes dependency stages, not a claim that deferred proofs are runnable.
 
 | When | Work that can run together | Must wait |
@@ -617,6 +655,7 @@ The table describes dependency stages, not a claim that deferred proofs are runn
 | Initial foundation | Ratified brief, contract drafts, concept exploration, tool inventory | Chosen style/layout and measured scope revisions need user ratification and evidence |
 | Tiny fixtures available | S02 camera using [S01 pipeline evidence](docs/spikes/s01.md); use [completed S03 session evidence](docs/spikes/s03.md); review skill dry runs | All visible fixtures must have Blender sources; only minimum harness required |
 | ENet boundary available | S03-S Steam proof, S04 car candidates, S08 packaging work | Existing-app/tester access and native compatibility must be established early |
+| Reviewed S02 desktop envelope available | Active S03-R ENet experiment; S04 desktop body/ENet preparation with serialized lease | Final feel/target/Steam acceptance remains open; pending S03-R candidates are not evidence |
 | Both providers available | Finish S03-R foot response and S04 network response; S08 exports | Both transports need evidence; foot/vehicle prediction are separate decisions |
 | Vehicle envelope available | S05 chain proof and S06 intersection/seam | S06 uses pipeline plus real actor/turning dimensions |
 | City/effect fixtures available | S07 capacity/culling experiments, finish S08, skill dry runs and doc reconciliation | P0-GATE resolves critical assumptions before production |

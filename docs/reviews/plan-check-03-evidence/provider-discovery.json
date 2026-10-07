@@ -1,0 +1,81 @@
+{
+  "models": [
+    {
+      "id": "gpt-6.1-sol",
+      "efforts": [
+        "low",
+        "medium",
+        "high",
+        "xhigh",
+        "max",
+        "ultra"
+      ]
+    },
+    {
+      "id": "gpt-6-astra",
+      "efforts": [
+        "low",
+        "medium",
+        "high",
+        "xhigh",
+        "max",
+        "ultra"
+      ]
+    },
+    {
+      "id": "gpt-6-luna",
+      "efforts": [
+        "low",
+        "medium",
+        "high",
+        "xhigh",
+        "max"
+      ]
+    }
+  ],
+  "inspection": {
+    "provider": "codex",
+    "label": "Codex",
+    "description": "OpenAI's Codex workspace agent with sandbox controls and optional network access",
+    "enabled": true,
+    "status": "available",
+    "modes": [
+      {
+        "id": "auto",
+        "label": "Default Permissions",
+        "description": "Edit files and run commands with Codex's default approval flow.",
+        "icon": "Shield",
+        "colorTier": "moderate"
+      },
+      {
+        "id": "auto-review",
+        "label": "Auto-review",
+        "description": "Same workspace-write permissions as Default, but eligible `on-request` approvals are routed through the auto-reviewer subagent.",
+        "icon": "ShieldCheck",
+        "colorTier": "moderate"
+      },
+      {
+        "id": "full-access",
+        "label": "Full Access",
+        "description": "Edit files, run commands, and access the network without additional prompts.",
+        "icon": "ShieldOff",
+        "colorTier": "dangerous"
+      }
+    ],
+    "selectedModel": "gpt-6.1-sol",
+    "features": [
+      {
+        "type": "toggle",
+        "id": "plan_mode",
+        "label": "Plan",
+        "description": "Switch Codex into planning-only collaboration mode",
+        "tooltip": "Toggle plan mode",
+        "icon": "list-todo",
+        "value": false
+      }
+    ]
+  },
+  "profiles": {
+    "profiles": []
+  }
+}

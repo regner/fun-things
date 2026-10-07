@@ -1,0 +1,232 @@
+{
+  "assessment_date": "2026-10-07",
+  "profiles": [],
+  "inventory_source": "worker fresh Paseo list_profiles; no notes because zero profiles",
+  "session_source": "root exact-ID read-only get_agent_status and get_agent_activity(limit=220), supplied to worker; targeted sample not global inventory",
+  "snapshot": {
+    "retrievedFor": "2026-10-07 third plan/profile checkpoint",
+    "scopeWarning": "list_agents default is workspace scoped, not a complete global inventory. Explicit get_agent_status/get_agent_activity IDs provided by root retained handoffs. Point-in-time metadata; running S03-R is not accepted work. Historic initial Astra leads and DOC3 Luna lead predate current Sol lead policy; status only reports final effective setting.",
+    "acceptedMain": "35adb47042fe6b27c1653d38636f5eaf7d47578b",
+    "statuses": [
+      {
+        "id": "96758d2a-8906-4981-a8b9-62c13cb2f406",
+        "title": "S02 desktop controls and top-down camera proof",
+        "workspaceId": "wks_e98d9a046543d294",
+        "cwd": "/home/regner/.paseo/worktrees/0u71f39f/s02-desktop-camera-controls",
+        "provider": "codex",
+        "model": "gpt-6.1-sol",
+        "thinkingOptionId": "high",
+        "effectiveThinkingOptionId": "high",
+        "mode": "auto-review",
+        "status": "closed",
+        "createdAt": "2026-10-07T20:20:35.649Z",
+        "updatedAt": "2026-10-07T21:46:45.434Z",
+        "archivedAt": "2026-10-07T21:46:45.434Z",
+        "parentAgentId": "b70ce3b8-b419-45da-bcc2-7d8262abb0e8",
+        "sessionId": "01a11806-68c4-7062-b91b-857210bd6e65"
+      },
+      {
+        "id": "f33ceab8-e5fd-4c15-b312-79b030a77dc0",
+        "title": "S02 independent art and camera review",
+        "workspaceId": "wks_e98d9a046543d294",
+        "cwd": "/home/regner/.paseo/worktrees/0u71f39f/s02-desktop-camera-controls",
+        "provider": "codex",
+        "model": "gpt-6-astra",
+        "thinkingOptionId": "high",
+        "effectiveThinkingOptionId": "high",
+        "mode": "auto-review",
+        "status": "closed",
+        "createdAt": "2026-10-07T21:02:17.222Z",
+        "updatedAt": "2026-10-07T21:46:45.435Z",
+        "archivedAt": "2026-10-07T21:46:45.435Z",
+        "parentAgentId": "96758d2a-8906-4981-a8b9-62c13cb2f406",
+        "sessionId": "01a1182c-9489-7161-b9a1-bbe879d2e5d6"
+      },
+      {
+        "id": "db768ea3-8cec-4796-80d5-f67c89ed8978",
+        "title": "S02 independent controls and simulation review",
+        "workspaceId": "wks_e98d9a046543d294",
+        "cwd": "/home/regner/.paseo/worktrees/0u71f39f/s02-desktop-camera-controls",
+        "provider": "codex",
+        "model": "gpt-6.1-sol",
+        "thinkingOptionId": "high",
+        "effectiveThinkingOptionId": "high",
+        "mode": "auto-review",
+        "status": "closed",
+        "createdAt": "2026-10-07T21:02:19.479Z",
+        "updatedAt": "2026-10-07T21:46:45.435Z",
+        "archivedAt": "2026-10-07T21:46:45.435Z",
+        "parentAgentId": "96758d2a-8906-4981-a8b9-62c13cb2f406",
+        "sessionId": "01a1182c-9d59-7461-9df1-4f82fe377b86"
+      },
+      {
+        "id": "36243659-cc00-4170-980e-ee93d28c966f",
+        "title": "P0-DOC3 reconcile README networking disclaimer",
+        "workspaceId": "wks_a17a43cfc03f3c3c",
+        "cwd": "/home/regner/.paseo/worktrees/0u71f39f/p0-doc3-readme",
+        "provider": "codex",
+        "model": "gpt-6-luna",
+        "thinkingOptionId": "high",
+        "effectiveThinkingOptionId": "high",
+        "mode": "auto-review",
+        "status": "closed",
+        "createdAt": "2026-10-07T20:55:16.067Z",
+        "updatedAt": "2026-10-07T21:03:49.524Z",
+        "archivedAt": "2026-10-07T21:03:49.524Z",
+        "parentAgentId": "b70ce3b8-b419-45da-bcc2-7d8262abb0e8",
+        "sessionId": "01a11826-2766-7622-8d6c-aff9ba226588"
+      },
+      {
+        "id": "61fffdb0-079e-4005-9ddc-0b078482da86",
+        "title": "Define map capacity spike and verify streaming capabilities",
+        "workspaceId": "wks_1ac7142ea68bd925",
+        "cwd": "/home/regner/.paseo/worktrees/0u71f39f/map-capacity-spike-plan",
+        "provider": "codex",
+        "model": "gpt-6.1-sol",
+        "thinkingOptionId": "high",
+        "effectiveThinkingOptionId": "high",
+        "mode": "auto-review",
+        "status": "closed",
+        "createdAt": "2026-10-07T21:25:03.125Z",
+        "updatedAt": "2026-10-07T21:47:17.616Z",
+        "archivedAt": "2026-10-07T21:47:17.616Z",
+        "parentAgentId": "b70ce3b8-b419-45da-bcc2-7d8262abb0e8",
+        "sessionId": "01a11841-6c18-7c32-b35d-abf2a03a4e10"
+      },
+      {
+        "id": "9fc14247-42ad-4b2d-af58-6e9c497e35d3",
+        "title": "Review S07 capacity preparation and primary evidence",
+        "workspaceId": "wks_1ac7142ea68bd925",
+        "cwd": "/home/regner/.paseo/worktrees/0u71f39f/map-capacity-spike-plan",
+        "provider": "codex",
+        "model": "gpt-6.1-sol",
+        "thinkingOptionId": "high",
+        "effectiveThinkingOptionId": "high",
+        "mode": "auto-review",
+        "status": "closed",
+        "createdAt": "2026-10-07T21:35:26.998Z",
+        "updatedAt": "2026-10-07T21:47:17.616Z",
+        "archivedAt": "2026-10-07T21:47:17.616Z",
+        "parentAgentId": "61fffdb0-079e-4005-9ddc-0b078482da86",
+        "sessionId": "01a1184a-f119-7b20-a03f-d40fb5fe2db4"
+      },
+      {
+        "id": "5e635057-4325-401e-9ba8-d1efe343d810",
+        "title": "S03-R bounded ENet foot responsiveness proof",
+        "workspaceId": "wks_a58520a6bc934bf8",
+        "cwd": "/home/regner/.paseo/worktrees/0u71f39f/s03-r-enet-foot-response",
+        "provider": "codex",
+        "model": "gpt-6.1-sol",
+        "thinkingOptionId": "high",
+        "effectiveThinkingOptionId": "high",
+        "mode": "auto-review",
+        "status": "idle",
+        "createdAt": "2026-10-07T21:45:21.611Z",
+        "updatedAt": "2026-10-07T21:50:07.613Z",
+        "parentAgentId": "b70ce3b8-b419-45da-bcc2-7d8262abb0e8",
+        "sessionId": "01a11854-03cd-7612-a70c-7786050143b6"
+      },
+      {
+        "id": "751a009d-173d-4a75-bb7b-f4bc578aebe7",
+        "title": "S03-R ENet implementation lead",
+        "workspaceId": "wks_a58520a6bc934bf8",
+        "cwd": "/home/regner/.paseo/worktrees/0u71f39f/s03-r-enet-foot-response",
+        "provider": "codex",
+        "model": "gpt-6.1-sol",
+        "thinkingOptionId": "high",
+        "effectiveThinkingOptionId": "high",
+        "mode": "auto-review",
+        "status": "running",
+        "createdAt": "2026-10-07T21:46:38.572Z",
+        "updatedAt": "2026-10-07T21:50:35.262Z",
+        "parentAgentId": "5e635057-4325-401e-9ba8-d1efe343d810",
+        "sessionId": "01a11855-306f-78e1-a1cb-afdb10913069"
+      }
+    ],
+    "activityAvailability": [
+      {
+        "id": "96758d2a-8906-4981-a8b9-62c13cb2f406",
+        "updateCount": 690,
+        "summaryChars": 48070
+      },
+      {
+        "id": "f33ceab8-e5fd-4c15-b312-79b030a77dc0",
+        "updateCount": 159,
+        "summaryChars": 33178
+      },
+      {
+        "id": "db768ea3-8cec-4796-80d5-f67c89ed8978",
+        "updateCount": 68,
+        "summaryChars": 22784
+      },
+      {
+        "id": "36243659-cc00-4170-980e-ee93d28c966f",
+        "updateCount": 48,
+        "summaryChars": 11113
+      },
+      {
+        "id": "61fffdb0-079e-4005-9ddc-0b078482da86",
+        "updateCount": 93,
+        "summaryChars": 32764
+      },
+      {
+        "id": "9fc14247-42ad-4b2d-af58-6e9c497e35d3",
+        "updateCount": 63,
+        "summaryChars": 19065
+      },
+      {
+        "id": "751a009d-173d-4a75-bb7b-f4bc578aebe7",
+        "updateCount": 50,
+        "summaryChars": 18317
+      }
+    ]
+  },
+  "activity_sources": [
+    {
+      "agent_id": "36243659-cc00-4170-980e-ee93d28c966f",
+      "source_name": "plan-checkpoint-session-36243659-cc00-4170-980e-ee93d28c966f.txt",
+      "sha256": "8a50343990e549775f21b4ec545a88d72a68996640591173e04d3000c09b09ca",
+      "coverage": "Showing all 48 activities"
+    },
+    {
+      "agent_id": "61fffdb0-079e-4005-9ddc-0b078482da86",
+      "source_name": "plan-checkpoint-session-61fffdb0-079e-4005-9ddc-0b078482da86.txt",
+      "sha256": "dca5e178207975ddcf5f6cb9bdfe9023d896cf85a1e1974728f209ad295602b9",
+      "coverage": "Showing all 93 activities"
+    },
+    {
+      "agent_id": "751a009d-173d-4a75-bb7b-f4bc578aebe7",
+      "source_name": "plan-checkpoint-session-751a009d-173d-4a75-bb7b-f4bc578aebe7.txt",
+      "sha256": "fa992db9cd43cb438d476eda5999fd8976450aa636b035fe19616b278247f58d",
+      "coverage": "Showing all 50 activities"
+    },
+    {
+      "agent_id": "96758d2a-8906-4981-a8b9-62c13cb2f406",
+      "source_name": "plan-checkpoint-session-96758d2a-8906-4981-a8b9-62c13cb2f406.txt",
+      "sha256": "40ef809a5c3808148163a978d01e278ba663787df07c5b8dd0ce438d014ed285",
+      "coverage": "Showing 220 of 690 activities (limited to 220)"
+    },
+    {
+      "agent_id": "9fc14247-42ad-4b2d-af58-6e9c497e35d3",
+      "source_name": "plan-checkpoint-session-9fc14247-42ad-4b2d-af58-6e9c497e35d3.txt",
+      "sha256": "558cdcd495449b9f7a713598fa0691eb0f4b5a4058e34b330269a3b623ec37b0",
+      "coverage": "Showing all 63 activities"
+    },
+    {
+      "agent_id": "db768ea3-8cec-4796-80d5-f67c89ed8978",
+      "source_name": "plan-checkpoint-session-db768ea3-8cec-4796-80d5-f67c89ed8978.txt",
+      "sha256": "44363e5941c0248c97108cd3439c8ad1cc6bb4a2ec3e63c26419def984bf136c",
+      "coverage": "Showing all 68 activities"
+    },
+    {
+      "agent_id": "f33ceab8-e5fd-4c15-b312-79b030a77dc0",
+      "source_name": "plan-checkpoint-session-f33ceab8-e5fd-4c15-b312-79b030a77dc0.txt",
+      "sha256": "812c1bf487412a3b86d54bb079a0e94888a26436af0ee1a3362652286a16767b",
+      "coverage": "Showing all 159 activities"
+    }
+  ],
+  "readiness": "scoped requirements/proposal ready; live configuration and representative launch validation deferred",
+  "policy_revision": "cc24b5e3b8732aa70c47633ab3f202b951e35bf9",
+  "historical_routing": "S02/S07 initial Astra leads switched safely in place to Sol high; DOC3 Luna lead predates policy; future leads Sol, bounded necessary Astra specialists only",
+  "permissions": "no live profile/settings/service/editor/device mutation or experiment in assessment; proposed bundles must retain approval and serialized writer boundaries"
+}
