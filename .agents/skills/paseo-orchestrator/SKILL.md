@@ -1,6 +1,6 @@
 ---
 name: paseo-orchestrator
-description: Orchestrate Fun Things workstreams through Paseo, adopting active work, assigning TODO tasks to workers, collecting independent reviews, and integrating reviewed commits into local main. Use for project coordination rather than implementation or technical review.
+description: Orchestrate Fun Things workstreams through Paseo, adopting active work, delegating periodic plan/documentation checkpoints, assigning TODO tasks, collecting independent reviews, and integrating reviewed commits into local main. Use for project coordination rather than implementation or technical review.
 ---
 
 # Paseo orchestrator
@@ -39,6 +39,79 @@ permission to integrate, archive, push, or expand an assignment beyond it.
 - Assign one writer per shared editor, scene or source asset. Separate worktrees do
   not isolate shared Godot/Blender sessions or external services. Serialize conflicting
   work and name the owner before launching it.
+
+## Periodic plan and documentation checkpoint
+
+On adoption/resume, read [the checkpoint index](../../../docs/reviews/plan-checkpoints.md)
+from the repository root, its latest record and exact checked-through revision.
+Compare that watermark with local main and completed workstream handoffs. Check
+after a small batch (normally around three integrated workstreams), sooner after
+a significant spike, contract or gate result, or before a consequential next phase.
+Count workstreams rather than tiny commits; record the due/not-due reason in the
+coordination handoff. Ordinary resumes need only this cheap status check, not a full
+audit. This cadence creates no schedules or heartbeats.
+
+Include a read-only Paseo profile assessment at normal checkpoints, or justify an
+earlier revisit after meaningful requirements/capability drift. On resume read the
+last profile check, consulted session evidence and next revisit from the latest
+checkpoint record. Assess suitability/coverage, notes and routing accuracy, actual
+task categories and recurring friction, supported provider/model/effort/mode/features,
+tools/capabilities and permissions. Check drift against the model policy below;
+profile bundles cannot bypass approvals or imply broad access by default. Do not
+repeat this assessment for every trivial task.
+
+Record findings and next revisit even when no profiles exist. Preserve the existing
+deferred creation task (currently P0-PROFILES) instead of recreating it. Its first
+baseline/empty inventory does not satisfy the requested wait: reconsider eligibility
+at a later checkpoint after additional representative implementation, review and
+visual/spatial sessions accumulate. Delegate session-based requirements analysis;
+the orchestrator checks its evidence completeness. Missing, obsolete or inaccurate
+bundles produce scoped creation/update/retirement tasks with launch-validation and
+permission criteria. Periodic assessment never silently changes live profiles;
+actual configuration follows the authorized task/workflow once ready.
+
+When due, delegate the substantive check to a **fresh worker in a new worktree**
+using the launch/model policy below; plan/contract checking normally needs Sol 6.1
+high. The orchestrator reads the record/handoff for completeness, not technical
+approval. Use the worker/reviewer templates with these checkpoint-specific targets:
+
+- Discover any prior record. If none exists, establish an explicitly first baseline
+  from recent foundation records/history; never invent a last-check date. Record the
+  exact starting revision, whether it is included, and checked-through main commit.
+- Examine integrated work since that watermark and the **entire current TODO**:
+  task descriptions, dependencies, acceptance, ordering, gates, duplicates, missing
+  work, obsolete prerequisites, ownership and validation. Consult affected code,
+  outputs and evidence only as needed to distinguish shipped from planned claims;
+  do not expand into an unsolicited whole-codebase technical audit.
+- Reconcile active workers/handoffs before adding tasks. Pending candidates are not
+  integrated evidence; adopt existing work and keep unmet gates open. A partial
+  result needs its own bounded follow-up, not assumed completion.
+- Check canonical documentation against accepted state. Every stale documentation
+  finding becomes a scoped TODO task naming the docs, source evidence, prerequisites,
+  owner role and measurable done criteria. Do not silently repair unrelated guides
+  or mark those follow-ups completed during the checkpoint.
+- Revise the plan where evidence warrants it; preserve ratified scope, hardware,
+  Steam and user gates. Record real product/scope decisions for the user instead of
+  choosing them. Coordinate ungated preparation while those questions remain open.
+- Commit a concise dated record under `docs/reviews/`, with baseline/range, consulted
+  evidence, a disposition for every TODO task, changes/new tasks, unresolved questions
+  and next trigger. Update the index's latest pointer with it. Keep workflow edits
+  and checkpoint/plan changes separately reviewable when feasible.
+- Obtain independent clean-context review of the delivered revision, including
+  coverage, factual claims, follow-up actionability, scope and watermark. For skill
+  changes, test periodic/resume/drift/new-task/active-work scenarios without live
+  side effects. Validate frontmatter, local links and diff whitespace; doc-only
+  work needs no gameplay tests.
+
+Verify the handoff includes those outputs, exact reviewed HEAD and review evidence,
+then coordinate resulting tasks through the normal readiness/integration flow.
+Return missing coverage to the worker. Publish a checkpoint as latest only with
+its reviewed resolving change. The watermark advances only through revisions the
+worker actually examined: a rebase alone never reviews newly integrated commits.
+Have the worker examine that delta, reconcile TODO overlap and obtain final revision
+review before delivery; otherwise retain the older watermark and name the unchecked
+range and next trigger. If a stored watermark is no longer an ancestor, delegate
+history reconciliation instead of guessing equivalence from dates or commit count.
 
 ## Launch ready work
 
