@@ -1,0 +1,79 @@
+{
+  "checked_at_utc": "2026-10-07 20:42:44 UTC",
+  "profiles": [],
+  "policy_models": [
+    {
+      "id": "gpt-6.1-sol",
+      "policy_efforts_supported": [
+        "medium",
+        "high"
+      ]
+    },
+    {
+      "id": "gpt-6-astra",
+      "policy_efforts_supported": [
+        "medium",
+        "high"
+      ]
+    },
+    {
+      "id": "gpt-6-luna",
+      "policy_efforts_supported": [
+        "medium",
+        "high"
+      ]
+    }
+  ],
+  "codex_modes": [
+    "auto",
+    "auto-review",
+    "full-access"
+  ],
+  "inspected_draft": {
+    "model": "gpt-6.1-sol",
+    "effort": "high",
+    "mode": "auto-review",
+    "features": [
+      {
+        "id": "plan_mode",
+        "value": false
+      }
+    ]
+  },
+  "sessions": [
+    {
+      "agent": "8eb5e643-77ee-4e86-bafa-1d9705823034",
+      "task": "P0-DOC1/P0-DOC2 documentation",
+      "model": "gpt-6.1-sol",
+      "effort": "high",
+      "mode": "auto-review",
+      "outcome": "accepted 81efb403; retained completion/review/raw task records"
+    },
+    {
+      "agent": "456f1c39-e152-4cc9-9903-1a7d0c76ad87",
+      "task": "independent foundation documentation review",
+      "model": "gpt-6.1-sol",
+      "effort": "high",
+      "mode": "auto-review",
+      "outcome": "accepted exact final revision; static checks only"
+    },
+    {
+      "agent": "538a5b36-d2fe-493b-ad9d-35dcc5f816c9",
+      "task": "S03-S compatibility preparation",
+      "model": "gpt-6.1-sol",
+      "effort": "high",
+      "mode": "auto-review",
+      "outcome": "accepted bounded preparation 6a012de; restricted import failed; getter registration passed; no Steam/device proof"
+    },
+    {
+      "agent": "96758d2a-8906-4981-a8b9-62c13cb2f406",
+      "task": "S02 desktop exploratory authoring",
+      "model": "gpt-6-astra",
+      "effort": "high",
+      "mode": "auto-review",
+      "outcome": "ongoing/unaccepted; initial connection refusal then reported editor/check work; no completed spatial-session readiness"
+    }
+  ],
+  "eligibility": "deferred; additional representative completed implementation and visual/spatial sessions still needed",
+  "limitations": "compact read-only snapshots; no live configuration or launch test; availability/capabilities do not establish bundle suitability"
+}

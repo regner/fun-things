@@ -155,11 +155,12 @@ asset acceptance.
 
 - [ ] **P0-PROFILES — Create Paseo profiles from observed session requirements (DEFERRED).**
   Owner: delegated workflow worker; orchestrator coordinates readiness and review.
-  **Ineligible in the current batch/first checkpoint.** Reassess at a later plan/profile
+  **Still ineligible at the second checkpoint.** Reassess at a later plan/profile
   checkpoint after additional representative implementation, independent review and
   visual/3D/spatial sessions accumulate beyond the first baseline. An empty inventory
   or existing runs alone does not satisfy the requested wait; no fixed date is implied.
   Needs: [checkpoint/profile baseline](docs/reviews/plan-check-2026-10-07.md#profile-baseline)
+  and [second assessment](docs/reviews/plan-check-2026-10-07-02.md#profile-assessment)
   plus those later sessions' prompts, settings, outcomes, permission/tool limitations
   and repeated operational friction, reconciled with supported provider capabilities.
   Review evidence by actual task category, model/effort, tools/capabilities, permission
@@ -174,7 +175,7 @@ asset acceptance.
   and no silent model fallback. Record tests, limits, final inventory and next profile
   revisit. Do not create/configure profiles, schedules or services in this checkpoint.
 
-### Documentation follow-ups from the first plan checkpoint
+### Documentation checkpoint follow-ups
 
 These are documentation work, owned by a delegated documentation worker with
 independent review; they do not reopen completed proofs or require hardware access.
@@ -182,6 +183,18 @@ Assign a named worker before starting. Finish before P0-GATE uses the reconciled
 P0-DOC1 and P0-DOC2 are complete. The [tooling reconciliation](docs/reviews/p0-doc1.md)
 and [proof-ownership reconciliation](docs/reviews/p0-doc2.md) retain accepted evidence,
 current fixture scope, historical observations and active owners for unproved cases.
+
+- [ ] **P0-DOC3 — Reconcile README's blanket networking disclaimer.**
+  Owner: delegated documentation worker; independent documentation review.
+  Affected doc: `README.md`, closing Project guidance disclaimer that networking
+  does not exist here. Accepted source: [S03](docs/spikes/s03.md) and
+  [foundation reconciliation](docs/reviews/p0-doc1.md); the README's own introduction
+  and runner section already acknowledge the isolated ENet proof.
+  Needs: those accepted records; no editor, device, Steam or new engine proof.
+  Done when: the disclaimer distinguishes implemented fixture networking/tooling
+  from unimplemented production gameplay/Steam integration, preserves provisional
+  targets/gates, and passes local links/anchors and independent review. Remove this
+  item with its resolving change; do not rewrite unrelated guides or claim new tests.
 
 ## Phase-zero technical spikes
 
@@ -194,6 +207,11 @@ next bounded question and whether it blocks M1. Do not expand into full feature
 implementation. Save editor mutations before playtests; preserve unsaved work.
 
 - [ ] **S02 — GTA2-style foot controls, camera and aiming.**
+  **Desktop exploration ACTIVE; no accepted output yet at this checkpoint.**
+  Owned by the existing S02 worker with the exclusive shared Godot/Blender lease;
+  coordinate through the orchestrator, do not launch duplicate fixture work.
+  Deck cases are deferred for unavailable hardware; desktop 1280×800 views do not
+  prove Deck input/performance or ratify subjective feel. Keep full S02 open.
   Needs: [ratified brief](docs/design.md), [accepted art/city brief](docs/art-direction.md)
   and tiny Blender fixture; S01 settings can refine it.
   Question: which height/FOV/framing and control/aim choices deliver the desired feel
@@ -222,6 +240,11 @@ implementation. Save editor mutations before playtests; preserve unsaved work.
   Next bounded compatibility experiment is specified there; no vendor/engine pin
   or four-channel/ordered-unreliable contract change is implied. Deferral does not
   satisfy P0-GATE or dependent Steam acceptance; keep this task open.
+  Next ungated step: commission one isolated compatibility design/probe against
+  the preparation's exact sources, with predefined four-stream/mode/lifecycle
+  expectations and a one-experiment stop boundary. Report substantial machinery
+  or contract decisions before expansion; no candidate adapter/five-lane setting
+  is selected as a fix. Network delivery observations still need external access.
   Before the network proof, verify app type/release state, distinct authorized
   testers/package entitlement, depot OS/package inclusion and launch settings;
   confirm/create the intended `fun-things` private branch and record its access route.
@@ -292,6 +315,10 @@ implementation. Save editor mutations before playtests; preserve unsaved work.
   workflow. Specify bounded blockage/junction/stuck/wreck recovery for M1-C3.
 
 - [ ] **S07 — Top-down culling and representative load.**
+  Physical LCD/OLED measurements are deferred with S08's hardware availability.
+  Desktop fixture/culling preparation can proceed after the dependencies below;
+  report its named hardware separately, without selecting Deck budgets/renderer
+  or treating desktop timing as 60 FPS Deck acceptance.
   Needs: [S01 pipeline evidence](docs/spikes/s01.md), S02 camera, S06 sector fixture
   and preliminary S05 effect load.
   Question: which culling/LOD/sector choices help from our actual camera without visual errors?
@@ -319,7 +346,7 @@ implementation. Save editor mutations before playtests; preserve unsaved work.
   Early input evidence settles the engine decision deliberately left open in P0-01.
   First: minimal exported Deck Gaming Mode input/native-extension initialization
   test, exact templates and candidate engine choice for the dev7 controller regression.
-  Obtain LCD/OLED Deck access and record installed OS/client/driver/power versions;
+  When LCD/OLED devices become available, record OS/client/driver/power versions;
   choose the exact engine/template pair from the proof and update the pins/docs together.
   Do this before S02 handheld validation; Desktop Mode alone cannot close it.
   Question: can the exact toolchain package the selected model/renderer/service path?
@@ -346,6 +373,7 @@ implementation. Save editor mutations before playtests; preserve unsaved work.
   [S01 pipeline evidence](docs/spikes/s01.md), S02,
   [P0-DOC1 reconciliation](docs/reviews/p0-doc1.md),
   [P0-DOC2 reconciliation](docs/reviews/p0-doc2.md),
+  P0-DOC3,
   [completed S03 proof](docs/spikes/s03.md), S03-R/S03-S and S04 through S08.
   Done when: critical design/feasibility assumptions required to begin M1 are resolved;
   the user ratifies scope, chosen art/layout and camera/control choices against
@@ -551,6 +579,17 @@ waiting for unrelated gameplay systems.
   selected offline/target promises. Current docs describe shipped behavior.
 
 ## Parallel work and dependency checkpoints
+
+Current readiness: continue the owned S02 desktop experiment; bounded S03-S
+compatibility research and S08 desktop export/dependency preparation can be assigned
+without physical devices or multiple accounts, subject to explicit writer ownership.
+After accepted S02 controller/envelope evidence, S03-R ENet and S04 desktop/ENet
+experiments can start; their final Steam decisions remain open. S05/S06 need actual
+car/actor envelopes, and S07 needs their representative fixtures. Its physical Deck
+cost measurement remains deferred. No production M1 work is ungated by availability
+answers; P0-GATE still needs the missing feasibility/access/device/user decisions.
+P0-DOC3 is ready documentation work; P0-PROFILES is deferred outside P0-GATE.
+The table describes dependency stages, not a claim that deferred proofs are runnable.
 
 | When | Work that can run together | Must wait |
 | --- | --- | --- |
