@@ -1,8 +1,9 @@
 # Fun Things — foundations through the first playable milestone
 
 Planning baseline: 7 October 2026. The project has engine/style configuration,
-the Godot MCP Toolkit, isolated [S01 asset fixtures](docs/spikes/s01.md) and an
-[S03 session proof](docs/spikes/s03.md), but no production gameplay or main scene.
+the Godot MCP Toolkit, isolated [S01 asset fixtures](docs/spikes/s01.md), a bounded
+[S02 desktop fixture](docs/spikes/s02.md) and an [S03 session proof](docs/spikes/s03.md),
+but no production gameplay or main scene.
 This active work list retains remaining tasks and links completed work to evidence.
 Periodic whole-plan/documentation checks are indexed in
 [the checkpoint record index](docs/reviews/plan-checkpoints.md).
@@ -201,16 +202,24 @@ P0-DOC3's README networking disclaimer is resolved in `62e0800`.
   [source handoff](docs/assets/s02_kit.md), [S07 preparation](docs/spikes/s07.md)
   and their committed reviews at accepted `fc6845f` / `35adb470`. Ready without
   devices/accounts; finish before P0-GATE's canonical-guide reconciliation.
+  Profile-stage source: [third assessment](docs/reviews/plan-check-2026-10-07-03.md#profile-assessment)
+  and current P0-PROFILES requirements/proposal readiness versus deferred configuration.
   Affected docs: `README.md` and `docs/development.md` omit S02 fixture/runner
   discovery and its supplementary resource/outcome scope; `docs/art-direction.md`
   still describes actual-camera evidence as entirely future; `docs/world-layout.md`
   lacks a link distinguishing its historical 50° start from the provisional 42°
   desktop candidate. `docs/architecture.md` describes S07 only as renderer/rendering
   budgets rather than the single map/content-capacity and diagnostic owner.
-  Done when: these five guides link the accepted evidence, distinguish historical
+  README's broad profile-work deferral also needs that stage distinction.
+  `docs/design.md`'s historical P0-01 toolchain evidence says Linux graphics are
+  untested; supplement it with S02's named desktop rendering scope, preserving the
+  original observation and unproved Windows/Deck/export/driver-target acceptance.
+  Done when: these six guides link the accepted evidence, distinguish historical
   starting values from current candidates and unproved feel/physical-key/native-focus/
   Deck gates, and name S07's preparation-only state and sole capacity ownership with
-  S06 topology/S08 export/M1-D3 acceptance boundaries. Verify documented S02 commands
+  S06 topology/S08 export/M1-D3 acceptance boundaries. README distinguishes ready
+  profile requirements/proposal work from deferred authorized configuration and
+  representative launch validation. Verify documented S02 commands
   and flags against committed tools, local links/anchors and diff integrity. No new
   runtime measurement, tuning/pin change, production readiness or hardware request.
 
