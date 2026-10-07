@@ -1,0 +1,266 @@
+{
+  "candidate": "10874476bfc0a27e7e7d3bb7d76b76403dc1da58",
+  "base": "04f16d332636200e71e74862f64282224774d077",
+  "reviewer": "/root/s04_independent_review",
+  "model": "gpt-6.1-sol",
+  "effort": "high",
+  "verdict": "REQUEST CHANGES",
+  "findings": [
+    "P2 producer fresh-motion gate",
+    "P3 collision-mask naming"
+  ],
+  "files": [
+    {
+      "path": "accepted-s03-r-note.txt",
+      "bytes": 12041,
+      "sha256": "73c0d625b625770699daef6e205d2ab4dad6e1146e3c197941b7fa096fe2d615",
+      "retained_path": "docs/spikes/s04-evidence/review-initial/accepted-s03-r-note.txt"
+    },
+    {
+      "path": "api-host-run.log",
+      "bytes": 99,
+      "sha256": "00af627c42c7b26aae1f83b512d93596c3ed936fe1a72c7056beb901cf0aad40",
+      "retained_path": "docs/spikes/s04-evidence/review-initial/api-host-run.log.gz"
+    },
+    {
+      "path": "api-host/baseline.log",
+      "bytes": 108,
+      "sha256": "adc0caed6f08cc22044d6117731d86713f708a1fff7013344a775c0e77a01910",
+      "retained_path": "docs/spikes/s04-evidence/review-initial/api-host/baseline.log.gz"
+    },
+    {
+      "path": "api-host/body.log",
+      "bytes": 124721,
+      "sha256": "d2f4e7114efcf96327998bb5f69c6f1aabdcf50b0c652b19e0fe42f1dfefcc41",
+      "retained_path": "docs/spikes/s04-evidence/review-initial/api-host/body.log.gz"
+    },
+    {
+      "path": "api-host/fence.log",
+      "bytes": 786,
+      "sha256": "df997d3c84f6141dc7f509b9e719aca07da300978aa0bbdb3bf629ca1324550d",
+      "retained_path": "docs/spikes/s04-evidence/review-initial/api-host/fence.log.gz"
+    },
+    {
+      "path": "api-host/import.log",
+      "bytes": 9430,
+      "sha256": "91be5126f69552037dc68480a5003c32ed3cb34df160e8ceedecedb48336a0fb",
+      "retained_path": "docs/spikes/s04-evidence/review-initial/api-host/import.log.gz"
+    },
+    {
+      "path": "api-host/project/review_producer_probe.gd",
+      "bytes": 1632,
+      "sha256": "b772e2ccd3f805613ca6e90fc6e034e83758bd565144ebed67a286cf320bcec2",
+      "retained_path": "docs/spikes/s04-evidence/review-initial/api-host/project/review_producer_probe.gd.txt"
+    },
+    {
+      "path": "api-host/project/review_proof.gd",
+      "bytes": 144,
+      "sha256": "06abe30fab857f327f84337812bb973f8d2f48f984559252068016c7cfb57c5e",
+      "retained_path": "docs/spikes/s04-evidence/review-initial/api-host/project/review_proof.gd.txt"
+    },
+    {
+      "path": "api-host/project/review_replication.gd",
+      "bytes": 236,
+      "sha256": "df3b738fc64b6c816713499d2c1ee4172d89cc17cf766939a4c9cf732adb9b74",
+      "retained_path": "docs/spikes/s04-evidence/review-initial/api-host/project/review_replication.gd.txt"
+    },
+    {
+      "path": "api-host/result.json",
+      "bytes": 12140,
+      "sha256": "b05df5296468f5c52cd64cb5830c2396d1abeda1ce9700f3219b10f901d42590",
+      "retained_path": "docs/spikes/s04-evidence/review-initial/api-host/result.json"
+    },
+    {
+      "path": "api-run.log",
+      "bytes": 55,
+      "sha256": "028fc65d7329eff24a9aa88838baf67b83731f601063451b48ae16dd93a6e708",
+      "retained_path": "docs/spikes/s04-evidence/review-initial/api-run.log.gz"
+    },
+    {
+      "path": "api/import.log",
+      "bytes": 10200,
+      "sha256": "5a7a462fa968945cb2fe9fc384495d4241cb274df7da48ce7804bc1090cf195e",
+      "retained_path": "docs/spikes/s04-evidence/review-initial/api/import.log.gz"
+    },
+    {
+      "path": "api/result.json",
+      "bytes": 11284,
+      "sha256": "195b4786da07e6427545fc56e1ad8487445fc8f9e4d1dbd717c9547c760d0268",
+      "retained_path": "docs/spikes/s04-evidence/review-initial/api/result.json"
+    },
+    {
+      "path": "audit.py",
+      "bytes": 5468,
+      "sha256": "373dbb8ae731e94f02d65546a7d9a23b85c7e67f5beb0882cd10ea4b679b0bc5",
+      "retained_path": "docs/spikes/s04-evidence/review-initial/audit.py"
+    },
+    {
+      "path": "boot-normalization.diff",
+      "bytes": 2218,
+      "sha256": "a2ce9d53c59983aa8c154e5634591ab694a5ef444b1ce40b72e21cda1c6f4f3d",
+      "retained_path": "docs/spikes/s04-evidence/review-initial/boot-normalization.diff"
+    },
+    {
+      "path": "doc5-note.txt",
+      "bytes": 32714,
+      "sha256": "573febc7829611ae9c2d1e7e4bcdf45172cb12a20f1c5fe262e8bfd07fa6b770",
+      "retained_path": "docs/spikes/s04-evidence/review-initial/doc5-note.txt"
+    },
+    {
+      "path": "enet-host-run.log",
+      "bytes": 8401,
+      "sha256": "7fb3eeeeec95ca0a25a9e3adddb694fa4c75d3db57e31f8e7234f51b8030e84e",
+      "retained_path": "docs/spikes/s04-evidence/review-initial/enet-host-run.log.gz"
+    },
+    {
+      "path": "enet-host/adverse/client/engine.log",
+      "bytes": 262082,
+      "sha256": "5cee73ea6bc8d59b73084e124787d06649f9d83c3665d150cc9745be833074b1",
+      "retained_path": "docs/spikes/s04-evidence/review-initial/enet-host/adverse/client/engine.log.gz"
+    },
+    {
+      "path": "enet-host/adverse/client/stdout.log",
+      "bytes": 262082,
+      "sha256": "5cee73ea6bc8d59b73084e124787d06649f9d83c3665d150cc9745be833074b1",
+      "retained_path": "docs/spikes/s04-evidence/review-initial/enet-host/adverse/client/stdout.log.gz"
+    },
+    {
+      "path": "enet-host/adverse/host/engine.log",
+      "bytes": 1202912,
+      "sha256": "29c79fe6eacc719eeb267689054f06b566b2bfa1c722287320753a2b04b69cae",
+      "retained_path": "docs/spikes/s04-evidence/review-initial/enet-host/adverse/host/engine.log.gz"
+    },
+    {
+      "path": "enet-host/adverse/host/stdout.log",
+      "bytes": 1202912,
+      "sha256": "29c79fe6eacc719eeb267689054f06b566b2bfa1c722287320753a2b04b69cae",
+      "retained_path": "docs/spikes/s04-evidence/review-initial/enet-host/adverse/host/stdout.log.gz"
+    },
+    {
+      "path": "enet-host/adverse/import.log",
+      "bytes": 9430,
+      "sha256": "91be5126f69552037dc68480a5003c32ed3cb34df160e8ceedecedb48336a0fb",
+      "retained_path": "docs/spikes/s04-evidence/review-initial/enet-host/adverse/import.log.gz"
+    },
+    {
+      "path": "enet-host/adverse/proxy.jsonl",
+      "bytes": 411469,
+      "sha256": "b8c8c84c425f8cfdad082b6c9f4a0615c4a4a817d006ca57e0a8875e1ec7d2a1",
+      "retained_path": "docs/spikes/s04-evidence/review-initial/enet-host/adverse/proxy.jsonl.gz"
+    },
+    {
+      "path": "enet-host/adverse/result.json",
+      "bytes": 18513,
+      "sha256": "991c3f19cfb635afa75d2812cc4fe9f81fdab2867b355f7a5709a6be4f6c96ce",
+      "retained_path": "docs/spikes/s04-evidence/review-initial/enet-host/adverse/result.json"
+    },
+    {
+      "path": "enet-host/normal/client/engine.log",
+      "bytes": 327143,
+      "sha256": "a1acdfc4e29ea14a4558c8e7c9111bb819865acc6b8420fff703e849156c6033",
+      "retained_path": "docs/spikes/s04-evidence/review-initial/enet-host/normal/client/engine.log.gz"
+    },
+    {
+      "path": "enet-host/normal/client/stdout.log",
+      "bytes": 327143,
+      "sha256": "a1acdfc4e29ea14a4558c8e7c9111bb819865acc6b8420fff703e849156c6033",
+      "retained_path": "docs/spikes/s04-evidence/review-initial/enet-host/normal/client/stdout.log.gz"
+    },
+    {
+      "path": "enet-host/normal/host/engine.log",
+      "bytes": 1202403,
+      "sha256": "8c04b41c7db9cbcd3230c4538b2c1accf71c73b727a304dbcc191900473d73e0",
+      "retained_path": "docs/spikes/s04-evidence/review-initial/enet-host/normal/host/engine.log.gz"
+    },
+    {
+      "path": "enet-host/normal/host/stdout.log",
+      "bytes": 1202403,
+      "sha256": "8c04b41c7db9cbcd3230c4538b2c1accf71c73b727a304dbcc191900473d73e0",
+      "retained_path": "docs/spikes/s04-evidence/review-initial/enet-host/normal/host/stdout.log.gz"
+    },
+    {
+      "path": "enet-host/normal/import.log",
+      "bytes": 9430,
+      "sha256": "91be5126f69552037dc68480a5003c32ed3cb34df160e8ceedecedb48336a0fb",
+      "retained_path": "docs/spikes/s04-evidence/review-initial/enet-host/normal/import.log.gz"
+    },
+    {
+      "path": "enet-host/normal/proxy.jsonl",
+      "bytes": 467916,
+      "sha256": "a72e9fc06126680e1397a262ab06afa4da40c3b0798669a06376a0790f94581b",
+      "retained_path": "docs/spikes/s04-evidence/review-initial/enet-host/normal/proxy.jsonl.gz"
+    },
+    {
+      "path": "enet-host/normal/result.json",
+      "bytes": 18084,
+      "sha256": "f305ff4c4ae0d8168d272e99793902a4d10f4503fb877112ed4fe068d0d4406c",
+      "retained_path": "docs/spikes/s04-evidence/review-initial/enet-host/normal/result.json"
+    },
+    {
+      "path": "enet-host/result.json",
+      "bytes": 40132,
+      "sha256": "9ab78498de2fd1216572cd614eb4b9108ec51fef1337bf4c0a78a68b62db8677",
+      "retained_path": "docs/spikes/s04-evidence/review-initial/enet-host/result.json"
+    },
+    {
+      "path": "preservation-and-source.log",
+      "bytes": 715,
+      "sha256": "67c145bf808b422e79cf09a8d07c9ecd50ad0a2d31eedd6e7a5d73dd5aee9023",
+      "retained_path": "docs/spikes/s04-evidence/review-initial/preservation-and-source.log.gz"
+    },
+    {
+      "path": "producer-probe.log",
+      "bytes": 578,
+      "sha256": "8814db90652e3640af1438e436018d0496c0de530753718a9138f47d86ef40fb",
+      "retained_path": "docs/spikes/s04-evidence/review-initial/producer-probe.log.gz"
+    },
+    {
+      "path": "producer-receipt.json",
+      "bytes": 267,
+      "sha256": "47cc9fc9055a917bb04d91dd3d187c6e8ed6339a8f847931a2913d373d4dc1ea",
+      "retained_path": "docs/spikes/s04-evidence/review-initial/producer-receipt.json"
+    },
+    {
+      "path": "python-tests.log",
+      "bytes": 418,
+      "sha256": "b08af7e90d38c73c13fcda3689b5f853a4e11dd964aa9db2cde1d4a4b194fcb7",
+      "retained_path": "docs/spikes/s04-evidence/review-initial/python-tests.log.gz"
+    },
+    {
+      "path": "raw-audit.json",
+      "bytes": 1543,
+      "sha256": "da75d19099af7707e3c12589c4e7aef8bf827072bfaec9286885c9c7e93d9bcb",
+      "retained_path": "docs/spikes/s04-evidence/review-initial/raw-audit.json"
+    },
+    {
+      "path": "raw-audit.log",
+      "bytes": 1788,
+      "sha256": "24729d90730a6ccd95fa84b3c63409bc9c408f6a8e3fe1d0233d9e4d6705c39a",
+      "retained_path": "docs/spikes/s04-evidence/review-initial/raw-audit.log.gz"
+    },
+    {
+      "path": "review-10874476.md",
+      "bytes": 15633,
+      "sha256": "df7b147d1fadc174d7e85ec6330cd316e66d798189a98938860771abe659d617",
+      "retained_path": "docs/spikes/s04-evidence/review-initial/review-10874476.md"
+    },
+    {
+      "path": "style-run.log",
+      "bytes": 107,
+      "sha256": "86e537eded01721c42f052f2b8f3cc88e20a4b0ad2d332a9b568597f253fa05c",
+      "retained_path": "docs/spikes/s04-evidence/review-initial/style-run.log.gz"
+    },
+    {
+      "path": "style/formatting.log",
+      "bytes": 28,
+      "sha256": "bbd8358129f8e97ba2a7bbf994e78b89fcc606453f67d31900c141df25dfcae1",
+      "retained_path": "docs/spikes/s04-evidence/review-initial/style/formatting.log.gz"
+    },
+    {
+      "path": "style/style.log",
+      "bytes": 40,
+      "sha256": "4c01e64dcf53a40917513a840b8273722cee52303fbf8236379468d70b5c00a3",
+      "retained_path": "docs/spikes/s04-evidence/review-initial/style/style.log.gz"
+    }
+  ]
+}

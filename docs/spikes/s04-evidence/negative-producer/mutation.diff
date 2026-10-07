@@ -1,0 +1,12 @@
+--- fixed-proof.gd
++++ gate-omitted-proof.gd
+@@ -110,8 +110,7 @@
+ 			session.local_participant].health})
+ 		session.request_resync()
+ 
+-	if session.phase != "ACTIVE" or match_state.rig == null or (
+-		not match_state.rig.get_meta("input_enabled", false)):
++	if session.phase != "ACTIVE" or match_state.rig == null:
+ 		# A reliable grant may precede fresh movement after resync; do not collect/send yet.
+ 		input_collector.clear()
+ 		return

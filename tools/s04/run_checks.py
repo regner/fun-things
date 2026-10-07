@@ -40,6 +40,8 @@ def main():
              'S04_BASELINE '),
             ('fence', ['--script', 'res://tests/fixtures/s04/pose_fence_probe.gd'],
              'S04_FENCE '),
+            ('producer', ['--script', 'res://tests/fixtures/s04/producer_probe.gd'],
+             'S04_PRODUCER '),
         ]:
             command = [args.godot, '--headless', '--path', str(project), *arguments]
             commands.append(command)
@@ -49,7 +51,7 @@ def main():
             results[name] = passed and marker in text and '"ok":true' in text
     unchanged = all(hashlib.sha256((project / p).read_bytes()).hexdigest() == digest
                     for p, digest in hashes.items())
-    report = {'ok': ok and len(results) == 3 and all(results.values()) and unchanged,
+    report = {'ok': ok and len(results) == 4 and all(results.values()) and unchanged,
               'version': version, 'results': results, 'source_unchanged': unchanged,
               'source_sha256': hashes, 'commands': commands}
     (directory / 'result.json').write_text(json.dumps(report, indent=2) + '\n')

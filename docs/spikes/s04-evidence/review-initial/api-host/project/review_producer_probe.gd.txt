@@ -1,0 +1,41 @@
+extends SceneTree
+
+
+## Defers the saved fixture until the tree is ready for its child bindings.
+func _initialize() -> void:
+	_run.call_deferred()
+
+
+## Delivers the real admission grant without fresh movement, then checks the real producer.
+func _run() -> void:
+	var fixture: S04Proof = load("res://tests/fixtures/s04/boot.tscn").instantiate()
+	fixture.set_script(load("res://review_proof.gd"))
+	fixture.process_mode = Node.PROCESS_MODE_DISABLED
+	var replication: S04Replication = fixture.get_node("View/Match/Replication")
+	replication.set_script(load("res://review_replication.gd"))
+	root.add_child(fixture)
+	var actual: S04Match = fixture.match_state
+	actual.session_id = "review-producer-grant"
+	actual.prepare_initial(1)
+	actual.prepare_initial(2)
+	actual.bindings[2].control = 2
+	actual.bind_local(2)
+	fixture.session.match_state = actual
+	fixture.session.local_participant = 2
+	fixture.session.phase = "SYNCHRONIZING"
+	replication.match_state = actual
+	replication.last_baseline = 1
+	replication.admission_received.connect(fixture.session.receive_admission)
+	fixture.role = "client"
+	fixture.started_ms = 1
+	fixture.local_tick = 1091
+	replication._grant(actual.session_id, 1, actual.durable_revision)
+	var gate: bool = actual.rig.get_meta("input_enabled", false)
+	fixture._physics_process(1.0 / 60.0)
+	var sent: Array = replication.get("sent")
+	print("REVIEW_PRODUCER " + JSON.stringify({"gate": gate,
+		"phase": fixture.session.phase, "motion_ticks": actual.motion_ticks,
+		"sent_count": sent.size(), "sent": sent,
+		"ok": not gate and sent.is_empty()}))
+	fixture.queue_free()
+	quit(0 if not gate and sent.is_empty() else 1)

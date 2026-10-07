@@ -1,0 +1,37 @@
+--- canonical tested
++++ candidate
+@@ -6,7 +6,6 @@
+ [ext_resource type="Script" uid="uid://dyryt36sfn0ic" path="res://tests/fixtures/s04/replication.gd" id="4_6kahj"]
+ [ext_resource type="PackedScene" uid="uid://whg1w4ybnvqq" path="res://tests/fixtures/s04/track.tscn" id="5_0fbba"]
+ [ext_resource type="PackedScene" uid="uid://cyyhi67pisbql" path="res://tests/fixtures/s04/kinematic.tscn" id="6_m363i"]
+-[ext_resource type="Script" uid="uid://ioa3f2cddayr" path="res://tests/fixtures/s04/kinematic.gd" id="7_44fmo"]
+ [ext_resource type="Script" uid="uid://vhpq0td4r0xp" path="res://tests/fixtures/s04/desktop_input.gd" id="8_158a1"]
+ [ext_resource type="Script" uid="uid://c8gmgnegvmc3t" path="res://tests/fixtures/s04/camera_rig.gd" id="9_734fe"]
+ 
+@@ -25,23 +24,15 @@
+ [node name="Replication" parent="View/Match" index="0" unique_id=2038279275]
+ script = ExtResource("4_6kahj")
+ 
+-[node name="Track" type="Node3D" parent="View/Match/CityRoot" parent_id_path=PackedInt32Array(255159982) index="0" unique_id=1943514348 instance=ExtResource("5_0fbba")]
++[node name="Track" parent="View/Match/CityRoot" parent_id_path=PackedInt32Array(255159982) index="0" unique_id=1943514348 instance=ExtResource("5_0fbba")]
+ 
+ [node name="Bodies" type="Node3D" parent="View/Match" index="3" unique_id=1422409117]
+ 
+-[node name="Host" type="CharacterBody3D" parent="View/Match/Bodies" index="0" unique_id=1110260024 instance=ExtResource("6_m363i")]
++[node name="Host" parent="View/Match/Bodies" index="0" unique_id=1110260024 instance=ExtResource("6_m363i")]
+ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15, 0.001, 10)
+-collision_layer = 0
+-collision_mask = 0
+-motion_mode = 1
+-script = ExtResource("7_44fmo")
+ 
+-[node name="Client" type="CharacterBody3D" parent="View/Match/Bodies" index="1" unique_id=757971484 instance=ExtResource("6_m363i")]
++[node name="Client" parent="View/Match/Bodies" index="1" unique_id=757971484 instance=ExtResource("6_m363i")]
+ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15, 0.001, 10)
+-collision_layer = 0
+-collision_mask = 0
+-motion_mode = 1
+-script = ExtResource("7_44fmo")
+ 
+ [node name="Input" type="Node" parent="." index="2" unique_id=1316605378]
+ script = ExtResource("8_158a1")

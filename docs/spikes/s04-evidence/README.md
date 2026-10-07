@@ -69,3 +69,13 @@ operations authored and saved all owned resources; the temporary authenticated
 client used the existing toolkit endpoint when worktree connection discovery failed.
 No token/config/vendor mutation was made. A read-only inherited editor probe method
 was unavailable; the saved new S04 inspection harness supplies its own bounded probe.
+
+
+`review-initial/retention.json` preserves all42 independent artifacts with raw hashes;
+GDScript probe copies are `.gd.txt` so historical evidence does not become runtime
+code. The complete initial report is committed in `docs/reviews/s04-10874476.md`.
+`fix-retention.json` binds complete correction-cycle receipts: four public API/body
+cases, all41 explicit compilation/style logs, normal/adverse ENet follow-up and
+expected-failing guard-omission mutation. All fixed sources are bound by actual
+runner hash manifests. Exact-final review/handoff is stored verbatim in the local
+orchestration note on final HEAD; it is not inferred from initial review.

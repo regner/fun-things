@@ -1,0 +1,28 @@
+{
+  "ok": true,
+  "expected_exit": 1,
+  "actual_exit": 1,
+  "runtime_diagnostics": false,
+  "commands": [
+    [
+      "/home/regner/.local/share/mise/installs/github-godotengine-godot-builds/4.8-dev7/godot",
+      "--headless",
+      "--editor",
+      "--path",
+      "/tmp/s04-negative-producer/project",
+      "--import",
+      "--quit"
+    ],
+    [
+      "/home/regner/.local/share/mise/installs/github-godotengine-godot-builds/4.8-dev7/godot",
+      "--headless",
+      "--path",
+      "/tmp/s04-negative-producer/project",
+      "--script",
+      "res://tests/fixtures/s04/producer_probe.gd"
+    ]
+  ],
+  "only_mutation": "omit recurring input_enabled guard",
+  "fixed_source_sha256": "5da1b0df9eb6edfd0bc05a597b6b9d2ce83446e0dd255b86cc9db140bcb1f915",
+  "mutated_source_sha256": "960303d33eff8204d0a2f26ae924449db452d9dbcf0f2a49f7ef42f34a8ce8a6"
+}

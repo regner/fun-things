@@ -1,0 +1,50 @@
+{
+  "baseline": {
+    "response_p95_ms": 97,
+    "response_count": 20,
+    "snapshot_age_p95_ms": 26.91015625,
+    "snapshot_age_max_ms": 27.090087890625,
+    "matching_tick_samples": 879,
+    "matching_tick_install_error_max_m": 0.0,
+    "update_jump_p95_m": 0.41032017584103014,
+    "repeated_held_sequence_intervals": 1339,
+    "drops": 0,
+    "resync_producer_event_ms": 18350,
+    "first_control2_applied_ms": 18350,
+    "candidate_vs_measured_mismatches": [
+      "tests/fixtures/s04/boot.tscn"
+    ]
+  },
+  "normal": {
+    "response_p95_ms": 269,
+    "response_count": 20,
+    "snapshot_age_p95_ms": 123.570068359375,
+    "snapshot_age_max_ms": 123.699951171875,
+    "matching_tick_samples": 771,
+    "matching_tick_install_error_max_m": 0.0,
+    "update_jump_p95_m": 0.4395491948766224,
+    "repeated_held_sequence_intervals": 1458,
+    "drops": 43,
+    "resync_producer_event_ms": 20128,
+    "first_control2_applied_ms": 20162,
+    "candidate_vs_measured_mismatches": [
+      "tests/fixtures/s04/boot.tscn"
+    ]
+  },
+  "adverse": {
+    "response_p95_ms": 401,
+    "response_count": 20,
+    "snapshot_age_p95_ms": 180.0498046875,
+    "snapshot_age_max_ms": 204.889892578125,
+    "matching_tick_samples": 631,
+    "matching_tick_install_error_max_m": 0.0,
+    "update_jump_p95_m": 0.5122451045320722,
+    "repeated_held_sequence_intervals": 1594,
+    "drops": 150,
+    "resync_producer_event_ms": 21022,
+    "first_control2_applied_ms": 21057,
+    "candidate_vs_measured_mismatches": [
+      "tests/fixtures/s04/boot.tscn"
+    ]
+  }
+}

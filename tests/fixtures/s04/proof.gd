@@ -110,7 +110,9 @@ func _physics_process(_delta: float) -> void:  # gdstyle:ignore=quality/max-bran
 			session.local_participant].health})
 		session.request_resync()
 
-	if session.phase != "ACTIVE" or match_state.rig == null:
+	if session.phase != "ACTIVE" or match_state.rig == null or (
+		not match_state.rig.get_meta("input_enabled", false)):
+		# A reliable grant may precede fresh movement after resync; do not collect/send yet.
 		input_collector.clear()
 		return
 

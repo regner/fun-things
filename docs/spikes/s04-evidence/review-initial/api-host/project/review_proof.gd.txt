@@ -1,0 +1,6 @@
+extends S04Proof
+
+
+## Keeps the saved experiment hierarchy while bypassing native lifecycle startup in this probe.
+func _ready() -> void:
+	pass

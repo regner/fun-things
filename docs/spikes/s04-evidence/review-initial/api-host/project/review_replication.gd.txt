@@ -1,0 +1,8 @@
+extends S04Replication
+
+var sent: Array[Dictionary] = []
+
+
+## Records producer intent without changing validator rules or requiring a peer connection.
+func send_held(envelope: Dictionary) -> void:
+	sent.append(envelope.duplicate(true))
