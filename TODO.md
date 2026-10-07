@@ -166,8 +166,15 @@ asset acceptance.
   Review evidence by actual task category, model/effort, tools/capabilities, permission
   needs and recurring launch/routing problems. Propose a small useful set with notes
   explaining intended use, exclusions and tradeoffs; avoid bundles without demonstrated need.
-  Preserve Luna 6 high for very simple tasks, Sol 6.1 medium/high for demanding work
-  and Astra for visual/3D/spatial work; no automatic ultra or broad-access default.
+  Apply the [orchestrator model policy](.agents/skills/paseo-orchestrator/SKILL.md#model-policy-workers-subagents-and-reviewers):
+  Sol 6.1 medium/high leads workspaces, effort chosen for task; Luna 6 high remains an
+  option for very simple delegated subtasks/reviews. Astra is limited to necessary
+  bounded visual/spatial/modeling specialist subagents with explicit question,
+  output, validation boundary and proportionate effort/budget, returning results to
+  the Sol lead. A 3D/art/map mention alone cannot route whole research/planning,
+  implementation, broad review or orchestration to Astra. Assess and validate lead
+  versus specialist routing separately; no automatic ultra or broad-access default.
+  Cost-aware routing preserves independent review and required validation.
   Done when: a later checkpoint records readiness evidence; proposed notes and exact
   provider/model/effort/mode/features bundles are independently reviewed; configuration
   follows then-authorized workflow; safe representative launches materialize each

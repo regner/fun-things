@@ -57,8 +57,10 @@ last profile check, consulted session evidence and next revisit from the latest
 checkpoint record. Assess suitability/coverage, notes and routing accuracy, actual
 task categories and recurring friction, supported provider/model/effort/mode/features,
 tools/capabilities and permissions. Check drift against the model policy below;
-profile bundles cannot bypass approvals or imply broad access by default. Do not
-repeat this assessment for every trivial task.
+assess Sol workspace-lead routing separately from necessary bounded Astra specialist
+subtasks, including their question, output, validation and effort/budget. Profile
+bundles cannot bypass approvals or imply broad access by default. Do not repeat
+this assessment for every trivial task.
 
 Record findings and next revisit even when no profiles exist. Preserve the existing
 deferred creation task (currently P0-PROFILES) instead of recreating it. Its first
@@ -128,21 +130,34 @@ prompt below and launch in the returned `workspaceId`.
 
 ### Model policy: workers, subagents and reviewers
 
-Call Paseo `list_profiles` and read every profile's notes. Materialize a fitting
-profile's provider/model, mode, thinking option and features into the launch call;
+Call Paseo `list_profiles` and read every profile's notes. Match both task scope
+and lead/subagent role against this policy before materializing a fitting profile's
+provider/model, mode, thinking option and features into the launch call;
 `create_agent` has no profile parameter. If none fits, say so and discover provider,
 model and effort IDs with `list_providers`, `list_models` and, where needed,
 `inspect_provider`. Do not guess IDs or silently accept a mismatched profile.
 
-- Very simple tasks: GPT-6-Luna, **high**.
-- More demanding tasks: GPT-6.1-Sol, **medium or high**, chosen for scope.
-- Visual design, 3D modeling, spatial work and similarly demanding specialist work:
-  escalate to GPT-6-Astra with an explicit suitable supported effort.
+- Workspace leads use GPT-6.1-Sol, **medium or high**, chosen for the task.
+- Very simple delegated subtasks or reviews may use GPT-6-Luna, **high**; other
+  non-specialist delegation uses GPT-6.1-Sol, **medium or high** for scope.
+- GPT-6-Astra is limited to necessary, narrowly scoped visual, spatial or modeling
+  specialist subagents. Give each an explicit question, required output, validation
+  boundary and proportionate supported effort/budget. Return its result to the Sol
+  lead for synthesis and coordination.
+- A mention of 3D, art or maps does not justify Astra for a whole workspace,
+  research/planning, technical implementation, broad review or orchestration. Route
+  only the actual specialist component to Astra; keep the remaining work on Sol.
 - No automatic ultra default. Carry this policy into every delegation prompt,
-  including the worker's reviewers and other subagents. If a required model/effort
-  is unavailable, report the limitation and request the missing choice instead of
-  silently falling back. Adopted agents must honor the policy for subsequent work
-  and delegation; coordinate any necessary model change safely.
+  including reviewers and their subagents. Cost-aware routing does not waive
+  independent review or necessary validation. If a required model/effort is
+  unavailable, report the limitation and request the missing choice instead of
+  silently falling back.
+
+Apply this policy to new launches and subsequent work/delegation by adopted agents.
+If an adopted workspace lead uses Astra, coordinate a safe switch boundary: preserve
+saved and unsaved edits, processes, editor leases and ongoing reviews; do not kill
+active targeted specialist reviews or discard work. Update the lead's runtime model
+and effort in the same workspace/session, verify effective settings, then resume.
 
 Use asynchronous `create_agent` and `send_agent_prompt` with
 `notifyOnFinish: true` (also `background: true` for sends). Continue useful
@@ -231,8 +246,13 @@ Read AGENTS.md, {applicable docs} and {applicable skills}; preserve their contra
 Implement, validate with {acceptance targets}, inspect runtime logs, and commit.
 Remove completed TODO items with resolving commits and update evidence/downstream
 references; leave gated or incomplete acceptance explicit.
-All your subagents/reviewers use GPT-6-Luna high for very simple work,
-GPT-6.1-Sol medium/high for demanding work, GPT-6-Astra for visual/3D/spatial work.
+You lead this workspace on GPT-6.1-Sol medium/high, chosen for the task. Very simple
+subtasks/reviews may use GPT-6-Luna high; other non-specialist delegation uses Sol
+medium/high. Use Astra only for necessary bounded visual/spatial/modeling specialist
+subagents with an explicit question, output, validation boundary and proportionate
+supported effort/budget; return results to you for synthesis/coordination. A mention
+of 3D/art/maps does not route whole research/planning, implementation or broad review
+to Astra. Cost-aware routing preserves independent review and needed validation.
 Discover Paseo profile/provider/model/effort IDs; no silent mismatch or ultra default.
 Obtain independent clean-context subagent review using the reviewer template in
 .agents/skills/paseo-orchestrator/SKILL.md. Supply raw requirements and artifacts,
@@ -258,5 +278,12 @@ work and coordinate exclusive editor access. Use isolated checks where needed.
 Return evidence-based findings with severity, file locations and violated contracts,
 exact reviewed revision, checks/log evidence and verdict/constraints. Do not accept
 unsupported test claims or close unmet gates. Follow model policy in
-.agents/skills/paseo-orchestrator/SKILL.md for any subagents. No merge/archive/push.
+.agents/skills/paseo-orchestrator/SKILL.md: workspace leads use Sol 6.1 medium/high;
+very simple delegated reviews/subtasks may use Luna 6 high. Broad reviews use Sol;
+Astra handles only necessary bounded visual/spatial/modeling specialist subagents,
+with explicit question/output/validation and proportionate supported effort/budget,
+returning results to the Sol lead. A 3D/art/map mention alone does not justify Astra.
+Discover fitting role/scope profiles and supported model/effort IDs; no silent
+mismatch or ultra default. Cost-aware routing preserves review/validation obligations.
+No merge/archive/push.
 ```
