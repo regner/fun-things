@@ -72,6 +72,11 @@ still deserve review for unintended property or transform changes.
 
 ## Validation layers
 
+For a requested project-owned GDScript review or focused subsystem audit, use
+[`gdscript-review`](../.agents/skills/gdscript-review/SKILL.md). It traces owners,
+callers and saved data, reports severity/evidence/fixes, and distinguishes observed
+bugs from unavailable checks. Review findings do not replace the validation below.
+
 | Layer | What it establishes | When to use it |
 | --- | --- | --- |
 | Style and lint | Formatting, type-hint policy, static quality rules | Owned script changes |

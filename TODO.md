@@ -93,6 +93,11 @@ actual fixture captures/paintovers and overhead weapon readability move to S02/S
 with production design refinement in M1-C1. Dimensions remain provisional for
 S02/S04/S06 and measured cost remains S07/P0-GATE work.
 
+P0-06's project GDScript review skill and independent dry-run evidence are recorded
+in [the review-skill completion record](docs/reviews/p0-06.md). The skill reads the
+P0-02 contract drafts when reviewing affected systems; P0-03 checks and gameplay
+proofs remain future work.
+
 - [ ] **P0-03 — Add only the tooling needed for reproducible foundation proofs.**
   Needs: [ratified brief](docs/design.md) and the first owned spike scripts/resources.
   Output: working style/lint and explicit all-owned-script compilation tasks,
@@ -102,16 +107,6 @@ S02/S04/S06 and measured cost remains S07/P0-GATE work.
   ports, readiness/results, deadlines, retained logs, and stops only its own children.
   Done when: the spike fixtures can be rerun and failures produce useful evidence.
   Do not present import alone as compilation. CI and broader coverage grow in M1-D1.
-
-- [ ] **P0-06 — Create a project GDScript review skill.**
-  Needs: [ownership](docs/architecture.md) and [API](docs/api-contracts.md) drafts;
-  use P0-03 checks and spike fixtures as they become available.
-  Output: `.agents/skills/gdscript-review/SKILL.md`, linked to canonical guidance.
-  Review owner/callers/serialized data, single rules, authority/admission, lifecycle,
-  replay effects, bounded work, public/Inspector compatibility, style, simplicity,
-  and independent outcome tests. Report severity, location, evidence, impact and fix.
-  Done when: frontmatter/links validate and an independent dry run on an isolated
-  deliberately flawed fixture finds meaningful issues; missing checks are reported.
 
 - [ ] **P0-07 — Create a project art review skill.**
   Needs: [accepted art/city brief](docs/art-direction.md) and
@@ -298,7 +293,8 @@ implementation. Save editor mutations before playtests; preserve unsaved work.
 - [ ] **P0-GATE — Review the foundation evidence and revise the milestone plan.**
   Needs: [ratified brief](docs/design.md), [ownership](docs/architecture.md),
   [scene](docs/scene-structure.md) and [API](docs/api-contracts.md) drafts,
-  [accepted art/city brief](docs/art-direction.md), P0-03/P0-06/P0-07,
+  [accepted art/city brief](docs/art-direction.md), P0-03/P0-07,
+  [GDScript review evidence](docs/reviews/p0-06.md),
   [P0-05 workflow record](docs/decisions/p0-05-asset-workflow.md), S01 through S08
   including S03-R and S03-S.
   Done when: critical design/feasibility assumptions required to begin M1 are resolved;
