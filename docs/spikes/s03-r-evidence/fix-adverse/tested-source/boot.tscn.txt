@@ -1,0 +1,81 @@
+[gd_scene format=3 uid="uid://jd5igfvwkrvk"]
+
+[ext_resource type="PackedScene" uid="uid://bi4flpwo0wqyr" path="res://tests/fixtures/s03/boot.tscn" id="1"]
+[ext_resource type="Script" uid="uid://cxdi4vpb2pftl" path="res://tests/fixtures/s03_r/proof.gd" id="2_jainl"]
+[ext_resource type="Script" uid="uid://col7a4on4tk6l" path="res://tests/fixtures/s03_r/match.gd" id="3_y54jp"]
+[ext_resource type="Script" uid="uid://bo642gavxftqr" path="res://tests/fixtures/s03_r/replication.gd" id="4_7lfut"]
+[ext_resource type="PackedScene" uid="uid://oo387cvkiy5g" path="res://tests/fixtures/s02/ground_prefab.tscn" id="5_aqwcu"]
+[ext_resource type="PackedScene" uid="uid://dra4y060lahdw" path="res://tests/fixtures/s02/low_prefab.tscn" id="6_ks34d"]
+[ext_resource type="PackedScene" uid="uid://by4enusp6cbip" path="res://tests/fixtures/s02/near_prefab.tscn" id="8_n1mff"]
+[ext_resource type="PackedScene" uid="uid://mq0aqvml8y3r" path="res://tests/fixtures/s02/tall_prefab.tscn" id="9_s1vg5"]
+[ext_resource type="PackedScene" uid="uid://dlgajqmnuhary" path="res://tests/fixtures/s03_r/actor.tscn" id="10_g3qdg"]
+[ext_resource type="Script" uid="uid://ciaqlqcsuhdcp" path="res://tests/fixtures/s02/desktop_input.gd" id="12_xblsl"]
+[ext_resource type="Script" uid="uid://hgk1ugjskxcb" path="res://tests/fixtures/s02/camera_rig.gd" id="13_xvo7a"]
+
+[sub_resource type="Environment" id="Environment_piq4w"]
+background_mode = 1
+background_color = Color(0.035, 0.065, 0.085, 1)
+ambient_light_source = 2
+ambient_light_energy = 0.65
+
+[node name="Boot" unique_id=1136527598 instance=ExtResource("1")]
+script = ExtResource("2_jainl")
+
+[node name="Match" parent="View" parent_id_path=PackedInt32Array(1918382734) index="0" unique_id=828107831]
+script = ExtResource("3_y54jp")
+
+[node name="Replication" parent="View/Match" index="0" unique_id=2038279275]
+script = ExtResource("4_7lfut")
+
+[node name="Ground" parent="View/Match/CityRoot" parent_id_path=PackedInt32Array(255159982) index="0" unique_id=1387867042 instance=ExtResource("5_aqwcu")]
+
+[node name="WestCorner" parent="View/Match/CityRoot" parent_id_path=PackedInt32Array(255159982) index="1" unique_id=1338630014 instance=ExtResource("6_ks34d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, -4)
+
+[node name="EastCorner" parent="View/Match/CityRoot" parent_id_path=PackedInt32Array(255159982) index="2" unique_id=88117413 instance=ExtResource("6_ks34d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, -4)
+
+[node name="NearTower" parent="View/Match/CityRoot" parent_id_path=PackedInt32Array(255159982) index="3" unique_id=93153907 instance=ExtResource("8_n1mff")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 0, -12)
+
+[node name="TallTower" parent="View/Match/CityRoot" parent_id_path=PackedInt32Array(255159982) index="4" unique_id=1625145547 instance=ExtResource("9_s1vg5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, -12)
+
+[node name="Bodies" type="Node3D" parent="View/Match" index="3" unique_id=384134593]
+
+[node name="Host" parent="View/Match/Bodies" index="0" unique_id=267633019 instance=ExtResource("10_g3qdg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.001, 6)
+
+[node name="Client" parent="View/Match/Bodies" index="1" unique_id=696077860 instance=ExtResource("10_g3qdg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0.001, 14)
+
+[node name="Input" type="Node" parent="." index="2" unique_id=827335923]
+script = ExtResource("12_xblsl")
+
+[node name="CameraRig" type="Node3D" parent="." index="3" unique_id=469889581]
+process_priority = -10
+script = ExtResource("13_xvo7a")
+
+[node name="Camera3D" type="Camera3D" parent="CameraRig" index="0" unique_id=682720310]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 47, 0)
+current = true
+fov = 42.0
+near = 0.1
+far = 160.0
+
+[node name="Sun" type="DirectionalLight3D" parent="." index="4" unique_id=1695765162]
+transform = Transform3D(0.8660254, 0.43301272, -0.24999999, 0, 0.49999997, 0.86602545, 0.5, -0.75, 0.43301266, 0, 0, 0)
+light_energy = 1.2
+shadow_enabled = true
+
+[node name="Environment" type="WorldEnvironment" parent="." index="5" unique_id=1902978292]
+environment = SubResource("Environment_piq4w")
+
+[node name="UI" type="CanvasLayer" parent="." index="6" unique_id=1594858992]
+
+[node name="Status" type="Label" parent="UI" index="0" unique_id=961572391]
+offset_left = 20.0
+offset_top = 20.0
+offset_right = 1000.0
+offset_bottom = 80.0
+text = "S03-R bounded ENet baseline"

@@ -1,0 +1,33 @@
+extends SceneTree
+
+func _initialize() -> void:
+	_run.call_deferred()
+
+func _run() -> void:
+	var fixture: Node = load("res://tests/fixtures/s03_r/boot.tscn").instantiate()
+	fixture.set_script(null)
+	fixture.process_mode = Node.PROCESS_MODE_DISABLED
+	var match_state: S03RMatch = fixture.get_node("View/Match")
+	match_state.session_id = "independent-review"
+	root.add_child(fixture)
+	match_state.prepare_initial(1)
+	match_state.prepare_initial(2)
+	var baseline: Dictionary = match_state.baseline(2, 1)
+	for pose: Dictionary in baseline.poses:
+		pose.tick = 100
+		pose.position[0] = 10.0
+	var installed: bool = match_state.apply_baseline(baseline)
+	var actor: S03RActor = match_state.body_for_entity[1]
+	var before: Vector3 = actor.global_position
+	var obsolete: Dictionary = baseline.poses[0].duplicate(true)
+	obsolete.tick = 99
+	obsolete.position[0] = 0.0
+	var accepted: bool = match_state.apply_movement({"session": match_state.session_id,
+		"revision": 1, "rows": [obsolete]})
+	match_state._physics_process(1.0 / 60.0)
+	print("REVIEW " + JSON.stringify({"baseline_installed": installed,
+		"older_movement_accepted": accepted, "baseline_x": before.x,
+		"after_older_x": actor.global_position.x, "watermark": match_state.motion_ticks.get(1)}))
+	match_state.clear()
+	fixture.queue_free()
+	quit()

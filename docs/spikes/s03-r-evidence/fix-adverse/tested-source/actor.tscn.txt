@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://dlgajqmnuhary"]
+
+[ext_resource type="PackedScene" uid="uid://dl05tre3pd6e0" path="res://tests/fixtures/s02/actor.tscn" id="1"]
+[ext_resource type="Script" uid="uid://chdepcvowyd1r" path="res://tests/fixtures/s03_r/actor.gd" id="2_yasm2"]
+
+[node name="Actor" unique_id=267633019 instance=ExtResource("1")]
+script = ExtResource("2_yasm2")

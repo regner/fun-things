@@ -1,0 +1,349 @@
+{
+  "baseline": {
+    "interruption": {
+      "settled_rows": 36,
+      "max_host_distance_m": 0.0,
+      "max_host_yaw_rad": 0.0,
+      "velocities": [
+        [
+          0.0,
+          0.0,
+          0.0
+        ]
+      ]
+    },
+    "stall": {
+      "settled_rows": 36,
+      "max_host_distance_m": 0.0,
+      "max_host_yaw_rad": 0.0,
+      "velocities": [
+        [
+          0.0,
+          0.0,
+          0.0
+        ]
+      ]
+    },
+    "host_reverse_z_distance": 2.9500112533569407,
+    "pulse_onset_indices": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20
+    ],
+    "response_p95": 69,
+    "start_pids": [
+      194974,
+      194998
+    ],
+    "engine_stdout_same": {
+      "host": true,
+      "client": true
+    },
+    "boundary_focus": [
+      {
+        "event": "boundary_checks",
+        "reasons": [
+          "INVALID",
+          "STALE_CONTEXT",
+          "WINDOW",
+          "NOT_ADMITTED"
+        ],
+        "role": "host",
+        "time_ms": 16325,
+        "unchanged_pending": true,
+        "wall_ms": 1791410929411.65
+      },
+      {
+        "event": "focus_api",
+        "neutral": true,
+        "role": "client",
+        "time_ms": 16113,
+        "wall_ms": 1791410929415.68
+      }
+    ],
+    "results": [
+      {
+        "accepted": 1298,
+        "event": "result",
+        "failures": [],
+        "max_held_bytes": 256,
+        "max_movement_bytes": 604,
+        "ok": true,
+        "reason": "LEFT",
+        "rejected": {
+          "INVALID": 1,
+          "NOT_ADMITTED": 1,
+          "STALE_CONTEXT": 1,
+          "WINDOW": 1
+        },
+        "role": "host",
+        "time_ms": 22528,
+        "wall_ms": 1791410935615.15
+      },
+      {
+        "accepted": 0,
+        "event": "result",
+        "failures": [],
+        "max_held_bytes": 0,
+        "max_movement_bytes": 0,
+        "ok": true,
+        "reason": "HOST_LOST",
+        "rejected": {},
+        "role": "client",
+        "time_ms": 22309,
+        "wall_ms": 1791410935611.95
+      }
+    ],
+    "aim_unit_error": 1.5084143857313492e-06
+  },
+  "normal": {
+    "interruption": {
+      "settled_rows": 36,
+      "max_host_distance_m": 0.0,
+      "max_host_yaw_rad": 0.0,
+      "velocities": [
+        [
+          0.0,
+          0.0,
+          0.0
+        ]
+      ]
+    },
+    "stall": {
+      "settled_rows": 36,
+      "max_host_distance_m": 0.0,
+      "max_host_yaw_rad": 0.0,
+      "velocities": [
+        [
+          0.0,
+          0.0,
+          0.0
+        ]
+      ]
+    },
+    "host_reverse_z_distance": 2.9500112533569407,
+    "pulse_onset_indices": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20
+    ],
+    "response_p95": 235,
+    "start_pids": [
+      195075,
+      195098
+    ],
+    "engine_stdout_same": {
+      "host": true,
+      "client": true
+    },
+    "boundary_focus": [
+      {
+        "event": "boundary_checks",
+        "reasons": [
+          "INVALID",
+          "STALE_CONTEXT",
+          "WINDOW",
+          "NOT_ADMITTED"
+        ],
+        "role": "host",
+        "time_ms": 17747,
+        "unchanged_pending": true,
+        "wall_ms": 1791410956200.07
+      },
+      {
+        "event": "focus_api",
+        "neutral": true,
+        "role": "client",
+        "time_ms": 17444,
+        "wall_ms": 1791410956116.1
+      }
+    ],
+    "results": [
+      {
+        "accepted": 1165,
+        "event": "result",
+        "failures": [],
+        "max_held_bytes": 256,
+        "max_movement_bytes": 604,
+        "ok": true,
+        "reason": "LEFT",
+        "rejected": {
+          "INVALID": 1,
+          "NOT_ADMITTED": 1,
+          "STALE_CONTEXT": 1,
+          "WINDOW": 1
+        },
+        "role": "host",
+        "time_ms": 23944,
+        "wall_ms": 1791410962396.62
+      },
+      {
+        "accepted": 0,
+        "event": "result",
+        "failures": [],
+        "max_held_bytes": 0,
+        "max_movement_bytes": 0,
+        "ok": true,
+        "reason": "HOST_LOST",
+        "rejected": {},
+        "role": "client",
+        "time_ms": 23813,
+        "wall_ms": 1791410962484.89
+      }
+    ],
+    "aim_unit_error": 1.5568832433254798e-06
+  },
+  "adverse": {
+    "interruption": {
+      "settled_rows": 36,
+      "max_host_distance_m": 0.0,
+      "max_host_yaw_rad": 0.0,
+      "velocities": [
+        [
+          0.0,
+          0.0,
+          0.0
+        ]
+      ]
+    },
+    "stall": {
+      "settled_rows": 36,
+      "max_host_distance_m": 0.04999995231628018,
+      "max_host_yaw_rad": 0.0,
+      "velocities": [
+        [
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          2.99999260902405
+        ]
+      ]
+    },
+    "host_reverse_z_distance": 2.9500112533569407,
+    "pulse_onset_indices": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20
+    ],
+    "response_p95": 365,
+    "start_pids": [
+      195268,
+      195290
+    ],
+    "engine_stdout_same": {
+      "host": true,
+      "client": true
+    },
+    "boundary_focus": [
+      {
+        "event": "boundary_checks",
+        "reasons": [
+          "INVALID",
+          "STALE_CONTEXT",
+          "WINDOW",
+          "NOT_ADMITTED"
+        ],
+        "role": "host",
+        "time_ms": 18466,
+        "unchanged_pending": true,
+        "wall_ms": 1791410983754.4
+      },
+      {
+        "event": "focus_api",
+        "neutral": true,
+        "role": "client",
+        "time_ms": 18029,
+        "wall_ms": 1791410983534.14
+      }
+    ],
+    "results": [
+      {
+        "accepted": 1048,
+        "event": "result",
+        "failures": [],
+        "max_held_bytes": 256,
+        "max_movement_bytes": 604,
+        "ok": true,
+        "reason": "LEFT",
+        "rejected": {
+          "INVALID": 1,
+          "NOT_ADMITTED": 1,
+          "STALE_CONTEXT": 1,
+          "WINDOW": 1
+        },
+        "role": "host",
+        "time_ms": 24676,
+        "wall_ms": 1791410989964.51
+      },
+      {
+        "accepted": 0,
+        "event": "result",
+        "failures": [],
+        "max_held_bytes": 0,
+        "max_movement_bytes": 0,
+        "ok": true,
+        "reason": "HOST_LOST",
+        "rejected": {},
+        "role": "client",
+        "time_ms": 24577,
+        "wall_ms": 1791410990082.36
+      }
+    ],
+    "aim_unit_error": 2.4437904360130602e-06
+  }
+}

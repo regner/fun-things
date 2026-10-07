@@ -1,0 +1,13 @@
+/home/regner/.paseo/worktrees/0u71f39f/s03-r-enet-foot-response/tests/fixtures/s03_r/pose_fence_probe.gd
+  16:1 warning function '_run' is 68 lines long (max 50) [quality/max-function-length]
+      func _run() -> void:
+      ^
+  80:39 warning add space after '{' in single-line dictionary literal [format/brace-spacing]
+      	print("S03R_FENCE " + JSON.stringify({"ok": failures.is_empty(), "failures": failures}))
+      	                                     ^
+  80:87 warning add space before '}' in single-line dictionary literal [format/brace-spacing]
+      	print("S03R_FENCE " + JSON.stringify({"ok": failures.is_empty(), "failures": failures}))
+      	                                                                                     ^
+
+26 files checked, 3 warnings found.
+error: 3 warnings found, exceeding the --max-warnings limit of 0
