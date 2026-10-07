@@ -1,0 +1,25 @@
+extends SceneTree
+
+
+## Inspect registration without initializing a Steam account or connection.
+func _initialize() -> void:
+	var result: Dictionary = {"engine": Engine.get_version_info(),
+		"steam_singleton": Engine.has_singleton("Steam"),
+		"peer_class": ClassDB.class_exists("SteamMultiplayerPeer"),
+		"packet_class": ClassDB.class_exists("SteamPacketPeer")}
+	for class_name_value: String in ["SteamMultiplayerPeer", "SteamPacketPeer"]:
+		result[class_name_value] = ClassDB.class_get_method_list(class_name_value, true)
+	if Engine.has_singleton("Steam"):
+		var steam: Object = Engine.get_singleton("Steam")
+		result["godotsteam_version"] = steam.call("get_godotsteam_version")
+		result["steam_methods"] = ClassDB.class_get_method_list("Steam", true)
+		result["steam_signals"] = ClassDB.class_get_signal_list("Steam", true)
+	if Engine.has_singleton("SteamProjectSettings"):
+		var settings: Object = Engine.get_singleton("SteamProjectSettings")
+		result["auto_init"] = settings.call("get_auto_init")
+		result["max_channels"] = settings.call("get_max_channels")
+	var output: FileAccess = FileAccess.open("res://registration.json", FileAccess.WRITE)
+	output.store_string(JSON.stringify(result, "\t"))
+	output.close()
+	print("S03_S_REGISTRATION_ONLY_COMPLETE")
+	quit()

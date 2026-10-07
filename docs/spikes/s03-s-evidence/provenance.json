@@ -1,0 +1,135 @@
+{
+  "date": "2026-10-07",
+  "base": "81efb403fedb1e02eba8d4a0ddc37d73a5f64b17",
+  "release_tag": "v4.23-gde",
+  "source_ref": "532740f3f9c6a826c68914db81af9de1e32d5dc3",
+  "release_name": "Godot 4.4+ - Steamworks 1.65 - GodotSteam GDExtension 4.23",
+  "archive_url": "https://codeberg.org/godotsteam/godotsteam/releases/download/v4.23-gde/godotsteam-4.23-gdextension-plugin-4.4.zip",
+  "archive_sha256": "c1728b4bf330da851a00eaf64dab2e99c506018b1d9f529511b25d7fe7649e97",
+  "archive_bytes": 27592373,
+  "native": [
+    {
+      "path": "addons/godotsteam/androidarm64/libgodotsteam.android.template_debug.arm64.so",
+      "sha256": "e9497ee114a05a7bc72d1760aa20662d1f47c7a8611492fd46f8f7e0562535dd",
+      "matches_release": true
+    },
+    {
+      "path": "addons/godotsteam/androidarm64/libgodotsteam.android.template_release.arm64.so",
+      "sha256": "ceef2a9cb656e11402723ba728833f6606083cb814c58854f20da7cdc8221678",
+      "matches_release": true
+    },
+    {
+      "path": "addons/godotsteam/androidarm64/libsteam_api.so",
+      "sha256": "5297044572182f98fd39efc98de3a35e307e9101381430703942d9e388867feb",
+      "matches_release": true
+    },
+    {
+      "path": "addons/godotsteam/godotsteam.gdextension",
+      "sha256": "f02059cdf3199a97ab2abfb88ba226af500402f7f9053daa09c158d6b47eda77",
+      "matches_release": true
+    },
+    {
+      "path": "addons/godotsteam/linux32/libgodotsteam.linux.template_debug.x86_32.so",
+      "sha256": "88e76b762ee7879be11182f3b508c15dd99d0f869476a9a707e082bdb938766c",
+      "matches_release": true
+    },
+    {
+      "path": "addons/godotsteam/linux32/libgodotsteam.linux.template_release.x86_32.so",
+      "sha256": "da19ec58275be17a73ef8a135d27fc10642869a97c4d41c5d97f8199f86b7171",
+      "matches_release": true
+    },
+    {
+      "path": "addons/godotsteam/linux32/libsteam_api.so",
+      "sha256": "37c76adddac3f9bbe132f26731bb2a8155420688564bb39ab6972e7a4dc6f27c",
+      "matches_release": true
+    },
+    {
+      "path": "addons/godotsteam/linux64/libgodotsteam.linux.template_debug.x86_64.so",
+      "sha256": "fc1c9e40ecb80211603544cf73ee98df3970d78fe65ee08ef2fa2ff6966682fa",
+      "matches_release": true
+    },
+    {
+      "path": "addons/godotsteam/linux64/libgodotsteam.linux.template_release.x86_64.so",
+      "sha256": "9bb12a43baede7d3a11942413ab6c0eb2947588fde578da775905f922aaa0406",
+      "matches_release": true
+    },
+    {
+      "path": "addons/godotsteam/linux64/libsteam_api.so",
+      "sha256": "659127fd3c36788162149006efb607ae24c08b7264259c7af52c806fa40c2b4f",
+      "matches_release": true
+    },
+    {
+      "path": "addons/godotsteam/linuxarm64/libgodotsteam.linux.template_debug.arm64.so",
+      "sha256": "8114507217a59ed35a8c4eebf308086dfe04dff940dc16c6b07f090c963425f5",
+      "matches_release": true
+    },
+    {
+      "path": "addons/godotsteam/linuxarm64/libgodotsteam.linux.template_release.arm64.so",
+      "sha256": "6a6007f84f8f68950845799fe142e386b057b7605fa080861edc301605177930",
+      "matches_release": true
+    },
+    {
+      "path": "addons/godotsteam/linuxarm64/libsteam_api.so",
+      "sha256": "eae3df623fd1e614c995d06a123ef7e961fb1fa5087392f8ea628bff9e7f56ad",
+      "matches_release": true
+    },
+    {
+      "path": "addons/godotsteam/osx/libgodotsteam.macos.template_debug.universal.dylib",
+      "sha256": "20c1bbbca43106ab20ebfe3c585a0fcf8b878ba283b726123d6ca6034bb62996",
+      "matches_release": true
+    },
+    {
+      "path": "addons/godotsteam/osx/libgodotsteam.macos.template_release.universal.dylib",
+      "sha256": "f483d68a1f32949aa7d8b400977b160a339c5d47cf107af91afa741663022e4b",
+      "matches_release": true
+    },
+    {
+      "path": "addons/godotsteam/osx/libsteam_api.dylib",
+      "sha256": "ac6aca01a62b9ddfb8240fcc4ebdefab3d6b97da1ba3bbc87ff89b03369cc870",
+      "matches_release": true
+    },
+    {
+      "path": "addons/godotsteam/win32/libgodotsteam.windows.template_debug.x86_32.dll",
+      "sha256": "9b0fe3242af1088aae9436c4cc0813958fbe9b50755d2a47e36c2902b107216a",
+      "matches_release": true
+    },
+    {
+      "path": "addons/godotsteam/win32/libgodotsteam.windows.template_release.x86_32.dll",
+      "sha256": "dfeb687256e57d63b4c95fb06b41583f3c1ea80dd56c31fb970eb31686a94dd6",
+      "matches_release": true
+    },
+    {
+      "path": "addons/godotsteam/win32/steam_api.dll",
+      "sha256": "0eb196af5d9b12f19ad838770c82420c5b799862b0d0b041c1fa142b2199ac95",
+      "matches_release": true
+    },
+    {
+      "path": "addons/godotsteam/win64/libgodotsteam.windows.template_debug.x86_64.dll",
+      "sha256": "6431f60c8d92d4cf91a686a76cfdedd8e33cc125efadf568ed176d302b8db938",
+      "matches_release": true
+    },
+    {
+      "path": "addons/godotsteam/win64/libgodotsteam.windows.template_release.x86_64.dll",
+      "sha256": "d06c4df2b462e7696ee597286c53775ad7bb02a988dfa5bc5b6b4ce59591e62d",
+      "matches_release": true
+    },
+    {
+      "path": "addons/godotsteam/win64/steam_api64.dll",
+      "sha256": "8de54d32508e216c9135b8bf025749243d44e404c1c22a8e5fe35acecabe7a9c",
+      "matches_release": true
+    }
+  ],
+  "source_sha256": {
+    "godotsteam_multiplayer_peer.cpp": "9670cb68c74b5bcaa6391f091074ccfd21a0738d3e7e234c812efdded26b50c2",
+    "steam_packet_peer.cpp": "a387797bcfa283968090f108e69ba8d9ef49274128bf5eba1c31b6e9d29630f6",
+    "godotsteam_project_settings.cpp": "10b13d4a0a312eb04331ab58534f6456fb81b652fd2e87359575a6d46ceb9cbf",
+    "register_types.cpp": "b383884c572ff70b57798a8175b74962507e79fc936eaa66246c6b96dfb3abf6",
+    "godotsteam.cpp": "b3c55e1c40662424fdfff8c60ee749337b6e1d6930c81550df2bca65af17a5d6",
+    "SConstruct": "fcad5d58654ad01874c8503d4e2b17bd2cad03dc4d739f05659cd72c8b195eff",
+    "4.23.1-peer.cpp": "9670cb68c74b5bcaa6391f091074ccfd21a0738d3e7e234c812efdded26b50c2",
+    "4.23.1-packet.cpp": "a387797bcfa283968090f108e69ba8d9ef49274128bf5eba1c31b6e9d29630f6"
+  },
+  "patch_source_ref": "37cc25db782a58a60a4f7b0971782f08769a8f5d",
+  "patch_peer_source_identical": true,
+  "patch_packet_source_identical": true
+}

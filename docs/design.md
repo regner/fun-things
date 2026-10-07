@@ -286,12 +286,12 @@ P0-01 blockers. Obtain them when preparing those proofs; do not guess values.
 | Field | Current status / evidence required |
 | --- | --- |
 | Existing AppID and app type | AppID 5294580 confirmed from the user-designated VCS configs; its private-testing guide describes an unreleased main-game route, but actual app type/release status needs Steamworks verification |
-| Authorized test accounts | Not supplied; at least two distinct authorized accounts on separate machines/networks for S03-S, four players for capacity acceptance |
+| Authorized test accounts | 7 October availability supplement: Regner has no multiple Steam accounts; S03-S's two-account/separate-machine/network proof is explicitly deferred until access exists. Four-player capacity acceptance remains required |
 | App/package access | Unknown; record package IDs and account entitlement route, including unreleased-app access where needed; verify ownership/install with a tester |
 | Depots | Windows 5294581 and Linux 5294582 in the corresponding VCS VDFs; platform filters and tester-package inclusion still need live verification |
 | Launch settings | VCS exports `VehiclePlayground.exe` / `VehiclePlayground.x86_64`; its guide proposes install directory `Vehicle Playground` and empty Windows launch args. These are repo recipes, not verified live settings or a Fun Things launch decision |
 | Private test branch | Intended branch `fun-things`, selected by Regner on 7 October; live creation/access/build IDs not verified. VCS guide proposes `default` / `friends`, with no `SetLive` in its app VDF; preserve those existing delivery paths |
-| Integration/SDK/peer pins | Unselected; S03-S inspects the bundled candidate and chooses exact integration/native-library pins and proves gameplay traffic/relay route |
+| Integration/SDK/peer pins | Unselected; [S03-S preparation](spikes/s03-s.md) identifies bundled GodotSteam 4.23/SDK 1.65 and Linux registration, with source transfer-mode/default-channel mismatches. Selection/gameplay/relay remain unproved |
 | Installation/update evidence | Not run; S08 proves tester install/update/launch, M1-D4 repeats with milestone gameplay and retains rollback build identity |
 
 App/package entitlement and branch access are separate checks. Depot inclusion
@@ -299,6 +299,24 @@ also affects delivery; a branch password alone does not establish ownership.
 See Valve's [Testing on Steam](https://partner.steamgames.com/doc/store/testing)
 for the access/package distinction. Lobby/invite and actual transport evidence
 remain required by [multiplayer](multiplayer.md).
+
+### Availability and validation-status supplement — 7 October 2026
+
+Regner explicitly deferred Steam testing because multiple Steam accounts/testing
+access are unavailable, and reported no Steam Deck device access. S03-S retains
+the distinct-account/separate-machine/network proof until those facilities exist;
+S08 retains LCD/OLED Gaming Mode/input/native-init, performance and suspend proofs
+until devices exist. The [preparation record](spikes/s03-s.md) separates repository
+IDs, public sources and local registration from unknown live Steamworks state and
+unperformed transport/device tests. No renewed access request or substitute
+account/hardware is part of this preparation.
+
+These availability facts supplement the ratified decisions above. They do not
+reduce the Steam or Deck requirements, close S03-S/S08/P0-GATE, or waive dependent
+production acceptance. Keep native 1280×800, LCD/OLED, 60 FPS, controller/Gaming Mode
+and existing VCS delivery as design constraints. Public specs and desktop checks
+cannot establish hardware compatibility. The engine pin decision needing exported
+Deck input evidence remains provisional; no pins changed on this basis.
 
 ## Open decisions, owners and closure evidence
 

@@ -1,0 +1,960 @@
+{
+  "SteamMultiplayerPeer": [
+    {
+      "args": [
+        {
+          "class_name": "",
+          "hint": 0,
+          "hint_string": "",
+          "name": "virtual_port",
+          "type": 2,
+          "usage": 6
+        }
+      ],
+      "default_args": [
+        0
+      ],
+      "flags": 1,
+      "id": 16569,
+      "name": "create_host",
+      "return": {
+        "class_name": "Error",
+        "hint": 0,
+        "hint_string": "",
+        "name": "",
+        "type": 2,
+        "usage": 65542
+      }
+    },
+    {
+      "args": [
+        {
+          "class_name": "",
+          "hint": 0,
+          "hint_string": "",
+          "name": "steam_id",
+          "type": 2,
+          "usage": 6
+        },
+        {
+          "class_name": "",
+          "hint": 0,
+          "hint_string": "",
+          "name": "virtual_port",
+          "type": 2,
+          "usage": 6
+        }
+      ],
+      "default_args": [
+        0
+      ],
+      "flags": 1,
+      "id": 16570,
+      "name": "create_client",
+      "return": {
+        "class_name": "Error",
+        "hint": 0,
+        "hint_string": "",
+        "name": "",
+        "type": 2,
+        "usage": 65542
+      }
+    },
+    {
+      "args": [
+        {
+          "class_name": "",
+          "hint": 0,
+          "hint_string": "",
+          "name": "steam_id",
+          "type": 2,
+          "usage": 6
+        },
+        {
+          "class_name": "",
+          "hint": 0,
+          "hint_string": "",
+          "name": "virtual_port",
+          "type": 2,
+          "usage": 6
+        }
+      ],
+      "default_args": [
+        0
+      ],
+      "flags": 1,
+      "id": 16571,
+      "name": "add_peer",
+      "return": {
+        "class_name": "Error",
+        "hint": 0,
+        "hint_string": "",
+        "name": "",
+        "type": 2,
+        "usage": 65542
+      }
+    },
+    {
+      "args": [
+        {
+          "class_name": "",
+          "hint": 0,
+          "hint_string": "",
+          "name": "peer_id",
+          "type": 2,
+          "usage": 6
+        }
+      ],
+      "default_args": [],
+      "flags": 1,
+      "id": 16572,
+      "name": "get_peer",
+      "return": {
+        "class_name": "SteamPacketPeer",
+        "hint": 17,
+        "hint_string": "SteamPacketPeer",
+        "name": "",
+        "type": 24,
+        "usage": 6
+      }
+    },
+    {
+      "args": [
+        {
+          "class_name": "",
+          "hint": 0,
+          "hint_string": "",
+          "name": "lobby_id",
+          "type": 2,
+          "usage": 6
+        }
+      ],
+      "default_args": [],
+      "flags": 1,
+      "id": 16573,
+      "name": "host_with_lobby",
+      "return": {
+        "class_name": "Error",
+        "hint": 0,
+        "hint_string": "",
+        "name": "",
+        "type": 2,
+        "usage": 65542
+      }
+    },
+    {
+      "args": [
+        {
+          "class_name": "",
+          "hint": 0,
+          "hint_string": "",
+          "name": "lobby_id",
+          "type": 2,
+          "usage": 6
+        }
+      ],
+      "default_args": [],
+      "flags": 1,
+      "id": 16574,
+      "name": "connect_to_lobby",
+      "return": {
+        "class_name": "Error",
+        "hint": 0,
+        "hint_string": "",
+        "name": "",
+        "type": 2,
+        "usage": 65542
+      }
+    },
+    {
+      "args": [
+        {
+          "class_name": "",
+          "hint": 0,
+          "hint_string": "",
+          "name": "peer_id",
+          "type": 2,
+          "usage": 6
+        }
+      ],
+      "default_args": [],
+      "flags": 1,
+      "id": 16575,
+      "name": "get_steam_id_for_peer_id",
+      "return": {
+        "class_name": "",
+        "hint": 0,
+        "hint_string": "",
+        "name": "",
+        "type": 2,
+        "usage": 6
+      }
+    },
+    {
+      "args": [
+        {
+          "class_name": "",
+          "hint": 0,
+          "hint_string": "",
+          "name": "steam_id",
+          "type": 2,
+          "usage": 6
+        }
+      ],
+      "default_args": [],
+      "flags": 1,
+      "id": 16576,
+      "name": "get_peer_id_for_steam_id",
+      "return": {
+        "class_name": "",
+        "hint": 0,
+        "hint_string": "",
+        "name": "",
+        "type": 2,
+        "usage": 6
+      }
+    },
+    {
+      "args": [],
+      "default_args": [],
+      "flags": 5,
+      "id": 16577,
+      "name": "get_no_delay",
+      "return": {
+        "class_name": "",
+        "hint": 0,
+        "hint_string": "",
+        "name": "",
+        "type": 1,
+        "usage": 6
+      }
+    },
+    {
+      "args": [
+        {
+          "class_name": "",
+          "hint": 0,
+          "hint_string": "",
+          "name": "_unnamed_arg0",
+          "type": 1,
+          "usage": 6
+        }
+      ],
+      "default_args": [],
+      "flags": 1,
+      "id": 16578,
+      "name": "set_no_delay",
+      "return": {
+        "class_name": "",
+        "hint": 0,
+        "hint_string": "",
+        "name": "",
+        "type": 0,
+        "usage": 6
+      }
+    },
+    {
+      "args": [],
+      "default_args": [],
+      "flags": 5,
+      "id": 16579,
+      "name": "get_no_nagle",
+      "return": {
+        "class_name": "",
+        "hint": 0,
+        "hint_string": "",
+        "name": "",
+        "type": 1,
+        "usage": 6
+      }
+    },
+    {
+      "args": [
+        {
+          "class_name": "",
+          "hint": 0,
+          "hint_string": "",
+          "name": "_unnamed_arg0",
+          "type": 1,
+          "usage": 6
+        }
+      ],
+      "default_args": [],
+      "flags": 1,
+      "id": 16580,
+      "name": "set_no_nagle",
+      "return": {
+        "class_name": "",
+        "hint": 0,
+        "hint_string": "",
+        "name": "",
+        "type": 0,
+        "usage": 6
+      }
+    },
+    {
+      "args": [],
+      "default_args": [],
+      "flags": 5,
+      "id": 16581,
+      "name": "get_server_relay",
+      "return": {
+        "class_name": "",
+        "hint": 0,
+        "hint_string": "",
+        "name": "",
+        "type": 1,
+        "usage": 6
+      }
+    },
+    {
+      "args": [
+        {
+          "class_name": "",
+          "hint": 0,
+          "hint_string": "",
+          "name": "_unnamed_arg0",
+          "type": 1,
+          "usage": 6
+        }
+      ],
+      "default_args": [],
+      "flags": 1,
+      "id": 16582,
+      "name": "set_server_relay",
+      "return": {
+        "class_name": "",
+        "hint": 0,
+        "hint_string": "",
+        "name": "",
+        "type": 0,
+        "usage": 6
+      }
+    },
+    {
+      "args": [],
+      "default_args": [],
+      "flags": 5,
+      "id": 16583,
+      "name": "get_debug_level",
+      "return": {
+        "class_name": "SteamMultiplayerPeer.DebugLevel",
+        "hint": 0,
+        "hint_string": "",
+        "name": "",
+        "type": 2,
+        "usage": 65542
+      }
+    },
+    {
+      "args": [
+        {
+          "class_name": "SteamMultiplayerPeer.DebugLevel",
+          "hint": 0,
+          "hint_string": "",
+          "name": "_unnamed_arg0",
+          "type": 2,
+          "usage": 65542
+        }
+      ],
+      "default_args": [],
+      "flags": 1,
+      "id": 16584,
+      "name": "set_debug_level",
+      "return": {
+        "class_name": "",
+        "hint": 0,
+        "hint_string": "",
+        "name": "",
+        "type": 0,
+        "usage": 6
+      }
+    }
+  ],
+  "SteamPacketPeer": [
+    {
+      "args": [],
+      "default_args": [],
+      "flags": 5,
+      "id": 16564,
+      "name": "get_steam_id",
+      "return": {
+        "class_name": "",
+        "hint": 0,
+        "hint_string": "",
+        "name": "",
+        "type": 2,
+        "usage": 6
+      }
+    },
+    {
+      "args": [],
+      "default_args": [],
+      "flags": 5,
+      "id": 16565,
+      "name": "get_connection_handle",
+      "return": {
+        "class_name": "",
+        "hint": 0,
+        "hint_string": "",
+        "name": "",
+        "type": 2,
+        "usage": 6
+      }
+    },
+    {
+      "args": [],
+      "default_args": [],
+      "flags": 5,
+      "id": 16566,
+      "name": "get_peer_id",
+      "return": {
+        "class_name": "",
+        "hint": 0,
+        "hint_string": "",
+        "name": "",
+        "type": 2,
+        "usage": 6
+      }
+    },
+    {
+      "args": [],
+      "default_args": [],
+      "flags": 5,
+      "id": 16567,
+      "name": "get_state",
+      "return": {
+        "class_name": "SteamPacketPeer.PeerState",
+        "hint": 0,
+        "hint_string": "",
+        "name": "",
+        "type": 2,
+        "usage": 65542
+      }
+    },
+    {
+      "args": [
+        {
+          "class_name": "",
+          "hint": 0,
+          "hint_string": "",
+          "name": "force",
+          "type": 1,
+          "usage": 6
+        }
+      ],
+      "default_args": [
+        false
+      ],
+      "flags": 1,
+      "id": 16568,
+      "name": "disconnect_peer",
+      "return": {
+        "class_name": "",
+        "hint": 0,
+        "hint_string": "",
+        "name": "",
+        "type": 0,
+        "usage": 6
+      }
+    }
+  ],
+  "auto_init": false,
+  "engine": {
+    "build": "official",
+    "hash": "c971f93e7e76b0ef919bf6009e7b868bea04db7f",
+    "hex": 264192,
+    "major": 4,
+    "minor": 8,
+    "patch": 0,
+    "status": "dev7",
+    "string": "4.8-dev7 (official)",
+    "timestamp": 0
+  },
+  "godotsteam_version": "4.23",
+  "max_channels": 4,
+  "packet_class": true,
+  "peer_class": true,
+  "steam_methods": [
+    {
+      "args": [],
+      "default_args": [],
+      "flags": 5,
+      "id": 1592,
+      "name": "get_godotsteam_version",
+      "return": {
+        "class_name": "",
+        "hint": 0,
+        "hint_string": "",
+        "name": "",
+        "type": 4,
+        "usage": 6
+      }
+    },
+    {
+      "args": [],
+      "default_args": [],
+      "flags": 1,
+      "id": 1602,
+      "name": "run_callbacks",
+      "return": {
+        "class_name": "",
+        "hint": 0,
+        "hint_string": "",
+        "name": "",
+        "type": 0,
+        "usage": 6
+      }
+    },
+    {
+      "args": [
+        {
+          "class_name": "",
+          "hint": 0,
+          "hint_string": "",
+          "name": "app_id",
+          "type": 2,
+          "usage": 6
+        },
+        {
+          "class_name": "",
+          "hint": 0,
+          "hint_string": "",
+          "name": "embed_callbacks",
+          "type": 1,
+          "usage": 6
+        }
+      ],
+      "default_args": [
+        0,
+        false
+      ],
+      "flags": 1,
+      "id": 1604,
+      "name": "steamInit",
+      "return": {
+        "class_name": "",
+        "hint": 0,
+        "hint_string": "",
+        "name": "",
+        "type": 1,
+        "usage": 6
+      }
+    },
+    {
+      "args": [
+        {
+          "class_name": "",
+          "hint": 0,
+          "hint_string": "",
+          "name": "app_id",
+          "type": 2,
+          "usage": 6
+        },
+        {
+          "class_name": "",
+          "hint": 0,
+          "hint_string": "",
+          "name": "embed_callbacks",
+          "type": 1,
+          "usage": 6
+        }
+      ],
+      "default_args": [
+        0,
+        false
+      ],
+      "flags": 1,
+      "id": 1605,
+      "name": "steamInitEx",
+      "return": {
+        "class_name": "",
+        "hint": 0,
+        "hint_string": "",
+        "name": "",
+        "type": 27,
+        "usage": 6
+      }
+    },
+    {
+      "args": [],
+      "default_args": [],
+      "flags": 1,
+      "id": 1607,
+      "name": "steamShutdown",
+      "return": {
+        "class_name": "",
+        "hint": 0,
+        "hint_string": "",
+        "name": "",
+        "type": 0,
+        "usage": 6
+      }
+    },
+    {
+      "args": [],
+      "default_args": [],
+      "flags": 1,
+      "id": 1645,
+      "name": "getLaunchCommandLine",
+      "return": {
+        "class_name": "",
+        "hint": 0,
+        "hint_string": "",
+        "name": "",
+        "type": 4,
+        "usage": 6
+      }
+    },
+    {
+      "args": [
+        {
+          "class_name": "Steam.LobbyType",
+          "hint": 0,
+          "hint_string": "",
+          "name": "lobby_type",
+          "type": 2,
+          "usage": 65542
+        },
+        {
+          "class_name": "",
+          "hint": 0,
+          "hint_string": "",
+          "name": "max_members",
+          "type": 2,
+          "usage": 6
+        }
+      ],
+      "default_args": [
+        2
+      ],
+      "flags": 1,
+      "id": 1895,
+      "name": "createLobby",
+      "return": {
+        "class_name": "",
+        "hint": 0,
+        "hint_string": "",
+        "name": "",
+        "type": 0,
+        "usage": 6
+      }
+    },
+    {
+      "args": [
+        {
+          "class_name": "",
+          "hint": 0,
+          "hint_string": "",
+          "name": "steam_lobby_id",
+          "type": 2,
+          "usage": 6
+        }
+      ],
+      "default_args": [],
+      "flags": 1,
+      "id": 1896,
+      "name": "joinLobby",
+      "return": {
+        "class_name": "",
+        "hint": 0,
+        "hint_string": "",
+        "name": "",
+        "type": 0,
+        "usage": 6
+      }
+    },
+    {
+      "args": [
+        {
+          "class_name": "",
+          "hint": 0,
+          "hint_string": "",
+          "name": "steam_lobby_id",
+          "type": 2,
+          "usage": 6
+        }
+      ],
+      "default_args": [],
+      "flags": 1,
+      "id": 1897,
+      "name": "leaveLobby",
+      "return": {
+        "class_name": "",
+        "hint": 0,
+        "hint_string": "",
+        "name": "",
+        "type": 0,
+        "usage": 6
+      }
+    },
+    {
+      "args": [
+        {
+          "class_name": "",
+          "hint": 0,
+          "hint_string": "",
+          "name": "connection_handle",
+          "type": 2,
+          "usage": 6
+        }
+      ],
+      "default_args": [],
+      "flags": 1,
+      "id": 1976,
+      "name": "getConnectionInfo",
+      "return": {
+        "class_name": "",
+        "hint": 0,
+        "hint_string": "",
+        "name": "",
+        "type": 27,
+        "usage": 6
+      }
+    },
+    {
+      "args": [
+        {
+          "class_name": "",
+          "hint": 0,
+          "hint_string": "",
+          "name": "connection_handle",
+          "type": 2,
+          "usage": 6
+        },
+        {
+          "class_name": "",
+          "hint": 0,
+          "hint_string": "",
+          "name": "lanes",
+          "type": 2,
+          "usage": 6
+        },
+        {
+          "class_name": "",
+          "hint": 0,
+          "hint_string": "",
+          "name": "get_status",
+          "type": 1,
+          "usage": 6
+        }
+      ],
+      "default_args": [
+        true
+      ],
+      "flags": 1,
+      "id": 1978,
+      "name": "getConnectionRealTimeStatus",
+      "return": {
+        "class_name": "",
+        "hint": 0,
+        "hint_string": "",
+        "name": "",
+        "type": 27,
+        "usage": 6
+      }
+    },
+    {
+      "args": [
+        {
+          "class_name": "",
+          "hint": 0,
+          "hint_string": "",
+          "name": "connection_handle",
+          "type": 2,
+          "usage": 6
+        }
+      ],
+      "default_args": [],
+      "flags": 1,
+      "id": 1980,
+      "name": "getDetailedConnectionStatus",
+      "return": {
+        "class_name": "",
+        "hint": 0,
+        "hint_string": "",
+        "name": "",
+        "type": 27,
+        "usage": 6
+      }
+    },
+    {
+      "args": [],
+      "default_args": [],
+      "flags": 1,
+      "id": 2011,
+      "name": "getRelayNetworkStatus",
+      "return": {
+        "class_name": "Steam.NetworkingAvailability",
+        "hint": 0,
+        "hint_string": "",
+        "name": "",
+        "type": 2,
+        "usage": 65542
+      }
+    },
+    {
+      "args": [],
+      "default_args": [],
+      "flags": 1,
+      "id": 2012,
+      "name": "initRelayNetworkAccess",
+      "return": {
+        "class_name": "",
+        "hint": 0,
+        "hint_string": "",
+        "name": "",
+        "type": 0,
+        "usage": 6
+      }
+    }
+  ],
+  "steam_signals": [
+    {
+      "args": [
+        {
+          "class_name": "",
+          "hint": 0,
+          "hint_string": "",
+          "name": "user",
+          "type": 2,
+          "usage": 6
+        },
+        {
+          "class_name": "",
+          "hint": 0,
+          "hint_string": "",
+          "name": "connect",
+          "type": 4,
+          "usage": 6
+        }
+      ],
+      "default_args": [],
+      "flags": 1,
+      "id": 0,
+      "name": "join_game_requested",
+      "return": {
+        "class_name": "",
+        "hint": 0,
+        "hint_string": "",
+        "name": "",
+        "type": 0,
+        "usage": 6
+      }
+    },
+    {
+      "args": [
+        {
+          "class_name": "",
+          "hint": 0,
+          "hint_string": "",
+          "name": "lobby_id",
+          "type": 2,
+          "usage": 6
+        },
+        {
+          "class_name": "",
+          "hint": 0,
+          "hint_string": "",
+          "name": "steam_id",
+          "type": 2,
+          "usage": 6
+        }
+      ],
+      "default_args": [],
+      "flags": 1,
+      "id": 0,
+      "name": "join_requested",
+      "return": {
+        "class_name": "",
+        "hint": 0,
+        "hint_string": "",
+        "name": "",
+        "type": 0,
+        "usage": 6
+      }
+    },
+    {
+      "args": [
+        {
+          "class_name": "",
+          "hint": 0,
+          "hint_string": "",
+          "name": "connect",
+          "type": 2,
+          "usage": 6
+        },
+        {
+          "class_name": "",
+          "hint": 0,
+          "hint_string": "",
+          "name": "lobby_id",
+          "type": 2,
+          "usage": 6
+        }
+      ],
+      "default_args": [],
+      "flags": 1,
+      "id": 0,
+      "name": "lobby_created",
+      "return": {
+        "class_name": "",
+        "hint": 0,
+        "hint_string": "",
+        "name": "",
+        "type": 0,
+        "usage": 6
+      }
+    },
+    {
+      "args": [
+        {
+          "class_name": "",
+          "hint": 0,
+          "hint_string": "",
+          "name": "lobby",
+          "type": 2,
+          "usage": 6
+        },
+        {
+          "class_name": "",
+          "hint": 0,
+          "hint_string": "",
+          "name": "permissions",
+          "type": 2,
+          "usage": 6
+        },
+        {
+          "class_name": "",
+          "hint": 0,
+          "hint_string": "",
+          "name": "locked",
+          "type": 1,
+          "usage": 6
+        },
+        {
+          "class_name": "",
+          "hint": 0,
+          "hint_string": "",
+          "name": "response",
+          "type": 2,
+          "usage": 6
+        }
+      ],
+      "default_args": [],
+      "flags": 1,
+      "id": 0,
+      "name": "lobby_joined",
+      "return": {
+        "class_name": "",
+        "hint": 0,
+        "hint_string": "",
+        "name": "",
+        "type": 0,
+        "usage": 6
+      }
+    }
+  ],
+  "steam_singleton": true,
+  "evidence_projection": "Selected Steam methods/signals; complete peer and packet class-owned methods. Full raw result retained in /tmp/s03-s-preparation/probe/registration.json."
+}

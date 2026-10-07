@@ -213,6 +213,15 @@ implementation. Save editor mutations before playtests; preserve unsaved work.
   Needs: [S03 boundary/fixture evidence](docs/spikes/s03.md) and
   [existing-app record](docs/design.md).
   Owner: Codex (proof/setup record), Regner (Steamworks access).
+  **Preparation recorded, final Steam proof DEFERRED (7 October 2026):** Regner
+  reports no multiple Steam accounts/testing access. Resume the two-account,
+  separate-machine/network cases only when those facilities become available.
+  [Preparation evidence](docs/spikes/s03-s.md) identifies bundled 4.23/SDK 1.65,
+  isolated Linux class registration and source mode/default-channel mismatches;
+  integration selection, native cancel/drain and live app/access remain unproved.
+  Next bounded compatibility experiment is specified there; no vendor/engine pin
+  or four-channel/ordered-unreliable contract change is implied. Deferral does not
+  satisfy P0-GATE or dependent Steam acceptance; keep this task open.
   Before the network proof, verify app type/release state, distinct authorized
   testers/package entitlement, depot OS/package inclusion and launch settings;
   confirm/create the intended `fun-things` private branch and record its access route.
@@ -300,6 +309,13 @@ implementation. Save editor mutations before playtests; preserve unsaved work.
   Needs: [ratified target/pin record](docs/design.md) for early input/template checks;
   [S01 pipeline evidence](docs/spikes/s01.md), [S03 evidence](docs/spikes/s03.md)
   and S03-S for the complete proof. Owner: Codex (proof), Regner (device access).
+  **Device cases DEFERRED (7 October 2026):** Regner reports no Steam Deck access.
+  Resume Gaming Mode/input/native-init, performance and suspend proofs when the
+  required LCD/OLED devices become available. Keep native 1280×800, both models,
+  60 FPS/controller/Gaming Mode constraints and the provisional engine decision;
+  specs/public docs/desktop checks cannot pass these cases. S03-S's two-account
+  Steam cases are also deferred, with [preparation/access limits](docs/spikes/s03-s.md).
+  Ungated desktop preparation may continue; S08 and dependent acceptance stay open.
   Early input evidence settles the engine decision deliberately left open in P0-01.
   First: minimal exported Deck Gaming Mode input/native-extension initialization
   test, exact templates and candidate engine choice for the dev7 controller regression.
