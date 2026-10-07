@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://bam5ni3x5hsli"]
+
+[ext_resource type="PackedScene" uid="uid://dyqxf7wui38q6" path="res://tests/fixtures/s02/corner.tscn" id="1"]
+
+[node name="S02" unique_id=392496834 instance=ExtResource("1")]
+
+[node name="Camera3D" parent="CameraRig" parent_id_path=PackedInt32Array(1180517076) index="0" unique_id=1619197047]
+fov = 50.0

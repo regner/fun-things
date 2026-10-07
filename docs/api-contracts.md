@@ -604,3 +604,14 @@ prediction (S02/S03-R/S04), interaction thresholds/stopping (S04), combat tuning
 chain/retention capacity policy (S05), topology/route/bake bounds (S06), toolchain and
 measured budgets (S07/S08). These remain active tasks in [TODO](../TODO.md); P0-02
 completes the draft, not those proofs or production acceptance.
+
+## S02 desktop candidate boundary
+
+The [S02 desktop fixture](spikes/s02.md) implements a bounded standalone facing-relative
+step and pistol-ray probe. It selects no prediction/network/combat API. Candidate
+values are 5/3 m/s forward/reverse, 180°/s turn, capsule radius0.38 m/height1.8 m,
+World bit1 and Actor bit2. The query checks body centre to source-derived muzzle
+before the forward ray, so an extended weapon cannot shoot through world collision.
+Input cancellation is owned by LocalRig/Input; actual native-focus validation and
+user feel remain pending. Rendering cutaway never changes solid collision. These
+are spike candidates for S03-R/S04/P0-GATE, not accepted production tuning.

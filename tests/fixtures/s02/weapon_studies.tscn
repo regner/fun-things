@@ -1,0 +1,72 @@
+[gd_scene format=3 uid="uid://c2ohgjyc2v8vx"]
+
+[ext_resource type="PackedScene" uid="uid://bkccqft5jbfk0" path="res://art/models/spikes/s02_actor.glb" id="1_4yn8l"]
+[ext_resource type="PackedScene" uid="uid://bl2jw1q8gd682" path="res://art/models/spikes/s02_pistol.glb" id="2_cydrh"]
+[ext_resource type="PackedScene" uid="uid://ci5japm8cuaj" path="res://art/models/spikes/s02_smg.glb" id="3_llfln"]
+[ext_resource type="PackedScene" uid="uid://dupjuuyr6a3nq" path="res://art/models/spikes/s02_launcher.glb" id="4_pmvfh"]
+[ext_resource type="PackedScene" uid="uid://oo387cvkiy5g" path="res://tests/fixtures/s02/ground_prefab.tscn" id="5_x88rs"]
+
+[sub_resource type="Environment" id="Environment_dsg5h"]
+background_mode = 1
+background_color = Color(0.035, 0.065, 0.085, 1)
+ambient_light_source = 2
+ambient_light_color = Color(0.8, 0.85, 1, 1)
+ambient_light_energy = 0.65
+
+[node name="WeaponStudies" type="Node3D" unique_id=1633952129]
+
+[node name="pistol" type="Node3D" parent="." unique_id=523954932]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 0, 0)
+
+[node name="Model" parent="pistol" unique_id=1664543391 instance=ExtResource("1_4yn8l")]
+
+[node name="WeaponMount" type="Node3D" parent="pistol" unique_id=200792722]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.4300003, 1.2, -0.6)
+
+[node name="Model" parent="pistol/WeaponMount" unique_id=492851065 instance=ExtResource("2_cydrh")]
+
+[node name="smg" type="Node3D" parent="." unique_id=522933551]
+
+[node name="Model" parent="smg" unique_id=1147298966 instance=ExtResource("1_4yn8l")]
+
+[node name="WeaponMount" type="Node3D" parent="smg" unique_id=2119302768]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.43, 1.2, -0.6)
+
+[node name="Model" parent="smg/WeaponMount" unique_id=334381662 instance=ExtResource("3_llfln")]
+
+[node name="launcher" type="Node3D" parent="." unique_id=239522880]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, 0)
+
+[node name="Model" parent="launcher" unique_id=192144525 instance=ExtResource("1_4yn8l")]
+
+[node name="WeaponMount" type="Node3D" parent="launcher" unique_id=1450721587]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.4300003, 1.2, -0.6)
+
+[node name="Model" parent="launcher/WeaponMount" unique_id=1771085316 instance=ExtResource("4_pmvfh")]
+
+[node name="Ground" parent="." unique_id=1387867042 instance=ExtResource("5_x88rs")]
+
+[node name="Camera" type="Camera3D" parent="." unique_id=1993003962]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 47, 0)
+current = true
+fov = 42.0
+near = 0.1
+far = 160.0
+
+[node name="Sun" type="DirectionalLight3D" parent="." unique_id=728059250]
+transform = Transform3D(0.8660254, 0.43301272, -0.24999999, 0, 0.49999997, 0.86602545, 0.5, -0.75, 0.43301266, 0, 0, 0)
+light_energy = 1.2
+shadow_enabled = true
+
+[node name="Environment" type="WorldEnvironment" parent="." unique_id=1685645892]
+environment = SubResource("Environment_dsg5h")
+
+[node name="UI" type="CanvasLayer" parent="." unique_id=848849474]
+
+[node name="Title" type="Label" parent="UI" unique_id=1478973734]
+offset_left = 20.0
+offset_top = 20.0
+offset_right = 1250.0
+offset_bottom = 60.0
+theme_override_font_sizes/font_size = 20
+text = "S02 held-weapon blockouts | actual 47 m / 42° camera | pistol · SMG · launcher"

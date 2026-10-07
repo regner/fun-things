@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://dra4y060lahdw"]
+
+[ext_resource type="Script" uid="uid://d2oer50d005p4" path="res://tests/fixtures/s02/building_view.gd" id="1_10c2p"]
+[ext_resource type="PackedScene" uid="uid://rg5mixotkaqo" path="res://art/models/spikes/s02_low.glb" id="1_10fu5"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_10c2p"]
+size = Vector3(8, 6, 8)
+
+[node name="low_prefab" type="Node3D" unique_id=1338630014]
+script = ExtResource("1_10c2p")
+
+[node name="Visuals" type="Node3D" parent="." unique_id=460251499]
+
+[node name="Model" parent="Visuals" unique_id=543371146 instance=ExtResource("1_10fu5")]
+
+[node name="Collision" type="Node3D" parent="." unique_id=1677503591]
+
+[node name="Body" type="StaticBody3D" parent="Collision" unique_id=648598124]
+collision_mask = 2
+
+[node name="Shape" type="CollisionShape3D" parent="Collision/Body" unique_id=805502737]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 0)
+shape = SubResource("BoxShape3D_10c2p")

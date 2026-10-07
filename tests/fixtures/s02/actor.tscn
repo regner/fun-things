@@ -1,0 +1,35 @@
+[gd_scene format=3 uid="uid://dl05tre3pd6e0"]
+
+[ext_resource type="Script" uid="uid://cx4peuueldyeo" path="res://tests/fixtures/s02/actor_motion.gd" id="1_sfy5i"]
+[ext_resource type="PackedScene" uid="uid://bkccqft5jbfk0" path="res://art/models/spikes/s02_actor.glb" id="2_mvelh"]
+[ext_resource type="PackedScene" uid="uid://bl2jw1q8gd682" path="res://art/models/spikes/s02_pistol.glb" id="3_ds8xt"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_g0emf"]
+radius = 0.38
+height = 1.8
+
+[node name="Actor" type="CharacterBody3D" unique_id=987036009]
+collision_layer = 2
+collision_mask = 3
+motion_mode = 1
+script = ExtResource("1_sfy5i")
+
+[node name="PresentationAnchor" type="Node3D" parent="." unique_id=10039724]
+
+[node name="Visuals" type="Node3D" parent="PresentationAnchor" unique_id=439153625]
+
+[node name="Model" parent="PresentationAnchor/Visuals" unique_id=1664543391 instance=ExtResource("2_mvelh")]
+
+[node name="WeaponMount" type="Node3D" parent="PresentationAnchor" unique_id=2111226270]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.43, 1.2, -0.6)
+
+[node name="Model" parent="PresentationAnchor/WeaponMount" unique_id=492851065 instance=ExtResource("3_ds8xt")]
+
+[node name="Sockets" type="Node3D" parent="." unique_id=1968388298]
+
+[node name="Muzzle" type="Marker3D" parent="Sockets" unique_id=1610193387]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.43, 1.2, -1.02)
+
+[node name="Collision" type="CollisionShape3D" parent="." unique_id=294621321]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0)
+shape = SubResource("CapsuleShape3D_g0emf")

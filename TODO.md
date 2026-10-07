@@ -214,6 +214,9 @@ implementation. Save editor mutations before playtests; preserve unsaved work.
   Start with GTA2 turn/forward/back controls; an alternative needs a deliberate
   product decision. Decision: camera/control contract, actor/collision/aim envelope,
   playtest evidence and feel targets. No finished animation or weapon system required.
+  Desktop exploration: [S02 fixture and evidence](docs/spikes/s02.md) supplies a
+  provisional 47 m/42° keyboard corner harness. Native desktop focus and user feel
+  remain pending; handheld/early S08 and all dependent gates remain open.
 
 - [ ] **S03-S — Steam integration, friend connection and transport proof.**
   Needs: [S03 boundary/fixture evidence](docs/spikes/s03.md) and

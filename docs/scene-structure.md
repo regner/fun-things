@@ -170,3 +170,15 @@ camera-follow or HUD behavior is claimed. Empty CityRoot/marker entities introdu
 no visible models or collision fixtures. S01 provides P0-03's asset/resource
 checks through the [development tasks](development.md#foundation-validation-tasks). Use the [asset workflow](assets.md) for handoffs/catalogue conventions;
 S01 records export/import settings and their roundtrip.
+
+## S02 desktop fixture supplement
+
+`tests/fixtures/s02/corner.tscn` owns the saved corner/alley placement, linked static
+wrappers, actor/targets, input/query nodes, camera and diagnostic UI. `actor.tscn`
+uses a CharacterBody3D candidate with a direct capsule Collision child, linked
+PresentationAnchor/Visuals/Model and source-derived saved weapon/muzzle sockets.
+It has no Health/Weapons production components. `corner_wide.tscn` inherits only
+owned camera FOV, with no editable imported-child overrides. Building wrappers
+apply local presentation cutaway materials while preserving meshes/collision.
+The [S02 record](spikes/s02.md) and [source handoff](assets/s02_kit.md) bound this
+exploration; production paths, native-focus/user feel, Deck and P0-GATE stay open.

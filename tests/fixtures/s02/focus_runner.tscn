@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://ct50ay8ycj15k"]
+
+[ext_resource type="Script" uid="uid://dr0diaj5s47l4" path="res://tests/fixtures/s02/focus_evidence.gd" id="1_n5nsw"]
+[ext_resource type="PackedScene" uid="uid://dyqxf7wui38q6" path="res://tests/fixtures/s02/corner.tscn" id="2_35nc4"]
+
+[node name="FocusEvidence" type="Node" unique_id=941963502]
+script = ExtResource("1_n5nsw")
+
+[node name="Fixture" parent="." unique_id=1999141102 instance=ExtResource("2_35nc4")]
