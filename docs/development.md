@@ -238,8 +238,9 @@ Review function purpose comments, two empty lines between functions, export grou
 and intent inside functions manually. The preserving formatter wrapper remains
 future work; no `gdstyle:fix` task is claimed. Runtime loops intentionally await
 paced polling to let Godot process networking; their narrow lint exemptions explain
-that contract. S01 owns resource/source-link and Blender fixture checks. CI, gameplay,
-capacity and target/export checks grow in M1-D1; S03 is an isolated session proof.
+that contract. S01 owns resource/source-link and Blender fixture checks. CI and gameplay
+coverage grow in M1-D1; S07 owns capacity methodology/decisions, S08 exact exports/input,
+and M1-D3 integrated target acceptance. S03 is an isolated session proof.
 
 The import command remains available:
 
@@ -248,6 +249,46 @@ mise exec -- godot --headless --editor --path . --import
 ```
 
 An import command's success does not mean scripts compiled or logs were clean.
+
+### S02 desktop fixture tooling
+
+The [reviewed desktop handoff](spikes/s02.md#reviewed-desktop-handoff) and
+[source/prefab handoff](assets/s02_kit.md) discover the linked corner/alley harness,
+inherited 50° comparison and held-weapon study. Run from the repository root with
+the exact pinned engine (explicit binaries are useful when Mise trust writes are restricted):
+
+```sh
+mise exec -- godot --path . res://tests/fixtures/s02/corner.tscn
+python3 tools/s02/run.py --godot /path/to/pinned/godot --output /tmp/s02-my-run
+python3 tools/s02/reexport.py --output /tmp/s02-my-reexport
+```
+
+There is no `spike:s02` Mise task. `run.py` requires `--godot`; its optional
+`--output` must be fresh and outside the checkout, otherwise it creates a temporary
+evidence directory. It imports an isolated project with development autoloads/editor
+plugins removed and addons ignored only in that copy, then exercises the fixture's
+motion/input/query APIs and supplementary source/dependency/UID checks. It compares
+persisted scene/import/UID fingerprints and retains import/outcome logs, summary
+and identities. These bounded S02 checks supplement `resources:check`'s S01 scope;
+they are not broad production-resource discovery, all-script compilation, native
+focus or packaged/network acceptance. Continue to compile every owned script separately.
+
+`reexport.py` uses Blender on PATH to reexport the committed source into scratch
+outputs, rejecting any of the nine GLBs that differ or contain images/extensions;
+it retains Blender logs/fingerprints. It installs no output. Author source and
+explicit exports together and follow the editor refresh/reopen contract after changes.
+Actual-camera captures and native focus use separate graphical tools documented in
+[S02 reproducibility](spikes/s02.md#tools-authoring-and-reproducibility); a headless
+API pass cannot substitute for an observed OS focus switch or physical-key Alt-Tab.
+
+Accepted receipts support the bounded desktop technical fixture only. Its 47 m/42°
+camera, speed/turn/follow, marker/cutaway and held silhouettes remain candidates.
+Current native OS focus revalidation is incomplete; historical passes do not close
+it. Physical-key playtesting, human feel/latency, moving-camera/roof/weapon readability
+and LCD/OLED Deck controls/Gaming Mode/native 1280×800/60 FPS remain unproved.
+The fixture's fixed engine-step motion is not a validated arbitrary-delta/prediction
+replay contract; S03-R owns that decision. [S07](spikes/s07.md) preparation supplies
+capacity axes and diagnostic method, with actual measurements still unexecuted.
 
 ## Versions and releases
 

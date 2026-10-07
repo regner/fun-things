@@ -158,7 +158,8 @@ S01 validates source/prefab identities; S02 settles foot/camera/collision dimens
 and a correlated fake replacement; it does not productionize these components.
 S03-S proves the real Steam adapter and callback correlation; S03-R/S04 settle
 responsiveness and simulation bodies; S05 settles combat/chain work and collision;
-S06 settles topology representation/bakes; S07/S08 settle renderer/export/target evidence.
+S06 settles topology representation/bakes; S07 owns map/content-capacity/culling
+and diagnostic decisions; S08 owns exact export/input evidence.
 
 Keep pending choices in those tasks, with resulting decisions linked back here.
 Do not turn a spike into a production subsystem without the P0-GATE review. Any new
@@ -204,6 +205,25 @@ placement. S04 specifies the seat matrix; M1-B1 owns its full implementation and
 M1-D3 adverse races. M1-A2/B2/B3/C3 implement lifecycle; M1-D3 verifies collision
 fences, tombstones/future-state buffers, reliable actions, floods/host stalls and
 capacity. S05 owns bounded 12-car chain feasibility despite eight cosmetic slots;
-M1-B3 productionizes chains and M1-D3 owns sustained load. S07 measures rendering
-budgets; S08 and M1-D4 retain physical Deck/exports and private Steam delivery gates.
+M1-B3 productionizes chains and M1-D3 owns sustained load.
+
+Current S02/S07 supplement, 7 October 2026: the
+[reviewed S02 desktop fixture](spikes/s02.md#reviewed-desktop-handoff) and
+[source handoff](assets/s02_kit.md) support bounded standalone foot/collision/query
+and actual camera evidence. The 47 m/42° desktop camera is provisional, with the
+historical 50° comparison retained. Human feel/latency, physical-key Alt-Tab,
+moving-camera/roof/held-weapon readability and Deck cases remain unproved; current
+native focus revalidation is incomplete, not closed by historical passes. Its fixed
+engine-step motion is not a proven prediction replay contract; S03-R owns that proof.
+
+[S07's accepted preparation](spikes/s07.md) is the sole map/content-capacity,
+culling and diagnostic/organization evidence owner. It separates layout extent,
+density, unique variety/residency, active simulation and player views; representative
+S04/S06/S05 fixtures must precede actual measurements. Research is preparation only:
+no measured capacity, universal map maximum, streaming implementation, renderer or
+engine decision is selected. Render visibility, simulation scheduling, network
+relevance and resource residency remain distinct; culling cannot remove required
+authoritative outcomes. S06 owns topology, S08 exact exports/input, and M1-D3 sustained
+integrated target acceptance. Six-block M1 and LCD/OLED native 1280×800/60 FPS remain
+unchanged. S08 and M1-D4 retain physical Deck/exports and private Steam delivery gates.
 All M1 work still follows P0-GATE; none of these tasks is closed by this supplement.

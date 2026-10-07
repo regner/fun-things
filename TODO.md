@@ -195,33 +195,9 @@ P0-DOC1 and P0-DOC2 are complete. The [tooling reconciliation](docs/reviews/p0-d
 and [proof-ownership reconciliation](docs/reviews/p0-doc2.md) retain accepted evidence,
 current fixture scope, historical observations and active owners for unproved cases.
 P0-DOC3's README networking disclaimer is resolved in `62e0800`.
-
-- [ ] **P0-DOC4 — Reconcile accepted S02 discovery and S07 proof ownership in guides.**
-  Owner: delegated Sol documentation worker; assign a named owner on launch and
-  obtain independent review. Needs: [S02 desktop handoff](docs/spikes/s02.md#reviewed-desktop-handoff),
-  [source handoff](docs/assets/s02_kit.md), [S07 preparation](docs/spikes/s07.md)
-  and their committed reviews at accepted `fc6845f` / `35adb470`. Ready without
-  devices/accounts; finish before P0-GATE's canonical-guide reconciliation.
-  Profile-stage source: [third assessment](docs/reviews/plan-check-2026-10-07-03.md#profile-assessment)
-  and current P0-PROFILES requirements/proposal readiness versus deferred configuration.
-  Affected docs: `README.md` and `docs/development.md` omit S02 fixture/runner
-  discovery and its supplementary resource/outcome scope; `docs/art-direction.md`
-  still describes actual-camera evidence as entirely future; `docs/world-layout.md`
-  lacks a link distinguishing its historical 50° start from the provisional 42°
-  desktop candidate. `docs/architecture.md` describes S07 only as renderer/rendering
-  budgets rather than the single map/content-capacity and diagnostic owner.
-  README's broad profile-work deferral also needs that stage distinction.
-  `docs/design.md`'s historical P0-01 toolchain evidence says Linux graphics are
-  untested; supplement it with S02's named desktop rendering scope, preserving the
-  original observation and unproved Windows/Deck/export/driver-target acceptance.
-  Done when: these six guides link the accepted evidence, distinguish historical
-  starting values from current candidates and unproved feel/physical-key/native-focus/
-  Deck gates, and name S07's preparation-only state and sole capacity ownership with
-  S06 topology/S08 export/M1-D3 acceptance boundaries. README distinguishes ready
-  profile requirements/proposal work from deferred authorized configuration and
-  representative launch validation. Verify documented S02 commands
-  and flags against committed tools, local links/anchors and diff integrity. No new
-  runtime measurement, tuning/pin change, production readiness or hardware request.
+P0-DOC4's six-guide S02/S07 and profile-stage reconciliation is complete in
+[the completion/review record](docs/reviews/p0-doc4.md); full S02, measured S07,
+profile configuration and all target/production gates remain open.
 
 ## Phase-zero technical spikes
 
@@ -426,7 +402,7 @@ implementation. Save editor mutations before playtests; preserve unsaved work.
   [S01 pipeline evidence](docs/spikes/s01.md), S02,
   [P0-DOC1 reconciliation](docs/reviews/p0-doc1.md),
   [P0-DOC2 reconciliation](docs/reviews/p0-doc2.md),
-  P0-DOC4 guide reconciliation,
+  [P0-DOC4 guide reconciliation](docs/reviews/p0-doc4.md),
   [S03 fixture boundary](docs/spikes/s03.md#fixture-and-boundary),
   [completed S03 proof](docs/spikes/s03.md), S03-R/S03-S and S04 through S08.
   S07 supplies the documented capacity envelope, limiting axes, organization and
@@ -646,7 +622,7 @@ the active S03-R desktop/ENet experiment and assignable S04 desktop/ENet prepara
 S03-R alone holds the shared Godot new-fixture writer lease; no duplicate worker or
 mutation of original S02/S03 fixtures. S02 native-focus/physical-key/feel/readability
 follow-up remains open and needs its own serialized lease/user observations.
-P0-DOC4, a scoped P0-PROFILES proposal, bounded S03-S compatibility research and S08
+A scoped P0-PROFILES proposal, bounded S03-S compatibility research and S08
 desktop export/dependency preparation can be assigned without devices or multiple
 accounts, subject to explicit ownership; profile configuration remains deferred.
 Final S03-R/S04 Steam/feel/target decisions remain open. S05/S06 need actual

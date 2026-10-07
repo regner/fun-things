@@ -234,6 +234,25 @@ Verified locally on 7 October 2026:
 - The GodotSteam updater addon is present/enabled and reports plugin version
   `4.23`; this is inventory, not selection or proof of the gameplay peer/native SDK.
 
+Subsequent desktop rendering supplement, 7 October 2026: the original P0-01
+observations above describe that inspection, before S02. The
+[reviewed S02 handoff](spikes/s02.md#reviewed-desktop-handoff),
+[capture record](spikes/s02.md#captures-and-visual-findings) and
+[independent art review](reviews/s02-art-b826d38.md) now document actual Linux
+Forward+ viewport rendering on the local NVIDIA GTX 1070 / Vulkan 1.4.312 desktop,
+at 1280×800 with the unchanged 4.8-dev7 pin. The [source kit](assets/s02_kit.md)
+is a bounded blockout, not production content. Its 47 m/42° camera is provisional;
+50° remains an inherited comparison. This supplements the historical untested
+Linux graphics observation without certifying a driver/target matrix, Windows,
+packaged Windows/Linux exports or Deck compatibility/performance. Human feel,
+physical-key Alt-Tab and moving-camera/roof/held-weapon readability remain pending;
+current native focus revalidation is incomplete, historical passes separate.
+Full S02, early S08's engine/input decision and dependent gates remain open.
+[S07 preparation](spikes/s07.md) owns capacity methodology/diagnostics, with
+measurements unexecuted; S06 topology, S08 exact exports/input and M1-D3 integrated
+acceptance retain their boundaries. No renderer, engine or budget ratification
+follows from these desktop observations.
+
 The official [4.8-dev7 release](https://github.com/godotengine/godot-builds/releases/tag/4.8-dev7)
 and [download archive](https://godotengine.org/download/archive/4.8-dev7/) list matching
 standard export templates. GitHub release API metadata checked on 7 October records

@@ -1,7 +1,8 @@
 # Fun Things
 
 A Godot project with multiplayer planned. The checkout has engine/style
-configuration, the Godot MCP Toolkit, [S01 asset fixtures](docs/spikes/s01.md) and an isolated
+configuration, the Godot MCP Toolkit, [S01 asset fixtures](docs/spikes/s01.md), a reviewed
+[S02 desktop camera/control fixture](docs/spikes/s02.md#reviewed-desktop-handoff) and an isolated
 [S03 ENet session-contract proof](docs/spikes/s03.md). There is no production
 gameplay or main scene yet.
 The first milestone requires ENet for local testing and Steam for friends playtesting,
@@ -45,6 +46,24 @@ diagnostics even with a zero exit status, retains logs on failure and stops only
 its own children. This proves the small Linux loopback contract; S01 owns asset
 checks and later tasks own gameplay, Steam, exports and target compatibility.
 
+The S02 corner/alley fixture has a separate supplementary runner (no Mise task):
+
+```sh
+mise exec -- godot --path . res://tests/fixtures/s02/corner.tscn
+python3 tools/s02/run.py --godot /path/to/pinned/godot --output /tmp/s02-my-run
+```
+
+Supply the exact pinned Godot binary and a fresh evidence directory outside the checkout. The runner checks isolated
+movement/input/query outcomes and saved resource/source links; it does not replace
+all-script compilation, Blender reexport or native OS focus/physical-key playtests.
+The [source handoff](docs/assets/s02_kit.md) and
+[development recipe](docs/development.md#s02-desktop-fixture-tooling) describe its scope.
+The 47 m/42° camera is a provisional desktop candidate; 50° remains an inherited
+comparison. Current native focus revalidation is incomplete, historical focus
+passes remain historical, and human feel/readability, physical-key Alt-Tab and
+Deck input/performance acceptance remain open. Desktop 1280×800 captures do not
+certify Deck targets or production gameplay.
+
 ## Project guidance
 
 - [Plan through the first milestone](TODO.md): phase-zero foundations, technical
@@ -72,6 +91,15 @@ The guides set working conventions and describe future implementation choices.
 This checkout has executable foundation checks and an isolated ENet session-contract
 fixture/runner, but no production gameplay networking or Steam integration. The
 fixture's Linux loopback evidence does not establish Steam or Deck compatibility;
-engine/input decisions, P0-GATE and profile work remain deferred. Add executable
-tasks alongside their implementations and document only commands that work in this
+engine/input decisions and P0-GATE remain open. [S07 preparation](docs/spikes/s07.md)
+assigns one map/content-capacity and diagnostic owner; measurements remain unexecuted.
+It selects no maximum map size, streaming implementation, renderer or engine.
+
+P0-PROFILES' scoped requirements/proposal stage is ready from the
+[third profile assessment](docs/reviews/plan-check-2026-10-07-03.md#profile-assessment).
+The inventory remains empty; actual configuration requires a reviewed proposal and
+an explicitly authorized workflow, followed by safe representative launch validation.
+Configuration and launch validation remain deferred in [the plan](TODO.md).
+
+Add executable tasks alongside their implementations and document only commands that work in this
 checkout.

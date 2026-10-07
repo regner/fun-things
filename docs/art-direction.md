@@ -10,8 +10,8 @@ Effort cap: this concept/refinement session.
 Acceptance record: Regner said, “I like where the concepts are and I think it's
 enough for us to continue.” This accepts the combined set for foundation work and
 ends the current concept round. Actual gameplay-camera captures/paintovers and
-held-weapon readability are deferred to S02/S04; M1-C1 refines production designs
-using that evidence. These deferrals do not claim measured camera, movement or
+held-weapon readability were deferred at this concept acceptance to S02/S04; M1-C1
+refines production designs using that evidence. These deferrals do not claim measured camera, movement or
 performance acceptance. P0-GATE still reconciles the proof results.
 
 [Open the complete visual review](concepts/p0-04/review.html) to see the current
@@ -60,8 +60,9 @@ are original.
 The concept is 1586×992, approximately 8:5; it is not a measured 1280×800 capture.
 The art still has too much foliage detail and dense smoke. The current sedan also
 needs closer fidelity to the long-car sheet. All direction/framing observations
-remain illustrative until a linked Blender fixture is tested in Godot at the
-actual vertical perspective camera. Test foot/car views, turns, tower clipping,
+remain illustrative; the dated S02 supplement below links the subsequent bounded
+actual-camera fixture evidence without accepting every concept or arrangement.
+Test foot/car views, turns, tower clipping,
 target visibility and handheld readability in S02/S04.
 
 ## Cars and shared people
@@ -132,7 +133,8 @@ presentation caps and fallback. Mesh-based effects still require Blender sources
 
 This is the accepted starting inventory, not built content or a ratified material,
 polygon, performance or animation budget. P0-05 defines handoffs; S01 proves sources,
-exports and inherited prefabs; S07 measures cost.
+exports and inherited prefabs; [S07 preparation](spikes/s07.md) owns capacity/cost
+methodology, with measurements still unexecuted.
 
 ## Review and next evidence
 
@@ -140,10 +142,18 @@ The architectural mix/height, actor shapes, palette family, effect language and
 [six-block plan](world-layout.md) supply the starting briefs. The original muted
 palettes, noisy treatment and orthographic gameplay projection are superseded.
 
-Then use the selected direction in a small Blender/Godot corner fixture. Actual
-gameplay-camera paintovers require its captures; the generated composition is
-concept evidence only. Refine dimensions from S02/S04/S06 and record acceptance
-at P0-GATE. The user's acceptance closes P0-04 with those explicit proof deferrals;
+Desktop evidence supplement, 7 October 2026: the
+[reviewed S02 handoff](spikes/s02.md#reviewed-desktop-handoff) now supplies a linked
+Blender/Godot corner/alley fixture and [actual-camera captures](spikes/s02.md#captures-and-visual-findings)
+for paintovers. The [source handoff](assets/s02_kit.md) identifies its nine exports
+and consumers. These are bounded Linux Forward+ desktop views at 1280×800 with a
+provisional 47 m/42° camera and inherited 50° comparison, not accepted production art.
+The generated compositions above remain concept evidence. Pistol/SMG distinction,
+moving-camera/roof/target readability, marker/cutaway and human feel still need
+refinement; S04 car captures and Deck readability remain pending. Current native
+focus revalidation is incomplete, with historical passes separate; physical-key
+Alt-Tab and LCD/OLED input/performance remain unproved. Full S02 stays open.
+Refine dimensions from S02/S04/S06 and record acceptance at P0-GATE. The user's acceptance closes P0-04 with those explicit proof deferrals;
 it does not approve the concept PNGs as finished production assets.
 
 The built-in imagegen tool produced the concept PNGs. Exact prompts and references:

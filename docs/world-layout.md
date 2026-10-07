@@ -52,6 +52,22 @@ Ground scale changes with perspective/depth. Towers near/above camera height
 need actual near-plane, facade, visibility and follow-motion tests. Do not cap all
 buildings below the camera or tilt the camera to avoid that work.
 
+Desktop evidence supplement, 7 October 2026: the 50° row above preserves the
+historical starting brief. The [reviewed S02 handoff](spikes/s02.md#reviewed-desktop-handoff)
+and [source kit](assets/s02_kit.md) now provide a 47 m/42° provisional desktop
+candidate, with 50° retained in the inherited comparison scene and actual 1280×800
+captures. This corner/alley checks bounded foot collision/aim outcomes; it does not
+validate the six-block layout or final camera/clearance choices. Human feel,
+moving-camera/roof/held-weapon readability and physical-key Alt-Tab remain pending;
+current native focus revalidation is incomplete, historical passes separate.
+Deck input/readability/native 1280×800/60 FPS and S04 car evidence remain unproved.
+
+[S07 preparation](spikes/s07.md) owns map/content-capacity, culling and diagnostic
+recommendations, with measurements unexecuted and no maximum map size or selected
+streaming implementation. S06 retains topology/seams, S08 exact exports/input,
+and M1-D3 integrated target acceptance. The six-block scope and provisional
+reference dimensions above are unchanged; growth research does not expand M1.
+
 Units are metres. The plan's local reference origin is the northwest outer edge
 of the street/sidewalk envelope; +X is east and +Z is south in Godot, with +Y up
 and -Z north. These coordinates describe a design reference, not saved identities
