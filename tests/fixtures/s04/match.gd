@@ -4,8 +4,6 @@ extends S03Match
 
 signal stepped(tick: int)
 
-const BODY_LAYER: int = 4
-const BODY_MASK: int = 5
 const MAX_POSE_COORDINATE_M: float = 100.0
 
 var server_tick: int = 0

@@ -2,6 +2,8 @@ class_name S04DriveRules
 extends RefCounted
 ## One planar arcade handling rule for both bounded body candidates; no device/network reads.
 
+const CAR_COLLISION_LAYER: int = 4
+const CAR_COLLISION_MASK: int = 5
 const ACCELERATION_MPS2: float = 12.0
 const BRAKE_MPS2: float = 18.0
 const COAST_MPS2: float = 4.0

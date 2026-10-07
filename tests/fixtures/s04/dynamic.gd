@@ -18,8 +18,8 @@ func configure(authority: bool) -> void:
 	freeze = not authority
 	custom_integrator = true
 	gravity_scale = 0.0
-	collision_layer = 4 if authority else 0
-	collision_mask = 5 if authority else 0
+	collision_layer = S04DriveRules.CAR_COLLISION_LAYER if authority else 0
+	collision_mask = S04DriveRules.CAR_COLLISION_MASK if authority else 0
 	linear_velocity = Vector3.ZERO
 	angular_velocity = Vector3.ZERO
 	sleeping = not authority
