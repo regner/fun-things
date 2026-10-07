@@ -1,0 +1,54 @@
+{
+  "agentProfiles": [
+    {
+      "id": "fun-things-sol-medium",
+      "name": "Sol 6.1 medium",
+      "provider": "codex",
+      "model": "gpt-6.1-sol",
+      "modeId": "auto-review",
+      "thinkingOptionId": "medium",
+      "featureValues": {
+        "plan_mode": false
+      },
+      "notes": "Workspace lead for bounded documentation/reconciliation with known contracts, or a bounded non-specialist delegated subtask/review. DOC4 six-guide correction and clean-context review motivate this shared bundle. Worker implements directly; upstream root alone is orchestration-only, so do not create a coordinator/implementation lead layer. Reviewers inspect independently without implementing fixes. Escalate to Sol high for broader contracts, code, uncertain evidence or interacting lifecycle work; medium reduces reasoning cost but is not measured cheaper/faster here. Excludes complex implementation/spatial specialist questions and Luna-style title-based routing. Use only the task-authorized tools and permissions; this bundle grants no MCP, network, editor, service, account or device access. auto-review requests workspace-write with on-request approvals; verify effective provider overrides and sandbox before work. Keep independent review in clean context. No silent model/effort fallback or ultra. "
+    },
+    {
+      "id": "fun-things-sol-high",
+      "name": "Sol 6.1 high",
+      "provider": "codex",
+      "model": "gpt-6.1-sol",
+      "modeId": "auto-review",
+      "thinkingOptionId": "high",
+      "featureValues": {
+        "plan_mode": false
+      },
+      "notes": "Workspace lead for interacting implementation, contract/evidence research or requirements; also broad/non-specialist delegated work and independent technical reviews. S02 Sol code review, S07 research/review and foundation documentation checks motivate this bundle; S03-R effective Sol high is pending friction evidence only. Worker implements directly; upstream root alone is orchestration-only, with one implementation owner and one shared editor lease. Do not add a coordinator/implementation lead layer. Reviewers receive raw requirements and exact SHA in fresh clean context and return findings without authoring fixes. Sol synthesizes specialist results. Prefer medium for bounded known-contract work; high spends more reasoning on scope/uncertainty, with no measured cost or capability guarantee. Excludes replacement of required visual/spatial/modeling specialist evaluation and any authority to waive gates. Use only the task-authorized tools and permissions; this bundle grants no MCP, network, editor, service, account or device access. auto-review requests workspace-write with on-request approvals; verify effective provider overrides and sandbox before work. Keep independent review in clean context. No silent model/effort fallback or ultra. "
+    },
+    {
+      "id": "fun-things-luna-simple",
+      "name": "Luna 6 high simple delegation",
+      "provider": "codex",
+      "model": "gpt-6-luna",
+      "modeId": "auto-review",
+      "thinkingOptionId": "high",
+      "featureValues": {
+        "fast_mode": false,
+        "plan_mode": false
+      },
+      "notes": "Delegated subtask or independent review only when very simple: a localized documentation claim/link correction with explicit accepted evidence and objective checks, as in DOC3 clean-context Luna review. Never a workspace lead: historical DOC3 Luna lead predates current Sol-leads policy. Excludes broad planning/research, multi-guide contract reconciliation, gameplay/network implementation, broad code review, orchestration and visual/spatial/modeling assessment. Return unexpected uncertainty/scope to Sol medium/high instead of stretching this bundle. Lower-cost intent is qualitative, not a measured benchmark. Use only the task-authorized tools and permissions; this bundle grants no MCP, network, editor, service, account or device access. auto-review requests workspace-write with on-request approvals; verify effective provider overrides and sandbox before work. Keep independent review in clean context. No silent model/effort fallback or ultra. "
+    },
+    {
+      "id": "fun-things-astra-spatial",
+      "name": "Astra 6 high bounded spatial specialist",
+      "provider": "codex",
+      "model": "gpt-6-astra",
+      "modeId": "auto-review",
+      "thinkingOptionId": "high",
+      "featureValues": {
+        "fast_mode": false,
+        "plan_mode": false
+      },
+      "notes": "Necessary targeted visual/spatial/modeling specialist SUBAGENT only, reporting to a Sol workspace lead for synthesis. S02 camera/target placement, source-linked dimensions/sockets and inherited-scene/capture review demonstrated this role and found a target/tower overlap. Before launch specify a concrete specialist question, required artifact/findings output, exact candidate, validation boundary and proportionate task budget/stop. High matches the sampled specialist setting; begin with one focused inspection and one affected-fix follow-up, stop/report missing evidence; longer/new questions require Sol to rescope. No token/spend cap is provided by this profile schema. Use Sol for ordinary source/code/contracts. Explicitly excludes workspace leadership, implementation lead, broad planning/research/code/review/orchestration and whole map/art workstreams merely because 3D is mentioned. No human-feel, OS-focus, hardware/performance or Steam certification from captures. More expensive routing is justified only by the named specialist question; no automatic ultra or fast-mode premium. Use only the task-authorized tools and permissions; this bundle grants no MCP, network, editor, service, account or device access. auto-review requests workspace-write with on-request approvals; verify effective provider overrides and sandbox before work. Keep independent review in clean context. No silent model/effort fallback or ultra. "
+    }
+  ]
+}

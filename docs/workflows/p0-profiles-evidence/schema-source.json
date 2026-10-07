@@ -1,0 +1,135 @@
+{
+  "artifact": "Installed Paseo desktop app.asar, read without executing daemon/client code",
+  "archive_path": "/tmp/.mount_Paseo-6MKVbM/resources/app.asar",
+  "desktop_version": "0.10.3",
+  "source_root_at_check": "/tmp/p0-profiles-paseo-source/node_modules/@getpaseo",
+  "sources": [
+    {
+      "path": "protocol/dist/agent-profile.js",
+      "sha256": "07fb9cb22a0662d4c0c1c646354f4640cd85448312820e80471ce9c257db17de",
+      "excerpts": [
+        {
+          "start_line": 1,
+          "end_line": 32,
+          "text": "import { z } from \"zod\";\n/**\n * A named launch bundle: a provider plus the agent-config values a client would\n * otherwise set one control at a time. Field names mirror `AgentSessionConfig`\n * so applying a profile is a copy rather than a translation table.\n *\n * There is deliberately no system prompt here. `AgentSessionConfig.systemPrompt`\n * is creation-only, so a profile carrying one would apply when starting a new\n * agent and silently do nothing when applied to a running one.\n */\nexport const AgentProfileSchema = z\n    .object({\n    id: z.string(),\n    name: z.string(),\n    /** A key into the client's icon registry, not a glyph. Unknown keys draw the default. */\n    icon: z.string().optional(),\n    /** An identity colour name shared with host badges. Unknown values draw unthemed. */\n    color: z.string().optional(),\n    provider: z.string(),\n    model: z.string().optional(),\n    modeId: z.string().optional(),\n    thinkingOptionId: z.string().optional(),\n    featureValues: z.record(z.string(), z.unknown()).optional(),\n    /** Free text, surfaced to orchestrating agents by the `list_profiles` MCP tool. */\n    notes: z.string().optional(),\n})\n    .passthrough();\nexport const AgentSkillSelectionSchema = z.discriminatedUnion(\"mode\", [\n    z.object({ mode: z.literal(\"all\") }).strict(),\n    z.object({ mode: z.literal(\"custom\"), skills: z.array(z.string()) }).strict(),\n]);\n//# sourceMappingURL=agent-profile.js.map"
+        }
+      ]
+    },
+    {
+      "path": "protocol/dist/messages.js",
+      "sha256": "1fd419e84dd53544347e62aae94784c0db050156f265627c8be6f73a39f935f0",
+      "excerpts": [
+        {
+          "start_line": 113,
+          "end_line": 134,
+          "text": "    .passthrough();\nexport const MutableDaemonConfigPatchSchema = z\n    .object({\n    relay: MutableRelayConfigSchema.partial().optional(),\n    mcp: z.object({ injectIntoAgents: z.boolean().optional() }).passthrough().optional(),\n    browserTools: MutableBrowserToolsConfigSchema.partial().optional(),\n    providers: z\n        .record(z.string(), MutableDaemonProviderConfigSchema.partial().passthrough())\n        .optional(),\n    removeProviders: z.array(z.string().min(1)).optional(),\n    metadataGeneration: MutableMetadataGenerationConfigSchema.partial().optional(),\n    autoArchiveAfterMerge: z.boolean().optional(),\n    enableTerminalAgentHooks: z.boolean().optional(),\n    appendSystemPrompt: z.string().optional(),\n    terminalProfiles: z.array(TerminalProfileSchema).optional(),\n    agentProfiles: z.array(AgentProfileSchema).optional(),\n    pluginsEnabled: z.boolean().optional(),\n    plugins: z.record(PluginIdSchema, PluginSourceSchema).optional(),\n})\n    .partial()\n    .passthrough();\n// WebSocket payloads have already crossed JSON serialization. Keeping this as"
+        },
+        {
+          "start_line": 1311,
+          "end_line": 1320,
+          "text": "export const GetDaemonConfigRequestMessageSchema = z.object({\n    type: z.literal(\"get_daemon_config_request\"),\n    requestId: z.string(),\n});\nexport const SetDaemonConfigRequestMessageSchema = z.object({\n    type: z.literal(\"set_daemon_config_request\"),\n    requestId: z.string(),\n    config: MutableDaemonConfigPatchSchema,\n});\nexport const ReadProjectConfigRequestMessageSchema = z.object({"
+        }
+      ]
+    },
+    {
+      "path": "server/dist/server/server/persisted-config.js",
+      "sha256": "5d8500251e8c114b7ae0dcb3af9ca505c092211939e16795830731ca52ea2e8c",
+      "excerpts": [
+        {
+          "start_line": 222,
+          "end_line": 228,
+          "text": "        autoArchiveAfterMerge: z.boolean().optional(),\n        enableTerminalAgentHooks: z.boolean().optional(),\n        appendSystemPrompt: z.string().optional(),\n        terminalProfiles: z.array(TerminalProfileSchema).optional(),\n        agentProfiles: z.array(AgentProfileSchema).optional(),\n        cors: z\n            .object({"
+        },
+        {
+          "start_line": 292,
+          "end_line": 311,
+          "text": "const CONFIG_FILENAME = \"config.json\";\nconst DEFAULT_PERSISTED_CONFIG = PersistedConfigSchema.parse({\n    version: 1,\n    daemon: {\n        listen: \"127.0.0.1:6767\",\n        cors: {\n            allowedOrigins: [\"https://app.paseo.sh\"],\n        },\n        relay: {\n            enabled: false,\n        },\n    },\n    app: {\n        baseUrl: \"https://app.paseo.sh\",\n    },\n});\nfunction getConfigPath(paseoHome) {\n    return path.join(paseoHome, CONFIG_FILENAME);\n}\nfunction getLogger(logger) {"
+        }
+      ]
+    },
+    {
+      "path": "server/dist/server/server/daemon-config-store.js",
+      "sha256": "50b1faa3e783911189e6440524085f55b51c2938953e6073ffaa49ad082e27b0",
+      "excerpts": [
+        {
+          "start_line": 84,
+          "end_line": 91,
+          "text": "    \"daemon.git.maxProcessesPerSecond\",\n    \"daemon.git.maxProcessConcurrency\",\n    \"daemon.autoArchiveAfterMerge\",\n    \"daemon.enableTerminalAgentHooks\",\n    \"daemon.appendSystemPrompt\",\n    \"daemon.terminalProfiles\",\n    \"daemon.agentProfiles\",\n    \"app.baseUrl\","
+        },
+        {
+          "start_line": 106,
+          "end_line": 114,
+          "text": "    [\"daemon.git.maxProcessesPerSecond\", \"git.maxProcessesPerSecond\"],\n    [\"daemon.git.maxProcessConcurrency\", \"git.maxProcessConcurrency\"],\n    [\"daemon.autoArchiveAfterMerge\", \"autoArchiveAfterMerge\"],\n    [\"daemon.enableTerminalAgentHooks\", \"enableTerminalAgentHooks\"],\n    [\"daemon.appendSystemPrompt\", \"appendSystemPrompt\"],\n    [\"daemon.terminalProfiles\", \"terminalProfiles\"],\n    [\"daemon.agentProfiles\", \"agentProfiles\"],\n    [\"app.baseUrl\", \"app.baseUrl\"],\n    [\"agents.providers\", \"providers\"],"
+        },
+        {
+          "start_line": 224,
+          "end_line": 261,
+          "text": "    patch(partial) {\n        const parsedPatch = pickSupportedPatchFields(MutableDaemonConfigPatchSchema.parse(partial));\n        return this.applySupportedPatch(parsedPatch);\n    }\n    setAgentSkillSelection(selection) {\n        return this.applySupportedPatch({ skills: { selection } });\n    }\n    applySupportedPatch(parsedPatch) {\n        if (parsedPatch.relay?.enabled !== undefined && !this.relayEnabledMutable) {\n            throw new Error(\"Relay is controlled by a daemon launch override. Remove PASEO_RELAY_ENABLED or the relay CLI flag before changing it here.\");\n        }\n        const { removeProviders = [], ...configPatch } = parsedPatch;\n        const removedProviders = Array.from(new Set(removeProviders));\n        const merged = deepMerge(this.current, configPatch);\n        if (parsedPatch.skills?.selection !== undefined) {\n            merged.skills = { selection: parsedPatch.skills.selection };\n        }\n        if (parsedPatch.plugins !== undefined)\n            merged.plugins = parsedPatch.plugins;\n        const next = MutableDaemonConfigSchema.parse(omitMetadataGenerationProvidersFromConfig(omitProvidersFromConfig(merged, removedProviders), removedProviders));\n        const configChanged = !isEqualValue(this.current, next);\n        if (!configChanged && removedProviders.length === 0) {\n            return this.current;\n        }\n        const { previous: persistedBeforePatch, knownNext } = this.persistConfig(configPatch, removedProviders);\n        if (!configChanged) {\n            this.lastKnownPersisted = knownNext;\n            return this.current;\n        }\n        try {\n            this.applyReplacement(next, { removedProviders });\n            this.lastKnownPersisted = knownNext;\n        }\n        catch (error) {\n            savePersistedConfig(this.paseoHome, persistedBeforePatch, this.logger);\n            throw error;\n        }\n        return this.current;"
+        },
+        {
+          "start_line": 447,
+          "end_line": 471,
+          "text": "function mergeMutableDaemonPatch(persistedDaemon, patch, persistRelayEnabled) {\n    const next = { ...persistedDaemon };\n    if (persistRelayEnabled && patch.relay?.enabled !== undefined) {\n        next.relay = { ...next.relay, enabled: patch.relay.enabled };\n    }\n    if (patch.mcp?.injectIntoAgents !== undefined) {\n        next.mcp = { ...next.mcp, injectIntoAgents: patch.mcp.injectIntoAgents };\n    }\n    if (patch.browserTools?.enabled !== undefined) {\n        next.browserTools = { ...next.browserTools, enabled: patch.browserTools.enabled };\n    }\n    if (patch.autoArchiveAfterMerge !== undefined) {\n        next.autoArchiveAfterMerge = patch.autoArchiveAfterMerge;\n    }\n    if (patch.enableTerminalAgentHooks !== undefined) {\n        next.enableTerminalAgentHooks = patch.enableTerminalAgentHooks;\n    }\n    if (patch.appendSystemPrompt !== undefined)\n        next.appendSystemPrompt = patch.appendSystemPrompt;\n    if (patch.terminalProfiles !== undefined)\n        next.terminalProfiles = patch.terminalProfiles;\n    if (patch.agentProfiles !== undefined)\n        next.agentProfiles = patch.agentProfiles;\n    return Object.keys(next).length > 0 ? next : undefined;\n}"
+        }
+      ]
+    },
+    {
+      "path": "client/dist/daemon-client.js",
+      "sha256": "bf869f3cfeb06ccbe83b64f9ece749b84889dc5894678281bcc7a5a2d0482f3b",
+      "excerpts": [
+        {
+          "start_line": 3422,
+          "end_line": 3431,
+          "text": "        return this.sendCorrelatedSessionRequest({\n            requestId,\n            message: {\n                type: \"set_daemon_config_request\",\n                config,\n            },\n            responseType: \"set_daemon_config_response\",\n        });\n    }\n    sendBrowserAutomationExecuteResponse(response) {"
+        }
+      ]
+    },
+    {
+      "path": "server/dist/server/server/session.js",
+      "sha256": "c2f86382599d05db9311a858b3883fca00e8c3c63658c91cd04521a85a0c9981",
+      "excerpts": [
+        {
+          "start_line": 1906,
+          "end_line": 1917,
+          "text": "            case \"set_daemon_config_request\":\n                this.emit({\n                    type: \"set_daemon_config_response\",\n                    payload: {\n                        requestId: msg.requestId,\n                        config: this.daemonConfigStore.patch(msg.config),\n                    },\n                });\n                return undefined;\n            case \"read_project_config_request\":\n                return this.projectConfigSession.handleReadProjectConfigRequest(msg);\n            case \"write_project_config_request\":"
+        }
+      ]
+    },
+    {
+      "path": "server/dist/server/server/agent/providers/codex-app-server-agent.js",
+      "sha256": "da3a578f881d2813d850c218f6089cb493c18155e0aab19b5a3f94b4ea720c6e",
+      "excerpts": [
+        {
+          "start_line": 142,
+          "end_line": 163,
+          "text": "const MODE_PRESETS = {\n    \"read-only\": {\n        approvalPolicy: \"on-request\",\n        sandbox: \"read-only\",\n        approvalsReviewer: \"user\",\n    },\n    auto: {\n        approvalPolicy: \"on-request\",\n        sandbox: \"workspace-write\",\n        approvalsReviewer: \"user\",\n    },\n    \"auto-review\": {\n        approvalPolicy: \"on-request\",\n        sandbox: \"workspace-write\",\n        approvalsReviewer: \"auto_review\",\n    },\n    \"full-access\": {\n        approvalPolicy: \"never\",\n        sandbox: \"danger-full-access\",\n        approvalsReviewer: \"user\",\n    },\n};"
+        },
+        {
+          "start_line": 3096,
+          "end_line": 3119,
+          "text": "    }\n    applyTurnWorkflowPolicy(params, preset) {\n        const approvalPolicy = this.hasWorkflowModeOverride ? preset.approvalPolicy : undefined;\n        const sandboxPolicyType = this.providerOptions.sandbox_mode ??\n            (this.hasWorkflowModeOverride ? preset.sandbox : undefined);\n        if (approvalPolicy && this.providerOptions.approval_policy === undefined) {\n            params.approvalPolicy = approvalPolicy;\n        }\n        if (sandboxPolicyType) {\n            const nativeType = toCodexSandboxPolicyType(sandboxPolicyType);\n            const workspaceWrite = {\n                ...this.resolvedWorkspaceWrite,\n                ...this.providerOptions.sandbox_workspace_write,\n            };\n            params.sandboxPolicy =\n                this.resolvedSandboxPolicy?.type === nativeType\n                    ? this.resolvedSandboxPolicy\n                    : toSandboxPolicy(sandboxPolicyType, workspaceWrite);\n        }\n        if (this.hasWorkflowModeOverride) {\n            params.approvalsReviewer = preset.approvalsReviewer;\n        }\n        return { approvalPolicy, sandboxPolicyType };\n    }"
+        }
+      ]
+    },
+    {
+      "path": "server/dist/server/server/agent/providers/codex-feature-definitions.js",
+      "sha256": "1e174f9ce26231a9a46f51cd060fae384e594eec032087d635dd29f3ecdf960b",
+      "excerpts": [
+        {
+          "start_line": 1,
+          "end_line": 57,
+          "text": "// Codex Fast is distinct from API Priority processing. Keep model support aligned with\n// https://developers.openai.com/codex/speed and https://developers.openai.com/codex/models.\nconst CODEX_FAST_MODE_SUPPORTED_MODELS = new Set([\n    \"gpt-6-astra\",\n    \"gpt-6-sol\",\n    \"gpt-6-luna\",\n    \"gpt-5.6\",\n    \"gpt-5.6-sol\",\n    \"gpt-5.6-terra\",\n    \"gpt-5.6-luna\",\n    \"gpt-5.5\",\n    \"gpt-5.4\",\n]);\nexport const CODEX_FAST_MODE_FEATURE = {\n    type: \"toggle\",\n    id: \"fast_mode\",\n    label: \"Fast\",\n    description: \"Priority inference at increased usage\",\n    tooltip: \"Toggle fast mode\",\n    icon: \"zap\",\n};\nexport const CODEX_PLAN_MODE_FEATURE = {\n    type: \"toggle\",\n    id: \"plan_mode\",\n    label: \"Plan\",\n    description: \"Switch Codex into planning-only collaboration mode\",\n    tooltip: \"Toggle plan mode\",\n    icon: \"list-todo\",\n};\nfunction normalizeCodexModelId(modelId) {\n    const normalized = typeof modelId === \"string\" ? modelId.trim() : \"\";\n    return normalized.length > 0 ? normalized : null;\n}\nexport function codexModelSupportsFastMode(modelId) {\n    const normalizedModelId = normalizeCodexModelId(modelId);\n    if (!normalizedModelId) {\n        return false;\n    }\n    return CODEX_FAST_MODE_SUPPORTED_MODELS.has(normalizedModelId);\n}\nexport function buildCodexFeatures(input) {\n    const features = [];\n    if (codexModelSupportsFastMode(input.modelId)) {\n        features.push({\n            ...CODEX_FAST_MODE_FEATURE,\n            value: input.fastModeEnabled,\n        });\n    }\n    if (input.planModeAvailable !== false) {\n        features.push({\n            ...CODEX_PLAN_MODE_FEATURE,\n            value: input.planModeEnabled,\n        });\n    }\n    return features;\n}\n//# sourceMappingURL=codex-feature-definitions.js.map"
+        }
+      ]
+    }
+  ],
+  "config_observation": {
+    "path": "/home/regner/.paseo/config.json",
+    "inspected_fields": [
+      "daemon.agentProfiles count"
+    ],
+    "count": 0,
+    "other_config_values": "not retained"
+  },
+  "limitations": "Static schema/source only. Profile passthrough does not make unknown permission/systemPrompt/tool fields effective. No API connection, config writes or launches."
+}

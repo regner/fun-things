@@ -1,0 +1,394 @@
+{
+  "capturedAt": "2026-10-07 22:25:33 UTC",
+  "kind": "Read-only metadata discovery; no installation, runtime setting update, or representative launch.",
+  "profiles": {
+    "profiles": []
+  },
+  "providers": {
+    "providers": [
+      {
+        "id": "claude",
+        "label": "Claude",
+        "description": "Anthropic's multi-tool assistant with MCP support, streaming, and deep reasoning",
+        "enabled": false,
+        "modes": [],
+        "status": "unavailable"
+      },
+      {
+        "id": "codex",
+        "label": "Codex",
+        "description": "OpenAI's Codex workspace agent with sandbox controls and optional network access",
+        "enabled": true,
+        "modes": [
+          {
+            "id": "auto",
+            "label": "Default Permissions",
+            "description": "Edit files and run commands with Codex's default approval flow.",
+            "icon": "Shield",
+            "colorTier": "moderate"
+          },
+          {
+            "id": "auto-review",
+            "label": "Auto-review",
+            "description": "Same workspace-write permissions as Default, but eligible `on-request` approvals are routed through the auto-reviewer subagent.",
+            "icon": "ShieldCheck",
+            "colorTier": "moderate"
+          },
+          {
+            "id": "full-access",
+            "label": "Full Access",
+            "description": "Edit files, run commands, and access the network without additional prompts.",
+            "icon": "ShieldOff",
+            "colorTier": "dangerous"
+          }
+        ],
+        "status": "available"
+      },
+      {
+        "id": "copilot",
+        "label": "Copilot",
+        "description": "GitHub Copilot via Agent Client Protocol with dynamic modes and session support",
+        "enabled": false,
+        "modes": [],
+        "status": "unavailable"
+      },
+      {
+        "id": "opencode",
+        "label": "OpenCode",
+        "description": "Open-source coding assistant with multi-provider model support",
+        "enabled": false,
+        "modes": [],
+        "status": "unavailable"
+      },
+      {
+        "id": "pi",
+        "label": "Pi",
+        "description": "Minimal terminal-based coding agent with multi-provider LLM support",
+        "enabled": false,
+        "modes": [],
+        "status": "unavailable"
+      },
+      {
+        "id": "omp",
+        "label": "Oh My Pi",
+        "description": "Multi-provider coding agent with native approvals, host tools, and subagents",
+        "enabled": false,
+        "modes": [],
+        "status": "unavailable"
+      }
+    ]
+  },
+  "models": {
+    "provider": "codex",
+    "models": [
+      {
+        "id": "gpt-6.1-sol",
+        "thinkingOptions": [
+          {
+            "id": "low",
+            "label": "low",
+            "description": "Fast responses with lighter reasoning",
+            "isDefault": true
+          },
+          {
+            "id": "medium",
+            "label": "medium",
+            "description": "Balances speed and reasoning depth for everyday tasks",
+            "isDefault": false
+          },
+          {
+            "id": "high",
+            "label": "high",
+            "description": "Greater reasoning depth for complex problems",
+            "isDefault": false
+          },
+          {
+            "id": "xhigh",
+            "label": "xhigh",
+            "description": "Extra high reasoning depth for complex problems",
+            "isDefault": false
+          },
+          {
+            "id": "max",
+            "label": "max",
+            "description": "Maximum reasoning depth for the hardest problems",
+            "isDefault": false
+          },
+          {
+            "id": "ultra",
+            "label": "ultra",
+            "description": "Maximum reasoning with automatic task delegation",
+            "isDefault": false
+          }
+        ],
+        "defaultThinkingOptionId": "low"
+      },
+      {
+        "id": "gpt-6-astra",
+        "thinkingOptions": [
+          {
+            "id": "low",
+            "label": "low",
+            "description": "Fast responses with lighter reasoning",
+            "isDefault": false
+          },
+          {
+            "id": "medium",
+            "label": "medium",
+            "description": "Balances speed and reasoning depth for everyday tasks",
+            "isDefault": true
+          },
+          {
+            "id": "high",
+            "label": "high",
+            "description": "Greater reasoning depth for complex problems",
+            "isDefault": false
+          },
+          {
+            "id": "xhigh",
+            "label": "xhigh",
+            "description": "Extra high reasoning depth for complex problems",
+            "isDefault": false
+          },
+          {
+            "id": "max",
+            "label": "max",
+            "description": "Maximum reasoning depth for the hardest problems",
+            "isDefault": false
+          },
+          {
+            "id": "ultra",
+            "label": "ultra",
+            "description": "Maximum reasoning with automatic task delegation",
+            "isDefault": false
+          }
+        ],
+        "defaultThinkingOptionId": "medium"
+      },
+      {
+        "id": "gpt-6-luna",
+        "thinkingOptions": [
+          {
+            "id": "low",
+            "label": "low",
+            "description": "Fast responses with lighter reasoning",
+            "isDefault": false
+          },
+          {
+            "id": "medium",
+            "label": "medium",
+            "description": "Balances speed and reasoning depth for everyday tasks",
+            "isDefault": true
+          },
+          {
+            "id": "high",
+            "label": "high",
+            "description": "Greater reasoning depth for complex problems",
+            "isDefault": false
+          },
+          {
+            "id": "xhigh",
+            "label": "xhigh",
+            "description": "Extra high reasoning depth for complex problems",
+            "isDefault": false
+          },
+          {
+            "id": "max",
+            "label": "max",
+            "description": "Maximum reasoning depth for the hardest problems",
+            "isDefault": false
+          }
+        ],
+        "defaultThinkingOptionId": "medium"
+      }
+    ]
+  },
+  "inspections": [
+    {
+      "provider": "codex",
+      "label": "Codex",
+      "description": "OpenAI's Codex workspace agent with sandbox controls and optional network access",
+      "enabled": true,
+      "status": "available",
+      "modes": [
+        {
+          "id": "auto",
+          "label": "Default Permissions",
+          "description": "Edit files and run commands with Codex's default approval flow.",
+          "icon": "Shield",
+          "colorTier": "moderate"
+        },
+        {
+          "id": "auto-review",
+          "label": "Auto-review",
+          "description": "Same workspace-write permissions as Default, but eligible `on-request` approvals are routed through the auto-reviewer subagent.",
+          "icon": "ShieldCheck",
+          "colorTier": "moderate"
+        },
+        {
+          "id": "full-access",
+          "label": "Full Access",
+          "description": "Edit files, run commands, and access the network without additional prompts.",
+          "icon": "ShieldOff",
+          "colorTier": "dangerous"
+        }
+      ],
+      "selectedModel": "gpt-6.1-sol",
+      "features": [
+        {
+          "type": "toggle",
+          "id": "plan_mode",
+          "label": "Plan",
+          "description": "Switch Codex into planning-only collaboration mode",
+          "tooltip": "Toggle plan mode",
+          "icon": "list-todo",
+          "value": false
+        }
+      ]
+    },
+    {
+      "provider": "codex",
+      "label": "Codex",
+      "description": "OpenAI's Codex workspace agent with sandbox controls and optional network access",
+      "enabled": true,
+      "status": "available",
+      "modes": [
+        {
+          "id": "auto",
+          "label": "Default Permissions",
+          "description": "Edit files and run commands with Codex's default approval flow.",
+          "icon": "Shield",
+          "colorTier": "moderate"
+        },
+        {
+          "id": "auto-review",
+          "label": "Auto-review",
+          "description": "Same workspace-write permissions as Default, but eligible `on-request` approvals are routed through the auto-reviewer subagent.",
+          "icon": "ShieldCheck",
+          "colorTier": "moderate"
+        },
+        {
+          "id": "full-access",
+          "label": "Full Access",
+          "description": "Edit files, run commands, and access the network without additional prompts.",
+          "icon": "ShieldOff",
+          "colorTier": "dangerous"
+        }
+      ],
+      "selectedModel": "gpt-6.1-sol",
+      "features": [
+        {
+          "type": "toggle",
+          "id": "plan_mode",
+          "label": "Plan",
+          "description": "Switch Codex into planning-only collaboration mode",
+          "tooltip": "Toggle plan mode",
+          "icon": "list-todo",
+          "value": false
+        }
+      ]
+    },
+    {
+      "provider": "codex",
+      "label": "Codex",
+      "description": "OpenAI's Codex workspace agent with sandbox controls and optional network access",
+      "enabled": true,
+      "status": "available",
+      "modes": [
+        {
+          "id": "auto",
+          "label": "Default Permissions",
+          "description": "Edit files and run commands with Codex's default approval flow.",
+          "icon": "Shield",
+          "colorTier": "moderate"
+        },
+        {
+          "id": "auto-review",
+          "label": "Auto-review",
+          "description": "Same workspace-write permissions as Default, but eligible `on-request` approvals are routed through the auto-reviewer subagent.",
+          "icon": "ShieldCheck",
+          "colorTier": "moderate"
+        },
+        {
+          "id": "full-access",
+          "label": "Full Access",
+          "description": "Edit files, run commands, and access the network without additional prompts.",
+          "icon": "ShieldOff",
+          "colorTier": "dangerous"
+        }
+      ],
+      "selectedModel": "gpt-6-luna",
+      "features": [
+        {
+          "type": "toggle",
+          "id": "fast_mode",
+          "label": "Fast",
+          "description": "Priority inference at increased usage",
+          "tooltip": "Toggle fast mode",
+          "icon": "zap",
+          "value": false
+        },
+        {
+          "type": "toggle",
+          "id": "plan_mode",
+          "label": "Plan",
+          "description": "Switch Codex into planning-only collaboration mode",
+          "tooltip": "Toggle plan mode",
+          "icon": "list-todo",
+          "value": false
+        }
+      ]
+    },
+    {
+      "provider": "codex",
+      "label": "Codex",
+      "description": "OpenAI's Codex workspace agent with sandbox controls and optional network access",
+      "enabled": true,
+      "status": "available",
+      "modes": [
+        {
+          "id": "auto",
+          "label": "Default Permissions",
+          "description": "Edit files and run commands with Codex's default approval flow.",
+          "icon": "Shield",
+          "colorTier": "moderate"
+        },
+        {
+          "id": "auto-review",
+          "label": "Auto-review",
+          "description": "Same workspace-write permissions as Default, but eligible `on-request` approvals are routed through the auto-reviewer subagent.",
+          "icon": "ShieldCheck",
+          "colorTier": "moderate"
+        },
+        {
+          "id": "full-access",
+          "label": "Full Access",
+          "description": "Edit files, run commands, and access the network without additional prompts.",
+          "icon": "ShieldOff",
+          "colorTier": "dangerous"
+        }
+      ],
+      "selectedModel": "gpt-6-astra",
+      "features": [
+        {
+          "type": "toggle",
+          "id": "fast_mode",
+          "label": "Fast",
+          "description": "Priority inference at increased usage",
+          "tooltip": "Toggle fast mode",
+          "icon": "zap",
+          "value": false
+        },
+        {
+          "type": "toggle",
+          "id": "plan_mode",
+          "label": "Plan",
+          "description": "Switch Codex into planning-only collaboration mode",
+          "tooltip": "Toggle plan mode",
+          "icon": "list-todo",
+          "value": false
+        }
+      ]
+    }
+  ]
+}
