@@ -25,6 +25,7 @@ guides are [development](docs/development.md), [assets](docs/assets.md), and
   identities unless the requested change requires a coordinated migration.
 - Keep behavior-preserving cleanup separately reviewable from behavior changes.
   Avoid unrelated refactoring. Update contract documentation when behavior changes.
+- Keep branch history linear. Update from `main` by rebasing; do not create merge commits.
 
 ## Editor workflow
 
