@@ -22,8 +22,15 @@ Players can explore, steal and drive forgiving arcade cars, shoot pedestrians an
 vehicles, and set off readable car explosion chains. A small authored district
 should offer useful driving loops, narrow escapes and opportunities for mischief
 within a few minutes of starting. Original art and humorous signage supply identity.
-Favor chunky readable silhouettes, restrained materials and inexpensive effects;
-realistic graphics are not a goal. P0-04 still selects the specific visual direction.
+Favor chunky readable silhouettes and inexpensive effects; realistic graphics
+are not a goal. Regner clarified during P0-04 on 7 October: use darker, vibrant
+colors inspired by cyberpunk palettes with ordinary city architecture. Regner
+subsequently preferred Petrol & Coral and rejected a pixel-art-like treatment.
+Regner then liked the smooth 3D and high-rise concepts, requesting some buildings
+that reach or pass camera height. Regner accepted the combined concepts as sufficient
+to continue on 7 October. The [art direction](art-direction.md) and
+[city brief](world-layout.md) close P0-04's concept selection with explicit proof
+deferrals; palette balance, individual designs and dimensions refine through the spikes.
 
 M1 has no missions, score target or timed victory condition. Defer police/wanted
 systems, interiors, passengers, detailed civilian simulation, building destruction,
@@ -55,9 +62,11 @@ must clean up the old attempt. Settings menus do not pause a running shared worl
 
 ## Camera, controls and feel
 
-Use a local camera following the controlled player or car, looking steeply down
-with fixed world yaw. S02 chooses height, tilt, projection, follow/transition tuning
-and obstruction treatment using gameplay-camera evidence. Roofs and effects must
+Use a local camera following the controlled player or car, looking vertically
+straight down with fixed world yaw and perspective projection, as clarified by
+Regner during P0-04 on 7 October. S02 chooses height, field of view, framing,
+follow/transition tuning and obstruction treatment using gameplay-camera evidence,
+including beside buildings reaching/passing camera height. Roofs and effects must
 not hide the controlled actor, road turns or an intended target. Camera rotation,
 zoom controls and independent mouse aim are outside the starting scope.
 
@@ -128,14 +137,14 @@ or overwrites the authored district.
 
 ## Required content
 
-| Family | Ratified content scope; detailed kit choices remain P0-04 work |
+| Family | Ratified content scope; starting kit in the accepted art/city brief |
 | --- | --- |
 | District | One exterior district, roughly six connected blocks; at least two connected driving loops, an alley shortcut, a plaza/landmark and a stunt/chain-reaction area |
-| World kit | Reusable building types plus landmark, straight/turn/junction roads, continuous sidewalks/crossings and a small street-prop/sign kit; exact counts chosen in P0-04 |
+| World kit | Six starting building/landmark families including office/apartment towers; reusable roads/sidewalks and six prop/sign families as recorded in the accepted art brief; proof-driven refinement remains |
 | Vehicles | Two recognizable car silhouettes with color variants, damaged/wreck presentation, driver interaction and arcade handling |
 | People | Shared player/pedestrian rig with readable variants and idle/walk/run/death animation coverage; no modeled traffic occupants |
 | Weapons/effects | Pistol, SMG, rocket launcher; muzzle/impact/tracer/rocket feedback, explosion/smoke/sparks and bounded cosmetic debris |
-| HUD/map | Health, selected weapon/ammo or cooldown, useful control prompts; road minimap with local controlled-entity marker; other markers chosen in P0-04 |
+| HUD/map | Health, selected weapon/ammo or cooldown, useful control prompts; road minimap with local controlled-entity marker; no additional minimap marker commitment. Local-player world indication remains S02 presentation refinement |
 | Menus/settings | Standalone, Host, Join, Settings, Quit; in-match leave/reset/settings; Master/Music/SFX levels and mute saved locally |
 | Audio | Weapon/hit/explosion, engine/tires, footsteps, UI and music/ambience with source/license records |
 
@@ -143,8 +152,9 @@ Every visible 3D model, including blockout/spike fixtures and mesh-based VFX,
 comes from committed Blender sources and explicit linked GLB imports. Keep original
 art, saved prefab/sector composition and authored placement as described in
 [assets](assets.md). Collision/navigation, shaders/particle behavior, debug overlays
-and 2D UI/minimap drawing remain separate concerns. P0-04 chooses the art direction,
-layout and final kit inventory; asset production follows the plan's foundation gate.
+and 2D UI/minimap drawing remain separate concerns. P0-04's accepted art direction,
+layout and starting kit inventory are recorded in the linked briefs; the proofs
+refine them, and asset production follows the plan's foundation gate.
 
 ## Provisional validation envelope
 
@@ -303,7 +313,7 @@ through silence. Record each answer/date and any changed scope here.
 | D03 — Existing Steam setup | Regner (access), Codex (record) | AppID/depot IDs and intended `fun-things` branch recorded; live setup unknown and explicitly deferred by Regner on 7 October. Complete app type/accounts/package/launch/branch facts before S03-S/S08 Steam proofs; does not block brief ratification |
 | D04 — Development pin | Codex (proof), Regner (decision) | Installed pins/templates publication verified; current pin unchanged. Regner approved leaving exact engine choice open for early S08 Gaming Mode evidence before S02 handheld acceptance |
 | D05 — Camera/control and car envelope | Codex, Regner (feel review) | S02/S03-R/S04 captures, response/correction measurements, corner/aim/drive/recovery tests; settle before P0-GATE |
-| D06 — Art/layout and kit counts | Codex, Regner (direction review) | P0-04 concepts/layout, S06 route/clearance evidence; settle before P0-GATE |
+| D06 — Art/layout and kit counts | Codex, Regner (direction review) | Concept direction, starting district brief and inventory accepted 7 October in the art/layout records. Dimensions, actual-camera/held-weapon refinement and cost remain S02/S04/S06/S07 evidence before P0-GATE |
 | D07 — Gameplay/network bounds and tuning | Codex | [P0-02 API draft](api-contracts.md) and S03/S03-S/S05 size/rate/load/chain results; ratify draft timeouts and settle damage/ammo/reload/cooldown/wreck/queue limits before P0-GATE |
 | D08 — Renderer, targets and measured budgets | Codex, Regner (scope changes) | S07 Mobile/Forward Plus cost/readability on Deck, S08 Gaming Mode/native exports/templates/Steam compatibility; ratify provisional budgets at P0-GATE, sustained 60 FPS acceptance M1-D3/D4 |
 

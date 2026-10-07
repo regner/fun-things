@@ -1,0 +1,67 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="720" viewBox="0 0 1080 720">
+  <title>Initial six-block city shape</title>
+  <desc>Three columns and two rows of blocks connected by an outer road and internal streets.
+  Shops, a landmark plaza and homes occupy the north row. Workshops, a depot and an open
+  yard occupy the south row. Dashed foot shortcuts cross shops and depot. Diamonds mark
+  candidate spawn recesses in the plaza and homes. Two entrances connect the yard to roads.
+  This is a discussion sketch with no measured scale or selected sector boundaries.</desc>
+  <rect width="1080" height="720" fill="#f6f1e8"/>
+  <g font-family="sans-serif" fill="#28343b">
+    <text x="42" y="39" font-size="25" font-weight="bold">ONE DISTRICT · SIX BLOCKS</text>
+    <text x="42" y="65" font-size="16">Discussion sketch · no measured scale · north at top</text>
+  </g>
+  <rect x="47" y="81" width="986" height="554" rx="18" fill="#ded5c5" stroke="#8b9188" stroke-width="3"/>
+  <!-- Light outer bands represent continuous sidewalks; junction geometry is abstracted. -->
+  <g fill="none" stroke-linejoin="round" stroke-linecap="round">
+    <path d="M75 110H1005V610H75Z M385 110V610 M695 110V610 M75 360H1005"
+      stroke="#fff8e8" stroke-width="38"/>
+    <path d="M75 110H1005V610H75Z M385 110V610 M695 110V610 M75 360H1005"
+      stroke="#596269" stroke-width="22"/>
+    <path d="M75 110H1005V610H75Z M385 110V610 M695 110V610 M75 360H1005"
+      stroke="#d5d9d7" stroke-width="1.5" stroke-dasharray="8 11"/>
+  </g>
+  <g stroke="#a69b89" stroke-width="1.5">
+    <rect x="103" y="138" width="254" height="194" rx="8" fill="#e9b29c"/>
+    <rect x="413" y="138" width="254" height="194" rx="8" fill="#e7dcae"/>
+    <rect x="723" y="138" width="254" height="194" rx="8" fill="#c6d4b2"/>
+    <rect x="103" y="388" width="254" height="194" rx="8" fill="#aac8c4"/>
+    <rect x="413" y="388" width="254" height="194" rx="8" fill="#c0cbd0"/>
+    <rect x="723" y="388" width="254" height="194" rx="8" fill="#e0c7a2"/>
+  </g>
+  <g fill="none" stroke="#516966" stroke-width="5" stroke-dasharray="6 6">
+    <path d="M75 280H385"/>
+    <path d="M540 360V610"/>
+  </g>
+  <g fill="none" stroke="#f6f1e8" stroke-width="15">
+    <path d="M695 525H760"/>
+    <path d="M920 555V610"/>
+  </g>
+  <g fill="#fcfaf0" stroke="#28343b" stroke-width="2">
+    <path d="M625 163l10 10-10 10-10-10Z"/>
+    <path d="M939 163l10 10-10 10-10-10Z"/>
+  </g>
+  <circle cx="540" cy="286" r="22" fill="#5f8686" stroke="#28343b" stroke-width="2"/>
+  <g font-family="sans-serif" fill="#28343b" text-anchor="middle">
+    <g font-size="23" font-weight="bold">
+      <text x="230" y="207">Shops</text>
+      <text x="540" y="207">Plaza</text>
+      <text x="850" y="207">Homes</text>
+      <text x="230" y="455">Workshops</text>
+      <text x="540" y="455">Depot</text>
+      <text x="850" y="455">Open yard</text>
+    </g>
+    <g font-size="16">
+      <text x="230" y="234">Small civic businesses</text>
+      <text x="540" y="234">Orientation landmark</text>
+      <text x="850" y="234">Quiet frontage</text>
+      <text x="230" y="482">Service streets</text>
+      <text x="540" y="482" stroke="#c0cbd0" stroke-width="7" paint-order="stroke">Foot shortcut</text>
+      <text x="850" y="482">Stunts / car chains</text>
+      <text x="230" y="303">Foot shortcut</text>
+    </g>
+  </g>
+  <g font-family="sans-serif" font-size="16" fill="#28343b">
+    <text x="42" y="665">Roads: perimeter loop + internal alternatives · Light bands: sidewalks</text>
+    <text x="42" y="691">Dashed paths: foot shortcuts · Diamonds: candidate spawns · Circle: landmark</text>
+  </g>
+</svg>

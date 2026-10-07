@@ -42,7 +42,8 @@ drawing are separate concerns. Import processing retains the Blender source link
 
 The [ratified P0-01 brief](docs/design.md) owns product scope, gameplay policies
 and the provisional validation envelope. The table below summarizes scope;
-P0-04/spikes still settle detailed art/layout, tuning, toolchain and measured budgets.
+the accepted [art direction](docs/art-direction.md) and [city brief](docs/world-layout.md)
+own the starting style/layout; spikes still settle dimensions, tuning, toolchain and measured budgets.
 
 | Area | Ratified first-milestone scope / remaining proof |
 | --- | --- |
@@ -85,6 +86,13 @@ admission/cancellation/lifecycle, provisional limits and future contract tests.
 No gameplay is implemented or proof claimed. Spikes refine the drafts and P0-GATE
 settles them; remaining proof/tuning choices stay with the tasks below.
 
+P0-04 was accepted for continued work on 7 October 2026. The [art direction](docs/art-direction.md),
+[city brief](docs/world-layout.md) and [complete concept review](docs/concepts/p0-04/review.html)
+retain the selection evidence. Regner considered the concepts sufficient to continue;
+actual fixture captures/paintovers and overhead weapon readability move to S02/S04,
+with production design refinement in M1-C1. Dimensions remain provisional for
+S02/S04/S06 and measured cost remains S07/P0-GATE work.
+
 - [ ] **P0-03 — Add only the tooling needed for reproducible foundation proofs.**
   Needs: [ratified brief](docs/design.md) and the first owned spike scripts/resources.
   Output: working style/lint and explicit all-owned-script compilation tasks,
@@ -95,22 +103,9 @@ settles them; remaining proof/tuning choices stay with the tasks below.
   Done when: the spike fixtures can be rerun and failures produce useful evidence.
   Do not present import alone as compilation. CI and broader coverage grow in M1-D1.
 
-- [ ] **P0-04 — Explore concepts and choose art direction and city layout.**
-  Needs: [ratified brief](docs/design.md); concept exploration can run alongside
-  contract/tooling drafts.
-  Output: `docs/art-direction.md`, `docs/world-layout.md`, two small concept directions,
-  gameplay-camera paintovers, silhouette sheets for buildings/cars/people/weapons,
-  a VFX palette/keyframe, and an overhead road/sidewalk/sector plan.
-  Explore chunky stylized forms, quieter streets with strong gameplay accents,
-  clear rooftops/landmarks and humorous details. Design continuous sidewalks,
-  readable intersections, alternate driving loops, safe spawns and world boundaries.
-  Done when: the user chooses a direction and city brief with concept evidence;
-  provisional dimensions are labeled for refinement from S02/S04/S06 at P0-GATE.
-  GTA references guide feel; original designs supply the assets.
-
 - [ ] **P0-05 — Specify the concept-to-asset-to-world workflow.**
   Needs: [scene](docs/scene-structure.md) and [API](docs/api-contracts.md) drafts,
-  and P0-04 drafts.
+  and the [accepted art/city brief](docs/art-direction.md).
   Output: expand [assets](docs/assets.md) with handoff records, source/export layout,
   meters/axes/origins, export collections, sockets, rigs, animation names, materials,
   texture conventions, collision envelopes, LOD/bounds, catalogue and reexport rules.
@@ -130,7 +125,8 @@ settles them; remaining proof/tuning choices stay with the tasks below.
   deliberately flawed fixture finds meaningful issues; missing checks are reported.
 
 - [ ] **P0-07 — Create a project art review skill.**
-  Needs: P0-04 and P0-05 drafts; use S01/S02 artifacts for the dry run.
+  Needs: [accepted art/city brief](docs/art-direction.md) and P0-05;
+  use S01/S02 artifacts for the dry run.
   Output: `.agents/skills/art-review/SKILL.md`, linked to art/source/scene contracts.
   Review concept/style consistency, Blender provenance and import ancestry,
   gameplay-camera readability, scale/pivots/sockets/rigs, materials, collision/routes,
@@ -186,11 +182,15 @@ implementation. Save editor mutations before playtests; preserve unsaved work.
   unresolved dependencies, and revised asset/scene contracts.
 
 - [ ] **S02 — GTA2-style foot controls, camera and aiming.**
-  Needs: [ratified brief](docs/design.md), P0-04 draft and tiny Blender fixture;
-  S01 settings can refine it.
-  Question: which height/tilt/projection and control/aim choices deliver the desired feel?
+  Needs: [ratified brief](docs/design.md), [accepted art/city brief](docs/art-direction.md)
+  and tiny Blender fixture; S01 settings can refine it.
+  Question: which height/FOV/framing and control/aim choices deliver the desired feel
+  with the confirmed vertically downward perspective camera, including buildings
+  below, near and above camera height?
   Minimum: walk/turn/aim/shoot in one corner/alley fixture; evaluate fixed camera yaw,
   rooftops/obstruction, target readability, input focus loss and selected device support.
+  Retain actual-camera captures for paintovers; refine held-weapon silhouettes/aim
+  readability against the accepted concepts. S04 repeats the camera evidence while driving.
   Include Deck controls and 1280×800 readability; early S08 resolves the engine input
   blocker before handheld evidence can be accepted.
   Start with GTA2 turn/forward/back controls; an alternative needs a deliberate
@@ -265,7 +265,7 @@ implementation. Save editor mutations before playtests; preserve unsaved work.
   Full joining races and sustained capacity loads belong in M1-B3/M1-D.
 
 - [ ] **S06 — Shared city topology, navigation and minimap.**
-  Needs: S01, S02, S04 dimensions and P0-04 district draft.
+  Needs: S01, S02, S04 dimensions and [accepted district brief](docs/world-layout.md).
   Question: which authored representation supports lanes, sidewalks, seams and road-map drawing?
   Minimum: one intersection split across two saved sectors; one person takes a
   sidewalk/crossing route, one car makes a legal turn, and minimap roads align at
@@ -312,8 +312,9 @@ implementation. Save editor mutations before playtests; preserve unsaved work.
 
 - [ ] **P0-GATE — Review the foundation evidence and revise the milestone plan.**
   Needs: [ratified brief](docs/design.md), [ownership](docs/architecture.md),
-  [scene](docs/scene-structure.md) and [API](docs/api-contracts.md) drafts, P0-03
-  through P0-07, S01 through S08 including S03-R and S03-S.
+  [scene](docs/scene-structure.md) and [API](docs/api-contracts.md) drafts,
+  [accepted art/city brief](docs/art-direction.md), P0-03/P0-05/P0-06/P0-07, S01 through S08
+  including S03-R and S03-S.
   Done when: critical design/feasibility assumptions required to begin M1 are resolved;
   the user ratifies scope, chosen art/layout and camera/control choices against
   concepts/spike evidence; implementers settle API/scene/source contracts and budgets.
@@ -414,6 +415,8 @@ waiting for unrelated gameplay systems.
   Needs: P0-GATE; pipeline/style/camera/dimensions for each family.
   Produce reusable building types/landmark, roads/junctions/sidewalks, props,
   player/pedestrian rig and animations, car variants/wrecks, weapons and VFX carriers.
+  Refine the accepted concept shapes and overhead weapon presentation with S02/S04
+  camera evidence; source handoffs include final gameplay-camera views/paintovers.
   Use the documented handoffs and art review for each accepted prefab.
   Done when: the content catalogue links concepts, `.blend`, exports, import settings,
   reusable scenes and previews; reexport/save/reload preserves ancestry/placement.

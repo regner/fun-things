@@ -39,6 +39,10 @@ imports, checks, and exports; install export templates matching that exact relea
   identities, version control, and release checks.
 - [Asset workflow](docs/assets.md): source ownership, model integration, collision,
   art review, and audio provenance.
+- [Complete concept review](docs/concepts/p0-04/review.html), [art direction](docs/art-direction.md)
+  and [city layout](docs/world-layout.md): P0-04 uses Petrol & Coral, smooth 3D and
+  mixed-height buildings with a downward perspective camera. The starting art/city brief
+  is accepted; dimensions and camera/asset behavior remain provisional for the proofs.
 - [Multiplayer guidance](docs/multiplayer.md): authority, admission, lifecycle,
   replication, prediction, transports, and staged acceptance tests.
 - [Guidance provenance](docs/guidance-sources.md): what was extracted from VCS,

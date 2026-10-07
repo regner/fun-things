@@ -1,0 +1,220 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Fun Things — complete concept review</title>
+  <style>
+    :root { color-scheme: dark; font-family: system-ui, sans-serif; background: #101e29;
+      color: #f6f1dc; line-height: 1.55; }
+    * { box-sizing: border-box; }
+    body { margin: 0; }
+    main { max-width: 1360px; margin: auto; padding: 32px 28px 64px; }
+    h1 { font-size: clamp(28px, 4vw, 44px); margin: 4px 0 12px; line-height: 1.15; }
+    h2 { margin: 34px 0 14px; font-size: 24px; }
+    h3 { margin: 0 0 8px; font-size: 19px; }
+    p { margin: 8px 0 18px; max-width: 85ch; }
+    a { color: #8bd9d3; text-underline-offset: 3px; }
+    a:hover { color: #ff9b85; }
+    a:focus-visible { outline: 3px solid #ffc05a; outline-offset: 4px; }
+    nav { display: flex; flex-wrap: wrap; gap: 10px 24px; margin: 22px 0; }
+    .eyebrow { color: #ff9b85; margin: 0; font-size: 14px; letter-spacing: .07em; }
+    .note { color: #b9cace; font-size: 15px; }
+    .swatches { display: flex; flex-wrap: wrap; gap: 16px 24px; margin: 22px 0; }
+    .swatch { display: flex; gap: 9px; align-items: center; font-size: 15px; }
+    .chip { width: 24px; height: 24px; border: 1px solid #617681; border-radius: 4px; }
+    .grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 28px; }
+    figure { margin: 0; min-width: 0; }
+    figure > a { display: block; }
+    img { display: block; width: 100%; height: auto; border-radius: 5px; }
+    figcaption { margin-top: 10px; font-size: 15px; color: #c2d0d2; }
+    .hero { max-width: 1280px; }
+    .plan { max-width: 1040px; margin: auto; }
+    .history { border-top: 1px solid #49606c; margin-top: 40px; padding-top: 8px; }
+    .history .grid { row-gap: 30px; }
+    footer { border-top: 1px solid #49606c; margin-top: 42px; padding-top: 16px; }
+    @media (max-width: 720px) {
+      main { padding: 22px 16px 40px; }
+      .grid { grid-template-columns: 1fr; gap: 24px; }
+      nav { gap: 10px 18px; }
+    }
+    @media print {
+      :root { background: white; color: #142833; color-scheme: light; }
+      main { padding: 0; }
+      nav { display: none; }
+      figure { break-inside: avoid; }
+      figcaption, .note { color: #304b57; }
+      a { color: #214e59; }
+    }
+  </style>
+</head>
+<body>
+<main>
+  <header>
+    <p class="eyebrow">FUN THINGS · P0-04 · 7 OCTOBER 2026</p>
+    <h1>Petrol &amp; Coral — complete concept review</h1>
+    <p>Dark, vibrant color. Smooth stylized 3D. Ordinary architecture with a mix of
+      low buildings and high-rises. A perspective camera looking straight down.</p>
+    <p class="note">Accepted on 7 October as the starting art and city brief for continued work.
+      Colors, smooth rendering and high-rises carry forward; dimensions and detailed designs refine through the proofs.
+      Images are concept art, not engine captures or performance evidence.</p>
+    <nav aria-label="Concept sections">
+      <a href="#street">Street view</a><a href="#actors">Cars &amp; people</a>
+      <a href="#architecture">Buildings</a><a href="#effects">Weapons &amp; effects</a>
+      <a href="#city">City plan</a><a href="#earlier">Earlier concepts</a>
+    </nav>
+    <div class="swatches" aria-label="Provisional material colors">
+      <span class="swatch"><span class="chip" style="background:#123646" aria-hidden="true"></span>Petrol</span>
+      <span class="swatch"><span class="chip" style="background:#15564f" aria-hidden="true"></span>Emerald</span>
+      <span class="swatch"><span class="chip" style="background:#ff725d" aria-hidden="true"></span>Coral</span>
+      <span class="swatch"><span class="chip" style="background:#235fcc" aria-hidden="true"></span>Cobalt</span>
+      <span class="swatch"><span class="chip" style="background:#ffc05a" aria-hidden="true"></span>Amber</span>
+      <span class="swatch"><span class="chip" style="background:#f6f1dc" aria-hidden="true"></span>Ivory</span>
+    </div>
+  </header>
+
+  <section id="street" aria-labelledby="street-title">
+    <h2 id="street-title">The current street view</h2>
+    <figure class="hero">
+      <a href="i-perspective-high-rise.png" aria-label="Open full-size current perspective street view">
+        <img src="i-perspective-high-rise.png" width="1586" height="992"
+          alt="Petrol and coral top-down city intersection with tall office and apartment facades at the frame edges, lower workshops and homes, cars and a marked local player.">
+      </a>
+      <figcaption>Perspective adds city height while the camera points down. Towers reach toward
+        and beyond the camera; central street action stays visible in this composition. The image
+        is approximately 8:5, and its scale/occlusion need the actual Godot camera proof.</figcaption>
+    </figure>
+    <p class="note">Reference observations from
+      <a href="https://www.igrandtheftauto.com/gta2/images/gta2-official-screenshot-2">GTA2 screenshot 2</a>
+      and <a href="https://www.igrandtheftauto.com/gta2/images/gta2-official-screenshot-4">screenshot 4</a>:
+      tall facades fill the edges around visible street action. Exact camera settings are not
+      inferred from those images. Our building designs are original.</p>
+  </section>
+
+  <section id="actors" aria-labelledby="actors-title">
+    <h2 id="actors-title">Cars and people</h2>
+    <figure>
+      <a href="e-cars-people-study-v2.png" aria-label="Open full-size cars and people concept sheet">
+        <img src="e-cars-people-study-v2.png" width="1536" height="1024"
+          alt="Short square coral hatchback, long amber sedan, their solid silhouettes, an ivory/coral player and three chunky pedestrian clothing variants.">
+      </a>
+      <figcaption>A compact hatchback and a long three-volume sedan, with shape differences
+        independent of paint. Shared human proportions, broad clothing and readable poses.
+        People are enlarged on this design sheet; rig and gameplay-scale readability remain to prove.</figcaption>
+    </figure>
+  </section>
+
+  <section id="architecture" aria-labelledby="architecture-title">
+    <h2 id="architecture-title">Low roofs and high-rises</h2>
+    <div class="grid">
+      <figure>
+        <a href="f-roof-shapes.png" aria-label="Open full-size low-rise rooftop sheet">
+          <img src="f-roof-shapes.png" width="1536" height="1024"
+            alt="L-shaped corner shop, sawtooth workshop, paired pitched houses and circular plaza landmark with footprint silhouettes.">
+        </a>
+        <figcaption><strong>Four low-rise families.</strong> Large roof shapes establish districts
+          without dense texture detail. Orthographic roof studies describe assets, not gameplay projection.</figcaption>
+      </figure>
+      <figure>
+        <a href="j-high-rise-families.png" aria-label="Open full-size high-rise architecture sheet">
+          <img src="j-high-rise-families.png" width="1536" height="1024"
+            alt="Conventional teal office and apartment high-rises with concrete framing, cobalt windows, coral accents and small roof plans.">
+        </a>
+        <figcaption><strong>Two tall families.</strong> Conventional office/apartment masses with
+          broad facade rhythms. These supporting design views show elevations, not the gameplay camera.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section id="effects" aria-labelledby="effects-title">
+    <h2 id="effects-title">Weapons and effects</h2>
+    <figure>
+      <a href="g-weapons-effects.png" aria-label="Open full-size weapons and effects sheet">
+        <img src="g-weapons-effects.png" width="1536" height="1024"
+          alt="Pistol, SMG and long rocket launcher silhouette studies; flash, burst, breakup, broken smoke and clear keyframes; muzzle, impact and rocket feedback samples.">
+      </a>
+      <figcaption>Compact pistol, boxier SMG and long launcher. Brief ivory/amber flash, coral/orange
+        lobes and broken smoke that clears. The weapon drawings are primarily side profiles;
+        overhead held views need refinement. Effect timing, damage and chain rules stay with S05.</figcaption>
+    </figure>
+  </section>
+
+  <section id="city" aria-labelledby="city-title">
+    <h2 id="city-title">The accepted starting district</h2>
+    <figure class="plan">
+      <a href="city-plan-v2.svg" aria-label="Open full-size provisional city plan">
+        <img src="city-plan-v2.svg" width="1240" height="1000"
+          alt="Measured proposal for six blocks with outer and inner driving loops, sidewalks, plaza, workshops, depot alley, open car yard, two tower sites, four candidate spawns and three saved sectors.">
+      </a>
+      <figcaption>Six blocks, outer and inner driving loops, a foot shortcut, a service alley and
+        a yard with two entrances. Towers sit among lower buildings. Street/block envelope
+        260 × 163 m; all dimensions, tower sites and spawn candidates are provisional.</figcaption>
+    </figure>
+    <p>The amount of open space, tall/low mix and regular street grid are the starting design.
+      <a href="../../world-layout.md">The layout brief</a> records provisional dimensions,
+      camera starting values, saved-sector organization and the movement/visibility proofs still needed.</p>
+  </section>
+
+  <section id="earlier" class="history" aria-labelledby="earlier-title">
+    <h2 id="earlier-title">Earlier concepts, together for comparison</h2>
+    <p class="note">These are retained exploration history. Muted colors, noisy/pixel-like
+      treatment and orthographic gameplay projection have been superseded.</p>
+    <div class="grid">
+      <figure>
+        <h3>Sunfaded Civic</h3>
+        <a href="a-sunfaded-civic.png"><img src="a-sunfaded-civic.png" width="1536" height="1024"
+          alt="Earlier warm pastel civic neighborhood concept with silhouette and explosion strips."></a>
+        <figcaption>Original warm civic/shops direction. Useful shape history; color and tilted view superseded.</figcaption>
+      </figure>
+      <figure>
+        <h3>Stamped Industrial</h3>
+        <a href="b-stamped-industrial.png"><img src="b-stamped-industrial.png" width="1536" height="1024"
+          alt="Earlier cool industrial neighborhood concept with silhouette and explosion strips."></a>
+        <figcaption>Original industrial direction. Useful workshop context; muted/noisy treatment superseded.</figcaption>
+      </figure>
+      <figure>
+        <h3>The palette comparison</h3>
+        <a href="c-vibrant-top-down.png"><img src="c-vibrant-top-down.png" width="1536" height="1024"
+          alt="Violet/cyan and petrol/coral versions of the same street corner."></a>
+        <figcaption>Petrol &amp; Coral was preferred. The pixel-art-like rendering prompted the smoother treatment.</figcaption>
+      </figure>
+      <figure>
+        <h3>The first smooth 3D corner</h3>
+        <a href="d-petrol-coral-smooth-3d.png"><img src="d-petrol-coral-smooth-3d.png" width="1586" height="992"
+          alt="First smoother petrol/coral city corner with rounded cars and simpler buildings."></a>
+        <figcaption>The smoother treatment received positive feedback; towers and distinct car shapes came later.</figcaption>
+      </figure>
+      <figure>
+        <h3>The first actor sheet</h3>
+        <a href="e-cars-people-study-v1.png"><img src="e-cars-people-study-v1.png" width="1536" height="1024"
+          alt="Initial cars and people sheet with two cars that had overly similar outlines."></a>
+        <figcaption>Cars were too similar; the current sheet shortens/squares the hatchback and lengthens the sedan.</figcaption>
+      </figure>
+      <figure>
+        <h3>The low-rise street composition</h3>
+        <a href="h-street-composition.png"><img src="h-street-composition.png" width="1586" height="992"
+          alt="Earlier street composition using four low-rise roof families and gameplay-scale actors."></a>
+        <figcaption>Low-rise/orthographic exploration before the confirmed perspective and high-rise correction.</figcaption>
+      </figure>
+      <figure>
+        <h3>The first city shape</h3>
+        <a href="city-shape.svg"><img src="city-shape.svg" width="1080" height="720"
+          alt="Initial unmeasured six-block city sketch with shops, plaza, homes, workshops, depot and yard."></a>
+        <figcaption>The starting grid. The current plan adds proposed dimensions, tower sites and sector seams.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <footer>
+    <p><a href="../../art-direction.md">Art direction and kit brief</a> ·
+      <a href="../../world-layout.md">City layout brief</a> ·
+      <a href="../../design.md">Product scope</a></p>
+    <p class="note">Concept PNGs were made with the built-in imagegen tool. Exact prompts:
+      <a href="prompts.json">first pass</a>, <a href="prompts-v2.json">palette</a>,
+      <a href="prompts-v3.json">smooth 3D</a>, <a href="prompts-v4.json">actors</a>,
+      <a href="prompts-v5.json">complete set</a>. SVG plans are design references.
+      Production models require Blender sources and linked exports. No gameplay/performance proof is claimed.</p>
+  </footer>
+</main>
+</body>
+</html>
