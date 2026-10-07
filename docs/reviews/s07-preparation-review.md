@@ -121,3 +121,63 @@ wording is accurate against its explicit base. The author must reconcile the lat
 limited desktop evidence and remaining S02 gates when rebasing. This verdict does
 not automatically cover retention/rebase or any substantive final revision; an
 exact final candidate will receive the requested renewed disposition.
+
+## Renewed final technical disposition — 7 October 2026
+
+Reviewer Paseo ID: `9fc14247-42ad-4b2d-af58-6e9c497e35d3`; Sol 6.1
+(`gpt-6.1-sol`), high effort. `/root` above is the separate session runtime name.
+Exact frozen candidate: `b55afeb5ada791d1b92aefd92a734568e0b2289f` on
+`map-capacity-spike-plan`. Accepted integration base:
+`cc24b5e3b8732aa70c47633ab3f202b951e35bf9`.
+
+**ACCEPT the exact candidate as documentation-only S07 preparation. No actionable
+findings.** This renewed disposition covers the reconciled delivery, not capacity
+or target acceptance. HEAD/main/clean status were confirmed before inspection;
+base ancestry and a merge-free delivery range were verified.
+
+Examined the relevant accepted `62e0800..cc24b5e` delta: S02 desktop integration
+`fc6845fdd945df67d7e66b4dbbca7618eee4bd99`, then the model-policy/TODO wording.
+Read the S02 spike, camera measurements, source handoff, accepted TODO/scene/API
+supplements, both b826d389 technical dispositions/reviewer metadata and both
+exact-fc6845f confirmations retained in `refs/notes/paseo-orchestration`. This was
+evidence/status reconciliation, not a new S02 asset/code audit or gameplay proof.
+
+The S07 reconciliation correctly identifies linked desktop fixtures, actual bounded
+foot collision/control, provisional vertical 47 m/42° camera and inherited 50°
+alternative, 0.1/160 m planes and 1280×800 captures. It preserves current native-focus
+revalidation, physical-key playtesting, user feel/FOV/readability/cutaway and Deck
+gaps. The kit lacks texture/rig/LOD/effect/populated-network coverage; per-instance
+cutaway costs remain unmeasured. Reusing those scoped assumptions for later desktop
+diagnostics does not settle production tuning or arbitrary-delta/prediction reuse.
+S04/S05/S06 representative prerequisites and possible reruns after S02 decisions
+remain explicit.
+
+Verified byte-identical S02 TODO and P0-PROFILES blocks against integration main,
+and an identical orchestrator skill. The read model policy retains Sol workspace
+leads, Luna/high for very simple delegated work and Astra only for necessary bounded
+specialists; no profile configuration is part of the delivered range. Six-block M1,
+distinct capacity axes, bounded baseline/growth, owner budgets, cheap investigations,
+source/placement/identity rules, authority/lifecycle fences and downstream ownership
+continue to satisfy the initial criteria.
+
+Renewed checks at the exact candidate:
+
+- **89** local Markdown paths/anchors across all delivered Markdown files: zero errors.
+- Research JSON parse with duplicate-key rejection, ref/hash shape and integration
+  provenance assertions: pass. All original research fields, including source refs,
+  hashes and limitations, are unchanged from f8b83d8.
+- Capability, measurement and investigation sections are byte-identical to the
+  initially reviewed versions; the method delta only scopes its S02 prerequisite.
+  Initial independent primary-source/hash/version checks remain the checks actually
+  performed. No fresh website/source download or runtime benefit test was claimed.
+- `git diff --check cc24b5e..b55afeb`: pass. Delivered paths are TODO, S07 brief,
+  research/check receipts and retained review report only.
+
+All review subprocesses finished. No shared editor/Blender/service lease, engine
+launch, gameplay rerun, substantive edit, commit, merge, push or archive occurred.
+Only this report section was appended. Representative measurements, S02's remaining
+focus/physical-key/feel/readability gates, physical LCD/OLED and real Steam cases,
+engine-input/S08, P0-GATE and production acceptance remain open or explicitly
+DEFERRED as recorded. No access re-request, scope/target waiver or desktop
+certification follows. A subsequent report-only retention HEAD still needs the
+requested brief exact-revision confirmation; this section does not pre-approve it.
