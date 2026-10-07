@@ -1,0 +1,38 @@
+[
+  {
+    "method": "node.call_method",
+    "params": {
+      "node_path": ".",
+      "method_name": "editor_state",
+      "args": []
+    },
+    "response": {
+      "id": 1,
+      "jsonrpc": "2.0",
+      "result": {
+        "method": "editor_state",
+        "path": ".",
+        "result": {
+          "open": "PackedStringArray(\"res://tests/fixtures/s02/editor_harness.tscn\")",
+          "project": "/home/regner/.paseo/worktrees/0u71f39f/s03-r-enet-foot-response/",
+          "unsaved": "PackedStringArray()"
+        },
+        "success": true
+      }
+    }
+  },
+  {
+    "method": "scene.get_tree",
+    "params": {
+      "max_depth": 1
+    },
+    "response": {
+      "id": 2,
+      "jsonrpc": "2.0",
+      "result": {
+        "success": true,
+        "tree": "<untrusted-14e9b62a kind=\"scene_tree\" source=\"res://tests/fixtures/s02/editor_harness.tscn\">\n{\"children\":[],\"class\":\"Node\",\"name\":\"S02Editor\",\"path\":\".\"}\n</untrusted-14e9b62a>"
+      }
+    }
+  }
+]

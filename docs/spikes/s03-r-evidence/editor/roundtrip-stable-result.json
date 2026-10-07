@@ -1,0 +1,186 @@
+[
+  {
+    "method": "scene.open",
+    "params": {
+      "file_path": "res://tests/fixtures/s03_r/actor.tscn"
+    },
+    "response": {
+      "id": 1,
+      "jsonrpc": "2.0",
+      "result": {
+        "path": "res://tests/fixtures/s03_r/actor.tscn",
+        "success": true
+      }
+    }
+  },
+  {
+    "method": "editor.save_scene",
+    "params": {},
+    "response": {
+      "id": 2,
+      "jsonrpc": "2.0",
+      "result": {
+        "path": "res://tests/fixtures/s03_r/actor.tscn",
+        "success": true
+      }
+    }
+  },
+  {
+    "method": "scene.close",
+    "params": {
+      "file_path": "res://tests/fixtures/s03_r/actor.tscn"
+    },
+    "response": {
+      "id": 3,
+      "jsonrpc": "2.0",
+      "result": {
+        "path": "res://tests/fixtures/s03_r/actor.tscn",
+        "success": true,
+        "unsaved_changes_discarded": false
+      }
+    }
+  },
+  {
+    "method": "scene.open",
+    "params": {
+      "file_path": "res://tests/fixtures/s03_r/actor.tscn"
+    },
+    "response": {
+      "id": 4,
+      "jsonrpc": "2.0",
+      "result": {
+        "path": "res://tests/fixtures/s03_r/actor.tscn",
+        "success": true
+      }
+    }
+  },
+  {
+    "method": "editor.save_scene",
+    "params": {},
+    "response": {
+      "id": 5,
+      "jsonrpc": "2.0",
+      "result": {
+        "path": "res://tests/fixtures/s03_r/actor.tscn",
+        "success": true
+      }
+    }
+  },
+  {
+    "method": "scene.open",
+    "params": {
+      "file_path": "res://tests/fixtures/s03_r/boot.tscn"
+    },
+    "response": {
+      "id": 6,
+      "jsonrpc": "2.0",
+      "result": {
+        "path": "res://tests/fixtures/s03_r/boot.tscn",
+        "success": true
+      }
+    }
+  },
+  {
+    "method": "editor.save_scene",
+    "params": {},
+    "response": {
+      "id": 7,
+      "jsonrpc": "2.0",
+      "result": {
+        "path": "res://tests/fixtures/s03_r/boot.tscn",
+        "success": true
+      }
+    }
+  },
+  {
+    "method": "scene.close",
+    "params": {
+      "file_path": "res://tests/fixtures/s03_r/boot.tscn"
+    },
+    "response": {
+      "id": 8,
+      "jsonrpc": "2.0",
+      "result": {
+        "path": "res://tests/fixtures/s03_r/boot.tscn",
+        "success": true,
+        "unsaved_changes_discarded": false
+      }
+    }
+  },
+  {
+    "method": "scene.open",
+    "params": {
+      "file_path": "res://tests/fixtures/s03_r/boot.tscn"
+    },
+    "response": {
+      "id": 9,
+      "jsonrpc": "2.0",
+      "result": {
+        "path": "res://tests/fixtures/s03_r/boot.tscn",
+        "success": true
+      }
+    }
+  },
+  {
+    "method": "editor.save_scene",
+    "params": {},
+    "response": {
+      "id": 10,
+      "jsonrpc": "2.0",
+      "result": {
+        "path": "res://tests/fixtures/s03_r/boot.tscn",
+        "success": true
+      }
+    }
+  },
+  {
+    "method": "scene.get_tree",
+    "params": {
+      "max_depth": 5
+    },
+    "response": {
+      "id": 11,
+      "jsonrpc": "2.0",
+      "result": {
+        "success": true,
+        "tree": "<untrusted-cef2103b kind=\"scene_tree\" source=\"res://tests/fixtures/s03_r/boot.tscn\">\n{\"children\":[{\"children\":[],\"class\":\"Node\",\"name\":\"Session\",\"path\":\"Session\"},{\"children\":[{\"children\":[{\"children\":[],\"class\":\"Node\",\"name\":\"Replication\",\"path\":\"View/Match/Replication\"},{\"children\":[],\"class\":\"Node3D\",\"name\":\"RuntimeEntities\",\"path\":\"View/Match/RuntimeEntities\"},{\"children\":[{\"children\":[{\"children\":[],\"class\":\"Node3D\",\"name\":\"Visuals\",\"path\":\"View/Match/CityRoot/Ground/Visuals\"},{\"children\":[],\"class\":\"Node3D\",\"name\":\"Collision\",\"path\":\"View/Match/CityRoot/Ground/Collision\"}],\"class\":\"Node3D\",\"name\":\"Ground\",\"path\":\"View/Match/CityRoot/Ground\"},{\"children\":[{\"children\":[],\"class\":\"Node3D\",\"name\":\"Visuals\",\"path\":\"View/Match/CityRoot/WestCorner/Visuals\"},{\"children\":[],\"class\":\"Node3D\",\"name\":\"Collision\",\"path\":\"View/Match/CityRoot/WestCorner/Collision\"}],\"class\":\"Node3D\",\"name\":\"WestCorner\",\"path\":\"View/Match/CityRoot/WestCorner\"},{\"children\":[{\"children\":[],\"class\":\"Node3D\",\"name\":\"Visuals\",\"path\":\"View/Match/CityRoot/EastCorner/Visuals\"},{\"children\":[],\"class\":\"Node3D\",\"name\":\"Collision\",\"path\":\"View/Match/CityRoot/EastCorner/Collision\"}],\"class\":\"Node3D\",\"name\":\"EastCorner\",\"path\":\"View/Match/CityRoot/EastCorner\"},{\"children\":[{\"children\":[],\"class\":\"Node3D\",\"name\":\"Visuals\",\"path\":\"View/Match/CityRoot/NearTower/Visuals\"},{\"children\":[],\"class\":\"Node3D\",\"name\":\"Collision\",\"path\":\"View/Match/CityRoot/NearTower/Collision\"}],\"class\":\"Node3D\",\"name\":\"NearTower\",\"path\":\"View/Match/CityRoot/NearTower\"},{\"children\":[{\"children\":[],\"class\":\"Node3D\",\"name\":\"Visuals\",\"path\":\"View/Match/CityRoot/TallTower/Visuals\"},{\"children\":[],\"class\":\"Node3D\",\"name\":\"Collision\",\"path\":\"View/Match/CityRoot/TallTower/Collision\"}],\"class\":\"Node3D\",\"name\":\"TallTower\",\"path\":\"View/Match/CityRoot/TallTower\"}],\"class\":\"Node3D\",\"name\":\"CityRoot\",\"path\":\"View/Match/CityRoot\"},{\"children\":[{\"children\":[{\"children\":[],\"class\":\"Node3D\",\"name\":\"PresentationAnchor\",\"path\":\"View/Match/Bodies/Host/PresentationAnchor\"},{\"children\":[],\"class\":\"Node3D\",\"name\":\"Sockets\",\"path\":\"View/Match/Bodies/Host/Sockets\"},{\"children\":[],\"class\":\"CollisionShape3D\",\"name\":\"Collision\",\"path\":\"View/Match/Bodies/Host/Collision\"}],\"class\":\"CharacterBody3D\",\"name\":\"Host\",\"path\":\"View/Match/Bodies/Host\"},{\"children\":[{\"children\":[],\"class\":\"Node3D\",\"name\":\"PresentationAnchor\",\"path\":\"View/Match/Bodies/Client/PresentationAnchor\"},{\"children\":[],\"class\":\"Node3D\",\"name\":\"Sockets\",\"path\":\"View/Match/Bodies/Client/Sockets\"},{\"children\":[],\"class\":\"CollisionShape3D\",\"name\":\"Collision\",\"path\":\"View/Match/Bodies/Client/Collision\"}],\"class\":\"CharacterBody3D\",\"name\":\"Client\",\"path\":\"View/Match/Bodies/Client\"}],\"class\":\"Node3D\",\"name\":\"Bodies\",\"path\":\"View/Match/Bodies\"}],\"class\":\"Node3D\",\"name\":\"Match\",\"path\":\"View/Match\"}],\"class\":\"Node\",\"name\":\"View\",\"path\":\"View\"},{\"children\":[],\"class\":\"Node\",\"name\":\"Input\",\"path\":\"Input\"},{\"children\":[{\"children\":[],\"class\":\"Camera3D\",\"name\":\"Camera3D\",\"path\":\"CameraRig/Camera3D\"}],\"class\":\"Node3D\",\"name\":\"CameraRig\",\"path\":\"CameraRig\"},{\"children\":[],\"class\":\"DirectionalLight3D\",\"name\":\"Sun\",\"path\":\"Sun\"},{\"children\":[],\"class\":\"WorldEnvironment\",\"name\":\"Environment\",\"path\":\"Environment\"},{\"children\":[{\"children\":[],\"class\":\"Label\",\"name\":\"Status\",\"path\":\"UI/Status\"}],\"class\":\"CanvasLayer\",\"name\":\"UI\",\"path\":\"UI\"}],\"class\":\"Node\",\"name\":\"Boot\",\"path\":\".\"}\n</untrusted-cef2103b>"
+      }
+    }
+  },
+  {
+    "method": "scene.open",
+    "params": {
+      "file_path": "res://tests/fixtures/s02/editor_harness.tscn"
+    },
+    "response": {
+      "id": 12,
+      "jsonrpc": "2.0",
+      "result": {
+        "path": "res://tests/fixtures/s02/editor_harness.tscn",
+        "success": true
+      }
+    }
+  },
+  {
+    "method": "node.call_method",
+    "params": {
+      "node_path": ".",
+      "method_name": "editor_state",
+      "args": []
+    },
+    "response": {
+      "id": 13,
+      "jsonrpc": "2.0",
+      "result": {
+        "method": "editor_state",
+        "path": ".",
+        "result": {
+          "open": "PackedStringArray(\"res://tests/fixtures/s02/editor_harness.tscn\", \"res://tests/fixtures/s03_r/actor.tscn\", \"res://tests/fixtures/s03_r/boot.tscn\")",
+          "project": "/home/regner/.paseo/worktrees/0u71f39f/s03-r-enet-foot-response/",
+          "unsaved": "PackedStringArray()"
+        },
+        "success": true
+      }
+    }
+  }
+]

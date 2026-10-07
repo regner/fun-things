@@ -1,0 +1,714 @@
+[
+  {
+    "method": "scene.create_inherited",
+    "params": {
+      "file_path": "res://tests/fixtures/s03_r/actor.tscn",
+      "base_scene": "res://tests/fixtures/s02/actor.tscn"
+    },
+    "response": {
+      "id": 1,
+      "jsonrpc": "2.0",
+      "result": {
+        "base_scene": "res://tests/fixtures/s02/actor.tscn",
+        "file_path": "res://tests/fixtures/s03_r/actor.tscn",
+        "root_name": "Actor",
+        "success": true
+      }
+    }
+  },
+  {
+    "method": "scene.open",
+    "params": {
+      "file_path": "res://tests/fixtures/s03_r/actor.tscn"
+    },
+    "response": {
+      "id": 2,
+      "jsonrpc": "2.0",
+      "result": {
+        "path": "res://tests/fixtures/s03_r/actor.tscn",
+        "success": true
+      }
+    }
+  },
+  {
+    "method": "node.set_script",
+    "params": {
+      "node_path": ".",
+      "script_path": "res://tests/fixtures/s03_r/actor.gd"
+    },
+    "response": {
+      "id": 3,
+      "jsonrpc": "2.0",
+      "result": {
+        "path": ".",
+        "properties": [
+          {
+            "hint": 0,
+            "hint_string": "",
+            "name": "forward_speed_mps",
+            "type": 3
+          },
+          {
+            "hint": 0,
+            "hint_string": "",
+            "name": "reverse_speed_mps",
+            "type": 3
+          },
+          {
+            "hint": 0,
+            "hint_string": "",
+            "name": "turn_speed_degrees",
+            "type": 3
+          }
+        ],
+        "script": "res://tests/fixtures/s03_r/actor.gd",
+        "success": true
+      }
+    }
+  },
+  {
+    "method": "editor.save_scene",
+    "params": {},
+    "response": {
+      "id": 4,
+      "jsonrpc": "2.0",
+      "result": {
+        "path": "res://tests/fixtures/s03_r/actor.tscn",
+        "success": true
+      }
+    }
+  },
+  {
+    "method": "scene.close",
+    "params": {
+      "file_path": "res://tests/fixtures/s03_r/actor.tscn"
+    },
+    "response": {
+      "id": 5,
+      "jsonrpc": "2.0",
+      "result": {
+        "path": "res://tests/fixtures/s03_r/actor.tscn",
+        "success": true,
+        "unsaved_changes_discarded": false
+      }
+    }
+  },
+  {
+    "method": "scene.create_inherited",
+    "params": {
+      "file_path": "res://tests/fixtures/s03_r/boot.tscn",
+      "base_scene": "res://tests/fixtures/s03/boot.tscn"
+    },
+    "response": {
+      "id": 6,
+      "jsonrpc": "2.0",
+      "result": {
+        "base_scene": "res://tests/fixtures/s03/boot.tscn",
+        "file_path": "res://tests/fixtures/s03_r/boot.tscn",
+        "root_name": "Boot",
+        "success": true
+      }
+    }
+  },
+  {
+    "method": "scene.open",
+    "params": {
+      "file_path": "res://tests/fixtures/s03_r/boot.tscn"
+    },
+    "response": {
+      "id": 7,
+      "jsonrpc": "2.0",
+      "result": {
+        "path": "res://tests/fixtures/s03_r/boot.tscn",
+        "success": true
+      }
+    }
+  },
+  {
+    "method": "node.set_script",
+    "params": {
+      "node_path": ".",
+      "script_path": "res://tests/fixtures/s03_r/proof.gd"
+    },
+    "response": {
+      "id": 8,
+      "jsonrpc": "2.0",
+      "result": {
+        "path": ".",
+        "properties": [],
+        "script": "res://tests/fixtures/s03_r/proof.gd",
+        "success": true
+      }
+    }
+  },
+  {
+    "method": "node.set_script",
+    "params": {
+      "node_path": "View/Match",
+      "script_path": "res://tests/fixtures/s03_r/match.gd"
+    },
+    "response": {
+      "id": 9,
+      "jsonrpc": "2.0",
+      "result": {
+        "path": "View/Match",
+        "properties": [],
+        "script": "res://tests/fixtures/s03_r/match.gd",
+        "success": true
+      }
+    }
+  },
+  {
+    "method": "node.set_script",
+    "params": {
+      "node_path": "View/Match/Replication",
+      "script_path": "res://tests/fixtures/s03_r/replication.gd"
+    },
+    "response": {
+      "id": 10,
+      "jsonrpc": "2.0",
+      "result": {
+        "path": "View/Match/Replication",
+        "properties": [],
+        "script": "res://tests/fixtures/s03_r/replication.gd",
+        "success": true
+      }
+    }
+  },
+  {
+    "method": "scene.create_node",
+    "params": {
+      "class_name": "Node3D",
+      "parent_path": "View/Match",
+      "node_name": "Bodies"
+    },
+    "response": {
+      "id": 11,
+      "jsonrpc": "2.0",
+      "result": {
+        "path": "View/Match/Bodies",
+        "status": "created",
+        "success": true
+      }
+    }
+  },
+  {
+    "method": "scene.instantiate",
+    "params": {
+      "parent_path": "View/Match/Bodies",
+      "scene_path": "res://tests/fixtures/s03_r/actor.tscn",
+      "as_name": "Host"
+    },
+    "response": {
+      "id": 12,
+      "jsonrpc": "2.0",
+      "result": {
+        "class_name": "CharacterBody3D",
+        "path": "View/Match/Bodies/Host",
+        "status": "created",
+        "success": true
+      }
+    }
+  },
+  {
+    "method": "node.set_property",
+    "params": {
+      "node_path": "View/Match/Bodies/Host",
+      "property": "position",
+      "value": {
+        "type": "Vector3",
+        "x": 0,
+        "y": 0.001,
+        "z": 6
+      }
+    },
+    "response": {
+      "id": 13,
+      "jsonrpc": "2.0",
+      "result": {
+        "success": true
+      }
+    }
+  },
+  {
+    "method": "scene.instantiate",
+    "params": {
+      "parent_path": "View/Match/Bodies",
+      "scene_path": "res://tests/fixtures/s03_r/actor.tscn",
+      "as_name": "Client"
+    },
+    "response": {
+      "id": 14,
+      "jsonrpc": "2.0",
+      "result": {
+        "class_name": "CharacterBody3D",
+        "path": "View/Match/Bodies/Client",
+        "status": "created",
+        "success": true
+      }
+    }
+  },
+  {
+    "method": "node.set_property",
+    "params": {
+      "node_path": "View/Match/Bodies/Client",
+      "property": "position",
+      "value": {
+        "type": "Vector3",
+        "x": 6,
+        "y": 0.001,
+        "z": 14
+      }
+    },
+    "response": {
+      "id": 15,
+      "jsonrpc": "2.0",
+      "result": {
+        "success": true
+      }
+    }
+  },
+  {
+    "method": "scene.instantiate",
+    "params": {
+      "parent_path": "View/Match/CityRoot",
+      "scene_path": "res://tests/fixtures/s02/ground_prefab.tscn",
+      "as_name": "Ground"
+    },
+    "response": {
+      "id": 16,
+      "jsonrpc": "2.0",
+      "result": {
+        "class_name": "Node3D",
+        "path": "View/Match/CityRoot/Ground",
+        "status": "created",
+        "success": true
+      }
+    }
+  },
+  {
+    "method": "node.set_property",
+    "params": {
+      "node_path": "View/Match/CityRoot/Ground",
+      "property": "position",
+      "value": {
+        "type": "Vector3",
+        "x": 0,
+        "y": 0,
+        "z": 0
+      }
+    },
+    "response": {
+      "id": 17,
+      "jsonrpc": "2.0",
+      "result": {
+        "success": true
+      }
+    }
+  },
+  {
+    "method": "scene.instantiate",
+    "params": {
+      "parent_path": "View/Match/CityRoot",
+      "scene_path": "res://tests/fixtures/s02/low_prefab.tscn",
+      "as_name": "WestCorner"
+    },
+    "response": {
+      "id": 18,
+      "jsonrpc": "2.0",
+      "result": {
+        "class_name": "Node3D",
+        "path": "View/Match/CityRoot/WestCorner",
+        "status": "created",
+        "success": true
+      }
+    }
+  },
+  {
+    "method": "node.set_property",
+    "params": {
+      "node_path": "View/Match/CityRoot/WestCorner",
+      "property": "position",
+      "value": {
+        "type": "Vector3",
+        "x": -6,
+        "y": 0,
+        "z": -4
+      }
+    },
+    "response": {
+      "id": 19,
+      "jsonrpc": "2.0",
+      "result": {
+        "success": true
+      }
+    }
+  },
+  {
+    "method": "scene.instantiate",
+    "params": {
+      "parent_path": "View/Match/CityRoot",
+      "scene_path": "res://tests/fixtures/s02/low_prefab.tscn",
+      "as_name": "EastCorner"
+    },
+    "response": {
+      "id": 20,
+      "jsonrpc": "2.0",
+      "result": {
+        "class_name": "Node3D",
+        "path": "View/Match/CityRoot/EastCorner",
+        "status": "created",
+        "success": true
+      }
+    }
+  },
+  {
+    "method": "node.set_property",
+    "params": {
+      "node_path": "View/Match/CityRoot/EastCorner",
+      "property": "position",
+      "value": {
+        "type": "Vector3",
+        "x": 6,
+        "y": 0,
+        "z": -4
+      }
+    },
+    "response": {
+      "id": 21,
+      "jsonrpc": "2.0",
+      "result": {
+        "success": true
+      }
+    }
+  },
+  {
+    "method": "scene.instantiate",
+    "params": {
+      "parent_path": "View/Match/CityRoot",
+      "scene_path": "res://tests/fixtures/s02/near_prefab.tscn",
+      "as_name": "NearTower"
+    },
+    "response": {
+      "id": 22,
+      "jsonrpc": "2.0",
+      "result": {
+        "class_name": "Node3D",
+        "path": "View/Match/CityRoot/NearTower",
+        "status": "created",
+        "success": true
+      }
+    }
+  },
+  {
+    "method": "node.set_property",
+    "params": {
+      "node_path": "View/Match/CityRoot/NearTower",
+      "property": "position",
+      "value": {
+        "type": "Vector3",
+        "x": -10,
+        "y": 0,
+        "z": -12
+      }
+    },
+    "response": {
+      "id": 23,
+      "jsonrpc": "2.0",
+      "result": {
+        "success": true
+      }
+    }
+  },
+  {
+    "method": "scene.instantiate",
+    "params": {
+      "parent_path": "View/Match/CityRoot",
+      "scene_path": "res://tests/fixtures/s02/tall_prefab.tscn",
+      "as_name": "TallTower"
+    },
+    "response": {
+      "id": 24,
+      "jsonrpc": "2.0",
+      "result": {
+        "class_name": "Node3D",
+        "path": "View/Match/CityRoot/TallTower",
+        "status": "created",
+        "success": true
+      }
+    }
+  },
+  {
+    "method": "node.set_property",
+    "params": {
+      "node_path": "View/Match/CityRoot/TallTower",
+      "property": "position",
+      "value": {
+        "type": "Vector3",
+        "x": 10,
+        "y": 0,
+        "z": -12
+      }
+    },
+    "response": {
+      "id": 25,
+      "jsonrpc": "2.0",
+      "result": {
+        "success": true
+      }
+    }
+  },
+  {
+    "method": "scene.create_node",
+    "params": {
+      "class_name": "Node",
+      "parent_path": ".",
+      "node_name": "Input"
+    },
+    "response": {
+      "id": 26,
+      "jsonrpc": "2.0",
+      "result": {
+        "path": "Input",
+        "status": "created",
+        "success": true
+      }
+    }
+  },
+  {
+    "method": "node.set_script",
+    "params": {
+      "node_path": "Input",
+      "script_path": "res://tests/fixtures/s02/desktop_input.gd"
+    },
+    "response": {
+      "id": 27,
+      "jsonrpc": "2.0",
+      "result": {
+        "path": "Input",
+        "properties": [],
+        "script": "res://tests/fixtures/s02/desktop_input.gd",
+        "success": true
+      }
+    }
+  },
+  {
+    "method": "scene.create_node",
+    "params": {
+      "class_name": "Node3D",
+      "parent_path": ".",
+      "node_name": "CameraRig",
+      "properties": {
+        "process_priority": -10
+      }
+    },
+    "response": {
+      "id": 28,
+      "jsonrpc": "2.0",
+      "result": {
+        "path": "CameraRig",
+        "properties_set": 1,
+        "status": "created",
+        "success": true
+      }
+    }
+  },
+  {
+    "method": "node.set_script",
+    "params": {
+      "node_path": "CameraRig",
+      "script_path": "res://tests/fixtures/s02/camera_rig.gd"
+    },
+    "response": {
+      "id": 29,
+      "jsonrpc": "2.0",
+      "result": {
+        "path": "CameraRig",
+        "properties": [
+          {
+            "hint": 0,
+            "hint_string": "",
+            "name": "follow_rate_per_second",
+            "type": 3
+          }
+        ],
+        "script": "res://tests/fixtures/s02/camera_rig.gd",
+        "success": true
+      }
+    }
+  },
+  {
+    "method": "scene.create_node",
+    "params": {
+      "class_name": "Camera3D",
+      "parent_path": "CameraRig",
+      "node_name": "Camera3D",
+      "properties": {
+        "position": {
+          "type": "Vector3",
+          "x": 0,
+          "y": 47,
+          "z": 0
+        },
+        "rotation_degrees": {
+          "type": "Vector3",
+          "x": -90,
+          "y": 0,
+          "z": 0
+        },
+        "current": true,
+        "fov": 42,
+        "near": 0.1,
+        "far": 160
+      }
+    },
+    "response": {
+      "id": 30,
+      "jsonrpc": "2.0",
+      "result": {
+        "path": "CameraRig/Camera3D",
+        "properties_set": 6,
+        "status": "created",
+        "success": true,
+        "warnings": [
+          "note: 'near' stored 0.1 but you requested 0.1 — the engine adjusted the value to fit float."
+        ]
+      }
+    }
+  },
+  {
+    "method": "scene.create_node",
+    "params": {
+      "class_name": "DirectionalLight3D",
+      "parent_path": ".",
+      "node_name": "Sun",
+      "properties": {
+        "rotation_degrees": {
+          "type": "Vector3",
+          "x": -60,
+          "y": -30,
+          "z": 0
+        },
+        "light_energy": 1.2,
+        "shadow_enabled": true
+      }
+    },
+    "response": {
+      "id": 31,
+      "jsonrpc": "2.0",
+      "result": {
+        "path": "Sun",
+        "properties_set": 3,
+        "status": "created",
+        "success": true,
+        "warnings": [
+          "note: 'light_energy' stored 1.2 but you requested 1.2 — the engine adjusted the value to fit float."
+        ]
+      }
+    }
+  },
+  {
+    "method": "scene.create_node",
+    "params": {
+      "class_name": "WorldEnvironment",
+      "parent_path": ".",
+      "node_name": "Environment",
+      "properties": {
+        "environment": {
+          "type": "NewResource",
+          "class": "Environment",
+          "properties": {
+            "background_mode": 1,
+            "background_color": {
+              "type": "Color",
+              "r": 0.035,
+              "g": 0.065,
+              "b": 0.085,
+              "a": 1
+            },
+            "ambient_light_source": 2,
+            "ambient_light_energy": 0.65
+          }
+        }
+      }
+    },
+    "response": {
+      "id": 32,
+      "jsonrpc": "2.0",
+      "result": {
+        "path": "Environment",
+        "properties_set": 1,
+        "status": "created",
+        "success": true
+      }
+    }
+  },
+  {
+    "method": "scene.create_node",
+    "params": {
+      "class_name": "CanvasLayer",
+      "parent_path": ".",
+      "node_name": "UI"
+    },
+    "response": {
+      "id": 33,
+      "jsonrpc": "2.0",
+      "result": {
+        "path": "UI",
+        "status": "created",
+        "success": true
+      }
+    }
+  },
+  {
+    "method": "scene.create_node",
+    "params": {
+      "class_name": "Label",
+      "parent_path": "UI",
+      "node_name": "Status",
+      "properties": {
+        "offset_left": 20,
+        "offset_top": 20,
+        "offset_right": 1000,
+        "offset_bottom": 80,
+        "text": "S03-R bounded ENet baseline"
+      }
+    },
+    "response": {
+      "id": 34,
+      "jsonrpc": "2.0",
+      "result": {
+        "path": "UI/Status",
+        "properties_set": 5,
+        "status": "created",
+        "success": true
+      }
+    }
+  },
+  {
+    "method": "editor.save_scene",
+    "params": {},
+    "response": {
+      "id": 35,
+      "jsonrpc": "2.0",
+      "result": {
+        "path": "res://tests/fixtures/s03_r/boot.tscn",
+        "success": true
+      }
+    }
+  },
+  {
+    "method": "scene.get_tree",
+    "params": {
+      "max_depth": 3
+    },
+    "response": {
+      "id": 36,
+      "jsonrpc": "2.0",
+      "result": {
+        "success": true,
+        "tree": "<untrusted-28313a38 kind=\"scene_tree\" source=\"res://tests/fixtures/s03_r/boot.tscn\">\n{\"children\":[{\"children\":[],\"class\":\"Node\",\"name\":\"Session\",\"path\":\"Session\"},{\"children\":[{\"children\":[{\"children\":[],\"class\":\"Node\",\"name\":\"Replication\",\"path\":\"View/Match/Replication\"},{\"children\":[],\"class\":\"Node3D\",\"name\":\"RuntimeEntities\",\"path\":\"View/Match/RuntimeEntities\"},{\"children\":[],\"class\":\"Node3D\",\"name\":\"CityRoot\",\"path\":\"View/Match/CityRoot\"},{\"children\":[],\"class\":\"Node3D\",\"name\":\"Bodies\",\"path\":\"View/Match/Bodies\"}],\"class\":\"Node3D\",\"name\":\"Match\",\"path\":\"View/Match\"}],\"class\":\"Node\",\"name\":\"View\",\"path\":\"View\"},{\"children\":[],\"class\":\"Node\",\"name\":\"Input\",\"path\":\"Input\"},{\"children\":[{\"children\":[],\"class\":\"Camera3D\",\"name\":\"Camera3D\",\"path\":\"CameraRig/Camera3D\"}],\"class\":\"Node3D\",\"name\":\"CameraRig\",\"path\":\"CameraRig\"},{\"children\":[],\"class\":\"DirectionalLight3D\",\"name\":\"Sun\",\"path\":\"Sun\"},{\"children\":[],\"class\":\"WorldEnvironment\",\"name\":\"Environment\",\"path\":\"Environment\"},{\"children\":[{\"children\":[],\"class\":\"Label\",\"name\":\"Status\",\"path\":\"UI/Status\"}],\"class\":\"CanvasLayer\",\"name\":\"UI\",\"path\":\"UI\"}],\"class\":\"Node\",\"name\":\"Boot\",\"path\":\".\"}\n</untrusted-28313a38>"
+      }
+    }
+  }
+]
