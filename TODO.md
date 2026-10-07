@@ -662,10 +662,14 @@ waiting for unrelated gameplay systems.
 ## Parallel work and dependency checkpoints
 
 Current readiness: accepted bounded S02/S03 and headless S03-R technical evidence
-supports assignment of the next bounded S04 desktop/ENet experiment. DOC4, S03-R's
+supports the bounded S04 desktop/ENet experiment. DOC4, S03-R's
 technical work and the profile proposal are integrated and their workspaces archived;
-no active implementation candidate or writer lease is assigned. Root grants the next
-named lease separately; original S02/S03 fixtures remain immutable. S02 native-focus/physical-key/feel/readability
+after the checkpoint, root assigned active **UNACCEPTED** S04 work to direct
+GPT-6.1-Sol HIGH lead `4b965847-a374-47da-aa0e-2800adaebc4f`, workspace
+`wks_f739d0d8cb771a1d`, branch `s04-desktop-enet-cars`. This worker holds the sole
+**NEW S04** Godot/Blender fixture/source authoring lease. No S04 source, handling,
+feel or network result is accepted; the assignment grants no acceptance of pending
+candidates/consumers. Original S02/S03 fixtures remain immutable. S02 native-focus/physical-key/feel/readability
 follow-up remains open and needs its own serialized lease/user observations.
 P0-DOC5 discovery is [complete](docs/reviews/p0-doc5.md); the concrete P0-PROFILES
 proposal is reviewed,
@@ -688,7 +692,7 @@ The table describes dependency stages, not a claim that deferred proofs are runn
 | Initial foundation | Ratified brief, contract drafts, concept exploration, tool inventory | Chosen style/layout and measured scope revisions need user ratification and evidence |
 | Tiny fixtures available | S02 camera using [S01 pipeline evidence](docs/spikes/s01.md); use [completed S03 session evidence](docs/spikes/s03.md); review skill dry runs | All visible fixtures must have Blender sources; only minimum harness required |
 | ENet boundary available | S03-S Steam proof, S04 car candidates, S08 packaging work | Existing-app/tester access and native compatibility must be established early |
-| Reviewed desktop S02/S03 and bounded S03-R technical result available | Assign S04 desktop body/ENet experiment; [DOC5 discovery complete](docs/reviews/p0-doc5.md); remaining S02/S03-R drawable work under serialized leases | Final feel/target/Steam acceptance and prediction decisions remain open; no active candidate/lease is implied |
+| Reviewed desktop S02/S03 and bounded S03-R technical result available | S04 desktop body/ENet experiment active under the named sole NEW S04 lease above; [DOC5 discovery complete](docs/reviews/p0-doc5.md); remaining S02/S03-R drawable work needs separately assigned leases | S04 is UNACCEPTED; no source/handling/feel/network result accepted; final feel/target/Steam acceptance and prediction decisions remain open |
 | Both providers available | Finish S03-R foot response and S04 network response; S08 exports | Both transports need evidence; foot/vehicle prediction are separate decisions |
 | Vehicle envelope available | S05 chain proof and S06 intersection/seam | S06 uses pipeline plus real actor/turning dimensions |
 | City/effect fixtures available | S07 capacity/culling experiments, finish S08, skill dry runs and doc reconciliation | P0-GATE resolves critical assumptions before production |
