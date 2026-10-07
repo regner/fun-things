@@ -24,7 +24,7 @@ resource and topology details before P0-GATE.
 | `res://resources/{weapons,vehicles,population,world}/` | Immutable tuning/definitions, authored topology and derived data |
 | `res://art/source/` | Committed `.blend` authoring files under `.gdignore`; excluded from runtime export |
 | `res://art/models/` | Explicit GLB exports plus source `.import` settings linked to source records |
-| `res://art/{textures,materials,audio}/` | Runtime art and provenance; detailed conventions are P0-05 work |
+| `res://art/{textures,materials,audio}/` | Runtime art and provenance; conventions follow [assets](assets.md) |
 | `res://tests/fixtures/<spike_id>/` | Isolated proof scenes/resources; not production exports |
 
 ## Required tree and node boundaries
@@ -154,4 +154,5 @@ save/reload identity. S02/S04 check actual actor/camera/vehicle clearance; S06 c
 two-sector seams, routes and map alignment. S03 checks fixed RPC paths, pre-tree
 replica setup and exactly one local rig. P0-03 will supply resource checks; none is
 available today. This documentation change does not create scenes or prove their
-engine roundtrip. Full art handoff/settings/catalogue details remain P0-05.
+engine roundtrip. Use the [asset workflow](assets.md) for handoffs/catalogue conventions;
+S01 still pins export/import settings and proves their roundtrip.

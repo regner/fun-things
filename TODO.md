@@ -103,17 +103,6 @@ S02/S04/S06 and measured cost remains S07/P0-GATE work.
   Done when: the spike fixtures can be rerun and failures produce useful evidence.
   Do not present import alone as compilation. CI and broader coverage grow in M1-D1.
 
-- [ ] **P0-05 — Specify the concept-to-asset-to-world workflow.**
-  Needs: [scene](docs/scene-structure.md) and [API](docs/api-contracts.md) drafts,
-  and the [accepted art/city brief](docs/art-direction.md).
-  Output: expand [assets](docs/assets.md) with handoff records, source/export layout,
-  meters/axes/origins, export collections, sockets, rigs, animation names, materials,
-  texture conventions, collision envelopes, LOD/bounds, catalogue and reexport rules.
-  Keep `.blend` sources in a `.gdignore` authoring directory, outside runtime exports.
-  Done when: every handoff below names an owner, acceptance evidence and rejection
-  path; a changed source updates its outputs and affected placed prefabs together.
-  S01 chooses the pinned Blender version/settings and proves the workflow.
-
 - [ ] **P0-06 — Create a project GDScript review skill.**
   Needs: [ownership](docs/architecture.md) and [API](docs/api-contracts.md) drafts;
   use P0-03 checks and spike fixtures as they become available.
@@ -125,8 +114,8 @@ S02/S04/S06 and measured cost remains S07/P0-GATE work.
   deliberately flawed fixture finds meaningful issues; missing checks are reported.
 
 - [ ] **P0-07 — Create a project art review skill.**
-  Needs: [accepted art/city brief](docs/art-direction.md) and P0-05;
-  use S01/S02 artifacts for the dry run.
+  Needs: [accepted art/city brief](docs/art-direction.md) and
+  [asset workflow](docs/assets.md); use S01/S02 artifacts for the dry run.
   Output: `.agents/skills/art-review/SKILL.md`, linked to art/source/scene contracts.
   Review concept/style consistency, Blender provenance and import ancestry,
   gameplay-camera readability, scale/pivots/sockets/rigs, materials, collision/routes,
@@ -143,23 +132,16 @@ session/provider/platform boundaries, commands, lifecycle, replication, presenta
 settings and their acceptance matrix. S03/S03-S prove both transports independently.
 Keep revised contracts in those documents rather than duplicating them in this plan.
 
-### Asset handoffs to document and prove
+### Asset handoffs and workflow evidence
 
-1. **Brief:** gameplay purpose, dimensions/clearance, camera scale, style, variants,
-   collision and sockets. A reviewer accepts the brief before detailed work.
-2. **Concept:** silhouettes and gameplay-camera view; select a design and record
-   provenance before Blender production. Concept images are references, not models.
-3. **Blender blockout:** real dimensions/pivots, applied transforms and export scope;
-   use a linked import to test camera, turning and collision envelopes.
-4. **Asset production:** model/rig/animations/materials/textures and justified LODs;
-   review against the chosen direction and technical envelope.
-5. **Export/import:** explicit GLB, pinned tools/settings, source catalogue entry,
-   scale/axes/normals/bounds/sockets checks, preserved `.import` and resource identities.
-6. **Prefab:** wrap the imported instance with intentional collision/components;
-   art and gameplay review from fixed gameplay and overview cameras.
-7. **Placement:** world integrator instances accepted prefabs in saved sectors;
-   refresh derived route/navigation/minimap/occluder data, save/reopen, playtest and
-   profile. Rejected handoffs return to the owner with concrete findings.
+The [asset workflow](docs/assets.md) now owns the seven handoffs, named owner roles,
+acceptance/rejection paths and source/export/prefab/placement conventions. Use its
+[handoff template](docs/templates/asset-handoff.md) and
+[catalogue](docs/asset-catalogue.md) as assets arrive. The
+[P0-05 record](docs/decisions/p0-05-asset-workflow.md) records specification completion
+and alignment with the P0-02 contracts and accepted P0-04 direction. S01 still
+pins and proves the tool/settings workflow; a specification is not an accepted
+asset or roundtrip result.
 
 ## Phase-zero technical spikes
 
@@ -173,13 +155,16 @@ implementation. Save editor mutations before playtests; preserve unsaved work.
 
 - [ ] **S01 — Blender/import/prefab/scene roundtrip.**
   Needs: [ratified brief](docs/design.md), [scene draft](docs/scene-structure.md) and
-  P0-05 drafts; minimal P0-03 checks.
+  [asset workflow](docs/assets.md); minimal P0-03 checks.
   Question: which pinned Blender/GLB/import settings preserve our source/scene contract?
   Minimum: one static prefab and one rigged fixture, repeated instances and one
   inherited variant; reexport, clean import, save/reopen and inspect identity/overrides.
   Decision: tool/settings pin and accepted source/prefab workflow. Evidence includes
   scale/axes/pivots/sockets, no copied model data, no lost authored transforms or
-  unresolved dependencies, and revised asset/scene contracts.
+  unresolved dependencies, and revised asset/scene contracts. Verify the project
+  -Z model front, exported sockets/bone attachments, clip names/loops and external
+  material/texture remaps. Record exact Blender/exporter/import settings and
+  refresh/reopen the existing editor as well as testing an isolated clean import.
 
 - [ ] **S02 — GTA2-style foot controls, camera and aiming.**
   Needs: [ratified brief](docs/design.md), [accepted art/city brief](docs/art-direction.md)
@@ -313,7 +298,8 @@ implementation. Save editor mutations before playtests; preserve unsaved work.
 - [ ] **P0-GATE — Review the foundation evidence and revise the milestone plan.**
   Needs: [ratified brief](docs/design.md), [ownership](docs/architecture.md),
   [scene](docs/scene-structure.md) and [API](docs/api-contracts.md) drafts,
-  [accepted art/city brief](docs/art-direction.md), P0-03/P0-05/P0-06/P0-07, S01 through S08
+  [accepted art/city brief](docs/art-direction.md), P0-03/P0-06/P0-07,
+  [P0-05 workflow record](docs/decisions/p0-05-asset-workflow.md), S01 through S08
   including S03-R and S03-S.
   Done when: critical design/feasibility assumptions required to begin M1 are resolved;
   the user ratifies scope, chosen art/layout and camera/control choices against

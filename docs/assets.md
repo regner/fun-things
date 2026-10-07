@@ -1,103 +1,346 @@
-# Godot asset workflow
+# Concept, asset and world workflow
 
-Keep editable sources, imported outputs, reusable scene assemblies, and level
-placement connected. Each has a clear authority so an export or playtest cannot
-erase hand-authored work.
+Keep editable sources, explicit exports, imported model instances, reusable prefabs
+and saved world placement connected. This is the P0-05 specification, not evidence
+that an asset or toolchain has passed it. The [product brief](design.md) owns scope;
+[repository guidance](../AGENTS.md), [development](development.md) and
+[multiplayer](multiplayer.md) own editing, validation and authority rules.
+The [P0-05 record](decisions/p0-05-asset-workflow.md) lists unresolved inputs and proofs.
 
 The P0-02 [scene contract](scene-structure.md) reserves source/export/prefab paths,
-required sockets, stable placed-object IDs and inherited override rules. The
+required sockets, stable placed-object IDs and inherited overrides. The
 [ownership draft](architecture.md) separates saved placement from runtime state;
 [API contracts](api-contracts.md) defines clearance and stale-derived-data failures.
-These are plans for the proofs, not existing assets. P0-05/S01 still settle detailed
-handoffs, catalogue, Blender/export settings and rig/animation conventions.
+The accepted [art direction](art-direction.md) and [world layout](world-layout.md)
+own the Petrol & Coral starting kit, vertical perspective camera and provisional
+city/asset dimensions. Use those inputs in asset briefs; do not choose competing
+paths, gameplay rules or visual directions here. Spikes refine the drafts before
+production. S01 selects exact Blender/export/import settings and proves the
+roundtrip on the chosen Godot pin; no Blender version is selected here.
 
-## Source and placement ownership
+## Owners and handoffs
 
-Create every visible 3D model in Blender, including blockout and technical-spike
-fixtures. Commit the `.blend` source and export explicit glTF/GLB outputs. Build Godot
-prefabs around imported model instances with collision, sockets, materials, and
-gameplay components. Place those prefabs in saved level scenes. Godot recommends
-glTF and can also import Blender files directly; explicit GLB exports are a useful
-choice when keeping Blender off runtime/developer import dependencies.
-[Godot 3D formats](https://docs.godotengine.org/en/stable/tutorials/assets_pipeline/importing_3d_scenes/available_formats.html).
+Assign a named person/agent to each applicable role in the asset's
+[handoff record](templates/asset-handoff.md) before work. Codex initially owns the
+brief, concept preparation, Blender source, technical integration, gameplay review
+and world integration; Regner owns the P0-04 direction/layout selection. One person
+may fill several roles, but record who produced and who accepted each handoff.
+One integrator owns each shared world scene; contributors own distinct files.
+Review does not require a second agent, and silence is not acceptance.
 
-Keep modeling sources in a `.gdignore` directory when using explicit exports.
-Commit source, exported files, and changed import settings together. Retain license
-and provenance records for external art, fonts, and audio. Add a simple catalogue
-when finding the correct source or maintaining source/output consistency becomes
-difficult; automated exports are useful follow-ups at that scale. Gameplay-derived
-navigation/minimap data needs the scene contract's bake fingerprint from its first
-use, so stale data cannot pass the content handshake.
+| Handoff | Producing owner → accepting owner | Required acceptance evidence | Rejection path |
+| --- | --- | --- | --- |
+| 1. Brief | Gameplay designer → gameplay reviewer; art reviewer checks style requirements | Asset ID, purpose, owning design references, dimensions/clearance, collision envelope, camera conditions, variants, sockets and required states; missing decisions explicitly assigned | Return to brief owner for measurable constraints or a smaller spike brief; no detailed modeling on guessed requirements |
+| 2. Concept | Concept artist → art reviewer; Regner selects the P0-04 direction | Original silhouette sheet and gameplay-camera reference, selected option/date, provenance/license, link to chosen art/layout direction and brief | Return to concept owner with silhouette/style/layout findings; reopen direction with Regner if the brief cannot be met |
+| 3. Blender blockout | Blender artist → gameplay reviewer and technical integrator | Committed source, named export collection, measured scale/pivots/sockets, linked GLB fixture; camera and actual movement/turn/clearance observations | Geometry/origin/export faults return to Blender owner; infeasible clearances return to brief/layout owner before detail work |
+| 4. Production asset | Blender artist → art reviewer and technical integrator | Model/rig/clips/materials/textures against accepted concept; slot/bone/socket lists, dimensions/bounds, density and LOD rationale, provenance, camera previews | Return to source owner with named defects; changed gameplay envelope also reopens blockout review |
+| 5. Export/import | Technical integrator, with Blender owner exporting → technical reviewer | Complete source/output mapping, exact tools/settings, `.import` metadata, imported scale/front/normals/bounds/clips/sockets and dependency checks; clean import plus existing-editor results | Export faults return to Blender owner; import/remap faults stay with integrator; hold prior accepted outputs until replacement passes |
+| 6. Prefab | Prefab integrator → gameplay reviewer and art reviewer | Linked model instance, intentional collision/components, stable paths/IDs, fixed gameplay/overview views, motion/collision checks, save/reopen including inherited variants and overrides | Wrapper/collision faults return to prefab owner; model faults return upstream; a screenshot alone cannot accept gameplay |
+| 7. Placement | World integrator → gameplay reviewer and art reviewer | Accepted prefab instances in saved sectors, preserved transforms/IDs, routes/spawns/boundaries/seams, refreshed dependent data, save/reopen, playtest and relevant profile/logs | Placement/data faults return to world integrator; prefab/clearance faults reopen the earlier handoff; leave rejected work out of accepted sectors |
 
-A catalogue entry or asset handoff should identify source, selected export
-root/collection, output path, dimensions, origin, axes, material slots, collision
-expectations, stable identifiers, and preview. Exclude studio cameras/lights from
-exports. Exporting a shared source should update all dependent component outputs.
-Use scratch exports to compare changes without overwriting approved outputs.
+Each stage has status `pending`, `accepted` or `rejected`, reviewer/date, source
+revision, evidence links and findings. Acceptance states its scope: spike-only
+or production. A deliberately neutral spike fixture can use its own concept/brief
+without claiming P0-04 art approval; detailed production uses the chosen direction.
+Record `not applicable` with a reason for unused rigs, sockets, textures or LODs.
+Missing evidence stays pending. Rejection records location, observation, impact,
+expected result, fix owner and retest; dependent downstream acceptance becomes pending.
+Recheck the affected gates and changed consumers.
 
-Measured plans and layout JSON are design/test references. The saved scene owns
-authored placements. An intentional procedural level needs an explicit source of
-truth and, for multiplayer, a shared seed/content contract. Avoid two competing
-placement writers. Give separate contributors explicit file ownership when work
-is divided; have one integrator own a shared level scene.
+## Files, catalogue and provenance
 
-## Model and prefab contracts
+Use lowercase `snake_case` filenames and a stable descriptive asset ID, such as
+`car_compact_a`. The ID identifies a content family, not a runtime entity or placed
+world object. A compatible reexport keeps it; an incompatible replacement gets a
+new ID unless all consumers migrate together. Routine revisions keep runtime paths.
 
-For 3D work, use metres, Godot +Y up and local -Z forward. Define origins before
-detailing: ground-centred for ordinary props, actual pivots for animated joints,
-and documented exceptions for gameplay roots. Blender uses +Z up; apply the glTF
-axis conversion once. Check scale, rotation, normals, bounds, and mirrored winding.
-Preserve socket and component names used by prefabs or animations.
+Create directories as assets arrive. This layout is a contract, not existing content:
 
-Keep imported models instanced rather than copying their vertex data into scene
-files. Make children editable only for intentional overrides. Share reusable
-materials as external resources. After export, import and save/reload representative
-prefabs and inherited variants to verify ancestry, overrides, and scene size.
+```text
+art/
+  source/
+    .gdignore                         # committed, empty; covers this subtree
+    models/<family>/<asset_id>.blend
+    textures/<family>/                 # editable originals/bake sources
+    references/<asset_id>/             # concepts, notices, review captures
+    scratch/                          # unaccepted comparison exports
+  models/<family>/<asset_id>.glb       # explicit runtime model export
+  textures/<family>/                   # runtime PNGs and their .import files
+  materials/<material_id>.tres         # shared Godot material resources
+scenes/
+  prefabs/<family>/<asset_id>.tscn      # static kit model + components
+  entities/<entity_type>.tscn          # dynamic actor/vehicle/projectile wrappers
+  effects/<effect_id>.tscn             # bounded cosmetic imported mesh effects
+  world/sectors/<sector_id>.tscn       # authored instance placement
+docs/                                 # at the repository root
+  asset-catalogue.md                   # ID → handoff record index
+  assets/<asset_id>.md                 # filled brief/spec/review record
+```
 
-Visible 3D geometry must stay linked to Blender exports. Do not use Godot primitive
-meshes, CSG, runtime-generated render meshes, or copied vertex data embedded in
-project-owned scenes. This includes mesh-based effects and their particle draw
-geometry. Shaders and particle behavior may animate imported geometry; 2D UI and
-minimap drawing do not need Blender models. Simple collision shapes, navigation
-data, occluders, and temporary debug overlays are not authored render models.
-Keep those separate from decoration and preserve authored placement.
+Put all `.blend` and editable texture sources under `art/source/` with its
+`.gdignore` in place before adding sources. Keep runtime GLBs/textures outside it.
+Godot ignores that subtree for import and project export; see the
+[import process](https://docs.godotengine.org/en/stable/tutorials/assets_pipeline/import_process.html).
+S08 also inspects packaged contents: external copying/build scripts must not bundle
+sources, scratch outputs or review evidence. Git still tracks authoring sources.
+Commit needed linked Blender libraries/images; avoid machine-local absolute paths.
 
-## Collision and multiplayer identity
+Add each asset to the [catalogue](asset-catalogue.md) when brief work starts, using
+the handoff template. Its record owns the mapping from every source/export collection
+to every GLB/texture, import sidecar, material, prefab/inherited variant and affected
+sector. Shared sources list **all** component outputs and dependents; shared
+materials/textures list consumers. Link shared rig/material records rather than
+copy their details. Check reverse dependencies with repository searches and the
+editor, since the manual list can become stale. Automated authoring-source
+fingerprints/export tools are deferred until a demonstrated need. Gameplay-derived
+navigation/minimap data requires the scene contract's bake fingerprint from first
+use; that content-handshake requirement is separate from catalogue automation.
 
-Separate decorative geometry from gameplay collision. Use simple shapes when they
-meet the gameplay contract, appropriate convex shapes for moving bodies, and reviewed
-static surface collision. Check routes with the actual actor size and movement,
-including turns, slopes, seams, camera obstruction, spawn clearance, and boundaries.
-Avoid duplicate coplanar ground colliders or small decorative snag points.
+Record original authorship or source URL, creator, license/attribution, permitted
+transformations and selected concept. Concept images, including generated concepts,
+are references; they do not satisfy Blender model provenance. External fonts,
+textures and audio require the same trail. Keep notices with sources and arrange
+required runtime attribution. Unknown rights reject the handoff.
 
-Breakable or persistent interactive objects need stable gameplay IDs independent
-of local object instance IDs. Preserve them during reparenting or art replacement.
-Author visual and collision changes together, and ensure the network state applies
-both consistently. Attach decorations to the section whose destruction controls
-them. Cosmetic debris should be bounded and collision-free unless gameplay requires
-authoritative debris. See [multiplayer](multiplayer.md) for collision revision gates.
+## Units, axes, origins and export scope
 
-## Materials audio and visual review
+Use metres: Blender unit system Metric, unit scale 1, with a 1 m measurement fixture.
+Record dimensions as width X, height Y, length Z in imported Godot local space,
+plus AABB minimum/maximum relative to the origin. The brief records numerical
+acceptance tolerances before testing; exact gameplay dimensions await their spikes.
 
-Record physical texture repeat size, color-space conventions, channel use, normal
-orientation, and import settings. Check tiled seams, mipmaps, overdraw, and material
-contrast in the target renderer. Inspect precision/compression and generated LODs
-when independently simplified adjoining surfaces develop cracks; do not disable
-these features globally without an observed reason.
+Godot is +Y up. **This project deliberately uses local -Z forward** for oriented
+models and gameplay roots, +X right. Author these assets facing Blender +Y with +Z
+up; glTF Y-up conversion maps that front to Godot -Z. For world-aligned kits,
+Godot +X is east, -Z north; mark connector directions in the brief. The usual
+Godot/glTF oriented-model front is +Z (Blender -Y), so this is a project exception,
+not the engine default. See [Godot model export considerations](https://docs.godotengine.org/en/stable/tutorials/assets_pipeline/importing_3d_scenes/model_export_considerations.html).
+S01 verifies an asymmetric front/right/up fixture, socket directions and a rig.
+Apply axis conversion once; do not hide mismatches with ad hoc prefab rotations
+or corrective root scale. No existing asset is migrated by this specification.
 
-Audio records should include author, source URL, license notice, original file,
-and transformations. Verify loops and levels in engine. Separate buses by purpose,
-stop loops during reset/teardown, and bound simultaneous voices/effects. Let launch
-and impact tails survive short-lived projectile removal when needed. Prediction
-and duplicate packets must not replay a sound twice.
+| Family | Origin/pivot contract |
+| --- | --- |
+| Buildings/ordinary props | Ground-centred footprint at Y=0; record asymmetric footprint offsets and facade front |
+| Roads/sidewalk modules | Surface datum and documented grid anchor; connector positions/tangents and curb height shared by compatible pieces |
+| Vehicles | Ground-centred footprint under body; wheel centres/axes and seat/exit markers relative to this visual origin; gameplay separately owns physics centre of mass |
+| People | Ground between feet in rest pose; shared rig root and bind pose consistent across variants |
+| Weapons | Grip attachment pivot; muzzle points -Z in its own local space |
+| Moving parts/VFX carriers | Actual hinge/axle/emission pivot; documented offsets, rest orientation and maximum animated/effect extent |
 
-Review actual imported assets in engine, from the gameplay camera and a useful
-overview. Preserve player and HUD visibility for readability checks. Compare the
-same cameras/settings before and after changes. Screenshots establish appearance;
-playtests establish motion, handling, collision, and camera recovery.
+Apply static object rotation/scale before export; model roots have unit scale and
+no negative scale. Preserve documented local translations for wheels, hinges and
+sockets. Establish rig transforms before binding; do not blindly apply transforms
+to a skinned rig. Check rest/bind alignment, mirrored winding, normals, triangulation,
+tangents where used, and bounds in Godot. Compare a dimensional reference and
+front/up markers rather than accepting an apparently plausible view.
 
-Measure frame time, physics time, draw calls, primitives, and memory on representative
-hardware and scenes. Include bursts of effects and multiplayer load. A single capped
-FPS sample or a headless CPU timing is not a sustained graphical performance budget.
-Polish materials and readable landmarks while preserving established route, cover,
-and spawn constraints; validate a deliberate geometry change independently.
+Each output has a Blender collection `export_<asset_id>` and a recorded export
+root. Export only its declared members/dependencies: render geometry, required
+armature/clips and approved markers. Studio cameras/lights, reference images,
+backup meshes and unrelated collections stay out. Record member names, modifier
+evaluation, triangulation and selection/collection filter settings; saved selection
+alone is insufficient. Do not use collision/node-type import suffixes without an
+explicit reviewed mapping. Gameplay collision belongs to the prefab. S01 proves
+exact exporter options; option names are not assumed portable across Blender versions.
+
+## Sockets, rigs and animations
+
+A socket entry names its owner, stable name/path, parent or bone, rest transform
+in metres, local forward/up axes and consumer. Static markers are named Blender
+empties included in the export; check they survive import. Bone-mounted attachments
+record bone/offset and use the appropriate prefab bone attachment; prove animation
+in S01. Gameplay consumes the socket; a marker does not decide outcomes.
+
+Starting names are `socket_grip`, `socket_muzzle`, `socket_driver`,
+`socket_entry_left`, `socket_entry_right`, `socket_exit_left` and
+`socket_exit_right`, only when the brief needs them.
+The [scene contract](scene-structure.md#prefab-and-entity-interfaces) owns the stable
+prefab-facing paths: `Sockets/WeaponMount`, `Sockets/Muzzle`, `Sockets/DriverSeat`,
+`Sockets/EntryLeft`, `Sockets/EntryRight`, `Sockets/ExitLeft` and `Sockets/ExitRight`
+as applicable. Record mappings from source markers/bones to these paths; do not
+expose arbitrary imported hierarchy to every caller. Any adapter relays the authored
+transform, not a competing hand-tuned copy. Entry/exit markers suggest candidates;
+authoritative vehicle interaction still checks clearance. Gameplay queries use the physics pose and authored socket-relative
+transform, never the smoothed PresentationAnchor transform. Weapon visual mounts
+follow presentation while the gameplay muzzle query follows physics.
+
+Use one shared person rig for player/pedestrian variants. Record bone names/hierarchy,
+rest pose, skin mapping, weights/influence limit and attachment bones. Bone rename,
+removal or rest-pose change is incompatible: review all skins, clips, attachments
+and prefab consumers together. Retargeting is not assumed; variants pass the same
+pose/clip checks.
+
+Starting person clips are exactly `idle`, `walk`, `run`, `death`. Idle/walk/run
+loop; S01 confirms exported naming/loop behavior. Death is a one-shot retaining its
+final pose until lifecycle presentation removes it. Record exported name, frame range, source frame rate, duration,
+loop/import settings and applicable rig. Additional clips come from the brief.
+Locomotion is in place: animation cannot translate the simulation root or trigger
+damage, seat ownership or authoritative death. Gameplay selects presentation.
+
+Action/NLA export depends on Blender version/mode. List intended clips and inspect
+imported names, durations and loop seams. The [Blender glTF manual](https://docs.blender.org/manual/en/5.1/addons/import_export/scene_gltf2.html)
+describes action association/export modes, but is not our version pin. S01 records
+the selected version's action/slot/NLA setup and sampling settings. Do not assume
+every action datablock exports or accept unintended rest/test clips.
+
+## Materials and textures
+
+Material slot names/order are part of the contract. Use descriptive stable names,
+such as `body_paint`, `glass`, `tire`, `sign_face`; the brief chooses actual slots.
+Share external Godot `.tres` materials where appropriate. Record slot → material
+mapping and intentional variant overrides. Blender owns geometry/UVs/slot assignments;
+the material owner owns Godot shaders/tuning. Remap through saved import settings
+or documented prefab overrides, never disposable cache edits. Godot supports
+external material remapping in [import configuration](https://docs.godotengine.org/en/stable/tutorials/assets_pipeline/importing_3d_scenes/import_configuration.html).
+
+Start with opaque flat colors or a shared palette where they meet the chosen art
+direction. For textures, record editable source, runtime path, resolution, UV set,
+physical tile size in metres and channels. Runtime filenames use
+`<material_id>_albedo.png`, `_normal.png`, `_orm.png`, `_emission.png` as applicable:
+albedo/emission are color data (sRGB), normals/ORM linear data; ORM is red occlusion,
+green roughness, blue metallic. Use tangent-space +Y/OpenGL normal maps; record
+conversion and test orientation. These conventions do not require adding all maps.
+
+Use explicit external runtime textures for shared materials. Embedded GLB textures
+must be listed with their import/extraction mapping and justified; do not maintain
+silently diverging copies. Bake unsupported procedural material features to committed
+textures or implement intentional Godot shader behavior. Record filtering/repeat,
+mipmaps, compression, alpha mode/cutoff, normal handling and emission settings.
+S01 chooses defaults; exceptions need observed evidence. Review seams, UV density,
+mip shimmer, contrast and normals in the target renderer. Transparent layers/VFX
+need overdraw/readability checks. S07 establishes measured limits; no texture-size
+or triangle budget is ratified here.
+
+## Collision envelopes, bounds and LOD
+
+Decoration and gameplay collision have separate owners. The brief records visual
+footprint, intended solid regions, collider bounds, clearance envelope, ground contact,
+sockets and decorative overhang. A visual pivot is not a physics centre of mass.
+Use simple shapes when sufficient, reviewed convex collision for moving bodies and
+deliberate static surface collision. Gameplay owns layers/masks. Decorative imports
+do not automatically create collision, navigation or interaction authority.
+
+Test actual movement/query APIs: actor fit, car turning/braking, corners, curbs/slopes,
+module seams, spawn/exit clearance and boundaries. Avoid duplicate coplanar ground
+colliders, decorative snag points and gaps under routes. Blockout can use a named
+provisional envelope; production requires S02/S04/S06 envelopes and evidence.
+Screenshots prove neither movement nor multiplayer collision transitions.
+
+Record rest/animated bounds, effect travel/particle bounds and culling margins with
+units/rationale. Review death poses, wheels, explosions and camera-edge visibility.
+Off-camera cosmetic culling must not stop simulation or chains. Shaders/particles
+may animate imported Blender geometry; particle draw meshes and cosmetic mesh debris
+also need committed Blender sources. No primitive/CSG/generated render meshes or
+copied vertex data in owned scenes. Collision shapes, navigation, occluder data,
+debug overlays and 2D UI/minimap drawing are separate concerns.
+
+LOD is optional until measured. Record automatic import LOD settings or explicit
+Blender LOD collections/outputs, transition conditions and inspected views. Godot
+provides automatic [mesh LOD](https://docs.godotengine.org/en/stable/tutorials/3d/mesh_lod.html);
+check silhouettes, normals, roofs, road/sidewalk seams and shadows at actual camera
+distances. LOD changes visuals, never collision/topology. Do not disable simplification
+or compression globally to solve one crack; record an asset-specific exception.
+Start with loaded saved sectors; streaming needs measured justification.
+
+## Prefabs and authored placement
+
+Create one reusable prefab per building/asset type. Its gameplay root owns deliberate
+components/collision and instances the GLB at `Visuals/Model` for static kit or
+`PresentationAnchor/Visuals/Model` for actors/vehicles. Follow the scene contract's
+required components/sockets and direct physics-body CollisionShape3D children;
+S02/S04 select the body types. Keep imports linked. Editable children are only for
+recorded overrides;
+do not copy imported vertex data into owned `.tscn`/`.tres` files. Trace each visual
+from placed instance → prefab → GLB import → catalogue record → committed `.blend`;
+the catalogue retains the authoring source link without importing `.blend` directly.
+Derived prefabs may inherit a wrapper for intentional variants. Save/reopen wrappers
+and inherited variants after reexport; compare paths, ancestry, material/component overrides and
+identities. Unexpected embedded mesh data rejects review.
+
+District/sector scenes own placements and repeated prefab instances. Plans, layout
+JSON and Blender references guide authoring/testing; they are not a second placement
+writer. Runtime may spawn entities/effects and restore dynamic state, but cannot
+rebuild the city or reset authored transforms. Procedural layout is deferred by the
+brief and requires an explicit product/ownership decision.
+
+Preserve scene/resource UIDs, dependency UIDs, required `.uid` sidecars, import
+settings, editor node/inheritance identities, prefab paths and overrides. Stable
+world/gameplay IDs differ from asset IDs and peer-local instance IDs; art replacement
+or reparenting preserves placed-object identities. Gameplay owns collision/lifecycle
+revisions and authoritative destruction. Decorations follow their destructible section;
+cosmetic debris is bounded and collision-free unless gameplay explicitly requires
+authoritative debris. See [multiplayer collision ordering](multiplayer.md#message-ordering-and-state-revisions).
+
+Placement review checks connectors, continuous sidewalks/crossings, turning loops,
+alternate routes, spawn/exit clearance and boundaries. Refresh affected route,
+navigation, minimap and occluder data and its owning revision when a placement/envelope
+changes. Derived data records district ID, topology revision, geometry/anchor
+fingerprint and bake-tool version under the scene contract. Stale/missing data fails
+editor validation and play/join with `CONTENT_INVALID`; do not silently rebake at
+runtime. S06 chooses representation/fingerprint details. Do not rebake unrelated
+data or invent a second road layout. Preserve
+unaffected transforms/IDs; intentional placement changes have a reviewed diff.
+Save/reopen sectors before testing.
+
+## Reexport and change acceptance
+
+Source changes and affected outputs/consumers form one reviewable change. An art-only
+change may leave prefab/sector files byte-identical, but affected instances still need
+inspection and recorded validation. Do not force serialization changes to show review.
+
+1. Identify the owner; inspect source, all mapped outputs/materials, direct/inherited
+   prefabs, placed instances and callers. Record appearance-only versus dimension,
+   origin, slot, bone, socket, collision or ID changes. List dependent gates/data to
+   revalidate. Preserve unsaved editor work first.
+2. Save source with recorded Blender version/settings; export all affected collections
+   and shared-source component outputs into ignored scratch space. Check membership,
+   dimensions, names and clips before replacing accepted GLBs/textures. Export failures
+   leave accepted outputs intact.
+3. Replace affected outputs together. Preserve `.import` metadata/resource identities;
+   intentionally change settings in the pinned Godot editor. Refresh external files
+   and reload/reopen affected scenes in any open editor before saves/playtests.
+   A headless import does not synchronize an open scene. Prefer suitable Godot MCP
+   tools for editor-managed mutations.
+4. Check imported axes, normals, slots, rig/clips, sockets and bounds; compare inherited
+   prefab paths/overrides and sector transforms/IDs. Save mutation batches; review
+   saved diffs and save/reopen inherited scenes. For S01/toolchain changes, establish
+   clean-cache reproducibility in an isolated checkout, preserving active editor work.
+5. Revalidate affected camera, motion, clearance and derived-data cases. Collision or
+   socket/envelope changes also need affected authoritative/offline/prediction rules
+   and real-process multiplayer checks. Art-only changes need relevant visual/resource/
+   performance checks. Review logs/status; compare fixed cameras/settings.
+6. Update catalogue mappings, measurements, consumers and acceptance/evidence. Commit
+   source, exports, changed materials, import/UID metadata, affected prefab/sector/data
+   edits and records together. Keep `.godot/`, local tools/builds and credentials out
+   of Git. No stale dependent output from a changed source can remain accepted.
+
+Failures return to the table's fix owner and leave dependent work pending. Fix forward
+within the complete change or restore source, outputs, settings and dependent edits
+together to the last accepted revision; preserve unrelated user work. Renaming/removing
+consumed paths, sockets, bones, slots or IDs needs coordinated migration and retest.
+
+## Visual, audio and performance evidence
+
+Capture imports in Godot from the gameplay camera and a useful overview. Record
+build/source revision, engine, renderer/API, viewport, camera transform/projection,
+lighting, quality, animation/state and population/effects. The accepted gameplay
+camera is vertically downward perspective with fixed yaw; S02 refines height/FOV/
+framing and tower clipping/occlusion, with S04 driving views. Provisional tuning
+views are labeled. Keep player, targets and HUD/minimap visible.
+Compare identical settings before/after, including 1280×800 readability. Screenshots
+establish appearance; windowed playtests establish handling, collision and motion.
+
+Measure frame/physics time, draw calls, primitives, memory and effect overdraw in
+normal/burst/load cases. Follow the [validation envelope](design.md#provisional-validation-envelope)
+for Deck LCD/OLED, host/client roles and sustained 60 FPS evidence. Desktop captures,
+headless timings and capped FPS samples cannot certify Deck performance. Record
+missing hardware/checks and provisional budgets honestly. Optimization preserves
+routes/collision and authoritative outcome rules.
+
+Audio records link creator/source/license, committed original, edits/export settings,
+runtime output, buses and review evidence. Verify loops/levels in engine, bound voices
+and stop owned loops on reset/teardown. Preserve launch/impact tails when appropriate;
+prediction/duplicate packets must not replay sounds. Bus/lifecycle behavior belongs
+to gameplay/presentation owners. 2D UI/fonts/minimap assets retain provenance and
+runtime/source links without requiring Blender model handoffs.
