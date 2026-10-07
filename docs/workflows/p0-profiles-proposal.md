@@ -178,5 +178,11 @@ links/anchors, scoped TODO delta/history preservation, whitespace and linear Git
 ancestry. [Checker](p0-profiles-evidence/check.py) and retained receipts accompany
 review. No engine/gameplay/network/export/display/device tests, representative
 profile launches, configuration/API writes, schedules or service changes occurred.
-Independent review and final exact-HEAD receipt are retained before root integration;
+Fresh clean-context reviewer `/root/p0_profiles_review`, Sol 6.1 high, **ACCEPTED**
+`ed4550d75eddc12f6b64abc9540226d172b46c87` with no actionable findings or fixes.
+The [complete report](p0-profiles-review.md) is retained verbatim; the
+[worker receipt](p0-profiles-evidence/worker-checks-ed4550d.txt) records actual static
+checks at that substantive revision. This retention/TODO-status continuation still
+requires explicit exact-final-HEAD disposition, retained in local
+`refs/notes/paseo-orchestration` on the delivered HEAD before integration/archive.
 P0-PROFILES remains open for the later authorized workflow above.

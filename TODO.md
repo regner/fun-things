@@ -156,9 +156,10 @@ asset acceptance.
 
 - [ ] **P0-PROFILES — Create Paseo profiles from observed session requirements (configuration DEFERRED).**
   Owner: delegated workflow worker; orchestrator coordinates readiness and review.
-  **Requirements/proposal prepared; independent exact-revision review required for delivery.**
+  **Requirements/proposal independently reviewed; live configuration/launch stage DEFERRED.**
   See [proposed bundles and deferred install/launch plan](docs/workflows/p0-profiles-proposal.md)
-  and [session evidence/coverage](docs/workflows/p0-profiles-evidence.md). This resolving
+  and [session evidence/coverage](docs/workflows/p0-profiles-evidence.md), with the
+  [independent review](docs/workflows/p0-profiles-review.md). This resolving
   proposal stage leaves the task open for later authorized configuration, safe launches,
   final inventory and next periodic revisit. No live profile/configuration change or
   representative launch has run. Readiness was established at the third checkpoint: accepted
