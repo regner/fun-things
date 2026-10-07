@@ -265,11 +265,15 @@ implementation. Save editor mutations before playtests; preserve unsaved work.
   Next bounded compatibility experiment is specified there; no vendor/engine pin
   or four-channel/ordered-unreliable contract change is implied. Deferral does not
   satisfy P0-GATE or dependent Steam acceptance; keep this task open.
-  Next ungated step: commission one isolated compatibility design/probe against
-  the preparation's exact sources, with predefined four-stream/mode/lifecycle
-  expectations and a one-experiment stop boundary. Report substantial machinery
-  or contract decisions before expansion; no candidate adapter/five-lane setting
-  is selected as a fix. Network delivery observations still need external access.
+  One bounded [compatibility design/probe](docs/spikes/s03-s-compatibility.md)
+  records exact singleton Sockets API lane/metadata/ownership limitations,
+  finite synthetic counterexamples and copied registration; native delivery and
+  lifecycle remain unobserved. It stopped before peer/native machinery; no adapter,
+  five-lane setting, integration or contract change is selected. Same compatibility
+  owner: Codex; root chooses whether to commission exact upstream peer-revision
+  evidence or a separately bounded native-boundary design using the saved criteria.
+  No implementation expansion is implied. Network proof still needs external access;
+  full S03-S remains OPEN.
   Before the network proof, verify app type/release state, distinct authorized
   testers/package entitlement, depot OS/package inclusion and launch settings;
   confirm/create the intended `fun-things` private branch and record its access route.

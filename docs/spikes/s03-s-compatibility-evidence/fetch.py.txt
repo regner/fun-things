@@ -1,0 +1,14 @@
+import urllib.request, pathlib, hashlib, json, traceback
+root=pathlib.Path('/tmp/s03-s-compatibility/sources')
+ref='532740f3f9c6a826c68914db81af9de1e32d5dc3'
+entries=[]
+for name in ['godotsteam.cpp','godotsteam.h','godotsteam_multiplayer_peer.cpp','steam_packet_peer.cpp']:
+ url=f'https://codeberg.org/godotsteam/godotsteam/raw/commit/{ref}/{name}'
+ try:
+  data=urllib.request.urlopen(url,timeout=30).read()
+ except Exception:
+  traceback.print_exc(); raise SystemExit(1)
+ (root/name).write_bytes(data)
+ entries.append({'file':name,'url':url,'bytes':len(data),'sha256':hashlib.sha256(data).hexdigest()})
+ print(name,entries[-1]['sha256'])
+pathlib.Path('/tmp/s03-s-compatibility/sources.json').write_text(json.dumps({'ref':ref,'retrieved':'2026-10-08','files':entries},indent=2)+'\n')

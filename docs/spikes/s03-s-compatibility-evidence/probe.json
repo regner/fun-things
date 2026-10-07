@@ -1,0 +1,194 @@
+{
+  "source_ref": "532740f3f9c6a826c68914db81af9de1e32d5dc3",
+  "source_kind": "static exact-source inspection",
+  "facts": {
+    "sendMessageToConnection": {
+      "line": 3624,
+      "signature": "Dictionary Steam::sendMessageToConnection(uint32_t connection_handle, const PackedByteArray message, int flags)",
+      "mentions_lane_index": false,
+      "dictionary_keys": [
+        "message_number",
+        "result"
+      ]
+    },
+    "sendMessages": {
+      "line": 3597,
+      "signature": "PackedInt64Array Steam::sendMessages(uint32_t connection_handle, Array messages, int flags, bool delete_failed_messages)",
+      "mentions_lane_index": false,
+      "dictionary_keys": [],
+      "release_before_native_send": true,
+      "allocation_expression_is_variant_size": true
+    },
+    "receiveMessagesOnConnection": {
+      "line": 3644,
+      "signature": "Array Steam::receiveMessagesOnConnection(uint32_t connection_handle, int max_messages)",
+      "mentions_lane_index": false,
+      "dictionary_keys": [
+        "connection",
+        "flags",
+        "identity",
+        "message_number",
+        "payload",
+        "receiver_user_data",
+        "size",
+        "time_received"
+      ]
+    },
+    "receiveMessagesOnPollGroup": {
+      "line": 3698,
+      "signature": "Array Steam::receiveMessagesOnPollGroup(uint32_t poll_group, int max_messages)",
+      "mentions_lane_index": false,
+      "dictionary_keys": [
+        "connection",
+        "flags",
+        "identity",
+        "message_number",
+        "payload",
+        "receiver_user_data",
+        "size",
+        "time_received"
+      ]
+    },
+    "configureConnectionLanes": {
+      "line": 3941,
+      "signature": "int Steam::configureConnectionLanes(uint32_t connection, uint32_t lanes, Array priorities, Array weights)",
+      "mentions_lane_index": false,
+      "dictionary_keys": []
+    },
+    "getConnectionRealTimeStatus": {
+      "line": 3895,
+      "signature": "Dictionary Steam::getConnectionRealTimeStatus(uint32_t connection, int lanes, bool get_status)",
+      "mentions_lane_index": false,
+      "dictionary_keys": [
+        "bytes_in_per_second",
+        "bytes_out_per_second",
+        "connection_status",
+        "lanes_status",
+        "local_quality",
+        "packets_in_per_second",
+        "packets_out_per_second",
+        "pending_reliable",
+        "pending_unreliable",
+        "ping",
+        "queue_time",
+        "remote_quality",
+        "response",
+        "send_rate",
+        "sent_unacknowledged_reliable",
+        "state"
+      ]
+    },
+    "network_connection_status_changed": {
+      "line": 7919,
+      "signature": "void Steam::network_connection_status_changed(SteamNetConnectionStatusChangedCallback_t *call_data)",
+      "mentions_lane_index": false,
+      "dictionary_keys": [
+        "connection_state",
+        "debug_description",
+        "end_debug",
+        "end_reason",
+        "identity",
+        "listen_socket",
+        "pop_relay",
+        "remote_address",
+        "remote_pop",
+        "user_data"
+      ]
+    },
+    "createLobby": {
+      "line": 2895,
+      "signature": "void Steam::createLobby(LobbyType lobby_type, int max_members)",
+      "mentions_lane_index": false,
+      "dictionary_keys": []
+    },
+    "joinLobby": {
+      "line": 3016,
+      "signature": "void Steam::joinLobby(uint64_t steam_lobby_id)",
+      "mentions_lane_index": false,
+      "dictionary_keys": []
+    },
+    "SteamPacketPeer::send": {
+      "line": 94,
+      "native_send_result_discarded": true,
+      "send_not_script_bound": true,
+      "public_put_defaults_reliable_lane_zero": true
+    },
+    "ordered_unreliable": {
+      "line": 682,
+      "source_maps_to_reliable": true
+    }
+  },
+  "model_kind": "synthetic finite traces, NOT Steam/native delivery or lifecycle",
+  "reorder_duplicate": [
+    [
+      2,
+      2
+    ]
+  ],
+  "independent_streams": [
+    [
+      2,
+      20
+    ],
+    [
+      3,
+      1
+    ],
+    [
+      3,
+      2
+    ]
+  ],
+  "lost_102_subset_refresh": {
+    "B": 103,
+    "A": 104
+  },
+  "lane_metadata_collision": {
+    "possible_native": [
+      {
+        "lane": 2,
+        "number": 1,
+        "flags": 0,
+        "payload": "same"
+      },
+      {
+        "lane": 3,
+        "number": 1,
+        "flags": 0,
+        "payload": "same"
+      }
+    ],
+    "wrapper": [
+      {
+        "number": 1,
+        "flags": 0,
+        "payload": "same"
+      },
+      {
+        "number": 1,
+        "flags": 0,
+        "payload": "same"
+      }
+    ]
+  },
+  "default_channel_projection": [
+    0,
+    1,
+    2,
+    0
+  ],
+  "five_lane_projection": [
+    0,
+    1,
+    2,
+    3
+  ],
+  "native_network_calls": 0,
+  "bounds": {
+    "streams": 4,
+    "watermarks": 4,
+    "example_entities": 2,
+    "largest_trace": 4,
+    "reorder_history": 0
+  }
+}

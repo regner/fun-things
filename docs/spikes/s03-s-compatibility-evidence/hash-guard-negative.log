@@ -1,0 +1,9 @@
+Traceback (most recent call last):
+  File "/home/regner/.paseo/worktrees/0u71f39f/s03-s-compatibility-design-probe/tools/probe_s03_s_compatibility.py", line 133, in <module>
+    main()
+    ~~~~^^
+  File "/home/regner/.paseo/worktrees/0u71f39f/s03-s-compatibility-design-probe/tools/probe_s03_s_compatibility.py", line 46, in main
+    assert hashlib.sha256(data).hexdigest() == entry['sha256'], entry['file']
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: godotsteam.cpp
+EXPECTED nonzero exit=1 for modified scratch source only
