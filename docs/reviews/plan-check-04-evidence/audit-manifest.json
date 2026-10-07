@@ -1,0 +1,526 @@
+{
+  "base": "8d60ff68bf2091f3077371de00b9b06960cec5ae",
+  "prior_exclusive": "35adb47042fe6b27c1653d38636f5eaf7d47578b",
+  "inclusive_watermark": "8d60ff68bf2091f3077371de00b9b06960cec5ae",
+  "accepted_commit_count": 13,
+  "commits": [
+    {
+      "revision": "b6b16d6896cb0c7a9cc057d8fecd343135afc1b8",
+      "parents": [
+        "35adb47042fe6b27c1653d38636f5eaf7d47578b"
+      ],
+      "subject": "docs: checkpoint full plan after S02 and capacity preparation",
+      "paths": [
+        "TODO.md",
+        "docs/reviews/plan-check-03-evidence/check.py",
+        "docs/reviews/plan-check-03-evidence/profile-assessment.json",
+        "docs/reviews/plan-check-03-evidence/provider-discovery.json",
+        "docs/reviews/plan-check-03-evidence/requirements.txt",
+        "docs/reviews/plan-check-2026-10-07-03.md",
+        "docs/reviews/plan-checkpoints.md"
+      ]
+    },
+    {
+      "revision": "3e15941609672a6f0dd44e21fc8791f6efafee43",
+      "parents": [
+        "b6b16d6896cb0c7a9cc057d8fecd343135afc1b8"
+      ],
+      "subject": "docs: complete checkpoint guide follow-up coverage and retain review",
+      "paths": [
+        "TODO.md",
+        "docs/reviews/plan-check-03-evidence/worker-checks-b6b16d6.txt",
+        "docs/reviews/plan-check-2026-10-07-03.md",
+        "docs/reviews/plan-check-review-2026-10-07-03.md"
+      ]
+    },
+    {
+      "revision": "814ac3ac324836a99832aebe63b6c4d47bf75b5a",
+      "parents": [
+        "3e15941609672a6f0dd44e21fc8791f6efafee43"
+      ],
+      "subject": "docs: retain corrected third checkpoint independent disposition",
+      "paths": [
+        "docs/reviews/plan-check-review-2026-10-07-03.md"
+      ]
+    },
+    {
+      "revision": "15466b8cd5a179dc3a5fd0c715f86c8175e8db4f",
+      "parents": [
+        "814ac3ac324836a99832aebe63b6c4d47bf75b5a"
+      ],
+      "subject": "docs: reconcile S02 desktop evidence and S07 capacity ownership",
+      "paths": [
+        "README.md",
+        "TODO.md",
+        "docs/architecture.md",
+        "docs/art-direction.md",
+        "docs/design.md",
+        "docs/development.md",
+        "docs/reviews/p0-doc4.md",
+        "docs/world-layout.md"
+      ]
+    },
+    {
+      "revision": "11a4486ae6e912387ef4e2ffbce3b138c3b45f28",
+      "parents": [
+        "15466b8cd5a179dc3a5fd0c715f86c8175e8db4f"
+      ],
+      "subject": "docs: retain independent P0-DOC4 review and completion receipt",
+      "paths": [
+        "docs/reviews/p0-doc4-review.md",
+        "docs/reviews/p0-doc4.md"
+      ]
+    },
+    {
+      "revision": "a2619d27267288f2c5c0a0f2d2ed188c737f1c21",
+      "parents": [
+        "11a4486ae6e912387ef4e2ffbce3b138c3b45f28"
+      ],
+      "subject": "spike: retain bounded S03-R ENet foot technical experiment",
+      "paths": [
+        "docs/spikes/s03-r-evidence/adverse/client-engine.log",
+        "docs/spikes/s03-r-evidence/adverse/client-stdout.log",
+        "docs/spikes/s03-r-evidence/adverse/host-engine.log",
+        "docs/spikes/s03-r-evidence/adverse/host-stdout.log",
+        "docs/spikes/s03-r-evidence/adverse/import.log",
+        "docs/spikes/s03-r-evidence/adverse/proxy.jsonl",
+        "docs/spikes/s03-r-evidence/adverse/result.json",
+        "docs/spikes/s03-r-evidence/adverse/tested-source/actor.gd.txt",
+        "docs/spikes/s03-r-evidence/adverse/tested-source/actor.gd.uid.txt",
+        "docs/spikes/s03-r-evidence/adverse/tested-source/actor.tscn.txt",
+        "docs/spikes/s03-r-evidence/adverse/tested-source/boot.tscn.txt",
+        "docs/spikes/s03-r-evidence/adverse/tested-source/match.gd.txt",
+        "docs/spikes/s03-r-evidence/adverse/tested-source/match.gd.uid.txt",
+        "docs/spikes/s03-r-evidence/adverse/tested-source/proof.gd.txt",
+        "docs/spikes/s03-r-evidence/adverse/tested-source/proof.gd.uid.txt",
+        "docs/spikes/s03-r-evidence/adverse/tested-source/replication.gd.txt",
+        "docs/spikes/s03-r-evidence/adverse/tested-source/replication.gd.uid.txt",
+        "docs/spikes/s03-r-evidence/baseline/client-engine.log",
+        "docs/spikes/s03-r-evidence/baseline/client-stdout.log",
+        "docs/spikes/s03-r-evidence/baseline/host-engine.log",
+        "docs/spikes/s03-r-evidence/baseline/host-stdout.log",
+        "docs/spikes/s03-r-evidence/baseline/import.log",
+        "docs/spikes/s03-r-evidence/baseline/proxy.jsonl",
+        "docs/spikes/s03-r-evidence/baseline/result.json",
+        "docs/spikes/s03-r-evidence/baseline/tested-source/actor.gd.txt",
+        "docs/spikes/s03-r-evidence/baseline/tested-source/actor.gd.uid.txt",
+        "docs/spikes/s03-r-evidence/baseline/tested-source/actor.tscn.txt",
+        "docs/spikes/s03-r-evidence/baseline/tested-source/boot.tscn.txt",
+        "docs/spikes/s03-r-evidence/baseline/tested-source/match.gd.txt",
+        "docs/spikes/s03-r-evidence/baseline/tested-source/match.gd.uid.txt",
+        "docs/spikes/s03-r-evidence/baseline/tested-source/proof.gd.txt",
+        "docs/spikes/s03-r-evidence/baseline/tested-source/proof.gd.uid.txt",
+        "docs/spikes/s03-r-evidence/baseline/tested-source/replication.gd.txt",
+        "docs/spikes/s03-r-evidence/baseline/tested-source/replication.gd.uid.txt",
+        "docs/spikes/s03-r-evidence/checks/compilation.json",
+        "docs/spikes/s03-r-evidence/checks/compiler-setup.json",
+        "docs/spikes/s03-r-evidence/checks/formatting.log",
+        "docs/spikes/s03-r-evidence/checks/scripts.json",
+        "docs/spikes/s03-r-evidence/checks/style.log",
+        "docs/spikes/s03-r-evidence/editor/author-scenes-result.json",
+        "docs/spikes/s03-r-evidence/editor/launch.json",
+        "docs/spikes/s03-r-evidence/editor/roundtrip-after.json",
+        "docs/spikes/s03-r-evidence/editor/roundtrip-before.json",
+        "docs/spikes/s03-r-evidence/editor/roundtrip-result-v2.json",
+        "docs/spikes/s03-r-evidence/editor/roundtrip-stable-after.json",
+        "docs/spikes/s03-r-evidence/editor/roundtrip-stable-before.json",
+        "docs/spikes/s03-r-evidence/editor/roundtrip-stable-result.json",
+        "docs/spikes/s03-r-evidence/editor/worktree-initial.json",
+        "docs/spikes/s03-r-evidence/failed-attempts/client-stdout.log",
+        "docs/spikes/s03-r-evidence/failed-attempts/host-stdout.log",
+        "docs/spikes/s03-r-evidence/failed-attempts/s03-r-checks-initial-compiler-import.log",
+        "docs/spikes/s03-r-evidence/failed-attempts/s03-r-technical-result.json",
+        "docs/spikes/s03-r-evidence/normal/client-engine.log",
+        "docs/spikes/s03-r-evidence/normal/client-stdout.log",
+        "docs/spikes/s03-r-evidence/normal/host-engine.log",
+        "docs/spikes/s03-r-evidence/normal/host-stdout.log",
+        "docs/spikes/s03-r-evidence/normal/import.log",
+        "docs/spikes/s03-r-evidence/normal/proxy.jsonl",
+        "docs/spikes/s03-r-evidence/normal/result.json",
+        "docs/spikes/s03-r-evidence/normal/tested-source/actor.gd.txt",
+        "docs/spikes/s03-r-evidence/normal/tested-source/actor.gd.uid.txt",
+        "docs/spikes/s03-r-evidence/normal/tested-source/actor.tscn.txt",
+        "docs/spikes/s03-r-evidence/normal/tested-source/boot.tscn.txt",
+        "docs/spikes/s03-r-evidence/normal/tested-source/match.gd.txt",
+        "docs/spikes/s03-r-evidence/normal/tested-source/match.gd.uid.txt",
+        "docs/spikes/s03-r-evidence/normal/tested-source/proof.gd.txt",
+        "docs/spikes/s03-r-evidence/normal/tested-source/proof.gd.uid.txt",
+        "docs/spikes/s03-r-evidence/normal/tested-source/replication.gd.txt",
+        "docs/spikes/s03-r-evidence/normal/tested-source/replication.gd.uid.txt",
+        "docs/spikes/s03-r-evidence/protocol-before-measurement.md",
+        "docs/spikes/s03-r-evidence/result.json",
+        "docs/spikes/s03-r.md",
+        "tests/fixtures/s03_r/actor.gd",
+        "tests/fixtures/s03_r/actor.gd.uid",
+        "tests/fixtures/s03_r/actor.tscn",
+        "tests/fixtures/s03_r/boot.tscn",
+        "tests/fixtures/s03_r/match.gd",
+        "tests/fixtures/s03_r/match.gd.uid",
+        "tests/fixtures/s03_r/proof.gd",
+        "tests/fixtures/s03_r/proof.gd.uid",
+        "tests/fixtures/s03_r/replication.gd",
+        "tests/fixtures/s03_r/replication.gd.uid",
+        "tools/run_s03_r.py"
+      ]
+    },
+    {
+      "revision": "523093e2fd6b6b84a33e19947ac33fe0056c3d7c",
+      "parents": [
+        "a2619d27267288f2c5c0a0f2d2ed188c737f1c21"
+      ],
+      "subject": "spike: fence S03-R response evidence by owned entity and retain open followups",
+      "paths": [
+        "TODO.md",
+        "docs/api-contracts.md",
+        "docs/multiplayer.md",
+        "docs/scene-structure.md",
+        "docs/spikes/s03-r-evidence/adverse/analysis-owned-entity.json",
+        "docs/spikes/s03-r-evidence/baseline/analysis-owned-entity.json",
+        "docs/spikes/s03-r-evidence/checks/final/compilation.json",
+        "docs/spikes/s03-r-evidence/checks/final/compiler-setup.json",
+        "docs/spikes/s03-r-evidence/checks/final/formatting.log",
+        "docs/spikes/s03-r-evidence/checks/final/scripts.json",
+        "docs/spikes/s03-r-evidence/checks/final/style.log",
+        "docs/spikes/s03-r-evidence/editor/original-path-preservation.json",
+        "docs/spikes/s03-r-evidence/normal/analysis-owned-entity.json",
+        "docs/spikes/s03-r.md",
+        "tests/fixtures/s03_r/proof.gd",
+        "tools/run_s03_r.py",
+        "tools/test_s03_r_analysis.py"
+      ]
+    },
+    {
+      "revision": "bc9e2946619ebbd43b2700a066187b8d2f8c18fe",
+      "parents": [
+        "523093e2fd6b6b84a33e19947ac33fe0056c3d7c"
+      ],
+      "subject": "fix: fence S03-R movement against installed baseline ticks",
+      "paths": [
+        "docs/reviews/s03-r-6714211.md",
+        "docs/spikes/s03-r-evidence/failed-attempts/fix-initial-style.log",
+        "docs/spikes/s03-r-evidence/fix-adverse/client-engine.log",
+        "docs/spikes/s03-r-evidence/fix-adverse/client-stdout.log",
+        "docs/spikes/s03-r-evidence/fix-adverse/host-engine.log",
+        "docs/spikes/s03-r-evidence/fix-adverse/host-stdout.log",
+        "docs/spikes/s03-r-evidence/fix-adverse/import.log",
+        "docs/spikes/s03-r-evidence/fix-adverse/proxy.jsonl",
+        "docs/spikes/s03-r-evidence/fix-adverse/result.json",
+        "docs/spikes/s03-r-evidence/fix-adverse/tested-source/actor.gd.txt",
+        "docs/spikes/s03-r-evidence/fix-adverse/tested-source/actor.gd.uid.txt",
+        "docs/spikes/s03-r-evidence/fix-adverse/tested-source/actor.tscn.txt",
+        "docs/spikes/s03-r-evidence/fix-adverse/tested-source/boot.tscn.txt",
+        "docs/spikes/s03-r-evidence/fix-adverse/tested-source/match.gd.txt",
+        "docs/spikes/s03-r-evidence/fix-adverse/tested-source/match.gd.uid.txt",
+        "docs/spikes/s03-r-evidence/fix-adverse/tested-source/pose_fence_probe.gd.txt",
+        "docs/spikes/s03-r-evidence/fix-adverse/tested-source/pose_fence_probe.gd.uid.txt",
+        "docs/spikes/s03-r-evidence/fix-adverse/tested-source/proof.gd.txt",
+        "docs/spikes/s03-r-evidence/fix-adverse/tested-source/proof.gd.uid.txt",
+        "docs/spikes/s03-r-evidence/fix-adverse/tested-source/replication.gd.txt",
+        "docs/spikes/s03-r-evidence/fix-adverse/tested-source/replication.gd.uid.txt",
+        "docs/spikes/s03-r-evidence/fix-checks/compilation.json",
+        "docs/spikes/s03-r-evidence/fix-checks/compiler-setup.json",
+        "docs/spikes/s03-r-evidence/fix-checks/formatting.log",
+        "docs/spikes/s03-r-evidence/fix-checks/probe-fence.log",
+        "docs/spikes/s03-r-evidence/fix-checks/probe-import.log",
+        "docs/spikes/s03-r-evidence/fix-checks/scripts.json",
+        "docs/spikes/s03-r-evidence/fix-checks/style.log",
+        "docs/spikes/s03-r-evidence/review-initial/client-engine.log",
+        "docs/spikes/s03-r-evidence/review-initial/client-stdout.log",
+        "docs/spikes/s03-r-evidence/review-initial/host-engine.log",
+        "docs/spikes/s03-r-evidence/review-initial/host-stdout.log",
+        "docs/spikes/s03-r-evidence/review-initial/import.log",
+        "docs/spikes/s03-r-evidence/review-initial/independent-raw-analysis.json",
+        "docs/spikes/s03-r-evidence/review-initial/pose-fence-engine.log",
+        "docs/spikes/s03-r-evidence/review-initial/pose-fence.log",
+        "docs/spikes/s03-r-evidence/review-initial/proxy.jsonl",
+        "docs/spikes/s03-r-evidence/review-initial/result.json",
+        "docs/spikes/s03-r-evidence/review-initial/review_pose_fence.gd.txt",
+        "docs/spikes/s03-r.md",
+        "tests/fixtures/s03_r/match.gd",
+        "tests/fixtures/s03_r/pose_fence_probe.gd",
+        "tests/fixtures/s03_r/pose_fence_probe.gd.uid"
+      ]
+    },
+    {
+      "revision": "b87f88955aa594255c178326c3b4087e1dc185bf",
+      "parents": [
+        "bc9e2946619ebbd43b2700a066187b8d2f8c18fe"
+      ],
+      "subject": "docs: retain S03-R saved rebase and final preservation checks",
+      "paths": [
+        "docs/spikes/s03-r-evidence/editor/fixed-rebased-state.json",
+        "docs/spikes/s03-r-evidence/editor/original-preservation-final.json",
+        "docs/spikes/s03-r-evidence/fix-checks/links-resources.log",
+        "docs/spikes/s03-r-evidence/fix-checks/tool-tests.log",
+        "docs/spikes/s03-r.md"
+      ]
+    },
+    {
+      "revision": "ae48eb3dd498075bdd854119c5d124a8251dbbb1",
+      "parents": [
+        "b87f88955aa594255c178326c3b4087e1dc185bf"
+      ],
+      "subject": "docs: retain S03-R independent fix closure and quiescent handoff receipts",
+      "paths": [
+        "TODO.md",
+        "docs/reviews/s03-r-b87f889.md",
+        "docs/spikes/s03-r-evidence/editor/final-host-inventory.json",
+        "docs/spikes/s03-r-evidence/editor/final-saved-state.json",
+        "docs/spikes/s03-r-evidence/review-followup/adverse-reanalysis.json",
+        "docs/spikes/s03-r-evidence/review-followup/candidate-api.log",
+        "docs/spikes/s03-r-evidence/review-followup/match-compile.log",
+        "docs/spikes/s03-r-evidence/review-followup/negative-behavioral-mutation.log",
+        "docs/spikes/s03-r-evidence/review-followup/negative-unfixed.log",
+        "docs/spikes/s03-r-evidence/review-followup/original-probe-fixed.log",
+        "docs/spikes/s03-r-evidence/review-followup/pose_fence_probe-compile.log",
+        "docs/spikes/s03-r-evidence/review-followup/result.json",
+        "docs/spikes/s03-r.md"
+      ]
+    },
+    {
+      "revision": "3e04e3e5166abe3420ab7f4cbfc06eaa0b041ae1",
+      "parents": [
+        "ae48eb3dd498075bdd854119c5d124a8251dbbb1"
+      ],
+      "subject": "docs: propose session-based Paseo profile bundles and deferred validation",
+      "paths": [
+        "TODO.md",
+        "docs/workflows/p0-profiles-evidence.md",
+        "docs/workflows/p0-profiles-evidence/check.py",
+        "docs/workflows/p0-profiles-evidence/discovery.json",
+        "docs/workflows/p0-profiles-evidence/proposed.patch.json",
+        "docs/workflows/p0-profiles-evidence/sample-coverage.json",
+        "docs/workflows/p0-profiles-evidence/schema-source.json",
+        "docs/workflows/p0-profiles-proposal.md"
+      ]
+    },
+    {
+      "revision": "9031eeb631c9478c474c977a18ce5e129ae4f9cc",
+      "parents": [
+        "3e04e3e5166abe3420ab7f4cbfc06eaa0b041ae1"
+      ],
+      "subject": "docs: retain independent profile proposal review and stage disposition",
+      "paths": [
+        "TODO.md",
+        "docs/workflows/p0-profiles-evidence/worker-checks-ed4550d.txt",
+        "docs/workflows/p0-profiles-proposal.md",
+        "docs/workflows/p0-profiles-review.md"
+      ]
+    },
+    {
+      "revision": "8d60ff68bf2091f3077371de00b9b06960cec5ae",
+      "parents": [
+        "9031eeb631c9478c474c977a18ce5e129ae4f9cc"
+      ],
+      "subject": "docs: reconcile profile proposal rebase with accepted S03-R scope",
+      "paths": [
+        "docs/workflows/p0-profiles-evidence.md",
+        "docs/workflows/p0-profiles-evidence/check.py",
+        "docs/workflows/p0-profiles-final-0f10dbb.md",
+        "docs/workflows/p0-profiles-proposal.md"
+      ]
+    }
+  ],
+  "base_task_ids": [
+    "P0-PROFILES",
+    "S02",
+    "S03-S",
+    "S03-R",
+    "S04",
+    "S05",
+    "S06",
+    "S07",
+    "S08",
+    "P0-GATE",
+    "M1-A1",
+    "M1-A2",
+    "M1-A3",
+    "M1-A-GATE",
+    "M1-B1",
+    "M1-B2",
+    "M1-B3",
+    "M1-B4",
+    "M1-C1",
+    "M1-C2",
+    "M1-C3",
+    "M1-C4",
+    "M1-D1",
+    "M1-D2",
+    "M1-D3",
+    "M1-D4",
+    "M1-GATE"
+  ],
+  "consulted_records": [
+    {
+      "path": "docs/reviews/plan-check-2026-10-07-03.md",
+      "bytes": 21261,
+      "sha256": "13daebe57452162b64377ce3ff85e0e5a446686e41383a038c5aef4ca1642ac7"
+    },
+    {
+      "path": "docs/reviews/plan-check-review-2026-10-07-03.md",
+      "bytes": 24098,
+      "sha256": "bf66e1169d6c0d90106408ec4e83a4921a5014dd66c0459c89a30071df7f6959"
+    },
+    {
+      "path": "docs/reviews/p0-doc4.md",
+      "bytes": 4329,
+      "sha256": "7d378aa868a1fc356f6b1b2eaf0f0687d34cc79a3b55d1667279f4d2c096ba37"
+    },
+    {
+      "path": "docs/reviews/p0-doc4-review.md",
+      "bytes": 8826,
+      "sha256": "f86d41fb34d8ced9605be095269ca2b5953c322b15f115631ad6c605f1a7e55b"
+    },
+    {
+      "path": "docs/spikes/s03-r.md",
+      "bytes": 18579,
+      "sha256": "37db2b41b21041202acd43e90f5b4ae4ac759c3fd1cf385d837bb09fd49728ab"
+    },
+    {
+      "path": "docs/reviews/s03-r-6714211.md",
+      "bytes": 10715,
+      "sha256": "637a9194f8592b774fc83e9502eaa2e6b0bfac8fb060d11cb6e82c6b4293e4c4"
+    },
+    {
+      "path": "docs/reviews/s03-r-b87f889.md",
+      "bytes": 8507,
+      "sha256": "c5fc403c184e05ff89e80dfe3d32bb2b0cc96e3e105c50585e5ef29cd5364512"
+    },
+    {
+      "path": "docs/spikes/s03-r-evidence/protocol-before-measurement.md",
+      "bytes": 3686,
+      "sha256": "9908fda2bea44bd480eb873b756ba2773999b166a3b51eb0052bf88aa7e66165"
+    },
+    {
+      "path": "docs/spikes/s03-r-evidence/editor/original-preservation-final.json",
+      "bytes": 13949,
+      "sha256": "c033b872837a4fe68064347062115e836ba50344b862c58d855cb0c17c47dbb9"
+    },
+    {
+      "path": "docs/spikes/s03-r-evidence/checks/final/compilation.json",
+      "bytes": 1836,
+      "sha256": "7cb68f64b2aeff9af88d105c1134123c696b45aca193f8c11144fac5a44ef638"
+    },
+    {
+      "path": "docs/spikes/s03-r-evidence/fix-checks/compilation.json",
+      "bytes": 1918,
+      "sha256": "45522fe68a96cd8e813d4b8ff0f09ee22c02fe49c46bf53c01c5234504a03c09"
+    },
+    {
+      "path": "docs/spikes/s03-r-evidence/review-followup/negative-behavioral-mutation.log",
+      "bytes": 2431,
+      "sha256": "f7ed1e52c95392487546a79b5f5418d7cb9c68fe127582e0ac586eb981fc6da4"
+    },
+    {
+      "path": "docs/workflows/p0-profiles-proposal.md",
+      "bytes": 15945,
+      "sha256": "c9ea4865a5efb6ec533cb4a47d0dfe5c0d8d6f80ef38b133d3a554aedf55e777"
+    },
+    {
+      "path": "docs/workflows/p0-profiles-evidence.md",
+      "bytes": 8920,
+      "sha256": "41d023324373c039e73ac50d449b775f43a16b8aaaa89b607c13b89af9b904c7"
+    },
+    {
+      "path": "docs/workflows/p0-profiles-review.md",
+      "bytes": 9832,
+      "sha256": "84af57cf679b0dbb21555252e8dad8ac4a67323e0183d17dbb7f8830fe13133a"
+    },
+    {
+      "path": "docs/workflows/p0-profiles-final-0f10dbb.md",
+      "bytes": 5863,
+      "sha256": "53e23f1efd60e1aaccf4eba0c921fa425db3e4bbe3e77959c3ee370fd0ca5ec0"
+    },
+    {
+      "path": "docs/workflows/p0-profiles-evidence/schema-source.json",
+      "bytes": 15847,
+      "sha256": "4d5ed465574eeb2c6667aa7b4f186fc14680dded82e91d0848696f90e6f3662c"
+    },
+    {
+      "path": "docs/workflows/p0-profiles-evidence/proposed.patch.json",
+      "bytes": 5912,
+      "sha256": "302be76f09fd58c14dd58a55c803413ddd440e4218e48ac11094f0f6ed9dff1b"
+    },
+    {
+      "path": "docs/workflows/p0-profiles-evidence/sample-coverage.json",
+      "bytes": 2148,
+      "sha256": "fa879572111df18c809d9b6077e9fa444f732e5be94836f3f72ff1f3613dff6d"
+    }
+  ],
+  "consulted_exact_final_notes": [
+    {
+      "revision": "814ac3ac324836a99832aebe63b6c4d47bf75b5a",
+      "ref": "refs/notes/paseo-orchestration",
+      "bytes": 5364,
+      "sha256": "99b398088cbee19140688f3392c137cc5bd990c07f53365bed2003b67250716b",
+      "scope": "Full substantive/follow-up exact-final handoff/review/integration receipt read. S03-R note also contains delegated editor-relocation receipt. Historical evidence, not fresh technical tests."
+    },
+    {
+      "revision": "11a4486ae6e912387ef4e2ffbce3b138c3b45f28",
+      "ref": "refs/notes/paseo-orchestration",
+      "bytes": 8355,
+      "sha256": "1a55013a4a3e374ca4469c39d7de6c662dd26b1b5abbafb0c3ace3153ede4c36",
+      "scope": "Full substantive/follow-up exact-final handoff/review/integration receipt read. S03-R note also contains delegated editor-relocation receipt. Historical evidence, not fresh technical tests."
+    },
+    {
+      "revision": "ae48eb3dd498075bdd854119c5d124a8251dbbb1",
+      "ref": "refs/notes/paseo-orchestration",
+      "bytes": 12041,
+      "sha256": "73c0d625b625770699daef6e205d2ab4dad6e1146e3c197941b7fa096fe2d615",
+      "scope": "Full substantive/follow-up exact-final handoff/review/integration receipt read. S03-R note also contains delegated editor-relocation receipt. Historical evidence, not fresh technical tests."
+    },
+    {
+      "revision": "8d60ff68bf2091f3077371de00b9b06960cec5ae",
+      "ref": "refs/notes/paseo-orchestration",
+      "bytes": 14194,
+      "sha256": "3564b9c51ae2d22b6beed1563ac537eea228fa5aabf5498866fbc15425629f46",
+      "scope": "Full substantive/follow-up exact-final handoff/review/integration receipt read. S03-R note also contains delegated editor-relocation receipt. Historical evidence, not fresh technical tests."
+    }
+  ],
+  "installed_declarations": {
+    "source_root": "/tmp/p0-profiles-paseo-source/node_modules/@getpaseo",
+    "source_hashes": [
+      {
+        "path": "protocol/dist/agent-profile.js",
+        "sha256": "07fb9cb22a0662d4c0c1c646354f4640cd85448312820e80471ce9c257db17de",
+        "matches_retained_extraction": true
+      },
+      {
+        "path": "protocol/dist/messages.js",
+        "sha256": "1fd419e84dd53544347e62aae94784c0db050156f265627c8be6f73a39f935f0",
+        "matches_retained_extraction": true
+      },
+      {
+        "path": "server/dist/server/server/persisted-config.js",
+        "sha256": "5d8500251e8c114b7ae0dcb3af9ca505c092211939e16795830731ca52ea2e8c",
+        "matches_retained_extraction": true
+      },
+      {
+        "path": "server/dist/server/server/daemon-config-store.js",
+        "sha256": "50b1faa3e783911189e6440524085f55b51c2938953e6073ffaa49ad082e27b0",
+        "matches_retained_extraction": true
+      },
+      {
+        "path": "client/dist/daemon-client.js",
+        "sha256": "bf869f3cfeb06ccbe83b64f9ece749b84889dc5894678281bcc7a5a2d0482f3b",
+        "matches_retained_extraction": true
+      },
+      {
+        "path": "server/dist/server/server/session.js",
+        "sha256": "c2f86382599d05db9311a858b3883fca00e8c3c63658c91cd04521a85a0c9981",
+        "matches_retained_extraction": true
+      },
+      {
+        "path": "server/dist/server/server/agent/providers/codex-app-server-agent.js",
+        "sha256": "da3a578f881d2813d850c218f6089cb493c18155e0aab19b5a3f94b4ea720c6e",
+        "matches_retained_extraction": true
+      },
+      {
+        "path": "server/dist/server/server/agent/providers/codex-feature-definitions.js",
+        "sha256": "1e174f9ce26231a9a46f51cd060fae384e594eec032087d635dd29f3ecdf960b",
+        "matches_retained_extraction": true
+      }
+    ],
+    "scope": "Read static installed-package extraction and prior archive-verified source receipt; no fresh whole-app extraction/API load/runtime capability verification. Fresh supported provider/model/feature declarations separately captured."
+  }
+}
