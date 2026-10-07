@@ -226,6 +226,7 @@ func request_resync() -> void:
 		return
 
 	phase = "SYNCHRONIZING"
+	deadline_ms = Time.get_ticks_msec() + DEADLINE_MS
 	match_state.rig.set_meta("input_enabled", false)
 	_resync.rpc_id(1, session_id)
 

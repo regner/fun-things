@@ -175,8 +175,8 @@ matching ticks, not a smoothed current client transform to an earlier host trans
 ## Foundation validation tasks
 
 S01 adds only the P0-03 tooling required for its owned fixtures. Run the installed
-pins through Mise; `GODOT_BIN` and `GDSTYLE_BIN` can select those same binaries when
-Mise trust-state writes are unavailable. The shared tasks check versions and honor
+pins through Mise. Shared script/style checks accept `--godot`/`--gdstyle`;
+S01 asset tools accept `GODOT_BIN` when Mise trust-state writes are unavailable. The shared tasks check versions and honor
 hidden/`.gdignore` trees, excluding the two current vendor addons explicitly.
 
 | Task | Scope |
@@ -187,7 +187,8 @@ hidden/`.gdignore` trees, excluding the two current vendor addons explicitly.
 | `mise run s01:reexport` | Opens both committed Blender sources with the selected Blender version, exports validated scratch GLBs and requires byte equality with committed outputs |
 | `mise run s01:clean` | Isolated asset-profile clean import and resource checks, compares persisted files, then proves focused corruptions fail |
 
-Logs default to ignored `builds/`; subprocesses have deadlines/private user dirs
+S01 asset logs default to ignored `builds/`; script/session logs use printed fresh
+external directories. Subprocesses have deadlines/private user dirs
 and do not stop unrelated processes. Checks fail on error/warning logs as well as
 exit status. The clean asset profile omits development autoload/editor plugins and
 ignores vendor addons only in its temporary copy; it preserves owned resources and

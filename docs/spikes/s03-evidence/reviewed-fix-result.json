@@ -1,0 +1,104 @@
+{
+  "ok": true,
+  "engine": "4.8.dev7.official.c971f93e7",
+  "commands": {
+    "host": [
+      "/home/regner/.local/share/mise/installs/github-godotengine-godot-builds/4.8-dev7/godot",
+      "--headless",
+      "--path",
+      "/tmp/s03-reviewed-fix-proof/project",
+      "--log-file",
+      "/tmp/s03-reviewed-fix-proof/host/logs/engine.log",
+      "--",
+      "--role=host",
+      "--port=24830"
+    ],
+    "client": [
+      "/home/regner/.local/share/mise/installs/github-godotengine-godot-builds/4.8-dev7/godot",
+      "--headless",
+      "--path",
+      "/tmp/s03-reviewed-fix-proof/project",
+      "--log-file",
+      "/tmp/s03-reviewed-fix-proof/client/logs/engine.log",
+      "--",
+      "--role=client",
+      "--port=24831"
+    ]
+  },
+  "results": {
+    "client": {
+      "baseline_bytes": 0,
+      "cases": [
+        "provider_substitution_late_cleanup",
+        "baseline_cancel_retry",
+        "held_window_resync",
+        "subset_reorder_loss_recovery"
+      ],
+      "event": "result",
+      "max_held_bytes": 0,
+      "max_movement_bytes": 0,
+      "movement_received": 5,
+      "ok": true,
+      "role": "client",
+      "steam_available": false,
+      "user_dir": "/tmp/s03-reviewed-fix-proof/client/user/data/godot/app_userdata/S03 contract proof"
+    },
+    "host": {
+      "baseline_bytes": 263,
+      "cases": [
+        "provisional_rollback",
+        "authority_validation_and_expiry"
+      ],
+      "event": "result",
+      "max_held_bytes": 256,
+      "max_movement_bytes": 232,
+      "movement_received": 0,
+      "ok": true,
+      "role": "host",
+      "steam_available": false,
+      "user_dir": "/tmp/s03-reviewed-fix-proof/host/user/data/godot/app_userdata/S03 contract proof"
+    }
+  },
+  "ready": {
+    "event": "ready",
+    "role": "host",
+    "user_dir": "/tmp/s03-reviewed-fix-proof/host/user/data/godot/app_userdata/S03 contract proof"
+  },
+  "proxy": [
+    "armed",
+    "hold_subset_A",
+    "deliver_B_then_A",
+    "drop_subset_A",
+    "refresh_subset",
+    "refresh_subset"
+  ],
+  "ports": {
+    "host": 24830,
+    "proxy": 24831
+  },
+  "platform": "Linux-7.2.9-1-cachyos-x86_64-with-glibc2.44",
+  "duration_seconds": 11.525416835000215,
+  "process_ids": [
+    127868,
+    127890
+  ],
+  "fixture_sha256": {
+    "tests/fixtures/s03/boot.tscn": "73d0a58b6450cbd26b6ccbce53d852b5b737ee3e76de3ecfb71f7aca1f71bec9",
+    "tests/fixtures/s03/entity.gd": "c886014a90fc4258ee964c5ba6cd1610ca6740d6f03ef993d20a874356755ba5",
+    "tests/fixtures/s03/entity.gd.uid": "81edf93e5288f82ace33bd2357c48536e69aaa5af588174179a2b189b86235b6",
+    "tests/fixtures/s03/entity.tscn": "e77ce114f1647862a5fa00bffc0f055aa4c64ac4e751ae74794493ea9276308b",
+    "tests/fixtures/s03/fake_transport.gd": "96f37b5ac9b0689c12105764ee826c4d7f18155b7ebd471cc427f66e3c499657",
+    "tests/fixtures/s03/fake_transport.gd.uid": "109e8258fb5a3834e9a08025d1660faad62a3fb71e096cadf34b4460577eb101",
+    "tests/fixtures/s03/local_rig.tscn": "5aa73ff396f149b5fde6f9e5e658271d8bbc1c4ad37728370992294a0865857d",
+    "tests/fixtures/s03/match.gd": "6aa3ca867e40248ba7695be3e87498f5005b5524df51028f8bc47d0849f67553",
+    "tests/fixtures/s03/match.gd.uid": "4f62dd8bee5d9449e5e3985fb819823c07d6f1321c29a2e6d101798ab4899226",
+    "tests/fixtures/s03/proof.gd": "99aef2ac0a29235c67f44591938c95df3aa55a09e9ef02f362217593cb52d67b",
+    "tests/fixtures/s03/proof.gd.uid": "274ac1732eb697e7798dcdc080b2f74acf187025d9f13af7d4f85b2067b36c11",
+    "tests/fixtures/s03/replication.gd": "89fa587905e7b644bd9d7ef943d1ed7e1d6af743bb6d37f3b7b6936ed5efe09c",
+    "tests/fixtures/s03/replication.gd.uid": "84934d1bc91d62e44bfd68f90fd011b22a7c79c75dccafb69b509c4267bc7212",
+    "tests/fixtures/s03/session.gd": "d4b74f4e769588ce1af1997195a7e06ef984362b6336f6828cf5cd870f53d43a",
+    "tests/fixtures/s03/session.gd.uid": "577312815f85e86aed2fdfb83214a7b08aa71d52fa304b80caccb4b7bef0479b",
+    "tests/fixtures/s03/transport.gd": "fc83f520a6850a48ee9c9e7d4d6615466c9f5d959da9a84c66848a45d1de9a11",
+    "tests/fixtures/s03/transport.gd.uid": "13b71af6193f49f136fcfabf98e6aa715dfaf1d30b8a7a7175ddf1aaebc44cb0"
+  }
+}

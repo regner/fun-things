@@ -198,7 +198,10 @@ func _recover_sequence(previous: Dictionary) -> void:
 	var participant: int = session.local_participant
 	var old_baseline: int = replication.last_baseline
 	replication.hold_ack = true
+	# Age the completed join deadline without waiting fifteen seconds in this smoke proof.
+	session.deadline_ms = Time.get_ticks_msec() - 1
 	session.request_resync()
+	_check(session.deadline_ms > Time.get_ticks_msec(), "resync gets a fresh deadline")
 	deadline_ms = Time.get_ticks_msec() + CASE_DEADLINE_MS
 	while replication.last_baseline <= old_baseline:
 		await _poll()  # gdstyle:ignore=quality/await-in-loop

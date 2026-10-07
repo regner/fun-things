@@ -1,7 +1,7 @@
 # Fun Things
 
 A Godot project with multiplayer planned. The checkout has engine/style
-configuration, the Godot MCP Toolkit and an isolated
+configuration, the Godot MCP Toolkit, [S01 asset fixtures](docs/spikes/s01.md) and an isolated
 [S03 ENet session-contract proof](docs/spikes/s03.md). There is no production
 gameplay or main scene yet.
 The first milestone requires ENet for local testing and Steam for friends playtesting,

@@ -44,7 +44,7 @@ Handshake: `{protocol_version: int, content_id: string, district_id: WorldId,
 topology_revision: int, definition_set_id: string}`. Protocol starts at 1; require
 exact equality for M1, with no backward-compatible negotiation. Content/definition
 IDs are build-time fingerprints of required gameplay resources/bakes, bounded to
-128 bytes each; their generation is P0-03/S06 work. Display version and engine version
+128 bytes each; their generation is S06/M1 work. Display version and engine version
 are diagnostic metadata, not compatibility. Unknown definitions or world IDs fail
 admission with `INCOMPATIBLE`/`CONTENT_INVALID`, never a fallback gameplay definition.
 
@@ -568,7 +568,7 @@ isolated fixture now covers the minimum session proof; its exact coverage and
 deliberate omissions are recorded in [the evidence](spikes/s03.md). The broader
 rows below remain production acceptance, including full/incompatible/slow admission,
 seated resync, reset, gameplay lifecycle/collision, floods and capacity. P0-03 has
-script checks and a bounded runner; asset/resource checks remain S01 work.
+script checks and a bounded runner, integrated with completed S01 asset/resource checks.
 
 | Boundary / proof | Independent observable expectation |
 | --- | --- |

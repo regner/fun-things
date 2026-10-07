@@ -96,8 +96,8 @@ S02/S04/S06 and measured cost remains S07/P0-GATE work.
 
 P0-06's project GDScript review skill and independent dry-run evidence are recorded
 in [the review-skill completion record](docs/reviews/p0-06.md). The skill reads the
-P0-02 contract drafts when reviewing affected systems; P0-03's remaining runner
-and gameplay proofs remain future work.
+P0-02 contract drafts when reviewing affected systems; remaining gameplay proofs
+are tracked below.
 
 S01's bounded Blender/GLB/linked-prefab workflow is complete in
 [the evidence record](docs/spikes/s01.md), with two committed source/export fixtures,
@@ -108,17 +108,12 @@ and editor diagnostics, Deck compatibility and production art/gameplay acceptanc
 remain outside that result. S01 is removed from the active task list with its
 resolving change.
 
-- [ ] **P0-03 — Add only the tooling needed for reproducible foundation proofs.**
-  Needs: [ratified brief](docs/design.md) and the first owned spike scripts/resources.
-  Implemented: S01 asset/source/resource checks and S03 formatting/lint, clean
-  explicit all-owned-script compilation and bounded two-process runner. See
-  [development tasks](docs/development.md#foundation-validation-tasks) and
-  [S03 evidence](docs/spikes/s03.md). Final combined acceptance remains to be checked.
-  Preserve repository comment/spacing rules with manual review until a preserving wrapper exists.
-  Runner uses production-facing APIs, distinct user/log directories, configurable
-  ports, readiness/results, deadlines, retained logs, and stops only its own children.
-  Done when: the spike fixtures can be rerun and failures produce useful evidence.
-  Do not present import alone as compilation. CI and broader coverage grow in M1-D1.
+P0-03's minimum foundation tooling is complete with the combined
+[S01 asset evidence](docs/spikes/s01.md) and [S03 runner/script evidence](docs/spikes/s03.md#integration-validation).
+Pinned formatting/lint, explicit compilation of every owned script, focused
+resource/source-link checks and a bounded two-process runner can rerun the fixtures
+and retain useful failure evidence. Manual purpose-comment/spacing review remains
+required; preserving formatter tooling, CI and broader coverage belong to M1-D1.
 
 - [ ] **P0-07 — Create a project art review skill.**
   Needs: [accepted art/city brief](docs/art-direction.md) and
@@ -135,7 +130,7 @@ S03's minimum ENet session proof is complete on 7 October 2026; its
 held-window recovery and split-subset reordering/loss decision. The fixture remains
 isolated. Full admission errors, reset/seat/collision lifecycle, floods, capacity,
 production codecs and gameplay belong to M1-A/D and the remaining spikes. This does
-not by itself close P0-03's combined tooling acceptance or any Steam/Deck proof.
+not close any Steam/Deck proof. Combined P0-03 tooling acceptance is recorded above.
 
 ### Contracts to validate with spikes
 
@@ -290,7 +285,7 @@ implementation. Save editor mutations before playtests; preserve unsaved work.
 - [ ] **P0-GATE — Review the foundation evidence and revise the milestone plan.**
   Needs: [ratified brief](docs/design.md), [ownership](docs/architecture.md),
   [scene](docs/scene-structure.md) and [API](docs/api-contracts.md) drafts,
-  [accepted art/city brief](docs/art-direction.md), P0-03/P0-07,
+  [accepted art/city brief](docs/art-direction.md), [foundation tooling evidence](docs/spikes/s03.md#integration-validation)/P0-07,
   [GDScript review evidence](docs/reviews/p0-06.md),
   [P0-05 workflow record](docs/decisions/p0-05-asset-workflow.md), S01/S02,
   [completed S03 proof](docs/spikes/s03.md), S03-R/S03-S and S04 through S08.
@@ -429,7 +424,7 @@ waiting for unrelated gameplay systems.
 ### M1-D — Integration, fun tuning and private review builds
 
 - [ ] **M1-D1 — Complete production validation tooling and CI.**
-  Needs: P0-03; grows alongside production implementations.
+  Needs: [foundation tooling evidence](docs/spikes/s03.md#integration-validation); grows alongside production implementations.
   Extend style/compiler/resource/source checks to all owned code/assets; add the
   preserving formatter wrapper if needed, meaningful gameplay tests, production
   network scenarios and local/CI parity. Exclude vendor addon rules and retain logs.
