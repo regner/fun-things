@@ -1,7 +1,8 @@
 # Session, gameplay and presentation API contracts
 
 P0-02 draft, 7 October 2026. Owner: Codex. Signatures below are contract notation,
-not compilable GDScript or existing classes. Implement records as typed local values
+not complete production classes. The isolated [S03 proof](spikes/s03.md) implements
+a narrow executable subset of these boundaries. Implement records as typed local values
 and explicitly validated primitive wire shapes when their spike needs them. No
 generic RPC framework, service locator or abstraction over every engine call is
 required. [Architecture](architecture.md) assigns state owners;
@@ -255,7 +256,21 @@ held input; channel 3 unreliable-ordered movement. Discrete action requests use
 channel 0, so baseline transfer cannot order them behind its chunks. Live events
 use the reliable match stream with state dependencies. No ordering is assumed
 between channels. Both transports must prove four configured channels and these
-modes; the actual declarations/packet encoding are S03/S03-S decisions.
+modes; S03 exercises all four channels with ENet. Steam remains an independent
+S03-S requirement; the fixture's tiny JSON baseline/Variant intent and movement
+codec is not the production codec or a measured maximum transport limit.
+
+**Split movement decision from S03:** a packet watermark does not imply receipt
+of entities omitted from that packet. Apply freshness per EntityRef/control binding;
+do not discard another entity's row merely because a newer subset arrived. ENet's
+ordered stream can discard an older subset packet before application sees it.
+The publisher must revisit every relevant entity, including unchanged ones, within
+a provisional 250 ms interval using current complete movement rows. Loss delays
+that refresh; it cannot permanently remove the subset from publication. No atomic
+full-snapshot assembly is required. Dependence on reliable state remains unchanged.
+The S03 proxy reorders A100 behind B101, loses A102, then delivers B103/A104; both
+subsets converge without movement changing durable health. Production batching,
+capacity bandwidth and adverse-profile recovery still need M1-D3 measurements.
 
 Replica application rejects stale sessions/revisions/generations and duplicate
 durable records. Future-dependency motion is bounded and replaced by the newest row
@@ -508,6 +523,7 @@ to fixed-step deadlines without accepting client elapsed time.
 | Join journal | 2 MiB serialized or 4096 durable records per join, whichever first; overflow aborts only that admission | Replication / S03/S05 |
 | Closing | 5 s local cleanup; stale native callbacks retain cleanup-only ownership | SessionService/adapters / S03/S03-S |
 | Simulation / sending | 60 Hz fixed simulation; up to 30 Hz input and 20 Hz movement publication | Match/Replication / S03-R/S04/S07 |
+| Split motion revisit | Every relevant entity, even unchanged, within 250 ms before delivery loss; freshness tracked per entity/control binding | Replication / S03 evidence, M1-D3 capacity proof |
 | Held input | 1200 serialized bytes/message; 3 frames/batch; 8 queued frames/participant; sequence at most 120 ahead; 250 ms stale-input expiry | Replication / S03/S03-R/S04 |
 | Held rate | 60 messages/s with burst 8 per participant; reject excess before queueing | Replication / S03 |
 | Reliable actions | 4096 bytes/message; 16 requests/s, burst 32; 16 queued/participant; process at most 4/participant/tick; result cache 64; sequence at most 64 ahead | Replication / S03/S04 |
@@ -521,8 +537,8 @@ to fixed-step deadlines without accepting client elapsed time.
 
 Chunk sizes describe logical messages, not safe UDP datagrams. Account for encoding
 and transport overhead in measurements; adapters must verify fragmentation/logical
-limits and preserve the brief's bandwidth budgets. Snapshot splitting and maximum
-rows/message are S03 measured codec decisions; no normal motion message exceeds
+limits and preserve the brief's bandwidth budgets. S03 settles split-subset refresh;
+production codecs and maximum rows/message remain M1-D3 measurements. No normal motion message exceeds
 1200 serialized bytes. Reliable lifecycle/event batches are capped at 16 KiB and
 split only between complete transactions; larger transactions need an explicit
 bounded transfer contract before implementation. Decode chunk count/declared bytes
@@ -540,26 +556,31 @@ Normalized codes: `BUSY`, `CANCELED`, `TARGET_EXPIRED`, `SERVICE_UNAVAILABLE`,
 `RELOADING`, `SETTINGS_INVALID`, `STORAGE_FAILED`, `CLEANUP_TIMEOUT`.
 Unexpected provider failures normalize to `CONNECT_FAILED` with retained local logs.
 Malformed/rate-limited gameplay requests are dropped/rejected before mutation;
-S03 sets a bounded repeated-abuse disconnect policy. Session errors return to idle
+M1-D3 must settle and test a bounded repeated-abuse disconnect policy; S03 exercises
+bounded held receipt/rate and rejects individual bad requests. Session errors return to idle
 after cleanup; component rejection leaves coherent prior state. Retryability is
 explicit per occurrence (for example, change endpoint/access before retrying).
 
 ## Contract tests
 
-These are required outcomes for future executable tests through production APIs.
-No gameplay harness currently exists. P0-03 adds only checks needed by the first
-fixtures; spikes retain separate-process logs, limits and missing target evidence.
+These are required outcomes for executable tests through production APIs. S03's
+isolated fixture now covers the minimum session proof; its exact coverage and
+deliberate omissions are recorded in [the evidence](spikes/s03.md). The broader
+rows below remain production acceptance, including full/incompatible/slow admission,
+seated resync, reset, gameplay lifecycle/collision, floods and capacity. P0-03 has
+script checks and a bounded runner; asset/resource checks remain S01 work.
 
 | Boundary / proof | Independent observable expectation |
 | --- | --- |
 | Session/provider replacement — S03 | Same host/join/cancel/leave API runs ENet and fake provider; one completion/attempt, fresh reconnect identity, one rig, clean retry; ENet succeeds with Steam absent |
 | Real Steam — S03-S/S08 | Two authorized accounts on separate networks exchange baseline/intent using a real Steam peer; lobby alone cannot pass; native late callback cannot attach to retry |
-| Admission — S03 | Connected-but-unadmitted input changes no actor; wrong content/full/slow join fails boundedly; baseline plus during-load durable change yields current state before control |
+| Admission — S03 minimum, M1-A1 full suite | Connected-but-unadmitted input changes no actor; wrong content/full/slow join fails boundedly; baseline plus during-load durable change yields current state before control |
 | Admission rollback — S03 | Cancel/fail after provisional player creation removes it once, cancels respawn work and releases spawn/capacity; retry creates exactly one player |
 | Resync — S03/S04 | An injured seated player keeps the same entity, health, equipment and seat; commands stay closed during hydration; a sequence window overflow recovers under a fresh control revision and sequence 1; old frames/actions/acks cannot reopen control |
 | Lifecycle ordering — S03/S04/S05 | Delayed movement cannot resurrect destroyed/dead entities or undo a seat/reset; required collision applies before dependent movement/prediction; duplicate baseline/ack causes no duplicate entity |
 | Input — S03/S03-R/S04 | Host local/remote/AI paths obey the same movement constraints; client cannot move another entity; invalid types/NaN/large/jumped sequences produce no mutation; expiry releases held fire/throttle |
-| Queue/work bounds — S03/S05 | Flood/backlog/host stall stays within configured queues and one physics step/tick; acknowledgements cover simulated or explicitly superseded input, not receipt; overflow follows documented recovery |
+| Split snapshots — S03, M1-D3 capacity | Different entity subsets recover after actual ordered-stream reordering/loss through repeated refresh; a newer subset cannot advance another entity's application watermark |
+| Queue/work bounds — M1-D3/S05 | Flood/backlog/host stall stays within configured queues and one physics step/tick; acknowledgements cover simulated or explicitly superseded input, not receipt; overflow follows documented recovery |
 | Seat race — S04 | Two same-tick claims yield one driver; blocked exit preserves seat/control/foot collision; death/disconnect releases controls and surviving car remains parked |
 | Safe respawn — S02/S04/S06 | Before 3 s no respawn; valid spawn has full health/default loadout; two requests cannot overlap; blocked district fails after a further 5 s of search with retry, without teleporting or freezing the match |
 | Combat — S05/M1-B2 | Submit one ShotId twice during its job and again after completion/damage-cache retirement: only one launch/hit/damage outcome; empty/reloading/cooldown/seat cannot fire; equip cannot grant ammo or reset cooldown; rocket survives weapon replacement but dies on reset |
@@ -571,7 +592,7 @@ fixtures; spikes retain separate-process logs, limits and missing target evidenc
 | Prediction/targets — S03-R/S04/S07/S08 | Matching-tick authoritative convergence and bounded replay meet selected budgets; no replay damage/effects; exact exported ENet and Steam paths each pass on required targets |
 
 Pending exact choices are owned: native integration/correlation and tested limits
-(S03-S), codecs/snapshot batching/abuse disconnect (S03), motion extras/camera and
+(S03-S), production codecs/snapshot batching/abuse disconnect (M1-D3, informed by S03), motion extras/camera and
 prediction (S02/S03-R/S04), interaction thresholds/stopping (S04), combat tuning and
 chain/retention capacity policy (S05), topology/route/bake bounds (S06), toolchain and
 measured budgets (S07/S08). These remain active tasks in [TODO](../TODO.md); P0-02

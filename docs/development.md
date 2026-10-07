@@ -176,7 +176,7 @@ matching ticks, not a smoothed current client transform to an earlier host trans
 
 S01 adds only the P0-03 tooling required for its owned fixtures. Run the installed
 pins through Mise; `GODOT_BIN` and `GDSTYLE_BIN` can select those same binaries when
-Mise trust-state writes are unavailable. `tools/check.py` checks versions and honors
+Mise trust-state writes are unavailable. The shared tasks check versions and honor
 hidden/`.gdignore` trees, excluding the two current vendor addons explicitly.
 
 | Task | Scope |
@@ -203,7 +203,44 @@ this session's limited callable surface and the direct-child identity limitation
 
 A preserving formatter/fix wrapper, broader production resource discovery/coverage,
 CI and gameplay checks remain future work. The bounded two-process runner is S03's
-P0-03 responsibility; no network runner is included in S01. Import remains separate:
+P0-03 contribution.
+
+### Session and script tooling
+
+The working commands are:
+
+```sh
+mise run gdstyle:check
+mise run gdscript:check
+mise run tools:check
+mise run spike:s03
+```
+
+The first checks pinned formatting and lint. The second also discovers every owned
+`.gd`, honors hidden and `.gdignore` directories, excludes the two named vendor
+addons, and explicitly invokes `--check-only --script` for each file, including
+unused scripts. A fresh dependency mirror retains project settings/autoloads and
+resources but disables editor plugins during setup. Its import discovers classes;
+separate compilation remains mandatory even when that setup reports errors.
+The source editor and its `.godot` cache are not the compiler's inputs. Logs,
+manifest and per-file outcomes remain in the printed evidence directory.
+
+`tools:check` covers discovery, diagnostics with zero exit status and child-process
+ownership. The [S03 runner](spikes/s03.md) copies the saved fixture into an addon-free
+project, then uses real ENet host/client processes and a focused UDP fault proxy.
+It supplies independent process user/log directories, configurable host/proxy ports,
+structured readiness/results, case/runner deadlines, and child-only cleanup.
+Both tools accept explicit executables and an external evidence directory; defaults
+use tools on PATH. Python 3.10+ is required. Use the exact installed engine pin.
+
+Review function purpose comments, two empty lines between functions, export groups,
+and intent inside functions manually. The preserving formatter wrapper remains
+future work; no `gdstyle:fix` task is claimed. Runtime loops intentionally await
+paced polling to let Godot process networking; their narrow lint exemptions explain
+that contract. S01 owns resource/source-link and Blender fixture checks. CI, gameplay,
+capacity and target/export checks grow in M1-D1; S03 is an isolated session proof.
+
+The import command remains available:
 
 ```sh
 mise exec -- godot --headless --editor --path . --import

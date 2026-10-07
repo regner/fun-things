@@ -2,8 +2,8 @@
 
 P0-02 draft, 7 October 2026. Owner: Codex. Effort cap: one focused documentation
 session. These are proposed implementation contracts, not implemented systems or
-measured results. The checkout currently contains configuration and vendor addons;
-it has no project-owned gameplay scripts or scenes. The [ratified brief](design.md)
+measured results. The checkout contains an isolated
+[S03 session proof](spikes/s03.md), with no production gameplay. The [ratified brief](design.md)
 owns scope and gameplay policy. Spikes refine these drafts and P0-GATE settles them
 before M1. Changing ratified product policy still requires a recorded product decision.
 
@@ -151,9 +151,11 @@ is complete; a late native callback can only clean up its obsolete resources.
 ## Validation and remaining decisions
 
 The [API acceptance matrix](api-contracts.md#contract-tests) names observable outcomes
-and proof owners. It specifies future tests, not existing executable checks.
+and proof owners. [S03's ledger](spikes/s03.md) distinguishes its executable minimum
+from the remaining production acceptance cases.
 S01 validates source/prefab identities; S02 settles foot/camera/collision dimensions;
-S03 proves session/baseline/command boundaries with ENet and a fake replacement;
+[S03](spikes/s03.md) proves the tiny session/baseline/command boundary with ENet
+and a correlated fake replacement; it does not productionize these components.
 S03-S proves the real Steam adapter and callback correlation; S03-R/S04 settle
 responsiveness and simulation bodies; S05 settles combat/chain work and collision;
 S06 settles topology representation/bakes; S07/S08 settle renderer/export/target evidence.
@@ -162,6 +164,15 @@ Keep pending choices in those tasks, with resulting decisions linked back here.
 Do not turn a spike into a production subsystem without the P0-GATE review. Any new
 replicated field must be assigned an owner here and a wire/lifecycle/test contract
 before implementation. External SDK types stay confined to the adapters.
+
+S03 retains the listen-server topology and single writers. Session owns native-peer
+mapping/admission; Match owns provisional lives and command bindings; Replication
+owns baseline/journal/handoff and movement application. Sequence exhaustion uses
+reliable resync plus a fresh host control revision, retaining the injured player's
+entity and health. Split movement uses per-entity receipt watermarks and periodic
+refresh of every relevant entity, including unchanged ones: ordered delivery across
+different subsets can discard an entire older subset packet. Full life/seat/collision,
+capacity and abuse acceptance remain M1 work.
 
 Independent Godot-focused advisor review, 7 October 2026: the reviewer identified
 gaps in held-sequence recovery, initial-admission versus resync preparation/rollback,

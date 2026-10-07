@@ -1,8 +1,9 @@
 # Fun Things
 
-A new Godot project with multiplayer planned. The checkout currently has engine
-and style configuration plus the Godot MCP Toolkit addon. It has no gameplay,
-main scene, multiplayer implementation, or automated gameplay checks yet.
+A Godot project with multiplayer planned. The checkout has engine/style
+configuration, the Godot MCP Toolkit and an isolated
+[S03 ENet session-contract proof](docs/spikes/s03.md). There is no production
+gameplay or main scene yet.
 The first milestone requires ENet for local testing and Steam for friends playtesting,
 using the existing Steam app through shared session APIs.
 Steam Deck LCD/OLED is the confirmed primary target: 60 FPS at native 1280×800
@@ -24,6 +25,25 @@ mise run editor
 gdstyle pin aligned with `.gdstyle-version`. Use the pinned engine for editor,
 imports, checks, and exports; install export templates matching that exact release.
 `mise run play` is available once a main scene has been configured.
+
+The foundation checks use Python 3.10+ and the pinned tools:
+
+```sh
+mise run gdstyle:check
+mise run gdscript:check
+mise run tools:check
+mise run spike:s03
+# Alternate ports and a fresh retained evidence directory:
+mise exec -- python3 tools/run_s03.py --port 24700 --proxy-port 24701 --output /tmp/s03-my-run
+```
+
+Each command prints its evidence directory. The runner imports the saved fixture
+into an addon-free project, explicitly compiles every owned script in a separate
+dependency mirror, then launches two real ENet processes through the session APIs.
+Host/client user and log directories are separate. It rejects engine/script
+diagnostics even with a zero exit status, retains logs on failure and stops only
+its own children. This proves the small Linux loopback contract; S01 owns asset
+checks and later tasks own gameplay, Steam, exports and target compatibility.
 
 ## Project guidance
 

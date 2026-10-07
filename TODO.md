@@ -1,8 +1,9 @@
 # Fun Things — foundations through the first playable milestone
 
-Planning baseline: 7 October 2026. The project has engine/style configuration and
-the Godot MCP Toolkit, but no gameplay, main scene, custom models, or gameplay tests.
-This is an active work list; nothing below is claimed to be implemented.
+Planning baseline: 7 October 2026. The project has engine/style configuration,
+the Godot MCP Toolkit, isolated [S01 asset fixtures](docs/spikes/s01.md) and an
+[S03 session proof](docs/spikes/s03.md), but no production gameplay or main scene.
+This active work list retains remaining tasks and links completed work to evidence.
 
 Phase zero establishes decisions, documentation, review skills, reproducible checks,
 and small technical proofs. M1 builds the playable game using those results. A spike
@@ -109,11 +110,11 @@ resolving change.
 
 - [ ] **P0-03 — Add only the tooling needed for reproducible foundation proofs.**
   Needs: [ratified brief](docs/design.md) and the first owned spike scripts/resources.
-  Implemented by S01: pinned style/lint, explicit all-owned-script compilation,
-  focused source/resource/UID/animation checks, scratch re-export verification and
-  isolated clean asset import/failure probes; see [development tasks](docs/development.md#foundation-validation-tasks).
-  Remaining owner/workstream: S03 adds the bounded two-process runner. Preserve
-  repository comment/spacing rules with manual review until a preserving wrapper exists.
+  Implemented: S01 asset/source/resource checks and S03 formatting/lint, clean
+  explicit all-owned-script compilation and bounded two-process runner. See
+  [development tasks](docs/development.md#foundation-validation-tasks) and
+  [S03 evidence](docs/spikes/s03.md). Final combined acceptance remains to be checked.
+  Preserve repository comment/spacing rules with manual review until a preserving wrapper exists.
   Runner uses production-facing APIs, distinct user/log directories, configurable
   ports, readiness/results, deadlines, retained logs, and stops only its own children.
   Done when: the spike fixtures can be rerun and failures produce useful evidence.
@@ -129,13 +130,21 @@ resolving change.
   Done when: frontmatter/links validate and an isolated flawed asset/prefab receives
   useful evidence-based findings. Screenshots alone do not certify movement or load.
 
+S03's minimum ENet session proof is complete on 7 October 2026; its
+[evidence and limitations](docs/spikes/s03.md) retain the code, real-process results,
+held-window recovery and split-subset reordering/loss decision. The fixture remains
+isolated. Full admission errors, reset/seat/collision lifecycle, floods, capacity,
+production codecs and gameplay belong to M1-A/D and the remaining spikes. This does
+not by itself close P0-03's combined tooling acceptance or any Steam/Deck proof.
+
 ### Contracts to validate with spikes
 
 Use the [canonical scene draft](docs/scene-structure.md) for saved paths, prefab
 interfaces, sockets, placement, IDs and pre-tree simulation setup; S01/S06 validate
 its resource/topology assumptions. Use the [API draft](docs/api-contracts.md) for
 session/provider/platform boundaries, commands, lifecycle, replication, presentation,
-settings and their acceptance matrix. S03/S03-S prove both transports independently.
+settings and their acceptance matrix. [S03 evidence](docs/spikes/s03.md) covers ENet;
+S03-S must prove Steam independently.
 Keep revised contracts in those documents rather than duplicating them in this plan.
 
 ### Asset handoffs and workflow evidence
@@ -175,21 +184,9 @@ implementation. Save editor mutations before playtests; preserve unsaved work.
   product decision. Decision: camera/control contract, actor/collision/aim envelope,
   playtest evidence and feel targets. No finished animation or weapon system required.
 
-- [ ] **S03 — ENet session/authority API proof.**
-  Needs: [ratified brief](docs/design.md), [API draft](docs/api-contracts.md) and
-  minimum P0-03 runner.
-  Question: does the narrow provider/service boundary support the intended lifecycle?
-  Minimum: two real ENet processes host/join, apply a tiny baseline before admission,
-  cancel/retry, reject one stale/invalid intent, and exchange a fake provider.
-  Inspect asynchronous cleanup and one local rig per player, with Steam unavailable.
-  Include cancel after provisional spawn and recovery when every retained held frame
-  exceeds its sequence window. Snapshot splitting must cover packet reordering/loss
-  across different entity subsets on the proposed unreliable-ordered stream.
-  Decision: topology, common identity/admission/cancellation contract,
-  replication writer and budget approach. Full error/adversarial suites belong in M1.
-
 - [ ] **S03-S — Steam integration, friend connection and transport proof.**
-  Needs: S03 boundary/fixture and [existing-app record](docs/design.md).
+  Needs: [S03 boundary/fixture evidence](docs/spikes/s03.md) and
+  [existing-app record](docs/design.md).
   Owner: Codex (proof/setup record), Regner (Steamworks access).
   Before the network proof, verify app type/release state, distinct authorized
   testers/package entitlement, depot OS/package inclusion and launch settings;
@@ -209,7 +206,8 @@ implementation. Save editor mutations before playtests; preserve unsaved work.
   Full invitation races and gameplay acceptance belong in M1-A/D.
 
 - [ ] **S03-R — Networked on-foot responsiveness.**
-  Needs: S02, S03 and S03-S; ENet measurements can start before the Steam proof.
+  Needs: S02, [S03 evidence](docs/spikes/s03.md) and S03-S;
+  ENet measurements can start before the Steam proof.
   Question: does the actual foot controller meet the feel target over the selected network envelope?
   Minimum: two processes walking/turning/aiming under representative latency/loss,
   repeated through ENet and Steam;
@@ -218,7 +216,8 @@ implementation. Save editor mutations before playtests; preserve unsaved work.
   limits and evidence; independent of the vehicle prediction choice. Required for M1-A2.
 
 - [ ] **S04 — Arcade car physics and network response.**
-  Needs: S02 and S03; finish with S03-S evidence. Use a Blender car fixture.
+  Needs: S02 and [S03 evidence](docs/spikes/s03.md); finish with S03-S evidence.
+  Use a Blender car fixture.
   Question: which simple body/control approach gives fun handling and tractable replication?
   Minimum: compare a small kinematic/custom dynamic candidate on one track, fast
   steering/sliding/braking and a wall contact; repeat host/client under latency/loss
@@ -233,7 +232,7 @@ implementation. Save editor mutations before playtests; preserve unsaved work.
   Verify seated resync preserves the player/seat/equipment while reauthorizing input.
 
 - [ ] **S05 — Authoritative explosion-chain feasibility.**
-  Needs: S03 and a minimal S04 vehicle/damage fixture.
+  Needs: [S03 evidence](docs/spikes/s03.md) and a minimal S04 vehicle/damage fixture.
   Question: how do we order and bound damage/chain events without duplicate outcomes?
   Minimum: three cars, near/far spacing, one duplicate event and wreck-state hydration.
   Estimate peak work and choose blast range/obstruction, chain delay/order, occupant
@@ -268,7 +267,7 @@ implementation. Save editor mutations before playtests; preserve unsaved work.
 
 - [ ] **S08 — First-target export and service compatibility.**
   Needs: [ratified target/pin record](docs/design.md) for early input/template checks;
-  S01, S03 and S03-S for the complete proof. Owner: Codex (proof), Regner (device access).
+  S01, [S03 evidence](docs/spikes/s03.md) and S03-S for the complete proof. Owner: Codex (proof), Regner (device access).
   Early input evidence settles the engine decision deliberately left open in P0-01.
   First: minimal exported Deck Gaming Mode input/native-extension initialization
   test, exact templates and candidate engine choice for the dev7 controller regression.
@@ -293,8 +292,8 @@ implementation. Save editor mutations before playtests; preserve unsaved work.
   [scene](docs/scene-structure.md) and [API](docs/api-contracts.md) drafts,
   [accepted art/city brief](docs/art-direction.md), P0-03/P0-07,
   [GDScript review evidence](docs/reviews/p0-06.md),
-  [P0-05 workflow record](docs/decisions/p0-05-asset-workflow.md), S01 through S08
-  including S03-R and S03-S.
+  [P0-05 workflow record](docs/decisions/p0-05-asset-workflow.md), S01/S02,
+  [completed S03 proof](docs/spikes/s03.md), S03-R/S03-S and S04 through S08.
   Done when: critical design/feasibility assumptions required to begin M1 are resolved;
   the user ratifies scope, chosen art/layout and camera/control choices against
   concepts/spike evidence; implementers settle API/scene/source contracts and budgets.
@@ -316,7 +315,7 @@ waiting for unrelated gameplay systems.
 ### M1-A — Playable session and player foundation
 
 - [ ] **M1-A1 — Production session service and main-menu flow.**
-  Needs: S03/S03-S/S08 decisions.
+  Needs: [S03 evidence](docs/spikes/s03.md), S03-S/S08 decisions.
   Build both providers, Steam lobby/invite adapter and Host/Join/Settings/Quit
   scenes with loading/readiness/roster, actionable errors, cancel, leave and retry.
   Offer local-network and Steam friend sessions; route manual endpoints, friend/
@@ -488,7 +487,7 @@ waiting for unrelated gameplay systems.
 | When | Work that can run together | Must wait |
 | --- | --- | --- |
 | Initial foundation | Ratified brief, contract drafts, concept exploration, tool inventory | Chosen style/layout and measured scope revisions need user ratification and evidence |
-| Tiny fixtures available | S01 pipeline, S02 camera, S03 session; review skill drafts | All visible fixtures must have Blender sources; only minimum harness required |
+| Tiny fixtures available | S01 pipeline, S02 camera; use [completed S03 session evidence](docs/spikes/s03.md); review skill drafts | All visible fixtures must have Blender sources; only minimum harness required |
 | ENet boundary available | S03-S Steam proof, S04 car candidates, S08 packaging work | Existing-app/tester access and native compatibility must be established early |
 | Both providers available | Finish S03-R foot response and S04 network response; S08 exports | Both transports need evidence; foot/vehicle prediction are separate decisions |
 | Vehicle envelope available | S05 chain proof and S06 intersection/seam | S06 uses pipeline plus real actor/turning dimensions |

@@ -1,8 +1,9 @@
 # Godot multiplayer guidance
 
 Build multiplayer around explicit simulation ownership, current-state admission,
-and clean session teardown. Prove a small real-process connection flow first, then
-add authoritative gameplay and responsiveness. This project has no networking yet.
+and clean session teardown. The isolated [S03 proof](spikes/s03.md) now exercises
+a tiny real-process ENet connection contract. Production gameplay and responsiveness
+remain future work.
 ENet for local testing and Steam for friends playtesting are confirmed first-milestone
 requirements, using the existing Steam app. The [ratified brief](design.md) selects
 an authoritative listen server, 1–4 players, late joining and match termination on
@@ -121,7 +122,9 @@ handoff marker, with input opened only after the marker acknowledgement. Movemen
 starts from fresh admitted state and remains gated by lifecycle/collision revisions.
 See [admission and replication](api-contracts.md#admission-and-replication) for the
 algorithm and [limits](api-contracts.md#provisional-limits-and-failure-codes) for its
-deadlines/caps. S03 proves this scheme; do not independently choose another catch-up
+deadlines/caps. S03 proves a two-chunk cut and one during-load durable record through
+handoff, including provisional cancellation and a retained-player resync;
+the complete journal/overflow/reset suite remains M1 work. Do not choose another catch-up
 writer in a component.
 
 Late joins receive partially changed state as well as destroyed/dead states. Apply
@@ -180,6 +183,14 @@ already own them. Measure worst-case serialization at intended capacity, account
 for RPC/transport overhead, and retain a documented payload budget below the
 transport's observed limit. Large baselines need separate bounded transfer and
 admission deadlines; do not treat them as normal movement packets.
+
+S03's actual UDP reordering/loss experiment confirms that an unreliable-ordered
+stream orders packets across entity subsets, not independently per entity. Use
+per-entity application watermarks and periodically refresh every relevant entity,
+even when unchanged; a global last-packet tick or dirty-only publication can starve
+a subset. The API draft proposes a 250 ms maximum revisit interval; S03's two-row
+experiment uses 120 ms packet spacing and a 240 ms revisit interval. It does not
+establish capacity bandwidth or convergence under the brief's network profiles.
 
 For simple projectiles, replicate a stable shot ID, launch parameters, and host
 impact/expiry instead of every transform. Clients can animate cosmetic flight

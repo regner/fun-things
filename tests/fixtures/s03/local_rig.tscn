@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://0g1ekyk0ocy6"]
+
+[node name="local_rig" type="Node" unique_id=568314904]
+
+[node name="Input" type="Node" parent="." unique_id=1175332372]
+
+[node name="CameraAnchor" type="Node3D" parent="." unique_id=1248888674]
+
+[node name="Camera3D" type="Camera3D" parent="CameraAnchor" unique_id=1193787622]
+
+[node name="UI" type="CanvasLayer" parent="." unique_id=378965511]

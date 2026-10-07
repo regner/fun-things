@@ -1,9 +1,10 @@
 # Scene and authored-resource contracts
 
 P0-02 draft, 7 October 2026. These are reserved production paths and proposed node
-contracts; none of these production scenes currently exists. Isolated S01 fixtures
-now exercise linked imports and wrapper-level material inheritance; see
-[the proof and limitations](spikes/s01.md). Create directories only when
+contracts; production scenes remain unimplemented. Isolated [S01 fixtures](spikes/s01.md)
+exercise linked imports and wrapper-level material inheritance. The isolated
+[S03 fixture](spikes/s03.md) uses fixed Boot/Session and Match/Replication paths
+with saved marker entities and a saved local rig. Create directories only when
 their first resource is needed. [Architecture](architecture.md) owns responsibilities;
 [API contracts](api-contracts.md) owns identity/data/lifecycle. S01/S06 refine the
 resource and topology details before P0-GATE.
@@ -162,10 +163,10 @@ asset-profile clean import excludes development/Steam plugins in the temporary
 copy; full-project import still has recorded addon/editor diagnostics. No engine
 pin change or direct imported-child identity acceptance is implied.
 S02/S04 check actual actor/camera/vehicle clearance; S06 checks
-two-sector seams, routes and map alignment. S03 checks fixed RPC paths, pre-tree
-replica setup and exactly one local rig. P0-03 now provides focused
-source/resource/UID/animation checks and explicit owned
-script compilation through the [development tasks](development.md#foundation-validation-tasks).
-Its two-process runner remains S03 work. Use the [asset workflow](assets.md) for
-handoffs/catalogue conventions; S01 is a bounded technical workflow, not production
-art, actor movement or multiplayer acceptance.
+two-sector seams, routes and map alignment. The [S03 proof](spikes/s03.md)
+checks fixed RPC paths, pre-tree marker ownership and exactly one saved local rig
+per process. Its rig has Input, CameraAnchor/Camera3D and UI placeholders; no device,
+camera-follow or HUD behavior is claimed. Empty CityRoot/marker entities introduce
+no visible models or collision fixtures. S01 provides P0-03's asset/resource
+checks through the [development tasks](development.md#foundation-validation-tasks). Use the [asset workflow](assets.md) for handoffs/catalogue conventions;
+S01 records export/import settings and their roundtrip.

@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://bi4flpwo0wqyr"]
+
+[ext_resource type="Script" uid="uid://sbhmush8ix0w" path="res://tests/fixtures/s03/session.gd" id="1_8vxad"]
+[ext_resource type="Script" uid="uid://or7o2jpin15y" path="res://tests/fixtures/s03/proof.gd" id="1_qivwm"]
+[ext_resource type="Script" uid="uid://cbgg2j0dx50ku" path="res://tests/fixtures/s03/match.gd" id="2_qivwm"]
+[ext_resource type="Script" uid="uid://dk3thimb6bdvk" path="res://tests/fixtures/s03/replication.gd" id="3_454qk"]
+
+[node name="Boot" type="Node" unique_id=1650671567]
+script = ExtResource("1_qivwm")
+
+[node name="Session" type="Node" parent="." unique_id=1030514347]
+script = ExtResource("1_8vxad")
+
+[node name="View" type="Node" parent="." unique_id=1918382734]
+
+[node name="Match" type="Node3D" parent="View" unique_id=828107831]
+script = ExtResource("2_qivwm")
+
+[node name="Replication" type="Node" parent="View/Match" unique_id=2038279275]
+script = ExtResource("3_454qk")
+
+[node name="RuntimeEntities" type="Node3D" parent="View/Match" unique_id=502651668]
+
+[node name="CityRoot" type="Node3D" parent="View/Match" unique_id=255159982]

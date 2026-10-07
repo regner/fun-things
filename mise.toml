@@ -25,11 +25,11 @@ run = "godot --path ."
 
 [tasks."gdstyle:check"]
 description = "Lint owned scripts; preserve comments/spacing through manual review"
-run = "python tools/check.py style"
+run = "python3 tools/script_checks.py --style-only"
 
 [tasks."gdscript:check"]
 description = "Explicitly compile every owned script, including unused scripts"
-run = "python tools/check.py scripts"
+run = "python3 tools/script_checks.py"
 
 [tasks."resources:check"]
 description = "Check S01 source/resource/identity/animation contracts"
@@ -42,3 +42,11 @@ run = "python tools/s01/clean_import.py"
 [tasks."s01:reexport"]
 description = "Re-export both committed Blender sources and reject stale GLBs"
 run = "python tools/s01/reexport.py"
+
+[tasks."spike:s03"]
+description = "Run the bounded real-process ENet session-contract proof"
+run = "python3 tools/run_s03.py"
+
+[tasks."tools:check"]
+description = "Check foundation runner discovery, diagnostics and child ownership"
+run = "python3 -m unittest discover -s tools -p 'test_*.py'"
