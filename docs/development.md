@@ -36,6 +36,81 @@ Validate replacement resources before removing the current component. Restore al
 state needed by observers before emitting completion signals. Clear commands and
 transient state on disable, focus loss where appropriate, reset, and teardown.
 
+## Godot scene and script conventions
+
+These conventions apply to project-owned UI, 2D and 3D systems. Review relevant
+conventions for the changed subsystem rather than requiring unused features.
+
+### Saved composition and reusable boundaries
+
+Author node hierarchies, layout, placement, default properties and reusable assemblies
+in `.tscn`/`.scn` files. Include menus, HUDs, widgets, actors, cameras, colliders,
+timers and effects. Scripts implement behavior, instantiate saved `PackedScene`s and
+configure instance data/state; they must not rebuild those assemblies with sequences
+of `Node.new()`/`add_child()` calls. Dynamic lists instantiate a saved item scene and
+populate its data. Runtime spawning of saved scenes is expected.
+
+Pure logic and data types may remain scripts, `RefCounted`s or Resources without an
+empty wrapper scene. Intentional procedural systems must document their source of
+truth and boundaries; they cannot silently replace authored UI or world composition
+or bypass the [Blender model/source contract](assets.md). This scene-file requirement
+is a project convention, not a claim that Godot forbids creating nodes in code.
+
+Keep reusable scenes independent of a particular enclosing hierarchy. Expose a small
+public API on the scene root; consumers should not reach through another scene's
+internal children. Structure parentage around lifetime and intended inherited
+transforms, so deleting a temporary parent cannot remove a longer-lived object.
+Prefer composition of focused scenes/components; introduce inheritance only for a
+real shared contract, preserving intentional inherited scene overrides.
+
+### Call down, signal up
+
+Parents coordinate children by calling their public methods. Children report events
+through signals connected by the enclosing coordinator. That coordinator mediates
+sibling interactions. A reusable child must not assume its parent implements a
+method through `get_parent().some_method()`, climb `../..`, or use an absolute tree
+path to reach a particular enclosing scene. Paths to the scene's own required
+children are part of its internal contract.
+
+When a component needs an external collaborator or synchronous query, inject an
+explicit typed reference or callable and define its lifetime. Do not force every
+query into a signal or build a global event bus for local relationships. Prefer
+typed methods and signal connections when the interface is known; use groups for
+intentional discovery/broadcast, not to hide ownership or bypass admission rules.
+Validate required bindings before use and make missing configuration diagnosable.
+
+### Engine lifecycle, Resources and presentation
+
+- Initialize configuration needed by `_ready` before tree entry; use `@onready` or
+  `_ready` for bindings that require children to exist. Guard against callbacks,
+  timers and awaited work outliving their node/session or applying an obsolete result.
+  Use `queue_free()` for normal node removal; defer tree/physics changes when their
+  engine callback requires it. Review owned connections and references on teardown
+  and rebinding so callbacks cannot accumulate or target a freed object.
+- Keep reusable definitions in Resources, with per-entity mutable state owned by
+  the instance. Loaded Resources may be shared: changing one actor's material,
+  definition or nested Resource must not inadvertently change every actor. Choose
+  explicit duplication or scene-local data only where mutation requires isolation.
+- Run physics movement and collision simulation on physics ticks with the appropriate
+  time step; keep rendering/interpolation in presentation. Use InputMap actions and
+  gameplay input handling that respects GUI consumption, such as `_unhandled_input`
+  for events the UI should handle first. Keep device collection out of simulation.
+- Author UI layout with suitable Containers, anchors, size flags and shared Themes.
+  Check keyboard/gamepad focus, mouse filtering, text growth and supported resolutions.
+  A Container owns its children's layout; scripts must not fight it by resetting
+  those transforms every frame. Cache stable scene bindings instead of repeatedly
+  searching the tree in hot callbacks; add wider optimization only with evidence.
+
+These conventions follow Godot's guidance on
+[scene organization](https://docs.godotengine.org/en/stable/tutorials/best_practices/scene_organization.html),
+[scenes versus scripts](https://docs.godotengine.org/en/stable/tutorials/best_practices/scenes_versus_scripts.html),
+[Resources](https://docs.godotengine.org/en/stable/tutorials/scripting/resources.html),
+[node lifecycle](https://docs.godotengine.org/en/stable/classes/class_node.html),
+[physics processing](https://docs.godotengine.org/en/stable/tutorials/scripting/idle_and_physics_processing.html),
+[input propagation](https://docs.godotengine.org/en/stable/tutorials/inputs/inputevent.html)
+and [Containers](https://docs.godotengine.org/en/stable/tutorials/ui/gui_containers.html).
+Verify API details against the pinned engine when implementing.
+
 ## Safe change sequence
 
 1. Read the owner, callers, existing tests, and current contract. Establish which

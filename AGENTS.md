@@ -14,6 +14,10 @@ guides are [development](docs/development.md), [assets](docs/assets.md), and
   changing it. Search for existing rules before adding a second implementation.
 - Give each gameplay rule and state transition one owner. Keep shared values
   with that owner rather than in a global collection of unrelated constants.
+- Call down, signal up: parents coordinate children through their public APIs;
+  children emit events instead of depending on a particular parent or sibling.
+  See [development](docs/development.md#godot-scene-and-script-conventions) for
+  scene boundaries, explicit dependency injection and other Godot conventions.
 - Separate input collection, simulation, network replication, and presentation.
   Standalone, authoritative simulation, and prediction must share equivalent
   gameplay rules. HUDs and visual effects consume state; they do not decide it.
@@ -34,9 +38,10 @@ guides are [development](docs/development.md), [assets](docs/assets.md), and
   reload/reopen affected scenes before further saves or playtests. A filesystem
   scan or headless import does not prove a separate open scene is synchronized.
 - Direct filesystem edits are appropriate for documentation and repository tools.
-- Saved scenes own authored placement and composition. Runtime code may spawn
-  gameplay entities and effects, but must not silently rebuild an authored level
-  or overwrite editor placement. Document intentional procedural systems.
+- Author UI, 2D and 3D node composition, layout and placement in saved scene files.
+  Runtime code instantiates those scenes and supplies data/state; it must not build
+  authored node hierarchies or overwrite editor placement. This includes menus,
+  HUDs, reusable widgets, actors and effects. Document intentional procedural systems.
 
 ## GDScript style
 

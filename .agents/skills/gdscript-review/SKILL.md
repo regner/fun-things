@@ -1,6 +1,6 @@
 ---
 name: gdscript-review
-description: Review project-owned GDScript changes in Fun Things for gameplay correctness, multiplayer contracts, saved compatibility, style, and meaningful validation. Use for requested code reviews or focused subsystem audits; preserve vendor addon contracts.
+description: Review project-owned GDScript changes in Fun Things for Godot scene design, gameplay correctness, multiplayer contracts, saved compatibility, style, and meaningful validation. Use for requested code reviews or focused subsystem audits; preserve vendor addon contracts.
 ---
 
 # Project GDScript review
@@ -36,7 +36,9 @@ that is present but not exercised by the main scene.
 ## Trace behavior across boundaries
 
 Use the relevant lenses below. Mark an unimplemented feature outside scope rather
-than demanding every planned subsystem in a small change.
+than demanding every planned subsystem in a small change. Apply the canonical
+[Godot scene and script conventions](../../../docs/development.md#godot-scene-and-script-conventions)
+to scene composition, communication and engine usage.
 
 - **Ownership and simplicity:** identify the writer of each changed rule, transition
   and replicated field. Trace input collection into simulation, replication and
@@ -44,6 +46,23 @@ than demanding every planned subsystem in a small change.
   prediction use equivalent rules and tuning owned by the responsible component.
   Flag duplicate rules, competing writers or unjustified machinery with a concrete
   consequence, not a speculative redesign.
+- **Saved scene composition:** verify all authored UI, 2D and 3D hierarchies,
+  layouts and defaults live in scene files. Runtime code instantiates saved scenes
+  and supplies instance data; flag menus, HUDs, widgets, actors or effects assembled
+  from node constructors. Distinguish this from valid spawning of saved prefabs and
+  pure logic/data scripts. Inspect documented procedural boundaries and source rules.
+- **Scene communication:** check "call down, signal up": parents call child APIs,
+  children emit events, and a coordinator wires sibling interactions. Flag reusable
+  children calling a particular parent's methods, climbing outside their scene, or
+  consumers reaching into another scene's private descendants. Explicit injected
+  references/callables can serve collaborator queries; check their contract/lifetime.
+  Favor focused composition and local coordination over speculative global buses.
+- **Engine usage:** inspect tree-entry configuration and child bindings, node lifetime,
+  freed references, connections/awaits during rebinding and teardown, and safe removal
+  or deferred mutations. Check shared Resources for accidental per-instance mutation,
+  physics/input callback choice and GUI consumption. For UI changes, inspect saved
+  Containers/anchors/Themes, focus, mouse filtering and resolution behavior. Identify
+  concrete repeated tree searches in hot callbacks without prescribing broad caching.
 - **Authority and admission:** follow remotely callable paths from the actual RPC
   sender to admitted session/entity/control ownership before mutation. Check exact
   types, finite numbers, allowed ranges and sequence/revision freshness. Clients
