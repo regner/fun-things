@@ -10,7 +10,8 @@ required. [Architecture](architecture.md) assigns state owners;
 
 Product rules come from [the ratified brief](design.md). Values labeled provisional
 are experiment defaults, not measured transport limits or approved combat tuning.
-S03/S03-S/S04/S05 refine them and P0-GATE records the settled contract. Contract
+S03 settled only its minimum subset; S03-S/S03-R/S04/S05/S07/S08 refine remaining
+limits, and P0-GATE records the settled contract before production acceptance. Contract
 changes update these documents and acceptance cases together.
 
 ## Common types, identity and compatibility
@@ -150,8 +151,9 @@ host transport/handshake endpoint is ready. A failure cleans up both resources.
 `TransportCapabilities = {available, reliable, unreliable_ordered, channel_count,
 max_payload_bytes_by_mode, route_diagnostics_available, failure?}`. Limits describe
 tested logical-message support; native packet/fragment limits remain adapter-local
-evidence. S03/S03-S must validate required modes/channels and configured message
-budgets; unsupported capabilities fail with `UNSUPPORTED`, not silent fallback.
+evidence. S03 exercised ENet's required modes/channels only at tiny fixture sizes;
+S03-S proves Steam support, and M1-D3 validates each provider's production message
+budgets. Unsupported capabilities fail with `UNSUPPORTED`, not silent fallback.
 `PlatformCapabilities = {available, friend_lobbies, invites, launch_join, failure?}`.
 No Steam initialization or native dependency is required by offline/ENet startup.
 The absent adapter returns unavailable capabilities/`SERVICE_UNAVAILABLE`. Do not
@@ -511,29 +513,34 @@ it does not reset saved audio preferences.
 
 ## Provisional limits and failure codes
 
+The values below remain provisional. The runtime owner and active proof/acceptance
+tasks are separate: S03 evidence covers only its [recorded minimum](spikes/s03.md#experiment-and-observations),
+with [explicit omissions](spikes/s03.md#alternatives-limitations-and-resulting-work).
+An S03 reference is accepted evidence, never an owner for new work. Spike tasks
+settle bounded choices; M1 tasks implement and validate full production contracts.
 Keep limits with the owner named here, not an unrelated global constants bag.
 Use monotonic deadlines regardless of simulation slowdown. Gameplay seconds convert
 to fixed-step deadlines without accepting client elapsed time.
 
 | Limit | Draft value and scope | Owner / proof |
 | --- | --- | --- |
-| Connection/negotiation | 15 s connection plus 5 s handshake | SessionService / S03/S03-S |
-| World load | 30 s per participant, never pauses host | SessionService/Match / S03/S08 |
-| Baseline/admission | 1 MiB serialized and decoded baseline; 16 KiB logical chunks; 10 s transfer/apply, 5 s handoff; 60 s total attempt, unaffected by reset/retry | Replication/SessionService / S03/S03-S |
-| Join journal | 2 MiB serialized or 4096 durable records per join, whichever first; overflow aborts only that admission | Replication / S03/S05 |
-| Closing | 5 s local cleanup; stale native callbacks retain cleanup-only ownership | SessionService/adapters / S03/S03-S |
-| Simulation / sending | 60 Hz fixed simulation; up to 30 Hz input and 20 Hz movement publication | Match/Replication / S03-R/S04/S07 |
-| Split motion revisit | Every relevant entity, even unchanged, within 250 ms before delivery loss; freshness tracked per entity/control binding | Replication / S03 evidence, M1-D3 capacity proof |
-| Held input | 1200 serialized bytes/message; 3 frames/batch; 8 queued frames/participant; sequence at most 120 ahead; 250 ms stale-input expiry | Replication / S03/S03-R/S04 |
-| Held rate | 60 messages/s with burst 8 per participant; reject excess before queueing | Replication / S03 |
-| Reliable actions | 4096 bytes/message; 16 requests/s, burst 32; 16 queued/participant; process at most 4/participant/tick; result cache 64; sequence at most 64 ahead | Replication / S03/S04 |
-| Reset / respawn retry | Reset at most once/5 s; respawn retry once/5 s/participant | Match/PlayerLifecycle / S03/S04 |
-| Future state wait | Latest motion row/entity only; up to 256 rows or 256 KiB; 1 s before resync, one resync at a time | Replication / S03/S05 |
-| Resync requests | At most one active hydration and one request/5 s/participant; same bounded transfer/handoff deadlines | SessionService/Replication / S03/S04 |
-| Live event dedup | 512 IDs with retired floor; event presentation age at most 2 s | Presentation / S05 |
-| Entity tombstones | At most 65536 spawned refs per match revision; refuse further dynamic allocation and report limit, never discard live tombstones | Match/Replication / S03/S07 |
-| Spawn | 10 candidates/tick; 0.10 m clearance skin; 5 s retry after due time | PlayerLifecycle/Population / S02/S04/S06 |
-| Population/effects | Brief's global 64 pedestrians, 32 live cars, 16 retained wrecks/16 dead NPCs, 16 active rockets; 8 explosion presentations and 64 transient instances/client | Population/Explosions/Presentation / S05/S07 |
+| Connection/negotiation | 15 s connection plus 5 s handshake | SessionService / S03 minimum evidence; S03-S native decision; M1-A1/M1-D3 full failures/deadlines |
+| World load | 30 s per participant, never pauses host | SessionService/Match / S08 export/content proof; M1-A1/A2/M1-D3 production loading/deadlines |
+| Baseline/admission | 1 MiB serialized and decoded baseline; 16 KiB logical chunks; 10 s transfer/apply, 5 s handoff; 60 s total attempt, unaffected by reset/retry | Replication/SessionService / S03 tiny cut/handoff evidence; S03-S transport limits; M1-A1/A2/M1-D3 size/duplicate/overflow/reset acceptance |
+| Join journal | 2 MiB serialized or 4096 durable records per join, whichever first; overflow aborts only that admission | Replication / S03 single-health-record evidence; S05 chain decision; M1-A1/B3/M1-D3 general journal/overflow acceptance |
+| Closing | 5 s local cleanup; stale native callbacks retain cleanup-only ownership | SessionService/adapters / S03 correlated fake/local cleanup evidence; S03-S native drain proof; M1-A1/M1-D3 bounded/hung cleanup acceptance |
+| Simulation / sending | 60 Hz fixed simulation; up to 30 Hz input and 20 Hz movement publication | Match/Replication / S03-R/S04 response decisions, S07 budgets; M1-A2/B1/M1-D3 production rates/load |
+| Split motion revisit | Every relevant entity, even unchanged, within 250 ms before delivery loss; freshness tracked per entity/control binding | Replication / S03 subset-refresh evidence; M1-A2 implementation, M1-D3 capacity/adverse-profile proof |
+| Held input | 1200 serialized bytes/message; 3 frames/batch; 8 queued frames/participant; sequence at most 120 ahead; 250 ms stale-input expiry | Replication / S03 individual receipt/window/expiry evidence; S03-R/S04 controller decisions; M1-A2/B1/M1-D3 batch/queue/gameplay acceptance |
+| Held rate | 60 messages/s with burst 8 per participant; reject excess before queueing | Replication / S03 implemented receipt bucket, not flood proof; M1-D3 flood/host-stall/abuse acceptance |
+| Reliable actions | 4096 bytes/message; 16 requests/s, burst 32; 16 queued/participant; process at most 4/participant/tick; result cache 64; sequence at most 64 ahead | Replication / S04 seat contract; M1-A2/B1/B2/B3/C3 action integration; M1-D3 queue/cache/rate/replay acceptance |
+| Reset / respawn retry | Reset at most once/5 s; respawn retry once/5 s/participant | Match/PlayerLifecycle / M1-A2 reset coordinator, M1-B3 combat/seats/chains, M1-C3 population, M1-D3 reset acceptance; M1-A2/B2/D3 respawn retry |
+| Future state wait | Latest motion row/entity only; up to 256 rows or 256 KiB; 1 s before resync, one resync at a time | Replication / M1-A2/B3 lifecycle/collision implementation, M1-D3 bounded buffer/timeout acceptance |
+| Resync requests | At most one active hydration and one request/5 s/participant; same bounded transfer/handoff deadlines | SessionService/Replication / S03 retained-player/fresh-deadline evidence; S04 seated decision; M1-A2/B1/M1-D3 full resync/rate acceptance |
+| Live event dedup | 512 IDs with retired floor; event presentation age at most 2 s | Presentation / S05 event/retirement decision; M1-B4 implementation, M1-D3 dedup/age/saturation acceptance |
+| Entity tombstones | At most 65536 spawned refs per match revision; refuse further dynamic allocation and report limit, never discard live tombstones | Match/Replication / S07 load budgets; M1-A2/B3/C3 lifecycle implementation, M1-D3 allocation/retention-cap acceptance |
+| Spawn | 10 candidates/tick; 0.10 m clearance skin; 5 s retry after due time | PlayerLifecycle/Population / S02/S04/S06 envelopes/query decisions; M1-A2/B2/C3 implementation, M1-D3 clearance/race/deadline acceptance |
+| Population/effects | Brief's global 64 pedestrians, 32 live cars, 16 retained wrecks/16 dead NPCs, 16 active rockets; 8 explosion presentations and 64 transient instances/client | Population/Explosions/Presentation / S05 bounded 12-car feasibility, S07 measured budgets; M1-B2/B3/B4/C3 implementation, M1-D3 sustained capacity |
 
 Chunk sizes describe logical messages, not safe UDP datagrams. Account for encoding
 and transport overhead in measurements; adapters must verify fragmentation/logical
@@ -570,26 +577,26 @@ rows below remain production acceptance, including full/incompatible/slow admiss
 seated resync, reset, gameplay lifecycle/collision, floods and capacity. P0-03 has
 script checks and a bounded runner, integrated with completed S01 asset/resource checks.
 
-| Boundary / proof | Independent observable expectation |
+| Boundary / evidence and active owners | Independent observable expectation |
 | --- | --- |
-| Session/provider replacement — S03 | Same host/join/cancel/leave API runs ENet and fake provider; one completion/attempt, fresh reconnect identity, one rig, clean retry; ENet succeeds with Steam absent |
-| Real Steam — S03-S/S08 | Two authorized accounts on separate networks exchange baseline/intent using a real Steam peer; lobby alone cannot pass; native late callback cannot attach to retry |
-| Admission — S03 minimum, M1-A1 full suite | Connected-but-unadmitted input changes no actor; wrong content/full/slow join fails boundedly; baseline plus during-load durable change yields current state before control |
-| Admission rollback — S03 | Cancel/fail after provisional player creation removes it once, cancels respawn work and releases spawn/capacity; retry creates exactly one player |
-| Resync — S03/S04 | An injured seated player keeps the same entity, health, equipment and seat; commands stay closed during hydration; a sequence window overflow recovers under a fresh control revision and sequence 1; old frames/actions/acks cannot reopen control |
-| Lifecycle ordering — S03/S04/S05 | Delayed movement cannot resurrect destroyed/dead entities or undo a seat/reset; required collision applies before dependent movement/prediction; duplicate baseline/ack causes no duplicate entity |
-| Input — S03/S03-R/S04 | Host local/remote/AI paths obey the same movement constraints; client cannot move another entity; invalid types/NaN/large/jumped sequences produce no mutation; expiry releases held fire/throttle |
-| Split snapshots — S03, M1-D3 capacity | Different entity subsets recover after actual ordered-stream reordering/loss through repeated refresh; a newer subset cannot advance another entity's application watermark |
-| Queue/work bounds — M1-D3/S05 | Flood/backlog/host stall stays within configured queues and one physics step/tick; acknowledgements cover simulated or explicitly superseded input, not receipt; overflow follows documented recovery |
-| Seat race — S04 | Two same-tick claims yield one driver; blocked exit preserves seat/control/foot collision; death/disconnect releases controls and surviving car remains parked |
-| Safe respawn — S02/S04/S06 | Before 3 s no respawn; valid spawn has full health/default loadout; two requests cannot overlap; blocked district fails after a further 5 s of search with retry, without teleporting or freezing the match |
-| Combat — S05/M1-B2 | Submit one ShotId twice during its job and again after completion/damage-cache retirement: only one launch/hit/damage outcome; empty/reloading/cooldown/seat cannot fire; equip cannot grant ammo or reset cooldown; rocket survives weapon replacement but dies on reset |
-| Destruction — S05 | Three-car near/far fixture has known expected outcomes; occupant dies once/seat clears; 12-car burst completes accepted chain outcomes off-camera despite eight visual slots |
-| Hydration/effects — S05 | Joining after a blast shows current wreck/health and active rockets without historical sounds/blasts; duplicate live event plays once; effect saturation cannot alter health |
-| Reset/teardown — S03/S04/S05 | Admitted peers remain after host reset; old-match commands/events do nothing; no layout transforms change; callbacks/history/input/loops are cleared on leave and retry |
-| City/asset identity — S01/S06 | Reexport/inheritance/roundtrip preserves placement/import ancestry/IDs; stale bake rejects use; route crosses two-sector seam and shared minimap roads align |
-| Settings — M1-A3 | Levels/mute survive restart; corrupt fields default; save failure retains last good file and reports retry; live audio preview leaves shared simulation running |
-| Prediction/targets — S03-R/S04/S07/S08 | Matching-tick authoritative convergence and bounded replay meet selected budgets; no replay damage/effects; exact exported ENet and Steam paths each pass on required targets |
+| Session/provider replacement — S03 minimum evidence; M1-A1/M1-A-GATE full shell, M1-D3 adverse cases | S03 verifies correlated fake/ENet cancel/retry, fresh identities, one placeholder rig and Steam absent in the isolated project. Production host/join/cancel/leave/Standalone and failure/menu flows must complete once and cleanly retry. |
+| Real Steam — S03-S/S08 bounded proof; M1-A1/M1-A-GATE/M1-D4 production delivery | Two authorized accounts on separate networks exchange baseline/intent using a real Steam peer; lobby alone cannot pass; native late callback cannot attach to retry. Packaged gameplay/install/invite flows need production acceptance. |
+| Admission — S03 tiny baseline/journal/handoff evidence; M1-A1/M1-A-GATE full shell, M1-D3 adverse/capacity | Connected-but-unadmitted input changes no actor; wrong content/full/unreachable/slow join fails boundedly; baseline plus during-load durable changes yields current state before control. S03 proves one health change, not the full journal/overflow suite. |
+| Admission rollback — S03 provisional-cancel evidence; M1-A1/A2 full lifecycle, M1-B1/B3/C3 dependent cleanup, M1-D3 races | Cancel/fail after provisional player creation removes it once, cancels respawn/actions and releases seat/spawn/capacity; retry creates exactly one player. S03 has no gameplay timers, seats or spawn clearance. |
+| Resync — S03 injured-marker/window/fresh-deadline evidence; S04 seated decision; M1-A2/B1/B2 implementation, M1-D3 acceptance | An injured seated player keeps the same entity, health, equipment and seat; commands stay closed during hydration; a sequence window overflow recovers under a fresh control revision and sequence 1; old frames/actions/acks cannot reopen control. S03 proves entity/health retention and held/ack fences only. |
+| Lifecycle ordering — S04 body/seat and S05 destruction decisions; M1-A2/B1/B2/B3/C3 implementation, M1-D3 acceptance | Delayed movement cannot resurrect destroyed/dead entities or undo a seat/reset; required collision applies before dependent movement/prediction; duplicate baseline/ack causes no duplicate entity. S03 has no gameplay collision, tombstones or future-state buffer proof. |
+| Input — S03 individual validator/expiry evidence; S03-R/S04 response decisions; M1-A2/B1/B2/C3 gameplay paths, M1-D3 abuse/load | Host local/remote/AI paths obey the same movement constraints; client cannot move another entity; invalid types/NaN/large/jumped sequences produce no mutation; expiry releases held fire/throttle. S03 does not prove real controllers, batching or discrete actions. |
+| Split snapshots — S03 native subset-recovery evidence; M1-A2 implementation, M1-D3 capacity/adverse profiles | Different entity subsets recover after actual ordered-stream reordering/loss through repeated refresh; a newer subset cannot advance another entity's application watermark. Tiny fixture recovery is distinct from sustained production bandwidth/convergence. |
+| Queue/work bounds — S05 reserved-chain decision; M1-A2/B1/B2/B3/C3 implementation, M1-D3 flood/stall/capacity | Flood/backlog/host stall stays within configured queues and one physics step/tick; acknowledgements cover simulated or explicitly superseded input, not receipt; overflow follows documented recovery. Reliable-action size/rate/cache/sequence limits and repeated-abuse disconnect policy require production proof. |
+| Seat race — S04 specifies matrix; M1-B1 implements/full suite, M1-B3 destruction, M1-D3 adverse cases | Two same-tick claims yield one driver; blocked exit preserves seat/control/foot collision; death/disconnect releases controls and surviving car remains parked. S04's bounded seated-resync/body experiment does not close this suite. |
+| Safe respawn — S02/S04/S06 envelope/query decisions; M1-A2/B2/C3 implementation, M1-D3 acceptance | Before 3 s no respawn; valid spawn has full health/default loadout; two requests cannot overlap; blocked district fails after a further 5 s of search with retry, without teleporting or freezing the match. |
+| Combat — S05 damage/retirement decision; M1-B2/B3 implementation, M1-D3 acceptance | Submit one ShotId twice during its job and again after completion/damage-cache retirement: only one launch/hit/damage outcome; empty/reloading/cooldown/seat cannot fire; equip cannot grant ammo or reset cooldown; rocket survives weapon replacement but dies on reset. |
+| Destruction — S05 bounded feasibility; M1-B3 implementation, M1-D3 sustained load | Three-car near/far fixture has known expected outcomes; occupant dies once/seat clears; bounded 12-car burst completes accepted chain outcomes off-camera despite eight visual slots. S05 feasibility is separate from production joining races and sustained capacity acceptance. |
+| Hydration/effects — S05 state/event decision; M1-B3/B4 implementation, M1-D3 join/saturation acceptance | Joining after a blast shows current wreck/health and active rockets without historical sounds/blasts; duplicate live event plays once; effect saturation cannot alter health. |
+| Reset/teardown — S03 tiny leave/host-loss evidence; M1-A2 reset coordinator, M1-B3 combat/seats/chains, M1-C3 population, M1-D3 full acceptance; M1-A1/M1-A-GATE shell cleanup/reset | Admitted peers remain after host reset; old-match commands/events do nothing; no layout transforms change; callbacks/history/input/loops are cleared on leave and retry. Reset while driving/firing/joining rehydrates new revisions and clears old work; S03 implements no reset. |
+| City/asset identity — S01 bounded accepted route; S06 topology decision; M1-C1/C2/C4 production content, M1-D1/D4 checks/exports | Reexport/inheritance/roundtrip preserves placement/import ancestry/IDs; stale bake rejects use; route crosses two-sector seam and shared minimap roads align. S01 acceptance is limited to linked wrappers and wrapper-level variants, not direct imported-child overrides or production art. |
+| Settings — M1-A3 implementation/tests, M1-A-GATE shell, M1-D4 targets | Levels/mute survive restart; corrupt fields default; save failure retains last good file and reports retry; live audio preview leaves shared simulation running. |
+| Prediction/targets — S03-R/S04 response decisions, S07 budgets, S08 target proof; M1-A2/B1 implementation, M1-D3/D4 full acceptance | Matching-tick authoritative convergence and bounded replay meet selected budgets; no replay damage/effects; exact exported ENet and Steam paths each pass on required targets. Loopback markers cannot close gameplay, Steam or Deck requirements. |
 
 Pending exact choices are owned: native integration/correlation and tested limits
 (S03-S), production codecs/snapshot batching/abuse disconnect (M1-D3, informed by S03), motion extras/camera and

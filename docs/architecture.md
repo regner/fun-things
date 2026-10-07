@@ -178,7 +178,32 @@ Independent Godot-focused advisor review, 7 October 2026: the reviewer identifie
 gaps in held-sequence recovery, initial-admission versus resync preparation/rollback,
 and duplicate ShotId acceptance. The follow-up corrects all three and adds acceptance
 cases; the reviewer confirmed their resolution. Its final wording correction now
-distinguishes the durable journal from fresh motion snapshots. Snapshot reordering
-and passive replica-body/physics-phase details remain explicit S03/S04 proof work.
+distinguishes the durable journal from fresh motion snapshots. At that review,
+snapshot reordering and passive replica-body/physics-phase details remained S03/S04 proof work;
+the current supplement below links the subsequent result and remaining owners.
 The review used official stable Godot documentation; it did not test the pinned
 development engine or run gameplay. P0-02 completes reviewed drafts, not those proofs.
+
+Current supplement after S03 acceptance: the advisor paragraph above records the
+P0-02 review's historical pending work. The subsequent
+[S03 native reordering/loss experiment](spikes/s03.md#experiment-and-observations)
+settled the minimum subset-refresh decision: per-entity freshness plus repeated
+refresh of unchanged relevant entities recovers the tested ordered-stream loss.
+It does not prove production codecs, capacity or adverse-profile convergence;
+those remain M1-A2 implementation and M1-D3 acceptance. Passive replica-body and
+physics-phase pose capture remain S04 decisions, followed by M1-B1/D3 validation.
+
+Remaining acceptance has active owners in [TODO](../TODO.md) and the
+[API matrix](api-contracts.md#contract-tests). M1-A1/M1-A-GATE own full admission,
+cancel/error/retry and shell cleanup; S03-S proves native Steam correlation/drain
+and transport, S08 exact target/export compatibility. S03-R/S04 decide foot/car
+response; M1-A2/B1 implement it. M1-A2 owns the Match reset coordinator, M1-B3
+adds combat/seats/rockets/chains/wreck cleanup, M1-C3 adds population, and M1-D3
+validates reset while driving/firing/joining with retained peers and unchanged
+placement. S04 specifies the seat matrix; M1-B1 owns its full implementation and
+M1-D3 adverse races. M1-A2/B2/B3/C3 implement lifecycle; M1-D3 verifies collision
+fences, tombstones/future-state buffers, reliable actions, floods/host stalls and
+capacity. S05 owns bounded 12-car chain feasibility despite eight cosmetic slots;
+M1-B3 productionizes chains and M1-D3 owns sustained load. S07 measures rendering
+budgets; S08 and M1-D4 retain physical Deck/exports and private Steam delivery gates.
+All M1 work still follows P0-GATE; none of these tasks is closed by this supplement.

@@ -179,25 +179,9 @@ asset acceptance.
 These are documentation work, owned by a delegated documentation worker with
 independent review; they do not reopen completed proofs or require hardware access.
 Assign a named worker before starting. Finish before P0-GATE uses the reconciled guides.
-P0-DOC1 is complete; [its reconciliation record](docs/reviews/p0-doc1.md) retains
-current tooling scope, accepted evidence and historical limitations.
-
-- [ ] **P0-DOC2 — Reassign remaining proof/acceptance ownership after S03 completion.**
-  Needs: [S03 limitations](docs/spikes/s03.md#alternatives-limitations-and-resulting-work),
-  [first checkpoint findings](docs/reviews/plan-check-2026-10-07.md#documentation-findings)
-  and the current task allocation below; can run alongside P0-DOC1.
-  Update `docs/api-contracts.md` limit/proof and contract-test ownership rows, and
-  `docs/architecture.md` remaining-decisions/review summary. Distinguish S03's verified
-  minimum from unproved admission/reset/seat/collision/action/flood/capacity cases;
-  the architecture's closing snapshot-reordering wording must link the settled S03
-  subset-refresh result rather than present it as still pending.
-  Done when: every remaining case attributed to completed S03 has an active S03-S,
-  S03-R, S04/S05/S07/S08 or M1-A/B/C/D owner as appropriate; spike decisions and full
-  production acceptance remain distinct. Reset implementation/validation maps to
-  M1-A2/B3/C3/D3; 12-car bounded feasibility maps to S05 and sustained load to M1-D3.
-  Validate against S03 source/results and the entire TODO; preserve provisional
-  limits, ratified policies and all hardware/Steam/P0-GATE requirements. No API/code
-  redesign or new technical proof is included; run local link and diff checks.
+P0-DOC1 and P0-DOC2 are complete. The [tooling reconciliation](docs/reviews/p0-doc1.md)
+and [proof-ownership reconciliation](docs/reviews/p0-doc2.md) retain accepted evidence,
+current fixture scope, historical observations and active owners for unproved cases.
 
 ## Phase-zero technical spikes
 
@@ -344,7 +328,8 @@ implementation. Save editor mutations before playtests; preserve unsaved work.
   [GDScript review evidence](docs/reviews/p0-06.md),
   [P0-05 workflow record](docs/decisions/p0-05-asset-workflow.md),
   [S01 pipeline evidence](docs/spikes/s01.md), S02,
-  [P0-DOC1 reconciliation](docs/reviews/p0-doc1.md), P0-DOC2,
+  [P0-DOC1 reconciliation](docs/reviews/p0-doc1.md),
+  [P0-DOC2 reconciliation](docs/reviews/p0-doc2.md),
   [completed S03 proof](docs/spikes/s03.md), S03-R/S03-S and S04 through S08.
   Done when: critical design/feasibility assumptions required to begin M1 are resolved;
   the user ratifies scope, chosen art/layout and camera/control choices against

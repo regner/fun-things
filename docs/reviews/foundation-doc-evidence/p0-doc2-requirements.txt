@@ -1,0 +1,16 @@
+- [ ] **P0-DOC2 — Reassign remaining proof/acceptance ownership after S03 completion.**
+  Needs: [S03 limitations](docs/spikes/s03.md#alternatives-limitations-and-resulting-work),
+  [first checkpoint findings](docs/reviews/plan-check-2026-10-07.md#documentation-findings)
+  and the current task allocation below; can run alongside P0-DOC1.
+  Update `docs/api-contracts.md` limit/proof and contract-test ownership rows, and
+  `docs/architecture.md` remaining-decisions/review summary. Distinguish S03's verified
+  minimum from unproved admission/reset/seat/collision/action/flood/capacity cases;
+  the architecture's closing snapshot-reordering wording must link the settled S03
+  subset-refresh result rather than present it as still pending.
+  Done when: every remaining case attributed to completed S03 has an active S03-S,
+  S03-R, S04/S05/S07/S08 or M1-A/B/C/D owner as appropriate; spike decisions and full
+  production acceptance remain distinct. Reset implementation/validation maps to
+  M1-A2/B3/C3/D3; 12-car bounded feasibility maps to S05 and sustained load to M1-D3.
+  Validate against S03 source/results and the entire TODO; preserve provisional
+  limits, ratified policies and all hardware/Steam/P0-GATE requirements. No API/code
+  redesign or new technical proof is included; run local link and diff checks.
