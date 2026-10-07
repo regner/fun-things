@@ -14,7 +14,7 @@ Exact members are in `tools/s02/export_members.json`; all nine outputs must acco
 source changes. `tools/s02/create_sources.py` is historical bootstrap tooling;
 subsequent authoring belongs in the saved Blender source.
 
-| Asset | Imported envelope / purpose | Linked consumers |
+| Asset | Imported envelope / purpose | Original S02 linked consumers |
 | --- | --- | --- |
 | s02_ground | 64×0.2×64 m road, top Y=0; 4 m-wide visual walk strip, top Y=0.015 m | ground_prefab, corner, weapon_studies |
 | s02_low | 8×6×8 m solid mass; 8.2 m roof overhang | low_prefab; WestCorner/EastCorner in corner |
@@ -31,6 +31,46 @@ corner and changes only the authored camera FOV. `focus_runner.tscn` instances c
 The actor's production-style `PresentationAnchor/Visuals/Model` and static wrappers'
 `Visuals/Model` retain GLB ancestry. Study-only assemblies are saved directly in
 weapon_studies; they have no gameplay or collision. No imported child is editable.
+
+### Accepted S03-R downstream consumers
+
+The [accepted bounded S03-R experiment](../spikes/s03-r.md) adds consumers of this
+unchanged source/export kit. The original table remains the initial S02 handoff;
+the mappings below supplement it at accepted `ae48eb3`. They describe linked
+technical fixtures, not new art, final camera/feel acceptance or production use.
+Each source collection below belongs to `s02_kit.blend` and exports the matching
+GLB plus `.glb.import` under `art/models/spikes/` as above.
+
+| Source collection → export | S02 prefab / inherited ancestry | Accepted S03-R consumer in `boot.tscn` |
+| --- | --- | --- |
+| `export_s02_ground` → `s02_ground.glb` | [ground_prefab.tscn](../../tests/fixtures/s02/ground_prefab.tscn), `Visuals/Model` | `View/Match/CityRoot/Ground` |
+| `export_s02_low` → `s02_low.glb` | [low_prefab.tscn](../../tests/fixtures/s02/low_prefab.tscn), `Visuals/Model` | `View/Match/CityRoot/WestCorner` and `EastCorner` |
+| `export_s02_near` → `s02_near.glb` | [near_prefab.tscn](../../tests/fixtures/s02/near_prefab.tscn), `Visuals/Model` | `View/Match/CityRoot/NearTower` |
+| `export_s02_tall` → `s02_tall.glb` | [tall_prefab.tscn](../../tests/fixtures/s02/tall_prefab.tscn), `Visuals/Model` | `View/Match/CityRoot/TallTower` |
+| `export_s02_actor` → `s02_actor.glb` | [S02 actor.tscn](../../tests/fixtures/s02/actor.tscn), `PresentationAnchor/Visuals/Model` → [inherited S03-R actor.tscn](../../tests/fixtures/s03_r/actor.tscn) | `View/Match/Bodies/Host` and `Client` |
+| `export_s02_pistol` → `s02_pistol.glb` | S02 actor, `PresentationAnchor/WeaponMount/Model` → inherited S03-R actor | Both bodies' linked pistol; source-derived `Sockets/Muzzle` supplies aim observation |
+
+The saved [S03-R boot](../../tests/fixtures/s03_r/boot.tscn) inherits S03's boot
+and owns these CityRoot placements and two dynamic body spawn poses. Actor/pistol
+model ancestry, grip/muzzle transforms and collision derive from S02; S03-R adds
+replica pose/presentation behavior without copying movement or imported geometry.
+No S03-R target, SMG or launcher consumer is introduced by that saved composition.
+The initial flat-ground S02 contract below remains offline; this later consumer
+supplies only the separately bounded ENet result.
+
+Future kit reexports must cover all nine shared-source outputs and inspect both
+the original S02 consumers (including inherited camera/focus/study scenes) and
+these accepted S03-R actor/boot consumers. Review model/socket/collision changes
+through both bodies and all CityRoot instances, preserving source links, imports,
+UIDs, inheritance, local overrides and authored placements. Follow
+[reexport/change acceptance](../assets.md#reexport-and-change-acceptance), including
+refresh/reopen of affected saved/inherited scenes before saves or playtests; a
+headless import cannot synchronize an open editor. Dimension/socket/collision
+changes also require affected motion/query and authoritative/network validation.
+This docs-only discovery changes no source, export, prefab or scene; the original
+82-path S03-R preservation evidence and closed resync P2 remain historical accepted
+receipts. Full S02/S03-R, drawn response/remote continuity/prediction-if-warranted,
+physical input/native focus/human feel, Steam/Deck and P0/production gates stay open.
 
 ## Authoring and runtime contracts
 

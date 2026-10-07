@@ -3,7 +3,8 @@
 A Godot project with multiplayer planned. The checkout has engine/style
 configuration, the Godot MCP Toolkit, [S01 asset fixtures](docs/spikes/s01.md), a reviewed
 [S02 desktop camera/control fixture](docs/spikes/s02.md#reviewed-desktop-handoff) and an isolated
-[S03 ENet session-contract proof](docs/spikes/s03.md). There is no production
+[S03 ENet session-contract proof](docs/spikes/s03.md), plus the accepted
+[bounded headless S03-R foot-response experiment](docs/spikes/s03-r.md). There is no production
 gameplay or main scene yet.
 The first milestone requires ENet for local testing and Steam for friends playtesting,
 using the existing Steam app through shared session APIs.
@@ -64,6 +65,35 @@ passes remain historical, and human feel/readability, physical-key Alt-Tab and
 Deck input/performance acceptance remain open. Desktop 1280×800 captures do not
 certify Deck targets or production gameplay.
 
+The supplementary S03-R runner reuses the saved S02 controller/source kit and S03
+session fixture (no Mise task):
+
+```sh
+python3 tools/run_s03_r.py --godot /path/to/pinned/godot --output /tmp/s03-r-my-run
+```
+
+Defaults are headless, `--profiles baseline normal adverse`, `--port 24900`,
+`--proxy-port 24901` and `--deadline 45` seconds per two-process case after import.
+Ports must be distinct in 1–65535; the deadline must be 1–90 seconds. `--godot`
+defaults to Godot on PATH and verifies the exact pin. `--output` must be a fresh
+empty directory outside the checkout; omitted output uses a printed temporary
+directory. Each profile imports an addon-free copy of S02/S03/S03-R and S02 models,
+with private user/cache/log directories and a bounded seeded loopback UDP proxy.
+It retains results, commands, fingerprints, import/proxy/host/client logs and
+stops only its own children. Nonzero exits and engine/script errors or warnings
+fail the run. It does not compile every owned script; use the separate foundation
+checks. `--windowed` attempts real drawn-frame receipts; missing frames remain
+unavailable and do not fail the technical criteria by themselves.
+See the [full recipe and log scope](docs/development.md#s03-r-foot-response-tooling).
+
+Accepted synthetic input-to-applied-client-physics p95 is 69/235/365 ms for
+baseline/normal/adverse. Stationary convergence and the separate fix follow-up
+are recorded in [S03-R](docs/spikes/s03-r.md); these are not drawn response,
+human feel or predicted correction measurements. The [resync baseline-floor P2
+is closed](docs/reviews/s03-r-b87f889.md), but full S03-R, native focus/physical
+input, visible owned/remote response, camera/aim continuity, replay if warranted,
+Steam/Deck/Windows/export and P0-GATE/production acceptance remain open.
+
 ## Project guidance
 
 - [Plan through the first milestone](TODO.md): phase-zero foundations, technical
@@ -95,11 +125,16 @@ engine/input decisions and P0-GATE remain open. [S07 preparation](docs/spikes/s0
 assigns one map/content-capacity and diagnostic owner; measurements remain unexecuted.
 It selects no maximum map size, streaming implementation, renderer or engine.
 
-P0-PROFILES' scoped requirements/proposal stage is ready from the
-[third profile assessment](docs/reviews/plan-check-2026-10-07-03.md#profile-assessment).
-The inventory remains empty; actual configuration requires a reviewed proposal and
-an explicitly authorized workflow, followed by safe representative launch validation.
-Configuration and launch validation remain deferred in [the plan](TODO.md).
+P0-PROFILES' requirements/proposal stage is delivered and independently reviewed:
+the [four proposed bundles](docs/workflows/p0-profiles-proposal.md#four-proposed-bundles)
+cover Sol 6.1 medium/high leads and non-specialist review, Luna high very simple
+delegation, and Astra high necessary bounded spatial specialists. The
+[review](docs/workflows/p0-profiles-review.md) and
+[fourth assessment](docs/reviews/plan-check-2026-10-07-04.md#profile-assessment)
+retain evidence and limits. All four bundles remain PROPOSED/inert, zero profiles
+are installed, and no representative launches have run. Installation, effective
+settings/permission checks and launch validation require the later explicitly
+authorized workflow; P0-PROFILES remains open in [the plan](TODO.md).
 
 Add executable tasks alongside their implementations and document only commands that work in this
 checkout.

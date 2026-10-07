@@ -290,6 +290,85 @@ The fixture's fixed engine-step motion is not a validated arbitrary-delta/predic
 replay contract; S03-R owns that decision. [S07](spikes/s07.md) preparation supplies
 capacity axes and diagnostic method, with actual measurements still unexecuted.
 
+### S03-R foot-response tooling
+
+The accepted [bounded S03-R record](spikes/s03-r.md) supplements the S03 session
+proof with actual unchanged S02 movement/collision/aim and linked source assets.
+Saved [boot](../tests/fixtures/s03_r/boot.tscn) inherits S03; its two bodies instance
+the [S03-R actor](../tests/fixtures/s03_r/actor.tscn), which inherits S02.
+The [source handoff](assets/s02_kit.md#accepted-s03-r-downstream-consumers) maps
+the actor and CityRoot consumers. These are isolated technical fixtures.
+
+Run from the repository root when assigned the required process/display access:
+
+```sh
+python3 tools/run_s03_r.py --godot /path/to/pinned/godot --output /tmp/s03-r-my-run
+# Select one existing profile, alternate ports and a bounded case deadline:
+python3 tools/run_s03_r.py --godot /path/to/pinned/godot --profiles adverse --port 24910 --proxy-port 24911 --deadline 45 --output /tmp/s03-r-adverse
+```
+
+There is no `spike:s03-r` Mise task. Static reads of the
+[runner](../tools/run_s03_r.py) and its shared
+[script helpers](../tools/script_checks.py)/[child cleanup](../tools/run_s03.py)
+establish the existing options:
+
+| Flag | Default and constraint |
+| --- | --- |
+| `--godot` | Godot on PATH, falling back to `godot`; exact `4.8.dev7.official.c971f93e7` version required, version query timeout 10 s |
+| `--profiles` | `baseline normal adverse`, run sequentially; one or more choices from those names |
+| `--port`, `--proxy-port` | `24900`, `24901`; distinct UDP ports in 1–65535, reused across sequential profiles |
+| `--deadline` | 45 s per host/client case, starts after isolated import; accepted range 1–90 s, separate import timeout 30 s |
+| `--output` | Printed `s03-r-` temporary directory if omitted; supplied directory may be absent or empty, must resolve outside the checkout |
+| `--windowed` | Off; attempts actual graphical frame receipts at 1280×800, host/client positions (0,0)/(1280,0); no forced-draw substitute or automatic visible/feel acceptance |
+
+Each profile stages a fresh project containing saved `s02`, `s03`, `s03_r` fixture
+trees and `art/models/spikes/s02_*.*` imports/sidecars. It copies project settings
+with development autoload/editor-plugin sections and the icon reference removed;
+no addons or authoring sources are copied. Renderer/physics/input settings remain
+from the copied project. Headless import checks diagnostics and exit status.
+Import, host and client receive separate XDG data/config/cache directories.
+The runner does **not** invoke all-script compilation or Blender reexport;
+continue using the separate foundation checks for those scopes.
+
+Two paced ENet processes use a seeded bidirectional native UDP proxy on
+`127.0.0.1`: baseline has no delay/loss; normal uses 75 ms ±30 ms one-way delay
+and independent 2% loss; adverse uses 125 ms ±50 ms and 5%, plus one second of
+delivery interruption and the fixture's 250 ms host stall. Proxy work is bounded
+to 128 receive/delivery entries per poll and a 1024-entry queue. Cleanup terminates
+only owned Popen children, with a shared 2 s wait then kill/wait fallback.
+This is Linux loopback evidence, not LAN/Windows/Steam/Deck or packaged validation.
+Same-machine wall clocks support snapshot-age/stationary-recovery diagnostics;
+engine elapsed time supports synthetic local response. No cross-device clock
+or physical-key latency assumption is established.
+
+The printed evidence directory retains a top-level `result.json` and per-profile
+copied project, `import.log`, `proxy.jsonl`, host/client `stdout.log`, `engine.log`,
+private user directories and capture directories. A completed profile result
+retains commands, PIDs/exits, ports, source SHA256 fingerprints, saved-source
+comparison and measurements. Failures retain logs and a top-level failure result;
+an early failure may leave no completed per-profile result. Host/client results,
+nonzero exits and `SCRIPT ERROR:`, `ERROR:` or `WARNING:` diagnostics are checked.
+Technical success also requires collision/expiry/resync, matching-tick installation,
+all 20 applied-physics response samples, stationary convergence and unchanged
+copied source. Missing drawn-frame samples do not alone fail those technical criteria.
+The [analyzer ownership regression](../tools/test_s03_r_analysis.py) fences client
+response to entity 2; host acknowledgements cannot count as owned response.
+
+Accepted baseline/normal/adverse synthetic input-to-applied-client-physics p95 is
+**69/235/365 ms**. Adverse stationary convergence is **220.12/415.32 ms** after
+actual proxy resumption/host-stall end. The separately recorded baseline-floor fix
+follow-up is **366 ms** physics response and **124.71/493.79 ms** stationary
+convergence; it does not replace the original three-profile result. Retained old
+analyzer response fields are historical; owned-entity reanalysis supersedes them.
+Drawn response was unavailable. Zero matching-tick installation error and update
+jumps are not predicted corrections: there is no predicted state. The
+[reviewed resync P2 is closed](reviews/s03-r-b87f889.md); full S03-R remains open
+for drawable owned/remote response, camera/aim continuity and human feel, then a
+separately bounded shared-rule replay trial only if warranted. Native OS focus/
+physical-key, S02/Steam/Deck/Windows/export, P0-GATE and production gates remain open.
+Historical editor-relocation receipts do not certify current shared editor state;
+future authoring/reexports still need the existing save/refresh/reopen workflow.
+
 ## Versions and releases
 
 When release builds exist, make version and source revision visible in startup

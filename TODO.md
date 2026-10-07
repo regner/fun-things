@@ -213,33 +213,10 @@ P0-DOC4's six-guide S02/S07 and profile-stage reconciliation is complete in
 [the completion/review record](docs/reviews/p0-doc4.md); full S02, measured S07,
 profile configuration and all target/production gates remain open.
 
-- [ ] **P0-DOC5 — Discover accepted S03-R tooling, consumers and delivered profile proposal.**
-  Owner: one Sol documentation worker, independently reviewed; root assigns the worker.
-  Ready from accepted evidence, no authoring/device/service lease required.
-  Scope: `README.md`, `docs/development.md`, `docs/assets/s02_kit.md` only, plus
-  completion evidence and resolving TODO/dependent references.
-  Sources/prerequisites: [accepted S03-R record](docs/spikes/s03-r.md) at `ae48eb3`,
-  [technical fix/review](docs/reviews/s03-r-b87f889.md) and exact-final Git note;
-  saved `tests/fixtures/s03_r/boot.tscn`/`actor.tscn`, `tools/run_s03_r.py`,
-  `tools/test_s03_r_analysis.py`, immutable S02 source handoff;
-  [reviewed profile proposal](docs/workflows/p0-profiles-proposal.md) at `8d60ff6`
-  and its exact-final review note; [fourth findings](docs/reviews/plan-check-2026-10-07-04.md#documentation-findings).
-  README/development omit the now-accepted supplementary S03-R fixture/runner;
-  README still describes profile requirements/proposal as merely ready rather than
-  delivered/reviewed. The S02 source handoff lists only initial S02 consumers, omitting
-  the new inherited actor and CityRoot consumers required by the asset workflow.
-  Done when: both guides link accepted bounded S03-R evidence and document exact
-  existing runner flags/isolation/deadline/output/log scope from static source reads,
-  without inventing a Mise task or rerunning experiments. README links the concrete
-  reviewed four-bundle proposal, keeping installation/effective settings/launch proof
-  deferred. The source handoff adds current downstream source-to-prefab-to-S03-R
-  mappings, preserves initial S02 scope and immutable sources/exports, and identifies
-  affected consumers for future reexports. Distinguish synthetic applied-physics/
-  stationary convergence from drawn response/feel/predicted correction; retain closed
-  P2 and all open S02/S03-R/Steam/Deck/P0/production gates. Check local links/anchors,
-  scope, LF/whitespace and historical retention, obtain exact-final independent review,
-  remove this task with its resolving change. Finish before P0-GATE consumes the guides;
-  S04's bounded experiment can use accepted spike records meanwhile. Do not reopen DOC1–4.
+P0-DOC5's accepted S03-R tooling/consumer and delivered-profile discovery is
+complete in [the completion/review record](docs/reviews/p0-doc5.md). Only the
+three guides and resolving references changed; full S02/S03-R, profile
+configuration/launch, Steam/Deck/P0/production gates remain open.
 
 ## Phase-zero technical spikes
 
@@ -469,7 +446,7 @@ implementation. Save editor mutations before playtests; preserve unsaved work.
   [P0-DOC1 reconciliation](docs/reviews/p0-doc1.md),
   [P0-DOC2 reconciliation](docs/reviews/p0-doc2.md),
   [P0-DOC4 guide reconciliation](docs/reviews/p0-doc4.md),
-  P0-DOC5 discovery/consumer reconciliation,
+  [P0-DOC5 discovery/consumer reconciliation](docs/reviews/p0-doc5.md),
   [S03 fixture boundary](docs/spikes/s03.md#fixture-and-boundary),
   [completed S03 proof](docs/spikes/s03.md), S03-R/S03-S and S04 through S08.
   S07 supplies the documented capacity envelope, limiting axes, organization and
@@ -690,7 +667,8 @@ technical work and the profile proposal are integrated and their workspaces arch
 no active implementation candidate or writer lease is assigned. Root grants the next
 named lease separately; original S02/S03 fixtures remain immutable. S02 native-focus/physical-key/feel/readability
 follow-up remains open and needs its own serialized lease/user observations.
-P0-DOC5 is ready independently; the concrete P0-PROFILES proposal is reviewed,
+P0-DOC5 discovery is [complete](docs/reviews/p0-doc5.md); the concrete P0-PROFILES
+proposal is reviewed,
 with configuration and representative launches deferred. Bounded S03-S compatibility
 research and S08 desktop export/dependency preparation remain assignable without
 devices or multiple accounts, subject to explicit ownership. Remaining drawable
@@ -710,7 +688,7 @@ The table describes dependency stages, not a claim that deferred proofs are runn
 | Initial foundation | Ratified brief, contract drafts, concept exploration, tool inventory | Chosen style/layout and measured scope revisions need user ratification and evidence |
 | Tiny fixtures available | S02 camera using [S01 pipeline evidence](docs/spikes/s01.md); use [completed S03 session evidence](docs/spikes/s03.md); review skill dry runs | All visible fixtures must have Blender sources; only minimum harness required |
 | ENet boundary available | S03-S Steam proof, S04 car candidates, S08 packaging work | Existing-app/tester access and native compatibility must be established early |
-| Reviewed desktop S02/S03 and bounded S03-R technical result available | Assign S04 desktop body/ENet experiment; independent DOC5; remaining S02/S03-R drawable work under serialized leases | Final feel/target/Steam acceptance and prediction decisions remain open; no active candidate/lease is implied |
+| Reviewed desktop S02/S03 and bounded S03-R technical result available | Assign S04 desktop body/ENet experiment; [DOC5 discovery complete](docs/reviews/p0-doc5.md); remaining S02/S03-R drawable work under serialized leases | Final feel/target/Steam acceptance and prediction decisions remain open; no active candidate/lease is implied |
 | Both providers available | Finish S03-R foot response and S04 network response; S08 exports | Both transports need evidence; foot/vehicle prediction are separate decisions |
 | Vehicle envelope available | S05 chain proof and S06 intersection/seam | S06 uses pipeline plus real actor/turning dimensions |
 | City/effect fixtures available | S07 capacity/culling experiments, finish S08, skill dry runs and doc reconciliation | P0-GATE resolves critical assumptions before production |
