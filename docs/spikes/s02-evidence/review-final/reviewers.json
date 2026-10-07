@@ -1,0 +1,35 @@
+{
+  "technical_candidate": "b826d3897d5b91dfc6c45276538dd459b433af06",
+  "base": "62e080000077f5d5b5551883b940aad0f4e2fde0",
+  "reviewers": [
+    {
+      "lens": "art/camera/spatial",
+      "agent_id": "f33ceab8-e5fd-4c15-b312-79b030a77dc0",
+      "provider": "codex",
+      "model": "gpt-6-astra",
+      "effort": "high",
+      "verdict": "prior findings closed; bounded desktop technical exploration accepted; acceptance gates pending",
+      "report": "docs/reviews/s02-art-b826d38.md"
+    },
+    {
+      "lens": "controls/simulation/contracts",
+      "agent_id": "db768ea3-8cec-4796-80d5-f67c89ed8978",
+      "provider": "codex",
+      "model": "gpt-6.1-sol",
+      "effort": "high",
+      "verdict": "prior findings closed; no new actionable code finding; acceptance gates pending",
+      "report": "docs/reviews/s02-code-b826d38.md"
+    }
+  ],
+  "lead_at_handoff": {
+    "model": "gpt-6.1-sol",
+    "effort": "high"
+  },
+  "editor": {
+    "pid": 167101,
+    "project": "s02-desktop-camera-controls",
+    "scene": "res://tests/fixtures/s02/editor_harness.tscn",
+    "unsaved_scenes": [],
+    "verification_processes": []
+  }
+}

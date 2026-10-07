@@ -1,0 +1,144 @@
+Godot Engine v4.8.dev7.official.c971f93e7 - https://godotengine.org
+Vulkan 1.4.312 - Forward+ - Using Device #0: NVIDIA - NVIDIA GeForce GTX 1070
+
+Godot MCP Toolkit v1.0.3 — by NPGameDev · npgamedev.com
+[MCPExtensions] Hot-reload watcher active
+[MCPServer] port 6550 (pinned via GODOT_MCP_EDITOR_PORT)
+[MCPServer] session token written to user://addons/godot_mcp_toolkit/project_instance_79b7e2eda1e2/mcp_token
+[MCPServer] listening on 127.0.0.1:6550
+[MCPRegistry] registered /home/regner/.paseo/worktrees/0u71f39f/s02-desktop-camera-controls on port 6550
+WARNING: [MCP] Godot 4.8 detected - latest tested version is 4.7.0. The plugin will run normally but some features may behave unexpectedly. Please report issues at https://github.com/NPGameDev/godot-mcp-toolkit/issues
+     at: push_warning (core/variant/variant_utility.cpp:1034)
+     GDScript backtrace (most recent call first):
+         [0] _enter_tree (res://addons/godot_mcp_toolkit/plugin.gd:62)
+GodotSteam v4.23 | ]8;;https://godotsteam.com\website]8;;\ | ]8;;https://godotsteam.com/changelog/gdextension/\changelog]8;;\[0m
+New GodotSteam version 4.23.1 available
+[MCPServer] unfocused-responsive mode ON: interface/editor/unfocused_low_processor_mode_sleep_usec 100000 -> 16666 (~60 fps while unfocused)
+[MCP] MCP client connected (1 peer)
+[MCP] MCP client connected (2 peers)
+[MCP] MCP client connected (3 peers)
+[MCP] MCP client connected (4 peers)
+[MCP] MCP client connected (4 peers)
+[MCPTools] node.call_method invoked ..editor_state(0 args)
+[MCPTools] node.call_method invoked ..editor_state(0 args)
+[MCPTools] node.call_method invoked ..editor_state(0 args)
+SCRIPT ERROR: Parse Error: There is already a variable named "query" declared in this scope.
+          at: GDScript::reload (res://tests/fixtures/s02/check_s02.gd:238)
+          GDScript backtrace (most recent call first):
+              [0] ensure_file_indexed (res://addons/godot_mcp_toolkit/commands/editor_helpers.gd:584)
+              [1] _commit_content (res://addons/godot_mcp_toolkit/commands/script_commands.gd:246)
+              [2] _cmd_script_edit (res://addons/godot_mcp_toolkit/commands/script_commands.gd:213)
+              [3] <anonymous lambda> (res://addons/godot_mcp_toolkit/commands/script_commands.gd:35)
+              [4] call_command (res://addons/godot_mcp_toolkit/transport/mcp_toolkit_command_registry.gd:415)
+              [5] _execute (res://addons/godot_mcp_toolkit/transport/dispatch/dispatch_lane.gd:257)
+              [6] drive (res://addons/godot_mcp_toolkit/transport/dispatch/dispatch_lane.gd:188)
+              [7] route_request (res://addons/godot_mcp_toolkit/transport/dispatch/server_request_router.gd:138)
+              [8] _handle_message (res://addons/godot_mcp_toolkit/transport/mcp_server.gd:628)
+              [9] poll_peers (res://addons/godot_mcp_toolkit/transport/ws_transport.gd:422)
+              [10] pump (res://addons/godot_mcp_toolkit/transport/ws_transport.gd:224)
+              [11] _poll_connections (res://addons/godot_mcp_toolkit/transport/mcp_server.gd:591)
+SCRIPT ERROR: Parse Error: There is already a variable named "query" declared in this scope.
+          at: GDScript::reload (gdscript://-9223369479923098550.gd:238)
+          GDScript backtrace (most recent call first):
+              [0] _validate_gdscript (res://addons/godot_mcp_toolkit/commands/script_commands.gd:345)
+              [1] _commit_content (res://addons/godot_mcp_toolkit/commands/script_commands.gd:254)
+              [2] _cmd_script_edit (res://addons/godot_mcp_toolkit/commands/script_commands.gd:213)
+              [3] <anonymous lambda> (res://addons/godot_mcp_toolkit/commands/script_commands.gd:35)
+              [4] call_command (res://addons/godot_mcp_toolkit/transport/mcp_toolkit_command_registry.gd:415)
+              [5] _execute (res://addons/godot_mcp_toolkit/transport/dispatch/dispatch_lane.gd:257)
+              [6] drive (res://addons/godot_mcp_toolkit/transport/dispatch/dispatch_lane.gd:188)
+              [7] route_request (res://addons/godot_mcp_toolkit/transport/dispatch/server_request_router.gd:138)
+              [8] _handle_message (res://addons/godot_mcp_toolkit/transport/mcp_server.gd:628)
+              [9] poll_peers (res://addons/godot_mcp_toolkit/transport/ws_transport.gd:422)
+              [10] pump (res://addons/godot_mcp_toolkit/transport/ws_transport.gd:224)
+              [11] _poll_connections (res://addons/godot_mcp_toolkit/transport/mcp_server.gd:591)
+[MCPTools] node.call_method invoked ..reopen(1 args)
+[MCPTools] node.call_method invoked ..reopen(1 args)
+[MCPTools] node.call_method invoked ..reopen(1 args)
+[MCPTools] node.call_method invoked ..reopen(1 args)
+[MCPTools] node.call_method invoked ..editor_state(0 args)
+ERROR: Do not use progress dialog (task) while flushing the message queue or using call_deferred()!
+   at: add_task (editor/gui/progress_dialog.cpp:207)
+ERROR: Condition "!tasks.has(p_task)" is true. Returning: canceled
+   at: task_step (editor/gui/progress_dialog.cpp:242)
+ERROR: Condition "!tasks.has(p_task)" is true. Returning: canceled
+   at: task_step (editor/gui/progress_dialog.cpp:242)
+ERROR: Condition "!tasks.has(p_task)" is true.
+   at: end_task (editor/gui/progress_dialog.cpp:270)
+[MCPTools] node.call_method invoked ..reopen(1 args)
+ERROR: Do not use progress dialog (task) while flushing the message queue or using call_deferred()!
+   at: add_task (editor/gui/progress_dialog.cpp:207)
+ERROR: Condition "!tasks.has(p_task)" is true. Returning: canceled
+   at: task_step (editor/gui/progress_dialog.cpp:242)
+ERROR: Condition "!tasks.has(p_task)" is true. Returning: canceled
+   at: task_step (editor/gui/progress_dialog.cpp:242)
+ERROR: Condition "!tasks.has(p_task)" is true.
+   at: end_task (editor/gui/progress_dialog.cpp:270)
+ERROR: Do not use progress dialog (task) while flushing the message queue or using call_deferred()!
+   at: add_task (editor/gui/progress_dialog.cpp:207)
+ERROR: Condition "!tasks.has(p_task)" is true. Returning: canceled
+   at: task_step (editor/gui/progress_dialog.cpp:242)
+ERROR: Condition "!tasks.has(p_task)" is true. Returning: canceled
+   at: task_step (editor/gui/progress_dialog.cpp:242)
+ERROR: Condition "!tasks.has(p_task)" is true.
+   at: end_task (editor/gui/progress_dialog.cpp:270)
+[MCPTools] node.call_method invoked ..reopen(1 args)
+ERROR: Do not use progress dialog (task) while flushing the message queue or using call_deferred()!
+   at: add_task (editor/gui/progress_dialog.cpp:207)
+ERROR: Condition "!tasks.has(p_task)" is true. Returning: canceled
+   at: task_step (editor/gui/progress_dialog.cpp:242)
+ERROR: Condition "!tasks.has(p_task)" is true. Returning: canceled
+   at: task_step (editor/gui/progress_dialog.cpp:242)
+ERROR: Condition "!tasks.has(p_task)" is true.
+   at: end_task (editor/gui/progress_dialog.cpp:270)
+ERROR: Do not use progress dialog (task) while flushing the message queue or using call_deferred()!
+   at: add_task (editor/gui/progress_dialog.cpp:207)
+ERROR: Condition "!tasks.has(p_task)" is true. Returning: canceled
+   at: task_step (editor/gui/progress_dialog.cpp:242)
+ERROR: Condition "!tasks.has(p_task)" is true. Returning: canceled
+   at: task_step (editor/gui/progress_dialog.cpp:242)
+ERROR: Condition "!tasks.has(p_task)" is true.
+   at: end_task (editor/gui/progress_dialog.cpp:270)
+[MCPTools] node.call_method invoked ..reopen(1 args)
+ERROR: Do not use progress dialog (task) while flushing the message queue or using call_deferred()!
+   at: add_task (editor/gui/progress_dialog.cpp:207)
+ERROR: Condition "!tasks.has(p_task)" is true. Returning: canceled
+   at: task_step (editor/gui/progress_dialog.cpp:242)
+ERROR: Condition "!tasks.has(p_task)" is true. Returning: canceled
+   at: task_step (editor/gui/progress_dialog.cpp:242)
+ERROR: Condition "!tasks.has(p_task)" is true.
+   at: end_task (editor/gui/progress_dialog.cpp:270)
+ERROR: Do not use progress dialog (task) while flushing the message queue or using call_deferred()!
+   at: add_task (editor/gui/progress_dialog.cpp:207)
+ERROR: Condition "!tasks.has(p_task)" is true. Returning: canceled
+   at: task_step (editor/gui/progress_dialog.cpp:242)
+ERROR: Condition "!tasks.has(p_task)" is true. Returning: canceled
+   at: task_step (editor/gui/progress_dialog.cpp:242)
+ERROR: Condition "!tasks.has(p_task)" is true.
+   at: end_task (editor/gui/progress_dialog.cpp:270)
+[MCPTools] node.call_method invoked ..reopen(1 args)
+ERROR: Do not use progress dialog (task) while flushing the message queue or using call_deferred()!
+   at: add_task (editor/gui/progress_dialog.cpp:207)
+ERROR: Condition "!tasks.has(p_task)" is true. Returning: canceled
+   at: task_step (editor/gui/progress_dialog.cpp:242)
+ERROR: Condition "!tasks.has(p_task)" is true. Returning: canceled
+   at: task_step (editor/gui/progress_dialog.cpp:242)
+ERROR: Condition "!tasks.has(p_task)" is true.
+   at: end_task (editor/gui/progress_dialog.cpp:270)
+ERROR: Do not use progress dialog (task) while flushing the message queue or using call_deferred()!
+   at: add_task (editor/gui/progress_dialog.cpp:207)
+ERROR: Condition "!tasks.has(p_task)" is true. Returning: canceled
+   at: task_step (editor/gui/progress_dialog.cpp:242)
+ERROR: Condition "!tasks.has(p_task)" is true. Returning: canceled
+   at: task_step (editor/gui/progress_dialog.cpp:242)
+ERROR: Condition "!tasks.has(p_task)" is true.
+   at: end_task (editor/gui/progress_dialog.cpp:270)
+[MCPTools] node.call_method invoked ..reopen(1 args)
+ERROR: Do not use progress dialog (task) while flushing the message queue or using call_deferred()!
+   at: add_task (editor/gui/progress_dialog.cpp:207)
+ERROR: Condition "!tasks.has(p_task)" is true. Returning: canceled
+   at: task_step (editor/gui/progress_dialog.cpp:242)
+ERROR: Condition "!tasks.has(p_task)" is true. Returning: canceled
+   at: task_step (editor/gui/progress_dialog.cpp:242)
+ERROR: Condition "!tasks.has(p_task)" is true.
+   at: end_task (editor/gui/progress_dialog.cpp:270)

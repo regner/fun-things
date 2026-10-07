@@ -1,0 +1,186 @@
+extends SceneTree
+
+const FIXTURE: PackedScene = preload("res://tests/fixtures/s02/corner.tscn")
+var fixture: S02Fixture
+var failures: Array[String] = []
+var observations: Dictionary = {}
+var shot_frames: Array[int] = []
+
+func _initialize() -> void:
+	run.call_deferred()
+
+func run() -> void:
+	fixture = FIXTURE.instantiate() as S02Fixture
+	root.add_child(fixture)
+	await ticks(2)
+	fixture.aim.fired.connect(record_shot)
+	for pair: Array in [[KEY_W, KEY_UP, "move", 1.0], [KEY_S, KEY_DOWN, "move", -1.0],
+		[KEY_A, KEY_LEFT, "turn", -1.0], [KEY_D, KEY_RIGHT, "turn", 1.0]]:
+		for order: int in [0, 1]:
+			await alias_case(pair[order], pair[1-order], pair[2], pair[3])
+	for directions: Array in [[KEY_W, KEY_UP, KEY_S, KEY_DOWN, "move"],
+		[KEY_D, KEY_RIGHT, KEY_A, KEY_LEFT, "turn"]]:
+		fixture.input_collector.set_focused(true)
+		for code: Key in directions.slice(0,4):
+			key(code, true)
+		expect(fixture.input_collector.sample()[directions[4]] == 0, "all opposing aliases cancel")
+		key(directions[2], false)
+		expect(fixture.input_collector.sample()[directions[4]] == 0, "one opposing alias still cancels")
+		key(directions[3], false)
+		expect(fixture.input_collector.sample()[directions[4]] == 1, "two remaining aliases aggregate to one")
+		for code: Key in directions.slice(0,2):
+			key(code, false)
+	for use_menu: bool in [true, false]:
+		await suspension_case(use_menu)
+		await cadence_case(use_menu)
+	await target_case()
+	print("FOLLOWUP_RESULT ", JSON.stringify({"failures": failures, "observations": observations}))
+	fixture.queue_free()
+	await process_frame
+	quit(0 if failures.is_empty() else 1)
+
+func alias_case(first: Key, second: Key, field: String, expected: float) -> void:
+	await place(Vector3(0, 0.001, 6))
+	key(first, true)
+	key(second, true)
+	expect(fixture.input_collector.sample()[field] == expected, "aliases do not double strength")
+	key(first, false)
+	expect(fixture.input_collector.sample()[field] == expected, "held alias survives release")
+	var before: Vector3 = fixture.actor.position
+	await ticks(6)
+	var distance: float = before.distance_to(fixture.actor.position)
+	var angle: float = absf(fixture.actor.rotation.y)
+	expect(distance > 0.25 if field == "move" else angle > 0.25, "held alias continues normal simulation")
+	observations[OS.get_keycode_string(first) + " then " + OS.get_keycode_string(second)] = {
+		"distance_m": distance, "yaw_radians": angle, "remaining": fixture.input_collector.sample()}
+	key(second, false)
+	expect(fixture.input_collector.sample()[field] == 0, "last release neutralizes")
+
+func suspension_case(use_menu: bool) -> void:
+	await place(Vector3(0, 0.001, 6))
+	for code: Key in [KEY_W, KEY_UP, KEY_D, KEY_RIGHT, KEY_SPACE]:
+		key(code, true)
+	await ticks(2)
+	expect(fixture.actor.velocity.length() > 0, "intent moves before suspension")
+	if use_menu:
+		key(KEY_ESCAPE, true)
+		key(KEY_ESCAPE, false)
+	else:
+		fixture.input_collector.set_focused(false)
+	expect(neutral(), "suspension clears all alias and fire intent")
+	expect(fixture.actor.velocity == Vector3.ZERO, "suspension immediately neutralizes motion")
+	var position: Vector3 = fixture.actor.position
+	var shots: int = fixture.aim.shot_count
+	await ticks(2)
+	expect(fixture.actor.position.distance_to(position) < 0.001, "suspended body stays stopped")
+	expect(fixture.aim.shot_count == shots, "suspension stops firing")
+	if use_menu:
+		key(KEY_ESCAPE, true)
+		key(KEY_ESCAPE, false)
+	else:
+		fixture.input_collector.set_focused(true)
+	for code: Key in [KEY_W, KEY_UP, KEY_D, KEY_RIGHT, KEY_SPACE]:
+		key(code, true, true)
+	expect(neutral(), "stale echoes cannot revive nested alias contributions")
+	for code: Key in [KEY_W, KEY_UP, KEY_D, KEY_RIGHT, KEY_SPACE]:
+		key(code, false)
+	key(KEY_UP, true)
+	expect(fixture.input_collector.sample().move == 1, "fresh alias resumes after suspension")
+	key(KEY_UP, false)
+	observations["menu_cancel" if use_menu else "focus_api_cancel"] = "neutral, stopped, echo blocked, fresh press allowed"
+
+func cadence_case(use_menu: bool) -> void:
+	await place(Vector3(0, 0.001, 6))
+	await ticks(17)
+	var before: int = fixture.aim.shot_count
+	var index: int = shot_frames.size()
+	key(KEY_SPACE, true)
+	await ticks(2)
+	key(KEY_SPACE, false)
+	expect(fixture.aim.shot_count == before + 1, "initial routed shot")
+	if use_menu:
+		key(KEY_ESCAPE, true)
+		key(KEY_ESCAPE, false)
+		key(KEY_ESCAPE, true)
+		key(KEY_ESCAPE, false)
+	else:
+		fixture.input_collector.set_focused(false)
+		fixture.input_collector.set_focused(true)
+	expect(not fixture.input_collector.sample().fire, "cancel leaves fire unheld")
+	key(KEY_SPACE, true)
+	await ticks(2)
+	expect(fixture.aim.shot_count == before + 1, "fresh press cannot bypass retained cooldown")
+	await ticks(14)
+	key(KEY_SPACE, false)
+	expect(fixture.aim.shot_count == before + 2, "fresh held input fires when interval expires")
+	var frames: Array[int] = shot_frames.slice(index)
+	expect(frames.size() == 2 and frames[1] - frames[0] >= 15, "minimum quarter-second at 60 Hz")
+	observations["menu_cadence" if use_menu else "focus_api_cadence"] = frames
+
+func target_case() -> void:
+	await place(Vector3(3.57, 0.001, 3))
+	await ticks(17)
+	key(KEY_SPACE, true)
+	await ticks(2)
+	key(KEY_SPACE, false)
+	expect(fixture.aim.last_hit == fixture.get_node("EastCorner/Collision/Body"), "south route blocked by world")
+	await place(Vector3(0, 0.001, 3))
+	key(KEY_W, true)
+	await ticks(144)
+	key(KEY_W, false)
+	key(KEY_D, true)
+	await ticks(30)
+	key(KEY_D, false)
+	key(KEY_W, true)
+	await ticks(43)
+	key(KEY_W, false)
+	key(KEY_A, true)
+	await ticks(30)
+	key(KEY_A, false)
+	key(KEY_SPACE, true)
+	await ticks(2)
+	key(KEY_SPACE, false)
+	expect(fixture.aim.last_hit == fixture.get_node("TargetBlocked"), "actual routed walk and aim clear target")
+	observations["routed_route_end"] = str(fixture.actor.position)
+	var ground: StaticBody3D = fixture.get_node("Ground/Collision/Body")
+	for name: String in ["TargetClear", "TargetBlocked"]:
+		var target: StaticBody3D = fixture.get_node(name)
+		var shape: CollisionShape3D = target.get_node("Collision")
+		var query: PhysicsShapeQueryParameters3D = PhysicsShapeQueryParameters3D.new()
+		query.shape = shape.shape
+		query.transform = shape.global_transform
+		query.collision_mask = 1
+		query.exclude = [ground.get_rid()]
+		var hits: Array[Dictionary] = target.get_world_3d().direct_space_state.intersect_shape(query)
+		expect(hits.is_empty(), "target not embedded in non-ground world: " + name)
+		observations[name + "_overlaps"] = hits.size()
+
+func place(position: Vector3) -> void:
+	fixture.input_collector.set_focused(true)
+	fixture.actor.position = position
+	fixture.actor.rotation.y = 0
+	await ticks(2)
+
+func ticks(count: int) -> void:
+	for tick: int in count:
+		await physics_frame
+
+func neutral() -> bool:
+	var command: Dictionary = fixture.input_collector.sample()
+	return command.move == 0 and command.turn == 0 and not command.fire
+
+func record_shot(_origin: Vector3, _endpoint: Vector3, _hit: Node) -> void:
+	shot_frames.append(Engine.get_physics_frames())
+
+func key(code: Key, pressed: bool, echo: bool = false) -> void:
+	var event: InputEventKey = InputEventKey.new()
+	event.keycode = code
+	event.physical_keycode = code
+	event.pressed = pressed
+	event.echo = echo
+	root.push_input(event)
+
+func expect(condition: bool, message: String) -> void:
+	if not condition:
+		failures.append(message)
+		push_error(message)

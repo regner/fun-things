@@ -1,0 +1,283 @@
+{
+  "head": "b826d3897d5b91dfc6c45276538dd459b433af06",
+  "base": "62e080000077f5d5b5551883b940aad0f4e2fde0",
+  "previous": "8d5c8d7caf62ef54cc1e90ce7c050e0780eb8d32",
+  "hashes": {
+    "validated-files.json": {
+      "count": 60,
+      "mismatches": []
+    },
+    "fingerprints.json": {
+      "count": 10,
+      "mismatches": []
+    },
+    "roundtrip-before.json": {
+      "count": 11,
+      "mismatches": []
+    },
+    "roundtrip-after.json": {
+      "count": 11,
+      "mismatches": []
+    }
+  },
+  "preserved": {
+    "AGENTS.md": true,
+    "docs/design.md": true,
+    "docs/art-direction.md": true,
+    "docs/world-layout.md": true,
+    "docs/architecture.md": true,
+    "docs/development.md": true,
+    "docs/api-contracts.md": true,
+    "docs/scene-structure.md": true,
+    "docs/multiplayer.md": true,
+    "project.godot": true,
+    "mise.toml": true,
+    ".gdstyle-version": true,
+    "gdstyle.toml": true,
+    "addons": true,
+    "tools/s01": true,
+    "tests/fixtures/s01": true,
+    "tests/fixtures/s03": true,
+    "art/source": true,
+    "art/models": true,
+    "tests/fixtures/s02/actor_motion.gd": true,
+    "tests/fixtures/s02/fixture.gd": true,
+    "tests/fixtures/s02/focus_evidence.gd": true
+  },
+  "focus_logs": {
+    "os-focus.log": {
+      "first": {
+        "command": {
+          "fire": false,
+          "move": 0.0,
+          "turn": 0.0
+        },
+        "focused": true,
+        "mode": 1,
+        "native_focus": true,
+        "position": "(0.0, 0.00087, 6.0)",
+        "shots": 0,
+        "time": 0.0323536666666667,
+        "visible": true
+      },
+      "last": {
+        "command": {
+          "fire": false,
+          "move": 0.0,
+          "turn": 0.0
+        },
+        "focused": true,
+        "mode": 1,
+        "native_focus": true,
+        "position": "(0.0, 0.001, -4.000001)",
+        "shots": 8,
+        "time": 6.95801400000004,
+        "visible": true
+      },
+      "results": [
+        {
+          "failures": [
+            "OS minimize did not deliver focus loss"
+          ],
+          "os_focus_loss": false
+        }
+      ],
+      "diagnostics": []
+    },
+    "history/post-capture-focus-failure.log": {
+      "first": {
+        "command": {
+          "fire": false,
+          "move": 0.0,
+          "turn": 0.0
+        },
+        "focused": true,
+        "mode": 1,
+        "native_focus": true,
+        "position": "(0.0, 0.00087, 6.0)",
+        "shots": 0,
+        "time": 0.0273286666666667,
+        "visible": true
+      },
+      "last": {
+        "command": {
+          "fire": false,
+          "move": 0.0,
+          "turn": 0.0
+        },
+        "focused": true,
+        "mode": 1,
+        "native_focus": true,
+        "position": "(0.0, 0.001, -4.000001)",
+        "shots": 8,
+        "time": 6.947854,
+        "visible": true
+      },
+      "results": [
+        {
+          "failures": [
+            "OS minimize did not deliver focus loss"
+          ],
+          "os_focus_loss": false
+        }
+      ],
+      "diagnostics": []
+    },
+    "history/pre-fix-focus-pass.log": {
+      "first": {
+        "command": {
+          "fire": false,
+          "move": 0.0,
+          "turn": 0.0
+        },
+        "focused": true,
+        "mode": 0,
+        "native_focus": true,
+        "position": "(0.0, 0.001, 6.0)",
+        "shots": 0,
+        "time": 0.1,
+        "visible": true
+      },
+      "last": {
+        "command": {
+          "fire": false,
+          "move": 0.0,
+          "turn": 0.0
+        },
+        "focused": true,
+        "mode": 0,
+        "native_focus": true,
+        "position": "(0.0, 0.001, 3.499997)",
+        "shots": 2,
+        "time": 6.95893066666665,
+        "visible": true
+      },
+      "results": [
+        {
+          "failures": [],
+          "os_focus_loss": true
+        }
+      ],
+      "diagnostics": []
+    }
+  },
+  "roundtrip_equal": false,
+  "base_delta_paths": [
+    "README.md",
+    "TODO.md"
+  ],
+  "readme_equals_base": true,
+  "todo_equals_base_plus_s02_note": true,
+  "owned_changes": [
+    "tests/fixtures/s02/aim_probe.gd",
+    "tests/fixtures/s02/capture_s02.gd",
+    "tests/fixtures/s02/check_s02.gd",
+    "tests/fixtures/s02/corner.tscn",
+    "tests/fixtures/s02/desktop_input.gd"
+  ],
+  "only_target_transform_scene_delta": true,
+  "roundtrip_parsed_equal": true,
+  "review_result": {
+    "failures": [],
+    "observations": {
+      "A then Left": {
+        "distance_m": 0.0,
+        "remaining": {
+          "fire": false,
+          "move": 0.0,
+          "turn": -1.0
+        },
+        "yaw_radians": 0.314159244298935
+      },
+      "D then Right": {
+        "distance_m": 0.0,
+        "remaining": {
+          "fire": false,
+          "move": 0.0,
+          "turn": 1.0
+        },
+        "yaw_radians": 0.314159244298935
+      },
+      "Down then S": {
+        "distance_m": 0.30000114440918,
+        "remaining": {
+          "fire": false,
+          "move": -1.0,
+          "turn": 0.0
+        },
+        "yaw_radians": 0.0
+      },
+      "Left then A": {
+        "distance_m": 0.0,
+        "remaining": {
+          "fire": false,
+          "move": 0.0,
+          "turn": -1.0
+        },
+        "yaw_radians": 0.314159214496613
+      },
+      "Right then D": {
+        "distance_m": 0.0,
+        "remaining": {
+          "fire": false,
+          "move": 0.0,
+          "turn": 1.0
+        },
+        "yaw_radians": 0.31415918469429
+      },
+      "S then Down": {
+        "distance_m": 0.30000114440918,
+        "remaining": {
+          "fire": false,
+          "move": -1.0,
+          "turn": 0.0
+        },
+        "yaw_radians": 0.0
+      },
+      "TargetBlocked_overlaps": 0,
+      "TargetClear_overlaps": 0,
+      "Up then W": {
+        "distance_m": 0.500000953674316,
+        "remaining": {
+          "fire": false,
+          "move": 1.0,
+          "turn": 0.0
+        },
+        "yaw_radians": 0.0
+      },
+      "W then Up": {
+        "distance_m": 0.500000953674316,
+        "remaining": {
+          "fire": false,
+          "move": 1.0,
+          "turn": 0.0
+        },
+        "yaw_radians": 0.0
+      },
+      "focus_api_cadence": [
+        135,
+        151
+      ],
+      "focus_api_cancel": "neutral, stopped, echo blocked, fresh press allowed",
+      "menu_cadence": [
+        92,
+        108
+      ],
+      "menu_cancel": "neutral, stopped, echo blocked, fresh press allowed",
+      "routed_route_end": "(3.583331, 0.001, -9.000001)"
+    }
+  },
+  "format_clean": true,
+  "lint_clean": true,
+  "head_at_end": "b826d3897d5b91dfc6c45276538dd459b433af06",
+  "status_at_end": "",
+  "affected_logs_diagnostics": {
+    "/tmp/s02-code-b826d38-outcomes/import.log": [],
+    "/tmp/s02-code-b826d38-outcomes/outcomes.log": [],
+    "/tmp/s02-code-b826d38-checks/independent.log": [],
+    "/tmp/s02-code-b826d38-checks/capture_s02.gd.log": [],
+    "/tmp/s02-code-b826d38-checks/check_s02.gd.log": [],
+    "/tmp/s02-code-b826d38-checks/aim_probe.gd.log": [],
+    "/tmp/s02-code-b826d38-checks/desktop_input.gd.log": []
+  }
+}

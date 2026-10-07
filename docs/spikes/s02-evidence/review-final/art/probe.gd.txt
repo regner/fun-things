@@ -1,0 +1,78 @@
+extends SceneTree
+const OUT := "/tmp/s02-art-review-extra-b826d38/"
+var fixture: S02Fixture
+var result: Dictionary = {}
+var failures: Array[String] = []
+func _initialize() -> void:
+	_run.call_deferred()
+func _key(code: Key, pressed: bool, echo: bool = false) -> void:
+	var e := InputEventKey.new()
+	e.keycode = code
+	e.physical_keycode = code
+	e.pressed = pressed
+	e.echo = echo
+	root.push_input(e)
+func _ticks(count: int, move_axis: float, turn_axis: float) -> void:
+	for i: int in count:
+		await physics_frame
+		fixture.step_intent(move_axis, turn_axis, false, 1.0/60.0)
+func _check(ok: bool, label: String) -> void:
+	if not ok:
+		failures.append(label)
+func _shot(label: String) -> void:
+	await physics_frame
+	fixture.step_intent(0, 0, true, 1.0/60.0)
+	result[label] = {"actor":str(fixture.actor.position),"yaw":fixture.actor.rotation.y,"hit":str(fixture.get_path_to(fixture.aim.last_hit)) if fixture.aim.last_hit != null else "none"}
+	await RenderingServer.frame_post_draw
+	RenderingServer.force_draw()
+	root.get_texture().get_image().save_png(OUT+label+".png")
+func _run() -> void:
+	fixture = load("res://tests/fixtures/s02/corner.tscn").instantiate()
+	fixture.manual_mode = true
+	root.add_child(fixture)
+	await physics_frame
+	await physics_frame
+	fixture.input_collector.set_focused(true)
+	_key(KEY_W,true)
+	_key(KEY_UP,true)
+	_key(KEY_UP,false)
+	result.original_alias_repro = fixture.input_collector.sample().duplicate()
+	_check(result.original_alias_repro.move == 1.0,"remaining W retains movement")
+	_key(KEY_W,false)
+	_check(fixture.input_collector.sample().move == 0.0,"last alias release neutral")
+	var ground: StaticBody3D = fixture.get_node("Ground/Collision/Body")
+	for name: String in ["TargetClear","TargetBlocked"]:
+		var target: StaticBody3D = fixture.get_node(name)
+		var shape: CollisionShape3D = target.get_node("Collision")
+		var query := PhysicsShapeQueryParameters3D.new()
+		query.shape = shape.shape
+		query.transform = shape.global_transform
+		query.collision_mask = 1
+		query.exclude = [ground.get_rid()]
+		var hits := target.get_world_3d().direct_space_state.intersect_shape(query)
+		result[name+"_world_overlap_count"] = hits.size()
+		_check(hits.is_empty(),name+" outside solid world")
+	fixture.actor.position = Vector3(3.57,0.001,3)
+	fixture.actor.rotation.y = 0
+	fixture.rig.bind(fixture.actor)
+	await _ticks(20,0,0)
+	await _shot("route_before")
+	_check(fixture.aim.last_hit == fixture.get_node("EastCorner/Collision/Body"),"south shot blocked")
+	# Continuous route from this blocked pose: west, north through passage, east, face north.
+	await _ticks(30,0,-1)
+	await _ticks(43,1,0)
+	await _ticks(30,0,1)
+	await _ticks(144,1,0)
+	await _ticks(30,0,1)
+	await _ticks(43,1,0)
+	await _ticks(30,0,-1)
+	await _ticks(30,0,0)
+	await _shot("route_after")
+	_check(fixture.actor.position.distance_to(Vector3(3.57,0.001,-9)) < 0.04,"continuous corner traversal reaches north pose")
+	_check(fixture.aim.last_hit == fixture.get_node("TargetBlocked"),"same target now clear")
+	result.failures = failures
+	FileAccess.open(OUT+"probe.json",FileAccess.WRITE).store_string(JSON.stringify(result,"\t"))
+	print("INDEPENDENT_FOLLOWUP ",JSON.stringify(result))
+	fixture.queue_free()
+	await process_frame
+	quit(0 if failures.is_empty() else 1)

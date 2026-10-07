@@ -195,9 +195,9 @@ next bounded question and whether it blocks M1. Do not expand into full feature
 implementation. Save editor mutations before playtests; preserve unsaved work.
 
 - [ ] **S02 — GTA2-style foot controls, camera and aiming.**
-  **Desktop exploration ACTIVE; no accepted output yet at this checkpoint.**
-  Owned by the existing S02 worker with the exclusive shared Godot/Blender lease;
-  coordinate through the orchestrator, do not launch duplicate fixture work.
+  **Desktop technical fixture reviewed; full S02 acceptance remains OPEN.**
+  Next desktop experiment: native focus and physical-key/user-feel validation.
+  Coordinate through the orchestrator and reuse the retained fixture.
   Deck cases are deferred for unavailable hardware; desktop 1280×800 views do not
   prove Deck input/performance or ratify subjective feel. Keep full S02 open.
   Needs: [ratified brief](docs/design.md), [accepted art/city brief](docs/art-direction.md)
@@ -215,8 +215,8 @@ implementation. Save editor mutations before playtests; preserve unsaved work.
   product decision. Decision: camera/control contract, actor/collision/aim envelope,
   playtest evidence and feel targets. No finished animation or weapon system required.
   Desktop exploration: [S02 fixture and evidence](docs/spikes/s02.md) supplies a
-  provisional 47 m/42° keyboard corner harness. Native focus revalidation, physical-key playtesting and user feel
-  remain pending; handheld/early S08 and all dependent gates remain open.
+  provisional 47 m/42° keyboard corner harness. Native focus revalidation, physical-key
+  playtesting and user feel remain pending; handheld/early S08 and dependent gates stay open.
 
 - [ ] **S03-S — Steam integration, friend connection and transport proof.**
   Needs: [S03 boundary/fixture evidence](docs/spikes/s03.md) and
