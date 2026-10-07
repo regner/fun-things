@@ -1,0 +1,83 @@
+[
+  {
+    "args": [
+      "rev-parse",
+      "HEAD",
+      "refs/heads/main"
+    ],
+    "exit": 0,
+    "stdout": "ef54f461ab5cbb4442c97d6d5f818687f4502605\n3b50a915d06f7ad383a4d6dc70403729918c0268\n",
+    "stderr": ""
+  },
+  {
+    "args": [
+      "status",
+      "--porcelain=v1"
+    ],
+    "exit": 0,
+    "stdout": "",
+    "stderr": ""
+  },
+  {
+    "args": [
+      "diff",
+      "--check",
+      "3b50a915d06f7ad383a4d6dc70403729918c0268...ef54f461ab5cbb4442c97d6d5f818687f4502605"
+    ],
+    "exit": 0,
+    "stdout": "",
+    "stderr": ""
+  },
+  {
+    "args": [
+      "log",
+      "--format=%H %P %s",
+      "3b50a915d06f7ad383a4d6dc70403729918c0268..ef54f461ab5cbb4442c97d6d5f818687f4502605"
+    ],
+    "exit": 0,
+    "stdout": "ef54f461ab5cbb4442c97d6d5f818687f4502605 f32a1d5c721a435f26bc3abd51de0a75a379ff96 Establish first plan checkpoint and scoped follow-up tasks\nf32a1d5c721a435f26bc3abd51de0a75a379ff96 3b50a915d06f7ad383a4d6dc70403729918c0268 Delegate periodic plan and documentation checkpoints\n",
+    "stderr": ""
+  },
+  {
+    "args": [
+      "rev-list",
+      "--merges",
+      "3b50a915d06f7ad383a4d6dc70403729918c0268..ef54f461ab5cbb4442c97d6d5f818687f4502605"
+    ],
+    "exit": 0,
+    "stdout": "",
+    "stderr": ""
+  },
+  {
+    "args": [
+      "merge-base",
+      "--is-ancestor",
+      "3b50a915d06f7ad383a4d6dc70403729918c0268",
+      "ef54f461ab5cbb4442c97d6d5f818687f4502605"
+    ],
+    "exit": 0,
+    "stdout": "",
+    "stderr": ""
+  },
+  {
+    "args": [
+      "diff",
+      "--name-status",
+      "3b50a915d06f7ad383a4d6dc70403729918c0268",
+      "ef54f461ab5cbb4442c97d6d5f818687f4502605"
+    ],
+    "exit": 0,
+    "stdout": "M\t.agents/skills/paseo-orchestrator/SKILL.md\nM\tTODO.md\nA\tdocs/reviews/plan-check-2026-10-07.md\nA\tdocs/reviews/plan-checkpoints.md\n",
+    "stderr": ""
+  },
+  {
+    "args": [
+      "worktree",
+      "list",
+      "--porcelain"
+    ],
+    "exit": 0,
+    "stdout": "worktree /home/regner/Development/fun-things\nHEAD 3b50a915d06f7ad383a4d6dc70403729918c0268\nbranch refs/heads/main\n\nworktree /home/regner/.paseo/worktrees/0u71f39f/plan-checkpoint-workflow\nHEAD ef54f461ab5cbb4442c97d6d5f818687f4502605\nbranch refs/heads/plan-checkpoint-workflow\n\n",
+    "stderr": ""
+  }
+]

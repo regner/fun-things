@@ -4,6 +4,8 @@ Planning baseline: 7 October 2026. The project has engine/style configuration,
 the Godot MCP Toolkit, isolated [S01 asset fixtures](docs/spikes/s01.md) and an
 [S03 session proof](docs/spikes/s03.md), but no production gameplay or main scene.
 This active work list retains remaining tasks and links completed work to evidence.
+Periodic whole-plan/documentation checks are indexed in
+[the checkpoint record index](docs/reviews/plan-checkpoints.md).
 
 Phase zero establishes decisions, documentation, review skills, reproducible checks,
 and small technical proofs. M1 builds the playable game using those results. A spike
@@ -144,9 +146,70 @@ acceptance/rejection paths and source/export/prefab/placement conventions. Use i
 [handoff template](docs/templates/asset-handoff.md) and
 [catalogue](docs/asset-catalogue.md) as assets arrive. The
 [P0-05 record](docs/decisions/p0-05-asset-workflow.md) records specification completion
-and alignment with the P0-02 contracts and accepted P0-04 direction. S01 still
-pins and proves the tool/settings workflow; a specification is not an accepted
-asset or roundtrip result.
+and alignment with the P0-02 contracts and accepted P0-04 direction.
+[S01 evidence](docs/spikes/s01.md)
+pins and proves the bounded tool/settings workflow; a specification is not production
+asset acceptance.
+
+### Deferred orchestration configuration
+
+- [ ] **P0-PROFILES — Create Paseo profiles from observed session requirements (DEFERRED).**
+  Owner: delegated workflow worker; orchestrator coordinates readiness and review.
+  **Ineligible in the current batch/first checkpoint.** Reassess at a later plan/profile
+  checkpoint after additional representative implementation, independent review and
+  visual/3D/spatial sessions accumulate beyond the first baseline. An empty inventory
+  or existing runs alone does not satisfy the requested wait; no fixed date is implied.
+  Needs: [checkpoint/profile baseline](docs/reviews/plan-check-2026-10-07.md#profile-baseline)
+  plus those later sessions' prompts, settings, outcomes, permission/tool limitations
+  and repeated operational friction, reconciled with supported provider capabilities.
+  Review evidence by actual task category, model/effort, tools/capabilities, permission
+  needs and recurring launch/routing problems. Propose a small useful set with notes
+  explaining intended use, exclusions and tradeoffs; avoid bundles without demonstrated need.
+  Preserve Luna 6 high for very simple tasks, Sol 6.1 medium/high for demanding work
+  and Astra for visual/3D/spatial work; no automatic ultra or broad-access default.
+  Done when: a later checkpoint records readiness evidence; proposed notes and exact
+  provider/model/effort/mode/features bundles are independently reviewed; configuration
+  follows then-authorized workflow; safe representative launches materialize each
+  bundle and demonstrate intended routing/capabilities, retained approval boundaries
+  and no silent model fallback. Record tests, limits, final inventory and next profile
+  revisit. Do not create/configure profiles, schedules or services in this checkpoint.
+
+### Documentation follow-ups from the first plan checkpoint
+
+These are documentation work, owned by a delegated documentation worker with
+independent review; they do not reopen completed proofs or require hardware access.
+Assign a named worker before starting. Finish before P0-GATE uses the reconciled guides.
+
+- [ ] **P0-DOC1 — Reconcile current foundation tooling/status with accepted evidence.**
+  Needs: [S01 evidence](docs/spikes/s01.md),
+  [combined P0-03/S03 acceptance](docs/spikes/s03.md#integration-validation) and
+  [first checkpoint findings](docs/reviews/plan-check-2026-10-07.md#documentation-findings).
+  Update `docs/guidance-sources.md` (compiler/resource checks are no longer all future),
+  `docs/assets.md` (focused source fingerprints/reexport tools now exist),
+  `docs/reviews/p0-06.md` (current-status supplement to its historical P0-03 deferral)
+  and `docs/spikes/s01.md` (current-status supplement to its closing P0-03-open claim).
+  Preserve original experiment/dry-run observations; link subsequent accepted evidence.
+  Done when: each named stale claim distinguishes completed fixture tooling from
+  future CI/production coverage, links exact evidence, and preserves rejected child
+  override, full-project diagnostics and unproven Steam/Deck/gameplay limits.
+  Check command names/scopes against `mise.toml` and `tools/`; validate links/diff.
+
+- [ ] **P0-DOC2 — Reassign remaining proof/acceptance ownership after S03 completion.**
+  Needs: [S03 limitations](docs/spikes/s03.md#alternatives-limitations-and-resulting-work),
+  [first checkpoint findings](docs/reviews/plan-check-2026-10-07.md#documentation-findings)
+  and the current task allocation below; can run alongside P0-DOC1.
+  Update `docs/api-contracts.md` limit/proof and contract-test ownership rows, and
+  `docs/architecture.md` remaining-decisions/review summary. Distinguish S03's verified
+  minimum from unproved admission/reset/seat/collision/action/flood/capacity cases;
+  the architecture's closing snapshot-reordering wording must link the settled S03
+  subset-refresh result rather than present it as still pending.
+  Done when: every remaining case attributed to completed S03 has an active S03-S,
+  S03-R, S04/S05/S07/S08 or M1-A/B/C/D owner as appropriate; spike decisions and full
+  production acceptance remain distinct. Reset implementation/validation maps to
+  M1-A2/B3/C3/D3; 12-car bounded feasibility maps to S05 and sustained load to M1-D3.
+  Validate against S03 source/results and the entire TODO; preserve provisional
+  limits, ratified policies and all hardware/Steam/P0-GATE requirements. No API/code
+  redesign or new technical proof is included; run local link and diff checks.
 
 ## Phase-zero technical spikes
 
@@ -182,7 +245,8 @@ implementation. Save editor mutations before playtests; preserve unsaved work.
   testers/package entitlement, depot OS/package inclusion and launch settings;
   confirm/create the intended `fun-things` private branch and record its access route.
   Live setup is unknown and was explicitly deferred from P0-01 by the user.
-  Compatibility/access research can run alongside S03; no new app is required.
+  Compatibility/access research can proceed using the completed S03 boundary;
+  no new app is required.
   Question: which pinned integration works with our exact Godot engine and supports
   Steam lobbies/invites plus actual gameplay traffic across friends' networks?
   Minimum: initialize the existing app, create/join one friend lobby and exchange
@@ -229,10 +293,14 @@ implementation. Save editor mutations before playtests; preserve unsaved work.
   outcome, wreck/collision lifetime and live-versus-historical presentation behavior.
   Decision: host-owned damage/explosion contract, event IDs and per-tick/queue/effect
   bounds, including duplicate ShotId rejection after damage-cache retirement.
-  Full joining races and sustained capacity loads belong in M1-B3/M1-D.
+  Extend the small fixture with a bounded 12-car burst to prove reserved chain work
+  completes despite only eight cosmetic explosion slots; retain queue/work peaks and
+  off-camera outcomes. Full joining races and sustained capacity loads belong in
+  M1-B3/M1-D.
 
 - [ ] **S06 — Shared city topology, navigation and minimap.**
-  Needs: S01, S02, S04 dimensions and [accepted district brief](docs/world-layout.md).
+  Needs: [S01 pipeline evidence](docs/spikes/s01.md), S02, S04 dimensions and
+  [accepted district brief](docs/world-layout.md).
   Question: which authored representation supports lanes, sidewalks, seams and road-map drawing?
   Minimum: one intersection split across two saved sectors; one person takes a
   sidewalk/crossing route, one car makes a legal turn, and minimap roads align at
@@ -243,7 +311,8 @@ implementation. Save editor mutations before playtests; preserve unsaved work.
   workflow. Specify bounded blockage/junction/stuck/wreck recovery for M1-C3.
 
 - [ ] **S07 — Top-down culling and representative load.**
-  Needs: S01, S02 camera, S06 sector fixture and preliminary S05 effect load.
+  Needs: [S01 pipeline evidence](docs/spikes/s01.md), S02 camera, S06 sector fixture
+  and preliminary S05 effect load.
   Question: which culling/LOD/sector choices help from our actual camera without visual errors?
   Minimum: repeated imported fixtures and simple moving stand-ins at proposed load;
   camera movement/fast driving, distant player views and an explosion-effect burst.
@@ -257,7 +326,8 @@ implementation. Save editor mutations before playtests; preserve unsaved work.
 
 - [ ] **S08 — First-target export and service compatibility.**
   Needs: [ratified target/pin record](docs/design.md) for early input/template checks;
-  S01, [S03 evidence](docs/spikes/s03.md) and S03-S for the complete proof. Owner: Codex (proof), Regner (device access).
+  [S01 pipeline evidence](docs/spikes/s01.md), [S03 evidence](docs/spikes/s03.md)
+  and S03-S for the complete proof. Owner: Codex (proof), Regner (device access).
   Early input evidence settles the engine decision deliberately left open in P0-01.
   First: minimal exported Deck Gaming Mode input/native-extension initialization
   test, exact templates and candidate engine choice for the dev7 controller regression.
@@ -284,7 +354,8 @@ implementation. Save editor mutations before playtests; preserve unsaved work.
   [foundation tooling evidence](docs/spikes/s03.md#integration-validation),
   [art-review evidence](docs/reviews/p0-07.md),
   [GDScript review evidence](docs/reviews/p0-06.md),
-  [P0-05 workflow record](docs/decisions/p0-05-asset-workflow.md), S01/S02,
+  [P0-05 workflow record](docs/decisions/p0-05-asset-workflow.md),
+  [S01 pipeline evidence](docs/spikes/s01.md), S02, P0-DOC1/P0-DOC2,
   [completed S03 proof](docs/spikes/s03.md), S03-R/S03-S and S04 through S08.
   Done when: critical design/feasibility assumptions required to begin M1 are resolved;
   the user ratifies scope, chosen art/layout and camera/control choices against
@@ -310,6 +381,8 @@ waiting for unrelated gameplay systems.
   Needs: [S03 evidence](docs/spikes/s03.md), S03-S/S08 decisions.
   Build both providers, Steam lobby/invite adapter and Host/Join/Settings/Quit
   scenes with loading/readiness/roster, actionable errors, cancel, leave and retry.
+  Include Standalone entry and in-match leave/settings/host-reset requests, following
+  the ratified brief; only host/standalone may reset, including when dead.
   Offer local-network and Steam friend sessions; route manual endpoints, friend/
   overlay invites and launch requests through the same join/cancel lifecycle.
   Done when: baseline/admission/compatibility and bounded teardown are correct;
@@ -323,7 +396,10 @@ waiting for unrelated gameplay systems.
   interpolation and foot prediction if required. Keep rules shared across offline,
   authoritative simulation and permitted replay. Add safe spawn/death/respawn lifecycle.
   Done when: distinct players move/aim independently; input expiry/focus loss work;
-  convergence meets the selected envelope. Selected offline play uses the same rules.
+  convergence meets the selected envelope. Standalone play uses the same rules.
+  Match owns a reset coordinator: preserve admitted peers, restore initial player
+  state and rehydrate before input; reject old-match commands and preserve saved
+  placement. Extend this same transition with each later dynamic gameplay owner.
 
 - [ ] **M1-A3 — Settings, audio buses and persistence.**
   Needs: P0 API decisions; can run alongside M1-A1/A2.
@@ -336,7 +412,8 @@ waiting for unrelated gameplay systems.
   Needs: M1-A1 through M1-A3.
   Two exported processes independently walk/collide, late-join and leave/rejoin with
   one rig each; cancel/retry and host-loss/error flows clean up. Validate selected
-  offline mode, audio persistence and latency response. Review logs and owned-script
+  offline mode, host/standalone reset with admitted peers retained, audio persistence
+  and latency response. Review logs and owned-script
   checks; retain evidence before extending the shell.
   Run the shared lifecycle through both providers: ENet with Steam unavailable and
   Steam with distinct accounts/networks, using friend joining/invites. Inspect the
@@ -351,7 +428,8 @@ waiting for unrelated gameplay systems.
   Done when: players enter/drive/exit; simultaneous claims, blocked exits, death,
   disconnect and car destruction follow the seat contract. NPC-to-player control
   transfer has one authoritative simulation owner; player input ownership never
-  grants client physics authority. Verify return-to-traffic policy if selected.
+  grants client physics authority. Preserve the ratified parked-car policy after
+  abandonment; resuming traffic AI requires a recorded product change.
 
 - [ ] **M1-B2 — Weapons, health, damage and respawn.**
   Needs: M1-A-GATE and combat/API decisions; can run alongside M1-B1.
@@ -368,7 +446,9 @@ waiting for unrelated gameplay systems.
   Done when: clustered cars chain and distant/protected cars follow the blast policy;
   no cycles/duplicate damage; collision/lifecycle completes before dependent state
   is published. Offscreen chains work; joining during/after one receives correct
-  wreck/health state without replaying historical explosions.
+  wreck/health state without replaying historical explosions. Register combat,
+  seats, rockets, chains and wreck cleanup with the existing Match reset transition;
+  reset while driving/firing restores initial dynamic state and clears old work.
 
 - [ ] **M1-B4 — Shooting/explosion feedback and vertical-slice review.**
   Needs: M1-B2/B3 event contracts; effects/audio can develop alongside those tasks.
@@ -409,11 +489,14 @@ waiting for unrelated gameplay systems.
   Done when: pedestrians stay on sidewalks except sanctioned crossings; cars make
   legal road turns and recover from obstruction; NPC-to-player vehicle transfer,
   sector routes, distant players, late joins and offscreen gameplay remain coherent.
+  Population reset restores initial descriptors under Match, clears old AI/replenishment
+  work and stays within caps without rewriting city placement.
 
 - [ ] **M1-C4 — Road minimap and local HUD integration.**
   Needs: S06 topology contract and M1-A2; final alignment uses M1-C2.
-  Draw roads from the selected city data, with player position/orientation and useful
-  agreed markers. Define map scale, rotation, bounds and sector data lifetime.
+  Draw roads from the selected city data with the local controlled-entity
+  position/orientation marker; additional markers require a product decision.
+  Define map scale, rotation, bounds and sector data lifetime.
   Done when: intersections/seams match world roads at both walking/driving speeds,
   late-join/map load works, markers track the local controlled entity and HUD state
   comes from gameplay owners. No separately maintained minimap street layout.
@@ -443,7 +526,9 @@ waiting for unrelated gameplay systems.
   effect/chain bursts on named hardware. Measure frame/physics times, draw calls,
   memory, bandwidth, queue/replay work and response/correction behavior.
   Exercise delay/jitter/loss/duplicates/stale identities, slow admission, host stalls,
-  invalid intent, seat/lifecycle races and changing collision through production APIs.
+  invalid intent, seat/lifecycle races, reset while driving/firing or joining, and
+  changing collision through production APIs. Verify retained peers, new revision
+  hydration, cleared history/effects/queues and unchanged authored placement.
   Run shared gameplay scenarios through both ENet and Steam; verify each provider's
   transfer modes/channels, payload limits and observed behavior independently.
   Done when: ratified budgets/convergence hold, limits stay bounded, authoritative
@@ -470,7 +555,8 @@ waiting for unrelated gameplay systems.
   explore on foot/in cars, use the agreed weapons, encounter sidewalk pedestrians
   and road traffic, and cause car explosion chains; roads appear on the minimap;
   shooting/explosion feedback is readable; audio settings persist; menus/failures/
-  leave/retry work. Require the agreed feel, performance and multiplayer evidence,
+  leave/retry and host/standalone reset work. Require the agreed feel, performance
+  and multiplayer evidence,
   ENet local testing and Steam friend playtesting on the existing app, plus the
   selected offline/target promises. Current docs describe shipped behavior.
 
@@ -479,7 +565,7 @@ waiting for unrelated gameplay systems.
 | When | Work that can run together | Must wait |
 | --- | --- | --- |
 | Initial foundation | Ratified brief, contract drafts, concept exploration, tool inventory | Chosen style/layout and measured scope revisions need user ratification and evidence |
-| Tiny fixtures available | S01 pipeline, S02 camera; use [completed S03 session evidence](docs/spikes/s03.md); review skill drafts | All visible fixtures must have Blender sources; only minimum harness required |
+| Tiny fixtures available | S02 camera using [S01 pipeline evidence](docs/spikes/s01.md); use [completed S03 session evidence](docs/spikes/s03.md); review skill dry runs | All visible fixtures must have Blender sources; only minimum harness required |
 | ENet boundary available | S03-S Steam proof, S04 car candidates, S08 packaging work | Existing-app/tester access and native compatibility must be established early |
 | Both providers available | Finish S03-R foot response and S04 network response; S08 exports | Both transports need evidence; foot/vehicle prediction are separate decisions |
 | Vehicle envelope available | S05 chain proof and S06 intersection/seam | S06 uses pipeline plus real actor/turning dimensions |
