@@ -1,0 +1,49 @@
+{
+  "source": "Independent read-only get_agent_status for exactly four supplied evidence IDs; not a profile inventory or launch test.",
+  "sessions": [
+    {
+      "agentId": "8eb5e643-77ee-4e86-bafa-1d9705823034",
+      "provider": "codex",
+      "model": "gpt-6.1-sol",
+      "thinkingOptionId": "high",
+      "modeId": "auto-review",
+      "status": "idle",
+      "sessionId": "01a117e9-09ca-73d2-a391-ed0ad0b64f77",
+      "workspaceId": "wks_125a405b3fe9d496",
+      "task": "Reconcile foundation docs with accepted proof evidence"
+    },
+    {
+      "agentId": "456f1c39-e152-4cc9-9903-1a7d0c76ad87",
+      "provider": "codex",
+      "model": "gpt-6.1-sol",
+      "thinkingOptionId": "high",
+      "modeId": "auto-review",
+      "status": "idle",
+      "sessionId": "01a117f2-9737-73a1-9f7c-5f31ca366f32",
+      "workspaceId": "wks_125a405b3fe9d496",
+      "task": "Independent P0-DOC1/DOC2 semantic review"
+    },
+    {
+      "agentId": "538a5b36-d2fe-493b-ad9d-35dcc5f816c9",
+      "provider": "codex",
+      "model": "gpt-6.1-sol",
+      "thinkingOptionId": "high",
+      "modeId": "auto-review",
+      "status": "idle",
+      "sessionId": "01a11803-ac78-7f33-8e46-27e6690a89ae",
+      "workspaceId": "wks_dff1a3bac51dae48",
+      "task": "S03-S Steam transport compatibility preflight"
+    },
+    {
+      "agentId": "96758d2a-8906-4981-a8b9-62c13cb2f406",
+      "provider": "codex",
+      "model": "gpt-6-astra",
+      "thinkingOptionId": "high",
+      "modeId": "auto-review",
+      "status": "running",
+      "sessionId": "01a11806-68c4-7062-b91b-857210bd6e65",
+      "workspaceId": "wks_e98d9a046543d294",
+      "task": "S02 desktop controls and top-down camera proof"
+    }
+  ]
+}

@@ -1,0 +1,3 @@
+PASS inspected retained exact-source hash: godotsteam_multiplayer_peer.cpp 9670cb68c74b5bcaa6391f091074ccfd21a0738d3e7e234c812efdded26b50c2
+PASS inspected retained exact-source hash: steam_packet_peer.cpp a387797bcfa283968090f108e69ba8d9ef49274128bf5eba1c31b6e9d29630f6
+Manual source inspection confirms ordered-unreliable maps to reliable and p_channel >= configured_lanes - 1 falls back to channel 0; no behavior run.
