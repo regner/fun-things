@@ -22,5 +22,7 @@ and ineligible. No checkpoint history or checked-through watermark was advanced.
 
 Validation is static evidence/source/task inspection, local links/headings and
 whitespace, with retained accepted hashes/results checked by the documentation
-checker. No gameplay/engine/Blender/network/device/service proof was rerun. Final
-independent review and exact-revision disposition are retained with the handoff.
+checker. No gameplay/engine/Blender/network/device/service proof was rerun. The
+[independent report](foundation-doc-review.md) and
+[check output](foundation-doc-evidence/independent-checks.txt) retain review of the
+resolving candidate; exact final-revision disposition accompanies the handoff.

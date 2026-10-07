@@ -19,6 +19,7 @@ preserving formatter and broader production checks remain M1-D1. It preserves th
 rejected imported-child override, full-project diagnostics and unproved
 Steam/Deck/gameplay cases. Static evidence/command inspection and local link/heading
 and whitespace checks validate documentation only; no engine, Blender, network,
-hardware or service checks were rerun. Final independent review is retained with
-the workstream handoff. The first checkpoint's history and checked-through
+hardware or service checks were rerun. The [independent report](foundation-doc-review.md) and
+[check output](foundation-doc-evidence/independent-checks.txt) retain review of the
+resolving candidate; exact final-revision disposition accompanies the handoff. The first checkpoint's history and checked-through
 `3b50a915d06f7ad383a4d6dc70403729918c0268` watermark remain unchanged.
