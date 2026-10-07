@@ -1,0 +1,39 @@
+[
+  {
+    "method": "node.call_method",
+    "params": {
+      "node_path": ".",
+      "method_name": "editor_state",
+      "args": []
+    },
+    "response": {
+      "id": 1,
+      "jsonrpc": "2.0",
+      "result": {
+        "method": "editor_state",
+        "path": ".",
+        "result": {
+          "open": "PackedStringArray(\"res://tests/fixtures/s02/editor_harness.tscn\", \"res://tests/fixtures/s03_r/actor.tscn\", \"res://tests/fixtures/s03_r/boot.tscn\")",
+          "project": "/home/regner/Development/fun-things/",
+          "unsaved": "PackedStringArray()"
+        },
+        "success": true
+      }
+    }
+  },
+  {
+    "method": "execute_code",
+    "params": {
+      "code": "get_tree().get_root().get_children().size()",
+      "channel": "editor"
+    },
+    "response": {
+      "error": {
+        "code": -32601,
+        "message": "Method not found: execute_code"
+      },
+      "id": 2,
+      "jsonrpc": "2.0"
+    }
+  }
+]

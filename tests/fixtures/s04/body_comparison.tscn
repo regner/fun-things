@@ -1,0 +1,48 @@
+[gd_scene format=3 uid="uid://bv3wghqyvcfii"]
+
+[ext_resource type="Script" uid="uid://bq307pfrrut6f" path="res://tests/fixtures/s04/body_comparison.gd" id="1_76q7d"]
+[ext_resource type="PackedScene" uid="uid://cyyhi67pisbql" path="res://tests/fixtures/s04/kinematic.tscn" id="2_x5ccw"]
+[ext_resource type="Script" uid="uid://ioa3f2cddayr" path="res://tests/fixtures/s04/kinematic.gd" id="3_aedf6"]
+[ext_resource type="PackedScene" uid="uid://c0e5nhmdjdf7r" path="res://tests/fixtures/s04/dynamic.tscn" id="4_mdali"]
+[ext_resource type="Script" uid="uid://7458xwqpv6b4" path="res://tests/fixtures/s04/dynamic.gd" id="5_m04ld"]
+[ext_resource type="PackedScene" uid="uid://whg1w4ybnvqq" path="res://tests/fixtures/s04/track.tscn" id="6_52smo"]
+
+[node name="body_comparison" type="Node3D" unique_id=1979216351]
+script = ExtResource("1_76q7d")
+
+[node name="Kinematic" type="CharacterBody3D" parent="." unique_id=1110260024 instance=ExtResource("2_x5ccw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15, 0.001, 10)
+collision_layer = 0
+collision_mask = 0
+motion_mode = 1
+script = ExtResource("3_aedf6")
+
+[node name="Dynamic" type="RigidBody3D" parent="." unique_id=1041947096 instance=ExtResource("4_mdali")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15, 0.001, 10)
+collision_layer = 0
+collision_mask = 0
+axis_lock_linear_y = true
+axis_lock_angular_x = true
+axis_lock_angular_z = true
+gravity_scale = 0.0
+freeze = true
+custom_integrator = true
+contact_monitor = true
+max_contacts_reported = 4
+script = ExtResource("5_m04ld")
+
+[node name="Passive" type="RigidBody3D" parent="." unique_id=1465858126 instance=ExtResource("4_mdali")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20, 0.001, 10)
+collision_layer = 0
+collision_mask = 0
+axis_lock_linear_y = true
+axis_lock_angular_x = true
+axis_lock_angular_z = true
+gravity_scale = 0.0
+freeze = true
+custom_integrator = true
+contact_monitor = true
+max_contacts_reported = 4
+script = ExtResource("5_m04ld")
+
+[node name="Track" type="Node3D" parent="." unique_id=1943514348 instance=ExtResource("6_52smo")]

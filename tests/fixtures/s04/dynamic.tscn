@@ -1,0 +1,47 @@
+[gd_scene format=3 uid="uid://c0e5nhmdjdf7r"]
+
+[ext_resource type="Script" uid="uid://7458xwqpv6b4" path="res://tests/fixtures/s04/dynamic.gd" id="1_jouot"]
+[ext_resource type="PackedScene" uid="uid://g2exvhxy70wu" path="res://art/models/spikes/s04_car.glb" id="2_a27ua"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_r4xjr"]
+size = Vector3(1.8, 1.5, 3.4)
+
+[node name="dynamic" type="RigidBody3D" unique_id=1041947096]
+collision_layer = 0
+collision_mask = 0
+axis_lock_linear_y = true
+axis_lock_angular_x = true
+axis_lock_angular_z = true
+gravity_scale = 0.0
+freeze = true
+custom_integrator = true
+contact_monitor = true
+max_contacts_reported = 4
+script = ExtResource("1_jouot")
+
+[node name="PresentationAnchor" type="Node3D" parent="." unique_id=329166780]
+
+[node name="Visuals" type="Node3D" parent="PresentationAnchor" unique_id=306757294]
+
+[node name="Model" type="Node3D" parent="PresentationAnchor/Visuals" unique_id=1781694682 instance=ExtResource("2_a27ua")]
+
+[node name="Collision" type="CollisionShape3D" parent="." unique_id=700781870]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.75, 0)
+shape = SubResource("BoxShape3D_r4xjr")
+
+[node name="Sockets" type="Node3D" parent="." unique_id=572110113]
+
+[node name="DriverSeat" type="Marker3D" parent="Sockets" unique_id=1830933075]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8, 0.1)
+
+[node name="EntryLeft" type="Marker3D" parent="Sockets" unique_id=1409534293]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.3, 0, 0.1)
+
+[node name="EntryRight" type="Marker3D" parent="Sockets" unique_id=137602566]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.3, 0, 0.1)
+
+[node name="ExitLeft" type="Marker3D" parent="Sockets" unique_id=852768686]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, 0, 0.1)
+
+[node name="ExitRight" type="Marker3D" parent="Sockets" unique_id=743204813]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 0, 0.1)

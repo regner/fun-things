@@ -1,0 +1,142 @@
+[
+  {
+    "method": "scene.open",
+    "params": {
+      "file_path": "res://tests/fixtures/s04/boot.tscn"
+    },
+    "response": {
+      "id": 1,
+      "jsonrpc": "2.0",
+      "result": {
+        "hint": "Note: another session is currently editing res://tests/fixtures/s04/kinematic.tscn. Work that doesn't target this scene executes immediately without waiting — for example, reading or writing scripts for your own scenes, managing your files, or querying project info. Work that modifies nodes or reads scene trees will queue until the editor tab becomes available — wait times are variable.",
+        "path": "res://tests/fixtures/s04/boot.tscn",
+        "success": true
+      }
+    }
+  },
+  {
+    "method": "editor.save_scene",
+    "params": {},
+    "response": {
+      "id": 2,
+      "jsonrpc": "2.0",
+      "result": {
+        "_meta": {
+          "concurrency": {
+            "lease_holder_scene": "res://tests/fixtures/s04/boot.tscn",
+            "queued_ms": 27,
+            "reason": "scene_lease_wait"
+          }
+        },
+        "path": "res://tests/fixtures/s04/boot.tscn",
+        "success": true
+      }
+    }
+  },
+  {
+    "method": "scene.close",
+    "params": {
+      "file_path": "res://tests/fixtures/s04/boot.tscn"
+    },
+    "response": {
+      "id": 3,
+      "jsonrpc": "2.0",
+      "result": {
+        "path": "res://tests/fixtures/s04/boot.tscn",
+        "success": true,
+        "unsaved_changes_discarded": false
+      }
+    }
+  },
+  {
+    "method": "scene.open",
+    "params": {
+      "file_path": "res://tests/fixtures/s04/boot.tscn"
+    },
+    "response": {
+      "id": 4,
+      "jsonrpc": "2.0",
+      "result": {
+        "path": "res://tests/fixtures/s04/boot.tscn",
+        "success": true
+      }
+    }
+  },
+  {
+    "method": "scene.get_tree",
+    "params": {
+      "max_depth": 5
+    },
+    "response": {
+      "id": 5,
+      "jsonrpc": "2.0",
+      "result": {
+        "success": true,
+        "tree": "<untrusted-d669a8ae kind=\"scene_tree\" source=\"res://tests/fixtures/s04/boot.tscn\">\n{\"children\":[{\"children\":[],\"class\":\"Node\",\"name\":\"Session\",\"path\":\"Session\"},{\"children\":[{\"children\":[{\"children\":[],\"class\":\"Node\",\"name\":\"Replication\",\"path\":\"View/Match/Replication\"},{\"children\":[],\"class\":\"Node3D\",\"name\":\"RuntimeEntities\",\"path\":\"View/Match/RuntimeEntities\"},{\"children\":[{\"children\":[{\"children\":[],\"class\":\"Node3D\",\"name\":\"Visuals\",\"path\":\"View/Match/CityRoot/Track/Visuals\"},{\"children\":[],\"class\":\"Node3D\",\"name\":\"Collision\",\"path\":\"View/Match/CityRoot/Track/Collision\"}],\"class\":\"Node3D\",\"name\":\"Track\",\"path\":\"View/Match/CityRoot/Track\"}],\"class\":\"Node3D\",\"name\":\"CityRoot\",\"path\":\"View/Match/CityRoot\"},{\"children\":[{\"children\":[{\"children\":[],\"class\":\"Node3D\",\"name\":\"PresentationAnchor\",\"path\":\"View/Match/Bodies/Host/PresentationAnchor\"},{\"children\":[],\"class\":\"CollisionShape3D\",\"name\":\"Collision\",\"path\":\"View/Match/Bodies/Host/Collision\"},{\"children\":[],\"class\":\"Node3D\",\"name\":\"Sockets\",\"path\":\"View/Match/Bodies/Host/Sockets\"}],\"class\":\"CharacterBody3D\",\"name\":\"Host\",\"path\":\"View/Match/Bodies/Host\"},{\"children\":[{\"children\":[],\"class\":\"Node3D\",\"name\":\"PresentationAnchor\",\"path\":\"View/Match/Bodies/Client/PresentationAnchor\"},{\"children\":[],\"class\":\"CollisionShape3D\",\"name\":\"Collision\",\"path\":\"View/Match/Bodies/Client/Collision\"},{\"children\":[],\"class\":\"Node3D\",\"name\":\"Sockets\",\"path\":\"View/Match/Bodies/Client/Sockets\"}],\"class\":\"CharacterBody3D\",\"name\":\"Client\",\"path\":\"View/Match/Bodies/Client\"}],\"class\":\"Node3D\",\"name\":\"Bodies\",\"path\":\"View/Match/Bodies\"}],\"class\":\"Node3D\",\"name\":\"Match\",\"path\":\"View/Match\"}],\"class\":\"Node\",\"name\":\"View\",\"path\":\"View\"},{\"children\":[],\"class\":\"Node\",\"name\":\"Input\",\"path\":\"Input\"},{\"children\":[{\"children\":[],\"class\":\"Camera3D\",\"name\":\"Camera3D\",\"path\":\"CameraRig/Camera3D\"}],\"class\":\"Node3D\",\"name\":\"CameraRig\",\"path\":\"CameraRig\"},{\"children\":[],\"class\":\"DirectionalLight3D\",\"name\":\"Sun\",\"path\":\"Sun\"},{\"children\":[],\"class\":\"WorldEnvironment\",\"name\":\"Environment\",\"path\":\"Environment\"},{\"children\":[{\"children\":[],\"class\":\"Label\",\"name\":\"Status\",\"path\":\"UI/Status\"}],\"class\":\"CanvasLayer\",\"name\":\"UI\",\"path\":\"UI\"}],\"class\":\"Node\",\"name\":\"Boot\",\"path\":\".\"}\n</untrusted-d669a8ae>"
+      }
+    }
+  },
+  {
+    "method": "editor.save_scene",
+    "params": {},
+    "response": {
+      "id": 6,
+      "jsonrpc": "2.0",
+      "result": {
+        "path": "res://tests/fixtures/s04/boot.tscn",
+        "success": true
+      }
+    }
+  },
+  {
+    "method": "scene.close",
+    "params": {
+      "file_path": "res://tests/fixtures/s04/boot.tscn"
+    },
+    "response": {
+      "id": 7,
+      "jsonrpc": "2.0",
+      "result": {
+        "path": "res://tests/fixtures/s04/boot.tscn",
+        "success": true,
+        "unsaved_changes_discarded": false
+      }
+    }
+  },
+  {
+    "method": "scene.open",
+    "params": {
+      "file_path": "res://tests/fixtures/s02/editor_harness.tscn"
+    },
+    "response": {
+      "id": 8,
+      "jsonrpc": "2.0",
+      "result": {
+        "path": "res://tests/fixtures/s02/editor_harness.tscn",
+        "success": true
+      }
+    }
+  },
+  {
+    "method": "node.call_method",
+    "params": {
+      "node_path": ".",
+      "method_name": "editor_state",
+      "args": []
+    },
+    "response": {
+      "id": 9,
+      "jsonrpc": "2.0",
+      "result": {
+        "method": "editor_state",
+        "path": ".",
+        "result": {
+          "open": "PackedStringArray(\"res://tests/fixtures/s02/editor_harness.tscn\", \"res://tests/fixtures/s04/kinematic.tscn\")",
+          "project": "/home/regner/.paseo/worktrees/0u71f39f/s04-desktop-enet-cars/",
+          "unsaved": "PackedStringArray()"
+        },
+        "success": true
+      }
+    }
+  }
+]

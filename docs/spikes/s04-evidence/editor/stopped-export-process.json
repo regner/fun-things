@@ -1,0 +1,14 @@
+[
+  {
+    "pid": 219926,
+    "cmd": [
+      "blender",
+      "--background",
+      "art/source/models/spikes/s04_kit.blend",
+      "--python",
+      "tools/s04/export.py",
+      "--",
+      "art/models/spikes"
+    ]
+  }
+]

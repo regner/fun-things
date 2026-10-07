@@ -1,0 +1,269 @@
+[
+  {
+    "method": "scene.create",
+    "params": {
+      "file_path": "res://tests/fixtures/s04/body_comparison.tscn",
+      "root_type": "Node3D"
+    },
+    "response": {
+      "id": 1,
+      "jsonrpc": "2.0",
+      "result": {
+        "hint": "Scene saved. Open it for editing with scene_open.",
+        "indexed": true,
+        "path": "res://tests/fixtures/s04/body_comparison.tscn",
+        "root_name": "body_comparison",
+        "root_path": ".",
+        "root_type": "Node3D",
+        "status": "created",
+        "success": true
+      }
+    }
+  },
+  {
+    "method": "scene.open",
+    "params": {
+      "file_path": "res://tests/fixtures/s04/body_comparison.tscn"
+    },
+    "response": {
+      "id": 2,
+      "jsonrpc": "2.0",
+      "result": {
+        "path": "res://tests/fixtures/s04/body_comparison.tscn",
+        "success": true
+      }
+    }
+  },
+  {
+    "method": "node.set_script",
+    "params": {
+      "node_path": ".",
+      "script_path": "res://tests/fixtures/s04/body_comparison.gd"
+    },
+    "response": {
+      "id": 3,
+      "jsonrpc": "2.0",
+      "result": {
+        "path": ".",
+        "properties": [],
+        "script": "res://tests/fixtures/s04/body_comparison.gd",
+        "success": true
+      }
+    }
+  },
+  {
+    "method": "scene.instantiate",
+    "params": {
+      "parent_path": ".",
+      "scene_path": "res://tests/fixtures/s04/kinematic.tscn",
+      "as_name": "Kinematic"
+    },
+    "response": {
+      "id": 4,
+      "jsonrpc": "2.0",
+      "result": {
+        "class_name": "CharacterBody3D",
+        "path": "Kinematic",
+        "status": "created",
+        "success": true
+      }
+    }
+  },
+  {
+    "method": "node.set_property",
+    "params": {
+      "node_path": "Kinematic",
+      "property": "position",
+      "value": {
+        "type": "Vector3",
+        "x": 15,
+        "y": 0.001,
+        "z": 10
+      }
+    },
+    "response": {
+      "id": 5,
+      "jsonrpc": "2.0",
+      "result": {
+        "success": true
+      }
+    }
+  },
+  {
+    "method": "scene.instantiate",
+    "params": {
+      "parent_path": ".",
+      "scene_path": "res://tests/fixtures/s04/dynamic.tscn",
+      "as_name": "Dynamic"
+    },
+    "response": {
+      "id": 6,
+      "jsonrpc": "2.0",
+      "result": {
+        "class_name": "RigidBody3D",
+        "path": "Dynamic",
+        "status": "created",
+        "success": true
+      }
+    }
+  },
+  {
+    "method": "node.set_property",
+    "params": {
+      "node_path": "Dynamic",
+      "property": "position",
+      "value": {
+        "type": "Vector3",
+        "x": 15,
+        "y": 0.001,
+        "z": 10
+      }
+    },
+    "response": {
+      "id": 7,
+      "jsonrpc": "2.0",
+      "result": {
+        "success": true
+      }
+    }
+  },
+  {
+    "method": "scene.instantiate",
+    "params": {
+      "parent_path": ".",
+      "scene_path": "res://tests/fixtures/s04/dynamic.tscn",
+      "as_name": "Passive"
+    },
+    "response": {
+      "id": 8,
+      "jsonrpc": "2.0",
+      "result": {
+        "class_name": "RigidBody3D",
+        "path": "Passive",
+        "status": "created",
+        "success": true
+      }
+    }
+  },
+  {
+    "method": "node.set_property",
+    "params": {
+      "node_path": "Passive",
+      "property": "position",
+      "value": {
+        "type": "Vector3",
+        "x": -20,
+        "y": 0.001,
+        "z": 10
+      }
+    },
+    "response": {
+      "id": 9,
+      "jsonrpc": "2.0",
+      "result": {
+        "success": true
+      }
+    }
+  },
+  {
+    "method": "scene.instantiate",
+    "params": {
+      "parent_path": ".",
+      "scene_path": "res://tests/fixtures/s04/track.tscn",
+      "as_name": "Track"
+    },
+    "response": {
+      "id": 10,
+      "jsonrpc": "2.0",
+      "result": {
+        "class_name": "Node3D",
+        "path": "Track",
+        "status": "created",
+        "success": true
+      }
+    }
+  },
+  {
+    "method": "node.set_property",
+    "params": {
+      "node_path": "Track",
+      "property": "position",
+      "value": {
+        "type": "Vector3",
+        "x": 0,
+        "y": 0,
+        "z": 0
+      }
+    },
+    "response": {
+      "id": 11,
+      "jsonrpc": "2.0",
+      "result": {
+        "success": true
+      }
+    }
+  },
+  {
+    "method": "editor.save_scene",
+    "params": {},
+    "response": {
+      "id": 12,
+      "jsonrpc": "2.0",
+      "result": {
+        "path": "res://tests/fixtures/s04/body_comparison.tscn",
+        "success": true
+      }
+    }
+  },
+  {
+    "method": "scene.close",
+    "params": {
+      "file_path": "res://tests/fixtures/s04/body_comparison.tscn"
+    },
+    "response": {
+      "id": 13,
+      "jsonrpc": "2.0",
+      "result": {
+        "path": "res://tests/fixtures/s04/body_comparison.tscn",
+        "success": true,
+        "unsaved_changes_discarded": false
+      }
+    }
+  },
+  {
+    "method": "scene.open",
+    "params": {
+      "file_path": "res://tests/fixtures/s02/editor_harness.tscn"
+    },
+    "response": {
+      "id": 14,
+      "jsonrpc": "2.0",
+      "result": {
+        "path": "res://tests/fixtures/s02/editor_harness.tscn",
+        "success": true
+      }
+    }
+  },
+  {
+    "method": "node.call_method",
+    "params": {
+      "node_path": ".",
+      "method_name": "editor_state",
+      "args": []
+    },
+    "response": {
+      "id": 15,
+      "jsonrpc": "2.0",
+      "result": {
+        "method": "editor_state",
+        "path": ".",
+        "result": {
+          "open": "PackedStringArray(\"res://tests/fixtures/s02/editor_harness.tscn\")",
+          "project": "/home/regner/.paseo/worktrees/0u71f39f/s04-desktop-enet-cars/",
+          "unsaved": "PackedStringArray()"
+        },
+        "success": true
+      }
+    }
+  }
+]

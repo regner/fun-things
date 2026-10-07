@@ -323,11 +323,14 @@ implementation. Save editor mutations before playtests; preserve unsaved work.
 - [ ] **S04 — Arcade car physics and network response.**
   Needs for desktop/ENet: [S02 desktop actor/camera envelope](docs/spikes/s02.md)
   within its scoped assumptions and [S03 evidence](docs/spikes/s03.md).
-  Preparation/body experiments are ready for assignment after a serialized fixture
-  lease; finish with S02 feel/target and S03-S evidence. Recheck affected rows if
+  Bounded desktop body/ENet implementation and evidence: [S04 record](docs/spikes/s04.md),
+  [source handoff](docs/assets/s04_kit.md) and [body/seat contract](docs/spikes/s04-contracts.md).
+  Technical review/integration pending; full acceptance remains open. Finish with
+  drawable response, Regner feel/controls/dimensions/prediction choice, S02 feel/target
+  and S03-S evidence. Recheck affected rows if
   provisional camera/actor choices change; full S02 is not required to start desktop work.
-  Owner on assignment: direct Sol lead; root grants the named Godot/Blender/new-fixture
-  leases separately. No implementation is launched by this checkpoint. Predeclare
+  Current owner: direct Sol 6.1 HIGH S04 workspace lead with sole NEW authoring lease;
+  no production vehicle/seat implementation or product acceptance is implied. Predeclare
   one bounded body/control comparison and ENet run, normally 1–2 focused days, with
   independent outcome criteria and a stop/report boundary for unavailable drawn
   response or substantial replay machinery. Use [S03-R's metric distinctions and

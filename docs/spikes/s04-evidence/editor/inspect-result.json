@@ -1,0 +1,618 @@
+[
+  {
+    "method": "scene.create",
+    "params": {
+      "file_path": "res://tests/fixtures/s04/editor_harness.tscn",
+      "root_type": "Node"
+    },
+    "response": {
+      "id": 1,
+      "jsonrpc": "2.0",
+      "result": {
+        "hint": "Scene saved. Open it for editing with scene_open.",
+        "indexed": true,
+        "path": "res://tests/fixtures/s04/editor_harness.tscn",
+        "root_name": "editor_harness",
+        "root_path": ".",
+        "root_type": "Node",
+        "status": "created",
+        "success": true
+      }
+    }
+  },
+  {
+    "method": "scene.open",
+    "params": {
+      "file_path": "res://tests/fixtures/s04/editor_harness.tscn"
+    },
+    "response": {
+      "id": 2,
+      "jsonrpc": "2.0",
+      "result": {
+        "path": "res://tests/fixtures/s04/editor_harness.tscn",
+        "success": true
+      }
+    }
+  },
+  {
+    "method": "node.set_script",
+    "params": {
+      "node_path": ".",
+      "script_path": "res://tools/s04/editor_probe.gd"
+    },
+    "response": {
+      "id": 3,
+      "jsonrpc": "2.0",
+      "result": {
+        "path": ".",
+        "properties": [],
+        "script": "res://tools/s04/editor_probe.gd",
+        "success": true
+      }
+    }
+  },
+  {
+    "method": "editor.save_scene",
+    "params": {},
+    "response": {
+      "id": 4,
+      "jsonrpc": "2.0",
+      "result": {
+        "path": "res://tests/fixtures/s04/editor_harness.tscn",
+        "success": true
+      }
+    }
+  },
+  {
+    "method": "node.call_method",
+    "params": {
+      "node_path": ".",
+      "method_name": "inspect_owned",
+      "args": [
+        "res://art/models/spikes/s04_car.glb"
+      ]
+    },
+    "response": {
+      "id": 5,
+      "jsonrpc": "2.0",
+      "result": {
+        "method": "inspect_owned",
+        "path": ".",
+        "result": [
+          {
+            "class": "Node3D",
+            "path": ".",
+            "pose": "[X: (1.0, 0.0, 0.0), Y: (0.0, 1.0, 0.0), Z: (0.0, 0.0, 1.0), O: (0.0, 0.0, 0.0)]"
+          },
+          {
+            "aabb": "[P: (-0.9, 0.275, -1.7), S: (1.8, 0.65, 3.4)]",
+            "class": "MeshInstance3D",
+            "mesh_resource": "res://art/models/spikes/s04_car.glb::ArrayMesh_2jc7c",
+            "path": "./Body",
+            "pose": "[X: (1.0, 0.0, 0.0), Y: (0.0, 1.0, 0.0), Z: (0.0, 0.0, 1.0), O: (0.0, 0.6, 0.0)]",
+            "surfaces": 1
+          },
+          {
+            "aabb": "[P: (-0.775, 0.825, -0.65), S: (1.55, 0.65, 1.8)]",
+            "class": "MeshInstance3D",
+            "mesh_resource": "res://art/models/spikes/s04_car.glb::ArrayMesh_k32w5",
+            "path": "./Cabin",
+            "pose": "[X: (1.0, 0.0, 0.0), Y: (0.0, 1.0, 0.0), Z: (0.0, 0.0, 1.0), O: (0.0, 1.15, 0.25)]",
+            "surfaces": 1
+          },
+          {
+            "aabb": "[P: (-0.675, 0.925, -1.45), S: (1.35, 0.03, 0.2)]",
+            "class": "MeshInstance3D",
+            "mesh_resource": "res://art/models/spikes/s04_car.glb::ArrayMesh_ipw1f",
+            "path": "./FrontStripe",
+            "pose": "[X: (1.0, 0.0, 0.0), Y: (0.0, 1.0, 0.0), Z: (0.0, 0.0, 1.0), O: (0.0, 0.94, -1.35)]",
+            "surfaces": 1
+          },
+          {
+            "aabb": "[P: (-0.74, 1.46, -0.155), S: (1.48, 0.08, 1.15)]",
+            "class": "MeshInstance3D",
+            "mesh_resource": "res://art/models/spikes/s04_car.glb::ArrayMesh_2k8mq",
+            "path": "./Roof",
+            "pose": "[X: (1.0, 0.0, 0.0), Y: (0.0, 1.0, 0.0), Z: (0.0, 0.0, 1.0), O: (0.0, 1.5, 0.42)]",
+            "surfaces": 1
+          },
+          {
+            "class": "Node3D",
+            "path": "./socket_driver",
+            "pose": "[X: (1.0, 0.0, 0.0), Y: (0.0, 1.0, 0.0), Z: (0.0, 0.0, 1.0), O: (0.0, 0.8, 0.1)]"
+          },
+          {
+            "class": "Node3D",
+            "path": "./socket_entry_left",
+            "pose": "[X: (1.0, 0.0, 0.0), Y: (0.0, 1.0, 0.0), Z: (0.0, 0.0, 1.0), O: (-1.3, 0.0, 0.1)]"
+          },
+          {
+            "class": "Node3D",
+            "path": "./socket_entry_right",
+            "pose": "[X: (1.0, 0.0, 0.0), Y: (0.0, 1.0, 0.0), Z: (0.0, 0.0, 1.0), O: (1.3, 0.0, 0.1)]"
+          },
+          {
+            "class": "Node3D",
+            "path": "./socket_exit_left",
+            "pose": "[X: (1.0, 0.0, 0.0), Y: (0.0, 1.0, 0.0), Z: (0.0, 0.0, 1.0), O: (-1.5, 0.0, 0.1)]"
+          },
+          {
+            "class": "Node3D",
+            "path": "./socket_exit_right",
+            "pose": "[X: (1.0, 0.0, 0.0), Y: (0.0, 1.0, 0.0), Z: (0.0, 0.0, 1.0), O: (1.5, 0.0, 0.1)]"
+          },
+          {
+            "aabb": "[P: (0.74, 0.0, 0.76), S: (0.2, 0.5, 0.6)]",
+            "class": "MeshInstance3D",
+            "mesh_resource": "res://art/models/spikes/s04_car.glb::ArrayMesh_iubmj",
+            "path": "./Wheel_0_84_1_06",
+            "pose": "[X: (1.0, 0.0, 0.0), Y: (0.0, 1.0, 0.0), Z: (0.0, 0.0, 1.0), O: (0.84, 0.25, 1.06)]",
+            "surfaces": 1
+          },
+          {
+            "aabb": "[P: (0.74, 0.0, -1.36), S: (0.2, 0.5, 0.6)]",
+            "class": "MeshInstance3D",
+            "mesh_resource": "res://art/models/spikes/s04_car.glb::ArrayMesh_ashe0",
+            "path": "./Wheel_0_84_-1_06",
+            "pose": "[X: (1.0, 0.0, 0.0), Y: (0.0, 1.0, 0.0), Z: (0.0, 0.0, 1.0), O: (0.84, 0.25, -1.06)]",
+            "surfaces": 1
+          },
+          {
+            "aabb": "[P: (-0.94, 0.0, 0.76), S: (0.2, 0.5, 0.6)]",
+            "class": "MeshInstance3D",
+            "mesh_resource": "res://art/models/spikes/s04_car.glb::ArrayMesh_fusko",
+            "path": "./Wheel_-0_84_1_06",
+            "pose": "[X: (1.0, 0.0, 0.0), Y: (0.0, 1.0, 0.0), Z: (0.0, 0.0, 1.0), O: (-0.84, 0.25, 1.06)]",
+            "surfaces": 1
+          },
+          {
+            "aabb": "[P: (-0.94, 0.0, -1.36), S: (0.2, 0.5, 0.6)]",
+            "class": "MeshInstance3D",
+            "mesh_resource": "res://art/models/spikes/s04_car.glb::ArrayMesh_g11ce",
+            "path": "./Wheel_-0_84_-1_06",
+            "pose": "[X: (1.0, 0.0, 0.0), Y: (0.0, 1.0, 0.0), Z: (0.0, 0.0, 1.0), O: (-0.84, 0.25, -1.06)]",
+            "surfaces": 1
+          }
+        ],
+        "success": true
+      }
+    }
+  },
+  {
+    "method": "node.call_method",
+    "params": {
+      "node_path": ".",
+      "method_name": "inspect_owned",
+      "args": [
+        "res://art/models/spikes/s04_track.glb"
+      ]
+    },
+    "response": {
+      "id": 6,
+      "jsonrpc": "2.0",
+      "result": {
+        "method": "inspect_owned",
+        "path": ".",
+        "result": [
+          {
+            "class": "Node3D",
+            "path": ".",
+            "pose": "[X: (1.0, 0.0, 0.0), Y: (0.0, 1.0, 0.0), Z: (0.0, 0.0, 1.0), O: (0.0, 0.0, 0.0)]"
+          },
+          {
+            "aabb": "[P: (9.9, 0.0, 0.0), S: (0.200001, 0.02, 20.0)]",
+            "class": "MeshInstance3D",
+            "mesh_resource": "res://art/models/spikes/s04_track.glb::ArrayMesh_cc64e",
+            "path": "./LaneMark",
+            "pose": "[X: (1.0, 0.0, 0.0), Y: (0.0, 1.0, 0.0), Z: (0.0, 0.0, 1.0), O: (10.0, 0.01, 10.0)]",
+            "surfaces": 1
+          },
+          {
+            "aabb": "[P: (-30.5, 0.0, -30.0), S: (1.0, 2.0, 60.0)]",
+            "class": "MeshInstance3D",
+            "mesh_resource": "res://art/models/spikes/s04_track.glb::ArrayMesh_gvlq8",
+            "path": "./LeftBoundary",
+            "pose": "[X: (1.0, 0.0, 0.0), Y: (0.0, 1.0, 0.0), Z: (0.0, 0.0, 1.0), O: (-30.0, 1.0, 0.0)]",
+            "surfaces": 1
+          },
+          {
+            "aabb": "[P: (-40.0, -0.2, -40.0), S: (80.0, 0.2, 80.0)]",
+            "class": "MeshInstance3D",
+            "mesh_resource": "res://art/models/spikes/s04_track.glb::ArrayMesh_q8c7j",
+            "path": "./Pad",
+            "pose": "[X: (1.0, 0.0, 0.0), Y: (0.0, 1.0, 0.0), Z: (0.0, 0.0, 1.0), O: (0.0, -0.1, 0.0)]",
+            "surfaces": 1
+          },
+          {
+            "aabb": "[P: (29.5, 0.0, -30.0), S: (1.0, 2.0, 60.0)]",
+            "class": "MeshInstance3D",
+            "mesh_resource": "res://art/models/spikes/s04_track.glb::ArrayMesh_ncvx4",
+            "path": "./RightBoundary",
+            "pose": "[X: (1.0, 0.0, 0.0), Y: (0.0, 1.0, 0.0), Z: (0.0, 0.0, 1.0), O: (30.0, 1.0, 0.0)]",
+            "surfaces": 1
+          },
+          {
+            "aabb": "[P: (-30.0, 0.0, 29.5), S: (60.0, 2.0, 1.0)]",
+            "class": "MeshInstance3D",
+            "mesh_resource": "res://art/models/spikes/s04_track.glb::ArrayMesh_lh057",
+            "path": "./SouthBoundary",
+            "pose": "[X: (1.0, 0.0, 0.0), Y: (0.0, 1.0, 0.0), Z: (0.0, 0.0, 1.0), O: (0.0, 1.0, 30.0)]",
+            "surfaces": 1
+          },
+          {
+            "aabb": "[P: (-10.0, 0.0, -20.5), S: (20.0, 2.0, 1.0)]",
+            "class": "MeshInstance3D",
+            "mesh_resource": "res://art/models/spikes/s04_track.glb::ArrayMesh_uodux",
+            "path": "./Wall",
+            "pose": "[X: (1.0, 0.0, 0.0), Y: (0.0, 1.0, 0.0), Z: (0.0, 0.0, 1.0), O: (0.0, 1.0, -20.0)]",
+            "surfaces": 1
+          }
+        ],
+        "success": true
+      }
+    }
+  },
+  {
+    "method": "node.call_method",
+    "params": {
+      "node_path": ".",
+      "method_name": "inspect_owned",
+      "args": [
+        "res://tests/fixtures/s04/kinematic.tscn"
+      ]
+    },
+    "response": {
+      "id": 7,
+      "jsonrpc": "2.0",
+      "result": {
+        "method": "inspect_owned",
+        "path": ".",
+        "result": [
+          {
+            "class": "CharacterBody3D",
+            "path": ".",
+            "pose": "[X: (1.0, 0.0, 0.0), Y: (0.0, 1.0, 0.0), Z: (0.0, 0.0, 1.0), O: (0.0, 0.0, 0.0)]"
+          },
+          {
+            "class": "Node3D",
+            "path": "./PresentationAnchor",
+            "pose": "[X: (1.0, 0.0, 0.0), Y: (0.0, 1.0, 0.0), Z: (0.0, 0.0, 1.0), O: (0.0, 0.0, 0.0)]"
+          },
+          {
+            "class": "Node3D",
+            "path": "./PresentationAnchor/Visuals",
+            "pose": "[X: (1.0, 0.0, 0.0), Y: (0.0, 1.0, 0.0), Z: (0.0, 0.0, 1.0), O: (0.0, 0.0, 0.0)]"
+          },
+          {
+            "class": "Node3D",
+            "path": "./PresentationAnchor/Visuals/Model",
+            "pose": "[X: (1.0, 0.0, 0.0), Y: (0.0, 1.0, 0.0), Z: (0.0, 0.0, 1.0), O: (0.0, 0.0, 0.0)]"
+          },
+          {
+            "aabb": "[P: (-0.9, 0.275, -1.7), S: (1.8, 0.65, 3.4)]",
+            "class": "MeshInstance3D",
+            "mesh_resource": "res://art/models/spikes/s04_car.glb::ArrayMesh_2jc7c",
+            "path": "./PresentationAnchor/Visuals/Model/Body",
+            "pose": "[X: (1.0, 0.0, 0.0), Y: (0.0, 1.0, 0.0), Z: (0.0, 0.0, 1.0), O: (0.0, 0.6, 0.0)]",
+            "surfaces": 1
+          },
+          {
+            "aabb": "[P: (-0.775, 0.825, -0.65), S: (1.55, 0.65, 1.8)]",
+            "class": "MeshInstance3D",
+            "mesh_resource": "res://art/models/spikes/s04_car.glb::ArrayMesh_k32w5",
+            "path": "./PresentationAnchor/Visuals/Model/Cabin",
+            "pose": "[X: (1.0, 0.0, 0.0), Y: (0.0, 1.0, 0.0), Z: (0.0, 0.0, 1.0), O: (0.0, 1.15, 0.25)]",
+            "surfaces": 1
+          },
+          {
+            "aabb": "[P: (-0.675, 0.925, -1.45), S: (1.35, 0.03, 0.2)]",
+            "class": "MeshInstance3D",
+            "mesh_resource": "res://art/models/spikes/s04_car.glb::ArrayMesh_ipw1f",
+            "path": "./PresentationAnchor/Visuals/Model/FrontStripe",
+            "pose": "[X: (1.0, 0.0, 0.0), Y: (0.0, 1.0, 0.0), Z: (0.0, 0.0, 1.0), O: (0.0, 0.94, -1.35)]",
+            "surfaces": 1
+          },
+          {
+            "aabb": "[P: (-0.74, 1.46, -0.155), S: (1.48, 0.08, 1.15)]",
+            "class": "MeshInstance3D",
+            "mesh_resource": "res://art/models/spikes/s04_car.glb::ArrayMesh_2k8mq",
+            "path": "./PresentationAnchor/Visuals/Model/Roof",
+            "pose": "[X: (1.0, 0.0, 0.0), Y: (0.0, 1.0, 0.0), Z: (0.0, 0.0, 1.0), O: (0.0, 1.5, 0.42)]",
+            "surfaces": 1
+          },
+          {
+            "class": "Node3D",
+            "path": "./PresentationAnchor/Visuals/Model/socket_driver",
+            "pose": "[X: (1.0, 0.0, 0.0), Y: (0.0, 1.0, 0.0), Z: (0.0, 0.0, 1.0), O: (0.0, 0.8, 0.1)]"
+          },
+          {
+            "class": "Node3D",
+            "path": "./PresentationAnchor/Visuals/Model/socket_entry_left",
+            "pose": "[X: (1.0, 0.0, 0.0), Y: (0.0, 1.0, 0.0), Z: (0.0, 0.0, 1.0), O: (-1.3, 0.0, 0.1)]"
+          },
+          {
+            "class": "Node3D",
+            "path": "./PresentationAnchor/Visuals/Model/socket_entry_right",
+            "pose": "[X: (1.0, 0.0, 0.0), Y: (0.0, 1.0, 0.0), Z: (0.0, 0.0, 1.0), O: (1.3, 0.0, 0.1)]"
+          },
+          {
+            "class": "Node3D",
+            "path": "./PresentationAnchor/Visuals/Model/socket_exit_left",
+            "pose": "[X: (1.0, 0.0, 0.0), Y: (0.0, 1.0, 0.0), Z: (0.0, 0.0, 1.0), O: (-1.5, 0.0, 0.1)]"
+          },
+          {
+            "class": "Node3D",
+            "path": "./PresentationAnchor/Visuals/Model/socket_exit_right",
+            "pose": "[X: (1.0, 0.0, 0.0), Y: (0.0, 1.0, 0.0), Z: (0.0, 0.0, 1.0), O: (1.5, 0.0, 0.1)]"
+          },
+          {
+            "aabb": "[P: (0.74, 0.0, 0.76), S: (0.2, 0.5, 0.6)]",
+            "class": "MeshInstance3D",
+            "mesh_resource": "res://art/models/spikes/s04_car.glb::ArrayMesh_iubmj",
+            "path": "./PresentationAnchor/Visuals/Model/Wheel_0_84_1_06",
+            "pose": "[X: (1.0, 0.0, 0.0), Y: (0.0, 1.0, 0.0), Z: (0.0, 0.0, 1.0), O: (0.84, 0.25, 1.06)]",
+            "surfaces": 1
+          },
+          {
+            "aabb": "[P: (0.74, 0.0, -1.36), S: (0.2, 0.5, 0.6)]",
+            "class": "MeshInstance3D",
+            "mesh_resource": "res://art/models/spikes/s04_car.glb::ArrayMesh_ashe0",
+            "path": "./PresentationAnchor/Visuals/Model/Wheel_0_84_-1_06",
+            "pose": "[X: (1.0, 0.0, 0.0), Y: (0.0, 1.0, 0.0), Z: (0.0, 0.0, 1.0), O: (0.84, 0.25, -1.06)]",
+            "surfaces": 1
+          },
+          {
+            "aabb": "[P: (-0.94, 0.0, 0.76), S: (0.2, 0.5, 0.6)]",
+            "class": "MeshInstance3D",
+            "mesh_resource": "res://art/models/spikes/s04_car.glb::ArrayMesh_fusko",
+            "path": "./PresentationAnchor/Visuals/Model/Wheel_-0_84_1_06",
+            "pose": "[X: (1.0, 0.0, 0.0), Y: (0.0, 1.0, 0.0), Z: (0.0, 0.0, 1.0), O: (-0.84, 0.25, 1.06)]",
+            "surfaces": 1
+          },
+          {
+            "aabb": "[P: (-0.94, 0.0, -1.36), S: (0.2, 0.5, 0.6)]",
+            "class": "MeshInstance3D",
+            "mesh_resource": "res://art/models/spikes/s04_car.glb::ArrayMesh_g11ce",
+            "path": "./PresentationAnchor/Visuals/Model/Wheel_-0_84_-1_06",
+            "pose": "[X: (1.0, 0.0, 0.0), Y: (0.0, 1.0, 0.0), Z: (0.0, 0.0, 1.0), O: (-0.84, 0.25, -1.06)]",
+            "surfaces": 1
+          },
+          {
+            "class": "CollisionShape3D",
+            "path": "./Collision",
+            "pose": "[X: (1.0, 0.0, 0.0), Y: (0.0, 1.0, 0.0), Z: (0.0, 0.0, 1.0), O: (0.0, 0.75, 0.0)]"
+          },
+          {
+            "class": "Node3D",
+            "path": "./Sockets",
+            "pose": "[X: (1.0, 0.0, 0.0), Y: (0.0, 1.0, 0.0), Z: (0.0, 0.0, 1.0), O: (0.0, 0.0, 0.0)]"
+          },
+          {
+            "class": "Marker3D",
+            "path": "./Sockets/DriverSeat",
+            "pose": "[X: (1.0, 0.0, 0.0), Y: (0.0, 1.0, 0.0), Z: (0.0, 0.0, 1.0), O: (0.0, 0.8, 0.1)]"
+          },
+          {
+            "class": "Marker3D",
+            "path": "./Sockets/EntryLeft",
+            "pose": "[X: (1.0, 0.0, 0.0), Y: (0.0, 1.0, 0.0), Z: (0.0, 0.0, 1.0), O: (-1.3, 0.0, 0.1)]"
+          },
+          {
+            "class": "Marker3D",
+            "path": "./Sockets/EntryRight",
+            "pose": "[X: (1.0, 0.0, 0.0), Y: (0.0, 1.0, 0.0), Z: (0.0, 0.0, 1.0), O: (1.3, 0.0, 0.1)]"
+          },
+          {
+            "class": "Marker3D",
+            "path": "./Sockets/ExitLeft",
+            "pose": "[X: (1.0, 0.0, 0.0), Y: (0.0, 1.0, 0.0), Z: (0.0, 0.0, 1.0), O: (-1.5, 0.0, 0.1)]"
+          },
+          {
+            "class": "Marker3D",
+            "path": "./Sockets/ExitRight",
+            "pose": "[X: (1.0, 0.0, 0.0), Y: (0.0, 1.0, 0.0), Z: (0.0, 0.0, 1.0), O: (1.5, 0.0, 0.1)]"
+          }
+        ],
+        "success": true
+      }
+    }
+  },
+  {
+    "method": "node.call_method",
+    "params": {
+      "node_path": ".",
+      "method_name": "inspect_owned",
+      "args": [
+        "res://tests/fixtures/s04/dynamic.tscn"
+      ]
+    },
+    "response": {
+      "id": 8,
+      "jsonrpc": "2.0",
+      "result": {
+        "method": "inspect_owned",
+        "path": ".",
+        "result": [
+          {
+            "class": "RigidBody3D",
+            "path": ".",
+            "pose": "[X: (1.0, 0.0, 0.0), Y: (0.0, 1.0, 0.0), Z: (0.0, 0.0, 1.0), O: (0.0, 0.0, 0.0)]"
+          },
+          {
+            "class": "Node3D",
+            "path": "./PresentationAnchor",
+            "pose": "[X: (1.0, 0.0, 0.0), Y: (0.0, 1.0, 0.0), Z: (0.0, 0.0, 1.0), O: (0.0, 0.0, 0.0)]"
+          },
+          {
+            "class": "Node3D",
+            "path": "./PresentationAnchor/Visuals",
+            "pose": "[X: (1.0, 0.0, 0.0), Y: (0.0, 1.0, 0.0), Z: (0.0, 0.0, 1.0), O: (0.0, 0.0, 0.0)]"
+          },
+          {
+            "class": "Node3D",
+            "path": "./PresentationAnchor/Visuals/Model",
+            "pose": "[X: (1.0, 0.0, 0.0), Y: (0.0, 1.0, 0.0), Z: (0.0, 0.0, 1.0), O: (0.0, 0.0, 0.0)]"
+          },
+          {
+            "aabb": "[P: (-0.9, 0.275, -1.7), S: (1.8, 0.65, 3.4)]",
+            "class": "MeshInstance3D",
+            "mesh_resource": "res://art/models/spikes/s04_car.glb::ArrayMesh_2jc7c",
+            "path": "./PresentationAnchor/Visuals/Model/Body",
+            "pose": "[X: (1.0, 0.0, 0.0), Y: (0.0, 1.0, 0.0), Z: (0.0, 0.0, 1.0), O: (0.0, 0.6, 0.0)]",
+            "surfaces": 1
+          },
+          {
+            "aabb": "[P: (-0.775, 0.825, -0.65), S: (1.55, 0.65, 1.8)]",
+            "class": "MeshInstance3D",
+            "mesh_resource": "res://art/models/spikes/s04_car.glb::ArrayMesh_k32w5",
+            "path": "./PresentationAnchor/Visuals/Model/Cabin",
+            "pose": "[X: (1.0, 0.0, 0.0), Y: (0.0, 1.0, 0.0), Z: (0.0, 0.0, 1.0), O: (0.0, 1.15, 0.25)]",
+            "surfaces": 1
+          },
+          {
+            "aabb": "[P: (-0.675, 0.925, -1.45), S: (1.35, 0.03, 0.2)]",
+            "class": "MeshInstance3D",
+            "mesh_resource": "res://art/models/spikes/s04_car.glb::ArrayMesh_ipw1f",
+            "path": "./PresentationAnchor/Visuals/Model/FrontStripe",
+            "pose": "[X: (1.0, 0.0, 0.0), Y: (0.0, 1.0, 0.0), Z: (0.0, 0.0, 1.0), O: (0.0, 0.94, -1.35)]",
+            "surfaces": 1
+          },
+          {
+            "aabb": "[P: (-0.74, 1.46, -0.155), S: (1.48, 0.08, 1.15)]",
+            "class": "MeshInstance3D",
+            "mesh_resource": "res://art/models/spikes/s04_car.glb::ArrayMesh_2k8mq",
+            "path": "./PresentationAnchor/Visuals/Model/Roof",
+            "pose": "[X: (1.0, 0.0, 0.0), Y: (0.0, 1.0, 0.0), Z: (0.0, 0.0, 1.0), O: (0.0, 1.5, 0.42)]",
+            "surfaces": 1
+          },
+          {
+            "class": "Node3D",
+            "path": "./PresentationAnchor/Visuals/Model/socket_driver",
+            "pose": "[X: (1.0, 0.0, 0.0), Y: (0.0, 1.0, 0.0), Z: (0.0, 0.0, 1.0), O: (0.0, 0.8, 0.1)]"
+          },
+          {
+            "class": "Node3D",
+            "path": "./PresentationAnchor/Visuals/Model/socket_entry_left",
+            "pose": "[X: (1.0, 0.0, 0.0), Y: (0.0, 1.0, 0.0), Z: (0.0, 0.0, 1.0), O: (-1.3, 0.0, 0.1)]"
+          },
+          {
+            "class": "Node3D",
+            "path": "./PresentationAnchor/Visuals/Model/socket_entry_right",
+            "pose": "[X: (1.0, 0.0, 0.0), Y: (0.0, 1.0, 0.0), Z: (0.0, 0.0, 1.0), O: (1.3, 0.0, 0.1)]"
+          },
+          {
+            "class": "Node3D",
+            "path": "./PresentationAnchor/Visuals/Model/socket_exit_left",
+            "pose": "[X: (1.0, 0.0, 0.0), Y: (0.0, 1.0, 0.0), Z: (0.0, 0.0, 1.0), O: (-1.5, 0.0, 0.1)]"
+          },
+          {
+            "class": "Node3D",
+            "path": "./PresentationAnchor/Visuals/Model/socket_exit_right",
+            "pose": "[X: (1.0, 0.0, 0.0), Y: (0.0, 1.0, 0.0), Z: (0.0, 0.0, 1.0), O: (1.5, 0.0, 0.1)]"
+          },
+          {
+            "aabb": "[P: (0.74, 0.0, 0.76), S: (0.2, 0.5, 0.6)]",
+            "class": "MeshInstance3D",
+            "mesh_resource": "res://art/models/spikes/s04_car.glb::ArrayMesh_iubmj",
+            "path": "./PresentationAnchor/Visuals/Model/Wheel_0_84_1_06",
+            "pose": "[X: (1.0, 0.0, 0.0), Y: (0.0, 1.0, 0.0), Z: (0.0, 0.0, 1.0), O: (0.84, 0.25, 1.06)]",
+            "surfaces": 1
+          },
+          {
+            "aabb": "[P: (0.74, 0.0, -1.36), S: (0.2, 0.5, 0.6)]",
+            "class": "MeshInstance3D",
+            "mesh_resource": "res://art/models/spikes/s04_car.glb::ArrayMesh_ashe0",
+            "path": "./PresentationAnchor/Visuals/Model/Wheel_0_84_-1_06",
+            "pose": "[X: (1.0, 0.0, 0.0), Y: (0.0, 1.0, 0.0), Z: (0.0, 0.0, 1.0), O: (0.84, 0.25, -1.06)]",
+            "surfaces": 1
+          },
+          {
+            "aabb": "[P: (-0.94, 0.0, 0.76), S: (0.2, 0.5, 0.6)]",
+            "class": "MeshInstance3D",
+            "mesh_resource": "res://art/models/spikes/s04_car.glb::ArrayMesh_fusko",
+            "path": "./PresentationAnchor/Visuals/Model/Wheel_-0_84_1_06",
+            "pose": "[X: (1.0, 0.0, 0.0), Y: (0.0, 1.0, 0.0), Z: (0.0, 0.0, 1.0), O: (-0.84, 0.25, 1.06)]",
+            "surfaces": 1
+          },
+          {
+            "aabb": "[P: (-0.94, 0.0, -1.36), S: (0.2, 0.5, 0.6)]",
+            "class": "MeshInstance3D",
+            "mesh_resource": "res://art/models/spikes/s04_car.glb::ArrayMesh_g11ce",
+            "path": "./PresentationAnchor/Visuals/Model/Wheel_-0_84_-1_06",
+            "pose": "[X: (1.0, 0.0, 0.0), Y: (0.0, 1.0, 0.0), Z: (0.0, 0.0, 1.0), O: (-0.84, 0.25, -1.06)]",
+            "surfaces": 1
+          },
+          {
+            "class": "CollisionShape3D",
+            "path": "./Collision",
+            "pose": "[X: (1.0, 0.0, 0.0), Y: (0.0, 1.0, 0.0), Z: (0.0, 0.0, 1.0), O: (0.0, 0.75, 0.0)]"
+          },
+          {
+            "class": "Node3D",
+            "path": "./Sockets",
+            "pose": "[X: (1.0, 0.0, 0.0), Y: (0.0, 1.0, 0.0), Z: (0.0, 0.0, 1.0), O: (0.0, 0.0, 0.0)]"
+          },
+          {
+            "class": "Marker3D",
+            "path": "./Sockets/DriverSeat",
+            "pose": "[X: (1.0, 0.0, 0.0), Y: (0.0, 1.0, 0.0), Z: (0.0, 0.0, 1.0), O: (0.0, 0.8, 0.1)]"
+          },
+          {
+            "class": "Marker3D",
+            "path": "./Sockets/EntryLeft",
+            "pose": "[X: (1.0, 0.0, 0.0), Y: (0.0, 1.0, 0.0), Z: (0.0, 0.0, 1.0), O: (-1.3, 0.0, 0.1)]"
+          },
+          {
+            "class": "Marker3D",
+            "path": "./Sockets/EntryRight",
+            "pose": "[X: (1.0, 0.0, 0.0), Y: (0.0, 1.0, 0.0), Z: (0.0, 0.0, 1.0), O: (1.3, 0.0, 0.1)]"
+          },
+          {
+            "class": "Marker3D",
+            "path": "./Sockets/ExitLeft",
+            "pose": "[X: (1.0, 0.0, 0.0), Y: (0.0, 1.0, 0.0), Z: (0.0, 0.0, 1.0), O: (-1.5, 0.0, 0.1)]"
+          },
+          {
+            "class": "Marker3D",
+            "path": "./Sockets/ExitRight",
+            "pose": "[X: (1.0, 0.0, 0.0), Y: (0.0, 1.0, 0.0), Z: (0.0, 0.0, 1.0), O: (1.5, 0.0, 0.1)]"
+          }
+        ],
+        "success": true
+      }
+    }
+  },
+  {
+    "method": "node.call_method",
+    "params": {
+      "node_path": ".",
+      "method_name": "s04_state",
+      "args": []
+    },
+    "response": {
+      "id": 9,
+      "jsonrpc": "2.0",
+      "result": {
+        "method": "s04_state",
+        "path": ".",
+        "result": {
+          "open": "PackedStringArray(\"res://tests/fixtures/s02/editor_harness.tscn\", \"res://tests/fixtures/s04/kinematic.tscn\", \"res://tests/fixtures/s04/editor_harness.tscn\")",
+          "pin": {
+            "build": "official",
+            "hash": "c971f93e7e76b0ef919bf6009e7b868bea04db7f",
+            "hex": 264192,
+            "major": 4,
+            "minor": 8,
+            "patch": 0,
+            "status": "dev7",
+            "string": "4.8-dev7 (official)",
+            "timestamp": 0
+          },
+          "project": "/home/regner/.paseo/worktrees/0u71f39f/s04-desktop-enet-cars/",
+          "unsaved": "PackedStringArray()"
+        },
+        "success": true
+      }
+    }
+  }
+]

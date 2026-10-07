@@ -1,0 +1,24 @@
+[
+  {
+    "method": "node.call_method",
+    "params": {
+      "node_path": ".",
+      "method_name": "editor_state",
+      "args": []
+    },
+    "response": {
+      "id": 1,
+      "jsonrpc": "2.0",
+      "result": {
+        "method": "editor_state",
+        "path": ".",
+        "result": {
+          "open": "PackedStringArray(\"res://tests/fixtures/s02/editor_harness.tscn\")",
+          "project": "/home/regner/.paseo/worktrees/0u71f39f/s04-desktop-enet-cars/",
+          "unsaved": "PackedStringArray()"
+        },
+        "success": true
+      }
+    }
+  }
+]

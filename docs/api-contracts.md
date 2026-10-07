@@ -360,6 +360,13 @@ clear affected prediction and commit both player/car rows. Traffic ownership sto
 before player controls begin. Death/disconnect releases the seat and neutralizes
 controls; surviving car stopping is S04-owned and never resumes AI immediately.
 
+The [bounded S04 body/seat record](spikes/s04-contracts.md) specifies the complete
+future race/exit/disconnect/death/destruction/reset matrix for M1-B1. Its executable
+two-seat ENet adapter tests retained injured player/vehicle/seat/equipment with fresh
+control, physics-phase poses and baseline floors; it is not the production vehicle
+EntityRef codec or full transition implementation. Interaction/stopping values,
+no-seated-fire/reload policy and prediction/feel selection remain open.
+
 ## Spawning and lifecycle
 
 ```text

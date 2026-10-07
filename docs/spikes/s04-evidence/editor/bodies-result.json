@@ -1,0 +1,1422 @@
+[
+  {
+    "method": "scene.create_node",
+    "params": {
+      "class_name": "Node3D",
+      "parent_path": ".",
+      "node_name": "PresentationAnchor",
+      "properties": {}
+    },
+    "response": {
+      "id": 1,
+      "jsonrpc": "2.0",
+      "result": {
+        "path": "PresentationAnchor",
+        "status": "created",
+        "success": true
+      }
+    }
+  },
+  {
+    "method": "scene.create_node",
+    "params": {
+      "class_name": "Node3D",
+      "parent_path": "PresentationAnchor",
+      "node_name": "Visuals",
+      "properties": {}
+    },
+    "response": {
+      "id": 2,
+      "jsonrpc": "2.0",
+      "result": {
+        "path": "PresentationAnchor/Visuals",
+        "status": "created",
+        "success": true
+      }
+    }
+  },
+  {
+    "method": "node.call_method",
+    "params": {
+      "node_path": ".",
+      "method_name": "model",
+      "args": [
+        "res://art/models/spikes/s04_car.glb",
+        "PresentationAnchor/Visuals"
+      ]
+    },
+    "response": {
+      "id": 3,
+      "jsonrpc": "2.0",
+      "result": {
+        "hint": "Return value was null. A non-@tool GDScript never runs in the editor, so callv() cannot find the method (the editor logs 'Method not found'). To call it: (1) runtime, reliable — game.start, then execute_code or runtime_get_node_state on the live node; (2) editor — add @tool, then close and reopen the scene (scene_close + scene_open); editor_refresh is not sufficient.",
+        "method": "model",
+        "path": ".",
+        "result": null,
+        "success": true
+      }
+    }
+  },
+  {
+    "method": "scene.create_node",
+    "params": {
+      "class_name": "CollisionShape3D",
+      "parent_path": ".",
+      "node_name": "Collision",
+      "properties": {
+        "position": {
+          "type": "Vector3",
+          "x": 0,
+          "y": 0.75,
+          "z": 0
+        },
+        "shape": {
+          "type": "NewResource",
+          "class": "BoxShape3D",
+          "properties": {
+            "size": {
+              "type": "Vector3",
+              "x": 1.8,
+              "y": 1.5,
+              "z": 3.4
+            }
+          }
+        }
+      }
+    },
+    "response": {
+      "id": 4,
+      "jsonrpc": "2.0",
+      "result": {
+        "path": "Collision",
+        "properties_set": 2,
+        "status": "created",
+        "success": true
+      }
+    }
+  },
+  {
+    "method": "scene.create_node",
+    "params": {
+      "class_name": "Node3D",
+      "parent_path": ".",
+      "node_name": "Sockets",
+      "properties": {}
+    },
+    "response": {
+      "id": 5,
+      "jsonrpc": "2.0",
+      "result": {
+        "path": "Sockets",
+        "status": "created",
+        "success": true
+      }
+    }
+  },
+  {
+    "method": "scene.create_node",
+    "params": {
+      "class_name": "Marker3D",
+      "parent_path": "Sockets",
+      "node_name": "DriverSeat",
+      "properties": {}
+    },
+    "response": {
+      "id": 6,
+      "jsonrpc": "2.0",
+      "result": {
+        "path": "Sockets/DriverSeat",
+        "status": "created",
+        "success": true
+      }
+    }
+  },
+  {
+    "method": "node.call_method",
+    "params": {
+      "node_path": ".",
+      "method_name": "socket",
+      "args": [
+        "PresentationAnchor/Visuals/Model/socket_driver",
+        "Sockets/DriverSeat"
+      ]
+    },
+    "response": {
+      "id": 7,
+      "jsonrpc": "2.0",
+      "result": {
+        "hint": "Return value was null. A non-@tool GDScript never runs in the editor, so callv() cannot find the method (the editor logs 'Method not found'). To call it: (1) runtime, reliable — game.start, then execute_code or runtime_get_node_state on the live node; (2) editor — add @tool, then close and reopen the scene (scene_close + scene_open); editor_refresh is not sufficient.",
+        "method": "socket",
+        "path": ".",
+        "result": null,
+        "success": true
+      }
+    }
+  },
+  {
+    "method": "scene.create_node",
+    "params": {
+      "class_name": "Marker3D",
+      "parent_path": "Sockets",
+      "node_name": "EntryLeft",
+      "properties": {}
+    },
+    "response": {
+      "id": 8,
+      "jsonrpc": "2.0",
+      "result": {
+        "path": "Sockets/EntryLeft",
+        "status": "created",
+        "success": true
+      }
+    }
+  },
+  {
+    "method": "node.call_method",
+    "params": {
+      "node_path": ".",
+      "method_name": "socket",
+      "args": [
+        "PresentationAnchor/Visuals/Model/socket_entry_left",
+        "Sockets/EntryLeft"
+      ]
+    },
+    "response": {
+      "id": 9,
+      "jsonrpc": "2.0",
+      "result": {
+        "hint": "Return value was null. A non-@tool GDScript never runs in the editor, so callv() cannot find the method (the editor logs 'Method not found'). To call it: (1) runtime, reliable — game.start, then execute_code or runtime_get_node_state on the live node; (2) editor — add @tool, then close and reopen the scene (scene_close + scene_open); editor_refresh is not sufficient.",
+        "method": "socket",
+        "path": ".",
+        "result": null,
+        "success": true
+      }
+    }
+  },
+  {
+    "method": "scene.create_node",
+    "params": {
+      "class_name": "Marker3D",
+      "parent_path": "Sockets",
+      "node_name": "EntryRight",
+      "properties": {}
+    },
+    "response": {
+      "id": 10,
+      "jsonrpc": "2.0",
+      "result": {
+        "path": "Sockets/EntryRight",
+        "status": "created",
+        "success": true
+      }
+    }
+  },
+  {
+    "method": "node.call_method",
+    "params": {
+      "node_path": ".",
+      "method_name": "socket",
+      "args": [
+        "PresentationAnchor/Visuals/Model/socket_entry_right",
+        "Sockets/EntryRight"
+      ]
+    },
+    "response": {
+      "id": 11,
+      "jsonrpc": "2.0",
+      "result": {
+        "hint": "Return value was null. A non-@tool GDScript never runs in the editor, so callv() cannot find the method (the editor logs 'Method not found'). To call it: (1) runtime, reliable — game.start, then execute_code or runtime_get_node_state on the live node; (2) editor — add @tool, then close and reopen the scene (scene_close + scene_open); editor_refresh is not sufficient.",
+        "method": "socket",
+        "path": ".",
+        "result": null,
+        "success": true
+      }
+    }
+  },
+  {
+    "method": "scene.create_node",
+    "params": {
+      "class_name": "Marker3D",
+      "parent_path": "Sockets",
+      "node_name": "ExitLeft",
+      "properties": {}
+    },
+    "response": {
+      "id": 12,
+      "jsonrpc": "2.0",
+      "result": {
+        "path": "Sockets/ExitLeft",
+        "status": "created",
+        "success": true
+      }
+    }
+  },
+  {
+    "method": "node.call_method",
+    "params": {
+      "node_path": ".",
+      "method_name": "socket",
+      "args": [
+        "PresentationAnchor/Visuals/Model/socket_exit_left",
+        "Sockets/ExitLeft"
+      ]
+    },
+    "response": {
+      "id": 13,
+      "jsonrpc": "2.0",
+      "result": {
+        "hint": "Return value was null. A non-@tool GDScript never runs in the editor, so callv() cannot find the method (the editor logs 'Method not found'). To call it: (1) runtime, reliable — game.start, then execute_code or runtime_get_node_state on the live node; (2) editor — add @tool, then close and reopen the scene (scene_close + scene_open); editor_refresh is not sufficient.",
+        "method": "socket",
+        "path": ".",
+        "result": null,
+        "success": true
+      }
+    }
+  },
+  {
+    "method": "scene.create_node",
+    "params": {
+      "class_name": "Marker3D",
+      "parent_path": "Sockets",
+      "node_name": "ExitRight",
+      "properties": {}
+    },
+    "response": {
+      "id": 14,
+      "jsonrpc": "2.0",
+      "result": {
+        "path": "Sockets/ExitRight",
+        "status": "created",
+        "success": true
+      }
+    }
+  },
+  {
+    "method": "node.call_method",
+    "params": {
+      "node_path": ".",
+      "method_name": "socket",
+      "args": [
+        "PresentationAnchor/Visuals/Model/socket_exit_right",
+        "Sockets/ExitRight"
+      ]
+    },
+    "response": {
+      "id": 15,
+      "jsonrpc": "2.0",
+      "result": {
+        "hint": "Return value was null. A non-@tool GDScript never runs in the editor, so callv() cannot find the method (the editor logs 'Method not found'). To call it: (1) runtime, reliable — game.start, then execute_code or runtime_get_node_state on the live node; (2) editor — add @tool, then close and reopen the scene (scene_close + scene_open); editor_refresh is not sufficient.",
+        "method": "socket",
+        "path": ".",
+        "result": null,
+        "success": true
+      }
+    }
+  },
+  {
+    "method": "node.set_property",
+    "params": {
+      "batch": [
+        {
+          "node_path": ".",
+          "property": "collision_layer",
+          "value": 0
+        },
+        {
+          "node_path": ".",
+          "property": "collision_mask",
+          "value": 0
+        },
+        {
+          "node_path": ".",
+          "property": "motion_mode",
+          "value": 1
+        }
+      ]
+    },
+    "response": {
+      "id": 16,
+      "jsonrpc": "2.0",
+      "result": {
+        "results": [
+          {
+            "node_path": ".",
+            "property": "collision_layer",
+            "success": true
+          },
+          {
+            "node_path": ".",
+            "property": "collision_mask",
+            "success": true
+          },
+          {
+            "node_path": ".",
+            "property": "motion_mode",
+            "success": true
+          }
+        ],
+        "success": true
+      }
+    }
+  },
+  {
+    "method": "node.set_script",
+    "params": {
+      "node_path": ".",
+      "script_path": "res://tests/fixtures/s04/kinematic.gd"
+    },
+    "response": {
+      "id": 17,
+      "jsonrpc": "2.0",
+      "result": {
+        "path": ".",
+        "properties": [],
+        "script": "res://tests/fixtures/s04/kinematic.gd",
+        "success": true
+      }
+    }
+  },
+  {
+    "method": "editor.save_scene",
+    "params": {},
+    "response": {
+      "id": 18,
+      "jsonrpc": "2.0",
+      "result": {
+        "path": "res://tests/fixtures/s04/kinematic.tscn",
+        "success": true
+      }
+    }
+  },
+  {
+    "method": "scene.get_tree",
+    "params": {
+      "max_depth": 4
+    },
+    "response": {
+      "id": 19,
+      "jsonrpc": "2.0",
+      "result": {
+        "success": true,
+        "tree": "<untrusted-d3d0144e kind=\"scene_tree\" source=\"res://tests/fixtures/s04/kinematic.tscn\">\n{\"children\":[{\"children\":[{\"children\":[{\"children\":[{\"children\":[],\"class\":\"MeshInstance3D\",\"name\":\"Body\",\"path\":\"PresentationAnchor/Visuals/Model/Body\"},{\"children\":[],\"class\":\"MeshInstance3D\",\"name\":\"Cabin\",\"path\":\"PresentationAnchor/Visuals/Model/Cabin\"},{\"children\":[],\"class\":\"MeshInstance3D\",\"name\":\"FrontStripe\",\"path\":\"PresentationAnchor/Visuals/Model/FrontStripe\"},{\"children\":[],\"class\":\"MeshInstance3D\",\"name\":\"Roof\",\"path\":\"PresentationAnchor/Visuals/Model/Roof\"},{\"children\":[],\"class\":\"Node3D\",\"name\":\"socket_driver\",\"path\":\"PresentationAnchor/Visuals/Model/socket_driver\"},{\"children\":[],\"class\":\"Node3D\",\"name\":\"socket_entry_left\",\"path\":\"PresentationAnchor/Visuals/Model/socket_entry_left\"},{\"children\":[],\"class\":\"Node3D\",\"name\":\"socket_entry_right\",\"path\":\"PresentationAnchor/Visuals/Model/socket_entry_right\"},{\"children\":[],\"class\":\"Node3D\",\"name\":\"socket_exit_left\",\"path\":\"PresentationAnchor/Visuals/Model/socket_exit_left\"},{\"children\":[],\"class\":\"Node3D\",\"name\":\"socket_exit_right\",\"path\":\"PresentationAnchor/Visuals/Model/socket_exit_right\"},{\"children\":[],\"class\":\"MeshInstance3D\",\"name\":\"Wheel_0_84_1_06\",\"path\":\"PresentationAnchor/Visuals/Model/Wheel_0_84_1_06\"},{\"children\":[],\"class\":\"MeshInstance3D\",\"name\":\"Wheel_0_84_-1_06\",\"path\":\"PresentationAnchor/Visuals/Model/Wheel_0_84_-1_06\"},{\"children\":[],\"class\":\"MeshInstance3D\",\"name\":\"Wheel_-0_84_1_06\",\"path\":\"PresentationAnchor/Visuals/Model/Wheel_-0_84_1_06\"},{\"children\":[],\"class\":\"MeshInstance3D\",\"name\":\"Wheel_-0_84_-1_06\",\"path\":\"PresentationAnchor/Visuals/Model/Wheel_-0_84_-1_06\"}],\"class\":\"Node3D\",\"name\":\"Model\",\"path\":\"PresentationAnchor/Visuals/Model\"}],\"class\":\"Node3D\",\"name\":\"Visuals\",\"path\":\"PresentationAnchor/Visuals\"}],\"class\":\"Node3D\",\"name\":\"PresentationAnchor\",\"path\":\"PresentationAnchor\"},{\"children\":[],\"class\":\"CollisionShape3D\",\"name\":\"Collision\",\"path\":\"Collision\"},{\"children\":[{\"children\":[],\"class\":\"Marker3D\",\"name\":\"DriverSeat\",\"path\":\"Sockets/DriverSeat\"},{\"children\":[],\"class\":\"Marker3D\",\"name\":\"EntryLeft\",\"path\":\"Sockets/EntryLeft\"},{\"children\":[],\"class\":\"Marker3D\",\"name\":\"EntryRight\",\"path\":\"Sockets/EntryRight\"},{\"children\":[],\"class\":\"Marker3D\",\"name\":\"ExitLeft\",\"path\":\"Sockets/ExitLeft\"},{\"children\":[],\"class\":\"Marker3D\",\"name\":\"ExitRight\",\"path\":\"Sockets/ExitRight\"}],\"class\":\"Node3D\",\"name\":\"Sockets\",\"path\":\"Sockets\"}],\"class\":\"CharacterBody3D\",\"name\":\"kinematic\",\"path\":\".\"}\n</untrusted-d3d0144e>"
+      }
+    }
+  },
+  {
+    "method": "scene.close",
+    "params": {
+      "file_path": "res://tests/fixtures/s04/kinematic.tscn"
+    },
+    "response": {
+      "id": 20,
+      "jsonrpc": "2.0",
+      "result": {
+        "path": "res://tests/fixtures/s04/kinematic.tscn",
+        "success": true,
+        "unsaved_changes_discarded": false
+      }
+    }
+  },
+  {
+    "method": "scene.create",
+    "params": {
+      "file_path": "res://tests/fixtures/s04/dynamic.tscn",
+      "root_type": "RigidBody3D"
+    },
+    "response": {
+      "id": 21,
+      "jsonrpc": "2.0",
+      "result": {
+        "hint": "Scene saved. Open it for editing with scene_open.",
+        "indexed": true,
+        "path": "res://tests/fixtures/s04/dynamic.tscn",
+        "root_name": "dynamic",
+        "root_path": ".",
+        "root_type": "RigidBody3D",
+        "status": "created",
+        "success": true
+      }
+    }
+  },
+  {
+    "method": "scene.open",
+    "params": {
+      "file_path": "res://tests/fixtures/s04/dynamic.tscn"
+    },
+    "response": {
+      "id": 22,
+      "jsonrpc": "2.0",
+      "result": {
+        "hint": "Note: another session is currently editing res://tests/fixtures/s04/kinematic.tscn. Work that doesn't target this scene executes immediately without waiting — for example, reading or writing scripts for your own scenes, managing your files, or querying project info. Work that modifies nodes or reads scene trees will queue until the editor tab becomes available — wait times are variable.",
+        "path": "res://tests/fixtures/s04/dynamic.tscn",
+        "success": true
+      }
+    }
+  },
+  {
+    "method": "node.set_script",
+    "params": {
+      "node_path": ".",
+      "script_path": "res://tools/s04/editor_probe.gd"
+    },
+    "response": {
+      "id": 23,
+      "jsonrpc": "2.0",
+      "result": {
+        "_meta": {
+          "concurrency": {
+            "lease_holder_scene": "res://tests/fixtures/s04/dynamic.tscn",
+            "queued_ms": 27,
+            "reason": "scene_lease_wait"
+          }
+        },
+        "path": ".",
+        "properties": [],
+        "script": "res://tools/s04/editor_probe.gd",
+        "success": true
+      }
+    }
+  },
+  {
+    "method": "scene.create_node",
+    "params": {
+      "class_name": "Node3D",
+      "parent_path": ".",
+      "node_name": "PresentationAnchor",
+      "properties": {}
+    },
+    "response": {
+      "id": 24,
+      "jsonrpc": "2.0",
+      "result": {
+        "path": "PresentationAnchor",
+        "status": "created",
+        "success": true
+      }
+    }
+  },
+  {
+    "method": "scene.create_node",
+    "params": {
+      "class_name": "Node3D",
+      "parent_path": "PresentationAnchor",
+      "node_name": "Visuals",
+      "properties": {}
+    },
+    "response": {
+      "id": 25,
+      "jsonrpc": "2.0",
+      "result": {
+        "path": "PresentationAnchor/Visuals",
+        "status": "created",
+        "success": true
+      }
+    }
+  },
+  {
+    "method": "node.call_method",
+    "params": {
+      "node_path": ".",
+      "method_name": "model",
+      "args": [
+        "res://art/models/spikes/s04_car.glb",
+        "PresentationAnchor/Visuals"
+      ]
+    },
+    "response": {
+      "id": 26,
+      "jsonrpc": "2.0",
+      "result": {
+        "hint": "Return value was null. A non-@tool GDScript never runs in the editor, so callv() cannot find the method (the editor logs 'Method not found'). To call it: (1) runtime, reliable — game.start, then execute_code or runtime_get_node_state on the live node; (2) editor — add @tool, then close and reopen the scene (scene_close + scene_open); editor_refresh is not sufficient.",
+        "method": "model",
+        "path": ".",
+        "result": null,
+        "success": true
+      }
+    }
+  },
+  {
+    "method": "scene.create_node",
+    "params": {
+      "class_name": "CollisionShape3D",
+      "parent_path": ".",
+      "node_name": "Collision",
+      "properties": {
+        "position": {
+          "type": "Vector3",
+          "x": 0,
+          "y": 0.75,
+          "z": 0
+        },
+        "shape": {
+          "type": "NewResource",
+          "class": "BoxShape3D",
+          "properties": {
+            "size": {
+              "type": "Vector3",
+              "x": 1.8,
+              "y": 1.5,
+              "z": 3.4
+            }
+          }
+        }
+      }
+    },
+    "response": {
+      "id": 27,
+      "jsonrpc": "2.0",
+      "result": {
+        "path": "Collision",
+        "properties_set": 2,
+        "status": "created",
+        "success": true
+      }
+    }
+  },
+  {
+    "method": "scene.create_node",
+    "params": {
+      "class_name": "Node3D",
+      "parent_path": ".",
+      "node_name": "Sockets",
+      "properties": {}
+    },
+    "response": {
+      "id": 28,
+      "jsonrpc": "2.0",
+      "result": {
+        "path": "Sockets",
+        "status": "created",
+        "success": true
+      }
+    }
+  },
+  {
+    "method": "scene.create_node",
+    "params": {
+      "class_name": "Marker3D",
+      "parent_path": "Sockets",
+      "node_name": "DriverSeat",
+      "properties": {}
+    },
+    "response": {
+      "id": 29,
+      "jsonrpc": "2.0",
+      "result": {
+        "path": "Sockets/DriverSeat",
+        "status": "created",
+        "success": true
+      }
+    }
+  },
+  {
+    "method": "node.call_method",
+    "params": {
+      "node_path": ".",
+      "method_name": "socket",
+      "args": [
+        "PresentationAnchor/Visuals/Model/socket_driver",
+        "Sockets/DriverSeat"
+      ]
+    },
+    "response": {
+      "id": 30,
+      "jsonrpc": "2.0",
+      "result": {
+        "hint": "Return value was null. A non-@tool GDScript never runs in the editor, so callv() cannot find the method (the editor logs 'Method not found'). To call it: (1) runtime, reliable — game.start, then execute_code or runtime_get_node_state on the live node; (2) editor — add @tool, then close and reopen the scene (scene_close + scene_open); editor_refresh is not sufficient.",
+        "method": "socket",
+        "path": ".",
+        "result": null,
+        "success": true
+      }
+    }
+  },
+  {
+    "method": "scene.create_node",
+    "params": {
+      "class_name": "Marker3D",
+      "parent_path": "Sockets",
+      "node_name": "EntryLeft",
+      "properties": {}
+    },
+    "response": {
+      "id": 31,
+      "jsonrpc": "2.0",
+      "result": {
+        "path": "Sockets/EntryLeft",
+        "status": "created",
+        "success": true
+      }
+    }
+  },
+  {
+    "method": "node.call_method",
+    "params": {
+      "node_path": ".",
+      "method_name": "socket",
+      "args": [
+        "PresentationAnchor/Visuals/Model/socket_entry_left",
+        "Sockets/EntryLeft"
+      ]
+    },
+    "response": {
+      "id": 32,
+      "jsonrpc": "2.0",
+      "result": {
+        "hint": "Return value was null. A non-@tool GDScript never runs in the editor, so callv() cannot find the method (the editor logs 'Method not found'). To call it: (1) runtime, reliable — game.start, then execute_code or runtime_get_node_state on the live node; (2) editor — add @tool, then close and reopen the scene (scene_close + scene_open); editor_refresh is not sufficient.",
+        "method": "socket",
+        "path": ".",
+        "result": null,
+        "success": true
+      }
+    }
+  },
+  {
+    "method": "scene.create_node",
+    "params": {
+      "class_name": "Marker3D",
+      "parent_path": "Sockets",
+      "node_name": "EntryRight",
+      "properties": {}
+    },
+    "response": {
+      "id": 33,
+      "jsonrpc": "2.0",
+      "result": {
+        "path": "Sockets/EntryRight",
+        "status": "created",
+        "success": true
+      }
+    }
+  },
+  {
+    "method": "node.call_method",
+    "params": {
+      "node_path": ".",
+      "method_name": "socket",
+      "args": [
+        "PresentationAnchor/Visuals/Model/socket_entry_right",
+        "Sockets/EntryRight"
+      ]
+    },
+    "response": {
+      "id": 34,
+      "jsonrpc": "2.0",
+      "result": {
+        "hint": "Return value was null. A non-@tool GDScript never runs in the editor, so callv() cannot find the method (the editor logs 'Method not found'). To call it: (1) runtime, reliable — game.start, then execute_code or runtime_get_node_state on the live node; (2) editor — add @tool, then close and reopen the scene (scene_close + scene_open); editor_refresh is not sufficient.",
+        "method": "socket",
+        "path": ".",
+        "result": null,
+        "success": true
+      }
+    }
+  },
+  {
+    "method": "scene.create_node",
+    "params": {
+      "class_name": "Marker3D",
+      "parent_path": "Sockets",
+      "node_name": "ExitLeft",
+      "properties": {}
+    },
+    "response": {
+      "id": 35,
+      "jsonrpc": "2.0",
+      "result": {
+        "path": "Sockets/ExitLeft",
+        "status": "created",
+        "success": true
+      }
+    }
+  },
+  {
+    "method": "node.call_method",
+    "params": {
+      "node_path": ".",
+      "method_name": "socket",
+      "args": [
+        "PresentationAnchor/Visuals/Model/socket_exit_left",
+        "Sockets/ExitLeft"
+      ]
+    },
+    "response": {
+      "id": 36,
+      "jsonrpc": "2.0",
+      "result": {
+        "hint": "Return value was null. A non-@tool GDScript never runs in the editor, so callv() cannot find the method (the editor logs 'Method not found'). To call it: (1) runtime, reliable — game.start, then execute_code or runtime_get_node_state on the live node; (2) editor — add @tool, then close and reopen the scene (scene_close + scene_open); editor_refresh is not sufficient.",
+        "method": "socket",
+        "path": ".",
+        "result": null,
+        "success": true
+      }
+    }
+  },
+  {
+    "method": "scene.create_node",
+    "params": {
+      "class_name": "Marker3D",
+      "parent_path": "Sockets",
+      "node_name": "ExitRight",
+      "properties": {}
+    },
+    "response": {
+      "id": 37,
+      "jsonrpc": "2.0",
+      "result": {
+        "path": "Sockets/ExitRight",
+        "status": "created",
+        "success": true
+      }
+    }
+  },
+  {
+    "method": "node.call_method",
+    "params": {
+      "node_path": ".",
+      "method_name": "socket",
+      "args": [
+        "PresentationAnchor/Visuals/Model/socket_exit_right",
+        "Sockets/ExitRight"
+      ]
+    },
+    "response": {
+      "id": 38,
+      "jsonrpc": "2.0",
+      "result": {
+        "hint": "Return value was null. A non-@tool GDScript never runs in the editor, so callv() cannot find the method (the editor logs 'Method not found'). To call it: (1) runtime, reliable — game.start, then execute_code or runtime_get_node_state on the live node; (2) editor — add @tool, then close and reopen the scene (scene_close + scene_open); editor_refresh is not sufficient.",
+        "method": "socket",
+        "path": ".",
+        "result": null,
+        "success": true
+      }
+    }
+  },
+  {
+    "method": "node.set_property",
+    "params": {
+      "batch": [
+        {
+          "node_path": ".",
+          "property": "collision_layer",
+          "value": 0
+        },
+        {
+          "node_path": ".",
+          "property": "collision_mask",
+          "value": 0
+        },
+        {
+          "node_path": ".",
+          "property": "freeze",
+          "value": true
+        },
+        {
+          "node_path": ".",
+          "property": "freeze_mode",
+          "value": 0
+        },
+        {
+          "node_path": ".",
+          "property": "custom_integrator",
+          "value": true
+        },
+        {
+          "node_path": ".",
+          "property": "gravity_scale",
+          "value": 0
+        },
+        {
+          "node_path": ".",
+          "property": "axis_lock_linear_y",
+          "value": true
+        },
+        {
+          "node_path": ".",
+          "property": "axis_lock_angular_x",
+          "value": true
+        },
+        {
+          "node_path": ".",
+          "property": "axis_lock_angular_z",
+          "value": true
+        },
+        {
+          "node_path": ".",
+          "property": "contact_monitor",
+          "value": true
+        },
+        {
+          "node_path": ".",
+          "property": "max_contacts_reported",
+          "value": 4
+        }
+      ]
+    },
+    "response": {
+      "id": 39,
+      "jsonrpc": "2.0",
+      "result": {
+        "results": [
+          {
+            "node_path": ".",
+            "property": "collision_layer",
+            "success": true
+          },
+          {
+            "node_path": ".",
+            "property": "collision_mask",
+            "success": true
+          },
+          {
+            "node_path": ".",
+            "property": "freeze",
+            "success": true
+          },
+          {
+            "node_path": ".",
+            "property": "freeze_mode",
+            "success": true
+          },
+          {
+            "node_path": ".",
+            "property": "custom_integrator",
+            "success": true
+          },
+          {
+            "node_path": ".",
+            "property": "gravity_scale",
+            "success": true
+          },
+          {
+            "node_path": ".",
+            "property": "axis_lock_linear_y",
+            "success": true
+          },
+          {
+            "node_path": ".",
+            "property": "axis_lock_angular_x",
+            "success": true
+          },
+          {
+            "node_path": ".",
+            "property": "axis_lock_angular_z",
+            "success": true
+          },
+          {
+            "node_path": ".",
+            "property": "contact_monitor",
+            "success": true
+          },
+          {
+            "node_path": ".",
+            "property": "max_contacts_reported",
+            "success": true
+          }
+        ],
+        "success": true
+      }
+    }
+  },
+  {
+    "method": "node.set_script",
+    "params": {
+      "node_path": ".",
+      "script_path": "res://tests/fixtures/s04/dynamic.gd"
+    },
+    "response": {
+      "id": 40,
+      "jsonrpc": "2.0",
+      "result": {
+        "path": ".",
+        "properties": [],
+        "script": "res://tests/fixtures/s04/dynamic.gd",
+        "success": true
+      }
+    }
+  },
+  {
+    "method": "editor.save_scene",
+    "params": {},
+    "response": {
+      "id": 41,
+      "jsonrpc": "2.0",
+      "result": {
+        "path": "res://tests/fixtures/s04/dynamic.tscn",
+        "success": true
+      }
+    }
+  },
+  {
+    "method": "scene.get_tree",
+    "params": {
+      "max_depth": 4
+    },
+    "response": {
+      "id": 42,
+      "jsonrpc": "2.0",
+      "result": {
+        "success": true,
+        "tree": "<untrusted-4e78aa73 kind=\"scene_tree\" source=\"res://tests/fixtures/s04/dynamic.tscn\">\n{\"children\":[{\"children\":[{\"children\":[{\"children\":[{\"children\":[],\"class\":\"MeshInstance3D\",\"name\":\"Body\",\"path\":\"PresentationAnchor/Visuals/Model/Body\"},{\"children\":[],\"class\":\"MeshInstance3D\",\"name\":\"Cabin\",\"path\":\"PresentationAnchor/Visuals/Model/Cabin\"},{\"children\":[],\"class\":\"MeshInstance3D\",\"name\":\"FrontStripe\",\"path\":\"PresentationAnchor/Visuals/Model/FrontStripe\"},{\"children\":[],\"class\":\"MeshInstance3D\",\"name\":\"Roof\",\"path\":\"PresentationAnchor/Visuals/Model/Roof\"},{\"children\":[],\"class\":\"Node3D\",\"name\":\"socket_driver\",\"path\":\"PresentationAnchor/Visuals/Model/socket_driver\"},{\"children\":[],\"class\":\"Node3D\",\"name\":\"socket_entry_left\",\"path\":\"PresentationAnchor/Visuals/Model/socket_entry_left\"},{\"children\":[],\"class\":\"Node3D\",\"name\":\"socket_entry_right\",\"path\":\"PresentationAnchor/Visuals/Model/socket_entry_right\"},{\"children\":[],\"class\":\"Node3D\",\"name\":\"socket_exit_left\",\"path\":\"PresentationAnchor/Visuals/Model/socket_exit_left\"},{\"children\":[],\"class\":\"Node3D\",\"name\":\"socket_exit_right\",\"path\":\"PresentationAnchor/Visuals/Model/socket_exit_right\"},{\"children\":[],\"class\":\"MeshInstance3D\",\"name\":\"Wheel_0_84_1_06\",\"path\":\"PresentationAnchor/Visuals/Model/Wheel_0_84_1_06\"},{\"children\":[],\"class\":\"MeshInstance3D\",\"name\":\"Wheel_0_84_-1_06\",\"path\":\"PresentationAnchor/Visuals/Model/Wheel_0_84_-1_06\"},{\"children\":[],\"class\":\"MeshInstance3D\",\"name\":\"Wheel_-0_84_1_06\",\"path\":\"PresentationAnchor/Visuals/Model/Wheel_-0_84_1_06\"},{\"children\":[],\"class\":\"MeshInstance3D\",\"name\":\"Wheel_-0_84_-1_06\",\"path\":\"PresentationAnchor/Visuals/Model/Wheel_-0_84_-1_06\"}],\"class\":\"Node3D\",\"name\":\"Model\",\"path\":\"PresentationAnchor/Visuals/Model\"}],\"class\":\"Node3D\",\"name\":\"Visuals\",\"path\":\"PresentationAnchor/Visuals\"}],\"class\":\"Node3D\",\"name\":\"PresentationAnchor\",\"path\":\"PresentationAnchor\"},{\"children\":[],\"class\":\"CollisionShape3D\",\"name\":\"Collision\",\"path\":\"Collision\"},{\"children\":[{\"children\":[],\"class\":\"Marker3D\",\"name\":\"DriverSeat\",\"path\":\"Sockets/DriverSeat\"},{\"children\":[],\"class\":\"Marker3D\",\"name\":\"EntryLeft\",\"path\":\"Sockets/EntryLeft\"},{\"children\":[],\"class\":\"Marker3D\",\"name\":\"EntryRight\",\"path\":\"Sockets/EntryRight\"},{\"children\":[],\"class\":\"Marker3D\",\"name\":\"ExitLeft\",\"path\":\"Sockets/ExitLeft\"},{\"children\":[],\"class\":\"Marker3D\",\"name\":\"ExitRight\",\"path\":\"Sockets/ExitRight\"}],\"class\":\"Node3D\",\"name\":\"Sockets\",\"path\":\"Sockets\"}],\"class\":\"RigidBody3D\",\"name\":\"dynamic\",\"path\":\".\"}\n</untrusted-4e78aa73>"
+      }
+    }
+  },
+  {
+    "method": "scene.close",
+    "params": {
+      "file_path": "res://tests/fixtures/s04/dynamic.tscn"
+    },
+    "response": {
+      "id": 43,
+      "jsonrpc": "2.0",
+      "result": {
+        "path": "res://tests/fixtures/s04/dynamic.tscn",
+        "success": true,
+        "unsaved_changes_discarded": false
+      }
+    }
+  },
+  {
+    "method": "scene.create",
+    "params": {
+      "file_path": "res://tests/fixtures/s04/track.tscn",
+      "root_type": "Node3D"
+    },
+    "response": {
+      "id": 44,
+      "jsonrpc": "2.0",
+      "result": {
+        "hint": "Scene saved. Open it for editing with scene_open.",
+        "indexed": true,
+        "path": "res://tests/fixtures/s04/track.tscn",
+        "root_name": "track",
+        "root_path": ".",
+        "root_type": "Node3D",
+        "status": "created",
+        "success": true
+      }
+    }
+  },
+  {
+    "method": "scene.open",
+    "params": {
+      "file_path": "res://tests/fixtures/s04/track.tscn"
+    },
+    "response": {
+      "id": 45,
+      "jsonrpc": "2.0",
+      "result": {
+        "path": "res://tests/fixtures/s04/track.tscn",
+        "success": true
+      }
+    }
+  },
+  {
+    "method": "node.set_script",
+    "params": {
+      "node_path": ".",
+      "script_path": "res://tools/s04/editor_probe.gd"
+    },
+    "response": {
+      "id": 46,
+      "jsonrpc": "2.0",
+      "result": {
+        "path": ".",
+        "properties": [],
+        "script": "res://tools/s04/editor_probe.gd",
+        "success": true
+      }
+    }
+  },
+  {
+    "method": "scene.create_node",
+    "params": {
+      "class_name": "Node3D",
+      "parent_path": ".",
+      "node_name": "Visuals",
+      "properties": {}
+    },
+    "response": {
+      "id": 47,
+      "jsonrpc": "2.0",
+      "result": {
+        "path": "Visuals",
+        "status": "created",
+        "success": true
+      }
+    }
+  },
+  {
+    "method": "node.call_method",
+    "params": {
+      "node_path": ".",
+      "method_name": "model",
+      "args": [
+        "res://art/models/spikes/s04_track.glb",
+        "Visuals"
+      ]
+    },
+    "response": {
+      "id": 48,
+      "jsonrpc": "2.0",
+      "result": {
+        "hint": "Return value was null. A non-@tool GDScript never runs in the editor, so callv() cannot find the method (the editor logs 'Method not found'). To call it: (1) runtime, reliable — game.start, then execute_code or runtime_get_node_state on the live node; (2) editor — add @tool, then close and reopen the scene (scene_close + scene_open); editor_refresh is not sufficient.",
+        "method": "model",
+        "path": ".",
+        "result": null,
+        "success": true
+      }
+    }
+  },
+  {
+    "method": "scene.create_node",
+    "params": {
+      "class_name": "Node3D",
+      "parent_path": ".",
+      "node_name": "Collision",
+      "properties": {}
+    },
+    "response": {
+      "id": 49,
+      "jsonrpc": "2.0",
+      "result": {
+        "path": "Collision",
+        "status": "created",
+        "success": true
+      }
+    }
+  },
+  {
+    "method": "scene.create_node",
+    "params": {
+      "class_name": "StaticBody3D",
+      "parent_path": "Collision",
+      "node_name": "Wall",
+      "properties": {
+        "position": {
+          "type": "Vector3",
+          "x": 0,
+          "y": 1,
+          "z": -20
+        },
+        "collision_layer": 1,
+        "collision_mask": 4
+      }
+    },
+    "response": {
+      "id": 50,
+      "jsonrpc": "2.0",
+      "result": {
+        "path": "Collision/Wall",
+        "properties_set": 3,
+        "status": "created",
+        "success": true
+      }
+    }
+  },
+  {
+    "method": "scene.create_node",
+    "params": {
+      "class_name": "CollisionShape3D",
+      "parent_path": "Collision/Wall",
+      "node_name": "Shape",
+      "properties": {
+        "shape": {
+          "type": "NewResource",
+          "class": "BoxShape3D",
+          "properties": {
+            "size": {
+              "type": "Vector3",
+              "x": 20,
+              "y": 2,
+              "z": 1
+            }
+          }
+        }
+      }
+    },
+    "response": {
+      "id": 51,
+      "jsonrpc": "2.0",
+      "result": {
+        "path": "Collision/Wall/Shape",
+        "properties_set": 1,
+        "status": "created",
+        "success": true
+      }
+    }
+  },
+  {
+    "method": "scene.create_node",
+    "params": {
+      "class_name": "StaticBody3D",
+      "parent_path": "Collision",
+      "node_name": "LeftBoundary",
+      "properties": {
+        "position": {
+          "type": "Vector3",
+          "x": -30,
+          "y": 1,
+          "z": 0
+        },
+        "collision_layer": 1,
+        "collision_mask": 4
+      }
+    },
+    "response": {
+      "id": 52,
+      "jsonrpc": "2.0",
+      "result": {
+        "path": "Collision/LeftBoundary",
+        "properties_set": 3,
+        "status": "created",
+        "success": true
+      }
+    }
+  },
+  {
+    "method": "scene.create_node",
+    "params": {
+      "class_name": "CollisionShape3D",
+      "parent_path": "Collision/LeftBoundary",
+      "node_name": "Shape",
+      "properties": {
+        "shape": {
+          "type": "NewResource",
+          "class": "BoxShape3D",
+          "properties": {
+            "size": {
+              "type": "Vector3",
+              "x": 1,
+              "y": 2,
+              "z": 60
+            }
+          }
+        }
+      }
+    },
+    "response": {
+      "id": 53,
+      "jsonrpc": "2.0",
+      "result": {
+        "path": "Collision/LeftBoundary/Shape",
+        "properties_set": 1,
+        "status": "created",
+        "success": true
+      }
+    }
+  },
+  {
+    "method": "scene.create_node",
+    "params": {
+      "class_name": "StaticBody3D",
+      "parent_path": "Collision",
+      "node_name": "RightBoundary",
+      "properties": {
+        "position": {
+          "type": "Vector3",
+          "x": 30,
+          "y": 1,
+          "z": 0
+        },
+        "collision_layer": 1,
+        "collision_mask": 4
+      }
+    },
+    "response": {
+      "id": 54,
+      "jsonrpc": "2.0",
+      "result": {
+        "path": "Collision/RightBoundary",
+        "properties_set": 3,
+        "status": "created",
+        "success": true
+      }
+    }
+  },
+  {
+    "method": "scene.create_node",
+    "params": {
+      "class_name": "CollisionShape3D",
+      "parent_path": "Collision/RightBoundary",
+      "node_name": "Shape",
+      "properties": {
+        "shape": {
+          "type": "NewResource",
+          "class": "BoxShape3D",
+          "properties": {
+            "size": {
+              "type": "Vector3",
+              "x": 1,
+              "y": 2,
+              "z": 60
+            }
+          }
+        }
+      }
+    },
+    "response": {
+      "id": 55,
+      "jsonrpc": "2.0",
+      "result": {
+        "path": "Collision/RightBoundary/Shape",
+        "properties_set": 1,
+        "status": "created",
+        "success": true
+      }
+    }
+  },
+  {
+    "method": "scene.create_node",
+    "params": {
+      "class_name": "StaticBody3D",
+      "parent_path": "Collision",
+      "node_name": "SouthBoundary",
+      "properties": {
+        "position": {
+          "type": "Vector3",
+          "x": 0,
+          "y": 1,
+          "z": 30
+        },
+        "collision_layer": 1,
+        "collision_mask": 4
+      }
+    },
+    "response": {
+      "id": 56,
+      "jsonrpc": "2.0",
+      "result": {
+        "path": "Collision/SouthBoundary",
+        "properties_set": 3,
+        "status": "created",
+        "success": true
+      }
+    }
+  },
+  {
+    "method": "scene.create_node",
+    "params": {
+      "class_name": "CollisionShape3D",
+      "parent_path": "Collision/SouthBoundary",
+      "node_name": "Shape",
+      "properties": {
+        "shape": {
+          "type": "NewResource",
+          "class": "BoxShape3D",
+          "properties": {
+            "size": {
+              "type": "Vector3",
+              "x": 60,
+              "y": 2,
+              "z": 1
+            }
+          }
+        }
+      }
+    },
+    "response": {
+      "id": 57,
+      "jsonrpc": "2.0",
+      "result": {
+        "path": "Collision/SouthBoundary/Shape",
+        "properties_set": 1,
+        "status": "created",
+        "success": true
+      }
+    }
+  },
+  {
+    "method": "node.set_script",
+    "params": {
+      "node_path": ".",
+      "script_path": ""
+    },
+    "response": {
+      "id": 58,
+      "jsonrpc": "2.0",
+      "result": {
+        "path": ".",
+        "properties": [],
+        "script": null,
+        "success": true
+      }
+    }
+  },
+  {
+    "method": "editor.save_scene",
+    "params": {},
+    "response": {
+      "id": 59,
+      "jsonrpc": "2.0",
+      "result": {
+        "path": "res://tests/fixtures/s04/track.tscn",
+        "success": true
+      }
+    }
+  },
+  {
+    "method": "scene.get_tree",
+    "params": {
+      "max_depth": 4
+    },
+    "response": {
+      "id": 60,
+      "jsonrpc": "2.0",
+      "result": {
+        "success": true,
+        "tree": "<untrusted-484f285e kind=\"scene_tree\" source=\"res://tests/fixtures/s04/track.tscn\">\n{\"children\":[{\"children\":[{\"children\":[{\"children\":[],\"class\":\"MeshInstance3D\",\"name\":\"LaneMark\",\"path\":\"Visuals/Model/LaneMark\"},{\"children\":[],\"class\":\"MeshInstance3D\",\"name\":\"LeftBoundary\",\"path\":\"Visuals/Model/LeftBoundary\"},{\"children\":[],\"class\":\"MeshInstance3D\",\"name\":\"Pad\",\"path\":\"Visuals/Model/Pad\"},{\"children\":[],\"class\":\"MeshInstance3D\",\"name\":\"RightBoundary\",\"path\":\"Visuals/Model/RightBoundary\"},{\"children\":[],\"class\":\"MeshInstance3D\",\"name\":\"SouthBoundary\",\"path\":\"Visuals/Model/SouthBoundary\"},{\"children\":[],\"class\":\"MeshInstance3D\",\"name\":\"Wall\",\"path\":\"Visuals/Model/Wall\"}],\"class\":\"Node3D\",\"name\":\"Model\",\"path\":\"Visuals/Model\"}],\"class\":\"Node3D\",\"name\":\"Visuals\",\"path\":\"Visuals\"},{\"children\":[{\"children\":[{\"children\":[],\"class\":\"CollisionShape3D\",\"name\":\"Shape\",\"path\":\"Collision/Wall/Shape\"}],\"class\":\"StaticBody3D\",\"name\":\"Wall\",\"path\":\"Collision/Wall\"},{\"children\":[{\"children\":[],\"class\":\"CollisionShape3D\",\"name\":\"Shape\",\"path\":\"Collision/LeftBoundary/Shape\"}],\"class\":\"StaticBody3D\",\"name\":\"LeftBoundary\",\"path\":\"Collision/LeftBoundary\"},{\"children\":[{\"children\":[],\"class\":\"CollisionShape3D\",\"name\":\"Shape\",\"path\":\"Collision/RightBoundary/Shape\"}],\"class\":\"StaticBody3D\",\"name\":\"RightBoundary\",\"path\":\"Collision/RightBoundary\"},{\"children\":[{\"children\":[],\"class\":\"CollisionShape3D\",\"name\":\"Shape\",\"path\":\"Collision/SouthBoundary/Shape\"}],\"class\":\"StaticBody3D\",\"name\":\"SouthBoundary\",\"path\":\"Collision/SouthBoundary\"}],\"class\":\"Node3D\",\"name\":\"Collision\",\"path\":\"Collision\"}],\"class\":\"Node3D\",\"name\":\"track\",\"path\":\".\"}\n</untrusted-484f285e>"
+      }
+    }
+  },
+  {
+    "method": "scene.close",
+    "params": {
+      "file_path": "res://tests/fixtures/s04/track.tscn"
+    },
+    "response": {
+      "id": 61,
+      "jsonrpc": "2.0",
+      "result": {
+        "path": "res://tests/fixtures/s04/track.tscn",
+        "success": true,
+        "unsaved_changes_discarded": false
+      }
+    }
+  },
+  {
+    "method": "scene.open",
+    "params": {
+      "file_path": "res://tests/fixtures/s02/editor_harness.tscn"
+    },
+    "response": {
+      "id": 62,
+      "jsonrpc": "2.0",
+      "result": {
+        "path": "res://tests/fixtures/s02/editor_harness.tscn",
+        "success": true
+      }
+    }
+  },
+  {
+    "method": "node.call_method",
+    "params": {
+      "node_path": ".",
+      "method_name": "editor_state",
+      "args": []
+    },
+    "response": {
+      "id": 63,
+      "jsonrpc": "2.0",
+      "result": {
+        "method": "editor_state",
+        "path": ".",
+        "result": {
+          "open": "PackedStringArray(\"res://tests/fixtures/s02/editor_harness.tscn\")",
+          "project": "/home/regner/.paseo/worktrees/0u71f39f/s04-desktop-enet-cars/",
+          "unsaved": "PackedStringArray()"
+        },
+        "success": true
+      }
+    }
+  }
+]

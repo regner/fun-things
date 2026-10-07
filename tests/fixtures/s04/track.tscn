@@ -1,0 +1,51 @@
+[gd_scene format=3 uid="uid://whg1w4ybnvqq"]
+
+[ext_resource type="PackedScene" uid="uid://bwjhyg153ah7f" path="res://art/models/spikes/s04_track.glb" id="1_ketcm"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_tfsky"]
+size = Vector3(20, 2, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_kolcj"]
+size = Vector3(1, 2, 60)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_vw7gt"]
+size = Vector3(1, 2, 60)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_0yuiy"]
+size = Vector3(60, 2, 1)
+
+[node name="track" type="Node3D" unique_id=1943514348]
+
+[node name="Visuals" type="Node3D" parent="." unique_id=855731524]
+
+[node name="Model" type="Node3D" parent="Visuals" unique_id=1037103653 instance=ExtResource("1_ketcm")]
+
+[node name="Collision" type="Node3D" parent="." unique_id=1592382427]
+
+[node name="Wall" type="StaticBody3D" parent="Collision" unique_id=711093632]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -20)
+collision_mask = 4
+
+[node name="Shape" type="CollisionShape3D" parent="Collision/Wall" unique_id=295917807]
+shape = SubResource("BoxShape3D_tfsky")
+
+[node name="LeftBoundary" type="StaticBody3D" parent="Collision" unique_id=1122069281]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30, 1, 0)
+collision_mask = 4
+
+[node name="Shape" type="CollisionShape3D" parent="Collision/LeftBoundary" unique_id=484630489]
+shape = SubResource("BoxShape3D_kolcj")
+
+[node name="RightBoundary" type="StaticBody3D" parent="Collision" unique_id=39468835]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30, 1, 0)
+collision_mask = 4
+
+[node name="Shape" type="CollisionShape3D" parent="Collision/RightBoundary" unique_id=1928204695]
+shape = SubResource("BoxShape3D_vw7gt")
+
+[node name="SouthBoundary" type="StaticBody3D" parent="Collision" unique_id=135641041]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 30)
+collision_mask = 4
+
+[node name="Shape" type="CollisionShape3D" parent="Collision/SouthBoundary" unique_id=868594945]
+shape = SubResource("BoxShape3D_0yuiy")

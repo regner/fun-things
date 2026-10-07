@@ -1,0 +1,269 @@
+{
+  "responses": [
+    {
+      "index": 1,
+      "move": 1.0,
+      "turn": 0.0,
+      "physics_ms": 235,
+      "rendered_frame_ms": null
+    },
+    {
+      "index": 2,
+      "move": 1.0,
+      "turn": 1.0,
+      "physics_ms": 345,
+      "rendered_frame_ms": null
+    },
+    {
+      "index": 3,
+      "move": 1.0,
+      "turn": 0.0,
+      "physics_ms": 269,
+      "rendered_frame_ms": null
+    },
+    {
+      "index": 4,
+      "move": 1.0,
+      "turn": 1.0,
+      "physics_ms": 338,
+      "rendered_frame_ms": null
+    },
+    {
+      "index": 5,
+      "move": 1.0,
+      "turn": 0.0,
+      "physics_ms": 317,
+      "rendered_frame_ms": null
+    },
+    {
+      "index": 6,
+      "move": 1.0,
+      "turn": 1.0,
+      "physics_ms": 338,
+      "rendered_frame_ms": null
+    },
+    {
+      "index": 7,
+      "move": 1.0,
+      "turn": 0.0,
+      "physics_ms": 317,
+      "rendered_frame_ms": null
+    },
+    {
+      "index": 8,
+      "move": 1.0,
+      "turn": 1.0,
+      "physics_ms": 304,
+      "rendered_frame_ms": null
+    },
+    {
+      "index": 9,
+      "move": 1.0,
+      "turn": 0.0,
+      "physics_ms": 317,
+      "rendered_frame_ms": null
+    },
+    {
+      "index": 10,
+      "move": 1.0,
+      "turn": 1.0,
+      "physics_ms": 249,
+      "rendered_frame_ms": null
+    },
+    {
+      "index": 11,
+      "move": 1.0,
+      "turn": 0.0,
+      "physics_ms": 262,
+      "rendered_frame_ms": null
+    },
+    {
+      "index": 12,
+      "move": 1.0,
+      "turn": 1.0,
+      "physics_ms": 386,
+      "rendered_frame_ms": null
+    },
+    {
+      "index": 13,
+      "move": 1.0,
+      "turn": 0.0,
+      "physics_ms": 331,
+      "rendered_frame_ms": null
+    },
+    {
+      "index": 14,
+      "move": 1.0,
+      "turn": 1.0,
+      "physics_ms": 401,
+      "rendered_frame_ms": null
+    },
+    {
+      "index": 15,
+      "move": 1.0,
+      "turn": 0.0,
+      "physics_ms": 317,
+      "rendered_frame_ms": null
+    },
+    {
+      "index": 16,
+      "move": 1.0,
+      "turn": 1.0,
+      "physics_ms": 352,
+      "rendered_frame_ms": null
+    },
+    {
+      "index": 17,
+      "move": 1.0,
+      "turn": 0.0,
+      "physics_ms": 263,
+      "rendered_frame_ms": null
+    },
+    {
+      "index": 18,
+      "move": 1.0,
+      "turn": 1.0,
+      "physics_ms": 304,
+      "rendered_frame_ms": null
+    },
+    {
+      "index": 19,
+      "move": 1.0,
+      "turn": 0.0,
+      "physics_ms": 283,
+      "rendered_frame_ms": null
+    },
+    {
+      "index": 20,
+      "move": 1.0,
+      "turn": 1.0,
+      "physics_ms": 455,
+      "rendered_frame_ms": null
+    }
+  ],
+  "response_p95_ms": {
+    "physics_ms": 401,
+    "rendered_frame_ms": null
+  },
+  "response_samples": 20,
+  "response_missing": 20,
+  "physics_response_missing": 0,
+  "snapshot_age_p95_ms": 180.0498046875,
+  "snapshot_age_max_ms": 204.889892578125,
+  "matching_tick_install_error_max_m": 0.0,
+  "matching_tick_samples": 631,
+  "update_jump_p95_m": 0.5122451045320722,
+  "prediction_correction": "not measured: no predicted state",
+  "wall_stop": true,
+  "input_expiry": true,
+  "expiry_transitions": [
+    {
+      "entity": 2,
+      "age_ms": 255,
+      "previous_age_ms": 235,
+      "tick_gap_ms": 20,
+      "velocity": [
+        0.0,
+        0.0,
+        2.98553442955017
+      ]
+    },
+    {
+      "entity": 2,
+      "age_ms": 262,
+      "previous_age_ms": 248,
+      "tick_gap_ms": 14,
+      "velocity": [
+        0.0,
+        0.0,
+        2.93312048912048
+      ]
+    }
+  ],
+  "recovery": [
+    {
+      "case": "interruption",
+      "settled_tick": 933,
+      "observed_delay_ms": 123.926025390625,
+      "converged": true
+    },
+    {
+      "case": "host_stall",
+      "settled_tick": 1093,
+      "observed_delay_ms": 143.909912109375,
+      "converged": true
+    }
+  ],
+  "window_states": [
+    {
+      "can_draw": false,
+      "display": "headless",
+      "engine": "4.8-dev7 (official)",
+      "event": "start",
+      "pid": 230169,
+      "profile": "adverse",
+      "renderer": "forward_plus",
+      "role": "host",
+      "time_ms": 2526,
+      "user_dir": "/tmp/s04-canonical-host/adverse/host/user/data/godot/app_userdata/Fun Things",
+      "wall_ms": 1791415581196.41,
+      "window_mode": 1,
+      "window_visible": true
+    },
+    {
+      "can_draw": false,
+      "display": "headless",
+      "engine": "4.8-dev7 (official)",
+      "event": "start",
+      "pid": 230194,
+      "profile": "adverse",
+      "renderer": "forward_plus",
+      "role": "client",
+      "time_ms": 2172,
+      "user_dir": "/tmp/s04-canonical-host/adverse/client/user/data/godot/app_userdata/Fun Things",
+      "wall_ms": 1791415581058.62,
+      "window_mode": 1,
+      "window_visible": true
+    }
+  ],
+  "resync_retained_entity_health": true,
+  "proxy_delays_ms": {
+    "min": 75.28990499849897,
+    "p95": 170.76546900352696,
+    "max": 176.89144299947657
+  },
+  "native_drops": 150,
+  "results": {
+    "host": {
+      "accepted": 1042,
+      "event": "result",
+      "failures": [],
+      "max_held_bytes": 352,
+      "max_movement_bytes": 804,
+      "ok": true,
+      "reason": "LEFT",
+      "rejected": {
+        "INVALID": 1,
+        "NOT_ADMITTED": 1,
+        "STALE_CONTEXT": 1,
+        "WINDOW": 1
+      },
+      "role": "host",
+      "time_ms": 24677,
+      "wall_ms": 1791415603348.07
+    },
+    "client": {
+      "accepted": 0,
+      "event": "result",
+      "failures": [],
+      "max_held_bytes": 0,
+      "max_movement_bytes": 0,
+      "ok": true,
+      "reason": "HOST_LOST",
+      "rejected": {},
+      "role": "client",
+      "time_ms": 24610,
+      "wall_ms": 1791415603497.73
+    }
+  }
+}

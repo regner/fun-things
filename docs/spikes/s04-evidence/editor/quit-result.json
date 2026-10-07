@@ -1,0 +1,17 @@
+[
+  {
+    "method": "execute.code",
+    "params": {
+      "code": "get_tree().call_deferred(\"quit\")",
+      "channel": "editor"
+    },
+    "response": {
+      "id": 1,
+      "jsonrpc": "2.0",
+      "result": {
+        "result": null,
+        "success": true
+      }
+    }
+  }
+]

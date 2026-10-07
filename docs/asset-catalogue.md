@@ -9,6 +9,7 @@ not production art. Add entries when asset briefs start, using the [handoff temp
 | s01_static | Spike static model, metre/socket/prefab/variant proof | Codex | [Technical handoff](assets/s01_static.md) |
 | s01_rig | Spike skin/clip/bone-attachment proof | Codex | [Technical handoff](assets/s01_rig.md) |
 | s02_kit | Desktop camera/control blockouts and held-weapon studies | S02 Codex workstream | [Technical handoff](assets/s02_kit.md) |
+| s04_kit | Bounded car body/control and flat-track ENet fixture; product acceptance open | S04 direct Sol 6.1 HIGH workstream | [Source handoff](assets/s04_kit.md) |
 
 The linked record owns source/export/import/prefab/sector mappings, shared
 dependencies, acceptance status and evidence. Keep this index limited to discovery

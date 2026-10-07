@@ -1,0 +1,80 @@
+[
+  {
+    "method": "scene.close",
+    "params": {
+      "file_path": "res://tests/fixtures/s02/editor_harness.tscn"
+    },
+    "response": {
+      "id": 1,
+      "jsonrpc": "2.0",
+      "result": {
+        "hint": "Closing a non-active scene tab may produce a _set_main_scene_state error in the editor console. This is benign Godot engine noise — safe to ignore.",
+        "path": "res://tests/fixtures/s02/editor_harness.tscn",
+        "success": true,
+        "unsaved_changes_discarded": false
+      }
+    }
+  },
+  {
+    "method": "scene.close",
+    "params": {
+      "file_path": "res://tests/fixtures/s04/kinematic.tscn"
+    },
+    "response": {
+      "id": 2,
+      "jsonrpc": "2.0",
+      "result": {
+        "path": "res://tests/fixtures/s04/kinematic.tscn",
+        "success": true,
+        "unsaved_changes_discarded": false
+      }
+    }
+  },
+  {
+    "method": "scene.open",
+    "params": {
+      "file_path": "res://tests/fixtures/s04/editor_harness.tscn"
+    },
+    "response": {
+      "id": 3,
+      "jsonrpc": "2.0",
+      "result": {
+        "path": "res://tests/fixtures/s04/editor_harness.tscn",
+        "success": true
+      }
+    }
+  },
+  {
+    "method": "node.call_method",
+    "params": {
+      "node_path": ".",
+      "method_name": "s04_state",
+      "args": []
+    },
+    "response": {
+      "id": 4,
+      "jsonrpc": "2.0",
+      "result": {
+        "method": "s04_state",
+        "path": ".",
+        "result": {
+          "open": "PackedStringArray(\"res://tests/fixtures/s04/editor_harness.tscn\")",
+          "pin": {
+            "build": "official",
+            "hash": "c971f93e7e76b0ef919bf6009e7b868bea04db7f",
+            "hex": 264192,
+            "major": 4,
+            "minor": 8,
+            "patch": 0,
+            "status": "dev7",
+            "string": "4.8-dev7 (official)",
+            "timestamp": 0
+          },
+          "project": "/home/regner/.paseo/worktrees/0u71f39f/s04-desktop-enet-cars/",
+          "unsaved": "PackedStringArray()"
+        },
+        "success": true
+      }
+    }
+  }
+]

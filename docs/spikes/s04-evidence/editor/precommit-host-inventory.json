@@ -1,0 +1,40 @@
+{
+  "pid_namespace": "pid:[4026531836]",
+  "net_namespace": "net:[4026531833]",
+  "authoring_or_verification": [
+    {
+      "pid": 121704,
+      "cmd": [
+        "npm exec @npgamedev/godot-mcp-server"
+      ],
+      "cwd": "/home/regner/Development/fun-things"
+    },
+    {
+      "pid": 215097,
+      "cmd": [
+        "npm exec @npgamedev/godot-mcp-server"
+      ],
+      "cwd": "/home/regner/.paseo/worktrees/0u71f39f/s04-desktop-enet-cars"
+    },
+    {
+      "pid": 216911,
+      "cmd": [
+        "/home/regner/.local/share/mise/installs/github-godotengine-godot-builds/4.8-dev7/godot",
+        "--editor",
+        "--path",
+        "/home/regner/.paseo/worktrees/0u71f39f/s04-desktop-enet-cars",
+        "res://tests/fixtures/s02/editor_harness.tscn"
+      ],
+      "cwd": "/home/regner/.paseo/worktrees/0u71f39f/s04-desktop-enet-cars"
+    },
+    {
+      "pid": 229791,
+      "cmd": [
+        "npm exec @npgamedev/godot-mcp-server"
+      ],
+      "cwd": "/home/regner/.paseo/worktrees/0u71f39f/s03-s-compatibility-design-probe"
+    }
+  ],
+  "known_editor_pid": 216911,
+  "blender_writers": []
+}
