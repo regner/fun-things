@@ -161,6 +161,8 @@ def analyze(directory, proxy_events):
             for frame in client:
                 if frame["event"] != kind or frame["time_ms"] < entry["time_ms"]:
                     continue
+                if kind == "apply" and frame["entity"] != 2:
+                    continue  # The fixed fixture's client owns entity2, never the host's pose.
                 if frame["time_ms"] >= entry["time_ms"] + 500:
                     break
                 sequence = frame["pose"]["sequence"] if kind == "apply" else frame["sequence"]

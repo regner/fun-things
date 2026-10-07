@@ -304,3 +304,10 @@ parallel test implementation. Distinguish socket/path startup failures from fail
 gameplay assertions, and reject new engine/script errors even with exit code zero.
 Loopback tests establish shared flow; they cannot certify another transport or
 external-network connectivity.
+
+The [bounded S03-R ENet candidate](spikes/s03-r.md) exercises the actual unchanged
+S02 controller in two headless processes over baseline and impaired UDP delivery.
+Its simulation-response/convergence metrics do not prove visible response, remote
+presentation continuity, prediction corrections or user feel. No production foot
+prediction choice is selected. S03-R remains open for drawable measurements,
+bounded host-tick/held replay mapping if warranted, and the existing Steam/target gates.

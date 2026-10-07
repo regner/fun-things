@@ -615,3 +615,16 @@ before the forward ray, so an extended weapon cannot shoot through world collisi
 Input cancellation is owned by LocalRig/Input; actual native-focus validation and
 user feel remain pending. Rendering cutaway never changes solid collision. These
 are spike candidates for S03-R/S04/P0-GATE, not accepted production tuning.
+
+## S03-R bounded ENet candidate boundary
+
+The [S03-R experiment](spikes/s03-r.md) extends only new fixture resources. It
+calls the unchanged S02 facing-relative step once per authoritative host callback
+and reuses S03 admission/context/held-expiry/lifecycle owners. Its two-body pose
+extension carries host tick and consumed-or-superseded intent sequence after the
+step; repeated held input can span several host ticks. This does not establish a
+one-sequence/one-step replay mapping or select a production codec/prediction API.
+Headless input-to-applied-physics latency, snapshot installation and settled-host
+convergence are distinct from visible response and predicted matching-tick correction.
+The latter measurements and Steam/feel/hardware acceptance remain open; S03-R owns
+the bounded replay-mapping follow-up in [TODO](../TODO.md).

@@ -182,3 +182,15 @@ owned camera FOV, with no editable imported-child overrides. Building wrappers
 apply local presentation cutaway materials while preserving meshes/collision.
 The [S02 record](spikes/s02.md) and [source handoff](assets/s02_kit.md) bound this
 exploration; production paths, native-focus/user feel, Deck and P0-GATE stay open.
+
+## S03-R new fixture supplement
+
+`tests/fixtures/s03_r/boot.tscn` inherits the unchanged S03 endpoint hierarchy and
+owns saved CityRoot instances of unchanged S02 linked prefabs, two saved bodies,
+input/camera/light/environment and diagnostic UI. `s03_r/actor.tscn` inherits the
+unchanged S02 body/socket/collision/model composition. New scripts adapt actual
+host motion and replica presentation; runtime only supplies dynamic body state.
+The [S03-R record](spikes/s03-r.md) retains inherited save/reopen identities and
+original-path byte preservation. Only redundant overrides in the new owned boot
+scene were normalized; original S02/S03 scenes/assets/resources were not modified.
+Headless technical checks do not establish visual/readability or production acceptance.

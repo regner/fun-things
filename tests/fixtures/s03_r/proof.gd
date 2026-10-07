@@ -3,7 +3,17 @@ extends Node
 ## Explicit fixture bookkeeping keeps timing, receipts and cleanup in one experiment owner.
 ## Drives one bounded actual-controller experiment through the existing S03 session APIs.
 
-const PHYSICS_HZ: int = 60
+const INPUT_PHYSICS_PRIORITY: int = -20
+const HOST_REVERSE_START_TICK: int = 120
+const HOST_REVERSE_END_TICK: int = 180
+const STALL_REVERSE_START_TICK: int = 888
+const STALL_REVERSE_END_TICK: int = 930
+const BOUNDARY_CHECK_TICK: int = 950
+const EXPIRY_PULSE_START_TICK: int = 1000
+const PRODUCER_SILENCE_START_TICK: int = 1002
+const PRODUCER_SILENCE_END_TICK: int = 1040
+const RESPONSE_DISTANCE_M: float = 0.005
+const RESPONSE_TURN_DEG: float = 0.2
 const INPUT_INTERVAL_TICKS: int = 2
 const SNAPSHOT_INTERVAL_TICKS: int = 3
 const PULSE_COUNT: int = 20
@@ -43,7 +53,7 @@ var ending: bool = false
 
 ## Injects existing boundaries before starting the ordinary host/join lifecycle.
 func _ready() -> void:
-	process_physics_priority = -20
+	process_physics_priority = INPUT_PHYSICS_PRIORITY
 	for argument: String in OS.get_cmdline_user_args():
 		if argument.begins_with("--role="):
 			role = argument.trim_prefix("--role=")
@@ -121,7 +131,7 @@ func _collect_and_send() -> void:
 		_record({"event": "resync_applied", "control": control, "entity": binding.entity,
 			"health": binding.health})
 
-	if local_tick == 950:
+	if local_tick == BOUNDARY_CHECK_TICK:
 		_check_boundaries()
 
 	var command: Vector2 = _command(local_tick)
@@ -129,7 +139,8 @@ func _collect_and_send() -> void:
 	if local_tick % INPUT_INTERVAL_TICKS == 0:
 		sequence += 1
 		# A bounded loss-of-producer segment tests expiry independently of proxy randomness.
-		if role == "client" and local_tick >= 1002 and local_tick < 1040:
+		if role == "client" and local_tick >= PRODUCER_SILENCE_START_TICK and (
+			local_tick < PRODUCER_SILENCE_END_TICK):
 			return
 		var sampled: Dictionary = input_collector.sample()
 		var envelope: Dictionary = {"context": match_state.context(session.local_participant),
@@ -201,7 +212,8 @@ func _announce(session_id: String) -> void:
 ## Provides independently timed motion/turn pulses followed by collision and recovery cases.
 func _command(tick: int) -> Vector2:  # gdstyle:ignore=quality/max-returns
 	if role == "host":
-		return Vector2(-1.0, 0.0) if tick >= 120 and tick < 180 else Vector2.ZERO
+		return Vector2(-1.0, 0.0) if (
+			tick >= HOST_REVERSE_START_TICK and tick < HOST_REVERSE_END_TICK) else Vector2.ZERO
 
 	if tick < WALL_START_TICK:
 		var pulse: int = tick / PULSE_TICKS
@@ -215,7 +227,8 @@ func _command(tick: int) -> Vector2:  # gdstyle:ignore=quality/max-returns
 		return Vector2(1.0, 0.0)
 	if tick < REVERSE_END_TICK:
 		return Vector2(-1.0, 0.0)
-	if (tick >= 888 and tick < 930) or (tick >= 1000 and tick < 1002):
+	if (tick >= STALL_REVERSE_START_TICK and tick < STALL_REVERSE_END_TICK) or (
+		tick >= EXPIRY_PULSE_START_TICK and tick < PRODUCER_SILENCE_START_TICK):
 		return Vector2(-1.0, 0.0)
 
 	return Vector2.ZERO
@@ -305,8 +318,8 @@ func _on_rendered() -> void:
 		"sequence": actor.latest_sequence,
 		"screen": [screen.x, screen.y], "viewport": get_viewport().get_visible_rect().size})
 	if capture_pending and (
-		(state.position as Vector3).distance_to(capture_pose.position) > 0.005
-		or absf(angle_difference(state.yaw, capture_pose.yaw)) > deg_to_rad(0.2)
+		(state.position as Vector3).distance_to(capture_pose.position) > RESPONSE_DISTANCE_M
+		or absf(angle_difference(state.yaw, capture_pose.yaw)) > deg_to_rad(RESPONSE_TURN_DEG)
 	):
 		_capture("after")
 		capture_pending = false

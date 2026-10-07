@@ -1,0 +1,257 @@
+{
+  "responses": [
+    {
+      "index": 1,
+      "move": 1.0,
+      "turn": 0.0,
+      "physics_ms": 165,
+      "rendered_frame_ms": null
+    },
+    {
+      "index": 2,
+      "move": 0.0,
+      "turn": 1.0,
+      "physics_ms": 220,
+      "rendered_frame_ms": null
+    },
+    {
+      "index": 3,
+      "move": 1.0,
+      "turn": 0.0,
+      "physics_ms": 214,
+      "rendered_frame_ms": null
+    },
+    {
+      "index": 4,
+      "move": 0.0,
+      "turn": -1.0,
+      "physics_ms": 186,
+      "rendered_frame_ms": null
+    },
+    {
+      "index": 5,
+      "move": 1.0,
+      "turn": 0.0,
+      "physics_ms": 200,
+      "rendered_frame_ms": null
+    },
+    {
+      "index": 6,
+      "move": 0.0,
+      "turn": 1.0,
+      "physics_ms": 186,
+      "rendered_frame_ms": null
+    },
+    {
+      "index": 7,
+      "move": 1.0,
+      "turn": 0.0,
+      "physics_ms": 200,
+      "rendered_frame_ms": null
+    },
+    {
+      "index": 8,
+      "move": 0.0,
+      "turn": -1.0,
+      "physics_ms": 186,
+      "rendered_frame_ms": null
+    },
+    {
+      "index": 9,
+      "move": 1.0,
+      "turn": 0.0,
+      "physics_ms": 179,
+      "rendered_frame_ms": null
+    },
+    {
+      "index": 10,
+      "move": 0.0,
+      "turn": 1.0,
+      "physics_ms": 186,
+      "rendered_frame_ms": null
+    },
+    {
+      "index": 11,
+      "move": 1.0,
+      "turn": 0.0,
+      "physics_ms": 201,
+      "rendered_frame_ms": null
+    },
+    {
+      "index": 12,
+      "move": 0.0,
+      "turn": -1.0,
+      "physics_ms": 235,
+      "rendered_frame_ms": null
+    },
+    {
+      "index": 13,
+      "move": 1.0,
+      "turn": 0.0,
+      "physics_ms": 221,
+      "rendered_frame_ms": null
+    },
+    {
+      "index": 14,
+      "move": 0.0,
+      "turn": 1.0,
+      "physics_ms": 186,
+      "rendered_frame_ms": null
+    },
+    {
+      "index": 15,
+      "move": 1.0,
+      "turn": 0.0,
+      "physics_ms": 187,
+      "rendered_frame_ms": null
+    },
+    {
+      "index": 16,
+      "move": 0.0,
+      "turn": -1.0,
+      "physics_ms": 200,
+      "rendered_frame_ms": null
+    },
+    {
+      "index": 17,
+      "move": 1.0,
+      "turn": 0.0,
+      "physics_ms": 235,
+      "rendered_frame_ms": null
+    },
+    {
+      "index": 18,
+      "move": 0.0,
+      "turn": 1.0,
+      "physics_ms": 213,
+      "rendered_frame_ms": null
+    },
+    {
+      "index": 19,
+      "move": 1.0,
+      "turn": 0.0,
+      "physics_ms": 166,
+      "rendered_frame_ms": null
+    },
+    {
+      "index": 20,
+      "move": 0.0,
+      "turn": -1.0,
+      "physics_ms": 235,
+      "rendered_frame_ms": null
+    }
+  ],
+  "response_p95_ms": {
+    "physics_ms": 235,
+    "rendered_frame_ms": null
+  },
+  "response_samples": 20,
+  "response_missing": 20,
+  "snapshot_age_p95_ms": 116.18994140625,
+  "snapshot_age_max_ms": 123.099853515625,
+  "matching_tick_install_error_max_m": 0.0,
+  "matching_tick_samples": 821,
+  "update_jump_p95_m": 0.25000010667504885,
+  "prediction_correction": "not measured: no predicted state",
+  "wall_stop": true,
+  "input_expiry": true,
+  "expiry_transitions": [
+    {
+      "entity": 2,
+      "age_ms": 262,
+      "previous_age_ms": 242,
+      "tick_gap_ms": 20,
+      "velocity": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    }
+  ],
+  "recovery": [
+    {
+      "case": "interruption",
+      "settled_tick": 911,
+      "observed_delay_ms": 12.60986328125,
+      "converged": true
+    },
+    {
+      "case": "host_stall",
+      "settled_tick": 1066,
+      "observed_delay_ms": 5.679931640625,
+      "converged": true
+    }
+  ],
+  "window_states": [
+    {
+      "can_draw": false,
+      "display": "headless",
+      "engine": "4.8-dev7 (official)",
+      "event": "start",
+      "pid": 195075,
+      "profile": "normal",
+      "renderer": "forward_plus",
+      "role": "host",
+      "time_ms": 1912,
+      "user_dir": "/tmp/s03-r-headless-technical/normal/host/user/data/godot/app_userdata/Fun Things",
+      "wall_ms": 1791410940364.26,
+      "window_mode": 1,
+      "window_visible": true
+    },
+    {
+      "can_draw": false,
+      "display": "headless",
+      "engine": "4.8-dev7 (official)",
+      "event": "start",
+      "pid": 195098,
+      "profile": "normal",
+      "renderer": "forward_plus",
+      "role": "client",
+      "time_ms": 1609,
+      "user_dir": "/tmp/s03-r-headless-technical/normal/client/user/data/godot/app_userdata/Fun Things",
+      "wall_ms": 1791410940280.3,
+      "window_mode": 1,
+      "window_visible": true
+    }
+  ],
+  "resync_retained_entity_health": true,
+  "proxy_delays_ms": {
+    "min": 45.39893699984532,
+    "p95": 103.13964699889766,
+    "max": 106.97182099829661
+  },
+  "native_drops": 43,
+  "results": {
+    "host": {
+      "accepted": 1165,
+      "event": "result",
+      "failures": [],
+      "max_held_bytes": 256,
+      "max_movement_bytes": 604,
+      "ok": true,
+      "reason": "LEFT",
+      "rejected": {
+        "INVALID": 1,
+        "NOT_ADMITTED": 1,
+        "STALE_CONTEXT": 1,
+        "WINDOW": 1
+      },
+      "role": "host",
+      "time_ms": 23944,
+      "wall_ms": 1791410962396.62
+    },
+    "client": {
+      "accepted": 0,
+      "event": "result",
+      "failures": [],
+      "max_held_bytes": 0,
+      "max_movement_bytes": 0,
+      "ok": true,
+      "reason": "HOST_LOST",
+      "rejected": {},
+      "role": "client",
+      "time_ms": 23813,
+      "wall_ms": 1791410962484.89
+    }
+  }
+}

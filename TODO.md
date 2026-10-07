@@ -284,6 +284,18 @@ implementation. Save editor mutations before playtests; preserve unsaved work.
   measure local response and correction behavior. Try minimal shared-rule prediction
   only if needed. Decision: foot interpolation/prediction/reconciliation requirements,
   limits and evidence; independent of the vehicle prediction choice. Required for M1-A2.
+  [Bounded ENet technical candidate](docs/spikes/s03-r.md) retains headless two-process
+  controller response, convergence, collision, expiry/resync and teardown evidence;
+  independent review is required before integration. **Full S03-R remains OPEN.**
+  Next: measure predeclared owned visible response/camera/aim continuity with a
+  drawable fixture and human feel review. If that evidence warrants prediction,
+  commission a separately bounded trial: predeclare how newest held intent per
+  host tick maps to numbered client steps/acknowledgements, including repeated held
+  values, supersession, contact restoration, bounded history/overflow/resync and
+  replay side-effect exclusion. Keep the actual S02 movement rule as sole owner;
+  do not assume one acknowledged sequence equals one simulation step. Require
+  matching-tick correction and adverse convergence evidence, then real Steam and
+  target/user acceptance under existing gates. Headless timing cannot close these.
 
 - [ ] **S04 — Arcade car physics and network response.**
   Needs for desktop/ENet: [S02 desktop actor/camera envelope](docs/spikes/s02.md)
