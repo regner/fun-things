@@ -103,7 +103,7 @@ def main():
     print('PASS 27 base / 28 delivered tasks covered once; only DOC5 added, none removed')
 
     paths = {'TODO.md', INDEX, RECORD}
-    paths.update(str(p.relative_to(ROOT)) for p in EVIDENCE.iterdir() if p.is_file())
+    paths.update(str(p.relative_to(ROOT)) for p in EVIDENCE.rglob('*') if p.is_file())
     if (ROOT / REVIEW).exists():
         paths.add(REVIEW)
     changed = set(git('diff', '--name-only', BASE).splitlines())
@@ -146,6 +146,14 @@ def main():
     assert 'plan-check-2026-10-07-04.md' in (ROOT / INDEX).read_text()
     subprocess.run(['git', 'diff', '--check', BASE], cwd=ROOT, check=True)
     print(f'PASS scoped docs/evidence, {links} local links/anchors, {json_count} JSONs, LF/whitespace')
+
+    retention_path = EVIDENCE / 'retention.json'
+    if retention_path.exists():
+        retention = json.loads(retention_path.read_text(), object_pairs_hook=unique_pairs)
+        for item in retention['files']:
+            raw = (ROOT / item['retained']).read_bytes()
+            assert hashlib.sha256(raw).hexdigest() == item['sha256'], item['retained']
+        print('PASS full independent report and static artifact retention hashes')
 
     discovery = json.loads((EVIDENCE / 'profile-discovery.json').read_text())
     assert discovery['profiles']['profiles'] == []

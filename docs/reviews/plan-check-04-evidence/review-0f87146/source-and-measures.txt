@@ -1,0 +1,7 @@
+PASS 82 original retained source/resource/art/project paths match accepted 11a4486 bytes/hashes
+PASS static Python AST syntax for checker/runner/regression; experiment tools not executed
+baseline {'physics_ms': 69, 'rendered_frame_ms': None} [('interruption', 3.97), ('host_stall', 17.71)]
+normal {'physics_ms': 235, 'rendered_frame_ms': None} [('interruption', 12.61), ('host_stall', 5.68)]
+adverse {'physics_ms': 365, 'rendered_frame_ms': None} [('interruption', 220.12), ('host_stall', 415.32)]
+focused followup {'physics_ms': 366, 'rendered_frame_ms': None} [('interruption', 124.71), ('host_stall', 493.79)]
+Accepted analysis file quantities checked for documentation fidelity only; no raw experiment rerun or second technical audit
