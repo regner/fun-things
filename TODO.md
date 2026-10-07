@@ -312,23 +312,35 @@ implementation. Save editor mutations before playtests; preserve unsaved work.
   Decision: representation, stable IDs/layers, host AI/controller APIs and bake/update
   workflow. Specify bounded blockage/junction/stuck/wreck recovery for M1-C3.
 
-- [ ] **S07 — Top-down culling and representative load.**
-  Physical LCD/OLED measurements are deferred with S08's hardware availability.
-  Desktop fixture/culling preparation can proceed after the dependencies below;
-  report its named hardware separately, without selecting Deck budgets/renderer
-  or treating desktop timing as 60 FPS Deck acceptance.
-  Needs: [S01 pipeline evidence](docs/spikes/s01.md), S02 camera, S06 sector fixture
-  and preliminary S05 effect load.
-  Question: which culling/LOD/sector choices help from our actual camera without visual errors?
-  Minimum: repeated imported fixtures and simple moving stand-ins at proposed load;
-  camera movement/fast driving, distant player views and an explosion-effect burst.
-  Compare frustum/LOD/visibility ranges and occlusion benefit/cost; inspect bounds,
-  roof visibility, seams/pop-in, shadows and transparent overdraw.
-  Compare Mobile and Forward Plus on the LCD Deck baseline, including graphical
-  listen-server load; the required 60 FPS guides art/effect choices.
-  Decision: selected configuration, measured budgets and sector sizing. Separate
-  rendering visibility, AI scheduling, network relevance and streaming; off-camera
-  authoritative gameplay continues correctly. Streaming/batching require evidence.
+- [ ] **S07 — Map capacity, top-down culling and growth headroom.**
+  Owner: Sol-led capacity-spike worker; Regner ratifies scope/budgets. Assign a named
+  experiment owner and normally 1–2 focused days per experiment at launch.
+  [Researched preparation and method](docs/spikes/s07.md) is documentation-only;
+  representative capacity measurements remain unexecuted. S07 is the single owner
+  of the map/content envelope and diagnostic/organization recommendations.
+  Needs for representative experiments: [S01 pipeline evidence](docs/spikes/s01.md),
+  accepted S02 camera/controller, real S04 actor/car envelope, S06 saved seam/topology
+  and relevant S05 chain/effect load. Capability research/run-sheet preparation can
+  proceed earlier; stand-ins cannot certify missing gameplay or residency costs.
+  Physical LCD/OLED and real Steam cases remain DEFERRED with S08/S03-S availability;
+  desktop results name their hardware and cannot select Deck budgets/renderer or
+  certify native 1280×800/60 FPS. P0-GATE/engine-input/feel/production gates stay open.
+  Question: what practical envelope supports the current district and progressively
+  larger authored layouts at named extent/density/variety/population/camera/views?
+  Minimum: controlled saved imported two-sector baseline, six-block reference load,
+  then one bounded growth axis; graphical host/client, four separated views, rapid
+  driving/seams, bursts and off-camera outcomes. Retain CPU/GPU/physics percentiles,
+  pacing, render/content/resident costs, loading/traversal and lifecycle stability,
+  relevant AI/query/navigation/network costs and last passing/first failing axis.
+  All visible 3D stays source-linked Blender/GLB in saved authored composition.
+  Decision: tested envelope/headroom and limiting axis; simplest supported culling/
+  LOD/texture/sector configuration or no change. Diagnose before optimizing; actual
+  unloading/streaming/pooling/batching require measured need and lifecycle proof.
+  Growth experiments do not expand the ratified six-block M1 city.
+  Done when: accepted experiment record contains identities/capacity table, named
+  target gaps, scene/asset recommendations, reproducible profiling/escalation guide,
+  selected decision and bounded owned follow-ups; update canonical guides and TODO
+  together. S06 owns topology, S08 exact exports, M1-D3 integrated target acceptance.
 
 - [ ] **S08 — First-target export and service compatibility.**
   Needs: [ratified target/pin record](docs/design.md) for early input/template checks;
@@ -373,6 +385,8 @@ implementation. Save editor mutations before playtests; preserve unsaved work.
   [P0-DOC2 reconciliation](docs/reviews/p0-doc2.md),
   [S03 fixture boundary](docs/spikes/s03.md#fixture-and-boundary),
   [completed S03 proof](docs/spikes/s03.md), S03-R/S03-S and S04 through S08.
+  S07 supplies the documented capacity envelope, limiting axes, organization and
+  diagnostic decisions; research alone leaves representative/target gaps open.
   Done when: critical design/feasibility assumptions required to begin M1 are resolved;
   the user ratifies scope, chosen art/layout and camera/control choices against
   concepts/spike evidence; implementers settle API/scene/source contracts and budgets.
@@ -490,12 +504,15 @@ waiting for unrelated gameplay systems.
   Families can run in parallel with distinct source/prefab ownership and M1-A/B.
 
 - [ ] **M1-C2 — Assemble the authored district in saved sectors.**
-  Needs: accepted M1-C1 road/building/prop subsets and S06/S07 decisions.
+  Needs: accepted M1-C1 road/building/prop subsets, S06 topology and
+  S07 documented capacity/organization decisions (see [brief](docs/spikes/s07.md)).
   Instance individual building scenes repeatedly; compose the ratified district,
   loops/sidewalks/intersections/alleys/landmark, stunt/chain space, safe spawns and
   boundaries. Implement selected culling configuration and rebuild derived data.
   Done when: placement survives reexport/reopen, actor/vehicle/camera clearance is
   proven, sector seams connect and actual gameplay-camera views remain readable.
+  Record actual density/asset variety/residency against S07 assumptions; expanded
+  experimental layouts are not production scope.
 
 - [ ] **M1-C3 — Host-owned pedestrians and traffic.**
   Needs: M1-A2, M1-B1/B2, S06 decision and an accepted M1-C2 route fixture.
@@ -537,6 +554,8 @@ waiting for unrelated gameplay systems.
   gameplay defects are fixed or explicitly scoped out by the user.
 
 - [ ] **M1-D3 — Capacity, adverse-network and performance acceptance.**
+  Use [S07 methodology/results](docs/spikes/s07.md) for content identities, distinct
+  capacity axes and diagnostic baselines; repeat with actual production content.
   Needs: integrated M1-A/B/C behavior and M1-D1 runner.
   Test selected player/population capacity, far-apart views, sustained traffic and
   effect/chain bursts on named hardware. Measure frame/physics times, draw calls,
@@ -583,8 +602,10 @@ compatibility research and S08 desktop export/dependency preparation can be assi
 without physical devices or multiple accounts, subject to explicit writer ownership.
 After accepted S02 controller/envelope evidence, S03-R ENet and S04 desktop/ENet
 experiments can start; their final Steam decisions remain open. S05/S06 need actual
-car/actor envelopes, and S07 needs their representative fixtures. Its physical Deck
-cost measurement remains deferred. No production M1 work is ungated by availability
+car/actor envelopes, and S07 needs their representative fixtures. S07 capacity
+research/method preparation is available now; measured growth starts after those
+fixtures and estimates headroom without expanding M1. Its physical Deck cost
+measurement remains deferred. No production M1 work is ungated by availability
 answers; P0-GATE still needs the missing feasibility/access/device/user decisions.
 The [S03 fixture boundary](docs/spikes/s03.md#fixture-and-boundary) records the
 current isolated networking scope; P0-PROFILES remains deferred outside P0-GATE.
@@ -597,7 +618,7 @@ The table describes dependency stages, not a claim that deferred proofs are runn
 | ENet boundary available | S03-S Steam proof, S04 car candidates, S08 packaging work | Existing-app/tester access and native compatibility must be established early |
 | Both providers available | Finish S03-R foot response and S04 network response; S08 exports | Both transports need evidence; foot/vehicle prediction are separate decisions |
 | Vehicle envelope available | S05 chain proof and S06 intersection/seam | S06 uses pipeline plus real actor/turning dimensions |
-| City/effect fixtures available | S07 culling, finish S08, skill dry runs and doc reconciliation | P0-GATE resolves critical assumptions before production |
+| City/effect fixtures available | S07 capacity/culling experiments, finish S08, skill dry runs and doc reconciliation | P0-GATE resolves critical assumptions before production |
 | M1 begins | M1-A shell/settings, M1-C1 art families | Each art class uses its approved style/pipeline/envelope |
 | Shell accepted | M1-B1 vehicles and M1-B2 weapons; static sector assembly | M1-B3 needs both vehicle and damage ownership |
 | Routes/actors accepted | NPCs, minimap, final asset integration and growing CI | Population needs actual movement, roads and control transfer |
@@ -618,4 +639,5 @@ Stable docs guide research; verify APIs and behavior against the exact pinned en
 - [Testing on Steam](https://partner.steamgames.com/doc/store/testing): existing-app tester access, private branches and installation checks for S03-S/S08/M1-D4.
 - [VehicleBody3D](https://docs.godotengine.org/en/stable/classes/class_vehiclebody3d.html): known limitations to consider when choosing S04 candidates.
 - [NavigationAgents](https://docs.godotengine.org/en/stable/tutorials/navigation/navigation_using_navigationagents.html): path following and avoidance questions for S06.
+- [S07 researched capability/method brief](docs/spikes/s07.md): exact dev7 streaming scope, capacity axes, measurements and investigation path.
 - [Occlusion culling](https://docs.godotengine.org/en/stable/tutorials/3d/occlusion_culling.html): camera-dependent opportunities and CPU cost to measure in S07.

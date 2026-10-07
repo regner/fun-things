@@ -1,0 +1,166 @@
+{
+  "date": "2026-10-07",
+  "scope": "Read-only source/release/documentation research; no graphical or capacity measurement",
+  "local_base": "62e080000077f5d5b5551883b940aad0f4e2fde0",
+  "installed_version_observed": "4.8.dev7.official.c971f93e7",
+  "engine_pin": "4.8-dev7",
+  "engine_source_ref": "c971f93e7e76b0ef919bf6009e7b868bea04db7f",
+  "source_files": [
+    {
+      "path": "doc/classes/TextureStreaming.xml",
+      "url": "https://github.com/godotengine/godot/blob/c971f93e7e76b0ef919bf6009e7b868bea04db7f/doc/classes/TextureStreaming.xml",
+      "sha256": "f7596646cd8b14eecf6c876664c29147f5f777ab31ea010a30ee205690f98ca4",
+      "inspected_evidence": [
+        "class description/method contract"
+      ]
+    },
+    {
+      "path": "doc/classes/StreamedTexture2D.xml",
+      "url": "https://github.com/godotengine/godot/blob/c971f93e7e76b0ef919bf6009e7b868bea04db7f/doc/classes/StreamedTexture2D.xml",
+      "sha256": "dffa413a6534270831aa67570aef61ab806d3d8923139175e9c395f5995af798",
+      "inspected_evidence": [
+        "class description/method contract"
+      ]
+    },
+    {
+      "path": "doc/classes/ResourceLoader.xml",
+      "url": "https://github.com/godotengine/godot/blob/c971f93e7e76b0ef919bf6009e7b868bea04db7f/doc/classes/ResourceLoader.xml",
+      "sha256": "4c1370e93cb1a790b3655db1dadcb0d499e2cbfb782c596031c59a20b9672264",
+      "inspected_evidence": [
+        "class description/method contract"
+      ]
+    },
+    {
+      "path": "doc/classes/Resource.xml",
+      "url": "https://github.com/godotengine/godot/blob/c971f93e7e76b0ef919bf6009e7b868bea04db7f/doc/classes/Resource.xml",
+      "sha256": "97e10910d570c65580f84abe4b7d5fa4f6fa05145a6ddc01150b340d82931598",
+      "inspected_evidence": [
+        "reference-counted lifetime; cached resource shared while referenced"
+      ]
+    },
+    {
+      "path": "doc/classes/PackedScene.xml",
+      "url": "https://github.com/godotengine/godot/blob/c971f93e7e76b0ef919bf6009e7b868bea04db7f/doc/classes/PackedScene.xml",
+      "sha256": "7736c42399bb8e69e71db2291da4a5832df862a9a7acd4d0c7c416dbd721e8a3",
+      "inspected_evidence": [
+        "class description/method contract"
+      ]
+    },
+    {
+      "path": "doc/classes/Node.xml",
+      "url": "https://github.com/godotengine/godot/blob/c971f93e7e76b0ef919bf6009e7b868bea04db7f/doc/classes/Node.xml",
+      "sha256": "a01a3f510be5ff6fc3389c28b7347f01823edc359ac2e4b1f60bf343177b1f5d",
+      "inspected_evidence": [
+        "remove_child does not delete; queue_free frame/deferred lifetime"
+      ]
+    },
+    {
+      "path": "doc/classes/MultiMesh.xml",
+      "url": "https://github.com/godotengine/godot/blob/c971f93e7e76b0ef919bf6009e7b868bea04db7f/doc/classes/MultiMesh.xml",
+      "sha256": "1b83c38a7272569b241ba2898e94245d4a574705e11d36cc52d75f91302a995d",
+      "inspected_evidence": [
+        "GPU instancing; group spatial indexing and lighting tradeoff"
+      ]
+    },
+    {
+      "path": "modules/texture_streaming/register_types.cpp",
+      "url": "https://github.com/godotengine/godot/blob/c971f93e7e76b0ef919bf6009e7b868bea04db7f/modules/texture_streaming/register_types.cpp",
+      "sha256": "87f4ce0c15e9f33963425a504fb72b7e2ed538244d646bdc620305ede0c1d49d",
+      "inspected_evidence": [
+        "class description/method contract"
+      ]
+    },
+    {
+      "path": "modules/texture_streaming/texture_streaming.cpp",
+      "url": "https://github.com/godotengine/godot/blob/c971f93e7e76b0ef919bf6009e7b868bea04db7f/modules/texture_streaming/texture_streaming.cpp",
+      "sha256": "28109fa1eb5b3a5a054bfb51599b2207445b33550feacbe54d1aa8bda4904756",
+      "inspected_evidence": [
+        "register_project_settings: streaming/enabled=false; memory_budget_enabled=false",
+        "_start_streaming: Compatibility rejected"
+      ]
+    },
+    {
+      "path": "editor/import/resource_importer_streamed_texture.cpp",
+      "url": "https://github.com/godotengine/godot/blob/c971f93e7e76b0ef919bf6009e7b868bea04db7f/editor/import/resource_importer_streamed_texture.cpp",
+      "sha256": "6116f9fe949d70221760e466454c05f6a9aa7e00448faea044f7acfdbb47aeb2",
+      "inspected_evidence": [
+        "get_visible_name: Texture2D Streamed; get_resource_type: StreamedTexture2D"
+      ]
+    },
+    {
+      "path": "scene/resources/streamed_texture.cpp",
+      "url": "https://github.com/godotengine/godot/blob/c971f93e7e76b0ef919bf6009e7b868bea04db7f/scene/resources/streamed_texture.cpp",
+      "sha256": "9b6f1a0d39a17b9760f8ec1bed603c6048711ed1bfea35efe94a7dcbae972e34",
+      "inspected_evidence": [
+        "StreamedTexture2D constructor: module + setting + non-Compatibility gate; full mip zero fallback"
+      ]
+    },
+    {
+      "path": "servers/rendering/renderer_rd/forward_clustered/scene_shader_forward_clustered.cpp",
+      "url": "https://github.com/godotengine/godot/blob/c971f93e7e76b0ef919bf6009e7b868bea04db7f/servers/rendering/renderer_rd/forward_clustered/scene_shader_forward_clustered.cpp",
+      "sha256": "1326336dd21c37285e206977d1d2043f4a290ab63a49e28fd1949df8552c1fce",
+      "inspected_evidence": [
+        "STREAMING_UV rename and material feedback buffer"
+      ]
+    },
+    {
+      "path": "servers/rendering/renderer_rd/forward_mobile/scene_shader_forward_mobile.cpp",
+      "url": "https://github.com/godotengine/godot/blob/c971f93e7e76b0ef919bf6009e7b868bea04db7f/servers/rendering/renderer_rd/forward_mobile/scene_shader_forward_mobile.cpp",
+      "sha256": "3ea559b5712e57a72d42df616f9a81da56cbe4f072cf3d52e27010529f94a3d8",
+      "inspected_evidence": [
+        "STREAMING_UV rename and material feedback buffer"
+      ]
+    },
+    {
+      "path": "servers/rendering/renderer_rd/shaders/forward_clustered/scene_forward_clustered.glsl",
+      "url": "https://github.com/godotengine/godot/blob/c971f93e7e76b0ef919bf6009e7b868bea04db7f/servers/rendering/renderer_rd/shaders/forward_clustered/scene_forward_clustered.glsl",
+      "sha256": "3de0935ef349f5c3b32246d3f8dea8a116978745bca4f4b6b8038a86b670b22e",
+      "inspected_evidence": [
+        "sc_material_feedback branch and atomicMax material feedback"
+      ]
+    },
+    {
+      "path": "servers/rendering/renderer_rd/shaders/forward_mobile/scene_forward_mobile.glsl",
+      "url": "https://github.com/godotengine/godot/blob/c971f93e7e76b0ef919bf6009e7b868bea04db7f/servers/rendering/renderer_rd/shaders/forward_mobile/scene_forward_mobile.glsl",
+      "sha256": "831aded4278164fb65e2e897ff8eedebac1862b3c0139e2d23bdece08cb1fe5d",
+      "inspected_evidence": [
+        "sc_material_feedback branch and atomicMax material feedback"
+      ]
+    }
+  ],
+  "stable_comparison": {
+    "tag": "4.7.2-stable",
+    "tree_sha": "ed1daf0bf001b61586d9930840f2f1394092c079",
+    "tree_truncated": false,
+    "url": "https://api.github.com/repos/godotengine/godot/git/trees/4.7.2-stable?recursive=1",
+    "new_streaming_paths_present": false,
+    "checked_path_terms": [
+      "TextureStreaming",
+      "StreamedTexture2D",
+      "modules/texture_streaming",
+      "resource_importer_streamed_texture"
+    ],
+    "qualification": "Source tree absence of these new APIs is not a universal claim about all possible texture/object loading."
+  },
+  "primary_web_sources": [
+    "https://godotengine.org/download/archive/",
+    "https://godotengine.org/article/dev-snapshot-godot-4-8-dev-5/",
+    "https://godotengine.org/article/dev-snapshot-godot-4-8-dev-7/",
+    "https://docs.godotengine.org/en/latest/classes/class_texturestreaming.html",
+    "https://docs.godotengine.org/en/stable/tutorials/io/background_loading.html",
+    "https://docs.godotengine.org/en/stable/tutorials/assets_pipeline/importing_images.html",
+    "https://docs.godotengine.org/en/stable/tutorials/performance/optimizing_3d_performance.html",
+    "https://docs.godotengine.org/en/stable/tutorials/3d/occlusion_culling.html",
+    "https://docs.godotengine.org/en/stable/tutorials/3d/mesh_lod.html",
+    "https://docs.godotengine.org/en/stable/tutorials/3d/visibility_ranges.html",
+    "https://docs.godotengine.org/en/stable/tutorials/physics/large_world_coordinates.html",
+    "https://docs.godotengine.org/en/stable/tutorials/scripting/debug/the_profiler.html",
+    "https://docs.godotengine.org/en/stable/tutorials/scripting/debug/debugger_panel.html"
+  ],
+  "limitations": [
+    "Latest/stable docs URLs move; G7 immutable source settles pin-specific claims.",
+    "No streaming enablement/import/renderer/material/driver/export benefit tested.",
+    "No Deck devices or multiple-account Steam route available; explicit deferral.",
+    "No new authored fixture, engine/template/vendor changes or gameplay tests."
+  ]
+}
