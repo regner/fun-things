@@ -31,8 +31,11 @@ formatting and lifecycle behavior remain separate from project-owned code.
   meaningful identities, bounded networking, and evidence-based validation.
 - Generalize scene paths, components, naming, spawn policy, collision masks, and
   gameplay examples. Choose the concrete ownership map when this project has systems.
-- Treat listen-server ENet as a useful initial option. Steam, dedicated servers,
-  host migration, prediction, and destruction require actual product requirements.
+- Require ENet for local testing and Steam for friends playtesting on this project's
+  existing app. Choose/pin the Steam integration through a technical proof; keep
+  provider details behind the shared session boundary. A listen server remains a
+  starting recommendation; dedicated servers and host migration remain deferred.
+  Prediction needs feel/network evidence; car destruction is required by the product.
 - Keep VCS's rates, player capacity, payload limits, and replay sizes as examples.
   They do not establish this project's performance or protocol requirements.
 - Require Blender-authored visible 3D models and linked explicit exports, including

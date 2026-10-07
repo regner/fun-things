@@ -2,14 +2,16 @@
 
 Build multiplayer around explicit simulation ownership, current-state admission,
 and clean session teardown. Prove a small real-process connection flow first, then
-add authoritative gameplay and responsiveness. This project has no networking yet;
-the topology, player count, transports, rates, and platform integration remain design
-decisions. The practices below generalize VCS's host-authoritative approach.
+add authoritative gameplay and responsiveness. This project has no networking yet.
+ENet for local testing and Steam for friends playtesting are confirmed first-milestone
+requirements, using the existing Steam app. Topology, capacity, rates and the exact
+Steam integration remain design decisions. The practices below generalize VCS's
+host-authoritative approach.
 
 ## Starting choices and boundaries
 
-A listen server with ENet is a practical desktop prototype: the host plays and
-simulates authoritative outcomes. It is a starting recommendation, not a constraint
+A listen server is a practical starting model for both ENet and Steam: the host
+plays and simulates authoritative outcomes. It is a recommendation, not a constraint
 on a future dedicated server or another model. Decide target platforms, player
 count, trust model, late-join behavior, and host-loss policy before implementing.
 Server authority protects against client mutation; it does not make a player-host
@@ -17,18 +19,21 @@ trustworthy against its own cheats.
 
 Use Godot's `MultiplayerPeer` and high-level RPC/replication facilities. Keep
 backend-specific connection and discovery details out of gameplay. Define a narrow
-session/transport contract before implementation, with one initial provider and
-explicit capability, failure, cancellation, and lifecycle behavior. Add another real
-provider when a selected target requires it; do not wrap every RPC in another
-networking framework. RPC endpoints require matching node
-paths and compatible RPC declarations across peers. Peer 1 is the server in Godot's
-high-level model. Verify platform transport support before committing to ENet,
+session/transport contract before implementation, with concrete ENet and Steam
+providers and explicit capability, failure, cancellation and lifecycle behavior.
+Keep Steam lobby/invite services separate from gameplay transport. Both providers
+use the same match protocol and authority rules; select one before connecting and
+retain it until teardown. ENet startup must work without Steam. Do not wrap every
+RPC in another networking framework. RPC endpoints require matching node paths
+and compatible RPC declarations across peers. Peer 1 is the server in Godot's
+high-level model. Verify transport support when adding platforms,
 especially for browser targets.
 [Godot high-level multiplayer](https://docs.godotengine.org/en/stable/tutorials/networking/high_level_multiplayer.html).
 
 | Responsibility | Suggested owner |
 | --- | --- |
-| Peer creation, connection attempts, timeouts, discovery | Session service and optional transport adapter |
+| Peer creation, connection attempts and timeouts | Session service with ENet/Steam transport adapters |
+| Steam availability, friend lobbies, invites and launch requests | Platform adapter feeding the common session flow |
 | Match loading, readiness, roster, spawn/reset policy | Match controller |
 | Input validation, protocol encoding, replication | A focused admission/replication boundary |
 | Movement, health, inventory, interaction rules | Existing gameplay components |
@@ -212,23 +217,35 @@ evaluate supported WebRTC/WebSocket paths rather than assuming desktop UDP works
 Keep platform initialization optional in shared code when supporting non-platform
 builds, and verify installed native class/API signatures and export dependencies.
 
-If Steam is selected, distinguish lobby membership/discovery from gameplay transport
-and admission. Use the networking route the installed integration actually supports;
+Steam is required for friends playtesting. Distinguish lobby membership/discovery
+from gameplay transport and admission. Use the route the selected integration supports;
 do not assume that exchanging addresses through a lobby makes ENet relay through
 Steam. Steam Networking can use SDR, but its availability and the actual connection
 route need independent verification.
 [Valve SDR documentation](https://partner.steamgames.com/doc/features/multiplayer/steamdatagramrelay).
 
-Test with distinct authorized accounts on separate networks, inspect connection
-diagnostics, and exercise unavailable-service errors. Friend/overlay invites and
+Use the project's existing Steam app. Record its AppID/app type, tester access,
+private branch, depots and launch settings before the proof; the AppID value has
+not yet been supplied. Phase zero must choose and pin an integration compatible
+with the exact Godot engine and target native libraries, and prove real gameplay
+traffic over Steam. Preserve ENet builds/startup without Steam installed or running.
+Map Steam account/lobby IDs and provider peer IDs to fresh session identities at
+the boundary; a Steam identity or lobby membership does not grant input admission.
+
+Test with distinct authorized accounts on separate machines/networks, inspect
+connection/relay diagnostics, and exercise unavailable-service errors. Friend/overlay invites and
 launch arguments must feed the same join/cancel flow, including while loading or
-already in another match. Use this project's own application identity if configured.
+already in another match. Use this project's existing application identity.
 Never reuse VCS's AppID, depots, protocol string, or release configuration.
 
 End a listen-server match cleanly on host loss unless host migration is deliberately
 implemented. A platform lobby ownership change alone does not transfer simulation.
 Distribution, installation, lobby success, and gameplay connectivity each need
 their own acceptance checks.
+Friends need app/package access as well as access to the private build branch.
+Establish that route during phase zero, then verify installation, updates, Steam
+launch and gameplay on the milestone build. See
+[Testing on Steam](https://partner.steamgames.com/doc/store/testing).
 
 ## Implementation milestones and checks
 
@@ -244,8 +261,9 @@ their own acceptance checks.
 4. **Responsiveness:** if prediction is added, show local response before host
    confirmation and convergence afterward. Measure correction sizes/continuity,
    test history exhaustion, and inspect two real windows for HUD/camera/aim/audio.
-5. **Target delivery:** exercise exported builds and each chosen transport on the
-   supported platforms and actual external networks.
+5. **Target delivery:** exercise exported builds through both ENet and Steam on
+   supported platforms. Prove ENet without Steam and Steam with distinct accounts
+   on actual external networks; verify private app access, install/update and launch.
 
 The runner should allocate separate writable user/log directories, configurable
 ports, structured readiness/results, and wall-clock deadlines. Stop only its own
