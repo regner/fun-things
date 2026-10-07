@@ -23,6 +23,20 @@ insufficient; their historical decisions remain intact. Accepted
 [DOC4](../reviews/p0-doc4.md) at `11a4486` supplements bounded Sol medium work.
 An empty inventory or elapsed time supplies neither readiness nor capability proof.
 
+## Delivery rebase supplement
+
+Accepted local main advanced from the starting base to
+`ae48eb3dd498075bdd854119c5d124a8251dbbb1` before integration. The saved proposal
+was rebased onto it without conflicts. Its [S03-R bounded technical record](../spikes/s03-r.md)
+and [scoped independent review](../reviews/s03-r-b87f889.md) are accepted main
+content; full S03-R, drawable/visible response, prediction, feel, Steam/Deck and
+production gates remain open. All S03-R TODO/contracts/source/evidence are preserved.
+The session sample below remains historical at its recorded capture/assessment;
+no new S03-R metrics are incorporated as profile capability or launch validation.
+The original [pre-rebase exact-final receipt](p0-profiles-final-0f10dbb.md) remains
+historical; the same reviewer must explicitly dispose of the exact new HEAD.
+Checkpoint watermark stays `35adb470`; this is scoped rebase reconciliation only.
+
 ## Requirements from the sample
 
 [Evidence and coverage](p0-profiles-evidence.md) maps exact sessions and accepted

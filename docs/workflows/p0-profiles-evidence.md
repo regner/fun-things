@@ -1,7 +1,7 @@
 # P0-PROFILES evidence and sample limits
 
 7 October 2026. Supports the [requirements/proposal](p0-profiles-proposal.md), not
-profile installation or tested capability. Base local main `11a4486ae6e912387ef4e2ffbce3b138c3b45f28`;
+profile installation or tested capability. Original base local main `11a4486ae6e912387ef4e2ffbce3b138c3b45f28`;
 checkpoint watermark `35adb47042fe6b27c1653d38636f5eaf7d47578b` unchanged.
 
 Read AGENTS.md, full TODO P0-PROFILES, project orchestrator skill, available Paseo
@@ -22,7 +22,7 @@ history claim; no extra inventory request, polling or active-agent intervention.
 | DOC3 worker `36243659-cc00-4170-980e-ee93d28c966f`; all 48 captured; reviewer `/root/p0_doc3_review` from note, Luna high | Exact accepted `62e080000077f5d5b5551883b940aad0f4e2fde0`: localized README/TODO correction and clean-context objective review; 84 link/anchor checks, no gameplay proof. Git note retains final review. | Historical Luna workspace lead predates Sol-leads policy; raw activity also shows extra implementation delegation and repetitive approval/discovery friction. Reviewer is outside captured Paseo inventory. Recommend Luna delegation only, no retrospective current-policy endorsement. |
 | S07 lead `61fffdb0-079e-4005-9ddc-0b078482da86`; all 93 captured; Sol reviewer `9fc14247-42ad-4b2d-af58-6e9c497e35d3`; all 63 captured | Exact accepted `35adb47042fe6b27c1653d38636f5eaf7d47578b`: exact-source primary research and measurement preparation, safe same-session Astra→Sol high switch. [Brief](../spikes/s07.md), [independent/revised review](../reviews/s07-preparation-review.md), final Git note. | Broad map research did not justify Astra leadership or specialist routing. Scoped read-only network needed; no measured map capacity, streamed-scene implementation, renderer/pin selection or Deck result. |
 | DOC4 worker `be8633ac-8522-4a87-a9bd-5914af2f5855`; reviewer `/root/p0_doc4_review`, both Sol 6.1 medium | Exact accepted `11a4486ae6e912387ef4e2ffbce3b138c3b45f28`: six-guide bounded known-evidence reconciliation and independent static review. [Record](../reviews/p0-doc4.md), [report](../reviews/p0-doc4-review.md), exact-final note. | Consulted accepted records/note and supplied identities, not new activity capture. No engine tests or medium/high performance comparison; justify shared medium role settings without claiming runtime validation. |
-| Pending S03-R actual lead `751a009d-173d-4a75-bb7b-f4bc578aebe7`; all 50 captured at earlier checkpoint; initial `5e635057-4325-401e-9ba8-d1efe343d810` coordinator | Root-only orchestration restriction was misapplied and created another implementation layer; corrected direct Sol high lead. Activity preserves lease/auth/socket/host-namespace friction and scoped single-editor recovery. | UNACCEPTED candidate `6714211` on old `814ac3a`, clean-context Sol high review ACTIVE per assignment. Coordinator quiescent/root directs actual worker. Captured activity is older than current assignment, no metadata refresh or technical outcome adoption. |
+| Historical pending S03-R sample: actual lead `751a009d-173d-4a75-bb7b-f4bc578aebe7`; all 50 captured at earlier checkpoint; initial `5e635057-4325-401e-9ba8-d1efe343d810` coordinator | Root-only orchestration restriction was misapplied and created another implementation layer; corrected direct Sol high lead. Activity preserves lease/auth/socket/host-namespace friction and scoped single-editor recovery. | At the original assignment/sample: UNACCEPTED candidate `6714211` on old `814ac3a`, clean-context Sol high review ACTIVE. Coordinator quiescent/root directs actual worker. Captured activity is older than current assignment, no metadata refresh or technical outcome adoption. |
 
 Earlier foundation documentation/Steam preparation adds corroboration, not a separate
 bundle: [second assessment](../reviews/plan-check-2026-10-07-02.md#profile-assessment)
@@ -59,3 +59,16 @@ inspection/validation only. No remote research or daemon/agent entrypoint execut
 Proposed notes cannot add a system prompt, spend limit, auth/host/network/device
 capability, clean context or editor lease. Capability requires the later authorized
 representative checks in the proposal, with remaining product gates preserved.
+
+## Accepted-main rebase reconciliation
+
+Before proposal integration, local main accepted S03-R's bounded technical result
+at `ae48eb3dd498075bdd854119c5d124a8251dbbb1`. The profile worker read the accepted
+TODO/contract delta and final scope receipt solely to preserve it while rebasing.
+The original pending sample and prior reviewed proposal/report claims above retain
+their historical context. No session recapture, metric analysis, editor/service
+inspection or launch validation occurred. All current S03-R content is preserved
+byte-for-byte against that main except the separate P0-PROFILES TODO block.
+Full S03-R/visible response/prediction/feel/Steam/Deck gates remain open; the profile
+proposal and its bundles are unchanged. The [proposal supplement](p0-profiles-proposal.md#delivery-rebase-supplement)
+records the new base; the checkpoint watermark remains unchanged.

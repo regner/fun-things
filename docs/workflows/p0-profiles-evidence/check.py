@@ -8,7 +8,7 @@ import subprocess
 from pathlib import Path
 from urllib.parse import unquote
 
-BASE = '11a4486ae6e912387ef4e2ffbce3b138c3b45f28'
+BASE = 'ae48eb3dd498075bdd854119c5d124a8251dbbb1'
 ROOT = Path(__file__).resolve().parents[3]
 EVIDENCE = ROOT / 'docs/workflows/p0-profiles-evidence'
 
