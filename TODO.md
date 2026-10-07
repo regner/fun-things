@@ -204,6 +204,9 @@ implementation. Save editor mutations before playtests; preserve unsaved work.
   Minimum: two real ENet processes host/join, apply a tiny baseline before admission,
   cancel/retry, reject one stale/invalid intent, and exchange a fake provider.
   Inspect asynchronous cleanup and one local rig per player, with Steam unavailable.
+  Include cancel after provisional spawn and recovery when every retained held frame
+  exceeds its sequence window. Snapshot splitting must cover packet reordering/loss
+  across different entity subsets on the proposed unreliable-ordered stream.
   Decision: topology, common identity/admission/cancellation contract,
   replication writer and budget approach. Full error/adversarial suites belong in M1.
 
@@ -247,6 +250,9 @@ implementation. Save editor mutations before playtests; preserve unsaved work.
   envelope and seat/control contract. Specify the full seat race/disconnect/exit
   matrix for M1-B1 rather than building it here. Confirm the draft's no seated
   firing/reloading policy in the feel review before P0-GATE.
+  Specify passive replica-body configuration and physics-phase pose capture for the
+  selected body; disabling gameplay scripts alone must not leave engine physics active.
+  Verify seated resync preserves the player/seat/equipment while reauthorizing input.
 
 - [ ] **S05 — Authoritative explosion-chain feasibility.**
   Needs: S03 and a minimal S04 vehicle/damage fixture.
@@ -255,7 +261,8 @@ implementation. Save editor mutations before playtests; preserve unsaved work.
   Estimate peak work and choose blast range/obstruction, chain delay/order, occupant
   outcome, wreck/collision lifetime and live-versus-historical presentation behavior.
   Decision: host-owned damage/explosion contract, event IDs and per-tick/queue/effect
-  bounds. Full joining races and sustained capacity loads belong in M1-B3/M1-D.
+  bounds, including duplicate ShotId rejection after damage-cache retirement.
+  Full joining races and sustained capacity loads belong in M1-B3/M1-D.
 
 - [ ] **S06 — Shared city topology, navigation and minimap.**
   Needs: S01, S02, S04 dimensions and P0-04 district draft.

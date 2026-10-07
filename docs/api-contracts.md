@@ -78,7 +78,7 @@ parsed/normalized by the adapter. No public/LAN discovery is promised.
 
 `SessionView = {phase, operation_id?, transport?, session_id?, local_participant_id?,
 capacity, roster, failure?}`. Roster rows are `{participant_id, display_name,
-phase: RESERVED | LOADING | ADMITTED}`; names are bounded to 64 UTF-8 bytes and are
+phase: RESERVED | LOADING | SYNCHRONIZING | ADMITTED}`; names are bounded to 64 UTF-8 bytes and are
 display data only. Pending connections reserve capacity from handshake onward and
 are bounded with the same four-player total, including the host. Provider setup limits
 pending native peers accordingly; excess connections fail without entering Match.
@@ -93,7 +93,9 @@ any non-IDLE phase -> CLOSING -> IDLE
 
 The host can be ACTIVE while individual joiners are loading/synchronizing. Their
 per-participant admission phase lives in the roster and does not move the whole
-host back to LOADING. Errors populate the closing/idle view; exactly one completion
+host back to LOADING. An existing client transitions ACTIVE -> SYNCHRONIZING -> ACTIVE
+for RESYNC/RESET, retaining its participant/slot while command admission is closed.
+Errors populate the closing/idle view; exactly one completion
 is emitted for each accepted operation. Failure return before acceptance allocates
 no operation; accepted cancel completes the attempt with `CANCELED` after cleanup.
 Repeated cancel/leave is idempotent; leave during closing returns the active close
@@ -176,11 +178,22 @@ until reset/teardown; newer movement cannot recreate it. Bound total entities
 created per match revision as specified below; reset clears old tombstones safely
 because the revision fence rejects their packets.
 
-1. Validate protocol/content and reserve a participant slot. Client loads CityRoot
+The baseline transfer/handoff steps are shared, but their preparation and rollback
+depend on `hydration_mode: INITIAL | RESYNC | RESET`. A fresh baseline ID identifies
+every hydration attempt, including retries within the same MatchRevision.
+
+1. For INITIAL, validate protocol/content and reserve a participant slot. Client loads CityRoot
    and registers static IDs with authoritative simulation disabled, then sends
    world-ready. Duplicate readiness does not allocate a second entity/baseline.
-2. Reserve a safe spawn and create the player's authoritative life. At a committed
-   tick, capture an immutable full baseline and start a per-join durable journal
+2. For INITIAL only, reserve a safe spawn and create the provisional authoritative
+   player life. For RESYNC, retain the existing player EntityRef, life, health,
+   equipment and seat; do not spawn, respawn or restore defaults. Close host command
+   admission, neutralize held input, invalidate queued old commands and clear client
+   prediction. VehicleInteraction commits a fresh control revision for the player
+   binding and controlled body together, preserving seat occupancy. This authorizes
+   held sequence 1 under the new binding after handoff. For RESET, use the new
+   MatchRevision and state already restored by Match's reset transition, not another
+   player creation. At a committed tick, capture an immutable full baseline and start a journal
    after its cut revision. Host continues playing; the baseline is not regenerated
    on every moving-entity update.
 3. Send bounded numbered baseline chunks with total bytes/chunks and checksum.
@@ -198,6 +211,24 @@ because the revision fence rejects their packets.
    life state, which permits only lifecycle retry/menu actions). Future dependent movement
    remains gated by reliable state. Old acknowledgements cannot open admission.
 
+RESYNC changes command admission/revision, not gameplay state. Normal host motion,
+damage, timers and lifecycle continue during hydration. Durable changes reach the
+client through the journal; ordinary motion catches up through fresh, revision-gated
+movement snapshots. A later death/control transfer supersedes the binding
+captured at the cut. The admitted grant and fresh motion identify the host's current
+required durable/life/control revisions, and client input waits for those revisions.
+Preserving a seat on resync never restores a driver killed while loading.
+Existing-participant RESYNC/RESET hydration gets a fresh maximum 15 s deadline,
+not the expired original join deadline. A superseding reset cannot extend an active
+hydration's deadline. A pending initial join retains its original total deadline.
+
+Failure/cancel of INITIAL after player creation removes the provisional player,
+cancels its respawn/actions/callbacks, releases its seat/spawn/capacity reservations
+and publishes removal to peers that saw it. Rollback is idempotent. RESYNC failure
+does not create/remove a replacement life; it ends that participant's connection
+through ordinary disconnect cleanup. RESET failure removes only the timed-out
+participant. Discard the attempt's baseline/journal/acks in every case.
+
 Reset uses this same baseline/handoff process with the new MatchRevision. If reset
 interrupts a join, cancel its old baseline/reservation and restart hydration under
 the existing operation and total deadline. Repeated resets cannot extend admission
@@ -206,7 +237,7 @@ state/rig is ready, without serializing a loopback baseline.
 
 | State shape | Required fields / application contract |
 | --- | --- |
-| `Baseline` | Header: session/match/baseline IDs, cut tick/durable revision, compatibility, collision revision; player bindings, live entities, retained wreck/dead-NPC rows and active projectile launch/expiry state |
+| `Baseline` | Header: session/match/baseline IDs, hydration mode, cut tick/durable revision, compatibility, collision revision; player bindings, live entities, retained wreck/dead-NPC rows and active projectile launch/expiry state |
 | `PlayerBinding` | ParticipantId, player EntityRef, controlled EntityRef or none, life/control revisions, life phase, respawn deadline or spawn-failure status |
 | `EntityState` | EntityRef, kind, definition ID, optional origin WorldId, Pose/motion extras, life phase/revision, health/value/revision if damageable, weapon state/revision if present, driver/control revision if vehicle, retention deadline if terminal |
 | `WeaponState` | Selected DefinitionId, equipment revision and per-weapon rows of DefinitionId/magazine/reload phase/end tick/next-fire tick; all three weapon magazine/cooldown states retained across selection |
@@ -230,8 +261,14 @@ Replica application rejects stale sessions/revisions/generations and duplicate
 durable records. Future-dependency motion is bounded and replaced by the newest row
 per entity, not appended forever. A collision fence completes only after the applied
 shapes are effective in physics; prediction and movement cannot pass it early.
-On gap/overflow, close local input and request one bounded resynchronization using
-the same baseline path; on its failure, leave with `SYNC_TIMEOUT`/`STATE_LIMIT`.
+On gap/overflow, close local input and request one bounded RESYNC hydration using
+the shared transfer/handoff steps above; on its failure, leave with
+`SYNC_TIMEOUT`/`STATE_LIMIT`. The reliable Session endpoint accepts a resync request
+containing SessionId/MatchRevision independently of held-input sequence validation.
+Resolve the existing participant from its sender mapping, allow one active request
+and rate-limit retries; duplicates reuse the pending hydration rather than spawning
+another attempt. Host command admission stays closed until the current
+handoff is acknowledged. Do not reuse INITIAL's spawn/reservation steps.
 Reliable gaps do not invite applying a partial transaction.
 
 ## Commands and control transfer
@@ -244,6 +281,7 @@ ActorMotion.step(command: FootCommand, delta_seconds: float, mode: AUTHORITY | R
 VehicleMotion.step(command: DriveCommand, delta_seconds: float, mode: AUTHORITY | REPLAY)
 VehicleInteraction.try_enter(participant_id, player_ref, vehicle_ref, context) -> ActionResult
 VehicleInteraction.try_exit(participant_id, context) -> ActionResult
+VehicleInteraction.rebind_commands(participant_id) -> Result<Revision>
 ```
 
 `TrustedCommandSource` is constructed only by host local/AI code or the network
@@ -262,6 +300,9 @@ not permission to rewind host time. AI commands use host ticks through the same 
 Held sequence starts at 1 for each new entity/control-revision binding and never
 resets within that binding. Client tick stays diagnostic; a stalled/out-of-window
 sender needs the bounded resynchronization path rather than forcing extra host steps.
+Only the host's fresh control revision authorizes sequence 1 again; a baseline
+without that rebind cannot reset a held sequence. Reliable action sequence continues
+across resync, and queued actions from the old binding are invalidated.
 Held input is replaceable. At most three recent frames per message recover loss;
 accept only increasing in-window sequences. Each physics tick uses the newest valid
 frame available and explicitly supersedes older pending frames. Acknowledgement
@@ -345,13 +386,22 @@ life state or fails initial admission; it never blocks all other participants.
 WeaponState.try_equip(weapon_id: DefinitionId, context, now_tick) -> Result<void>
 WeaponState.try_reload(context, now_tick) -> Result<void>
 WeaponState.step_fire(fire_held: bool, context, now_tick) -> Result<ShotId?>
-DamageResolver.resolve_shot(shot_id, shooter_ref, weapon_definition, launch_pose, now_tick)
+DamageResolver.resolve_shot(shot_id, shooter_ref, weapon_definition, launch_pose, now_tick) -> Result<void>
 Health.apply_damage(damage: DamageRequest) -> Result<HealthOutcome>
 Explosions.enqueue(blast: BlastRequest) -> Result<void>
 ```
 
 These are host component APIs, never client-reported hits/damage. A fire step without
 held fire returns success with no ShotId; rejected held fire cannot emit a shot event.
+DamageResolver owns one-time acceptance of a committed WeaponState ShotId into one
+resolution job. Duplicate submission, whether the job is active or completed, cannot
+allocate another damage EventId, launch another projectile or apply another hit.
+Each job retains its original ShotId and its assigned source-event identities;
+projectile contact/expiry completes that job instead of resolving the shot anew.
+Completed ShotIds remain inadmissible after active health/event deduplication is
+released. S05 chooses a bounded retirement mechanism (for example, per-shooter
+sequence watermarks with bounded active jobs), including shooter removal/generation
+changes; eviction must never make an old shot acceptable again.
 Actor/vehicle definitions own max health and movement/collision tuning. Weapon definitions
 own `id`, kind, damage, range_m, fire_interval_s, magazine_size/reload_s for pistol/SMG,
 and rocket speed_mps/lifetime_s/blast_definition_id/cooldown_s. Damage/blast definitions
@@ -463,6 +513,7 @@ to fixed-step deadlines without accepting client elapsed time.
 | Reliable actions | 4096 bytes/message; 16 requests/s, burst 32; 16 queued/participant; process at most 4/participant/tick; result cache 64; sequence at most 64 ahead | Replication / S03/S04 |
 | Reset / respawn retry | Reset at most once/5 s; respawn retry once/5 s/participant | Match/PlayerLifecycle / S03/S04 |
 | Future state wait | Latest motion row/entity only; up to 256 rows or 256 KiB; 1 s before resync, one resync at a time | Replication / S03/S05 |
+| Resync requests | At most one active hydration and one request/5 s/participant; same bounded transfer/handoff deadlines | SessionService/Replication / S03/S04 |
 | Live event dedup | 512 IDs with retired floor; event presentation age at most 2 s | Presentation / S05 |
 | Entity tombstones | At most 65536 spawned refs per match revision; refuse further dynamic allocation and report limit, never discard live tombstones | Match/Replication / S03/S07 |
 | Spawn | 10 candidates/tick; 0.10 m clearance skin; 5 s retry after due time | PlayerLifecycle/Population / S02/S04/S06 |
@@ -504,12 +555,14 @@ fixtures; spikes retain separate-process logs, limits and missing target evidenc
 | Session/provider replacement — S03 | Same host/join/cancel/leave API runs ENet and fake provider; one completion/attempt, fresh reconnect identity, one rig, clean retry; ENet succeeds with Steam absent |
 | Real Steam — S03-S/S08 | Two authorized accounts on separate networks exchange baseline/intent using a real Steam peer; lobby alone cannot pass; native late callback cannot attach to retry |
 | Admission — S03 | Connected-but-unadmitted input changes no actor; wrong content/full/slow join fails boundedly; baseline plus during-load durable change yields current state before control |
+| Admission rollback — S03 | Cancel/fail after provisional player creation removes it once, cancels respawn work and releases spawn/capacity; retry creates exactly one player |
+| Resync — S03/S04 | An injured seated player keeps the same entity, health, equipment and seat; commands stay closed during hydration; a sequence window overflow recovers under a fresh control revision and sequence 1; old frames/actions/acks cannot reopen control |
 | Lifecycle ordering — S03/S04/S05 | Delayed movement cannot resurrect destroyed/dead entities or undo a seat/reset; required collision applies before dependent movement/prediction; duplicate baseline/ack causes no duplicate entity |
 | Input — S03/S03-R/S04 | Host local/remote/AI paths obey the same movement constraints; client cannot move another entity; invalid types/NaN/large/jumped sequences produce no mutation; expiry releases held fire/throttle |
 | Queue/work bounds — S03/S05 | Flood/backlog/host stall stays within configured queues and one physics step/tick; acknowledgements cover simulated or explicitly superseded input, not receipt; overflow follows documented recovery |
 | Seat race — S04 | Two same-tick claims yield one driver; blocked exit preserves seat/control/foot collision; death/disconnect releases controls and surviving car remains parked |
 | Safe respawn — S02/S04/S06 | Before 3 s no respawn; valid spawn has full health/default loadout; two requests cannot overlap; blocked district fails after a further 5 s of search with retry, without teleporting or freezing the match |
-| Combat — S05/M1-B2 | Duplicate ShotId/damage applies once; empty/reloading/cooldown/seat cannot fire; equip cannot grant ammo or reset cooldown; rocket survives weapon replacement but dies on reset |
+| Combat — S05/M1-B2 | Submit one ShotId twice during its job and again after completion/damage-cache retirement: only one launch/hit/damage outcome; empty/reloading/cooldown/seat cannot fire; equip cannot grant ammo or reset cooldown; rocket survives weapon replacement but dies on reset |
 | Destruction — S05 | Three-car near/far fixture has known expected outcomes; occupant dies once/seat clears; 12-car burst completes accepted chain outcomes off-camera despite eight visual slots |
 | Hydration/effects — S05 | Joining after a blast shows current wreck/health and active rockets without historical sounds/blasts; duplicate live event plays once; effect saturation cannot alter health |
 | Reset/teardown — S03/S04/S05 | Admitted peers remain after host reset; old-match commands/events do nothing; no layout transforms change; callbacks/history/input/loops are cleared on leave and retry |

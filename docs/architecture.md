@@ -52,11 +52,11 @@ writer: Replication publishes the owner's committed state; it does not recompute
 | Player life/respawn deadline, controlled entity and life revision | PlayerLifecycle under Match | Coordinates components before publication; HUD/input/Replication read |
 | On-foot pose, velocity, facing and movement telemetry | ActorMotion | Authoritative simulation or permitted local prediction; movement snapshots only |
 | Vehicle pose, velocity, handling/contact telemetry and stopping policy | VehicleMotion | Same command interface for AI/player; S04 chooses body and permitted prediction |
-| Seat occupant, foot/car control transfer and control revision | VehicleInteraction under Match | Coordinates player/vehicle state atomically; reliable seat/control transitions |
+| Seat occupant, foot/car control transfer, command rebind and control revision | VehicleInteraction under Match | Coordinates player/vehicle state atomically; reliable seat/control transitions; resync changes revision without reseating |
 | Pedestrian behavior and traffic route/blocked/stuck state | Population's AI controllers | Emit actor/vehicle commands; do not write movement or health |
 | Selected weapon, magazine, reload/cooldown deadlines, equipment revision and shot allocation | WeaponState on actor | Validates fire/equip/reload; reliable equipment updates and launch events |
 | Health value, damage deduplication and health revision | Health on damageable actor/vehicle | DamageResolver submits validated damage; life owners consume lethal outcome |
-| Hitscan/projectile hit rules, friendly/self damage and damage attribution | DamageResolver under Match | Host physics queries only; projectiles report contact, clients cannot report damage |
+| One-time ShotId acceptance, hitscan/projectile hit rules, friendly/self damage and damage attribution | DamageResolver under Match | One resolution job per committed shot; host physics queries only; projectiles complete that job, clients cannot report damage |
 | Explosion queue, chain order/deduplication, vehicle life phase/revision and wreck lifetime | Explosions under Match | Coordinates seat/health/lifecycle; reliable state plus live presentation events |
 | Active gameplay projectile trajectory, contact and expiry | Projectile simulation under Match | Host spawns/terminates; client flight is cosmetic |
 | Pedestrian life phase/revision, dead-NPC retention and removal deadline | Population | Uses lifecycle/health outcomes; reliable removal, no resurrection by movement |
@@ -135,6 +135,14 @@ baseline using the admission protocol before reopening each participant's input.
 Slow clients are removed on timeout without pausing the host. Reset does not rewind
 ticks or reuse event IDs within the session. No partial reset signal escapes.
 
+Resynchronization preserves an existing participant's player, life, equipment,
+health and seat while the host continues normal gameplay. It closes command
+admission and asks VehicleInteraction to rebind commands with a fresh control
+revision before baseline capture, then reopens after the current handoff. Initial
+join alone creates a provisional player; failed/canceled admission removes that
+player and its work/reservations. The API draft defines separate INITIAL, RESYNC
+and RESET preparation/rollback around the shared bounded transfer protocol.
+
 Teardown first closes command/admission producers, invalidates async work, releases
 seats/reservations and clears effects/history, then removes Match and closes
 transport/lobby resources. SessionService returns to idle only after local cleanup
@@ -154,3 +162,12 @@ Keep pending choices in those tasks, with resulting decisions linked back here.
 Do not turn a spike into a production subsystem without the P0-GATE review. Any new
 replicated field must be assigned an owner here and a wire/lifecycle/test contract
 before implementation. External SDK types stay confined to the adapters.
+
+Independent Godot-focused advisor review, 7 October 2026: the reviewer identified
+gaps in held-sequence recovery, initial-admission versus resync preparation/rollback,
+and duplicate ShotId acceptance. The follow-up corrects all three and adds acceptance
+cases; the reviewer confirmed their resolution. Its final wording correction now
+distinguishes the durable journal from fresh motion snapshots. Snapshot reordering
+and passive replica-body/physics-phase details remain explicit S03/S04 proof work.
+The review used official stable Godot documentation; it did not test the pinned
+development engine or run gameplay. P0-02 completes reviewed drafts, not those proofs.
