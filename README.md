@@ -1,0 +1,38 @@
+# Fun Things
+
+A new Godot project with multiplayer planned. The checkout currently has engine
+and style configuration plus the Godot MCP Toolkit addon. It has no gameplay,
+main scene, multiplayer implementation, or automated gameplay checks yet.
+
+## Setup
+
+Run from the repository root:
+
+```sh
+mise trust
+mise install
+mise exec -- godot --version
+mise run editor
+```
+
+`mise.toml` currently pins Godot **4.8-dev7** and gdstyle **0.3.0**. Keep the
+gdstyle pin aligned with `.gdstyle-version`. Use the pinned engine for editor,
+imports, checks, and exports; install export templates matching that exact release.
+`mise run play` is available once a main scene has been configured.
+
+## Project guidance
+
+- [Repository guidance](AGENTS.md): everyday working rules for contributors and agents.
+- [Development workflow](docs/development.md): architecture, validation, resource
+  identities, version control, and release checks.
+- [Asset workflow](docs/assets.md): source ownership, model integration, collision,
+  art review, and audio provenance.
+- [Multiplayer guidance](docs/multiplayer.md): authority, admission, lifecycle,
+  replication, prediction, transports, and staged acceptance tests.
+- [Guidance provenance](docs/guidance-sources.md): what was extracted from VCS,
+  what was generalized, and what was intentionally left there.
+
+The guides set working conventions and describe future implementation choices.
+They do not imply that VCS tools, tests, Steam integration, or networking already
+exist here. Add executable tasks alongside their implementations and document
+only commands that work in this checkout.

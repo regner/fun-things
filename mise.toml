@@ -1,0 +1,24 @@
+[tools]
+node = "24"
+# Keep this version aligned with .gdstyle-version, used by CI.
+[tools."github:atelico/gdstyle"]
+version = "0.3.0"
+matching_regex = '^gdstyle-(x86_64|aarch64)-'
+
+# Development builds are published separately from Godot's stable releases.
+[tools."github:godotengine/godot-builds"]
+version = "4.8-dev7"
+matching_regex = '^Godot_v.*_(linux\.|win|macos)'
+rename_exe = { "Godot_v*" = "godot" }
+
+[tools."github:godotengine/godot-builds".platforms]
+macos-x64 = { bin_path = "Godot.app/Contents/MacOS", strip_components = 0, rename_exe = { "Godot" = "godot" } }
+macos-arm64 = { bin_path = "Godot.app/Contents/MacOS", strip_components = 0, rename_exe = { "Godot" = "godot" } }
+
+[tasks.editor]
+description = "Open the project in the pinned Godot editor"
+run = "godot --editor --path ."
+
+[tasks.play]
+description = "Run the project with the pinned Godot version"
+run = "godot --path ."
