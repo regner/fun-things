@@ -45,7 +45,6 @@ func step(actor: S02ActorMotion, firing: bool, delta_seconds: float) -> void:
 	fired.emit(muzzle, last_endpoint, last_hit)
 
 
-## Cancels transient firing state on suspension without modifying collision.
+## Clears query feedback while preserving cadence across input suspension.
 func clear() -> void:
-	_cooldown_seconds = 0.0
 	last_hit = null

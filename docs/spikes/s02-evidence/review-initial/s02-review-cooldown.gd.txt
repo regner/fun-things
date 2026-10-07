@@ -1,0 +1,40 @@
+extends SceneTree
+const FIXTURE: PackedScene = preload("res://tests/fixtures/s02/corner.tscn")
+var fixture: S02Fixture
+var frames: Array[int] = []
+func _initialize() -> void:
+	run.call_deferred()
+func run() -> void:
+	fixture = FIXTURE.instantiate() as S02Fixture
+	root.add_child(fixture)
+	await physics_frame
+	await physics_frame
+	fixture.input_collector.set_focused(true)
+	fixture.aim.fired.connect(record_shot)
+	key(KEY_SPACE, true)
+	await physics_frame
+	await physics_frame
+	key(KEY_SPACE, false)
+	key(KEY_ESCAPE, true)
+	key(KEY_ESCAPE, false)
+	key(KEY_ESCAPE, true)
+	key(KEY_ESCAPE, false)
+	key(KEY_SPACE, true)
+	await physics_frame
+	await physics_frame
+	key(KEY_SPACE, false)
+	print("REVIEW_COOLDOWN ", JSON.stringify({"shot_frames": frames,
+		"configured_interval_seconds": fixture.aim.interval_seconds,
+		"physics_rate": Engine.physics_ticks_per_second,
+		"shot_count": fixture.aim.shot_count}))
+	fixture.queue_free()
+	await process_frame
+	quit()
+func record_shot(_origin: Vector3, _endpoint: Vector3, _hit: Node) -> void:
+	frames.append(Engine.get_physics_frames())
+func key(code: Key, pressed: bool) -> void:
+	var event: InputEventKey = InputEventKey.new()
+	event.keycode = code
+	event.physical_keycode = code
+	event.pressed = pressed
+	root.push_input(event)

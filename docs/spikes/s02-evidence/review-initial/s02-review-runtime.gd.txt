@@ -1,0 +1,104 @@
+extends SceneTree
+
+const FIXTURE: PackedScene = preload("res://tests/fixtures/s02/corner.tscn")
+var fixture: S02Fixture
+var failures: Array[String] = []
+var observations: Dictionary = {}
+
+func _initialize() -> void:
+	run.call_deferred()
+
+func run() -> void:
+	fixture = FIXTURE.instantiate() as S02Fixture
+	root.add_child(fixture)
+	await physics_frame
+	await physics_frame
+	fixture.input_collector.set_focused(true)
+	fixture.actor.position = Vector3(0, 0.001, 6)
+	await physics_frame
+	key(KEY_SPACE, true)
+	await physics_frame
+	await physics_frame
+	key(KEY_SPACE, false)
+	expect(fixture.aim.last_hit == fixture.get_node("TargetClear"), "normal callback clear target")
+	observations["normal_fire"] = {"hit": str(fixture.aim.last_hit.name),
+		"shots": fixture.aim.shot_count}
+	var start: Vector3 = fixture.actor.position
+	key(KEY_W, true)
+	for tick: int in 60:
+		await physics_frame
+	key(KEY_W, false)
+	await physics_frame
+	var travel: float = start.distance_to(fixture.actor.position)
+	expect(absf(travel - 5.0) < 0.1, "normal callback movement five metres")
+	key(KEY_D, true)
+	for tick: int in 30:
+		await physics_frame
+	key(KEY_D, false)
+	await physics_frame
+	expect(absf(fixture.actor.rotation.y + PI / 2) < 0.06, "normal callback right turn")
+	var camera: Camera3D = fixture.rig.camera()
+	expect((-camera.global_basis.z).dot(Vector3.DOWN) > 0.9999, "live camera stays vertical")
+	expect(camera.global_basis.x.dot(Vector3.RIGHT) > 0.9999, "live camera yaw stays fixed")
+	observations["normal_motion"] = {"travel_m": travel,
+		"turn_degrees": rad_to_deg(fixture.actor.rotation.y),
+		"camera_follow_error_m": fixture.rig.global_position.distance_to(fixture.actor.global_position)}
+	fixture.manual_mode = true
+	fixture.input_collector.clear()
+	await place(Vector3(0.43, 0.001, -8), 0.0)
+	await advance(90, 1.0)
+	expect(fixture.actor.position.z > -9.26 and fixture.actor.position.z < -9.2,
+		"actor capsule stops against target capsule")
+	observations["target_collision"] = str(fixture.actor.position)
+	for spec: Array in [[Vector3(-11, 0.001, -6), "NearTower"],
+		[Vector3(11, 0.001, -6), "TallTower"]]:
+		await place(spec[0], 0.0)
+		fixture.aim.clear()
+		fixture.step_intent(0, 0, true, 1.0 / 60)
+		expect(fixture.aim.last_hit == fixture.get_node(spec[1] + "/Collision/Body"),
+			"tower obstructs facing ray: " + spec[1])
+		observations[spec[1] + "_ray"] = str(fixture.aim.last_endpoint)
+	await place(Vector3(1.5, 0.001, -3), -PI / 4)
+	await advance(60, 1.0)
+	expect(fixture.actor.position.x < 1.64 and fixture.actor.position.z < -6.0,
+		"diagonal movement slides along east corner instead of tunnelling")
+	observations["diagonal_slide"] = str(fixture.actor.position)
+	await place(Vector3(0, 0.001, 6), 0)
+	fixture.aim.clear()
+	var shots: int = fixture.aim.shot_count
+	fixture.step_intent(0, 0, true, 1.0 / 60)
+	key(KEY_ESCAPE, true)
+	key(KEY_ESCAPE, false)
+	key(KEY_ESCAPE, true)
+	key(KEY_ESCAPE, false)
+	await physics_frame
+	fixture.step_intent(0, 0, true, 1.0 / 60)
+	observations["suspend_cooldown"] = {"shots_in_two_ticks": fixture.aim.shot_count - shots}
+	print("REVIEW_RUNTIME ", JSON.stringify({"failures": failures, "observations": observations}))
+	fixture.queue_free()
+	await process_frame
+	quit(0 if failures.is_empty() else 1)
+
+func advance(ticks: int, movement: float) -> void:
+	for tick: int in ticks:
+		await physics_frame
+		fixture.step_intent(movement, 0, false, 1.0 / 60)
+
+func place(position: Vector3, yaw: float) -> void:
+	fixture.actor.position = position
+	fixture.actor.rotation.y = yaw
+	fixture.actor.neutralize()
+	await physics_frame
+	await physics_frame
+
+func key(code: Key, pressed: bool) -> void:
+	var event: InputEventKey = InputEventKey.new()
+	event.keycode = code
+	event.physical_keycode = code
+	event.pressed = pressed
+	root.push_input(event)
+
+func expect(condition: bool, message: String) -> void:
+	if not condition:
+		failures.append(message)
+		push_error(message)

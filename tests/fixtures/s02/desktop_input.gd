@@ -10,7 +10,7 @@ const ACTIONS: Array[StringName] = [
 
 var active: bool = true
 var menu_open: bool = false
-var _held: Dictionary[StringName, float] = {}
+var _held: Dictionary[StringName, Dictionary] = {}
 
 
 ## Listens to the actual game window as well as application lifecycle notifications.
@@ -28,14 +28,19 @@ func _unhandled_input(event: InputEvent) -> void:
 		get_viewport().set_input_as_handled()
 		return
 
+	if not event is InputEventKey:
+		return
+
+	var key: Key = (event as InputEventKey).physical_keycode
 	for action: StringName in ACTIONS:
 		if not event.is_action(action):
 			continue
-		var strength: float = event.get_action_strength(action)
-		if strength <= 0.0:
-			_held.erase(action)
+		var bindings: Dictionary = _held.get(action, {})
+		if not event.is_pressed():
+			bindings.erase(key)
 		elif active and not menu_open and not event.is_echo():
-			_held[action] = strength
+			bindings[key] = true
+		_held[action] = bindings
 		get_viewport().set_input_as_handled()
 
 
@@ -75,7 +80,12 @@ func sample() -> Dictionary:
 		return { "move": 0.0, "turn": 0.0, "fire": false }
 
 	return {
-		"move": _held.get(&"s02_forward", 0.0) - _held.get(&"s02_back", 0.0),
-		"turn": _held.get(&"s02_right", 0.0) - _held.get(&"s02_left", 0.0),
-		"fire": _held.get(&"s02_fire", 0.0) > 0.0,
+		"move": _strength(&"s02_forward") - _strength(&"s02_back"),
+		"turn": _strength(&"s02_right") - _strength(&"s02_left"),
+		"fire": _strength(&"s02_fire") > 0.0,
 	}
+
+
+## Aggregates supported physical aliases without erasing another still-held binding.
+func _strength(action: StringName) -> float:
+	return 0.0 if _held.get(action, {}).is_empty() else 1.0

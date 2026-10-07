@@ -215,7 +215,7 @@ implementation. Save editor mutations before playtests; preserve unsaved work.
   product decision. Decision: camera/control contract, actor/collision/aim envelope,
   playtest evidence and feel targets. No finished animation or weapon system required.
   Desktop exploration: [S02 fixture and evidence](docs/spikes/s02.md) supplies a
-  provisional 47 m/42° keyboard corner harness. Physical-key focus playtesting and user feel
+  provisional 47 m/42° keyboard corner harness. Native focus revalidation, physical-key playtesting and user feel
   remain pending; handheld/early S08 and all dependent gates remain open.
 
 - [ ] **S03-S — Steam integration, friend connection and transport proof.**

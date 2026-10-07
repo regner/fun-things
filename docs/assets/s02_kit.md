@@ -16,7 +16,7 @@ subsequent authoring belongs in the saved Blender source.
 
 | Asset | Imported envelope / purpose | Linked consumers |
 | --- | --- | --- |
-| s02_ground | 64×0.2×64 m road, top Y=0; 4 m-wide flush visual walk strip | ground_prefab, corner, weapon_studies |
+| s02_ground | 64×0.2×64 m road, top Y=0; 4 m-wide visual walk strip, top Y=0.015 m | ground_prefab, corner, weapon_studies |
 | s02_low | 8×6×8 m solid mass; 8.2 m roof overhang | low_prefab; WestCorner/EastCorner in corner |
 | s02_near | 8×46×8 m solid mass; 8.2 m roof | near_prefab; NearTower in corner |
 | s02_tall | 8×60×8 m solid mass; 8.2 m roof | tall_prefab; TallTower in corner |

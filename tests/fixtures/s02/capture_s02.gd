@@ -36,6 +36,10 @@ func _run() -> void:
 		await _capture("alley_%d" % fov)  # gdstyle:ignore=quality/await-in-loop
 
 	_fixture.rig.set_candidate_fov(42.0)
+	_fixture.actor.position = Vector3(3.57, 0.001, 3)
+	await _capture("blocked_target_42")
+	_fixture.actor.position = Vector3(3.57, 0.001, -9)
+	await _capture("clear_target_42")
 	_fixture.actor.position = Vector3(5.61, 0.001, -9)
 	_fixture.actor.rotation.y = -PI / 2.0
 	await _capture("tower_edge_42")

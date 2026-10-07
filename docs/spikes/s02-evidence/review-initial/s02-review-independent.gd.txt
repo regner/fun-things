@@ -1,0 +1,97 @@
+extends SceneTree
+
+const FIXTURE: PackedScene = preload("res://tests/fixtures/s02/corner.tscn")
+var fixture: S02Fixture
+var observations: Dictionary = {}
+
+func _initialize() -> void:
+	run.call_deferred()
+
+func run() -> void:
+	fixture = FIXTURE.instantiate() as S02Fixture
+	fixture.manual_mode = true
+	root.add_child(fixture)
+	await physics_frame
+	await physics_frame
+	var pairs: Array = [[KEY_W, KEY_UP, "move"], [KEY_S, KEY_DOWN, "move"],
+		[KEY_A, KEY_LEFT, "turn"], [KEY_D, KEY_RIGHT, "turn"]]
+	for pair: Array in pairs:
+		fixture.input_collector.set_focused(true)
+		key(pair[0], true)
+		key(pair[1], true)
+		var before: Dictionary = fixture.input_collector.sample()
+		key(pair[0], false)
+		var after: Dictionary = fixture.input_collector.sample()
+		key(pair[1], true, true)
+		observations[str(pair[0]) + "+" + str(pair[1])] = {
+			"both_held": before, "alias_still_held": after,
+			"remaining_alias_echo": fixture.input_collector.sample()}
+		key(pair[1], false)
+	fixture.input_collector.set_focused(true)
+	key(KEY_W, true)
+	key(KEY_S, true)
+	observations["opposite_both"] = fixture.input_collector.sample()
+	key(KEY_W, false)
+	observations["opposite_one_released"] = fixture.input_collector.sample()
+	key(KEY_S, false)
+	fixture.input_collector.set_focused(true)
+	key(KEY_W, true)
+	key(KEY_SPACE, true)
+	fixture.actor.velocity = Vector3(0, 0, -5)
+	fixture.input_collector.set_focused(false)
+	observations["focus_cancel"] = {"command": fixture.input_collector.sample(),
+		"velocity": str(fixture.actor.velocity), "last_hit": fixture.aim.last_hit}
+	fixture.input_collector.set_focused(true)
+	key(KEY_W, true, true)
+	key(KEY_SPACE, true, true)
+	observations["focus_echo_regain"] = fixture.input_collector.sample()
+	key(KEY_W, false)
+	key(KEY_SPACE, false)
+	key(KEY_W, true)
+	key(KEY_SPACE, true)
+	observations["fresh_after_focus"] = fixture.input_collector.sample()
+	key(KEY_ESCAPE, true)
+	key(KEY_ESCAPE, false)
+	observations["menu_cancel"] = fixture.input_collector.sample()
+	key(KEY_ESCAPE, true)
+	key(KEY_ESCAPE, false)
+	key(KEY_W, true, true)
+	key(KEY_SPACE, true, true)
+	observations["menu_echo_resume"] = fixture.input_collector.sample()
+	key(KEY_W, false)
+	key(KEY_SPACE, false)
+	fixture.input_collector.clear()
+	await motion_at_rate(60)
+	await motion_at_rate(120)
+	await motion_at_rate(10)
+	Engine.physics_ticks_per_second = 60
+	print("REVIEW_RESULT ", JSON.stringify(observations))
+	fixture.queue_free()
+	await process_frame
+	quit()
+
+func motion_at_rate(rate: int) -> void:
+	Engine.physics_ticks_per_second = rate
+	fixture.actor.position = Vector3(-15, 0.001, 8)
+	fixture.actor.rotation.y = 0.0
+	fixture.actor.neutralize()
+	await physics_frame
+	await physics_frame
+	var before: Vector3 = fixture.actor.position
+	for tick: int in rate:
+		await physics_frame
+		fixture.step_intent(1.0, 0.0, false, 1.0 / rate)
+	var travel: float = before.distance_to(fixture.actor.position)
+	for tick: int in rate:
+		await physics_frame
+		fixture.step_intent(0.0, 1.0, false, 1.0 / rate)
+	observations["rate_" + str(rate)] = {"travel_m": travel,
+		"turn_degrees": rad_to_deg(fixture.actor.rotation.y)}
+
+func key(code: Key, pressed: bool, echo: bool = false) -> void:
+	var event: InputEventKey = InputEventKey.new()
+	event.keycode = code
+	event.physical_keycode = code
+	event.pressed = pressed
+	event.echo = echo
+	root.push_input(event)

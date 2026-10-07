@@ -4,6 +4,7 @@ extends SceneTree
 const FIXTURE: PackedScene = preload("res://tests/fixtures/s02/corner.tscn")
 const STEP_SECONDS: float = 1.0 / 60.0
 const EPSILON_M: float = 0.03
+const CADENCE_SETTLE_TICKS: int = 16
 
 var _fixture: S02Fixture
 var _failures: Array[String] = []
@@ -25,6 +26,9 @@ func _run() -> void:
 	await _motion_checks()
 	await _query_checks()
 	await _input_checks()
+	await _alias_checks()
+	await _cadence_checks()
+	_target_overlap_checks()
 	_resource_checks()
 	var visited: Array[String] = []
 	_dependencies("res://tests/fixtures/s02/corner_wide.tscn", visited)
@@ -77,12 +81,23 @@ func _query_checks() -> void:
 	_fixture.step_intent(0.0, 0.0, true, STEP_SECONDS)
 	_expect(_fixture.aim.last_hit == _fixture.get_node("TargetClear"),
 		"facing ray hits the intended clear target")
-	await _place(Vector3(5.57, 0.001, 3), 0.0)
+	await _place(Vector3(3.57, 0.001, 3), 0.0)
+	await _advance(CADENCE_SETTLE_TICKS, 0.0, 0.0)
 	_fixture.aim.clear()
 	_fixture.step_intent(0.0, 0.0, true, STEP_SECONDS)
 	_expect(_fixture.aim.last_hit == _fixture.get_node("EastCorner/Collision/Body"),
 		"world blocks the target behind the building")
+	await _place(Vector3(0, 0.001, 3), 0.0)
+	await _advance(144, 1.0, 0.0)
+	await _advance(30, 0.0, 1.0)
+	await _advance(43, 1.0, 0.0)
+	await _advance(30, 0.0, -1.0)
+	_fixture.step_intent(0.0, 0.0, true, STEP_SECONDS)
+	_expect(_fixture.aim.last_hit == _fixture.get_node("TargetBlocked"),
+		"previously blocked target is hittable after walking around the corner")
+	_observations["blocked_to_clear_end"] = str(_fixture.actor.position)
 	await _place(Vector3(5.57, 0.001, 0.4), 0.0)
+	await _advance(CADENCE_SETTLE_TICKS, 0.0, 0.0)
 	_fixture.aim.clear()
 	_fixture.step_intent(0.0, 0.0, true, STEP_SECONDS)
 	_expect(_fixture.aim.last_hit == _fixture.get_node("EastCorner/Collision/Body"),
@@ -117,6 +132,127 @@ func _input_checks() -> void:
 	_key(KEY_ESCAPE, false)
 	_expect(_fixture.input_collector.sample().move == 0.0, "local menu cancels intent")
 	_key(KEY_W, false)
+	_key(KEY_ESCAPE, true)
+	_key(KEY_ESCAPE, false)
+
+
+## Checks every supported alias pair in both release orders through viewport routing.
+func _alias_checks() -> void:
+	for pair: Array in [
+		[KEY_W, KEY_UP, "move", 1.0], [KEY_S, KEY_DOWN, "move", -1.0],
+		[KEY_A, KEY_LEFT, "turn", -1.0], [KEY_D, KEY_RIGHT, "turn", 1.0],
+	]:
+		for order: int in [0, 1]:
+			# Each alias order includes real movement or turning while one key remains.
+			# gdstyle:ignore=quality/await-in-loop
+			await _alias_order(pair[order], pair[1 - order], pair[2], pair[3])
+	_fixture.input_collector.set_focused(true)
+	_key(KEY_W, true)
+	_key(KEY_S, true)
+	_expect(_fixture.input_collector.sample().move == 0.0, "opposite directions cancel")
+	_key(KEY_S, false)
+	_expect(_fixture.input_collector.sample().move == 1.0, "opposite release retains forward")
+	_key(KEY_W, false)
+
+
+## Preserves the remaining alias, then verifies focus and menu clear both bindings.
+func _alias_order(first: Key, second: Key, field: String, expected: float) -> void:
+	await _place(Vector3(0, 0.001, 6), 0.0)
+	_fixture.input_collector.set_focused(true)
+	_key(first, true)
+	_key(second, true)
+	_key(first, false)
+	_expect(_fixture.input_collector.sample()[field] == expected,
+		"remaining alias retains " + field)
+	var before: Vector3 = _fixture.actor.position
+	await _collected_ticks(6)
+	if field == "move":
+		_expect(_fixture.actor.position.distance_to(before) > 0.25, "remaining alias moves actor")
+	else:
+		_expect(absf(_fixture.actor.rotation.y) > 0.25, "remaining alias turns actor")
+	_key(second, false)
+	_expect(_fixture.input_collector.sample()[field] == 0.0, "last alias release neutralizes")
+	_key(first, true)
+	_key(second, true)
+	_fixture.input_collector.set_focused(false)
+	_fixture.input_collector.set_focused(true)
+	_key(first, true, true)
+	_key(second, true, true)
+	_expect(_fixture.input_collector.sample()[field] == 0.0, "focus rejects both stale aliases")
+	_key(first, false)
+	_key(second, false)
+	_key(first, true)
+	_key(second, true)
+	_key(KEY_ESCAPE, true)
+	_key(KEY_ESCAPE, false)
+	_key(KEY_ESCAPE, true)
+	_key(KEY_ESCAPE, false)
+	_key(first, true, true)
+	_key(second, true, true)
+	_expect(_fixture.input_collector.sample()[field] == 0.0, "menu rejects both stale aliases")
+	_key(first, false)
+	_key(second, false)
+
+
+## Ensures menu/focus cancellation cannot grant an early fresh-input shot.
+func _cadence_checks() -> void:
+	for use_menu: bool in [true, false]:
+		# Independent lifecycle cases advance only real engine physics callbacks.
+		# gdstyle:ignore=quality/await-in-loop
+		await _cadence_case(use_menu)
+
+
+## Measures a fresh shot before and after an input suspension inside the ray interval.
+func _cadence_case(use_menu: bool) -> void:
+	_fixture.input_collector.set_focused(true)
+	await _collected_ticks(CADENCE_SETTLE_TICKS)
+	var before: int = _fixture.aim.shot_count
+	_key(KEY_SPACE, true)
+	await _collected_ticks(1)
+	_expect(_fixture.aim.shot_count == before + 1, "fresh routed fire emits initial shot")
+	_key(KEY_SPACE, false)
+	if use_menu:
+		_key(KEY_ESCAPE, true)
+		_key(KEY_ESCAPE, false)
+		_key(KEY_ESCAPE, true)
+		_key(KEY_ESCAPE, false)
+	else:
+		_fixture.input_collector.set_focused(false)
+		_fixture.input_collector.set_focused(true)
+	_expect(not _fixture.input_collector.sample().fire, "suspension immediately clears fire")
+	_key(KEY_SPACE, true)
+	await _collected_ticks(2)
+	_expect(_fixture.aim.shot_count == before + 1, "suspension cannot bypass ray interval")
+	await _collected_ticks(14)
+	_expect(_fixture.aim.shot_count == before + 2, "fresh fire resumes after ray interval")
+	_key(KEY_SPACE, false)
+
+
+## Checks actual target shapes against solid world, excluding intentional ground contact.
+func _target_overlap_checks() -> void:
+	var ground: StaticBody3D = _fixture.get_node("Ground/Collision/Body") as StaticBody3D
+	var query: PhysicsShapeQueryParameters3D = PhysicsShapeQueryParameters3D.new()
+	for target_name: String in ["TargetClear", "TargetBlocked"]:
+		var target: StaticBody3D = _fixture.get_node(target_name) as StaticBody3D
+		var shape: CollisionShape3D = target.get_node("Collision") as CollisionShape3D
+		query.shape = shape.shape
+		query.transform = shape.global_transform
+		query.collision_mask = S02AimProbe.WORLD_LAYER
+		query.exclude = [ground.get_rid()]
+		var space: PhysicsDirectSpaceState3D = target.get_world_3d().direct_space_state
+		var hits: Array[Dictionary] = space.intersect_shape(query)
+		_expect(hits.is_empty(), target_name + " occupies free world space")
+		_observations[target_name + "_world_overlaps"] = hits.size()
+
+
+## Advances sampled routed input through the same standalone coordinator as the live fixture.
+func _collected_ticks(ticks: int) -> void:
+	for tick: int in ticks:
+		# Real physics ticks preserve collision and cadence behavior.
+		# gdstyle:ignore=quality/await-in-loop
+		await physics_frame
+		var command: Dictionary = _fixture.input_collector.sample()
+		_fixture.step_intent(command.move, command.turn, command.fire, STEP_SECONDS)
 
 
 ## Verifies live camera orientation, import links and source-derived muzzle geometry.
