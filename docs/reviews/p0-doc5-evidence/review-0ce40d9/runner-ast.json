@@ -1,0 +1,53 @@
+{
+  "options": {
+    "--godot": {
+      "default": "shutil.which('godot') or 'godot'"
+    },
+    "--port": {
+      "type": "int",
+      "default": "24900"
+    },
+    "--proxy-port": {
+      "type": "int",
+      "default": "24901"
+    },
+    "--deadline": {
+      "type": "float",
+      "default": "45"
+    },
+    "--windowed": {
+      "action": "'store_true'",
+      "help": "'attempt real graphical frame receipts; never substitute forced draws'"
+    },
+    "--profiles": {
+      "nargs": "'+'",
+      "choices": "PROFILES",
+      "default": "list(PROFILES)"
+    },
+    "--output": {
+      "type": "Path"
+    }
+  },
+  "constants": {
+    "PROFILES": {
+      "baseline": [
+        0,
+        0,
+        0
+      ],
+      "normal": [
+        75,
+        30,
+        0.02
+      ],
+      "adverse": [
+        125,
+        50,
+        0.05
+      ]
+    },
+    "MAX_QUEUE": 1024,
+    "MAX_POLL": 128,
+    "BLACKOUT_SECONDS": 1.0
+  }
+}

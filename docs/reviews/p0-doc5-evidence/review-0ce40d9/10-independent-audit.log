@@ -1,0 +1,11 @@
+PASS exact frozen HEAD/base, clean status, direct sole parent and whitespace; 927 mode/blob entries preserved
+PASS explicit 27 remaining task IDs and full blocks; only DOC5 removal and resolving gate reference
+PASS 159 local Markdown destinations/anchors; all five files LF/final-newline/trailing-whitespace
+PASS all original 82 immutable paths match recorded SHA256 and accepted-main bytes
+PASS saved S03/S02 inheritance, five CityRoot instances, both bodies, actor/pistol/muzzle ancestry and six mapped exports
+PASS static AST exact seven flags/defaults, impairment profiles/proxy bounds and absent Mise task; project tooling never imported
+Traceback (most recent call last):
+  File "/tmp/p0-doc5-independent-review/independent_audit.py", line 157, in <module>
+    fixed=json.loads((ROOT/'docs/spikes/s03-r-evidence/fix-adverse/result.json').read_text())['profiles'][0]['measurements']
+          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^
+KeyError: 'profiles'

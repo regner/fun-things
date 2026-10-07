@@ -1,0 +1,101 @@
+{
+  "content": [
+    {
+      "type": "text",
+      "text": "{\n  \"status\": \"running\",\n  \"snapshot\": {\n    \"id\": \"28209f2c-6472-4c75-979a-ca5d9c5c5fe6\",\n    \"provider\": \"codex\",\n    \"cwd\": \"/home/regner/.paseo/worktrees/0u71f39f/p0-doc5-s03-r-discovery\",\n    \"workspaceId\": \"wks_ceaf93fcc4ff3f55\",\n    \"model\": \"gpt-6.1-sol\",\n    \"thinkingOptionId\": \"medium\",\n    \"effectiveThinkingOptionId\": \"medium\",\n    \"runtimeInfo\": {\n      \"provider\": \"codex\",\n      \"sessionId\": \"01a118a5-a291-7680-a25c-8355ab2a85b9\",\n      \"model\": \"gpt-6.1-sol\",\n      \"thinkingOptionId\": \"medium\",\n      \"modeId\": \"auto-review\",\n      \"extra\": {\n        \"collaborationMode\": \"Default\"\n      }\n    },\n    \"createdAt\": \"2026-10-07T23:14:30.671Z\",\n    \"updatedAt\": \"2026-10-07T23:15:57.232Z\",\n    \"lastUserMessageAt\": \"2026-10-07T23:14:32.339Z\",\n    \"status\": \"running\",\n    \"activeTurn\": {\n      \"turnId\": \"codex-turn-0\",\n      \"startedAt\": \"2026-10-07T23:14:30.765Z\"\n    },\n    \"capabilities\": {\n      \"supportsStreaming\": true,\n      \"supportsSessionPersistence\": true,\n      \"supportsSessionListing\": true,\n      \"supportsDynamicModes\": false,\n      \"supportsMcpServers\": true,\n      \"supportsReasoningStream\": true,\n      \"supportsToolInvocations\": true,\n      \"supportsRewindConversation\": true,\n      \"supportsRewindFiles\": false,\n      \"supportsRewindBoth\": false\n    },\n    \"currentModeId\": \"auto-review\",\n    \"availableModes\": [\n      {\n        \"id\": \"auto\",\n        \"label\": \"Default Permissions\",\n        \"description\": \"Edit files and run commands with Codex's default approval flow.\"\n      },\n      {\n        \"id\": \"auto-review\",\n        \"label\": \"Auto-review\",\n        \"description\": \"Same workspace-write permissions as Default, but eligible `on-request` approvals are routed through the auto-reviewer subagent.\"\n      },\n      {\n        \"id\": \"full-access\",\n        \"label\": \"Full Access\",\n        \"description\": \"Edit files, run commands, and access the network without additional prompts.\"\n      }\n    ],\n    \"features\": [\n      {\n        \"type\": \"toggle\",\n        \"id\": \"plan_mode\",\n        \"label\": \"Plan\",\n        \"description\": \"Switch Codex into planning-only collaboration mode\",\n        \"tooltip\": \"Toggle plan mode\",\n        \"icon\": \"list-todo\",\n        \"value\": false\n      }\n    ],\n    \"pendingPermissions\": [],\n    \"persistence\": {\n      \"provider\": \"codex\",\n      \"sessionId\": \"01a118a5-a291-7680-a25c-8355ab2a85b9\",\n      \"metadata\": {\n        \"cwd\": \"/home/regner/.paseo/worktrees/0u71f39f/p0-doc5-s03-r-discovery\"\n      }\n    },\n    \"title\": \"P0-DOC5 independent static docs review\",\n    \"labels\": {\n      \"paseo.parent-agent-id\": \"23383c25-3246-4ab9-bc26-64b35cbae1db\"\n    },\n    \"lastUsage\": {\n      \"inputTokens\": 108116,\n      \"cachedInputTokens\": 99712,\n      \"outputTokens\": 262,\n      \"contextWindowMaxTokens\": 258400,\n      \"contextWindowUsedTokens\": 108378\n    },\n    \"requiresAttention\": false,\n    \"attentionReason\": null,\n    \"attentionTimestamp\": null\n  }\n}"
+    }
+  ],
+  "structuredContent": {
+    "status": "running",
+    "snapshot": {
+      "id": "28209f2c-6472-4c75-979a-ca5d9c5c5fe6",
+      "provider": "codex",
+      "cwd": "/home/regner/.paseo/worktrees/0u71f39f/p0-doc5-s03-r-discovery",
+      "workspaceId": "wks_ceaf93fcc4ff3f55",
+      "model": "gpt-6.1-sol",
+      "thinkingOptionId": "medium",
+      "effectiveThinkingOptionId": "medium",
+      "runtimeInfo": {
+        "provider": "codex",
+        "sessionId": "01a118a5-a291-7680-a25c-8355ab2a85b9",
+        "model": "gpt-6.1-sol",
+        "thinkingOptionId": "medium",
+        "modeId": "auto-review",
+        "extra": {
+          "collaborationMode": "Default"
+        }
+      },
+      "createdAt": "2026-10-07T23:14:30.671Z",
+      "updatedAt": "2026-10-07T23:15:57.232Z",
+      "lastUserMessageAt": "2026-10-07T23:14:32.339Z",
+      "status": "running",
+      "activeTurn": {
+        "turnId": "codex-turn-0",
+        "startedAt": "2026-10-07T23:14:30.765Z"
+      },
+      "capabilities": {
+        "supportsStreaming": true,
+        "supportsSessionPersistence": true,
+        "supportsSessionListing": true,
+        "supportsDynamicModes": false,
+        "supportsMcpServers": true,
+        "supportsReasoningStream": true,
+        "supportsToolInvocations": true,
+        "supportsRewindConversation": true,
+        "supportsRewindFiles": false,
+        "supportsRewindBoth": false
+      },
+      "currentModeId": "auto-review",
+      "availableModes": [
+        {
+          "id": "auto",
+          "label": "Default Permissions",
+          "description": "Edit files and run commands with Codex's default approval flow."
+        },
+        {
+          "id": "auto-review",
+          "label": "Auto-review",
+          "description": "Same workspace-write permissions as Default, but eligible `on-request` approvals are routed through the auto-reviewer subagent."
+        },
+        {
+          "id": "full-access",
+          "label": "Full Access",
+          "description": "Edit files, run commands, and access the network without additional prompts."
+        }
+      ],
+      "features": [
+        {
+          "type": "toggle",
+          "id": "plan_mode",
+          "label": "Plan",
+          "description": "Switch Codex into planning-only collaboration mode",
+          "tooltip": "Toggle plan mode",
+          "icon": "list-todo",
+          "value": false
+        }
+      ],
+      "pendingPermissions": [],
+      "persistence": {
+        "provider": "codex",
+        "sessionId": "01a118a5-a291-7680-a25c-8355ab2a85b9",
+        "metadata": {
+          "cwd": "/home/regner/.paseo/worktrees/0u71f39f/p0-doc5-s03-r-discovery"
+        }
+      },
+      "title": "P0-DOC5 independent static docs review",
+      "labels": {
+        "paseo.parent-agent-id": "23383c25-3246-4ab9-bc26-64b35cbae1db"
+      },
+      "lastUsage": {
+        "inputTokens": 108116,
+        "cachedInputTokens": 99712,
+        "outputTokens": 262,
+        "contextWindowMaxTokens": 258400,
+        "contextWindowUsedTokens": 108378
+      },
+      "requiresAttention": false,
+      "attentionReason": null,
+      "attentionTimestamp": null
+    }
+  }
+}
