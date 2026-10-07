@@ -286,7 +286,8 @@ implementation. Save editor mutations before playtests; preserve unsaved work.
   limits and evidence; independent of the vehicle prediction choice. Required for M1-A2.
   [Bounded ENet technical candidate](docs/spikes/s03-r.md) retains headless two-process
   controller response, convergence, collision, expiry/resync and teardown evidence;
-  independent review is required before integration. **Full S03-R remains OPEN.**
+  [Independent technical review](docs/reviews/s03-r-b87f889.md) closed its scoped
+  P2; **full S03-R remains OPEN.**
   Next: measure predeclared owned visible response/camera/aim continuity with a
   drawable fixture and human feel review. If that evidence warrants prediction,
   commission a separately bounded trial: predeclare how newest held intent per
