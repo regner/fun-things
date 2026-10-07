@@ -12,6 +12,11 @@ and imports, `tests/` for checks, `tools/` for repository utilities, and `docs/`
 for current contracts. Keep vendor addons separate from project-owned addons.
 Use consistent names and avoid multiple unrelated systems hidden in a level script.
 
+The P0-02 [ownership](architecture.md), [scene](scene-structure.md), and
+[API](api-contracts.md) drafts reserve concrete paths and boundaries for the spikes;
+they describe planned systems, not code already present. Use their owner map rather
+than introducing a second state owner. The [product brief](design.md) owns scope.
+
 For each system, identify its owner, inputs, outputs, state, and lifecycle. A
 movement component accepts commands without reading keyboard/gamepad input. Input
 controllers translate local devices, AI, or network intent into that API. Resource
@@ -20,7 +25,10 @@ and may calculate display values without deciding gameplay outcomes.
 
 Introduce autoloads only for responsibilities that actually persist across scenes,
 such as a session service. Keep level-specific simulation under the level/match.
-Document the ownership map when concrete systems exist; avoid speculative managers.
+Start with process services under the persistent Boot scene as specified in the
+scene draft; there are no planned project autoloads for the first proof. Keep the
+[ownership map](architecture.md#state-and-rule-owners) current as systems arrive;
+avoid speculative managers.
 Apply commands before simulation and capture state after simulation. Use explicit
 physics processing priorities when order matters rather than incidental sibling order.
 

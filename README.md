@@ -31,6 +31,9 @@ imports, checks, and exports; install export templates matching that exact relea
   spikes, dependencies, and playable-milestone acceptance.
 - [Product brief and validation envelope](docs/design.md): ratified P0-01 scope,
   gameplay policies, provisional budgets and owned proof/setup decisions.
+- [Ownership architecture](docs/architecture.md), [scene structure](docs/scene-structure.md)
+  and [API contracts](docs/api-contracts.md): P0-02 drafts for state owners, authored
+  paths, session/gameplay lifecycle, data shapes, limits and future acceptance tests.
 - [Repository guidance](AGENTS.md): everyday working rules for contributors and agents.
 - [Development workflow](docs/development.md): architecture, validation, resource
   identities, version control, and release checks.

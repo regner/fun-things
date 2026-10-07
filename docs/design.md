@@ -107,7 +107,7 @@ certification remains outside M1.
 | --- | --- |
 | Friendly fire | Always on, including self-damage and player-caused car/blast damage; no toggle or teams in M1 |
 | Death/respawn | Host respawns a player after 3 seconds at a reserved safe district spawn, with full health and the default weapon loadout; no lives or inventory penalty |
-| Unsafe spawn | Retry for a bounded period; report failure if no valid spawn becomes available. P0-02 sets the deadline and clearance contract |
+| Unsafe spawn | Retry for a bounded period; report failure if no valid spawn becomes available. The [P0-02 lifecycle draft](api-contracts.md#spawning-and-lifecycle) defines provisional clearance and a five-second search deadline |
 | Car seats | One player driver; no passengers or visible NPC occupants. Entry transfers traffic control to the player through the host |
 | Seat conflicts | Host grants one claimant; reject other claims. A blocked exit leaves the player seated rather than placing them inside collision |
 | Car explosion occupant | Kill the seated driver as part of the same authoritative destruction transition; clear the seat and use normal respawn, with no forced ejection |
@@ -122,8 +122,9 @@ certification remains outside M1.
 
 S05 settles blast radius, obstruction/falloff, chain timing/order, wreck collision
 and cleanup duration. Combat tuning, respawn clearance and reset sequencing have
-one authoritative owner each in P0-02. Reset restores gameplay state around saved
-city placement; it never reconstructs or overwrites the authored district.
+one authoritative owner each in the [P0-02 ownership draft](architecture.md).
+Reset restores gameplay state around saved city placement; it never reconstructs
+or overwrites the authored district.
 
 ## Required content
 
@@ -174,7 +175,7 @@ provisional content/load choices with the user rather than silently relaxing 60 
 | Physics | Fixed 60 Hz (16.67 ms step); host physics/simulation work p95 ≤4 ms, p99 ≤8 ms per tick, including AI and chain work |
 | Memory | Per-process peak resident memory ≤2 GiB and observed GPU allocations ≤1 GiB on Deck's shared memory; report measurement tool and overlap rather than adding counters blindly; no sustained growth after repeated reset/leave/rejoin |
 | Bandwidth | At four players, host aggregate outgoing ≤256 KiB/s, incoming ≤128 KiB/s; each client incoming ≤96 KiB/s, outgoing ≤48 KiB/s. Use worst 10-second sustained windows including transport overhead; report short peaks separately |
-| Join transfer | Authoritative baseline target ≤1 MiB per join, measured separately from ongoing bandwidth; P0-02/S03 define bounded transfer/loading/admission deadlines |
+| Join transfer | Authoritative baseline target ≤1 MiB per join, measured separately from ongoing bandwidth; [P0-02 limits](api-contracts.md#provisional-limits-and-failure-codes) draft bounded transfer/loading/admission deadlines for S03 validation |
 | Normal network | RTT 0–150 ms, injected jitter up to ±30 ms one-way, independent packet loss 0–2% each direction; apply the same profiles to both providers and record actual delay/route |
 | Adverse network | RTT 250 ms, jitter ±50 ms one-way, loss 5%; a 1-second delivery interruption and 250 ms host stall. Recovery/authority/bounded-work acceptance, with degraded feel allowed |
 | Local response | p95 input-to-visible owned movement/turn/brake response ≤50 ms in the normal envelope on reference hardware; measure in windows/captures, not just command submission |
@@ -303,7 +304,7 @@ through silence. Record each answer/date and any changed scope here.
 | D04 — Development pin | Codex (proof), Regner (decision) | Installed pins/templates publication verified; current pin unchanged. Regner approved leaving exact engine choice open for early S08 Gaming Mode evidence before S02 handheld acceptance |
 | D05 — Camera/control and car envelope | Codex, Regner (feel review) | S02/S03-R/S04 captures, response/correction measurements, corner/aim/drive/recovery tests; settle before P0-GATE |
 | D06 — Art/layout and kit counts | Codex, Regner (direction review) | P0-04 concepts/layout, S06 route/clearance evidence; settle before P0-GATE |
-| D07 — Gameplay/network bounds and tuning | Codex | P0-02 owned contracts and S03/S03-S/S05 size/rate/load/chain results; exact timeouts, damage/ammo/reload/cooldown/wreck/queue limits before P0-GATE |
+| D07 — Gameplay/network bounds and tuning | Codex | [P0-02 API draft](api-contracts.md) and S03/S03-S/S05 size/rate/load/chain results; ratify draft timeouts and settle damage/ammo/reload/cooldown/wreck/queue limits before P0-GATE |
 | D08 — Renderer, targets and measured budgets | Codex, Regner (scope changes) | S07 Mobile/Forward Plus cost/readability on Deck, S08 Gaming Mode/native exports/templates/Steam compatibility; ratify provisional budgets at P0-GATE, sustained 60 FPS acceptance M1-D3/D4 |
 
 Review record, 7 October 2026: Regner selected Steam Deck, 60 FPS and non-realistic

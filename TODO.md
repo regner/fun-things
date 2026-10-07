@@ -78,17 +78,12 @@ explicitly deferred unknown live Steamworks setup to its proofs, and left the en
 choice open for early S08 Deck evidence. These deferrals are owned below; completed
 scope work is removed from this active list.
 
-- [ ] **P0-02 — Draft ownership, scene and API contracts.**
-  Needs: [ratified brief](docs/design.md).
-  Output: `docs/architecture.md`, `docs/scene-structure.md`, `docs/api-contracts.md`,
-  and updates to existing guides. Define state owners, command/replication/presentation
-  boundaries, signatures/data shapes, units, stable identities, lifecycle, errors,
-  cancellation and contract tests. Use the scene/API starting points below.
-  Done when: each rule/replicated field has one owner; external provider types stay
-  at adapters; planned contracts have no contradictory guidance. Drafts are refined
-  by spike decisions at P0-GATE. Keep APIs narrow and avoid speculative managers.
-  Define both ENet and Steam transport providers plus a separate Steam lobby/invite
-  adapter; map Steam account/lobby IDs and ENet peer IDs to fresh session identities.
+P0-02 draft output is recorded in [architecture](docs/architecture.md),
+[scene structure](docs/scene-structure.md), and [API contracts](docs/api-contracts.md).
+These define owners, concrete proposed paths, typed boundaries, identities,
+admission/cancellation/lifecycle, provisional limits and future contract tests.
+No gameplay is implemented or proof claimed. Spikes refine the drafts and P0-GATE
+settles them; remaining proof/tuning choices stay with the tasks below.
 
 - [ ] **P0-03 — Add only the tooling needed for reproducible foundation proofs.**
   Needs: [ratified brief](docs/design.md) and the first owned spike scripts/resources.
@@ -114,7 +109,8 @@ scope work is removed from this active list.
   GTA references guide feel; original designs supply the assets.
 
 - [ ] **P0-05 — Specify the concept-to-asset-to-world workflow.**
-  Needs: P0-02 and P0-04 drafts.
+  Needs: [scene](docs/scene-structure.md) and [API](docs/api-contracts.md) drafts,
+  and P0-04 drafts.
   Output: expand [assets](docs/assets.md) with handoff records, source/export layout,
   meters/axes/origins, export collections, sockets, rigs, animation names, materials,
   texture conventions, collision envelopes, LOD/bounds, catalogue and reexport rules.
@@ -124,7 +120,8 @@ scope work is removed from this active list.
   S01 chooses the pinned Blender version/settings and proves the workflow.
 
 - [ ] **P0-06 — Create a project GDScript review skill.**
-  Needs: P0-02; use P0-03 checks and spike fixtures as they become available.
+  Needs: [ownership](docs/architecture.md) and [API](docs/api-contracts.md) drafts;
+  use P0-03 checks and spike fixtures as they become available.
   Output: `.agents/skills/gdscript-review/SKILL.md`, linked to canonical guidance.
   Review owner/callers/serialized data, single rules, authority/admission, lifecycle,
   replay effects, bounded work, public/Inspector compatibility, style, simplicity,
@@ -141,56 +138,14 @@ scope work is removed from this active list.
   Done when: frontmatter/links validate and an isolated flawed asset/prefab receives
   useful evidence-based findings. Screenshots alone do not certify movement or load.
 
-### Scene structure to validate in P0-02/S01/S06
+### Contracts to validate with spikes
 
-Names are illustrative; settle concrete paths/contracts before production.
-
-```text
-Boot + process-lifetime session/settings/optional platform services
-├── MainMenu / Settings (separate reusable UI scenes)
-└── Match (authoritative match state and lifecycle)
-    ├── CityRoot (saved district scenes)
-    │   └── Sector scenes (saved composition and placement)
-    │       ├── Building/Road/Sidewalk/Prop prefab instances
-    │       │   ├── Visuals (linked Blender model import)
-    │       │   ├── Deliberate collision
-    │       │   └── Sockets / relevant components
-    │       └── Spawn/route anchors + navigation/topology/occluder references
-    ├── RuntimeEntities (player, vehicle, pedestrian scenes)
-    ├── RuntimeEffects (bounded cosmetic instances)
-    └── LocalRig (this process's input, camera, HUD and minimap)
-```
-
-Each building type has its own reusable scene; repeated buildings remain instances.
-Districts/sectors own authored transforms; a match never reconstructs their layout.
-Actor prefabs own simulation state and imported visuals; remote presentation does
-not read local input or decide gameplay. Document required node paths, sockets,
-stable world/entity IDs, inherited overrides and multiplayer-ready setup before `_ready`.
-Start with fully loaded sector scenes; streaming needs measured justification.
-One integrator owns each shared world scene; parallel contributors own distinct files.
-
-### API boundaries to draft, then settle with spikes
-
-| Boundary | Owner and contract to define |
-| --- | --- |
-| Session | Host/join/cancel/leave, states/roster/readiness, operation IDs, timeouts and normalized failure events |
-| Transport provider | ENet and Steam peer creation/closure, connection correlation, capability/channel/limit reporting; both real providers plus fake contract fixture |
-| Platform services | Steam availability, friend lobby create/join/leave and invites/launch requests into the common join flow; unavailable capability results for ENet/offline builds |
-| Local settings/storage | Validated settings, defaults, load/save failure handling, persistent audio controls; platform storage behind its provider if later required |
-| Actor and vehicle commands | Typed, ticked intent from local input/AI/network; shared simulation rules; no device polling in movement |
-| Vehicle interaction | Authoritative seat claim/exit, driver identity/control transfer, blocked exit and lifecycle policy |
-| Weapons/damage/explosions | Definition IDs, equip/fire validation, authoritative outcomes, health/death, bounded blast work and event deduplication |
-| City/navigation/map | Stable road/sector IDs, authored links, spawn/route queries, bake revisions and derived minimap data |
-| Presentation | State/event consumers for camera/HUD/audio/VFX; distinguish baseline hydration from new live events |
-
-Keep store/native SDK types, addresses, transport handles and callbacks at adapters.
-Map session identities to transport peer IDs at the boundary. Document authority,
-session/entity generations, state revisions and compatibility where needed. Gameplay
-may use Godot physics and high-level RPCs; these APIs do not require a second RPC
-framework or an abstraction around every engine call. Test provider replacement and
-absence. Steam discovery/invites and Steam gameplay transport have separate owners;
-lobby membership does not grant gameplay admission. ENet startup has no Steam
-dependency. Additional store integrations follow selected requirements.
+Use the [canonical scene draft](docs/scene-structure.md) for saved paths, prefab
+interfaces, sockets, placement, IDs and pre-tree simulation setup; S01/S06 validate
+its resource/topology assumptions. Use the [API draft](docs/api-contracts.md) for
+session/provider/platform boundaries, commands, lifecycle, replication, presentation,
+settings and their acceptance matrix. S03/S03-S prove both transports independently.
+Keep revised contracts in those documents rather than duplicating them in this plan.
 
 ### Asset handoffs to document and prove
 
@@ -221,7 +176,8 @@ next bounded question and whether it blocks M1. Do not expand into full feature
 implementation. Save editor mutations before playtests; preserve unsaved work.
 
 - [ ] **S01 — Blender/import/prefab/scene roundtrip.**
-  Needs: [ratified brief](docs/design.md), P0-02 and P0-05 drafts; minimal P0-03 checks.
+  Needs: [ratified brief](docs/design.md), [scene draft](docs/scene-structure.md) and
+  P0-05 drafts; minimal P0-03 checks.
   Question: which pinned Blender/GLB/import settings preserve our source/scene contract?
   Minimum: one static prefab and one rigged fixture, repeated instances and one
   inherited variant; reexport, clean import, save/reopen and inspect identity/overrides.
@@ -242,7 +198,8 @@ implementation. Save editor mutations before playtests; preserve unsaved work.
   playtest evidence and feel targets. No finished animation or weapon system required.
 
 - [ ] **S03 — ENet session/authority API proof.**
-  Needs: [ratified brief](docs/design.md), P0-02 drafts and minimum P0-03 runner.
+  Needs: [ratified brief](docs/design.md), [API draft](docs/api-contracts.md) and
+  minimum P0-03 runner.
   Question: does the narrow provider/service boundary support the intended lifecycle?
   Minimum: two real ENet processes host/join, apply a tiny baseline before admission,
   cancel/retry, reject one stale/invalid intent, and exchange a fake provider.
@@ -288,7 +245,8 @@ implementation. Save editor mutations before playtests; preserve unsaved work.
   Compare VehicleBody3D only if useful. Do not assume cross-peer physics determinism.
   Decision: body/handling/recovery approach, car prediction needs, dimensions/turning
   envelope and seat/control contract. Specify the full seat race/disconnect/exit
-  matrix for M1-B1 rather than building it here.
+  matrix for M1-B1 rather than building it here. Confirm the draft's no seated
+  firing/reloading policy in the feel review before P0-GATE.
 
 - [ ] **S05 — Authoritative explosion-chain feasibility.**
   Needs: S03 and a minimal S04 vehicle/damage fixture.
@@ -346,8 +304,9 @@ implementation. Save editor mutations before playtests; preserve unsaved work.
   Record missing hardware/access as unresolved evidence; full gameplay acceptance is M1-D4.
 
 - [ ] **P0-GATE — Review the foundation evidence and revise the milestone plan.**
-  Needs: [ratified brief](docs/design.md), P0-02 through P0-07, S01 through S08
-  including S03-R and S03-S.
+  Needs: [ratified brief](docs/design.md), [ownership](docs/architecture.md),
+  [scene](docs/scene-structure.md) and [API](docs/api-contracts.md) drafts, P0-03
+  through P0-07, S01 through S08 including S03-R and S03-S.
   Done when: critical design/feasibility assumptions required to begin M1 are resolved;
   the user ratifies scope, chosen art/layout and camera/control choices against
   concepts/spike evidence; implementers settle API/scene/source contracts and budgets.

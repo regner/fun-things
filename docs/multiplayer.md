@@ -4,16 +4,22 @@ Build multiplayer around explicit simulation ownership, current-state admission,
 and clean session teardown. Prove a small real-process connection flow first, then
 add authoritative gameplay and responsiveness. This project has no networking yet.
 ENet for local testing and Steam for friends playtesting are confirmed first-milestone
-requirements, using the existing Steam app. Topology, capacity, rates and the exact
-Steam integration remain design decisions. The practices below generalize VCS's
-host-authoritative approach.
+requirements, using the existing Steam app. The [ratified brief](design.md) selects
+an authoritative listen server, 1–4 players, late joining and match termination on
+host loss. Rates, measured limits and the exact Steam integration remain spike
+decisions. The practices below generalize VCS's host-authoritative approach.
+
+The P0-02 [architecture](architecture.md), [scene](scene-structure.md), and
+[API](api-contracts.md) drafts own the concrete state map, endpoints, admission
+scheme, signatures and provisional limits. Refine them with spike evidence; the
+general guidance here must not create competing rules or replication writers.
 
 ## Starting choices and boundaries
 
-A listen server is a practical starting model for both ENet and Steam: the host
-plays and simulates authoritative outcomes. It is a recommendation, not a constraint
-on a future dedicated server or another model. Decide target platforms, player
-count, trust model, late-join behavior, and host-loss policy before implementing.
+A listen server is the selected M1 model for both ENet and Steam: the host plays
+and simulates authoritative outcomes. Standalone uses those same rules without
+Steam or a remote peer. A dedicated-server product and host migration are outside
+M1. The brief records target platforms, player count, late-join and host-loss policy.
 Server authority protects against client mutation; it does not make a player-host
 trustworthy against its own cheats.
 
@@ -30,20 +36,22 @@ high-level model. Verify transport support when adding platforms,
 especially for browser targets.
 [Godot high-level multiplayer](https://docs.godotengine.org/en/stable/tutorials/networking/high_level_multiplayer.html).
 
-| Responsibility | Suggested owner |
+| Responsibility | Draft owner (canonical detail in architecture) |
 | --- | --- |
 | Peer creation, connection attempts and timeouts | Session service with ENet/Steam transport adapters |
 | Steam availability, friend lobbies, invites and launch requests | Platform adapter feeding the common session flow |
-| Match loading, readiness, roster, spawn/reset policy | Match controller |
+| Connection roster and admission operation | SessionService |
+| Match loading, world readiness, spawn/reset policy | Match controller |
 | Input validation, protocol encoding, replication | A focused admission/replication boundary |
 | Movement, health, inventory, interaction rules | Existing gameplay components |
 | Local input, camera, HUD, prediction | One local rig for this process's player |
 | Remote interpolation, audio, visuals | Replica presentation |
 
 These are responsibilities, not a requirement to create six classes or autoloads.
-Keep level/match-owned state local. Give each replicated field one writer. Choose
-`MultiplayerSpawner`/`MultiplayerSynchronizer` or explicit lifecycle/snapshot RPCs
-according to the required contract; avoid two systems writing the same state.
+Keep level/match-owned state local. Give each replicated field one writer. The
+first proof uses explicit lifecycle/snapshot RPCs from Replication. A later switch
+to `MultiplayerSpawner`/`MultiplayerSynchronizer` must replace the relevant writer
+and preserve its contract; avoid two systems writing the same state.
 Synchronizers do not support Resources, RIDs, or peer-local object instance IDs.
 Send stable IDs and primitive data and resolve definitions locally.
 [Godot synchronizer API](https://docs.godotengine.org/en/stable/classes/class_multiplayersynchronizer.html).
@@ -107,6 +115,14 @@ Choose safe, unoccupied spawn locations and reserve admission slots where necess
 When none is available, bound retries and report a useful failure rather than
 stacking actors. Deduplicate readiness/baseline requests. Bound catch-up state and
 abort only the stalled admission if it exceeds its limits.
+
+The draft selects an immutable baseline plus bounded reliable durable journal and
+handoff marker, with input opened only after the marker acknowledgement. Movement
+starts from fresh admitted state and remains gated by lifecycle/collision revisions.
+See [admission and replication](api-contracts.md#admission-and-replication) for the
+algorithm and [limits](api-contracts.md#provisional-limits-and-failure-codes) for its
+deadlines/caps. S03 proves this scheme; do not independently choose another catch-up
+writer in a component.
 
 Late joins receive partially changed state as well as destroyed/dead states. Apply
 historical state without replaying old explosions, pickup sounds, or damage effects.

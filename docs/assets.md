@@ -4,6 +4,13 @@ Keep editable sources, imported outputs, reusable scene assemblies, and level
 placement connected. Each has a clear authority so an export or playtest cannot
 erase hand-authored work.
 
+The P0-02 [scene contract](scene-structure.md) reserves source/export/prefab paths,
+required sockets, stable placed-object IDs and inherited override rules. The
+[ownership draft](architecture.md) separates saved placement from runtime state;
+[API contracts](api-contracts.md) defines clearance and stale-derived-data failures.
+These are plans for the proofs, not existing assets. P0-05/S01 still settle detailed
+handoffs, catalogue, Blender/export settings and rig/animation conventions.
+
 ## Source and placement ownership
 
 Create every visible 3D model in Blender, including blockout and technical-spike
@@ -18,7 +25,9 @@ Keep modeling sources in a `.gdignore` directory when using explicit exports.
 Commit source, exported files, and changed import settings together. Retain license
 and provenance records for external art, fonts, and audio. Add a simple catalogue
 when finding the correct source or maintaining source/output consistency becomes
-difficult; fingerprints and automated exports are useful follow-ups at that scale.
+difficult; automated exports are useful follow-ups at that scale. Gameplay-derived
+navigation/minimap data needs the scene contract's bake fingerprint from its first
+use, so stale data cannot pass the content handshake.
 
 A catalogue entry or asset handoff should identify source, selected export
 root/collection, output path, dimensions, origin, axes, material slots, collision
