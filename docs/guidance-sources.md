@@ -46,8 +46,10 @@ formatting and lifecycle behavior remain separate from project-owned code.
   does not include VCS's custom spacing/documentation wrapper or its smoke tests.
 - Describe compiler/resource/art checks and CI as future tooling. Copying task names
   without their implementations would create a misleading development workflow.
-- Keep TODO updates with the resolving work without imposing VCS's automatic
-  commit requirement. Do not copy its version-bump commit/tag side effects.
+- The user requires completed tasks to be removed from `TODO.md` and committed
+  together with their resolving changes. This supersedes the earlier adaptation
+  that left automatic TODO commits optional. Do not copy VCS's version-bump/tag
+  side effects.
 - Omit VCS assets, maps, exact gameplay tuning, credentials, measured benchmark
   results and unrelated project-specific defects. During P0-01 the user explicitly
   designated VCS's existing Steam AppID/depot IDs for Fun Things; [the brief](design.md)

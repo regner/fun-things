@@ -11,8 +11,8 @@ closes with evidence and changes to documentation **and this plan**, not just co
 Use [repository guidance](AGENTS.md), [development](docs/development.md),
 [assets](docs/assets.md), and [multiplayer](docs/multiplayer.md) as working contracts.
 Assign an owner and experiment budget when taking a task. Remove completed tasks
-with the resolving change; retain their evidence in decision/spike records and
-replace downstream prerequisite references with those records. Keep unresolved
+and commit their removal together with the resolving changes; retain evidence in
+decision/spike records and replace downstream prerequisite references with those records. Keep unresolved
 findings as specific tasks. Do not silently turn prototypes into production systems.
 
 ## Product requirements and scope to settle

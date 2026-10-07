@@ -111,6 +111,7 @@ For an authoritative host/server model, apply these rules from the first prototy
 - Review runtime logs as well as exit status. Distinguish environment failures,
   known diagnostics, and new errors; avoid broad error suppression.
 - Keep future tasks actionable. Remove completed items from a TODO list and keep
-  the update with the resolving change. Automatic TODO commits are not required.
+  the update with the resolving change. When a TODO is completed, commit its removal
+  from `TODO.md` together with the changes that completed it.
 - Report what changed, what was checked, and any material limitations. Keep current
   behavior distinct from historical plans and proposed work.
