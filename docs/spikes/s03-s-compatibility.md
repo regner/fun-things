@@ -226,8 +226,9 @@ records the actual download commands, URLs and timeout. No import/all-script sui
 gameplay, native send/init, network/service/config repair, renderer/engine/package
 choice, export or device test is claimed. [Static integrity checks](s03-s-compatibility-evidence/static-checks.log) retain original
 base blobs and every unrelated TODO block; only S03-S discovery/next action changes.
-Checkpoint examined watermark stays `8d60ff6`; S04 remains active/unaccepted under
-its own sole authoring lease, never queried or touched here.
+Checkpoint examined watermark stays `8d60ff6`. At the original review boundary S04
+was active/unaccepted under its own sole authoring lease, never queried or touched
+here; the dated rebase supplement below records the subsequent accepted main state.
 
 Python AST syntax for the three tools passes. A one-byte-change-in-scratch
 [negative hash-guard check](s03-s-compatibility-evidence/hash-guard-negative.log)
@@ -257,3 +258,44 @@ candidate finding; no probe/runtime rerun was needed. Technical acceptance belon
 to that reviewer. Root alone
 integrates local main and archives. All owned fetch/registration/static children
 completed; no shared lease or owned runtime is left. No merge/archive/push.
+
+
+## Accepted-main rebase supplement — 8 October 2026
+
+Root notified acceptance/integration of bounded S04 technical HEAD
+`2370ad1c182b46e51f5dc4c6b6ab6157819e84b0`, now held LOCAL main/base.
+A clean-boundary `git rebase refs/heads/main` completed without conflicts.
+`git range-diff` confirms both original S03-S commits replay with identical patches:
+`64825b5` → `673ae56`, `6df14a5` → `826e431`. The original preparation,
+predeclared criteria, probe, native/API/source evidence, full original report,
+retention ledger and previous exact-final receipt are historical and preserved;
+previous approval of `6df14a5` is not relabeled as approval of the rebased HEAD.
+
+Scoped reconciliation read the accepted-main TODO/API delta and the accepted
+[S04 record](s04.md) / [body/seat contract](s04-contracts.md). The new canonical
+API paragraph is an explicitly bounded seat/body fixture supplement; common
+Steam modes/four streams, admission/identities, limits and cancel/drain requirements
+are unchanged. S04's technical result, including its fresh-movement producer gate,
+is accepted on this base; **full S04 remains OPEN** for drawable response, feel/
+controls/dimensions/prediction selection, Steam, targets and the existing gates.
+No car result becomes Steam evidence or a production body/seat decision here.
+
+All S04 source/assets/evidence, canonical API additions and unrelated TODO blocks/
+ownership prose remain byte-identical to accepted main. Historical/pending status
+phrases already in that main are not a new S03-S judgment; the root's supplied
+exact accepted technical revision above owns the current integration status.
+The S04 lead exclusively owns its separate operational relocation; this worker
+acquires no authoring/display/service lease and queries none of those surfaces.
+No duplicate task, operational relocation or global documentation audit is added.
+Checkpoint examined `8d60ff6`, profiles and all external/device/production gates
+remain unchanged. The checker base changes only to the new accepted revision;
+old reports/logs keep their exact old SHA/base/counts.
+
+Only justified static reconciliation is run: accepted-base working bytes/tree
+identity, all other TODO blocks, unchanged original S03-S evidence, exact raw
+review receipts, links/JSON/whitespace and Git ancestry/clean state. The unchanged
+model/source fetch/registration/native checks are not repeated. The SAME Sol6.1
+HIGH reviewer must explicitly dispose of the exact new committed HEAD against
+`2370ad1` before root integration. Its complete rebase/delta report, actual static
+checks and final handoff will be retained verbatim in the new HEAD's local
+`refs/notes/paseo-orchestration`, alongside the complete old historical note.

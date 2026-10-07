@@ -7,7 +7,7 @@ import subprocess
 from urllib.parse import unquote
 
 ROOT = Path(__file__).resolve().parents[3]
-BASE = '04f16d332636200e71e74862f64282224774d077'
+BASE = '2370ad1c182b46e51f5dc4c6b6ab6157819e84b0'
 
 
 def git(*args: str) -> str:
