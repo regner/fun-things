@@ -225,8 +225,10 @@ route need independent verification.
 [Valve SDR documentation](https://partner.steamgames.com/doc/features/multiplayer/steamdatagramrelay).
 
 Use the project's existing Steam app. Record its AppID/app type, tester access,
-private branch, depots and launch settings before the proof; the AppID value has
-not yet been supplied. Phase zero must choose and pin an integration compatible
+private branch, depots and launch settings before the proof. The user designated
+AppID 5294580 and Windows/Linux depots 5294581/5294582 from VCS; the
+[product brief](design.md) records provenance and unresolved live setup/access.
+Phase zero must choose and pin an integration compatible
 with the exact Godot engine and target native libraries, and prove real gameplay
 traffic over Steam. Preserve ENet builds/startup without Steam installed or running.
 Map Steam account/lobby IDs and provider peer IDs to fresh session identities at
@@ -236,7 +238,10 @@ Test with distinct authorized accounts on separate machines/networks, inspect
 connection/relay diagnostics, and exercise unavailable-service errors. Friend/overlay invites and
 launch arguments must feed the same join/cancel flow, including while loading or
 already in another match. Use this project's existing application identity.
-Never reuse VCS's AppID, depots, protocol string, or release configuration.
+The user explicitly authorized the existing VCS app/depot identities for this
+project. Keep Fun Things protocol/content compatibility independent and use a
+distinct private branch with a reviewed app-level launch recipe; preserve VCS's
+existing build delivery. Do not infer tester access from checked-in upload configs.
 
 End a listen-server match cleanly on host loss unless host migration is deliberately
 implemented. A platform lobby ownership change alone does not transfer simulation.

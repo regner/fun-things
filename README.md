@@ -5,6 +5,9 @@ and style configuration plus the Godot MCP Toolkit addon. It has no gameplay,
 main scene, multiplayer implementation, or automated gameplay checks yet.
 The first milestone requires ENet for local testing and Steam for friends playtesting,
 using the existing Steam app through shared session APIs.
+Steam Deck LCD/OLED is the confirmed primary target: 60 FPS at native 1280×800
+with stylized graphics. Product scope is ratified; budgets and proof-dependent
+toolchain choices remain provisional.
 
 ## Setup
 
@@ -26,6 +29,8 @@ imports, checks, and exports; install export templates matching that exact relea
 
 - [Plan through the first milestone](TODO.md): phase-zero foundations, technical
   spikes, dependencies, and playable-milestone acceptance.
+- [Product brief and validation envelope](docs/design.md): ratified P0-01 scope,
+  gameplay policies, provisional budgets and owned proof/setup decisions.
 - [Repository guidance](AGENTS.md): everyday working rules for contributors and agents.
 - [Development workflow](docs/development.md): architecture, validation, resource
   identities, version control, and release checks.

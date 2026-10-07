@@ -26,6 +26,12 @@ and audio settings. Multiplayer/store/platform dependencies need focused APIs.
 **Confirmed:** M1 supports ENet for local/loopback/LAN testing and Steam for friends
 playtesting over the internet, using the existing Steam app. Both use the same
 session/gameplay contracts. Steam is required for that path; ENet works without it.
+**Confirmed in P0-01 review:** Steam Deck LCD at native 1280×800 is the performance
+baseline, with 60 FPS on LCD and OLED; graphics should be stylized, not realistic.
+Deck controls and Gaming Mode validation are required. The user designated VCS's
+existing AppID 5294580 and Windows/Linux depots 5294581/5294582 for this project.
+The intended private Steam beta branch is `fun-things`. Live setup/access is
+deferred to S03-S/S08; the current engine pin awaits the early Deck input proof.
 
 Every visible 3D model comes from Blender, including blockouts, spike fixtures,
 and mesh-based VFX. Commit sources and explicit GLB exports; scenes instance the
@@ -34,12 +40,14 @@ meshes, or runtime rebuilding of the authored city. Collision shapes, navigation
 and occluder data, shaders/particle behavior, debug overlays, and 2D UI/minimap
 drawing are separate concerns. Import processing retains the Blender source link.
 
-These are **starting proposals**, to ratify in P0-01/P0-04 and refine from spikes:
+The [ratified P0-01 brief](docs/design.md) owns product scope, gameplay policies
+and the provisional validation envelope. The table below summarizes scope;
+P0-04/spikes still settle detailed art/layout, tuning, toolchain and measured budgets.
 
-| Area | Proposed first-milestone scope |
+| Area | Ratified first-milestone scope / remaining proof |
 | --- | --- |
 | Session | 1–4 players; authoritative listen server; host loss ends the match cleanly |
-| Targets | Windows and Linux desktop; choose renderer and verify exact-engine exports |
+| Targets | Steam Deck LCD/OLED and Windows/Linux desktop; choose renderer and verify exact-engine exports/Gaming Mode |
 | Connection | Required ENet local host/join and Steam friend lobby/invite joining; integration choice is a spike decision |
 | Offline | Standalone sandbox using the same authoritative gameplay rules |
 | City | One exterior district, roughly six connected blocks; loops, alleys, plaza, stunt/chain-reaction space |
@@ -48,7 +56,7 @@ These are **starting proposals**, to ratify in P0-01/P0-04 and refine from spike
 | Art | Two car silhouettes; shared pedestrian rig/variants; reusable building, road, sidewalk and prop kit |
 | Presentation | Readable stylized forms, restrained detail, playful signage, fixed daytime lighting |
 | Menus/audio | Host, Join, Settings, Quit; Master/Music/SFX levels and mute, saved locally |
-| Performance | Start by evaluating 60 FPS at 1080p on named reference hardware; ratify measured budgets |
+| Performance | Confirmed 60 FPS on Steam Deck LCD/OLED at native 1280×800; ratify frame pacing, simulation/memory/network and load budgets |
 
 The Steam integration package/version remains to be selected. Prove actual Steam
 gameplay transport and relay behavior; lobby success alone cannot satisfy friend
@@ -64,23 +72,14 @@ migration, and production matchmaking unless a scope decision explicitly adds th
 
 ## Phase zero — foundations
 
-- [ ] **P0-01 — Ratify the product brief and validation envelope.**
-  Needs: user review of the proposals above.
-  Output: `docs/design.md` with camera/control intent, selected capacity/targets,
-  offline scope, joining promise, host-loss policy, friendly fire, death/respawn,
-  seat/occupant outcome on explosion, NPC minimums, match reset policy and content list.
-  Name reference hardware, resolution, frame/physics times, memory, bandwidth,
-  latency/loss envelope, population and explosion/effect load cases.
-  Done when: the user approves the scope; provisional budgets and open decisions
-  are explicit, with owners and evidence needed to settle them. Verify the existing
-  Godot 4.8-dev7/gdstyle 0.3.0 pins and matching export-template availability; record
-  whether to retain or deliberately change the development engine pin.
-  Record the existing Steam AppID/app type, authorized test accounts, access/package
-  requirements, depots/launch settings and intended private test branch. The AppID
-  value has not been supplied; obtain it for setup instead of guessing an identity.
+P0-01 was ratified on 7 October 2026; evidence and review decisions live in
+[the product brief](docs/design.md). The user approved scope with budgets provisional,
+explicitly deferred unknown live Steamworks setup to its proofs, and left the engine
+choice open for early S08 Deck evidence. These deferrals are owned below; completed
+scope work is removed from this active list.
 
 - [ ] **P0-02 — Draft ownership, scene and API contracts.**
-  Needs: P0-01; independent drafts can start during scope review.
+  Needs: [ratified brief](docs/design.md).
   Output: `docs/architecture.md`, `docs/scene-structure.md`, `docs/api-contracts.md`,
   and updates to existing guides. Define state owners, command/replication/presentation
   boundaries, signatures/data shapes, units, stable identities, lifecycle, errors,
@@ -92,7 +91,7 @@ migration, and production matchmaking unless a scope decision explicitly adds th
   adapter; map Steam account/lobby IDs and ENet peer IDs to fresh session identities.
 
 - [ ] **P0-03 — Add only the tooling needed for reproducible foundation proofs.**
-  Needs: P0-01 and the first owned spike scripts/resources.
+  Needs: [ratified brief](docs/design.md) and the first owned spike scripts/resources.
   Output: working style/lint and explicit all-owned-script compilation tasks,
   focused resource/source-link checks, and a bounded two-process runner. Preserve
   repository comment/spacing rules with manual review until a preserving wrapper exists.
@@ -102,7 +101,8 @@ migration, and production matchmaking unless a scope decision explicitly adds th
   Do not present import alone as compilation. CI and broader coverage grow in M1-D1.
 
 - [ ] **P0-04 — Explore concepts and choose art direction and city layout.**
-  Needs: P0-01; concept exploration can run alongside contract/tooling drafts.
+  Needs: [ratified brief](docs/design.md); concept exploration can run alongside
+  contract/tooling drafts.
   Output: `docs/art-direction.md`, `docs/world-layout.md`, two small concept directions,
   gameplay-camera paintovers, silhouette sheets for buildings/cars/people/weapons,
   a VFX palette/keyframe, and an overhead road/sidewalk/sector plan.
@@ -221,7 +221,7 @@ next bounded question and whether it blocks M1. Do not expand into full feature
 implementation. Save editor mutations before playtests; preserve unsaved work.
 
 - [ ] **S01 — Blender/import/prefab/scene roundtrip.**
-  Needs: P0-01, P0-02 and P0-05 drafts; minimal P0-03 checks.
+  Needs: [ratified brief](docs/design.md), P0-02 and P0-05 drafts; minimal P0-03 checks.
   Question: which pinned Blender/GLB/import settings preserve our source/scene contract?
   Minimum: one static prefab and one rigged fixture, repeated instances and one
   inherited variant; reexport, clean import, save/reopen and inspect identity/overrides.
@@ -230,16 +230,19 @@ implementation. Save editor mutations before playtests; preserve unsaved work.
   unresolved dependencies, and revised asset/scene contracts.
 
 - [ ] **S02 — GTA2-style foot controls, camera and aiming.**
-  Needs: P0-01, P0-04 draft and tiny Blender fixture; S01 settings can refine it.
+  Needs: [ratified brief](docs/design.md), P0-04 draft and tiny Blender fixture;
+  S01 settings can refine it.
   Question: which height/tilt/projection and control/aim choices deliver the desired feel?
   Minimum: walk/turn/aim/shoot in one corner/alley fixture; evaluate fixed camera yaw,
   rooftops/obstruction, target readability, input focus loss and selected device support.
+  Include Deck controls and 1280×800 readability; early S08 resolves the engine input
+  blocker before handheld evidence can be accepted.
   Start with GTA2 turn/forward/back controls; an alternative needs a deliberate
   product decision. Decision: camera/control contract, actor/collision/aim envelope,
   playtest evidence and feel targets. No finished animation or weapon system required.
 
 - [ ] **S03 — ENet session/authority API proof.**
-  Needs: P0-01, P0-02 drafts and minimum P0-03 runner.
+  Needs: [ratified brief](docs/design.md), P0-02 drafts and minimum P0-03 runner.
   Question: does the narrow provider/service boundary support the intended lifecycle?
   Minimum: two real ENet processes host/join, apply a tiny baseline before admission,
   cancel/retry, reject one stale/invalid intent, and exchange a fake provider.
@@ -248,8 +251,13 @@ implementation. Save editor mutations before playtests; preserve unsaved work.
   replication writer and budget approach. Full error/adversarial suites belong in M1.
 
 - [ ] **S03-S — Steam integration, friend connection and transport proof.**
-  Needs: S03 boundary/fixture and P0-01 existing-app setup; compatibility/access
-  research can run alongside S03. Establish tester access before the network proof.
+  Needs: S03 boundary/fixture and [existing-app record](docs/design.md).
+  Owner: Codex (proof/setup record), Regner (Steamworks access).
+  Before the network proof, verify app type/release state, distinct authorized
+  testers/package entitlement, depot OS/package inclusion and launch settings;
+  confirm/create the intended `fun-things` private branch and record its access route.
+  Live setup is unknown and was explicitly deferred from P0-01 by the user.
+  Compatibility/access research can run alongside S03; no new app is required.
   Question: which pinned integration works with our exact Godot engine and supports
   Steam lobbies/invites plus actual gameplay traffic across friends' networks?
   Minimum: initialize the existing app, create/join one friend lobby and exchange
@@ -309,23 +317,37 @@ implementation. Save editor mutations before playtests; preserve unsaved work.
   camera movement/fast driving, distant player views and an explosion-effect burst.
   Compare frustum/LOD/visibility ranges and occlusion benefit/cost; inspect bounds,
   roof visibility, seams/pop-in, shadows and transparent overdraw.
+  Compare Mobile and Forward Plus on the LCD Deck baseline, including graphical
+  listen-server load; the required 60 FPS guides art/effect choices.
   Decision: selected configuration, measured budgets and sector sizing. Separate
   rendering visibility, AI scheduling, network relevance and streaming; off-camera
   authoritative gameplay continues correctly. Streaming/batching require evidence.
 
 - [ ] **S08 — First-target export and service compatibility.**
-  Needs: P0-01 target decision, S01, S03 and S03-S; template/OS checks can start earlier.
+  Needs: [ratified target/pin record](docs/design.md) for early input/template checks;
+  S01, S03 and S03-S for the complete proof. Owner: Codex (proof), Regner (device access).
+  Early input evidence settles the engine decision deliberately left open in P0-01.
+  First: minimal exported Deck Gaming Mode input/native-extension initialization
+  test, exact templates and candidate engine choice for the dev7 controller regression.
+  Obtain LCD/OLED Deck access and record installed OS/client/driver/power versions;
+  choose the exact engine/template pair from the proof and update the pins/docs together.
+  Do this before S02 handheld validation; Desktop Mode alone cannot close it.
   Question: can the exact toolchain package the selected model/renderer/service path?
   Minimum: one imported fixture exported on each selected OS, an ENet connection
   without Steam installed/running, and a Steam connection between authorized accounts.
   Check templates/native dependencies, intended export exclusions and Steam app/
   depot/launch settings. Reuse S03-S network evidence where applicable; prove the
   private test package can be installed/launched through Steam by a test account.
+  Verify the selected `fun-things` branch/build and preserve existing VCS delivery;
+  repo IDs/recipes do not prove live setup or account access.
+  Include Deck LCD/OLED built-in controls, native 1280×800 readability, offline and
+  suspend/resume outcomes. Prefer native Linux; document/prove any Proton fallback.
   Decision: supported-target matrix, export recipe and capability/failure behavior.
   Record missing hardware/access as unresolved evidence; full gameplay acceptance is M1-D4.
 
 - [ ] **P0-GATE — Review the foundation evidence and revise the milestone plan.**
-  Needs: P0-01 through P0-07, S01 through S08 including S03-R and S03-S.
+  Needs: [ratified brief](docs/design.md), P0-02 through P0-07, S01 through S08
+  including S03-R and S03-S.
   Done when: critical design/feasibility assumptions required to begin M1 are resolved;
   the user ratifies scope, chosen art/layout and camera/control choices against
   concepts/spike evidence; implementers settle API/scene/source contracts and budgets.
@@ -496,7 +518,8 @@ waiting for unrelated gameplay systems.
   Done when: each selected target/transport passes packaged launch/render/input/audio/
   settings/network checks and the promised external-network route. Record versions,
   hardware, results and unavailable evidence; retain builds, logs and known limits.
-  Deliver the Steam build on the existing app's private test branch/access route;
+  Deliver the Steam build on the existing app's `fun-things` private beta branch
+  and verified access route;
   verify friends can install/update, launch, invite/join and play across networks.
   Record build/depot/branch IDs and retain a rollback build. ENet remains usable for
   local testing. Public store launch/certification remains a separate later task.
@@ -515,7 +538,7 @@ waiting for unrelated gameplay systems.
 
 | When | Work that can run together | Must wait |
 | --- | --- | --- |
-| Initial foundation | Scope, contract drafts, concept exploration, tool inventory | Final scope/style/layout need user ratification and evidence |
+| Initial foundation | Ratified brief, contract drafts, concept exploration, tool inventory | Chosen style/layout and measured scope revisions need user ratification and evidence |
 | Tiny fixtures available | S01 pipeline, S02 camera, S03 session; review skill drafts | All visible fixtures must have Blender sources; only minimum harness required |
 | ENet boundary available | S03-S Steam proof, S04 car candidates, S08 packaging work | Existing-app/tester access and native compatibility must be established early |
 | Both providers available | Finish S03-R foot response and S04 network response; S08 exports | Both transports need evidence; foot/vehicle prediction are separate decisions |

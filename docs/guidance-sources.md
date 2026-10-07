@@ -48,9 +48,12 @@ formatting and lifecycle behavior remain separate from project-owned code.
   without their implementations would create a misleading development workflow.
 - Keep TODO updates with the resolving work without imposing VCS's automatic
   commit requirement. Do not copy its version-bump commit/tag side effects.
-- Omit VCS assets, maps, exact gameplay tuning, Steam identities/credentials,
-  branch/depot configuration, measured benchmark results, and project-specific defects.
-  Extract the general acceptance cases from defects instead.
+- Omit VCS assets, maps, exact gameplay tuning, credentials, measured benchmark
+  results and unrelated project-specific defects. During P0-01 the user explicitly
+  designated VCS's existing Steam AppID/depot IDs for Fun Things; [the brief](design.md)
+  records those IDs and distinguishes repo recipes from verified live settings.
+  This supersedes the earlier blanket exclusion of Steam identities. Branch/launch
+  choices remain project decisions; no VCS delivery configuration was changed.
 
 Some VCS documents retain superseded plans: old engine pins, targets later removed,
 initial no-prediction behavior, earlier admission/interpolation designs, and retired
