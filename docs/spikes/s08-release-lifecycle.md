@@ -258,3 +258,14 @@ shared editor/config/service operation, Steam initialization, merge/archive/push
 Owned writers are saved/quiescent. Full exported clean ENet, historical shutdown,
 Steam absent/native/external transport, Windows/Deck/Gaming Mode/input/feel/drawability/
 performance/private install and full S08/P0/M1/production gates remain open.
+
+## Delivery base and preservation boundary
+
+After inspecting the actual 43-path drawable-doc delta and 65-path Valve-doc/TODO
+advance, rebased at the saved/quiescent boundary onto LOCAL main
+`30471e6ae4c4ecbe01ce13313cd6d14c3b701bae`. Neither changes runtime code/settings/
+resources or grants gate closure. One ordinary TODO table-line conflict was resolved
+by keeping the exact accepted S03-S cell and changing only the authorized S08 phrase;
+all other TODO bytes/tasks and added main files are preserved. Original runtime input
+commits remain reachable through the scoped immutable ref recorded in the evidence
+README. No measurements were repeated for these documentation-only advances.

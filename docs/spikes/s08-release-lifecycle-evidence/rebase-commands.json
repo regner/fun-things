@@ -1,0 +1,29 @@
+{
+  "base": "30471e6ae4c4ecbe01ce13313cd6d14c3b701bae",
+  "operations": [
+    {
+      "argv": [
+        "git",
+        "rebase",
+        "30471e6ae4c4ecbe01ce13313cd6d14c3b701bae"
+      ],
+      "exit": 1,
+      "stdout": "rebase.stdout",
+      "stderr": "rebase.stderr"
+    },
+    {
+      "argv": [
+        "git",
+        "rebase",
+        "--continue"
+      ],
+      "environment_override": {
+        "GIT_EDITOR": "true"
+      },
+      "exit": 0,
+      "stdout": "rebase-continue.stdout",
+      "stderr": "rebase-continue.stderr"
+    }
+  ],
+  "conflict": "TODO readiness table line; preserve accepted S03-S clause and owned S08 cell"
+}
