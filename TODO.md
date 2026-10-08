@@ -1,13 +1,11 @@
 # To-do
 
-This is the concise list of unfinished tasks. Their detailed task-specific acceptance
-is indexed in [task requirements](docs/plans/task-requirements.md); canonical technical
-contracts remain in their existing guides and spike records.
+[Task requirements](docs/plans/task-requirements.md).
 
 ## Foundations
 
-- [ ] **P0-PROFILES — Reassess orchestration profiles.** Configuration remains deferred and outside
-  P0-GATE.
+- [ ] **P0-PROFILES — Create reviewed orchestration profiles when authorized.** Configuration
+  remains deferred and outside P0-GATE.
 - [ ] **S02 — Settle foot controls, camera, aiming and feel.** See [spike](docs/spikes/s02.md).
 - [ ] **S03-S — Establish Steam friend connectivity and gameplay transport.** Steam testing remains
   deferred, not accepted. See [spike](docs/spikes/s03-s.md).
@@ -49,9 +47,11 @@ All M1 tasks follow P0-GATE.
 ### M1-C — City, population and minimap
 
 - [ ] **M1-C1 — Produce the ratified custom art families.** After: P0-GATE.
-- [ ] **M1-C2 — Assemble the authored district in saved sectors.** After: M1-C1.
+- [ ] **M1-C2 — Assemble the authored district in saved sectors.**
+  Needs approved M1-C1 road/building/prop subsets.
 - [ ] **M1-C3 — Implement host-owned pedestrians and traffic.** After: M1-B1, M1-B2, M1-C2.
-- [ ] **M1-C4 — Implement the road minimap and HUD integration.** After: M1-A2, M1-C2.
+- [ ] **M1-C4 — Implement the road minimap and HUD integration.** After: M1-A2;
+  final alignment with M1-C2.
 
 ### M1-D — Integration and review builds
 

@@ -6,8 +6,11 @@ qualification and enough outcome detail for dispatch.
 
 ## Foundations
 
-- **P0-PROFILES:** Reassess at a full checkpoint or material routing/capability change;
-  configuration stays deferred/outside P0-GATE and needs separate authorization.
+- **P0-PROFILES:** Create a small independently reviewed profile set using the existing
+  [proposal](../workflows/p0-profiles-proposal.md), [evidence](../workflows/p0-profiles-evidence.md)
+  and [review](../workflows/p0-profiles-review.md) for readiness. Configuration stays
+  deferred/outside P0-GATE until separately authorized. Then verify exact supported
+  settings/readback and representative launches/effective boundaries; do not install now.
 - **S02:** Settle desktop camera/control/aim and feel. Resume stopped drawability only
   with a changed authorized condition and explicit grant; Deck needs native evidence.
 - **S03-S:** Public API/interface research is accepted; native integration/testing is
@@ -60,12 +63,14 @@ qualification and enough outcome detail for dispatch.
   walk/shoot/drive/chain slice for duplicate feedback, aim/map readability and cost.
 - **M1-C1:** Produce ratified buildings, roads/props, character rigs, cars/wrecks, weapons
   and VFX. Preserve Blender-linked sources, catalogue/ancestry and reexport/reload.
-- **M1-C2:** Compose approved saved sectors, play space, routes, spawns and boundaries;
-  preserve placement and prove seams, clearance and camera readability against S07.
+- **M1-C2:** Start with approved M1-C1 road/building/prop subsets; don't wait for unrelated
+  art families. Use S06 topology/S07 capacity decisions to compose saved sectors, routes,
+  play space, spawns and boundaries; preserve placement and prove seams/clearance/readability.
 - **M1-C3:** Implement bounded host-owned pedestrians/traffic, legal routes, crossing and
   blocked/stuck recovery, NPC transfer, late joins and reset without moving city content.
-- **M1-C4:** Derive the road map from shared city data; align seams/local entity markers
-  while walking/driving and after late join; read HUD values from gameplay owners.
+- **M1-C4:** After M1-A2 and the S06 contract (covered by P0-GATE), build the road map
+  from shared city data and local entity marker; align with M1-C2 when the district is ready.
+  Check walking/driving/late-join seams and read HUD values from gameplay owners.
 - **M1-D1:** Build reproducible local/CI checks that catch owned code/resource/gameplay
   violations, including unused scripts, without broad suppression or copied formulas.
 - **M1-D2:** Playtest multiplayer feel, camera/aim, driving, spectacle, exploration,
