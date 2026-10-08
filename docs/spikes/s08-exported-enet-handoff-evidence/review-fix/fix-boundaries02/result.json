@@ -1,0 +1,1978 @@
+{
+  "readiness": [
+    {
+      "scenario": "before",
+      "launch_requests": 2,
+      "pipe_closed": true,
+      "result": {
+        "ok": false,
+        "host_ready_before_client": true,
+        "commands": {
+          "host": {
+            "argv": [
+              "/tmp/s08-handoff-8cae02a7/fix-boundaries02/before/export-folder/FunThingsS08.x86_64",
+              "--headless",
+              "--log-file",
+              "/tmp/s08-handoff-8cae02a7/fix-boundaries02/before/enet/host/engine.log",
+              "--",
+              "--role=host",
+              "--port=24740"
+            ],
+            "cwd": "/tmp/s08-handoff-8cae02a7/fix-boundaries02/before/export-folder",
+            "started_unix": 1000.0,
+            "environment": {},
+            "owned_pid": 9000,
+            "exit": 1,
+            "child_reaped": true
+          },
+          "client": {
+            "argv": [
+              "/tmp/s08-handoff-8cae02a7/fix-boundaries02/before/export-folder/FunThingsS08.x86_64",
+              "--headless",
+              "--log-file",
+              "/tmp/s08-handoff-8cae02a7/fix-boundaries02/before/enet/client/engine.log",
+              "--",
+              "--role=client",
+              "--port=24741"
+            ],
+            "cwd": "/tmp/s08-handoff-8cae02a7/fix-boundaries02/before/export-folder",
+            "started_unix": 1003.999,
+            "environment": {},
+            "owned_pid": 9001,
+            "exit": 1,
+            "child_reaped": true
+          }
+        },
+        "asset_receipts": {},
+        "observations": [
+          {
+            "role": "host",
+            "event": "ready",
+            "seconds": 3.999,
+            "child_live": true,
+            "byte_offset": 22
+          }
+        ],
+        "ready": {
+          "event": "ready"
+        },
+        "ready_observed_unix": 1003.999,
+        "handoff_seconds": 3.999,
+        "failure": "RuntimeError('fixture end; no actual gameplay simulated')",
+        "cleanup": {
+          "errors": [],
+          "actions": [
+            {
+              "child": 0,
+              "operation": "grace",
+              "timeout": 2.0000000000000004,
+              "at": 3.999
+            },
+            {
+              "child": 1,
+              "operation": "grace",
+              "timeout": 2.0000000000000004,
+              "at": 3.999
+            }
+          ],
+          "children_reaped": [
+            true,
+            true
+          ],
+          "all_children_reaped": true,
+          "streams_closed": true,
+          "proxy_closed": true,
+          "proxy_log_closed": true,
+          "set_deadline": 30.0,
+          "cleanup_ended": 3.999
+        },
+        "all_children_reaped": true,
+        "streams_closed": true,
+        "proxy_closed": true,
+        "proxy_log_closed": true,
+        "proxy_events": [],
+        "proxy_count": 0,
+        "duration_seconds": 3.999,
+        "results": {}
+      }
+    },
+    {
+      "scenario": "at",
+      "launch_requests": 1,
+      "pipe_closed": true,
+      "result": {
+        "ok": false,
+        "host_ready_before_client": false,
+        "commands": {
+          "host": {
+            "argv": [
+              "/tmp/s08-handoff-8cae02a7/fix-boundaries02/at/export-folder/FunThingsS08.x86_64",
+              "--headless",
+              "--log-file",
+              "/tmp/s08-handoff-8cae02a7/fix-boundaries02/at/enet/host/engine.log",
+              "--",
+              "--role=host",
+              "--port=24740"
+            ],
+            "cwd": "/tmp/s08-handoff-8cae02a7/fix-boundaries02/at/export-folder",
+            "started_unix": 1000.0,
+            "environment": {},
+            "owned_pid": 9000,
+            "exit": 1,
+            "child_reaped": true
+          }
+        },
+        "asset_receipts": {},
+        "observations": [
+          {
+            "role": "host",
+            "event": "ready",
+            "seconds": 4.0,
+            "child_live": true,
+            "byte_offset": 22
+          }
+        ],
+        "ready": {
+          "event": "ready"
+        },
+        "ready_observed_unix": 1004.0,
+        "failure": "RuntimeError('host readiness deadline before client handoff')",
+        "cleanup": {
+          "errors": [],
+          "actions": [
+            {
+              "child": 0,
+              "operation": "grace",
+              "timeout": 2.0,
+              "at": 4.0
+            }
+          ],
+          "children_reaped": [
+            true
+          ],
+          "all_children_reaped": true,
+          "streams_closed": true,
+          "proxy_closed": true,
+          "proxy_log_closed": true,
+          "set_deadline": 30.0,
+          "cleanup_ended": 4.0
+        },
+        "all_children_reaped": true,
+        "streams_closed": true,
+        "proxy_closed": true,
+        "proxy_log_closed": true,
+        "proxy_events": [],
+        "proxy_count": 0,
+        "duration_seconds": 4.0,
+        "results": {}
+      }
+    },
+    {
+      "scenario": "after",
+      "launch_requests": 1,
+      "pipe_closed": true,
+      "result": {
+        "ok": false,
+        "host_ready_before_client": false,
+        "commands": {
+          "host": {
+            "argv": [
+              "/tmp/s08-handoff-8cae02a7/fix-boundaries02/after/export-folder/FunThingsS08.x86_64",
+              "--headless",
+              "--log-file",
+              "/tmp/s08-handoff-8cae02a7/fix-boundaries02/after/enet/host/engine.log",
+              "--",
+              "--role=host",
+              "--port=24740"
+            ],
+            "cwd": "/tmp/s08-handoff-8cae02a7/fix-boundaries02/after/export-folder",
+            "started_unix": 1000.0,
+            "environment": {},
+            "owned_pid": 9000,
+            "exit": 1,
+            "child_reaped": true
+          }
+        },
+        "asset_receipts": {},
+        "observations": [
+          {
+            "role": "host",
+            "event": "ready",
+            "seconds": 4.001,
+            "child_live": true,
+            "byte_offset": 22
+          }
+        ],
+        "ready": {
+          "event": "ready"
+        },
+        "ready_observed_unix": 1004.001,
+        "failure": "RuntimeError('host readiness deadline before client handoff')",
+        "cleanup": {
+          "errors": [],
+          "actions": [
+            {
+              "child": 0,
+              "operation": "grace",
+              "timeout": 2.0,
+              "at": 4.001
+            }
+          ],
+          "children_reaped": [
+            true
+          ],
+          "all_children_reaped": true,
+          "streams_closed": true,
+          "proxy_closed": true,
+          "proxy_log_closed": true,
+          "set_deadline": 30.0,
+          "cleanup_ended": 4.001
+        },
+        "all_children_reaped": true,
+        "streams_closed": true,
+        "proxy_closed": true,
+        "proxy_log_closed": true,
+        "proxy_events": [],
+        "proxy_count": 0,
+        "duration_seconds": 4.001,
+        "results": {}
+      }
+    },
+    {
+      "scenario": "fragment-late",
+      "launch_requests": 1,
+      "pipe_closed": true,
+      "result": {
+        "ok": false,
+        "host_ready_before_client": false,
+        "commands": {
+          "host": {
+            "argv": [
+              "/tmp/s08-handoff-8cae02a7/fix-boundaries02/fragment-late/export-folder/FunThingsS08.x86_64",
+              "--headless",
+              "--log-file",
+              "/tmp/s08-handoff-8cae02a7/fix-boundaries02/fragment-late/enet/host/engine.log",
+              "--",
+              "--role=host",
+              "--port=24740"
+            ],
+            "cwd": "/tmp/s08-handoff-8cae02a7/fix-boundaries02/fragment-late/export-folder",
+            "started_unix": 1000.0,
+            "environment": {},
+            "owned_pid": 9000,
+            "exit": 1,
+            "child_reaped": true
+          }
+        },
+        "asset_receipts": {},
+        "observations": [
+          {
+            "role": "host",
+            "event": "ready",
+            "seconds": 4.001,
+            "child_live": true,
+            "byte_offset": 22
+          }
+        ],
+        "ready": {
+          "event": "ready"
+        },
+        "ready_observed_unix": 1004.001,
+        "failure": "RuntimeError('host readiness deadline before client handoff')",
+        "cleanup": {
+          "errors": [],
+          "actions": [
+            {
+              "child": 0,
+              "operation": "grace",
+              "timeout": 2.0,
+              "at": 4.001
+            }
+          ],
+          "children_reaped": [
+            true
+          ],
+          "all_children_reaped": true,
+          "streams_closed": true,
+          "proxy_closed": true,
+          "proxy_log_closed": true,
+          "set_deadline": 30.0,
+          "cleanup_ended": 4.001
+        },
+        "all_children_reaped": true,
+        "streams_closed": true,
+        "proxy_closed": true,
+        "proxy_log_closed": true,
+        "proxy_events": [],
+        "proxy_count": 0,
+        "duration_seconds": 4.001,
+        "results": {}
+      }
+    },
+    {
+      "scenario": "coalesced-before",
+      "launch_requests": 1,
+      "pipe_closed": true,
+      "result": {
+        "ok": false,
+        "host_ready_before_client": false,
+        "commands": {
+          "host": {
+            "argv": [
+              "/tmp/s08-handoff-8cae02a7/fix-boundaries02/coalesced-before/export-folder/FunThingsS08.x86_64",
+              "--headless",
+              "--log-file",
+              "/tmp/s08-handoff-8cae02a7/fix-boundaries02/coalesced-before/enet/host/engine.log",
+              "--",
+              "--role=host",
+              "--port=24740"
+            ],
+            "cwd": "/tmp/s08-handoff-8cae02a7/fix-boundaries02/coalesced-before/export-folder",
+            "started_unix": 1000.0,
+            "environment": {},
+            "owned_pid": 9000,
+            "exit": 1,
+            "child_reaped": true
+          }
+        },
+        "asset_receipts": {},
+        "observations": [
+          {
+            "role": "host",
+            "event": "ready",
+            "seconds": 3.999,
+            "child_live": true,
+            "byte_offset": 22
+          },
+          {
+            "role": "host",
+            "event": "result",
+            "seconds": 3.999,
+            "child_live": true,
+            "byte_offset": 56
+          }
+        ],
+        "ready": {
+          "event": "ready"
+        },
+        "ready_observed_unix": 1003.999,
+        "failure": "RuntimeError('host S03 assertion failed')",
+        "cleanup": {
+          "errors": [],
+          "actions": [
+            {
+              "child": 0,
+              "operation": "grace",
+              "timeout": 2.0000000000000004,
+              "at": 3.999
+            }
+          ],
+          "children_reaped": [
+            true
+          ],
+          "all_children_reaped": true,
+          "streams_closed": true,
+          "proxy_closed": true,
+          "proxy_log_closed": true,
+          "set_deadline": 30.0,
+          "cleanup_ended": 3.999
+        },
+        "all_children_reaped": true,
+        "streams_closed": true,
+        "proxy_closed": true,
+        "proxy_log_closed": true,
+        "proxy_events": [],
+        "proxy_count": 0,
+        "duration_seconds": 3.999,
+        "results": {
+          "host": {
+            "event": "result",
+            "ok": false
+          }
+        }
+      }
+    },
+    {
+      "scenario": "coalesced-after",
+      "launch_requests": 1,
+      "pipe_closed": true,
+      "result": {
+        "ok": false,
+        "host_ready_before_client": false,
+        "commands": {
+          "host": {
+            "argv": [
+              "/tmp/s08-handoff-8cae02a7/fix-boundaries02/coalesced-after/export-folder/FunThingsS08.x86_64",
+              "--headless",
+              "--log-file",
+              "/tmp/s08-handoff-8cae02a7/fix-boundaries02/coalesced-after/enet/host/engine.log",
+              "--",
+              "--role=host",
+              "--port=24740"
+            ],
+            "cwd": "/tmp/s08-handoff-8cae02a7/fix-boundaries02/coalesced-after/export-folder",
+            "started_unix": 1000.0,
+            "environment": {},
+            "owned_pid": 9000,
+            "exit": 1,
+            "child_reaped": true
+          }
+        },
+        "asset_receipts": {},
+        "observations": [
+          {
+            "role": "host",
+            "event": "ready",
+            "seconds": 4.001,
+            "child_live": true,
+            "byte_offset": 22
+          },
+          {
+            "role": "host",
+            "event": "result",
+            "seconds": 4.001,
+            "child_live": true,
+            "byte_offset": 56
+          }
+        ],
+        "ready": {
+          "event": "ready"
+        },
+        "ready_observed_unix": 1004.001,
+        "failure": "RuntimeError('host S03 assertion failed')",
+        "cleanup": {
+          "errors": [],
+          "actions": [
+            {
+              "child": 0,
+              "operation": "grace",
+              "timeout": 2.0,
+              "at": 4.001
+            }
+          ],
+          "children_reaped": [
+            true
+          ],
+          "all_children_reaped": true,
+          "streams_closed": true,
+          "proxy_closed": true,
+          "proxy_log_closed": true,
+          "set_deadline": 30.0,
+          "cleanup_ended": 4.001
+        },
+        "all_children_reaped": true,
+        "streams_closed": true,
+        "proxy_closed": true,
+        "proxy_log_closed": true,
+        "proxy_events": [],
+        "proxy_count": 0,
+        "duration_seconds": 4.001,
+        "results": {
+          "host": {
+            "event": "result",
+            "ok": false
+          }
+        }
+      }
+    },
+    {
+      "scenario": "setup-expiry",
+      "launch_requests": 1,
+      "pipe_closed": true,
+      "result": {
+        "ok": false,
+        "host_ready_before_client": false,
+        "commands": {
+          "host": {
+            "argv": [
+              "/tmp/s08-handoff-8cae02a7/fix-boundaries02/setup-expiry/export-folder/FunThingsS08.x86_64",
+              "--headless",
+              "--log-file",
+              "/tmp/s08-handoff-8cae02a7/fix-boundaries02/setup-expiry/enet/host/engine.log",
+              "--",
+              "--role=host",
+              "--port=24740"
+            ],
+            "cwd": "/tmp/s08-handoff-8cae02a7/fix-boundaries02/setup-expiry/export-folder",
+            "started_unix": 1000.0,
+            "environment": {},
+            "owned_pid": 9000,
+            "exit": 1,
+            "child_reaped": true
+          },
+          "client": {
+            "argv": [
+              "/tmp/s08-handoff-8cae02a7/fix-boundaries02/setup-expiry/export-folder/FunThingsS08.x86_64",
+              "--headless",
+              "--log-file",
+              "/tmp/s08-handoff-8cae02a7/fix-boundaries02/setup-expiry/enet/client/engine.log",
+              "--",
+              "--role=client",
+              "--port=24741"
+            ],
+            "cwd": "/tmp/s08-handoff-8cae02a7/fix-boundaries02/setup-expiry/export-folder",
+            "started_unix": 1004.001,
+            "environment": {}
+          }
+        },
+        "asset_receipts": {},
+        "observations": [
+          {
+            "role": "host",
+            "event": "ready",
+            "seconds": 3.999,
+            "child_live": true,
+            "byte_offset": 22
+          }
+        ],
+        "ready": {
+          "event": "ready"
+        },
+        "ready_observed_unix": 1003.999,
+        "failure": "RuntimeError('host readiness deadline before client handoff')",
+        "cleanup": {
+          "errors": [],
+          "actions": [
+            {
+              "child": 0,
+              "operation": "grace",
+              "timeout": 2.0,
+              "at": 4.001
+            }
+          ],
+          "children_reaped": [
+            true
+          ],
+          "all_children_reaped": true,
+          "streams_closed": true,
+          "proxy_closed": true,
+          "proxy_log_closed": true,
+          "set_deadline": 30.0,
+          "cleanup_ended": 4.001
+        },
+        "all_children_reaped": true,
+        "streams_closed": true,
+        "proxy_closed": true,
+        "proxy_log_closed": true,
+        "proxy_events": [],
+        "proxy_count": 0,
+        "duration_seconds": 4.001,
+        "results": {}
+      }
+    }
+  ],
+  "cleanup": [
+    {
+      "case": "two-resistant",
+      "clock_end": 27.9,
+      "first": [
+        {
+          "operation": "wait",
+          "at": 20.0,
+          "timeout": 2.0
+        },
+        {
+          "operation": "interrupt",
+          "at": 22.0
+        },
+        {
+          "operation": "wait",
+          "at": 22.0,
+          "timeout": 2.0
+        },
+        {
+          "operation": "terminate",
+          "at": 24.0
+        },
+        {
+          "operation": "wait",
+          "at": 24.0,
+          "timeout": 2.0
+        },
+        {
+          "operation": "kill",
+          "at": 26.0
+        },
+        {
+          "operation": "wait",
+          "at": 26.0,
+          "timeout": 3.75
+        }
+      ],
+      "second": [
+        {
+          "operation": "wait",
+          "at": 22.0,
+          "timeout": 0.0
+        },
+        {
+          "operation": "interrupt",
+          "at": 22.0
+        },
+        {
+          "operation": "wait",
+          "at": 24.0,
+          "timeout": 0.0
+        },
+        {
+          "operation": "terminate",
+          "at": 24.0
+        },
+        {
+          "operation": "wait",
+          "at": 26.0,
+          "timeout": 0.0
+        },
+        {
+          "operation": "kill",
+          "at": 26.0
+        },
+        {
+          "operation": "wait",
+          "at": 27.9,
+          "timeout": 1.8500000000000014
+        }
+      ],
+      "cleanup": {
+        "errors": [],
+        "actions": [
+          {
+            "child": 0,
+            "operation": "grace",
+            "timeout": 2.0,
+            "at": 20.0
+          },
+          {
+            "child": 1,
+            "operation": "grace",
+            "timeout": 0.0,
+            "at": 22.0
+          },
+          {
+            "child": 0,
+            "operation": "interrupt",
+            "at": 22.0
+          },
+          {
+            "child": 1,
+            "operation": "interrupt",
+            "at": 22.0
+          },
+          {
+            "child": 0,
+            "operation": "interrupt_wait",
+            "timeout": 2.0,
+            "at": 22.0
+          },
+          {
+            "child": 1,
+            "operation": "interrupt_wait",
+            "timeout": 0.0,
+            "at": 24.0
+          },
+          {
+            "child": 0,
+            "operation": "terminate",
+            "at": 24.0
+          },
+          {
+            "child": 1,
+            "operation": "terminate",
+            "at": 24.0
+          },
+          {
+            "child": 0,
+            "operation": "terminate_wait",
+            "timeout": 2.0,
+            "at": 24.0
+          },
+          {
+            "child": 1,
+            "operation": "terminate_wait",
+            "timeout": 0.0,
+            "at": 26.0
+          },
+          {
+            "child": 0,
+            "operation": "kill",
+            "at": 26.0
+          },
+          {
+            "child": 1,
+            "operation": "kill",
+            "at": 26.0
+          },
+          {
+            "child": 0,
+            "operation": "reap",
+            "timeout": 3.75,
+            "at": 26.0
+          },
+          {
+            "child": 1,
+            "operation": "reap",
+            "timeout": 1.8500000000000014,
+            "at": 27.9
+          }
+        ],
+        "children_reaped": [
+          true,
+          true
+        ],
+        "all_children_reaped": true,
+        "streams_closed": true,
+        "proxy_closed": true,
+        "proxy_log_closed": true,
+        "set_deadline": 30.0,
+        "cleanup_ended": 27.9
+      }
+    },
+    {
+      "case": "signal-error",
+      "clock_end": 27.9,
+      "first": [
+        {
+          "operation": "wait",
+          "at": 20.0,
+          "timeout": 2.0
+        },
+        {
+          "operation": "interrupt",
+          "at": 22.0
+        },
+        {
+          "operation": "wait",
+          "at": 22.0,
+          "timeout": 2.0
+        },
+        {
+          "operation": "terminate",
+          "at": 24.0
+        },
+        {
+          "operation": "wait",
+          "at": 24.0,
+          "timeout": 2.0
+        },
+        {
+          "operation": "kill",
+          "at": 26.0
+        },
+        {
+          "operation": "wait",
+          "at": 26.0,
+          "timeout": 3.75
+        }
+      ],
+      "second": [
+        {
+          "operation": "wait",
+          "at": 22.0,
+          "timeout": 0.0
+        },
+        {
+          "operation": "interrupt",
+          "at": 22.0
+        },
+        {
+          "operation": "wait",
+          "at": 24.0,
+          "timeout": 0.0
+        },
+        {
+          "operation": "terminate",
+          "at": 24.0
+        },
+        {
+          "operation": "wait",
+          "at": 26.0,
+          "timeout": 0.0
+        },
+        {
+          "operation": "kill",
+          "at": 26.0
+        },
+        {
+          "operation": "wait",
+          "at": 27.9,
+          "timeout": 1.8500000000000014
+        }
+      ],
+      "cleanup": {
+        "errors": [
+          {
+            "target": 0,
+            "operation": "interrupt",
+            "error": "OSError('injected signal error')"
+          },
+          {
+            "target": "stream:0",
+            "operation": "close",
+            "error": "OSError('injected close error')"
+          }
+        ],
+        "actions": [
+          {
+            "child": 0,
+            "operation": "grace",
+            "timeout": 2.0,
+            "at": 20.0
+          },
+          {
+            "child": 1,
+            "operation": "grace",
+            "timeout": 0.0,
+            "at": 22.0
+          },
+          {
+            "child": 0,
+            "operation": "interrupt",
+            "at": 22.0
+          },
+          {
+            "child": 1,
+            "operation": "interrupt",
+            "at": 22.0
+          },
+          {
+            "child": 0,
+            "operation": "interrupt_wait",
+            "timeout": 2.0,
+            "at": 22.0
+          },
+          {
+            "child": 1,
+            "operation": "interrupt_wait",
+            "timeout": 0.0,
+            "at": 24.0
+          },
+          {
+            "child": 0,
+            "operation": "terminate",
+            "at": 24.0
+          },
+          {
+            "child": 1,
+            "operation": "terminate",
+            "at": 24.0
+          },
+          {
+            "child": 0,
+            "operation": "terminate_wait",
+            "timeout": 2.0,
+            "at": 24.0
+          },
+          {
+            "child": 1,
+            "operation": "terminate_wait",
+            "timeout": 0.0,
+            "at": 26.0
+          },
+          {
+            "child": 0,
+            "operation": "kill",
+            "at": 26.0
+          },
+          {
+            "child": 1,
+            "operation": "kill",
+            "at": 26.0
+          },
+          {
+            "child": 0,
+            "operation": "reap",
+            "timeout": 3.75,
+            "at": 26.0
+          },
+          {
+            "child": 1,
+            "operation": "reap",
+            "timeout": 1.8500000000000014,
+            "at": 27.9
+          }
+        ],
+        "children_reaped": [
+          true,
+          true
+        ],
+        "all_children_reaped": true,
+        "streams_closed": false,
+        "proxy_closed": true,
+        "proxy_log_closed": true,
+        "set_deadline": 30.0,
+        "cleanup_ended": 27.9
+      }
+    },
+    {
+      "case": "wait-error",
+      "clock_end": 27.9,
+      "first": [
+        {
+          "operation": "wait",
+          "at": 20.0,
+          "timeout": 2.0
+        },
+        {
+          "operation": "interrupt",
+          "at": 22.0
+        },
+        {
+          "operation": "wait",
+          "at": 22.0,
+          "timeout": 2.0
+        },
+        {
+          "operation": "terminate",
+          "at": 24.0
+        },
+        {
+          "operation": "wait",
+          "at": 24.0,
+          "timeout": 2.0
+        },
+        {
+          "operation": "kill",
+          "at": 26.0
+        },
+        {
+          "operation": "wait",
+          "at": 26.0,
+          "timeout": 3.75
+        }
+      ],
+      "second": [
+        {
+          "operation": "wait",
+          "at": 20.0,
+          "timeout": 2.0
+        },
+        {
+          "operation": "interrupt",
+          "at": 22.0
+        },
+        {
+          "operation": "wait",
+          "at": 22.0,
+          "timeout": 2.0
+        },
+        {
+          "operation": "terminate",
+          "at": 24.0
+        },
+        {
+          "operation": "wait",
+          "at": 24.0,
+          "timeout": 2.0
+        },
+        {
+          "operation": "kill",
+          "at": 26.0
+        },
+        {
+          "operation": "wait",
+          "at": 26.0,
+          "timeout": 3.75
+        }
+      ],
+      "cleanup": {
+        "errors": [
+          {
+            "target": 0,
+            "operation": "grace",
+            "error": "OSError('injected wait error')"
+          },
+          {
+            "target": 0,
+            "operation": "interrupt_wait",
+            "error": "OSError('injected wait error')"
+          },
+          {
+            "target": 0,
+            "operation": "terminate_wait",
+            "error": "OSError('injected wait error')"
+          },
+          {
+            "target": 0,
+            "operation": "reap",
+            "error": "OSError('injected wait error')"
+          }
+        ],
+        "actions": [
+          {
+            "child": 0,
+            "operation": "grace",
+            "timeout": 2.0,
+            "at": 20.0
+          },
+          {
+            "child": 1,
+            "operation": "grace",
+            "timeout": 2.0,
+            "at": 20.0
+          },
+          {
+            "child": 0,
+            "operation": "interrupt",
+            "at": 22.0
+          },
+          {
+            "child": 1,
+            "operation": "interrupt",
+            "at": 22.0
+          },
+          {
+            "child": 0,
+            "operation": "interrupt_wait",
+            "timeout": 2.0,
+            "at": 22.0
+          },
+          {
+            "child": 1,
+            "operation": "interrupt_wait",
+            "timeout": 2.0,
+            "at": 22.0
+          },
+          {
+            "child": 0,
+            "operation": "terminate",
+            "at": 24.0
+          },
+          {
+            "child": 1,
+            "operation": "terminate",
+            "at": 24.0
+          },
+          {
+            "child": 0,
+            "operation": "terminate_wait",
+            "timeout": 2.0,
+            "at": 24.0
+          },
+          {
+            "child": 1,
+            "operation": "terminate_wait",
+            "timeout": 2.0,
+            "at": 24.0
+          },
+          {
+            "child": 0,
+            "operation": "kill",
+            "at": 26.0
+          },
+          {
+            "child": 1,
+            "operation": "kill",
+            "at": 26.0
+          },
+          {
+            "child": 0,
+            "operation": "reap",
+            "timeout": 3.75,
+            "at": 26.0
+          },
+          {
+            "child": 1,
+            "operation": "reap",
+            "timeout": 3.75,
+            "at": 26.0
+          }
+        ],
+        "children_reaped": [
+          true,
+          true
+        ],
+        "all_children_reaped": true,
+        "streams_closed": true,
+        "proxy_closed": true,
+        "proxy_log_closed": true,
+        "set_deadline": 30.0,
+        "cleanup_ended": 27.9
+      }
+    },
+    {
+      "case": "poll-error",
+      "clock_end": 29.75,
+      "first": [
+        {
+          "operation": "wait",
+          "at": 20.0,
+          "timeout": 2.0
+        },
+        {
+          "operation": "wait",
+          "at": 22.0,
+          "timeout": 2.0
+        },
+        {
+          "operation": "wait",
+          "at": 24.0,
+          "timeout": 2.0
+        },
+        {
+          "operation": "wait",
+          "at": 26.0,
+          "timeout": 3.75
+        }
+      ],
+      "second": [
+        {
+          "operation": "wait",
+          "at": 22.0,
+          "timeout": 0.0
+        },
+        {
+          "operation": "interrupt",
+          "at": 22.0
+        },
+        {
+          "operation": "wait",
+          "at": 24.0,
+          "timeout": 0.0
+        },
+        {
+          "operation": "terminate",
+          "at": 24.0
+        },
+        {
+          "operation": "wait",
+          "at": 26.0,
+          "timeout": 0.0
+        },
+        {
+          "operation": "kill",
+          "at": 26.0
+        },
+        {
+          "operation": "wait",
+          "at": 29.75,
+          "timeout": 0.0
+        }
+      ],
+      "cleanup": {
+        "errors": [
+          {
+            "target": 0,
+            "operation": "interrupt",
+            "error": "OSError('injected poll error')"
+          },
+          {
+            "target": 0,
+            "operation": "terminate",
+            "error": "OSError('injected poll error')"
+          },
+          {
+            "target": 0,
+            "operation": "kill",
+            "error": "OSError('injected poll error')"
+          },
+          {
+            "target": 0,
+            "operation": "reap",
+            "error": "TimeoutExpired('fake-owned-handle', 3.75)"
+          },
+          {
+            "target": 0,
+            "operation": "final_poll",
+            "error": "OSError('injected poll error')"
+          },
+          {
+            "target": 0,
+            "operation": "unreaped",
+            "error": "RuntimeError('owned child remains unreaped at deadline')"
+          }
+        ],
+        "actions": [
+          {
+            "child": 0,
+            "operation": "grace",
+            "timeout": 2.0,
+            "at": 20.0
+          },
+          {
+            "child": 1,
+            "operation": "grace",
+            "timeout": 0.0,
+            "at": 22.0
+          },
+          {
+            "child": 1,
+            "operation": "interrupt",
+            "at": 22.0
+          },
+          {
+            "child": 0,
+            "operation": "interrupt_wait",
+            "timeout": 2.0,
+            "at": 22.0
+          },
+          {
+            "child": 1,
+            "operation": "interrupt_wait",
+            "timeout": 0.0,
+            "at": 24.0
+          },
+          {
+            "child": 1,
+            "operation": "terminate",
+            "at": 24.0
+          },
+          {
+            "child": 0,
+            "operation": "terminate_wait",
+            "timeout": 2.0,
+            "at": 24.0
+          },
+          {
+            "child": 1,
+            "operation": "terminate_wait",
+            "timeout": 0.0,
+            "at": 26.0
+          },
+          {
+            "child": 1,
+            "operation": "kill",
+            "at": 26.0
+          },
+          {
+            "child": 0,
+            "operation": "reap",
+            "timeout": 3.75,
+            "at": 26.0
+          },
+          {
+            "child": 1,
+            "operation": "reap",
+            "timeout": 0.0,
+            "at": 29.75
+          }
+        ],
+        "children_reaped": [
+          false,
+          true
+        ],
+        "all_children_reaped": false,
+        "streams_closed": true,
+        "proxy_closed": true,
+        "proxy_log_closed": true,
+        "set_deadline": 30.0,
+        "cleanup_ended": 29.75
+      }
+    },
+    {
+      "case": "terminate-error",
+      "clock_end": 27.9,
+      "first": [
+        {
+          "operation": "wait",
+          "at": 20.0,
+          "timeout": 2.0
+        },
+        {
+          "operation": "interrupt",
+          "at": 22.0
+        },
+        {
+          "operation": "wait",
+          "at": 22.0,
+          "timeout": 2.0
+        },
+        {
+          "operation": "terminate",
+          "at": 24.0
+        },
+        {
+          "operation": "wait",
+          "at": 24.0,
+          "timeout": 2.0
+        },
+        {
+          "operation": "kill",
+          "at": 26.0
+        },
+        {
+          "operation": "wait",
+          "at": 26.0,
+          "timeout": 3.75
+        }
+      ],
+      "second": [
+        {
+          "operation": "wait",
+          "at": 22.0,
+          "timeout": 0.0
+        },
+        {
+          "operation": "interrupt",
+          "at": 22.0
+        },
+        {
+          "operation": "wait",
+          "at": 24.0,
+          "timeout": 0.0
+        },
+        {
+          "operation": "terminate",
+          "at": 24.0
+        },
+        {
+          "operation": "wait",
+          "at": 26.0,
+          "timeout": 0.0
+        },
+        {
+          "operation": "kill",
+          "at": 26.0
+        },
+        {
+          "operation": "wait",
+          "at": 27.9,
+          "timeout": 1.8500000000000014
+        }
+      ],
+      "cleanup": {
+        "errors": [
+          {
+            "target": 0,
+            "operation": "terminate",
+            "error": "OSError('injected terminate error')"
+          }
+        ],
+        "actions": [
+          {
+            "child": 0,
+            "operation": "grace",
+            "timeout": 2.0,
+            "at": 20.0
+          },
+          {
+            "child": 1,
+            "operation": "grace",
+            "timeout": 0.0,
+            "at": 22.0
+          },
+          {
+            "child": 0,
+            "operation": "interrupt",
+            "at": 22.0
+          },
+          {
+            "child": 1,
+            "operation": "interrupt",
+            "at": 22.0
+          },
+          {
+            "child": 0,
+            "operation": "interrupt_wait",
+            "timeout": 2.0,
+            "at": 22.0
+          },
+          {
+            "child": 1,
+            "operation": "interrupt_wait",
+            "timeout": 0.0,
+            "at": 24.0
+          },
+          {
+            "child": 0,
+            "operation": "terminate",
+            "at": 24.0
+          },
+          {
+            "child": 1,
+            "operation": "terminate",
+            "at": 24.0
+          },
+          {
+            "child": 0,
+            "operation": "terminate_wait",
+            "timeout": 2.0,
+            "at": 24.0
+          },
+          {
+            "child": 1,
+            "operation": "terminate_wait",
+            "timeout": 0.0,
+            "at": 26.0
+          },
+          {
+            "child": 0,
+            "operation": "kill",
+            "at": 26.0
+          },
+          {
+            "child": 1,
+            "operation": "kill",
+            "at": 26.0
+          },
+          {
+            "child": 0,
+            "operation": "reap",
+            "timeout": 3.75,
+            "at": 26.0
+          },
+          {
+            "child": 1,
+            "operation": "reap",
+            "timeout": 1.8500000000000014,
+            "at": 27.9
+          }
+        ],
+        "children_reaped": [
+          true,
+          true
+        ],
+        "all_children_reaped": true,
+        "streams_closed": true,
+        "proxy_closed": true,
+        "proxy_log_closed": true,
+        "set_deadline": 30.0,
+        "cleanup_ended": 27.9
+      }
+    },
+    {
+      "case": "kill-error",
+      "clock_end": 29.75,
+      "first": [
+        {
+          "operation": "wait",
+          "at": 20.0,
+          "timeout": 2.0
+        },
+        {
+          "operation": "interrupt",
+          "at": 22.0
+        },
+        {
+          "operation": "wait",
+          "at": 22.0,
+          "timeout": 2.0
+        },
+        {
+          "operation": "terminate",
+          "at": 24.0
+        },
+        {
+          "operation": "wait",
+          "at": 24.0,
+          "timeout": 2.0
+        },
+        {
+          "operation": "kill",
+          "at": 26.0
+        },
+        {
+          "operation": "wait",
+          "at": 26.0,
+          "timeout": 3.75
+        }
+      ],
+      "second": [
+        {
+          "operation": "wait",
+          "at": 22.0,
+          "timeout": 0.0
+        },
+        {
+          "operation": "interrupt",
+          "at": 22.0
+        },
+        {
+          "operation": "wait",
+          "at": 24.0,
+          "timeout": 0.0
+        },
+        {
+          "operation": "terminate",
+          "at": 24.0
+        },
+        {
+          "operation": "wait",
+          "at": 26.0,
+          "timeout": 0.0
+        },
+        {
+          "operation": "kill",
+          "at": 26.0
+        },
+        {
+          "operation": "wait",
+          "at": 29.75,
+          "timeout": 0.0
+        }
+      ],
+      "cleanup": {
+        "errors": [
+          {
+            "target": 0,
+            "operation": "kill",
+            "error": "OSError('injected kill error')"
+          },
+          {
+            "target": 0,
+            "operation": "reap",
+            "error": "TimeoutExpired('fake-owned-handle', 3.75)"
+          },
+          {
+            "target": 0,
+            "operation": "unreaped",
+            "error": "RuntimeError('owned child remains unreaped at deadline')"
+          }
+        ],
+        "actions": [
+          {
+            "child": 0,
+            "operation": "grace",
+            "timeout": 2.0,
+            "at": 20.0
+          },
+          {
+            "child": 1,
+            "operation": "grace",
+            "timeout": 0.0,
+            "at": 22.0
+          },
+          {
+            "child": 0,
+            "operation": "interrupt",
+            "at": 22.0
+          },
+          {
+            "child": 1,
+            "operation": "interrupt",
+            "at": 22.0
+          },
+          {
+            "child": 0,
+            "operation": "interrupt_wait",
+            "timeout": 2.0,
+            "at": 22.0
+          },
+          {
+            "child": 1,
+            "operation": "interrupt_wait",
+            "timeout": 0.0,
+            "at": 24.0
+          },
+          {
+            "child": 0,
+            "operation": "terminate",
+            "at": 24.0
+          },
+          {
+            "child": 1,
+            "operation": "terminate",
+            "at": 24.0
+          },
+          {
+            "child": 0,
+            "operation": "terminate_wait",
+            "timeout": 2.0,
+            "at": 24.0
+          },
+          {
+            "child": 1,
+            "operation": "terminate_wait",
+            "timeout": 0.0,
+            "at": 26.0
+          },
+          {
+            "child": 0,
+            "operation": "kill",
+            "at": 26.0
+          },
+          {
+            "child": 1,
+            "operation": "kill",
+            "at": 26.0
+          },
+          {
+            "child": 0,
+            "operation": "reap",
+            "timeout": 3.75,
+            "at": 26.0
+          },
+          {
+            "child": 1,
+            "operation": "reap",
+            "timeout": 0.0,
+            "at": 29.75
+          }
+        ],
+        "children_reaped": [
+          false,
+          true
+        ],
+        "all_children_reaped": false,
+        "streams_closed": true,
+        "proxy_closed": true,
+        "proxy_log_closed": true,
+        "set_deadline": 30.0,
+        "cleanup_ended": 29.75
+      }
+    },
+    {
+      "case": "final-reap-timeout",
+      "clock_end": 29.75,
+      "first": [
+        {
+          "operation": "wait",
+          "at": 20.0,
+          "timeout": 2.0
+        },
+        {
+          "operation": "interrupt",
+          "at": 22.0
+        },
+        {
+          "operation": "wait",
+          "at": 22.0,
+          "timeout": 2.0
+        },
+        {
+          "operation": "terminate",
+          "at": 24.0
+        },
+        {
+          "operation": "wait",
+          "at": 24.0,
+          "timeout": 2.0
+        },
+        {
+          "operation": "kill",
+          "at": 26.0
+        },
+        {
+          "operation": "wait",
+          "at": 26.0,
+          "timeout": 3.75
+        }
+      ],
+      "second": [
+        {
+          "operation": "wait",
+          "at": 22.0,
+          "timeout": 0.0
+        },
+        {
+          "operation": "interrupt",
+          "at": 22.0
+        },
+        {
+          "operation": "wait",
+          "at": 24.0,
+          "timeout": 0.0
+        },
+        {
+          "operation": "terminate",
+          "at": 24.0
+        },
+        {
+          "operation": "wait",
+          "at": 26.0,
+          "timeout": 0.0
+        },
+        {
+          "operation": "kill",
+          "at": 26.0
+        },
+        {
+          "operation": "wait",
+          "at": 29.75,
+          "timeout": 0.0
+        }
+      ],
+      "cleanup": {
+        "errors": [
+          {
+            "target": 0,
+            "operation": "reap",
+            "error": "TimeoutExpired('fake-owned-handle', 3.75)"
+          },
+          {
+            "target": 0,
+            "operation": "unreaped",
+            "error": "RuntimeError('owned child remains unreaped at deadline')"
+          }
+        ],
+        "actions": [
+          {
+            "child": 0,
+            "operation": "grace",
+            "timeout": 2.0,
+            "at": 20.0
+          },
+          {
+            "child": 1,
+            "operation": "grace",
+            "timeout": 0.0,
+            "at": 22.0
+          },
+          {
+            "child": 0,
+            "operation": "interrupt",
+            "at": 22.0
+          },
+          {
+            "child": 1,
+            "operation": "interrupt",
+            "at": 22.0
+          },
+          {
+            "child": 0,
+            "operation": "interrupt_wait",
+            "timeout": 2.0,
+            "at": 22.0
+          },
+          {
+            "child": 1,
+            "operation": "interrupt_wait",
+            "timeout": 0.0,
+            "at": 24.0
+          },
+          {
+            "child": 0,
+            "operation": "terminate",
+            "at": 24.0
+          },
+          {
+            "child": 1,
+            "operation": "terminate",
+            "at": 24.0
+          },
+          {
+            "child": 0,
+            "operation": "terminate_wait",
+            "timeout": 2.0,
+            "at": 24.0
+          },
+          {
+            "child": 1,
+            "operation": "terminate_wait",
+            "timeout": 0.0,
+            "at": 26.0
+          },
+          {
+            "child": 0,
+            "operation": "kill",
+            "at": 26.0
+          },
+          {
+            "child": 1,
+            "operation": "kill",
+            "at": 26.0
+          },
+          {
+            "child": 0,
+            "operation": "reap",
+            "timeout": 3.75,
+            "at": 26.0
+          },
+          {
+            "child": 1,
+            "operation": "reap",
+            "timeout": 0.0,
+            "at": 29.75
+          }
+        ],
+        "children_reaped": [
+          false,
+          true
+        ],
+        "all_children_reaped": false,
+        "streams_closed": true,
+        "proxy_closed": true,
+        "proxy_log_closed": true,
+        "set_deadline": 30.0,
+        "cleanup_ended": 29.75
+      }
+    }
+  ],
+  "network_receipt": {
+    "ok": false,
+    "host_ready_before_client": true,
+    "commands": {
+      "host": {
+        "argv": [
+          "/tmp/s08-handoff-8cae02a7/fix-boundaries02/errors/export-folder/FunThingsS08.x86_64",
+          "--headless",
+          "--log-file",
+          "/tmp/s08-handoff-8cae02a7/fix-boundaries02/errors/enet/host/engine.log",
+          "--",
+          "--role=host",
+          "--port=24740"
+        ],
+        "cwd": "/tmp/s08-handoff-8cae02a7/fix-boundaries02/errors/export-folder",
+        "started_unix": 1000.0,
+        "environment": {},
+        "owned_pid": 9000,
+        "exit": null,
+        "child_reaped": false
+      },
+      "client": {
+        "argv": [
+          "/tmp/s08-handoff-8cae02a7/fix-boundaries02/errors/export-folder/FunThingsS08.x86_64",
+          "--headless",
+          "--log-file",
+          "/tmp/s08-handoff-8cae02a7/fix-boundaries02/errors/enet/client/engine.log",
+          "--",
+          "--role=client",
+          "--port=24741"
+        ],
+        "cwd": "/tmp/s08-handoff-8cae02a7/fix-boundaries02/errors/export-folder",
+        "started_unix": 1000.0,
+        "environment": {},
+        "owned_pid": 9001,
+        "exit": -9,
+        "child_reaped": true
+      }
+    },
+    "asset_receipts": {},
+    "observations": [
+      {
+        "role": "host",
+        "event": "ready",
+        "seconds": 0.0,
+        "child_live": true,
+        "byte_offset": 22
+      }
+    ],
+    "ready": {
+      "event": "ready"
+    },
+    "ready_observed_unix": 1000.0,
+    "handoff_seconds": 0.0,
+    "failure": "RuntimeError('injected work failure')",
+    "cleanup": {
+      "errors": [
+        {
+          "target": 0,
+          "operation": "grace",
+          "error": "OSError('injected wait error')"
+        },
+        {
+          "target": 0,
+          "operation": "interrupt",
+          "error": "OSError('injected signal error')"
+        },
+        {
+          "target": 0,
+          "operation": "interrupt_wait",
+          "error": "OSError('injected wait error')"
+        },
+        {
+          "target": 0,
+          "operation": "terminate_wait",
+          "error": "OSError('injected wait error')"
+        },
+        {
+          "target": 0,
+          "operation": "reap",
+          "error": "OSError('injected wait error')"
+        },
+        {
+          "target": 0,
+          "operation": "unreaped",
+          "error": "RuntimeError('owned child remains unreaped at deadline')"
+        }
+      ],
+      "actions": [
+        {
+          "child": 0,
+          "operation": "grace",
+          "timeout": 2.0,
+          "at": 20.0
+        },
+        {
+          "child": 1,
+          "operation": "grace",
+          "timeout": 2.0,
+          "at": 20.0
+        },
+        {
+          "child": 0,
+          "operation": "interrupt",
+          "at": 22.0
+        },
+        {
+          "child": 1,
+          "operation": "interrupt",
+          "at": 22.0
+        },
+        {
+          "child": 0,
+          "operation": "interrupt_wait",
+          "timeout": 2.0,
+          "at": 22.0
+        },
+        {
+          "child": 1,
+          "operation": "interrupt_wait",
+          "timeout": 2.0,
+          "at": 22.0
+        },
+        {
+          "child": 0,
+          "operation": "terminate",
+          "at": 24.0
+        },
+        {
+          "child": 1,
+          "operation": "terminate",
+          "at": 24.0
+        },
+        {
+          "child": 0,
+          "operation": "terminate_wait",
+          "timeout": 2.0,
+          "at": 24.0
+        },
+        {
+          "child": 1,
+          "operation": "terminate_wait",
+          "timeout": 2.0,
+          "at": 24.0
+        },
+        {
+          "child": 0,
+          "operation": "kill",
+          "at": 26.0
+        },
+        {
+          "child": 1,
+          "operation": "kill",
+          "at": 26.0
+        },
+        {
+          "child": 0,
+          "operation": "reap",
+          "timeout": 3.75,
+          "at": 26.0
+        },
+        {
+          "child": 1,
+          "operation": "reap",
+          "timeout": 3.75,
+          "at": 26.0
+        }
+      ],
+      "children_reaped": [
+        false,
+        true
+      ],
+      "all_children_reaped": false,
+      "streams_closed": true,
+      "proxy_closed": true,
+      "proxy_log_closed": true,
+      "set_deadline": 30.0,
+      "cleanup_ended": 27.9
+    },
+    "all_children_reaped": false,
+    "streams_closed": true,
+    "proxy_closed": true,
+    "proxy_log_closed": true,
+    "proxy_events": [],
+    "proxy_count": 0,
+    "duration_seconds": 27.9,
+    "results": {}
+  }
+}

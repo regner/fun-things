@@ -9,6 +9,7 @@ import subprocess
 ROOT = Path(__file__).resolve().parents[3]
 E = Path(__file__).resolve().parent
 BASE = '52941da4b4c92a547a8066b5c13f733043ecbe48'
+TODO_BASE = '48aef3dbd133876743f504f94a1b788a26d5638f'
 
 
 def expected_paths():
@@ -30,6 +31,28 @@ def expected_paths():
               'enet/result.json', 'enet/proxy.jsonl']]
     paths += ['set01/enet/'+role+'/'+name for role in ['host', 'client'] for name in
               ['command.json', 'stdout.log', 'stderr.log', 'engine.log']]
+    paths += ['review-fix/'+name for name in ['expected.json', 'commands.json',
+              'accepted-cleanup-TODO.md', 'rebase.stdout', 'rebase.stderr',
+              'rebase-continue.stdout', 'rebase-continue.stderr']]
+    for run in ['fix-boundaries01', 'fix-boundaries02']:
+        prefix='review-fix/'+run
+        paths += [prefix+'.stdout', prefix+'.stderr']
+        paths += [prefix+'/sources/'+name for name in
+                  ['observe.py', 'handoff_cleanup.py', 'handoff_boundaries.py']]
+        for case in ['before','at','after','fragment-late','coalesced-before',
+                     'coalesced-after','setup-expiry']:
+            paths += [prefix+'/'+case+'/enet/'+name for name in
+                      ['result.json','proxy.jsonl','host/command.json','host/stdout.log',
+                       'host/stderr.log','host/engine.log']]
+        paths += [prefix+'/before/enet/client/'+name for name in
+                  ['command.json','stdout.log','stderr.log','engine.log']]
+        paths += [prefix+'/setup-expiry/enet/client/'+name for name in
+                  ['stdout.log','stderr.log','engine.log']]
+    paths += ['review-fix/fix-boundaries02/result.json']
+    paths += ['review-fix/fix-boundaries02/errors/enet/'+name for name in
+              ['result.json','proxy.jsonl','host/command.json','host/stdout.log',
+               'host/stderr.log','host/engine.log','client/command.json',
+               'client/stdout.log','client/stderr.log','client/engine.log']]
     return set(paths)
 
 
@@ -100,13 +123,30 @@ def check():
     assert all(x['child_live'] and x['exit'] == 1 for x in offline['buffering']['runs'])
     assert len(offline['coordination']) == 3
     assert all(x['launcher_calls'] == 1 for x in offline['coordination'])
-    old=subprocess.check_output(['git','show',BASE+':TODO.md'],cwd=ROOT).decode()
+    old=subprocess.check_output(['git','show',TODO_BASE+':TODO.md'],cwd=ROOT).decode()
     current=(ROOT/'TODO.md').read_text()
     begin='- [ ] **S08 —'; end='- [ ] **P0-GATE'
     # The next task header supplies an independent S08-block-only boundary.
     start=old.index(begin); finish=old.index('\n- [ ] **',start+len(begin))
     now_start=current.index(begin); now_finish=current.index('\n- [ ] **',now_start+len(begin))
     assert old[:start] == current[:now_start] and old[finish:] == current[now_finish:]
+    fixes=json.loads((E/'review-fix/fix-boundaries02/result.json').read_text())
+    assert [x['launch_requests'] for x in fixes['readiness']] == [2,1,1,1,1,1,1]
+    assert all(x['pipe_closed'] for x in fixes['readiness'])
+    assert all(x['clock_end'] <= 30 for x in fixes['cleanup'])
+    assert fixes['cleanup'][0]['clock_end'] == 27.9
+    assert all(x['cleanup']['children_reaped'][1] for x in fixes['cleanup'])
+    error_receipt=fixes['network_receipt']
+    assert error_receipt['cleanup']['children_reaped'] == [False,True]
+    assert not error_receipt['ok'] and error_receipt['cleanup']['errors']
+    assert error_receipt['streams_closed'] and error_receipt['proxy_closed']
+    assert error_receipt['proxy_log_closed']
+    assert (E/'review-fix/fix-boundaries01.stderr').read_bytes()
+    assert (E/'review-fix/fix-boundaries02.stderr').read_bytes() == b''
+    for name in ['observe.py','handoff_cleanup.py','handoff_boundaries.py']:
+        assert (ROOT/'tools/s08'/name).read_bytes() == (
+            E/'review-fix/fix-boundaries02/sources'/name).read_bytes()
+    assert (E/'review-fix/accepted-cleanup-TODO.md').read_text() == old
     return {'ok':True, 'expected_payloads':len(expected), 'required_empty_paths':sorted(
         name for name in expected if not (E/name).stat().st_size),
         'network_sets':1, 'network_full_acceptance':False, 'children_reaped':True,

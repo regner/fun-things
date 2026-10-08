@@ -37,6 +37,132 @@
     "offline/silent-deadline/enet/result.json",
     "preflight-expected.json",
     "raw-requirements.md",
+    "review-fix/accepted-cleanup-TODO.md",
+    "review-fix/commands.json",
+    "review-fix/expected.json",
+    "review-fix/fix-boundaries01.stderr",
+    "review-fix/fix-boundaries01.stdout",
+    "review-fix/fix-boundaries01/after/enet/host/command.json",
+    "review-fix/fix-boundaries01/after/enet/host/engine.log",
+    "review-fix/fix-boundaries01/after/enet/host/stderr.log",
+    "review-fix/fix-boundaries01/after/enet/host/stdout.log",
+    "review-fix/fix-boundaries01/after/enet/proxy.jsonl",
+    "review-fix/fix-boundaries01/after/enet/result.json",
+    "review-fix/fix-boundaries01/at/enet/host/command.json",
+    "review-fix/fix-boundaries01/at/enet/host/engine.log",
+    "review-fix/fix-boundaries01/at/enet/host/stderr.log",
+    "review-fix/fix-boundaries01/at/enet/host/stdout.log",
+    "review-fix/fix-boundaries01/at/enet/proxy.jsonl",
+    "review-fix/fix-boundaries01/at/enet/result.json",
+    "review-fix/fix-boundaries01/before/enet/client/command.json",
+    "review-fix/fix-boundaries01/before/enet/client/engine.log",
+    "review-fix/fix-boundaries01/before/enet/client/stderr.log",
+    "review-fix/fix-boundaries01/before/enet/client/stdout.log",
+    "review-fix/fix-boundaries01/before/enet/host/command.json",
+    "review-fix/fix-boundaries01/before/enet/host/engine.log",
+    "review-fix/fix-boundaries01/before/enet/host/stderr.log",
+    "review-fix/fix-boundaries01/before/enet/host/stdout.log",
+    "review-fix/fix-boundaries01/before/enet/proxy.jsonl",
+    "review-fix/fix-boundaries01/before/enet/result.json",
+    "review-fix/fix-boundaries01/coalesced-after/enet/host/command.json",
+    "review-fix/fix-boundaries01/coalesced-after/enet/host/engine.log",
+    "review-fix/fix-boundaries01/coalesced-after/enet/host/stderr.log",
+    "review-fix/fix-boundaries01/coalesced-after/enet/host/stdout.log",
+    "review-fix/fix-boundaries01/coalesced-after/enet/proxy.jsonl",
+    "review-fix/fix-boundaries01/coalesced-after/enet/result.json",
+    "review-fix/fix-boundaries01/coalesced-before/enet/host/command.json",
+    "review-fix/fix-boundaries01/coalesced-before/enet/host/engine.log",
+    "review-fix/fix-boundaries01/coalesced-before/enet/host/stderr.log",
+    "review-fix/fix-boundaries01/coalesced-before/enet/host/stdout.log",
+    "review-fix/fix-boundaries01/coalesced-before/enet/proxy.jsonl",
+    "review-fix/fix-boundaries01/coalesced-before/enet/result.json",
+    "review-fix/fix-boundaries01/fragment-late/enet/host/command.json",
+    "review-fix/fix-boundaries01/fragment-late/enet/host/engine.log",
+    "review-fix/fix-boundaries01/fragment-late/enet/host/stderr.log",
+    "review-fix/fix-boundaries01/fragment-late/enet/host/stdout.log",
+    "review-fix/fix-boundaries01/fragment-late/enet/proxy.jsonl",
+    "review-fix/fix-boundaries01/fragment-late/enet/result.json",
+    "review-fix/fix-boundaries01/setup-expiry/enet/client/engine.log",
+    "review-fix/fix-boundaries01/setup-expiry/enet/client/stderr.log",
+    "review-fix/fix-boundaries01/setup-expiry/enet/client/stdout.log",
+    "review-fix/fix-boundaries01/setup-expiry/enet/host/command.json",
+    "review-fix/fix-boundaries01/setup-expiry/enet/host/engine.log",
+    "review-fix/fix-boundaries01/setup-expiry/enet/host/stderr.log",
+    "review-fix/fix-boundaries01/setup-expiry/enet/host/stdout.log",
+    "review-fix/fix-boundaries01/setup-expiry/enet/proxy.jsonl",
+    "review-fix/fix-boundaries01/setup-expiry/enet/result.json",
+    "review-fix/fix-boundaries01/sources/handoff_boundaries.py",
+    "review-fix/fix-boundaries01/sources/handoff_cleanup.py",
+    "review-fix/fix-boundaries01/sources/observe.py",
+    "review-fix/fix-boundaries02.stderr",
+    "review-fix/fix-boundaries02.stdout",
+    "review-fix/fix-boundaries02/after/enet/host/command.json",
+    "review-fix/fix-boundaries02/after/enet/host/engine.log",
+    "review-fix/fix-boundaries02/after/enet/host/stderr.log",
+    "review-fix/fix-boundaries02/after/enet/host/stdout.log",
+    "review-fix/fix-boundaries02/after/enet/proxy.jsonl",
+    "review-fix/fix-boundaries02/after/enet/result.json",
+    "review-fix/fix-boundaries02/at/enet/host/command.json",
+    "review-fix/fix-boundaries02/at/enet/host/engine.log",
+    "review-fix/fix-boundaries02/at/enet/host/stderr.log",
+    "review-fix/fix-boundaries02/at/enet/host/stdout.log",
+    "review-fix/fix-boundaries02/at/enet/proxy.jsonl",
+    "review-fix/fix-boundaries02/at/enet/result.json",
+    "review-fix/fix-boundaries02/before/enet/client/command.json",
+    "review-fix/fix-boundaries02/before/enet/client/engine.log",
+    "review-fix/fix-boundaries02/before/enet/client/stderr.log",
+    "review-fix/fix-boundaries02/before/enet/client/stdout.log",
+    "review-fix/fix-boundaries02/before/enet/host/command.json",
+    "review-fix/fix-boundaries02/before/enet/host/engine.log",
+    "review-fix/fix-boundaries02/before/enet/host/stderr.log",
+    "review-fix/fix-boundaries02/before/enet/host/stdout.log",
+    "review-fix/fix-boundaries02/before/enet/proxy.jsonl",
+    "review-fix/fix-boundaries02/before/enet/result.json",
+    "review-fix/fix-boundaries02/coalesced-after/enet/host/command.json",
+    "review-fix/fix-boundaries02/coalesced-after/enet/host/engine.log",
+    "review-fix/fix-boundaries02/coalesced-after/enet/host/stderr.log",
+    "review-fix/fix-boundaries02/coalesced-after/enet/host/stdout.log",
+    "review-fix/fix-boundaries02/coalesced-after/enet/proxy.jsonl",
+    "review-fix/fix-boundaries02/coalesced-after/enet/result.json",
+    "review-fix/fix-boundaries02/coalesced-before/enet/host/command.json",
+    "review-fix/fix-boundaries02/coalesced-before/enet/host/engine.log",
+    "review-fix/fix-boundaries02/coalesced-before/enet/host/stderr.log",
+    "review-fix/fix-boundaries02/coalesced-before/enet/host/stdout.log",
+    "review-fix/fix-boundaries02/coalesced-before/enet/proxy.jsonl",
+    "review-fix/fix-boundaries02/coalesced-before/enet/result.json",
+    "review-fix/fix-boundaries02/errors/enet/client/command.json",
+    "review-fix/fix-boundaries02/errors/enet/client/engine.log",
+    "review-fix/fix-boundaries02/errors/enet/client/stderr.log",
+    "review-fix/fix-boundaries02/errors/enet/client/stdout.log",
+    "review-fix/fix-boundaries02/errors/enet/host/command.json",
+    "review-fix/fix-boundaries02/errors/enet/host/engine.log",
+    "review-fix/fix-boundaries02/errors/enet/host/stderr.log",
+    "review-fix/fix-boundaries02/errors/enet/host/stdout.log",
+    "review-fix/fix-boundaries02/errors/enet/proxy.jsonl",
+    "review-fix/fix-boundaries02/errors/enet/result.json",
+    "review-fix/fix-boundaries02/fragment-late/enet/host/command.json",
+    "review-fix/fix-boundaries02/fragment-late/enet/host/engine.log",
+    "review-fix/fix-boundaries02/fragment-late/enet/host/stderr.log",
+    "review-fix/fix-boundaries02/fragment-late/enet/host/stdout.log",
+    "review-fix/fix-boundaries02/fragment-late/enet/proxy.jsonl",
+    "review-fix/fix-boundaries02/fragment-late/enet/result.json",
+    "review-fix/fix-boundaries02/result.json",
+    "review-fix/fix-boundaries02/setup-expiry/enet/client/engine.log",
+    "review-fix/fix-boundaries02/setup-expiry/enet/client/stderr.log",
+    "review-fix/fix-boundaries02/setup-expiry/enet/client/stdout.log",
+    "review-fix/fix-boundaries02/setup-expiry/enet/host/command.json",
+    "review-fix/fix-boundaries02/setup-expiry/enet/host/engine.log",
+    "review-fix/fix-boundaries02/setup-expiry/enet/host/stderr.log",
+    "review-fix/fix-boundaries02/setup-expiry/enet/host/stdout.log",
+    "review-fix/fix-boundaries02/setup-expiry/enet/proxy.jsonl",
+    "review-fix/fix-boundaries02/setup-expiry/enet/result.json",
+    "review-fix/fix-boundaries02/sources/handoff_boundaries.py",
+    "review-fix/fix-boundaries02/sources/handoff_cleanup.py",
+    "review-fix/fix-boundaries02/sources/observe.py",
+    "review-fix/rebase-continue.stderr",
+    "review-fix/rebase-continue.stdout",
+    "review-fix/rebase.stderr",
+    "review-fix/rebase.stdout",
     "set01.stderr",
     "set01.stdout",
     "set01/binding.json",
@@ -64,8 +190,8 @@
   "self_exclusion": "index.json bound in final note",
   "payloads": {
     "README.md": {
-      "bytes": 1850,
-      "sha256": "aec51fa8c52faabd048bb6501a3e9fb8addba698451b63f7b0f0380d84df4c96"
+      "bytes": 2601,
+      "sha256": "d275485f8c2f700f66798d887ceee2d8aa229e75dc8e1a1fb197d3c170a6441a"
     },
     "bind.stderr": {
       "bytes": 0,
@@ -208,8 +334,512 @@
       "sha256": "96762190381f9c04ddba547aa1b6a249e3ab8da1269c0f65008a02777320187d"
     },
     "raw-requirements.md": {
-      "bytes": 5491,
-      "sha256": "36ce715f764906fba31be898234e49164e97f83b8b2fd15913b13cd5853006a6"
+      "bytes": 8699,
+      "sha256": "23c5f003bd1524036b49cf40293edcd3f2e89c2744e5c0dfa2a8297d99f97bc9"
+    },
+    "review-fix/accepted-cleanup-TODO.md": {
+      "bytes": 37385,
+      "sha256": "bfdb845373827481656ef7ae277c9c16a4d78a47c2397913e7185540eb775f6c"
+    },
+    "review-fix/commands.json": {
+      "bytes": 1788,
+      "sha256": "fcda3bf198051ea64e72e69f3eacb29133d6667c3d4abc352470bb0eeed7c8b4"
+    },
+    "review-fix/expected.json": {
+      "bytes": 7667,
+      "sha256": "8f47cfdcd3bfd3077edea12c52d8ccb95c86455073c0f87b763866f4d4dcbbcc"
+    },
+    "review-fix/fix-boundaries01.stderr": {
+      "bytes": 747,
+      "sha256": "6610430fc163aa8d8bd15643057cf4cdccb41fd8d83fd713606d455f5ecece51"
+    },
+    "review-fix/fix-boundaries01.stdout": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "review-fix/fix-boundaries01/after/enet/host/command.json": {
+      "bytes": 451,
+      "sha256": "160734b0d03ea81a82b232a328fd22b6d455f1ac2ee01be4f91ff53521ac8c67"
+    },
+    "review-fix/fix-boundaries01/after/enet/host/engine.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "review-fix/fix-boundaries01/after/enet/host/stderr.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "review-fix/fix-boundaries01/after/enet/host/stdout.log": {
+      "bytes": 22,
+      "sha256": "d6200a84286a23a533dde3d2724c73ae1ec237d6d83366a6ddc37b7b9ab0db50"
+    },
+    "review-fix/fix-boundaries01/after/enet/proxy.jsonl": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "review-fix/fix-boundaries01/after/enet/result.json": {
+      "bytes": 1518,
+      "sha256": "f05d1f8f2a0d5820ead3c980243758e3285343be06185d0eec6cd8b6cd0689de"
+    },
+    "review-fix/fix-boundaries01/at/enet/host/command.json": {
+      "bytes": 442,
+      "sha256": "364d9835e647a541d8f5a3e30e2d7b1fd1d2ef457bba1a40982950476ae23040"
+    },
+    "review-fix/fix-boundaries01/at/enet/host/engine.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "review-fix/fix-boundaries01/at/enet/host/stderr.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "review-fix/fix-boundaries01/at/enet/host/stdout.log": {
+      "bytes": 22,
+      "sha256": "d6200a84286a23a533dde3d2724c73ae1ec237d6d83366a6ddc37b7b9ab0db50"
+    },
+    "review-fix/fix-boundaries01/at/enet/proxy.jsonl": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "review-fix/fix-boundaries01/at/enet/result.json": {
+      "bytes": 1499,
+      "sha256": "c7af6e9dbc1fcc49cad1c6ee34133203886a8db853c376d9ea6210f7c847990d"
+    },
+    "review-fix/fix-boundaries01/before/enet/client/command.json": {
+      "bytes": 460,
+      "sha256": "11aeb5113e7f91acf53f64d69ebf79423b2f6d29f9df432619e018d9288da9a8"
+    },
+    "review-fix/fix-boundaries01/before/enet/client/engine.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "review-fix/fix-boundaries01/before/enet/client/stderr.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "review-fix/fix-boundaries01/before/enet/client/stdout.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "review-fix/fix-boundaries01/before/enet/host/command.json": {
+      "bytes": 454,
+      "sha256": "d0d2e5b811bfa4d9f31eb9720a66de24ade90d7f69496f7aa4f2571fb2712180"
+    },
+    "review-fix/fix-boundaries01/before/enet/host/engine.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "review-fix/fix-boundaries01/before/enet/host/stderr.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "review-fix/fix-boundaries01/before/enet/host/stdout.log": {
+      "bytes": 22,
+      "sha256": "d6200a84286a23a533dde3d2724c73ae1ec237d6d83366a6ddc37b7b9ab0db50"
+    },
+    "review-fix/fix-boundaries01/before/enet/proxy.jsonl": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "review-fix/fix-boundaries01/before/enet/result.json": {
+      "bytes": 2236,
+      "sha256": "2aede3c6f96c8606ce18d01a9ec1a7a9f5da70bb06d9d2a7e16ad926a7036500"
+    },
+    "review-fix/fix-boundaries01/coalesced-after/enet/host/command.json": {
+      "bytes": 481,
+      "sha256": "e1b7bba1e0a68e9b76378036f8f68a22452327eb1d33865db4d8e48696e2b835"
+    },
+    "review-fix/fix-boundaries01/coalesced-after/enet/host/engine.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "review-fix/fix-boundaries01/coalesced-after/enet/host/stderr.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "review-fix/fix-boundaries01/coalesced-after/enet/host/stdout.log": {
+      "bytes": 56,
+      "sha256": "de5260a9e3bf76724659217ed5c4d3f74df84fb6b010d747812262d09b0255b8"
+    },
+    "review-fix/fix-boundaries01/coalesced-after/enet/proxy.jsonl": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "review-fix/fix-boundaries01/coalesced-after/enet/result.json": {
+      "bytes": 1728,
+      "sha256": "8aa534b51c792546e1615265d0cd212c251fc5797c11f21eed9103c0c40bf7de"
+    },
+    "review-fix/fix-boundaries01/coalesced-before/enet/host/command.json": {
+      "bytes": 484,
+      "sha256": "d0402820512a427ed8f50e535e171121119c3e51b5a31b530d56a8f1a28377c0"
+    },
+    "review-fix/fix-boundaries01/coalesced-before/enet/host/engine.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "review-fix/fix-boundaries01/coalesced-before/enet/host/stderr.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "review-fix/fix-boundaries01/coalesced-before/enet/host/stdout.log": {
+      "bytes": 56,
+      "sha256": "de5260a9e3bf76724659217ed5c4d3f74df84fb6b010d747812262d09b0255b8"
+    },
+    "review-fix/fix-boundaries01/coalesced-before/enet/proxy.jsonl": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "review-fix/fix-boundaries01/coalesced-before/enet/result.json": {
+      "bytes": 1746,
+      "sha256": "bd2a47aaf46b6916197729e5cd9634bf4fb324e7d83de67060037ff62c7ee5f6"
+    },
+    "review-fix/fix-boundaries01/fragment-late/enet/host/command.json": {
+      "bytes": 475,
+      "sha256": "9421aa7504b738ee0255ee386d477731a9fdd8fb4d1a3f4d18975dde53f3a758"
+    },
+    "review-fix/fix-boundaries01/fragment-late/enet/host/engine.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "review-fix/fix-boundaries01/fragment-late/enet/host/stderr.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "review-fix/fix-boundaries01/fragment-late/enet/host/stdout.log": {
+      "bytes": 22,
+      "sha256": "d6200a84286a23a533dde3d2724c73ae1ec237d6d83366a6ddc37b7b9ab0db50"
+    },
+    "review-fix/fix-boundaries01/fragment-late/enet/proxy.jsonl": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "review-fix/fix-boundaries01/fragment-late/enet/result.json": {
+      "bytes": 1542,
+      "sha256": "36bd48f176161bfe2570b8dfbacfdabeafbdde5a92cd3408d5e3dd8ef1b4b6da"
+    },
+    "review-fix/fix-boundaries01/setup-expiry/enet/client/engine.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "review-fix/fix-boundaries01/setup-expiry/enet/client/stderr.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "review-fix/fix-boundaries01/setup-expiry/enet/client/stdout.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "review-fix/fix-boundaries01/setup-expiry/enet/host/command.json": {
+      "bytes": 472,
+      "sha256": "951d7b4454c0e2fd36e729c9ff2e864b8d6f4c022213162298fb0ce69e5d0dc0"
+    },
+    "review-fix/fix-boundaries01/setup-expiry/enet/host/engine.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "review-fix/fix-boundaries01/setup-expiry/enet/host/stderr.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "review-fix/fix-boundaries01/setup-expiry/enet/host/stdout.log": {
+      "bytes": 22,
+      "sha256": "d6200a84286a23a533dde3d2724c73ae1ec237d6d83366a6ddc37b7b9ab0db50"
+    },
+    "review-fix/fix-boundaries01/setup-expiry/enet/proxy.jsonl": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "review-fix/fix-boundaries01/setup-expiry/enet/result.json": {
+      "bytes": 2026,
+      "sha256": "1c10d79a959220fba1025e9144b17a2da0750d00d0d0e0f68efc9f8099e49e96"
+    },
+    "review-fix/fix-boundaries01/sources/handoff_boundaries.py": {
+      "bytes": 12299,
+      "sha256": "3ec911936122c22a218add69b1eb1168b16faf30a2ece6100393381b15a94971"
+    },
+    "review-fix/fix-boundaries01/sources/handoff_cleanup.py": {
+      "bytes": 4100,
+      "sha256": "3e7af21d4f5ff3fb642f859a522bac7acc9cd687d09a90688a0cd133189d1080"
+    },
+    "review-fix/fix-boundaries01/sources/observe.py": {
+      "bytes": 31300,
+      "sha256": "b7d2fda900ebf3c2d3bd2ed5458618c8cfdfb597060c9f058c4d9bb3d1d934cd"
+    },
+    "review-fix/fix-boundaries02.stderr": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "review-fix/fix-boundaries02.stdout": {
+      "bytes": 125,
+      "sha256": "0dac9b4507833eecd243e9d328639bcff8ae8e52436d23e3c1552dbd18d519d2"
+    },
+    "review-fix/fix-boundaries02/after/enet/host/command.json": {
+      "bytes": 451,
+      "sha256": "13bcc7dcbfae8430539f6cca017c0a8cfd988cbc4ac6c824c403328afcd147c9"
+    },
+    "review-fix/fix-boundaries02/after/enet/host/engine.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "review-fix/fix-boundaries02/after/enet/host/stderr.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "review-fix/fix-boundaries02/after/enet/host/stdout.log": {
+      "bytes": 22,
+      "sha256": "d6200a84286a23a533dde3d2724c73ae1ec237d6d83366a6ddc37b7b9ab0db50"
+    },
+    "review-fix/fix-boundaries02/after/enet/proxy.jsonl": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "review-fix/fix-boundaries02/after/enet/result.json": {
+      "bytes": 1518,
+      "sha256": "3c89ceb981ae95ec9aa252fa682da285a316a6c6a3032b5de2d9ff90131f6c0d"
+    },
+    "review-fix/fix-boundaries02/at/enet/host/command.json": {
+      "bytes": 442,
+      "sha256": "d62c9ad111d3d2f7591499a5bebde1dd67de4c55dd1f5587e9160a74f0d96c35"
+    },
+    "review-fix/fix-boundaries02/at/enet/host/engine.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "review-fix/fix-boundaries02/at/enet/host/stderr.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "review-fix/fix-boundaries02/at/enet/host/stdout.log": {
+      "bytes": 22,
+      "sha256": "d6200a84286a23a533dde3d2724c73ae1ec237d6d83366a6ddc37b7b9ab0db50"
+    },
+    "review-fix/fix-boundaries02/at/enet/proxy.jsonl": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "review-fix/fix-boundaries02/at/enet/result.json": {
+      "bytes": 1499,
+      "sha256": "301150f3582b9193b4ae843cd8ac78867f326c646af921041efd53b53344b33e"
+    },
+    "review-fix/fix-boundaries02/before/enet/client/command.json": {
+      "bytes": 460,
+      "sha256": "b0477de5a5a569eef94f0f969b022de5fe76b2e88bf70cf1effb7d863f530abb"
+    },
+    "review-fix/fix-boundaries02/before/enet/client/engine.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "review-fix/fix-boundaries02/before/enet/client/stderr.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "review-fix/fix-boundaries02/before/enet/client/stdout.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "review-fix/fix-boundaries02/before/enet/host/command.json": {
+      "bytes": 454,
+      "sha256": "6eac8cd00bbbfc2c16f894ba3baf92d8734001d094f5c8bc51bce7255e658a00"
+    },
+    "review-fix/fix-boundaries02/before/enet/host/engine.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "review-fix/fix-boundaries02/before/enet/host/stderr.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "review-fix/fix-boundaries02/before/enet/host/stdout.log": {
+      "bytes": 22,
+      "sha256": "d6200a84286a23a533dde3d2724c73ae1ec237d6d83366a6ddc37b7b9ab0db50"
+    },
+    "review-fix/fix-boundaries02/before/enet/proxy.jsonl": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "review-fix/fix-boundaries02/before/enet/result.json": {
+      "bytes": 2236,
+      "sha256": "2b49986fd474204c7a022e0e799960dee2bc14bd04500f3c3333a7fe0dcc2857"
+    },
+    "review-fix/fix-boundaries02/coalesced-after/enet/host/command.json": {
+      "bytes": 481,
+      "sha256": "0dfa6c4f013d5030ae2173d91619016a25121e21e0402faf09829c40a645a98e"
+    },
+    "review-fix/fix-boundaries02/coalesced-after/enet/host/engine.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "review-fix/fix-boundaries02/coalesced-after/enet/host/stderr.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "review-fix/fix-boundaries02/coalesced-after/enet/host/stdout.log": {
+      "bytes": 56,
+      "sha256": "de5260a9e3bf76724659217ed5c4d3f74df84fb6b010d747812262d09b0255b8"
+    },
+    "review-fix/fix-boundaries02/coalesced-after/enet/proxy.jsonl": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "review-fix/fix-boundaries02/coalesced-after/enet/result.json": {
+      "bytes": 1728,
+      "sha256": "dcab3a434166d6feae345811696e9902ad7849045cf8ca3012ddd585b15bdde9"
+    },
+    "review-fix/fix-boundaries02/coalesced-before/enet/host/command.json": {
+      "bytes": 484,
+      "sha256": "8ed0d114adce8ed40316d75115f77060d1b41b0d650f7ca425ed6731f0633ddd"
+    },
+    "review-fix/fix-boundaries02/coalesced-before/enet/host/engine.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "review-fix/fix-boundaries02/coalesced-before/enet/host/stderr.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "review-fix/fix-boundaries02/coalesced-before/enet/host/stdout.log": {
+      "bytes": 56,
+      "sha256": "de5260a9e3bf76724659217ed5c4d3f74df84fb6b010d747812262d09b0255b8"
+    },
+    "review-fix/fix-boundaries02/coalesced-before/enet/proxy.jsonl": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "review-fix/fix-boundaries02/coalesced-before/enet/result.json": {
+      "bytes": 1746,
+      "sha256": "a82996140afb7e10b4c547eda0269b6721f3b21002f622f043046d08db8248ac"
+    },
+    "review-fix/fix-boundaries02/errors/enet/client/command.json": {
+      "bytes": 459,
+      "sha256": "a277cc1837d8ec2a60190ef9fb274f196f5bff4fec5d920f7097a7487267b61e"
+    },
+    "review-fix/fix-boundaries02/errors/enet/client/engine.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "review-fix/fix-boundaries02/errors/enet/client/stderr.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "review-fix/fix-boundaries02/errors/enet/client/stdout.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "review-fix/fix-boundaries02/errors/enet/host/command.json": {
+      "bytes": 458,
+      "sha256": "cdacc54aefc3b748d0f321c885d575d900300a35de17d51ca6253581a8d328a3"
+    },
+    "review-fix/fix-boundaries02/errors/enet/host/engine.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "review-fix/fix-boundaries02/errors/enet/host/stderr.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "review-fix/fix-boundaries02/errors/enet/host/stdout.log": {
+      "bytes": 22,
+      "sha256": "d6200a84286a23a533dde3d2724c73ae1ec237d6d83366a6ddc37b7b9ab0db50"
+    },
+    "review-fix/fix-boundaries02/errors/enet/proxy.jsonl": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "review-fix/fix-boundaries02/errors/enet/result.json": {
+      "bytes": 4172,
+      "sha256": "4a095647d597c431b5417c4d0c19728643915dee60aca35a88b79ed9ae25a36d"
+    },
+    "review-fix/fix-boundaries02/fragment-late/enet/host/command.json": {
+      "bytes": 475,
+      "sha256": "4a05ae9fa7f44f468a6d2a24e95d7fb5cb489b42a7a21e5745946553945e192a"
+    },
+    "review-fix/fix-boundaries02/fragment-late/enet/host/engine.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "review-fix/fix-boundaries02/fragment-late/enet/host/stderr.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "review-fix/fix-boundaries02/fragment-late/enet/host/stdout.log": {
+      "bytes": 22,
+      "sha256": "d6200a84286a23a533dde3d2724c73ae1ec237d6d83366a6ddc37b7b9ab0db50"
+    },
+    "review-fix/fix-boundaries02/fragment-late/enet/proxy.jsonl": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "review-fix/fix-boundaries02/fragment-late/enet/result.json": {
+      "bytes": 1542,
+      "sha256": "af31fb07ed1ec4d9ba7180af5a365f046b1d4d62be2209f6b68cfdeb430dc0a3"
+    },
+    "review-fix/fix-boundaries02/result.json": {
+      "bytes": 47385,
+      "sha256": "37a7fcb3edd272d882163f8a84de08fd065569cd66fec43f1c0fcf789935cd06"
+    },
+    "review-fix/fix-boundaries02/setup-expiry/enet/client/engine.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "review-fix/fix-boundaries02/setup-expiry/enet/client/stderr.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "review-fix/fix-boundaries02/setup-expiry/enet/client/stdout.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "review-fix/fix-boundaries02/setup-expiry/enet/host/command.json": {
+      "bytes": 472,
+      "sha256": "a848940440bc33dcafea8fee68a026c2f8ee32f584f63851bf928ff0144dd114"
+    },
+    "review-fix/fix-boundaries02/setup-expiry/enet/host/engine.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "review-fix/fix-boundaries02/setup-expiry/enet/host/stderr.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "review-fix/fix-boundaries02/setup-expiry/enet/host/stdout.log": {
+      "bytes": 22,
+      "sha256": "d6200a84286a23a533dde3d2724c73ae1ec237d6d83366a6ddc37b7b9ab0db50"
+    },
+    "review-fix/fix-boundaries02/setup-expiry/enet/proxy.jsonl": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "review-fix/fix-boundaries02/setup-expiry/enet/result.json": {
+      "bytes": 2026,
+      "sha256": "ebe818b97e98b5c762b494c8a46ca65852e6a129c9f05cdcd15294cff69d2667"
+    },
+    "review-fix/fix-boundaries02/sources/handoff_boundaries.py": {
+      "bytes": 12331,
+      "sha256": "8d039677bc94c8a7e1ec9269451ff988d8f9dc9e3d5deef10b7ea05a8364ee35"
+    },
+    "review-fix/fix-boundaries02/sources/handoff_cleanup.py": {
+      "bytes": 4100,
+      "sha256": "3e7af21d4f5ff3fb642f859a522bac7acc9cd687d09a90688a0cd133189d1080"
+    },
+    "review-fix/fix-boundaries02/sources/observe.py": {
+      "bytes": 31308,
+      "sha256": "c47d1457ebbe50b86f1bba3b6dfed02ccc1d30cc8c2999c02803e6b391bbd5a0"
+    },
+    "review-fix/rebase-continue.stderr": {
+      "bytes": 71,
+      "sha256": "9318c35868c18c21fbf7d351a4d4243fe2bc33df17707946b985e586ee37bbb0"
+    },
+    "review-fix/rebase-continue.stdout": {
+      "bytes": 1929,
+      "sha256": "414e7467d97404fd0390c63e158eddaefe30d448f1dde2ce2603edc21ebb1ed4"
+    },
+    "review-fix/rebase.stderr": {
+      "bytes": 578,
+      "sha256": "ce8db64a02a2103b86b96c4aa3265f11d3f1cb68b629d31203975aaa3f8fe143"
+    },
+    "review-fix/rebase.stdout": {
+      "bytes": 67,
+      "sha256": "04381093ebcbbab7662ba355efbcc3c2eaf55b32028caec90626c2e834bb1fe5"
     },
     "set01.stderr": {
       "bytes": 814,
@@ -300,8 +930,8 @@
       "sha256": "89590a6530147ecdbfd819ad80308b236455a999ccd48f3f74f67b1e6c09e655"
     },
     "verify.py": {
-      "bytes": 7652,
-      "sha256": "ac525a69e93d4822138cabbc20b28d4aaea635eb11fd984a7363f9719bfb23bd"
+      "bytes": 10337,
+      "sha256": "1452c9d0eb0f5a65194627acf018c46a3b4bb467ebea394c875fe2e954e863fb"
     }
   }
 }

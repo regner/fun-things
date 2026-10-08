@@ -1,0 +1,22 @@
+[detached HEAD 20d829c] Retain exported handoff progress and runtime STOP evidence
+ 23 files changed, 2711 insertions(+), 5 deletions(-)
+ create mode 100644 docs/spikes/s08-exported-enet-handoff-evidence/commands.json
+ create mode 100644 docs/spikes/s08-exported-enet-handoff-evidence/index.json
+ create mode 100644 docs/spikes/s08-exported-enet-handoff-evidence/launch-receipt.json
+ create mode 100644 docs/spikes/s08-exported-enet-handoff-evidence/network-expected.json
+ create mode 100644 docs/spikes/s08-exported-enet-handoff-evidence/offline/observe-executed.py
+ create mode 100644 docs/spikes/s08-exported-enet-handoff-evidence/raw-requirements.md
+ create mode 100644 docs/spikes/s08-exported-enet-handoff-evidence/set01.stderr
+ create mode 100644 docs/spikes/s08-exported-enet-handoff-evidence/set01.stdout
+ create mode 100644 docs/spikes/s08-exported-enet-handoff-evidence/set01/enet/client/command.json
+ create mode 100644 docs/spikes/s08-exported-enet-handoff-evidence/set01/enet/client/engine.log
+ create mode 100644 docs/spikes/s08-exported-enet-handoff-evidence/set01/enet/client/stderr.log
+ create mode 100644 docs/spikes/s08-exported-enet-handoff-evidence/set01/enet/client/stdout.log
+ create mode 100644 docs/spikes/s08-exported-enet-handoff-evidence/set01/enet/host/command.json
+ create mode 100644 docs/spikes/s08-exported-enet-handoff-evidence/set01/enet/host/engine.log
+ create mode 100644 docs/spikes/s08-exported-enet-handoff-evidence/set01/enet/host/stderr.log
+ create mode 100644 docs/spikes/s08-exported-enet-handoff-evidence/set01/enet/host/stdout.log
+ create mode 100644 docs/spikes/s08-exported-enet-handoff-evidence/set01/enet/proxy.jsonl
+ create mode 100644 docs/spikes/s08-exported-enet-handoff-evidence/set01/enet/result.json
+ create mode 100644 docs/spikes/s08-exported-enet-handoff-evidence/set01/stream-readback.json
+ create mode 100644 docs/spikes/s08-exported-enet-handoff-evidence/verify.py

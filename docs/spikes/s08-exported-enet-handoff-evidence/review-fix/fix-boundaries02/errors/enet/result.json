@@ -1,0 +1,188 @@
+{
+  "ok": false,
+  "host_ready_before_client": true,
+  "commands": {
+    "host": {
+      "argv": [
+        "/tmp/s08-handoff-8cae02a7/fix-boundaries02/errors/export-folder/FunThingsS08.x86_64",
+        "--headless",
+        "--log-file",
+        "/tmp/s08-handoff-8cae02a7/fix-boundaries02/errors/enet/host/engine.log",
+        "--",
+        "--role=host",
+        "--port=24740"
+      ],
+      "cwd": "/tmp/s08-handoff-8cae02a7/fix-boundaries02/errors/export-folder",
+      "started_unix": 1000.0,
+      "environment": {},
+      "owned_pid": 9000,
+      "exit": null,
+      "child_reaped": false
+    },
+    "client": {
+      "argv": [
+        "/tmp/s08-handoff-8cae02a7/fix-boundaries02/errors/export-folder/FunThingsS08.x86_64",
+        "--headless",
+        "--log-file",
+        "/tmp/s08-handoff-8cae02a7/fix-boundaries02/errors/enet/client/engine.log",
+        "--",
+        "--role=client",
+        "--port=24741"
+      ],
+      "cwd": "/tmp/s08-handoff-8cae02a7/fix-boundaries02/errors/export-folder",
+      "started_unix": 1000.0,
+      "environment": {},
+      "owned_pid": 9001,
+      "exit": -9,
+      "child_reaped": true
+    }
+  },
+  "asset_receipts": {},
+  "observations": [
+    {
+      "role": "host",
+      "event": "ready",
+      "seconds": 0.0,
+      "child_live": true,
+      "byte_offset": 22
+    }
+  ],
+  "ready": {
+    "event": "ready"
+  },
+  "ready_observed_unix": 1000.0,
+  "handoff_seconds": 0.0,
+  "failure": "RuntimeError('injected work failure')",
+  "cleanup": {
+    "errors": [
+      {
+        "target": 0,
+        "operation": "grace",
+        "error": "OSError('injected wait error')"
+      },
+      {
+        "target": 0,
+        "operation": "interrupt",
+        "error": "OSError('injected signal error')"
+      },
+      {
+        "target": 0,
+        "operation": "interrupt_wait",
+        "error": "OSError('injected wait error')"
+      },
+      {
+        "target": 0,
+        "operation": "terminate_wait",
+        "error": "OSError('injected wait error')"
+      },
+      {
+        "target": 0,
+        "operation": "reap",
+        "error": "OSError('injected wait error')"
+      },
+      {
+        "target": 0,
+        "operation": "unreaped",
+        "error": "RuntimeError('owned child remains unreaped at deadline')"
+      }
+    ],
+    "actions": [
+      {
+        "child": 0,
+        "operation": "grace",
+        "timeout": 2.0,
+        "at": 20.0
+      },
+      {
+        "child": 1,
+        "operation": "grace",
+        "timeout": 2.0,
+        "at": 20.0
+      },
+      {
+        "child": 0,
+        "operation": "interrupt",
+        "at": 22.0
+      },
+      {
+        "child": 1,
+        "operation": "interrupt",
+        "at": 22.0
+      },
+      {
+        "child": 0,
+        "operation": "interrupt_wait",
+        "timeout": 2.0,
+        "at": 22.0
+      },
+      {
+        "child": 1,
+        "operation": "interrupt_wait",
+        "timeout": 2.0,
+        "at": 22.0
+      },
+      {
+        "child": 0,
+        "operation": "terminate",
+        "at": 24.0
+      },
+      {
+        "child": 1,
+        "operation": "terminate",
+        "at": 24.0
+      },
+      {
+        "child": 0,
+        "operation": "terminate_wait",
+        "timeout": 2.0,
+        "at": 24.0
+      },
+      {
+        "child": 1,
+        "operation": "terminate_wait",
+        "timeout": 2.0,
+        "at": 24.0
+      },
+      {
+        "child": 0,
+        "operation": "kill",
+        "at": 26.0
+      },
+      {
+        "child": 1,
+        "operation": "kill",
+        "at": 26.0
+      },
+      {
+        "child": 0,
+        "operation": "reap",
+        "timeout": 3.75,
+        "at": 26.0
+      },
+      {
+        "child": 1,
+        "operation": "reap",
+        "timeout": 3.75,
+        "at": 26.0
+      }
+    ],
+    "children_reaped": [
+      false,
+      true
+    ],
+    "all_children_reaped": false,
+    "streams_closed": true,
+    "proxy_closed": true,
+    "proxy_log_closed": true,
+    "set_deadline": 30.0,
+    "cleanup_ended": 27.9
+  },
+  "all_children_reaped": false,
+  "streams_closed": true,
+  "proxy_closed": true,
+  "proxy_log_closed": true,
+  "proxy_events": [],
+  "proxy_count": 0,
+  "duration_seconds": 27.9,
+  "results": {}
+}

@@ -255,7 +255,7 @@ feature expansion, repeated unchanged experiment or silent contract/pin change.
   is accepted bounded partial at52941da: saved entrypoint/journal mutation and
   asset/API positives; historical authoring shutdown/exported-host STOPs remain failed.
   The [exported handoff follow-up](docs/spikes/s08-exported-enet-handoff.md#first-changed-condition-set-handoff-positive-runtime-stop)
-  awaits SAME independent review: launcher-only live readiness/client start and
+  records launcher-only live readiness/client start and
   baseline/admission journal70 progress, then two exit1 deadlines/six client signal
   errors. Explain release client lifecycle loss during held validation alongside
   `tree_exited` diagnostics under a new scoped grant; no identical retry or diagnosis

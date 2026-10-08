@@ -1,0 +1,78 @@
+{
+  "ok": false,
+  "host_ready_before_client": false,
+  "commands": {
+    "host": {
+      "argv": [
+        "/tmp/s08-handoff-8cae02a7/fix-boundaries02/coalesced-after/export-folder/FunThingsS08.x86_64",
+        "--headless",
+        "--log-file",
+        "/tmp/s08-handoff-8cae02a7/fix-boundaries02/coalesced-after/enet/host/engine.log",
+        "--",
+        "--role=host",
+        "--port=24740"
+      ],
+      "cwd": "/tmp/s08-handoff-8cae02a7/fix-boundaries02/coalesced-after/export-folder",
+      "started_unix": 1000.0,
+      "environment": {},
+      "owned_pid": 9000,
+      "exit": 1,
+      "child_reaped": true
+    }
+  },
+  "asset_receipts": {},
+  "observations": [
+    {
+      "role": "host",
+      "event": "ready",
+      "seconds": 4.001,
+      "child_live": true,
+      "byte_offset": 22
+    },
+    {
+      "role": "host",
+      "event": "result",
+      "seconds": 4.001,
+      "child_live": true,
+      "byte_offset": 56
+    }
+  ],
+  "ready": {
+    "event": "ready"
+  },
+  "ready_observed_unix": 1004.001,
+  "failure": "RuntimeError('host S03 assertion failed')",
+  "cleanup": {
+    "errors": [],
+    "actions": [
+      {
+        "child": 0,
+        "operation": "grace",
+        "timeout": 2.0,
+        "at": 4.001
+      }
+    ],
+    "children_reaped": [
+      true
+    ],
+    "all_children_reaped": true,
+    "streams_closed": true,
+    "proxy_closed": true,
+    "proxy_log_closed": true,
+    "set_deadline": 30.0,
+    "cleanup_ended": 4.001
+  },
+  "all_children_reaped": true,
+  "streams_closed": true,
+  "proxy_closed": true,
+  "proxy_log_closed": true,
+  "proxy_events": [],
+  "proxy_count": 0,
+  "duration_seconds": 4.001,
+  "results": {
+    "host": {
+      "event": "result",
+      "ok": false
+    }
+  }
+}

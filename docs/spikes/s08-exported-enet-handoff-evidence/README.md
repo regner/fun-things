@@ -24,3 +24,13 @@ locators. `verify.py` independently derives the evidence set and checks source/A
 expectations, actual per-role payload hashes/errors/results, metadata bytes and the
 S08-only TODO boundary. Its final same-HEAD output and required empty stderr are
 retained in the delivery note without a report-only commit cycle.
+
+`review-fix` preserves original failed fixture sources/complete diagnostics and partial
+streams, corrected seven boundary/seven cleanup scenarios plus integrated failure
+receipt, raw single-rebase/conflict/continue streams and inspected accepted TODO bytes.
+Its separate expected set supplements the original60-path envelope retained at7b3f45a;
+updated top-level index and verify.py derive the expanded full set independently.
+All original set01 bytes and required empties stay unchanged. The initial sole review
+package is preserved byte-for-byte in private scratch and will be bound with the SAME
+final report/check history in the final ordinary delivery note after disposition.
+No engine/network/package/editor retry validates these runner fixes.

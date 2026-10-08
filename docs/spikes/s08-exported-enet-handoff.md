@@ -142,3 +142,64 @@ current evidence does not establish causation or license engine/gameplay edits.
 Full S08, historical authoring shutdown, clean exported ENet and all platform/
 graphics/device/production gates remain open. Independent review is pending ROOT's
 capacity queue, not an editor lock. Current evidence is a candidate, not acceptance.
+
+## Independent review fixes and accepted TODO rebase
+
+Sole reviewer `b6747c0f-ce76-4478-bd4a-408e478d5f49` returned REQUEST_CHANGES on
+exact7b3f45a/base52941da. Original full report, result and48-file checked package
+(including index, original failed reviewer checks and corrected history) are
+preserved under `/tmp/s08-handoff-8cae02a7/review-initial`; original delivery remains
+`/tmp/s08-handoff-independent-review`. Final ordinary retention will bind original
+and SAME compact final evidence once after disposition. Three P2 source findings
+concerned future runner paths, not new failures in actual set01.
+
+F1 correction: reject readiness at/after the absolute four-second handoff boundary
+before launching client; check again immediately before Popen after client log/env
+preparation. Mark handoff positive only after Popen succeeds. Complete-line and
+coalesced-failure draining still precede handoff. Independent pipe/fake-clock tests
+at3.999/4.000/4.001s, late newline completion, coalesced failure before/after expiry
+and preparation crossing expiry check actual mock launch requests, not just flags.
+
+F2 correction: one absolute30s set deadline starts before network setup. The20s work
+phase leaves shared cleanup stages: normal grace2s, interrupt2s, terminate2s, then
+concurrent kill requests and reap waits sharing remaining absolute time. No positive
+minimum is added after an allowance expires. Reserve0.25s for close/receipt work;
+late/incomplete cleanup is an explicit failure, never a claimed reap. Two resistant
+fake handles receive kill at26s and both reap by27.9s; permanently resistant/injected
+error cases stop waits by29.75s. No sequential per-child escalation allowance.
+
+F3 correction: locally owned cleanup catches each wait/poll/signal/close error,
+attempts all other owned handles/resources and retains full diagnostics/actions.
+Actual observed wait/poll completion owns reap truth; unobserved completion remains
+false. Socket, all stdout/stderr streams and proxy log close independently. Command
+receipt errors do not prevent later command receipts; final network receipt includes
+cleanup flags/errors and cannot stay positive after incomplete/error cleanup.
+Independent signal/wait/poll/terminate/kill/final-timeout fixtures retain the second
+handle's successful cleanup; a close-error fixture still attempts later streams.
+An actual network-function fake test with two handles, signal/wait errors and an
+unreaped first handle writes both command receipts/final failure and closes resources.
+These are non-engine tests: real OS pipes/file logs, fake Popen/socket/clock only.
+
+First boundary-check fixture failed an incorrect expectation about reap after a
+poll/wait error: a later successful wait/poll can legitimately observe exit. Its
+exact original sources/full stderr/partial scenario streams remain in
+[review-fix evidence](s08-exported-enet-handoff-evidence/review-fix/expected.json).
+Corrected expectations check observed state and explicitly inject permanent resistance
+for the integrated unreaped case. Corrected seven readiness/seven cleanup cases plus
+network-receipt error case pass. No C/compiler/engine/package/ENet/editor/import/export
+repeat occurred; actual set01 and its failure remain byte-identical.
+
+At the saved clean boundary, read the full accepted TODO cleanup52941da→48aef3d:
+one changed file, removing historical operational prose and organizing remaining
+work by Owner/Needs/Remaining/Done; product invariants, all tasks/gates and a compact
+Parallel table remain. Rebased exactly once onto held
+`48aef3dbd133876743f504f94a1b788a26d5638f`; the sole conflict was our S08 paragraph.
+Resolve it into that accepted concise remaining-work structure, retain every byte
+outside S08, and preserve all five exact metadata sidecars. The new remaining S08
+question and every historical failed phase/platform gate stay open.
+
+Current user steering assigns this workspace its SAME final reviewer; notify ROOT
+without an acknowledgement or global review/editor lock. Keep writer idle during
+review and respect actual capacity. After exact reviewed clean/quiescent handoff and
+ordinary retention, remain idle under the user's deferred pause. No follow-up
+experiment/workstream or runtime retry is commissioned.

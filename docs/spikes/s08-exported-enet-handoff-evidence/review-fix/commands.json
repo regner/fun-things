@@ -1,0 +1,58 @@
+[
+  {
+    "phase": "first boundary test",
+    "argv": [
+      "python3",
+      "tools/s08/handoff_boundaries.py",
+      "/tmp/s08-handoff-8cae02a7/fix-boundaries01"
+    ],
+    "python_exit": 1,
+    "shell_wrapper_exit": 0,
+    "source": "review-fix/fix-boundaries01/sources/handoff_boundaries.py",
+    "consumer": "review-fix/fix-boundaries01/sources/observe.py",
+    "cleanup": "review-fix/fix-boundaries01/sources/handoff_cleanup.py",
+    "stdout": "review-fix/fix-boundaries01.stdout",
+    "stderr": "review-fix/fix-boundaries01.stderr",
+    "failure": "fixture incorrectly required no reap after a poll/wait error even when a later wait/poll observed exit; raw failure retained"
+  },
+  {
+    "phase": "corrected boundary test",
+    "argv": [
+      "python3",
+      "tools/s08/handoff_boundaries.py",
+      "/tmp/s08-handoff-8cae02a7/fix-boundaries02"
+    ],
+    "exit": 0,
+    "source": "review-fix/fix-boundaries02/sources/handoff_boundaries.py",
+    "consumer": "review-fix/fix-boundaries02/sources/observe.py",
+    "cleanup": "review-fix/fix-boundaries02/sources/handoff_cleanup.py",
+    "stdout": "review-fix/fix-boundaries02.stdout",
+    "stderr": "review-fix/fix-boundaries02.stderr"
+  },
+  {
+    "phase": "single rebase",
+    "argv": [
+      "git",
+      "rebase",
+      "48aef3dbd133876743f504f94a1b788a26d5638f"
+    ],
+    "exit": 1,
+    "stdout": "review-fix/rebase.stdout",
+    "stderr": "review-fix/rebase.stderr",
+    "outcome": "S08-only TODO overlap; no abort or second rebase"
+  },
+  {
+    "phase": "rebase continuation",
+    "argv": [
+      "git",
+      "rebase",
+      "--continue"
+    ],
+    "environment": {
+      "GIT_EDITOR": "true"
+    },
+    "exit": 0,
+    "stdout": "review-fix/rebase-continue.stdout",
+    "stderr": "review-fix/rebase-continue.stderr"
+  }
+]
