@@ -416,9 +416,11 @@ implementation. Save editor mutations before playtests; preserve unsaved work.
   [Provisional source preparation](docs/spikes/s05-effect-preparation.md) adds one
   provisional new Blender carrier/explicit GLB only; Godot import, saved presentation
   and actual eight-effect drawable/saturation/live-versus-hydrated gates remain pending.
-  [Saved-authoring follow-up](docs/spikes/s05-saved-presentation.md) stopped after its
-  final private readiness error gate; an empty scratch Explosion root/import is not
-  a linked saved presentation. No adapter/eight-slot/roundtrip/API result is delivered.
+  [Saved presentation candidate](docs/spikes/s05-saved-presentation.md) now supplies
+  actual imported GLB linkage, eight authored slots/new adapters, stable saved
+  roundtrips and finite API/host/live/settled-late ENet outcomes, pending independent
+  review. Eight node visibility states are not eight DRAW receipts; drawable
+  saturation/readability/cost acceptance still requires its separate grant.
   Actual public API/ENet host/live/settled-late health0/0/100, retired-ShotId negative,
   twelve-car144visits/4 per tick, normal queue5/46ticks and pressure queue12/tick41
   are accepted finite outcomes. Occupant sentinel is not an admitted player; only
@@ -833,15 +835,18 @@ Current ROOT commission at held accepted LOCAL main
 lead `56eb6b28-89c7-4944-8321-693144ffc97a`, workspace `wks_80583b9faf9f4332`,
 branch `s05-saved-explosion-presentation`. Accepted source-only2294a111 and its
 independent review remain source provenance, not saved presentation acceptance.
-The [bounded saved-authoring record](docs/spikes/s05-saved-presentation.md) is
-STOPPED: run01 authenticated but hit the .tscn-only GLB tool gap and an erroneous
-supervisor shutdown lost its new unsaved Visuals child; run02 prematurely rejected
-the stale private registry; final run03 matched its owned registry/auth context but
-stopped at the retained stale-PID registration diagnostic. All owned handles are
-reaped. Only a private saved empty Explosion root/new import exists; no linked model,
-eight authored slots, new adapter, saved roundtrip or runtime outcome is delivered.
-No fourth launch or graphical grant. Full S05 remains OPEN; one eventual independent
-review is held pending ROOT's serialized slot release. No shared editor operation.
+The [bounded saved-authoring record](docs/spikes/s05-saved-presentation.md) now
+contains an UNACCEPTED implementation candidate: run04 independently authenticated
+its owned private route after stale-registration cleanup, then authored linked GLB
+Explosion, eight saved slots in new inherited fixtures, adapters and true UIDs.
+Stable saved roundtrips, pinned compile/style and one finite actual ENet set pass;
+eight node-state peak/four drops/twelve outcomes144visits/local120-tick cleanup are
+API evidence, with no graphical claim. Earlier three STOPs/lost unsaved new child,
+setup/save-thumbnail and shutdown diagnostics remain retained. Owned editor/connector
+and three runtime children are reaped; normal private registry removal completed,
+all authored changes saved. No fifth launch or graphical grant. Full S05 remains
+OPEN; ONE fresh independent SolHIGH review awaits ROOT's serialized slot release.
+No shared editor operation.
 
 Alongside S05, ROOT's supplied concurrent S08 owner is direct Sol6.1 HIGH
 `555e0330`, workspace `wks_c7fc8314996ebb13`. Its distinct owned private project/editor
@@ -910,8 +915,8 @@ and existing P0-PROFILES dated-notes reconciliation do not require a visual leas
 Stopped S02 visual access does not hold up independent ready work. S08's bounded
 isolated observation is accepted STOPPED, archived, with full proof gates OPEN.
 Current S08 owner `555e0330`/workspace `wks_c7fc8314996ebb13` follows the
-ROOT-granted distinct private route above. S05 saved authoring stopped on its final
-readiness error gate; its saved presentation/API/ENet/draw proofs remain pending.
+ROOT-granted distinct private route above. S05's saved presentation/API/ENet candidate is complete and quiescent, pending
+independent review; actual drawn/readability/cost gates remain pending.
 Accepted S05 source preparation is unchanged. Limited S07 static run-card/content-gap
 preparation can be separately assigned; representative measurements await actual
 content/effects/drawability/hardware.
@@ -934,7 +939,7 @@ The table describes dependency stages, not a claim that deferred proofs are runn
 | Initial foundation | Ratified brief, contract drafts, concept exploration, tool inventory | Chosen style/layout and measured scope revisions need user ratification and evidence |
 | Tiny fixtures available | S02 camera using [S01 pipeline evidence](docs/spikes/s01.md); use [completed S03 session evidence](docs/spikes/s03.md); review skill dry runs | All visible fixtures must have Blender sources; only minimum harness required |
 | ENet boundary available | Stopped S03-S compatibility accepted; root commissions exact-revision evidence or bounded native-boundary design; S08 desktop preparation | No adapter selection/native delivery/access proof inferred; existing-app/tester/native compatibility still required |
-| Reviewed desktop and partial S05/S06 technical results available | Exact754a0b5 and7fb302b PARTIAL accepted; provisional S07 seam dependency satisfied; S02 exacta311c576 stopped record ACCEPT/full-positive FAIL; DOC1–11 complete; scoped DOC12/13 ready; S08 exact1229782 stopped evidence ACCEPTED/full asset-ENet OPEN; current ROOT-supplied S08 owner555e0330/workspacewks_c7fc8314996ebb13 owns its distinct private release route, no accepted outcome | Time-specific S02 display lease RETURNED; shared authoring UNASSIGNED; S05 lead56eb6b28/wks_80583b9faf9f4332 consumed its final private run03 and STOPPED before mutation at retained registration diagnostic, owned handles reaped/no fourth or drawable grant; S08 owner555e0330 has its distinct ROOT-granted private route; ROOT serializes eventual reviews; full S02/S05/S07/drawn/physical keys/feel/final dimensions/Steam/targets remain open |
+| Reviewed desktop and partial S05/S06 technical results available | Exact754a0b5 and7fb302b PARTIAL accepted; provisional S07 seam dependency satisfied; S02 exacta311c576 stopped record ACCEPT/full-positive FAIL; DOC1–11 complete; scoped DOC12/13 ready; S08 exact1229782 stopped evidence ACCEPTED/full asset-ENet OPEN; current ROOT-supplied S08 owner555e0330/workspacewks_c7fc8314996ebb13 owns its distinct private release route, no accepted outcome | Time-specific S02 display lease RETURNED; shared authoring UNASSIGNED; S05 lead56eb6b28/wks_80583b9faf9f4332 delivered its run04 saved/API/ENet candidate pending review; old STOPs/diagnostics retained, owned handles reaped/no fifth or drawable grant; S08 owner555e0330 has its distinct ROOT-granted private route; ROOT serializes eventual reviews; full S02/S05/S07/drawn/physical keys/feel/final dimensions/Steam/targets remain open |
 | Both providers available | Finish S03-R foot response and S04 network response; S08 exports | Both transports need evidence; foot/vehicle prediction are separate decisions |
 | Provisional technical topology available | Accepted S06 crossing/opposing legal LEFT turns/four-arm minimap/stale-data and finite guard; S07 static preparation | Actual drawn/readability/final bodies/contact/exit reruns and real M1-C3 contested recovery remain open; geometric sensitivity is not changed-body proof |
 | City/effect fixtures available | S07 capacity/culling experiments, finish S08, skill dry runs and doc reconciliation | P0-GATE resolves critical assumptions before production |

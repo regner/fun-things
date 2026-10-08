@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://dbge3dp3s53r3"]
+
+[ext_resource type="PackedScene" uid="uid://dembbyrbteuwu" path="res://art/models/spikes/s05_explosion_carrier.glb" id="2_lan1j"]
+
+[node name="Explosion" type="Node3D" unique_id=1935466903]
+visible = false
+
+[node name="Visuals" type="Node3D" parent="." unique_id=463468471]
+
+[node name="Model" parent="Visuals" unique_id=135814020 instance=ExtResource("2_lan1j")]

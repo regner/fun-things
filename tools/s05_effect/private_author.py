@@ -316,6 +316,14 @@ await client.close();
                 connector.wait(timeout=2)
             except subprocess.TimeoutExpired:
                 stop(connector)
+        if editor is not None and result['ok'] and editor.poll() is None:
+            # The helper already requested a saved-state-checked deferred quit.
+            # Give normal plugin deregistration and engine teardown their full
+            # commissioned grace window before signaling the owned child.
+            try:
+                editor.wait(timeout=2)
+            except subprocess.TimeoutExpired:
+                pass
         stop(editor)
         stop(init)
         for stream in streams:

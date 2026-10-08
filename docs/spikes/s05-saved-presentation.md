@@ -6,6 +6,10 @@ branch `s05-saved-explosion-presentation`, clean accepted base
 `ef730df936b5b159f0894033f5d01e2b7124386c`; verified effective Sol6.1 HIGH,
 auto-review, Plan false. ROOT owns integration and serialized independent review.
 
+**Current candidate: saved implementation and finite technical checks complete;
+independent review pending.** Run04's actual result below supersedes the earlier
+STOP dispositions without converting them into passes. Full S05 remains OPEN.
+
 ## Predeclared private authoring protocol
 
 Use pinned `/home/regner/.local/share/mise/installs/github-godotengine-godot-builds/4.8-dev7/godot`,
@@ -207,3 +211,72 @@ save each batch, suitable GLB helper only, actual save/close/reopen APIs and fin
 headless checks follow readiness. Graceful SceneTree shutdown only after empty
 unsaved state lets normal toolkit deregistration run; fallback owned handle2s.
 ONE eventual review, ROOT serialized. No new graphical/source/native grant.
+
+## Run04 actual saved implementation and finite results
+
+Own run04 independently authenticated normal automaticWS6552/ownedPID561303;
+exact canonical mirror/current-PID/token/fullpin/editor_hint=true/boostfalse matched.
+Readiness stderr had only the known dev7/latest-tested4.7 warning, no stale-PID error.
+No S08 receipt was used as S05 readiness proof. No new preparation child ran.
+
+Actual `script_write`, scene/node/inheritance tools authored four new scripts with
+true engine UID sidecars and four saved scenes. The demonstrated .glb restriction
+required the scoped @tool helper; it instantiated the linked imported PackedScene
+under saved Explosion/Visuals, then was detached before the final effect save.
+Explosion keeps uid://dbge3dp3s53r3/root1935466903. Model is identity-transform,
+dependency uid://dembbyrbteuwu; direct existing node-method/Expression-scope handlers
+read AABB(-1.7361342,0.1,-1.8136,3.4722683,1.6,3.3426673) and three surfaces named
+flash_amber/burst_coral/flash_ivory. No collision or embedded/generated render mesh.
+
+New boot/burst inherit immutable accepted S05 boot/burst. Only new root/Match/
+Presentation scripts and saved Presentation/Slots/Slot0..Slot7 are added; cars,
+track, body/collision placements and Damage/Replication/Session remain unchanged.
+S05SavedMatch injects slot/body references. S05SavedPresentation consumes the existing
+S05Presentation fence/reservation owner, advances history before cosmetic drops,
+and expires local slot state independently of host events. begin/hydration/clear
+invalidate epoch/generation and hide all slots. Runtime changes effect-root pose
+only; internal linked model placement remains saved.
+
+All four scripts passed inline and explicit editor compilation plus pinned0.3.0
+format/lint. Refresh/close/open/save/close/open/save/open checks stabilized all four
+scene byte hashes, UIDs/inherited IDs/ancestry. The initial strict byte probe failed
+on a fixture's first normalization: Godot removed redundant type=Node3D/visible=false
+from instanced Slots. Captured burst before/after shows unchanged UIDs/node IDs;
+the earlier boot initial-before bytes were not separately saved. Subsequent stable
+checks are retained; no initial byte-identity pass is claimed. New scenes were then
+copied byte-for-byte from the owned mirror into the assigned worktree.
+
+The one finite actual ENet set completed in1.921s. Owned host563214/live563236/
+settled-late563258 exited0 and were reaped; separate XDG/log directories, original
+saved protocol/RPC paths, no toolkit runtime autoload/native Steam in the check copy.
+Each production proof verified linked saved ancestry, eight node reservations/four
+drops, duplicate/stale/future/session/unsupported-generation rejection, literal120
+local ticks without new events, old epoch/reused-slot-generation fencing and clear.
+Host/live/settled-late current health is twelve literal zeroes; host outcomes12/
+target visits144; actual saved-node peak8; live12/duplicate12; settled hydration0
+historical effects before input. Isolated copied adapter resources on copied saved
+nodes omit lifetime/epoch guards and demonstrate the expected failure sensitivity;
+original scripts are unchanged. Static GLB-omission negative fails its exact link
+expectation. Runtime stdout/stderr/engine logs are complete; all three stderr streams
+empty and engine diagnostics absent. No graphical/draw/cost claim.
+
+Headless editor saves retained26 `Parameter t is null` dummy-thumbnail errors from
+safe_scene_ops save, separately from script/runtime checks. A late helper inspection
+used a cached old body after script editing; direct mesh handlers supplied the actual
+import bounds/material receipt. A cleanup assertion expected JSON[] but the toolkit
+serialized empty PackedStringArray as text; the helper's actual is_empty guard then
+allowed deferred SceneTree quit. Normal toolkit deregistration completed/entry gone.
+The supervisor prematurely sent SIGINT during engine shutdown instead of waiting2s,
+so editor exit-2 remains actual history; connector0/all children reaped. The final
+supervisor source now waits the full2s after a requested saved-state-checked quit;
+no extra engine retry validates that source correction. No unsaved changes discarded
+in run04; every mutation batch saved, scene_close receipts false, cleanup guard empty.
+
+All563 pre-existing technical/source/project/vendor/pin files and322 mirror inputs
+are checked through explicit recorded sets; source/export
+bytes remain accepted. New carrier import metadata is actual engine-generated.
+Eight visibility properties/actual linked nodes are not DRAW receipts. Full S05,
+Regner tuning/final body dimensions/spacing/contact, admitted-player lifecycle,
+during-chain join/reset/sustained load, S07 hardware/readability/cost/input/feel,
+Steam/Deck/P0/M1/production remain OPEN. ROOT receives the exact candidate before
+ONE serialized fresh independent SolHIGH review; no merge/push/archive.

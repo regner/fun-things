@@ -1,0 +1,34 @@
+[gd_scene format=3 uid="uid://bdtfsc6kyavum"]
+
+[ext_resource type="PackedScene" uid="uid://dkkcxrjt8l00v" path="res://tests/fixtures/s05/burst.tscn" id="1"]
+[ext_resource type="Script" uid="uid://cypoe60vntu6j" path="res://tests/fixtures/s05_effect/proof.gd" id="2_rretw"]
+[ext_resource type="Script" uid="uid://c0m2uy5m4h7hh" path="res://tests/fixtures/s05_effect/match.gd" id="3_p2mll"]
+[ext_resource type="Script" uid="uid://byjwrmaxnl1r0" path="res://tests/fixtures/s05_effect/presentation.gd" id="4_rdtdw"]
+[ext_resource type="PackedScene" uid="uid://dbge3dp3s53r3" path="res://tests/fixtures/s05_effect/explosion.tscn" id="5_p2mll"]
+
+[node name="Boot" unique_id=1885806349 instance=ExtResource("1")]
+script = ExtResource("2_rretw")
+
+[node name="Match" parent="View" parent_id_path=PackedInt32Array(1918382734) index="0" unique_id=828107831]
+script = ExtResource("3_p2mll")
+
+[node name="Presentation" parent="View/Match" index="4" unique_id=1043713376]
+script = ExtResource("4_rdtdw")
+
+[node name="Slots" type="Node3D" parent="View/Match/Presentation" index="0" unique_id=1294419605]
+
+[node name="Slot0" parent="View/Match/Presentation/Slots" index="0" unique_id=1935466903 instance=ExtResource("5_p2mll")]
+
+[node name="Slot1" parent="View/Match/Presentation/Slots" index="1" unique_id=456312590 instance=ExtResource("5_p2mll")]
+
+[node name="Slot2" parent="View/Match/Presentation/Slots" index="2" unique_id=1347219582 instance=ExtResource("5_p2mll")]
+
+[node name="Slot3" parent="View/Match/Presentation/Slots" index="3" unique_id=1688344281 instance=ExtResource("5_p2mll")]
+
+[node name="Slot4" parent="View/Match/Presentation/Slots" index="4" unique_id=1876430343 instance=ExtResource("5_p2mll")]
+
+[node name="Slot5" parent="View/Match/Presentation/Slots" index="5" unique_id=1242831541 instance=ExtResource("5_p2mll")]
+
+[node name="Slot6" parent="View/Match/Presentation/Slots" index="6" unique_id=1725506388 instance=ExtResource("5_p2mll")]
+
+[node name="Slot7" parent="View/Match/Presentation/Slots" index="7" unique_id=1948818 instance=ExtResource("5_p2mll")]
