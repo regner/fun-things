@@ -1,0 +1,155 @@
+{
+  "ok": false,
+  "engine": "4.8.dev7.official.c971f93e7",
+  "revision": "42a54463b7437463f039995523b8b30a11dc18a6",
+  "dirty_inputs": "",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "processor": "Intel64 Family 6 Model 170 Stepping 4, GenuineIntel",
+  "duration_s": 30.0,
+  "warmup_s": 10.0,
+  "repeats": 2,
+  "variants_requested": [
+    6
+  ],
+  "cases": [
+    {
+      "variant": 6,
+      "repeat": 1,
+      "argv": [
+        "C:\\Users\\regner.blokandersen\\AppData\\Local\\mise\\installs\\github-godotengine-godot-builds\\4.8-dev7\\godot.EXE",
+        "--path",
+        "C:\\tmp\\ft\\lanes\\s07-env\\city-6\\project",
+        "--windowed",
+        "--resolution",
+        "1280x800",
+        "--log-file",
+        "C:\\tmp\\ft\\lanes\\s07-env\\city-6\\city-6-repeat-1\\engine.log",
+        "--script",
+        "res://tests/fixtures/s07_env/measure.gd",
+        "--",
+        "res://tests/fixtures/s07_env/city_6.tscn"
+      ],
+      "exit": 0,
+      "timed_out": false,
+      "diagnostics": [
+        "SCRIPT ERROR: Parse Error: Preload file \"res://tests/fixtures/s02/actor_cutaway.gdshader\" does not exist.",
+        "ERROR: Failed to load script \"res://tests/fixtures/s02/building_view.gd\" with error \"Parse error\".",
+        "SCRIPT ERROR: Parse Error: Preload file \"res://tests/fixtures/s02/actor_cutaway.gdshader\" does not exist.",
+        "ERROR: Failed to load script \"res://tests/fixtures/s02/building_view.gd\" with error \"Parse error\"."
+      ],
+      "result": {
+        "adapter": "NVIDIA GeForce RTX 4070 Laptop GPU",
+        "adapter_vendor": "NVIDIA",
+        "api_version": "12_0",
+        "authored_instance_count": 36,
+        "block_count": 6,
+        "camera_speed_mps": 15.0,
+        "cold_first_load_ms": 292.548,
+        "cold_resource_load_ms": 288.521,
+        "display": "Windows",
+        "duration_seconds": 30.0,
+        "fields": [
+          "elapsed_s",
+          "frame_interval_ms",
+          "render_cpu_ms",
+          "render_gpu_ms",
+          "physics_ms",
+          "draw_calls",
+          "objects",
+          "primitives",
+          "video_mem_bytes",
+          "node_count"
+        ],
+        "max_fps": 60,
+        "route_length_m": 240.0,
+        "scene": "res://tests/fixtures/s07_env/city_6.tscn",
+        "scene_node_count": 834,
+        "static_collider_count": 48,
+        "vsync_mode": 0,
+        "warm_reload_ms": 21.422,
+        "warmup_seconds": 10.0,
+        "window_size": [
+          1280,
+          800
+        ]
+      },
+      "frames": {
+        "frames": 1796,
+        "span_s": 30.007921,
+        "frame_interval_ms": {
+          "p50": 16.662,
+          "p95": 17.502,
+          "p99": 18.666,
+          "max": 59.535
+        },
+        "render_cpu_ms": {
+          "p50": 0.3479999899864197,
+          "p95": 0.47600001096725464,
+          "p99": 0.5680000185966492,
+          "max": 1.74399995803833
+        },
+        "render_gpu_ms": {
+          "p50": 2.0510001182556152,
+          "p95": 2.194999933242798,
+          "p99": 2.2300000190734863,
+          "max": 3.5840001106262207
+        },
+        "physics_ms": {
+          "p50": 0.122,
+          "p95": 0.265,
+          "p99": 0.331,
+          "max": 0.331
+        },
+        "draw_calls": {
+          "p50": 54.0,
+          "p95": 61.0,
+          "p99": 62.0,
+          "max": 64.0
+        },
+        "objects": {
+          "p50": 68.0,
+          "p95": 72.0,
+          "p99": 74.0,
+          "max": 74.0
+        },
+        "primitives": {
+          "p50": 4512.0,
+          "p95": 5424.0,
+          "p99": 6164.0,
+          "max": 6200.0
+        },
+        "video_mem_bytes": {
+          "p50": 92065792.0,
+          "p95": 92065792.0,
+          "p99": 92065792.0,
+          "max": 92065792.0
+        },
+        "node_count": {
+          "p50": 835.0,
+          "p95": 835.0,
+          "p99": 835.0,
+          "max": 835.0
+        },
+        "mean_fps": 59.81939538645245,
+        "hitches_over_33ms": 2
+      },
+      "resident_bytes": {
+        "samples": 46,
+        "p50": 365023232,
+        "p95": 365207552,
+        "max": 365215744,
+        "peak_working_set": 403439616
+      },
+      "ok": false,
+      "stop_reasons": [
+        "diagnostic, crash, timeout, or missing telemetry"
+      ]
+    }
+  ],
+  "import": {
+    "exit": 0,
+    "diagnostics": []
+  },
+  "failure": "case city-6-repeat-1 failed",
+  "stopped_at_variant": 6
+}

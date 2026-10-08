@@ -1,0 +1,36 @@
+{
+	"adapter": "NVIDIA GeForce RTX 4070 Laptop GPU",
+	"adapter_vendor": "NVIDIA",
+	"api_version": "12_0",
+	"authored_instance_count": 144,
+	"block_count": 24,
+	"camera_speed_mps": 15.0,
+	"cold_first_load_ms": 331.229,
+	"cold_resource_load_ms": 313.199,
+	"display": "Windows",
+	"duration_seconds": 30.0,
+	"fields": [
+		"elapsed_s",
+		"frame_interval_ms",
+		"render_cpu_ms",
+		"render_gpu_ms",
+		"physics_ms",
+		"draw_calls",
+		"objects",
+		"primitives",
+		"video_mem_bytes",
+		"node_count"
+	],
+	"max_fps": 60,
+	"route_length_m": 1104.0,
+	"scene": "res://tests/fixtures/s07_env/city_24.tscn",
+	"scene_node_count": 3318,
+	"static_collider_count": 192,
+	"vsync_mode": 0,
+	"warm_reload_ms": 57.738,
+	"warmup_seconds": 10.0,
+	"window_size": [
+		1280,
+		800
+	]
+}

@@ -42,26 +42,16 @@ qualification and enough outcome detail for dispatch.
   passed, but human ratification of layout/crossing/minimap, 42° versus 50° camera and
   final body envelopes remains open. Partial topology is not production traffic,
   recovery or capacity evidence.
-- **S07:** Sustained primary-T driver is accepted (57 traversals over 600 declared
-  seconds); do not reopen or repeat it. It proves no graphical calibration/capacity.
-  [Graphical T](../spikes/s07-graphical-t.md) 60-capped calibration passed 3/3 on a
-  Windows desktop; compressed capped raw samples and the retained-only analyzer reproduce
-  hitch attribution and traversal percentiles. Both uncapped attempts retain traversal,
-  memory, bounded log and System-event evidence; GPU device removal leaves headroom
-  unmeasured. Capacity remains open: named hardware/build, telemetry, authorized
-  drawability, two-sector and six-block loads, four views, bursts and one bounded growth
-  axis; record costs, limiting axis/headroom and decisions. Desktop does not certify Deck.
-  [Source-only representative preparation](../spikes/s07-representative-preparation.md)
-  records the pre-P0 mapping and individually commissionable slices. The comparator's
-  [fresh-session driver](../spikes/s07-comparator-driver.md) passed 20 compressed
-  standalone trials and a three-trial saved-camera smoke with the current fixture's
-  eight DRAWN slots/four drops each. Its checks derive drawn/dropped expectations from
-  configured slots and actual explosions, ready for the owner-decided all-effects S05
-  change; its six cap/repeat measurements remain unexecuted. Remaining prerequisites:
-  Regner's representation/count/diversity/final-envelope/budget decisions; saved six-block
-  content/bakes, real population/player/car/combat lifecycle, four-rig codecs/journal/
-  Match reset and named graphical telemetry. No M1 completion mandate or proxy/empty-load
-  acceptance; T is technical, R/G remain blocked, not waived.
+- **S07:** Owner-reframed as a visual/graphical environment-size **guidance envelope**,
+  not a requirement or gate; network, AI and population are out of scope because their
+  cost depends on player surroundings. The [environment-scale record](
+  ../spikes/s07-environment-scale.md) measures saved S06 roads plus mixed S02 buildings
+  at 6/24/96/384 blocks with the 42°/47 m moving camera, two capped repeats per passing
+  row. Six, 24 and 96 blocks pass the desktop load/RAM/frame stop limits; the 384-block
+  process crashes before telemetry, making 96 the last observed pass and 384 the first
+  failure. Use fitted per-block cost only for city planning: repeated grey-block assets
+  understate production residency, desktop does not certify Deck, and this result neither
+  expands the six-block M1 district nor waives representative integrated M1-D3 evidence.
 - **S08:** The original-main 20 ms held/resync stall is explained and fixed: the
   pinned `ENetMultiplayerPeer.create_server` passes its channel count as incoming
   bandwidth, so client unreliable held input was throttled away. With the

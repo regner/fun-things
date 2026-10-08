@@ -1,0 +1,34 @@
+{
+  "variant": 384,
+  "repeat": 1,
+  "argv": [
+    "C:\\Users\\regner.blokandersen\\AppData\\Local\\mise\\installs\\github-godotengine-godot-builds\\4.8-dev7\\godot.EXE",
+    "--path",
+    "C:\\tmp\\ft\\lanes\\s07-env\\city-384\\project",
+    "--windowed",
+    "--resolution",
+    "1280x800",
+    "--log-file",
+    "C:\\tmp\\ft\\lanes\\s07-env\\city-384\\city-384-repeat-1\\engine.log",
+    "--script",
+    "res://tests/fixtures/s07_env/measure.gd",
+    "--",
+    "res://tests/fixtures/s07_env/city_384.tscn"
+  ],
+  "exit": 3221225477,
+  "timed_out": false,
+  "diagnostics": [],
+  "result": null,
+  "frames": null,
+  "resident_bytes": {
+    "samples": 4,
+    "p50": 80572416,
+    "p95": 276971520,
+    "max": 276971520,
+    "peak_working_set": 276971520
+  },
+  "ok": false,
+  "stop_reasons": [
+    "diagnostic, crash, timeout, or missing telemetry"
+  ]
+}
