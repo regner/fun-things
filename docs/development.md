@@ -449,6 +449,70 @@ dimensions/turning/prediction, Steam/Deck/Windows/exports/capacity and P0/M1/pro
 acceptance remain open. The saved main-editor relocation receipt is time-specific
 supplied history, never a current query or authoring lease.
 
+### S03-S stopped compatibility tooling
+
+The [accepted exact-final compatibility record](spikes/s03-s-compatibility.md#accepted-exact-final-compatibility-disposition)
+is a stopped source/model/reflection/copied-registration result, not a Steam peer
+or selected integration. The [predeclared criteria](spikes/s03-s-compatibility-evidence/criteria.md)
+derive from the canonical API's four streams, modes, identities, limits and
+cancel/drain requirements. The [full original review](reviews/s03-s-compatibility-review.md)
+and complete historical/final/rebase/integration note preserve exact source/result
+binding and limitations. Do not repeat the finite model expecting native proof.
+
+Existing reproduction recipes are for a separately assigned bounded check; none
+was executed for this docs task:
+
+```sh
+# Supply the four exact files named by the saved source manifest:
+python3 tools/probe_s03_s_compatibility.py --source-dir /tmp/s03-s-compatibility/sources
+# New destination under /tmp; exact pinned engine executable is positional:
+python3 docs/spikes/s03-s-compatibility-evidence/run_registration.py /tmp/s03-s-registration-new /path/to/pinned/godot
+# Read the complete accepted reviews/checks/handoff/integration without experiments:
+git notes --ref=paseo-orchestration show ca38e4fc55b32a379ef7e3bf947e27d4ca8edc4c
+```
+
+The [probe source](../tools/probe_s03_s_compatibility.py) requires only `--source-dir`;
+there is no `--godot` or `--output` option and no Mise task. It checks all four
+[source-manifest](spikes/s03-s-compatibility-evidence/sources.json) SHA256s at immutable
+ref `532740f3f9c6a826c68914db81af9de1e32d5dc3` before extracting exact bodies.
+It prints JSON facts and finite counterexamples to stdout; it fetches nothing,
+imports no Godot and makes no native networking calls. Retain stdout/stderr separately
+when reproducing; accepted [probe.json](spikes/s03-s-compatibility-evidence/probe.json)
+and [negative hash guard](spikes/s03-s-compatibility-evidence/hash-guard-negative.log)
+are historical evidence. The [saved fetch script text](spikes/s03-s-compatibility-evidence/fetch.py.txt)
+records four exact public URLs with 30 s download timeouts. It assumes its scratch
+source directory already exists and writes scratch `sources.json`; the committed
+manifest remains the authority. Historical restricted-DNS/browser failures and
+successful public downloads are separate receipts, not permission for a new fetch.
+
+The [registration recipe](spikes/s03-s-compatibility-evidence/run_registration.py)
+takes two positional paths, requires a nonexistent destination under `/tmp`, copies
+only the addon into a fresh project, sets auto-init false and seeds that copied
+project's extension discovery list. Separate XDG data/config/cache and 30 s
+subprocess timeouts apply to version and headless reflection/getters. It retains
+`version.log`, `registration.log`, full `project/registration.json`, selected API/
+commands/returncodes in `registration-selected.json`, and checks22 accepted native
+hashes. It verifies exact `4.8.dev7.official.c971f93e7`, GodotSteam4.23 and auto-init
+false; the retained getters report default4 channels. No editor/import/all-script
+suite, Steam initialization/send, lobby or native lifecycle is exercised.
+
+Accepted [registration data](spikes/s03-s-compatibility-evidence/registration-selected.json),
+[original report/retention](reviews/s03-s-compatibility-review.md) and complete
+ca38e4f note distinguish original substantive/final/rebase SHAs and bases/counts.
+Original empty stdout, raw JSON without terminal newline and retention-check failures
+stay byte-faithful. New authored docs use LF; raw historical receipts are not sanitized.
+
+Source inferences and finite freshness/lane-information-loss traces (including the
+independent review's1,555 traces) cannot establish actual delivery/reorder/loss,
+saturation/send errors, safe payload/MTU, native queue/allocation/work bounds,
+authentication/admission, cancel/drain/retry/late callbacks or relay. API presence
+and published-byte linkage do not show source bodies executed. Installed-package,
+app/tester entitlement, invite/launch/external route, Windows/Linux exports and Deck
+input/Gaming Mode/performance remain unproved. Root's existing options are exact
+immutable upstream-revision evidence, separately bounded native-boundary design,
+or continued unavailability. No adapter/peer/five-lane/reliable fallback/SDK/vendor/
+pin selection is made; full S03-S/Steam/Deck/S04/P0/M1/production gates stay open.
+
 ## Versions and releases
 
 When release builds exist, make version and source revision visible in startup

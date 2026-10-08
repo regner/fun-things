@@ -342,3 +342,29 @@ remain separate,20/20 each; no drawn receipt exists. Zero matching-tick install 
 and update jumps are not prediction correction. Physical input/focus, visible
 response/camera/readability/feel, final body/dimensions/turning/prediction, full S04,
 Steam/Deck/Windows/exports/capacity and P0/M1/production gates remain open.
+
+## Accepted stopped Steam compatibility boundary
+
+The [S03-S compatibility record](spikes/s03-s-compatibility.md#lifecycle-limitation-and-exact-stopdecision-boundary)
+and [saved criteria](spikes/s03-s-compatibility-evidence/criteria.md) apply the existing
+[canonical API transport contract](api-contracts.md#transport-and-platform-adapters);
+they create no second contract. Four independent streams retain reliable0/1 and
+ordered-unreliable2/3 modes, application admission/identity/durable ownership and
+bounded work. The exact inspected singleton API lacks lane-addressed send and
+receive lane metadata; batch payload ownership, checked send results and peer mode
+mapping need evidence. Five configured lanes cannot fix ordered-unreliable sent
+reliably or missing ownership/results/metadata. A finite freshness filter supplies
+neither a conforming peer nor authenticated admission.
+
+Native callback handles/current identity do not prove operation ownership or safe
+cancel/drain/retry. Obsolete callbacks must remain cleanup-only and never attach to
+a new attempt; unsafe reuse keeps Steam unavailable until safe reuse/restart is
+proved. See the record's complete decision boundary rather than deriving a drain
+guarantee from arbitrary waits or close return values. Exact
+[ca38e4f acceptance](spikes/s03-s-compatibility.md#accepted-exact-final-compatibility-disposition)
+accepts stopped source/model/reflection evidence only. No actual delivery/lifecycle,
+loss/saturation/send-error/queue/allocation, native or external route/relay/package/
+device acceptance follows. Root can commission exact immutable upstream evidence,
+a separately bounded native-boundary design, or keep Steam unavailable; no adapter,
+integration, five-lane fix, reliable fallback, SDK/vendor/pin choice is selected.
+Full S03-S/Steam/Deck/S04/P0/M1/production gates remain open.

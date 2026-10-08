@@ -6,6 +6,8 @@ configuration, the Godot MCP Toolkit, [S01 asset fixtures](docs/spikes/s01.md), 
 [S03 ENet session-contract proof](docs/spikes/s03.md), plus the accepted
 [bounded headless S03-R foot-response experiment](docs/spikes/s03-r.md) and accepted
 [S04 car/body/ENet technical fixture](docs/spikes/s04.md#accepted-exact-final-disposition).
+The accepted [stopped S03-S compatibility probe](docs/spikes/s03-s-compatibility.md#accepted-exact-final-compatibility-disposition)
+adds source/model/reflection evidence, with no selected Steam adapter.
 There is no production gameplay or main scene yet.
 The first milestone requires ENet for local testing and Steam for friends playtesting,
 using the existing Steam app through shared session APIs.
@@ -119,6 +121,20 @@ are fixture evidence, not production vehicle identity or a full seat system.
 CharacterBody is a next technical recommendation; body/controls/dimensions/turning,
 physical keys/focus, camera/readability, human feel and prediction remain unratified.
 Full S02/S03-R/S04, Steam/Deck/input, capacity, P0-GATE/M1/production gates stay open.
+
+S03-S compatibility is accepted at exact `ca38e4fc55b32a379ef7e3bf947e27d4ca8edc4c`
+for the stopped source/model/copied-registration result. The inspected singleton
+Sockets API lacks lane-addressed send and receive lane identity; source ownership/
+mode/result limitations and finite counterexamples do not prove native behavior.
+API registration/getters establish presence only. See the
+[bounded reproduction/evidence recipes](docs/development.md#s03-s-stopped-compatibility-tooling)
+for the source probe, copied registration and read-only exact-final note retrieval.
+No fetch/model/registration or native experiment ran for this documentation task.
+Root may commission exact immutable upstream-revision evidence, a separately bounded
+native-boundary design, or keep Steam unavailable. No adapter, five-lane fix, reliable
+fallback, SDK/vendor/pin/package or integration choice is selected. Full S03-S,
+native delivery/lifecycle/queue/allocation, external route/relay/package/device,
+Steam/Deck/S04 and P0/M1/production gates remain open.
 
 ## Project guidance
 

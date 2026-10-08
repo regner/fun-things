@@ -244,9 +244,11 @@ The [full original report](../reviews/s03-s-compatibility-review.md) is retained
 verbatim with [retention hashes](../reviews/s03-s-compatibility-evidence/retention.json)
 and independent source/static/1,555-trace/negative-guard/registration evidence.
 These synthetic checks are distinct from native delivery/lifecycle acceptance.
-The same reviewer must explicitly approve exact final retention/rebase HEAD;
-the full final receipt and worker handoff are retained in local
-`refs/notes/paseo-orchestration` without altering that reviewed HEAD.
+At that historical boundary, the same reviewer was required to approve exact
+final retention/rebase HEAD; the full receipt and worker handoff are retained in
+local `refs/notes/paseo-orchestration`. The current exact acceptance is linked in
+[the final disposition below](#accepted-exact-final-compatibility-disposition);
+original approval is not automatically transferred to another SHA.
 Retention validation initially rejected intentional empty stdout and then raw
 Godot JSON without a terminal newline. Both [first failure](s03-s-compatibility-evidence/retention-check-initial.log)
 and [second failure](s03-s-compatibility-evidence/retention-check-second.log)
@@ -294,8 +296,39 @@ old reports/logs keep their exact old SHA/base/counts.
 Only justified static reconciliation is run: accepted-base working bytes/tree
 identity, all other TODO blocks, unchanged original S03-S evidence, exact raw
 review receipts, links/JSON/whitespace and Git ancestry/clean state. The unchanged
-model/source fetch/registration/native checks are not repeated. The SAME Sol6.1
-HIGH reviewer must explicitly dispose of the exact new committed HEAD against
-`2370ad1` before root integration. Its complete rebase/delta report, actual static
-checks and final handoff will be retained verbatim in the new HEAD's local
-`refs/notes/paseo-orchestration`, alongside the complete old historical note.
+model/source fetch/registration/native checks were not repeated. The required
+same-reviewer exact disposition and root integration are now recorded below;
+this dated supplement's original SHAs, bases, counts and S04 assignment remain
+historical, not new operational ownership or experiment receipts.
+
+## Accepted exact-final compatibility disposition
+
+The SAME sole independent clean-context reviewer
+`ed0c2c1d-f028-497d-822c-c3be476c314e`, GPT-6.1-Sol HIGH, explicitly **ACCEPTED**
+exact final `ca38e4fc55b32a379ef7e3bf947e27d4ca8edc4c` against LOCAL base
+`2370ad1c182b46e51f5dc4c6b6ab6157819e84b0`, with no actionable findings or fixes.
+This covers rebased patches, retention and scoped accepted-main reconciliation,
+not native delivery/lifecycle or full S03-S. Earlier64825b5/6df14a5 approvals,
+original04f16d3 base/counts/failures and the historical S04 authoring assignment
+remain tied to their original boundaries. The [full original report](../reviews/s03-s-compatibility-review.md)
+and saved predeclaration remain unchanged.
+
+The COMPLETE historical/original-final/rebase reports, actual check sources/stdout/
+stderr, old final note, worker handoff and root FF integration/archival preflight
+are retained losslessly in `refs/notes/paseo-orchestration` on exact ca38e4f:
+
+```sh
+git notes --ref=paseo-orchestration show ca38e4fc55b32a379ef7e3bf947e27d4ca8edc4c
+```
+
+Root integrated the exact accepted revision and archived its worker workspace.
+This supplied receipt is operational history; no current editor/service/PID query
+or lease follows. Original retention failures and reviewer scratch failures remain
+separate from their corrected static passes. No source/model/registration/native
+experiment was repeated for this guide reconciliation.
+
+The stopped decision/options and same S03-S owner remain unchanged: root commissions
+exact immutable upstream-revision evidence, separately bounded native-boundary design,
+or keeps Steam unavailable. No adapter/integration/five-lane/reliable fallback/SDK/
+vendor/pin/package is selected. Full S03-S/S04/Steam/Deck/P0/M1/production gates remain
+OPEN. [DOC7 completion](../reviews/p0-doc7.md) records this guide reconciliation.
