@@ -167,10 +167,16 @@ def main():
         "git", "status", "--porcelain", "--", "project.godot", "tests/fixtures/s02",
         "tests/fixtures/s03", "tests/fixtures/s04", "tests/fixtures/s06",
         "art/models/spikes", "tools/s01", "tools/s02", "tools/s04",
-        "tools/s06/capture_observer.gd",
+        "tools/s06/capture_observer.gd", "tools/s06/capture_windows.py",
+        "tools/script_checks.py",
     ], cwd=ROOT, text=True).strip()
+    runner_sources = {
+        name: identity(ROOT / name)
+        for name in ["tools/s06/capture_windows.py", "tools/script_checks.py"]
+    }
     result = {"ok": False, "revision": revision, "dirty_inputs": dirty,
-              "platform": platform.platform(), "python": sys.version, "observations": {}}
+              "runner_sources": runner_sources, "platform": platform.platform(),
+              "python": sys.version, "observations": {}}
     try:
         version = subprocess.run([args.godot, "--version"], capture_output=True, text=True,
                                  timeout=10, check=True).stdout.strip()

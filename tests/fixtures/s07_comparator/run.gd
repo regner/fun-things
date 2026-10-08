@@ -364,7 +364,7 @@ func _wait_for_draw(previous: int) -> bool:
 	return draw_serial > previous
 
 
-## Waits until a post-draw callback captures all eight accepted saved effect slots.
+## Waits until a post-draw callback captures all expected accepted saved effect slots.
 func _wait_for_burst_draw(ordinal: int) -> bool:
 	var deadline: int = Time.get_ticks_msec() + DRAW_DEADLINE_MS
 	while active_draw.is_empty() and Time.get_ticks_msec() < deadline:
