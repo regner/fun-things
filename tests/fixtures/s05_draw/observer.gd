@@ -3,7 +3,7 @@ extends S05SavedProof
 ## Observes the accepted chain through a saved camera and genuine post-draw callbacks.
 
 const CAMERA_SCENE: String = "res://tests/fixtures/s05_draw/camera.tscn"
-const MAX_FRAME_RECEIPTS: int = 600
+const MAX_FRAME_RECEIPTS: int = 65_536
 const MAX_EXPIRY_WAIT_TICKS: int = 120
 
 var draw_callbacks: int = 0
@@ -68,7 +68,13 @@ func _baseline(id: int) -> void:
 
 ## Captures only completed automatic render callbacks and reads the actual current camera.
 func _post_draw() -> void:
-	if draw_callbacks >= MAX_FRAME_RECEIPTS or not is_instance_valid(state):
+	if draw_callbacks >= MAX_FRAME_RECEIPTS:
+		if draw_failures.is_empty():
+			draw_failures.append("automatic callback observation ceiling exhausted")
+
+		return
+
+	if not is_instance_valid(state):
 		return
 
 	var render_index: int = Engine.get_frames_drawn()
@@ -86,8 +92,12 @@ func _post_draw() -> void:
 	if not stage.is_empty() and draw_callbacks >= 3 and not capture_paths.has(stage):
 		_capture(stage, receipt)
 
-	var signature: String = JSON.stringify([receipt.presentation, receipt.live,
-		receipt.duplicates, receipt.damage_tick, receipt.camera])
+	# Cosmetic/damage ticks advance without meaningful presentation changes; keep stages sparse.
+	var signature: String = JSON.stringify([receipt.presentation.active,
+		receipt.presentation.visible, receipt.presentation.epoch, receipt.accepted,
+		receipt.dropped, receipt.watermark, receipt.live, receipt.duplicates,
+		receipt.revision, receipt.camera, receipt.can_draw, receipt.vsync_mode,
+		receipt.viewport, receipt.window_size])
 	if signature != _last_signature or draw_callbacks <= 3 or receipt.has("png"):
 		_write("frame", receipt)
 		_last_signature = signature
@@ -116,8 +126,10 @@ func _capture(stage: String, receipt: Dictionary) -> void:
 	var path: String = "user://" + stage + ".png"
 	var error: Error = image.save_png(path)
 	capture_paths[stage] = path
+	receipt["cut"] = state.damage.cut()
 	receipt["png"] = {"stage": stage, "path": ProjectSettings.globalize_path(path),
-		"width": image.get_width(), "height": image.get_height(), "save_error": error}
+		"width": image.get_width(), "height": image.get_height(), "save_error": error,
+		"sha256": FileAccess.get_sha256(path) if error == OK else ""}
 	if error != OK:
 		draw_failures.append("PNG save failed: " + stage)
 
@@ -153,6 +165,14 @@ func _snapshot() -> Dictionary:
 
 	return {"presentation": presentation.receipt(), "slots": slots, "camera": camera,
 		"viewport": [viewport.get_visible_rect().size.x, viewport.get_visible_rect().size.y],
+		"requested_project_size": [
+			ProjectSettings.get_setting("display/window/size/viewport_width"),
+			ProjectSettings.get_setting("display/window/size/viewport_height")],
+		"vsync_mode": DisplayServer.window_get_vsync_mode(),
+		"vsync_disabled": DisplayServer.window_get_vsync_mode() == DisplayServer.VSYNC_DISABLED,
+		"can_any_window_draw": null,
+		"can_any_window_draw_reason": "internal native method unavailable to GDScript",
+		"session": state.session_id, "match_revision": state.damage.cut().match,
 		"display": DisplayServer.get_name(), "can_draw": DisplayServer.window_can_draw(),
 		"focus": DisplayServer.window_is_focused(), "mode": DisplayServer.window_get_mode(),
 		"window_size": [DisplayServer.window_get_size().x, DisplayServer.window_get_size().y],
