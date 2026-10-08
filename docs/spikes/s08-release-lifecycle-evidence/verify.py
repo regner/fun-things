@@ -11,7 +11,11 @@ ROOT = HERE.parents[2]
 
 def main():
     """Reject omitted required payloads, changed bytes, lost empties or out-of-scope changes."""
-    index = json.loads((HERE / 'index.json').read_text())
+    index_path = HERE / 'index.json'
+    index_bytes = index_path.read_bytes()
+    assert subprocess.check_output(['git', 'show', 'HEAD:' +
+        index_path.relative_to(ROOT).as_posix()], cwd=ROOT) == index_bytes
+    index = json.loads(index_bytes)
     expected = set(index['expected_paths'])
     assert len(expected) == len(index['expected_paths'])
     actual = {path.relative_to(HERE).as_posix() for path in HERE.rglob('*') if path.is_file()
