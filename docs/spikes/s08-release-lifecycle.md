@@ -178,6 +178,18 @@ new parent/PID clock domains and full UDP observations. Require actual release
 outcomes independently; runtime errors remain strict failures even with exit0.
 Retain the first failed boundary if any; ROOT decides subsequent scope.
 
+Release preparation on `a5756b4b6126a5c9756de981b39fdadc35f3c8fe` passed: one exporter
+699421, exit0/reaped, empty stderr/no diagnostics, 2.718s exporter and 4.787s entire
+template/stage/export/inspection preparation. No explicit dependency import or new
+author session. All 17 saved source/UID bytes remain unchanged after export. The
+normal S03 main package has 23 actual PCK members, 10 logical remaps/UID rows and
+seven S03 classes, no addon/native/other fixture families. Exact binary matches the
+existing release template. New PCK: 122748 bytes, SHA256
+`43cc8236fcb7a06f328c28cf45fed752d6630e1699ebea04e68e34d9aa40e3d7`.
+Actual full package/readback identities and export streams are retained before the
+second runtime; `release-launch.py` binds exact argv/source revision/PCK hash and
+measures 27s aggregate/30s combined independently of the child supervisor timer.
+
 Full exported ENet, historical shutdown, Steam absent/native/external transport,
 Windows/Deck/Gaming Mode/input/feel/drawability/performance/private install and full
 S08/P0/M1/production gates remain open.

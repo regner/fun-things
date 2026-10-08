@@ -1,0 +1,22 @@
+{
+  "required_paths": [
+    "preparation.json",
+    "template-binding.json",
+    "staged-input.json",
+    "scratch-config.json",
+    "package-binding.json",
+    "export/command.json",
+    "export/stdout.log",
+    "export/stderr.log",
+    "export/engine.log",
+    "release-preparation.command.json",
+    "release-preparation.stdout",
+    "release-preparation.stderr"
+  ],
+  "required_empty": [
+    "export/stderr.log",
+    "release-preparation.stdout",
+    "release-preparation.stderr"
+  ],
+  "raw_PCK": "retained in final same-HEAD Git note, not a build committed to source tree"
+}
