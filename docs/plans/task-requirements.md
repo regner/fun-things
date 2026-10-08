@@ -11,6 +11,9 @@ qualification and enough outcome detail for dispatch.
   and [review](../workflows/p0-profiles-review.md) for readiness. Configuration stays
   deferred/outside P0-GATE until separately authorized. Then verify exact supported
   settings/readback and representative launches/effective boundaries; do not install now.
+  Reconcile historical Codex modes/features and stale pending/lease/revisit notes with
+  ROOT's 8 October 15:53Z zero-profile/pi inventory and accepted pi Sol HIGH/Luna HIGH
+  sessions. Those Codex fields are not a pi launch recipe; notes confer no permissions.
 - **S02:** Settle desktop camera/control/aim and feel. Resume stopped drawability only
   with a changed authorized condition and explicit grant; Deck needs native evidence.
 - **S03-S:** Public API/interface research is accepted; native integration/testing is
@@ -32,16 +35,44 @@ qualification and enough outcome detail for dispatch.
   Graphical T and capacity remain open: named hardware/build, telemetry, authorized
   drawability, two-sector and six-block loads, four views, bursts and one bounded growth
   axis; record costs, limiting axis/headroom and decisions. Desktop does not certify Deck.
+  Next source-limited commission: map R's representative inputs to bounded pre-P0
+  fixture/content/API preparation versus future M1 production, with explicit missing
+  simulation/codec/event/reset work and representativeness/budget ratification. Do not
+  require M1 completion to unlock P0 or accept proxy/empty loads as representative.
+  T remains technical calibration; R/G stay blocked, not waived by this preparation.
 - **S08:** Current lifecycle runs used unplanned 10 ms servicing; scheduling/grant
   compliance failed, so original 20 ms behavior is unproved. Release diagnostics failed
   (2 host/6 client `tree_exited` errors); original saved-main stall was not rerun or fixed.
   Restored 20 ms helper source is unexecuted. Next work: bounded cache-registration and
   original-entrypoint stalled-boundary/close-reason diagnosis, then clean release proof.
-  Callable spelling alone is not an identity defect. Export/target/Gaming Mode proof
+  Callable spelling alone is not an identity defect. Prepare a source-backed cache
+  register/remove/reuse and original-S08-main versus minimal-S03 closure discrimination
+  card, preserving original 20 ms servicing and first-stall/close-reason evidence needs.
+  Any runtime/native repair/pin decision needs a separate bounded commission, not an
+  unconditional repeat or credit from the source-only restoration. Export/target/Gaming Mode proof
   remains open; Steam/device testing is deferred until access.
 - **P0-GATE:** Review foundations and ratify product scope, art/layout/camera/control,
   implementation contracts and budgets. Partial research/proofs are not acceptance;
   record unresolved items or explicit scope decisions. P0-PROFILES is not a prerequisite.
+
+## Checkpoint follow-up
+
+- **P0-DOC14:** Scoped Sol docs owner reconciles current discovery before P0-GATE use.
+  Paths: `README.md`, `docs/development.md`, `docs/scene-structure.md`,
+  `docs/asset-catalogue.md`, `docs/spikes/{s03-s,s05,s07,s08}.md` only.
+  Sources at accepted `2d545725`: `s05-effect-preparation.md`/`s05-saved-presentation.md`
+  and their exact `2294a111`/`a15a7fbe` notes; render `233493ab` and consumed Card I
+  `af65276d`; upstream `57d33731`/Valve `30471e6a`; S07 cards `30a97532`/driver
+  `8689168d`; S08 standard `52941da4`/handoff `0add6257`/lifecycle `fd375c03`.
+  [Checkpoint findings](../reviews/plan-check-2026-10-08-09.md#targeted-documentation-findings)
+  identify each correction. Done: dated accepted-result/source-consumer/tool links,
+  carrier catalogue entry, no stale missing-slot/completed-next-prerequisite claims,
+  explicit exhausted runtime protocols versus usable offline checks, no invented
+  working/vanished-path recipe. Preserve historical reports/manifests and OPEN draw,
+  capacity, scheduling/strict-release, Steam/testing, target and product gates; avoid
+  circular M1-before-P0 requirements. Verify exact source statements, links/anchors,
+  JSON/whitespace and independent review; remove this task with its resolving commit.
+  No technical rerun, new owner, integration choice or unrelated guide rewrite.
 
 ## First milestone
 

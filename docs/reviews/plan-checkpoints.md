@@ -1,12 +1,15 @@
 # Plan, documentation and profile checkpoints
 
-Latest: [eighth checkpoint, 8 October 2026](plan-check-2026-10-08-08.md).
-Checked-through integrated main: `122978243dba25b3fb5d8d90fc50ffb1a468ecf5`.
-Last profile check: 8 October 2026, eighth checkpoint; zero installed/four reviewed
-INERT proposals. Accepted DOC10/11 MEDIUM/HIGH, stopped S02 HIGH/HIGH and S08 static
-preparation/stopped Linux observation HIGH/HIGH inform requirements; configuration/effective-permission/
-representative launches remain deferred. P0-PROFILES owns dated notes reconciliation.
-See record for all27→29 tasks, stopped full-positive FAIL, accepted stopped S08/archived ownership/full proof OPEN, open capacity/target gates and next trigger.
+Latest: [ninth checkpoint, 8 October 2026](plan-check-2026-10-08-09.md).
+Checked-through integrated main: `2d5457250701ebf93ef6e90f0e82ec9f384fd530`.
+Last profile check: 8 October 2026, ninth checkpoint; ROOT's fresh 15:53Z receipt
+reports zero installed, pi available/no modes/features, verified Sol HIGH and simple
+Luna HIGH sessions. Four INERT proposals and Codex settings are historical, not pi
+launch recipes. P0-PROFILES owns reconciled notes/later authorized configuration,
+outside P0-GATE. No installation/effective-permission canary/representative launches.
+See record for all27→28 tasks, P0-GATE OPEN, genuine documentation follow-up, S07
+representative-load ordering, qualified S08 diagnostics, drawable/Steam/target/product
+gates, user decisions and useful source-first follow-ups.
 
 History: [first baseline, 7 October 2026](plan-check-2026-10-07.md), checked through
 `3b50a915d06f7ad383a4d6dc70403729918c0268`; preserved as historical evidence.
@@ -26,6 +29,9 @@ History: [first baseline, 7 October 2026](plan-check-2026-10-07.md), checked thr
 
 [Seventh checkpoint, 8 October 2026](plan-check-2026-10-08-07.md), checked through
 `7fb302ba2829966c9a687a12a7f00d09ce6a7824`; preserved as historical evidence.
+
+[Eighth checkpoint, 8 October 2026](plan-check-2026-10-08-08.md), checked through
+`122978243dba25b3fb5d8d90fc50ffb1a468ecf5`; preserved as historical evidence.
 
 Use the latest record's exact watermark, evidence and next triggers on resume.
 This index points to reviewed checkpoint changes when integrated; candidate rebases
