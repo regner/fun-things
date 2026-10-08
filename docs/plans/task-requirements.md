@@ -14,8 +14,11 @@ qualification and enough outcome detail for dispatch.
   Reconcile historical Codex modes/features and stale pending/lease/revisit notes with
   ROOT's 8 October 15:53Z zero-profile/pi inventory and accepted pi Sol HIGH/Luna HIGH
   sessions. Those Codex fields are not a pi launch recipe; notes confer no permissions.
-- **S02:** Settle desktop camera/control/aim and feel. Resume stopped drawability only
-  with a changed authorized condition and explicit grant; Deck needs native evidence.
+- **S02:** Windows now has exact 1280×800 automatic saved-corner draws (`can_draw:
+  true`) in the [current observation](../spikes/s02-windows-observation.md). Programmatic
+  minimize/restore still failed timely focus cancellation and allowed stale held input;
+  physical-key Alt-Tab plus camera/control/aim/feel ratification remain human work. Deck
+  still needs native evidence.
 - **S03-S:** Public API/interface research is accepted; native integration/testing is
   deferred, not accepted. Eventual proof is admitted gameplay traffic over actual Steam,
   not lobby success or ENet through a lobby; testing waits for authorized access.
