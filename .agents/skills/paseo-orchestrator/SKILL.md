@@ -36,8 +36,15 @@ permission to integrate, archive, push, or expand an assignment beyond it.
 - Respect ratification, device and service access gates. Delegate useful ungated
   preparation, but leave gated acceptance open until evidence exists. Ask only for
   genuinely missing input or authority; authorized routine steps need no new approval.
-- Assign one writer per shared editor, scene or source asset. Separate worktrees do
-  not isolate shared Godot/Blender sessions or external services. Serialize conflicting
+- Assign one writer per shared editor/MCP connection, scene or source asset; this
+  is not global Godot serialization across all workspaces. Separate worktrees alone
+  do not isolate shared Godot/Blender sessions or external services. Independently
+  verified worktree editor processes/private MCP endpoints may write in parallel once
+  ports/routes, process ownership and resource isolation are confirmed, without
+  switching the main/shared editor or configuration. Singleton connector routing is
+  a current access constraint, not an engine-wide restriction. Capability inspection
+  is not isolation proof or an editor/process/config/global-service launch grant.
+  Serialize conflicting
   work and name the owner before launching it.
 - Blocked visual, device or access gates do not serialize unrelated ready work.
   Prioritize a bounded stop/report at the declared limit, then coordinate independent
@@ -48,23 +55,34 @@ permission to integrate, archive, push, or expand an assignment beyond it.
 
 On adoption/resume, read [the checkpoint index](../../../docs/reviews/plan-checkpoints.md)
 from the repository root, its latest record and exact checked-through revision.
-Compare that watermark with local main and completed workstream handoffs. Check
-after a small batch (normally around three integrated workstreams), sooner after
-a significant spike, contract or gate result, or before a consequential next phase.
-Count workstreams rather than tiny commits; record the due/not-due reason in the
-coordination handoff. Ordinary resumes need only this cheap status check, not a full
-audit. This cadence creates no schedules or heartbeats.
+Compare that watermark with local main and completed workstream handoffs. Full
+whole-plan/documentation/profile checkpoints normally follow roughly **6–8 substantive
+integrated workstreams or a milestone transition**. Count completed experiment,
+feature or decision workstreams, not individual small tasks/commits. Documentation
+reconciliation, retention/report-only commits, review fixes and operational lifecycle
+cleanup do not count by themselves. An earlier full check needs genuinely consequential
+evidence changing scope, dependencies, feasibility, a gate or product decision, or a
+consequential phase; not every partial/negative collection or stopped experiment with
+unchanged conditions. Record the due/not-due reason in the coordination handoff.
 
-Include a read-only Paseo profile assessment at normal checkpoints, or justify an
-earlier revisit after meaningful requirements/capability drift. On resume read the
-last profile check, consulted session evidence and next revisit from the latest
+Ordinary handoffs need a cheap orchestration check of acceptance, current task
+prerequisites, ownership and affected-documentation coverage. Workers and reviewers
+update affected contracts/docs with their ordinary resolving work; the orchestrator
+does not implement or conduct technical reviews. A cross-cutting stale-doc finding
+outside a full checkpoint can become a scoped task without triggering a full audit.
+Ordinary resumes compare watermark/current main/handoffs cheaply; no full audit unless
+due. This cadence creates no timers, schedules or heartbeats.
+
+Include a read-only Paseo profile assessment at full checkpoints, or justify an
+earlier revisit after meaningful routing/capability/requirements drift. On resume read
+the last profile check, consulted session evidence and next revisit from the latest
 checkpoint record. Assess suitability/coverage, notes and routing accuracy, actual
 task categories and recurring friction, supported provider/model/effort/mode/features,
-tools/capabilities and permissions. Check drift against the model policy below;
-assess Sol workspace-lead routing separately from necessary bounded Astra specialist
-subtasks, including their question, output, validation and effort/budget. Profile
-bundles cannot bypass approvals or imply broad access by default. Do not repeat
-this assessment for every trivial task.
+tools/capabilities and permissions only as needed; no per-workstream model inventories.
+Check drift against the model policy below; assess Sol workspace-lead routing separately
+from necessary bounded Astra specialist subtasks, including question, output, validation
+and effort/budget. Never manufacture a specialist session or install/configure profiles
+as part of assessment. Bundles cannot bypass approvals or imply broad access by default.
 
 Record findings and next revisit even when no profiles exist. Preserve the existing
 deferred creation task (currently P0-PROFILES) instead of recreating it. Its first
@@ -256,6 +274,20 @@ and archival to the owning orchestrator.
 ## Worker prompt template
 
 ```text
+One writer per SAME shared editor/MCP connection/source asset; verified isolated
+worktree editor/private endpoints can write in parallel after ports/routes/process
+ownership/resource isolation confirmation. Worktrees alone are not isolation proof,
+and inspection does not grant editor/process/config/service changes.
+
+For a full plan/docs/profile checkpoint, record why due: roughly6–8 substantive
+integrated experiment/feature/decision workstreams or milestone transition, earlier
+only consequential scope/dependency/feasibility/gate/product/phase changes. Docs,
+retention, review fixes and lifecycle cleanup alone do not count. Ordinary handoff/
+resume uses cheap acceptance/dependency/ownership/doc coverage and watermark checks;
+scoped stale-doc follow-ups do not require a full audit. Profile assessment accompanies
+full checks or meaningful routing/capability/requirements drift, no per-workstream
+inventories/manufactured specialist/install. Preserve all exact review/quality/gates.
+
 Implement this Fun Things workstream in workspace {id}, worktree {path}, branch
 {branch}, based on refs/heads/main at {base_revision}. You own {task/scope}.
 Raw requirements/TODO text: {requirements}.
@@ -296,6 +328,20 @@ Use asynchronous delegation with notifyOnFinish true; await notifications.
 ## Reviewer prompt template
 
 ```text
+One writer per SAME shared editor/MCP connection/source asset; verified isolated
+worktree editor/private endpoints can write in parallel after ports/routes/process
+ownership/resource isolation confirmation. Worktrees alone are not isolation proof,
+and inspection does not grant editor/process/config/service changes.
+
+For a full plan/docs/profile checkpoint, record why due: roughly6–8 substantive
+integrated experiment/feature/decision workstreams or milestone transition, earlier
+only consequential scope/dependency/feasibility/gate/product/phase changes. Docs,
+retention, review fixes and lifecycle cleanup alone do not count. Ordinary handoff/
+resume uses cheap acceptance/dependency/ownership/doc coverage and watermark checks;
+scoped stale-doc follow-ups do not require a full audit. Profile assessment accompanies
+full checks or meaningful routing/capability/requirements drift, no per-workstream
+inventories/manufactured specialist/install. Preserve all exact review/quality/gates.
+
 Independently review {task} with clean context. Do not inherit the implementer's
 conversation. Requirements: {raw_requirements}. Base: {ref} at {base_revision}.
 Candidate: {branch} at {exact_HEAD}; affected scope: {paths/subsystems}.

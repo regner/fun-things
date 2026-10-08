@@ -179,9 +179,12 @@ asset acceptance.
   lossless retention, staged-input/runtime-manifest distinctions and release entrypoint/assertion limits. No installed-bundle
   launch/effective permission proof or necessary new specialist follows. Configuration
   and representative launches remain deferred; no extra coordinator/Astra is needed.
-  Do not manufacture a specialist session to unlock configuration. Revisit at normal cadence or earlier meaningful
+  Do not manufacture a specialist session to unlock configuration. Revisit with full
+  checkpoints (normally6–8 substantive integrated workstreams or milestone transition),
+  or earlier meaningful
   supported routing/capability/permission drift, and before any later authorized
-  configuration. At that revisit reconcile historical pending S03-R/lease prose in
+  configuration. Docs/retention/reviewfix/lifecycle work alone does not advance cadence;
+  no per-workstream model inventory. At that revisit reconcile historical pending S03-R/lease prose in
   `docs/workflows/p0-profiles-proposal.md`, `docs/workflows/p0-profiles-evidence.md`
   and the exact notes in `docs/workflows/p0-profiles-evidence/proposed.patch.json`
   with accepted scope and current routing/lease/retention requirements. Preserve original
@@ -568,7 +571,7 @@ implementation. Save editor mutations before playtests; preserve unsaved work.
   no S08 receipt. ENet/proxy/host/client never created; STOP/no fix/re-export/retry grant.
   Static membership does not prove asset runtime semantics. Prior lead076a388a,
   reviewer40c83e6a and workspacewks_aa2a7ef710b90059 are archived/directory removed;
-  authoring UNASSIGNED/no active implementation. No shared lease used or relocation.
+  S08 follow-up UNASSIGNED/no active S08 implementation. No shared lease used or relocation.
   Next bounded static preparation under this SAME S08 owner must identify a supported
   exported observer entrypoint and resolve the independently reported RELEASE proof
   limitation in `tests/fixtures/s03/replication.gd:40`: state-changing `apply_journal`
@@ -847,12 +850,29 @@ Current ROOT-supplied coordination at held accepted LOCAL main1229782: all prior
 workspaces/leads/reviewers, including S08 lead076a388a/reviewer40c83e6a/workspace
 wks_aa2a7ef710b90059, are archived and removed. S02 exacta311c576 stopped record
 is ACCEPTED/full positive criteria FAIL; S08 exact93da622 preparation and exact1229782
-stopped evidence are accepted, full asset/ENet/target criteria OPEN. No active
-implementation, authoring UNASSIGNED/no writer. S08 used no shared lease; none returned
+stopped evidence are accepted, full asset/ENet/target criteria OPEN. Shared Godot
+authoring lease UNASSIGNED/no shared writer. S08 used no shared lease; none returned
 and no operational relocation required. The stopped S02 restored main483496/16 saved
 no-unsaved receipt remains time-specific ROOT-accepted evidence, not a fresh query.
 ROOT releases this checkpoint's sole fresh HIGH review and holds main1229782 through
-handoff; ROOT alone integrates/archives. No surface/PID/service query or allocation.
+handoff; ROOT alone integrates/archives. No surface/PID/service query or allocation
+by this checkpoint.
+
+ROOT now assigns ONE ACTIVE UNACCEPTED isolated S05 source-asset preparation: Sol6.1
+HIGH auto-review worker92400a44-fc12-400a-a0d0-126e7f8f984e, workspace
+wks_437a9484cd5db686 / `s05-source-linked-effect-preparation`, accepted base1229782.
+It owns only NEW Blender source/explicit GLB files and its own isolated Blender CLI
+processes for one stylized technical explosion carrier. No outputs or technical
+acceptance adopted; no shared Godot/Blender GUI/display/editor/PID/service/Steam
+lease/query or actual-effect runtime/drawability test. Concrete future Godot operations
+must be reported before ROOT grants a writer lease. ROOT additionally commissions
+read-only private editor/port/auth/registry/log-cache/connector-route capability
+inspection only; no isolation support proof or editor/process/config/vendor/global
+service launch grant. One-writer is per shared instance/MCP/source, not global Godot
+serialization; verified isolated workspace editors may operate in parallel under
+confirmed ports/routes/process/resource isolation. Existing S05 stays sole task owner/
+full OPEN. S08 release entrypoint/assert-safe fixture then bounded asset/ENet follow-up
+is ROOT's next intended commission, NOT created/assigned; no extra runtime grant here.
 
 Current readiness: bounded S04 source/body/admission/ENet handoff is independently
 ACCEPTED and integrated at `2370ad1`; P2/P3 are closed and full S04 stays open.
@@ -911,7 +931,8 @@ and existing P0-PROFILES dated-notes reconciliation do not require a visual leas
 Stopped S02 visual access does not hold up independent ready work. S08's bounded
 isolated observation is accepted STOPPED, archived, with full proof gates OPEN.
 Existing S08 owns separately commissioned static entrypoint/assertion preparation;
-no fix/re-export/retry or new implementation owner is granted. Limited S07 static run-card/content-gap preparation can be separately
+S08 has no fix/re-export/retry grant or assigned follow-up worker. Active S05 source
+preparation proceeds independently within its NEW-file/Blender CLI boundary. Limited S07 static run-card/content-gap preparation can be separately
 assigned; representative measurements await actual content/effects/drawability/hardware.
 The [eighth checkpoint](docs/reviews/plan-check-2026-10-08-08.md#readiness-and-next-trigger)
 records decision/output/caps/stop boundaries. Root names writers and serializes
@@ -932,7 +953,7 @@ The table describes dependency stages, not a claim that deferred proofs are runn
 | Initial foundation | Ratified brief, contract drafts, concept exploration, tool inventory | Chosen style/layout and measured scope revisions need user ratification and evidence |
 | Tiny fixtures available | S02 camera using [S01 pipeline evidence](docs/spikes/s01.md); use [completed S03 session evidence](docs/spikes/s03.md); review skill dry runs | All visible fixtures must have Blender sources; only minimum harness required |
 | ENet boundary available | Stopped S03-S compatibility accepted; root commissions exact-revision evidence or bounded native-boundary design; S08 desktop preparation | No adapter selection/native delivery/access proof inferred; existing-app/tester/native compatibility still required |
-| Reviewed desktop and partial S05/S06 technical results available | Exact754a0b5 and7fb302b PARTIAL accepted; provisional S07 seam dependency satisfied; S02 exacta311c576 stopped record ACCEPT/full-positive FAIL; DOC1–11 complete; scoped DOC12/13 ready; S08 exact1229782 stopped evidence ACCEPTED/full asset-ENet OPEN | Time-specific S02 operational/display lease RETURNED; authoring UNASSIGNED/no shared writer; archived S08 used no shared lease; no active implementation; full S02/S07 and actual effects/drawn/physical keys/feel/final dimensions/Steam/targets remain open |
+| Reviewed desktop and partial S05/S06 technical results available | Exact754a0b5 and7fb302b PARTIAL accepted; provisional S07 seam dependency satisfied; S02 exacta311c576 stopped record ACCEPT/full-positive FAIL; DOC1–11 complete; scoped DOC12/13 ready; S08 exact1229782 stopped evidence ACCEPTED/full asset-ENet OPEN | Time-specific S02 operational/display lease RETURNED; authoring UNASSIGNED/no shared writer; archived S08 used no shared lease; ACTIVE UNACCEPTED S05 source prep owns only NEW asset files/isolated Blender CLI, Godot operations await ROOT grant; full S02/S07 and actual effects/drawn/physical keys/feel/final dimensions/Steam/targets remain open |
 | Both providers available | Finish S03-R foot response and S04 network response; S08 exports | Both transports need evidence; foot/vehicle prediction are separate decisions |
 | Provisional technical topology available | Accepted S06 crossing/opposing legal LEFT turns/four-arm minimap/stale-data and finite guard; S07 static preparation | Actual drawn/readability/final bodies/contact/exit reruns and real M1-C3 contested recovery remain open; geometric sensitivity is not changed-body proof |
 | City/effect fixtures available | S07 capacity/culling experiments, finish S08, skill dry runs and doc reconciliation | P0-GATE resolves critical assumptions before production |
