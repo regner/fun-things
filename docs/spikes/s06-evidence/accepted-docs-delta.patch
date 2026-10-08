@@ -1,0 +1,684 @@
+diff --git a/README.md b/README.md
+index 2856540..453e026 100644
+--- a/README.md
++++ b/README.md
+@@ -8,6 +8,9 @@ configuration, the Godot MCP Toolkit, [S01 asset fixtures](docs/spikes/s01.md),
+ [S04 car/body/ENet technical fixture](docs/spikes/s04.md#accepted-exact-final-disposition).
+ The accepted [stopped S03-S compatibility probe](docs/spikes/s03-s-compatibility.md#accepted-exact-final-compatibility-disposition)
+ adds source/model/reflection evidence, with no selected Steam adapter.
++The accepted [partial S05 damage/chain fixture](docs/spikes/s05.md#accepted-exact-final-disposition)
++adds finite authoritative outcomes and settled wreck hydration, with eight cosmetic
++tokens rather than drawn explosion effects.
+ There is no production gameplay or main scene yet.
+ The first milestone requires ENet for local testing and Steam for friends playtesting,
+ using the existing Steam app through shared session APIs.
+@@ -136,6 +139,27 @@ fallback, SDK/vendor/pin/package or integration choice is selected. Full S03-S,
+ native delivery/lifecycle/queue/allocation, external route/relay/package/device,
+ Steam/Deck/S04 and P0/M1/production gates remain open.
+ 
++The supplementary S05 runner and read-only resource checker have no Mise task:
++
++```sh
++python3 tools/run_s05.py --godot /path/to/4.8-dev7/godot --gdstyle /path/to/0.3.0/gdstyle --output /tmp/s05-my-run
++python3 tools/s05/check_resources.py --base c8096b55ef97412552366fdaa74c220b976ed82e --output /tmp/s05-resources-my-run.json
++```
++
++Both executable flags are required by the runner. Its optional output must be fresh,
++empty and outside the checkout; omitted output prints a temporary directory.
++Default headless mode runs both API scenes, separate host/live/settled-late ENet
++processes on ports25040/25041, then finite queue pressure. `--api-only` omits ENet;
++`--queue-only` runs just pressure after import/seven-script compile/style checks.
++Private user/log scopes and owner-only child cleanup are described with every
++flag/default and the resource checker's different output rules in the
++[development recipe](docs/development.md#s05-partial-damagechain-tooling).
++Seven S05 compiles do not replace all-owned compilation; neither import nor tokens
++prove drawn effects. Sentinel death is not admitted-player death/respawn, and settled
++hydration is not a during-chain journal/reset proof. Exact754a0b5 partial acceptance
++keeps full S05, policy/dimension reruns, Steam/Deck/input/feel/capacity and P0/M1/
++production gates open.
++
+ ## Project guidance
+ 
+ - [Plan through the first milestone](TODO.md): phase-zero foundations, technical
+diff --git a/TODO.md b/TODO.md
+index 8075180..720006a 100644
+--- a/TODO.md
++++ b/TODO.md
+@@ -223,60 +223,6 @@ complete in [the completion/review record](docs/reviews/p0-doc5.md). Only the
+ three guides and resolving references changed; full S02/S03-R, profile
+ configuration/launch, Steam/Deck/P0/production gates remain open.
+ 
+-- [ ] **P0-DOC8 — Discover accepted partial S05 tooling and exact-final review.**
+-  Owner role: one direct Sol MEDIUM/HIGH documentation worker, independent Sol HIGH
+-  review; root assigns named ownership. Files: `README.md`, `docs/development.md`,
+-  `docs/spikes/s05.md`. Prerequisites: accepted exact `754a0b5` on base `c8096b5`,
+-  complete substantive/final review and lossless Git note, completed DOC6/DOC7 and
+-  [sixth checkpoint](docs/reviews/plan-check-2026-10-08-06.md#documentation-drift-and-scoped-follow-ups).
+-  Evidence: [S05 record](docs/spikes/s05.md), [contract](docs/spikes/s05-contracts.md),
+-  [full review](docs/spikes/s05-evidence/review/report.md), actual
+-  `tools/run_s05.py`, `tools/s05/check_resources.py`, their shared staging/version/
+-  diagnostic/cleanup sources and retained results. Read sources; execute no experiment.
+-  Done when: README/development discover the partial fixture and exact existing
+-  runner/resource recipes, required `--godot`/`--gdstyle`, flags/defaults/guarded
+-  external output, private user/log scopes, seven affected versus all-owned compile
+-  limits, API/ENet/queue modes and owner-only cleanup without inventing a Mise task;
+-  S05 links exact754a0b5 same-reviewer ACCEPT partial/P3 resolved and complete note,
+-  making its future exact-review prose historical without rewriting protocols,
+-  original reports, raw failures or EOF evidence. Eight tokens are not drawn effects;
+-  occupant sentinel is not a player; settled hydration is not during-chain journal.
+-  Preserve all remaining S05/Steam/Deck/input/feel/capacity/P0/M1/production gates.
+-  Static local links/anchors, source/flag/receipt mapping, JSON, authored LF/whitespace,
+-  scoped history/task/mode/blob preservation and clean-context exact-final review
+-  pass. Remove DOC8 with its resolving guide change/completion record, replace
+-  P0-GATE prerequisite. Ready without hardware/editor; finish before P0-GATE.
+-
+-- [ ] **P0-DOC9 — Reconcile bounded S05 contracts, consumers and capacity prerequisites.**
+-  Owner role: one direct Sol MEDIUM/HIGH docs worker, independent Sol HIGH review;
+-  root assigns named ownership and serializes docs with DOC8. Files:
+-  `docs/architecture.md`, `docs/scene-structure.md`, `docs/api-contracts.md`,
+-  `docs/multiplayer.md`, `docs/assets/s04_kit.md`, `docs/world-layout.md`,
+-  `docs/spikes/s07.md`. Prerequisites: accepted exact754a0b5 full substantive/final
+-  note, [S05 contract](docs/spikes/s05-contracts.md), completed DOC6/7 and sixth
+-  checkpoint; no final S02/S04 ratification required for factual supplements.
+-  Evidence: S05 literal API/actual ENet host/live/settled-late and retired-ShotId
+-  negative, normal queue5/46ticks and pressure queue12/tick41,144visits/4 per tick,
+-  eight TOKEN reservations/four drops/hidden outcomes; actual saved S05 car/boot/
+-  burst ancestry through unchanged S04 imports/source, source handoff and S07 method.
+-  Done when: guides link one bounded fixture contract/minimum local damage-life
+-  owner, retained shooter floor/reserved-work bounds, pre-tree passive state and
+-  current wreck hydration before input without historical tokens. Distinguish
+-  fixed lifetime shooter guard from full reconnect/fifth-peer/admission races,
+-  sentinel from admitted-player death/respawn, settled join from canonical during-
+-  chain baseline/journal/reset and stationary wreck from final moving-contact proof.
+-  Add S05 inherited consumers to existing S04 source map, without new asset identity.
+-  World/S07 current supplements distinguish provisional finite chain evidence from
+-  still-required real S06 seam/topology, actual source-linked drawable effects,
+-  named hardware/four views/residency/sustained load. Preserve normative production
+-  APIs/owners, original historical sections/predeclarations/counts/results,
+-  Regner policies, final-dimension spacing/contact reruns, every target/P0/M1 gate;
+-  no maximum/renderer/streaming/integration selection. Static links/anchors, actual
+-  owner/consumer/receipt mapping, JSON, authored LF/whitespace and unaffected task/
+-  history/mode/blob checks plus exact independent review pass; no technical rerun.
+-  Remove DOC9 with its resolving scoped guide change/completion record and replace
+-  P0-GATE prerequisite; finish before P0-GATE. Ready documentation only.
+-
+ ## Phase-zero technical spikes
+ 
+ Each spike gets a short `docs/spikes/<id>.md`: question/hypothesis, alternatives,
+@@ -563,7 +509,9 @@ implementation. Save editor mutations before playtests; preserve unsaved work.
+   [P0-DOC4 guide reconciliation](docs/reviews/p0-doc4.md),
+   [P0-DOC5 discovery/consumer reconciliation](docs/reviews/p0-doc5.md),
+   [DOC6 accepted S04 guide reconciliation](docs/reviews/p0-doc6.md),
+-  [DOC7 stopped compatibility discovery](docs/reviews/p0-doc7.md), P0-DOC8/P0-DOC9,
++  [DOC7 stopped compatibility discovery](docs/reviews/p0-doc7.md),
++  [DOC8 partial S05 tooling/review discovery](docs/reviews/p0-doc8.md),
++  [DOC9 partial S05 contract/consumer reconciliation](docs/reviews/p0-doc9.md),
+   [S03 fixture boundary](docs/spikes/s03.md#fixture-and-boundary),
+   [completed S03 proof](docs/spikes/s03.md), S03-R/S03-S and S04 through S08.
+   S07 supplies the documented capacity envelope, limiting axes, organization and
+@@ -784,13 +732,21 @@ Prior direct Sol HIGH lead `4b965847-a374-47da-aa0e-2800adaebc4f`, workspace
+ `wks_f739d0d8cb771a1d`, branch `s04-desktop-enet-cars`, are archived by Paseo after
+ saved/quiescent editor relocation to main. Root's complete `2370ad1` note retains
+ historical assignment, review/integration and relocation receipts. No active S04
+-candidate or new S04/S06 authoring allocation. S05 exact754a0b5 is accepted and
++candidate or new S04 authoring allocation. S05 exact754a0b5 is accepted and
+ integrated as a PARTIAL technical result; full S05 remains OPEN. Lead
+ `50c01e86-3164-4592-a48b-8181b3275d63`, Sol6.1 HIGH auto-review, workspace
+ `wks_42b1f3912dacdb26` / `s05-authoritative-chain-fixture` and sole reviewer
+ `770f9536-788e-4348-b335-86224c24e5fa` are archived via normal Paseo lifecycle,
+ directory removed after saved main-editor relocation. Operational lease RETURNED;
+-authoring lease UNASSIGNED, no active implementation candidate/new allocation.
++historical S05 authoring lease UNASSIGNED after return. Root now assigns active
++UNACCEPTED S06 direct lead `7bad34e7-0902-460a-9991-37e8608bd04c`, requested
++Sol6.1 HIGH auto-review, workspace `wks_7908651972db6fe3` /
++`s06-provisional-turn-seam`, base LOCAL main `096469f`. Exclusive NEW S06
++Godot/Blender authoring lease requires the worker's fresh HOST/live saved-state
++preflight before any physical project switch/authoring; assignment is not proof
++that a switch occurred. Lead owns only new S06 fixture, `docs/spikes/s06.md` and
++resulting S06 TODO status; canonical guides/DOC8–9 remain this documentation
++worker's serialized scope, with no other writer. No accepted S06 candidate/results.
+ Root's complete754a0b5 JSON note retains original20 review/handoff entries and
+ added receipt/31-entry ledger/reference facts. At its time-specific supplied HOST
+ boundary, old286171 gracefully quit, sole pinned main325756 saved/unsavedempty,
+@@ -835,7 +791,7 @@ The table describes dependency stages, not a claim that deferred proofs are runn
+ | Initial foundation | Ratified brief, contract drafts, concept exploration, tool inventory | Chosen style/layout and measured scope revisions need user ratification and evidence |
+ | Tiny fixtures available | S02 camera using [S01 pipeline evidence](docs/spikes/s01.md); use [completed S03 session evidence](docs/spikes/s03.md); review skill dry runs | All visible fixtures must have Blender sources; only minimum harness required |
+ | ENet boundary available | Stopped S03-S compatibility accepted; root commissions exact-revision evidence or bounded native-boundary design; S08 desktop preparation | No adapter selection/native delivery/access proof inferred; existing-app/tester/native compatibility still required |
+-| Reviewed desktop and partial S05 technical results available | Exact754a0b5 partial accepted, S05 lead/reviewer/workspace archived after saved main relocation; lease UNASSIGNED; DOC8/DOC9 docs ready, S06 and actual-effect/drawable follow-ups need named leases | No active implementation/new allocation; operational lease returned; tokens are not drawn effects; final dimensions/turning/feel/target/Steam/prediction remain open |
++| Reviewed desktop and partial S05 technical results available | Exact754a0b5 partial accepted; archived S05/returned lease facts preserved. Active UNACCEPTED S06 direct lead7bad34e7, requested Sol6.1 HIGH auto-review, wks_7908651972db6fe3 / s06-provisional-turn-seam at096469f, exclusive NEW S06 Godot/Blender lease; DOC8/9 guides remain serialized with their docs owner | Required fresh HOST/live saved-state worker preflight before project switch/authoring; no accepted S06 result. Actual-effect/drawable follow-ups need separate named leases; tokens are not drawn effects; final dimensions/turning/feel/target/Steam/prediction remain open |
+ | Both providers available | Finish S03-R foot response and S04 network response; S08 exports | Both transports need evidence; foot/vehicle prediction are separate decisions |
+ | Provisional technical vehicle envelope available | S06 saved two-sector real-body legal turn/crossing/seam/minimap; accepted S05 finite work can inform bounded wreck assumption | Final dimensions/turning/exit ratification remains S04; no allocation implied; rerun affected cases after choices |
+ | City/effect fixtures available | S07 capacity/culling experiments, finish S08, skill dry runs and doc reconciliation | P0-GATE resolves critical assumptions before production |
+diff --git a/docs/api-contracts.md b/docs/api-contracts.md
+index 11a07a7..d0f1dce 100644
+--- a/docs/api-contracts.md
++++ b/docs/api-contracts.md
+@@ -635,3 +635,47 @@ Headless input-to-applied-physics latency, snapshot installation and settled-hos
+ convergence are distinct from visible response and predicted matching-tick correction.
+ The latter measurements and Steam/feel/hardware acceptance remain open; S03-R owns
+ the bounded replay-mapping follow-up in [TODO](../TODO.md).
++
++## Accepted partial S05 executable boundary
++
++The normative production signatures, identity shapes, limits and acceptance matrix
++above remain requirements. [Exact754a0b5 partial S05](spikes/s05.md#accepted-exact-final-disposition)
++implements a minimum fixture subset described by ONE
++[bounded contract](spikes/s05-contracts.md), not a second production API.
++S05Damage owns health/life/sentinel/EventId/work via `begin`, `register_shooter`,
++`resolve_shot`, `advance`, `cut`, `valid_cut`, `apply_cut`, `retire_shooter`, `clear`.
++S03 admission/marker/replication and unchanged S04 configure/neutralize/body APIs
++remain collaborators. Fixture ShotId `{session, match, shooter, generation, sequence}`
++and fixed car IDs are adapters, not the canonical production wire codec.
++
++A retained per-shooter monotonic floor rejects an old ShotId after its active target
++cache completes and after departure, until whole session teardown. The meaningful
++[retirement negative](spikes/s05-evidence/README.md) removes just that floor and
++fails specifically retired ShotId rejection. One job per terminal saved car reserves
++all accepted chain work, twelve jobs maximum; four accepted roots/four target visits
++per tick, with caches retired only on their own completion. Finite four-lifetime-
++shooter registration/admission guard includes pending initial slots, without ID reuse.
++Full reconnect, fifth-peer/loading/admission races and sustained churn remain open.
++
++Sender-bound fire intent is exactly `{context, sequence, fire:true}`, <=512 Variant
++bytes,4/s burst4, window16, no request queue; only the host chooses target/damage.
++Current car cut <=8192 UTF-8 bytes/12 fixed rows extends the unchanged four-channel
++S03 contract. Application caps do not prove predecoder allocation/MTU/flood capacity.
++Atomic cut preflight and passive-before-tree roles keep current wreck dependencies
++installed before input; marker movement cannot overwrite car state. Actual separate
++ENet host/live/settled-late rows prove no historical tokens at baseline install,
++not canonical during-chain journal/reset races or active projectile hydration.
++
++Terminal state neutralizes motion and kills/releases nonrendering occupant9001
++before publication. The sentinel is not an admitted player; production Health,
++PlayerLifecycle and VehicleInteraction retain their owners and death/respawn/seat
++acceptance. The stationary original wreck box remains300 ticks and until its blast
++completes, then clears; final moving-contact/clearance proof remains open.
++Normal twelve-car work is144 visits, peak4/tick, queue5, completion46 ticks; finite
++pressure queue12 completes at tick41 with the same visits/peak. Both use8 TOKEN
++reservations/4 drops and hidden visuals. They do not measure eight actual effects,
++real draw cost or sustained capacity. Full S05 source-linked drawable saturation,
++Regner provisional blast/obstruction/falloff/delay/order/occupant/wreck ratification
++and post-final-S02/S04-dimension spacing/contact reruns remain required. M1-B1/B2/B3/
++B4/D and S07 retain production lifecycle/journal/reset/load/feedback; every Steam/
++Deck/input/feel/P0/M1/production gate remains open.
+diff --git a/docs/architecture.md b/docs/architecture.md
+index c10882b..034a813 100644
+--- a/docs/architecture.md
++++ b/docs/architecture.md
+@@ -246,3 +246,38 @@ authoritative outcomes. S06 owns topology, S08 exact exports/input, and M1-D3 su
+ integrated target acceptance. Six-block M1 and LCD/OLED native 1280×800/60 FPS remain
+ unchanged. S08 and M1-D4 retain physical Deck/exports and private Steam delivery gates.
+ All M1 work still follows P0-GATE; none of these tasks is closed by this supplement.
++
++## Accepted partial S05 owner supplement
++
++8 October 2026. [Exact754a0b5 acceptance](spikes/s05.md#accepted-exact-final-disposition)
++adds one bounded fixture, not production components. The
++[single S05 contract](spikes/s05-contracts.md#owners-and-callers) assigns S05Damage
++minimum local health/life/occupant-sentinel/EventId/chain-work ownership; existing
++S03 Session/Match/Replication and unchanged S04 body APIs remain collaborators.
++The canonical production owners/table and acceptance above remain normative.
++
++[Identity/work retirement](spikes/s05-contracts.md#identity-work-and-retirement)
++keeps each immutable shooter's monotonic floor until session teardown, even after
++active job caches retire or the shooter departs. Exactly one reserved job per
++terminal car bounds twelve pending/active jobs; four accepted roots and four target
++visits/tick do not depend on eight cosmetic tokens. A finite four-lifetime-shooter
++admission guard includes pending reservations; it is not full reconnect/fifth-peer/
++loading race acceptance. No production WeaponState or hit/rocket framework is added.
++
++Cars begin passive before tree callbacks. Terminal publication follows body
++neutralization, health/life/collision and sentinel death/release; the original host
++box stays stationary until300 ticks and completed blast, then clears. This proves
++stationary retention/query state, not moving contacts or final clearance. Occupant
++sentinel9001 is not an admitted player; PlayerLifecycle/VehicleInteraction and
++M1-B1/B2/B3/D retain death/respawn/seat/destruction transactions.
++
++[Current cut/admission](spikes/s05-contracts.md#reliable-cut-and-admission-boundary)
++installs current wreck dependencies before input with zero historical tokens for a
++settled post-chain ENet join. Canonical during-chain baseline/journal/reset races
++remain M1-B3/M1-D3. Movement never writes car health/life/seat/collision. Eight TOKEN
++reservations/four drops with hidden outcomes prove finite work separation, not
++actual drawable VFX or sustained CPU/GPU capacity. Full S05 still needs source-linked
++drawn saturation, Regner blast/obstruction/falloff/delay/order/occupant/wreck policies,
++and spacing/contact reruns after final S02/S04 dimensions. S07 needs real S06 seams,
++actual effects and hardware/views/load. All Steam/Deck/input/feel/P0/M1/production
++gates remain open; no productionization, renderer/streaming or maximum is selected.
+diff --git a/docs/assets/s04_kit.md b/docs/assets/s04_kit.md
+index 0c14af8..d73ebfe 100644
+--- a/docs/assets/s04_kit.md
++++ b/docs/assets/s04_kit.md
+@@ -16,8 +16,8 @@ new license dependency. Source/integration owner is S04; Regner owns product fee
+ 
+ | Source / explicit collection | Linked export and preserved sidecar | Saved consumers |
+ | --- | --- | --- |
+-| `art/source/models/spikes/s04_kit.blend` / `export_s04_car` | `art/models/spikes/s04_car.glb` + `.glb.import` | `tests/fixtures/s04/kinematic.tscn`, `dynamic.tscn`; their instances in `body_comparison.tscn`, inherited `boot.tscn` |
+-| Same source / `export_s04_track` | `art/models/spikes/s04_track.glb` + `.glb.import` | `tests/fixtures/s04/track.tscn`; comparison/boot instances |
++| `art/source/models/spikes/s04_kit.blend` / `export_s04_car` | `art/models/spikes/s04_car.glb` + `.glb.import` | `tests/fixtures/s04/kinematic.tscn`, `dynamic.tscn`; their instances in `body_comparison.tscn`, inherited `boot.tscn`; S05 `car.tscn` inherited by S05 boot/burst instances |
++| Same source / `export_s04_track` | `art/models/spikes/s04_track.glb` + `.glb.import` | `tests/fixtures/s04/track.tscn`; comparison/boot instances; S05 boot CityRoot/Track, inherited by S05 burst |
+ 
+ All source members are explicit in `tools/s04/export_members.json`; `export.py`
+ validates those exact members and unit transforms. The committed .blend is the
+@@ -78,3 +78,22 @@ no concept/image/headless substitute certifies visual quality, focus or physical
+ keys. No production style/gameplay/world/target approval is supplied. Required next
+ handoff: drawable matched camera/lighting states, Regner handling/control review,
+ actual seat/exit and district queries, Steam and hardware proof under their owners.
++
++## Accepted partial S05 inherited consumers
++
++[Exact754a0b5 S05](../spikes/s05.md#accepted-exact-final-disposition) adds saved
++[car](../../tests/fixtures/s05/car.tscn) -> S04 kinematic -> unchanged s04_car GLB/
++import -> this same s04_kit source. Saved [boot](../../tests/fixtures/s05/boot.tscn)
++instances that car and S04 track -> unchanged s04_track GLB/import -> the same source;
++[burst](../../tests/fixtures/s05/burst.tscn) inherits boot with twelve saved cars.
++The source map above now includes these reverse consumers, without new asset identity,
++source/export changes, copied meshes or imported-child overrides. S05's new scene/
++script identities do not change S04 source/import identities or export membership.
++
++[Single S05 contract](../spikes/s05-contracts.md#source-reuse-and-evidence-boundary)
++and retained saved-roundtrip/resource receipts bound this technical reuse. Current
++wreck appearance is the unchanged neutral car; stationary retained box/query behavior
++is not wreck art, moving-contact/final-clearance or production acceptance. Eight
++cosmetic tokens are not authored/drawn explosions. Source-linked actual effects,
++Regner policies, final-S02/S04-dimension spacing/contact reruns and all visual/input/
++feel/Steam/Deck/S07/P0/M1/production gates remain open. No new reexport ran here.
+diff --git a/docs/development.md b/docs/development.md
+index 159fb62..22372a3 100644
+--- a/docs/development.md
++++ b/docs/development.md
+@@ -513,6 +513,94 @@ immutable upstream-revision evidence, separately bounded native-boundary design,
+ or continued unavailability. No adapter/peer/five-lane/reliable fallback/SDK/vendor/
+ pin selection is made; full S03-S/Steam/Deck/S04/P0/M1/production gates stay open.
+ 
++### S05 partial damage/chain tooling
++
++[Exact accepted partial S05](spikes/s05.md#accepted-exact-final-disposition) adds a
++saved minimum authoritative damage/life/chain fixture, using unchanged S03 session
++and S04 body/source APIs. The [single fixture contract](spikes/s05-contracts.md)
++owns experimental identities, work, lifecycle and presentation limits.
++[Evidence catalogue](spikes/s05-evidence/README.md) maps original protocols,
++canonical API/ENet, all-owned compilation, failed/corrected pressure, retired-ShotId
++negative and saved-resource receipts. These are historical results, not new checks.
++
++The existing recipes, from the repository root under separately assigned process
++access, are:
++
++```sh
++python3 tools/run_s05.py --godot /path/to/4.8-dev7/godot --gdstyle /path/to/0.3.0/gdstyle --output /tmp/s05-my-run
++python3 tools/run_s05.py --godot /path/to/4.8-dev7/godot --gdstyle /path/to/0.3.0/gdstyle --queue-only --output /tmp/s05-pressure-my-run
++python3 tools/s05/check_resources.py --base c8096b55ef97412552366fdaa74c220b976ed82e --output /tmp/s05-resources-my-run.json
++# Complete same-reviewer final disposition, lossless payloads and root receipts:
++git notes --ref=paseo-orchestration show 754a0b501fe705c93675ff09b43d5bfca201cd94
++```
++
++There is no `spike:s05` Mise task. Read the actual
++[runner](../tools/run_s05.py), [resource checker](../tools/s05/check_resources.py),
++[S04 staging](../tools/run_s04.py), [version/log/user helpers](../tools/script_checks.py)
++and [owned-child cleanup](../tools/run_s03.py) for the implemented scope:
++
++| Runner flag | Default and constraint |
++| --- | --- |
++| `--godot` | Required executable path; shared helper verifies exact `4.8.dev7.official.c971f93e7`, with 10 s version timeout |
++| `--gdstyle` | Required executable path; use pinned0.3.0, aligned with `.gdstyle-version`; runner invokes fmt/check and lint, without a separate gdstyle version query |
++| `--output` | Printed `s05-` temporary directory if omitted; absent or empty directory resolving outside repository ROOT, nonempty/internal outputs rejected |
++| `--port` | 25040, range1–65534; boot uses this port, burst uses port+1, sequentially |
++| `--deadline` | 18 s for each three-process ENet case after staging/checks, range1–30 s; not a total runner deadline |
++| `--api-only` | Off; runs boot/burst public APIs and queue pressure, omits ENet |
++| `--queue-only` | Off; skips both API/ENet rows, runs pressure; takes precedence if both mode flags supplied |
++
++All modes stage saved s02/s03/s04 dependencies and s05 car/boot/burst plus scripts,
++with S02/S04 model imports/sidecars. S04 staging removes autoload/editor-plugin
++sections and icon reference from copied settings; no addons or Blender authoring
++sources are copied. S05 staging excludes editor harness/probe patterns. Headless
++import precedes seven explicit S05 script compiles and S05 formatting/lint. It does
++not call the all-owned compiler: retained `all-owned-checks` covers48 owned affected
++scripts separately, while final seven-script checks cover the proof amendment.
++Use the separate [foundation checks](#foundation-validation-tasks) for all-owned
++scope; an import alone is neither all-script nor editor-synchronization evidence.
++
++Check/import/compiler operations use `check-user`; each API, queue and ENet role
++gets its own XDG data/config/cache scope and stdout/engine logs. Shared checked
++commands have 30 s default timeout; API/queue commands use12 s. Default mode runs
++boot API then boot ENet, burst API then burst ENet, and finally finite reserved
++queue pressure. Each ENet case has actual host/live/post-chain-joiner processes. No proxy, windowed option or drawn
++receipt exists in this runner. ENet late launch waits for host `settled`; it does
++not test changes during an in-flight car baseline/journal.
++
++The printed directory retains copied project, import/compiler/style logs, per-row
++stdout/engine logs and private users, plus `result.json` with commands/source hashes
++and available API/network/queue outcomes. Failures keep logs and a failure result;
++an early failure may lack completed row/source manifests. Checked commands reject
++`SCRIPT ERROR:`, `ERROR:` and `WARNING:` even with exit0; network rows also require
++one successful result per role, correct outcomes and zero exits. Each network case
++finally terminates only its own Popen children, waits a shared2 s, then kills/waits
++remaining owned children. No name/PID scan or shared editor cleanup is performed.
++
++The resource checker is static: `--base` defaults to original experiment base
++`c0eda26f7f010af75bbf10c272ec5cb001442331`; the recipe explicitly selects accepted
++base `c8096b5`. Required `--output` is a JSON file; its parent is created and an
++existing file is overwritten. Unlike the runner, it has no external/fresh-output
++guard: deliberately choose a new external filename. It reads Git/base and working
++bytes for original technical prefixes, checks three saved scene dependency UID/path/
++node identity sets and seven script sidecars, and rejects copied/generated meshes.
++It performs no engine/import/reexport/save/reload or gameplay operation; those
++historical receipts have separate owners.
++
++Accepted health0/0/100 and twelve terminal outcomes, retired ShotId fences, normal
++queue5/46 ticks and finite pressure queue12/tick41 establish scoped gameplay work.
++Both twelve-car rows complete144 visits at peak4/tick with8 TOKEN reservations/
++4 drops and hidden visuals. They measure no actual effect draw cost. Occupant9001
++is a nonrendering sentinel, not an admitted player. Current wreck hydration precedes
++input with zero historical tokens only for settled post-chain joining. Full S05
++requires source-linked actual eight-effect drawable saturation/live-versus-hydrated
++receipts, Regner policy ratification and affected spacing/contact reruns after final
++S02/S04 dimensions. Production player/seat/journal/reset/reconnect/sustained load and
++all Steam/Deck/input/feel/capacity/P0/M1 gates remain open. Original raw sandbox,
++class-index/vector, pressure-timing and editor diagnostics/EOF receipts remain exact;
++the full note preserves same-reviewer exact-final ACCEPT partial, P3 resolved and
++root's time-specific integration/relocation history. Wrapper metadata additions may
++change note hash; decoded original payload hashes establish preservation.
++
+ ## Versions and releases
+ 
+ When release builds exist, make version and source revision visible in startup
+diff --git a/docs/multiplayer.md b/docs/multiplayer.md
+index a793bd1..88f5a09 100644
+--- a/docs/multiplayer.md
++++ b/docs/multiplayer.md
+@@ -368,3 +368,36 @@ device acceptance follows. Root can commission exact immutable upstream evidence
+ a separately bounded native-boundary design, or keep Steam unavailable; no adapter,
+ integration, five-lane fix, reliable fallback, SDK/vendor/pin choice is selected.
+ Full S03-S/Steam/Deck/S04/P0/M1/production gates remain open.
++
++## Accepted partial S05 damage and settled hydration boundary
++
++[Exact754a0b5 partial S05](spikes/s05.md#accepted-exact-final-disposition) consumes
++unchanged S03 admission/replication and S04 body APIs. ONE
++[fixture contract](spikes/s05-contracts.md#reliable-cut-and-admission-boundary) defines
++the minimum local S05Damage writer, sender-derived fire validation, current cut and
++live-event adapters on the same four channels/endpoints. Movement never installs
++health/life/seat/collision. Replicas begin passive before tree callbacks; current
++wreck dependencies install while input is closed, before normal grant/fresh movement.
++
++Actual separate ENet host/live/settled-late processes reject active and retired
++ShotId duplicates, wrong owner/context and exercised malformed/oversize/rate/window
++cases; live events consume once, post-chain hydration consumes zero historical tokens.
++This is settled joining only. Arbitrary car changes during an in-flight immutable
++baseline still need canonical durable journal/handoff, collision fences and reset/
++admission races under M1-B3/M1-D3. No new baseline/journal framework is accepted.
++
++The retained shooter floor survives active-cache retirement/departure until teardown;
++reserved twelve-car jobs finish independently of cosmetic capacity. The four lifetime
++shooter-slot guard (including pending initial reservations) is finite safety evidence,
++not full fifth-peer/reconnect/loading/abuse acceptance. Application512-byte intent/
++8192-byte cut caps are not predecoder/MTU/native allocation or sustained flood proof.
++Sentinel occupant9001 is not an admitted player death/respawn/seat transaction.
++Stationary wreck collision/query retirement is not final moving-contact proof.
++
++Eight TOKEN reservations/four drops with hidden complete outcomes supply no actual
++effect draw/load evidence. Full S05 needs source-linked eight-effect drawable
++saturation/live-versus-hydrated receipts, Regner policies and spacing/contact reruns
++following final S02/S04 dimensions. M1-B1/B2/B3/B4/D retain full lifecycle, journal,
++reset, feedback and sustained acceptance; S07 needs real S06 topology/seams, effects
++and hardware/four views/residency/load. All Steam/native/Deck/input/feel/P0/M1/
++production gates and the normative contracts above remain open.
+diff --git a/docs/reviews/p0-doc8.md b/docs/reviews/p0-doc8.md
+new file mode 100644
+index 0000000..4fd6273
+--- /dev/null
++++ b/docs/reviews/p0-doc8.md
+@@ -0,0 +1,36 @@
++# P0-DOC8 — accepted partial S05 tooling and review discovery
++
++8 October 2026. Sole implementation lead `bd91ee64-fbc3-48e7-8f35-e2cd9fbfc90f`,
++GPT-6.1-Sol configured/effective MEDIUM, auto-review; workspace
++`wks_adec95836e1747bb`, branch `p0-doc8-doc9-chain-guides`, base LOCAL main
++`096469f25db2617858d49f88860991c1c84c222e`.
++
++README/development now discover accepted partial S05 and the existing runner/static
++resource recipes; S05 records historical same-reviewer exact754a0b5 ACCEPT partial,
++P3 resolved. DOC8 is removed with this resolving change and P0-GATE requires this
++record. No S05/Steam/Deck/input/feel/capacity/P0/M1/production gate is closed.
++
++Read complete accepted-base raw DOC8, AGENTS and orchestration templates,
++[sixth checkpoint](plan-check-2026-10-08-06.md), accepted [S05 record](../spikes/s05.md),
++[contract](../spikes/s05-contracts.md), complete24,112-byte substantive and14,250-byte
++final reports, all20 original754a0b5 payloads and root integration/relocation receipts.
++Read actual runner/resource/version/staging/log/cleanup and saved consumer sources.
++Original protocols, raw reports/failures/EOF history and source bytes remain exact.
++Note wrapper changes from root metadata do not change original payload identity.
++
++Static source review distinguishes required executable flags, actual defaults/mode
++precedence, guarded runner output versus unguarded required resource output, private
++users/logs, seven compiles versus retained48 and owner-only cleanup. Tokens are not
++drawn effects; sentinel is not player; settled hydration is not during-chain journal.
++Static validation checks local paths/anchors, source/flag/receipt mappings, duplicate-
++key JSON, authored LF/whitespace, exact resolving TODO removal/P0-GATE replacement,
++unrelated task/history/mode/blob/working-byte and asset preservation. No runner,
++probe/compiler/import/gameplay/native/network/model/fetch/reexport/browser/device/
++service/profile experiment or editor/PID/state query was executed.
++
++Complete actual static sources/stdout/stderr, one fresh independent Sol6.1 HIGH
++substantive review, same-reviewer exact final disposition and handoff are retained
++losslessly in `refs/notes/paseo-orchestration` on delivered final HEAD after readback.
++Use `git notes --ref=paseo-orchestration show <delivered-HEAD>`; no unseen SHA inherits
++approval and no self-referential retention commit is needed. DOC9 is serialized
++separately; root alone integrates/archives. Current checkpoint/watermark is unchanged.
+diff --git a/docs/reviews/p0-doc9.md b/docs/reviews/p0-doc9.md
+new file mode 100644
+index 0000000..3e4f95f
+--- /dev/null
++++ b/docs/reviews/p0-doc9.md
+@@ -0,0 +1,42 @@
++# P0-DOC9 — accepted partial S05 contracts, consumers and prerequisites
++
++8 October 2026. Sole implementation lead `bd91ee64-fbc3-48e7-8f35-e2cd9fbfc90f`,
++GPT-6.1-Sol configured/effective MEDIUM, auto-review; workspace
++`wks_adec95836e1747bb`, branch `p0-doc8-doc9-chain-guides`, base LOCAL main
++`096469f25db2617858d49f88860991c1c84c222e`. Guide writes serialized after DOC8.
++
++Seven assigned guides now link ONE minimum S05 fixture owner/contract, retained
++shooter floor/reserved-work limits, pre-tree passive state/current wreck before
++input/no historical tokens. The existing S04 source map includes S05 inherited
++car/boot/burst consumers without new asset identity. World/S07 distinguish finite
++144 visits/peak4, queue5/46 ticks and pressure queue12/tick41,8 TOKEN reservations/
++4 drops/hidden outcomes from still-required real S06 seams/topology, actual drawable
++source-linked effects, named hardware/four views/residency/sustained load.
++DOC9 is removed with this resolving change and P0-GATE requires this record.
++
++Read complete accepted-base raw DOC9, AGENTS/orchestration templates,
++[sixth checkpoint](plan-check-2026-10-08-06.md), complete accepted S05 record/contract,
++24,112-byte substantive/14,250-byte final reports, all20 original754a0b5 payloads
++and root integration/relocation receipts. Consulted actual saved scenes/import
++ancestry, owner/admission/body/fire/cut/presentation APIs and retained API/ENet/
++negative/normal/failed-corrected-pressure/source receipts. Provisional finite guard
++is not full reconnect/fifth-peer/admission races; sentinel is not admitted-player
++death/respawn; settled hydration is not during-chain journal/reset; stationary wreck
++is not final moving contact. Normative production APIs/owners, historical protocols/
++reports/counts/failures/EOF bytes and Regner policies remain intact. Final-dimension
++spacing/contact reruns and every target/S05/S07/P0/M1/production gate remain open.
++No maximum/renderer/streaming/integration or product choice is made.
++
++Static validation checks local links/anchors, owner/API/consumer/receipt mappings,
++duplicate-key JSON, LF/whitespace, resolving task/P0-GATE changes and untouched
++history/mode/blob/working bytes/asset fingerprints. No runner/probe/compiler/import/
++gameplay/native/network/model/fetch/reexport/browser/device/service/profile
++experiment or editor/PID/state query was executed. Checkpoint/index/watermark and
++DOC1–7 remain unchanged. The separately authorized S06 operational update follows
++in its own TODO-only commit; no S06 technical task is changed here.
++
++Full actual static source/stdout/stderr, fresh independent Sol6.1 HIGH substantive
++review, same-reviewer exact final disposition/retention/rebase and handoff are stored
++losslessly after readback in `refs/notes/paseo-orchestration` on delivered final HEAD.
++Retrieve with `git notes --ref=paseo-orchestration show <delivered-HEAD>`; no old-SHA
++approval inheritance/self-referential commit. Root alone integrates/archives.
+diff --git a/docs/scene-structure.md b/docs/scene-structure.md
+index ad32582..6e0c194 100644
+--- a/docs/scene-structure.md
++++ b/docs/scene-structure.md
+@@ -223,3 +223,29 @@ owns future seat/exit/race/lifecycle cases under Match/VehicleInteraction, with
+ adverse acceptance and Regner's no-seated-fire/reload feel decision. Flat-track
+ technical bounds do not settle grounded exits, district turns, body/dimensions,
+ controls/prediction, graphical/readability or target/production gates.
++
++## Accepted partial S05 saved fixture supplement
++
++[Exact accepted S05](spikes/s05.md#accepted-exact-final-disposition) uses three new
++saved scenes: [car](../tests/fixtures/s05/car.tscn) inherits unchanged S04 kinematic;
++[boot](../tests/fixtures/s05/boot.tscn) inherits S03 Boot/Session and fixed
++View/Match/Replication, adds saved Damage/Presentation/Cars siblings and the S04
++track under CityRoot; [burst](../tests/fixtures/s05/burst.tscn) inherits boot and
++saves twelve car placements. Runtime supplies roles/state through public APIs;
++it does not author hierarchy or placement. The [S04 source map](assets/s04_kit.md#source-explicit-outputs-and-consumers)
++keeps car/track linked to unchanged GLB/import/source bytes, without a new asset ID,
++imported-child override or generated mesh. New scene UIDs/node identities/script
++sidecars and supplied inherited roundtrips remain distinct from static inspection.
++
++The [single fixture contract](spikes/s05-contracts.md#owners-and-callers) owns the
++minimum local damage/life/chain state; it does not replace the production tree or
++prefab APIs above. Saved cars and Match's pre-tree configuration begin passive;
++current wreck health/life/seat/collision hydrates before admission/input. The host
++retains the original stationary box until retention and its blast complete; replicas
++stay collisionless/passive. This is neither production client collision nor final
++moving-contact/exit proof. Sentinel occupant death is not admitted-player death/
++respawn. Eight cosmetic tokens have no saved explosion geometry/audio/drawn effect.
++Settled joining without historical tokens does not implement during-chain journal/
++reset races. Full S05 drawable source-linked saturation, Regner policies and final-
++dimension spacing/contact reruns, M1 lifecycle/journal/load, Steam/Deck/input/feel,
++S07/P0/production gates remain open.
+diff --git a/docs/spikes/s05.md b/docs/spikes/s05.md
+index bfae205..f41f59f 100644
+--- a/docs/spikes/s05.md
++++ b/docs/spikes/s05.md
+@@ -149,9 +149,9 @@ all findings, checks, criteria dispositions and raw diagnostics. Reviewer
+ The nonblocking P3 authored EOF blank was corrected separately in `8ade585`; raw
+ evidence EOF bytes remain unchanged. Independent final seven-script compilation,
+ style, literal API, actual ENet, capacity row, source/UID and log checks passed.
+-The same reviewer must renew exact-final disposition after this retention commit;
+-its complete report/artifacts/handoff are retained on delivered HEAD in
+-`refs/notes/paseo-orchestration`, with no old-SHA approval inheritance.
++That requested renewal subsequently occurred at exact `754a0b5`; the
++[exact-final disposition](#accepted-exact-final-disposition) below records the same
++reviewer's renewed acceptance and complete note without old-SHA approval inheritance.
+ Canonical source/commands/logs are retained in [evidence](s05-evidence/README.md);
+ [contract supplement](s05-contracts.md) specifies exact owners and limitations.
+ 
+@@ -216,3 +216,39 @@ drawn receipts under a new named lease/budget when drawable, and final provision
+ blast/occupant/wreck policy ratification plus affected spacing/contact reruns after
+ S04/S02 dimensions. Full joining/reset/races and sustained capacity remain with
+ M1-B3/B4/M1-D/S07. S05 TODO stays open; no production/P0/S07/Steam/device closure.
++
++## Accepted exact-final disposition
++
++The preceding predeclarations, substantive candidate and correction history remain
++historical. Same sole fresh reviewer `770f9536-788e-4348-b335-86224c24e5fa`,
++GPT-6.1-Sol configured/effective HIGH, explicitly **ACCEPTED partial bounded
++technical S05 and retained evidence** at exact final
++`754a0b501fe705c93675ff09b43d5bfca201cd94`, accepted base
++`c8096b55ef97412552366fdaa74c220b976ed82e`. Prior P3 is **RESOLVED**, with no new
++findings. Full S05 remains **OPEN**. Original substantive verdict at f7883c3 and
++one-LF authored correction8ade585 remain distinct from this renewed final verdict.
++
++```sh
++git notes --ref=paseo-orchestration show 754a0b501fe705c93675ff09b43d5bfca201cd94
++```
++
++This valid JSON note retains all20 original lossless review/handoff payloads,
++including the complete14,250-byte final report (SHA256
++`8b5a709c25134ff7b5d0a8222b46ab94efa69e2292924fe0e4fa79cca23c88c9`),
++actual checks and handoff. The unchanged24,112-byte
++[substantive report](s05-evidence/review/report.md) has SHA256
++`f098e4466992fd6b01a2db2e1869c2986f5720b08d0acae30f94aa7adcda5341`;
++its [bundle](s05-evidence/review/review-artifacts.tar.gz) retains51 actual artifacts.
++Root's added integration/relocation receipts and31-entry ledger preserve the original
++payloads; wrapper hash may differ after metadata additions. These time-specific
++receipts are history, not a fresh editor-state query or lease allocation.
++
++[Tool discovery](../development.md#s05-partial-damagechain-tooling) distinguishes
++seven S05 compilation from retained48 owned checks, exact recipes and static resource
++checks from saved editor roundtrips. No technical rerun accompanies this docs update.
++Eight tokens are not drawn effects; sentinel death is not admitted-player death/
++respawn; settled wreck hydration before input is not during-chain journal/reset proof.
++Stationary retained collision is not moving-contact/final-clearance acceptance.
++The remaining source-linked drawable effects, Regner policies, final-dimension
++spacing/contact reruns and every S05/Steam/Deck/input/feel/capacity/P0/M1/production
++gate above remain open.
+diff --git a/docs/spikes/s07.md b/docs/spikes/s07.md
+index 247d2bc..657096e 100644
+--- a/docs/spikes/s07.md
++++ b/docs/spikes/s07.md
+@@ -283,3 +283,40 @@ JSON/diff review only; no gameplay/performance measurements were run.
+ anchor, JSON and whitespace validation. Independent technical disposition is
+ retained in the [independent review](../reviews/s07-preparation-review.md); later
+ substantive revisions require review.
++
++## Accepted partial S05 prerequisite supplement
++
++8 October 2026. The research date, original preparation/runs/method and unexecuted
++S07 measurements above remain historical/current as labeled. Subsequent
++[accepted S04](s04.md#accepted-exact-final-disposition) supplies a provisional technical
++body/source envelope; real full turns/exits and final dimensions remain unproved.
++[Exact754a0b5 partial S05](s05.md#accepted-exact-final-disposition) and ONE
++[fixture contract](s05-contracts.md) now establish finite damage/life/retired-ShotId/
++reserved-work/current wreck evidence. These receipts do not complete S07 prerequisites.
++
++| Accepted finite row | Actual work and presentation scope |
++| --- | --- |
++| Twelve cars, one root | 144 visits, peak4/tick, queue5, completion46 ticks from root |
++| Finite reservation pressure | Queue12, same144 visits/peak4, completion tick41 |
++| Both hidden twelve-car rows | Complete outcomes;8 TOKEN reservations/4 drops, no actual explosion draw-cost measurement |
++
++Eight tokens are not eight authored/source-linked drawable effects. The measured
++queue/visits are not sustained CPU/GPU/server capacity. Stationary retained wreck
++queries do not prove moving-contact/final clearance; sentinel9001 is not an admitted
++player death/respawn; settled ENet current hydration before input without historical
++tokens does not prove during-chain baseline/journal/reset races. Full S05 still
++requires actual eight-effect drawable saturation/live-versus-hydrated receipts,
++Regner policy ratification and affected spacing/contact reruns after final S02/S04
++dimensions. Those policies/limits remain provisional rather than S07 budget choices.
++
++Commissioned S07 experiments still require real saved/source-linked S06 seam/topology
++with actual foot/car bodies, actual source-linked drawn effects and declared missing
++production AI/codecs/material/animation coverage. Name hardware/build/renderer roles,
++measure graphical host and four separated player views/processes, resident versus
++visible/active counts and bytes, resource lifetimes and sustained normal/burst load
++using the existing run-sheet/method. Retain last-pass/first-fail and off-camera
++outcomes; no stand-in/token/import result supplies real drawn cost. Fully loaded
++sectors remain the baseline, six-block M1 scope unchanged. Research and finite chain
++receipts select no maximum, renderer, streaming, engine or Steam integration.
++Every LCD/OLED/native1280×800/60 FPS/Windows/Linux/Steam/external-route/export/input/
++feel/S05/S07/P0/M1/production gate above remains open with its existing owner.
+diff --git a/docs/world-layout.md b/docs/world-layout.md
+index 136c28e..23f8900 100644
+--- a/docs/world-layout.md
++++ b/docs/world-layout.md
+@@ -134,3 +134,29 @@ are the starting design. Test actual actors and cars in linked Blender/Godot fix
+ Refine with S02/S04/S06 and retain S07 graphical cost evidence. Screenshots do not
+ certify movement or load. The [initial unmeasured sketch](concepts/p0-04/city-shape.svg)
+ is retained as comparison; this is the current proposed plan.
++
++## Accepted partial S05 chain evidence and capacity prerequisites
++
++8 October 2026. [Exact754a0b5 partial S05](spikes/s05.md#accepted-exact-final-disposition)
++and its [single fixture contract](spikes/s05-contracts.md) provide finite fixed-car
++work, not acceptance of the depicted yard/routes or final blast spacing. Saved S05
++car/boot/burst reuse unchanged [S04 source imports](assets/s04_kit.md); current wreck
++appearance is the neutral car and its original stationary box. Moving contacts,
++legal district turns/exits and final clearance remain S04/S06/M1 acceptance.
++
++At provisional four-metre grid spacing/radius4.1 m, one root yields144 target visits,
++peak4/tick, normal queue5/completion46 ticks; finite reserved pressure reaches queue12/
++completion tick41. Both twelve-car rows reserve8 TOKEN slots/drop4 with hidden visuals
++and completed gameplay outcomes. These are finite work separation receipts, not actual
++drawn effect cost, sustained capacity, a ratified range or a maximum map/load.
++Regner still ratifies blast/obstruction/falloff/delay/order/occupant/wreck policies;
++affected spacing/contact rows must rerun after final S02/S04 dimensions.
++
++[S07](spikes/s07.md#accepted-partial-s05-prerequisite-supplement) still needs real S06
++seam/topology and actual source-linked drawable effects, named hardware, four separated
++player views/processes, residency/lifetime and sustained load. Sentinel death does
++not prove admitted-player lifecycle; settled wreck hydration before input with zero
++historical tokens does not prove during-chain journal/reset races. Six-block scope,
++Regner policy, native LCD/OLED1280×800/60 FPS, standalone/ENet/Steam/Windows/Linux,
++input/feel and S05/S07/P0/M1/production gates remain unchanged. No renderer, streaming,
++integration or maximum is selected from this result.
