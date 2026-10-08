@@ -760,8 +760,9 @@ ROOT assigns sole Sol6.1 HIGH lead `6681e399-01df-42f2-8492-6588c9db791c`, works
 `wks_6b67bad794fd5c28` / `s02-drawability-evidence-path`, base LOCAL main4169a44,
 one ACTIVE UNACCEPTED operational evidence/design pass under EXISTING S02.
 Initial read-only inspection identified native Wayland as distinct from retained X11
-failures. ROOT explicitly grants ONE bounded Wayland observation and saved main-editor
-restoration; exclusive operational/display lease assigned, authoring UNASSIGNED.
+failures. ONE ROOT-granted observation is now STOPPED: automatic callbacks/pixels
+observed, but drawable-status/exact-viewport criteria failed. Saved main restoration
+verified; operational/display lease RETURNED, authoring UNASSIGNED; review pending.
 No fixture/source/pin/renderer/configuration change or full S02/S07 acceptance follows.
 See the bounded operation record; all existing owners and acceptance gates remain open.
 
@@ -841,7 +842,7 @@ The table describes dependency stages, not a claim that deferred proofs are runn
 | Initial foundation | Ratified brief, contract drafts, concept exploration, tool inventory | Chosen style/layout and measured scope revisions need user ratification and evidence |
 | Tiny fixtures available | S02 camera using [S01 pipeline evidence](docs/spikes/s01.md); use [completed S03 session evidence](docs/spikes/s03.md); review skill dry runs | All visible fixtures must have Blender sources; only minimum harness required |
 | ENet boundary available | Stopped S03-S compatibility accepted; root commissions exact-revision evidence or bounded native-boundary design; S08 desktop preparation | No adapter selection/native delivery/access proof inferred; existing-app/tester/native compatibility still required |
-| Reviewed desktop and partial S05/S06 technical results available | Exact754a0b5 and7fb302b PARTIAL accepted; provisional S07 seam dependency satisfied; existing S02 sole lead6681e399/wks_6b67bad794fd5c28 ACTIVE UNACCEPTED bounded drawability pass, ONE ROOT-granted Wayland observation/restoration; DOC10/DOC11 complete | Exclusive operational/display lease only; authoring UNASSIGNED; full S02/S07 and actual effects/drawn/physical keys/feel/final dimensions/Steam/targets remain open |
+| Reviewed desktop and partial S05/S06 technical results available | Exact754a0b5 and7fb302b PARTIAL accepted; provisional S07 seam dependency satisfied; existing S02 sole lead6681e399/wks_6b67bad794fd5c28 ACTIVE UNACCEPTED stopped drawability pass, documentation/retention/review only; DOC10/DOC11 complete | Operational/display lease RETURNED after saved main restoration; authoring UNASSIGNED; full S02/S07 and actual effects/drawn/physical keys/feel/final dimensions/Steam/targets remain open |
 | Both providers available | Finish S03-R foot response and S04 network response; S08 exports | Both transports need evidence; foot/vehicle prediction are separate decisions |
 | Provisional technical topology available | Accepted S06 crossing/opposing legal LEFT turns/four-arm minimap/stale-data and finite guard; S07 static preparation | Actual drawn/readability/final bodies/contact/exit reruns and real M1-C3 contested recovery remain open; geometric sensitivity is not changed-body proof |
 | City/effect fixtures available | S07 capacity/culling experiments, finish S08, skill dry runs and doc reconciliation | P0-GATE resolves critical assumptions before production |
