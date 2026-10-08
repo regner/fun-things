@@ -141,20 +141,37 @@ def identity(child):
             'popen_handle_owned': True}
 
 
-def bound_endpoint(child, port):
-    """Prove the host's own fd refers to the OS-selected loopback UDP listener."""
+def bound_endpoint(child, port, receipt_path):
+    """Retain owned lookup inputs and prove an IPv4 or IPv4-mapped loopback UDP fd."""
     proc = Path('/proc') / str(child.pid)
-    handles = {os.readlink(p) for p in (proc / 'fd').iterdir()}
-    matches = []
-    for line in (proc / 'net/udp').read_text().splitlines()[1:]:
-        fields = line.split()
-        if fields[1] == f'0100007F:{port:04X}' and f'socket:[{fields[9]}]' in handles:
-            matches.append({'raw_udp_row': line, 'inode': fields[9],
-                            'owned_fd': f'socket:[{fields[9]}]',
-                            'address': '127.0.0.1', 'port': port})
-    if len(matches) != 1:
-        raise RuntimeError('owned host loopback endpoint not proven')
-    return matches[0]
+    lookup = {'owned_pid': child.pid, 'port': port, 'handles': {}, 'tables': {},
+              'matches': [], 'failures': []}
+    # Kernel table lookup is observation, not a second network owner. Retain failures
+    # before raising; IPv4-mapped UDP6 is not an external/all-interface listener.
+    try:
+        for path in (proc / 'fd').iterdir():
+            try:
+                lookup['handles'][path.name] = os.readlink(path)
+            except FileNotFoundError:
+                lookup['failures'].append('fd disappeared during lookup: ' + path.name)
+        addresses = {'udp': '0100007F', 'udp6': '0000000000000000FFFF00000100007F'}
+        for table, address in addresses.items():
+            source = (proc / 'net' / table).read_text()
+            lookup['tables'][table] = source
+            for line in source.splitlines()[1:]:
+                fields = line.split()
+                if len(fields) < 10:
+                    continue
+                handle = f'socket:[{fields[9]}]'
+                if fields[1] == f'{address}:{port:04X}' and handle in lookup['handles'].values():
+                    lookup['matches'].append({'table': table, 'raw_udp_row': line,
+                        'inode': fields[9], 'owned_fd': handle, 'address': '127.0.0.1', 'port': port})
+    except OSError as error:
+        lookup['failures'].append(repr(error))
+    save(receipt_path, lookup)
+    if len(lookup['matches']) != 1:
+        raise RuntimeError('owned host loopback endpoint not proven; raw lookup retained')
+    return lookup['matches'][0]
 
 
 def production_rows(path):
@@ -306,7 +323,8 @@ def main():
                     raise RuntimeError('nonzero exit: ' + role)
             host = production_rows(output / 'host/stdout')
             if any(r['event'] == 'ready' for r in host) and 'client' not in children:
-                result['bound_endpoint'] = bound_endpoint(children['host'], port)
+                result['bound_endpoint'] = bound_endpoint(
+                    children['host'], port, output / 'endpoint-lookup.json')
                 graphical('client')
             if any(r['event'] == 'settled' for r in host) and 'late' not in children:
                 result['settled_before_late'] = next(r for r in host if r['event'] == 'settled')

@@ -194,9 +194,12 @@ feature expansion, repeated unchanged experiment or silent contract/pin change.
   in eight cosmetic slots with drawn receipts. The [bounded observation](docs/spikes/s05-render-observation.md)
   adds a saved observation camera and natural expiry/ENet evidence, but its two
   graphical groups produced no workload PNGs (final group: two startup callbacks,
-  can_draw=false). A new authorized changed surface/condition is needed for drawn
-  saturation/fallback, readability/cost and live-versus-hydrated presentation under a
-  separately named drawable lease. [Source preparation](docs/spikes/s05-effect-preparation.md)
+  can_draw=false). The single [disabled-VSync image card](docs/spikes/s05-vsync-image-observation.md)
+  also FAILed: runner-owned endpoint-binding proof stopped before live/late launch;
+  host interrupted, no callbacks/PNG/effective-VSync receipt. Its attempt is consumed;
+  no retry follows. Drawn saturation/fallback, readability/cost and live-versus-hydrated
+  presentation need a separately authorized protected drawable condition.
+  [Source preparation](docs/spikes/s05-effect-preparation.md)
   and node visibility/token reservations do not prove drawn effects.
   Ratify range/obstruction/falloff, delay/order, occupant outcome and wreck/collision
   lifetime; rerun affected spacing/contact rows after final S04/S02 dimensions.

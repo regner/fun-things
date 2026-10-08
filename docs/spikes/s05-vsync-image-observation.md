@@ -42,6 +42,7 @@ discarded. The modified observer is refreshed by copying its exact frozen bytes
 into a **new private runtime project**; no separate open editor is involved.
 
 `tests/fixtures/s05_draw/observer.gd` retains its UID/public APIs/resource path.
+Its existing `uid://dljjuwyn8s77o` sidecar is byte-preserved and copied at the same path.
 Instrumentation reads supported `window_get_vsync_mode`/`window_can_draw`, requested
 project size, actual native window/root viewport and callback-bound image size
 separately. Internal `can_any_window_draw` is null with an unavailable reason;
@@ -153,3 +154,68 @@ are supplied without an implementer verdict. Same reviewer disposes material fix
 or docs-only rebase; all review fixes/checks are offline, with **no runtime replay**.
 Metadata-only unchanged-candidate review retention needs no extra acknowledgement
 or report-only tree commit. ROOT integrates/archives; the worker never pushes.
+
+## Actual single-attempt result: IMAGE FAIL, consumed
+
+Executed source candidate `4a50808ba0441a7c116d14d78a4286a6f89f7691` at exact original
+base above. Supervisor PID721366; wrapper PID721365. Start13:56:07.545Z through
+readback13:56:12.642Z, **5.096420s** total inside120s. Runtime closure61files,
+**236947source bytes** including copied project settings, versus8MiB cap. Generated
+private import outputs16files/**124103bytes**, separately ledgered. The socket's
+fresh canonical path/type/owner1000/inode90/device72 checks matched before host use.
+No endpoint was contacted by an editor tool; no existing UI was controlled.
+
+- One minimal private import PID721438 exited0 normally, no engine/script warning/
+  error and empty stderr. It imported three linked GLBs and the original icon,
+  registered the closure's20classes, and made the new private cache. This is not
+  whole-project compilation, authored scene saving or interactive acceptance.
+- One graphical host PID721561 used the exact card argv, requested disabled VSync,
+  Wayland/Dummy, and reported Forward+/GTX1070. Its original pre-network cosmetic
+  API/fence/negative checks returned ok, then fixture ready. Observer ready names
+  the saved camera source and exact engine/project/PID. These narrow positives
+  are not network completion, presented effects or effective disabled-VSync proof.
+- The executed `bound_endpoint` checked owned host fd links against only
+  `/proc/<owned-host>/net/udp` and raised **runner-owned endpoint-binding PROOF
+  failure**. Live and settled-late were never spawned. This does **not** prove
+  absent binding or a native/network fault. The requested OS-selected endpoint was
+  127.0.0.1:45971; actual binding was not proven by the retained evidence.
+- **Evidence limitation:** the executed probe did not retain its raw failed fd/table
+  lookup inputs. Full actual probe source/argv/supervisor exit1 and exception are
+  retained, but the missing historical `/proc` snapshot cannot be reconstructed.
+  No post-exit lookup is substituted. No dual-stack/race/native causal diagnosis
+  follows from source or the failed match alone.
+- Collection stopped and sent only the owned host SIGINT. Host exited**-2**, reaped;
+  shared grace start99675.542199/cutoff99677.542199/end99675.605734, no terminate/kill
+  needed. Normal leave/result/quit did not complete; interruption remains FAIL.
+  Both engine handles and wrapper command were reaped; all streams closed.
+  Complete host/import stdout, stderr and engine logs are retained; both stderr
+  streams are actual zero-byte files. No new runtime warning/error was logged.
+- Host observer JSONL contains **only one ready row**, no post-draw callback row or
+  final observer row. All seven required PNGs are absent; client/late/draw streams
+  were never produced. Effective VSync, callback count, actual camera-current/window/
+  viewport/image dimensions and real twelve-event workload outcomes are unproved.
+  No actual PNG exists to inspect; **no image-inspection credit** is claimed.
+- Bounded readback took0.001733s; every copied input and matching checkout input
+  remained byte-preserved, including scenes/UIDs/GLBs/source import sidecars.
+  Source preservation/import0/ready/empty stderr/short bounded cleanup are narrow
+  positives only; the evaluator correctly exits1. IMAGE and all full gates FAIL/OPEN.
+
+### Offline-only probe correction, no retrospective credit
+
+After consumption, only the owned runner probe/checks are corrected offline: inspect
+both IPv4 UDP and IPv4-mapped loopback UDP6 representations, associate exact socket
+inode with the owned fd, reject external/all-interface/foreign/ambiguous rows, and
+save complete actual lookup inputs/failures **before** raising. This addresses
+observable probe coverage/retention limitations; it does not identify the historical
+cause. Five literal **synthetic** proc cases test IPv4, mapped IPv4, wrong bind,
+wrong inode and ambiguity. These are offline test inputs, not historical snapshots.
+The full fake-clock suite and old-stream evaluator negatives also pass offline.
+Executed original runner remains reachable at4a50808 and is retained separately
+from the corrected source. The observer has no post-attempt runtime change.
+There is **no** second import, runtime, graphical fallback, new condition or past-credit.
+
+ROOT's subsequent raw stop confirmation preserves these limits. The notified main
+advance30471e6 changes Steam docs/evidence and only unrelated S03-S TODO/readiness
+prose. Initial review stays on the commissioned base; inspect actual delta and
+rebase once at a saved boundary before same-reviewer exact-final disposition.
+No code/pin/settings/scene/gameplay change or runtime replay follows that rebase.

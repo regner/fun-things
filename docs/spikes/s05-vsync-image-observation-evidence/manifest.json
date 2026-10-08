@@ -1,0 +1,1756 @@
+{
+  "executed_candidate": "4a50808ba0441a7c116d14d78a4286a6f89f7691",
+  "commissioned_base": "3f5fb4067c5ce5fca721f54d42165a833e4c884c",
+  "required_payloads": [
+    "attempt/copy-ledger.json",
+    "attempt/generated-imports.json",
+    "attempt/host/draw.jsonl",
+    "attempt/host/engine.log",
+    "attempt/host/stderr",
+    "attempt/host/stdout",
+    "attempt/import/engine.log",
+    "attempt/import/stderr",
+    "attempt/import/stdout",
+    "attempt/lifecycle.json",
+    "attempt/project/art/models/spikes/s04_car.glb",
+    "attempt/project/art/models/spikes/s04_car.glb.import",
+    "attempt/project/art/models/spikes/s04_track.glb",
+    "attempt/project/art/models/spikes/s04_track.glb.import",
+    "attempt/project/art/models/spikes/s05_explosion_carrier.glb",
+    "attempt/project/art/models/spikes/s05_explosion_carrier.glb.import",
+    "attempt/project/generated-imports/.gdignore",
+    "attempt/project/generated-imports/editor/filesystem_cache10",
+    "attempt/project/generated-imports/editor/project_metadata.cfg",
+    "attempt/project/generated-imports/editor/s04_car.glb-3f8890a75faed36a9858b2a8d6064953.scn-folding-9a8f1fb8a7b54b14ce6b2d4683ff5d88.cfg",
+    "attempt/project/generated-imports/editor/s04_track.glb-32c105f9ee8a1385e3c0770403441b7b.scn-folding-299f006438793ea17ec4860c35781b7e.cfg",
+    "attempt/project/generated-imports/editor/s05_explosion_carrier.glb-e270aed4622d29e5b5f9018c27777acf.scn-folding-0a25c55944ef4bda2fda0e5b5bd822d4.cfg",
+    "attempt/project/generated-imports/global_script_class_cache.cfg",
+    "attempt/project/generated-imports/imported/icon.svg-218a8f2b3041327d8a5756f3a245f83b.ctex",
+    "attempt/project/generated-imports/imported/icon.svg-218a8f2b3041327d8a5756f3a245f83b.md5",
+    "attempt/project/generated-imports/imported/s04_car.glb-3f8890a75faed36a9858b2a8d6064953.md5",
+    "attempt/project/generated-imports/imported/s04_car.glb-3f8890a75faed36a9858b2a8d6064953.scn",
+    "attempt/project/generated-imports/imported/s04_track.glb-32c105f9ee8a1385e3c0770403441b7b.md5",
+    "attempt/project/generated-imports/imported/s04_track.glb-32c105f9ee8a1385e3c0770403441b7b.scn",
+    "attempt/project/generated-imports/imported/s05_explosion_carrier.glb-e270aed4622d29e5b5f9018c27777acf.md5",
+    "attempt/project/generated-imports/imported/s05_explosion_carrier.glb-e270aed4622d29e5b5f9018c27777acf.scn",
+    "attempt/project/generated-imports/uid_cache.bin",
+    "attempt/project/icon.svg",
+    "attempt/project/icon.svg.import",
+    "attempt/project/project.godot",
+    "attempt/project/tests/fixtures/s03/boot.tscn",
+    "attempt/project/tests/fixtures/s03/entity.gd",
+    "attempt/project/tests/fixtures/s03/entity.gd.uid",
+    "attempt/project/tests/fixtures/s03/entity.tscn",
+    "attempt/project/tests/fixtures/s03/fake_transport.gd",
+    "attempt/project/tests/fixtures/s03/fake_transport.gd.uid",
+    "attempt/project/tests/fixtures/s03/local_rig.tscn",
+    "attempt/project/tests/fixtures/s03/match.gd",
+    "attempt/project/tests/fixtures/s03/match.gd.uid",
+    "attempt/project/tests/fixtures/s03/proof.gd",
+    "attempt/project/tests/fixtures/s03/proof.gd.uid",
+    "attempt/project/tests/fixtures/s03/replication.gd",
+    "attempt/project/tests/fixtures/s03/replication.gd.uid",
+    "attempt/project/tests/fixtures/s03/session.gd",
+    "attempt/project/tests/fixtures/s03/session.gd.uid",
+    "attempt/project/tests/fixtures/s03/transport.gd",
+    "attempt/project/tests/fixtures/s03/transport.gd.uid",
+    "attempt/project/tests/fixtures/s04/drive_rules.gd",
+    "attempt/project/tests/fixtures/s04/drive_rules.gd.uid",
+    "attempt/project/tests/fixtures/s04/kinematic.gd",
+    "attempt/project/tests/fixtures/s04/kinematic.gd.uid",
+    "attempt/project/tests/fixtures/s04/kinematic.tscn",
+    "attempt/project/tests/fixtures/s04/track.tscn",
+    "attempt/project/tests/fixtures/s05/boot.tscn",
+    "attempt/project/tests/fixtures/s05/burst.tscn",
+    "attempt/project/tests/fixtures/s05/car.gd",
+    "attempt/project/tests/fixtures/s05/car.gd.uid",
+    "attempt/project/tests/fixtures/s05/car.tscn",
+    "attempt/project/tests/fixtures/s05/damage.gd",
+    "attempt/project/tests/fixtures/s05/damage.gd.uid",
+    "attempt/project/tests/fixtures/s05/match.gd",
+    "attempt/project/tests/fixtures/s05/match.gd.uid",
+    "attempt/project/tests/fixtures/s05/presentation.gd",
+    "attempt/project/tests/fixtures/s05/presentation.gd.uid",
+    "attempt/project/tests/fixtures/s05/proof.gd",
+    "attempt/project/tests/fixtures/s05/proof.gd.uid",
+    "attempt/project/tests/fixtures/s05/replication.gd",
+    "attempt/project/tests/fixtures/s05/replication.gd.uid",
+    "attempt/project/tests/fixtures/s05/session.gd",
+    "attempt/project/tests/fixtures/s05/session.gd.uid",
+    "attempt/project/tests/fixtures/s05_draw/burst.tscn",
+    "attempt/project/tests/fixtures/s05_draw/camera.tscn",
+    "attempt/project/tests/fixtures/s05_draw/observer.gd",
+    "attempt/project/tests/fixtures/s05_draw/observer.gd.uid",
+    "attempt/project/tests/fixtures/s05_effect/burst.tscn",
+    "attempt/project/tests/fixtures/s05_effect/explosion.tscn",
+    "attempt/project/tests/fixtures/s05_effect/match.gd",
+    "attempt/project/tests/fixtures/s05_effect/match.gd.uid",
+    "attempt/project/tests/fixtures/s05_effect/presentation.gd",
+    "attempt/project/tests/fixtures/s05_effect/presentation.gd.uid",
+    "attempt/project/tests/fixtures/s05_effect/proof.gd",
+    "attempt/project/tests/fixtures/s05_effect/proof.gd.uid",
+    "checks/attempt01.command.json",
+    "checks/attempt01.stderr",
+    "checks/attempt01.stdout",
+    "checks/evaluation01.command.json",
+    "checks/evaluation01.json",
+    "checks/evaluation01.stderr",
+    "checks/evaluation01.stdout",
+    "checks/format01.command.json",
+    "checks/format01.stderr",
+    "checks/format01.stdout",
+    "checks/offline01.command.json",
+    "checks/offline01.stderr",
+    "checks/offline01.stdout",
+    "checks/offline02.command.json",
+    "checks/offline02.stderr",
+    "checks/offline02.stdout",
+    "checks/offline03-corrected.command.json",
+    "checks/offline03-corrected.stderr",
+    "checks/offline03-corrected.stdout",
+    "checks/static01.command.json",
+    "checks/static01.json",
+    "checks/static01.stderr",
+    "checks/static01.stdout",
+    "checks/style01.command.json",
+    "checks/style01.stderr",
+    "checks/style01.stdout",
+    "source-ancestry/art/source/models/spikes/s04_kit.blend",
+    "source-ancestry/art/source/models/spikes/s05_explosion_carrier.blend",
+    "sources/corrected-offline/tools/s05_vsync_image/check.py",
+    "sources/corrected-offline/tools/s05_vsync_image/record.py",
+    "sources/corrected-offline/tools/s05_vsync_image/retain.py",
+    "sources/corrected-offline/tools/s05_vsync_image/run.py",
+    "sources/corrected-offline/tools/s05_vsync_image/test_offline.py",
+    "sources/executed/tools/s05_vsync_image/check.py",
+    "sources/executed/tools/s05_vsync_image/record.py",
+    "sources/executed/tools/s05_vsync_image/run.py",
+    "sources/executed/tools/s05_vsync_image/test_offline.py",
+    "sources/recovered-offline01-test_offline.py"
+  ],
+  "payloads": {
+    "payloads/attempt/copy-ledger.json.gz": {
+      "source": "/tmp/p0-image-01a11bc0-attempt01/copy-ledger.json",
+      "decoded": {
+        "bytes": 10291,
+        "sha256": "7b9add5da0704165c62bdd81860c027c3e6fb6528d3815d6b189eb9186669e4f"
+      },
+      "stored": {
+        "bytes": 3243,
+        "sha256": "0e7355e0958b1300b32a635c91f37457afab261ad84e7d7ee7ec63518dfeb0ca"
+      }
+    },
+    "payloads/attempt/generated-imports.json.gz": {
+      "source": "/tmp/p0-image-01a11bc0-attempt01/generated-imports.json",
+      "decoded": {
+        "bytes": 3234,
+        "sha256": "a4d8e265a59fc37b68117027dd35d5c187126c2bffbad06961cad1e608bc4775"
+      },
+      "stored": {
+        "bytes": 1063,
+        "sha256": "1174ec8cde04439d1b59a7d7263db89b3e8293e94fb09d3968089b6b1396f919"
+      }
+    },
+    "payloads/attempt/host/draw.jsonl.gz": {
+      "source": "/tmp/p0-image-01a11bc0-attempt01/host/data/godot/app_userdata/Fun Things/draw.jsonl",
+      "decoded": {
+        "bytes": 341,
+        "sha256": "f0d588fde4a24af1699b742e7cff8efcb7698aca65bac7a48adfd33ee40e9582"
+      },
+      "stored": {
+        "bytes": 262,
+        "sha256": "15a301799e6bdb4405d6bb3b5c73a0a8c4676327eb963115618bea8e463380d5"
+      }
+    },
+    "payloads/attempt/host/engine.log.gz": {
+      "source": "/tmp/p0-image-01a11bc0-attempt01/host/engine.log",
+      "decoded": {
+        "bytes": 454,
+        "sha256": "66568ee919bda46204822a414a9deee2c4ba2c5c6df90f245ac34b8db2f79b50"
+      },
+      "stored": {
+        "bytes": 286,
+        "sha256": "1e538d36b1d2b8c6b9a800d76ba7e59cc4f7d6015233600e7425c2086d8ee140"
+      }
+    },
+    "payloads/attempt/host/stderr.gz": {
+      "source": "/tmp/p0-image-01a11bc0-attempt01/host/stderr",
+      "decoded": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stored": {
+        "bytes": 20,
+        "sha256": "9ceffb7310338057cfe71a4ae1e2c98d2c485d81cdef906532a801f457a38d64"
+      }
+    },
+    "payloads/attempt/host/stdout.gz": {
+      "source": "/tmp/p0-image-01a11bc0-attempt01/host/stdout",
+      "decoded": {
+        "bytes": 454,
+        "sha256": "66568ee919bda46204822a414a9deee2c4ba2c5c6df90f245ac34b8db2f79b50"
+      },
+      "stored": {
+        "bytes": 286,
+        "sha256": "1e538d36b1d2b8c6b9a800d76ba7e59cc4f7d6015233600e7425c2086d8ee140"
+      }
+    },
+    "payloads/attempt/import/engine.log.gz": {
+      "source": "/tmp/p0-image-01a11bc0-attempt01/import/engine.log",
+      "decoded": {
+        "bytes": 3499,
+        "sha256": "5e414346cbe3c2dbbe3de97068f0e3a282c68ca1c8ccf00beb506c92ad213120"
+      },
+      "stored": {
+        "bytes": 828,
+        "sha256": "0314abdd70ee1e53d3dee489dca19219d720b3b34f8df83796d9fb0bdbe464f1"
+      }
+    },
+    "payloads/attempt/import/stderr.gz": {
+      "source": "/tmp/p0-image-01a11bc0-attempt01/import/stderr",
+      "decoded": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stored": {
+        "bytes": 20,
+        "sha256": "9ceffb7310338057cfe71a4ae1e2c98d2c485d81cdef906532a801f457a38d64"
+      }
+    },
+    "payloads/attempt/import/stdout.gz": {
+      "source": "/tmp/p0-image-01a11bc0-attempt01/import/stdout",
+      "decoded": {
+        "bytes": 5201,
+        "sha256": "3f9329dbb65de6cabe908635daacbd263e48247ea8ea1b14e3a2b4fe6e60c681"
+      },
+      "stored": {
+        "bytes": 888,
+        "sha256": "05dbc1a41c6daae83460806af75262ed5eb88013408cdbdce5a85ad5c7beb343"
+      }
+    },
+    "payloads/attempt/lifecycle.json.gz": {
+      "source": "/tmp/p0-image-01a11bc0-attempt01/lifecycle.json",
+      "decoded": {
+        "bytes": 7277,
+        "sha256": "e7defc490214f7ab96cfc5ce33414af0afa5fc890b4d362d36f1298126e7972a"
+      },
+      "stored": {
+        "bytes": 1953,
+        "sha256": "cbbcc1db439819e1b9ab94858c49477d41a0a56e688fa90d5d9b7712bd0208b3"
+      }
+    },
+    "payloads/attempt/project/art/models/spikes/s04_car.glb.gz": {
+      "source": "/tmp/p0-image-01a11bc0-attempt01/project/art/models/spikes/s04_car.glb",
+      "decoded": {
+        "bytes": 42912,
+        "sha256": "a9b4d2409e6cd7d0652dd65c20db64c5fb6dd046e4f65598c95d982bf123bf6e"
+      },
+      "stored": {
+        "bytes": 8982,
+        "sha256": "5ad4dfff7f4da7a35f8bc9e2500bad106dbe61cb79bee3011fd0e88c94a567ad"
+      }
+    },
+    "payloads/attempt/project/art/models/spikes/s04_car.glb.import.gz": {
+      "source": "/tmp/p0-image-01a11bc0-attempt01/project/art/models/spikes/s04_car.glb.import",
+      "decoded": {
+        "bytes": 1205,
+        "sha256": "e5ad798ce3d7840eede5d43ea677c8e203d3900fb4aef373ad95bd117ddae3c5"
+      },
+      "stored": {
+        "bytes": 576,
+        "sha256": "f748e8ac7f730da2f716a6e5631735cc4e22dd1fd4b09f80bd5b08e41598bec1"
+      }
+    },
+    "payloads/attempt/project/art/models/spikes/s04_track.glb.gz": {
+      "source": "/tmp/p0-image-01a11bc0-attempt01/project/art/models/spikes/s04_track.glb",
+      "decoded": {
+        "bytes": 33212,
+        "sha256": "07fe72674bfe63981886bf2e2f021f6a45a277812804f83a29de46c293b2d497"
+      },
+      "stored": {
+        "bytes": 9597,
+        "sha256": "86bfe3bd6a4019e38e9bf8088103cd7a219c9c7a75c787f6a9375b041dc9f225"
+      }
+    },
+    "payloads/attempt/project/art/models/spikes/s04_track.glb.import.gz": {
+      "source": "/tmp/p0-image-01a11bc0-attempt01/project/art/models/spikes/s04_track.glb.import",
+      "decoded": {
+        "bytes": 1212,
+        "sha256": "57b2f321d958832de1e6ef062cf1fc1b19b038e99433a84a0602fc15bcab3460"
+      },
+      "stored": {
+        "bytes": 576,
+        "sha256": "72a0880620f73ce0f7db2adc23ab0f9551e456e3b0b0e918f4048e1bbeb3df60"
+      }
+    },
+    "payloads/attempt/project/art/models/spikes/s05_explosion_carrier.glb.gz": {
+      "source": "/tmp/p0-image-01a11bc0-attempt01/project/art/models/spikes/s05_explosion_carrier.glb",
+      "decoded": {
+        "bytes": 27536,
+        "sha256": "d24e97bdbc5832787f3d781295d8eea40bbcdf0802d1c62f7ef78b6ddfc98647"
+      },
+      "stored": {
+        "bytes": 15125,
+        "sha256": "66d88490c19fbb173593aff0d71c5c8ff2bc0f53d601a34ddbdbd7959056c3e8"
+      }
+    },
+    "payloads/attempt/project/art/models/spikes/s05_explosion_carrier.glb.import.gz": {
+      "source": "/tmp/p0-image-01a11bc0-attempt01/project/art/models/spikes/s05_explosion_carrier.glb.import",
+      "decoded": {
+        "bytes": 1248,
+        "sha256": "f9988ed9623950695d13a87ad51bd870fa8d8b821e426fe4375910e969282cc5"
+      },
+      "stored": {
+        "bytes": 583,
+        "sha256": "5b062fbe3425dbc1e12399d2cf32f58b63133c7d00ed7626a312b007f975da88"
+      }
+    },
+    "payloads/attempt/project/icon.svg.gz": {
+      "source": "/tmp/p0-image-01a11bc0-attempt01/project/icon.svg",
+      "decoded": {
+        "bytes": 995,
+        "sha256": "6c80384360a5b269d1054bfb27241258154e2cc8167c522016fdc1820e84e0f8"
+      },
+      "stored": {
+        "bytes": 536,
+        "sha256": "2ee95b989582e2f348e4e716ed2ace8d2ebf1e7e0c9a35cd5627e63a0e042fbb"
+      }
+    },
+    "payloads/attempt/project/icon.svg.import.gz": {
+      "source": "/tmp/p0-image-01a11bc0-attempt01/project/icon.svg.import",
+      "decoded": {
+        "bytes": 1117,
+        "sha256": "e6c8272fcd36e5c2d9061cdb5f1964782bbdf2a16b96d6504437d3379fb4dfed"
+      },
+      "stored": {
+        "bytes": 513,
+        "sha256": "bc06d19ff2e3e10803c75d39dda3b7f22c6c71d6b98b7b90263627033e203a32"
+      }
+    },
+    "payloads/attempt/project/project.godot.gz": {
+      "source": "/tmp/p0-image-01a11bc0-attempt01/project/project.godot",
+      "decoded": {
+        "bytes": 4408,
+        "sha256": "d5764f377874a6b6eca073861f803dbe4c7fae9db1c1785b9afb93a9c3967ea7"
+      },
+      "stored": {
+        "bytes": 770,
+        "sha256": "21f5b85214a15b8054a2a1659f6379c5fca8ce8196dd5e1ad61c37ce2d765e86"
+      }
+    },
+    "payloads/attempt/project/tests/fixtures/s03/boot.tscn.gz": {
+      "source": "/tmp/p0-image-01a11bc0-attempt01/project/tests/fixtures/s03/boot.tscn",
+      "decoded": {
+        "bytes": 1113,
+        "sha256": "73d0a58b6450cbd26b6ccbce53d852b5b737ee3e76de3ecfb71f7aca1f71bec9"
+      },
+      "stored": {
+        "bytes": 415,
+        "sha256": "b5030b26a68abb1a3fbc6acf76dbca799a3f8e297021357d189bce20a4b31a81"
+      }
+    },
+    "payloads/attempt/project/tests/fixtures/s03/entity.gd.gz": {
+      "source": "/tmp/p0-image-01a11bc0-attempt01/project/tests/fixtures/s03/entity.gd",
+      "decoded": {
+        "bytes": 274,
+        "sha256": "c886014a90fc4258ee964c5ba6cd1610ca6740d6f03ef993d20a874356755ba5"
+      },
+      "stored": {
+        "bytes": 184,
+        "sha256": "55f0a5087ea98baff44035689b95b855a8d5fd8f58717980b2a3e6d65c0c07d5"
+      }
+    },
+    "payloads/attempt/project/tests/fixtures/s03/entity.gd.uid.gz": {
+      "source": "/tmp/p0-image-01a11bc0-attempt01/project/tests/fixtures/s03/entity.gd.uid",
+      "decoded": {
+        "bytes": 20,
+        "sha256": "81edf93e5288f82ace33bd2357c48536e69aaa5af588174179a2b189b86235b6"
+      },
+      "stored": {
+        "bytes": 40,
+        "sha256": "8e030ad9bdacec0b50eeddff859af3824422bd3d0ab73523bd188f0928a42dd3"
+      }
+    },
+    "payloads/attempt/project/tests/fixtures/s03/entity.tscn.gz": {
+      "source": "/tmp/p0-image-01a11bc0-attempt01/project/tests/fixtures/s03/entity.tscn",
+      "decoded": {
+        "bytes": 246,
+        "sha256": "e77ce114f1647862a5fa00bffc0f055aa4c64ac4e751ae74794493ea9276308b"
+      },
+      "stored": {
+        "bytes": 201,
+        "sha256": "4cda363a4141caa9a2215c8b4f6dfe1b33b13a9190f0977e82fbc139e494ea15"
+      }
+    },
+    "payloads/attempt/project/tests/fixtures/s03/fake_transport.gd.gz": {
+      "source": "/tmp/p0-image-01a11bc0-attempt01/project/tests/fixtures/s03/fake_transport.gd",
+      "decoded": {
+        "bytes": 927,
+        "sha256": "96f37b5ac9b0689c12105764ee826c4d7f18155b7ebd471cc427f66e3c499657"
+      },
+      "stored": {
+        "bytes": 503,
+        "sha256": "b7d717d1ccdef96bc2b255ceb735a9fb0e5ed1269ec9bc2cacd3662061d73d10"
+      }
+    },
+    "payloads/attempt/project/tests/fixtures/s03/fake_transport.gd.uid.gz": {
+      "source": "/tmp/p0-image-01a11bc0-attempt01/project/tests/fixtures/s03/fake_transport.gd.uid",
+      "decoded": {
+        "bytes": 20,
+        "sha256": "109e8258fb5a3834e9a08025d1660faad62a3fb71e096cadf34b4460577eb101"
+      },
+      "stored": {
+        "bytes": 40,
+        "sha256": "e494cb2370bb32425811e14ef1ecf3487e5764284c8fe7b30ef3b8d2f62f9fa1"
+      }
+    },
+    "payloads/attempt/project/tests/fixtures/s03/local_rig.tscn.gz": {
+      "source": "/tmp/p0-image-01a11bc0-attempt01/project/tests/fixtures/s03/local_rig.tscn",
+      "decoded": {
+        "bytes": 392,
+        "sha256": "5aa73ff396f149b5fde6f9e5e658271d8bbc1c4ad37728370992294a0865857d"
+      },
+      "stored": {
+        "bytes": 212,
+        "sha256": "1f52394e5c5c3b8ebec19b973151333d5833caf719aaaaa2b9f0060f96f33fcf"
+      }
+    },
+    "payloads/attempt/project/tests/fixtures/s03/match.gd.gz": {
+      "source": "/tmp/p0-image-01a11bc0-attempt01/project/tests/fixtures/s03/match.gd",
+      "decoded": {
+        "bytes": 8863,
+        "sha256": "6aa3ca867e40248ba7695be3e87498f5005b5524df51028f8bc47d0849f67553"
+      },
+      "stored": {
+        "bytes": 2739,
+        "sha256": "33aa15058231c712a7562066f040cdd397e6a80f02ccdfa0d39ac3c9774a4262"
+      }
+    },
+    "payloads/attempt/project/tests/fixtures/s03/match.gd.uid.gz": {
+      "source": "/tmp/p0-image-01a11bc0-attempt01/project/tests/fixtures/s03/match.gd.uid",
+      "decoded": {
+        "bytes": 20,
+        "sha256": "4f62dd8bee5d9449e5e3985fb819823c07d6f1321c29a2e6d101798ab4899226"
+      },
+      "stored": {
+        "bytes": 40,
+        "sha256": "e54ad085915a992b8b20d5e1465753a6648f851cb7eb676d205ee3db6cdcc501"
+      }
+    },
+    "payloads/attempt/project/tests/fixtures/s03/proof.gd.gz": {
+      "source": "/tmp/p0-image-01a11bc0-attempt01/project/tests/fixtures/s03/proof.gd",
+      "decoded": {
+        "bytes": 14181,
+        "sha256": "99aef2ac0a29235c67f44591938c95df3aa55a09e9ef02f362217593cb52d67b"
+      },
+      "stored": {
+        "bytes": 4080,
+        "sha256": "2daf778776bd7f41ecd2f326f6d3e4f83de3dfd7989f0afbe9e8c54659bcc799"
+      }
+    },
+    "payloads/attempt/project/tests/fixtures/s03/proof.gd.uid.gz": {
+      "source": "/tmp/p0-image-01a11bc0-attempt01/project/tests/fixtures/s03/proof.gd.uid",
+      "decoded": {
+        "bytes": 19,
+        "sha256": "274ac1732eb697e7798dcdc080b2f74acf187025d9f13af7d4f85b2067b36c11"
+      },
+      "stored": {
+        "bytes": 39,
+        "sha256": "62a0416d72d7e408c4547c28b99b65634a61678eef237ee8b07dd9a9a189e922"
+      }
+    },
+    "payloads/attempt/project/tests/fixtures/s03/replication.gd.gz": {
+      "source": "/tmp/p0-image-01a11bc0-attempt01/project/tests/fixtures/s03/replication.gd",
+      "decoded": {
+        "bytes": 9435,
+        "sha256": "57f4a1312a50b7ad5706423f2491be151803f5438f484b21b3c9b80dc47db7ae"
+      },
+      "stored": {
+        "bytes": 2773,
+        "sha256": "48e2d63fc4be0cc09508dec265bd5a8f3a7321424363e3b99deefc49a0a48435"
+      }
+    },
+    "payloads/attempt/project/tests/fixtures/s03/replication.gd.uid.gz": {
+      "source": "/tmp/p0-image-01a11bc0-attempt01/project/tests/fixtures/s03/replication.gd.uid",
+      "decoded": {
+        "bytes": 20,
+        "sha256": "84934d1bc91d62e44bfd68f90fd011b22a7c79c75dccafb69b509c4267bc7212"
+      },
+      "stored": {
+        "bytes": 40,
+        "sha256": "963ae33f4c0a223f92628735789519a5575185c9adcecef4c11e448230a6ef54"
+      }
+    },
+    "payloads/attempt/project/tests/fixtures/s03/session.gd.gz": {
+      "source": "/tmp/p0-image-01a11bc0-attempt01/project/tests/fixtures/s03/session.gd",
+      "decoded": {
+        "bytes": 9311,
+        "sha256": "d4b74f4e769588ce1af1997195a7e06ef984362b6336f6828cf5cd870f53d43a"
+      },
+      "stored": {
+        "bytes": 2837,
+        "sha256": "2a3528465f24dba4073c7d1c3444b3ae7de4b8d445ddb98b4f374b8152c18ef5"
+      }
+    },
+    "payloads/attempt/project/tests/fixtures/s03/session.gd.uid.gz": {
+      "source": "/tmp/p0-image-01a11bc0-attempt01/project/tests/fixtures/s03/session.gd.uid",
+      "decoded": {
+        "bytes": 19,
+        "sha256": "577312815f85e86aed2fdfb83214a7b08aa71d52fa304b80caccb4b7bef0479b"
+      },
+      "stored": {
+        "bytes": 39,
+        "sha256": "77f2e77b92251a64b61d097f722bee51192c6b803b19cf9e4fdb05bd05af6184"
+      }
+    },
+    "payloads/attempt/project/tests/fixtures/s03/transport.gd.gz": {
+      "source": "/tmp/p0-image-01a11bc0-attempt01/project/tests/fixtures/s03/transport.gd",
+      "decoded": {
+        "bytes": 2100,
+        "sha256": "fc83f520a6850a48ee9c9e7d4d6615466c9f5d959da9a84c66848a45d1de9a11"
+      },
+      "stored": {
+        "bytes": 930,
+        "sha256": "669d1f0c2bf183d4779be873414b410d149ae50b8858c20357a169e3bf956ee0"
+      }
+    },
+    "payloads/attempt/project/tests/fixtures/s03/transport.gd.uid.gz": {
+      "source": "/tmp/p0-image-01a11bc0-attempt01/project/tests/fixtures/s03/transport.gd.uid",
+      "decoded": {
+        "bytes": 20,
+        "sha256": "13b71af6193f49f136fcfabf98e6aa715dfaf1d30b8a7a7175ddf1aaebc44cb0"
+      },
+      "stored": {
+        "bytes": 40,
+        "sha256": "c3d37e772efe1b659c67fa73762e0473b1155c5b73b81bf4508d8f8fbfdf08ac"
+      }
+    },
+    "payloads/attempt/project/tests/fixtures/s04/drive_rules.gd.gz": {
+      "source": "/tmp/p0-image-01a11bc0-attempt01/project/tests/fixtures/s04/drive_rules.gd",
+      "decoded": {
+        "bytes": 1850,
+        "sha256": "5276562f00321351b203b90d56adc110abf39184e2d8577c14c76cb0a5594a17"
+      },
+      "stored": {
+        "bytes": 817,
+        "sha256": "caab0398ad87731bcbcefd1289780ccbd30126185d3d342531704e45822b181f"
+      }
+    },
+    "payloads/attempt/project/tests/fixtures/s04/drive_rules.gd.uid.gz": {
+      "source": "/tmp/p0-image-01a11bc0-attempt01/project/tests/fixtures/s04/drive_rules.gd.uid",
+      "decoded": {
+        "bytes": 20,
+        "sha256": "f2cd0ed422cc003b6cd45e68c0ca3be704a5706728a32f70d63423c8036f77fe"
+      },
+      "stored": {
+        "bytes": 40,
+        "sha256": "88eb5fc88e5358c6b80a41f3ad675c04f1f1213dbbef6fdd2aadfdfa92ced50a"
+      }
+    },
+    "payloads/attempt/project/tests/fixtures/s04/kinematic.gd.gz": {
+      "source": "/tmp/p0-image-01a11bc0-attempt01/project/tests/fixtures/s04/kinematic.gd",
+      "decoded": {
+        "bytes": 2133,
+        "sha256": "7da01694610bc18b559abfe1dffabde3560d62ee9a887e57748082d11d1d9765"
+      },
+      "stored": {
+        "bytes": 966,
+        "sha256": "edd33d0af57259ac73a48e324d061f919545ba94a4af47787f773796ad5678c3"
+      }
+    },
+    "payloads/attempt/project/tests/fixtures/s04/kinematic.gd.uid.gz": {
+      "source": "/tmp/p0-image-01a11bc0-attempt01/project/tests/fixtures/s04/kinematic.gd.uid",
+      "decoded": {
+        "bytes": 19,
+        "sha256": "ccfbdc89912dfbf284e47581162120f57969de005fcea15b73c327331adc9a27"
+      },
+      "stored": {
+        "bytes": 39,
+        "sha256": "1a9976626b1e110a50a89fa14db1ee218ddb1c699d7cba375feeb6db4839667b"
+      }
+    },
+    "payloads/attempt/project/tests/fixtures/s04/kinematic.tscn.gz": {
+      "source": "/tmp/p0-image-01a11bc0-attempt01/project/tests/fixtures/s04/kinematic.tscn",
+      "decoded": {
+        "bytes": 1772,
+        "sha256": "df7cb51232f34708287b81cd9ac9b0d26e69a787ffa67b58169a2c93952b6994"
+      },
+      "stored": {
+        "bytes": 615,
+        "sha256": "2f0c621c531e0c2342b443f04a99a39791c9e0843fcb9f60388b48b49deea5aa"
+      }
+    },
+    "payloads/attempt/project/tests/fixtures/s04/track.tscn.gz": {
+      "source": "/tmp/p0-image-01a11bc0-attempt01/project/tests/fixtures/s04/track.tscn",
+      "decoded": {
+        "bytes": 1995,
+        "sha256": "d957cc0a33bc483ae1e5efd85cec66b04bda5191fd9fd16e6d75adf8ada36f97"
+      },
+      "stored": {
+        "bytes": 571,
+        "sha256": "31a03d27eb16075a361586c6367ea2e8aefcf7f1fe2dc24a7124575f7a0586c1"
+      }
+    },
+    "payloads/attempt/project/tests/fixtures/s05/boot.tscn.gz": {
+      "source": "/tmp/p0-image-01a11bc0-attempt01/project/tests/fixtures/s05/boot.tscn",
+      "decoded": {
+        "bytes": 2482,
+        "sha256": "d75b3f342713168b075f3af07d265a87963172fa4a43b1768c8b2142b0962068"
+      },
+      "stored": {
+        "bytes": 720,
+        "sha256": "38cc20ceea5a47e6aebfa04d4bf5c5557dc75efe6c3f3996d32d8265265c876a"
+      }
+    },
+    "payloads/attempt/project/tests/fixtures/s05/burst.tscn.gz": {
+      "source": "/tmp/p0-image-01a11bc0-attempt01/project/tests/fixtures/s05/burst.tscn",
+      "decoded": {
+        "bytes": 2419,
+        "sha256": "4ee0632d33f70ece87804aa5ffc4a5a0db762a419644888e3e0e43e9f49d5178"
+      },
+      "stored": {
+        "bytes": 491,
+        "sha256": "d1c45d01edc577846512b4913a35ff391c7ac8e6c7e4a80dc85c5d1d4760d313"
+      }
+    },
+    "payloads/attempt/project/tests/fixtures/s05/car.gd.gz": {
+      "source": "/tmp/p0-image-01a11bc0-attempt01/project/tests/fixtures/s05/car.gd",
+      "decoded": {
+        "bytes": 498,
+        "sha256": "8c696687c89ccc4d0765b9cada62f42f26459fdd3b37560e4167d3264b6c6e5a"
+      },
+      "stored": {
+        "bytes": 338,
+        "sha256": "e8ddbf3d678028951f775d1f28bc999209a4a3a194f70eb3578eb180a65f62c1"
+      }
+    },
+    "payloads/attempt/project/tests/fixtures/s05/car.gd.uid.gz": {
+      "source": "/tmp/p0-image-01a11bc0-attempt01/project/tests/fixtures/s05/car.gd.uid",
+      "decoded": {
+        "bytes": 20,
+        "sha256": "c33d19d6cf991037eb9c9587abb2a8ad024799ffc0627536ce472ba8eb2c5538"
+      },
+      "stored": {
+        "bytes": 40,
+        "sha256": "a9d0d27dfadde83cc17a9542a49e71f0f7e258ad3f103fe6568f3552e2d7694b"
+      }
+    },
+    "payloads/attempt/project/tests/fixtures/s05/car.tscn.gz": {
+      "source": "/tmp/p0-image-01a11bc0-attempt01/project/tests/fixtures/s05/car.tscn",
+      "decoded": {
+        "bytes": 363,
+        "sha256": "7e53a1ba71621849b83161584b5e9b888d24db123b414c02ed4d400e8a39e470"
+      },
+      "stored": {
+        "bytes": 245,
+        "sha256": "149a03722781f0cab6cbf304d8f354404888b76165cf2f7f92bf90f89186a0a9"
+      }
+    },
+    "payloads/attempt/project/tests/fixtures/s05/damage.gd.gz": {
+      "source": "/tmp/p0-image-01a11bc0-attempt01/project/tests/fixtures/s05/damage.gd",
+      "decoded": {
+        "bytes": 10260,
+        "sha256": "c3dd4883eb6aff42617dfe197538bca2e3c74b0dbcb77b34df62964eb0d4d1f7"
+      },
+      "stored": {
+        "bytes": 3454,
+        "sha256": "3405dd947b32c9f91340d1917cfaed079be456afe9f08d57d0ad1a448ae28e3f"
+      }
+    },
+    "payloads/attempt/project/tests/fixtures/s05/damage.gd.uid.gz": {
+      "source": "/tmp/p0-image-01a11bc0-attempt01/project/tests/fixtures/s05/damage.gd.uid",
+      "decoded": {
+        "bytes": 20,
+        "sha256": "2f2ad244a4379828ddec77fccc6c1d7189a061bd8b00dc99fa0a19907c9e34f0"
+      },
+      "stored": {
+        "bytes": 40,
+        "sha256": "1ea233c9c3f041d5236fa23f1ca52076b590bf804820127fb196102948a16f1c"
+      }
+    },
+    "payloads/attempt/project/tests/fixtures/s05/match.gd.gz": {
+      "source": "/tmp/p0-image-01a11bc0-attempt01/project/tests/fixtures/s05/match.gd",
+      "decoded": {
+        "bytes": 3631,
+        "sha256": "90204397c56b9244574917eabf37daacc5b22b14e32727f60b9de114ba384318"
+      },
+      "stored": {
+        "bytes": 1468,
+        "sha256": "1a5ec65cfdf3fe00af07d764a866bc5d22b8a4bcfd25d344acdc54f7a66fdb0b"
+      }
+    },
+    "payloads/attempt/project/tests/fixtures/s05/match.gd.uid.gz": {
+      "source": "/tmp/p0-image-01a11bc0-attempt01/project/tests/fixtures/s05/match.gd.uid",
+      "decoded": {
+        "bytes": 20,
+        "sha256": "ed4c78b844d531671a1b81994c170538fe94f745377656d462ff468e43334daf"
+      },
+      "stored": {
+        "bytes": 40,
+        "sha256": "872b9843db1aedb2ee2eab49fa562c6cf1aad6e9db5a8f23c26f97c89003f182"
+      }
+    },
+    "payloads/attempt/project/tests/fixtures/s05/presentation.gd.gz": {
+      "source": "/tmp/p0-image-01a11bc0-attempt01/project/tests/fixtures/s05/presentation.gd",
+      "decoded": {
+        "bytes": 1496,
+        "sha256": "a70867d42353c19445fc8c0bcc2992dbdd031ec3e61a53b5ee663099f760f39f"
+      },
+      "stored": {
+        "bytes": 733,
+        "sha256": "e4f00d98a7e97d0af468755be4da94ab7f1946301edeac3542dae4b747d2fc5b"
+      }
+    },
+    "payloads/attempt/project/tests/fixtures/s05/presentation.gd.uid.gz": {
+      "source": "/tmp/p0-image-01a11bc0-attempt01/project/tests/fixtures/s05/presentation.gd.uid",
+      "decoded": {
+        "bytes": 20,
+        "sha256": "280e3e94897c57d6fbe1739b0e063fffb64f7876fec398cd210247a8062cce63"
+      },
+      "stored": {
+        "bytes": 40,
+        "sha256": "434e4cb3126722b58fa7729283401702f31e17fc6b67dfb000d58d4641e79785"
+      }
+    },
+    "payloads/attempt/project/tests/fixtures/s05/proof.gd.gz": {
+      "source": "/tmp/p0-image-01a11bc0-attempt01/project/tests/fixtures/s05/proof.gd",
+      "decoded": {
+        "bytes": 18277,
+        "sha256": "0d2487deb1345d972ca778dd085ba229d07d97a465e1b49e2cbe5663311875be"
+      },
+      "stored": {
+        "bytes": 5616,
+        "sha256": "a79610a42273e3ee09f91d3553a4eafcd7fcb3bf96c9c74928e647f0331734fd"
+      }
+    },
+    "payloads/attempt/project/tests/fixtures/s05/proof.gd.uid.gz": {
+      "source": "/tmp/p0-image-01a11bc0-attempt01/project/tests/fixtures/s05/proof.gd.uid",
+      "decoded": {
+        "bytes": 20,
+        "sha256": "0dc986680d841b7ea2b9716d1e9f0f9c93930f2921b9e5d52d643816d87feb6a"
+      },
+      "stored": {
+        "bytes": 40,
+        "sha256": "f074b7794700668a78d833da71b69da29f196cabef88dd4c699775cf4f55b385"
+      }
+    },
+    "payloads/attempt/project/tests/fixtures/s05/replication.gd.gz": {
+      "source": "/tmp/p0-image-01a11bc0-attempt01/project/tests/fixtures/s05/replication.gd",
+      "decoded": {
+        "bytes": 3780,
+        "sha256": "eb9fa170ec519e262faba4eac53454fef45ff0e3dd3fa7875f006746e76a5be0"
+      },
+      "stored": {
+        "bytes": 1419,
+        "sha256": "480e4122b146df482c70ef1229a84c4e6265337274323ec34549bc566f9ee1d9"
+      }
+    },
+    "payloads/attempt/project/tests/fixtures/s05/replication.gd.uid.gz": {
+      "source": "/tmp/p0-image-01a11bc0-attempt01/project/tests/fixtures/s05/replication.gd.uid",
+      "decoded": {
+        "bytes": 20,
+        "sha256": "7d0b3c891a836bf1be5b75737108a105de750aef787670fc19f2530d1362b0ed"
+      },
+      "stored": {
+        "bytes": 40,
+        "sha256": "e7dcbb620b51ddf0a878a26ef22ac810b1cba9001b305c5e066a9bc7069b9ea4"
+      }
+    },
+    "payloads/attempt/project/tests/fixtures/s05/session.gd.gz": {
+      "source": "/tmp/p0-image-01a11bc0-attempt01/project/tests/fixtures/s05/session.gd",
+      "decoded": {
+        "bytes": 850,
+        "sha256": "c0a6e5aab64897977c6ccbd8afd53eecefa1fad482c2693d9b836a125a74eed0"
+      },
+      "stored": {
+        "bytes": 505,
+        "sha256": "818b6a8871d0c9db0768d23dc67ece2d4390dec56b5f5052e1368364f830e2d0"
+      }
+    },
+    "payloads/attempt/project/tests/fixtures/s05/session.gd.uid.gz": {
+      "source": "/tmp/p0-image-01a11bc0-attempt01/project/tests/fixtures/s05/session.gd.uid",
+      "decoded": {
+        "bytes": 20,
+        "sha256": "185849bf0d0b3e9c784de45356f106940844064ed51dcda1dd46154a224bf136"
+      },
+      "stored": {
+        "bytes": 40,
+        "sha256": "e5846badad49f9a15c4cfc78b5bd5b75b14086c3842df067709933778dc932e4"
+      }
+    },
+    "payloads/attempt/project/tests/fixtures/s05_draw/burst.tscn.gz": {
+      "source": "/tmp/p0-image-01a11bc0-attempt01/project/tests/fixtures/s05_draw/burst.tscn",
+      "decoded": {
+        "bytes": 378,
+        "sha256": "62c5238e5dd69cebb492e50b8e791687c54f83f0edcef4a839e7c984746612b0"
+      },
+      "stored": {
+        "bytes": 256,
+        "sha256": "d89046daac9e8ca67915285b3b8f9f5208b4599ee304ab08ead339307c897c69"
+      }
+    },
+    "payloads/attempt/project/tests/fixtures/s05_draw/camera.tscn.gz": {
+      "source": "/tmp/p0-image-01a11bc0-attempt01/project/tests/fixtures/s05_draw/camera.tscn",
+      "decoded": {
+        "bytes": 907,
+        "sha256": "d47384692bcfbeb76745b2ec09be77680adc2ebad6196acb6f38e5cb42b57c4b"
+      },
+      "stored": {
+        "bytes": 466,
+        "sha256": "7c7a4b8877cc3de9af035cdb027a984f6caa2b6b720cc2bdcef19f459746c83d"
+      }
+    },
+    "payloads/attempt/project/tests/fixtures/s05_draw/observer.gd.gz": {
+      "source": "/tmp/p0-image-01a11bc0-attempt01/project/tests/fixtures/s05_draw/observer.gd",
+      "decoded": {
+        "bytes": 9075,
+        "sha256": "438fda3fa0a3a319f49c8bb23501da16036a9fdf1d72b66a0d486afd48195d16"
+      },
+      "stored": {
+        "bytes": 3292,
+        "sha256": "7c9b96d97358e9a5c53d8dca29ad73230495ce6e25f54fe7857dffc3ec47f08d"
+      }
+    },
+    "payloads/attempt/project/tests/fixtures/s05_draw/observer.gd.uid.gz": {
+      "source": "/tmp/p0-image-01a11bc0-attempt01/project/tests/fixtures/s05_draw/observer.gd.uid",
+      "decoded": {
+        "bytes": 20,
+        "sha256": "39e010fd262d01eab8210928b69494408686ed227e81057e080e8354b582fc33"
+      },
+      "stored": {
+        "bytes": 40,
+        "sha256": "9d8ab3d2141e825cfd8ed091db0c9207fc683eb76724f074c948b68f121627dc"
+      }
+    },
+    "payloads/attempt/project/tests/fixtures/s05_effect/burst.tscn.gz": {
+      "source": "/tmp/p0-image-01a11bc0-attempt01/project/tests/fixtures/s05_effect/burst.tscn",
+      "decoded": {
+        "bytes": 2069,
+        "sha256": "2fdedbcf26d3866e533b246218ab68ff18ae5c297d327d0cfed67ada4343b231"
+      },
+      "stored": {
+        "bytes": 568,
+        "sha256": "a381ded5963e4325f7215f1819878d2a01e7c83628af0e8d07bb90ad62124666"
+      }
+    },
+    "payloads/attempt/project/tests/fixtures/s05_effect/explosion.tscn.gz": {
+      "source": "/tmp/p0-image-01a11bc0-attempt01/project/tests/fixtures/s05_effect/explosion.tscn",
+      "decoded": {
+        "bytes": 411,
+        "sha256": "f8ca4b7fcaab8996b4aa2080cca42bda2f78a80b33ea478366357c754f3e3fe1"
+      },
+      "stored": {
+        "bytes": 275,
+        "sha256": "f7da97c6c68274875f34d732510e4a8e574dc297c2b6429a8e7881e1c569399f"
+      }
+    },
+    "payloads/attempt/project/tests/fixtures/s05_effect/match.gd.gz": {
+      "source": "/tmp/p0-image-01a11bc0-attempt01/project/tests/fixtures/s05_effect/match.gd",
+      "decoded": {
+        "bytes": 547,
+        "sha256": "a038b76c14764cb8214bdfe9d4218804866ddb6805e76843d80abc73eef994fc"
+      },
+      "stored": {
+        "bytes": 327,
+        "sha256": "c63e72eb46742c6ed52765cf01bbaa5c2ff178b230d00262afdeec8875a82e5c"
+      }
+    },
+    "payloads/attempt/project/tests/fixtures/s05_effect/match.gd.uid.gz": {
+      "source": "/tmp/p0-image-01a11bc0-attempt01/project/tests/fixtures/s05_effect/match.gd.uid",
+      "decoded": {
+        "bytes": 20,
+        "sha256": "97cbdf8ba1c4fe0ff1afda7224616d40c84f75bf0e39c18e171b06d69789c0c7"
+      },
+      "stored": {
+        "bytes": 40,
+        "sha256": "037eecb357befe5cec5595f591886b1fa95a536c67db57dd0789882b4ae19cdf"
+      }
+    },
+    "payloads/attempt/project/tests/fixtures/s05_effect/presentation.gd.gz": {
+      "source": "/tmp/p0-image-01a11bc0-attempt01/project/tests/fixtures/s05_effect/presentation.gd",
+      "decoded": {
+        "bytes": 3620,
+        "sha256": "b73007c6a477d3c4e107d1d15ce656d7316e70fc59aed57c1aad7ce5cf3fc18e"
+      },
+      "stored": {
+        "bytes": 1385,
+        "sha256": "17a9b23409bfda5c97fe5d17546096bd0344a1c066d142809dd4be1f0a1320a1"
+      }
+    },
+    "payloads/attempt/project/tests/fixtures/s05_effect/presentation.gd.uid.gz": {
+      "source": "/tmp/p0-image-01a11bc0-attempt01/project/tests/fixtures/s05_effect/presentation.gd.uid",
+      "decoded": {
+        "bytes": 20,
+        "sha256": "cef64329633595cbea553be238841975d92299a3e5c107995ed983723dae4f5b"
+      },
+      "stored": {
+        "bytes": 40,
+        "sha256": "0f1517f206e13a179c0bd5cd914bcb68adedc5bcffefde4af80c6b3aa024e334"
+      }
+    },
+    "payloads/attempt/project/tests/fixtures/s05_effect/proof.gd.gz": {
+      "source": "/tmp/p0-image-01a11bc0-attempt01/project/tests/fixtures/s05_effect/proof.gd",
+      "decoded": {
+        "bytes": 7050,
+        "sha256": "794c4411f8ee9e7b613ac48b99817dee259bf708c235f6ee15a3cd44e9bf24b3"
+      },
+      "stored": {
+        "bytes": 2378,
+        "sha256": "02faa7607d915aa5d3493062431a3fabc8be267f9c51ce359c333246da0ad685"
+      }
+    },
+    "payloads/attempt/project/tests/fixtures/s05_effect/proof.gd.uid.gz": {
+      "source": "/tmp/p0-image-01a11bc0-attempt01/project/tests/fixtures/s05_effect/proof.gd.uid",
+      "decoded": {
+        "bytes": 20,
+        "sha256": "74d226e68e46ab8842e870f65f0b03dae93802da34e44573e70b28542eef1481"
+      },
+      "stored": {
+        "bytes": 40,
+        "sha256": "0046bd8e566b347143e730dcc85863dc42cabf72d9effab39c9ec52854f6bfd2"
+      }
+    },
+    "payloads/checks/attempt01.command.json.gz": {
+      "source": "/tmp/s05-vsync-image-checks/attempt01.command.json",
+      "decoded": {
+        "bytes": 636,
+        "sha256": "910e10a4ee834e1ae1ed72a3ac7154260b4306c55dde5f94d8c2ebe1a05df6f7"
+      },
+      "stored": {
+        "bytes": 378,
+        "sha256": "94170291a7501e6d94780858f3e506f760fa6fa8caa3c2c6854d0933ae1ada05"
+      }
+    },
+    "payloads/checks/attempt01.stderr.gz": {
+      "source": "/tmp/s05-vsync-image-checks/attempt01.stderr",
+      "decoded": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stored": {
+        "bytes": 20,
+        "sha256": "9ceffb7310338057cfe71a4ae1e2c98d2c485d81cdef906532a801f457a38d64"
+      }
+    },
+    "payloads/checks/attempt01.stdout.gz": {
+      "source": "/tmp/s05-vsync-image-checks/attempt01.stdout",
+      "decoded": {
+        "bytes": 7277,
+        "sha256": "e7defc490214f7ab96cfc5ce33414af0afa5fc890b4d362d36f1298126e7972a"
+      },
+      "stored": {
+        "bytes": 1953,
+        "sha256": "cbbcc1db439819e1b9ab94858c49477d41a0a56e688fa90d5d9b7712bd0208b3"
+      }
+    },
+    "payloads/checks/evaluation01.command.json.gz": {
+      "source": "/tmp/s05-vsync-image-checks/evaluation01.command.json",
+      "decoded": {
+        "bytes": 812,
+        "sha256": "887c7fc4634cc0688889140c600ef3ab9bd54f88582e146e8bebaea217c45b93"
+      },
+      "stored": {
+        "bytes": 423,
+        "sha256": "46e01c0f6dab44b6f7576e7b053a338d761f0c74612983a9eacbe2de6943f607"
+      }
+    },
+    "payloads/checks/evaluation01.json.gz": {
+      "source": "/tmp/s05-vsync-image-checks/evaluation01.json",
+      "decoded": {
+        "bytes": 1094341,
+        "sha256": "7eda3699cb52f5341b6b9a51841a997387611080e219c1c92a3c9310fad6b579"
+      },
+      "stored": {
+        "bytes": 216269,
+        "sha256": "d756944763e9e3a556395f44d608d870a3d5298890a9c282237ad422a9dc7a03"
+      }
+    },
+    "payloads/checks/evaluation01.stderr.gz": {
+      "source": "/tmp/s05-vsync-image-checks/evaluation01.stderr",
+      "decoded": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stored": {
+        "bytes": 20,
+        "sha256": "9ceffb7310338057cfe71a4ae1e2c98d2c485d81cdef906532a801f457a38d64"
+      }
+    },
+    "payloads/checks/evaluation01.stdout.gz": {
+      "source": "/tmp/s05-vsync-image-checks/evaluation01.stdout",
+      "decoded": {
+        "bytes": 3041,
+        "sha256": "f0e78738061286f87401b22657c1efe6186c7f000810f3b04739385a1f36b683"
+      },
+      "stored": {
+        "bytes": 743,
+        "sha256": "6f8252db092f53ca58399f51c859f03c76d66cea2e485a8c65788cfd2a375347"
+      }
+    },
+    "payloads/checks/format01.command.json.gz": {
+      "source": "/tmp/s05-vsync-image-checks/format01.command.json",
+      "decoded": {
+        "bytes": 822,
+        "sha256": "9a18699982e165ec7ca5f2d534e58d3b78e080d56f225e90c9b2c0c3a2b30f95"
+      },
+      "stored": {
+        "bytes": 427,
+        "sha256": "bf88c2c8245be399b9e77c9a758b13be5515111a108113d0b5bff2d7bf3ca0ca"
+      }
+    },
+    "payloads/checks/format01.stderr.gz": {
+      "source": "/tmp/s05-vsync-image-checks/format01.stderr",
+      "decoded": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stored": {
+        "bytes": 20,
+        "sha256": "9ceffb7310338057cfe71a4ae1e2c98d2c485d81cdef906532a801f457a38d64"
+      }
+    },
+    "payloads/checks/format01.stdout.gz": {
+      "source": "/tmp/s05-vsync-image-checks/format01.stdout",
+      "decoded": {
+        "bytes": 26,
+        "sha256": "990e1e4e20224faf0ae02a391ee415e84c3913a80b2da78c7ddbf96b3a10df13"
+      },
+      "stored": {
+        "bytes": 46,
+        "sha256": "785c4ecf4231a060ab975df6ebc59b164af4de7f5592d2d311abb5e0c04cd9bb"
+      }
+    },
+    "payloads/checks/offline01.command.json.gz": {
+      "source": "/tmp/s05-vsync-image-checks/offline01.command.json",
+      "decoded": {
+        "bytes": 531,
+        "sha256": "52ff70be38e76d8e7627b5d74c69fa800205660ceb1503ee2a1aec55abfcb95e"
+      },
+      "stored": {
+        "bytes": 323,
+        "sha256": "5cf8eafd30ee1bc66c9b2130e612d8672092b7ee73da9566b93544973ac6bf2b"
+      }
+    },
+    "payloads/checks/offline01.stderr.gz": {
+      "source": "/tmp/s05-vsync-image-checks/offline01.stderr",
+      "decoded": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stored": {
+        "bytes": 20,
+        "sha256": "9ceffb7310338057cfe71a4ae1e2c98d2c485d81cdef906532a801f457a38d64"
+      }
+    },
+    "payloads/checks/offline01.stdout.gz": {
+      "source": "/tmp/s05-vsync-image-checks/offline01.stdout",
+      "decoded": {
+        "bytes": 41666,
+        "sha256": "ae5b3e5e8815086def85efcacb83f73d0a7c46738fe401d88406b8eec12481e5"
+      },
+      "stored": {
+        "bytes": 2682,
+        "sha256": "1973b3a062d007165c8e295b9c9e3f57fbfa418b5d7d3d1ca2f26340639af453"
+      }
+    },
+    "payloads/checks/offline02.command.json.gz": {
+      "source": "/tmp/s05-vsync-image-checks/offline02.command.json",
+      "decoded": {
+        "bytes": 533,
+        "sha256": "031b2ffc944714dac572fc4484938bfca7246eb5f24b841f58e10b32bf4bf290"
+      },
+      "stored": {
+        "bytes": 325,
+        "sha256": "9b79e6e3e881183d3f55675d2965f587b1f3bfb83c62d0b07673519fa9083ba1"
+      }
+    },
+    "payloads/checks/offline02.stderr.gz": {
+      "source": "/tmp/s05-vsync-image-checks/offline02.stderr",
+      "decoded": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stored": {
+        "bytes": 20,
+        "sha256": "9ceffb7310338057cfe71a4ae1e2c98d2c485d81cdef906532a801f457a38d64"
+      }
+    },
+    "payloads/checks/offline02.stdout.gz": {
+      "source": "/tmp/s05-vsync-image-checks/offline02.stdout",
+      "decoded": {
+        "bytes": 41905,
+        "sha256": "0fc315fba098ff8d8afec56fd2ca4270786a42f378b3f82e679bfb2250d600a8"
+      },
+      "stored": {
+        "bytes": 2809,
+        "sha256": "fa74adddb8bba0058a61230c82f6e0005a2dd41c782936e9b1f8d51f7a1afc36"
+      }
+    },
+    "payloads/checks/offline03-corrected.command.json.gz": {
+      "source": "/tmp/s05-vsync-image-checks/offline03-corrected.command.json",
+      "decoded": {
+        "bytes": 533,
+        "sha256": "98d130d26ed770fffcc72d1a00c05e3fe9fd7632656b4ce09f3a838c85670094"
+      },
+      "stored": {
+        "bytes": 324,
+        "sha256": "620d108c51cf437cd3ac5763ffe10b1871ab45b3c93e683bc70b981db5043b92"
+      }
+    },
+    "payloads/checks/offline03-corrected.stderr.gz": {
+      "source": "/tmp/s05-vsync-image-checks/offline03-corrected.stderr",
+      "decoded": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stored": {
+        "bytes": 20,
+        "sha256": "9ceffb7310338057cfe71a4ae1e2c98d2c485d81cdef906532a801f457a38d64"
+      }
+    },
+    "payloads/checks/offline03-corrected.stdout.gz": {
+      "source": "/tmp/s05-vsync-image-checks/offline03-corrected.stdout",
+      "decoded": {
+        "bytes": 45167,
+        "sha256": "6e38dc4c4afd3984b69afd0e2c13113b6fded7ff26bdfa9f53f4b5a67a8e6233"
+      },
+      "stored": {
+        "bytes": 3123,
+        "sha256": "8dee5ad51d278a4bbc3bfe1520be184e08c2b442feffa16872efb51b069377a2"
+      }
+    },
+    "payloads/checks/static01.command.json.gz": {
+      "source": "/tmp/s05-vsync-image-checks/static01.command.json",
+      "decoded": {
+        "bytes": 749,
+        "sha256": "9fb81138a73f56c0c671215a9f8df3838880a847827122b0e2015ea69bf2d993"
+      },
+      "stored": {
+        "bytes": 400,
+        "sha256": "6e636c1e632c15f7a22779443f0ab974ec75db4defee2a2b55c90a233bb99f2a"
+      }
+    },
+    "payloads/checks/static01.json.gz": {
+      "source": "/tmp/s05-vsync-image-checks/static01.json",
+      "decoded": {
+        "bytes": 1091331,
+        "sha256": "9db282cf301d0763871d0d7c9da93e2b1dbca163d34961001448c8ad2e854286"
+      },
+      "stored": {
+        "bytes": 215461,
+        "sha256": "88052ba6689f77142419b9970edc7b5a2995f266cd71b78047752737d5534819"
+      }
+    },
+    "payloads/checks/static01.stderr.gz": {
+      "source": "/tmp/s05-vsync-image-checks/static01.stderr",
+      "decoded": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stored": {
+        "bytes": 20,
+        "sha256": "9ceffb7310338057cfe71a4ae1e2c98d2c485d81cdef906532a801f457a38d64"
+      }
+    },
+    "payloads/checks/static01.stdout.gz": {
+      "source": "/tmp/s05-vsync-image-checks/static01.stdout",
+      "decoded": {
+        "bytes": 54,
+        "sha256": "4f37511b96595b4d245c8393b9f517b993272d499c162a47d95ff52701021b80"
+      },
+      "stored": {
+        "bytes": 69,
+        "sha256": "53db72cb1a65b6d6a1cc9780bef6ecf85226a0569c381d2736583a5ff2b78ad6"
+      }
+    },
+    "payloads/checks/style01.command.json.gz": {
+      "source": "/tmp/s05-vsync-image-checks/style01.command.json",
+      "decoded": {
+        "bytes": 841,
+        "sha256": "8976fdebbdb570e69ac3f5e870504c4d86a3b62a698c07b262e53de7a92d0746"
+      },
+      "stored": {
+        "bytes": 434,
+        "sha256": "74cbd9d820b8bc09573b4bc14930053b7027bb2de0c5989bcba349b88c09a002"
+      }
+    },
+    "payloads/checks/style01.stderr.gz": {
+      "source": "/tmp/s05-vsync-image-checks/style01.stderr",
+      "decoded": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stored": {
+        "bytes": 20,
+        "sha256": "9ceffb7310338057cfe71a4ae1e2c98d2c485d81cdef906532a801f457a38d64"
+      }
+    },
+    "payloads/checks/style01.stdout.gz": {
+      "source": "/tmp/s05-vsync-image-checks/style01.stdout",
+      "decoded": {
+        "bytes": 38,
+        "sha256": "b606ad683566c88181a33e8f4e5fd23352ed9fbdf98e24b5429753d300ad34d7"
+      },
+      "stored": {
+        "bytes": 58,
+        "sha256": "092b189d16f742fbda56bd2939035af76215aa62ec6f95a652ee83da2daf6e46"
+      }
+    },
+    "payloads/source-ancestry/art/source/models/spikes/s04_kit.blend.gz": {
+      "source": "/home/regner/.paseo/worktrees/0u71f39f/s05-vsync-image-observation/art/source/models/spikes/s04_kit.blend",
+      "decoded": {
+        "bytes": 123668,
+        "sha256": "bce9c0c587399bc701dd8072726f1087a794e615c63f8ff699fd6fae5d3cf244"
+      },
+      "stored": {
+        "bytes": 123638,
+        "sha256": "7ca4dd45633f3b3a2926c98eb18d2679b58b19e700acfd18f0f12144e726f635"
+      }
+    },
+    "payloads/source-ancestry/art/source/models/spikes/s05_explosion_carrier.blend.gz": {
+      "source": "/home/regner/.paseo/worktrees/0u71f39f/s05-vsync-image-observation/art/source/models/spikes/s05_explosion_carrier.blend",
+      "decoded": {
+        "bytes": 117308,
+        "sha256": "f2f145c7f93906a56b7708823e33c926cab24ee6dec190d3495829364b05deb3"
+      },
+      "stored": {
+        "bytes": 117259,
+        "sha256": "77d93797c214d086fc1dde6d84e42f3350c8f3b1f12dfb0af47c126b561c190d"
+      }
+    },
+    "payloads/sources/corrected-offline/tools/s05_vsync_image/check.py.gz": {
+      "source": "/home/regner/.paseo/worktrees/0u71f39f/s05-vsync-image-observation/tools/s05_vsync_image/check.py",
+      "decoded": {
+        "bytes": 13429,
+        "sha256": "961e2e12dbb1c6efe42c6a38667fa3fa578a8c49f297a4f2153165885ff4814e"
+      },
+      "stored": {
+        "bytes": 4500,
+        "sha256": "a12f13c88bf5c6ce7402330714c86dc7c5f76b5f06a28daa09b6457f92b9a474"
+      }
+    },
+    "payloads/sources/corrected-offline/tools/s05_vsync_image/record.py.gz": {
+      "source": "/home/regner/.paseo/worktrees/0u71f39f/s05-vsync-image-observation/tools/s05_vsync_image/record.py",
+      "decoded": {
+        "bytes": 1771,
+        "sha256": "e5e5f563a7a15882e710beabebc801bca45c8236dcd3befa5213735714a7c365"
+      },
+      "stored": {
+        "bytes": 834,
+        "sha256": "6417ea46cd2c9db5c7157fbd7ac3e69966e730c48e01e4038fd857b0779d9115"
+      }
+    },
+    "payloads/sources/corrected-offline/tools/s05_vsync_image/retain.py.gz": {
+      "source": "/home/regner/.paseo/worktrees/0u71f39f/s05-vsync-image-observation/tools/s05_vsync_image/retain.py",
+      "decoded": {
+        "bytes": 7076,
+        "sha256": "77352b89dedbbb9f0cd91e713342b2f8c9e5f74fcf21b7781053abf50755dfb7"
+      },
+      "stored": {
+        "bytes": 2551,
+        "sha256": "7256de754b050b9d67beca93d50db4df17c5d6956acd38ba73337a7846d06b54"
+      }
+    },
+    "payloads/sources/corrected-offline/tools/s05_vsync_image/run.py.gz": {
+      "source": "/home/regner/.paseo/worktrees/0u71f39f/s05-vsync-image-observation/tools/s05_vsync_image/run.py",
+      "decoded": {
+        "bytes": 18799,
+        "sha256": "46f7d59d4d75f4edebc7e62552c57974ea0064aaf39857474dde80cd32f76f23"
+      },
+      "stored": {
+        "bytes": 6298,
+        "sha256": "68f4faef4a96bc6542d4da717fc94bf8db41af35a9dfdc9b859e09fdd2fa8612"
+      }
+    },
+    "payloads/sources/corrected-offline/tools/s05_vsync_image/test_offline.py.gz": {
+      "source": "/home/regner/.paseo/worktrees/0u71f39f/s05-vsync-image-observation/tools/s05_vsync_image/test_offline.py",
+      "decoded": {
+        "bytes": 12093,
+        "sha256": "fc71b5a95e75cf55f625785c38765fde418fddc4c77b89b71edb1e4da257d882"
+      },
+      "stored": {
+        "bytes": 3876,
+        "sha256": "810d4a094a6d22503cb4baf1cdd1bce8f588f56df124e4083300c2a5419cc123"
+      }
+    },
+    "payloads/sources/executed/tools/s05_vsync_image/check.py.gz": {
+      "source": "Git 4a50808ba0441a7c116d14d78a4286a6f89f7691:tools/s05_vsync_image/check.py",
+      "decoded": {
+        "bytes": 13429,
+        "sha256": "961e2e12dbb1c6efe42c6a38667fa3fa578a8c49f297a4f2153165885ff4814e"
+      },
+      "stored": {
+        "bytes": 4500,
+        "sha256": "a12f13c88bf5c6ce7402330714c86dc7c5f76b5f06a28daa09b6457f92b9a474"
+      }
+    },
+    "payloads/sources/executed/tools/s05_vsync_image/record.py.gz": {
+      "source": "Git 4a50808ba0441a7c116d14d78a4286a6f89f7691:tools/s05_vsync_image/record.py",
+      "decoded": {
+        "bytes": 1771,
+        "sha256": "e5e5f563a7a15882e710beabebc801bca45c8236dcd3befa5213735714a7c365"
+      },
+      "stored": {
+        "bytes": 834,
+        "sha256": "6417ea46cd2c9db5c7157fbd7ac3e69966e730c48e01e4038fd857b0779d9115"
+      }
+    },
+    "payloads/sources/executed/tools/s05_vsync_image/run.py.gz": {
+      "source": "Git 4a50808ba0441a7c116d14d78a4286a6f89f7691:tools/s05_vsync_image/run.py",
+      "decoded": {
+        "bytes": 17767,
+        "sha256": "b3e3bcaadde05a76e515c42d6b6bb26a9fc8c0574154b764b49654af5f0ff384"
+      },
+      "stored": {
+        "bytes": 5972,
+        "sha256": "be0664b85e070491464ab35c1398b9972b746e81cae79a93c983c677a324e522"
+      }
+    },
+    "payloads/sources/executed/tools/s05_vsync_image/test_offline.py.gz": {
+      "source": "Git 4a50808ba0441a7c116d14d78a4286a6f89f7691:tools/s05_vsync_image/test_offline.py",
+      "decoded": {
+        "bytes": 10031,
+        "sha256": "51423ebae580224d4d39d16650443f83208cf5d8a2806bc1353d3b178e51b1b2"
+      },
+      "stored": {
+        "bytes": 3265,
+        "sha256": "b774e928d04fe0b1f7435ee1e82e7981db2dec31415c34a5b54ddba8b6048724"
+      }
+    },
+    "payloads/sources/recovered-offline01-test_offline.py.gz": {
+      "source": "Recovered exact authored edit predecessor; verified against original command SHA256",
+      "decoded": {
+        "bytes": 8011,
+        "sha256": "b86c9f86877bbdb6a942d45c457fc2a7cbc3cd39ee34f4b6aa6464dc915f5568"
+      },
+      "stored": {
+        "bytes": 2677,
+        "sha256": "66546f0d15301b241bed605d54479c935193e2f1c77b214b355d8acf8e4caa86"
+      }
+    },
+    "payloads/attempt/project/generated-imports/.gdignore.gz": {
+      "source": "/tmp/p0-image-01a11bc0-attempt01/project/.godot/.gdignore",
+      "decoded": {
+        "bytes": 1,
+        "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b"
+      },
+      "stored": {
+        "bytes": 21,
+        "sha256": "74420f89d2d2a4256b5b578f1c2a01dd2b605f9aca4905db839d008cfd29cac0"
+      }
+    },
+    "payloads/attempt/project/generated-imports/editor/filesystem_cache10.gz": {
+      "source": "/tmp/p0-image-01a11bc0-attempt01/project/.godot/editor/filesystem_cache10",
+      "decoded": {
+        "bytes": 6032,
+        "sha256": "aaf3893ff8f8a1d39fbf72b64e4eed3df64e2f9d53f8cceab0c08e9845d0aacd"
+      },
+      "stored": {
+        "bytes": 1765,
+        "sha256": "3aa9f6f8a453b425368615c55cb8c9142d18d7be8a34180f299249b225343c0d"
+      }
+    },
+    "payloads/attempt/project/generated-imports/editor/project_metadata.cfg.gz": {
+      "source": "/tmp/p0-image-01a11bc0-attempt01/project/.godot/editor/project_metadata.cfg",
+      "decoded": {
+        "bytes": 162,
+        "sha256": "78da2b143e38ad8ad4adb0bc246893af0c09cd8e4b1cfc806d58549b966a4baa"
+      },
+      "stored": {
+        "bytes": 142,
+        "sha256": "25d8f51158ab87c41875dbce1f823229f5071062e40e18a25e58746cf63ec537"
+      }
+    },
+    "payloads/attempt/project/generated-imports/editor/s04_car.glb-3f8890a75faed36a9858b2a8d6064953.scn-folding-9a8f1fb8a7b54b14ce6b2d4683ff5d88.cfg.gz": {
+      "source": "/tmp/p0-image-01a11bc0-attempt01/project/.godot/editor/s04_car.glb-3f8890a75faed36a9858b2a8d6064953.scn-folding-9a8f1fb8a7b54b14ce6b2d4683ff5d88.cfg",
+      "decoded": {
+        "bytes": 49,
+        "sha256": "fa44dfbae9b3b64980c44d9922acdad9b34ea46c85cce8a917708577229c27f6"
+      },
+      "stored": {
+        "bytes": 66,
+        "sha256": "cd9a185eb93603738779ec810ec61a49496806992dda89766e50020e75dde6d5"
+      }
+    },
+    "payloads/attempt/project/generated-imports/editor/s04_track.glb-32c105f9ee8a1385e3c0770403441b7b.scn-folding-299f006438793ea17ec4860c35781b7e.cfg.gz": {
+      "source": "/tmp/p0-image-01a11bc0-attempt01/project/.godot/editor/s04_track.glb-32c105f9ee8a1385e3c0770403441b7b.scn-folding-299f006438793ea17ec4860c35781b7e.cfg",
+      "decoded": {
+        "bytes": 49,
+        "sha256": "fa44dfbae9b3b64980c44d9922acdad9b34ea46c85cce8a917708577229c27f6"
+      },
+      "stored": {
+        "bytes": 66,
+        "sha256": "cd9a185eb93603738779ec810ec61a49496806992dda89766e50020e75dde6d5"
+      }
+    },
+    "payloads/attempt/project/generated-imports/editor/s05_explosion_carrier.glb-e270aed4622d29e5b5f9018c27777acf.scn-folding-0a25c55944ef4bda2fda0e5b5bd822d4.cfg.gz": {
+      "source": "/tmp/p0-image-01a11bc0-attempt01/project/.godot/editor/s05_explosion_carrier.glb-e270aed4622d29e5b5f9018c27777acf.scn-folding-0a25c55944ef4bda2fda0e5b5bd822d4.cfg",
+      "decoded": {
+        "bytes": 49,
+        "sha256": "fa44dfbae9b3b64980c44d9922acdad9b34ea46c85cce8a917708577229c27f6"
+      },
+      "stored": {
+        "bytes": 66,
+        "sha256": "cd9a185eb93603738779ec810ec61a49496806992dda89766e50020e75dde6d5"
+      }
+    },
+    "payloads/attempt/project/generated-imports/global_script_class_cache.cfg.gz": {
+      "source": "/tmp/p0-image-01a11bc0-attempt01/project/.godot/global_script_class_cache.cfg",
+      "decoded": {
+        "bytes": 3549,
+        "sha256": "43970c0ddc1cf5f39f3041b37a2c1c534438131840f43f6a841f985b7c32b276"
+      },
+      "stored": {
+        "bytes": 459,
+        "sha256": "502d471561241b005e3f2ecfea19ce8d6170527a4a42ea169f3f03c08fa35243"
+      }
+    },
+    "payloads/attempt/project/generated-imports/imported/icon.svg-218a8f2b3041327d8a5756f3a245f83b.ctex.gz": {
+      "source": "/tmp/p0-image-01a11bc0-attempt01/project/.godot/imported/icon.svg-218a8f2b3041327d8a5756f3a245f83b.ctex",
+      "decoded": {
+        "bytes": 3426,
+        "sha256": "5065348df8b1d7fa8484298b54140bd0cdae1c53b35a8bca37f7ffde71b45d2b"
+      },
+      "stored": {
+        "bytes": 3449,
+        "sha256": "5f5cf0692d1ad2ad02db8f74381bb167032c74a4d0e3c506789efbbd5fb54247"
+      }
+    },
+    "payloads/attempt/project/generated-imports/imported/icon.svg-218a8f2b3041327d8a5756f3a245f83b.md5.gz": {
+      "source": "/tmp/p0-image-01a11bc0-attempt01/project/.godot/imported/icon.svg-218a8f2b3041327d8a5756f3a245f83b.md5",
+      "decoded": {
+        "bytes": 91,
+        "sha256": "8c7ad609215f31f9c67e43094c36a2e7d369c60c73d01bf71c7016c6b56c1981"
+      },
+      "stored": {
+        "bytes": 97,
+        "sha256": "04f3c164b16632cc3bd7a121cba4ea23688e8f6f6679b32daf5a480efe3174cc"
+      }
+    },
+    "payloads/attempt/project/generated-imports/imported/s04_car.glb-3f8890a75faed36a9858b2a8d6064953.md5.gz": {
+      "source": "/tmp/p0-image-01a11bc0-attempt01/project/.godot/imported/s04_car.glb-3f8890a75faed36a9858b2a8d6064953.md5",
+      "decoded": {
+        "bytes": 91,
+        "sha256": "6458e854ae12e7dec3d4f15be0084a011044d6292699df4919a393b5e88171f9"
+      },
+      "stored": {
+        "bytes": 98,
+        "sha256": "22a208ff3da791f5c794df8f1549054cd50014bae76f35c6fa2c2fa795f8a380"
+      }
+    },
+    "payloads/attempt/project/generated-imports/imported/s04_car.glb-3f8890a75faed36a9858b2a8d6064953.scn.gz": {
+      "source": "/tmp/p0-image-01a11bc0-attempt01/project/.godot/imported/s04_car.glb-3f8890a75faed36a9858b2a8d6064953.scn",
+      "decoded": {
+        "bytes": 42798,
+        "sha256": "96e6b5262c8799f3500e33151859c1bbea5f81933b427252bd1cab60efbd7e5c"
+      },
+      "stored": {
+        "bytes": 42813,
+        "sha256": "6a40cdb7cec78d19c29ca34c4f1d3c5237dbc07d2c1be3b1070029ed8ddbc968"
+      }
+    },
+    "payloads/attempt/project/generated-imports/imported/s04_track.glb-32c105f9ee8a1385e3c0770403441b7b.md5.gz": {
+      "source": "/tmp/p0-image-01a11bc0-attempt01/project/.godot/imported/s04_track.glb-32c105f9ee8a1385e3c0770403441b7b.md5",
+      "decoded": {
+        "bytes": 91,
+        "sha256": "83c8b94ac565a8a0248da9ea7183c5e9b50eeb56ccee8192b76ee27eebd48c17"
+      },
+      "stored": {
+        "bytes": 97,
+        "sha256": "41d174b45103985ab32370c9052be043e516db7516d0c4bea993f84a7d4ff410"
+      }
+    },
+    "payloads/attempt/project/generated-imports/imported/s04_track.glb-32c105f9ee8a1385e3c0770403441b7b.scn.gz": {
+      "source": "/tmp/p0-image-01a11bc0-attempt01/project/.godot/imported/s04_track.glb-32c105f9ee8a1385e3c0770403441b7b.scn",
+      "decoded": {
+        "bytes": 30881,
+        "sha256": "29ca545bb5ee8fd24b9010c70001b7024277299cf4756175d1b49eef5df502b3"
+      },
+      "stored": {
+        "bytes": 30909,
+        "sha256": "3081c7baaaa617a131185e3842f70b20fa99383a82ff8cf8b862a6f992d66757"
+      }
+    },
+    "payloads/attempt/project/generated-imports/imported/s05_explosion_carrier.glb-e270aed4622d29e5b5f9018c27777acf.md5.gz": {
+      "source": "/tmp/p0-image-01a11bc0-attempt01/project/.godot/imported/s05_explosion_carrier.glb-e270aed4622d29e5b5f9018c27777acf.md5",
+      "decoded": {
+        "bytes": 91,
+        "sha256": "19bbae2013138e143820c2904dee7bd956cca17b79772e75de49dc1e24396596"
+      },
+      "stored": {
+        "bytes": 97,
+        "sha256": "28ef2f24423539bdf42aded8354eaefa48bf36516ef68f33fc7c3e4f710885e3"
+      }
+    },
+    "payloads/attempt/project/generated-imports/imported/s05_explosion_carrier.glb-e270aed4622d29e5b5f9018c27777acf.scn.gz": {
+      "source": "/tmp/p0-image-01a11bc0-attempt01/project/.godot/imported/s05_explosion_carrier.glb-e270aed4622d29e5b5f9018c27777acf.scn",
+      "decoded": {
+        "bytes": 34976,
+        "sha256": "59c317380d8929587a62ed4dfc243612badb8f7684b66dd484ed877cc3a02975"
+      },
+      "stored": {
+        "bytes": 34898,
+        "sha256": "e2b25d8091c3aea76f3a9bf946cbafc1175b26db8c6b5d2d851ebbb5f762c1e1"
+      }
+    },
+    "payloads/attempt/project/generated-imports/uid_cache.bin.gz": {
+      "source": "/tmp/p0-image-01a11bc0-attempt01/project/.godot/uid_cache.bin",
+      "decoded": {
+        "bytes": 1767,
+        "sha256": "abbd648846b56ba8f1be71f04989913fc52ee01acdb9fcbe44d056b4186f82e4"
+      },
+      "stored": {
+        "bytes": 713,
+        "sha256": "265cb6d17fe2002364e45f122bc3bf95690e49e9997e02299eff1dc64da658f5"
+      }
+    }
+  },
+  "raw_files": {
+    "README.md": {
+      "bytes": 4303,
+      "sha256": "64e9aada1d2a8a9bc6949a56b2cf68c11b21a06563fe978a6ef077c2c992f662"
+    },
+    "raw-commission.txt": {
+      "bytes": 7428,
+      "sha256": "0d9e0a352aab13572c09dde1c56308fd1b471c844d7d6aed02b438233ff00160"
+    },
+    "raw-main-notification.txt": {
+      "bytes": 692,
+      "sha256": "422875520265e7984ca416525edaf4078bca82571690b6610bbd2a491625184a"
+    },
+    "raw-stop-confirmation.txt": {
+      "bytes": 1239,
+      "sha256": "47acedbbbe244f33d02bb5e6f25ce07fb4d091673a35a69e600c1e060463d94e"
+    }
+  },
+  "expected_paths": [
+    "README.md",
+    "manifest.json",
+    "payloads/attempt/copy-ledger.json.gz",
+    "payloads/attempt/generated-imports.json.gz",
+    "payloads/attempt/host/draw.jsonl.gz",
+    "payloads/attempt/host/engine.log.gz",
+    "payloads/attempt/host/stderr.gz",
+    "payloads/attempt/host/stdout.gz",
+    "payloads/attempt/import/engine.log.gz",
+    "payloads/attempt/import/stderr.gz",
+    "payloads/attempt/import/stdout.gz",
+    "payloads/attempt/lifecycle.json.gz",
+    "payloads/attempt/project/art/models/spikes/s04_car.glb.gz",
+    "payloads/attempt/project/art/models/spikes/s04_car.glb.import.gz",
+    "payloads/attempt/project/art/models/spikes/s04_track.glb.gz",
+    "payloads/attempt/project/art/models/spikes/s04_track.glb.import.gz",
+    "payloads/attempt/project/art/models/spikes/s05_explosion_carrier.glb.gz",
+    "payloads/attempt/project/art/models/spikes/s05_explosion_carrier.glb.import.gz",
+    "payloads/attempt/project/generated-imports/.gdignore.gz",
+    "payloads/attempt/project/generated-imports/editor/filesystem_cache10.gz",
+    "payloads/attempt/project/generated-imports/editor/project_metadata.cfg.gz",
+    "payloads/attempt/project/generated-imports/editor/s04_car.glb-3f8890a75faed36a9858b2a8d6064953.scn-folding-9a8f1fb8a7b54b14ce6b2d4683ff5d88.cfg.gz",
+    "payloads/attempt/project/generated-imports/editor/s04_track.glb-32c105f9ee8a1385e3c0770403441b7b.scn-folding-299f006438793ea17ec4860c35781b7e.cfg.gz",
+    "payloads/attempt/project/generated-imports/editor/s05_explosion_carrier.glb-e270aed4622d29e5b5f9018c27777acf.scn-folding-0a25c55944ef4bda2fda0e5b5bd822d4.cfg.gz",
+    "payloads/attempt/project/generated-imports/global_script_class_cache.cfg.gz",
+    "payloads/attempt/project/generated-imports/imported/icon.svg-218a8f2b3041327d8a5756f3a245f83b.ctex.gz",
+    "payloads/attempt/project/generated-imports/imported/icon.svg-218a8f2b3041327d8a5756f3a245f83b.md5.gz",
+    "payloads/attempt/project/generated-imports/imported/s04_car.glb-3f8890a75faed36a9858b2a8d6064953.md5.gz",
+    "payloads/attempt/project/generated-imports/imported/s04_car.glb-3f8890a75faed36a9858b2a8d6064953.scn.gz",
+    "payloads/attempt/project/generated-imports/imported/s04_track.glb-32c105f9ee8a1385e3c0770403441b7b.md5.gz",
+    "payloads/attempt/project/generated-imports/imported/s04_track.glb-32c105f9ee8a1385e3c0770403441b7b.scn.gz",
+    "payloads/attempt/project/generated-imports/imported/s05_explosion_carrier.glb-e270aed4622d29e5b5f9018c27777acf.md5.gz",
+    "payloads/attempt/project/generated-imports/imported/s05_explosion_carrier.glb-e270aed4622d29e5b5f9018c27777acf.scn.gz",
+    "payloads/attempt/project/generated-imports/uid_cache.bin.gz",
+    "payloads/attempt/project/icon.svg.gz",
+    "payloads/attempt/project/icon.svg.import.gz",
+    "payloads/attempt/project/project.godot.gz",
+    "payloads/attempt/project/tests/fixtures/s03/boot.tscn.gz",
+    "payloads/attempt/project/tests/fixtures/s03/entity.gd.gz",
+    "payloads/attempt/project/tests/fixtures/s03/entity.gd.uid.gz",
+    "payloads/attempt/project/tests/fixtures/s03/entity.tscn.gz",
+    "payloads/attempt/project/tests/fixtures/s03/fake_transport.gd.gz",
+    "payloads/attempt/project/tests/fixtures/s03/fake_transport.gd.uid.gz",
+    "payloads/attempt/project/tests/fixtures/s03/local_rig.tscn.gz",
+    "payloads/attempt/project/tests/fixtures/s03/match.gd.gz",
+    "payloads/attempt/project/tests/fixtures/s03/match.gd.uid.gz",
+    "payloads/attempt/project/tests/fixtures/s03/proof.gd.gz",
+    "payloads/attempt/project/tests/fixtures/s03/proof.gd.uid.gz",
+    "payloads/attempt/project/tests/fixtures/s03/replication.gd.gz",
+    "payloads/attempt/project/tests/fixtures/s03/replication.gd.uid.gz",
+    "payloads/attempt/project/tests/fixtures/s03/session.gd.gz",
+    "payloads/attempt/project/tests/fixtures/s03/session.gd.uid.gz",
+    "payloads/attempt/project/tests/fixtures/s03/transport.gd.gz",
+    "payloads/attempt/project/tests/fixtures/s03/transport.gd.uid.gz",
+    "payloads/attempt/project/tests/fixtures/s04/drive_rules.gd.gz",
+    "payloads/attempt/project/tests/fixtures/s04/drive_rules.gd.uid.gz",
+    "payloads/attempt/project/tests/fixtures/s04/kinematic.gd.gz",
+    "payloads/attempt/project/tests/fixtures/s04/kinematic.gd.uid.gz",
+    "payloads/attempt/project/tests/fixtures/s04/kinematic.tscn.gz",
+    "payloads/attempt/project/tests/fixtures/s04/track.tscn.gz",
+    "payloads/attempt/project/tests/fixtures/s05/boot.tscn.gz",
+    "payloads/attempt/project/tests/fixtures/s05/burst.tscn.gz",
+    "payloads/attempt/project/tests/fixtures/s05/car.gd.gz",
+    "payloads/attempt/project/tests/fixtures/s05/car.gd.uid.gz",
+    "payloads/attempt/project/tests/fixtures/s05/car.tscn.gz",
+    "payloads/attempt/project/tests/fixtures/s05/damage.gd.gz",
+    "payloads/attempt/project/tests/fixtures/s05/damage.gd.uid.gz",
+    "payloads/attempt/project/tests/fixtures/s05/match.gd.gz",
+    "payloads/attempt/project/tests/fixtures/s05/match.gd.uid.gz",
+    "payloads/attempt/project/tests/fixtures/s05/presentation.gd.gz",
+    "payloads/attempt/project/tests/fixtures/s05/presentation.gd.uid.gz",
+    "payloads/attempt/project/tests/fixtures/s05/proof.gd.gz",
+    "payloads/attempt/project/tests/fixtures/s05/proof.gd.uid.gz",
+    "payloads/attempt/project/tests/fixtures/s05/replication.gd.gz",
+    "payloads/attempt/project/tests/fixtures/s05/replication.gd.uid.gz",
+    "payloads/attempt/project/tests/fixtures/s05/session.gd.gz",
+    "payloads/attempt/project/tests/fixtures/s05/session.gd.uid.gz",
+    "payloads/attempt/project/tests/fixtures/s05_draw/burst.tscn.gz",
+    "payloads/attempt/project/tests/fixtures/s05_draw/camera.tscn.gz",
+    "payloads/attempt/project/tests/fixtures/s05_draw/observer.gd.gz",
+    "payloads/attempt/project/tests/fixtures/s05_draw/observer.gd.uid.gz",
+    "payloads/attempt/project/tests/fixtures/s05_effect/burst.tscn.gz",
+    "payloads/attempt/project/tests/fixtures/s05_effect/explosion.tscn.gz",
+    "payloads/attempt/project/tests/fixtures/s05_effect/match.gd.gz",
+    "payloads/attempt/project/tests/fixtures/s05_effect/match.gd.uid.gz",
+    "payloads/attempt/project/tests/fixtures/s05_effect/presentation.gd.gz",
+    "payloads/attempt/project/tests/fixtures/s05_effect/presentation.gd.uid.gz",
+    "payloads/attempt/project/tests/fixtures/s05_effect/proof.gd.gz",
+    "payloads/attempt/project/tests/fixtures/s05_effect/proof.gd.uid.gz",
+    "payloads/checks/attempt01.command.json.gz",
+    "payloads/checks/attempt01.stderr.gz",
+    "payloads/checks/attempt01.stdout.gz",
+    "payloads/checks/evaluation01.command.json.gz",
+    "payloads/checks/evaluation01.json.gz",
+    "payloads/checks/evaluation01.stderr.gz",
+    "payloads/checks/evaluation01.stdout.gz",
+    "payloads/checks/format01.command.json.gz",
+    "payloads/checks/format01.stderr.gz",
+    "payloads/checks/format01.stdout.gz",
+    "payloads/checks/offline01.command.json.gz",
+    "payloads/checks/offline01.stderr.gz",
+    "payloads/checks/offline01.stdout.gz",
+    "payloads/checks/offline02.command.json.gz",
+    "payloads/checks/offline02.stderr.gz",
+    "payloads/checks/offline02.stdout.gz",
+    "payloads/checks/offline03-corrected.command.json.gz",
+    "payloads/checks/offline03-corrected.stderr.gz",
+    "payloads/checks/offline03-corrected.stdout.gz",
+    "payloads/checks/static01.command.json.gz",
+    "payloads/checks/static01.json.gz",
+    "payloads/checks/static01.stderr.gz",
+    "payloads/checks/static01.stdout.gz",
+    "payloads/checks/style01.command.json.gz",
+    "payloads/checks/style01.stderr.gz",
+    "payloads/checks/style01.stdout.gz",
+    "payloads/source-ancestry/art/source/models/spikes/s04_kit.blend.gz",
+    "payloads/source-ancestry/art/source/models/spikes/s05_explosion_carrier.blend.gz",
+    "payloads/sources/corrected-offline/tools/s05_vsync_image/check.py.gz",
+    "payloads/sources/corrected-offline/tools/s05_vsync_image/record.py.gz",
+    "payloads/sources/corrected-offline/tools/s05_vsync_image/retain.py.gz",
+    "payloads/sources/corrected-offline/tools/s05_vsync_image/run.py.gz",
+    "payloads/sources/corrected-offline/tools/s05_vsync_image/test_offline.py.gz",
+    "payloads/sources/executed/tools/s05_vsync_image/check.py.gz",
+    "payloads/sources/executed/tools/s05_vsync_image/record.py.gz",
+    "payloads/sources/executed/tools/s05_vsync_image/run.py.gz",
+    "payloads/sources/executed/tools/s05_vsync_image/test_offline.py.gz",
+    "payloads/sources/recovered-offline01-test_offline.py.gz",
+    "raw-commission.txt",
+    "raw-main-notification.txt",
+    "raw-stop-confirmation.txt",
+    "readback.json"
+  ],
+  "absence": {
+    "images": {
+      "host": [
+        "baseline",
+        "burst",
+        "expired"
+      ],
+      "client": [
+        "baseline",
+        "burst",
+        "expired"
+      ],
+      "late": [
+        "hydrated"
+      ]
+    },
+    "never_launched": [
+      "client",
+      "late"
+    ],
+    "no_post_draw_or_final_observer_row": true,
+    "failed_endpoint_lookup_inputs_not_retained": true
+  },
+  "excluded_reproducible_cache_files": [
+    "import/cache/godot/editor_doc_cache-4.8.res",
+    "host/data/godot/app_userdata/Fun Things/shader_cache/CanvasSdfShaderRD/77edd4c85ada4e34564e80e310db6b1dfed7ff2c03f7a14f5b176c3d3ad95a39/8305c75c1294a9f00656f0f14344bb8bedcfe4e7.vulkan.cache",
+    "host/data/godot/app_userdata/Fun Things/shader_cache/SkeletonShaderRD/7ba44cad1072c15fe5f07a27f6e1ea9eda99b2404e00cb90838278417e1cf4a2/8305c75c1294a9f00656f0f14344bb8bedcfe4e7.vulkan.cache",
+    "host/data/godot/app_userdata/Fun Things/shader_cache/SortShaderRD/89a0713d80c00f2ce99b4062476893ad7ee36fdc938f1f1fc8018ff4f3d210d5/8305c75c1294a9f00656f0f14344bb8bedcfe4e7.vulkan.cache",
+    "host/data/godot/app_userdata/Fun Things/shader_cache/ParticlesShaderRD/3d49fb1cb8e42e7f0ea34b5e2ef61bfd6a1e634fa051118a3c499088a1446f6d/07b5904b662900d90454c39c46885098de79aa4c.vulkan.cache",
+    "host/data/godot/app_userdata/Fun Things/shader_cache/ParticlesCopyShaderRD/b43e75572b93a1c608694318c5a77a4b4f99c91a43298f1f292944b031bb2df8/8305c75c1294a9f00656f0f14344bb8bedcfe4e7.vulkan.cache",
+    "host/data/godot/app_userdata/Fun Things/shader_cache/CanvasShaderRD/5d1a63711bd46641c482db12650b09263b15261f42e73bdcfac58d48916f5f8d/8f9335de72e837eeead40640cc01fddc5baf5a7c.vulkan.cache",
+    "host/data/godot/app_userdata/Fun Things/shader_cache/CanvasShaderRD/5d1a63711bd46641c482db12650b09263b15261f42e73bdcfac58d48916f5f8d/90b96afad25c311837b639f3c9d81d610d9b7ee9.vulkan.cache",
+    "host/data/godot/app_userdata/Fun Things/shader_cache/CanvasShaderRD/5d1a63711bd46641c482db12650b09263b15261f42e73bdcfac58d48916f5f8d/8305c75c1294a9f00656f0f14344bb8bedcfe4e7.vulkan.cache",
+    "host/data/godot/app_userdata/Fun Things/shader_cache/CanvasOcclusionShaderRD/eae75cda4564a83d803d7f97c873de4f1d0d742a724373a53751d93ab7194c2c/8305c75c1294a9f00656f0f14344bb8bedcfe4e7.vulkan.cache",
+    "host/data/godot/app_userdata/Fun Things/shader_cache/TexBlitShaderRD/7bb268d661db40b41496ad6fd45f7c33f772bcf40e7089fb8905737f8c40a7fa/1e8995c9eb0e9b0b053035999de68595c521a33e.vulkan.cache",
+    "host/data/godot/app_userdata/Fun Things/shader_cache/ClusterRenderShaderRD/f9b2b8e8c777ab360fdefd088c4431b1b818c3622152033e7e7dd3d5465a57de/8305c75c1294a9f00656f0f14344bb8bedcfe4e7.vulkan.cache",
+    "host/data/godot/app_userdata/Fun Things/shader_cache/ClusterStoreShaderRD/5e00bd38d6d34044a714b04339d21bdc3e418e53aacbbaac25555a46fb27cba1/8305c75c1294a9f00656f0f14344bb8bedcfe4e7.vulkan.cache",
+    "host/data/godot/app_userdata/Fun Things/shader_cache/ClusterDebugShaderRD/856848a736976954d456aeee4738dce33ee55c169f0864e783ebb376492f0bd9/8305c75c1294a9f00656f0f14344bb8bedcfe4e7.vulkan.cache",
+    "host/data/godot/app_userdata/Fun Things/shader_cache/SceneForwardClusteredShaderRD/3a25575c9cb0321c0423004e9a900a86b8a1613bd023ed560b8688a761df4de0/a784797763b72ce058effad41b273eb697df9814.vulkan.cache",
+    "host/data/godot/app_userdata/Fun Things/shader_cache/SceneForwardClusteredShaderRD/3a25575c9cb0321c0423004e9a900a86b8a1613bd023ed560b8688a761df4de0/d405ec8e1b0a93aaa83ff5c0c8a469c932974132.vulkan.cache",
+    "host/data/godot/app_userdata/Fun Things/shader_cache/SceneForwardClusteredShaderRD/3a25575c9cb0321c0423004e9a900a86b8a1613bd023ed560b8688a761df4de0/77e28fea868f1d640cf581ded2e966295b75d2d8.vulkan.cache",
+    "host/data/godot/app_userdata/Fun Things/shader_cache/SceneForwardClusteredShaderRD/3a25575c9cb0321c0423004e9a900a86b8a1613bd023ed560b8688a761df4de0/188dbcfbda6d0e9c5ff65997ed836295ddd8b63b.vulkan.cache",
+    "host/data/godot/app_userdata/Fun Things/shader_cache/BestFitNormalShaderRD/5b86cb9b36a7c63e99680cc60de2f54c76420ea853e943fee8ad4be66b569a91/8305c75c1294a9f00656f0f14344bb8bedcfe4e7.vulkan.cache",
+    "host/data/godot/app_userdata/Fun Things/shader_cache/IntegrateDfgShaderRD/de948e60a0b08487b28983c90129ac39da51d33c384ba29df23f4de5b17392c8/8305c75c1294a9f00656f0f14344bb8bedcfe4e7.vulkan.cache",
+    "host/data/godot/app_userdata/Fun Things/shader_cache/TaaResolveShaderRD/cf8902802a0318095a395b92e2960c60f70aeace28a180923a056a0d87eec472/8305c75c1294a9f00656f0f14344bb8bedcfe4e7.vulkan.cache",
+    "host/data/godot/app_userdata/Fun Things/shader_cache/SsEffectsDownsampleShaderRD/305faba039f87586a3d85ff56ead00b0652518b3f39acf368565f485fbda969a/8305c75c1294a9f00656f0f14344bb8bedcfe4e7.vulkan.cache",
+    "host/data/godot/app_userdata/Fun Things/shader_cache/SsilShaderRD/1f261637648ff8ec9dae97d770ab5d140a506cb39510bd89414ad97cf20a3713/8305c75c1294a9f00656f0f14344bb8bedcfe4e7.vulkan.cache",
+    "host/data/godot/app_userdata/Fun Things/shader_cache/SsilImportanceMapShaderRD/37238e5c3141d6e34db5bae1224418fe33319022e054138e674262e5970ec953/8305c75c1294a9f00656f0f14344bb8bedcfe4e7.vulkan.cache",
+    "host/data/godot/app_userdata/Fun Things/shader_cache/SsilBlurShaderRD/1633e10e20ee2da78d1e36e1ffe2c3db24acc462d7ad4defc31260ca012f2793/8305c75c1294a9f00656f0f14344bb8bedcfe4e7.vulkan.cache",
+    "host/data/godot/app_userdata/Fun Things/shader_cache/SsilInterleaveShaderRD/d4c86a516771ea121fd23f4eedc57fb4e447ddebf92669ff02fb530b38895926/8305c75c1294a9f00656f0f14344bb8bedcfe4e7.vulkan.cache",
+    "host/data/godot/app_userdata/Fun Things/shader_cache/SsaoShaderRD/808335e0c6707c26848ada4852afcbad4f2876f4d04c9ae7e4dd656a091ab663/8305c75c1294a9f00656f0f14344bb8bedcfe4e7.vulkan.cache",
+    "host/data/godot/app_userdata/Fun Things/shader_cache/SsaoImportanceMapShaderRD/d2c888e8fbb2326b89614008c5c2c35aa4f9bb7822dd27196b70b4aeb76eb622/8305c75c1294a9f00656f0f14344bb8bedcfe4e7.vulkan.cache",
+    "host/data/godot/app_userdata/Fun Things/shader_cache/SsaoBlurShaderRD/351ce1161bfd4abed1b52b3b8acf98646560b5c61d276a73e2fd6ecf6fba5a8a/8305c75c1294a9f00656f0f14344bb8bedcfe4e7.vulkan.cache",
+    "host/data/godot/app_userdata/Fun Things/shader_cache/SsaoInterleaveShaderRD/218800db58a587e8e5bab83d651a1ec9dca70178a52b3767217c775eab7e25ae/8305c75c1294a9f00656f0f14344bb8bedcfe4e7.vulkan.cache",
+    "host/data/godot/app_userdata/Fun Things/shader_cache/ScreenSpaceReflectionDownsampleShaderRD/b48a439106ecd4fa5040c444f96d219e44903111f8de8f9b2caff82c1765bd57/8305c75c1294a9f00656f0f14344bb8bedcfe4e7.vulkan.cache",
+    "host/data/godot/app_userdata/Fun Things/shader_cache/ScreenSpaceReflectionHizShaderRD/6306808a1c30417186f30e29c8ce909e7d2e690982723a883bd27a79b5e2c87e/8305c75c1294a9f00656f0f14344bb8bedcfe4e7.vulkan.cache",
+    "host/data/godot/app_userdata/Fun Things/shader_cache/ScreenSpaceReflectionShaderRD/0db1f504dc146dd449c1400dea661985ed048049b70e021558d59ad4b74908fc/8305c75c1294a9f00656f0f14344bb8bedcfe4e7.vulkan.cache",
+    "host/data/godot/app_userdata/Fun Things/shader_cache/ScreenSpaceReflectionFilterShaderRD/54e01fbbcb892452bdec16d94ad5637420501c04e8e1a04463ffdc38735daed6/8305c75c1294a9f00656f0f14344bb8bedcfe4e7.vulkan.cache",
+    "host/data/godot/app_userdata/Fun Things/shader_cache/ScreenSpaceReflectionResolveShaderRD/b2065ae60a8b131d23f5d2bf739d8450070668a73cfd0bb10779bcf07bb6d7c2/8305c75c1294a9f00656f0f14344bb8bedcfe4e7.vulkan.cache",
+    "host/data/godot/app_userdata/Fun Things/shader_cache/ScreenSpaceContactShadowsShaderRD/b0bea4a7ef096ef12d9ca1d169f5a940dac2dd0c3bbc481533ff5bb698a27a46/8305c75c1294a9f00656f0f14344bb8bedcfe4e7.vulkan.cache",
+    "host/data/godot/app_userdata/Fun Things/shader_cache/SubsurfaceScatteringShaderRD/719ca0adf0c6119e6d9d35a95ee078307cb47a578f310be8ab061b1a5c16106d/8305c75c1294a9f00656f0f14344bb8bedcfe4e7.vulkan.cache",
+    "host/data/godot/app_userdata/Fun Things/shader_cache/SkyShaderRD/981c030a3335a0b40cc24bb4206dce9b096ee671c5a139d391e998246b1779a3/ff1961ca0c4c55a79eb12f819a7b6345801bbbaf.vulkan.cache",
+    "host/data/godot/app_userdata/Fun Things/shader_cache/SkyShaderRD/981c030a3335a0b40cc24bb4206dce9b096ee671c5a139d391e998246b1779a3/0fa1946a11e1cca806ebfe4b3b4ac7f723d8b701.vulkan.cache",
+    "host/data/godot/app_userdata/Fun Things/shader_cache/VoxelGiShaderRD/9c9c54e524f711b66c3e3d70ea287e802fd2c1cebd2db8e745a05c880b481052/8305c75c1294a9f00656f0f14344bb8bedcfe4e7.vulkan.cache",
+    "host/data/godot/app_userdata/Fun Things/shader_cache/VoxelGiDebugShaderRD/c30ebe82bc72707479a76d54d2bc7918890daebb320cba2dcb6d38eb35659e4a/8305c75c1294a9f00656f0f14344bb8bedcfe4e7.vulkan.cache",
+    "host/data/godot/app_userdata/Fun Things/shader_cache/SdfgiPreprocessShaderRD/ac1432ca8397fdb8a873df492c904e8b9e90835823828664e2fef8494c1ce259/8305c75c1294a9f00656f0f14344bb8bedcfe4e7.vulkan.cache",
+    "host/data/godot/app_userdata/Fun Things/shader_cache/SdfgiDirectLightShaderRD/a9c91feda52ef7bffeead3feb138a39889b67cf1bcb12377005e24fec82715c9/8305c75c1294a9f00656f0f14344bb8bedcfe4e7.vulkan.cache",
+    "host/data/godot/app_userdata/Fun Things/shader_cache/SdfgiIntegrateShaderRD/e7430c9d2fa04cdf01f05337ef05a7e3968bc49e4af2de82ac8b8eade2e09879/8305c75c1294a9f00656f0f14344bb8bedcfe4e7.vulkan.cache",
+    "host/data/godot/app_userdata/Fun Things/shader_cache/GiShaderRD/7c43fe0accc489cb0c404f1e02732673e67d053c5bed1ea824eba43f2f036766/8305c75c1294a9f00656f0f14344bb8bedcfe4e7.vulkan.cache",
+    "host/data/godot/app_userdata/Fun Things/shader_cache/SdfgiDebugShaderRD/b899d53f84e8b7d3aeb5ace464ba5eb47e0906220fe08a8f2c269fc3889f1517/8305c75c1294a9f00656f0f14344bb8bedcfe4e7.vulkan.cache",
+    "host/data/godot/app_userdata/Fun Things/shader_cache/SdfgiDebugProbesShaderRD/a922586553033873331ff487c087b6eab82dbebd268ba72cfe1f5549b40fff5c/8305c75c1294a9f00656f0f14344bb8bedcfe4e7.vulkan.cache",
+    "host/data/godot/app_userdata/Fun Things/shader_cache/VolumetricFogShaderRD/9c481b071d63f9dba3ce91edc5608f4c06666745eb3ee549f197be0204b07330/3377d4ca9d0fc2e16f62596ee37d619e8e7e3f54.vulkan.cache",
+    "host/data/godot/app_userdata/Fun Things/shader_cache/VolumetricFogProcessShaderRD/5b3e72e6cffac01bc1b44b2e9f3f81b09c55bc77a1da2c0f291e53aace0bd720/8305c75c1294a9f00656f0f14344bb8bedcfe4e7.vulkan.cache",
+    "host/data/godot/app_userdata/Fun Things/shader_cache/BokehDofShaderRD/667be118a64516a4fea2a20784230dbf2536ae3828620c1dbabdce29c684c773/8305c75c1294a9f00656f0f14344bb8bedcfe4e7.vulkan.cache",
+    "host/data/godot/app_userdata/Fun Things/shader_cache/CopyShaderRD/ede27b165e37449f79b79bf2dc8f53b126c6fbac16388b3c6af514005416b016/8305c75c1294a9f00656f0f14344bb8bedcfe4e7.vulkan.cache",
+    "host/data/godot/app_userdata/Fun Things/shader_cache/CopyToFbShaderRD/0c1230e743c4b02acdae6a8af125916d426dccf251884bbee4e2672aacc22467/8305c75c1294a9f00656f0f14344bb8bedcfe4e7.vulkan.cache",
+    "host/data/godot/app_userdata/Fun Things/shader_cache/CubeToDpShaderRD/bc618bc216c51cd5965f25b2d8af366930131a3093249ed164e233a62e9d890a/8305c75c1294a9f00656f0f14344bb8bedcfe4e7.vulkan.cache",
+    "host/data/godot/app_userdata/Fun Things/shader_cache/CubeToOctmapShaderRD/fcd4d6f374c62d8947a3f12939653689c816c3fbd1357d0c928f5f5a3205c989/8305c75c1294a9f00656f0f14344bb8bedcfe4e7.vulkan.cache",
+    "host/data/godot/app_userdata/Fun Things/shader_cache/OctmapDownsamplerShaderRD/171355d3d8fb0fc72e2f4e33195464e48692b6bf936efcedf08d566eb4aff24a/8305c75c1294a9f00656f0f14344bb8bedcfe4e7.vulkan.cache",
+    "host/data/godot/app_userdata/Fun Things/shader_cache/OctmapFilterShaderRD/218068a0ae25239d3fad6f43b3b6fd57c3d0f65ae9296e0cb3c7748e307d5d93/8305c75c1294a9f00656f0f14344bb8bedcfe4e7.vulkan.cache",
+    "host/data/godot/app_userdata/Fun Things/shader_cache/OctmapRoughnessShaderRD/1e770e163d5530786dd9983634f413dde8d95acf00263ab5270174cd6d1d56e9/8305c75c1294a9f00656f0f14344bb8bedcfe4e7.vulkan.cache",
+    "host/data/godot/app_userdata/Fun Things/shader_cache/SpecularMergeShaderRD/ad17a28da266f48e102e3921f2c9fa907eff315be0d7405324160b716ee52b46/8305c75c1294a9f00656f0f14344bb8bedcfe4e7.vulkan.cache",
+    "host/data/godot/app_userdata/Fun Things/shader_cache/ShadowFrustumShaderRD/ee83eb3a7281b9aa7a489b1880e31cfad91472856acd3853d0623df8b17b4531/8305c75c1294a9f00656f0f14344bb8bedcfe4e7.vulkan.cache",
+    "host/data/godot/app_userdata/Fun Things/shader_cache/MotionVectorsShaderRD/26df6335c935f726a5ffe5306afc1cd6ab4f9fa85f5dc0e02027c8918c174e3f/8305c75c1294a9f00656f0f14344bb8bedcfe4e7.vulkan.cache",
+    "host/data/godot/app_userdata/Fun Things/shader_cache/LuminanceReduceShaderRD/4d38067c0adce1392306876286215d0a117bd1fcca4852bb62b5f14d81036252/8305c75c1294a9f00656f0f14344bb8bedcfe4e7.vulkan.cache",
+    "host/data/godot/app_userdata/Fun Things/shader_cache/SmaaEdgeDetectionShaderRD/db8b68bc7ecb50b2a21c310c952a2c431b0045bee0af00c7df02fc7b6f07c85e/8305c75c1294a9f00656f0f14344bb8bedcfe4e7.vulkan.cache",
+    "host/data/godot/app_userdata/Fun Things/shader_cache/SmaaWeightCalculationShaderRD/f6915f609a81b9f20fcbc5eed5fc31b139600f162b20ec6648f7acc55e831d64/8305c75c1294a9f00656f0f14344bb8bedcfe4e7.vulkan.cache",
+    "host/data/godot/app_userdata/Fun Things/shader_cache/SmaaBlendingShaderRD/80c8f3364f84abd038d082541a2bbeee86a93a4e0b9b4ffd6d61a338a766aeb0/8305c75c1294a9f00656f0f14344bb8bedcfe4e7.vulkan.cache",
+    "host/data/godot/app_userdata/Fun Things/shader_cache/TonemapShaderRD/7e4373c49fbe51b4f1bf8650892afe6f9bb3c669a4686db4704e51bed55a582f/8305c75c1294a9f00656f0f14344bb8bedcfe4e7.vulkan.cache",
+    "host/data/godot/app_userdata/Fun Things/shader_cache/FsrUpscaleShaderRD/2e6c1a8c8fe3b965871a10c772bade009fc806e8f5c9ed906ef2740fd59c32e3/8305c75c1294a9f00656f0f14344bb8bedcfe4e7.vulkan.cache",
+    "host/data/godot/app_userdata/Fun Things/shader_cache/ResolveShaderRD/79952d275f292dd8670f6a162975462f70978c15971cff55a75791ad4f60c024/8305c75c1294a9f00656f0f14344bb8bedcfe4e7.vulkan.cache",
+    "host/data/godot/app_userdata/Fun Things/shader_cache/BlitShaderRD/45fb0fd40a4994fd9de2e28ebb531484eafb86f5eb3d3d4ab9391a23d42508ae/8305c75c1294a9f00656f0f14344bb8bedcfe4e7.vulkan.cache",
+    "host/cache/nvidia/GLCache/1d36caa2d1419b7c4ce5da968e5b23ee/98702135e35a87bb/9ba9b8d4e050f847.bin",
+    "host/cache/nvidia/GLCache/1d36caa2d1419b7c4ce5da968e5b23ee/98702135e35a87bb/9ba9b8d4e050f847.toc"
+  ],
+  "exclusion_reason": "driver/editor/shader caches are not proof streams or generated imports",
+  "generated_import_storage_label": "generated-imports stores gzip-only .godot inputs, preserving original source paths; no live .godot directory is versioned"
+}

@@ -135,7 +135,7 @@ def scenario(name, prep_seconds=3):
              patch.object(module, 'ENGINE_SHA', real_digest(pin)['sha256']), \
              patch.object(module, 'socket_identity', lambda: {'owned': True}), \
              patch.object(module, 'identity', lambda c: {'pid': c.pid}), \
-             patch.object(module, 'bound_endpoint', lambda c, p: {'port': p, 'address': '127.0.0.1'}), \
+             patch.object(module, 'bound_endpoint', lambda c, p, r: {'port': p, 'address': '127.0.0.1'}), \
              patch.object(module, 'production_rows', rows), \
              patch.object(module.subprocess, 'check_output', git), \
              patch.object(module.subprocess, 'Popen', popen), \
@@ -207,13 +207,51 @@ def evaluator_negatives():
                 'old_gameplay_does_not_pass_new_images': True}
 
 
+def endpoint_cases():
+    """Test corrected lookup against literal SYNTHETIC proc inputs, never post-exit evidence."""
+    from types import SimpleNamespace
+    module = load_runner()
+    results = []
+    for name, table, address, inode, duplicate in [
+            ('ipv4', 'udp', '0100007F', '77', False),
+            ('ipv4-mapped', 'udp6', '0000000000000000FFFF00000100007F', '77', False),
+            ('external-bind', 'udp', '00000000', '77', False),
+            ('wrong-owner', 'udp', '0100007F', '88', False),
+            ('ambiguous', 'udp', '0100007F', '77', True)]:
+        with TemporaryDirectory(prefix='s05-synthetic-proc-') as temporary:
+            root = Path(temporary)
+            proc = root / 'proc/123'
+            (proc / 'fd').mkdir(parents=True)
+            (proc / 'net').mkdir()
+            (proc / 'fd/10').symlink_to('socket:[77]')
+            for filename in ['udp', 'udp6']:
+                (proc / 'net' / filename).write_text('header\n')
+            row = f'0: {address}:D903 00000000:0000 07 0:0 0:0 0 1000 0 {inode} 2\n'
+            (proc / 'net' / table).write_text('header\n' + row + (row if duplicate else ''))
+            actual_path = Path
+            with patch.object(module, 'Path', lambda p: root / 'proc' if str(p) == '/proc'
+                              else actual_path(p)):
+                try:
+                    result = module.bound_endpoint(SimpleNamespace(pid=123), 55555, root / 'lookup.json')
+                    accepted = True
+                    assert result['address'] == '127.0.0.1' and result['inode'] == '77'
+                except RuntimeError:
+                    accepted = False
+            assert accepted == (name in ['ipv4', 'ipv4-mapped'])
+            lookup = json.loads((root / 'lookup.json').read_text())
+            assert table in lookup['tables'] and lookup['handles']['10'] == 'socket:[77]'
+            results.append({'case': name, 'accepted': accepted, 'synthetic_inputs': lookup})
+    return results
+
+
 def main():
     """Assert literal aggregate bounds and shared grace for the actual runner's failure paths."""
     results = [scenario('normal'), scenario('three-stubborn'),
                scenario('preparation-cutoff', 90), scenario('import-timeout'),
                scenario('live-spawn-cutoff')]
     print(json.dumps({'engine_executed': False, 'real_socket_opened': False,
-                      'cases': results, 'evaluator_negatives': evaluator_negatives()}, indent=2))
+                      'cases': results, 'evaluator_negatives': evaluator_negatives(),
+                      'corrected_probe_synthetic_cases': endpoint_cases()}, indent=2))
 
 
 if __name__ == '__main__':
