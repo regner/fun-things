@@ -59,7 +59,9 @@ qualification and enough outcome detail for dispatch.
   bandwidth, so client unreliable held input was throttled away. With the
   S03Transport workaround, the exported saved S08 main passes the full matrix in
   Windows RELEASE and DEBUG with zero diagnostics ([Windows record](
-  ../spikes/s08-windows-observation.md)). Remaining: a Linux re-run of the original main;
+  ../spikes/s08-windows-observation.md)). The [upstream write-up and runnable MRP](
+  ../upstream/godot-enet-create-server-bandwidth.md) bind the source defect, workaround,
+  retained output and existing Godot issue. Remaining: a Linux re-run of the original main;
   the Linux-only release `tree_exited` diagnostics (consistent with open upstream PR
   #123998), which need an engine fix/pin decision, not `.bind` spelling or suppression;
   export delivery/target compatibility; ENet with Steam uninstalled/stopped and

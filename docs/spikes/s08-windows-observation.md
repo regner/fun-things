@@ -29,6 +29,10 @@ the unreliable `_held` RPC rather than a deterministic gameplay edge.
 
 ## Root cause
 
+The separate [upstream defect write-up](../upstream/godot-enet-create-server-bandwidth.md)
+provides exact pin/`master` source links, a runnable MRP, measured before/after logs,
+and the report/fix draft.
+
 1. Scratch-only telemetry ([diff](s08-windows-evidence/throttle-telemetry/proof-scratch-telemetry.diff))
    logged ENet peer statistics at each proof event. Just before the lost send,
    the client's peer for the host fell from `PEER_PACKET_THROTTLE_LIMIT` 32

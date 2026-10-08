@@ -246,15 +246,9 @@ evaluate supported WebRTC/WebSocket paths rather than assuming desktop UDP works
 Keep platform initialization optional in shared code when supporting non-platform
 builds, and verify installed native class/API signatures and export dependencies.
 
-The pinned engine's `ENetMultiplayerPeer.create_server(port, max_clients, max_channels)`
-passes its channel count as the host's *incoming bandwidth*. A server with four
-channels advertises 6 B/s, and after about a second each client's ENet bandwidth
-throttle discards nearly all unreliable client→server packets at the sender. Any
-ENet adapter that passes `max_channels` must call `host.bandwidth_limit(0, 0)` (or
-an explicit intended limit) before peers connect, and check the client's
-`PEER_PACKET_THROTTLE_LIMIT` in tests. Unreliable held input and motion stay
-lossy by contract: never wait on a result for one unreliable send. See the
-[S08 Windows record](spikes/s08-windows-observation.md).
+The pinned engine has a known ENet server-creation defect. Follow the workaround
+contract in [Known upstream defects](#known-upstream-defects) until a fixed engine
+is selected and verified.
 
 Steam is required for friends playtesting. Distinguish lobby membership/discovery
 from gameplay transport and admission. Use the route the selected integration supports;
@@ -316,6 +310,19 @@ parallel test implementation. Distinguish socket/path startup failures from fail
 gameplay assertions, and reject new engine/script errors even with exit code zero.
 Loopback tests establish shared flow; they cannot certify another transport or
 external-network connectivity.
+
+## Known upstream defects
+
+- **ENet server channel/bandwidth argument order:** the pinned engine and inspected
+  upstream `master` pass `max_channels` as server incoming bandwidth and ignore the
+  requested incoming limit. See the [source verification, runnable MRP, and upstream
+  report draft](upstream/godot-enet-create-server-bandwidth.md). Until M1-A1 selects
+  and verifies a fixed engine, every ENet adapter must call
+  `host.bandwidth_limit(0, 0)` (or its explicit intended limits) immediately after
+  successful `create_server` and before publishing the peer or allowing connections.
+  Tests must keep the client peer's `PEER_PACKET_THROTTLE_LIMIT` at
+  `PACKET_THROTTLE_SCALE`. This does not change the lossy contract for unreliable
+  held input or motion; never wait indefinitely for a result from one unreliable send.
 
 The [bounded S03-R ENet candidate](spikes/s03-r.md) exercises the actual unchanged
 S02 controller in two headless processes over baseline and impaired UDP delivery.

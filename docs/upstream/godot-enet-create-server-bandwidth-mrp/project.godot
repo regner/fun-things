@@ -1,0 +1,13 @@
+; Minimal reproduction for Godot issue #123963.
+; Run from this directory with the commands documented in the parent write-up.
+config_version=5
+
+[application]
+config/name="ENet create_server bandwidth MRP"
+
+[network]
+limits/debugger/max_queued_errors=20
+
+[rendering]
+renderer/rendering_method="gl_compatibility"
+renderer/rendering_method.mobile="gl_compatibility"
