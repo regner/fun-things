@@ -16,7 +16,8 @@ ROOT = Path(__file__).resolve().parents[2]
 BASE = 'ef730df936b5b159f0894033f5d01e2b7124386c'
 ORIGINAL = Path('/tmp/s08-standard-555e0330')
 SECOND = '--scan-complete-preparation' in sys.argv
-TASK = ORIGINAL / 'scan-complete-attempt' if SECOND else ORIGINAL
+ACTUAL = '--author-existing-settings' in sys.argv
+TASK = ORIGINAL / ('actual-editor-attempt' if ACTUAL else 'scan-complete-attempt') if (SECOND or ACTUAL) else ORIGINAL
 PROJECT = ORIGINAL / 'project'
 ENGINE = '/home/regner/.local/share/mise/installs/github-godotengine-godot-builds/4.8-dev7/godot'
 ENGINE_SHA = '6aea356032435e7af19dbfbf48dd20c5012a7dc1267eb8e92406f44e3584b5fd'
@@ -90,10 +91,11 @@ def clean_streams(directory, known_warning=False):
 def main():
     """Initialize one new private scope, verify readiness, then serve authorized mutations."""
     TASK.mkdir(mode=0o700)
-    if not SECOND:
+    if not (SECOND or ACTUAL):
         PROJECT.mkdir()
-    shared = TASK / 'private'
-    shared.mkdir(mode=0o700)
+    shared = (ORIGINAL / 'scan-complete-attempt/private') if ACTUAL else (TASK / 'private')
+    if not ACTUAL:
+        shared.mkdir(mode=0o700)
     env = os.environ.copy()
     for key in list(env):
         if key.startswith('GODOT_MCP_'):
@@ -102,7 +104,10 @@ def main():
                         ('XDG_CACHE_HOME', 'cache'), ('XDG_RUNTIME_DIR', 'runtime'),
                         ('TMPDIR', 'tmp')]:
         target = shared / folder
-        target.mkdir(mode=0o700)
+        if not ACTUAL:
+            target.mkdir(mode=0o700)
+        elif not target.is_dir():
+            raise RuntimeError('private scope missing')
         env[key] = str(target)
     env['GODOT_MCP_PROJECT_PATH'] = str(PROJECT)
     children, streams = [], []
@@ -110,12 +115,18 @@ def main():
     result = {'ok': False, 'base': BASE, 'started_unix': time.time(), 'commands': []}
     sequence = 0
     try:
-        if SECOND:
+        if SECOND or ACTUAL:
             original = json.loads((ORIGINAL / 'lifecycle.json').read_text())
             if original['ok'] or len(original['commands']) != 1 or original['commands'][0]['phase'] != 'prepare':
                 raise RuntimeError('original STOP/never-started editor boundary differs')
             result['original_stop'] = str(ORIGINAL / 'lifecycle.json')
             result['distinct_grant'] = 'ROOT source-qualified scan completion/deferred shutdown, one additional prep'
+        if ACTUAL:
+            binding = json.loads((ORIGINAL / 'settings-before-actual-editor.json').read_text())
+            if identity(Path(binding['path'])) != {k: binding[k] for k in ['bytes', 'sha256']}:
+                raise RuntimeError('private setting artifact changed since phase declaration')
+            result['settings_artifact'] = binding
+            result['distinct_grant'] = 'ROOT independent actual authoring readiness phase; both prep STOPs preserved'
         if identity(Path(ENGINE)) != {'bytes': 151398728, 'sha256': ENGINE_SHA}:
             raise RuntimeError('pinned engine identity differs')
         paths = [row['path'] for row in json.loads(
@@ -128,7 +139,7 @@ def main():
         for name in paths + toolkit:
             target = PROJECT / name
             target.parent.mkdir(parents=True, exist_ok=True)
-            if SECOND:
+            if SECOND or ACTUAL:
                 if target.read_bytes() != blob(name):
                     raise RuntimeError('original mirror bytes changed: ' + name)
             else:
@@ -145,9 +156,10 @@ def main():
         prep.mkdir()
         (prep / 'project.godot').write_text('config_version=5\n[application]\nconfig/name="S08 Settings Preparation"\n')
         (prep / 'initialize_settings.gd').write_bytes((ROOT / ('tools/s08/initialize_settings_scan.gd' if SECOND else 'tools/s08/initialize_settings.gd')).read_bytes())
-        for phase, project, extra, budget in [
-                ('prepare', prep, ['--script', 'res://initialize_settings.gd'], 15),
-                ('editor', PROJECT, ['--script', str(ROOT / 'tools/s08/editor_context.gd')], 60)]:
+        phases = [('editor', PROJECT, ['--script', str(ROOT / 'tools/s08/editor_context.gd')], 60)]
+        if not ACTUAL:
+            phases.insert(0, ('prepare', prep, ['--script', 'res://initialize_settings.gd'], 15))
+        for phase, project, extra, budget in phases:
             logs = TASK / phase
             logs.mkdir()
             (logs / 'engine.log').touch()
@@ -242,7 +254,7 @@ def main():
         if discovery.get('registry') != result['registry_entry']:
             raise RuntimeError('standard discovered entry differs')
 
-        def call(request):
+        def call(request, critical=False):
             """Issue one supported private handler call and retain original response bytes."""
             nonlocal sequence
             sequence += 1
@@ -255,16 +267,16 @@ def main():
             save(TASK / f'call-{sequence:03}.json', record)
             if response.get('error') or response.get('headless') is not True:
                 raise RuntimeError('standard connector/auth failed: ' + json.dumps(response))
-            if response.get('result', {}).get('success') is not True:
+            if critical and response.get('result', {}).get('success') is not True:
                 raise RuntimeError('private handler failed: ' + json.dumps(response))
             return response['result']
 
-        context = call({'method': 'project.get_settings', 'params': {'prefix': 'application/'}})
-        call({'method': 'editor.get_console', 'params': {'source': 'buffer', 'limit': 100}})
-        call({'method': 'editor.wait_for_idle', 'params': {'timeout_ms': 15000}})
-        call({'method': 'scene.open', 'params': {'file_path': 'res://tests/fixtures/s03/boot.tscn'}})
-        tree = call({'method': 'scene.get_tree', 'params': {'max_depth': -1}})
-        path = call({'method': 'node.get_property', 'params': {'node_path': '.', 'property': 'scene_file_path'}})
+        context = call({'method': 'project.get_settings', 'params': {'prefix': 'application/'}}, critical=True)
+        call({'method': 'editor.get_console', 'params': {'source': 'buffer', 'limit': 100}}, critical=True)
+        call({'method': 'editor.wait_for_idle', 'params': {'timeout_ms': 15000}}, critical=True)
+        call({'method': 'scene.open', 'params': {'file_path': 'res://tests/fixtures/s03/boot.tscn'}}, critical=True)
+        tree = call({'method': 'scene.get_tree', 'params': {'max_depth': -1}}, critical=True)
+        path = call({'method': 'node.get_property', 'params': {'node_path': '.', 'property': 'scene_file_path'}}, critical=True)
         if path.get('value') != 'res://tests/fixtures/s03/boot.tscn':
             raise RuntimeError('actual saved editor scene mismatch')
         clean_streams(TASK / 'editor', known_warning=True)

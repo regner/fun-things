@@ -164,3 +164,32 @@ singleton resolution. Its own editor_hint/PID/canonical path/full enginehash/liv
 private boostfalse/settingspath receipt plus matching registry/token and normal
 installed discovery/auth headless/dedicated project/console/scene handlers establish
 readiness within60 s. All other authoring/release/one-review budgets remain as above.
+
+## Prospective distinct actual-editor phase grant
+
+The additional prep557119/49b3f2a/2139034 also STOPPED: exit0/2.72 s,
+real initial_scanningtrue -> completion signal with scanningfalse/importingfalse/
+filesystem res://, deferred frame/idle receipt and save/readbackfalse. Scan-aborted
+warning is absent; the same five RID errors and Canvas/CanvasItem/ObjectDB warnings
+remain. This remains FAILED strict prep diagnostics, not clean runtime or a diagnosis.
+
+ROOT explicitly commissions ONE ACTUAL AUTHORING readiness observation independently
+of both prep shutdown diagnostic gates, prospectively. No prep is repeated or marked
+passed, no suppression/vendor/renderer/pin/config repair. Use the existing second
+private settings artifact unchanged, with fresh author/connector logs and lifecycle
+under `/tmp/s08-standard-555e0330/actual-editor-attempt`. Owned artifact is
+`scan-complete-attempt/private/config/godot/editor_settings-4.8.tres`:
+prelaunch bytes/hash and exact source-qualified serialized booleanfalse are bound in
+`settings-before-actual-editor.json`; live settings value is verified in actual context.
+Correct mirror/pin/ownedPID/editor_hint/fullhash and private settings path, canonical
+registry/published token/standard auth/headless and dedicated actual readiness commands
+must pass within60 s. Actual editor/connector error/int/Expression/wrongidentity
+fails before mutation; only the unchanged dev7/latest-tested4.7 warning is distinguished.
+Prior prep shutdown errors are historical limitations, not actual auth errors.
+
+Client handler failures after readiness are returned for local tool-gap assessment
+without blindly quitting or discarding unsaved state. Identity/auth/facility failures
+remain fatal. Save authorized mutation batches before switching/cleanup; no new
+GLB helper is needed for the single Node S08 root. Successful readiness enables the
+original narrow authoring/validation and conditional single release phases. One
+20min authoring session/one actual editor, no fallback/relaunch after readinessfailure.
