@@ -1,0 +1,18 @@
+{
+  "request": {
+    "method": "scene.close",
+    "params": {
+      "file_path": "res://tests/fixtures/s07_driver/intersection.tscn"
+    }
+  },
+  "response": {
+    "result": {
+      "hint": "Closing a non-active scene tab may produce a _set_main_scene_state error in the editor console. This is benign Godot engine noise \u2014 safe to ignore.",
+      "path": "res://tests/fixtures/s07_driver/intersection.tscn",
+      "success": true,
+      "unsaved_changes_discarded": false
+    },
+    "headless": true,
+    "version": "4.8.0"
+  }
+}

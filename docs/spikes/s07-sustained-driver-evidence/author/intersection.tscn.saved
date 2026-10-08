@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://cauba1m1nenjw"]
+
+[ext_resource type="PackedScene" uid="uid://c61a1l4vio22q" path="res://tests/fixtures/s06/intersection.tscn" id="1"]
+[ext_resource type="Script" uid="uid://cktlo8enxcw1i" path="res://tests/fixtures/s07_driver/fixture.gd" id="2_s1jae"]
+
+[node name="S06" unique_id=1277794952 instance=ExtResource("1")]
+script = ExtResource("2_s1jae")

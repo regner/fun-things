@@ -1,0 +1,22 @@
+{
+  "request": {
+    "method": "script.write",
+    "params": {
+      "file_path": "res://tests/fixtures/s07_driver/fixture.gd",
+      "content": "class_name S07DriverFixture\nextends S06Fixture\n## One-shot inherited S06 authority; repetition requires teardown and saved-scene reload.\n\nconst CASES: Array[String] = [\"foot\", \"east_to_north\", \"west_to_south\"]\nconst EXPECTED_SIGNATURE: String = \"eaec39bbde6bd39e0b9c6c5c005f6285be49881faeb3a2cbfa02363014ff1604\"\nconst START_TOLERANCE_M: float = 0.001\nconst START_YAW_TOLERANCE_RAD: float = 0.001\n\nvar used: bool = false\n\n\n## Refuses reused, passive, stale or non-restored fixtures before binding owned commands.\nfunc begin_route(case_name: String) -> String:\n\tif used:\n\t\treturn \"RELOAD_REQUIRED\"\n\tif not authoritative:\n\t\treturn \"NOT_OWNER\"\n\tif case_name not in CASES:\n\t\treturn \"NO_ROUTE\"\n\n\tvar city: S06City = $City\n\tif city.validate_content() != \"OK\" or city.signature() != EXPECTED_SIGNATURE:\n\t\treturn \"CONTENT_INVALID\"\n\tif not saved_start_valid():\n\t\treturn \"START_INVALID\"\n\n\tused = true\n\treturn start_route(case_name)\n\n\n## Checks all saved starts, neutral velocities and passive admission before each fresh route.\nfunc saved_start_valid() -> bool:\n\tvar positions: Array[Vector3] = [\n\t\tVector3(-20, 0.001, 6.5), Vector3(-20, 0, 2.25), Vector3(20, 0, -2.25)]\n\tvar yaws: Array[float] = [-PI / 2.0, -PI / 2.0, PI / 2.0]\n\tfor index: int in CASES.size():\n\t\tvar state: Dictionary = body_state(CASES[index])\n\t\tif state.position.distance_to(positions[index]) > START_TOLERANCE_M:\n\t\t\treturn false\n\t\tif absf(wrapf(state.yaw - yaws[index], -PI, PI)) > START_YAW_TOLERANCE_RAD:\n\t\t\treturn false\n\t\tif state.velocity != Vector3.ZERO:\n\t\t\treturn false\n\n\treturn passive_valid()\n\n\n## Observes inherited pre-tree collision roles and cleared command state without rewriting them.\nfunc passive_valid() -> bool:\n\tvar person: S02ActorMotion = $Person\n\tvar west: S04Kinematic = $CarWest\n\tvar east: S04Kinematic = $CarEast\n\treturn (active_body == null and not controller.enabled and controller.points.is_empty()\n\t\tand person.collision_layer == 0 and person.collision_mask == 0\n\t\tand west.collision_layer == 0 and west.collision_mask == 0\n\t\tand east.collision_layer == 0 and east.collision_mask == 0\n\t\tand not west.simulation_enabled and not east.simulation_enabled)\n\n\n## Cancels producer state and neutralizes every owned body before fixture lifetime retirement.\nfunc cancel_owned() -> void:\n\tstop_route()\n\t($Person as S02ActorMotion).neutralize()\n\t($CarWest as S04Kinematic).neutralize()\n\t($CarEast as S04Kinematic).neutralize()\n\tused = true\n"
+    }
+  },
+  "response": {
+    "result": {
+      "bytes": 2419,
+      "diagnostics": [],
+      "dirs_created": true,
+      "indexed": false,
+      "success": true,
+      "undoable": true,
+      "valid": true
+    },
+    "headless": true,
+    "version": "4.8.0"
+  }
+}

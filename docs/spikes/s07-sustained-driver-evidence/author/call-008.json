@@ -1,0 +1,19 @@
+{
+  "request": {
+    "method": "scene.create_inherited",
+    "params": {
+      "file_path": "res://tests/fixtures/s07_driver/intersection.tscn",
+      "base_scene": "res://tests/fixtures/s06/intersection.tscn"
+    }
+  },
+  "response": {
+    "result": {
+      "base_scene": "res://tests/fixtures/s06/intersection.tscn",
+      "file_path": "res://tests/fixtures/s07_driver/intersection.tscn",
+      "root_name": "S06",
+      "success": true
+    },
+    "headless": true,
+    "version": "4.8.0"
+  }
+}

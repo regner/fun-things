@@ -1,0 +1,21 @@
+{
+  "request": {
+    "method": "script.write",
+    "params": {
+      "file_path": "res://tests/fixtures/s07_driver/guards.gd",
+      "content": "extends SceneTree\n## Independent lifecycle negatives and mid-route cancellation, using only the saved fixture APIs.\n\nconst FIXTURE: String = \"res://tests/fixtures/s07_driver/intersection.tscn\"\nconst CANCEL_AFTER_TICKS: int = 30\n\nvar checks: Array[String] = []\nvar failures: Array[String] = []\n\n\n## Starts checks only after a tree exists for the saved fixture lifecycle.\nfunc _initialize() -> void:\n\t_run.call_deferred()\n\n\n## Tests ownership, stale admission, one-shot fencing, actual cancellation and saved reload.\nfunc _run() -> void:\n\tvar fixture: S07DriverFixture = load(FIXTURE).instantiate()\n\tfixture.authoritative = false\n\troot.add_child(fixture)\n\tawait process_frame\n\t_expect(fixture.saved_start_valid(), \"pre-admission saved starts and passive collision\")\n\t_expect(fixture.begin_route(\"foot\") == \"NOT_OWNER\", \"passive authority refused\")\n\tfixture.authoritative = true\n\t_expect(fixture.begin_route(\"unknown\") == \"NO_ROUTE\", \"unknown route refused\")\n\tvar city: S06City = fixture.get_node(\"City\")\n\tvar saved: S06Bake = city.derived\n\tcity.derived = null\n\t_expect(fixture.begin_route(\"foot\") == \"CONTENT_INVALID\", \"missing bake refused before motion\")\n\tcity.derived = saved\n\t_expect(fixture.begin_route(\"foot\") == \"OK\", \"restored content route admitted\")\n\t_expect(fixture.begin_route(\"east_to_north\") == \"RELOAD_REQUIRED\", \"concurrent/reused binding refused\")\n\tfor tick: int in CANCEL_AFTER_TICKS:\n\t\tawait physics_frame  # gdstyle:ignore=quality/await-in-loop\n\n\tvar moved: Dictionary = fixture.body_state(\"foot\")\n\t_expect(moved.position.x > -19.0, \"actual nonempty motion before cancellation\")\n\tfixture.cancel_owned()\n\t_expect(fixture.passive_valid(), \"cancellation clears producer and collision admission\")\n\t_expect(fixture.body_state(\"foot\").velocity == Vector3.ZERO, \"cancellation neutralizes velocity\")\n\t_expect(fixture.begin_route(\"foot\") == \"RELOAD_REQUIRED\", \"cancelled fixture cannot restart\")\n\tawait physics_frame\n\t_expect(fixture.body_state(\"foot\").position == moved.position, \"no stale command moves cancelled body\")\n\tfixture.queue_free()\n\tawait process_frame\n\t_expect(not is_instance_valid(fixture), \"retired fixture freed before reload\")\n\tvar fresh: S07DriverFixture = load(FIXTURE).instantiate()\n\tfresh.authoritative = true\n\troot.add_child(fresh)\n\tawait process_frame\n\t_expect(fresh.saved_start_valid(), \"fresh saved reload restores all positions yaw velocity roles\")\n\t_expect((fresh.get_node(\"City\") as S06City).validate_content() == \"OK\", \"fresh content revalidated\")\n\tfresh.cancel_owned()\n\tfresh.queue_free()\n\tawait process_frame\n\t_expect(not is_instance_valid(fresh), \"fresh fixture teardown complete\")\n\tvar file: FileAccess = FileAccess.open(\"res://guards.json\", FileAccess.WRITE)\n\tfile.store_string(JSON.stringify({\"checks\": checks, \"failures\": failures}, \"\\t\") + \"\\n\")\n\tfile.close()\n\tquit(0 if failures.is_empty() else 1)\n\n\n## Records every literal public-boundary expectation and any failure.\nfunc _expect(condition: bool, label: String) -> void:\n\tchecks.append(label)\n\tif not condition:\n\t\tfailures.append(label)\n"
+    }
+  },
+  "response": {
+    "result": {
+      "bytes": 3038,
+      "diagnostics": [],
+      "indexed": true,
+      "success": true,
+      "undoable": true,
+      "valid": true
+    },
+    "headless": true,
+    "version": "4.8.0"
+  }
+}

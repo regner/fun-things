@@ -1,0 +1,113 @@
+{
+  "ok": false,
+  "commands": [
+    {
+      "argv": [
+        "/home/regner/.local/share/mise/installs/github-godotengine-godot-builds/4.8-dev7/godot",
+        "--headless",
+        "--editor",
+        "--path",
+        "/tmp/s07-driver-author-08760af5/project",
+        "--lsp-port",
+        "40921",
+        "--dap-port",
+        "53811",
+        "--debug-server",
+        "tcp://127.0.0.1:47249",
+        "--log-file",
+        "/tmp/s07-driver-author-08760af5/editor.engine.log",
+        "--script",
+        "/home/regner/.paseo/worktrees/0u71f39f/s07-sustained-route-reset-driver/tools/s08/editor_context.gd"
+      ],
+      "cwd": "/tmp/s07-driver-author-08760af5/project",
+      "owned_pid": 693631,
+      "started_unix": 1791465211.8763402,
+      "HOME": "/home/regner",
+      "environment": {
+        "XDG_CONFIG_DIRS": "/home/regner/.config/kdedefaults:/etc/xdg",
+        "XDG_SESSION_PATH": "/org/freedesktop/DisplayManager/Session1",
+        "XDG_MENU_PREFIX": "plasma-",
+        "XDG_SEAT": "seat0",
+        "XDG_SESSION_DESKTOP": "KDE",
+        "XDG_SESSION_TYPE": "wayland",
+        "XDG_CURRENT_DESKTOP": "KDE",
+        "XDG_SEAT_PATH": "/org/freedesktop/DisplayManager/Seat0",
+        "XDG_SESSION_CLASS": "user",
+        "XDG_VTNR": "2",
+        "XDG_SESSION_ID": "2",
+        "XDG_RUNTIME_DIR": "/tmp/s07-driver-author-08760af5/private/runtime",
+        "XDG_DATA_DIRS": "/tmp/.mount_Paseo-gLG4F3/usr/share/:./share/:/usr/share/gnome:/usr/local/share/:/usr/share/:/tmp/.mount_Paseo-47w5nb/usr/share/:./share/:/usr/share/gnome:/usr/local/share/:/usr/share/:/home/regner/.local/share/flatpak/exports/share:/var/lib/flatpak/exports/share:/usr/local/share/:/usr/share/:/usr/share/gnome/:/usr/local/share/:/usr/share/:/usr/share/gnome/:/usr/local/share/:/usr/share/",
+        "XDG_CONFIG_HOME": "/tmp/s07-driver-author-08760af5/private/config",
+        "XDG_DATA_HOME": "/tmp/s07-driver-author-08760af5/private/data",
+        "XDG_CACHE_HOME": "/tmp/s07-driver-author-08760af5/private/cache",
+        "GODOT_MCP_PROJECT_PATH": "/tmp/s07-driver-author-08760af5/project"
+      },
+      "exit": -15,
+      "reaped": true,
+      "ended_unix": 1791465218.4240365
+    },
+    {
+      "argv": [
+        "/usr/bin/node",
+        "/home/regner/.paseo/worktrees/0u71f39f/s07-sustained-route-reset-driver/tools/s08/standard_bridge.mjs",
+        "/tmp/s07-driver-author-08760af5/registry-binding.json"
+      ],
+      "cwd": "/tmp/s07-driver-author-08760af5/project",
+      "owned_pid": 693662,
+      "started_unix": 1791465214.4829683,
+      "exit": 0,
+      "reaped": true,
+      "ended_unix": 1791465218.4240432
+    }
+  ],
+  "context": {
+    "boost": false,
+    "editor_hint": true,
+    "pid": 693631,
+    "project": "/tmp/s07-driver-author-08760af5/project/",
+    "settings_path": "/tmp/s07-driver-author-08760af5/private/config/godot/editor_settings-4.8.tres",
+    "version": {
+      "build": "official",
+      "hash": "c971f93e7e76b0ef919bf6009e7b868bea04db7f",
+      "hex": 264192,
+      "major": 4,
+      "minor": 8,
+      "patch": 0,
+      "status": "dev7",
+      "string": "4.8-dev7 (official)",
+      "timestamp": 0
+    }
+  },
+  "discovery": {
+    "discovery": {
+      "editorPort": "6550",
+      "editorPinned": false,
+      "editorSource": "discovery",
+      "runtimeSource": "discovery",
+      "lspSource": "discovery"
+    },
+    "registry": {
+      "godot_version": "4.8",
+      "lsp_host": "127.0.0.1",
+      "lsp_port": 6005,
+      "pid": 693631,
+      "port": 6550,
+      "runtime_pid": null,
+      "runtime_port": null,
+      "started_at": 1791465214,
+      "token_path": "/tmp/s07-driver-author-08760af5/private/data/godot/app_userdata/Fun Things/addons/godot_mcp_toolkit/project_instance_8d8abe4c83a7/mcp_token"
+    }
+  },
+  "roundtrip": {
+    "before": {
+      "bytes": 380,
+      "sha256": "fdc552fd9e798c72326301eb1797f79e182ebdfae58f727f1694e5097c6e52f2"
+    },
+    "after": {
+      "bytes": 380,
+      "sha256": "fdc552fd9e798c72326301eb1797f79e182ebdfae58f727f1694e5097c6e52f2"
+    }
+  },
+  "failure": "RuntimeError(\"unowned staging bytes changed: ['project.godot']\")",
+  "quiescent": true
+}

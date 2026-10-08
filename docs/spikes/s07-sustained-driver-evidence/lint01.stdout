@@ -1,0 +1,40 @@
+tests/fixtures/s07_driver/fixture.gd
+  6:101 warning line is 101 characters long (max 100) [format/max-line-length]
+      const EXPECTED_SIGNATURE: String = "eaec39bbde6bd39e0b9c6c5c005f6285be49881faeb3a2cbfa02363014ff1604"
+                                                                                                          ^
+
+tests/fixtures/s07_driver/guards.gd
+  32:101 warning line is 107 characters long (max 100) [format/max-line-length]
+      	_expect(fixture.begin_route("east_to_north") == "RELOAD_REQUIRED", "concurrent/reused binding refused")
+      	                                                                                                   ^
+  40:101 warning line is 101 characters long (max 100) [format/max-line-length]
+      	_expect(fixture.body_state("foot").velocity == Vector3.ZERO, "cancellation neutralizes velocity")
+      	                                                                                                 ^
+  43:101 warning line is 107 characters long (max 100) [format/max-line-length]
+      	_expect(fixture.body_state("foot").position == moved.position, "no stale command moves cancelled body")
+      	                                                                                                   ^
+  51:101 warning line is 102 characters long (max 100) [format/max-line-length]
+      	_expect(fresh.saved_start_valid(), "fresh saved reload restores all positions yaw velocity roles")
+      	                                                                                                  ^
+  52:101 warning line is 104 characters long (max 100) [format/max-line-length]
+      	_expect((fresh.get_node("City") as S06City).validate_content() == "OK", "fresh content revalidated")
+      	                                                                                                   ^
+  58:35 warning add space after '{' in single-line dictionary literal [format/brace-spacing]
+      	file.store_string(JSON.stringify({"checks": checks, "failures": failures}, "\t") + "\n")
+      	                                 ^
+  58:74 warning add space before '}' in single-line dictionary literal [format/brace-spacing]
+      	file.store_string(JSON.stringify({"checks": checks, "failures": failures}, "\t") + "\n")
+      	                                                                        ^
+
+tests/fixtures/s07_driver/run.gd
+  11:26 warning add space after '{' in single-line dictionary literal [format/brace-spacing]
+      var counts: Dictionary = {"foot": 0, "east_to_north": 0, "west_to_south": 0}
+                               ^
+  11:76 warning add space before '}' in single-line dictionary literal [format/brace-spacing]
+      var counts: Dictionary = {"foot": 0, "east_to_north": 0, "west_to_south": 0}
+                                                                                 ^
+  75:1 warning function '_traverse' is 65 lines long (max 50) [quality/max-function-length]
+      func _traverse(case_name: String) -> void:  # gdstyle:ignore=quality/max-local-variables
+      ^
+
+3 files checked, 11 warnings found.

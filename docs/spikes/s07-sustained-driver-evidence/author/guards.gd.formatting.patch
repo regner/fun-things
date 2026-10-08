@@ -1,0 +1,57 @@
+--- saved/guards.gd
++++ candidate/guards.gd
+@@ -29,7 +29,10 @@
+ 	_expect(fixture.begin_route("foot") == "CONTENT_INVALID", "missing bake refused before motion")
+ 	city.derived = saved
+ 	_expect(fixture.begin_route("foot") == "OK", "restored content route admitted")
+-	_expect(fixture.begin_route("east_to_north") == "RELOAD_REQUIRED", "concurrent/reused binding refused")
++	_expect(
++		fixture.begin_route("east_to_north") == "RELOAD_REQUIRED",
++		"concurrent/reused binding refused",
++	)
+ 	for tick: int in CANCEL_AFTER_TICKS:
+ 		await physics_frame  # gdstyle:ignore=quality/await-in-loop
+ 
+@@ -37,10 +40,16 @@
+ 	_expect(moved.position.x > -19.0, "actual nonempty motion before cancellation")
+ 	fixture.cancel_owned()
+ 	_expect(fixture.passive_valid(), "cancellation clears producer and collision admission")
+-	_expect(fixture.body_state("foot").velocity == Vector3.ZERO, "cancellation neutralizes velocity")
++	_expect(
++		fixture.body_state("foot").velocity == Vector3.ZERO,
++		"cancellation neutralizes velocity",
++	)
+ 	_expect(fixture.begin_route("foot") == "RELOAD_REQUIRED", "cancelled fixture cannot restart")
+ 	await physics_frame
+-	_expect(fixture.body_state("foot").position == moved.position, "no stale command moves cancelled body")
++	_expect(
++		fixture.body_state("foot").position == moved.position,
++		"no stale command moves cancelled body",
++	)
+ 	fixture.queue_free()
+ 	await process_frame
+ 	_expect(not is_instance_valid(fixture), "retired fixture freed before reload")
+@@ -48,14 +57,20 @@
+ 	fresh.authoritative = true
+ 	root.add_child(fresh)
+ 	await process_frame
+-	_expect(fresh.saved_start_valid(), "fresh saved reload restores all positions yaw velocity roles")
+-	_expect((fresh.get_node("City") as S06City).validate_content() == "OK", "fresh content revalidated")
++	_expect(
++		fresh.saved_start_valid(),
++		"fresh saved reload restores all positions yaw velocity roles",
++	)
++	_expect(
++		(fresh.get_node("City") as S06City).validate_content() == "OK",
++		"fresh content revalidated",
++	)
+ 	fresh.cancel_owned()
+ 	fresh.queue_free()
+ 	await process_frame
+ 	_expect(not is_instance_valid(fresh), "fresh fixture teardown complete")
+ 	var file: FileAccess = FileAccess.open("res://guards.json", FileAccess.WRITE)
+-	file.store_string(JSON.stringify({"checks": checks, "failures": failures}, "\t") + "\n")
++	file.store_string(JSON.stringify({ "checks": checks, "failures": failures }, "\t") + "\n")
+ 	file.close()
+ 	quit(0 if failures.is_empty() else 1)
+ 

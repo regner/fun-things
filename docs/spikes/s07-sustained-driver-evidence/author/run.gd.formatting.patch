@@ -1,0 +1,11 @@
+--- saved/run.gd
++++ candidate/run.gd
+@@ -8,7 +8,7 @@
+ 
+ var failures: Array[String] = []
+ var traversals: int = 0
+-var counts: Dictionary = {"foot": 0, "east_to_north": 0, "west_to_south": 0}
++var counts: Dictionary = { "foot": 0, "east_to_north": 0, "west_to_south": 0 }
+ var stream: FileAccess
+ var measurement_start_usec: int = 0
+ var duration_seconds: float = 0.0
