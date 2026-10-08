@@ -4,26 +4,26 @@
 
 ## Foundations
 
-- [ ] **P0-PROFILES — Create reviewed orchestration profiles when authorized.** Configuration
-  remains deferred and outside P0-GATE.
-- [ ] **S02 — Settle foot controls, camera, aiming and feel.** See [spike](docs/spikes/s02.md).
-- [ ] **S03-S — Establish Steam friend connectivity and gameplay transport.** Steam testing remains
-  deferred, not accepted. See [spike](docs/spikes/s03-s.md).
-- [ ] **S03-R — Settle networked on-foot response and prediction.** See
+- [ ] **P0-PROFILES — Review the retained Paseo profiles task later.** Non-blocking;
+  configuration remains deferred and outside P0-GATE.
+- [ ] **S02 — Implement and validate WASD movement, mouse-facing, 42° camera and no cutaway.**
+  See [spike](docs/spikes/s02.md).
+- [ ] **S03-S — Review ENet session APIs for a later Steam adapter.** Steam implementation
+  and testing are deferred. See [spike](docs/spikes/s03-s.md).
+- [ ] **S03-R — Implement and validate required local on-foot prediction.** See
   [spike](docs/spikes/s03-r.md).
-- [ ] **S04 — Settle car handling, dimensions and network response.** See
-  [spike](docs/spikes/s04.md).
-- [ ] **S05 — Complete explosion-chain feasibility and policy evidence.** See
+- [ ] **S04 — Add the drive scene and required local-car prediction; validate car rules.**
+  See [spike](docs/spikes/s04.md).
+- [ ] **S05 — Remove the explosion-effect cap and remeasure chains.** See
   [spike](docs/spikes/s05.md).
-- [ ] **S06 — Settle shared city topology, navigation and minimap.** See
-  [spike](docs/spikes/s06.md).
-- [ ] **S07 — Complete graphical map-capacity and growth measurements.** The sustained primary-T
-  route driver and desktop 60-capped graphical T are recorded; capacity remains open. See [spike](docs/spikes/s07.md) and
-  [driver result](docs/spikes/s07-sustained-driver.md).
-- [ ] **S08 — Confirm Linux release lifecycle and target compatibility.** The 20 ms stall is
-  fixed and Windows release passes; see [Windows record](docs/spikes/s08-windows-observation.md).
-- [ ] **P0-GATE — Review foundation evidence and ratify the first milestone plan.**
-  After: S02, S03-S, S03-R, S04, S05, S06, S07, S08.
+- [ ] **S06 — Iterate whole-UI mockups and settle minimap size/look.** Layout scale and
+  top-right position are accepted. See [spike](docs/spikes/s06.md).
+- [ ] **S07 — Measure the graphical environment cost-versus-block envelope.** This is
+  guidance, not a gate; network/AI/population are out of scope. See [spike](docs/spikes/s07.md).
+- [ ] **S08 — Follow up 4.8-dev7 Linux confirmation when a Linux machine is available.**
+  This does not block proceeding; keep the ENet workaround and offline upstream review.
+- [ ] **P0-GATE — Review remaining foundation evidence against the ratified decisions.**
+  S07 budgets, Linux S08 confirmation and P0-PROFILES are non-blocking guidance/follow-up.
 
 ## First milestone
 

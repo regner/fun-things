@@ -1,15 +1,13 @@
 # Fun Things — product brief and validation envelope
 
-Ratified product scope, 7 October 2026. **P0-01 is complete under the review decisions
-recorded below.** This describes the first playable milestone (M1), not implemented behavior.
-The required experience and transport paths come from [the plan](../TODO.md).
-Confirmed during this review: Steam Deck LCD at native 1280×800 is the performance
-baseline, 60 FPS is required on LCD and OLED, and graphics should be stylized rather
-than realistic. Regner identified `../vcs` as the source of the existing Steam IDs.
-Regner approved the remaining draft scope/gameplay defaults on the same date,
-with budgets provisional and the engine pin open for the Deck proof. Live Steamworks
-setup is explicitly deferred to the relevant proof, rather than blocking this brief.
-Budgets are experiment targets, not measured results or minimum system requirements.
+Ratified product scope, 7 October 2026, amended by the
+[owner decisions of 8 October 2026](reviews/owner-decisions-2026-10-08.md).
+**P0-01 is complete under the review decisions recorded below.** This describes the
+first playable milestone (M1), not implemented behavior. The required experience and
+transport paths come from [the plan](../TODO.md). M1 now targets Windows and Linux
+desktop with ENet; Steam gameplay and Steam Deck delivery are later work. The 60 FPS
+Deck envelope and Steam identifiers remain future-target constraints, not M1 gates.
+Budgets are guidance for later implementation, not requirements or measured results.
 
 Task owner: Codex prepares the brief and evidence; Regner owns product approval,
 remaining hardware details and existing Steam-app access. Effort cap for this pass:
@@ -41,71 +39,70 @@ Public store launch is outside this private friends-playtest milestone.
 | --- | --- |
 | Capacity | 1–4 players total, including the host; one local player per process |
 | Topology | Authoritative listen server; no dedicated-server product promise |
-| Primary target (confirmed) | Steam Deck LCD and OLED, SteamOS Gaming Mode, 60 FPS at 1280×800; a Deck must support hosting as well as joining |
-| Other targets | Windows 11 x86_64 and Linux x86_64 desktop; functional compatibility checks, with no separately approved 1080p performance promise |
+| Primary targets | Windows 11 x86_64 and Linux x86_64 desktop for M1 |
+| Later target | Steam Deck LCD and OLED, SteamOS Gaming Mode and 60 FPS at 1280×800 |
 | Offline | Standalone sandbox with the same authoritative rules/content; no Steam requirement, world save or offline-to-online conversion |
-| Required transports | ENet loopback/direct LAN host/join and Steam friends over the internet, using the existing app |
+| Required M1 transport | ENet loopback/direct LAN host/join; session APIs must permit a later Steam adapter |
 | ENet joining | Explicit address/port; no LAN discovery or internet NAT-traversal promise |
-| Steam joining | Friends lobby plus invite/launch joining, actual Steam gameplay transport across networks without port forwarding |
+| Deferred Steam joining | Later friends lobby plus invite/launch joining and gameplay transport without port forwarding |
 | Admission | Late joining during play; current state applied before control; full/incompatible/unreachable attempts fail usefully and allow retry |
 | Host loss | End the match, explain the loss and return clients to a usable menu; lobby ownership changes do not migrate simulation |
-| Delivery route | Start by evaluating native Linux on Deck; S08 must prove Gaming Mode/Steam Input/native dependencies. A Proton fallback requires a recorded decision and separate evidence |
-| Renderer | Compare Mobile with the current Forward Plus setup on Deck; choose the simplest configuration meeting the visual/60 FPS requirements in S07/S08; retain Jolt for initial physics proofs |
-| Input | Complete Deck gamepad gameplay/menu/settings flow without external keyboard/mouse; keyboard controls also supported for desktop/ENet testing |
+| Delivery route | Prove Windows and Linux desktop exports for M1; Steam and Deck delivery follow later |
+| Renderer | Keep the current renderer decision open; S07 environment scaling supplies guidance rather than a capacity gate |
+| Input | Keyboard and mouse for desktop/ENet testing; gamepad controls are deferred |
 
-Select ENet or Steam before host/join and keep it until teardown. ENet must work
-without Steam installed or running. Steam service failures must leave offline/ENet
-usable. Lobby membership alone is neither gameplay connectivity nor admission.
-Invites arriving while loading or in a match use the common cancel/leave/join flow;
-the UI must ask before leaving the current match. Cancellation and leave/rejoin
-must clean up the old attempt. Settings menus do not pause a running shared world.
+M1 uses ENet, which must work without Steam installed or running. Keep session and
+transport boundaries capable of a later Steam adapter: friend joins, lobby identity
+mapping, reliable/unreliable message lanes and connection lifecycle must fit without
+changing gameplay ownership. Actual Steam integration and testing are deferred.
+Cancellation and leave/rejoin must clean up the old attempt. Settings menus do not
+pause a running shared world.
 
 ## Camera, controls and feel
 
 Use a local camera following the controlled player or car, looking vertically
-straight down with fixed world yaw and perspective projection, as clarified by
-Regner during P0-04 on 7 October. S02 chooses height, field of view, framing,
-follow/transition tuning and obstruction treatment using gameplay-camera evidence,
-including beside buildings reaching/passing camera height. Roofs and effects must
-not hide the controlled actor, road turns or an intended target. Camera rotation,
-zoom controls and independent mouse aim are outside the starting scope.
+straight down with fixed world yaw and perspective projection. The ratified S02
+camera is 47 m high with a 42° field of view and fixed north-up orientation. Buildings
+do not use cutaway presentation for now. Roofs and effects must not hide the controlled
+actor, road turns or an intended target. Camera rotation and zoom remain outside scope.
 
-Start with GTA2 turn/forward/back foot controls: W/S or Up/Down move along the
-actor's facing, A/D or Left/Right turn, Space fires along facing, E interacts with
-a nearby car, R reloads, and number keys select weapons. There is no starting strafe rule.
-In a car, forward/back become throttle/reverse/brake, left/right steer and Space
-is the handbrake. Escape opens the local menu. S02/S04 settle bindings and aim/turn
-behavior; switching to another control model requires a deliberate product decision.
+On foot, WASD moves in screen/world-relative directions and the character faces the
+mouse ground point each physics tick. Diagonals are normalized, movement uses one
+5 m/s speed with instant start/stop, and left mouse fires. This replaces the earlier
+tank-turning model. E interacts with a nearby car, R reloads, number keys select
+weapons and Escape opens the local menu. Held weapon silhouettes remain approved.
+In a car, forward/back are throttle/reverse/brake, left/right steer and Space is the
+handbrake. Gamepad movement and aim are deferred.
 
 Car handling prioritizes quick steering response, controllable slides, readable
 braking and recovery from walls/rollover. Physics-body choice is a spike decision.
-Enter/exit should preserve camera/HUD orientation and control ownership without
-an abrupt confusing view. Focus loss releases held movement and firing.
+There is no firing from cars. Exit is allowed only while speed is below 0.5 m/s;
+otherwise it fails with `EXIT_MOVING`. Enter/exit should preserve camera/HUD
+orientation and control ownership without an abrupt confusing view. Focus loss
+releases held movement and firing.
 
 S02/S04/M1-D2 retain captures and short playtest notes: can a new tester walk around
 a corner, hit an intended target, enter a car, complete a loop and recover from a
 wall without coaching after a brief control prompt? Do explosions remain readable
 while driving? Record failures and concrete tuning changes rather than claiming
-that timing metrics alone establish fun. Foot and vehicle responsiveness decisions
-are separate; prediction is chosen from S03-R/S04 evidence.
+that timing metrics alone establish fun. Foot and vehicle responsiveness remain
+separate tuning concerns. Prediction is required for both the local on-foot character
+and the locally driven car: replay only shared permitted simulation without side
+effects, and authoritative corrections win.
 
 ## Handheld input and presentation
 
-Starting Deck mapping on foot: left-stick vertical axis moves forward/back and
-horizontal axis turns, right trigger fires, A enters/exits, bumpers cycle weapons,
-X reloads, and Menu opens local UI. In a car, triggers become throttle/brake/reverse
-and B applies the handbrake. S02/S04 refine dead zones and bindings while preserving
-the starting turn/forward/back intent; a twin-stick control model is a separate choice.
-Menus/settings need D-pad/stick navigation, confirm/back, visible focus and correct
-button prompts. Address entry must have an on-screen keyboard path. Gyro, touch-only
-interaction and trackpad aiming are optional follow-ups.
+Gamepad gameplay controls, Steam Input and Deck-specific mappings are deferred.
+When that work resumes, it must adapt the ratified independent movement and aim model
+rather than restoring tank controls. Menus/settings will still need complete focus,
+button prompts and an on-screen keyboard path for address entry.
 
-Validate HUD/minimap/sign readability on the actual handheld display at 1280×800,
-and Steam install/launch/invite/error flows in Gaming Mode using built-in controls.
-No external keyboard should be needed for the normal friends-playtest flow. Offline
+For later Deck delivery, validate HUD/minimap/sign readability on the actual handheld
+at 1280×800 and Steam install/launch/invite/error flows in Gaming Mode using built-in
+controls. No external keyboard should be needed for that friends-playtest flow. Offline
 play must also work disconnected. Suspend/resume must release held input, recover
 offline state, and either resume networking coherently or end with a useful retry
-path. Record this behavior; seamless reconnect is not an M1 promise. Valve's
+path. Record this behavior; seamless reconnect is not a delivery promise. Valve's
 [Deck recommendations](https://partner.steamgames.com/doc/steamhardware/recommendations)
 support full controller access and on-screen text entry. Public Deck Verified
 certification remains outside M1.
@@ -120,7 +117,7 @@ certification remains outside M1.
 | Car seats | One player driver; no passengers or visible NPC occupants. Entry transfers traffic control to the player through the host |
 | Seat conflicts | Host grants one claimant; reject other claims. A blocked exit leaves the player seated rather than placing them inside collision |
 | Car explosion occupant | Kill the seated driver as part of the same authoritative destruction transition; clear the seat and use normal respawn, with no forced ejection |
-| Driver death/disconnect | Release the seat and neutralize controls; the surviving car remains in the world. S04 specifies safe stopping behavior |
+| Driver death/disconnect | Release the seat and neutralize controls; the surviving car coasts to a stop without braking |
 | Abandoned traffic car | Remains parked until bounded cleanup/replenishment; does not immediately resume AI driving |
 | Weapons | Pistol and SMG are hitscan; rocket launcher fires a finite-lifetime projectile with blast damage. Distinct rates/ranges and readable feedback |
 | Ammo/equipment | All three weapons available at spawn; magazines and reload for pistol/SMG, unlimited reserve; rockets use a cooldown. No pickup/inventory progression in M1 |
@@ -129,9 +126,12 @@ certification remains outside M1.
 | Match reset | Only host (or standalone player) can request full reset. Restore authored initial dynamic state, players, seats, weapons and population; clear shots/effects/history; keep admitted peers |
 | Persistence | Audio settings persist locally; match/world state is discarded on leave/reset |
 
-S05 settles blast radius, obstruction/falloff, chain timing/order, wreck collision
-and cleanup duration. Combat tuning, respawn clearance and reset sequencing have
-one authoritative owner each in the [P0-02 ownership draft](architecture.md).
+S05 starts from the ratified defaults: cars have 100 HP, explosions deal 100 damage
+within 4.1 m with no falloff or obstruction test, chains delay 0.1 s, wrecks remain
+for 5 s, and friendly fire/self-damage stay on. Every explosion gets its presentation;
+there is no on-screen explosion cap. Combat tuning, respawn clearance and reset
+sequencing have one authoritative owner each in the
+[P0-02 ownership draft](architecture.md).
 Reset restores gameplay state around saved city placement; it never reconstructs
 or overwrites the authored district.
 
@@ -144,7 +144,7 @@ or overwrites the authored district.
 | Vehicles | Two recognizable car silhouettes with color variants, damaged/wreck presentation, driver interaction and arcade handling |
 | People | Shared player/pedestrian rig with readable variants and idle/walk/run/death animation coverage; no modeled traffic occupants |
 | Weapons/effects | Pistol, SMG, rocket launcher; muzzle/impact/tracer/rocket feedback, explosion/smoke/sparks and bounded cosmetic debris |
-| HUD/map | Health, selected weapon/ammo or cooldown, useful control prompts; road minimap with local controlled-entity marker; no additional minimap marker commitment. Local-player world indication remains S02 presentation refinement |
+| HUD/map | Health, selected weapon/ammo or cooldown, useful control prompts; top-right road minimap with local controlled-entity marker. Position is accepted; size and look need UI iteration |
 | Menus/settings | Standalone, Host, Join, Settings, Quit; in-match leave/reset/settings; Master/Music/SFX levels and mute saved locally |
 | Audio | Weapon/hit/explosion, engine/tires, footsteps, UI and music/ambience with source/license records |
 
@@ -158,25 +158,18 @@ refine them, and asset production follows the plan's foundation gate.
 
 ## Provisional validation envelope
 
-Confirmed reference **D1**: original LCD Steam Deck, AMD Zen 2 4-core/8-thread CPU,
-8-CU RDNA 2 integrated GPU, 16 GB shared RAM, SteamOS, native 1280×800 handheld
-display. Also require an **OLED Deck D2** compatibility/performance pass at 60 FPS.
-Specifications are from Valve's [LCD specs](https://www.steamdeck.com/en/tech/deck).
-Record each test device's storage model, SteamOS/client/driver versions, thermal
-state and power settings. Baseline is the normal 15 W APU limit, no overclock,
-native rendering and no frame generation; lowered power modes are not promised.
-Measure both plugged-in and battery operation after warmup. Physical Deck access
-and those installed-version details have not yet been established.
+M1 validation targets Windows 11 x86_64 and Linux x86_64 desktop. Record named
+hardware, OS, driver, renderer and build identity for each result. The original LCD
+and OLED Steam Deck envelope below is retained as guidance for the later handheld
+target, not as an M1 or P0 gate. Physical Deck access remains unavailable.
 
 The local Ryzen 7 3700X/GTX 1070/approximately 32 GiB/CachyOS desktop can assist
-development, but cannot certify Deck performance. Windows desktop test hardware
-is still unspecified; functional export evidence remains required for that target.
-Absent hardware is missing evidence, not a passed target.
+Linux development. The current Windows development machine supplies desktop evidence;
+neither machine certifies Deck performance.
 
-The Deck/60 FPS/native-resolution requirement is confirmed. Other numbers below
-are proposed starting budgets. S03/S03-S/S03-R/S04/S05/S07/S08 measure them and
-P0-GATE records ratified values or explicit scope changes. Optimize or revise
-provisional content/load choices with the user rather than silently relaxing 60 FPS.
+The numbers below are guidance, not requirements. S03-R/S04/S05 may use relevant
+response and work bounds while S07 reports an environment cost-versus-block envelope.
+Do not silently turn these provisional values into acceptance gates.
 
 | Measure | Initial target and measurement boundary |
 | --- | --- |
@@ -191,7 +184,7 @@ provisional content/load choices with the user rather than silently relaxing 60 
 | Local response | p95 input-to-visible owned movement/turn/brake response ≤50 ms in the normal envelope on reference hardware; measure in windows/captures, not just command submission |
 | Correction/recovery | Initial normal-envelope target: p95 positional correction ≤0.5 m; after delivery resumes in adverse tests, authoritative convergence within 1 second. S03-R/S04 define matching-tick telemetry and distinguish simulation error from presentation smoothing |
 | World population | 64 live pedestrians and 32 live cars district-wide (initially 24 traffic + 8 parked; occupied cars count within 32), plus four players; replenishment never exceeds these caps |
-| Temporary state/effects | Up to 16 retained wrecks and 16 dead pedestrian presentations in addition to live caps; 16 active rockets, 8 simultaneous explosion presentations and 64 total transient effect instances per client. S05 defines what each bound counts and cosmetic fallback |
+| Temporary state/effects | Up to 16 retained wrecks and 16 dead pedestrian presentations in addition to live caps; 16 active rockets. Every explosion receives its effect; S05 measures cost without dropping presentations |
 
 Population is global, not multiplied per player. Far-apart views must not disable
 off-camera authority or silently lower the accepted population. Quality settings,
@@ -209,17 +202,15 @@ small proofs; M1-D3 performs sustained integrated acceptance.
 | Load case | Required observation |
 | --- | --- |
 | V1 — Normal sandbox | Standalone and host + one client, populated district, walking/aim/shoot and a driving loop; control/camera/audio/minimap readability |
-| V2 — Capacity | Host + three clients at the global population caps, first together then in four distant areas, all driving/firing; run Deck as the host and separately as a client, recording render/simulation/network costs |
-| V3 — Chain burst | 12 clustered live cars, trigger one explosion and drive the chain to completion while players fire; eight overlapping explosion presentations, rocket/effect peaks and bounded cosmetic fallback; repeat off-camera |
+| V2 — Capacity | Host + three clients at the global population caps, first together then in four distant areas, all driving/firing; record render/simulation/network costs on named desktop hardware |
+| V3 — Chain burst | 12 clustered live cars, trigger one explosion and drive the chain to completion while players fire; present every explosion, record rocket/effect peaks and repeat off-camera |
 | V4 — Lifecycle during load | Join during/after V3, driver destroyed, simultaneous seat claims, blocked exit, death/disconnect, reset while driving/firing; exactly-once outcomes, current state, clean control/history/effects |
 | V5 — Delivery/recovery | V2 movement and V4 transitions in normal/adverse profiles; duplicates/stale identities/revisions, slow join and full session, focus loss, host loss, cancel/retry; bounded queues/work and correct authority |
-| V6 — Delivery targets | Deck LCD/OLED Gaming Mode controls/HUD/offline/suspend behavior and 60 FPS; Windows/Linux exports; ENet without Steam; distinct authorized Steam accounts on separate machines/networks, install/update/launch/invite/join and actual gameplay route diagnostics |
+| V6 — M1 delivery targets | Windows/Linux exports and ENet without Steam; Deck Gaming Mode and actual Steam-account delivery are later-target checks |
 
-The 12-car chain intentionally exceeds the eight simultaneous explosion visuals:
-all authoritative outcomes must occur, while excess cosmetic effects use the
-documented fallback. Damage/chain queue and per-tick limits remain S05 decisions;
-presentation caps cannot discard gameplay. Real Steam runs must establish the
-external route independently; loopback or successful lobby creation cannot pass V6.
+The 12-car chain presents all explosions; no cosmetic slot cap may hide an effect.
+Damage/chain queue and per-tick work limits remain separate S05 implementation bounds.
+Steam transport and external-route validation are deferred beyond M1.
 
 ## Toolchain evidence and pin recommendation
 
@@ -264,23 +255,17 @@ are not verified. S08 must check the archive's version and Windows/Linux debug/r
 templates before exporting. A prior [missing-assets report](https://github.com/godotengine/godot/issues/123997)
 is closed; publication alone should not substitute for that check.
 
-**Pin decision remains open because Deck input is required.** The
+**Development stays on Godot 4.8-dev7 for now.** The
 [4.8-dev7 release notes](https://godotengine.org/article/dev-snapshot-godot-4-8-dev-7/)
 list broken built-in Deck controls in Linux exports. The linked
 [issue](https://github.com/godotengine/godot/issues/123704) is now closed by a
 [fix merged on 1 October](https://github.com/godotengine/godot/pull/124017), after
 the dev7 source snapshot; closure does not demonstrate a fix in our pinned binary.
 
-Recommendation: retain gdstyle 0.3.0; keep 4.8-dev7 unchanged for this documentation
-pass, but do not accept it as the Deck delivery pin. Move a minimal exported
-Gaming Mode input/Steam initialization test to the start of S08, before S02 needs
-handheld evidence. Prefer an official engine/template pair containing the fix;
-compare a known working official release if necessary. Codex records the exact
-candidate and results for a deliberate pin decision. A Desktop Mode workaround
-does not satisfy the handheld promise. Any engine change needs matching templates
-and reruns of affected import/save/reload/physics/network/native-extension evidence.
-Regner approved leaving this pin decision open for the Deck proof. No engine
-configuration changed in P0-01; the current development pin remains installed.
+Retain gdstyle 0.3.0 and Godot 4.8-dev7 for current development. The known Deck
+input limitation remains a later-delivery concern, not an M1 blocker. Any future
+engine change needs a deliberate decision, matching templates and reruns of affected
+import/save/reload/physics/network/native-extension evidence.
 
 ## Existing Steam-app setup record
 
@@ -299,8 +284,8 @@ Fun Things branch, preserving existing VCS builds/branches. Branch-specific cont
 still shares app-level launch configuration: settle executable names/launch settings
 before uploading rather than assuming an isolated branch isolates those settings.
 On 7 October Regner reported the live setup as unknown and directed that it need
-not be settled now. The unknown fields below are S03-S/S08 prerequisites, not
-P0-01 blockers. Obtain them when preparing those proofs; do not guess values.
+not be settled now. As of 8 October, these fields belong to later Steam work, not
+S03-S, S08, P0-GATE or M1 prerequisites. Do not guess values.
 
 | Field | Current status / evidence required |
 | --- | --- |
@@ -311,7 +296,7 @@ P0-01 blockers. Obtain them when preparing those proofs; do not guess values.
 | Launch settings | VCS exports `VehiclePlayground.exe` / `VehiclePlayground.x86_64`; its guide proposes install directory `Vehicle Playground` and empty Windows launch args. These are repo recipes, not verified live settings or a Fun Things launch decision |
 | Private test branch | Intended branch `fun-things`, selected by Regner on 7 October; live creation/access/build IDs not verified. VCS guide proposes `default` / `friends`, with no `SetLive` in its app VDF; preserve those existing delivery paths |
 | Integration/SDK/peer pins | Unselected; [S03-S preparation](spikes/s03-s.md) identifies bundled GodotSteam 4.23/SDK 1.65 and Linux registration, with source transfer-mode/default-channel mismatches. Selection/gameplay/relay remain unproved |
-| Installation/update evidence | Not run; S08 proves tester install/update/launch, M1-D4 repeats with milestone gameplay and retains rollback build identity |
+| Installation/update evidence | Not run; later Steam delivery work proves tester install/update/launch and retains rollback build identity |
 
 App/package entitlement and branch access are separate checks. Depot inclusion
 also affects delivery; a branch password alone does not establish ownership.
@@ -330,12 +315,11 @@ IDs, public sources and local registration from unknown live Steamworks state an
 unperformed transport/device tests. No renewed access request or substitute
 account/hardware is part of this preparation.
 
-These availability facts supplement the ratified decisions above. They do not
-reduce the Steam or Deck requirements, close S03-S/S08/P0-GATE, or waive dependent
-production acceptance. Keep native 1280×800, LCD/OLED, 60 FPS, controller/Gaming Mode
-and existing VCS delivery as design constraints. Public specs and desktop checks
-cannot establish hardware compatibility. The engine pin decision needing exported
-Deck input evidence remains provisional; no pins changed on this basis.
+These availability facts remain relevant to the deferred Steam and Deck targets.
+They do not block the ENet-only Windows/Linux M1. Keep native 1280×800, LCD/OLED,
+60 FPS, controller/Gaming Mode and existing VCS delivery as later-target constraints.
+Public specs and desktop checks cannot establish hardware compatibility. Current
+development remains on Godot 4.8-dev7.
 
 ## Open decisions, owners and closure evidence
 
@@ -345,26 +329,22 @@ through silence. Record each answer/date and any changed scope here.
 
 | Decision | Owner | Evidence and checkpoint |
 | --- | --- | --- |
-| D01 — Scope and gameplay policy ratification | Regner | Closed 7 October: approved the draft defaults with provisional budgets and open Deck pin proof |
-| D02 — Reference hardware/input coverage | Regner (device access), Codex (record) | Reference selection closed: LCD baseline/both models/1280×800/60 FPS confirmed 7 October; Deck controls and desktop scope approved. Device access/installed versions/power settings recorded before S08/S07 tests |
-| D03 — Existing Steam setup | Regner (access), Codex (record) | AppID/depot IDs and intended `fun-things` branch recorded; live setup unknown and explicitly deferred by Regner on 7 October. Complete app type/accounts/package/launch/branch facts before S03-S/S08 Steam proofs; does not block brief ratification |
-| D04 — Development pin | Codex (proof), Regner (decision) | Installed pins/templates publication verified; current pin unchanged. Regner approved leaving exact engine choice open for early S08 Gaming Mode evidence before S02 handheld acceptance |
-| D05 — Camera/control and car envelope | Codex, Regner (feel review) | S02/S03-R/S04 captures, response/correction measurements, corner/aim/drive/recovery tests; settle before P0-GATE |
+| D01 — Scope and gameplay policy ratification | Regner | Closed 7 October and amended 8 October by the linked owner decisions |
+| D02 — Reference hardware/input coverage | Regner (device access), Codex (record) | Windows/Linux desktop are M1 targets as of 8 October; Deck controls and hardware evidence move to later delivery |
+| D03 — Existing Steam setup | Regner (access), Codex (record) | Steam integration/testing is deferred beyond the ENet-only initial game; review session/transport abstraction compatibility now |
+| D04 — Development pin | Codex (proof), Regner (decision) | Stay on Godot 4.8-dev7; Linux confirmation is follow-up and does not block proceeding |
+| D05 — Camera/control and car envelope | Codex, Regner (feel review) | 42° camera and WASD/mouse-facing are selected; validate the control change, car rules and required local prediction |
 | D06 — Art/layout and kit counts | Codex, Regner (direction review) | Concept direction, starting district brief and inventory accepted 7 October in the art/layout records. Dimensions, actual-camera/held-weapon refinement and cost remain S02/S04/S06/S07 evidence before P0-GATE |
 | D07 — Gameplay/network bounds and tuning | Codex | [P0-02 API draft](api-contracts.md) and S03/S03-S/S05 size/rate/load/chain results; ratify draft timeouts and settle damage/ammo/reload/cooldown/wreck/queue limits before P0-GATE |
-| D08 — Renderer, targets and measured budgets | Codex, Regner (scope changes) | S07 Mobile/Forward Plus cost/readability on Deck, S08 Gaming Mode/native exports/templates/Steam compatibility; ratify provisional budgets at P0-GATE, sustained 60 FPS acceptance M1-D3/D4 |
+| D08 — Renderer, targets and measured budgets | Codex, Regner (scope changes) | S07 reports graphical environment cost versus block count as guidance; M1-D3/D4 validate selected Windows/Linux delivery, with Deck later |
 
-Review record, 7 October 2026: Regner selected Steam Deck, 60 FPS and non-realistic
-graphics, then confirmed LCD baseline at 1280×800 with coverage for both models.
-Regner also identified VCS as the source of the existing Steam AppID/depot IDs.
-Regner then approved the remaining draft defaults, with budgets provisional and
-the engine pin open for the Deck proof. Regner reported Steamworks setup as unknown
-and directed that it should not be relevant at this stage. This deliberately defers
-the original P0-01 live-setup requirement to S03-S/S08 and the final engine choice
-to the early S08 Deck proof. Product scope is ratified; those proofs have not run.
-Regner subsequently selected `fun-things` as the intended Steam beta branch.
+Historical review record, 7 October 2026: Regner selected Steam Deck, 60 FPS and
+non-realistic graphics, confirmed LCD/OLED coverage and identified VCS as the source
+of existing Steam IDs. Steamworks setup was unknown and the intended beta branch was
+`fun-things`. The [8 October decisions](reviews/owner-decisions-2026-10-08.md)
+supersede that review's M1 transport, target, pin and gate ordering: ENet-only
+Windows/Linux desktop is M1, Steam and Deck are later, and development stays on 4.8-dev7.
 
-P0-01 is complete with these explicit deferrals and owners. Subsequent tasks use
-this brief and their decision records rather than independent copies of product
-rules. P0-GATE still requires measured feasibility, final pin/renderer decisions
-and the Steam transport/access evidence before production begins.
+P0-01 remains complete. Subsequent tasks use this brief and the dated owner decisions.
+P0-GATE reviews remaining feasibility without making S07 guidance, Linux confirmation,
+Steam/Deck evidence or P0-PROFILES blocking prerequisites.

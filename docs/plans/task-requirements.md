@@ -6,69 +6,51 @@ qualification and enough outcome detail for dispatch.
 
 ## Foundations
 
-- **P0-PROFILES:** Create a small independently reviewed profile set using the existing
-  [proposal](../workflows/p0-profiles-proposal.md), [evidence](../workflows/p0-profiles-evidence.md)
-  and [review](../workflows/p0-profiles-review.md) for readiness. Configuration stays
-  deferred/outside P0-GATE until separately authorized. Then verify exact supported
-  settings/readback and representative launches/effective boundaries; do not install now.
-  Reconcile historical Codex modes/features and stale pending/lease/revisit notes with
-  ROOT's 8 October 15:53Z zero-profile/pi inventory and accepted pi Sol HIGH/Luna HIGH
-  sessions. Those Codex fields are not a pi launch recipe; notes confer no permissions.
-- **S02:** Windows now has exact 1280×800 automatic saved-corner draws (`can_draw:
-  true`) in the [current observation](../spikes/s02-windows-observation.md). Native focus
-  is inconclusive: the original attempt lacked initial foreground, and a corrected gated
-  follow-up could not establish it. A later lane will implement the owner's WASD movement,
-  mouse-facing and building-cutaway removal decision; then physical-key Alt-Tab and camera/
-  control/aim/feel need human ratification. Deck still needs native evidence.
-- **S03-S:** Public API/interface research is accepted; native integration/testing is
-  deferred, not accepted. Eventual proof is admitted gameplay traffic over actual Steam,
-  not lobby success or ENet through a lobby; testing waits for authorized access.
-- **S03-R:** Close drawn owned/remote response and feel; any separately commissioned
-  prediction must share simulation rules and exclude replay side effects. Historical
-  response p95s were measured under the ENet bandwidth defect found in S08; re-measure
-  (Linux and the target platform) before using them for feel decisions. Windows drawn
-  technical response now exists (post-fix p95 123/273/379 ms physics); feel stays open.
-- **S04:** Ratify car handling, dimensions, recovery, seat/control and prediction choices;
-  rerun affected cases after S02 choices. Historical response figures are confounded by
-  the S08 ENet defect. Post-fix Windows drawn runs pass all profiles (p95 90/277/386 ms).
-- **S05:** Drawn eight-slot saturation (8 drawn/4 dropped) and settled late hydration
-  without historical effects now pass on a Windows desktop ([record](
-  ../spikes/s05-windows-draw.md)); the Linux disabled-VSync image attempt remains a
-  consumed historical failure. Remaining: wreck visuals in drawn frames (cars are
-  hidden), any effect cost measurement, Regner's policy ratification and affected
-  final-dimension checks. Cosmetic capacity cannot limit chains; settled hydration
-  is not in-flight proof.
-- **S06:** [Windows proof and drawn route/minimap captures](../spikes/s06-windows-observation.md)
-  passed, but human ratification of layout/crossing/minimap, 42° versus 50° camera and
-  final body envelopes remains open. Partial topology is not production traffic,
-  recovery or capacity evidence.
-- **S07:** Owner-reframed as a visual/graphical environment-size **guidance envelope**,
-  not a requirement or gate; network, AI and population are out of scope because their
-  cost depends on player surroundings. The [environment-scale record](
-  ../spikes/s07-environment-scale.md) measures saved S06 roads plus mixed S02 buildings
-  at 6/24/96/384 blocks with the 42°/47 m moving camera, two capped repeats per passing
-  row. Six, 24 and 96 blocks pass the desktop load/RAM/frame stop limits; the 384-block
-  process crashes before telemetry, making 96 the last observed pass and 384 the first
-  failure. Use fitted per-block cost only for city planning: repeated grey-block assets
-  understate production residency, desktop does not certify Deck, and this result neither
-  expands the six-block M1 district nor waives representative integrated M1-D3 evidence.
-- **S08:** The original-main 20 ms held/resync stall is explained and fixed: the
-  pinned `ENetMultiplayerPeer.create_server` passes its channel count as incoming
-  bandwidth, so client unreliable held input was throttled away. With the
-  S03Transport workaround, the exported saved S08 main passes the full matrix in
-  Windows RELEASE and DEBUG with zero diagnostics ([Windows record](
-  ../spikes/s08-windows-observation.md)). The [upstream write-up and runnable MRP](
-  ../upstream/godot-enet-create-server-bandwidth.md) bind the source defect, workaround,
-  retained output and existing Godot issue. Remaining: a Linux re-run of the original main;
-  the Linux-only release `tree_exited` diagnostics (consistent with open upstream PR
-  #123998), which need an engine fix/pin decision, not `.bind` spelling or suppression;
-  export delivery/target compatibility; ENet with Steam uninstalled/stopped and
-  optional-service failure; Deck/Gaming Mode; graphical/input. Steam/device testing
-  is deferred until access. Historical card/records: [source-first diagnosis](
-  ../spikes/s08-source-diagnosis.md) and [lifecycle](../spikes/s08-release-lifecycle.md).
-- **P0-GATE:** Review foundations and ratify product scope, art/layout/camera/control,
-  implementation contracts and budgets. Partial research/proofs are not acceptance;
-  record unresolved items or explicit scope decisions. P0-PROFILES is not a prerequisite.
+- **P0-PROFILES:** Keep this as a Paseo profiles task for later review. It is
+  non-blocking and outside P0-GATE; do not configure or install profiles now.
+- **S02:** Implement the ratified 47 m, north-up 42° camera and replace tank turning
+  with normalized screen/world-relative WASD movement at 5 m/s, instant start/stop,
+  mouse-ground facing each physics tick and left-click fire. Remove building cutaway;
+  keep held weapon silhouettes. Revalidate focus and control/aim/feel on desktop;
+  gamepad and Deck work are deferred.
+- **S03-S:** The initial game uses ENet only. Review session and transport APIs for
+  a later Steam adapter covering friend joins, lobby identity mapping, reliable and
+  unreliable lanes, and connection lifecycle. Steam-specific implementation and tests
+  are deferred.
+- **S03-R:** Implement required local-character prediction with shared movement rules,
+  replay limited to permitted local simulation, no replay side effects and authoritative
+  corrections winning. Then close drawn owned/remote response and desktop feel. Historical
+  response p95s measured under the S08 ENet defect remain history, not acceptance.
+- **S04:** Add a standalone drive scene for handling review. Cars cannot fire; exit
+  succeeds only below 0.5 m/s and otherwise returns `EXIT_MOVING`; a disconnected
+  driver's car coasts without braking. Local-driver prediction is required under the
+  same replay/correction rules as S03-R. Rerun affected cases after S02 choices.
+- **S05:** Remove the on-screen explosion cap: every explosion receives its effect.
+  Start from 100 car HP, 100 blast damage, 4.1 m radius, no falloff or obstruction,
+  0.1 s chain delay, 5 s wreck duration and friendly fire/self-damage always on.
+  Remeasure effect cost and update saturation evidence without dropped presentations;
+  settled hydration is not in-flight proof.
+- **S06:** The grey-block 9 m roads, 4 m sidewalks and 48 m extent are accepted.
+  The minimap's top-right position is accepted; its size and look are not. Commission
+  and iterate whole-UI mockups, then revalidate layout/crossing/minimap readability.
+  Partial topology is not production traffic or recovery evidence.
+- **S07:** Reframe this as a visual/graphical environment-scaling investigation, not
+  a requirement or capacity gate. Build saved city variants of increasing block counts
+  (for example 6, 24, 96 and 384; stop early at a limit) from existing grey-block sectors
+  and building prefabs. Measure load time, RAM/VRAM, node/static-collider counts and
+  60-capped frame time along a 42° camera route. Report a cost-versus-block envelope,
+  caveating shared grey-block assets versus production-art variety and no Deck result.
+  Network, AI and population are out of scope; budgets are guidance only. Do not repeat
+  the accepted sustained primary-T driver.
+- **S08:** Stay on Godot 4.8-dev7. Keep the S03Transport workaround for the upstream
+  ENet bandwidth defect and retain the offline upstream review; do not file the proposed
+  issue yet. Windows is the current development platform. Linux original-main and
+  Linux-only release-diagnostic confirmation remain follow-up for a Linux machine and
+  do not block proceeding. M1 targets Windows/Linux desktop; Deck is later.
+- **P0-GATE:** Review foundation evidence against the 8 October owner decisions.
+  Do not reopen the ratified camera/control, vehicle, explosion, layout, ENet or target
+  choices without a new owner decision. S07 budgets are guidance, Linux S08 confirmation
+  is follow-up, and P0-PROFILES is not a prerequisite. Record other unresolved items.
 
 ## Checkpoint follow-up
 

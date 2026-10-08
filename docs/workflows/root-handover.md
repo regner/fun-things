@@ -7,35 +7,31 @@ No particular agent platform or delegation tool is required to read it.
 ## Prompt for the receiving agent
 
 > Read `docs/workflows/root-handover.md` completely, then read `AGENTS.md`,
-> `TODO.md` and the linked requirements. Continue Fun Things from the documented
-> state. Verify actual Git HEAD and preserve any unexpected work. The recommended
-> next task is the bounded S08 diagnostic, but its runtime and telemetry/package
-> preparation have **not** been authorized. Obtain that approval before starting
-> those operations. Do not treat this handover as permission for experiments,
-> configuration changes, native repairs or a remote push.
+> `TODO.md`, the linked requirements and the
+> [8 October owner decisions](../reviews/owner-decisions-2026-10-08.md). Verify actual
+> Git HEAD and preserve unexpected work. Continue through the current parent-created
+> lane queue; do not revive superseded experiment recommendations or push remotely.
 
-## Current repository state
+## Current repository state — 8 October 2026
 
-- Repository: `/home/regner/Development/fun-things`; local branch `main`.
-- Last substantive integrated revision before this handover:
-  `ca61520488e0756ae54e27e3615add76fbef1c98`.
-- This document's resolving commit follows that revision and changes only this
-  document. Discover actual HEAD rather than treating the recorded parent as HEAD.
-- Last verified state: clean including untracked files, no Git operation in progress,
-  only the main worktree, and no continuing commissioned workers.
-- No remote push occurred. The recent work was source-only: no engine, editor,
-  native build, service or socket was launched. This does not establish the state
-  or synchronization of an unrelated open editor.
-- `TODO.md` is **63 lines with 27 unfinished tasks**. Its entire contents and the
-  requirements index were reread after integration. Keep TODO concise; detailed
-  acceptance belongs in the owning records and requirements index.
-- There is no active implementation or experiment to resume. The last source-only
-  commission is finished, and work is paused pending the next explicit commission.
+- Main and `s08-enet-bandwidth` are at lane base `4fa669a` (`fix: detect
+  restored-window focus steals`). Verify actual HEAD rather than assuming it stayed there.
+- Development is on Windows 11. Use the Mise-pinned Godot
+  `4.8.dev7.official.c971f93e7`; the owner decided to stay on this pin for now.
+- Orchestration uses pi subagents in parent-created Git worktrees under
+  `C:\GameDev\git\ft-lanes`. Managed subagent worktrees fail on this machine.
+- The [owner decisions](../reviews/owner-decisions-2026-10-08.md) govern current
+  controls, prediction, vehicles, explosion presentation, UI, environment scaling,
+  initial ENet scope, desktop targets, engine pin and non-blocking profile work.
+- Active or queued lanes, in order: S02 fix round; S07 environment scale; UI mockups
+  with GPT-6-Astra; S04 drive scene; S05 explosion uncap; S03-S abstraction review;
+  S02 controls change; then foot and car prediction.
+- Do not push. Parent orchestration owns lane review, integration and cleanup.
 
 On adoption, inspect Git status, HEAD, worktrees and operation markers. Preserve any
 unexpected saved or unsaved work rather than resetting, cleaning, stashing or deleting
 it to match this snapshot. Historical temporary files may be absent; do not assume
-an old `/tmp` path is still a usable input.
+an old temporary path remains usable.
 
 ## Required reading
 
@@ -44,23 +40,16 @@ Read these fully before proposing or starting the next task:
 1. `AGENTS.md`, `TODO.md`, `docs/plans/task-requirements.md`.
 2. `docs/development.md` and `docs/multiplayer.md` for affected implementation and
    validation conventions; `docs/assets.md` before asset/editor-managed work.
-3. `docs/reviews/plan-checkpoints.md` and latest
-   `docs/reviews/plan-check-2026-10-08-09.md`.
-4. `docs/spikes/s08-source-diagnosis.md`, including its **ONE prospective diagnostic
-   card — UNEXECUTED**, and the adjacent evidence README/source ledger.
-5. The S08 records referenced there: `s08-standard-editor-release.md`,
-   `s08-exported-enet-handoff.md`, and `s08-release-lifecycle.md` under `docs/spikes/`.
-6. `docs/spikes/s07-representative-preparation.md`, including its eight proposed
-   preparation slices and D1–D4 user decisions; its adjacent evidence README and
-   `docs/spikes/s07-run-cards.md`.
-7. `docs/reviews/p0-doc14.md` and current discovery supplements in README,
-   development, scene structure and relevant spike documents as needed.
+3. `docs/reviews/owner-decisions-2026-10-08.md` and the active lane brief.
+4. The owning spike, contract, callers, saved data and tests for that lane.
+5. Historical checkpoint and experiment records only when the active task depends
+   on them; they do not supersede the owner decisions.
 
 Inspect relevant callers, saved data, contracts and tests before implementation.
 This handover is not a substitute for the precise experiment card or raw requirements.
 Do not turn adoption into an unsolicited full-codebase audit.
 
-## Recent accepted work
+## Historical accepted work (before the current lane queue)
 
 | Delivery | Integrated revision | Actual outcome |
 | --- | --- | --- |
@@ -74,7 +63,7 @@ locally with linear history. Material fixes and rebases returned to the same rev
 Complete reports, actual check sources/commands/diagnostics, failures and required empty
 streams were retained; integration verified evidence readback and saved cleanliness.
 
-### Evidence access without session history
+### Historical evidence access without session history
 
 Committed records and their ledgers are the starting point. Additional complete
 review/check packages exist as local Git objects attached through Git notes. Notes
@@ -103,10 +92,18 @@ inventory, with two later S03 telemetry changes explicitly distinguished. Its fo
 early static-check failures and retrieval errors remain retained. It made no gameplay,
 fixture, performance, hardware or graphical claim.
 
-## Recommended next task: S08 diagnostic — NOT AUTHORIZED YET
+## Current lane order
 
-The last recommendation was S08's bounded diagnostic observation, not another
-planning task. The user requested a handover instead of approving that runtime work.
+Continue the parent-created lane queue recorded in the current-state section. The
+owner's decisions supersede the prior S08-first recommendation: Linux S08 confirmation
+is follow-up for a Linux machine and does not block current work. Each lane retains
+its own brief, review and integration boundary.
+
+## Historical prior recommendation: S08 diagnostic — superseded
+
+The text below records the prior recommendation only. Do not treat it as current
+direction or authorization. The user previously requested a handover instead of
+approving that runtime work.
 
 Two questions remain distinct:
 
@@ -153,7 +150,7 @@ fixing the problem. Do not close original-main20ms, clean-release or full S08 un
 required evidence actually passes. Missing authority or original inputs is a concrete
 blocker, not permission to improvise another execution route.
 
-## Important failures and limits
+## Historical failures and limits
 
 ### S08
 
