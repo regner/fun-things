@@ -1,0 +1,51 @@
+{
+  "sources": [
+    {
+      "path": "docs/spikes/s08-release-lifecycle-evidence/source/callable_mp.h",
+      "bytes": 10456,
+      "sha256": "5505e66513f8b8ca72f3185adccfd1f1909d0f36b26cdc9b96dccec37e01177f",
+      "url": "https://raw.githubusercontent.com/godotengine/godot/c971f93e7e76b0ef919bf6009e7b868bea04db7f/core/object/callable_mp.h",
+      "retrieval": "curl -fLsS --max-time 20 URL -o PATH; original tool combined streams, not separately captured"
+    },
+    {
+      "path": "docs/spikes/s08-release-lifecycle-evidence/source/gdscript_vm.cpp",
+      "bytes": 131482,
+      "sha256": "6899ac528edc38d716307c7b1d184d920324b03e358fdebc8b9733047aa0600d",
+      "url": "https://raw.githubusercontent.com/godotengine/godot/c971f93e7e76b0ef919bf6009e7b868bea04db7f/modules/gdscript/gdscript_vm.cpp",
+      "retrieval": "curl -fLsS --max-time 20 URL -o PATH; original tool combined streams, not separately captured"
+    },
+    {
+      "path": "docs/spikes/s08-release-lifecycle-evidence/source/marshalls.cpp",
+      "bytes": 55098,
+      "sha256": "5992f2bc9c77827f8cdc518a2f89cb170403577b740fefcfb781c9da872d8477",
+      "url": "https://raw.githubusercontent.com/godotengine/godot/c971f93e7e76b0ef919bf6009e7b868bea04db7f/core/io/marshalls.cpp",
+      "retrieval": "curl -fLsS --max-time 20 URL -o PATH; original tool combined streams, not separately captured"
+    },
+    {
+      "path": "docs/spikes/s08-release-lifecycle-evidence/source/scene_cache_interface.cpp",
+      "bytes": 11692,
+      "sha256": "a1bcead63f35e7d86cef4dd4e461760aa69affcc4393fdc5554eadc6019b0190",
+      "url": "https://raw.githubusercontent.com/godotengine/godot/c971f93e7e76b0ef919bf6009e7b868bea04db7f/modules/multiplayer/scene_cache_interface.cpp",
+      "retrieval": "curl -fLsS --max-time 20 URL -o PATH; original tool combined streams, not separately captured"
+    },
+    {
+      "path": "docs/spikes/s08-release-lifecycle-evidence/source/scene_multiplayer.cpp",
+      "bytes": 27556,
+      "sha256": "71d62fede101f834482346f1066023dbc126596012fcf7d2cb7689480b254494",
+      "url": "https://raw.githubusercontent.com/godotengine/godot/c971f93e7e76b0ef919bf6009e7b868bea04db7f/modules/multiplayer/scene_multiplayer.cpp",
+      "retrieval": "curl -fLsS --max-time 20 URL -o PATH; original tool combined streams, not separately captured"
+    },
+    {
+      "path": "docs/spikes/s08-release-lifecycle-evidence/source/scene_rpc_interface.cpp",
+      "bytes": 21191,
+      "sha256": "cca1423803e1f1cc58570ba9d0c6bd39be22ebaa39a283551aa984889659c6c7",
+      "url": "https://raw.githubusercontent.com/godotengine/godot/c971f93e7e76b0ef919bf6009e7b868bea04db7f/modules/multiplayer/scene_rpc_interface.cpp",
+      "retrieval": "curl -fLsS --max-time 20 URL -o PATH; original tool combined streams, not separately captured"
+    }
+  ],
+  "failed_retrieval": {
+    "url": "https://raw.githubusercontent.com/godotengine/godot/c971f93e7e76b0ef919bf6009e7b868bea04db7f/core/io/multiplayer_api.cpp",
+    "diagnostic": "curl: (22) The requested URL returned error: 404",
+    "raw_stream_limit": "original combined tool output only; no fabricated stderr/exit receipt"
+  }
+}

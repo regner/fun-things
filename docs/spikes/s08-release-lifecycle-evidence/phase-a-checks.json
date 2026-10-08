@@ -1,0 +1,22 @@
+[
+  {
+    "label": "python-compile",
+    "argv": [
+      "python3",
+      "-m",
+      "py_compile",
+      "tools/s08/lifecycle_author.py",
+      "tools/s08/lifecycle_edits.py",
+      "tools/s08/lifecycle_diagnostic.py"
+    ],
+    "exit": 0
+  },
+  {
+    "label": "inverse",
+    "argv": [
+      "python3",
+      "tools/s08/lifecycle_edits.py"
+    ],
+    "exit": 0
+  }
+]
