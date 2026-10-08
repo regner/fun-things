@@ -56,7 +56,7 @@ The empty `callable.cpp` is a failed retrieval, not source evidence; use
 `Callable::get_base_comparator` asks custom callables for a comparator, otherwise
 returns itself (`variant-callable.cpp:241–251`);
 `CallableCustomBind::get_base_comparator` delegates to the underlying callable
-(`callable_bind.cpp:97–99`). Thus the connect `.bind(oid)` versus unbound clear
+(`callable_bind.cpp:90–92`). Thus the connect `.bind(oid)` versus unbound clear
 spelling is **not** a demonstrated identity defect or source-justified fix.
 
 For native method-pointer callables, `callable_mp.h:83–129` comparison data contains
