@@ -481,3 +481,20 @@ No Godot/Blender/editor/service/config/native build, Steam initialization/lobby/
 SDK download, account/depot/device setup, vendor/pin/code/scene/asset mutation or
 runtime validation occurred. Read-only retrieval completed; owned writers become
 quiescent at frozen candidate/review handoff. ROOT alone integrates/archives; no push.
+
+## Accepted-main rebase supplement — 8 October 2026
+
+The original static candidate `507932944974892059b7e0882f5d72158741f81c` was accepted
+by the sole independent Sol6.1 HIGH reviewer `60dbabd5-2679-4494-adef-1fd2b5bffa61`
+on original base/contract `233493abc7d2e3c106fb620105cfb766f542813b`, without findings.
+It remains reachable through `refs/paseo-evidence/s03-s-valve-api-interface-original`.
+ROOT advanced LOCAL main to **`3f5fb4067c5ce5fca721f54d42165a833e4c884c`**, adding only
+the accepted [static drawable discovery](p0-drawable-route.md) and its evidence.
+The actual base delta changes no TODO, Steam/canonical contracts, criteria, code,
+settings/resources or pins and grants no execution or gate closure. One conflict-free
+rebase preserves this research and all source/retrieval/original-check bytes; only
+this supplement and the offline verifier's comparison base are updated afterward.
+No source retrieval, earlier probe or runtime measurement is repeated. Original
+reports/checks stay historical; SAME-reviewer exact-new-HEAD/base disposition and
+complete static rebase/preservation diagnostics are retained in ordinary final-HEAD
+orchestration notes. This metadata creates no extra acknowledgement/review cycle.

@@ -12,7 +12,7 @@ sys.dont_write_bytecode = True
 from extract import DocText, ROOT, SCRATCH, PRIOR
 from snapshot import RANGES, excerpt
 
-BASE = '233493abc7d2e3c106fb620105cfb766f542813b'
+BASE = '3f5fb4067c5ce5fca721f54d42165a833e4c884c'
 REPO = ROOT.parents[2]
 DOC = ROOT.parent / 's03-s-valve-api-interface.md'
 SOURCE_KEYS = {'api-common.h', 'messages.h', 'utils.h', 'gns-readme.md', 'license',
