@@ -50,8 +50,10 @@ qualification and enough outcome detail for dispatch.
   [Source-only representative preparation](../spikes/s07-representative-preparation.md)
   records the pre-P0 mapping and individually commissionable slices. The comparator's
   [fresh-session driver](../spikes/s07-comparator-driver.md) passed 20 compressed
-  standalone trials and a three-trial saved-camera smoke with eight DRAWN slots/four
-  drops each; its six cap/repeat measurements remain unexecuted. Remaining prerequisites:
+  standalone trials and a three-trial saved-camera smoke with the current fixture's
+  eight DRAWN slots/four drops each. Its checks derive drawn/dropped expectations from
+  configured slots and actual explosions, ready for the owner-decided all-effects S05
+  change; its six cap/repeat measurements remain unexecuted. Remaining prerequisites:
   Regner's representation/count/diversity/final-envelope/budget decisions; saved six-block
   content/bakes, real population/player/car/combat lifecycle, four-rig codecs/journal/
   Match reset and named graphical telemetry. No M1 completion mandate or proxy/empty-load

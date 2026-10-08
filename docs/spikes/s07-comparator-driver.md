@@ -32,12 +32,17 @@ the old intent/event are rejected by the new session and the callback/object is
 invalid after observed retirement. Root and all 12 body instance IDs must also differ
 from the previous trial. Literal independent checks require 12 wreck rows, one blast
 per row, 12 completed jobs × 12 visits = 144 visits, peak four target visits per tick,
-eight accepted cosmetics/four drops, zero held/body velocity, and all saved positions
-restored. Loading, first draw, chain and reset spans are separate receipt fields.
+zero held/body velocity, and all saved positions restored. Effect expectations are
+not fixed at eight/four: expected drawn is `min(actual explosions, configured saved
+slot count)` and expected drops are `max(0, actual explosions - configured saved slot
+count)`. The current 12-explosion/eight-slot fixture therefore expects eight/four; a
+12-slot fixture expects all 12/zero. Loading, first draw, chain and reset spans are
+separate receipt fields.
 
 The graphical path instances the existing saved S05 observation camera, subscribes
-to `RenderingServer.frame_post_draw`, and captures only after all eight saved slots
-are visible in-tree with four drops. It records the completed render index, eight
+to `RenderingServer.frame_post_draw`, and captures only after the configured expected
+number of saved slots are visible in-tree with the derived drop count. It records the
+actual explosions, configured slots, derived expectations, completed render index,
 linked mesh nodes, `window_can_draw`, viewport dimensions/hash and a PNG per trial.
 The node hierarchy remains authored in the existing S05 scenes; no new scene was
 hand-authored. The editor was not running and no MCP editor tools were available, so
@@ -56,15 +61,15 @@ drawability and PNG save status.
 ## Development observations
 
 Both commissioned runs used pinned `4.8.dev7.official.c971f93e7`, revision
-`406fcd1771a1df66cc2abef155a33348a4632e65`, fresh output under
+`26e6e16711b0f41a13d45545d6bea84c76c4c0b7`, fresh output under
 `C:\tmp\ft\lanes\c0\`, and clean staged inputs. Import and runtime exited 0 with no
 scanned `ERROR`, `SCRIPT ERROR` or `WARNING`; inputs were preserved and the owned
 child was reaped.
 
 | Group | Schedule and result | Separate phase spans |
 | --- | --- | --- |
-| Headless development | 20/20 fresh standalone trials, compressed `t = 0 + 2k`; all literal gameplay, stale-session, placement, velocity, cleanup and retirement criteria passed. Total driver elapsed 38.803 s. | load 0.017–0.202 s; chain 0.635–0.780 s; reset 0.0007–0.0023 s. First draw is explicitly unavailable headless. |
-| Windowed smoke | 3/3 fresh trials, `t = 0 + 2k`; all gameplay checks plus eight DRAWN saved slots/four drops on every trial. Total driver elapsed 4.890 s. | load 0.032–0.367 s; first draw 0.0019–0.0398 s; chain 0.808–0.824 s; reset 0.0010–0.0018 s. |
+| Headless development | 20/20 fresh standalone trials, compressed `t = 0 + 2k`; all literal gameplay, stale-session, placement, velocity, cleanup and retirement criteria passed. Total driver elapsed 38.803 s. | load 0.021–0.180 s; chain 0.635–0.785 s; reset 0.0006–0.0029 s. First draw is explicitly unavailable headless. |
+| Windowed smoke | 3/3 fresh trials, `t = 0 + 2k`; all gameplay checks plus the configured eight DRAWN saved slots/four derived drops on every trial. Total driver elapsed 4.861 s. | load 0.029–0.374 s; first draw 0.0018–0.0383 s; chain 0.799–0.822 s; reset 0.0009–0.0011 s. |
 
 All three 1280×800 burst captures have the deterministic SHA-256
 `e69bf878890d76ef7b90aa296038ad620d8ebc206095a05ab412dfe5ee5f425c`.
@@ -87,9 +92,13 @@ python -m unittest tools/s07_comparator/test_offline.py
 ## Limits and disposition
 
 C0's executable fresh-session reset/event prerequisite and short saved-camera draw
-smoke pass these development observations. The comparator's planned uncapped/60-capped
-× three-repeat card cases remain unexecuted and still require the card's named build,
-hardware and telemetry launch decision. The smoke is not a frame-cost, VSync,
+smoke pass these development observations. The owner has since decided to remove the
+on-screen explosion cap so every explosion gets an effect. That later S05 change is
+outside this lane; this driver is ready for it because expectations come from the
+fixture's configured slot capacity and actual completed explosions rather than an
+immutable eight/four rule. The comparator's planned uncapped/60-capped × three-repeat
+card cases remain unexecuted and still require the card's named build, hardware and
+telemetry launch decision. The smoke is not a frame-cost, VSync,
 headroom, 600-second capacity, ENet, in-flight join, production VFX, Match reset,
 player death, Linux, Deck, or final-dimension result. It does not change S05 tuning,
 identity limits, gameplay ownership or presentation policy. Full S07, R/G, P0 and M1
