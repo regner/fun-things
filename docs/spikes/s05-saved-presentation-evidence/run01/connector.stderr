@@ -1,0 +1,12 @@
+[godot-mcp] port config: editor=6551 [discovery], runtime=auto [discovery], lsp=43255 [env]
+[bridge] ws://127.0.0.1:6551 connected, authenticating…
+[bridge] ws://127.0.0.1:6551 authenticated (Godot 4.8.0)
+[godot-mcp] readOnly=false tools=36 hooks=1 caps=project/project
+[godot-mcp] tool=project_get_settings duration=10ms isError=false
+[godot-mcp] tool=editor_get_console duration=23ms isError=false
+[godot-mcp] tool=discover_tools duration=4ms isError=false
+[godot-mcp] tool=scene_create duration=3115ms isError=false
+[godot-mcp] tool=scene_open duration=30ms isError=false
+[godot-mcp] tool=scene_create_node duration=25ms isError=false
+[godot-mcp] tool=scene_instantiate duration=4ms isError=true
+[godot-mcp] shutting down: stdin closed by the client

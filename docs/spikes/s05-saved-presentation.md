@@ -144,3 +144,66 @@ Full offline inputs/checks retained. Recoverable tool errors return to the lead;
 each authorized batch saves before subsequent operations. Existing finite authored
 scope/check budgets and one remaining corrective batch apply. No reviewer launch
 until ROOT releases its serialized slot after the implementation or final STOP.
+
+## Final actual disposition: STOPPED before saved implementation
+
+Run03 recorded owned PopenPID558716/start/argv before gating. Normal registry
+replacement completed; exact canonical project/PID/token path, editorWS6551,
+actual editor_hint=true/fullpin/boostfalse matched. Dedicated project/console calls
+authenticated. Complete stderr/console contain `ERROR: The process 555104 does
+not exist or is not a child of the calling process`, at os_unix.cpp823 from
+registry_client.gd139's stale-entry OS.is_process_running check. Registration then
+published the correct owned entry; this is not an auth int/Expression failure.
+The declared readiness error gate stopped before mutation. Connector exited0;
+owned editor received SIGINT/exited-2 and was reaped. No fourth launch or vendor
+repair was attempted. The stale registry cleanup is separately recorded.
+
+**Requested implementation is incomplete.** The only saved scene is the private
+empty Explosion root. New GLB import metadata was engine-generated in that mirror,
+but no linked model, Visuals hierarchy, eight authored slot instances, new adapter,
+saved inherited fixtures, save/reopen roundtrip, explicit new-script compilation,
+public-API/ENet outcome or drawable receipt was completed. Presentation/match/proof/
+editor-helper drafts remain unexecuted preparation and are not production files.
+Draft pinned lint returned four warnings (brace spacing, ordering, function length);
+that failed check is retained, not a verified implementation result. Original
+accepted source/export/imports, project/vendor/pins and technical fixtures are
+byte-preserved. Full S05/P0/M1/S07/input/device/Steam/production gates stay OPEN.
+
+Run01's initialization scan-abort/RID/ObjectDB shutdown diagnostics and lost new
+unsaved Visuals child remain explicit failed history. No original user unsaved work
+was involved. Run02's unrecorded Popen PID limitation remains. Run03's source and
+captured error establish this narrow stopped condition; no broad toolkit, gameplay
+or fresh-settings-root-cause verdict is inferred. A future authoring commission
+needs its own changed condition and ROOT grant; this record grants no retry.
+
+## Subsequent explicit run04 private-cleanup grant (supersedes final STOP intent)
+
+ROOT supplied the same stale-owned-PID registration error from S08 and explicitly
+granted ONE run04 after private stale-registration cleanup, no fifth editor or
+prep/settings/vendor/shared repair. All three earlier STOPs remain failed history.
+New logs `/tmp/s05-author-56eb6b28-run04`; same boostfalse/mirror/Explosion IDs.
+
+Source-validated backing-store lifecycle: registry_client.deregister deletes only
+the project-key entry, acquires projects.json.lock, rebuilds the by_path projection
+from remaining entries, then releases. RegistryEntryFile.delete uses file removal;
+RegistryProjection uses a temporary replacement and removes _key from projected
+rows; FileLock's uncontended record is ownPID:unix timestamp. Installed Node registry
+exports no unregister operation. The narrow external cleanup uses that documented
+private backing-store contract, without vendor edits or another engine. It refuses
+an existing lock/runtime entry, validates canonical key/owned recorded PID before
+deletion, and preserves all unrelated entry bytes. Before JSON and original cleanup
+are retained; the first deletion happened after run03 reaping, before this new grant.
+The subsequent locked readback/rebuild found the own entry already absent. It does
+not retrospectively claim the first cleanup used the toolkit's live deregister API.
+An offline copy starts from the captured ownPID558716 entry plus a literal unrelated
+entry: cleanup removes only the own path, leaves unrelated bytes unchanged and
+projects no old PID. Actual private entry/projection/lock are empty/gone before
+launch. No current/unknown-PID or shared-registry query.
+
+Run04 uses the corrected Popen-before-gate record, normal allocation and <=60s
+owned-registration wait; full context/auth/diagnostic gates apply. The stale-PID
+ERROR must be absent. <=20min saved authoring/remaining one corrective batch;
+save each batch, suitable GLB helper only, actual save/close/reopen APIs and finite
+headless checks follow readiness. Graceful SceneTree shutdown only after empty
+unsaved state lets normal toolkit deregistration run; fallback owned handle2s.
+ONE eventual review, ROOT serialized. No new graphical/source/native grant.

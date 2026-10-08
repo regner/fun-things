@@ -1,0 +1,118 @@
+class_name S05SavedPresentation
+extends S05Presentation
+## Saved cosmetic slots consume the existing live fence and never mutate gameplay.
+
+var cosmetic_tick: int = 0
+var epoch: int = 0
+var visual_peak: int = 0
+var _nodes: Array[Node3D] = []
+var _bodies: Array[S05Car] = []
+var _active: Array[Dictionary] = []
+
+
+## Receives authored slots and pose sources from the parent match coordinator.
+func bind(saved_slots: Array[Node3D], saved_bodies: Array[S05Car]) -> void:
+	assert(saved_slots.size() == MAX_SLOTS)
+	_nodes = saved_slots
+	_bodies = saved_bodies
+	clear()
+
+
+## Advances a local clock even when a replica receives no further host events.
+func _physics_process(_delta: float) -> void:
+	if not session_id.is_empty():
+		advance_cosmetic()
+
+
+## Ages only presentation state by one local physics callback.
+func advance_cosmetic() -> void:
+	cosmetic_tick += 1
+	for index: int in _active.size():
+		if _active[index].busy and _active[index].local_deadline <= cosmetic_tick:
+			_release(index, epoch, _active[index].generation)
+
+
+## Releases authoritative-tick reservations using the unchanged base owner.
+func advance(tick: int) -> void:
+	super.advance(tick)
+	for index: int in _active.size():
+		if _active[index].busy and _active[index].host_deadline <= tick:
+			_release(index, epoch, _active[index].generation)
+
+
+## Shows one saved instance only when the base fence accepts a new reservation.
+func consume(event: Dictionary, revision: int, tick: int) -> bool:
+	if not event.get("car") is int:
+		return false
+
+	var car_index: int = event.car - S05Damage.CAR_ID_START
+	if car_index < 0 or car_index >= _bodies.size() or _nodes.size() != MAX_SLOTS:
+		return false
+
+	var previous: int = accepted
+	if not super.consume(event, revision, tick):
+		return false
+
+	if accepted == previous:
+		return true
+
+	for index: int in _active.size():
+		if not _active[index].busy:
+			var slot: Dictionary = _active[index]
+			slot.generation += 1
+			slot.busy = true
+			slot.host_deadline = tick + LIFETIME_TICKS
+			slot.local_deadline = cosmetic_tick + LIFETIME_TICKS
+			_nodes[index].global_position = _bodies[car_index].global_position
+			_nodes[index].visible = true
+			visual_peak = maxi(visual_peak, visible_count())
+			return true
+
+	assert(false, "saved slots and base reservations diverged")
+	return false
+
+
+## Hides every slot and invalidates all prior lifetime callback identities.
+func clear() -> void:
+	super.clear()
+	epoch += 1
+	cosmetic_tick = 0
+	visual_peak = 0
+	_active.clear()
+	for node: Node3D in _nodes:
+		node.visible = false
+		_active.append({"busy": false, "generation": 0,
+			"host_deadline": 0, "local_deadline": 0})
+
+
+## Returns actual saved instance state without claiming renderer draw receipts.
+func visible_count() -> int:
+	var count: int = 0
+	for node: Node3D in _nodes:
+		if node.visible:
+			count += 1
+
+	return count
+
+
+## Exposes finite identity/deadline telemetry for independent lifetime checks.
+func receipt() -> Dictionary:
+	return {"epoch": epoch, "tick": cosmetic_tick, "visible": visible_count(),
+		"visual_peak": visual_peak, "instances": _nodes.size(),
+		"active": _active.duplicate(true)}
+
+
+## Rejects obsolete epoch/generation callbacks before releasing a reused slot.
+func _release(index: int, expected_epoch: int, expected_generation: int) -> void:
+	if expected_epoch != epoch or index < 0 or index >= _active.size():
+		return
+
+	var slot: Dictionary = _active[index]
+	if not slot.busy or slot.generation != expected_generation:
+		return
+
+	slot.busy = false
+	_nodes[index].visible = false
+	var reservation: int = slots.find(slot.host_deadline)
+	if reservation >= 0:
+		slots.remove_at(reservation)

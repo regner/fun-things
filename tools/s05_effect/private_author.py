@@ -17,8 +17,10 @@ BASE = 'ef730df936b5b159f0894033f5d01e2b7124386c'
 RUN = Path('/tmp/s05-author-56eb6b28-run01')
 CONTINUE = '--continue' in sys.argv
 FINAL = '--final' in sys.argv
-CONTINUE = CONTINUE or FINAL
-LOG = Path('/tmp/s05-author-56eb6b28-run03' if FINAL else
+AFTER_CLEANUP = '--after-cleanup' in sys.argv
+CONTINUE = CONTINUE or FINAL or AFTER_CLEANUP
+LOG = Path('/tmp/s05-author-56eb6b28-run04' if AFTER_CLEANUP else
+           '/tmp/s05-author-56eb6b28-run03' if FINAL else
            '/tmp/s05-author-56eb6b28-run02') if CONTINUE else RUN
 ENGINE = '/home/regner/.local/share/mise/installs/github-godotengine-godot-builds/4.8-dev7/godot'
 PACKAGE = Path('/home/regner/.npm/_npx/ea3a09a27b3d1af0/node_modules')
