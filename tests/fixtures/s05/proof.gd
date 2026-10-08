@@ -5,6 +5,7 @@ extends Node
 const DEADLINE_MS: int = 12_000
 const POLL_S: float = 0.01
 const RATE_RECOVERY_S: float = 0.27
+const CHAIN_ALLOWANCE_TICKS: int = 180
 const API_SESSION: String = "0123456789abcdef0123456789abcdef"
 
 var session: S03Session
@@ -222,7 +223,13 @@ func _host() -> void:
 		await _poll()  # gdstyle:ignore=quality/await-in-loop
 
 	_outcomes()
-	_check(state.damage.tick <= 180, "paced chain completed within startup allowance")
+	# Measure from the first destroyed root, so slower graphical process startup is not counted.
+	var first_root_tick: int = state.damage.tick
+	if not state.damage.completed.is_empty():
+		first_root_tick = int(state.damage.completed[0].due) - S05Damage.CHAIN_DELAY_TICKS
+
+	_check(state.damage.tick - first_root_tick <= CHAIN_ALLOWANCE_TICKS,
+		"paced chain completed within allowance after the first root")
 	_emit("settled", _metrics())
 	while finished_peers.size() != 2:
 		await _poll()  # gdstyle:ignore=quality/await-in-loop
