@@ -417,7 +417,8 @@ implementation. Save editor mutations before playtests; preserve unsaved work.
   and [accepted district brief](docs/world-layout.md).
   Partial bounded saved two-sector experiment recorded in [S06](docs/spikes/s06.md),
   with [contract](docs/spikes/s06-contracts.md), [source handoff](docs/spikes/s06-source-handoff.md)
-  and [raw evidence](docs/spikes/s06-evidence/README.md); independent exact review pending.
+  and [raw evidence](docs/spikes/s06-evidence/README.md); substantive review/fixes retained.
+  Delivered HEAD’s lossless Git note records the same reviewer’s exact-final disposition.
   Use explicit
   provisional actor/car/camera assumptions; the S04 one-second steering displacement
   is not a full turn radius or swept corridor. Measure both driving directions,

@@ -44,7 +44,7 @@ only the supplied controlled-body marker. No independently authored map street l
 Bounds:64 anchors,128 links,16 controls/link,128 m control-polygon length/link,
 fixed0.25 m bake interval,64 visited nodes,64 returned links/4096 route samples.
 BFS scans at most64×128 links. Each curve allocation is bounded before engine baking;
-all vectors must be finite. Derived minimap total samples <=4096. Controller nearest
+all vectors and positive ROAD widths must be finite. Derived minimap total samples <=4096. Controller nearest
 search <=32 samples/tick, lookahead <=4096 samples/tick worst case. These are finite
 spike limits, not production performance budgets or population capacity results.
 
@@ -94,8 +94,9 @@ to validate with accepted M1 bodies/world/lifecycle owners, not product ratifica
 - Blockage: host clearance query includes World/Actor/Vehicle/Wreck. Stop intent
   before the blocked link; retry at most twice/second for2 s, then at most two route
   replans per10 s. Never invent an off-road bypass or teleport through collision.
-- Junction/crossing: host reserves the bounded junction conflict zone before entry;
-  eight waiting requests maximum, order by accepted tick then EntityRef. One holder
+- Junction/crossing: host reserves the provisional XZ[-8.5,8.5]×[-8.5,8.5] junction
+  conflict zone before entry; eight waiting requests
+  maximum, order by accepted tick then EntityRef. One holder
   for this starting policy,8 s car/4 s foot lease. Expiry stops intent but cannot
   grant another actor while actual query shows the zone occupied. Release on actual
   cleared exit or coherent lifecycle cancellation; controller ownership/life/control

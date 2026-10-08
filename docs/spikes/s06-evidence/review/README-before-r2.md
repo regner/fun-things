@@ -22,7 +22,7 @@ refs and exact per-run fingerprints rather than redundant complete copies.
   graceful main quit, first editor signal11/crash, owned completed Blender teardown
   stops, single exact-pin recovery, script preparation history, commands, raw
   stdout/stderr/exits, source/resource ledgers and live saved/inherited roundtrips.
-- `raw-task.txt`, sibling [raw-s06-todo.md](raw-s06-todo.md), and
+- `raw-task.txt`, `raw-s06-todo.md` one directory above, and
   `tool-diagnostic-history.json`: original request/premeasurement task plus raw
   tool-returned diagnostic history (including early style findings and tool limits).
 
@@ -36,14 +36,3 @@ amendment. Full experiment and remaining rows are in [S06](../s06.md).
 
 No runtime-drawn visual/input-feel, wreck-contact, production traffic, network,
 capacity, Steam or Deck outcome is represented by this evidence.
-
-Full independent REQUEST CHANGES report and all216 substantive review inputs are
-retained losslessly in `review/substantive-report.md`, complete
-`review/substantive-manifest.json`, and verified `review/substantive-artifacts.tar.gz`.
-R1 finite road width and R2 index/manifest findings have separate correction history.
-`review/README-before-r2.md` and `review/source-fingerprints-before-r1.json` retain
-old payloads and hashes of the two replaced ledger entries; all359 original entries
-remain indexed. New targeted content and all58-script checks are in `s06-r1-content`
-and `s06-r1-checks`; no unchanged trajectory rerun accompanies those fixes.
-Exact final same-reviewer report and actual new checks are retained losslessly in
-`refs/notes/paseo-orchestration` on delivered HEAD, with byte/hash readback.
