@@ -26,6 +26,7 @@ DRAW_SECONDS = 20.0
 FOCUS_SECONDS = 12.0
 CLEANUP_SECONDS = 2.0
 POLL_SECONDS = 0.05
+FOREGROUND_SUSTAIN_SECONDS = 0.25
 MAX_FOCUS_ATTEMPTS = 2
 
 
@@ -123,7 +124,7 @@ def stop_child(child):
     return actions, child.poll() is not None
 
 
-def run_window(project, folder, godot, arguments, deadline_seconds):
+def run_window(project, folder, godot, arguments, deadline_seconds, focus_gate=None):
     """Launch one graphical child and retain foreground ownership throughout its lifetime."""
     folder.mkdir(parents=True)
     command = [
@@ -153,11 +154,22 @@ def run_window(project, folder, godot, arguments, deadline_seconds):
             env=environment(folder / "user"),
         )
         timed_out = False
+        foreground_since = None
         while child.poll() is None and time.monotonic() - started < deadline_seconds:
+            now = time.monotonic()
+            foreground = foreground_window()
             timeline.append({
-                "offset_seconds": time.monotonic() - started,
-                **foreground_window(),
+                "offset_seconds": now - started,
+                **foreground,
             })
+            if focus_gate is not None:
+                if foreground.get("pid") == child.pid:
+                    foreground_since = foreground_since or now
+                    if now - foreground_since >= FOREGROUND_SUSTAIN_SECONDS:
+                        focus_gate.touch(exist_ok=True)
+                else:
+                    foreground_since = None
+                    focus_gate.unlink(missing_ok=True)
             time.sleep(POLL_SECONDS)
         if child.poll() is None:
             timed_out = True
@@ -184,13 +196,41 @@ def run_window(project, folder, godot, arguments, deadline_seconds):
     }
 
 
+def stage_offset(attempt, stage_name):
+    """Return one fixture stage on the child process clock, including startup time."""
+    matches = [
+        row for row in attempt.get("stage_markers", []) if row.get("stage") == stage_name
+    ]
+    return matches[-1]["process_ms"] / 1000.0 if matches else None
+
+
+def sustained_native_focus(attempt, stage_name):
+    """Require continuous child foreground ownership immediately before a fixture stage."""
+    marker = stage_offset(attempt, stage_name)
+    if marker is None:
+        return False
+    own_pid = attempt["process"]["pid"]
+    owned = []
+    for row in reversed(attempt["process"]["foreground_timeline"]):
+        if row["offset_seconds"] > marker:
+            continue
+        if row.get("pid") != own_pid:
+            break
+        owned.append(row["offset_seconds"])
+    return bool(owned) and max(owned) - min(owned) >= FOREGROUND_SUSTAIN_SECONDS
+
+
 def foreign_focus_stolen(attempt):
-    """Detect a sustained new foreign foreground owner during the restore/check interval."""
+    """Detect sustained new foreign ownership between actual restore and check markers."""
+    restore = stage_offset(attempt, "restore")
+    check = stage_offset(attempt, "check")
+    if restore is None or check is None:
+        return False
     own_pid = attempt["process"]["pid"]
     before_pid = attempt["process"]["foreground_before"].get("pid")
     run = 0
     for row in attempt["process"]["foreground_timeline"]:
-        if not 3.25 <= row["offset_seconds"] <= 4.75:
+        if not restore <= row["offset_seconds"] <= check:
             continue
         pid = row.get("pid")
         if pid not in (None, 0, own_pid, before_pid):
@@ -238,19 +278,30 @@ def collect_focus(project, output, godot):
     attempts = []
     for index in range(1, MAX_FOCUS_ATTEMPTS + 1):
         folder = output / f"focus-{index}"
-        process = run_window(project, folder, godot, [FOCUS_SCENE], FOCUS_SECONDS)
+        gate = output / f"focus-{index}-native-focus.gate"
+        arguments = [FOCUS_SCENE, "--", "--focus-gate=" + str(gate)]
+        process = run_window(
+            project, folder, godot, arguments, FOCUS_SECONDS, focus_gate=gate
+        )
         rows = prefixed_rows(folder / "stdout.log", "S02_FOCUS_RESULT ")
         samples = prefixed_rows(folder / "stdout.log", "S02_FOCUS ")
+        stages = prefixed_rows(folder / "stdout.log", "S02_FOCUS_STAGE ")
         fixture_result = rows[-1] if rows else None
         attempt = {
             "process": process,
             "fixture_result": fixture_result,
+            "stage_markers": stages,
             "sample_count": len(samples),
             "samples": samples,
         }
+        gate.unlink(missing_ok=True)
+        initial_focus = sustained_native_focus(attempt, "press") and sustained_native_focus(
+            attempt, "minimize"
+        )
         attempt["foreign_focus_stolen"] = foreign_focus_stolen(attempt)
         criteria = {
             "fixture_result": fixture_result is not None,
+            "initial_native_focus": initial_focus,
             "focus_out_in": fixture_result is not None
             and fixture_result.get("os_focus_loss") is True
             and not fixture_result.get("failures"),
@@ -262,6 +313,14 @@ def collect_focus(project, output, godot):
         }
         attempt["criteria"] = criteria
         attempt["ok"] = all(criteria.values())
+        if not initial_focus:
+            attempt["classification"] = "inconclusive: initial native focus not established"
+        elif attempt["foreign_focus_stolen"]:
+            attempt["classification"] = "inconclusive: foreign foreground owner"
+        elif attempt["ok"]:
+            attempt["classification"] = "pass"
+        else:
+            attempt["classification"] = "fail"
         attempts.append(attempt)
         if attempt["ok"] or not attempt["foreign_focus_stolen"]:
             break
@@ -278,6 +337,9 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--godot", default=shutil.which("godot"))
     parser.add_argument("--output", type=Path)
+    parser.add_argument(
+        "--focus-only", action="store_true", help="skip the already-established draw observation"
+    )
     args = parser.parse_args()
     if platform.system() != "Windows":
         parser.error("this observation requires Windows")
@@ -352,7 +414,8 @@ def main():
         summary["import"] = {"exit": code, "diagnostics": diagnostics}
         if code != 0 or diagnostics:
             raise RuntimeError("import failed or reported diagnostics")
-        summary["draw"] = collect_draw(project, output, args.godot)
+        if not args.focus_only:
+            summary["draw"] = collect_draw(project, output, args.godot)
         summary["focus"] = collect_focus(project, output, args.godot)
     except (OSError, RuntimeError, subprocess.SubprocessError) as error:
         summary["failure"] = str(error)
@@ -364,7 +427,7 @@ def main():
     criteria = {
         "clean_inputs": not dirty,
         "inputs_preserved": unchanged,
-        "draw": summary.get("draw", {}).get("ok", False),
+        "draw": args.focus_only or summary.get("draw", {}).get("ok", False),
         "focus": summary.get("focus", {}).get("ok", False),
     }
     summary["criteria"] = criteria
