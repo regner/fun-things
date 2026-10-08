@@ -1,0 +1,24 @@
+{
+  "required_paths": [
+    "staged-input.json",
+    "cache-config-readback.json",
+    "proxy.jsonl",
+    "traffic.jsonl",
+    "result.json",
+    "host/command.json",
+    "host/stdout.log",
+    "host/stderr.log",
+    "host/engine.log",
+    "client/command.json",
+    "client/stdout.log",
+    "client/stderr.log",
+    "client/engine.log",
+    "release-supervisor.command.json",
+    "release-supervisor.stdout",
+    "release-supervisor.stderr"
+  ],
+  "required_empty": [
+    "release-supervisor.stderr"
+  ],
+  "executed_source_revision": "a5756b4b6126a5c9756de981b39fdadc35f3c8fe"
+}

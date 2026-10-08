@@ -1,0 +1,47 @@
+[
+  {
+    "label": "base43-paths",
+    "argv": [
+      "git",
+      "diff",
+      "--name-status",
+      "233493abc7d2e3c106fb620105cfb766f542813b",
+      "3f5fb4067c5ce5fca721f54d42165a833e4c884c"
+    ],
+    "exit": 0
+  },
+  {
+    "label": "base65-paths",
+    "argv": [
+      "git",
+      "diff",
+      "--name-status",
+      "3f5fb4067c5ce5fca721f54d42165a833e4c884c",
+      "30471e6ae4c4ecbe01ce13313cd6d14c3b701bae"
+    ],
+    "exit": 0
+  },
+  {
+    "label": "base65-TODO",
+    "argv": [
+      "git",
+      "diff",
+      "3f5fb4067c5ce5fca721f54d42165a833e4c884c",
+      "30471e6ae4c4ecbe01ce13313cd6d14c3b701bae",
+      "--",
+      "TODO.md"
+    ],
+    "exit": 0
+  },
+  {
+    "label": "runtime-ref",
+    "argv": [
+      "git",
+      "update-ref",
+      "refs/s08-release-lifecycle/wks_994c911f32d1485c/runtime-inputs",
+      "68f5436",
+      "0000000000000000000000000000000000000000"
+    ],
+    "exit": 0
+  }
+]

@@ -1,0 +1,24 @@
+{
+  "argv": [
+    "python3",
+    "tools/s08/lifecycle_diagnostic.py",
+    "--output",
+    "/tmp/s08-lifecycle-release-set02",
+    "--revision",
+    "a5756b4b6126a5c9756de981b39fdadc35f3c8fe",
+    "--author-project",
+    "/tmp/s08-lifecycle-author/state/project",
+    "--release-bundle",
+    "/tmp/s08-lifecycle-release01",
+    "--release-pck-sha256",
+    "43cc8236fcb7a06f328c28cf45fed752d6630e1699ebea04e68e34d9aa40e3d7"
+  ],
+  "cwd": "/home/regner/.paseo/worktrees/0u71f39f/s08-release-lifecycle-diagnosis",
+  "start_monotonic": 98572.541622021,
+  "exit": 1,
+  "end_monotonic": 98575.188793797,
+  "aggregate_seconds": 2.6471717759995954,
+  "within_27s": true,
+  "combined_seconds": 5.2775637909944635,
+  "combined_within_30s": true
+}

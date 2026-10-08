@@ -1,0 +1,35 @@
+diff --git a/TODO.md b/TODO.md
+index f382591..28dc00c 100644
+--- a/TODO.md
++++ b/TODO.md
+@@ -121,12 +121,15 @@ feature expansion, repeated unchanged experiment or silent contract/pin change.
+   Needs: [S03 boundary](docs/spikes/s03.md), existing-app brief,
+   [preparation](docs/spikes/s03-s.md) and
+   [accepted stopped compatibility probe](docs/spikes/s03-s-compatibility.md).
+-  Remaining: pinned exact-engine integration with compatible modes/channels/limits,
+-  account/peer mapping and native cancel/drain lifecycle. Upstream compatibility
+-  evidence can proceed; no adapter, five-lane setting or contract weakening is selected.
+-  [Exact upstream source evidence](docs/spikes/s03-s-upstream-peer-evidence.md)
+-  assesses three immutable peers; none meets the unchanged streams/bounds/lifecycle.
+-  Remaining decision: separately commission the native-boundary design or keep Steam unavailable.
++  [Accepted upstream evidence](docs/spikes/s03-s-upstream-peer-evidence.md) assesses
++  three immutable peers; none meets the unchanged streams/bounds/lifecycle.
++  [Valve API/interface proposal](docs/spikes/s03-s-valve-api-interface.md) maps public
++  APIs and specifies a narrow native boundary; it selects no integration or pin.
++  Remaining: separately commission exact SDK/native/Godot applicability, bounded
++  ownership/receipt and correlated callback retirement before implementation, or
++  keep Steam unavailable. Preserve four streams/modes/limits and admission ownership;
++  no five-lane workaround, reliable fallback or assumed drain. Actual Steam testing
++  is postponed; the live prerequisites/proof below remain deferred, not waived.
+   Before live proof, verify app type/release state, distinct authorized testers/package
+   entitlement, depot OS/package inclusion and launch settings; confirm/create the
+   intended private branch and record its install/access route. No new app required.
+@@ -514,7 +517,7 @@ Owner roles: validation/tooling worker (D1/D3), gameplay/review workers with Reg
+ 
+ | Ready or stage | Parallel work | Gates |
+ | --- | --- | --- |
+-| Ready bounded preparation | S03-S upstream compatibility evidence; S07 static inventory/run-card work; S08 runner follow-up; P0-PROFILES dated-notes reconciliation | Named owners/budgets and scoped grants; pending output is not accepted evidence |
++| Ready bounded preparation | S03-S [public API/interface record](docs/spikes/s03-s-valve-api-interface.md), then separately commissioned native prerequisites; S07 static inventory/run-card work; S08 runner follow-up; P0-PROFILES dated-notes reconciliation | Named owners/budgets and scoped grants; pending output is not accepted evidence |
+ | Drawable fixtures | Remaining S02/S03-R/S04 response/focus/readability/feel; S05 effects; S06 camera/map readability | Changed authorized surface/lease; final dimensions and Regner ratification; no identical stopped retry |
+ | Representative loads | S07 capacity/culling experiments; S08 exact exports | Actual content/effects/drawability and named hardware; Deck and multi-account Steam remain deferred |
+ | Production after P0-GATE | M1-A shell/settings and M1-C1 approved art families; then B1/B2 and accepted sector subsets | B3 needs vehicles/damage; C3 needs routes/actors/control transfer; D/GATE need integrated evidence |

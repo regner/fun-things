@@ -1,0 +1,37 @@
+{
+  "argv": [
+    "/usr/bin/stdbuf",
+    "-oL",
+    "/tmp/s08-lifecycle-release01/export-folder/FunThingsS08.x86_64",
+    "--headless",
+    "--log-file",
+    "/tmp/s08-lifecycle-release-set02/host/engine.log",
+    "--",
+    "--role=host",
+    "--port=58527"
+  ],
+  "cwd": "/tmp/s08-lifecycle-release01/export-folder",
+  "start_monotonic": 98572.749719004,
+  "environment": {
+    "XDG_CONFIG_DIRS": "/home/regner/.config/kdedefaults:/etc/xdg",
+    "XDG_SESSION_PATH": "/org/freedesktop/DisplayManager/Session1",
+    "XDG_MENU_PREFIX": "plasma-",
+    "XDG_SEAT": "seat0",
+    "XDG_SESSION_DESKTOP": "KDE",
+    "XDG_SESSION_TYPE": "wayland",
+    "XDG_CURRENT_DESKTOP": "KDE",
+    "XDG_SEAT_PATH": "/org/freedesktop/DisplayManager/Seat0",
+    "XDG_SESSION_CLASS": "user",
+    "XDG_VTNR": "2",
+    "XDG_SESSION_ID": "2",
+    "XDG_RUNTIME_DIR": "/tmp/s08-lifecycle-release-set02/host/user/runtime",
+    "XDG_DATA_DIRS": "/tmp/.mount_Paseo-gLG4F3/usr/share/:./share/:/usr/share/gnome:/usr/local/share/:/usr/share/:/tmp/.mount_Paseo-47w5nb/usr/share/:./share/:/usr/share/gnome:/usr/local/share/:/usr/share/:/home/regner/.local/share/flatpak/exports/share:/var/lib/flatpak/exports/share:/usr/local/share/:/usr/share/:/usr/share/gnome/:/usr/local/share/:/usr/share/:/usr/share/gnome/:/usr/local/share/:/usr/share/",
+    "XDG_CONFIG_HOME": "/tmp/s08-lifecycle-release-set02/host/user/config",
+    "XDG_DATA_HOME": "/tmp/s08-lifecycle-release-set02/host/user/data",
+    "XDG_CACHE_HOME": "/tmp/s08-lifecycle-release-set02/host/user/cache"
+  },
+  "home_unchanged": true,
+  "pid": 699737,
+  "exit": 0,
+  "reaped": true
+}

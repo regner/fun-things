@@ -260,19 +260,19 @@ feature expansion, repeated unchanged experiment or silent contract/pin change.
 - [ ] **S08 — First-target export and service compatibility.**
   Owner: export/service proof worker; Regner owns device/access evidence.
   Needs: [target/pin brief](docs/design.md), S01/S03 evidence, S03-S and
-  [desktop preparation](docs/spikes/s08.md).
-  Remaining desktop work: complete exported ENet held/resync health70, replication,
-  clean teardown and observed traffic using the accepted saved public APIs. The
-  [standard-editor/release record](docs/spikes/s08-standard-editor-release.md#bounded-addon-free-outcomes-and-exported-enet-stop)
-  is accepted bounded partial at52941da: saved entrypoint/journal mutation and
-  asset/API positives; historical authoring shutdown/exported-host STOPs remain failed.
-  The [exported handoff follow-up](docs/spikes/s08-exported-enet-handoff.md#first-changed-condition-set-handoff-positive-runtime-stop)
-  records launcher-only live readiness/client start and
-  baseline/admission journal70 progress, then two exit1 deadlines/six client signal
-  errors. Explain release client lifecycle loss during held validation alongside
-  `tree_exited` diagnostics under a new scoped grant; no identical retry or diagnosis
-  inferred. Runner readiness/absolute-budget/resilient-cleanup review fixes are
-  validated offline only; full exported ENet remains open.
+  [desktop preparation](docs/spikes/s08.md), [saved entrypoint/assets](docs/spikes/s08-standard-editor-release.md#bounded-addon-free-outcomes-and-exported-enet-stop)
+  and [lifecycle diagnosis](docs/spikes/s08-release-lifecycle.md).
+  Remaining desktop work: clean release native-cache teardown and the original saved
+  S08 main's full exported ENet proof. New minimal S03 release evidence completes
+  held/resync health70, authority/expiry, replication and observed traffic, but strict
+  diagnostics fail on two host/six client `tree_exited` errors. The historical
+  [saved-main stall](docs/spikes/s08-exported-enet-handoff.md#first-changed-condition-set-handoff-positive-runtime-stop)
+  was not reproduced; no causal gameplay fix is established. Under a new scoped grant,
+  localize actual release cache registration/comparison and the original entrypoint's
+  first stalled boundary/close reason. Bound/unbound callable spelling alone is not
+  an identity defect: Godot keys the base comparator. Preserve unconditional release
+  mutation, health70/admission/recovery and traffic expectations; require error-free
+  bounded teardown. No identical retry, error suppression or inferred diagnosis.
   Preserve original [release observation failure](docs/spikes/s08-linux-observation.md#actual-stopped-observation),
   [private authoring STOP](docs/spikes/s08-release-entrypoint.md#actual-private-authoring-stop)
   and authoring-shutdown diagnostics. Static PCK membership is not runtime resolution;
@@ -523,7 +523,7 @@ Owner roles: validation/tooling worker (D1/D3), gameplay/review workers with Reg
 
 | Ready or stage | Parallel work | Gates |
 | --- | --- | --- |
-| Ready bounded preparation | S03-S [public API/interface record](docs/spikes/s03-s-valve-api-interface.md), then separately commissioned native prerequisites; S07 primary T hardware/build/telemetry preparation using the saved-reload driver; S08 runner follow-up; P0-PROFILES dated-notes reconciliation | Named owners/budgets and scoped grants; S07 graphical T still needs authorized drawability; pending output is not accepted evidence |
+| Ready bounded preparation | S03-S [public API/interface record](docs/spikes/s03-s-valve-api-interface.md), then separately commissioned native prerequisites; S07 primary T hardware/build/telemetry preparation using the saved-reload driver; S08 release-cache/entrypoint diagnosis; P0-PROFILES dated-notes reconciliation | Named owners/budgets and scoped grants; S07 graphical T still needs authorized drawability; pending output is not accepted evidence |
 | Drawable fixtures | Remaining S02/S03-R/S04 response/focus/readability/feel; S05 effects; S06 camera/map readability | Changed authorized surface/lease; final dimensions and Regner ratification; no identical stopped retry |
 | Representative loads | S07 capacity/culling experiments; S08 exact exports | Actual content/effects/drawability and named hardware; Deck and multi-account Steam remain deferred |
 | Production after P0-GATE | M1-A shell/settings and M1-C1 approved art families; then B1/B2 and accepted sector subsets | B3 needs vehicles/damage; C3 needs routes/actors/control transfer; D/GATE need integrated evidence |

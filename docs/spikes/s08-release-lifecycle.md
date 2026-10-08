@@ -12,7 +12,24 @@ its `refs/notes/paseo-orchestration` note. All 189 decoded retained payloads wer
 read back against their bytes/SHA256; old evidence is referenced, not reconstructed
 from missing temporary files or recursively packed. Prior STOPs remain failures.
 
-## Phase A: ownership and qualified findings
+## Current result and material source correction
+
+Both new diagnostic sets complete the original S03 gameplay matrix. RELEASE remains
+**strict diagnostic FAIL** with two host/six client `tree_exited` errors. No gameplay
+fix is implemented, historical stalling is not reproduced, and no sole cause is
+claimed. The original S08 saved main/assets were not rerun.
+
+**Superseded interpretation:** the initial bound-versus-unbound callable observation
+below is NOT a demonstrated cache identity mismatch. Follow-through of exact dev7
+`Object::connect`/`_disconnect` shows both key by `get_base_comparator()`;
+`CallableCustomBind::get_base_comparator()` delegates to the underlying callable.
+Merely adding `.bind(oid)` to disconnect is therefore not a source-justified fix.
+The earlier tentative interpretation remains in protocol commit `79997a5` and raw
+coordination history, explicitly superseded here. Native SceneCache owns the signal
+operations; the release-only registration/comparison failure mechanism is still
+unproved. This correction must accompany any downstream handoff.
+
+## Phase A: ownership and initial tentative interpretation (superseded)
 
 S03 Session alone changes phase, closes peers and owns admission/operation mapping.
 Its `_host_lost` initiates HOST_LOST; provider `close` waits 20ms before correlated
@@ -23,8 +40,10 @@ Proof awaits paced timers/helpers and never awaits `tree_exited`.
 Exact dev7 public native source reveals a different `tree_exited` owner:
 `SceneCacheInterface::_track` connects `_remove_node_cache.bind(oid)`; `clear`
 disconnects the unbound callable. `SceneMultiplayer::set_multiplayer_peer` calls
-clear during peer replacement. This is a qualified native connection mismatch,
-not a demonstrated sole cause of gameplay loss. No engine/vendor change is allowed.
+clear during peer replacement. Initially this was described as a qualified native
+connection mismatch; the comparator follow-through above supersedes that reading.
+It identifies the native owner, not an identity defect or gameplay-loss cause.
+No engine/vendor change is allowed.
 The historical host reports an ACTIVE deadline before the runner stops; client
 full-stream readback later reports IDLE. That does not establish IDLE as the primary
 fault: a stalled held/resync proof could make the host quit, followed by HOST_LOST
@@ -190,6 +209,52 @@ Actual full package/readback identities and export streams are retained before t
 second runtime; `release-launch.py` binds exact argv/source revision/PCK hash and
 measures 27s aggregate/30s combined independently of the child supervisor timer.
 
-Full exported ENet, historical shutdown, Steam absent/native/external transport,
-Windows/Deck/Gaming Mode/input/feel/drawability/performance/private install and full
-S08/P0/M1/production gates remain open.
+## Final RELEASE observation and decision
+
+Second/final runtime uses exact bound minimal S03 package. Aggregate runtime/setup/
+cleanup/readback is 2.647172s; both sets total 5.277564s. Host699737/client699759 both
+exit0 and are normally reaped with no signal fallback, socket and streams closed.
+Original host/client case matrices and all 12 held outcomes pass; independent
+literal trace checks also confirm exactly two consumed valid inputs, provisional/
+ownership/invalid/window rejection, neutral expiry, preserved health/control during
+resync, five received motion RPCs and actual five-datagram recovery schedule.
+Existing unconditional proof checks establish cut75/journal70/admission/resync70
+and movement-preserved70; this is not debug-assert credit. Actual transport receives
+123 datagrams/9665 bytes and sends 122/9419; the dropped datagram is 246 bytes.
+
+Strict release supervisor exits1: two host disconnect-nonexistent errors; client
+four disconnect-nonexistent and two duplicate-connection errors. Both stderr and
+engine streams retain all diagnostics. Successful outcomes do NOT make clean
+teardown acceptance pass. Same client signal errors coexist with complete released
+held/resync/recovery, so they are not sufficient to reproduce the historical stall
+under this changed fixture/measurement condition. This does not prove harmlessness,
+noncausality in the original configuration, or a sole engine defect.
+
+Parent receipt ordering: host LEFT at98575.078181 while host poll is live;
+client HOST_LOST at98575.088533 while host poll is still live; client/host exits
+observed later at98575.150063/98575.180438. Both go IDLE after intended close, not
+because of a reproduced early session loss. These are receipt/observed-status
+bounds; separate Godot elapsed clocks are not incorrectly compared as global time.
+
+Limits matter: no original S08 asset-main startup, shared editor, Steam installation
+absence, other platform/device, drawable input or performance proof. Proxy servicing
+uses this diagnostic supervisor's 10ms poll rather than the historical observer's
+20ms poll; original gameplay timers and the hold/reorder/drop/refresh schedule are
+unchanged. Telemetry/entrypoint/servicing changes can affect timing, so no claim
+isolates the difference to one cause. Original cached release deadlines and all
+historical STOPs remain failed. There is no authorized third measurement or spare
+export just because one export allowance remains.
+
+Next bounded question for ROOT: under a separately commissioned condition, inspect
+actual release native cache comparator/connection registration across cancel/retry,
+and compare the instrumented ORIGINAL S08 saved-main closure to this minimal
+S03 result. Capture first stalled held/resync boundary and close reason if reproduced;
+do not presume that avoiding/suppressing signal errors corrects it. Any source/native
+repair or pin decision needs new scope and validation, not a speculative S03 change.
+
+Consumed: one230s author session/one initial private dependency discovery under90s,
+no explicit extra import; one export; two diagnostic sets, total5.278s; no acquisition,
+shared editor/config/service operation, Steam initialization, merge/archive/push.
+Owned writers are saved/quiescent. Full exported clean ENet, historical shutdown,
+Steam absent/native/external transport, Windows/Deck/Gaming Mode/input/feel/drawability/
+performance/private install and full S08/P0/M1/production gates remain open.

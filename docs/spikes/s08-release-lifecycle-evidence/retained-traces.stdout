@@ -1,0 +1,67 @@
+{
+  "debug": {
+    "matrix": "PASS",
+    "strict_diagnostics": "PASS",
+    "traffic": {
+      "recv_datagrams": 120,
+      "recv_bytes": 9659,
+      "send_datagrams": 119,
+      "send_bytes": 9413
+    },
+    "errors_by_role": {
+      "host": 0,
+      "client": 0
+    },
+    "host_left_receipt": 97991.875394111,
+    "client_host_lost_receipt": 97991.885758472,
+    "exit_observations": [
+      {
+        "event": "exit_observed",
+        "role": "host",
+        "exit": 0,
+        "monotonic": 97991.977765319
+      },
+      {
+        "event": "exit_observed",
+        "role": "client",
+        "exit": 0,
+        "monotonic": 97991.988038336
+      }
+    ],
+    "duration_seconds": 2.5646534580009757,
+    "limits": "Healthy teardown ordering; does not reproduce historical stall or establish a fix."
+  },
+  "release": {
+    "matrix": "PASS",
+    "strict_diagnostics": "FAIL",
+    "traffic": {
+      "recv_datagrams": 123,
+      "recv_bytes": 9665,
+      "send_datagrams": 122,
+      "send_bytes": 9419
+    },
+    "errors_by_role": {
+      "host": 2,
+      "client": 6
+    },
+    "host_left_receipt": 98575.078180998,
+    "client_host_lost_receipt": 98575.088532617,
+    "exit_observations": [
+      {
+        "event": "exit_observed",
+        "role": "client",
+        "exit": 0,
+        "monotonic": 98575.150062606
+      },
+      {
+        "event": "exit_observed",
+        "role": "host",
+        "exit": 0,
+        "monotonic": 98575.180437831
+      }
+    ],
+    "duration_seconds": 2.5915776309993817,
+    "limits": "Healthy teardown ordering; does not reproduce historical stall or establish a fix."
+  },
+  "independent_negative": "wrong held receipt rejected"
+}
