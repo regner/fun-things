@@ -1,0 +1,28 @@
+{
+  "phase": "AUTHORING_SHUTDOWN",
+  "strict_ok": false,
+  "readiness_ok": true,
+  "saved_authoring_handler_ok": true,
+  "mechanical_supervisor_ok": true,
+  "error_count": 5,
+  "diagnostics": [
+    "five RID ERRORs in stdout/engine",
+    "Canvas5/CanvasItem31/ObjectDB170 warnings in stderr"
+  ],
+  "normal_scene_tree_quit": true,
+  "normal_registry_deregister": true,
+  "children": [
+    {
+      "pid": 563623,
+      "exit": 0,
+      "reaped": true
+    },
+    {
+      "pid": 563653,
+      "exit": 0,
+      "reaped": true
+    }
+  ],
+  "release_at_that_STOP": "not attempted",
+  "new_distinct_root_grant": "addon-free validation and release independent of authoring shutdown; old failure remains"
+}

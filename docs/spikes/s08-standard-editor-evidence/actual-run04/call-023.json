@@ -1,0 +1,18 @@
+{
+  "request": {
+    "method": "scene.get_tree",
+    "params": {
+      "max_depth": -1
+    }
+  },
+  "started_unix": 1791450824.7547956,
+  "response": {
+    "result": {
+      "success": true,
+      "tree": "<untrusted-9fd301c2 kind=\"scene_tree\" source=\"res://tests/fixtures/s01/static_variant.tscn\">\n{\"children\":[{\"children\":[{\"children\":[{\"children\":[],\"class\":\"MeshInstance3D\",\"name\":\"Body\",\"path\":\"Visuals/Model/Body\"},{\"children\":[],\"class\":\"MeshInstance3D\",\"name\":\"Front\",\"path\":\"Visuals/Model/Front\"},{\"children\":[],\"class\":\"MeshInstance3D\",\"name\":\"Meter\",\"path\":\"Visuals/Model/Meter\"},{\"children\":[],\"class\":\"Node3D\",\"name\":\"right_axis\",\"path\":\"Visuals/Model/right_axis\"},{\"children\":[],\"class\":\"Node3D\",\"name\":\"socket_muzzle\",\"path\":\"Visuals/Model/socket_muzzle\"},{\"children\":[],\"class\":\"Node3D\",\"name\":\"up_axis\",\"path\":\"Visuals/Model/up_axis\"}],\"class\":\"Node3D\",\"name\":\"Model\",\"path\":\"Visuals/Model\"}],\"class\":\"Node3D\",\"name\":\"Visuals\",\"path\":\"Visuals\"},{\"children\":[{\"children\":[{\"children\":[],\"class\":\"CollisionShape3D\",\"name\":\"Shape\",\"path\":\"Collision/Body/Shape\"}],\"class\":\"StaticBody3D\",\"name\":\"Body\",\"path\":\"Collision/Body\"}],\"class\":\"Node3D\",\"name\":\"Collision\",\"path\":\"Collision\"}],\"class\":\"Node3D\",\"name\":\"StaticPrefab\",\"path\":\".\"}\n</untrusted-9fd301c2>"
+    },
+    "headless": true,
+    "version": "4.8.0"
+  },
+  "ended_unix": 1791450824.771282
+}

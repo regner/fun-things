@@ -298,3 +298,43 @@ actual failure STOP; no further launch. Save each batch and inspect saved/unsave
 state before supported node-scoped `get_tree().quit()` and wait2 s; owned SIGINT
 fallback only if unresponsive. Conditional original import/export/asset/ENet budgets
 remain unchanged. One eventual exact-candidate review covers ALL attempts.
+
+## Actual run04 authoring shutdown STOP; distinct addon-free grant
+
+At364ee38 run04 editor563623/connector563653 passed readiness, authored the7464-byte
+S08 script with trueUID `uid://cffyguysng6st`, sceneUID `uid://dn1ownu7vk3h2` and
+single Node rootunique_id911609923. All41 handler calls succeeded; saved scene
+roundtrip and original S01/S03 reopens/closes report no unsaved discard. Exact31
+closure differs only in the commissioned S03 script, existing UID unchanged.
+Affected pinned format/lint pass. Normal node-scoped get_tree().quit returned success;
+registry deregistered, both child exits0/reaped and streams closed.
+
+Complete shutdown stdout has five RID ERRORs, stderr Canvas/CanvasItem/ObjectDB170
+warnings. AUTHORING_SHUTDOWN strict STOP stands. Supervisor finishoktrue only records
+local command completion, NOT a diagnostic pass. No renderer/toolkit cause inferred.
+No subsequent editor/prep/mutation is granted. Complete raw streams are retained.
+
+ROOT explicitly commissions distinct addon-free validation/release observations
+against exact committed saved bytes independently from that shutdown gate. Before
+launch, bind34-file closure, original31 preservation except S03, three saved S08
+identities and installed engine hash. Validation mirror removes toolkit/autoload/
+native/Steam, retains ONLY needed owned imported payloads and filtered class/UID
+cache for these resources. No engine import/editor runs in preparation of this probe.
+ONE standalone SceneTree API probe <=60 s, private XDG/runtime/log scope, explicit
+ResourceLoader CACHE_MODE_REPLACE and GDScript.reload on ONLY changed replication
+and S08 script; resolve every saved dependency/UID. Instantiate original saved S03
+boot off-tree (so network proof never runs), use public Match APIs for literal
+health75->70, obsolete journal nonmutation, provisional/admitted/replica rejection,
+resync preserving70/entity, closed admission, stale control and rollback cleanup.
+All expectations are explicit bool checks outside debug assertions. Require exactly
+one positive S08_API receipt, exit0 and error/warning-free full stdout/stderr/engine.
+Unexpected failure STOP remaining distinct phases; no retry/fallback/error exception.
+
+Only if probe passes, freshly bind existing exact TPZ/version/four members and exact
+Linux release template/installed binary, ONE clean addon-free scratch import60 /
+export120 / offline PCK4 inspection / asset15 / ENet25 original sequence, normal
+saved S08 main/userargs. The authoring STOP is never erased or treated as clean;
+addon-free proof does not establish Steam uninstalled/stopped, graphics/device/
+performance/production acceptance. All full gates remain OPEN. One eventual fresh
+Sol6.1 HIGH static independent review covers all grants/attempts/source/streams;
+ROOT serializes after S05 if ready. No reviewer yet.

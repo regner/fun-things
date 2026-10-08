@@ -1,0 +1,18 @@
+{
+  "request": {
+    "method": "scene.get_tree",
+    "params": {
+      "max_depth": -1
+    }
+  },
+  "started_unix": 1791450664.1709757,
+  "response": {
+    "result": {
+      "success": true,
+      "tree": "<untrusted-5b5d63b0 kind=\"scene_tree\" source=\"res://tests/fixtures/s03/boot.tscn\">\n{\"children\":[{\"children\":[],\"class\":\"Node\",\"name\":\"Session\",\"path\":\"Session\"},{\"children\":[{\"children\":[{\"children\":[],\"class\":\"Node\",\"name\":\"Replication\",\"path\":\"View/Match/Replication\"},{\"children\":[],\"class\":\"Node3D\",\"name\":\"RuntimeEntities\",\"path\":\"View/Match/RuntimeEntities\"},{\"children\":[],\"class\":\"Node3D\",\"name\":\"CityRoot\",\"path\":\"View/Match/CityRoot\"}],\"class\":\"Node3D\",\"name\":\"Match\",\"path\":\"View/Match\"}],\"class\":\"Node\",\"name\":\"View\",\"path\":\"View\"}],\"class\":\"Node\",\"name\":\"Boot\",\"path\":\".\"}\n</untrusted-5b5d63b0>"
+    },
+    "headless": true,
+    "version": "4.8.0"
+  },
+  "ended_unix": 1791450664.1919882
+}

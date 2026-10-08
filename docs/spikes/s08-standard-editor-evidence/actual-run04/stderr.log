@@ -1,0 +1,24 @@
+WARNING: [MCP] Godot 4.8 detected - latest tested version is 4.7.0. The plugin will run normally but some features may behave unexpectedly. Please report issues at https://github.com/NPGameDev/godot-mcp-toolkit/issues
+     at: push_warning (core/variant/variant_utility.cpp:1034)
+     GDScript backtrace (most recent call first):
+         [0] _enter_tree (res://addons/godot_mcp_toolkit/plugin.gd:62)
+WARNING: [MCPTools] auto-created directory res://tests/fixtures/s08 for script.write
+     at: push_warning (core/variant/variant_utility.cpp:1034)
+     GDScript backtrace (most recent call first):
+         [0] ensure_parent_dir (res://addons/godot_mcp_toolkit/commands/editor_helpers.gd:569)
+         [1] _cmd_script_write (res://addons/godot_mcp_toolkit/commands/script_commands.gd:134)
+         [2] <anonymous lambda> (res://addons/godot_mcp_toolkit/commands/script_commands.gd:32)
+         [3] call_command (res://addons/godot_mcp_toolkit/transport/mcp_toolkit_command_registry.gd:415)
+         [4] _execute (res://addons/godot_mcp_toolkit/transport/dispatch/dispatch_lane.gd:257)
+         [5] drive (res://addons/godot_mcp_toolkit/transport/dispatch/dispatch_lane.gd:188)
+         [6] route_request (res://addons/godot_mcp_toolkit/transport/dispatch/server_request_router.gd:138)
+         [7] _handle_message (res://addons/godot_mcp_toolkit/transport/mcp_server.gd:628)
+         [8] poll_peers (res://addons/godot_mcp_toolkit/transport/ws_transport.gd:422)
+         [9] pump (res://addons/godot_mcp_toolkit/transport/ws_transport.gd:224)
+         [10] _poll_connections (res://addons/godot_mcp_toolkit/transport/mcp_server.gd:591)
+WARNING: 5 RIDs of type "Canvas" were leaked.
+   at: _free_rids (servers/rendering/renderer_canvas_cull.cpp:2735)
+WARNING: 31 RIDs of type "CanvasItem" were leaked.
+   at: _free_rids (servers/rendering/renderer_canvas_cull.cpp:2735)
+WARNING: 170 ObjectDB instances were leaked at exit (run with `--verbose` for details).
+   at: cleanup (core/object/object.cpp:2604)

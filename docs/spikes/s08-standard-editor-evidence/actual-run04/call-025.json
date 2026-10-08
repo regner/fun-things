@@ -1,0 +1,18 @@
+{
+  "request": {
+    "method": "scene.get_tree",
+    "params": {
+      "max_depth": -1
+    }
+  },
+  "started_unix": 1791450830.477474,
+  "response": {
+    "result": {
+      "success": true,
+      "tree": "<untrusted-7c597102 kind=\"scene_tree\" source=\"res://tests/fixtures/s01/rig_prefab.tscn\">\n{\"children\":[{\"children\":[{\"children\":[{\"children\":[{\"children\":[{\"children\":[{\"children\":[],\"class\":\"Node3D\",\"name\":\"socket_grip\",\"path\":\"Visuals/Model/Rig/Skeleton3D/hand/socket_grip\"}],\"class\":\"BoneAttachment3D\",\"name\":\"hand\",\"path\":\"Visuals/Model/Rig/Skeleton3D/hand\"},{\"children\":[],\"class\":\"MeshInstance3D\",\"name\":\"Skin\",\"path\":\"Visuals/Model/Rig/Skeleton3D/Skin\"}],\"class\":\"Skeleton3D\",\"name\":\"Skeleton3D\",\"path\":\"Visuals/Model/Rig/Skeleton3D\"}],\"class\":\"Node3D\",\"name\":\"Rig\",\"path\":\"Visuals/Model/Rig\"},{\"children\":[],\"class\":\"AnimationPlayer\",\"name\":\"AnimationPlayer\",\"path\":\"Visuals/Model/AnimationPlayer\"}],\"class\":\"Node3D\",\"name\":\"Model\",\"path\":\"Visuals/Model\"}],\"class\":\"Node3D\",\"name\":\"Visuals\",\"path\":\"Visuals\"}],\"class\":\"Node3D\",\"name\":\"RigPrefab\",\"path\":\".\"}\n</untrusted-7c597102>"
+    },
+    "headless": true,
+    "version": "4.8.0"
+  },
+  "ended_unix": 1791450830.4848244
+}

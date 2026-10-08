@@ -1,0 +1,20 @@
+{
+  "request": {
+    "method": "project.get_settings",
+    "params": {
+      "prefix": "application/"
+    }
+  },
+  "started_unix": 1791450664.0179284,
+  "response": {
+    "result": {
+      "count": 37,
+      "filtered_secret_count": 0,
+      "settings": "<untrusted-e1e0bd11 kind=\"project_settings\" source=\"godot\">\n{\"application/boot_splash/bg_color\":{\"a\":1.0,\"b\":0.140000000596046,\"g\":0.140000000596046,\"r\":0.140000000596046,\"type\":\"Color\"},\"application/boot_splash/image\":\"\",\"application/boot_splash/minimum_display_time\":0,\"application/boot_splash/show_image\":true,\"application/boot_splash/stretch_mode\":1,\"application/boot_splash/use_filter\":true,\"application/config/auto_accept_quit\":true,\"application/config/custom_user_dir_name\":\"\",\"application/config/description\":\"\",\"application/config/disable_project_settings_override\":false,\"application/config/features\":\"PackedStringArray(\\\"4.8\\\", \\\"Forward Plus\\\")\",\"application/config/icon\":\"\",\"application/config/macos_native_icon\":\"\",\"application/config/name\":\"Fun Things\",\"application/config/name_localized\":{},\"application/config/project_settings_override\":\"\",\"application/config/quit_on_go_back\":true,\"application/config/tags\":\"PackedStringArray()\",\"application/config/use_custom_user_dir\":false,\"application/config/use_hidden_project_data_directory\":true,\"application/config/version\":\"\",\"application/config/windows_native_icon\":\"\",\"application/run/delta_smoothing\":true,\"application/run/disable_stderr\":false,\"application/run/disable_stdout\":false,\"application/run/enable_alt_space_menu\":false,\"application/run/flush_stdout_on_print\":false,\"application/run/flush_stdout_on_print.debug\":true,\"application/run/frame_delay_msec\":0,\"application/run/load_shell_environment\":false,\"application/run/low_processor_mode\":false,\"application/run/low_processor_mode_sleep_usec\":6900,\"application/run/main_loop_type\":\"SceneTree\",\"application/run/main_scene\":\"\",\"application/run/max_fps\":0,\"application/run/print_header\":true,\"application/run/use_game_mode\":true}\n</untrusted-e1e0bd11>",
+      "success": true
+    },
+    "headless": true,
+    "version": "4.8.0"
+  },
+  "ended_unix": 1791450664.0849884
+}

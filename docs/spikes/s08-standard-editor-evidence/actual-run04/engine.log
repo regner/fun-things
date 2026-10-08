@@ -1,0 +1,62 @@
+Godot Engine v4.8.dev7.official.c971f93e7 - https://godotengine.org
+
+S08_EDITOR_CONTEXT {"boost":false,"editor_hint":true,"pid":563623,"project":"/tmp/s08-standard-555e0330/project/","settings_path":"/tmp/s08-standard-555e0330/scan-complete-attempt/private/config/godot/editor_settings-4.8.tres","version":{"build":"official","hash":"c971f93e7e76b0ef919bf6009e7b868bea04db7f","hex":264192,"major":4,"minor":8,"patch":0,"status":"dev7","string":"4.8-dev7 (official)","timestamp":0}}
+[   0% ] first_scan_filesystem | Started Project initialization (5 steps)
+[   0% ] first_scan_filesystem | Scanning file structure...
+[  16% ] first_scan_filesystem | Loading global class names...
+[  33% ] first_scan_filesystem | Verifying GDExtensions...
+[  50% ] first_scan_filesystem | Creating autoload scripts...
+[  66% ] first_scan_filesystem | Initializing plugins...
+Godot MCP Toolkit v1.0.3 — by NPGameDev · npgamedev.com
+[MCPExtensions] Hot-reload watcher active
+[MCPServer] port: scanning 6550-6560 (default)
+[MCPServer] session token written to user://addons/godot_mcp_toolkit/project_instance_e9fb882bfd3c/mcp_token
+[MCPServer] listening on 127.0.0.1:6551
+[MCPRegistry] registered /tmp/s08-standard-555e0330/project on port 6551
+WARNING: [MCP] Godot 4.8 detected - latest tested version is 4.7.0. The plugin will run normally but some features may behave unexpectedly. Please report issues at https://github.com/NPGameDev/godot-mcp-toolkit/issues
+   at: push_warning (core/variant/variant_utility.cpp:1034)
+   GDScript backtrace (most recent call first):
+       [0] _enter_tree (res://addons/godot_mcp_toolkit/plugin.gd:62)
+[  83% ] first_scan_filesystem | Starting file scan...
+[ DONE ] first_scan_filesystem
+
+[   0% ] loading_editor_layout | Started Loading editor (5 steps)
+[   0% ] loading_editor_layout | Loading editor layout...
+[  16% ] loading_editor_layout | Loading docks...
+[  33% ] loading_editor_layout | Reopening scenes...
+[  50% ] loading_editor_layout | Loading central editor layout...
+[  66% ] loading_editor_layout | Loading plugin window layout...
+[  83% ] loading_editor_layout | Editor layout ready.
+[ DONE ] loading_editor_layout
+
+[MCP] MCP client connected (1 peer)
+WARNING: [MCPTools] auto-created directory res://tests/fixtures/s08 for script.write
+   at: push_warning (core/variant/variant_utility.cpp:1034)
+   GDScript backtrace (most recent call first):
+       [0] ensure_parent_dir (res://addons/godot_mcp_toolkit/commands/editor_helpers.gd:569)
+       [1] _cmd_script_write (res://addons/godot_mcp_toolkit/commands/script_commands.gd:134)
+       [2] <anonymous lambda> (res://addons/godot_mcp_toolkit/commands/script_commands.gd:32)
+       [3] call_command (res://addons/godot_mcp_toolkit/transport/mcp_toolkit_command_registry.gd:415)
+       [4] _execute (res://addons/godot_mcp_toolkit/transport/dispatch/dispatch_lane.gd:257)
+       [5] drive (res://addons/godot_mcp_toolkit/transport/dispatch/dispatch_lane.gd:188)
+       [6] route_request (res://addons/godot_mcp_toolkit/transport/dispatch/server_request_router.gd:138)
+       [7] _handle_message (res://addons/godot_mcp_toolkit/transport/mcp_server.gd:628)
+       [8] poll_peers (res://addons/godot_mcp_toolkit/transport/ws_transport.gd:422)
+       [9] pump (res://addons/godot_mcp_toolkit/transport/ws_transport.gd:224)
+       [10] _poll_connections (res://addons/godot_mcp_toolkit/transport/mcp_server.gd:591)
+[   0% ] save | Started Saving Scene (4 steps)
+[   0% ] save | Analyzing
+[  20% ] save | Creating Thumbnail
+[  60% ] save | Creating Thumbnail
+[  80% ] save | Saving Scene
+[ DONE ] save
+
+[   0% ] save | Started Saving Scene (4 steps)
+[   0% ] save | Analyzing
+[  20% ] save | Creating Thumbnail
+[  60% ] save | Creating Thumbnail
+[  80% ] save | Saving Scene
+[ DONE ] save
+
+[MCPServer] stopped
+[MCPRegistry] deregistered /tmp/s08-standard-555e0330/project
