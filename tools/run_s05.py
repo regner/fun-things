@@ -93,7 +93,7 @@ def network(args, project, directory, scene, port):
             'late_no_historical_effects': late['effects'] == 0 and not late['input_enabled'],
             'live_event_once': live['live'] == expected and live['duplicates'] == expected,
             'independent_gameplay_cosmetic_counts': host['damage'] == expected and
-                host['effects'] == min(8, expected) and host['effect_drops'] == max(0, expected - 8),
+                host['effects'] == expected and host['effect_drops'] == 0,
             'finite_work': host['visits'] == (144 if expected == 12 else 6) and
                 host['target_peak'] <= 4 and host['queue_peak'] <= 12 and host['active_jobs'] == 0,
             'off_camera_burst': expected != 12 or host['hidden'],
@@ -188,8 +188,8 @@ def main():
         result = next((row for row in rows if row['event'] == 'result'), {})
         metrics = next((row for row in rows if row['event'] == 'queue'), {})
         if not result.get('ok') or not (metrics.get('queue_peak') == 12 and
-                metrics.get('visits') == 144 and metrics.get('effects') == 8 and
-                metrics.get('effect_drops') == 4 and metrics.get('active_jobs') == 0):
+                metrics.get('visits') == 144 and metrics.get('effects') == 12 and
+                metrics.get('effect_drops') == 0 and metrics.get('active_jobs') == 0):
             raise RuntimeError('independent queue pressure outcomes failed')
         report['queue'] = metrics
         report['source_sha256'] = before
