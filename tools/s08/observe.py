@@ -15,7 +15,7 @@ import zipfile
 
 ROOT = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(ROOT / 'tools'))
-from run_s08_linux import identity, write_json, launch, logs_clean, stop, ENGINE, ENGINE_SHA
+from run_s08_linux import identity, write_json, logs_clean, stop, ENGINE, ENGINE_SHA
 from run_s03 import Proxy, POLL_SECONDS
 BASE = 'ef730df936b5b159f0894033f5d01e2b7124386c'
 HOST_CASES = ['provisional_rollback', 'authority_validation_and_expiry']
@@ -43,6 +43,38 @@ def environment(directory):
 def git_blob(path, revision=BASE):
     """Read exact committed candidate content."""
     return subprocess.check_output(['git', 'show', revision + ':' + path], cwd=ROOT)
+
+
+def launch(task, phase, argv, budget, cwd, env_factory=environment):
+    """Invoke one private phase with bounded owned-child cleanup and complete streams."""
+    directory = task / phase
+    directory.mkdir()
+    (directory/'engine.log').touch()
+    env = env_factory(directory/'user')
+    separator = argv.index('--') if '--' in argv else len(argv)
+    command = (argv[:separator] + ['--log-file', str(directory/'engine.log')]
+               + argv[separator:])
+    record = {'argv': command, 'cwd': str(cwd), 'budget_seconds': budget,
+              'environment': {key: env[key] for key in env if key.startswith('XDG_')},
+              'started_unix': time.time()}
+    write_json(directory/'command.json', record)
+    with (directory/'stdout.log').open('wb') as out, (directory/'stderr.log').open('wb') as err:
+        child = subprocess.Popen(command, stdout=out, stderr=err, env=env, cwd=cwd)
+        try:
+            record['owned_pid'] = child.pid
+            record['exit'] = child.wait(timeout=budget)
+        except subprocess.TimeoutExpired:
+            record['timeout'] = True
+        finally:
+            stop([child])
+            record['exit'] = child.returncode
+            record['child_reaped'] = child.poll() is not None
+            record['ended_unix'] = time.time()
+            write_json(directory/'command.json', record)
+    if record.get('timeout') or record['exit'] != 0:
+        raise RuntimeError(phase + ' timeout/nonzero exit')
+    logs_clean(directory)
+    return directory
 
 
 def stage(task, revision=BASE, saved_entrypoint=False):

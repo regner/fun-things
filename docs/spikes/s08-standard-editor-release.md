@@ -338,3 +338,16 @@ addon-free proof does not establish Steam uninstalled/stopped, graphics/device/
 performance/production acceptance. All full gates remain OPEN. One eventual fresh
 Sol6.1 HIGH static independent review covers all grants/attempts/source/streams;
 ROOT serializes after S05 if ready. No reviewer yet.
+
+### Probe orchestration gap before any child
+
+At3636b84 the first source-only probe runner staged the exact candidate and owned
+filtered caches, then raised `TypeError('launch() takes 5 positional arguments but
+6 were given')`: it imported the historical launch helper but called the draft's
+private-env signature. No Popen/engine invocation occurred, no API phase/log directory
+exists. Preserve full supervisor stderr (empty)/stdout/observation and source3636b84.
+This is implementer Python contract error, not script/resource/runtime failure.
+Correct the scoped helper using the already inspected draft launch function with
+explicit env_factory; offline inspect.signature.bind validates the six arguments.
+No engine/probe retry is involved: the granted ONE standalone child remains
+unattempted. Fresh unique probe02 retains new source/argv/logs; probe01 never replaced.
