@@ -76,6 +76,12 @@ def stage():
     project.mkdir()
     tracked = subprocess.check_output(['git', 'ls-tree', '-r', '--name-only', BASE],
                                       cwd=ROOT, text=True).splitlines()
+    classes = {}
+    for name in tracked:
+        if name.startswith('tests/fixtures/') and name.endswith('.gd'):
+            match = re.search(r'^class_name\s+(\w+)', (ROOT / name).read_text(), re.M)
+            if match:
+                classes[match[1]] = name
     paths = set()
     pending = ['tests/fixtures/s05/boot.tscn', 'tests/fixtures/s05/burst.tscn',
                'art/models/spikes/s05_explosion_carrier.glb']
@@ -86,7 +92,11 @@ def stage():
         paths.add(name)
         data = (ROOT / name).read_bytes()
         if name.endswith(('.gd', '.tscn', '.tres', '.import')):
-            pending.extend(re.findall(r'res://([\w./-]+)', data.decode()))
+            source = data.decode()
+            pending.extend(p for p in re.findall(r'res://([\w./-]+)', source)
+                           if not p.startswith('.godot/'))
+            pending.extend(path for symbol, path in classes.items()
+                           if re.search(r'\b' + symbol + r'\b', source))
         for suffix in ['.uid', '.import']:
             if name + suffix in tracked:
                 pending.append(name + suffix)
@@ -186,8 +196,8 @@ def main():
                 if entry['_key'] != str(project) or entry['pid'] != editor.pid:
                     raise RuntimeError('wrong registry identity')
                 token = Path(entry['token_path'])
-                if not token.is_relative_to(project) or not token.is_file():
-                    raise RuntimeError('token path outside owned project')
+                if not token.is_relative_to(RUN / 'data') or not token.is_file():
+                    raise RuntimeError('token path outside owned private data')
                 if not context['editor_hint'] or context['pid'] != editor.pid or (
                         context['project'] != str(project) + '/' or context['boost'] is not False):
                     raise RuntimeError('actual editor context mismatch')
