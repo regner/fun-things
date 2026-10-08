@@ -14,8 +14,9 @@ The full `author/` receipts retain original requests, responses, exact streams,
 settings binding, actual PID/endpoint/project context, failure, cleanup and before/
 after settings diff. The exact before bytes are reproduced from the same staging
 source and bound to the actual prelaunch hash; after bytes are read from the mirror.
-The diff shows Toolkit's automatic runtime autoload/icon additions and Godot's
-settings serialization (section ordering, input Object encoding, float dimensions).
+The diff shows Toolkit's automatic runtime autoload addition and saved section
+ordering (moving the existing editor_plugins section). Input Object encoding and
+float dimensions were already in the before bytes, not new settings changes.
 These explain the guard's observed changed-file list; they do not prove clean
 editor shutdown, authorize config changes, or waive thumbnail diagnostics.
 No private settings/config is copied into the repository. The guard remains strict;

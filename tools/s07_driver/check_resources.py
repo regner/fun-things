@@ -11,9 +11,9 @@ BASE = '233493abc7d2e3c106fb620105cfb766f542813b'
 ALLOWED = {'TODO.md', 'docs/spikes/s07-run-cards.md'}
 
 
-def check():
+def check(base=BASE):
     """Compare all immutable originals and resolve every new saved UID/path and inheritance link."""
-    lines = subprocess.check_output(['git', 'ls-tree', '-r', BASE], cwd=ROOT, text=True).splitlines()
+    lines = subprocess.check_output(['git', 'ls-tree', '-r', base], cwd=ROOT, text=True).splitlines()
     failures, originals = [], []
     for line in lines:
         metadata, name = line.split('\t', 1)
@@ -47,7 +47,7 @@ def check():
         script = ROOT / f'tests/fixtures/s07_driver/{name}.gd'
         if not re.fullmatch(r'uid://[a-z0-9]+\n?', script.with_suffix('.gd.uid').read_text()):
             failures.append('missing script sidecar: ' + name)
-    return {'base': BASE, 'failures': failures, 'originals': originals,
+    return {'base': base, 'failures': failures, 'originals': originals,
             'allowed_original_doc_deltas': sorted(ALLOWED), 'saved_scene_ids': identities}
 
 
@@ -55,8 +55,9 @@ def main():
     """Persist full preservation/readback expectations and fail on any unowned changed byte."""
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('output', type=Path)
+    parser.add_argument('--base', default=BASE)
     args = parser.parse_args()
-    result = check()
+    result = check(args.base)
     args.output.write_text(json.dumps(result, indent=2) + '\n')
     print(json.dumps({'original_files': len(result['originals']), 'failures': result['failures']}))
     return bool(result['failures'])

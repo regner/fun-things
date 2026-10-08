@@ -231,8 +231,11 @@ feature expansion, repeated unchanged experiment or silent contract/pin change.
   Owner: Sol-led capacity-spike worker; Regner ratifies scope/budgets.
   Needs: [research/method](docs/spikes/s07.md), S01 pipeline, reviewed provisional
   S02 camera/controller, actual S02/S04 bodies, partial S06 saved seam/topology and
-  relevant S05 chain/effect load. Static inventory/run-card preparation can proceed;
-  representative measurements remain unexecuted. Stand-ins cannot certify missing
+  relevant S05 chain/effect load. [Static inventory/run cards](docs/spikes/s07-run-cards.md)
+  and the [simulation-only sustained saved-reload route driver](docs/spikes/s07-sustained-driver.md)
+  supply technical preparation; representative capacity measurements remain unexecuted.
+  Primary T still needs named hardware/build/telemetry and authorized real drawability;
+  its driver receipt is not graphical calibration. S05 comparator reset/draw gates remain open. Stand-ins cannot certify missing
   gameplay, presentation or residency costs; tokens are not drawable effects.
   Use the [static fixture inventory and concrete run cards](docs/spikes/s07-run-cards.md) to prepare the baseline and growth experiment.
   Minimum remaining experiment: controlled saved imported two-sector baseline,
@@ -517,7 +520,7 @@ Owner roles: validation/tooling worker (D1/D3), gameplay/review workers with Reg
 
 | Ready or stage | Parallel work | Gates |
 | --- | --- | --- |
-| Ready bounded preparation | S03-S [public API/interface record](docs/spikes/s03-s-valve-api-interface.md), then separately commissioned native prerequisites; S07 static inventory/run-card work; S08 runner follow-up; P0-PROFILES dated-notes reconciliation | Named owners/budgets and scoped grants; pending output is not accepted evidence |
+| Ready bounded preparation | S03-S [public API/interface record](docs/spikes/s03-s-valve-api-interface.md), then separately commissioned native prerequisites; S07 primary T hardware/build/telemetry preparation using the saved-reload driver; S08 runner follow-up; P0-PROFILES dated-notes reconciliation | Named owners/budgets and scoped grants; S07 graphical T still needs authorized drawability; pending output is not accepted evidence |
 | Drawable fixtures | Remaining S02/S03-R/S04 response/focus/readability/feel; S05 effects; S06 camera/map readability | Changed authorized surface/lease; final dimensions and Regner ratification; no identical stopped retry |
 | Representative loads | S07 capacity/culling experiments; S08 exact exports | Actual content/effects/drawability and named hardware; Deck and multi-account Steam remain deferred |
 | Production after P0-GATE | M1-A shell/settings and M1-C1 approved art families; then B1/B2 and accepted sector subsets | B3 needs vehicles/damage; C3 needs routes/actors/control transfer; D/GATE need integrated evidence |
