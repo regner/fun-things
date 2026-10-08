@@ -182,7 +182,12 @@ def main():
     receipts = {}
     if raw_retention.exists():
         for entry in read_json(raw_retention)['files']:
-            verify((ROOT / entry['retained']).read_bytes(), entry)
+            raw = (ROOT / entry['retained']).read_bytes()
+            if entry['encoding'] == 'gzip':
+                raw = gzip.decompress(raw)
+            else:
+                assert entry['encoding'] == 'raw', entry
+            verify(raw, entry)
             receipts[entry['retained']] = entry
         print(f'PASS {len(receipts)} full independent report/check artifacts retained byte-faithfully')
     paths = {'TODO.md', INDEX, RECORD}
