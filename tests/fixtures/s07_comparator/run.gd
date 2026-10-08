@@ -124,7 +124,7 @@ func _run_trial(ordinal: int) -> void:  # gdstyle:ignore=format/max-line-length,
 	# The inherited proof is a test coordinator. This driver replaces only that coordinator.
 	fixture.set_script(null)
 	var state: S05Match = fixture.get_node("View/Match") as S05Match
-	var session_id: String = "%032x" % ordinal
+	var session_id: String = Crypto.new().generate_random_bytes(16).hex_encode()
 	state.authoritative = true
 	state.session_id = session_id
 	root.add_child(fixture)
