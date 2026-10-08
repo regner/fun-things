@@ -242,6 +242,9 @@ implementation. Save editor mutations before playtests; preserve unsaved work.
 
 - [ ] **S02 — GTA2-style foot controls, camera and aiming.**
   **Desktop technical fixture reviewed; full S02 acceptance remains OPEN.**
+  [Bounded operational drawability record](docs/spikes/s02-drawability.md): one native
+  Wayland observation produced automatic callbacks/pixels, but drawable-status and
+  exact viewport criteria failed; stopped, saved main restored, full acceptance open.
   Next desktop experiment: native focus and physical-key/user-feel validation.
   Coordinate through the orchestrator and reuse the retained fixture.
   Deck cases are deferred for unavailable hardware; desktop 1280×800 views do not

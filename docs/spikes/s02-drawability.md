@@ -129,11 +129,91 @@ feel. Positive drawability merely enables separately commissioned existing-owner
 gates; it proves no eight-effects/saturation/live-versus-hydrated, sustained cost,
 four-view residency, reference-device or packaged-export acceptance.
 
-## Observation, restoration and next card
+## Actual single observation and restoration
 
-At protocol commitment, runtime observation and restoration are **not yet run**.
-Full actual outcomes, receipts, failures and limits will be appended after the
-single observation, outside the retained prior histories.
+Protocol was committed at `2a048901b69064b52a223f2c43fa69527620ac45` before any
+engine preparation/observation. Root's raw commission/grant, exact observer and
+supervisor sources, commands/exits/full streams, PNG and operational receipts are
+retained in [the evidence catalogue](s02-drawability-evidence/README.md).
+
+Import PID483357 exited0 in 2.72 seconds; all 36 copied dependency files retained
+their exact accepted bytes after import and runtime. This is dependency preparation,
+not an all-owned-script compilation or gameplay regression suite. One graphical
+process PID483384 launched at `2026-10-08T05:02:34.597378+00:00` and exited0 at
+`05:02:37.968741+00:00`; no deadline or termination fallback was used.
+
+**Overall predeclared positive criteria FAIL; observation permanently STOPPED.**
+There is genuine narrower evidence: three automatic post-draw callbacks, increasing
+render indices0/1/2 and monotonic receipt times2954/2960/2963 ms. No force-draw or
+signal emission exists in the observer or saved runtime dependency closure. The
+third callback saved a nonblank [actual viewport image](s02-drawability-evidence/frame.png)
+showing the unchanged corner/alley, actor and held pistol/marker. This is no longer
+a zero-callback result, and it must not be relabeled as one.
+
+| Predeclared condition | Actual result / disposition |
+| --- | --- |
+| Native Wayland, unchanged Forward+/pin/fixture | Wayland/forward_plus, officialc971f93e7, same saved corner UID and dependencies; observed. |
+| Three automatic receipts and increasing rendered index | Three callbacks at2954/2960/2963 ms, frames0/1/2; observed. The first callback reports index0, rather than an invented positive index. |
+| Current usable saved camera | `/root/S02/CameraRig/Camera3D`, perspective/current/viewport match; vertical -Y/yaw0, relative height47, FOV42, near~0.1/far160, follow12/s. Image shows the saved view. Camera worldY follows the actor's normal ground settling; no placement override. |
+| Visible, non-minimized **drawable** native window | Visible/mode0, but **can_draw=false** at ready and all three callbacks. Positive drawable-status criterion failed. |
+| Exact1280×800 actual viewport/PNG | Launch requested1280×800; observed root size and third PNG **2112×1320**. Positive actual-size criterion failed. No resizing, scale/configuration change or rerun. |
+| Interaction | Native focusfalse and existing input owner suspended, as visible in the PNG. No focus/key input was injected; interaction/native-focus acceptance remains unavailable. |
+| Logs and termination | Import/runtime stdout, stderr and engine logs inspected; no engine/script warning/error diagnostic. Both exit0 and all owned children reaped; exit0 is collection completion, not criteria acceptance. |
+
+The automatic callback and pixels prove this pinned process rendered the saved
+scene on the native Wayland route. The contradictory `window_can_draw=false`
+and larger actual output remain recorded observations, not a diagnosed engine
+bug, accepted drawable/interactive window or license to weaken the criteria.
+Compositor scale metadata is retained, but no causal attribution for the size
+change was measured. No physical scanout, latency, feel, dynamic traversal or
+target-device conclusion follows from the image.
+
+Old main426974 was freshly verified saved, gracefully quit through the installed
+handler, then separately absent in the actual HOST namespace. HOST absence was
+also verified after import, after runtime and before restoration. ONE pinned main
+editor483496 was restored at `2026-10-08T05:03:06.541312+00:00`, with no experimental
+retry. Existing refresh and 16 close/reopen/tree queries returned51 successful
+responses; all16 close receipts explicitly report `unsaved_changes_discarded=false`.
+Final live state reports correct main/official pin, the exact original ordered16
+saved tabs and empty unsaved state. Fresh HOST postflight contains only restored
+main483496, no owned runtime/import/Blender. Operational/display lease RETURNED;
+authoring remains UNASSIGNED, all owned operational clients completed.
+
+Both checkouts' complete tracked-file and saved UID/dependency/node-block ledgers
+are byte-identical before/after operations: main2442 tracked files, worktree2443
+(the added protocol),256 saved-resource/UID entries each. Ten preexisting vendor
+physical line-ending differences and the separately owned TODO difference remain
+unchanged. No canonical source/export/import/scene/script/project/pin/vendor
+write occurred. Managed cwd references were enumerated only; root's Paseo lifecycle
+owns later archival, and no unknown process was signalled.
+
+Restored editor logs retain the toolkit's known4.8-versus-tested4.7 warning and its
+warning backtrace. The refresh handler's void-return response includes a generic
+non-@tool hint; the inspected inherited method is @tool, later queries succeeded,
+and no `Method not found` error occurred. These operational logs are separate from
+the clean isolated observation logs. Raw diagnostic history is preserved.
+
+Postflight checker initially lacked optional Pillow; replaced only PNG dimension
+inspection with the standard PNG header, no package install. Its next broad `ERROR`
+scan matched telemetry field `png_error:0`; the corrected diagnostic-prefix scan
+passed. Both full failed checker sources/stdout/stderr/exits remain retained;
+neither was an engine failure or a reason to rerun the observation.
+
+## Exact access boundary and next card
+
+The available native route supplies real automatic engine receipts and pixels,
+but this pass supplies no native drawable-statustrue or exact1280×800/interactive
+surface. The initial CUA inventory supplies no enabled independent UI surface.
+This is the operational access/acceptance boundary; no broad repair is requested.
+
+Root can use the reviewed record to decide a separately scoped next operation
+under S02: establish an already-authorized surface whose native drawable status
+and effective output size match a declared card, with explicit preservation,
+receipt criteria and finite cleanup. It needs a **new actual changed condition**
+and explicit operational grant; the same Wayland invocation, focus/resize attempts
+or display/renderer/configuration fixes are not authorized follow-ups here. If that
+condition is unavailable, retain this stopped record. Existing S02/S03-R/S04/S05/S06
+owners retain their separate visual/input/feel/effects/recovery acceptance work.
 
 Full S02/S03-R/S04/S05/S06 remain OPEN for drawn/physical-input/focus/feel/final
 dimensions and affected reruns/recovery. S05 actual source-linked eight effects,

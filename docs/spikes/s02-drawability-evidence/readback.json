@@ -1,0 +1,42 @@
+{
+  "decoded_and_stored_payloads_verified": 127,
+  "expected_payload_set_verified": true,
+  "expected_index_paths": [
+    "manifest.json",
+    "readback.json"
+  ],
+  "empty_stream_paths": [
+    "payloads/s02-drawability/checks/host-inventory.stderr.gz",
+    "payloads/s02-drawability/checks/main-saved-state.stderr.gz",
+    "payloads/s02-drawability/checks/wayland-interfaces.stderr.gz",
+    "payloads/s02-drawability/checks/binary-capability.stderr.gz",
+    "payloads/s02-drawability/checks/preflight-host.stderr.gz",
+    "payloads/s02-drawability/checks/preflight-live.stderr.gz",
+    "payloads/s02-drawability/checks/preflight-check.stderr.gz",
+    "payloads/s02-drawability/checks/bytes-before.stderr.gz",
+    "payloads/s02-drawability/checks/main-graceful-quit.stderr.gz",
+    "payloads/s02-drawability/checks/host-after-main-quit.stderr.gz",
+    "payloads/s02-drawability/checks/single-observation.stderr.gz",
+    "payloads/s02-drawability/checks/main-restoration-launch.stderr.gz",
+    "payloads/s02-drawability/checks/restored-initial-state.stderr.gz",
+    "payloads/s02-drawability/checks/main-refresh-reopen.stderr.gz",
+    "payloads/s02-drawability/checks/restoration-host.stderr.gz",
+    "payloads/s02-drawability/checks/bytes-after.stderr.gz",
+    "payloads/s02-drawability/checks/operational-postflight.stdout.gz",
+    "payloads/s02-drawability/checks/managed-cwd-refs.stderr.gz",
+    "payloads/s02-drawability/checks/operational-postflight-fixed.stdout.gz",
+    "payloads/s02-drawability/checks/operational-postflight-prefix.stderr.gz",
+    "payloads/s02-drawability/restore-host-before.stderr.gz",
+    "payloads/s02-drawability-observation/host-before-preparation.stderr.gz",
+    "payloads/s02-drawability-observation/host-before-runtime.stderr.gz",
+    "payloads/s02-drawability-observation/host-after-observation.stderr.gz",
+    "payloads/s02-drawability-observation/import.stderr.gz",
+    "payloads/s02-drawability-observation/runtime.stderr.gz",
+    "payloads/s02-drawability/checks/operation-retention.stderr.gz",
+    "payloads/s02-drawability/checks/immutable-source-refs.stderr.gz",
+    "payloads/s02-drawability/checks/immutable-source-refs-complete.stderr.gz",
+    ".gdignore"
+  ],
+  "manifest_sha256": "58386a17d5f479df937b43a46b0434f4fcf193956811b4fa4ee7ae30c3de411f",
+  "source_bytes_verified": true
+}

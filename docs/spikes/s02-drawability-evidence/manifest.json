@@ -1,0 +1,1283 @@
+{
+  "schema": "s02-drawability-retention-v1",
+  "base": "4169a4466e01fb50acd8069308fc2556d03e0198",
+  "protocol_commit": "2a048901b69064b52a223f2c43fa69527620ac45",
+  "expected_payload_paths": [
+    ".gdignore",
+    "README.md",
+    "frame.png",
+    "payloads/s02-drawability-observation/host-after-observation.stderr.gz",
+    "payloads/s02-drawability-observation/host-after-observation.stdout.gz",
+    "payloads/s02-drawability-observation/host-before-preparation.stderr.gz",
+    "payloads/s02-drawability-observation/host-before-preparation.stdout.gz",
+    "payloads/s02-drawability-observation/host-before-runtime.stderr.gz",
+    "payloads/s02-drawability-observation/host-before-runtime.stdout.gz",
+    "payloads/s02-drawability-observation/import.command.json.gz",
+    "payloads/s02-drawability-observation/import.engine.log.gz",
+    "payloads/s02-drawability-observation/import.stderr.gz",
+    "payloads/s02-drawability-observation/import.stdout.gz",
+    "payloads/s02-drawability-observation/observer.gd.txt.gz",
+    "payloads/s02-drawability-observation/receipts.jsonl.gz",
+    "payloads/s02-drawability-observation/runtime.command.json.gz",
+    "payloads/s02-drawability-observation/runtime.engine.log.gz",
+    "payloads/s02-drawability-observation/runtime.stderr.gz",
+    "payloads/s02-drawability-observation/runtime.stdout.gz",
+    "payloads/s02-drawability-observation/source-manifest.json.gz",
+    "payloads/s02-drawability-observation/staged-project.godot.txt.gz",
+    "payloads/s02-drawability-observation/summary.json.gz",
+    "payloads/s02-drawability/binary-capability.py.gz",
+    "payloads/s02-drawability/bytes-after.json.gz",
+    "payloads/s02-drawability/bytes-before.json.gz",
+    "payloads/s02-drawability/capture.py.gz",
+    "payloads/s02-drawability/checks/binary-capability.command.json.gz",
+    "payloads/s02-drawability/checks/binary-capability.stderr.gz",
+    "payloads/s02-drawability/checks/binary-capability.stdout.gz",
+    "payloads/s02-drawability/checks/bytes-after.command.json.gz",
+    "payloads/s02-drawability/checks/bytes-after.stderr.gz",
+    "payloads/s02-drawability/checks/bytes-after.stdout.gz",
+    "payloads/s02-drawability/checks/bytes-before.command.json.gz",
+    "payloads/s02-drawability/checks/bytes-before.stderr.gz",
+    "payloads/s02-drawability/checks/bytes-before.stdout.gz",
+    "payloads/s02-drawability/checks/host-after-main-quit.command.json.gz",
+    "payloads/s02-drawability/checks/host-after-main-quit.stderr.gz",
+    "payloads/s02-drawability/checks/host-after-main-quit.stdout.gz",
+    "payloads/s02-drawability/checks/host-inventory.command.json.gz",
+    "payloads/s02-drawability/checks/host-inventory.stderr.gz",
+    "payloads/s02-drawability/checks/host-inventory.stdout.gz",
+    "payloads/s02-drawability/checks/immutable-source-refs-complete.command.json.gz",
+    "payloads/s02-drawability/checks/immutable-source-refs-complete.stderr.gz",
+    "payloads/s02-drawability/checks/immutable-source-refs-complete.stdout.gz",
+    "payloads/s02-drawability/checks/immutable-source-refs.command.json.gz",
+    "payloads/s02-drawability/checks/immutable-source-refs.stderr.gz",
+    "payloads/s02-drawability/checks/immutable-source-refs.stdout.gz",
+    "payloads/s02-drawability/checks/main-graceful-quit.command.json.gz",
+    "payloads/s02-drawability/checks/main-graceful-quit.stderr.gz",
+    "payloads/s02-drawability/checks/main-graceful-quit.stdout.gz",
+    "payloads/s02-drawability/checks/main-refresh-reopen.command.json.gz",
+    "payloads/s02-drawability/checks/main-refresh-reopen.stderr.gz",
+    "payloads/s02-drawability/checks/main-refresh-reopen.stdout.gz",
+    "payloads/s02-drawability/checks/main-restoration-launch.command.json.gz",
+    "payloads/s02-drawability/checks/main-restoration-launch.stderr.gz",
+    "payloads/s02-drawability/checks/main-restoration-launch.stdout.gz",
+    "payloads/s02-drawability/checks/main-saved-state.command.json.gz",
+    "payloads/s02-drawability/checks/main-saved-state.stderr.gz",
+    "payloads/s02-drawability/checks/main-saved-state.stdout.gz",
+    "payloads/s02-drawability/checks/managed-cwd-refs.command.json.gz",
+    "payloads/s02-drawability/checks/managed-cwd-refs.stderr.gz",
+    "payloads/s02-drawability/checks/managed-cwd-refs.stdout.gz",
+    "payloads/s02-drawability/checks/operation-retention.command.json.gz",
+    "payloads/s02-drawability/checks/operation-retention.stderr.gz",
+    "payloads/s02-drawability/checks/operation-retention.stdout.gz",
+    "payloads/s02-drawability/checks/operational-postflight-fixed.command.json.gz",
+    "payloads/s02-drawability/checks/operational-postflight-fixed.stderr.gz",
+    "payloads/s02-drawability/checks/operational-postflight-fixed.stdout.gz",
+    "payloads/s02-drawability/checks/operational-postflight-prefix.command.json.gz",
+    "payloads/s02-drawability/checks/operational-postflight-prefix.stderr.gz",
+    "payloads/s02-drawability/checks/operational-postflight-prefix.stdout.gz",
+    "payloads/s02-drawability/checks/operational-postflight.command.json.gz",
+    "payloads/s02-drawability/checks/operational-postflight.stderr.gz",
+    "payloads/s02-drawability/checks/operational-postflight.stdout.gz",
+    "payloads/s02-drawability/checks/preflight-check.command.json.gz",
+    "payloads/s02-drawability/checks/preflight-check.stderr.gz",
+    "payloads/s02-drawability/checks/preflight-check.stdout.gz",
+    "payloads/s02-drawability/checks/preflight-host.command.json.gz",
+    "payloads/s02-drawability/checks/preflight-host.stderr.gz",
+    "payloads/s02-drawability/checks/preflight-host.stdout.gz",
+    "payloads/s02-drawability/checks/preflight-live.command.json.gz",
+    "payloads/s02-drawability/checks/preflight-live.stderr.gz",
+    "payloads/s02-drawability/checks/preflight-live.stdout.gz",
+    "payloads/s02-drawability/checks/restoration-host.command.json.gz",
+    "payloads/s02-drawability/checks/restoration-host.stderr.gz",
+    "payloads/s02-drawability/checks/restoration-host.stdout.gz",
+    "payloads/s02-drawability/checks/restored-initial-state.command.json.gz",
+    "payloads/s02-drawability/checks/restored-initial-state.stderr.gz",
+    "payloads/s02-drawability/checks/restored-initial-state.stdout.gz",
+    "payloads/s02-drawability/checks/single-observation.command.json.gz",
+    "payloads/s02-drawability/checks/single-observation.stderr.gz",
+    "payloads/s02-drawability/checks/single-observation.stdout.gz",
+    "payloads/s02-drawability/checks/wayland-interfaces.command.json.gz",
+    "payloads/s02-drawability/checks/wayland-interfaces.stderr.gz",
+    "payloads/s02-drawability/checks/wayland-interfaces.stdout.gz",
+    "payloads/s02-drawability/cwd-refs.py.gz",
+    "payloads/s02-drawability/inventory.py.gz",
+    "payloads/s02-drawability/ledger.py.gz",
+    "payloads/s02-drawability/main-restoration-launch.json.gz",
+    "payloads/s02-drawability/main-state-request.json.gz",
+    "payloads/s02-drawability/mcp__paseo__list_models.json.gz",
+    "payloads/s02-drawability/mcp__paseo__list_profiles.json.gz",
+    "payloads/s02-drawability/mcp__paseo__list_providers.json.gz",
+    "payloads/s02-drawability/observe.py.gz",
+    "payloads/s02-drawability/observer.gd.txt.gz",
+    "payloads/s02-drawability/operations-manifest.json.gz",
+    "payloads/s02-drawability/operations-readback.json.gz",
+    "payloads/s02-drawability/package.py.gz",
+    "payloads/s02-drawability/postflight-before-diagnostic-prefix.py.gz",
+    "payloads/s02-drawability/postflight-before-png-header.py.gz",
+    "payloads/s02-drawability/postflight.json.gz",
+    "payloads/s02-drawability/postflight.py.gz",
+    "payloads/s02-drawability/preflight.py.gz",
+    "payloads/s02-drawability/quit-request.json.gz",
+    "payloads/s02-drawability/raw-grant.txt.gz",
+    "payloads/s02-drawability/raw-requirements.txt.gz",
+    "payloads/s02-drawability/restore-host-before.stderr.gz",
+    "payloads/s02-drawability/restore-host-before.stdout.gz",
+    "payloads/s02-drawability/restore-main.py.gz",
+    "payloads/s02-drawability/restore-requests.json.gz",
+    "payloads/s02-drawability/restored-main.stderr.gz",
+    "payloads/s02-drawability/restored-main.stdout.gz",
+    "payloads/s02-drawability/retain-operations.py.gz",
+    "payloads/s02-drawability/saved-tabs.json.gz",
+    "payloads/s02-drawability/source-refs.json.gz",
+    "payloads/s02-drawability/source-refs.py.gz",
+    "payloads/s02-drawability/worker-identity.json.gz"
+  ],
+  "expected_index_paths": [
+    "manifest.json",
+    "readback.json"
+  ],
+  "artifacts": [
+    {
+      "source_path": "/tmp/s02-drawability/checks/host-inventory.command.json",
+      "path": "payloads/s02-drawability/checks/host-inventory.command.json.gz",
+      "bytes": 276,
+      "sha256": "e78f83768d54646d43f6c2a166bfdc605b8444846800e6fd7981333c744da7d6",
+      "codec": "gzip; mtime=0",
+      "stored_bytes": 201,
+      "stored_sha256": "236a431dc6d639dd39a29c1c56bc75c7ab09fae151aa6d416886deaa5aba6d11"
+    },
+    {
+      "source_path": "/tmp/s02-drawability/checks/host-inventory.stdout",
+      "path": "payloads/s02-drawability/checks/host-inventory.stdout.gz",
+      "bytes": 2195,
+      "sha256": "d0a17080ea169657d703ec6638d2af70c745505e7f6808711997e24457bb6d3f",
+      "codec": "gzip; mtime=0",
+      "stored_bytes": 698,
+      "stored_sha256": "d78bad000e8c4f034b5a4209bad256d1910fd21e56d3ebb12d36d6feeb93839c"
+    },
+    {
+      "source_path": "/tmp/s02-drawability/checks/host-inventory.stderr",
+      "path": "payloads/s02-drawability/checks/host-inventory.stderr.gz",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "codec": "gzip; mtime=0",
+      "stored_bytes": 20,
+      "stored_sha256": "9ceffb7310338057cfe71a4ae1e2c98d2c485d81cdef906532a801f457a38d64"
+    },
+    {
+      "source_path": "/tmp/s02-drawability/checks/main-saved-state.command.json",
+      "path": "payloads/s02-drawability/checks/main-saved-state.command.json.gz",
+      "bytes": 372,
+      "sha256": "b93a001f761413f276b9ab56b6d2bc2a4488e2d77fde9b0efeb5155e663e8fdc",
+      "codec": "gzip; mtime=0",
+      "stored_bytes": 249,
+      "stored_sha256": "6b5a9fefd1e6e52ee21ea9ad87f2f82491a601cfd0f8b769120978a945b2955e"
+    },
+    {
+      "source_path": "/tmp/s02-drawability/checks/main-saved-state.stdout",
+      "path": "payloads/s02-drawability/checks/main-saved-state.stdout.gz",
+      "bytes": 1127,
+      "sha256": "7b8130d4c2e1d256d0c1ce252efb78cbb3b333b0cee0fdca21fe109cd90d88b7",
+      "codec": "gzip; mtime=0",
+      "stored_bytes": 418,
+      "stored_sha256": "1171e8aeebb9a5a3ce94d7482571c5d5d005aa8c0deb01a182a80f834d6ddc75"
+    },
+    {
+      "source_path": "/tmp/s02-drawability/checks/main-saved-state.stderr",
+      "path": "payloads/s02-drawability/checks/main-saved-state.stderr.gz",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "codec": "gzip; mtime=0",
+      "stored_bytes": 20,
+      "stored_sha256": "9ceffb7310338057cfe71a4ae1e2c98d2c485d81cdef906532a801f457a38d64"
+    },
+    {
+      "source_path": "/tmp/s02-drawability/checks/wayland-interfaces.command.json",
+      "path": "payloads/s02-drawability/checks/wayland-interfaces.command.json.gz",
+      "bytes": 265,
+      "sha256": "d56e72b992955be7b2bea2db67dac19281a11437faf40febbb03c5c723b2bb8f",
+      "codec": "gzip; mtime=0",
+      "stored_bytes": 198,
+      "stored_sha256": "308f5d409a2894560f22a4a2c88725e12f7907ffbe7f572a5e90a683438dfe0a"
+    },
+    {
+      "source_path": "/tmp/s02-drawability/checks/wayland-interfaces.stdout",
+      "path": "payloads/s02-drawability/checks/wayland-interfaces.stdout.gz",
+      "bytes": 53930,
+      "sha256": "5eca933c418bbece805125c2992cff42f1fa4f25a99bb1b60d65dae7402bf592",
+      "codec": "gzip; mtime=0",
+      "stored_bytes": 4454,
+      "stored_sha256": "fde47f27fc22d3988dddd6c214cdf871f1fb1e0779e3098cfb3a4900f61b3e9e"
+    },
+    {
+      "source_path": "/tmp/s02-drawability/checks/wayland-interfaces.stderr",
+      "path": "payloads/s02-drawability/checks/wayland-interfaces.stderr.gz",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "codec": "gzip; mtime=0",
+      "stored_bytes": 20,
+      "stored_sha256": "9ceffb7310338057cfe71a4ae1e2c98d2c485d81cdef906532a801f457a38d64"
+    },
+    {
+      "source_path": "/tmp/s02-drawability/checks/binary-capability.command.json",
+      "path": "payloads/s02-drawability/checks/binary-capability.command.json.gz",
+      "bytes": 284,
+      "sha256": "459673bce79e11f019d956daff6053727469dbc845e8e8ceb89318f97bbabcc3",
+      "codec": "gzip; mtime=0",
+      "stored_bytes": 210,
+      "stored_sha256": "46ffcc382767cf167239ef23732dfe18d1e76b3ce037f6576aa1eae7831afb81"
+    },
+    {
+      "source_path": "/tmp/s02-drawability/checks/binary-capability.stdout",
+      "path": "payloads/s02-drawability/checks/binary-capability.stdout.gz",
+      "bytes": 1940,
+      "sha256": "7c47eac6f56f07a4c471bcca6f04e31bfad096f27bb6b70515dae8b7b352481f",
+      "codec": "gzip; mtime=0",
+      "stored_bytes": 762,
+      "stored_sha256": "763d18b7cb51e9c82cde1ad0b2b8bb1edcaa213bf9deb871dd0537572cf896f8"
+    },
+    {
+      "source_path": "/tmp/s02-drawability/checks/binary-capability.stderr",
+      "path": "payloads/s02-drawability/checks/binary-capability.stderr.gz",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "codec": "gzip; mtime=0",
+      "stored_bytes": 20,
+      "stored_sha256": "9ceffb7310338057cfe71a4ae1e2c98d2c485d81cdef906532a801f457a38d64"
+    },
+    {
+      "source_path": "/tmp/s02-drawability/checks/preflight-host.command.json",
+      "path": "payloads/s02-drawability/checks/preflight-host.command.json.gz",
+      "bytes": 276,
+      "sha256": "375a09333aed4fa128b71a3758a28f565c46484afbbdc5f6fe04aab560c2ac25",
+      "codec": "gzip; mtime=0",
+      "stored_bytes": 200,
+      "stored_sha256": "4c3a0a2110bffbea8636ede5f366adc36e092175216a77f38543f9266ceb5630"
+    },
+    {
+      "source_path": "/tmp/s02-drawability/checks/preflight-host.stdout",
+      "path": "payloads/s02-drawability/checks/preflight-host.stdout.gz",
+      "bytes": 2195,
+      "sha256": "2070456da6d81f7a2f86f7c65a356a91626722834be881bc57a0eda742a39e87",
+      "codec": "gzip; mtime=0",
+      "stored_bytes": 697,
+      "stored_sha256": "3706bd62d105c4dfb5d2b3afee7014c7533d56224a4cce8604e8d533ca8656c9"
+    },
+    {
+      "source_path": "/tmp/s02-drawability/checks/preflight-host.stderr",
+      "path": "payloads/s02-drawability/checks/preflight-host.stderr.gz",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "codec": "gzip; mtime=0",
+      "stored_bytes": 20,
+      "stored_sha256": "9ceffb7310338057cfe71a4ae1e2c98d2c485d81cdef906532a801f457a38d64"
+    },
+    {
+      "source_path": "/tmp/s02-drawability/checks/preflight-live.command.json",
+      "path": "payloads/s02-drawability/checks/preflight-live.command.json.gz",
+      "bytes": 372,
+      "sha256": "5b0cc6f693eb0f23b9d15a1c30980e5fc633e6d28a8ad58e389bef1ad06d888a",
+      "codec": "gzip; mtime=0",
+      "stored_bytes": 249,
+      "stored_sha256": "35863ad983c6f63f8ad5b1d11421e29cba0ccaa896d227f811c7496fb54a3ea2"
+    },
+    {
+      "source_path": "/tmp/s02-drawability/checks/preflight-live.stdout",
+      "path": "payloads/s02-drawability/checks/preflight-live.stdout.gz",
+      "bytes": 1127,
+      "sha256": "7b8130d4c2e1d256d0c1ce252efb78cbb3b333b0cee0fdca21fe109cd90d88b7",
+      "codec": "gzip; mtime=0",
+      "stored_bytes": 418,
+      "stored_sha256": "1171e8aeebb9a5a3ce94d7482571c5d5d005aa8c0deb01a182a80f834d6ddc75"
+    },
+    {
+      "source_path": "/tmp/s02-drawability/checks/preflight-live.stderr",
+      "path": "payloads/s02-drawability/checks/preflight-live.stderr.gz",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "codec": "gzip; mtime=0",
+      "stored_bytes": 20,
+      "stored_sha256": "9ceffb7310338057cfe71a4ae1e2c98d2c485d81cdef906532a801f457a38d64"
+    },
+    {
+      "source_path": "/tmp/s02-drawability/checks/preflight-check.command.json",
+      "path": "payloads/s02-drawability/checks/preflight-check.command.json.gz",
+      "bytes": 276,
+      "sha256": "38859bbd9b5b3f38fc6e5e381508f4c9cbfe0a25629c47dcfc14f6476a61cca9",
+      "codec": "gzip; mtime=0",
+      "stored_bytes": 199,
+      "stored_sha256": "6535214584fae0204dcb05508f34a11510f67bba68588f04a5eb0ce8bb7a4c1c"
+    },
+    {
+      "source_path": "/tmp/s02-drawability/checks/preflight-check.stdout",
+      "path": "payloads/s02-drawability/checks/preflight-check.stdout.gz",
+      "bytes": 720,
+      "sha256": "41423db2d44c281211e6ef7a7bd5335a5f1aaf66c41c07f7ead87bada5810c82",
+      "codec": "gzip; mtime=0",
+      "stored_bytes": 190,
+      "stored_sha256": "b2001c02ed5451de497dacdf4bcdcff5e663dd3b81d2e264b3e67f052a9d0258"
+    },
+    {
+      "source_path": "/tmp/s02-drawability/checks/preflight-check.stderr",
+      "path": "payloads/s02-drawability/checks/preflight-check.stderr.gz",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "codec": "gzip; mtime=0",
+      "stored_bytes": 20,
+      "stored_sha256": "9ceffb7310338057cfe71a4ae1e2c98d2c485d81cdef906532a801f457a38d64"
+    },
+    {
+      "source_path": "/tmp/s02-drawability/checks/bytes-before.command.json",
+      "path": "payloads/s02-drawability/checks/bytes-before.command.json.gz",
+      "bytes": 319,
+      "sha256": "17aeff1b511e43899daad10bfc1adbdb1cd59c65dd088366393567d881faad99",
+      "codec": "gzip; mtime=0",
+      "stored_bytes": 216,
+      "stored_sha256": "e9fa037fbc3105618a548baffc9c74e67badc9dccb9df9ff7bf814f3dc6faba2"
+    },
+    {
+      "source_path": "/tmp/s02-drawability/checks/bytes-before.stdout",
+      "path": "payloads/s02-drawability/checks/bytes-before.stdout.gz",
+      "bytes": 346,
+      "sha256": "cbbd18f0255ce3697b6dbf2913c8edb62a9724bc209adfe1c6ec9e36f1055861",
+      "codec": "gzip; mtime=0",
+      "stored_bytes": 232,
+      "stored_sha256": "666d1d1e689d3e7bd1a5539abc52c180bb5f71ac6b8dd26c3f68e208a2190ca9"
+    },
+    {
+      "source_path": "/tmp/s02-drawability/checks/bytes-before.stderr",
+      "path": "payloads/s02-drawability/checks/bytes-before.stderr.gz",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "codec": "gzip; mtime=0",
+      "stored_bytes": 20,
+      "stored_sha256": "9ceffb7310338057cfe71a4ae1e2c98d2c485d81cdef906532a801f457a38d64"
+    },
+    {
+      "source_path": "/tmp/s02-drawability/checks/main-graceful-quit.command.json",
+      "path": "payloads/s02-drawability/checks/main-graceful-quit.command.json.gz",
+      "bytes": 366,
+      "sha256": "8c6be850280aadc964fd32da85c7ca940794eedf9428cd6295fa5e5a9096677c",
+      "codec": "gzip; mtime=0",
+      "stored_bytes": 245,
+      "stored_sha256": "8394bd0aed78080a84ef9fe0acbe7155461957434406d4c9aab1cbc33b1d0edf"
+    },
+    {
+      "source_path": "/tmp/s02-drawability/checks/main-graceful-quit.stdout",
+      "path": "payloads/s02-drawability/checks/main-graceful-quit.stdout.gz",
+      "bytes": 102,
+      "sha256": "096e3c57e40f20eb13be1f3c2c7f625dbe4d291569a19d930de8da84e53bec5f",
+      "codec": "gzip; mtime=0",
+      "stored_bytes": 101,
+      "stored_sha256": "48db53ece1b64a8c6c7321bd2dfd78217a854bfbf9d0452a04c3320b6ab05903"
+    },
+    {
+      "source_path": "/tmp/s02-drawability/checks/main-graceful-quit.stderr",
+      "path": "payloads/s02-drawability/checks/main-graceful-quit.stderr.gz",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "codec": "gzip; mtime=0",
+      "stored_bytes": 20,
+      "stored_sha256": "9ceffb7310338057cfe71a4ae1e2c98d2c485d81cdef906532a801f457a38d64"
+    },
+    {
+      "source_path": "/tmp/s02-drawability/checks/host-after-main-quit.command.json",
+      "path": "payloads/s02-drawability/checks/host-after-main-quit.command.json.gz",
+      "bytes": 276,
+      "sha256": "3f2f96760c3c0b9fa8e1f53c9240daff39ca4e1c2c1f6a13005ec5378de4e531",
+      "codec": "gzip; mtime=0",
+      "stored_bytes": 199,
+      "stored_sha256": "8ff4565769c068a57e3938bf0fd6d79c2d19a1a95c1191baf756d43850dbee67"
+    },
+    {
+      "source_path": "/tmp/s02-drawability/checks/host-after-main-quit.stdout",
+      "path": "payloads/s02-drawability/checks/host-after-main-quit.stdout.gz",
+      "bytes": 1426,
+      "sha256": "b79f6825cc55a6998573ac1287ee535a9a290340590cd370612fcb964cf807fc",
+      "codec": "gzip; mtime=0",
+      "stored_bytes": 495,
+      "stored_sha256": "cba65b61977f2240356294d4bdbcafbd7f6ee9f9aca383a28c614aac220d7f6d"
+    },
+    {
+      "source_path": "/tmp/s02-drawability/checks/host-after-main-quit.stderr",
+      "path": "payloads/s02-drawability/checks/host-after-main-quit.stderr.gz",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "codec": "gzip; mtime=0",
+      "stored_bytes": 20,
+      "stored_sha256": "9ceffb7310338057cfe71a4ae1e2c98d2c485d81cdef906532a801f457a38d64"
+    },
+    {
+      "source_path": "/tmp/s02-drawability/checks/single-observation.command.json",
+      "path": "payloads/s02-drawability/checks/single-observation.command.json.gz",
+      "bytes": 274,
+      "sha256": "c35aa08cb83e261988dbe3cd6f2a3cda69d84be9cd22bb2160a50183e0728710",
+      "codec": "gzip; mtime=0",
+      "stored_bytes": 201,
+      "stored_sha256": "9059ece0e7d0147f3ad67e1b05e0024110e8fdb15a801236071b46bf59488818"
+    },
+    {
+      "source_path": "/tmp/s02-drawability/checks/single-observation.stdout",
+      "path": "payloads/s02-drawability/checks/single-observation.stdout.gz",
+      "bytes": 2047,
+      "sha256": "9acee2792dd8b6bf85e288df159c6cfee7d4d172b05ce29fcaa2b13b25936884",
+      "codec": "gzip; mtime=0",
+      "stored_bytes": 629,
+      "stored_sha256": "b2954466690889da2aacde662172d1137ab88688ab8d9affae439ca9334f541b"
+    },
+    {
+      "source_path": "/tmp/s02-drawability/checks/single-observation.stderr",
+      "path": "payloads/s02-drawability/checks/single-observation.stderr.gz",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "codec": "gzip; mtime=0",
+      "stored_bytes": 20,
+      "stored_sha256": "9ceffb7310338057cfe71a4ae1e2c98d2c485d81cdef906532a801f457a38d64"
+    },
+    {
+      "source_path": "/tmp/s02-drawability/checks/main-restoration-launch.command.json",
+      "path": "payloads/s02-drawability/checks/main-restoration-launch.command.json.gz",
+      "bytes": 279,
+      "sha256": "a38e15678343e6e3355d18fcf6fcce3858a43aff35893bcffda04ff897bb4f90",
+      "codec": "gzip; mtime=0",
+      "stored_bytes": 203,
+      "stored_sha256": "a59b0f02ba87cec62b99202f7e5dede80666b747b6fea2a5cc405703f0d38884"
+    },
+    {
+      "source_path": "/tmp/s02-drawability/checks/main-restoration-launch.stdout",
+      "path": "payloads/s02-drawability/checks/main-restoration-launch.stdout.gz",
+      "bytes": 389,
+      "sha256": "4b01a2d5ee2bafa25c3ab5a0fb0a2d482e14cb79968265b28b019ddc2511e9a7",
+      "codec": "gzip; mtime=0",
+      "stored_bytes": 271,
+      "stored_sha256": "8166ab44bb80645f26b89dd197a889bce6344a27c96f66f9ba09ab4a7563cda1"
+    },
+    {
+      "source_path": "/tmp/s02-drawability/checks/main-restoration-launch.stderr",
+      "path": "payloads/s02-drawability/checks/main-restoration-launch.stderr.gz",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "codec": "gzip; mtime=0",
+      "stored_bytes": 20,
+      "stored_sha256": "9ceffb7310338057cfe71a4ae1e2c98d2c485d81cdef906532a801f457a38d64"
+    },
+    {
+      "source_path": "/tmp/s02-drawability/checks/restored-initial-state.command.json",
+      "path": "payloads/s02-drawability/checks/restored-initial-state.command.json.gz",
+      "bytes": 372,
+      "sha256": "e6fbc80eb259bd33f49c34e74b03acf6734b1c4e413447d7baefdd613f18751c",
+      "codec": "gzip; mtime=0",
+      "stored_bytes": 249,
+      "stored_sha256": "7dcfdbc9b5fe7365b464b2ba4879afc9411fae783e07f967bb090f52607dee56"
+    },
+    {
+      "source_path": "/tmp/s02-drawability/checks/restored-initial-state.stdout",
+      "path": "payloads/s02-drawability/checks/restored-initial-state.stdout.gz",
+      "bytes": 1127,
+      "sha256": "7b8130d4c2e1d256d0c1ce252efb78cbb3b333b0cee0fdca21fe109cd90d88b7",
+      "codec": "gzip; mtime=0",
+      "stored_bytes": 418,
+      "stored_sha256": "1171e8aeebb9a5a3ce94d7482571c5d5d005aa8c0deb01a182a80f834d6ddc75"
+    },
+    {
+      "source_path": "/tmp/s02-drawability/checks/restored-initial-state.stderr",
+      "path": "payloads/s02-drawability/checks/restored-initial-state.stderr.gz",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "codec": "gzip; mtime=0",
+      "stored_bytes": 20,
+      "stored_sha256": "9ceffb7310338057cfe71a4ae1e2c98d2c485d81cdef906532a801f457a38d64"
+    },
+    {
+      "source_path": "/tmp/s02-drawability/checks/main-refresh-reopen.command.json",
+      "path": "payloads/s02-drawability/checks/main-refresh-reopen.command.json.gz",
+      "bytes": 370,
+      "sha256": "339bb74b9a5f97d1845f3fd2277a9ba2db75699239ac8a9e58617afdb14494d7",
+      "codec": "gzip; mtime=0",
+      "stored_bytes": 247,
+      "stored_sha256": "82d02e879b5d7c8cd768c082ea94b4e74a9ad5fd9b4d1a34927fd204807808ef"
+    },
+    {
+      "source_path": "/tmp/s02-drawability/checks/main-refresh-reopen.stdout",
+      "path": "payloads/s02-drawability/checks/main-refresh-reopen.stdout.gz",
+      "bytes": 139953,
+      "sha256": "f891342535a0e16a17f8af3c879ecd5811bd54cc460ba5aada74f50ea5d4ea17",
+      "codec": "gzip; mtime=0",
+      "stored_bytes": 7038,
+      "stored_sha256": "6cd2c27eecb05ae52035aecfde4a754a6de6bc468c3f1ca947aa69e7b2f141a8"
+    },
+    {
+      "source_path": "/tmp/s02-drawability/checks/main-refresh-reopen.stderr",
+      "path": "payloads/s02-drawability/checks/main-refresh-reopen.stderr.gz",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "codec": "gzip; mtime=0",
+      "stored_bytes": 20,
+      "stored_sha256": "9ceffb7310338057cfe71a4ae1e2c98d2c485d81cdef906532a801f457a38d64"
+    },
+    {
+      "source_path": "/tmp/s02-drawability/checks/restoration-host.command.json",
+      "path": "payloads/s02-drawability/checks/restoration-host.command.json.gz",
+      "bytes": 276,
+      "sha256": "25e36a163ed9bb8994c4ec7f6c138a0f67ed4efdf70592b6778f5a0806fa742f",
+      "codec": "gzip; mtime=0",
+      "stored_bytes": 200,
+      "stored_sha256": "aba5e99d6efb027d29ec825566795d908e6b5884d72c5af8678d47094d48a55c"
+    },
+    {
+      "source_path": "/tmp/s02-drawability/checks/restoration-host.stdout",
+      "path": "payloads/s02-drawability/checks/restoration-host.stdout.gz",
+      "bytes": 2195,
+      "sha256": "bd199ca899ee089ae2b2d9f6e879e9bdcf5e8d62ccd6ee6b320e29e2c0f3e1a5",
+      "codec": "gzip; mtime=0",
+      "stored_bytes": 698,
+      "stored_sha256": "493f43af0cfaeb8d1f4bf05183f5d4356e0fdb73f203e13801e51668d42f265d"
+    },
+    {
+      "source_path": "/tmp/s02-drawability/checks/restoration-host.stderr",
+      "path": "payloads/s02-drawability/checks/restoration-host.stderr.gz",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "codec": "gzip; mtime=0",
+      "stored_bytes": 20,
+      "stored_sha256": "9ceffb7310338057cfe71a4ae1e2c98d2c485d81cdef906532a801f457a38d64"
+    },
+    {
+      "source_path": "/tmp/s02-drawability/checks/bytes-after.command.json",
+      "path": "payloads/s02-drawability/checks/bytes-after.command.json.gz",
+      "bytes": 318,
+      "sha256": "332f8d00a900456021ec219ee26c6227f0c5094d7ad5d894c0c4d914ac8ed8be",
+      "codec": "gzip; mtime=0",
+      "stored_bytes": 214,
+      "stored_sha256": "c99392ae99803eb935dc092a06f6e7b10618020ae40585efe86c74a301e894d9"
+    },
+    {
+      "source_path": "/tmp/s02-drawability/checks/bytes-after.stdout",
+      "path": "payloads/s02-drawability/checks/bytes-after.stdout.gz",
+      "bytes": 346,
+      "sha256": "cbbd18f0255ce3697b6dbf2913c8edb62a9724bc209adfe1c6ec9e36f1055861",
+      "codec": "gzip; mtime=0",
+      "stored_bytes": 232,
+      "stored_sha256": "666d1d1e689d3e7bd1a5539abc52c180bb5f71ac6b8dd26c3f68e208a2190ca9"
+    },
+    {
+      "source_path": "/tmp/s02-drawability/checks/bytes-after.stderr",
+      "path": "payloads/s02-drawability/checks/bytes-after.stderr.gz",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "codec": "gzip; mtime=0",
+      "stored_bytes": 20,
+      "stored_sha256": "9ceffb7310338057cfe71a4ae1e2c98d2c485d81cdef906532a801f457a38d64"
+    },
+    {
+      "source_path": "/tmp/s02-drawability/checks/operational-postflight.command.json",
+      "path": "payloads/s02-drawability/checks/operational-postflight.command.json.gz",
+      "bytes": 277,
+      "sha256": "d95ed6a3e87912c458597fcfaf29e3aa2b658ab29a4b7b636be6271540883ad4",
+      "codec": "gzip; mtime=0",
+      "stored_bytes": 201,
+      "stored_sha256": "909f028dacf9b7afcf3ebccc7e26f5071cb17523df07c644dfd3fd598efc9183"
+    },
+    {
+      "source_path": "/tmp/s02-drawability/checks/operational-postflight.stdout",
+      "path": "payloads/s02-drawability/checks/operational-postflight.stdout.gz",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "codec": "gzip; mtime=0",
+      "stored_bytes": 20,
+      "stored_sha256": "9ceffb7310338057cfe71a4ae1e2c98d2c485d81cdef906532a801f457a38d64"
+    },
+    {
+      "source_path": "/tmp/s02-drawability/checks/operational-postflight.stderr",
+      "path": "payloads/s02-drawability/checks/operational-postflight.stderr.gz",
+      "bytes": 169,
+      "sha256": "5f9de6c9680474e0f2c0e2ed4e6a6787320dc166bb2323a92bae6b33e2056fcf",
+      "codec": "gzip; mtime=0",
+      "stored_bytes": 160,
+      "stored_sha256": "8ac1118de7ec447baf39e0dfc7714db2620b50285edda76354337053b4fdb4d4"
+    },
+    {
+      "source_path": "/tmp/s02-drawability/checks/managed-cwd-refs.command.json",
+      "path": "payloads/s02-drawability/checks/managed-cwd-refs.command.json.gz",
+      "bytes": 275,
+      "sha256": "6862d1523cb74690edb6e03ca78f2fab4a9993afa89874e8d1257f5298cf8649",
+      "codec": "gzip; mtime=0",
+      "stored_bytes": 199,
+      "stored_sha256": "83fc09e605e8a41736a7fd35929fce591c83c6649776ed67320ad29721ce4246"
+    },
+    {
+      "source_path": "/tmp/s02-drawability/checks/managed-cwd-refs.stdout",
+      "path": "payloads/s02-drawability/checks/managed-cwd-refs.stdout.gz",
+      "bytes": 4038,
+      "sha256": "a565a6e2198a98d556a815b171560ca9bbfc00f8778e73c0bea20b9275fb0745",
+      "codec": "gzip; mtime=0",
+      "stored_bytes": 499,
+      "stored_sha256": "2599fef0438c780a5cf1ce4d030c9a9eb51250cb82bd007c9b1ccc0fa0c2e3f4"
+    },
+    {
+      "source_path": "/tmp/s02-drawability/checks/managed-cwd-refs.stderr",
+      "path": "payloads/s02-drawability/checks/managed-cwd-refs.stderr.gz",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "codec": "gzip; mtime=0",
+      "stored_bytes": 20,
+      "stored_sha256": "9ceffb7310338057cfe71a4ae1e2c98d2c485d81cdef906532a801f457a38d64"
+    },
+    {
+      "source_path": "/tmp/s02-drawability/checks/operational-postflight-fixed.command.json",
+      "path": "payloads/s02-drawability/checks/operational-postflight-fixed.command.json.gz",
+      "bytes": 277,
+      "sha256": "06999a581706831fffcd94586f419e863febb57376fd9f0a076a34e1ac11606e",
+      "codec": "gzip; mtime=0",
+      "stored_bytes": 202,
+      "stored_sha256": "ee8826ac790c9f090da0042a39b05b5bb9681be875252079e21a567346ec3a8f"
+    },
+    {
+      "source_path": "/tmp/s02-drawability/checks/operational-postflight-fixed.stdout",
+      "path": "payloads/s02-drawability/checks/operational-postflight-fixed.stdout.gz",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "codec": "gzip; mtime=0",
+      "stored_bytes": 20,
+      "stored_sha256": "9ceffb7310338057cfe71a4ae1e2c98d2c485d81cdef906532a801f457a38d64"
+    },
+    {
+      "source_path": "/tmp/s02-drawability/checks/operational-postflight-fixed.stderr",
+      "path": "payloads/s02-drawability/checks/operational-postflight-fixed.stderr.gz",
+      "bytes": 166,
+      "sha256": "e356995dca1ad88398565abeb767b932745f0be0b48fcca7c022e9bb4e5f0813",
+      "codec": "gzip; mtime=0",
+      "stored_bytes": 151,
+      "stored_sha256": "a60e567d36012472ec84bba84b51c75558fcc085b6c416fbed918641517fe758"
+    },
+    {
+      "source_path": "/tmp/s02-drawability/checks/operational-postflight-prefix.command.json",
+      "path": "payloads/s02-drawability/checks/operational-postflight-prefix.command.json.gz",
+      "bytes": 277,
+      "sha256": "2a70c851576444fd79cbac06f36bfb4983e7eedc11ca360a39d2b0cd584eb203",
+      "codec": "gzip; mtime=0",
+      "stored_bytes": 202,
+      "stored_sha256": "e510360e231666597c9e98afbde0aa22e95e5d259dcd25d841f1e58a2716c392"
+    },
+    {
+      "source_path": "/tmp/s02-drawability/checks/operational-postflight-prefix.stdout",
+      "path": "payloads/s02-drawability/checks/operational-postflight-prefix.stdout.gz",
+      "bytes": 2053,
+      "sha256": "6828a29f370f6fa8619783a00a38648dace8eb1613b21ffd5b419c37e7e6df13",
+      "codec": "gzip; mtime=0",
+      "stored_bytes": 986,
+      "stored_sha256": "8b4bd21291ea79df25a2b7ab643b4cf03c7334f6749df8fa66e3105af5cbd76d"
+    },
+    {
+      "source_path": "/tmp/s02-drawability/checks/operational-postflight-prefix.stderr",
+      "path": "payloads/s02-drawability/checks/operational-postflight-prefix.stderr.gz",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "codec": "gzip; mtime=0",
+      "stored_bytes": 20,
+      "stored_sha256": "9ceffb7310338057cfe71a4ae1e2c98d2c485d81cdef906532a801f457a38d64"
+    },
+    {
+      "source_path": "/tmp/s02-drawability/capture.py",
+      "path": "payloads/s02-drawability/capture.py.gz",
+      "bytes": 850,
+      "sha256": "e2011a2d6c98f02819b494f9538f69886d8879b59ce6a15fc82149060761a352",
+      "codec": "gzip; mtime=0",
+      "stored_bytes": 411,
+      "stored_sha256": "73a3323e8f59118c3e7451a939809a38acc7bac0cbce5fda5f52f989a695310b"
+    },
+    {
+      "source_path": "/tmp/s02-drawability/inventory.py",
+      "path": "payloads/s02-drawability/inventory.py.gz",
+      "bytes": 1761,
+      "sha256": "24c38afa555fd04f306c0fa4fe673569caa9f1db60eb4ec9c2129da67f0e39f9",
+      "codec": "gzip; mtime=0",
+      "stored_bytes": 803,
+      "stored_sha256": "94e2310e0e381b5f217e5ba32bb5eb56c79b136a223655ccc964b303d0873a2a"
+    },
+    {
+      "source_path": "/tmp/s02-drawability/binary-capability.py",
+      "path": "payloads/s02-drawability/binary-capability.py.gz",
+      "bytes": 739,
+      "sha256": "f5cb44551792cdbaef80e6350e2efa9763d48c2ecad5ec391c9aa47faa026d0a",
+      "codec": "gzip; mtime=0",
+      "stored_bytes": 458,
+      "stored_sha256": "96e45053ad76d9d2b19eb9b850808bd31b67f3490be8876ddae89c6d857b39b0"
+    },
+    {
+      "source_path": "/tmp/s02-drawability/main-state-request.json",
+      "path": "payloads/s02-drawability/main-state-request.json.gz",
+      "bytes": 95,
+      "sha256": "984691f007312da098ba97c07f07647d24cc891957ee0e9bc83e9f6aee35d787",
+      "codec": "gzip; mtime=0",
+      "stored_bytes": 97,
+      "stored_sha256": "275c538584e41402a89028fe7b418d418623c89d8830a969f542a0de58269ee6"
+    },
+    {
+      "source_path": "/tmp/s02-drawability/ledger.py",
+      "path": "payloads/s02-drawability/ledger.py.gz",
+      "bytes": 1365,
+      "sha256": "0f09fe874cf103c5e39aa6a30d495b5fc1a5de6c36d3646cff25a2bb0b314802",
+      "codec": "gzip; mtime=0",
+      "stored_bytes": 697,
+      "stored_sha256": "a694d9ca78dfcc6a0e986b0b170c71d16dac0fc8b1ea244d7c71559512a094bb"
+    },
+    {
+      "source_path": "/tmp/s02-drawability/preflight.py",
+      "path": "payloads/s02-drawability/preflight.py.gz",
+      "bytes": 996,
+      "sha256": "2005bc31a4d746713e5aa5cdd28fa2bad1b422fcccc3bd8cd96f13ba00a1ab54",
+      "codec": "gzip; mtime=0",
+      "stored_bytes": 555,
+      "stored_sha256": "d33056e4ad203730faf6dc181403cf133356f81ad69b95d62439e00458dac870"
+    },
+    {
+      "source_path": "/tmp/s02-drawability/quit-request.json",
+      "path": "payloads/s02-drawability/quit-request.json.gz",
+      "bytes": 102,
+      "sha256": "2563cbfea235f823ff46239222ca41b1b18d3021f5428435d643747f6c42d243",
+      "codec": "gzip; mtime=0",
+      "stored_bytes": 110,
+      "stored_sha256": "321c174c801c685e9288976d86322f3bc857aeaff166572c8c99adb2f778841e"
+    },
+    {
+      "source_path": "/tmp/s02-drawability/observer.gd.txt",
+      "path": "payloads/s02-drawability/observer.gd.txt.gz",
+      "bytes": 3301,
+      "sha256": "d5d4dbd70d1434ad34c5b5b019cf6d019fc5c59c0de1ffbb288492b33bf34f99",
+      "codec": "gzip; mtime=0",
+      "stored_bytes": 1480,
+      "stored_sha256": "1d6071f45563333bc9bd57223d23e88c18dde5367d853be6a75443f01fa648a4"
+    },
+    {
+      "source_path": "/tmp/s02-drawability/observe.py",
+      "path": "payloads/s02-drawability/observe.py.gz",
+      "bytes": 6322,
+      "sha256": "228d35141de93ebef890af3a7cbee3feabbe0b8c00b14bf112a36f7589f1db28",
+      "codec": "gzip; mtime=0",
+      "stored_bytes": 2494,
+      "stored_sha256": "710712b8d797579bbd3161c9034bb1aee4688f94bc04ebfd9138562f4d2f0a29"
+    },
+    {
+      "source_path": "/tmp/s02-drawability/restore-main.py",
+      "path": "payloads/s02-drawability/restore-main.py.gz",
+      "bytes": 1126,
+      "sha256": "1d68879d87b0cf925d7520e1b3955e4c7edfe27ddfa81db9f80cb3861988d6f0",
+      "codec": "gzip; mtime=0",
+      "stored_bytes": 616,
+      "stored_sha256": "d1e083efb8d92c4ba7282727427648626cf388ebf195aa12754ce8529ae35397"
+    },
+    {
+      "source_path": "/tmp/s02-drawability/restore-requests.json",
+      "path": "payloads/s02-drawability/restore-requests.json.gz",
+      "bytes": 6148,
+      "sha256": "5bc9b913199c554647fb501214b78f6bae1ca3c00401cb1915a016e68a8e07f2",
+      "codec": "gzip; mtime=0",
+      "stored_bytes": 386,
+      "stored_sha256": "3f5376988c98eb5a1724d64686b12d15d9926d489ebe413432ab515ae40aa177"
+    },
+    {
+      "source_path": "/tmp/s02-drawability/postflight.py",
+      "path": "payloads/s02-drawability/postflight.py.gz",
+      "bytes": 4676,
+      "sha256": "c8e936a4e9e9708e955e168e2de8c24d1ffce43a791494b086e4ab18f614b76c",
+      "codec": "gzip; mtime=0",
+      "stored_bytes": 1907,
+      "stored_sha256": "294ebad623f7ef9df9c87447278a7b7951aecd60271797c9a5a677ed723fcfdb"
+    },
+    {
+      "source_path": "/tmp/s02-drawability/postflight-before-png-header.py",
+      "path": "payloads/s02-drawability/postflight-before-png-header.py.gz",
+      "bytes": 4606,
+      "sha256": "07f71899df1cbfae96c0f66b77165263702434f33c3b4622e386b8c5ddd22821",
+      "codec": "gzip; mtime=0",
+      "stored_bytes": 1863,
+      "stored_sha256": "a8f7d7b38394db6068df772cde8489588693cd3491be14b41ab23b5b5430b427"
+    },
+    {
+      "source_path": "/tmp/s02-drawability/postflight-before-diagnostic-prefix.py",
+      "path": "payloads/s02-drawability/postflight-before-diagnostic-prefix.py.gz",
+      "bytes": 4655,
+      "sha256": "ce5659b34cca89a3aa0b19d2ccb411abe8c7c1df87231c9696fc6f33521512c8",
+      "codec": "gzip; mtime=0",
+      "stored_bytes": 1889,
+      "stored_sha256": "ffeba22642cf3cd2165fa61ae587ef3ba4715af479c50653ebe4bd3b323c3664"
+    },
+    {
+      "source_path": "/tmp/s02-drawability/cwd-refs.py",
+      "path": "payloads/s02-drawability/cwd-refs.py.gz",
+      "bytes": 742,
+      "sha256": "ac6017b93451ac0af3b2d6badfa069e9f0ebd568ac2932b02c041cb453606708",
+      "codec": "gzip; mtime=0",
+      "stored_bytes": 456,
+      "stored_sha256": "0ee674c3c5237eaf8eda3cd00711e137f16549b4fea79e3ef04355dbc9ad19e1"
+    },
+    {
+      "source_path": "/tmp/s02-drawability/saved-tabs.json",
+      "path": "payloads/s02-drawability/saved-tabs.json.gz",
+      "bytes": 706,
+      "sha256": "f6aceeedbceea0917266448f4b0a20176c5d21e501bab4a9ce4b8e89176a5f50",
+      "codec": "gzip; mtime=0",
+      "stored_bytes": 158,
+      "stored_sha256": "88d089f61800ec9018cc7792adf19414e7788f5ecb215622bdc82f3d855cf40f"
+    },
+    {
+      "source_path": "/tmp/s02-drawability/bytes-before.json",
+      "path": "payloads/s02-drawability/bytes-before.json.gz",
+      "bytes": 850024,
+      "sha256": "4c744970febf916091e29213704e402df0c0eb42ac5c306da71b20e516c305ba",
+      "codec": "gzip; mtime=0",
+      "stored_bytes": 179122,
+      "stored_sha256": "e33545c3764e012e5204a2cff735773a77f95d0c47848d0691adb6528397107e"
+    },
+    {
+      "source_path": "/tmp/s02-drawability/bytes-after.json",
+      "path": "payloads/s02-drawability/bytes-after.json.gz",
+      "bytes": 850024,
+      "sha256": "4c744970febf916091e29213704e402df0c0eb42ac5c306da71b20e516c305ba",
+      "codec": "gzip; mtime=0",
+      "stored_bytes": 179122,
+      "stored_sha256": "e33545c3764e012e5204a2cff735773a77f95d0c47848d0691adb6528397107e"
+    },
+    {
+      "source_path": "/tmp/s02-drawability/postflight.json",
+      "path": "payloads/s02-drawability/postflight.json.gz",
+      "bytes": 3295,
+      "sha256": "429481d6594c77a7870ba9b359c456ae5ed5156788f824d5ba4744eb54c4eda5",
+      "codec": "gzip; mtime=0",
+      "stored_bytes": 1181,
+      "stored_sha256": "e8b603441b52887473c55e43fdfb4d03b5cd3ce5a70786018b52bba26420c59e"
+    },
+    {
+      "source_path": "/tmp/s02-drawability/main-restoration-launch.json",
+      "path": "payloads/s02-drawability/main-restoration-launch.json.gz",
+      "bytes": 425,
+      "sha256": "f46908ebe0d7016bd0fac07d3c52580d54649e536cb8fcf40145d0a815c9c594",
+      "codec": "gzip; mtime=0",
+      "stored_bytes": 283,
+      "stored_sha256": "cdf724580c93b4a7f2404c697f3262bf6034ffcd648989b07b7d536318613d68"
+    },
+    {
+      "source_path": "/tmp/s02-drawability/restore-host-before.stdout",
+      "path": "payloads/s02-drawability/restore-host-before.stdout.gz",
+      "bytes": 1426,
+      "sha256": "19d40b35972fbae0c724a061788c007a93f8cd47eff95bb8a1796032bc1c2182",
+      "codec": "gzip; mtime=0",
+      "stored_bytes": 494,
+      "stored_sha256": "2e5f446bed255770fce3598ac2e0a800a613fc43c87377428f2635e5ae2e4b37"
+    },
+    {
+      "source_path": "/tmp/s02-drawability/restore-host-before.stderr",
+      "path": "payloads/s02-drawability/restore-host-before.stderr.gz",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "codec": "gzip; mtime=0",
+      "stored_bytes": 20,
+      "stored_sha256": "9ceffb7310338057cfe71a4ae1e2c98d2c485d81cdef906532a801f457a38d64"
+    },
+    {
+      "source_path": "/tmp/s02-drawability/restored-main.stdout",
+      "path": "payloads/s02-drawability/restored-main.stdout.gz",
+      "bytes": 1113,
+      "sha256": "724378d44310090a1d307d664902005b9a1b9e2f0a44b2d3aed26cc9fc859c04",
+      "codec": "gzip; mtime=0",
+      "stored_bytes": 622,
+      "stored_sha256": "6b1ef5f88eb2140e9f270f4b1cbb949d90d7fd6eb376121fbbb0e5d0f2f4fba5"
+    },
+    {
+      "source_path": "/tmp/s02-drawability/restored-main.stderr",
+      "path": "payloads/s02-drawability/restored-main.stderr.gz",
+      "bytes": 401,
+      "sha256": "b3a3140df2624060413e3a6a78685ace4cf2f129efb9934958ad556a7706a27b",
+      "codec": "gzip; mtime=0",
+      "stored_bytes": 304,
+      "stored_sha256": "344d4cb9371d929dd331e9b8519797296f412ad532a9dce5292bd93f41945295"
+    },
+    {
+      "source_path": "/tmp/s02-drawability/raw-requirements.txt",
+      "path": "payloads/s02-drawability/raw-requirements.txt.gz",
+      "bytes": 9409,
+      "sha256": "362fa5dd0a87a5cdfb14af91899109f5bfc3ac587a963a032a1bfcc38c62f621",
+      "codec": "gzip; mtime=0",
+      "stored_bytes": 4421,
+      "stored_sha256": "b2272fe7611aaddaaa4a3f1a7278c6a443b6d3878bc40a8cec319220c2b03953"
+    },
+    {
+      "source_path": "/tmp/s02-drawability/raw-grant.txt",
+      "path": "payloads/s02-drawability/raw-grant.txt.gz",
+      "bytes": 3790,
+      "sha256": "41e83e35d3c9473b1c1317de0122e212dcad100aaddf4b2dce759f9cbd9b4273",
+      "codec": "gzip; mtime=0",
+      "stored_bytes": 1963,
+      "stored_sha256": "fd21e7f27d11f72f3bc4cb12d9f9919bd7b9137f1ef08d4967b3253d53c74703"
+    },
+    {
+      "source_path": "/tmp/s02-drawability-observation/host-before-preparation.stdout",
+      "path": "payloads/s02-drawability-observation/host-before-preparation.stdout.gz",
+      "bytes": 1426,
+      "sha256": "5ab6a1c2d4865ccec0d09404308de7fb98d1611b366a9bc9375ba9689fadf93a",
+      "codec": "gzip; mtime=0",
+      "stored_bytes": 496,
+      "stored_sha256": "53f6c1f6c2f0b03b5c68998683e36e03da1fdc5063810b8bc50f40e1183d9cb4"
+    },
+    {
+      "source_path": "/tmp/s02-drawability-observation/host-before-preparation.stderr",
+      "path": "payloads/s02-drawability-observation/host-before-preparation.stderr.gz",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "codec": "gzip; mtime=0",
+      "stored_bytes": 20,
+      "stored_sha256": "9ceffb7310338057cfe71a4ae1e2c98d2c485d81cdef906532a801f457a38d64"
+    },
+    {
+      "source_path": "/tmp/s02-drawability-observation/host-before-runtime.stdout",
+      "path": "payloads/s02-drawability-observation/host-before-runtime.stdout.gz",
+      "bytes": 1426,
+      "sha256": "536c62831dfa13dfde12fe0a93bf672ed39ffb47349cf53ba48c73c6761614de",
+      "codec": "gzip; mtime=0",
+      "stored_bytes": 495,
+      "stored_sha256": "9bf8f2ddcfe77215a326962ed799c853e248e924d23cce3afbdcd9e156ef1650"
+    },
+    {
+      "source_path": "/tmp/s02-drawability-observation/host-before-runtime.stderr",
+      "path": "payloads/s02-drawability-observation/host-before-runtime.stderr.gz",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "codec": "gzip; mtime=0",
+      "stored_bytes": 20,
+      "stored_sha256": "9ceffb7310338057cfe71a4ae1e2c98d2c485d81cdef906532a801f457a38d64"
+    },
+    {
+      "source_path": "/tmp/s02-drawability-observation/host-after-observation.stdout",
+      "path": "payloads/s02-drawability-observation/host-after-observation.stdout.gz",
+      "bytes": 1426,
+      "sha256": "cddc9a399541675f6e1a78e6525708426e661418fee3606b2613509af62e5be0",
+      "codec": "gzip; mtime=0",
+      "stored_bytes": 495,
+      "stored_sha256": "c8176751b0701498a73a37d6bd053099dbd1def9a0c24ef592a8d85b2c2ba86d"
+    },
+    {
+      "source_path": "/tmp/s02-drawability-observation/host-after-observation.stderr",
+      "path": "payloads/s02-drawability-observation/host-after-observation.stderr.gz",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "codec": "gzip; mtime=0",
+      "stored_bytes": 20,
+      "stored_sha256": "9ceffb7310338057cfe71a4ae1e2c98d2c485d81cdef906532a801f457a38d64"
+    },
+    {
+      "source_path": "/tmp/s02-drawability-observation/import.stdout",
+      "path": "payloads/s02-drawability-observation/import.stdout.gz",
+      "bytes": 6308,
+      "sha256": "7d4879c3eb871492f74b117e5e6051098000af26beb5efbfdf30688c4dfdc33b",
+      "codec": "gzip; mtime=0",
+      "stored_bytes": 892,
+      "stored_sha256": "f983951c13f2141bc58279610fe22c63059fd0ba681ca85dae615aab5722e431"
+    },
+    {
+      "source_path": "/tmp/s02-drawability-observation/import.stderr",
+      "path": "payloads/s02-drawability-observation/import.stderr.gz",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "codec": "gzip; mtime=0",
+      "stored_bytes": 20,
+      "stored_sha256": "9ceffb7310338057cfe71a4ae1e2c98d2c485d81cdef906532a801f457a38d64"
+    },
+    {
+      "source_path": "/tmp/s02-drawability-observation/import.engine.log",
+      "path": "payloads/s02-drawability-observation/import.engine.log.gz",
+      "bytes": 4146,
+      "sha256": "3f322245d97c082135a3960ff27b986cc3aa9e215d89d61065a1fc618470595e",
+      "codec": "gzip; mtime=0",
+      "stored_bytes": 824,
+      "stored_sha256": "a4b78376ac2595c6ed9581edab1175a18a001acdfb521a177f770daf7bfcc1b5"
+    },
+    {
+      "source_path": "/tmp/s02-drawability-observation/import.command.json",
+      "path": "payloads/s02-drawability-observation/import.command.json.gz",
+      "bytes": 829,
+      "sha256": "abc3938849c64798b102fd1a74ad1900052d3e14ff6672262be738ebff7bc602",
+      "codec": "gzip; mtime=0",
+      "stored_bytes": 411,
+      "stored_sha256": "07647b46612e76928383946efae7dbb01a30272fbf0691fac3a16f89dc2e2001"
+    },
+    {
+      "source_path": "/tmp/s02-drawability-observation/runtime.stdout",
+      "path": "payloads/s02-drawability-observation/runtime.stdout.gz",
+      "bytes": 3409,
+      "sha256": "961c8cc20f8a91797368023ed0e9fad59283f616d366e1ca438fc14932ec0dae",
+      "codec": "gzip; mtime=0",
+      "stored_bytes": 715,
+      "stored_sha256": "a2dac27d1d9435755eff248b1fe8fddc58536278124b0e2cdb1491c635a087c3"
+    },
+    {
+      "source_path": "/tmp/s02-drawability-observation/runtime.stderr",
+      "path": "payloads/s02-drawability-observation/runtime.stderr.gz",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "codec": "gzip; mtime=0",
+      "stored_bytes": 20,
+      "stored_sha256": "9ceffb7310338057cfe71a4ae1e2c98d2c485d81cdef906532a801f457a38d64"
+    },
+    {
+      "source_path": "/tmp/s02-drawability-observation/runtime.engine.log",
+      "path": "payloads/s02-drawability-observation/runtime.engine.log.gz",
+      "bytes": 3409,
+      "sha256": "961c8cc20f8a91797368023ed0e9fad59283f616d366e1ca438fc14932ec0dae",
+      "codec": "gzip; mtime=0",
+      "stored_bytes": 715,
+      "stored_sha256": "a2dac27d1d9435755eff248b1fe8fddc58536278124b0e2cdb1491c635a087c3"
+    },
+    {
+      "source_path": "/tmp/s02-drawability-observation/runtime.command.json",
+      "path": "payloads/s02-drawability-observation/runtime.command.json.gz",
+      "bytes": 879,
+      "sha256": "e14c12d633759b9de4db969c74d402dfeeeb300bb8dbf3562b138c6691d4f473",
+      "codec": "gzip; mtime=0",
+      "stored_bytes": 434,
+      "stored_sha256": "8154ce202a9cfbb2f93e2819759c08fa2ea073f7865b7edbb2f68b8ec353fd15"
+    },
+    {
+      "source_path": "/tmp/s02-drawability-observation/receipts.jsonl",
+      "path": "payloads/s02-drawability-observation/receipts.jsonl.gz",
+      "bytes": 3435,
+      "sha256": "6315b4764215f47e8b027a68b641794ad261977d7424e054427c78e525de4097",
+      "codec": "gzip; mtime=0",
+      "stored_bytes": 600,
+      "stored_sha256": "f44ff1b8930b11019f4515dda2b6c003dea537c473b8868bb64ed771031280e3"
+    },
+    {
+      "source_path": "/tmp/s02-drawability-observation/frame.png",
+      "path": "frame.png",
+      "bytes": 154337,
+      "sha256": "b20b617c4437076e758a0df9d886ae17baabadcd5d806756ab460c317457edac",
+      "codec": "raw",
+      "stored_bytes": 154337,
+      "stored_sha256": "b20b617c4437076e758a0df9d886ae17baabadcd5d806756ab460c317457edac"
+    },
+    {
+      "source_path": "/tmp/s02-drawability-observation/observer.gd.txt",
+      "path": "payloads/s02-drawability-observation/observer.gd.txt.gz",
+      "bytes": 3301,
+      "sha256": "d5d4dbd70d1434ad34c5b5b019cf6d019fc5c59c0de1ffbb288492b33bf34f99",
+      "codec": "gzip; mtime=0",
+      "stored_bytes": 1480,
+      "stored_sha256": "1d6071f45563333bc9bd57223d23e88c18dde5367d853be6a75443f01fa648a4"
+    },
+    {
+      "source_path": "/tmp/s02-drawability-observation/staged-project.godot.txt",
+      "path": "payloads/s02-drawability-observation/staged-project.godot.txt.gz",
+      "bytes": 4408,
+      "sha256": "d5764f377874a6b6eca073861f803dbe4c7fae9db1c1785b9afb93a9c3967ea7",
+      "codec": "gzip; mtime=0",
+      "stored_bytes": 770,
+      "stored_sha256": "21f5b85214a15b8054a2a1659f6379c5fca8ce8196dd5e1ad61c37ce2d765e86"
+    },
+    {
+      "source_path": "/tmp/s02-drawability-observation/source-manifest.json",
+      "path": "payloads/s02-drawability-observation/source-manifest.json.gz",
+      "bytes": 7930,
+      "sha256": "9b302bcef0558b4147ea1963387fddd6c33421f38c72c9c14bff371845f6c30a",
+      "codec": "gzip; mtime=0",
+      "stored_bytes": 3050,
+      "stored_sha256": "6a454ea913b40e94147cb066724d6d1e3d71fdaa99aeb2f256b6785641b88ad9"
+    },
+    {
+      "source_path": "/tmp/s02-drawability-observation/summary.json",
+      "path": "payloads/s02-drawability-observation/summary.json.gz",
+      "bytes": 2047,
+      "sha256": "9acee2792dd8b6bf85e288df159c6cfee7d4d172b05ce29fcaa2b13b25936884",
+      "codec": "gzip; mtime=0",
+      "stored_bytes": 629,
+      "stored_sha256": "b2954466690889da2aacde662172d1137ab88688ab8d9affae439ca9334f541b"
+    },
+    {
+      "source_path": "/tmp/s02-drawability/operations-manifest.json",
+      "path": "payloads/s02-drawability/operations-manifest.json.gz",
+      "bytes": 26914,
+      "sha256": "ef7a885d996ca69f9a512167d292213274b0dbbe6b1574739204fcfcaa6ff2fb",
+      "codec": "gzip; mtime=0",
+      "stored_bytes": 5010,
+      "stored_sha256": "ed417dfdba102a2aaefcbb09ff02c97bea61d1d58187f981f3acf32faeedd615"
+    },
+    {
+      "source_path": "/tmp/s02-drawability/operations-readback.json",
+      "path": "payloads/s02-drawability/operations-readback.json.gz",
+      "bytes": 2023,
+      "sha256": "2e280ffd7e21160704eba9c5bcaecc183d9011bfa6a25df1bfb8316c756f0072",
+      "codec": "gzip; mtime=0",
+      "stored_bytes": 540,
+      "stored_sha256": "ad4848e353fe89c86af94c35e5938a156e2431230d0e9ff8fa2e78afbf2bec79"
+    },
+    {
+      "source_path": "/tmp/s02-drawability/retain-operations.py",
+      "path": "payloads/s02-drawability/retain-operations.py.gz",
+      "bytes": 3251,
+      "sha256": "0b8e72f072ae4f1a0ac952e792e7504a9884a88df77f7ea01da7f902b5edcc49",
+      "codec": "gzip; mtime=0",
+      "stored_bytes": 1215,
+      "stored_sha256": "bc1761581e8903197f67d495dafd207f42c86e3f4cff74b129fb01fda58ee687"
+    },
+    {
+      "source_path": "/tmp/s02-drawability/source-refs.py",
+      "path": "payloads/s02-drawability/source-refs.py.gz",
+      "bytes": 4068,
+      "sha256": "8a5375e7868621dfddf0928a8edca7906adaa72579307ceb42a981d26785c5f3",
+      "codec": "gzip; mtime=0",
+      "stored_bytes": 1770,
+      "stored_sha256": "bc9373375e3e92450915a43478964d6599c240a58486b60dfffc52336f84d4e7"
+    },
+    {
+      "source_path": "/tmp/s02-drawability/source-refs.json",
+      "path": "payloads/s02-drawability/source-refs.json.gz",
+      "bytes": 23261,
+      "sha256": "44928397186f355391caa2e1b25d05248cebcb9544491e62e9a0d862d638ca20",
+      "codec": "gzip; mtime=0",
+      "stored_bytes": 5735,
+      "stored_sha256": "7bf3c424aa8ef01d4ced82b2c864bc5f7ce0c2d5e24b5af76d9f480c4c66488a"
+    },
+    {
+      "source_path": "/tmp/s02-drawability/worker-identity.json",
+      "path": "payloads/s02-drawability/worker-identity.json.gz",
+      "bytes": 7207,
+      "sha256": "df2328e22a86a9e628be42cd5d7ab147a1c541155454f8cd2c6fa1d424f815ed",
+      "codec": "gzip; mtime=0",
+      "stored_bytes": 1724,
+      "stored_sha256": "f03ef334c7788cb676d452a0dc910307a817a2731951efadf5afed065734199e"
+    },
+    {
+      "source_path": "/tmp/s02-drawability/mcp__paseo__list_profiles.json",
+      "path": "payloads/s02-drawability/mcp__paseo__list_profiles.json.gz",
+      "bytes": 167,
+      "sha256": "3532a0811c2a8829e45a50336fff112f50a80f44b3aee2ea6b26f495956a89ac",
+      "codec": "gzip; mtime=0",
+      "stored_bytes": 129,
+      "stored_sha256": "e2c1d200f396074ca4dd6c8990d26af39b137a09ea20f854a5c6ebf09cacece1"
+    },
+    {
+      "source_path": "/tmp/s02-drawability/mcp__paseo__list_providers.json",
+      "path": "payloads/s02-drawability/mcp__paseo__list_providers.json.gz",
+      "bytes": 5013,
+      "sha256": "0348e579f7ea2166db4d81ca8b6ed78c497a13f8a2afbdf35171ab281203af8b",
+      "codec": "gzip; mtime=0",
+      "stored_bytes": 1011,
+      "stored_sha256": "469e7a3a0e7966efbfa28f851890c2ee52f997a0a5975c88411afedf7e6af02d"
+    },
+    {
+      "source_path": "/tmp/s02-drawability/mcp__paseo__list_models.json",
+      "path": "payloads/s02-drawability/mcp__paseo__list_models.json.gz",
+      "bytes": 34183,
+      "sha256": "d2a0ce8c026d62379af892cf4646abfba95b1d70a7585de215d453330ab3e446",
+      "codec": "gzip; mtime=0",
+      "stored_bytes": 1478,
+      "stored_sha256": "0da0d23b6cb33234de44a4b04e34ae6ebb5a473ee8fc87b11441aa11ea0b468f"
+    },
+    {
+      "source_path": "/tmp/s02-drawability/package.py",
+      "path": "payloads/s02-drawability/package.py.gz",
+      "bytes": 5032,
+      "sha256": "168ed6ce59d245f6509340735a090fac152c6b7dd2fd7d0272b039fe5befe0b9",
+      "codec": "gzip; mtime=0",
+      "stored_bytes": 2154,
+      "stored_sha256": "b2b4ce3db657e681d83793e2b5f6dc87174a57367d8806f1edbe879e9dbfbe7d"
+    },
+    {
+      "source_path": "/tmp/s02-drawability/checks/operation-retention.command.json",
+      "path": "payloads/s02-drawability/checks/operation-retention.command.json.gz",
+      "bytes": 284,
+      "sha256": "7e441753c684bf3e64da673ea83a96dbe922d464593f2c41b3d3543fd0c8b73d",
+      "codec": "gzip; mtime=0",
+      "stored_bytes": 204,
+      "stored_sha256": "975f430b5765ab5981cd47844971a399bc6fd5ab8623a17a14c5be4847880d1d"
+    },
+    {
+      "source_path": "/tmp/s02-drawability/checks/operation-retention.stdout",
+      "path": "payloads/s02-drawability/checks/operation-retention.stdout.gz",
+      "bytes": 2023,
+      "sha256": "2e280ffd7e21160704eba9c5bcaecc183d9011bfa6a25df1bfb8316c756f0072",
+      "codec": "gzip; mtime=0",
+      "stored_bytes": 540,
+      "stored_sha256": "ad4848e353fe89c86af94c35e5938a156e2431230d0e9ff8fa2e78afbf2bec79"
+    },
+    {
+      "source_path": "/tmp/s02-drawability/checks/operation-retention.stderr",
+      "path": "payloads/s02-drawability/checks/operation-retention.stderr.gz",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "codec": "gzip; mtime=0",
+      "stored_bytes": 20,
+      "stored_sha256": "9ceffb7310338057cfe71a4ae1e2c98d2c485d81cdef906532a801f457a38d64"
+    },
+    {
+      "source_path": "/tmp/s02-drawability/checks/immutable-source-refs.command.json",
+      "path": "payloads/s02-drawability/checks/immutable-source-refs.command.json.gz",
+      "bytes": 277,
+      "sha256": "98ab132e8a89ab8d19715afb35aef0ea66c589c572b15341d4da78276f64b91e",
+      "codec": "gzip; mtime=0",
+      "stored_bytes": 203,
+      "stored_sha256": "9823468d2dd4664af157a53854ce56de080ad30715e45e546e2d6f96bd9cea8d"
+    },
+    {
+      "source_path": "/tmp/s02-drawability/checks/immutable-source-refs.stdout",
+      "path": "payloads/s02-drawability/checks/immutable-source-refs.stdout.gz",
+      "bytes": 68,
+      "sha256": "684c43ace373f8b1e0545e897dbb8d57e5045c9f3926862a1f98ce20d970cae6",
+      "codec": "gzip; mtime=0",
+      "stored_bytes": 75,
+      "stored_sha256": "d7c71c127e2402e1a14234e430ad42216c0c23a8cf5f62cda9449e8d98c85651"
+    },
+    {
+      "source_path": "/tmp/s02-drawability/checks/immutable-source-refs.stderr",
+      "path": "payloads/s02-drawability/checks/immutable-source-refs.stderr.gz",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "codec": "gzip; mtime=0",
+      "stored_bytes": 20,
+      "stored_sha256": "9ceffb7310338057cfe71a4ae1e2c98d2c485d81cdef906532a801f457a38d64"
+    },
+    {
+      "source_path": "/tmp/s02-drawability/checks/immutable-source-refs-complete.command.json",
+      "path": "payloads/s02-drawability/checks/immutable-source-refs-complete.command.json.gz",
+      "bytes": 277,
+      "sha256": "f1f0079fd7d46aca01277baf298270083cc36d002b99b856ada5c2ef2c948490",
+      "codec": "gzip; mtime=0",
+      "stored_bytes": 202,
+      "stored_sha256": "5a5225ab53390cf6d51fe5b15254f9e154b9c2118fefe2142aa84c57fc724a86"
+    },
+    {
+      "source_path": "/tmp/s02-drawability/checks/immutable-source-refs-complete.stdout",
+      "path": "payloads/s02-drawability/checks/immutable-source-refs-complete.stdout.gz",
+      "bytes": 68,
+      "sha256": "d8bae52e6abd6ffe3596fa13edd4676e513783e5a94aef50311cbd2d1e763d00",
+      "codec": "gzip; mtime=0",
+      "stored_bytes": 75,
+      "stored_sha256": "be9babc8f30fe567ee1d4c40ea2b986d97f5540713de1603ebfe4950b99057e8"
+    },
+    {
+      "source_path": "/tmp/s02-drawability/checks/immutable-source-refs-complete.stderr",
+      "path": "payloads/s02-drawability/checks/immutable-source-refs-complete.stderr.gz",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "codec": "gzip; mtime=0",
+      "stored_bytes": 20,
+      "stored_sha256": "9ceffb7310338057cfe71a4ae1e2c98d2c485d81cdef906532a801f457a38d64"
+    },
+    {
+      "source_path": "authored:README.md",
+      "path": "README.md",
+      "bytes": 1916,
+      "sha256": "acbc0e865cf3dfca9454c54e1a25210a70eacfc831eab5043a6f69af96d9a83f",
+      "codec": "raw",
+      "stored_bytes": 1916,
+      "stored_sha256": "acbc0e865cf3dfca9454c54e1a25210a70eacfc831eab5043a6f69af96d9a83f"
+    },
+    {
+      "source_path": "authored:.gdignore",
+      "path": ".gdignore",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "codec": "raw",
+      "stored_bytes": 0,
+      "stored_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ]
+}
