@@ -1,0 +1,705 @@
+{
+  "prior_exclusive": "ca38e4fc55b32a379ef7e3bf947e27d4ca8edc4c",
+  "inclusive_watermark": "754a0b501fe705c93675ff09b43d5bfca201cd94",
+  "accepted_commit_count": 10,
+  "commits": [
+    {
+      "revision": "cd01975a96140c5a8e9e686352dddb6c6a249ac1",
+      "parents": [
+        "ca38e4fc55b32a379ef7e3bf947e27d4ca8edc4c"
+      ],
+      "subject": "docs: save fifth checkpoint draft before accepted compatibility reconciliation",
+      "paths": [
+        "TODO.md",
+        "docs/reviews/plan-check-05-evidence/accepted-notes/04f16d3.txt.gz",
+        "docs/reviews/plan-check-05-evidence/accepted-notes/2370ad1.txt.gz",
+        "docs/reviews/plan-check-05-evidence/accepted-notes/8b6dc30.txt.gz",
+        "docs/reviews/plan-check-05-evidence/audit-manifest.json",
+        "docs/reviews/plan-check-05-evidence/profile-discovery.json",
+        "docs/reviews/plan-check-05-evidence/requirements.txt",
+        "docs/reviews/plan-check-05-evidence/root-updates.txt",
+        "docs/reviews/plan-check-2026-10-08-05.md"
+      ]
+    },
+    {
+      "revision": "a509ca99d9bfb675b0b31464cd2a03bd001155c1",
+      "parents": [
+        "cd01975a96140c5a8e9e686352dddb6c6a249ac1"
+      ],
+      "subject": "docs: reconcile fifth checkpoint through accepted Steam compatibility boundary",
+      "paths": [
+        "TODO.md",
+        "docs/reviews/plan-check-05-evidence/accepted-notes/ca38e4f.txt.gz",
+        "docs/reviews/plan-check-05-evidence/audit-manifest.json",
+        "docs/reviews/plan-check-05-evidence/check.py",
+        "docs/reviews/plan-check-05-evidence/root-updates.txt",
+        "docs/reviews/plan-check-2026-10-08-05.md",
+        "docs/reviews/plan-checkpoints.md"
+      ]
+    },
+    {
+      "revision": "c0eda26f7f010af75bbf10c272ec5cb001442331",
+      "parents": [
+        "a509ca99d9bfb675b0b31464cd2a03bd001155c1"
+      ],
+      "subject": "docs: retain complete independent fifth checkpoint review and checks",
+      "paths": [
+        "docs/reviews/plan-check-05-evidence/check.py",
+        "docs/reviews/plan-check-05-evidence/independent/04f16d3-full-note.txt.gz",
+        "docs/reviews/plan-check-05-evidence/independent/2370ad1-full-note.txt.gz",
+        "docs/reviews/plan-check-05-evidence/independent/8b6dc30-full-note.txt.gz",
+        "docs/reviews/plan-check-05-evidence/independent/SHA256SUMS.gz",
+        "docs/reviews/plan-check-05-evidence/independent/artifact-manifest.json.gz",
+        "docs/reviews/plan-check-05-evidence/independent/ca38e4f-full-note.txt.gz",
+        "docs/reviews/plan-check-05-evidence/independent/candidate-checker-inspected.py.txt.gz",
+        "docs/reviews/plan-check-05-evidence/independent/candidate-checker.stderr.gz",
+        "docs/reviews/plan-check-05-evidence/independent/candidate-checker.stdout.gz",
+        "docs/reviews/plan-check-05-evidence/independent/candidate-diff-check.stderr.gz",
+        "docs/reviews/plan-check-05-evidence/independent/candidate-diff-check.stdout.gz",
+        "docs/reviews/plan-check-05-evidence/independent/checkpoint05-accepted-range-whitespace.json.gz",
+        "docs/reviews/plan-check-05-evidence/independent/checkpoint05-accepted-range-whitespace.log.gz",
+        "docs/reviews/plan-check-05-evidence/independent/checkpoint05-worker-static-a509ca9.log.gz",
+        "docs/reviews/plan-check-05-evidence/independent/examined-history.stdout.gz",
+        "docs/reviews/plan-check-05-evidence/independent/exploratory-path-read.stderr.gz",
+        "docs/reviews/plan-check-05-evidence/independent/final-git-status.stdout.gz",
+        "docs/reviews/plan-check-05-evidence/independent/final-refs.stdout.gz",
+        "docs/reviews/plan-check-05-evidence/independent/handoff.json.gz",
+        "docs/reviews/plan-check-05-evidence/independent/links.json.gz",
+        "docs/reviews/plan-check-05-evidence/independent/source-inspection-initial.py.gz",
+        "docs/reviews/plan-check-05-evidence/independent/source-inspection-initial.stderr.gz",
+        "docs/reviews/plan-check-05-evidence/independent/source-inspection-initial.stdout.gz",
+        "docs/reviews/plan-check-05-evidence/independent/static-audit-initial.stderr.gz",
+        "docs/reviews/plan-check-05-evidence/independent/static-audit-initial.stdout.gz",
+        "docs/reviews/plan-check-05-evidence/independent/static-audit-second.stderr.gz",
+        "docs/reviews/plan-check-05-evidence/independent/static-audit-second.stdout.gz",
+        "docs/reviews/plan-check-05-evidence/independent/static-audit-third.stderr.gz",
+        "docs/reviews/plan-check-05-evidence/independent/static-audit-third.stdout.gz",
+        "docs/reviews/plan-check-05-evidence/independent/static-audit.stderr.gz",
+        "docs/reviews/plan-check-05-evidence/independent/static-audit.stdout.gz",
+        "docs/reviews/plan-check-05-evidence/independent/static_audit-initial.py.gz",
+        "docs/reviews/plan-check-05-evidence/independent/static_audit-second.py.gz",
+        "docs/reviews/plan-check-05-evidence/independent/static_audit-third.py.gz",
+        "docs/reviews/plan-check-05-evidence/independent/static_audit.py.gz",
+        "docs/reviews/plan-check-05-evidence/retention.json",
+        "docs/reviews/plan-check-2026-10-08-05.md",
+        "docs/reviews/plan-check-review-2026-10-08-05.md"
+      ]
+    },
+    {
+      "revision": "e871aa7e46cb9a77f598ebcfe4bcd6dc995bb0a4",
+      "parents": [
+        "c0eda26f7f010af75bbf10c272ec5cb001442331"
+      ],
+      "subject": "docs: reconcile accepted S04 technical evidence (P0-DOC6)",
+      "paths": [
+        "README.md",
+        "TODO.md",
+        "docs/architecture.md",
+        "docs/assets/s04_kit.md",
+        "docs/development.md",
+        "docs/multiplayer.md",
+        "docs/reviews/p0-doc6.md",
+        "docs/scene-structure.md",
+        "docs/spikes/s04.md",
+        "docs/world-layout.md"
+      ]
+    },
+    {
+      "revision": "a6f647e0798f2e458e4f0dcdd033d759e875e6b3",
+      "parents": [
+        "e871aa7e46cb9a77f598ebcfe4bcd6dc995bb0a4"
+      ],
+      "subject": "docs: discover accepted stopped compatibility evidence (P0-DOC7)",
+      "paths": [
+        "README.md",
+        "TODO.md",
+        "docs/development.md",
+        "docs/multiplayer.md",
+        "docs/reviews/p0-doc7.md",
+        "docs/spikes/s03-s-compatibility.md"
+      ]
+    },
+    {
+      "revision": "c8096b55ef97412552366fdaa74c220b976ed82e",
+      "parents": [
+        "a6f647e0798f2e458e4f0dcdd033d759e875e6b3"
+      ],
+      "subject": "docs: record active unaccepted S05 authoring assignment",
+      "paths": [
+        "TODO.md"
+      ]
+    },
+    {
+      "revision": "50406d0b7931c409f76bc114018be8379300e8ba",
+      "parents": [
+        "c8096b55ef97412552366fdaa74c220b976ed82e"
+      ],
+      "subject": "Add bounded S05 authoritative damage and chain fixture evidence",
+      "paths": [
+        "docs/spikes/s05-contracts.md",
+        "docs/spikes/s05-evidence/README.md",
+        "docs/spikes/s05-evidence/all-owned-checks/compilation.json",
+        "docs/spikes/s05-evidence/all-owned-checks/compile-0.engine.log.gz",
+        "docs/spikes/s05-evidence/all-owned-checks/compile-0.log.gz",
+        "docs/spikes/s05-evidence/all-owned-checks/compile-1.engine.log.gz",
+        "docs/spikes/s05-evidence/all-owned-checks/compile-1.log.gz",
+        "docs/spikes/s05-evidence/all-owned-checks/compile-10.engine.log.gz",
+        "docs/spikes/s05-evidence/all-owned-checks/compile-10.log.gz",
+        "docs/spikes/s05-evidence/all-owned-checks/compile-11.engine.log.gz",
+        "docs/spikes/s05-evidence/all-owned-checks/compile-11.log.gz",
+        "docs/spikes/s05-evidence/all-owned-checks/compile-12.engine.log.gz",
+        "docs/spikes/s05-evidence/all-owned-checks/compile-12.log.gz",
+        "docs/spikes/s05-evidence/all-owned-checks/compile-13.engine.log.gz",
+        "docs/spikes/s05-evidence/all-owned-checks/compile-13.log.gz",
+        "docs/spikes/s05-evidence/all-owned-checks/compile-14.engine.log.gz",
+        "docs/spikes/s05-evidence/all-owned-checks/compile-14.log.gz",
+        "docs/spikes/s05-evidence/all-owned-checks/compile-15.engine.log.gz",
+        "docs/spikes/s05-evidence/all-owned-checks/compile-15.log.gz",
+        "docs/spikes/s05-evidence/all-owned-checks/compile-16.engine.log.gz",
+        "docs/spikes/s05-evidence/all-owned-checks/compile-16.log.gz",
+        "docs/spikes/s05-evidence/all-owned-checks/compile-17.engine.log.gz",
+        "docs/spikes/s05-evidence/all-owned-checks/compile-17.log.gz",
+        "docs/spikes/s05-evidence/all-owned-checks/compile-18.engine.log.gz",
+        "docs/spikes/s05-evidence/all-owned-checks/compile-18.log.gz",
+        "docs/spikes/s05-evidence/all-owned-checks/compile-19.engine.log.gz",
+        "docs/spikes/s05-evidence/all-owned-checks/compile-19.log.gz",
+        "docs/spikes/s05-evidence/all-owned-checks/compile-2.engine.log.gz",
+        "docs/spikes/s05-evidence/all-owned-checks/compile-2.log.gz",
+        "docs/spikes/s05-evidence/all-owned-checks/compile-20.engine.log.gz",
+        "docs/spikes/s05-evidence/all-owned-checks/compile-20.log.gz",
+        "docs/spikes/s05-evidence/all-owned-checks/compile-21.engine.log.gz",
+        "docs/spikes/s05-evidence/all-owned-checks/compile-21.log.gz",
+        "docs/spikes/s05-evidence/all-owned-checks/compile-22.engine.log.gz",
+        "docs/spikes/s05-evidence/all-owned-checks/compile-22.log.gz",
+        "docs/spikes/s05-evidence/all-owned-checks/compile-23.engine.log.gz",
+        "docs/spikes/s05-evidence/all-owned-checks/compile-23.log.gz",
+        "docs/spikes/s05-evidence/all-owned-checks/compile-24.engine.log.gz",
+        "docs/spikes/s05-evidence/all-owned-checks/compile-24.log.gz",
+        "docs/spikes/s05-evidence/all-owned-checks/compile-25.engine.log.gz",
+        "docs/spikes/s05-evidence/all-owned-checks/compile-25.log.gz",
+        "docs/spikes/s05-evidence/all-owned-checks/compile-26.engine.log.gz",
+        "docs/spikes/s05-evidence/all-owned-checks/compile-26.log.gz",
+        "docs/spikes/s05-evidence/all-owned-checks/compile-27.engine.log.gz",
+        "docs/spikes/s05-evidence/all-owned-checks/compile-27.log.gz",
+        "docs/spikes/s05-evidence/all-owned-checks/compile-28.engine.log.gz",
+        "docs/spikes/s05-evidence/all-owned-checks/compile-28.log.gz",
+        "docs/spikes/s05-evidence/all-owned-checks/compile-29.engine.log.gz",
+        "docs/spikes/s05-evidence/all-owned-checks/compile-29.log.gz",
+        "docs/spikes/s05-evidence/all-owned-checks/compile-3.engine.log.gz",
+        "docs/spikes/s05-evidence/all-owned-checks/compile-3.log.gz",
+        "docs/spikes/s05-evidence/all-owned-checks/compile-30.engine.log.gz",
+        "docs/spikes/s05-evidence/all-owned-checks/compile-30.log.gz",
+        "docs/spikes/s05-evidence/all-owned-checks/compile-31.engine.log.gz",
+        "docs/spikes/s05-evidence/all-owned-checks/compile-31.log.gz",
+        "docs/spikes/s05-evidence/all-owned-checks/compile-32.engine.log.gz",
+        "docs/spikes/s05-evidence/all-owned-checks/compile-32.log.gz",
+        "docs/spikes/s05-evidence/all-owned-checks/compile-33.engine.log.gz",
+        "docs/spikes/s05-evidence/all-owned-checks/compile-33.log.gz",
+        "docs/spikes/s05-evidence/all-owned-checks/compile-34.engine.log.gz",
+        "docs/spikes/s05-evidence/all-owned-checks/compile-34.log.gz",
+        "docs/spikes/s05-evidence/all-owned-checks/compile-35.engine.log.gz",
+        "docs/spikes/s05-evidence/all-owned-checks/compile-35.log.gz",
+        "docs/spikes/s05-evidence/all-owned-checks/compile-36.engine.log.gz",
+        "docs/spikes/s05-evidence/all-owned-checks/compile-36.log.gz",
+        "docs/spikes/s05-evidence/all-owned-checks/compile-37.engine.log.gz",
+        "docs/spikes/s05-evidence/all-owned-checks/compile-37.log.gz",
+        "docs/spikes/s05-evidence/all-owned-checks/compile-38.engine.log.gz",
+        "docs/spikes/s05-evidence/all-owned-checks/compile-38.log.gz",
+        "docs/spikes/s05-evidence/all-owned-checks/compile-39.engine.log.gz",
+        "docs/spikes/s05-evidence/all-owned-checks/compile-39.log.gz",
+        "docs/spikes/s05-evidence/all-owned-checks/compile-4.engine.log.gz",
+        "docs/spikes/s05-evidence/all-owned-checks/compile-4.log.gz",
+        "docs/spikes/s05-evidence/all-owned-checks/compile-40.engine.log.gz",
+        "docs/spikes/s05-evidence/all-owned-checks/compile-40.log.gz",
+        "docs/spikes/s05-evidence/all-owned-checks/compile-41.engine.log.gz",
+        "docs/spikes/s05-evidence/all-owned-checks/compile-41.log.gz",
+        "docs/spikes/s05-evidence/all-owned-checks/compile-42.engine.log.gz",
+        "docs/spikes/s05-evidence/all-owned-checks/compile-42.log.gz",
+        "docs/spikes/s05-evidence/all-owned-checks/compile-43.engine.log.gz",
+        "docs/spikes/s05-evidence/all-owned-checks/compile-43.log.gz",
+        "docs/spikes/s05-evidence/all-owned-checks/compile-44.engine.log.gz",
+        "docs/spikes/s05-evidence/all-owned-checks/compile-44.log.gz",
+        "docs/spikes/s05-evidence/all-owned-checks/compile-45.engine.log.gz",
+        "docs/spikes/s05-evidence/all-owned-checks/compile-45.log.gz",
+        "docs/spikes/s05-evidence/all-owned-checks/compile-46.engine.log.gz",
+        "docs/spikes/s05-evidence/all-owned-checks/compile-46.log.gz",
+        "docs/spikes/s05-evidence/all-owned-checks/compile-47.engine.log.gz",
+        "docs/spikes/s05-evidence/all-owned-checks/compile-47.log.gz",
+        "docs/spikes/s05-evidence/all-owned-checks/compile-5.engine.log.gz",
+        "docs/spikes/s05-evidence/all-owned-checks/compile-5.log.gz",
+        "docs/spikes/s05-evidence/all-owned-checks/compile-6.engine.log.gz",
+        "docs/spikes/s05-evidence/all-owned-checks/compile-6.log.gz",
+        "docs/spikes/s05-evidence/all-owned-checks/compile-7.engine.log.gz",
+        "docs/spikes/s05-evidence/all-owned-checks/compile-7.log.gz",
+        "docs/spikes/s05-evidence/all-owned-checks/compile-8.engine.log.gz",
+        "docs/spikes/s05-evidence/all-owned-checks/compile-8.log.gz",
+        "docs/spikes/s05-evidence/all-owned-checks/compile-9.engine.log.gz",
+        "docs/spikes/s05-evidence/all-owned-checks/compile-9.log.gz",
+        "docs/spikes/s05-evidence/all-owned-checks/compiler-import.engine.log.gz",
+        "docs/spikes/s05-evidence/all-owned-checks/compiler-import.log.gz",
+        "docs/spikes/s05-evidence/all-owned-checks/compiler-setup.json",
+        "docs/spikes/s05-evidence/all-owned-checks/formatting.log.gz",
+        "docs/spikes/s05-evidence/all-owned-checks/scripts.json",
+        "docs/spikes/s05-evidence/all-owned-checks/style.log.gz",
+        "docs/spikes/s05-evidence/canonical/api-boot/engine.log.gz",
+        "docs/spikes/s05-evidence/canonical/api-boot/stdout.log.gz",
+        "docs/spikes/s05-evidence/canonical/api-burst/engine.log.gz",
+        "docs/spikes/s05-evidence/canonical/api-burst/stdout.log.gz",
+        "docs/spikes/s05-evidence/canonical/compile-car.gd.log.gz",
+        "docs/spikes/s05-evidence/canonical/compile-damage.gd.log.gz",
+        "docs/spikes/s05-evidence/canonical/compile-match.gd.log.gz",
+        "docs/spikes/s05-evidence/canonical/compile-presentation.gd.log.gz",
+        "docs/spikes/s05-evidence/canonical/compile-proof.gd.log.gz",
+        "docs/spikes/s05-evidence/canonical/compile-replication.gd.log.gz",
+        "docs/spikes/s05-evidence/canonical/compile-session.gd.log.gz",
+        "docs/spikes/s05-evidence/canonical/enet-boot/client/engine.log.gz",
+        "docs/spikes/s05-evidence/canonical/enet-boot/client/stdout.log.gz",
+        "docs/spikes/s05-evidence/canonical/enet-boot/host/engine.log.gz",
+        "docs/spikes/s05-evidence/canonical/enet-boot/host/stdout.log.gz",
+        "docs/spikes/s05-evidence/canonical/enet-boot/late/engine.log.gz",
+        "docs/spikes/s05-evidence/canonical/enet-boot/late/stdout.log.gz",
+        "docs/spikes/s05-evidence/canonical/enet-boot/result.json",
+        "docs/spikes/s05-evidence/canonical/enet-burst/client/engine.log.gz",
+        "docs/spikes/s05-evidence/canonical/enet-burst/client/stdout.log.gz",
+        "docs/spikes/s05-evidence/canonical/enet-burst/host/engine.log.gz",
+        "docs/spikes/s05-evidence/canonical/enet-burst/host/stdout.log.gz",
+        "docs/spikes/s05-evidence/canonical/enet-burst/late/engine.log.gz",
+        "docs/spikes/s05-evidence/canonical/enet-burst/late/stdout.log.gz",
+        "docs/spikes/s05-evidence/canonical/enet-burst/result.json",
+        "docs/spikes/s05-evidence/canonical/formatting.log.gz",
+        "docs/spikes/s05-evidence/canonical/import.log.gz",
+        "docs/spikes/s05-evidence/canonical/lint.log.gz",
+        "docs/spikes/s05-evidence/canonical/result.json",
+        "docs/spikes/s05-evidence/editor/base-fingerprints.json",
+        "docs/spikes/s05-evidence/editor/boundary-resources.json",
+        "docs/spikes/s05-evidence/editor/boundary-roundtrip-result.jsonl.gz",
+        "docs/spikes/s05-evidence/editor/editor.log.gz",
+        "docs/spikes/s05-evidence/editor/host-after-quit.json",
+        "docs/spikes/s05-evidence/editor/host-before.json",
+        "docs/spikes/s05-evidence/editor/inventory.py",
+        "docs/spikes/s05-evidence/editor/launch.json",
+        "docs/spikes/s05-evidence/editor/main-state-result.jsonl.gz",
+        "docs/spikes/s05-evidence/editor/main-state.json",
+        "docs/spikes/s05-evidence/editor/positions-burst-result.jsonl.gz",
+        "docs/spikes/s05-evidence/editor/positions-burst.json",
+        "docs/spikes/s05-evidence/editor/proof-fix-attach-result.jsonl.gz",
+        "docs/spikes/s05-evidence/editor/proof-fix-attach.json",
+        "docs/spikes/s05-evidence/editor/proof-result.jsonl.gz",
+        "docs/spikes/s05-evidence/editor/proof.json",
+        "docs/spikes/s05-evidence/editor/protocol-amended-before-measurement.md",
+        "docs/spikes/s05-evidence/editor/protocol-before-measurement.md",
+        "docs/spikes/s05-evidence/editor/protocol-queue-before-measurement.md",
+        "docs/spikes/s05-evidence/editor/queue-predeclaration-time.json",
+        "docs/spikes/s05-evidence/editor/queue-proof-result.jsonl.gz",
+        "docs/spikes/s05-evidence/editor/queue-proof.json",
+        "docs/spikes/s05-evidence/editor/queue-timing-fix-result.jsonl.gz",
+        "docs/spikes/s05-evidence/editor/queue-timing-fix.json",
+        "docs/spikes/s05-evidence/editor/quit-result.jsonl.gz",
+        "docs/spikes/s05-evidence/editor/quit.json",
+        "docs/spikes/s05-evidence/editor/refresh-result.jsonl.gz",
+        "docs/spikes/s05-evidence/editor/refresh.json",
+        "docs/spikes/s05-evidence/editor/resources.json",
+        "docs/spikes/s05-evidence/editor/roundtrip-before.json",
+        "docs/spikes/s05-evidence/editor/roundtrip-final-result.jsonl.gz",
+        "docs/spikes/s05-evidence/editor/roundtrip-result.jsonl.gz",
+        "docs/spikes/s05-evidence/editor/roundtrip-summary.json",
+        "docs/spikes/s05-evidence/editor/roundtrip.json",
+        "docs/spikes/s05-evidence/editor/scenes-result.jsonl.gz",
+        "docs/spikes/s05-evidence/editor/scenes.json",
+        "docs/spikes/s05-evidence/editor/scripts-result.jsonl.gz",
+        "docs/spikes/s05-evidence/editor/scripts.json",
+        "docs/spikes/s05-evidence/editor/session-result.jsonl.gz",
+        "docs/spikes/s05-evidence/editor/session.json",
+        "docs/spikes/s05-evidence/editor/style-scripts-result.jsonl.gz",
+        "docs/spikes/s05-evidence/editor/style-scripts.json",
+        "docs/spikes/s05-evidence/editor/worktree-state-result.jsonl.gz",
+        "docs/spikes/s05-evidence/failed-sandbox-import/import.log.gz",
+        "docs/spikes/s05-evidence/failed-sandbox-import/result.json",
+        "docs/spikes/s05-evidence/initial-host-pass/api-boot/engine.log.gz",
+        "docs/spikes/s05-evidence/initial-host-pass/api-boot/stdout.log.gz",
+        "docs/spikes/s05-evidence/initial-host-pass/api-burst/engine.log.gz",
+        "docs/spikes/s05-evidence/initial-host-pass/api-burst/stdout.log.gz",
+        "docs/spikes/s05-evidence/initial-host-pass/compile-car.gd.log.gz",
+        "docs/spikes/s05-evidence/initial-host-pass/compile-damage.gd.log.gz",
+        "docs/spikes/s05-evidence/initial-host-pass/compile-match.gd.log.gz",
+        "docs/spikes/s05-evidence/initial-host-pass/compile-presentation.gd.log.gz",
+        "docs/spikes/s05-evidence/initial-host-pass/compile-proof.gd.log.gz",
+        "docs/spikes/s05-evidence/initial-host-pass/compile-replication.gd.log.gz",
+        "docs/spikes/s05-evidence/initial-host-pass/enet-boot/client/engine.log.gz",
+        "docs/spikes/s05-evidence/initial-host-pass/enet-boot/client/stdout.log.gz",
+        "docs/spikes/s05-evidence/initial-host-pass/enet-boot/host/engine.log.gz",
+        "docs/spikes/s05-evidence/initial-host-pass/enet-boot/host/stdout.log.gz",
+        "docs/spikes/s05-evidence/initial-host-pass/enet-boot/late/engine.log.gz",
+        "docs/spikes/s05-evidence/initial-host-pass/enet-boot/late/stdout.log.gz",
+        "docs/spikes/s05-evidence/initial-host-pass/enet-boot/result.json",
+        "docs/spikes/s05-evidence/initial-host-pass/enet-burst/client/engine.log.gz",
+        "docs/spikes/s05-evidence/initial-host-pass/enet-burst/client/stdout.log.gz",
+        "docs/spikes/s05-evidence/initial-host-pass/enet-burst/host/engine.log.gz",
+        "docs/spikes/s05-evidence/initial-host-pass/enet-burst/host/stdout.log.gz",
+        "docs/spikes/s05-evidence/initial-host-pass/enet-burst/late/engine.log.gz",
+        "docs/spikes/s05-evidence/initial-host-pass/enet-burst/late/stdout.log.gz",
+        "docs/spikes/s05-evidence/initial-host-pass/enet-burst/result.json",
+        "docs/spikes/s05-evidence/initial-host-pass/formatting.log.gz",
+        "docs/spikes/s05-evidence/initial-host-pass/import.log.gz",
+        "docs/spikes/s05-evidence/initial-host-pass/lint.log.gz",
+        "docs/spikes/s05-evidence/initial-host-pass/result.json",
+        "docs/spikes/s05-evidence/negative-retirement/engine.log.gz",
+        "docs/spikes/s05-evidence/negative-retirement/import.log.gz",
+        "docs/spikes/s05-evidence/negative-retirement/mutation.diff.gz",
+        "docs/spikes/s05-evidence/negative-retirement/result.json",
+        "docs/spikes/s05-evidence/negative-retirement/run.py",
+        "docs/spikes/s05-evidence/negative-retirement/stdout.log.gz",
+        "docs/spikes/s05-evidence/queue-corrected/compile-car.gd.log.gz",
+        "docs/spikes/s05-evidence/queue-corrected/compile-damage.gd.log.gz",
+        "docs/spikes/s05-evidence/queue-corrected/compile-match.gd.log.gz",
+        "docs/spikes/s05-evidence/queue-corrected/compile-presentation.gd.log.gz",
+        "docs/spikes/s05-evidence/queue-corrected/compile-proof.gd.log.gz",
+        "docs/spikes/s05-evidence/queue-corrected/compile-replication.gd.log.gz",
+        "docs/spikes/s05-evidence/queue-corrected/compile-session.gd.log.gz",
+        "docs/spikes/s05-evidence/queue-corrected/formatting.log.gz",
+        "docs/spikes/s05-evidence/queue-corrected/import.log.gz",
+        "docs/spikes/s05-evidence/queue-corrected/lint.log.gz",
+        "docs/spikes/s05-evidence/queue-corrected/queue/engine.log.gz",
+        "docs/spikes/s05-evidence/queue-corrected/queue/stdout.log.gz",
+        "docs/spikes/s05-evidence/queue-corrected/result.json",
+        "docs/spikes/s05-evidence/queue-pressure/compile-car.gd.log.gz",
+        "docs/spikes/s05-evidence/queue-pressure/compile-damage.gd.log.gz",
+        "docs/spikes/s05-evidence/queue-pressure/compile-match.gd.log.gz",
+        "docs/spikes/s05-evidence/queue-pressure/compile-presentation.gd.log.gz",
+        "docs/spikes/s05-evidence/queue-pressure/compile-proof.gd.log.gz",
+        "docs/spikes/s05-evidence/queue-pressure/compile-replication.gd.log.gz",
+        "docs/spikes/s05-evidence/queue-pressure/compile-session.gd.log.gz",
+        "docs/spikes/s05-evidence/queue-pressure/formatting.log.gz",
+        "docs/spikes/s05-evidence/queue-pressure/import.log.gz",
+        "docs/spikes/s05-evidence/queue-pressure/lint.log.gz",
+        "docs/spikes/s05-evidence/queue-pressure/queue/engine.log.gz",
+        "docs/spikes/s05-evidence/queue-pressure/queue/stdout.log.gz",
+        "docs/spikes/s05-evidence/queue-pressure/result.json",
+        "docs/spikes/s05-evidence/raw-s05-todo.md",
+        "docs/spikes/s05-evidence/retention.json",
+        "docs/spikes/s05.md",
+        "tests/fixtures/s05/boot.tscn",
+        "tests/fixtures/s05/burst.tscn",
+        "tests/fixtures/s05/car.gd",
+        "tests/fixtures/s05/car.gd.uid",
+        "tests/fixtures/s05/car.tscn",
+        "tests/fixtures/s05/damage.gd",
+        "tests/fixtures/s05/damage.gd.uid",
+        "tests/fixtures/s05/match.gd",
+        "tests/fixtures/s05/match.gd.uid",
+        "tests/fixtures/s05/presentation.gd",
+        "tests/fixtures/s05/presentation.gd.uid",
+        "tests/fixtures/s05/proof.gd",
+        "tests/fixtures/s05/proof.gd.uid",
+        "tests/fixtures/s05/replication.gd",
+        "tests/fixtures/s05/replication.gd.uid",
+        "tests/fixtures/s05/session.gd",
+        "tests/fixtures/s05/session.gd.uid",
+        "tools/run_s05.py",
+        "tools/s05/check_resources.py"
+      ]
+    },
+    {
+      "revision": "f7883c332a3728267afc86343d6e0f8dc696ede6",
+      "parents": [
+        "50406d0b7931c409f76bc114018be8379300e8ba"
+      ],
+      "subject": "Record partial S05 acceptance and accepted docs-main reconciliation",
+      "paths": [
+        "TODO.md",
+        "docs/spikes/s05.md"
+      ]
+    },
+    {
+      "revision": "8ade585120a20edfea4a8bf5f7ac1698bc0c7883",
+      "parents": [
+        "f7883c332a3728267afc86343d6e0f8dc696ede6"
+      ],
+      "subject": "Remove surplus authored S05 record EOF blank",
+      "paths": [
+        "docs/spikes/s05.md"
+      ]
+    },
+    {
+      "revision": "754a0b501fe705c93675ff09b43d5bfca201cd94",
+      "parents": [
+        "8ade585120a20edfea4a8bf5f7ac1698bc0c7883"
+      ],
+      "subject": "Retain independent S05 review artifacts and partial acceptance",
+      "paths": [
+        "TODO.md",
+        "docs/spikes/s05-evidence/README.md",
+        "docs/spikes/s05-evidence/editor/accepted-docs-main.diff.gz",
+        "docs/spikes/s05-evidence/editor/final-editor.log.gz",
+        "docs/spikes/s05-evidence/editor/final-host.json",
+        "docs/spikes/s05-evidence/editor/final-state-result.jsonl.gz",
+        "docs/spikes/s05-evidence/editor/final-state.json",
+        "docs/spikes/s05-evidence/editor/rebased-all-originals.json",
+        "docs/spikes/s05-evidence/editor/rebased-resources.json",
+        "docs/spikes/s05-evidence/retention.json",
+        "docs/spikes/s05-evidence/review/launch-prompt.txt",
+        "docs/spikes/s05-evidence/review/launch.json",
+        "docs/spikes/s05-evidence/review/package-verification.json",
+        "docs/spikes/s05-evidence/review/report.md",
+        "docs/spikes/s05-evidence/review/review-artifacts.tar.gz",
+        "docs/spikes/s05-evidence/review/review-manifest.json",
+        "docs/spikes/s05.md"
+      ]
+    }
+  ],
+  "accepted_base_TODO": {
+    "bytes": 58801,
+    "sha256": "01374d4db8f8a57adb6e0bf7b70e0acaee57b936ddc36401babc6b4afa8fac8c"
+  },
+  "consulted": [
+    {
+      "path": "AGENTS.md",
+      "bytes": 8003,
+      "sha256": "12b3038108dd6014210dac6e879b143861c9c57d66f3fb3b23654624646465cd"
+    },
+    {
+      "path": ".agents/skills/paseo-orchestrator/SKILL.md",
+      "bytes": 19170,
+      "sha256": "ebef942d125699eb7f18d5ec1ffaffe7f0201a8d356456d802f3fdd52af1accb"
+    },
+    {
+      "path": "README.md",
+      "bytes": 10858,
+      "sha256": "b3997e216babb797fae3fa2508cc7418fd952fbb44941128ced60bd1a9b2baf5"
+    },
+    {
+      "path": "docs/development.md",
+      "bytes": 35310,
+      "sha256": "ab358117dcbd44167c9bec66517e87aef3dc5ebd546160b5200222685650eca2"
+    },
+    {
+      "path": "docs/assets.md",
+      "bytes": 27231,
+      "sha256": "215ce941527c6c518c219ee957f496cb9aeb0239066a2a97d19281d86a6aeb4e"
+    },
+    {
+      "path": "docs/design.md",
+      "bytes": 31918,
+      "sha256": "d72184beaedf8450dc511ee036cb897c5533a0a3ce9a536cbd079354bca86c5d"
+    },
+    {
+      "path": "docs/architecture.md",
+      "bytes": 19571,
+      "sha256": "e4f2e29b6285747bc167f336d9b3c7bb1af84dd3a6a3d9c550df7cfb1ed0e34e"
+    },
+    {
+      "path": "docs/api-contracts.md",
+      "bytes": 52426,
+      "sha256": "494d3e6071766cb55a4f1b84b26c2981ef005555c0bfc7d0fce67c92fb8209e6"
+    },
+    {
+      "path": "docs/scene-structure.md",
+      "bytes": 16516,
+      "sha256": "22175dde906425c372c305fe3e55a669e411ceab1da247db7f851464c6ff36e0"
+    },
+    {
+      "path": "docs/multiplayer.md",
+      "bytes": 24452,
+      "sha256": "faed901e4a925bc5c59351b2f2b4deaffeb83c3185b486711ad48680b31561de"
+    },
+    {
+      "path": "docs/world-layout.md",
+      "bytes": 8722,
+      "sha256": "0d805d3d314066fa1458a104dd62be39a086965eb35875681c6ea3c7c2fbc95b"
+    },
+    {
+      "path": "docs/art-direction.md",
+      "bytes": 10056,
+      "sha256": "ca41a4d6a2378e768875ebd1715c909a4b8d54ed896ddffcd58b20b49c7c12f7"
+    },
+    {
+      "path": "docs/asset-catalogue.md",
+      "bytes": 1231,
+      "sha256": "41010508baa202bd2b44d7ab22ffe4258a7f565bde3cd9cba41e37dc73d6dd8c"
+    },
+    {
+      "path": "docs/assets/s04_kit.md",
+      "bytes": 5672,
+      "sha256": "5fba887a6d33c96d2148b564804d35edbd120e922513f8a7d8866d26d4e2deda"
+    },
+    {
+      "path": "docs/spikes/s05.md",
+      "bytes": 15097,
+      "sha256": "e3145b7c99464ed1e9f5f5c04d3a24d515e4ba235b2d7a8ed7c3b35d41b9d42c"
+    },
+    {
+      "path": "docs/spikes/s05-contracts.md",
+      "bytes": 10463,
+      "sha256": "60fdb61083cd3b4997a6d8d55ae964afb363a0f2e3e5c56affdd1dce8607315b"
+    },
+    {
+      "path": "docs/spikes/s05-evidence/README.md",
+      "bytes": 3665,
+      "sha256": "92ca234486780c96cd27ad7d7ff5fd95838530da0eb9b409216569ce9bb247e2"
+    },
+    {
+      "path": "docs/spikes/s05-evidence/retention.json",
+      "bytes": 89503,
+      "sha256": "e321ed0561e22bce5a653d2451fe6204bfb8efc2e3d6bd0ef6797df4cc93d52a"
+    },
+    {
+      "path": "docs/spikes/s05-evidence/review/report.md",
+      "bytes": 24112,
+      "sha256": "f098e4466992fd6b01a2db2e1869c2986f5720b08d0acae30f94aa7adcda5341"
+    },
+    {
+      "path": "docs/spikes/s05-evidence/review/review-artifacts.tar.gz",
+      "bytes": 147302,
+      "sha256": "bd877df3efb2f6ccdb3dec3bea986d4c3ea11c351da0e15f4e94aaa3cb17fbc0"
+    },
+    {
+      "path": "docs/spikes/s05-evidence/review/review-manifest.json",
+      "bytes": 9125,
+      "sha256": "e0abb905233739c15a67cf754fb26b00a73ddfb4826c3f3c65df6c5f74b7323c"
+    },
+    {
+      "path": "docs/spikes/s05-evidence/canonical/result.json",
+      "bytes": 49494,
+      "sha256": "c6409107dfb3d4561ec8ec753437ebb83c9e70fcf619dc15021a7d6d75de2cc1"
+    },
+    {
+      "path": "docs/spikes/s05-evidence/canonical/enet-boot/result.json",
+      "bytes": 5754,
+      "sha256": "51bad5e033128761f06113e56e484e1bc2cf4c672315d46a31f858bb2df2f52e"
+    },
+    {
+      "path": "docs/spikes/s05-evidence/canonical/enet-burst/result.json",
+      "bytes": 15253,
+      "sha256": "391319d5132cc03c73ee48ae901a40d96fc7683c3d7b895b5e1b06a151ccdfac"
+    },
+    {
+      "path": "docs/spikes/s05-evidence/queue-corrected/result.json",
+      "bytes": 22041,
+      "sha256": "93828380a7a649353f0d34b1d6356f1f5e584c175132dee0840d4de93a9075e7"
+    },
+    {
+      "path": "docs/spikes/s05-evidence/queue-pressure/result.json",
+      "bytes": 430,
+      "sha256": "5cae8c1a16ce6f4bc183bbd82be16eb2b1c9ff051f50d8e3bebbb8de92a28302"
+    },
+    {
+      "path": "docs/spikes/s05-evidence/negative-retirement/result.json",
+      "bytes": 768,
+      "sha256": "55ac25173a9f9047a48f999c6d47cf764a0e7474ff9e6054df85ff2096787712"
+    },
+    {
+      "path": "docs/reviews/p0-doc6.md",
+      "bytes": 2294,
+      "sha256": "364deb78ab0e7afae8908fdfc217433f6fde3b7d89bb30e369d4f7bf91d73de4"
+    },
+    {
+      "path": "docs/reviews/p0-doc7.md",
+      "bytes": 2528,
+      "sha256": "3f00abdf3b803b8ad6d3b70afbee552e350a72fb1eb959e743819ab3a26d0cea"
+    },
+    {
+      "path": "docs/reviews/plan-check-2026-10-08-05.md",
+      "bytes": 30479,
+      "sha256": "b14fb8f6439dec1fdaf8bfb7ec469086275ff86f6cbc47a9b2b596d6240321dd"
+    },
+    {
+      "path": "docs/reviews/plan-check-review-2026-10-08-05.md",
+      "bytes": 31042,
+      "sha256": "638fc1fb2f0b6a2a3f252a653ba9fd4d43eea18f477072e76c772a42a3023f98"
+    },
+    {
+      "path": "docs/workflows/p0-profiles-proposal.md",
+      "bytes": 15945,
+      "sha256": "c9ea4865a5efb6ec533cb4a47d0dfe5c0d8d6f80ef38b133d3a554aedf55e777"
+    },
+    {
+      "path": "docs/workflows/p0-profiles-evidence.md",
+      "bytes": 8920,
+      "sha256": "41d023324373c039e73ac50d449b775f43a16b8aaaa89b607c13b89af9b904c7"
+    },
+    {
+      "path": "docs/workflows/p0-profiles-evidence/proposed.patch.json",
+      "bytes": 5912,
+      "sha256": "302be76f09fd58c14dd58a55c803413ddd440e4218e48ac11094f0f6ed9dff1b"
+    },
+    {
+      "path": "docs/workflows/p0-profiles-evidence/schema-source.json",
+      "bytes": 15847,
+      "sha256": "4d5ed465574eeb2c6667aa7b4f186fc14680dded82e91d0848696f90e6f3662c"
+    },
+    {
+      "path": "docs/workflows/p0-profiles-evidence/sample-coverage.json",
+      "bytes": 2148,
+      "sha256": "fa879572111df18c809d9b6077e9fa444f732e5be94836f3f72ff1f3613dff6d"
+    },
+    {
+      "path": "tools/run_s05.py",
+      "bytes": 11412,
+      "sha256": "5c76a63b6fb16ca04f8bf02566f4e87909004de502475957667a8bfbffd355b1"
+    },
+    {
+      "path": "tools/s05/check_resources.py",
+      "bytes": 3384,
+      "sha256": "2782a0f11d1accc9fa0f43de9cba64c588ae7549e90348beb831f3697c198317"
+    },
+    {
+      "path": "tools/run_s04.py",
+      "bytes": 21267,
+      "sha256": "f7c4e8adddd8a88a2c0185cc2ccbb65104f784fc274ccd37a8a2f2e9543a0fa4"
+    },
+    {
+      "path": "tools/script_checks.py",
+      "bytes": 6529,
+      "sha256": "bc7326a7059e57b3a34b0d1b75ff25b5cc0359267a5e26a8758ee7ea3067305c"
+    },
+    {
+      "path": "tools/run_s03.py",
+      "bytes": 12262,
+      "sha256": "5ff2e01b063b3834c950d660e463aeed9735aa677d5a8864b5f5b162a05983bd"
+    },
+    {
+      "path": "tests/fixtures/s05/car.tscn",
+      "bytes": 363,
+      "sha256": "7e53a1ba71621849b83161584b5e9b888d24db123b414c02ed4d400e8a39e470"
+    },
+    {
+      "path": "tests/fixtures/s05/boot.tscn",
+      "bytes": 2482,
+      "sha256": "d75b3f342713168b075f3af07d265a87963172fa4a43b1768c8b2142b0962068"
+    },
+    {
+      "path": "tests/fixtures/s05/burst.tscn",
+      "bytes": 2419,
+      "sha256": "4ee0632d33f70ece87804aa5ffc4a5a0db762a419644888e3e0e43e9f49d5178"
+    }
+  ],
+  "notes": [
+    {
+      "revision": "c0eda26",
+      "note_blob_at_capture": "57d0a5daa4e123266ae0f863eb33f55d9b03efc0",
+      "snapshot": {
+        "bytes": 66154,
+        "sha256": "f45f4f8048b43761f403065dc711aec70686073a8b83740acca4ece79f6acf7b"
+      },
+      "scope": "time-specific capture; original payload ledger verified separately; root metadata may grow"
+    },
+    {
+      "revision": "c8096b5",
+      "note_blob_at_capture": "6e26775a54d1fd7f4edc7b2761332ce236b65431",
+      "snapshot": {
+        "bytes": 5055496,
+        "sha256": "0cf2dd9b0baf8509e42b82039bf8cc0176b091e962f92a3db2f5aa946c14d580"
+      },
+      "scope": "time-specific capture; original payload ledger verified separately; root metadata may grow"
+    },
+    {
+      "revision": "754a0b5",
+      "note_blob_at_capture": "22288d6cd84b369ade98c8cbc26d55515c10b958",
+      "snapshot": {
+        "bytes": 621364,
+        "sha256": "314191fae755522ea6ac35891342c4b9952db45701106a688fe1c52a296ce89b"
+      },
+      "scope": "time-specific capture; original payload ledger verified separately; root metadata may grow"
+    }
+  ]
+}

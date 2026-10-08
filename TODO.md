@@ -4,7 +4,8 @@ Planning baseline: 7 October 2026. The project has engine/style configuration,
 the Godot MCP Toolkit, isolated [S01 asset fixtures](docs/spikes/s01.md), a bounded
 [S02 desktop fixture](docs/spikes/s02.md), an [S03 session proof](docs/spikes/s03.md),
 a [bounded headless S03-R ENet result](docs/spikes/s03-r.md),
-and a [reviewed S04 car/body/ENet technical result](docs/spikes/s04.md),
+a [reviewed S04 car/body/ENet technical result](docs/spikes/s04.md),
+and an [accepted partial S05 authoritative chain result](docs/spikes/s05.md),
 but no production gameplay or main scene.
 This active work list retains remaining tasks and links completed work to evidence.
 Periodic whole-plan/documentation checks are indexed in
@@ -170,12 +171,13 @@ asset acceptance.
   readiness comes from those outcomes, not the inventory or elapsed time. Propose
   Sol lead/review and bounded Astra specialist routing separately. This does not
   authorize installation or claim that post-policy launches/capabilities are validated.
-  [Fifth read-only assessment](docs/reviews/plan-check-2026-10-08-05.md#profile-assessment)
-  retains zero installed profiles and four reviewed inert proposals. Accepted DOC5
-  Sol MEDIUM worker/review, S04 direct Sol HIGH implementation/finding/fix/review
-  and accepted S03-S Sol HIGH compatibility/rebase review add requirements evidence, not installed-bundle launch proof.
-  Another necessary bounded specialist session has not occurred; do not manufacture
-  one to unlock configuration. Revisit at normal cadence or earlier meaningful
+  [Sixth read-only assessment](docs/reviews/plan-check-2026-10-08-06.md#profile-assessment)
+  retains zero installed profiles and four reviewed inert proposals. Accepted DOC6/7
+  Sol MEDIUM lead/Sol HIGH review and S05 direct Sol HIGH implementation/sole HIGH
+  substantive/exact-final review add requirements and retention/tool friction evidence
+  to prior DOC5/S04/S03-S sessions, not installed-bundle launch proof. No new necessary
+  specialist session or configuration/representative launch occurred.
+  Do not manufacture a specialist session to unlock configuration. Revisit at normal cadence or earlier meaningful
   supported routing/capability/permission drift, and before any later authorized
   configuration. At that revisit reconcile historical pending S03-R/lease prose in
   the proposal/evidence with accepted scope; preserve the original sampled context.
@@ -220,6 +222,60 @@ P0-DOC5's accepted S03-R tooling/consumer and delivered-profile discovery is
 complete in [the completion/review record](docs/reviews/p0-doc5.md). Only the
 three guides and resolving references changed; full S02/S03-R, profile
 configuration/launch, Steam/Deck/P0/production gates remain open.
+
+- [ ] **P0-DOC8 — Discover accepted partial S05 tooling and exact-final review.**
+  Owner role: one direct Sol MEDIUM/HIGH documentation worker, independent Sol HIGH
+  review; root assigns named ownership. Files: `README.md`, `docs/development.md`,
+  `docs/spikes/s05.md`. Prerequisites: accepted exact `754a0b5` on base `c8096b5`,
+  complete substantive/final review and lossless Git note, completed DOC6/DOC7 and
+  [sixth checkpoint](docs/reviews/plan-check-2026-10-08-06.md#documentation-drift-and-scoped-follow-ups).
+  Evidence: [S05 record](docs/spikes/s05.md), [contract](docs/spikes/s05-contracts.md),
+  [full review](docs/spikes/s05-evidence/review/report.md), actual
+  `tools/run_s05.py`, `tools/s05/check_resources.py`, their shared staging/version/
+  diagnostic/cleanup sources and retained results. Read sources; execute no experiment.
+  Done when: README/development discover the partial fixture and exact existing
+  runner/resource recipes, required `--godot`/`--gdstyle`, flags/defaults/guarded
+  external output, private user/log scopes, seven affected versus all-owned compile
+  limits, API/ENet/queue modes and owner-only cleanup without inventing a Mise task;
+  S05 links exact754a0b5 same-reviewer ACCEPT partial/P3 resolved and complete note,
+  making its future exact-review prose historical without rewriting protocols,
+  original reports, raw failures or EOF evidence. Eight tokens are not drawn effects;
+  occupant sentinel is not a player; settled hydration is not during-chain journal.
+  Preserve all remaining S05/Steam/Deck/input/feel/capacity/P0/M1/production gates.
+  Static local links/anchors, source/flag/receipt mapping, JSON, authored LF/whitespace,
+  scoped history/task/mode/blob preservation and clean-context exact-final review
+  pass. Remove DOC8 with its resolving guide change/completion record, replace
+  P0-GATE prerequisite. Ready without hardware/editor; finish before P0-GATE.
+
+- [ ] **P0-DOC9 — Reconcile bounded S05 contracts, consumers and capacity prerequisites.**
+  Owner role: one direct Sol MEDIUM/HIGH docs worker, independent Sol HIGH review;
+  root assigns named ownership and serializes docs with DOC8. Files:
+  `docs/architecture.md`, `docs/scene-structure.md`, `docs/api-contracts.md`,
+  `docs/multiplayer.md`, `docs/assets/s04_kit.md`, `docs/world-layout.md`,
+  `docs/spikes/s07.md`. Prerequisites: accepted exact754a0b5 full substantive/final
+  note, [S05 contract](docs/spikes/s05-contracts.md), completed DOC6/7 and sixth
+  checkpoint; no final S02/S04 ratification required for factual supplements.
+  Evidence: S05 literal API/actual ENet host/live/settled-late and retired-ShotId
+  negative, normal queue5/46ticks and pressure queue12/tick41,144visits/4 per tick,
+  eight TOKEN reservations/four drops/hidden outcomes; actual saved S05 car/boot/
+  burst ancestry through unchanged S04 imports/source, source handoff and S07 method.
+  Done when: guides link one bounded fixture contract/minimum local damage-life
+  owner, retained shooter floor/reserved-work bounds, pre-tree passive state and
+  current wreck hydration before input without historical tokens. Distinguish
+  fixed lifetime shooter guard from full reconnect/fifth-peer/admission races,
+  sentinel from admitted-player death/respawn, settled join from canonical during-
+  chain baseline/journal/reset and stationary wreck from final moving-contact proof.
+  Add S05 inherited consumers to existing S04 source map, without new asset identity.
+  World/S07 current supplements distinguish provisional finite chain evidence from
+  still-required real S06 seam/topology, actual source-linked drawable effects,
+  named hardware/four views/residency/sustained load. Preserve normative production
+  APIs/owners, original historical sections/predeclarations/counts/results,
+  Regner policies, final-dimension spacing/contact reruns, every target/P0/M1 gate;
+  no maximum/renderer/streaming/integration selection. Static links/anchors, actual
+  owner/consumer/receipt mapping, JSON, authored LF/whitespace and unaffected task/
+  history/mode/blob checks plus exact independent review pass; no technical rerun.
+  Remove DOC9 with its resolving scoped guide change/completion record and replace
+  P0-GATE prerequisite; finish before P0-GATE. Ready documentation only.
 
 ## Phase-zero technical spikes
 
@@ -374,17 +430,23 @@ implementation. Save editor mutations before playtests; preserve unsaved work.
 - [ ] **S05 — Authoritative explosion-chain feasibility.**
   Needs: [S03 evidence](docs/spikes/s03.md) and a minimal vehicle/damage fixture
   using the [reviewed S04 technical body/source](docs/spikes/s04.md#bounded-recommendation-and-next-question).
-  Ready for bounded design/fixture preparation under explicit provisional
-  collider/visual/handling assumptions; S04 supplies no damage/destruction owner.
+  Accepted partial bounded experiment at exact
+  `754a0b501fe705c93675ff09b43d5bfca201cd94` on base `c8096b5`, explicitly renewed by
+  sole Sol HIGH reviewer `770f9536-788e-4348-b335-86224c24e5fa`; P3 resolved/no new
+  findings. Full S05 remains OPEN under provisional collider/visual/handling policies.
   Independently reviewed partial technical result: [bounded S05 record](docs/spikes/s05.md),
   [new fixture contract](docs/spikes/s05-contracts.md) and
   [full review](docs/spikes/s05-evidence/review/report.md) and
   [raw evidence](docs/spikes/s05-evidence/README.md). Full S05 remains open.
-  The assigned direct Sol lead added only the minimum authoritative damage/life
+  The accepted direct Sol lead added only the minimum authoritative damage/life
   owner in new saved scenes; original S02/S03/S04 sources/resources are unchanged.
   Remaining bounded acceptance: authored explosion presentation exercising eight
   cosmetic slots with drawn receipts under a separately named drawable lease;
-  current evidence proves eight token reservations, not visible explosion effects.
+  current evidence proves eight token reservations/four drops, not visible effects.
+  Actual public API/ENet host/live/settled-late health0/0/100, retired-ShotId negative,
+  twelve-car144visits/4 per tick, normal queue5/46ticks and pressure queue12/tick41
+  are accepted finite outcomes. Occupant sentinel is not an admitted player; only
+  settled wreck hydration before input/no history is proved, not during-chain journal.
   Regner ratifies provisional range/obstruction/delay/occupant/wreck policies;
   rerun affected spacing/contact rows after final S04/S02 dimensions. Use only the
   reviewed bounded contracts; full joining/reset/sustained load remains
@@ -432,7 +494,10 @@ implementation. Save editor mutations before playtests; preserve unsaved work.
   Needs for representative experiments: [S01 pipeline evidence](docs/spikes/s01.md),
   reviewed S02 desktop camera/controller within its scoped assumptions (final feel/
   handheld gates remain open), real S02 actor/S04 car envelope, S06 saved seam/topology
-  and relevant S05 chain/effect load. Capability research/run-sheet preparation can
+  and relevant S05 chain/effect load. Accepted754a0b5 proves finite chain work and
+  token reservations only; actual source-linked drawable effects/saturation and
+  live-versus-hydrated receipts remain S05 work, not a representative presentation
+  cost substitute. Capability research/run-sheet preparation can
   proceed earlier; stand-ins cannot certify missing gameplay or residency costs.
   Physical LCD/OLED and real Steam cases remain DEFERRED with S08/S03-S availability;
   desktop results name their hardware and cannot select Deck budgets/renderer or
@@ -498,7 +563,7 @@ implementation. Save editor mutations before playtests; preserve unsaved work.
   [P0-DOC4 guide reconciliation](docs/reviews/p0-doc4.md),
   [P0-DOC5 discovery/consumer reconciliation](docs/reviews/p0-doc5.md),
   [DOC6 accepted S04 guide reconciliation](docs/reviews/p0-doc6.md),
-  [DOC7 stopped compatibility discovery](docs/reviews/p0-doc7.md),
+  [DOC7 stopped compatibility discovery](docs/reviews/p0-doc7.md), P0-DOC8/P0-DOC9,
   [S03 fixture boundary](docs/spikes/s03.md#fixture-and-boundary),
   [completed S03 proof](docs/spikes/s03.md), S03-R/S03-S and S04 through S08.
   S07 supplies the documented capacity envelope, limiting axes, organization and
@@ -719,16 +784,19 @@ Prior direct Sol HIGH lead `4b965847-a374-47da-aa0e-2800adaebc4f`, workspace
 `wks_f739d0d8cb771a1d`, branch `s04-desktop-enet-cars`, are archived by Paseo after
 saved/quiescent editor relocation to main. Root's complete `2370ad1` note retains
 historical assignment, review/integration and relocation receipts. No active S04
-candidate or new S04/S06 authoring allocation. Root has assigned active **UNACCEPTED**
-S05 direct lead `50c01e86-3164-4592-a48b-8181b3275d63`, Sol6.1 HIGH auto-review,
-workspace `wks_42b1f3912dacdb26`, branch `s05-authoritative-chain-fixture`, base LOCAL
-main `c0eda26f7f010af75bbf10c272ec5cb001442331`. It owns the exclusive NEW S05
-Godot/essential-new-Blender source lease; fresh HOST/live saved-editor preflight is
-required before project switch. No accepted S05 candidate/result exists. Its bounded
-authoritative damage/life/three-car duplicate/wreck hydration and12-car/8-cosmetic-slot
-experiment retain provisional product/full gates. It edits no shared guides; DOC6/7
-ownership remains with their sole documentation lead. Root grants subsequent named
-leases separately. Original
+candidate or new S04/S06 authoring allocation. S05 exact754a0b5 is accepted and
+integrated as a PARTIAL technical result; full S05 remains OPEN. Lead
+`50c01e86-3164-4592-a48b-8181b3275d63`, Sol6.1 HIGH auto-review, workspace
+`wks_42b1f3912dacdb26` / `s05-authoritative-chain-fixture` and sole reviewer
+`770f9536-788e-4348-b335-86224c24e5fa` are archived via normal Paseo lifecycle,
+directory removed after saved main-editor relocation. Operational lease RETURNED;
+authoring lease UNASSIGNED, no active implementation candidate/new allocation.
+Root's complete754a0b5 JSON note retains original20 review/handoff entries and
+added receipt/31-entry ledger/reference facts. At its time-specific supplied HOST
+boundary, old286171 gracefully quit, sole pinned main325756 saved/unsavedempty,
+ten tabs/six reopens and1794 per-checkout tracked bytes preserved, no authored
+save or CRLF/LF normalization. This worker made no shared surface/PID query;
+no new runtime/device proof. Root grants subsequent named leases separately. Original
 S02/S03 fixtures remain immutable. Separate drawable S02/S03-R/S04 physical input,
 native focus, camera/readability/feel and conditional prediction decisions remain
 open. DOC1–7 are complete; [DOC6](docs/reviews/p0-doc6.md) reconciles accepted S04
@@ -749,8 +817,7 @@ next worker/budget. [DOC7](docs/reviews/p0-doc7.md) discovers this partial resul
 no duplicate technical task or native acceptance follows.
 
 DOC6/DOC7 guide reconciliation is complete in the linked records. Root-ready bounded
-options: S05 minimum damage/chain design and
-fixture preparation using accepted provisional S04 technical bodies; S06 one saved
+options: new DOC8/DOC9 accepted-partial-S05 guide reconciliation; S06 one saved
 two-sector topology/turn/seam experiment under explicit provisional dimensions;
 S08 desktop exact-template/native-dependency/export recipe preparation. Root assigns
 one owner/budget and serializes shared authoring. S07's research/method preparation
@@ -768,9 +835,9 @@ The table describes dependency stages, not a claim that deferred proofs are runn
 | Initial foundation | Ratified brief, contract drafts, concept exploration, tool inventory | Chosen style/layout and measured scope revisions need user ratification and evidence |
 | Tiny fixtures available | S02 camera using [S01 pipeline evidence](docs/spikes/s01.md); use [completed S03 session evidence](docs/spikes/s03.md); review skill dry runs | All visible fixtures must have Blender sources; only minimum harness required |
 | ENet boundary available | Stopped S03-S compatibility accepted; root commissions exact-revision evidence or bounded native-boundary design; S08 desktop preparation | No adapter selection/native delivery/access proof inferred; existing-app/tester/native compatibility still required |
-| Reviewed desktop S02/S03/S03-R and bounded S04 technical result available | Active UNACCEPTED S05 lead `50c01e86-3164-4592-a48b-8181b3275d63`, `wks_42b1f3912dacdb26` / `s05-authoritative-chain-fixture`, exclusive NEW S05 Godot/essential-new-Blender lease; S06 and drawable follow-ups need separate named leases | S05 requires fresh HOST/live saved-editor preflight before project switch; no accepted result; final dimensions/turning/feel/target/Steam/prediction remain open |
+| Reviewed desktop and partial S05 technical results available | Exact754a0b5 partial accepted, S05 lead/reviewer/workspace archived after saved main relocation; lease UNASSIGNED; DOC8/DOC9 docs ready, S06 and actual-effect/drawable follow-ups need named leases | No active implementation/new allocation; operational lease returned; tokens are not drawn effects; final dimensions/turning/feel/target/Steam/prediction remain open |
 | Both providers available | Finish S03-R foot response and S04 network response; S08 exports | Both transports need evidence; foot/vehicle prediction are separate decisions |
-| Provisional technical vehicle envelope available | Bounded S05 minimum damage/chain fixture and S06 intersection/seam with actual bodies | Final dimensions/turning/exit ratification remains S04; rerun affected cases after choices |
+| Provisional technical vehicle envelope available | S06 saved two-sector real-body legal turn/crossing/seam/minimap; accepted S05 finite work can inform bounded wreck assumption | Final dimensions/turning/exit ratification remains S04; no allocation implied; rerun affected cases after choices |
 | City/effect fixtures available | S07 capacity/culling experiments, finish S08, skill dry runs and doc reconciliation | P0-GATE resolves critical assumptions before production |
 | M1 begins | M1-A shell/settings, M1-C1 art families | Each art class uses its approved style/pipeline/envelope |
 | Shell accepted | M1-B1 vehicles and M1-B2 weapons; static sector assembly | M1-B3 needs both vehicle and damage ownership |

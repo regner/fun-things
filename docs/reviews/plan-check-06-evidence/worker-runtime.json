@@ -1,0 +1,109 @@
+{
+  "content": [
+    {
+      "type": "text",
+      "text": "{\n  \"status\": \"running\",\n  \"snapshot\": {\n    \"id\": \"6403cbd4-1903-4423-b306-824402f50d60\",\n    \"provider\": \"codex\",\n    \"cwd\": \"/home/regner/.paseo/worktrees/0u71f39f/plan-checkpoint-explosion-chain\",\n    \"workspaceId\": \"wks_c98e3f48e2b014a8\",\n    \"model\": \"gpt-6.1-sol\",\n    \"thinkingOptionId\": \"high\",\n    \"effectiveThinkingOptionId\": \"high\",\n    \"runtimeInfo\": {\n      \"provider\": \"codex\",\n      \"sessionId\": \"01a11915-eff5-7f10-846d-8461d710e485\",\n      \"model\": \"gpt-6.1-sol\",\n      \"thinkingOptionId\": \"high\",\n      \"modeId\": \"auto-review\",\n      \"extra\": {\n        \"collaborationMode\": \"Default\"\n      }\n    },\n    \"createdAt\": \"2026-10-08T01:17:10.515Z\",\n    \"updatedAt\": \"2026-10-08T01:27:06.622Z\",\n    \"lastUserMessageAt\": \"2026-10-08T01:23:30.594Z\",\n    \"status\": \"running\",\n    \"activeTurn\": {\n      \"turnId\": \"codex-turn-1\",\n      \"startedAt\": \"2026-10-08T01:23:30.544Z\"\n    },\n    \"capabilities\": {\n      \"supportsStreaming\": true,\n      \"supportsSessionPersistence\": true,\n      \"supportsSessionListing\": true,\n      \"supportsDynamicModes\": false,\n      \"supportsMcpServers\": true,\n      \"supportsReasoningStream\": true,\n      \"supportsToolInvocations\": true,\n      \"supportsRewindConversation\": true,\n      \"supportsRewindFiles\": false,\n      \"supportsRewindBoth\": false\n    },\n    \"currentModeId\": \"auto-review\",\n    \"availableModes\": [\n      {\n        \"id\": \"auto\",\n        \"label\": \"Default Permissions\",\n        \"description\": \"Edit files and run commands with Codex's default approval flow.\"\n      },\n      {\n        \"id\": \"auto-review\",\n        \"label\": \"Auto-review\",\n        \"description\": \"Same workspace-write permissions as Default, but eligible `on-request` approvals are routed through the auto-reviewer subagent.\"\n      },\n      {\n        \"id\": \"full-access\",\n        \"label\": \"Full Access\",\n        \"description\": \"Edit files, run commands, and access the network without additional prompts.\"\n      }\n    ],\n    \"features\": [\n      {\n        \"type\": \"toggle\",\n        \"id\": \"plan_mode\",\n        \"label\": \"Plan\",\n        \"description\": \"Switch Codex into planning-only collaboration mode\",\n        \"tooltip\": \"Toggle plan mode\",\n        \"icon\": \"list-todo\",\n        \"value\": false\n      }\n    ],\n    \"pendingPermissions\": [],\n    \"persistence\": {\n      \"provider\": \"codex\",\n      \"sessionId\": \"01a11915-eff5-7f10-846d-8461d710e485\",\n      \"nativeHandle\": \"01a11915-eff5-7f10-846d-8461d710e485\",\n      \"metadata\": {\n        \"provider\": \"codex\",\n        \"cwd\": \"/home/regner/.paseo/worktrees/0u71f39f/plan-checkpoint-explosion-chain\",\n        \"title\": \"Full plan checkpoint after chain experiment\",\n        \"threadId\": \"01a11915-eff5-7f10-846d-8461d710e485\",\n        \"modeId\": \"auto-review\",\n        \"model\": \"gpt-6.1-sol\",\n        \"thinkingOptionId\": \"high\",\n        \"asyncQuestions\": []\n      }\n    },\n    \"title\": \"Full plan checkpoint after chain experiment\",\n    \"labels\": {\n      \"paseo.parent-agent-id\": \"b70ce3b8-b419-45da-bcc2-7d8262abb0e8\"\n    },\n    \"lastUsage\": {\n      \"inputTokens\": 200605,\n      \"cachedInputTokens\": 195968,\n      \"outputTokens\": 1392,\n      \"contextWindowMaxTokens\": 258400,\n      \"contextWindowUsedTokens\": 201997\n    },\n    \"requiresAttention\": false,\n    \"attentionReason\": null,\n    \"attentionTimestamp\": null\n  }\n}"
+    }
+  ],
+  "structuredContent": {
+    "status": "running",
+    "snapshot": {
+      "id": "6403cbd4-1903-4423-b306-824402f50d60",
+      "provider": "codex",
+      "cwd": "/home/regner/.paseo/worktrees/0u71f39f/plan-checkpoint-explosion-chain",
+      "workspaceId": "wks_c98e3f48e2b014a8",
+      "model": "gpt-6.1-sol",
+      "thinkingOptionId": "high",
+      "effectiveThinkingOptionId": "high",
+      "runtimeInfo": {
+        "provider": "codex",
+        "sessionId": "01a11915-eff5-7f10-846d-8461d710e485",
+        "model": "gpt-6.1-sol",
+        "thinkingOptionId": "high",
+        "modeId": "auto-review",
+        "extra": {
+          "collaborationMode": "Default"
+        }
+      },
+      "createdAt": "2026-10-08T01:17:10.515Z",
+      "updatedAt": "2026-10-08T01:27:06.622Z",
+      "lastUserMessageAt": "2026-10-08T01:23:30.594Z",
+      "status": "running",
+      "activeTurn": {
+        "turnId": "codex-turn-1",
+        "startedAt": "2026-10-08T01:23:30.544Z"
+      },
+      "capabilities": {
+        "supportsStreaming": true,
+        "supportsSessionPersistence": true,
+        "supportsSessionListing": true,
+        "supportsDynamicModes": false,
+        "supportsMcpServers": true,
+        "supportsReasoningStream": true,
+        "supportsToolInvocations": true,
+        "supportsRewindConversation": true,
+        "supportsRewindFiles": false,
+        "supportsRewindBoth": false
+      },
+      "currentModeId": "auto-review",
+      "availableModes": [
+        {
+          "id": "auto",
+          "label": "Default Permissions",
+          "description": "Edit files and run commands with Codex's default approval flow."
+        },
+        {
+          "id": "auto-review",
+          "label": "Auto-review",
+          "description": "Same workspace-write permissions as Default, but eligible `on-request` approvals are routed through the auto-reviewer subagent."
+        },
+        {
+          "id": "full-access",
+          "label": "Full Access",
+          "description": "Edit files, run commands, and access the network without additional prompts."
+        }
+      ],
+      "features": [
+        {
+          "type": "toggle",
+          "id": "plan_mode",
+          "label": "Plan",
+          "description": "Switch Codex into planning-only collaboration mode",
+          "tooltip": "Toggle plan mode",
+          "icon": "list-todo",
+          "value": false
+        }
+      ],
+      "pendingPermissions": [],
+      "persistence": {
+        "provider": "codex",
+        "sessionId": "01a11915-eff5-7f10-846d-8461d710e485",
+        "nativeHandle": "01a11915-eff5-7f10-846d-8461d710e485",
+        "metadata": {
+          "provider": "codex",
+          "cwd": "/home/regner/.paseo/worktrees/0u71f39f/plan-checkpoint-explosion-chain",
+          "title": "Full plan checkpoint after chain experiment",
+          "threadId": "01a11915-eff5-7f10-846d-8461d710e485",
+          "modeId": "auto-review",
+          "model": "gpt-6.1-sol",
+          "thinkingOptionId": "high",
+          "asyncQuestions": []
+        }
+      },
+      "title": "Full plan checkpoint after chain experiment",
+      "labels": {
+        "paseo.parent-agent-id": "b70ce3b8-b419-45da-bcc2-7d8262abb0e8"
+      },
+      "lastUsage": {
+        "inputTokens": 200605,
+        "cachedInputTokens": 195968,
+        "outputTokens": 1392,
+        "contextWindowMaxTokens": 258400,
+        "contextWindowUsedTokens": 201997
+      },
+      "requiresAttention": false,
+      "attentionReason": null,
+      "attentionTimestamp": null
+    }
+  }
+}
