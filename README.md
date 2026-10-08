@@ -11,6 +11,8 @@ adds source/model/reflection evidence, with no selected Steam adapter.
 The accepted [partial S05 damage/chain fixture](docs/spikes/s05.md#accepted-exact-final-disposition)
 adds finite authoritative outcomes and settled wreck hydration, with eight cosmetic
 tokens rather than drawn explosion effects.
+The accepted [partial S06 two-sector topology/body proof](docs/spikes/s06.md#accepted-exact-final-disposition)
+adds saved source-linked seams, routes, shared map data and fail-closed bake validation.
 There is no production gameplay or main scene yet.
 The first milestone requires ENet for local testing and Steam for friends playtesting,
 using the existing Steam app through shared session APIs.
@@ -159,6 +161,34 @@ prove drawn effects. Sentinel death is not admitted-player death/respawn, and se
 hydration is not a during-chain journal/reset proof. Exact754a0b5 partial acceptance
 keeps full S05, policy/dimension reruns, Steam/Deck/input/feel/capacity and P0/M1/
 production gates open.
+
+The supplementary S06 runner and static resource checker have no Mise task:
+
+```sh
+python3 tools/s06/run.py --godot /path/to/4.8-dev7/godot --output /tmp/s06-my-run
+python3 tools/s06/run.py --godot /path/to/4.8-dev7/godot --content-only --output /tmp/s06-content-my-run
+# Clean committed current checkout; existing parent directory, new JSON filename:
+python3 tools/s06/check_resources.py --base "$(git rev-parse HEAD)" --output /tmp/s06-resources-my-run.json
+```
+
+`--godot` is required; runner output must be fresh, empty and external. The checker
+requires a JSON filename with an existing parent and overwrites an existing file;
+it has no runner-style output guard. Its default original base `096469f` and historical
+accepted base `6c36c12` guard every base file except TODO, so later guide changes fail
+those comparisons by construction. The current-HEAD recipe checks clean current
+bytes; it does not independently prove preservation against the immutable accepted
+base. The [source-derived development recipe](docs/development.md#s06-partial-topology-tooling)
+explains that separate docs-delta audit, staging, private users/logs, deadlines,
+cleanup, editor-only bake and import versus explicit all-owned compilation.
+These recipes are for separately assigned checks; none ran for this documentation task.
+
+Exact `7fb302b` is independently ACCEPTED PARTIAL, R1 P2/R2 P3 closed and same-HEAD
+note condition MET. Unchanged S02 crossing **477 ticks/7.95 s** and S04 opposing legal
+LEFT turns **721 ticks/12.0167 s each** are discrete planar body/seam evidence.
+Content-only checks include finite ROAD width; shared four-arm map values and saved
+stale/rebake negatives are technical evidence. They do not prove drawn minimap/
+camera/readability, final dimensions/feel or contested blockage/stuck/wreck recovery.
+Full S06, S02/S03-R/S04/S05/S07/S08, Steam/Deck/input and P0/M1/production gates stay open.
 
 ## Project guidance
 

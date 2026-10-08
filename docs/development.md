@@ -601,6 +601,104 @@ the full note preserves same-reviewer exact-final ACCEPT partial, P3 resolved an
 root's time-specific integration/relocation history. Wrapper metadata additions may
 change note hash; decoded original payload hashes establish preservation.
 
+### S06 partial topology tooling
+
+[Exact accepted partial S06](spikes/s06.md#accepted-exact-final-disposition), its
+[one bounded contract](spikes/s06-contracts.md), [source handoff](spikes/s06-source-handoff.md)
+and [raw catalogue](spikes/s06-evidence/README.md) discover the saved two-sector
+intersection, inherited 50° camera comparison, actual immutable S02/S04 bodies,
+shared routes/map and stale-data counterexamples. These are historical accepted
+receipts; this guide reconciliation executes no tool experiment.
+
+Existing recipes from the repository root, only when separately commissioned:
+
+```sh
+python3 tools/s06/run.py --godot /path/to/4.8-dev7/godot --output /tmp/s06-my-run
+python3 tools/s06/run.py --godot /path/to/4.8-dev7/godot --content-only --output /tmp/s06-content-my-run
+# Current clean committed checkout, existing /tmp parent, new JSON filename:
+python3 tools/s06/check_resources.py --base "$(git rev-parse HEAD)" --output /tmp/s06-resources-my-run.json
+# Read full final report, manifest, raw checks, condition-MET acknowledgement:
+git notes --ref=paseo-orchestration show 7fb302ba2829966c9a687a12a7f00d09ce6a7824
+```
+
+There is no `spike:s06` Mise task. The [runner](../tools/s06/run.py) requires
+`--godot`, verifying exact `4.8.dev7.official.c971f93e7` with the shared 10 s version
+check. Optional `--output` defaults to a printed temporary `s06-` directory; it must
+resolve outside ROOT and be absent or empty. `--content-only` is off by default and
+is the only mode flag: it retains content/public-role/map/negative checks but omits
+body trajectories. There are no port, deadline, windowed or gdstyle runner flags.
+
+All modes copy entire S02/S03/S04/S06 fixture trees and S02/S04/S06 model/import
+files into an external project. Copied settings omit autoload/editor-plugin sections
+and icon reference. No addon or Blender source tree is staged. Editor-only harness
+class dependencies require copied `tools/s01`, `tools/s02`, `tools/s04`, `tools/s06`;
+copying the bridges does not execute editor authoring or source export. Import is
+headless, 60 s; the proof is a separate headless script invocation, 75 s, only if
+import passed. One private `user` XDG data/config/cache scope is shared by these
+sequential children, separate from the checkout/editor. Unlike network runners,
+there are no simultaneous host/client roles or transport/proxy processes.
+
+[Shared helpers](../tools/script_checks.py) retain merged stdout/stderr in
+`import.log`/`proof.log`, with separate `import.engine.log`/`proof.engine.log`.
+Nonzero exits or `SCRIPT ERROR:`, `ERROR:` or `WARNING:` in plain/engine logs fail
+checked commands. Timeout appends `CHECK DEADLINE EXCEEDED`; `subprocess.run` kills
+and waits its own timed-out direct child. This runner has no process-name/PID scan,
+shared-editor cleanup or separate group/descendant cleanup guarantee. Version or
+early setup exceptions may precede a summary; available logs remain in the output.
+
+`summary.json` records version, import/outcomes, commands, copied source fingerprints,
+result availability and unchanged saved fixture/model bytes. Actual checks and full
+per-tick body records, when run, are in `project/s06-result.json`, alongside saved
+changed-placement/rebake counterexamples. Success requires import/proof success,
+unchanged fingerprints, an available result and no semantic failures. The runner
+neither invokes gdstyle nor explicitly compiles all owned scripts. Accepted R1
+receipts separately establish **47 content checks / ALL58 owned explicit compiles**;
+use [foundation validation](#foundation-validation-tasks) for compilation, including
+unused scripts. Import is neither all-script compilation nor open-editor synchronization.
+
+The [resource checker](../tools/s06/check_resources.py) requires `--output` as a
+JSON file, overwrites an existing file and does **not** create its parent, require
+fresh/external output or validate the engine. Choose a new external filename in an
+existing directory. Default `--base` is original experiment
+`096469f25db2617858d49f88860991c1c84c222e`. It checks new S06 resource/script UIDs,
+external dependency UID/path agreement, saved node IDs, no generated/copied render
+meshes, GLB member lists/format and source presence. It also compares **every file
+in the selected base tree except TODO.md** with working bytes, not just technical
+prefixes. Thus this historical recipe is valid only in immutable accepted `7fb302b`
+with its unchanged accepted `6c36c12` base files:
+
+```sh
+# Historical accepted checkout7fb302b only; not the later reconciled guide tree:
+python3 tools/s06/check_resources.py --base 6c36c1232cc2403b6cbac03248ac28006bc83bd9 --output /tmp/s06-accepted-resources.json
+```
+
+Later accepted DOC8/9 and checkpoint/guide changes make the original default/base
+comparison inappropriate for the current tree. The current-HEAD recipe above
+satisfies the guard in a **clean committed checkout**, while checking current
+ancestry/dependencies. It does not certify the old base: separately inspect the
+exact accepted-base→current changed path/mode/blob set and unchanged working bytes,
+allowing only documented Markdown deltas. Never weaken the guard, silently exclude
+base files, or describe a current-base comparison as immutable-base preservation.
+This task's completion record retains that static docs-only audit, without running
+the historical checker or importing/compiling anything.
+
+[Editor-only probe](../tools/s06/editor_probe.gd) `bake_city(path)` calls City's
+`bake_content`, saves the external resource, reloads with `CACHE_MODE_REPLACE` and
+assigns it; invalid content/save failure is reported. `author_topology` is bounded
+editor authoring, `inspect_city` reads validation/map/routes. None is a runtime
+rebake path or standalone CLI recipe. Any future mutation needs the assigned editor
+lease, saved batch and affected base/inherited refresh/reopen workflow.
+
+Accepted crossing477 ticks/7.95 s and opposing legal LEFT turns721 ticks/12.0167 s
+are actual unchanged-body planar/seam evidence, not continuous sweep or final
+handling/dimensions/contact acceptance. Larger footprint/camera projections are
+geometric sensitivity only. Actual recovery is finite neutralized timeout;
+specified blockage/contested junction/stuck/wreck M1-C3 policies are unimplemented.
+No drawn runtime/minimap/feel, actual eight-effect saturation, capacity/hardware,
+Steam/Deck/Windows/export or P0/M1/production gate is closed by these recipes.
+The premeasurement RIGHT→LEFT amendment, crash/recovery and raw failure history
+remain retained, as do all359 original/all509 current entries and full reports.
+
 ## Versions and releases
 
 When release builds exist, make version and source revision visible in startup

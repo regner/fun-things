@@ -230,32 +230,6 @@ P0-DOC6/7 and P0-DOC8/9 remain complete in their linked resolving records;
 exact6c36c12 with separate resolving1691424/dbce2f9. New accepted S06 drift below
 is a subsequent scoped reconciliation, not reopening completed guide work.
 
-- [ ] **P0-DOC10 — Discover partial S06 tooling and exact-final review.**
-  Accountable owner role: one direct Sol MEDIUM/HIGH documentation worker; root names
-  the worker, independent Sol HIGH review. Files: `README.md`, `docs/development.md`,
-  `docs/spikes/s06.md`. Needs: exact7fb302b/base6c36c12 accepted partial S06, full
-  substantive REQUEST CHANGES/final ACCEPT/condition-MET acknowledgement and durable
-  valid JSON note, completed DOC8/9, [seventh checkpoint](docs/reviews/plan-check-2026-10-08-07.md).
-  Evidence: `tools/s06/run.py`, `tools/s06/check_resources.py`, editor-only bake probe,
-  shared version/environment/log helpers, accepted47 content/all58 compile receipts,
-  S06 predeclaration/contract/raw catalogue. Read sources; execute no experiment.
-  Done when: README/development discover the saved two-sector proof and exact existing
-  runner/resource recipes, required flags/default bases, fresh external runner output
-  versus checker output rules, content-only versus actual-body scope, private users/
-  logs, staged dependencies, import versus explicit all-owned compilation and child
-  deadline/diagnostic/cleanup boundaries. Do not invent a Mise task or resource-check
-  recipe that fails its whole-base preservation guard after accepted docs changes;
-  explain the immutable original base versus current docs-only delta statically.
-  S06 labels future review prose historical and links exact same-reviewer7fb302b
-  partial ACCEPT/R1P2/R2P3 closed/condition MET; preserve original31,745-byte REQUEST
-  CHANGES,19,624-byte final report,509 current/359 original entries, failure history
-  and premeasurement RIGHT-to-LEFT amendment. Retain geometric/drawn/recovery/final-
-  dimension distinctions and all technical/product/device/P0/M1 gates. Static local
-  links/anchors, source/flag/receipt mapping, duplicate-key JSON, LF/whitespace,
-  unaffected history/task/mode/blob preservation and independent exact-final review
-  pass. Remove DOC10 with its resolving guide change/completion record and replace
-  P0-GATE prerequisite. Ready without editor/hardware; finish before P0-GATE.
-
 - [ ] **P0-DOC11 — Reconcile partial S06 topology, source consumers and S07 readiness.**
   Accountable owner role: one direct Sol MEDIUM/HIGH documentation worker, independent
   Sol HIGH review; root names worker and serializes overlap with DOC10. Exact files:
@@ -600,7 +574,8 @@ implementation. Save editor mutations before playtests; preserve unsaved work.
   [DOC9 partial S05 contract/consumer reconciliation](docs/reviews/p0-doc9.md),
   [S03 fixture boundary](docs/spikes/s03.md#fixture-and-boundary),
   [completed S03 proof](docs/spikes/s03.md), S03-R/S03-S and S04 through S08,
-  P0-DOC10/P0-DOC11 accepted-S06 guide reconciliation.
+  [DOC10 partial S06 tooling/review discovery](docs/reviews/p0-doc10.md) and
+  P0-DOC11 accepted-S06 topology/source guide reconciliation.
   S07 supplies the documented capacity envelope, limiting axes, organization and
   diagnostic decisions; research alone leaves representative/target gaps open.
   Done when: critical design/feasibility assumptions required to begin M1 are resolved;
