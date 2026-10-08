@@ -304,3 +304,19 @@ by keeping the exact accepted S03-S cell and changing only the authorized S08 ph
 all other TODO bytes/tasks and added main files are preserved. Original runtime input
 commits remain reachable through the scoped immutable ref recorded in the evidence
 README. No measurements were repeated for these documentation-only advances.
+
+After initial review and ROOT's R1 disposition, saved the static-only correction at
+`dd1d8d21b63ac6c9971fe158b6eddc54b5864162` on that base. ROOT then held8689168
+for imminent S05 integration, so no interim868 rebase occurred. Inspected the full
+actual290-path `30471e6a→af65276d` accepted delta: S07 saved driver/run-card/TODO
+and S05 observer-only telemetry/tools/evidence/TODO; S03 inputs/project/pins/config
+are unchanged. S05 image remains FAIL; S07 capacity/draw/P0 stay open.
+
+At the saved/quiescent boundary, rebased **once directly onto settled LOCAL main
+`af65276d6fa3a4f48060a2d10d9fff772bafd90f`**, resolving only the overlapping
+readiness line by retaining all accepted S03-S/S07 cells/gates and own S08 phrase.
+Accepted S05 block and every non-S08 TODO byte are preserved. Original initial
+review input1d5 and pre-settled source correctiondd1 remain reachable via scoped
+immutable refs; runtime f178/a575/PCK/streams stay verbatim. SAME reviewer receives
+combined R1/source/scope and exact-final-base disposition; no interim extra review,
+no measurements repeated and no metadata-only acknowledgment cycle.

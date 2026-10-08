@@ -44,6 +44,10 @@ Source identifies the native signal owner, not an established identity bug/cause
 empties; `verify.py` checks full readback and independently required stream sets.
 Git source commits for each executed phase remain reachable through the scoped
 immutable `refs/s08-release-lifecycle/wks_994c911f32d1485c/runtime-inputs` ref.
+Initial review and held static correction also remain through that namespace's
+`initial-review-input` and `pre-settled-rebase` refs. `settled-base/` retains full
+actual290-path delta inspection and the single final rebase/conflict/continuation
+streams; no intermediate868 rebase or measurement repetition occurred.
 The complete raw new 122748-byte PCK and independent review/check/readback package
 are retained in the final unchanged-candidate `refs/notes/paseo-orchestration` note.
 Template binary bytes are independently hash-bound to the existing exact TPZ;

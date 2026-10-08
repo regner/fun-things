@@ -1,0 +1,171 @@
+diff --git a/TODO.md b/TODO.md
+index 28dc00c..19d829f 100644
+--- a/TODO.md
++++ b/TODO.md
+@@ -194,9 +194,12 @@ feature expansion, repeated unchanged experiment or silent contract/pin change.
+   in eight cosmetic slots with drawn receipts. The [bounded observation](docs/spikes/s05-render-observation.md)
+   adds a saved observation camera and natural expiry/ENet evidence, but its two
+   graphical groups produced no workload PNGs (final group: two startup callbacks,
+-  can_draw=false). A new authorized changed surface/condition is needed for drawn
+-  saturation/fallback, readability/cost and live-versus-hydrated presentation under a
+-  separately named drawable lease. [Source preparation](docs/spikes/s05-effect-preparation.md)
++  can_draw=false). The single [disabled-VSync image card](docs/spikes/s05-vsync-image-observation.md)
++  also FAILed: runner-owned endpoint-binding proof stopped before live/late launch;
++  host interrupted, no callbacks/PNG/effective-VSync receipt. Its attempt is consumed;
++  no retry follows. Drawn saturation/fallback, readability/cost and live-versus-hydrated
++  presentation need a separately authorized protected drawable condition.
++  [Source preparation](docs/spikes/s05-effect-preparation.md)
+   and node visibility/token reservations do not prove drawn effects.
+   Ratify range/obstruction/falloff, delay/order, occupant outcome and wreck/collision
+   lifetime; rerun affected spacing/contact rows after final S04/S02 dimensions.
+@@ -231,8 +234,11 @@ feature expansion, repeated unchanged experiment or silent contract/pin change.
+   Owner: Sol-led capacity-spike worker; Regner ratifies scope/budgets.
+   Needs: [research/method](docs/spikes/s07.md), S01 pipeline, reviewed provisional
+   S02 camera/controller, actual S02/S04 bodies, partial S06 saved seam/topology and
+-  relevant S05 chain/effect load. Static inventory/run-card preparation can proceed;
+-  representative measurements remain unexecuted. Stand-ins cannot certify missing
++  relevant S05 chain/effect load. [Static inventory/run cards](docs/spikes/s07-run-cards.md)
++  and the [simulation-only sustained saved-reload route driver](docs/spikes/s07-sustained-driver.md)
++  supply technical preparation; representative capacity measurements remain unexecuted.
++  Primary T still needs named hardware/build/telemetry and authorized real drawability;
++  its driver receipt is not graphical calibration. S05 comparator reset/draw gates remain open. Stand-ins cannot certify missing
+   gameplay, presentation or residency costs; tokens are not drawable effects.
+   Use the [static fixture inventory and concrete run cards](docs/spikes/s07-run-cards.md) to prepare the baseline and growth experiment.
+   Minimum remaining experiment: controlled saved imported two-sector baseline,
+@@ -517,7 +523,7 @@ Owner roles: validation/tooling worker (D1/D3), gameplay/review workers with Reg
+ 
+ | Ready or stage | Parallel work | Gates |
+ | --- | --- | --- |
+-| Ready bounded preparation | S03-S [public API/interface record](docs/spikes/s03-s-valve-api-interface.md), then separately commissioned native prerequisites; S07 static inventory/run-card work; S08 runner follow-up; P0-PROFILES dated-notes reconciliation | Named owners/budgets and scoped grants; pending output is not accepted evidence |
++| Ready bounded preparation | S03-S [public API/interface record](docs/spikes/s03-s-valve-api-interface.md), then separately commissioned native prerequisites; S07 primary T hardware/build/telemetry preparation using the saved-reload driver; S08 runner follow-up; P0-PROFILES dated-notes reconciliation | Named owners/budgets and scoped grants; S07 graphical T still needs authorized drawability; pending output is not accepted evidence |
+ | Drawable fixtures | Remaining S02/S03-R/S04 response/focus/readability/feel; S05 effects; S06 camera/map readability | Changed authorized surface/lease; final dimensions and Regner ratification; no identical stopped retry |
+ | Representative loads | S07 capacity/culling experiments; S08 exact exports | Actual content/effects/drawability and named hardware; Deck and multi-account Steam remain deferred |
+ | Production after P0-GATE | M1-A shell/settings and M1-C1 approved art families; then B1/B2 and accepted sector subsets | B3 needs vehicles/damage; C3 needs routes/actors/control transfer; D/GATE need integrated evidence |
+diff --git a/docs/spikes/s07-run-cards.md b/docs/spikes/s07-run-cards.md
+index 263cad0..d1f150c 100644
+--- a/docs/spikes/s07-run-cards.md
++++ b/docs/spikes/s07-run-cards.md
+@@ -160,22 +160,20 @@ Future budget: one focused day; at most12 measured runs total, no growth variant
+   authority only. Deterministic route order through existing `start_route`: `foot`
+   west(-20,0.001,6.5)→east(20,0.001,6.5), `east_to_north` car(-20,0,2.25)→(2.25,0,-20),
+   `west_to_south` car(20,0,-2.25)→(-2.25,0,20). One moving body at a time,
+-  traffic3.5 m/s, foot5 m/s. **Missing prerequisite:** an accepted sustained-route/
+-  reset driver. Existing `start_route`/`stop_route` neutralize motion and clear commands,
+-  but do not restore position/yaw; repeated calls at the destination immediately finish.
+-  The later authorized S07 experiment worker owns the driver recipe, with S06 accepting
+-  its body/topology contract. Before each repetition, cancel the route, restore each
+-  body's saved starting position/yaw and neutral velocity through an accepted authority/
+-  lifecycle path, then revalidate collision admission and bind the next route. No such
+-  sustained reset API/driver is accepted here. Acceptance must retain at least two
+-  consecutive traversals of each of the three routes with actual nonempty samples,
+-  movement from the saved start, destination/exit-direction outcomes and no timeout,
+-  then demonstrate the declared repeated workload through the600 s interval.
+-  If that owner instead safely tears down/reloads the saved fixture, it must preserve
+-  pre-tree roles, source/derived identities and admission, record reload/loading/lifetime
+-  as separate phases and distinguish them from normal traversal costs in full-interval
+-  telemetry. Existing1200/1800-tick timeout is a failure receipt, not a completed route.
+-  This is neither fast driving nor production AI load; no driver is implemented here.
++  traffic3.5 m/s, foot5 m/s. The new [simulation-only sustained driver](s07-sustained-driver.md)
++  supplies an executable saved inherited composition and primary driver receipts:
++  two successive traversals per route in development, then19 per route over608.64
++  actual seconds for the declared600 s workload. It calls unchanged S06 APIs,
++  cancels/neutralizes producers, retires the owned fixture, reloads saved starts/yaws/
++  zero velocities, and revalidates content/passive collision before every new binding.
++  All traversals retain nonempty actual samples, destination/exit-direction/contact/
++  seam/footprint outcomes; no timeout is counted as success. Existing `start_route`/
++  `stop_route` alone still cannot restore position/yaw. Source/derived/UID/topology
++  identities and pre-tree roles stay unchanged. Reload/loading/lifetime are separate
++  reported phases, not normal traversal/performance costs; see the receipt's timing
++  boundaries and failed author-supervisor phase. Existing1200/1800-tick timeout
++  remains failure. This is neither fast driving, graphical calibration nor production
++  AI load; the new driver does not satisfy capacity acceptance.
+ - Separate effect comparator, only after its own draw gate: at most six cases on
+   [saved S05 effect burst](../../tests/fixtures/s05_effect/burst.tscn), same cap/repeat
+   split and named graphical host role. Twelve cars at a4 m grid, eight saved slots.
+@@ -186,10 +184,12 @@ Future budget: one focused day; at most12 measured runs total, no growth variant
+   outcomes and cleared local effects. If unsupported, comparator stays BLOCKED.
+   This layout is a separate track control; it is not integrated into S06 or added
+   to the5,108-triangle two-sector total.
+-- Entry: named hardware/build/telemetry, real drawability **and accepted sustained-route/
+-  reset-driver receipts above** for primary; actual drawable S05 gate plus trial-reset
+-  receipts for comparator. Primary launch stays BLOCKED without that driver. Saved scene reload/
+-  source-link validity must be confirmed by the later authorized owner. Four-view,
++- Entry: named hardware/build/telemetry, real drawability **and independently reviewed
++  sustained-route/reset-driver receipts above** for primary; actual drawable S05 gate
++  plus trial-reset receipts for comparator. The executable primary driver now has
++  simulation-only receipts; graphical primary launch stays BLOCKED on the remaining
++  hardware/build/telemetry/drawability entry criteria. Reconfirm saved scene reload/
++  source-link validity for the actual future measurement candidate. Four-view,
+   six-block and production-capacity rows remain blocked by the table above even if
+   T succeeds. Outputs report technical calibration only; no capacity maximum or
+   optimization decision. A noisy rerun replaces a remaining run within the12 cap.
+diff --git a/tests/fixtures/s05_draw/observer.gd b/tests/fixtures/s05_draw/observer.gd
+index af4cb1d..e375846 100644
+--- a/tests/fixtures/s05_draw/observer.gd
++++ b/tests/fixtures/s05_draw/observer.gd
+@@ -3,7 +3,7 @@ extends S05SavedProof
+ ## Observes the accepted chain through a saved camera and genuine post-draw callbacks.
+ 
+ const CAMERA_SCENE: String = "res://tests/fixtures/s05_draw/camera.tscn"
+-const MAX_FRAME_RECEIPTS: int = 600
++const MAX_FRAME_RECEIPTS: int = 65_536
+ const MAX_EXPIRY_WAIT_TICKS: int = 120
+ 
+ var draw_callbacks: int = 0
+@@ -68,7 +68,13 @@ func _baseline(id: int) -> void:
+ 
+ ## Captures only completed automatic render callbacks and reads the actual current camera.
+ func _post_draw() -> void:
+-	if draw_callbacks >= MAX_FRAME_RECEIPTS or not is_instance_valid(state):
++	if draw_callbacks >= MAX_FRAME_RECEIPTS:
++		if draw_failures.is_empty():
++			draw_failures.append("automatic callback observation ceiling exhausted")
++
++		return
++
++	if not is_instance_valid(state):
+ 		return
+ 
+ 	var render_index: int = Engine.get_frames_drawn()
+@@ -86,8 +92,12 @@ func _post_draw() -> void:
+ 	if not stage.is_empty() and draw_callbacks >= 3 and not capture_paths.has(stage):
+ 		_capture(stage, receipt)
+ 
+-	var signature: String = JSON.stringify([receipt.presentation, receipt.live,
+-		receipt.duplicates, receipt.damage_tick, receipt.camera])
++	# Cosmetic/damage ticks advance without meaningful presentation changes; keep stages sparse.
++	var signature: String = JSON.stringify([receipt.presentation.active,
++		receipt.presentation.visible, receipt.presentation.epoch, receipt.accepted,
++		receipt.dropped, receipt.watermark, receipt.live, receipt.duplicates,
++		receipt.revision, receipt.camera, receipt.can_draw, receipt.vsync_mode,
++		receipt.viewport, receipt.window_size])
+ 	if signature != _last_signature or draw_callbacks <= 3 or receipt.has("png"):
+ 		_write("frame", receipt)
+ 		_last_signature = signature
+@@ -116,8 +126,10 @@ func _capture(stage: String, receipt: Dictionary) -> void:
+ 	var path: String = "user://" + stage + ".png"
+ 	var error: Error = image.save_png(path)
+ 	capture_paths[stage] = path
++	receipt["cut"] = state.damage.cut()
+ 	receipt["png"] = {"stage": stage, "path": ProjectSettings.globalize_path(path),
+-		"width": image.get_width(), "height": image.get_height(), "save_error": error}
++		"width": image.get_width(), "height": image.get_height(), "save_error": error,
++		"sha256": FileAccess.get_sha256(path) if error == OK else ""}
+ 	if error != OK:
+ 		draw_failures.append("PNG save failed: " + stage)
+ 
+@@ -153,6 +165,14 @@ func _snapshot() -> Dictionary:
+ 
+ 	return {"presentation": presentation.receipt(), "slots": slots, "camera": camera,
+ 		"viewport": [viewport.get_visible_rect().size.x, viewport.get_visible_rect().size.y],
++		"requested_project_size": [
++			ProjectSettings.get_setting("display/window/size/viewport_width"),
++			ProjectSettings.get_setting("display/window/size/viewport_height")],
++		"vsync_mode": DisplayServer.window_get_vsync_mode(),
++		"vsync_disabled": DisplayServer.window_get_vsync_mode() == DisplayServer.VSYNC_DISABLED,
++		"can_any_window_draw": null,
++		"can_any_window_draw_reason": "internal native method unavailable to GDScript",
++		"session": state.session_id, "match_revision": state.damage.cut().match,
+ 		"display": DisplayServer.get_name(), "can_draw": DisplayServer.window_can_draw(),
+ 		"focus": DisplayServer.window_is_focused(), "mode": DisplayServer.window_get_mode(),
+ 		"window_size": [DisplayServer.window_get_size().x, DisplayServer.window_get_size().y],

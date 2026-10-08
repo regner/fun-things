@@ -1,0 +1,33 @@
+{
+  "base": "af65276d6fa3a4f48060a2d10d9fff772bafd90f",
+  "required_paths": [
+    "settled-paths.stdout",
+    "settled-paths.stderr",
+    "settled-modified.stdout",
+    "settled-modified.stderr",
+    "settled-inspection.json",
+    "settled-s03.command.json",
+    "settled-s03.stdout",
+    "settled-s03.stderr",
+    "pre-settled-ref.command.json",
+    "pre-settled-ref.stdout",
+    "pre-settled-ref.stderr",
+    "settled-rebase.command.json",
+    "settled-rebase.stdout",
+    "settled-rebase.stderr",
+    "settled-rebase-continue.command.json",
+    "settled-rebase-continue.stdout",
+    "settled-rebase-continue.stderr"
+  ],
+  "required_empty": [
+    "settled-paths.stderr",
+    "settled-modified.stderr",
+    "settled-s03.stdout",
+    "settled-s03.stderr",
+    "pre-settled-ref.stdout",
+    "pre-settled-ref.stderr"
+  ],
+  "interim_868_rebase": false,
+  "final_rebase_count": 1,
+  "runtime_repetitions": 0
+}

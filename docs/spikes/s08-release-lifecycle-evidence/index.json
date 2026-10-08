@@ -1,6 +1,6 @@
 {
   "schema": "s08-lifecycle-evidence-v1",
-  "delivery_base": "30471e6ae4c4ecbe01ce13313cd6d14c3b701bae",
+  "delivery_base": "af65276d6fa3a4f48060a2d10d9fff772bafd90f",
   "expected_paths": [
     "README.md",
     "analysis01.command.json",
@@ -216,6 +216,24 @@
     "saved-inverse.stdout",
     "saved-whitespace.stderr",
     "saved-whitespace.stdout",
+    "settled-base/expected.json",
+    "settled-base/pre-settled-ref.command.json",
+    "settled-base/pre-settled-ref.stderr",
+    "settled-base/pre-settled-ref.stdout",
+    "settled-base/settled-inspection.json",
+    "settled-base/settled-modified.stderr",
+    "settled-base/settled-modified.stdout",
+    "settled-base/settled-paths.stderr",
+    "settled-base/settled-paths.stdout",
+    "settled-base/settled-rebase-continue.command.json",
+    "settled-base/settled-rebase-continue.stderr",
+    "settled-base/settled-rebase-continue.stdout",
+    "settled-base/settled-rebase.command.json",
+    "settled-base/settled-rebase.stderr",
+    "settled-base/settled-rebase.stdout",
+    "settled-base/settled-s03.command.json",
+    "settled-base/settled-s03.stderr",
+    "settled-base/settled-s03.stdout",
     "source/callable.cpp",
     "source/callable.cpp.command.json",
     "source/callable.cpp.stderr",
@@ -243,8 +261,8 @@
   "payloads": [
     {
       "path": "README.md",
-      "bytes": 4008,
-      "sha256": "d8bdb065d59e7a0fb92150cd3da92b9f23347e465cc9d0523d22dd478639275a",
+      "bytes": 4323,
+      "sha256": "71b295d06905d8a14153c2252f7279400962669ceaa3455ae7f46002c2c4c14a",
       "required_empty": false
     },
     {
@@ -1203,14 +1221,14 @@
     },
     {
       "path": "raw-requirements.md",
-      "bytes": 16137,
-      "sha256": "9c3aefdb2ecd9a168b578bdbee3cc238ddfc016142825da683d3c8e5fa60ca2c",
+      "bytes": 17115,
+      "sha256": "7751a488c8a8cdb8ddb35770ee9e7f0299d2eb5491b52f998d69bc4aaa1fe550",
       "required_empty": false
     },
     {
       "path": "raw-user-messages.json",
-      "bytes": 16967,
-      "sha256": "04f3ee0029a7f01dd9e9fc116d17a988ee7378f08922069ca122e4bac7e77de8",
+      "bytes": 18046,
+      "sha256": "df8b2fe12cc6246ba1b79adf99d8a56d2b9a9e8b307698972704896816ad7a4f",
       "required_empty": false
     },
     {
@@ -1521,6 +1539,114 @@
     },
     {
       "path": "saved-whitespace.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "required_empty": true
+    },
+    {
+      "path": "settled-base/expected.json",
+      "bytes": 908,
+      "sha256": "4c8981972324f5ffe46b9b611728f57f1fb4a8ba0c4bcd5e03d4abced63c4e28",
+      "required_empty": false
+    },
+    {
+      "path": "settled-base/pre-settled-ref.command.json",
+      "bytes": 201,
+      "sha256": "1e05bf5c56753a0204b61f1d18e45777c912cde2de66b42aad276c37d323b631",
+      "required_empty": false
+    },
+    {
+      "path": "settled-base/pre-settled-ref.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "required_empty": true
+    },
+    {
+      "path": "settled-base/pre-settled-ref.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "required_empty": true
+    },
+    {
+      "path": "settled-base/settled-inspection.json",
+      "bytes": 624,
+      "sha256": "dab085143dafe3591cf5da1bf8a012c39e7069304f38584797c2e3a47e7e6baf",
+      "required_empty": false
+    },
+    {
+      "path": "settled-base/settled-modified.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "required_empty": true
+    },
+    {
+      "path": "settled-base/settled-modified.stdout",
+      "bytes": 12725,
+      "sha256": "378ec0e6a015895e63ce9813195f4b48c259ba6ed974c3024f49bc1f45c931b3",
+      "required_empty": false
+    },
+    {
+      "path": "settled-base/settled-paths.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "required_empty": true
+    },
+    {
+      "path": "settled-base/settled-paths.stdout",
+      "bytes": 24459,
+      "sha256": "b0c2ce61dcf3cb693dda434840769313a17454e9e6de5a72d1c1b78d45d83b3e",
+      "required_empty": false
+    },
+    {
+      "path": "settled-base/settled-rebase-continue.command.json",
+      "bytes": 101,
+      "sha256": "06e61d5ed6e9555a973f9f9e64576de3dbf1b5a06c054eeff5ca974542bcf182",
+      "required_empty": false
+    },
+    {
+      "path": "settled-base/settled-rebase-continue.stderr",
+      "bytes": 122,
+      "sha256": "c781a23e74b0aec59f4e14c405cf8856aecd7e3f2ef42a78da154383b58e982f",
+      "required_empty": false
+    },
+    {
+      "path": "settled-base/settled-rebase-continue.stdout",
+      "bytes": 5061,
+      "sha256": "9d04d6ec282f8160a09c182c05ce36b91f8332a453cf4a83a08618ba01cc0def",
+      "required_empty": false
+    },
+    {
+      "path": "settled-base/settled-rebase.command.json",
+      "bytes": 110,
+      "sha256": "84ba484b9b866fa49b2125efcf3584bdde327ac5bd082357e42f9d20edfd5f08",
+      "required_empty": false
+    },
+    {
+      "path": "settled-base/settled-rebase.stderr",
+      "bytes": 641,
+      "sha256": "af1a4134cee0fc97fc06f7878a0c4b7ea310e80e488fb6ac57e54896a6320814",
+      "required_empty": false
+    },
+    {
+      "path": "settled-base/settled-rebase.stdout",
+      "bytes": 67,
+      "sha256": "04381093ebcbbab7662ba355efbcc3c2eaf55b32028caec90626c2e834bb1fe5",
+      "required_empty": false
+    },
+    {
+      "path": "settled-base/settled-s03.command.json",
+      "bytes": 210,
+      "sha256": "d53c551fca77cb159c74afc10d2f29b42bdbef16b103b3a2bd9657191036b485",
+      "required_empty": false
+    },
+    {
+      "path": "settled-base/settled-s03.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "required_empty": true
+    },
+    {
+      "path": "settled-base/settled-s03.stdout",
       "bytes": 0,
       "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
       "required_empty": true
