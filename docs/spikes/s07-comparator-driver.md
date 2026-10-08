@@ -56,15 +56,15 @@ drawability and PNG save status.
 ## Development observations
 
 Both commissioned runs used pinned `4.8.dev7.official.c971f93e7`, revision
-`a9ea82b5070fdbcbb9b79acca9e106ff796169a8`, fresh output under
+`406fcd1771a1df66cc2abef155a33348a4632e65`, fresh output under
 `C:\tmp\ft\lanes\c0\`, and clean staged inputs. Import and runtime exited 0 with no
 scanned `ERROR`, `SCRIPT ERROR` or `WARNING`; inputs were preserved and the owned
 child was reaped.
 
 | Group | Schedule and result | Separate phase spans |
 | --- | --- | --- |
-| Headless development | 20/20 fresh standalone trials, compressed `t = 0 + 2k`; all literal gameplay, stale-session, placement, velocity, cleanup and retirement criteria passed. Total driver elapsed 38.785 s. | load 0.016–0.182 s; chain 0.635–0.786 s; reset 0.0007–0.0100 s. First draw is explicitly unavailable headless. |
-| Windowed smoke | 3/3 fresh trials, `t = 0 + 2k`; all gameplay checks plus eight DRAWN saved slots/four drops on every trial. Total driver elapsed 4.831 s. | load 0.023–0.379 s; first draw 0.0017–0.0320 s; chain 0.796–0.817 s; reset 0.0009–0.0018 s. |
+| Headless development | 20/20 fresh standalone trials, compressed `t = 0 + 2k`; all literal gameplay, stale-session, placement, velocity, cleanup and retirement criteria passed. Total driver elapsed 38.803 s. | load 0.017–0.202 s; chain 0.635–0.780 s; reset 0.0007–0.0023 s. First draw is explicitly unavailable headless. |
+| Windowed smoke | 3/3 fresh trials, `t = 0 + 2k`; all gameplay checks plus eight DRAWN saved slots/four drops on every trial. Total driver elapsed 4.890 s. | load 0.032–0.367 s; first draw 0.0019–0.0398 s; chain 0.808–0.824 s; reset 0.0010–0.0018 s. |
 
 All three 1280×800 burst captures have the deterministic SHA-256
 `e69bf878890d76ef7b90aa296038ad620d8ebc206095a05ab412dfe5ee5f425c`.
