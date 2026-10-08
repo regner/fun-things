@@ -179,3 +179,42 @@ feel/offline/native-init/delivery/engine/P0/M1/production gates remain OPEN.
 Independent review is of this stopped evidence and scoped code, not a passing package
 runtime experiment; full reviewer report and exact disposition are retained in the
 final HEAD's strict JSON delivery note without a report-only commit.
+
+## 2026-10-08 exact accepted disposition supplement
+
+The original preparation/card, predeclaration and terminal review/retention requests
+above are historical. Preparation exact `93da622554e5739cf05bd2267d11b4c6745e4e2e`
+was accepted after R1 CLOSED: 31 staged inputs are distinct from exported runtime
+representations. The later exact `122978243dba25b3fb5d8d90fc50ffb1a468ecf5`, against
+that base, received sole independent Sol6.1 HIGH reviewer
+`40c83e6a-45e7-44d6-956a-dca0bdaaf4cf`'s **ACCEPT_STOPPED_EVIDENCE**. Its only
+lossless-retention condition is **MET** in the reachable same-HEAD strict JSON
+note, with full report/result/checks, complete 57-path evidence readback and eight
+empty streams. Original reports and failures remain intact; no metadata-only
+review acknowledgement or report-only commit was required.
+
+The historical asset card's `--script res://s08_receipt.gd` route was **attempted,
+failed and unproved**, not a working release entrypoint. Exact TPZ acquisition/
+member identity, scratch import/export exit0 and static46 PCK entries/22 logical
+mappings are accepted positives. The exported invocation did not run the observer:
+unchanged S03 boot returned `missing role`, exit1, no S08 receipt or asset assertion
+pass. ENet/proxy/host/client never started. Static membership is distinct from
+runtime resolution; the first asset failure remains the finite **STOP**.
+
+Existing S08 owns the next supported-release-entrypoint question and the separate
+RELEASE proof prerequisite: accepted `tests/fixtures/s03/replication.gd:40` places
+state-changing `apply_journal` inside debug `assert`. Future release baseline/
+journal/resync health70 proof requires explicit mutation execution and independent
+outcome assertions. This limitation does not explain the missing-role failure.
+Any immutable S03 fixture change needs a distinct scoped ROOT grant and exact
+review; this supplement provides no recipe, fixture fix, retry/reexport, operation
+or new technical owner. Pending S08 authoring attempts are not accepted evidence.
+
+The [DOC13 completion record](../reviews/p0-doc13.md) provides immutable original Git/note/report
+identities and decoding locators, including preparation's original/final review.
+Original manifests/indexes bind the files at their accepted historical revisions,
+including the original README bytes; the supplements do not rewrite those payloads
+or claim the old index hashes describe the newly extended catalogue. Preparation
+inventory, held-main and cleanup statements are time-specific history, not fresh
+host/service/device state. Full asset/exported ENet/Steam-uninstalled-or-stopped/
+both-OS/device/engine-input/feel/S08/P0/M1/capacity/production gates remain OPEN.

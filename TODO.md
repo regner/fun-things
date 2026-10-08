@@ -240,27 +240,6 @@ exact6c36c12 with separate resolving1691424/dbce2f9. DOC10 and DOC11 are complet
 02aa254/4169a44 on accepted64bd46b. The new stopped S02 acceptance discovery below
 is a subsequent bounded supplement; completed DOC1–11 are not reopened.
 
-- [ ] **P0-DOC13 — Reconcile stopped S08 acceptance and failed release entrypoint discovery.**
-  Owner: one ROOT-assigned direct Sol MEDIUM/HIGH documentation worker and sole
-  independent Sol HIGH reviewer; serialize conflicting doc writes/reviews.
-  Files: exactly `docs/spikes/s08.md`, `docs/spikes/s08-linux-observation.md` and
-  `docs/spikes/s08-linux-evidence/README.md`. Add a dated supplement discovering
-  accepted exact1229782/base93da622 and completed full review/retention; label the
-  original future `--script` asset card as the attempted failed/unproved route,
-  preserving predeclarations, preparation/R1, original terminal requests and raw failures.
-  Needs: exact accepted Git revisions and full report/JSON note identities in
-  [delta ledger](docs/reviews/plan-check-08-evidence/accepted-delta-122.json);
-  report31950 bytes/SHA4d0e1a4b863411b80ceb7fa071332a96362ba395974ee72b25ac38baff5602b2.
-  Distinguish exact TPZ/import/export0/static46-member/22-map positives from ignored observer/
-  missing-role exit1/no receipt/never-started ENet and STOP. Discover existing S08
-  ownership of supported entrypoint and RELEASE assert-side-effect prerequisites;
-  do not invent a working recipe or authorize fixture changes/retry/production work.
-  Done when: all three files identify stopped-record ACCEPT/retention MET and full
-  asset/ENet/Steam/both-OS/device gates OPEN; accepted notes/report remain reachable,
-  history/identity/link/LF/whitespace checks and exact independent review pass.
-  Remove this task together with the resolving dated supplements; link completion
-  from P0-GATE before reconciled-record use. No new technical owner or experiment.
-
 ## Phase-zero technical spikes
 
 Each spike gets a short `docs/spikes/<id>.md`: question/hypothesis, alternatives,
@@ -621,7 +600,7 @@ implementation. Save editor mutations before playtests; preserve unsaved work.
   [DOC10 partial S06 tooling/review discovery](docs/reviews/p0-doc10.md) and
   [DOC11 partial S06 topology/source reconciliation](docs/reviews/p0-doc11.md),
   [DOC12 exact stopped S02 discovery](docs/reviews/p0-doc12.md) and
-  P0-DOC13 exact stopped S08 acceptance discovery before reconciled-record use.
+  [DOC13 exact stopped S08 discovery](docs/reviews/p0-doc13.md) before reconciled-record use.
   S07 supplies the documented capacity envelope, limiting axes, organization and
   diagnostic decisions; research alone leaves representative/target gaps open.
   Done when: critical design/feasibility assumptions required to begin M1 are resolved;
