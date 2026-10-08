@@ -38,6 +38,7 @@ FIELDS = [
     "node_count",
 ]
 FIXTURE_FILES = [
+    "tests/fixtures/s02/actor_cutaway.gdshader",
     "tests/fixtures/s02/building_view.gd",
     "tests/fixtures/s02/building_view.gd.uid",
     "tests/fixtures/s02/low_prefab.tscn",
