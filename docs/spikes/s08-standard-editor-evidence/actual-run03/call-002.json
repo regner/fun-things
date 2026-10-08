@@ -1,0 +1,24 @@
+{
+  "request": {
+    "method": "editor.get_console",
+    "params": {
+      "source": "buffer",
+      "limit": 100
+    }
+  },
+  "started_unix": 1791450066.9969742,
+  "response": {
+    "result": {
+      "entries": "<untrusted-77d8bf35 kind=\"console\" source=\"buffer\">\n[{\"id\":0,\"level\":\"info\",\"message\":\"[MCPServer] port: scanning 6550-6560 (default)\",\"timestamp_unix\":1791450066},{\"id\":1,\"level\":\"info\",\"message\":\"[MCPServer] session token written to user://addons/godot_mcp_toolkit/project_instance_e9fb882bfd3c/mcp_token\",\"timestamp_unix\":1791450066},{\"id\":2,\"level\":\"info\",\"message\":\"[MCPServer] listening on 127.0.0.1:6551\",\"timestamp_unix\":1791450066},{\"id\":3,\"level\":\"info\",\"message\":\"[MCPRegistry] registered /tmp/s08-standard-555e0330/project on port 6551\",\"timestamp_unix\":1791450066},{\"id\":4,\"level\":\"warning\",\"message\":\"WARNING: [MCP] Godot 4.8 detected - latest tested version is 4.7.0. The plugin will run normally but some features may behave unexpectedly. Please report issues at https://github.com/NPGameDev/godot-mcp-toolkit/issues\",\"timestamp_unix\":1791450066},{\"id\":5,\"level\":\"info\",\"message\":\"[  83% ] first_scan_filesystem | Starting file scan...\",\"timestamp_unix\":1791450066},{\"id\":6,\"level\":\"info\",\"message\":\"[92m[ DONE ] first_scan_filesystem\\n\",\"timestamp_unix\":1791450066},{\"id\":7,\"level\":\"info\",\"message\":\"[   0% ] loading_editor_layout | Started Loading editor (5 steps)\",\"timestamp_unix\":1791450066},{\"id\":8,\"level\":\"info\",\"message\":\"[   0% ] loading_editor_layout | Loading editor layout...\",\"timestamp_unix\":1791450066},{\"id\":9,\"level\":\"info\",\"message\":\"[  16% ] loading_editor_layout | Loading docks...\",\"timestamp_unix\":1791450066},{\"id\":10,\"level\":\"info\",\"message\":\"[  33% ] loading_editor_layout | Reopening scenes...\",\"timestamp_unix\":1791450066},{\"id\":11,\"level\":\"info\",\"message\":\"[  50% ] loading_editor_layout | Loading central editor layout...\",\"timestamp_unix\":1791450066},{\"id\":12,\"level\":\"info\",\"message\":\"[  66% ] loading_editor_layout | Loading plugin window layout...\",\"timestamp_unix\":1791450066},{\"id\":13,\"level\":\"info\",\"message\":\"[  83% ] loading_editor_layout | Editor layout ready.\",\"timestamp_unix\":1791450066},{\"id\":14,\"level\":\"info\",\"message\":\"[92m[ DONE ] loading_editor_layout\\n\",\"timestamp_unix\":1791450066},{\"id\":15,\"level\":\"info\",\"message\":\"[MCP] MCP client connected (1 peer)\",\"timestamp_unix\":1791450066}]\n</untrusted-77d8bf35>",
+      "has_more": false,
+      "next_id": 15,
+      "returned": 16,
+      "source": "buffer",
+      "success": true,
+      "total_lines": 16
+    },
+    "headless": true,
+    "version": "4.8.0"
+  },
+  "ended_unix": 1791450067.0213022
+}

@@ -1,0 +1,19 @@
+{
+  "request": {
+    "method": "node.get_property",
+    "params": {
+      "node_path": ".",
+      "property": "scene_file_path"
+    }
+  },
+  "started_unix": 1791449782.8216085,
+  "response": {
+    "result": {
+      "success": true,
+      "value": "res://tests/fixtures/s03/boot.tscn"
+    },
+    "headless": true,
+    "version": "4.8.0"
+  },
+  "ended_unix": 1791449782.8489168
+}

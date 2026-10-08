@@ -1,0 +1,30 @@
+[
+  {
+    "argv": [
+      "/home/regner/.local/share/mise/installs/github-atelico-gdstyle/0.3.0/gdstyle",
+      "fmt",
+      "--check",
+      "tests/fixtures/s03/replication.gd"
+    ],
+    "cwd": "/home/regner/.paseo/worktrees/0u71f39f/s08-standard-editor-release-proof",
+    "exit": 0,
+    "reaped": true,
+    "stdout": "0.stdout",
+    "stderr": "0.stderr"
+  },
+  {
+    "argv": [
+      "/home/regner/.local/share/mise/installs/github-atelico-gdstyle/0.3.0/gdstyle",
+      "--max-line-length",
+      "100",
+      "--max-warnings",
+      "0",
+      "tests/fixtures/s03/replication.gd"
+    ],
+    "cwd": "/home/regner/.paseo/worktrees/0u71f39f/s08-standard-editor-release-proof",
+    "exit": 0,
+    "reaped": true,
+    "stdout": "1.stdout",
+    "stderr": "1.stderr"
+  }
+]

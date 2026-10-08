@@ -1,0 +1,58 @@
+{
+  "ok": false,
+  "base": "ef730df936b5b159f0894033f5d01e2b7124386c",
+  "started_unix": 1791449040.3109274,
+  "commands": [
+    {
+      "phase": "prepare",
+      "argv": [
+        "/home/regner/.local/share/mise/installs/github-godotengine-godot-builds/4.8-dev7/godot",
+        "--headless",
+        "--editor",
+        "--path",
+        "/tmp/s08-standard-555e0330/prepare-project",
+        "--lsp-port",
+        "49873",
+        "--dap-port",
+        "48937",
+        "--debug-server",
+        "tcp://127.0.0.1:41249",
+        "--log-file",
+        "/tmp/s08-standard-555e0330/prepare/engine.log",
+        "--script",
+        "res://initialize_settings.gd"
+      ],
+      "cwd": "/tmp/s08-standard-555e0330/prepare-project",
+      "budget_seconds": 15,
+      "started_unix": 1791449040.8415127,
+      "environment": {
+        "XDG_CONFIG_DIRS": "/home/regner/.config/kdedefaults:/etc/xdg",
+        "XDG_SESSION_PATH": "/org/freedesktop/DisplayManager/Session1",
+        "XDG_MENU_PREFIX": "plasma-",
+        "XDG_SEAT": "seat0",
+        "XDG_SESSION_DESKTOP": "KDE",
+        "XDG_SESSION_TYPE": "wayland",
+        "XDG_CURRENT_DESKTOP": "KDE",
+        "XDG_SEAT_PATH": "/org/freedesktop/DisplayManager/Seat0",
+        "XDG_SESSION_CLASS": "user",
+        "XDG_VTNR": "2",
+        "XDG_SESSION_ID": "2",
+        "XDG_RUNTIME_DIR": "/tmp/s08-standard-555e0330/private/runtime",
+        "XDG_DATA_DIRS": "/tmp/.mount_Paseo-6MKVbM/usr/share/:./share/:/usr/share/gnome:/usr/local/share/:/usr/share/:/home/regner/.local/share/flatpak/exports/share:/var/lib/flatpak/exports/share:/usr/local/share/:/usr/share/:/usr/share/gnome/:/usr/local/share/:/usr/share/",
+        "XDG_CONFIG_HOME": "/tmp/s08-standard-555e0330/private/config",
+        "XDG_DATA_HOME": "/tmp/s08-standard-555e0330/private/data",
+        "XDG_CACHE_HOME": "/tmp/s08-standard-555e0330/private/cache",
+        "TMPDIR": "/tmp/s08-standard-555e0330/private/tmp",
+        "GODOT_MCP_PROJECT_PATH": "/tmp/s08-standard-555e0330/project"
+      },
+      "owned_pid": 555474,
+      "exit": 0,
+      "reaped": true,
+      "ended_unix": 1791449043.560064
+    }
+  ],
+  "failure": "RuntimeError(\"/tmp/s08-standard-555e0330/prepare/stdout.log: ERROR: 5 RID allocations of type 'N16RendererViewport8ViewportE' were leaked at exit.\")",
+  "ended_unix": 1791449043.560073,
+  "all_children_reaped": true,
+  "streams_closed": true
+}

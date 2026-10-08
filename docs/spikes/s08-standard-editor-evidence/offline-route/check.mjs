@@ -1,0 +1,15 @@
+import {ownedRoute} from '/home/regner/.paseo/worktrees/0u71f39f/s08-standard-editor-release-proof/tools/s08/route_check.mjs';
+import {readFileSync} from 'node:fs';
+import assert from 'node:assert/strict';
+const entry=JSON.parse(readFileSync('/tmp/s08-standard-555e0330/actual-editor-attempt/registry-binding.json'));
+const project=entry._key;
+const pack=JSON.parse(readFileSync('/tmp/s08-standard-555e0330/offline-route/actual-projection.json'));
+const actual=pack.by_path[project];
+assert.equal(Object.hasOwn(actual,'_key'),false);
+assert.equal(ownedRoute(project,project,actual,entry),true);
+assert.throws(()=>ownedRoute(project+'/wrong',project,actual,entry));
+assert.equal(ownedRoute(project,project,{...actual,pid:entry.pid+1},entry),false);
+assert.equal(ownedRoute(project,project,{...actual,port:entry.port+1},entry),false);
+assert.equal(ownedRoute(project,project,{...actual,token_path:'/tmp/wrong/mcp_token'},entry),false);
+assert.equal(ownedRoute(project,project,null,entry),false);
+console.log(JSON.stringify({ok:true,cases:['literal_owned_projection_accepted','wrong_project_rejected','wrong_PID_waits_without_dial','wrong_port_waits_without_dial','wrong_token_waits_without_dial','missing_entry_waits_deadline'],owned_pid:entry.pid,project}));

@@ -1,0 +1,133 @@
+{
+  "ok": false,
+  "base": "ef730df936b5b159f0894033f5d01e2b7124386c",
+  "started_unix": 1791449779.7163622,
+  "commands": [
+    {
+      "phase": "editor",
+      "argv": [
+        "/home/regner/.local/share/mise/installs/github-godotengine-godot-builds/4.8-dev7/godot",
+        "--headless",
+        "--editor",
+        "--path",
+        "/tmp/s08-standard-555e0330/project",
+        "--lsp-port",
+        "56849",
+        "--dap-port",
+        "39619",
+        "--debug-server",
+        "tcp://127.0.0.1:45187",
+        "--log-file",
+        "/tmp/s08-standard-555e0330/actual-editor-run02/editor/engine.log",
+        "--script",
+        "/home/regner/.paseo/worktrees/0u71f39f/s08-standard-editor-release-proof/tools/s08/editor_context.gd"
+      ],
+      "cwd": "/tmp/s08-standard-555e0330/project",
+      "budget_seconds": 60,
+      "started_unix": 1791449780.2360394,
+      "environment": {
+        "XDG_CONFIG_DIRS": "/home/regner/.config/kdedefaults:/etc/xdg",
+        "XDG_SESSION_PATH": "/org/freedesktop/DisplayManager/Session1",
+        "XDG_MENU_PREFIX": "plasma-",
+        "XDG_SEAT": "seat0",
+        "XDG_SESSION_DESKTOP": "KDE",
+        "XDG_SESSION_TYPE": "wayland",
+        "XDG_CURRENT_DESKTOP": "KDE",
+        "XDG_SEAT_PATH": "/org/freedesktop/DisplayManager/Seat0",
+        "XDG_SESSION_CLASS": "user",
+        "XDG_VTNR": "2",
+        "XDG_SESSION_ID": "2",
+        "XDG_RUNTIME_DIR": "/tmp/s08-standard-555e0330/scan-complete-attempt/private/runtime",
+        "XDG_DATA_DIRS": "/tmp/.mount_Paseo-6MKVbM/usr/share/:./share/:/usr/share/gnome:/usr/local/share/:/usr/share/:/home/regner/.local/share/flatpak/exports/share:/var/lib/flatpak/exports/share:/usr/local/share/:/usr/share/:/usr/share/gnome/:/usr/local/share/:/usr/share/",
+        "XDG_CONFIG_HOME": "/tmp/s08-standard-555e0330/scan-complete-attempt/private/config",
+        "XDG_DATA_HOME": "/tmp/s08-standard-555e0330/scan-complete-attempt/private/data",
+        "XDG_CACHE_HOME": "/tmp/s08-standard-555e0330/scan-complete-attempt/private/cache",
+        "TMPDIR": "/tmp/s08-standard-555e0330/scan-complete-attempt/private/tmp",
+        "GODOT_MCP_PROJECT_PATH": "/tmp/s08-standard-555e0330/project"
+      },
+      "owned_pid": 559412,
+      "exit": -2,
+      "reaped": true,
+      "ended_unix": 1791449782.9448447
+    },
+    {
+      "phase": "connector",
+      "argv": [
+        "/usr/bin/node",
+        "/home/regner/.paseo/worktrees/0u71f39f/s08-standard-editor-release-proof/tools/s08/standard_bridge.mjs",
+        "/tmp/s08-standard-555e0330/actual-editor-run02/registry-binding.json"
+      ],
+      "cwd": "/tmp/s08-standard-555e0330/project",
+      "owned_pid": 559438,
+      "started_unix": 1791449782.5412824,
+      "exit": 0,
+      "reaped": true,
+      "ended_unix": 1791449782.944849
+    }
+  ],
+  "original_stop": "/tmp/s08-standard-555e0330/lifecycle.json",
+  "distinct_grant": "ROOT independent actual authoring readiness phase; both prep STOPs preserved",
+  "settings_artifact": {
+    "path": "/tmp/s08-standard-555e0330/scan-complete-attempt/private/config/godot/editor_settings-4.8.tres",
+    "bytes": 18167,
+    "sha256": "49c7a18afbeb68e1d1c7aa586511c09b625bd05e210ad9e4c73c680e7939270e",
+    "source_supported_boolean_line": [
+      "mcp_toolkit/performance/keep_editor_responsive_unfocused = false"
+    ],
+    "readback_receipt": "scan-complete-attempt/prepare/stdout.log: S08_SETTINGS ok true/cache replacing in initializer_scan source49b3f2a"
+  },
+  "startup_context": {
+    "boost": false,
+    "editor_hint": true,
+    "pid": 559412,
+    "project": "/tmp/s08-standard-555e0330/project/",
+    "settings_path": "/tmp/s08-standard-555e0330/scan-complete-attempt/private/config/godot/editor_settings-4.8.tres",
+    "version": {
+      "build": "official",
+      "hash": "c971f93e7e76b0ef919bf6009e7b868bea04db7f",
+      "hex": 264192,
+      "major": 4,
+      "minor": 8,
+      "patch": 0,
+      "status": "dev7",
+      "string": "4.8-dev7 (official)",
+      "timestamp": 0
+    }
+  },
+  "registry_entry": {
+    "_key": "/tmp/s08-standard-555e0330/project",
+    "godot_version": "4.8",
+    "lsp_host": "127.0.0.1",
+    "lsp_port": 6005,
+    "pid": 559412,
+    "port": 6551,
+    "runtime_pid": null,
+    "runtime_port": null,
+    "started_at": 1791449782,
+    "token_path": "/tmp/s08-standard-555e0330/scan-complete-attempt/private/data/godot/app_userdata/Fun Things/addons/godot_mcp_toolkit/project_instance_e9fb882bfd3c/mcp_token"
+  },
+  "discovery": {
+    "discovery": {
+      "editorPort": "6551",
+      "editorPinned": false,
+      "editorSource": "discovery",
+      "runtimeSource": "discovery",
+      "lspSource": "discovery"
+    },
+    "registry": {
+      "godot_version": "4.8",
+      "lsp_host": "127.0.0.1",
+      "lsp_port": 6005,
+      "pid": 559412,
+      "port": 6551,
+      "runtime_pid": null,
+      "runtime_port": null,
+      "started_at": 1791449782,
+      "token_path": "/tmp/s08-standard-555e0330/scan-complete-attempt/private/data/godot/app_userdata/Fun Things/addons/godot_mcp_toolkit/project_instance_e9fb882bfd3c/mcp_token"
+    }
+  },
+  "failure": "RuntimeError('/tmp/s08-standard-555e0330/actual-editor-run02/editor/stderr.log: ERROR: The process 558301 does not exist or is not a child of the calling process.')",
+  "ended_unix": 1791449782.9448655,
+  "all_children_reaped": true,
+  "streams_closed": true
+}

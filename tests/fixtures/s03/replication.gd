@@ -37,7 +37,10 @@ func begin(peer_id: int, participant: int) -> void:
 	pending[peer_id] = {"id": next_baseline, "participant": participant,
 		"revision": match_state.durable_revision + 1, "health": 70, "stage": "BASELINE"}
 	# The fixture change still commits through the sole state owner.
-	assert(match_state.apply_journal(participant, 70, match_state.durable_revision + 1))
+	var journal_applied: bool = match_state.apply_journal(
+		participant, 70, match_state.durable_revision + 1
+	)
+	assert(journal_applied)
 	_start.rpc_id(
 		peer_id,
 		match_state.session_id,

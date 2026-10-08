@@ -1,0 +1,25 @@
+{
+  "request": {
+    "method": "script.edit",
+    "params": {
+      "file_path": "res://tests/fixtures/s03/replication.gd",
+      "old_string": "\tassert(match_state.apply_journal(participant, 70, match_state.durable_revision + 1))",
+      "new_string": "\tvar journal_applied: bool = match_state.apply_journal(\n\t\tparticipant, 70, match_state.durable_revision + 1\n\t)\n\tassert(journal_applied)"
+    }
+  },
+  "started_unix": 1791450097.3616483,
+  "response": {
+    "result": {
+      "bytes": 9435,
+      "diagnostics": [],
+      "indexed": true,
+      "replacements": 1,
+      "success": true,
+      "undoable": true,
+      "valid": true
+    },
+    "headless": true,
+    "version": "4.8.0"
+  },
+  "ended_unix": 1791450097.3769755
+}

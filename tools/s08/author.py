@@ -12,14 +12,17 @@ import subprocess
 import sys
 import time
 
+from request_file import read_request
+
 ROOT = Path(__file__).resolve().parents[2]
 BASE = 'ef730df936b5b159f0894033f5d01e2b7124386c'
 ORIGINAL = Path('/tmp/s08-standard-555e0330')
 SECOND = '--scan-complete-preparation' in sys.argv
-ACTUAL03 = '--cleaned-author-run03' in sys.argv
+ACTUAL04 = '--file-author-run04' in sys.argv
+ACTUAL03 = '--cleaned-author-run03' in sys.argv or ACTUAL04
 ACTUAL02 = '--corrected-author-run02' in sys.argv or ACTUAL03
 ACTUAL = '--author-existing-settings' in sys.argv or ACTUAL02
-TASK = ORIGINAL / ('actual-editor-run03' if ACTUAL03 else 'actual-editor-run02' if ACTUAL02 else 'actual-editor-attempt' if ACTUAL else 'scan-complete-attempt') if (SECOND or ACTUAL) else ORIGINAL
+TASK = ORIGINAL / ('actual-editor-run04' if ACTUAL04 else 'actual-editor-run03' if ACTUAL03 else 'actual-editor-run02' if ACTUAL02 else 'actual-editor-attempt' if ACTUAL else 'scan-complete-attempt') if (SECOND or ACTUAL) else ORIGINAL
 PROJECT = ORIGINAL / 'project'
 ENGINE = '/home/regner/.local/share/mise/installs/github-godotengine-godot-builds/4.8-dev7/godot'
 ENGINE_SHA = '6aea356032435e7af19dbfbf48dd20c5012a7dc1267eb8e92406f44e3584b5fd'
@@ -124,7 +127,7 @@ def main():
             result['original_stop'] = str(ORIGINAL / 'lifecycle.json')
             result['distinct_grant'] = 'ROOT source-qualified scan completion/deferred shutdown, one additional prep'
         if ACTUAL:
-            binding = json.loads((ORIGINAL / 'settings-before-actual-editor.json').read_text())
+            binding = json.loads((ORIGINAL / ('settings-before-run04.json' if ACTUAL04 else 'settings-before-actual-editor.json')).read_text())
             if identity(Path(binding['path'])) != {k: binding[k] for k in ['bytes', 'sha256']}:
                 raise RuntimeError('private setting artifact changed since phase declaration')
             result['settings_artifact'] = binding
@@ -142,7 +145,12 @@ def main():
             target = PROJECT / name
             target.parent.mkdir(parents=True, exist_ok=True)
             if SECOND or ACTUAL:
-                if target.read_bytes() != blob(name):
+                expected = blob(name)
+                if ACTUAL04 and name == 'tests/fixtures/s03/replication.gd':
+                    expected = expected.replace(
+                        b'\tassert(match_state.apply_journal(participant, 70, match_state.durable_revision + 1))',
+                        b'\tvar journal_applied: bool = match_state.apply_journal(\n\t\tparticipant, 70, match_state.durable_revision + 1\n\t)\n\tassert(journal_applied)')
+                if target.read_bytes() != expected:
                     raise RuntimeError('original mirror bytes changed: ' + name)
             else:
                 target.write_bytes(blob(name))
@@ -308,6 +316,9 @@ def main():
             if not line:
                 raise RuntimeError('authoring command input closed before finish')
             request = json.loads(line)
+            if 'request_file' in request:
+                request, request_raw = read_request(request, ORIGINAL)
+                (TASK / f'request-{sequence + 1:03}.json').write_bytes(request_raw)
             if request.get('finish'):
                 result['ok'] = True
                 break

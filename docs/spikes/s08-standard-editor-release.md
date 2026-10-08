@@ -232,8 +232,8 @@ were reaped. No error is suppressed/relabelled as passed readiness.
 ROOT explicitly grants ONE run03 after owned stale-registration lifecycle cleanup,
 no prep/settings repeat/vendor/shared repair. Installed registry_client.gd149–163
 normal deregister deletes its per-project entry, acquires private lock, rebuilds
-projection and releases lock. `file_lock.gd` uses a private O_EXCL-created directory
-and scoped TTL; no live writer remains here, as all own handles are reaped. Actual
+projection and releases lock. `file_lock.gd` uses a regular private `PID:timestamp` file, PID-aware/10 s stale
+recovery and bounded backoff; no live writer remains here, as all own handles are reaped. Actual
 cleanup retained entry/projection, required canonicalkey and PID559412 in recorded
 OWN558301/559412 set, and exact singleton private projection key before deleting
 only owned entry/sole matching projection/token. No unrelated actual entry existed.
@@ -249,3 +249,52 @@ warning separately disclosed. Successful readiness enters narrow saved authoring
 Save each batch and inspect saved/unsaved state before supported SceneTree graceful
 quit; wait2 s, owned SIGINT fallback only if needed. One eventual review covers all
 attempts, raw failures and bounded result; source-only conditions are not diagnoses.
+
+## Run03 transport STOP and distinct file-delivery run04 grant
+
+Run03 at071be5e editor561147/connector561173 passed current canonical registry,
+standard auth/context boostfalse/editorhint/fullc971 and all six dedicated readiness
+commands. Complete ready streams contain only the known dev7 warning; no stale-PID
+error. `script.edit` then saved exactly the commissioned S03 replacement, typed
+boolean/outside-assert, diagnostics[]/validtrue. No other closure file was changed.
+
+The next 8184-byte JSON script.write terminal request was rejected by automatic
+review: "terminal input and permission details are too large to review safely; use
+a smaller input or start a new terminal with fewer grants". Splitting its bytes
+across the canonical PTY lost bytes beyond its line limit; supervisor STOP was
+`JSONDecodeError('Invalid \escape: line 1 column 4095 (char 4094)')`. The request was
+never issued to the connector; no S08 script/scene/UID exists. Both owned handles
+were reaped via existing fallback (editor SIGINT-2, connector EOF0), all streams
+closed. Normal SceneTree quit was not reached. This is implementer transport error,
+not a toolkit/renderer/facility defect. Preserve raw STOP and all earlier failures.
+
+ROOT explicitly grants ONE continuation run04, no prep/repeated S03 edit, from
+existing private imports/settings and saved S03 bytes. Before launch, offline
+`request_file.read_request` verifies an owned real file, SHA256, complete UTF8 JSON
+and method. The actual representative8184-byte request (7464-byte script) readback
+is exact; wrong hash and outside-scope file are rejected. Terminal sends only a
+155-byte path/hash control. Supervisor copies original request bytes before issuing
+unchanged installed bridge SDK calls through its ordinary pipe. This is local
+file delivery, no new MCP protocol/router or string splitting. Original rejected
+request and failures stay retained separately; no fabricated mutation receipt.
+
+Source-qualified cleanup retained current private entry561147 and matching singleton
+projection, proven against recorded/reaped run03 handles; removes only its canonical
+entry and rebuilds the empty private projection. Synthetic unrelated row unchanged.
+Actual `projects.json.lock` is absent; no writer/lock/global PID query. The executed
+cleanup initially checked `projects.lock` (incorrect basename); before launch the
+correct source-defined `projects.json.lock` absence was separately verified and
+helper corrected. Both executed source and correction are retained. No lock repair.
+
+Normal prior editor lifecycle saved the same private EditorSettings artifact;
+current bytes18280/SHA7921c8f2cd4efbc3ef334415e174d4e1a6bb4567d07a04f4bd64eb7272ae1588
+are freshly read/bound, exact supported booleanfalse preserved without a write.
+Live run04 context must confirm it; old prep hashes/receipts remain immutable.
+Verify unchanged installed inputs plus EXACT one saved S03 delta; reopen actual
+S03 scene/script/UID before new resource authoring. Readiness <=60 s, authoring
+<=20min, standard automatic route/current Popen PID recorded before gates, complete
+clean auth/handler logs (only known dev7 warning), no stale-PID exception. First new
+actual failure STOP; no further launch. Save each batch and inspect saved/unsaved
+state before supported node-scoped `get_tree().quit()` and wait2 s; owned SIGINT
+fallback only if unresponsive. Conditional original import/export/asset/ENet budgets
+remain unchanged. One eventual exact-candidate review covers ALL attempts.
