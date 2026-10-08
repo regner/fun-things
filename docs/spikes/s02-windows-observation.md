@@ -118,10 +118,14 @@ S02_FOCUS_RESULT {"failures":["initial native focus not established"],
 ```
 
 The runner classified this attempt `inconclusive: initial native focus not established`.
-There was no foreign owner, so no retry was authorized. This cleanly preserves the native
-precondition instead of interpreting Godot's stale `Window.has_focus()` value as OS focus.
-The complete follow-up is in [`focus-fixed/`](s02-windows-evidence/focus-fixed/); the
-original raw result and streams remain unchanged.
+Because the child was never observed foreground, there was no qualifying post-restore
+foreign steal and no retry was authorized. This cleanly preserves the native precondition
+instead of interpreting Godot's stale `Window.has_focus()` value as OS focus.
+Windows' foreground-lock rules prevented the launched child from taking native foreground,
+so automated native focus remains unmeasured and the physical Alt-Tab check stays on the
+human checklist. The complete follow-up is in
+[`focus-fixed/`](s02-windows-evidence/focus-fixed/); the original raw result and streams
+remain unchanged.
 
 ## Reproducibility and authoring boundary
 

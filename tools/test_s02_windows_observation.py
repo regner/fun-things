@@ -28,7 +28,7 @@ class WindowsObservationTest(unittest.TestCase):
                 ],
             )
 
-    def test_foreign_focus_uses_stage_markers_after_nonzero_startup_delay(self):
+    def test_preflight_owner_before_restored_child_does_not_count_as_steal(self):
         attempt = {
             "stage_markers": [
                 {"stage": "restore", "process_ms": 6000},
@@ -38,35 +38,35 @@ class WindowsObservationTest(unittest.TestCase):
                 "pid": 20,
                 "foreground_before": {"pid": 10},
                 "foreground_timeline": [
-                    {"offset_seconds": 3.3, "pid": 30},
-                    {"offset_seconds": 3.4, "pid": 30},
-                    {"offset_seconds": 3.5, "pid": 30},
-                    {"offset_seconds": 6.2, "pid": 30},
-                    {"offset_seconds": 6.3, "pid": 30},
-                    {"offset_seconds": 6.4, "pid": 30},
+                    {"offset_seconds": 6.1, "pid": 10},
+                    {"offset_seconds": 6.2, "pid": 10},
+                    {"offset_seconds": 6.3, "pid": 10},
+                    {"offset_seconds": 6.4, "pid": 20},
+                    {"offset_seconds": 6.5, "pid": 20},
+                ],
+            },
+        }
+        self.assertFalse(observation.foreign_focus_stolen(attempt))
+
+    def test_preflight_owner_steal_after_restored_child_authorizes_retry(self):
+        attempt = {
+            "stage_markers": [
+                {"stage": "restore", "process_ms": 6000},
+                {"stage": "check", "process_ms": 7000},
+            ],
+            "process": {
+                "pid": 20,
+                "foreground_before": {"pid": 10},
+                "foreground_timeline": [
+                    {"offset_seconds": 6.1, "pid": 10},
+                    {"offset_seconds": 6.2, "pid": 20},
+                    {"offset_seconds": 6.3, "pid": 10},
+                    {"offset_seconds": 6.4, "pid": 10},
+                    {"offset_seconds": 6.5, "pid": 10},
                 ],
             },
         }
         self.assertTrue(observation.foreign_focus_stolen(attempt))
-        attempt["process"]["foreground_timeline"][-2]["pid"] = 20
-        self.assertFalse(observation.foreign_focus_stolen(attempt))
-
-    def test_preexisting_foreground_owner_does_not_authorize_retry(self):
-        attempt = {
-            "stage_markers": [
-                {"stage": "restore", "process_ms": 6000},
-                {"stage": "check", "process_ms": 7000},
-            ],
-            "process": {
-                "pid": 20,
-                "foreground_before": {"pid": 10},
-                "foreground_timeline": [
-                    {"offset_seconds": 6.1 + index / 10, "pid": 10}
-                    for index in range(5)
-                ],
-            },
-        }
-        self.assertFalse(observation.foreign_focus_stolen(attempt))
 
     def test_initial_focus_requires_sustained_child_ownership_before_stage(self):
         attempt = {

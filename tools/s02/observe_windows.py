@@ -227,13 +227,16 @@ def foreign_focus_stolen(attempt):
     if restore is None or check is None:
         return False
     own_pid = attempt["process"]["pid"]
-    before_pid = attempt["process"]["foreground_before"].get("pid")
+    restored_child_seen = False
     run = 0
     for row in attempt["process"]["foreground_timeline"]:
         if not restore <= row["offset_seconds"] <= check:
             continue
         pid = row.get("pid")
-        if pid not in (None, 0, own_pid, before_pid):
+        if not restored_child_seen:
+            restored_child_seen = pid == own_pid
+            continue
+        if pid not in (None, 0, own_pid):
             run += 1
             if run >= 3:
                 return True
