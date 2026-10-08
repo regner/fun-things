@@ -1,0 +1,65 @@
+{
+  "engine_source": "c971f93e7e76b0ef919bf6009e7b868bea04db7f",
+  "host_command": {
+    "argv": [
+      "/tmp/s08-addon-free-555e0330-release01/export-folder/FunThingsS08.x86_64",
+      "--headless",
+      "--log-file",
+      "/tmp/s08-addon-free-555e0330-release01/enet/host/engine.log",
+      "--",
+      "--role=host",
+      "--port=24740"
+    ],
+    "cwd": "/tmp/s08-addon-free-555e0330-release01/export-folder",
+    "started_unix": 1791451399.7813437,
+    "environment": {
+      "XDG_CONFIG_DIRS": "/home/regner/.config/kdedefaults:/etc/xdg",
+      "XDG_SESSION_PATH": "/org/freedesktop/DisplayManager/Session1",
+      "XDG_MENU_PREFIX": "plasma-",
+      "XDG_SEAT": "seat0",
+      "XDG_SESSION_DESKTOP": "KDE",
+      "XDG_SESSION_TYPE": "wayland",
+      "XDG_CURRENT_DESKTOP": "KDE",
+      "XDG_SEAT_PATH": "/org/freedesktop/DisplayManager/Seat0",
+      "XDG_SESSION_CLASS": "user",
+      "XDG_VTNR": "2",
+      "XDG_SESSION_ID": "2",
+      "XDG_RUNTIME_DIR": "/tmp/s08-addon-free-555e0330-release01/enet/host/user/runtime",
+      "XDG_DATA_DIRS": "/tmp/.mount_Paseo-6MKVbM/usr/share/:./share/:/usr/share/gnome:/usr/local/share/:/usr/share/:/home/regner/.local/share/flatpak/exports/share:/var/lib/flatpak/exports/share:/usr/local/share/:/usr/share/:/usr/share/gnome/:/usr/local/share/:/usr/share/",
+      "XDG_CONFIG_HOME": "/tmp/s08-addon-free-555e0330-release01/enet/host/user/config",
+      "XDG_DATA_HOME": "/tmp/s08-addon-free-555e0330-release01/enet/host/user/data",
+      "XDG_CACHE_HOME": "/tmp/s08-addon-free-555e0330-release01/enet/host/user/cache"
+    },
+    "owned_pid": 567114,
+    "exit": 1,
+    "child_reaped": true
+  },
+  "ready_observed_unix": 1791451408.2456071,
+  "ready_observed_seconds_after_Popen_start": 8.464263439178467,
+  "case_deadline_ms": 8000,
+  "raw_events": [
+    {
+      "byte_offset": 22031,
+      "raw_line": "S03 {\"event\":\"ready\",\"role\":\"host\",\"user_dir\":\"/tmp/s08-addon-free-555e0330-release01/enet/host/user/data/godot/app_userdata/Fun Things\"}\n",
+      "sha256": "74fef11e805059cedefe1f7adf6f7851f93c0ca5f130e05fe9972e68db064fa1"
+    },
+    {
+      "byte_offset": 22169,
+      "raw_line": "S03 {\"cases\":[],\"event\":\"result\",\"failure\":\"case deadline in ACTIVE\",\"ok\":false,\"role\":\"host\"}\n",
+      "sha256": "caafc901d0b30de9d10eb51e5c76106923185a84b247884a12a7279bec972504"
+    }
+  ],
+  "pump_contract": "scan complete file lines; set ready; failed result raises before outer client-start predicate; captured ready and failed result consumed before client conditional",
+  "source_supported_path": "main default flush_stdout_on_print false; debug override true; applies property to Logger; StdLogger vprintf then fflush only if property; regular file redirection in Popen",
+  "scratch_explicit_flush_setting": false,
+  "historical_protocol": "tools/run_s03.py runs pinned development binary and similarly starts client after full-line host ready, rather than release template",
+  "observation_limits": [
+    "no runtime property readback for flush setting",
+    "no stdout syscall/buffer occupancy capture",
+    "no print emission timestamps or exact child exit timestamp",
+    "ready_observed is parent decode timestamp, not host emission time"
+  ],
+  "buffering": "SOURCE_SUPPORTED_HYPOTHESIS; consistent with late observed readiness but not a demonstrated sole cause",
+  "actual_failure": "host S03 case deadline in ACTIVE, exit1; no client or connection/proxy/datagram positive proof",
+  "future_condition": "Before any distinct ROOT runtime grant, qualify a release readiness handoff observable while host is still within its case budget; ensure failure/readiness consumption order and explicit release output behavior are part of that protocol. No working remedy demonstrated, no behavior repair/re-export/replay here."
+}

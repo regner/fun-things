@@ -351,3 +351,56 @@ Correct the scoped helper using the already inspected draft launch function with
 explicit env_factory; offline inspect.signature.bind validates the six arguments.
 No engine/probe retry is involved: the granted ONE standalone child remains
 unattempted. Fresh unique probe02 retains new source/argv/logs; probe01 never replaced.
+
+## Bounded addon-free outcomes and exported ENet STOP
+
+Exact source21b77cb: standalone child566755 exit0 in0.315 s, all106 explicit
+compilation/resource/UID/public-API checks pass, no stderr/error/warning. Probe01's
+Python signature gap remains separate and launched zero engine children.
+
+One release attempt freshly hashes the existing1436879719-byte TPZ, version4.8.dev7,
+four x86_64 members and exact78376584-byte Linux release template/installed engine.
+Addon-free exact34-file stage passes post-import byte readback. Import567033 exit0 /
+2.72 s, export567062 exit0 /2.72 s, complete output ELF exactly matches template.
+PCKformat4 has48 fully hashed members,23 logical mappings including manifest,
+22 decoded UID rows matching probe IDs/paths and expected scoped class cache;
+no addon/native/source/other-fixture leak. Raw package/config/cache/exclusion
+manifests and actual output hashes are retained.
+
+Normal saved-main asset567092 exit0 /0.514 s, exactly one literal S08 ok:true,
+roleasset,172 explicit checks/22 resources. All44 reported runtime payload hashes
+match actual PCK members. This is actual asset execution, distinct from static pack.
+
+Exported host567114 emits S08 ok:true BEFORE saved S03 ready, then S03 result
+ok:false/`case deadline in ACTIVE`/cases[]/exit1. Runner stops immediately on failed
+result. No client process was created, no connection outcome or exported ENet
+case is passed; proxy0 datagrams/events[], actual raw proxy.jsonl is empty. Owned
+host reaped/socket closed/streams closed. No reexport/retry/behavior repair.
+Full S08 remains unchecked; asset/API partial positives do not erase authoring
+shutdown STOP or establish Steam uninstalled/stopped, native transport, graphics,
+input/feel/Deck/Windows/device/performance/production acceptance.
+
+### Source and existing-receipt readiness-handoff assessment
+
+A bounded offline assessment reads current observe.network and original S03 runner/
+proof, exact pinned logger.cpp/logger.h and accepted cached main.cpp property source.
+The runner requires complete newline records, sets ready, drains remaining complete
+lines, raises on failed result before the outer client-start predicate. Existing
+receipts prove it consumed ready and failure before that conditional; only host
+command exists. Parent ready decode1791451408.2456071 is8.464263 s after Popen start,
+compared with literal S03 CASE_DEADLINE_MS8000. That is decode timing, not emission
+or exact child-exit timing; neither was captured in host prints.
+
+Pinned main.cpp defaults application/run/flush_stdout_on_print false, debug override
+true, then sets Logger's property. StdLogger uses vprintf and calls fflush(stdout)
+only when enabled. Scratch config has no explicit override; host stdout is a regular
+file. Historical runner used the pinned development binary, not the release template,
+with a similar readiness protocol. This is a source-supported buffering hypothesis
+consistent with late receipt, not a demonstrated sole cause from exit1. No runtime
+property/syscall/buffer measurement exists. Full fetched sources/argv/exits/raw streams,
+main source hash/excerpts and raw readiness/result byte offsets are retained.
+
+Concrete future condition under this same S08 owner: qualify a release readiness
+handoff observable while host remains within its case budget; predeclare receipt
+consumption order and explicit release output behavior in a distinct ROOT grant.
+No working remedy, source behavior repair or new experiment is claimed here.

@@ -1,0 +1,16 @@
+"""Bounded source/existing-receipt assessment only; no engine or sockets."""
+from pathlib import Path
+import json,hashlib,shutil
+root=Path.cwd();e=root/'docs/spikes/s08-standard-editor-evidence';d=e/'readiness-handoff';d.mkdir();t=Path('/tmp/s08-addon-free-555e0330-release01')
+for f in Path('/tmp/s08-standard-555e0330/source-handoff-assessment').iterdir():shutil.copyfile(f,d/f.name)
+main=Path('/tmp/s08-observation-stpco415/preflight/main.cpp');text=main.read_text();source={'path':str(main),'bytes':main.stat().st_size,'sha256':hashlib.sha256(main.read_bytes()).hexdigest(),'source_revision':'c971f93e7e76b0ef919bf6009e7b868bea04db7f','excerpts':{str(n):text.splitlines()[n-1] for n in [1031,1032,1033,1034,2364]}}
+(d/'pinned-main-property.json').write_text(json.dumps(source,indent=2)+'\n')
+net=json.loads((t/'enet/result.json').read_text());host=net['commands']['host'];raw=(t/'enet/host/stdout.log').read_bytes();events=[];offset=0
+for line in raw.splitlines(keepends=True):
+ if line.startswith(b'S03 '):events.append({'byte_offset':offset,'raw_line':line.decode(),'sha256':hashlib.sha256(line).hexdigest()})
+ offset+=len(line)
+assert [json.loads(row['raw_line'][4:])['event'] for row in events]==['ready','result']
+assert net['commands'].keys()=={'host'} and not net['proxy_events'] and net['proxy_count']==0
+assessment={'engine_source':source['source_revision'],'host_command':host,'ready_observed_unix':net['ready_observed_unix'],'ready_observed_seconds_after_Popen_start':net['ready_observed_unix']-host['started_unix'],'case_deadline_ms':8000,'raw_events':events,'pump_contract':'scan complete file lines; set ready; failed result raises before outer client-start predicate; captured ready and failed result consumed before client conditional','source_supported_path':'main default flush_stdout_on_print false; debug override true; applies property to Logger; StdLogger vprintf then fflush only if property; regular file redirection in Popen','scratch_explicit_flush_setting': 'flush_stdout_on_print' in (t/'project/project.godot').read_text(),'historical_protocol':'tools/run_s03.py runs pinned development binary and similarly starts client after full-line host ready, rather than release template','observation_limits':['no runtime property readback for flush setting','no stdout syscall/buffer occupancy capture','no print emission timestamps or exact child exit timestamp','ready_observed is parent decode timestamp, not host emission time'],'buffering':'SOURCE_SUPPORTED_HYPOTHESIS; consistent with late observed readiness but not a demonstrated sole cause','actual_failure':'host S03 case deadline in ACTIVE, exit1; no client or connection/proxy/datagram positive proof','future_condition':'Before any distinct ROOT runtime grant, qualify a release readiness handoff observable while host is still within its case budget; ensure failure/readiness consumption order and explicit release output behavior are part of that protocol. No working remedy demonstrated, no behavior repair/re-export/replay here.'}
+(d/'assessment.json').write_text(json.dumps(assessment,indent=2)+'\n')
+print('handoff assessment:',assessment['ready_observed_seconds_after_Popen_start'],'s; buffering qualified hypothesis')

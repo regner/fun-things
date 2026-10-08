@@ -1,0 +1,102 @@
+{
+  "name": "@npgamedev/godot-mcp-server",
+  "version": "1.0.3",
+  "description": "MCP server that connects AI coding assistants to the Godot 4.2+ editor (scenes, nodes, scripts, ClassDB, playtests) via the companion godot-mcp-toolkit plugin.",
+  "type": "module",
+  "main": "dist/index.js",
+  "bin": {
+    "godot-mcp-server": "dist/index.js"
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE",
+    "ATTRIBUTIONS.md"
+  ],
+  "engines": {
+    "node": ">=22"
+  },
+  "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/NPGameDev/godot-mcp-server.git"
+  },
+  "bugs": {
+    "url": "https://github.com/NPGameDev/godot-mcp-server/issues"
+  },
+  "homepage": "https://github.com/NPGameDev/godot-mcp-server#readme",
+  "scripts": {
+    "clean": "node -e \"import('node:fs').then(fs => fs.rmSync('dist', { recursive: true, force: true }))\"",
+    "build": "npm run clean && tsc",
+    "postbuild": "node scripts/add-shebang.mjs",
+    "docs:api": "typedoc",
+    "docs:tools": "tsx scripts/generate-tool-reference.ts",
+    "docs:tools:check": "tsx scripts/generate-tool-reference.ts --check",
+    "measure:tokens": "tsx scripts/measure-tokens.ts",
+    "start": "node dist/index.js",
+    "smoke": "tsx test/run-smoke.ts",
+    "smoke:single": "tsx test/smoke.ts",
+    "smoke:ci": "tsx test/smoke.ts --ci",
+    "flows": "tsx test/run-flows.ts",
+    "flows:single": "tsx test/flows.ts",
+    "fixture:inject-addon": "node scripts/inject-fixture-addon.mjs",
+    "eval": "tsx test/eval/eval-runner.ts",
+    "test:unit": "tsx test/unit/run-all.ts",
+    "test:integration:dispatch": "tsx test/integration/dispatch/run.ts",
+    "test:integration:portpin": "tsx test/integration/port-pin-probe.ts",
+    "repro:lsp-conflict": "tsx test/integration/lsp-conflict-repro.ts",
+    "probe:screenshot": "tsx test/screenshot-window-probe.ts",
+    "probe:departure": "tsx test/probes/client-departure-probe.ts",
+    "stress:dispatch": "tsx test/integration/dispatch-safety-stress.ts",
+    "lint": "eslint src/ test/",
+    "lint:fix": "eslint src/ test/ --fix",
+    "lint:pkg": "publint",
+    "format": "prettier --check .",
+    "format:fix": "prettier --write .",
+    "check:arch": "bash scripts/check_arch_freshness.sh",
+    "audit": "npm audit --omit=dev",
+    "prepublishOnly": "npm run build"
+  },
+  "keywords": [
+    "mcp",
+    "godot",
+    "claude",
+    "model-context-protocol",
+    "ai",
+    "editor",
+    "plugin",
+    "gamedev"
+  ],
+  "author": "NPGameDev <np@npgamedev.com> (https://npgamedev.com)",
+  "devDependencies": {
+    "@eslint/js": "10.0.1",
+    "@sinonjs/fake-timers": "^15.4.0",
+    "@types/node": "25.6.0",
+    "@types/sinonjs__fake-timers": "^15.0.1",
+    "@types/ws": "8.18.1",
+    "eslint": "10.2.1",
+    "eslint-config-prettier": "10.1.8",
+    "prettier": "3.8.3",
+    "publint": "0.3.21",
+    "tsx": "4.23.0",
+    "typedoc": "0.28.19",
+    "typedoc-plugin-markdown": "4.12.0",
+    "typescript": "6.0.3",
+    "typescript-eslint": "8.59.0"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "1.29.0",
+    "ws": "8.21.0",
+    "zod": "4.3.6"
+  },
+  "overrides": {
+    "fast-uri": "^3.1.4"
+  },
+  "allowScripts": {
+    "esbuild@0.28.1": true,
+    "fsevents@2.3.3": true
+  }
+}

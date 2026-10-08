@@ -1,0 +1,13 @@
+{
+  "path": "/tmp/s08-observation-stpco415/preflight/main.cpp",
+  "bytes": 214477,
+  "sha256": "1460993d3164d77f460b30b2e9a0a9d8f8d516e453c1bc30813966797cc35250",
+  "source_revision": "c971f93e7e76b0ef919bf6009e7b868bea04db7f",
+  "excerpts": {
+    "1031": "\t// Only flush stdout in debug builds by default, as spamming `print()` will",
+    "1032": "\t// decrease performance if this is enabled.",
+    "1033": "\tGLOBAL_DEF_RST(\"application/run/flush_stdout_on_print\", false);",
+    "1034": "\tGLOBAL_DEF_RST(\"application/run/flush_stdout_on_print.debug\", true);",
+    "2364": "\tLogger::set_flush_stdout_on_print(GLOBAL_GET(\"application/run/flush_stdout_on_print\"));"
+  }
+}

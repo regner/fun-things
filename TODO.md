@@ -553,6 +553,17 @@ implementation. Save editor mutations before playtests; preserve unsaved work.
   probe; unchanged toolkit authentication diagnostics are also retained. No source
   mutation/new S08 resource/S03 fix or release phase occurred. Required entrypoint,
   fixture fix and asset/exported ENet outcomes remain OPEN; no editor retry inferred.
+  Current [standard-editor saved implementation and addon-free observation](docs/spikes/s08-standard-editor-release.md#bounded-addon-free-outcomes-and-exported-enet-stop)
+  is UNACCEPTED PARTIAL: exact saved S03 journal-outside-assert fix and true-UID S08
+  single-Node entrypoint exist; affected format/lint and106 standalone public-API/
+  resource/compilation checks pass. One addon-free release import/export/PCK48-member
+  inspection and normal-main asset172-check receipt pass. Exported host emits S08
+  before S03, then fails `case deadline in ACTIVE`/exit1; client never launched,
+  proxy0 datagrams, no exported ENet positive. Authoring shutdown remains strict STOP
+  with five RID errors and Canvas/CanvasItem/ObjectDB170 warnings, all prior failures
+  retained. Source-only readiness-handoff assessment identifies a qualified buffering
+  hypothesis, no diagnosis/working remedy/retry. Independent review is held for ROOT
+  serialization; full S08/device/native/production gates remain OPEN.
   Full asset loading/exported ENet and stronger Steam-uninstalled/stopped evidence,
   both selected OS and device/account gates stay OPEN; stronger environment unavailable/
   uncommissioned. No global install/shared editor/Blender/display/Steam/PID/service query.
@@ -858,7 +869,10 @@ S03 replication assertion-side-effect fix, new saved S08 scene/script/true UID a
 bounded addon-free release package proof. Distinct new grant allows owned private
 boost opt-out initialization before authentication, one automatic-discovery authoring
 editor and conditional ordered release phases after readiness/saved/check/source gates.
-Owned lease is only `/tmp/s08-standard-555e0330/project`; no shared editor lease.
+Owned lease is only `/tmp/s08-standard-555e0330/project`; no shared editor lease. Current owned editor/
+connector/runtime handles are reaped, normal private deregistration completed,
+no owned live editor remains. Saved partial implementation/asset/API positives and
+failed authoring shutdown/exported ENet are separate; review pending ROOT slot.
 Historical failed private grant/ports remain at43140314; no result is adopted here.
 Independent project/routes/resource isolation permits parallel S05/S08 editors;
 there is no global-zero-Godot or manual five-port requirement. One fresh final review
@@ -948,7 +962,7 @@ The table describes dependency stages, not a claim that deferred proofs are runn
 | Initial foundation | Ratified brief, contract drafts, concept exploration, tool inventory | Chosen style/layout and measured scope revisions need user ratification and evidence |
 | Tiny fixtures available | S02 camera using [S01 pipeline evidence](docs/spikes/s01.md); use [completed S03 session evidence](docs/spikes/s03.md); review skill dry runs | All visible fixtures must have Blender sources; only minimum harness required |
 | ENet boundary available | Stopped S03-S compatibility accepted; root commissions exact-revision evidence or bounded native-boundary design; S08 desktop preparation | No adapter selection/native delivery/access proof inferred; existing-app/tester/native compatibility still required |
-| Reviewed desktop and partial S05/S06 technical results available | Exact754a0b5 and7fb302b PARTIAL accepted; provisional S07 seam dependency satisfied; S02 exacta311c576 stopped record ACCEPT/full-positive FAIL; DOC1–11 complete; scoped DOC12/13 ready; S08 exact1229782 stopped evidence ACCEPTED/full asset-ENet OPEN; current ROOT-supplied S08 owner555e0330/workspacewks_c7fc8314996ebb13 owns its distinct private release route, no accepted outcome | Time-specific S02 display lease RETURNED; shared authoring UNASSIGNED; S05 lead56eb6b28/wks_80583b9faf9f4332 delivered its run04 saved/API/ENet candidate pending review; old STOPs/diagnostics retained, owned handles reaped/no fifth or drawable grant; S08 owner555e0330 has its distinct ROOT-granted private route; ROOT serializes eventual reviews; full S02/S05/S07/drawn/physical keys/feel/final dimensions/Steam/targets remain open |
+| Reviewed desktop and partial S05/S06 technical results available | Exact754a0b5 and7fb302b PARTIAL accepted; provisional S07 seam dependency satisfied; S02 exacta311c576 stopped record ACCEPT/full-positive FAIL; DOC1–11 complete; scoped DOC12/13 ready; S08 exact1229782 stopped evidence ACCEPTED/full asset-ENet OPEN; ACTIVE UNACCEPTED S08 lead555e0330/workspacewks_c7fc8314996ebb13 owns standard private editor/release commission; saved partial implementation/API/asset positives, authoring-shutdown and exported-ENet STOPs, no accepted outcome | Time-specific S02 display lease RETURNED; shared authoring UNASSIGNED; S05 lead56eb6b28/wks_80583b9faf9f4332 delivered its run04 saved/API/ENet candidate pending review; old STOPs/diagnostics retained, owned handles reaped/no fifth or drawable grant; S08 owner555e0330 retains saved/API/asset partial evidence and authoring-shutdown/exported-host STOPs; its owned handles are reaped; ROOT serializes eventual reviews; full S02/S05/S07/drawn/physical keys/feel/final dimensions/Steam/targets remain open |
 | Both providers available | Finish S03-R foot response and S04 network response; S08 exports | Both transports need evidence; foot/vehicle prediction are separate decisions |
 | Provisional technical topology available | Accepted S06 crossing/opposing legal LEFT turns/four-arm minimap/stale-data and finite guard; S07 static preparation | Actual drawn/readability/final bodies/contact/exit reruns and real M1-C3 contested recovery remain open; geometric sensitivity is not changed-body proof |
 | City/effect fixtures available | S07 capacity/culling experiments, finish S08, skill dry runs and doc reconciliation | P0-GATE resolves critical assumptions before production |
