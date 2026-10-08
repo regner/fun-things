@@ -45,7 +45,7 @@ assertion/style refactor or other S03 behavior change is commissioned.
 
 ## Private authoring authorization request
 
-Editor launch/authoring is **not yet granted**. Proposed private authoring mirror:
+At predeclaration, editor launch/authoring was **not yet granted**. Proposed private authoring mirror:
 `/tmp/s08-private-488b6000/project`, containing exact accepted31 S01/S03 files
 and an unchanged copy of the tracked MCP Toolkit addon only. No Steam addon,
 native descriptor/library, source Blender/palette, other fixture, `.godot`,
@@ -185,3 +185,126 @@ does not repair canonical guides or create a checkpoint. S05 ownership remains i
 ROOT alone integrates/archives/pushes; delivery freezes saved work, clean tracked/
 untracked status, exact reviewed HEAD/base, source/resource identities, evidence
 readback and all owned children/connector/editor leases stopped.
+
+## Actual private authoring STOP
+
+ROOT separately granted the exact private authoring card above after protocol
+commit `15cad2db8ec4011f6c1fc9b457f00e0d9d9f9988`. The one owned headless editor
+PID526795 launched with the exact declared argv/private environment after all five
+private TCP bind probes succeeded and closed. The private registry entry matched
+canonical mirror path, owned PID, WS17650 and private token path. The installed
+bridge authenticated and reported headless:true/version4.8.0. Its registry LSP
+field was6005; toolkit documentation explains that the published editor setting
+does not reflect the `--lsp-port 17015` launch override. No LSP call ran, and no
+foreign endpoint or actual LSP-listener observation is claimed.
+
+**STOP before mutations: the required editor identity/hint readiness probe failed.**
+The implementer incorrectly called `execute.code` with
+`[ProjectSettings.globalize_path("res://"), Engine.is_editor_hint(), OS.get_process_id()]`.
+The handler returned `EXECUTE_FAILED` / `success:false`: Expression resolves bare
+identifiers against the scope object and cannot access those global singletons.
+The editor dispatcher and authentication worked; the requested identity/hint
+verification did not pass. This was an invalid probe, not a newly found engine
+failure or evidence that saved authoring was complete. The supervisor failed
+closed, closed/reaped the connector (exit0), signaled the owned editor (SIGINT,
+exit-2), reaped it and closed all streams. No editor retry/alternative port or
+framework/config repair ran. No original/main editor was queried or touched.
+
+Complete private stderr also retains the copied toolkit's dev7/latest-tested4.7
+warning and a separate `SCRIPT ERROR: Invalid call. Nonexistent 'int' constructor`
+at `unfocused_sleep_controller.gd:111`, reached from authentication. Source reads
+locate `int(es.get_setting(_UNFOCUSED_SLEEP_KEY))`; no cause or repair is certified.
+A changed readiness probe alone is not clean authoring evidence. These raw
+diagnostics remain separate from the handler's failed probe response.
+
+Actual poststop hashes show all31 accepted S01/S03 inputs and all277 copied toolkit
+files unchanged. No new `tests/fixtures/s08` directory exists in the mirror. No
+script edit/write, scene create/attach/save/reopen, S03 behavior fix or generated
+S08 UID/node identity occurred. Narrow uncommitted runner preparation and observer
+draft were preserved under `/tmp/s08-entrypoint-read`; the runner's working bytes
+were restored to committed HEAD. Those drafts are unexecuted preparation only.
+
+Fresh artifact hashes and the allowed read-only `--help` succeeded before the
+editor attempt. No separate release import/export, asset invocation, ENet proxy,
+host or client was created. The commission's requested saved entrypoint and
+release-safe fixture remain unimplemented; all release acceptance remains OPEN.
+ROOT received the exact failure, cleanup and narrow route gap for disposition;
+no new launch is inferred from elapsed time or this stopped record.
+
+Lossless final retention includes supervisor/client source, literal first call,
+argv/environment/lifecycle, full separate editor/connector streams, both complete
+source identity manifests, artifact rebound and help command/stdout/empty stderr.
+Private token bytes/auth headers are excluded. Templates/cache/PCK binaries stay
+in `/tmp` with hash references; immutable earlier failures/reports remain referenced
+by reachable Git identities. Independent review is of this stopped authoring
+evidence and scoped documentation, with no runtime reproduction grant.
+
+### Read-only next condition (not an operational grant)
+
+ROOT clarified that the fixed reservations were test precautions, not a general
+MCP requirement. The toolkit's [multi-instance guide](../../addons/godot_mcp_toolkit/docs/multi-instance.md)
+supports distinct project directories with automatic editor WS allocation in
+6550–6560. `ws_transport.gd:_scan_and_listen` binds the first free endpoint;
+`project_key.gd` canonicalizes the absolute project path and hashes it for separate
+registry entries and token directories. Same-path dual editors remain unsupported.
+The normal installed server uses `GODOT_MCP_PROJECT_PATH` or `process.cwd()`;
+`startup/portConfig.js` resolves an unpinned editor through the matching registry
+entry, and `transport/tokenPath.js` reads its published token path. Thus unique
+owned endpoints and correct path/token binding are required; manually named ports
+and a custom bridge are not. Registry discovery can multiplex separate projects.
+The failed fixed-port attempt above remains historical and is not retried here.
+
+Routing isolation does not provide complete write isolation. The toolkit's normal
+Linux registry is under XDG_DATA_HOME (or HOME/.local/share), deliberately shared
+and updated through per-path entry files and a locked aggregate projection. Its
+tokens are per-path, while some `user://` files/logs remain shared for projects
+with the same application name. Pinned engine `editor_paths.cpp:173–198` places
+non-self-contained editor data/config/cache under OS data/config/cache roots;
+`os_linuxbsd.cpp:898–945` honors absolute XDG overrides. Separate worktree paths
+isolate project imports/metadata, but not these editor settings or caches. Fresh
+private XDG roots were this test's write-isolation choice, not a discovery
+prerequisite. A normal registry-bound installed server can operate with matching
+roots; using the ordinary shared roots would need an explicit write-scope decision
+because authentication can change the unfocused EditorSetting below. No shared
+registry, editor settings or cache contents were queried for this assessment.
+
+The pinned engine's [EditorSettings source](https://raw.githubusercontent.com/godotengine/godot/c971f93e7e76b0ef919bf6009e7b868bea04db7f/editor/settings/editor_settings.cpp)
+registers `interface/editor/timers/unfocused_low_processor_mode_sleep_usec` as an
+integer default100000 at line577. The toolkit controller uses the older key
+without `/timers/`, assumes its value converts to int, and checks only that the
+EditorSettings object exists before that conversion. `plugin.gd:153–177` registers
+the separate toolkit opt-in (defaulttrue) and boosted sleep (16666), not the old
+engine key; `mcp_server.gd:648–651` calls `lower()` on first authenticated peer.
+
+There is an important engine distinction: `_get` supports renamed keys through
+`compat_map` (lines165–173), and `_handle_setting_compatibility` installs this rename
+(line1362). `EditorSettings::create()` calls that compatibility handler after
+loading an existing settings file (lines1476–1486), while the fresh-settings
+branch loads defaults without it (lines1489–1509). This supports a **fresh private
+settings compatibility hypothesis**, not a headless-only explanation or an
+observed live value. No private/shared EditorSettings values were inspected.
+The retained source is124420bytes, SHA256
+`28fc267db4c80c7d4bbc8993742c5b48a22ee2294ab7bc18f099ca0e613ad26b`.
+
+The invalid probe has a separate source contract: `editor_execute.gd:39–69` selects
+the edited root or editor base control and evaluates an Expression against that
+node. `execute_hints.gd` explicitly excludes global singletons. Future readiness
+must use supported dedicated handlers or scope-node methods, with an independent
+editor-context check; a replacement expression alone does not resolve the auth
+diagnostic. The pinned `main.cpp:4628–4638` constructs EditorNode for `--editor`;
+switching to a visible editor does not itself change fresh EditorSettings setup.
+
+The supported standard discovery route is the preferred next candidate, with a
+matching canonical project/cwd, registry entry, published token, owned process and
+editor context checked before mutations. LSP/DAP/debug and runtime channels are
+optional capabilities, not requirements of scene/script authoring. Any default
+engine server binds still need source-qualified isolation if a future route
+starts them; this record proposes no unverified disabling flag or server launch.
+Automatic WS allocation does not resolve the separate settings diagnostic, and no
+complete error-free authoring route has been observed. The toolkit has a
+source-supported opt-out of the boost, but changing pre-auth private settings and
+verifying their initialization would require a separate grant and source-validated
+mechanism. This record authorizes neither that change nor a vendor fix, settings
+migration, visible display route or another launch.
+ROOT must grant any future authoring attempt separately after independent review;
+saved resource roundtrips and the release experiment remain pending.

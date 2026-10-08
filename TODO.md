@@ -583,6 +583,12 @@ implementation. Save editor mutations before playtests; preserve unsaved work.
   an assert-elided pass cannot prove them. This is not the missing-role failure's cause.
   Any S03 immutable-fixture change needs a distinct scoped ROOT grant and exact review;
   no source fix or runtime retry is allocated here. Preserve original S03 proofs/failures.
+  A distinct [saved-entrypoint follow-up](docs/spikes/s08-release-entrypoint.md#actual-private-authoring-stop)
+  is ACTIVE UNACCEPTED under lead488b6000/workspacewks_e2ba2fe7704a8fa6, base0c84f01.
+  Its granted single private editor authenticated but STOPPED at an invalid readiness
+  probe; unchanged toolkit authentication diagnostics are also retained. No source
+  mutation/new S08 resource/S03 fix or release phase occurred. Required entrypoint,
+  fixture fix and asset/exported ENet outcomes remain OPEN; no editor retry inferred.
   Full asset loading/exported ENet and stronger Steam-uninstalled/stopped evidence,
   both selected OS and device/account gates stay OPEN; stronger environment unavailable/
   uncommissioned. No global install/shared editor/Blender/display/Steam/PID/service query.
