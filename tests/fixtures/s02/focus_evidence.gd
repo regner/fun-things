@@ -13,10 +13,10 @@ enum Stage {
 const SAMPLE_INTERVAL_SECONDS: float = 0.1
 const DEADLINE_SECONDS: float = 7.0
 const INITIAL_FOCUS_DEADLINE_SECONDS: float = 3.0
-const PRESS_AT_SECONDS: float = 0.25
-const MINIMIZE_AT_SECONDS: float = 0.75
-const RESTORE_AT_SECONDS: float = 2.25
-const CHECK_AT_SECONDS: float = 3.25
+const PRESS_AT_SECONDS: float = 1.0
+const MINIMIZE_AT_SECONDS: float = 1.5
+const RESTORE_AT_SECONDS: float = 3.0
+const CHECK_AT_SECONDS: float = 4.0
 const FOCUS_GATE_ARGUMENT: String = "--focus-gate="
 
 var _elapsed: float = 0.0
