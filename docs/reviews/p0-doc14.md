@@ -24,7 +24,8 @@ pre-P0 representative preparation versus future production ordering without choo
 loads or requiring M1 to unlock P0. S08 distinguishes original saved main from
 minimal S03, executed10ms failure from restored/unexecuted20ms and source comparator
 facts from unproved cache causation. Only P0-DOC14's TODO line and requirements block
-(including its now-empty section heading) are removed with the resolving change.
+are removed with the resolving change; the historical `#checkpoint-follow-up` anchor
+is retained with a completion-record link so checkpoint09's incoming navigation works.
 Every other task and the S08 requirements block remains byte-identical.
 
 ## Immutable acceptance and old evidence references
@@ -69,7 +70,13 @@ small exact-candidate Git note under `refs/notes/paseo-orchestration`, with an
 independently declared expected set and byte/hash/source/readback verification.
 The early guessed `tests/fixtures/s08/boot.tscn` read failed ENOENT before mutation;
 actual `release_boot.tscn` was inspected and the new link corrected. This is a
-retained documentation discovery mistake, not a technical experiment.
+retained documentation discovery mistake, not a technical experiment. The initial
+checker also assumed literal spelling `0.020` rather than the owner's `0.02`; its
+failed source/full streams remain retained and corrected AST validation passes.
+Independent initial review identified the incoming checkpoint anchor regression and
+omitted real cc/logger execution in the historical S08 helper description. Both are
+corrected without touching checkpoint09 or rerunning the helper. S07 offline tests
+are clarified as retained-receipt mutation/closure checks, not lifecycle mock runs.
 
 One fresh clean-context pi/OpenAI Sol6.1 HIGH reviewer receives complete raw user
 requirements, exact candidate/base and immutable contracts without a proposed

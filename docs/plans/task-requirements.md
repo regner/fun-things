@@ -56,6 +56,10 @@ qualification and enough outcome detail for dispatch.
   implementation contracts and budgets. Partial research/proofs are not acceptance;
   record unresolved items or explicit scope decisions. P0-PROFILES is not a prerequisite.
 
+## Checkpoint follow-up
+
+Completed discovery reconciliation: [P0-DOC14 record](../reviews/p0-doc14.md).
+
 ## First milestone
 
 - **M1-A1:** Deliver standalone/ENet and selected Steam friend sessions; menu flows must
