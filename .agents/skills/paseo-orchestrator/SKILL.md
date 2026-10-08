@@ -39,6 +39,10 @@ permission to integrate, archive, push, or expand an assignment beyond it.
 - Assign one writer per shared editor, scene or source asset. Separate worktrees do
   not isolate shared Godot/Blender sessions or external services. Serialize conflicting
   work and name the owner before launching it.
+- Blocked visual, device or access gates do not serialize unrelated ready work.
+  Prioritize a bounded stop/report at the declared limit, then coordinate independent
+  work with named writer leases and serialized conflicting reviews. Do not expand
+  scope or repeat an unchanged experiment to keep a blocked workstream running.
 
 ## Periodic plan and documentation checkpoint
 
@@ -176,10 +180,26 @@ explicit model/effort. Follow the same model policy. Supply raw requirements, ba
 ref/revision, branch, exact candidate HEAD, contracts/skills, affected scope and
 validation targets. Provide no implementer conclusions or suggested verdict.
 
-Worker fixes actionable findings, reruns meaningful checks, and requests follow-up
-review where changes warrant it. Review must cover the delivered revision: after
-changes, obtain the reviewer's explicit disposition of the new revision and any
-needed renewed checks. Orchestrator checks evidence, not implementation.
+Use one proportionate independent review/fix cycle. Worker fixes actionable findings
+and reruns affected meaningful checks. After a material fix, rebase or retention-tree
+change, obtain the SAME reviewer's compact explicit disposition of the exact new
+HEAD/base and actual delta, with renewed checks where needed. Prior approval never
+transfers to a different candidate. Orchestrator checks evidence, not implementation.
+
+Retain the complete substantive/final reports, actual check sources, argv/exits,
+full diagnostics, failures and required empty streams durably. Verify the complete
+expected path set, stored/decoded bytes and hashes against actual source/readback;
+checking only included entries cannot reveal omitted required payloads. Preserve
+prior payload dictionaries and history. Store meaningful new actual evidence;
+reference immutable old notes, sources and evidence by reachable Git revision/blob,
+bytes and SHA rather than recursively copying old packs. Keep packaging proportionate;
+never shorten reports or broadly filter manifest-required paths.
+
+A metadata-only note/report storage step without candidate/tree/base changes does
+not automatically require another reviewer acknowledgement or report-only commit/
+review cycle. Worker/orchestrator verifies actual complete expected-set/hash/readback
+and returns concrete gaps for correction. Material changed evidence or a concrete
+unresolved review condition still requires appropriate SAME-reviewer disposition.
 
 Require a handoff containing:
 
@@ -258,6 +278,15 @@ Obtain independent clean-context subagent review using the reviewer template in
 .agents/skills/paseo-orchestrator/SKILL.md. Supply raw requirements and artifacts,
 not your conclusions. Fix actionable findings, rerun meaningful checks and obtain
 appropriate follow-up disposition for exact final HEAD. Never merge/archive/push.
+Use one proportionate review/fix cycle; after material fix/rebase/retention-tree change,
+ask the SAME reviewer for compact exact-new-HEAD/base delta disposition. Preserve full
+reports/check sources/argv/exits/diagnostics/failures/required empty streams and prior
+payloads; verify complete expected sets and actual stored/decoded hashes/readback.
+Use immutable reachable old Git refs instead of recursive note/source copies. A
+metadata-only storage step with unchanged candidate/tree/base creates no automatic
+second acknowledgement or report-only commit/review cycle; return concrete gaps.
+Stop at blocked visual/device/access budgets; unrelated ready work can proceed with
+named writer leases and review serialization. No repeated unchanged experiments.
 Return exact committed HEAD, scope/TODO status, reviewer identity/model/effort,
 verdict/reviewed revision and evidence, fixes, commands/results/logs, constraints,
 clean Git status and saved/quiescent writer confirmation. Retain evidence durably.
@@ -285,5 +314,14 @@ with explicit question/output/validation and proportionate supported effort/budg
 returning results to the Sol lead. A 3D/art/map mention alone does not justify Astra.
 Discover fitting role/scope profiles and supported model/effort IDs; no silent
 mismatch or ultra default. Cost-aware routing preserves review/validation obligations.
+Retain complete substantive/final reports and meaningful actual source/argv/exit/raw
+streams/diagnostics/failures/required empty streams, with explicit expected sets and
+hashes. Use reachable immutable old Git refs without recursive historical copies.
+After material fix/rebase/retention-tree change, give compact exact-new-HEAD/base
+delta disposition as the SAME reviewer. Metadata-only storage with unchanged
+candidate/tree/base creates no automatic acknowledgement/report-only review cycle;
+identify concrete missing expected payloads or material evidence changes instead.
+Blocked visual/device/access gates preserve their stop boundary and do not block
+unrelated ready work; named writer leases and conflicting-review serialization apply.
 No merge/archive/push.
 ```
