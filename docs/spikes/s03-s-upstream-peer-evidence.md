@@ -224,3 +224,51 @@ not gameplay, lint/compilation, registration or native/platform tests. Only this
 record/evidence directory and a concise S03-S TODO addition are owned. Prior records,
 contracts, vendor/pins, fixtures and every other TODO block remain unchanged.
 No owned fetch/check writer or runtime is left running; no merge/archive/push.
+
+## Accepted original review and single rebase — 8 October 2026
+
+The sole clean-context reviewer `c19abd41-4cbf-45cc-88ef-c8301fba3501`, effective
+GPT-6.1-Sol HIGH, **ACCEPTED** original exact
+`b0587a843cdea0c696b1e72a2fe24503677dd791` against
+`52941da4b4c92a547a8066b5c13f733043ecbe48`, with no actionable findings.
+This accepts the stopped source/evidence result only. The full original report,
+declared package, actual check sources/argv/exits/full streams and failures are
+retained losslessly in local `refs/notes/paseo-orchestration` on original b0587a8.
+The original candidate remains reachable through
+`refs/paseo-evidence/s03-s-upstream-peer-evidence-original`; no recursive review
+archive or copy of the old candidate package is added to this tree.
+
+```sh
+git notes --ref=paseo-orchestration show b0587a843cdea0c696b1e72a2fe24503677dd791
+```
+
+ROOT supplied held accepted LOCAL main
+**`30a97532ed2ae922c22d21fd9ac48bd2bab8b145`**, containing TODO cleanup48aef3d and
+accepted S07 static inventory/run-card preparation. The actual original-base→new-base
+diff changes TODO and adds S07-owned source/evidence; it changes none of the Steam
+contracts, original S03/S03-S criteria/callers, vendor/pins or earlier dated records.
+The accepted S07 addition is preparation, not a native/Steam result.
+
+One rebase was started from a clean saved boundary. Its sole conflict was TODO:
+resolution used the exact cleaned base bytes and inserted only the original three
+S03-S evidence lines into the shortened task block. No historical TODO prose was
+restored. The S07 task link, source/evidence and every unrelated cleaned TODO byte
+remain identical to this base. The original standalone TODO patch stays historical;
+its old context is not a patch to restore after cleanup.
+
+All 19 immutable source identities/snapshots, candidate/metadata ledgers, singleton
+comparison, peer diff, licenses, raw retrieval records and original checks/streams
+remain unchanged. The original retention ledger still verifies the original b0587a8
+tree; it is not relabeled as a current-tree ledger. The verifier now uses30a97532 for
+scoped ancestry/TODO checks while retaining52941da as immutable source provenance,
+checking the historical package and unchanged evidence. This dated supplement is
+appended to the original report without altering its technical matrix or STOP.
+
+Only justified static preservation, source/metadata identity, links, scope, Git
+history and whitespace checks run. No refetch, engine/native/model/runtime/build,
+editor/service query or adapter/protocol selection occurred. The SAME reviewer owns
+the compact exact-new-HEAD/base/rebase-delta disposition. The final full receipt,
+actual check sources/streams and complete readback belong in ordinary same-HEAD
+orchestration notes; metadata retention creates no renewed acknowledgement cycle.
+No new workstream/checkpoint/workspace is created. ROOT integrates/archives;
+the worker remains saved/quiescent and idle after handoff. All existing gates stay OPEN.

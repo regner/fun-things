@@ -27,8 +27,10 @@ def main():
     root = repo / "docs/spikes/s03-s-upstream-peer-evidence"
     doc = repo / "docs/spikes/s03-s-upstream-peer-evidence.md"
     manifest = json.loads((root / "sources.json").read_text())
-    base = manifest["base"]
-    assert base == "52941da4b4c92a547a8066b5c13f733043ecbe48"
+    # Source provenance remains tied to the original investigation. Scope checks
+    # use the accepted cleaned TODO/S07 base after the single authorized rebase.
+    assert manifest["base"] == "52941da4b4c92a547a8066b5c13f733043ecbe48"
+    base = "30a97532ed2ae922c22d21fd9ac48bd2bab8b145"
     expected_sources = {
         "gde": {
             "godotsteam/godotsteam_multiplayer_peer.cpp",
@@ -100,6 +102,30 @@ def main():
             assert saved == expected_text.encode()
     for path in root.rglob("*.json"):
         json.loads(path.read_text())
+    # The original ledger and dated logs are historical, not rewritten for a rebase.
+    original = "b0587a843cdea0c696b1e72a2fe24503677dd791"
+    historical = json.loads(git("show", original + ":" + str(root.relative_to(repo))
+                                + "/retention.json"))
+    assert set(historical["expected_paths"]) == {row["path"] for row in historical["files"]}
+    original_paths = set(git("diff", "--name-only", manifest["base"], original).splitlines())
+    assert original_paths - {"TODO.md", str(root.relative_to(repo)) + "/retention.json"} == set(
+        historical["expected_paths"]
+    )
+    changed_after_rebase = {
+        str(doc.relative_to(repo)), str((root / "verify.py").relative_to(repo))
+    }
+    for row in historical["files"]:
+        blob = subprocess.check_output(["git", "show", original + ":" + row["path"]])
+        assert len(blob) == row["bytes"] and digest(blob) == row["sha256"]
+        if row["path"] not in changed_after_rebase:
+            assert blob == (repo / row["path"]).read_bytes(), row["path"]
+    assert doc.read_bytes().startswith(subprocess.check_output([
+        "git", "show", original + ":" + str(doc.relative_to(repo))
+    ]))
+    ledger_path = str((root / "retention.json").relative_to(repo))
+    assert (repo / ledger_path).read_bytes() == subprocess.check_output([
+        "git", "show", original + ":" + ledger_path
+    ])
     licenses = json.loads((root / "licenses.json").read_text())
     assert {row["candidate"] for row in licenses} == {"expresso", "csharp", "valve"}
     for row in licenses:
@@ -136,7 +162,8 @@ def main():
     assert diff.returncode == 0, (diff.stdout, diff.stderr)
     print(f"PASS: {len(rows)} immutable source identities/snapshots; exactly three peer candidates.")
     print(f"PASS: {len(local_links)} existing local links; JSON and metadata readback.")
-    print("PASS: exact base ancestry, owned paths, three-line S03-S delta, all other TODO bytes preserved.")
+    print("PASS: historical ledger/source evidence preserved; dated report prefix unchanged.")
+    print("PASS: cleaned base ancestry, owned paths, three-line S03-S delta, all other TODO bytes preserved.")
     print("PASS: git diff --check; no native/engine/platform calls.")
 
 
