@@ -1,0 +1,344 @@
+{
+  "expected_paths": [
+    "README.md",
+    "accepted-source-refs.json",
+    "acquire.py",
+    "acquisition/archive.json",
+    "acquisition/download.json",
+    "acquisition/space.json",
+    "acquisition/stderr.log",
+    "acquisition/stdout.log",
+    "analyzer-corrected.stderr",
+    "analyzer-corrected.stdout",
+    "analyzer-initial-failure.json",
+    "asset/command.json",
+    "asset/engine.log",
+    "asset/result.json",
+    "asset/stderr.log",
+    "asset/stdout.log",
+    "cache-inspection.json",
+    "cleanup.json",
+    "commission.txt",
+    "continue.py",
+    "exclusions.json",
+    "executable-template.json",
+    "export/command.json",
+    "export/engine.log",
+    "export/stderr.log",
+    "export/stdout.log",
+    "failures.json",
+    "import/command.json",
+    "import/engine.log",
+    "import/stderr.log",
+    "import/stdout.log",
+    "log-inspection.json",
+    "logical-export-map.json",
+    "observation.json",
+    "output-folder.json",
+    "pck-members.json",
+    "post-import-source-manifest.json",
+    "preflight/file_access_pack.h",
+    "preflight/format.stderr",
+    "preflight/format.stdout",
+    "preflight/main-source.stderr",
+    "preflight/main-source.stdout",
+    "preflight/pack-source.stderr",
+    "preflight/pack-source.stdout",
+    "preflight/source.json",
+    "preflight/style.stderr",
+    "preflight/style.stdout",
+    "project/export_presets.cfg",
+    "project/project.godot",
+    "root-final-grant.txt",
+    "scratch-config.json",
+    "source-links.json",
+    "staged-input.json",
+    "static-checks.json",
+    "static-source-fetch.json",
+    "verify.py",
+    "index.json"
+  ],
+  "files": [
+    {
+      "path": "README.md",
+      "bytes": 4559,
+      "sha256": "2f2a53a0f2a7467ecde8a80b922f47499d4b29cbba48259fa8c83bac41337893"
+    },
+    {
+      "path": "accepted-source-refs.json",
+      "bytes": 14482,
+      "sha256": "40ab4a6c46b6b4a35058d5a61cb0d19de882371653f841d9f3e0c2ff2f4d2a64"
+    },
+    {
+      "path": "acquire.py",
+      "bytes": 2433,
+      "sha256": "8fd2f65871942a8cf932b391f98899ea9ca8b182f3e34cde2f98a14e5327ce81"
+    },
+    {
+      "path": "acquisition/archive.json",
+      "bytes": 7405,
+      "sha256": "cab5a4f779c51d1a65060f6e765f1fa53d0bbf931983ca01d0899cd2066e3b91"
+    },
+    {
+      "path": "acquisition/download.json",
+      "bytes": 992,
+      "sha256": "a8c9d925c6dc37263faaa8b75df07037a734339c6c4f03f9bc413f35cca00ab8"
+    },
+    {
+      "path": "acquisition/space.json",
+      "bytes": 205,
+      "sha256": "7c554270b2f3312e2d7e8229f529dc0442bc97e230685d9c935c3a0ceed5b415"
+    },
+    {
+      "path": "acquisition/stderr.log",
+      "bytes": 21530,
+      "sha256": "d6cd689f5b2c5545e7b5ba56ec3c37a7cc927529b5a2394839c9a49256beb070"
+    },
+    {
+      "path": "acquisition/stdout.log",
+      "bytes": 26,
+      "sha256": "7345729a7e2c00034e8861745ddaf457751efc4c0a93658092a4ca019fd70f18"
+    },
+    {
+      "path": "analyzer-corrected.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "analyzer-corrected.stdout",
+      "bytes": 68,
+      "sha256": "8b9df12def8312b810534f2115c6dcceae4c377db80a41c4ea00d16afed9d976"
+    },
+    {
+      "path": "analyzer-initial-failure.json",
+      "bytes": 208,
+      "sha256": "51ce85ec16d85ff215bdfc3d59ad7c8cd16c28cd0fb76a7ac406b74f77d561a0"
+    },
+    {
+      "path": "asset/command.json",
+      "bytes": 1432,
+      "sha256": "4403614a0daf9c8427c0c03dbd295a36f3128d4a97bb806966bd5dd868aab414"
+    },
+    {
+      "path": "asset/engine.log",
+      "bytes": 149,
+      "sha256": "ad45dbc7a3af0cd4767deee7bb13b2ca89b2cd62370a2d434b599000cdc9f20c"
+    },
+    {
+      "path": "asset/result.json",
+      "bytes": 240,
+      "sha256": "5265c62eb05a057285f6325b548da2cc463bf885186b8e8641d4dbff843af70b"
+    },
+    {
+      "path": "asset/stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "asset/stdout.log",
+      "bytes": 149,
+      "sha256": "ad45dbc7a3af0cd4767deee7bb13b2ca89b2cd62370a2d434b599000cdc9f20c"
+    },
+    {
+      "path": "cache-inspection.json",
+      "bytes": 2066,
+      "sha256": "09479882f3d897ee750e5e90ba8aea4e53ac0420b5ce8784a4581386720a30c2"
+    },
+    {
+      "path": "cleanup.json",
+      "bytes": 370,
+      "sha256": "3b2e6da7ba738e0a7396c49166198e260456abf9c829a6b9dd893c6f050d9a2b"
+    },
+    {
+      "path": "commission.txt",
+      "bytes": 8473,
+      "sha256": "cfdcc03903ea2edb082aef430c5d0bee3cab5b24f9b0fa1640d8ef0ea5af1264"
+    },
+    {
+      "path": "continue.py",
+      "bytes": 1799,
+      "sha256": "dcd94eb67418d5740876e92af37b89f040c152556fc093e04993f58c454958b9"
+    },
+    {
+      "path": "exclusions.json",
+      "bytes": 135,
+      "sha256": "989b5d94accf9379d963c47b3ef28e68c465ed998d3f62a58649ff035d6e6799"
+    },
+    {
+      "path": "executable-template.json",
+      "bytes": 308,
+      "sha256": "377698cdaa3970f21b13d765c1a1e3bc81f832917b563c03d6e45616bcbeb722"
+    },
+    {
+      "path": "export/command.json",
+      "bytes": 1581,
+      "sha256": "5fbb6e6f285920156ea771c8f5adbafd3b64a438343f641c63ced4475117d4f6"
+    },
+    {
+      "path": "export/engine.log",
+      "bytes": 4538,
+      "sha256": "bdd6191a84ba46f92265423fc19354287b39ed75ba8817d4a5acc454d51a17f1"
+    },
+    {
+      "path": "export/stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "export/stdout.log",
+      "bytes": 5826,
+      "sha256": "857da2e874382c8e9286215d18dea03f4dd9c254f9b27cdedef345f0d2bde477"
+    },
+    {
+      "path": "failures.json",
+      "bytes": 2065,
+      "sha256": "38fa0183c26da777e16ca73f0e090a937d38a9a7934b3d5aaafa2d88da261bd4"
+    },
+    {
+      "path": "import/command.json",
+      "bytes": 1513,
+      "sha256": "458e52f2eba138d6779288250dbdf14cdbbcee7f7c5d54a342d7d132f9e4d64e"
+    },
+    {
+      "path": "import/engine.log",
+      "bytes": 2673,
+      "sha256": "2ee843b3e4ee6945145f5565846982769851ee6c7b9c5086a534a770b08955d5"
+    },
+    {
+      "path": "import/stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "import/stdout.log",
+      "bytes": 3938,
+      "sha256": "58177a550d50d6b6e0bc5ef7e8002ba0963de5240e5e548678f44c1f6622028e"
+    },
+    {
+      "path": "log-inspection.json",
+      "bytes": 1366,
+      "sha256": "4ea8ada1c5cf3afed46e74a99b6101d1798f9c1ed3689d8c828105c7c732ca0e"
+    },
+    {
+      "path": "logical-export-map.json",
+      "bytes": 4599,
+      "sha256": "a7ac8971862f3899d6c04419627efd8c6d95e7f1d34c31bcbf5c4f572312730a"
+    },
+    {
+      "path": "observation.json",
+      "bytes": 375,
+      "sha256": "6e466056da26a7b5c79c215ab1e8491c46a03599508a441a2fd10ae47ca9f4ed"
+    },
+    {
+      "path": "output-folder.json",
+      "bytes": 294,
+      "sha256": "c33c492992d6b9be60cc367cf376c779860e5a35bd1844c7367514bb737edf2c"
+    },
+    {
+      "path": "pck-members.json",
+      "bytes": 12496,
+      "sha256": "5bb7f072342d09a46c756330496f747ada043db4dc58f5b23ec59de5bc7ca91f"
+    },
+    {
+      "path": "post-import-source-manifest.json",
+      "bytes": 5943,
+      "sha256": "9e5918a38746c61dbb8d5fa8b9f8a03f106cde6f5b430f8ad7b0ccb357286024"
+    },
+    {
+      "path": "preflight/file_access_pack.h",
+      "bytes": 11757,
+      "sha256": "a8e84b0419b6eebbfd5b06dd73262f5f7c7351d21986c14d8f31b583e0aeafcd"
+    },
+    {
+      "path": "preflight/format.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "preflight/format.stdout",
+      "bytes": 26,
+      "sha256": "990e1e4e20224faf0ae02a391ee415e84c3913a80b2da78c7ddbf96b3a10df13"
+    },
+    {
+      "path": "preflight/main-source.stderr",
+      "bytes": 469,
+      "sha256": "a1763d8cb0dc640aa84c46c254184f0db80bc82ea24fec543ccfd21c697cd6b5"
+    },
+    {
+      "path": "preflight/main-source.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "preflight/pack-source.stderr",
+      "bytes": 469,
+      "sha256": "90152cd0e6faeb2d2cf346936be5f90ba5c5ed6a1ed83765759edf432429ccbe"
+    },
+    {
+      "path": "preflight/pack-source.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "preflight/source.json",
+      "bytes": 421,
+      "sha256": "c30b48243a9c93dc101ca94f70f57ef3c6f5ad37769910845d8e801c3a82fda9"
+    },
+    {
+      "path": "preflight/style.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "preflight/style.stdout",
+      "bytes": 38,
+      "sha256": "b606ad683566c88181a33e8f4e5fd23352ed9fbdf98e24b5429753d300ad34d7"
+    },
+    {
+      "path": "project/export_presets.cfg",
+      "bytes": 1183,
+      "sha256": "7a8098b604b07347fb94b013e124a0d7e54de3e69d6cbb84f50d3de23f04b3c1"
+    },
+    {
+      "path": "project/project.godot",
+      "bytes": 4431,
+      "sha256": "73e83e92a2695ad6bc1d5aac334fc3587d574cc5ed5b839583024689490cdc3f"
+    },
+    {
+      "path": "root-final-grant.txt",
+      "bytes": 909,
+      "sha256": "3398cc68b5092bb8c1bba2c29671ad028e05f502e3b056d3755f9d882ea38960"
+    },
+    {
+      "path": "scratch-config.json",
+      "bytes": 515,
+      "sha256": "446e4b52cbf80a692eb87f316735be63742d419d1a248ce544e8df035147a8e0"
+    },
+    {
+      "path": "source-links.json",
+      "bytes": 848,
+      "sha256": "df71e6a2cb3277103b2b10ecffe6fa00f3627fff696fed4e3242a8469551cb83"
+    },
+    {
+      "path": "staged-input.json",
+      "bytes": 9534,
+      "sha256": "63216956354eacd8ee57873a87819d27ffb23c56b4cfdcd5dcf230261cd8df3d"
+    },
+    {
+      "path": "static-checks.json",
+      "bytes": 1750,
+      "sha256": "c60545fb256a931b092ea5705d39d320a52c72dd38f78aa82dde917fab8216fc"
+    },
+    {
+      "path": "static-source-fetch.json",
+      "bytes": 853,
+      "sha256": "91e5e4b73de197f15a428b7fc91cdab32ba3316b7207d48ab3a5b06e9cb8eb07"
+    },
+    {
+      "path": "verify.py",
+      "bytes": 3513,
+      "sha256": "252d04fa6c93269f6fe8212ce9da7ce8fc244a320789c36ee919017dc4951199"
+    }
+  ],
+  "index_self": "self bytes/hash bound externally in final strict JSON note readback"
+}

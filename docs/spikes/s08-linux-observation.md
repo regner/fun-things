@@ -79,8 +79,8 @@ Do not author geometry, placement, collision or body rules.
 Unchanged S03 public result expectations: host cases exactly provisional_rollback,
 authority_validation_and_expiry; client cases exactly
 provider_substitution_late_cleanup, baseline_cancel_retry, held_window_resync,
-subset_reorder_loss_recovery. Client movement_received=5, Steam unavailable=false
-as a native class availability field (the actual key `steam_available` must be false),
+subset_reorder_loss_recovery. Client movement_received=5, the native class
+availability field `steam_available` must be false,
 positive bounded baseline/held/movement bytes where produced. Existing assertions
 cover baseline-before-admission, canceled cleanup/retry, stale native result disposal,
 sender ownership, malformed/nonfinite/window/context/sequence rejection, injured
@@ -129,3 +129,53 @@ Both OS/Deck Gaming Mode/native1280×800/60/input/focus/feel/offline gameplay/na
 Steam initialization/engine choice/Steam delivery/P0/six-block M1/production/full
 S08 remain OPEN. S02's stopped Wayland result supplies no packaging or physical
 target validation.
+
+## Actual stopped observation
+
+**STOP at the first exported asset observation; asset load and exported ENet NOT
+passed.** Root reaffirmed the stop and held main at exact93da622 through handoff.
+The predeclaration commit was `a32dfcd`; observer sources were saved at `e4299aa`
+before engine execution. The source input remained that exact accepted base.
+All operations used `/tmp/s08-observation-stpco415`; no shared surface was queried.
+The [lossless evidence index](s08-linux-evidence/README.md) names receipts and limits.
+
+| Actual phase | Observation |
+| --- | --- |
+| Acquisition | Available6,673,874,944 bytes before fetch covered archive,256 MiB extraction allowance and4 GiB headroom. One curl download,269 s, exit0; actual1,436,879,719 bytes/SHA256 exactly commissioned. No retry/install. |
+| Verification | Safe ZIP manifest/version `4.8.dev7\n`; all four named members hashed and ELF64/PE32+ AMD64 verified. Only Linux release extracted. Installed engine151,398,728 bytes/SHA256 matches card. |
+| Stage/import | Exact31 Git blobs and UID/import identities copied, no `.godot` copied; all31 still identical after import. Scratch preserved Forward Plus/Jolt/viewport, removed MCP/plugins/icon. One import2.72 s, exit0, all streams inspected/no diagnostics. No all-script compile claim. |
+| Export | One release export2.72 s, exit0, no diagnostics. Exactly binary78,376,584 bytes and PCK180,988 bytes. Binary SHA256 `c436b976ff5ac2e5f3197732ba7d9462267573e5a108782f84928d0606885695`, identical to verified template. PCK SHA256 `4806cd62f3bb4b650a0cae86e466d535fca76569981ee2aa4d94af7018f51ea2`. |
+| Static PCK | Actual unencrypted format4, flags2,46 entries; all MD5/extents and SHA256 checked.22 logical mappings include20 accepted runtime resources plus observer/input manifest. Imported GLB/texture payloads, scene/material remaps, compiled `.gdc` scripts, UID/class caches and project.binary present; dynamic entity/local rig included. No listed excluded entries. Static membership does not prove successful runtime resolution. |
+| Analyzer correction | Initial assumption format3 failed before any asset launch; exact pinned `file_access_pack.h` defines current format4. Corrected offline analysis passed on the same immutable PCK, retaining initial failure and full source/header/outputs. No import/export retry. |
+| Asset | One exact exported invocation below, exit1 in0.21 s, no timeout. It ran existing S03 boot and emitted `S03 {"cases":[],"event":"result","failure":"missing role","ok":false,"role":""}`. No `S08` receipt; the intended S01/UID/material/texture assertions did not run. stdout and engine log retain that result; stderr is empty. Runtime banner identifies4.8.dev7.official.c971f93e7. |
+| ENet/cleanup | ENet not launched; no proxy/host/client created. Acquisition/import/export/asset owned handles all reaped, supervisor and stream handles closed. No shared process scan or kill. |
+
+Exact failed asset argv (cwd the complete export folder):
+
+```text
+/tmp/s08-observation-stpco415/export-folder/FunThingsS08.x86_64 --headless --script res://s08_receipt.gd --log-file /tmp/s08-observation-stpco415/asset/engine.log
+```
+
+| Verified template member | Bytes | SHA256 |
+| --- | --- | --- |
+| linux_debug.x86_64 | 78,405,256 | `8b2871a1e2f8baf482282422f7e64cd7cfcc713eb53d8db671025b041bb23eb9` |
+| linux_release.x86_64 | 78,376,584 | `c436b976ff5ac2e5f3197732ba7d9462267573e5a108782f84928d0606885695` |
+| windows_debug_x86_64.exe | 105,650,176 | `c3287ae1c7fad6f6f2e0e09b0ebbb1321b49ec2423b74d513f12649e4c03bff6` |
+| windows_release_x86_64.exe | 111,895,040 | `b538554df997ea699122d5b31f2ea8929301bcf3017e12dba664d85d351f60cd` |
+
+The release template's observed handling of the card's `--script` invocation is
+the stop boundary. No runtime cause, correction or alternate recipe is certified.
+A future commissioned question is how to route an asset receipt through a supported
+release entrypoint while preserving the saved S01/S03 inputs; it requires its own
+protocol/grant. No repair/reexport/asset retry/ENet or further debugging is authorized.
+
+Validation: focused probe formatting/lint, Python syntax, diff whitespace, immutable
+source/31-input comparison, archive/package/member/remap/cache/exclusion inspection
+and full actual log/result review. Original S01/S03/source assets, root project,
+presets/pins/vendor/UIDs and accepted preparation remain unchanged. New observer
+assertions and ENet supervisor code have no successful runtime validation here.
+All full S08/asset runtime/exported ENet/strong Steam-unavailable/both-OS/Deck/input/
+feel/offline/native-init/delivery/engine/P0/M1/production gates remain OPEN.
+Independent review is of this stopped evidence and scoped code, not a passing package
+runtime experiment; full reviewer report and exact disposition are retained in the
+final HEAD's strict JSON delivery note without a report-only commit.

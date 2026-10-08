@@ -497,6 +497,11 @@ implementation. Save editor mutations before playtests; preserve unsaved work.
   together. S06 owns topology, S08 exact exports, M1-D3 integrated target acceptance.
 
 - [ ] **S08 — First-target export and service compatibility.**
+  One separately commissioned [isolated Linux release observation](docs/spikes/s08-linux-observation.md#actual-stopped-observation)
+  acquired/verified exact templates and exported the unchanged S01/S03 closure.
+  The first asset invocation returned S03 `missing role`/exit1, so it STOPPED;
+  asset runtime and exported ENet are NOT passed. Static package membership is
+  distinct from runtime resolution. Full S08 and all existing gates remain OPEN.
   Bounded [desktop static preparation and next Linux observation card](docs/spikes/s08.md)
   records exact installed engine/native bytes, published matching templates and the
   missing installed-template/preset/access gaps. Preparation stops before exports;

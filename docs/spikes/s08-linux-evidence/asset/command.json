@@ -1,0 +1,35 @@
+{
+  "argv": [
+    "/tmp/s08-observation-stpco415/export-folder/FunThingsS08.x86_64",
+    "--headless",
+    "--script",
+    "res://s08_receipt.gd",
+    "--log-file",
+    "/tmp/s08-observation-stpco415/asset/engine.log"
+  ],
+  "cwd": "/tmp/s08-observation-stpco415/export-folder",
+  "budget_seconds": 15,
+  "environment": {
+    "XDG_CONFIG_DIRS": "/home/regner/.config/kdedefaults:/etc/xdg",
+    "XDG_SESSION_PATH": "/org/freedesktop/DisplayManager/Session1",
+    "XDG_MENU_PREFIX": "plasma-",
+    "XDG_SEAT": "seat0",
+    "XDG_SESSION_DESKTOP": "KDE",
+    "XDG_SESSION_TYPE": "wayland",
+    "XDG_CURRENT_DESKTOP": "KDE",
+    "XDG_SEAT_PATH": "/org/freedesktop/DisplayManager/Seat0",
+    "XDG_SESSION_CLASS": "user",
+    "XDG_VTNR": "2",
+    "XDG_SESSION_ID": "2",
+    "XDG_RUNTIME_DIR": "/run/user/1000",
+    "XDG_DATA_DIRS": "/tmp/.mount_Paseo-6MKVbM/usr/share/:./share/:/usr/share/gnome:/usr/local/share/:/usr/share/:/home/regner/.local/share/flatpak/exports/share:/var/lib/flatpak/exports/share:/usr/local/share/:/usr/share/:/usr/share/gnome/:/usr/local/share/:/usr/share/",
+    "XDG_DATA_HOME": "/tmp/s08-observation-stpco415/asset/user/data",
+    "XDG_CONFIG_HOME": "/tmp/s08-observation-stpco415/asset/user/config",
+    "XDG_CACHE_HOME": "/tmp/s08-observation-stpco415/asset/user/cache"
+  },
+  "started_unix": 1791439052.7947593,
+  "owned_pid": 500564,
+  "exit": 1,
+  "child_reaped": true,
+  "ended_unix": 1791439053.0087602
+}

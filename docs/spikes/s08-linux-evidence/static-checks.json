@@ -1,0 +1,71 @@
+{
+  "checks": [
+    {
+      "argv": [
+        "/home/regner/.local/share/mise/installs/github-atelico-gdstyle/0.3.0/gdstyle",
+        "fmt",
+        "--check",
+        "tools/s08_receipt.gd"
+      ],
+      "exit": 0,
+      "stdout": "1 file already formatted.\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "/home/regner/.local/share/mise/installs/github-atelico-gdstyle/0.3.0/gdstyle",
+        "--max-line-length",
+        "100",
+        "--max-warnings",
+        "0",
+        "tools/s08_receipt.gd"
+      ],
+      "exit": 0,
+      "stdout": "\n\u2713 1 file checked, no issues found.\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "python",
+        "-m",
+        "py_compile",
+        "tools/run_s08_linux.py"
+      ],
+      "exit": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "git",
+        "diff",
+        "--check"
+      ],
+      "exit": 0,
+      "stdout": "",
+      "stderr": ""
+    }
+  ],
+  "source_identity": {
+    "tools/run_s08_linux.py": {
+      "bytes": 23038,
+      "sha256": "1d5cbd41b3ca37cd9ccea8e4c51ea599b0012363dd3c9e77e922c61f1daf9697"
+    },
+    "tools/s08_receipt.gd": {
+      "bytes": 6882,
+      "sha256": "02b0ae62ff1f87c08626bcbb8580937ac532ffb6559ca41669f8e5f2c1c51c11"
+    }
+  },
+  "configuration_verification": {
+    "agentId": "076a388a-e638-4855-a91a-6f1965ff68c2",
+    "workspaceId": "wks_aa2a7ef710b90059",
+    "provider": "codex",
+    "configured_model": "gpt-6.1-sol",
+    "runtime_model": "gpt-6.1-sol",
+    "configured_thinkingOptionId": "high",
+    "effectiveThinkingOptionId": "high",
+    "source": "mcp__paseo__get_agent_status own snapshot",
+    "mode": "auto-review"
+  },
+  "limits": "No runtime fixture/probe/ENet rerun or all-script compile."
+}

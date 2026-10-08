@@ -1,0 +1,49 @@
+[
+  {
+    "step": "first predeclaration Git commit in sandbox",
+    "exit": 128,
+    "output": "fatal: Unable to create '/home/regner/Development/fun-things/.git/worktrees/s08-linux-release-observation/index.lock': Read-only file system",
+    "resolution": "Scoped authorized Git escalation saved a32dfcd before engine operations."
+  },
+  {
+    "step": "initial self agent lookup",
+    "isError": true,
+    "output": "Agent self not found",
+    "resolution": "Own exact agent ID obtained from cwd-filtered metadata, then configured/effective Sol HIGH verified."
+  },
+  {
+    "step": "initial probe style check",
+    "format": "Would reformat: tools/s08_receipt.gd; 1 file would be reformatted.",
+    "warnings": [
+      "46:30 add space after '{' in single-line dictionary literal [format/brace-spacing]",
+      "46:67 add space before '}' in single-line dictionary literal [format/brace-spacing]",
+      "75:1 function '_saved_links' has 11 local variables (max 10) [quality/max-local-variables]"
+    ],
+    "resolution": "Dictionary spacing fixed, one repeated rig local removed; final format/lint pass."
+  },
+  {
+    "step": "second probe style check after adding runtime payload receipts",
+    "warnings": [
+      "88:1 object allocation '.new()' inside a loop [quality/allocation-in-loop]"
+    ],
+    "resolution": "ConfigFile moved outside loop; focused format/lint passed before e4299aa."
+  },
+  {
+    "step": "offline PCK analysis",
+    "failure": "RuntimeError('unexpected/encrypted PCK header')",
+    "evidence": "analyzer-initial-failure.json",
+    "resolution": "Actual format4; exact pinned source confirms. Offline corrected pass on same bytes."
+  },
+  {
+    "step": "asset runtime",
+    "exit": 1,
+    "failure": "missing role",
+    "evidence": "asset/result.json",
+    "resolution": "STOP; no fix, reexport, asset retry, or ENet launch."
+  },
+  {
+    "step": "pack header web source lookup",
+    "output": "Failed to fetch exact raw GitHub pack header: Cache miss",
+    "resolution": "Scoped exact-source curl exited0; no alternate artifact."
+  }
+]

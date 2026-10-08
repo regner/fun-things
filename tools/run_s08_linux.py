@@ -200,7 +200,7 @@ def pck_manifest(task):
     data = (folder/'FunThingsS08.pck').read_bytes()
     magic, version, major, minor, patch, flags = struct.unpack_from('<6I',data)
     file_base, directory = struct.unpack_from('<QQ', data, 24)
-    if magic != 0x43504447 or version != 3 or (major,minor,patch)!=(4,8,0) or flags != 2:
+    if magic != 0x43504447 or version != 4 or (major,minor,patch)!=(4,8,0) or flags != 2:
         raise RuntimeError('unexpected/encrypted PCK header')
     count = struct.unpack_from('<I',data,directory)[0]
     pos = directory+4

@@ -1,0 +1,31 @@
+{
+  "argv": [
+    "curl",
+    "--location",
+    "--fail",
+    "--retry",
+    "0",
+    "--connect-timeout",
+    "30",
+    "--max-time",
+    "600",
+    "--output",
+    "/tmp/s08-observation-stpco415/Godot_v4.8-dev7_export_templates.tpz",
+    "--write-out",
+    "%{http_code} %{size_download} %{time_total}\n",
+    "https://github.com/godotengine/godot-builds/releases/download/4.8-dev7/Godot_v4.8-dev7_export_templates.tpz"
+  ],
+  "requested_url": "https://github.com/godotengine/godot-builds/releases/download/4.8-dev7/Godot_v4.8-dev7_export_templates.tpz",
+  "published_asset": 603460756,
+  "expected_bytes": 1436879719,
+  "expected_sha256": "95c2677555b4f66c7eeca1a41368674703497e1907aad3fe56576423ca3c8cc6",
+  "attempt": 1,
+  "started_unix": 1791438591.5809731,
+  "owned_pid": 497849,
+  "exit": 0,
+  "ended_unix": 1791438860.6424685,
+  "child_reaped": true,
+  "actual_bytes": 1436879719,
+  "actual_sha256": "95c2677555b4f66c7eeca1a41368674703497e1907aad3fe56576423ca3c8cc6",
+  "ok": true
+}
