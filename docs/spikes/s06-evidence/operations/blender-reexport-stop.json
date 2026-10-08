@@ -1,0 +1,8 @@
+[
+  {
+    "pid": 392992,
+    "command": "blender -noaudio --background art/source/models/spikes/s06_intersection.blend --python tools/s06/export.py -- /tmp/s06-reexport ",
+    "signal": "SIGTERM",
+    "reason": "owned CLI hung in audio teardown after confirmed source save/export"
+  }
+]

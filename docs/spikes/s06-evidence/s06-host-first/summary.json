@@ -1,0 +1,58 @@
+{
+  "engine": "4.8.dev7.official.c971f93e7",
+  "import": true,
+  "outcomes": true,
+  "saved_files_unchanged": true,
+  "commands": [
+    [
+      "/home/regner/.local/share/mise/installs/github-godotengine-godot-builds/4.8-dev7/godot",
+      "--headless",
+      "--path",
+      "/tmp/s06-host-first/project",
+      "--editor",
+      "--import",
+      "--quit",
+      "--log-file",
+      "/tmp/s06-host-first/import.engine.log"
+    ],
+    [
+      "/home/regner/.local/share/mise/installs/github-godotengine-godot-builds/4.8-dev7/godot",
+      "--headless",
+      "--path",
+      "/tmp/s06-host-first/project",
+      "--script",
+      "res://tests/fixtures/s06/proof.gd",
+      "--log-file",
+      "/tmp/s06-host-first/proof.engine.log"
+    ]
+  ],
+  "result_available": true,
+  "source_fingerprints": {
+    "tests/fixtures/s06/anchor.gd": "3e8e3198cbd6353d0d49614f96920f7c305e720759248eacf71bdd22eaf43123",
+    "tests/fixtures/s06/link.gd": "306ef1959b6bd7e6eedd0916b5ddcf12c445de16b16bae2f1ed65c213c9cb5d2",
+    "tests/fixtures/s06/bake.gd": "688aa6a7406dcca91e0ec7b3cde4cf272ead774b20516a31ebb6ec6a9c16f387",
+    "tests/fixtures/s06/city.gd": "3f65eff882c22e74bdb1f41abcccbc062013ca2cdafbdc968b4d3ce74e3c9be7",
+    "tests/fixtures/s06/controller.gd": "0757321b9011d6cbcc93767129b78490018b0bd4955e4bb54118269402c0ac93",
+    "tests/fixtures/s06/minimap.gd": "ea1d164af8053c607b77c389b3ae0df252f0e8fe4bba026f3702dee0a92507b7",
+    "tests/fixtures/s06/fixture.gd": "acfbf1ae18ccde4a6800f17fd6977f44c138f60bae440582ee09272bd9d931a4",
+    "tests/fixtures/s06/proof.gd": "690379434864149a52d397eca1eb49d5ffb25c6790d31715ac116bb4bd4e86c6",
+    "tests/fixtures/s06/intersection.tscn": "4307f83b5a874feab53b4d8051344d9fbde122ebab68a9510ba7f8ebba4b60f9",
+    "tests/fixtures/s06/proof.gd.uid": "8308565a84dc767b098ae88339e89fd5aba35067bcaf7f8a3a16541495746b62",
+    "tests/fixtures/s06/intersection_wide.tscn": "3f6005a5d780e7502264dd988ac4a3b45b4ba8d36d5715f705da94cc8bd408e4",
+    "tests/fixtures/s06/fixture.gd.uid": "da3d319a9af2a44323256392b8edbc6bb1df3ecfbfc42a40c08f2122e2ef2b32",
+    "tests/fixtures/s06/minimap.gd.uid": "dbd870377a799dfab1e0b79ac349f1115c838503b7f46e58446a238efd772c9b",
+    "tests/fixtures/s06/controller.gd.uid": "642ca06e9edf8e4a13edb63caee38a6181a5e3b111c075e1839d8b1ec8129735",
+    "tests/fixtures/s06/derived.tres": "1e1f5f4b761460a0cdcaa172596a6650ef39008d46726b8a4b2baec4fb5d997a",
+    "tests/fixtures/s06/east.tscn": "dfbb23ef500d416fc9598db497c496f41ff10321e6d9364f89b86b11a277ffbe",
+    "tests/fixtures/s06/west.tscn": "08e8d2b82ccbc9f38fc8058e6102cfbec3032fa98affe90e454469f4099ea733",
+    "tests/fixtures/s06/editor_harness.tscn": "04e28e954d0c9bd0e7caf474436acbfe4ebd58f1e63ebdb3d69f7dbf061205ee",
+    "tests/fixtures/s06/city.gd.uid": "2d341d37e98995918847b834bd41e3cd3c3125e3d49685411b8edad291e81e2b",
+    "tests/fixtures/s06/bake.gd.uid": "04da6a01ea01f5ec51feab81a20fa0da64a25838fe0ddb9a54f2e97b514a2ccf",
+    "tests/fixtures/s06/link.gd.uid": "078120dd5729294aa408a45cbe92b7bc880f3cf520e77ff2e259679382628059",
+    "tests/fixtures/s06/anchor.gd.uid": "25158e6b30f25c1f972620f19f697e659537e3dbd556e7504520c611585e2be4",
+    "art/models/spikes/s06_west.glb.import": "f4a88b73118ef40ec16c7e47e3b0521852115442c0e0a8e47c49d06612b97113",
+    "art/models/spikes/s06_east.glb.import": "7cfa875c24c47f2c6cc2cd0a5101f1dcebc90cd7e138f26e8c0805a662fd9683",
+    "art/models/spikes/s06_east.glb": "1270bf7e204de20998f6615617587449fbb12724c524599fea3b4ffd9810b3d2",
+    "art/models/spikes/s06_west.glb": "9fa1d7901dc8fa577ab63234a1b00f03790119d8d3caec35442faae6482fc46d"
+  }
+}

@@ -1,0 +1,91 @@
+Godot Engine v4.8.dev7.official.c971f93e7 - https://godotengine.org
+Vulkan 1.4.312 - Forward+ - Using Device #0: NVIDIA - NVIDIA GeForce GTX 1070
+
+Godot MCP Toolkit v1.0.3 — by NPGameDev · npgamedev.com
+[MCPExtensions] Hot-reload watcher active
+[MCPServer] unfocused-responsive self-heal: reverted leftover interface/editor/unfocused_low_processor_mode_sleep_usec to 100000 (crash/concurrent leftover)
+[MCPServer] port: scanning 6550-6560 (default)
+[MCPServer] session token written to user://addons/godot_mcp_toolkit/project_instance_3fe93fbb0f07/mcp_token
+[MCPServer] listening on 127.0.0.1:6550
+ERROR: The process 374669 does not exist or is not a child of the calling process.
+   at: _check_pid_is_running (drivers/unix/os_unix.cpp:823)
+   GDScript backtrace (most recent call first):
+       [0] register (res://addons/godot_mcp_toolkit/registry/registry_client.gd:139)
+       [1] _register_in_registry (res://addons/godot_mcp_toolkit/core/plugin_composer.gd:129)
+       [2] <anonymous lambda> (res://addons/godot_mcp_toolkit/core/plugin_composer.gd:90)
+       [3] _on_transport_bound (res://addons/godot_mcp_toolkit/transport/mcp_server.gd:381)
+       [4] _scan_and_listen (res://addons/godot_mcp_toolkit/transport/ws_transport.gd:283)
+       [5] ensure_listening (res://addons/godot_mcp_toolkit/transport/ws_transport.gd:254)
+       [6] start (res://addons/godot_mcp_toolkit/transport/mcp_server.gd:322)
+       [7] compose (res://addons/godot_mcp_toolkit/core/plugin_composer.gd:91)
+       [8] _enter_tree (res://addons/godot_mcp_toolkit/plugin.gd:47)
+[MCPRegistry] registered /home/regner/.paseo/worktrees/0u71f39f/s06-provisional-turn-seam on port 6550
+WARNING: [MCP] Godot 4.8 detected - latest tested version is 4.7.0. The plugin will run normally but some features may behave unexpectedly. Please report issues at https://github.com/NPGameDev/godot-mcp-toolkit/issues
+     at: push_warning (core/variant/variant_utility.cpp:1034)
+     GDScript backtrace (most recent call first):
+         [0] _enter_tree (res://addons/godot_mcp_toolkit/plugin.gd:62)
+GodotSteam v4.23 | ]8;;https://godotsteam.com\website]8;;\ | ]8;;https://godotsteam.com/changelog/gdextension/\changelog]8;;\[0m
+New GodotSteam version 4.23.1 available
+[MCPServer] unfocused-responsive mode ON: interface/editor/unfocused_low_processor_mode_sleep_usec 100000 -> 16666 (~60 fps while unfocused)
+[MCP] MCP client connected (1 peer)
+[MCPTools] node.call_method invoked ..model(2 args)
+[MCPTools] node.call_method invoked ..author_topology(1 args)
+[MCPTools] node.call_method invoked ..model(2 args)
+[MCPTools] node.call_method invoked ..author_topology(1 args)
+[MCPTools] node.call_method invoked ..instance(1 args)
+[MCPTools] node.call_method invoked ..instance(1 args)
+[MCPTools] node.call_method invoked ..bake_city(1 args)
+[MCPTools] node.call_method invoked ..instance(1 args)
+[MCPTools] node.call_method invoked ..instance(1 args)
+[MCPTools] node.call_method invoked ..instance(1 args)
+[MCPTools] node.call_method invoked ..s04_state(0 args)
+[MCPTools] node.call_method invoked ..inherited(1 args)
+[MCPTools] node.call_method invoked ..s04_state(0 args)
+[MCPTools] node.call_method invoked ..reopen(1 args)
+[MCPTools] node.call_method invoked ..reopen(1 args)
+[MCPTools] node.call_method invoked ..reopen(1 args)
+[MCPTools] node.call_method invoked ..reopen(1 args)
+ERROR: Do not use progress dialog (task) while flushing the message queue or using call_deferred()!
+   at: add_task (editor/gui/progress_dialog.cpp:207)
+ERROR: Condition "!tasks.has(p_task)" is true. Returning: canceled
+   at: task_step (editor/gui/progress_dialog.cpp:242)
+ERROR: Condition "!tasks.has(p_task)" is true. Returning: canceled
+   at: task_step (editor/gui/progress_dialog.cpp:242)
+ERROR: Condition "!tasks.has(p_task)" is true.
+   at: end_task (editor/gui/progress_dialog.cpp:270)
+[MCPTools] node.call_method invoked ..reopen(1 args)
+ERROR: Do not use progress dialog (task) while flushing the message queue or using call_deferred()!
+   at: add_task (editor/gui/progress_dialog.cpp:207)
+ERROR: Condition "!tasks.has(p_task)" is true. Returning: canceled
+   at: task_step (editor/gui/progress_dialog.cpp:242)
+ERROR: Condition "!tasks.has(p_task)" is true. Returning: canceled
+   at: task_step (editor/gui/progress_dialog.cpp:242)
+ERROR: Condition "!tasks.has(p_task)" is true.
+   at: end_task (editor/gui/progress_dialog.cpp:270)
+[MCPTools] node.call_method invoked ..reopen(1 args)
+ERROR: Do not use progress dialog (task) while flushing the message queue or using call_deferred()!
+   at: add_task (editor/gui/progress_dialog.cpp:207)
+ERROR: Condition "!tasks.has(p_task)" is true. Returning: canceled
+   at: task_step (editor/gui/progress_dialog.cpp:242)
+ERROR: Condition "!tasks.has(p_task)" is true. Returning: canceled
+   at: task_step (editor/gui/progress_dialog.cpp:242)
+ERROR: Condition "!tasks.has(p_task)" is true.
+   at: end_task (editor/gui/progress_dialog.cpp:270)
+[MCPTools] node.call_method invoked ..bake_city(1 args)
+[MCPTools] node.call_method invoked ..bake_city(1 args)
+[MCPTools] node.call_method invoked ..bake_city(1 args)
+[MCPTools] node.call_method invoked ..reopen(1 args)
+[MCPTools] node.call_method invoked ..reopen(1 args)
+[MCPTools] node.call_method invoked ..reopen(1 args)
+ERROR: Do not use progress dialog (task) while flushing the message queue or using call_deferred()!
+   at: add_task (editor/gui/progress_dialog.cpp:207)
+ERROR: Condition "!tasks.has(p_task)" is true. Returning: canceled
+   at: task_step (editor/gui/progress_dialog.cpp:242)
+ERROR: Condition "!tasks.has(p_task)" is true. Returning: canceled
+   at: task_step (editor/gui/progress_dialog.cpp:242)
+ERROR: Condition "!tasks.has(p_task)" is true.
+   at: end_task (editor/gui/progress_dialog.cpp:270)
+[MCPTools] node.call_method invoked ..reopen(1 args)
+[MCPTools] node.call_method invoked ..s04_state(0 args)
+[MCPTools] node.call_method invoked ..reopen(1 args)
+[MCPTools] node.call_method invoked ..s04_state(0 args)

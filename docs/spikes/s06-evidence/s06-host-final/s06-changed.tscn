@@ -1,0 +1,85 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://tests/fixtures/s06/fixture.gd" id="1_2r7lr"]
+[ext_resource type="Script" path="res://tests/fixtures/s06/city.gd" id="2_1w2pt"]
+[ext_resource type="Resource" path="res://tests/fixtures/s06/derived.tres" id="3_r5wme"]
+[ext_resource type="PackedScene" path="res://tests/fixtures/s06/west.tscn" id="4_nfpuh"]
+[ext_resource type="Script" path="res://tests/fixtures/s06/sector.gd" id="5_v2kep"]
+[ext_resource type="PackedScene" path="res://tests/fixtures/s06/east.tscn" id="6_hm6as"]
+[ext_resource type="PackedScene" path="res://tests/fixtures/s02/actor.tscn" id="7_s5b5r"]
+[ext_resource type="Script" path="res://tests/fixtures/s02/actor_motion.gd" id="8_i8lgv"]
+[ext_resource type="PackedScene" path="res://tests/fixtures/s04/kinematic.tscn" id="9_3rqwj"]
+[ext_resource type="Script" path="res://tests/fixtures/s04/kinematic.gd" id="10_8xxad"]
+[ext_resource type="Script" path="res://tests/fixtures/s06/minimap.gd" id="11_ggka1"]
+
+[sub_resource type="Environment" id="Environment_djtqu"]
+background_mode = 1
+background_color = Color(0.02, 0.03, 0.04, 1)
+ambient_light_source = 3
+ambient_light_color = Color(1, 1, 1, 1)
+ambient_light_energy = 0.65
+
+[node name="S06" type="Node3D" unique_id=47404616]
+script = ExtResource("1_2r7lr")
+
+[node name="City" type="Node3D" parent="." unique_id=1785882158]
+script = ExtResource("2_1w2pt")
+derived = ExtResource("3_r5wme")
+
+[node name="Sectors" type="Node3D" parent="City" unique_id=855665817]
+
+[node name="West" type="Node3D" parent="City/Sectors" unique_id=1973761027 instance=ExtResource("4_nfpuh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0)
+script = ExtResource("5_v2kep")
+world_id = &"s06/sector/west"
+
+[node name="East" type="Node3D" parent="City/Sectors" unique_id=443909768 instance=ExtResource("6_hm6as")]
+script = ExtResource("5_v2kep")
+world_id = &"s06/sector/east"
+
+[node name="Person" type="CharacterBody3D" parent="." unique_id=987036009 instance=ExtResource("7_s5b5r")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -20, 0.001, 6.5)
+collision_layer = 0
+collision_mask = 0
+motion_mode = 1
+script = ExtResource("8_i8lgv")
+
+[node name="CarWest" type="CharacterBody3D" parent="." unique_id=1110260024 instance=ExtResource("9_3rqwj")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -20, 0, 2.25)
+collision_layer = 0
+collision_mask = 0
+motion_mode = 1
+script = ExtResource("10_8xxad")
+
+[node name="CarEast" type="CharacterBody3D" parent="." unique_id=378128285 instance=ExtResource("9_3rqwj")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 20, 0, -2.25)
+collision_layer = 0
+collision_mask = 0
+motion_mode = 1
+script = ExtResource("10_8xxad")
+
+[node name="Camera" type="Camera3D" parent="." unique_id=94357132]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 47, 0)
+current = true
+fov = 42.0
+near = 0.1
+far = 160.0
+
+[node name="Sun" type="DirectionalLight3D" parent="." unique_id=256469899]
+transform = Transform3D(0.8660254, 0.43301272, -0.24999999, 0, 0.49999997, 0.86602545, 0.5, -0.75, 0.43301266, 0, 0, 0)
+light_energy = 1.2
+
+[node name="Environment" type="WorldEnvironment" parent="." unique_id=1292651333]
+environment = SubResource("Environment_djtqu")
+
+[node name="Ui" type="CanvasLayer" parent="." unique_id=429881689]
+
+[node name="Minimap" type="Control" parent="Ui" unique_id=2143332834]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 1096.0
+offset_top = 16.0
+offset_right = 1256.0
+offset_bottom = 176.0
+mouse_filter = 2
+script = ExtResource("11_ggka1")

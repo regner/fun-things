@@ -1,0 +1,94 @@
+{
+  "failures": [],
+  "metrics": {
+    "east_to_north": {
+      "ticks": 721,
+      "seconds": 12.016666666666692,
+      "last_pose": {
+        "contacts": [],
+        "delta": 0.0166666666666667,
+        "position": [
+          2.2504255771637,
+          0.0,
+          -19.7195835113525
+        ],
+        "speed": 3.49995088577271,
+        "tick": 721,
+        "yaw": 0.00155558146070689
+      },
+      "max_step_m": 0.05833345637103781,
+      "max_route_error_m": 0.20186023647352974,
+      "footprint_samples_outside": 0,
+      "contacts": 0,
+      "seam_crossings": 1
+    },
+    "foot": {
+      "ticks": 477,
+      "seconds": 7.950000000000016,
+      "last_pose": {
+        "contacts": [],
+        "delta": 0.0166666666666667,
+        "position": [
+          19.7500095367432,
+          0.00100000004749745,
+          6.5
+        ],
+        "speed": 5.0,
+        "tick": 477,
+        "yaw": -1.57079637050629
+      },
+      "max_step_m": 0.08333396911629976,
+      "max_route_error_m": 2.7755575615628914e-17,
+      "footprint_samples_outside": 0,
+      "contacts": 0,
+      "seam_crossings": 1
+    },
+    "west_to_south": {
+      "ticks": 721,
+      "seconds": 12.016666666666692,
+      "last_pose": {
+        "contacts": [],
+        "delta": 0.0166666666666667,
+        "position": [
+          -2.25042510032654,
+          0.0,
+          19.7195816040039
+        ],
+        "speed": 3.49995088577271,
+        "tick": 721,
+        "yaw": -3.14003825187683
+      },
+      "max_step_m": 0.058333456371036034,
+      "max_route_error_m": 0.20185982709165565,
+      "footprint_samples_outside": 0,
+      "contacts": 0,
+      "seam_crossings": 1
+    }
+  },
+  "minimap": {
+    "seam_error_m": 0.0,
+    "seam_error_px_at_3px_per_m": 0.0,
+    "geometry_extents_error_m": 0.0
+  },
+  "sensitivity": {
+    "2.0x3.8": {
+      "outside_edge_samples": 0,
+      "scope": "geometric sensitivity on actual baseline poses; no changed-body physics proof"
+    },
+    "2.2x4.8": {
+      "outside_edge_samples": 0,
+      "scope": "geometric sensitivity on actual baseline poses; no changed-body physics proof"
+    }
+  },
+  "sampling": "every actual physics tick; rectangle edges <=0.1m; not analytic continuous sweep",
+  "camera_ground_view_m": {
+    "42": [
+      57.73315086932653,
+      36.08321929332908
+    ],
+    "50": [
+      70.13267178651179,
+      43.83291986656987
+    ]
+  }
+}

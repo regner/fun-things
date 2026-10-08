@@ -1,0 +1,174 @@
+[gd_scene format=3 uid="uid://b243gxu4qpp0a"]
+
+[ext_resource type="Script" uid="uid://brkjhkfcy4w87" path="res://tests/fixtures/s06/sector.gd" id="1_10cu3"]
+[ext_resource type="Script" uid="uid://2yoh6i6enk0l" path="res://tests/fixtures/s06/anchor.gd" id="2_10cu3"]
+[ext_resource type="PackedScene" uid="uid://dh88hp6iu51tm" path="res://art/models/spikes/s06_west.glb" id="2_ui657"]
+[ext_resource type="Script" uid="uid://b4fgmxkqgtotg" path="res://tests/fixtures/s06/link.gd" id="3_08x6h"]
+
+[sub_resource type="Curve3D" id="Curve3D_7mlhm"]
+bake_interval = 0.25
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, -20, 0.001, 6.5, 0, 0, 0, 0, 0, 0, -6.5, 0.001, 6.5),
+"tilts": PackedFloat32Array(0, 0)
+}
+point_count = 2
+
+[sub_resource type="Curve3D" id="Curve3D_aat0w"]
+bake_interval = 0.25
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, -6.5, 0.001, 6.5, 0, 0, 0, 0, 0, 0, 6.5, 0.001, 6.5),
+"tilts": PackedFloat32Array(0, 0)
+}
+point_count = 2
+
+[sub_resource type="Curve3D" id="Curve3D_gulr2"]
+bake_interval = 0.25
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, -20, 0, 2.25, 0, 0, 0, 3.727922, 0, 0, -4.5, 0, 2.25, 0, 0, 3.727922, 0, 0, 0, 2.25, 0, -4.5, 0, 0, 0, 0, 0, 0, 2.25, 0, -20),
+"tilts": PackedFloat32Array(0, 0, 0, 0)
+}
+point_count = 4
+
+[sub_resource type="Curve3D" id="Curve3D_exwpx"]
+bake_interval = 0.25
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, -24, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+"tilts": PackedFloat32Array(0, 0)
+}
+point_count = 2
+
+[sub_resource type="Curve3D" id="Curve3D_7vf8x"]
+bake_interval = 0.25
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, -24),
+"tilts": PackedFloat32Array(0, 0)
+}
+point_count = 2
+
+[sub_resource type="Curve3D" id="Curve3D_eka7e"]
+bake_interval = 0.25
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 24),
+"tilts": PackedFloat32Array(0, 0)
+}
+point_count = 2
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_10cu3"]
+size = Vector3(15.5, 0.6, 15.5)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_08x6h"]
+size = Vector3(15.5, 0.6, 15.5)
+
+[node name="West" type="Node3D" unique_id=1973761027]
+script = ExtResource("1_10cu3")
+world_id = &"s06/sector/west"
+
+[node name="Visuals" type="Node3D" parent="." unique_id=191587561]
+
+[node name="Model" parent="Visuals" unique_id=352958828 instance=ExtResource("2_ui657")]
+
+[node name="Topology" type="Node3D" parent="." unique_id=21977068]
+
+[node name="FootWest" type="Marker3D" parent="Topology" unique_id=1548607456]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20, 0.001, 6.5)
+script = ExtResource("2_10cu3")
+world_id = &"s06/foot/west"
+
+[node name="CrossWest" type="Marker3D" parent="Topology" unique_id=234228333]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.5, 0.001, 6.5)
+script = ExtResource("2_10cu3")
+world_id = &"s06/foot/cross_west"
+
+[node name="LaneWest" type="Marker3D" parent="Topology" unique_id=487513253]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20, 0, 2.25)
+script = ExtResource("2_10cu3")
+world_id = &"s06/lane/west"
+
+[node name="LaneSouth" type="Marker3D" parent="Topology" unique_id=327531853]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.25, 0, 20)
+script = ExtResource("2_10cu3")
+world_id = &"s06/lane/south"
+
+[node name="RoadWest" type="Marker3D" parent="Topology" unique_id=1444925001]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24, 0, 0)
+script = ExtResource("2_10cu3")
+world_id = &"s06/road/west"
+
+[node name="RoadCentre" type="Marker3D" parent="Topology" unique_id=642192197]
+script = ExtResource("2_10cu3")
+world_id = &"s06/road/centre"
+
+[node name="RoadNorth" type="Marker3D" parent="Topology" unique_id=581100513]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -24)
+script = ExtResource("2_10cu3")
+world_id = &"s06/road/north"
+
+[node name="RoadSouth" type="Marker3D" parent="Topology" unique_id=956736887]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 24)
+script = ExtResource("2_10cu3")
+world_id = &"s06/road/south"
+
+[node name="FootApproachWest" type="Path3D" parent="Topology" unique_id=1040042306]
+curve = SubResource("Curve3D_7mlhm")
+script = ExtResource("3_08x6h")
+world_id = &"s06/foot/approach_west"
+from_id = &"s06/foot/west"
+to_id = &"s06/foot/cross_west"
+
+[node name="Crossing" type="Path3D" parent="Topology" unique_id=1884582947]
+curve = SubResource("Curve3D_aat0w")
+script = ExtResource("3_08x6h")
+world_id = &"s06/foot/crossing"
+from_id = &"s06/foot/cross_west"
+to_id = &"s06/foot/cross_east"
+
+[node name="EastToNorth" type="Path3D" parent="Topology" unique_id=20199819]
+curve = SubResource("Curve3D_gulr2")
+script = ExtResource("3_08x6h")
+world_id = &"s06/lane/east_to_north"
+from_id = &"s06/lane/west"
+to_id = &"s06/lane/north"
+kind = "TRAFFIC"
+
+[node name="RoadWestLink" type="Path3D" parent="Topology" unique_id=1266309851]
+curve = SubResource("Curve3D_exwpx")
+script = ExtResource("3_08x6h")
+world_id = &"s06/road/west_link"
+from_id = &"s06/road/west"
+to_id = &"s06/road/centre"
+kind = "ROAD"
+width_m = 9.0
+
+[node name="RoadNorthLink" type="Path3D" parent="Topology" unique_id=1196123878]
+curve = SubResource("Curve3D_7vf8x")
+script = ExtResource("3_08x6h")
+world_id = &"s06/road/north_link"
+from_id = &"s06/road/centre"
+to_id = &"s06/road/north"
+kind = "ROAD"
+width_m = 9.0
+
+[node name="RoadSouthLink" type="Path3D" parent="Topology" unique_id=988392596]
+curve = SubResource("Curve3D_eka7e")
+script = ExtResource("3_08x6h")
+world_id = &"s06/road/south_link"
+from_id = &"s06/road/centre"
+to_id = &"s06/road/south"
+kind = "ROAD"
+width_m = 9.0
+
+[node name="Collision" type="Node3D" parent="." unique_id=918146999]
+
+[node name="North" type="StaticBody3D" parent="Collision" unique_id=1871676353]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.25, 0.3, -16.25)
+collision_mask = 6
+
+[node name="Shape" type="CollisionShape3D" parent="Collision/North" unique_id=247127007]
+shape = SubResource("BoxShape3D_10cu3")
+
+[node name="South" type="StaticBody3D" parent="Collision" unique_id=1842384041]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.25, 0.3, 16.25)
+collision_mask = 6
+
+[node name="Shape" type="CollisionShape3D" parent="Collision/South" unique_id=1953826844]
+shape = SubResource("BoxShape3D_08x6h")

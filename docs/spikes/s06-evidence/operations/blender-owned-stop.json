@@ -1,0 +1,14 @@
+[
+  {
+    "pid": 380695,
+    "command": "blender --background --python tools/s06/create_source.py ",
+    "signal": "SIGTERM",
+    "reason": "owned CLI hung in audio teardown after confirmed source save/export"
+  },
+  {
+    "pid": 382718,
+    "command": "blender --background art/source/models/spikes/s06_intersection.blend --python tools/s06/export.py -- art/models/spikes ",
+    "signal": "SIGTERM",
+    "reason": "owned CLI hung in audio teardown after confirmed source save/export"
+  }
+]

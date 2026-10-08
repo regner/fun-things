@@ -415,8 +415,10 @@ implementation. Save editor mutations before playtests; preserve unsaved work.
   Needs: [S01 pipeline evidence](docs/spikes/s01.md), [S02 actor/camera envelope](docs/spikes/s02.md),
   [reviewed S04 technical dimensions](docs/assets/s04_kit.md#measured-technical-geometry)
   and [accepted district brief](docs/world-layout.md).
-  Ready for one bounded saved two-sector topology/turn/seam experiment after root
-  assigns a direct Sol lead and exclusive new scene/source lease. Use explicit
+  Partial bounded saved two-sector experiment recorded in [S06](docs/spikes/s06.md),
+  with [contract](docs/spikes/s06-contracts.md), [source handoff](docs/spikes/s06-source-handoff.md)
+  and [raw evidence](docs/spikes/s06-evidence/README.md); independent exact review pending.
+  Use explicit
   provisional actor/car/camera assumptions; the S04 one-second steering displacement
   is not a full turn radius or swept corridor. Measure both driving directions,
   legal turn, foot crossing and seam/minimap agreement with actual bodies. Final
@@ -430,6 +432,12 @@ implementation. Save editor mutations before playtests; preserve unsaved work.
   references it and owns connectivity, avoiding an independent layout writer.
   Decision: representation, stable IDs/layers, host AI/controller APIs and bake/update
   workflow. Specify bounded blockage/junction/stuck/wreck recovery for M1-C3.
+
+  Remaining: actual drawn camera/layout/crossing/minimap readability and Regner feel
+  decisions, affected actual body/contact/legal-turn/seam checks after final S02/S04
+  choices, and M1-C3 integration/checks of specified bounded blockage/contested
+  junction/stuck/wreck recovery. Full S06 remains OPEN; no production traffic or
+  renderer/streaming/map-maximum decision.
 
 - [ ] **S07 — Map capacity, top-down culling and growth headroom.**
   Owner: Sol-led capacity-spike worker; Regner ratifies scope/budgets. Assign a named

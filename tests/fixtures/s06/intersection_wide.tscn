@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://c4a6ixuhrwqem"]
+
+[ext_resource type="PackedScene" uid="uid://c61a1l4vio22q" path="res://tests/fixtures/s06/intersection.tscn" id="1"]
+
+[node name="S06" unique_id=1087692635 instance=ExtResource("1")]
+
+[node name="Camera" parent="." index="4" unique_id=94357132]
+fov = 50.0

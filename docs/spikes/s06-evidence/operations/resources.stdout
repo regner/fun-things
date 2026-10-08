@@ -1,0 +1,125 @@
+{
+  "base": "096469f25db2617858d49f88860991c1c84c222e",
+  "preserved_original_files_except_TODO": 1836,
+  "new_resource_uids": {
+    "uid://dsdwbq3sjwa5s": "tests/fixtures/s06/editor_harness.tscn",
+    "uid://dit8xq4p8gygi": "tests/fixtures/s06/fixture.gd",
+    "uid://cwf23jbo3qj65": "tests/fixtures/s06/minimap.gd",
+    "uid://b07ypdjamy7r1": "tests/fixtures/s06/controller.gd",
+    "uid://boj0jnn63proh": "tests/fixtures/s06/bake.gd",
+    "uid://b4fgmxkqgtotg": "tests/fixtures/s06/link.gd",
+    "uid://2yoh6i6enk0l": "tests/fixtures/s06/anchor.gd",
+    "uid://c4a6ixuhrwqem": "tests/fixtures/s06/intersection_wide.tscn",
+    "uid://brkjhkfcy4w87": "tests/fixtures/s06/sector.gd",
+    "uid://b243gxu4qpp0a": "tests/fixtures/s06/west.tscn",
+    "uid://chhg1wj1jcwpu": "tests/fixtures/s06/east.tscn",
+    "uid://b6ev1pqwuqjql": "tests/fixtures/s06/city.gd",
+    "uid://xibmn2wnpcml": "tests/fixtures/s06/proof.gd",
+    "uid://dt54nay70c1tr": "tests/fixtures/s06/derived.tres",
+    "uid://c61a1l4vio22q": "tests/fixtures/s06/intersection.tscn",
+    "uid://dq346g4d7m3n8": "tools/s06/editor_probe.gd"
+  },
+  "dependencies": [
+    {
+      "scene": "tests/fixtures/s06/editor_harness.tscn",
+      "target": "tools/s06/editor_probe.gd",
+      "uid": "uid://dq346g4d7m3n8"
+    },
+    {
+      "scene": "tests/fixtures/s06/intersection_wide.tscn",
+      "target": "tests/fixtures/s06/intersection.tscn",
+      "uid": "uid://c61a1l4vio22q"
+    },
+    {
+      "scene": "tests/fixtures/s06/west.tscn",
+      "target": "tests/fixtures/s06/sector.gd",
+      "uid": "uid://brkjhkfcy4w87"
+    },
+    {
+      "scene": "tests/fixtures/s06/west.tscn",
+      "target": "tests/fixtures/s06/anchor.gd",
+      "uid": "uid://2yoh6i6enk0l"
+    },
+    {
+      "scene": "tests/fixtures/s06/west.tscn",
+      "target": "art/models/spikes/s06_west.glb",
+      "uid": "uid://dh88hp6iu51tm"
+    },
+    {
+      "scene": "tests/fixtures/s06/west.tscn",
+      "target": "tests/fixtures/s06/link.gd",
+      "uid": "uid://b4fgmxkqgtotg"
+    },
+    {
+      "scene": "tests/fixtures/s06/east.tscn",
+      "target": "art/models/spikes/s06_east.glb",
+      "uid": "uid://cldnd3ynk3e46"
+    },
+    {
+      "scene": "tests/fixtures/s06/east.tscn",
+      "target": "tests/fixtures/s06/sector.gd",
+      "uid": "uid://brkjhkfcy4w87"
+    },
+    {
+      "scene": "tests/fixtures/s06/east.tscn",
+      "target": "tests/fixtures/s06/anchor.gd",
+      "uid": "uid://2yoh6i6enk0l"
+    },
+    {
+      "scene": "tests/fixtures/s06/east.tscn",
+      "target": "tests/fixtures/s06/link.gd",
+      "uid": "uid://b4fgmxkqgtotg"
+    },
+    {
+      "scene": "tests/fixtures/s06/derived.tres",
+      "target": "tests/fixtures/s06/bake.gd",
+      "uid": "uid://boj0jnn63proh"
+    },
+    {
+      "scene": "tests/fixtures/s06/intersection.tscn",
+      "target": "tests/fixtures/s06/fixture.gd",
+      "uid": "uid://dit8xq4p8gygi"
+    },
+    {
+      "scene": "tests/fixtures/s06/intersection.tscn",
+      "target": "tests/fixtures/s06/city.gd",
+      "uid": "uid://b6ev1pqwuqjql"
+    },
+    {
+      "scene": "tests/fixtures/s06/intersection.tscn",
+      "target": "tests/fixtures/s06/west.tscn",
+      "uid": "uid://b243gxu4qpp0a"
+    },
+    {
+      "scene": "tests/fixtures/s06/intersection.tscn",
+      "target": "tests/fixtures/s06/derived.tres",
+      "uid": "uid://dt54nay70c1tr"
+    },
+    {
+      "scene": "tests/fixtures/s06/intersection.tscn",
+      "target": "tests/fixtures/s06/east.tscn",
+      "uid": "uid://chhg1wj1jcwpu"
+    },
+    {
+      "scene": "tests/fixtures/s06/intersection.tscn",
+      "target": "tests/fixtures/s02/actor.tscn",
+      "uid": "uid://dl05tre3pd6e0"
+    },
+    {
+      "scene": "tests/fixtures/s06/intersection.tscn",
+      "target": "tests/fixtures/s04/kinematic.tscn",
+      "uid": "uid://cyyhi67pisbql"
+    },
+    {
+      "scene": "tests/fixtures/s06/intersection.tscn",
+      "target": "tests/fixtures/s06/minimap.gd",
+      "uid": "uid://cwf23jbo3qj65"
+    }
+  ],
+  "source_sha256": "7fd1ac804db0d8208c492e097bbeddb61cbf42e244b622ca82510a5125edd9c8",
+  "exports": {
+    "west": "9fa1d7901dc8fa577ab63234a1b00f03790119d8d3caec35442faae6482fc46d",
+    "east": "1270bf7e204de20998f6615617587449fbb12724c524599fea3b4ffd9810b3d2"
+  },
+  "scope": "new S06 static resources, no broad production discovery"
+}
