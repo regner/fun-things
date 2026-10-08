@@ -115,3 +115,32 @@ each authorized batch before scene switches and cleanup; remove the helper scrip
 from the final effect before saving. Graceful deferred shutdown runs only with
 EditorInterface.get_unsaved_scenes() empty. Full run01 failures remain part of the
 eventual single independent review and do not become a separate workstream.
+
+## Run02 stop and explicit final run03 grant
+
+Run02 stopped before authentication or mutation: the supervisor saw the known
+run01 registry PID before normal plugin registration replaced that entry and
+incorrectly failed immediately. It reaped its own editor handle (SIGINT-2), with
+no connector or initialization child. The supervisor did not record its actual
+Popen PID before this gate; that historical launch-PID limitation remains.
+The raw context line reports PID557507, but is not a replacement Popen receipt.
+No current-PID query reconstructs historical ownership. Run02 logs stay intact.
+
+ROOT explicitly grants ONE FINAL run03 continuation, no fourth editor/repeated
+prep/vendor/global repair. Same private boostfalse/settings/imports/Explosionroot.
+New unique logs under `/tmp/s05-author-56eb6b28-run03`. Record actual owned Popen
+PID/start/argv immediately. Wait for exact canonical project and that owned PID in
+the private registry within the original60s deadline; never authenticate stale
+entries or default6550. Validate token/port/context/pin/boost/error gate only after
+matching registration. Normal plugin initialization starts server then publishes
+its actual bound port through registry_client.register; stale entry replacement
+is later than the SceneTree startup context callback, not a toolkit failure.
+
+Offline gate checks before launch use the actual captured stale run01 entry and
+literal expected path/PID557507 from run02 context. A **synthetic** matching entry
+checks the acceptance branch; no historical matching run02 registry is claimed.
+Stale and wrong path reject; permanent stale at literal0/1/59/60s never admits.
+Full offline inputs/checks retained. Recoverable tool errors return to the lead;
+each authorized batch saves before subsequent operations. Existing finite authored
+scope/check budgets and one remaining corrective batch apply. No reviewer launch
+until ROOT releases its serialized slot after the implementation or final STOP.

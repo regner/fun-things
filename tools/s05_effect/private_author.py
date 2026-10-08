@@ -16,7 +16,10 @@ ROOT = Path(__file__).resolve().parents[2]
 BASE = 'ef730df936b5b159f0894033f5d01e2b7124386c'
 RUN = Path('/tmp/s05-author-56eb6b28-run01')
 CONTINUE = '--continue' in sys.argv
-LOG = Path('/tmp/s05-author-56eb6b28-run02') if CONTINUE else RUN
+FINAL = '--final' in sys.argv
+CONTINUE = CONTINUE or FINAL
+LOG = Path('/tmp/s05-author-56eb6b28-run03' if FINAL else
+           '/tmp/s05-author-56eb6b28-run02') if CONTINUE else RUN
 ENGINE = '/home/regner/.local/share/mise/installs/github-godotengine-godot-builds/4.8-dev7/godot'
 PACKAGE = Path('/home/regner/.npm/_npx/ea3a09a27b3d1af0/node_modules')
 PROBE = '''@tool
@@ -71,6 +74,11 @@ def stop(child):
                 child.wait(timeout=2)
     else:
         child.wait()
+
+
+def owned_entry(entry, project, pid):
+    """Do not dial a stale startup entry; only the exact owned replacement can be ready."""
+    return entry.get('_key') == str(project) and entry.get('pid') == pid
 
 
 def stage():
@@ -189,6 +197,9 @@ def main():
             err = (LOG / (mode + '.stderr')).open('wb')
             streams.extend([out, err])
             child = subprocess.Popen(argv(path, mode), env=env, cwd=path, stdout=out, stderr=err)
+            result[mode + '_process'] = {'pid': child.pid, 'start_unix': time.time(),
+                                        'argv': argv(path, mode)}
+            save(LOG / 'lifecycle.json', result)
             if mode == 'initialize':
                 init = child
                 init.wait(timeout=15)
@@ -207,8 +218,11 @@ def main():
             if registry.exists() and len(rows) == 1:
                 context = rows[0]
                 entry = json.loads(registry.read_text())
-                if entry['_key'] != str(project) or entry['pid'] != editor.pid:
-                    raise RuntimeError('wrong registry identity')
+                if not owned_entry(entry, project, editor.pid):
+                    # Registration happens after editor initialization and transport
+                    # startup. A known old record is not permission to authenticate.
+                    time.sleep(.1)
+                    continue
                 token = Path(entry['token_path'])
                 if not token.is_relative_to(RUN / 'data') or not token.is_file():
                     raise RuntimeError('token path outside owned private data')
