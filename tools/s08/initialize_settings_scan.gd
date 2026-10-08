@@ -21,7 +21,9 @@ func _prepare() -> void:
 	var expected: String = OS.get_environment("XDG_CONFIG_HOME")
 	expected += "/godot/editor_settings-4.8.tres"
 	if settings == null or _filesystem == null or settings.resource_path != expected:
-		print("S08_SETTINGS " + JSON.stringify({ "ok": false, "failure": "private editor context" }))
+		print("S08_SETTINGS " + JSON.stringify({
+			"ok": false, "failure": "private editor context",
+		}))
 		quit(1)
 		return
 
