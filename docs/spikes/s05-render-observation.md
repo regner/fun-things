@@ -191,3 +191,33 @@ criteria remain failed/unmeasured. Actual can_draw/focus/mode/effective sizes ar
 reported without weakening native1280x800/input/feel/performance criteria. No cost
 or readability ratification. No second group is predeclared; no follow-up workstream
 will start. User requested a deferred pause after current delivery/review/cleanup.
+
+## Group01 failure and final changed-condition group02
+
+Group01 started only host631386. Before any fixture ready/gameplay/draw stream,
+the default audio startup attempted ALSA output and reported
+`ERR_CANT_OPEN`/`All audio drivers failed, falling back to the dummy driver`.
+The supervisor's diagnostic gate stopped collection; owned host exited-2 after
+SIGINT and was reaped, no fallback kill, no client/late launch. Stream closure and
+all copied input bytes are preserved. No frame receipt/PNG or gameplay pass is
+claimed for this phase. This is a runner audio-selection omission, not an S05
+saved-camera/rendering failure or a successful automatic-frame observation.
+
+**Final group02 is predeclared within the existing two-group envelope.** Material
+changed observation condition: select process-local `--audio-driver Dummy` from
+startup, avoiding native audio initialization for this image-only observation.
+This addresses the actual group01 startup receipt; no audio/config/service/vendor/
+renderer repair or production driver choice follows. The pinned binary contains
+AudioDriverDummy; the Godot CLI driver flag is verified before launch. Everything
+else stays identical: saved new camera/resource hashes, production owner paths,
+native Wayland socket, Forward+, three roles, private XDG, 30s group deadline,
+diagnostic gate and cleanup. Fresh group02 project/logs avoid overwriting group01.
+
+Exact role argv:
+`godot --audio-driver Dummy --path <group02/project> --display-driver wayland
+--log-file <group02/ROLE/engine.log> res://tests/fixtures/s05_draw/burst.tscn
+-- --role=ROLE --port=<OS-assigned loopback UDP port>`.
+CLI-only `godot --headless --help` is allowed to verify the actual flag without
+starting a project/editor/window/audio workload. No graphical group03, repeated
+import/authoring session, new experiment or expanded acceptance follows. At12:00 UTC
+approximately70minutes of the original total envelope remain.

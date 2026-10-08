@@ -6,7 +6,6 @@ import json
 import os
 from pathlib import Path
 import re
-import shutil
 import signal
 import socket
 import stat
@@ -90,6 +89,8 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--author-project', type=Path, required=True)
     parser.add_argument('--output', type=Path, required=True)
+    parser.add_argument('--group', type=int, choices=[1, 2], required=True)
+    parser.add_argument('--audio-driver', choices=['Dummy'])
     args = parser.parse_args()
     output = args.output.resolve()
     if not output.is_relative_to(Path('/tmp')) or output.exists():
@@ -97,7 +98,7 @@ def main():
     output.mkdir(mode=0o700)
     result = {'collection_ok': False, 'start_unix': time.time(),
               'budget_s': BUDGET_SECONDS, 'processes': {}, 'engine': ENGINE,
-              'graphical_groups': 1, 'import_processes': 0}
+              'graphical_group': args.group, 'import_processes': 0}
     children, streams = {}, []
     project = None
     ledger = []
@@ -130,6 +131,8 @@ def main():
             command = [ENGINE, '--path', str(project), '--display-driver', 'wayland',
                        '--log-file', str(folder / 'engine.log'), SCENE, '--',
                        '--role=' + role, '--port=' + str(port)]
+            if args.audio_driver:
+                command[1:1] = ['--audio-driver', args.audio_driver]
             record = {'argv': command, 'start_unix': time.time(),
                       'start_monotonic': time.monotonic(), 'environment': {k: env[k]
                       for k in ['XDG_CONFIG_HOME', 'XDG_DATA_HOME', 'XDG_CACHE_HOME',
