@@ -3,8 +3,10 @@
 8 October 2026. Bounded prerequisite for [primary technical card T](s07-run-cards.md#t--technical-two-sector-calibration-blocked-not-representative-capacity),
 **not graphical calibration or representative capacity acceptance**. Base
 `233493abc7d2e3c106fb620105cfb766f542813b`, branch `s07-sustained-route-reset-driver`,
-workspace `wks_08760af59ce23966`. Direct implementer: Sol6.1 HIGH; ROOT coordinates
-only. [Complete commission, declarations and raw evidence](s07-sustained-driver-evidence/README.md).
+workspace `wks_08760af59ce23966`. Rebased at a saved boundary onto integration base
+`3f5fb4067c5ce5fca721f54d42165a833e4c884c` (43 added discovery docs/evidence only);
+no changed runtime inputs and no repeated measurements. Direct implementer:
+Sol6.1 HIGH; ROOT coordinates only. [Complete commission, declarations and raw evidence](s07-sustained-driver-evidence/README.md).
 Full S07 and P0-GATE remain OPEN.
 
 ## Ownership and executable recipe

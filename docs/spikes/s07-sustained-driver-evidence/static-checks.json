@@ -1,0 +1,255 @@
+{
+  "base": "3f5fb4067c5ce5fca721f54d42165a833e4c884c",
+  "results": [
+    {
+      "name": "format",
+      "command": {
+        "argv": [
+          "/home/regner/.local/share/mise/installs/github-atelico-gdstyle/0.3.0/gdstyle",
+          "-c",
+          "gdstyle.toml",
+          "fmt",
+          "--check",
+          "tests/fixtures/s07_driver"
+        ],
+        "cwd": "/home/regner/.paseo/worktrees/0u71f39f/s07-sustained-route-reset-driver",
+        "timeout_seconds": 30,
+        "started_unix": 1791467121.6533213,
+        "HOME": "/home/regner",
+        "environment": {
+          "XDG_CONFIG_DIRS": "/home/regner/.config/kdedefaults:/etc/xdg",
+          "XDG_SESSION_PATH": "/org/freedesktop/DisplayManager/Session1",
+          "XDG_MENU_PREFIX": "plasma-",
+          "XDG_SEAT": "seat0",
+          "XDG_SESSION_DESKTOP": "KDE",
+          "XDG_SESSION_TYPE": "wayland",
+          "XDG_CURRENT_DESKTOP": "KDE",
+          "XDG_SEAT_PATH": "/org/freedesktop/DisplayManager/Seat0",
+          "XDG_SESSION_CLASS": "user",
+          "XDG_VTNR": "2",
+          "XDG_SESSION_ID": "2",
+          "XDG_RUNTIME_DIR": "/run/user/1000",
+          "XDG_DATA_DIRS": "/tmp/.mount_Paseo-gLG4F3/usr/share/:./share/:/usr/share/gnome:/usr/local/share/:/usr/share/:/tmp/.mount_Paseo-47w5nb/usr/share/:./share/:/usr/share/gnome:/usr/local/share/:/usr/share/:/home/regner/.local/share/flatpak/exports/share:/var/lib/flatpak/exports/share:/usr/local/share/:/usr/share/:/usr/share/gnome/:/usr/local/share/:/usr/share/:/usr/share/gnome/:/usr/local/share/:/usr/share/"
+        },
+        "owned_pid": 710009,
+        "exit": 0,
+        "reaped": true,
+        "ended_unix": 1791467121.6610243
+      },
+      "complete_streams": {
+        "stdout.log": "3 files already formatted.\n",
+        "stderr.log": "",
+        "engine.log": ""
+      }
+    },
+    {
+      "name": "lint",
+      "command": {
+        "argv": [
+          "/home/regner/.local/share/mise/installs/github-atelico-gdstyle/0.3.0/gdstyle",
+          "-c",
+          "gdstyle.toml",
+          "tests/fixtures/s07_driver"
+        ],
+        "cwd": "/home/regner/.paseo/worktrees/0u71f39f/s07-sustained-route-reset-driver",
+        "timeout_seconds": 30,
+        "started_unix": 1791467121.6612124,
+        "HOME": "/home/regner",
+        "environment": {
+          "XDG_CONFIG_DIRS": "/home/regner/.config/kdedefaults:/etc/xdg",
+          "XDG_SESSION_PATH": "/org/freedesktop/DisplayManager/Session1",
+          "XDG_MENU_PREFIX": "plasma-",
+          "XDG_SEAT": "seat0",
+          "XDG_SESSION_DESKTOP": "KDE",
+          "XDG_SESSION_TYPE": "wayland",
+          "XDG_CURRENT_DESKTOP": "KDE",
+          "XDG_SEAT_PATH": "/org/freedesktop/DisplayManager/Seat0",
+          "XDG_SESSION_CLASS": "user",
+          "XDG_VTNR": "2",
+          "XDG_SESSION_ID": "2",
+          "XDG_RUNTIME_DIR": "/run/user/1000",
+          "XDG_DATA_DIRS": "/tmp/.mount_Paseo-gLG4F3/usr/share/:./share/:/usr/share/gnome:/usr/local/share/:/usr/share/:/tmp/.mount_Paseo-47w5nb/usr/share/:./share/:/usr/share/gnome:/usr/local/share/:/usr/share/:/home/regner/.local/share/flatpak/exports/share:/var/lib/flatpak/exports/share:/usr/local/share/:/usr/share/:/usr/share/gnome/:/usr/local/share/:/usr/share/:/usr/share/gnome/:/usr/local/share/:/usr/share/"
+        },
+        "owned_pid": 710026,
+        "exit": 0,
+        "reaped": true,
+        "ended_unix": 1791467121.6647422
+      },
+      "complete_streams": {
+        "stdout.log": "tests/fixtures/s07_driver/fixture.gd\n  6:101 warning line is 101 characters long (max 100) [format/max-line-length]\n      const EXPECTED_SIGNATURE: String = \"eaec39bbde6bd39e0b9c6c5c005f6285be49881faeb3a2cbfa02363014ff1604\"\n                                                                                                          ^\n\ntests/fixtures/s07_driver/guards.gd\n  17:1 warning function '_run' is 60 lines long (max 50) [quality/max-function-length]\n      func _run() -> void:\n      ^\n\ntests/fixtures/s07_driver/run.gd\n  75:1 warning function '_traverse' is 65 lines long (max 50) [quality/max-function-length]\n      func _traverse(case_name: String) -> void:  # gdstyle:ignore=quality/max-local-variables\n      ^\n\n3 files checked, 3 warnings found.\n",
+        "stderr.log": "",
+        "engine.log": ""
+      }
+    },
+    {
+      "name": "preservation",
+      "command": {
+        "argv": [
+          "/usr/bin/python3",
+          "tools/s07_driver/check_resources.py",
+          "/home/regner/.paseo/worktrees/0u71f39f/s07-sustained-route-reset-driver/docs/spikes/s07-sustained-driver-evidence/preservation-final.json",
+          "--base",
+          "3f5fb4067c5ce5fca721f54d42165a833e4c884c"
+        ],
+        "cwd": "/home/regner/.paseo/worktrees/0u71f39f/s07-sustained-route-reset-driver",
+        "timeout_seconds": 30,
+        "started_unix": 1791467121.6648762,
+        "HOME": "/home/regner",
+        "environment": {
+          "XDG_CONFIG_DIRS": "/home/regner/.config/kdedefaults:/etc/xdg",
+          "XDG_SESSION_PATH": "/org/freedesktop/DisplayManager/Session1",
+          "XDG_MENU_PREFIX": "plasma-",
+          "XDG_SEAT": "seat0",
+          "XDG_SESSION_DESKTOP": "KDE",
+          "XDG_SESSION_TYPE": "wayland",
+          "XDG_CURRENT_DESKTOP": "KDE",
+          "XDG_SEAT_PATH": "/org/freedesktop/DisplayManager/Seat0",
+          "XDG_SESSION_CLASS": "user",
+          "XDG_VTNR": "2",
+          "XDG_SESSION_ID": "2",
+          "XDG_RUNTIME_DIR": "/run/user/1000",
+          "XDG_DATA_DIRS": "/tmp/.mount_Paseo-gLG4F3/usr/share/:./share/:/usr/share/gnome:/usr/local/share/:/usr/share/:/tmp/.mount_Paseo-47w5nb/usr/share/:./share/:/usr/share/gnome:/usr/local/share/:/usr/share/:/home/regner/.local/share/flatpak/exports/share:/var/lib/flatpak/exports/share:/usr/local/share/:/usr/share/:/usr/share/gnome/:/usr/local/share/:/usr/share/:/usr/share/gnome/:/usr/local/share/:/usr/share/"
+        },
+        "owned_pid": 710043,
+        "exit": 0,
+        "reaped": true,
+        "ended_unix": 1791467121.9789982
+      },
+      "complete_streams": {
+        "stdout.log": "{\"original_files\": 4040, \"failures\": []}\n",
+        "stderr.log": "",
+        "engine.log": ""
+      }
+    },
+    {
+      "name": "offline-tests",
+      "command": {
+        "argv": [
+          "/usr/bin/python3",
+          "tools/s07_driver/test_offline.py"
+        ],
+        "cwd": "/home/regner/.paseo/worktrees/0u71f39f/s07-sustained-route-reset-driver",
+        "timeout_seconds": 30,
+        "started_unix": 1791467121.9793243,
+        "HOME": "/home/regner",
+        "environment": {
+          "XDG_CONFIG_DIRS": "/home/regner/.config/kdedefaults:/etc/xdg",
+          "XDG_SESSION_PATH": "/org/freedesktop/DisplayManager/Session1",
+          "XDG_MENU_PREFIX": "plasma-",
+          "XDG_SEAT": "seat0",
+          "XDG_SESSION_DESKTOP": "KDE",
+          "XDG_SESSION_TYPE": "wayland",
+          "XDG_CURRENT_DESKTOP": "KDE",
+          "XDG_SEAT_PATH": "/org/freedesktop/DisplayManager/Seat0",
+          "XDG_SESSION_CLASS": "user",
+          "XDG_VTNR": "2",
+          "XDG_SESSION_ID": "2",
+          "XDG_RUNTIME_DIR": "/run/user/1000",
+          "XDG_DATA_DIRS": "/tmp/.mount_Paseo-gLG4F3/usr/share/:./share/:/usr/share/gnome:/usr/local/share/:/usr/share/:/tmp/.mount_Paseo-47w5nb/usr/share/:./share/:/usr/share/gnome:/usr/local/share/:/usr/share/:/home/regner/.local/share/flatpak/exports/share:/var/lib/flatpak/exports/share:/usr/local/share/:/usr/share/:/usr/share/gnome/:/usr/local/share/:/usr/share/:/usr/share/gnome/:/usr/local/share/:/usr/share/"
+        },
+        "owned_pid": 710045,
+        "exit": 0,
+        "reaped": true,
+        "ended_unix": 1791467132.6101196
+      },
+      "complete_streams": {
+        "stdout.log": "",
+        "stderr.log": "..\n----------------------------------------------------------------------\nRan 2 tests in 10.530s\n\nOK\n",
+        "engine.log": ""
+      }
+    },
+    {
+      "name": "python-compile",
+      "command": {
+        "argv": [
+          "/usr/bin/python3",
+          "-m",
+          "py_compile",
+          "tools/s07_driver/analyze.py",
+          "tools/s07_driver/author.py",
+          "tools/s07_driver/check_resources.py",
+          "tools/s07_driver/retain.py",
+          "tools/s07_driver/run.py",
+          "tools/s07_driver/static_checks.py",
+          "tools/s07_driver/support.py",
+          "tools/s07_driver/test_offline.py"
+        ],
+        "cwd": "/home/regner/.paseo/worktrees/0u71f39f/s07-sustained-route-reset-driver",
+        "timeout_seconds": 30,
+        "started_unix": 1791467132.6103508,
+        "HOME": "/home/regner",
+        "environment": {
+          "XDG_CONFIG_DIRS": "/home/regner/.config/kdedefaults:/etc/xdg",
+          "XDG_SESSION_PATH": "/org/freedesktop/DisplayManager/Session1",
+          "XDG_MENU_PREFIX": "plasma-",
+          "XDG_SEAT": "seat0",
+          "XDG_SESSION_DESKTOP": "KDE",
+          "XDG_SESSION_TYPE": "wayland",
+          "XDG_CURRENT_DESKTOP": "KDE",
+          "XDG_SEAT_PATH": "/org/freedesktop/DisplayManager/Seat0",
+          "XDG_SESSION_CLASS": "user",
+          "XDG_VTNR": "2",
+          "XDG_SESSION_ID": "2",
+          "XDG_RUNTIME_DIR": "/run/user/1000",
+          "XDG_DATA_DIRS": "/tmp/.mount_Paseo-gLG4F3/usr/share/:./share/:/usr/share/gnome:/usr/local/share/:/usr/share/:/tmp/.mount_Paseo-47w5nb/usr/share/:./share/:/usr/share/gnome:/usr/local/share/:/usr/share/:/home/regner/.local/share/flatpak/exports/share:/var/lib/flatpak/exports/share:/usr/local/share/:/usr/share/:/usr/share/gnome/:/usr/local/share/:/usr/share/:/usr/share/gnome/:/usr/local/share/:/usr/share/"
+        },
+        "owned_pid": 710182,
+        "exit": 0,
+        "reaped": true,
+        "ended_unix": 1791467132.6742442
+      },
+      "complete_streams": {
+        "stdout.log": "",
+        "stderr.log": "",
+        "engine.log": ""
+      }
+    },
+    {
+      "name": "whitespace",
+      "command": {
+        "argv": [
+          "git",
+          "diff",
+          "--check",
+          "3f5fb4067c5ce5fca721f54d42165a833e4c884c",
+          "--",
+          "TODO.md",
+          "docs/spikes/s07-run-cards.md",
+          "docs/spikes/s07-sustained-driver.md",
+          "tools/s07_driver",
+          "tests/fixtures/s07_driver"
+        ],
+        "cwd": "/home/regner/.paseo/worktrees/0u71f39f/s07-sustained-route-reset-driver",
+        "timeout_seconds": 30,
+        "started_unix": 1791467132.6744068,
+        "HOME": "/home/regner",
+        "environment": {
+          "XDG_CONFIG_DIRS": "/home/regner/.config/kdedefaults:/etc/xdg",
+          "XDG_SESSION_PATH": "/org/freedesktop/DisplayManager/Session1",
+          "XDG_MENU_PREFIX": "plasma-",
+          "XDG_SEAT": "seat0",
+          "XDG_SESSION_DESKTOP": "KDE",
+          "XDG_SESSION_TYPE": "wayland",
+          "XDG_CURRENT_DESKTOP": "KDE",
+          "XDG_SEAT_PATH": "/org/freedesktop/DisplayManager/Seat0",
+          "XDG_SESSION_CLASS": "user",
+          "XDG_VTNR": "2",
+          "XDG_SESSION_ID": "2",
+          "XDG_RUNTIME_DIR": "/run/user/1000",
+          "XDG_DATA_DIRS": "/tmp/.mount_Paseo-gLG4F3/usr/share/:./share/:/usr/share/gnome:/usr/local/share/:/usr/share/:/tmp/.mount_Paseo-47w5nb/usr/share/:./share/:/usr/share/gnome:/usr/local/share/:/usr/share/:/home/regner/.local/share/flatpak/exports/share:/var/lib/flatpak/exports/share:/usr/local/share/:/usr/share/:/usr/share/gnome/:/usr/local/share/:/usr/share/:/usr/share/gnome/:/usr/local/share/:/usr/share/"
+        },
+        "owned_pid": 710183,
+        "exit": 0,
+        "reaped": true,
+        "ended_unix": 1791467132.682113
+      },
+      "complete_streams": {
+        "stdout.log": "",
+        "stderr.log": "",
+        "engine.log": ""
+      }
+    }
+  ],
+  "ok": true,
+  "initial_runtime_source_ref": "634d2231d4a12909dec4463b839c15085159a361"
+}
