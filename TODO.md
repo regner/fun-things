@@ -764,6 +764,14 @@ waiting for unrelated gameplay systems.
 
 ## Parallel work and dependency checkpoints
 
+ROOT's distinct isolated S08 Linux release operation assigns sole Sol6.1 HIGH
+lead `076a388a-e638-4855-a91a-6f1965ff68c2`, workspace `wks_aa2a7ef710b90059` /
+`s08-linux-release-observation`, exact accepted base LOCAL main93da622.
+ACTIVE UNACCEPTED stopped candidate: one private CLI import/export completed;
+first exported asset observation failed, so ENet was not launched. Remaining work
+is evidence retention and independent review. No shared operational/display lease;
+authoring UNASSIGNED, main editor untouched. This does not close full S08 or targets.
+
 ROOT assigns sole Sol6.1 HIGH lead `6681e399-01df-42f2-8492-6588c9db791c`, workspace
 `wks_6b67bad794fd5c28` / `s02-drawability-evidence-path`, base LOCAL main4169a44,
 one ACTIVE UNACCEPTED operational evidence/design pass under EXISTING S02.
@@ -849,7 +857,7 @@ The table describes dependency stages, not a claim that deferred proofs are runn
 | --- | --- | --- |
 | Initial foundation | Ratified brief, contract drafts, concept exploration, tool inventory | Chosen style/layout and measured scope revisions need user ratification and evidence |
 | Tiny fixtures available | S02 camera using [S01 pipeline evidence](docs/spikes/s01.md); use [completed S03 session evidence](docs/spikes/s03.md); review skill dry runs | All visible fixtures must have Blender sources; only minimum harness required |
-| ENet boundary available | Stopped S03-S compatibility accepted; root commissions exact-revision evidence or bounded native-boundary design; S08 desktop preparation | No adapter selection/native delivery/access proof inferred; existing-app/tester/native compatibility still required |
+| ENet boundary available | Stopped S03-S compatibility accepted; root commissions exact-revision evidence or bounded native-boundary design; S08 sole lead076a388/wks_aa2a7ef710b90059 ACTIVE UNACCEPTED isolated CLI export, stopped at first asset failure; retention/review only | No shared authoring lease; full S08/asset load/exported ENet/target acceptance remains open. No adapter selection/native delivery/access proof inferred; existing-app/tester/native compatibility still required |
 | Reviewed desktop and partial S05/S06 technical results available | Exact754a0b5 and7fb302b PARTIAL accepted; provisional S07 seam dependency satisfied; existing S02 sole lead6681e399/wks_6b67bad794fd5c28 ACTIVE UNACCEPTED stopped drawability pass, documentation/retention/review only; DOC10/DOC11 complete | Operational/display lease RETURNED after saved main restoration; authoring UNASSIGNED; full S02/S07 and actual effects/drawn/physical keys/feel/final dimensions/Steam/targets remain open |
 | Both providers available | Finish S03-R foot response and S04 network response; S08 exports | Both transports need evidence; foot/vehicle prediction are separate decisions |
 | Provisional technical topology available | Accepted S06 crossing/opposing legal LEFT turns/four-arm minimap/stale-data and finite guard; S07 static preparation | Actual drawn/readability/final bodies/contact/exit reruns and real M1-C3 contested recovery remain open; geometric sensitivity is not changed-body proof |
