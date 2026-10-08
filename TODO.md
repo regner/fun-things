@@ -707,9 +707,17 @@ ACCEPTED and integrated at `2370ad1`; P2/P3 are closed and full S04 stays open.
 Prior direct Sol HIGH lead `4b965847-a374-47da-aa0e-2800adaebc4f`, workspace
 `wks_f739d0d8cb771a1d`, branch `s04-desktop-enet-cars`, are archived by Paseo after
 saved/quiescent editor relocation to main. Root's complete `2370ad1` note retains
-historical assignment, review/integration and relocation receipts. Current lease
-UNASSIGNED; no active S04 candidate or new S04/S05/S06 authoring allocation.
-Root grants named leases before the next experiment. Original
+historical assignment, review/integration and relocation receipts. No active S04
+candidate or new S04/S06 authoring allocation. Root has assigned active **UNACCEPTED**
+S05 direct lead `50c01e86-3164-4592-a48b-8181b3275d63`, Sol6.1 HIGH auto-review,
+workspace `wks_42b1f3912dacdb26`, branch `s05-authoritative-chain-fixture`, base LOCAL
+main `c0eda26f7f010af75bbf10c272ec5cb001442331`. It owns the exclusive NEW S05
+Godot/essential-new-Blender source lease; fresh HOST/live saved-editor preflight is
+required before project switch. No accepted S05 candidate/result exists. Its bounded
+authoritative damage/life/three-car duplicate/wreck hydration and12-car/8-cosmetic-slot
+experiment retain provisional product/full gates. It edits no shared guides; DOC6/7
+ownership remains with their sole documentation lead. Root grants subsequent named
+leases separately. Original
 S02/S03 fixtures remain immutable. Separate drawable S02/S03-R/S04 physical input,
 native focus, camera/readability/feel and conditional prediction decisions remain
 open. DOC1–7 are complete; [DOC6](docs/reviews/p0-doc6.md) reconciles accepted S04
@@ -749,7 +757,7 @@ The table describes dependency stages, not a claim that deferred proofs are runn
 | Initial foundation | Ratified brief, contract drafts, concept exploration, tool inventory | Chosen style/layout and measured scope revisions need user ratification and evidence |
 | Tiny fixtures available | S02 camera using [S01 pipeline evidence](docs/spikes/s01.md); use [completed S03 session evidence](docs/spikes/s03.md); review skill dry runs | All visible fixtures must have Blender sources; only minimum harness required |
 | ENet boundary available | Stopped S03-S compatibility accepted; root commissions exact-revision evidence or bounded native-boundary design; S08 desktop preparation | No adapter selection/native delivery/access proof inferred; existing-app/tester/native compatibility still required |
-| Reviewed desktop S02/S03/S03-R and bounded S04 technical result available | Bounded S05 preparation and S06 provisional saved turn/seam experiment after new named leases; separately leased S02/S03-R/S04 drawable follow-ups | No current authoring lease; final dimensions/turning/feel/target/Steam/prediction remain open |
+| Reviewed desktop S02/S03/S03-R and bounded S04 technical result available | Active UNACCEPTED S05 lead `50c01e86-3164-4592-a48b-8181b3275d63`, `wks_42b1f3912dacdb26` / `s05-authoritative-chain-fixture`, exclusive NEW S05 Godot/essential-new-Blender lease; S06 and drawable follow-ups need separate named leases | S05 requires fresh HOST/live saved-editor preflight before project switch; no accepted result; final dimensions/turning/feel/target/Steam/prediction remain open |
 | Both providers available | Finish S03-R foot response and S04 network response; S08 exports | Both transports need evidence; foot/vehicle prediction are separate decisions |
 | Provisional technical vehicle envelope available | Bounded S05 minimum damage/chain fixture and S06 intersection/seam with actual bodies | Final dimensions/turning/exit ratification remains S04; rerun affected cases after choices |
 | City/effect fixtures available | S07 capacity/culling experiments, finish S08, skill dry runs and doc reconciliation | P0-GATE resolves critical assumptions before production |
