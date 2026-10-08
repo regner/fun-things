@@ -26,10 +26,10 @@ def load_original():
     return module
 
 
-def static():
+def static(base=BASE):
     """Check all base bytes except the two explicitly owned instrumentation/task paths."""
     ledger = []
-    tree = subprocess.check_output(['git', 'ls-tree', '-rz', BASE], cwd=ROOT)
+    tree = subprocess.check_output(['git', 'ls-tree', '-rz', base], cwd=ROOT)
     for entry in tree.split(b'\0'):
         if not entry:
             continue
@@ -43,12 +43,12 @@ def static():
         assert hashlib.sha1(b'blob ' + str(len(data)).encode() + b'\0' + data).hexdigest() == oid, name
         ledger.append({'path': name, 'git_blob': oid, 'bytes': len(data),
                        'sha256': hashlib.sha256(data).hexdigest()})
-    before = subprocess.check_output(['git', 'show', BASE + ':TODO.md'], cwd=ROOT, text=True)
+    before = subprocess.check_output(['git', 'show', base + ':TODO.md'], cwd=ROOT, text=True)
     after = (ROOT / 'TODO.md').read_text()
     assert before[:before.index('- [ ] **S05')] == after[:after.index('- [ ] **S05')]
     assert before[before.index('- [ ] **S06'):] == after[after.index('- [ ] **S06'):]
     source = (ROOT / OBSERVER).read_text()
-    original = subprocess.check_output(['git', 'show', BASE + ':' + OBSERVER], cwd=ROOT, text=True)
+    original = subprocess.check_output(['git', 'show', base + ':' + OBSERVER], cwd=ROOT, text=True)
     assert re.findall(r'^func .*', source, re.M) == re.findall(r'^func .*', original, re.M)
     assert 'MAX_FRAME_RECEIPTS: int = 65_536' in source
     assert 'DisplayServer.window_get_vsync_mode()' in source
@@ -61,13 +61,23 @@ def static():
             'todo_outside_s05_preserved': True}
 
 
+def validate_sizes(image_size, png_size, receipt):
+    """Keep image identity strict but viewport/native/requested dimensions independent."""
+    assert image_size == png_size and all(value > 0 for value in image_size)
+    for field in ['viewport', 'window_size', 'requested_project_size']:
+        assert len(receipt[field]) == 2 and all(value > 0 for value in receipt[field])
+    assert receipt['requested_project_size'] == [1280, 800]
+
+
 def evaluate(group):
     """Evaluate actual streams and callback-bound PNGs; missing stages are explicit failures."""
     checks, errors, summaries, images = {}, [], {}, []
     original = load_original()
     life = json.loads((group / 'lifecycle.json').read_text())
     for field in ['collection_ok', 'source_preserved', 'streams_closed',
-                  'all_owned_children_reaped', 'within_budget', 'normal_exits']:
+                  'all_owned_children_reaped', 'within_budget', 'normal_exits',
+                  'preparation_within_budget', 'collection_within_budget',
+                  'cleanup_within_budget', 'readback_within_budget']:
         checks[field] = life.get(field) is True
     checks['owned_roles'] = set(life['processes']) == {'import', 'host', 'client', 'late'}
     checks['no_cleanup_fallback'] = not life.get('cleanup_phases')
@@ -120,7 +130,7 @@ def evaluate(group):
                 content = path.read_bytes()
                 assert content[:8] == b'\x89PNG\r\n\x1a\n', 'PNG signature'
                 size = list(struct.unpack('>II', content[16:24]))
-                assert size == [png['width'], png['height']] == receipt['viewport']
+                validate_sizes(size, [png['width'], png['height']], receipt)
                 assert hashlib.sha256(content).hexdigest() == png['sha256'] and png['save_error'] == 0
                 assert receipt['callback'] >= 3 and receipt['requested_project_size'] == [1280, 800]
                 assert receipt['session'] == receipt['cut']['session'] and len(receipt['session']) == 32
@@ -144,6 +154,8 @@ def evaluate(group):
                 if png['stage'] == 'expired':
                     assert receipt['presentation']['visible'] == 0 and receipt['accepted'] == 8
                     assert all(not active['busy'] for active in receipt['presentation']['active'])
+                    assert receipt['presentation']['tick'] >= max(
+                        active['local_deadline'] for active in receipt['presentation']['active'])
                 checks[key + '_bound_image'] = True
                 images.append({'role': role, 'stage': png['stage'], 'path': str(path),
                     'sha256': png['sha256'], 'bytes': len(content), 'image_size': size,
@@ -187,7 +199,7 @@ def evaluate(group):
             r['event_id']['session'] == host['cut']['session'] for r in blasts)
         expiry = [r for r in draws['client'] if r['kind'] == 'expiry']
         checks['natural_live_expiry'] = len(expiry) == 1 and expiry[0]['presentation']['visible'] == 0 and (
-            0 < expiry[0]['wait_ticks'] <= 120 and expiry[0]['live'] == expiry[0]['duplicates'] == 12)
+            0 <= expiry[0]['wait_ticks'] <= 120 and expiry[0]['live'] == expiry[0]['duplicates'] == 12)
     except (StopIteration, KeyError) as error:
         errors.append('workload receipts: ' + repr(error))
         checks['complete_gameplay_receipts'] = False
@@ -202,8 +214,9 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--group', type=Path)
     parser.add_argument('--output', type=Path, required=True)
+    parser.add_argument('--base', default=BASE)
     args = parser.parse_args()
-    result = {'static': static()}
+    result = {'preservation_base': args.base, 'static': static(args.base)}
     if args.group:
         result['observation'] = evaluate(args.group.resolve())
     args.output.write_text(json.dumps(result, indent=2) + '\n')

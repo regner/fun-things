@@ -4,6 +4,7 @@ from contextlib import redirect_stdout
 import importlib.util
 import io
 import json
+import math
 import os
 from pathlib import Path
 import signal
@@ -107,12 +108,17 @@ def scenario(name, prep_seconds=3):
             project = target / 'project'
             project.mkdir()
             (project / 'project.godot').write_bytes(b'fake-settings')
+            if name == 'slow-generated':
+                (project / '.godot').mkdir()
+                (project / '.godot/last-generated').write_bytes(b'fake-generated')
             return project, [{'path': 'project.godot', **real_digest(b'fake-settings')}]
         def read(path):
             return pin if str(path) == module.ENGINE else real_read(path)
         def digest(data):
+            if data == b'fake-generated':
+                clock.sleep(100)
             if data == b'fake-settings':
-                clock.sleep(3)
+                clock.sleep(5 if name == 'slow-readback' else 3)
             return real_digest(data)
         def popen(command, **_kwargs):
             role = 'import' if '--import' in command else next(
@@ -120,7 +126,8 @@ def scenario(name, prep_seconds=3):
             cutoff = 190 if role == 'import' else min(210, 100 + prep_seconds + 20)
             assert clock.now < cutoff, 'post-cutoff spawn'
             spawn_times.append((role, clock.now))
-            normal = name == 'normal' or role == 'import' and name != 'import-timeout'
+            normal = name in ['normal', 'slow-generated', 'slow-readback'] or (
+                role == 'import' and name != 'import-timeout')
             child = Child(clock, len(children) + 1, role, normal)
             children.append(child)
             if name == 'live-spawn-cutoff' and role == 'client':
@@ -153,11 +160,19 @@ def scenario(name, prep_seconds=3):
                     if fake_output.exists():
                         shutil.rmtree(fake_output)
         assert receipt['within_budget'] and receipt['elapsed_s'] <= 120
-        assert receipt['streams_closed'] and receipt['source_preserved']
+        assert receipt['streams_closed']
+        assert receipt['source_preserved'] == (name != 'slow-readback')
         assert receipt['all_owned_children_reaped'] and all(c.reaped for c in children)
         assert receipt['start_monotonic'] == 100 and receipt['absolute_deadline'] == 220
-        assert receipt['readback_elapsed_s'] == 3
-        if name == 'normal':
+        assert receipt['readback_elapsed_s'] == (5 if name == 'slow-readback' else 3)
+        if name == 'slow-generated':
+            assert exit_code == 1 and len(children) == 1 and children[0].role == 'import'
+            assert not receipt['preparation_within_budget'] and 'host' not in receipt['processes']
+            assert receipt['elapsed_s'] == 106
+        elif name == 'slow-readback':
+            assert exit_code == 1 and len(children) == 4 and not receipt['readback_within_budget']
+            assert math.isclose(receipt['elapsed_s'], 17, abs_tol=.01)
+        elif name == 'normal':
             assert exit_code == 0 and len(children) == 4 and not receipt['cleanup_phases']
         elif name == 'preparation-cutoff':
             assert exit_code == 1 and not children
@@ -182,6 +197,16 @@ def evaluator_negatives():
     spec = importlib.util.spec_from_file_location('card_i_check', ROOT / 'tools/s05_vsync_image/check.py')
     check = importlib.util.module_from_spec(spec)
     spec.loader.exec_module(check)
+    # Scalar telemetry tests create no PNG/callback/effect and grant no image credit.
+    sizes = {'viewport': [1280, 800], 'window_size': [2112, 1320],
+             'requested_project_size': [1280, 800]}
+    check.validate_sizes([2112, 1320], [2112, 1320], sizes)
+    try:
+        check.validate_sizes([2112, 1320], [1280, 800], sizes)
+    except AssertionError:
+        pass
+    else:
+        raise AssertionError('PNG header versus receipt mismatch was accepted')
     old = ROOT / 'docs/spikes/s05-render-observation-evidence/payloads/group02'
     with TemporaryDirectory(prefix='s05-offline-negative-') as temporary:
         group = Path(temporary)
@@ -248,7 +273,7 @@ def main():
     """Assert literal aggregate bounds and shared grace for the actual runner's failure paths."""
     results = [scenario('normal'), scenario('three-stubborn'),
                scenario('preparation-cutoff', 90), scenario('import-timeout'),
-               scenario('live-spawn-cutoff')]
+               scenario('live-spawn-cutoff'), scenario('slow-generated'), scenario('slow-readback')]
     print(json.dumps({'engine_executed': False, 'real_socket_opened': False,
                       'cases': results, 'evaluator_negatives': evaluator_negatives(),
                       'corrected_probe_synthetic_cases': endpoint_cases()}, indent=2))

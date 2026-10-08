@@ -295,11 +295,17 @@ def main():
         if importer.returncode != 0:
             raise RuntimeError('minimal import nonzero exit')
         before(prep, 'preparation')
-        generated = [{'path': str(p.relative_to(project)), **digest(p.read_bytes())}
-                     for p in (project / '.godot').rglob('*') if p.is_file()]
+        generated = []
+        for path in (project / '.godot').rglob('*'):
+            before(prep, 'generated import accounting')
+            if path.is_file():
+                generated.append({'path': str(path.relative_to(project)), **digest(path.read_bytes())})
+                before(prep, 'completed generated import hash')
         save(output / 'generated-imports.json', {'files': generated,
              'bytes': sum(r['bytes'] for r in generated), 'separate_from_source_cap': True})
+        before(prep, 'completed preparation')
         result['prep_end_monotonic'] = time.monotonic()
+        result['preparation_within_budget'] = True
         collect = min(start + PREP_SECONDS + COLLECTION_SECONDS,
                       time.monotonic() + COLLECTION_SECONDS)
         result['collection_deadline'] = collect
@@ -311,7 +317,7 @@ def main():
             return spawn(role, [ENGINE, '--audio-driver', 'Dummy', '--disable-vsync',
                 '--path', str(project), '--display-driver', 'wayland', '--log-file',
                 str(output / role / 'engine.log'), SCENE, '--', '--role=' + role,
-                '--port=' + str(port)], collect)
+                '--port=' + str(port)], min(prep, collect) if role == 'host' else collect)
         graphical('host')
         while time.monotonic() < collect:
             for role, child in list(children.items()):
@@ -340,8 +346,13 @@ def main():
     except Exception as error:
         result['failure'] = repr(error)
     finally:
-        result['cleanup_phases'] = cleanup(children, result['processes'],
-                                          min(time.monotonic() + CLEANUP_SECONDS, absolute - 4))
+        phase_end = time.monotonic()
+        result['collection_within_budget'] = result.get('collection_ok', False) and (
+            phase_end <= result.get('collection_deadline', start))
+        cleanup_start = time.monotonic()
+        cleanup_cutoff = min(cleanup_start + CLEANUP_SECONDS, absolute - READBACK_SECONDS)
+        result['cleanup_phases'] = cleanup(children, result['processes'], cleanup_cutoff)
+        result['cleanup_within_budget'] = time.monotonic() <= cleanup_cutoff
         for stream in streams:
             stream.close()
         result['streams_closed'] = True
@@ -356,6 +367,7 @@ def main():
                 if row['path'] != 'project.godot':
                     preserved &= digest((ROOT / row['path']).read_bytes()) == {
                         'bytes': row['bytes'], 'sha256': row['sha256']}
+            before(cutoff, 'completed readback')
         except Exception as error:
             preserved = False
             result['readback_failure'] = repr(error)
@@ -365,6 +377,8 @@ def main():
         result['elapsed_s'] = result['end_monotonic'] - start
         result['within_budget'] = result['end_monotonic'] <= absolute
         result['readback_elapsed_s'] = result['end_monotonic'] - readback_start
+        result['readback_within_budget'] = result['end_monotonic'] <= cutoff
+        result.setdefault('preparation_within_budget', False)
         result['normal_exits'] = bool(children) and all(c.returncode == 0 for c in children.values())
         result['absent_outputs'] = {role: [stage + '.png' for stage in stages
             if not list((output / role).rglob(stage + '.png'))] for role, stages in
@@ -373,7 +387,8 @@ def main():
         save(output / 'lifecycle.json', result)
     print(json.dumps(result, indent=2))
     return 0 if all(result.get(k) for k in ['collection_ok', 'source_preserved',
-        'all_owned_children_reaped', 'within_budget', 'normal_exits']) else 1
+        'all_owned_children_reaped', 'within_budget', 'normal_exits', 'preparation_within_budget',
+        'collection_within_budget', 'cleanup_within_budget', 'readback_within_budget']) else 1
 
 
 if __name__ == '__main__':

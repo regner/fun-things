@@ -1521,6 +1521,10 @@
     "raw-stop-confirmation.txt": {
       "bytes": 1239,
       "sha256": "47acedbbbe244f33d02bb5e6f25ce07fb4d091673a35a69e600c1e060463d94e"
+    },
+    "provenance.md": {
+      "bytes": 2007,
+      "sha256": "0218791a61940e316ca64cf5e6f80d90537391cc5498def1cb8e74933b74f7f1"
     }
   },
   "expected_paths": [
@@ -1651,6 +1655,7 @@
     "payloads/sources/executed/tools/s05_vsync_image/run.py.gz",
     "payloads/sources/executed/tools/s05_vsync_image/test_offline.py.gz",
     "payloads/sources/recovered-offline01-test_offline.py.gz",
+    "provenance.md",
     "raw-commission.txt",
     "raw-main-notification.txt",
     "raw-stop-confirmation.txt",
@@ -1752,5 +1757,6 @@
     "host/cache/nvidia/GLCache/1d36caa2d1419b7c4ce5da968e5b23ee/98702135e35a87bb/9ba9b8d4e050f847.toc"
   ],
   "exclusion_reason": "driver/editor/shader caches are not proof streams or generated imports",
-  "generated_import_storage_label": "generated-imports stores gzip-only .godot inputs, preserving original source paths; no live .godot directory is versioned"
+  "generated_import_storage_label": "generated-imports stores gzip-only .godot inputs, preserving original source paths; no live .godot directory is versioned",
+  "additive_provenance": "provenance.md clarifies preserved pre-normalization and later source-only identities"
 }

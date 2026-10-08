@@ -219,3 +219,35 @@ advance30471e6 changes Steam docs/evidence and only unrelated S03-S TODO/readine
 prose. Initial review stays on the commissioned base; inspect actual delta and
 rebase once at a saved boundary before same-reviewer exact-final disposition.
 No code/pin/settings/scene/gameplay change or runtime replay follows that rebase.
+
+## Initial independent findings and offline fixes
+
+Reviewer `d1826d29-12ab-4b8c-8d55-9ebc7dbd2d8b`, effective pi/OpenAI/GPT-6.1-Sol HIGH,
+requested changes on exact `bfa3253176896e3049db80d2d5e6acc595c8358b` at the
+commissioned base. Full report17511bytes/SHA256
+`3202755310a32040551da539ecb4c45218aa14a3aa7e0ecf47d1dfcb963bcda7` and all initial
+checks/failures remain in the final review note.
+
+P2 R1: source/fake-clock counterexamples admitted103s preparation and5s readback
+with exit0 under the aggregate120s cap. The actual consumed attempt did **not**
+overrun. Offline correction checks generated import accounting during and after
+its last hash, completed preparation before graphics, and completed readback after
+its last hash; explicit preparation/collection/cleanup/readback compliance is now
+required for successful supervisor return. Added fake-clock regressions reject
+both overruns. This source has **not** run in Godot and grants no past credit.
+
+P3 R2: the archived retainer is the7076byte pre-storage-normalization snapshot,
+not the later7182byte script with archive-label remapping. The additive
+[exact provenance supplement](s05-vsync-image-observation-evidence/provenance.md)
+clarifies both identities and preserves every prior payload/dictionary via the
+initial evidence ref; no historical stream or missing lookup is recreated.
+
+Lead's additional offline evaluator contract corrections keep image-header versus
+PNG receipt identity strict while requested/window/viewport/image sizes remain
+**separate**: an actual unmodified image need not match the logical viewport to
+qualify for IMAGE-only review. Scalar size tests create no PNG or inspection credit.
+Already-completed natural expiry may have zero additional wait ticks; an expired
+capture must still be past the recorded local deadlines with all slots inactive.
+This is not synthetic expiry. A preservation-base option supports the notified
+rebase without changing the attempt's commissioned base or runtime evidence.
+SAME-reviewer exact-final disposition is required for these material source deltas.
