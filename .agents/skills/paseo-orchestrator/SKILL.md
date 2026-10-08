@@ -135,6 +135,12 @@ Require a handoff containing:
 ROOT returns specific evidence gaps to the worker; it does not perform technical
 review to fill them.
 
+## Periodic plan and documentation checkpoint
+
+ROOT uses the [checkpoint contract](references/root.md#periodic-plan-and-documentation-checkpoint)
+for cadence, profile assessment and exact examined watermarks. This routing section
+preserves existing contract links; implementers follow their assigned task scope.
+
 ## Audit provenance
 
 The [independent audit](../../../docs/workflows/orchestration-workflow-audit.md) is

@@ -174,4 +174,3 @@ Keep history linear; never create merge commits.
 
 If authorization covers only worker delivery, report the handoff and leave integration
 and archival to the owning orchestrator.
-
