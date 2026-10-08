@@ -6,7 +6,10 @@
 workspace `wks_08760af59ce23966`. Rebased at a saved boundary onto integration base
 `3f5fb4067c5ce5fca721f54d42165a833e4c884c` (43 added discovery docs/evidence only);
 no changed runtime inputs and no repeated measurements. Direct implementer:
-Sol6.1 HIGH; ROOT coordinates only. [Complete commission, declarations and raw evidence](s07-sustained-driver-evidence/README.md).
+Sol6.1 HIGH; ROOT coordinates only. After initial review, rebased onto
+`30471e6ae4c4ecbe01ce13313cd6d14c3b701bae` (64 added Steam docs/evidence paths and
+only S03-S TODO/readiness text). Accepted S03-S bytes are preserved; runtime inputs
+are unchanged and no measurement is repeated. [Complete commission, declarations and raw evidence](s07-sustained-driver-evidence/README.md).
 Full S07 and P0-GATE remain OPEN.
 
 ## Ownership and executable recipe
@@ -67,6 +70,17 @@ failed authoring recipe; **they are not a ready retry instruction**.
 | Addon-free closure import | One attempt,2.72s, exit0; complete stdout/stderr/engine streams, no diagnostics, saved inputs unchanged. |
 | First development group |65.77s including explicit all3 new-script compiles,15 public-boundary lifecycle/ownership/stale/cancel/reload guards and six actual traversals. Two successive traversals each; guards/outcomes/independent analysis have no failures. |
 | Sustained interval | One group608.95s including owned process cleanup, exit0, no runtime diagnostics. Declared600 actual seconds; driver interval608.639614s with57 full traversals,19 per route,36,461 actual physics samples; no timeout, contact, seam/footprint/continuity/destination/heading failure. |
+
+The independent reviewer used the remaining development-2 attempt: three compiles
+and all15 lifecycle guards passed, then the tool wait was interrupted during routes.
+No final route/group exit/reap/phase/result receipts exist; this group is **INTERRUPTED,
+not passed**, and is not substituted for the complete lead receipts above. The
+recorded runtime PID was observed absent; missing final statuses are not reconstructed.
+All editor/import/development/sustained attempt groups are now exhausted. Complete
+initial/final review reports and actual interrupted streams/check sources are retained
+in the exact-candidate Git note linked by the evidence index. Pinned lint's exit0
+advisories (101-character signature and two long test functions) remain in that report;
+they were not suppressed or used to justify unrelated refactoring.
 
 Each foot traversal477 ticks/7.95 simulation seconds; each car721 ticks/12.0167s.
 Independent literal destination <=0.5m, exit heading <=10°, nonempty progress,

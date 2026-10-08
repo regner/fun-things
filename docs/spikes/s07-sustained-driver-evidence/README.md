@@ -30,9 +30,14 @@ exact final candidate in `refs/notes/paseo-orchestration`, not inferred from thi
   full argv/exit/stdout/stderr/engine and empty diagnostics, cleanup receipt.
 - Root-level `*-supervisor.*` / `*-analysis.*`: complete Python tool streams,
   including required empty stderr. `budget.json` is the lead-phase snapshot (one
-  import, one development group, one sustained group); the remaining development
-  group may be used by independent review, whose exact final ledger goes in its
-  retained report/evidence. No extra engine/editor/import/sustained attempt is granted.
+  import, one development group, one sustained group). Independent review consumed
+  development-2: three compiles and15 lifecycle guards passed, then the tool wait
+  was interrupted during routes. Final route/group exit/reap/phase/result receipts
+  are missing and explicitly unavailable, not reconstructed; the recorded runtime
+  PID was observed absent. The final ledger is one import, TWO development attempts,
+  one sustained attempt, with the editor attempt also exhausted. Complete review/
+  interrupted receipts and final ledger are in the exact-candidate Git note. No
+  extra engine/editor/import/development/sustained attempt is granted.
 - `preservation-before-simulation.json` / `preservation-final.json`: exact base-file
   Git blob/SHA readback; only assigned S07 TODO/run-card documentation may differ.
   `static-checks.json` records actual source/check argv/exits/full diagnostics and
