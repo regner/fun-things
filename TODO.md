@@ -240,28 +240,6 @@ exact6c36c12 with separate resolving1691424/dbce2f9. DOC10 and DOC11 are complet
 02aa254/4169a44 on accepted64bd46b. The new stopped S02 acceptance discovery below
 is a subsequent bounded supplement; completed DOC1–11 are not reopened.
 
-- [ ] **P0-DOC12 — Discover exact accepted stopped S02 operational disposition.**
-  Owner: one root-assigned direct Sol MEDIUM/HIGH documentation worker; sole independent
-  Sol HIGH reviewer, serialized with conflicting documentation reviews/writes.
-  Files: exactly `docs/spikes/s02-drawability.md` and
-  `docs/spikes/s02-drawability-evidence/README.md`. Their terminal review/retention
-  paragraphs still require future exact-final review without discovering its now
-  accepted completion. Add a dated exact-final supplement; preserve those paragraphs
-  as historical and all original protocol/criteria/observations/negative evidence.
-  Needs: accepted exact `a311c576d25a1554471c8381e1620136b76d9b23` and its reachable
-  strict JSON note/report in `refs/notes/paseo-orchestration`; see
-  [eighth identity ledger](docs/reviews/plan-check-08-evidence/accepted-audit.json).
-  Sole reviewer81d6afb9 accepted the stopped record, not full positive criteria:
-  three automatic callbacks/frames0/1/2/nonblank2112×1320 PNG, can_drawfalse, actual
-  viewport differs from declared1280×800, focusfalse/input suspended. Keep auxiliary
-  source-index/client-snapshot/CUA receipt limitations, original failures and full gates OPEN.
-  No engine/surface/query/technical rerun, evidence rewrite or canonical guide sweep.
-  Done when: both files discover exact stopped-record ACCEPT and full-criteria FAIL,
-  original complete report/notes/retention and next changed-condition STOP boundary;
-  static links/identity/history/LF/whitespace checks and exact independent review pass.
-  Remove this item with its resolving supplement commit, link completion from P0-GATE,
-  and finish before that gate uses the reconciled records. No new experiment is assigned.
-
 - [ ] **P0-DOC13 — Reconcile stopped S08 acceptance and failed release entrypoint discovery.**
   Owner: one ROOT-assigned direct Sol MEDIUM/HIGH documentation worker and sole
   independent Sol HIGH reviewer; serialize conflicting doc writes/reviews.
@@ -642,7 +620,8 @@ implementation. Save editor mutations before playtests; preserve unsaved work.
   [completed S03 proof](docs/spikes/s03.md), S03-R/S03-S and S04 through S08,
   [DOC10 partial S06 tooling/review discovery](docs/reviews/p0-doc10.md) and
   [DOC11 partial S06 topology/source reconciliation](docs/reviews/p0-doc11.md),
-  and P0-DOC12/13 exact stopped S02/S08 acceptance discovery before reconciled-record use.
+  [DOC12 exact stopped S02 discovery](docs/reviews/p0-doc12.md) and
+  P0-DOC13 exact stopped S08 acceptance discovery before reconciled-record use.
   S07 supplies the documented capacity envelope, limiting axes, organization and
   diagnostic decisions; research alone leaves representative/target gaps open.
   Done when: critical design/feasibility assumptions required to begin M1 are resolved;

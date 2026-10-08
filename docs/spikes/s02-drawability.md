@@ -227,3 +227,37 @@ DOC10/DOC11 complete accepted discovery remains preserved; any newly observed
 operational drift is a later checkpoint concern, never repaired here. Same fresh
 Sol6.1 HIGH independent reviewer must inspect substantive and exact final SHA,
 complete raw receipts/requirements/grant and lossless same-HEAD note readback.
+
+## 2026-10-08 exact accepted disposition supplement
+
+The terminal future-review/retention requests above are historical. Exact
+`a311c576d25a1554471c8381e1620136b76d9b23`, against base
+`4169a4466e01fb50acd8069308fc2556d03e0198`, received sole independent Sol6.1 HIGH
+reviewer `81d6afb9-8178-428f-aae3-697985f3374a`'s unconditional exact-final
+**ACCEPT of the stopped operational record**, with no required fix or additional
+metadata acknowledgement. Complete review and lossless same-HEAD retention are
+already recorded in `refs/notes/paseo-orchestration`; this supplement discovers
+that completion, not a new experiment or technical review.
+
+**Full predeclared positive criteria remain FAIL; observation STOPPED.** The
+narrower actual result is three automatic callbacks, frames0/1/2 and a nonblank
+2112×1320 third-callback PNG. `can_draw=false`, actual output differs from declared
+1280×800, native focusfalse and input suspended remain failures/limits. Collection
+exit0 does not close full S02 or physical scanout/input/focus/feel acceptance.
+
+All three accepted auxiliary limitations remain: the source-index builder silently
+skipped nonexistent `tools/s02/capture_s02.gd` (the actual historical helper is
+`tests/fixtures/s02/capture_s02.gd`); its supplemental immutable locator is in the
+full review, without repairing the original index. The invoked external
+`/tmp/s06-editor-relocation/client.mjs` has only a historical source reference,
+not an execution-time byte snapshot. The empty CUA inventory is an attributed
+worker observation with no named raw receipt, not independently verified inventory.
+
+The [DOC12 completion record](../reviews/p0-doc12.md) gives immutable original Git/note/report
+locators and actual byte/hash identities; the complete original protocol, failures,
+report, manifests and retention remain reachable unchanged. Saved-main restoration
+and lease return are time-specific historical receipts, not current surface state.
+The next boundary still requires a new actual changed condition and separate ROOT
+operational grant with finite criteria/cleanup. No identical retry, focus/resize,
+display/renderer/configuration repair or new owner is assigned. Full S02/S03-R/S04/
+S05/S06/S07/S08/P0/M1, Steam/Deck/input/feel/capacity/production gates remain OPEN.
