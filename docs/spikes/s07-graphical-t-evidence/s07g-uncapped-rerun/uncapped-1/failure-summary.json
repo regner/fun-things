@@ -1,0 +1,40 @@
+{
+  "timeline_from_retained_files": {
+    "traversals": 10,
+    "last_retired_seconds": 382.392357,
+    "memory_samples": 492,
+    "memory_first_seconds": 0.001,
+    "memory_last_seconds": 492.16,
+    "working_set_p50_bytes": 380956672,
+    "working_set_max_bytes": 384065536
+  },
+  "retained_traversals": {
+    "path": "traversals.jsonl.gz",
+    "source_bytes": 1021535,
+    "source_sha256": "ab4f42dfd861ddcd2804b481f5636ae19e8cbfc9a06946e43589d312b1b98b35",
+    "compressed_bytes": 178464,
+    "compressed_sha256": "40807508186523c045d99420b790091e2366f8fa940f537e1c7ce6bd356228af"
+  },
+  "large_log_sources": {
+    "stderr.log": {
+      "source": "C:/tmp/ft/s07g-uncapped-rerun/uncapped-1/stderr.log",
+      "source_bytes": 11664962,
+      "source_sha256": "2c4d390aa0b315470db3eea46510bf4adda5a5a1a36aad70d1fd9f7d37434186",
+      "source_lines": 190417,
+      "diagnostic_lines": 58960,
+      "retained_in_full": false
+    },
+    "engine.log": {
+      "source": "C:/tmp/ft/s07g-uncapped-rerun/uncapped-1/engine.log",
+      "source_bytes": 11474640,
+      "source_sha256": "c8986e3393cfe9fb00fd041c129ea1fc2f54e53158ee8f50d57117c222450377",
+      "source_lines": 190419,
+      "diagnostic_lines": 58959,
+      "retained_in_full": false
+    }
+  },
+  "retained_log_excerpt": {
+    "path": "stderr-head.log",
+    "lines": 60
+  }
+}

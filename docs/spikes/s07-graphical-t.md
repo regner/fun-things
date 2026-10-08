@@ -4,8 +4,10 @@
 layer to the accepted [sustained driver](s07-sustained-driver.md) and runs the
 [T primary card](s07-run-cards.md) shape: 60 s warmup plus 600 s measured,
 uncapped and 60-capped, three repeats each. [Evidence](s07-graphical-t-evidence/)
-keeps summaries, per-case results, frame metadata and memory samples; raw
-per-frame binaries (5–40 MB each) were not committed.
+keeps summaries, per-case results, frame metadata and memory samples. The three capped
+runs' raw frame and traversal samples are retained with deterministic gzip compression;
+[`raw-manifest.json`](s07-graphical-t-evidence/s07g-capped/raw-manifest.json) binds source
+and compressed byte counts and SHA-256s.
 
 ## Setup
 
@@ -36,13 +38,25 @@ failures. Measured phase, about 602 s and 36,108–36,120 frames per run:
 | Video memory max | 82.9 MB | 84.5 MB | 82.1 MB |
 | Working set p50 / max | 363 / 367 MB | 363 / 366 MB | 360 / 362 MB |
 
-- **Hitches are lifecycle work.** Of the 43–46 long frames per run, 42–43 fall
-  within the driver's per-traversal load or teardown windows. Those are reported
-  phases (saved-scene reload), not route cost. Traversal-only frames have p95
-  17.8 ms, p99 18.5–18.6 ms and max 25.8–240 ms. The two traversal outliers
-  (87 ms, 240 ms) are unattributed and may be OS scheduling. This analysis was
-  run on the raw frame binaries and is reproducible with them; only summaries
-  are retained.
+Independent analysis of the retained raw samples gives:
+
+| Hitch analysis | Run 1 | Run 2 | Run 3 |
+| --- | --- | --- | --- |
+| Long frames >33.4 ms | 46 | 45 | 43 |
+| In load or teardown windows | 42 | 42 | 43 |
+| Traversal-only interval p95 (ms) | 17.797 | 17.838 | 17.834 |
+| Traversal-only interval p99 (ms) | 18.518 | 18.577 | 18.565 |
+| Traversal-only interval max (ms) | 87.195 | 240.285 | 25.78 |
+
+- **Hitches are predominantly lifecycle work.** The load window is
+  `[load_start_seconds, traversal_start_seconds + 0.1]`; teardown is
+  `[traversal_end_seconds - 0.05, retired_seconds + 0.1]`. Those are reported
+  saved-scene reload phases, not route cost. Traversal-only intervals use
+  `[traversal_start_seconds + 0.1, traversal_end_seconds - 0.05]`. The 87.195 ms
+  and 240.285 ms traversal outliers are unattributed and may be OS scheduling.
+  [`analyze_hitches.py`](s07-graphical-t-evidence/analyze_hitches.py) reads only the
+  retained gzip inputs and reproduces the committed
+  [`hitch-analysis.json`](s07-graphical-t-evidence/hitch-analysis.json).
 - Against the design's provisional desktop targets (frame p95 ≤ 16.67 ms, p99
   ≤ 20 ms, sustained 60 FPS; host simulation p95 ≤ 4 ms): p99 and the mean rate
   pass, and physics p95 (3.8 ms) is just inside 4 ms. **p95 17.8 ms exceeds
@@ -56,18 +70,30 @@ failures. Measured phase, about 602 s and 36,108–36,120 frames per run:
 
 ## Results — uncapped (FAILED, environment)
 
-Both uncapped attempts (the planned first case and one controlled rerun) ended in
-**GPU device removal** (`DXGI_ERROR_DEVICE_REMOVED` 0x887A0005). NVIDIA
-`nvlddmkm` event 153 was logged at 21:11/21:12 and again at 22:02. The first
-attempt then crashed (0xC0000005) after about 442 s and 34 traversals. The rerun
-stalled into error spam about 2 minutes in and was stopped. The 30 s smoke run at
-the same revision sustained about 978 FPS uncapped (render GPU p95 0.17 ms)
-before this showed up. Resident memory stayed flat (about 380–400 MB), so this is
-not a project leak. Whether the trigger is the laptop driver/thermal limits under
-roughly 1000 FPS or a Godot D3D12 defect is unknown. Uncapped headroom on this
-machine is therefore **not measured**. The card's single controlled rerun is
-spent, and a further attempt needs a changed condition (another GPU or driver,
-Vulkan, or an FPS ceiling above 60 such as 240).
+Both uncapped attempts (the planned first case and one controlled rerun) reported
+**GPU device removal** (`DXGI_ERROR_DEVICE_REMOVED` 0x887A0005). A later System-log
+query for 21:00–22:15 retained six NVIDIA `nvlddmkm` event 153 errors: one at
+21:11:36, two at 21:12:05, one at 22:02:02 and two at 22:02:30 local time. No
+`Display` provider event matched. The compact query result is
+[`windows-system-events.json`](s07-graphical-t-evidence/windows-system-events.json).
+
+The first process exited with 0xC0000005. Its retained traversal stream contains 34
+completed traversals, last retired at 442.302784 s; memory sampling continued through
+563.252 s. The rerun exited with code 4294967295. It retained 10 completed traversals,
+last retired at 382.392357 s, and memory samples through 492.160 s. The retained
+working-set p50/max pairs are 389,906,432/401,895,424 bytes and
+380,956,672/384,065,536 bytes respectively. These bounded samples show no resident-set
+increase matching the prolonged error period, but do not diagnose the removal.
+Compressed traversal streams, memory samples, complete-log hashes and counts, and
+60-line stderr excerpts are retained in each uncapped case's evidence directory; full
+5–12 MB error logs are not committed.
+
+The retained 30 s smoke case at the same revision reports measured mean 978.576 FPS
+and render GPU p95 0.173 ms before the failures. Whether the trigger is the laptop
+driver/thermal limits under high uncapped load or a Godot D3D12 defect is unknown.
+Uncapped headroom on this machine is therefore **not measured**. The card's single
+controlled rerun is spent, and a further attempt needs a changed condition (another
+GPU or driver, Vulkan, or an FPS ceiling above 60 such as 240).
 
 ## Scope
 

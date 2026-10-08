@@ -1,0 +1,51 @@
+{
+  "warmup_seconds": 60.0,
+  "hitch_threshold_ms": 33.4,
+  "load_window": "[load_start_seconds, traversal_start_seconds + 0.1]",
+  "teardown_window": "[traversal_end_seconds - 0.05, retired_seconds + 0.1]",
+  "traversal_only_window": "[traversal_start_seconds + 0.1, traversal_end_seconds - 0.05]",
+  "runs": [
+    {
+      "case": "capped60-1",
+      "measured_frames": 36108,
+      "long_frames_over_33_4_ms": 46,
+      "long_frames_in_load_windows": 42,
+      "long_frames_in_teardown_windows": 42,
+      "long_frames_in_load_or_teardown_windows": 42,
+      "traversal_only_frames": 35509,
+      "traversal_only_interval_ms": {
+        "p95": 17.797,
+        "p99": 18.518,
+        "max": 87.195
+      }
+    },
+    {
+      "case": "capped60-2",
+      "measured_frames": 36110,
+      "long_frames_over_33_4_ms": 45,
+      "long_frames_in_load_windows": 42,
+      "long_frames_in_teardown_windows": 42,
+      "long_frames_in_load_or_teardown_windows": 42,
+      "traversal_only_frames": 35505,
+      "traversal_only_interval_ms": {
+        "p95": 17.838,
+        "p99": 18.577,
+        "max": 240.285
+      }
+    },
+    {
+      "case": "capped60-3",
+      "measured_frames": 36120,
+      "long_frames_over_33_4_ms": 43,
+      "long_frames_in_load_windows": 43,
+      "long_frames_in_teardown_windows": 43,
+      "long_frames_in_load_or_teardown_windows": 43,
+      "traversal_only_frames": 35515,
+      "traversal_only_interval_ms": {
+        "p95": 17.834,
+        "p99": 18.565,
+        "max": 25.78
+      }
+    }
+  ]
+}

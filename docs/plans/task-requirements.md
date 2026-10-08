@@ -39,7 +39,10 @@ qualification and enough outcome detail for dispatch.
 - **S07:** Sustained primary-T driver is accepted (57 traversals over 600 declared
   seconds); do not reopen or repeat it. It proves no graphical calibration/capacity.
   [Graphical T](../spikes/s07-graphical-t.md) 60-capped calibration passed 3/3 on a
-  Windows desktop; uncapped hit GPU device removal and is unmeasured. Capacity remains open: named hardware/build, telemetry, authorized
+  Windows desktop; compressed capped raw samples and the retained-only analyzer reproduce
+  hitch attribution and traversal percentiles. Both uncapped attempts retain traversal,
+  memory, bounded log and System-event evidence; GPU device removal leaves headroom
+  unmeasured. Capacity remains open: named hardware/build, telemetry, authorized
   drawability, two-sector and six-block loads, four views, bursts and one bounded growth
   axis; record costs, limiting axis/headroom and decisions. Desktop does not certify Deck.
   [Source-only representative preparation](../spikes/s07-representative-preparation.md)

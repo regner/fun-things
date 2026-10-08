@@ -34,11 +34,19 @@ FIELDS = ["elapsed_s", "frame_interval_ms", "render_cpu_ms", "render_gpu_ms", "p
           "physics_ms", "draw_calls", "primitives", "objects", "video_mem_bytes"]
 CLEANUP_SECONDS = 5
 CASE_SLACK_SECONDS = 90
+STAGED_INPUTS = ["tests", "art", "project.godot"]
 
 
 def save(path, value):
     """Write strict JSON with LF endings."""
     path.write_text(json.dumps(value, indent=2) + "\n", newline="\n")
+
+
+def dirty_inputs():
+    """Return staged-input changes that would break revision binding."""
+    return subprocess.check_output(
+        ["git", "status", "--porcelain", "--", *STAGED_INPUTS], cwd=ROOT, text=True
+    ).strip()
 
 
 def stage(output):
@@ -201,8 +209,7 @@ def main():
     version = subprocess.run([args.godot, "--version"], capture_output=True, text=True,
                              timeout=10, check=True).stdout.strip()
     revision = subprocess.check_output(["git", "rev-parse", "HEAD"], cwd=ROOT, text=True).strip()
-    dirty = subprocess.check_output(["git", "status", "--porcelain", "--", "tests", "art"],
-                                    cwd=ROOT, text=True).strip()
+    dirty = dirty_inputs()
     summary = {"ok": False, "engine": version, "revision": revision, "dirty_inputs": dirty,
                "platform": platform.platform(), "processor": platform.processor(),
                "duration_s": args.duration, "warmup_s": args.warmup, "cases": []}

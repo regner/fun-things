@@ -750,8 +750,12 @@ The foundation tools now also run on Windows 11 with the Mise-pinned engine
   runs for response/feel numbers and physics-frame waits for tick-sensitive
   harness steps.
 
-New Windows runners (each takes `--output` outside the checkout and fails on
-diagnostics, dirty staged inputs or unreaped children):
+New Windows runners take `--output` outside the checkout and fail on their scoped
+diagnostics/process criteria. Their source-binding behavior differs: S08 stages committed
+bytes with `git show`; S05 draw and S07 graphical copy staged paths from the working tree
+and reject dirty copied inputs. The existing S03-R/S04 windowed runners copy working-tree
+inputs without that dirty-input rejection, so commit identity alone does not bind those
+copies.
 
 | Tool | Scope |
 | --- | --- |
