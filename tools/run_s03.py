@@ -70,6 +70,7 @@ class Proxy:
         self.held = None
         self.held_at = 0.0
         self.events = []
+        self.resets = 0
         self.log = log
 
     def record(self, event, datagram_bytes=None):
@@ -87,6 +88,11 @@ class Proxy:
                 data, source = self.socket.recvfrom(MAX_DATAGRAM)
             except BlockingIOError:
                 return
+            except ConnectionResetError:
+                # Windows reports an earlier ICMP port-unreachable (for example to a
+                # canceled client's closed socket) on the next receive; keep serving.
+                self.resets += 1
+                continue
             if source != self.host:
                 self.client = source
                 self.socket.sendto(data, self.host)
@@ -224,7 +230,7 @@ def run(args, directory):
         if results["host"]["user_dir"] == results["client"]["user_dir"]:
             raise RuntimeError("process user directories overlap")
         return {"ok": True, "engine": version, "commands": commands, "results": results,
-                "ready": readiness, "proxy": proxy.events,
+                "ready": readiness, "proxy": proxy.events, "proxy_resets": proxy.resets,
                 "ports": {"host": args.port, "proxy": args.proxy_port},
                 "platform": platform.platform(), "duration_seconds": time.monotonic() - started,
                 "process_ids": [child.pid for child in children],

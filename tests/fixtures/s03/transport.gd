@@ -43,6 +43,9 @@ func open_host(operation_id: int, port: int) -> Error:
 		candidate.close()
 		return error
 
+	# Pinned create_server passes its channel count as incoming bandwidth (6 B/s here), which
+	# collapses each client's unreliable throttle; restore the intended unlimited bandwidth.
+	candidate.host.bandwidth_limit(0, 0)
 	peer = candidate
 	peer_ready.emit(operation_id, peer)
 	return OK

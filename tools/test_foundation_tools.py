@@ -6,8 +6,27 @@ import sys
 import tempfile
 import unittest
 
-from run_s03 import stop_children
-from script_checks import checked_command, owned_scripts
+from run_s03 import Proxy, stop_children
+from script_checks import checked_command, environment, owned_scripts
+
+
+class ResettingSocket:
+    """Fake UDP socket: one Windows-style reset notification, one datagram, then empty."""
+
+    def __init__(self):
+        self.events = [ConnectionResetError(10054), (b"hello", ("127.0.0.1", 5555))]
+        self.sent = []
+
+    def recvfrom(self, _size):
+        if not self.events:
+            raise BlockingIOError
+        event = self.events.pop(0)
+        if isinstance(event, Exception):
+            raise event
+        return event
+
+    def sendto(self, data, address):
+        self.sent.append((data, address))
 
 
 class FoundationToolsTest(unittest.TestCase):
@@ -33,6 +52,25 @@ class FoundationToolsTest(unittest.TestCase):
                                  log, {})
             self.assertFalse(ok)
             self.assertIn("unused script failed", log.read_text())
+
+    def test_proxy_survives_windows_udp_reset_notification(self):
+        proxy = Proxy.__new__(Proxy)
+        proxy.socket = ResettingSocket()
+        proxy.host = ("127.0.0.1", 6666)
+        proxy.client = None
+        proxy.armed = False
+        proxy.held = None
+        proxy.resets = 0
+        proxy.poll()
+        self.assertEqual(proxy.resets, 1)
+        self.assertEqual(proxy.socket.sent, [(b"hello", ("127.0.0.1", 6666))])
+
+    def test_child_environment_isolates_windows_user_roots(self):
+        with tempfile.TemporaryDirectory() as temporary:
+            env = environment(Path(temporary))
+            for variable in ["APPDATA", "LOCALAPPDATA", "XDG_DATA_HOME"]:
+                self.assertTrue(Path(env[variable]).is_relative_to(Path(temporary)))
+                self.assertTrue(Path(env[variable]).is_dir())
 
     def test_cleanup_leaves_unrelated_process_alive(self):
         unrelated = subprocess.Popen([sys.executable, "-c", "import time; time.sleep(30)"])

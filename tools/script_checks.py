@@ -36,8 +36,10 @@ def owned_scripts(root=ROOT):
 def environment(directory):
     """Give each child its own writable configuration, user data and cache."""
     env = os.environ.copy()
+    # Windows Godot resolves user/config/cache roots from APPDATA/LOCALAPPDATA, not XDG.
     for variable, folder in [("XDG_DATA_HOME", "data"), ("XDG_CONFIG_HOME", "config"),
-                             ("XDG_CACHE_HOME", "cache")]:
+                             ("XDG_CACHE_HOME", "cache"), ("APPDATA", "appdata"),
+                             ("LOCALAPPDATA", "localappdata")]:
         path = directory / folder
         path.mkdir(parents=True, exist_ok=True)
         env[variable] = str(path)

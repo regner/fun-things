@@ -166,6 +166,11 @@ func _snapshot_case() -> void:
 		replication.movement_received == 5,
 		"native ordered stream dropped reordered and lost packets",
 	)
+	var enet: ENetMultiplayerPeer = multiplayer.multiplayer_peer as ENetMultiplayerPeer
+	var host_peer: ENetPacketPeer = enet.get_peer(1) if enet != null else null
+	_check(host_peer != null and host_peer.get_statistic(
+		ENetPacketPeer.PEER_PACKET_THROTTLE_LIMIT) == ENetPacketPeer.PACKET_THROTTLE_SCALE,
+		"host bandwidth cannot throttle unreliable held input")
 	cases.append("subset_reorder_loss_recovery")
 
 
