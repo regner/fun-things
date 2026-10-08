@@ -180,6 +180,48 @@ def accepted_notes():
     print('PASS fifth35/DOC6/7 462 artifacts;S05 raw250/substantive51/note20/final14/report14250;root31')
 
 
+def independent_retention():
+    """Verify the complete original review package, delivery ledger and units correction."""
+    receipt = parse((EVIDENCE / 'independent-retention.json').read_bytes())
+    assert receipt['candidate'] == '6b4a69e43cd8cebb5535f77a54da162d33630ab1'
+    assert receipt['base'] == BASE and receipt['packed_artifacts'] == 215
+    assert receipt['delivery_artifacts'] == 221
+    decoded = {}
+    for entry in receipt['artifacts']:
+        stored = (EVIDENCE / entry['retained']).read_bytes()
+        verify(stored, {'bytes': entry['stored_bytes'], 'sha256': entry['stored_sha256']})
+        raw = gzip.decompress(stored) if entry['gzip'] else stored
+        verify(raw, entry)
+        decoded[entry['source_path']] = raw
+    prefix = '/tmp/plan-check06-independent-review/'
+    files = archive(decoded[prefix + 'review-artifacts.tar.gz'])
+    manifest = parse(decoded[prefix + 'manifest.json'])
+    assert files['manifest.json'] == decoded[prefix + 'manifest.json']
+    assert len(manifest['files']) == 215
+    assert set(files) == {e['path'] for e in manifest['files']} | {'manifest.json'}
+    for entry in manifest['files']:
+        verify(files[entry['path']], entry)
+    ledger = parse(decoded[prefix + 'delivery-ledger.json'])
+    assert len(ledger['files']) == 221
+    for entry in ledger['files']:
+        raw = files[entry['path']] if entry['path'] in files else decoded[prefix + entry['path']]
+        verify(raw, entry)
+    for line in decoded[prefix + 'SHA256SUMS'].decode().splitlines():
+        expected, path = line.split('  ', 1)
+        raw = files[path] if path in files else decoded[prefix + path]
+        assert hashlib.sha256(raw).hexdigest() == expected, path
+    report = (ROOT / receipt['complete_report']['retained']).read_bytes()
+    verify(report, receipt['complete_report'])
+    assert report == files['report.md']
+    for path in ['TODO.md', RECORD]:
+        text = (ROOT / path).read_text()
+        assert 'bytes of all 1,794 tracked files' in text
+        assert '1794 tracked bytes' not in text and '1794 per-checkout tracked bytes' not in text
+    print('PASS full independent report/original215 packed/221 delivery artifacts and P3 units correction')
+    return {key: receipt[key] for key in ['candidate', 'reviewer_id', 'packed_artifacts',
+                                        'delivery_artifacts', 'complete_report']}
+
+
 def main():
     """Check the delivered docs-only range, every task and static artifact fidelity."""
     parser = argparse.ArgumentParser(description=__doc__)
@@ -274,6 +316,7 @@ def main():
     assert runtime['model'] == 'gpt-6.1-sol' and runtime['effectiveThinkingOptionId'] == 'high'
     assert runtime['currentModeId'] == 'auto-review'
     accepted_notes()
+    review_retention = independent_retention()
     for entry in parse((EVIDENCE / 'worker-retention.json').read_bytes())['artifacts']:
         stored = (EVIDENCE / entry['retained']).read_bytes()
         verify(stored, {'bytes': entry['stored_bytes'], 'sha256': entry['stored_sha256']})
@@ -295,6 +338,7 @@ def main():
     result = {'head': head, 'base': BASE, 'prior_exclusive': PRIOR, 'accepted_commits': 10,
               'tasks_before': 27, 'tasks_after': 29, 'modified_tasks': sorted(changed),
               'new_tasks': sorted(NEW_TASKS), 'preserved_entries': preserved, 'links': links,
+              'independent_review_retention': review_retention,
               'accepted_whitespace': {'exit': full.returncode, 'stdout': full.stdout.decode(),
                                       'stderr': full.stderr.decode(), 'exact_exclusions': exceptions,
                                       'excluded_exit': scoped.returncode},

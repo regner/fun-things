@@ -1,0 +1,131 @@
+{
+  "candidate": "6b4a69e43cd8cebb5535f77a54da162d33630ab1",
+  "base": "754a0b501fe705c93675ff09b43d5bfca201cd94",
+  "reviewer_id": "61a98ca5-6288-4923-b0f3-ea7fe21d37c3",
+  "model": "gpt-6.1-sol",
+  "configured_effective_effort": "high",
+  "mode": "auto-review",
+  "collaboration_mode": "Default",
+  "complete_report": {
+    "source_path": "/tmp/plan-check06-independent-review/report.md",
+    "retained": "docs/reviews/plan-check-review-2026-10-08-06.md",
+    "bytes": 30848,
+    "sha256": "6dfcea4f0c45b961994b7796e972bcd81af42ab60f56db8ad1aee2be1b4d7043"
+  },
+  "packed_artifacts": 215,
+  "delivery_artifacts": 221,
+  "all_original_and_stored_bytes_verified": true,
+  "artifacts": [
+    {
+      "source_path": "/tmp/plan-check06-independent-review/review-artifacts.tar.gz",
+      "retained": "independent/review-artifacts.tar.gz",
+      "gzip": false,
+      "bytes": 647595,
+      "sha256": "ea30f2a03341e565ef5ada85daf684451292f5b35405c7e3aab11d4036517298",
+      "stored_bytes": 647595,
+      "stored_sha256": "ea30f2a03341e565ef5ada85daf684451292f5b35405c7e3aab11d4036517298"
+    },
+    {
+      "source_path": "/tmp/plan-check06-independent-review/manifest.json",
+      "retained": "independent/manifest.json.gz",
+      "gzip": true,
+      "bytes": 37133,
+      "sha256": "ea20ffb2ab63c83bb544d2685ac506c221f799401198e8ab028168a3f4bab2b8",
+      "stored_bytes": 9650,
+      "stored_sha256": "12ea118b28bb556755867d16236bac3ba0b66c76e8e45b928e0158666fe0db41"
+    },
+    {
+      "source_path": "/tmp/plan-check06-independent-review/delivery-ledger.json",
+      "retained": "independent/delivery-ledger.json.gz",
+      "gzip": true,
+      "bytes": 37950,
+      "sha256": "dc0b24d55641e5a03004fb8f0300bef47f7bfc861560391edcbb7c00179d5207",
+      "stored_bytes": 9871,
+      "stored_sha256": "71a5b58da556361c8983e851f18b1a5a78c3cefd45e12cf9f2dff4a03b9ad69f"
+    },
+    {
+      "source_path": "/tmp/plan-check06-independent-review/package-verification.json",
+      "retained": "independent/package-verification.json.gz",
+      "gzip": true,
+      "bytes": 349,
+      "sha256": "be3fb0acd6f92922a10eeb48c7d3263d2015196c3bec3886e79e785c3cd1cd81",
+      "stored_bytes": 240,
+      "stored_sha256": "64256f728fec1ce992293be12a32b88f25753da0e2f3b866134721b4ca25d316"
+    },
+    {
+      "source_path": "/tmp/plan-check06-independent-review/SHA256SUMS",
+      "retained": "independent/SHA256SUMS.gz",
+      "gzip": true,
+      "bytes": 23091,
+      "sha256": "71184992adadb00ca04dd003ea29194d14922075e0be94f45ae9abe0dc14dad6",
+      "stored_bytes": 8869,
+      "stored_sha256": "99e4423aa60a9b45f42e8a01e04f4bb2976a59e9055c3aca4f9a650cdd7a8060"
+    },
+    {
+      "source_path": "/tmp/plan-check06-independent-review/raw/package.command.json",
+      "retained": "independent/raw-package.command.json.gz",
+      "gzip": true,
+      "bytes": 115,
+      "sha256": "551226c634d3c9783ca43591e9644622f4cc03d4b1590c3f8fdf364893ad2165",
+      "stored_bytes": 118,
+      "stored_sha256": "226fc1a0061e5695e11010663e942d3740c3b38188c52e6c96ca06a14e802fcc"
+    },
+    {
+      "source_path": "/tmp/plan-check06-independent-review/raw/package.stdout",
+      "retained": "independent/raw-package.stdout.gz",
+      "gzip": true,
+      "bytes": 481,
+      "sha256": "a8b7acca0bc9b9ec45bbdb8c5743a4e875e64948eec626debc6d8774c6758e76",
+      "stored_bytes": 306,
+      "stored_sha256": "5f811739ca22d77454a1d2abdf26d48b7f88f4c855d828fa344c97fd6d858630"
+    },
+    {
+      "source_path": "/tmp/plan-check06-independent-review/raw/package.stderr",
+      "retained": "independent/raw-package.stderr.gz",
+      "gzip": true,
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stored_bytes": 20,
+      "stored_sha256": "9ceffb7310338057cfe71a4ae1e2c98d2c485d81cdef906532a801f457a38d64"
+    },
+    {
+      "source_path": "/tmp/checkpoint06/reviewer-launch-prompt.txt",
+      "retained": "independent/reviewer-launch-prompt.txt.gz",
+      "gzip": true,
+      "bytes": 6151,
+      "sha256": "52a5b7b98602e63dff8e9a04461dd765f84d5408440f06f33541f3ebef09186b",
+      "stored_bytes": 3306,
+      "stored_sha256": "ab9a4f8df20cc526cccdb648f905eb148df49d57ba2cb8a55d9e5b6c83568efe"
+    },
+    {
+      "source_path": "/tmp/checkpoint06/reviewer-launch.json",
+      "retained": "independent/reviewer-launch.json.gz",
+      "gzip": true,
+      "bytes": 2439,
+      "sha256": "dfc22717c1e6f2a3b5a6b20e5247976901a7fd3b9d07c1f8a4d6964765d594cf",
+      "stored_bytes": 797,
+      "stored_sha256": "bb41b23660e20b6ef1c503e7eed2c733771979634afc6aa820e29986f9a000a3"
+    },
+    {
+      "source_path": "/tmp/checkpoint06/retain_review.py",
+      "retained": "independent/retain_review.py.gz",
+      "gzip": true,
+      "bytes": 4617,
+      "sha256": "b1b64cd6bf5de3910762f6fc3408a9573b40a8a220779ccb8891da402f6415b3",
+      "stored_bytes": 1533,
+      "stored_sha256": "d0cdda5796ef5504254efd34ec8943d1f702faede68e378de9086a21b47ac743"
+    }
+  ],
+  "display_read_limitations": [
+    {
+      "attempted_path": "/tmp/plan-check06-independent-review/pack-verification.json",
+      "observed_stderr": "cat: /tmp/plan-check06-independent-review/pack-verification.json: No such file or directory",
+      "scope": "scratch display read; correct actual name package-verification.json"
+    },
+    {
+      "attempted_path": "/tmp/plan-check06-independent-review/artifact-manifest.json",
+      "observed_stderr": "head: cannot open '/tmp/plan-check06-independent-review/artifact-manifest.json' for reading: No such file or directory",
+      "scope": "scratch display read; correct actual name manifest.json; large concatenated output truncated, complete bytes subsequently verified"
+    }
+  ]
+}

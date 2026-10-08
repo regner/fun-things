@@ -794,8 +794,8 @@ authoring lease UNASSIGNED, no active implementation candidate/new allocation.
 Root's complete754a0b5 JSON note retains original20 review/handoff entries and
 added receipt/31-entry ledger/reference facts. At its time-specific supplied HOST
 boundary, old286171 gracefully quit, sole pinned main325756 saved/unsavedempty,
-ten tabs/six reopens and1794 per-checkout tracked bytes preserved, no authored
-save or CRLF/LF normalization. This worker made no shared surface/PID query;
+ten tabs/six reopens and bytes of all 1,794 tracked files per checkout preserved,
+no authored save or CRLF/LF normalization. This worker made no shared surface/PID query;
 no new runtime/device proof. Root grants subsequent named leases separately. Original
 S02/S03 fixtures remain immutable. Separate drawable S02/S03-R/S04 physical input,
 native focus, camera/readability/feel and conditional prediction decisions remain
