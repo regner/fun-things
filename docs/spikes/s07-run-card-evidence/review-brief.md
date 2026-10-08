@@ -1,12 +1,13 @@
 # Independent S07 review brief
 
-ROOT supplies the exact clean frozen candidate SHA from this branch's handoff.
+The implementer supplies the exact clean frozen candidate SHA in the review launch prompt.
 Review that exact candidate on base `48aef3dbd133876743f504f94a1b788a26d5638f` in
 workspace `wks_17c8eacf90cb0832`, branch `s07-content-inventory-run-cards`.
 Use one fresh clean-context codex/gpt-6.1-sol HIGH reviewer, auto-review, Plan false,
 with completion notifications. ROOT's current receipt confirms no configured profile
 and installed Sol6.1 medium/high. Verify effective review settings once. No delegation,
-coordinator, runtime/surface/hardware/service query or reviewer launch by the implementer.
+coordinator or runtime/surface/hardware/service query. The workspace owns this ONE
+review; ROOT is notified without an acknowledgement requirement.
 
 Read the complete [raw commission and steering](raw-commission.md), `AGENTS.md`,
 `.agents/skills/paseo-orchestrator/SKILL.md` and its reviewer/implementer contracts

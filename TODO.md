@@ -225,6 +225,7 @@ feature expansion, repeated unchanged experiment or silent contract/pin change.
   relevant S05 chain/effect load. Static inventory/run-card preparation can proceed;
   representative measurements remain unexecuted. Stand-ins cannot certify missing
   gameplay, presentation or residency costs; tokens are not drawable effects.
+  Use the [static fixture inventory and concrete run cards](docs/spikes/s07-run-cards.md) to prepare the baseline and growth experiment.
   Minimum remaining experiment: controlled saved imported two-sector baseline,
   six-block reference load and one bounded growth axis at named extent/density/
   variety/population/camera/views. Use graphical host/client, four separated views,

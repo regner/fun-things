@@ -9,8 +9,8 @@ is recopied. All source/resource/vendor/pin/contract bytes stay unchanged.
   33 saved scenes/resources,11 composed placement summaries. Original source/export
   relationships use accepted saved handoff records; no Blender roundtrip is claimed.
 - [Raw commission/steering](raw-commission.md), [launch receipt](launch.json) and
-  [independent review brief](review-brief.md): ROOT launches the fresh Sol6.1 HIGH
-  review after a slot frees. No review verdict is claimed by this package.
+  [independent review brief](review-brief.md): This workspace owns the fresh Sol6.1 HIGH
+  review, respecting actual concurrency capacity and notifying ROOT without acknowledgement. No review verdict is claimed by this package.
 - [Check source](validate.py): independent literal placement sets, expected root/model
   set, scoped fixture-file completeness, all input hash/base readback, camera override,
   finite historical S05 receipt decode, local links/anchors, Python syntax and scoped
