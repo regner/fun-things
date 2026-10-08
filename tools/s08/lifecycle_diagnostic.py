@@ -6,6 +6,7 @@ import json
 import os
 from pathlib import Path
 import socket
+import struct
 import subprocess
 import sys
 import time
@@ -119,10 +120,27 @@ def main():
         selected = [block for block in blocks if 'res://tests/fixtures/s03/' in block]
         if len(selected) != 7:
             raise RuntimeError('private S03 class discovery differs')
-        (cache / 'global_script_class_cache.cfg').write_text('list=Array[Dictionary]([' +
-            ', '.join(selected) + '])\n')
-        (cache / 'uid_cache.bin').write_bytes((args.author_project / '.godot/uid_cache.bin').read_bytes())
+        (cache / 'global_script_class_cache.cfg').write_text('list=[' +
+            ', '.join(selected) + ']\n')
+        raw = (args.author_project / '.godot/uid_cache.bin').read_bytes()
+        count = struct.unpack_from('<I', raw)[0]
+        position, uid_rows = 4, []
+        for _ in range(count):
+            _uid, size = struct.unpack_from('<QI', raw, position)
+            end = position + 12 + size
+            path = raw[position + 12:end].decode()
+            if path in {'res://' + name for name in paths}:
+                uid_rows.append(raw[position:end])
+            position = end
+        if position != len(raw):
+            raise RuntimeError('private UID cache has unparsed bytes')
+        (cache / 'uid_cache.bin').write_bytes(struct.pack('<I', len(uid_rows)) + b''.join(uid_rows))
         save(directory / 'staged-input.json', manifest)
+        save(directory / 'cache-config-readback.json', {name: {
+            'bytes': len((project / name).read_bytes()),
+            'sha256': hashlib.sha256((project / name).read_bytes()).hexdigest(),
+            'text': (project / name).read_text() if not name.endswith('.bin') else None}
+            for name in ['project.godot', '.godot/global_script_class_cache.cfg', '.godot/uid_cache.bin']})
         readiness_deadline = started + 4.0
         proxy_log = (directory / 'proxy.jsonl').open('w')
         traffic = (directory / 'traffic.jsonl').open('w')
@@ -200,7 +218,10 @@ def main():
                             failed |= event.get('ok') is not True
             if failed:
                 record['failure'] = 'actual S03 failed result; full streams retained'
-                break
+                # Continue observing already-started roles inside the original work budget.
+                # Otherwise host failure can hide consequential client HOST_LOST/IDLE events.
+                if client is None:
+                    break
             if client is None:
                 if time.monotonic() >= readiness_deadline:
                     raise RuntimeError('readiness expired')
@@ -229,6 +250,19 @@ def main():
             index = 0 if role == 'host' else 1
             command.update(exit=children[index].returncode, reaped=details['children_reaped'][index])
             save(directory / role / 'command.json', command)
+        record['stream_readback'] = []
+        record['diagnostics'] = []
+        for role in commands:
+            for name in ['stdout.log', 'stderr.log', 'engine.log']:
+                path = directory / role / name
+                data = path.read_bytes()
+                record['stream_readback'].append({'path': str(path), 'bytes': len(data),
+                    'sha256': hashlib.sha256(data).hexdigest()})
+                for line in data.decode(errors='replace').splitlines():
+                    if any(marker in line for marker in ['ERROR:', 'WARNING:']):
+                        record['diagnostics'].append({'role': role, 'stream': name, 'line': line})
+        record['gameplay_ok'] = record['ok']
+        record['ok'] = record['gameplay_ok'] and not record['diagnostics']
         record['end_monotonic'] = time.monotonic()
         record['duration_seconds'] = record['end_monotonic'] - started
         record['within_30s'] = record['end_monotonic'] <= absolute

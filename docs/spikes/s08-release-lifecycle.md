@@ -100,6 +100,34 @@ one minimal dependency import <=90s, two exports maximum, two <=30s ENet sets.
 One clean-context Sol6.1 HIGH reviewer assesses exact final HEAD/base and artifacts;
 static review needs no editor lock and must not launch an unchanged runtime.
 
+## Saved diagnostic candidate before the ENet set
+
+The one author session started at 13:19Z, reached authenticated readiness in about
+4s, and finished in 230s: editor 695199/connector both exit0, registry entry gone,
+owned streams closed. Toolkit inspected the original full S03 tree/scripts, saved
+the two additive script edits, compile-checked them, and completed a saved scene
+close/reopen with `unsaved_changes_discarded:false`. All original S03 scenes, UIDs
+and every other mirrored source are byte-identical. Only saved `session.gd` and
+`proof.gd` were delivered back; no source checkout editor was involved.
+
+The first style observation found 13 warnings despite exit0 (brace spacing and
+callback ordering). One toolkit correction addressed these; strict pinned
+format/lint then pass with zero warnings. A local Python request-generation edit
+briefly produced a SyntaxError before any request was sent; its source/diagnostics
+and a separately labelled capture rerun are retained. Corrected inverse readback
+recovers the exact original scripts after removing telemetry. No gameplay outcome,
+wait, deadline, RPC annotation or assertion was changed.
+
+Authoring is NOT diagnostic-clean: saved-scene thumbnail creation reports
+`Parameter "t" is null`; ordinary editor cleanup retains five RID ERRORs and
+Canvas/CanvasItem/ObjectDB warnings. Full streams are retained, no exemption is
+applied, and author exit0 is only mechanical completion. This is not a repeated
+historical shutdown experiment or proof of its cause. The separately granted
+addon-free debug diagnostic uses saved script checks independently; it cannot turn
+these editor diagnostics or any historical failure into a pass. Initial private
+editor dependency discovery was under 90s; no separate dependency import or export
+was invoked.
+
 Full exported ENet, historical shutdown, Steam absent/native/external transport,
 Windows/Deck/Gaming Mode/input/feel/drawability/performance/private install and full
 S08/P0/M1/production gates remain open.

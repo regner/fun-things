@@ -1,0 +1,42 @@
+/tmp/s08-lifecycle-author/state/project/tests/fixtures/s03/proof.gd
+  229:21 warning add space after '{' in single-line dictionary literal [format/brace-spacing]
+      	_emit("held_send", {"sequence": envelope.get("sequence"), "expected": expected})
+      	                   ^
+  229:80 warning add space before '}' in single-line dictionary literal [format/brace-spacing]
+      	_emit("held_send", {"sequence": envelope.get("sequence"), "expected": expected})
+      	                                                                              ^
+  282:1 warning virtual/override method should appear before method (see GDScript style guide for ordering) [order/class-member-order]
+      func _physics_process(_delta: float) -> void:
+      ^
+  300:27 warning add space after '{' in single-line dictionary literal [format/brace-spacing]
+      	_emit("session_changed", {"participant": session.local_participant})
+      	                         ^
+  300:68 warning add space before '}' in single-line dictionary literal [format/brace-spacing]
+      	_emit("session_changed", {"participant": session.local_participant})
+      	                                                                  ^
+  305:25 warning add space after '{' in single-line dictionary literal [format/brace-spacing]
+      	_emit("close_started", {"outcome": outcome})
+      	                       ^
+  305:44 warning add space before '}' in single-line dictionary literal [format/brace-spacing]
+      	_emit("close_started", {"outcome": outcome})
+      	                                          ^
+  311:30 warning add space after '{' in single-line dictionary literal [format/brace-spacing]
+      	_emit("baseline_installed", {"baseline": _baseline_id})
+      	                            ^
+  311:55 warning add space before '}' in single-line dictionary literal [format/brace-spacing]
+      	_emit("baseline_installed", {"baseline": _baseline_id})
+      	                                                     ^
+  320:21 warning add space after '{' in single-line dictionary literal [format/brace-spacing]
+      	_emit("completed", {"source_operation": source_operation, "outcome": outcome})
+      	                   ^
+  320:78 warning add space before '}' in single-line dictionary literal [format/brace-spacing]
+      	_emit("completed", {"source_operation": source_operation, "outcome": outcome})
+      	                                                                            ^
+  326:24 warning add space after '{' in single-line dictionary literal [format/brace-spacing]
+      	_emit("held_receipt", {"sequence": _sequence, "reason": reason})
+      	                      ^
+  326:64 warning add space before '}' in single-line dictionary literal [format/brace-spacing]
+      	_emit("held_receipt", {"sequence": _sequence, "reason": reason})
+      	                                                              ^
+
+2 files checked, 13 warnings found.

@@ -16,6 +16,7 @@ var completions: Dictionary = {}
 var cases: Array[String] = []
 var deadline_ms: int = 0
 var snapshots_done: bool = false
+var diagnostic_state: String = ""
 
 
 ## Bind the proposed public boundaries and run one side of the real-process proof.
@@ -39,6 +40,8 @@ func _ready() -> void:
 	replication.held_result.connect(_held_result)
 	replication.snapshot_requested.connect(_snapshots)
 	session.completed.connect(_completed)
+	session.changed.connect(_session_changed)
+	session.close_started.connect(_close_started)
 	_check(not ClassDB.class_exists("Steam"), "Steam native class absent")
 	_check(not Engine.has_singleton("Steam"), "Steam singleton absent")
 	session.select_provider(S03Transport.new(get_tree()))
@@ -48,6 +51,23 @@ func _ready() -> void:
 		await _client()
 	else:
 		_check(false, "missing role")
+
+
+## Observe host simulation changes without deciding or rewriting outcomes.
+func _physics_process(_delta: float) -> void:
+	if role != "host" or match_state == null:
+		return
+
+	var rows: Dictionary = {}
+	for participant: int in match_state.bindings:
+		rows[participant] = match_state.bindings[participant].duplicate()
+
+	var state: Dictionary = {"bindings": rows, "accepted": match_state.accepted_count,
+		"rejected": match_state.rejected.duplicate()}
+	var signature: String = JSON.stringify(state)
+	if signature != diagnostic_state:
+		diagnostic_state = signature
+		_emit("simulation_observed", state)
 
 
 ## Assert host-owned provisional rollback, admission and simulation outcomes.
@@ -223,6 +243,7 @@ func _recover_sequence(previous: Dictionary) -> void:
 ## Wait for the actual remote validator outcome, with a case deadline.
 func _send_expect(envelope: Dictionary, expected: String) -> void:
 	outcomes.clear()
+	_emit("held_send", { "sequence": envelope.get("sequence"), "expected": expected })
 	replication.send_held(envelope)
 	deadline_ms = Time.get_ticks_msec() + CASE_DEADLINE_MS
 	while outcomes.is_empty():
@@ -274,9 +295,20 @@ func _check_rigs() -> void:
 		_check(actor.authoritative == match_state.authoritative, "simulation role")
 
 
+## Timestamp published session state in this process clock domain.
+func _session_changed() -> void:
+	_emit("session_changed", { "participant": session.local_participant })
+
+
+## Record close initiation before peer replacement and match teardown.
+func _close_started(outcome: String) -> void:
+	_emit("close_started", { "outcome": outcome })
+
+
 ## Count completed baseline applications.
 func _baseline_installed(_baseline_id: int) -> void:
 	baseline_count += 1
+	_emit("baseline_installed", { "baseline": _baseline_id })
 
 
 ## Count terminal operation signals independently of the service's deduplication.
@@ -285,11 +317,13 @@ func _completed(source_operation: int, outcome: String) -> void:
 		completions[source_operation] = []
 
 	completions[source_operation].append(outcome)
+	_emit("completed", { "source_operation": source_operation, "outcome": outcome })
 
 
 ## Retain the observed network validation result.
 func _held_result(reason: String, _sequence: int) -> void:
 	outcomes.append(reason)
+	_emit("held_receipt", { "sequence": _sequence, "reason": reason })
 
 
 ## Await a specific lifecycle state within a bounded wall-clock interval.
@@ -325,6 +359,15 @@ func _check(condition: bool, message: String) -> void:
 ## Print readiness/results for the bounded parent runner.
 func _emit(event: String, data: Dictionary) -> void:
 	data.event = event
+	data.ticks_usec = Time.get_ticks_usec()
+	data.clock_domain = "engine_elapsed_usec_pid_" + str(OS.get_process_id())
+	data.pid = OS.get_process_id()
+	data.role = role
+	data.phase = session.phase
+	data.operation = session.operation_id
+	data.close_outcome = session.close_outcome
+	data.session_deadline_ms = session.deadline_ms
+	data.case_deadline_ms = deadline_ms
 	print("S03 " + JSON.stringify(data))
 
 

@@ -51,8 +51,7 @@ EDITS = {
          '\t\t"rejected": match_state.rejected.duplicate()}\n'
          '\tvar signature: String = JSON.stringify(state)\n'
          '\tif signature != diagnostic_state:\n'
-         '\t\tdiagnostic_state = signature\n\t\t_emit("simulation_observed", state)\n\n\n'
-         '## Assert host-owned provisional rollback, admission and simulation outcomes.\n'),
+         '\t\tdiagnostic_state = signature\n\t\t_emit("simulation_observed", state)\n\n\         '## Assert host-owned provisional rollback, admission and simulation outcomes.\n'),
         ('## Count completed baseline applications.\n',
          '## Timestamp published session state in this process clock domain.\n'
          'func _session_changed() -> void:\n'

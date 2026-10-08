@@ -2,6 +2,7 @@ class_name S03Session
 extends Node
 
 signal changed()
+signal close_started(outcome: String)
 signal completed(operation_id: int, outcome: String)
 
 const PROTOCOL: int = 1
@@ -274,6 +275,7 @@ func leave() -> void:
 func _close(outcome: String) -> void:
 	phase = "CLOSING"
 	close_outcome = outcome
+	close_started.emit(outcome)
 	deadline_ms = Time.get_ticks_msec() + DEADLINE_MS
 	roster.clear()
 	match_state.clear()
