@@ -193,3 +193,28 @@ remain fatal. Save authorized mutation batches before switching/cleanup; no new
 GLB helper is needed for the single Node S08 root. Successful readiness enables the
 original narrow authoring/validation and conditional single release phases. One
 20min authoring session/one actual editor, no fallback/relaunch after readinessfailure.
+
+## Actual run01 STOP and separately granted corrected run02
+
+Actual run01 at2f640c4 started editor558301 and connector558327. Own context proved
+editorhint/fullc971/canonicalproject/privateboostfalse/settingspath and per-project
+registry matched ownedPID/WS6551/published token path. Connector exited1 BEFORE auth:
+implementer's client incorrectly required `_key` in `lookupProject()`'s projected
+value. Installed `registry_projection.gd` explicitly erases `_key`; canonical path
+is the `projects.json.by_path` key. Complete Node exception/empty connector stdout
+remain. Owned editor SIGINT exit-2/connector1 were reaped; all streams closed.
+No readiness pass, mutation, new S08 resource, S03 change or release phase occurred.
+This is a client contract bug, not toolkit auth failure or stale-PID diagnosis.
+
+ROOT explicitly grants ONE corrected actual-editor continuation run02, no prep
+repeat/config/vendor/pin repair. Offline check against literal retained projection/
+entry accepts exact canonicalproject/PID/publicport/token binding; rejects wrong
+project/PID/port/token, missing entry waits without dialing. Supported standard
+lookup/resolvePortConfig/token/bridge remain unchanged. Small client uses documented
+projection shape; no unsupported projected `_key` requirement or custom routing.
+Supervisor waits for BOTH current-Popen per-entry and matching canonical projection
+within60 s, never dials stale/default/shared. Current Popen/argv is recorded before
+gates. Fresh logs/lifecycle: `actual-editor-run02`. Existing owned settings artifact
+is rebound/hashchecked before launch without rewriting. No third actual-editor
+retry is granted. Remaining authoring/release criteria/budgets are unchanged;
+one eventual independent review covers both prep STOPs and both actual attempts.

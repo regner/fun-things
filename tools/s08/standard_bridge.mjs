@@ -4,10 +4,13 @@ import { resolvePortConfig } from '/home/regner/.npm/_npx/ea3a09a27b3d1af0/node_
 import { lookupProject } from '/home/regner/.npm/_npx/ea3a09a27b3d1af0/node_modules/@npgamedev/godot-mcp-server/dist/registry.js';
 import { assertPublishedTokenPath } from '/home/regner/.npm/_npx/ea3a09a27b3d1af0/node_modules/@npgamedev/godot-mcp-server/dist/transport/tokenPath.js';
 import readline from 'node:readline';
+import { readFileSync } from 'node:fs';
+import { ownedRoute } from './route_check.mjs';
 const project = process.env.GODOT_MCP_PROJECT_PATH;
+const expected = JSON.parse(readFileSync(process.argv[2], 'utf8'));
 const entry = lookupProject(project);
 const ports = resolvePortConfig({}, project);
-if (process.cwd() !== project || entry?._key !== project || ports.editorSource !== 'discovery' || ports.editorPinned) {
+if (!ownedRoute(project, process.cwd(), entry, expected) || ports.editorSource !== 'discovery' || ports.editorPinned) {
   throw new Error('canonical standard project discovery mismatch');
 }
 assertPublishedTokenPath(entry.token_path);

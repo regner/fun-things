@@ -16,8 +16,9 @@ ROOT = Path(__file__).resolve().parents[2]
 BASE = 'ef730df936b5b159f0894033f5d01e2b7124386c'
 ORIGINAL = Path('/tmp/s08-standard-555e0330')
 SECOND = '--scan-complete-preparation' in sys.argv
-ACTUAL = '--author-existing-settings' in sys.argv
-TASK = ORIGINAL / ('actual-editor-attempt' if ACTUAL else 'scan-complete-attempt') if (SECOND or ACTUAL) else ORIGINAL
+ACTUAL02 = '--corrected-author-run02' in sys.argv
+ACTUAL = '--author-existing-settings' in sys.argv or ACTUAL02
+TASK = ORIGINAL / ('actual-editor-run02' if ACTUAL02 else 'actual-editor-attempt' if ACTUAL else 'scan-complete-attempt') if (SECOND or ACTUAL) else ORIGINAL
 PROJECT = ORIGINAL / 'project'
 ENGINE = '/home/regner/.local/share/mise/installs/github-godotengine-godot-builds/4.8-dev7/godot'
 ENGINE_SHA = '6aea356032435e7af19dbfbf48dd20c5012a7dc1267eb8e92406f44e3584b5fd'
@@ -212,7 +213,18 @@ def main():
                 if (entry['_key'] != str(PROJECT) or entry['pid'] != editor.pid
                         or not 6550 <= entry['port'] <= 6560
                         or not token_path.is_relative_to(shared / 'data')):
-                    raise RuntimeError('private canonical route mismatch')
+                    time.sleep(0.1)
+                    continue
+                projection_path = shared / 'data/godot-mcp-toolkit/projects.json'
+                try:
+                    projected = json.loads(projection_path.read_text()).get('by_path', {}).get(str(PROJECT))
+                except (FileNotFoundError, json.JSONDecodeError):
+                    projected = None
+                expected = {k: v for k, v in entry.items() if k != '_key'}
+                if projected != expected:
+                    time.sleep(0.1)
+                    continue
+                save(TASK / 'projection-binding.json', {'by_path': {str(PROJECT): projected}})
                 if token_path.is_file():
                     context = contexts[0]
                     if (context['editor_hint'] is not True or context['pid'] != editor.pid
@@ -230,7 +242,7 @@ def main():
         cerr = (TASK / 'editor/connector.stderr.log').open('wb')
         raw = (TASK / 'editor/connector.stdout.log').open('wb')
         streams.extend([cerr, raw])
-        cargv = ['/usr/bin/node', str(ROOT / 'tools/s08/standard_bridge.mjs')]
+        cargv = ['/usr/bin/node', str(ROOT / 'tools/s08/standard_bridge.mjs'), str(TASK / 'registry-binding.json')]
         connector = subprocess.Popen(cargv, env=env, cwd=PROJECT, stdin=subprocess.PIPE,
                                      stdout=subprocess.PIPE, stderr=cerr)
         children.append(connector)
@@ -251,7 +263,7 @@ def main():
 
         discovery = receive()
         result['discovery'] = discovery
-        if discovery.get('registry') != result['registry_entry']:
+        if discovery.get('registry') != {k: v for k, v in result['registry_entry'].items() if k != '_key'}:
             raise RuntimeError('standard discovered entry differs')
 
         def call(request, critical=False):
