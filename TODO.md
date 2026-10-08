@@ -874,8 +874,19 @@ inspection only; no isolation support proof or editor/process/config/vendor/glob
 service launch grant. One-writer is per shared instance/MCP/source, not global Godot
 serialization; verified isolated workspace editors may operate in parallel under
 confirmed ports/routes/process/resource isolation. Existing S05 stays sole task owner/
-full OPEN. S08 release entrypoint/assert-safe fixture then bounded asset/ENet follow-up
-is ROOT's next intended commission, NOT created/assigned; no extra runtime grant here.
+full OPEN; its provisional private ports remain editor16650/runtime16670/LSP16015/
+DAP16016/debug16017, with read-only capability planning and no private editor launch grant.
+
+Alongside S05, ROOT assigns ACTIVE UNACCEPTED S08 release follow-up to sole Sol6.1
+HIGH lead488b6000-b152-4bee-8a52-28febe9c1fe2, workspace
+wks_e2ba2fe7704a8fa6 / branch `s08-release-entrypoint-enet`, accepted base/held LOCAL
+main0c84f01f2a0c817a5c6851a3a360e193a5f846d8. It owns the release-compatible saved
+asset receipt entrypoint, narrowly authorized existing S03 assertion-side-effect fix,
+and one bounded isolated addon-free Linux release asset/ENet follow-up after separately
+granted private authoring and committed protocol. Provisional private ports are
+editor17650/runtime17670/LSP17015/DAP17016/debug17017. No shared editor lease or private
+editor launch grant yet; concrete source-supported isolation/connector request precedes
+launch. No outcome or technical acceptance adopted; full S08 remains OPEN.
 
 Current readiness: bounded S04 source/body/admission/ENet handoff is independently
 ACCEPTED and integrated at `2370ad1`; P2/P3 are closed and full S04 stays open.
@@ -933,8 +944,9 @@ DOC1–11 guide reconciliation is complete. Ready scoped DOC12/13 acceptance dis
 and existing P0-PROFILES dated-notes reconciliation do not require a visual lease.
 Stopped S02 visual access does not hold up independent ready work. S08's bounded
 isolated observation is accepted STOPPED, archived, with full proof gates OPEN.
-Existing S08 owns separately commissioned static entrypoint/assertion preparation;
-S08 has no fix/re-export/retry grant or assigned follow-up worker. Active S05 source
+Existing S08 owns the active UNACCEPTED lead488b6000/workspacewks_e2ba2fe7704a8fa6
+isolated release follow-up above; private editor authoring/launch awaits ROOT grant.
+Active S05 source
 preparation proceeds independently within its NEW-file/Blender CLI boundary. Limited S07 static run-card/content-gap preparation can be separately
 assigned; representative measurements await actual content/effects/drawability/hardware.
 The [eighth checkpoint](docs/reviews/plan-check-2026-10-08-08.md#readiness-and-next-trigger)
@@ -956,7 +968,7 @@ The table describes dependency stages, not a claim that deferred proofs are runn
 | Initial foundation | Ratified brief, contract drafts, concept exploration, tool inventory | Chosen style/layout and measured scope revisions need user ratification and evidence |
 | Tiny fixtures available | S02 camera using [S01 pipeline evidence](docs/spikes/s01.md); use [completed S03 session evidence](docs/spikes/s03.md); review skill dry runs | All visible fixtures must have Blender sources; only minimum harness required |
 | ENet boundary available | Stopped S03-S compatibility accepted; root commissions exact-revision evidence or bounded native-boundary design; S08 desktop preparation | No adapter selection/native delivery/access proof inferred; existing-app/tester/native compatibility still required |
-| Reviewed desktop and partial S05/S06 technical results available | Exact754a0b5 and7fb302b PARTIAL accepted; provisional S07 seam dependency satisfied; S02 exacta311c576 stopped record ACCEPT/full-positive FAIL; DOC1–11 complete; scoped DOC12/13 ready; S08 exact1229782 stopped evidence ACCEPTED/full asset-ENet OPEN | Time-specific S02 operational/display lease RETURNED; authoring UNASSIGNED/no shared writer; archived S08 used no shared lease; ACTIVE UNACCEPTED S05 source prep owns only NEW asset files/isolated Blender CLI, Godot operations await ROOT grant; full S02/S07 and actual effects/drawn/physical keys/feel/final dimensions/Steam/targets remain open |
+| Reviewed desktop and partial S05/S06 technical results available | Exact754a0b5 and7fb302b PARTIAL accepted; provisional S07 seam dependency satisfied; S02 exacta311c576 stopped record ACCEPT/full-positive FAIL; DOC1–11 complete; scoped DOC12/13 ready; S08 exact1229782 stopped evidence ACCEPTED/full asset-ENet OPEN; ACTIVE UNACCEPTED S08 lead488b6000/workspacewks_e2ba2fe7704a8fa6 owns isolated release follow-up, no accepted outcome | Time-specific S02 operational/display lease RETURNED; authoring UNASSIGNED/no shared writer; archived S08 used no shared lease; ACTIVE UNACCEPTED S05 source prep owns only NEW asset files/isolated Blender CLI with read-only private capability plan, Godot operations await ROOT grant; active S08 has no shared/private editor launch grant yet and reserves distinct17650/17670/17015/17016/17017 versus S05's16650/16670/16015/16016/16017; full S02/S07 and actual effects/drawn/physical keys/feel/final dimensions/Steam/targets remain open |
 | Both providers available | Finish S03-R foot response and S04 network response; S08 exports | Both transports need evidence; foot/vehicle prediction are separate decisions |
 | Provisional technical topology available | Accepted S06 crossing/opposing legal LEFT turns/four-arm minimap/stale-data and finite guard; S07 static preparation | Actual drawn/readability/final bodies/contact/exit reruns and real M1-C3 contested recovery remain open; geometric sensitivity is not changed-body proof |
 | City/effect fixtures available | S07 capacity/culling experiments, finish S08, skill dry runs and doc reconciliation | P0-GATE resolves critical assumptions before production |
