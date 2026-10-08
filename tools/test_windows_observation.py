@@ -43,7 +43,10 @@ class ExportGateTest(unittest.TestCase):
             observation.ARGS.godot = str(engine)
             name, size, digest = observation.TEMPLATES["release"]
 
+            calls = []
+
             def fake_checked(_task, phase, *_rest):
+                calls.append(phase)
                 if phase.startswith("export-"):
                     folder = task / "export-release"
                     (folder / "FunThingsS08.exe").write_bytes(b"exe")
@@ -56,8 +59,9 @@ class ExportGateTest(unittest.TestCase):
             with self.version, mock.patch.object(observation, "checked", fake_checked), \
                     mock.patch.object(observation, "identity", side_effect=lambda p: (
                         exact if p.name == "FunThingsS08.exe" else real_identity(p))):
-                with self.assertRaisesRegex(RuntimeError, "reported diagnostics"):
+                with self.assertRaisesRegex(RuntimeError, "release export failed"):
                     observation.export(task, task, {})
+            self.assertEqual(calls, ["import", "export-release-log"])
 
 
 if __name__ == "__main__":
