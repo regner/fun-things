@@ -1,0 +1,24 @@
+/usr/bin/wayland-info
+/usr/bin/xrandr
+/usr/bin/xdpyinfo
+/usr/bin/Xwayland
+/usr/bin/vulkaninfo
+/usr/bin/eglinfo
+/usr/bin/curl
+srwxr-xr-x 1 regner regner   0 Oct  5 11:40 /run/user/1000/wayland-0
+-rw-r----- 1 regner regner   0 Oct  5 11:40 /run/user/1000/wayland-0.lock
+
+/dev/dri:
+total 0
+drwxr-xr-x  2 root root         80 Oct  5 11:39 by-path
+crw-rw----+ 1 root video  226,   1 Oct  7 14:39 card1
+crw-rw-rw-  1 root render 226, 128 Oct  7 14:39 renderD128
+
+/tmp/.X11-unix:
+total 0
+srwxr-xr-x 1 regner regner 0 Oct  5 11:40 X0
+/sys/class/drm/card1-DP-1/status disconnected
+/sys/class/drm/card1-DP-2/status connected
+/sys/class/drm/card1-DVI-D-1/status disconnected
+/sys/class/drm/card1-HDMI-A-1/status disconnected
+/sys/class/drm/card1-HDMI-A-2/status disconnected

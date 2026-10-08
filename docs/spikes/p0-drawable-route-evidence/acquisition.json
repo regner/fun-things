@@ -1,0 +1,147 @@
+[
+  {
+    "url": "https://raw.githubusercontent.com/godotengine/godot/c971f93e7e76b0ef919bf6009e7b868bea04db7f/main/main.cpp",
+    "revision": "c971f93e7e76b0ef919bf6009e7b868bea04db7f",
+    "status": 200,
+    "payload": {
+      "path": "source/main/main.cpp",
+      "bytes": 214477,
+      "sha256": "1460993d3164d77f460b30b2e9a0a9d8f8d516e453c1bc30813966797cc35250"
+    }
+  },
+  {
+    "url": "https://raw.githubusercontent.com/godotengine/godot/c971f93e7e76b0ef919bf6009e7b868bea04db7f/platform/linuxbsd/wayland/display_server_wayland.cpp",
+    "revision": "c971f93e7e76b0ef919bf6009e7b868bea04db7f",
+    "status": 200,
+    "payload": {
+      "path": "source/platform/linuxbsd/wayland/display_server_wayland.cpp",
+      "bytes": 88594,
+      "sha256": "7016ba2b4e345af918c95c7b3516e3b65d387edf9b1592d80d3a47e6f1a78dc5"
+    }
+  },
+  {
+    "url": "https://raw.githubusercontent.com/godotengine/godot/c971f93e7e76b0ef919bf6009e7b868bea04db7f/servers/rendering/rendering_server_default.cpp",
+    "revision": "c971f93e7e76b0ef919bf6009e7b868bea04db7f",
+    "status": 200,
+    "payload": {
+      "path": "source/servers/rendering/rendering_server_default.cpp",
+      "bytes": 16907,
+      "sha256": "b21dc45c1dfe7f6e5aefecad3ebcba42a15012e1535e0b6131c76ec7f13b4654"
+    }
+  },
+  {
+    "url": "https://raw.githubusercontent.com/godotengine/godot/c971f93e7e76b0ef919bf6009e7b868bea04db7f/servers/movie_writer/movie_writer.cpp",
+    "revision": "c971f93e7e76b0ef919bf6009e7b868bea04db7f",
+    "status": 200,
+    "payload": {
+      "path": "source/servers/movie_writer/movie_writer.cpp",
+      "bytes": 13653,
+      "sha256": "c25bdffeea83abeefbddf2e4a07bf9d65d1a46d399c0578614954bfb92db6707"
+    }
+  },
+  {
+    "url": "https://raw.githubusercontent.com/godotengine/godot/c971f93e7e76b0ef919bf6009e7b868bea04db7f/servers/movie_writer/movie_writer_pngwav.cpp",
+    "revision": "c971f93e7e76b0ef919bf6009e7b868bea04db7f",
+    "status": 200,
+    "payload": {
+      "path": "source/servers/movie_writer/movie_writer_pngwav.cpp",
+      "bytes": 6265,
+      "sha256": "cc625de54a8e40f701e2379ba318c651b4aecf90d5ca53751b0fae20175ca4c4"
+    }
+  },
+  {
+    "url": "https://raw.githubusercontent.com/godotengine/godot/c971f93e7e76b0ef919bf6009e7b868bea04db7f/doc/classes/RenderingServer.xml",
+    "revision": "c971f93e7e76b0ef919bf6009e7b868bea04db7f",
+    "status": 200,
+    "payload": {
+      "path": "source/doc/classes/RenderingServer.xml",
+      "bytes": 375753,
+      "sha256": "52deda1c5cb7e990c05c73dde567b938534ca7aa4366ff85032c784d5ea1819e"
+    }
+  },
+  {
+    "url": "https://raw.githubusercontent.com/godotengine/godot/c971f93e7e76b0ef919bf6009e7b868bea04db7f/doc/classes/MovieWriter.xml",
+    "revision": "c971f93e7e76b0ef919bf6009e7b868bea04db7f",
+    "status": 200,
+    "payload": {
+      "path": "source/doc/classes/MovieWriter.xml",
+      "bytes": 7955,
+      "sha256": "5b8afc720c5d968ec497c92645b7d44ce9a71c733cb4e616d5451b7718618a4e"
+    }
+  },
+  {
+    "argv": [
+      "wayland-info"
+    ],
+    "exit": 0,
+    "stdout": {
+      "path": "inventory/0.stdout",
+      "bytes": 53932,
+      "sha256": "ba3d72a2aaddedd643307e2ace391195f422981a2b84df0c498da6ea26277d56"
+    },
+    "stderr": {
+      "path": "inventory/0.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  },
+  {
+    "argv": [
+      "xrandr",
+      "--query"
+    ],
+    "exit": 0,
+    "stdout": {
+      "path": "inventory/1.stdout",
+      "bytes": 1114,
+      "sha256": "8d79bc9d81e6eb1c9c0ec15270a41624f2a3d43ef0b719e13b7a340c1e467b84"
+    },
+    "stderr": {
+      "path": "inventory/1.stderr",
+      "bytes": 89,
+      "sha256": "f948f1b5e551dda399ccfbdcfce0d95fcd44e24deb008ca64c61cab7f643e21b"
+    }
+  },
+  {
+    "argv": [
+      "xdpyinfo"
+    ],
+    "exit": 0,
+    "stdout": {
+      "path": "inventory/2.stdout",
+      "bytes": 83919,
+      "sha256": "e24145b91a5a9021d2bf6edb1c772951689f04e4f1fe9a983782e1ae38409976"
+    },
+    "stderr": {
+      "path": "inventory/2.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  },
+  {
+    "argv": [
+      "bash",
+      "-c",
+      "for t in wayland-info xrandr xdpyinfo Xvfb Xwayland weston gamescope vulkaninfo eglinfo curl; do command -v \"$t\" || true; done; ls -l /tmp/.X11-unix /run/user/1000/wayland-* /dev/dri; for p in /sys/class/drm/card1-*/status; do printf \"%s \" \"$p\"; read -r state < \"$p\"; printf \"%s\\n\" \"$state\"; done"
+    ],
+    "exit": 0,
+    "stdout": {
+      "path": "inventory/3.stdout",
+      "bytes": 764,
+      "sha256": "f385ee67725d6737066a08c54978d85290bdee6e72ff8b8fb3d04fa11f23a5c8"
+    },
+    "stderr": {
+      "path": "inventory/3.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  },
+  {
+    "environment": {
+      "DISPLAY": ":0",
+      "WAYLAND_DISPLAY": "wayland-0",
+      "XDG_RUNTIME_DIR": "/run/user/1000",
+      "XDG_SESSION_TYPE": "wayland"
+    }
+  }
+]

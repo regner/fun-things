@@ -1,0 +1,12 @@
+import urllib.request,json,hashlib
+from pathlib import Path
+p=Path('docs/spikes/p0-drawable-route-evidence'); rev='c971f93e7e76b0ef919bf6009e7b868bea04db7f'; rows=[]
+for name in ['platform/linuxbsd/wayland/wayland_thread.cpp','platform/linuxbsd/wayland/wayland_thread.h']:
+ url=f'https://raw.githubusercontent.com/godotengine/godot/{rev}/{name}'
+ try:
+  with urllib.request.urlopen(url,timeout=20) as response: data=response.read(); status=response.status
+  (p/'source'/name).write_bytes(data)
+  rows.append({'url':url,'status':status,'path':'source/'+name,'bytes':len(data),'sha256':hashlib.sha256(data).hexdigest()})
+ except Exception as error: rows.append({'url':url,'failure':repr(error)})
+(p/'fifo-acquisition.json').write_text(json.dumps(rows,indent=2)+'\n')
+print(json.dumps(rows,indent=2))

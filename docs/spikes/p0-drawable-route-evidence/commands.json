@@ -1,0 +1,8 @@
+[
+  {"argv": ["python3", "docs/spikes/p0-drawable-route-evidence/discover.py"], "exit": 0, "stdout": "discovery.stdout", "stderr": "discovery.stderr", "child_argv_exits_streams": "acquisition.json"},
+  {"argv": ["python3", "docs/spikes/p0-drawable-route-evidence/supplement.py"], "exit": 0, "stdout": "supplement.stdout", "stderr": "supplement.stderr"},
+  {"argv": ["python3", "-"], "stdin": "fifo-fetch.stdin", "exit": 0, "printed_json": "fifo-acquisition.json", "separate_stderr": null, "limitation": "tool combined return; no separate stderr file was captured"},
+  {"argv": ["python3", "docs/spikes/p0-drawable-route-evidence/static_check.py"], "source": "static-attempt01.py", "attempt": 1, "exit": 1, "stdout": "static-attempt01.stdout", "stderr": "static-attempt01.stderr"},
+  {"argv": ["git", "diff", "--check", "233493abc7d2e3c106fb620105cfb766f542813b"], "exit": 2, "stdout": "whitespace-diagnostic.stdout", "stderr": "whitespace-diagnostic.stderr", "result": "unmodified raw display streams contain trailing spaces; preserve them"},
+  {"argv": ["python3", "docs/spikes/p0-drawable-route-evidence/static_check.py"], "source": "static_check.py", "attempt": 2, "exit": 0, "stdout": "static.stdout", "stderr": "static.stderr"}
+]
