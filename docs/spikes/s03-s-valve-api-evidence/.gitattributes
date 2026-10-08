@@ -1,0 +1,6 @@
+# Literal upstream and parsed-document evidence; preserve exact bytes/whitespace.
+# Authored prose, Python and metadata retain ordinary whitespace checks.
+sources/** -text -whitespace
+retrieval/** -text -whitespace
+checks/*.stdout -text -whitespace
+checks/*.stderr -text -whitespace

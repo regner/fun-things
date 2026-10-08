@@ -1,0 +1,379 @@
+660: /// when a connection is closed.
+661: const int k_cchSteamNetworkingMaxConnectionCloseReason = 128;
+662: 
+663: /// Max length, in bytes (include null terminator) of debug description
+664: /// of a connection.
+665: const int k_cchSteamNetworkingMaxConnectionDescription = 128;
+666: 
+667: /// Max length of the app's part of the description
+668: const int k_cchSteamNetworkingMaxConnectionAppName = 32;
+669: 
+670: const int k_nSteamNetworkConnectionInfoFlags_Unauthenticated = 1; // We don't have a certificate for the remote host.
+671: const int k_nSteamNetworkConnectionInfoFlags_Unencrypted = 2; // Information is being sent out over a wire unencrypted (by this library)
+672: const int k_nSteamNetworkConnectionInfoFlags_LoopbackBuffers = 4; // Internal loopback buffers.  Won't be true for localhost.  (You can check the address to determine that.)  This implies k_nSteamNetworkConnectionInfoFlags_FastLAN
+673: const int k_nSteamNetworkConnectionInfoFlags_Fast = 8; // The connection is "fast" and "reliable".  Either internal/localhost (check the address to find out), or the peer is on the same LAN.  (Probably.  It's based on the address and the ping time, this is actually hard to determine unambiguously).
+674: const int k_nSteamNetworkConnectionInfoFlags_Relayed = 16; // The connection is relayed somehow (SDR or TURN).
+675: const int k_nSteamNetworkConnectionInfoFlags_DualWifi = 32; // We're taking advantage of dual-wifi multi-path
+676: 
+677: /// Describe the state of a connection.
+678: struct SteamNetConnectionInfo_t
+679: {
+680: 
+681: 	/// Who is on the other end?  Depending on the connection type and phase of the connection, we might not know
+682: 	SteamNetworkingIdentity m_identityRemote;
+683: 
+684: 	/// Arbitrary user data set by the local application code
+685: 	int64 m_nUserData;
+686: 
+687: 	/// Handle to listen socket this was connected on, or k_HSteamListenSocket_Invalid if we initiated the connection
+688: 	HSteamListenSocket m_hListenSocket;
+689: 
+690: 	/// Remote address.  Might be all 0's if we don't know it, or if this is N/A.
+691: 	/// (E.g. Basically everything except direct UDP connection.)
+692: 	SteamNetworkingIPAddr m_addrRemote;
+693: 	uint16 m__pad1;
+694: 
+695: 	/// What data center is the remote host in?  (0 if we don't know.)
+696: 	SteamNetworkingPOPID m_idPOPRemote;
+697: 
+698: 	/// What relay are we using to communicate with the remote host?
+699: 	/// (0 if not applicable.)
+700: 	SteamNetworkingPOPID m_idPOPRelay;
+701: 
+702: 	/// High level state of the connection
+703: 	ESteamNetworkingConnectionState m_eState;
+704: 
+705: 	/// Basic cause of the connection termination or problem.
+706: 	/// See ESteamNetConnectionEnd for the values used
+707: 	int m_eEndReason;
+708: 
+709: 	/// Human-readable, but non-localized explanation for connection
+710: 	/// termination or problem.  This is intended for debugging /
+711: 	/// diagnostic purposes only, not to display to users.  It might
+712: 	/// have some details specific to the issue.
+713: 	char m_szEndDebug[ k_cchSteamNetworkingMaxConnectionCloseReason ];
+714: 
+715: 	/// Debug description.  This includes the internal connection ID,
+716: 	/// connection type (and peer information), and any name
+717: 	/// given to the connection by the app.  This string is used in various
+718: 	/// internal logging messages.
+719: 	///
+720: 	/// Note that the connection ID *usually* matches the HSteamNetConnection
+721: 	/// handle, but in certain cases with symmetric connections it might not.
+722: 	char m_szConnectionDescription[ k_cchSteamNetworkingMaxConnectionDescription ];
+723: 
+724: 	/// Misc flags.  Bitmask of k_nSteamNetworkConnectionInfoFlags_Xxxx
+725: 	int m_nFlags;
+737: 	ESteamNetworkingConnectionState m_eState;
+738: 
+739: 	/// Current ping (ms)
+740: 	int m_nPing;
+741: 
+742: 	/// Connection quality measured locally, 0...1.  (Percentage of packets delivered
+743: 	/// end-to-end in order).
+744: 	float m_flConnectionQualityLocal;
+745: 
+746: 	/// Packet delivery success rate as observed from remote host
+747: 	float m_flConnectionQualityRemote;
+748: 
+749: 	/// Current data rates from recent history.
+750: 	float m_flOutPacketsPerSec;
+751: 	float m_flOutBytesPerSec;
+752: 	float m_flInPacketsPerSec;
+753: 	float m_flInBytesPerSec;
+754: 
+755: 	/// Estimate rate that we believe that we can send data to our peer.
+756: 	/// Note that this could be significantly higher than m_flOutBytesPerSec,
+757: 	/// meaning the capacity of the channel is higher than you are sending data.
+758: 	/// (That's OK!)
+759: 	int m_nSendRateBytesPerSecond;
+760: 
+761: 	/// Number of bytes pending to be sent.  This is data that you have recently
+762: 	/// requested to be sent but has not yet actually been put on the wire.  The
+763: 	/// reliable number ALSO includes data that was previously placed on the wire,
+764: 	/// but has now been scheduled for re-transmission.  Thus, it's possible to
+765: 	/// observe m_cbPendingReliable increasing between two checks, even if no
+766: 	/// calls were made to send reliable data between the checks.  Data that is
+767: 	/// awaiting the Nagle delay will appear in these numbers.
+768: 	int m_cbPendingUnreliable;
+769: 	int m_cbPendingReliable;
+770: 
+771: 	/// Number of bytes of reliable data that has been placed the wire, but
+772: 	/// for which we have not yet received an acknowledgment, and thus we may
+773: 	/// have to re-transmit.
+774: 	int m_cbSentUnackedReliable;
+775: 
+776: 	/// If you queued a message right now, approximately how long would that message
+777: 	/// wait in the queue before we actually started putting its data on the wire in
+778: 	/// a packet?
+779: 	///
+780: 	/// In general, data that is sent by the application is limited by the bandwidth
+781: 	/// of the channel.  If you send data faster than this, it must be queued and
+782: 	/// put on the wire at a metered rate.  Even sending a small amount of data (e.g.
+783: 	/// a few MTU, say ~3k) will require some of the data to be delayed a bit.
+784: 	/// 
+785: 	/// Ignoring multiple lanes, the estimated delay will be approximately equal to
+786: 	///
+787: 	///		( m_cbPendingUnreliable+m_cbPendingReliable ) / m_nSendRateBytesPerSecond
+788: 	///
+789: 	/// plus or minus one MTU.  It depends on how much time has elapsed since the last
+790: 	/// packet was put on the wire.  For example, the queue might have *just* been emptied,
+791: 	/// and the last packet placed on the wire, and we are exactly up against the send
+792: 	/// rate limit.  In that case we might need to wait for one packet's worth of time to
+793: 	/// elapse before we can send again.  On the other extreme, the queue might have data
+794: 	/// in it waiting for Nagle.  (This will always be less than one packet, because as
+795: 	/// soon as we have a complete packet we would send it.)  In that case, we might be
+796: 	/// ready to send data now, and this value will be 0.
+797: 	///
+798: 	/// This value is only valid if multiple lanes are not used.  If multiple lanes are
+799: 	/// in use, then the queue time will be different for each lane, and you must use
+800: 	/// the value in SteamNetConnectionRealTimeLaneStatus_t.
+801: 	/// 
+802: 	/// Nagle delay is ignored for the purposes of this calculation.
+803: 	SteamNetworkingMicroseconds m_usecQueueTime;
+804: 
+805: 	/// Highest packet jitter experienced, since the last time this information
+806: 	/// was returned.  (The high water mark is cleared each time you fetch the info.)
+807: 	/// 
+808: 	/// - The units are microseconds, although the measurement precision is usually
+809: 	///   not nearly this precise.
+810: 	/// - A negative value means "no data available".
+811: 	/// - Not all connections are able to measure jitter.
+812: 	int32 m_usecMaxJitter;
+813: 
+814: 	// Internal stuff, room to change API easily
+815: 	uint32 reserved[15];
+816: };
+817: 
+818: /// Quick status of a particular lane
+819: struct SteamNetConnectionRealTimeLaneStatus_t
+820: {
+821: 	// Counters for this particular lane.  See the corresponding variables
+822: 	// in SteamNetConnectionRealTimeStatus_t
+823: 	int m_cbPendingUnreliable;
+824: 	int m_cbPendingReliable;
+825: 	int m_cbSentUnackedReliable;
+826: 	int _reservePad1; // Reserved for future use
+827: 
+828: 	/// Lane-specific queue time.  This value takes into consideration lane priorities
+829: 	/// and weights, and how much data is queued in each lane, and attempts to predict
+830: 	/// how any data currently queued will be sent out.
+831: 	SteamNetworkingMicroseconds m_usecQueueTime;
+832: 
+833: 	// Internal stuff, room to change API easily
+956: 
+957: // Send the message unreliably. Can be lost.  Messages *can* be larger than a
+958: // single MTU (UDP packet), but there is no retransmission, so if any piece
+959: // of the message is lost, the entire message will be dropped.
+960: //
+961: // The sending API does have some knowledge of the underlying connection, so
+962: // if there is no NAT-traversal accomplished or there is a recognized adjustment
+963: // happening on the connection, the packet will be batched until the connection
+964: // is open again.
+965: //
+966: // Migration note: This is not exactly the same as k_EP2PSendUnreliable!  You
+967: // probably want k_ESteamNetworkingSendType_UnreliableNoNagle
+968: const int k_nSteamNetworkingSend_Unreliable = 0;
+969: 
+970: // Disable Nagle's algorithm.
+971: // By default, Nagle's algorithm is applied to all outbound messages.  This means
+972: // that the message will NOT be sent immediately, in case further messages are
+973: // sent soon after you send this, which can be grouped together.  Any time there
+974: // is enough buffered data to fill a packet, the packets will be pushed out immediately,
+975: // but partially-full packets not be sent until the Nagle timer expires.  See
+976: // ISteamNetworkingSockets::FlushMessagesOnConnection, ISteamNetworkingMessages::FlushMessagesToUser
+977: //
+978: // NOTE: Don't just send every message without Nagle because you want packets to get there
+979: // quicker.  Make sure you understand the problem that Nagle is solving before disabling it.
+980: // If you are sending small messages, often many at the same time, then it is very likely that
+981: // it will be more efficient to leave Nagle enabled.  A typical proper use of this flag is
+982: // when you are sending what you know will be the last message sent for a while (e.g. the last
+983: // in the server simulation tick to a particular client), and you use this flag to flush all
+984: // messages.
+985: const int k_nSteamNetworkingSend_NoNagle = 1;
+986: 
+987: // Send a message unreliably, bypassing Nagle's algorithm for this message and any messages
+988: // currently pending on the Nagle timer.  This is equivalent to using k_ESteamNetworkingSend_Unreliable
+989: // and then immediately flushing the messages using ISteamNetworkingSockets::FlushMessagesOnConnection
+990: // or ISteamNetworkingMessages::FlushMessagesToUser.  (But using this flag is more efficient since you
+991: // only make one API call.)
+992: const int k_nSteamNetworkingSend_UnreliableNoNagle = k_nSteamNetworkingSend_Unreliable|k_nSteamNetworkingSend_NoNagle;
+993: 
+994: // If the message cannot be sent very soon (because the connection is still doing some initial
+995: // handshaking, route negotiations, etc), then just drop it.  This is only applicable for unreliable
+996: // messages.  Using this flag on reliable messages is invalid.
+997: const int k_nSteamNetworkingSend_NoDelay = 4;
+998: 
+999: // Send an unreliable message, and drop it rather than queuing it if the connection is not ready
+1000: // to send it yet.  This is useful for messages that are not useful if they are excessively
+1001: // delayed, such as voice data.
+1002: // NOTE: The Nagle algorithm is not used, and if the message is not dropped, any messages waiting on the
+1003: // Nagle timer are immediately flushed.
+1004: //
+1005: // Currently, a message will only be dropped if the connection is not fully connected.  (E.g. the
+1006: // "Connecting" or "FindingRoute" states.)  If a message is dropped for this reason, k_EResultIgnored
+1007: // will be returned.
+1008: //
+1009: // Ideally, a message would also be dropped if so much data is already queued up that the current
+1010: // message will not be placed on the wire for a relatively long time (say, ~200ms or so), but this
+1011: // check is not currently implemented.  Messages are queued as usual, subject to the ordinary send
+1012: // buffer limit.  (See k_ESteamNetworkingConfig_SendBufferSize.)
+1013: const int k_nSteamNetworkingSend_UnreliableNoDelay = k_nSteamNetworkingSend_Unreliable|k_nSteamNetworkingSend_NoDelay|k_nSteamNetworkingSend_NoNagle;
+1014: 
+1015: // Reliable message send. Can send up to k_cbMaxSteamNetworkingSocketsMessageSizeSend bytes in a single message. 
+1016: // Does fragmentation/re-assembly of messages under the hood, as well as a sliding window for
+1017: // efficient sends of large chunks of data.
+1018: //
+1019: // The Nagle algorithm is used.  See notes on k_ESteamNetworkingSendType_Unreliable for more details.
+1020: // See k_ESteamNetworkingSendType_ReliableNoNagle, ISteamNetworkingSockets::FlushMessagesOnConnection,
+1021: // ISteamNetworkingMessages::FlushMessagesToUser
+1022: //
+1023: // Migration note: This is NOT the same as k_EP2PSendReliable, it's more like k_EP2PSendReliableWithBuffering
+1024: const int k_nSteamNetworkingSend_Reliable = 8;
+1025: 
+1026: // Send a message reliably, but bypass Nagle's algorithm.
+1027: //
+1028: // Migration note: This is equivalent to k_EP2PSendReliable
+1029: const int k_nSteamNetworkingSend_ReliableNoNagle = k_nSteamNetworkingSend_Reliable|k_nSteamNetworkingSend_NoNagle;
+1153: 	/// [connection int32] Timeout value (in ms) to use when first connecting
+1154: 	k_ESteamNetworkingConfig_TimeoutInitial = 24,
+1155: 
+1156: 	/// [connection int32] Timeout value (in ms) to use after connection is established
+1157: 	k_ESteamNetworkingConfig_TimeoutConnected = 25,
+1158: 
+1159: 	/// [connection int32] Upper limit of buffered pending bytes to be sent,
+1160: 	/// if this is reached SendMessage will return k_EResultLimitExceeded
+1161: 	/// Default is 512k (524288 bytes)
+1162: 	k_ESteamNetworkingConfig_SendBufferSize = 9,
+1163: 
+1164: 	/// [connection int32] Upper limit on total size (in bytes) of received messages
+1165: 	/// that will be buffered waiting to be processed by the application.  If this limit
+1166: 	/// is exceeded, packets will be dropped.  This is to protect us from a malicious
+1167: 	/// peer flooding us with messages faster than we can process them.
+1168: 	/// 
+1169: 	/// This must be bigger than k_ESteamNetworkingConfig_RecvMaxMessageSize
+1170: 	k_ESteamNetworkingConfig_RecvBufferSize = 47,
+1171: 
+1172: 	/// [connection int32] Upper limit on the number of received messages that will
+1173: 	/// that will be buffered waiting to be processed by the application.  If this limit
+1174: 	/// is exceeded, packets will be dropped.  This is to protect us from a malicious
+1175: 	/// peer flooding us with messages faster than we can pull them off the wire.
+1176: 	k_ESteamNetworkingConfig_RecvBufferMessages = 48,
+1177: 
+1178: 	/// [connection int32] Maximum message size that we are willing to receive.
+1179: 	/// if a client attempts to send us a message larger than this, the connection
+1180: 	/// will be immediately closed.
+1181: 	///
+1182: 	/// Default is 512k (524288 bytes).  Note that the peer needs to be able to
+1183: 	/// send a message this big.  (See k_cbMaxSteamNetworkingSocketsMessageSizeSend.)
+1184: 	k_ESteamNetworkingConfig_RecvMaxMessageSize = 49,
+1185: 
+1186: 	/// [connection int32] Max number of message segments that can be received
+1187: 	/// in a single UDP packet.  While decoding a packet, if the number of segments
+1188: 	/// exceeds this, we will abort further packet processing.
+1189: 	///
+1190: 	/// The default is effectively unlimited.  If you know that you very rarely
+1191: 	/// send small packets, you can protect yourself from malicious senders by
+1192: 	/// lowering this number.
+1193: 	/// 
+1194: 	/// In particular, if you are NOT using the reliability layer and are only using
+1195: 	/// SteamNetworkingSockets for datagram transport, setting this to a very low
+1196: 	/// number may be beneficial.  (We recommend a value of 2.)  Make sure your sender
+1197: 	/// disables Nagle!
+1198: 	k_ESteamNetworkingConfig_RecvMaxSegmentsPerPacket = 50,
+1200: 	/// [connection int64] Get/set userdata as a configuration option.
+1201: 	/// The default value is -1.   You may want to set the user data as
+1202: 	/// a config value, instead of using ISteamNetworkingSockets::SetConnectionUserData
+1203: 	/// in two specific instances:
+1204: 	///
+1205: 	/// - You wish to set the userdata atomically when creating
+1206: 	///   an outbound connection, so that the userdata is filled in properly
+1207: 	///   for any callbacks that happen.  However, note that this trick
+1208: 	///   only works for connections initiated locally!  For incoming
+1209: 	///   connections, multiple state transitions may happen and
+1210: 	///   callbacks be queued, before you are able to service the first
+1211: 	///   callback!  Be careful!
+1212: 	///
+1213: 	/// - You can set the default userdata for all newly created connections
+1214: 	///   by setting this value at a higher level (e.g. on the listen
+1215: 	///   socket or at the global level.)  Then this default
+1216: 	///   value will be inherited when the connection is created.
+1217: 	///   This is useful in case -1 is a valid userdata value, and you
+1218: 	///   wish to use something else as the default value so you can
+1219: 	///   tell if it has been set or not.
+1220: 	///
+1221: 	///   HOWEVER: once a connection is created, the effective value is
+1222: 	///   then bound to the connection.  Unlike other connection options,
+1223: 	///   if you change it again at a higher level, the new value will not
+1224: 	///   be inherited by connections.
+1225: 	///
+1226: 	/// Using the userdata field in callback structs is not advised because
+1227: 	/// of tricky race conditions.  Instead, you might try one of these methods:
+1228: 	///
+1229: 	/// - Use a separate map with the HSteamNetConnection as the key.
+1230: 	/// - Fetch the userdata from the connection in your callback
+1231: 	///   using ISteamNetworkingSockets::GetConnectionUserData, to
+1232: 	//    ensure you have the current value.
+1233: 	k_ESteamNetworkingConfig_ConnectionUserData = 40,
+1280: 
+1281: 	/// [connection int32] Allow unencrypted (and unauthenticated) communication.
+1282: 	/// 0: Not allowed (the default)
+1283: 	/// 1: Allowed, but prefer encrypted
+1284: 	/// 2: Allowed, and preferred
+1285: 	/// 3: Required.  (Fail the connection if the peer requires encryption.)
+1286: 	///
+1287: 	/// This is a dev configuration value, since its purpose is to disable encryption.
+1288: 	/// You should not let users modify it in production.  (But note that it requires
+1289: 	/// the peer to also modify their value in order for encryption to be disabled.)
+1290: 	k_ESteamNetworkingConfig_Unencrypted = 34,
+1291: 
+1292: 	/// [connection int32] Set this to 1 on outbound connections and listen sockets,
+1293: 	/// to enable "symmetric connect mode", which is useful in the following
+1294: 	/// common peer-to-peer use case:
+1295: 	///
+1296: 	/// - The two peers are "equal" to each other.  (Neither is clearly the "client"
+1297: 	///   or "server".)
+1298: 	/// - Either peer may initiate the connection, and indeed they may do this
+1299: 	///   at the same time
+1300: 	/// - The peers only desire a single connection to each other, and if both
+1301: 	///   peers initiate connections simultaneously, a protocol is needed for them
+1302: 	///   to resolve the conflict, so that we end up with a single connection.
+1303: 	///
+1539: 	/// [connection FnSteamNetConnectionStatusChanged] Callback that will be invoked
+1540: 	/// when the state of a connection changes.
+1541: 	///
+1542: 	/// IMPORTANT: callbacks are dispatched to the handler that is in effect at the time
+1543: 	/// the event occurs, which might be in another thread.  For example, immediately after
+1544: 	/// creating a listen socket, you may receive an incoming connection.  And then immediately
+1545: 	/// after this, the remote host may close the connection.  All of this could happen
+1546: 	/// before the function to create the listen socket has returned.  For this reason,
+1547: 	/// callbacks usually must be in effect at the time of object creation.  This means
+1548: 	/// you should set them when you are creating the listen socket or connection, or have
+1549: 	/// them in effect so they will be inherited at the time of object creation.
+1550: 	///
+1551: 	/// For example:
+1552: 	///
+1553: 	/// exterm void MyStatusChangedFunc( SteamNetConnectionStatusChangedCallback_t *info );
+1554: 	/// SteamNetworkingConfigValue_t opt; opt.SetPtr( k_ESteamNetworkingConfig_Callback_ConnectionStatusChanged, MyStatusChangedFunc );
+1555: 	/// SteamNetworkingIPAddr localAddress; localAddress.Clear();
+1556: 	/// HSteamListenSocket hListenSock = SteamNetworkingSockets()->CreateListenSocketIP( localAddress, 1, &opt );
+1557: 	///
+1558: 	/// When accepting an incoming connection, there is no atomic way to switch the
+1559: 	/// callback.  However, if the connection is DOA, AcceptConnection() will fail, and
+1560: 	/// you can fetch the state of the connection at that time.
+1561: 	///
+1562: 	/// If all connections and listen sockets can use the same callback, the simplest
+1563: 	/// method is to set it globally before you create any listen sockets or connections.
+1564: 	k_ESteamNetworkingConfig_Callback_ConnectionStatusChanged = 201,
+1565: 
+1566: 	/// [global FnSteamNetAuthenticationStatusChanged] Callback that will be invoked
+1567: 	/// when our auth state changes.  If you use this, install the callback before creating
+1568: 	/// any connections or listen sockets, and don't change it.
+1569: 	/// See: ISteamNetworkingUtils::SetGlobalCallback_SteamNetAuthenticationStatusChanged
+1570: 	k_ESteamNetworkingConfig_Callback_AuthStatusChanged = 202,
+1571: 
+1572: 	/// [global FnSteamRelayNetworkStatusChanged] Callback that will be invoked
+1573: 	/// when our auth state changes.  If you use this, install the callback before creating
+1574: 	/// any connections or listen sockets, and don't change it.
+1575: 	/// See: ISteamNetworkingUtils::SetGlobalCallback_SteamRelayNetworkStatusChanged
+1576: 	k_ESteamNetworkingConfig_Callback_RelayNetworkStatusChanged = 203,

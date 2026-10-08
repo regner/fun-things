@@ -1,0 +1,56 @@
+28: GetAPICallFailureReason
+29: ESteamAPICallFailure GetAPICallFailureReason( SteamAPICall_t hSteamAPICall );
+30: Name	Type	Description
+31: hSteamAPICall	SteamAPICall_t	The Steam API Call handle to check the failure for.
+32: Used to get the failure reason of a call result.
+33: The primary usage for this function is debugging. The failure reasons are typically out of your control and tend to not be very important. Just keep retrying your API Call until it works.
+34: Returns: ESteamAPICallFailure
+35: See Also: IsAPICallCompleted, GetAPICallResult
+36: Example:
+37: void CHTMLSurface::OnBrowserReady( HTML_BrowserReady_t *pBrowserReady, bool bIOFailure )
+38: {
+39: if ( bIOFailure ) {
+40: SteamUtils()->GetAPICallFailureReason( handle ); // handle must be stored separately.
+41: return;
+42: }
+43: }
+44: GetAPICallResult
+45: bool GetAPICallResult( SteamAPICall_t hSteamAPICall, void *pCallback, int cubCallback, int iCallbackExpected, bool *pbFailed );
+46: Name	Type	Description
+47: hSteamAPICall	SteamAPICall_t	The handle to the API Call.
+48: pCallback	void *	Returns the callback into the preallocated memory provided.
+49: cubCallback	int	The size of pCallback that you are passing in.
+50: iCallbackExpected	int	The k_iCallback number associated with the callback.
+51: pbFailed	bool *	Returns if the API call has encountered a failure.
+52: Gets the content of a completed API Call. Provided for the backend of the CallResult wrapper.
+53: It's generally not recommended that you use this manually.
+54: Returns: bool
+55: true upon success if the API Call is valid and has completed, otherwise false.
+56: If the call is successful, it copies the callback into pCallback and returns failures in pbFailed.
+57: See Also: IsAPICallCompleted, GetAPICallFailureReason
+234: IsAPICallCompleted
+235: bool IsAPICallCompleted( SteamAPICall_t hSteamAPICall, bool *pbFailed );
+236: Name	Type	Description
+237: hSteamAPICall	SteamAPICall_t	The API Call handle to check.
+238: pbFailed	bool *	Returns whether the API call has encountered a failure (true) or not (false).
+239: Checks if an API Call is completed. Provides the backend of the CallResult wrapper.
+240: It's generally not recommended that you use this yourself.
+241: Returns: bool
+242: true if the API Call is valid and has completed, otherwise false.
+243: See Also: GetAPICallResult, GetAPICallFailureReason
+391: SteamAPICallCompleted_t
+392: Called when a SteamAPICall_t has completed (or failed)
+393: Name	Type	Description
+394: m_hAsyncCall	SteamAPICall_t	The handle of the Steam API Call that completed.
+395: m_iCallback	int	This is the k_iCallback constant which uniquely identifies the completed callback.
+396: m_cubParam	uint32	The size in bytes of the completed callback.
+397: AppResumingFromSuspend_t
+430: ESteamAPICallFailure
+431: Steam API call failure results returned by GetAPICallFailureReason.
+432: Name	Value	Description
+433: k_ESteamAPICallFailureNone	-1	No failure.
+434: k_ESteamAPICallFailureSteamGone	0	The local Steam process has stopped responding, it may have been forcefully closed or is frozen.
+435: k_ESteamAPICallFailureNetworkFailure	1	The network connection to the Steam servers has been lost, or was already broken.
+436: A SteamServersDisconnected_t callback will be sent around the same time, and a SteamServersConnected_t callback will be sent when the client is able to talk to the Steam servers again.
+437: k_ESteamAPICallFailureInvalidHandle	2	The SteamAPICall_t handle passed in no longer exists.
+438: k_ESteamAPICallFailureMismatchedCallback	3	GetAPICallResult was called with the wrong callback type for this API call.

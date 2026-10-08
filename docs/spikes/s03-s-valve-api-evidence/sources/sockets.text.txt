@@ -1,0 +1,10 @@
+1: Networking API similar to Berkeley sockets, but for games.
+2: It's a connection-oriented API (like TCP, not UDP).  When sending and receiving messages, the peer is identified using a connection handle.
+3: But unlike TCP, it's message-oriented, not stream-oriented.  (The boundaries between the messages are maintained by the API.)
+4: Both reliable and unreliable messages are supported.
+5: Large messages are split into multiple packets, small messages are combined into fewer packets.
+6: A robust ACK / reassembly / retransmission strategy.
+7: Strong encryption and authentication.  When a player connects, you can be sure that if a certain SteamID is authenticated, that someone who has access to that person's account has authorized the connection.  Eavesdropping / tampering requires hacking into the VAC-secured process.  Impersonation requires access to the target's computer.
+8: Supports relayed connections through the Valve network.  This prevents IP addresses from being revealed, protecting your players and gameservers from attack.
+9: Also supports standard connectivity over plain UDP using IPv4 or IPv6.
+10: Related documents:

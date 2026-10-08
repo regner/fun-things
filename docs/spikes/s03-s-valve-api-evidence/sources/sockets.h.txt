@@ -1,0 +1,302 @@
+91: 	/// Like CreateListenSocketIP, but clients will connect using ConnectP2P.
+92: 	///
+93: 	/// nLocalVirtualPort specifies how clients can connect to this socket using
+94: 	/// ConnectP2P.  It's very common for applications to only have one listening socket;
+95: 	/// in that case, use zero.  If you need to open multiple listen sockets and have clients
+96: 	/// be able to connect to one or the other, then nLocalVirtualPort should be a small
+97: 	/// integer (<1000) unique to each listen socket you create.
+98: 	///
+99: 	/// If you use this, you probably want to call ISteamNetworkingUtils::InitRelayNetworkAccess()
+100: 	/// when your app initializes.
+101: 	///
+102: 	/// If you are listening on a dedicated servers in known data center,
+103: 	/// then you can listen using this function instead of CreateHostedDedicatedServerListenSocket,
+104: 	/// to allow clients to connect without a ticket.  Any user that owns
+105: 	/// the app and is signed into Steam will be able to attempt to connect to
+106: 	/// your server.  Also, a connection attempt may require the client to
+107: 	/// be connected to Steam, which is one more moving part that may fail.  When
+108: 	/// tickets are used, then once a ticket is obtained, a client can connect to
+109: 	/// your server even if they got disconnected from Steam or Steam is offline.
+110: 	///
+111: 	/// If you need to set any initial config options, pass them here.  See
+112: 	/// SteamNetworkingConfigValue_t for more about why this is preferable to
+113: 	/// setting the options "immediately" after creation.
+114: 	virtual HSteamListenSocket CreateListenSocketP2P( int nLocalVirtualPort, int nOptions, const SteamNetworkingConfigValue_t *pOptions ) = 0;
+115: 
+116: 	/// Begin connecting to a peer that is identified using a platform-specific identifier.
+117: 	/// This uses the default rendezvous service, which depends on the platform and library
+118: 	/// configuration.  (E.g. on Steam, it goes through the steam backend.)
+119: 	///
+120: 	/// If you need to set any initial config options, pass them here.  See
+121: 	/// SteamNetworkingConfigValue_t for more about why this is preferable to
+122: 	/// setting the options "immediately" after creation.
+123: 	///
+124: 	/// To use your own signaling service, see:
+125: 	/// - ConnectP2PCustomSignaling
+126: 	/// - k_ESteamNetworkingConfig_Callback_CreateConnectionSignaling
+127: 	virtual HSteamNetConnection ConnectP2P( const SteamNetworkingIdentity &identityRemote, int nRemoteVirtualPort, int nOptions, const SteamNetworkingConfigValue_t *pOptions ) = 0;
+128: 
+129: 	/// Accept an incoming connection that has been received on a listen socket.
+130: 	///
+131: 	/// When a connection attempt is received (perhaps after a few basic handshake
+132: 	/// packets have been exchanged to prevent trivial spoofing), a connection interface
+133: 	/// object is created in the k_ESteamNetworkingConnectionState_Connecting state
+134: 	/// and a SteamNetConnectionStatusChangedCallback_t is posted.  At this point, your
+135: 	/// application MUST either accept or close the connection.  (It may not ignore it.)
+136: 	/// Accepting the connection will transition it either into the connected state,
+137: 	/// or the finding route state, depending on the connection type.
+138: 	///
+139: 	/// You should take action within a second or two, because accepting the connection is
+140: 	/// what actually sends the reply notifying the client that they are connected.  If you
+141: 	/// delay taking action, from the client's perspective it is the same as the network
+142: 	/// being unresponsive, and the client may timeout the connection attempt.  In other
+143: 	/// words, the client cannot distinguish between a delay caused by network problems
+144: 	/// and a delay caused by the application.
+145: 	///
+146: 	/// This means that if your application goes for more than a few seconds without
+147: 	/// processing callbacks (for example, while loading a map), then there is a chance
+148: 	/// that a client may attempt to connect in that interval and fail due to timeout.
+149: 	///
+150: 	/// If the application does not respond to the connection attempt in a timely manner,
+151: 	/// and we stop receiving communication from the client, the connection attempt will
+152: 	/// be timed out locally, transitioning the connection to the
+153: 	/// k_ESteamNetworkingConnectionState_ProblemDetectedLocally state.  The client may also
+154: 	/// close the connection before it is accepted, and a transition to the
+155: 	/// k_ESteamNetworkingConnectionState_ClosedByPeer is also possible depending the exact
+156: 	/// sequence of events.
+157: 	///
+158: 	/// Returns k_EResultInvalidParam if the handle is invalid.
+159: 	/// Returns k_EResultInvalidState if the connection is not in the appropriate state.
+160: 	/// (Remember that the connection state could change in between the time that the
+161: 	/// notification being posted to the queue and when it is received by the application.)
+162: 	///
+163: 	/// A note about connection configuration options.  If you need to set any configuration
+164: 	/// options that are common to all connections accepted through a particular listen
+165: 	/// socket, consider setting the options on the listen socket, since such options are
+166: 	/// inherited automatically.  If you really do need to set options that are connection
+167: 	/// specific, it is safe to set them on the connection before accepting the connection.
+168: 	virtual EResult AcceptConnection( HSteamNetConnection hConn ) = 0;
+193: 	/// Destroy a listen socket.  All the connections that were accepting on the listen
+194: 	/// socket are closed ungracefully.
+195: 	virtual bool CloseListenSocket( HSteamListenSocket hSocket ) = 0;
+196: 
+197: 	/// Set connection user data.  the data is returned in the following places
+198: 	/// - You can query it using GetConnectionUserData.
+199: 	/// - The SteamNetworkingmessage_t structure.
+200: 	/// - The SteamNetConnectionInfo_t structure.
+201: 	///   (Which is a member of SteamNetConnectionStatusChangedCallback_t -- but see WARNINGS below!!!!)
+202: 	///
+203: 	/// Do you need to set this atomically when the connection is created?
+204: 	/// See k_ESteamNetworkingConfig_ConnectionUserData.
+205: 	///
+206: 	/// WARNING: Be *very careful* when using the value provided in callbacks structs.
+207: 	/// Callbacks are queued, and the value that you will receive in your
+208: 	/// callback is the userdata that was effective at the time the callback
+209: 	/// was queued.  There are subtle race conditions that can happen if you
+210: 	/// don't understand this!
+211: 	///
+212: 	/// If any incoming messages for this connection are queued, the userdata
+213: 	/// field is updated, so that when when you receive messages (e.g. with
+214: 	/// ReceiveMessagesOnConnection), they will always have the very latest
+215: 	/// userdata.  So the tricky race conditions that can happen with callbacks
+216: 	/// do not apply to retrieving messages.
+217: 	///
+218: 	/// Returns false if the handle is invalid.
+219: 	virtual bool SetConnectionUserData( HSteamNetConnection hPeer, int64 nUserData ) = 0;
+361: 	///
+362: 	/// - pStatus may be NULL if the information is not desired.  (E.g. you are only interested
+363: 	///   in the lane information.)
+364: 	/// - On entry, nLanes specifies the length of the pLanes array.  This may be 0
+365: 	///   if you do not wish to receive any lane data.  It's OK for this to be smaller than
+366: 	///   the total number of configured lanes.
+367: 	/// - pLanes points to an array that will receive lane-specific info.  It can be NULL
+368: 	///   if this is not needed.
+369: 	///
+370: 	/// Return value:
+371: 	/// - k_EResultNoConnection - connection handle is invalid or connection has been closed.
+372: 	/// - k_EResultInvalidParam - nLanes is bad
+373: 	virtual EResult GetConnectionRealTimeStatus( HSteamNetConnection hConn, SteamNetConnectionRealTimeStatus_t *pStatus,
+374: 		int nLanes, SteamNetConnectionRealTimeLaneStatus_t *pLanes ) = 0;
+375: 
+376: 	/// Returns detailed connection stats in text format.  Useful
+377: 	/// for dumping to a log, etc.
+378: 	///
+379: 	/// Returns:
+380: 	/// -1 failure (bad connection handle)
+381: 	/// 0 OK, your buffer was filled in and '\0'-terminated
+382: 	/// >0 Your buffer was either nullptr, or it was too small and the text got truncated.
+383: 	///    Try again with a buffer of at least N bytes.
+384: 	virtual int GetDetailedConnectionStatus( HSteamNetConnection hConn, char *pszBuf, int cbBuf ) = 0;
+489: 	// Identity and authentication
+490: 	//
+491: 
+492: 	/// Get the identity assigned to this interface.
+493: 	/// E.g. on Steam, this is the user's SteamID, or for the gameserver interface, the SteamID assigned
+494: 	/// to the gameserver.  Returns false and sets the result to an invalid identity if we don't know
+495: 	/// our identity yet.  (E.g. GameServer has not logged in.  On Steam, the user will know their SteamID
+496: 	/// even if they are not signed into Steam.)
+497: 	virtual bool GetIdentity( SteamNetworkingIdentity *pIdentity ) = 0;
+498: 
+499: 	/// Indicate our desire to be ready participate in authenticated communications.
+500: 	/// If we are currently not ready, then steps will be taken to obtain the necessary
+501: 	/// certificates.   (This includes a certificate for us, as well as any CA certificates
+502: 	/// needed to authenticate peers.)
+503: 	///
+504: 	/// You can call this at program init time if you know that you are going to
+505: 	/// be making authenticated connections, so that we will be ready immediately when
+506: 	/// those connections are attempted.  (Note that essentially all connections require
+507: 	/// authentication, with the exception of ordinary UDP connections with authentication
+508: 	/// disabled using k_ESteamNetworkingConfig_IP_AllowWithoutAuth.)  If you don't call
+509: 	/// this function, we will wait until a feature is utilized that that necessitates
+510: 	/// these resources.
+511: 	///
+512: 	/// You can also call this function to force a retry, if failure has occurred.
+513: 	/// Once we make an attempt and fail, we will not automatically retry.
+514: 	/// In this respect, the behavior of the system after trying and failing is the same
+515: 	/// as before the first attempt: attempting authenticated communication or calling
+516: 	/// this function will call the system to attempt to acquire the necessary resources.
+517: 	///
+518: 	/// You can use GetAuthenticationStatus or listen for SteamNetAuthenticationStatus_t
+519: 	/// to monitor the status.
+520: 	///
+521: 	/// Returns the current value that would be returned from GetAuthenticationStatus.
+522: 	virtual ESteamNetworkingAvailability InitAuthentication() = 0;
+523: 
+524: 	/// Query our readiness to participate in authenticated communications.  A
+525: 	/// SteamNetAuthenticationStatus_t callback is posted any time this status changes,
+526: 	/// but you can use this function to query it at any time.
+527: 	///
+528: 	/// The value of SteamNetAuthenticationStatus_t::m_eAvail is returned.  If you only
+529: 	/// want this high level status, you can pass NULL for pDetails.  If you want further
+530: 	/// details, pass non-NULL to receive them.
+531: 	virtual ESteamNetworkingAvailability GetAuthenticationStatus( SteamNetAuthenticationStatus_t *pDetails ) = 0;
+532: 
+533: 	//
+534: 	// Poll groups.  A poll group is a set of connections that can be polled efficiently.
+535: 	// (In our API, to "poll" a connection means to retrieve all pending messages.  We
+536: 	// actually don't have an API to "poll" the connection *state*, like BSD sockets.)
+537: 	//
+538: 
+539: 	/// Create a new poll group.
+540: 	///
+541: 	/// You should destroy the poll group when you are done using DestroyPollGroup
+542: 	virtual HSteamNetPollGroup CreatePollGroup() = 0;
+543: 
+544: 	/// Destroy a poll group created with CreatePollGroup().
+545: 	///
+546: 	/// If there are any connections in the poll group, they are removed from the group,
+547: 	/// and left in a state where they are not part of any poll group.
+548: 	/// Returns false if passed an invalid poll group handle.
+549: 	virtual bool DestroyPollGroup( HSteamNetPollGroup hPollGroup ) = 0;
+550: 
+551: 	/// Assign a connection to a poll group.  Note that a connection may only belong to a
+552: 	/// single poll group.  Adding a connection to a poll group implicitly removes it from
+553: 	/// any other poll group it is in.
+554: 	///
+555: 	/// You can pass k_HSteamNetPollGroup_Invalid to remove a connection from its current
+556: 	/// poll group without adding it to a new poll group.
+557: 	///
+558: 	/// If there are received messages currently pending on the connection, an attempt
+559: 	/// is made to add them to the queue of messages for the poll group in approximately
+560: 	/// the order that would have applied if the connection was already part of the poll
+561: 	/// group at the time that the messages were received.
+562: 	///
+563: 	/// Returns false if the connection handle is invalid, or if the poll group handle
+564: 	/// is invalid (and not k_HSteamNetPollGroup_Invalid).
+565: 	virtual bool SetConnectionPollGroup( HSteamNetConnection hConn, HSteamNetPollGroup hPollGroup ) = 0;
+566: 
+567: 	/// Same as ReceiveMessagesOnConnection, but will return the next messages available
+568: 	/// on any connection in the poll group.  Examine SteamNetworkingMessage_t::m_conn
+569: 	/// to know which connection.  (SteamNetworkingMessage_t::m_nConnUserData might also
+570: 	/// be useful.)
+571: 	///
+572: 	/// Delivery order of messages among different connections will usually match the
+573: 	/// order that the last packet was received which completed the message.  But this
+574: 	/// is not a strong guarantee, especially for packets received right as a connection
+575: 	/// is being assigned to poll group.
+576: 	///
+577: 	/// Delivery order of messages on the same connection is well defined and the
+578: 	/// same guarantees are present as mentioned in ReceiveMessagesOnConnection.
+579: 	/// (But the messages are not grouped by connection, so they will not necessarily
+580: 	/// appear consecutively in the list; they may be interleaved with messages for
+581: 	/// other connections.)
+582: 	virtual int ReceiveMessagesOnPollGroup( HSteamNetPollGroup hPollGroup, SteamNetworkingMessage_t **ppOutMessages, int nMaxMessages ) = 0;
+818: 	//
+819: 
+820: 	/// Invoke all callback functions queued for this interface.
+821: 	/// See k_ESteamNetworkingConfig_Callback_ConnectionStatusChanged, etc
+822: 	///
+823: 	/// You don't need to call this if you are using Steam's callback dispatch
+824: 	/// mechanism (SteamAPI_RunCallbacks and SteamGameserver_RunCallbacks).
+825: 	virtual void RunCallbacks() = 0;
+983: 
+984: /// This callback is posted whenever a connection is created, destroyed, or changes state.
+985: /// The m_info field will contain a complete description of the connection at the time the
+986: /// change occurred and the callback was posted.  In particular, m_eState will have the
+987: /// new connection state.
+988: ///
+989: /// You will usually need to listen for this callback to know when:
+990: /// - A new connection arrives on a listen socket.
+991: ///   m_info.m_hListenSocket will be set, m_eOldState = k_ESteamNetworkingConnectionState_None,
+992: ///   and m_info.m_eState = k_ESteamNetworkingConnectionState_Connecting.
+993: ///   See ISteamNetworkigSockets::AcceptConnection.
+994: /// - A connection you initiated has been accepted by the remote host.
+995: ///   m_eOldState = k_ESteamNetworkingConnectionState_Connecting, and
+996: ///   m_info.m_eState = k_ESteamNetworkingConnectionState_Connected.
+997: ///   Some connections might transition to k_ESteamNetworkingConnectionState_FindingRoute first.
+998: /// - A connection has been actively rejected or closed by the remote host.
+999: ///   m_eOldState = k_ESteamNetworkingConnectionState_Connecting or k_ESteamNetworkingConnectionState_Connected,
+1000: ///   and m_info.m_eState = k_ESteamNetworkingConnectionState_ClosedByPeer.  m_info.m_eEndReason
+1001: ///   and m_info.m_szEndDebug will have for more details.
+1002: ///   NOTE: upon receiving this callback, you must still destroy the connection using
+1003: ///   ISteamNetworkingSockets::CloseConnection to free up local resources.  (The details
+1004: ///   passed to the function are not used in this case, since the connection is already closed.)
+1005: /// - A problem was detected with the connection, and it has been closed by the local host.
+1006: ///   The most common failure is timeout, but other configuration or authentication failures
+1007: ///   can cause this.  m_eOldState = k_ESteamNetworkingConnectionState_Connecting or
+1008: ///   k_ESteamNetworkingConnectionState_Connected, and m_info.m_eState = k_ESteamNetworkingConnectionState_ProblemDetectedLocally.
+1009: ///   m_info.m_eEndReason and m_info.m_szEndDebug will have for more details.
+1010: ///   NOTE: upon receiving this callback, you must still destroy the connection using
+1011: ///   ISteamNetworkingSockets::CloseConnection to free up local resources.  (The details
+1012: ///   passed to the function are not used in this case, since the connection is already closed.)
+1013: ///
+1014: /// Remember that callbacks are posted to a queue, and networking connections can
+1015: /// change at any time.  It is possible that the connection has already changed
+1016: /// state by the time you process this callback.
+1017: ///
+1018: /// Also note that callbacks will be posted when connections are created and destroyed by your own API calls.
+1019: struct SteamNetConnectionStatusChangedCallback_t
+1020: {
+1021: 	enum { k_iCallback = k_iSteamNetworkingSocketsCallbacks + 1 };
+1022: 
+1023: 	/// Connection handle
+1024: 	HSteamNetConnection m_hConn;
+1025: 
+1026: 	/// Full connection info
+1027: 	SteamNetConnectionInfo_t m_info;
+1028: 
+1029: 	/// Previous state.  (Current state is in m_info.m_eState)
+1030: 	ESteamNetworkingConnectionState m_eOldState;
+1031: };
+1032: 
+1033: /// A struct used to describe our readiness to participate in authenticated,
+1034: /// encrypted communication.  In order to do this we need:
+1035: ///
+1036: /// - The list of trusted CA certificates that might be relevant for this
+1037: ///   app.
+1038: /// - A valid certificate issued by a CA.
+1039: ///
+1040: /// This callback is posted whenever the state of our readiness changes.
+1041: struct SteamNetAuthenticationStatus_t
+1042: {
+1043: 	enum { k_iCallback = k_iSteamNetworkingSocketsCallbacks + 2 };
+1044: 
+1045: 	/// Status
+1046: 	ESteamNetworkingAvailability m_eAvail;
+1047: 
+1048: 	/// Non-localized English language status.  For diagnostic/debugging
+1049: 	/// purposes only.
+1050: 	char m_debugMsg[ 256 ];
+1051: };
+1052: 
+1053: #pragma pack( pop )

@@ -1,0 +1,35 @@
+12: ActivateGameOverlayInviteDialog
+13: void ActivateGameOverlayInviteDialog( CSteamID steamIDLobby );
+14: Name	Type	Description
+15: steamIDLobby	CSteamID	The Steam ID of the lobby that selected users will be invited to.
+16: Activates the Steam Overlay to open the invite dialog. Invitations sent from this dialog will be for the provided lobby.
+17: ActivateGameOverlayToStore
+18: void ActivateGameOverlayToStore( AppId_t nAppID, EOverlayToStoreFlag eFlag );
+356: GetFriendGamePlayed
+357: bool GetFriendGamePlayed( CSteamID steamIDFriend, FriendGameInfo_t *pFriendGameInfo );
+358: Name	Type	Description
+359: steamIDFriend	CSteamID	The Steam ID of the other user.
+360: pFriendGameInfo	FriendGameInfo_t *	Fills in the details if the user is in a game.
+361: Checks if the specified friend is in a game, and gets info about the game if they are.
+362: Returns: bool
+363: true if the user is a friend and is in a game; otherwise, false.
+364: GetFriendMessage
+365: int GetFriendMessage( CSteamID steamIDFriend, int iMessageID, void *pvData, int cubData, EChatEntryType *peChatEntryType );
+366: Name	Type	Description
+961: GameLobbyJoinRequested_t
+962: Called when the user tries to join a lobby from their friends list or from an invite. The game client should attempt to connect to specified lobby when this is received. If the game isn't running yet then the game will be automatically launched with the command line parameter +connect_lobby <64-bit lobby Steam ID> instead.
+963: Name	Type	Description
+964: m_steamIDLobby	CSteamID	The Steam ID of the lobby to connect to.
+965: m_steamIDFriend	CSteamID	The friend they joined through. This will be invalid if not directly via a friend.
+966: NOTE: This callback is made when joining a lobby. If the user is attempting to join a game but not a lobby, then the callback GameRichPresenceJoinRequested_t will be made.
+967: GameOverlayActivated_t
+968: Posted when the Steam Overlay activates or deactivates. The game can use this to pause or resume single player games.
+969: Name	Type	Description
+970: m_bActive	uint8	1 if it's just been activated, otherwise 0.
+971: GameRichPresenceJoinRequested_t
+972: Called when the user tries to join a game from their friends list or after a user accepts an invite by a friend with InviteUserToGame.
+973: Name	Type	Description
+974: m_steamIDFriend	CSteamID	The friend they joined through. This will be invalid if not directly via a friend.
+975: m_rgchConnect	char［k_cchMaxRichPresenceValueLength］	The value associated with the "connect" Rich Presence key.
+976: Associated Functions: InviteUserToGame
+977: NOTE: This callback is made when joining a game. If the user is attempting to join a lobby, then the callback GameLobbyJoinRequested_t will be made.

@@ -1,0 +1,41 @@
+[
+  {
+    "name": "source-readback",
+    "argv": [
+      "python3",
+      "docs/spikes/s03-s-valve-api-evidence/check.py",
+      "--source-readback"
+    ],
+    "cwd": "/home/regner/.paseo/worktrees/0u71f39f/s03-s-valve-api-interface-research",
+    "utc": "2026-10-08T13:20:16.336822+00:00",
+    "exit": 0,
+    "stdout": "source-readback.stdout",
+    "stderr": "source-readback.stderr"
+  },
+  {
+    "name": "offline-static",
+    "argv": [
+      "python3",
+      "docs/spikes/s03-s-valve-api-evidence/check.py"
+    ],
+    "cwd": "/home/regner/.paseo/worktrees/0u71f39f/s03-s-valve-api-interface-research",
+    "utc": "2026-10-08T13:20:16.405631+00:00",
+    "exit": 0,
+    "stdout": "offline-static.stdout",
+    "stderr": "offline-static.stderr"
+  },
+  {
+    "name": "whitespace",
+    "argv": [
+      "git",
+      "diff",
+      "--check",
+      "233493abc7d2e3c106fb620105cfb766f542813b"
+    ],
+    "cwd": "/home/regner/.paseo/worktrees/0u71f39f/s03-s-valve-api-interface-research",
+    "utc": "2026-10-08T13:20:16.409538+00:00",
+    "exit": 0,
+    "stdout": "whitespace.stdout",
+    "stderr": "whitespace.stderr"
+  }
+]

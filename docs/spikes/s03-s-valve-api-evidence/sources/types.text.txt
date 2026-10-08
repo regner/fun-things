@@ -1,0 +1,5 @@
+1: Miscellaneous types and functions used by networking APIs.
+2: Describing Network Hosts
+3: Types needed to describe network hosts.
+4: enum ESteamNetworkingIdentityType
+5: Different types of identities that a remote host can have.  Most of the time on Steam, this will be a CSteamID.  However, in some cases you can disable authentication, in which case a more generic identity will be used.

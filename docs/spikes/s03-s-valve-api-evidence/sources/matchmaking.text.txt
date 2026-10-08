@@ -1,0 +1,169 @@
+62: CreateLobby
+63: SteamAPICall_t CreateLobby( ELobbyType eLobbyType, int cMaxMembers );
+64: Name	Type	Description
+65: eLobbyType	ELobbyType	The type and visibility of this lobby. This can be changed later via SetLobbyType.
+66: cMaxMembers	int	The maximum number of players that can join this lobby. This can not be above 250.
+67: Create a new matchmaking lobby.
+68: Returns: SteamAPICall_t to be used with a LobbyCreated_t call result.
+69: Triggers a LobbyEnter_t callback.
+70: Triggers a LobbyDataUpdate_t callback.
+71: If the results returned via the LobbyCreated_t call result indicate success then the lobby is joined & ready to use at this point.
+72: The LobbyEnter_t callback is also received since the local user has joined their own lobby.
+73: DeleteLobbyData
+205: GetLobbyMemberLimit
+206: int GetLobbyMemberLimit( CSteamID steamIDLobby );
+207: Name	Type	Description
+208: steamIDLobby	CSteamID	The Steam ID of the lobby to get the member limit of.
+209: The current limit on the # of users who can join the lobby.
+210: Returns 0 if no limit is defined.
+211: Returns: int
+212: Returns 0 if no metadata is available for the specified lobby.
+213: GetLobbyOwner
+214: CSteamID GetLobbyOwner( CSteamID steamIDLobby );
+215: Name	Type	Description
+216: steamIDLobby	CSteamID	The Steam ID of the lobby to get the owner of.
+217: Returns the current lobby owner.
+218: NOTE: You must be a member of the lobby to access this.
+219: There always one lobby owner - if the current owner leaves, another user in the lobby will become the owner automatically. It is possible (but rare) to join a lobby just as the owner is leaving, thus entering a lobby with self as the owner.
+220: Returns: CSteamID
+229: This is used for iteration, after calling this then GetLobbyMemberByIndex can be used to get the Steam ID of each person in the lobby. Persona information for other lobby members (name, avatar, etc.) is automatically received and accessible via the ISteamFriends interface.
+230: Returns: int
+231: The number of members in the lobby, 0 if the current user has no data from the lobby.
+232: InviteUserToLobby
+233: bool InviteUserToLobby( CSteamID steamIDLobby, CSteamID steamIDInvitee );
+234: Name	Type	Description
+235: steamIDLobby	CSteamID	The Steam ID of the lobby to invite the user to.
+236: steamIDInvitee	CSteamID	The Steam ID of the person who will be invited.
+237: Invite another user to the lobby.
+238: If the specified user clicks the join link, a GameLobbyJoinRequested_t callback will be posted if the user is in-game, or if the game isn't running yet then the game will be automatically launched with the command line parameter +connect_lobby <64-bit lobby Steam ID> instead.
+239: Returns: bool
+240: true if the invite was successfully sent; otherwise, false if the local user isn't in a lobby, no connection to Steam could be made, or the specified user is invalid.
+241: NOTE: This call doesn't check if the other user was successfully invited.
+242: JoinLobby
+243: SteamAPICall_t JoinLobby( CSteamID steamIDLobby );
+244: Name	Type	Description
+245: steamIDLobby	CSteamID	The Steam ID of the lobby to join.
+246: Joins an existing lobby.
+247: The lobby Steam ID can be obtained either from a search with RequestLobbyList, joining on a friend, or from an invite.
+248: Returns: SteamAPICall_t to be used with a LobbyEnter_t call result.
+249: Triggers a LobbyDataUpdate_t callback.
+250: LeaveLobby
+251: void LeaveLobby( CSteamID steamIDLobby );
+252: Name	Type	Description
+253: steamIDLobby	CSteamID	The lobby to leave.
+254: Leave a lobby that the user is currently in; this will take effect immediately on the client side, other users in the lobby will be notified by a LobbyChatUpdate_t callback.
+255: RemoveFavoriteGame
+325: SetLobbyData
+326: bool SetLobbyData( CSteamID steamIDLobby, const char *pchKey, const char *pchValue );
+327: Name	Type	Description
+328: steamIDLobby	CSteamID	The Steam ID of the lobby to set the metadata for.
+329: pchKey	const char *	The key to set the data for. This can not be longer than k_nMaxLobbyKeyLength.
+330: pchValue	const char *	The value to set. This can not be longer than k_cubChatMetadataMax.
+331: Sets a key/value pair in the lobby metadata. This can be used to set the the lobby name, current map, game mode, etc.
+332: This can only be set by the owner of the lobby. Lobby members should use SetLobbyMemberData instead.
+333: Each user in the lobby will be receive notification of the lobby data change via a LobbyDataUpdate_t callback, and any new users joining will receive any existing data.
+334: This will only send the data if it has changed. There is a slight delay before sending the data so you can call this repeatedly to set all the data you need to and it will automatically be batched up and sent after the last sequential call.
+335: Returns: bool
+336: true if the data has been set successfully. false if steamIDLobby was invalid, or the key/value are too long.
+337: SetLobbyGameServer
+338: void SetLobbyGameServer( CSteamID steamIDLobby, uint32 unGameServerIP, uint16 unGameServerPort, CSteamID steamIDGameServer );
+339: Name	Type	Description
+340: steamIDLobby	CSteamID	The Steam ID of the lobby to set the game server information for.
+351: SetLobbyJoinable
+352: bool SetLobbyJoinable( CSteamID steamIDLobby, bool bLobbyJoinable );
+353: Name	Type	Description
+354: steamIDLobby	CSteamID	The Steam ID of the lobby
+355: bLobbyJoinable	bool	Enable (true) or disable (false) allowing users to join this lobby?
+356: Sets whether or not a lobby is joinable by other players. This always defaults to enabled for a new lobby.
+357: If joining is disabled, then no players can join, even if they are a friend or have been invited.
+358: Lobbies with joining disabled will not be returned from a lobby search.
+359: Returns: bool
+360: true upon success; otherwise, false if you're not the owner of the lobby.
+361: SetLobbyMemberData
+362: void SetLobbyMemberData( CSteamID steamIDLobby, const char *pchKey, const char *pchValue );
+363: Name	Type	Description
+364: steamIDLobby	CSteamID	The Steam ID of the lobby to set our metadata in.
+365: pchKey	const char *	The key to set the data for. This can not be longer than k_nMaxLobbyKeyLength.
+366: pchValue	const char *	The value to set. This can not be longer than k_cubChatMetadataMax.
+367: Sets per-user metadata for the local user.
+368: Each user in the lobby will be receive notification of the lobby data change via a LobbyDataUpdate_t callback, and any new users joining will receive any existing data.
+369: There is a slight delay before sending the data so you can call this repeatedly to set all the data you need to and it will automatically be batched up and sent after the last sequential call.
+370: Returns: void
+371: Triggers a LobbyDataUpdate_t callback.
+372: See Also: GetLobbyMemberData
+373: SetLobbyMemberLimit
+374: bool SetLobbyMemberLimit( CSteamID steamIDLobby, int cMaxMembers );
+375: Name	Type	Description
+376: steamIDLobby	CSteamID	The Steam ID of the lobby to set the member limit for.
+377: cMaxMembers	int	The maximum number of players allowed in this lobby. This can not be above 250.
+378: Set the maximum number of players that can join the lobby.
+379: This is also set when you create the lobby with CreateLobby.
+380: This can only be set by the owner of the lobby.
+381: Returns: bool
+382: true if the limit was successfully set.
+383: false if you are not the owner of the specified lobby.
+384: SetLobbyOwner
+385: bool SetLobbyOwner( CSteamID steamIDLobby, CSteamID steamIDNewOwner );
+386: Name	Type	Description
+387: steamIDLobby	CSteamID	The Steam ID of the lobby where the owner change will take place.
+388: steamIDNewOwner	CSteamID	The Steam ID of the user that will be the new owner of the lobby, they must be in the lobby.
+389: Changes who the lobby owner is.
+390: This can only be set by the owner of the lobby. This will trigger a LobbyDataUpdate_t for all of the users in the lobby, each user should update their local state to reflect the new owner. This is typically accomplished by displaying a crown icon next to the owners name.
+391: Returns: bool
+392: Triggers a LobbyDataUpdate_t callback.
+393: true if the owner was successfully changed.
+394: false if you're not the current owner of the lobby, steamIDNewOwner is not a member in the lobby, or if no connection to Steam could be made.
+395: See Also: GetLobbyOwner
+396: SetLobbyType
+397: bool SetLobbyType( CSteamID steamIDLobby, ELobbyType eLobbyType );
+398: Name	Type	Description
+399: steamIDLobby	CSteamID	The Steam ID of the lobby to set the type of.
+400: eLobbyType	ELobbyType	The new lobby type to that will be set.
+401: Updates what type of lobby this is.
+402: This is also set when you create the lobby with CreateLobby.
+403: This can only be set by the owner of the lobby.
+404: Returns: bool
+405: true upon success; otherwise, false if you're not the owner of the lobby.
+429: LobbyChatUpdate_t
+430: A lobby chat room state has changed, this is usually sent when a user has joined or left the lobby.
+431: Name	Type	Description
+432: m_ulSteamIDLobby	uint64	The Steam ID of the lobby.
+433: m_ulSteamIDUserChanged	uint64	The user who's status in the lobby just changed - can be recipient.
+434: m_ulSteamIDMakingChange	uint64	Chat member who made the change. This can be different from m_ulSteamIDUserChanged if kicking, muting, etc. For example, if one user kicks another from the lobby, this will be set to the id of the user who initiated the kick.
+435: m_rgfChatMemberStateChange	uint32	Bitfield of EChatMemberStateChange values.
+436: LobbyCreated_t
+437: Result of our request to create a Lobby. At this point, the lobby has been joined and is ready for use, a LobbyEnter_t callback will also be received (since the local user is joining their own lobby).
+438: Name	Type	Description
+439: m_eResult	EResult	The result of the operation.
+440: Possible values:
+441: k_EResultOK - The lobby was successfully created.
+442: k_EResultFail - The server responded, but with an unknown internal error.
+443: k_EResultTimeout - The message was sent to the Steam servers, but it didn't respond.
+444: k_EResultLimitExceeded - Your game client has created too many lobbies and is being rate limited.
+445: k_EResultAccessDenied - Your game isn't set to allow lobbies, or your client does haven't rights to play the game
+446: k_EResultNoConnection - Your Steam client doesn't have a connection to the back-end.
+447: m_ulSteamIDLobby	uint64	The Steam ID of the lobby that was created, 0 if failed.
+448: Associated Functions: CreateLobby
+449: LobbyDataUpdate_t
+450: The lobby metadata has changed.
+451: If m_ulSteamIDMember is a user in the lobby, then use GetLobbyMemberData to access per-user details; otherwise, if m_ulSteamIDMember == m_ulSteamIDLobby, use GetLobbyData to access the lobby metadata.
+452: Name	Type	Description
+453: m_ulSteamIDLobby	uint64	The Steam ID of the Lobby.
+454: m_ulSteamIDMember	uint64	Steam ID of either the member whose data changed, or the room itself.
+455: m_bSuccess	uint8	true if the lobby data was successfully changed, otherwise false.
+456: Associated Functions: CreateLobby, JoinLobby, SetLobbyMemberData, RequestLobbyData, SetLobbyOwner
+457: LobbyEnter_t
+458: Recieved upon attempting to enter a lobby. Lobby metadata is available to use immediately after receiving this.
+459: Name	Type	Description
+460: m_ulSteamIDLobby	uint64	The steam ID of the Lobby you have entered.
+461: m_rgfChatPermissions	uint32	Unused - Always 0.
+462: m_bLocked	bool	If true, then only invited users may join.
+463: m_EChatRoomEnterResponse	uint32	This is actually a EChatRoomEnterResponse value. This will be set to k_EChatRoomEnterResponseSuccess if the lobby was successfully joined, otherwise it will be k_EChatRoomEnterResponseError.
+464: Associated Functions: CreateLobby, JoinLobby
+471: m_usPort	uint16	The connection port of the game server, in host order, if it's set.
+472: Associated Functions: SetLobbyGameServer
+473: LobbyInvite_t
+474: Someone has invited you to join a Lobby. Normally you don't need to do anything with this, as the Steam UI will also display a '<user> has invited you to the lobby, join?' notification and message.
+475: If the user outside a game chooses to join, your game will be launched with the parameter +connect_lobby <64-bit lobby id>, or with the callback GameLobbyJoinRequested_t if they're already in-game.
+476: Name	Type	Description
+477: m_ulSteamIDUser	uint64	Steam ID of the person that sent the invite.
