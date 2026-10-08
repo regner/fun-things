@@ -45,9 +45,10 @@ qualification and enough outcome detail for dispatch.
   (2 host/6 client `tree_exited` errors); original saved-main stall was not rerun or fixed.
   Restored 20 ms helper source is unexecuted. Next work: bounded cache-registration and
   original-entrypoint stalled-boundary/close-reason diagnosis, then clean release proof.
-  Callable spelling alone is not an identity defect. Prepare a source-backed cache
-  register/remove/reuse and original-S08-main versus minimal-S03 closure discrimination
-  card, preserving original 20 ms servicing and first-stall/close-reason evidence needs.
+  Callable spelling alone is not an identity defect. [Source-first diagnosis](
+  ../spikes/s08-source-diagnosis.md) traces cache register/remove/reuse and original-S08-main
+  versus minimal-S03 closure, with competing unknowns and one UNEXECUTED diagnostic card.
+  Original 20 ms servicing and first-stall/close-reason evidence still require a separate grant.
   Any runtime/native repair/pin decision needs a separate bounded commission, not an
   unconditional repeat or credit from the source-only restoration. Export/target/Gaming Mode proof
   remains open; Steam/device testing is deferred until access.

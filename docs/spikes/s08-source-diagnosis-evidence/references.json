@@ -1,0 +1,429 @@
+{
+  "schema": 1,
+  "base": "85282adddd8182a6f31b2c80e4419d1d406b3bb2",
+  "engine_source": "c971f93e7e76b0ef919bf6009e7b868bea04db7f",
+  "references": [
+    {
+      "revision": "fd375c03dcbb1b3d6d98ddb4c3e8e94d9c5fa07d",
+      "path": "docs/spikes/s08-release-lifecycle-evidence/source/scene_cache_interface.cpp",
+      "blob": "6e5575bc2c0936f0e4f4eba6abffcb1b0230070f",
+      "bytes": 11692,
+      "sha256": "a1bcead63f35e7d86cef4dd4e461760aa69affcc4393fdc5554eadc6019b0190",
+      "upstream": "https://raw.githubusercontent.com/godotengine/godot/c971f93e7e76b0ef919bf6009e7b868bea04db7f/modules/multiplayer/scene_cache_interface.cpp",
+      "anchors": [
+        {
+          "text": "SceneCacheInterface::_track",
+          "line": 41
+        },
+        {
+          "text": "SceneCacheInterface::_remove_node_cache",
+          "line": 46
+        },
+        {
+          "text": "SceneCacheInterface::on_peer_change",
+          "line": 75
+        },
+        {
+          "text": "SceneCacheInterface::process_simplify_path",
+          "line": 98
+        },
+        {
+          "text": "SceneCacheInterface::get_cached_object",
+          "line": 277
+        },
+        {
+          "text": "SceneCacheInterface::clear",
+          "line": 297
+        }
+      ]
+    },
+    {
+      "revision": "fd375c03dcbb1b3d6d98ddb4c3e8e94d9c5fa07d",
+      "path": "docs/spikes/s08-release-lifecycle-evidence/source/scene_multiplayer.cpp",
+      "blob": "80d188d8b4cc04264cc2cef458ee6b973750ba8b",
+      "bytes": 27556,
+      "sha256": "71d62fede101f834482346f1066023dbc126596012fcf7d2cb7689480b254494",
+      "upstream": "https://raw.githubusercontent.com/godotengine/godot/c971f93e7e76b0ef919bf6009e7b868bea04db7f/modules/multiplayer/scene_multiplayer.cpp",
+      "anchors": [
+        {
+          "text": "void SceneMultiplayer::set_multiplayer_peer",
+          "line": 188
+        },
+        {
+          "text": "SceneMultiplayer::SceneMultiplayer()",
+          "line": 683
+        },
+        {
+          "text": "SceneMultiplayer::~SceneMultiplayer()",
+          "line": 691
+        }
+      ]
+    },
+    {
+      "revision": "fd375c03dcbb1b3d6d98ddb4c3e8e94d9c5fa07d",
+      "path": "docs/spikes/s08-release-lifecycle-evidence/source/scene_rpc_interface.cpp",
+      "blob": "0938e34ee4bd71ad14ac36f2873401cf7d69946c",
+      "bytes": 21191,
+      "sha256": "cca1423803e1f1cc58570ba9d0c6bd39be22ebaa39a283551aa984889659c6c7",
+      "upstream": "https://raw.githubusercontent.com/godotengine/godot/c971f93e7e76b0ef919bf6009e7b868bea04db7f/modules/multiplayer/scene_rpc_interface.cpp",
+      "anchors": []
+    },
+    {
+      "revision": "fd375c03dcbb1b3d6d98ddb4c3e8e94d9c5fa07d",
+      "path": "docs/spikes/s08-release-lifecycle-evidence/source/object.cpp",
+      "blob": "98bf0a17f37e1ccd919bc60f894be134807b8b3e",
+      "bytes": 79158,
+      "sha256": "e251be7f57f522f2e16e2886e012989ae483961d494f471e83d32ca7b60dd34a",
+      "upstream": "https://raw.githubusercontent.com/godotengine/godot/c971f93e7e76b0ef919bf6009e7b868bea04db7f/core/object/object.cpp",
+      "anchors": [
+        {
+          "text": "Error Object::connect(",
+          "line": 1585
+        },
+        {
+          "text": "bool Object::_disconnect(",
+          "line": 1699
+        },
+        {
+          "text": "// Disconnect all one-shot connections before emitting",
+          "line": 1301
+        }
+      ]
+    },
+    {
+      "revision": "fd375c03dcbb1b3d6d98ddb4c3e8e94d9c5fa07d",
+      "path": "docs/spikes/s08-release-lifecycle-evidence/source/variant-callable.cpp",
+      "blob": "b918729cb0df528d2ee56fb0d487274001d6271e",
+      "bytes": 17058,
+      "sha256": "ebd8fc564164e17fe62e8f2900f669dcbb0ba0b62234153816dd7fe0023b297a",
+      "upstream": "https://raw.githubusercontent.com/godotengine/godot/c971f93e7e76b0ef919bf6009e7b868bea04db7f/core/variant/callable.cpp",
+      "anchors": [
+        {
+          "text": "const Callable *Callable::get_base_comparator()",
+          "line": 241
+        },
+        {
+          "text": "bool Callable::operator==",
+          "line": 263
+        }
+      ]
+    },
+    {
+      "revision": "fd375c03dcbb1b3d6d98ddb4c3e8e94d9c5fa07d",
+      "path": "docs/spikes/s08-release-lifecycle-evidence/source/callable_bind.cpp",
+      "blob": "a2448696d437bbb2f836cebcdd011e496973b5a8",
+      "bytes": 9370,
+      "sha256": "b78a27dac00c6f1419016eea3b60e096b2bb98b074708cd70afd5dde8035206e",
+      "upstream": "https://raw.githubusercontent.com/godotengine/godot/c971f93e7e76b0ef919bf6009e7b868bea04db7f/core/variant/callable_bind.cpp",
+      "anchors": [
+        {
+          "text": "const Callable *CallableCustomBind::get_base_comparator()",
+          "line": 90
+        }
+      ]
+    },
+    {
+      "revision": "fd375c03dcbb1b3d6d98ddb4c3e8e94d9c5fa07d",
+      "path": "docs/spikes/s08-release-lifecycle-evidence/source/callable_mp.cpp",
+      "blob": "6506643f1ffbd5f751ac6794e53831e55b4f44d8",
+      "bytes": 4127,
+      "sha256": "b248c6eb783dc02428ac5b8a695bee04ca0f2a8991e2d24954545077d5d7685a",
+      "upstream": "https://raw.githubusercontent.com/godotengine/godot/c971f93e7e76b0ef919bf6009e7b868bea04db7f/core/object/callable_mp.cpp",
+      "anchors": [
+        {
+          "text": "bool CallableCustomMethodPointerBase::compare_equal",
+          "line": 33
+        },
+        {
+          "text": "void CallableCustomMethodPointerBase::_setup",
+          "line": 71
+        }
+      ]
+    },
+    {
+      "revision": "fd375c03dcbb1b3d6d98ddb4c3e8e94d9c5fa07d",
+      "path": "docs/spikes/s08-release-lifecycle-evidence/source/callable_mp.h",
+      "blob": "aad45a0048b89efd9ba09043804350ff09041742",
+      "bytes": 10456,
+      "sha256": "5505e66513f8b8ca72f3185adccfd1f1909d0f36b26cdc9b96dccec37e01177f",
+      "upstream": "https://raw.githubusercontent.com/godotengine/godot/c971f93e7e76b0ef919bf6009e7b868bea04db7f/core/object/callable_mp.h",
+      "anchors": []
+    },
+    {
+      "revision": "fd375c03dcbb1b3d6d98ddb4c3e8e94d9c5fa07d",
+      "path": "docs/spikes/s08-release-lifecycle-evidence/source/gdscript_vm.cpp",
+      "blob": "0699d9c07cbcea04123d7d874e8e5c57aa4a7dd1",
+      "bytes": 131482,
+      "sha256": "6899ac528edc38d716307c7b1d184d920324b03e358fdebc8b9733047aa0600d",
+      "upstream": "https://raw.githubusercontent.com/godotengine/godot/c971f93e7e76b0ef919bf6009e7b868bea04db7f/modules/gdscript/gdscript_vm.cpp",
+      "anchors": []
+    },
+    {
+      "revision": "fd375c03dcbb1b3d6d98ddb4c3e8e94d9c5fa07d",
+      "path": "docs/spikes/s08-release-lifecycle-evidence/source-provenance.json",
+      "blob": "322c2cfdb7ad10dac5a85a4dc86622e66ca46bcc",
+      "bytes": 3142,
+      "sha256": "59af19605eca3a56239e6500e63c925930731b6a62ec42588dfcc8de0657f3be"
+    },
+    {
+      "revision": "fd375c03dcbb1b3d6d98ddb4c3e8e94d9c5fa07d",
+      "path": "docs/spikes/s08-release-lifecycle-evidence/index.json",
+      "blob": "652fe75d95fe0bdd0a08c17b3bcfee5327bb7c06",
+      "bytes": 57870,
+      "sha256": "7f4dcb4d6e36194371390239ce9a3889b2765478b21034a63cc3d59cd12eac40"
+    },
+    {
+      "revision": "fd375c03dcbb1b3d6d98ddb4c3e8e94d9c5fa07d",
+      "path": "docs/spikes/s08-release-lifecycle-evidence/release-preparation/package-binding.json",
+      "blob": "258db66561c86b5ff6183a80eb49774f590fd6ce",
+      "bytes": 10377,
+      "sha256": "fbd8fbc9b22ca5fe5a93d47cefb09d1409c494c0bcbd9ce410366e0bf24c4bb8"
+    },
+    {
+      "revision": "fd375c03dcbb1b3d6d98ddb4c3e8e94d9c5fa07d",
+      "path": "docs/spikes/s08-release-lifecycle-evidence/release-preparation/staged-input.json",
+      "blob": "1891e99b0eaf142770c7355d0e071c038a71fcd4",
+      "bytes": 2652,
+      "sha256": "60805ec27e2b62ba68df2c1398b17efecb441403ac76b2a53d6de0aa52762214"
+    },
+    {
+      "revision": "fd375c03dcbb1b3d6d98ddb4c3e8e94d9c5fa07d",
+      "path": "docs/spikes/s08-release-lifecycle-evidence/release-preparation/scratch-config.json",
+      "blob": "69c0f2b8be3282fc00dd7af71de77417e74b7a6a",
+      "bytes": 6076,
+      "sha256": "ffa1db9b051f2ec36a7babc278721895cc4607fad3aef0d81182dbf46d8c34fe"
+    },
+    {
+      "revision": "fd375c03dcbb1b3d6d98ddb4c3e8e94d9c5fa07d",
+      "path": "docs/spikes/s08-release-lifecycle-evidence/debug01/result.json",
+      "blob": "7e371283ad35c466566f9a4c58691c061e1af40a",
+      "bytes": 72232,
+      "sha256": "dc8d33a5d228d9b7f7f5b464841ed2c47aa56b8b33f842aff16abddb9be476a4"
+    },
+    {
+      "revision": "fd375c03dcbb1b3d6d98ddb4c3e8e94d9c5fa07d",
+      "path": "docs/spikes/s08-release-lifecycle-evidence/release02/result.json",
+      "blob": "1e8d160621bf60ee576979634ddfe6d16bd46d53",
+      "bytes": 75763,
+      "sha256": "9c6c7337d3af1cc1fa96ce82395e1d7a8ed7f6e264c6f551d33eb9bc19604672"
+    },
+    {
+      "revision": "fd375c03dcbb1b3d6d98ddb4c3e8e94d9c5fa07d",
+      "path": "docs/spikes/s08-release-lifecycle-evidence/debug01/staged-input.json",
+      "blob": "1891e99b0eaf142770c7355d0e071c038a71fcd4",
+      "bytes": 2652,
+      "sha256": "60805ec27e2b62ba68df2c1398b17efecb441403ac76b2a53d6de0aa52762214"
+    },
+    {
+      "revision": "fd375c03dcbb1b3d6d98ddb4c3e8e94d9c5fa07d",
+      "path": "docs/spikes/s08-release-lifecycle-evidence/release02/staged-input.json",
+      "blob": "1891e99b0eaf142770c7355d0e071c038a71fcd4",
+      "bytes": 2652,
+      "sha256": "60805ec27e2b62ba68df2c1398b17efecb441403ac76b2a53d6de0aa52762214"
+    },
+    {
+      "revision": "fd375c03dcbb1b3d6d98ddb4c3e8e94d9c5fa07d",
+      "path": "tools/s08/lifecycle_diagnostic.py",
+      "blob": "bd993c4b81d08e86a455ac4e5f919de4213a6701",
+      "bytes": 16160,
+      "sha256": "044c31f33fe2b5cf5dffba0f7fe43054f5597634ff7925f8efbb9b4e794a23a6"
+    },
+    {
+      "revision": "fd375c03dcbb1b3d6d98ddb4c3e8e94d9c5fa07d",
+      "path": "tools/s08/lifecycle_release.py",
+      "blob": "4fa6cec81234fbe2ffd2c7dc1a15269487cae342",
+      "bytes": 11907,
+      "sha256": "6cc25413ff334768109d6a69e559cc24fc27ff84ddfdc5310da4260829473423"
+    },
+    {
+      "revision": "fd375c03dcbb1b3d6d98ddb4c3e8e94d9c5fa07d",
+      "path": "tools/s08/lifecycle_edits.py",
+      "blob": "b11ed0ec16086f62f7d92c5ed41645c5a3344a4f",
+      "bytes": 5915,
+      "sha256": "33f62445a4e1cc451da8f329d7183926cd41410c85aa71bc919e94cccbd12e86"
+    },
+    {
+      "revision": "fd375c03dcbb1b3d6d98ddb4c3e8e94d9c5fa07d",
+      "path": "tools/run_s03.py",
+      "blob": "9f6f072ecafb653d1651a21838a23121c7dad6ea",
+      "bytes": 12262,
+      "sha256": "5ff2e01b063b3834c950d660e463aeed9735aa677d5a8864b5f5b162a05983bd"
+    },
+    {
+      "revision": "fd375c03dcbb1b3d6d98ddb4c3e8e94d9c5fa07d",
+      "path": "tests/fixtures/s03/session.gd",
+      "blob": "d4bb47abf9084c793c39830a1f4c42b5d5550324",
+      "bytes": 9378,
+      "sha256": "bb77d7a0dd65ffd6d0e29da8489678cd3e24aa58470b026ea4f1570fd9ea84d7"
+    },
+    {
+      "revision": "fd375c03dcbb1b3d6d98ddb4c3e8e94d9c5fa07d",
+      "path": "tests/fixtures/s03/proof.gd",
+      "blob": "31670956a85f7ff54c518b872c2faeeaeb11bbb2",
+      "bytes": 15903,
+      "sha256": "d11cb9065b894c112b24a3d5c6b934c94696e9c3575e10dd2aa7f74499954ff1"
+    },
+    {
+      "revision": "fd375c03dcbb1b3d6d98ddb4c3e8e94d9c5fa07d",
+      "path": "tests/fixtures/s03/replication.gd",
+      "blob": "7d66e81b336fcd8d61d178131fcdb977952c2d4b",
+      "bytes": 9435,
+      "sha256": "57f4a1312a50b7ad5706423f2491be151803f5438f484b21b3c9b80dc47db7ae"
+    },
+    {
+      "revision": "fd375c03dcbb1b3d6d98ddb4c3e8e94d9c5fa07d",
+      "path": "tests/fixtures/s03/match.gd",
+      "blob": "31c7832a165accbb8b3fccbcdd447ee1241a0b28",
+      "bytes": 8863,
+      "sha256": "6aa3ca867e40248ba7695be3e87498f5005b5524df51028f8bc47d0849f67553"
+    },
+    {
+      "revision": "fd375c03dcbb1b3d6d98ddb4c3e8e94d9c5fa07d",
+      "path": "tests/fixtures/s03/transport.gd",
+      "blob": "4e5713f0fb7049909359508c41e4e40e6aa20899",
+      "bytes": 2100,
+      "sha256": "fc83f520a6850a48ee9c9e7d4d6615466c9f5d959da9a84c66848a45d1de9a11"
+    },
+    {
+      "revision": "fd375c03dcbb1b3d6d98ddb4c3e8e94d9c5fa07d",
+      "path": "tests/fixtures/s03/boot.tscn",
+      "blob": "9fa33b1ef9e8f69d4351178de88334f6c9bdc757",
+      "bytes": 1113,
+      "sha256": "73d0a58b6450cbd26b6ccbce53d852b5b737ee3e76de3ecfb71f7aca1f71bec9"
+    },
+    {
+      "revision": "52941da4b4c92a547a8066b5c13f733043ecbe48",
+      "path": "docs/spikes/s08-standard-editor-release.md",
+      "blob": "5cefcdfcbeabc496280750027badbd59e6a61180",
+      "bytes": 28932,
+      "sha256": "b1c006566c11ed1ce356a3cb280c754679929895c5ff24009f56bb3bc2227967"
+    },
+    {
+      "revision": "52941da4b4c92a547a8066b5c13f733043ecbe48",
+      "path": "docs/spikes/s08-standard-editor-evidence/addon-free-release/pck-members.json",
+      "blob": "4df90a72ba25c8b3aec6adaace7244553395fa58",
+      "bytes": 13111,
+      "sha256": "bf4059ded0844ee06935958e2eaac6efb39bbd3165ddd538446e0043bd9aac5e"
+    },
+    {
+      "revision": "52941da4b4c92a547a8066b5c13f733043ecbe48",
+      "path": "tests/fixtures/s08/release_boot.gd",
+      "blob": "5641b817741c47ff757d49cbd95b4cd44abfe9f8",
+      "bytes": 7464,
+      "sha256": "64528d179710c0a4c18dcaaf7e7c5572a394dbf1f7f7beb4ad6598bd884ebb66"
+    },
+    {
+      "revision": "52941da4b4c92a547a8066b5c13f733043ecbe48",
+      "path": "tests/fixtures/s08/release_boot.gd.uid",
+      "blob": "0875c79578f168bae220a60ce8f389089e86baa2",
+      "bytes": 20,
+      "sha256": "833b1aafe85ea14d6af7c8121e277479745e345228965c0f29049601daf9e1fd"
+    },
+    {
+      "revision": "52941da4b4c92a547a8066b5c13f733043ecbe48",
+      "path": "tests/fixtures/s08/release_boot.tscn",
+      "blob": "4d45362f6c1a3536660e604d429133cbddae3a9f",
+      "bytes": 254,
+      "sha256": "e85ab43b376970bacc6f4a15bd9287b9fc2ea8287aaf896f2e5ca6c6180649bb"
+    },
+    {
+      "revision": "0add62579b3f98ec010badb31613c411e2ea7b12",
+      "path": "docs/spikes/s08-exported-enet-handoff.md",
+      "blob": "04270f3f360694138abeebef856003a4b5cdf606",
+      "bytes": 14399,
+      "sha256": "9982a4cb0ed2d60630d8ed25953d6fe7c4cedcffc15213128fda125c3729c08e"
+    },
+    {
+      "revision": "0add62579b3f98ec010badb31613c411e2ea7b12",
+      "path": "docs/spikes/s08-exported-enet-handoff-evidence/set01/binding.json",
+      "blob": "190345e4cae1d18ae2f5aec762de56329e231e73",
+      "bytes": 13515,
+      "sha256": "92b926d725c00934c39453bc4134f36d57d603bd861f5a7887b02a7078bd916b"
+    },
+    {
+      "revision": "0add62579b3f98ec010badb31613c411e2ea7b12",
+      "path": "docs/spikes/s08-exported-enet-handoff-evidence/set01/enet/result.json",
+      "blob": "504cc5b4ba5ed701a36fda9b1f229b72a7a16521",
+      "bytes": 62754,
+      "sha256": "bf9fada80b6e4045d61a9fac29326866100f0d3676918d320522e4498fef55e6"
+    },
+    {
+      "revision": "0add62579b3f98ec010badb31613c411e2ea7b12",
+      "path": "tools/s08/observe.py",
+      "blob": "947636326377973af3b4d5dea6c675d3a9632705",
+      "bytes": 31308,
+      "sha256": "c47d1457ebbe50b86f1bba3b6dfed02ccc1d30cc8c2999c02803e6b391bbd5a0"
+    },
+    {
+      "revision": "fd375c03dcbb1b3d6d98ddb4c3e8e94d9c5fa07d",
+      "path": "docs/spikes/s08-release-lifecycle.md",
+      "blob": "7059cd0e8f95eded42294accf577b711830f7335",
+      "bytes": 21752,
+      "sha256": "0e96702652b1b9481de741d2b6227daf81a1b6b9e08615f0a6fdac2fcde57548"
+    },
+    {
+      "revision": "fd375c03dcbb1b3d6d98ddb4c3e8e94d9c5fa07d",
+      "note_blob": "22243a163468812439018138e4d2ef4158373087",
+      "bytes": 754426,
+      "sha256": "ba982ba5fdb579b1d46da90ed4c135c509f973a7f19e998ee0a948f8bc25e883",
+      "reports": [
+        {
+          "selector": "review/report.md",
+          "bytes": 20323,
+          "sha256": "c94e5070317bb390db285ac009aa61937d6cadf39f6ebdb37ad0d3f10917c3d7"
+        },
+        {
+          "selector": "review/final-report.md",
+          "bytes": 10730,
+          "sha256": "d5071caed3c5e59551feaefd9ccfac792b527097e1a9f7910f94240474e5482f"
+        }
+      ]
+    },
+    {
+      "revision": "0add62579b3f98ec010badb31613c411e2ea7b12",
+      "note_blob": "a6338d8a60479cc98486175cdf696d2c6f5b3f26",
+      "bytes": 4627850,
+      "sha256": "2ea66a878660cd99807824577d25a18daca723e6e06b9de8185cb32343aaa088",
+      "reports": [
+        {
+          "selector": "review/initial/report.md",
+          "bytes": 13431,
+          "sha256": "27d15e157998db37d7f16995c29e4afd07779cb843becad258385b854ad5b862"
+        },
+        {
+          "selector": "review/fixed-final/report.md",
+          "bytes": 9360,
+          "sha256": "baaac4c70e608cea2307887039e53129ee100d7c1f597aff325d5a34cd8e12dd"
+        },
+        {
+          "selector": "review/delivery30/report.md",
+          "bytes": 4504,
+          "sha256": "bb96298c442a7e6bc42b274af35dc3f8f595a6e49abbb41ddfeb5e989b5f9a37"
+        },
+        {
+          "selector": "review/delivery57/report.md",
+          "bytes": 4975,
+          "sha256": "2c8f0ae1cafbc32fc9a1dae9215997c57fbda0c29ed367279f4b66ee3b899a0f"
+        }
+      ]
+    },
+    {
+      "revision": "52941da4b4c92a547a8066b5c13f733043ecbe48",
+      "note_blob": "7136e1e504b16daa151ba0bdd1b990abcd6076d6",
+      "bytes": 931342,
+      "sha256": "7f05fc401a91e2bbad65bd997656e7ddcd31bfb69dfefd115fcf975f6dff0631",
+      "reports": [
+        {
+          "selector": "report.md",
+          "bytes": 19882,
+          "sha256": "12e6bd4ff991a95baa0f1facfb5290a512d6e45db430aaf259c0548a93d0ec2d"
+        },
+        {
+          "selector": "final-report.md",
+          "bytes": 9463,
+          "sha256": "809c555099c36b3c27bf60c907e6d42916d40e1e780bff08abc0c3758e6016e1"
+        }
+      ]
+    }
+  ]
+}
