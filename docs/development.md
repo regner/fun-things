@@ -727,13 +727,38 @@ scratch inputs. Read committed receipts or immutable notes instead of rebuilding
 evidence from vanished scratch directories. Offline check
 availability neither authorizes runtime nor transfers old acceptance to new bytes.
 
-S05 still has no workload images/eight drawn effects. S07 T has accepted simulation
-traversals, not graphical costs; R/G require ratified pre-P0 representative preparation,
-not M1 completion. S08 executed 10 ms matrices fail scheduling compliance and strict
-release diagnostics; original S08 main/20 ms behavior and causal cache diagnosis
-remain unproved. Native/API/Steam/device/target/feel/P0/M1 gates remain OPEN. Any new
-runtime, editor/native repair or pin decision needs a separate bounded commission;
-none is implied by these links or the old protocols.
+The preceding paragraph's historical S05/S08 status is superseded by the Windows
+supplement below. R/G still require ratified pre-P0 representative preparation, not
+M1 completion. Native/API/Steam/device/target/feel/P0/M1 gates remain OPEN.
+
+## Windows workstation tooling — 8 October 2026
+
+The foundation tools now also run on Windows 11 with the Mise-pinned engine
+(`mise which godot`). Practical notes:
+
+- `python3` may resolve to the Microsoft Store stub, and the Mise tasks call
+  `python3`. Run the scripts with `python` directly, with the pinned engine and
+  gdstyle directories on `PATH`. `godot` is also on PATH through gdvm, which
+  auto-installs a version on first use; prefer Mise's binary.
+- `script_checks.environment()` redirects `APPDATA`/`LOCALAPPDATA` as well as XDG,
+  because Godot on Windows ignores XDG. Without this, host/client user directories
+  overlap and S05's base import aborted its scan.
+- UDP proxies ignore Windows `ConnectionResetError` reports caused by earlier
+  ICMP port-unreachable sends.
+- Windows runs write CRLF raw logs; Git normalizes committed evidence to LF.
+- Headless Windows pacing is slower and burstier than windowed runs. Use windowed
+  runs for response/feel numbers and physics-frame waits for tick-sensitive
+  harness steps.
+
+New Windows runners (each takes `--output` outside the checkout and fails on
+diagnostics, dirty staged inputs or unreaped children):
+
+| Tool | Scope |
+| --- | --- |
+| [S08 Windows observation](../tools/s08/windows_observation.py) | Verifies the 4.8-dev7 TPZ (`--templates`), exports the saved S08 main for Windows release/debug and runs one 20 ms host/client set per mode. [Record](spikes/s08-windows-observation.md). |
+| [S05 Windows draw](../tools/s05_draw/observe_windows.py) | Windowed host/live/settled-late draw observer: burst, expiry and hydrated frames. [Record](spikes/s05-windows-draw.md). |
+| [S07 graphical T](../tools/s07_graphical/run.py) | Accepted sustained driver plus per-frame telemetry, uncapped/60-capped × repeats, windowed. [Record](spikes/s07-graphical-t.md). |
+| `run_s03_r.py`/`run_s04.py --windowed` | Existing runners; real drawn receipts on Windows. |
 
 ## Versions and releases
 

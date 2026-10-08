@@ -1,0 +1,65 @@
+ERROR: Can't create buffer of size: 7248, error 0x887a0005.
+   at: buffer_create (drivers/d3d12/rendering_device_driver_d3d12.cpp:964)
+   GDScript backtrace (most recent call first):
+       [0] _draw (res://tests/fixtures/s06/minimap.gd:23)
+ERROR: Condition "!buffer.driver_id" is true. Returning: RID()
+   at: vertex_buffer_create (servers/rendering/rendering_device.cpp:3943)
+   GDScript backtrace (most recent call first):
+       [0] _draw (res://tests/fixtures/s06/minimap.gd:23)
+ERROR: Condition "!vertex_buffer_owner.owns(buf)" is true. Returning: RID()
+   at: vertex_array_create (servers/rendering/rendering_device.cpp:4048)
+   GDScript backtrace (most recent call first):
+       [0] _draw (res://tests/fixtures/s06/minimap.gd:23)
+ERROR: Can't create buffer of size: 7248, error 0x887a0005.
+   at: buffer_create (drivers/d3d12/rendering_device_driver_d3d12.cpp:964)
+   GDScript backtrace (most recent call first):
+       [0] _draw (res://tests/fixtures/s06/minimap.gd:23)
+ERROR: Condition "!buffer.driver_id" is true. Returning: RID()
+   at: vertex_buffer_create (servers/rendering/rendering_device.cpp:3943)
+   GDScript backtrace (most recent call first):
+       [0] _draw (res://tests/fixtures/s06/minimap.gd:23)
+ERROR: Condition "!vertex_buffer_owner.owns(buf)" is true. Returning: RID()
+   at: vertex_array_create (servers/rendering/rendering_device.cpp:4048)
+   GDScript backtrace (most recent call first):
+       [0] _draw (res://tests/fixtures/s06/minimap.gd:23)
+ERROR: Can't create buffer of size: 7248, error 0x887a0005.
+   at: buffer_create (drivers/d3d12/rendering_device_driver_d3d12.cpp:964)
+   GDScript backtrace (most recent call first):
+       [0] _draw (res://tests/fixtures/s06/minimap.gd:23)
+ERROR: Condition "!buffer.driver_id" is true. Returning: RID()
+   at: vertex_buffer_create (servers/rendering/rendering_device.cpp:3943)
+   GDScript backtrace (most recent call first):
+       [0] _draw (res://tests/fixtures/s06/minimap.gd:23)
+ERROR: Condition "!vertex_buffer_owner.owns(buf)" is true. Returning: RID()
+   at: vertex_array_create (servers/rendering/rendering_device.cpp:4048)
+   GDScript backtrace (most recent call first):
+       [0] _draw (res://tests/fixtures/s06/minimap.gd:23)
+ERROR: Can't create buffer of size: 7248, error 0x887a0005.
+   at: buffer_create (drivers/d3d12/rendering_device_driver_d3d12.cpp:964)
+   GDScript backtrace (most recent call first):
+       [0] _draw (res://tests/fixtures/s06/minimap.gd:23)
+ERROR: Condition "!buffer.driver_id" is true. Returning: RID()
+   at: vertex_buffer_create (servers/rendering/rendering_device.cpp:3943)
+   GDScript backtrace (most recent call first):
+       [0] _draw (res://tests/fixtures/s06/minimap.gd:23)
+ERROR: Condition "!vertex_buffer_owner.owns(buf)" is true. Returning: RID()
+   at: vertex_array_create (servers/rendering/rendering_device.cpp:4048)
+   GDScript backtrace (most recent call first):
+       [0] _draw (res://tests/fixtures/s06/minimap.gd:23)
+ERROR: Can't create buffer of size: 1584, error 0x887a0005.
+   at: buffer_create (drivers/d3d12/rendering_device_driver_d3d12.cpp:964)
+   GDScript backtrace (most recent call first):
+       [0] _draw (res://tests/fixtures/s06/minimap.gd:25)
+ERROR: Condition "!buffer.driver_id" is true. Returning: RID()
+   at: vertex_buffer_create (servers/rendering/rendering_device.cpp:3943)
+   GDScript backtrace (most recent call first):
+       [0] _draw (res://tests/fixtures/s06/minimap.gd:25)
+ERROR: Condition "!vertex_buffer_owner.owns(buf)" is true. Returning: RID()
+   at: vertex_array_create (servers/rendering/rendering_device.cpp:4048)
+   GDScript backtrace (most recent call first):
+       [0] _draw (res://tests/fixtures/s06/minimap.gd:25)
+ERROR: Can't create buffer of size: 768, error 0x887a0005.
+   at: buffer_create (drivers/d3d12/rendering_device_driver_d3d12.cpp:964)
+   GDScript backtrace (most recent call first):
+       [0] _draw (res://tests/fixtures/s06/minimap.gd:25)
+E

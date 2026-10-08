@@ -18,7 +18,7 @@
 - [ ] **S06 — Settle shared city topology, navigation and minimap.** See
   [spike](docs/spikes/s06.md).
 - [ ] **S07 — Complete graphical map-capacity and growth measurements.** The sustained primary-T
-  route driver is accepted; graphical capacity remains open. See [spike](docs/spikes/s07.md) and
+  route driver and desktop 60-capped graphical T are recorded; capacity remains open. See [spike](docs/spikes/s07.md) and
   [driver result](docs/spikes/s07-sustained-driver.md).
 - [ ] **S08 — Confirm Linux release lifecycle and target compatibility.** The 20 ms stall is
   fixed and Windows release passes; see [Windows record](docs/spikes/s08-windows-observation.md).

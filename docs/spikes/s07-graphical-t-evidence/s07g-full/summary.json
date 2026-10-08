@@ -1,0 +1,29 @@
+{
+  "ok": false,
+  "engine": "4.8.dev7.official.c971f93e7",
+  "revision": "6efa3c9bce95b2421f8336dc6b59bdd0a1566cba",
+  "dirty_inputs": "",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "processor": "Intel64 Family 6 Model 170 Stepping 4, GenuineIntel",
+  "duration_s": 600.0,
+  "warmup_s": 60.0,
+  "cases": [
+    {
+      "name": "uncapped-1",
+      "ok": false,
+      "exit": 3221225477,
+      "frames": null,
+      "resident_bytes": {
+        "samples": 563,
+        "p50": 389906432,
+        "max": 401895424,
+        "peak_working_set": 409878528
+      }
+    }
+  ],
+  "import": {
+    "exit": 0,
+    "diagnostics": []
+  },
+  "failure": "case uncapped-1 failed; stopping"
+}

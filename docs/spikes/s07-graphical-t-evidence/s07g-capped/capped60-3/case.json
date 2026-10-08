@@ -1,0 +1,208 @@
+{
+  "name": "capped60-3",
+  "mode": "capped60",
+  "argv": [
+    "C:\\Users\\regner.blokandersen\\AppData\\Local\\mise\\installs\\github-godotengine-godot-builds\\4.8-dev7\\godot.EXE",
+    "--path",
+    "C:\\tmp\\ft\\s07g-capped\\project",
+    "--windowed",
+    "--resolution",
+    "1280x800",
+    "--log-file",
+    "C:\\tmp\\ft\\s07g-capped\\capped60-3\\engine.log",
+    "--script",
+    "res://tests/fixtures/s07_graphical/run.gd",
+    "--",
+    "600.0"
+  ],
+  "exit": 0,
+  "timed_out": false,
+  "diagnostics": [],
+  "driver": {
+    "counts": {
+      "east_to_north": 21,
+      "foot": 21,
+      "west_to_south": 20
+    },
+    "elapsed_wall_seconds": 662.022506,
+    "engine": {
+      "build": "official",
+      "hash": "c971f93e7e76b0ef919bf6009e7b868bea04db7f",
+      "hex": 264192,
+      "major": 4,
+      "minor": 8,
+      "patch": 0,
+      "status": "dev7",
+      "string": "4.8-dev7 (official)",
+      "timestamp": 0
+    },
+    "failures": [],
+    "headless": false,
+    "loading_seconds": 0.880251,
+    "requested_wall_seconds": 600.0,
+    "scope": "simulation only; reload/loading/lifetime are not normal traversal cost",
+    "teardown_seconds": 0.091956,
+    "traversal_simulation_seconds": 659.633333333062,
+    "traversals": 62
+  },
+  "meta": {
+    "adapter": "NVIDIA GeForce RTX 4070 Laptop GPU",
+    "adapter_vendor": "NVIDIA",
+    "api_version": "12_0",
+    "display": "Windows",
+    "duration_seconds": 600.0,
+    "fields": [
+      "elapsed_s",
+      "frame_interval_ms",
+      "render_cpu_ms",
+      "render_gpu_ms",
+      "process_ms",
+      "physics_ms",
+      "draw_calls",
+      "primitives",
+      "objects",
+      "video_mem_bytes"
+    ],
+    "frames": 39690,
+    "max_fps": 60,
+    "mode": "capped60",
+    "node_count_end": 1.0,
+    "object_count_end": 1717.0,
+    "static_memory_peak": 107178702.0,
+    "vsync_mode": 0,
+    "warmup_seconds": 60.0,
+    "window_size": [
+      1280,
+      800
+    ]
+  },
+  "frames": {
+    "warmup": {
+      "frames": 3570,
+      "span_s": 59.499507,
+      "frame_interval_ms": {
+        "p50": 16.654,
+        "p95": 17.947,
+        "p99": 18.902,
+        "max": 92.634
+      },
+      "render_cpu_ms": {
+        "p50": 0.3499999940395355,
+        "p95": 0.46000000834465027,
+        "p99": 0.6119999885559082,
+        "max": 2.140000104904175
+      },
+      "render_gpu_ms": {
+        "p50": 1.784999966621399,
+        "p95": 2.0450000762939453,
+        "p99": 2.052999973297119,
+        "max": 4.561999797821045
+      },
+      "process_ms": {
+        "p50": 3.322,
+        "p95": 22.671,
+        "p99": 25.833,
+        "max": 158.519
+      },
+      "physics_ms": {
+        "p50": 2.663,
+        "p95": 4.135,
+        "p99": 4.727,
+        "max": 326.425
+      },
+      "draw_calls": {
+        "p50": 63.0,
+        "p95": 63.0,
+        "p99": 63.0,
+        "max": 63.0
+      },
+      "primitives": {
+        "p50": 4256.0,
+        "p95": 4256.0,
+        "p99": 4256.0,
+        "max": 4256.0
+      },
+      "objects": {
+        "p50": 65.0,
+        "p95": 65.0,
+        "p99": 65.0,
+        "max": 65.0
+      },
+      "video_mem_bytes": {
+        "p50": 81715200.0,
+        "p95": 81715200.0,
+        "p99": 81715200.0,
+        "max": 84467712.0
+      },
+      "hitches_over_33ms": 6,
+      "mean_fps": 59.98395252846474
+    },
+    "measured": {
+      "frames": 36120,
+      "span_s": 601.9784470000001,
+      "frame_interval_ms": {
+        "p50": 16.669,
+        "p95": 17.862,
+        "p99": 18.73,
+        "max": 42.232
+      },
+      "render_cpu_ms": {
+        "p50": 0.3580000102519989,
+        "p95": 0.47099998593330383,
+        "p99": 0.5759999752044678,
+        "max": 3.621999979019165
+      },
+      "render_gpu_ms": {
+        "p50": 2.0309998989105225,
+        "p95": 2.0460000038146973,
+        "p99": 2.053999900817871,
+        "max": 5.078000068664551
+      },
+      "process_ms": {
+        "p50": 3.313,
+        "p95": 21.103,
+        "p99": 27.205,
+        "max": 79.889
+      },
+      "physics_ms": {
+        "p50": 2.1879999999999997,
+        "p95": 3.792,
+        "p99": 4.328,
+        "max": 5.123
+      },
+      "draw_calls": {
+        "p50": 63.0,
+        "p95": 63.0,
+        "p99": 63.0,
+        "max": 63.0
+      },
+      "primitives": {
+        "p50": 4256.0,
+        "p95": 4256.0,
+        "p99": 4256.0,
+        "max": 4256.0
+      },
+      "objects": {
+        "p50": 65.0,
+        "p95": 65.0,
+        "p99": 65.0,
+        "max": 65.0
+      },
+      "video_mem_bytes": {
+        "p50": 81715200.0,
+        "p95": 81715200.0,
+        "p99": 81715200.0,
+        "max": 82108416.0
+      },
+      "hitches_over_33ms": 43,
+      "mean_fps": 60.00027518398636
+    }
+  },
+  "resident_bytes": {
+    "samples": 664,
+    "p50": 360443904,
+    "max": 362491904,
+    "peak_working_set": 398540800
+  },
+  "ok": true
+}

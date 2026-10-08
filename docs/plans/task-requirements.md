@@ -38,7 +38,8 @@ qualification and enough outcome detail for dispatch.
   topology is not production traffic, recovery or capacity evidence.
 - **S07:** Sustained primary-T driver is accepted (57 traversals over 600 declared
   seconds); do not reopen or repeat it. It proves no graphical calibration/capacity.
-  Graphical T and capacity remain open: named hardware/build, telemetry, authorized
+  [Graphical T](../spikes/s07-graphical-t.md) 60-capped calibration passed 3/3 on a
+  Windows desktop; uncapped hit GPU device removal and is unmeasured. Capacity remains open: named hardware/build, telemetry, authorized
   drawability, two-sector and six-block loads, four views, bursts and one bounded growth
   axis; record costs, limiting axis/headroom and decisions. Desktop does not certify Deck.
   [Source-only representative preparation](../spikes/s07-representative-preparation.md)
