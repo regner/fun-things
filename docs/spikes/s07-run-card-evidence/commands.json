@@ -1,0 +1,30 @@
+{
+  "pre_rebase": [
+    {
+      "argv": [
+        "python",
+        "tools/s07/inventory.py",
+        "--output",
+        "/tmp/s07-reproduced.json"
+      ],
+      "exit": 0
+    },
+    {
+      "argv": [
+        "cmp",
+        "docs/spikes/s07-run-card-evidence/inventory.json",
+        "/tmp/s07-reproduced.json"
+      ],
+      "exit": 0
+    },
+    {
+      "argv": [
+        "python",
+        "docs/spikes/s07-run-card-evidence/validate.py",
+        "--base",
+        "52941da4b4c92a547a8066b5c13f733043ecbe48"
+      ],
+      "exit": 0
+    }
+  ]
+}
