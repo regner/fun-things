@@ -1,0 +1,30 @@
+--- /tmp/t.gd	2026-10-08 20:40:38.970067500 +0100
++++ tests/fixtures/s03/transport.gd	2026-10-08 20:39:26.850666000 +0100
+@@ -46,6 +46,7 @@
+ 	# Pinned create_server passes its channel count as incoming bandwidth (6 B/s here), which
+ 	# collapses each client's unreliable throttle; restore the intended unlimited bandwidth.
+ 	candidate.host.bandwidth_limit(0, 0)
++	candidate.peer_connected.connect(_steady.bind(candidate))
+ 	peer = candidate
+ 	peer_ready.emit(operation_id, peer)
+ 	return OK
+@@ -62,11 +63,19 @@
+ 		candidate.close()
+ 		return error
+ 
++	candidate.peer_connected.connect(_steady.bind(candidate))
+ 	peer = candidate
+ 	peer_ready.emit(operation_id, peer)
+ 	return OK
+ 
+ 
++## Scratch experiment: never decelerate the unreliable throttle on RTT jitter.
++func _steady(peer_id: int, candidate: ENetMultiplayerPeer) -> void:
++	var native: ENetPacketPeer = candidate.get_peer(peer_id)
++	if native != null:
++		native.throttle_configure(5000, 2, 0)
++
++
+ ## Release native resources before asynchronously confirming cleanup.
+ func close(operation_id: int) -> void:
+ 	epoch += 1

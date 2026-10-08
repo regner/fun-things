@@ -124,8 +124,19 @@ package and `stdbuf -oL`. This observation knowingly differs:
    used the same throttled channel. See the dated notes in [S03-R](s03-r.md) and
    [S04](s04.md). Windows re-measurements are below; they are not Linux-comparable.
 4. **Windows latency is higher than historical Linux.** Headless Windows physics
-   response p95 is higher even with no impairment. The cause (timer granularity,
-   proxy sleep or engine pacing) is uninvestigated.
+   response p95 is higher even with no impairment. Part of it is ENet's RTT-jitter
+   throttle on host→client unreliable motion. Uplink held input reached the host
+   in 25–115 ms, but on the unimpaired baseline the client missed about 1 in 6
+   host snapshots (apply gaps p95 155 ms against a 50 ms send interval). A
+   scratch-only run with throttle deceleration 0 on both peers
+   ([diff and result](s08-windows-evidence/s03r-scratch-no-deceleration/)) cut
+   baseline response p95 from 255 to 110 ms and raised matching-tick samples from
+   733 to 865. It is **not adopted**: ENet's throttle is congestion control, so a
+   production throttle/rate policy belongs to the M1-A1 transport owner with
+   bandwidth budgets. Remaining Windows pacing differences are uninvestigated.
+   The same run failed only S03-R's expiry criterion, by 1 ms (previous tick age
+   251 ms against the analyzer's `≤ 250` rule). That fixed-boundary check is
+   fragile to host tick jitter on any platform.
 5. **Production transport:** any future ENet adapter must apply the same bandwidth
    restoration (or a fixed engine) and treat unreliable held/motion traffic as
    lossy. See [multiplayer](../multiplayer.md).
