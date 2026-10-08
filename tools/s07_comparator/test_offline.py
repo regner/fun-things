@@ -22,11 +22,16 @@ class ComparatorReceiptChecks(unittest.TestCase):
             row = {field: True for field in RUNNER.REQUIRED_TRUE}
             row.update({"trial": trial, "session": f"{trial:032x}", "admission": "OK",
                         "damage": 12, "visits": 144, "target_peak": 4, "completed": 12,
+                        "explosions": 12, "slot_capacity": 8,
+                        "expected_drawn": 8, "expected_dropped": 4,
                         "effects_accepted": 8, "effects_dropped": 4,
                         "loading_seconds": .01, "first_draw_seconds": .02,
                         "chain_seconds": .2, "reset_seconds": .01, "drawn": True,
-                        "draw": {"visible": 8, "visible_in_tree": 8, "dropped": 4,
-                                 "can_draw": True, "png": {"save_error": 0}}})
+                        "draw": {"explosions": 12, "slot_capacity": 8,
+                                 "expected_drawn": 8, "expected_dropped": 4,
+                                 "visible": 8, "visible_in_tree": 8, "mesh_nodes": 8,
+                                 "dropped": 4, "can_draw": True,
+                                 "png": {"save_error": 0}}})
             self.rows.append(row)
 
     def test_valid_and_lifecycle_counterexamples(self):
@@ -42,10 +47,21 @@ class ComparatorReceiptChecks(unittest.TestCase):
             change(rows)
             self.assertTrue(RUNNER.evaluate(self.result, rows, False))
 
+    def test_configured_capacity_controls_expected_effects(self):
+        """Accept the owner-selected all-effects capacity without a fixed eight-slot rule."""
+        rows = copy.deepcopy(self.rows)
+        for row in rows:
+            row.update(slot_capacity=12, expected_drawn=12, expected_dropped=0,
+                       effects_accepted=12, effects_dropped=0)
+            row["draw"].update(slot_capacity=12, expected_drawn=12, expected_dropped=0,
+                               visible=12, visible_in_tree=12, mesh_nodes=12, dropped=0)
+        self.assertEqual(RUNNER.evaluate(self.result, rows, True), [])
+
     def test_graphical_counterexamples(self):
-        """Require a genuine drawable callback, eight visible slots and a saved PNG."""
+        """Require a genuine drawable callback, configured visible count and a saved PNG."""
         self.assertEqual(RUNNER.evaluate(self.result, self.rows, True), [])
         changes = [lambda rows: rows[0].update(drawn=False),
+                   lambda rows: rows[0].update(slot_capacity=12),
                    lambda rows: rows[0]["draw"].update(visible_in_tree=7),
                    lambda rows: rows[0]["draw"].update(can_draw=False),
                    lambda rows: rows[0]["draw"]["png"].update(save_error=1)]

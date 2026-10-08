@@ -184,6 +184,9 @@ func _run_trial(ordinal: int) -> void:  # gdstyle:ignore=format/max-line-length,
 	var total_visits: int = state.damage.total_visits
 	var target_peak: int = state.damage.target_peak
 	var completed_count: int = state.damage.completed.size()
+	var slot_capacity: int = (state.effects as S05SavedPresentation).receipt().instances
+	var expected_drawn: int = mini(completed_count, slot_capacity)
+	var expected_dropped: int = maxi(0, completed_count - slot_capacity)
 	var effects_accepted: int = state.effects.accepted
 	var effects_dropped: int = state.effects.dropped
 	var drawn: bool = false
@@ -259,6 +262,10 @@ func _run_trial(ordinal: int) -> void:  # gdstyle:ignore=format/max-line-length,
 		"visits": total_visits,
 		"target_peak": target_peak,
 		"completed": completed_count,
+		"explosions": completed_count,
+		"slot_capacity": slot_capacity,
+		"expected_drawn": expected_drawn,
+		"expected_dropped": expected_dropped,
 		"effects_accepted": effects_accepted,
 		"effects_dropped": effects_dropped,
 	}
@@ -332,15 +339,19 @@ func _outcomes_valid(state: S05Match) -> bool:
 			return false
 
 	var presentation: S05SavedPresentation = state.effects as S05SavedPresentation
+	var explosions: int = state.damage.completed.size()
+	var capacity: int = presentation.receipt().instances
+	var expected_drawn: int = mini(explosions, capacity)
+	var expected_dropped: int = maxi(0, explosions - capacity)
 	return (
 		state.damage.damage_outcomes == 12
 		and state.damage.total_visits == 144
 		and state.damage.target_peak == 4
 		and state.damage.jobs.is_empty()
-		and presentation.accepted == 8
-		and presentation.dropped == 4
-		and presentation.visible_count() == 8
-		and presentation.visual_peak == 8
+		and presentation.accepted == expected_drawn
+		and presentation.dropped == expected_dropped
+		and presentation.visible_count() == expected_drawn
+		and presentation.visual_peak == expected_drawn
 	)
 
 
@@ -362,9 +373,9 @@ func _wait_for_burst_draw(ordinal: int) -> bool:
 	return (
 		not active_draw.is_empty()
 		and active_draw.trial == ordinal
-		and active_draw.visible == 8
-		and active_draw.visible_in_tree == 8
-		and active_draw.dropped == 4
+		and active_draw.visible == active_draw.expected_drawn
+		and active_draw.visible_in_tree == active_draw.expected_drawn
+		and active_draw.dropped == active_draw.expected_dropped
 		and active_draw.png.save_error == OK
 	)
 
@@ -376,7 +387,14 @@ func _post_draw() -> void:
 		return
 
 	var presentation: S05SavedPresentation = active_match.effects as S05SavedPresentation
-	if presentation.visible_count() != 8 or presentation.dropped != 4:
+	if not _settled(active_match):
+		return
+
+	var explosions: int = active_match.damage.completed.size()
+	var capacity: int = presentation.receipt().instances
+	var expected_drawn: int = mini(explosions, capacity)
+	var expected_dropped: int = maxi(0, explosions - capacity)
+	if presentation.visible_count() != expected_drawn or presentation.dropped != expected_dropped:
 		return
 
 	var visible_in_tree: int = 0
@@ -393,6 +411,10 @@ func _post_draw() -> void:
 		"trial": active_trial,
 		"callback": draw_serial,
 		"render_index": Engine.get_frames_drawn(),
+		"explosions": explosions,
+		"slot_capacity": capacity,
+		"expected_drawn": expected_drawn,
+		"expected_dropped": expected_dropped,
 		"visible": presentation.visible_count(),
 		"visible_in_tree": visible_in_tree,
 		"mesh_nodes": mesh_nodes,

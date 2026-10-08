@@ -87,8 +87,20 @@ def evaluate(result, rows, graphical):
         if any(row.get(field) is not True for field in REQUIRED_TRUE):
             failures.append(f"trial {index} lifecycle")
         expected = {"damage": 12, "visits": 144, "target_peak": 4, "completed": 12,
-                    "effects_accepted": 8, "effects_dropped": 4}
-        if any(row.get(field) != value for field, value in expected.items()):
+                    "explosions": 12}
+        capacity = row.get("slot_capacity")
+        explosions = row.get("explosions")
+        if not isinstance(capacity, int) or capacity < 0 or not isinstance(explosions, int):
+            failures.append(f"trial {index} effect configuration")
+            expected_drawn, expected_dropped = None, None
+        else:
+            expected_drawn = min(explosions, capacity)
+            expected_dropped = max(0, explosions - capacity)
+        if (any(row.get(field) != value for field, value in expected.items())
+                or row.get("expected_drawn") != expected_drawn
+                or row.get("expected_dropped") != expected_dropped
+                or row.get("effects_accepted") != expected_drawn
+                or row.get("effects_dropped") != expected_dropped):
             failures.append(f"trial {index} literal outcomes")
         for span in ["loading_seconds", "chain_seconds", "reset_seconds"]:
             if not isinstance(row.get(span), (int, float)) or row[span] < 0:
@@ -97,8 +109,15 @@ def evaluate(result, rows, graphical):
             draw = row.get("draw", {})
             if (row.get("drawn") is not True or not isinstance(row.get("first_draw_seconds"),
                                                                (int, float))
-                    or draw.get("visible") != 8 or draw.get("visible_in_tree") != 8
-                    or draw.get("dropped") != 4 or draw.get("can_draw") is not True
+                    or draw.get("explosions") != explosions
+                    or draw.get("slot_capacity") != capacity
+                    or draw.get("expected_drawn") != expected_drawn
+                    or draw.get("expected_dropped") != expected_dropped
+                    or draw.get("visible") != expected_drawn
+                    or draw.get("visible_in_tree") != expected_drawn
+                    or draw.get("mesh_nodes", 0) < expected_drawn
+                    or draw.get("dropped") != expected_dropped
+                    or draw.get("can_draw") is not True
                     or draw.get("png", {}).get("save_error") != 0):
                 failures.append(f"trial {index} draw receipt")
     return failures
