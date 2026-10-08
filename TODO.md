@@ -497,6 +497,11 @@ implementation. Save editor mutations before playtests; preserve unsaved work.
   together. S06 owns topology, S08 exact exports, M1-D3 integrated target acceptance.
 
 - [ ] **S08 — First-target export and service compatibility.**
+  Bounded [desktop static preparation and next Linux observation card](docs/spikes/s08.md)
+  records exact installed engine/native bytes, published matching templates and the
+  missing installed-template/preset/access gaps. Preparation stops before exports;
+  root separately commissions any scratch packaging/runtime observation. Full S08
+  and all existing target/service/production acceptance remain OPEN.
   Needs: [ratified target/pin record](docs/design.md) for early input/template checks;
   [S01 pipeline evidence](docs/spikes/s01.md), [S03 evidence](docs/spikes/s03.md)
   and S03-S for the complete proof. Owner: Codex (proof), Regner (device access).
