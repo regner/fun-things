@@ -1,13 +1,13 @@
 # Plan, documentation and profile checkpoints
 
-Latest: [seventh checkpoint, 8 October 2026](plan-check-2026-10-08-07.md).
-Checked-through integrated main: `7fb302ba2829966c9a687a12a7f00d09ce6a7824`.
-Last profile check: 8 October 2026, seventh checkpoint; zero installed,
-four reviewed INERT proposals, configuration/effective-permission/representative
-launch validation deferred. Accepted DOC8/9 Sol MEDIUM/HIGH review and partial S06
-Sol HIGH/HIGH spatial/recovery/retention evidence add requirements, no new necessary
-specialist or installed-bundle proof. See record for current ownership, gates,
-capacity readiness, bounded next decisions and next revisit.
+Latest: [eighth checkpoint, 8 October 2026](plan-check-2026-10-08-08.md).
+Checked-through integrated main: `93da622554e5739cf05bd2267d11b4c6745e4e2e`.
+Last profile check: 8 October 2026, eighth checkpoint; zero installed/four reviewed
+INERT proposals. Accepted DOC10/11 MEDIUM/HIGH, stopped S02 HIGH/HIGH and S08 static
+preparation HIGH/HIGH inform requirements; configuration/effective-permission/
+representative launches remain deferred. P0-PROFILES owns dated notes reconciliation.
+See record for all27→28 tasks, stopped full-positive FAIL, pending UNACCEPTED isolated
+S08/priority-review ownership, open capacity/target gates and next trigger.
 
 History: [first baseline, 7 October 2026](plan-check-2026-10-07.md), checked through
 `3b50a915d06f7ad383a4d6dc70403729918c0268`; preserved as historical evidence.
@@ -24,6 +24,9 @@ History: [first baseline, 7 October 2026](plan-check-2026-10-07.md), checked thr
 
 [Sixth checkpoint, 8 October 2026](plan-check-2026-10-08-06.md), checked through
 `754a0b501fe705c93675ff09b43d5bfca201cd94`; preserved as historical evidence.
+
+[Seventh checkpoint, 8 October 2026](plan-check-2026-10-08-07.md), checked through
+`7fb302ba2829966c9a687a12a7f00d09ce6a7824`; preserved as historical evidence.
 
 Use the latest record's exact watermark, evidence and next triggers on resume.
 This index points to reviewed checkpoint changes when integrated; candidate rebases

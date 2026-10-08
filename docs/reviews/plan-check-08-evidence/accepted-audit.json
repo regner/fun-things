@@ -1,0 +1,566 @@
+{
+  "schema": "checkpoint08-accepted-static-v1",
+  "exclusive": "7fb302ba2829966c9a687a12a7f00d09ce6a7824",
+  "inclusive": "93da622554e5739cf05bd2267d11b4c6745e4e2e",
+  "verified_commits": 10,
+  "commits": [
+    {
+      "head": "b98cad76e2b33ef6f901285151e67616ad7b0aaf",
+      "parent": "7fb302ba2829966c9a687a12a7f00d09ce6a7824",
+      "subject": "docs: reconcile seventh checkpoint through provisional topology evidence",
+      "full_raw_path_mode_blob_delta": [
+        ":100644 100644 0d974069217fec57a1cfb73550193f7230232432 a1eed039489bb5422e28abc40e19675ff4ef4427 M\tTODO.md",
+        ":000000 100644 0000000000000000000000000000000000000000 e69de29bb2d1d6434b8b29ae775ad8c2e48c5391 A\tdocs/reviews/plan-check-07-evidence/.gdignore",
+        ":000000 100644 0000000000000000000000000000000000000000 fdb01d52b91691cdd88f8b5e67a583d7e519c23d A\tdocs/reviews/plan-check-07-evidence/README.md",
+        ":000000 100644 0000000000000000000000000000000000000000 f386764bd7742bcccfdcd1529aca7bab28dd2c82 A\tdocs/reviews/plan-check-07-evidence/accepted-audit.json",
+        ":000000 100644 0000000000000000000000000000000000000000 7be5b831fb6939ed6cd2a5ec285cd74a645f2a6a A\tdocs/reviews/plan-check-07-evidence/check.py",
+        ":000000 100644 0000000000000000000000000000000000000000 7da4e4bb5747ede79e706931780cd79ed821be09 A\tdocs/reviews/plan-check-07-evidence/profile-discovery.json",
+        ":000000 100644 0000000000000000000000000000000000000000 573020ddd9c88e32b278ffa5593b246b4d50df85 A\tdocs/reviews/plan-check-07-evidence/requirements.txt",
+        ":000000 100644 0000000000000000000000000000000000000000 8a64bfd0650a7e53cb2f505df4fb137ede193279 A\tdocs/reviews/plan-check-07-evidence/root-facts.txt",
+        ":000000 100644 0000000000000000000000000000000000000000 17e2fd16c031f5bd5b311abb2204525cbf2377c1 A\tdocs/reviews/plan-check-07-evidence/worker-retention.json",
+        ":000000 100644 0000000000000000000000000000000000000000 86e43ea3218b5890302b754bbf8927f94e79f7ee A\tdocs/reviews/plan-check-07-evidence/worker/accepted-authored-whitespace.stderr.gz",
+        ":000000 100644 0000000000000000000000000000000000000000 86e43ea3218b5890302b754bbf8927f94e79f7ee A\tdocs/reviews/plan-check-07-evidence/worker/accepted-authored-whitespace.stdout.gz",
+        ":000000 100644 0000000000000000000000000000000000000000 8830f77ee6375a9c374c2d102556319433290771 A\tdocs/reviews/plan-check-07-evidence/worker/accepted-whitespace.json.gz",
+        ":000000 100644 0000000000000000000000000000000000000000 86e43ea3218b5890302b754bbf8927f94e79f7ee A\tdocs/reviews/plan-check-07-evidence/worker/accepted-whitespace.stderr.gz",
+        ":000000 100644 0000000000000000000000000000000000000000 7aff81790e4c67f831a32265ead5c6ab4f52ebf9 A\tdocs/reviews/plan-check-07-evidence/worker/accepted-whitespace.stdout.gz",
+        ":000000 100644 0000000000000000000000000000000000000000 a2d2fc4a1fcd9fee21d6ee19528c50f6540ed4ce A\tdocs/reviews/plan-check-07-evidence/worker/check-initial.py.gz",
+        ":000000 100644 0000000000000000000000000000000000000000 419c4bf3bb12160ad8af08c9e04d5b74a199957e A\tdocs/reviews/plan-check-07-evidence/worker/check-prereview.py.gz",
+        ":000000 100644 0000000000000000000000000000000000000000 6c6d5c7c8f24de2b275e762e87c9010e9ea3ab59 A\tdocs/reviews/plan-check-07-evidence/worker/commands.json.gz",
+        ":000000 100644 0000000000000000000000000000000000000000 11fba1f524f78119fa149f0b3b348414747f3a2e A\tdocs/reviews/plan-check-07-evidence/worker/manifest-schema-initial-replay.exit.gz",
+        ":000000 100644 0000000000000000000000000000000000000000 8f43bd50e1af89d71498a7dc65fb266e17a9c802 A\tdocs/reviews/plan-check-07-evidence/worker/manifest-schema-initial-replay.py.gz",
+        ":000000 100644 0000000000000000000000000000000000000000 1369217c49d6667407290c56aa2d1d634a0f4f7b A\tdocs/reviews/plan-check-07-evidence/worker/manifest-schema-initial-replay.stderr.gz",
+        ":000000 100644 0000000000000000000000000000000000000000 e3c010916f66d5f4802b96cf3f059a666de0310a A\tdocs/reviews/plan-check-07-evidence/worker/manifest-schema-initial-replay.stdout.gz",
+        ":000000 100644 0000000000000000000000000000000000000000 2bbdaa597c3f02f03daf97a175de9811dc729bda A\tdocs/reviews/plan-check-07-evidence/worker/missing-source-read-replay.exit.gz",
+        ":000000 100644 0000000000000000000000000000000000000000 c6838bf61d1158d1d3e935ca435d7d06a8b27caa A\tdocs/reviews/plan-check-07-evidence/worker/missing-source-read-replay.stderr.gz",
+        ":000000 100644 0000000000000000000000000000000000000000 86e43ea3218b5890302b754bbf8927f94e79f7ee A\tdocs/reviews/plan-check-07-evidence/worker/missing-source-read-replay.stdout.gz",
+        ":000000 100644 0000000000000000000000000000000000000000 5e0305f37fa41d8ed21f66ac87ecefdb3032cb9c A\tdocs/reviews/plan-check-07-evidence/worker/read-failures.txt.gz",
+        ":000000 100644 0000000000000000000000000000000000000000 e500b229c06de34380161d5a0b5e663b7501debf A\tdocs/reviews/plan-check-07-evidence/worker/retain_prereview.py.gz",
+        ":000000 100644 0000000000000000000000000000000000000000 11fba1f524f78119fa149f0b3b348414747f3a2e A\tdocs/reviews/plan-check-07-evidence/worker/static-initial.exit.gz",
+        ":000000 100644 0000000000000000000000000000000000000000 0131469a96214104e510834ba4061234f126dace A\tdocs/reviews/plan-check-07-evidence/worker/static-initial.stderr.gz",
+        ":000000 100644 0000000000000000000000000000000000000000 86e43ea3218b5890302b754bbf8927f94e79f7ee A\tdocs/reviews/plan-check-07-evidence/worker/static-initial.stdout.gz",
+        ":000000 100644 0000000000000000000000000000000000000000 157a526269ca483b4a0d96f19b8e5c6490511f9a A\tdocs/reviews/plan-check-07-evidence/worker/static-prereview.exit.gz",
+        ":000000 100644 0000000000000000000000000000000000000000 da9182f3ec5da2be82618cbb17657346baefbaa3 A\tdocs/reviews/plan-check-07-evidence/worker/static-prereview.json.gz",
+        ":000000 100644 0000000000000000000000000000000000000000 86e43ea3218b5890302b754bbf8927f94e79f7ee A\tdocs/reviews/plan-check-07-evidence/worker/static-prereview.stderr.gz",
+        ":000000 100644 0000000000000000000000000000000000000000 66b8ea92c9202ce27c8cf15554356cef3ab6f8af A\tdocs/reviews/plan-check-07-evidence/worker/static-prereview.stdout.gz",
+        ":000000 100644 0000000000000000000000000000000000000000 157a526269ca483b4a0d96f19b8e5c6490511f9a A\tdocs/reviews/plan-check-07-evidence/worker/static-second.exit.gz",
+        ":000000 100644 0000000000000000000000000000000000000000 da9182f3ec5da2be82618cbb17657346baefbaa3 A\tdocs/reviews/plan-check-07-evidence/worker/static-second.json.gz",
+        ":000000 100644 0000000000000000000000000000000000000000 86e43ea3218b5890302b754bbf8927f94e79f7ee A\tdocs/reviews/plan-check-07-evidence/worker/static-second.stderr.gz",
+        ":000000 100644 0000000000000000000000000000000000000000 66b8ea92c9202ce27c8cf15554356cef3ab6f8af A\tdocs/reviews/plan-check-07-evidence/worker/static-second.stdout.gz",
+        ":000000 100644 0000000000000000000000000000000000000000 11fba1f524f78119fa149f0b3b348414747f3a2e A\tdocs/reviews/plan-check-07-evidence/worker/whitespace-initial-replay.exit.gz",
+        ":000000 100644 0000000000000000000000000000000000000000 52ec59fa6b787b5665e20b2ca598de1530cdbfce A\tdocs/reviews/plan-check-07-evidence/worker/whitespace-initial-replay.stderr.gz",
+        ":000000 100644 0000000000000000000000000000000000000000 86e43ea3218b5890302b754bbf8927f94e79f7ee A\tdocs/reviews/plan-check-07-evidence/worker/whitespace-initial-replay.stdout.gz",
+        ":000000 100644 0000000000000000000000000000000000000000 ee446074ac8d93b74bc0605f455244b16fdcfccf A\tdocs/reviews/plan-check-07-evidence/worker/whitespace-initial.py.gz",
+        ":000000 100644 0000000000000000000000000000000000000000 157a526269ca483b4a0d96f19b8e5c6490511f9a A\tdocs/reviews/plan-check-07-evidence/worker/whitespace.exit.gz",
+        ":000000 100644 0000000000000000000000000000000000000000 84019ed7fd146e96cf905ffc4bf7a7b1730d3e03 A\tdocs/reviews/plan-check-07-evidence/worker/whitespace.py.gz",
+        ":000000 100644 0000000000000000000000000000000000000000 86e43ea3218b5890302b754bbf8927f94e79f7ee A\tdocs/reviews/plan-check-07-evidence/worker/whitespace.stderr.gz",
+        ":000000 100644 0000000000000000000000000000000000000000 740fae6334d784773af70594d2b0f400dec2a17e A\tdocs/reviews/plan-check-07-evidence/worker/whitespace.stdout.gz",
+        ":000000 100644 0000000000000000000000000000000000000000 7858652075bc0b8999fb3c6155af1ce34cc5ab12 A\tdocs/reviews/plan-check-2026-10-08-07.md",
+        ":100644 100644 897a004a0029147361fa04cfa308611a8e9fe820 f3f204c7833fcf3c6727e81f1b1d1176c4281ccc M\tdocs/reviews/plan-checkpoints.md"
+      ]
+    },
+    {
+      "head": "64bd46bd760e66cb74ddb0638f26f8e75c5f52f2",
+      "parent": "b98cad76e2b33ef6f901285151e67616ad7b0aaf",
+      "subject": "Retain complete independent checkpoint seven review",
+      "full_raw_path_mode_blob_delta": [
+        ":000000 100644 0000000000000000000000000000000000000000 8426e52560a6564c0feba5532860e83db434009a A\tdocs/reviews/plan-check-07-evidence/independent/SHA256SUMS",
+        ":000000 100644 0000000000000000000000000000000000000000 e1bf4c554860c42156f85ead2a42d990507beb11 A\tdocs/reviews/plan-check-07-evidence/independent/artifacts.tar.gz",
+        ":000000 100644 0000000000000000000000000000000000000000 ebdd191a2cf02b4bb962195e110c008164f5fe51 A\tdocs/reviews/plan-check-07-evidence/independent/manifest.json",
+        ":000000 100644 0000000000000000000000000000000000000000 e1609fc31be55c3c33cd6ce2b42f9fab70efdaa4 A\tdocs/reviews/plan-check-07-evidence/independent/retention.json",
+        ":100644 100644 7858652075bc0b8999fb3c6155af1ce34cc5ab12 89b693c344a53367e10f30da528e552a4a808e8b M\tdocs/reviews/plan-check-2026-10-08-07.md",
+        ":000000 100644 0000000000000000000000000000000000000000 f086bb4fcc9fc67d79b115e7bf49a5726505b0e7 A\tdocs/reviews/plan-check-review-2026-10-08-07.md"
+      ]
+    },
+    {
+      "head": "02aa2547c6ce0926c05f8ebc49095006fd32d128",
+      "parent": "64bd46bd760e66cb74ddb0638f26f8e75c5f52f2",
+      "subject": "docs: discover accepted partial S06 tooling and review (P0-DOC10)",
+      "full_raw_path_mode_blob_delta": [
+        ":100644 100644 453e0267d8284fc8175b9489fd81bc18dd9c3970 80f57e82d11924fd7af5d824743f101057089015 M\tREADME.md",
+        ":100644 100644 a1eed039489bb5422e28abc40e19675ff4ef4427 0dc1fcacc6f17f795d5dda431d5cc70e944499f4 M\tTODO.md",
+        ":100644 100644 22372a3265c56ece9fc88de021170179acfde02f 5400ba30121178fadc6051bf8220528b0134319a M\tdocs/development.md",
+        ":000000 100644 0000000000000000000000000000000000000000 c5c370b3ede322330f7b8dff4584e90de580305d A\tdocs/reviews/p0-doc10.md",
+        ":100644 100644 3df0826b60266750025caedae328c36dcc066c57 95aa67c356b71ef4f3b1e3923fcd9b436e2a55c9 M\tdocs/spikes/s06.md"
+      ]
+    },
+    {
+      "head": "4169a4466e01fb50acd8069308fc2556d03e0198",
+      "parent": "02aa2547c6ce0926c05f8ebc49095006fd32d128",
+      "subject": "docs: reconcile partial S06 topology and S07 readiness (P0-DOC11)",
+      "full_raw_path_mode_blob_delta": [
+        ":100644 100644 0dc1fcacc6f17f795d5dda431d5cc70e944499f4 2ca111677880e985958bb0bf8dc5c6be8f394b3b M\tTODO.md",
+        ":100644 100644 d0f1dcecbd6d3670c88ee1679007460b8c2c34c0 6c5fdb395b08170d83652878edfb5575fee7cee2 M\tdocs/api-contracts.md",
+        ":100644 100644 034a81324418d00268f88be6b940b37fc83b48e8 a4c2901c8bb71bc8d9fe586ff988d07c99c505e0 M\tdocs/architecture.md",
+        ":100644 100644 aaf1f1f6406ad3d098d797de84cddecf5c3a2169 a0f9bac9550292aec7c7bbe628881aef6cc1d9e5 M\tdocs/asset-catalogue.md",
+        ":100644 100644 b2dc302b6aeb054c62f1ef07a040e6fe65564298 46981e2f867575afd447b4264be365ce1aa04b50 M\tdocs/assets.md",
+        ":100644 100644 ed9802136b309ebfa5b9258f176e770a256d58f3 421513c3792a144b993dce03687430ff2fa44ee9 M\tdocs/assets/s02_kit.md",
+        ":100644 100644 d73ebfed0b95c77f1a16f169634f37ea8ee1ca4e d63d4dcf502db98c6673bce2426047dce3e33cf9 M\tdocs/assets/s04_kit.md",
+        ":000000 100644 0000000000000000000000000000000000000000 8e53b7d5ee331ec5d3e07ae534668add7fd90234 A\tdocs/reviews/p0-doc11.md",
+        ":100644 100644 6e0c194db18d61d3e2caa12d3e4a90d15894587a 685d8c213aeaa3d7410e9b4b5ed86695e02a6684 M\tdocs/scene-structure.md",
+        ":100644 100644 657096e0977de099748b4a1095c34ad49aee6144 a3e2acb6dfd9c1226c0582869687d2b10fb6224b M\tdocs/spikes/s07.md",
+        ":100644 100644 23f89009d5723cb310d4788c6da35840503b1db4 4cdcab99075132931ea3976498f5dd0963b49e73 M\tdocs/world-layout.md"
+      ]
+    },
+    {
+      "head": "272a357ac29c000b5b89807b07a7fda37d00e0f8",
+      "parent": "4169a4466e01fb50acd8069308fc2556d03e0198",
+      "subject": "docs: record bounded S02 operational drawability lease",
+      "full_raw_path_mode_blob_delta": [
+        ":100644 100644 2ca111677880e985958bb0bf8dc5c6be8f394b3b 93e5f59252fe7fe67fd29619253ee3d18b3d2b89 M\tTODO.md"
+      ]
+    },
+    {
+      "head": "2a048901b69064b52a223f2c43fa69527620ac45",
+      "parent": "272a357ac29c000b5b89807b07a7fda37d00e0f8",
+      "subject": "docs: predeclare single native Wayland S02 drawability observation",
+      "full_raw_path_mode_blob_delta": [
+        ":000000 100644 0000000000000000000000000000000000000000 81875739b5df9288e830bdc9f542a90cd97f8498 A\tdocs/spikes/s02-drawability.md"
+      ]
+    },
+    {
+      "head": "830dc994c1796f91610a8c4fd4522542168057a4",
+      "parent": "2a048901b69064b52a223f2c43fa69527620ac45",
+      "subject": "docs: return stopped S02 observation operational lease",
+      "full_raw_path_mode_blob_delta": [
+        ":100644 100644 93e5f59252fe7fe67fd29619253ee3d18b3d2b89 73e9b40464d35b1bae68c979ae6233793ebe4a35 M\tTODO.md"
+      ]
+    },
+    {
+      "head": "a311c576d25a1554471c8381e1620136b76d9b23",
+      "parent": "830dc994c1796f91610a8c4fd4522542168057a4",
+      "subject": "docs: retain stopped S02 Wayland observation and saved restoration",
+      "full_raw_path_mode_blob_delta": [
+        ":100644 100644 73e9b40464d35b1bae68c979ae6233793ebe4a35 72eb71c006ff414d26d08f63bbeffb872163a0f5 M\tTODO.md",
+        ":000000 100644 0000000000000000000000000000000000000000 e69de29bb2d1d6434b8b29ae775ad8c2e48c5391 A\tdocs/spikes/s02-drawability-evidence/.gdignore",
+        ":000000 100644 0000000000000000000000000000000000000000 bc4d3632825757fbe3c70562f4a6516cb6da5a81 A\tdocs/spikes/s02-drawability-evidence/README.md",
+        ":000000 100644 0000000000000000000000000000000000000000 e669254964b7621a95d8ceb915bd8cb61272c3d5 A\tdocs/spikes/s02-drawability-evidence/frame.png",
+        ":000000 100644 0000000000000000000000000000000000000000 1053f582520c7b2332b2cdcdd6a9cd057abda21a A\tdocs/spikes/s02-drawability-evidence/manifest.json",
+        ":000000 100644 0000000000000000000000000000000000000000 86e43ea3218b5890302b754bbf8927f94e79f7ee A\tdocs/spikes/s02-drawability-evidence/payloads/s02-drawability-observation/host-after-observation.stderr.gz",
+        ":000000 100644 0000000000000000000000000000000000000000 984053dd04dbfb81240663986958e133a1fad24d A\tdocs/spikes/s02-drawability-evidence/payloads/s02-drawability-observation/host-after-observation.stdout.gz",
+        ":000000 100644 0000000000000000000000000000000000000000 86e43ea3218b5890302b754bbf8927f94e79f7ee A\tdocs/spikes/s02-drawability-evidence/payloads/s02-drawability-observation/host-before-preparation.stderr.gz",
+        ":000000 100644 0000000000000000000000000000000000000000 c65a2ae683d8131b53244e6f32cd9439c34cf2f9 A\tdocs/spikes/s02-drawability-evidence/payloads/s02-drawability-observation/host-before-preparation.stdout.gz",
+        ":000000 100644 0000000000000000000000000000000000000000 86e43ea3218b5890302b754bbf8927f94e79f7ee A\tdocs/spikes/s02-drawability-evidence/payloads/s02-drawability-observation/host-before-runtime.stderr.gz",
+        ":000000 100644 0000000000000000000000000000000000000000 adfd0684c48b47b1df2df1989626d75f83a9ae61 A\tdocs/spikes/s02-drawability-evidence/payloads/s02-drawability-observation/host-before-runtime.stdout.gz",
+        ":000000 100644 0000000000000000000000000000000000000000 1f0346da8cdb98b7e8fc4edd89d670920cced280 A\tdocs/spikes/s02-drawability-evidence/payloads/s02-drawability-observation/import.command.json.gz",
+        ":000000 100644 0000000000000000000000000000000000000000 fbd40073311e87cd5d4e6ecc2e99693212e389f8 A\tdocs/spikes/s02-drawability-evidence/payloads/s02-drawability-observation/import.engine.log.gz",
+        ":000000 100644 0000000000000000000000000000000000000000 86e43ea3218b5890302b754bbf8927f94e79f7ee A\tdocs/spikes/s02-drawability-evidence/payloads/s02-drawability-observation/import.stderr.gz",
+        ":000000 100644 0000000000000000000000000000000000000000 e9ac2e37bfd912fd5d48f43c5cf223b9bf105a8c A\tdocs/spikes/s02-drawability-evidence/payloads/s02-drawability-observation/import.stdout.gz",
+        ":000000 100644 0000000000000000000000000000000000000000 7d5399c5726cad1813c3244f56177b85fca4c87a A\tdocs/spikes/s02-drawability-evidence/payloads/s02-drawability-observation/observer.gd.txt.gz",
+        ":000000 100644 0000000000000000000000000000000000000000 cb876dcebc9d3249ee1df8750e6d6974088d0503 A\tdocs/spikes/s02-drawability-evidence/payloads/s02-drawability-observation/receipts.jsonl.gz",
+        ":000000 100644 0000000000000000000000000000000000000000 767ca84540b3db4e038cb8ec995bb79fb26a015e A\tdocs/spikes/s02-drawability-evidence/payloads/s02-drawability-observation/runtime.command.json.gz",
+        ":000000 100644 0000000000000000000000000000000000000000 8b3cfcf1424e57c884aba9d546fc7a23b02d47f2 A\tdocs/spikes/s02-drawability-evidence/payloads/s02-drawability-observation/runtime.engine.log.gz",
+        ":000000 100644 0000000000000000000000000000000000000000 86e43ea3218b5890302b754bbf8927f94e79f7ee A\tdocs/spikes/s02-drawability-evidence/payloads/s02-drawability-observation/runtime.stderr.gz",
+        ":000000 100644 0000000000000000000000000000000000000000 8b3cfcf1424e57c884aba9d546fc7a23b02d47f2 A\tdocs/spikes/s02-drawability-evidence/payloads/s02-drawability-observation/runtime.stdout.gz",
+        ":000000 100644 0000000000000000000000000000000000000000 8341c89c3293b68a4aaacb7dd71249988fd91ce2 A\tdocs/spikes/s02-drawability-evidence/payloads/s02-drawability-observation/source-manifest.json.gz",
+        ":000000 100644 0000000000000000000000000000000000000000 7607ccafcd02a96b2c985fdc4e0eec5bd1d9b8f3 A\tdocs/spikes/s02-drawability-evidence/payloads/s02-drawability-observation/staged-project.godot.txt.gz",
+        ":000000 100644 0000000000000000000000000000000000000000 836080fc0c0df0884d093c3bc4b8de1e7889812f A\tdocs/spikes/s02-drawability-evidence/payloads/s02-drawability-observation/summary.json.gz",
+        ":000000 100644 0000000000000000000000000000000000000000 5b5c15fb93ce678c4bf94b561e0330b8ef659231 A\tdocs/spikes/s02-drawability-evidence/payloads/s02-drawability/binary-capability.py.gz",
+        ":000000 100644 0000000000000000000000000000000000000000 d6e3a1965ebf0ae3dc6eacfe108ca2987ae7d0fb A\tdocs/spikes/s02-drawability-evidence/payloads/s02-drawability/bytes-after.json.gz",
+        ":000000 100644 0000000000000000000000000000000000000000 d6e3a1965ebf0ae3dc6eacfe108ca2987ae7d0fb A\tdocs/spikes/s02-drawability-evidence/payloads/s02-drawability/bytes-before.json.gz",
+        ":000000 100644 0000000000000000000000000000000000000000 45be7b9667ab8d4a7c34c42f1a1b1a61279b8fb1 A\tdocs/spikes/s02-drawability-evidence/payloads/s02-drawability/capture.py.gz",
+        ":000000 100644 0000000000000000000000000000000000000000 a81562117c3667bc69eda21dd3917c7bdb3581da A\tdocs/spikes/s02-drawability-evidence/payloads/s02-drawability/checks/binary-capability.command.json.gz",
+        ":000000 100644 0000000000000000000000000000000000000000 86e43ea3218b5890302b754bbf8927f94e79f7ee A\tdocs/spikes/s02-drawability-evidence/payloads/s02-drawability/checks/binary-capability.stderr.gz",
+        ":000000 100644 0000000000000000000000000000000000000000 fd96cc83087da17ecd9e52459d77da5573b0de1c A\tdocs/spikes/s02-drawability-evidence/payloads/s02-drawability/checks/binary-capability.stdout.gz",
+        ":000000 100644 0000000000000000000000000000000000000000 2594a4c38f7ff9755716c9de99f49966b118022d A\tdocs/spikes/s02-drawability-evidence/payloads/s02-drawability/checks/bytes-after.command.json.gz",
+        ":000000 100644 0000000000000000000000000000000000000000 86e43ea3218b5890302b754bbf8927f94e79f7ee A\tdocs/spikes/s02-drawability-evidence/payloads/s02-drawability/checks/bytes-after.stderr.gz",
+        ":000000 100644 0000000000000000000000000000000000000000 0cb91e1ff5e1b1a6ccb9fcc7b38159b013ff28fb A\tdocs/spikes/s02-drawability-evidence/payloads/s02-drawability/checks/bytes-after.stdout.gz",
+        ":000000 100644 0000000000000000000000000000000000000000 31c2ed8f82986a32e42129d6cf27ee03e247990c A\tdocs/spikes/s02-drawability-evidence/payloads/s02-drawability/checks/bytes-before.command.json.gz",
+        ":000000 100644 0000000000000000000000000000000000000000 86e43ea3218b5890302b754bbf8927f94e79f7ee A\tdocs/spikes/s02-drawability-evidence/payloads/s02-drawability/checks/bytes-before.stderr.gz",
+        ":000000 100644 0000000000000000000000000000000000000000 0cb91e1ff5e1b1a6ccb9fcc7b38159b013ff28fb A\tdocs/spikes/s02-drawability-evidence/payloads/s02-drawability/checks/bytes-before.stdout.gz",
+        ":000000 100644 0000000000000000000000000000000000000000 06f6f31cc8243798f308da8512495f0dab18d6ba A\tdocs/spikes/s02-drawability-evidence/payloads/s02-drawability/checks/host-after-main-quit.command.json.gz",
+        ":000000 100644 0000000000000000000000000000000000000000 86e43ea3218b5890302b754bbf8927f94e79f7ee A\tdocs/spikes/s02-drawability-evidence/payloads/s02-drawability/checks/host-after-main-quit.stderr.gz",
+        ":000000 100644 0000000000000000000000000000000000000000 8db0694dc04ce381032088fc72af6dfe06ac3c13 A\tdocs/spikes/s02-drawability-evidence/payloads/s02-drawability/checks/host-after-main-quit.stdout.gz",
+        ":000000 100644 0000000000000000000000000000000000000000 d232141ee6ec35e8f9846272e0b18ac7c8e52c0a A\tdocs/spikes/s02-drawability-evidence/payloads/s02-drawability/checks/host-inventory.command.json.gz",
+        ":000000 100644 0000000000000000000000000000000000000000 86e43ea3218b5890302b754bbf8927f94e79f7ee A\tdocs/spikes/s02-drawability-evidence/payloads/s02-drawability/checks/host-inventory.stderr.gz",
+        ":000000 100644 0000000000000000000000000000000000000000 7ff778b222ef70c9f4e029677caf9ad2ff7f5c74 A\tdocs/spikes/s02-drawability-evidence/payloads/s02-drawability/checks/host-inventory.stdout.gz",
+        ":000000 100644 0000000000000000000000000000000000000000 1024f83aa788a429314469909b16e932483c8420 A\tdocs/spikes/s02-drawability-evidence/payloads/s02-drawability/checks/immutable-source-refs-complete.command.json.gz",
+        ":000000 100644 0000000000000000000000000000000000000000 86e43ea3218b5890302b754bbf8927f94e79f7ee A\tdocs/spikes/s02-drawability-evidence/payloads/s02-drawability/checks/immutable-source-refs-complete.stderr.gz",
+        ":000000 100644 0000000000000000000000000000000000000000 febb32534dd5aaea261ee9f96beb96c874bd2f0f A\tdocs/spikes/s02-drawability-evidence/payloads/s02-drawability/checks/immutable-source-refs-complete.stdout.gz",
+        ":000000 100644 0000000000000000000000000000000000000000 ede8d51b37f44c0cbfc871aee874fd6c5cf02833 A\tdocs/spikes/s02-drawability-evidence/payloads/s02-drawability/checks/immutable-source-refs.command.json.gz",
+        ":000000 100644 0000000000000000000000000000000000000000 86e43ea3218b5890302b754bbf8927f94e79f7ee A\tdocs/spikes/s02-drawability-evidence/payloads/s02-drawability/checks/immutable-source-refs.stderr.gz",
+        ":000000 100644 0000000000000000000000000000000000000000 19f799da4415c18aab1930e6cc30f110e001f381 A\tdocs/spikes/s02-drawability-evidence/payloads/s02-drawability/checks/immutable-source-refs.stdout.gz",
+        ":000000 100644 0000000000000000000000000000000000000000 660568f92e5e9cb32423ca350968b1382ab3e0f0 A\tdocs/spikes/s02-drawability-evidence/payloads/s02-drawability/checks/main-graceful-quit.command.json.gz",
+        ":000000 100644 0000000000000000000000000000000000000000 86e43ea3218b5890302b754bbf8927f94e79f7ee A\tdocs/spikes/s02-drawability-evidence/payloads/s02-drawability/checks/main-graceful-quit.stderr.gz",
+        ":000000 100644 0000000000000000000000000000000000000000 e95a95bf39c8aae8da2aace2ad74d7e38d7cb793 A\tdocs/spikes/s02-drawability-evidence/payloads/s02-drawability/checks/main-graceful-quit.stdout.gz",
+        ":000000 100644 0000000000000000000000000000000000000000 51d41c66c7a619b89a4a306936f28fa15d309fe2 A\tdocs/spikes/s02-drawability-evidence/payloads/s02-drawability/checks/main-refresh-reopen.command.json.gz",
+        ":000000 100644 0000000000000000000000000000000000000000 86e43ea3218b5890302b754bbf8927f94e79f7ee A\tdocs/spikes/s02-drawability-evidence/payloads/s02-drawability/checks/main-refresh-reopen.stderr.gz",
+        ":000000 100644 0000000000000000000000000000000000000000 8c05469eeaaeb16b7ea04b5aed1c5b375d14ca8f A\tdocs/spikes/s02-drawability-evidence/payloads/s02-drawability/checks/main-refresh-reopen.stdout.gz",
+        ":000000 100644 0000000000000000000000000000000000000000 2c2711a436324ae8ae00915ac2374f22d9a74edd A\tdocs/spikes/s02-drawability-evidence/payloads/s02-drawability/checks/main-restoration-launch.command.json.gz",
+        ":000000 100644 0000000000000000000000000000000000000000 86e43ea3218b5890302b754bbf8927f94e79f7ee A\tdocs/spikes/s02-drawability-evidence/payloads/s02-drawability/checks/main-restoration-launch.stderr.gz",
+        ":000000 100644 0000000000000000000000000000000000000000 1f3dbbf99561f11841acad53980d553b6b95afcf A\tdocs/spikes/s02-drawability-evidence/payloads/s02-drawability/checks/main-restoration-launch.stdout.gz",
+        ":000000 100644 0000000000000000000000000000000000000000 9b757d616cda99d47e9f258b9fc0307babed533d A\tdocs/spikes/s02-drawability-evidence/payloads/s02-drawability/checks/main-saved-state.command.json.gz",
+        ":000000 100644 0000000000000000000000000000000000000000 86e43ea3218b5890302b754bbf8927f94e79f7ee A\tdocs/spikes/s02-drawability-evidence/payloads/s02-drawability/checks/main-saved-state.stderr.gz",
+        ":000000 100644 0000000000000000000000000000000000000000 070ca03c74bc2f73ccb757b9634003d62aed8119 A\tdocs/spikes/s02-drawability-evidence/payloads/s02-drawability/checks/main-saved-state.stdout.gz",
+        ":000000 100644 0000000000000000000000000000000000000000 35b704fda1b7cf260ae4f83843ba6f2ce3aa79e3 A\tdocs/spikes/s02-drawability-evidence/payloads/s02-drawability/checks/managed-cwd-refs.command.json.gz",
+        ":000000 100644 0000000000000000000000000000000000000000 86e43ea3218b5890302b754bbf8927f94e79f7ee A\tdocs/spikes/s02-drawability-evidence/payloads/s02-drawability/checks/managed-cwd-refs.stderr.gz",
+        ":000000 100644 0000000000000000000000000000000000000000 56c74a445e5be4970a0e4433dbb72cb8f348ccc2 A\tdocs/spikes/s02-drawability-evidence/payloads/s02-drawability/checks/managed-cwd-refs.stdout.gz",
+        ":000000 100644 0000000000000000000000000000000000000000 6b5456214b8109640ee1f2526605411bbd366dad A\tdocs/spikes/s02-drawability-evidence/payloads/s02-drawability/checks/operation-retention.command.json.gz",
+        ":000000 100644 0000000000000000000000000000000000000000 86e43ea3218b5890302b754bbf8927f94e79f7ee A\tdocs/spikes/s02-drawability-evidence/payloads/s02-drawability/checks/operation-retention.stderr.gz",
+        ":000000 100644 0000000000000000000000000000000000000000 28efdc6624c483cba52905b50d5bbeab461c8ad0 A\tdocs/spikes/s02-drawability-evidence/payloads/s02-drawability/checks/operation-retention.stdout.gz",
+        ":000000 100644 0000000000000000000000000000000000000000 87bbbd0072fce0b0afc8ec595caeb972bf1c9970 A\tdocs/spikes/s02-drawability-evidence/payloads/s02-drawability/checks/operational-postflight-fixed.command.json.gz",
+        ":000000 100644 0000000000000000000000000000000000000000 729c9e130753c9ebb0a640be4336078541f12ef0 A\tdocs/spikes/s02-drawability-evidence/payloads/s02-drawability/checks/operational-postflight-fixed.stderr.gz",
+        ":000000 100644 0000000000000000000000000000000000000000 86e43ea3218b5890302b754bbf8927f94e79f7ee A\tdocs/spikes/s02-drawability-evidence/payloads/s02-drawability/checks/operational-postflight-fixed.stdout.gz",
+        ":000000 100644 0000000000000000000000000000000000000000 7ebbdcbed2ee256b3a3f74817b8b41031c4c8cd4 A\tdocs/spikes/s02-drawability-evidence/payloads/s02-drawability/checks/operational-postflight-prefix.command.json.gz",
+        ":000000 100644 0000000000000000000000000000000000000000 86e43ea3218b5890302b754bbf8927f94e79f7ee A\tdocs/spikes/s02-drawability-evidence/payloads/s02-drawability/checks/operational-postflight-prefix.stderr.gz",
+        ":000000 100644 0000000000000000000000000000000000000000 1aae5b668ac75357d1fd1c811427e80d80d58316 A\tdocs/spikes/s02-drawability-evidence/payloads/s02-drawability/checks/operational-postflight-prefix.stdout.gz",
+        ":000000 100644 0000000000000000000000000000000000000000 2675770a07621f42152a9e10de78402173a9c8e9 A\tdocs/spikes/s02-drawability-evidence/payloads/s02-drawability/checks/operational-postflight.command.json.gz",
+        ":000000 100644 0000000000000000000000000000000000000000 4d090b2776758e3280a828c1ace6e4cad7fd2a06 A\tdocs/spikes/s02-drawability-evidence/payloads/s02-drawability/checks/operational-postflight.stderr.gz",
+        ":000000 100644 0000000000000000000000000000000000000000 86e43ea3218b5890302b754bbf8927f94e79f7ee A\tdocs/spikes/s02-drawability-evidence/payloads/s02-drawability/checks/operational-postflight.stdout.gz",
+        ":000000 100644 0000000000000000000000000000000000000000 41c103df8032e0369c79e50b43c594677e88ee82 A\tdocs/spikes/s02-drawability-evidence/payloads/s02-drawability/checks/preflight-check.command.json.gz",
+        ":000000 100644 0000000000000000000000000000000000000000 86e43ea3218b5890302b754bbf8927f94e79f7ee A\tdocs/spikes/s02-drawability-evidence/payloads/s02-drawability/checks/preflight-check.stderr.gz",
+        ":000000 100644 0000000000000000000000000000000000000000 986fb083e1dee5f2bc9eb2051b2e418fc7db60eb A\tdocs/spikes/s02-drawability-evidence/payloads/s02-drawability/checks/preflight-check.stdout.gz",
+        ":000000 100644 0000000000000000000000000000000000000000 44201d4feb9102d0e1f85613511a0ca0d5527efb A\tdocs/spikes/s02-drawability-evidence/payloads/s02-drawability/checks/preflight-host.command.json.gz",
+        ":000000 100644 0000000000000000000000000000000000000000 86e43ea3218b5890302b754bbf8927f94e79f7ee A\tdocs/spikes/s02-drawability-evidence/payloads/s02-drawability/checks/preflight-host.stderr.gz",
+        ":000000 100644 0000000000000000000000000000000000000000 c5b5e7d8146920d69d3b8951f2740a5053ca1e3a A\tdocs/spikes/s02-drawability-evidence/payloads/s02-drawability/checks/preflight-host.stdout.gz",
+        ":000000 100644 0000000000000000000000000000000000000000 1068d6f987264ec5989fe9017def02cf472109f2 A\tdocs/spikes/s02-drawability-evidence/payloads/s02-drawability/checks/preflight-live.command.json.gz",
+        ":000000 100644 0000000000000000000000000000000000000000 86e43ea3218b5890302b754bbf8927f94e79f7ee A\tdocs/spikes/s02-drawability-evidence/payloads/s02-drawability/checks/preflight-live.stderr.gz",
+        ":000000 100644 0000000000000000000000000000000000000000 070ca03c74bc2f73ccb757b9634003d62aed8119 A\tdocs/spikes/s02-drawability-evidence/payloads/s02-drawability/checks/preflight-live.stdout.gz",
+        ":000000 100644 0000000000000000000000000000000000000000 27d47890026ec1c1b4633fc65a7c228127b51e00 A\tdocs/spikes/s02-drawability-evidence/payloads/s02-drawability/checks/restoration-host.command.json.gz",
+        ":000000 100644 0000000000000000000000000000000000000000 86e43ea3218b5890302b754bbf8927f94e79f7ee A\tdocs/spikes/s02-drawability-evidence/payloads/s02-drawability/checks/restoration-host.stderr.gz",
+        ":000000 100644 0000000000000000000000000000000000000000 fe25534ee15742ab0525b2810477abb82aa4e381 A\tdocs/spikes/s02-drawability-evidence/payloads/s02-drawability/checks/restoration-host.stdout.gz",
+        ":000000 100644 0000000000000000000000000000000000000000 6185fe4635aba3cb03836a6a96f79a5d424d38cb A\tdocs/spikes/s02-drawability-evidence/payloads/s02-drawability/checks/restored-initial-state.command.json.gz",
+        ":000000 100644 0000000000000000000000000000000000000000 86e43ea3218b5890302b754bbf8927f94e79f7ee A\tdocs/spikes/s02-drawability-evidence/payloads/s02-drawability/checks/restored-initial-state.stderr.gz",
+        ":000000 100644 0000000000000000000000000000000000000000 070ca03c74bc2f73ccb757b9634003d62aed8119 A\tdocs/spikes/s02-drawability-evidence/payloads/s02-drawability/checks/restored-initial-state.stdout.gz",
+        ":000000 100644 0000000000000000000000000000000000000000 b24f2d5ae81706218dde09ed794ab754bd8ecde2 A\tdocs/spikes/s02-drawability-evidence/payloads/s02-drawability/checks/single-observation.command.json.gz",
+        ":000000 100644 0000000000000000000000000000000000000000 86e43ea3218b5890302b754bbf8927f94e79f7ee A\tdocs/spikes/s02-drawability-evidence/payloads/s02-drawability/checks/single-observation.stderr.gz",
+        ":000000 100644 0000000000000000000000000000000000000000 836080fc0c0df0884d093c3bc4b8de1e7889812f A\tdocs/spikes/s02-drawability-evidence/payloads/s02-drawability/checks/single-observation.stdout.gz",
+        ":000000 100644 0000000000000000000000000000000000000000 b1151c40d339d6952acfede44fbe6e961a955c36 A\tdocs/spikes/s02-drawability-evidence/payloads/s02-drawability/checks/wayland-interfaces.command.json.gz",
+        ":000000 100644 0000000000000000000000000000000000000000 86e43ea3218b5890302b754bbf8927f94e79f7ee A\tdocs/spikes/s02-drawability-evidence/payloads/s02-drawability/checks/wayland-interfaces.stderr.gz",
+        ":000000 100644 0000000000000000000000000000000000000000 6b2af1b7f1db729cc8f9b61498e425513152491e A\tdocs/spikes/s02-drawability-evidence/payloads/s02-drawability/checks/wayland-interfaces.stdout.gz",
+        ":000000 100644 0000000000000000000000000000000000000000 a56176b33b6f1c7c397c7a680ad99d909c800ba3 A\tdocs/spikes/s02-drawability-evidence/payloads/s02-drawability/cwd-refs.py.gz",
+        ":000000 100644 0000000000000000000000000000000000000000 79f62746caec2e1fc0ba3d9bef19190222a7336b A\tdocs/spikes/s02-drawability-evidence/payloads/s02-drawability/inventory.py.gz",
+        ":000000 100644 0000000000000000000000000000000000000000 92f2e66fa68464b8b96a32c1b0b8856bd772c918 A\tdocs/spikes/s02-drawability-evidence/payloads/s02-drawability/ledger.py.gz",
+        ":000000 100644 0000000000000000000000000000000000000000 23f08edcaa260d9273420a86a9fffc87d7ebac59 A\tdocs/spikes/s02-drawability-evidence/payloads/s02-drawability/main-restoration-launch.json.gz",
+        ":000000 100644 0000000000000000000000000000000000000000 8fb76c2452a5907f9825aaaf419006f124c12a9f A\tdocs/spikes/s02-drawability-evidence/payloads/s02-drawability/main-state-request.json.gz",
+        ":000000 100644 0000000000000000000000000000000000000000 20e88ab98ff55466ccf45a6fc086502936ba8a84 A\tdocs/spikes/s02-drawability-evidence/payloads/s02-drawability/mcp__paseo__list_models.json.gz",
+        ":000000 100644 0000000000000000000000000000000000000000 ab0759ee01a652daca7c534a4c74e017102ea529 A\tdocs/spikes/s02-drawability-evidence/payloads/s02-drawability/mcp__paseo__list_profiles.json.gz",
+        ":000000 100644 0000000000000000000000000000000000000000 442967b565ddf4fb2ff68cbaaad0bc3356c7103c A\tdocs/spikes/s02-drawability-evidence/payloads/s02-drawability/mcp__paseo__list_providers.json.gz",
+        ":000000 100644 0000000000000000000000000000000000000000 65e26769792520ea2be94a0ef464df5ab16c89ee A\tdocs/spikes/s02-drawability-evidence/payloads/s02-drawability/observe.py.gz",
+        ":000000 100644 0000000000000000000000000000000000000000 7d5399c5726cad1813c3244f56177b85fca4c87a A\tdocs/spikes/s02-drawability-evidence/payloads/s02-drawability/observer.gd.txt.gz",
+        ":000000 100644 0000000000000000000000000000000000000000 a734a45e89dc0c8ce4c1ec00905752f8259b74e1 A\tdocs/spikes/s02-drawability-evidence/payloads/s02-drawability/operations-manifest.json.gz",
+        ":000000 100644 0000000000000000000000000000000000000000 28efdc6624c483cba52905b50d5bbeab461c8ad0 A\tdocs/spikes/s02-drawability-evidence/payloads/s02-drawability/operations-readback.json.gz",
+        ":000000 100644 0000000000000000000000000000000000000000 4855bcc511c85e9e81567c3b3f550197201ebd20 A\tdocs/spikes/s02-drawability-evidence/payloads/s02-drawability/package.py.gz",
+        ":000000 100644 0000000000000000000000000000000000000000 0d4843a115e13793cafcb9d0caa578e72da83852 A\tdocs/spikes/s02-drawability-evidence/payloads/s02-drawability/postflight-before-diagnostic-prefix.py.gz",
+        ":000000 100644 0000000000000000000000000000000000000000 30d3f6d02a06ce112b6a20791c64452521c22961 A\tdocs/spikes/s02-drawability-evidence/payloads/s02-drawability/postflight-before-png-header.py.gz",
+        ":000000 100644 0000000000000000000000000000000000000000 a822c0dd0df60a06225aa232af3a2825aaa7beaa A\tdocs/spikes/s02-drawability-evidence/payloads/s02-drawability/postflight.json.gz",
+        ":000000 100644 0000000000000000000000000000000000000000 2461f4384a954332432c4464717af4ea49a2aeea A\tdocs/spikes/s02-drawability-evidence/payloads/s02-drawability/postflight.py.gz",
+        ":000000 100644 0000000000000000000000000000000000000000 c23410b16890e83f38e206203f4b170eb52d3a76 A\tdocs/spikes/s02-drawability-evidence/payloads/s02-drawability/preflight.py.gz",
+        ":000000 100644 0000000000000000000000000000000000000000 23e587c363a3c61845fac1aa2ab00574edb1d891 A\tdocs/spikes/s02-drawability-evidence/payloads/s02-drawability/quit-request.json.gz",
+        ":000000 100644 0000000000000000000000000000000000000000 624da9061475347bf5058705275458b00d425ec3 A\tdocs/spikes/s02-drawability-evidence/payloads/s02-drawability/raw-grant.txt.gz",
+        ":000000 100644 0000000000000000000000000000000000000000 d9b6607c6a13dafd7bc8548fc7e93838da09bd5d A\tdocs/spikes/s02-drawability-evidence/payloads/s02-drawability/raw-requirements.txt.gz",
+        ":000000 100644 0000000000000000000000000000000000000000 86e43ea3218b5890302b754bbf8927f94e79f7ee A\tdocs/spikes/s02-drawability-evidence/payloads/s02-drawability/restore-host-before.stderr.gz",
+        ":000000 100644 0000000000000000000000000000000000000000 57cde74ca1b41e8e532c53fac154288fdd4729c3 A\tdocs/spikes/s02-drawability-evidence/payloads/s02-drawability/restore-host-before.stdout.gz",
+        ":000000 100644 0000000000000000000000000000000000000000 63363746b511f378a86850ad233756ddfff37d05 A\tdocs/spikes/s02-drawability-evidence/payloads/s02-drawability/restore-main.py.gz",
+        ":000000 100644 0000000000000000000000000000000000000000 212008884fced0b935c673027272818b405156c0 A\tdocs/spikes/s02-drawability-evidence/payloads/s02-drawability/restore-requests.json.gz",
+        ":000000 100644 0000000000000000000000000000000000000000 656146d5ad4b5f2ea9fa950a68c6f493a8ffd2c8 A\tdocs/spikes/s02-drawability-evidence/payloads/s02-drawability/restored-main.stderr.gz",
+        ":000000 100644 0000000000000000000000000000000000000000 77c71e60b524f5a4dd21afbb5ca0f79de8a2abec A\tdocs/spikes/s02-drawability-evidence/payloads/s02-drawability/restored-main.stdout.gz",
+        ":000000 100644 0000000000000000000000000000000000000000 c62c8977537118a9107c5a550b1347ca6f69a885 A\tdocs/spikes/s02-drawability-evidence/payloads/s02-drawability/retain-operations.py.gz",
+        ":000000 100644 0000000000000000000000000000000000000000 7722042e45aeb391160d3bb68793405ab37ba0d8 A\tdocs/spikes/s02-drawability-evidence/payloads/s02-drawability/saved-tabs.json.gz",
+        ":000000 100644 0000000000000000000000000000000000000000 6a4f886306c0ec781524d28e4608a00c2ef30e15 A\tdocs/spikes/s02-drawability-evidence/payloads/s02-drawability/source-refs.json.gz",
+        ":000000 100644 0000000000000000000000000000000000000000 4eae9d23ef45f08398decb4e74d2f8bb760b237e A\tdocs/spikes/s02-drawability-evidence/payloads/s02-drawability/source-refs.py.gz",
+        ":000000 100644 0000000000000000000000000000000000000000 8dce5ba46a4d1f9f20ac4e4c0549ba1eae6d562e A\tdocs/spikes/s02-drawability-evidence/payloads/s02-drawability/worker-identity.json.gz",
+        ":000000 100644 0000000000000000000000000000000000000000 36a431d8ad30d7ef8c9891123d67cc07df3c50a4 A\tdocs/spikes/s02-drawability-evidence/readback.json",
+        ":100644 100644 81875739b5df9288e830bdc9f542a90cd97f8498 2263e6350993d5831184d36d78e896fd231af124 M\tdocs/spikes/s02-drawability.md"
+      ]
+    },
+    {
+      "head": "342473d581f78c62ef4ce9845f2fb8cc095a6976",
+      "parent": "a311c576d25a1554471c8381e1620136b76d9b23",
+      "subject": "docs: prepare bounded S08 desktop export observation",
+      "full_raw_path_mode_blob_delta": [
+        ":100644 100644 72eb71c006ff414d26d08f63bbeffb872163a0f5 917c65a92ca31d05d8cccd4a75a647d25cfa9170 M\tTODO.md",
+        ":000000 100644 0000000000000000000000000000000000000000 738a30f965a7f4493db722c89b5e760b0a11710c A\tdocs/spikes/s08.md"
+      ]
+    },
+    {
+      "head": "93da622554e5739cf05bd2267d11b4c6745e4e2e",
+      "parent": "342473d581f78c62ef4ce9845f2fb8cc095a6976",
+      "subject": "docs: distinguish S08 staged inputs from runtime pack",
+      "full_raw_path_mode_blob_delta": [
+        ":100644 100644 738a30f965a7f4493db722c89b5e760b0a11710c 533a66cc9ad2f4181c4fc1ec48cd1f88e3276162 M\tdocs/spikes/s08.md"
+      ]
+    }
+  ],
+  "notes": [
+    {
+      "revision": "64bd46bd760e66cb74ddb0638f26f8e75c5f52f2",
+      "notes_commit": "a93c7e10cb2839b5f30ad748f49cde7e8ad9e767",
+      "blob": "a94d52a4b226adb3cf66a371e4a7a31a89890e41",
+      "bytes": 999018,
+      "sha256": "2959a818b63215f32c848ba6bd71ea4f050b9551343a09f64af22022c2883a56",
+      "expected_payloads": 232,
+      "empty_payloads": 55,
+      "expected_path_set_sha256": "36927a3efe13c979af7090eebc5c5ae004445b2ab9b2136d25d37bb098f140b3",
+      "verified_all_expected_stored_decoded_hashes": true
+    },
+    {
+      "revision": "4169a4466e01fb50acd8069308fc2556d03e0198",
+      "notes_commit": "a93c7e10cb2839b5f30ad748f49cde7e8ad9e767",
+      "blob": "2569a567a428d668baf785c9b4263780e79a7cec",
+      "bytes": 3154306,
+      "sha256": "e6691c87e776bc993591508cf8937a23824a6484020cc0c2dfd98621c7d374ef",
+      "expected_payloads": 242,
+      "empty_payloads": 56,
+      "expected_path_set_sha256": "1fcedaf3e82c928af972bb6d443792860f7c05e09fc96026373dc70b5d666c0a",
+      "verified_all_expected_stored_decoded_hashes": true
+    },
+    {
+      "revision": "a311c576d25a1554471c8381e1620136b76d9b23",
+      "notes_commit": "a93c7e10cb2839b5f30ad748f49cde7e8ad9e767",
+      "blob": "2d0e4223f505e5d62d015cc0b518a24291fa5fe2",
+      "bytes": 4635090,
+      "sha256": "2cfaaf4c048d592f7be218659befc44ada9980b327017f67bf2de7cd6a260a48",
+      "expected_payloads": 601,
+      "empty_payloads": 118,
+      "expected_path_set_sha256": "246bd437c9c40b5d2d9412f60baed629abef92f5746a8f7417ca49cb078d6853",
+      "verified_all_expected_stored_decoded_hashes": true
+    },
+    {
+      "revision": "93da622554e5739cf05bd2267d11b4c6745e4e2e",
+      "notes_commit": "a93c7e10cb2839b5f30ad748f49cde7e8ad9e767",
+      "blob": "5d2e9fa7c70940a49ab460038405fb3fa5f13ac2",
+      "bytes": 1485600,
+      "sha256": "bd9db3f6fe08f60927c31ed56d4cb2717ad85a0ac2224f3077f4bd657c060d56",
+      "expected_payloads": 111,
+      "empty_payloads": 22,
+      "expected_path_set_sha256": "3d70b0a82914dac933c4bb830f6a814b3f76eb3df34e1fa5ab46bb20855aed18",
+      "verified_all_expected_stored_decoded_hashes": true
+    }
+  ],
+  "complete_consulted_reports": [
+    {
+      "note_revision": "64bd46bd760e66cb74ddb0638f26f8e75c5f52f2",
+      "note_blob": "a94d52a4b226adb3cf66a371e4a7a31a89890e41",
+      "selector": "/tmp/plan-check07-independent-review/report.md",
+      "bytes": 38108,
+      "sha256": "01b62737d3bd9cc2781267e76efefa0628603d810f9857d7c7ddac00e06fb449"
+    },
+    {
+      "note_revision": "64bd46bd760e66cb74ddb0638f26f8e75c5f52f2",
+      "note_blob": "a94d52a4b226adb3cf66a371e4a7a31a89890e41",
+      "selector": "/tmp/plan-check07-final-review/report.md",
+      "bytes": 20238,
+      "sha256": "8c539ea5e70ab06283ca0a56b4010c7d27b2885931b97e71269660fbbf88a8de"
+    },
+    {
+      "note_revision": "64bd46bd760e66cb74ddb0638f26f8e75c5f52f2",
+      "note_blob": "a94d52a4b226adb3cf66a371e4a7a31a89890e41",
+      "selector": "/tmp/plan-check07-final-ack/report.md",
+      "bytes": 9673,
+      "sha256": "4b7780f1d06e35c56978247d3f7e1cc87824ca35011508877213c6f26e71e640"
+    },
+    {
+      "note_revision": "4169a4466e01fb50acd8069308fc2556d03e0198",
+      "note_blob": "2569a567a428d668baf785c9b4263780e79a7cec",
+      "selector": "/tmp/doc10-doc11-independent-review/report.md",
+      "bytes": 25468,
+      "sha256": "8afda9aebf4e7cd6725536f2d5126920617493db8cf01ebe25ea646f4fd8f392"
+    },
+    {
+      "note_revision": "4169a4466e01fb50acd8069308fc2556d03e0198",
+      "note_blob": "2569a567a428d668baf785c9b4263780e79a7cec",
+      "selector": "/tmp/doc10-doc11-independent-ack/report.md",
+      "bytes": 15241,
+      "sha256": "27efa796bab8a24351279f39fe430fb8800cad5d74cdcac6285f698cecd9e880"
+    },
+    {
+      "note_revision": "a311c576d25a1554471c8381e1620136b76d9b23",
+      "note_blob": "2d0e4223f505e5d62d015cc0b518a24291fa5fe2",
+      "selector": "/tmp/s02-drawability-review-substantive/report.md",
+      "bytes": 26608,
+      "sha256": "3774d61c817ed99e8fded9687fbaac6a6a278823a8dfc7e4962ac1be00f9573e"
+    },
+    {
+      "note_revision": "93da622554e5739cf05bd2267d11b4c6745e4e2e",
+      "note_blob": "5d2e9fa7c70940a49ab460038405fb3fa5f13ac2",
+      "selector": "review/final/report.md",
+      "bytes": 6584,
+      "sha256": "c8be0abb216bd716bebbf605e3793709bda1f02464502637e8a1442cf8186c08"
+    },
+    {
+      "note_revision": "93da622554e5739cf05bd2267d11b4c6745e4e2e",
+      "note_blob": "5d2e9fa7c70940a49ab460038405fb3fa5f13ac2",
+      "selector": "review/initial/report.md",
+      "bytes": 15666,
+      "sha256": "7462f546b3763f7a5af6ac5d99b99ba8bac1ced864f6c1b9b9e226c21a5171c1"
+    }
+  ],
+  "consulted_git_inputs": [
+    {
+      "revision": "93da622554e5739cf05bd2267d11b4c6745e4e2e",
+      "path": "TODO.md",
+      "blob": "917c65a92ca31d05d8cccd4a75a647d25cfa9170",
+      "bytes": 65413,
+      "sha256": "ba7270d749b85e24adf85bf1e6731b4a2e4d4a0e7fd7ef0d595fcfde94dd8c20"
+    },
+    {
+      "revision": "93da622554e5739cf05bd2267d11b4c6745e4e2e",
+      "path": "AGENTS.md",
+      "blob": "3d6017b2f99ea65ca3ec24d1d846490a03511021",
+      "bytes": 8003,
+      "sha256": "12b3038108dd6014210dac6e879b143861c9c57d66f3fb3b23654624646465cd"
+    },
+    {
+      "revision": "93da622554e5739cf05bd2267d11b4c6745e4e2e",
+      "path": ".agents/skills/paseo-orchestrator/SKILL.md",
+      "blob": "580dd95eca6cded7675beb42197ec68b302e02da",
+      "bytes": 19170,
+      "sha256": "ebef942d125699eb7f18d5ec1ffaffe7f0201a8d356456d802f3fdd52af1accb"
+    },
+    {
+      "revision": "93da622554e5739cf05bd2267d11b4c6745e4e2e",
+      "path": "docs/reviews/plan-checkpoints.md",
+      "blob": "f3f204c7833fcf3c6727e81f1b1d1176c4281ccc",
+      "bytes": 2108,
+      "sha256": "348f0c62811909075e63e28e2d66bf0c3e97f59e0aae1cd07889e731947ea724"
+    },
+    {
+      "revision": "93da622554e5739cf05bd2267d11b4c6745e4e2e",
+      "path": "docs/reviews/plan-check-2026-10-08-07.md",
+      "blob": "89b693c344a53367e10f30da528e552a4a808e8b",
+      "bytes": 32097,
+      "sha256": "e91973dcebaae4770a1b1eb8890de9edd76e745a121df1eafd4acaf7c8f14548"
+    },
+    {
+      "revision": "93da622554e5739cf05bd2267d11b4c6745e4e2e",
+      "path": "README.md",
+      "blob": "80f57e82d11924fd7af5d824743f101057089015",
+      "bytes": 14516,
+      "sha256": "45beb413bdd4d75d7db7b26ae4d6e5efea8c63083d87c0816fe53062e83cafd3"
+    },
+    {
+      "revision": "93da622554e5739cf05bd2267d11b4c6745e4e2e",
+      "path": "docs/development.md",
+      "blob": "5400ba30121178fadc6051bf8220528b0134319a",
+      "bytes": 48233,
+      "sha256": "bc3a952a77ae8bb4539761013ceacb2d36bcbbec2818c2e1386031e850758269"
+    },
+    {
+      "revision": "93da622554e5739cf05bd2267d11b4c6745e4e2e",
+      "path": "docs/architecture.md",
+      "blob": "a4c2901c8bb71bc8d9fe586ff988d07c99c505e0",
+      "bytes": 24123,
+      "sha256": "a3b8328a64b667da12da33341e5f9a7bdac2437232dc3df24274b2bc48157c15"
+    },
+    {
+      "revision": "93da622554e5739cf05bd2267d11b4c6745e4e2e",
+      "path": "docs/scene-structure.md",
+      "blob": "685d8c213aeaa3d7410e9b4b5ed86695e02a6684",
+      "bytes": 20591,
+      "sha256": "d9a515b9347174e4e5525aa2d87acefb57b961a3259e7d2e3a43e675c5a259fa"
+    },
+    {
+      "revision": "93da622554e5739cf05bd2267d11b4c6745e4e2e",
+      "path": "docs/api-contracts.md",
+      "blob": "6c5fdb395b08170d83652878edfb5575fee7cee2",
+      "bytes": 58590,
+      "sha256": "ebb23fd92265c25289b60e102f8cce247ca14387e5b690cd8af89b02a633d516"
+    },
+    {
+      "revision": "93da622554e5739cf05bd2267d11b4c6745e4e2e",
+      "path": "docs/assets.md",
+      "blob": "46981e2f867575afd447b4264be365ce1aa04b50",
+      "bytes": 29441,
+      "sha256": "d24e21b78ebc32a10e7f3ec059ca4675f2bd6e93b59a957607a03c2ce5559cbb"
+    },
+    {
+      "revision": "93da622554e5739cf05bd2267d11b4c6745e4e2e",
+      "path": "docs/assets/s02_kit.md",
+      "blob": "421513c3792a144b993dce03687430ff2fa44ee9",
+      "bytes": 10482,
+      "sha256": "019e4b875d479e93884b211de966d560108b8c9a3b0bcaeb1e8ca0b3137c1f9a"
+    },
+    {
+      "revision": "93da622554e5739cf05bd2267d11b4c6745e4e2e",
+      "path": "docs/assets/s04_kit.md",
+      "blob": "d63d4dcf502db98c6673bce2426047dce3e33cf9",
+      "bytes": 8914,
+      "sha256": "8b83f2249a19b12e325cf80c2dd2e666ebd02c8ec53fb9936db489eb3b34c439"
+    },
+    {
+      "revision": "93da622554e5739cf05bd2267d11b4c6745e4e2e",
+      "path": "docs/asset-catalogue.md",
+      "blob": "a0f9bac9550292aec7c7bbe628881aef6cc1d9e5",
+      "bytes": 1420,
+      "sha256": "16c7ab69b69097a6ead3f76e86fbab2823dd7e4c25c986c1aa9e9c10435822f3"
+    },
+    {
+      "revision": "93da622554e5739cf05bd2267d11b4c6745e4e2e",
+      "path": "docs/world-layout.md",
+      "blob": "4cdcab99075132931ea3976498f5dd0963b49e73",
+      "bytes": 12704,
+      "sha256": "b98305af397535dd6a3a3709225336d3baefd1f19bb01e5f0694343fffbf29b6"
+    },
+    {
+      "revision": "93da622554e5739cf05bd2267d11b4c6745e4e2e",
+      "path": "docs/spikes/s02.md",
+      "blob": "451a5f0f275b63348aaf80e38265a766788a2f87",
+      "bytes": 18360,
+      "sha256": "d3bd0e6d4ab6908dc2efbed65150a298c405325b9592f1f08e50ed3d958d4774"
+    },
+    {
+      "revision": "93da622554e5739cf05bd2267d11b4c6745e4e2e",
+      "path": "docs/spikes/s02-drawability.md",
+      "blob": "2263e6350993d5831184d36d78e896fd231af124",
+      "bytes": 16266,
+      "sha256": "46bab8864f64bae8d2afd21a851e9987580ff1166058bd6cd81cccf34a857fb0"
+    },
+    {
+      "revision": "93da622554e5739cf05bd2267d11b4c6745e4e2e",
+      "path": "docs/spikes/s02-drawability-evidence/README.md",
+      "blob": "bc4d3632825757fbe3c70562f4a6516cb6da5a81",
+      "bytes": 1916,
+      "sha256": "acbc0e865cf3dfca9454c54e1a25210a70eacfc831eab5043a6f69af96d9a83f"
+    },
+    {
+      "revision": "93da622554e5739cf05bd2267d11b4c6745e4e2e",
+      "path": "docs/spikes/s07.md",
+      "blob": "a3e2acb6dfd9c1226c0582869687d2b10fb6224b",
+      "bytes": 31767,
+      "sha256": "d147435166c67b9312890f84f82f6668d7a76d0a4ae52fc89267d46ee83b89ba"
+    },
+    {
+      "revision": "93da622554e5739cf05bd2267d11b4c6745e4e2e",
+      "path": "docs/spikes/s08.md",
+      "blob": "533a66cc9ad2f4181c4fc1ec48cd1f88e3276162",
+      "bytes": 17107,
+      "sha256": "e892a7d6720262c028f69049c83918a2c2724a8d8e2b604fe08ec447ed9bfdee"
+    },
+    {
+      "revision": "93da622554e5739cf05bd2267d11b4c6745e4e2e",
+      "path": "docs/reviews/p0-doc10.md",
+      "blob": "c5c370b3ede322330f7b8dff4584e90de580305d",
+      "bytes": 1939,
+      "sha256": "1ce145006a75b2c790a690a79534613689965b502302e9a702f0617e10389d3f"
+    },
+    {
+      "revision": "93da622554e5739cf05bd2267d11b4c6745e4e2e",
+      "path": "docs/reviews/p0-doc11.md",
+      "blob": "8e53b7d5ee331ec5d3e07ae534668add7fd90234",
+      "bytes": 2470,
+      "sha256": "77c49cf4b963bbe86cfeb44358def775993c3db6b0eb9f62fb3b85e078e717ff"
+    },
+    {
+      "revision": "93da622554e5739cf05bd2267d11b4c6745e4e2e",
+      "path": "docs/workflows/p0-profiles-proposal.md",
+      "blob": "20177466900f753576e59efb47a6bb3e4f3c0742",
+      "bytes": 15945,
+      "sha256": "c9ea4865a5efb6ec533cb4a47d0dfe5c0d8d6f80ef38b133d3a554aedf55e777"
+    },
+    {
+      "revision": "93da622554e5739cf05bd2267d11b4c6745e4e2e",
+      "path": "docs/workflows/p0-profiles-evidence.md",
+      "blob": "42cc3b53368a0fa681a094afcb069b9137397e7b",
+      "bytes": 8920,
+      "sha256": "41d023324373c039e73ac50d449b775f43a16b8aaaa89b607c13b89af9b904c7"
+    },
+    {
+      "revision": "93da622554e5739cf05bd2267d11b4c6745e4e2e",
+      "path": "docs/workflows/p0-profiles-evidence/proposed.patch.json",
+      "blob": "68578b4fe040d0767fd1bd942dfa923f9745ec3a",
+      "bytes": 5912,
+      "sha256": "302be76f09fd58c14dd58a55c803413ddd440e4218e48ac11094f0f6ed9dff1b"
+    }
+  ],
+  "limits": "Static planning/identity/retention only; no historical technical rerun or fresh environment proof."
+}
