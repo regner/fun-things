@@ -184,6 +184,12 @@
     "author/supervisor.stderr",
     "author/supervisor.stdout",
     "author/tool-inventory.json",
+    "checks/budget-check-initial.py",
+    "checks/budget-check-initial.stderr",
+    "checks/budget-check-initial.stdout",
+    "checks/budget-check.command.json",
+    "checks/budget-check.stderr",
+    "checks/budget-check.stdout",
     "checks/camera-author.stderr",
     "checks/camera-author.stdout",
     "checks/candidate-check.json",
@@ -3446,6 +3452,78 @@
       "stored": {
         "bytes": 146,
         "sha256": "e080b62b441aa2a5a596a5fc9dc2c7ddbc8ce8cc596f9fba56ae49cfe36bb2e4"
+      }
+    },
+    "checks/budget-check.stdout": {
+      "source": "/tmp/s05-draw-8c398027-run01/budget-check.stdout",
+      "stored_path": "payloads/checks/budget-check.stdout.gz",
+      "decoded": {
+        "bytes": 21164,
+        "sha256": "dd3a4ee140efe227974d1dedf4f9042f050239633bee9e063cbb7038a50d3011"
+      },
+      "stored": {
+        "bytes": 1708,
+        "sha256": "2b733303313a864539bad75b1611705fe3ad33bdb9159a0e50a1d5b6461fb85e"
+      }
+    },
+    "checks/budget-check.stderr": {
+      "source": "/tmp/s05-draw-8c398027-run01/budget-check.stderr",
+      "stored_path": "payloads/checks/budget-check.stderr.gz",
+      "decoded": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stored": {
+        "bytes": 20,
+        "sha256": "9ceffb7310338057cfe71a4ae1e2c98d2c485d81cdef906532a801f457a38d64"
+      }
+    },
+    "checks/budget-check.command.json": {
+      "source": "/tmp/s05-draw-8c398027-run01/budget-check.command.json",
+      "stored_path": "payloads/checks/budget-check.command.json.gz",
+      "decoded": {
+        "bytes": 356,
+        "sha256": "dd5879dc5ecb7baeebb3f070c919ad45e666ce3cf4d1b04c16a8bb21a1c5d63c"
+      },
+      "stored": {
+        "bytes": 249,
+        "sha256": "65a16b143965bb5e651efdde274486b91837f0bd9fa61978880597428d6f7753"
+      }
+    },
+    "checks/budget-check-initial.py": {
+      "source": "/tmp/s05-draw-8c398027-run01/budget-check-initial.py",
+      "stored_path": "payloads/checks/budget-check-initial.py.gz",
+      "decoded": {
+        "bytes": 7861,
+        "sha256": "361e6d639f81f04193d6d15dfebef918c251a4223964ee3640103add1317dc96"
+      },
+      "stored": {
+        "bytes": 2722,
+        "sha256": "5efdfa5cd76b53f738a7f2df6e54ab187ebc856ef825bd44fbea96fca91ece13"
+      }
+    },
+    "checks/budget-check-initial.stdout": {
+      "source": "/tmp/s05-draw-8c398027-run01/budget-check-initial.stdout",
+      "stored_path": "payloads/checks/budget-check-initial.stdout.gz",
+      "decoded": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stored": {
+        "bytes": 20,
+        "sha256": "9ceffb7310338057cfe71a4ae1e2c98d2c485d81cdef906532a801f457a38d64"
+      }
+    },
+    "checks/budget-check-initial.stderr": {
+      "source": "/tmp/s05-draw-8c398027-run01/budget-check-initial.stderr",
+      "stored_path": "payloads/checks/budget-check-initial.stderr.gz",
+      "decoded": {
+        "bytes": 760,
+        "sha256": "81cebe7a50257a64d60e85e6e102b504c268ad7d5f6eece0d83fb79e768a3296"
+      },
+      "stored": {
+        "bytes": 314,
+        "sha256": "2273075c295f09261439b8ec96d2433ae80783b1d91abf901524556a13d87d67"
       }
     }
   },

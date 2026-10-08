@@ -280,3 +280,39 @@ current retention/review/actionable fixes and cleanup. ROOT notified accepted ma
 the declared48aef3d candidate first, then rebase once onto then-current accepted
 main for delivery and preserve unrelated S07/TODO changes. Same reviewer checks
 the material newHEAD/base delta; no engine rerun or extra workstream follows.
+
+## Independent review correction
+
+The clean-context reviewer `9da0300c-66ab-4518-8e2a-e5fdcd402851` reviewed exact
+`b675d93c4f6513bd0602404e7f5cc27597de83da` against the original48aef3d base.
+Its complete report is23364bytes, SHA256
+`7c8fd4e2d41638b30401544fbcf9f949336d38bc9c00910b974da6f90cc01444`.
+It requests one P2 correction: although both actual groups finished within30s,
+the executed runner allowed a fresh30s collection after staging and up to18s
+sequential cleanup. Saved resources, preservation and the accurately failed image
+result otherwise pass that review. Complete report/check metadata is retained on
+the final exact delivery HEAD; no report-only tree commit follows.
+
+Only the new runner's budget path is corrected. One monotonic deadline begins
+before preparation;20s covers preparation/collection,6s reserves three shared2s
+owned cleanup phases, and4s reserves preservation/readback. All owned exit requests
+precede their shared grace; waits use phase deadlines rather than multiplying
+grace by child count. Spawning rechecks cutoff immediately before Popen. Cleanup,
+elapsed time and actual deadline compliance are explicit receipts; an unreaped
+handle or overrun cannot receive successful return credit.
+
+`tools/s05_draw/budget_check.py` exercises the actual main path with fake time,
+fake binary bytes/socket/staging and fake owned Popen handles. No engine or real
+socket executes. Four literal checks cover three stubborn timeout children,
+preparation reaching cutoff, normal completion, and a spawn returning at cutoff
+before late launch. Worst simulated path finishes at29s, including3s preparation,
+full shared2s SIGINT and terminate intervals, kill/reap and3s preservation. No
+post-cutoff spawn occurs and all fake handles/streams are reaped/closed. The first
+test draft's faulty cutoff trigger/AssertionError is retained alongside the
+corrected check and exact command/source hashes. Python AST checks pass.
+
+This runner correction is **tool-only source/fake-clock checked and unexecuted in
+Godot**. Immutable executed runner references/group receipts remain unchanged.
+It neither repeats an experiment nor grants past images/native acceptance.
+Accepted main later advanced to57d337312bb6f98a22e8d94a41eace3b9e7cc50b;
+the single delivery rebase preserves unrelated S07/S03-S and other TODO work.

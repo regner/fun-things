@@ -17,6 +17,9 @@ ENGINE = '/home/regner/.local/share/mise/installs/github-godotengine-godot-build
 ENGINE_SHA = '6aea356032435e7af19dbfbf48dd20c5012a7dc1267eb8e92406f44e3584b5fd'
 SCENE = 'res://tests/fixtures/s05_draw/burst.tscn'
 BUDGET_SECONDS = 30
+CLEANUP_PHASE_SECONDS = 2
+PRESERVATION_RESERVE_SECONDS = 4
+COLLECTION_SECONDS = BUDGET_SECONDS - 3 * CLEANUP_PHASE_SECONDS - PRESERVATION_RESERVE_SECONDS
 MAX_COPY_BYTES = 8 * 1024 * 1024
 
 
@@ -33,7 +36,13 @@ def rows(path):
             if line.startswith('S05 ') and line.endswith('\n')]
 
 
-def stage(author, output):
+def require_before(deadline, phase):
+    """Stop work before its reserved monotonic phase budget has been consumed."""
+    if time.monotonic() >= deadline:
+        raise TimeoutError(phase + ' deadline')
+
+
+def stage(author, output, deadline):
     """Copy only accepted runtime inputs, saved new resources and generated dependency caches."""
     project = output / 'project'
     project.mkdir()
@@ -48,6 +57,7 @@ def stage(author, output):
     ledger = []
     total = 0
     for name in sorted(names):
+        require_before(deadline, 'preparation/collection')
         source = author / name
         data = source.read_bytes()
         if not name.startswith('.godot/'):
@@ -66,6 +76,7 @@ def stage(author, output):
     # available as an unused @tool dependency; no editor or addon executes here.
     helper = 'tests/fixtures/s05_effect/editor_probe.gd'
     for name in [helper, helper + '.uid']:
+        require_before(deadline, 'preparation/collection')
         data = (author / name).read_bytes()
         target = project / name
         target.write_bytes(data)
@@ -84,8 +95,50 @@ def stage(author, output):
     return project, ledger
 
 
+def cleanup_owned(children, records, deadline):
+    """Request all owned exits first, then share each actual grace/fallback deadline."""
+    phases = []
+    for action in ['interrupt', 'terminate', 'kill']:
+        active = [(role, child) for role, child in children.items() if child.poll() is None]
+        if not active:
+            break
+        start = time.monotonic()
+        phase_deadline = min(start + CLEANUP_PHASE_SECONDS, deadline)
+        for role, child in active:
+            record = records[role]
+            if action == 'interrupt':
+                record['cleanup_request'] = 'owned SIGINT; shared2s grace before fallback'
+                child.send_signal(signal.SIGINT)
+            elif action == 'terminate':
+                record['terminate_fallback'] = True
+                child.terminate()
+            else:
+                record['kill_fallback'] = True
+                child.kill()
+        for role, child in active:
+            try:
+                child.wait(timeout=max(0, phase_deadline - time.monotonic()))
+                records[role]['reaped'] = True
+            except subprocess.TimeoutExpired:
+                pass
+        phases.append({'action': action, 'start_monotonic': start,
+                       'deadline_monotonic': phase_deadline, 'end_monotonic': time.monotonic()})
+    for role, child in children.items():
+        if child.poll() is not None:
+            child.wait(timeout=0)
+            records[role].update(exit=child.returncode, end_unix=time.time(), reaped=True)
+        else:
+            records[role]['reaped'] = False
+            records[role]['cleanup_failure'] = 'owned child did not reap within reserved deadline'
+    return phases
+
+
 def main():
     """Own only three Popen handles, stop at first diagnostic, and retain unsuccessful groups."""
+    start_monotonic = time.monotonic()
+    group_deadline = start_monotonic + BUDGET_SECONDS
+    collection_deadline = start_monotonic + COLLECTION_SECONDS
+    cleanup_deadline = group_deadline - PRESERVATION_RESERVE_SECONDS
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--author-project', type=Path, required=True)
     parser.add_argument('--output', type=Path, required=True)
@@ -99,6 +152,12 @@ def main():
     result = {'collection_ok': False, 'start_unix': time.time(),
               'budget_s': BUDGET_SECONDS, 'processes': {}, 'engine': ENGINE,
               'graphical_group': args.group, 'import_processes': 0}
+    result.update(start_monotonic=start_monotonic, deadline_monotonic=group_deadline,
+                  collection_deadline_monotonic=collection_deadline,
+                  cleanup_deadline_monotonic=cleanup_deadline,
+                  phase_budgets_s={'preparation_collection': COLLECTION_SECONDS,
+                                   'cleanup': 3 * CLEANUP_PHASE_SECONDS,
+                                   'preservation': PRESERVATION_RESERVE_SECONDS})
     children, streams = {}, []
     project = None
     ledger = []
@@ -109,16 +168,17 @@ def main():
         socket_path = Path(os.environ['XDG_RUNTIME_DIR']) / os.environ['WAYLAND_DISPLAY']
         if not stat.S_ISSOCK(socket_path.stat().st_mode):
             raise RuntimeError('existing Wayland route unavailable')
-        project, ledger = stage(args.author_project.resolve(), output)
+        require_before(collection_deadline, 'preparation/collection')
+        project, ledger = stage(args.author_project.resolve(), output, collection_deadline)
         with socket.socket(socket.AF_INET, socket.SOCK_DGRAM) as probe:
             probe.bind(('127.0.0.1', 0))
             port = probe.getsockname()[1]
         result.update(project=str(project), binary_sha256=ENGINE_SHA,
                       wayland_socket=str(socket_path), port=port)
-        deadline = time.monotonic() + BUDGET_SECONDS
 
         def start(role):
             """Record one exact private role command before and immediately after spawn."""
+            require_before(collection_deadline, 'spawn')
             folder = output / role
             folder.mkdir()
             env = {k: v for k, v in os.environ.items() if not k.startswith('GODOT_MCP_')}
@@ -142,13 +202,14 @@ def main():
             save(output / 'lifecycle.json', result)
             out, err = (folder / 'stdout').open('wb'), (folder / 'stderr').open('wb')
             streams.extend([out, err])
+            require_before(collection_deadline, 'spawn')
             child = subprocess.Popen(command, cwd=project, env=env, stdout=out, stderr=err)
             children[role] = child
             record['owned_pid'] = child.pid
             save(output / 'lifecycle.json', result)
 
         start('host')
-        while time.monotonic() < deadline:
+        while time.monotonic() < collection_deadline:
             for role, child in children.items():
                 actual = rows(output / role / 'stdout')
                 if any(r['event'] == 'failure' for r in actual):
@@ -170,41 +231,37 @@ def main():
                 break
             if children['host'].poll() is not None and 'late' not in children:
                 raise RuntimeError('host left before settled-late launch')
-            time.sleep(.01)
+            time.sleep(min(.01, max(0, collection_deadline - time.monotonic())))
         else:
-            raise RuntimeError('30s group deadline')
+            raise RuntimeError('collection cutoff; cleanup/preservation reserve retained')
     except Exception as error:
         result['failure'] = repr(error)
     finally:
-        for role, child in children.items():
-            record = result['processes'][role]
-            if child.poll() is None:
-                record['cleanup_request'] = 'owned SIGINT; full2s grace before fallback'
-                child.send_signal(signal.SIGINT)
-                try:
-                    child.wait(timeout=2)
-                except subprocess.TimeoutExpired:
-                    record['terminate_fallback'] = True
-                    child.terminate()
-                    try:
-                        child.wait(timeout=2)
-                    except subprocess.TimeoutExpired:
-                        record['kill_fallback'] = True
-                        child.kill()
-                        child.wait(timeout=2)
-            else:
-                child.wait()
-            record.update(exit=child.returncode, end_unix=time.time(), reaped=True)
+        result['cleanup_phases'] = cleanup_owned(children, result['processes'], cleanup_deadline)
         for stream in streams:
             stream.close()
-        unchanged = project is not None and all(hashlib.sha256((project / r['path']).read_bytes())
-                                               .hexdigest() == r['sha256'] for r in ledger)
+        unchanged = project is not None
+        preservation_start = time.monotonic()
+        try:
+            for row in ledger:
+                require_before(group_deadline, 'preservation')
+                unchanged &= hashlib.sha256((project / row['path']).read_bytes()).hexdigest() == (
+                    row['sha256'])
+        except Exception as error:
+            unchanged = False
+            result['preservation_failure'] = repr(error)
         result.update(end_unix=time.time(), streams_closed=True,
                       all_owned_children_reaped=all(c.poll() is not None for c in children.values()),
                       copy_bytes_preserved=unchanged)
+        end_monotonic = time.monotonic()
+        result.update(end_monotonic=end_monotonic, elapsed_s=end_monotonic - start_monotonic,
+                      preservation_start_monotonic=preservation_start,
+                      within_supervisor_budget=end_monotonic <= group_deadline)
         save(output / 'lifecycle.json', result)
     print(json.dumps(result, indent=2))
-    return 0 if result['collection_ok'] and result['copy_bytes_preserved'] else 1
+    return 0 if all(result[key] for key in ['collection_ok', 'copy_bytes_preserved',
+                                           'all_owned_children_reaped',
+                                           'within_supervisor_budget']) else 1
 
 
 if __name__ == '__main__':

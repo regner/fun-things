@@ -186,6 +186,12 @@
     "payloads/author/supervisor.stderr.gz",
     "payloads/author/supervisor.stdout.gz",
     "payloads/author/tool-inventory.json.gz",
+    "payloads/checks/budget-check-initial.py.gz",
+    "payloads/checks/budget-check-initial.stderr.gz",
+    "payloads/checks/budget-check-initial.stdout.gz",
+    "payloads/checks/budget-check.command.json.gz",
+    "payloads/checks/budget-check.stderr.gz",
+    "payloads/checks/budget-check.stdout.gz",
     "payloads/checks/camera-author.stderr.gz",
     "payloads/checks/camera-author.stdout.gz",
     "payloads/checks/candidate-check.json.gz",
@@ -280,8 +286,8 @@
       "sha256": "ac3cde440aae530ae82aec33bbebde758e0227ab5b6b6cab9738e8556337f58c"
     },
     "manifest.json": {
-      "bytes": 130415,
-      "sha256": "04ec7d82c77ce42eae8582ff8b889bad89fc1bda5175aca94a2aae1dc462bd26"
+      "bytes": 133374,
+      "sha256": "2dd9298d93d04d28b5f8afdaeaade2685d0fdf677b36fb3305aaa1ccfd5f25d5"
     },
     "payloads/author/call-001.request.json.gz": {
       "bytes": 93,
@@ -1015,6 +1021,30 @@
       "bytes": 11552,
       "sha256": "3695cbbd21182df1b641558059049c90e1a182ebdfa91ef4816fdd6572c56ba1"
     },
+    "payloads/checks/budget-check-initial.py.gz": {
+      "bytes": 2722,
+      "sha256": "5efdfa5cd76b53f738a7f2df6e54ab187ebc856ef825bd44fbea96fca91ece13"
+    },
+    "payloads/checks/budget-check-initial.stderr.gz": {
+      "bytes": 314,
+      "sha256": "2273075c295f09261439b8ec96d2433ae80783b1d91abf901524556a13d87d67"
+    },
+    "payloads/checks/budget-check-initial.stdout.gz": {
+      "bytes": 20,
+      "sha256": "9ceffb7310338057cfe71a4ae1e2c98d2c485d81cdef906532a801f457a38d64"
+    },
+    "payloads/checks/budget-check.command.json.gz": {
+      "bytes": 249,
+      "sha256": "65a16b143965bb5e651efdde274486b91837f0bd9fa61978880597428d6f7753"
+    },
+    "payloads/checks/budget-check.stderr.gz": {
+      "bytes": 20,
+      "sha256": "9ceffb7310338057cfe71a4ae1e2c98d2c485d81cdef906532a801f457a38d64"
+    },
+    "payloads/checks/budget-check.stdout.gz": {
+      "bytes": 1708,
+      "sha256": "2b733303313a864539bad75b1611705fe3ad33bdb9159a0e50a1d5b6461fb85e"
+    },
     "payloads/checks/camera-author.stderr.gz": {
       "bytes": 20,
       "sha256": "9ceffb7310338057cfe71a4ae1e2c98d2c485d81cdef906532a801f457a38d64"
@@ -1361,22 +1391,22 @@
     },
     "readback.json": {
       "bytes": 364,
-      "sha256": "274e9a19cc597d7a862217a14d4fcaeeb89bb25f536f3b420f7a53d563ffbac8"
+      "sha256": "058c40d13a9083065f331e13a417cc218c8d85fb09f882289896945c3791cc19"
     }
   },
   "raw_brief_source": "Verbatim commissioned user messages, in supplied order.",
   "source_readback": {
     "ok": true,
-    "complete_expected_set": 265,
-    "source_stored_decoded_matches": 265,
+    "complete_expected_set": 271,
+    "source_stored_decoded_matches": 271,
     "absent_expected_outputs": {
       "group01_draw_stream": true,
       "group01_client_late_not_launched": true,
       "all_workload_pngs_absent": true
     },
     "manifest": {
-      "bytes": 130415,
-      "sha256": "04ec7d82c77ce42eae8582ff8b889bad89fc1bda5175aca94a2aae1dc462bd26"
+      "bytes": 133374,
+      "sha256": "2dd9298d93d04d28b5f8afdaeaade2685d0fdf677b36fb3305aaa1ccfd5f25d5"
     }
   }
 }

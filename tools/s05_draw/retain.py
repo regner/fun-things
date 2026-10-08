@@ -73,6 +73,10 @@ def expected_sources():
         name = ('final-static-invocation-failed' + ('' if suffix.startswith('-') else '.')
                 + suffix)
         sources['checks/' + name] = RUN / name
+    for name in ['budget-check.stdout', 'budget-check.stderr', 'budget-check.command.json',
+                 'budget-check-initial.py', 'budget-check-initial.stdout',
+                 'budget-check-initial.stderr']:
+        sources['checks/' + name] = RUN / name
     return sources
 
 
