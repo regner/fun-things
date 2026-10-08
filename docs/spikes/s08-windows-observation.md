@@ -48,7 +48,9 @@ the unreliable `_held` RPC rather than a deterministic gameplay edge.
    the server advertises 6 bytes/s. Each client's throttle limit collapses at its
    next one-second bandwidth epoch.
 3. This also explains the history without any release/native cause. The collapse
-   happens at a one-second epoch after the client host is created. Fast sequences
+   happens at the next ENet one-second bandwidth-throttle epoch, which can fall
+   less than a second after the client host is created (366 ms in the retained
+   telemetry). Fast sequences
    (minimal S03 under unplanned 10 ms servicing) can finish before it. Slower
    ones (original S08 main under 20 ms servicing) cross it. It is
    platform-independent ENet behaviour; the Linux re-run is listed under concerns.
@@ -87,6 +89,8 @@ one second, and read the client's peer `PEER_PACKET_THROTTLE_LIMIT`.
     templates.
   - Runs one host/client set per mode under one absolute 30 s budget: 4 s handoff,
     20 s work, then shared grace/terminate/kill cleanup.
+  - [Offline export-gate tests](../../tools/s08/windows_observation_test.py)
+    reject zero-exit import/export diagnostics and a missing engine.
   - Fixed release PCK: 182948 bytes, SHA256 `e6bea4d4…`; the debug PCK is
     byte-identical.
 - All-owned compilation, pinned formatting and tool tests pass. Lint retains only

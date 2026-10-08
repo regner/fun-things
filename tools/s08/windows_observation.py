@@ -211,6 +211,8 @@ def checked(task, phase, argv, budget, env, cwd):
 def export(task, project, env):
     """Import once, export both modes and bind the actual output folders."""
     engine = shutil.which("godot") if ARGS.godot is None else ARGS.godot
+    if engine is None:
+        raise RuntimeError("godot not found on PATH; pass --godot")
     version = subprocess.run([engine, "--version"], capture_output=True, text=True,
                              timeout=10, check=True).stdout.strip()
     if version != PIN:
@@ -220,8 +222,8 @@ def export(task, project, env):
                                         str(project), "--import", "--quit"],
                        IMPORT_SECONDS, env, project)
     record["import"] = imported
-    if imported["exit"] != 0:
-        raise RuntimeError("scratch import failed")
+    if imported["exit"] != 0 or imported["diagnostics"]:
+        raise RuntimeError("scratch import failed or reported diagnostics")
     folders = {}
     for mode in ["release", "debug"]:
         folder = task / f"export-{mode}"
@@ -231,8 +233,9 @@ def export(task, project, env):
             f"S08 Windows {mode}", str(folder / "FunThingsS08.exe")], EXPORT_SECONDS, env, project)
         record[f"export_{mode}"] = result
         outputs = sorted(path.name for path in folder.iterdir())
-        if result["exit"] != 0 or outputs != ["FunThingsS08.exe", "FunThingsS08.pck"]:
-            raise RuntimeError(f"{mode} export failed or produced {outputs}")
+        if result["exit"] != 0 or result["diagnostics"] or (
+                outputs != ["FunThingsS08.exe", "FunThingsS08.pck"]):
+            raise RuntimeError(f"{mode} export failed, reported diagnostics or produced {outputs}")
         name, size, digest = TEMPLATES[mode]
         if identity(folder / "FunThingsS08.exe") != {"bytes": size, "sha256": digest}:
             raise RuntimeError(f"{mode} executable differs from template {name}")
