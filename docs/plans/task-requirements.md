@@ -27,11 +27,13 @@ qualification and enough outcome detail for dispatch.
 - **S04:** Ratify car handling, dimensions, recovery, seat/control and prediction choices;
   rerun affected cases after S02 choices. Historical response figures are confounded by
   the S08 ENet defect. Post-fix Windows drawn runs pass all profiles (p95 90/277/386 ms).
-- **S05:** Disabled-VSync image attempt failed at endpoint-binding proof before live/late
-  launch; no workload PNG/VSync evidence or image-review credit. Attempt consumed; no
-  retry. Remaining full acceptance includes drawn eight-slot saturation and live-versus-
-  hydrated presentation, policy ratification and affected final-dimension checks.
-  Cosmetic capacity cannot limit chains; settled hydration is not in-flight proof.
+- **S05:** Drawn eight-slot saturation (8 drawn/4 dropped) and settled late hydration
+  without historical effects now pass on a Windows desktop ([record](
+  ../spikes/s05-windows-draw.md)); the Linux disabled-VSync image attempt remains a
+  consumed historical failure. Remaining: wreck visuals in drawn frames (cars are
+  hidden), any effect cost measurement, Regner's policy ratification and affected
+  final-dimension checks. Cosmetic capacity cannot limit chains; settled hydration
+  is not in-flight proof.
 - **S06:** Ratify drawn layout/crossing/minimap against final body envelopes; partial
   topology is not production traffic, recovery or capacity evidence.
 - **S07:** Sustained primary-T driver is accepted (57 traversals over 600 declared

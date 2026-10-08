@@ -1,0 +1,140 @@
+{
+  "ok": false,
+  "revision": "dd65b4030677d672eafde22fe285c61b0aba14f4",
+  "dirty_inputs": "",
+  "processes": {
+    "host": {
+      "argv": [
+        "C:\\Users\\regner.blokandersen\\AppData\\Local\\mise\\installs\\github-godotengine-godot-builds\\4.8-dev7\\godot.EXE",
+        "--path",
+        "C:\\tmp\\ft\\s05-draw-01\\project",
+        "--windowed",
+        "--position",
+        "0,40",
+        "--log-file",
+        "C:\\tmp\\ft\\s05-draw-01\\host\\engine.log",
+        "res://tests/fixtures/s05_draw/burst.tscn",
+        "--",
+        "--role=host",
+        "--port=56538"
+      ],
+      "pid": 23308,
+      "start_offset_s": 0.03305999981239438
+    },
+    "client": {
+      "argv": [
+        "C:\\Users\\regner.blokandersen\\AppData\\Local\\mise\\installs\\github-godotengine-godot-builds\\4.8-dev7\\godot.EXE",
+        "--path",
+        "C:\\tmp\\ft\\s05-draw-01\\project",
+        "--windowed",
+        "--position",
+        "640,40",
+        "--log-file",
+        "C:\\tmp\\ft\\s05-draw-01\\client\\engine.log",
+        "res://tests/fixtures/s05_draw/burst.tscn",
+        "--",
+        "--role=client",
+        "--port=56538"
+      ],
+      "pid": 62024,
+      "start_offset_s": 4.784294999670237
+    }
+  },
+  "engine": {
+    "version": "4.8.dev7.official.c971f93e7",
+    "bytes": 194052248,
+    "sha256": "7129acb9562e2ff990110d1fdf716deb7fedf7f83a69030b848a380c095d1de6"
+  },
+  "import": {
+    "exit": 0,
+    "diagnostics": []
+  },
+  "failure": "fixture expectation failure: host",
+  "cleanup": [
+    {
+      "role": "client",
+      "action": "terminate"
+    }
+  ],
+  "reaped": true,
+  "duration_s": 11.032668000087142,
+  "exits": {
+    "host": 1,
+    "client": 1
+  },
+  "diagnostics": {
+    "host": [],
+    "client": [
+      "SCRIPT ERROR: Out of bounds get index '0' (on base: 'Dictionary')",
+      "ERROR: RPC '_fire' on yourself is not allowed by selected mode.",
+      "SCRIPT ERROR: Out of bounds get index '0' (on base: 'Dictionary')",
+      "ERROR: RPC '_fire' on yourself is not allowed by selected mode."
+    ]
+  },
+  "observations": {
+    "host": {
+      "result": null,
+      "captures": [
+        {
+          "height": 800,
+          "path": "C:/tmp/ft/s05-draw-01/host/user/appdata/Godot/app_userdata/Fun Things/baseline.png",
+          "save_error": 0,
+          "sha256": "4b02ea837bc7818cc6c33fec947636cc468c60b06425bad2e556c7e4962c27b7",
+          "stage": "baseline",
+          "width": 1280
+        },
+        {
+          "height": 800,
+          "path": "C:/tmp/ft/s05-draw-01/host/user/appdata/Godot/app_userdata/Fun Things/burst.png",
+          "save_error": 0,
+          "sha256": "365363a174ae5d2a1eb2a2fb37005ade7671dcbfc4bd6907e2270a8a96a129aa",
+          "stage": "burst",
+          "width": 1280
+        }
+      ],
+      "max_visible": 8,
+      "can_draw": [
+        true
+      ],
+      "fixture_result": []
+    },
+    "client": {
+      "result": null,
+      "captures": [
+        {
+          "height": 800,
+          "path": "C:/tmp/ft/s05-draw-01/client/user/appdata/Godot/app_userdata/Fun Things/baseline.png",
+          "save_error": 0,
+          "sha256": "4b02ea837bc7818cc6c33fec947636cc468c60b06425bad2e556c7e4962c27b7",
+          "stage": "baseline",
+          "width": 1280
+        },
+        {
+          "height": 800,
+          "path": "C:/tmp/ft/s05-draw-01/client/user/appdata/Godot/app_userdata/Fun Things/burst.png",
+          "save_error": 0,
+          "sha256": "365363a174ae5d2a1eb2a2fb37005ade7671dcbfc4bd6907e2270a8a96a129aa",
+          "stage": "burst",
+          "width": 1280
+        }
+      ],
+      "max_visible": 8,
+      "can_draw": [
+        true
+      ],
+      "fixture_result": []
+    }
+  },
+  "inputs_preserved": true,
+  "criteria": {
+    "collection": false,
+    "exits_zero": false,
+    "no_diagnostics": false,
+    "fixture_results_ok": false,
+    "draw_results_clean": false,
+    "live_burst_drawn": true,
+    "late_hydrated_drawn": false,
+    "reaped": true,
+    "inputs_preserved": true
+  }
+}
