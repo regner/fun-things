@@ -123,9 +123,12 @@ func _queue_pressure() -> void:
 	_check(state.damage.bodies.size() == 12, "queue row requires12 saved cars")
 	for batch: int in 3:
 		if batch > 0:
+			# Physics-frame pacing keeps batches on consecutive ticks even when the engine
+			# catches up several physics steps between 10 ms timer polls.
 			var previous_tick: int = state.damage.tick
 			while state.damage.tick == previous_tick:
-				await _poll()  # gdstyle:ignore=quality/await-in-loop
+				_check(Time.get_ticks_msec() < deadline, "fixture wall-clock deadline")
+				await get_tree().physics_frame  # gdstyle:ignore=quality/await-in-loop
 
 		for offset: int in 4:
 			var sequence: int = batch * 4 + offset + 1
