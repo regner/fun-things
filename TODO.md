@@ -174,9 +174,9 @@ asset acceptance.
   authorize installation or claim that post-policy launches/capabilities are validated.
   [Eighth read-only assessment](docs/reviews/plan-check-2026-10-08-08.md#profile-assessment)
   retains zero installed profiles and four reviewed INERT proposals. Accepted DOC10/11
-  Sol MEDIUM/HIGH, stopped S02 Sol HIGH/HIGH and S08 static preparation HIGH/HIGH
+  Sol MEDIUM/HIGH, stopped S02 Sol HIGH/HIGH and S08 preparation plus accepted stopped Linux observation HIGH/HIGH
   add evidence for direct ownership, finite stops, exact-candidate review, proportionate
-  lossless retention and staged-input/runtime-manifest distinctions. No installed-bundle
+  lossless retention, staged-input/runtime-manifest distinctions and release entrypoint/assertion limits. No installed-bundle
   launch/effective permission proof or necessary new specialist follows. Configuration
   and representative launches remain deferred; no extra coordinator/Astra is needed.
   Do not manufacture a specialist session to unlock configuration. Revisit at normal cadence or earlier meaningful
@@ -258,6 +258,27 @@ is a subsequent bounded supplement; completed DOC1–11 are not reopened.
   static links/identity/history/LF/whitespace checks and exact independent review pass.
   Remove this item with its resolving supplement commit, link completion from P0-GATE,
   and finish before that gate uses the reconciled records. No new experiment is assigned.
+
+- [ ] **P0-DOC13 — Reconcile stopped S08 acceptance and failed release entrypoint discovery.**
+  Owner: one ROOT-assigned direct Sol MEDIUM/HIGH documentation worker and sole
+  independent Sol HIGH reviewer; serialize conflicting doc writes/reviews.
+  Files: exactly `docs/spikes/s08.md`, `docs/spikes/s08-linux-observation.md` and
+  `docs/spikes/s08-linux-evidence/README.md`. Add a dated supplement discovering
+  accepted exact1229782/base93da622 and completed full review/retention; label the
+  original future `--script` asset card as the attempted failed/unproved route,
+  preserving predeclarations, preparation/R1, original terminal requests and raw failures.
+  Needs: exact accepted Git revisions and full report/JSON note identities in
+  [delta ledger](docs/reviews/plan-check-08-evidence/accepted-delta-122.json);
+  report31950 bytes/SHA4d0e1a4b863411b80ceb7fa071332a96362ba395974ee72b25ac38baff5602b2.
+  Distinguish exact TPZ/import/export0/static46-map positives from ignored observer/
+  missing-role exit1/no receipt/never-started ENet and STOP. Discover existing S08
+  ownership of supported entrypoint and RELEASE assert-side-effect prerequisites;
+  do not invent a working recipe or authorize fixture changes/retry/production work.
+  Done when: all three files identify stopped-record ACCEPT/retention MET and full
+  asset/ENet/Steam/both-OS/device gates OPEN; accepted notes/report remain reachable,
+  history/identity/link/LF/whitespace checks and exact independent review pass.
+  Remove this task together with the resolving dated supplements; link completion
+  from P0-GATE before reconciled-record use. No new technical owner or experiment.
 
 ## Phase-zero technical spikes
 
@@ -538,15 +559,27 @@ implementation. Save editor mutations before playtests; preserve unsaved work.
   Bounded [desktop static preparation and next Linux observation card](docs/spikes/s08.md)
   records exact installed engine/native bytes, published matching templates and the
   missing installed-template/preset/access gaps. Preparation stops before exports;
-  Accepted exact `93da622` is PREPARATION only after R1 staged-input/runtime-manifest
-  correction. ROOT has now commissioned one UNACCEPTED isolated Linux release
-  observation in `wks_aa2a7ef710b90059` / `s08-linux-release-observation`, direct Sol
-  HIGH lead076a388a-e638-4855-a91a-6f1965ff68c2. Its temporary exact-TPZ/hash/member
-  verification and scratch import/export/asset-probe/host-proxy-client card is now
-  reported STOPPED at the first asset-probe failure; independent review has priority.
-  These are UNACCEPTED worker reports, not adopted outcomes; no retry/runtime grant.
-  No global install/shared editor/Blender/display/Steam/PID/service lease/query or authoring allocation. Stronger Steam-uninstalled/stopped
-  environment is unavailable/uncommissioned; full S08 and all gates remain OPEN.
+  Accepted exact `93da622` remains PREPARATION after R1 staged-input/runtime-manifest
+  correction. Exact `122978243dba25b3fb5d8d90fc50ffb1a468ecf5`/base93da622 is
+  ACCEPT_STOPPED_EVIDENCE, sole Sol HIGH reviewer40c83e6a, full report/retention MET:
+  temporary exact TPZ acquisition/member hashes, scratch import/release export exit0
+  and static46 logical package mappings pass. The exact first exported `--script`
+  invocation ignored the observer and ran unchanged S03 boot without role: exit1,
+  no S08 receipt. ENet/proxy/host/client never created; STOP/no fix/re-export/retry grant.
+  Static membership does not prove asset runtime semantics. Prior lead076a388a,
+  reviewer40c83e6a and workspacewks_aa2a7ef710b90059 are archived/directory removed;
+  authoring UNASSIGNED/no active implementation. No shared lease used or relocation.
+  Next bounded static preparation under this SAME S08 owner must identify a supported
+  exported observer entrypoint and resolve the independently reported RELEASE proof
+  limitation in `tests/fixtures/s03/replication.gd:40`: state-changing `apply_journal`
+  is inside debug `assert`. Future release ENet baseline/journal/resync health70
+  expectations require explicit mutation execution plus independent assertions;
+  an assert-elided pass cannot prove them. This is not the missing-role failure's cause.
+  Any S03 immutable-fixture change needs a distinct scoped ROOT grant and exact review;
+  no source fix or runtime retry is allocated here. Preserve original S03 proofs/failures.
+  Full asset loading/exported ENet and stronger Steam-uninstalled/stopped evidence,
+  both selected OS and device/account gates stay OPEN; stronger environment unavailable/
+  uncommissioned. No global install/shared editor/Blender/display/Steam/PID/service query.
   Needs: [ratified target/pin record](docs/design.md) for early input/template checks;
   [S01 pipeline evidence](docs/spikes/s01.md), [S03 evidence](docs/spikes/s03.md)
   and S03-S for the complete proof. Owner: Codex (proof), Regner (device access).
@@ -597,7 +630,7 @@ implementation. Save editor mutations before playtests; preserve unsaved work.
   [completed S03 proof](docs/spikes/s03.md), S03-R/S03-S and S04 through S08,
   [DOC10 partial S06 tooling/review discovery](docs/reviews/p0-doc10.md) and
   [DOC11 partial S06 topology/source reconciliation](docs/reviews/p0-doc11.md),
-  and P0-DOC12 exact stopped S02 acceptance discovery before reconciled-record use.
+  and P0-DOC12/13 exact stopped S02/S08 acceptance discovery before reconciled-record use.
   S07 supplies the documented capacity envelope, limiting axes, organization and
   diagnostic decisions; research alone leaves representative/target gaps open.
   Done when: critical design/feasibility assumptions required to begin M1 are resolved;
@@ -810,22 +843,16 @@ waiting for unrelated gameplay systems.
 
 ## Parallel work and dependency checkpoints
 
-Current ROOT-supplied coordination at held accepted LOCAL main93da622: all prior
-workspaces/leads/reviewers are archived and removed. S02 exacta311c576 stopped record
-is ACCEPTED, full positive criteria FAIL; S08 exact93da622 static preparation is
-ACCEPTED after R1 correction. ONE active UNACCEPTED isolated CLI observation exists:
-`wks_aa2a7ef710b90059` / `s08-linux-release-observation`, direct sole Sol HIGH lead
-`076a388a-e638-4855-a91a-6f1965ff68c2`. Root commissioned one temporary pinned-TPZ
-acquisition/hash/member verification and capped scratch import/export/asset-probe/
-exported host-proxy-client observation. ROOT now supplies an UNACCEPTED worker
-STOP report at first asset-probe failure, no receipt/ENet launch/retry; independent
-S08 proof review has priority. No first engine/runtime access or package success is
-adopted as accepted evidence. No shared editor/Blender/display/Steam/
-PID/service lease/query; authoring UNASSIGNED/no writer. Stronger clean Steam-free
-host gate is unavailable/uncommissioned. The stopped S02 receipt of restored main
-483496/16 saved tabs/no unsaved is time-specific ROOT-accepted evidence, not a fresh
-query. Root assigns any later changed-condition operation. This checkpoint has no
-experiment or authoring allocation; S08 actual-proof review has serialization priority.
+Current ROOT-supplied coordination at held accepted LOCAL main1229782: all prior
+workspaces/leads/reviewers, including S08 lead076a388a/reviewer40c83e6a/workspace
+wks_aa2a7ef710b90059, are archived and removed. S02 exacta311c576 stopped record
+is ACCEPTED/full positive criteria FAIL; S08 exact93da622 preparation and exact1229782
+stopped evidence are accepted, full asset/ENet/target criteria OPEN. No active
+implementation, authoring UNASSIGNED/no writer. S08 used no shared lease; none returned
+and no operational relocation required. The stopped S02 restored main483496/16 saved
+no-unsaved receipt remains time-specific ROOT-accepted evidence, not a fresh query.
+ROOT releases this checkpoint's sole fresh HIGH review and holds main1229782 through
+handoff; ROOT alone integrates/archives. No surface/PID/service query or allocation.
 
 Current readiness: bounded S04 source/body/admission/ENet handoff is independently
 ACCEPTED and integrated at `2370ad1`; P2/P3 are closed and full S04 stays open.
@@ -879,15 +906,16 @@ Same S03-S task owns remaining compatibility/Steam acceptance; root assigns the
 next worker/budget. [DOC7](docs/reviews/p0-doc7.md) discovers this partial result;
 no duplicate technical task or native acceptance follows.
 
-DOC1–11 guide reconciliation is complete. Ready scoped DOC12 acceptance discovery
+DOC1–11 guide reconciliation is complete. Ready scoped DOC12/13 acceptance discovery
 and existing P0-PROFILES dated-notes reconciliation do not require a visual lease.
 Stopped S02 visual access does not hold up independent ready work. S08's bounded
-isolated observation is already root-commissioned and UNACCEPTED, not a new candidate
-allocated here. Limited S07 static run-card/content-gap preparation can be separately
+isolated observation is accepted STOPPED, archived, with full proof gates OPEN.
+Existing S08 owns separately commissioned static entrypoint/assertion preparation;
+no fix/re-export/retry or new implementation owner is granted. Limited S07 static run-card/content-gap preparation can be separately
 assigned; representative measurements await actual content/effects/drawability/hardware.
 The [eighth checkpoint](docs/reviews/plan-check-2026-10-08-08.md#readiness-and-next-trigger)
 records decision/output/caps/stop boundaries. Root names writers and serializes
-conflicting reviews (S08 proof priority); no identical window rerun, broad display/
+conflicting reviews; no identical window rerun, broad display/
 renderer/driver/service repair, pin/contract choice or duplicate technical owner.
 S07's research/method remains accepted; partial S06 now supplies saved technical
 seam/topology within provisional planar assumptions. Actual source-linked S05 effects/
@@ -904,7 +932,7 @@ The table describes dependency stages, not a claim that deferred proofs are runn
 | Initial foundation | Ratified brief, contract drafts, concept exploration, tool inventory | Chosen style/layout and measured scope revisions need user ratification and evidence |
 | Tiny fixtures available | S02 camera using [S01 pipeline evidence](docs/spikes/s01.md); use [completed S03 session evidence](docs/spikes/s03.md); review skill dry runs | All visible fixtures must have Blender sources; only minimum harness required |
 | ENet boundary available | Stopped S03-S compatibility accepted; root commissions exact-revision evidence or bounded native-boundary design; S08 desktop preparation | No adapter selection/native delivery/access proof inferred; existing-app/tester/native compatibility still required |
-| Reviewed desktop and partial S05/S06 technical results available | Exact754a0b5 and7fb302b PARTIAL accepted; provisional S07 seam dependency satisfied; S02 exacta311c576 stopped record ACCEPT/full-positive FAIL; DOC1–11 complete; scoped DOC12 ready; isolated S08 observation ACTIVE UNACCEPTED | Time-specific S02 operational/display lease RETURNED; authoring UNASSIGNED/no shared writer; pending S08 acquires no shared lease; full S02/S07 and actual effects/drawn/physical keys/feel/final dimensions/Steam/targets remain open |
+| Reviewed desktop and partial S05/S06 technical results available | Exact754a0b5 and7fb302b PARTIAL accepted; provisional S07 seam dependency satisfied; S02 exacta311c576 stopped record ACCEPT/full-positive FAIL; DOC1–11 complete; scoped DOC12/13 ready; S08 exact1229782 stopped evidence ACCEPTED/full asset-ENet OPEN | Time-specific S02 operational/display lease RETURNED; authoring UNASSIGNED/no shared writer; archived S08 used no shared lease; no active implementation; full S02/S07 and actual effects/drawn/physical keys/feel/final dimensions/Steam/targets remain open |
 | Both providers available | Finish S03-R foot response and S04 network response; S08 exports | Both transports need evidence; foot/vehicle prediction are separate decisions |
 | Provisional technical topology available | Accepted S06 crossing/opposing legal LEFT turns/four-arm minimap/stale-data and finite guard; S07 static preparation | Actual drawn/readability/final bodies/contact/exit reruns and real M1-C3 contested recovery remain open; geometric sensitivity is not changed-body proof |
 | City/effect fixtures available | S07 capacity/culling experiments, finish S08, skill dry runs and doc reconciliation | P0-GATE resolves critical assumptions before production |

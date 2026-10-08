@@ -3,7 +3,9 @@
 [Record](../plan-check-2026-10-08-08.md) owns interpretation; [accepted-audit.json](accepted-audit.json)
 binds exact7fb302b-exclusive→93da622-inclusive ten-parent/path/blob range and immutable
 old notes/report selectors/bytes/SHA. All declared1,186 stored/decoded expected payloads
-verify; old evidence is referenced in place, never copied recursively.
+verify at the initial-held93 boundary. [accepted-delta-122.json](accepted-delta-122.json)
+extends the examined watermark to1229782/fourteen commits, with four new parent/path
+sets and57 committed expected evidence paths/8 empty payloads. Initial ledger unchanged; old evidence is referenced in place, never copied recursively.
 [skill-scenarios.json](skill-scenarios.json) contains nine static reasoning cases against
 skill body and worker/reviewer prompt templates, not live forward tests.
 

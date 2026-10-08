@@ -1,0 +1,483 @@
+{
+  "historical_initial_ledger": "accepted-audit.json",
+  "examined_exclusive": "7fb302ba2829966c9a687a12a7f00d09ce6a7824",
+  "examined_inclusive": "122978243dba25b3fb5d8d90fc50ffb1a468ecf5",
+  "accepted_count": 14,
+  "new_accepted_delta_count": 4,
+  "delta": [
+    {
+      "commit": "a32dfcd11e7d25bdb904d50bb04296eda8d64b6d",
+      "parents": [
+        "93da622554e5739cf05bd2267d11b4c6745e4e2e"
+      ],
+      "raw_mode_blob_path_changes": [
+        ":000000 100644 0000000000000000000000000000000000000000 10cc1416619d1e4071f5a7d3692daec1fa8e58cb A\tdocs/spikes/s08-linux-observation.md"
+      ]
+    },
+    {
+      "commit": "e4299aab042d1a36d99c8eb5e5e4f62f856251e3",
+      "parents": [
+        "a32dfcd11e7d25bdb904d50bb04296eda8d64b6d"
+      ],
+      "raw_mode_blob_path_changes": [
+        ":000000 100644 0000000000000000000000000000000000000000 aabeac4af91c5ff042a677f7b0232f4a80a659e8 A\ttools/run_s08_linux.py",
+        ":000000 100644 0000000000000000000000000000000000000000 d4bd2301f41bcda6030edb8273b15dd754e3ce8b A\ttools/s08_receipt.gd"
+      ]
+    },
+    {
+      "commit": "287f5724c3524c079283ca6e36eaad176ce1749d",
+      "parents": [
+        "e4299aab042d1a36d99c8eb5e5e4f62f856251e3"
+      ],
+      "raw_mode_blob_path_changes": [
+        ":100644 100644 917c65a92ca31d05d8cccd4a75a647d25cfa9170 9a30f01a18b0d4f26f6b73ed3c1f98dfa903588b M\tTODO.md"
+      ]
+    },
+    {
+      "commit": "122978243dba25b3fb5d8d90fc50ffb1a468ecf5",
+      "parents": [
+        "287f5724c3524c079283ca6e36eaad176ce1749d"
+      ],
+      "raw_mode_blob_path_changes": [
+        ":100644 100644 9a30f01a18b0d4f26f6b73ed3c1f98dfa903588b 6fceb14c50285d8d1ba3d19352333e05294ab5c3 M\tTODO.md",
+        ":000000 100644 0000000000000000000000000000000000000000 0ad2d529367f476dcdd979fd26bd8c4dad871d83 A\tdocs/spikes/s08-linux-evidence/README.md",
+        ":000000 100644 0000000000000000000000000000000000000000 ecb599cd44d9bb4cbf3060270900ca5a8deca4b4 A\tdocs/spikes/s08-linux-evidence/accepted-source-refs.json",
+        ":000000 100644 0000000000000000000000000000000000000000 77608f76b860f27f341e4e9a3e4171a3a0370c90 A\tdocs/spikes/s08-linux-evidence/acquire.py",
+        ":000000 100644 0000000000000000000000000000000000000000 295c9e8381c5a181122ccb80b84872e0322db558 A\tdocs/spikes/s08-linux-evidence/acquisition/archive.json",
+        ":000000 100644 0000000000000000000000000000000000000000 451d475cd58e236fa18170d4786e9a135f5fb1ac A\tdocs/spikes/s08-linux-evidence/acquisition/download.json",
+        ":000000 100644 0000000000000000000000000000000000000000 2d0bf5b987dec5d10b56508b03763989b62f5239 A\tdocs/spikes/s08-linux-evidence/acquisition/space.json",
+        ":000000 100644 0000000000000000000000000000000000000000 aedf318f3b6abe5b4d210db9f1ab08e9514dc667 A\tdocs/spikes/s08-linux-evidence/acquisition/stderr.log",
+        ":000000 100644 0000000000000000000000000000000000000000 0e71df96c44c8b08cb6a410c1370abc0a789afb7 A\tdocs/spikes/s08-linux-evidence/acquisition/stdout.log",
+        ":000000 100644 0000000000000000000000000000000000000000 e69de29bb2d1d6434b8b29ae775ad8c2e48c5391 A\tdocs/spikes/s08-linux-evidence/analyzer-corrected.stderr",
+        ":000000 100644 0000000000000000000000000000000000000000 4e07f0769fa0367a13a6ab727d17a0ecac47c70f A\tdocs/spikes/s08-linux-evidence/analyzer-corrected.stdout",
+        ":000000 100644 0000000000000000000000000000000000000000 cdd0c5dd526c7b9fe482f70725d8de4691a9b15f A\tdocs/spikes/s08-linux-evidence/analyzer-initial-failure.json",
+        ":000000 100644 0000000000000000000000000000000000000000 eb92086b8d62da58229f808643e94e77a403b41d A\tdocs/spikes/s08-linux-evidence/asset/command.json",
+        ":000000 100644 0000000000000000000000000000000000000000 59e00eb1caa5dde3e9c717df03f133167e658012 A\tdocs/spikes/s08-linux-evidence/asset/engine.log",
+        ":000000 100644 0000000000000000000000000000000000000000 df7bd782c5f5f0f029b5105c4c709e7146d61a96 A\tdocs/spikes/s08-linux-evidence/asset/result.json",
+        ":000000 100644 0000000000000000000000000000000000000000 e69de29bb2d1d6434b8b29ae775ad8c2e48c5391 A\tdocs/spikes/s08-linux-evidence/asset/stderr.log",
+        ":000000 100644 0000000000000000000000000000000000000000 59e00eb1caa5dde3e9c717df03f133167e658012 A\tdocs/spikes/s08-linux-evidence/asset/stdout.log",
+        ":000000 100644 0000000000000000000000000000000000000000 97555e0c76573b2e14bafdcdf22fb371b39c33d5 A\tdocs/spikes/s08-linux-evidence/cache-inspection.json",
+        ":000000 100644 0000000000000000000000000000000000000000 8bb5f067b496f605e3f25abd5720b948054b6ef8 A\tdocs/spikes/s08-linux-evidence/cleanup.json",
+        ":000000 100644 0000000000000000000000000000000000000000 47b44686d46e095311e7d09e715292dd6cc71a07 A\tdocs/spikes/s08-linux-evidence/commission.txt",
+        ":000000 100644 0000000000000000000000000000000000000000 337e2c305d8c9e604b00bf3fdb67f2c31964ed70 A\tdocs/spikes/s08-linux-evidence/continue.py",
+        ":000000 100644 0000000000000000000000000000000000000000 23941fdc373ffa443c2b9566d2c08972da6c575e A\tdocs/spikes/s08-linux-evidence/exclusions.json",
+        ":000000 100644 0000000000000000000000000000000000000000 4e3ec69e9f8594a8ce38e26798191211acd10fc9 A\tdocs/spikes/s08-linux-evidence/executable-template.json",
+        ":000000 100644 0000000000000000000000000000000000000000 33468a3a39fc28f7884a4dbd638f20805c782417 A\tdocs/spikes/s08-linux-evidence/export/command.json",
+        ":000000 100644 0000000000000000000000000000000000000000 e33b2409d8b1e883621df8d1539413a32436a6ee A\tdocs/spikes/s08-linux-evidence/export/engine.log",
+        ":000000 100644 0000000000000000000000000000000000000000 e69de29bb2d1d6434b8b29ae775ad8c2e48c5391 A\tdocs/spikes/s08-linux-evidence/export/stderr.log",
+        ":000000 100644 0000000000000000000000000000000000000000 bd31df73c3833a61dfc44c2b392ea161eb913df1 A\tdocs/spikes/s08-linux-evidence/export/stdout.log",
+        ":000000 100644 0000000000000000000000000000000000000000 19ed8a07891603b8ef5bb9a28d64f26f673bef0a A\tdocs/spikes/s08-linux-evidence/failures.json",
+        ":000000 100644 0000000000000000000000000000000000000000 d8e6dc842a233adba22f77a8f72e516a0470c799 A\tdocs/spikes/s08-linux-evidence/import/command.json",
+        ":000000 100644 0000000000000000000000000000000000000000 fdd5c42511e2b0aa4b5ab99c71b55bd75590368b A\tdocs/spikes/s08-linux-evidence/import/engine.log",
+        ":000000 100644 0000000000000000000000000000000000000000 e69de29bb2d1d6434b8b29ae775ad8c2e48c5391 A\tdocs/spikes/s08-linux-evidence/import/stderr.log",
+        ":000000 100644 0000000000000000000000000000000000000000 331218ac0e26d996a5f80b726f75a1a161594a88 A\tdocs/spikes/s08-linux-evidence/import/stdout.log",
+        ":000000 100644 0000000000000000000000000000000000000000 b215c45ae6c964781a8f046c6e7151eab5e5240a A\tdocs/spikes/s08-linux-evidence/index.json",
+        ":000000 100644 0000000000000000000000000000000000000000 1dd2d7a04ef8d869fdd200f27a862eb46a110616 A\tdocs/spikes/s08-linux-evidence/log-inspection.json",
+        ":000000 100644 0000000000000000000000000000000000000000 3753561b6463384c15388a91ae49b816cf8dbc2a A\tdocs/spikes/s08-linux-evidence/logical-export-map.json",
+        ":000000 100644 0000000000000000000000000000000000000000 b592fd40c6dd6174b2336498342a3a0264b61e4e A\tdocs/spikes/s08-linux-evidence/observation.json",
+        ":000000 100644 0000000000000000000000000000000000000000 eed5afc223c1502f3fceefadcf0d04e30a71ba24 A\tdocs/spikes/s08-linux-evidence/output-folder.json",
+        ":000000 100644 0000000000000000000000000000000000000000 613d498a96d27fbf106c6cac1f943dcffadb9d10 A\tdocs/spikes/s08-linux-evidence/pck-members.json",
+        ":000000 100644 0000000000000000000000000000000000000000 99d4c68dce899c651fc5c7672e1c06d246492ae5 A\tdocs/spikes/s08-linux-evidence/post-import-source-manifest.json",
+        ":000000 100644 0000000000000000000000000000000000000000 490778f203c39468a3970aa09df897b7e99e1ff3 A\tdocs/spikes/s08-linux-evidence/preflight/file_access_pack.h",
+        ":000000 100644 0000000000000000000000000000000000000000 e69de29bb2d1d6434b8b29ae775ad8c2e48c5391 A\tdocs/spikes/s08-linux-evidence/preflight/format.stderr",
+        ":000000 100644 0000000000000000000000000000000000000000 fd3005c59a222d4b10d9aac07f6294c222dd5224 A\tdocs/spikes/s08-linux-evidence/preflight/format.stdout",
+        ":000000 100644 0000000000000000000000000000000000000000 1c25d31c86793b34fc4350542f61417181f259ea A\tdocs/spikes/s08-linux-evidence/preflight/main-source.stderr",
+        ":000000 100644 0000000000000000000000000000000000000000 e69de29bb2d1d6434b8b29ae775ad8c2e48c5391 A\tdocs/spikes/s08-linux-evidence/preflight/main-source.stdout",
+        ":000000 100644 0000000000000000000000000000000000000000 88f33af9f5f28444e3473a19d2fd125f168f3f09 A\tdocs/spikes/s08-linux-evidence/preflight/pack-source.stderr",
+        ":000000 100644 0000000000000000000000000000000000000000 e69de29bb2d1d6434b8b29ae775ad8c2e48c5391 A\tdocs/spikes/s08-linux-evidence/preflight/pack-source.stdout",
+        ":000000 100644 0000000000000000000000000000000000000000 d09c41cd4b8d7245262ea835ca0a3b63eb8a7615 A\tdocs/spikes/s08-linux-evidence/preflight/source.json",
+        ":000000 100644 0000000000000000000000000000000000000000 e69de29bb2d1d6434b8b29ae775ad8c2e48c5391 A\tdocs/spikes/s08-linux-evidence/preflight/style.stderr",
+        ":000000 100644 0000000000000000000000000000000000000000 5a3b2dcad94288d4a5d9d70ead0b26ad3acc9acc A\tdocs/spikes/s08-linux-evidence/preflight/style.stdout",
+        ":000000 100644 0000000000000000000000000000000000000000 6f25a93e00f9741e7ea04eeac506802cddfcfad3 A\tdocs/spikes/s08-linux-evidence/project/export_presets.cfg",
+        ":000000 100644 0000000000000000000000000000000000000000 373cec1f87484ca60f900e2c388de2118e3323d6 A\tdocs/spikes/s08-linux-evidence/project/project.godot",
+        ":000000 100644 0000000000000000000000000000000000000000 d7041e622fb0c3b0982e7bbdfd45b91683129702 A\tdocs/spikes/s08-linux-evidence/root-final-grant.txt",
+        ":000000 100644 0000000000000000000000000000000000000000 4270b4f2cdfa8dc025ced2a9969273bcd787b5e2 A\tdocs/spikes/s08-linux-evidence/scratch-config.json",
+        ":000000 100644 0000000000000000000000000000000000000000 297f978028aea266b43f2da8f3cdd74e87edefe0 A\tdocs/spikes/s08-linux-evidence/source-links.json",
+        ":000000 100644 0000000000000000000000000000000000000000 eeabb7e783770d7c158f746985863b91ec4597e0 A\tdocs/spikes/s08-linux-evidence/staged-input.json",
+        ":000000 100644 0000000000000000000000000000000000000000 8bcdfdd3fdaebb0ac2ef5375fb9cf023d78c9498 A\tdocs/spikes/s08-linux-evidence/static-checks.json",
+        ":000000 100644 0000000000000000000000000000000000000000 7a8c194b7f55e40590efbd8ba423d9ab13bef007 A\tdocs/spikes/s08-linux-evidence/static-source-fetch.json",
+        ":000000 100644 0000000000000000000000000000000000000000 aadb7494dd3a08498a6f78e2cc5eb733374ec944 A\tdocs/spikes/s08-linux-evidence/verify.py",
+        ":100644 100644 10cc1416619d1e4071f5a7d3692daec1fa8e58cb bab76dc59040858ec8c07f9ea6b3a4d97537e2db M\tdocs/spikes/s08-linux-observation.md",
+        ":100644 100644 aabeac4af91c5ff042a677f7b0232f4a80a659e8 4c1750ea7e7d8ea3ea63b77bd6d8d5881902e9d6 M\ttools/run_s08_linux.py"
+      ]
+    }
+  ],
+  "note": {
+    "revision": "122978243dba25b3fb5d8d90fc50ffb1a468ecf5",
+    "blob": "8bf54d2b63bddd0473d8381c8bd721357d114256",
+    "bytes": 96907,
+    "sha256": "09918f4d1b7511e0b33b38cedb12c4176367d1517dd8165cfe33ad1ba5f2ba9a",
+    "selected_full_payloads": {
+      "full_report_verbatim": {
+        "bytes": 31950,
+        "sha256": "4d0e1a4b863411b80ceb7fa071332a96362ba395974ee72b25ac38baff5602b2"
+      },
+      "full_machine_result_verbatim": {
+        "bytes": 37302,
+        "sha256": "6e2b18ae8667129f5ce0a4b72e3c1bee95da5707cfadfc9fa687d0d42dc6ba77"
+      },
+      "independent_static_verifier": {
+        "path": "/tmp/s08-review-static.py",
+        "bytes": 12297,
+        "sha256": "9c7757cbe7a716d31be63c3fe264a3a5e9361f6b186becc2920f7b98988480d6"
+      }
+    },
+    "disposition": "ACCEPT_STOPPED_EVIDENCE",
+    "required_findings": []
+  },
+  "complete_committed_expected_set": [
+    {
+      "path": "docs/spikes/s08-linux-evidence/README.md",
+      "blob": "0ad2d529367f476dcdd979fd26bd8c4dad871d83",
+      "bytes": 4559,
+      "sha256": "2f2a53a0f2a7467ecde8a80b922f47499d4b29cbba48259fa8c83bac41337893"
+    },
+    {
+      "path": "docs/spikes/s08-linux-evidence/accepted-source-refs.json",
+      "blob": "ecb599cd44d9bb4cbf3060270900ca5a8deca4b4",
+      "bytes": 14482,
+      "sha256": "40ab4a6c46b6b4a35058d5a61cb0d19de882371653f841d9f3e0c2ff2f4d2a64"
+    },
+    {
+      "path": "docs/spikes/s08-linux-evidence/acquire.py",
+      "blob": "77608f76b860f27f341e4e9a3e4171a3a0370c90",
+      "bytes": 2433,
+      "sha256": "8fd2f65871942a8cf932b391f98899ea9ca8b182f3e34cde2f98a14e5327ce81"
+    },
+    {
+      "path": "docs/spikes/s08-linux-evidence/acquisition/archive.json",
+      "blob": "295c9e8381c5a181122ccb80b84872e0322db558",
+      "bytes": 7405,
+      "sha256": "cab5a4f779c51d1a65060f6e765f1fa53d0bbf931983ca01d0899cd2066e3b91"
+    },
+    {
+      "path": "docs/spikes/s08-linux-evidence/acquisition/download.json",
+      "blob": "451d475cd58e236fa18170d4786e9a135f5fb1ac",
+      "bytes": 992,
+      "sha256": "a8c9d925c6dc37263faaa8b75df07037a734339c6c4f03f9bc413f35cca00ab8"
+    },
+    {
+      "path": "docs/spikes/s08-linux-evidence/acquisition/space.json",
+      "blob": "2d0bf5b987dec5d10b56508b03763989b62f5239",
+      "bytes": 205,
+      "sha256": "7c554270b2f3312e2d7e8229f529dc0442bc97e230685d9c935c3a0ceed5b415"
+    },
+    {
+      "path": "docs/spikes/s08-linux-evidence/acquisition/stderr.log",
+      "blob": "aedf318f3b6abe5b4d210db9f1ab08e9514dc667",
+      "bytes": 21530,
+      "sha256": "d6cd689f5b2c5545e7b5ba56ec3c37a7cc927529b5a2394839c9a49256beb070"
+    },
+    {
+      "path": "docs/spikes/s08-linux-evidence/acquisition/stdout.log",
+      "blob": "0e71df96c44c8b08cb6a410c1370abc0a789afb7",
+      "bytes": 26,
+      "sha256": "7345729a7e2c00034e8861745ddaf457751efc4c0a93658092a4ca019fd70f18"
+    },
+    {
+      "path": "docs/spikes/s08-linux-evidence/analyzer-corrected.stderr",
+      "blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "docs/spikes/s08-linux-evidence/analyzer-corrected.stdout",
+      "blob": "4e07f0769fa0367a13a6ab727d17a0ecac47c70f",
+      "bytes": 68,
+      "sha256": "8b9df12def8312b810534f2115c6dcceae4c377db80a41c4ea00d16afed9d976"
+    },
+    {
+      "path": "docs/spikes/s08-linux-evidence/analyzer-initial-failure.json",
+      "blob": "cdd0c5dd526c7b9fe482f70725d8de4691a9b15f",
+      "bytes": 208,
+      "sha256": "51ce85ec16d85ff215bdfc3d59ad7c8cd16c28cd0fb76a7ac406b74f77d561a0"
+    },
+    {
+      "path": "docs/spikes/s08-linux-evidence/asset/command.json",
+      "blob": "eb92086b8d62da58229f808643e94e77a403b41d",
+      "bytes": 1432,
+      "sha256": "4403614a0daf9c8427c0c03dbd295a36f3128d4a97bb806966bd5dd868aab414"
+    },
+    {
+      "path": "docs/spikes/s08-linux-evidence/asset/engine.log",
+      "blob": "59e00eb1caa5dde3e9c717df03f133167e658012",
+      "bytes": 149,
+      "sha256": "ad45dbc7a3af0cd4767deee7bb13b2ca89b2cd62370a2d434b599000cdc9f20c"
+    },
+    {
+      "path": "docs/spikes/s08-linux-evidence/asset/result.json",
+      "blob": "df7bd782c5f5f0f029b5105c4c709e7146d61a96",
+      "bytes": 240,
+      "sha256": "5265c62eb05a057285f6325b548da2cc463bf885186b8e8641d4dbff843af70b"
+    },
+    {
+      "path": "docs/spikes/s08-linux-evidence/asset/stderr.log",
+      "blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "docs/spikes/s08-linux-evidence/asset/stdout.log",
+      "blob": "59e00eb1caa5dde3e9c717df03f133167e658012",
+      "bytes": 149,
+      "sha256": "ad45dbc7a3af0cd4767deee7bb13b2ca89b2cd62370a2d434b599000cdc9f20c"
+    },
+    {
+      "path": "docs/spikes/s08-linux-evidence/cache-inspection.json",
+      "blob": "97555e0c76573b2e14bafdcdf22fb371b39c33d5",
+      "bytes": 2066,
+      "sha256": "09479882f3d897ee750e5e90ba8aea4e53ac0420b5ce8784a4581386720a30c2"
+    },
+    {
+      "path": "docs/spikes/s08-linux-evidence/cleanup.json",
+      "blob": "8bb5f067b496f605e3f25abd5720b948054b6ef8",
+      "bytes": 370,
+      "sha256": "3b2e6da7ba738e0a7396c49166198e260456abf9c829a6b9dd893c6f050d9a2b"
+    },
+    {
+      "path": "docs/spikes/s08-linux-evidence/commission.txt",
+      "blob": "47b44686d46e095311e7d09e715292dd6cc71a07",
+      "bytes": 8473,
+      "sha256": "cfdcc03903ea2edb082aef430c5d0bee3cab5b24f9b0fa1640d8ef0ea5af1264"
+    },
+    {
+      "path": "docs/spikes/s08-linux-evidence/continue.py",
+      "blob": "337e2c305d8c9e604b00bf3fdb67f2c31964ed70",
+      "bytes": 1799,
+      "sha256": "dcd94eb67418d5740876e92af37b89f040c152556fc093e04993f58c454958b9"
+    },
+    {
+      "path": "docs/spikes/s08-linux-evidence/exclusions.json",
+      "blob": "23941fdc373ffa443c2b9566d2c08972da6c575e",
+      "bytes": 135,
+      "sha256": "989b5d94accf9379d963c47b3ef28e68c465ed998d3f62a58649ff035d6e6799"
+    },
+    {
+      "path": "docs/spikes/s08-linux-evidence/executable-template.json",
+      "blob": "4e3ec69e9f8594a8ce38e26798191211acd10fc9",
+      "bytes": 308,
+      "sha256": "377698cdaa3970f21b13d765c1a1e3bc81f832917b563c03d6e45616bcbeb722"
+    },
+    {
+      "path": "docs/spikes/s08-linux-evidence/export/command.json",
+      "blob": "33468a3a39fc28f7884a4dbd638f20805c782417",
+      "bytes": 1581,
+      "sha256": "5fbb6e6f285920156ea771c8f5adbafd3b64a438343f641c63ced4475117d4f6"
+    },
+    {
+      "path": "docs/spikes/s08-linux-evidence/export/engine.log",
+      "blob": "e33b2409d8b1e883621df8d1539413a32436a6ee",
+      "bytes": 4538,
+      "sha256": "bdd6191a84ba46f92265423fc19354287b39ed75ba8817d4a5acc454d51a17f1"
+    },
+    {
+      "path": "docs/spikes/s08-linux-evidence/export/stderr.log",
+      "blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "docs/spikes/s08-linux-evidence/export/stdout.log",
+      "blob": "bd31df73c3833a61dfc44c2b392ea161eb913df1",
+      "bytes": 5826,
+      "sha256": "857da2e874382c8e9286215d18dea03f4dd9c254f9b27cdedef345f0d2bde477"
+    },
+    {
+      "path": "docs/spikes/s08-linux-evidence/failures.json",
+      "blob": "19ed8a07891603b8ef5bb9a28d64f26f673bef0a",
+      "bytes": 2065,
+      "sha256": "38fa0183c26da777e16ca73f0e090a937d38a9a7934b3d5aaafa2d88da261bd4"
+    },
+    {
+      "path": "docs/spikes/s08-linux-evidence/import/command.json",
+      "blob": "d8e6dc842a233adba22f77a8f72e516a0470c799",
+      "bytes": 1513,
+      "sha256": "458e52f2eba138d6779288250dbdf14cdbbcee7f7c5d54a342d7d132f9e4d64e"
+    },
+    {
+      "path": "docs/spikes/s08-linux-evidence/import/engine.log",
+      "blob": "fdd5c42511e2b0aa4b5ab99c71b55bd75590368b",
+      "bytes": 2673,
+      "sha256": "2ee843b3e4ee6945145f5565846982769851ee6c7b9c5086a534a770b08955d5"
+    },
+    {
+      "path": "docs/spikes/s08-linux-evidence/import/stderr.log",
+      "blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "docs/spikes/s08-linux-evidence/import/stdout.log",
+      "blob": "331218ac0e26d996a5f80b726f75a1a161594a88",
+      "bytes": 3938,
+      "sha256": "58177a550d50d6b6e0bc5ef7e8002ba0963de5240e5e548678f44c1f6622028e"
+    },
+    {
+      "path": "docs/spikes/s08-linux-evidence/log-inspection.json",
+      "blob": "1dd2d7a04ef8d869fdd200f27a862eb46a110616",
+      "bytes": 1366,
+      "sha256": "4ea8ada1c5cf3afed46e74a99b6101d1798f9c1ed3689d8c828105c7c732ca0e"
+    },
+    {
+      "path": "docs/spikes/s08-linux-evidence/logical-export-map.json",
+      "blob": "3753561b6463384c15388a91ae49b816cf8dbc2a",
+      "bytes": 4599,
+      "sha256": "a7ac8971862f3899d6c04419627efd8c6d95e7f1d34c31bcbf5c4f572312730a"
+    },
+    {
+      "path": "docs/spikes/s08-linux-evidence/observation.json",
+      "blob": "b592fd40c6dd6174b2336498342a3a0264b61e4e",
+      "bytes": 375,
+      "sha256": "6e466056da26a7b5c79c215ab1e8491c46a03599508a441a2fd10ae47ca9f4ed"
+    },
+    {
+      "path": "docs/spikes/s08-linux-evidence/output-folder.json",
+      "blob": "eed5afc223c1502f3fceefadcf0d04e30a71ba24",
+      "bytes": 294,
+      "sha256": "c33c492992d6b9be60cc367cf376c779860e5a35bd1844c7367514bb737edf2c"
+    },
+    {
+      "path": "docs/spikes/s08-linux-evidence/pck-members.json",
+      "blob": "613d498a96d27fbf106c6cac1f943dcffadb9d10",
+      "bytes": 12496,
+      "sha256": "5bb7f072342d09a46c756330496f747ada043db4dc58f5b23ec59de5bc7ca91f"
+    },
+    {
+      "path": "docs/spikes/s08-linux-evidence/post-import-source-manifest.json",
+      "blob": "99d4c68dce899c651fc5c7672e1c06d246492ae5",
+      "bytes": 5943,
+      "sha256": "9e5918a38746c61dbb8d5fa8b9f8a03f106cde6f5b430f8ad7b0ccb357286024"
+    },
+    {
+      "path": "docs/spikes/s08-linux-evidence/preflight/file_access_pack.h",
+      "blob": "490778f203c39468a3970aa09df897b7e99e1ff3",
+      "bytes": 11757,
+      "sha256": "a8e84b0419b6eebbfd5b06dd73262f5f7c7351d21986c14d8f31b583e0aeafcd"
+    },
+    {
+      "path": "docs/spikes/s08-linux-evidence/preflight/format.stderr",
+      "blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "docs/spikes/s08-linux-evidence/preflight/format.stdout",
+      "blob": "fd3005c59a222d4b10d9aac07f6294c222dd5224",
+      "bytes": 26,
+      "sha256": "990e1e4e20224faf0ae02a391ee415e84c3913a80b2da78c7ddbf96b3a10df13"
+    },
+    {
+      "path": "docs/spikes/s08-linux-evidence/preflight/main-source.stderr",
+      "blob": "1c25d31c86793b34fc4350542f61417181f259ea",
+      "bytes": 469,
+      "sha256": "a1763d8cb0dc640aa84c46c254184f0db80bc82ea24fec543ccfd21c697cd6b5"
+    },
+    {
+      "path": "docs/spikes/s08-linux-evidence/preflight/main-source.stdout",
+      "blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "docs/spikes/s08-linux-evidence/preflight/pack-source.stderr",
+      "blob": "88f33af9f5f28444e3473a19d2fd125f168f3f09",
+      "bytes": 469,
+      "sha256": "90152cd0e6faeb2d2cf346936be5f90ba5c5ed6a1ed83765759edf432429ccbe"
+    },
+    {
+      "path": "docs/spikes/s08-linux-evidence/preflight/pack-source.stdout",
+      "blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "docs/spikes/s08-linux-evidence/preflight/source.json",
+      "blob": "d09c41cd4b8d7245262ea835ca0a3b63eb8a7615",
+      "bytes": 421,
+      "sha256": "c30b48243a9c93dc101ca94f70f57ef3c6f5ad37769910845d8e801c3a82fda9"
+    },
+    {
+      "path": "docs/spikes/s08-linux-evidence/preflight/style.stderr",
+      "blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "docs/spikes/s08-linux-evidence/preflight/style.stdout",
+      "blob": "5a3b2dcad94288d4a5d9d70ead0b26ad3acc9acc",
+      "bytes": 38,
+      "sha256": "b606ad683566c88181a33e8f4e5fd23352ed9fbdf98e24b5429753d300ad34d7"
+    },
+    {
+      "path": "docs/spikes/s08-linux-evidence/project/export_presets.cfg",
+      "blob": "6f25a93e00f9741e7ea04eeac506802cddfcfad3",
+      "bytes": 1183,
+      "sha256": "7a8098b604b07347fb94b013e124a0d7e54de3e69d6cbb84f50d3de23f04b3c1"
+    },
+    {
+      "path": "docs/spikes/s08-linux-evidence/project/project.godot",
+      "blob": "373cec1f87484ca60f900e2c388de2118e3323d6",
+      "bytes": 4431,
+      "sha256": "73e83e92a2695ad6bc1d5aac334fc3587d574cc5ed5b839583024689490cdc3f"
+    },
+    {
+      "path": "docs/spikes/s08-linux-evidence/root-final-grant.txt",
+      "blob": "d7041e622fb0c3b0982e7bbdfd45b91683129702",
+      "bytes": 909,
+      "sha256": "3398cc68b5092bb8c1bba2c29671ad028e05f502e3b056d3755f9d882ea38960"
+    },
+    {
+      "path": "docs/spikes/s08-linux-evidence/scratch-config.json",
+      "blob": "4270b4f2cdfa8dc025ced2a9969273bcd787b5e2",
+      "bytes": 515,
+      "sha256": "446e4b52cbf80a692eb87f316735be63742d419d1a248ce544e8df035147a8e0"
+    },
+    {
+      "path": "docs/spikes/s08-linux-evidence/source-links.json",
+      "blob": "297f978028aea266b43f2da8f3cdd74e87edefe0",
+      "bytes": 848,
+      "sha256": "df71e6a2cb3277103b2b10ecffe6fa00f3627fff696fed4e3242a8469551cb83"
+    },
+    {
+      "path": "docs/spikes/s08-linux-evidence/staged-input.json",
+      "blob": "eeabb7e783770d7c158f746985863b91ec4597e0",
+      "bytes": 9534,
+      "sha256": "63216956354eacd8ee57873a87819d27ffb23c56b4cfdcd5dcf230261cd8df3d"
+    },
+    {
+      "path": "docs/spikes/s08-linux-evidence/static-checks.json",
+      "blob": "8bcdfdd3fdaebb0ac2ef5375fb9cf023d78c9498",
+      "bytes": 1750,
+      "sha256": "c60545fb256a931b092ea5705d39d320a52c72dd38f78aa82dde917fab8216fc"
+    },
+    {
+      "path": "docs/spikes/s08-linux-evidence/static-source-fetch.json",
+      "blob": "7a8c194b7f55e40590efbd8ba423d9ab13bef007",
+      "bytes": 853,
+      "sha256": "91e5e4b73de197f15a428b7fc91cdab32ba3316b7207d48ab3a5b06e9cb8eb07"
+    },
+    {
+      "path": "docs/spikes/s08-linux-evidence/verify.py",
+      "blob": "aadb7494dd3a08498a6f78e2cc5eb733374ec944",
+      "bytes": 3513,
+      "sha256": "252d04fa6c93269f6fe8212ce9da7ce8fc244a320789c36ee919017dc4951199"
+    },
+    {
+      "path": "docs/spikes/s08-linux-evidence/index.json",
+      "blob": "b215c45ae6c964781a8f046c6e7151eab5e5240a",
+      "bytes": 10347,
+      "sha256": "f304220d8d0139b42326b2c10fe54c48a41f6ea7fbc2a9fdb31772da55265411"
+    }
+  ],
+  "empty_payload_count": 8,
+  "meaningful_inputs_read": [
+    "full31950 review",
+    "full37302 machine result",
+    "full12297 verifier source (not executed)",
+    "181-line observation",
+    "evidence README",
+    "observation/import/export/asset command and failed result/cleanup",
+    "immutable S03 replication.gd line40 public journal assertion"
+  ],
+  "limits": "Identity and accepted scope examination only; no source fix, binary rehash or runtime experiment."
+}

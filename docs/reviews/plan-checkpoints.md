@@ -1,13 +1,12 @@
 # Plan, documentation and profile checkpoints
 
 Latest: [eighth checkpoint, 8 October 2026](plan-check-2026-10-08-08.md).
-Checked-through integrated main: `93da622554e5739cf05bd2267d11b4c6745e4e2e`.
+Checked-through integrated main: `122978243dba25b3fb5d8d90fc50ffb1a468ecf5`.
 Last profile check: 8 October 2026, eighth checkpoint; zero installed/four reviewed
 INERT proposals. Accepted DOC10/11 MEDIUM/HIGH, stopped S02 HIGH/HIGH and S08 static
-preparation HIGH/HIGH inform requirements; configuration/effective-permission/
+preparation/stopped Linux observation HIGH/HIGH inform requirements; configuration/effective-permission/
 representative launches remain deferred. P0-PROFILES owns dated notes reconciliation.
-See record for all27→28 tasks, stopped full-positive FAIL, pending UNACCEPTED isolated
-S08/priority-review ownership, open capacity/target gates and next trigger.
+See record for all27→29 tasks, stopped full-positive FAIL, accepted stopped S08/archived ownership/full proof OPEN, open capacity/target gates and next trigger.
 
 History: [first baseline, 7 October 2026](plan-check-2026-10-07.md), checked through
 `3b50a915d06f7ad383a4d6dc70403729918c0268`; preserved as historical evidence.
