@@ -1,0 +1,33 @@
+{
+  "ok": true,
+  "mutated_run_passed": false,
+  "failures": [
+    {
+      "event": "failure",
+      "message": "retired ShotId rejected",
+      "role": "api"
+    }
+  ],
+  "commands": [
+    [
+      "/home/regner/.local/share/mise/installs/github-godotengine-godot-builds/4.8-dev7/godot",
+      "--headless",
+      "--editor",
+      "--path",
+      "/tmp/s05-negative-retirement/project",
+      "--import",
+      "--quit"
+    ],
+    [
+      "/home/regner/.local/share/mise/installs/github-godotengine-godot-builds/4.8-dev7/godot",
+      "--headless",
+      "--path",
+      "/tmp/s05-negative-retirement/project",
+      "--log-file",
+      "/tmp/s05-negative-retirement/engine.log",
+      "res://tests/fixtures/s05/boot.tscn",
+      "--",
+      "--role=api"
+    ]
+  ]
+}

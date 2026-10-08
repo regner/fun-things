@@ -1,0 +1,36 @@
+[gd_scene format=3 uid="uid://dkkcxrjt8l00v"]
+
+[ext_resource type="PackedScene" uid="uid://3c4ggqhv11q1" path="res://tests/fixtures/s05/boot.tscn" id="1"]
+[ext_resource type="PackedScene" uid="uid://kr8c5l2ica0j" path="res://tests/fixtures/s05/car.tscn" id="2_h7tud"]
+
+[node name="Boot" unique_id=1222812305 instance=ExtResource("1")]
+
+[node name="C" parent="View/Match/Cars" parent_id_path=PackedInt32Array(136696087) index="2" unique_id=563627102]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0.001, 0)
+
+[node name="D" parent="View/Match/Cars" parent_id_path=PackedInt32Array(136696087) index="3" unique_id=96320415 instance=ExtResource("2_h7tud")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 0.001, 0)
+
+[node name="E" parent="View/Match/Cars" parent_id_path=PackedInt32Array(136696087) index="4" unique_id=222769031 instance=ExtResource("2_h7tud")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.001, 4)
+
+[node name="F" parent="View/Match/Cars" parent_id_path=PackedInt32Array(136696087) index="5" unique_id=210157656 instance=ExtResource("2_h7tud")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0.001, 4)
+
+[node name="G" parent="View/Match/Cars" parent_id_path=PackedInt32Array(136696087) index="6" unique_id=762026695 instance=ExtResource("2_h7tud")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0.001, 4)
+
+[node name="H" parent="View/Match/Cars" parent_id_path=PackedInt32Array(136696087) index="7" unique_id=1402681529 instance=ExtResource("2_h7tud")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 0.001, 4)
+
+[node name="I" parent="View/Match/Cars" parent_id_path=PackedInt32Array(136696087) index="8" unique_id=1639883862 instance=ExtResource("2_h7tud")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.001, 8)
+
+[node name="J" parent="View/Match/Cars" parent_id_path=PackedInt32Array(136696087) index="9" unique_id=349066068 instance=ExtResource("2_h7tud")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0.001, 8)
+
+[node name="K" parent="View/Match/Cars" parent_id_path=PackedInt32Array(136696087) index="10" unique_id=514730452 instance=ExtResource("2_h7tud")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0.001, 8)
+
+[node name="L" parent="View/Match/Cars" parent_id_path=PackedInt32Array(136696087) index="11" unique_id=388039902 instance=ExtResource("2_h7tud")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 0.001, 8)

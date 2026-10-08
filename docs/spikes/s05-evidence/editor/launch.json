@@ -1,0 +1,163 @@
+{
+  "utc": "2026-10-08T00:29:23.049610+00:00",
+  "pid": 286171,
+  "command": [
+    "/home/regner/.local/share/mise/installs/github-godotengine-godot-builds/4.8-dev7/godot",
+    "--editor",
+    "--path",
+    "/home/regner/.paseo/worktrees/0u71f39f/s05-authoritative-chain-fixture",
+    "res://tests/fixtures/s04/editor_harness.tscn"
+  ],
+  "prior_host_inventory": {
+    "time_utc": "2026-10-08T00:29:11.518785+00:00",
+    "pid_namespace": "pid:[4026531836]",
+    "net_namespace": "net:[4026531833]",
+    "authoring_processes": [],
+    "worktree_cwd_refs": [
+      {
+        "pid": 284956,
+        "ppid": 284829,
+        "comm": "uv",
+        "exe": "/home/regner/.local/bin/uv",
+        "cwd": "/home/regner/.paseo/worktrees/0u71f39f/s05-authoritative-chain-fixture",
+        "engine_or_blender": false
+      },
+      {
+        "pid": 284958,
+        "ppid": 284829,
+        "comm": "npm exec @npgam",
+        "exe": "/usr/bin/node",
+        "cwd": "/home/regner/.paseo/worktrees/0u71f39f/s05-authoritative-chain-fixture",
+        "engine_or_blender": false
+      },
+      {
+        "pid": 284961,
+        "ppid": 284829,
+        "comm": "MainThread",
+        "exe": "/usr/lib/chatgpt/resources/cua_node/bin/node",
+        "cwd": "/home/regner/.paseo/worktrees/0u71f39f/s05-authoritative-chain-fixture",
+        "engine_or_blender": false
+      },
+      {
+        "pid": 284968,
+        "ppid": 284829,
+        "comm": "node_repl",
+        "exe": "/usr/lib/chatgpt/resources/cua_node/bin/node_repl",
+        "cwd": "/home/regner/.paseo/worktrees/0u71f39f/s05-authoritative-chain-fixture",
+        "engine_or_blender": false
+      },
+      {
+        "pid": 285007,
+        "ppid": 284956,
+        "comm": "python",
+        "exe": "/usr/bin/python3.14",
+        "cwd": "/home/regner/.paseo/worktrees/0u71f39f/s05-authoritative-chain-fixture",
+        "engine_or_blender": false
+      },
+      {
+        "pid": 285042,
+        "ppid": 284961,
+        "comm": "node_repl",
+        "exe": "/usr/lib/chatgpt/resources/cua_node/bin/node_repl",
+        "cwd": "/home/regner/.paseo/worktrees/0u71f39f/s05-authoritative-chain-fixture",
+        "engine_or_blender": false
+      },
+      {
+        "pid": 285173,
+        "ppid": 284958,
+        "comm": "node-MainThread",
+        "exe": "/usr/bin/node",
+        "cwd": "/home/regner/.paseo/worktrees/0u71f39f/s05-authoritative-chain-fixture",
+        "engine_or_blender": false
+      },
+      {
+        "pid": 285418,
+        "ppid": 284968,
+        "comm": "codex",
+        "exe": "/usr/lib/chatgpt/resources/codex",
+        "cwd": "/home/regner/.paseo/worktrees/0u71f39f/s05-authoritative-chain-fixture",
+        "engine_or_blender": false
+      },
+      {
+        "pid": 285419,
+        "ppid": 284968,
+        "comm": "codex",
+        "exe": "/usr/lib/chatgpt/resources/codex",
+        "cwd": "/home/regner/.paseo/worktrees/0u71f39f/s05-authoritative-chain-fixture",
+        "engine_or_blender": false
+      },
+      {
+        "pid": 285469,
+        "ppid": 285418,
+        "comm": "codex-linux-san",
+        "exe": "/usr/lib/chatgpt/resources/codex",
+        "cwd": "/home/regner/.paseo/worktrees/0u71f39f/s05-authoritative-chain-fixture",
+        "engine_or_blender": false
+      },
+      {
+        "pid": 285470,
+        "ppid": 285419,
+        "comm": "codex-linux-san",
+        "exe": "/usr/lib/chatgpt/resources/codex",
+        "cwd": "/home/regner/.paseo/worktrees/0u71f39f/s05-authoritative-chain-fixture",
+        "engine_or_blender": false
+      },
+      {
+        "pid": 285479,
+        "ppid": 285470,
+        "comm": "bwrap",
+        "exe": "/usr/bin/bwrap",
+        "cwd": "/home/regner/.paseo/worktrees/0u71f39f/s05-authoritative-chain-fixture",
+        "engine_or_blender": false
+      },
+      {
+        "pid": 285480,
+        "ppid": 285469,
+        "comm": "bwrap",
+        "exe": "/usr/bin/bwrap",
+        "cwd": "/home/regner/.paseo/worktrees/0u71f39f/s05-authoritative-chain-fixture",
+        "engine_or_blender": false
+      },
+      {
+        "pid": 285481,
+        "ppid": 285479,
+        "comm": "codex",
+        "exe": "/usr/lib/chatgpt/resources/codex",
+        "cwd": "/home/regner/.paseo/worktrees/0u71f39f/s05-authoritative-chain-fixture",
+        "engine_or_blender": false
+      },
+      {
+        "pid": 285482,
+        "ppid": 285480,
+        "comm": "codex",
+        "exe": "/usr/lib/chatgpt/resources/codex",
+        "cwd": "/home/regner/.paseo/worktrees/0u71f39f/s05-authoritative-chain-fixture",
+        "engine_or_blender": false
+      },
+      {
+        "pid": 285483,
+        "ppid": 285482,
+        "comm": "MainThread",
+        "exe": "/usr/lib/chatgpt/resources/cua_node/bin/node",
+        "cwd": "/home/regner/.paseo/worktrees/0u71f39f/s05-authoritative-chain-fixture",
+        "engine_or_blender": false
+      },
+      {
+        "pid": 285484,
+        "ppid": 285481,
+        "comm": "MainThread",
+        "exe": "/usr/lib/chatgpt/resources/cua_node/bin/node",
+        "cwd": "/home/regner/.paseo/worktrees/0u71f39f/s05-authoritative-chain-fixture",
+        "engine_or_blender": false
+      },
+      {
+        "pid": 286155,
+        "ppid": 284829,
+        "comm": "python",
+        "exe": "/usr/bin/python3.14",
+        "cwd": "/home/regner/.paseo/worktrees/0u71f39f/s05-authoritative-chain-fixture",
+        "engine_or_blender": false
+      }
+    ]
+  }
+}

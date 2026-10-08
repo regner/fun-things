@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://kr8c5l2ica0j"]
+
+[ext_resource type="PackedScene" uid="uid://cyyhi67pisbql" path="res://tests/fixtures/s04/kinematic.tscn" id="1"]
+[ext_resource type="Script" uid="uid://c3dcsf8ruseq0" path="res://tests/fixtures/s05/car.gd" id="2_2xbuc"]
+
+[node name="Car" unique_id=96320415 instance=ExtResource("1")]
+script = ExtResource("2_2xbuc")

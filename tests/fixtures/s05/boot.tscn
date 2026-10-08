@@ -1,0 +1,42 @@
+[gd_scene format=3 uid="uid://3c4ggqhv11q1"]
+
+[ext_resource type="PackedScene" uid="uid://bi4flpwo0wqyr" path="res://tests/fixtures/s03/boot.tscn" id="1"]
+[ext_resource type="Script" uid="uid://cl5lb6er8puqs" path="res://tests/fixtures/s05/proof.gd" id="2_65aox"]
+[ext_resource type="Script" uid="uid://c34bvuyn5g5m0" path="res://tests/fixtures/s05/match.gd" id="2_lfdk2"]
+[ext_resource type="Script" uid="uid://dd72yi8omlti1" path="res://tests/fixtures/s05/replication.gd" id="3_65aox"]
+[ext_resource type="Script" uid="uid://b4e6qtxx32crl" path="res://tests/fixtures/s05/session.gd" id="3_pbn7t"]
+[ext_resource type="PackedScene" uid="uid://whg1w4ybnvqq" path="res://tests/fixtures/s04/track.tscn" id="4_pbn7t"]
+[ext_resource type="Script" uid="uid://cjjldbrpt6jp7" path="res://tests/fixtures/s05/damage.gd" id="5_1oid3"]
+[ext_resource type="Script" uid="uid://dcwpd1e8a1de1" path="res://tests/fixtures/s05/presentation.gd" id="6_vbkbb"]
+[ext_resource type="PackedScene" uid="uid://kr8c5l2ica0j" path="res://tests/fixtures/s05/car.tscn" id="7_pxkv6"]
+
+[node name="Boot" unique_id=878449611 instance=ExtResource("1")]
+script = ExtResource("2_65aox")
+
+[node name="Session" parent="." index="0" unique_id=1030514347]
+script = ExtResource("3_pbn7t")
+
+[node name="Match" parent="View" parent_id_path=PackedInt32Array(1918382734) index="0" unique_id=828107831]
+script = ExtResource("2_lfdk2")
+
+[node name="Replication" parent="View/Match" index="0" unique_id=2038279275]
+script = ExtResource("3_65aox")
+
+[node name="Track" parent="View/Match/CityRoot" parent_id_path=PackedInt32Array(255159982) index="0" unique_id=1943514348 instance=ExtResource("4_pbn7t")]
+
+[node name="Damage" type="Node" parent="View/Match" index="3" unique_id=236367480]
+script = ExtResource("5_1oid3")
+
+[node name="Presentation" type="Node" parent="View/Match" index="4" unique_id=1043713376]
+script = ExtResource("6_vbkbb")
+
+[node name="Cars" type="Node3D" parent="View/Match" index="5" unique_id=136696087]
+
+[node name="A" parent="View/Match/Cars" index="0" unique_id=96320415 instance=ExtResource("7_pxkv6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.001, 0)
+
+[node name="B" parent="View/Match/Cars" index="1" unique_id=374912630 instance=ExtResource("7_pxkv6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0.001, 0)
+
+[node name="C" parent="View/Match/Cars" index="2" unique_id=563627102 instance=ExtResource("7_pxkv6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 0.001, 0)

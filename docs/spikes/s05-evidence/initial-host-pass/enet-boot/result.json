@@ -1,0 +1,254 @@
+{
+  "ok": true,
+  "checks": {
+    "literal_host_health": true,
+    "live_current_health": true,
+    "late_current_health": true,
+    "late_no_historical_effects": true,
+    "live_event_once": true,
+    "independent_gameplay_cosmetic_counts": true,
+    "finite_work": true,
+    "off_camera_burst": true,
+    "separate_native_processes": true
+  },
+  "host": {
+    "active_jobs": 0,
+    "baseline_bytes": 906,
+    "cache_peak": 3,
+    "car_bytes": 558,
+    "completed": [
+      {
+        "car": 1001,
+        "due": 26,
+        "sequence": 2,
+        "tick": 26,
+        "visits": 3
+      },
+      {
+        "car": 1002,
+        "due": 32,
+        "sequence": 3,
+        "tick": 32,
+        "visits": 3
+      }
+    ],
+    "cut": {
+      "match": 1,
+      "revision": 5,
+      "rows": [
+        {
+          "collision": 2,
+          "deadline": 320,
+          "explosions": 1,
+          "generation": 1,
+          "health": 0,
+          "id": 1001,
+          "life": 2,
+          "occupant": 9001,
+          "occupant_alive": false,
+          "phase": "WRECK",
+          "seat": false
+        },
+        {
+          "collision": 2,
+          "deadline": 326,
+          "explosions": 1,
+          "generation": 1,
+          "health": 0,
+          "id": 1002,
+          "life": 2,
+          "occupant": 0,
+          "occupant_alive": false,
+          "phase": "WRECK",
+          "seat": false
+        },
+        {
+          "collision": 1,
+          "deadline": 0,
+          "explosions": 0,
+          "generation": 1,
+          "health": 100,
+          "id": 1003,
+          "life": 1,
+          "occupant": 0,
+          "occupant_alive": false,
+          "phase": "LIVE",
+          "seat": false
+        }
+      ],
+      "session": "6504207b5095a7e3c9af3e68a8f7e1af",
+      "tick": 93
+    },
+    "damage": 2,
+    "effect_drops": 0,
+    "effect_peak": 2,
+    "effects": 2,
+    "event": "network",
+    "fire_bytes": 632,
+    "hidden": false,
+    "occupant_deaths": 1,
+    "queue_peak": 2,
+    "role": "host",
+    "root_peak": 1,
+    "target_peak": 3,
+    "terminal_receipts": 7,
+    "visits": 6
+  },
+  "live": {
+    "accepted": 2,
+    "cut": {
+      "match": 1,
+      "revision": 5,
+      "rows": [
+        {
+          "collision": 2,
+          "deadline": 320,
+          "explosions": 1,
+          "generation": 1,
+          "health": 0,
+          "id": 1001,
+          "life": 2,
+          "occupant": 9001,
+          "occupant_alive": false,
+          "phase": "WRECK",
+          "seat": false
+        },
+        {
+          "collision": 2,
+          "deadline": 326,
+          "explosions": 1,
+          "generation": 1,
+          "health": 0,
+          "id": 1002,
+          "life": 2,
+          "occupant": 0,
+          "occupant_alive": false,
+          "phase": "WRECK",
+          "seat": false
+        },
+        {
+          "collision": 1,
+          "deadline": 0,
+          "explosions": 0,
+          "generation": 1,
+          "health": 100,
+          "id": 1003,
+          "life": 1,
+          "occupant": 0,
+          "occupant_alive": false,
+          "phase": "LIVE",
+          "seat": false
+        }
+      ],
+      "session": "6504207b5095a7e3c9af3e68a8f7e1af",
+      "tick": 32
+    },
+    "dropped": 0,
+    "duplicates": 2,
+    "event": "client_state",
+    "live": 2,
+    "role": "client",
+    "slots": 2
+  },
+  "late": {
+    "cut": {
+      "match": 1,
+      "revision": 5,
+      "rows": [
+        {
+          "collision": 2,
+          "deadline": 320,
+          "explosions": 1,
+          "generation": 1,
+          "health": 0,
+          "id": 1001,
+          "life": 2,
+          "occupant": 9001,
+          "occupant_alive": false,
+          "phase": "WRECK",
+          "seat": false
+        },
+        {
+          "collision": 2,
+          "deadline": 326,
+          "explosions": 1,
+          "generation": 1,
+          "health": 0,
+          "id": 1002,
+          "life": 2,
+          "occupant": 0,
+          "occupant_alive": false,
+          "phase": "WRECK",
+          "seat": false
+        },
+        {
+          "collision": 1,
+          "deadline": 0,
+          "explosions": 0,
+          "generation": 1,
+          "health": 100,
+          "id": 1003,
+          "life": 1,
+          "occupant": 0,
+          "occupant_alive": false,
+          "phase": "LIVE",
+          "seat": false
+        }
+      ],
+      "session": "6504207b5095a7e3c9af3e68a8f7e1af",
+      "tick": 46
+    },
+    "effects": 0,
+    "event": "hydrate",
+    "input_enabled": false,
+    "role": "late"
+  },
+  "commands": {
+    "host": [
+      "/home/regner/.local/share/mise/installs/github-godotengine-godot-builds/4.8-dev7/godot",
+      "--headless",
+      "--path",
+      "/tmp/s05-host-first/project",
+      "--log-file",
+      "/tmp/s05-host-first/enet-boot/host/engine.log",
+      "res://tests/fixtures/s05/boot.tscn",
+      "--",
+      "--role=host",
+      "--port=25040"
+    ],
+    "client": [
+      "/home/regner/.local/share/mise/installs/github-godotengine-godot-builds/4.8-dev7/godot",
+      "--headless",
+      "--path",
+      "/tmp/s05-host-first/project",
+      "--log-file",
+      "/tmp/s05-host-first/enet-boot/client/engine.log",
+      "res://tests/fixtures/s05/boot.tscn",
+      "--",
+      "--role=client",
+      "--port=25040"
+    ],
+    "late": [
+      "/home/regner/.local/share/mise/installs/github-godotengine-godot-builds/4.8-dev7/godot",
+      "--headless",
+      "--path",
+      "/tmp/s05-host-first/project",
+      "--log-file",
+      "/tmp/s05-host-first/enet-boot/late/engine.log",
+      "res://tests/fixtures/s05/boot.tscn",
+      "--",
+      "--role=late",
+      "--port=25040"
+    ]
+  },
+  "pids": {
+    "host": 305405,
+    "client": 305427,
+    "late": 305449
+  },
+  "exits": {
+    "host": 0,
+    "client": 0,
+    "late": 0
+  }
+}

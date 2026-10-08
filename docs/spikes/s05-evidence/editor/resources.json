@@ -1,0 +1,2125 @@
+{
+  "ok": true,
+  "base": "c0eda26f7f010af75bbf10c272ec5cb001442331",
+  "original_files": [
+    {
+      "path": ".agents/skills/art-review/SKILL.md",
+      "sha256": "4bc5dbfff67c954811f8457628222cbc4dce9fd41d2c80951104263417decbe1"
+    },
+    {
+      "path": ".agents/skills/gdscript-review/SKILL.md",
+      "sha256": "13011d7b999155debe80c9d1abb9cd6ccc2f3786446929a9cac56e38c7deb305"
+    },
+    {
+      "path": ".agents/skills/godot-mcp-toolkit/SKILL.md",
+      "sha256": "cb1e10b405250e2d9d57ccabfd9efc20dc98a3764fae0fc7a38561aea910e557"
+    },
+    {
+      "path": ".agents/skills/godot-mcp-toolkit/references/input-events.md",
+      "sha256": "f4d23e58c9be513f37093a68a3c36ed7951d3fd4f0a89eb8f607cee16c6d8eca"
+    },
+    {
+      "path": ".agents/skills/godot-mcp-toolkit/references/parallel-sessions.md",
+      "sha256": "af4cb4a72d2855ad8b9b28229ced8320a606e0d43bb95ec0110617af1ad5b7d2"
+    },
+    {
+      "path": ".agents/skills/godot-mcp-toolkit/references/type-wrappers.md",
+      "sha256": "b588a3503a427af49bea5d6dcb68aab2355bfc846e86efd4a2148930140a63e1"
+    },
+    {
+      "path": ".agents/skills/mcp-extension-creator/SKILL.md",
+      "sha256": "777bf1bc9abe4d4036e922b697ec3ecfc45774baa1ef18f18449ea0baffef16c"
+    },
+    {
+      "path": ".agents/skills/mcp-extension-creator/references/cancellation.md",
+      "sha256": "8394135334723653f9d46a4b32990aa9e6e6dacab568466b8f6b1f2a2d46d422"
+    },
+    {
+      "path": ".agents/skills/mcp-extension-creator/references/csharp-extensions.md",
+      "sha256": "00be745c9e922e72747a4f34c703068044f513422d895c27f90e4349342ec9fd"
+    },
+    {
+      "path": ".agents/skills/mcp-extension-creator/references/example-extension.gd",
+      "sha256": "a31b06e2b0898899c2acc3baac384f73fb85302d9ad228ce0c6285a4a3fd0898"
+    },
+    {
+      "path": ".agents/skills/mcp-extension-creator/references/exporting.md",
+      "sha256": "09ce5fbbb26d8d8af37f5e6c4d44ce8844f0c2acd6e1d2343e4880833ad78490"
+    },
+    {
+      "path": ".agents/skills/mcp-extension-creator/references/type-coercion.md",
+      "sha256": "116e8c1e562208e7abd4131c6df65adf40e14f62ddcd1df250e686d1e899cdd6"
+    },
+    {
+      "path": ".agents/skills/paseo-orchestrator/SKILL.md",
+      "sha256": "ebef942d125699eb7f18d5ec1ffaffe7f0201a8d356456d802f3fdd52af1accb"
+    },
+    {
+      "path": ".gdstyle-version",
+      "sha256": "550613537fc488f3b372af74a4001879f012c8465b816f1b85c6d3446b2cfb49"
+    },
+    {
+      "path": "AGENTS.md",
+      "sha256": "12b3038108dd6014210dac6e879b143861c9c57d66f3fb3b23654624646465cd"
+    },
+    {
+      "path": "addons/godot_mcp_toolkit/.mcp.json.template",
+      "sha256": "ef51a18ab5908d08b829a132104eba2c8bec9db28e214b86a676117639364dfb"
+    },
+    {
+      "path": "addons/godot_mcp_toolkit/ATTRIBUTIONS.md",
+      "sha256": "4c37ea3f9b53c87792f1a0beb9d1660c097565bf7494f005165fa6bd660d83b8"
+    },
+    {
+      "path": "addons/godot_mcp_toolkit/CompanionSkills/.gdignore",
+      "sha256": "7a81a6d3922191dd715ad37fc16ede8ce6d3a8da2dd8613c4cec8d82ef139dad"
+    },
+    {
+      "path": "addons/godot_mcp_toolkit/CompanionSkills/godot-mcp-toolkit/SKILL.md",
+      "sha256": "cb1e10b405250e2d9d57ccabfd9efc20dc98a3764fae0fc7a38561aea910e557"
+    },
+    {
+      "path": "addons/godot_mcp_toolkit/CompanionSkills/godot-mcp-toolkit/references/input-events.md",
+      "sha256": "f4d23e58c9be513f37093a68a3c36ed7951d3fd4f0a89eb8f607cee16c6d8eca"
+    },
+    {
+      "path": "addons/godot_mcp_toolkit/CompanionSkills/godot-mcp-toolkit/references/parallel-sessions.md",
+      "sha256": "af4cb4a72d2855ad8b9b28229ced8320a606e0d43bb95ec0110617af1ad5b7d2"
+    },
+    {
+      "path": "addons/godot_mcp_toolkit/CompanionSkills/godot-mcp-toolkit/references/type-wrappers.md",
+      "sha256": "b588a3503a427af49bea5d6dcb68aab2355bfc846e86efd4a2148930140a63e1"
+    },
+    {
+      "path": "addons/godot_mcp_toolkit/CompanionSkills/mcp-extension-creator/SKILL.md",
+      "sha256": "777bf1bc9abe4d4036e922b697ec3ecfc45774baa1ef18f18449ea0baffef16c"
+    },
+    {
+      "path": "addons/godot_mcp_toolkit/CompanionSkills/mcp-extension-creator/references/cancellation.md",
+      "sha256": "8394135334723653f9d46a4b32990aa9e6e6dacab568466b8f6b1f2a2d46d422"
+    },
+    {
+      "path": "addons/godot_mcp_toolkit/CompanionSkills/mcp-extension-creator/references/csharp-extensions.md",
+      "sha256": "00be745c9e922e72747a4f34c703068044f513422d895c27f90e4349342ec9fd"
+    },
+    {
+      "path": "addons/godot_mcp_toolkit/CompanionSkills/mcp-extension-creator/references/example-extension.gd",
+      "sha256": "a31b06e2b0898899c2acc3baac384f73fb85302d9ad228ce0c6285a4a3fd0898"
+    },
+    {
+      "path": "addons/godot_mcp_toolkit/CompanionSkills/mcp-extension-creator/references/exporting.md",
+      "sha256": "09ce5fbbb26d8d8af37f5e6c4d44ce8844f0c2acd6e1d2343e4880833ad78490"
+    },
+    {
+      "path": "addons/godot_mcp_toolkit/CompanionSkills/mcp-extension-creator/references/type-coercion.md",
+      "sha256": "116e8c1e562208e7abd4131c6df65adf40e14f62ddcd1df250e686d1e899cdd6"
+    },
+    {
+      "path": "addons/godot_mcp_toolkit/LICENSE",
+      "sha256": "7060da9686850b37def05785a2c91bca019aa9d192f326012918100625684c96"
+    },
+    {
+      "path": "addons/godot_mcp_toolkit/README.md",
+      "sha256": "981d33ca575f99a657843d94296375a25c704ef9ab16a23dfc30c601ba76d92b"
+    },
+    {
+      "path": "addons/godot_mcp_toolkit/commands/3d_commands.gd",
+      "sha256": "1109857c3ca5608f4d9b137e29048636bac2c776d07c3e478c959acdd1c12281"
+    },
+    {
+      "path": "addons/godot_mcp_toolkit/commands/3d_commands.gd.uid",
+      "sha256": "ec65e15553a41673ef3b76881d7927b51ac2e4d2f364af1363fc08b5b553c65e"
+    },
+    {
+      "path": "addons/godot_mcp_toolkit/commands/animation_commands.gd",
+      "sha256": "8196b52c51723e204b9b46b91e388847125efdb0956246c71665e8f918b03c03"
+    },
+    {
+      "path": "addons/godot_mcp_toolkit/commands/animation_commands.gd.uid",
+      "sha256": "69f70794bb0d532251e62c4f4f91fd7ee64ab80f1160e5bb86bf11534e4bfbcd"
+    },
+    {
+      "path": "addons/godot_mcp_toolkit/commands/asset_commands.gd",
+      "sha256": "bca96fc503b2f26dc3c18a12f985eba7f0898be71c0f4a5984888e392e48a67c"
+    },
+    {
+      "path": "addons/godot_mcp_toolkit/commands/asset_commands.gd.uid",
+      "sha256": "0c146a594a8fb92a3a42f7ac349b7665e3dffdb4d6292c1a79d96aae84fa7896"
+    },
+    {
+      "path": "addons/godot_mcp_toolkit/commands/audiobus_commands.gd",
+      "sha256": "95901e7595b8841f19f1aec9e5aa69f3eaccee3359315f7f14904732bb0db996"
+    },
+    {
+      "path": "addons/godot_mcp_toolkit/commands/audiobus_commands.gd.uid",
+      "sha256": "00c0a1c7c9df04c1c96ef1fb09f5fa85da0c6e25fd9d19e10ab4908caed5f2e1"
+    },
+    {
+      "path": "addons/godot_mcp_toolkit/commands/classdb_commands.gd",
+      "sha256": "4fdfa3ac5da45cf9484af3afa0527a866f2b79704baff4b2aab4495e8491debd"
+    },
+    {
+      "path": "addons/godot_mcp_toolkit/commands/classdb_commands.gd.uid",
+      "sha256": "468b522e811d62c29e30fa6942c917283530de3fa7f09a4f6d090f1ed2281e9d"
+    },
+    {
+      "path": "addons/godot_mcp_toolkit/commands/debug_commands.gd",
+      "sha256": "0915cc4aa1bcd8967ba85ef4ba028a32f375903c425bd245377c89ae658bfb92"
+    },
+    {
+      "path": "addons/godot_mcp_toolkit/commands/debug_commands.gd.uid",
+      "sha256": "c94aeac737b41f117dae56d2b3eddee05635cec9d8ac9d6dc10aaddbfdc28a08"
+    },
+    {
+      "path": "addons/godot_mcp_toolkit/commands/editor/editor_commands.gd",
+      "sha256": "d397a8f418261a11b26a4f580ab4230cb96188c8a38e4f498ae81a24640c47d4"
+    },
+    {
+      "path": "addons/godot_mcp_toolkit/commands/editor/editor_commands.gd.uid",
+      "sha256": "610aa668b8ecb5ac07da634510c79194ce831427416780335f918c90276e1a10"
+    },
+    {
+      "path": "addons/godot_mcp_toolkit/commands/editor/editor_execute.gd",
+      "sha256": "58ab7d127a5db819c05727241b524456ff40a9d81f1bd693fd2d0e30aa42370a"
+    },
+    {
+      "path": "addons/godot_mcp_toolkit/commands/editor/editor_execute.gd.uid",
+      "sha256": "bb024ec90b95056352ee5306b844a5444e819cdf56917643579144139399325f"
+    },
+    {
+      "path": "addons/godot_mcp_toolkit/commands/editor/editor_log_reader.gd",
+      "sha256": "7659351a88ed39b6456b5d6a2f61c31892d8b5680dd7d75c808001f3d092ebf6"
+    },
+    {
+      "path": "addons/godot_mcp_toolkit/commands/editor/editor_log_reader.gd.uid",
+      "sha256": "c2941ecbd7d63fe12d5fde83f8bd716baf249df04d77be0ac8cd08d563f6f467"
+    },
+    {
+      "path": "addons/godot_mcp_toolkit/commands/editor/editor_rescan.gd",
+      "sha256": "d40395f2f9d8f5d3ead392f2e30659a39ed1dcd7fb407bf5eb8e44bb6494fa35"
+    },
+    {
+      "path": "addons/godot_mcp_toolkit/commands/editor/editor_rescan.gd.uid",
+      "sha256": "c17058a8da5d8cf80c77fe937e9c9f2f33322d6b0acf6e45a99b25dcf76ab845"
+    },
+    {
+      "path": "addons/godot_mcp_toolkit/commands/editor/editor_screenshot.gd",
+      "sha256": "70edd21a8785742cdbc347c701982b50787f614abe32ae66e4a658885428e9dd"
+    },
+    {
+      "path": "addons/godot_mcp_toolkit/commands/editor/editor_screenshot.gd.uid",
+      "sha256": "20bdd57fecf34a7c452c7a3f50f732ca08c054650b68fc68271d93929e9d1211"
+    },
+    {
+      "path": "addons/godot_mcp_toolkit/commands/editor_helpers.gd",
+      "sha256": "e452a10092beb778c978577d7e18e0523669717df8d82399ad00036eddea23e8"
+    },
+    {
+      "path": "addons/godot_mcp_toolkit/commands/editor_helpers.gd.uid",
+      "sha256": "988e3ed4e099c2651c14998543ab0ec040ee6d8730e4d78d08b2a5e0e96694f2"
+    },
+    {
+      "path": "addons/godot_mcp_toolkit/commands/file_commands.gd",
+      "sha256": "ebdc2747f0d05c831dbda8523a15aba5f12cae10c2066f7dce83155bdc90d2ad"
+    },
+    {
+      "path": "addons/godot_mcp_toolkit/commands/file_commands.gd.uid",
+      "sha256": "5bf5d2956207edc0c0cfb18b2f5af89f6233bb6becf33f09b8fdb4c587882623"
+    },
+    {
+      "path": "addons/godot_mcp_toolkit/commands/folder_commands.gd",
+      "sha256": "7a369c46988161e27ded4ab4e70fe7d76b6943cfd434e2b77f82be7df595f0ec"
+    },
+    {
+      "path": "addons/godot_mcp_toolkit/commands/folder_commands.gd.uid",
+      "sha256": "b89a8e26ab366cbb1720298dd0ef7dec123f94c8be4a2200e8acaee57fb1af82"
+    },
+    {
+      "path": "addons/godot_mcp_toolkit/commands/input_map_commands.gd",
+      "sha256": "7c2e61e0b0fc61a7b042f17314fa336583ac09b29b68e26aa4ce4e0eaa38bd5b"
+    },
+    {
+      "path": "addons/godot_mcp_toolkit/commands/input_map_commands.gd.uid",
+      "sha256": "172819ba850e3d5bb034c97e00d829103c7fad775553f93f4201816fab8d8dd3"
+    },
+    {
+      "path": "addons/godot_mcp_toolkit/commands/meta_commands.gd",
+      "sha256": "e41fdc1406519b66fb6d5a692ebc80b25d47011d54c9beaa68838afd830a1574"
+    },
+    {
+      "path": "addons/godot_mcp_toolkit/commands/meta_commands.gd.uid",
+      "sha256": "4a0fbbf21f8f7e3e648eb7405a882401cf121a03d156b3d19ff8f56cd396ed94"
+    },
+    {
+      "path": "addons/godot_mcp_toolkit/commands/navigation_commands.gd",
+      "sha256": "5b95ba2d8aa7abfa4e8e5f25f6ed48aca80c152a4e9488d703fd8f513c55d17f"
+    },
+    {
+      "path": "addons/godot_mcp_toolkit/commands/navigation_commands.gd.uid",
+      "sha256": "f2e2c4d8eee687934a1c2c39e628c04c9addbf516c895bdf46ba91c19bedc89a"
+    },
+    {
+      "path": "addons/godot_mcp_toolkit/commands/node_commands.gd",
+      "sha256": "8c1a3ee3a42d95459cbd3021ce98cb04fb9a51c7d9bd06705c347a84f660e337"
+    },
+    {
+      "path": "addons/godot_mcp_toolkit/commands/node_commands.gd.uid",
+      "sha256": "a5439f8e2a9a0ca271227e2f2a691a99df0e6c32b87099670739091ea0d8f7b8"
+    },
+    {
+      "path": "addons/godot_mcp_toolkit/commands/particle_commands.gd",
+      "sha256": "589cdacc6d8e60128f86a2e2dd45fef2f30cd74562933d228f182d33d7ccb229"
+    },
+    {
+      "path": "addons/godot_mcp_toolkit/commands/particle_commands.gd.uid",
+      "sha256": "7347f49728da1dfb5f0c9258fc3f8aeb29ab4a9e5eb4a48220cfedbb0ca3f5e9"
+    },
+    {
+      "path": "addons/godot_mcp_toolkit/commands/path_commands.gd",
+      "sha256": "e1bab47eac185284b78ee69930e1953410ec3a36532cc7a51189a4e56e8eaddf"
+    },
+    {
+      "path": "addons/godot_mcp_toolkit/commands/path_commands.gd.uid",
+      "sha256": "3ba021487d486a00da7919d8c73024b0572e9b7a1fa25ef46b5a20c87f8da22c"
+    },
+    {
+      "path": "addons/godot_mcp_toolkit/commands/playtest/playtest_commands.gd",
+      "sha256": "e98184809e9a64312e9c80faec984cc0614f27529c45d2d8e2eb1f8baa06471b"
+    },
+    {
+      "path": "addons/godot_mcp_toolkit/commands/playtest/playtest_commands.gd.uid",
+      "sha256": "411e8e3f3d480af4a354e8fca439e38471502ce4ba8b47346b08b7a3ea1466fd"
+    },
+    {
+      "path": "addons/godot_mcp_toolkit/commands/playtest/playtest_control.gd",
+      "sha256": "25b3d854e497b9d5abddb7841e76ab8f665ba03dd6b60107e65f9ef0aad2a672"
+    },
+    {
+      "path": "addons/godot_mcp_toolkit/commands/playtest/playtest_control.gd.uid",
+      "sha256": "c5ff809727f0fe66791654972f715db7f6348881283c92a08fa3e48cd83e8621"
+    },
+    {
+      "path": "addons/godot_mcp_toolkit/commands/playtest_log_reader.gd",
+      "sha256": "561cf4bde98bc0b911e853bfd20c846fc233b30d692ae5c12032cc4b62e63c5e"
+    },
+    {
+      "path": "addons/godot_mcp_toolkit/commands/playtest_log_reader.gd.uid",
+      "sha256": "6031a9e85b51e2021aad59e0f87227747daf4d3aa9ad51df4a001473a913c060"
+    },
+    {
+      "path": "addons/godot_mcp_toolkit/commands/procedural_commands.gd",
+      "sha256": "bba13065e37084eca6beabb58fc9f212b3b95bcc8e8c41e14928a4ce8b5708a5"
+    },
+    {
+      "path": "addons/godot_mcp_toolkit/commands/procedural_commands.gd.uid",
+      "sha256": "14695d0e26806e91101f734082699f424ef7af94caaff70ea34e859d2180a024"
+    },
+    {
+      "path": "addons/godot_mcp_toolkit/commands/project_commands.gd",
+      "sha256": "f599da795756a69982d33800b1238773650293af4feaf2e8bdb1892855e22331"
+    },
+    {
+      "path": "addons/godot_mcp_toolkit/commands/project_commands.gd.uid",
+      "sha256": "0f1ca9f2b7c155e03c534c62ec7983d8057c7400e0f4a697b48d734b36c57377"
+    },
+    {
+      "path": "addons/godot_mcp_toolkit/commands/resource_commands.gd",
+      "sha256": "9725d9e20323fb0756cfdd7ffb01b249b8f31f4411acfb3975ef82055960ea07"
+    },
+    {
+      "path": "addons/godot_mcp_toolkit/commands/resource_commands.gd.uid",
+      "sha256": "35916b2c5051088bdb6a76f52a7840df682a2b6ed0114070a59a64a781598d74"
+    },
+    {
+      "path": "addons/godot_mcp_toolkit/commands/save_commands.gd",
+      "sha256": "b4d3932ae74b7ebbc36cf29c4c8b3ee20c4e7fefafbb862f53bf6af7e9b4b56a"
+    },
+    {
+      "path": "addons/godot_mcp_toolkit/commands/save_commands.gd.uid",
+      "sha256": "d79c74d1905eae0b1f69db40eb34030ac964efbd1ddf221f1b07fb7343779ddf"
+    },
+    {
+      "path": "addons/godot_mcp_toolkit/commands/scene_commands.gd",
+      "sha256": "f029ac22891845fb55cd9de55604e1e8130bfaf775a9c81e1324b6d7390a6b0c"
+    },
+    {
+      "path": "addons/godot_mcp_toolkit/commands/scene_commands.gd.uid",
+      "sha256": "1878b6dcd99c56e208a1c3b764e5767aea5cf12eeb37f8391b3297afd0832831"
+    },
+    {
+      "path": "addons/godot_mcp_toolkit/commands/script_commands.gd",
+      "sha256": "63572879219e2b04a6d184198eef81282a2a32fcdafba18e74477348fd007224"
+    },
+    {
+      "path": "addons/godot_mcp_toolkit/commands/script_commands.gd.uid",
+      "sha256": "0c28b3a7583211af9326b70e623373ef69907b8c81461fa046cba269e701d744"
+    },
+    {
+      "path": "addons/godot_mcp_toolkit/commands/signal_commands.gd",
+      "sha256": "ec9afd72ce3736758984ac5f6aee30974b0e0851f6dea76085c94b2caa7652b3"
+    },
+    {
+      "path": "addons/godot_mcp_toolkit/commands/signal_commands.gd.uid",
+      "sha256": "40e022643ab2ca16f80a52a204b67b2aa065a6a9aa64cefbb7f8437049befa10"
+    },
+    {
+      "path": "addons/godot_mcp_toolkit/commands/sound_commands.gd",
+      "sha256": "ee93e3db42ca4dff90950b323747c2adf00309bbae261eb2d9831a83969f7725"
+    },
+    {
+      "path": "addons/godot_mcp_toolkit/commands/sound_commands.gd.uid",
+      "sha256": "0712d403d757234ba35c0ea5575c6a936c481f7b6db827a7455eeac301ec40dc"
+    },
+    {
+      "path": "addons/godot_mcp_toolkit/commands/spatial_commands.gd",
+      "sha256": "872d1f7498bb048bad587d370b2bb3aa7bba404cf68222d8762e5df9fd5ce1b9"
+    },
+    {
+      "path": "addons/godot_mcp_toolkit/commands/spatial_commands.gd.uid",
+      "sha256": "e479fefdea5e026896737371b3aba831fffab5d90ea4d313e25186ada3ff3d11"
+    },
+    {
+      "path": "addons/godot_mcp_toolkit/commands/spriteframes_commands.gd",
+      "sha256": "82a5d5c2c7f35a13b9fc289a87576237968b679869323e3e3ffda3be434d59c0"
+    },
+    {
+      "path": "addons/godot_mcp_toolkit/commands/spriteframes_commands.gd.uid",
+      "sha256": "4cc0b52377641450e01a5f6fc0262ac2dd69d4c08538a73d49368d5ff128e3e9"
+    },
+    {
+      "path": "addons/godot_mcp_toolkit/commands/texture_commands.gd",
+      "sha256": "26faf5ba9786cf9d59337dbf69addf8700020982a5025f45bbc700a1fee8eb3d"
+    },
+    {
+      "path": "addons/godot_mcp_toolkit/commands/texture_commands.gd.uid",
+      "sha256": "fffe8efd306480e3e31144c8dc29286c4b4f4ba0706aebf5dea70697551983af"
+    },
+    {
+      "path": "addons/godot_mcp_toolkit/commands/theme_commands.gd",
+      "sha256": "ddbf9fdc6d9027b20f58a00e5192e308087fa4799ea77358d539f0f02bb4ca6c"
+    },
+    {
+      "path": "addons/godot_mcp_toolkit/commands/theme_commands.gd.uid",
+      "sha256": "d9859b77573b3f4031b06015ea6bc039ff0a41158792814f3e3f8d4c58cca31c"
+    },
+    {
+      "path": "addons/godot_mcp_toolkit/commands/tilemap_commands.gd",
+      "sha256": "e05dd513522bad9d24775a9fa23eb54dd4daeb3b3c982059c2a701f5aca2ce5d"
+    },
+    {
+      "path": "addons/godot_mcp_toolkit/commands/tilemap_commands.gd.uid",
+      "sha256": "aa97e9907b07d7800c4c98090dd8cac299c8a8d58670cc335c841b745d57eb84"
+    },
+    {
+      "path": "addons/godot_mcp_toolkit/commands/tileset/tileset_alternatives.gd",
+      "sha256": "d925ae3b2ba1958f7aa652a40b9041901bb95bc816aee00f38a627804f3d372a"
+    },
+    {
+      "path": "addons/godot_mcp_toolkit/commands/tileset/tileset_alternatives.gd.uid",
+      "sha256": "874a2db6ec6c1e9711cdc00595d905d9a8591ecfcf007ef8b6c1eea06afc1065"
+    },
+    {
+      "path": "addons/godot_mcp_toolkit/commands/tileset/tileset_commands.gd",
+      "sha256": "445fe65d18b2ae29a42279f6417e8dcb8e6bd3e99fa8582d3668f6e606707bf2"
+    },
+    {
+      "path": "addons/godot_mcp_toolkit/commands/tileset/tileset_commands.gd.uid",
+      "sha256": "1ab442434d94307f9bf590138a847870c48eaabaf77f979c5f88288ec9e4d0d1"
+    },
+    {
+      "path": "addons/godot_mcp_toolkit/commands/tileset/tileset_io.gd",
+      "sha256": "a4e58a6bdd2713b1d3a9bb72d799d2d0b12409f11b9a416f0879fd685aed5cd7"
+    },
+    {
+      "path": "addons/godot_mcp_toolkit/commands/tileset/tileset_io.gd.uid",
+      "sha256": "d0cf2ccdef8838770599e7f8368495b03103393770fbb265597c72e64174ec23"
+    },
+    {
+      "path": "addons/godot_mcp_toolkit/commands/tileset/tileset_structure.gd",
+      "sha256": "aa56497eab4266b57a8ae02c2b65cc08e81046a1b135fc9f0b96258d41d544c2"
+    },
+    {
+      "path": "addons/godot_mcp_toolkit/commands/tileset/tileset_structure.gd.uid",
+      "sha256": "f25f57f97c4362222f6701f6d5505d3c6b67c43caa7f44cee32a772a2d5c75c7"
+    },
+    {
+      "path": "addons/godot_mcp_toolkit/commands/tileset/tileset_tile_data.gd",
+      "sha256": "4679f9ec23ab475ace290c0f24b092c93f364c0ab015d685a586e0e1af58bd46"
+    },
+    {
+      "path": "addons/godot_mcp_toolkit/commands/tileset/tileset_tile_data.gd.uid",
+      "sha256": "541234d5541c02227ac0ea0c139d45503a20d34e442958a058a25bbb41eab190"
+    },
+    {
+      "path": "addons/godot_mcp_toolkit/contract/coerce.gd",
+      "sha256": "71a6eae8ec5bec5149593654b2c74affc4231e70a89ad6a0d65c77737ff7e348"
+    },
+    {
+      "path": "addons/godot_mcp_toolkit/contract/coerce.gd.uid",
+      "sha256": "61d8d5e0ba666b39de552a5fed3a5dd3c3fabdcd9e3a194a5ee113c524cb63ea"
+    },
+    {
+      "path": "addons/godot_mcp_toolkit/contract/execute_hints.gd",
+      "sha256": "8f6ffd0b25c9a3717df3875674226ceaa9449cfd4a258b04608352d1a7c00e80"
+    },
+    {
+      "path": "addons/godot_mcp_toolkit/contract/execute_hints.gd.uid",
+      "sha256": "be213242fc207302957a6d82d2b7b93417445b9fc50146de012280072a216b70"
+    },
+    {
+      "path": "addons/godot_mcp_toolkit/contract/mcp_toolkit_command_options.gd",
+      "sha256": "dc6d29af0e80ea711fec2b056e349d074c88124179ea24306bba0ef62247b185"
+    },
+    {
+      "path": "addons/godot_mcp_toolkit/contract/mcp_toolkit_command_options.gd.uid",
+      "sha256": "9acd914c4bd08ef39abc9af9f9be082c5daff550e4376ee422bbc247f29cd399"
+    },
+    {
+      "path": "addons/godot_mcp_toolkit/contract/mcp_toolkit_error.gd",
+      "sha256": "18848cf6e621e81f4c8961e67744e8b47ad616662adc6f2ae29a8422980976a9"
+    },
+    {
+      "path": "addons/godot_mcp_toolkit/contract/mcp_toolkit_error.gd.uid",
+      "sha256": "159ec8ba921b96917027a54c9590471ee29dc507f94470b13ab037c0a2a08bcf"
+    },
+    {
+      "path": "addons/godot_mcp_toolkit/contract/mcp_toolkit_success.gd",
+      "sha256": "973fd32f001ad364fb198e8c464bc537ee4281245dd21284c5c075b8fa26f041"
+    },
+    {
+      "path": "addons/godot_mcp_toolkit/contract/mcp_toolkit_success.gd.uid",
+      "sha256": "3f8496d26d8a2a3774bbef7a2e6bafc3ea4385d572b3378886c5d2321f9b368b"
+    },
+    {
+      "path": "addons/godot_mcp_toolkit/contract/mcp_toolkit_tool_context.gd",
+      "sha256": "f544156d384857c3d11b01851527adc71e2b178319d93faa9be647e78f2b721e"
+    },
+    {
+      "path": "addons/godot_mcp_toolkit/contract/mcp_toolkit_tool_context.gd.uid",
+      "sha256": "bef8485744dec4ea089b31553e7bfb9f85490fa45ff69f5bdd157dccc26d06a3"
+    },
+    {
+      "path": "addons/godot_mcp_toolkit/contract/pagination.gd",
+      "sha256": "166e105ca7dc2ce0f0d282382b22fd3efb4340d63102e5dd77f4b88b5d07964f"
+    },
+    {
+      "path": "addons/godot_mcp_toolkit/contract/pagination.gd.uid",
+      "sha256": "76bd67025449a45ce8826ae903d926093c0b5d101ac610b715903774f4b9afa9"
+    },
+    {
+      "path": "addons/godot_mcp_toolkit/contract/property_set_check.gd",
+      "sha256": "a2a34e88c94df02a6e978065c16781e04bb07eaa0f86559063017149adb019a1"
+    },
+    {
+      "path": "addons/godot_mcp_toolkit/contract/property_set_check.gd.uid",
+      "sha256": "9e73f611a522fed3c177264237347a73adb600209580298773fccf6d03ab6f8d"
+    },
+    {
+      "path": "addons/godot_mcp_toolkit/contract/screenshot_response.gd",
+      "sha256": "218b27b6411478134d381872f0b00285ff91fc731b20824d21cabaf896627c4b"
+    },
+    {
+      "path": "addons/godot_mcp_toolkit/contract/screenshot_response.gd.uid",
+      "sha256": "287b62393443f7c6142aa283c9ef1f30fdaa6e3eee98a9d93273ef1c8e00ea89"
+    },
+    {
+      "path": "addons/godot_mcp_toolkit/core/autoload_identity.gd",
+      "sha256": "5e8053bd90910109e8c11c603300b52e645edb8f935170b318d5c806a73ab6f7"
+    },
+    {
+      "path": "addons/godot_mcp_toolkit/core/autoload_identity.gd.uid",
+      "sha256": "2b8fad9abe40df0703611c9a745c76b83bc3eac5f38019dbbc7b5e0b968dc87b"
+    },
+    {
+      "path": "addons/godot_mcp_toolkit/core/autoload_registration.gd",
+      "sha256": "14fec0b5368b731baeb3e252b3663893b700dcbea345317de0a00ddb5ba76b46"
+    },
+    {
+      "path": "addons/godot_mcp_toolkit/core/autoload_registration.gd.uid",
+      "sha256": "4d2479aad757305db2c886bd1e5ba22aff27abfd38eb8b928196fb414a739e95"
+    },
+    {
+      "path": "addons/godot_mcp_toolkit/core/disable_cleanup_coordinator.gd",
+      "sha256": "6038dc4a202c76bb282458e3f59e00befb4b9e4a6492a60da8c44439f9d01414"
+    },
+    {
+      "path": "addons/godot_mcp_toolkit/core/disable_cleanup_coordinator.gd.uid",
+      "sha256": "ba014dcabf56d080bc5ecb4bba2aac554e0f83274e44cef5fd1fd381b0fc0463"
+    },
+    {
+      "path": "addons/godot_mcp_toolkit/core/dock_host.gd",
+      "sha256": "3585eed9aa010448488227f787fa8b1cdac20c22cdcc0d8017f5fd77db039387"
+    },
+    {
+      "path": "addons/godot_mcp_toolkit/core/dock_host.gd.uid",
+      "sha256": "8bbe0d47e0966ec6261c1b0d568e5cbd6c7e002ab21482e933718ef477013762"
+    },
+    {
+      "path": "addons/godot_mcp_toolkit/core/editor_access.gd",
+      "sha256": "76c0e5ce31122aca0200469487d3055183d1e4a9743200b372ff02c3efb2a9fb"
+    },
+    {
+      "path": "addons/godot_mcp_toolkit/core/editor_access.gd.uid",
+      "sha256": "802d94896cd7d816873efb880700f804ad4eda3c953fd7c4ad60795bee70bd54"
+    },
+    {
+      "path": "addons/godot_mcp_toolkit/core/export_strip.gd",
+      "sha256": "463a28a314a78164a262c727304a35362e2128d16eb867e8e08234b6a703c85b"
+    },
+    {
+      "path": "addons/godot_mcp_toolkit/core/export_strip.gd.uid",
+      "sha256": "4b26ae727c0405f266dad7da6f3921489641f0e24964b2961f37c82cb98f20c6"
+    },
+    {
+      "path": "addons/godot_mcp_toolkit/core/modules.gd",
+      "sha256": "ec05196860a334419139b3eaf7a4a36e417a6c6ad4fd35ba9d2ece90bf4ebb5a"
+    },
+    {
+      "path": "addons/godot_mcp_toolkit/core/modules.gd.uid",
+      "sha256": "c8f07b6457faf79057b6c6cf1ae0ce0af4f95bb9bf5c4295600e5a1a4566cebc"
+    },
+    {
+      "path": "addons/godot_mcp_toolkit/core/playtest_end_detector.gd",
+      "sha256": "6a0d924bc3d222dffa15074f4e9ade2d4216c43a2466d5ef604f8d039423bc59"
+    },
+    {
+      "path": "addons/godot_mcp_toolkit/core/playtest_end_detector.gd.uid",
+      "sha256": "42edd711c7f625cbc12f03c743f438bf43dd5c4cc32d5386e46cd0f5b15d9798"
+    },
+    {
+      "path": "addons/godot_mcp_toolkit/core/plugin_composer.gd",
+      "sha256": "115143b755f80ca964a37c3df2f6ef270f7842d0ff7e6e2cb0369d08abdf4199"
+    },
+    {
+      "path": "addons/godot_mcp_toolkit/core/plugin_composer.gd.uid",
+      "sha256": "9928dbf9a0bb064959299109458d6800d7c476bd4f8b8427372fcbf33179dc31"
+    },
+    {
+      "path": "addons/godot_mcp_toolkit/core/settings_registration.gd",
+      "sha256": "30676ce60b228bf623a56f5d121841ac1312a84b9d49f0198b6751464e82058d"
+    },
+    {
+      "path": "addons/godot_mcp_toolkit/core/settings_registration.gd.uid",
+      "sha256": "a9a833d9aa5122cb4dcd263951e5b860f33a8ba1b5ecb3322183a7c4b98361f6"
+    },
+    {
+      "path": "addons/godot_mcp_toolkit/core/tool_menu.gd",
+      "sha256": "2ae4bbf38211ab419e68145ab505548e2ab57e3df9884aeaa71827841d7034f7"
+    },
+    {
+      "path": "addons/godot_mcp_toolkit/core/tool_menu.gd.uid",
+      "sha256": "fdffde5c9982a64100813aef260ff6eb6e25fdd38c79604b9a97aefa9a382209"
+    },
+    {
+      "path": "addons/godot_mcp_toolkit/core/unfocused_backup.gd",
+      "sha256": "69b700546ee980613115ed917126d3888353a1b86f05c37de5d751fdff8750d8"
+    },
+    {
+      "path": "addons/godot_mcp_toolkit/core/unfocused_backup.gd.uid",
+      "sha256": "cffbe7eb02d06124b575ded25c491f60ce1ce551672a8d048a6f8634b4571a62"
+    },
+    {
+      "path": "addons/godot_mcp_toolkit/core/unfocused_sleep_controller.gd",
+      "sha256": "a217c1bf2ede6f3e79478cc1626a17768492bb17ef60aa86642f793433f80b2c"
+    },
+    {
+      "path": "addons/godot_mcp_toolkit/core/unfocused_sleep_controller.gd.uid",
+      "sha256": "e56f1d0cffe31589f75f89a082eeb6dfa2fe8c14dd43c78f235ba996d9ce88e3"
+    },
+    {
+      "path": "addons/godot_mcp_toolkit/docs/advanced_configuration.md",
+      "sha256": "97bc09ffa606d270cfc4004865ee567e3170892e9d2f953405dfea8bc92bf502"
+    },
+    {
+      "path": "addons/godot_mcp_toolkit/docs/companion-skills.md",
+      "sha256": "f1f2a3b057c18e87b81fdfc89bdfbb7f81696bb104ee631da7c9be4c69e22fe4"
+    },
+    {
+      "path": "addons/godot_mcp_toolkit/docs/compatibility.md",
+      "sha256": "b47e1fd796ca1c586ea7641501cfeec9ba523ef7a5d8374d7caf975b8987a736"
+    },
+    {
+      "path": "addons/godot_mcp_toolkit/docs/extending.md",
+      "sha256": "fa34df4cc98de95c719b2d254d133295b7253ec7b38a9b2c4b514b1a960f53c3"
+    },
+    {
+      "path": "addons/godot_mcp_toolkit/docs/multi-instance.md",
+      "sha256": "875adf8182a5f8c7ed33c4d4d6a1402c9026247bbd4760e6f4a9bfe7975a5e7a"
+    },
+    {
+      "path": "addons/godot_mcp_toolkit/docs/security-recommendations.md",
+      "sha256": "f1288fbf8dd81a9d6f15a6ff55989171f7d88442a8cc6f313c63edde2f06e4a9"
+    },
+    {
+      "path": "addons/godot_mcp_toolkit/extensions/extension_loader.gd",
+      "sha256": "a861196e43d31cdaefb2075a0263eff5be832db0cbed4277fc31d9359ccec8f2"
+    },
+    {
+      "path": "addons/godot_mcp_toolkit/extensions/extension_loader.gd.uid",
+      "sha256": "175a4610fce498146f9c678761ad604c67b4b57021ba18bcf8e5ecab71d7039c"
+    },
+    {
+      "path": "addons/godot_mcp_toolkit/extensions/mcp_toolkit_extension.gd",
+      "sha256": "c2b7cba5635cac91642462486b999c622d1db8362141facebe6178d93a187ecb"
+    },
+    {
+      "path": "addons/godot_mcp_toolkit/extensions/mcp_toolkit_extension.gd.uid",
+      "sha256": "faab92054683b374ce8b03d522940798cb43f621610957e5bf02e11340c9a211"
+    },
+    {
+      "path": "addons/godot_mcp_toolkit/extensions/mcp_toolkit_extension_options.gd",
+      "sha256": "1b6d00f8d84dcfa959225dfbfc3e2a82201441179b09c97d5f31a90ef8147189"
+    },
+    {
+      "path": "addons/godot_mcp_toolkit/extensions/mcp_toolkit_extension_options.gd.uid",
+      "sha256": "5b032436e9e4555ac44274e4dcbb3219c68611bd5e5e4963862d7dd967a3e039"
+    },
+    {
+      "path": "addons/godot_mcp_toolkit/extensions/services/extension_discovery.gd",
+      "sha256": "ffa7aa1f9c6d0890252bb3a82e58d4a5487cb116fb7c4240ebc0a65348e37d8e"
+    },
+    {
+      "path": "addons/godot_mcp_toolkit/extensions/services/extension_discovery.gd.uid",
+      "sha256": "5d4907434483f7f74a9dc9d16fab8d44ae2ea1f8776122db0fd697501d4f8b54"
+    },
+    {
+      "path": "addons/godot_mcp_toolkit/extensions/services/extension_meta_commands.gd",
+      "sha256": "354b97b362b79990c26188b49e5eef0e2e92c1aa5dfa1489e12ae549df8d07b8"
+    },
+    {
+      "path": "addons/godot_mcp_toolkit/extensions/services/extension_meta_commands.gd.uid",
+      "sha256": "973a62a9f0a81ba3dec6ef20294144ac0f24dd3f04ad134f03cd8eb248a7ea1f"
+    },
+    {
+      "path": "addons/godot_mcp_toolkit/extensions/services/extension_support.gd",
+      "sha256": "15509b72bfcfd39e5fd00f6e90c6f999ded8cde72538a74adce80a6792273235"
+    },
+    {
+      "path": "addons/godot_mcp_toolkit/extensions/services/extension_support.gd.uid",
+      "sha256": "9c687ef9ed10696e94cff4739e5e086dfca5e36f105e04e92f0558f7d0e12ee1"
+    },
+    {
+      "path": "addons/godot_mcp_toolkit/extensions/services/extension_watcher.gd",
+      "sha256": "a16105d5fdd10ff51e4efbb304c56f7029a632af975d7cd5922a1207cda023c8"
+    },
+    {
+      "path": "addons/godot_mcp_toolkit/extensions/services/extension_watcher.gd.uid",
+      "sha256": "faedeb0186dbf8273a698067a89e01a6081c192aa96a67bf11a0b81d9e7b80e8"
+    },
+    {
+      "path": "addons/godot_mcp_toolkit/icon.svg",
+      "sha256": "0f47632680934d4a2f201fe93901f74d3962773bdab6f23f2ef77b9f4d2a1d95"
+    },
+    {
+      "path": "addons/godot_mcp_toolkit/icon.svg.import",
+      "sha256": "f37e056f14e18d17dfbfa3f6e73b037fc38d733e5a81b2dcaf9286939ce78f2e"
+    },
+    {
+      "path": "addons/godot_mcp_toolkit/logging/log_buffer.gd",
+      "sha256": "31b2fe0d9da829bf41113de91d1a791b807281df87fa99df90f497592318b660"
+    },
+    {
+      "path": "addons/godot_mcp_toolkit/logging/log_buffer.gd.uid",
+      "sha256": "31fb731438e3ffbd76a868cb85a8f47e5891f0fc71f5932a3ee20d3d2bd3ccba"
+    },
+    {
+      "path": "addons/godot_mcp_toolkit/logging/log_helpers.gd",
+      "sha256": "fda5cbc442bb0255689b7a0016377893339ed6dc3ec9a4a5126721cec9dae6e5"
+    },
+    {
+      "path": "addons/godot_mcp_toolkit/logging/log_helpers.gd.uid",
+      "sha256": "9de5cb3170056f43060e417c996f9153b3e4ce51a61258beec53b7d44668d9ce"
+    },
+    {
+      "path": "addons/godot_mcp_toolkit/paths/lsp_publisher.gd",
+      "sha256": "6dd464703fbe3fadbab7472826440dd931bbb33a8e78a148b4b9fc9d37978d22"
+    },
+    {
+      "path": "addons/godot_mcp_toolkit/paths/lsp_publisher.gd.uid",
+      "sha256": "32bcef860f24eb963114389663dec224f74fa584bb39364717360e588804fede"
+    },
+    {
+      "path": "addons/godot_mcp_toolkit/paths/project_key.gd",
+      "sha256": "362ec2272a43d502a91dc4276120deffdcebf5fca744d8389844026ee8d98818"
+    },
+    {
+      "path": "addons/godot_mcp_toolkit/paths/project_key.gd.uid",
+      "sha256": "76bfe29896daad0ed5e6b7b132305a93ba2a3a8a0cdc57c706a9015a94f3a41a"
+    },
+    {
+      "path": "addons/godot_mcp_toolkit/paths/project_paths.gd",
+      "sha256": "96b4a3366263b357a65289c33691d98c4e523bff35675e916e457f4548604f24"
+    },
+    {
+      "path": "addons/godot_mcp_toolkit/paths/project_paths.gd.uid",
+      "sha256": "033971c5c983db26117af8293fb65ac4413cd95a342c9b98eca0f920bd3b6c75"
+    },
+    {
+      "path": "addons/godot_mcp_toolkit/paths/user_path_monitor.gd",
+      "sha256": "ae712048657a1a6962c4b787f2a3a8e9a36de045d9bc023bc548c4237ed0d348"
+    },
+    {
+      "path": "addons/godot_mcp_toolkit/paths/user_path_monitor.gd.uid",
+      "sha256": "5b0c98da3b7d57dc082bc12f13f093b2fe35e906f32b7ddc0495b2ac6c06a0fc"
+    },
+    {
+      "path": "addons/godot_mcp_toolkit/plugin.cfg",
+      "sha256": "90450b72123dbcb8a866bce2c2c03ae99bed883f30c0c48560de1c43c399b72e"
+    },
+    {
+      "path": "addons/godot_mcp_toolkit/plugin.gd",
+      "sha256": "22657f4631f752b241324eef4f47c22dfc43284e5d6de3641b7aa0c3e986a75d"
+    },
+    {
+      "path": "addons/godot_mcp_toolkit/plugin.gd.uid",
+      "sha256": "7b2615a69af954f79a785b545c8835c314343f0e2d7ba35673e2bff671b155a3"
+    },
+    {
+      "path": "addons/godot_mcp_toolkit/registry/registry_client.gd",
+      "sha256": "26bd831f1a68357e1c4e28c30614e03b84d4de33cb6105a0c26e2ca5f36c98a8"
+    },
+    {
+      "path": "addons/godot_mcp_toolkit/registry/registry_client.gd.uid",
+      "sha256": "8a81057b1b40ba6ce4078215777f8be601d7f53fe7ef7b1a4b9ef78d472ff27a"
+    },
+    {
+      "path": "addons/godot_mcp_toolkit/registry/store/file_lock.gd",
+      "sha256": "d4af67b45d60ab05045713f7e0018a4d9297e03e53fee8c74301bfe57ccfad3d"
+    },
+    {
+      "path": "addons/godot_mcp_toolkit/registry/store/file_lock.gd.uid",
+      "sha256": "9cbb67bb7c425a320c55949e5c266f9a9b649884d39fec9370692412eb74a99d"
+    },
+    {
+      "path": "addons/godot_mcp_toolkit/registry/store/registry_entry_file.gd",
+      "sha256": "0d326d96fa4da6cab667aca99bbe67421f7a25de0f9f561d5a070a54e6a45b9d"
+    },
+    {
+      "path": "addons/godot_mcp_toolkit/registry/store/registry_entry_file.gd.uid",
+      "sha256": "cc81af8dd45832085f735a7de5b519e2f73d5a78c9ce5b46452988af6708a193"
+    },
+    {
+      "path": "addons/godot_mcp_toolkit/registry/store/registry_paths.gd",
+      "sha256": "3cb2170fc623d9fd836574e2892aeba1409f94851fcc66ef5320267e996aa36b"
+    },
+    {
+      "path": "addons/godot_mcp_toolkit/registry/store/registry_paths.gd.uid",
+      "sha256": "d9252291365b68266f0343eaf247ec32f8e50cf2e084a93dc0fa8b541010f803"
+    },
+    {
+      "path": "addons/godot_mcp_toolkit/registry/store/registry_projection.gd",
+      "sha256": "c993064f2149402bb4542460efc5bd70972d977f691ed55825528b2d6678fc93"
+    },
+    {
+      "path": "addons/godot_mcp_toolkit/registry/store/registry_projection.gd.uid",
+      "sha256": "41b01bfb1d15818cbc3ec636f4b64df1005ff5b45d286044f933e3fe74433e71"
+    },
+    {
+      "path": "addons/godot_mcp_toolkit/runtime/mcp_runtime_server.gd",
+      "sha256": "ddd81aef27e1babb2264ad57af92ed456109ef1a31080dfd0c133bd9e566c3f8"
+    },
+    {
+      "path": "addons/godot_mcp_toolkit/runtime/mcp_runtime_server.gd.uid",
+      "sha256": "dacde4cb7df52ef2826fd51233e5c0640058d750533a5853bfeda22447bfd821"
+    },
+    {
+      "path": "addons/godot_mcp_toolkit/runtime/text_input_synth.gd",
+      "sha256": "3976e238eb83e44c1342a476194c5d2199feef58a6f9eee16cccfa007aa8001b"
+    },
+    {
+      "path": "addons/godot_mcp_toolkit/runtime/text_input_synth.gd.uid",
+      "sha256": "636c5565a9ed921989dfdecc1e2af43f1848693030aad8ef79fa716a3429ce51"
+    },
+    {
+      "path": "addons/godot_mcp_toolkit/scene/mcp_toolkit_safe_scene_ops.gd",
+      "sha256": "9147ffa8c2a9c86f147c090a2ed646a9615042b5cf07ad6e81f7e3a93375a84b"
+    },
+    {
+      "path": "addons/godot_mcp_toolkit/scene/mcp_toolkit_safe_scene_ops.gd.uid",
+      "sha256": "ab877c37c7bc7c6585b31dd2ed7af7ded2f9f1c487dda9cccbca765b2f0028f0"
+    },
+    {
+      "path": "addons/godot_mcp_toolkit/scene/mcp_toolkit_undo_redo_action.gd",
+      "sha256": "881ef18ac1302cc9d2942a979bcf4128d65610e53f9b06f109998463d73e15a0"
+    },
+    {
+      "path": "addons/godot_mcp_toolkit/scene/mcp_toolkit_undo_redo_action.gd.uid",
+      "sha256": "540c7a809c5d28aa41df3b4ef99988c0940ba6944105382f1063b332b738cfc6"
+    },
+    {
+      "path": "addons/godot_mcp_toolkit/scene/scene_lease.gd",
+      "sha256": "336178f1fc249b58fec9f838358c749295195cd7c7ee6527c78ca205eb51907d"
+    },
+    {
+      "path": "addons/godot_mcp_toolkit/scene/scene_lease.gd.uid",
+      "sha256": "5335821c93b2b374f65d91a46d6bac30cc748d2554ebee9a7336a4e18b2bf4df"
+    },
+    {
+      "path": "addons/godot_mcp_toolkit/scene/signal_pair_resolver.gd",
+      "sha256": "c7ffafe30aaa11818a151a1fe74c7356aeb0e562bdf057a2aa78abd752dbf84d"
+    },
+    {
+      "path": "addons/godot_mcp_toolkit/scene/signal_pair_resolver.gd.uid",
+      "sha256": "abed496ab23c99ad7378744366821eb4f02ea7012669b2f88c93e4b7007aee9b"
+    },
+    {
+      "path": "addons/godot_mcp_toolkit/scene/undo_redo_helpers.gd",
+      "sha256": "a48ba1a809a4e89510ffd9721d14fa57fbfe469e0ef8e71c56abbd0454ccbd18"
+    },
+    {
+      "path": "addons/godot_mcp_toolkit/scene/undo_redo_helpers.gd.uid",
+      "sha256": "089126c9a4856cfabf3709984cdd8306af4032fa834dcbac3b5c2d8f97604d5a"
+    },
+    {
+      "path": "addons/godot_mcp_toolkit/security/audit.gd",
+      "sha256": "f9cfae97ecb197b13fe3835c6e080edb581524598f5a51987d27261c00113087"
+    },
+    {
+      "path": "addons/godot_mcp_toolkit/security/audit.gd.uid",
+      "sha256": "db11f05988eb5117fb043e87cdf2028dda7114265d91ffa9274b2dae5d18240b"
+    },
+    {
+      "path": "addons/godot_mcp_toolkit/security/auth.gd",
+      "sha256": "9a14ea7e9f45218125c0da32ddf067b8838f1c74280ad9674c3aa62724add2e7"
+    },
+    {
+      "path": "addons/godot_mcp_toolkit/security/auth.gd.uid",
+      "sha256": "01cc42f072d394aaf5bb1a6f5a74561ac6e850ac6449d1ee76acd3bc3ac96610"
+    },
+    {
+      "path": "addons/godot_mcp_toolkit/security/file_guard.gd",
+      "sha256": "df9f7f6d136ad88d85a85d24cae03a5c46a677b0bb2d32a7b6dacff9602361d1"
+    },
+    {
+      "path": "addons/godot_mcp_toolkit/security/file_guard.gd.uid",
+      "sha256": "0f72b9dd90db992c521b545c6bba88926221e2a36b32ddc4937963826dcb5051"
+    },
+    {
+      "path": "addons/godot_mcp_toolkit/security/scrubber.gd",
+      "sha256": "c2a67e8af32fac5bbbeb5ef2b0e9e46b968e0ed2a0500fd00c8e203a2f14fa71"
+    },
+    {
+      "path": "addons/godot_mcp_toolkit/security/scrubber.gd.uid",
+      "sha256": "e57254dfca5772f4f702fe64b1d011698aa3a7d4f13a198a4cafd1bcf1543d60"
+    },
+    {
+      "path": "addons/godot_mcp_toolkit/security/untrusted.gd",
+      "sha256": "decc400a43ea9a30e304844e32865a706dc55881e7b548d20154b989414c6e43"
+    },
+    {
+      "path": "addons/godot_mcp_toolkit/security/untrusted.gd.uid",
+      "sha256": "8c3c994c4793396a5344ed949b88a08e196974463ae5925176564c912e8938b8"
+    },
+    {
+      "path": "addons/godot_mcp_toolkit/transport/builtin_command_registration.gd",
+      "sha256": "caad05507117b4dad960bba5142ccb3a81e71eb41112f0642b3acc37f22868d8"
+    },
+    {
+      "path": "addons/godot_mcp_toolkit/transport/builtin_command_registration.gd.uid",
+      "sha256": "31cba695f36a6137b9724764000dbfe5b9ce9aabed865d15a289f2acd70bf968"
+    },
+    {
+      "path": "addons/godot_mcp_toolkit/transport/debug_bridge.gd",
+      "sha256": "4e89e6ddbb3e54d707bf9fdddffd9d04d868f4d1816820bf58cf70c6f03a0c4c"
+    },
+    {
+      "path": "addons/godot_mcp_toolkit/transport/debug_bridge.gd.uid",
+      "sha256": "4f552fe576039d72911853bd2a2290f4d84b9ebe27366c1c650fd64f221836f1"
+    },
+    {
+      "path": "addons/godot_mcp_toolkit/transport/dispatch/dispatch_lane.gd",
+      "sha256": "a6dffce6a907c0b0017717b3394a96358a159ae24e734884e47fc0fd776e28e5"
+    },
+    {
+      "path": "addons/godot_mcp_toolkit/transport/dispatch/dispatch_lane.gd.uid",
+      "sha256": "223806d944d46b7e76295654a77ea19f69bf34e644f5e38a5fa01cf3140110f1"
+    },
+    {
+      "path": "addons/godot_mcp_toolkit/transport/dispatch/mutation_watchdog.gd",
+      "sha256": "abb42525252116ad93290b012bd797778b8e2996c11a6642fed6cd8310279e7b"
+    },
+    {
+      "path": "addons/godot_mcp_toolkit/transport/dispatch/mutation_watchdog.gd.uid",
+      "sha256": "da9b22293ea793394ee9dcbd8afa8e6ea91e8f97fad408ed185a1169f6da0a59"
+    },
+    {
+      "path": "addons/godot_mcp_toolkit/transport/dispatch/server_request_router.gd",
+      "sha256": "1a3c4f20078d3a2965330f9bd42a48743d3d918c866dea451a78d2c0cac92156"
+    },
+    {
+      "path": "addons/godot_mcp_toolkit/transport/dispatch/server_request_router.gd.uid",
+      "sha256": "8787e9689c9e79769ebec21d076cc924e80b69400fb80a9f40ba7d73183f9a9a"
+    },
+    {
+      "path": "addons/godot_mcp_toolkit/transport/mcp_server.gd",
+      "sha256": "a2a7bde6e2790b7ec1ed091a6c5dba6978b87d63552f38a1a278ee1f0171dd96"
+    },
+    {
+      "path": "addons/godot_mcp_toolkit/transport/mcp_server.gd.uid",
+      "sha256": "e98ac56d6688b60dc968fb31e8f5cf32642ca9c75a3a6c1b143ccd83aaeabadb"
+    },
+    {
+      "path": "addons/godot_mcp_toolkit/transport/mcp_toolkit_command_registry.gd",
+      "sha256": "640324d0f12af0077030734e5c464670cfcf4131765375bb623f6647f12b2ed8"
+    },
+    {
+      "path": "addons/godot_mcp_toolkit/transport/mcp_toolkit_command_registry.gd.uid",
+      "sha256": "ff1865565f0035a5dcedbf3b4d6ca96afcec8b3dc8f4135a0ee671128a81a1a4"
+    },
+    {
+      "path": "addons/godot_mcp_toolkit/transport/notifier.gd",
+      "sha256": "cb74adf2113315269ffa0295384e77766828a3c0342b7ec4ba3807c43bfb33ad"
+    },
+    {
+      "path": "addons/godot_mcp_toolkit/transport/notifier.gd.uid",
+      "sha256": "ca90c151a20032450be6a49756fd80d02bc89b6a9684d34ad693f0473e480d79"
+    },
+    {
+      "path": "addons/godot_mcp_toolkit/transport/port_config.gd",
+      "sha256": "fb72d3ce98aff5c53adf4f0689a9cfe4d747752d59ab1853a61c1ccb00149a9a"
+    },
+    {
+      "path": "addons/godot_mcp_toolkit/transport/port_config.gd.uid",
+      "sha256": "d2aa560b51bb91870f22c7ca8683798ad6f7bd2dd72b3ff29a4a84bd65263bae"
+    },
+    {
+      "path": "addons/godot_mcp_toolkit/transport/ws_transport.gd",
+      "sha256": "3c182870dc1a5ba521964313415001c53b24053fcbb15bc482434d49d15a677c"
+    },
+    {
+      "path": "addons/godot_mcp_toolkit/transport/ws_transport.gd.uid",
+      "sha256": "d7108ad67386a6dd7f390355f79a7c5c0113df46a205e5a80721e3c5b7b41241"
+    },
+    {
+      "path": "addons/godot_mcp_toolkit/ui/dock/dock.gd",
+      "sha256": "3a1dbaecb383a859164bc1622ed6718d052947e29fd5fd4d7bb913cdc9cb8dd0"
+    },
+    {
+      "path": "addons/godot_mcp_toolkit/ui/dock/dock.gd.uid",
+      "sha256": "acb71cea21abcf17d2129cd2e541920eb927e8ca771675e9bfc3a5fe709e2aed"
+    },
+    {
+      "path": "addons/godot_mcp_toolkit/ui/dock/dock.tscn",
+      "sha256": "7c9e7a634efde10ebc1be793a898e66fac7454c75b15817f4e30c8899b772124"
+    },
+    {
+      "path": "addons/godot_mcp_toolkit/ui/dock/dock_confirm.gd",
+      "sha256": "3b8a4e787c72bcf037841dd6d3265f45af343e4871290ef2a443982a909f40fc"
+    },
+    {
+      "path": "addons/godot_mcp_toolkit/ui/dock/dock_confirm.gd.uid",
+      "sha256": "208839ec01a2396b0239ace3640c899a6fd62908874b4c512e3856c1323430e4"
+    },
+    {
+      "path": "addons/godot_mcp_toolkit/ui/dock/dock_section_card.gd",
+      "sha256": "0c877872be7006751d85136ac6599b2f9eb30eae75fc2bfcd18e77a031c38a9b"
+    },
+    {
+      "path": "addons/godot_mcp_toolkit/ui/dock/dock_section_card.gd.uid",
+      "sha256": "15b6325389f1551af4be04589ea2130edf091439041bb48083d41c91d3fcf282"
+    },
+    {
+      "path": "addons/godot_mcp_toolkit/ui/dock/ext/extension_catalog.gd",
+      "sha256": "79f32973e27ff9cd48666bf9f86c0901a136e1184fda43bcbb54579f7bcbbbfc"
+    },
+    {
+      "path": "addons/godot_mcp_toolkit/ui/dock/ext/extension_catalog.gd.uid",
+      "sha256": "bf3136c89ec8ad62ba131dbcf875e453f54fc38ec3f766d83d3ac3a48d2c7364"
+    },
+    {
+      "path": "addons/godot_mcp_toolkit/ui/dock/ext/extension_catalog_dialog.gd",
+      "sha256": "93d5017e0680d02fecdca9a9b84ea697e2747d9b9e4e9a69b30e7aeb7e551e35"
+    },
+    {
+      "path": "addons/godot_mcp_toolkit/ui/dock/ext/extension_catalog_dialog.gd.uid",
+      "sha256": "5f4a5ffa745cce5fef01a3ee7026dd83ae1064716c367db8e4d3d391e582adc6"
+    },
+    {
+      "path": "addons/godot_mcp_toolkit/ui/dock/ext/info_dialog.gd",
+      "sha256": "bb6f628335b303bab6a73cfa5b523b7d20ab3c0f03a8896b5834ac893ca1bc1b"
+    },
+    {
+      "path": "addons/godot_mcp_toolkit/ui/dock/ext/info_dialog.gd.uid",
+      "sha256": "8ffdca47ade104a93c69d0d3af89d9bcb913788689e3fc198e697d6e12e09c36"
+    },
+    {
+      "path": "addons/godot_mcp_toolkit/ui/dock/limits/dock_limits_section.gd",
+      "sha256": "5615e5de542561409a8c408de002299ff0b722700c4db9fd5476b85794cc89f4"
+    },
+    {
+      "path": "addons/godot_mcp_toolkit/ui/dock/limits/dock_limits_section.gd.uid",
+      "sha256": "95f5d6046b166d161dab83b64cfe2c8df6b266a03075b123ed307362a6fd7b51"
+    },
+    {
+      "path": "addons/godot_mcp_toolkit/ui/dock/limits/dock_unfocused_control.gd",
+      "sha256": "f6036c0a90709a87fa679be89d8fb573ad99f20f1d81095b171824e921f4d53a"
+    },
+    {
+      "path": "addons/godot_mcp_toolkit/ui/dock/limits/dock_unfocused_control.gd.uid",
+      "sha256": "cf9d9af9695066c6fa37ffa9ba7d24aec720563e49eac05bfce3adafcf414ebe"
+    },
+    {
+      "path": "addons/godot_mcp_toolkit/ui/dock/mcp/dock_mcp_json_panel.gd",
+      "sha256": "6afd7c40936c5ab6a581119926a6910fd6506c3683670eceded3e1aee8feb1cd"
+    },
+    {
+      "path": "addons/godot_mcp_toolkit/ui/dock/mcp/dock_mcp_json_panel.gd.uid",
+      "sha256": "f97861c56df9441e5b296b01e79c283b8dba011c0db1e03db13378f170163552"
+    },
+    {
+      "path": "addons/godot_mcp_toolkit/ui/dock/security/audit_log_dialog.gd",
+      "sha256": "e770649c6c6b643ca77e1a30731db603accd185b1755caa7ac61d95d43ea8ca6"
+    },
+    {
+      "path": "addons/godot_mcp_toolkit/ui/dock/security/audit_log_dialog.gd.uid",
+      "sha256": "8a5a872185399cf8b4948e98c1d398be2f5e572c40454e85f04faf3f0a04a445"
+    },
+    {
+      "path": "addons/godot_mcp_toolkit/ui/dock/security/dock_audit_section.gd",
+      "sha256": "74a5c15a114ad7e846f7d0ab81d8e1cfa820aa1bba321b94e457d9465f0f7924"
+    },
+    {
+      "path": "addons/godot_mcp_toolkit/ui/dock/security/dock_audit_section.gd.uid",
+      "sha256": "20e6e57ccd0d06054740d7a5cd9a83a6b0922fd2010c7477e6db989435b14fb6"
+    },
+    {
+      "path": "addons/godot_mcp_toolkit/ui/dock/status/dock_status_panel.gd",
+      "sha256": "bb2771ff2a75aba60bfb57e3cfad04949b93b9754a67bc7b208042f757b082d6"
+    },
+    {
+      "path": "addons/godot_mcp_toolkit/ui/dock/status/dock_status_panel.gd.uid",
+      "sha256": "97ebbefac96b602aba5fb38dfcee33c26396dbc69282984e9ea46787851cd527"
+    },
+    {
+      "path": "addons/godot_mcp_toolkit/ui/editor_popup.gd",
+      "sha256": "3d420ca2353905659ccd52838406b76a1f9be1cdffa5283dae7bd05de88a8e97"
+    },
+    {
+      "path": "addons/godot_mcp_toolkit/ui/editor_popup.gd.uid",
+      "sha256": "ea3dd0f87623afa80495bf2f47254b73a947dd4b038fdda46ae47e9e35ddc63d"
+    },
+    {
+      "path": "addons/godot_mcp_toolkit/ui/mcp_json_enable_prompt.gd",
+      "sha256": "7c509ff9443d7401232f6171ce1a92f4d1c3ca2a9131fb700549d81c1de1f94f"
+    },
+    {
+      "path": "addons/godot_mcp_toolkit/ui/mcp_json_enable_prompt.gd.uid",
+      "sha256": "c176e1b873dfe00d60a5b583bb95c2536d316f942dc949a7e9cc8fe94e6dbb27"
+    },
+    {
+      "path": "addons/godot_mcp_toolkit/ui/mcp_json_sync.gd",
+      "sha256": "5dac27b7cc9c7e13eb169aabb4a7b793d06119f8564b3adaa69ec65c5c1b2d2d"
+    },
+    {
+      "path": "addons/godot_mcp_toolkit/ui/mcp_json_sync.gd.uid",
+      "sha256": "95efddc11e012fa8c762dd61e225c69c2b23a36a15f288df050b710abc6999fa"
+    },
+    {
+      "path": "addons/godot_mcp_toolkit/ui/mcp_json_write_flow.gd",
+      "sha256": "29da969e2e640a1105f1d1f6e213cf4e4e953c39edabf3858ead459a50398831"
+    },
+    {
+      "path": "addons/godot_mcp_toolkit/ui/mcp_json_write_flow.gd.uid",
+      "sha256": "234d1587b325172db893915e63f23d0a638eaa85e72b8f255317e7689a21caba"
+    },
+    {
+      "path": "addons/godot_mcp_toolkit/ui/onboarding_wizard.gd",
+      "sha256": "bda7c58db8100830c033eecde5f7b8caa119be0e6defa1ed0340053e1b8b09f2"
+    },
+    {
+      "path": "addons/godot_mcp_toolkit/ui/onboarding_wizard.gd.uid",
+      "sha256": "db309e8f25de2ea37ea67344ddb9053378d236dcc33cdee678c78c654d2d5c10"
+    },
+    {
+      "path": "addons/godot_mcp_toolkit/ui/settings_navigator.gd",
+      "sha256": "ff25d1328518476665a621d1ccfad02363549eb1896f408a0eef6c1d647122bd"
+    },
+    {
+      "path": "addons/godot_mcp_toolkit/ui/settings_navigator.gd.uid",
+      "sha256": "3db6f3aff4e5b84fdbc5e833199a46627943696f2e9a58285a8b452b8b35a885"
+    },
+    {
+      "path": "addons/godot_mcp_toolkit/ui/toolkit_dialog_presenter.gd",
+      "sha256": "88f7a86713580e7a9671487428d67bdc7d4d761fef51f17c2013889f031935fd"
+    },
+    {
+      "path": "addons/godot_mcp_toolkit/ui/toolkit_dialog_presenter.gd.uid",
+      "sha256": "145275a4d6470c158827b1ff81a1a41f5f80125cf05601d88b97bdbc2b923124"
+    },
+    {
+      "path": "addons/godot_mcp_toolkit/versioning/mcp_version_utils.gd",
+      "sha256": "df5f25c60653a8916f91dbc59b4c8a68e71ae3f58dee4f9aef88ea652a55a2cc"
+    },
+    {
+      "path": "addons/godot_mcp_toolkit/versioning/mcp_version_utils.gd.uid",
+      "sha256": "6d9789169b164236244611170c09e4b94a1798ed25a55ef37a5ee717a2ab2265"
+    },
+    {
+      "path": "addons/godot_mcp_toolkit/versioning/nodejs_check.gd",
+      "sha256": "64512557eea70353d3cc173f816ad39ef2de173817bfe701d6816879225c514c"
+    },
+    {
+      "path": "addons/godot_mcp_toolkit/versioning/nodejs_check.gd.uid",
+      "sha256": "a930312a8013326df41740c717ae05a9265e0e7533e4c07a2867d70f1a01bf9d"
+    },
+    {
+      "path": "addons/godot_mcp_toolkit/versioning/stale_instance_hint.gd",
+      "sha256": "a3caba5a2a6071cbd4b845d914ba7485ea8cac3911ca5b600f1c8b11f35f9cc8"
+    },
+    {
+      "path": "addons/godot_mcp_toolkit/versioning/stale_instance_hint.gd.uid",
+      "sha256": "498ae313f9218159580acbd0dae1a6402786ac650d0be6918e84462a93aa12a6"
+    },
+    {
+      "path": "addons/godotsteam/androidarm64/libgodotsteam.android.template_debug.arm64.so",
+      "sha256": "e9497ee114a05a7bc72d1760aa20662d1f47c7a8611492fd46f8f7e0562535dd"
+    },
+    {
+      "path": "addons/godotsteam/androidarm64/libgodotsteam.android.template_release.arm64.so",
+      "sha256": "ceef2a9cb656e11402723ba728833f6606083cb814c58854f20da7cdc8221678"
+    },
+    {
+      "path": "addons/godotsteam/androidarm64/libsteam_api.so",
+      "sha256": "5297044572182f98fd39efc98de3a35e307e9101381430703942d9e388867feb"
+    },
+    {
+      "path": "addons/godotsteam/editor/steamworks_panel.gd",
+      "sha256": "dce9a6bead050026cbd7cfff8c4533b51b8380f3a29ecf67724572b76955df02"
+    },
+    {
+      "path": "addons/godotsteam/editor/steamworks_panel.gd.uid",
+      "sha256": "4dea76911828c9098cd2a418216644d67170ddc940769184ff477fbb7fe8f4e2"
+    },
+    {
+      "path": "addons/godotsteam/editor/steamworks_panel.tscn",
+      "sha256": "9614ade58f724086f33b7e8aa146bb77b0c1e48bc9c4764ba851875bb1e69062"
+    },
+    {
+      "path": "addons/godotsteam/editor/ui/steam.svg",
+      "sha256": "866572cecfeb1f7dec8b05e437d94c49bad8612b5621c58f016bd8e850c79672"
+    },
+    {
+      "path": "addons/godotsteam/editor/ui/steam.svg.import",
+      "sha256": "fd0dbcfdb9ffe04a6352c293cd2dbfd528f1e03cd17c0b259d6ba5693ff282f3"
+    },
+    {
+      "path": "addons/godotsteam/editor/updates/updates.gd",
+      "sha256": "54a9197091777da0443df04b853f24cd65a0f3fb47a79482548003417f7cac8b"
+    },
+    {
+      "path": "addons/godotsteam/editor/updates/updates.gd.uid",
+      "sha256": "6b025cb0efbdc7b3282e2807b669653c6a4cf08d77acc5c3ac9a662d638c95e0"
+    },
+    {
+      "path": "addons/godotsteam/godotsteam.gdextension",
+      "sha256": "f02059cdf3199a97ab2abfb88ba226af500402f7f9053daa09c158d6b47eda77"
+    },
+    {
+      "path": "addons/godotsteam/godotsteam.gdextension.uid",
+      "sha256": "2a19090419fcd1976c6724ed0a891d1aca10e28598fac2885a0d908543c5ef9f"
+    },
+    {
+      "path": "addons/godotsteam/godotsteam_plugin.gd",
+      "sha256": "65405b3f19ec7d1af4eeb67b46dc7990e443ac72cb4886fd31133691ff0e7cd0"
+    },
+    {
+      "path": "addons/godotsteam/godotsteam_plugin.gd.uid",
+      "sha256": "9c4c8dda04baf1f4ce5f809e0712f8497b488ab2f8677748116f65e1bfd5d43d"
+    },
+    {
+      "path": "addons/godotsteam/license.md",
+      "sha256": "4b72012dba000de1e0b4c0183e5ed99f4fe8e949f50e570442f692ce3995bae2"
+    },
+    {
+      "path": "addons/godotsteam/linux32/libgodotsteam.linux.template_debug.x86_32.so",
+      "sha256": "88e76b762ee7879be11182f3b508c15dd99d0f869476a9a707e082bdb938766c"
+    },
+    {
+      "path": "addons/godotsteam/linux32/libgodotsteam.linux.template_release.x86_32.so",
+      "sha256": "da19ec58275be17a73ef8a135d27fc10642869a97c4d41c5d97f8199f86b7171"
+    },
+    {
+      "path": "addons/godotsteam/linux32/libsteam_api.so",
+      "sha256": "37c76adddac3f9bbe132f26731bb2a8155420688564bb39ab6972e7a4dc6f27c"
+    },
+    {
+      "path": "addons/godotsteam/linux64/libgodotsteam.linux.template_debug.x86_64.so",
+      "sha256": "fc1c9e40ecb80211603544cf73ee98df3970d78fe65ee08ef2fa2ff6966682fa"
+    },
+    {
+      "path": "addons/godotsteam/linux64/libgodotsteam.linux.template_release.x86_64.so",
+      "sha256": "9bb12a43baede7d3a11942413ab6c0eb2947588fde578da775905f922aaa0406"
+    },
+    {
+      "path": "addons/godotsteam/linux64/libsteam_api.so",
+      "sha256": "659127fd3c36788162149006efb607ae24c08b7264259c7af52c806fa40c2b4f"
+    },
+    {
+      "path": "addons/godotsteam/linuxarm64/libgodotsteam.linux.template_debug.arm64.so",
+      "sha256": "8114507217a59ed35a8c4eebf308086dfe04dff940dc16c6b07f090c963425f5"
+    },
+    {
+      "path": "addons/godotsteam/linuxarm64/libgodotsteam.linux.template_release.arm64.so",
+      "sha256": "6a6007f84f8f68950845799fe142e386b057b7605fa080861edc301605177930"
+    },
+    {
+      "path": "addons/godotsteam/linuxarm64/libsteam_api.so",
+      "sha256": "eae3df623fd1e614c995d06a123ef7e961fb1fa5087392f8ea628bff9e7f56ad"
+    },
+    {
+      "path": "addons/godotsteam/osx/libgodotsteam.macos.template_debug.universal.dylib",
+      "sha256": "20c1bbbca43106ab20ebfe3c585a0fcf8b878ba283b726123d6ca6034bb62996"
+    },
+    {
+      "path": "addons/godotsteam/osx/libgodotsteam.macos.template_release.universal.dylib",
+      "sha256": "f483d68a1f32949aa7d8b400977b160a339c5d47cf107af91afa741663022e4b"
+    },
+    {
+      "path": "addons/godotsteam/osx/libsteam_api.dylib",
+      "sha256": "ac6aca01a62b9ddfb8240fcc4ebdefab3d6b97da1ba3bbc87ff89b03369cc870"
+    },
+    {
+      "path": "addons/godotsteam/plugin.cfg",
+      "sha256": "6ecd26c6202931ebd7a9bb350e053dc9b7960197880ff762c9584e48fe48280a"
+    },
+    {
+      "path": "addons/godotsteam/readme.md",
+      "sha256": "3d447ff959b90a13ee97d802fe23eae0eae851d1848ad17cfa3c8686d9215388"
+    },
+    {
+      "path": "addons/godotsteam/win32/libgodotsteam.windows.template_debug.x86_32.dll",
+      "sha256": "9b0fe3242af1088aae9436c4cc0813958fbe9b50755d2a47e36c2902b107216a"
+    },
+    {
+      "path": "addons/godotsteam/win32/libgodotsteam.windows.template_release.x86_32.dll",
+      "sha256": "dfeb687256e57d63b4c95fb06b41583f3c1ea80dd56c31fb970eb31686a94dd6"
+    },
+    {
+      "path": "addons/godotsteam/win32/steam_api.dll",
+      "sha256": "0eb196af5d9b12f19ad838770c82420c5b799862b0d0b041c1fa142b2199ac95"
+    },
+    {
+      "path": "addons/godotsteam/win64/libgodotsteam.windows.template_debug.x86_64.dll",
+      "sha256": "6431f60c8d92d4cf91a686a76cfdedd8e33cc125efadf568ed176d302b8db938"
+    },
+    {
+      "path": "addons/godotsteam/win64/libgodotsteam.windows.template_release.x86_64.dll",
+      "sha256": "d06c4df2b462e7696ee597286c53775ad7bb02a988dfa5bc5b6b4ce59591e62d"
+    },
+    {
+      "path": "addons/godotsteam/win64/steam_api64.dll",
+      "sha256": "8de54d32508e216c9135b8bf025749243d44e404c1c22a8e5fe35acecabe7a9c"
+    },
+    {
+      "path": "art/materials/s01_coral.tres",
+      "sha256": "c773673bb3f18019e0d105ea59d2295a4e3f43e5d9d1dc246ecc3ca20c44502f"
+    },
+    {
+      "path": "art/materials/s01_petrol.tres",
+      "sha256": "f99785d2dd7c1156714ba95068d573742d6167f8d64dab69231f272a8ebc0478"
+    },
+    {
+      "path": "art/models/spikes/s01_rig.glb",
+      "sha256": "7bfd60aeeff70c8b38e28c2e6ccb57c1b79ebfdbc29ba0ea9064bbdf6f6fab44"
+    },
+    {
+      "path": "art/models/spikes/s01_rig.glb.import",
+      "sha256": "a437c669e2902d01f4dbacb110bbb5dcb21cd6b6702668fca7ca8cd7733b9ab0"
+    },
+    {
+      "path": "art/models/spikes/s01_static.glb",
+      "sha256": "80ba398233ce9ffe2fc2e8d505fe9bf720496991c230ca479d5cba153733c37a"
+    },
+    {
+      "path": "art/models/spikes/s01_static.glb.import",
+      "sha256": "b7d0ad9c4daa3bb60ad5d991a1f2e8a8896b45b3a7be967c89bdc724cb23b31a"
+    },
+    {
+      "path": "art/models/spikes/s02_actor.glb",
+      "sha256": "3fa868c9984965f5a26ae9aeab95ae663d5d6b2be3a012b935885fc70e8dea62"
+    },
+    {
+      "path": "art/models/spikes/s02_actor.glb.import",
+      "sha256": "e2aa156c87a4e8b4025d2d2821cb561eae40331e4856c86b9f4cf68633e6ae08"
+    },
+    {
+      "path": "art/models/spikes/s02_ground.glb",
+      "sha256": "c8db4bc2fe33eec10a8ba2d8e4b3ae1981df2b95c9a11a6eeb3d713e0e9ff5ab"
+    },
+    {
+      "path": "art/models/spikes/s02_ground.glb.import",
+      "sha256": "e0ccde6c06914715ba502c45ffa8421f61b9a21c004690cb60da85f4e5b8ed7c"
+    },
+    {
+      "path": "art/models/spikes/s02_launcher.glb",
+      "sha256": "c1bbc1fff10a3bac0533079c87872c1c51a3ecaa6da2f7b84f978599342c4803"
+    },
+    {
+      "path": "art/models/spikes/s02_launcher.glb.import",
+      "sha256": "40ff2b56dd94a72d2cfc7a59c96237e01da840caf2c49a441eeccf10bf76b722"
+    },
+    {
+      "path": "art/models/spikes/s02_low.glb",
+      "sha256": "e7066cfa43ac11254804dcf1a369fb63b604b91b7126724c3163ec6ada9f5935"
+    },
+    {
+      "path": "art/models/spikes/s02_low.glb.import",
+      "sha256": "80dc0901047fa268057ce0d95314f31c49e624696b2c1c07aae33c55a531dbb9"
+    },
+    {
+      "path": "art/models/spikes/s02_near.glb",
+      "sha256": "4f78a6d3ffaaef023144ead12d9f6c69fa8d22f7a2b56cd6e32db78e6f6069e2"
+    },
+    {
+      "path": "art/models/spikes/s02_near.glb.import",
+      "sha256": "2a2524dbb8e4c1ef0efd5ba8511013544f9ff13b405c74f8ac16a3d459920d3d"
+    },
+    {
+      "path": "art/models/spikes/s02_pistol.glb",
+      "sha256": "35c9af9034de5e49608ada5430bb731efa91f934620ade558de762562b103ed6"
+    },
+    {
+      "path": "art/models/spikes/s02_pistol.glb.import",
+      "sha256": "b9411a4eff60dcfc3002b618680edd9fa5e97f0eacd09329423bcc1a3ad1d731"
+    },
+    {
+      "path": "art/models/spikes/s02_smg.glb",
+      "sha256": "358314aeca0a4c6a801bd5e762df4b49ad9d10795568a70a37c5c619a29b6d6e"
+    },
+    {
+      "path": "art/models/spikes/s02_smg.glb.import",
+      "sha256": "104b11b6d4e9cc117477b36fc497998979288db02d9ee48952f0458610768d1a"
+    },
+    {
+      "path": "art/models/spikes/s02_tall.glb",
+      "sha256": "5cb7c72987974ca86eb7cb7ea3014d7e01cf7ce658bce62160158ce87767a6c1"
+    },
+    {
+      "path": "art/models/spikes/s02_tall.glb.import",
+      "sha256": "ec4b312c57a00ffcacaeb8e7f370a9a68ceccf345463d8b9c81d10c18845983e"
+    },
+    {
+      "path": "art/models/spikes/s02_target.glb",
+      "sha256": "b5b27f7106299c0fd343aceecf3c344ab729a54e96f73a11d85841e002e204ba"
+    },
+    {
+      "path": "art/models/spikes/s02_target.glb.import",
+      "sha256": "6889022082b14ee23ce83cc75b1c7442e471a6b0664b6aed0e5fcda8bce2bd10"
+    },
+    {
+      "path": "art/models/spikes/s04_car.glb",
+      "sha256": "a9b4d2409e6cd7d0652dd65c20db64c5fb6dd046e4f65598c95d982bf123bf6e"
+    },
+    {
+      "path": "art/models/spikes/s04_car.glb.import",
+      "sha256": "e5ad798ce3d7840eede5d43ea677c8e203d3900fb4aef373ad95bd117ddae3c5"
+    },
+    {
+      "path": "art/models/spikes/s04_track.glb",
+      "sha256": "07fe72674bfe63981886bf2e2f021f6a45a277812804f83a29de46c293b2d497"
+    },
+    {
+      "path": "art/models/spikes/s04_track.glb.import",
+      "sha256": "57b2f321d958832de1e6ef062cf1fc1b19b038e99433a84a0602fc15bcab3460"
+    },
+    {
+      "path": "art/source/.gdignore",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "art/source/models/spikes/s01_rig.blend",
+      "sha256": "c84a6cb9705f37c5d9122e618feee1febb8ae7ab808c861aafbba8f56b6a5a92"
+    },
+    {
+      "path": "art/source/models/spikes/s01_static.blend",
+      "sha256": "b4b438c4407707fe3dcb25fea1e1b9050af2feb2c27f0539ab4422981ba38af4"
+    },
+    {
+      "path": "art/source/models/spikes/s02_kit.blend",
+      "sha256": "9c5c198fa60bf5abccfe9968f3560b6db23872015e27eabb82ba5274f370b87d"
+    },
+    {
+      "path": "art/source/models/spikes/s04_kit.blend",
+      "sha256": "bce9c0c587399bc701dd8072726f1087a794e615c63f8ff699fd6fae5d3cf244"
+    },
+    {
+      "path": "art/source/textures/spikes/s01_palette.png",
+      "sha256": "ac7c9377ff2add445df4ae9b543c98fb47873c03079fa78348285e4166c45fb0"
+    },
+    {
+      "path": "art/textures/spikes/s01_palette.png",
+      "sha256": "ac7c9377ff2add445df4ae9b543c98fb47873c03079fa78348285e4166c45fb0"
+    },
+    {
+      "path": "art/textures/spikes/s01_palette.png.import",
+      "sha256": "0d77a7caf4da89db991b4e20a63296e2da3f98932b3a8c124beba0401430bd85"
+    },
+    {
+      "path": "gdstyle.toml",
+      "sha256": "04c3821b6d6d4abf0e6df25b3d430ce5879585e72b0846be8769fdf35fecf908"
+    },
+    {
+      "path": "mise.toml",
+      "sha256": "700a0f32f11922fca0937d805944a28694a551735589fb885151aa245300a589"
+    },
+    {
+      "path": "project.godot",
+      "sha256": "d47c9133b2ecaa8381da19e1e1ddaee9099011e705e897b9989c29bc5c709320"
+    },
+    {
+      "path": "tests/fixtures/s01/check_s01.gd",
+      "sha256": "453dc6a73da48dea28cb11c05a3f4a21094494955f53ab2085406b908ebce6f4"
+    },
+    {
+      "path": "tests/fixtures/s01/check_s01.gd.uid",
+      "sha256": "404af06ecaabecc3286055d508bc2c4aa64814239fd51c62a1edcc526386fbbf"
+    },
+    {
+      "path": "tests/fixtures/s01/editor_harness.tscn",
+      "sha256": "21d220c35e3590b70f2a557da25e6f02fc251ee26995f0ff3bc0eae8fb838869"
+    },
+    {
+      "path": "tests/fixtures/s01/fixture_identity.gd",
+      "sha256": "3b759548194350bbb29f5a1de8f63105fd9b7c2cf9f2e720aad6578894206e7a"
+    },
+    {
+      "path": "tests/fixtures/s01/fixture_identity.gd.uid",
+      "sha256": "a3891cc63c1e95735bbd2f6b2bdc14550b719ce965375d9e126b26053029a9cc"
+    },
+    {
+      "path": "tests/fixtures/s01/rig_prefab.tscn",
+      "sha256": "b4ccabe6b0a05d3d92a161a41065a0245e995fe09f61442fef4e9d2b857aaf51"
+    },
+    {
+      "path": "tests/fixtures/s01/roundtrip.tscn",
+      "sha256": "3702f369c9fcb26a8b7b1d239797aa43967885d1a9a04badab491e7c946d57bb"
+    },
+    {
+      "path": "tests/fixtures/s01/static_prefab.tscn",
+      "sha256": "c383506396fc547707a198e065a3965d8c831da455ddd230b4918be58d8c4de6"
+    },
+    {
+      "path": "tests/fixtures/s01/static_variant.tscn",
+      "sha256": "b4752dc9c40f9ade7d862c1e737f4bcf482b933193fa06c970eca68d5732c8a0"
+    },
+    {
+      "path": "tests/fixtures/s02/actor.tscn",
+      "sha256": "551bd1eafd7771c003a571115e8044aff4e68c61755754e524c7385171ee9ca8"
+    },
+    {
+      "path": "tests/fixtures/s02/actor_cutaway.gdshader",
+      "sha256": "5d07b682a6f3137f5f12e09c63d0d8dd68b980f26fba80e72d854d19b3071066"
+    },
+    {
+      "path": "tests/fixtures/s02/actor_cutaway.gdshader.uid",
+      "sha256": "9700a8606d1fbdd3a1fe216e7fe561136be5233b3c7776121e021b1f8116673c"
+    },
+    {
+      "path": "tests/fixtures/s02/actor_motion.gd",
+      "sha256": "97a86e5c985f0fd6c0b697be0dfbfc005c5958edf010f561dc07d12b9da26902"
+    },
+    {
+      "path": "tests/fixtures/s02/actor_motion.gd.uid",
+      "sha256": "42dfa733fa0958615246b2853efdcc3fa6a89e5ec6288f040813b933d89b9025"
+    },
+    {
+      "path": "tests/fixtures/s02/aim_probe.gd",
+      "sha256": "f247b6eba63313b90badf3c666dd78c59f07ce88e9ff48dcd11c48d5a914dd1b"
+    },
+    {
+      "path": "tests/fixtures/s02/aim_probe.gd.uid",
+      "sha256": "816adaff9b88557b7142b1f2f26ef5f45ebc283473ff5664eb9a629385df33b7"
+    },
+    {
+      "path": "tests/fixtures/s02/building_view.gd",
+      "sha256": "b64f64112d9d9df1e8663b95a1ea78d61b8ffc1557d45fca296045d2905a56db"
+    },
+    {
+      "path": "tests/fixtures/s02/building_view.gd.uid",
+      "sha256": "819f6ea7bb89a0e1d3d8d93b54edcd5290b7fadea8c83830ddb6f4037d6906b4"
+    },
+    {
+      "path": "tests/fixtures/s02/camera_rig.gd",
+      "sha256": "280c9fad168d1b470ea7f3e04738f3ac8e92327492edabed9b27a37e500a60da"
+    },
+    {
+      "path": "tests/fixtures/s02/camera_rig.gd.uid",
+      "sha256": "73acfe761e1268ccb8316a88493096fad0dd1337153b71f7fc83f412ca44f21a"
+    },
+    {
+      "path": "tests/fixtures/s02/capture_s02.gd",
+      "sha256": "6b4f15f4fe5a2e1e3ddb814485ae72e08843e26062ac1182e350dbe314aee0af"
+    },
+    {
+      "path": "tests/fixtures/s02/capture_s02.gd.uid",
+      "sha256": "b962c25c26aa7d41b47716a14e083df1fe39802800c1bf7480b368f874deb541"
+    },
+    {
+      "path": "tests/fixtures/s02/check_s02.gd",
+      "sha256": "b7d00a31ecfb6be1e040916cf400c41c09c24d7cf17347ce71482c0fc74e1d86"
+    },
+    {
+      "path": "tests/fixtures/s02/check_s02.gd.uid",
+      "sha256": "66dac85956be0967a9eca87027df98e7d80ee925093b6e24e945f6653b2136d1"
+    },
+    {
+      "path": "tests/fixtures/s02/corner.tscn",
+      "sha256": "663baf0eec1983ebc857e05e4aeeeb1593bfc9005591e40ae15d4101891aab46"
+    },
+    {
+      "path": "tests/fixtures/s02/corner_wide.tscn",
+      "sha256": "51a089a1c2b2e15fd574779f2e8eb110345b9e1410400be1a02da3e09fd6f504"
+    },
+    {
+      "path": "tests/fixtures/s02/desktop_input.gd",
+      "sha256": "1fb250e26afc88b6573c5d7526d288420076ec953f02270667b3079061d2e9dd"
+    },
+    {
+      "path": "tests/fixtures/s02/desktop_input.gd.uid",
+      "sha256": "ae8b9ea33f9149c85def43f3a7296577b33d2d9a9730c9075b932f6a84fcfd35"
+    },
+    {
+      "path": "tests/fixtures/s02/editor_harness.tscn",
+      "sha256": "ed2189f359de958a0cba5415abae8c70b4a82936dac8a4bc272120f2b3a9b70b"
+    },
+    {
+      "path": "tests/fixtures/s02/fixture.gd",
+      "sha256": "1f578c4ab74e4c4fa0f8837532f069813ad1d4a9d2803310750beb95c9478d75"
+    },
+    {
+      "path": "tests/fixtures/s02/fixture.gd.uid",
+      "sha256": "7d45e3efc41a8ff564fe3519c1f3ed750ffdcde7d4af292a25f86005cf136403"
+    },
+    {
+      "path": "tests/fixtures/s02/focus_evidence.gd",
+      "sha256": "982e1a01e75fbbabd4135184c5243d502a774d49422070364b414ec01923a4b7"
+    },
+    {
+      "path": "tests/fixtures/s02/focus_evidence.gd.uid",
+      "sha256": "e30416e99858ea58a946a7545dee4e75aeed1124de5b02319e88c98f699717bb"
+    },
+    {
+      "path": "tests/fixtures/s02/focus_runner.tscn",
+      "sha256": "e97d9e997d1bffd2ab933b4c62219f9fefbd8d3ab05d7eb68e3ac0109af5b6b9"
+    },
+    {
+      "path": "tests/fixtures/s02/ground_prefab.tscn",
+      "sha256": "ffcaf39427734a414b9e0ec4356593837f8e6c10781c50f3c47743c41e946694"
+    },
+    {
+      "path": "tests/fixtures/s02/low_prefab.tscn",
+      "sha256": "116c6bbbd5257e564249509904ba043266cc13a3128c0fc21373d9296817ff5e"
+    },
+    {
+      "path": "tests/fixtures/s02/near_prefab.tscn",
+      "sha256": "3e09e8ffb74bbc99af38d76f51a202da231cf75b38c32dca408239a802613a54"
+    },
+    {
+      "path": "tests/fixtures/s02/probe_overlay.gd",
+      "sha256": "95e165247ffdf4cada72615829291f04062e3b339d9114b645b9858d38d0d889"
+    },
+    {
+      "path": "tests/fixtures/s02/probe_overlay.gd.uid",
+      "sha256": "08b3822ba3f9e8d130dc355fb7edf5c90421465647421f1dfd55c31b1ea3190c"
+    },
+    {
+      "path": "tests/fixtures/s02/tall_prefab.tscn",
+      "sha256": "4f164adcc6a9d0b88969a2756f9b1289fd02e0c9cd630fc674d5d8de2792c1a9"
+    },
+    {
+      "path": "tests/fixtures/s02/target_prefab.tscn",
+      "sha256": "53d81ba372dc616b299ee86473be9fe4bf8e8266d57b0b3330f142d38fcf847d"
+    },
+    {
+      "path": "tests/fixtures/s02/weapon_studies.tscn",
+      "sha256": "939e17fb99a4d71ebec50adcb4ce678b7c56bd3914e8239a9aa0b81be3fdcf2a"
+    },
+    {
+      "path": "tests/fixtures/s03/boot.tscn",
+      "sha256": "73d0a58b6450cbd26b6ccbce53d852b5b737ee3e76de3ecfb71f7aca1f71bec9"
+    },
+    {
+      "path": "tests/fixtures/s03/entity.gd",
+      "sha256": "c886014a90fc4258ee964c5ba6cd1610ca6740d6f03ef993d20a874356755ba5"
+    },
+    {
+      "path": "tests/fixtures/s03/entity.gd.uid",
+      "sha256": "81edf93e5288f82ace33bd2357c48536e69aaa5af588174179a2b189b86235b6"
+    },
+    {
+      "path": "tests/fixtures/s03/entity.tscn",
+      "sha256": "e77ce114f1647862a5fa00bffc0f055aa4c64ac4e751ae74794493ea9276308b"
+    },
+    {
+      "path": "tests/fixtures/s03/fake_transport.gd",
+      "sha256": "96f37b5ac9b0689c12105764ee826c4d7f18155b7ebd471cc427f66e3c499657"
+    },
+    {
+      "path": "tests/fixtures/s03/fake_transport.gd.uid",
+      "sha256": "109e8258fb5a3834e9a08025d1660faad62a3fb71e096cadf34b4460577eb101"
+    },
+    {
+      "path": "tests/fixtures/s03/local_rig.tscn",
+      "sha256": "5aa73ff396f149b5fde6f9e5e658271d8bbc1c4ad37728370992294a0865857d"
+    },
+    {
+      "path": "tests/fixtures/s03/match.gd",
+      "sha256": "6aa3ca867e40248ba7695be3e87498f5005b5524df51028f8bc47d0849f67553"
+    },
+    {
+      "path": "tests/fixtures/s03/match.gd.uid",
+      "sha256": "4f62dd8bee5d9449e5e3985fb819823c07d6f1321c29a2e6d101798ab4899226"
+    },
+    {
+      "path": "tests/fixtures/s03/proof.gd",
+      "sha256": "99aef2ac0a29235c67f44591938c95df3aa55a09e9ef02f362217593cb52d67b"
+    },
+    {
+      "path": "tests/fixtures/s03/proof.gd.uid",
+      "sha256": "274ac1732eb697e7798dcdc080b2f74acf187025d9f13af7d4f85b2067b36c11"
+    },
+    {
+      "path": "tests/fixtures/s03/replication.gd",
+      "sha256": "89fa587905e7b644bd9d7ef943d1ed7e1d6af743bb6d37f3b7b6936ed5efe09c"
+    },
+    {
+      "path": "tests/fixtures/s03/replication.gd.uid",
+      "sha256": "84934d1bc91d62e44bfd68f90fd011b22a7c79c75dccafb69b509c4267bc7212"
+    },
+    {
+      "path": "tests/fixtures/s03/session.gd",
+      "sha256": "d4b74f4e769588ce1af1997195a7e06ef984362b6336f6828cf5cd870f53d43a"
+    },
+    {
+      "path": "tests/fixtures/s03/session.gd.uid",
+      "sha256": "577312815f85e86aed2fdfb83214a7b08aa71d52fa304b80caccb4b7bef0479b"
+    },
+    {
+      "path": "tests/fixtures/s03/transport.gd",
+      "sha256": "fc83f520a6850a48ee9c9e7d4d6615466c9f5d959da9a84c66848a45d1de9a11"
+    },
+    {
+      "path": "tests/fixtures/s03/transport.gd.uid",
+      "sha256": "13b71af6193f49f136fcfabf98e6aa715dfaf1d30b8a7a7175ddf1aaebc44cb0"
+    },
+    {
+      "path": "tests/fixtures/s03_r/actor.gd",
+      "sha256": "e7083673e3455abbe7ebf1d6c08ce715eb7a333a578254097eef050d90e4d7af"
+    },
+    {
+      "path": "tests/fixtures/s03_r/actor.gd.uid",
+      "sha256": "cdbd59444603e8aaf2e1526eaf73ce0ec54eb4b90d60fc8b9cc3598400e8df51"
+    },
+    {
+      "path": "tests/fixtures/s03_r/actor.tscn",
+      "sha256": "d3d744260c81626de3d93815773a76ecba18db28d8ca62e06e740179267a0b18"
+    },
+    {
+      "path": "tests/fixtures/s03_r/boot.tscn",
+      "sha256": "5ba827b95fc1844c0836b26c724b746d35a2b4f1342bd657f923f2f57b4b7b48"
+    },
+    {
+      "path": "tests/fixtures/s03_r/match.gd",
+      "sha256": "ef7d91ad1e58b445949b36b112a8bcebfe1cdedbc8a281b95d5bd2fc1377373b"
+    },
+    {
+      "path": "tests/fixtures/s03_r/match.gd.uid",
+      "sha256": "7f2ff641bb287a0aaa8140f4c5a78b1d97f8e7b53c961a4abedaeba6cd9b4582"
+    },
+    {
+      "path": "tests/fixtures/s03_r/pose_fence_probe.gd",
+      "sha256": "43d49962032360615ee99d53fad144926760131be360c4cd407ed0529c1ed6c5"
+    },
+    {
+      "path": "tests/fixtures/s03_r/pose_fence_probe.gd.uid",
+      "sha256": "91f709eea87db8cd5cf3a66003a84c4c9c6fa70b5543b1fb8a367dea1b7d1160"
+    },
+    {
+      "path": "tests/fixtures/s03_r/proof.gd",
+      "sha256": "bfcc01ecd1e0fa2c6c631631ddf68ec9d87947e789516274e0b9209f9b007afa"
+    },
+    {
+      "path": "tests/fixtures/s03_r/proof.gd.uid",
+      "sha256": "c5b68db0e02afae50c2c221f79f3a2de628c3e0395b69e8b4bc41887330c2a9e"
+    },
+    {
+      "path": "tests/fixtures/s03_r/replication.gd",
+      "sha256": "ad0263562836006b7b5561d138b2410d09840cfe59004a1cda00a5ef24ffc3e0"
+    },
+    {
+      "path": "tests/fixtures/s03_r/replication.gd.uid",
+      "sha256": "37f01ffdc6b925569c9422be3b8065425ee59522675bc9128f403ba762876787"
+    },
+    {
+      "path": "tests/fixtures/s04/baseline_probe.gd",
+      "sha256": "83a95bc43edbe83b56de45d4051156197d7933e58434bf3c10bfceff7dea6136"
+    },
+    {
+      "path": "tests/fixtures/s04/baseline_probe.gd.uid",
+      "sha256": "ae178f023b43a126af634efd8d9e764a81d37549d150c6afa036f1ddfadc8392"
+    },
+    {
+      "path": "tests/fixtures/s04/body_comparison.gd",
+      "sha256": "114e961ec89a35d86168180b7ea9461a9093d6edf8954d00a343493a122221bd"
+    },
+    {
+      "path": "tests/fixtures/s04/body_comparison.gd.uid",
+      "sha256": "ea12053d9a886258d784066831f3d964297396fe7d3ceedbb066ebc34ad8d457"
+    },
+    {
+      "path": "tests/fixtures/s04/body_comparison.tscn",
+      "sha256": "29d5bb1b1c76f7264c7b3da2eb18eb61a62ba6f467b47c0cfbebeaab45304ae1"
+    },
+    {
+      "path": "tests/fixtures/s04/boot.tscn",
+      "sha256": "5a59735087c9bc662fddd98a0ac32f41827fd5d7651b8123806c03b2344c75e0"
+    },
+    {
+      "path": "tests/fixtures/s04/camera_rig.gd",
+      "sha256": "606ab99365e3bcd8314f1ff6157896dc00ce994f2a8f489f4d3769968f2af491"
+    },
+    {
+      "path": "tests/fixtures/s04/camera_rig.gd.uid",
+      "sha256": "e4c2a01d83b1eef3a910058dc840c5d5a809eb6085801407c03c6b45ae1c660a"
+    },
+    {
+      "path": "tests/fixtures/s04/desktop_input.gd",
+      "sha256": "420d4d63f7dbad20e695a52f972ff02f28fd4efddf740d8270eb58159e1acb3c"
+    },
+    {
+      "path": "tests/fixtures/s04/desktop_input.gd.uid",
+      "sha256": "6a811258865be10f83c55464307a41ec840e799ee7f673d6e1e145ff89e09835"
+    },
+    {
+      "path": "tests/fixtures/s04/drive_rules.gd",
+      "sha256": "5276562f00321351b203b90d56adc110abf39184e2d8577c14c76cb0a5594a17"
+    },
+    {
+      "path": "tests/fixtures/s04/drive_rules.gd.uid",
+      "sha256": "f2cd0ed422cc003b6cd45e68c0ca3be704a5706728a32f70d63423c8036f77fe"
+    },
+    {
+      "path": "tests/fixtures/s04/dynamic.gd",
+      "sha256": "25ff9a4778dfaeeed80652e3bb8e946c601ce05cb2df4228c1f7655df100dd8c"
+    },
+    {
+      "path": "tests/fixtures/s04/dynamic.gd.uid",
+      "sha256": "ae65c0e226d80b0b463c8f01739c153c7c28fe3dbf10c60f6ea1a0b66cfee991"
+    },
+    {
+      "path": "tests/fixtures/s04/dynamic.tscn",
+      "sha256": "2dd308165ba97c29a8a9e367458f221e2cab29a131ce4041ea66795d0a8195c8"
+    },
+    {
+      "path": "tests/fixtures/s04/editor_harness.tscn",
+      "sha256": "2d6bb10372f92905ff0e6587cccccfd0684fed0ce2df47bb00ec8051bfb086f1"
+    },
+    {
+      "path": "tests/fixtures/s04/kinematic.gd",
+      "sha256": "7da01694610bc18b559abfe1dffabde3560d62ee9a887e57748082d11d1d9765"
+    },
+    {
+      "path": "tests/fixtures/s04/kinematic.gd.uid",
+      "sha256": "ccfbdc89912dfbf284e47581162120f57969de005fcea15b73c327331adc9a27"
+    },
+    {
+      "path": "tests/fixtures/s04/kinematic.tscn",
+      "sha256": "df7cb51232f34708287b81cd9ac9b0d26e69a787ffa67b58169a2c93952b6994"
+    },
+    {
+      "path": "tests/fixtures/s04/match.gd",
+      "sha256": "a965267322aef4d8916c1f2ef0208d4d5debe45fc454110e3a8e9ac7a23c63ad"
+    },
+    {
+      "path": "tests/fixtures/s04/match.gd.uid",
+      "sha256": "7286ca345d9ad646d41f01f2bd62977d44293d0aae61f7a8e106e0593949b362"
+    },
+    {
+      "path": "tests/fixtures/s04/pose_fence_probe.gd",
+      "sha256": "35e30952377d070c8927798d1caf0e0a1ad85a7763dc968faba3f268898fe535"
+    },
+    {
+      "path": "tests/fixtures/s04/pose_fence_probe.gd.uid",
+      "sha256": "a5ede863670036e775568e6f802f5402ef3956b785887257e068f66d5da3f4f3"
+    },
+    {
+      "path": "tests/fixtures/s04/producer_probe.gd",
+      "sha256": "d56acc892c2ab243772a858de2e1fde99de8c9ac7ca026ee901da7cb24648d85"
+    },
+    {
+      "path": "tests/fixtures/s04/producer_probe.gd.uid",
+      "sha256": "868b6779ea3e8043e3c9bf44d7740527108721f0ad733a65d006dbd29c66d0df"
+    },
+    {
+      "path": "tests/fixtures/s04/producer_proof.gd",
+      "sha256": "4b93bb248bf290c5caea70b5b00bf1e1f9fd3bdb03083e4ecd621963a167d4de"
+    },
+    {
+      "path": "tests/fixtures/s04/producer_proof.gd.uid",
+      "sha256": "398b8cfdb10571d0e84347d6e014ba434510ff00159643b429b5f797757de5c8"
+    },
+    {
+      "path": "tests/fixtures/s04/producer_replication.gd",
+      "sha256": "97098096253e6ccae6a171749f4ae861672ffb451b06c5701d908199391881c0"
+    },
+    {
+      "path": "tests/fixtures/s04/producer_replication.gd.uid",
+      "sha256": "e625d29b115a1bf28f699e4e4c0deda19d37f94f53ab134cfd91d6cdedb73954"
+    },
+    {
+      "path": "tests/fixtures/s04/proof.gd",
+      "sha256": "5da1b0df9eb6edfd0bc05a597b6b9d2ce83446e0dd255b86cc9db140bcb1f915"
+    },
+    {
+      "path": "tests/fixtures/s04/proof.gd.uid",
+      "sha256": "c6c9c9f74ed820f02315d236deb11db053d8b9b949ce49386b3fe921f4f51144"
+    },
+    {
+      "path": "tests/fixtures/s04/replication.gd",
+      "sha256": "474479e04f42aa3b19e1475fcad47b01e3ca3455a76dec669a5df786e6d0e96b"
+    },
+    {
+      "path": "tests/fixtures/s04/replication.gd.uid",
+      "sha256": "3861241f90cc88a90beb8c2ffc0ccc58d33bcb11e4758eb031d5f855a73ad711"
+    },
+    {
+      "path": "tests/fixtures/s04/track.tscn",
+      "sha256": "d957cc0a33bc483ae1e5efd85cec66b04bda5191fd9fd16e6d75adf8ada36f97"
+    },
+    {
+      "path": "tools/check.py",
+      "sha256": "535c6377e13eff24eb7c890f1c1cef06520f2729f8406708623818e1ff172cbb"
+    },
+    {
+      "path": "tools/probe_s03_s_compatibility.py",
+      "sha256": "ebf3097695d6161f1bd7fb64a49ac5e699e916f67eafabbbcbf1be48796e2ed6"
+    },
+    {
+      "path": "tools/run_s03.py",
+      "sha256": "5ff2e01b063b3834c950d660e463aeed9735aa677d5a8864b5f5b162a05983bd"
+    },
+    {
+      "path": "tools/run_s03_r.py",
+      "sha256": "e56f76c6fbd2e8f5fe09ec0b7a2f4ccb5e391adc359e00a6be8d1d5ddb249cc7"
+    },
+    {
+      "path": "tools/run_s04.py",
+      "sha256": "f7c4e8adddd8a88a2c0185cc2ccbb65104f784fc274ccd37a8a2f2e9543a0fa4"
+    },
+    {
+      "path": "tools/s01/clean_import.py",
+      "sha256": "41737dd82495a08f96fae6e1ebb8a69448378d5a4385988e3e2efe1e9796e1df"
+    },
+    {
+      "path": "tools/s01/create_sources.py",
+      "sha256": "ccf02b8d5b27ecd57d6a04b438ef8df3b29bf6ca43d51f95f9f6ecd0201c5f54"
+    },
+    {
+      "path": "tools/s01/editor_probe.gd",
+      "sha256": "cbffe17efefb0fa2bbeac18d494bafdb7375f023ef5bdd639839cad6e822cf8c"
+    },
+    {
+      "path": "tools/s01/editor_probe.gd.uid",
+      "sha256": "26463cc79a87c3b162dd56d57e6cb0bd2faf61ef3c9fdf11335d7dd87102ace1"
+    },
+    {
+      "path": "tools/s01/export.py",
+      "sha256": "c07c6e24e7784fe8f76c1ce6b4e0d24486c59b7ba6e251f3d8e5874f0cb66659"
+    },
+    {
+      "path": "tools/s01/export_settings.json",
+      "sha256": "33ded3c83616fba6573848dda1f0ea3fc7ae7f4c98257fc867dca3bbe35ff9ec"
+    },
+    {
+      "path": "tools/s01/reexport.py",
+      "sha256": "3810a4f8d397dadf6bbe1a0feddedac43ba6a6310e6f22f126fe176d0d859dd9"
+    },
+    {
+      "path": "tools/s02/create_sources.py",
+      "sha256": "65bdf566bc75e7e8de85e7b05a6fb678c93ef3fd9680ed76f3e3706e81c74126"
+    },
+    {
+      "path": "tools/s02/editor_probe.gd",
+      "sha256": "c51ba7c0a147b35b76d1f38fcc029735ad1e5713a8bae67285484ef15fa24382"
+    },
+    {
+      "path": "tools/s02/editor_probe.gd.uid",
+      "sha256": "10a5fd16ce656d06816706e6aed5cac82534bf8e2ae112bd556a30cdc3749d10"
+    },
+    {
+      "path": "tools/s02/export.py",
+      "sha256": "2343ad6c0255c213a3a8755d2d81ce92fe41305059e697f8913dbd312ebda5fa"
+    },
+    {
+      "path": "tools/s02/export_members.json",
+      "sha256": "1358f2f0c6a29f876b3a77d90d82768b7dd9fff79682a550641544104d5080e4"
+    },
+    {
+      "path": "tools/s02/reexport.py",
+      "sha256": "caf215d5117f6d9e604946724d5c3c08531e8fae5dc4522e25a4fb701665cfd3"
+    },
+    {
+      "path": "tools/s02/run.py",
+      "sha256": "05bccda60bcd58ce0a72dbb40f5c2e3f25970e45116aae30ea377282654f9ef6"
+    },
+    {
+      "path": "tools/s04/create_sources.py",
+      "sha256": "4a5dbc07029dab3268c866d9281ea1feee8414605f82273c98781f9ad9437df4"
+    },
+    {
+      "path": "tools/s04/editor_probe.gd",
+      "sha256": "764159a56b2d212a8e081dc147d1adf428f57f66f7756c702e1b29021680599a"
+    },
+    {
+      "path": "tools/s04/editor_probe.gd.uid",
+      "sha256": "8d2ed78e7487fc1c616e3d0d77c6354e46d4d40938d4bc966d1f63b57b47f8bc"
+    },
+    {
+      "path": "tools/s04/export.py",
+      "sha256": "0abde04d149a33bfa5d4b6c7f81c2c3fb439b8728a9fa26e371d7f16151d199d"
+    },
+    {
+      "path": "tools/s04/export_members.json",
+      "sha256": "f8a025a0b4ced6ff2d9647522953e8ea34983c050a37c0d4a1f7ffcb1fd17c41"
+    },
+    {
+      "path": "tools/s04/reexport.py",
+      "sha256": "9a133670ddc5ef1e9af3b0526b38067f64505dfc480bc87af023446f4f2f7117"
+    },
+    {
+      "path": "tools/s04/run_checks.py",
+      "sha256": "f0eb93ac49d8101a16b2bba8027ce9b12b3e8a386b75b58e1c504225a35eb96c"
+    },
+    {
+      "path": "tools/s04/test_runner.py",
+      "sha256": "e0aed05ad05b7ce9d5c853eb8aa215504eef5b9be9118631b4670eff266d3c63"
+    },
+    {
+      "path": "tools/script_checks.py",
+      "sha256": "bc7326a7059e57b3a34b0d1b75ff25b5cc0359267a5e26a8758ee7ea3067305c"
+    },
+    {
+      "path": "tools/test_foundation_tools.py",
+      "sha256": "8048c930927fdfedb8b39a9ca02f0813bdc4b92732a96b6cabf4cb977010af2c"
+    },
+    {
+      "path": "tools/test_s03_r_analysis.py",
+      "sha256": "9572c786795a03ebca05dd9e9ed50cfb13d82c7d80c4c557759f9ba75e7cb303"
+    }
+  ],
+  "scenes": {
+    "boot.tscn": {
+      "uid": "uid://3c4ggqhv11q1",
+      "ids": [
+        "878449611",
+        "1030514347",
+        "828107831",
+        "2038279275",
+        "1943514348",
+        "236367480",
+        "1043713376",
+        "136696087",
+        "96320415",
+        "374912630",
+        "563627102"
+      ],
+      "dependencies": [
+        {
+          "path": "tests/fixtures/s03/boot.tscn",
+          "uid": "uid://bi4flpwo0wqyr"
+        },
+        {
+          "path": "tests/fixtures/s05/proof.gd",
+          "uid": "uid://cl5lb6er8puqs"
+        },
+        {
+          "path": "tests/fixtures/s05/match.gd",
+          "uid": "uid://c34bvuyn5g5m0"
+        },
+        {
+          "path": "tests/fixtures/s05/replication.gd",
+          "uid": "uid://dd72yi8omlti1"
+        },
+        {
+          "path": "tests/fixtures/s05/session.gd",
+          "uid": "uid://b4e6qtxx32crl"
+        },
+        {
+          "path": "tests/fixtures/s04/track.tscn",
+          "uid": "uid://whg1w4ybnvqq"
+        },
+        {
+          "path": "tests/fixtures/s05/damage.gd",
+          "uid": "uid://cjjldbrpt6jp7"
+        },
+        {
+          "path": "tests/fixtures/s05/presentation.gd",
+          "uid": "uid://dcwpd1e8a1de1"
+        },
+        {
+          "path": "tests/fixtures/s05/car.tscn",
+          "uid": "uid://kr8c5l2ica0j"
+        }
+      ],
+      "sha256": "d75b3f342713168b075f3af07d265a87963172fa4a43b1768c8b2142b0962068"
+    },
+    "burst.tscn": {
+      "uid": "uid://dkkcxrjt8l00v",
+      "ids": [
+        "1222812305",
+        "563627102",
+        "96320415",
+        "222769031",
+        "210157656",
+        "762026695",
+        "1402681529",
+        "1639883862",
+        "349066068",
+        "514730452",
+        "388039902"
+      ],
+      "dependencies": [
+        {
+          "path": "tests/fixtures/s05/boot.tscn",
+          "uid": "uid://3c4ggqhv11q1"
+        },
+        {
+          "path": "tests/fixtures/s05/car.tscn",
+          "uid": "uid://kr8c5l2ica0j"
+        }
+      ],
+      "sha256": "4ee0632d33f70ece87804aa5ffc4a5a0db762a419644888e3e0e43e9f49d5178"
+    },
+    "car.tscn": {
+      "uid": "uid://kr8c5l2ica0j",
+      "ids": [
+        "96320415"
+      ],
+      "dependencies": [
+        {
+          "path": "tests/fixtures/s04/kinematic.tscn",
+          "uid": "uid://cyyhi67pisbql"
+        },
+        {
+          "path": "tests/fixtures/s05/car.gd",
+          "uid": "uid://c3dcsf8ruseq0"
+        }
+      ],
+      "sha256": "7e53a1ba71621849b83161584b5e9b888d24db123b414c02ed4d400e8a39e470"
+    }
+  },
+  "scripts": {
+    "match.gd": "uid://c34bvuyn5g5m0",
+    "presentation.gd": "uid://dcwpd1e8a1de1",
+    "car.gd": "uid://c3dcsf8ruseq0",
+    "damage.gd": "uid://cjjldbrpt6jp7",
+    "replication.gd": "uid://dd72yi8omlti1",
+    "proof.gd": "uid://cl5lb6er8puqs",
+    "session.gd": "uid://b4e6qtxx32crl"
+  },
+  "source": "art/source/models/spikes/s04_kit.blend",
+  "outputs": [
+    "art/models/spikes/s04_car.glb",
+    "art/models/spikes/s04_track.glb"
+  ]
+}
