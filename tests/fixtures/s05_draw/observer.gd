@@ -149,7 +149,7 @@ func _snapshot() -> Dictionary:
 			"position": [current.global_position.x, current.global_position.y,
 				current.global_position.z],
 			"projection": current.projection, "fov": current.fov,
-			"near": current.near, "far": current.far, "current": current.current})
+			"near": current.near, "far": current.far, "current": current.current}, true)
 
 	return {"presentation": presentation.receipt(), "slots": slots, "camera": camera,
 		"viewport": [viewport.get_visible_rect().size.x, viewport.get_visible_rect().size.y],

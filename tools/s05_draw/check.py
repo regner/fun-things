@@ -18,9 +18,9 @@ def save(path, value):
     path.write_text(json.dumps(value, indent=2) + '\n')
 
 
-def originals():
+def originals(base=BASE):
     """Derive the entire immutable original tree from Git rather than a selected manifest."""
-    tree = subprocess.check_output(['git', 'ls-tree', '-rz', BASE], cwd=ROOT)
+    tree = subprocess.check_output(['git', 'ls-tree', '-rz', base], cwd=ROOT)
     ledger = []
     for entry in tree.split(b'\0'):
         if not entry:
@@ -37,7 +37,7 @@ def originals():
             raise AssertionError('original byte change: ' + name)
         ledger.append({'path': name, 'git_blob': oid, 'bytes': len(data),
                        'sha256': hashlib.sha256(data).hexdigest()})
-    before = subprocess.check_output(['git', 'show', BASE + ':TODO.md'], cwd=ROOT, text=True)
+    before = subprocess.check_output(['git', 'show', base + ':TODO.md'], cwd=ROOT, text=True)
     after = (ROOT / 'TODO.md').read_text()
     start, end = before.index('- [ ] **S05'), before.index('- [ ] **S06')
     assert after[:after.index('- [ ] **S05')] == before[:start]
@@ -127,14 +127,19 @@ def evaluate(group):
     for role in ['host', 'client', 'late']:
         receipts = draw_rows(group / role)
         frames = [r for r in receipts if r['kind'] == 'frame']
+        final = [r for r in receipts if r['kind'] == 'result']
+        checks[role + '_observer_complete'] = len(final) == 1 and (
+            not final[0]['render_failures'] and not final[0]['fixture_failures'])
         indices = [r['render_index'] for r in frames]
         checks[role + '_automatic_frames'] = len(frames) >= 3 and all(
             b > a for a, b in zip(indices, indices[1:]))
-        checks[role + '_current_saved_camera'] = all(
+        checks[role + '_current_saved_camera'] = bool(frames) and all(
             r['camera']['expected_current'] and r['camera']['current'] and
             r['camera']['position'] == [6, 47, 4] and r['camera']['fov'] == 42 and
             math.isclose(r['camera']['near'], .1, abs_tol=1e-6) and
             r['camera']['far'] == 160 and r['camera']['projection'] == 0 for r in frames)
+        checks[role + '_camera_path_recorded'] = bool(frames) and all(
+            r['camera']['path'].endswith('/ObservationView/Camera3D') for r in frames)
         for receipt in frames:
             if 'png' not in receipt:
                 continue
@@ -157,9 +162,11 @@ def evaluate(group):
                     'res://art/models/spikes/s05_explosion_carrier.glb'
                     for s in burst[0]['slots'] if s['visible_in_tree']))
         observers[role] = {'frame_rows': len(frames), 'render_indices_first_last':
-                           [indices[0], indices[-1]], 'can_draw_values': sorted({r['can_draw'] for r in frames}),
+                           [indices[0], indices[-1]] if indices else [],
+                           'can_draw_values': sorted({r['can_draw'] for r in frames}),
                            'focus_values': sorted({r['focus'] for r in frames}),
                            'viewport_sizes': sorted({tuple(r['viewport']) for r in frames}),
+                           'window_sizes': sorted({tuple(r['window_size']) for r in frames}),
                            'stages': [r['png']['stage'] for r in frames if 'png' in r]}
     live_draw = draw_rows(group / 'client')
     expiry = [r for r in live_draw if r['kind'] == 'expiry']
@@ -180,8 +187,9 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--output', type=Path, required=True)
     parser.add_argument('--group', type=Path)
+    parser.add_argument('--base', default=BASE)
     args = parser.parse_args()
-    result = {'base': BASE, 'originals': originals(), 'resources': resources()}
+    result = {'base': args.base, 'originals': originals(args.base), 'resources': resources()}
     if args.group:
         result['observation'] = evaluate(args.group)
     save(args.output, result)

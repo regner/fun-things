@@ -221,3 +221,62 @@ CLI-only `godot --headless --help` is allowed to verify the actual flag without
 starting a project/editor/window/audio workload. No graphical group03, repeated
 import/authoring session, new experiment or expanded acceptance follows. At12:00 UTC
 approximately70minutes of the original total envelope remain.
+
+## Actual final observation and remaining gates
+
+**S05 automatic viewport image criteria FAIL; observation finished at its bounded
+stopping boundary.** The saved-camera prerequisite is resolved, but neither group
+produced a workload PNG. No image exists to inspect; no independent image inspection
+or eight presented/drawn effects result is claimed. No third group follows.
+
+Group02 collected three actual ENet processes in8.849s (supervisor start through
+final reap), within30s. Host632341/live632393/settled-late632461 each exited0;
+normal Session.leave/result quit completed, handles reaped and all streams closed.
+Their complete separate stderr streams are zero bytes. Engine/stdout diagnostics
+are absent; all three retain the explicit original proof result ok=true. This is
+collection/gameplay completion, not automatic-image acceptance.
+
+| Receipt | Actual result |
+| --- | --- |
+| Authoritative events and chain | Twelve genuine blast EventIds, sequence2..13, ticks140..178; twelve health0/explosion1 current rows;144visits;12completed jobs; target peak4/queue peak5/cache peak12. |
+| Saved cosmetics | Host actual event snapshots grow1..8 then stay8 while drops grow1..4. Slot poses match eight distinct saved cars and remain linked to accepted carrier GLB. These are node properties, not presented pixels. |
+| Live dedup |12live receipts/12duplicates rejected;8accepted/4dropped; original remote admission/malformed/rate/window/retired duplicate outcomes preserved. |
+| Natural replica expiry | At live cosmetic tick75,8remain. Without injected advance/consume,79real local physics ticks later tick154 has0visible/all8inactive. Last local deadline154 is reached. Existing host is still alive; historical hydration remains separate. |
+| Settled late join | Host settled at tick178 before late launch; late baseline cut tick347 has12wrecks/0historical cosmetics/inputfalse. After admission live0/accepted0/dropped0. No during-chain journal/reset proof. |
+| Automatic callbacks | Exactly2per role, rendered indices0/1, physics indices8/16. Host damage tick8/16 and all effect counts0; client/late callbacks precede baseline installation. No automatic callback observes a burst or settled hydration. |
+| Saved current camera | Actual object binding/current=true, position(6,47,4), perspective, FOV42, near~0.1/far160, vertical -Y/yaw0. The ready row names the loaded saved camera scene. |
+| Native/viewport | Wayland/Forward+, can_draw=false/focusfalse/mode0. Root viewport1280x800 in every recorded frame/event; actual window2112x1320. No PNG size or physical output/scanout evidence. |
+| Capture stages | Baseline/burst/expired/hydrated PNG sets all EMPTY: the predeclared third-callback gate was never reached. Evaluator exits1 for these actual failed criteria. |
+
+Readback identified an observer telemetry defect: Dictionary.merge's default
+non-overwrite kept the initial camera path empty. The executed stream therefore
+has `camera.path=""`; current-object binding and other actual camera values are
+still retained. The final new observer adds the explicit overwrite argument.
+This one-line correction is **source/style checked only**, not runtime validated.
+The one permitted private editor was already gracefully closed; direct-file
+fallback affects only this new observer, with no unsaved scene or further save/
+playtest. Executed source remains the immutable `63e75c5` observer and private
+mirror; retained streams are never rewritten. The evaluator separately fails
+missing camera-path receipts instead of granting the corrected source past credit.
+
+The initial evaluator reports failed criteria, retained separately; its surrounding
+shell did not retain the evaluator's separate exit status. Final candidate formatting/
+lint/AST/resource/preservation/diff checks pass; its meaningful observation evaluator
+continues to exit1. No accepted headless gameplay suite was rerun for documentation.
+Original API/fence/lifetime negative rows occurred inside the actual commissioned
+workload before networking; they do not supply graphical burst evidence.
+
+Full S05 remains OPEN for actual eight-effect pixels, saturation/fallback and
+live-versus-hydrated drawn distinction, native drawable1280x800/input/focus/feel,
+independent visual/readability/user ratification and hardware cost. Policies/final
+body dimensions/spacing/contact, admitted-player transactions, during-chain
+join/reset/races and sustained load remain as before. P0/M1/S07/S08/Deck/Steam/
+production are not closed. Both graphical groups and the one authoring session
+are consumed; no follow-up experiment or repair is authorized by this delivery.
+
+At12:07 UTC approximately63minutes of the original total envelope remain for
+current retention/review/actionable fixes and cleanup. ROOT notified accepted main
+`30a97532ed2ae922c22d21fd9ac48bd2bab8b145` (S07 static preparation). Freeze/review
+the declared48aef3d candidate first, then rebase once onto then-current accepted
+main for delivery and preserve unrelated S07/TODO changes. Same reviewer checks
+the material newHEAD/base delta; no engine rerun or extra workstream follows.

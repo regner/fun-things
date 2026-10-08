@@ -187,8 +187,11 @@ feature expansion, repeated unchanged experiment or silent contract/pin change.
   Needs: [S03 boundary](docs/spikes/s03.md), [S04 technical kit](docs/spikes/s04.md#bounded-recommendation-and-next-question),
   [accepted partial chain evidence](docs/spikes/s05.md) and
   [fixture contract](docs/spikes/s05-contracts.md).
-  Remaining: independently accept the [saved presentation candidate](docs/spikes/s05-saved-presentation.md),
-  then exercise actual authored effects in eight cosmetic slots with drawn receipts,
+  Remaining: exercise the accepted [saved presentation](docs/spikes/s05-saved-presentation.md)
+  in eight cosmetic slots with drawn receipts. The [bounded observation](docs/spikes/s05-render-observation.md)
+  adds a saved observation camera and natural expiry/ENet evidence, but its two
+  graphical groups produced no workload PNGs (final group: two startup callbacks,
+  can_draw=false). A new authorized changed surface/condition is needed for drawn
   saturation/fallback, readability/cost and live-versus-hydrated presentation under a
   separately named drawable lease. [Source preparation](docs/spikes/s05-effect-preparation.md)
   and node visibility/token reservations do not prove drawn effects.
