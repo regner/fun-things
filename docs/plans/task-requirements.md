@@ -48,12 +48,14 @@ qualification and enough outcome detail for dispatch.
   drawability, two-sector and six-block loads, four views, bursts and one bounded growth
   axis; record costs, limiting axis/headroom and decisions. Desktop does not certify Deck.
   [Source-only representative preparation](../spikes/s07-representative-preparation.md)
-  records the pre-P0 mapping, individually commissionable slices and unexecuted proposal.
-  Remaining prerequisites: Regner's representation/count/diversity/final-envelope/budget
-  decisions; saved six-block content/bakes, real population/player/car/combat lifecycle,
-  four-rig codecs/journal/reset driver and named graphical telemetry. Comparator also
-  needs genuine trial-reset and eight-effect draw receipts. No M1 completion mandate
-  or proxy/empty-load acceptance; T is technical, R/G remain blocked, not waived.
+  records the pre-P0 mapping and individually commissionable slices. The comparator's
+  [fresh-session driver](../spikes/s07-comparator-driver.md) passed 20 compressed
+  standalone trials and a three-trial saved-camera smoke with eight DRAWN slots/four
+  drops each; its six cap/repeat measurements remain unexecuted. Remaining prerequisites:
+  Regner's representation/count/diversity/final-envelope/budget decisions; saved six-block
+  content/bakes, real population/player/car/combat lifecycle, four-rig codecs/journal/
+  Match reset and named graphical telemetry. No M1 completion mandate or proxy/empty-load
+  acceptance; T is technical, R/G remain blocked, not waived.
 - **S08:** The original-main 20 ms held/resync stall is explained and fixed: the
   pinned `ENetMultiplayerPeer.create_server` passes its channel count as incoming
   bandwidth, so client unreliable held input was throttled away. With the
