@@ -36,8 +36,8 @@ and the report/fix draft.
 1. Scratch-only telemetry ([diff](s08-windows-evidence/throttle-telemetry/proof-scratch-telemetry.diff))
    logged ENet peer statistics at each proof event. Just before the lost send,
    the client's peer for the host fell from `PEER_PACKET_THROTTLE_LIMIT` 32
-   (`PACKET_THROTTLE_SCALE`, send everything) to **1**. ENet then drops roughly 31
-   of every 32 unreliable packets at the sender. The `_held` RPC is
+   (`PACKET_THROTTLE_SCALE`, send everything) to **1**. ENet then drops roughly 30
+   of every 32 unreliable packets at the sender: counter positions 0 and 1 pass. The `_held` RPC is
    `unreliable_ordered` channel 2; its reliable `_result` therefore never comes,
    and `_send_expect` waits until the host's 8 s case deadline. Setting throttle
    deceleration to 0 did not help, which ruled out RTT-jitter throttling.
@@ -59,10 +59,11 @@ and the report/fix draft.
    ones (original S08 main under 20 ms servicing) cross it. It is
    platform-independent ENet behaviour; the Linux re-run is listed under concerns.
 
-No upstream issue was found by search on 8 October 2026. A report needs a human
-GitHub account; the minimal reproduction is: `create_server(port, 3, 4)`, connect
-a client with four channels, send unreliable packets client→server for more than
-one second, and read the client's peer `PEER_PACKET_THROTTLE_LIMIT`.
+The initial search on 8 October 2026 missed existing reports. Follow-up search found
+open [godotengine/godot#123963](https://github.com/godotengine/godot/issues/123963)
+and archived [#123254](https://github.com/godotengine/godot/issues/123254). Do not
+file a duplicate; the owner should review the [pinned-version MRP and comment draft](
+../upstream/godot-enet-create-server-bandwidth.md) offline before posting to #123963.
 
 ## Fix and checks
 
