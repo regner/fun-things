@@ -1,0 +1,780 @@
+{
+  "profiles": {
+    "status": "fulfilled",
+    "value": {
+      "content": [
+        {
+          "type": "text",
+          "text": "profiles_count=0\n\n{\n  \"profiles\": []\n}"
+        }
+      ],
+      "structuredContent": {
+        "profiles": []
+      }
+    }
+  },
+  "providers": {
+    "status": "fulfilled",
+    "value": {
+      "content": [
+        {
+          "type": "text",
+          "text": "providers_count=6\nproviders_ids=claude,codex,copilot,opencode,pi,omp\n\n{\n  \"providers\": [\n    {\n      \"id\": \"claude\",\n      \"label\": \"Claude\",\n      \"description\": \"Anthropic's multi-tool assistant with MCP support, streaming, and deep reasoning\",\n      \"enabled\": false,\n      \"modes\": [],\n      \"status\": \"unavailable\"\n    },\n    {\n      \"id\": \"codex\",\n      \"label\": \"Codex\",\n      \"description\": \"OpenAI's Codex workspace agent with sandbox controls and optional network access\",\n      \"enabled\": true,\n      \"modes\": [\n        {\n          \"id\": \"auto\",\n          \"label\": \"Default Permissions\",\n          \"description\": \"Edit files and run commands with Codex's default approval flow.\",\n          \"icon\": \"Shield\",\n          \"colorTier\": \"moderate\"\n        },\n        {\n          \"id\": \"auto-review\",\n          \"label\": \"Auto-review\",\n          \"description\": \"Same workspace-write permissions as Default, but eligible `on-request` approvals are routed through the auto-reviewer subagent.\",\n          \"icon\": \"ShieldCheck\",\n          \"colorTier\": \"moderate\"\n        },\n        {\n          \"id\": \"full-access\",\n          \"label\": \"Full Access\",\n          \"description\": \"Edit files, run commands, and access the network without additional prompts.\",\n          \"icon\": \"ShieldOff\",\n          \"colorTier\": \"dangerous\"\n        }\n      ],\n      \"status\": \"available\"\n    },\n    {\n      \"id\": \"copilot\",\n      \"label\": \"Copilot\",\n      \"description\": \"GitHub Copilot via Agent Client Protocol with dynamic modes and session support\",\n      \"enabled\": false,\n      \"modes\": [],\n      \"status\": \"unavailable\"\n    },\n    {\n      \"id\": \"opencode\",\n      \"label\": \"OpenCode\",\n      \"description\": \"Open-source coding assistant with multi-provider model support\",\n      \"enabled\": false,\n      \"modes\": [],\n      \"status\": \"unavailable\"\n    },\n    {\n      \"id\": \"pi\",\n      \"label\": \"Pi\",\n      \"description\": \"Minimal terminal-based coding agent with multi-provider LLM support\",\n      \"enabled\": false,\n      \"modes\": [],\n      \"status\": \"unavailable\"\n    },\n    {\n      \"id\": \"omp\",\n      \"label\": \"Oh My Pi\",\n      \"description\": \"Multi-provider coding agent with native approvals, host tools, and subagents\",\n      \"enabled\": false,\n      \"modes\": [],\n      \"status\": \"unavailable\"\n    }\n  ]\n}"
+        }
+      ],
+      "structuredContent": {
+        "providers": [
+          {
+            "id": "claude",
+            "label": "Claude",
+            "description": "Anthropic's multi-tool assistant with MCP support, streaming, and deep reasoning",
+            "enabled": false,
+            "modes": [],
+            "status": "unavailable"
+          },
+          {
+            "id": "codex",
+            "label": "Codex",
+            "description": "OpenAI's Codex workspace agent with sandbox controls and optional network access",
+            "enabled": true,
+            "modes": [
+              {
+                "id": "auto",
+                "label": "Default Permissions",
+                "description": "Edit files and run commands with Codex's default approval flow.",
+                "icon": "Shield",
+                "colorTier": "moderate"
+              },
+              {
+                "id": "auto-review",
+                "label": "Auto-review",
+                "description": "Same workspace-write permissions as Default, but eligible `on-request` approvals are routed through the auto-reviewer subagent.",
+                "icon": "ShieldCheck",
+                "colorTier": "moderate"
+              },
+              {
+                "id": "full-access",
+                "label": "Full Access",
+                "description": "Edit files, run commands, and access the network without additional prompts.",
+                "icon": "ShieldOff",
+                "colorTier": "dangerous"
+              }
+            ],
+            "status": "available"
+          },
+          {
+            "id": "copilot",
+            "label": "Copilot",
+            "description": "GitHub Copilot via Agent Client Protocol with dynamic modes and session support",
+            "enabled": false,
+            "modes": [],
+            "status": "unavailable"
+          },
+          {
+            "id": "opencode",
+            "label": "OpenCode",
+            "description": "Open-source coding assistant with multi-provider model support",
+            "enabled": false,
+            "modes": [],
+            "status": "unavailable"
+          },
+          {
+            "id": "pi",
+            "label": "Pi",
+            "description": "Minimal terminal-based coding agent with multi-provider LLM support",
+            "enabled": false,
+            "modes": [],
+            "status": "unavailable"
+          },
+          {
+            "id": "omp",
+            "label": "Oh My Pi",
+            "description": "Multi-provider coding agent with native approvals, host tools, and subagents",
+            "enabled": false,
+            "modes": [],
+            "status": "unavailable"
+          }
+        ]
+      }
+    }
+  },
+  "models": {
+    "status": "fulfilled",
+    "value": {
+      "content": [
+        {
+          "type": "text",
+          "text": "models_count=7\nmodels_ids=gpt-6.1-sol,gpt-6-astra,gpt-6-sol,gpt-6-luna,gpt-5.6-sol,gpt-5.6-terra,gpt-5.6-luna\n\n{\n  \"provider\": \"codex\",\n  \"models\": [\n    {\n      \"provider\": \"codex\",\n      \"id\": \"gpt-6.1-sol\",\n      \"label\": \"GPT-6.1-Sol\",\n      \"description\": \"Latest workhorse model for coding and everyday work.\",\n      \"isDefault\": true,\n      \"thinkingOptions\": [\n        {\n          \"id\": \"low\",\n          \"label\": \"low\",\n          \"description\": \"Fast responses with lighter reasoning\",\n          \"isDefault\": true\n        },\n        {\n          \"id\": \"medium\",\n          \"label\": \"medium\",\n          \"description\": \"Balances speed and reasoning depth for everyday tasks\",\n          \"isDefault\": false\n        },\n        {\n          \"id\": \"high\",\n          \"label\": \"high\",\n          \"description\": \"Greater reasoning depth for complex problems\",\n          \"isDefault\": false\n        },\n        {\n          \"id\": \"xhigh\",\n          \"label\": \"xhigh\",\n          \"description\": \"Extra high reasoning depth for complex problems\",\n          \"isDefault\": false\n        },\n        {\n          \"id\": \"max\",\n          \"label\": \"max\",\n          \"description\": \"Maximum reasoning depth for the hardest problems\",\n          \"isDefault\": false\n        },\n        {\n          \"id\": \"ultra\",\n          \"label\": \"ultra\",\n          \"description\": \"Maximum reasoning with automatic task delegation\",\n          \"isDefault\": false\n        }\n      ],\n      \"defaultThinkingOptionId\": \"low\",\n      \"metadata\": {\n        \"model\": \"gpt-6.1-sol\",\n        \"defaultReasoningEffort\": \"low\",\n        \"supportedReasoningEfforts\": [\n          {\n            \"reasoningEffort\": \"low\",\n            \"description\": \"Fast responses with lighter reasoning\"\n          },\n          {\n            \"reasoningEffort\": \"medium\",\n            \"description\": \"Balances speed and reasoning depth for everyday tasks\"\n          },\n          {\n            \"reasoningEffort\": \"high\",\n            \"description\": \"Greater reasoning depth for complex problems\"\n          },\n          {\n            \"reasoningEffort\": \"xhigh\",\n            \"description\": \"Extra high reasoning depth for complex problems\"\n          },\n          {\n            \"reasoningEffort\": \"max\",\n            \"description\": \"Maximum reasoning depth for the hardest problems\"\n          },\n          {\n            \"reasoningEffort\": \"ultra\",\n            \"description\": \"Maximum reasoning with automatic task delegation\"\n          }\n        ]\n      }\n    },\n    {\n      \"provider\": \"codex\",\n      \"id\": \"gpt-6-astra\",\n      \"label\": \"GPT-6-Astra\",\n      \"description\": \"Frontier intelligence for the most demanding work.\",\n      \"isDefault\": false,\n      \"thinkingOptions\": [\n        {\n          \"id\": \"low\",\n          \"label\": \"low\",\n          \"description\": \"Fast responses with lighter reasoning\",\n          \"isDefault\": false\n        },\n        {\n          \"id\": \"medium\",\n          \"label\": \"medium\",\n          \"description\": \"Balances speed and reasoning depth for everyday tasks\",\n          \"isDefault\": true\n        },\n        {\n          \"id\": \"high\",\n          \"label\": \"high\",\n          \"description\": \"Greater reasoning depth for complex problems\",\n          \"isDefault\": false\n        },\n        {\n          \"id\": \"xhigh\",\n          \"label\": \"xhigh\",\n          \"description\": \"Extra high reasoning depth for complex problems\",\n          \"isDefault\": false\n        },\n        {\n          \"id\": \"max\",\n          \"label\": \"max\",\n          \"description\": \"Maximum reasoning depth for the hardest problems\",\n          \"isDefault\": false\n        },\n        {\n          \"id\": \"ultra\",\n          \"label\": \"ultra\",\n          \"description\": \"Maximum reasoning with automatic task delegation\",\n          \"isDefault\": false\n        }\n      ],\n      \"defaultThinkingOptionId\": \"medium\",\n      \"metadata\": {\n        \"model\": \"gpt-6-astra\",\n        \"defaultReasoningEffort\": \"medium\",\n        \"supportedReasoningEfforts\": [\n          {\n            \"reasoningEffort\": \"low\",\n            \"description\": \"Fast responses with lighter reasoning\"\n          },\n          {\n            \"reasoningEffort\": \"medium\",\n            \"description\": \"Balances speed and reasoning depth for everyday tasks\"\n          },\n          {\n            \"reasoningEffort\": \"high\",\n            \"description\": \"Greater reasoning depth for complex problems\"\n          },\n          {\n            \"reasoningEffort\": \"xhigh\",\n            \"description\": \"Extra high reasoning depth for complex problems\"\n          },\n          {\n            \"reasoningEffort\": \"max\",\n            \"description\": \"Maximum reasoning depth for the hardest problems\"\n          },\n          {\n            \"reasoningEffort\": \"ultra\",\n            \"description\": \"Maximum reasoning with automatic task delegation\"\n          }\n        ]\n      }\n    },\n    {\n      \"provider\": \"codex\",\n      \"id\": \"gpt-6-sol\",\n      \"label\": \"GPT-6-Sol\",\n      \"description\": \"Previous generation workhorse model.\",\n      \"isDefault\": false,\n      \"thinkingOptions\": [\n        {\n          \"id\": \"low\",\n          \"label\": \"low\",\n          \"description\": \"Fast responses with lighter reasoning\",\n          \"isDefault\": false\n        },\n        {\n          \"id\": \"medium\",\n          \"label\": \"medium\",\n          \"description\": \"Balances speed and reasoning depth for everyday tasks\",\n          \"isDefault\": true\n        },\n        {\n          \"id\": \"high\",\n          \"label\": \"high\",\n          \"description\": \"Greater reasoning depth for complex problems\",\n          \"isDefault\": false\n        },\n        {\n          \"id\": \"xhigh\",\n          \"label\": \"xhigh\",\n          \"description\": \"Extra high reasoning depth for complex problems\",\n          \"isDefault\": false\n        },\n        {\n          \"id\": \"max\",\n          \"label\": \"max\",\n          \"description\": \"Maximum reasoning depth for the hardest problems\",\n          \"isDefault\": false\n        },\n        {\n          \"id\": \"ultra\",\n          \"label\": \"ultra\",\n          \"description\": \"Maximum reasoning with automatic task delegation\",\n          \"isDefault\": false\n        }\n      ],\n      \"defaultThinkingOptionId\": \"medium\",\n      \"metadata\": {\n        \"model\": \"gpt-6-sol\",\n        \"defaultReasoningEffort\": \"medium\",\n        \"supportedReasoningEfforts\": [\n          {\n            \"reasoningEffort\": \"low\",\n            \"description\": \"Fast responses with lighter reasoning\"\n          },\n          {\n            \"reasoningEffort\": \"medium\",\n            \"description\": \"Balances speed and reasoning depth for everyday tasks\"\n          },\n          {\n            \"reasoningEffort\": \"high\",\n            \"description\": \"Greater reasoning depth for complex problems\"\n          },\n          {\n            \"reasoningEffort\": \"xhigh\",\n            \"description\": \"Extra high reasoning depth for complex problems\"\n          },\n          {\n            \"reasoningEffort\": \"max\",\n            \"description\": \"Maximum reasoning depth for the hardest problems\"\n          },\n          {\n            \"reasoningEffort\": \"ultra\",\n            \"description\": \"Maximum reasoning with automatic task delegation\"\n          }\n        ]\n      }\n    },\n    {\n      \"provider\": \"codex\",\n      \"id\": \"gpt-6-luna\",\n      \"label\": \"GPT-6-Luna\",\n      \"description\": \"Fast and affordable model for easier tasks.\",\n      \"isDefault\": false,\n      \"thinkingOptions\": [\n        {\n          \"id\": \"low\",\n          \"label\": \"low\",\n          \"description\": \"Fast responses with lighter reasoning\",\n          \"isDefault\": false\n        },\n        {\n          \"id\": \"medium\",\n          \"label\": \"medium\",\n          \"description\": \"Balances speed and reasoning depth for everyday tasks\",\n          \"isDefault\": true\n        },\n        {\n          \"id\": \"high\",\n          \"label\": \"high\",\n          \"description\": \"Greater reasoning depth for complex problems\",\n          \"isDefault\": false\n        },\n        {\n          \"id\": \"xhigh\",\n          \"label\": \"xhigh\",\n          \"description\": \"Extra high reasoning depth for complex problems\",\n          \"isDefault\": false\n        },\n        {\n          \"id\": \"max\",\n          \"label\": \"max\",\n          \"description\": \"Maximum reasoning depth for the hardest problems\",\n          \"isDefault\": false\n        }\n      ],\n      \"defaultThinkingOptionId\": \"medium\",\n      \"metadata\": {\n        \"model\": \"gpt-6-luna\",\n        \"defaultReasoningEffort\": \"medium\",\n        \"supportedReasoningEfforts\": [\n          {\n            \"reasoningEffort\": \"low\",\n            \"description\": \"Fast responses with lighter reasoning\"\n          },\n          {\n            \"reasoningEffort\": \"medium\",\n            \"description\": \"Balances speed and reasoning depth for everyday tasks\"\n          },\n          {\n            \"reasoningEffort\": \"high\",\n            \"description\": \"Greater reasoning depth for complex problems\"\n          },\n          {\n            \"reasoningEffort\": \"xhigh\",\n            \"description\": \"Extra high reasoning depth for complex problems\"\n          },\n          {\n            \"reasoningEffort\": \"max\",\n            \"description\": \"Maximum reasoning depth for the hardest problems\"\n          }\n        ]\n      }\n    },\n    {\n      \"provider\": \"codex\",\n      \"id\": \"gpt-5.6-sol\",\n      \"label\": \"GPT-5.6-Sol\",\n      \"description\": \"Older generation workhorse model.\",\n      \"isDefault\": false,\n      \"thinkingOptions\": [\n        {\n          \"id\": \"low\",\n          \"label\": \"low\",\n          \"description\": \"Fast responses with lighter reasoning\",\n          \"isDefault\": true\n        },\n        {\n          \"id\": \"medium\",\n          \"label\": \"medium\",\n          \"description\": \"Balances speed and reasoning depth for everyday tasks\",\n          \"isDefault\": false\n        },\n        {\n          \"id\": \"high\",\n          \"label\": \"high\",\n          \"description\": \"Greater reasoning depth for complex problems\",\n          \"isDefault\": false\n        },\n        {\n          \"id\": \"xhigh\",\n          \"label\": \"xhigh\",\n          \"description\": \"Extra high reasoning depth for complex problems\",\n          \"isDefault\": false\n        },\n        {\n          \"id\": \"max\",\n          \"label\": \"max\",\n          \"description\": \"Maximum reasoning depth for the hardest problems\",\n          \"isDefault\": false\n        },\n        {\n          \"id\": \"ultra\",\n          \"label\": \"ultra\",\n          \"description\": \"Maximum reasoning with automatic task delegation\",\n          \"isDefault\": false\n        }\n      ],\n      \"defaultThinkingOptionId\": \"low\",\n      \"metadata\": {\n        \"model\": \"gpt-5.6-sol\",\n        \"defaultReasoningEffort\": \"low\",\n        \"supportedReasoningEfforts\": [\n          {\n            \"reasoningEffort\": \"low\",\n            \"description\": \"Fast responses with lighter reasoning\"\n          },\n          {\n            \"reasoningEffort\": \"medium\",\n            \"description\": \"Balances speed and reasoning depth for everyday tasks\"\n          },\n          {\n            \"reasoningEffort\": \"high\",\n            \"description\": \"Greater reasoning depth for complex problems\"\n          },\n          {\n            \"reasoningEffort\": \"xhigh\",\n            \"description\": \"Extra high reasoning depth for complex problems\"\n          },\n          {\n            \"reasoningEffort\": \"max\",\n            \"description\": \"Maximum reasoning depth for the hardest problems\"\n          },\n          {\n            \"reasoningEffort\": \"ultra\",\n            \"description\": \"Maximum reasoning with automatic task delegation\"\n          }\n        ]\n      }\n    },\n    {\n      \"provider\": \"codex\",\n      \"id\": \"gpt-5.6-terra\",\n      \"label\": \"GPT-5.6-Terra\",\n      \"description\": \"Older balanced model for straightforward work.\",\n      \"isDefault\": false,\n      \"thinkingOptions\": [\n        {\n          \"id\": \"low\",\n          \"label\": \"low\",\n          \"description\": \"Fast responses with lighter reasoning\",\n          \"isDefault\": false\n        },\n        {\n          \"id\": \"medium\",\n          \"label\": \"medium\",\n          \"description\": \"Balances speed and reasoning depth for everyday tasks\",\n          \"isDefault\": true\n        },\n        {\n          \"id\": \"high\",\n          \"label\": \"high\",\n          \"description\": \"Greater reasoning depth for complex problems\",\n          \"isDefault\": false\n        },\n        {\n          \"id\": \"xhigh\",\n          \"label\": \"xhigh\",\n          \"description\": \"Extra high reasoning depth for complex problems\",\n          \"isDefault\": false\n        },\n        {\n          \"id\": \"max\",\n          \"label\": \"max\",\n          \"description\": \"Maximum reasoning depth for the hardest problems\",\n          \"isDefault\": false\n        },\n        {\n          \"id\": \"ultra\",\n          \"label\": \"ultra\",\n          \"description\": \"Maximum reasoning with automatic task delegation\",\n          \"isDefault\": false\n        }\n      ],\n      \"defaultThinkingOptionId\": \"medium\",\n      \"metadata\": {\n        \"model\": \"gpt-5.6-terra\",\n        \"defaultReasoningEffort\": \"medium\",\n        \"supportedReasoningEfforts\": [\n          {\n            \"reasoningEffort\": \"low\",\n            \"description\": \"Fast responses with lighter reasoning\"\n          },\n          {\n            \"reasoningEffort\": \"medium\",\n            \"description\": \"Balances speed and reasoning depth for everyday tasks\"\n          },\n          {\n            \"reasoningEffort\": \"high\",\n            \"description\": \"Greater reasoning depth for complex problems\"\n          },\n          {\n            \"reasoningEffort\": \"xhigh\",\n            \"description\": \"Extra high reasoning depth for complex problems\"\n          },\n          {\n            \"reasoningEffort\": \"max\",\n            \"description\": \"Maximum reasoning depth for the hardest problems\"\n          },\n          {\n            \"reasoningEffort\": \"ultra\",\n            \"description\": \"Maximum reasoning with automatic task delegation\"\n          }\n        ]\n      }\n    },\n    {\n      \"provider\": \"codex\",\n      \"id\": \"gpt-5.6-luna\",\n      \"label\": \"GPT-5.6-Luna\",\n      \"description\": \"Older fast and efficient model.\",\n      \"isDefault\": false,\n      \"thinkingOptions\": [\n        {\n          \"id\": \"low\",\n          \"label\": \"low\",\n          \"description\": \"Fast responses with lighter reasoning\",\n          \"isDefault\": false\n        },\n        {\n          \"id\": \"medium\",\n          \"label\": \"medium\",\n          \"description\": \"Balances speed and reasoning depth for everyday tasks\",\n          \"isDefault\": true\n        },\n        {\n          \"id\": \"high\",\n          \"label\": \"high\",\n          \"description\": \"Greater reasoning depth for complex problems\",\n          \"isDefault\": false\n        },\n        {\n          \"id\": \"xhigh\",\n          \"label\": \"xhigh\",\n          \"description\": \"Extra high reasoning depth for complex problems\",\n          \"isDefault\": false\n        },\n        {\n          \"id\": \"max\",\n          \"label\": \"max\",\n          \"description\": \"Maximum reasoning depth for the hardest problems\",\n          \"isDefault\": false\n        }\n      ],\n      \"defaultThinkingOptionId\": \"medium\",\n      \"metadata\": {\n        \"model\": \"gpt-5.6-luna\",\n        \"defaultReasoningEffort\": \"medium\",\n        \"supportedReasoningEfforts\": [\n          {\n            \"reasoningEffort\": \"low\",\n            \"description\": \"Fast responses with lighter reasoning\"\n          },\n          {\n            \"reasoningEffort\": \"medium\",\n            \"description\": \"Balances speed and reasoning depth for everyday tasks\"\n          },\n          {\n            \"reasoningEffort\": \"high\",\n            \"description\": \"Greater reasoning depth for complex problems\"\n          },\n          {\n            \"reasoningEffort\": \"xhigh\",\n            \"description\": \"Extra high reasoning depth for complex problems\"\n          },\n          {\n            \"reasoningEffort\": \"max\",\n            \"description\": \"Maximum reasoning depth for the hardest problems\"\n          }\n        ]\n      }\n    }\n  ]\n}"
+        }
+      ],
+      "structuredContent": {
+        "provider": "codex",
+        "models": [
+          {
+            "provider": "codex",
+            "id": "gpt-6.1-sol",
+            "label": "GPT-6.1-Sol",
+            "description": "Latest workhorse model for coding and everyday work.",
+            "isDefault": true,
+            "thinkingOptions": [
+              {
+                "id": "low",
+                "label": "low",
+                "description": "Fast responses with lighter reasoning",
+                "isDefault": true
+              },
+              {
+                "id": "medium",
+                "label": "medium",
+                "description": "Balances speed and reasoning depth for everyday tasks",
+                "isDefault": false
+              },
+              {
+                "id": "high",
+                "label": "high",
+                "description": "Greater reasoning depth for complex problems",
+                "isDefault": false
+              },
+              {
+                "id": "xhigh",
+                "label": "xhigh",
+                "description": "Extra high reasoning depth for complex problems",
+                "isDefault": false
+              },
+              {
+                "id": "max",
+                "label": "max",
+                "description": "Maximum reasoning depth for the hardest problems",
+                "isDefault": false
+              },
+              {
+                "id": "ultra",
+                "label": "ultra",
+                "description": "Maximum reasoning with automatic task delegation",
+                "isDefault": false
+              }
+            ],
+            "defaultThinkingOptionId": "low",
+            "metadata": {
+              "model": "gpt-6.1-sol",
+              "defaultReasoningEffort": "low",
+              "supportedReasoningEfforts": [
+                {
+                  "reasoningEffort": "low",
+                  "description": "Fast responses with lighter reasoning"
+                },
+                {
+                  "reasoningEffort": "medium",
+                  "description": "Balances speed and reasoning depth for everyday tasks"
+                },
+                {
+                  "reasoningEffort": "high",
+                  "description": "Greater reasoning depth for complex problems"
+                },
+                {
+                  "reasoningEffort": "xhigh",
+                  "description": "Extra high reasoning depth for complex problems"
+                },
+                {
+                  "reasoningEffort": "max",
+                  "description": "Maximum reasoning depth for the hardest problems"
+                },
+                {
+                  "reasoningEffort": "ultra",
+                  "description": "Maximum reasoning with automatic task delegation"
+                }
+              ]
+            }
+          },
+          {
+            "provider": "codex",
+            "id": "gpt-6-astra",
+            "label": "GPT-6-Astra",
+            "description": "Frontier intelligence for the most demanding work.",
+            "isDefault": false,
+            "thinkingOptions": [
+              {
+                "id": "low",
+                "label": "low",
+                "description": "Fast responses with lighter reasoning",
+                "isDefault": false
+              },
+              {
+                "id": "medium",
+                "label": "medium",
+                "description": "Balances speed and reasoning depth for everyday tasks",
+                "isDefault": true
+              },
+              {
+                "id": "high",
+                "label": "high",
+                "description": "Greater reasoning depth for complex problems",
+                "isDefault": false
+              },
+              {
+                "id": "xhigh",
+                "label": "xhigh",
+                "description": "Extra high reasoning depth for complex problems",
+                "isDefault": false
+              },
+              {
+                "id": "max",
+                "label": "max",
+                "description": "Maximum reasoning depth for the hardest problems",
+                "isDefault": false
+              },
+              {
+                "id": "ultra",
+                "label": "ultra",
+                "description": "Maximum reasoning with automatic task delegation",
+                "isDefault": false
+              }
+            ],
+            "defaultThinkingOptionId": "medium",
+            "metadata": {
+              "model": "gpt-6-astra",
+              "defaultReasoningEffort": "medium",
+              "supportedReasoningEfforts": [
+                {
+                  "reasoningEffort": "low",
+                  "description": "Fast responses with lighter reasoning"
+                },
+                {
+                  "reasoningEffort": "medium",
+                  "description": "Balances speed and reasoning depth for everyday tasks"
+                },
+                {
+                  "reasoningEffort": "high",
+                  "description": "Greater reasoning depth for complex problems"
+                },
+                {
+                  "reasoningEffort": "xhigh",
+                  "description": "Extra high reasoning depth for complex problems"
+                },
+                {
+                  "reasoningEffort": "max",
+                  "description": "Maximum reasoning depth for the hardest problems"
+                },
+                {
+                  "reasoningEffort": "ultra",
+                  "description": "Maximum reasoning with automatic task delegation"
+                }
+              ]
+            }
+          },
+          {
+            "provider": "codex",
+            "id": "gpt-6-sol",
+            "label": "GPT-6-Sol",
+            "description": "Previous generation workhorse model.",
+            "isDefault": false,
+            "thinkingOptions": [
+              {
+                "id": "low",
+                "label": "low",
+                "description": "Fast responses with lighter reasoning",
+                "isDefault": false
+              },
+              {
+                "id": "medium",
+                "label": "medium",
+                "description": "Balances speed and reasoning depth for everyday tasks",
+                "isDefault": true
+              },
+              {
+                "id": "high",
+                "label": "high",
+                "description": "Greater reasoning depth for complex problems",
+                "isDefault": false
+              },
+              {
+                "id": "xhigh",
+                "label": "xhigh",
+                "description": "Extra high reasoning depth for complex problems",
+                "isDefault": false
+              },
+              {
+                "id": "max",
+                "label": "max",
+                "description": "Maximum reasoning depth for the hardest problems",
+                "isDefault": false
+              },
+              {
+                "id": "ultra",
+                "label": "ultra",
+                "description": "Maximum reasoning with automatic task delegation",
+                "isDefault": false
+              }
+            ],
+            "defaultThinkingOptionId": "medium",
+            "metadata": {
+              "model": "gpt-6-sol",
+              "defaultReasoningEffort": "medium",
+              "supportedReasoningEfforts": [
+                {
+                  "reasoningEffort": "low",
+                  "description": "Fast responses with lighter reasoning"
+                },
+                {
+                  "reasoningEffort": "medium",
+                  "description": "Balances speed and reasoning depth for everyday tasks"
+                },
+                {
+                  "reasoningEffort": "high",
+                  "description": "Greater reasoning depth for complex problems"
+                },
+                {
+                  "reasoningEffort": "xhigh",
+                  "description": "Extra high reasoning depth for complex problems"
+                },
+                {
+                  "reasoningEffort": "max",
+                  "description": "Maximum reasoning depth for the hardest problems"
+                },
+                {
+                  "reasoningEffort": "ultra",
+                  "description": "Maximum reasoning with automatic task delegation"
+                }
+              ]
+            }
+          },
+          {
+            "provider": "codex",
+            "id": "gpt-6-luna",
+            "label": "GPT-6-Luna",
+            "description": "Fast and affordable model for easier tasks.",
+            "isDefault": false,
+            "thinkingOptions": [
+              {
+                "id": "low",
+                "label": "low",
+                "description": "Fast responses with lighter reasoning",
+                "isDefault": false
+              },
+              {
+                "id": "medium",
+                "label": "medium",
+                "description": "Balances speed and reasoning depth for everyday tasks",
+                "isDefault": true
+              },
+              {
+                "id": "high",
+                "label": "high",
+                "description": "Greater reasoning depth for complex problems",
+                "isDefault": false
+              },
+              {
+                "id": "xhigh",
+                "label": "xhigh",
+                "description": "Extra high reasoning depth for complex problems",
+                "isDefault": false
+              },
+              {
+                "id": "max",
+                "label": "max",
+                "description": "Maximum reasoning depth for the hardest problems",
+                "isDefault": false
+              }
+            ],
+            "defaultThinkingOptionId": "medium",
+            "metadata": {
+              "model": "gpt-6-luna",
+              "defaultReasoningEffort": "medium",
+              "supportedReasoningEfforts": [
+                {
+                  "reasoningEffort": "low",
+                  "description": "Fast responses with lighter reasoning"
+                },
+                {
+                  "reasoningEffort": "medium",
+                  "description": "Balances speed and reasoning depth for everyday tasks"
+                },
+                {
+                  "reasoningEffort": "high",
+                  "description": "Greater reasoning depth for complex problems"
+                },
+                {
+                  "reasoningEffort": "xhigh",
+                  "description": "Extra high reasoning depth for complex problems"
+                },
+                {
+                  "reasoningEffort": "max",
+                  "description": "Maximum reasoning depth for the hardest problems"
+                }
+              ]
+            }
+          },
+          {
+            "provider": "codex",
+            "id": "gpt-5.6-sol",
+            "label": "GPT-5.6-Sol",
+            "description": "Older generation workhorse model.",
+            "isDefault": false,
+            "thinkingOptions": [
+              {
+                "id": "low",
+                "label": "low",
+                "description": "Fast responses with lighter reasoning",
+                "isDefault": true
+              },
+              {
+                "id": "medium",
+                "label": "medium",
+                "description": "Balances speed and reasoning depth for everyday tasks",
+                "isDefault": false
+              },
+              {
+                "id": "high",
+                "label": "high",
+                "description": "Greater reasoning depth for complex problems",
+                "isDefault": false
+              },
+              {
+                "id": "xhigh",
+                "label": "xhigh",
+                "description": "Extra high reasoning depth for complex problems",
+                "isDefault": false
+              },
+              {
+                "id": "max",
+                "label": "max",
+                "description": "Maximum reasoning depth for the hardest problems",
+                "isDefault": false
+              },
+              {
+                "id": "ultra",
+                "label": "ultra",
+                "description": "Maximum reasoning with automatic task delegation",
+                "isDefault": false
+              }
+            ],
+            "defaultThinkingOptionId": "low",
+            "metadata": {
+              "model": "gpt-5.6-sol",
+              "defaultReasoningEffort": "low",
+              "supportedReasoningEfforts": [
+                {
+                  "reasoningEffort": "low",
+                  "description": "Fast responses with lighter reasoning"
+                },
+                {
+                  "reasoningEffort": "medium",
+                  "description": "Balances speed and reasoning depth for everyday tasks"
+                },
+                {
+                  "reasoningEffort": "high",
+                  "description": "Greater reasoning depth for complex problems"
+                },
+                {
+                  "reasoningEffort": "xhigh",
+                  "description": "Extra high reasoning depth for complex problems"
+                },
+                {
+                  "reasoningEffort": "max",
+                  "description": "Maximum reasoning depth for the hardest problems"
+                },
+                {
+                  "reasoningEffort": "ultra",
+                  "description": "Maximum reasoning with automatic task delegation"
+                }
+              ]
+            }
+          },
+          {
+            "provider": "codex",
+            "id": "gpt-5.6-terra",
+            "label": "GPT-5.6-Terra",
+            "description": "Older balanced model for straightforward work.",
+            "isDefault": false,
+            "thinkingOptions": [
+              {
+                "id": "low",
+                "label": "low",
+                "description": "Fast responses with lighter reasoning",
+                "isDefault": false
+              },
+              {
+                "id": "medium",
+                "label": "medium",
+                "description": "Balances speed and reasoning depth for everyday tasks",
+                "isDefault": true
+              },
+              {
+                "id": "high",
+                "label": "high",
+                "description": "Greater reasoning depth for complex problems",
+                "isDefault": false
+              },
+              {
+                "id": "xhigh",
+                "label": "xhigh",
+                "description": "Extra high reasoning depth for complex problems",
+                "isDefault": false
+              },
+              {
+                "id": "max",
+                "label": "max",
+                "description": "Maximum reasoning depth for the hardest problems",
+                "isDefault": false
+              },
+              {
+                "id": "ultra",
+                "label": "ultra",
+                "description": "Maximum reasoning with automatic task delegation",
+                "isDefault": false
+              }
+            ],
+            "defaultThinkingOptionId": "medium",
+            "metadata": {
+              "model": "gpt-5.6-terra",
+              "defaultReasoningEffort": "medium",
+              "supportedReasoningEfforts": [
+                {
+                  "reasoningEffort": "low",
+                  "description": "Fast responses with lighter reasoning"
+                },
+                {
+                  "reasoningEffort": "medium",
+                  "description": "Balances speed and reasoning depth for everyday tasks"
+                },
+                {
+                  "reasoningEffort": "high",
+                  "description": "Greater reasoning depth for complex problems"
+                },
+                {
+                  "reasoningEffort": "xhigh",
+                  "description": "Extra high reasoning depth for complex problems"
+                },
+                {
+                  "reasoningEffort": "max",
+                  "description": "Maximum reasoning depth for the hardest problems"
+                },
+                {
+                  "reasoningEffort": "ultra",
+                  "description": "Maximum reasoning with automatic task delegation"
+                }
+              ]
+            }
+          },
+          {
+            "provider": "codex",
+            "id": "gpt-5.6-luna",
+            "label": "GPT-5.6-Luna",
+            "description": "Older fast and efficient model.",
+            "isDefault": false,
+            "thinkingOptions": [
+              {
+                "id": "low",
+                "label": "low",
+                "description": "Fast responses with lighter reasoning",
+                "isDefault": false
+              },
+              {
+                "id": "medium",
+                "label": "medium",
+                "description": "Balances speed and reasoning depth for everyday tasks",
+                "isDefault": true
+              },
+              {
+                "id": "high",
+                "label": "high",
+                "description": "Greater reasoning depth for complex problems",
+                "isDefault": false
+              },
+              {
+                "id": "xhigh",
+                "label": "xhigh",
+                "description": "Extra high reasoning depth for complex problems",
+                "isDefault": false
+              },
+              {
+                "id": "max",
+                "label": "max",
+                "description": "Maximum reasoning depth for the hardest problems",
+                "isDefault": false
+              }
+            ],
+            "defaultThinkingOptionId": "medium",
+            "metadata": {
+              "model": "gpt-5.6-luna",
+              "defaultReasoningEffort": "medium",
+              "supportedReasoningEfforts": [
+                {
+                  "reasoningEffort": "low",
+                  "description": "Fast responses with lighter reasoning"
+                },
+                {
+                  "reasoningEffort": "medium",
+                  "description": "Balances speed and reasoning depth for everyday tasks"
+                },
+                {
+                  "reasoningEffort": "high",
+                  "description": "Greater reasoning depth for complex problems"
+                },
+                {
+                  "reasoningEffort": "xhigh",
+                  "description": "Extra high reasoning depth for complex problems"
+                },
+                {
+                  "reasoningEffort": "max",
+                  "description": "Maximum reasoning depth for the hardest problems"
+                }
+              ]
+            }
+          }
+        ]
+      }
+    }
+  },
+  "inspection": {
+    "content": [
+      {
+        "type": "text",
+        "text": "modes_count=3\nmodes_ids=auto,auto-review,full-access\nfeatures_count=1\nfeatures_ids=plan_mode\n\n{\n  \"provider\": \"codex\",\n  \"label\": \"Codex\",\n  \"description\": \"OpenAI's Codex workspace agent with sandbox controls and optional network access\",\n  \"enabled\": true,\n  \"status\": \"available\",\n  \"modes\": [\n    {\n      \"id\": \"auto\",\n      \"label\": \"Default Permissions\",\n      \"description\": \"Edit files and run commands with Codex's default approval flow.\",\n      \"icon\": \"Shield\",\n      \"colorTier\": \"moderate\"\n    },\n    {\n      \"id\": \"auto-review\",\n      \"label\": \"Auto-review\",\n      \"description\": \"Same workspace-write permissions as Default, but eligible `on-request` approvals are routed through the auto-reviewer subagent.\",\n      \"icon\": \"ShieldCheck\",\n      \"colorTier\": \"moderate\"\n    },\n    {\n      \"id\": \"full-access\",\n      \"label\": \"Full Access\",\n      \"description\": \"Edit files, run commands, and access the network without additional prompts.\",\n      \"icon\": \"ShieldOff\",\n      \"colorTier\": \"dangerous\"\n    }\n  ],\n  \"selectedModel\": \"gpt-6.1-sol\",\n  \"features\": [\n    {\n      \"type\": \"toggle\",\n      \"id\": \"plan_mode\",\n      \"label\": \"Plan\",\n      \"description\": \"Switch Codex into planning-only collaboration mode\",\n      \"tooltip\": \"Toggle plan mode\",\n      \"icon\": \"list-todo\",\n      \"value\": false\n    }\n  ]\n}"
+      }
+    ],
+    "structuredContent": {
+      "provider": "codex",
+      "label": "Codex",
+      "description": "OpenAI's Codex workspace agent with sandbox controls and optional network access",
+      "enabled": true,
+      "status": "available",
+      "modes": [
+        {
+          "id": "auto",
+          "label": "Default Permissions",
+          "description": "Edit files and run commands with Codex's default approval flow.",
+          "icon": "Shield",
+          "colorTier": "moderate"
+        },
+        {
+          "id": "auto-review",
+          "label": "Auto-review",
+          "description": "Same workspace-write permissions as Default, but eligible `on-request` approvals are routed through the auto-reviewer subagent.",
+          "icon": "ShieldCheck",
+          "colorTier": "moderate"
+        },
+        {
+          "id": "full-access",
+          "label": "Full Access",
+          "description": "Edit files, run commands, and access the network without additional prompts.",
+          "icon": "ShieldOff",
+          "colorTier": "dangerous"
+        }
+      ],
+      "selectedModel": "gpt-6.1-sol",
+      "features": [
+        {
+          "type": "toggle",
+          "id": "plan_mode",
+          "label": "Plan",
+          "description": "Switch Codex into planning-only collaboration mode",
+          "tooltip": "Toggle plan mode",
+          "icon": "list-todo",
+          "value": false
+        }
+      ]
+    }
+  },
+  "own_status": {
+    "content": [
+      {
+        "type": "text",
+        "text": "{\n  \"status\": \"running\",\n  \"snapshot\": {\n    \"id\": \"22b57c54-f478-42f2-88c1-379d4fc885b4\",\n    \"provider\": \"codex\",\n    \"cwd\": \"/home/regner/.paseo/worktrees/0u71f39f/plan-checkpoint-topology-capacity-readiness\",\n    \"workspaceId\": \"wks_e5fd6600de812da4\",\n    \"model\": \"gpt-6.1-sol\",\n    \"thinkingOptionId\": \"high\",\n    \"effectiveThinkingOptionId\": \"high\",\n    \"runtimeInfo\": {\n      \"provider\": \"codex\",\n      \"sessionId\": \"01a11986-1c81-7ed1-8dcc-270d865b6223\",\n      \"model\": \"gpt-6.1-sol\",\n      \"thinkingOptionId\": \"high\",\n      \"modeId\": \"auto-review\",\n      \"extra\": {\n        \"collaborationMode\": \"Default\"\n      }\n    },\n    \"createdAt\": \"2026-10-08T03:19:41.950Z\",\n    \"updatedAt\": \"2026-10-08T03:20:46.924Z\",\n    \"lastUserMessageAt\": \"2026-10-08T03:19:43.986Z\",\n    \"status\": \"running\",\n    \"activeTurn\": {\n      \"turnId\": \"codex-turn-0\",\n      \"startedAt\": \"2026-10-08T03:19:42.036Z\"\n    },\n    \"capabilities\": {\n      \"supportsStreaming\": true,\n      \"supportsSessionPersistence\": true,\n      \"supportsSessionListing\": true,\n      \"supportsDynamicModes\": false,\n      \"supportsMcpServers\": true,\n      \"supportsReasoningStream\": true,\n      \"supportsToolInvocations\": true,\n      \"supportsRewindConversation\": true,\n      \"supportsRewindFiles\": false,\n      \"supportsRewindBoth\": false\n    },\n    \"currentModeId\": \"auto-review\",\n    \"availableModes\": [\n      {\n        \"id\": \"auto\",\n        \"label\": \"Default Permissions\",\n        \"description\": \"Edit files and run commands with Codex's default approval flow.\"\n      },\n      {\n        \"id\": \"auto-review\",\n        \"label\": \"Auto-review\",\n        \"description\": \"Same workspace-write permissions as Default, but eligible `on-request` approvals are routed through the auto-reviewer subagent.\"\n      },\n      {\n        \"id\": \"full-access\",\n        \"label\": \"Full Access\",\n        \"description\": \"Edit files, run commands, and access the network without additional prompts.\"\n      }\n    ],\n    \"features\": [\n      {\n        \"type\": \"toggle\",\n        \"id\": \"plan_mode\",\n        \"label\": \"Plan\",\n        \"description\": \"Switch Codex into planning-only collaboration mode\",\n        \"tooltip\": \"Toggle plan mode\",\n        \"icon\": \"list-todo\",\n        \"value\": false\n      }\n    ],\n    \"pendingPermissions\": [],\n    \"persistence\": {\n      \"provider\": \"codex\",\n      \"sessionId\": \"01a11986-1c81-7ed1-8dcc-270d865b6223\",\n      \"metadata\": {\n        \"cwd\": \"/home/regner/.paseo/worktrees/0u71f39f/plan-checkpoint-topology-capacity-readiness\"\n      }\n    },\n    \"title\": \"Full plan checkpoint after topology seam proof\",\n    \"labels\": {\n      \"paseo.parent-agent-id\": \"b70ce3b8-b419-45da-bcc2-7d8262abb0e8\"\n    },\n    \"lastUsage\": {\n      \"inputTokens\": 70108,\n      \"cachedInputTokens\": 60416,\n      \"outputTokens\": 303,\n      \"contextWindowMaxTokens\": 258400,\n      \"contextWindowUsedTokens\": 70411\n    },\n    \"requiresAttention\": false,\n    \"attentionReason\": null,\n    \"attentionTimestamp\": null\n  }\n}"
+      }
+    ],
+    "structuredContent": {
+      "status": "running",
+      "snapshot": {
+        "id": "22b57c54-f478-42f2-88c1-379d4fc885b4",
+        "provider": "codex",
+        "cwd": "/home/regner/.paseo/worktrees/0u71f39f/plan-checkpoint-topology-capacity-readiness",
+        "workspaceId": "wks_e5fd6600de812da4",
+        "model": "gpt-6.1-sol",
+        "thinkingOptionId": "high",
+        "effectiveThinkingOptionId": "high",
+        "runtimeInfo": {
+          "provider": "codex",
+          "sessionId": "01a11986-1c81-7ed1-8dcc-270d865b6223",
+          "model": "gpt-6.1-sol",
+          "thinkingOptionId": "high",
+          "modeId": "auto-review",
+          "extra": {
+            "collaborationMode": "Default"
+          }
+        },
+        "createdAt": "2026-10-08T03:19:41.950Z",
+        "updatedAt": "2026-10-08T03:20:46.924Z",
+        "lastUserMessageAt": "2026-10-08T03:19:43.986Z",
+        "status": "running",
+        "activeTurn": {
+          "turnId": "codex-turn-0",
+          "startedAt": "2026-10-08T03:19:42.036Z"
+        },
+        "capabilities": {
+          "supportsStreaming": true,
+          "supportsSessionPersistence": true,
+          "supportsSessionListing": true,
+          "supportsDynamicModes": false,
+          "supportsMcpServers": true,
+          "supportsReasoningStream": true,
+          "supportsToolInvocations": true,
+          "supportsRewindConversation": true,
+          "supportsRewindFiles": false,
+          "supportsRewindBoth": false
+        },
+        "currentModeId": "auto-review",
+        "availableModes": [
+          {
+            "id": "auto",
+            "label": "Default Permissions",
+            "description": "Edit files and run commands with Codex's default approval flow."
+          },
+          {
+            "id": "auto-review",
+            "label": "Auto-review",
+            "description": "Same workspace-write permissions as Default, but eligible `on-request` approvals are routed through the auto-reviewer subagent."
+          },
+          {
+            "id": "full-access",
+            "label": "Full Access",
+            "description": "Edit files, run commands, and access the network without additional prompts."
+          }
+        ],
+        "features": [
+          {
+            "type": "toggle",
+            "id": "plan_mode",
+            "label": "Plan",
+            "description": "Switch Codex into planning-only collaboration mode",
+            "tooltip": "Toggle plan mode",
+            "icon": "list-todo",
+            "value": false
+          }
+        ],
+        "pendingPermissions": [],
+        "persistence": {
+          "provider": "codex",
+          "sessionId": "01a11986-1c81-7ed1-8dcc-270d865b6223",
+          "metadata": {
+            "cwd": "/home/regner/.paseo/worktrees/0u71f39f/plan-checkpoint-topology-capacity-readiness"
+          }
+        },
+        "title": "Full plan checkpoint after topology seam proof",
+        "labels": {
+          "paseo.parent-agent-id": "b70ce3b8-b419-45da-bcc2-7d8262abb0e8"
+        },
+        "lastUsage": {
+          "inputTokens": 70108,
+          "cachedInputTokens": 60416,
+          "outputTokens": 303,
+          "contextWindowMaxTokens": 258400,
+          "contextWindowUsedTokens": 70411
+        },
+        "requiresAttention": false,
+        "attentionReason": null,
+        "attentionTimestamp": null
+      }
+    }
+  }
+}

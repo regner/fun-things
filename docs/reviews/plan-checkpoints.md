@@ -1,11 +1,13 @@
 # Plan, documentation and profile checkpoints
 
-Latest: [sixth checkpoint, 8 October 2026](plan-check-2026-10-08-06.md).
-Checked-through integrated main: `754a0b501fe705c93675ff09b43d5bfca201cd94`.
-Last profile check: 8 October 2026, sixth checkpoint; zero installed,
-four inert reviewed proposals, configuration/representative launch validation deferred.
-Accepted DOC6/7 and partial S05 Sol implementation/review add requirements/friction
-coverage; no new necessary specialist. See record for ownership, gates and next revisit.
+Latest: [seventh checkpoint, 8 October 2026](plan-check-2026-10-08-07.md).
+Checked-through integrated main: `7fb302ba2829966c9a687a12a7f00d09ce6a7824`.
+Last profile check: 8 October 2026, seventh checkpoint; zero installed,
+four reviewed INERT proposals, configuration/effective-permission/representative
+launch validation deferred. Accepted DOC8/9 Sol MEDIUM/HIGH review and partial S06
+Sol HIGH/HIGH spatial/recovery/retention evidence add requirements, no new necessary
+specialist or installed-bundle proof. See record for current ownership, gates,
+capacity readiness, bounded next decisions and next revisit.
 
 History: [first baseline, 7 October 2026](plan-check-2026-10-07.md), checked through
 `3b50a915d06f7ad383a4d6dc70403729918c0268`; preserved as historical evidence.
@@ -19,6 +21,9 @@ History: [first baseline, 7 October 2026](plan-check-2026-10-07.md), checked thr
 
 [Fifth checkpoint, 8 October 2026](plan-check-2026-10-08-05.md), checked through
 `ca38e4fc55b32a379ef7e3bf947e27d4ca8edc4c`; preserved as historical evidence.
+
+[Sixth checkpoint, 8 October 2026](plan-check-2026-10-08-06.md), checked through
+`754a0b501fe705c93675ff09b43d5bfca201cd94`; preserved as historical evidence.
 
 Use the latest record's exact watermark, evidence and next triggers on resume.
 This index points to reviewed checkpoint changes when integrated; candidate rebases
