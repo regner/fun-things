@@ -85,11 +85,15 @@ func _process(delta: float) -> void:
 ## Performs window transitions; cancellation must come from the OS signal, not a test call.
 func _drive_window() -> void:
 	if _stage == Stage.READY and _elapsed >= PRESS_AT_SECONDS:
+		if not _require_focus_gate(false):
+			return
 		_emit_stage("press")
 		_key(KEY_W, true)
 		_key(KEY_SPACE, true)
 		_stage = Stage.HELD
 	elif _stage == Stage.HELD and _elapsed >= MINIMIZE_AT_SECONDS:
+		if not _require_focus_gate(true):
+			return
 		_emit_stage("minimize")
 		_window.mode = Window.MODE_MINIMIZED
 		_stage = Stage.MINIMIZED
@@ -102,14 +106,19 @@ func _drive_window() -> void:
 		_emit_stage("restore")
 		_stage = Stage.RESTORED
 	elif _stage == Stage.RESTORED and _elapsed >= CHECK_AT_SECONDS:
-		if not _window.has_focus():
-			_failures.append("restoring window did not regain native focus")
-		if _fixture.input_collector.sample().move != 0.0:
-			_failures.append("restoring window resumed stale movement")
-		if _fixture.input_collector.sample().fire:
-			_failures.append("restoring window resumed stale fire")
+		_check_restored()
 		_emit_stage("check")
 		_stage = Stage.DONE
+
+
+## Verifies restored focus remains neutral until a fresh physical input event.
+func _check_restored() -> void:
+	if not _window.has_focus():
+		_failures.append("restoring window did not regain native focus")
+	if _fixture.input_collector.sample().move != 0.0:
+		_failures.append("restoring window resumed stale movement")
+	if _fixture.input_collector.sample().fire:
+		_failures.append("restoring window resumed stale fire")
 
 
 ## Verifies actual focus loss froze movement and shot production.
@@ -158,6 +167,23 @@ func _finish() -> void:
 	}))
 	_fixture.queue_free()
 	get_tree().quit(0 if _failures.is_empty() else 1)
+
+
+## Stops before an input/window transition when independently observed foreground is lost.
+func _require_focus_gate(release_keys: bool) -> bool:
+	if _focus_gate_present():
+		return true
+	if release_keys:
+		_key(KEY_W, false)
+		_key(KEY_SPACE, false)
+	_failures.append("initial native focus not established")
+	_finish()
+	return false
+
+
+## Reports whether the runner still observes sustained child foreground ownership.
+func _focus_gate_present() -> bool:
+	return not _focus_gate.is_empty() and FileAccess.file_exists(_focus_gate)
 
 
 ## Reads the external gate path supplied after Godot's user-argument separator.

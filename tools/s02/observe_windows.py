@@ -302,6 +302,7 @@ def collect_focus(project, output, godot):
         criteria = {
             "fixture_result": fixture_result is not None,
             "initial_native_focus": initial_focus,
+            "no_foreign_focus_steal": not attempt["foreign_focus_stolen"],
             "focus_out_in": fixture_result is not None
             and fixture_result.get("os_focus_loss") is True
             and not fixture_result.get("failures"),
@@ -373,6 +374,7 @@ def main():
         "dirty_inputs": dirty,
         "platform": platform.platform(),
         "python": sys.version,
+        "focus_only": args.focus_only,
         "foreground_preflight": foreground_window(),
     }
     project = None
@@ -427,9 +429,10 @@ def main():
     criteria = {
         "clean_inputs": not dirty,
         "inputs_preserved": unchanged,
-        "draw": args.focus_only or summary.get("draw", {}).get("ok", False),
         "focus": summary.get("focus", {}).get("ok", False),
     }
+    if not args.focus_only:
+        criteria["draw"] = summary.get("draw", {}).get("ok", False)
     summary["criteria"] = criteria
     summary["ok"] = "failure" not in summary and all(criteria.values())
     save(output / "result.json", summary)

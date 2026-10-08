@@ -1,20 +1,21 @@
 # S02 — Windows drawability and native-focus observation
 
 8 October 2026. Windows 11 `10.0.26200`, NVIDIA GeForce RTX 4070 Laptop GPU,
-D3D12 Forward+, pinned Godot `4.8.dev7.official.c971f93e7`. This executes the saved
-S02 corner and saved focus runner without changing either scene or any gameplay behavior.
-[Evidence](s02-windows-evidence/) binds the graphical observation to revision
-`1b6b3a3abdfe5fd3839020b20e6da245b98c1ce1` and the exact copied runtime inputs.
-Full S02 remains open.
+D3D12 Forward+, pinned Godot `4.8.dev7.official.c971f93e7`. The initial pass executed the
+saved S02 corner and focus runner without changing either scene or gameplay behavior.
+[Evidence](s02-windows-evidence/) binds that graphical observation to revision
+`1b6b3a3abdfe5fd3839020b20e6da245b98c1ce1`; a corrected evidence-only focus harness ran
+at `826bc029ebd4626d426a5ccc596aee3ef120fb78`. Full S02 remains open.
 
 ## Result
 
-**Automatic drawability at the declared desktop size passes. Native focus handling does
-not.** The unchanged saved corner produced 30 genuine automatic
-`RenderingServer.frame_post_draw` callbacks, but the saved minimize/restore runner did
-not receive focus loss during its minimized interval. Held movement and fire continued.
-No fixture behavior or acceptance criterion was weakened to convert that failure into a
-pass.
+**Automatic drawability at the declared desktop size passes. Native focus remains
+inconclusive.** The unchanged saved corner produced 30 genuine automatic
+`RenderingServer.frame_post_draw` callbacks. Independent review found that the original
+focus child did not own native foreground before synthetic keys and minimize, so its
+focus/held-input result had an invalid precondition. A corrected gated follow-up could not
+establish initial native foreground and injected no keys. Neither attempt proves native
+focus handling passes or fails.
 
 | Observation | Result |
 | --- | --- |
@@ -23,8 +24,9 @@ pass.
 | Native/viewport size | **PASS**: Windows backend, mode 0, `can_draw: true`, window 1280×800, viewport 1280×800 on every receipt. |
 | Actual saved camera | **PASS**: current perspective `/root/S02/CameraRig/Camera3D`; vertical -Y/fixed yaw 0; FOV 42°; near 0.1/far 160; world position about `(0,47.001,6)` after normal actor settling. |
 | Automatic callback images | **PASS**: callback 3/10/30 PNGs are 1280×800, nonblank and visually show the usable saved corner, actor, pistol/marker, buildings and target. |
-| Programmatic minimize focus-out/in | **FAIL**: minimized mode was observed, but native/collector focus stayed true through the interval; a delayed focus-out arrived only after the restored-state check, and no subsequent focus-in was observed. |
-| Held-input cancellation | **FAIL**: movement/fire stayed held while minimized; actor Z moved from about 3.33 to -4.00 and shots rose from 2 to 8 before scripted release/restore. One additional transient fire sample raised shots to 9 after restore. |
+| Original programmatic minimize focus-out/in | **INCONCLUSIVE — invalid precondition**: the child was not native foreground before press/minimize. The raw minimized/delayed-focus samples are retained but cannot establish native-focus behavior. |
+| Corrected gated focus follow-up | **INCONCLUSIVE — initial native focus not established**: the runner never observed the child as foreground for the required 250 ms, so the fixture injected no keys and did not minimize. |
+| Held-input cancellation | **INCONCLUSIVE**: original movement/fire samples occurred without initial native foreground; the corrected attempt intentionally performed no input. |
 
 The three images have different hashes because the normal camera follow converged by tiny
 subpixel amounts; inspection shows the same usable view. This is engine rendering for one
@@ -74,34 +76,52 @@ All staged inputs remained byte-identical after import and both graphical proces
 processes exited and were reaped without parent cleanup action. Full commands, PID/exits,
 telemetry, source ledger and image hashes are in `result.json` and `copy-ledger.json`.
 
-## Native focus observation
+## Native focus observations
 
-The same tool next launched the unchanged saved `focus_runner.tscn` windowed at 1280×800.
-The fixture injected W+Space at 1.0 s, requested minimize at 1.5 s, requested restore and
-released both keys at 3.0 s, checked restored state at 4.0 s, and stopped at 7.0 s.
+### Original retained attempt — invalid precondition
 
-Windows reported mode 1 from the first 1.542 s sample through 2.930 s, but
-`Window.has_focus()` and the input collector both remained true. During that interval the
-sampled command remained `{move: 1, fire: true}`; motion and firing continued. The restore
-request made mode 0 and the explicit releases initially made command neutral at 3.046 s.
-A transient stale fire sample appeared at 3.688 s and produced shot 9. At the fixture's
-4.0 s check, movement was neutral and did not resume, but that came from scripted release,
-not from timely OS focus cancellation.
+The original tool launched the unchanged saved `focus_runner.tscn` windowed at 1280×800.
+The fixture injected W+Space at fixture time 1.0 s, requested minimize at 1.5 s, requested
+restore/release at 3.0 s, checked at 4.0 s, and stopped at 7.0 s. Raw samples reported mode
+1 while Godot focus stayed true; movement and firing continued, then one transient fire
+sample appeared after restore. The fixture later reported focus false and exited 1.
 
-The fixture finally observed collector focus false at 4.656 s and native focus false at
-4.763 s, after its restored-state check. It saw no focus-in before exit and returned exit 1:
+Those facts remain in the raw streams, but **the result is inconclusive, not a Windows
+native-focus failure**. Native foreground telemetry shows the pre-existing
+`π - fun-things` window owned foreground until runner offset 5.974 s. The child first
+became foreground at restore; the pre-existing window regained foreground at 7.591 s.
+Correlating the fixture
+and process clocks gives about 2.93 s of startup, so the child did not own native foreground
+before press or minimize. Synthetic input can move the fixture despite that invalid OS
+precondition. The original result therefore cannot prove minimizing an initially focused
+window did or did not cancel held input. No foreign third PID appeared, and the old retry
+fence also used the wrong zero-startup clock origin.
+
+### Corrected gated follow-up — initial focus unavailable
+
+Revision `826bc029ebd4626d426a5ccc596aee3ef120fb78` changed only the evidence harness and
+runner. The runner now creates a gate only after the child owns Windows foreground
+continuously for at least 250 ms. The fixture waits for that gate before injecting keys and
+emits process-clock stage markers for press, minimize, restore and check. The runner checks
+sustained child ownership before press/minimize and evaluates foreign ownership between the
+actual restore/check markers, including engine startup time. A nonzero-startup regression
+test fences that mapping.
+
+One permitted focus-only follow-up was run. The pre-existing `π - fun-things` window
+remained foreground for every 50 ms runner sample. The child emitted
+`await_initial_native_focus` at process 4513 ms, never received the gate, injected no keys,
+and never minimized. At process 7452 ms it returned exit 1 with the explicit bounded result:
 
 ```text
-S02_FOCUS_RESULT {"failures":["OS minimize did not deliver focus loss"],
+S02_FOCUS_RESULT {"failures":["initial native focus not established"],
                   "os_focus_loss":false}
 ```
 
-Native foreground telemetry independently recorded the pre-existing `π - fun-things`
-window before/after. The S02 focus child became foreground only from runner offsets about
-5.974–7.591 s; otherwise the same pre-existing window remained foreground. No third PID or
-foreign foreground owner appeared, so the runner's one allowed foreign-steal retry was not
-used. This is a failed Windows native-focus result, not a reason to repeat or loosen the
-fixture.
+The runner classified this attempt `inconclusive: initial native focus not established`.
+There was no foreign owner, so no retry was authorized. This cleanly preserves the native
+precondition instead of interpreting Godot's stale `Window.has_focus()` value as OS focus.
+The complete follow-up is in [`focus-fixed/`](s02-windows-evidence/focus-fixed/); the
+original raw result and streams remain unchanged.
 
 ## Reproducibility and authoring boundary
 
@@ -112,38 +132,47 @@ the new script UID sidecar. That checkout import exited 0 but retained the known
 addon diagnostics; the isolated observation import removed those development plugins and
 had no diagnostics. Explicit all-owned compilation passed. Pinned formatting covered 74
 scripts; the only lint output was the three pre-existing accepted S07-driver warnings.
-Offline unit tests cover receipt parsing and the foreign-foreground retry fence.
+Offline unit tests cover receipt parsing, sustained initial ownership and the stage-marker
+foreign-foreground retry fence, including a nonzero engine-startup delay.
 
 The runner records native foreground HWND/PID/title before, during and after each child,
 uses private Windows user directories, applies finite deadlines, and terminates only its
 own exact child if required. Neither observed child needed forced termination. Scratch
 projects/private user data remain under `C:\tmp\ft\lanes\s02\`, outside every checkout.
 
-## Required human checklist (not performed)
+## Owner decision, next steps and human checklist
 
-A human must perform all of the following before physical-input, feel or camera
-ratification is claimed:
+The owner has decided that a **later lane** will replace this candidate's facing-relative
+W/S movement plus A/D turning with WASD movement and mouse-facing, and will remove the
+building cutaway. Those product changes are intentionally not implemented here. Current
+control/cutaway pixels remain technical draw evidence, not a recommendation to retain them.
+Native focus and human camera/control ratification should use the later saved candidate.
 
-1. Launch `corner.tscn` at 1280×800. Hold physical W+Space, physically Alt-Tab to a normal
-   non-Godot application, and verify motion and firing stop immediately. Release both keys
-   while away, Alt-Tab back, and verify neither resumes until a fresh physical press.
-2. Walk through the four-metre passage, turn around the north-east corner, deliberately hit
-   the previously blocked target, then reverse away from a wall. Record missed targets,
-   facing/control confusion and whether 5 m/s forward, 3 m/s reverse and 180°/s turn feel
-   controllable.
-3. Play the same route in `corner.tscn` (42°) and `corner_wide.tscn` (50°). Choose neither
-   by screenshot alone: record target/building/actor readability, camera-follow comfort,
-   roof/cutaway distraction and any motion discomfort.
-4. At native view size, compare pistol/SMG/launcher silhouettes and record which are
-   distinguishable without pausing. Report the actor marker and abrupt cutaway separately.
+After that lane lands, a human must perform all of the following before physical-input,
+feel or camera ratification is claimed:
 
-No physical key, physical Alt-Tab, latency, subjective feel, camera/FOV selection, Deck,
-Steam, packaged export, performance or production acceptance was performed here.
+1. Launch the later candidate at 1280×800 and confirm it is native foreground. Hold a
+   physical movement key plus the fire control, physically Alt-Tab to a normal non-Godot
+   application, and verify motion/firing stop immediately. Release while away, Alt-Tab
+   back, and verify neither resumes until a fresh physical press.
+2. Walk through the four-metre passage with WASD, use mouse-facing to turn around the
+   north-east corner, deliberately hit the previously blocked target, then reverse away
+   from a wall. Record missed targets, facing/control confusion and camera-follow comfort.
+3. Compare the retained 42°/50° camera candidates on the same route without the building
+   cutaway. Record target/building/actor readability, roof occlusion and motion discomfort;
+   choose neither by screenshot alone.
+4. At native view size, compare pistol/SMG/launcher silhouettes and the actor marker while
+   moving and aiming; record which remain distinguishable without pausing.
+
+No physical key, physical Alt-Tab, latency, subjective feel, camera/FOV selection, future
+control/cutaway implementation, Deck, Steam, packaged export, performance or production
+acceptance was performed here.
 
 ## Disposition
 
 The prior Linux Wayland boundary (`can_draw: false`, 2112×1320, focus false) is superseded
 only for Windows drawability: this Windows desktop supplies genuine exact-size automatic
-callbacks and usable pixels. Native focus remains open and now has a current Windows failure
-with delayed focus delivery and stale held input. Full S02, human control/camera ratification,
-Deck/Gaming Mode and dependent gates remain open.
+callbacks and usable pixels. Native focus remains open: the original attempt had an invalid
+foreground precondition, and the corrected follow-up could not establish that precondition.
+The later WASD/mouse-facing and cutaway-removal lane, human ratification, Deck/Gaming Mode
+and dependent gates remain open.

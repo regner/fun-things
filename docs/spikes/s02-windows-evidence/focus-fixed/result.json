@@ -1,0 +1,1149 @@
+{
+  "ok": false,
+  "revision": "826bc029ebd4626d426a5ccc596aee3ef120fb78",
+  "dirty_inputs": "",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "python": "3.14.2 (tags/v3.14.2:df79316, Dec  5 2025, 17:18:21) [MSC v.1944 64 bit (AMD64)]",
+  "foreground_preflight": {
+    "available": true,
+    "hwnd": "0x1512ea",
+    "pid": 46996,
+    "title": "\u03c0 - fun-things"
+  },
+  "engine": {
+    "version": "4.8.dev7.official.c971f93e7",
+    "bytes": 194052248,
+    "sha256": "7129acb9562e2ff990110d1fdf716deb7fedf7f83a69030b848a380c095d1de6"
+  },
+  "import": {
+    "exit": 0,
+    "diagnostics": []
+  },
+  "focus": {
+    "ok": false,
+    "attempts": [
+      {
+        "process": {
+          "argv": [
+            "C:\\Users\\regner.blokandersen\\AppData\\Local\\mise\\installs\\github-godotengine-godot-builds\\4.8-dev7\\godot.exe",
+            "--path",
+            "C:\\tmp\\ft\\lanes\\s02\\focus-fixed\\project",
+            "--windowed",
+            "--resolution",
+            "1280x800",
+            "--position",
+            "80,80",
+            "--log-file",
+            "C:\\tmp\\ft\\lanes\\s02\\focus-fixed\\focus-1\\engine.log",
+            "res://tests/fixtures/s02/focus_runner.tscn",
+            "--",
+            "--focus-gate=C:\\tmp\\ft\\lanes\\s02\\focus-fixed\\focus-1-native-focus.gate"
+          ],
+          "pid": 16056,
+          "exit": 1,
+          "timed_out": false,
+          "cleanup": [],
+          "reaped": true,
+          "duration_seconds": 7.8455886002629995,
+          "foreground_before": {
+            "available": true,
+            "hwnd": "0x1512ea",
+            "pid": 46996,
+            "title": "\u03c0 - fun-things"
+          },
+          "foreground_after": {
+            "available": true,
+            "hwnd": "0x1512ea",
+            "pid": 46996,
+            "title": "\u03c0 - fun-things"
+          },
+          "foreground_timeline": [
+            {
+              "offset_seconds": 0.05805390002205968,
+              "available": true,
+              "hwnd": "0x1512ea",
+              "pid": 46996,
+              "title": "\u03c0 - fun-things"
+            },
+            {
+              "offset_seconds": 0.11467840010300279,
+              "available": true,
+              "hwnd": "0x1512ea",
+              "pid": 46996,
+              "title": "\u03c0 - fun-things"
+            },
+            {
+              "offset_seconds": 0.16530320001766086,
+              "available": true,
+              "hwnd": "0x1512ea",
+              "pid": 46996,
+              "title": "\u03c0 - fun-things"
+            },
+            {
+              "offset_seconds": 0.2213090001605451,
+              "available": true,
+              "hwnd": "0x1512ea",
+              "pid": 46996,
+              "title": "\u03c0 - fun-things"
+            },
+            {
+              "offset_seconds": 0.2719009001739323,
+              "available": true,
+              "hwnd": "0x1512ea",
+              "pid": 46996,
+              "title": "\u03c0 - fun-things"
+            },
+            {
+              "offset_seconds": 0.32233159989118576,
+              "available": true,
+              "hwnd": "0x1512ea",
+              "pid": 46996,
+              "title": "\u03c0 - fun-things"
+            },
+            {
+              "offset_seconds": 0.3725141999311745,
+              "available": true,
+              "hwnd": "0x1512ea",
+              "pid": 46996,
+              "title": "\u03c0 - fun-things"
+            },
+            {
+              "offset_seconds": 0.42301979986950755,
+              "available": true,
+              "hwnd": "0x1512ea",
+              "pid": 46996,
+              "title": "\u03c0 - fun-things"
+            },
+            {
+              "offset_seconds": 0.473545600194484,
+              "available": true,
+              "hwnd": "0x1512ea",
+              "pid": 46996,
+              "title": "\u03c0 - fun-things"
+            },
+            {
+              "offset_seconds": 0.524000400211662,
+              "available": true,
+              "hwnd": "0x1512ea",
+              "pid": 46996,
+              "title": "\u03c0 - fun-things"
+            },
+            {
+              "offset_seconds": 0.5743681001476943,
+              "available": true,
+              "hwnd": "0x1512ea",
+              "pid": 46996,
+              "title": "\u03c0 - fun-things"
+            },
+            {
+              "offset_seconds": 0.624660599976778,
+              "available": true,
+              "hwnd": "0x1512ea",
+              "pid": 46996,
+              "title": "\u03c0 - fun-things"
+            },
+            {
+              "offset_seconds": 0.6752395001240075,
+              "available": true,
+              "hwnd": "0x1512ea",
+              "pid": 46996,
+              "title": "\u03c0 - fun-things"
+            },
+            {
+              "offset_seconds": 0.7256001001223922,
+              "available": true,
+              "hwnd": "0x1512ea",
+              "pid": 46996,
+              "title": "\u03c0 - fun-things"
+            },
+            {
+              "offset_seconds": 0.7762644002214074,
+              "available": true,
+              "hwnd": "0x1512ea",
+              "pid": 46996,
+              "title": "\u03c0 - fun-things"
+            },
+            {
+              "offset_seconds": 0.8266293001361191,
+              "available": true,
+              "hwnd": "0x1512ea",
+              "pid": 46996,
+              "title": "\u03c0 - fun-things"
+            },
+            {
+              "offset_seconds": 0.877265099901706,
+              "available": true,
+              "hwnd": "0x1512ea",
+              "pid": 46996,
+              "title": "\u03c0 - fun-things"
+            },
+            {
+              "offset_seconds": 0.9277547001838684,
+              "available": true,
+              "hwnd": "0x1512ea",
+              "pid": 46996,
+              "title": "\u03c0 - fun-things"
+            },
+            {
+              "offset_seconds": 0.9784372001886368,
+              "available": true,
+              "hwnd": "0x1512ea",
+              "pid": 46996,
+              "title": "\u03c0 - fun-things"
+            },
+            {
+              "offset_seconds": 1.0291639999486506,
+              "available": true,
+              "hwnd": "0x1512ea",
+              "pid": 46996,
+              "title": "\u03c0 - fun-things"
+            },
+            {
+              "offset_seconds": 1.0795916998758912,
+              "available": true,
+              "hwnd": "0x1512ea",
+              "pid": 46996,
+              "title": "\u03c0 - fun-things"
+            },
+            {
+              "offset_seconds": 1.1299773999489844,
+              "available": true,
+              "hwnd": "0x1512ea",
+              "pid": 46996,
+              "title": "\u03c0 - fun-things"
+            },
+            {
+              "offset_seconds": 1.180700700264424,
+              "available": true,
+              "hwnd": "0x1512ea",
+              "pid": 46996,
+              "title": "\u03c0 - fun-things"
+            },
+            {
+              "offset_seconds": 1.2312210998497903,
+              "available": true,
+              "hwnd": "0x1512ea",
+              "pid": 46996,
+              "title": "\u03c0 - fun-things"
+            },
+            {
+              "offset_seconds": 1.2826231000944972,
+              "available": true,
+              "hwnd": "0x1512ea",
+              "pid": 46996,
+              "title": "\u03c0 - fun-things"
+            },
+            {
+              "offset_seconds": 1.333303099963814,
+              "available": true,
+              "hwnd": "0x1512ea",
+              "pid": 46996,
+              "title": "\u03c0 - fun-things"
+            },
+            {
+              "offset_seconds": 1.3839075998403132,
+              "available": true,
+              "hwnd": "0x1512ea",
+              "pid": 46996,
+              "title": "\u03c0 - fun-things"
+            },
+            {
+              "offset_seconds": 1.4580516000278294,
+              "available": true,
+              "hwnd": "0x1512ea",
+              "pid": 46996,
+              "title": "\u03c0 - fun-things"
+            },
+            {
+              "offset_seconds": 1.5085565000772476,
+              "available": true,
+              "hwnd": "0x1512ea",
+              "pid": 46996,
+              "title": "\u03c0 - fun-things"
+            },
+            {
+              "offset_seconds": 1.55888170003891,
+              "available": true,
+              "hwnd": "0x1512ea",
+              "pid": 46996,
+              "title": "\u03c0 - fun-things"
+            },
+            {
+              "offset_seconds": 1.6092079002410173,
+              "available": true,
+              "hwnd": "0x1512ea",
+              "pid": 46996,
+              "title": "\u03c0 - fun-things"
+            },
+            {
+              "offset_seconds": 1.6596436998806894,
+              "available": true,
+              "hwnd": "0x1512ea",
+              "pid": 46996,
+              "title": "\u03c0 - fun-things"
+            },
+            {
+              "offset_seconds": 1.7099993000738323,
+              "available": true,
+              "hwnd": "0x1512ea",
+              "pid": 46996,
+              "title": "\u03c0 - fun-things"
+            },
+            {
+              "offset_seconds": 1.7604777999222279,
+              "available": true,
+              "hwnd": "0x1512ea",
+              "pid": 46996,
+              "title": "\u03c0 - fun-things"
+            },
+            {
+              "offset_seconds": 1.8108683000318706,
+              "available": true,
+              "hwnd": "0x1512ea",
+              "pid": 46996,
+              "title": "\u03c0 - fun-things"
+            },
+            {
+              "offset_seconds": 1.8612048998475075,
+              "available": true,
+              "hwnd": "0x1512ea",
+              "pid": 46996,
+              "title": "\u03c0 - fun-things"
+            },
+            {
+              "offset_seconds": 1.911826599854976,
+              "available": true,
+              "hwnd": "0x1512ea",
+              "pid": 46996,
+              "title": "\u03c0 - fun-things"
+            },
+            {
+              "offset_seconds": 1.9621589998714626,
+              "available": true,
+              "hwnd": "0x1512ea",
+              "pid": 46996,
+              "title": "\u03c0 - fun-things"
+            },
+            {
+              "offset_seconds": 2.0139691000804305,
+              "available": true,
+              "hwnd": "0x1512ea",
+              "pid": 46996,
+              "title": "\u03c0 - fun-things"
+            },
+            {
+              "offset_seconds": 2.0656945002265275,
+              "available": true,
+              "hwnd": "0x1512ea",
+              "pid": 46996,
+              "title": "\u03c0 - fun-things"
+            },
+            {
+              "offset_seconds": 2.1164040002040565,
+              "available": true,
+              "hwnd": "0x1512ea",
+              "pid": 46996,
+              "title": "\u03c0 - fun-things"
+            },
+            {
+              "offset_seconds": 2.167053199838847,
+              "available": true,
+              "hwnd": "0x1512ea",
+              "pid": 46996,
+              "title": "\u03c0 - fun-things"
+            },
+            {
+              "offset_seconds": 2.2176263998262584,
+              "available": true,
+              "hwnd": "0x1512ea",
+              "pid": 46996,
+              "title": "\u03c0 - fun-things"
+            },
+            {
+              "offset_seconds": 2.268704100046307,
+              "available": true,
+              "hwnd": "0x1512ea",
+              "pid": 46996,
+              "title": "\u03c0 - fun-things"
+            },
+            {
+              "offset_seconds": 2.318925800267607,
+              "available": true,
+              "hwnd": "0x1512ea",
+              "pid": 46996,
+              "title": "\u03c0 - fun-things"
+            },
+            {
+              "offset_seconds": 2.369739199988544,
+              "available": true,
+              "hwnd": "0x1512ea",
+              "pid": 46996,
+              "title": "\u03c0 - fun-things"
+            },
+            {
+              "offset_seconds": 2.4204120002686977,
+              "available": true,
+              "hwnd": "0x1512ea",
+              "pid": 46996,
+              "title": "\u03c0 - fun-things"
+            },
+            {
+              "offset_seconds": 2.470864400267601,
+              "available": true,
+              "hwnd": "0x1512ea",
+              "pid": 46996,
+              "title": "\u03c0 - fun-things"
+            },
+            {
+              "offset_seconds": 2.5238381000235677,
+              "available": true,
+              "hwnd": "0x1512ea",
+              "pid": 46996,
+              "title": "\u03c0 - fun-things"
+            },
+            {
+              "offset_seconds": 2.5755603001452982,
+              "available": true,
+              "hwnd": "0x1512ea",
+              "pid": 46996,
+              "title": "\u03c0 - fun-things"
+            },
+            {
+              "offset_seconds": 2.6280793002806604,
+              "available": true,
+              "hwnd": "0x1512ea",
+              "pid": 46996,
+              "title": "\u03c0 - fun-things"
+            },
+            {
+              "offset_seconds": 2.6786675001494586,
+              "available": true,
+              "hwnd": "0x1512ea",
+              "pid": 46996,
+              "title": "\u03c0 - fun-things"
+            },
+            {
+              "offset_seconds": 2.736922800075263,
+              "available": true,
+              "hwnd": "0x1512ea",
+              "pid": 46996,
+              "title": "\u03c0 - fun-things"
+            },
+            {
+              "offset_seconds": 2.798135600052774,
+              "available": true,
+              "hwnd": "0x1512ea",
+              "pid": 46996,
+              "title": "\u03c0 - fun-things"
+            },
+            {
+              "offset_seconds": 2.8544180998578668,
+              "available": true,
+              "hwnd": "0x1512ea",
+              "pid": 46996,
+              "title": "\u03c0 - fun-things"
+            },
+            {
+              "offset_seconds": 2.9221116001717746,
+              "available": true,
+              "hwnd": "0x1512ea",
+              "pid": 46996,
+              "title": "\u03c0 - fun-things"
+            },
+            {
+              "offset_seconds": 2.972602200228721,
+              "available": true,
+              "hwnd": "0x1512ea",
+              "pid": 46996,
+              "title": "\u03c0 - fun-things"
+            },
+            {
+              "offset_seconds": 3.022992900107056,
+              "available": true,
+              "hwnd": "0x1512ea",
+              "pid": 46996,
+              "title": "\u03c0 - fun-things"
+            },
+            {
+              "offset_seconds": 3.0737455999478698,
+              "available": true,
+              "hwnd": "0x1512ea",
+              "pid": 46996,
+              "title": "\u03c0 - fun-things"
+            },
+            {
+              "offset_seconds": 3.1286496999673545,
+              "available": true,
+              "hwnd": "0x1512ea",
+              "pid": 46996,
+              "title": "\u03c0 - fun-things"
+            },
+            {
+              "offset_seconds": 3.179041000083089,
+              "available": true,
+              "hwnd": "0x1512ea",
+              "pid": 46996,
+              "title": "\u03c0 - fun-things"
+            },
+            {
+              "offset_seconds": 3.229752500075847,
+              "available": true,
+              "hwnd": "0x1512ea",
+              "pid": 46996,
+              "title": "\u03c0 - fun-things"
+            },
+            {
+              "offset_seconds": 3.2801279998384416,
+              "available": true,
+              "hwnd": "0x1512ea",
+              "pid": 46996,
+              "title": "\u03c0 - fun-things"
+            },
+            {
+              "offset_seconds": 3.330886300187558,
+              "available": true,
+              "hwnd": "0x1512ea",
+              "pid": 46996,
+              "title": "\u03c0 - fun-things"
+            },
+            {
+              "offset_seconds": 3.3814397999085486,
+              "available": true,
+              "hwnd": "0x1512ea",
+              "pid": 46996,
+              "title": "\u03c0 - fun-things"
+            },
+            {
+              "offset_seconds": 3.43188720010221,
+              "available": true,
+              "hwnd": "0x1512ea",
+              "pid": 46996,
+              "title": "\u03c0 - fun-things"
+            },
+            {
+              "offset_seconds": 3.4823866998776793,
+              "available": true,
+              "hwnd": "0x1512ea",
+              "pid": 46996,
+              "title": "\u03c0 - fun-things"
+            },
+            {
+              "offset_seconds": 3.532783300150186,
+              "available": true,
+              "hwnd": "0x1512ea",
+              "pid": 46996,
+              "title": "\u03c0 - fun-things"
+            },
+            {
+              "offset_seconds": 3.5830188002437353,
+              "available": true,
+              "hwnd": "0x1512ea",
+              "pid": 46996,
+              "title": "\u03c0 - fun-things"
+            },
+            {
+              "offset_seconds": 3.637438800185919,
+              "available": true,
+              "hwnd": "0x1512ea",
+              "pid": 46996,
+              "title": "\u03c0 - fun-things"
+            },
+            {
+              "offset_seconds": 3.687704000156373,
+              "available": true,
+              "hwnd": "0x1512ea",
+              "pid": 46996,
+              "title": "\u03c0 - fun-things"
+            },
+            {
+              "offset_seconds": 3.7382990000769496,
+              "available": true,
+              "hwnd": "0x1512ea",
+              "pid": 46996,
+              "title": "\u03c0 - fun-things"
+            },
+            {
+              "offset_seconds": 3.7941156001761556,
+              "available": true,
+              "hwnd": "0x1512ea",
+              "pid": 46996,
+              "title": "\u03c0 - fun-things"
+            },
+            {
+              "offset_seconds": 3.84430760005489,
+              "available": true,
+              "hwnd": "0x1512ea",
+              "pid": 46996,
+              "title": "\u03c0 - fun-things"
+            },
+            {
+              "offset_seconds": 3.8947391998954117,
+              "available": true,
+              "hwnd": "0x1512ea",
+              "pid": 46996,
+              "title": "\u03c0 - fun-things"
+            },
+            {
+              "offset_seconds": 3.945373199880123,
+              "available": true,
+              "hwnd": "0x1512ea",
+              "pid": 46996,
+              "title": "\u03c0 - fun-things"
+            },
+            {
+              "offset_seconds": 3.9956951001659036,
+              "available": true,
+              "hwnd": "0x1512ea",
+              "pid": 46996,
+              "title": "\u03c0 - fun-things"
+            },
+            {
+              "offset_seconds": 4.0460981000214815,
+              "available": true,
+              "hwnd": "0x1512ea",
+              "pid": 46996,
+              "title": "\u03c0 - fun-things"
+            },
+            {
+              "offset_seconds": 4.096555499825627,
+              "available": true,
+              "hwnd": "0x1512ea",
+              "pid": 46996,
+              "title": "\u03c0 - fun-things"
+            },
+            {
+              "offset_seconds": 4.146966400090605,
+              "available": true,
+              "hwnd": "0x1512ea",
+              "pid": 46996,
+              "title": "\u03c0 - fun-things"
+            },
+            {
+              "offset_seconds": 4.200066199991852,
+              "available": true,
+              "hwnd": "0x1512ea",
+              "pid": 46996,
+              "title": "\u03c0 - fun-things"
+            },
+            {
+              "offset_seconds": 4.469788699876517,
+              "available": true,
+              "hwnd": "0x1512ea",
+              "pid": 46996,
+              "title": "\u03c0 - fun-things"
+            },
+            {
+              "offset_seconds": 4.520291100256145,
+              "available": true,
+              "hwnd": "0x1512ea",
+              "pid": 46996,
+              "title": "\u03c0 - fun-things"
+            },
+            {
+              "offset_seconds": 4.570685400161892,
+              "available": true,
+              "hwnd": "0x1512ea",
+              "pid": 46996,
+              "title": "\u03c0 - fun-things"
+            },
+            {
+              "offset_seconds": 4.620918000116944,
+              "available": true,
+              "hwnd": "0x1512ea",
+              "pid": 46996,
+              "title": "\u03c0 - fun-things"
+            },
+            {
+              "offset_seconds": 4.700193100143224,
+              "available": true,
+              "hwnd": "0x1512ea",
+              "pid": 46996,
+              "title": "\u03c0 - fun-things"
+            },
+            {
+              "offset_seconds": 4.750890899915248,
+              "available": true,
+              "hwnd": "0x1512ea",
+              "pid": 46996,
+              "title": "\u03c0 - fun-things"
+            },
+            {
+              "offset_seconds": 4.80187930027023,
+              "available": true,
+              "hwnd": "0x1512ea",
+              "pid": 46996,
+              "title": "\u03c0 - fun-things"
+            },
+            {
+              "offset_seconds": 4.8524180999957025,
+              "available": true,
+              "hwnd": "0x1512ea",
+              "pid": 46996,
+              "title": "\u03c0 - fun-things"
+            },
+            {
+              "offset_seconds": 4.9030158999376,
+              "available": true,
+              "hwnd": "0x1512ea",
+              "pid": 46996,
+              "title": "\u03c0 - fun-things"
+            },
+            {
+              "offset_seconds": 4.953346900176257,
+              "available": true,
+              "hwnd": "0x1512ea",
+              "pid": 46996,
+              "title": "\u03c0 - fun-things"
+            },
+            {
+              "offset_seconds": 5.004647499881685,
+              "available": true,
+              "hwnd": "0x1512ea",
+              "pid": 46996,
+              "title": "\u03c0 - fun-things"
+            },
+            {
+              "offset_seconds": 5.055194600019604,
+              "available": true,
+              "hwnd": "0x1512ea",
+              "pid": 46996,
+              "title": "\u03c0 - fun-things"
+            },
+            {
+              "offset_seconds": 5.105984000023454,
+              "available": true,
+              "hwnd": "0x1512ea",
+              "pid": 46996,
+              "title": "\u03c0 - fun-things"
+            },
+            {
+              "offset_seconds": 5.156448800116777,
+              "available": true,
+              "hwnd": "0x1512ea",
+              "pid": 46996,
+              "title": "\u03c0 - fun-things"
+            },
+            {
+              "offset_seconds": 5.206824600230902,
+              "available": true,
+              "hwnd": "0x1512ea",
+              "pid": 46996,
+              "title": "\u03c0 - fun-things"
+            },
+            {
+              "offset_seconds": 5.257274600211531,
+              "available": true,
+              "hwnd": "0x1512ea",
+              "pid": 46996,
+              "title": "\u03c0 - fun-things"
+            },
+            {
+              "offset_seconds": 5.30768910003826,
+              "available": true,
+              "hwnd": "0x1512ea",
+              "pid": 46996,
+              "title": "\u03c0 - fun-things"
+            },
+            {
+              "offset_seconds": 5.35805380018428,
+              "available": true,
+              "hwnd": "0x1512ea",
+              "pid": 46996,
+              "title": "\u03c0 - fun-things"
+            },
+            {
+              "offset_seconds": 5.408718499820679,
+              "available": true,
+              "hwnd": "0x1512ea",
+              "pid": 46996,
+              "title": "\u03c0 - fun-things"
+            },
+            {
+              "offset_seconds": 5.46159250009805,
+              "available": true,
+              "hwnd": "0x1512ea",
+              "pid": 46996,
+              "title": "\u03c0 - fun-things"
+            },
+            {
+              "offset_seconds": 5.513122200034559,
+              "available": true,
+              "hwnd": "0x1512ea",
+              "pid": 46996,
+              "title": "\u03c0 - fun-things"
+            },
+            {
+              "offset_seconds": 5.563748999964446,
+              "available": true,
+              "hwnd": "0x1512ea",
+              "pid": 46996,
+              "title": "\u03c0 - fun-things"
+            },
+            {
+              "offset_seconds": 5.614624000154436,
+              "available": true,
+              "hwnd": "0x1512ea",
+              "pid": 46996,
+              "title": "\u03c0 - fun-things"
+            },
+            {
+              "offset_seconds": 5.6649859002791345,
+              "available": true,
+              "hwnd": "0x1512ea",
+              "pid": 46996,
+              "title": "\u03c0 - fun-things"
+            },
+            {
+              "offset_seconds": 5.715668300166726,
+              "available": true,
+              "hwnd": "0x1512ea",
+              "pid": 46996,
+              "title": "\u03c0 - fun-things"
+            },
+            {
+              "offset_seconds": 5.766953300219029,
+              "available": true,
+              "hwnd": "0x1512ea",
+              "pid": 46996,
+              "title": "\u03c0 - fun-things"
+            },
+            {
+              "offset_seconds": 5.817269599996507,
+              "available": true,
+              "hwnd": "0x1512ea",
+              "pid": 46996,
+              "title": "\u03c0 - fun-things"
+            },
+            {
+              "offset_seconds": 5.868733600247651,
+              "available": true,
+              "hwnd": "0x1512ea",
+              "pid": 46996,
+              "title": "\u03c0 - fun-things"
+            },
+            {
+              "offset_seconds": 5.9190899999812245,
+              "available": true,
+              "hwnd": "0x1512ea",
+              "pid": 46996,
+              "title": "\u03c0 - fun-things"
+            },
+            {
+              "offset_seconds": 5.96947340015322,
+              "available": true,
+              "hwnd": "0x1512ea",
+              "pid": 46996,
+              "title": "\u03c0 - fun-things"
+            },
+            {
+              "offset_seconds": 6.02005620021373,
+              "available": true,
+              "hwnd": "0x1512ea",
+              "pid": 46996,
+              "title": "\u03c0 - fun-things"
+            },
+            {
+              "offset_seconds": 6.070421100128442,
+              "available": true,
+              "hwnd": "0x1512ea",
+              "pid": 46996,
+              "title": "\u03c0 - fun-things"
+            },
+            {
+              "offset_seconds": 6.121193300001323,
+              "available": true,
+              "hwnd": "0x1512ea",
+              "pid": 46996,
+              "title": "\u03c0 - fun-things"
+            },
+            {
+              "offset_seconds": 6.17162249982357,
+              "available": true,
+              "hwnd": "0x1512ea",
+              "pid": 46996,
+              "title": "\u03c0 - fun-things"
+            },
+            {
+              "offset_seconds": 6.2221789001487195,
+              "available": true,
+              "hwnd": "0x1512ea",
+              "pid": 46996,
+              "title": "\u03c0 - fun-things"
+            },
+            {
+              "offset_seconds": 6.272610499989241,
+              "available": true,
+              "hwnd": "0x1512ea",
+              "pid": 46996,
+              "title": "\u03c0 - fun-things"
+            },
+            {
+              "offset_seconds": 6.322940899990499,
+              "available": true,
+              "hwnd": "0x1512ea",
+              "pid": 46996,
+              "title": "\u03c0 - fun-things"
+            },
+            {
+              "offset_seconds": 6.373421099968255,
+              "available": true,
+              "hwnd": "0x1512ea",
+              "pid": 46996,
+              "title": "\u03c0 - fun-things"
+            },
+            {
+              "offset_seconds": 6.423905999865383,
+              "available": true,
+              "hwnd": "0x1512ea",
+              "pid": 46996,
+              "title": "\u03c0 - fun-things"
+            },
+            {
+              "offset_seconds": 6.474214100278914,
+              "available": true,
+              "hwnd": "0x1512ea",
+              "pid": 46996,
+              "title": "\u03c0 - fun-things"
+            },
+            {
+              "offset_seconds": 6.524978099856526,
+              "available": true,
+              "hwnd": "0x1512ea",
+              "pid": 46996,
+              "title": "\u03c0 - fun-things"
+            },
+            {
+              "offset_seconds": 6.575617500115186,
+              "available": true,
+              "hwnd": "0x1512ea",
+              "pid": 46996,
+              "title": "\u03c0 - fun-things"
+            },
+            {
+              "offset_seconds": 6.6271909000352025,
+              "available": true,
+              "hwnd": "0x1512ea",
+              "pid": 46996,
+              "title": "\u03c0 - fun-things"
+            },
+            {
+              "offset_seconds": 6.6778000998310745,
+              "available": true,
+              "hwnd": "0x1512ea",
+              "pid": 46996,
+              "title": "\u03c0 - fun-things"
+            },
+            {
+              "offset_seconds": 6.728341900277883,
+              "available": true,
+              "hwnd": "0x1512ea",
+              "pid": 46996,
+              "title": "\u03c0 - fun-things"
+            },
+            {
+              "offset_seconds": 6.779326200019568,
+              "available": true,
+              "hwnd": "0x1512ea",
+              "pid": 46996,
+              "title": "\u03c0 - fun-things"
+            },
+            {
+              "offset_seconds": 6.829860799945891,
+              "available": true,
+              "hwnd": "0x1512ea",
+              "pid": 46996,
+              "title": "\u03c0 - fun-things"
+            },
+            {
+              "offset_seconds": 6.8806449002586305,
+              "available": true,
+              "hwnd": "0x1512ea",
+              "pid": 46996,
+              "title": "\u03c0 - fun-things"
+            },
+            {
+              "offset_seconds": 6.931180799845606,
+              "available": true,
+              "hwnd": "0x1512ea",
+              "pid": 46996,
+              "title": "\u03c0 - fun-things"
+            },
+            {
+              "offset_seconds": 6.981707999948412,
+              "available": true,
+              "hwnd": "0x1512ea",
+              "pid": 46996,
+              "title": "\u03c0 - fun-things"
+            },
+            {
+              "offset_seconds": 7.032883299980313,
+              "available": true,
+              "hwnd": "0x1512ea",
+              "pid": 46996,
+              "title": "\u03c0 - fun-things"
+            },
+            {
+              "offset_seconds": 7.083157999906689,
+              "available": true,
+              "hwnd": "0x1512ea",
+              "pid": 46996,
+              "title": "\u03c0 - fun-things"
+            },
+            {
+              "offset_seconds": 7.133620100095868,
+              "available": true,
+              "hwnd": "0x1512ea",
+              "pid": 46996,
+              "title": "\u03c0 - fun-things"
+            },
+            {
+              "offset_seconds": 7.184014600235969,
+              "available": true,
+              "hwnd": "0x1512ea",
+              "pid": 46996,
+              "title": "\u03c0 - fun-things"
+            },
+            {
+              "offset_seconds": 7.2346932999789715,
+              "available": true,
+              "hwnd": "0x1512ea",
+              "pid": 46996,
+              "title": "\u03c0 - fun-things"
+            },
+            {
+              "offset_seconds": 7.285608999896795,
+              "available": true,
+              "hwnd": "0x1512ea",
+              "pid": 46996,
+              "title": "\u03c0 - fun-things"
+            },
+            {
+              "offset_seconds": 7.3359397002495825,
+              "available": true,
+              "hwnd": "0x1512ea",
+              "pid": 46996,
+              "title": "\u03c0 - fun-things"
+            },
+            {
+              "offset_seconds": 7.386506900191307,
+              "available": true,
+              "hwnd": "0x1512ea",
+              "pid": 46996,
+              "title": "\u03c0 - fun-things"
+            },
+            {
+              "offset_seconds": 7.437596600037068,
+              "available": true,
+              "hwnd": "0x1512ea",
+              "pid": 46996,
+              "title": "\u03c0 - fun-things"
+            },
+            {
+              "offset_seconds": 7.488113299943507,
+              "available": true,
+              "hwnd": "0x1512ea",
+              "pid": 46996,
+              "title": "\u03c0 - fun-things"
+            },
+            {
+              "offset_seconds": 7.538892900105566,
+              "available": true,
+              "hwnd": "0x1512ea",
+              "pid": 46996,
+              "title": "\u03c0 - fun-things"
+            },
+            {
+              "offset_seconds": 7.589365200139582,
+              "available": true,
+              "hwnd": "0x1512ea",
+              "pid": 46996,
+              "title": "\u03c0 - fun-things"
+            },
+            {
+              "offset_seconds": 7.641031799837947,
+              "available": true,
+              "hwnd": "0x1512ea",
+              "pid": 46996,
+              "title": "\u03c0 - fun-things"
+            },
+            {
+              "offset_seconds": 7.69170599989593,
+              "available": true,
+              "hwnd": "0x1512ea",
+              "pid": 46996,
+              "title": "\u03c0 - fun-things"
+            },
+            {
+              "offset_seconds": 7.742241300176829,
+              "available": true,
+              "hwnd": "0x1512ea",
+              "pid": 46996,
+              "title": "\u03c0 - fun-things"
+            },
+            {
+              "offset_seconds": 7.79249079991132,
+              "available": true,
+              "hwnd": "0x1512ea",
+              "pid": 46996,
+              "title": "\u03c0 - fun-things"
+            }
+          ],
+          "diagnostics": [],
+          "stderr_empty": true
+        },
+        "fixture_result": {
+          "failures": [
+            "initial native focus not established"
+          ],
+          "os_focus_loss": false
+        },
+        "stage_markers": [
+          {
+            "fixture_time": 0.0,
+            "mode": 0,
+            "native_focus": false,
+            "process_ms": 4513,
+            "stage": "await_initial_native_focus"
+          },
+          {
+            "fixture_time": 0.0,
+            "mode": 0,
+            "native_focus": true,
+            "process_ms": 7452,
+            "stage": "result"
+          }
+        ],
+        "sample_count": 0,
+        "samples": [],
+        "foreign_focus_stolen": false,
+        "criteria": {
+          "fixture_result": true,
+          "initial_native_focus": false,
+          "focus_out_in": false,
+          "exit_zero": false,
+          "not_timed_out": true,
+          "no_diagnostics": true,
+          "stderr_empty": true,
+          "reaped": true
+        },
+        "ok": false,
+        "classification": "inconclusive: initial native focus not established"
+      }
+    ],
+    "retry_used": false,
+    "retry_reason": null
+  },
+  "inputs_preserved": true,
+  "foreground_postflight": {
+    "available": true,
+    "hwnd": "0x1512ea",
+    "pid": 46996,
+    "title": "\u03c0 - fun-things"
+  },
+  "criteria": {
+    "clean_inputs": true,
+    "inputs_preserved": true,
+    "draw": true,
+    "focus": false
+  }
+}

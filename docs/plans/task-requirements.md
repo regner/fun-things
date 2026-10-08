@@ -15,10 +15,11 @@ qualification and enough outcome detail for dispatch.
   ROOT's 8 October 15:53Z zero-profile/pi inventory and accepted pi Sol HIGH/Luna HIGH
   sessions. Those Codex fields are not a pi launch recipe; notes confer no permissions.
 - **S02:** Windows now has exact 1280×800 automatic saved-corner draws (`can_draw:
-  true`) in the [current observation](../spikes/s02-windows-observation.md). Programmatic
-  minimize/restore still failed timely focus cancellation and allowed stale held input;
-  physical-key Alt-Tab plus camera/control/aim/feel ratification remain human work. Deck
-  still needs native evidence.
+  true`) in the [current observation](../spikes/s02-windows-observation.md). Native focus
+  is inconclusive: the original attempt lacked initial foreground, and a corrected gated
+  follow-up could not establish it. A later lane will implement the owner's WASD movement,
+  mouse-facing and building-cutaway removal decision; then physical-key Alt-Tab and camera/
+  control/aim/feel need human ratification. Deck still needs native evidence.
 - **S03-S:** Public API/interface research is accepted; native integration/testing is
   deferred, not accepted. Eventual proof is admitted gameplay traffic over actual Steam,
   not lobby success or ENet through a lobby; testing waits for authorized access.
