@@ -121,3 +121,73 @@ One fresh clean-context Sol6.1 HIGH independent reviewer is owned by this worksp
 Notify ROOT with exact frozen candidate/base/raw briefs, leave writer idle for
 review, and use the same reviewer for material corrections. No metadata-only
 acknowledgement loop; no merge/archive/push by this worker.
+
+## Saved camera result and graphical group01 predeclaration
+
+One editor PID619914 authenticated automatic WS6551 with exact private context,
+boost=false and full engine hash.334accepted closure files/1836679bytes were
+copied. Both saved new scenes passed stable save/close/reopen/save/close/reopen
+byte checks; four close receipts report no unsaved discard. New observer passed
+actual script_write and script_check diagnostics[] plus pinned0.3.0 formatting/
+zero-warning lint. Camera UID `uid://bkst0xl2xmkpl`; inherited burst
+`uid://cy72x34km4ch`; observer script `uid://dljjuwyn8s77o`. Exact hashes are in
+the roundtrip/resource receipts. All3419original tracked files other than the
+owned TODO path match accepted Git blobs, checked before graphics.
+
+Saved camera root has four authored nodes: observation root, Camera3D, Sun and
+WorldEnvironment. Observer instantiates this saved scene through PackedScene,
+adds it to its own tree and explicitly selects its camera. The saved inherited
+burst replaces only the root proof script. All original owners/fixture placement
+remain inherited. It runs the unchanged saved proof's finite API/fence negatives
+and actual ENet cases, then extends only the live completion wait: real local
+physics callbacks expire slots before the original completion handshake. No
+synthetic API setup rows count as workload images/events. This natural wait does
+not call advance/consume or change lifetime/authoritative time.
+
+Editor cleanup's empty-unsaved guard returned true. Actual editor/connector exits0,
+owned handles reaped, streams closed, private registry entry gone. This is a
+graceful exit with diagnostics: seven known dummy-thumbnail errors, toolkit and
+auto-directory warnings, plus RID/text/dummy rendering exit leaks. No script
+error or stale-registration error. These are separate from runtime diagnostics.
+Initial observer draft lint's eight warnings and corrected drafts remain retained.
+
+**Group01** uses `tools/s05_draw/observe.py` and fresh
+`/tmp/s05-draw-8c398027-run01/group01/project`. Copy only accepted runtime closure,
+new saved observation resources, three GLB generated imports, generated UID/class
+caches and the unused accepted @tool helper named by the class cache. No toolkit
+or Steam addon/autoload/plugin executes. The8MiB byte cap remains; source files
+must match the checkout and copied bytes are checked after exit. Existing generated
+dependency imports/class indexing remove the need for another import process.
+
+Actual role argv, saved before each spawn:
+`godot --path <group01/project> --display-driver wayland
+--log-file <group01/ROLE/engine.log> res://tests/fixtures/s05_draw/burst.tscn
+-- --role=ROLE --port=<OS-assigned loopback UDP port>`.
+Each host/client/late owns four distinct private XDG roots/logs with HOME unchanged.
+WAYLAND_DISPLAY is the existing absolute `/run/user/1000/wayland-0` socket, preserving
+private XDG_RUNTIME_DIR without socket/config/service writes. No resolution/focus/
+resize/input/renderer override. Launch live after actual host ready; launch late
+after actual host settled. Deadline30s from host launch. First actual script/runtime
+diagnostic, failed original expectation, nonzero exit or deadline stops collection.
+
+Normal cleanup is the existing Session.leave/result/SceneTree.quit protocol. On
+failure supervisor requests owned child exit with SIGINT and waits a full2s before
+owned terminate/kill fallback and reap; interrupted exits stay failed. No unknown
+PID signals. Exactly three owned role handles maximum; no main query/relocation.
+
+Observer captures a baseline after three real callbacks when available, a saturated
+eight-slot/four-drop burst, an expired state after natural ticks, and settled late
+hydration with zero historical effects. Each PNG is read directly in its automatic
+post-draw callback and bound to render/physics indices, monotonic time, host event
+watermark, durable tick/revision, actual current camera and slot/source-link state.
+Host exploded signals record twelve real EventIds and already-consumed slot state;
+live frames record original RPC live/duplicate counters. Evaluation retains all
+twelve health/explosion outcomes and144visits, eight distinct visible linked car
+effects/four drops, current saved camera, dedup/fence/API receipts and natural live
+expiry. Image inspection is a required separate receipt, never inferred from counts.
+
+Group01's **S05 automatic viewport image partial result** can pass while native
+criteria remain failed/unmeasured. Actual can_draw/focus/mode/effective sizes are
+reported without weakening native1280x800/input/feel/performance criteria. No cost
+or readability ratification. No second group is predeclared; no follow-up workstream
+will start. User requested a deferred pause after current delivery/review/cleanup.

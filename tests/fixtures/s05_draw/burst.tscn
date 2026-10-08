@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://cy72x34km4ch"]
+
+[ext_resource type="PackedScene" uid="uid://bdtfsc6kyavum" path="res://tests/fixtures/s05_effect/burst.tscn" id="1"]
+[ext_resource type="Script" uid="uid://dljjuwyn8s77o" path="res://tests/fixtures/s05_draw/observer.gd" id="2_eboep"]
+
+[node name="Boot" unique_id=248260697 instance=ExtResource("1")]
+script = ExtResource("2_eboep")
