@@ -1,0 +1,20 @@
+Check evidence: C:\tmp\ft\lanes\s03s-abstraction\script-checks-evidence
+C:\GameDev\git\ft-lanes\s03s-abstraction\tests\fixtures\s07_driver\fixture.gd
+  6:101 warning line is 101 characters long (max 100) [format/max-line-length]
+      const EXPECTED_SIGNATURE: String = "eaec39bbde6bd39e0b9c6c5c005f6285be49881faeb3a2cbfa02363014ff1604"
+                                                                                                          ^
+
+C:\GameDev\git\ft-lanes\s03s-abstraction\tests\fixtures\s07_driver\guards.gd
+  17:1 warning function '_run' is 60 lines long (max 50) [quality/max-function-length]
+      func _run() -> void:
+      ^
+
+C:\GameDev\git\ft-lanes\s03s-abstraction\tests\fixtures\s07_driver\run.gd
+  75:1 warning function '_traverse' is 65 lines long (max 50) [quality/max-function-length]
+      func _traverse(case_name: String) -> void:  # gdstyle:ignore=quality/max-local-variables
+      ^
+
+76 files checked, 3 warnings found.
+error: 3 warnings found, exceeding the --max-warnings limit of 0
+
+{"formatting": true, "style": false, "compilation": true}

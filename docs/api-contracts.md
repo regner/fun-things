@@ -10,8 +10,9 @@ required. [Architecture](architecture.md) assigns state owners;
 
 Product rules come from [the ratified brief](design.md). Values labeled provisional
 are experiment defaults, not measured transport limits or approved combat tuning.
-S03 settled only its minimum subset; S03-S/S03-R/S04/S05/S07/S08 refine remaining
-limits, and P0-GATE records the settled contract before production acceptance. Contract
+S03 settled only its minimum subset; S03-R/S04/S05/S07/S08 refine remaining
+initial-game limits, and P0-GATE records the settled contract before production acceptance.
+S03-S now reviews future-adapter compatibility only; it does not select or test Steam. Contract
 changes update these documents and acceptance cases together.
 
 ## Common types, identity and compatibility
@@ -19,8 +20,11 @@ changes update these documents and acceptance cases together.
 | Type / field | Shape, units and scope |
 | --- | --- |
 | `OperationId` | Positive local 64-bit integer, monotonically allocated by SessionService; never reused during the process; not a network identity |
+| `ProviderId` | Stable namespaced identifier for a Boot-composed session provider; M1 initially registers only `&"enet"` |
+| `ConnectionToken` | Opaque adapter-generated local token; never reused across adapter or connection generations and never serialized as gameplay identity |
+| `JoinTarget` | Opaque adapter-owned `{provider_id, adapter_generation, local_handle}`; raw addresses/account/lobby IDs and native objects never leave their adapter |
 | `SessionId` | Host-created opaque 128-bit random value encoded as 32 lowercase hex characters; fresh for every host/standalone match session |
-| `ParticipantId` | Positive host-allocated 64-bit integer, unique within SessionId; reconnect gets a fresh ID, including the same Steam account |
+| `ParticipantId` | Positive host-allocated 64-bit integer, unique within SessionId; reconnect gets a fresh ID, including the same provider account |
 | `MatchRevision` | Positive integer, initially 1, incremented on reset; reject commands/events/baselines from older revisions |
 | `EntityRef` | `{id: positive int, generation: positive int}` scoped to SessionId; Match increments generation if reusing an ID; reset never recreates an old ref |
 | `WorldId`, `DefinitionId` | Explicit namespaced strings, at most 128 UTF-8 bytes; saved world identity and immutable gameplay/asset identity are separate |
@@ -49,12 +53,13 @@ IDs are build-time fingerprints of required gameplay resources/bakes, bounded to
 are diagnostic metadata, not compatibility. Unknown definitions or world IDs fail
 admission with `INCOMPATIBLE`/`CONTENT_INVALID`, never a fallback gameplay definition.
 
-SessionService maps `(active provider operation, native peer ID)` to ParticipantId
-only after handshake validation. SteamPlatform maps native account/lobby IDs to opaque
-targets/bindings; SteamTransport authenticates its connection identity using the
-selected integration. Account identity, lobby membership and reused ENet peer numbers
-grant no admission. Remove mappings on disconnect/closing and reject old callbacks.
-Revisions reject obsolete state; they are not authentication secrets.
+SessionService maps `(active provider operation, ConnectionToken, native peer ID)` to
+ParticipantId only after handshake validation. A future provider maps native account/lobby
+IDs to opaque targets and authenticates its expected connection identity inside the adapter.
+Account identity, directory/lobby membership and reused native peer numbers grant no admission.
+Remove mappings on disconnect/closing and reject old operation IDs/tokens. Revisions reject
+obsolete state; they are not authentication secrets. Authentication-ticket bytes and native
+identity objects never enter SessionService, Match, Replication or gameplay records.
 
 ## Session and asynchronous operations
 
@@ -68,17 +73,23 @@ SessionService.view() -> SessionView
 signals: changed(SessionView), completed(OperationId, Result<SessionView>)
 ```
 
-`HostRequest = {transport: ENET | STEAM, district_id, capacity: 1..4}`. Bind options
-(ENet port/interface or Steam friend-lobby settings) are validated adapter-local
-configuration. `JoinTarget` is an opaque adapter-owned value with a transport tag
-and local handle; raw addresses, lobby/account IDs and native objects never reach
-Match/actors. UI boundary calls `ENetTransport.parse_endpoint(address: String,
-port: int) -> Result<JoinTarget>` or selects a platform-produced target. Targets
-expire when their adapter is reset/closed; joining an expired target returns
-`TARGET_EXPIRED`. Port is 1..65535; address text is bounded to 255 UTF-8 bytes and
-parsed/normalized by the adapter. No public/LAN discovery is promised.
+`HostRequest = {provider_id: ProviderId, district_id, capacity: 1..4,
+provider_options}`. Boot composes a fixed provider table before SessionService accepts
+operations; M1 initially registers only `&"enet"`. Each binding contains one Transport
+and zero or one matching SessionDirectory. Bind options are adapter-owned and validated;
+provider registration cannot change while a session is active or closing. An unknown or
+unavailable provider returns `SERVICE_UNAVAILABLE`, without changing gameplay APIs.
 
-`SessionView = {phase, operation_id?, transport?, session_id?, local_participant_id?,
+The UI boundary calls `ENetTransport.parse_endpoint(address: String, port: int)
+-> Result<JoinTarget>` or receives a directory-produced target. Targets expire when their
+adapter is reset/closed; joining an expired target returns `TARGET_EXPIRED`. Port is
+1..65535; address text is bounded to 255 UTF-8 bytes and parsed/normalized by the ENet
+adapter. No public/LAN discovery is promised. Future invite, rich-presence and launch
+payloads are parsed strictly inside their SessionDirectory and become
+`ExternalJoinRequest = {target: JoinTarget, source: INVITE | RICH_PRESENCE | LAUNCH}`;
+raw platform text and IDs do not reach SessionService.
+
+`SessionView = {phase, operation_id?, provider_id?, session_id?, local_participant_id?,
 capacity, roster, failure?}`. Roster rows are `{participant_id, display_name,
 phase: RESERVED | LOADING | SYNCHRONIZING | ADMITTED}`; names are bounded to 64 UTF-8 bytes and are
 display data only. Pending connections reserve capacity from handshake onward and
@@ -110,55 +121,114 @@ Late canceled results are closed/left by their adapter, never attached to the ne
 attempt. Closing has a bounded local deadline; unresponsive native work is detached
 with a cleanup-only callback and cannot publish state. If an adapter cannot safely
 correlate/drain within that deadline, mark it unavailable until it proves safe reuse
-or the process restarts; offline/the other provider remain usable. Do not attach a
-new uncorrelated attempt while obsolete native work is pending. S03-S must prove
-the integration's actual safe cleanup/drain strategy before reuse.
+or the process restarts; Standalone/ENet and any safe provider remain usable. Do not attach a
+new uncorrelated attempt while obsolete native work is pending. Any later provider must
+prove its actual safe cleanup/retirement strategy before registration and reuse.
 
-SteamPlatform emits `join_requested(JoinTarget)`. In IDLE it enters this same join
-flow; while connecting/loading the UI offers cancel-and-join, and in ACTIVE it asks
-before leaving the match, as required by the brief. Keep at most one pending invite;
+An optional SessionDirectory emits `join_requested(ExternalJoinRequest)`. In IDLE it
+enters this same join flow; while connecting/loading the UI offers cancel-and-join, and
+in ACTIVE it asks before leaving the match. Keep at most one pending external request;
 a newer target replaces the pending target, never silently leaves the current match.
 Settings/menu focus neutralizes local intent without pausing shared simulation.
 
-## Transport and platform adapters
+## Transport and session-directory adapters
+
+This is the **M1-A1 contract**: ENet is the only initial provider, while the boundary
+remains capable of accepting a separately selected later adapter. The fixed logical
+stream profile and provider-neutral lifecycle are normative. The isolated S03 fixture's
+smaller capability dictionary remains evidence for ENet behavior, not the production type.
+The [S03-S abstraction review](spikes/s03-s-abstraction-review.md) maps future Steam
+concepts to this boundary and records why no Steam implementation is accepted now.
 
 ```text
+Transport.provider_id() -> ProviderId
 Transport.capabilities() -> TransportCapabilities
-Transport.open_host(operation_id, adapter_config) -> Result<void>
+Transport.open_host(operation_id, provider_options) -> Result<void>
 Transport.open_client(operation_id, target: JoinTarget) -> Result<void>
 Transport.close(operation_id) -> Result<void>
+Transport.connection_diagnostics(connection: ConnectionToken)
+    -> Result<BoundedTransportDiagnostics>
 signals to SessionService only:
   peer_ready(operation_id, peer: MultiplayerPeer)
-  connected(operation_id, native_binding)
-  disconnected(operation_id, native_binding, Failure)
-  failed(operation_id, Failure), closed(operation_id)
+  connected(operation_id, connection: ConnectionToken, native_peer_id: int)
+  disconnected(operation_id, connection: ConnectionToken, Failure)
+  failed(operation_id, Failure)
+  closed(operation_id, CloseResult)
 
-SteamPlatform.availability() -> PlatformCapabilities
-SteamPlatform.create_friend_lobby(operation_id, capacity) -> Result<void>
-SteamPlatform.join_lobby(operation_id, target: JoinTarget) -> Result<void>
-SteamPlatform.leave_lobby(operation_id) -> Result<void>
-signals: lobby_ready(operation_id, JoinTarget), failed(operation_id, Failure),
-         join_requested(JoinTarget)
+SessionDirectory.provider_id() -> ProviderId
+SessionDirectory.capabilities() -> DirectoryCapabilities
+SessionDirectory.create_joinable(operation_id, capacity) -> Result<void>
+SessionDirectory.join(operation_id, target: JoinTarget) -> Result<void>
+SessionDirectory.close(operation_id) -> Result<void>
+signals:
+  ready(operation_id, JoinTarget)
+  failed(operation_id, Failure)
+  closed(operation_id, CloseResult)
+  join_requested(ExternalJoinRequest)
 ```
 
-These native peer/binding signals are private boundary APIs, not gameplay data.
-SessionService is the only consumer and attaches the Godot peer only when endpoints
-exist. The transport supplies connectivity; it cannot allocate player entities or
-admit input. SteamPlatform owns discovery/lobbies/invites; SteamTransport owns the
-actual Steam gameplay peer. Host creation publishes a joinable lobby only when the
-host transport/handshake endpoint is ready. A failure cleans up both resources.
+These peer/token signals are private boundary APIs, not gameplay data. SessionService
+is the only consumer and attaches the Godot peer only when endpoints exist. A token is
+fresh for one adapter/connection generation and cannot be reconstructed from a native
+handle. The transport supplies connectivity and authenticates any provider identity;
+it cannot allocate ParticipantIds/player entities or admit input. A directory owns
+optional discovery/lobbies/invites/launch parsing; its matching transport owns gameplay
+connectivity. Host creation publishes a joinable target only when the host endpoint is
+ready. A failure cleans up both resources. ENet has no SessionDirectory. Until the
+pinned engine defect is fixed and verified, ENetTransport applies its intended bandwidth
+limits immediately after server creation and before `peer_ready`; that workaround is
+adapter-internal and cannot change the lossy contract of channels 2/3.
 
-`TransportCapabilities = {available, reliable, unreliable_ordered, channel_count,
-max_payload_bytes_by_mode, route_diagnostics_available, failure?}`. Limits describe
-tested logical-message support; native packet/fragment limits remain adapter-local
-evidence. S03 exercised ENet's required modes/channels only at tiny fixture sizes;
-S03-S proves Steam support, and M1-D3 validates each provider's production message
-budgets. Unsupported capabilities fail with `UNSUPPORTED`, not silent fallback.
-`PlatformCapabilities = {available, friend_lobbies, invites, launch_join, failure?}`.
-No Steam initialization or native dependency is required by offline/ENet startup.
-The absent adapter returns unavailable capabilities/`SERVICE_UNAVAILABLE`. Do not
-add real providers for unselected stores. A fake provider exercises this boundary
-in tests and cannot certify Steam delivery.
+`TransportCapabilities = {available, identity_assurance, streams,
+max_receive_packet_bytes, route_diagnostics_available, failure?}`. Identity assurance is
+`NONE | PROVIDER_AUTHENTICATED`; ENet uses `NONE`, while any later account-targeted adapter
+must authenticate the expected provider identity before emitting `connected`. Each stream
+row is `{channel, delivery, queue_policy, max_logical_payload_bytes}`. M1 requires exactly:
+
+| Channel | Delivery | Queue policy | Logical ceiling |
+| --- | --- | --- | --- |
+| 0 session/admission/actions | `RELIABLE_ORDERED` | `DURABLE` | 4096 bytes for actions; control codecs may be smaller |
+| 1 baseline/durable/results/events | `RELIABLE_ORDERED` | `DURABLE` | 16 KiB complete transaction or chunk |
+| 2 held input | `UNRELIABLE_ORDERED` | `REPLACEABLE_LOSSY` | 1200 bytes |
+| 3 movement | `UNRELIABLE_ORDERED` | `REPLACEABLE_LOSSY` | 1200 bytes |
+
+Limits describe tested logical-message support including audited peer framing; they are
+not native MTUs, fragment ceilings or decoder-allocation guarantees. The adapter must
+reject aliasing, reliable substitution, unsupported modes and oversize packets instead
+of silently falling back. Provider-specific native lanes and sequence filtering remain
+inside the adapter. Native message numbers never acknowledge simulation, durable state
+or gameplay application.
+
+`UNRELIABLE_ORDERED` is lossy by contract: sequence gaps are permitted, late/duplicate
+messages are discarded per connection generation and channel, and callers never wait
+indefinitely for one send. A future adapter may use a native no-delay/drop-if-congested
+flag only for `REPLACEABLE_LOSSY`; it is not a delivery or maximum-age guarantee.
+Reliable submissions cannot be silently dropped, truncated or moved to another stream.
+Replication retains its stricter codec/rate/queue limits, per-entity freshness and
+periodic movement-subset revisit rules.
+
+`CloseResult = {reuse_status: SAFE | UNAVAILABLE, failure?}`. SessionService invalidates
+producer access, targets, mappings and the attached peer before close. Old operation IDs
+or ConnectionTokens remain cleanup-only. A five-second local deadline may restore the
+menu, but it does not prove all native callbacks drained; a provider that cannot prove
+safe callback/request retirement reports `UNAVAILABLE` until its own safe-reuse condition
+or process restart. ENet close can report `SAFE` after its local peer resources are
+released. A provider binding is reusable only when its transport and optional directory
+both report `SAFE`; other providers must establish their own correlation/retirement rule.
+
+`BoundedTransportDiagnostics` may report `route: DIRECT | RELAY | UNKNOWN`, bounded
+provider detail and traffic/queue observations. Diagnostics are local observability,
+never authority or admission. Relay initialization, lobby success or a generic relayed
+flag does not prove actual SDR gameplay traffic.
+
+`DirectoryCapabilities = {available, friend_sessions, invites, rich_presence_join,
+launch_join, failure?}`. No Steam initialization or native dependency is required by
+Standalone/ENet startup. An absent later adapter returns unavailable capabilities and
+`SERVICE_UNAVAILABLE`. Authentication tickets remain adapter-private; no ticket bytes,
+account IDs or lobby IDs enter common session/gameplay APIs. If later backend ticket
+validation is selected, the provider exposes only its resulting identity assurance and
+readiness. Do not add providers for unselected stores. A fake provider exercises this
+boundary in tests and cannot certify native delivery.
 
 ## Admission and replication
 
@@ -257,10 +327,10 @@ reliable match baseline/durable state/action results; channel 2 unreliable-order
 held input; channel 3 unreliable-ordered movement. Discrete action requests use
 channel 0, so baseline transfer cannot order them behind its chunks. Live events
 use the reliable match stream with state dependencies. No ordering is assumed
-between channels. Both transports must prove four configured channels and these
-modes; S03 exercises all four channels with ENet. Steam remains an independent
-S03-S requirement; the fixture's tiny JSON baseline/Variant intent and movement
-codec is not the production codec or a measured maximum transport limit.
+between channels. Every registered transport must prove four configured channels and
+these modes; S03 exercises all four with ENet. A future provider must pass the same
+profile before registration. The fixture's tiny JSON baseline/Variant intent and
+movement codec is not the production codec or a measured maximum transport limit.
 
 **Split movement decision from S03:** a packet watermark does not imply receipt
 of entities omitted from that packet. Apply freshness per EntityRef/control binding;
@@ -531,11 +601,11 @@ to fixed-step deadlines without accepting client elapsed time.
 
 | Limit | Draft value and scope | Owner / proof |
 | --- | --- | --- |
-| Connection/negotiation | 15 s connection plus 5 s handshake | SessionService / S03 minimum evidence; S03-S native decision; M1-A1/M1-D3 full failures/deadlines |
+| Connection/negotiation | 15 s connection plus 5 s handshake | SessionService / S03 ENet minimum evidence; M1-A1/M1-D3 full ENet failures/deadlines; each future provider proves its native path separately |
 | World load | 30 s per participant, never pauses host | SessionService/Match / S08 export/content proof; M1-A1/A2/M1-D3 production loading/deadlines |
-| Baseline/admission | 1 MiB serialized and decoded baseline; 16 KiB logical chunks; 10 s transfer/apply, 5 s handoff; 60 s total attempt, unaffected by reset/retry | Replication/SessionService / S03 tiny cut/handoff evidence; S03-S transport limits; M1-A1/A2/M1-D3 size/duplicate/overflow/reset acceptance |
+| Baseline/admission | 1 MiB serialized and decoded baseline; 16 KiB logical chunks; 10 s transfer/apply, 5 s handoff; 60 s total attempt, unaffected by reset/retry | Replication/SessionService / S03 tiny cut/handoff evidence; M1-A1/A2/M1-D3 ENet size/duplicate/overflow/reset acceptance; each future provider separately proves its transport limits |
 | Join journal | 2 MiB serialized or 4096 durable records per join, whichever first; overflow aborts only that admission | Replication / S03 single-health-record evidence; S05 chain decision; M1-A1/B3/M1-D3 general journal/overflow acceptance |
-| Closing | 5 s local cleanup; stale native callbacks retain cleanup-only ownership | SessionService/adapters / S03 correlated fake/local cleanup evidence; S03-S native drain proof; M1-A1/M1-D3 bounded/hung cleanup acceptance |
+| Closing | 5 s local cleanup; stale native callbacks retain cleanup-only ownership | SessionService/adapters / S03 correlated fake/local cleanup evidence; M1-A1/M1-D3 bounded/hung ENet cleanup; each future provider proves correlation and safe reuse separately |
 | Simulation / sending | 60 Hz fixed simulation; up to 30 Hz input and 20 Hz movement publication | Match/Replication / S03-R/S04 response decisions, S07 budgets; M1-A2/B1/M1-D3 production rates/load |
 | Split motion revisit | Every relevant entity, even unchanged, within 250 ms before delivery loss; freshness tracked per entity/control binding | Replication / S03 subset-refresh evidence; M1-A2 implementation, M1-D3 capacity/adverse-profile proof |
 | Held input | 1200 serialized bytes/message; 3 frames/batch; 8 queued frames/participant; sequence at most 120 ahead; 250 ms stale-input expiry | Replication / S03 individual receipt/window/expiry evidence; S03-R/S04 controller decisions; M1-A2/B1/M1-D3 batch/queue/gameplay acceptance |
@@ -587,7 +657,7 @@ script checks and a bounded runner, integrated with completed S01 asset/resource
 | Boundary / evidence and active owners | Independent observable expectation |
 | --- | --- |
 | Session/provider replacement — S03 minimum evidence; M1-A1/M1-A-GATE full shell, M1-D3 adverse cases | S03 verifies correlated fake/ENet cancel/retry, fresh identities, one placeholder rig and Steam absent in the isolated project. Production host/join/cancel/leave/Standalone and failure/menu flows must complete once and cleanly retry. |
-| Real Steam — S03-S/S08 bounded proof; M1-A1/M1-A-GATE/M1-D4 production delivery | Two authorized accounts on separate networks exchange baseline/intent using a real Steam peer; lobby alone cannot pass; native late callback cannot attach to retry. Packaged gameplay/install/invite flows need production acceptance. |
+| Future provider conformance — not part of initial ENet acceptance | Before registration, a later adapter independently proves the fixed stream profile, authenticated identity, bounds, cancel/late-callback/retry safety and packaged gameplay delivery. Lobby success alone cannot pass. S03-S currently accepts only the reviewed abstraction; no Steam runtime test is required in this phase. |
 | Admission — S03 tiny baseline/journal/handoff evidence; M1-A1/M1-A-GATE full shell, M1-D3 adverse/capacity | Connected-but-unadmitted input changes no actor; wrong content/full/unreachable/slow join fails boundedly; baseline plus during-load durable changes yields current state before control. S03 proves one health change, not the full journal/overflow suite. |
 | Admission rollback — S03 provisional-cancel evidence; M1-A1/A2 full lifecycle, M1-B1/B3/C3 dependent cleanup, M1-D3 races | Cancel/fail after provisional player creation removes it once, cancels respawn/actions and releases seat/spawn/capacity; retry creates exactly one player. S03 has no gameplay timers, seats or spawn clearance. |
 | Resync — S03 injured-marker/window/fresh-deadline evidence; S04 seated decision; M1-A2/B1/B2 implementation, M1-D3 acceptance | An injured seated player keeps the same entity, health, equipment and seat; commands stay closed during hydration; a sequence window overflow recovers under a fresh control revision and sequence 1; old frames/actions/acks cannot reopen control. S03 proves entity/health retention and held/ack fences only. |
@@ -603,10 +673,11 @@ script checks and a bounded runner, integrated with completed S01 asset/resource
 | Reset/teardown — S03 tiny leave/host-loss evidence; M1-A2 reset coordinator, M1-B3 combat/seats/chains, M1-C3 population, M1-D3 full acceptance; M1-A1/M1-A-GATE shell cleanup/reset | Admitted peers remain after host reset; old-match commands/events do nothing; no layout transforms change; callbacks/history/input/loops are cleared on leave and retry. Reset while driving/firing/joining rehydrates new revisions and clears old work; S03 implements no reset. |
 | City/asset identity — S01 bounded accepted route; S06 topology decision; M1-C1/C2/C4 production content, M1-D1/D4 checks/exports | Reexport/inheritance/roundtrip preserves placement/import ancestry/IDs; stale bake rejects use; route crosses two-sector seam and shared minimap roads align. S01 acceptance is limited to linked wrappers and wrapper-level variants, not direct imported-child overrides or production art. |
 | Settings — M1-A3 implementation/tests, M1-A-GATE shell, M1-D4 targets | Levels/mute survive restart; corrupt fields default; save failure retains last good file and reports retry; live audio preview leaves shared simulation running. |
-| Prediction/targets — S03-R/S04 response decisions, S07 budgets, S08 target proof; M1-A2/B1 implementation, M1-D3/D4 full acceptance | Matching-tick authoritative convergence and bounded replay meet selected budgets; no replay damage/effects; exact exported ENet and Steam paths each pass on required targets. Loopback markers cannot close gameplay, Steam or Deck requirements. |
+| Prediction/targets — S03-R/S04 response decisions, S07 budgets, S08 target proof; M1-A2/B1 implementation, M1-D3/D4 full acceptance | Matching-tick authoritative convergence and bounded replay meet selected budgets; no replay damage/effects; the exact exported ENet path passes on initial targets. A later provider requires its own target acceptance before registration; loopback markers cannot close that future proof. |
 
-Pending exact choices are owned: native integration/correlation and tested limits
-(S03-S), production codecs/snapshot batching/abuse disconnect (M1-D3, informed by S03), motion extras/camera and
+Pending exact choices are owned: future-adapter integration/correlation and tested limits
+(a later separately commissioned provider task, informed by the S03-S abstraction review),
+production codecs/snapshot batching/abuse disconnect (M1-D3, informed by S03), motion extras/camera and
 prediction (S02/S03-R/S04), interaction thresholds/stopping (S04), combat tuning and
 chain/retention capacity policy (S05), topology/route/bake bounds (S06), toolchain and
 measured budgets (S07/S08). These remain active tasks in [TODO](../TODO.md); P0-02
