@@ -221,37 +221,6 @@ complete in [the completion/review record](docs/reviews/p0-doc5.md). Only the
 three guides and resolving references changed; full S02/S03-R, profile
 configuration/launch, Steam/Deck/P0/production gates remain open.
 
-- [ ] **P0-DOC6 — Reconcile accepted S04 discovery, technical contracts and review stage.**
-  Owner role: one direct Sol documentation worker, independently reviewed; root
-  assigns named ownership. Prerequisites: accepted S04 `2370ad1` source/body/seat
-  record and COMPLETE exact-final review/integration Git note, completed
-  [DOC5](docs/reviews/p0-doc5.md), and fifth checkpoint evidence. Ready from accepted
-  facts; no new gameplay, shared editor, source reexport or device access needed.
-  Files: `README.md`, `docs/development.md`, `docs/architecture.md`,
-  `docs/scene-structure.md`, `docs/multiplayer.md`, `docs/world-layout.md`,
-  `docs/assets/s04_kit.md`, `docs/spikes/s04.md`.
-  Source evidence: [S04 results/fix/limits](docs/spikes/s04.md),
-  [body/seat matrix](docs/spikes/s04-contracts.md), [source/consumers](docs/assets/s04_kit.md),
-  [full original review](docs/reviews/s04-10874476.md), exact-final `2370ad1` note,
-  actual `tools/run_s04.py` / `tools/s04/run_checks.py` / `tools/s04/reexport.py`
-  flags and saved `tests/fixtures/s04/` ancestry. Do not execute the runners.
-  Done when: README/development discover the accepted fixture and existing bounded
-  runner/check recipes without inventing a Mise task or all-script/drawn/target
-  proof; architecture/scene/multiplayer describe the bounded shared rule, pre-tree
-  passive bodies, physics-phase capture/admission and future seat matrix with one
-  owner, separating fixture player-marker codec from production vehicle EntityRef;
-  world-layout's stale "S04 car evidence unproved" distinguishes accepted technical
-  bounds from pending full turns/exits/feel; source handoff's pending-review stage
-  and S04's final-review-future prose link exact acceptance while preserving the
-  original protocol, initial REQUEST CHANGES, closed P2/P3 and raw history.
-  Retain original 97/269/401 and separate corrected 248/380 physics p95, zero drawn
-  receipts, unratified dimensions/body/controls/prediction, full S02/S03-R/S04,
-  Steam/Deck/input/feel/capacity/P0/production gates. Static local links/anchors,
-  flag/source mapping, LF/whitespace, history/asset identity/task preservation and
-  clean-context exact-final review pass. Remove DOC6 with its resolving scoped
-  guide change and replace P0-GATE prerequisite with its completion record.
-  Does not block bounded S05/S06 consuming accepted spike records; finish before P0-GATE.
-
 - [ ] **P0-DOC7 — Discover accepted stopped S03-S compatibility evidence and next decision.**
   Owner role: one direct Sol documentation worker with independent review; root
   assigns named ownership and serializes README/development edits with DOC6.
@@ -543,7 +512,8 @@ implementation. Save editor mutations before playtests; preserve unsaved work.
   [P0-DOC1 reconciliation](docs/reviews/p0-doc1.md),
   [P0-DOC2 reconciliation](docs/reviews/p0-doc2.md),
   [P0-DOC4 guide reconciliation](docs/reviews/p0-doc4.md),
-  [P0-DOC5 discovery/consumer reconciliation](docs/reviews/p0-doc5.md), P0-DOC6/P0-DOC7,
+  [P0-DOC5 discovery/consumer reconciliation](docs/reviews/p0-doc5.md),
+  [DOC6 accepted S04 guide reconciliation](docs/reviews/p0-doc6.md), P0-DOC7,
   [S03 fixture boundary](docs/spikes/s03.md#fixture-and-boundary),
   [completed S03 proof](docs/spikes/s03.md), S03-R/S03-S and S04 through S08.
   S07 supplies the documented capacity envelope, limiting axes, organization and
@@ -768,8 +738,8 @@ UNASSIGNED; no active S04 candidate or new S04/S05/S06 authoring allocation.
 Root grants named leases before the next experiment. Original
 S02/S03 fixtures remain immutable. Separate drawable S02/S03-R/S04 physical input,
 native focus, camera/readability/feel and conditional prediction decisions remain
-open. DOC1–5 are complete; P0-DOC6 reconciles newly accepted S04 discovery
-without reopening their completed scope. Four profile proposals remain reviewed
+open. DOC1–6 are complete; [DOC6](docs/reviews/p0-doc6.md) reconciles accepted S04
+discovery without reopening DOC1–5 or closing technical/product gates. Four profile proposals remain reviewed
 and inert, zero installed, configuration and representative launches deferred.
 
 S03-S compatibility `ca38e4fc55b32a379ef7e3bf947e27d4ca8edc4c` is independently
@@ -784,7 +754,7 @@ API/peer design; no repeat model expecting network proof or contract weakening.
 Same S03-S task owns remaining compatibility/Steam acceptance; root assigns the
 next worker/budget. DOC7 discovers this partial result; no duplicate technical task.
 
-Root-ready bounded options: DOC6/DOC7 (serialize shared guide edits); S05 minimum damage/chain design and
+Root-ready bounded options: DOC7 (shared guide edits serialized after DOC6); S05 minimum damage/chain design and
 fixture preparation using accepted provisional S04 technical bodies; S06 one saved
 two-sector topology/turn/seam experiment under explicit provisional dimensions;
 S08 desktop exact-template/native-dependency/export recipe preparation. Root assigns
@@ -803,7 +773,7 @@ The table describes dependency stages, not a claim that deferred proofs are runn
 | Initial foundation | Ratified brief, contract drafts, concept exploration, tool inventory | Chosen style/layout and measured scope revisions need user ratification and evidence |
 | Tiny fixtures available | S02 camera using [S01 pipeline evidence](docs/spikes/s01.md); use [completed S03 session evidence](docs/spikes/s03.md); review skill dry runs | All visible fixtures must have Blender sources; only minimum harness required |
 | ENet boundary available | Stopped S03-S compatibility accepted; root commissions exact-revision evidence or bounded native-boundary design; S08 desktop preparation | No adapter selection/native delivery/access proof inferred; existing-app/tester/native compatibility still required |
-| Reviewed desktop S02/S03/S03-R and bounded S04 technical result available | DOC6/DOC7; bounded S05 preparation and S06 provisional saved turn/seam experiment after new named leases; separately leased S02/S03-R/S04 drawable follow-ups | No current authoring lease; final dimensions/turning/feel/target/Steam/prediction remain open |
+| Reviewed desktop S02/S03/S03-R and bounded S04 technical result available | DOC7; bounded S05 preparation and S06 provisional saved turn/seam experiment after new named leases; separately leased S02/S03-R/S04 drawable follow-ups | No current authoring lease; final dimensions/turning/feel/target/Steam/prediction remain open |
 | Both providers available | Finish S03-R foot response and S04 network response; S08 exports | Both transports need evidence; foot/vehicle prediction are separate decisions |
 | Provisional technical vehicle envelope available | Bounded S05 minimum damage/chain fixture and S06 intersection/seam with actual bodies | Final dimensions/turning/exit ratification remains S04; rerun affected cases after choices |
 | City/effect fixtures available | S07 capacity/culling experiments, finish S08, skill dry runs and doc reconciliation | P0-GATE resolves critical assumptions before production |

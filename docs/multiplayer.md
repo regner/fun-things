@@ -2,8 +2,10 @@
 
 Build multiplayer around explicit simulation ownership, current-state admission,
 and clean session teardown. The isolated [S03 proof](spikes/s03.md) now exercises
-a tiny real-process ENet connection contract. Production gameplay and responsiveness
-remain future work.
+a tiny real-process ENet connection contract. Accepted bounded
+[S03-R foot](spikes/s03-r.md) and [S04 car](spikes/s04.md#accepted-exact-final-disposition)
+experiments add applied-physics response evidence; production gameplay and drawn
+responsiveness/feel acceptance remain future work.
 ENet for local testing and Steam for friends playtesting are confirmed first-milestone
 requirements, using the existing Steam app. The [ratified brief](design.md) selects
 an authoritative listen server, 1–4 players, late joining and match termination on
@@ -311,3 +313,32 @@ Its simulation-response/convergence metrics do not prove visible response, remot
 presentation continuity, prediction corrections or user feel. No production foot
 prediction choice is selected. S03-R remains open for drawable measurements,
 bounded host-tick/held replay mapping if warranted, and the existing Steam/target gates.
+
+## Accepted S04 technical boundary
+
+The [body/seat record](spikes/s04-contracts.md#executable-technical-envelope) refines
+the canonical API; it owns these fixture details rather than a second networking
+contract. `S04DriveRules` shares handling across character and rigid adapters.
+Pre-tree passive bodies disable collision and simulation; rigid replicas additionally
+freeze STATIC with sleep/zero velocities/gravity. Character capture follows solved
+movement; rigid capture represents the prior solver interval before next writes.
+Acknowledgement records consumed/superseded held intent, which may span many ticks.
+
+The fixed two-driver ENet fixture preflights baseline dependencies, fences old
+session/entity/generation/life/control/collision state and waits for grant plus fresh
+movement. The P2-corrected actual producer checks input admission every callback and
+clears held keys while closed; movement cannot write health/seat/equipment. Injured
+player/seat/equipment retention is bounded seated reauthorization. Player markers
+and explicit vehicle IDs are a compatibility codec; production drive context must
+address the controlled vehicle EntityRef. No production wire compatibility is implied.
+
+[M1-B1's specified matrix](spikes/s04-contracts.md#m1-b1-transition-matrix-specified-not-implemented)
+keeps seat transactions with VehicleInteraction under Match, adverse acceptance with
+M1-D3, and no-seated-fire/reload feel confirmation before P0-GATE. Entry/exit races,
+disconnect/death/destruction/reset and production late join are specified, not proved
+by this fixture. Exact [2370ad1 acceptance](spikes/s04.md#accepted-exact-final-disposition)
+closes P2/P3. Original physics p95 97/269/401 ms and fixed normal/adverse248/380 ms
+remain separate,20/20 each; no drawn receipt exists. Zero matching-tick install error
+and update jumps are not prediction correction. Physical input/focus, visible
+response/camera/readability/feel, final body/dimensions/turning/prediction, full S04,
+Steam/Deck/Windows/exports/capacity and P0/M1/production gates remain open.

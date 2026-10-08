@@ -1,8 +1,12 @@
 # s04_kit — bounded technical source handoff
 
 New spike-only car and track, created by the S04 direct Sol6.1 HIGH lead on8 October
-2026. Review stage: independent technical review pending; production art, feel,
-camera/readability, Steam and Deck acceptance OPEN. Brief and criteria:
+2026. Review stage: exact `2370ad1c182b46e51f5dc4c6b6ab6157819e84b0`
+independently ACCEPTED for bounded technical use; original P2/P3 CLOSED. See
+[exact-final acceptance and durable note](../spikes/s04.md#accepted-exact-final-disposition)
+and [full original REQUEST CHANGES](../reviews/s04-10874476.md). Production art, feel,
+body/controls/dimensions/turning/prediction, camera/readability, physical keys/focus,
+Steam/Deck and full S04/P0/M1/production acceptance remain OPEN. Brief and criteria:
 [S04](../spikes/s04.md), [body/seat contract](../spikes/s04-contracts.md), accepted
 [Petrol & Coral direction](../art-direction.md) and [six-block scope](../world-layout.md).
 Original geometry/materials created in Blender; no external model/image/library or

@@ -194,3 +194,32 @@ The [S03-R record](spikes/s03-r.md) retains inherited save/reopen identities and
 original-path byte preservation. Only redundant overrides in the new owned boot
 scene were normalized; original S02/S03 scenes/assets/resources were not modified.
 Headless technical checks do not establish visual/readability or production acceptance.
+
+## S04 saved fixture supplement
+
+[Accepted S04](spikes/s04.md#accepted-exact-final-disposition) adds saved
+[kinematic](../tests/fixtures/s04/kinematic.tscn),
+[dynamic](../tests/fixtures/s04/dynamic.tscn) and [track](../tests/fixtures/s04/track.tscn)
+wrappers linked to the new Blender car/track GLBs. The saved
+[body comparison](../tests/fixtures/s04/body_comparison.tscn) composes both candidates;
+[boot](../tests/fixtures/s04/boot.tscn) inherits unchanged S03 with two kinematic
+bodies and authored track/input/camera/UI placement. The editor harness is inspection
+only. [Source handoff](assets/s04_kit.md) maps source markers to stable wrapper sockets
+and retains inherited save/reopen identities. No production prefab is selected.
+
+The [body/seat contract](spikes/s04-contracts.md#executable-technical-envelope) owns
+shared handling, pre-tree passive configuration and capture semantics. Character
+replicas disable collision/movement; rigid replicas also freeze STATIC, sleep and
+zero velocities/gravity. Character post-move versus rigid prior-interval solver-entry
+samples must not be conflated. Host physics owns outcomes, replica physics installs
+poses, and presentation consumes state. Grant plus fresh dependent movement admits
+local input; the fixed producer respects that gate every callback. Saved placement
+is distinct from dynamic spawn/pose state.
+
+Inherited player markers1/2 plus explicit vehicle IDs1001/1002 are fixture identity,
+not production drive EntityRefs. The canonical prefab table remains a proposed
+production interface. The [M1-B1 matrix](spikes/s04-contracts.md#m1-b1-transition-matrix-specified-not-implemented)
+owns future seat/exit/race/lifecycle cases under Match/VehicleInteraction, with M1-D3
+adverse acceptance and Regner's no-seated-fire/reload feel decision. Flat-track
+technical bounds do not settle grounded exits, district turns, body/dimensions,
+controls/prediction, graphical/readability or target/production gates.

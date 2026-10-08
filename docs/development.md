@@ -369,6 +369,86 @@ physical-key, S02/Steam/Deck/Windows/export, P0-GATE and production gates remain
 Historical editor-relocation receipts do not certify current shared editor state;
 future authoring/reexports still need the existing save/refresh/reopen workflow.
 
+### S04 car fixture tooling
+
+Accepted [exact-final S04 disposition](spikes/s04.md#accepted-exact-final-disposition)
+and [source handoff](assets/s04_kit.md) discover the saved linked car/track wrappers,
+[comparison](../tests/fixtures/s04/body_comparison.tscn) and
+[boot](../tests/fixtures/s04/boot.tscn) inherited from S03. These are technical fixtures.
+The [body/seat record](spikes/s04-contracts.md) refines the canonical API and owns the
+bounded handling/capture details and future M1-B1 matrix.
+
+Existing recipes, from the repository root when assigned the required access:
+
+```sh
+python3 tools/run_s04.py --godot /path/to/pinned/godot --output /tmp/s04-my-run
+python3 tools/run_s04.py --godot /path/to/pinned/godot --profiles normal adverse --port 25010 --proxy-port 25011 --deadline 45 --output /tmp/s04-followup
+python3 tools/s04/run_checks.py --godot /path/to/pinned/godot --output /tmp/s04-my-checks
+python3 tools/s04/reexport.py --output /tmp/s04-my-reexport
+```
+
+There is no `spike:s04` Mise task. Static source mapping:
+
+| Tool / option | Existing behavior and bound |
+| --- | --- |
+| [run_s04.py](../tools/run_s04.py) `--godot` | PATH Godot or `godot` by default; exact `4.8.dev7.official.c971f93e7` required, version timeout 10 s |
+| `--profiles` | Sequential `baseline normal adverse` default; one or more of these names |
+| `--port`, `--proxy-port` | 24900/24901; distinct UDP ports in 1–65535, reused sequentially |
+| `--deadline` | 45 s per host/client case after import; accepted range 1–90 s; separate import timeout 30 s |
+| `--output` | Printed temporary `s04-` directory if omitted; absent/empty external directory required |
+| `--windowed` | Off by default; attempts actual 1280×800 graphical receipts, never forced draws or automatic visual acceptance |
+| [run_checks.py](../tools/s04/run_checks.py) | Required `--godot`; optional fresh empty external `--output`, otherwise `s04-checks-` temporary directory; exact pin, 30 s import and 35 s per check |
+| [reexport.py](../tools/s04/reexport.py) | Optional `--output`, otherwise `s04-reexport-` temporary directory; Blender on PATH, 90 s subprocess deadline; no `--godot`, `--install` or engine/import check |
+
+`run_s04.py` stages saved S02/S03/S04 fixture trees (excluding editor harnesses) and
+S02/S04 models/import sidecars, without addons or Blender authoring sources. Copied
+settings retain renderer/physics/input; autoload/editor-plugin sections and icon
+reference are removed. Import, host and client have separate XDG directories.
+Two paced ENet processes use a seeded loopback UDP proxy: baseline no impairment,
+normal 75 ms ±30 ms one-way/2% loss, adverse 125 ms ±50 ms/5% with one-second
+interruption and fixture 250 ms host stall. Proxy queue/work are bounded at
+1024 entries/128 receive and delivery entries per poll. Child cleanup uses the
+shared S03 owner-only termination/wait/kill fallback. This is Linux loopback,
+one-host/one-remote evidence, not four-player, LAN, Windows, Steam or Deck proof.
+
+Top-level `result.json` and per-profile copied project, `import.log`, `proxy.jsonl`,
+host/client `stdout.log`, `engine.log`, private user/capture directories retain
+commands, exits, fingerprints and measurements when the case completes. Failures
+retain available logs and a failure summary; an early failure need not have a
+completed case receipt. Exits and engine/script errors or warnings fail technical
+checks, as do collision/expiry/fences/resync, matching-tick install, all20 physics
+samples, stationary recovery or unchanged-source failures. Missing drawn samples
+alone do not fail the technical criteria. No all-script compilation is invoked.
+
+`run_checks.py` stages the same dependency mirror and runs four public API cases:
+body comparison/passive physics, baseline preflight, pose fences and the actual
+saved-composition producer admission regression. Its result binds commands, source
+hashes and unchanged copied files; logs retain import and each outcome. It does not
+run ENet profiles, graphical focus or all-script compilation. Use foundation checks
+separately. The accepted guard-only negative's14 outcome failures are historical
+regression evidence, not a recipe to modify the source checkout.
+
+`reexport.py` opens the committed `.blend`, uses the exact export-member manifest,
+and requires byte-identical car/track GLBs without images/extensions. It retains
+`blender.log` and `fingerprints.json` with private cache/config. Use a fresh external
+output by convention: this tool itself permits an existing output and does not
+validate outside-checkout placement. It installs nothing. Its exact optional
+MeshOptimizer-library diagnostic is allowed and retained; other ERROR/Traceback
+lines fail. Source changes still require source/output coordination and separate
+Godot refresh/reopen/save; scratch reexport or import cannot synchronize an editor.
+
+Original physics p95 **97/269/401 ms** remains distinct from corrected
+normal/adverse **248/380 ms**,20/20 each. Corrected adverse stationary convergence
+is **163.215/150.120 ms** after interruption/stall. Zero matching-tick installation
+error and update jumps are not prediction corrections; acknowledged speed/heading
+changes are not isolated causality, physical input or visible latency. One bounded
+window diagnosis had `can_draw=false`, zero drawn receipts. Exact-final acceptance
+closes producer P2 and mask-naming P3 only. No command ran for this docs task.
+Full S02/S03-R/S04, physical controls/focus, camera/readability/feel, final body/
+dimensions/turning/prediction, Steam/Deck/Windows/exports/capacity and P0/M1/production
+acceptance remain open. The saved main-editor relocation receipt is time-specific
+supplied history, never a current query or authoring lease.
+
 ## Versions and releases
 
 When release builds exist, make version and source revision visible in startup

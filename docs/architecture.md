@@ -191,8 +191,27 @@ P0-02 review's historical pending work. The subsequent
 settled the minimum subset-refresh decision: per-entity freshness plus repeated
 refresh of unchanged relevant entities recovers the tested ordered-stream loss.
 It does not prove production codecs, capacity or adverse-profile convergence;
-those remain M1-A2 implementation and M1-D3 acceptance. Passive replica-body and
-physics-phase pose capture remain S04 decisions, followed by M1-B1/D3 validation.
+those remain M1-A2 implementation and M1-D3 acceptance. The subsequent accepted
+[S04 body/seat record](spikes/s04-contracts.md#executable-technical-envelope) establishes
+bounded passive-body and physics-phase capture evidence, followed by full M1-B1/D3
+validation. `S04DriveRules` is the sole handling owner; CharacterBody post-move
+capture and rigid prior-interval solver-entry capture have distinct semantics.
+Pre-tree passive character collision is zero; rigid replicas also freeze STATIC,
+sleep and zero velocity/gravity so the engine solver cannot move them. Held sequence
+acknowledges consumed/superseded intent, not one command per tick. Baseline dependency
+preflight plus grant and fresh motion gate admission; the corrected producer honors
+that gate on every callback and clears closed-gate keys. Movement owns pose only.
+
+S04's fixed player-marker codec, with separate vehicle IDs1001/1002, is a fixture
+compatibility adapter, not the production controlled-vehicle EntityRef contract.
+The [specified seat matrix](spikes/s04-contracts.md#m1-b1-transition-matrix-specified-not-implemented)
+refines the canonical API without adding a second owner: VehicleInteraction under
+Match owns production transactions; M1-B1 implements, M1-D3 verifies adverse races.
+Fixed injured seated reauthorization does not implement entry/exit/death/destruction/
+reset/late-join conflicts or ratify no-seated-fire/reload. Exact
+[S04 acceptance](spikes/s04.md#accepted-exact-final-disposition) closes P2/P3 only;
+final body/controls/dimensions/turning/prediction, drawn response/feel and all
+transport/target/production gates remain open.
 
 Remaining acceptance has active owners in [TODO](../TODO.md) and the
 [API matrix](api-contracts.md#contract-tests). M1-A1/M1-A-GATE own full admission,

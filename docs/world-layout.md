@@ -60,7 +60,16 @@ captures. This corner/alley checks bounded foot collision/aim outcomes; it does 
 validate the six-block layout or final camera/clearance choices. Human feel,
 moving-camera/roof/held-weapon readability and physical-key Alt-Tab remain pending;
 current native focus revalidation is incomplete, historical passes separate.
-Deck input/readability/native 1280×800/60 FPS and S04 car evidence remain unproved.
+Deck input/readability/native 1280×800/60 FPS remain unproved. Subsequent
+[accepted S04 technical evidence](spikes/s04.md#accepted-exact-final-disposition)
+provides a reproducible collider1.8×1.5×3.4 m/visual1.88×1.54×3.4 m candidate and
+flat-track body/contact/brake/reverse outcomes. These are provisional technical
+bounds, not final product dimensions or body selection. One-second steering
+extent13.609/13.343 m is displacement, not full radius, swept corridor, legal
+district turn or grounded exit acceptance. Full turns/exits, slopes/rollover,
+car camera/readability, physical keys/focus and Regner controls/feel remain pending;
+zero drawn receipts cannot ratify those choices. S04/S06 and P0-GATE still settle
+layout interaction envelopes; this result does not accept the six-block routes.
 
 [S07 preparation](spikes/s07.md) owns map/content-capacity, culling and diagnostic
 recommendations, with measurements unexecuted and no maximum map size or selected

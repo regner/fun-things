@@ -4,8 +4,9 @@ A Godot project with multiplayer planned. The checkout has engine/style
 configuration, the Godot MCP Toolkit, [S01 asset fixtures](docs/spikes/s01.md), a reviewed
 [S02 desktop camera/control fixture](docs/spikes/s02.md#reviewed-desktop-handoff) and an isolated
 [S03 ENet session-contract proof](docs/spikes/s03.md), plus the accepted
-[bounded headless S03-R foot-response experiment](docs/spikes/s03-r.md). There is no production
-gameplay or main scene yet.
+[bounded headless S03-R foot-response experiment](docs/spikes/s03-r.md) and accepted
+[S04 car/body/ENet technical fixture](docs/spikes/s04.md#accepted-exact-final-disposition).
+There is no production gameplay or main scene yet.
 The first milestone requires ENet for local testing and Steam for friends playtesting,
 using the existing Steam app through shared session APIs.
 Steam Deck LCD/OLED is the confirmed primary target: 60 FPS at native 1280×800
@@ -93,6 +94,31 @@ human feel or predicted correction measurements. The [resync baseline-floor P2
 is closed](docs/reviews/s03-r-b87f889.md), but full S03-R, native focus/physical
 input, visible owned/remote response, camera/aim continuity, replay if warranted,
 Steam/Deck/Windows/export and P0-GATE/production acceptance remain open.
+
+The supplementary S04 car runner and four API/body checks have no Mise task:
+
+```sh
+python3 tools/run_s04.py --godot /path/to/pinned/godot --output /tmp/s04-my-run
+python3 tools/s04/run_checks.py --godot /path/to/pinned/godot --output /tmp/s04-my-checks
+```
+
+The runner defaults to headless baseline/normal/adverse, distinct UDP ports
+24900/24901 and a 45 s case deadline after isolated import. It retains copied
+S02/S03/S04 dependencies, private user directories, results/fingerprints and
+import/proxy/host/client logs; cleanup stops owned children. Neither command
+compiles every owned script or reexports Blender sources. The
+[development recipe](docs/development.md#s04-car-fixture-tooling) maps exact flags,
+check scopes and the separate scratch reexport tool. Assign process/source access
+before running these recipes; no new execution is part of this guide reconciliation.
+
+Exact `2370ad1` is accepted for bounded technical use, with original review P2/P3
+closed. Original applied-client-physics p95 **97/269/401 ms** and corrected
+normal/adverse **248/380 ms** are distinct historical receipts; zero drawn-frame
+receipts were obtained. Shared handling, passive bodies and injured seated resync
+are fixture evidence, not production vehicle identity or a full seat system.
+CharacterBody is a next technical recommendation; body/controls/dimensions/turning,
+physical keys/focus, camera/readability, human feel and prediction remain unratified.
+Full S02/S03-R/S04, Steam/Deck/input, capacity, P0-GATE/M1/production gates stay open.
 
 ## Project guidance
 
