@@ -635,3 +635,47 @@ Headless input-to-applied-physics latency, snapshot installation and settled-hos
 convergence are distinct from visible response and predicted matching-tick correction.
 The latter measurements and Steam/feel/hardware acceptance remain open; S03-R owns
 the bounded replay-mapping follow-up in [TODO](../TODO.md).
+
+## Accepted partial S05 executable boundary
+
+The normative production signatures, identity shapes, limits and acceptance matrix
+above remain requirements. [Exact754a0b5 partial S05](spikes/s05.md#accepted-exact-final-disposition)
+implements a minimum fixture subset described by ONE
+[bounded contract](spikes/s05-contracts.md), not a second production API.
+S05Damage owns health/life/sentinel/EventId/work via `begin`, `register_shooter`,
+`resolve_shot`, `advance`, `cut`, `valid_cut`, `apply_cut`, `retire_shooter`, `clear`.
+S03 admission/marker/replication and unchanged S04 configure/neutralize/body APIs
+remain collaborators. Fixture ShotId `{session, match, shooter, generation, sequence}`
+and fixed car IDs are adapters, not the canonical production wire codec.
+
+A retained per-shooter monotonic floor rejects an old ShotId after its active target
+cache completes and after departure, until whole session teardown. The meaningful
+[retirement negative](spikes/s05-evidence/README.md) removes just that floor and
+fails specifically retired ShotId rejection. One job per terminal saved car reserves
+all accepted chain work, twelve jobs maximum; four accepted roots/four target visits
+per tick, with caches retired only on their own completion. Finite four-lifetime-
+shooter registration/admission guard includes pending initial slots, without ID reuse.
+Full reconnect, fifth-peer/loading/admission races and sustained churn remain open.
+
+Sender-bound fire intent is exactly `{context, sequence, fire:true}`, <=512 Variant
+bytes,4/s burst4, window16, no request queue; only the host chooses target/damage.
+Current car cut <=8192 UTF-8 bytes/12 fixed rows extends the unchanged four-channel
+S03 contract. Application caps do not prove predecoder allocation/MTU/flood capacity.
+Atomic cut preflight and passive-before-tree roles keep current wreck dependencies
+installed before input; marker movement cannot overwrite car state. Actual separate
+ENet host/live/settled-late rows prove no historical tokens at baseline install,
+not canonical during-chain journal/reset races or active projectile hydration.
+
+Terminal state neutralizes motion and kills/releases nonrendering occupant9001
+before publication. The sentinel is not an admitted player; production Health,
+PlayerLifecycle and VehicleInteraction retain their owners and death/respawn/seat
+acceptance. The stationary original wreck box remains300 ticks and until its blast
+completes, then clears; final moving-contact/clearance proof remains open.
+Normal twelve-car work is144 visits, peak4/tick, queue5, completion46 ticks; finite
+pressure queue12 completes at tick41 with the same visits/peak. Both use8 TOKEN
+reservations/4 drops and hidden visuals. They do not measure eight actual effects,
+real draw cost or sustained capacity. Full S05 source-linked drawable saturation,
+Regner provisional blast/obstruction/falloff/delay/order/occupant/wreck ratification
+and post-final-S02/S04-dimension spacing/contact reruns remain required. M1-B1/B2/B3/
+B4/D and S07 retain production lifecycle/journal/reset/load/feedback; every Steam/
+Deck/input/feel/P0/M1/production gate remains open.

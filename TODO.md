@@ -223,36 +223,6 @@ complete in [the completion/review record](docs/reviews/p0-doc5.md). Only the
 three guides and resolving references changed; full S02/S03-R, profile
 configuration/launch, Steam/Deck/P0/production gates remain open.
 
-- [ ] **P0-DOC9 — Reconcile bounded S05 contracts, consumers and capacity prerequisites.**
-  Owner role: one direct Sol MEDIUM/HIGH docs worker, independent Sol HIGH review;
-  root assigns named ownership and serializes docs with DOC8. Files:
-  `docs/architecture.md`, `docs/scene-structure.md`, `docs/api-contracts.md`,
-  `docs/multiplayer.md`, `docs/assets/s04_kit.md`, `docs/world-layout.md`,
-  `docs/spikes/s07.md`. Prerequisites: accepted exact754a0b5 full substantive/final
-  note, [S05 contract](docs/spikes/s05-contracts.md), completed DOC6/7 and sixth
-  checkpoint; no final S02/S04 ratification required for factual supplements.
-  Evidence: S05 literal API/actual ENet host/live/settled-late and retired-ShotId
-  negative, normal queue5/46ticks and pressure queue12/tick41,144visits/4 per tick,
-  eight TOKEN reservations/four drops/hidden outcomes; actual saved S05 car/boot/
-  burst ancestry through unchanged S04 imports/source, source handoff and S07 method.
-  Done when: guides link one bounded fixture contract/minimum local damage-life
-  owner, retained shooter floor/reserved-work bounds, pre-tree passive state and
-  current wreck hydration before input without historical tokens. Distinguish
-  fixed lifetime shooter guard from full reconnect/fifth-peer/admission races,
-  sentinel from admitted-player death/respawn, settled join from canonical during-
-  chain baseline/journal/reset and stationary wreck from final moving-contact proof.
-  Add S05 inherited consumers to existing S04 source map, without new asset identity.
-  World/S07 current supplements distinguish provisional finite chain evidence from
-  still-required real S06 seam/topology, actual source-linked drawable effects,
-  named hardware/four views/residency/sustained load. Preserve normative production
-  APIs/owners, original historical sections/predeclarations/counts/results,
-  Regner policies, final-dimension spacing/contact reruns, every target/P0/M1 gate;
-  no maximum/renderer/streaming/integration selection. Static links/anchors, actual
-  owner/consumer/receipt mapping, JSON, authored LF/whitespace and unaffected task/
-  history/mode/blob checks plus exact independent review pass; no technical rerun.
-  Remove DOC9 with its resolving scoped guide change/completion record and replace
-  P0-GATE prerequisite; finish before P0-GATE. Ready documentation only.
-
 ## Phase-zero technical spikes
 
 Each spike gets a short `docs/spikes/<id>.md`: question/hypothesis, alternatives,
@@ -540,7 +510,8 @@ implementation. Save editor mutations before playtests; preserve unsaved work.
   [P0-DOC5 discovery/consumer reconciliation](docs/reviews/p0-doc5.md),
   [DOC6 accepted S04 guide reconciliation](docs/reviews/p0-doc6.md),
   [DOC7 stopped compatibility discovery](docs/reviews/p0-doc7.md),
-  [DOC8 partial S05 tooling/review discovery](docs/reviews/p0-doc8.md), P0-DOC9,
+  [DOC8 partial S05 tooling/review discovery](docs/reviews/p0-doc8.md),
+  [DOC9 partial S05 contract/consumer reconciliation](docs/reviews/p0-doc9.md),
   [S03 fixture boundary](docs/spikes/s03.md#fixture-and-boundary),
   [completed S03 proof](docs/spikes/s03.md), S03-R/S03-S and S04 through S08.
   S07 supplies the documented capacity envelope, limiting axes, organization and

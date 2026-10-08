@@ -368,3 +368,36 @@ device acceptance follows. Root can commission exact immutable upstream evidence
 a separately bounded native-boundary design, or keep Steam unavailable; no adapter,
 integration, five-lane fix, reliable fallback, SDK/vendor/pin choice is selected.
 Full S03-S/Steam/Deck/S04/P0/M1/production gates remain open.
+
+## Accepted partial S05 damage and settled hydration boundary
+
+[Exact754a0b5 partial S05](spikes/s05.md#accepted-exact-final-disposition) consumes
+unchanged S03 admission/replication and S04 body APIs. ONE
+[fixture contract](spikes/s05-contracts.md#reliable-cut-and-admission-boundary) defines
+the minimum local S05Damage writer, sender-derived fire validation, current cut and
+live-event adapters on the same four channels/endpoints. Movement never installs
+health/life/seat/collision. Replicas begin passive before tree callbacks; current
+wreck dependencies install while input is closed, before normal grant/fresh movement.
+
+Actual separate ENet host/live/settled-late processes reject active and retired
+ShotId duplicates, wrong owner/context and exercised malformed/oversize/rate/window
+cases; live events consume once, post-chain hydration consumes zero historical tokens.
+This is settled joining only. Arbitrary car changes during an in-flight immutable
+baseline still need canonical durable journal/handoff, collision fences and reset/
+admission races under M1-B3/M1-D3. No new baseline/journal framework is accepted.
+
+The retained shooter floor survives active-cache retirement/departure until teardown;
+reserved twelve-car jobs finish independently of cosmetic capacity. The four lifetime
+shooter-slot guard (including pending initial reservations) is finite safety evidence,
+not full fifth-peer/reconnect/loading/abuse acceptance. Application512-byte intent/
+8192-byte cut caps are not predecoder/MTU/native allocation or sustained flood proof.
+Sentinel occupant9001 is not an admitted player death/respawn/seat transaction.
+Stationary wreck collision/query retirement is not final moving-contact proof.
+
+Eight TOKEN reservations/four drops with hidden complete outcomes supply no actual
+effect draw/load evidence. Full S05 needs source-linked eight-effect drawable
+saturation/live-versus-hydrated receipts, Regner policies and spacing/contact reruns
+following final S02/S04 dimensions. M1-B1/B2/B3/B4/D retain full lifecycle, journal,
+reset, feedback and sustained acceptance; S07 needs real S06 topology/seams, effects
+and hardware/four views/residency/load. All Steam/native/Deck/input/feel/P0/M1/
+production gates and the normative contracts above remain open.

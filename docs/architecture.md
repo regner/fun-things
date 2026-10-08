@@ -246,3 +246,38 @@ authoritative outcomes. S06 owns topology, S08 exact exports/input, and M1-D3 su
 integrated target acceptance. Six-block M1 and LCD/OLED native 1280×800/60 FPS remain
 unchanged. S08 and M1-D4 retain physical Deck/exports and private Steam delivery gates.
 All M1 work still follows P0-GATE; none of these tasks is closed by this supplement.
+
+## Accepted partial S05 owner supplement
+
+8 October 2026. [Exact754a0b5 acceptance](spikes/s05.md#accepted-exact-final-disposition)
+adds one bounded fixture, not production components. The
+[single S05 contract](spikes/s05-contracts.md#owners-and-callers) assigns S05Damage
+minimum local health/life/occupant-sentinel/EventId/chain-work ownership; existing
+S03 Session/Match/Replication and unchanged S04 body APIs remain collaborators.
+The canonical production owners/table and acceptance above remain normative.
+
+[Identity/work retirement](spikes/s05-contracts.md#identity-work-and-retirement)
+keeps each immutable shooter's monotonic floor until session teardown, even after
+active job caches retire or the shooter departs. Exactly one reserved job per
+terminal car bounds twelve pending/active jobs; four accepted roots and four target
+visits/tick do not depend on eight cosmetic tokens. A finite four-lifetime-shooter
+admission guard includes pending reservations; it is not full reconnect/fifth-peer/
+loading race acceptance. No production WeaponState or hit/rocket framework is added.
+
+Cars begin passive before tree callbacks. Terminal publication follows body
+neutralization, health/life/collision and sentinel death/release; the original host
+box stays stationary until300 ticks and completed blast, then clears. This proves
+stationary retention/query state, not moving contacts or final clearance. Occupant
+sentinel9001 is not an admitted player; PlayerLifecycle/VehicleInteraction and
+M1-B1/B2/B3/D retain death/respawn/seat/destruction transactions.
+
+[Current cut/admission](spikes/s05-contracts.md#reliable-cut-and-admission-boundary)
+installs current wreck dependencies before input with zero historical tokens for a
+settled post-chain ENet join. Canonical during-chain baseline/journal/reset races
+remain M1-B3/M1-D3. Movement never writes car health/life/seat/collision. Eight TOKEN
+reservations/four drops with hidden outcomes prove finite work separation, not
+actual drawable VFX or sustained CPU/GPU capacity. Full S05 still needs source-linked
+drawn saturation, Regner blast/obstruction/falloff/delay/order/occupant/wreck policies,
+and spacing/contact reruns after final S02/S04 dimensions. S07 needs real S06 seams,
+actual effects and hardware/views/load. All Steam/Deck/input/feel/P0/M1/production
+gates remain open; no productionization, renderer/streaming or maximum is selected.

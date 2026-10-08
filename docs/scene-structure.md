@@ -223,3 +223,29 @@ owns future seat/exit/race/lifecycle cases under Match/VehicleInteraction, with 
 adverse acceptance and Regner's no-seated-fire/reload feel decision. Flat-track
 technical bounds do not settle grounded exits, district turns, body/dimensions,
 controls/prediction, graphical/readability or target/production gates.
+
+## Accepted partial S05 saved fixture supplement
+
+[Exact accepted S05](spikes/s05.md#accepted-exact-final-disposition) uses three new
+saved scenes: [car](../tests/fixtures/s05/car.tscn) inherits unchanged S04 kinematic;
+[boot](../tests/fixtures/s05/boot.tscn) inherits S03 Boot/Session and fixed
+View/Match/Replication, adds saved Damage/Presentation/Cars siblings and the S04
+track under CityRoot; [burst](../tests/fixtures/s05/burst.tscn) inherits boot and
+saves twelve car placements. Runtime supplies roles/state through public APIs;
+it does not author hierarchy or placement. The [S04 source map](assets/s04_kit.md#source-explicit-outputs-and-consumers)
+keeps car/track linked to unchanged GLB/import/source bytes, without a new asset ID,
+imported-child override or generated mesh. New scene UIDs/node identities/script
+sidecars and supplied inherited roundtrips remain distinct from static inspection.
+
+The [single fixture contract](spikes/s05-contracts.md#owners-and-callers) owns the
+minimum local damage/life/chain state; it does not replace the production tree or
+prefab APIs above. Saved cars and Match's pre-tree configuration begin passive;
+current wreck health/life/seat/collision hydrates before admission/input. The host
+retains the original stationary box until retention and its blast complete; replicas
+stay collisionless/passive. This is neither production client collision nor final
+moving-contact/exit proof. Sentinel occupant death is not admitted-player death/
+respawn. Eight cosmetic tokens have no saved explosion geometry/audio/drawn effect.
+Settled joining without historical tokens does not implement during-chain journal/
+reset races. Full S05 drawable source-linked saturation, Regner policies and final-
+dimension spacing/contact reruns, M1 lifecycle/journal/load, Steam/Deck/input/feel,
+S07/P0/production gates remain open.

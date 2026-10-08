@@ -16,8 +16,8 @@ new license dependency. Source/integration owner is S04; Regner owns product fee
 
 | Source / explicit collection | Linked export and preserved sidecar | Saved consumers |
 | --- | --- | --- |
-| `art/source/models/spikes/s04_kit.blend` / `export_s04_car` | `art/models/spikes/s04_car.glb` + `.glb.import` | `tests/fixtures/s04/kinematic.tscn`, `dynamic.tscn`; their instances in `body_comparison.tscn`, inherited `boot.tscn` |
-| Same source / `export_s04_track` | `art/models/spikes/s04_track.glb` + `.glb.import` | `tests/fixtures/s04/track.tscn`; comparison/boot instances |
+| `art/source/models/spikes/s04_kit.blend` / `export_s04_car` | `art/models/spikes/s04_car.glb` + `.glb.import` | `tests/fixtures/s04/kinematic.tscn`, `dynamic.tscn`; their instances in `body_comparison.tscn`, inherited `boot.tscn`; S05 `car.tscn` inherited by S05 boot/burst instances |
+| Same source / `export_s04_track` | `art/models/spikes/s04_track.glb` + `.glb.import` | `tests/fixtures/s04/track.tscn`; comparison/boot instances; S05 boot CityRoot/Track, inherited by S05 burst |
 
 All source members are explicit in `tools/s04/export_members.json`; `export.py`
 validates those exact members and unit transforms. The committed .blend is the
@@ -78,3 +78,22 @@ no concept/image/headless substitute certifies visual quality, focus or physical
 keys. No production style/gameplay/world/target approval is supplied. Required next
 handoff: drawable matched camera/lighting states, Regner handling/control review,
 actual seat/exit and district queries, Steam and hardware proof under their owners.
+
+## Accepted partial S05 inherited consumers
+
+[Exact754a0b5 S05](../spikes/s05.md#accepted-exact-final-disposition) adds saved
+[car](../../tests/fixtures/s05/car.tscn) -> S04 kinematic -> unchanged s04_car GLB/
+import -> this same s04_kit source. Saved [boot](../../tests/fixtures/s05/boot.tscn)
+instances that car and S04 track -> unchanged s04_track GLB/import -> the same source;
+[burst](../../tests/fixtures/s05/burst.tscn) inherits boot with twelve saved cars.
+The source map above now includes these reverse consumers, without new asset identity,
+source/export changes, copied meshes or imported-child overrides. S05's new scene/
+script identities do not change S04 source/import identities or export membership.
+
+[Single S05 contract](../spikes/s05-contracts.md#source-reuse-and-evidence-boundary)
+and retained saved-roundtrip/resource receipts bound this technical reuse. Current
+wreck appearance is the unchanged neutral car; stationary retained box/query behavior
+is not wreck art, moving-contact/final-clearance or production acceptance. Eight
+cosmetic tokens are not authored/drawn explosions. Source-linked actual effects,
+Regner policies, final-S02/S04-dimension spacing/contact reruns and all visual/input/
+feel/Steam/Deck/S07/P0/M1/production gates remain open. No new reexport ran here.

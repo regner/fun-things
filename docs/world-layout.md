@@ -134,3 +134,29 @@ are the starting design. Test actual actors and cars in linked Blender/Godot fix
 Refine with S02/S04/S06 and retain S07 graphical cost evidence. Screenshots do not
 certify movement or load. The [initial unmeasured sketch](concepts/p0-04/city-shape.svg)
 is retained as comparison; this is the current proposed plan.
+
+## Accepted partial S05 chain evidence and capacity prerequisites
+
+8 October 2026. [Exact754a0b5 partial S05](spikes/s05.md#accepted-exact-final-disposition)
+and its [single fixture contract](spikes/s05-contracts.md) provide finite fixed-car
+work, not acceptance of the depicted yard/routes or final blast spacing. Saved S05
+car/boot/burst reuse unchanged [S04 source imports](assets/s04_kit.md); current wreck
+appearance is the neutral car and its original stationary box. Moving contacts,
+legal district turns/exits and final clearance remain S04/S06/M1 acceptance.
+
+At provisional four-metre grid spacing/radius4.1 m, one root yields144 target visits,
+peak4/tick, normal queue5/completion46 ticks; finite reserved pressure reaches queue12/
+completion tick41. Both twelve-car rows reserve8 TOKEN slots/drop4 with hidden visuals
+and completed gameplay outcomes. These are finite work separation receipts, not actual
+drawn effect cost, sustained capacity, a ratified range or a maximum map/load.
+Regner still ratifies blast/obstruction/falloff/delay/order/occupant/wreck policies;
+affected spacing/contact rows must rerun after final S02/S04 dimensions.
+
+[S07](spikes/s07.md#accepted-partial-s05-prerequisite-supplement) still needs real S06
+seam/topology and actual source-linked drawable effects, named hardware, four separated
+player views/processes, residency/lifetime and sustained load. Sentinel death does
+not prove admitted-player lifecycle; settled wreck hydration before input with zero
+historical tokens does not prove during-chain journal/reset races. Six-block scope,
+Regner policy, native LCD/OLED1280×800/60 FPS, standalone/ENet/Steam/Windows/Linux,
+input/feel and S05/S07/P0/M1/production gates remain unchanged. No renderer, streaming,
+integration or maximum is selected from this result.
