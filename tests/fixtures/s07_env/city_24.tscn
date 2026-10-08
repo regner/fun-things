@@ -1,0 +1,664 @@
+[gd_scene format=3 uid="uid://cplskr08sfqti"]
+
+[ext_resource type="PackedScene" path="res://tests/fixtures/s06/west.tscn" id="1_liln5"]
+[ext_resource type="Script" path="res://tests/fixtures/s06/sector.gd" id="2_aed3v"]
+[ext_resource type="PackedScene" path="res://tests/fixtures/s06/east.tscn" id="3_bpohq"]
+[ext_resource type="PackedScene" path="res://tests/fixtures/s02/low_prefab.tscn" id="4_1bfek"]
+[ext_resource type="Script" path="res://tests/fixtures/s02/building_view.gd" id="5_wy5pg"]
+[ext_resource type="PackedScene" path="res://tests/fixtures/s02/near_prefab.tscn" id="6_0cetq"]
+[ext_resource type="PackedScene" path="res://tests/fixtures/s02/tall_prefab.tscn" id="7_jbsvt"]
+
+[sub_resource type="Environment" id="Environment_j2spn"]
+background_mode = 1
+background_color = Color(0.02, 0.03, 0.04, 1)
+ambient_light_source = 2
+ambient_light_color = Color(1, 1, 1, 1)
+ambient_light_energy = 0.65
+
+[node name="City24" type="Node3D" unique_id=1582728343]
+metadata/block_count = 24
+metadata/grid_columns = 6
+metadata/grid_rows = 4
+metadata/block_size_m = 48.0
+
+[node name="RoadSectors" type="Node3D" parent="." unique_id=2003925168]
+
+[node name="Block000West" type="Node3D" parent="RoadSectors" unique_id=1973761027 instance=ExtResource("1_liln5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -120, 0, -72)
+script = ExtResource("2_aed3v")
+world_id = &"s06/sector/west"
+
+[node name="Block000East" type="Node3D" parent="RoadSectors" unique_id=443909768 instance=ExtResource("3_bpohq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -120, 0, -72)
+script = ExtResource("2_aed3v")
+world_id = &"s06/sector/east"
+
+[node name="Block001West" type="Node3D" parent="RoadSectors" unique_id=446109387 instance=ExtResource("1_liln5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -72, 0, -72)
+script = ExtResource("2_aed3v")
+world_id = &"s06/sector/west"
+
+[node name="Block001East" type="Node3D" parent="RoadSectors" unique_id=1819121482 instance=ExtResource("3_bpohq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -72, 0, -72)
+script = ExtResource("2_aed3v")
+world_id = &"s06/sector/east"
+
+[node name="Block002West" type="Node3D" parent="RoadSectors" unique_id=668798759 instance=ExtResource("1_liln5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24, 0, -72)
+script = ExtResource("2_aed3v")
+world_id = &"s06/sector/west"
+
+[node name="Block002East" type="Node3D" parent="RoadSectors" unique_id=1484765616 instance=ExtResource("3_bpohq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24, 0, -72)
+script = ExtResource("2_aed3v")
+world_id = &"s06/sector/east"
+
+[node name="Block003West" type="Node3D" parent="RoadSectors" unique_id=1675954300 instance=ExtResource("1_liln5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24, 0, -72)
+script = ExtResource("2_aed3v")
+world_id = &"s06/sector/west"
+
+[node name="Block003East" type="Node3D" parent="RoadSectors" unique_id=1771857598 instance=ExtResource("3_bpohq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24, 0, -72)
+script = ExtResource("2_aed3v")
+world_id = &"s06/sector/east"
+
+[node name="Block004West" type="Node3D" parent="RoadSectors" unique_id=1611693232 instance=ExtResource("1_liln5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 72, 0, -72)
+script = ExtResource("2_aed3v")
+world_id = &"s06/sector/west"
+
+[node name="Block004East" type="Node3D" parent="RoadSectors" unique_id=341744173 instance=ExtResource("3_bpohq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 72, 0, -72)
+script = ExtResource("2_aed3v")
+world_id = &"s06/sector/east"
+
+[node name="Block005West" type="Node3D" parent="RoadSectors" unique_id=508286802 instance=ExtResource("1_liln5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 120, 0, -72)
+script = ExtResource("2_aed3v")
+world_id = &"s06/sector/west"
+
+[node name="Block005East" type="Node3D" parent="RoadSectors" unique_id=1385591834 instance=ExtResource("3_bpohq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 120, 0, -72)
+script = ExtResource("2_aed3v")
+world_id = &"s06/sector/east"
+
+[node name="Block006West" type="Node3D" parent="RoadSectors" unique_id=604380506 instance=ExtResource("1_liln5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -120, 0, -24)
+script = ExtResource("2_aed3v")
+world_id = &"s06/sector/west"
+
+[node name="Block006East" type="Node3D" parent="RoadSectors" unique_id=113885602 instance=ExtResource("3_bpohq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -120, 0, -24)
+script = ExtResource("2_aed3v")
+world_id = &"s06/sector/east"
+
+[node name="Block007West" type="Node3D" parent="RoadSectors" unique_id=1394954919 instance=ExtResource("1_liln5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -72, 0, -24)
+script = ExtResource("2_aed3v")
+world_id = &"s06/sector/west"
+
+[node name="Block007East" type="Node3D" parent="RoadSectors" unique_id=13189694 instance=ExtResource("3_bpohq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -72, 0, -24)
+script = ExtResource("2_aed3v")
+world_id = &"s06/sector/east"
+
+[node name="Block008West" type="Node3D" parent="RoadSectors" unique_id=955356341 instance=ExtResource("1_liln5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24, 0, -24)
+script = ExtResource("2_aed3v")
+world_id = &"s06/sector/west"
+
+[node name="Block008East" type="Node3D" parent="RoadSectors" unique_id=1784803962 instance=ExtResource("3_bpohq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24, 0, -24)
+script = ExtResource("2_aed3v")
+world_id = &"s06/sector/east"
+
+[node name="Block009West" type="Node3D" parent="RoadSectors" unique_id=1011543563 instance=ExtResource("1_liln5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24, 0, -24)
+script = ExtResource("2_aed3v")
+world_id = &"s06/sector/west"
+
+[node name="Block009East" type="Node3D" parent="RoadSectors" unique_id=510242188 instance=ExtResource("3_bpohq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24, 0, -24)
+script = ExtResource("2_aed3v")
+world_id = &"s06/sector/east"
+
+[node name="Block010West" type="Node3D" parent="RoadSectors" unique_id=1140979863 instance=ExtResource("1_liln5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 72, 0, -24)
+script = ExtResource("2_aed3v")
+world_id = &"s06/sector/west"
+
+[node name="Block010East" type="Node3D" parent="RoadSectors" unique_id=812315054 instance=ExtResource("3_bpohq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 72, 0, -24)
+script = ExtResource("2_aed3v")
+world_id = &"s06/sector/east"
+
+[node name="Block011West" type="Node3D" parent="RoadSectors" unique_id=1898137223 instance=ExtResource("1_liln5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 120, 0, -24)
+script = ExtResource("2_aed3v")
+world_id = &"s06/sector/west"
+
+[node name="Block011East" type="Node3D" parent="RoadSectors" unique_id=911220343 instance=ExtResource("3_bpohq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 120, 0, -24)
+script = ExtResource("2_aed3v")
+world_id = &"s06/sector/east"
+
+[node name="Block012West" type="Node3D" parent="RoadSectors" unique_id=755706311 instance=ExtResource("1_liln5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -120, 0, 24)
+script = ExtResource("2_aed3v")
+world_id = &"s06/sector/west"
+
+[node name="Block012East" type="Node3D" parent="RoadSectors" unique_id=1243519074 instance=ExtResource("3_bpohq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -120, 0, 24)
+script = ExtResource("2_aed3v")
+world_id = &"s06/sector/east"
+
+[node name="Block013West" type="Node3D" parent="RoadSectors" unique_id=1598903340 instance=ExtResource("1_liln5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -72, 0, 24)
+script = ExtResource("2_aed3v")
+world_id = &"s06/sector/west"
+
+[node name="Block013East" type="Node3D" parent="RoadSectors" unique_id=633784741 instance=ExtResource("3_bpohq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -72, 0, 24)
+script = ExtResource("2_aed3v")
+world_id = &"s06/sector/east"
+
+[node name="Block014West" type="Node3D" parent="RoadSectors" unique_id=253917861 instance=ExtResource("1_liln5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24, 0, 24)
+script = ExtResource("2_aed3v")
+world_id = &"s06/sector/west"
+
+[node name="Block014East" type="Node3D" parent="RoadSectors" unique_id=1659510217 instance=ExtResource("3_bpohq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24, 0, 24)
+script = ExtResource("2_aed3v")
+world_id = &"s06/sector/east"
+
+[node name="Block015West" type="Node3D" parent="RoadSectors" unique_id=1185609872 instance=ExtResource("1_liln5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24, 0, 24)
+script = ExtResource("2_aed3v")
+world_id = &"s06/sector/west"
+
+[node name="Block015East" type="Node3D" parent="RoadSectors" unique_id=1260604635 instance=ExtResource("3_bpohq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24, 0, 24)
+script = ExtResource("2_aed3v")
+world_id = &"s06/sector/east"
+
+[node name="Block016West" type="Node3D" parent="RoadSectors" unique_id=497185133 instance=ExtResource("1_liln5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 72, 0, 24)
+script = ExtResource("2_aed3v")
+world_id = &"s06/sector/west"
+
+[node name="Block016East" type="Node3D" parent="RoadSectors" unique_id=2044177223 instance=ExtResource("3_bpohq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 72, 0, 24)
+script = ExtResource("2_aed3v")
+world_id = &"s06/sector/east"
+
+[node name="Block017West" type="Node3D" parent="RoadSectors" unique_id=1777903815 instance=ExtResource("1_liln5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 120, 0, 24)
+script = ExtResource("2_aed3v")
+world_id = &"s06/sector/west"
+
+[node name="Block017East" type="Node3D" parent="RoadSectors" unique_id=265934094 instance=ExtResource("3_bpohq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 120, 0, 24)
+script = ExtResource("2_aed3v")
+world_id = &"s06/sector/east"
+
+[node name="Block018West" type="Node3D" parent="RoadSectors" unique_id=1111849569 instance=ExtResource("1_liln5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -120, 0, 72)
+script = ExtResource("2_aed3v")
+world_id = &"s06/sector/west"
+
+[node name="Block018East" type="Node3D" parent="RoadSectors" unique_id=737201950 instance=ExtResource("3_bpohq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -120, 0, 72)
+script = ExtResource("2_aed3v")
+world_id = &"s06/sector/east"
+
+[node name="Block019West" type="Node3D" parent="RoadSectors" unique_id=1598740004 instance=ExtResource("1_liln5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -72, 0, 72)
+script = ExtResource("2_aed3v")
+world_id = &"s06/sector/west"
+
+[node name="Block019East" type="Node3D" parent="RoadSectors" unique_id=1538656042 instance=ExtResource("3_bpohq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -72, 0, 72)
+script = ExtResource("2_aed3v")
+world_id = &"s06/sector/east"
+
+[node name="Block020West" type="Node3D" parent="RoadSectors" unique_id=1678188299 instance=ExtResource("1_liln5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24, 0, 72)
+script = ExtResource("2_aed3v")
+world_id = &"s06/sector/west"
+
+[node name="Block020East" type="Node3D" parent="RoadSectors" unique_id=1554200919 instance=ExtResource("3_bpohq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24, 0, 72)
+script = ExtResource("2_aed3v")
+world_id = &"s06/sector/east"
+
+[node name="Block021West" type="Node3D" parent="RoadSectors" unique_id=400277737 instance=ExtResource("1_liln5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24, 0, 72)
+script = ExtResource("2_aed3v")
+world_id = &"s06/sector/west"
+
+[node name="Block021East" type="Node3D" parent="RoadSectors" unique_id=43033194 instance=ExtResource("3_bpohq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24, 0, 72)
+script = ExtResource("2_aed3v")
+world_id = &"s06/sector/east"
+
+[node name="Block022West" type="Node3D" parent="RoadSectors" unique_id=242716137 instance=ExtResource("1_liln5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 72, 0, 72)
+script = ExtResource("2_aed3v")
+world_id = &"s06/sector/west"
+
+[node name="Block022East" type="Node3D" parent="RoadSectors" unique_id=171857333 instance=ExtResource("3_bpohq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 72, 0, 72)
+script = ExtResource("2_aed3v")
+world_id = &"s06/sector/east"
+
+[node name="Block023West" type="Node3D" parent="RoadSectors" unique_id=384385974 instance=ExtResource("1_liln5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 120, 0, 72)
+script = ExtResource("2_aed3v")
+world_id = &"s06/sector/west"
+
+[node name="Block023East" type="Node3D" parent="RoadSectors" unique_id=500654062 instance=ExtResource("3_bpohq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 120, 0, 72)
+script = ExtResource("2_aed3v")
+world_id = &"s06/sector/east"
+
+[node name="Buildings" type="Node3D" parent="." unique_id=924982813]
+
+[node name="Block000Building0" type="Node3D" parent="Buildings" unique_id=1338630014 instance=ExtResource("4_1bfek")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -136.25, 0, -88.25)
+script = ExtResource("5_wy5pg")
+
+[node name="Block000Building1" type="Node3D" parent="Buildings" unique_id=93153907 instance=ExtResource("6_0cetq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -103.75, 0, -88.25)
+script = ExtResource("5_wy5pg")
+
+[node name="Block000Building2" type="Node3D" parent="Buildings" unique_id=1625145547 instance=ExtResource("7_jbsvt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -136.25, 0, -55.75)
+script = ExtResource("5_wy5pg")
+
+[node name="Block000Building3" type="Node3D" parent="Buildings" unique_id=838367657 instance=ExtResource("4_1bfek")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -103.75, 0, -55.75)
+script = ExtResource("5_wy5pg")
+
+[node name="Block001Building0" type="Node3D" parent="Buildings" unique_id=1454151629 instance=ExtResource("6_0cetq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -88.25, 0, -88.25)
+script = ExtResource("5_wy5pg")
+
+[node name="Block001Building1" type="Node3D" parent="Buildings" unique_id=946451930 instance=ExtResource("7_jbsvt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -55.75, 0, -88.25)
+script = ExtResource("5_wy5pg")
+
+[node name="Block001Building2" type="Node3D" parent="Buildings" unique_id=1214742049 instance=ExtResource("4_1bfek")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -88.25, 0, -55.75)
+script = ExtResource("5_wy5pg")
+
+[node name="Block001Building3" type="Node3D" parent="Buildings" unique_id=405900473 instance=ExtResource("4_1bfek")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -55.75, 0, -55.75)
+script = ExtResource("5_wy5pg")
+
+[node name="Block002Building0" type="Node3D" parent="Buildings" unique_id=1799507151 instance=ExtResource("7_jbsvt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -40.25, 0, -88.25)
+script = ExtResource("5_wy5pg")
+
+[node name="Block002Building1" type="Node3D" parent="Buildings" unique_id=117599418 instance=ExtResource("4_1bfek")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.75, 0, -88.25)
+script = ExtResource("5_wy5pg")
+
+[node name="Block002Building2" type="Node3D" parent="Buildings" unique_id=1743219807 instance=ExtResource("4_1bfek")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -40.25, 0, -55.75)
+script = ExtResource("5_wy5pg")
+
+[node name="Block002Building3" type="Node3D" parent="Buildings" unique_id=2004879956 instance=ExtResource("6_0cetq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.75, 0, -55.75)
+script = ExtResource("5_wy5pg")
+
+[node name="Block003Building0" type="Node3D" parent="Buildings" unique_id=539912991 instance=ExtResource("4_1bfek")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.75, 0, -88.25)
+script = ExtResource("5_wy5pg")
+
+[node name="Block003Building1" type="Node3D" parent="Buildings" unique_id=215758377 instance=ExtResource("4_1bfek")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 40.25, 0, -88.25)
+script = ExtResource("5_wy5pg")
+
+[node name="Block003Building2" type="Node3D" parent="Buildings" unique_id=593576860 instance=ExtResource("6_0cetq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.75, 0, -55.75)
+script = ExtResource("5_wy5pg")
+
+[node name="Block003Building3" type="Node3D" parent="Buildings" unique_id=255557941 instance=ExtResource("7_jbsvt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 40.25, 0, -55.75)
+script = ExtResource("5_wy5pg")
+
+[node name="Block004Building0" type="Node3D" parent="Buildings" unique_id=1880589898 instance=ExtResource("4_1bfek")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 55.75, 0, -88.25)
+script = ExtResource("5_wy5pg")
+
+[node name="Block004Building1" type="Node3D" parent="Buildings" unique_id=459159413 instance=ExtResource("6_0cetq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 88.25, 0, -88.25)
+script = ExtResource("5_wy5pg")
+
+[node name="Block004Building2" type="Node3D" parent="Buildings" unique_id=67804986 instance=ExtResource("7_jbsvt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 55.75, 0, -55.75)
+script = ExtResource("5_wy5pg")
+
+[node name="Block004Building3" type="Node3D" parent="Buildings" unique_id=2003607293 instance=ExtResource("4_1bfek")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 88.25, 0, -55.75)
+script = ExtResource("5_wy5pg")
+
+[node name="Block005Building0" type="Node3D" parent="Buildings" unique_id=510996877 instance=ExtResource("6_0cetq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 103.75, 0, -88.25)
+script = ExtResource("5_wy5pg")
+
+[node name="Block005Building1" type="Node3D" parent="Buildings" unique_id=1579845280 instance=ExtResource("7_jbsvt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 136.25, 0, -88.25)
+script = ExtResource("5_wy5pg")
+
+[node name="Block005Building2" type="Node3D" parent="Buildings" unique_id=45323607 instance=ExtResource("4_1bfek")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 103.75, 0, -55.75)
+script = ExtResource("5_wy5pg")
+
+[node name="Block005Building3" type="Node3D" parent="Buildings" unique_id=1100932143 instance=ExtResource("4_1bfek")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 136.25, 0, -55.75)
+script = ExtResource("5_wy5pg")
+
+[node name="Block006Building0" type="Node3D" parent="Buildings" unique_id=1737287985 instance=ExtResource("7_jbsvt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -136.25, 0, -40.25)
+script = ExtResource("5_wy5pg")
+
+[node name="Block006Building1" type="Node3D" parent="Buildings" unique_id=256836088 instance=ExtResource("4_1bfek")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -103.75, 0, -40.25)
+script = ExtResource("5_wy5pg")
+
+[node name="Block006Building2" type="Node3D" parent="Buildings" unique_id=843201621 instance=ExtResource("4_1bfek")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -136.25, 0, -7.75)
+script = ExtResource("5_wy5pg")
+
+[node name="Block006Building3" type="Node3D" parent="Buildings" unique_id=1032751652 instance=ExtResource("6_0cetq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -103.75, 0, -7.75)
+script = ExtResource("5_wy5pg")
+
+[node name="Block007Building0" type="Node3D" parent="Buildings" unique_id=2051802564 instance=ExtResource("4_1bfek")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -88.25, 0, -40.25)
+script = ExtResource("5_wy5pg")
+
+[node name="Block007Building1" type="Node3D" parent="Buildings" unique_id=1521926617 instance=ExtResource("4_1bfek")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -55.75, 0, -40.25)
+script = ExtResource("5_wy5pg")
+
+[node name="Block007Building2" type="Node3D" parent="Buildings" unique_id=272408911 instance=ExtResource("6_0cetq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -88.25, 0, -7.75)
+script = ExtResource("5_wy5pg")
+
+[node name="Block007Building3" type="Node3D" parent="Buildings" unique_id=480542155 instance=ExtResource("7_jbsvt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -55.75, 0, -7.75)
+script = ExtResource("5_wy5pg")
+
+[node name="Block008Building0" type="Node3D" parent="Buildings" unique_id=488889399 instance=ExtResource("4_1bfek")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -40.25, 0, -40.25)
+script = ExtResource("5_wy5pg")
+
+[node name="Block008Building1" type="Node3D" parent="Buildings" unique_id=1929992887 instance=ExtResource("6_0cetq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.75, 0, -40.25)
+script = ExtResource("5_wy5pg")
+
+[node name="Block008Building2" type="Node3D" parent="Buildings" unique_id=949039553 instance=ExtResource("7_jbsvt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -40.25, 0, -7.75)
+script = ExtResource("5_wy5pg")
+
+[node name="Block008Building3" type="Node3D" parent="Buildings" unique_id=562256537 instance=ExtResource("4_1bfek")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.75, 0, -7.75)
+script = ExtResource("5_wy5pg")
+
+[node name="Block009Building0" type="Node3D" parent="Buildings" unique_id=24038847 instance=ExtResource("6_0cetq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.75, 0, -40.25)
+script = ExtResource("5_wy5pg")
+
+[node name="Block009Building1" type="Node3D" parent="Buildings" unique_id=202756740 instance=ExtResource("7_jbsvt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 40.25, 0, -40.25)
+script = ExtResource("5_wy5pg")
+
+[node name="Block009Building2" type="Node3D" parent="Buildings" unique_id=1753760316 instance=ExtResource("4_1bfek")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.75, 0, -7.75)
+script = ExtResource("5_wy5pg")
+
+[node name="Block009Building3" type="Node3D" parent="Buildings" unique_id=746744110 instance=ExtResource("4_1bfek")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 40.25, 0, -7.75)
+script = ExtResource("5_wy5pg")
+
+[node name="Block010Building0" type="Node3D" parent="Buildings" unique_id=1738470976 instance=ExtResource("7_jbsvt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 55.75, 0, -40.25)
+script = ExtResource("5_wy5pg")
+
+[node name="Block010Building1" type="Node3D" parent="Buildings" unique_id=344973666 instance=ExtResource("4_1bfek")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 88.25, 0, -40.25)
+script = ExtResource("5_wy5pg")
+
+[node name="Block010Building2" type="Node3D" parent="Buildings" unique_id=672885455 instance=ExtResource("4_1bfek")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 55.75, 0, -7.75)
+script = ExtResource("5_wy5pg")
+
+[node name="Block010Building3" type="Node3D" parent="Buildings" unique_id=1806954309 instance=ExtResource("6_0cetq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 88.25, 0, -7.75)
+script = ExtResource("5_wy5pg")
+
+[node name="Block011Building0" type="Node3D" parent="Buildings" unique_id=458199446 instance=ExtResource("4_1bfek")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 103.75, 0, -40.25)
+script = ExtResource("5_wy5pg")
+
+[node name="Block011Building1" type="Node3D" parent="Buildings" unique_id=130519612 instance=ExtResource("4_1bfek")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 136.25, 0, -40.25)
+script = ExtResource("5_wy5pg")
+
+[node name="Block011Building2" type="Node3D" parent="Buildings" unique_id=520836811 instance=ExtResource("6_0cetq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 103.75, 0, -7.75)
+script = ExtResource("5_wy5pg")
+
+[node name="Block011Building3" type="Node3D" parent="Buildings" unique_id=1977341524 instance=ExtResource("7_jbsvt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 136.25, 0, -7.75)
+script = ExtResource("5_wy5pg")
+
+[node name="Block012Building0" type="Node3D" parent="Buildings" unique_id=1378255895 instance=ExtResource("4_1bfek")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -136.25, 0, 7.75)
+script = ExtResource("5_wy5pg")
+
+[node name="Block012Building1" type="Node3D" parent="Buildings" unique_id=1789470141 instance=ExtResource("6_0cetq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -103.75, 0, 7.75)
+script = ExtResource("5_wy5pg")
+
+[node name="Block012Building2" type="Node3D" parent="Buildings" unique_id=1404162403 instance=ExtResource("7_jbsvt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -136.25, 0, 40.25)
+script = ExtResource("5_wy5pg")
+
+[node name="Block012Building3" type="Node3D" parent="Buildings" unique_id=2031105964 instance=ExtResource("4_1bfek")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -103.75, 0, 40.25)
+script = ExtResource("5_wy5pg")
+
+[node name="Block013Building0" type="Node3D" parent="Buildings" unique_id=1934742248 instance=ExtResource("6_0cetq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -88.25, 0, 7.75)
+script = ExtResource("5_wy5pg")
+
+[node name="Block013Building1" type="Node3D" parent="Buildings" unique_id=1596492154 instance=ExtResource("7_jbsvt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -55.75, 0, 7.75)
+script = ExtResource("5_wy5pg")
+
+[node name="Block013Building2" type="Node3D" parent="Buildings" unique_id=847873849 instance=ExtResource("4_1bfek")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -88.25, 0, 40.25)
+script = ExtResource("5_wy5pg")
+
+[node name="Block013Building3" type="Node3D" parent="Buildings" unique_id=1179801070 instance=ExtResource("4_1bfek")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -55.75, 0, 40.25)
+script = ExtResource("5_wy5pg")
+
+[node name="Block014Building0" type="Node3D" parent="Buildings" unique_id=1268772645 instance=ExtResource("7_jbsvt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -40.25, 0, 7.75)
+script = ExtResource("5_wy5pg")
+
+[node name="Block014Building1" type="Node3D" parent="Buildings" unique_id=147737084 instance=ExtResource("4_1bfek")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.75, 0, 7.75)
+script = ExtResource("5_wy5pg")
+
+[node name="Block014Building2" type="Node3D" parent="Buildings" unique_id=1758142743 instance=ExtResource("4_1bfek")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -40.25, 0, 40.25)
+script = ExtResource("5_wy5pg")
+
+[node name="Block014Building3" type="Node3D" parent="Buildings" unique_id=1372139752 instance=ExtResource("6_0cetq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.75, 0, 40.25)
+script = ExtResource("5_wy5pg")
+
+[node name="Block015Building0" type="Node3D" parent="Buildings" unique_id=1540410750 instance=ExtResource("4_1bfek")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.75, 0, 7.75)
+script = ExtResource("5_wy5pg")
+
+[node name="Block015Building1" type="Node3D" parent="Buildings" unique_id=1452857853 instance=ExtResource("4_1bfek")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 40.25, 0, 7.75)
+script = ExtResource("5_wy5pg")
+
+[node name="Block015Building2" type="Node3D" parent="Buildings" unique_id=1318377702 instance=ExtResource("6_0cetq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.75, 0, 40.25)
+script = ExtResource("5_wy5pg")
+
+[node name="Block015Building3" type="Node3D" parent="Buildings" unique_id=73820139 instance=ExtResource("7_jbsvt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 40.25, 0, 40.25)
+script = ExtResource("5_wy5pg")
+
+[node name="Block016Building0" type="Node3D" parent="Buildings" unique_id=1882873571 instance=ExtResource("4_1bfek")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 55.75, 0, 7.75)
+script = ExtResource("5_wy5pg")
+
+[node name="Block016Building1" type="Node3D" parent="Buildings" unique_id=64662325 instance=ExtResource("6_0cetq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 88.25, 0, 7.75)
+script = ExtResource("5_wy5pg")
+
+[node name="Block016Building2" type="Node3D" parent="Buildings" unique_id=1319546142 instance=ExtResource("7_jbsvt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 55.75, 0, 40.25)
+script = ExtResource("5_wy5pg")
+
+[node name="Block016Building3" type="Node3D" parent="Buildings" unique_id=407842268 instance=ExtResource("4_1bfek")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 88.25, 0, 40.25)
+script = ExtResource("5_wy5pg")
+
+[node name="Block017Building0" type="Node3D" parent="Buildings" unique_id=1252262594 instance=ExtResource("6_0cetq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 103.75, 0, 7.75)
+script = ExtResource("5_wy5pg")
+
+[node name="Block017Building1" type="Node3D" parent="Buildings" unique_id=672392782 instance=ExtResource("7_jbsvt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 136.25, 0, 7.75)
+script = ExtResource("5_wy5pg")
+
+[node name="Block017Building2" type="Node3D" parent="Buildings" unique_id=733128770 instance=ExtResource("4_1bfek")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 103.75, 0, 40.25)
+script = ExtResource("5_wy5pg")
+
+[node name="Block017Building3" type="Node3D" parent="Buildings" unique_id=1550044715 instance=ExtResource("4_1bfek")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 136.25, 0, 40.25)
+script = ExtResource("5_wy5pg")
+
+[node name="Block018Building0" type="Node3D" parent="Buildings" unique_id=1369439094 instance=ExtResource("7_jbsvt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -136.25, 0, 55.75)
+script = ExtResource("5_wy5pg")
+
+[node name="Block018Building1" type="Node3D" parent="Buildings" unique_id=350026678 instance=ExtResource("4_1bfek")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -103.75, 0, 55.75)
+script = ExtResource("5_wy5pg")
+
+[node name="Block018Building2" type="Node3D" parent="Buildings" unique_id=1102223458 instance=ExtResource("4_1bfek")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -136.25, 0, 88.25)
+script = ExtResource("5_wy5pg")
+
+[node name="Block018Building3" type="Node3D" parent="Buildings" unique_id=1870535232 instance=ExtResource("6_0cetq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -103.75, 0, 88.25)
+script = ExtResource("5_wy5pg")
+
+[node name="Block019Building0" type="Node3D" parent="Buildings" unique_id=1410041633 instance=ExtResource("4_1bfek")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -88.25, 0, 55.75)
+script = ExtResource("5_wy5pg")
+
+[node name="Block019Building1" type="Node3D" parent="Buildings" unique_id=622494907 instance=ExtResource("4_1bfek")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -55.75, 0, 55.75)
+script = ExtResource("5_wy5pg")
+
+[node name="Block019Building2" type="Node3D" parent="Buildings" unique_id=1259885877 instance=ExtResource("6_0cetq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -88.25, 0, 88.25)
+script = ExtResource("5_wy5pg")
+
+[node name="Block019Building3" type="Node3D" parent="Buildings" unique_id=1471011227 instance=ExtResource("7_jbsvt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -55.75, 0, 88.25)
+script = ExtResource("5_wy5pg")
+
+[node name="Block020Building0" type="Node3D" parent="Buildings" unique_id=464526745 instance=ExtResource("4_1bfek")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -40.25, 0, 55.75)
+script = ExtResource("5_wy5pg")
+
+[node name="Block020Building1" type="Node3D" parent="Buildings" unique_id=560278760 instance=ExtResource("6_0cetq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.75, 0, 55.75)
+script = ExtResource("5_wy5pg")
+
+[node name="Block020Building2" type="Node3D" parent="Buildings" unique_id=1664138208 instance=ExtResource("7_jbsvt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -40.25, 0, 88.25)
+script = ExtResource("5_wy5pg")
+
+[node name="Block020Building3" type="Node3D" parent="Buildings" unique_id=517071984 instance=ExtResource("4_1bfek")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.75, 0, 88.25)
+script = ExtResource("5_wy5pg")
+
+[node name="Block021Building0" type="Node3D" parent="Buildings" unique_id=1715012542 instance=ExtResource("6_0cetq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.75, 0, 55.75)
+script = ExtResource("5_wy5pg")
+
+[node name="Block021Building1" type="Node3D" parent="Buildings" unique_id=788469770 instance=ExtResource("7_jbsvt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 40.25, 0, 55.75)
+script = ExtResource("5_wy5pg")
+
+[node name="Block021Building2" type="Node3D" parent="Buildings" unique_id=548297196 instance=ExtResource("4_1bfek")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.75, 0, 88.25)
+script = ExtResource("5_wy5pg")
+
+[node name="Block021Building3" type="Node3D" parent="Buildings" unique_id=2013101989 instance=ExtResource("4_1bfek")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 40.25, 0, 88.25)
+script = ExtResource("5_wy5pg")
+
+[node name="Block022Building0" type="Node3D" parent="Buildings" unique_id=1943908836 instance=ExtResource("7_jbsvt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 55.75, 0, 55.75)
+script = ExtResource("5_wy5pg")
+
+[node name="Block022Building1" type="Node3D" parent="Buildings" unique_id=494579356 instance=ExtResource("4_1bfek")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 88.25, 0, 55.75)
+script = ExtResource("5_wy5pg")
+
+[node name="Block022Building2" type="Node3D" parent="Buildings" unique_id=1385170942 instance=ExtResource("4_1bfek")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 55.75, 0, 88.25)
+script = ExtResource("5_wy5pg")
+
+[node name="Block022Building3" type="Node3D" parent="Buildings" unique_id=816840707 instance=ExtResource("6_0cetq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 88.25, 0, 88.25)
+script = ExtResource("5_wy5pg")
+
+[node name="Block023Building0" type="Node3D" parent="Buildings" unique_id=451489660 instance=ExtResource("4_1bfek")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 103.75, 0, 55.75)
+script = ExtResource("5_wy5pg")
+
+[node name="Block023Building1" type="Node3D" parent="Buildings" unique_id=556957431 instance=ExtResource("4_1bfek")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 136.25, 0, 55.75)
+script = ExtResource("5_wy5pg")
+
+[node name="Block023Building2" type="Node3D" parent="Buildings" unique_id=937120098 instance=ExtResource("6_0cetq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 103.75, 0, 88.25)
+script = ExtResource("5_wy5pg")
+
+[node name="Block023Building3" type="Node3D" parent="Buildings" unique_id=353622373 instance=ExtResource("7_jbsvt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 136.25, 0, 88.25)
+script = ExtResource("5_wy5pg")
+
+[node name="Camera" type="Camera3D" parent="." unique_id=744850461]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -120, 47, -72)
+current = true
+fov = 42.0
+near = 0.1
+far = 160.0
+
+[node name="Sun" type="DirectionalLight3D" parent="." unique_id=232845154]
+transform = Transform3D(0.8660254, 0.43301272, -0.24999999, 0, 0.49999997, 0.86602545, 0.5, -0.75, 0.43301266, 0, 0, 0)
+light_energy = 1.2
+
+[node name="Environment" type="WorldEnvironment" parent="." unique_id=1576280134]
+environment = SubResource("Environment_j2spn")
