@@ -1,0 +1,203 @@
+{
+  "buffering": {
+    "compile_argv": [
+      "/usr/bin/cc",
+      "-Wall",
+      "-Wextra",
+      "-Werror",
+      "/tmp/s08-handoff-8cae02a7/offline/logger.c",
+      "-o",
+      "/tmp/s08-handoff-8cae02a7/offline/logger"
+    ],
+    "compile_exit": 0,
+    "runs": [
+      {
+        "name": "regular",
+        "argv": [
+          "/tmp/s08-handoff-8cae02a7/offline/logger"
+        ],
+        "exit": 1,
+        "early_bytes": 20480,
+        "ready_at_150ms": false,
+        "child_live": true,
+        "duration_seconds": 0.7145515219890513
+      },
+      {
+        "name": "line-buffered",
+        "argv": [
+          "/usr/bin/stdbuf",
+          "-oL",
+          "/tmp/s08-handoff-8cae02a7/offline/logger"
+        ],
+        "exit": 1,
+        "early_bytes": 22051,
+        "ready_at_150ms": true,
+        "child_live": true,
+        "duration_seconds": 0.764738825004315
+      }
+    ]
+  },
+  "coordination": [
+    {
+      "case": "partial",
+      "launcher_calls": 1,
+      "result": {
+        "ok": false,
+        "host_ready_before_client": false,
+        "commands": {
+          "host": {
+            "argv": [
+              "/tmp/s08-handoff-8cae02a7/offline/partial/export-folder/FunThingsS08.x86_64",
+              "--headless",
+              "--log-file",
+              "/tmp/s08-handoff-8cae02a7/offline/partial/enet/host/engine.log",
+              "--",
+              "--role=host",
+              "--port=24740"
+            ],
+            "cwd": "/tmp/s08-handoff-8cae02a7/offline/partial/export-folder",
+            "started_unix": 1791458005.0789247,
+            "environment": {},
+            "owned_pid": 123,
+            "exit": 1,
+            "child_reaped": true
+          }
+        },
+        "asset_receipts": {},
+        "observations": [
+          {
+            "role": "host",
+            "event": "ready",
+            "seconds": 0.0205025269970065,
+            "child_live": true,
+            "byte_offset": 36
+          },
+          {
+            "role": "host",
+            "event": "result",
+            "seconds": 0.02052009999169968,
+            "child_live": true,
+            "byte_offset": 70
+          }
+        ],
+        "ready": {
+          "event": "ready",
+          "role": "host"
+        },
+        "ready_observed_unix": 1791458005.0993466,
+        "failure": "RuntimeError('host S03 assertion failed')",
+        "proxy_events": [],
+        "proxy_count": 0,
+        "proxy_closed": true,
+        "all_children_reaped": true,
+        "streams_closed": true,
+        "duration_seconds": 0.020624206998036243,
+        "results": {
+          "host": {
+            "event": "result",
+            "ok": false
+          }
+        }
+      }
+    },
+    {
+      "case": "coalesced-failure",
+      "launcher_calls": 1,
+      "result": {
+        "ok": false,
+        "host_ready_before_client": false,
+        "commands": {
+          "host": {
+            "argv": [
+              "/tmp/s08-handoff-8cae02a7/offline/coalesced-failure/export-folder/FunThingsS08.x86_64",
+              "--headless",
+              "--log-file",
+              "/tmp/s08-handoff-8cae02a7/offline/coalesced-failure/enet/host/engine.log",
+              "--",
+              "--role=host",
+              "--port=24740"
+            ],
+            "cwd": "/tmp/s08-handoff-8cae02a7/offline/coalesced-failure/export-folder",
+            "started_unix": 1791458005.0997293,
+            "environment": {},
+            "owned_pid": 123,
+            "exit": 1,
+            "child_reaped": true
+          }
+        },
+        "asset_receipts": {},
+        "observations": [
+          {
+            "role": "host",
+            "event": "ready",
+            "seconds": 0.00019230300677008927,
+            "child_live": true,
+            "byte_offset": 36
+          },
+          {
+            "role": "host",
+            "event": "result",
+            "seconds": 0.00020218201098032296,
+            "child_live": true,
+            "byte_offset": 70
+          }
+        ],
+        "ready": {
+          "event": "ready",
+          "role": "host"
+        },
+        "ready_observed_unix": 1791458005.0998526,
+        "failure": "RuntimeError('host S03 assertion failed')",
+        "proxy_events": [],
+        "proxy_count": 0,
+        "proxy_closed": true,
+        "all_children_reaped": true,
+        "streams_closed": true,
+        "duration_seconds": 0.00026774599973578006,
+        "results": {
+          "host": {
+            "event": "result",
+            "ok": false
+          }
+        }
+      }
+    },
+    {
+      "case": "silent-deadline",
+      "launcher_calls": 1,
+      "result": {
+        "ok": false,
+        "host_ready_before_client": false,
+        "commands": {
+          "host": {
+            "argv": [
+              "/tmp/s08-handoff-8cae02a7/offline/silent-deadline/export-folder/FunThingsS08.x86_64",
+              "--headless",
+              "--log-file",
+              "/tmp/s08-handoff-8cae02a7/offline/silent-deadline/enet/host/engine.log",
+              "--",
+              "--role=host",
+              "--port=24740"
+            ],
+            "cwd": "/tmp/s08-handoff-8cae02a7/offline/silent-deadline/export-folder",
+            "started_unix": 1791458005.1001475,
+            "environment": {},
+            "owned_pid": 123,
+            "exit": 1,
+            "child_reaped": true
+          }
+        },
+        "asset_receipts": {},
+        "observations": [],
+        "failure": "RuntimeError('host readiness deadline before client handoff')",
+        "proxy_events": [],
+        "proxy_count": 0,
+        "proxy_closed": true,
+        "all_children_reaped": true,
+        "streams_closed": true,
+        "duration_seconds": 0.0407864110020455,
+        "results": {}
+      }
+    }
+  ]
+}

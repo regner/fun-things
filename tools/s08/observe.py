@@ -272,7 +272,8 @@ def pck_manifest(task, saved_entrypoint=False):
         'project_binary_sha256':hashlib.sha256(entries['project.binary']).hexdigest()})
 
 
-def network(task, require_asset_receipts=False, env_factory=environment):
+def network(task, require_asset_receipts=False, env_factory=environment,
+            stdout_prefix=(), readiness_seconds=4.0):
     """Reuse the actual S03 proxy schedule, launching only the exported runtime folder."""
     directory = task/'enet'
     directory.mkdir()
@@ -280,8 +281,10 @@ def network(task, require_asset_receipts=False, env_factory=environment):
     children, files, offsets, results, commands = [], [], {}, {}, {}
     proxy = None
     record = {'ok':False,'host_ready_before_client':False,'commands':commands,
-              'asset_receipts':{}}
-    deadline = time.monotonic()+25
+              'asset_receipts':{}, 'observations':[]}
+    started = time.monotonic()
+    # Leave room for graceful wait and the existing bounded owned-signal cleanup.
+    deadline = started+20
     with (directory/'proxy.jsonl').open('w') as proxy_log:
         try:
             proxy = Proxy(24740,24741,proxy_log)
@@ -292,7 +295,7 @@ def network(task, require_asset_receipts=False, env_factory=environment):
                 logs.mkdir()
                 (logs/'engine.log').touch()
                 env = env_factory(logs/'user')
-                command = [str(folder/'FunThingsS08.x86_64'),'--headless','--log-file',
+                command = list(stdout_prefix) + [str(folder/'FunThingsS08.x86_64'),'--headless','--log-file',
                            str(logs/'engine.log'),'--','--role='+role,'--port='+str(port)]
                 commands[role] = {'argv':command,'cwd':str(folder), 'started_unix':time.time(),
                     'environment':{key:env[key] for key in env if key.startswith('XDG_')}}
@@ -330,6 +333,10 @@ def network(task, require_asset_receipts=False, env_factory=environment):
                             if not line.startswith('S03 '):
                                 continue
                             event = json.loads(line[4:])
+                            record['observations'].append({'role':role, 'event':event['event'],
+                                'seconds':time.monotonic()-started,
+                                'child_live':children[list(commands).index(role)].poll() is None,
+                                'byte_offset':offsets[role]})
                             if require_asset_receipts and role not in record['asset_receipts']:
                                 raise RuntimeError(role+' S03 ran before asset receipt')
                             if event['event']=='ready' and role=='host':
@@ -347,8 +354,13 @@ def network(task, require_asset_receipts=False, env_factory=environment):
                                 if event.get('ok') is not True:
                                     raise RuntimeError(role+' S03 assertion failed')
                 if 'ready' in record and client is None:
+                    if children[0].poll() is not None:
+                        raise RuntimeError('host exited before client handoff')
                     record['host_ready_before_client'] = True
+                    record['handoff_seconds'] = time.monotonic()-started
                     client = start('client',24741)
+                if client is None and time.monotonic()-started >= readiness_seconds:
+                    raise RuntimeError('host readiness deadline before client handoff')
                 if len(results)==2 and all(c.poll() is not None for c in children):
                     break
                 for role, child in zip(commands,children):
@@ -356,7 +368,7 @@ def network(task, require_asset_receipts=False, env_factory=environment):
                         raise RuntimeError(role+' exited without result')
                 time.sleep(POLL_SECONDS)
             else:
-                raise RuntimeError('ENet combined 25s deadline')
+                raise RuntimeError('ENet combined 20s deadline')
             for role,child in zip(commands,children):
                 if child.returncode != 0:
                     raise RuntimeError(role+' nonzero exit')
@@ -383,6 +395,13 @@ def network(task, require_asset_receipts=False, env_factory=environment):
         except Exception as error:
             record['failure'] = repr(error)
         finally:
+            # Give normal SceneTree shutdown a shared grace period before any signal.
+            grace_deadline = time.monotonic()+2
+            for child in children:
+                try:
+                    child.wait(timeout=max(0.01,grace_deadline-time.monotonic()))
+                except subprocess.TimeoutExpired:
+                    pass
             stop(children)
             for role,child in zip(commands,children):
                 commands[role].update(exit=child.returncode,child_reaped=child.poll() is not None)
@@ -395,6 +414,8 @@ def network(task, require_asset_receipts=False, env_factory=environment):
                 proxy.socket.close()
             record['proxy_closed'] = True
             record['all_children_reaped'] = all(c.poll() is not None for c in children)
+            record['streams_closed'] = all(stream.closed for stream in files)
+            record['duration_seconds'] = time.monotonic()-started
             record['results'] = results
             write_json(directory/'result.json',record)
     if not record['ok']:

@@ -1,0 +1,33 @@
+{
+  "ok": false,
+  "host_ready_before_client": false,
+  "commands": {
+    "host": {
+      "argv": [
+        "/tmp/s08-handoff-8cae02a7/offline/silent-deadline/export-folder/FunThingsS08.x86_64",
+        "--headless",
+        "--log-file",
+        "/tmp/s08-handoff-8cae02a7/offline/silent-deadline/enet/host/engine.log",
+        "--",
+        "--role=host",
+        "--port=24740"
+      ],
+      "cwd": "/tmp/s08-handoff-8cae02a7/offline/silent-deadline/export-folder",
+      "started_unix": 1791458005.1001475,
+      "environment": {},
+      "owned_pid": 123,
+      "exit": 1,
+      "child_reaped": true
+    }
+  },
+  "asset_receipts": {},
+  "observations": [],
+  "failure": "RuntimeError('host readiness deadline before client handoff')",
+  "proxy_events": [],
+  "proxy_count": 0,
+  "proxy_closed": true,
+  "all_children_reaped": true,
+  "streams_closed": true,
+  "duration_seconds": 0.0407864110020455,
+  "results": {}
+}

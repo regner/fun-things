@@ -1,0 +1,58 @@
+{
+  "ok": false,
+  "host_ready_before_client": false,
+  "commands": {
+    "host": {
+      "argv": [
+        "/tmp/s08-handoff-8cae02a7/offline/partial/export-folder/FunThingsS08.x86_64",
+        "--headless",
+        "--log-file",
+        "/tmp/s08-handoff-8cae02a7/offline/partial/enet/host/engine.log",
+        "--",
+        "--role=host",
+        "--port=24740"
+      ],
+      "cwd": "/tmp/s08-handoff-8cae02a7/offline/partial/export-folder",
+      "started_unix": 1791458005.0789247,
+      "environment": {},
+      "owned_pid": 123,
+      "exit": 1,
+      "child_reaped": true
+    }
+  },
+  "asset_receipts": {},
+  "observations": [
+    {
+      "role": "host",
+      "event": "ready",
+      "seconds": 0.0205025269970065,
+      "child_live": true,
+      "byte_offset": 36
+    },
+    {
+      "role": "host",
+      "event": "result",
+      "seconds": 0.02052009999169968,
+      "child_live": true,
+      "byte_offset": 70
+    }
+  ],
+  "ready": {
+    "event": "ready",
+    "role": "host"
+  },
+  "ready_observed_unix": 1791458005.0993466,
+  "failure": "RuntimeError('host S03 assertion failed')",
+  "proxy_events": [],
+  "proxy_count": 0,
+  "proxy_closed": true,
+  "all_children_reaped": true,
+  "streams_closed": true,
+  "duration_seconds": 0.020624206998036243,
+  "results": {
+    "host": {
+      "event": "result",
+      "ok": false
+    }
+  }
+}
