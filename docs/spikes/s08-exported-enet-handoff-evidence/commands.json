@@ -1,0 +1,45 @@
+[
+  {
+    "phase": "offline",
+    "argv": [
+      "python3",
+      "tools/s08/handoff_offline.py",
+      "/tmp/s08-handoff-8cae02a7/offline"
+    ],
+    "exit": 0,
+    "wall_seconds": 1.618168567,
+    "stdout": "offline.stdout",
+    "stderr": "offline.stderr",
+    "consumer_source": "offline/observe-executed.py",
+    "helper_source": "68fd232:tools/s08/handoff_offline.py"
+  },
+  {
+    "phase": "static binding",
+    "argv": [
+      "python3",
+      "tools/s08/exported_handoff.py",
+      "bind",
+      "/tmp/s08-handoff-8cae02a7/set01"
+    ],
+    "exit": 0,
+    "wall_seconds": 5.176588827,
+    "stdout": "bind.stdout",
+    "stderr": "bind.stderr",
+    "source": "68fd232:tools/s08/exported_handoff.py"
+  },
+  {
+    "phase": "set01",
+    "argv": [
+      "python3",
+      "tools/s08/exported_handoff.py",
+      "run",
+      "/tmp/s08-handoff-8cae02a7/set01"
+    ],
+    "exit": 1,
+    "wall_seconds": 9.499074136,
+    "stdout": "set01.stdout",
+    "stderr": "set01.stderr",
+    "source": "68fd232:tools/s08/exported_handoff.py",
+    "consumer_source": "68fd232:tools/s08/observe.py"
+  }
+]

@@ -1,0 +1,12 @@
+ERROR: Attempt to disconnect a nonexistent connection from 'Session:<Node#39460013464>'. Signal: 'tree_exited', callable: ''.
+   at: _disconnect (core/object/object.cpp:1713)
+ERROR: Attempt to disconnect a nonexistent connection from 'Replication:<Node#39510345110>'. Signal: 'tree_exited', callable: ''.
+   at: _disconnect (core/object/object.cpp:1713)
+ERROR: Signal 'tree_exited' is already connected to given callable '' in that object.
+   at: connect (core/object/object.cpp:1630)
+ERROR: Signal 'tree_exited' is already connected to given callable '' in that object.
+   at: connect (core/object/object.cpp:1630)
+ERROR: Attempt to disconnect a nonexistent connection from 'Session:<Node#39460013464>'. Signal: 'tree_exited', callable: ''.
+   at: _disconnect (core/object/object.cpp:1713)
+ERROR: Attempt to disconnect a nonexistent connection from 'Replication:<Node#39510345110>'. Signal: 'tree_exited', callable: ''.
+   at: _disconnect (core/object/object.cpp:1713)

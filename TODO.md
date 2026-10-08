@@ -249,11 +249,18 @@ feature expansion, repeated unchanged experiment or silent contract/pin change.
   Owner: export/service proof worker; Regner owns device/access evidence.
   Needs: [target/pin brief](docs/design.md), S01/S03 evidence, S03-S and
   [desktop preparation](docs/spikes/s08.md).
-  Remaining desktop work uses the [standard-editor/release partial record](docs/spikes/s08-standard-editor-release.md#bounded-addon-free-outcomes-and-exported-enet-stop):
-  saved entrypoint/journal-outside-assert and asset/API positives await independent
-  acceptance; exported ENet failed before client launch. Qualify a release readiness
-  handoff within the host case budget and receipt-consumption/output behavior under
-  a distinct ROOT grant; buffering is a hypothesis, not a remedy or retry permission.
+  Remaining desktop work: complete exported ENet held/resync health70, replication,
+  clean teardown and observed traffic using the accepted saved public APIs. The
+  [standard-editor/release record](docs/spikes/s08-standard-editor-release.md#bounded-addon-free-outcomes-and-exported-enet-stop)
+  is accepted bounded partial at52941da: saved entrypoint/journal mutation and
+  asset/API positives; historical authoring shutdown/exported-host STOPs remain failed.
+  The [exported handoff follow-up](docs/spikes/s08-exported-enet-handoff.md#first-changed-condition-set-handoff-positive-runtime-stop)
+  awaits SAME independent review: launcher-only live readiness/client start and
+  baseline/admission journal70 progress, then two exit1 deadlines/six client signal
+  errors. Explain release client lifecycle loss during held validation alongside
+  `tree_exited` diagnostics under a new scoped grant; no identical retry or diagnosis
+  inferred. Runner readiness/absolute-budget/resilient-cleanup review fixes are
+  validated offline only; full exported ENet remains open.
   Preserve original [release observation failure](docs/spikes/s08-linux-observation.md#actual-stopped-observation),
   [private authoring STOP](docs/spikes/s08-release-entrypoint.md#actual-private-authoring-stop)
   and authoring-shutdown diagnostics. Static PCK membership is not runtime resolution;

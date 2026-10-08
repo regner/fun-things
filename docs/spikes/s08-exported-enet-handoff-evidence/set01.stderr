@@ -1,0 +1,12 @@
+Traceback (most recent call last):
+  File "/home/regner/.paseo/worktrees/0u71f39f/s08-exported-enet-handoff/tools/s08/exported_handoff.py", line 102, in <module>
+    main()
+    ~~~~^^
+  File "/home/regner/.paseo/worktrees/0u71f39f/s08-exported-enet-handoff/tools/s08/exported_handoff.py", line 96, in main
+    observe.network(task, require_asset_receipts=True,
+    ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                    stdout_prefix=(str(STDBUF), '-oL'), readiness_seconds=4.0)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/regner/.paseo/worktrees/0u71f39f/s08-exported-enet-handoff/tools/s08/observe.py", line 422, in network
+    raise RuntimeError('ENet STOP: '+record['failure'])
+RuntimeError: ENet STOP: RuntimeError('host S03 assertion failed')

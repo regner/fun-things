@@ -88,3 +88,57 @@ After freeze send exact HEAD/base/raw brief/artifact locators to ROOT and return
 IDLE for its single fresh clean-context HIGH reviewer; no extra review agent launch
 or polling. Same reviewer handles material fixes/rebase; one proportionate same-HEAD
 readback retains complete sources/argv/exits/streams/empties and exact expected set.
+
+## First changed-condition set: handoff positive, runtime STOP
+
+Predeclaration/source commit `68fd232` preceded the engine invocation. Sole set01:
+`python3 tools/s08/exported_handoff.py run /tmp/s08-handoff-8cae02a7/set01`.
+Complete actual argv, logs, consumer result and failed supervisor traceback are in
+[set01 evidence](s08-exported-enet-handoff-evidence/set01/enet/result.json).
+Host597393 and client597416 each execute the identical cached normal saved main with
+`stdbuf -oL`, headless, explicit private log path and normal role/port user arguments.
+
+**Handoff positive:** parent consumes host readiness at0.424353 seconds, with the
+host live; client starts at0.424385 seconds. This is actual release handoff delivery
+under changed launcher output behavior, distinct from the independent offline
+model and the historical8.464263-second late receipt. Both roles emit S08 ok:true
+before S03,173 checks/22 resources each. Each role's44 payload bytes/hashes match
+actual PCK members; executable/full engine source identity match. No saved gameplay source, PCK,
+binary, project config or fixture changed between historical and current launches.
+This establishes a working launch handoff condition; historical buffering's exact
+syscall/property/sole-cause diagnosis remains unmeasured.
+
+**Runtime STOP:** host emits only `provisional_rollback`, then fails
+`case deadline in ACTIVE`/exit1 at parent receipt9.164995 seconds. Client's retained
+full stdout contains `provider_substitution_late_cleanup` and `baseline_cancel_retry`,
+then fails `case deadline in IDLE`/exit1. Client stderr has six engine errors:
+four disconnect-nonexistent and two already-connected `tree_exited` diagnostics,
+naming its Session/Replication nodes. Raw engine log retains the same diagnostics.
+No broad exemption or suppression is applied. The live runner stops on host failure
+before consuming the client result; separate post-exit full-stream readback preserves
+both actual failures. Receipt readback is not a live client timestamp.
+
+Client baseline/cancel/retry case is appended only after explicit accepted API
+checks for actual two-player admission, input enabled and journal health70. This is
+partial genuine exported ENet progress through the exact bound fixture, not the
+complete acceptance matrix. Resync health70, held validation/expiry, subset recovery,
+both successful results/clean teardown remain UNPROVED. Proxy count0/events[] means
+no scheduled movement experiment ran; the proxy logs only that schedule, so there
+is no total packet/byte observation in this set. The completed admission case alone
+cannot substitute for the required full traffic/schedule evidence.
+
+Set duration9.542656 seconds; both children exit1 and are reaped during normal grace,
+all stdout/stderr/proxy streams and the owned socket close. No signal fallback was
+needed. HOME unchanged; no import/export/asset repetition, editor/native/shared
+resource operation or acquisition. One of two network sets consumed. A second
+identical set is prohibited; no demonstrated remaining launcher condition justifies
+one. Runtime/source repair would require new scope, so STOP here with budget unused.
+
+**Specific unresolved question:** why does the exact cached release client lose its
+active session during held-input validation after successful baseline/admission,
+while coroutine `tree_exited` connection diagnostics are emitted? Inspect the
+release coroutine/session lifecycle boundary in a separately scoped follow-up;
+current evidence does not establish causation or license engine/gameplay edits.
+Full S08, historical authoring shutdown, clean exported ENet and all platform/
+graphics/device/production gates remain open. Independent review is pending ROOT's
+capacity queue, not an editor lock. Current evidence is a candidate, not acceptance.

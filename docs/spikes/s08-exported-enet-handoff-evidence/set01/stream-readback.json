@@ -1,0 +1,51 @@
+{
+  "host": {
+    "events": [
+      {
+        "event": "ready",
+        "role": "host",
+        "user_dir": "/tmp/s08-handoff-8cae02a7/set01/enet/host/user/data/godot/app_userdata/Fun Things"
+      },
+      {
+        "cases": [
+          "provisional_rollback"
+        ],
+        "event": "result",
+        "failure": "case deadline in ACTIVE",
+        "ok": false,
+        "role": "host"
+      }
+    ],
+    "S08_checks": 173,
+    "resources": 22,
+    "verified_runtime_payload_hashes": 44,
+    "exit": 1,
+    "stderr_bytes": 0
+  },
+  "client": {
+    "events": [
+      {
+        "cases": [
+          "provider_substitution_late_cleanup",
+          "baseline_cancel_retry"
+        ],
+        "event": "result",
+        "failure": "case deadline in IDLE",
+        "ok": false,
+        "role": "client"
+      }
+    ],
+    "S08_checks": 173,
+    "resources": 22,
+    "verified_runtime_payload_hashes": 44,
+    "exit": 1,
+    "stderr_bytes": 970
+  },
+  "limits": [
+    "post-exit stream readback is not live receipt timing",
+    "proxy count measures scheduled movement only, not all ENet traffic",
+    "no held/resync/subset/clean-teardown success",
+    "six client engine signal errors remain failures",
+    "no syscall/property/exit timestamp measurement"
+  ]
+}
