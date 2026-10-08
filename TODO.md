@@ -536,7 +536,8 @@ implementation. Save editor mutations before playtests; preserve unsaved work.
   no S08 receipt. ENet/proxy/host/client never created; STOP/no fix/re-export/retry grant.
   Static membership does not prove asset runtime semantics. Prior lead076a388a,
   reviewer40c83e6a and workspacewks_aa2a7ef710b90059 are archived/directory removed;
-  S08 follow-up UNASSIGNED/no active S08 implementation. No shared lease used or relocation.
+  That historical S08 workspace is archived. Current S08 allocation appears below;
+  no shared lease was used and no relocation occurred.
   Next bounded static preparation under this SAME S08 owner must identify a supported
   exported observer entrypoint and resolve the independently reported RELEASE proof
   limitation in `tests/fixtures/s03/replication.gd:40`: state-changing `apply_journal`
@@ -546,7 +547,8 @@ implementation. Save editor mutations before playtests; preserve unsaved work.
   Any S03 immutable-fixture change needs a distinct scoped ROOT grant and exact review;
   no source fix or runtime retry is allocated here. Preserve original S03 proofs/failures.
   A distinct [saved-entrypoint follow-up](docs/spikes/s08-release-entrypoint.md#actual-private-authoring-stop)
-  is ACTIVE UNACCEPTED under lead488b6000/workspacewks_e2ba2fe7704a8fa6, base0c84f01.
+  was accepted STOPPED_AUTHORING at exact43140314; prior lead488b6000/workspace
+  wks_e2ba2fe7704a8fa6 are archived. Historical commission base0c84f01.
   Its granted single private editor authenticated but STOPPED at an invalid readiness
   probe; unchanged toolkit authentication diagnostics are also retained. No source
   mutation/new S08 resource/S03 fix or release phase occurred. Required entrypoint,
@@ -848,15 +850,19 @@ all authored changes saved. No fifth launch or graphical grant. Full S05 remains
 OPEN; ONE fresh independent SolHIGH review awaits ROOT's serialized slot release.
 No shared editor operation.
 
-Alongside S05, ROOT's supplied concurrent S08 owner is direct Sol6.1 HIGH
-`555e0330`, workspace `wks_c7fc8314996ebb13`. Its distinct owned private project/editor
-route may run in parallel; the last supplied condition is actual editor readiness
-phase after a changed scan-completion/graceful-prep-shutdown grant. No S08 outcome
-is adopted here. Its narrow S03 assertion fix and release proof stay with S08.
-One writer applies per SAME editor/MCP/resource; no global zero-Godot rule. Shared
-main authoring is UNASSIGNED; historical483496 is not a current PID query. ROOT
-holds main and serializes the eventual independent reviews; profiles/checkpoints,
-M1/master tasks and S08 acceptance gates are unchanged.
+ROOT commissions ACTIVE UNACCEPTED S08 standard editor/release implementation to
+sole Sol6.1 HIGH auto-review lead555e0330-1c44-47bb-a223-a8bdae88e605, workspace
+wks_c7fc8314996ebb13 / `s08-standard-editor-release-proof`, exact baseef730df.
+[New committed protocol](docs/spikes/s08-standard-editor-release.md) owns only narrow
+S03 replication assertion-side-effect fix, new saved S08 scene/script/true UID and
+bounded addon-free release package proof. Distinct new grant allows owned private
+boost opt-out initialization before authentication, one automatic-discovery authoring
+editor and conditional ordered release phases after readiness/saved/check/source gates.
+Owned lease is only `/tmp/s08-standard-555e0330/project`; no shared editor lease.
+Historical failed private grant/ports remain at43140314; no result is adopted here.
+Independent project/routes/resource isolation permits parallel S05/S08 editors;
+there is no global-zero-Godot or manual five-port requirement. One fresh final review
+slot is serialized by ROOT. Full S05/S08 and all existing acceptance gates remain OPEN.
 
 Current readiness: bounded S04 source/body/admission/ENet handoff is independently
 ACCEPTED and integrated at `2370ad1`; P2/P3 are closed and full S04 stays open.
@@ -914,8 +920,11 @@ DOC1–11 guide reconciliation is complete. Ready scoped DOC12/13 acceptance dis
 and existing P0-PROFILES dated-notes reconciliation do not require a visual lease.
 Stopped S02 visual access does not hold up independent ready work. S08's bounded
 isolated observation is accepted STOPPED, archived, with full proof gates OPEN.
-Current S08 owner `555e0330`/workspace `wks_c7fc8314996ebb13` follows the
-ROOT-granted distinct private route above. S05's saved presentation/API/ENet candidate is complete and quiescent, pending
+Existing S08 owns the current ACTIVE UNACCEPTED lead555e0330/workspace
+wks_c7fc8314996ebb13 commission above; historical43140314 authoring STOP remains
+accepted and archived. Its distinct changed-condition/private-route grant is current;
+no implementation/runtime result is yet adopted.
+S05's saved presentation/API/ENet candidate is complete and quiescent, pending
 independent review; actual drawn/readability/cost gates remain pending.
 Accepted S05 source preparation is unchanged. Limited S07 static run-card/content-gap
 preparation can be separately assigned; representative measurements await actual
