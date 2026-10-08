@@ -2,13 +2,19 @@
 
 8 October 2026. Commissioned sole implementation lead488b6000, workspace
 `wks_e2ba2fe7704a8fa6`, branch `s08-release-entrypoint-enet`, verified Sol6.1 HIGH.
-Accepted LOCAL main/base: `0c84f01f2a0c817a5c6851a3a360e193a5f846d8`.
+Original commission base: `0c84f01f2a0c817a5c6851a3a360e193a5f846d8`.
 This is a distinct bounded follow-up under existing unchecked S08. The accepted
 [previous observation](s08-linux-observation.md#actual-stopped-observation) failed
 its first asset invocation with S03 missing-role/exit1; its observer did not run
 and ENet was never attempted. That history and its immutable evidence stay intact.
 
-## Changed conditions and supported entry route
+**Current disposition: STOPPED_AUTHORING.** The initial private launch grant was
+consumed by one failed readiness attempt before mutations. The S03 fix and new S08
+resources below are **UNIMPLEMENTED**; no release phase ran. This retained plan
+grants no second launch or runtime operation. Future authoring requires a new
+source-validated condition and a separate ROOT grant.
+
+## Retained planned conditions and entry route (UNIMPLEMENTED)
 
 The exact pinned engine source is
 [`c971f93e7e76b0ef919bf6009e7b868bea04db7f/main/main.cpp`](https://github.com/godotengine/godot/blob/c971f93e7e76b0ef919bf6009e7b868bea04db7f/main/main.cpp).
@@ -22,9 +28,10 @@ arguments into `OS.get_cmdline_user_args()` (lines1168–1169,2044–2045,2232).
 The bounded read-only installed-editor `--help` exited0 with empty stderr under
 private XDG paths; it confirms LSP/DAP/debug-server flags, not template behavior.
 
-New saved `tests/fixtures/s08/release_boot.tscn` has one Node root and attached
-`release_boot.gd`/engine-generated UID sidecar. The script performs explicit
-release-enabled checks and emits one `S08` JSON receipt per process. It instances
+The planned, **UNIMPLEMENTED** `tests/fixtures/s08/release_boot.tscn` would have one
+Node root and attached `release_boot.gd`/engine-generated UID sidecar. Its script
+would perform explicit release-enabled checks and emit one `S08` JSON receipt per
+process. The intended behavior is to instance
 the existing saved S01 roundtrip, checks linked/repeated models, appearance,
 texture and resource identities, frees it, then either exits for `--role=asset`
 or changes to the existing saved S03 boot for `--role=host`/`client`. S03 receives
@@ -33,7 +40,7 @@ entity/local-rig scenes, authority, admission and lifecycle APIs remain in use.
 There is no script/main-loop/scene CLI override and no authored runtime hierarchy
 or generated render geometry. Root project settings remain unchanged.
 
-The sole authorized existing S03 change executes `match_state.apply_journal`
+The planned, **UNIMPLEMENTED** existing S03 change would execute `match_state.apply_journal`
 outside `assert` in `replication.gd:40`, retaining a debug assertion on its saved
 boolean result. `Session._world_ready` and `_resync` call `Replication.begin`;
 `Match.apply_journal` owns injured health70 and durable revision advancement.
@@ -45,7 +52,10 @@ assertion/style refactor or other S03 behavior change is commissioned.
 
 ## Private authoring authorization request
 
-At predeclaration, editor launch/authoring was **not yet granted**. Proposed private authoring mirror:
+This is the historical prelaunch request, subsequently granted and consumed by the
+stopped attempt below. At predeclaration, editor launch/authoring was **not yet
+granted**. Its fixed ports were test precautions, not general MCP requirements.
+Proposed private authoring mirror:
 `/tmp/s08-private-488b6000/project`, containing exact accepted31 S01/S03 files
 and an unchanged copy of the tracked MCP Toolkit addon only. No Steam addon,
 native descriptor/library, source Blender/palette, other fixture, `.godot`,
@@ -109,7 +119,10 @@ process/listener/service inventory, shared cache write or unknown process kill.
 
 ## Ordered release observation predeclaration
 
-Release operations start only after private authoring is separately granted,
+The following is the retained, **UNEXECUTED** release predeclaration. Following the
+authoring STOP, any future experiment requires a separately source-validated new
+authoring grant; the original conditional release permission does not authorize
+continuing now. The planned release operations would start only after that grant,
 resources are saved/verified, and protocol/source commits exist. One attempt per
 phase, first actual failure stops later phases; no repair/re-export/retry/fallback.
 Static analyzer/receipt corrections retain original failure and immutable bytes.
@@ -231,9 +244,14 @@ release-safe fixture remain unimplemented; all release acceptance remains OPEN.
 ROOT received the exact failure, cleanup and narrow route gap for disposition;
 no new launch is inferred from elapsed time or this stopped record.
 
-Lossless final retention includes supervisor/client source, literal first call,
-argv/environment/lifecycle, full separate editor/connector streams, both complete
-source identity manifests, artifact rebound and help command/stdout/empty stderr.
+Final retention includes supervisor/client source, literal first call,
+argv/environment/lifecycle, complete original editor stdout/stderr/engine log and
+connector stderr. Connector stdout is preserved as the complete parsed response in
+`call-001.json`; its original line bytes were not separately captured. The actual
+supervisor console and original call/results were recovered from this worker's
+saved session: the PTY combined stdout/stderr, with outer exit0 despite readiness
+STOP. No independent empty supervisor stderr is claimed. Both complete source
+identity manifests, artifact rebound and help command/stdout/empty stderr remain.
 Private token bytes/auth headers are excluded. Templates/cache/PCK binaries stay
 in `/tmp` with hash references; immutable earlier failures/reports remain referenced
 by reachable Git identities. Independent review is of this stopped authoring
