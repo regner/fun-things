@@ -116,7 +116,7 @@ Forward Plus/Jolt, Windows D3D12; no explicit project VSync override.
 | --- | --- |
 | [main/main.cpp L628–632](https://github.com/godotengine/godot/blob/c971f93e7e76b0ef919bf6009e7b868bea04db7f/main/main.cpp#L628-L632), L1946–1947/L2837–2840 | `--disable-vsync` requests disabled vertical synchronization even if enabled in project settings; CLI explicitly says driver-level enforcement may remain. Default is enabled. It is process-local, not a renderer swap or saved config repair. |
 | [main.cpp L5112–5133](https://github.com/godotengine/godot/blob/c971f93e7e76b0ef919bf6009e7b868bea04db7f/main/main.cpp#L5112-L5133) | Automatic draw gate uses **can_any_window_draw OR has_additional_outputs**, with render-loop enablement, or pending RD resources. Draw can occur with present=false during resource processing. `window_can_draw=false` alone neither proves zero rendering nor continuous rendering. |
-| [Wayland display L1400–1419](https://github.com/godotengine/godot/blob/c971f93e7e76b0ef919bf6009e7b868bea04db7f/platform/linuxbsd/wayland/display_server_wayland.cpp#L1400-L1419) | `window_can_draw` checks recent frame age (1s threshold), per-window suspension and global suspend state. `can_any_window_draw` checks only global state NONE. These are different APIs. Neither is a physical scanout receipt. |
+| [Wayland display L1400–1419](https://github.com/godotengine/godot/blob/c971f93e7e76b0ef919bf6009e7b868bea04db7f/platform/linuxbsd/wayland/display_server_wayland.cpp#L1400-L1419) | `window_can_draw` checks recent frame age (1s threshold), per-window suspension and global suspend state. `can_any_window_draw` checks only global state NONE, but is an **internal native method, not exposed to GDScript**. The pinned `DisplayServer.xml` exposes `window_can_draw`/`window_get_vsync_mode`, not this global query. Neither is a physical scanout receipt. |
 | [Wayland display L1464–1501](https://github.com/godotengine/godot/blob/c971f93e7e76b0ef919bf6009e7b868bea04db7f/platform/linuxbsd/wayland/display_server_wayland.cpp#L1464-L1501), [thread L6184–6186](https://github.com/godotengine/godot/blob/c971f93e7e76b0ef919bf6009e7b868bea04db7f/platform/linuxbsd/wayland/wayland_thread.cpp#L6184-L6186) | Vulkan emulates VSync only without FIFO and with effective ENABLED; disabled mode can remove that conditional wait. **Current FIFO advertisement weakens this explanation**: emulation may already be off. Effective mode/binding in a future child must be measured. |
 | [Wayland display L1924–1934/L2134–2203](https://github.com/godotengine/godot/blob/c971f93e7e76b0ef919bf6009e7b868bea04db7f/platform/linuxbsd/wayland/display_server_wayland.cpp#L2134-L2203) | Manual wait timeout and compositor CAPABILITY suspension are separate state paths. VSync change does not override `is_suspended()`; no flag here guarantees repaint while compositor suspends. Existing logs do not identify which path ran. |
 | [RenderingServerDefault L215–230](https://github.com/godotengine/godot/blob/c971f93e7e76b0ef919bf6009e7b868bea04db7f/servers/rendering/rendering_server_default.cpp#L215-L230) | Engine post-draw processing emits `frame_post_draw`; callbacks plus increasing indices and actual viewport readback can support this one workload's images. User code must not manually call draw/force_draw or emit these signals. |
@@ -175,8 +175,11 @@ risk unsaved work, stop for ROOT protection/ownership resolution **before launch
 
 **Preparation implementation, not yet present:** a new scoped observer/runner must
 reuse the existing saved S05 draw entrypoint and preserve its gameplay APIs. Add
-only observation of effective `window_get_vsync_mode`, `can_any_window_draw` and
+only observation of supported `window_get_vsync_mode`, `window_can_draw` and
 full window/viewport/image dimensions; retain current camera-path correction.
+`can_any_window_draw` is internal/unavailable to this GDScript observer: do not call
+it, infer its value from callbacks or per-window status, or add native instrumentation.
+If a schema reserves that field, record null with an explicit unavailable reason.
 Uncapped presentation can exhaust the existing600-callback observation ceiling
 before real events. The future observation-only derivative must declare a bounded
 65536-callback ceiling (sparse rows on meaningful changes plus capture stages);
@@ -250,7 +253,8 @@ pixels, wrong camera, failed gameplay expectation, new diagnostic/crash, nonzero
 overrun or incomplete cleanup. Retain raw failed stage and absent-output lists.
 No retry, focus/resize action, MovieWriter fallback, service/config/vendor/driver/
 renderer/pin change. Native `can_draw=false` stays a native failure even if IMAGE
-partial succeeds; `can_any_window_draw` is telemetry, not a substitute criterion.
+partial succeeds; internal `can_any_window_draw` telemetry is **unavailable**, not
+inferred and not a substitute criterion. No native observation bridge is commissioned.
 
 Normal Session.leave/SceneTree.quit first; if failed request exit of **owned** handles
 only, share grace deadlines across all children, then bounded owned fallback/reap.
@@ -313,3 +317,18 @@ Image route success alone cannot finish P0 with Steam testing deferred and Deck/
 physical-input/target/capacity evidence unavailable. Keep independent ready work
 moving; ROOT addresses any later unavoidable user decision after useful technical
 work, without an invented checkpoint, repeated availability request or waiver.
+
+## Independent static review correction
+
+Initial exact `5733e885efac558ce29ade1604506ee9f22f8457` received one P2 R1:
+the proposed observer required unexposed `can_any_window_draw`. The same reviewer,
+Paseo `97fee3aa-9aca-4e15-9031-74fe20bac16c` (pi session
+`01a11bac-790d-7020-b43d-53288dd64f2d`), inspected exact pinned
+[DisplayServer API XML](https://github.com/godotengine/godot/blob/c971f93e7e76b0ef919bf6009e7b868bea04db7f/doc/classes/DisplayServer.xml).
+Its actual207798bytes/SHA256
+`770ac712b8b7a02bcb07791790a29156d055ad5decd61ff460de1797387a328e`
+are retained with the complete report/check evidence. The correction removes that
+script call and labels internal telemetry unavailable without inference/native changes.
+The native source explanation and every STOP/uncertainty/finite budget/open gate
+remain unchanged. SAME-reviewer exact-final disposition belongs to the delivery
+notes/handoff; this correction does not claim a new engine/compiler/runtime result.
