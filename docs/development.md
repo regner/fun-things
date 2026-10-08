@@ -513,6 +513,94 @@ immutable upstream-revision evidence, separately bounded native-boundary design,
 or continued unavailability. No adapter/peer/five-lane/reliable fallback/SDK/vendor/
 pin selection is made; full S03-S/Steam/Deck/S04/P0/M1/production gates stay open.
 
+### S05 partial damage/chain tooling
+
+[Exact accepted partial S05](spikes/s05.md#accepted-exact-final-disposition) adds a
+saved minimum authoritative damage/life/chain fixture, using unchanged S03 session
+and S04 body/source APIs. The [single fixture contract](spikes/s05-contracts.md)
+owns experimental identities, work, lifecycle and presentation limits.
+[Evidence catalogue](spikes/s05-evidence/README.md) maps original protocols,
+canonical API/ENet, all-owned compilation, failed/corrected pressure, retired-ShotId
+negative and saved-resource receipts. These are historical results, not new checks.
+
+The existing recipes, from the repository root under separately assigned process
+access, are:
+
+```sh
+python3 tools/run_s05.py --godot /path/to/4.8-dev7/godot --gdstyle /path/to/0.3.0/gdstyle --output /tmp/s05-my-run
+python3 tools/run_s05.py --godot /path/to/4.8-dev7/godot --gdstyle /path/to/0.3.0/gdstyle --queue-only --output /tmp/s05-pressure-my-run
+python3 tools/s05/check_resources.py --base c8096b55ef97412552366fdaa74c220b976ed82e --output /tmp/s05-resources-my-run.json
+# Complete same-reviewer final disposition, lossless payloads and root receipts:
+git notes --ref=paseo-orchestration show 754a0b501fe705c93675ff09b43d5bfca201cd94
+```
+
+There is no `spike:s05` Mise task. Read the actual
+[runner](../tools/run_s05.py), [resource checker](../tools/s05/check_resources.py),
+[S04 staging](../tools/run_s04.py), [version/log/user helpers](../tools/script_checks.py)
+and [owned-child cleanup](../tools/run_s03.py) for the implemented scope:
+
+| Runner flag | Default and constraint |
+| --- | --- |
+| `--godot` | Required executable path; shared helper verifies exact `4.8.dev7.official.c971f93e7`, with 10 s version timeout |
+| `--gdstyle` | Required executable path; use pinned0.3.0, aligned with `.gdstyle-version`; runner invokes fmt/check and lint, without a separate gdstyle version query |
+| `--output` | Printed `s05-` temporary directory if omitted; absent or empty directory resolving outside repository ROOT, nonempty/internal outputs rejected |
+| `--port` | 25040, range1–65534; boot uses this port, burst uses port+1, sequentially |
+| `--deadline` | 18 s for each three-process ENet case after staging/checks, range1–30 s; not a total runner deadline |
+| `--api-only` | Off; runs boot/burst public APIs and queue pressure, omits ENet |
+| `--queue-only` | Off; skips both API/ENet rows, runs pressure; takes precedence if both mode flags supplied |
+
+All modes stage saved s02/s03/s04 dependencies and s05 car/boot/burst plus scripts,
+with S02/S04 model imports/sidecars. S04 staging removes autoload/editor-plugin
+sections and icon reference from copied settings; no addons or Blender authoring
+sources are copied. S05 staging excludes editor harness/probe patterns. Headless
+import precedes seven explicit S05 script compiles and S05 formatting/lint. It does
+not call the all-owned compiler: retained `all-owned-checks` covers48 owned affected
+scripts separately, while final seven-script checks cover the proof amendment.
+Use the separate [foundation checks](#foundation-validation-tasks) for all-owned
+scope; an import alone is neither all-script nor editor-synchronization evidence.
+
+Check/import/compiler operations use `check-user`; each API, queue and ENet role
+gets its own XDG data/config/cache scope and stdout/engine logs. Shared checked
+commands have 30 s default timeout; API/queue commands use12 s. Default mode runs
+boot API then boot ENet, burst API then burst ENet, and finally finite reserved
+queue pressure. Each ENet case has actual host/live/post-chain-joiner processes. No proxy, windowed option or drawn
+receipt exists in this runner. ENet late launch waits for host `settled`; it does
+not test changes during an in-flight car baseline/journal.
+
+The printed directory retains copied project, import/compiler/style logs, per-row
+stdout/engine logs and private users, plus `result.json` with commands/source hashes
+and available API/network/queue outcomes. Failures keep logs and a failure result;
+an early failure may lack completed row/source manifests. Checked commands reject
+`SCRIPT ERROR:`, `ERROR:` and `WARNING:` even with exit0; network rows also require
+one successful result per role, correct outcomes and zero exits. Each network case
+finally terminates only its own Popen children, waits a shared2 s, then kills/waits
+remaining owned children. No name/PID scan or shared editor cleanup is performed.
+
+The resource checker is static: `--base` defaults to original experiment base
+`c0eda26f7f010af75bbf10c272ec5cb001442331`; the recipe explicitly selects accepted
+base `c8096b5`. Required `--output` is a JSON file; its parent is created and an
+existing file is overwritten. Unlike the runner, it has no external/fresh-output
+guard: deliberately choose a new external filename. It reads Git/base and working
+bytes for original technical prefixes, checks three saved scene dependency UID/path/
+node identity sets and seven script sidecars, and rejects copied/generated meshes.
+It performs no engine/import/reexport/save/reload or gameplay operation; those
+historical receipts have separate owners.
+
+Accepted health0/0/100 and twelve terminal outcomes, retired ShotId fences, normal
+queue5/46 ticks and finite pressure queue12/tick41 establish scoped gameplay work.
+Both twelve-car rows complete144 visits at peak4/tick with8 TOKEN reservations/
+4 drops and hidden visuals. They measure no actual effect draw cost. Occupant9001
+is a nonrendering sentinel, not an admitted player. Current wreck hydration precedes
+input with zero historical tokens only for settled post-chain joining. Full S05
+requires source-linked actual eight-effect drawable saturation/live-versus-hydrated
+receipts, Regner policy ratification and affected spacing/contact reruns after final
+S02/S04 dimensions. Production player/seat/journal/reset/reconnect/sustained load and
+all Steam/Deck/input/feel/capacity/P0/M1 gates remain open. Original raw sandbox,
+class-index/vector, pressure-timing and editor diagnostics/EOF receipts remain exact;
+the full note preserves same-reviewer exact-final ACCEPT partial, P3 resolved and
+root's time-specific integration/relocation history. Wrapper metadata additions may
+change note hash; decoded original payload hashes establish preservation.
+
 ## Versions and releases
 
 When release builds exist, make version and source revision visible in startup

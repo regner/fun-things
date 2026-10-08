@@ -223,30 +223,6 @@ complete in [the completion/review record](docs/reviews/p0-doc5.md). Only the
 three guides and resolving references changed; full S02/S03-R, profile
 configuration/launch, Steam/Deck/P0/production gates remain open.
 
-- [ ] **P0-DOC8 — Discover accepted partial S05 tooling and exact-final review.**
-  Owner role: one direct Sol MEDIUM/HIGH documentation worker, independent Sol HIGH
-  review; root assigns named ownership. Files: `README.md`, `docs/development.md`,
-  `docs/spikes/s05.md`. Prerequisites: accepted exact `754a0b5` on base `c8096b5`,
-  complete substantive/final review and lossless Git note, completed DOC6/DOC7 and
-  [sixth checkpoint](docs/reviews/plan-check-2026-10-08-06.md#documentation-drift-and-scoped-follow-ups).
-  Evidence: [S05 record](docs/spikes/s05.md), [contract](docs/spikes/s05-contracts.md),
-  [full review](docs/spikes/s05-evidence/review/report.md), actual
-  `tools/run_s05.py`, `tools/s05/check_resources.py`, their shared staging/version/
-  diagnostic/cleanup sources and retained results. Read sources; execute no experiment.
-  Done when: README/development discover the partial fixture and exact existing
-  runner/resource recipes, required `--godot`/`--gdstyle`, flags/defaults/guarded
-  external output, private user/log scopes, seven affected versus all-owned compile
-  limits, API/ENet/queue modes and owner-only cleanup without inventing a Mise task;
-  S05 links exact754a0b5 same-reviewer ACCEPT partial/P3 resolved and complete note,
-  making its future exact-review prose historical without rewriting protocols,
-  original reports, raw failures or EOF evidence. Eight tokens are not drawn effects;
-  occupant sentinel is not a player; settled hydration is not during-chain journal.
-  Preserve all remaining S05/Steam/Deck/input/feel/capacity/P0/M1/production gates.
-  Static local links/anchors, source/flag/receipt mapping, JSON, authored LF/whitespace,
-  scoped history/task/mode/blob preservation and clean-context exact-final review
-  pass. Remove DOC8 with its resolving guide change/completion record, replace
-  P0-GATE prerequisite. Ready without hardware/editor; finish before P0-GATE.
-
 - [ ] **P0-DOC9 — Reconcile bounded S05 contracts, consumers and capacity prerequisites.**
   Owner role: one direct Sol MEDIUM/HIGH docs worker, independent Sol HIGH review;
   root assigns named ownership and serializes docs with DOC8. Files:
@@ -563,7 +539,8 @@ implementation. Save editor mutations before playtests; preserve unsaved work.
   [P0-DOC4 guide reconciliation](docs/reviews/p0-doc4.md),
   [P0-DOC5 discovery/consumer reconciliation](docs/reviews/p0-doc5.md),
   [DOC6 accepted S04 guide reconciliation](docs/reviews/p0-doc6.md),
-  [DOC7 stopped compatibility discovery](docs/reviews/p0-doc7.md), P0-DOC8/P0-DOC9,
+  [DOC7 stopped compatibility discovery](docs/reviews/p0-doc7.md),
+  [DOC8 partial S05 tooling/review discovery](docs/reviews/p0-doc8.md), P0-DOC9,
   [S03 fixture boundary](docs/spikes/s03.md#fixture-and-boundary),
   [completed S03 proof](docs/spikes/s03.md), S03-R/S03-S and S04 through S08.
   S07 supplies the documented capacity envelope, limiting axes, organization and

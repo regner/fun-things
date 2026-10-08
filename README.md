@@ -8,6 +8,9 @@ configuration, the Godot MCP Toolkit, [S01 asset fixtures](docs/spikes/s01.md), 
 [S04 car/body/ENet technical fixture](docs/spikes/s04.md#accepted-exact-final-disposition).
 The accepted [stopped S03-S compatibility probe](docs/spikes/s03-s-compatibility.md#accepted-exact-final-compatibility-disposition)
 adds source/model/reflection evidence, with no selected Steam adapter.
+The accepted [partial S05 damage/chain fixture](docs/spikes/s05.md#accepted-exact-final-disposition)
+adds finite authoritative outcomes and settled wreck hydration, with eight cosmetic
+tokens rather than drawn explosion effects.
 There is no production gameplay or main scene yet.
 The first milestone requires ENet for local testing and Steam for friends playtesting,
 using the existing Steam app through shared session APIs.
@@ -135,6 +138,27 @@ native-boundary design, or keep Steam unavailable. No adapter, five-lane fix, re
 fallback, SDK/vendor/pin/package or integration choice is selected. Full S03-S,
 native delivery/lifecycle/queue/allocation, external route/relay/package/device,
 Steam/Deck/S04 and P0/M1/production gates remain open.
+
+The supplementary S05 runner and read-only resource checker have no Mise task:
+
+```sh
+python3 tools/run_s05.py --godot /path/to/4.8-dev7/godot --gdstyle /path/to/0.3.0/gdstyle --output /tmp/s05-my-run
+python3 tools/s05/check_resources.py --base c8096b55ef97412552366fdaa74c220b976ed82e --output /tmp/s05-resources-my-run.json
+```
+
+Both executable flags are required by the runner. Its optional output must be fresh,
+empty and outside the checkout; omitted output prints a temporary directory.
+Default headless mode runs both API scenes, separate host/live/settled-late ENet
+processes on ports25040/25041, then finite queue pressure. `--api-only` omits ENet;
+`--queue-only` runs just pressure after import/seven-script compile/style checks.
+Private user/log scopes and owner-only child cleanup are described with every
+flag/default and the resource checker's different output rules in the
+[development recipe](docs/development.md#s05-partial-damagechain-tooling).
+Seven S05 compiles do not replace all-owned compilation; neither import nor tokens
+prove drawn effects. Sentinel death is not admitted-player death/respawn, and settled
+hydration is not a during-chain journal/reset proof. Exact754a0b5 partial acceptance
+keeps full S05, policy/dimension reruns, Steam/Deck/input/feel/capacity and P0/M1/
+production gates open.
 
 ## Project guidance
 
