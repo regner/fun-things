@@ -281,3 +281,34 @@ drawn saturation, Regner blast/obstruction/falloff/delay/order/occupant/wreck po
 and spacing/contact reruns after final S02/S04 dimensions. S07 needs real S06 seams,
 actual effects and hardware/views/load. All Steam/Deck/input/feel/P0/M1/production
 gates remain open; no productionization, renderer/streaming or maximum is selected.
+
+## Accepted partial S06 topology owner supplement
+
+8 October 2026. [Exact7fb302b partial ACCEPT](spikes/s06.md#accepted-exact-final-disposition)
+adds bounded saved technical topology; prior S05/S07 prerequisite prose above is a
+historical snapshot, updated here. The canonical owner table remains normative.
+ONE [S06 contract](spikes/s06-contracts.md) owns fixture representation, finite
+bounds, bake/admission and specified recovery. Saved sectors alone own placement
+and stable world IDs; S06City owns explicit undirected sidewalk/crossing graph,
+directed traffic lane curves and shared ROAD map queries. Population still owns
+production AI/replenishment/recovery, Match dynamic identities/lifecycle, and motion
+owners unchanged S02/S04 body rules. No production architecture is implemented here.
+
+Host-only S06Controller emits commands from public body state; S06Fixture sets
+passive roles before child entry, admits one route, steps the selected actual body
+once/tick and neutralizes/clears before completion publication. There is no RPC or
+new replication/placement writer. Finite1200/1800-tick stop is implemented; blockage,
+contested junction, stuck and wreck recovery are specified **unimplemented/untested**
+M1-C3 integration. CityData shared spawn/exit queries and production admission codec
+remain future contracts. Missing/stale/corrupt content fails closed before route/
+controller/map use; editor bake is explicit, runtime never rebakes.
+
+Actual crossing477 ticks/7.95 s and opposing legal LEFT turns721 ticks/12.0167 s each
+satisfy the provisional technical seam/topology prerequisite for
+[S07](spikes/s07.md#accepted-partial-s06-topology-readiness). Discrete planar body/
+source footprints and analytical envelope/camera sensitivity do not prove final
+body/contact/exit, drawable readability/feel or contested recovery. S07 still lacks
+actual source-linked effects/eight-slot saturation/live-versus-hydrated receipts,
+named hardware/four graphical views/residency/sustained costs. Full spikes, Steam/
+Deck/input/P0/six-block M1/production and user decisions stay open; no maximum,
+renderer/streaming, pin or optimization follows.

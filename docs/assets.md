@@ -368,3 +368,35 @@ and stop owned loops on reset/teardown. Preserve launch/impact tails when approp
 prediction/duplicate packets must not replay sounds. Bus/lifecycle behavior belongs
 to gameplay/presentation owners. 2D UI/fonts/minimap assets retain provenance and
 runtime/source links without requiring Blender model handoffs.
+
+## Accepted partial S06 source and topology handoff
+
+The prospective S06 representation/bake method above remains a production workflow
+requirement. [Exact7fb302b partial S06](spikes/s06.md#accepted-exact-final-disposition)
+now supplies bounded technical evidence through ONE
+[source handoff](spikes/s06-source-handoff.md) and [contract](spikes/s06-contracts.md).
+Original `s06_intersection.blend` has explicit west/east export collections,34 named
+members/two linked GLBs/imports → saved west/east sectors → intersection/inherited
+wide. Neutral road9 m/sidewalk4 m geometry and separate island collision are spike
+fixtures, not production street art. No copied/generated render mesh or detached
+import is accepted. [Catalogue](asset-catalogue.md) discovers that handoff;
+[S02](assets/s02_kit.md#accepted-partial-s06-reverse-consumers) actor/pistol and
+[S04](assets/s04_kit.md#accepted-partial-s06-reverse-consumers) car reverse consumers
+extend unchanged source maps without new identities or source edits.
+
+Saved scenes alone own placement/stable IDs; City owns bounded topology/signature/
+revision/map and explicit editor bake. Source/export/collision/anchor changes need
+affected saved/inherited refresh/reopen, rebake and public-body checks, per the
+existing workflow. Actual planar crossing/opposing LEFT-turn seams and source/export/
+UID/supplied roundtrip receipts are partial technical evidence; source/static
+captures do not certify runtime camera/minimap/readability/feel. Analytical larger
+footprints are not changed-body physics. Final S02/S04 choices require actual
+clearance/contact/turn/exit/seam/map reruns. Actual finite stop is distinct from
+specified unimplemented contested recovery and production spawn/exit/lifecycle.
+
+S07's provisional technical topology prerequisite is satisfied; actual source-linked
+effects/eight-slot drawable saturation/live-versus-hydrated, named hardware/four
+graphical views/residency/sustained cost are still missing. Full spikes, Steam/Deck/
+feel/input/P0/six-block M1/production and user choices stay open. No capacity maximum,
+renderer/streaming, tool pin or optimization is selected. No new asset experiment
+ran for this documentation-only discovery.

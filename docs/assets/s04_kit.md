@@ -97,3 +97,27 @@ is not wreck art, moving-contact/final-clearance or production acceptance. Eight
 cosmetic tokens are not authored/drawn explosions. Source-linked actual effects,
 Regner policies, final-S02/S04-dimension spacing/contact reruns and all visual/input/
 feel/Steam/Deck/S07/P0/M1/production gates remain open. No new reexport ran here.
+
+## Accepted partial S06 reverse consumers
+
+The original S04 and S05 source maps above remain intact; original statements about
+no world-sector/minimap integration describe the S04 handoff, before this consumer.
+[Partial S06 exact7fb302b](../spikes/s06.md#accepted-exact-final-disposition) adds:
+
+| Source collection → export/import | Preserved linked prefab | Saved S06 consumers |
+| --- | --- | --- |
+| `s04_kit.blend` / `export_s04_car` → `s04_car.glb` + `.glb.import` | [S04 kinematic](../../tests/fixtures/s04/kinematic.tscn), `PresentationAnchor/Visuals/Model`, original Collision/Sockets | [intersection](../../tests/fixtures/s06/intersection.tscn)/`CarWest` and `CarEast`, inherited by [intersection_wide](../../tests/fixtures/s06/intersection_wide.tscn) |
+
+No S06 dynamic-body or track consumer is added. Separate source-linked road geometry
+belongs to the [S06 handoff](../spikes/s06-source-handoff.md), with ONE
+[contract](../spikes/s06-contracts.md). Cars use unchanged `configure`/`step`/
+`motion_state`/`neutralize` and shared handling; no second pose/physics writer.
+Actual collider1.8×1.5×3.4 m bodies complete sequential opposing legal LEFT turns
+in721 ticks/12.0167 s each with one seam/no sampled outside/contact. Discrete planar
+samples do not accept continuous sweep, concurrent junction safety, final dimensions/
+turning/exits/wreck contacts, drawn camera/feel or production car art. Larger envelope
+analysis uses retained poses, not changed-body physics. Shared-source changes still
+reexport both car/track outputs and inspect original/S05/**S06 base/inherited**
+consumers; final choices require affected actual route/contact/seam/map reruns.
+No source/output/import/UID/socket/placement edit or reexport ran here. All full S04/
+S06/S07, Steam/Deck/input/feel/P0/six-block M1/production gates remain open.

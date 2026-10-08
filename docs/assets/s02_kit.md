@@ -120,3 +120,26 @@ Native-view captures show the launcher length clearly, but pistol/SMG recognitio
 is still weak at this scale. Do not read a larger side-profile concept as overhead
 acceptance. The next refinement should compare geometry/contrast in matched held
 views and retain actor/target readability while walking, before production assets.
+
+## Accepted partial S06 reverse consumers
+
+The original S02 and accepted S03-R maps above are preserved. Subsequent
+[partial S06 exact7fb302b](../spikes/s06.md#accepted-exact-final-disposition) adds
+linked technical consumers of unchanged `s02_kit.blend` outputs:
+
+| Source collection → GLB/import | Preserved prefab-local ancestry | Saved S06 consumer |
+| --- | --- | --- |
+| `export_s02_actor` → `s02_actor.glb` + `.glb.import` | [S02 actor](../../tests/fixtures/s02/actor.tscn), `PresentationAnchor/Visuals/Model` | [intersection](../../tests/fixtures/s06/intersection.tscn)/`Person`, inherited by [intersection_wide](../../tests/fixtures/s06/intersection_wide.tscn) |
+| `export_s02_pistol` → `s02_pistol.glb` + `.glb.import` | Same actor, `PresentationAnchor/WeaponMount/Model`; preserved `Sockets/Muzzle` | Same Person and inherited wide consumer |
+
+S06 introduces no ground/building/target/SMG/launcher consumer from this kit. The
+[new intersection handoff](../spikes/s06-source-handoff.md) owns separate road sources;
+ONE [contract](../spikes/s06-contracts.md) bounds host commands through unchanged
+`step`/`motion_state`/`neutralize`. Actual capsule radius0.38 m/height1.8 m crosses
+west→east in477 ticks/7.95 s, one X=0 seam/no sampled outside/contact. This is planar
+technical evidence, not final actor/camera/weapon/readability/feel, contested crossing
+or production art. Future shared-source reexports still cover all nine outputs and
+all original/S03-R/**S06 base and inherited** consumers; changed envelopes/sockets
+require affected actual motion/query/contact/seam/map and network checks under their
+owners. No source/import/UID/prefab/placement changed here; no reexport ran. Full
+S02/S06/Steam/Deck/feel/P0/M1/production gates remain open.

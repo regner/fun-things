@@ -160,3 +160,33 @@ historical tokens does not prove during-chain journal/reset races. Six-block sco
 Regner policy, native LCD/OLED1280×800/60 FPS, standalone/ENet/Steam/Windows/Linux,
 input/feel and S05/S07/P0/M1/production gates remain unchanged. No renderer, streaming,
 integration or maximum is selected from this result.
+
+## Accepted partial S06 technical topology and remaining layout gates
+
+8 October 2026. The earlier S05/S07 prerequisite paragraph is a historical snapshot;
+[exact7fb302b partial S06](spikes/s06.md#accepted-exact-final-disposition) now satisfies
+**provisional saved technical topology/seam**, through ONE
+[contract](spikes/s06-contracts.md) and [source handoff](spikes/s06-source-handoff.md).
+This is a new neutral48×48 m intersection split at X=0, with9 m carriageways/4 m
+sidewalks, not the production three-sector/six-block district proposed above. Saved
+west/east own linked geometry/placement/IDs and explicit sidewalk/crossing graph,
+directed lane curves; City owns signature/revision/explicit bake and shared ROAD map.
+No SVG/runtime layout writer, district scope or normative owner changes.
+
+Actual unchanged S02 crossing477 ticks/7.95 s and S04 opposing legal LEFT turns721
+ticks/12.0167 s each cross the seam; dense discrete footprints/contact observations
+are bounded planar evidence. Four-arm map values/zero seam error, saved West+1 m
+stale rejection, coherent City+1 m explicit rebake and finite-width/ID/revision/
+corrupt-data negatives pass. Source/static captures and42°/50° projection/larger
+footprint sensitivity are not drawn gameplay/minimap/readability or changed-body
+physics. Final S02/S04 dimensions/handling/turns/exits still require affected actual
+clearance/contact/crossing/seam/map reruns; six-block routes/spawns/yard remain unproved.
+
+Implemented recovery is finite neutralized stop only. Blockage/contested junction/
+stuck/wreck policy is specified unimplemented/untested M1-C3 work, with production
+spawn/exit/lifecycle/admission still owned by canonical contracts. [S07 readiness](spikes/s07.md#accepted-partial-s06-topology-readiness)
+retains missing actual source-linked effects/eight-slot drawable saturation/live
+versus hydrated, named hardware/graphical host/four separated views, residency and
+sustained costs. Full spikes, Steam/Deck/native1280×800/60 FPS/Windows/Linux/input/
+feel/P0/six-block M1/production and user choices remain open; no maximum, renderer/
+streaming, pin, capacity intervention or optimization is selected.

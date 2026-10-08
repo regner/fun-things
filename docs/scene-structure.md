@@ -249,3 +249,34 @@ Settled joining without historical tokens does not implement during-chain journa
 reset races. Full S05 drawable source-linked saturation, Regner policies and final-
 dimension spacing/contact reruns, M1 lifecycle/journal/load, Steam/Deck/input/feel,
 S07/P0/production gates remain open.
+
+## Accepted partial S06 saved topology supplement
+
+[Exact7fb302b partial S06](spikes/s06.md#accepted-exact-final-disposition) implements
+only a saved technical fixture, leaving the production tree/paths above normative.
+[Intersection](../tests/fixtures/s06/intersection.tscn) owns `City/Sectors/West` and
+`East`, root `Person`, `CarWest`, `CarEast`, `Camera` and `Ui/Minimap`. Saved
+[west](../tests/fixtures/s06/west.tscn)/[east](../tests/fixtures/s06/east.tscn) own
+`Visuals/Model`, deliberate island collision and `Topology` anchors/Path3D links.
+[Inherited wide](../tests/fixtures/s06/intersection_wide.tscn) changes only42°→50°
+camera FOV; all placements, UID/node/inheritance metadata and source ancestry stay
+linked. The [source handoff](spikes/s06-source-handoff.md) maps one new Blender
+source/two GLBs to these sectors; Person uses unchanged S02 actor/pistol and both
+cars unchanged S04 kinematic composition. No runtime authored hierarchy/mesh exists.
+
+The ONE [bounded contract](spikes/s06-contracts.md#one-authored-representation)
+defines scene-only placement, district/sector/anchor/link IDs distinct from resource/
+node/dynamic identities, cross-sector endpoints, undirected FOOT/directed TRAFFIC
+curves and separate ROAD map semantics. X=0 splits linked geometry without duplicate
+floor collision; planar bodies use deliberate island boxes, not grounded curb/slope
+physics. Saved160×160 minimap projects shared world XZ roads at origin(80,80),3 px/m
+and supplied body marker; four-arm values/seam alignment are accepted, actual raster/
+readability pending. Source/static captures are not runtime drawn acceptance.
+
+Signature/revision/tool/linked-import dependencies require explicit editor bake,
+save and affected base/inherited reopen; stale/missing/corrupt content rejects route,
+controller and map binding, which clears roads. No silent rebake, production spawn/
+exit/join codec or contested recovery is delivered. Actual finite neutralized stop
+and unchanged-body crossing/LEFT-turn seam evidence remain bounded. Final dimensions/
+contacts/turns/exits need affected reruns; S07 hardware/effects/four views/residency/
+sustained cost and all Steam/Deck/feel/P0/M1/production gates remain open.

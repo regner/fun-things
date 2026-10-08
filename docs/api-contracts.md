@@ -679,3 +679,45 @@ Regner provisional blast/obstruction/falloff/delay/order/occupant/wreck ratifica
 and post-final-S02/S04-dimension spacing/contact reruns remain required. M1-B1/B2/B3/
 B4/D and S07 retain production lifecycle/journal/reset/load/feedback; every Steam/
 Deck/input/feel/P0/M1/production gate remains open.
+
+## Accepted partial S06 executable topology boundary
+
+[Exact7fb302b partial ACCEPT](spikes/s06.md#accepted-exact-final-disposition) refines
+one fixture subset through the [S06 contract](spikes/s06-contracts.md); production
+CityData/Population/spawn/exit/admission signatures, owners and matrix above remain
+normative. [S06City](../tests/fixtures/s06/city.gd) provides `validate_content`,
+`signature`, `bake_content`, `route` and `map_data`. FOOT is an undirected sidewalk/
+crossing graph; TRAFFIC uses directed lane curves, refusing reversal. Successful
+route returns `code`, `topology_revision`, `link_ids`, `world_points_m`, `visits`;
+map returns `code`, district/revision/fingerprint, imported-road world XZ bounds and
+ROAD polylines/widths from the same scene-authored links. No second geometry writer.
+
+Finite spike limits:64 anchors/128 links,64 visits/64 returned links/4096 route
+samples;16 controls/link,128 m control-polygon length, exact0.25 m bake interval.
+Finite vectors and finite positive ROAD widths are required before baking; total
+admitted map samples <=4096. BFS scans at most64×128 links; controller nearest
+search32 samples/tick and lookahead at most4096. These are fixture bounds, not
+production capacity budgets. Explicit stable IDs survive reparenting; paths/local
+transforms still affect the signature. District/revision/tool version, IDs/links/
+widths/controls, collision flags/masks/boxes and linked GLB/import bytes bind the
+bake; derived resource is excluded from self-reference. Derived roads/bounds also
+must match current authored data, detecting corrupt/missing/duplicate entries.
+
+Editor-only bake saves/assigns an external resource with cache replacement. Runtime
+validation returns `CONTENT_INVALID` before route/controller/map admission for
+missing/stale/revision-invalid content. Saved West+1 m rejects the old bake; coherent
+City+1 m needs explicit rebake, then routes/map translate. Connectivity/missing/
+duplicate IDs/corrupt roads and INF/NAN/zero/negative ROAD widths reject. No production
+world-ready/network handshake codec is implemented by these offline boundaries.
+
+[S06Controller](../tests/fixtures/s06/controller.gd) `bind_route(city, kind, from,
+to, host)`, `intent(public_body_state, kind)`, `clear` supplies host commands through
+unchanged S02 `step`/`motion_state`/`neutralize` and S04 `configure`/`step`/
+`motion_state`/`neutralize`. Fixture sets passive state before child entry and stops
+before notification. Actual recovery is1200/1800-tick finite stop; the contract's
+blockage/contested-junction/stuck/wreck policies are specified, unimplemented and
+untested M1-C3 work. No spawn/exit, admitted-player lifecycle, traffic-priority or
+replication/prediction contract is closed. Actual unchanged-body seam routes and
+four-arm map negatives satisfy provisional topology only; final-body/contact reruns,
+drawn/feel, actual effects/saturation/live-versus-hydrated, S07 hardware/four views/
+residency/sustained cost, Steam/Deck/P0/six-block M1/production remain open.

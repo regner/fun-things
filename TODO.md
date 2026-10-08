@@ -230,38 +230,6 @@ P0-DOC6/7 and P0-DOC8/9 remain complete in their linked resolving records;
 exact6c36c12 with separate resolving1691424/dbce2f9. New accepted S06 drift below
 is a subsequent scoped reconciliation, not reopening completed guide work.
 
-- [ ] **P0-DOC11 — Reconcile partial S06 topology, source consumers and S07 readiness.**
-  Accountable owner role: one direct Sol MEDIUM/HIGH documentation worker, independent
-  Sol HIGH review; root names worker and serializes overlap with DOC10. Exact files:
-  `docs/architecture.md`, `docs/scene-structure.md`, `docs/api-contracts.md`,
-  `docs/assets.md`, `docs/assets/s02_kit.md`, `docs/assets/s04_kit.md`,
-  `docs/asset-catalogue.md`, `docs/world-layout.md`, `docs/spikes/s07.md`.
-  Needs: exact7fb302b accepted partial/full note and complete reports, completed
-  DOC8/9, S06 bounded contract/source handoff, accepted original S02/S04 APIs/source
-  maps and saved S06 ancestry. No final camera/body ratification needed for factual docs.
-  Evidence: saved west/east/intersection/inherited-wide, linked new Blender source/
-  two GLBs/imports and reused S02 actor/pistol/S04 kinematic cars; actual crossing/
-  opposing LEFT turns/four-arm map/seam/stale+1 m/rebake/corrupt and finite-width
-  negatives. Normative CityData/scene/asset/Population contracts and S07 method remain owners.
-  Done when: append bounded accepted-state discovery linking ONE S06 contract,
-  explicit sidewalk graph/directed lane curves, scene-only placement/stable IDs,
-  finite route/control/sample limits, signature/revision/editor bake/fail-closed
-  admission/map semantics and host commands through unchanged bodies. Distinguish
-  implemented finite stop from specified unimplemented blockage/contested junction/
-  stuck/wreck M1-C3 recovery and from production spawn/exit/network codec. Source
-  maps add S06 actor/pistol/car reverse consumers and catalogue discovery of the new
-  technical intersection handoff, without inventing production acceptance or changing
-  asset/resource identities. World/S07 distinguish satisfied provisional technical
-  topology dependency from actual drawn effects/eight-slot saturation/live-versus-
-  hydrated, named hardware/four views/residency/sustained cost still missing. Preserve
-  original historical claims/predeclarations/DOC1–9, all future normative owners,
-  final-dimension/contact reruns and six-block/Steam/Deck/feel/P0/M1 gates. No maximum,
-  renderer/streaming/pin/contract/product choice or optimization. Static saved/source/
-  consumer/API/evidence mappings, links/anchors, JSON, LF/whitespace and unaffected
-  task/history/mode/blob checks plus independent exact-final review pass; no technical
-  rerun. Remove DOC11 with resolving scoped guide change/completion record and replace
-  P0-GATE prerequisite; ready docs only, finish before P0-GATE.
-
 ## Phase-zero technical spikes
 
 Each spike gets a short `docs/spikes/<id>.md`: question/hypothesis, alternatives,
@@ -575,7 +543,7 @@ implementation. Save editor mutations before playtests; preserve unsaved work.
   [S03 fixture boundary](docs/spikes/s03.md#fixture-and-boundary),
   [completed S03 proof](docs/spikes/s03.md), S03-R/S03-S and S04 through S08,
   [DOC10 partial S06 tooling/review discovery](docs/reviews/p0-doc10.md) and
-  P0-DOC11 accepted-S06 topology/source guide reconciliation.
+  [DOC11 partial S06 topology/source reconciliation](docs/reviews/p0-doc11.md).
   S07 supplies the documented capacity envelope, limiting axes, organization and
   diagnostic decisions; research alone leaves representative/target gaps open.
   Done when: critical design/feasibility assumptions required to begin M1 are resolved;
