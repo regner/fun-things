@@ -1,0 +1,352 @@
+{
+  "ok": true,
+  "revision": "a0e796de10bd872dba26482a08f09e2fd896cdb7",
+  "dirty_inputs": "",
+  "processes": {
+    "host": {
+      "argv": [
+        "C:\\Users\\regner.blokandersen\\AppData\\Local\\mise\\installs\\github-godotengine-godot-builds\\4.8-dev7\\godot.exe",
+        "--path",
+        "C:\\tmp\\ft\\lanes\\s05-nocap\\s05-windowed-final\\project",
+        "--windowed",
+        "--position",
+        "0,40",
+        "--log-file",
+        "C:\\tmp\\ft\\lanes\\s05-nocap\\s05-windowed-final\\host\\engine.log",
+        "res://tests/fixtures/s05_draw/burst.tscn",
+        "--",
+        "--role=host",
+        "--port=51706"
+      ],
+      "pid": 47140,
+      "start_offset_s": 0.035339200403541327
+    },
+    "client": {
+      "argv": [
+        "C:\\Users\\regner.blokandersen\\AppData\\Local\\mise\\installs\\github-godotengine-godot-builds\\4.8-dev7\\godot.exe",
+        "--path",
+        "C:\\tmp\\ft\\lanes\\s05-nocap\\s05-windowed-final\\project",
+        "--windowed",
+        "--position",
+        "640,40",
+        "--log-file",
+        "C:\\tmp\\ft\\lanes\\s05-nocap\\s05-windowed-final\\client\\engine.log",
+        "res://tests/fixtures/s05_draw/burst.tscn",
+        "--",
+        "--role=client",
+        "--port=51706"
+      ],
+      "pid": 66328,
+      "start_offset_s": 6.059478100389242
+    },
+    "late": {
+      "argv": [
+        "C:\\Users\\regner.blokandersen\\AppData\\Local\\mise\\installs\\github-godotengine-godot-builds\\4.8-dev7\\godot.exe",
+        "--path",
+        "C:\\tmp\\ft\\lanes\\s05-nocap\\s05-windowed-final\\project",
+        "--windowed",
+        "--position",
+        "1280,40",
+        "--log-file",
+        "C:\\tmp\\ft\\lanes\\s05-nocap\\s05-windowed-final\\late\\engine.log",
+        "res://tests/fixtures/s05_draw/burst.tscn",
+        "--",
+        "--role=late",
+        "--port=51706"
+      ],
+      "pid": 12092,
+      "start_offset_s": 10.440890100318938
+    }
+  },
+  "engine": {
+    "version": "4.8.dev7.official.c971f93e7",
+    "bytes": 194052248,
+    "sha256": "7129acb9562e2ff990110d1fdf716deb7fedf7f83a69030b848a380c095d1de6"
+  },
+  "import": {
+    "exit": 0,
+    "diagnostics": []
+  },
+  "collection_ok": true,
+  "cleanup": [],
+  "reaped": true,
+  "duration_s": 14.581093300133944,
+  "exits": {
+    "host": 0,
+    "client": 0,
+    "late": 0
+  },
+  "diagnostics": {
+    "host": [],
+    "client": [],
+    "late": []
+  },
+  "observations": {
+    "host": {
+      "result": {
+        "callbacks": 988,
+        "captures": {
+          "baseline": "user://baseline.png",
+          "burst": "user://burst.png",
+          "expired": "user://expired.png"
+        },
+        "fixture_failures": [],
+        "host_events": [
+          {
+            "car": 1001,
+            "match": 1,
+            "required": 5,
+            "sequence": 2,
+            "session": "a89c6795aa3d1e7da59b2686ab697063",
+            "tick": 231
+          },
+          {
+            "car": 1002,
+            "match": 1,
+            "required": 8,
+            "sequence": 3,
+            "session": "a89c6795aa3d1e7da59b2686ab697063",
+            "tick": 237
+          },
+          {
+            "car": 1005,
+            "match": 1,
+            "required": 10,
+            "sequence": 4,
+            "session": "a89c6795aa3d1e7da59b2686ab697063",
+            "tick": 240
+          },
+          {
+            "car": 1003,
+            "match": 1,
+            "required": 13,
+            "sequence": 5,
+            "session": "a89c6795aa3d1e7da59b2686ab697063",
+            "tick": 243
+          },
+          {
+            "car": 1006,
+            "match": 1,
+            "required": 15,
+            "sequence": 6,
+            "session": "a89c6795aa3d1e7da59b2686ab697063",
+            "tick": 246
+          },
+          {
+            "car": 1009,
+            "match": 1,
+            "required": 16,
+            "sequence": 7,
+            "session": "a89c6795aa3d1e7da59b2686ab697063",
+            "tick": 249
+          },
+          {
+            "car": 1004,
+            "match": 1,
+            "required": 18,
+            "sequence": 8,
+            "session": "a89c6795aa3d1e7da59b2686ab697063",
+            "tick": 252
+          },
+          {
+            "car": 1007,
+            "match": 1,
+            "required": 20,
+            "sequence": 9,
+            "session": "a89c6795aa3d1e7da59b2686ab697063",
+            "tick": 255
+          },
+          {
+            "car": 1010,
+            "match": 1,
+            "required": 21,
+            "sequence": 10,
+            "session": "a89c6795aa3d1e7da59b2686ab697063",
+            "tick": 258
+          },
+          {
+            "car": 1008,
+            "match": 1,
+            "required": 23,
+            "sequence": 11,
+            "session": "a89c6795aa3d1e7da59b2686ab697063",
+            "tick": 261
+          },
+          {
+            "car": 1011,
+            "match": 1,
+            "required": 24,
+            "sequence": 12,
+            "session": "a89c6795aa3d1e7da59b2686ab697063",
+            "tick": 264
+          },
+          {
+            "car": 1012,
+            "match": 1,
+            "required": 25,
+            "sequence": 13,
+            "session": "a89c6795aa3d1e7da59b2686ab697063",
+            "tick": 269
+          }
+        ],
+        "kind": "result",
+        "render_failures": [],
+        "role": "host",
+        "user": "C:/tmp/ft/lanes/s05-nocap/s05-windowed-final/host/user/appdata/Godot/app_userdata/Fun Things"
+      },
+      "captures": [
+        {
+          "height": 800,
+          "path": "C:/tmp/ft/lanes/s05-nocap/s05-windowed-final/host/user/appdata/Godot/app_userdata/Fun Things/baseline.png",
+          "save_error": 0,
+          "sha256": "4b02ea837bc7818cc6c33fec947636cc468c60b06425bad2e556c7e4962c27b7",
+          "stage": "baseline",
+          "width": 1280
+        },
+        {
+          "height": 800,
+          "path": "C:/tmp/ft/lanes/s05-nocap/s05-windowed-final/host/user/appdata/Godot/app_userdata/Fun Things/burst.png",
+          "save_error": 0,
+          "sha256": "f33f755456d675afa5d02b05de3f92b12f8045d2297d1795e8cae0dded94bbf7",
+          "stage": "burst",
+          "width": 1280
+        },
+        {
+          "height": 800,
+          "path": "C:/tmp/ft/lanes/s05-nocap/s05-windowed-final/host/user/appdata/Godot/app_userdata/Fun Things/expired.png",
+          "save_error": 0,
+          "sha256": "4b02ea837bc7818cc6c33fec947636cc468c60b06425bad2e556c7e4962c27b7",
+          "stage": "expired",
+          "width": 1280
+        }
+      ],
+      "max_visible": 12,
+      "can_draw": [
+        true
+      ],
+      "fixture_result": [
+        {
+          "event": "result",
+          "failures": [],
+          "ok": true,
+          "role": "host",
+          "user": "C:/tmp/ft/lanes/s05-nocap/s05-windowed-final/host/user/appdata/Godot/app_userdata/Fun Things"
+        }
+      ]
+    },
+    "client": {
+      "result": {
+        "callbacks": 577,
+        "captures": {
+          "baseline": "user://baseline.png",
+          "burst": "user://burst.png",
+          "expired": "user://expired.png"
+        },
+        "fixture_failures": [],
+        "host_events": [],
+        "kind": "result",
+        "render_failures": [],
+        "role": "client",
+        "user": "C:/tmp/ft/lanes/s05-nocap/s05-windowed-final/client/user/appdata/Godot/app_userdata/Fun Things"
+      },
+      "captures": [
+        {
+          "height": 800,
+          "path": "C:/tmp/ft/lanes/s05-nocap/s05-windowed-final/client/user/appdata/Godot/app_userdata/Fun Things/baseline.png",
+          "save_error": 0,
+          "sha256": "4b02ea837bc7818cc6c33fec947636cc468c60b06425bad2e556c7e4962c27b7",
+          "stage": "baseline",
+          "width": 1280
+        },
+        {
+          "height": 800,
+          "path": "C:/tmp/ft/lanes/s05-nocap/s05-windowed-final/client/user/appdata/Godot/app_userdata/Fun Things/burst.png",
+          "save_error": 0,
+          "sha256": "f33f755456d675afa5d02b05de3f92b12f8045d2297d1795e8cae0dded94bbf7",
+          "stage": "burst",
+          "width": 1280
+        },
+        {
+          "height": 800,
+          "path": "C:/tmp/ft/lanes/s05-nocap/s05-windowed-final/client/user/appdata/Godot/app_userdata/Fun Things/expired.png",
+          "save_error": 0,
+          "sha256": "4b02ea837bc7818cc6c33fec947636cc468c60b06425bad2e556c7e4962c27b7",
+          "stage": "expired",
+          "width": 1280
+        }
+      ],
+      "max_visible": 12,
+      "can_draw": [
+        true
+      ],
+      "fixture_result": [
+        {
+          "event": "result",
+          "failures": [],
+          "ok": true,
+          "role": "client",
+          "user": "C:/tmp/ft/lanes/s05-nocap/s05-windowed-final/client/user/appdata/Godot/app_userdata/Fun Things"
+        }
+      ]
+    },
+    "late": {
+      "result": {
+        "callbacks": 17,
+        "captures": {
+          "baseline": "user://baseline.png",
+          "hydrated": "user://hydrated.png"
+        },
+        "fixture_failures": [],
+        "host_events": [],
+        "kind": "result",
+        "render_failures": [],
+        "role": "late",
+        "user": "C:/tmp/ft/lanes/s05-nocap/s05-windowed-final/late/user/appdata/Godot/app_userdata/Fun Things"
+      },
+      "captures": [
+        {
+          "height": 800,
+          "path": "C:/tmp/ft/lanes/s05-nocap/s05-windowed-final/late/user/appdata/Godot/app_userdata/Fun Things/baseline.png",
+          "save_error": 0,
+          "sha256": "4b02ea837bc7818cc6c33fec947636cc468c60b06425bad2e556c7e4962c27b7",
+          "stage": "baseline",
+          "width": 1280
+        },
+        {
+          "height": 800,
+          "path": "C:/tmp/ft/lanes/s05-nocap/s05-windowed-final/late/user/appdata/Godot/app_userdata/Fun Things/hydrated.png",
+          "save_error": 0,
+          "sha256": "4b02ea837bc7818cc6c33fec947636cc468c60b06425bad2e556c7e4962c27b7",
+          "stage": "hydrated",
+          "width": 1280
+        }
+      ],
+      "max_visible": 0,
+      "can_draw": [
+        true
+      ],
+      "fixture_result": [
+        {
+          "event": "result",
+          "failures": [],
+          "ok": true,
+          "role": "late",
+          "user": "C:/tmp/ft/lanes/s05-nocap/s05-windowed-final/late/user/appdata/Godot/app_userdata/Fun Things"
+        }
+      ]
+    }
+  },
+  "inputs_preserved": true,
+  "criteria": {
+    "collection": true,
+    "exits_zero": true,
+    "no_diagnostics": true,
+    "fixture_results_ok": true,
+    "draw_results_clean": true,
+    "live_burst_drawn": true,
+    "late_hydrated_drawn": true,
+    "reaped": true,
+    "inputs_preserved": true,
+    "clean_inputs": true
+  }
+}

@@ -1,0 +1,74 @@
+{
+  "ok": true,
+  "revision": "a0e796de10bd872dba26482a08f09e2fd896cdb7",
+  "dirty_inputs": "",
+  "graphical": true,
+  "schedule": {
+    "trials": 3,
+    "initial_delay_seconds": 0.0,
+    "spacing_seconds": 2.0
+  },
+  "engine": {
+    "version": "4.8.dev7.official.c971f93e7",
+    "bytes": 194052248,
+    "sha256": "7129acb9562e2ff990110d1fdf716deb7fedf7f83a69030b848a380c095d1de6"
+  },
+  "import": {
+    "exit": 0,
+    "diagnostics": []
+  },
+  "argv": [
+    "C:\\Users\\regner.blokandersen\\AppData\\Local\\mise\\installs\\github-godotengine-godot-builds\\4.8-dev7\\godot.exe",
+    "--path",
+    "C:\\tmp\\ft\\lanes\\s05-nocap\\comparator-windowed-3\\project",
+    "--windowed",
+    "--resolution",
+    "1280x800",
+    "--log-file",
+    "C:\\tmp\\ft\\lanes\\s05-nocap\\comparator-windowed-3\\run\\engine.log",
+    "--script",
+    "res://tests/fixtures/s07_comparator/run.gd",
+    "--",
+    "--trials=3",
+    "--initial-delay=0.0",
+    "--spacing=2.0"
+  ],
+  "exit": 0,
+  "timed_out": false,
+  "cleanup": [],
+  "diagnostics": [],
+  "result": {
+    "elapsed_seconds": 4.853087,
+    "engine": {
+      "build": "official",
+      "hash": "c971f93e7e76b0ef919bf6009e7b868bea04db7f",
+      "hex": 264192,
+      "major": 4,
+      "minor": 8,
+      "patch": 0,
+      "status": "dev7",
+      "string": "4.8-dev7 (official)",
+      "timestamp": 0
+    },
+    "failures": [],
+    "graphical": true,
+    "initial_delay_seconds": 0.0,
+    "ok": true,
+    "scope": "standalone comparator correctness; no ENet or capacity measurement",
+    "spacing_seconds": 2.0,
+    "trials_completed": 3,
+    "trials_requested": 3
+  },
+  "receipt_failures": [],
+  "criteria": {
+    "exit_zero": true,
+    "absolute_deadline": true,
+    "no_diagnostics": true,
+    "receipts": true,
+    "inputs_preserved": true,
+    "clean_inputs": true,
+    "child_reaped": true
+  },
+  "inputs_preserved": true,
+  "duration_seconds": 15.388794099912047
+}
