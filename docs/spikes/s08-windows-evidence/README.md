@@ -12,7 +12,7 @@ private user directories were not committed; their identities are in each
 | `throttle-telemetry/` | Editor-run S03 with the scratch-only telemetry diff and an attempted deceleration-0 throttle configuration (scratch only, not committed). It shows `PEER_PACKET_THROTTLE_LIMIT` 32→1 before the lost send. |
 | `bandwidth-fix-scratch-reset/` | Scratch run with the bandwidth workaround that failed on the Windows UDP reset (`WinError 10054`) before the proxy fix. |
 | `s03-runner-prefix/`, `s03-runner-fixed-1…5/` | `tools/run_s03.py` before the fix (stall) and five passing runs after it. Runs 4–5 include the proof's throttle-limit assertion. |
-| `s03r-prefix-baseline/`, `s03r-fixed-01/` | S03-R results before (baseline only, criteria failed with missing samples) and after the fix (all profiles pass). |
+| `s03r-prefix-baseline/`, `s03r-fixed-01/` | S03-R results before (baseline only, criteria failed with missing samples) and after the fix (all profiles pass). `s03r-fixed-01/baseline/` also keeps both role streams; `analyze_jitter.py` derives the uplink/apply-gap figures into `analyze_jitter.json`. |
 | `s03r-scratch-no-deceleration/` | Scratch-only S03-R baseline with ENet throttle deceleration 0 on both peers (diff included; not adopted). Faster response; failed only the expiry criterion by 1 ms. |
 | `s03r-windowed-baseline/`, `s03r-windowed-01/`, `s04-windowed-01/` | Windowed (drawn) S03-R/S04 results with sample 1280×800 client frames. |
 | `s04-fixed-01/`, `s04-fixed-02/` | S04 results after the fix; normal profile fails the 500 ms response window in 2/20 samples both times. |

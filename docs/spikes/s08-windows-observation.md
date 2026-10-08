@@ -89,7 +89,7 @@ one second, and read the client's peer `PEER_PACKET_THROTTLE_LIMIT`.
     templates.
   - Runs one host/client set per mode under one absolute 30 s budget: 4 s handoff,
     20 s work, then shared grace/terminate/kill cleanup.
-  - [Offline export-gate tests](../../tools/s08/windows_observation_test.py)
+  - [Offline export-gate tests](../../tools/test_windows_observation.py)
     reject zero-exit import/export diagnostics and a missing engine.
   - Fixed release PCK: 182948 bytes, SHA256 `e6bea4d4…`; the debug PCK is
     byte-identical.
@@ -128,19 +128,22 @@ package and `stdbuf -oL`. This observation knowingly differs:
    used the same throttled channel. See the dated notes in [S03-R](s03-r.md) and
    [S04](s04.md). Windows re-measurements are below; they are not Linux-comparable.
 4. **Windows latency is higher than historical Linux.** Headless Windows physics
-   response p95 is higher even with no impairment. Part of it is ENet's RTT-jitter
-   throttle on host→client unreliable motion. Uplink held input reached the host
-   in 25–115 ms, but on the unimpaired baseline the client missed about 1 in 6
-   host snapshots (apply gaps p95 155 ms against a 50 ms send interval). A
+   response p95 is higher even with no impairment. A
+   [retained analysis](s08-windows-evidence/s03r-fixed-01/analyze_jitter.py) of
+   the post-fix baseline logs shows uplink held input reaching the host in 16–115 ms.
+   The client applied 368 host motion rows, against about 440 sent (one per three
+   of 1319 ticks), with apply gaps p95 155 ms for a 50 ms interval
+   ([output](s08-windows-evidence/s03r-fixed-01/analyze_jitter.json)). A bilateral
    scratch-only run with throttle deceleration 0 on both peers
    ([diff and result](s08-windows-evidence/s03r-scratch-no-deceleration/)) cut
    baseline response p95 from 255 to 110 ms and raised matching-tick samples from
-   733 to 865. It is **not adopted**: ENet's throttle is congestion control, so a
-   production throttle/rate policy belongs to the M1-A1 transport owner with
-   bandwidth budgets. Remaining Windows pacing differences are uninvestigated.
-   The same run failed only S03-R's expiry criterion, by 1 ms (previous tick age
-   251 ms against the analyzer's `≤ 250` rule). That fixed-boundary check is
-   fragile to host tick jitter on any platform.
+   733 to 865. That is consistent with ENet's RTT-jitter throttle contributing,
+   but does not isolate the direction. It is **not adopted**: the throttle is
+   congestion control, so throttle/rate policy belongs to the M1-A1 transport owner
+   with bandwidth budgets. Windowed runs (below and in the S03-R/S04 records) are
+   much faster than headless, so headless Windows pacing is also a factor. The
+   scratch run failed only S03-R's expiry criterion, by 1 ms (previous tick age
+   251 ms against `≤ 250`), a fixed-boundary check that is fragile to tick jitter.
 5. **Production transport:** any future ENet adapter must apply the same bandwidth
    restoration (or a fixed engine) and treat unreliable held/motion traffic as
    lossy. See [multiplayer](../multiplayer.md).
