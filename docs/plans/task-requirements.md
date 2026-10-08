@@ -34,8 +34,10 @@ qualification and enough outcome detail for dispatch.
   hidden), any effect cost measurement, Regner's policy ratification and affected
   final-dimension checks. Cosmetic capacity cannot limit chains; settled hydration
   is not in-flight proof.
-- **S06:** Ratify drawn layout/crossing/minimap against final body envelopes; partial
-  topology is not production traffic, recovery or capacity evidence.
+- **S06:** [Windows proof and drawn route/minimap captures](../spikes/s06-windows-observation.md)
+  passed, but human ratification of layout/crossing/minimap, 42° versus 50° camera and
+  final body envelopes remains open. Partial topology is not production traffic,
+  recovery or capacity evidence.
 - **S07:** Sustained primary-T driver is accepted (57 traversals over 600 declared
   seconds); do not reopen or repeat it. It proves no graphical calibration/capacity.
   [Graphical T](../spikes/s07-graphical-t.md) 60-capped calibration passed 3/3 on a
