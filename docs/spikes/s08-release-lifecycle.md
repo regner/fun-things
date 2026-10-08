@@ -128,6 +128,56 @@ these editor diagnostics or any historical failure into a pass. Initial private
 editor dependency discovery was under 90s; no separate dependency import or export
 was invoked.
 
+## DEBUG diagnostic result and prospective RELEASE measurement
+
+Sole DEBUG invocation on `f178c70efb657ea9fba5951d9440c23c761aea31` completes in
+2.630392s aggregate including Python startup, staging, two processes, cleanup and
+readback. Both full original case matrices exit0, zero runtime diagnostics, all 12
+held receipts and health/resync/subset/expiry checks pass. Actual UDP receives are
+120 datagrams/9659 bytes, sends 119/9413, with the exact five scheduled movement
+packets. Parent receipt order observes host LEFT while live, then client HOST_LOST
+while the host remains live, both IDLE, then observed process exits. Healthy
+teardown itself includes client IDLE. This does NOT reproduce the historical
+release failure, explain its first stalled step, or establish a gameplay correction.
+
+ROOT prospectively authorizes the remaining ONE RELEASE diagnostic before a fix,
+using identical saved telemetry. This is a changed measurement condition, not an
+unchanged retry of the old uninstrumented release or credit from the debug result.
+The second set has a stricter 27s aggregate budget, so both stay below 30s combined;
+no third set, extra editor, dependency import, rule/deadline change or suppression.
+
+Release preparation: `python3 tools/s08/lifecycle_release.py --output
+/tmp/s08-lifecycle-release01 --revision <committed HEAD> --author-project
+/tmp/s08-lifecycle-author/state/project`. One export command, at most120s plus
+bounded owned cleanup, using exact installed dev7 exporter and already-present
+TPZ/template. Verify the full TPZ SHA/version/four x86 members and Linux release
+78376584-byte SHA256
+`c436b976ff5ac2e5f3197732ba7d9462267573e5a108782f84928d0606885695` before export.
+No acquisition or independent import/editor session. Copy only the 17 saved S03
+files and already-completed private class/UID discovery, preserving renderer/physics;
+normal main is original `s03/boot.tscn`. This intentionally excludes S01 assets/S08
+asset entrypoint: those prior accepted positives are not rerun, and this set proves
+only the original session API/case matrix in an instrumented release package.
+Scratch main/preset changes are isolated export selection, not root config repair.
+
+Freeze actual package identities before runtime: all actual PCK members/extents/
+MD5/SHA256, logical remaps, class/UID caches, exclusions/output set, preserved source
+bytes and template-exact binary. Direct authoritative journal mutation remains
+outside asserts in unchanged `replication.gd`. Script hashes stay
+`session.gd`: `bb77d7a0dd65ffd6d0e29da8489678cd3e24aa58470b026ea4f1570fd9ea84d7`,
+`proof.gd`: `d11cb9065b894c112b24a3d5c6b934c94696e9c3575e10dd2aa7f74499954ff1`.
+No other gameplay or saved UID/scene/node data changes.
+
+Only after exact package/readback commit, invoke `lifecycle_diagnostic.py` with
+`--release-bundle /tmp/s08-lifecycle-release01 --release-pck-sha256 <committed hash>`
+and a fresh `/tmp/s08-lifecycle-release-set02` output. RELEASE child argv is
+`stdbuf -oL <verified exported executable> --headless --log-file <role engine.log>
+-- --role=host|client --port=<owned endpoint>`, cwd the export folder, no `--script`
+or source project override. Same telemetry/12 held expectations/original scheduling,
+new parent/PID clock domains and full UDP observations. Require actual release
+outcomes independently; runtime errors remain strict failures even with exit0.
+Retain the first failed boundary if any; ROOT decides subsequent scope.
+
 Full exported ENet, historical shutdown, Steam absent/native/external transport,
 Windows/Deck/Gaming Mode/input/feel/drawability/performance/private install and full
 S08/P0/M1/production gates remain open.

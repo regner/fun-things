@@ -71,9 +71,15 @@ def main():
     parser.add_argument('--output', type=Path, required=True)
     parser.add_argument('--revision', required=True)
     parser.add_argument('--author-project', type=Path, required=True)
+    parser.add_argument('--release-bundle', type=Path)
+    parser.add_argument('--release-pck-sha256')
     args = parser.parse_args()
+    if bool(args.release_bundle) != bool(args.release_pck_sha256):
+        parser.error('release bundle requires the predeclared PCK hash')
     started = time.monotonic()
-    absolute = started + TOTAL_SECONDS
+    # The remaining release set uses the stricter grant: 2.630s + at most 27s.
+    total = 27.0 if args.release_bundle else TOTAL_SECONDS
+    absolute = started + total
     work = started + WORK_SECONDS
     directory = args.output.resolve()
     if directory.exists() or not directory.is_relative_to(Path('/tmp')):
@@ -141,6 +147,30 @@ def main():
             'sha256': hashlib.sha256((project / name).read_bytes()).hexdigest(),
             'text': (project / name).read_text() if not name.endswith('.bin') else None}
             for name in ['project.godot', '.godot/global_script_class_cache.cfg', '.godot/uid_cache.bin']})
+        runtime = ENGINE
+        runtime_cwd = project
+        runtime_path_flags = ['--path', str(project)]
+        if args.release_bundle:
+            folder = args.release_bundle.resolve() / 'export-folder'
+            runtime = folder / 'FunThingsS08.x86_64'
+            runtime_cwd = folder
+            runtime_path_flags = []
+            with runtime.open('rb') as source:
+                digest = hashlib.file_digest(source, 'sha256').hexdigest()
+            if digest != 'c436b976ff5ac2e5f3197732ba7d9462267573e5a108782f84928d0606885695':
+                raise RuntimeError('pinned RELEASE binary differs')
+            data = (folder / 'FunThingsS08.pck').read_bytes()
+            if hashlib.sha256(data).hexdigest() != args.release_pck_sha256:
+                raise RuntimeError('predeclared release PCK differs')
+            binding = json.loads((args.release_bundle / 'package-binding.json').read_text())
+            if binding['input_revision'] != args.revision:
+                raise RuntimeError('release source revision differs')
+            expected_rows = json.loads((args.release_bundle / 'staged-input.json').read_text())
+            if manifest != expected_rows:
+                raise RuntimeError('release source closure differs')
+            record['release_binding'] = {'binary_sha256': digest,
+                'pck_sha256': args.release_pck_sha256, 'pck_bytes': len(data),
+                'source_revision': args.revision}
         readiness_deadline = started + 4.0
         proxy_log = (directory / 'proxy.jsonl').open('w')
         traffic = (directory / 'traffic.jsonl').open('w')
@@ -163,16 +193,16 @@ def main():
             logs.mkdir()
             (logs / 'engine.log').touch()
             env = environment(logs / 'user')
-            argv = ['/usr/bin/stdbuf', '-oL', str(ENGINE), '--headless', '--path', str(project),
+            argv = ['/usr/bin/stdbuf', '-oL', str(runtime), '--headless', *runtime_path_flags,
                 '--log-file', str(logs / 'engine.log'), '--', '--role=' + role, '--port=' + str(port)]
             out, err = (logs / 'stdout.log').open('wb'), (logs / 'stderr.log').open('wb')
             streams.extend([out, err])
             if role == 'client' and time.monotonic() >= readiness_deadline:
                 raise RuntimeError('client handoff expired before Popen')
-            command = {'argv': argv, 'cwd': str(project), 'start_monotonic': time.monotonic(),
+            command = {'argv': argv, 'cwd': str(runtime_cwd), 'start_monotonic': time.monotonic(),
                 'environment': {key: env[key] for key in env if key.startswith('XDG_')},
                 'home_unchanged': env.get('HOME') == os.environ.get('HOME')}
-            child = subprocess.Popen(argv, cwd=project, env=env, stdout=out, stderr=err)
+            child = subprocess.Popen(argv, cwd=runtime_cwd, env=env, stdout=out, stderr=err)
             children.append(child)
             command['pid'] = child.pid
             commands[role] = command
@@ -265,10 +295,12 @@ def main():
         record['ok'] = record['gameplay_ok'] and not record['diagnostics']
         record['end_monotonic'] = time.monotonic()
         record['duration_seconds'] = record['end_monotonic'] - started
-        record['within_30s'] = record['end_monotonic'] <= absolute
+        record['budget_seconds'] = total
+        record['within_set_budget'] = record['end_monotonic'] <= absolute
+        record['within_30s'] = record['duration_seconds'] <= TOTAL_SECONDS
         if (details['errors'] or not details['all_children_reaped']
                 or not details['streams_closed'] or not details['proxy_closed']
-                or not record['within_30s']):
+                or not record['within_set_budget']):
             record['ok'] = False
         save(directory / 'result.json', record)
         print(json.dumps({'ok': record['ok'], 'duration': record['duration_seconds'],

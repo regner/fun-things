@@ -1,0 +1,2722 @@
+{
+  "ok": true,
+  "diagnostic_only": true,
+  "revision": "f178c70efb657ea9fba5951d9440c23c761aea31",
+  "started_monotonic": 97989.423944409,
+  "absolute_deadline": 98019.423944409,
+  "work_deadline": 98009.423944409,
+  "observations": [
+    {
+      "role": "host",
+      "monotonic": 97989.725631367,
+      "host_poll": null,
+      "child_poll": null,
+      "record": {
+        "case_deadline_ms": 0,
+        "clock_domain": "engine_elapsed_usec_pid_698041",
+        "close_outcome": "",
+        "event": "session_changed",
+        "operation": 1,
+        "participant": 0,
+        "phase": "STARTING",
+        "pid": 698041,
+        "role": "host",
+        "session_deadline_ms": 15172,
+        "ticks_usec": 172428
+      }
+    },
+    {
+      "role": "host",
+      "monotonic": 97989.735817561,
+      "host_poll": null,
+      "child_poll": null,
+      "record": {
+        "case_deadline_ms": 0,
+        "clock_domain": "engine_elapsed_usec_pid_698041",
+        "close_outcome": "",
+        "event": "completed",
+        "operation": 1,
+        "outcome": "OK",
+        "phase": "ACTIVE",
+        "pid": 698041,
+        "role": "host",
+        "session_deadline_ms": 15172,
+        "source_operation": 1,
+        "ticks_usec": 172751
+      }
+    },
+    {
+      "role": "host",
+      "monotonic": 97989.735837619,
+      "host_poll": null,
+      "child_poll": null,
+      "record": {
+        "case_deadline_ms": 0,
+        "clock_domain": "engine_elapsed_usec_pid_698041",
+        "close_outcome": "",
+        "event": "session_changed",
+        "operation": 1,
+        "participant": 1,
+        "phase": "ACTIVE",
+        "pid": 698041,
+        "role": "host",
+        "session_deadline_ms": 15172,
+        "ticks_usec": 172771
+      }
+    },
+    {
+      "role": "host",
+      "monotonic": 97989.735852958,
+      "host_poll": null,
+      "child_poll": null,
+      "record": {
+        "case_deadline_ms": 0,
+        "clock_domain": "engine_elapsed_usec_pid_698041",
+        "close_outcome": "",
+        "event": "ready",
+        "operation": 1,
+        "phase": "ACTIVE",
+        "pid": 698041,
+        "role": "host",
+        "session_deadline_ms": 15172,
+        "ticks_usec": 172794,
+        "user_dir": "/tmp/s08-lifecycle-debug01/host/user/data/godot/app_userdata/Fun Things"
+      }
+    },
+    {
+      "role": "host",
+      "monotonic": 97989.73587508,
+      "host_poll": null,
+      "child_poll": null,
+      "record": {
+        "accepted": 0,
+        "bindings": {
+          "1": {
+            "admitted": true,
+            "control": 1,
+            "entity": 1,
+            "generation": 1,
+            "health": 75,
+            "held": 0.0,
+            "life": 1,
+            "pending": 0,
+            "receipt_ms": 0,
+            "sample": 0.0,
+            "sequence": 0
+          }
+        },
+        "case_deadline_ms": 8172,
+        "clock_domain": "engine_elapsed_usec_pid_698041",
+        "close_outcome": "",
+        "event": "simulation_observed",
+        "operation": 1,
+        "phase": "ACTIVE",
+        "pid": 698041,
+        "rejected": {},
+        "role": "host",
+        "session_deadline_ms": 15172,
+        "ticks_usec": 173023
+      }
+    },
+    {
+      "role": "client",
+      "monotonic": 97989.919702921,
+      "host_poll": null,
+      "child_poll": null,
+      "record": {
+        "case_deadline_ms": 0,
+        "clock_domain": "engine_elapsed_usec_pid_698117",
+        "close_outcome": "",
+        "event": "session_changed",
+        "operation": 1,
+        "participant": 0,
+        "phase": "STARTING",
+        "pid": 698117,
+        "role": "client",
+        "session_deadline_ms": 15170,
+        "ticks_usec": 170908
+      }
+    },
+    {
+      "role": "client",
+      "monotonic": 97989.919721526,
+      "host_poll": null,
+      "child_poll": null,
+      "record": {
+        "case_deadline_ms": 0,
+        "clock_domain": "engine_elapsed_usec_pid_698117",
+        "close_outcome": "CANCELED",
+        "event": "close_started",
+        "operation": 1,
+        "outcome": "CANCELED",
+        "phase": "CLOSING",
+        "pid": 698117,
+        "role": "client",
+        "session_deadline_ms": 15170,
+        "ticks_usec": 170943
+      }
+    },
+    {
+      "role": "client",
+      "monotonic": 97989.919735462,
+      "host_poll": null,
+      "child_poll": null,
+      "record": {
+        "case_deadline_ms": 0,
+        "clock_domain": "engine_elapsed_usec_pid_698117",
+        "close_outcome": "CANCELED",
+        "event": "session_changed",
+        "operation": 1,
+        "participant": 0,
+        "phase": "CLOSING",
+        "pid": 698117,
+        "role": "client",
+        "session_deadline_ms": 15170,
+        "ticks_usec": 170968
+      }
+    },
+    {
+      "role": "client",
+      "monotonic": 97989.919749509,
+      "host_poll": null,
+      "child_poll": null,
+      "record": {
+        "case_deadline_ms": 8170,
+        "clock_domain": "engine_elapsed_usec_pid_698117",
+        "close_outcome": "CANCELED",
+        "event": "completed",
+        "operation": 1,
+        "outcome": "CANCELED",
+        "phase": "IDLE",
+        "pid": 698117,
+        "role": "client",
+        "session_deadline_ms": 15170,
+        "source_operation": 1,
+        "ticks_usec": 171527
+      }
+    },
+    {
+      "role": "client",
+      "monotonic": 97989.919762554,
+      "host_poll": null,
+      "child_poll": null,
+      "record": {
+        "case_deadline_ms": 8170,
+        "clock_domain": "engine_elapsed_usec_pid_698117",
+        "close_outcome": "CANCELED",
+        "event": "session_changed",
+        "operation": 1,
+        "participant": 0,
+        "phase": "IDLE",
+        "pid": 698117,
+        "role": "client",
+        "session_deadline_ms": 15170,
+        "ticks_usec": 171547
+      }
+    },
+    {
+      "role": "client",
+      "monotonic": 97989.919775027,
+      "host_poll": null,
+      "child_poll": null,
+      "record": {
+        "case_deadline_ms": 8170,
+        "clock_domain": "engine_elapsed_usec_pid_698117",
+        "close_outcome": "CANCELED",
+        "event": "session_changed",
+        "operation": 2,
+        "participant": 0,
+        "phase": "STARTING",
+        "pid": 698117,
+        "role": "client",
+        "session_deadline_ms": 15171,
+        "ticks_usec": 171565
+      }
+    },
+    {
+      "role": "client",
+      "monotonic": 97989.970663213,
+      "host_poll": null,
+      "child_poll": null,
+      "record": {
+        "case_deadline_ms": 8171,
+        "clock_domain": "engine_elapsed_usec_pid_698117",
+        "close_outcome": "CANCELED",
+        "event": "completed",
+        "operation": 2,
+        "outcome": "OK",
+        "phase": "ACTIVE",
+        "pid": 698117,
+        "role": "client",
+        "session_deadline_ms": 15171,
+        "source_operation": 2,
+        "ticks_usec": 220506
+      }
+    },
+    {
+      "role": "client",
+      "monotonic": 97989.970679203,
+      "host_poll": null,
+      "child_poll": null,
+      "record": {
+        "case_deadline_ms": 8171,
+        "clock_domain": "engine_elapsed_usec_pid_698117",
+        "close_outcome": "CANCELED",
+        "event": "session_changed",
+        "operation": 2,
+        "participant": 1,
+        "phase": "ACTIVE",
+        "pid": 698117,
+        "role": "client",
+        "session_deadline_ms": 15171,
+        "ticks_usec": 220551
+      }
+    },
+    {
+      "role": "client",
+      "monotonic": 97989.98091516,
+      "host_poll": null,
+      "child_poll": null,
+      "record": {
+        "case_deadline_ms": 8171,
+        "clock_domain": "engine_elapsed_usec_pid_698117",
+        "close_outcome": "LEFT",
+        "event": "close_started",
+        "operation": 3,
+        "outcome": "LEFT",
+        "phase": "CLOSING",
+        "pid": 698117,
+        "role": "client",
+        "session_deadline_ms": 15171,
+        "ticks_usec": 226866
+      }
+    },
+    {
+      "role": "client",
+      "monotonic": 97989.980939526,
+      "host_poll": null,
+      "child_poll": null,
+      "record": {
+        "case_deadline_ms": 8171,
+        "clock_domain": "engine_elapsed_usec_pid_698117",
+        "close_outcome": "LEFT",
+        "event": "session_changed",
+        "operation": 3,
+        "participant": 1,
+        "phase": "CLOSING",
+        "pid": 698117,
+        "role": "client",
+        "session_deadline_ms": 15226,
+        "ticks_usec": 226900
+      }
+    },
+    {
+      "role": "client",
+      "monotonic": 97990.001303216,
+      "host_poll": null,
+      "child_poll": null,
+      "record": {
+        "case_deadline_ms": 8226,
+        "clock_domain": "engine_elapsed_usec_pid_698117",
+        "close_outcome": "LEFT",
+        "event": "completed",
+        "operation": 3,
+        "outcome": "LEFT",
+        "phase": "IDLE",
+        "pid": 698117,
+        "role": "client",
+        "session_deadline_ms": 15226,
+        "source_operation": 3,
+        "ticks_usec": 247572
+      }
+    },
+    {
+      "role": "client",
+      "monotonic": 97990.001329025,
+      "host_poll": null,
+      "child_poll": null,
+      "record": {
+        "case_deadline_ms": 8226,
+        "clock_domain": "engine_elapsed_usec_pid_698117",
+        "close_outcome": "LEFT",
+        "event": "session_changed",
+        "operation": 3,
+        "participant": 0,
+        "phase": "IDLE",
+        "pid": 698117,
+        "role": "client",
+        "session_deadline_ms": 15226,
+        "ticks_usec": 247600
+      }
+    },
+    {
+      "role": "client",
+      "monotonic": 97990.011498527,
+      "host_poll": null,
+      "child_poll": null,
+      "record": {
+        "case_deadline_ms": 8226,
+        "clock_domain": "engine_elapsed_usec_pid_698117",
+        "close_outcome": "LEFT",
+        "event": "session_changed",
+        "operation": 4,
+        "participant": 0,
+        "phase": "CONNECTING",
+        "pid": 698117,
+        "role": "client",
+        "session_deadline_ms": 15261,
+        "ticks_usec": 261371
+      }
+    },
+    {
+      "role": "host",
+      "monotonic": 97990.073206686,
+      "host_poll": null,
+      "child_poll": null,
+      "record": {
+        "accepted": 0,
+        "bindings": {
+          "1": {
+            "admitted": true,
+            "control": 1,
+            "entity": 1,
+            "generation": 1,
+            "health": 75,
+            "held": 0.0,
+            "life": 1,
+            "pending": 0,
+            "receipt_ms": 0,
+            "sample": 0.0,
+            "sequence": 0
+          },
+          "2": {
+            "admitted": false,
+            "control": 1,
+            "entity": 2,
+            "generation": 1,
+            "health": 70,
+            "held": 0.0,
+            "life": 1,
+            "pending": 0,
+            "receipt_ms": 0,
+            "sample": 0.0,
+            "sequence": 0
+          }
+        },
+        "case_deadline_ms": 8172,
+        "clock_domain": "engine_elapsed_usec_pid_698041",
+        "close_outcome": "",
+        "event": "simulation_observed",
+        "operation": 1,
+        "phase": "ACTIVE",
+        "pid": 698041,
+        "rejected": {},
+        "role": "host",
+        "session_deadline_ms": 15172,
+        "ticks_usec": 518459
+      }
+    },
+    {
+      "role": "client",
+      "monotonic": 97990.083650047,
+      "host_poll": null,
+      "child_poll": null,
+      "record": {
+        "baseline": 1,
+        "case_deadline_ms": 8261,
+        "clock_domain": "engine_elapsed_usec_pid_698117",
+        "close_outcome": "LEFT",
+        "event": "baseline_installed",
+        "operation": 4,
+        "phase": "SYNCHRONIZING",
+        "pid": 698117,
+        "role": "client",
+        "session_deadline_ms": 15261,
+        "ticks_usec": 331069
+      }
+    },
+    {
+      "role": "client",
+      "monotonic": 97990.083675345,
+      "host_poll": null,
+      "child_poll": null,
+      "record": {
+        "case_deadline_ms": 8261,
+        "clock_domain": "engine_elapsed_usec_pid_698117",
+        "close_outcome": "LEFT",
+        "event": "held_send",
+        "expected": "NOT_ADMITTED",
+        "operation": 4,
+        "phase": "SYNCHRONIZING",
+        "pid": 698117,
+        "role": "client",
+        "sequence": 1,
+        "session_deadline_ms": 15261,
+        "ticks_usec": 337302
+      }
+    },
+    {
+      "role": "host",
+      "monotonic": 97990.093891134,
+      "host_poll": null,
+      "child_poll": null,
+      "record": {
+        "accepted": 0,
+        "bindings": {
+          "1": {
+            "admitted": true,
+            "control": 1,
+            "entity": 1,
+            "generation": 1,
+            "health": 75,
+            "held": 0.0,
+            "life": 1,
+            "pending": 0,
+            "receipt_ms": 0,
+            "sample": 0.0,
+            "sequence": 0
+          },
+          "2": {
+            "admitted": false,
+            "control": 1,
+            "entity": 2,
+            "generation": 1,
+            "health": 70,
+            "held": 0.0,
+            "life": 1,
+            "pending": 0,
+            "receipt_ms": 0,
+            "sample": 0.0,
+            "sequence": 0
+          }
+        },
+        "case_deadline_ms": 8172,
+        "clock_domain": "engine_elapsed_usec_pid_698041",
+        "close_outcome": "",
+        "event": "simulation_observed",
+        "operation": 1,
+        "phase": "ACTIVE",
+        "pid": 698041,
+        "rejected": {
+          "NOT_ADMITTED": 1
+        },
+        "role": "host",
+        "session_deadline_ms": 15172,
+        "ticks_usec": 539203
+      }
+    },
+    {
+      "role": "client",
+      "monotonic": 97990.104222242,
+      "host_poll": null,
+      "child_poll": null,
+      "record": {
+        "case_deadline_ms": 8337,
+        "clock_domain": "engine_elapsed_usec_pid_698117",
+        "close_outcome": "LEFT",
+        "event": "held_receipt",
+        "operation": 4,
+        "phase": "SYNCHRONIZING",
+        "pid": 698117,
+        "reason": "NOT_ADMITTED",
+        "role": "client",
+        "sequence": 1,
+        "session_deadline_ms": 15261,
+        "ticks_usec": 351115
+      }
+    },
+    {
+      "role": "client",
+      "monotonic": 97990.134761295,
+      "host_poll": null,
+      "child_poll": null,
+      "record": {
+        "case_deadline_ms": 8337,
+        "clock_domain": "engine_elapsed_usec_pid_698117",
+        "close_outcome": "CANCELED",
+        "event": "close_started",
+        "operation": 4,
+        "outcome": "CANCELED",
+        "phase": "CLOSING",
+        "pid": 698117,
+        "role": "client",
+        "session_deadline_ms": 15261,
+        "ticks_usec": 385584
+      }
+    },
+    {
+      "role": "client",
+      "monotonic": 97990.134773548,
+      "host_poll": null,
+      "child_poll": null,
+      "record": {
+        "case_deadline_ms": 8337,
+        "clock_domain": "engine_elapsed_usec_pid_698117",
+        "close_outcome": "CANCELED",
+        "event": "session_changed",
+        "operation": 4,
+        "participant": 2,
+        "phase": "CLOSING",
+        "pid": 698117,
+        "role": "client",
+        "session_deadline_ms": 15385,
+        "ticks_usec": 385685
+      }
+    },
+    {
+      "role": "host",
+      "monotonic": 97990.144899146,
+      "host_poll": null,
+      "child_poll": null,
+      "record": {
+        "case_deadline_ms": 8172,
+        "clock_domain": "engine_elapsed_usec_pid_698041",
+        "close_outcome": "",
+        "event": "session_changed",
+        "operation": 1,
+        "participant": 1,
+        "phase": "ACTIVE",
+        "pid": 698041,
+        "role": "host",
+        "session_deadline_ms": 15172,
+        "ticks_usec": 587486
+      }
+    },
+    {
+      "role": "client",
+      "monotonic": 97990.155103304,
+      "host_poll": null,
+      "child_poll": null,
+      "record": {
+        "case_deadline_ms": 8385,
+        "clock_domain": "engine_elapsed_usec_pid_698117",
+        "close_outcome": "CANCELED",
+        "event": "completed",
+        "operation": 4,
+        "outcome": "CANCELED",
+        "phase": "IDLE",
+        "pid": 698117,
+        "role": "client",
+        "session_deadline_ms": 15385,
+        "source_operation": 4,
+        "ticks_usec": 406282
+      }
+    },
+    {
+      "role": "client",
+      "monotonic": 97990.155119023,
+      "host_poll": null,
+      "child_poll": null,
+      "record": {
+        "case_deadline_ms": 8385,
+        "clock_domain": "engine_elapsed_usec_pid_698117",
+        "close_outcome": "CANCELED",
+        "event": "session_changed",
+        "operation": 4,
+        "participant": 0,
+        "phase": "IDLE",
+        "pid": 698117,
+        "role": "client",
+        "session_deadline_ms": 15385,
+        "ticks_usec": 406324
+      }
+    },
+    {
+      "role": "host",
+      "monotonic": 97990.165265271,
+      "host_poll": null,
+      "child_poll": null,
+      "record": {
+        "accepted": 0,
+        "bindings": {
+          "1": {
+            "admitted": true,
+            "control": 1,
+            "entity": 1,
+            "generation": 1,
+            "health": 75,
+            "held": 0.0,
+            "life": 1,
+            "pending": 0,
+            "receipt_ms": 0,
+            "sample": 0.0,
+            "sequence": 0
+          }
+        },
+        "case_deadline_ms": 8587,
+        "clock_domain": "engine_elapsed_usec_pid_698041",
+        "close_outcome": "",
+        "event": "simulation_observed",
+        "operation": 1,
+        "phase": "ACTIVE",
+        "pid": 698041,
+        "rejected": {
+          "NOT_ADMITTED": 1
+        },
+        "role": "host",
+        "session_deadline_ms": 15172,
+        "ticks_usec": 608161
+      }
+    },
+    {
+      "role": "client",
+      "monotonic": 97990.266947924,
+      "host_poll": null,
+      "child_poll": null,
+      "record": {
+        "case_deadline_ms": 8385,
+        "clock_domain": "engine_elapsed_usec_pid_698117",
+        "close_outcome": "CANCELED",
+        "event": "session_changed",
+        "operation": 5,
+        "participant": 0,
+        "phase": "CONNECTING",
+        "pid": 698117,
+        "role": "client",
+        "session_deadline_ms": 15516,
+        "ticks_usec": 516673
+      }
+    },
+    {
+      "role": "host",
+      "monotonic": 97990.328343781,
+      "host_poll": null,
+      "child_poll": null,
+      "record": {
+        "accepted": 0,
+        "bindings": {
+          "1": {
+            "admitted": true,
+            "control": 1,
+            "entity": 1,
+            "generation": 1,
+            "health": 75,
+            "held": 0.0,
+            "life": 1,
+            "pending": 0,
+            "receipt_ms": 0,
+            "sample": 0.0,
+            "sequence": 0
+          },
+          "3": {
+            "admitted": false,
+            "control": 1,
+            "entity": 3,
+            "generation": 1,
+            "health": 70,
+            "held": 0.0,
+            "life": 1,
+            "pending": 0,
+            "receipt_ms": 0,
+            "sample": 0.0,
+            "sequence": 0
+          }
+        },
+        "case_deadline_ms": 8587,
+        "clock_domain": "engine_elapsed_usec_pid_698041",
+        "close_outcome": "",
+        "event": "simulation_observed",
+        "operation": 1,
+        "phase": "ACTIVE",
+        "pid": 698041,
+        "rejected": {
+          "NOT_ADMITTED": 1
+        },
+        "role": "host",
+        "session_deadline_ms": 15172,
+        "ticks_usec": 773770
+      }
+    },
+    {
+      "role": "client",
+      "monotonic": 97990.338762475,
+      "host_poll": null,
+      "child_poll": null,
+      "record": {
+        "baseline": 2,
+        "case_deadline_ms": 8516,
+        "clock_domain": "engine_elapsed_usec_pid_698117",
+        "close_outcome": "CANCELED",
+        "event": "baseline_installed",
+        "operation": 5,
+        "phase": "SYNCHRONIZING",
+        "pid": 698117,
+        "role": "client",
+        "session_deadline_ms": 15516,
+        "ticks_usec": 586420
+      }
+    },
+    {
+      "role": "host",
+      "monotonic": 97990.369534589,
+      "host_poll": null,
+      "child_poll": null,
+      "record": {
+        "case_deadline_ms": 8587,
+        "clock_domain": "engine_elapsed_usec_pid_698041",
+        "close_outcome": "",
+        "event": "session_changed",
+        "operation": 1,
+        "participant": 1,
+        "phase": "ACTIVE",
+        "pid": 698041,
+        "role": "host",
+        "session_deadline_ms": 15172,
+        "ticks_usec": 808383
+      }
+    },
+    {
+      "role": "host",
+      "monotonic": 97990.37974588,
+      "host_poll": null,
+      "child_poll": null,
+      "record": {
+        "accepted": 0,
+        "bindings": {
+          "1": {
+            "admitted": true,
+            "control": 1,
+            "entity": 1,
+            "generation": 1,
+            "health": 75,
+            "held": 0.0,
+            "life": 1,
+            "pending": 0,
+            "receipt_ms": 0,
+            "sample": 0.0,
+            "sequence": 0
+          },
+          "3": {
+            "admitted": true,
+            "control": 1,
+            "entity": 3,
+            "generation": 1,
+            "health": 70,
+            "held": 0.0,
+            "life": 1,
+            "pending": 0,
+            "receipt_ms": 0,
+            "sample": 0.0,
+            "sequence": 0
+          }
+        },
+        "case_deadline_ms": 8587,
+        "clock_domain": "engine_elapsed_usec_pid_698041",
+        "close_outcome": "",
+        "event": "simulation_observed",
+        "operation": 1,
+        "phase": "ACTIVE",
+        "pid": 698041,
+        "rejected": {
+          "NOT_ADMITTED": 1
+        },
+        "role": "host",
+        "session_deadline_ms": 15172,
+        "ticks_usec": 822090
+      }
+    },
+    {
+      "role": "client",
+      "monotonic": 97990.379789272,
+      "host_poll": null,
+      "child_poll": null,
+      "record": {
+        "case_deadline_ms": 8516,
+        "clock_domain": "engine_elapsed_usec_pid_698117",
+        "close_outcome": "CANCELED",
+        "event": "completed",
+        "operation": 5,
+        "outcome": "OK",
+        "phase": "ACTIVE",
+        "pid": 698117,
+        "role": "client",
+        "session_deadline_ms": 15516,
+        "source_operation": 5,
+        "ticks_usec": 627132
+      }
+    },
+    {
+      "role": "client",
+      "monotonic": 97990.379801075,
+      "host_poll": null,
+      "child_poll": null,
+      "record": {
+        "case_deadline_ms": 8516,
+        "clock_domain": "engine_elapsed_usec_pid_698117",
+        "close_outcome": "CANCELED",
+        "event": "session_changed",
+        "operation": 5,
+        "participant": 3,
+        "phase": "ACTIVE",
+        "pid": 698117,
+        "role": "client",
+        "session_deadline_ms": 15516,
+        "ticks_usec": 627181
+      }
+    },
+    {
+      "role": "client",
+      "monotonic": 97990.379811985,
+      "host_poll": null,
+      "child_poll": null,
+      "record": {
+        "case_deadline_ms": 8516,
+        "clock_domain": "engine_elapsed_usec_pid_698117",
+        "close_outcome": "CANCELED",
+        "event": "held_send",
+        "expected": "OK",
+        "operation": 5,
+        "phase": "ACTIVE",
+        "pid": 698117,
+        "role": "client",
+        "sequence": 1,
+        "session_deadline_ms": 15516,
+        "ticks_usec": 627275
+      }
+    },
+    {
+      "role": "host",
+      "monotonic": 97990.400129237,
+      "host_poll": null,
+      "child_poll": null,
+      "record": {
+        "accepted": 0,
+        "bindings": {
+          "1": {
+            "admitted": true,
+            "control": 1,
+            "entity": 1,
+            "generation": 1,
+            "health": 75,
+            "held": 0.0,
+            "life": 1,
+            "pending": 0,
+            "receipt_ms": 0,
+            "sample": 0.0,
+            "sequence": 0
+          },
+          "3": {
+            "admitted": true,
+            "control": 1,
+            "entity": 3,
+            "generation": 1,
+            "health": 70,
+            "held": 1.0,
+            "life": 1,
+            "pending": 1,
+            "receipt_ms": 828,
+            "sample": 0.0,
+            "sequence": 0
+          }
+        },
+        "case_deadline_ms": 8587,
+        "clock_domain": "engine_elapsed_usec_pid_698041",
+        "close_outcome": "",
+        "event": "simulation_observed",
+        "operation": 1,
+        "phase": "ACTIVE",
+        "pid": 698041,
+        "rejected": {
+          "NOT_ADMITTED": 1
+        },
+        "role": "host",
+        "session_deadline_ms": 15172,
+        "ticks_usec": 842780
+      }
+    },
+    {
+      "role": "client",
+      "monotonic": 97990.400180905,
+      "host_poll": null,
+      "child_poll": null,
+      "record": {
+        "case_deadline_ms": 8627,
+        "clock_domain": "engine_elapsed_usec_pid_698117",
+        "close_outcome": "CANCELED",
+        "event": "held_receipt",
+        "operation": 5,
+        "phase": "ACTIVE",
+        "pid": 698117,
+        "reason": "OK",
+        "role": "client",
+        "sequence": 1,
+        "session_deadline_ms": 15516,
+        "ticks_usec": 647793
+      }
+    },
+    {
+      "role": "host",
+      "monotonic": 97990.410329667,
+      "host_poll": null,
+      "child_poll": null,
+      "record": {
+        "accepted": 1,
+        "bindings": {
+          "1": {
+            "admitted": true,
+            "control": 1,
+            "entity": 1,
+            "generation": 1,
+            "health": 75,
+            "held": 0.0,
+            "life": 1,
+            "pending": 0,
+            "receipt_ms": 0,
+            "sample": 0.0,
+            "sequence": 0
+          },
+          "3": {
+            "admitted": true,
+            "control": 1,
+            "entity": 3,
+            "generation": 1,
+            "health": 70,
+            "held": 1.0,
+            "life": 1,
+            "pending": 1,
+            "receipt_ms": 828,
+            "sample": 1.0,
+            "sequence": 1
+          }
+        },
+        "case_deadline_ms": 8587,
+        "clock_domain": "engine_elapsed_usec_pid_698041",
+        "close_outcome": "",
+        "event": "simulation_observed",
+        "operation": 1,
+        "phase": "ACTIVE",
+        "pid": 698041,
+        "rejected": {
+          "NOT_ADMITTED": 1
+        },
+        "role": "host",
+        "session_deadline_ms": 15172,
+        "ticks_usec": 856570
+      }
+    },
+    {
+      "role": "client",
+      "monotonic": 97990.440959292,
+      "host_poll": null,
+      "child_poll": null,
+      "record": {
+        "case_deadline_ms": 8627,
+        "clock_domain": "engine_elapsed_usec_pid_698117",
+        "close_outcome": "CANCELED",
+        "event": "held_send",
+        "expected": "STALE_SEQUENCE",
+        "operation": 5,
+        "phase": "ACTIVE",
+        "pid": 698117,
+        "role": "client",
+        "sequence": 1,
+        "session_deadline_ms": 15516,
+        "ticks_usec": 689175
+      }
+    },
+    {
+      "role": "host",
+      "monotonic": 97990.461445724,
+      "host_poll": null,
+      "child_poll": null,
+      "record": {
+        "accepted": 1,
+        "bindings": {
+          "1": {
+            "admitted": true,
+            "control": 1,
+            "entity": 1,
+            "generation": 1,
+            "health": 75,
+            "held": 0.0,
+            "life": 1,
+            "pending": 0,
+            "receipt_ms": 0,
+            "sample": 0.0,
+            "sequence": 0
+          },
+          "3": {
+            "admitted": true,
+            "control": 1,
+            "entity": 3,
+            "generation": 1,
+            "health": 70,
+            "held": 1.0,
+            "life": 1,
+            "pending": 1,
+            "receipt_ms": 828,
+            "sample": 1.0,
+            "sequence": 1
+          }
+        },
+        "case_deadline_ms": 8587,
+        "clock_domain": "engine_elapsed_usec_pid_698041",
+        "close_outcome": "",
+        "event": "simulation_observed",
+        "operation": 1,
+        "phase": "ACTIVE",
+        "pid": 698041,
+        "rejected": {
+          "NOT_ADMITTED": 1,
+          "STALE_SEQUENCE": 1
+        },
+        "role": "host",
+        "session_deadline_ms": 15172,
+        "ticks_usec": 904903
+      }
+    },
+    {
+      "role": "client",
+      "monotonic": 97990.461488345,
+      "host_poll": null,
+      "child_poll": null,
+      "record": {
+        "case_deadline_ms": 8689,
+        "clock_domain": "engine_elapsed_usec_pid_698117",
+        "close_outcome": "CANCELED",
+        "event": "held_receipt",
+        "operation": 5,
+        "phase": "ACTIVE",
+        "pid": 698117,
+        "reason": "STALE_SEQUENCE",
+        "role": "client",
+        "sequence": 1,
+        "session_deadline_ms": 15516,
+        "ticks_usec": 709900
+      }
+    },
+    {
+      "role": "client",
+      "monotonic": 97990.502440281,
+      "host_poll": null,
+      "child_poll": null,
+      "record": {
+        "case_deadline_ms": 8689,
+        "clock_domain": "engine_elapsed_usec_pid_698117",
+        "close_outcome": "CANCELED",
+        "event": "held_send",
+        "expected": "STALE_CONTEXT",
+        "operation": 5,
+        "phase": "ACTIVE",
+        "pid": 698117,
+        "role": "client",
+        "sequence": 2,
+        "session_deadline_ms": 15516,
+        "ticks_usec": 751278
+      }
+    },
+    {
+      "role": "host",
+      "monotonic": 97990.523012957,
+      "host_poll": null,
+      "child_poll": null,
+      "record": {
+        "accepted": 1,
+        "bindings": {
+          "1": {
+            "admitted": true,
+            "control": 1,
+            "entity": 1,
+            "generation": 1,
+            "health": 75,
+            "held": 0.0,
+            "life": 1,
+            "pending": 0,
+            "receipt_ms": 0,
+            "sample": 0.0,
+            "sequence": 0
+          },
+          "3": {
+            "admitted": true,
+            "control": 1,
+            "entity": 3,
+            "generation": 1,
+            "health": 70,
+            "held": 1.0,
+            "life": 1,
+            "pending": 1,
+            "receipt_ms": 828,
+            "sample": 1.0,
+            "sequence": 1
+          }
+        },
+        "case_deadline_ms": 8587,
+        "clock_domain": "engine_elapsed_usec_pid_698041",
+        "close_outcome": "",
+        "event": "simulation_observed",
+        "operation": 1,
+        "phase": "ACTIVE",
+        "pid": 698041,
+        "rejected": {
+          "NOT_ADMITTED": 1,
+          "STALE_CONTEXT": 1,
+          "STALE_SEQUENCE": 1
+        },
+        "role": "host",
+        "session_deadline_ms": 15172,
+        "ticks_usec": 960103
+      }
+    },
+    {
+      "role": "client",
+      "monotonic": 97990.523100012,
+      "host_poll": null,
+      "child_poll": null,
+      "record": {
+        "case_deadline_ms": 8751,
+        "clock_domain": "engine_elapsed_usec_pid_698117",
+        "close_outcome": "CANCELED",
+        "event": "held_receipt",
+        "operation": 5,
+        "phase": "ACTIVE",
+        "pid": 698117,
+        "reason": "STALE_CONTEXT",
+        "role": "client",
+        "sequence": 2,
+        "session_deadline_ms": 15516,
+        "ticks_usec": 772003
+      }
+    },
+    {
+      "role": "client",
+      "monotonic": 97990.56416414,
+      "host_poll": null,
+      "child_poll": null,
+      "record": {
+        "case_deadline_ms": 8751,
+        "clock_domain": "engine_elapsed_usec_pid_698117",
+        "close_outcome": "CANCELED",
+        "event": "held_send",
+        "expected": "INVALID",
+        "operation": 5,
+        "phase": "ACTIVE",
+        "pid": 698117,
+        "role": "client",
+        "sequence": 3,
+        "session_deadline_ms": 15516,
+        "ticks_usec": 813387
+      }
+    },
+    {
+      "role": "host",
+      "monotonic": 97990.58475998,
+      "host_poll": null,
+      "child_poll": null,
+      "record": {
+        "accepted": 1,
+        "bindings": {
+          "1": {
+            "admitted": true,
+            "control": 1,
+            "entity": 1,
+            "generation": 1,
+            "health": 75,
+            "held": 0.0,
+            "life": 1,
+            "pending": 0,
+            "receipt_ms": 0,
+            "sample": 0.0,
+            "sequence": 0
+          },
+          "3": {
+            "admitted": true,
+            "control": 1,
+            "entity": 3,
+            "generation": 1,
+            "health": 70,
+            "held": 1.0,
+            "life": 1,
+            "pending": 1,
+            "receipt_ms": 828,
+            "sample": 1.0,
+            "sequence": 1
+          }
+        },
+        "case_deadline_ms": 8587,
+        "clock_domain": "engine_elapsed_usec_pid_698041",
+        "close_outcome": "",
+        "event": "simulation_observed",
+        "operation": 1,
+        "phase": "ACTIVE",
+        "pid": 698041,
+        "rejected": {
+          "INVALID": 1,
+          "NOT_ADMITTED": 1,
+          "STALE_CONTEXT": 1,
+          "STALE_SEQUENCE": 1
+        },
+        "role": "host",
+        "session_deadline_ms": 15172,
+        "ticks_usec": 1022189
+      }
+    },
+    {
+      "role": "client",
+      "monotonic": 97990.58484436,
+      "host_poll": null,
+      "child_poll": null,
+      "record": {
+        "case_deadline_ms": 8813,
+        "clock_domain": "engine_elapsed_usec_pid_698117",
+        "close_outcome": "CANCELED",
+        "event": "held_receipt",
+        "operation": 5,
+        "phase": "ACTIVE",
+        "pid": 698117,
+        "reason": "INVALID",
+        "role": "client",
+        "sequence": 3,
+        "session_deadline_ms": 15516,
+        "ticks_usec": 834099
+      }
+    },
+    {
+      "role": "client",
+      "monotonic": 97990.625649667,
+      "host_poll": null,
+      "child_poll": null,
+      "record": {
+        "case_deadline_ms": 8813,
+        "clock_domain": "engine_elapsed_usec_pid_698117",
+        "close_outcome": "CANCELED",
+        "event": "held_send",
+        "expected": "INVALID",
+        "operation": 5,
+        "phase": "ACTIVE",
+        "pid": 698117,
+        "role": "client",
+        "sequence": 4,
+        "session_deadline_ms": 15516,
+        "ticks_usec": 875492
+      }
+    },
+    {
+      "role": "host",
+      "monotonic": 97990.646208527,
+      "host_poll": null,
+      "child_poll": null,
+      "record": {
+        "accepted": 1,
+        "bindings": {
+          "1": {
+            "admitted": true,
+            "control": 1,
+            "entity": 1,
+            "generation": 1,
+            "health": 75,
+            "held": 0.0,
+            "life": 1,
+            "pending": 0,
+            "receipt_ms": 0,
+            "sample": 0.0,
+            "sequence": 0
+          },
+          "3": {
+            "admitted": true,
+            "control": 1,
+            "entity": 3,
+            "generation": 1,
+            "health": 70,
+            "held": 1.0,
+            "life": 1,
+            "pending": 1,
+            "receipt_ms": 828,
+            "sample": 1.0,
+            "sequence": 1
+          }
+        },
+        "case_deadline_ms": 8587,
+        "clock_domain": "engine_elapsed_usec_pid_698041",
+        "close_outcome": "",
+        "event": "simulation_observed",
+        "operation": 1,
+        "phase": "ACTIVE",
+        "pid": 698041,
+        "rejected": {
+          "INVALID": 2,
+          "NOT_ADMITTED": 1,
+          "STALE_CONTEXT": 1,
+          "STALE_SEQUENCE": 1
+        },
+        "role": "host",
+        "session_deadline_ms": 15172,
+        "ticks_usec": 1091199
+      }
+    },
+    {
+      "role": "client",
+      "monotonic": 97990.646293528,
+      "host_poll": null,
+      "child_poll": null,
+      "record": {
+        "case_deadline_ms": 8875,
+        "clock_domain": "engine_elapsed_usec_pid_698117",
+        "close_outcome": "CANCELED",
+        "event": "held_receipt",
+        "operation": 5,
+        "phase": "ACTIVE",
+        "pid": 698117,
+        "reason": "INVALID",
+        "role": "client",
+        "sequence": 4,
+        "session_deadline_ms": 15516,
+        "ticks_usec": 896201
+      }
+    },
+    {
+      "role": "host",
+      "monotonic": 97990.666726319,
+      "host_poll": null,
+      "child_poll": null,
+      "record": {
+        "accepted": 1,
+        "bindings": {
+          "1": {
+            "admitted": true,
+            "control": 1,
+            "entity": 1,
+            "generation": 1,
+            "health": 75,
+            "held": 0.0,
+            "life": 1,
+            "pending": 0,
+            "receipt_ms": 0,
+            "sample": 0.0,
+            "sequence": 0
+          },
+          "3": {
+            "admitted": true,
+            "control": 1,
+            "entity": 3,
+            "generation": 1,
+            "health": 70,
+            "held": 0.0,
+            "life": 1,
+            "pending": 1,
+            "receipt_ms": 828,
+            "sample": 1.0,
+            "sequence": 1
+          }
+        },
+        "case_deadline_ms": 8587,
+        "clock_domain": "engine_elapsed_usec_pid_698041",
+        "close_outcome": "",
+        "event": "simulation_observed",
+        "operation": 1,
+        "phase": "ACTIVE",
+        "pid": 698041,
+        "rejected": {
+          "INVALID": 2,
+          "NOT_ADMITTED": 1,
+          "STALE_CONTEXT": 1,
+          "STALE_SEQUENCE": 1
+        },
+        "role": "host",
+        "session_deadline_ms": 15172,
+        "ticks_usec": 1104997
+      }
+    },
+    {
+      "role": "client",
+      "monotonic": 97990.687309826,
+      "host_poll": null,
+      "child_poll": null,
+      "record": {
+        "case_deadline_ms": 8875,
+        "clock_domain": "engine_elapsed_usec_pid_698117",
+        "close_outcome": "CANCELED",
+        "event": "held_send",
+        "expected": "WINDOW",
+        "operation": 5,
+        "phase": "ACTIVE",
+        "pid": 698117,
+        "role": "client",
+        "sequence": 122,
+        "session_deadline_ms": 15516,
+        "ticks_usec": 937589
+      }
+    },
+    {
+      "role": "client",
+      "monotonic": 97990.707906457,
+      "host_poll": null,
+      "child_poll": null,
+      "record": {
+        "case_deadline_ms": 8937,
+        "clock_domain": "engine_elapsed_usec_pid_698117",
+        "close_outcome": "CANCELED",
+        "event": "held_receipt",
+        "operation": 5,
+        "phase": "ACTIVE",
+        "pid": 698117,
+        "reason": "WINDOW",
+        "role": "client",
+        "sequence": 122,
+        "session_deadline_ms": 15516,
+        "ticks_usec": 958301
+      }
+    },
+    {
+      "role": "host",
+      "monotonic": 97990.7181134,
+      "host_poll": null,
+      "child_poll": null,
+      "record": {
+        "accepted": 1,
+        "bindings": {
+          "1": {
+            "admitted": true,
+            "control": 1,
+            "entity": 1,
+            "generation": 1,
+            "health": 75,
+            "held": 0.0,
+            "life": 1,
+            "pending": 0,
+            "receipt_ms": 0,
+            "sample": 0.0,
+            "sequence": 0
+          },
+          "3": {
+            "admitted": true,
+            "control": 1,
+            "entity": 3,
+            "generation": 1,
+            "health": 70,
+            "held": 0.0,
+            "life": 1,
+            "pending": 1,
+            "receipt_ms": 828,
+            "sample": 1.0,
+            "sequence": 1
+          }
+        },
+        "case_deadline_ms": 8587,
+        "clock_domain": "engine_elapsed_usec_pid_698041",
+        "close_outcome": "",
+        "event": "simulation_observed",
+        "operation": 1,
+        "phase": "ACTIVE",
+        "pid": 698041,
+        "rejected": {
+          "INVALID": 2,
+          "NOT_ADMITTED": 1,
+          "STALE_CONTEXT": 1,
+          "STALE_SEQUENCE": 1,
+          "WINDOW": 1
+        },
+        "role": "host",
+        "session_deadline_ms": 15172,
+        "ticks_usec": 1160197
+      }
+    },
+    {
+      "role": "client",
+      "monotonic": 97990.748916122,
+      "host_poll": null,
+      "child_poll": null,
+      "record": {
+        "case_deadline_ms": 8937,
+        "clock_domain": "engine_elapsed_usec_pid_698117",
+        "close_outcome": "CANCELED",
+        "event": "held_send",
+        "expected": "WINDOW",
+        "operation": 5,
+        "phase": "ACTIVE",
+        "pid": 698117,
+        "role": "client",
+        "sequence": 123,
+        "session_deadline_ms": 15516,
+        "ticks_usec": 999673
+      }
+    },
+    {
+      "role": "host",
+      "monotonic": 97990.76957401,
+      "host_poll": null,
+      "child_poll": null,
+      "record": {
+        "accepted": 1,
+        "bindings": {
+          "1": {
+            "admitted": true,
+            "control": 1,
+            "entity": 1,
+            "generation": 1,
+            "health": 75,
+            "held": 0.0,
+            "life": 1,
+            "pending": 0,
+            "receipt_ms": 0,
+            "sample": 0.0,
+            "sequence": 0
+          },
+          "3": {
+            "admitted": true,
+            "control": 1,
+            "entity": 3,
+            "generation": 1,
+            "health": 70,
+            "held": 0.0,
+            "life": 1,
+            "pending": 1,
+            "receipt_ms": 828,
+            "sample": 1.0,
+            "sequence": 1
+          }
+        },
+        "case_deadline_ms": 8587,
+        "clock_domain": "engine_elapsed_usec_pid_698041",
+        "close_outcome": "",
+        "event": "simulation_observed",
+        "operation": 1,
+        "phase": "ACTIVE",
+        "pid": 698041,
+        "rejected": {
+          "INVALID": 2,
+          "NOT_ADMITTED": 1,
+          "STALE_CONTEXT": 1,
+          "STALE_SEQUENCE": 1,
+          "WINDOW": 2
+        },
+        "role": "host",
+        "session_deadline_ms": 15172,
+        "ticks_usec": 1208496
+      }
+    },
+    {
+      "role": "client",
+      "monotonic": 97990.7696587,
+      "host_poll": null,
+      "child_poll": null,
+      "record": {
+        "case_deadline_ms": 8999,
+        "clock_domain": "engine_elapsed_usec_pid_698117",
+        "close_outcome": "CANCELED",
+        "event": "held_receipt",
+        "operation": 5,
+        "phase": "ACTIVE",
+        "pid": 698117,
+        "reason": "WINDOW",
+        "role": "client",
+        "sequence": 123,
+        "session_deadline_ms": 15516,
+        "ticks_usec": 1013499
+      }
+    },
+    {
+      "role": "client",
+      "monotonic": 97990.800306298,
+      "host_poll": null,
+      "child_poll": null,
+      "record": {
+        "case_deadline_ms": 8999,
+        "clock_domain": "engine_elapsed_usec_pid_698117",
+        "close_outcome": "CANCELED",
+        "event": "held_send",
+        "expected": "WINDOW",
+        "operation": 5,
+        "phase": "ACTIVE",
+        "pid": 698117,
+        "role": "client",
+        "sequence": 124,
+        "session_deadline_ms": 15516,
+        "ticks_usec": 1047981
+      }
+    },
+    {
+      "role": "host",
+      "monotonic": 97990.810578284,
+      "host_poll": null,
+      "child_poll": null,
+      "record": {
+        "accepted": 1,
+        "bindings": {
+          "1": {
+            "admitted": true,
+            "control": 1,
+            "entity": 1,
+            "generation": 1,
+            "health": 75,
+            "held": 0.0,
+            "life": 1,
+            "pending": 0,
+            "receipt_ms": 0,
+            "sample": 0.0,
+            "sequence": 0
+          },
+          "3": {
+            "admitted": true,
+            "control": 1,
+            "entity": 3,
+            "generation": 1,
+            "health": 70,
+            "held": 0.0,
+            "life": 1,
+            "pending": 1,
+            "receipt_ms": 828,
+            "sample": 1.0,
+            "sequence": 1
+          }
+        },
+        "case_deadline_ms": 8587,
+        "clock_domain": "engine_elapsed_usec_pid_698041",
+        "close_outcome": "",
+        "event": "simulation_observed",
+        "operation": 1,
+        "phase": "ACTIVE",
+        "pid": 698041,
+        "rejected": {
+          "INVALID": 2,
+          "NOT_ADMITTED": 1,
+          "STALE_CONTEXT": 1,
+          "STALE_SEQUENCE": 1,
+          "WINDOW": 3
+        },
+        "role": "host",
+        "session_deadline_ms": 15172,
+        "ticks_usec": 1256787
+      }
+    },
+    {
+      "role": "client",
+      "monotonic": 97990.820923309,
+      "host_poll": null,
+      "child_poll": null,
+      "record": {
+        "case_deadline_ms": 9048,
+        "clock_domain": "engine_elapsed_usec_pid_698117",
+        "close_outcome": "CANCELED",
+        "event": "held_receipt",
+        "operation": 5,
+        "phase": "ACTIVE",
+        "pid": 698117,
+        "reason": "WINDOW",
+        "role": "client",
+        "sequence": 124,
+        "session_deadline_ms": 15516,
+        "ticks_usec": 1068694
+      }
+    },
+    {
+      "role": "host",
+      "monotonic": 97990.882130649,
+      "host_poll": null,
+      "child_poll": null,
+      "record": {
+        "accepted": 1,
+        "bindings": {
+          "1": {
+            "admitted": true,
+            "control": 1,
+            "entity": 1,
+            "generation": 1,
+            "health": 75,
+            "held": 0.0,
+            "life": 1,
+            "pending": 0,
+            "receipt_ms": 0,
+            "sample": 0.0,
+            "sequence": 0
+          },
+          "3": {
+            "admitted": false,
+            "control": 2,
+            "entity": 3,
+            "generation": 1,
+            "health": 70,
+            "held": 0.0,
+            "life": 1,
+            "pending": 0,
+            "receipt_ms": 828,
+            "sample": 1.0,
+            "sequence": 0
+          }
+        },
+        "case_deadline_ms": 8587,
+        "clock_domain": "engine_elapsed_usec_pid_698041",
+        "close_outcome": "",
+        "event": "simulation_observed",
+        "operation": 1,
+        "phase": "ACTIVE",
+        "pid": 698041,
+        "rejected": {
+          "INVALID": 2,
+          "NOT_ADMITTED": 1,
+          "STALE_CONTEXT": 1,
+          "STALE_SEQUENCE": 1,
+          "WINDOW": 3
+        },
+        "role": "host",
+        "session_deadline_ms": 15172,
+        "ticks_usec": 1325761
+      }
+    },
+    {
+      "role": "client",
+      "monotonic": 97990.882183228,
+      "host_poll": null,
+      "child_poll": null,
+      "record": {
+        "baseline": 3,
+        "case_deadline_ms": 9110,
+        "clock_domain": "engine_elapsed_usec_pid_698117",
+        "close_outcome": "CANCELED",
+        "event": "baseline_installed",
+        "operation": 5,
+        "phase": "SYNCHRONIZING",
+        "pid": 698117,
+        "role": "client",
+        "session_deadline_ms": 16110,
+        "ticks_usec": 1131187
+      }
+    },
+    {
+      "role": "client",
+      "monotonic": 97990.892549823,
+      "host_poll": null,
+      "child_poll": null,
+      "record": {
+        "case_deadline_ms": 9110,
+        "clock_domain": "engine_elapsed_usec_pid_698117",
+        "close_outcome": "CANCELED",
+        "event": "held_send",
+        "expected": "NOT_ADMITTED",
+        "operation": 5,
+        "phase": "SYNCHRONIZING",
+        "pid": 698117,
+        "role": "client",
+        "sequence": 1,
+        "session_deadline_ms": 16110,
+        "ticks_usec": 1137676
+      }
+    },
+    {
+      "role": "client",
+      "monotonic": 97990.913197902,
+      "host_poll": null,
+      "child_poll": null,
+      "record": {
+        "case_deadline_ms": 9137,
+        "clock_domain": "engine_elapsed_usec_pid_698117",
+        "close_outcome": "CANCELED",
+        "event": "held_receipt",
+        "operation": 5,
+        "phase": "SYNCHRONIZING",
+        "pid": 698117,
+        "reason": "NOT_ADMITTED",
+        "role": "client",
+        "sequence": 1,
+        "session_deadline_ms": 16110,
+        "ticks_usec": 1158408
+      }
+    },
+    {
+      "role": "host",
+      "monotonic": 97990.923413401,
+      "host_poll": null,
+      "child_poll": null,
+      "record": {
+        "accepted": 1,
+        "bindings": {
+          "1": {
+            "admitted": true,
+            "control": 1,
+            "entity": 1,
+            "generation": 1,
+            "health": 75,
+            "held": 0.0,
+            "life": 1,
+            "pending": 0,
+            "receipt_ms": 0,
+            "sample": 0.0,
+            "sequence": 0
+          },
+          "3": {
+            "admitted": false,
+            "control": 2,
+            "entity": 3,
+            "generation": 1,
+            "health": 70,
+            "held": 0.0,
+            "life": 1,
+            "pending": 0,
+            "receipt_ms": 828,
+            "sample": 1.0,
+            "sequence": 0
+          }
+        },
+        "case_deadline_ms": 8587,
+        "clock_domain": "engine_elapsed_usec_pid_698041",
+        "close_outcome": "",
+        "event": "simulation_observed",
+        "operation": 1,
+        "phase": "ACTIVE",
+        "pid": 698041,
+        "rejected": {
+          "INVALID": 2,
+          "NOT_ADMITTED": 2,
+          "STALE_CONTEXT": 1,
+          "STALE_SEQUENCE": 1,
+          "WINDOW": 3
+        },
+        "role": "host",
+        "session_deadline_ms": 15172,
+        "ticks_usec": 1360300
+      }
+    },
+    {
+      "role": "host",
+      "monotonic": 97990.985160014,
+      "host_poll": null,
+      "child_poll": null,
+      "record": {
+        "case_deadline_ms": 8587,
+        "clock_domain": "engine_elapsed_usec_pid_698041",
+        "close_outcome": "",
+        "event": "session_changed",
+        "operation": 1,
+        "participant": 1,
+        "phase": "ACTIVE",
+        "pid": 698041,
+        "role": "host",
+        "session_deadline_ms": 15172,
+        "ticks_usec": 1422499
+      }
+    },
+    {
+      "role": "client",
+      "monotonic": 97990.995572886,
+      "host_poll": null,
+      "child_poll": null,
+      "record": {
+        "case_deadline_ms": 9199,
+        "clock_domain": "engine_elapsed_usec_pid_698117",
+        "close_outcome": "CANCELED",
+        "event": "session_changed",
+        "operation": 5,
+        "participant": 3,
+        "phase": "ACTIVE",
+        "pid": 698117,
+        "role": "client",
+        "session_deadline_ms": 16110,
+        "ticks_usec": 1241215
+      }
+    },
+    {
+      "role": "client",
+      "monotonic": 97990.995598855,
+      "host_poll": null,
+      "child_poll": null,
+      "record": {
+        "case_deadline_ms": 9199,
+        "clock_domain": "engine_elapsed_usec_pid_698117",
+        "close_outcome": "CANCELED",
+        "event": "held_send",
+        "expected": "STALE_CONTEXT",
+        "operation": 5,
+        "phase": "ACTIVE",
+        "pid": 698117,
+        "role": "client",
+        "sequence": 1,
+        "session_deadline_ms": 16110,
+        "ticks_usec": 1241311
+      }
+    },
+    {
+      "role": "host",
+      "monotonic": 97991.00588059,
+      "host_poll": null,
+      "child_poll": null,
+      "record": {
+        "accepted": 1,
+        "bindings": {
+          "1": {
+            "admitted": true,
+            "control": 1,
+            "entity": 1,
+            "generation": 1,
+            "health": 75,
+            "held": 0.0,
+            "life": 1,
+            "pending": 0,
+            "receipt_ms": 0,
+            "sample": 0.0,
+            "sequence": 0
+          },
+          "3": {
+            "admitted": true,
+            "control": 2,
+            "entity": 3,
+            "generation": 1,
+            "health": 70,
+            "held": 0.0,
+            "life": 1,
+            "pending": 0,
+            "receipt_ms": 828,
+            "sample": 1.0,
+            "sequence": 0
+          }
+        },
+        "case_deadline_ms": 8587,
+        "clock_domain": "engine_elapsed_usec_pid_698041",
+        "close_outcome": "",
+        "event": "simulation_observed",
+        "operation": 1,
+        "phase": "ACTIVE",
+        "pid": 698041,
+        "rejected": {
+          "INVALID": 2,
+          "NOT_ADMITTED": 2,
+          "STALE_CONTEXT": 1,
+          "STALE_SEQUENCE": 1,
+          "WINDOW": 3
+        },
+        "role": "host",
+        "session_deadline_ms": 15172,
+        "ticks_usec": 1443092
+      }
+    },
+    {
+      "role": "host",
+      "monotonic": 97991.016213641,
+      "host_poll": null,
+      "child_poll": null,
+      "record": {
+        "accepted": 1,
+        "bindings": {
+          "1": {
+            "admitted": true,
+            "control": 1,
+            "entity": 1,
+            "generation": 1,
+            "health": 75,
+            "held": 0.0,
+            "life": 1,
+            "pending": 0,
+            "receipt_ms": 0,
+            "sample": 0.0,
+            "sequence": 0
+          },
+          "3": {
+            "admitted": true,
+            "control": 2,
+            "entity": 3,
+            "generation": 1,
+            "health": 70,
+            "held": 0.0,
+            "life": 1,
+            "pending": 0,
+            "receipt_ms": 828,
+            "sample": 1.0,
+            "sequence": 0
+          }
+        },
+        "case_deadline_ms": 8587,
+        "clock_domain": "engine_elapsed_usec_pid_698041",
+        "close_outcome": "",
+        "event": "simulation_observed",
+        "operation": 1,
+        "phase": "ACTIVE",
+        "pid": 698041,
+        "rejected": {
+          "INVALID": 2,
+          "NOT_ADMITTED": 2,
+          "STALE_CONTEXT": 2,
+          "STALE_SEQUENCE": 1,
+          "WINDOW": 3
+        },
+        "role": "host",
+        "session_deadline_ms": 15172,
+        "ticks_usec": 1456920
+      }
+    },
+    {
+      "role": "client",
+      "monotonic": 97991.016298061,
+      "host_poll": null,
+      "child_poll": null,
+      "record": {
+        "case_deadline_ms": 9241,
+        "clock_domain": "engine_elapsed_usec_pid_698117",
+        "close_outcome": "CANCELED",
+        "event": "held_receipt",
+        "operation": 5,
+        "phase": "ACTIVE",
+        "pid": 698117,
+        "reason": "STALE_CONTEXT",
+        "role": "client",
+        "sequence": 1,
+        "session_deadline_ms": 16110,
+        "ticks_usec": 1261884
+      }
+    },
+    {
+      "role": "client",
+      "monotonic": 97991.05724654,
+      "host_poll": null,
+      "child_poll": null,
+      "record": {
+        "case_deadline_ms": 9241,
+        "clock_domain": "engine_elapsed_usec_pid_698117",
+        "close_outcome": "CANCELED",
+        "event": "held_send",
+        "expected": "OK",
+        "operation": 5,
+        "phase": "ACTIVE",
+        "pid": 698117,
+        "role": "client",
+        "sequence": 1,
+        "session_deadline_ms": 16110,
+        "ticks_usec": 1303281
+      }
+    },
+    {
+      "role": "client",
+      "monotonic": 97991.077865063,
+      "host_poll": null,
+      "child_poll": null,
+      "record": {
+        "case_deadline_ms": 9303,
+        "clock_domain": "engine_elapsed_usec_pid_698117",
+        "close_outcome": "CANCELED",
+        "event": "held_receipt",
+        "operation": 5,
+        "phase": "ACTIVE",
+        "pid": 698117,
+        "reason": "OK",
+        "role": "client",
+        "sequence": 1,
+        "session_deadline_ms": 16110,
+        "ticks_usec": 1323995
+      }
+    },
+    {
+      "role": "host",
+      "monotonic": 97991.088083938,
+      "host_poll": null,
+      "child_poll": null,
+      "record": {
+        "accepted": 1,
+        "bindings": {
+          "1": {
+            "admitted": true,
+            "control": 1,
+            "entity": 1,
+            "generation": 1,
+            "health": 75,
+            "held": 0.0,
+            "life": 1,
+            "pending": 0,
+            "receipt_ms": 0,
+            "sample": 0.0,
+            "sequence": 0
+          },
+          "3": {
+            "admitted": true,
+            "control": 2,
+            "entity": 3,
+            "generation": 1,
+            "health": 70,
+            "held": 0.5,
+            "life": 1,
+            "pending": 1,
+            "receipt_ms": 1505,
+            "sample": 1.0,
+            "sequence": 0
+          }
+        },
+        "case_deadline_ms": 8587,
+        "clock_domain": "engine_elapsed_usec_pid_698041",
+        "close_outcome": "",
+        "event": "simulation_observed",
+        "operation": 1,
+        "phase": "ACTIVE",
+        "pid": 698041,
+        "rejected": {
+          "INVALID": 2,
+          "NOT_ADMITTED": 2,
+          "STALE_CONTEXT": 2,
+          "STALE_SEQUENCE": 1,
+          "WINDOW": 3
+        },
+        "role": "host",
+        "session_deadline_ms": 15172,
+        "ticks_usec": 1525913
+      }
+    },
+    {
+      "role": "host",
+      "monotonic": 97991.09835403,
+      "host_poll": null,
+      "child_poll": null,
+      "record": {
+        "accepted": 2,
+        "bindings": {
+          "1": {
+            "admitted": true,
+            "control": 1,
+            "entity": 1,
+            "generation": 1,
+            "health": 75,
+            "held": 0.0,
+            "life": 1,
+            "pending": 0,
+            "receipt_ms": 0,
+            "sample": 0.0,
+            "sequence": 0
+          },
+          "3": {
+            "admitted": true,
+            "control": 2,
+            "entity": 3,
+            "generation": 1,
+            "health": 70,
+            "held": 0.5,
+            "life": 1,
+            "pending": 1,
+            "receipt_ms": 1505,
+            "sample": 0.5,
+            "sequence": 1
+          }
+        },
+        "case_deadline_ms": 8587,
+        "clock_domain": "engine_elapsed_usec_pid_698041",
+        "close_outcome": "",
+        "event": "simulation_observed",
+        "operation": 1,
+        "phase": "ACTIVE",
+        "pid": 698041,
+        "rejected": {
+          "INVALID": 2,
+          "NOT_ADMITTED": 2,
+          "STALE_CONTEXT": 2,
+          "STALE_SEQUENCE": 1,
+          "WINDOW": 3
+        },
+        "role": "host",
+        "session_deadline_ms": 15172,
+        "ticks_usec": 1539703
+      }
+    },
+    {
+      "role": "host",
+      "monotonic": 97991.12918146,
+      "host_poll": null,
+      "child_poll": null,
+      "record": {
+        "case_deadline_ms": 8587,
+        "clock_domain": "engine_elapsed_usec_pid_698041",
+        "close_outcome": "",
+        "event": "snapshots",
+        "operation": 1,
+        "phase": "ACTIVE",
+        "pid": 698041,
+        "role": "host",
+        "session_deadline_ms": 15172,
+        "ticks_usec": 1567287
+      }
+    },
+    {
+      "role": "host",
+      "monotonic": 97991.333571326,
+      "host_poll": null,
+      "child_poll": null,
+      "record": {
+        "accepted": 2,
+        "bindings": {
+          "1": {
+            "admitted": true,
+            "control": 1,
+            "entity": 1,
+            "generation": 1,
+            "health": 75,
+            "held": 0.0,
+            "life": 1,
+            "pending": 0,
+            "receipt_ms": 0,
+            "sample": 0.0,
+            "sequence": 0
+          },
+          "3": {
+            "admitted": true,
+            "control": 2,
+            "entity": 3,
+            "generation": 1,
+            "health": 70,
+            "held": 0.0,
+            "life": 1,
+            "pending": 1,
+            "receipt_ms": 1505,
+            "sample": 0.5,
+            "sequence": 1
+          }
+        },
+        "case_deadline_ms": 8587,
+        "clock_domain": "engine_elapsed_usec_pid_698041",
+        "close_outcome": "",
+        "event": "simulation_observed",
+        "operation": 1,
+        "phase": "ACTIVE",
+        "pid": 698041,
+        "rejected": {
+          "INVALID": 2,
+          "NOT_ADMITTED": 2,
+          "STALE_CONTEXT": 2,
+          "STALE_SEQUENCE": 1,
+          "WINDOW": 3
+        },
+        "role": "host",
+        "session_deadline_ms": 15172,
+        "ticks_usec": 1774299
+      }
+    },
+    {
+      "role": "host",
+      "monotonic": 97991.875394111,
+      "host_poll": null,
+      "child_poll": null,
+      "record": {
+        "case_deadline_ms": 8587,
+        "clock_domain": "engine_elapsed_usec_pid_698041",
+        "close_outcome": "LEFT",
+        "event": "close_started",
+        "operation": 2,
+        "outcome": "LEFT",
+        "phase": "CLOSING",
+        "pid": 698041,
+        "role": "host",
+        "session_deadline_ms": 15172,
+        "ticks_usec": 2312476
+      }
+    },
+    {
+      "role": "host",
+      "monotonic": 97991.875420451,
+      "host_poll": null,
+      "child_poll": null,
+      "record": {
+        "case_deadline_ms": 8587,
+        "clock_domain": "engine_elapsed_usec_pid_698041",
+        "close_outcome": "LEFT",
+        "event": "session_changed",
+        "operation": 2,
+        "participant": 1,
+        "phase": "CLOSING",
+        "pid": 698041,
+        "role": "host",
+        "session_deadline_ms": 17312,
+        "ticks_usec": 2312599
+      }
+    },
+    {
+      "role": "host",
+      "monotonic": 97991.885675595,
+      "host_poll": null,
+      "child_poll": null,
+      "record": {
+        "accepted": 2,
+        "bindings": {},
+        "case_deadline_ms": 10312,
+        "clock_domain": "engine_elapsed_usec_pid_698041",
+        "close_outcome": "LEFT",
+        "event": "simulation_observed",
+        "operation": 2,
+        "phase": "CLOSING",
+        "pid": 698041,
+        "rejected": {
+          "INVALID": 2,
+          "NOT_ADMITTED": 2,
+          "STALE_CONTEXT": 2,
+          "STALE_SEQUENCE": 1,
+          "WINDOW": 3
+        },
+        "role": "host",
+        "session_deadline_ms": 17312,
+        "ticks_usec": 2326265
+      }
+    },
+    {
+      "role": "client",
+      "monotonic": 97991.885758472,
+      "host_poll": null,
+      "child_poll": null,
+      "record": {
+        "case_deadline_ms": 10000,
+        "clock_domain": "engine_elapsed_usec_pid_698117",
+        "close_outcome": "HOST_LOST",
+        "event": "close_started",
+        "operation": 5,
+        "outcome": "HOST_LOST",
+        "phase": "CLOSING",
+        "pid": 698117,
+        "role": "client",
+        "session_deadline_ms": 16110,
+        "ticks_usec": 2131272
+      }
+    },
+    {
+      "role": "client",
+      "monotonic": 97991.885781175,
+      "host_poll": null,
+      "child_poll": null,
+      "record": {
+        "case_deadline_ms": 10000,
+        "clock_domain": "engine_elapsed_usec_pid_698117",
+        "close_outcome": "HOST_LOST",
+        "event": "session_changed",
+        "operation": 5,
+        "participant": 3,
+        "phase": "CLOSING",
+        "pid": 698117,
+        "role": "client",
+        "session_deadline_ms": 17131,
+        "ticks_usec": 2131330
+      }
+    },
+    {
+      "role": "host",
+      "monotonic": 97991.895982728,
+      "host_poll": null,
+      "child_poll": null,
+      "record": {
+        "case_deadline_ms": 10312,
+        "clock_domain": "engine_elapsed_usec_pid_698041",
+        "close_outcome": "LEFT",
+        "event": "completed",
+        "operation": 2,
+        "outcome": "LEFT",
+        "phase": "IDLE",
+        "pid": 698041,
+        "role": "host",
+        "session_deadline_ms": 17312,
+        "source_operation": 2,
+        "ticks_usec": 2333164
+      }
+    },
+    {
+      "role": "host",
+      "monotonic": 97991.896017954,
+      "host_poll": null,
+      "child_poll": null,
+      "record": {
+        "case_deadline_ms": 10312,
+        "clock_domain": "engine_elapsed_usec_pid_698041",
+        "close_outcome": "LEFT",
+        "event": "session_changed",
+        "operation": 2,
+        "participant": 0,
+        "phase": "IDLE",
+        "pid": 698041,
+        "role": "host",
+        "session_deadline_ms": 17312,
+        "ticks_usec": 2333210
+      }
+    },
+    {
+      "role": "client",
+      "monotonic": 97991.89610007,
+      "host_poll": null,
+      "child_poll": null,
+      "record": {
+        "case_deadline_ms": 10000,
+        "clock_domain": "engine_elapsed_usec_pid_698117",
+        "close_outcome": "HOST_LOST",
+        "event": "session_changed",
+        "operation": 5,
+        "participant": 0,
+        "phase": "IDLE",
+        "pid": 698117,
+        "role": "client",
+        "session_deadline_ms": 17131,
+        "ticks_usec": 2145083
+      }
+    },
+    {
+      "role": "host",
+      "monotonic": 97991.906264181,
+      "host_poll": null,
+      "child_poll": null,
+      "record": {
+        "baseline_bytes": 263,
+        "case_deadline_ms": 10312,
+        "cases": [
+          "provisional_rollback",
+          "authority_validation_and_expiry"
+        ],
+        "clock_domain": "engine_elapsed_usec_pid_698041",
+        "close_outcome": "LEFT",
+        "event": "result",
+        "max_held_bytes": 256,
+        "max_movement_bytes": 232,
+        "movement_received": 0,
+        "ok": true,
+        "operation": 2,
+        "phase": "IDLE",
+        "pid": 698041,
+        "role": "host",
+        "session_deadline_ms": 17312,
+        "steam_available": false,
+        "ticks_usec": 2346974,
+        "user_dir": "/tmp/s08-lifecycle-debug01/host/user/data/godot/app_userdata/Fun Things"
+      }
+    },
+    {
+      "role": "client",
+      "monotonic": 97991.906321851,
+      "host_poll": null,
+      "child_poll": null,
+      "record": {
+        "baseline_bytes": 0,
+        "case_deadline_ms": 10000,
+        "cases": [
+          "provider_substitution_late_cleanup",
+          "baseline_cancel_retry",
+          "held_window_resync",
+          "subset_reorder_loss_recovery"
+        ],
+        "clock_domain": "engine_elapsed_usec_pid_698117",
+        "close_outcome": "HOST_LOST",
+        "event": "result",
+        "max_held_bytes": 0,
+        "max_movement_bytes": 0,
+        "movement_received": 5,
+        "ok": true,
+        "operation": 5,
+        "phase": "IDLE",
+        "pid": 698117,
+        "role": "client",
+        "session_deadline_ms": 17131,
+        "steam_available": false,
+        "ticks_usec": 2151994,
+        "user_dir": "/tmp/s08-lifecycle-debug01/client/user/data/godot/app_userdata/Fun Things"
+      }
+    },
+    {
+      "event": "exit_observed",
+      "role": "host",
+      "exit": 0,
+      "monotonic": 97991.977765319
+    },
+    {
+      "event": "exit_observed",
+      "role": "client",
+      "exit": 0,
+      "monotonic": 97991.988038336
+    }
+  ],
+  "commands": {
+    "host": {
+      "argv": [
+        "/usr/bin/stdbuf",
+        "-oL",
+        "/home/regner/.local/share/mise/installs/github-godotengine-godot-builds/4.8-dev7/godot",
+        "--headless",
+        "--path",
+        "/tmp/s08-lifecycle-debug01/project",
+        "--log-file",
+        "/tmp/s08-lifecycle-debug01/host/engine.log",
+        "--",
+        "--role=host",
+        "--port=41483"
+      ],
+      "cwd": "/tmp/s08-lifecycle-debug01/project",
+      "start_monotonic": 97989.542365652,
+      "environment": {
+        "XDG_CONFIG_DIRS": "/home/regner/.config/kdedefaults:/etc/xdg",
+        "XDG_SESSION_PATH": "/org/freedesktop/DisplayManager/Session1",
+        "XDG_MENU_PREFIX": "plasma-",
+        "XDG_SEAT": "seat0",
+        "XDG_SESSION_DESKTOP": "KDE",
+        "XDG_SESSION_TYPE": "wayland",
+        "XDG_CURRENT_DESKTOP": "KDE",
+        "XDG_SEAT_PATH": "/org/freedesktop/DisplayManager/Seat0",
+        "XDG_SESSION_CLASS": "user",
+        "XDG_VTNR": "2",
+        "XDG_SESSION_ID": "2",
+        "XDG_RUNTIME_DIR": "/tmp/s08-lifecycle-debug01/host/user/runtime",
+        "XDG_DATA_DIRS": "/tmp/.mount_Paseo-gLG4F3/usr/share/:./share/:/usr/share/gnome:/usr/local/share/:/usr/share/:/tmp/.mount_Paseo-47w5nb/usr/share/:./share/:/usr/share/gnome:/usr/local/share/:/usr/share/:/home/regner/.local/share/flatpak/exports/share:/var/lib/flatpak/exports/share:/usr/local/share/:/usr/share/:/usr/share/gnome/:/usr/local/share/:/usr/share/:/usr/share/gnome/:/usr/local/share/:/usr/share/",
+        "XDG_CONFIG_HOME": "/tmp/s08-lifecycle-debug01/host/user/config",
+        "XDG_DATA_HOME": "/tmp/s08-lifecycle-debug01/host/user/data",
+        "XDG_CACHE_HOME": "/tmp/s08-lifecycle-debug01/host/user/cache"
+      },
+      "home_unchanged": true,
+      "pid": 698041,
+      "exit": 0,
+      "reaped": true
+    },
+    "client": {
+      "argv": [
+        "/usr/bin/stdbuf",
+        "-oL",
+        "/home/regner/.local/share/mise/installs/github-godotengine-godot-builds/4.8-dev7/godot",
+        "--headless",
+        "--path",
+        "/tmp/s08-lifecycle-debug01/project",
+        "--log-file",
+        "/tmp/s08-lifecycle-debug01/client/engine.log",
+        "--",
+        "--role=client",
+        "--port=59174"
+      ],
+      "cwd": "/tmp/s08-lifecycle-debug01/project",
+      "start_monotonic": 97989.736147406,
+      "environment": {
+        "XDG_CONFIG_DIRS": "/home/regner/.config/kdedefaults:/etc/xdg",
+        "XDG_SESSION_PATH": "/org/freedesktop/DisplayManager/Session1",
+        "XDG_MENU_PREFIX": "plasma-",
+        "XDG_SEAT": "seat0",
+        "XDG_SESSION_DESKTOP": "KDE",
+        "XDG_SESSION_TYPE": "wayland",
+        "XDG_CURRENT_DESKTOP": "KDE",
+        "XDG_SEAT_PATH": "/org/freedesktop/DisplayManager/Seat0",
+        "XDG_SESSION_CLASS": "user",
+        "XDG_VTNR": "2",
+        "XDG_SESSION_ID": "2",
+        "XDG_RUNTIME_DIR": "/tmp/s08-lifecycle-debug01/client/user/runtime",
+        "XDG_DATA_DIRS": "/tmp/.mount_Paseo-gLG4F3/usr/share/:./share/:/usr/share/gnome:/usr/local/share/:/usr/share/:/tmp/.mount_Paseo-47w5nb/usr/share/:./share/:/usr/share/gnome:/usr/local/share/:/usr/share/:/home/regner/.local/share/flatpak/exports/share:/var/lib/flatpak/exports/share:/usr/local/share/:/usr/share/:/usr/share/gnome/:/usr/local/share/:/usr/share/:/usr/share/gnome/:/usr/local/share/:/usr/share/",
+        "XDG_CONFIG_HOME": "/tmp/s08-lifecycle-debug01/client/user/config",
+        "XDG_DATA_HOME": "/tmp/s08-lifecycle-debug01/client/user/data",
+        "XDG_CACHE_HOME": "/tmp/s08-lifecycle-debug01/client/user/cache"
+      },
+      "home_unchanged": true,
+      "pid": 698117,
+      "exit": 0,
+      "reaped": true
+    }
+  },
+  "clock_contract": "Godot ticks_usec is per-engine elapsed, not cross-process; Python monotonic timestamps/exit observations share one parent domain.",
+  "ports": {
+    "host": 41483,
+    "proxy": 59174
+  },
+  "results": {
+    "host": {
+      "baseline_bytes": 263,
+      "case_deadline_ms": 10312,
+      "cases": [
+        "provisional_rollback",
+        "authority_validation_and_expiry"
+      ],
+      "clock_domain": "engine_elapsed_usec_pid_698041",
+      "close_outcome": "LEFT",
+      "event": "result",
+      "max_held_bytes": 256,
+      "max_movement_bytes": 232,
+      "movement_received": 0,
+      "ok": true,
+      "operation": 2,
+      "phase": "IDLE",
+      "pid": 698041,
+      "role": "host",
+      "session_deadline_ms": 17312,
+      "steam_available": false,
+      "ticks_usec": 2346974,
+      "user_dir": "/tmp/s08-lifecycle-debug01/host/user/data/godot/app_userdata/Fun Things"
+    },
+    "client": {
+      "baseline_bytes": 0,
+      "case_deadline_ms": 10000,
+      "cases": [
+        "provider_substitution_late_cleanup",
+        "baseline_cancel_retry",
+        "held_window_resync",
+        "subset_reorder_loss_recovery"
+      ],
+      "clock_domain": "engine_elapsed_usec_pid_698117",
+      "close_outcome": "HOST_LOST",
+      "event": "result",
+      "max_held_bytes": 0,
+      "max_movement_bytes": 0,
+      "movement_received": 5,
+      "ok": true,
+      "operation": 5,
+      "phase": "IDLE",
+      "pid": 698117,
+      "role": "client",
+      "session_deadline_ms": 17131,
+      "steam_available": false,
+      "ticks_usec": 2151994,
+      "user_dir": "/tmp/s08-lifecycle-debug01/client/user/data/godot/app_userdata/Fun Things"
+    }
+  },
+  "traffic": {
+    "recv_datagrams": 120,
+    "recv_bytes": 9659,
+    "send_datagrams": 119,
+    "send_bytes": 9413
+  },
+  "proxy_count": 5,
+  "proxy_events": [
+    "armed",
+    "hold_subset_A",
+    "deliver_B_then_A",
+    "drop_subset_A",
+    "refresh_subset",
+    "refresh_subset"
+  ],
+  "cleanup": {
+    "errors": [],
+    "actions": [
+      {
+        "child": 0,
+        "operation": "grace",
+        "timeout": 1.9999966640025377,
+        "at": 97991.988087309
+      },
+      {
+        "child": 1,
+        "operation": "grace",
+        "timeout": 1.9999918739922578,
+        "at": 97991.988091978
+      }
+    ],
+    "children_reaped": [
+      true,
+      true
+    ],
+    "all_children_reaped": true,
+    "streams_closed": true,
+    "proxy_closed": true,
+    "proxy_log_closed": true,
+    "set_deadline": 98019.423944409,
+    "cleanup_ended": 97991.988149848
+  },
+  "stream_readback": [
+    {
+      "path": "/tmp/s08-lifecycle-debug01/host/stdout.log",
+      "bytes": 17796,
+      "sha256": "8893639b918a3dc828e45b6fbb54442283e41132989612b2301dca4938edd0d6"
+    },
+    {
+      "path": "/tmp/s08-lifecycle-debug01/host/stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/tmp/s08-lifecycle-debug01/host/engine.log",
+      "bytes": 17796,
+      "sha256": "8893639b918a3dc828e45b6fbb54442283e41132989612b2301dca4938edd0d6"
+    },
+    {
+      "path": "/tmp/s08-lifecycle-debug01/client/stdout.log",
+      "bytes": 14095,
+      "sha256": "8b8432c9bf5e74f65adc21aa61cd9cfbcd4bc2f976d05164c1b3c6dede5ede74"
+    },
+    {
+      "path": "/tmp/s08-lifecycle-debug01/client/stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/tmp/s08-lifecycle-debug01/client/engine.log",
+      "bytes": 14095,
+      "sha256": "8b8432c9bf5e74f65adc21aa61cd9cfbcd4bc2f976d05164c1b3c6dede5ede74"
+    }
+  ],
+  "diagnostics": [],
+  "gameplay_ok": true,
+  "end_monotonic": 97991.988597867,
+  "duration_seconds": 2.5646534580009757,
+  "within_30s": true
+}

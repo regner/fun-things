@@ -1,0 +1,26 @@
+{
+  "required_paths": [
+    "staged-input.json",
+    "cache-config-readback.json",
+    "proxy.jsonl",
+    "traffic.jsonl",
+    "result.json",
+    "host/command.json",
+    "host/stdout.log",
+    "host/stderr.log",
+    "host/engine.log",
+    "client/command.json",
+    "client/stdout.log",
+    "client/stderr.log",
+    "client/engine.log",
+    "debug-supervisor.command.json",
+    "debug-supervisor.stdout",
+    "debug-supervisor.stderr"
+  ],
+  "required_empty": [
+    "host/stderr.log",
+    "client/stderr.log",
+    "debug-supervisor.stderr"
+  ],
+  "executed_source_revision": "f178c70efb657ea9fba5951d9440c23c761aea31"
+}
