@@ -182,7 +182,8 @@ func _records() -> Dictionary:
 		valid = valid and points[-1].distance_to(anchors[link.to_id].global_position) <= (
 			ENDPOINT_TOLERANCE_M)
 		valid = valid and link.kind in ["FOOT", "TRAFFIC", "ROAD"]
-		valid = valid and (link.kind != "ROAD" or link.width_m > 0.0)
+		valid = valid and (link.kind != "ROAD" or (
+			is_finite(link.width_m) and link.width_m > 0.0))
 
 	return { "valid": valid, "anchors": anchors, "links": links }
 

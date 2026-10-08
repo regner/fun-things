@@ -40,6 +40,7 @@ func _run() -> void:  # gdstyle:ignore=quality/max-local-variables
 	controller_points.west_to_south = _json_points(city.route("TRAFFIC",
 		&"s06/lane/east", &"s06/lane/south").world_points_m)
 	_passive_and_map_checks(fixture, city)
+	_road_width_counterexamples(city)
 	_saved_counterexamples(fixture, city)
 	_expect(city.validate_content() == "OK", "restored content admitted")
 
@@ -203,3 +204,25 @@ func _passive_and_map_checks(fixture: S06Fixture, city: S06City) -> void:
 		"invalid bake clears minimap drawing")
 	city.derived = original
 	_expect(minimap.bind_city(city) == "OK", "restored minimap admitted")
+
+
+## Refuses literal nonfinite/nonpositive ROAD widths through explicit bake and public APIs.
+func _road_width_counterexamples(city: S06City) -> void:
+	var link: S06Link = city.get_node("Sectors/West/Topology/RoadWestLink")
+	var original_width: float = link.width_m
+	var original_bake: S06Bake = city.derived
+	for width: float in [INF, NAN, 0.0, -1.0]:
+		link.width_m = width
+		var invalid_bake: S06Bake = city.bake_content()
+		var label: String = "invalid road width %s" % str(width)
+		_expect(invalid_bake == null, label + " bake refused")
+		if invalid_bake != null:
+			city.derived = invalid_bake
+		_expect(city.validate_content() == "CONTENT_INVALID", label + " admission refused")
+		_expect(city.map_data().code == "CONTENT_INVALID", label + " map refused")
+		_expect(city.route("FOOT", &"s06/foot/west",
+			&"s06/foot/east").code == "CONTENT_INVALID", label + " route refused")
+		link.width_m = original_width
+		city.derived = original_bake
+
+	_expect(city.validate_content() == "OK", "restored width9 admission")
