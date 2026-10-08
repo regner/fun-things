@@ -233,6 +233,8 @@ def main():
         "late_hydrated_drawn": any(png["stage"] == "hydrated" and png["save_error"] == 0
                                    for png in observations.get("late", {}).get("captures", [])),
         "reaped": reaped, "inputs_preserved": unchanged,
+        # Staging copies the working tree, so only clean inputs bind evidence to the revision.
+        "clean_inputs": not dirty,
     }
     result["criteria"] = criteria
     result["ok"] = all(criteria.values())
