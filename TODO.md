@@ -270,7 +270,7 @@ is a subsequent bounded supplement; completed DOC1–11 are not reopened.
   Needs: exact accepted Git revisions and full report/JSON note identities in
   [delta ledger](docs/reviews/plan-check-08-evidence/accepted-delta-122.json);
   report31950 bytes/SHA4d0e1a4b863411b80ceb7fa071332a96362ba395974ee72b25ac38baff5602b2.
-  Distinguish exact TPZ/import/export0/static46-map positives from ignored observer/
+  Distinguish exact TPZ/import/export0/static46-member/22-map positives from ignored observer/
   missing-role exit1/no receipt/never-started ENet and STOP. Discover existing S08
   ownership of supported entrypoint and RELEASE assert-side-effect prerequisites;
   do not invent a working recipe or authorize fixture changes/retry/production work.
@@ -527,8 +527,8 @@ implementation. Save editor mutations before playtests; preserve unsaved work.
   cost substitute. Capability research/run-sheet preparation can
   proceed earlier; stand-ins cannot certify missing gameplay or residency costs.
   [Eighth checkpoint readiness/options](docs/reviews/plan-check-2026-10-08-08.md#readiness-and-next-trigger)
-  distinguishes stopped drawability from accepted S08 preparation and its pending
-  isolated root commission, alongside limited S07 static preparation. No experiment
+  distinguishes stopped drawability from accepted S08 preparation and exact1229782
+  stopped observation/full asset-ENet gates OPEN, alongside limited S07 static preparation. No experiment
   is allocated by this plan; diagnose limits before simple interventions, and select scene/asset structure only from evidence.
   Physical LCD/OLED and real Steam cases remain DEFERRED with S08/S03-S availability;
   desktop results name their hardware and cannot select Deck budgets/renderer or
@@ -563,7 +563,7 @@ implementation. Save editor mutations before playtests; preserve unsaved work.
   correction. Exact `122978243dba25b3fb5d8d90fc50ffb1a468ecf5`/base93da622 is
   ACCEPT_STOPPED_EVIDENCE, sole Sol HIGH reviewer40c83e6a, full report/retention MET:
   temporary exact TPZ acquisition/member hashes, scratch import/release export exit0
-  and static46 logical package mappings pass. The exact first exported `--script`
+  and static46 PCK members/22 logical resource mappings pass. The exact first exported `--script`
   invocation ignored the observer and ran unchanged S03 boot without role: exit1,
   no S08 receipt. ENet/proxy/host/client never created; STOP/no fix/re-export/retry grant.
   Static membership does not prove asset runtime semantics. Prior lead076a388a,
