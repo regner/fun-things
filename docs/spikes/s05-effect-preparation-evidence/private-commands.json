@@ -1,0 +1,87 @@
+[
+  {
+    "label": "private-help",
+    "argv": [
+      "/usr/bin/blender",
+      "--help"
+    ],
+    "env_overrides": {
+      "ALSOFT_DRIVERS": "null",
+      "BLENDER_USER_RESOURCES": "/tmp/s05-private-blender-check-kh4tci26/blender_user_resources",
+      "BLENDER_USER_CONFIG": "/tmp/s05-private-blender-check-kh4tci26/blender_user_config",
+      "BLENDER_USER_EXTENSIONS": "/tmp/s05-private-blender-check-kh4tci26/blender_user_extensions",
+      "BLENDER_USER_SCRIPTS": "/tmp/s05-private-blender-check-kh4tci26/blender_user_scripts",
+      "BLENDER_USER_DATAFILES": "/tmp/s05-private-blender-check-kh4tci26/blender_user_datafiles",
+      "XDG_CONFIG_HOME": "/tmp/s05-private-blender-check-kh4tci26/xdg_config_home",
+      "XDG_DATA_HOME": "/tmp/s05-private-blender-check-kh4tci26/xdg_data_home",
+      "XDG_CACHE_HOME": "/tmp/s05-private-blender-check-kh4tci26/xdg_cache_home"
+    },
+    "timeout_s": 45,
+    "termination": [],
+    "owned_pid": 3,
+    "exit_code": 0,
+    "reaped": true
+  },
+  {
+    "label": "private-probe",
+    "argv": [
+      "/usr/bin/blender",
+      "--background",
+      "--factory-startup",
+      "--python-exit-code",
+      "1",
+      "/home/regner/.paseo/worktrees/0u71f39f/s05-source-linked-effect-preparation/art/source/models/spikes/s05_explosion_carrier.blend",
+      "--python",
+      "/home/regner/.paseo/worktrees/0u71f39f/s05-source-linked-effect-preparation/docs/spikes/s05-effect-preparation-evidence/source_probe.py",
+      "--",
+      "/home/regner/.paseo/worktrees/0u71f39f/s05-source-linked-effect-preparation/docs/spikes/s05-effect-preparation-evidence/private-probe.json"
+    ],
+    "env_overrides": {
+      "ALSOFT_DRIVERS": "null",
+      "BLENDER_USER_RESOURCES": "/tmp/s05-private-blender-check-kh4tci26/blender_user_resources",
+      "BLENDER_USER_CONFIG": "/tmp/s05-private-blender-check-kh4tci26/blender_user_config",
+      "BLENDER_USER_EXTENSIONS": "/tmp/s05-private-blender-check-kh4tci26/blender_user_extensions",
+      "BLENDER_USER_SCRIPTS": "/tmp/s05-private-blender-check-kh4tci26/blender_user_scripts",
+      "BLENDER_USER_DATAFILES": "/tmp/s05-private-blender-check-kh4tci26/blender_user_datafiles",
+      "XDG_CONFIG_HOME": "/tmp/s05-private-blender-check-kh4tci26/xdg_config_home",
+      "XDG_DATA_HOME": "/tmp/s05-private-blender-check-kh4tci26/xdg_data_home",
+      "XDG_CACHE_HOME": "/tmp/s05-private-blender-check-kh4tci26/xdg_cache_home"
+    },
+    "timeout_s": 45,
+    "termination": [],
+    "owned_pid": 4,
+    "exit_code": 0,
+    "reaped": true
+  },
+  {
+    "label": "private-export",
+    "argv": [
+      "/usr/bin/blender",
+      "--background",
+      "--factory-startup",
+      "--python-exit-code",
+      "1",
+      "/home/regner/.paseo/worktrees/0u71f39f/s05-source-linked-effect-preparation/art/source/models/spikes/s05_explosion_carrier.blend",
+      "--python",
+      "/home/regner/.paseo/worktrees/0u71f39f/s05-source-linked-effect-preparation/docs/spikes/s05-effect-preparation-evidence/export.py",
+      "--",
+      "/tmp/s05-private-blender-check-kh4tci26/private.glb"
+    ],
+    "env_overrides": {
+      "ALSOFT_DRIVERS": "null",
+      "BLENDER_USER_RESOURCES": "/tmp/s05-private-blender-check-kh4tci26/blender_user_resources",
+      "BLENDER_USER_CONFIG": "/tmp/s05-private-blender-check-kh4tci26/blender_user_config",
+      "BLENDER_USER_EXTENSIONS": "/tmp/s05-private-blender-check-kh4tci26/blender_user_extensions",
+      "BLENDER_USER_SCRIPTS": "/tmp/s05-private-blender-check-kh4tci26/blender_user_scripts",
+      "BLENDER_USER_DATAFILES": "/tmp/s05-private-blender-check-kh4tci26/blender_user_datafiles",
+      "XDG_CONFIG_HOME": "/tmp/s05-private-blender-check-kh4tci26/xdg_config_home",
+      "XDG_DATA_HOME": "/tmp/s05-private-blender-check-kh4tci26/xdg_data_home",
+      "XDG_CACHE_HOME": "/tmp/s05-private-blender-check-kh4tci26/xdg_cache_home"
+    },
+    "timeout_s": 45,
+    "termination": [],
+    "owned_pid": 38,
+    "exit_code": 0,
+    "reaped": true
+  }
+]

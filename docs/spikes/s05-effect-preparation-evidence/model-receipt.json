@@ -1,0 +1,102 @@
+{
+  "status": "running",
+  "snapshot": {
+    "id": "92400a44-fc12-400a-a0d0-126e7f8f984e",
+    "provider": "codex",
+    "cwd": "/home/regner/.paseo/worktrees/0u71f39f/s05-source-linked-effect-preparation",
+    "workspaceId": "wks_437a9484cd5db686",
+    "model": "gpt-6.1-sol",
+    "thinkingOptionId": "high",
+    "effectiveThinkingOptionId": "high",
+    "runtimeInfo": {
+      "provider": "codex",
+      "sessionId": "01a11a41-135e-7de1-9b72-59f7193bd894",
+      "model": "gpt-6.1-sol",
+      "thinkingOptionId": "high",
+      "modeId": "auto-review",
+      "extra": {
+        "collaborationMode": "Default"
+      }
+    },
+    "createdAt": "2026-10-08T06:43:54.843Z",
+    "updatedAt": "2026-10-08T06:54:01.349Z",
+    "lastUserMessageAt": "2026-10-08T06:46:14.733Z",
+    "status": "running",
+    "activeTurn": {
+      "turnId": "codex-turn-1",
+      "startedAt": "2026-10-08T06:46:14.679Z"
+    },
+    "capabilities": {
+      "supportsStreaming": true,
+      "supportsSessionPersistence": true,
+      "supportsSessionListing": true,
+      "supportsDynamicModes": false,
+      "supportsMcpServers": true,
+      "supportsReasoningStream": true,
+      "supportsToolInvocations": true,
+      "supportsRewindConversation": true,
+      "supportsRewindFiles": false,
+      "supportsRewindBoth": false
+    },
+    "currentModeId": "auto-review",
+    "availableModes": [
+      {
+        "id": "auto",
+        "label": "Default Permissions",
+        "description": "Edit files and run commands with Codex's default approval flow."
+      },
+      {
+        "id": "auto-review",
+        "label": "Auto-review",
+        "description": "Same workspace-write permissions as Default, but eligible `on-request` approvals are routed through the auto-reviewer subagent."
+      },
+      {
+        "id": "full-access",
+        "label": "Full Access",
+        "description": "Edit files, run commands, and access the network without additional prompts."
+      }
+    ],
+    "features": [
+      {
+        "type": "toggle",
+        "id": "plan_mode",
+        "label": "Plan",
+        "description": "Switch Codex into planning-only collaboration mode",
+        "tooltip": "Toggle plan mode",
+        "icon": "list-todo",
+        "value": false
+      }
+    ],
+    "pendingPermissions": [],
+    "persistence": {
+      "provider": "codex",
+      "sessionId": "01a11a41-135e-7de1-9b72-59f7193bd894",
+      "nativeHandle": "01a11a41-135e-7de1-9b72-59f7193bd894",
+      "metadata": {
+        "provider": "codex",
+        "cwd": "/home/regner/.paseo/worktrees/0u71f39f/s05-source-linked-effect-preparation",
+        "title": "S05 Blender-sourced explosion carrier preparation",
+        "threadId": "01a11a41-135e-7de1-9b72-59f7193bd894",
+        "modeId": "auto-review",
+        "model": "gpt-6.1-sol",
+        "thinkingOptionId": "high",
+        "asyncQuestions": []
+      }
+    },
+    "title": "S05 Blender-sourced explosion carrier preparation",
+    "labels": {
+      "paseo.parent-agent-id": "b70ce3b8-b419-45da-bcc2-7d8262abb0e8",
+      "paseo.open-agent-tab.cid_9014d22cefaf4338ad8bf78caf943dd3": "true"
+    },
+    "lastUsage": {
+      "inputTokens": 158894,
+      "cachedInputTokens": 154112,
+      "outputTokens": 658,
+      "contextWindowMaxTokens": 258400,
+      "contextWindowUsedTokens": 159552
+    },
+    "requiresAttention": false,
+    "attentionReason": null,
+    "attentionTimestamp": null
+  }
+}

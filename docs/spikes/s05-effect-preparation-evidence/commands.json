@@ -1,0 +1,162 @@
+{
+  "scratch": "/tmp/s05-source-preparation-qbalpk7w",
+  "commands": [
+    {
+      "label": "version",
+      "argv": [
+        "/usr/bin/blender",
+        "--version"
+      ],
+      "cwd": "/home/regner/.paseo/worktrees/0u71f39f/s05-source-linked-effect-preparation",
+      "env_overrides": {
+        "ALSOFT_DRIVERS": "null",
+        "XDG_CACHE_HOME": "/tmp/s05-source-preparation-qbalpk7w/cache",
+        "BLENDER_USER_CONFIG": "/tmp/s05-source-preparation-qbalpk7w/config"
+      },
+      "timeout_s": 45,
+      "termination": [],
+      "started_unix": 1791442174.0242155,
+      "owned_pid": 3,
+      "exit_code": 0,
+      "reaped": true,
+      "ended_unix": 1791442174.238132
+    },
+    {
+      "label": "author",
+      "argv": [
+        "/usr/bin/blender",
+        "--background",
+        "--factory-startup",
+        "--python-exit-code",
+        "1",
+        "--python",
+        "/home/regner/.paseo/worktrees/0u71f39f/s05-source-linked-effect-preparation/docs/spikes/s05-effect-preparation-evidence/author.py"
+      ],
+      "cwd": "/home/regner/.paseo/worktrees/0u71f39f/s05-source-linked-effect-preparation",
+      "env_overrides": {
+        "ALSOFT_DRIVERS": "null",
+        "XDG_CACHE_HOME": "/tmp/s05-source-preparation-qbalpk7w/cache",
+        "BLENDER_USER_CONFIG": "/tmp/s05-source-preparation-qbalpk7w/config"
+      },
+      "timeout_s": 45,
+      "termination": [],
+      "started_unix": 1791442174.2383623,
+      "owned_pid": 4,
+      "exit_code": 0,
+      "reaped": true,
+      "ended_unix": 1791442174.9030278
+    },
+    {
+      "label": "source-probe",
+      "argv": [
+        "/usr/bin/blender",
+        "--background",
+        "--factory-startup",
+        "--python-exit-code",
+        "1",
+        "/home/regner/.paseo/worktrees/0u71f39f/s05-source-linked-effect-preparation/art/source/models/spikes/s05_explosion_carrier.blend",
+        "--python",
+        "/home/regner/.paseo/worktrees/0u71f39f/s05-source-linked-effect-preparation/docs/spikes/s05-effect-preparation-evidence/source_probe.py",
+        "--",
+        "/home/regner/.paseo/worktrees/0u71f39f/s05-source-linked-effect-preparation/docs/spikes/s05-effect-preparation-evidence/source-probe.json"
+      ],
+      "cwd": "/home/regner/.paseo/worktrees/0u71f39f/s05-source-linked-effect-preparation",
+      "env_overrides": {
+        "ALSOFT_DRIVERS": "null",
+        "XDG_CACHE_HOME": "/tmp/s05-source-preparation-qbalpk7w/cache",
+        "BLENDER_USER_CONFIG": "/tmp/s05-source-preparation-qbalpk7w/config"
+      },
+      "timeout_s": 45,
+      "termination": [],
+      "started_unix": 1791442174.9032488,
+      "owned_pid": 43,
+      "exit_code": 0,
+      "reaped": true,
+      "ended_unix": 1791442175.4678686
+    },
+    {
+      "label": "export",
+      "argv": [
+        "/usr/bin/blender",
+        "--background",
+        "--factory-startup",
+        "--python-exit-code",
+        "1",
+        "/home/regner/.paseo/worktrees/0u71f39f/s05-source-linked-effect-preparation/art/source/models/spikes/s05_explosion_carrier.blend",
+        "--python",
+        "/home/regner/.paseo/worktrees/0u71f39f/s05-source-linked-effect-preparation/docs/spikes/s05-effect-preparation-evidence/export.py",
+        "--",
+        "/tmp/s05-source-preparation-qbalpk7w/first.glb"
+      ],
+      "cwd": "/home/regner/.paseo/worktrees/0u71f39f/s05-source-linked-effect-preparation",
+      "env_overrides": {
+        "ALSOFT_DRIVERS": "null",
+        "XDG_CACHE_HOME": "/tmp/s05-source-preparation-qbalpk7w/cache",
+        "BLENDER_USER_CONFIG": "/tmp/s05-source-preparation-qbalpk7w/config"
+      },
+      "timeout_s": 45,
+      "termination": [],
+      "started_unix": 1791442175.4682088,
+      "owned_pid": 77,
+      "exit_code": 0,
+      "reaped": true,
+      "ended_unix": 1791442176.0828874
+    },
+    {
+      "label": "reopen-export",
+      "argv": [
+        "/usr/bin/blender",
+        "--background",
+        "--factory-startup",
+        "--python-exit-code",
+        "1",
+        "/home/regner/.paseo/worktrees/0u71f39f/s05-source-linked-effect-preparation/art/source/models/spikes/s05_explosion_carrier.blend",
+        "--python",
+        "/home/regner/.paseo/worktrees/0u71f39f/s05-source-linked-effect-preparation/docs/spikes/s05-effect-preparation-evidence/export.py",
+        "--",
+        "/tmp/s05-source-preparation-qbalpk7w/reopen.glb"
+      ],
+      "cwd": "/home/regner/.paseo/worktrees/0u71f39f/s05-source-linked-effect-preparation",
+      "env_overrides": {
+        "ALSOFT_DRIVERS": "null",
+        "XDG_CACHE_HOME": "/tmp/s05-source-preparation-qbalpk7w/cache",
+        "BLENDER_USER_CONFIG": "/tmp/s05-source-preparation-qbalpk7w/config"
+      },
+      "timeout_s": 45,
+      "termination": [],
+      "started_unix": 1791442176.0832844,
+      "owned_pid": 111,
+      "exit_code": 0,
+      "reaped": true,
+      "ended_unix": 1791442176.6980135
+    },
+    {
+      "label": "reopen-probe",
+      "argv": [
+        "/usr/bin/blender",
+        "--background",
+        "--factory-startup",
+        "--python-exit-code",
+        "1",
+        "/home/regner/.paseo/worktrees/0u71f39f/s05-source-linked-effect-preparation/art/source/models/spikes/s05_explosion_carrier.blend",
+        "--python",
+        "/home/regner/.paseo/worktrees/0u71f39f/s05-source-linked-effect-preparation/docs/spikes/s05-effect-preparation-evidence/source_probe.py",
+        "--",
+        "/home/regner/.paseo/worktrees/0u71f39f/s05-source-linked-effect-preparation/docs/spikes/s05-effect-preparation-evidence/reopen-probe.json"
+      ],
+      "cwd": "/home/regner/.paseo/worktrees/0u71f39f/s05-source-linked-effect-preparation",
+      "env_overrides": {
+        "ALSOFT_DRIVERS": "null",
+        "XDG_CACHE_HOME": "/tmp/s05-source-preparation-qbalpk7w/cache",
+        "BLENDER_USER_CONFIG": "/tmp/s05-source-preparation-qbalpk7w/config"
+      },
+      "timeout_s": 45,
+      "termination": [],
+      "started_unix": 1791442176.6983607,
+      "owned_pid": 145,
+      "exit_code": 0,
+      "reaped": true,
+      "ended_unix": 1791442177.262852
+    }
+  ]
+}

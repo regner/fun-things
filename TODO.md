@@ -456,6 +456,9 @@ implementation. Save editor mutations before playtests; preserve unsaved work.
   Remaining bounded acceptance: authored explosion presentation exercising eight
   cosmetic slots with drawn receipts under a separately named drawable lease;
   current evidence proves eight token reservations/four drops, not visible effects.
+  [Provisional source preparation](docs/spikes/s05-effect-preparation.md) adds one
+  provisional new Blender carrier/explicit GLB only; Godot import, saved presentation
+  and actual eight-effect drawable/saturation/live-versus-hydrated gates remain pending.
   Actual public API/ENet host/live/settled-late health0/0/100, retired-ShotId negative,
   twelve-car144visits/4 per tick, normal queue5/46ticks and pressure queue12/tick41
   are accepted finite outcomes. Occupant sentinel is not an admitted player; only
