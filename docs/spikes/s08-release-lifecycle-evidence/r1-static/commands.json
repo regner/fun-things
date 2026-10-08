@@ -1,0 +1,61 @@
+{
+  "static_only": true,
+  "measured_set_changes": false,
+  "runtime_attempts_remaining": 0,
+  "executed_source_identities": [
+    {
+      "path": "tools/s08/lifecycle_diagnostic.py",
+      "bytes": 16160,
+      "sha256": "044c31f33fe2b5cf5dffba0f7fe43054f5597634ff7925f8efbb9b4e794a23a6"
+    },
+    {
+      "path": "tools/s08/lifecycle_cadence_test.py",
+      "bytes": 2032,
+      "sha256": "263f2f214d0f70b6a91f16ae1412376a2f94147fe215a6bb2c92347a132b298b"
+    },
+    {
+      "path": "tools/run_s03.py",
+      "bytes": 12262,
+      "sha256": "5ff2e01b063b3834c950d660e463aeed9735aa677d5a8864b5f5b162a05983bd"
+    },
+    {
+      "path": "tools/s08/lifecycle_edits.py",
+      "bytes": 5915,
+      "sha256": "33f62445a4e1cc451da8f329d7183926cd41410c85aa71bc919e94cccbd12e86"
+    }
+  ],
+  "commands": [
+    {
+      "label": "literal-cadence",
+      "argv": [
+        "python3",
+        "tools/s08/lifecycle_cadence_test.py"
+      ],
+      "cwd": "/home/regner/.paseo/worktrees/0u71f39f/s08-release-lifecycle-diagnosis",
+      "exit": 0
+    },
+    {
+      "label": "compile",
+      "argv": [
+        "python3",
+        "-m",
+        "py_compile",
+        "tools/s08/lifecycle_diagnostic.py",
+        "tools/s08/lifecycle_cadence_test.py"
+      ],
+      "cwd": "/home/regner/.paseo/worktrees/0u71f39f/s08-release-lifecycle-diagnosis",
+      "exit": 0
+    },
+    {
+      "label": "inverse",
+      "argv": [
+        "python3",
+        "tools/s08/lifecycle_edits.py",
+        "--verify",
+        "."
+      ],
+      "cwd": "/home/regner/.paseo/worktrees/0u71f39f/s08-release-lifecycle-diagnosis",
+      "exit": 0
+    }
+  ]
+}

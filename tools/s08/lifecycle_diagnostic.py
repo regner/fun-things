@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""One log-only debug ENet diagnostic, with one absolute setup/runtime/cleanup deadline."""
+"""Bounded ENet lifecycle observer; future UDP servicing uses the original shared cadence."""
 import argparse
 import hashlib
 import json
@@ -15,7 +15,7 @@ import traceback
 ROOT = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(ROOT / 'tools'))
 sys.path.insert(0, str(ROOT / 'tools/s08'))
-from run_s03 import Proxy
+from run_s03 import Proxy, POLL_SECONDS
 from handoff_cleanup import cleanup
 from observe import environment
 
@@ -265,7 +265,7 @@ def main():
             if any(child.poll() is not None for child in children):
                 if any(role not in results for role in observed_exits):
                     raise RuntimeError('child exit before result')
-            time.sleep(0.01)
+            time.sleep(POLL_SECONDS)
         else:
             record['failure'] = '20s aggregate work deadline'
         record.update(results=results, traffic=observed.counts, proxy_count=proxy.count,

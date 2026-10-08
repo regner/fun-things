@@ -14,10 +14,12 @@ from missing temporary files or recursively packed. Prior STOPs remain failures.
 
 ## Current result and material source correction
 
-Both new diagnostic sets complete the original S03 gameplay matrix. RELEASE remains
-**strict diagnostic FAIL** with two host/six client `tree_exited` errors. No gameplay
-fix is implemented, historical stalling is not reproduced, and no sole cause is
-claimed. The original S08 saved main/assets were not rerun.
+Both new diagnostic sets complete the original S03 gameplay matrix **under an
+unplanned10ms UDP service cadence**. Their **scheduling-preservation/grant-compliance
+criterion FAILS**; neither set is certified as telemetry-only or20ms-equivalent.
+RELEASE remains **strict diagnostic FAIL** with two host/six client `tree_exited`
+errors. No gameplay fix is implemented, historical stalling is not reproduced, and
+no sole cause is claimed. The original S08 saved main/assets were not rerun.
 
 **Superseded interpretation:** the initial bound-versus-unbound callable observation
 below is NOT a demonstrated cache identity mismatch. Follow-through of exact dev7
@@ -28,6 +30,34 @@ The earlier tentative interpretation remains in protocol commit `79997a5` and ra
 coordination history, explicitly superseded here. Native SceneCache owns the signal
 operations; the release-only registration/comparison failure mechanism is still
 unproved. This correction must accompany any downstream handoff.
+
+## R1: unplanned servicing condition and stopped scope disposition
+
+The sole independent initial review of `1d5debf0b15cfc9de3e3868a648cc5b5b8488378`
+against `30471e6ae4c4ecbe01ce13313cd6d14c3b701bae` found R1/P2: actual supervisors
+at `f178c70efb657ea9fba5951d9440c23c761aea31` and
+`a5756b4b6126a5c9756de981b39fdadc35f3c8fe` poll/forward UDP then sleep10ms, versus
+original `tools/run_s03.POLL_SECONDS`20ms. Independent fake-clock/socket evidence
+shows one packet available at5ms can be forwarded at10ms versus20ms. Preserving
+fault event order is not transport service timing preservation. No causation is inferred.
+
+ROOT accepts these two sets **ONLY as truthful qualified partial observations**.
+This is NOT retroactive authorization/compliance, a20ms equivalence claim or any
+waiver of original transport/clean-release/S08/P0 criteria. Actual gameplay receipts
+are narrow positives under10ms. Strict runtime diagnostic failures and historical
+uninstrumented stalling remain separate/open. Both actual sets/source bytes and
+all predeclarations/reports remain unchanged; any whole-phase "telemetry-only/no
+scheduling change" claim in them is explicitly **SUPERSEDED/FAILED**, not erased.
+Exact inverse recovery still establishes preserved saved GDScript statements, not
+that logging/new callbacks or the whole measurement are timing-neutral.
+
+ROOT authorized only a narrow offline source correction: final `lifecycle_diagnostic.py`
+consumes the existing `tools/run_s03.POLL_SECONDS` owner instead of literal0.01.
+`lifecycle_cadence_test.py` independently requires literal0.020 in that owner and
+rejects the recorded0.01 consumer regression. This is **restored/unexecuted20ms
+source for FUTURE separately commissioned use**, not a gameplay/native fix, measured
+validation or replacement of the executed10ms condition. No new runtime/editor/export
+attempt is authorized. Same reviewer assesses this scope/result/source correction.
 
 ## Phase A: ownership and initial tentative interpretation (superseded)
 
@@ -51,6 +81,11 @@ and IDLE on the client. Historical logs contain neither held-step progression no
 close reason/time. No causal gameplay correction is demonstrated yet.
 
 ## Committed diagnostic condition (not a fix)
+
+**Historical predeclaration, preserved verbatim below; whole-phase scheduling
+preservation failed as R1 records above.** Saved-script preservation is narrower
+than preservation of transport servicing. The following original schedule promises
+are not certified as met.
 
 ROOT separately authorized one DEBUG diagnostic set before a fix. Only additive
 telemetry in saved S03 Proof and Session is proposed: public close-start signal,

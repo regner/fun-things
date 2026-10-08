@@ -152,6 +152,16 @@
     "python-compile.stdout",
     "python-final.stderr",
     "python-final.stdout",
+    "r1-static/commands.json",
+    "r1-static/compile.stderr",
+    "r1-static/compile.stdout",
+    "r1-static/initial-ref.command.json",
+    "r1-static/initial-ref.stderr",
+    "r1-static/initial-ref.stdout",
+    "r1-static/inverse.stderr",
+    "r1-static/inverse.stdout",
+    "r1-static/literal-cadence.stderr",
+    "r1-static/literal-cadence.stdout",
     "raw-requirements.md",
     "raw-user-messages.json",
     "rebase-commands.json",
@@ -233,8 +243,8 @@
   "payloads": [
     {
       "path": "README.md",
-      "bytes": 3432,
-      "sha256": "6c45af3494806e10d2578cbbccc9cc557ef9b0a287a505d036e6e65e9bc993e7",
+      "bytes": 4008,
+      "sha256": "d8bdb065d59e7a0fb92150cd3da92b9f23347e465cc9d0523d22dd478639275a",
       "required_empty": false
     },
     {
@@ -1132,15 +1142,75 @@
       "required_empty": true
     },
     {
+      "path": "r1-static/commands.json",
+      "bytes": 1617,
+      "sha256": "c8e97ff3a55e887b8a77c7b7caabd681b341a7dffa30c83a44a662b667537fbb",
+      "required_empty": false
+    },
+    {
+      "path": "r1-static/compile.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "required_empty": true
+    },
+    {
+      "path": "r1-static/compile.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "required_empty": true
+    },
+    {
+      "path": "r1-static/initial-ref.command.json",
+      "bytes": 233,
+      "sha256": "14b8e2713ac5fae9fd5dbb6e0bf1e3f81c3d0dffd5bfb86ff96ff426c89df542",
+      "required_empty": false
+    },
+    {
+      "path": "r1-static/initial-ref.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "required_empty": true
+    },
+    {
+      "path": "r1-static/initial-ref.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "required_empty": true
+    },
+    {
+      "path": "r1-static/inverse.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "required_empty": true
+    },
+    {
+      "path": "r1-static/inverse.stdout",
+      "bytes": 266,
+      "sha256": "7886c668c85159350b92daf12a0ff34acd287c3745d7a92056d591b53a6469b9",
+      "required_empty": false
+    },
+    {
+      "path": "r1-static/literal-cadence.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "required_empty": true
+    },
+    {
+      "path": "r1-static/literal-cadence.stdout",
+      "bytes": 73,
+      "sha256": "76d89247c1fde193729cb5957a13c2f6b4e948be8f396ae801ed622fa03e5a12",
+      "required_empty": false
+    },
+    {
       "path": "raw-requirements.md",
-      "bytes": 13433,
-      "sha256": "414a4674b74b0787d167865e3815a7822edd995e2b2f97af7db1a6132d71e677",
+      "bytes": 16137,
+      "sha256": "9c3aefdb2ecd9a168b578bdbee3cc238ddfc016142825da683d3c8e5fa60ca2c",
       "required_empty": false
     },
     {
       "path": "raw-user-messages.json",
-      "bytes": 14057,
-      "sha256": "baaede357fd11c55bac63b3739c595e31d95bd40f1f63d66447dae3f4a00b0d3",
+      "bytes": 16967,
+      "sha256": "04f3ee0029a7f01dd9e9fc116d17a988ee7378f08922069ca122e4bac7e77de8",
       "required_empty": false
     },
     {

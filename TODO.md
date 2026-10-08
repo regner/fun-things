@@ -263,9 +263,12 @@ feature expansion, repeated unchanged experiment or silent contract/pin change.
   [desktop preparation](docs/spikes/s08.md), [saved entrypoint/assets](docs/spikes/s08-standard-editor-release.md#bounded-addon-free-outcomes-and-exported-enet-stop)
   and [lifecycle diagnosis](docs/spikes/s08-release-lifecycle.md).
   Remaining desktop work: clean release native-cache teardown and the original saved
-  S08 main's full exported ENet proof. New minimal S03 release evidence completes
-  held/resync health70, authority/expiry, replication and observed traffic, but strict
-  diagnostics fail on two host/six client `tree_exited` errors. The historical
+  S08 main's full exported ENet proof. New minimal S03 release receipts complete
+  held/resync health70, authority/expiry, replication and observed traffic only under
+  an unplanned10ms UDP service cadence: scheduling/grant compliance FAILED, not
+  telemetry-only or20ms-equivalent. Restored20ms helper source is unexecuted and
+  any new use needs a separate grant; require original transport timing and clean
+  diagnostics. Current diagnostics fail on two host/six client `tree_exited` errors. The historical
   [saved-main stall](docs/spikes/s08-exported-enet-handoff.md#first-changed-condition-set-handoff-positive-runtime-stop)
   was not reproduced; no causal gameplay fix is established. Under a new scoped grant,
   localize actual release cache registration/comparison and the original entrypoint's

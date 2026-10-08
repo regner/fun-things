@@ -3,6 +3,14 @@
 Read [the task record](../s08-release-lifecycle.md), complete raw commissions in
 `raw-requirements.md` and verbatim own-session `raw-user-messages.json`.
 
+**R1 scope violation:** both actual sets service UDP at an unplanned10ms, not the
+original20ms. Scheduling/grant compliance FAILED. ROOT accepts only truthful
+qualified partial observations, not retroactive authorization/20ms equivalence or
+full transport/S08/P0 acceptance. Prior whole-phase telemetry-only/scheduling claims
+are SUPERSEDED; historical predeclarations/reports and measured bytes stay verbatim.
+Final helper uses the existing20ms owner for future separately granted use and has
+only offline literal regression checks; it has NOT been executed in another set.
+
 - `source/`: exact dev7 public sources. Later retrievals include complete argv,
   stdout bytes and stderr, including the failed wrong-path callable request.
   Earlier combined-tool retrieval streams/argv survive in
