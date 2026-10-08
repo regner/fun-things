@@ -1,0 +1,24 @@
+--- /tmp/orig_proof.gd	2026-10-08 20:35:24.958591300 +0100
++++ exp1/tests/fixtures/s03/proof.gd	2026-10-08 20:19:09.557233900 +0100
+@@ -368,6 +368,21 @@
+ 	data.close_outcome = session.close_outcome
+ 	data.session_deadline_ms = session.deadline_ms
+ 	data.case_deadline_ms = deadline_ms
++	var enet: ENetMultiplayerPeer = multiplayer.multiplayer_peer as ENetMultiplayerPeer
++	if enet != null:
++		var stats: Dictionary = {}
++		for pid: int in multiplayer.get_peers():
++			var pp: ENetPacketPeer = enet.get_peer(pid)
++			if pp != null:
++				stats[pid] = [pp.get_statistic(ENetPacketPeer.PEER_PACKET_THROTTLE),
++					pp.get_statistic(ENetPacketPeer.PEER_ROUND_TRIP_TIME),
++					pp.get_statistic(ENetPacketPeer.PEER_ROUND_TRIP_TIME_VARIANCE),
++					pp.get_statistic(ENetPacketPeer.PEER_PACKET_LOSS),
++					pp.get_statistic(ENetPacketPeer.PEER_PACKET_THROTTLE_LIMIT),
++					pp.get_statistic(ENetPacketPeer.PEER_PACKET_THROTTLE_ACCELERATION),
++					pp.get_statistic(ENetPacketPeer.PEER_PACKET_THROTTLE_DECELERATION),
++					pp.get_statistic(ENetPacketPeer.PEER_PACKET_THROTTLE_INTERVAL)]
++		data.enet = stats
+ 	print("S03 " + JSON.stringify(data))
+ 
+ 

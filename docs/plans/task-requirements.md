@@ -20,9 +20,12 @@ qualification and enough outcome detail for dispatch.
   deferred, not accepted. Eventual proof is admitted gameplay traffic over actual Steam,
   not lobby success or ENet through a lobby; testing waits for authorized access.
 - **S03-R:** Close drawn owned/remote response and feel; any separately commissioned
-  prediction must share simulation rules and exclude replay side effects.
+  prediction must share simulation rules and exclude replay side effects. Historical
+  response p95s were measured under the ENet bandwidth defect found in S08; re-measure
+  (Linux and the target platform) before using them for feel decisions.
 - **S04:** Ratify car handling, dimensions, recovery, seat/control and prediction choices;
-  rerun affected cases after S02 choices.
+  rerun affected cases after S02 choices. Historical response figures are confounded by
+  the S08 ENet defect; post-fix Windows normal exceeded the 500 ms response window.
 - **S05:** Disabled-VSync image attempt failed at endpoint-binding proof before live/late
   launch; no workload PNG/VSync evidence or image-review credit. Attempt consumed; no
   retry. Remaining full acceptance includes drawn eight-slot saturation and live-versus-
@@ -42,18 +45,18 @@ qualification and enough outcome detail for dispatch.
   four-rig codecs/journal/reset driver and named graphical telemetry. Comparator also
   needs genuine trial-reset and eight-effect draw receipts. No M1 completion mandate
   or proxy/empty-load acceptance; T is technical, R/G remain blocked, not waived.
-- **S08:** Current lifecycle runs used unplanned 10 ms servicing; scheduling/grant
-  compliance failed, so original 20 ms behavior is unproved. Release diagnostics failed
-  (2 host/6 client `tree_exited` errors); original saved-main stall was not rerun or fixed.
-  Restored 20 ms helper source is unexecuted. Next work: bounded cache-registration and
-  original-entrypoint stalled-boundary/close-reason diagnosis, then clean release proof.
-  Callable spelling alone is not an identity defect. [Source-first diagnosis](
-  ../spikes/s08-source-diagnosis.md) traces cache register/remove/reuse and original-S08-main
-  versus minimal-S03 closure, with competing unknowns and one UNEXECUTED diagnostic card.
-  Original 20 ms servicing and first-stall/close-reason evidence still require a separate grant.
-  Any runtime/native repair/pin decision needs a separate bounded commission, not an
-  unconditional repeat or credit from the source-only restoration. Export/target/Gaming Mode proof
-  remains open; Steam/device testing is deferred until access.
+- **S08:** The original-main 20 ms held/resync stall is explained and fixed: the
+  pinned `ENetMultiplayerPeer.create_server` passes its channel count as incoming
+  bandwidth, so client unreliable held input was throttled away. With the
+  S03Transport workaround, the exported saved S08 main passes the full matrix in
+  Windows RELEASE and DEBUG with zero diagnostics ([Windows record](
+  ../spikes/s08-windows-observation.md)). Remaining: a Linux re-run of the original main;
+  the Linux-only release `tree_exited` diagnostics (consistent with open upstream PR
+  #123998), which need an engine fix/pin decision, not `.bind` spelling or suppression;
+  export delivery/target compatibility; ENet with Steam uninstalled/stopped and
+  optional-service failure; Deck/Gaming Mode; graphical/input. Steam/device testing
+  is deferred until access. Historical card/records: [source-first diagnosis](
+  ../spikes/s08-source-diagnosis.md) and [lifecycle](../spikes/s08-release-lifecycle.md).
 - **P0-GATE:** Review foundations and ratify product scope, art/layout/camera/control,
   implementation contracts and budgets. Partial research/proofs are not acceptance;
   record unresolved items or explicit scope decisions. P0-PROFILES is not a prerequisite.

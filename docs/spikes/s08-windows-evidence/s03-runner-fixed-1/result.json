@@ -1,0 +1,129 @@
+{
+  "ok": true,
+  "engine": "4.8.dev7.official.c971f93e7",
+  "commands": {
+    "host": [
+      "C:\\Users\\regner.blokandersen\\AppData\\Local\\mise\\installs\\github-godotengine-godot-builds\\4.8-dev7\\godot.EXE",
+      "--headless",
+      "--path",
+      "C:\\tmp\\ft\\s03-fix-1\\project",
+      "--log-file",
+      "C:\\tmp\\ft\\s03-fix-1\\host\\logs\\engine.log",
+      "--",
+      "--role=host",
+      "--port=24680"
+    ],
+    "client": [
+      "C:\\Users\\regner.blokandersen\\AppData\\Local\\mise\\installs\\github-godotengine-godot-builds\\4.8-dev7\\godot.EXE",
+      "--headless",
+      "--path",
+      "C:\\tmp\\ft\\s03-fix-1\\project",
+      "--log-file",
+      "C:\\tmp\\ft\\s03-fix-1\\client\\logs\\engine.log",
+      "--",
+      "--role=client",
+      "--port=24681"
+    ]
+  },
+  "results": {
+    "client": {
+      "baseline_bytes": 0,
+      "case_deadline_ms": 10595,
+      "cases": [
+        "provider_substitution_late_cleanup",
+        "baseline_cancel_retry",
+        "held_window_resync",
+        "subset_reorder_loss_recovery"
+      ],
+      "clock_domain": "engine_elapsed_usec_pid_19760",
+      "close_outcome": "HOST_LOST",
+      "event": "result",
+      "max_held_bytes": 0,
+      "max_movement_bytes": 0,
+      "movement_received": 5,
+      "ok": true,
+      "operation": 5,
+      "phase": "IDLE",
+      "pid": 19760,
+      "role": "client",
+      "session_deadline_ms": 17716,
+      "steam_available": false,
+      "ticks_usec": 2733281,
+      "user_dir": "C:/tmp/ft/s03-fix-1/client/user/appdata/Godot/app_userdata/S03 contract proof"
+    },
+    "host": {
+      "baseline_bytes": 263,
+      "case_deadline_ms": 11052,
+      "cases": [
+        "provisional_rollback",
+        "authority_validation_and_expiry"
+      ],
+      "clock_domain": "engine_elapsed_usec_pid_25076",
+      "close_outcome": "LEFT",
+      "event": "result",
+      "max_held_bytes": 256,
+      "max_movement_bytes": 232,
+      "movement_received": 0,
+      "ok": true,
+      "operation": 2,
+      "phase": "IDLE",
+      "pid": 25076,
+      "role": "host",
+      "session_deadline_ms": 18049,
+      "steam_available": false,
+      "ticks_usec": 3082398,
+      "user_dir": "C:/tmp/ft/s03-fix-1/host/user/appdata/Godot/app_userdata/S03 contract proof"
+    }
+  },
+  "ready": {
+    "case_deadline_ms": 0,
+    "clock_domain": "engine_elapsed_usec_pid_25076",
+    "close_outcome": "",
+    "event": "ready",
+    "operation": 1,
+    "phase": "ACTIVE",
+    "pid": 25076,
+    "role": "host",
+    "session_deadline_ms": 15222,
+    "ticks_usec": 240884,
+    "user_dir": "C:/tmp/ft/s03-fix-1/host/user/appdata/Godot/app_userdata/S03 contract proof"
+  },
+  "proxy": [
+    "armed",
+    "hold_subset_A",
+    "deliver_B_then_A",
+    "drop_subset_A",
+    "refresh_subset",
+    "refresh_subset"
+  ],
+  "proxy_resets": 0,
+  "ports": {
+    "host": 24680,
+    "proxy": 24681
+  },
+  "platform": "Windows-11-10.0.26200-SP0",
+  "duration_seconds": 58.020793000236154,
+  "process_ids": [
+    25076,
+    19760
+  ],
+  "fixture_sha256": {
+    "tests/fixtures/s03/boot.tscn": "73d0a58b6450cbd26b6ccbce53d852b5b737ee3e76de3ecfb71f7aca1f71bec9",
+    "tests/fixtures/s03/entity.gd": "c886014a90fc4258ee964c5ba6cd1610ca6740d6f03ef993d20a874356755ba5",
+    "tests/fixtures/s03/entity.gd.uid": "81edf93e5288f82ace33bd2357c48536e69aaa5af588174179a2b189b86235b6",
+    "tests/fixtures/s03/entity.tscn": "e77ce114f1647862a5fa00bffc0f055aa4c64ac4e751ae74794493ea9276308b",
+    "tests/fixtures/s03/fake_transport.gd": "96f37b5ac9b0689c12105764ee826c4d7f18155b7ebd471cc427f66e3c499657",
+    "tests/fixtures/s03/fake_transport.gd.uid": "109e8258fb5a3834e9a08025d1660faad62a3fb71e096cadf34b4460577eb101",
+    "tests/fixtures/s03/local_rig.tscn": "5aa73ff396f149b5fde6f9e5e658271d8bbc1c4ad37728370992294a0865857d",
+    "tests/fixtures/s03/match.gd": "6aa3ca867e40248ba7695be3e87498f5005b5524df51028f8bc47d0849f67553",
+    "tests/fixtures/s03/match.gd.uid": "4f62dd8bee5d9449e5e3985fb819823c07d6f1321c29a2e6d101798ab4899226",
+    "tests/fixtures/s03/proof.gd": "d11cb9065b894c112b24a3d5c6b934c94696e9c3575e10dd2aa7f74499954ff1",
+    "tests/fixtures/s03/proof.gd.uid": "274ac1732eb697e7798dcdc080b2f74acf187025d9f13af7d4f85b2067b36c11",
+    "tests/fixtures/s03/replication.gd": "57f4a1312a50b7ad5706423f2491be151803f5438f484b21b3c9b80dc47db7ae",
+    "tests/fixtures/s03/replication.gd.uid": "84934d1bc91d62e44bfd68f90fd011b22a7c79c75dccafb69b509c4267bc7212",
+    "tests/fixtures/s03/session.gd": "bb77d7a0dd65ffd6d0e29da8489678cd3e24aa58470b026ea4f1570fd9ea84d7",
+    "tests/fixtures/s03/session.gd.uid": "577312815f85e86aed2fdfb83214a7b08aa71d52fa304b80caccb4b7bef0479b",
+    "tests/fixtures/s03/transport.gd": "536dbd62dbbb1bce933c29495b99b5aa68d85a44eb86446fcd62d63d0ae6e60c",
+    "tests/fixtures/s03/transport.gd.uid": "13b71af6193f49f136fcfabf98e6aa715dfaf1d30b8a7a7175ddf1aaebc44cb0"
+  }
+}

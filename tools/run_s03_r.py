@@ -78,6 +78,9 @@ class FootProxy:
                 data, source = self.socket.recvfrom(65535)
             except BlockingIOError:
                 break
+            except ConnectionResetError:
+                # Windows reports an earlier ICMP port-unreachable on the next receive.
+                continue
             direction = "down" if source == self.host else "up"
             if direction == "up":
                 if self.client is not None and source != self.client:

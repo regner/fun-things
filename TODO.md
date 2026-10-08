@@ -20,8 +20,8 @@
 - [ ] **S07 — Complete graphical map-capacity and growth measurements.** The sustained primary-T
   route driver is accepted; graphical capacity remains open. See [spike](docs/spikes/s07.md) and
   [driver result](docs/spikes/s07-sustained-driver.md).
-- [ ] **S08 — Complete release lifecycle diagnosis and target compatibility.** See
-  [spike](docs/spikes/s08.md) and [lifecycle record](docs/spikes/s08-release-lifecycle.md).
+- [ ] **S08 — Confirm Linux release lifecycle and target compatibility.** The 20 ms stall is
+  fixed and Windows release passes; see [Windows record](docs/spikes/s08-windows-observation.md).
 - [ ] **P0-GATE — Review foundation evidence and ratify the first milestone plan.**
   After: S02, S03-S, S03-R, S04, S05, S06, S07, S08.
 

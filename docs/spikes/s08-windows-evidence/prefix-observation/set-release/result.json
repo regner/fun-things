@@ -1,0 +1,476 @@
+{
+  "mode": "release",
+  "ok": false,
+  "failure": "host assertion: case deadline in ACTIVE",
+  "criteria": {
+    "s08_receipts": true,
+    "live_handoff": true,
+    "results_ok": false,
+    "host_cases": false,
+    "client_cases": false,
+    "exits_zero": false,
+    "proxy_schedule": false,
+    "distinct_users": false,
+    "no_diagnostics": true,
+    "reaped": true,
+    "within_absolute": true
+  },
+  "commands": {
+    "host": {
+      "argv": [
+        "C:\\tmp\\ft\\s08-win-02\\export-release\\FunThingsS08.exe",
+        "--headless",
+        "--log-file",
+        "C:\\tmp\\ft\\s08-win-02\\set-release\\host\\engine.log",
+        "--",
+        "--role=host",
+        "--port=24760"
+      ],
+      "pid": 62324,
+      "started_offset_seconds": 1.4323354000225663
+    },
+    "client": {
+      "argv": [
+        "C:\\tmp\\ft\\s08-win-02\\export-release\\FunThingsS08.exe",
+        "--headless",
+        "--log-file",
+        "C:\\tmp\\ft\\s08-win-02\\set-release\\client\\engine.log",
+        "--",
+        "--role=client",
+        "--port=24761"
+      ],
+      "pid": 67632,
+      "started_offset_seconds": 2.1570484000258148
+    }
+  },
+  "exits": {
+    "host": 1,
+    "client": 1
+  },
+  "readiness": {
+    "role": "host",
+    "prefix": "S03",
+    "event": "ready",
+    "parent_offset_seconds": 2.115742600057274,
+    "byte_offset": 22745,
+    "live": true
+  },
+  "handoff_seconds": 2.1570484000258148,
+  "results": {
+    "host": {
+      "case_deadline_ms": 9419,
+      "cases": [
+        "provisional_rollback"
+      ],
+      "clock_domain": "engine_elapsed_usec_pid_62324",
+      "close_outcome": "",
+      "event": "result",
+      "failure": "case deadline in ACTIVE",
+      "ok": false,
+      "operation": 1,
+      "phase": "ACTIVE",
+      "pid": 62324,
+      "role": "host",
+      "session_deadline_ms": 15558,
+      "ticks_usec": 9424403
+    }
+  },
+  "post_exit_results": {
+    "host": [
+      {
+        "case_deadline_ms": 9419,
+        "cases": [
+          "provisional_rollback"
+        ],
+        "clock_domain": "engine_elapsed_usec_pid_62324",
+        "close_outcome": "",
+        "event": "result",
+        "failure": "case deadline in ACTIVE",
+        "ok": false,
+        "operation": 1,
+        "phase": "ACTIVE",
+        "pid": 62324,
+        "role": "host",
+        "session_deadline_ms": 15558,
+        "ticks_usec": 9424403
+      }
+    ],
+    "client": [
+      {
+        "case_deadline_ms": 9097,
+        "cases": [
+          "provider_substitution_late_cleanup",
+          "baseline_cancel_retry"
+        ],
+        "clock_domain": "engine_elapsed_usec_pid_67632",
+        "close_outcome": "CANCELED",
+        "event": "result",
+        "failure": "case deadline in ACTIVE",
+        "ok": false,
+        "operation": 5,
+        "phase": "ACTIVE",
+        "pid": 67632,
+        "role": "client",
+        "session_deadline_ms": 15862,
+        "ticks_usec": 9117106
+      }
+    ]
+  },
+  "s08": {
+    "host": {
+      "ok": true,
+      "failures": [],
+      "user_dir": "C:/tmp/ft/s08-win-02/set-release/host/user/appdata/Godot/app_userdata/Fun Things",
+      "executable_sha256": "b538554df997ea699122d5b31f2ea8929301bcf3017e12dba664d85d351f60cd",
+      "role": "host"
+    },
+    "client": {
+      "ok": true,
+      "failures": [],
+      "user_dir": "C:/tmp/ft/s08-win-02/set-release/client/user/appdata/Godot/app_userdata/Fun Things",
+      "executable_sha256": "b538554df997ea699122d5b31f2ea8929301bcf3017e12dba664d85d351f60cd",
+      "role": "client"
+    }
+  },
+  "s08_check_counts": {
+    "host": 173,
+    "client": 173
+  },
+  "proxy": {
+    "events": [],
+    "count": 0
+  },
+  "service": {
+    "wakes": 400,
+    "max_gap_seconds": 0.2793815000914037,
+    "poll_seconds": 0.02
+  },
+  "diagnostics": {
+    "host": [],
+    "client": []
+  },
+  "cleanup": [],
+  "duration_seconds": 11.507738799788058,
+  "receipts": [
+    {
+      "role": "host",
+      "prefix": "S08",
+      "event": null,
+      "parent_offset_seconds": 2.094109899830073,
+      "byte_offset": 71,
+      "live": true
+    },
+    {
+      "role": "host",
+      "prefix": "S03",
+      "event": "session_changed",
+      "parent_offset_seconds": 2.0941252997145057,
+      "byte_offset": 22006,
+      "live": true
+    },
+    {
+      "role": "host",
+      "prefix": "S03",
+      "event": "completed",
+      "parent_offset_seconds": 2.1157240997999907,
+      "byte_offset": 22249,
+      "live": true
+    },
+    {
+      "role": "host",
+      "prefix": "S03",
+      "event": "session_changed",
+      "parent_offset_seconds": 2.115739199798554,
+      "byte_offset": 22504,
+      "live": true
+    },
+    {
+      "role": "host",
+      "prefix": "S03",
+      "event": "ready",
+      "parent_offset_seconds": 2.115742600057274,
+      "byte_offset": 22745,
+      "live": true
+    },
+    {
+      "role": "host",
+      "prefix": "S03",
+      "event": "simulation_observed",
+      "parent_offset_seconds": 2.1157466997392476,
+      "byte_offset": 23054,
+      "live": true
+    },
+    {
+      "role": "client",
+      "prefix": "S08",
+      "event": null,
+      "parent_offset_seconds": 2.7051939996890724,
+      "byte_offset": 71,
+      "live": true
+    },
+    {
+      "role": "client",
+      "prefix": "S03",
+      "event": "session_changed",
+      "parent_offset_seconds": 2.7053294996730983,
+      "byte_offset": 22010,
+      "live": true
+    },
+    {
+      "role": "client",
+      "prefix": "S03",
+      "event": "close_started",
+      "parent_offset_seconds": 2.705337299965322,
+      "byte_offset": 22255,
+      "live": true
+    },
+    {
+      "role": "client",
+      "prefix": "S03",
+      "event": "session_changed",
+      "parent_offset_seconds": 2.705339899752289,
+      "byte_offset": 22510,
+      "live": true
+    },
+    {
+      "role": "client",
+      "prefix": "S03",
+      "event": "completed",
+      "parent_offset_seconds": 2.7053413996472955,
+      "byte_offset": 22762,
+      "live": true
+    },
+    {
+      "role": "client",
+      "prefix": "S03",
+      "event": "session_changed",
+      "parent_offset_seconds": 2.705343300011009,
+      "byte_offset": 23034,
+      "live": true
+    },
+    {
+      "role": "client",
+      "prefix": "S03",
+      "event": "session_changed",
+      "parent_offset_seconds": 2.7053446997888386,
+      "byte_offset": 23286,
+      "live": true
+    },
+    {
+      "role": "client",
+      "prefix": "S03",
+      "event": "completed",
+      "parent_offset_seconds": 2.705346299801022,
+      "byte_offset": 23542,
+      "live": true
+    },
+    {
+      "role": "client",
+      "prefix": "S03",
+      "event": "session_changed",
+      "parent_offset_seconds": 2.705348199699074,
+      "byte_offset": 23810,
+      "live": true
+    },
+    {
+      "role": "client",
+      "prefix": "S03",
+      "event": "close_started",
+      "parent_offset_seconds": 2.7053497000597417,
+      "byte_offset": 24064,
+      "live": true
+    },
+    {
+      "role": "client",
+      "prefix": "S03",
+      "event": "session_changed",
+      "parent_offset_seconds": 2.705351300071925,
+      "byte_offset": 24314,
+      "live": true
+    },
+    {
+      "role": "client",
+      "prefix": "S03",
+      "event": "completed",
+      "parent_offset_seconds": 2.726615999825299,
+      "byte_offset": 24565,
+      "live": true
+    },
+    {
+      "role": "client",
+      "prefix": "S03",
+      "event": "session_changed",
+      "parent_offset_seconds": 2.726624199654907,
+      "byte_offset": 24829,
+      "live": true
+    },
+    {
+      "role": "client",
+      "prefix": "S03",
+      "event": "session_changed",
+      "parent_offset_seconds": 2.7483502998948097,
+      "byte_offset": 25077,
+      "live": true
+    },
+    {
+      "role": "host",
+      "prefix": "S03",
+      "event": "simulation_observed",
+      "parent_offset_seconds": 2.8581889998167753,
+      "byte_offset": 23471,
+      "live": true
+    },
+    {
+      "role": "client",
+      "prefix": "S03",
+      "event": "baseline_installed",
+      "parent_offset_seconds": 2.8824589997529984,
+      "byte_offset": 25331,
+      "live": true
+    },
+    {
+      "role": "client",
+      "prefix": "S03",
+      "event": "held_send",
+      "parent_offset_seconds": 2.882474699988961,
+      "byte_offset": 25588,
+      "live": true
+    },
+    {
+      "role": "host",
+      "prefix": "S03",
+      "event": "simulation_observed",
+      "parent_offset_seconds": 2.903841400053352,
+      "byte_offset": 24035,
+      "live": true
+    },
+    {
+      "role": "client",
+      "prefix": "S03",
+      "event": "held_receipt",
+      "parent_offset_seconds": 2.9261324000544846,
+      "byte_offset": 25862,
+      "live": true
+    },
+    {
+      "role": "client",
+      "prefix": "S03",
+      "event": "close_started",
+      "parent_offset_seconds": 2.94777960004285,
+      "byte_offset": 26137,
+      "live": true
+    },
+    {
+      "role": "client",
+      "prefix": "S03",
+      "event": "session_changed",
+      "parent_offset_seconds": 2.9477892997674644,
+      "byte_offset": 26395,
+      "live": true
+    },
+    {
+      "role": "host",
+      "prefix": "S03",
+      "event": "session_changed",
+      "parent_offset_seconds": 2.969041499774903,
+      "byte_offset": 24615,
+      "live": true
+    },
+    {
+      "role": "host",
+      "prefix": "S03",
+      "event": "simulation_observed",
+      "parent_offset_seconds": 2.969051199965179,
+      "byte_offset": 24860,
+      "live": true
+    },
+    {
+      "role": "client",
+      "prefix": "S03",
+      "event": "completed",
+      "parent_offset_seconds": 2.9694932997226715,
+      "byte_offset": 26650,
+      "live": true
+    },
+    {
+      "role": "client",
+      "prefix": "S03",
+      "event": "session_changed",
+      "parent_offset_seconds": 2.969500199891627,
+      "byte_offset": 26922,
+      "live": true
+    },
+    {
+      "role": "client",
+      "prefix": "S03",
+      "event": "session_changed",
+      "parent_offset_seconds": 3.078121899627149,
+      "byte_offset": 27174,
+      "live": true
+    },
+    {
+      "role": "host",
+      "prefix": "S03",
+      "event": "simulation_observed",
+      "parent_offset_seconds": 3.231104599777609,
+      "byte_offset": 25294,
+      "live": true
+    },
+    {
+      "role": "client",
+      "prefix": "S03",
+      "event": "baseline_installed",
+      "parent_offset_seconds": 3.2315397998318076,
+      "byte_offset": 27432,
+      "live": true
+    },
+    {
+      "role": "host",
+      "prefix": "S03",
+      "event": "session_changed",
+      "parent_offset_seconds": 3.297267399728298,
+      "byte_offset": 25874,
+      "live": true
+    },
+    {
+      "role": "host",
+      "prefix": "S03",
+      "event": "simulation_observed",
+      "parent_offset_seconds": 3.2972780000418425,
+      "byte_offset": 26119,
+      "live": true
+    },
+    {
+      "role": "client",
+      "prefix": "S03",
+      "event": "completed",
+      "parent_offset_seconds": 3.319435399957001,
+      "byte_offset": 27694,
+      "live": true
+    },
+    {
+      "role": "client",
+      "prefix": "S03",
+      "event": "session_changed",
+      "parent_offset_seconds": 3.319447800051421,
+      "byte_offset": 27963,
+      "live": true
+    },
+    {
+      "role": "client",
+      "prefix": "S03",
+      "event": "held_send",
+      "parent_offset_seconds": 3.319450299721211,
+      "byte_offset": 28218,
+      "live": true
+    },
+    {
+      "role": "host",
+      "prefix": "S03",
+      "event": "result",
+      "parent_offset_seconds": 10.958542000036687,
+      "byte_offset": 26698,
+      "live": true
+    }
+  ]
+}
