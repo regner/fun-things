@@ -2,8 +2,9 @@
 
 All phase streams are copied from distinct original files. Parsed `call-*.json`,
 result and summary records supplement raw stdout/stderr/engine/connector bytes.
-Empty files are retained explicitly in `index.json`; expected and actual sets are
-bound by byte count/SHA/readback. Sources and grants were committed before their
+Empty files are retained explicitly in [index.json](index.json); the manifest lists
+the complete expected payload set and stored byte/SHA/readback, excluding only itself.
+The delivery note binds the index itself. Sources and grants were committed before their
 respective engine operations. Original failed sources remain immutable in Git.
 
 - `prep-original`, `prep-scan`: both strict prep failures, complete RID/exit diagnostics.

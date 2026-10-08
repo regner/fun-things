@@ -282,9 +282,13 @@ Source-qualified cleanup retained current private entry561147 and matching singl
 projection, proven against recorded/reaped run03 handles; removes only its canonical
 entry and rebuilds the empty private projection. Synthetic unrelated row unchanged.
 Actual `projects.json.lock` is absent; no writer/lock/global PID query. The executed
-cleanup initially checked `projects.lock` (incorrect basename); before launch the
-correct source-defined `projects.json.lock` absence was separately verified and
-helper corrected. Both executed source and correction are retained. No lock repair.
+cleanup initially checked `projects.lock` (incorrect basename); the correct
+source-defined `projects.json.lock` absence was separately asserted before run04
+and the helper corrected. The original completed execution `exec-bd59a5ba-18c1-48ac-9ad1-6a045260e29c`,
+full argv/stdout/empty stderr/exit0 is now retained at
+[saved original lock check](s08-standard-editor-evidence/cleanup-before-run04/correct-lock-original-command.json).
+It was recovered from the contemporaneous session event, not replayed. Both the
+wrong-basename executed source and later correction remain. No lock repair.
 
 Normal prior editor lifecycle saved the same private EditorSettings artifact;
 current bytes18280/SHA7921c8f2cd4efbc3ef334415e174d4e1a6bb4567d07a04f4bd64eb7272ae1588
