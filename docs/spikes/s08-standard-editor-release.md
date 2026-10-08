@@ -123,3 +123,44 @@ complete new reports/sources/argv/exits/raw streams/failures/required empties, e
 expected sets and actual decoded/hash/readback. Reference immutable prior notes
 43140314/1229782 rather than copying giant historical packs. Final clean saved
 quiescent worker never merges/pushes/archives; ROOT owns integration.
+
+## Original prep STOP and distinct scan-complete ROOT grant
+
+Original source0c46023/protocold5c8937 attempted only the preparation child555474:
+exit0 in2.72 s; engine API save/cache-replacing readback reported booleanfalse,
+editor_hinttrue/save0. Complete raw stdout/stderr/engine retain five RID-allocation
+ERROR lines, scan-aborted/Canvas/CanvasItem/ObjectDB warnings. The supervisor's
+strict diagnostic gate STOPPED before actual editor, authentication, mutation or
+release. Original source/streams/lifecycle stay unchanged; this is not a clean prep
+or a settings-cause diagnosis. The source-only S05 readiness relay is not S08 proof.
+
+ROOT now explicitly grants ONE DISTINCT additional initialization condition:
+finish actual initial filesystem scan/import, leave its completion callback, then
+request deferred normal shutdown. This supersedes proceeding from the original
+warning-bearing prep; do not repeat initialization again after this attempt.
+New scope is `/tmp/s08-standard-555e0330/scan-complete-attempt`, fresh private XDG,
+new `prepare-project` and distinct argv/stdout/stderr/engine/result files. Reuse only
+byte-verified original31+toolkit mirror; no `.godot` copying or original stream overwrite.
+
+Exact pinned `editor_file_system.cpp` SHA256
+`2dd45efb21a8f62565c3f36b4b10f1b3f29578387536b16f4c8fc9c3f8d1b82a`,128067 bytes:
+`is_scanning()` includes scanning/scanning_changes/first_scan; threaded completion
+joins the scan thread, installs filesystem/updates actions and sets first_scanfalse
+before `filesystem_changed` (1793–1809). Public is_scanning/is_importing/get_filesystem
+are bound at3701–3703. Installed toolkit `editor.wait_for_idle` also observes
+is_scanning. The new prep listens for the real completion signal, records actual
+scanning/importing/root state, then defers a next-process-frame idle recheck before
+SceneTree.quit. Exact pinned SceneTree source76957bytes SHA256
+`4b04e0c3df187010102167245e5079127c3faaf474b2ac6325a82da6af73de34` shows quit sets
+exit code/_quit (887–891), finalize deletes the owned root and flushes deletion
+queues (856–872). No invented sleep/flag or suppression; actual clean streams and
+exit/readback/idle receipts are required inside15 s, otherwise STOP remaining phases.
+Fetch failures and source command/streams are retained separately.
+
+On clean newprep only, ONE original-authoring editor allowance remains unattempted.
+Actual startup uses read-only `editor_context.gd` through supported editor SceneTree
+startup, proper Engine/OS/ProjectSettings/EditorInterface APIs, never Expression
+singleton resolution. Its own editor_hint/PID/canonical path/full enginehash/live
+private boostfalse/settingspath receipt plus matching registry/token and normal
+installed discovery/auth headless/dedicated project/console/scene handlers establish
+readiness within60 s. All other authoring/release/one-review budgets remain as above.
