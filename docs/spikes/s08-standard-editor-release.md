@@ -218,3 +218,34 @@ gates. Fresh logs/lifecycle: `actual-editor-run02`. Existing owned settings arti
 is rebound/hashchecked before launch without rewriting. No third actual-editor
 retry is granted. Remaining authoring/release criteria/budgets are unchanged;
 one eventual independent review covers both prep STOPs and both actual attempts.
+
+## Run02 STOP and independently granted stale-registration cleanup/run03
+
+Run02 editor559412/connector559438 at1143e07 authenticated standard discoveredWS6551,
+headlesstrue/4.8.0, liveboostfalse/fullc971/context/currentPID/route. Six dedicated
+readiness handlers returned success. Full raw actual editor gate then STOPPED on
+`ERROR: The process 558301 does not exist or is not a child of the calling process`,
+backtrace registry_client.gd139 -> plugin_composer -> ws_transport. That names reaped
+OWN run01 PID, not a queried peer. No mutation/release. Editor SIGINT-2/connectorEOF0
+were reaped. No error is suppressed/relabelled as passed readiness.
+
+ROOT explicitly grants ONE run03 after owned stale-registration lifecycle cleanup,
+no prep/settings repeat/vendor/shared repair. Installed registry_client.gd149–163
+normal deregister deletes its per-project entry, acquires private lock, rebuilds
+projection and releases lock. `file_lock.gd` uses a private O_EXCL-created directory
+and scoped TTL; no live writer remains here, as all own handles are reaped. Actual
+cleanup retained entry/projection, required canonicalkey and PID559412 in recorded
+OWN558301/559412 set, and exact singleton private projection key before deleting
+only owned entry/sole matching projection/token. No unrelated actual entry existed.
+Offline fixture checks verify old key/PID absent and unrelated entry byte-preserved;
+before hashes/actual absence/source/raw receipts are retained. No global PID scan.
+Existing settings18167bytes/SHA49c7a18afbeb68e1d1c7aa586511c09b625bd05e210ad9e4c73c680e7939270e
+and mirror sources remain byte-bound. Fresh unique logs under `actual-editor-run03`.
+
+One editor <=60 s/context+currentPID+standard route/auth/dedicated handlers/complete
+logs, stale-PID diagnostic MUST be absent (not exempt). Known dev7/latest-tested4.7
+warning separately disclosed. Successful readiness enters narrow saved authoring,
+<=20min, then original single release sequence. No further launch after failure.
+Save each batch and inspect saved/unsaved state before supported SceneTree graceful
+quit; wait2 s, owned SIGINT fallback only if needed. One eventual review covers all
+attempts, raw failures and bounded result; source-only conditions are not diagnoses.
