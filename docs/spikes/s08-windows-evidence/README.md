@@ -14,6 +14,7 @@ private user directories were not committed; their identities are in each
 | `s03-runner-prefix/`, `s03-runner-fixed-1…5/` | `tools/run_s03.py` before the fix (stall) and five passing runs after it. Runs 4–5 include the proof's throttle-limit assertion. |
 | `s03r-prefix-baseline/`, `s03r-fixed-01/` | S03-R results before (baseline only, criteria failed with missing samples) and after the fix (all profiles pass). |
 | `s03r-scratch-no-deceleration/` | Scratch-only S03-R baseline with ENet throttle deceleration 0 on both peers (diff included; not adopted). Faster response; failed only the expiry criterion by 1 ms. |
+| `s03r-windowed-baseline/`, `s03r-windowed-01/`, `s04-windowed-01/` | Windowed (drawn) S03-R/S04 results with sample 1280×800 client frames. |
 | `s04-fixed-01/`, `s04-fixed-02/` | S04 results after the fix; normal profile fails the 500 ms response window in 2/20 samples both times. |
 
 Two earlier scratch S03 runs that failed on staging mistakes (missing scratch

@@ -22,10 +22,11 @@ qualification and enough outcome detail for dispatch.
 - **S03-R:** Close drawn owned/remote response and feel; any separately commissioned
   prediction must share simulation rules and exclude replay side effects. Historical
   response p95s were measured under the ENet bandwidth defect found in S08; re-measure
-  (Linux and the target platform) before using them for feel decisions.
+  (Linux and the target platform) before using them for feel decisions. Windows drawn
+  technical response now exists (post-fix p95 123/273/379 ms physics); feel stays open.
 - **S04:** Ratify car handling, dimensions, recovery, seat/control and prediction choices;
   rerun affected cases after S02 choices. Historical response figures are confounded by
-  the S08 ENet defect; post-fix Windows normal exceeded the 500 ms response window.
+  the S08 ENet defect. Post-fix Windows drawn runs pass all profiles (p95 90/277/386 ms).
 - **S05:** Disabled-VSync image attempt failed at endpoint-binding proof before live/late
   launch; no workload PNG/VSync evidence or image-review credit. Attempt consumed; no
   retry. Remaining full acceptance includes drawn eight-slot saturation and live-versus-

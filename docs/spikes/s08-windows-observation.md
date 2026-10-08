@@ -144,8 +144,8 @@ package and `stdbuf -oL`. This observation knowingly differs:
 5. **Production transport:** any future ENet adapter must apply the same bandwidth
    restoration (or a fixed engine) and treat unreliable held/motion traffic as
    lossy. See [multiplayer](../multiplayer.md).
-6. Steam, Deck, Gaming Mode, Windows graphical/input and export delivery remain
-   untested.
+6. Windowed S03-R/S04 runs drew real 1280×800 frames here (see their records).
+   Physical input, Steam, Deck, Gaming Mode and export delivery remain untested.
 
 ## Windows S03-R/S04 re-measurement (post-fix, headless)
 
