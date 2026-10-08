@@ -35,11 +35,13 @@ qualification and enough outcome detail for dispatch.
   Graphical T and capacity remain open: named hardware/build, telemetry, authorized
   drawability, two-sector and six-block loads, four views, bursts and one bounded growth
   axis; record costs, limiting axis/headroom and decisions. Desktop does not certify Deck.
-  Next source-limited commission: map R's representative inputs to bounded pre-P0
-  fixture/content/API preparation versus future M1 production, with explicit missing
-  simulation/codec/event/reset work and representativeness/budget ratification. Do not
-  require M1 completion to unlock P0 or accept proxy/empty loads as representative.
-  T remains technical calibration; R/G stay blocked, not waived by this preparation.
+  [Source-only representative preparation](../spikes/s07-representative-preparation.md)
+  records the pre-P0 mapping, individually commissionable slices and unexecuted proposal.
+  Remaining prerequisites: Regner's representation/count/diversity/final-envelope/budget
+  decisions; saved six-block content/bakes, real population/player/car/combat lifecycle,
+  four-rig codecs/journal/reset driver and named graphical telemetry. Comparator also
+  needs genuine trial-reset and eight-effect draw receipts. No M1 completion mandate
+  or proxy/empty-load acceptance; T is technical, R/G remain blocked, not waived.
 - **S08:** Current lifecycle runs used unplanned 10 ms servicing; scheduling/grant
   compliance failed, so original 20 ms behavior is unproved. Release diagnostics failed
   (2 host/6 client `tree_exited` errors); original saved-main stall was not rerun or fixed.

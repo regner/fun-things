@@ -1,0 +1,1231 @@
+{
+  "schema": 1,
+  "base": "244089785b0d106451160acd89859c6977d30956",
+  "sources": [
+    {
+      "path": "AGENTS.md",
+      "revision": "244089785b0d106451160acd89859c6977d30956",
+      "blob": "3d6017b2f99ea65ca3ec24d1d846490a03511021",
+      "bytes": 8003,
+      "sha256": "12b3038108dd6014210dac6e879b143861c9c57d66f3fb3b23654624646465cd"
+    },
+    {
+      "path": "TODO.md",
+      "revision": "244089785b0d106451160acd89859c6977d30956",
+      "blob": "3fdf6a902904396ceac4e823c1439b00b7f70390",
+      "bytes": 3266,
+      "sha256": "48e7b360493d0ae65b9f73d10cc0139fdd516f4827bf6bbac7d6f5aabcc2541f"
+    },
+    {
+      "path": "docs/plans/task-requirements.md",
+      "revision": "244089785b0d106451160acd89859c6977d30956",
+      "blob": "fe6a742057f7108fba34ddce467f12b177733177",
+      "bytes": 7935,
+      "sha256": "a8ad09cb1f5cde0bc2c44bc1619f1400597e6e4997caa015972caac5d23b83d7"
+    },
+    {
+      "path": ".agents/skills/paseo-orchestrator/SKILL.md",
+      "revision": "244089785b0d106451160acd89859c6977d30956",
+      "blob": "9f5ee1e45e3ca4c851c587fb7fe70a4959251703",
+      "bytes": 9329,
+      "sha256": "6df7b6d3f2d16e0ca77b8dfd877ee0afd5f00babdb3fd1b2b59d732dbb2592bb"
+    },
+    {
+      "path": ".agents/skills/paseo-orchestrator/references/implementer.md",
+      "revision": "244089785b0d106451160acd89859c6977d30956",
+      "blob": "b454a1d497b5109b4bf62817b77b8ad7430cc806",
+      "bytes": 1315,
+      "sha256": "3846a5cafff35874e130a3a6941965b3f4aeac137ac7cd07005ca32b0754c14a"
+    },
+    {
+      "path": ".agents/skills/paseo-orchestrator/references/reviewer.md",
+      "revision": "244089785b0d106451160acd89859c6977d30956",
+      "blob": "23fa459f7d58c916a98c7f4092e92c9adec4eccf",
+      "bytes": 1267,
+      "sha256": "44de541200bf0ff6e33e250a2e4aacf52156b26d17f194c0e1233ee912afa9ca"
+    },
+    {
+      "path": ".agents/skills/paseo-orchestrator/references/cards.md",
+      "revision": "244089785b0d106451160acd89859c6977d30956",
+      "blob": "1fcb6956af4abf2df381abc7fb12d72cfc5bea04",
+      "bytes": 2427,
+      "sha256": "19279d5ca542a361ba2f0185b671bb6f113d48689e78779531876058cb774a2b"
+    },
+    {
+      "path": "docs/reviews/plan-checkpoints.md",
+      "revision": "244089785b0d106451160acd89859c6977d30956",
+      "blob": "a3da37d4c06d28b7b63c7150d6e8b980cab74108",
+      "bytes": 2615,
+      "sha256": "c5c96ffad80d8d86ff7023150a9572f54303bd601a3ce4d06c26bee27b4e4484"
+    },
+    {
+      "path": "docs/reviews/plan-check-2026-10-08-09.md",
+      "revision": "244089785b0d106451160acd89859c6977d30956",
+      "blob": "093cf6a24f5ce23aa87f920847a481af41e77df6",
+      "bytes": 25445,
+      "sha256": "c9b6b7da8b76da42a57feb18cdaf2ba0c95d003f45de36c7297018831fd55093"
+    },
+    {
+      "path": "docs/reviews/plan-check-09-evidence/accepted-ledger.json.gz",
+      "revision": "244089785b0d106451160acd89859c6977d30956",
+      "blob": "0780a91cdff0aeddd42d185f679382c833c4f065",
+      "bytes": 29444,
+      "sha256": "3e0c3f930591d37c608068be1a479c7b2ceb90aadaf8de5ba8afa238453ee413"
+    },
+    {
+      "path": "docs/reviews/p0-doc14.md",
+      "revision": "244089785b0d106451160acd89859c6977d30956",
+      "blob": "47dd0a50c6126ef2559f0dd1a4be94c3c018204c",
+      "bytes": 6652,
+      "sha256": "5752c4ef6a6a19779b10772f5ccfd2778682abf1308c0d296a3e9326e5a9be23"
+    },
+    {
+      "path": "docs/spikes/s07.md",
+      "revision": "244089785b0d106451160acd89859c6977d30956",
+      "blob": "bfac1eddd9a02a6394a3df855cfe540af65b02c0",
+      "bytes": 34852,
+      "sha256": "87af450bfecd09fb575a2546227006f7eb9d24c1f7553ae1b574689f4f0fb1ba"
+    },
+    {
+      "path": "docs/spikes/s07-run-cards.md",
+      "revision": "244089785b0d106451160acd89859c6977d30956",
+      "blob": "d1f150ca8b4c032213b137a0a0c5a78c6e50adcd",
+      "bytes": 21149,
+      "sha256": "7e4c2d3b7e747648b63b2c8c2109167066cc4e039bd026fe32d36d1473976e2d"
+    },
+    {
+      "path": "docs/spikes/s07-run-card-evidence/inventory.json",
+      "revision": "244089785b0d106451160acd89859c6977d30956",
+      "blob": "5bd4edffa88094f6dc6198c40d2b7133e19a26a4",
+      "bytes": 268323,
+      "sha256": "36f41684341dc893537b5a065a222974fb409d132064fee89ae35176ce270d78"
+    },
+    {
+      "path": "docs/spikes/s07-sustained-driver.md",
+      "revision": "244089785b0d106451160acd89859c6977d30956",
+      "blob": "458d49f0a7618908fcceb6b12fa1c00b58f7f91e",
+      "bytes": 9506,
+      "sha256": "42b387830cbce1fd2ad48ba1e7a8188fe0077a36bf46966e1a787036047ab5f7"
+    },
+    {
+      "path": "docs/spikes/s07-sustained-driver-evidence/staged-inputs.json",
+      "revision": "244089785b0d106451160acd89859c6977d30956",
+      "blob": "c9660c10210ffa8e4cdfc46a08eb5941123156d4",
+      "bytes": 6661,
+      "sha256": "46ec441176de80311142541d28e87e4c46408dc368f833a2f21830f9c4936fe0"
+    },
+    {
+      "path": "docs/spikes/s06-contracts.md",
+      "revision": "244089785b0d106451160acd89859c6977d30956",
+      "blob": "643686b8fe49fd6d17e56dcbbcf0b7cdf7d5c830",
+      "bytes": 8762,
+      "sha256": "b44ef74af3012d0a18f9ee4e09ab6e889a36b35fff32b9e146d65f0253f1c2c7"
+    },
+    {
+      "path": "docs/spikes/s06-source-handoff.md",
+      "revision": "244089785b0d106451160acd89859c6977d30956",
+      "blob": "113a111fec8c5844724ae6dd9c64574d38fda3a0",
+      "bytes": 2867,
+      "sha256": "193c54ed5b9d854e61d8e759cbf5ab0ddc034d002476c245819562879bee1935"
+    },
+    {
+      "path": "docs/spikes/s05-contracts.md",
+      "revision": "244089785b0d106451160acd89859c6977d30956",
+      "blob": "d5f7c80ce10d6d81ddd071067ee360f8d34b082b",
+      "bytes": 10463,
+      "sha256": "60fdb61083cd3b4997a6d8d55ae964afb363a0f2e3e5c56affdd1dce8607315b"
+    },
+    {
+      "path": "docs/spikes/s05-saved-presentation.md",
+      "revision": "244089785b0d106451160acd89859c6977d30956",
+      "blob": "a3dbe7f3a41608d8b3780fa188267a11bf5617a8",
+      "bytes": 19556,
+      "sha256": "6130f05f95a5c59a174a2b997af28b9d05b5c8404fe1d6dd7320a61fc7320aab"
+    },
+    {
+      "path": "docs/spikes/s05-effect-preparation.md",
+      "revision": "244089785b0d106451160acd89859c6977d30956",
+      "blob": "f8b1991e4d033184cda56c25c5fd86aa6a5c11db",
+      "bytes": 9759,
+      "sha256": "deed062f68e116dbd0f7b76de82f3f0d9b4bdc055c4fdc00153b0ad2eb0e8dfd"
+    },
+    {
+      "path": "docs/assets/s02_kit.md",
+      "revision": "244089785b0d106451160acd89859c6977d30956",
+      "blob": "421513c3792a144b993dce03687430ff2fa44ee9",
+      "bytes": 10482,
+      "sha256": "019e4b875d479e93884b211de966d560108b8c9a3b0bcaeb1e8ca0b3137c1f9a"
+    },
+    {
+      "path": "docs/assets/s04_kit.md",
+      "revision": "244089785b0d106451160acd89859c6977d30956",
+      "blob": "d63d4dcf502db98c6673bce2426047dce3e33cf9",
+      "bytes": 8914,
+      "sha256": "8b83f2249a19b12e325cf80c2dd2e666ebd02c8ec53fb9936db489eb3b34c439"
+    },
+    {
+      "path": "docs/spikes/s02.md",
+      "revision": "244089785b0d106451160acd89859c6977d30956",
+      "blob": "451a5f0f275b63348aaf80e38265a766788a2f87",
+      "bytes": 18360,
+      "sha256": "d3bd0e6d4ab6908dc2efbed65150a298c405325b9592f1f08e50ed3d958d4774"
+    },
+    {
+      "path": "docs/spikes/s04.md",
+      "revision": "244089785b0d106451160acd89859c6977d30956",
+      "blob": "8d8d93186aac9e7bdd6549a99e381d7094250b8b",
+      "bytes": 18373,
+      "sha256": "3251a6dac7d7bbe7d518d7e7112deb76f6199fd6b4a65c97b7cac45b4c1fd272"
+    },
+    {
+      "path": "docs/spikes/s04-contracts.md",
+      "revision": "244089785b0d106451160acd89859c6977d30956",
+      "blob": "078d23126da7738948b159d5eaca01f510e5eb52",
+      "bytes": 8310,
+      "sha256": "d1aac90fc1c0f5686c0dbf12211bcaf4db5965ed7e0d22bc755e6459e0312f44"
+    },
+    {
+      "path": "docs/spikes/s03-s-valve-api-interface.md",
+      "revision": "244089785b0d106451160acd89859c6977d30956",
+      "blob": "84ab858abafb460ddf431644e97133700534b4ad",
+      "bytes": 40130,
+      "sha256": "91e1d98b07b93c38f4232e2c7f9e529a977595376c91458f6dc1011001054bb0"
+    },
+    {
+      "path": "docs/design.md",
+      "revision": "244089785b0d106451160acd89859c6977d30956",
+      "blob": "3a90e2483a29728b420269a9ccf142fef7d089d0",
+      "bytes": 31918,
+      "sha256": "d72184beaedf8450dc511ee036cb897c5533a0a3ce9a536cbd079354bca86c5d"
+    },
+    {
+      "path": "docs/world-layout.md",
+      "revision": "244089785b0d106451160acd89859c6977d30956",
+      "blob": "4cdcab99075132931ea3976498f5dd0963b49e73",
+      "bytes": 12704,
+      "sha256": "b98305af397535dd6a3a3709225336d3baefd1f19bb01e5f0694343fffbf29b6"
+    },
+    {
+      "path": "docs/art-direction.md",
+      "revision": "244089785b0d106451160acd89859c6977d30956",
+      "blob": "f2518ffb9b258a57059c754b56936ac5a5bde911",
+      "bytes": 10056,
+      "sha256": "ca41a4d6a2378e768875ebd1715c909a4b8d54ed896ddffcd58b20b49c7c12f7"
+    },
+    {
+      "path": "docs/architecture.md",
+      "revision": "244089785b0d106451160acd89859c6977d30956",
+      "blob": "a4c2901c8bb71bc8d9fe586ff988d07c99c505e0",
+      "bytes": 24123,
+      "sha256": "a3b8328a64b667da12da33341e5f9a7bdac2437232dc3df24274b2bc48157c15"
+    },
+    {
+      "path": "docs/api-contracts.md",
+      "revision": "244089785b0d106451160acd89859c6977d30956",
+      "blob": "6c5fdb395b08170d83652878edfb5575fee7cee2",
+      "bytes": 58590,
+      "sha256": "ebb23fd92265c25289b60e102f8cce247ca14387e5b690cd8af89b02a633d516"
+    },
+    {
+      "path": "docs/multiplayer.md",
+      "revision": "244089785b0d106451160acd89859c6977d30956",
+      "blob": "88f5a09dec929ee62390a287590df1c9fe84a755",
+      "bytes": 26729,
+      "sha256": "3e3342f86733f19b0d7d0dc3512ad57e57e0fc4a04606f168c93cfbbdd222b73"
+    },
+    {
+      "path": "docs/assets.md",
+      "revision": "244089785b0d106451160acd89859c6977d30956",
+      "blob": "46981e2f867575afd447b4264be365ce1aa04b50",
+      "bytes": 29441,
+      "sha256": "d24e21b78ebc32a10e7f3ec059ca4675f2bd6e93b59a957607a03c2ce5559cbb"
+    },
+    {
+      "path": "docs/scene-structure.md",
+      "revision": "244089785b0d106451160acd89859c6977d30956",
+      "blob": "cf2b6e985ed75a82ed875b42311cc780b2a3daf7",
+      "bytes": 23208,
+      "sha256": "2da40fe55aefc2b3a4c47a3983c5f37c2a7eff9fa2b50a99ce7b936b28e7fa78"
+    },
+    {
+      "path": "docs/development.md",
+      "revision": "244089785b0d106451160acd89859c6977d30956",
+      "blob": "23f2a573bf66259b5eb712b7757bf6f9cc820d7a",
+      "bytes": 53784,
+      "sha256": "e663c8f94fcca88e5466432989500f17566cef2d739c15189b9d8afca75546f0"
+    },
+    {
+      "path": "tests/fixtures/s07_driver/intersection.tscn",
+      "revision": "244089785b0d106451160acd89859c6977d30956",
+      "blob": "7978d15d3b6fe28684479d7a713f0d240c0a9d04",
+      "bytes": 380,
+      "sha256": "fdc552fd9e798c72326301eb1797f79e182ebdfae58f727f1694e5097c6e52f2",
+      "root_uid": "uid://cauba1m1nenjw",
+      "saved_node_declarations": [
+        "[node name=\"S06\" unique_id=1277794952 instance=ExtResource(\"1\")]"
+      ]
+    },
+    {
+      "path": "tests/fixtures/s07_driver/fixture.gd",
+      "revision": "244089785b0d106451160acd89859c6977d30956",
+      "blob": "425680fcf1f0d4c526fa92b625d8828b494b81be",
+      "bytes": 2419,
+      "sha256": "956fd529f13340fe78f3ddd48f4900fa9ccdff00c1863ffb5230c51dba49de43",
+      "required_apis": [
+        "begin_route",
+        "saved_start_valid",
+        "passive_valid",
+        "cancel_owned"
+      ]
+    },
+    {
+      "path": "tests/fixtures/s06/intersection.tscn",
+      "revision": "244089785b0d106451160acd89859c6977d30956",
+      "blob": "ab017f78e05b36a38e3e39dd2b097752a43cf14c",
+      "bytes": 3037,
+      "sha256": "44e2622ed2943bfc8f304b965d370fb8808c5a8abf6192634de9c4eb5a8b6cf1",
+      "root_uid": "uid://c61a1l4vio22q",
+      "saved_node_declarations": [
+        "[node name=\"S06\" type=\"Node3D\" unique_id=47404616]",
+        "[node name=\"City\" type=\"Node3D\" parent=\".\" unique_id=1785882158]",
+        "[node name=\"Sectors\" type=\"Node3D\" parent=\"City\" unique_id=855665817]",
+        "[node name=\"West\" parent=\"City/Sectors\" unique_id=1973761027 instance=ExtResource(\"3_ijc5h\")]",
+        "[node name=\"East\" parent=\"City/Sectors\" unique_id=443909768 instance=ExtResource(\"4_efy4b\")]",
+        "[node name=\"Person\" parent=\".\" unique_id=987036009 instance=ExtResource(\"6_qd0qd\")]",
+        "[node name=\"CarWest\" parent=\".\" unique_id=1110260024 instance=ExtResource(\"8_78nog\")]",
+        "[node name=\"CarEast\" parent=\".\" unique_id=378128285 instance=ExtResource(\"8_78nog\")]",
+        "[node name=\"Camera\" type=\"Camera3D\" parent=\".\" unique_id=94357132]",
+        "[node name=\"Sun\" type=\"DirectionalLight3D\" parent=\".\" unique_id=256469899]",
+        "[node name=\"Environment\" type=\"WorldEnvironment\" parent=\".\" unique_id=1292651333]",
+        "[node name=\"Ui\" type=\"CanvasLayer\" parent=\".\" unique_id=429881689]",
+        "[node name=\"Minimap\" type=\"Control\" parent=\"Ui\" unique_id=2143332834]"
+      ]
+    },
+    {
+      "path": "tests/fixtures/s06/intersection_wide.tscn",
+      "revision": "244089785b0d106451160acd89859c6977d30956",
+      "blob": "fc5790ade9e719f682ee59a9a6fc0ec3971debda",
+      "bytes": 303,
+      "sha256": "3f6005a5d780e7502264dd988ac4a3b45b4ba8d36d5715f705da94cc8bd408e4"
+    },
+    {
+      "path": "tests/fixtures/s06/west.tscn",
+      "revision": "244089785b0d106451160acd89859c6977d30956",
+      "blob": "e05da964355d84513c0cded18a5a077b40a5c645",
+      "bytes": 6241,
+      "sha256": "73b50826a8018054f30ca0ecd2b0f873319308c597c90acd02b3264c99a18c96",
+      "root_uid": "uid://b243gxu4qpp0a",
+      "saved_node_declarations": [
+        "[node name=\"West\" type=\"Node3D\" unique_id=1973761027]",
+        "[node name=\"Visuals\" type=\"Node3D\" parent=\".\" unique_id=191587561]",
+        "[node name=\"Model\" parent=\"Visuals\" unique_id=352958828 instance=ExtResource(\"2_ui657\")]",
+        "[node name=\"Topology\" type=\"Node3D\" parent=\".\" unique_id=21977068]",
+        "[node name=\"FootWest\" type=\"Marker3D\" parent=\"Topology\" unique_id=1548607456]",
+        "[node name=\"CrossWest\" type=\"Marker3D\" parent=\"Topology\" unique_id=234228333]",
+        "[node name=\"LaneWest\" type=\"Marker3D\" parent=\"Topology\" unique_id=487513253]",
+        "[node name=\"LaneSouth\" type=\"Marker3D\" parent=\"Topology\" unique_id=327531853]",
+        "[node name=\"RoadWest\" type=\"Marker3D\" parent=\"Topology\" unique_id=1444925001]",
+        "[node name=\"RoadCentre\" type=\"Marker3D\" parent=\"Topology\" unique_id=642192197]",
+        "[node name=\"RoadNorth\" type=\"Marker3D\" parent=\"Topology\" unique_id=581100513]",
+        "[node name=\"RoadSouth\" type=\"Marker3D\" parent=\"Topology\" unique_id=956736887]",
+        "[node name=\"FootApproachWest\" type=\"Path3D\" parent=\"Topology\" unique_id=1040042306]",
+        "[node name=\"Crossing\" type=\"Path3D\" parent=\"Topology\" unique_id=1884582947]",
+        "[node name=\"EastToNorth\" type=\"Path3D\" parent=\"Topology\" unique_id=20199819]",
+        "[node name=\"RoadWestLink\" type=\"Path3D\" parent=\"Topology\" unique_id=1266309851]",
+        "[node name=\"RoadNorthLink\" type=\"Path3D\" parent=\"Topology\" unique_id=1196123878]",
+        "[node name=\"RoadSouthLink\" type=\"Path3D\" parent=\"Topology\" unique_id=988392596]",
+        "[node name=\"Collision\" type=\"Node3D\" parent=\".\" unique_id=918146999]",
+        "[node name=\"North\" type=\"StaticBody3D\" parent=\"Collision\" unique_id=1871676353]",
+        "[node name=\"Shape\" type=\"CollisionShape3D\" parent=\"Collision/North\" unique_id=247127007]",
+        "[node name=\"South\" type=\"StaticBody3D\" parent=\"Collision\" unique_id=1842384041]",
+        "[node name=\"Shape\" type=\"CollisionShape3D\" parent=\"Collision/South\" unique_id=1953826844]"
+      ]
+    },
+    {
+      "path": "tests/fixtures/s06/east.tscn",
+      "revision": "244089785b0d106451160acd89859c6977d30956",
+      "blob": "97ab6aced5441a80e71e575d731cbcae78b27f0c",
+      "bytes": 4246,
+      "sha256": "aa96d6aca00e47d46ab9c7c95a572c7dd8e8107cad18d135770b5bd60f52bc80",
+      "root_uid": "uid://chhg1wj1jcwpu",
+      "saved_node_declarations": [
+        "[node name=\"East\" type=\"Node3D\" unique_id=443909768]",
+        "[node name=\"Visuals\" type=\"Node3D\" parent=\".\" unique_id=650733800]",
+        "[node name=\"Model\" parent=\"Visuals\" unique_id=321889748 instance=ExtResource(\"1_fx8t8\")]",
+        "[node name=\"Topology\" type=\"Node3D\" parent=\".\" unique_id=1519995019]",
+        "[node name=\"FootEast\" type=\"Marker3D\" parent=\"Topology\" unique_id=2043365704]",
+        "[node name=\"CrossEast\" type=\"Marker3D\" parent=\"Topology\" unique_id=113574302]",
+        "[node name=\"LaneEast\" type=\"Marker3D\" parent=\"Topology\" unique_id=1746630935]",
+        "[node name=\"LaneNorth\" type=\"Marker3D\" parent=\"Topology\" unique_id=2059298878]",
+        "[node name=\"RoadEast\" type=\"Marker3D\" parent=\"Topology\" unique_id=1550511232]",
+        "[node name=\"FootApproachEast\" type=\"Path3D\" parent=\"Topology\" unique_id=1816309798]",
+        "[node name=\"WestToSouth\" type=\"Path3D\" parent=\"Topology\" unique_id=2107088462]",
+        "[node name=\"RoadEastLink\" type=\"Path3D\" parent=\"Topology\" unique_id=809311140]",
+        "[node name=\"Collision\" type=\"Node3D\" parent=\".\" unique_id=1895984705]",
+        "[node name=\"North\" type=\"StaticBody3D\" parent=\"Collision\" unique_id=2099732889]",
+        "[node name=\"Shape\" type=\"CollisionShape3D\" parent=\"Collision/North\" unique_id=1016582508]",
+        "[node name=\"South\" type=\"StaticBody3D\" parent=\"Collision\" unique_id=828039935]",
+        "[node name=\"Shape\" type=\"CollisionShape3D\" parent=\"Collision/South\" unique_id=410382801]"
+      ]
+    },
+    {
+      "path": "tests/fixtures/s06/derived.tres",
+      "revision": "244089785b0d106451160acd89859c6977d30956",
+      "blob": "c43dae6d28a4131207ff73d96b03917c6be4437c",
+      "bytes": 10992,
+      "sha256": "b326d1f4a439080c248073f710f539fd6e32a49a08b72898d958eb75c6ecd07f",
+      "root_uid": "uid://dt54nay70c1tr",
+      "saved_node_declarations": []
+    },
+    {
+      "path": "tests/fixtures/s06/city.gd",
+      "revision": "244089785b0d106451160acd89859c6977d30956",
+      "blob": "e6917b10e4c7a801899dcb801adfc700668dda8d",
+      "bytes": 10758,
+      "sha256": "533a59e3b81feb437a48a75c6905befeb33a6861f06f22a82deb233b920dca23",
+      "required_apis": [
+        "validate_content",
+        "signature",
+        "bake_content",
+        "route",
+        "map_data"
+      ]
+    },
+    {
+      "path": "tests/fixtures/s06/fixture.gd",
+      "revision": "244089785b0d106451160acd89859c6977d30956",
+      "blob": "f8b2c5a3c028a45cddae8e4e7d2cebda603db920",
+      "bytes": 4318,
+      "sha256": "acfbf1ae18ccde4a6800f17fd6977f44c138f60bae440582ee09272bd9d931a4",
+      "required_apis": [
+        "start_route",
+        "body_state",
+        "stop_route"
+      ]
+    },
+    {
+      "path": "tests/fixtures/s06/controller.gd",
+      "revision": "244089785b0d106451160acd89859c6977d30956",
+      "blob": "4e8fff9789d345a28498cc24a6fd61ce97d1c110",
+      "bytes": 2905,
+      "sha256": "f90b44df83ec5dc53da0d2abedd560af37abe02b3f6a7c2fd8e19a8952c97be4",
+      "required_apis": [
+        "bind_route",
+        "intent",
+        "clear"
+      ]
+    },
+    {
+      "path": "tests/fixtures/s02/actor.tscn",
+      "revision": "244089785b0d106451160acd89859c6977d30956",
+      "blob": "d551327c84113e03ef5e4052a6c694b8fc68d522",
+      "bytes": 1586,
+      "sha256": "551bd1eafd7771c003a571115e8044aff4e68c61755754e524c7385171ee9ca8",
+      "root_uid": "uid://dl05tre3pd6e0",
+      "saved_node_declarations": [
+        "[node name=\"Actor\" type=\"CharacterBody3D\" unique_id=987036009]",
+        "[node name=\"PresentationAnchor\" type=\"Node3D\" parent=\".\" unique_id=10039724]",
+        "[node name=\"Visuals\" type=\"Node3D\" parent=\"PresentationAnchor\" unique_id=439153625]",
+        "[node name=\"Model\" parent=\"PresentationAnchor/Visuals\" unique_id=1664543391 instance=ExtResource(\"2_mvelh\")]",
+        "[node name=\"WeaponMount\" type=\"Node3D\" parent=\"PresentationAnchor\" unique_id=2111226270]",
+        "[node name=\"Model\" parent=\"PresentationAnchor/WeaponMount\" unique_id=492851065 instance=ExtResource(\"3_ds8xt\")]",
+        "[node name=\"Sockets\" type=\"Node3D\" parent=\".\" unique_id=1968388298]",
+        "[node name=\"Muzzle\" type=\"Marker3D\" parent=\"Sockets\" unique_id=1610193387]",
+        "[node name=\"Collision\" type=\"CollisionShape3D\" parent=\".\" unique_id=294621321]"
+      ]
+    },
+    {
+      "path": "tests/fixtures/s02/actor_motion.gd",
+      "revision": "244089785b0d106451160acd89859c6977d30956",
+      "blob": "82d83ec52a0cb0e654c2ffc29e5bb99c560a1a26",
+      "bytes": 1511,
+      "sha256": "97a86e5c985f0fd6c0b697be0dfbfc005c5958edf010f561dc07d12b9da26902",
+      "required_apis": [
+        "step",
+        "neutralize",
+        "motion_state",
+        "muzzle_position"
+      ]
+    },
+    {
+      "path": "tests/fixtures/s02/corner.tscn",
+      "revision": "244089785b0d106451160acd89859c6977d30956",
+      "blob": "87dccba95778affccd024a2c19a885425172aabd",
+      "bytes": 4501,
+      "sha256": "663baf0eec1983ebc857e05e4aeeeb1593bfc9005591e40ae15d4101891aab46"
+    },
+    {
+      "path": "tests/fixtures/s02/corner_wide.tscn",
+      "revision": "244089785b0d106451160acd89859c6977d30956",
+      "blob": "483c6e58f731b468e6d6097d81a3487c36264f3a",
+      "bytes": 352,
+      "sha256": "51a089a1c2b2e15fd574779f2e8eb110345b9e1410400be1a02da3e09fd6f504"
+    },
+    {
+      "path": "tests/fixtures/s02/building_view.gd",
+      "revision": "244089785b0d106451160acd89859c6977d30956",
+      "blob": "d0ec80acca1424b47bf8283d23ea8c65229e86dc",
+      "bytes": 1624,
+      "sha256": "b64f64112d9d9df1e8663b95a1ea78d61b8ffc1557d45fca296045d2905a56db"
+    },
+    {
+      "path": "tests/fixtures/s02/camera_rig.gd",
+      "revision": "244089785b0d106451160acd89859c6977d30956",
+      "blob": "625d57bd0a13f79c3a95b28f033c5ca03e2467d8",
+      "bytes": 1116,
+      "sha256": "280c9fad168d1b470ea7f3e04738f3ac8e92327492edabed9b27a37e500a60da"
+    },
+    {
+      "path": "tests/fixtures/s02/aim_probe.gd",
+      "revision": "244089785b0d106451160acd89859c6977d30956",
+      "blob": "66802298aa93561aa0e7e2a91e2bb2d152586779",
+      "bytes": 1687,
+      "sha256": "f247b6eba63313b90badf3c666dd78c59f07ce88e9ff48dcd11c48d5a914dd1b"
+    },
+    {
+      "path": "tests/fixtures/s04/kinematic.tscn",
+      "revision": "244089785b0d106451160acd89859c6977d30956",
+      "blob": "0e13122ec5bbfdb3d25d6544ee6a0f686c24534a",
+      "bytes": 1772,
+      "sha256": "df7cb51232f34708287b81cd9ac9b0d26e69a787ffa67b58169a2c93952b6994",
+      "root_uid": "uid://cyyhi67pisbql",
+      "saved_node_declarations": [
+        "[node name=\"kinematic\" type=\"CharacterBody3D\" unique_id=1110260024]",
+        "[node name=\"PresentationAnchor\" type=\"Node3D\" parent=\".\" unique_id=1984199847]",
+        "[node name=\"Visuals\" type=\"Node3D\" parent=\"PresentationAnchor\" unique_id=292490630]",
+        "[node name=\"Model\" type=\"Node3D\" parent=\"PresentationAnchor/Visuals\" unique_id=1781694682 instance=ExtResource(\"2_81gei\")]",
+        "[node name=\"Collision\" type=\"CollisionShape3D\" parent=\".\" unique_id=1239005611]",
+        "[node name=\"Sockets\" type=\"Node3D\" parent=\".\" unique_id=673654499]",
+        "[node name=\"DriverSeat\" type=\"Marker3D\" parent=\"Sockets\" unique_id=664139912]",
+        "[node name=\"EntryLeft\" type=\"Marker3D\" parent=\"Sockets\" unique_id=1590289670]",
+        "[node name=\"EntryRight\" type=\"Marker3D\" parent=\"Sockets\" unique_id=169717687]",
+        "[node name=\"ExitLeft\" type=\"Marker3D\" parent=\"Sockets\" unique_id=115011232]",
+        "[node name=\"ExitRight\" type=\"Marker3D\" parent=\"Sockets\" unique_id=1047442407]"
+      ]
+    },
+    {
+      "path": "tests/fixtures/s04/kinematic.gd",
+      "revision": "244089785b0d106451160acd89859c6977d30956",
+      "blob": "804f2acf69d104b7419b78d7ff31a27746959168",
+      "bytes": 2133,
+      "sha256": "7da01694610bc18b559abfe1dffabde3560d62ee9a887e57748082d11d1d9765",
+      "required_apis": [
+        "configure",
+        "step",
+        "neutralize",
+        "install_pose",
+        "retire",
+        "motion_state",
+        "display_state"
+      ]
+    },
+    {
+      "path": "tests/fixtures/s04/drive_rules.gd",
+      "revision": "244089785b0d106451160acd89859c6977d30956",
+      "blob": "3ef4fb7f556122b35fc5c1c9f8da03a7651a305a",
+      "bytes": 1850,
+      "sha256": "5276562f00321351b203b90d56adc110abf39184e2d8577c14c76cb0a5594a17",
+      "required_apis": [
+        "advance",
+        "neutral"
+      ]
+    },
+    {
+      "path": "tests/fixtures/s04/track.tscn",
+      "revision": "244089785b0d106451160acd89859c6977d30956",
+      "blob": "08da44ec244efc121b537bba3473ff5ddbee97e9",
+      "bytes": 1995,
+      "sha256": "d957cc0a33bc483ae1e5efd85cec66b04bda5191fd9fd16e6d75adf8ada36f97"
+    },
+    {
+      "path": "tests/fixtures/s04/match.gd",
+      "revision": "244089785b0d106451160acd89859c6977d30956",
+      "blob": "9d17e9740180067fb18a89f33195daf6e8873794",
+      "bytes": 13092,
+      "sha256": "a965267322aef4d8916c1f2ef0208d4d5debe45fc454110e3a8e9ac7a23c63ad"
+    },
+    {
+      "path": "tests/fixtures/s05_effect/burst.tscn",
+      "revision": "244089785b0d106451160acd89859c6977d30956",
+      "blob": "52078b471147fb76dc4f898be461a094fa989376",
+      "bytes": 2069,
+      "sha256": "2fdedbcf26d3866e533b246218ab68ff18ae5c297d327d0cfed67ada4343b231",
+      "root_uid": "uid://bdtfsc6kyavum",
+      "saved_node_declarations": [
+        "[node name=\"Boot\" unique_id=1885806349 instance=ExtResource(\"1\")]",
+        "[node name=\"Match\" parent=\"View\" parent_id_path=PackedInt32Array(1918382734) index=\"0\" unique_id=828107831]",
+        "[node name=\"Presentation\" parent=\"View/Match\" index=\"4\" unique_id=1043713376]",
+        "[node name=\"Slots\" type=\"Node3D\" parent=\"View/Match/Presentation\" index=\"0\" unique_id=1294419605]",
+        "[node name=\"Slot0\" parent=\"View/Match/Presentation/Slots\" index=\"0\" unique_id=1935466903 instance=ExtResource(\"5_p2mll\")]",
+        "[node name=\"Slot1\" parent=\"View/Match/Presentation/Slots\" index=\"1\" unique_id=456312590 instance=ExtResource(\"5_p2mll\")]",
+        "[node name=\"Slot2\" parent=\"View/Match/Presentation/Slots\" index=\"2\" unique_id=1347219582 instance=ExtResource(\"5_p2mll\")]",
+        "[node name=\"Slot3\" parent=\"View/Match/Presentation/Slots\" index=\"3\" unique_id=1688344281 instance=ExtResource(\"5_p2mll\")]",
+        "[node name=\"Slot4\" parent=\"View/Match/Presentation/Slots\" index=\"4\" unique_id=1876430343 instance=ExtResource(\"5_p2mll\")]",
+        "[node name=\"Slot5\" parent=\"View/Match/Presentation/Slots\" index=\"5\" unique_id=1242831541 instance=ExtResource(\"5_p2mll\")]",
+        "[node name=\"Slot6\" parent=\"View/Match/Presentation/Slots\" index=\"6\" unique_id=1725506388 instance=ExtResource(\"5_p2mll\")]",
+        "[node name=\"Slot7\" parent=\"View/Match/Presentation/Slots\" index=\"7\" unique_id=1948818 instance=ExtResource(\"5_p2mll\")]"
+      ]
+    },
+    {
+      "path": "tests/fixtures/s05_effect/explosion.tscn",
+      "revision": "244089785b0d106451160acd89859c6977d30956",
+      "blob": "25bef10d0cc215930916131c6f66fbc42e852f4a",
+      "bytes": 411,
+      "sha256": "f8ca4b7fcaab8996b4aa2080cca42bda2f78a80b33ea478366357c754f3e3fe1",
+      "root_uid": "uid://dbge3dp3s53r3",
+      "saved_node_declarations": [
+        "[node name=\"Explosion\" type=\"Node3D\" unique_id=1935466903]",
+        "[node name=\"Visuals\" type=\"Node3D\" parent=\".\" unique_id=463468471]",
+        "[node name=\"Model\" parent=\"Visuals\" unique_id=135814020 instance=ExtResource(\"2_lan1j\")]"
+      ]
+    },
+    {
+      "path": "tests/fixtures/s05_effect/match.gd",
+      "revision": "244089785b0d106451160acd89859c6977d30956",
+      "blob": "1846a2f52f8a6a4d4cbecebf2db1a338bee47bfc",
+      "bytes": 547,
+      "sha256": "a038b76c14764cb8214bdfe9d4218804866ddb6805e76843d80abc73eef994fc"
+    },
+    {
+      "path": "tests/fixtures/s05_effect/presentation.gd",
+      "revision": "244089785b0d106451160acd89859c6977d30956",
+      "blob": "5812d2e2eca63a35481fc193229b724b49daad7d",
+      "bytes": 3620,
+      "sha256": "b73007c6a477d3c4e107d1d15ce656d7316e70fc59aed57c1aad7ce5cf3fc18e",
+      "required_apis": [
+        "bind",
+        "consume",
+        "advance_cosmetic",
+        "clear",
+        "receipt",
+        "visible_count"
+      ]
+    },
+    {
+      "path": "tests/fixtures/s05/burst.tscn",
+      "revision": "244089785b0d106451160acd89859c6977d30956",
+      "blob": "bf0390dc02431fe660247abb18a9c67c1414ba83",
+      "bytes": 2419,
+      "sha256": "4ee0632d33f70ece87804aa5ffc4a5a0db762a419644888e3e0e43e9f49d5178"
+    },
+    {
+      "path": "tests/fixtures/s05/car.tscn",
+      "revision": "244089785b0d106451160acd89859c6977d30956",
+      "blob": "2722c3e9d2f7d7c113d8431ab9c073597d70f74b",
+      "bytes": 363,
+      "sha256": "7e53a1ba71621849b83161584b5e9b888d24db123b414c02ed4d400e8a39e470"
+    },
+    {
+      "path": "tests/fixtures/s05/car.gd",
+      "revision": "244089785b0d106451160acd89859c6977d30956",
+      "blob": "149e2d30902c7256568a68256c099e2db0fb2ead",
+      "bytes": 498,
+      "sha256": "8c696687c89ccc4d0765b9cada62f42f26459fdd3b37560e4167d3264b6c6e5a",
+      "required_apis": [
+        "apply_life"
+      ]
+    },
+    {
+      "path": "tests/fixtures/s05/damage.gd",
+      "revision": "244089785b0d106451160acd89859c6977d30956",
+      "blob": "17853a2dd0715e088f19e143813514faf8d01bf8",
+      "bytes": 10260,
+      "sha256": "c3dd4883eb6aff42617dfe197538bca2e3c74b0dbcb77b34df62964eb0d4d1f7",
+      "required_apis": [
+        "begin",
+        "register_shooter",
+        "resolve_shot",
+        "advance",
+        "cut",
+        "valid_cut",
+        "apply_cut",
+        "retire_shooter",
+        "clear"
+      ]
+    },
+    {
+      "path": "tests/fixtures/s05/match.gd",
+      "revision": "244089785b0d106451160acd89859c6977d30956",
+      "blob": "190484660002a72c9fb815f75e8b58d4ccc9223c",
+      "bytes": 3631,
+      "sha256": "90204397c56b9244574917eabf37daacc5b22b14e32727f60b9de114ba384318",
+      "required_apis": [
+        "baseline",
+        "apply_baseline",
+        "submit_fire",
+        "apply_cars",
+        "rollback",
+        "clear"
+      ]
+    },
+    {
+      "path": "tests/fixtures/s05/replication.gd",
+      "revision": "244089785b0d106451160acd89859c6977d30956",
+      "blob": "8d23089218880d751ca962bfce5d8d38a667bd69",
+      "bytes": 3780,
+      "sha256": "eb9fa170ec519e262faba4eac53454fef45ff0e3dd3fa7875f006746e76a5be0",
+      "required_apis": [
+        "send_fire",
+        "publish_cars",
+        "publish_blast",
+        "forget",
+        "clear"
+      ]
+    },
+    {
+      "path": "tests/fixtures/s05/presentation.gd",
+      "revision": "244089785b0d106451160acd89859c6977d30956",
+      "blob": "916390a58dd80531aaa36fe52eb09e710e489dd4",
+      "bytes": 1496,
+      "sha256": "a70867d42353c19445fc8c0bcc2992dbdd031ec3e61a53b5ee663099f760f39f"
+    },
+    {
+      "path": "tests/fixtures/s03/boot.tscn",
+      "revision": "244089785b0d106451160acd89859c6977d30956",
+      "blob": "9fa33b1ef9e8f69d4351178de88334f6c9bdc757",
+      "bytes": 1113,
+      "sha256": "73d0a58b6450cbd26b6ccbce53d852b5b737ee3e76de3ecfb71f7aca1f71bec9"
+    },
+    {
+      "path": "tests/fixtures/s03/local_rig.tscn",
+      "revision": "244089785b0d106451160acd89859c6977d30956",
+      "blob": "fa9591122379715d76de95c282dcf50576d34f4c",
+      "bytes": 392,
+      "sha256": "5aa73ff396f149b5fde6f9e5e658271d8bbc1c4ad37728370992294a0865857d"
+    },
+    {
+      "path": "tests/fixtures/s03/session.gd",
+      "revision": "244089785b0d106451160acd89859c6977d30956",
+      "blob": "d4bb47abf9084c793c39830a1f4c42b5d5550324",
+      "bytes": 9378,
+      "sha256": "bb77d7a0dd65ffd6d0e29da8489678cd3e24aa58470b026ea4f1570fd9ea84d7"
+    },
+    {
+      "path": "tests/fixtures/s03/transport.gd",
+      "revision": "244089785b0d106451160acd89859c6977d30956",
+      "blob": "4e5713f0fb7049909359508c41e4e40e6aa20899",
+      "bytes": 2100,
+      "sha256": "fc83f520a6850a48ee9c9e7d4d6615466c9f5d959da9a84c66848a45d1de9a11"
+    },
+    {
+      "path": "tests/fixtures/s03/match.gd",
+      "revision": "244089785b0d106451160acd89859c6977d30956",
+      "blob": "31c7832a165accbb8b3fccbcdd447ee1241a0b28",
+      "bytes": 8863,
+      "sha256": "6aa3ca867e40248ba7695be3e87498f5005b5524df51028f8bc47d0849f67553"
+    },
+    {
+      "path": "tests/fixtures/s03/replication.gd",
+      "revision": "244089785b0d106451160acd89859c6977d30956",
+      "blob": "7d66e81b336fcd8d61d178131fcdb977952c2d4b",
+      "bytes": 9435,
+      "sha256": "57f4a1312a50b7ad5706423f2491be151803f5438f484b21b3c9b80dc47db7ae"
+    },
+    {
+      "path": "tests/fixtures/s03/proof.gd",
+      "revision": "244089785b0d106451160acd89859c6977d30956",
+      "blob": "31670956a85f7ff54c518b872c2faeeaeb11bbb2",
+      "bytes": 15903,
+      "sha256": "d11cb9065b894c112b24a3d5c6b934c94696e9c3575e10dd2aa7f74499954ff1"
+    },
+    {
+      "path": "tests/fixtures/s03_r/boot.tscn",
+      "revision": "244089785b0d106451160acd89859c6977d30956",
+      "blob": "75d130cbc4be1dfa375fa5bc5582c4f2365ee0e2",
+      "bytes": 4472,
+      "sha256": "5ba827b95fc1844c0836b26c724b746d35a2b4f1342bd657f923f2f57b4b7b48",
+      "root_uid": "uid://jd5igfvwkrvk",
+      "saved_node_declarations": [
+        "[node name=\"Boot\" unique_id=1136527598 instance=ExtResource(\"1\")]",
+        "[node name=\"Match\" parent=\"View\" parent_id_path=PackedInt32Array(1918382734) index=\"0\" unique_id=828107831]",
+        "[node name=\"Replication\" parent=\"View/Match\" index=\"0\" unique_id=2038279275]",
+        "[node name=\"Ground\" parent=\"View/Match/CityRoot\" parent_id_path=PackedInt32Array(255159982) index=\"0\" unique_id=1387867042 instance=ExtResource(\"5_aqwcu\")]",
+        "[node name=\"WestCorner\" parent=\"View/Match/CityRoot\" parent_id_path=PackedInt32Array(255159982) index=\"1\" unique_id=1338630014 instance=ExtResource(\"6_ks34d\")]",
+        "[node name=\"EastCorner\" parent=\"View/Match/CityRoot\" parent_id_path=PackedInt32Array(255159982) index=\"2\" unique_id=88117413 instance=ExtResource(\"6_ks34d\")]",
+        "[node name=\"NearTower\" parent=\"View/Match/CityRoot\" parent_id_path=PackedInt32Array(255159982) index=\"3\" unique_id=93153907 instance=ExtResource(\"8_n1mff\")]",
+        "[node name=\"TallTower\" parent=\"View/Match/CityRoot\" parent_id_path=PackedInt32Array(255159982) index=\"4\" unique_id=1625145547 instance=ExtResource(\"9_s1vg5\")]",
+        "[node name=\"Bodies\" type=\"Node3D\" parent=\"View/Match\" index=\"3\" unique_id=384134593]",
+        "[node name=\"Host\" parent=\"View/Match/Bodies\" index=\"0\" unique_id=267633019 instance=ExtResource(\"10_g3qdg\")]",
+        "[node name=\"Client\" parent=\"View/Match/Bodies\" index=\"1\" unique_id=696077860 instance=ExtResource(\"10_g3qdg\")]",
+        "[node name=\"Input\" type=\"Node\" parent=\".\" index=\"2\" unique_id=827335923]",
+        "[node name=\"CameraRig\" type=\"Node3D\" parent=\".\" index=\"3\" unique_id=469889581]",
+        "[node name=\"Camera3D\" type=\"Camera3D\" parent=\"CameraRig\" index=\"0\" unique_id=682720310]",
+        "[node name=\"Sun\" type=\"DirectionalLight3D\" parent=\".\" index=\"4\" unique_id=1695765162]",
+        "[node name=\"Environment\" type=\"WorldEnvironment\" parent=\".\" index=\"5\" unique_id=1902978292]",
+        "[node name=\"UI\" type=\"CanvasLayer\" parent=\".\" index=\"6\" unique_id=1594858992]",
+        "[node name=\"Status\" type=\"Label\" parent=\"UI\" index=\"0\" unique_id=961572391]"
+      ]
+    },
+    {
+      "path": "tests/fixtures/s03_r/actor.gd",
+      "revision": "244089785b0d106451160acd89859c6977d30956",
+      "blob": "f5c6e805a4de019c248b75cce30bf673767f2f03",
+      "bytes": 1906,
+      "sha256": "e7083673e3455abbe7ebf1d6c08ce715eb7a333a578254097eef050d90e4d7af",
+      "required_apis": [
+        "install_pose",
+        "retire",
+        "display_state"
+      ]
+    },
+    {
+      "path": "tests/fixtures/s03_r/match.gd",
+      "revision": "244089785b0d106451160acd89859c6977d30956",
+      "blob": "68ec1c2181dbd7d83cea3079ee88dca572b0a60f",
+      "bytes": 8984,
+      "sha256": "ef7d91ad1e58b445949b36b112a8bcebfe1cdedbc8a281b95d5bd2fc1377373b",
+      "required_apis": [
+        "local_body",
+        "prepare_resync",
+        "pose_for_entity",
+        "apply_movement"
+      ]
+    },
+    {
+      "path": "tests/fixtures/s03_r/replication.gd",
+      "revision": "244089785b0d106451160acd89859c6977d30956",
+      "blob": "3ce2fd97cf18fca9125f6c8b7d19cab66735142f",
+      "bytes": 764,
+      "sha256": "ad0263562836006b7b5561d138b2410d09840cfe59004a1cda00a5ef24ffc3e0"
+    },
+    {
+      "path": "tools/s02/export_members.json",
+      "revision": "244089785b0d106451160acd89859c6977d30956",
+      "blob": "4f8c422c4cdfd54de6f11294da4e03a2dedea63b",
+      "bytes": 1536,
+      "sha256": "1358f2f0c6a29f876b3a77d90d82768b7dd9fff79682a550641544104d5080e4"
+    },
+    {
+      "path": "tools/s04/export_members.json",
+      "revision": "244089785b0d106451160acd89859c6977d30956",
+      "blob": "837bd8baf421a46714b56c55cfb271c312a9f708",
+      "bytes": 431,
+      "sha256": "f8a025a0b4ced6ff2d9647522953e8ea34983c050a37c0d4a1f7ffcb1fd17c41"
+    },
+    {
+      "path": "tools/s06/export_members.json",
+      "revision": "244089785b0d106451160acd89859c6977d30956",
+      "blob": "3b37ac22bbf011b285d01c9637eeb513170d6e2f",
+      "bytes": 935,
+      "sha256": "173f19cd11d5dd2b169e84550f8bd0938975532577573c0b5ca77cc84d1350bc"
+    },
+    {
+      "path": "art/source/models/spikes/s02_kit.blend",
+      "revision": "244089785b0d106451160acd89859c6977d30956",
+      "blob": "d76ec5e06a37fa6aac460b0c0cbc7ee5c0b10369",
+      "bytes": 167214,
+      "sha256": "9c5c198fa60bf5abccfe9968f3560b6db23872015e27eabb82ba5274f370b87d"
+    },
+    {
+      "path": "art/source/models/spikes/s04_kit.blend",
+      "revision": "244089785b0d106451160acd89859c6977d30956",
+      "blob": "83c320c8e933ae713977312e1e066650b041a223",
+      "bytes": 123668,
+      "sha256": "bce9c0c587399bc701dd8072726f1087a794e615c63f8ff699fd6fae5d3cf244"
+    },
+    {
+      "path": "art/source/models/spikes/s06_intersection.blend",
+      "revision": "244089785b0d106451160acd89859c6977d30956",
+      "blob": "66b0286f9f34f7a0c6297a484af64fb6881c6fb6",
+      "bytes": 104919,
+      "sha256": "7fd1ac804db0d8208c492e097bbeddb61cbf42e244b622ca82510a5125edd9c8"
+    },
+    {
+      "path": "art/source/models/spikes/s05_explosion_carrier.blend",
+      "revision": "244089785b0d106451160acd89859c6977d30956",
+      "blob": "aa9e74997acd1e640679d7ad5e16dd7b077d98d8",
+      "bytes": 117308,
+      "sha256": "f2f145c7f93906a56b7708823e33c926cab24ee6dec190d3495829364b05deb3"
+    },
+    {
+      "path": "art/models/spikes/s02_ground.glb",
+      "revision": "244089785b0d106451160acd89859c6977d30956",
+      "blob": "4f584ee029847f55da715f65c648af969c897158",
+      "bytes": 11840,
+      "sha256": "c8db4bc2fe33eec10a8ba2d8e4b3ae1981df2b95c9a11a6eeb3d713e0e9ff5ab"
+    },
+    {
+      "path": "art/models/spikes/s02_ground.glb.import",
+      "revision": "244089785b0d106451160acd89859c6977d30956",
+      "blob": "a7a5f2a7ae563fd3aa2e41f4de2b381508522858",
+      "bytes": 1214,
+      "sha256": "e0ccde6c06914715ba502c45ffa8421f61b9a21c004690cb60da85f4e5b8ed7c"
+    },
+    {
+      "path": "art/models/spikes/s02_low.glb",
+      "revision": "244089785b0d106451160acd89859c6977d30956",
+      "blob": "f1907b0153e262bccb9e2fdb05fcbb07e436e09d",
+      "bytes": 22176,
+      "sha256": "e7066cfa43ac11254804dcf1a369fb63b604b91b7126724c3163ec6ada9f5935"
+    },
+    {
+      "path": "art/models/spikes/s02_low.glb.import",
+      "revision": "244089785b0d106451160acd89859c6977d30956",
+      "blob": "9428aa738f6b1bcb6b65041ff280de236a8ede92",
+      "bytes": 1205,
+      "sha256": "80dc0901047fa268057ce0d95314f31c49e624696b2c1c07aae33c55a531dbb9"
+    },
+    {
+      "path": "art/models/spikes/s02_near.glb",
+      "revision": "244089785b0d106451160acd89859c6977d30956",
+      "blob": "7be4692542ff9c104dbf381dcc4a34c9d8bfa6da",
+      "bytes": 64740,
+      "sha256": "4f78a6d3ffaaef023144ead12d9f6c69fa8d22f7a2b56cd6e32db78e6f6069e2"
+    },
+    {
+      "path": "art/models/spikes/s02_near.glb.import",
+      "revision": "244089785b0d106451160acd89859c6977d30956",
+      "blob": "e91d55a1c2e98a3aadac2e6e809479cd5c35aded",
+      "bytes": 1209,
+      "sha256": "2a2524dbb8e4c1ef0efd5ba8511013544f9ff13b405c74f8ac16a3d459920d3d"
+    },
+    {
+      "path": "art/models/spikes/s02_tall.glb",
+      "revision": "244089785b0d106451160acd89859c6977d30956",
+      "blob": "caa038e514fecbefe4ec919c7167d0401e7f42db",
+      "bytes": 82268,
+      "sha256": "5cb7c72987974ca86eb7cb7ea3014d7e01cf7ce658bce62160158ce87767a6c1"
+    },
+    {
+      "path": "art/models/spikes/s02_tall.glb.import",
+      "revision": "244089785b0d106451160acd89859c6977d30956",
+      "blob": "d128279c6d81035b6d944451c9282257b85940c1",
+      "bytes": 1209,
+      "sha256": "ec4b312c57a00ffcacaeb8e7f370a9a68ceccf345463d8b9c81d10c18845983e"
+    },
+    {
+      "path": "art/models/spikes/s02_actor.glb",
+      "revision": "244089785b0d106451160acd89859c6977d30956",
+      "blob": "e1dd691ba983cf3a90720f49cd8024c234d4f027",
+      "bytes": 38076,
+      "sha256": "3fa868c9984965f5a26ae9aeab95ae663d5d6b2be3a012b935885fc70e8dea62"
+    },
+    {
+      "path": "art/models/spikes/s02_actor.glb.import",
+      "revision": "244089785b0d106451160acd89859c6977d30956",
+      "blob": "0507c4fc25e9c3b160b1beb529b026c5913a5195",
+      "bytes": 1212,
+      "sha256": "e2aa156c87a4e8b4025d2d2821cb561eae40331e4856c86b9f4cf68633e6ae08"
+    },
+    {
+      "path": "art/models/spikes/s02_target.glb",
+      "revision": "244089785b0d106451160acd89859c6977d30956",
+      "blob": "0586f107cc37609c0833fa231462ed38e0890267",
+      "bytes": 11864,
+      "sha256": "b5b27f7106299c0fd343aceecf3c344ab729a54e96f73a11d85841e002e204ba"
+    },
+    {
+      "path": "art/models/spikes/s02_target.glb.import",
+      "revision": "244089785b0d106451160acd89859c6977d30956",
+      "blob": "8d140388a69f1a5ff5bb48655d8e42b43c797b53",
+      "bytes": 1215,
+      "sha256": "6889022082b14ee23ce83cc75b1c7442e471a6b0664b6aed0e5fcda8bce2bd10"
+    },
+    {
+      "path": "art/models/spikes/s02_pistol.glb",
+      "revision": "244089785b0d106451160acd89859c6977d30956",
+      "blob": "383eb68356a110d736e9fddb57e2fae3a2afc5b6",
+      "bytes": 12044,
+      "sha256": "35c9af9034de5e49608ada5430bb731efa91f934620ade558de762562b103ed6"
+    },
+    {
+      "path": "art/models/spikes/s02_pistol.glb.import",
+      "revision": "244089785b0d106451160acd89859c6977d30956",
+      "blob": "8ab880ad61ffc0837141898069811534d5d42c2e",
+      "bytes": 1215,
+      "sha256": "b9411a4eff60dcfc3002b618680edd9fa5e97f0eacd09329423bcc1a3ad1d731"
+    },
+    {
+      "path": "art/models/spikes/s02_smg.glb",
+      "revision": "244089785b0d106451160acd89859c6977d30956",
+      "blob": "d56832eb7bf3b0c4581bdaae3b8260e855cad30d",
+      "bytes": 17880,
+      "sha256": "358314aeca0a4c6a801bd5e762df4b49ad9d10795568a70a37c5c619a29b6d6e"
+    },
+    {
+      "path": "art/models/spikes/s02_smg.glb.import",
+      "revision": "244089785b0d106451160acd89859c6977d30956",
+      "blob": "4a283460759695cbaa1f3595ea3e0a8128f1eb70",
+      "bytes": 1205,
+      "sha256": "104b11b6d4e9cc117477b36fc497998979288db02d9ee48952f0458610768d1a"
+    },
+    {
+      "path": "art/models/spikes/s02_launcher.glb",
+      "revision": "244089785b0d106451160acd89859c6977d30956",
+      "blob": "e18dc61fd0488d001423bb374296dc16b2aedc60",
+      "bytes": 17892,
+      "sha256": "c1bbc1fff10a3bac0533079c87872c1c51a3ecaa6da2f7b84f978599342c4803"
+    },
+    {
+      "path": "art/models/spikes/s02_launcher.glb.import",
+      "revision": "244089785b0d106451160acd89859c6977d30956",
+      "blob": "7a3d2c602a079211c04bc45ea4b6a3bae383634f",
+      "bytes": 1221,
+      "sha256": "40ff2b56dd94a72d2cfc7a59c96237e01da840caf2c49a441eeccf10bf76b722"
+    },
+    {
+      "path": "art/models/spikes/s04_car.glb",
+      "revision": "244089785b0d106451160acd89859c6977d30956",
+      "blob": "313a9eb2a415a876313b9072db454be4c4dc015c",
+      "bytes": 42912,
+      "sha256": "a9b4d2409e6cd7d0652dd65c20db64c5fb6dd046e4f65598c95d982bf123bf6e"
+    },
+    {
+      "path": "art/models/spikes/s04_car.glb.import",
+      "revision": "244089785b0d106451160acd89859c6977d30956",
+      "blob": "383e90cd85cb660cc5175682071137fe2e822ee3",
+      "bytes": 1205,
+      "sha256": "e5ad798ce3d7840eede5d43ea677c8e203d3900fb4aef373ad95bd117ddae3c5"
+    },
+    {
+      "path": "art/models/spikes/s04_track.glb",
+      "revision": "244089785b0d106451160acd89859c6977d30956",
+      "blob": "5c72e21c7f01427310fef1593769f5af5f997dc3",
+      "bytes": 33212,
+      "sha256": "07fe72674bfe63981886bf2e2f021f6a45a277812804f83a29de46c293b2d497"
+    },
+    {
+      "path": "art/models/spikes/s04_track.glb.import",
+      "revision": "244089785b0d106451160acd89859c6977d30956",
+      "blob": "e46ae90be2b33ce76c3bca110751c98f2e82f4b5",
+      "bytes": 1212,
+      "sha256": "57b2f321d958832de1e6ef062cf1fc1b19b038e99433a84a0602fc15bcab3460"
+    },
+    {
+      "path": "art/models/spikes/s05_explosion_carrier.glb",
+      "revision": "244089785b0d106451160acd89859c6977d30956",
+      "blob": "bb8adfa694f5d5ff1c6c0c2344d0bdeee56c3292",
+      "bytes": 27536,
+      "sha256": "d24e97bdbc5832787f3d781295d8eea40bbcdf0802d1c62f7ef78b6ddfc98647"
+    },
+    {
+      "path": "art/models/spikes/s05_explosion_carrier.glb.import",
+      "revision": "244089785b0d106451160acd89859c6977d30956",
+      "blob": "2c7c608c5ffe11e7ef0d7ed312db4b28e02d80ed",
+      "bytes": 1248,
+      "sha256": "f9988ed9623950695d13a87ad51bd870fa8d8b821e426fe4375910e969282cc5"
+    },
+    {
+      "path": "art/models/spikes/s06_west.glb",
+      "revision": "244089785b0d106451160acd89859c6977d30956",
+      "blob": "0dace373fe922661de3c8e828597eafa6a36ace0",
+      "bytes": 25700,
+      "sha256": "9fa1d7901dc8fa577ab63234a1b00f03790119d8d3caec35442faae6482fc46d"
+    },
+    {
+      "path": "art/models/spikes/s06_west.glb.import",
+      "revision": "244089785b0d106451160acd89859c6977d30956",
+      "blob": "d099497b64a6a304f6626d29db0c135ac2ae2bb5",
+      "bytes": 1209,
+      "sha256": "f4a88b73118ef40ec16c7e47e3b0521852115442c0e0a8e47c49d06612b97113"
+    },
+    {
+      "path": "art/models/spikes/s06_east.glb",
+      "revision": "244089785b0d106451160acd89859c6977d30956",
+      "blob": "c730e1eaebd059bc09ca8c453a39e206b2942307",
+      "bytes": 25684,
+      "sha256": "1270bf7e204de20998f6615617587449fbb12724c524599fea3b4ffd9810b3d2"
+    },
+    {
+      "path": "art/models/spikes/s06_east.glb.import",
+      "revision": "244089785b0d106451160acd89859c6977d30956",
+      "blob": "c91b3a637636f225a890f957c0e57f2e49ae1911",
+      "bytes": 1209,
+      "sha256": "7cfa875c24c47f2c6cc2cd0a5101f1dcebc90cd7e138f26e8c0805a662fd9683"
+    }
+  ],
+  "historical_references": [
+    {
+      "commit": "2294a11111c7abdd638f6faadf2a3009866afd1c",
+      "ref": "refs/notes/paseo-orchestration",
+      "blob": "793a607e70c22a2786801aacfe503f17bc8c87ba",
+      "bytes": 833351,
+      "sha256": "d39ec6a5c11f3931bb43431c3849664a74e540a9ee4751974ecaefcaef00e1f9",
+      "reports": [
+        {
+          "selector": "/payloads/review/report.md",
+          "path": "/payloads/review/report.md",
+          "bytes": 19622,
+          "sha256": "86009a6d160e47e9f973ea826a0ecee1a7f795e7f120b894cad3c0b41e79b876"
+        }
+      ],
+      "metadata": {
+        "head": "2294a11111c7abdd638f6faadf2a3009866afd1c",
+        "base": "0c84f01f2a0c817a5c6851a3a360e193a5f846d8",
+        "reviewer": "c52a6f25-1f79-444b-9c8f-a477f3855c42"
+      }
+    },
+    {
+      "commit": "a15a7fbe5cb5cb59e6ad969ee7960052bd10b119",
+      "ref": "refs/notes/paseo-orchestration",
+      "blob": "ae99af92ec6c4bba30a09477f4034e94e0485dd3",
+      "bytes": 620453,
+      "sha256": "5599cb731b1d4fe5761b6f82fd049b2c4ad1213809b2c44ef9c38ee92d2ff452",
+      "reports": [
+        {
+          "selector": "/payloads/report.md",
+          "path": "/payloads/report.md",
+          "bytes": 35858,
+          "sha256": "839dfc3129a5d62e8f87d5b770c2054ca1452afb8affb00cf76cdc5775b4d32f"
+        }
+      ],
+      "metadata": {
+        "head": "a15a7fbe5cb5cb59e6ad969ee7960052bd10b119",
+        "base": "ef730df936b5b159f0894033f5d01e2b7124386c",
+        "reviewer": "ccd857b7-0af3-4667-ab57-45e940788282"
+      }
+    },
+    {
+      "commit": "30a97532ed2ae922c22d21fd9ac48bd2bab8b145",
+      "ref": "refs/notes/paseo-orchestration",
+      "blob": "88549e263b61ef924f941b38739e8924268a462e",
+      "bytes": 26171,
+      "sha256": "b30730374e0a3dafd1b950ae1a3d8aa74a5e6d9002e9e24467282f72e70edea7",
+      "reports": [
+        {
+          "selector": "/complete_reports_verbatim/initial",
+          "bytes": 11469,
+          "sha256": "d4e0cc00c89cf8e94cf5c41caa7282b4faa389784233af465a4e66ac2a1ad922"
+        },
+        {
+          "selector": "/complete_reports_verbatim/final",
+          "bytes": 5041,
+          "sha256": "cf4cd2c79c4ee16df01697b49c02fae08795b922b27647f22c2f086a71729333"
+        }
+      ],
+      "metadata": {
+        "base": "48aef3dbd133876743f504f94a1b788a26d5638f",
+        "verdict": "ACCEPT static preparation",
+        "reviewer": "cdc5d0fa-3765-402d-bf3d-7e9f2ab3d4a4",
+        "root_integration_receipt": {
+          "old_main": "48aef3dbd133876743f504f94a1b788a26d5638f",
+          "new_main": "30a97532ed2ae922c22d21fd9ac48bd2bab8b145",
+          "method": "fast-forward exact reviewed commit",
+          "tracked_clean": true,
+          "untracked_UIDs_byte_identical": 5,
+          "later_report_metadata_reachable": "refs/keep/s07-final-review-metadata"
+        }
+      }
+    },
+    {
+      "commit": "30471e6ae4c4ecbe01ce13313cd6d14c3b701bae",
+      "ref": "refs/notes/paseo-orchestration",
+      "blob": "4aadf627d8def0ffedc08e4492739903dbcd7396",
+      "bytes": 1279855,
+      "sha256": "80973f0be0e4a8dd8272ec43e9b735ab6fb47e33c0babb9a262c10e500c70907",
+      "reports": [
+        {
+          "selector": "/review_payloads/report.md",
+          "path": "/review_payloads/report.md",
+          "bytes": 14015,
+          "sha256": "c55aeac9d0807ff09b185650956b7e824b674418936c7965b2f1169510c15d02"
+        },
+        {
+          "selector": "/final_review_payloads/report.md",
+          "path": "/final_review_payloads/report.md",
+          "bytes": 5893,
+          "sha256": "65091445a7fa004c2a50b5d60708cb925259b6b5bcf054199d98aa153bc51c6f"
+        }
+      ],
+      "metadata": {
+        "head": "30471e6ae4c4ecbe01ce13313cd6d14c3b701bae",
+        "base": "3f5fb4067c5ce5fca721f54d42165a833e4c884c",
+        "reviewer": "60dbabd5-2679-4494-adef-1fd2b5bffa61",
+        "verdict": "ACCEPT exact final HEAD/base; no actionable findings; static design only",
+        "root_integration_receipt": {
+          "old_main": "3f5fb4067c5ce5fca721f54d42165a833e4c884c",
+          "reviewed_head": "30471e6ae4c4ecbe01ce13313cd6d14c3b701bae",
+          "preflight": "PASS clean/exact-base/linear/no Git operations",
+          "verified_artifacts": 65,
+          "verified_payloads": {
+            "lead_payloads": 53,
+            "review_payloads": 56,
+            "final_review_payloads": 29
+          },
+          "reviewer_source_readbacks": 85,
+          "empty_payloads": 51,
+          "retention_receipt_verified": true,
+          "static_only": true,
+          "steam_testing": "DEFERRED/UNEXECUTED",
+          "push_performed": false,
+          "new_main": "30471e6ae4c4ecbe01ce13313cd6d14c3b701bae",
+          "method": "local fast-forward exact reviewed HEAD",
+          "git_clean_including_untracked": true
+        }
+      }
+    },
+    {
+      "commit": "8689168dda8b62cc5fe5247db9983546b811e2d5",
+      "ref": "refs/notes/paseo-orchestration",
+      "blob": "f1e02286c9af385d5983defcd19ef6da0a9f99e5",
+      "bytes": 2708025,
+      "sha256": "232ffc9190e0b0565fc3a3327cc3d57d3d7053460f69484eda4060fc247a7ec1",
+      "reports": [
+        {
+          "selector": "/payloads/initial-review/report.md",
+          "path": "/payloads/initial-review/report.md",
+          "bytes": 18145,
+          "sha256": "4d22634c8cbfdd4a4bccbd53cc2253ebdd5751a353b9c2e6ce757f4f5819500b"
+        },
+        {
+          "selector": "/payloads/final-review/report.md",
+          "path": "/payloads/final-review/report.md",
+          "bytes": 9102,
+          "sha256": "52625cb6798b02baba68efd5b0f7c07baea2c585e23a480380473a610da7b5b4"
+        }
+      ],
+      "metadata": {
+        "candidate": "8689168dda8b62cc5fe5247db9983546b811e2d5",
+        "base": "30471e6ae4c4ecbe01ce13313cd6d14c3b701bae",
+        "reviewer": {
+          "agent_id": "f3aad48d-3fe6-4fa2-ba9f-9a3b97325147",
+          "pi_session_id": "01a11bc4-2ac9-7633-9a02-05cf62d6cdb2",
+          "provider": "pi/openai",
+          "model": "gpt-6.1-sol",
+          "thinking": "high",
+          "verdict": "ACCEPT bounded S07 primary T sustained-route/saved-reload prerequisite; full S07 PARTIAL/OPEN",
+          "exact_final_reviewed_HEAD": "8689168dda8b62cc5fe5247db9983546b811e2d5",
+          "exact_final_reviewed_base": "30471e6ae4c4ecbe01ce13313cd6d14c3b701bae"
+        },
+        "limitations": [
+          "author supervisor FAILED, narrow genuine saved recovery positive",
+          "review development-2 INTERRUPTED; no final route/group result/exit/reap, current recorded PID absent only",
+          "all engine attempt groups exhausted; no retry",
+          "current known-PID absence/targeted-file-user/hash stability check does not reconstruct historical reap",
+          "no graphical/capacity/FPS/GPU/readability/Steam/Deck/full P0/M1 acceptance"
+        ],
+        "current_state": {
+          "git_clean": true,
+          "saved_scene_380_byte_roundtrip": true,
+          "known_owned_pids_absent_and_no_targeted_evidence_file_users": true,
+          "historical_missing_reap_still_unknown": true
+        },
+        "missing_interrupted_receipts": [
+          "development-2-supervisor/command.json",
+          "development-2-actual/phase.json",
+          "development-2-actual/result.json",
+          "development-2-actual/routes/diagnostics.json"
+        ],
+        "root_integration_receipt": {
+          "old_main": "30471e6ae4c4ecbe01ce13313cd6d14c3b701bae",
+          "reviewed_head": "8689168dda8b62cc5fe5247db9983546b811e2d5",
+          "verified_note_payloads": 178,
+          "immutable_references": 24,
+          "review_source_readbacks": 151,
+          "empty_payloads": 34,
+          "verified_manifest_paths": 129,
+          "required_manifest_paths": 111,
+          "scope": "bounded sustained driver prerequisite; capacity/P0 open",
+          "historical_reviewer_reap": "unproved, interruption preserved; current owned-writer absence recorded",
+          "preflight": "clean/exact-base/linear/no Git operations; PASS",
+          "push_performed": false,
+          "root_verifier_correction": "Initial preflight failed on gzip-backed immutable reference because ROOT verifier omitted declared decode_gzip; corrected only verifier, no candidate/evidence change.",
+          "new_main": "8689168dda8b62cc5fe5247db9983546b811e2d5",
+          "method": "local fast-forward exact reviewed HEAD",
+          "git_clean_including_untracked": true
+        }
+      }
+    }
+  ],
+  "limits": "Selected source identities; source links from accepted handoffs, not a new Blender export or engine bake. Old reports not recopied."
+}
