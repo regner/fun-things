@@ -1,0 +1,758 @@
+docs/spikes/s03-s-upstream-peer-evidence/retained-peer-diff.txt:65: trailing whitespace.
++ 
+docs/spikes/s03-s-upstream-peer-evidence/retained-peer-diff.txt:67: trailing whitespace.
++ 
+docs/spikes/s03-s-upstream-peer-evidence/retained-peer-diff.txt:73: trailing whitespace.
++ 
+docs/spikes/s03-s-upstream-peer-evidence/retained-peer-diff.txt:75: trailing whitespace.
++ 
+docs/spikes/s03-s-upstream-peer-evidence/retained-peer-diff.txt:76: trailing whitespace.
++ 
+docs/spikes/s03-s-upstream-peer-evidence/retained-peer-diff.txt:90: trailing whitespace.
++ 
+docs/spikes/s03-s-upstream-peer-evidence/retained-peer-diff.txt:92: space before tab in indent.
++ 	_close();
+docs/spikes/s03-s-upstream-peer-evidence/retained-peer-diff.txt:94: trailing whitespace.
++ 
+docs/spikes/s03-s-upstream-peer-evidence/retained-peer-diff.txt:112: space before tab in indent.
++ 	target_peer = p_peer_id;
+docs/spikes/s03-s-upstream-peer-evidence/retained-peer-diff.txt:115: trailing whitespace.
++ 
+docs/spikes/s03-s-upstream-peer-evidence/retained-peer-diff.txt:116: space before tab in indent.
++ 	return SteamAPI_ISteamNetworkingSockets_GetConnectionUserData(
+docs/spikes/s03-s-upstream-peer-evidence/retained-peer-diff.txt:117: space before tab in indent.
++ 			SteamAPI_SteamNetworkingSockets_SteamAPI(),
+docs/spikes/s03-s-upstream-peer-evidence/retained-peer-diff.txt:122: trailing whitespace.
++ 
+docs/spikes/s03-s-upstream-peer-evidence/retained-peer-diff.txt:125: space before tab in indent.
++ 	return incoming_packets.front()->get()->m_idxLane;
+docs/spikes/s03-s-upstream-peer-evidence/retained-peer-diff.txt:127: trailing whitespace.
++ 
+docs/spikes/s03-s-upstream-peer-evidence/retained-peer-diff.txt:145: space before tab in indent.
++ 	// Let godot know our peer disconnected and erase from our maps
+docs/spikes/s03-s-upstream-peer-evidence/retained-peer-diff.txt:146: space before tab in indent.
++ 	if (peers.has(p_peer_id)) {
+docs/spikes/s03-s-upstream-peer-evidence/retained-peer-diff.txt:148: trailing whitespace.
++ 
+docs/spikes/s03-s-upstream-peer-evidence/retained-peer-diff.txt:149: space before tab in indent.
++ 	// Close if this was the host we lost
+docs/spikes/s03-s-upstream-peer-evidence/retained-peer-diff.txt:150: space before tab in indent.
++ 	if (p_peer_id == 1 && connection_status != CONNECTION_DISCONNECTED) {
+docs/spikes/s03-s-upstream-peer-evidence/retained-peer-diff.txt:153: space before tab in indent.
++ 	}
+docs/spikes/s03-s-upstream-peer-evidence/retained-peer-diff.txt:155: trailing whitespace.
++ 
+docs/spikes/s03-s-upstream-peer-evidence/retained-peer-diff.txt:157: space before tab in indent.
++ 	SteamNetworkingMessage_t *messages[MAX_MESSAGE_COUNT];
+docs/spikes/s03-s-upstream-peer-evidence/retained-peer-diff.txt:158: space before tab in indent.
++ 	int number_messages = SteamAPI_ISteamNetworkingSockets_ReceiveMessagesOnPollGroup(
+docs/spikes/s03-s-upstream-peer-evidence/retained-peer-diff.txt:159: space before tab in indent.
++ 			SteamAPI_SteamNetworkingSockets_SteamAPI(),
+docs/spikes/s03-s-upstream-peer-evidence/retained-peer-diff.txt:163: space before tab in indent.
++ 	if (number_messages == 0) {
+docs/spikes/s03-s-upstream-peer-evidence/retained-peer-diff.txt:164: space before tab in indent.
++ 		return;
+docs/spikes/s03-s-upstream-peer-evidence/retained-peer-diff.txt:165: space before tab in indent.
++ 	}
+docs/spikes/s03-s-upstream-peer-evidence/retained-peer-diff.txt:167: space before tab in indent.
++ 		SteamNetworkingMessage_t *message = messages[i];
+docs/spikes/s03-s-upstream-peer-evidence/retained-peer-diff.txt:168: trailing whitespace.
++ 
+docs/spikes/s03-s-upstream-peer-evidence/retained-peer-diff.txt:169: space before tab in indent.
++ 		if (SteamAPI_ISteamNetworkingSockets_GetConnectionUserData(
+docs/spikes/s03-s-upstream-peer-evidence/retained-peer-diff.txt:172: space before tab in indent.
++ 			// Do we have any pending peers waiting for a peer_id
+docs/spikes/s03-s-upstream-peer-evidence/retained-peer-diff.txt:173: space before tab in indent.
++ 			if (steam_connections.has(message->m_conn)) {
+docs/spikes/s03-s-upstream-peer-evidence/retained-peer-diff.txt:174: space before tab in indent.
++ 				if (steam_connections[message->m_conn]->process_ping(message) == OK) {
+docs/spikes/s03-s-upstream-peer-evidence/retained-peer-diff.txt:175: space before tab in indent.
++ 					if (steam_connections[message->m_conn]->get_state() ==
+docs/spikes/s03-s-upstream-peer-evidence/retained-peer-diff.txt:176: space before tab in indent.
++ 							SteamPacketPeer::STATE_CONNECTED) {
+docs/spikes/s03-s-upstream-peer-evidence/retained-peer-diff.txt:179: space before tab in indent.
++ 					}
+docs/spikes/s03-s-upstream-peer-evidence/retained-peer-diff.txt:180: space before tab in indent.
++ 				}
+docs/spikes/s03-s-upstream-peer-evidence/retained-peer-diff.txt:181: space before tab in indent.
++ 			} else {
+docs/spikes/s03-s-upstream-peer-evidence/retained-peer-diff.txt:183: space before tab in indent.
++ 				"Connection from %ud changed from %ud to %ud",
+docs/spikes/s03-s-upstream-peer-evidence/retained-peer-diff.txt:184: space before tab in indent.
++ 				(uint64_t)SteamAPI_SteamNetworkingIdentity_GetSteamID64(
+docs/spikes/s03-s-upstream-peer-evidence/retained-peer-diff.txt:185: space before tab in indent.
++ 						&p_status_change->m_info.m_identityRemote),
+docs/spikes/s03-s-upstream-peer-evidence/retained-peer-diff.txt:189: space before tab in indent.
++ 	}
+docs/spikes/s03-s-upstream-peer-evidence/retained-peer-diff.txt:190: trailing whitespace.
++ 
+docs/spikes/s03-s-upstream-peer-evidence/retained-peer-diff.txt:191: space before tab in indent.
++ 	// Check the state of the connection
+docs/spikes/s03-s-upstream-peer-evidence/retained-peer-diff.txt:193: space before tab in indent.
++ 			if (unlikely(debug_level > DEBUG_LEVEL_NONE)) {
+docs/spikes/s03-s-upstream-peer-evidence/retained-peer-diff.txt:194: space before tab in indent.
++ 				WARN_PRINT(vformat("Connection closed with reason %ud: %s",
+docs/spikes/s03-s-upstream-peer-evidence/retained-peer-diff.txt:195: space before tab in indent.
++ 						p_status_change->m_info.m_eEndReason,
+docs/spikes/s03-s-upstream-peer-evidence/retained-peer-diff.txt:199: space before tab in indent.
++ 			}
+docs/spikes/s03-s-upstream-peer-evidence/retained-peer-diff.txt:200: space before tab in indent.
++ 			// Determine if we were previously connected
+docs/spikes/s03-s-upstream-peer-evidence/retained-peer-diff.txt:201: space before tab in indent.
++ 			if (p_status_change->m_eOldState ==
+docs/spikes/s03-s-upstream-peer-evidence/retained-peer-diff.txt:202: space before tab in indent.
++ 					k_ESteamNetworkingConnectionState_Connected) {
+docs/spikes/s03-s-upstream-peer-evidence/retained-peer-diff.txt:203: space before tab in indent.
++ 				uint32_t connection_peer_id = p_status_change->m_info.m_nUserData;
+docs/spikes/s03-s-upstream-peer-evidence/retained-peer-diff.txt:206: space before tab in indent.
++ 				// Erase directly from the status_change in case it was a lingering connection.
+docs/spikes/s03-s-upstream-peer-evidence/retained-peer-diff.txt:207: space before tab in indent.
++ 				steam_connections.erase(p_status_change->m_hConn);
+docs/spikes/s03-s-upstream-peer-evidence/retained-peer-diff.txt:208: space before tab in indent.
++ 			}
+docs/spikes/s03-s-upstream-peer-evidence/retained-peer-diff.txt:210: space before tab in indent.
++ 			// closed on the other end
+docs/spikes/s03-s-upstream-peer-evidence/retained-peer-diff.txt:211: space before tab in indent.
++ 			SteamAPI_ISteamNetworkingSockets_CloseConnection(
+docs/spikes/s03-s-upstream-peer-evidence/retained-peer-diff.txt:212: space before tab in indent.
++ 					SteamAPI_SteamNetworkingSockets_SteamAPI(),
+docs/spikes/s03-s-upstream-peer-evidence/retained-peer-diff.txt:216: trailing whitespace.
++ 
+docs/spikes/s03-s-upstream-peer-evidence/retained-peer-diff.txt:217: space before tab in indent.
++ 			// If we were the client, attempt to reconnect
+docs/spikes/s03-s-upstream-peer-evidence/retained-peer-diff.txt:218: space before tab in indent.
++ 			if (p_status_change->m_eOldState == k_ESteamNetworkingConnectionState_Connecting && p_status_change->m_info.m_eEndReason == k_ESteamNetConnectionEnd_Remote_BadCert && connection_retries < 5) {
+docs/spikes/s03-s-upstream-peer-evidence/retained-peer-diff.txt:220: space before tab in indent.
++ 					WARN_PRINT("Attempting to reconnect after bad cert.");
+docs/spikes/s03-s-upstream-peer-evidence/retained-peer-diff.txt:221: space before tab in indent.
++ 				}
+docs/spikes/s03-s-upstream-peer-evidence/retained-peer-diff.txt:222: space before tab in indent.
++ 				add_peer(SteamAPI_SteamNetworkingIdentity_GetSteamID64(
+docs/spikes/s03-s-upstream-peer-evidence/retained-peer-diff.txt:226: space before tab in indent.
++ 				connection_retries++;
+docs/spikes/s03-s-upstream-peer-evidence/retained-peer-diff.txt:227: space before tab in indent.
++ 			}
+docs/spikes/s03-s-upstream-peer-evidence/retained-peer-diff.txt:228: space before tab in indent.
++ 			break;
+docs/spikes/s03-s-upstream-peer-evidence/retained-peer-diff.txt:230: space before tab in indent.
++ 					WARN_PRINT(vformat(
+docs/spikes/s03-s-upstream-peer-evidence/retained-peer-diff.txt:231: space before tab in indent.
++ 							"Connection attempt from %ud.",
+docs/spikes/s03-s-upstream-peer-evidence/retained-peer-diff.txt:232: space before tab in indent.
++ 							(uint64_t)SteamAPI_SteamNetworkingIdentity_GetSteamID64(
+docs/spikes/s03-s-upstream-peer-evidence/retained-peer-diff.txt:237: space before tab in indent.
++ 				}
+docs/spikes/s03-s-upstream-peer-evidence/retained-peer-diff.txt:238: trailing whitespace.
++ 
+docs/spikes/s03-s-upstream-peer-evidence/retained-peer-diff.txt:239: space before tab in indent.
++ 				uint32_t connection_peer_id = p_status_change->m_info.m_nUserData;
+docs/spikes/s03-s-upstream-peer-evidence/retained-peer-diff.txt:240: space before tab in indent.
++ 				ERR_FAIL_COND_MSG(
+docs/spikes/s03-s-upstream-peer-evidence/retained-peer-diff.txt:241: space before tab in indent.
++ 						peers.has(connection_peer_id),
+docs/spikes/s03-s-upstream-peer-evidence/retained-peer-diff.txt:242: space before tab in indent.
++ 						vformat("Attempting to connect peer %d but it already exists.",
+docs/spikes/s03-s-upstream-peer-evidence/retained-peer-diff.txt:246: trailing whitespace.
++ 
+docs/spikes/s03-s-upstream-peer-evidence/retained-peer-diff.txt:247: space before tab in indent.
++ 				if (SteamAPI_ISteamNetworkingSockets_AcceptConnection(
+docs/spikes/s03-s-upstream-peer-evidence/retained-peer-diff.txt:252: space before tab in indent.
++ 					SteamAPI_ISteamNetworkingSockets_CloseConnection(
+docs/spikes/s03-s-upstream-peer-evidence/retained-peer-diff.txt:258: space before tab in indent.
++ 					WARN_PRINT("A connection was started but couldn't be accepted.");
+docs/spikes/s03-s-upstream-peer-evidence/retained-peer-diff.txt:259: space before tab in indent.
++ 					return;
+docs/spikes/s03-s-upstream-peer-evidence/retained-peer-diff.txt:260: space before tab in indent.
++ 				} else {
+docs/spikes/s03-s-upstream-peer-evidence/retained-peer-diff.txt:262: space before tab in indent.
++ 			// Regardless of who created the connection, since we're symmetrical we
+docs/spikes/s03-s-upstream-peer-evidence/retained-peer-diff.txt:263: space before tab in indent.
++ 			// want to keep track of everything Add it to our poll group
+docs/spikes/s03-s-upstream-peer-evidence/retained-peer-diff.txt:264: space before tab in indent.
++ 			if (!SteamAPI_ISteamNetworkingSockets_SetConnectionPollGroup(
+docs/spikes/s03-s-upstream-peer-evidence/retained-peer-diff.txt:267: space before tab in indent.
++ 				SteamAPI_ISteamNetworkingSockets_CloseConnection(
+docs/spikes/s03-s-upstream-peer-evidence/retained-peer-diff.txt:268: space before tab in indent.
++ 						SteamAPI_SteamNetworkingSockets_SteamAPI(), p_status_change->m_hConn, 0,
+docs/spikes/s03-s-upstream-peer-evidence/retained-peer-diff.txt:272: space before tab in indent.
++ 				WARN_PRINT("A connection was abandoned because it could not be added to a poll group.");
+docs/spikes/s03-s-upstream-peer-evidence/retained-peer-diff.txt:273: space before tab in indent.
++ 				return;
+docs/spikes/s03-s-upstream-peer-evidence/retained-peer-diff.txt:274: space before tab in indent.
++ 			}
+docs/spikes/s03-s-upstream-peer-evidence/retained-peer-diff.txt:275: trailing whitespace.
++ 
+docs/spikes/s03-s-upstream-peer-evidence/retained-peer-diff.txt:276: space before tab in indent.
++ 			// Create our packet peer
+docs/spikes/s03-s-upstream-peer-evidence/retained-peer-diff.txt:277: space before tab in indent.
++ 			_add_pending_peer(SteamAPI_SteamNetworkingIdentity_GetSteamID64(
+docs/spikes/s03-s-upstream-peer-evidence/retained-peer-diff.txt:280: space before tab in indent.
++ 					p_status_change->m_hConn,
+docs/spikes/s03-s-upstream-peer-evidence/retained-peer-diff.txt:284: space before tab in indent.
++ 			break;
+docs/spikes/s03-s-upstream-peer-evidence/retained-peer-diff.txt:285: space before tab in indent.
++ 		}
+docs/spikes/s03-s-upstream-peer-evidence/retained-peer-diff.txt:286: space before tab in indent.
++ 		case k_ESteamNetworkingConnectionState_Connected: {
+docs/spikes/s03-s-upstream-peer-evidence/retained-peer-diff.txt:287: space before tab in indent.
++ 			// Someone has finished connecting to us
+docs/spikes/s03-s-upstream-peer-evidence/retained-peer-diff.txt:288: space before tab in indent.
++ 			connection_retries = 0;
+docs/spikes/s03-s-upstream-peer-evidence/retained-peer-diff.txt:289: space before tab in indent.
++ 			if (unlikely(debug_level > DEBUG_LEVEL_NONE)) {
+docs/spikes/s03-s-upstream-peer-evidence/retained-peer-diff.txt:292: space before tab in indent.
++ 						(uint64_t)SteamAPI_SteamNetworkingIdentity_GetSteamID64(
+docs/spikes/s03-s-upstream-peer-evidence/retained-peer-diff.txt:296: space before tab in indent.
++ 			}
+docs/spikes/s03-s-upstream-peer-evidence/retained-peer-diff.txt:297: space before tab in indent.
++ 			if (steam_connections.has(p_status_change->m_hConn)) {
+docs/spikes/s03-s-upstream-peer-evidence/retained-peer-diff.txt:298: space before tab in indent.
++ 				steam_connections[p_status_change->m_hConn]->set_state(
+docs/spikes/s03-s-upstream-peer-evidence/retained-peer-diff.txt:299: space before tab in indent.
++ 						(SteamPacketPeer::PeerState)p_status_change->m_info.m_eState);
+docs/spikes/s03-s-upstream-peer-evidence/retained-peer-diff.txt:300: space before tab in indent.
++ 				// Then send our Peer ID
+docs/spikes/s03-s-upstream-peer-evidence/retained-peer-diff.txt:301: space before tab in indent.
++ 				Error ping_result =
+docs/spikes/s03-s-upstream-peer-evidence/retained-peer-diff.txt:304: space before tab in indent.
++ 				if (unlikely(debug_level > DEBUG_LEVEL_NONE)) {
+docs/spikes/s03-s-upstream-peer-evidence/retained-peer-diff.txt:305: space before tab in indent.
++ 					WARN_PRINT(vformat(
+docs/spikes/s03-s-upstream-peer-evidence/retained-peer-diff.txt:306: space before tab in indent.
++ 							"Ping sent to %ud: %d",
+docs/spikes/s03-s-upstream-peer-evidence/retained-peer-diff.txt:307: space before tab in indent.
++ 							(uint64_t)SteamAPI_SteamNetworkingIdentity_GetSteamID64(
+docs/spikes/s03-s-upstream-peer-evidence/retained-peer-diff.txt:308: space before tab in indent.
++ 									&p_status_change->m_info.m_identityRemote),
+docs/spikes/s03-s-upstream-peer-evidence/retained-peer-diff.txt:312: space before tab in indent.
++ 				}
+docs/spikes/s03-s-upstream-peer-evidence/retained-peer-diff.txt:314: trailing whitespace.
+++				
+docs/spikes/s03-s-upstream-peer-evidence/retained-peer-diff.txt:315: space before tab in indent.
++ 				// If we already have their peer ID, upgrade it
+docs/spikes/s03-s-upstream-peer-evidence/retained-peer-diff.txt:316: space before tab in indent.
++ 				if (steam_connections[p_status_change->m_hConn]->get_peer_id() > 0) {
+docs/spikes/s03-s-upstream-peer-evidence/retained-peer-diff.txt:319: space before tab in indent.
++ 				}
+docs/spikes/s03-s-upstream-peer-evidence/retained-peer-diff.txt:320: space before tab in indent.
++ 			} else {
+docs/spikes/s03-s-upstream-peer-evidence/retained-peer-diff.txt:321: space before tab in indent.
++ 				ERR_PRINT("A connection was established without a peer being created.");
+docs/spikes/s03-s-upstream-peer-evidence/retained-peer-diff.txt:323: space before tab in indent.
++ 		default: {
+docs/spikes/s03-s-upstream-peer-evidence/retained-peer-diff.txt:324: space before tab in indent.
++ 			if (steam_connections.has(p_status_change->m_hConn)) {
+docs/spikes/s03-s-upstream-peer-evidence/retained-peer-diff.txt:325: space before tab in indent.
++ 				steam_connections[p_status_change->m_hConn]->set_state(
+docs/spikes/s03-s-upstream-peer-evidence/retained-peer-diff.txt:329: space before tab in indent.
++ 			}
+docs/spikes/s03-s-upstream-peer-evidence/retained-peer-diff.txt:330: space before tab in indent.
++ 			break;
+docs/spikes/s03-s-upstream-peer-evidence/retained-peer-diff.txt:331: space before tab in indent.
++ 		}
+docs/spikes/s03-s-upstream-peer-evidence/retained-peer-diff.txt:333: space before tab in indent.
++ 	if (p_chat_update->m_ulSteamIDLobby != tracked_lobby) {
+docs/spikes/s03-s-upstream-peer-evidence/retained-peer-diff.txt:334: space before tab in indent.
++ 		if (unlikely(debug_level > DEBUG_LEVEL_NONE)) {
+docs/spikes/s03-s-upstream-peer-evidence/retained-peer-diff.txt:335: space before tab in indent.
++ 			WARN_PRINT(vformat("LobbyChatUpdate ignored due to lobby ID mismatch: "
+docs/spikes/s03-s-upstream-peer-evidence/retained-peer-diff.txt:340: space before tab in indent.
++ 		}
+docs/spikes/s03-s-upstream-peer-evidence/retained-peer-diff.txt:341: space before tab in indent.
++ 		return;
+docs/spikes/s03-s-upstream-peer-evidence/retained-peer-diff.txt:342: space before tab in indent.
++ 	}
+docs/spikes/s03-s-upstream-peer-evidence/retained-peer-diff.txt:344: space before tab in indent.
++ 		}
+docs/spikes/s03-s-upstream-peer-evidence/retained-peer-diff.txt:345: space before tab in indent.
++ 		// Disconnect peers outside the iteration
+docs/spikes/s03-s-upstream-peer-evidence/retained-peer-diff.txt:346: space before tab in indent.
++ 		for (int peer_id : peer_ids_to_disconnect) {
+docs/spikes/s03-s-upstream-peer-evidence/retained-peer-diff.txt:349: space before tab in indent.
++ 		}
+docs/spikes/s03-s-upstream-peer-evidence/retained-peer-diff.txt:350: space before tab in indent.
++ 		// Remove collected connections outside the iteration
+docs/spikes/s03-s-upstream-peer-evidence/retained-peer-diff.txt:351: space before tab in indent.
++ 		for (HSteamNetConnection conn : connections_to_remove) {
+docs/spikes/s03-s-upstream-peer-evidence/retained-peer-diff.txt:353: space before tab in indent.
++ 	connection_status = CONNECTION_DISCONNECTED;
+docs/spikes/s03-s-upstream-peer-evidence/retained-peer-diff.txt:354: space before tab in indent.
++ 	server = false;
+docs/spikes/s03-s-upstream-peer-evidence/retained-peer-diff.txt:355: trailing whitespace.
++ 
+docs/spikes/s03-s-upstream-peer-evidence/retained-peer-diff.txt:363: trailing whitespace.
++ 
+docs/spikes/s03-s-upstream-peer-evidence/retained-peer-diff.txt:364: space before tab in indent.
++ 	for (KeyValue<HSteamNetConnection, Ref<SteamPacketPeer>> &E :
+docs/spikes/s03-s-upstream-peer-evidence/retained-peer-diff.txt:365: space before tab in indent.
++ 			steam_connections) {
+docs/spikes/s03-s-upstream-peer-evidence/retained-peer-diff.txt:367: space before tab in indent.
++ 	return incoming_packets.size();
+docs/spikes/s03-s-upstream-peer-evidence/retained-peer-diff.txt:369: trailing whitespace.
++ 
+docs/spikes/s03-s-upstream-peer-evidence/retained-peer-diff.txt:372: space before tab in indent.
++ 	ERR_FAIL_COND_V_MSG(incoming_packets.is_empty(), ERR_UNAVAILABLE,
+docs/spikes/s03-s-upstream-peer-evidence/retained-peer-diff.txt:376: trailing whitespace.
++ 
+docs/spikes/s03-s-upstream-peer-evidence/retained-peer-diff.txt:377: space before tab in indent.
++ 	if (current_packet != nullptr) {
+docs/spikes/s03-s-upstream-peer-evidence/retained-peer-diff.txt:378: space before tab in indent.
++ 		SteamAPI_SteamNetworkingMessage_t_Release(current_packet);
+docs/spikes/s03-s-upstream-peer-evidence/retained-peer-diff.txt:380: space before tab in indent.
++ 	incoming_packets.pop_front();
+docs/spikes/s03-s-upstream-peer-evidence/retained-peer-diff.txt:381: trailing whitespace.
++ 
+docs/spikes/s03-s-upstream-peer-evidence/retained-peer-diff.txt:382: space before tab in indent.
++ 	*r_buffer = (uint8_t *)current_packet->GetData();
+docs/spikes/s03-s-upstream-peer-evidence/retained-peer-diff.txt:385: trailing whitespace.
++ 
+docs/spikes/s03-s-upstream-peer-evidence/retained-peer-diff.txt:386: space before tab in indent.
++ 	return OK;
+docs/spikes/s03-s-upstream-peer-evidence/retained-peer-diff.txt:388: trailing whitespace.
++ 
+docs/spikes/s03-s-upstream-peer-evidence/retained-peer-diff.txt:391: space before tab in indent.
++ 	ERR_FAIL_COND_V_MSG(connection_status != CONNECTION_CONNECTED, ERR_UNCONFIGURED,
+docs/spikes/s03-s-upstream-peer-evidence/retained-peer-diff.txt:395: space before tab in indent.
++ 	ERR_FAIL_COND_V_MSG(target_peer != 0 && !peers.has(Math::abs(target_peer)),
+docs/spikes/s03-s-upstream-peer-evidence/retained-peer-diff.txt:396: space before tab in indent.
++ 			ERR_INVALID_PARAMETER,
+docs/spikes/s03-s-upstream-peer-evidence/retained-peer-diff.txt:400: trailing whitespace.
++ 
+docs/spikes/s03-s-upstream-peer-evidence/retained-peer-diff.txt:401: space before tab in indent.
++ 	if (target_peer == 0) {
+docs/spikes/s03-s-upstream-peer-evidence/retained-peer-diff.txt:402: space before tab in indent.
++ 		// Send to all peers
+docs/spikes/s03-s-upstream-peer-evidence/retained-peer-diff.txt:403: space before tab in indent.
++ 		for (KeyValue<uint32_t, Ref<SteamPacketPeer>> &E : peers) {
+docs/spikes/s03-s-upstream-peer-evidence/retained-peer-diff.txt:406: space before tab in indent.
++ 		}
+docs/spikes/s03-s-upstream-peer-evidence/retained-peer-diff.txt:407: space before tab in indent.
++ 	} else if (peers.has(target_peer)) {
+docs/spikes/s03-s-upstream-peer-evidence/retained-peer-diff.txt:408: space before tab in indent.
++ 		// Send to specific peer
+docs/spikes/s03-s-upstream-peer-evidence/retained-peer-diff.txt:409: space before tab in indent.
++ 		Ref<SteamPacketPeer> peer = peers[target_peer];
+docs/spikes/s03-s-upstream-peer-evidence/retained-peer-diff.txt:412: space before tab in indent.
++ 	} else if (target_peer < 0) {
+docs/spikes/s03-s-upstream-peer-evidence/retained-peer-diff.txt:413: space before tab in indent.
++ 		// We're in weird exclusion territory
+docs/spikes/s03-s-upstream-peer-evidence/retained-peer-diff.txt:414: space before tab in indent.
++ 		int exclude = Math::abs(target_peer);
+docs/spikes/s03-s-upstream-peer-evidence/retained-peer-diff.txt:415: space before tab in indent.
++ 		for (KeyValue<uint32_t, Ref<SteamPacketPeer>> &E : peers) {
+docs/spikes/s03-s-upstream-peer-evidence/retained-peer-diff.txt:418: space before tab in indent.
++ 			if (E.key == exclude) {
+docs/spikes/s03-s-upstream-peer-evidence/retained-peer-diff.txt:419: space before tab in indent.
++ 				continue;
+docs/spikes/s03-s-upstream-peer-evidence/retained-peer-diff.txt:420: space before tab in indent.
++ 			}
+docs/spikes/s03-s-upstream-peer-evidence/retained-peer-diff.txt:423: space before tab in indent.
++ 		}
+docs/spikes/s03-s-upstream-peer-evidence/retained-peer-diff.txt:424: space before tab in indent.
++ 	}
+docs/spikes/s03-s-upstream-peer-evidence/retained-peer-diff.txt:425: trailing whitespace.
++ 
+docs/spikes/s03-s-upstream-peer-evidence/retained-peer-diff.txt:427: space before tab in indent.
++ 	SteamNetworkingConfigValue_t opt[2];
+docs/spikes/s03-s-upstream-peer-evidence/retained-peer-diff.txt:428: space before tab in indent.
++ 	opt[0].SetInt32(k_ESteamNetworkingConfig_SymmetricConnect, 1);
+docs/spikes/s03-s-upstream-peer-evidence/retained-peer-diff.txt:429: space before tab in indent.
++ 	listen_socket = SteamAPI_ISteamNetworkingSockets_CreateListenSocketP2P(
+docs/spikes/s03-s-upstream-peer-evidence/retained-peer-diff.txt:433: trailing whitespace.
++ 
+docs/spikes/s03-s-upstream-peer-evidence/retained-peer-diff.txt:434: space before tab in indent.
++ 	ERR_FAIL_COND_V(listen_socket == k_HSteamListenSocket_Invalid, ERR_CANT_CREATE);
+docs/spikes/s03-s-upstream-peer-evidence/retained-peer-diff.txt:435: trailing whitespace.
++ 
+docs/spikes/s03-s-upstream-peer-evidence/retained-peer-diff.txt:437: trailing whitespace.
++ 
+docs/spikes/s03-s-upstream-peer-evidence/retained-peer-diff.txt:439: space before tab in indent.
++ 	poll_group = SteamAPI_ISteamNetworkingSockets_CreatePollGroup(
+docs/spikes/s03-s-upstream-peer-evidence/retained-peer-diff.txt:443: space before tab in indent.
++ 	ERR_FAIL_COND_V(poll_group == k_HSteamNetPollGroup_Invalid, ERR_CANT_CREATE);
+docs/spikes/s03-s-upstream-peer-evidence/retained-peer-diff.txt:444: trailing whitespace.
++ 
+docs/spikes/s03-s-upstream-peer-evidence/retained-peer-diff.txt:445: space before tab in indent.
++ 	return OK;
+docs/spikes/s03-s-upstream-peer-evidence/retained-peer-diff.txt:447: trailing whitespace.
++ 
+docs/spikes/s03-s-upstream-peer-evidence/retained-peer-diff.txt:448: space before tab in indent.
++ 	SteamNetworkingConfigValue_t opt[2];
+docs/spikes/s03-s-upstream-peer-evidence/retained-peer-diff.txt:449: space before tab in indent.
++ 	SteamAPI_SteamNetworkingConfigValue_t_SetInt32(&opt[0],
+docs/spikes/s03-s-upstream-peer-evidence/retained-peer-diff.txt:453: trailing whitespace.
++ 
+docs/spikes/s03-s-upstream-peer-evidence/retained-peer-diff.txt:454: space before tab in indent.
++ 	HSteamNetConnection connection = SteamAPI_ISteamNetworkingSockets_ConnectP2P(
+docs/spikes/s03-s-upstream-peer-evidence/retained-peer-diff.txt:455: space before tab in indent.
++ 			SteamAPI_SteamNetworkingSockets_SteamAPI(),
+docs/spikes/s03-s-upstream-peer-evidence/retained-peer-diff.txt:459: trailing whitespace.
++ 
+docs/spikes/s03-s-upstream-peer-evidence/retained-peer-diff.txt:460: space before tab in indent.
++ 	ERR_FAIL_COND_V(connection == k_HSteamNetConnection_Invalid, ERR_CANT_CREATE);
+docs/spikes/s03-s-upstream-peer-evidence/retained-peer-diff.txt:461: trailing whitespace.
++ 
+docs/spikes/s03-s-upstream-peer-evidence/retained-peer-diff.txt:463: space before tab in indent.
++ 	steam_connections[p_connection_handle] = peer;
+docs/spikes/s03-s-upstream-peer-evidence/retained-peer-diff.txt:465: trailing whitespace.
++ 
+docs/spikes/s03-s-upstream-peer-evidence/retained-peer-diff.txt:468: space before tab in indent.
++ 		HSteamNetConnection p_connection_handle) {
+docs/spikes/s03-s-upstream-peer-evidence/retained-peer-diff.txt:469: space before tab in indent.
++ 	if (steam_connections.has(p_connection_handle)) {
+docs/spikes/s03-s-upstream-peer-evidence/retained-peer-diff.txt:470: space before tab in indent.
++ 		peers[steam_connections[p_connection_handle]->get_peer_id()] =
+docs/spikes/s03-s-upstream-peer-evidence/retained-peer-diff.txt:472: space before tab in indent.
++ 	ERR_FAIL_COND_V(connection_status != CONNECTION_DISCONNECTED, ERR_ALREADY_IN_USE);
+docs/spikes/s03-s-upstream-peer-evidence/retained-peer-diff.txt:473: space before tab in indent.
++ 	// k_steamIDNil is a CSteamID in the SDK but doesn't jive with the Flat API, should be 0?
+docs/spikes/s03-s-upstream-peer-evidence/retained-peer-diff.txt:474: space before tab in indent.
++ 	ERR_FAIL_COND_V_MSG(SteamAPI_ISteamMatchmaking_GetLobbyOwner(
+docs/spikes/s03-s-upstream-peer-evidence/retained-peer-diff.txt:478: space before tab in indent.
++ 			"You must be a member of the lobby you are trying to connect with the "
+docs/spikes/s03-s-upstream-peer-evidence/retained-peer-diff.txt:482: space before tab in indent.
++ 	ERR_FAIL_COND_V_MSG(
+docs/spikes/s03-s-upstream-peer-evidence/retained-peer-diff.txt:483: space before tab in indent.
++ 			SteamAPI_ISteamMatchmaking_GetLobbyOwner(SteamAPI_SteamMatchmaking(), p_lobby_id) !=
+docs/spikes/s03-s-upstream-peer-evidence/retained-peer-diff.txt:486: space before tab in indent.
++ 			ERR_CANT_CREATE,
+docs/spikes/s03-s-upstream-peer-evidence/retained-peer-diff.txt:487: space before tab in indent.
++ 			vformat("You must be the owner of the lobby you are trying to host with "
+docs/spikes/s03-s-upstream-peer-evidence/retained-peer-diff.txt:491: trailing whitespace.
++ 
+docs/spikes/s03-s-upstream-peer-evidence/retained-peer-diff.txt:492: space before tab in indent.
++ 	tracked_lobby = p_lobby_id;
+docs/spikes/s03-s-upstream-peer-evidence/retained-peer-diff.txt:493: trailing whitespace.
++ 
+docs/spikes/s03-s-upstream-peer-evidence/retained-peer-diff.txt:495: trailing whitespace.
++ 
+docs/spikes/s03-s-upstream-peer-evidence/retained-peer-diff.txt:496: space before tab in indent.
++ 	// In case the lobby already has members, let's connect to them
+docs/spikes/s03-s-upstream-peer-evidence/retained-peer-diff.txt:497: space before tab in indent.
++ 	int count = SteamAPI_ISteamMatchmaking_GetNumLobbyMembers(
+docs/spikes/s03-s-upstream-peer-evidence/retained-peer-diff.txt:501: space before tab in indent.
++ 	for (int i = 0; i < count; i++) {
+docs/spikes/s03-s-upstream-peer-evidence/retained-peer-diff.txt:502: space before tab in indent.
++ 		uint64_t member = SteamAPI_ISteamMatchmaking_GetLobbyMemberByIndex(
+docs/spikes/s03-s-upstream-peer-evidence/retained-peer-diff.txt:506: space before tab in indent.
++ 		if (member != SteamAPI_ISteamUser_GetSteamID(SteamAPI_SteamUser())) {
+docs/spikes/s03-s-upstream-peer-evidence/retained-peer-diff.txt:507: space before tab in indent.
++ 			add_peer(member);
+docs/spikes/s03-s-upstream-peer-evidence/retained-peer-diff.txt:508: space before tab in indent.
++ 		}
+docs/spikes/s03-s-upstream-peer-evidence/retained-peer-diff.txt:510: space before tab in indent.
++ 	ERR_FAIL_COND_V(connection_status != CONNECTION_DISCONNECTED, ERR_ALREADY_IN_USE);
+docs/spikes/s03-s-upstream-peer-evidence/retained-peer-diff.txt:511: space before tab in indent.
++ 	// k_steamIDNil is a CSteamID in the SDK but doesn't jive with the Flat API, should be 0?
+docs/spikes/s03-s-upstream-peer-evidence/retained-peer-diff.txt:512: space before tab in indent.
++ 	ERR_FAIL_COND_V_MSG(SteamAPI_ISteamMatchmaking_GetLobbyOwner(
+docs/spikes/s03-s-upstream-peer-evidence/retained-peer-diff.txt:515: space before tab in indent.
++ 			ERR_CANT_CREATE,
+docs/spikes/s03-s-upstream-peer-evidence/retained-peer-diff.txt:516: space before tab in indent.
++ 			"You must be a member of the lobby you are trying to connect with the "
+docs/spikes/s03-s-upstream-peer-evidence/retained-peer-diff.txt:520: trailing whitespace.
++ 
+docs/spikes/s03-s-upstream-peer-evidence/retained-peer-diff.txt:521: space before tab in indent.
++ 	tracked_lobby = p_lobby_id;
+docs/spikes/s03-s-upstream-peer-evidence/retained-peer-diff.txt:522: trailing whitespace.
++ 
+docs/spikes/s03-s-upstream-peer-evidence/retained-peer-diff.txt:523: space before tab in indent.
++ 	Error client_created = create_client(SteamAPI_ISteamMatchmaking_GetLobbyOwner(
+docs/spikes/s03-s-upstream-peer-evidence/retained-peer-diff.txt:527: space before tab in indent.
++ 	ERR_FAIL_COND_V(client_created != OK, client_created);
+docs/spikes/s03-s-upstream-peer-evidence/retained-peer-diff.txt:528: trailing whitespace.
++ 
+docs/spikes/s03-s-upstream-peer-evidence/retained-peer-diff.txt:529: space before tab in indent.
++ 	// Connect to the rest of the members
+docs/spikes/s03-s-upstream-peer-evidence/retained-peer-diff.txt:530: space before tab in indent.
++ 	int count = SteamAPI_ISteamMatchmaking_GetNumLobbyMembers(
+docs/spikes/s03-s-upstream-peer-evidence/retained-peer-diff.txt:534: space before tab in indent.
++ 	for (int i = 0; i < count; i++) {
+docs/spikes/s03-s-upstream-peer-evidence/retained-peer-diff.txt:535: space before tab in indent.
++ 		uint64_t member = SteamAPI_ISteamMatchmaking_GetLobbyMemberByIndex(
+docs/spikes/s03-s-upstream-peer-evidence/retained-peer-diff.txt:539: space before tab in indent.
++ 		if (member != SteamAPI_ISteamUser_GetSteamID(SteamAPI_SteamUser()) &&
+docs/spikes/s03-s-upstream-peer-evidence/retained-peer-diff.txt:543: space before tab in indent.
++ 			add_peer(member);
+docs/spikes/s03-s-upstream-peer-evidence/retained-peer-diff.txt:544: space before tab in indent.
++ 		}
+docs/spikes/s03-s-upstream-peer-evidence/retained-peer-diff.txt:545: space before tab in indent.
++ 	}
+docs/spikes/s03-s-upstream-peer-evidence/retained-peer-diff.txt:548: trailing whitespace.
++ 
+docs/spikes/s03-s-upstream-peer-evidence/retained-peer-diff.txt:551: trailing whitespace.
+++	int32_t flags = (k_nSteamNetworkingSend_NoNagle * no_nagle) | 
+docs/spikes/s03-s-upstream-peer-evidence/retained-peer-diff.txt:552: space before tab in indent.
++ 			(k_nSteamNetworkingSend_NoDelay * no_delay);
+docs/spikes/s03-s-upstream-peer-evidence/retained-peer-diff.txt:553: trailing whitespace.
++ 
+docs/spikes/s03-s-upstream-peer-evidence/retained-peer-diff.txt:554: space before tab in indent.
++ 	switch (get_transfer_mode()) {
+docs/spikes/s03-s-upstream-peer-evidence/retained-peer-diff.txt:556: trailing whitespace.
++ 
+docs/spikes/s03-s-upstream-peer-evidence/retained-peer-diff.txt:557: space before tab in indent.
++ 	return 0;
+docs/spikes/s03-s-upstream-peer-evidence/retained-peer-diff.txt:560: trailing whitespace.
++ 
+docs/spikes/s03-s-upstream-peer-evidence/retained-peer-diff.txt:562: space before tab in indent.
++ 	ClassDB::bind_method(D_METHOD("create_host", "virtual_port"),
+docs/spikes/s03-s-upstream-peer-evidence/retained-peer-diff.txt:564: space before tab in indent.
++ 	BIND_ENUM_CONSTANT(DEBUG_LEVEL_PEER);
+docs/spikes/s03-s-upstream-peer-evidence/retained-peer-diff.txt:565: space before tab in indent.
++ 	BIND_ENUM_CONSTANT(DEBUG_LEVEL_STEAM);
+docs/spikes/s03-s-upstream-peer-evidence/retained-peer-diff.txt:629: trailing whitespace.
++ 
+docs/spikes/s03-s-upstream-peer-evidence/retained-peer-diff.txt:631: trailing whitespace.
++ 
+docs/spikes/s03-s-upstream-peer-evidence/retained-peer-diff.txt:634: trailing whitespace.
++ 
+docs/spikes/s03-s-upstream-peer-evidence/retained-peer-diff.txt:636: space before tab in indent.
++ 	state = STATE_NONE;
+docs/spikes/s03-s-upstream-peer-evidence/retained-peer-diff.txt:638: space before tab in indent.
++ 	connection_handle = k_HSteamNetConnection_Invalid;
+docs/spikes/s03-s-upstream-peer-evidence/retained-peer-diff.txt:639: space before tab in indent.
++ 	peer_id = 0;
+docs/spikes/s03-s-upstream-peer-evidence/retained-peer-diff.txt:640: space before tab in indent.
++ 	last_packet = nullptr;
+docs/spikes/s03-s-upstream-peer-evidence/retained-peer-diff.txt:644: trailing whitespace.
++ 
+docs/spikes/s03-s-upstream-peer-evidence/retained-peer-diff.txt:647: space before tab in indent.
++ 	steam_id = p_steam_id;
+docs/spikes/s03-s-upstream-peer-evidence/retained-peer-diff.txt:649: trailing whitespace.
++ 
+docs/spikes/s03-s-upstream-peer-evidence/retained-peer-diff.txt:654: trailing whitespace.
++ 
+docs/spikes/s03-s-upstream-peer-evidence/retained-peer-diff.txt:656: space before tab in indent.
++ 	connection_handle = p_handle;
+docs/spikes/s03-s-upstream-peer-evidence/retained-peer-diff.txt:657: space before tab in indent.
++ 	SteamAPI_ISteamNetworkingSockets_ConfigureConnectionLanes(
+docs/spikes/s03-s-upstream-peer-evidence/retained-peer-diff.txt:660: trailing whitespace.
+++			SteamAPI_SteamNetworkingSockets_SteamAPI(), 
+docs/spikes/s03-s-upstream-peer-evidence/retained-peer-diff.txt:664: trailing whitespace.
++ 
+docs/spikes/s03-s-upstream-peer-evidence/retained-peer-diff.txt:667: space before tab in indent.
++ 	peer_id = p_peer_id;
+docs/spikes/s03-s-upstream-peer-evidence/retained-peer-diff.txt:668: space before tab in indent.
++ 	SteamAPI_ISteamNetworkingSockets_SetConnectionUserData(
+docs/spikes/s03-s-upstream-peer-evidence/retained-peer-diff.txt:669: space before tab in indent.
++ 			SteamAPI_SteamNetworkingSockets_SteamAPI(),
+docs/spikes/s03-s-upstream-peer-evidence/retained-peer-diff.txt:693: trailing whitespace.
++ 
+docs/spikes/s03-s-upstream-peer-evidence/retained-peer-diff.txt:695: space before tab in indent.
++ 	ERR_FAIL_COND_V(state != STATE_CONNECTED, ERR_UNAVAILABLE);
+docs/spikes/s03-s-upstream-peer-evidence/retained-peer-diff.txt:697: trailing whitespace.
++ 
+docs/spikes/s03-s-upstream-peer-evidence/retained-peer-diff.txt:698: space before tab in indent.
++ 	if (unlikely(p_channel >= (configured_lanes - 1))) {
+docs/spikes/s03-s-upstream-peer-evidence/retained-peer-diff.txt:699: space before tab in indent.
++ 		WARN_PRINT(vformat("Peer is only set up to use %d channels (0-%d). Please explicitly set"
+docs/spikes/s03-s-upstream-peer-evidence/retained-peer-diff.txt:705: space before tab in indent.
++ 		p_channel = 0;
+docs/spikes/s03-s-upstream-peer-evidence/retained-peer-diff.txt:706: space before tab in indent.
++ 	}
+docs/spikes/s03-s-upstream-peer-evidence/retained-peer-diff.txt:707: trailing whitespace.
++ 
+docs/spikes/s03-s-upstream-peer-evidence/retained-peer-diff.txt:708: space before tab in indent.
++ 	SteamNetworkingMessage_t *packet = SteamAPI_ISteamNetworkingUtils_AllocateMessage(
+docs/spikes/s03-s-upstream-peer-evidence/retained-peer-diff.txt:712: space before tab in indent.
++ 	ERR_FAIL_COND_V(!packet, ERR_CANT_CREATE);
+docs/spikes/s03-s-upstream-peer-evidence/retained-peer-diff.txt:713: trailing whitespace.
++ 
+docs/spikes/s03-s-upstream-peer-evidence/retained-peer-diff.txt:714: space before tab in indent.
++ 	packet->m_conn = connection_handle;
+docs/spikes/s03-s-upstream-peer-evidence/retained-peer-diff.txt:716: space before tab in indent.
++ 	packet->m_idxLane = (uint16)p_channel;
+docs/spikes/s03-s-upstream-peer-evidence/retained-peer-diff.txt:717: space before tab in indent.
++ 	memcpy(packet->m_pData, p_data, p_size);
+docs/spikes/s03-s-upstream-peer-evidence/retained-peer-diff.txt:718: trailing whitespace.
++ 
+docs/spikes/s03-s-upstream-peer-evidence/retained-peer-diff.txt:721: space before tab in indent.
++ 	SteamAPI_ISteamNetworkingSockets_SendMessages(
+docs/spikes/s03-s-upstream-peer-evidence/retained-peer-diff.txt:725: trailing whitespace.
++ 
+docs/spikes/s03-s-upstream-peer-evidence/retained-peer-diff.txt:726: space before tab in indent.
++ 	return OK;
+docs/spikes/s03-s-upstream-peer-evidence/retained-peer-diff.txt:729: space before tab in indent.
++ 	data.peer_id = p_peer_id;
+docs/spikes/s03-s-upstream-peer-evidence/retained-peer-diff.txt:730: trailing whitespace.
++ 
+docs/spikes/s03-s-upstream-peer-evidence/retained-peer-diff.txt:731: space before tab in indent.
++ 	SteamNetworkingMessage_t *packet = SteamAPI_ISteamNetworkingUtils_AllocateMessage(
+docs/spikes/s03-s-upstream-peer-evidence/retained-peer-diff.txt:735: space before tab in indent.
++ 	ERR_FAIL_COND_V(!packet, ERR_CANT_CREATE);
+docs/spikes/s03-s-upstream-peer-evidence/retained-peer-diff.txt:736: trailing whitespace.
++ 
+docs/spikes/s03-s-upstream-peer-evidence/retained-peer-diff.txt:737: space before tab in indent.
++ 	packet->m_conn = connection_handle;
+docs/spikes/s03-s-upstream-peer-evidence/retained-peer-diff.txt:738: space before tab in indent.
++ 	packet->m_nFlags = k_nSteamNetworkingSend_ReliableNoNagle;
+docs/spikes/s03-s-upstream-peer-evidence/retained-peer-diff.txt:739: space before tab in indent.
++ 	memcpy(packet->m_pData, (void *)&data, sizeof(PeerIDPacket));
+docs/spikes/s03-s-upstream-peer-evidence/retained-peer-diff.txt:740: trailing whitespace.
++ 
+docs/spikes/s03-s-upstream-peer-evidence/retained-peer-diff.txt:743: space before tab in indent.
++ 	SteamAPI_ISteamNetworkingSockets_SendMessages(
+docs/spikes/s03-s-upstream-peer-evidence/retained-peer-diff.txt:747: trailing whitespace.
++ 
+docs/spikes/s03-s-upstream-peer-evidence/retained-peer-diff.txt:748: space before tab in indent.
++ 	return OK;
+docs/spikes/s03-s-upstream-peer-evidence/retained-peer-diff.txt:750: trailing whitespace.
++ 
+docs/spikes/s03-s-upstream-peer-evidence/retained-peer-diff.txt:752: space before tab in indent.
++ 	ERR_FAIL_COND_V(state != STATE_CONNECTED && state != STATE_CONNECTING &&
+docs/spikes/s03-s-upstream-peer-evidence/retained-peer-diff.txt:757: space before tab in indent.
++ 	ERR_FAIL_COND_V(p_packet->m_cbSize != sizeof(PeerIDPacket), ERR_INVALID_DATA);
+docs/spikes/s03-s-upstream-peer-evidence/retained-peer-diff.txt:758: trailing whitespace.
++ 
+docs/spikes/s03-s-upstream-peer-evidence/retained-peer-diff.txt:759: space before tab in indent.
++ 	PeerIDPacket *data = (PeerIDPacket *)p_packet->m_pData;
+docs/spikes/s03-s-upstream-peer-evidence/retained-peer-diff.txt:761: space before tab in indent.
++ 	return OK;
+docs/spikes/s03-s-upstream-peer-evidence/retained-peer-diff.txt:763: trailing whitespace.
++ 
+docs/spikes/s03-s-upstream-peer-evidence/retained-peer-diff.txt:766: space before tab in indent.
++ 	if (packet_queue.is_empty()) {
+docs/spikes/s03-s-upstream-peer-evidence/retained-peer-diff.txt:767: space before tab in indent.
++ 		return ERR_UNAVAILABLE;
+docs/spikes/s03-s-upstream-peer-evidence/retained-peer-diff.txt:768: space before tab in indent.
++ 	}
+docs/spikes/s03-s-upstream-peer-evidence/retained-peer-diff.txt:770: space before tab in indent.
++ 	packet_queue.pop_front();
+docs/spikes/s03-s-upstream-peer-evidence/retained-peer-diff.txt:771: trailing whitespace.
++ 
+docs/spikes/s03-s-upstream-peer-evidence/retained-peer-diff.txt:772: space before tab in indent.
++ 	*r_buffer = (uint8_t *)last_packet->GetData();
+docs/spikes/s03-s-upstream-peer-evidence/retained-peer-diff.txt:785: space before tab in indent.
++ 	// Default channel and transfer mode for put_packet
+docs/spikes/s03-s-upstream-peer-evidence/retained-peer-diff.txt:786: space before tab in indent.
++ 	return send(0, p_buffer, p_buffer_size, k_nSteamNetworkingSend_Reliable);
+docs/spikes/s03-s-upstream-peer-evidence/retained-peer-diff.txt:789: trailing whitespace.
++ 
+docs/spikes/s03-s-upstream-peer-evidence/retained-peer-diff.txt:790: space before tab in indent.
++ 	SteamAPI_ISteamNetworkingSockets_CloseConnection(
+docs/spikes/s03-s-upstream-peer-evidence/retained-peer-diff.txt:791: space before tab in indent.
++ 			SteamAPI_SteamNetworkingSockets_SteamAPI(), connection_handle, 0,
+docs/spikes/s03-s-upstream-peer-evidence/retained-peer-diff.txt:795: trailing whitespace.
++ 
+docs/spikes/s03-s-upstream-peer-evidence/retained-peer-diff.txt:796: space before tab in indent.
++ 	if (p_force) {
+docs/spikes/s03-s-upstream-peer-evidence/retained-peer-diff.txt:797: space before tab in indent.
++ 		state = STATE_NONE;
+docs/spikes/s03-s-upstream-peer-evidence/retained-peer-diff.txt:799: space before tab in indent.
++ 	BIND_ENUM_CONSTANT(STATE_FIN_WAIT);
+docs/spikes/s03-s-upstream-peer-evidence/retained-peer-diff.txt:800: space before tab in indent.
++ 	BIND_ENUM_CONSTANT(STATE_LINGER);
+docs/spikes/s03-s-upstream-peer-evidence/retained-peer-diff.txt:801: space before tab in indent.
++ 	BIND_ENUM_CONSTANT(STATE_DEAD);
+docs/spikes/s03-s-upstream-peer-evidence/sources/csharp/README.md.txt:3: trailing whitespace.
++This is an implementation of Godot's MultiplayerPeer (used by the high-level multiplayer API) using Steam for the underlying networking. 
+docs/spikes/s03-s-upstream-peer-evidence/sources/csharp/addons/steam-multiplayer-peer-csharp/SteamMultiplayerPeer.cs.txt:74: trailing whitespace.
++        
+docs/spikes/s03-s-upstream-peer-evidence/sources/csharp/addons/steam-multiplayer-peer-csharp/SteamMultiplayerPeer.cs.txt:296: trailing whitespace.
++        
+docs/spikes/s03-s-upstream-peer-evidence/sources/csharp/addons/steam-multiplayer-peer-csharp/SteamMultiplayerPeer.cs.txt:312: trailing whitespace.
++        
+docs/spikes/s03-s-upstream-peer-evidence/sources/csharp/addons/steam-multiplayer-peer-csharp/SteamMultiplayerPeer.cs.txt:490: trailing whitespace.
++        
+docs/spikes/s03-s-upstream-peer-evidence/sources/expresso/README.md.txt:40: trailing whitespace.
++ 
+docs/spikes/s03-s-upstream-peer-evidence/sources/expresso/steam-multiplayer-peer/steam_multiplayer_peer.cpp.txt:137: trailing whitespace.
++            
+docs/spikes/s03-s-upstream-peer-evidence/sources/expresso/steam-multiplayer-peer/steam_multiplayer_peer.cpp.txt:141: trailing whitespace.
++                
+docs/spikes/s03-s-upstream-peer-evidence/sources/gde/godotsteam/godotsteam.cpp.txt:16: trailing whitespace.
++3025: 
+docs/spikes/s03-s-upstream-peer-evidence/sources/gde/godotsteam/godotsteam.cpp.txt:23: trailing whitespace.
++3612: 
+docs/spikes/s03-s-upstream-peer-evidence/sources/gde/godotsteam/godotsteam.cpp.txt:31: trailing whitespace.
++3620: 
+docs/spikes/s03-s-upstream-peer-evidence/sources/gde/godotsteam/godotsteam.cpp.txt:35: trailing whitespace.
++3624: 
+docs/spikes/s03-s-upstream-peer-evidence/sources/gde/godotsteam/godotsteam.cpp.txt:38: trailing whitespace.
++3627: 
+docs/spikes/s03-s-upstream-peer-evidence/sources/gde/godotsteam/godotsteam.cpp.txt:45: trailing whitespace.
++3634: 
+docs/spikes/s03-s-upstream-peer-evidence/sources/gde/godotsteam/godotsteam.cpp.txt:66: trailing whitespace.
++3661: 
+docs/spikes/s03-s-upstream-peer-evidence/sources/gde/godotsteam/godotsteam.cpp.txt:74: trailing whitespace.
++3669: 
+docs/spikes/s03-s-upstream-peer-evidence/sources/gde/godotsteam/godotsteam.cpp.txt:87: trailing whitespace.
++3682: 
+docs/spikes/s03-s-upstream-peer-evidence/sources/gde/godotsteam/godotsteam.cpp.txt:93: trailing whitespace.
++3688: 
+docs/spikes/s03-s-upstream-peer-evidence/sources/gde/godotsteam/godotsteam.cpp.txt:97: trailing whitespace.
++3707: 
+docs/spikes/s03-s-upstream-peer-evidence/sources/gde/godotsteam/godotsteam.cpp.txt:107: trailing whitespace.
++3717: 
+docs/spikes/s03-s-upstream-peer-evidence/sources/gde/godotsteam/godotsteam.cpp.txt:116: trailing whitespace.
++3726: 
+docs/spikes/s03-s-upstream-peer-evidence/sources/gde/godotsteam/godotsteam.cpp.txt:126: trailing whitespace.
++3736: 
+docs/spikes/s03-s-upstream-peer-evidence/sources/gde/godotsteam/godotsteam.cpp.txt:132: trailing whitespace.
++3742: 
+docs/spikes/s03-s-upstream-peer-evidence/sources/gde/godotsteam/godotsteam.cpp.txt:144: trailing whitespace.
++3959: 
+docs/spikes/s03-s-upstream-peer-evidence/sources/gde/godotsteam/godotsteam.cpp.txt:154: trailing whitespace.
++3969: 
+docs/spikes/s03-s-upstream-peer-evidence/sources/gde/godotsteam/godotsteam.cpp.txt:173: trailing whitespace.
++7966: 
+docs/spikes/s03-s-upstream-peer-evidence/sources/gde/godotsteam/godotsteam_multiplayer_peer.cpp.txt:292: trailing whitespace.
++				
+docs/spikes/s03-s-upstream-peer-evidence/sources/gde/godotsteam/godotsteam_multiplayer_peer.cpp.txt:321: space before tab in indent.
++				 	tracked_lobby, (uint64_t)p_chat_update->m_ulSteamIDLobby));
+docs/spikes/s03-s-upstream-peer-evidence/sources/gde/godotsteam/godotsteam_multiplayer_peer.cpp.txt:711: trailing whitespace.
++	int32_t flags = (k_nSteamNetworkingSend_NoNagle * no_nagle) | 
+docs/spikes/s03-s-upstream-peer-evidence/sources/gde/godotsteam/steam_packet_peer.cpp.txt:62: trailing whitespace.
++			SteamAPI_SteamNetworkingSockets_SteamAPI(), 
+docs/spikes/s03-s-upstream-peer-evidence/sources/valve/include/steam/isteamnetworkingsockets.h.txt:62: trailing whitespace.
++269: 
+docs/spikes/s03-s-upstream-peer-evidence/sources/valve/include/steam/isteamnetworkingsockets.h.txt:128: trailing whitespace.
++355: 
+docs/spikes/s03-s-upstream-peer-evidence/sources/valve/include/steam/isteamnetworkingsockets.h.txt:131: trailing whitespace.
++358: 
+docs/spikes/s03-s-upstream-peer-evidence/sources/valve/include/steam/isteamnetworkingsockets.h.txt:203: trailing whitespace.
++487: 
+docs/spikes/s03-s-upstream-peer-evidence/sources/valve/include/steam/steamnetworkingtypes.h.txt:5: trailing whitespace.
++842: 
+docs/spikes/s03-s-upstream-peer-evidence/sources/valve/include/steam/steamnetworkingtypes.h.txt:10: trailing whitespace.
++847: 
+docs/spikes/s03-s-upstream-peer-evidence/sources/valve/include/steam/steamnetworkingtypes.h.txt:14: trailing whitespace.
++851: 
+docs/spikes/s03-s-upstream-peer-evidence/sources/valve/include/steam/steamnetworkingtypes.h.txt:17: trailing whitespace.
++854: 
+docs/spikes/s03-s-upstream-peer-evidence/sources/valve/include/steam/steamnetworkingtypes.h.txt:20: trailing whitespace.
++857: 
+docs/spikes/s03-s-upstream-peer-evidence/sources/valve/include/steam/steamnetworkingtypes.h.txt:25: trailing whitespace.
++862: 
+docs/spikes/s03-s-upstream-peer-evidence/sources/valve/include/steam/steamnetworkingtypes.h.txt:30: trailing whitespace.
++867: 
+docs/spikes/s03-s-upstream-peer-evidence/sources/valve/include/steam/steamnetworkingtypes.h.txt:48: trailing whitespace.
++885: 
+docs/spikes/s03-s-upstream-peer-evidence/sources/valve/include/steam/steamnetworkingtypes.h.txt:52: trailing whitespace.
++889: 
+docs/spikes/s03-s-upstream-peer-evidence/sources/valve/include/steam/steamnetworkingtypes.h.txt:58: trailing whitespace.
++895: 
+docs/spikes/s03-s-upstream-peer-evidence/sources/valve/include/steam/steamnetworkingtypes.h.txt:66: trailing whitespace.
++903: 
+docs/spikes/s03-s-upstream-peer-evidence/sources/valve/include/steam/steamnetworkingtypes.h.txt:71: trailing whitespace.
++908: 
+docs/spikes/s03-s-upstream-peer-evidence/sources/valve/include/steam/steamnetworkingtypes.h.txt:75: trailing whitespace.
++912: 
+docs/spikes/s03-s-upstream-peer-evidence/sources/valve/include/steam/steamnetworkingtypes.h.txt:80: trailing whitespace.
++917: 
+docs/spikes/s03-s-upstream-peer-evidence/sources/valve/include/steam/steamnetworkingtypes.h.txt:87: trailing whitespace.
++924: 
+docs/spikes/s03-s-upstream-peer-evidence/sources/valve/include/steam/steamnetworkingtypes.h.txt:92: trailing whitespace.
++929: 
+docs/spikes/s03-s-upstream-peer-evidence/sources/valve/include/steam/steamnetworkingtypes.h.txt:96: trailing whitespace.
++933: 
+docs/spikes/s03-s-upstream-peer-evidence/sources/valve/include/steam/steamnetworkingtypes.h.txt:120: trailing whitespace.
++1163: 
+docs/spikes/s03-s-upstream-peer-evidence/sources/valve/include/steam/steamnetworkingtypes.h.txt:125: trailing whitespace.
++1168: 	/// 
+docs/spikes/s03-s-upstream-peer-evidence/sources/valve/include/steam/steamnetworkingtypes.h.txt:128: trailing whitespace.
++1171: 
+docs/spikes/s03-s-upstream-peer-evidence/sources/valve/include/steam/steamnetworkingtypes.h.txt:134: trailing whitespace.
++1177: 
+docs/spikes/s03-s-upstream-peer-evidence/sources/valve/include/steam/steamnetworkingtypes.h.txt:142: trailing whitespace.
++1185: 

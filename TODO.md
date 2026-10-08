@@ -124,6 +124,9 @@ feature expansion, repeated unchanged experiment or silent contract/pin change.
   Remaining: pinned exact-engine integration with compatible modes/channels/limits,
   account/peer mapping and native cancel/drain lifecycle. Upstream compatibility
   evidence can proceed; no adapter, five-lane setting or contract weakening is selected.
+  [Exact upstream source evidence](docs/spikes/s03-s-upstream-peer-evidence.md)
+  assesses three immutable peers; none meets the unchanged streams/bounds/lifecycle.
+  Remaining decision: separately commission the native-boundary design or keep Steam unavailable.
   Before live proof, verify app type/release state, distinct authorized testers/package
   entitlement, depot OS/package inclusion and launch settings; confirm/create the
   intended private branch and record its install/access route. No new app required.

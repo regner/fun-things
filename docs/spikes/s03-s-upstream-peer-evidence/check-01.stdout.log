@@ -1,0 +1,4 @@
+PASS: 19 immutable source identities/snapshots; exactly three peer candidates.
+PASS: 148 existing local links; JSON and metadata readback.
+PASS: exact base ancestry, owned paths, three-line S03-S delta, all other TODO bytes preserved.
+PASS: git diff --check; no native/engine/platform calls.

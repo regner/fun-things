@@ -1,0 +1,203 @@
+
+--- include/steam/isteamnetworkingsockets.h lines 170-191 (1-based) ---
+170: 	/// Disconnects from the remote host and invalidates the connection handle.
+171: 	/// Any unread data on the connection is discarded.
+172: 	///
+173: 	/// nReason is an application defined code that will be received on the other
+174: 	/// end and recorded (when possible) in backend analytics.  The value should
+175: 	/// come from a restricted range.  (See ESteamNetConnectionEnd.)  If you don't need
+176: 	/// to communicate any information to the remote host, and do not want analytics to
+177: 	/// be able to distinguish "normal" connection terminations from "exceptional" ones,
+178: 	/// You may pass zero, in which case the generic value of
+179: 	/// k_ESteamNetConnectionEnd_App_Generic will be used.
+180: 	///
+181: 	/// pszDebug is an optional human-readable diagnostic string that will be received
+182: 	/// by the remote host and recorded (when possible) in backend analytics.
+183: 	///
+184: 	/// If you wish to put the socket into a "linger" state, where an attempt is made to
+185: 	/// flush any remaining sent data, use bEnableLinger=true.  Otherwise reliable data
+186: 	/// is not flushed.
+187: 	///
+188: 	/// If the connection has already ended and you are just freeing up the
+189: 	/// connection interface, the reason code, debug string, and linger flag are
+190: 	/// ignored.
+191: 	virtual bool CloseConnection( HSteamNetConnection hPeer, int nReason, const char *pszDebug, bool bEnableLinger ) = 0;
+
+--- include/steam/isteamnetworkingsockets.h lines 234-322 (1-based) ---
+234: 	/// when data should be buffered, etc.  E.g. k_nSteamNetworkingSend_Unreliable
+235: 	///
+236: 	/// Note that the semantics we use for messages are not precisely
+237: 	/// the same as the semantics of a standard "stream" socket.
+238: 	/// (SOCK_STREAM)  For an ordinary stream socket, the boundaries
+239: 	/// between chunks are not considered relevant, and the sizes of
+240: 	/// the chunks of data written will not necessarily match up to
+241: 	/// the sizes of the chunks that are returned by the reads on
+242: 	/// the other end.  The remote host might read a partial chunk,
+243: 	/// or chunks might be coalesced.  For the message semantics
+244: 	/// used here, however, the sizes WILL match.  Each send call
+245: 	/// will match a successful read call on the remote host
+246: 	/// one-for-one.  If you are porting existing stream-oriented
+247: 	/// code to the semantics of reliable messages, your code should
+248: 	/// work the same, since reliable message semantics are more
+249: 	/// strict than stream semantics.  The only caveat is related to
+250: 	/// performance: there is per-message overhead to retain the
+251: 	/// message sizes, and so if your code sends many small chunks
+252: 	/// of data, performance will suffer. Any code based on stream
+253: 	/// sockets that does not write excessively small chunks will
+254: 	/// work without any changes.
+255: 	///
+256: 	/// The pOutMessageNumber is an optional pointer to receive the
+257: 	/// message number assigned to the message, if sending was successful.
+258: 	///
+259: 	/// Returns:
+260: 	/// - k_EResultInvalidParam: invalid connection handle, or the individual message is too big.
+261: 	///   (See k_cbMaxSteamNetworkingSocketsMessageSizeSend)
+262: 	/// - k_EResultInvalidState: connection is in an invalid state
+263: 	/// - k_EResultNoConnection: connection has ended
+264: 	/// - k_EResultIgnored: You used k_nSteamNetworkingSend_NoDelay, and the message was dropped because
+265: 	///   we were not ready to send it.
+266: 	/// - k_EResultLimitExceeded: there was already too much data queued to be sent.
+267: 	///   (See k_ESteamNetworkingConfig_SendBufferSize)
+268: 	virtual EResult SendMessageToConnection( HSteamNetConnection hConn, const void *pData, uint32 cbData, int nSendFlags, int64 *pOutMessageNumber ) = 0;
+269: 
+270: 	/// Send one or more messages without copying the message payload.
+271: 	/// This is the most efficient way to send messages. To use this
+272: 	/// function, you must first allocate a message object using
+273: 	/// ISteamNetworkingUtils::AllocateMessage.  (Do not declare one
+274: 	/// on the stack or allocate your own.)
+275: 	///
+276: 	/// You should fill in the message payload.  You can either let
+277: 	/// it allocate the buffer for you and then fill in the payload,
+278: 	/// or if you already have a buffer allocated, you can just point
+279: 	/// m_pData at your buffer and set the callback to the appropriate function
+280: 	/// to free it.  Note that if you use your own buffer, it MUST remain valid
+281: 	/// until the callback is executed.  And also note that your callback can be
+282: 	/// invoked at any time from any thread (perhaps even before SendMessages
+283: 	/// returns!), so it MUST be fast and threadsafe.
+284: 	///
+285: 	/// You MUST also fill in:
+286: 	/// - m_conn - the handle of the connection to send the message to
+287: 	/// - m_nFlags - bitmask of k_nSteamNetworkingSend_xxx flags.
+288: 	/// - m_idxLane - the lane to send the message on.  AllocateMessage
+289: 	///   will set this to zero, so you can ignore this if you are not using
+290: 	///   multiple lanes.
+291: 	///
+292: 	/// All other fields are currently reserved and should not be modified.
+293: 	///
+294: 	/// pOutMessageNumberOrResult is an optional array that will receive,
+295: 	/// for each message, the message number that was assigned to the message
+296: 	/// if sending was successful.  If sending failed, then a negative EResult
+297: 	/// value is placed into the array.  For example, the array will hold
+298: 	/// -k_EResultInvalidState if the connection was in an invalid state.
+299: 	/// See ISteamNetworkingSockets::SendMessageToConnection for possible
+300: 	/// failure codes.
+301: 	///
+302: 	/// Once a message fails to send on a connection, any further messages
+303: 	/// in the array going to the same connection will not be attempted.  The
+304: 	/// pOutMessageNumberOrResult for such message will always be set to 0.
+305: 	/// (Note that 0 is never used as a message number.)
+306: 	///
+307: 	/// bDeleteFailedMessages determines what happens to messages that
+308: 	/// fail to send:
+309: 	///
+310: 	/// - false: Your pointer array will be modified, and the pointers
+311: 	///     to messages that were successfully queued will be replaced with
+312: 	///     nullptr.  The library has taken ownership and you must not access
+313: 	///     them.  They will be released by the library when they are no longer
+314: 	///     needed.
+315: 	///     Any messages that were not queued (either failed to send, or were
+316: 	///     not attempted because an earlier message for the same connection failed)
+317: 	///     will be left in place.  You can release these messages or try to send
+318: 	///     them later.
+319: 	/// - true: The caller's pointer array is not modified, and the library assumes
+320: 	///     ownership of all messages.  Messages that fail or are not attempted due
+321: 	///     to earlier failure on the same connection will be released immediately.
+322: 	virtual void SendMessages( int nMessages, SteamNetworkingMessage_t **pMessages, int64 *pOutMessageNumberOrResult, bool bDeleteFailedMessages ) = 0;
+
+--- include/steam/isteamnetworkingsockets.h lines 345-359 (1-based) ---
+345: 	/// same sizes --- see SendMessageToConnection for on this subtle difference from a stream socket).
+346: 	///
+347: 	/// Unreliable messages may be dropped, or delivered out of order with respect to
+348: 	/// each other or with respect to reliable messages.  The same unreliable message
+349: 	/// may be received multiple times.
+350: 	///
+351: 	/// If any messages are returned, you MUST call SteamNetworkingMessage_t::Release() on each
+352: 	/// of them free up resources after you are done.  It is safe to keep the object alive for
+353: 	/// a little while (put it into some queue, etc), and you may call Release() from any thread.
+354: 	virtual int ReceiveMessagesOnConnection( HSteamNetConnection hConn, SteamNetworkingMessage_t **ppOutMessages, int nMaxMessages ) = 0;
+355: 
+356: 	/// Returns basic information about the high-level state of the connection.
+357: 	virtual bool GetConnectionInfo( HSteamNetConnection hConn, SteamNetConnectionInfo_t *pInfo ) = 0;
+358: 
+359: 	/// Returns a small set of information about the real-time state of the connection
+
+--- include/steam/isteamnetworkingsockets.h lines 419-487 (1-based) ---
+419: 	/// Configure multiple outbound messages streams ("lanes") on a connection, and
+420: 	/// control head-of-line blocking between them.  Messages within a given lane
+421: 	/// are always sent in the order they are queued, but messages from different
+422: 	/// lanes may be sent out of order.  Each lane has its own message number
+423: 	/// sequence.  The first message sent on each lane will be assigned the number 1.
+424: 	///
+425: 	/// Each lane has a "priority".  Lanes with higher numeric values will only be processed
+426: 	/// when all lanes with lower number values are empty.  The magnitudes of the priority
+427: 	/// values are not relevant, only their sort order.
+428: 	///
+429: 	/// Each lane also is assigned a weight, which controls the approximate proportion
+430: 	/// of the bandwidth that will be consumed by the lane, relative to other lanes
+431: 	/// of the same priority.  (This is assuming the lane stays busy.  An idle lane
+432: 	/// does not build up "credits" to be be spent once a message is queued.)
+433: 	/// This value is only meaningful as a proportion, relative to other lanes with
+434: 	/// the same priority.  For lanes with different priorities, the strict priority
+435: 	/// order will prevail, and their weights relative to each other are not relevant.
+436: 	/// Thus, if a lane has a unique priority value, the weight value for that lane is
+437: 	/// not relevant.
+438: 	///
+439: 	/// Example: 3 lanes, with priorities [ 0, 10, 10 ] and weights [ (NA), 20, 5 ].
+440: 	/// Messages sent on the first will always be sent first, before messages in the
+441: 	/// other two lanes.  Its weight value is irrelevant, since there are no other
+442: 	/// lanes with priority=0.  The other two lanes will share bandwidth, with the second
+443: 	/// and third lanes sharing bandwidth using a ratio of approximately 4:1.
+444: 	/// (The weights [ NA, 4, 1 ] would be equivalent.)
+445: 	///
+446: 	/// Notes:
+447: 	/// - At the time of this writing, some code has performance cost that is linear
+448: 	///   in the number of lanes, so keep the number of lanes to an absolute minimum.
+449: 	///   3 or so is fine; >8 is a lot.  The max number of lanes on Steam is 255,
+450: 	///   which is a very large number and not recommended!  If you are compiling this
+451: 	///   library from source, see STEAMNETWORKINGSOCKETS_MAX_LANES.)
+452: 	/// - Lane priority values may be any int.  Their absolute value is not relevant,
+453: 	///   only the order matters.
+454: 	/// - Weights must be positive, and due to implementation details, they are restricted
+455: 	///   to 16-bit values.  The absolute magnitudes don't matter, just the proportions.
+456: 	/// - Messages sent on a lane index other than 0 have a small overhead on the wire,
+457: 	///   so for maximum wire efficiency, lane 0 should be the "most common" lane, regardless
+458: 	///   of priorities or weights.
+459: 	/// - A connection has a single lane by default.  Calling this function with
+460: 	///   nNumLanes=1 is legal, but pointless, since the priority and weight values are
+461: 	///   irrelevant in that case.
+462: 	/// - You may reconfigure connection lanes at any time, however reducing the number of
+463: 	///   lanes is not allowed.
+464: 	/// - Reconfiguring lanes might restart any bandwidth sharing balancing.  Usually you
+465: 	///   will call this function once, near the start of the connection, perhaps after
+466: 	///   exchanging a few messages.
+467: 	/// - To assign all lanes the same priority, you may use pLanePriorities=NULL.
+468: 	/// - If you wish all lanes with the same priority to share bandwidth equally (or
+469: 	///   if no two lanes have the same priority value, and thus weight values are
+470: 	///   irrelevant), you may use pLaneWeights=NULL
+471: 	/// - Priorities and weights determine the order that messages are SENT on the wire.
+472: 	///   There are NO GUARANTEES on the order that messages are RECEIVED!  Due to packet
+473: 	///   loss, out-of-order delivery, and subtle details of packet serialization, messages
+474: 	///   might still be received slightly out-of-order!  The *only* strong guarantee is that
+475: 	///   *reliable* messages on the *same lane* will be delivered in the order they are sent.
+476: 	/// - Each host configures the lanes for the packets they send; the lanes for the flow
+477: 	///   in one direction are completely unrelated to the lanes in the opposite direction.
+478: 	///
+479: 	/// Return value:
+480: 	/// - k_EResultNoConnection - bad hConn
+481: 	/// - k_EResultInvalidParam - Invalid number of lanes, bad weights, or you tried to reduce the number of lanes
+482: 	/// - k_EResultInvalidState - Connection is already dead, etc
+483: 	///
+484: 	/// See also:
+485: 	/// SteamNetworkingMessage_t::m_idxLane
+486: 	virtual EResult ConfigureConnectionLanes( HSteamNetConnection hConn, int nNumLanes, const int *pLanePriorities, const uint16 *pLaneWeights ) = 0;
+487: 

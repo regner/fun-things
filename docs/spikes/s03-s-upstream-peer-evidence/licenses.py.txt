@@ -1,0 +1,8 @@
+import urllib.request,pathlib,json,hashlib
+r=pathlib.Path('docs/spikes/s03-s-upstream-peer-evidence');rows=[]
+for candidate,repo,sha in [('expresso','expressobits/steam-multiplayer-peer','13a2e888a7159c1a145333c7ea100dfd2b6a8aa7'),('csharp','craethke/steam-multiplayer-peer-csharp','a826c72e7d936c6af6a10122be1047a89e29cd36'),('valve','ValveSoftware/GameNetworkingSockets','d534c19aa760df3fb75fd20db13ba1932b8a5463')]:
+ u=f'https://raw.githubusercontent.com/{repo}/{sha}/LICENSE';b=urllib.request.urlopen(u,timeout=30).read(100000)
+ p=r/'licenses'/(candidate+'.txt');p.parent.mkdir(exist_ok=True);p.write_bytes(b)
+ rows.append(dict(candidate=candidate,url=u,bytes=len(b),sha256=hashlib.sha256(b).hexdigest(),stored_path=str(p.relative_to(r))))
+ print(candidate,len(b),rows[-1]['sha256'])
+(r/'licenses.json').write_text(json.dumps(rows,indent=2)+'\n')

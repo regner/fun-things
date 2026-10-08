@@ -1,0 +1,15 @@
+import urllib.request,json,pathlib,concurrent.futures
+r=pathlib.Path('/tmp/s03-s-upstream')
+urls={
+'gde-tree':'https://codeberg.org/api/v1/repos/godotsteam/godotsteam/git/trees/2cfe81d58d85f7a8a78cd0a19a5642d011e9c8fc?recursive=true',
+'gde-commit':'https://codeberg.org/api/v1/repos/godotsteam/godotsteam/git/commits/2cfe81d58d85f7a8a78cd0a19a5642d011e9c8fc',
+'expresso-tree':'https://api.github.com/repos/expressobits/steam-multiplayer-peer/git/trees/13a2e888a7159c1a145333c7ea100dfd2b6a8aa7?recursive=1',
+'csharp-tree':'https://api.github.com/repos/craethke/steam-multiplayer-peer-csharp/git/trees/a826c72e7d936c6af6a10122be1047a89e29cd36?recursive=1',
+'valve-head':'https://api.github.com/repos/ValveSoftware/GameNetworkingSockets/commits/master'}
+def f(k,u):
+ try:
+  b=urllib.request.urlopen(urllib.request.Request(u,headers={'User-Agent':'S03-S-source-evidence'}),timeout=30).read(1000000); (r/(k+'.json')).write_bytes(b); j=json.loads(b)
+  if 'tree' in j and isinstance(j['tree'],list): print(k,[v['path'] for v in j['tree'] if v['path'].endswith(('.cpp','.h','.cs','.csproj','README.md','SConstruct')) and 'godot-cpp' not in v['path'] and '/sdk/' not in v['path']])
+  else: print(k,j.get('sha'),j.get('message') or j.get('commit',{}).get('message'))
+ except Exception as e: print(k,str(e))
+with concurrent.futures.ThreadPoolExecutor(max_workers=5) as p: list(p.map(lambda x:f(*x),urls.items()))

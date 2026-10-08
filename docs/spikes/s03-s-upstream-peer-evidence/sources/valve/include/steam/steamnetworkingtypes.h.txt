@@ -1,0 +1,146 @@
+
+--- include/steam/steamnetworkingtypes.h lines 840-950 (1-based) ---
+840: // Network messages
+841: //
+842: 
+843: /// Max size of a single message that we can SEND.
+844: /// Note: We might be wiling to receive larger messages,
+845: /// and our peer might, too.
+846: const int k_cbMaxSteamNetworkingSocketsMessageSizeSend = 512 * 1024;
+847: 
+848: /// A message that has been received.
+849: struct SteamNetworkingMessage_t
+850: {
+851: 
+852: 	/// Message payload
+853: 	void *m_pData;
+854: 
+855: 	/// Size of the payload.
+856: 	int m_cbSize;
+857: 
+858: 	/// For messages received on connections: what connection did this come from?
+859: 	/// For outgoing messages: what connection to send it to?
+860: 	/// Not used when using the ISteamNetworkingMessages interface
+861: 	HSteamNetConnection m_conn;
+862: 
+863: 	/// For inbound messages: Who sent this to us?
+864: 	/// For outbound messages on connections: not used.
+865: 	/// For outbound messages on the ad-hoc ISteamNetworkingMessages interface: who should we send this to?
+866: 	SteamNetworkingIdentity m_identityPeer;
+867: 
+868: 	/// For messages received on connections, this is the user data
+869: 	/// associated with the connection.
+870: 	///
+871: 	/// This is *usually* the same as calling GetConnection() and then
+872: 	/// fetching the user data associated with that connection, but for
+873: 	/// the following subtle differences:
+874: 	///
+875: 	/// - This user data will match the connection's user data at the time
+876: 	///   is captured at the time the message is returned by the API.
+877: 	///   If you subsequently change the userdata on the connection,
+878: 	///   this won't be updated.
+879: 	/// - This is an inline call, so it's *much* faster.
+880: 	/// - You might have closed the connection, so fetching the user data
+881: 	///   would not be possible.
+882: 	///
+883: 	/// Not used when sending messages.
+884: 	int64 m_nConnUserData;
+885: 
+886: 	/// Local timestamp when the message was received
+887: 	/// Not used for outbound messages.
+888: 	SteamNetworkingMicroseconds m_usecTimeReceived;
+889: 
+890: 	/// Message number assigned by the sender.  This is not used for outbound
+891: 	/// messages.  Note that if multiple lanes are used, each lane has its own
+892: 	/// message numbers, which are assigned sequentially, so messages from
+893: 	/// different lanes will share the same numbers.
+894: 	int64 m_nMessageNumber;
+895: 
+896: 	/// Function used to free up m_pData.  This mechanism exists so that
+897: 	/// apps can create messages with buffers allocated from their own
+898: 	/// heap, and pass them into the library.  This function will
+899: 	/// usually be something like:
+900: 	///
+901: 	/// free( pMsg->m_pData );
+902: 	void (*m_pfnFreeData)( SteamNetworkingMessage_t *pMsg );
+903: 
+904: 	/// Function to used to decrement the internal reference count and, if
+905: 	/// it's zero, release the message.  You should not set this function pointer,
+906: 	/// or need to access this directly!  Use the Release() function instead!
+907: 	void (*m_pfnRelease)( SteamNetworkingMessage_t *pMsg );
+908: 
+909: 	/// When using ISteamNetworkingMessages, the channel number the message was received on
+910: 	/// (Not used for messages sent or received on "connections")
+911: 	int m_nChannel;
+912: 
+913: 	/// Bitmask of k_nSteamNetworkingSend_xxx flags.
+914: 	/// For received messages, only the k_nSteamNetworkingSend_Reliable bit is valid.
+915: 	/// For outbound messages, all bits are relevant
+916: 	int m_nFlags;
+917: 
+918: 	/// Arbitrary user data that you can use when sending messages using
+919: 	/// ISteamNetworkingUtils::AllocateMessage and ISteamNetworkingSockets::SendMessage.
+920: 	/// (The callback you set in m_pfnFreeData might use this field.)
+921: 	///
+922: 	/// Not used for received messages.
+923: 	int64 m_nUserData;
+924: 
+925: 	/// For outbound messages, which lane to use?  See ISteamNetworkingSockets::ConfigureConnectionLanes.
+926: 	/// For inbound messages, what lane was the message received on?
+927: 	uint16 m_idxLane;
+928: 	uint16 _pad1__;
+929: 
+930: 	/// You MUST call this when you're done with the object,
+931: 	/// to free up memory, etc.
+932: 	inline void Release();
+933: 
+934: 	// For code compatibility, some accessors
+935: #ifndef API_GEN
+936: 	inline uint32 GetSize() const { return m_cbSize; }
+937: 	inline const void *GetData() const { return m_pData; }
+938: 	inline int GetChannel() const { return m_nChannel; }
+939: 	inline HSteamNetConnection GetConnection() const { return m_conn; }
+940: 	inline int64 GetConnectionUserData() const { return m_nConnUserData; }
+941: 	inline SteamNetworkingMicroseconds GetTimeReceived() const { return m_usecTimeReceived; }
+942: 	inline int64 GetMessageNumber() const { return m_nMessageNumber; }
+943: #endif
+944: protected:
+945: 	// Declare destructor protected.  You should never need to declare a message
+946: 	// object on the stack or create one yourself.
+947: 	// - You will receive a pointer to a message object when you receive messages (e.g. ISteamNetworkingSockets::ReceiveMessagesOnConnection)
+948: 	// - You can allocate a message object for efficient sending using ISteamNetworkingUtils::AllocateMessage
+949: 	// - Call Release() to free the object
+950: 	inline ~SteamNetworkingMessage_t() {}
+
+--- include/steam/steamnetworkingtypes.h lines 1159-1189 (1-based) ---
+1159: 	/// [connection int32] Upper limit of buffered pending bytes to be sent,
+1160: 	/// if this is reached SendMessage will return k_EResultLimitExceeded
+1161: 	/// Default is 512k (524288 bytes)
+1162: 	k_ESteamNetworkingConfig_SendBufferSize = 9,
+1163: 
+1164: 	/// [connection int32] Upper limit on total size (in bytes) of received messages
+1165: 	/// that will be buffered waiting to be processed by the application.  If this limit
+1166: 	/// is exceeded, packets will be dropped.  This is to protect us from a malicious
+1167: 	/// peer flooding us with messages faster than we can process them.
+1168: 	/// 
+1169: 	/// This must be bigger than k_ESteamNetworkingConfig_RecvMaxMessageSize
+1170: 	k_ESteamNetworkingConfig_RecvBufferSize = 47,
+1171: 
+1172: 	/// [connection int32] Upper limit on the number of received messages that will
+1173: 	/// that will be buffered waiting to be processed by the application.  If this limit
+1174: 	/// is exceeded, packets will be dropped.  This is to protect us from a malicious
+1175: 	/// peer flooding us with messages faster than we can pull them off the wire.
+1176: 	k_ESteamNetworkingConfig_RecvBufferMessages = 48,
+1177: 
+1178: 	/// [connection int32] Maximum message size that we are willing to receive.
+1179: 	/// if a client attempts to send us a message larger than this, the connection
+1180: 	/// will be immediately closed.
+1181: 	///
+1182: 	/// Default is 512k (524288 bytes).  Note that the peer needs to be able to
+1183: 	/// send a message this big.  (See k_cbMaxSteamNetworkingSocketsMessageSizeSend.)
+1184: 	k_ESteamNetworkingConfig_RecvMaxMessageSize = 49,
+1185: 
+1186: 	/// [connection int32] Max number of message segments that can be received
+1187: 	/// in a single UDP packet.  While decoding a packet, if the number of segments
+1188: 	/// exceeds this, we will abort further packet processing.
+1189: 	///

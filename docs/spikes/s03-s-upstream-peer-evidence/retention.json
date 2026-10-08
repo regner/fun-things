@@ -1,0 +1,397 @@
+{
+  "base": "52941da4b4c92a547a8066b5c13f733043ecbe48",
+  "expected_paths": [
+    "docs/spikes/s03-s-upstream-peer-evidence.md",
+    "docs/spikes/s03-s-upstream-peer-evidence/.gitattributes",
+    "docs/spikes/s03-s-upstream-peer-evidence/candidates.json",
+    "docs/spikes/s03-s-upstream-peer-evidence/check-01.stderr.log",
+    "docs/spikes/s03-s-upstream-peer-evidence/check-01.stdout.log",
+    "docs/spikes/s03-s-upstream-peer-evidence/check-02.stderr.log",
+    "docs/spikes/s03-s-upstream-peer-evidence/check-02.stdout.log",
+    "docs/spikes/s03-s-upstream-peer-evidence/check-03.stderr.log",
+    "docs/spikes/s03-s-upstream-peer-evidence/check-03.stdout.log",
+    "docs/spikes/s03-s-upstream-peer-evidence/check-04.stderr.log",
+    "docs/spikes/s03-s-upstream-peer-evidence/check-04.stdout.log",
+    "docs/spikes/s03-s-upstream-peer-evidence/check-05.stderr.log",
+    "docs/spikes/s03-s-upstream-peer-evidence/check-05.stdout.log",
+    "docs/spikes/s03-s-upstream-peer-evidence/check-06.stderr.log",
+    "docs/spikes/s03-s-upstream-peer-evidence/check-06.stdout.log",
+    "docs/spikes/s03-s-upstream-peer-evidence/check-07.stderr.log",
+    "docs/spikes/s03-s-upstream-peer-evidence/check-07.stdout.log",
+    "docs/spikes/s03-s-upstream-peer-evidence/checks.json",
+    "docs/spikes/s03-s-upstream-peer-evidence/discover.py.txt",
+    "docs/spikes/s03-s-upstream-peer-evidence/extra.py.txt",
+    "docs/spikes/s03-s-upstream-peer-evidence/fetch-restricted.log",
+    "docs/spikes/s03-s-upstream-peer-evidence/fetch.py.txt",
+    "docs/spikes/s03-s-upstream-peer-evidence/licenses.json",
+    "docs/spikes/s03-s-upstream-peer-evidence/licenses.py.txt",
+    "docs/spikes/s03-s-upstream-peer-evidence/licenses/csharp.txt",
+    "docs/spikes/s03-s-upstream-peer-evidence/licenses/expresso.txt",
+    "docs/spikes/s03-s-upstream-peer-evidence/licenses/valve.txt",
+    "docs/spikes/s03-s-upstream-peer-evidence/metadata/csharp-head.json",
+    "docs/spikes/s03-s-upstream-peer-evidence/metadata/csharp-selected-tree.json",
+    "docs/spikes/s03-s-upstream-peer-evidence/metadata/expresso-head.json",
+    "docs/spikes/s03-s-upstream-peer-evidence/metadata/expresso-selected-tree.json",
+    "docs/spikes/s03-s-upstream-peer-evidence/metadata/gde-commit.json",
+    "docs/spikes/s03-s-upstream-peer-evidence/metadata/gde-selected-tree.json",
+    "docs/spikes/s03-s-upstream-peer-evidence/metadata/godotsteam-branches.json",
+    "docs/spikes/s03-s-upstream-peer-evidence/metadata/godotsteam-tags.json",
+    "docs/spikes/s03-s-upstream-peer-evidence/metadata/valve-head.json",
+    "docs/spikes/s03-s-upstream-peer-evidence/retained-peer-diff.txt",
+    "docs/spikes/s03-s-upstream-peer-evidence/reviewer-brief.txt",
+    "docs/spikes/s03-s-upstream-peer-evidence/session.json",
+    "docs/spikes/s03-s-upstream-peer-evidence/singleton-comparison.json",
+    "docs/spikes/s03-s-upstream-peer-evidence/sources.json",
+    "docs/spikes/s03-s-upstream-peer-evidence/sources/csharp/README.md.txt",
+    "docs/spikes/s03-s-upstream-peer-evidence/sources/csharp/addons/steam-multiplayer-peer-csharp/SteamMultiplayerPeer.cs.txt",
+    "docs/spikes/s03-s-upstream-peer-evidence/sources/expresso/README.md.txt",
+    "docs/spikes/s03-s-upstream-peer-evidence/sources/expresso/steam-multiplayer-peer/steam_connection.cpp.txt",
+    "docs/spikes/s03-s-upstream-peer-evidence/sources/expresso/steam-multiplayer-peer/steam_connection.h.txt",
+    "docs/spikes/s03-s-upstream-peer-evidence/sources/expresso/steam-multiplayer-peer/steam_multiplayer_peer.cpp.txt",
+    "docs/spikes/s03-s-upstream-peer-evidence/sources/expresso/steam-multiplayer-peer/steam_multiplayer_peer.h.txt",
+    "docs/spikes/s03-s-upstream-peer-evidence/sources/expresso/steam-multiplayer-peer/steam_packet_peer.cpp.txt",
+    "docs/spikes/s03-s-upstream-peer-evidence/sources/expresso/steam-multiplayer-peer/steam_packet_peer.h.txt",
+    "docs/spikes/s03-s-upstream-peer-evidence/sources/gde/SConstruct.txt",
+    "docs/spikes/s03-s-upstream-peer-evidence/sources/gde/godotsteam/godotsteam.cpp.txt",
+    "docs/spikes/s03-s-upstream-peer-evidence/sources/gde/godotsteam/godotsteam_multiplayer_peer.cpp.txt",
+    "docs/spikes/s03-s-upstream-peer-evidence/sources/gde/godotsteam/godotsteam_multiplayer_peer.h.txt",
+    "docs/spikes/s03-s-upstream-peer-evidence/sources/gde/godotsteam/godotsteam_project_settings.cpp.txt",
+    "docs/spikes/s03-s-upstream-peer-evidence/sources/gde/godotsteam/steam_packet_peer.cpp.txt",
+    "docs/spikes/s03-s-upstream-peer-evidence/sources/gde/godotsteam/steam_packet_peer.h.txt",
+    "docs/spikes/s03-s-upstream-peer-evidence/sources/gde/readme.md.txt",
+    "docs/spikes/s03-s-upstream-peer-evidence/sources/valve/include/steam/isteamnetworkingsockets.h.txt",
+    "docs/spikes/s03-s-upstream-peer-evidence/sources/valve/include/steam/steamnetworkingtypes.h.txt",
+    "docs/spikes/s03-s-upstream-peer-evidence/staged-whitespace-initial.stderr.log",
+    "docs/spikes/s03-s-upstream-peer-evidence/staged-whitespace-initial.stdout.log",
+    "docs/spikes/s03-s-upstream-peer-evidence/todo-block.patch",
+    "docs/spikes/s03-s-upstream-peer-evidence/trees.py.txt",
+    "docs/spikes/s03-s-upstream-peer-evidence/verify.py"
+  ],
+  "files": [
+    {
+      "path": "docs/spikes/s03-s-upstream-peer-evidence.md",
+      "bytes": 21420,
+      "sha256": "39638646dfc9c5396a1c8dcddf8301dd5c6129be93b2a0be8ea20477d5278376"
+    },
+    {
+      "path": "docs/spikes/s03-s-upstream-peer-evidence/.gitattributes",
+      "bytes": 293,
+      "sha256": "1a775de5e57d03df80b5415572d0e255a1f149318ec7871943118f1d1f577efe"
+    },
+    {
+      "path": "docs/spikes/s03-s-upstream-peer-evidence/candidates.json",
+      "bytes": 2414,
+      "sha256": "6e6e57377d85e2afd94cf7aed3c9a0353d386e0d92788617dab642cd01267de8"
+    },
+    {
+      "path": "docs/spikes/s03-s-upstream-peer-evidence/check-01.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "docs/spikes/s03-s-upstream-peer-evidence/check-01.stdout.log",
+      "bytes": 292,
+      "sha256": "b2a7df1ebce4c6632288ccfa631983148f28fcd5d7668cfa245757848fc633bd"
+    },
+    {
+      "path": "docs/spikes/s03-s-upstream-peer-evidence/check-02.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "docs/spikes/s03-s-upstream-peer-evidence/check-02.stdout.log",
+      "bytes": 292,
+      "sha256": "b2a7df1ebce4c6632288ccfa631983148f28fcd5d7668cfa245757848fc633bd"
+    },
+    {
+      "path": "docs/spikes/s03-s-upstream-peer-evidence/check-03.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "docs/spikes/s03-s-upstream-peer-evidence/check-03.stdout.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "docs/spikes/s03-s-upstream-peer-evidence/check-04.stderr.log",
+      "bytes": 587,
+      "sha256": "d17e8418fadaea787cbd4ce4500a178aa962ed531b0515508e517622b42b2b84"
+    },
+    {
+      "path": "docs/spikes/s03-s-upstream-peer-evidence/check-04.stdout.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "docs/spikes/s03-s-upstream-peer-evidence/check-05.stderr.log",
+      "bytes": 15060,
+      "sha256": "5fa8a85b13040433ff97cf561bbd6c4408d1a086e4dafdddc946c0cb585608fd"
+    },
+    {
+      "path": "docs/spikes/s03-s-upstream-peer-evidence/check-05.stdout.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "docs/spikes/s03-s-upstream-peer-evidence/check-06.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "docs/spikes/s03-s-upstream-peer-evidence/check-06.stdout.log",
+      "bytes": 14317,
+      "sha256": "7df863f2fa8e3ec861aa3b793bf410d60c0417f1757392fb1f6e73d5db9da069"
+    },
+    {
+      "path": "docs/spikes/s03-s-upstream-peer-evidence/check-07.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "docs/spikes/s03-s-upstream-peer-evidence/check-07.stdout.log",
+      "bytes": 292,
+      "sha256": "b2a7df1ebce4c6632288ccfa631983148f28fcd5d7668cfa245757848fc633bd"
+    },
+    {
+      "path": "docs/spikes/s03-s-upstream-peer-evidence/checks.json",
+      "bytes": 2228,
+      "sha256": "04ce7275d4dac59f25aa60d06e7d41e5647dcc82d557bc1317b13a01af4327ba"
+    },
+    {
+      "path": "docs/spikes/s03-s-upstream-peer-evidence/discover.py.txt",
+      "bytes": 1099,
+      "sha256": "5376e4fcd0cb5f708a0d7155215f9861b8758c1dbdf4ff1177cc73af57e8c648"
+    },
+    {
+      "path": "docs/spikes/s03-s-upstream-peer-evidence/extra.py.txt",
+      "bytes": 653,
+      "sha256": "6d8f110c9eb4f8bd46a1a1fbd0d71dde048f599d4f44505438011eab4ca5b68a"
+    },
+    {
+      "path": "docs/spikes/s03-s-upstream-peer-evidence/fetch-restricted.log",
+      "bytes": 3569,
+      "sha256": "3ca99b4d5ba52b50ea6ddb2e5155ba1cfa40e1d60948e85ca920de8d2ea9112d"
+    },
+    {
+      "path": "docs/spikes/s03-s-upstream-peer-evidence/fetch.py.txt",
+      "bytes": 2013,
+      "sha256": "f61ce72202b65e1ae369445d4456fe1fe08b67a7a800ab9fda7a5f4cbe597617"
+    },
+    {
+      "path": "docs/spikes/s03-s-upstream-peer-evidence/licenses.json",
+      "bytes": 941,
+      "sha256": "7dc1bc886058fd99ad44d082228a78d2f51f9e1187eeff9c8d23520c2e5d0c4a"
+    },
+    {
+      "path": "docs/spikes/s03-s-upstream-peer-evidence/licenses.py.txt",
+      "bytes": 851,
+      "sha256": "d319091fdf9fe89fb4678a9a6a99a948942a737487b925678adf831e09e7ddd0"
+    },
+    {
+      "path": "docs/spikes/s03-s-upstream-peer-evidence/licenses/csharp.txt",
+      "bytes": 1069,
+      "sha256": "b3673ae08492a64af3a811f778f0ff6be9e24a4a318136d357a16a7143166f14"
+    },
+    {
+      "path": "docs/spikes/s03-s-upstream-peer-evidence/licenses/expresso.txt",
+      "bytes": 1070,
+      "sha256": "6d9b7e58d57b3e77061c9f72398be68e453f83ac791ce8a8e9c00b61d9ff0d45"
+    },
+    {
+      "path": "docs/spikes/s03-s-upstream-peer-evidence/licenses/valve.txt",
+      "bytes": 1488,
+      "sha256": "6fedd796d51d7f996e0b3dc7c1c9f6a67603bec7a2cfb9f418e0c6607a1ca647"
+    },
+    {
+      "path": "docs/spikes/s03-s-upstream-peer-evidence/metadata/csharp-head.json",
+      "bytes": 4585,
+      "sha256": "803d54cd0cbec8eec1c8048755d33a95a5cb953d813419b7482068cf1771e0d6"
+    },
+    {
+      "path": "docs/spikes/s03-s-upstream-peer-evidence/metadata/csharp-selected-tree.json",
+      "bytes": 965,
+      "sha256": "c1042f3589f01f8e16acf8634c04ad0129cb459908fb55b86cf8cb6a98603bf3"
+    },
+    {
+      "path": "docs/spikes/s03-s-upstream-peer-evidence/metadata/expresso-head.json",
+      "bytes": 5594,
+      "sha256": "841d06f25de7c13c849e22cab42fab6bdfb3b465d593e42b8573e8a91efb0a48"
+    },
+    {
+      "path": "docs/spikes/s03-s-upstream-peer-evidence/metadata/expresso-selected-tree.json",
+      "bytes": 2732,
+      "sha256": "23dcc24395efc97bf91907dbd272756b467bb2a57a4f94f74035ebe4c561d88e"
+    },
+    {
+      "path": "docs/spikes/s03-s-upstream-peer-evidence/metadata/gde-commit.json",
+      "bytes": 2595,
+      "sha256": "8ba2a1ea69fd60841c0899a478a345c173be2320ae96d8033019888216f69aad"
+    },
+    {
+      "path": "docs/spikes/s03-s-upstream-peer-evidence/metadata/gde-selected-tree.json",
+      "bytes": 2929,
+      "sha256": "c83c641ac451efef6c77379be0fc3670352ce1c7754b27bd05644fdfef18df97"
+    },
+    {
+      "path": "docs/spikes/s03-s-upstream-peer-evidence/metadata/godotsteam-branches.json",
+      "bytes": 5545,
+      "sha256": "93c5772251e063c06fc4f323bb103cfcecd954231c00d3d8c31b371c52b7f57d"
+    },
+    {
+      "path": "docs/spikes/s03-s-upstream-peer-evidence/metadata/godotsteam-tags.json",
+      "bytes": 5274,
+      "sha256": "dc4732c15f604ea3ff2a765a2e51fa7a783874d4da10fe3492f4ef64e71c6481"
+    },
+    {
+      "path": "docs/spikes/s03-s-upstream-peer-evidence/metadata/valve-head.json",
+      "bytes": 5705,
+      "sha256": "048c29eac53bb6caf81fe15d1c10e34a7177503f7c91f5d07ae8a318dd34704c"
+    },
+    {
+      "path": "docs/spikes/s03-s-upstream-peer-evidence/retained-peer-diff.txt",
+      "bytes": 32413,
+      "sha256": "465a7c39e040c154ae8636fcd6978b4e306c6e9cb28470b156e3cc835043f60e"
+    },
+    {
+      "path": "docs/spikes/s03-s-upstream-peer-evidence/reviewer-brief.txt",
+      "bytes": 7942,
+      "sha256": "b520a51f1eed333574467881212b1c29778730f57004d5b4678083cacf6b77c5"
+    },
+    {
+      "path": "docs/spikes/s03-s-upstream-peer-evidence/session.json",
+      "bytes": 3456,
+      "sha256": "0b46fe6d9ca6c9a8988f799a2ac3d1c5c86e90a1f3a479dbd8f33f66a1cbfdb5"
+    },
+    {
+      "path": "docs/spikes/s03-s-upstream-peer-evidence/singleton-comparison.json",
+      "bytes": 4643,
+      "sha256": "a61d59a43ddb9670be967e8659a45ca955abfa64ca45795c4e3b2e540c837878"
+    },
+    {
+      "path": "docs/spikes/s03-s-upstream-peer-evidence/sources.json",
+      "bytes": 13806,
+      "sha256": "33a833424280904ab6ce3b268107412641aa0394622f8ae9f6ffbdcf14a86cf9"
+    },
+    {
+      "path": "docs/spikes/s03-s-upstream-peer-evidence/sources/csharp/README.md.txt",
+      "bytes": 2048,
+      "sha256": "9c8f6682b51dcdd37dad0c9e5f70a25fbf4e40467b4b90712559f01ad71db511"
+    },
+    {
+      "path": "docs/spikes/s03-s-upstream-peer-evidence/sources/csharp/addons/steam-multiplayer-peer-csharp/SteamMultiplayerPeer.cs.txt",
+      "bytes": 19276,
+      "sha256": "9e461c72317bf00f915d55318d60c5f31512b58a8f9e7654737d6a23c7e3c19e"
+    },
+    {
+      "path": "docs/spikes/s03-s-upstream-peer-evidence/sources/expresso/README.md.txt",
+      "bytes": 4487,
+      "sha256": "4f7e6e499a328d4b1df41eb9f60ec0e0845240dab33fc5ea08c26ae0a731f505"
+    },
+    {
+      "path": "docs/spikes/s03-s-upstream-peer-evidence/sources/expresso/steam-multiplayer-peer/steam_connection.cpp.txt",
+      "bytes": 13654,
+      "sha256": "4f346afa13d817b40b8846556a731c2f6b145902112042138a0a0bfdfd5ff330"
+    },
+    {
+      "path": "docs/spikes/s03-s-upstream-peer-evidence/sources/expresso/steam-multiplayer-peer/steam_connection.h.txt",
+      "bytes": 1628,
+      "sha256": "ce03598b20eddcf4807a790f74b17e53fa361aa26de3db2ba1e5e4e8c0ec6adc"
+    },
+    {
+      "path": "docs/spikes/s03-s-upstream-peer-evidence/sources/expresso/steam-multiplayer-peer/steam_multiplayer_peer.cpp.txt",
+      "bytes": 27877,
+      "sha256": "2fa44afa93c27652fa6539bc9b35ac885d7f3d3132e6bf63ad6a3ffb1b6afee2"
+    },
+    {
+      "path": "docs/spikes/s03-s-upstream-peer-evidence/sources/expresso/steam-multiplayer-peer/steam_multiplayer_peer.h.txt",
+      "bytes": 13417,
+      "sha256": "99e14bc55e4fda9f3cfb79198343ea1fbf18ea5b3a2ee0af42a1101ffd00579c"
+    },
+    {
+      "path": "docs/spikes/s03-s-upstream-peer-evidence/sources/expresso/steam-multiplayer-peer/steam_packet_peer.cpp.txt",
+      "bytes": 481,
+      "sha256": "eda8ace85edb3703e4b11baa2b89ff0bc11723285545909be82e62b25ae4ac74"
+    },
+    {
+      "path": "docs/spikes/s03-s-upstream-peer-evidence/sources/expresso/steam-multiplayer-peer/steam_packet_peer.h.txt",
+      "bytes": 1253,
+      "sha256": "4d4ee91d9f95420d1ce7df66082debbb84388c52e1c93e653baf5ce5342aad63"
+    },
+    {
+      "path": "docs/spikes/s03-s-upstream-peer-evidence/sources/gde/SConstruct.txt",
+      "bytes": 3770,
+      "sha256": "2e3b8f37c3ecd185d4352c46763f3dc100710eb06fa7adbfb287d1c8b0055779"
+    },
+    {
+      "path": "docs/spikes/s03-s-upstream-peer-evidence/sources/gde/godotsteam/godotsteam.cpp.txt",
+      "bytes": 14503,
+      "sha256": "d6f847c850ef19073070c8509a86837be38b9bd2815c81a1cf660f8995b1d6f9"
+    },
+    {
+      "path": "docs/spikes/s03-s-upstream-peer-evidence/sources/gde/godotsteam/godotsteam_multiplayer_peer.cpp.txt",
+      "bytes": 27370,
+      "sha256": "17331d6e7dbac795b3a33a43932f851fb299a6b746713cca7caee66c7844e87b"
+    },
+    {
+      "path": "docs/spikes/s03-s-upstream-peer-evidence/sources/gde/godotsteam/godotsteam_multiplayer_peer.h.txt",
+      "bytes": 5590,
+      "sha256": "346e14022eba3c92c515a936821c48c98fd8782dea0adef0b831f0b6911a80ed"
+    },
+    {
+      "path": "docs/spikes/s03-s-upstream-peer-evidence/sources/gde/godotsteam/godotsteam_project_settings.cpp.txt",
+      "bytes": 8221,
+      "sha256": "4699b401a3c2723c34de41c6f3a73838f55cf9b755fc4e476f4f8ea7a437f210"
+    },
+    {
+      "path": "docs/spikes/s03-s-upstream-peer-evidence/sources/gde/godotsteam/steam_packet_peer.cpp.txt",
+      "bytes": 7540,
+      "sha256": "3529dc70361c7bbe0e167fd2390ecd7aa5eb202f95340f1e4f18e200e0866291"
+    },
+    {
+      "path": "docs/spikes/s03-s-upstream-peer-evidence/sources/gde/godotsteam/steam_packet_peer.h.txt",
+      "bytes": 3952,
+      "sha256": "05a07fe79c645d77c4078ee5d7fcf415651f065b85740178eb6b107e95c6ceb8"
+    },
+    {
+      "path": "docs/spikes/s03-s-upstream-peer-evidence/sources/gde/readme.md.txt",
+      "bytes": 6802,
+      "sha256": "07b9cae350ef7e7abe00f1dc61e754e094cb3662121e6902f9d2cadb71b07c8b"
+    },
+    {
+      "path": "docs/spikes/s03-s-upstream-peer-evidence/sources/valve/include/steam/isteamnetworkingsockets.h.txt",
+      "bytes": 13320,
+      "sha256": "33ace6f295c13d4b9555f5076213e54013927c43660e840803a4e464504f6375"
+    },
+    {
+      "path": "docs/spikes/s03-s-upstream-peer-evidence/sources/valve/include/steam/steamnetworkingtypes.h.txt",
+      "bytes": 7188,
+      "sha256": "9b82841669c5b5c056f46b774472d9cfcd3e4120b9e6ac50dfcc8c65ae4d3319"
+    },
+    {
+      "path": "docs/spikes/s03-s-upstream-peer-evidence/staged-whitespace-initial.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "docs/spikes/s03-s-upstream-peer-evidence/staged-whitespace-initial.stdout.log",
+      "bytes": 49939,
+      "sha256": "326e77985d6e0790d8bc3cb15610bc645d63a476cd0779140a07c2a3b6e7a032"
+    },
+    {
+      "path": "docs/spikes/s03-s-upstream-peer-evidence/todo-block.patch",
+      "bytes": 761,
+      "sha256": "094152c536cb2fe9a06e935da4dcc3d45300f79ad142034249b6eecbd801c33f"
+    },
+    {
+      "path": "docs/spikes/s03-s-upstream-peer-evidence/trees.py.txt",
+      "bytes": 1402,
+      "sha256": "70947bea7b94405e5afcc89243fe72f5b77622e90ed1f628ffce15b4901e15a4"
+    },
+    {
+      "path": "docs/spikes/s03-s-upstream-peer-evidence/verify.py",
+      "bytes": 7370,
+      "sha256": "a835e277b3691d27f672ccf2b09e77482976eef33cbd2e70642f899d321cea09"
+    }
+  ]
+}

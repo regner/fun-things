@@ -1,0 +1,6 @@
+# Preserve exact upstream snapshots and literal source diffs, including their whitespace.
+# Authored documentation, verification code and metadata keep ordinary checks.
+sources/** -text -whitespace
+licenses/** -text -whitespace
+retained-peer-diff.txt -text -whitespace
+*.log -text -whitespace

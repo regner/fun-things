@@ -1,0 +1,79 @@
+{
+  "old_full_source_sha256": "b3c55e1c40662424fdfff8c60ee749337b6e1d6930c81550df2bca65af17a5d6",
+  "old_manifest": "../s03-s-compatibility-evidence/sources.json",
+  "new_full_source_sha256": "51be1d0f6e58ec36bb0e52646aec41ae841d8e6f8d38a16abb59257d73ea9963",
+  "functions": [
+    {
+      "function": "sendMessages",
+      "exact_body_equal": true,
+      "whitespace_removed_equal": true,
+      "old_body_sha256": "d30777185deb47ccae15dc1d38cf5dbccbe06b540935f47a4800dc9ee0774c65",
+      "new_body_sha256": "d30777185deb47ccae15dc1d38cf5dbccbe06b540935f47a4800dc9ee0774c65",
+      "diff": ""
+    },
+    {
+      "function": "sendMessageToConnection",
+      "exact_body_equal": true,
+      "whitespace_removed_equal": true,
+      "old_body_sha256": "2a3ff81fc99989eff42c944d856b0e10983127aa30bd25370d075f7e78cc38e3",
+      "new_body_sha256": "2a3ff81fc99989eff42c944d856b0e10983127aa30bd25370d075f7e78cc38e3",
+      "diff": ""
+    },
+    {
+      "function": "receiveMessagesOnConnection",
+      "exact_body_equal": true,
+      "whitespace_removed_equal": true,
+      "old_body_sha256": "73b9692ae24ade07c15d0310810ebc57f6ea563a39c562f290bab49591f210d8",
+      "new_body_sha256": "73b9692ae24ade07c15d0310810ebc57f6ea563a39c562f290bab49591f210d8",
+      "diff": ""
+    },
+    {
+      "function": "receiveMessagesOnPollGroup",
+      "exact_body_equal": false,
+      "whitespace_removed_equal": true,
+      "old_body_sha256": "fbe2394575b35fb71bed5a0a26a64f8149a30275790ccb58053d7c1ad156d3dd",
+      "new_body_sha256": "1616469a5c15bef2b707df9636945e3a07741797afeec8f4cbd19c80b6dbccbf",
+      "diff": "--- 532740f3\n+++ 2cfe81d5\n@@ -1,7 +1,7 @@\n Array Steam::receiveMessagesOnPollGroup(uint32_t poll_group, int max_messages) {\n \tArray messages;\n \tERR_FAIL_COND_V_MSG(SteamAPI_SteamNetworkingSockets_SteamAPI() == nullptr, messages, \"Networking Sockets class not found, Steam may not be initialized: receiveMessagesOnPollGroup\");\n-\tSteamNetworkingMessage_t **poll_messages = new SteamNetworkingMessage_t *[max_messages];\n+\tSteamNetworkingMessage_t** poll_messages = new SteamNetworkingMessage_t *[max_messages];\n \tint available_messages = SteamAPI_ISteamNetworkingSockets_ReceiveMessagesOnPollGroup(SteamAPI_SteamNetworkingSockets_SteamAPI(), (HSteamNetPollGroup)poll_group, poll_messages, max_messages);\n \tfor (int i = 0; i < available_messages; i++) {\n \t\tDictionary message;\n@@ -9,8 +9,8 @@\n \t\tint message_size = poll_messages[i]->m_cbSize;\n \t\tPackedByteArray data;\n \t\tdata.resize(message_size);\n-\t\tuint8_t *source_data = (uint8_t *)poll_messages[i]->m_pData;\n-\t\tuint8_t *output_data = data.ptrw();\n+\t\tuint8_t* source_data = (uint8_t*)poll_messages[i]->m_pData;\n+\t\tuint8_t* output_data = data.ptrw();\n \t\tfor (int j = 0; j < message_size; j++) {\n \t\t\toutput_data[j] = source_data[j];\n \t\t}\n@@ -27,6 +27,6 @@\n \n \t\tSteamAPI_SteamNetworkingMessage_t_Release(poll_messages[i]);\n \t}\n-\tdelete[] poll_messages;\n+\tdelete [] poll_messages;\n \treturn messages;\n }"
+    },
+    {
+      "function": "configureConnectionLanes",
+      "exact_body_equal": true,
+      "whitespace_removed_equal": true,
+      "old_body_sha256": "c24a412509550f00b1a980d5f24a82003013618060bf216aa4fcf52effa4e256",
+      "new_body_sha256": "c24a412509550f00b1a980d5f24a82003013618060bf216aa4fcf52effa4e256",
+      "diff": ""
+    },
+    {
+      "function": "createLobby",
+      "exact_body_equal": true,
+      "whitespace_removed_equal": true,
+      "old_body_sha256": "831c67f6f1b6e7ee5909d40ed0f349031aa3c31e6d9d5f767cc593935c19a283",
+      "new_body_sha256": "831c67f6f1b6e7ee5909d40ed0f349031aa3c31e6d9d5f767cc593935c19a283",
+      "diff": ""
+    },
+    {
+      "function": "joinLobby",
+      "exact_body_equal": true,
+      "whitespace_removed_equal": true,
+      "old_body_sha256": "7ef9240a993bbfc419c699c7fd7825a0cf202f79e493df1fe9474dc8dd2c207a",
+      "new_body_sha256": "7ef9240a993bbfc419c699c7fd7825a0cf202f79e493df1fe9474dc8dd2c207a",
+      "diff": ""
+    },
+    {
+      "function": "lobby_joined",
+      "exact_body_equal": true,
+      "whitespace_removed_equal": true,
+      "old_body_sha256": "80f376849e789a34d4459fdc80aa5516e4a091257dd72666dc7a7e282a9c1974",
+      "new_body_sha256": "80f376849e789a34d4459fdc80aa5516e4a091257dd72666dc7a7e282a9c1974",
+      "diff": ""
+    },
+    {
+      "function": "lobby_created",
+      "exact_body_equal": true,
+      "whitespace_removed_equal": true,
+      "old_body_sha256": "634da9ad6797c87893e3016a23eda72b25c651c5030e5a2820e2685eeaff6566",
+      "new_body_sha256": "634da9ad6797c87893e3016a23eda72b25c651c5030e5a2820e2685eeaff6566",
+      "diff": ""
+    }
+  ]
+}

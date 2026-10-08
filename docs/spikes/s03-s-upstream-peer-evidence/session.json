@@ -1,0 +1,70 @@
+{
+  "date": "2026-10-08",
+  "workspace": "wks_4b9392e6198b3f47",
+  "branch": "s03-s-upstream-peer-evidence",
+  "owner": "1a866e53-0b25-46d6-863d-107746aafb49",
+  "parent": "b70ce3b8-b419-45da-bcc2-7d8262abb0e8",
+  "base": "52941da4b4c92a547a8066b5c13f733043ecbe48",
+  "initial_head": "352f5706d87bee973df40c73c3fffb1ef01df72e",
+  "initial_status": "clean; main..HEAD empty",
+  "rebase": "git rebase refs/heads/main; scoped Git metadata escalation; exit0",
+  "effective_settings": {
+    "model": "gpt-6.1-sol",
+    "thinkingOptionId": "high",
+    "effectiveThinkingOptionId": "high",
+    "modeId": "auto-review",
+    "plan_mode": false
+  },
+  "discovery": "ROOT launch receipt supplied today: profiles empty, installed codex/gpt-6.1-sol medium/high, auto-review and plan_mode:false. Own get_agent_status verified once. No settings/profile mutation.",
+  "peer_candidate_count": 3,
+  "scope": "Public source/documentation static evidence only. No native/engine/Steam/account experiment, adapter/build/install/pin/protocol selection or maintainer contact.",
+  "retrieval": [
+    {
+      "argv": [
+        "python3",
+        "/tmp/s03-s-upstream/discover.py"
+      ],
+      "exit": 0,
+      "purpose": "small public branches/tags/commit metadata"
+    },
+    {
+      "argv": [
+        "python3",
+        "/tmp/s03-s-upstream/trees.py"
+      ],
+      "exit": 0,
+      "purpose": "small immutable commit/tree metadata"
+    },
+    {
+      "argv": [
+        "python3",
+        "/tmp/s03-s-upstream/fetch.py"
+      ],
+      "exit": 0,
+      "purpose": "18 small public source/header files, <=1 MiB each, 30-second URL timeouts"
+    },
+    {
+      "argv": [
+        "python3",
+        "/tmp/s03-s-upstream/extra.py"
+      ],
+      "exit": 0,
+      "purpose": "one additional 1253-byte Expresso packet declaration"
+    },
+    {
+      "argv": [
+        "python3",
+        "/tmp/s03-s-upstream/licenses.py"
+      ],
+      "exit": 0,
+      "purpose": "three small public licenses at existing immutable revisions"
+    }
+  ],
+  "network_failures": {
+    "restricted_dns": "first urllib call exit1; full interleaved diagnostic retained in fetch-restricted.log",
+    "browser_codeberg": "web open https://codeberg.org/godotsteam/godotsteam denied by robots.txt; public raw/API scoped read-only escalation succeeded"
+  },
+  "scope_recovery": "No network config changes. First rebase attempt could not create rebase-merge in read-only linked metadata; requested rebase succeeded through scoped escalation. No source/runtime recovery experiment.",
+  "review": "Pending; ROOT asked worker to return IDLE at frozen candidate, then ROOT launches ONE fresh clean-context Sol6.1 HIGH static reviewer in freed fourth slot. No editor lock conflict; capacity only.",
+  "static_recovery": "Initial full staged whitespace check exit2 on literal upstream/diff whitespace and Git CRLF normalization warning. Added only adjacent snapshot/diff byte-preservation attributes; no upstream bytes normalized. Full check stdout/stderr retained. Earlier check01-03 predate staging. First index readback exit1 caught the LF-normalized SConstruct entry. Scoped git add --renormalize restored original raw snapshot bytes. Check05 then passed byte readback but failed whitespace on the preserved initial diagnostic itself; check06 exit2 confirmed it. Adjacent raw .log files now have exact-byte/whitespace preservation attributes. Authored docs/code/metadata remain checked; no source data rewritten."
+}

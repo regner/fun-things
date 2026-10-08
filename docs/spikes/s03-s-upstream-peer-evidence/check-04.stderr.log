@@ -1,0 +1,8 @@
+Traceback (most recent call last):
+  File "/home/regner/.paseo/worktrees/0u71f39f/s03-s-upstream-peer-evidence/docs/spikes/s03-s-upstream-peer-evidence/verify.py", line 144, in <module>
+    main()
+    ~~~~^^
+  File "/home/regner/.paseo/worktrees/0u71f39f/s03-s-upstream-peer-evidence/docs/spikes/s03-s-upstream-peer-evidence/verify.py", line 113, in main
+    assert blob == path.read_bytes(), path
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: /home/regner/.paseo/worktrees/0u71f39f/s03-s-upstream-peer-evidence/docs/spikes/s03-s-upstream-peer-evidence/sources/gde/SConstruct.txt

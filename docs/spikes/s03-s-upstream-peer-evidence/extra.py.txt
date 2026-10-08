@@ -1,0 +1,5 @@
+import urllib.request, pathlib, json, hashlib
+u='https://raw.githubusercontent.com/expressobits/steam-multiplayer-peer/13a2e888a7159c1a145333c7ea100dfd2b6a8aa7/steam-multiplayer-peer/steam_packet_peer.h'
+b=urllib.request.urlopen(u,timeout=30).read(100000)
+p=pathlib.Path('/tmp/s03-s-upstream/sources/expresso/steam-multiplayer-peer/steam_packet_peer.h');p.write_bytes(b)
+m=pathlib.Path('/tmp/s03-s-upstream/sources.json');j=json.loads(m.read_text());j.append(dict(candidate='expresso',path='steam-multiplayer-peer/steam_packet_peer.h',url=u,bytes=len(b),sha256=hashlib.sha256(b).hexdigest()));m.write_text(json.dumps(j,indent=2)+'\n');print(b.decode())

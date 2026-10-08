@@ -1,0 +1,19 @@
+import urllib.request,pathlib,json,hashlib,concurrent.futures
+r=pathlib.Path('/tmp/s03-s-upstream/sources'); r.mkdir(exist_ok=True)
+items=[]
+def add(candidate,base,paths):
+ for p in paths: items.append((candidate,p,base+p))
+add('gde','https://codeberg.org/godotsteam/godotsteam/raw/commit/2cfe81d58d85f7a8a78cd0a19a5642d011e9c8fc/', ['godotsteam/godotsteam_multiplayer_peer.cpp','godotsteam/godotsteam_multiplayer_peer.h','godotsteam/steam_packet_peer.cpp','godotsteam/steam_packet_peer.h','godotsteam/godotsteam.cpp','godotsteam/godotsteam_project_settings.cpp','SConstruct','readme.md'])
+add('expresso','https://raw.githubusercontent.com/expressobits/steam-multiplayer-peer/13a2e888a7159c1a145333c7ea100dfd2b6a8aa7/', ['steam-multiplayer-peer/steam_multiplayer_peer.cpp','steam-multiplayer-peer/steam_multiplayer_peer.h','steam-multiplayer-peer/steam_connection.cpp','steam-multiplayer-peer/steam_connection.h','steam-multiplayer-peer/steam_packet_peer.cpp','README.md'])
+add('csharp','https://raw.githubusercontent.com/craethke/steam-multiplayer-peer-csharp/a826c72e7d936c6af6a10122be1047a89e29cd36/', ['addons/steam-multiplayer-peer-csharp/SteamMultiplayerPeer.cs','README.md'])
+add('valve','https://raw.githubusercontent.com/ValveSoftware/GameNetworkingSockets/d534c19aa760df3fb75fd20db13ba1932b8a5463/', ['include/steam/isteamnetworkingsockets.h','include/steam/steamnetworkingtypes.h'])
+def f(item):
+ c,p,u=item
+ req=urllib.request.Request(u,headers={'User-Agent':'S03-S-source-evidence'})
+ b=urllib.request.urlopen(req,timeout=30).read(1000001)
+ assert len(b)<=1000000
+ dest=r/c/p; dest.parent.mkdir(parents=True,exist_ok=True);dest.write_bytes(b)
+ return dict(candidate=c,path=p,url=u,bytes=len(b),sha256=hashlib.sha256(b).hexdigest())
+with concurrent.futures.ThreadPoolExecutor(max_workers=5) as pool: rows=list(pool.map(f,items))
+pathlib.Path('/tmp/s03-s-upstream/sources.json').write_text(json.dumps(rows,indent=2)+'\n')
+for row in rows: print(row['candidate'],row['path'],row['bytes'],row['sha256'])

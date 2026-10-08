@@ -1,0 +1,92 @@
+[
+  {
+    "argv": [
+      "python3",
+      "docs/spikes/s03-s-upstream-peer-evidence/verify.py",
+      "--source-dir",
+      "/tmp/s03-s-upstream/sources"
+    ],
+    "exit": 0,
+    "stdout": "check-01.stdout.log",
+    "stderr": "check-01.stderr.log"
+  },
+  {
+    "argv": [
+      "python3",
+      "docs/spikes/s03-s-upstream-peer-evidence/verify.py"
+    ],
+    "exit": 0,
+    "stdout": "check-02.stdout.log",
+    "stderr": "check-02.stderr.log"
+  },
+  {
+    "argv": [
+      "git",
+      "diff",
+      "--check"
+    ],
+    "exit": 0,
+    "stdout": "check-03.stdout.log",
+    "stderr": "check-03.stderr.log"
+  },
+  {
+    "argv": [
+      "git",
+      "diff",
+      "--check",
+      "--cached"
+    ],
+    "exit": 2,
+    "stdout": "staged-whitespace-initial.stdout.log",
+    "stderr": "staged-whitespace-initial.stderr.log",
+    "phase": "first complete staged check; literal source/diff whitespace; before scoped attributes"
+  },
+  {
+    "argv": [
+      "python3",
+      "docs/spikes/s03-s-upstream-peer-evidence/verify.py",
+      "--source-dir",
+      "/tmp/s03-s-upstream/sources"
+    ],
+    "exit": 1,
+    "stdout": "check-04.stdout.log",
+    "stderr": "check-04.stderr.log",
+    "phase": "prior LF-normalized SConstruct index entry; corrected with scoped git add --renormalize"
+  },
+  {
+    "argv": [
+      "python3",
+      "docs/spikes/s03-s-upstream-peer-evidence/verify.py",
+      "--source-dir",
+      "/tmp/s03-s-upstream/sources"
+    ],
+    "exit": 1,
+    "stdout": "check-05.stdout.log",
+    "stderr": "check-05.stderr.log",
+    "phase": "source index readback passed; whitespace check found literal original diagnostics"
+  },
+  {
+    "argv": [
+      "git",
+      "diff",
+      "--check",
+      "--cached"
+    ],
+    "exit": 2,
+    "stdout": "check-06.stdout.log",
+    "stderr": "check-06.stderr.log",
+    "phase": "literal original diagnostic whitespace; before raw log attributes"
+  },
+  {
+    "argv": [
+      "python3",
+      "docs/spikes/s03-s-upstream-peer-evidence/verify.py",
+      "--source-dir",
+      "/tmp/s03-s-upstream/sources"
+    ],
+    "exit": 0,
+    "stdout": "check-07.stdout.log",
+    "stderr": "check-07.stderr.log",
+    "phase": "final source/snapshot/index readback and whitespace/scope/links"
+  }
+]

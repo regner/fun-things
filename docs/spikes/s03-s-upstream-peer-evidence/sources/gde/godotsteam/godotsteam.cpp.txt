@@ -1,0 +1,226 @@
+
+--- godotsteam/godotsteam.cpp lines 2899-2904 (1-based) ---
+2899: // Create a lobby on the Steam servers, if private the lobby will not be returned by any RequestLobbyList() call.
+2900: void Steam::createLobby(LobbyType lobby_type, int max_members) {
+2901: 	ERR_FAIL_COND_MSG(SteamAPI_SteamMatchmaking() == nullptr, "Matchmaking class not found, Steam may not be initialized: createLobby");
+2902: 	SteamAPICall_t api_call = SteamAPI_ISteamMatchmaking_CreateLobby(SteamAPI_SteamMatchmaking(), (ELobbyType)lobby_type, max_members);
+2903: 	callResultCreateLobby.Set(api_call, this, &Steam::lobby_created);
+2904: }
+
+--- godotsteam/godotsteam.cpp lines 3020-3025 (1-based) ---
+3020: // Join an existing lobby.
+3021: void Steam::joinLobby(uint64_t steam_lobby_id) {
+3022: 	ERR_FAIL_COND_MSG(SteamAPI_SteamMatchmaking() == nullptr, "Matchmaking class not found, Steam may not be initialized: joinLobby");
+3023: 	SteamAPI_ISteamMatchmaking_JoinLobby(SteamAPI_SteamMatchmaking(), steam_lobby_id);
+3024: }
+3025: 
+
+--- godotsteam/godotsteam.cpp lines 3608-3644 (1-based) ---
+3608: // Send one or more messages without copying the message payload. This is the most efficient way to send messages.
+3609: PackedInt64Array Steam::sendMessages(uint32_t connection_handle, Array messages, int flags, bool delete_failed_messages) {
+3610: 	PackedInt64Array message_results;
+3611: 	ERR_FAIL_COND_V_MSG(SteamAPI_SteamNetworkingSockets_SteamAPI() == nullptr, message_results, "Networking Sockets class not found, Steam may not be initialized: sendMessages");
+3612: 
+3613: 	size_t total_messages = messages.size();
+3614: 	SteamNetworkingMessage_t **sent_messages = new SteamNetworkingMessage_t *[total_messages];
+3615: 	for (size_t i = 0; i < total_messages; i++) {
+3616: 		SteamNetworkingMessage_t *message = SteamAPI_ISteamNetworkingUtils_AllocateMessage(SteamAPI_SteamNetworkingUtils_SteamAPI(), sizeof(messages[i]));
+3617: 		message->m_pData = messages[i];
+3618: 		message->m_conn = (HSteamNetConnection)connection_handle;
+3619: 		message->m_nFlags = flags;
+3620: 
+3621: 		sent_messages[i] = message;
+3622: 		SteamAPI_SteamNetworkingMessage_t_Release(message);
+3623: 	}
+3624: 
+3625: 	int64 *messages_output = new int64[total_messages];
+3626: 	SteamAPI_ISteamNetworkingSockets_SendMessages(SteamAPI_SteamNetworkingSockets_SteamAPI(), total_messages, sent_messages, messages_output, delete_failed_messages);
+3627: 
+3628: 	for (size_t i = 0; i < total_messages; i++) {
+3629: 		message_results.append((int64_t)messages_output[i]);
+3630: 	}
+3631: 	delete[] messages_output;
+3632: 	return message_results;
+3633: }
+3634: 
+3635: // Send a message to the remote host on the specified connection.
+3636: Dictionary Steam::sendMessageToConnection(uint32_t connection_handle, const PackedByteArray message, int flags) {
+3637: 	Dictionary message_response;
+3638: 	ERR_FAIL_COND_V_MSG(SteamAPI_SteamNetworkingSockets_SteamAPI() == nullptr, message_response, "Networking Sockets class not found, Steam may not be initialized: sendMessageToConnection");
+3639: 	int64 number;
+3640: 	Result result = (Result)SteamAPI_ISteamNetworkingSockets_SendMessageToConnection(SteamAPI_SteamNetworkingSockets_SteamAPI(), (HSteamNetConnection)connection_handle, message.ptr(), message.size(), flags, &number);
+3641: 	message_response["result"] = result;
+3642: 	message_response["message_number"] = (uint64_t)number;
+3643: 	return message_response;
+3644: }
+
+--- godotsteam/godotsteam.cpp lines 3653-3689 (1-based) ---
+3653: // Fetch the next available message(s) from the connection, if any. Returns the number of messages returned into your
+3654: // array, up to max_messages. If the connection handle is invalid, -1 is returned. If no data is available, 0, is
+3655: // returned.
+3656: Array Steam::receiveMessagesOnConnection(uint32_t connection_handle, int max_messages) {
+3657: 	Array messages;
+3658: 	ERR_FAIL_COND_V_MSG(SteamAPI_SteamNetworkingSockets_SteamAPI() == nullptr, messages, "Networking Sockets class not found, Steam may not be initialized: receiveMessagesOnConnection");
+3659: 	SteamNetworkingMessage_t **connection_messages = new SteamNetworkingMessage_t *[max_messages];
+3660: 	int available_messages = SteamAPI_ISteamNetworkingSockets_ReceiveMessagesOnConnection(SteamAPI_SteamNetworkingSockets_SteamAPI(), (HSteamNetConnection)connection_handle, connection_messages, max_messages);
+3661: 
+3662: 	for (int i = 0; i < available_messages; i++) {
+3663: 		Dictionary message;
+3664: 		int message_size = connection_messages[i]->m_cbSize;
+3665: 		PackedByteArray data;
+3666: 		data.resize(message_size);
+3667: 		uint8_t *source_data = (uint8_t *)connection_messages[i]->m_pData;
+3668: 		uint8_t *output_data = data.ptrw();
+3669: 
+3670: 		for (int j = 0; j < message_size; j++) {
+3671: 			output_data[j] = source_data[j];
+3672: 		}
+3673: 		message["payload"] = data;
+3674: 		message["size"] = message_size;
+3675: 		message["connection"] = connection_messages[i]->m_conn;
+3676: 		message["identity"] = getSteamIDFromIdentity(connection_messages[i]->m_identityPeer);
+3677: 		message["receiver_user_data"] = (uint64_t)connection_messages[i]->m_nConnUserData; // Not used when sending messages
+3678: 		message["time_received"] = (uint64_t)connection_messages[i]->m_usecTimeReceived;
+3679: 		message["message_number"] = (uint64_t)connection_messages[i]->m_nMessageNumber;
+3680: 		message["flags"] = connection_messages[i]->m_nFlags;
+3681: 		messages.append(message);
+3682: 
+3683: 		SteamAPI_SteamNetworkingMessage_t_Release(connection_messages[i]);
+3684: 	}
+3685: 	delete[] connection_messages;
+3686: 	return messages;
+3687: }
+3688: 
+3689: // Create a new poll group.
+
+--- godotsteam/godotsteam.cpp lines 3707-3742 (1-based) ---
+3707: 
+3708: // Same as ReceiveMessagesOnConnection, but will return the next messages available on any connection in the poll group.
+3709: // Examine 'connection' to know which connection; 'receiver_user_data' might also be useful.
+3710: Array Steam::receiveMessagesOnPollGroup(uint32_t poll_group, int max_messages) {
+3711: 	Array messages;
+3712: 	ERR_FAIL_COND_V_MSG(SteamAPI_SteamNetworkingSockets_SteamAPI() == nullptr, messages, "Networking Sockets class not found, Steam may not be initialized: receiveMessagesOnPollGroup");
+3713: 	SteamNetworkingMessage_t** poll_messages = new SteamNetworkingMessage_t *[max_messages];
+3714: 	int available_messages = SteamAPI_ISteamNetworkingSockets_ReceiveMessagesOnPollGroup(SteamAPI_SteamNetworkingSockets_SteamAPI(), (HSteamNetPollGroup)poll_group, poll_messages, max_messages);
+3715: 	for (int i = 0; i < available_messages; i++) {
+3716: 		Dictionary message;
+3717: 
+3718: 		int message_size = poll_messages[i]->m_cbSize;
+3719: 		PackedByteArray data;
+3720: 		data.resize(message_size);
+3721: 		uint8_t* source_data = (uint8_t*)poll_messages[i]->m_pData;
+3722: 		uint8_t* output_data = data.ptrw();
+3723: 		for (int j = 0; j < message_size; j++) {
+3724: 			output_data[j] = source_data[j];
+3725: 		}
+3726: 
+3727: 		message["payload"] = data;
+3728: 		message["size"] = message_size;
+3729: 		message["connection"] = poll_messages[i]->m_conn;
+3730: 		message["identity"] = getSteamIDFromIdentity(poll_messages[i]->m_identityPeer);
+3731: 		message["receiver_user_data"] = (uint64_t)poll_messages[i]->m_nConnUserData;
+3732: 		message["time_received"] = (uint64_t)poll_messages[i]->m_usecTimeReceived;
+3733: 		message["message_number"] = (uint64_t)poll_messages[i]->m_nMessageNumber;
+3734: 		message["flags"] = poll_messages[i]->m_nFlags;
+3735: 		messages.append(message);
+3736: 
+3737: 		SteamAPI_SteamNetworkingMessage_t_Release(poll_messages[i]);
+3738: 	}
+3739: 	delete [] poll_messages;
+3740: 	return messages;
+3741: }
+3742: 
+
+--- godotsteam/godotsteam.cpp lines 3950-3970 (1-based) ---
+3950: // them.Messages within a given lane are always sent in the order they are queued, but messages from different lanes may
+3951: // be sent out of order.
+3952: // Each lane has its own message number sequence.  The first message sent on each lane will be assigned the number 1.
+3953: int Steam::configureConnectionLanes(uint32_t connection, uint32_t lanes, Array priorities, Array weights) {
+3954: 	ERR_FAIL_COND_V_MSG(SteamAPI_SteamNetworkingSockets_SteamAPI() == nullptr, 0, "Networking Sockets class not found, Steam may not be initialized: configureConnectionLanes");
+3955: 	int *lane_priorities = new int[lanes];
+3956: 	for (uint32_t i = 0; i < lanes; i++) {
+3957: 		lane_priorities[i] = priorities[i];
+3958: 	}
+3959: 
+3960: 	uint16_t *lane_weights = new uint16_t[lanes];
+3961: 	for (uint32_t i = 0; i < lanes; i++) {
+3962: 		lane_weights[i] = weights[i];
+3963: 	}
+3964: 	int result = SteamAPI_ISteamNetworkingSockets_ConfigureConnectionLanes(SteamAPI_SteamNetworkingSockets_SteamAPI(), (HSteamNetConnection)connection, lanes, lane_priorities, lane_weights);
+3965: 	delete[] lane_priorities;
+3966: 	delete[] lane_weights;
+3967: 	return result;
+3968: }
+3969: 
+3970: // Certificate provision by the application. On Steam, we normally handle all this automatically and you will not need
+
+--- godotsteam/godotsteam.cpp lines 7779-7787 (1-based) ---
+7779: // Received upon attempting to enter a lobby. Lobby metadata is available to use immediately after receiving this.
+7780: void Steam::lobby_joined(LobbyEnter_t *lobby_data) {
+7781: 	CSteamID steam_lobby_id = lobby_data->m_ulSteamIDLobby;
+7782: 	uint64_t lobby_id = steam_lobby_id.ConvertToUint64();
+7783: 	uint32_t permissions = lobby_data->m_rgfChatPermissions;
+7784: 	bool locked = lobby_data->m_bLocked;
+7785: 	uint32_t response = lobby_data->m_EChatRoomEnterResponse;
+7786: 	emit_signal("lobby_joined", lobby_id, permissions, locked, response);
+7787: }
+
+--- godotsteam/godotsteam.cpp lines 7962-7981 (1-based) ---
+7962: // connection_state will have the new connection state.
+7963: void Steam::network_connection_status_changed(SteamNetConnectionStatusChangedCallback_t *call_data) {
+7964: 	uint32_t connection_handle = call_data->m_hConn;
+7965: 	SteamNetConnectionInfo_t connection_info = call_data->m_info;
+7966: 
+7967: 	Dictionary connection;
+7968: 	connection["identity"] = getSteamIDFromIdentity(connection_info.m_identityRemote);
+7969: 	connection["user_data"] = (uint64_t)connection_info.m_nUserData;
+7970: 	connection["listen_socket"] = connection_info.m_hListenSocket;
+7971: 	connection["remote_address"] = getStringFromSteamIP(connection_info.m_addrRemote);
+7972: 	connection["remote_pop"] = connection_info.m_idPOPRemote;
+7973: 	connection["pop_relay"] = connection_info.m_idPOPRelay;
+7974: 	connection["connection_state"] = connection_info.m_eState;
+7975: 	connection["end_reason"] = connection_info.m_eEndReason;
+7976: 	connection["end_debug"] = connection_info.m_szEndDebug;
+7977: 	connection["debug_description"] = connection_info.m_szConnectionDescription;
+7978: 	// Previous state (current state is in m_info.m_eState).
+7979: 	int old_state = call_data->m_eOldState;
+7980: 	emit_signal("network_connection_status_changed", connection_handle, connection, old_state);
+7981: }
+
+--- godotsteam/godotsteam.cpp lines 8471-8478 (1-based) ---
+8471: // Signal the lobby has been created.
+8472: void Steam::lobby_created(LobbyCreated_t *lobby_data, bool io_failure) {
+8473: 	ERR_FAIL_COND_MSG(io_failure, "lobby_created signal failed internally");
+8474: 	int connect = lobby_data->m_eResult;
+8475: 	CSteamID lobby_id = lobby_data->m_ulSteamIDLobby;
+8476: 	uint64_t lobby = lobby_id.ConvertToUint64();
+8477: 	emit_signal("lobby_created", connect, lobby);
+8478: }
+
+--- godotsteam/godotsteam.cpp lines 9389-9391 (1-based) ---
+9389: 	ClassDB::bind_method(D_METHOD("closeListenSocket", "socket"), &Steam::closeListenSocket);
+9390: 	ClassDB::bind_method(D_METHOD("configureConnectionLanes", "connection", "lanes", "priorities", "weights"), &Steam::configureConnectionLanes);
+9391: 	ClassDB::bind_method(D_METHOD("connectP2P", "remote_steam_id", "virtual_port", "options"), &Steam::connectP2P);
+
+--- godotsteam/godotsteam.cpp lines 9417-9425 (1-based) ---
+9417: 	ClassDB::bind_method(D_METHOD("initAuthentication"), &Steam::initAuthentication);
+9418: 	ClassDB::bind_method(D_METHOD("receiveMessagesOnConnection", "connection_handle", "max_messages"), &Steam::receiveMessagesOnConnection);
+9419: 	ClassDB::bind_method(D_METHOD("receiveMessagesOnPollGroup", "poll_group", "max_messages"), &Steam::receiveMessagesOnPollGroup);
+9420: //	ClassDB::bind_method(D_METHOD("receivedRelayAuthTicket"), &Steam::receivedRelayAuthTicket);	<------ Uses datagram relay structs which were removed from base SDK
+9421: 	ClassDB::bind_method(D_METHOD("resetIdentity", "remote_steam_id"), &Steam::resetIdentity);
+9422: 	ClassDB::bind_method(D_METHOD("runNetworkingCallbacks"), &Steam::runNetworkingCallbacks);
+9423: 	ClassDB::bind_method(D_METHOD("sendMessages", "connection_handle", "messages", "flags", "delete_failed_messages"), &Steam::sendMessages);
+9424: 	ClassDB::bind_method(D_METHOD("sendMessageToConnection", "connection_handle", "message", "flags"), &Steam::sendMessageToConnection);
+9425: 	ClassDB::bind_method(D_METHOD("setCertificate", "certificate"), &Steam::setCertificate);
+
+--- godotsteam/godotsteam.cpp lines 9876-9880 (1-based) ---
+9876: 	ADD_SIGNAL(MethodInfo("lobby_chat_update", PropertyInfo(Variant::INT, "lobby_id"), PropertyInfo(Variant::INT, "changed_id"), PropertyInfo(Variant::INT, "making_change_id"), PropertyInfo(Variant::INT, "chat_state")));
+9877: 	ADD_SIGNAL(MethodInfo("lobby_created", PropertyInfo(Variant::INT, "connect"), PropertyInfo(Variant::INT, "lobby_id")));
+9878: 	ADD_SIGNAL(MethodInfo("lobby_data_update", PropertyInfo(Variant::INT, "success"), PropertyInfo(Variant::INT, "lobby_id"), PropertyInfo(Variant::INT, "member_id")));
+9879: 	ADD_SIGNAL(MethodInfo("lobby_joined", PropertyInfo(Variant::INT, "lobby"), PropertyInfo(Variant::INT, "permissions"), PropertyInfo(Variant::BOOL, "locked"), PropertyInfo(Variant::INT, "response")));
+9880: 	ADD_SIGNAL(MethodInfo("lobby_game_created", PropertyInfo(Variant::INT, "lobby_id"), PropertyInfo(Variant::INT, "server_id"), PropertyInfo(Variant::STRING, "server_ip"), PropertyInfo(Variant::INT, "port")));
+
+--- godotsteam/godotsteam.cpp lines 9913-9915 (1-based) ---
+9913: 	// NETWORKING SOCKETS
+9914: 	ADD_SIGNAL(MethodInfo("network_connection_status_changed", PropertyInfo(Variant::INT, "connect_handle"), PropertyInfo(Variant::DICTIONARY, "connection"), PropertyInfo(Variant::INT, "old_state")));
+9915: 	ADD_SIGNAL(MethodInfo("network_authentication_status", PropertyInfo(Variant::INT, "available"), PropertyInfo(Variant::STRING, "debug_message")));

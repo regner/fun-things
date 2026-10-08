@@ -1,0 +1,18 @@
+import json, urllib.request, pathlib, concurrent.futures
+root=pathlib.Path('/tmp/s03-s-upstream')
+urls={
+ 'godotsteam-branches':'https://codeberg.org/api/v1/repos/godotsteam/godotsteam/branches?limit=50',
+ 'godotsteam-tags':'https://codeberg.org/api/v1/repos/godotsteam/godotsteam/tags?limit=10',
+ 'expresso-head':'https://api.github.com/repos/expressobits/steam-multiplayer-peer/commits/main',
+ 'csharp-head':'https://api.github.com/repos/craethke/steam-multiplayer-peer-csharp/commits/main',
+}
+def fetch(k,u):
+ try:
+  req=urllib.request.Request(u,headers={'User-Agent':'S03-S-source-evidence'})
+  b=urllib.request.urlopen(req,timeout=30).read(1000000)
+  (root/(k+'.json')).write_bytes(b)
+  j=json.loads(b)
+  if isinstance(j,list): print(k,[(v.get('name'),v.get('commit',{}).get('id') or v.get('commit',{}).get('sha')) for v in j])
+  else: print(k,j.get('sha'),j.get('commit',{}).get('message'),j.get('commit',{}).get('committer'))
+ except Exception as e: print(k,type(e).__name__,str(e))
+with concurrent.futures.ThreadPoolExecutor(max_workers=4) as p: list(p.map(lambda x:fetch(*x),urls.items()))
