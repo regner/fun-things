@@ -699,6 +699,42 @@ Steam/Deck/Windows/export or P0/M1/production gate is closed by these recipes.
 The premeasurement RIGHT→LEFT amendment, crash/recovery and raw failure history
 remain retained, as do all359 original/all509 current entries and full reports.
 
+## Current foundation helper discovery — 8 October 2026
+
+This dated supplement supersedes stale *next-prerequisite* discovery above, not the
+historical recipes/results or normative workflow. Accepted revisions and exact note
+selectors are in [DOC14](reviews/p0-doc14.md); no existing helper is rerun here.
+Read helper source before separately commissioning any use. Offline means no engine,
+editor, native load or service experiment; it does not mean every archived invocation
+is ready on today's checkout.
+
+| Accepted record / current consumer | Existing helper and usable boundary |
+| --- | --- |
+| [S05 source](spikes/s05-effect-preparation.md) → [saved slots](spikes/s05-saved-presentation.md) | [Resource check](../tools/s05_effect/check_resources.py) is static but writes fixed `/tmp/s05-author-56eb6b28-run04/resource-check.json`; [network check](../tools/s05_effect/check_network.py) launches Godot from fixed run01 mirror. Both are historical tools, not fresh-path recipes. Source/export/slot links can be read directly. |
+| [S05 render observation](spikes/s05-render-observation.md) → saved observation camera | [Checker](../tools/s05_draw/check.py) accepts `--output`, optional `--group`/`--base`; absent group checks static preservation, supplied group evaluates retained observations (failed images stay failed). [Budget tests](../tools/s05_draw/budget_check.py) use fake clock/socket/children only. Corrected runner/observer remain runtime-unexecuted; authoring and both graphical groups consumed. |
+| [S05 Card I](spikes/s05-vsync-image-observation.md) | [Checker](../tools/s05_vsync_image/check.py) accepts `--output`, optional `--group`/`--base`; [offline tests](../tools/s05_vsync_image/test_offline.py) cover synthetic endpoint/phase/evaluator boundaries without an engine. Corrected lookup coverage is not the missing historical fd/table snapshot. The one import/host attempt is consumed; [runner](../tools/s05_vsync_image/run.py) is not a retry recipe. |
+| [S03-S upstream](spikes/s03-s-upstream-peer-evidence.md) / [Valve proposal](spikes/s03-s-valve-api-interface.md) | [Upstream verifier](spikes/s03-s-upstream-peer-evidence/verify.py) and [Valve checker](spikes/s03-s-valve-api-evidence/check.py) inspect committed public-source snapshots and claims. Retrieval/discovery texts preserve historical public reads, not native tests or integration selection. |
+| [S07 cards](spikes/s07-run-cards.md) / [driver](spikes/s07-sustained-driver.md) | [Inventory](../tools/s07/inventory.py) takes `--output`/optional `--base`; it binds saved files, not loaded/GPU bytes. [Driver resource check](../tools/s07_driver/check_resources.py) takes output and optional base; [static checks](../tools/s07_driver/static_checks.py) orchestrate style/source checks but overwrite committed historical evidence paths (not a current invocation recipe); [offline tests](../tools/s07_driver/test_offline.py) exercise lifecycle mocks. [Analyzer](../tools/s07_driver/analyze.py) takes retained project/output paths; it cannot replace absent interrupted receipts. All historical author/import/development/sustained groups exhausted; do not rerun accepted T. |
+| [S08 standard](spikes/s08-standard-editor-release.md), [handoff](spikes/s08-exported-enet-handoff.md), [lifecycle](spikes/s08-release-lifecycle.md) | [Handoff offline](../tools/s08/handoff_offline.py) and [boundary tests](../tools/s08/handoff_boundaries.py) take an output path and use pipes/fake clocks/children, not engine runs. [Cadence test](../tools/s08/lifecycle_cadence_test.py) checks literal 20 ms owner/import and rejects recorded 10 ms regression. [Analyzer](../tools/s08/lifecycle_analyze.py) takes `--debug`/`--release` retained directories; vanished scratch paths are not available inputs. Restored [diagnostic source](../tools/s08/lifecycle_diagnostic.py) is unexecuted, not a clean release recipe. |
+
+Choose new external output filenames/directories and inspect each helper's output
+and immutable-base guards; a helper may assume an existing parent, overwrite a file,
+or reject later documentation by design. Do not invent substitutions for historical
+private editor/settings/package paths. The upstream/Valve checkers also enforce
+historical branch/TODO/scope guards, so the complete old invocation does not pass on
+this reconciled branch; Valve's optional `--source-readback` requires original
+scratch inputs. Read committed receipts or immutable notes instead of rebuilding
+evidence from vanished scratch directories. Offline check
+availability neither authorizes runtime nor transfers old acceptance to new bytes.
+
+S05 still has no workload images/eight drawn effects. S07 T has accepted simulation
+traversals, not graphical costs; R/G require ratified pre-P0 representative preparation,
+not M1 completion. S08 executed 10 ms matrices fail scheduling compliance and strict
+release diagnostics; original S08 main/20 ms behavior and causal cache diagnosis
+remain unproved. Native/API/Steam/device/target/feel/P0/M1 gates remain OPEN. Any new
+runtime, editor/native repair or pin decision needs a separate bounded commission;
+none is implied by these links or the old protocols.
+
 ## Versions and releases
 
 When release builds exist, make version and source revision visible in startup

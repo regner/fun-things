@@ -56,25 +56,6 @@ qualification and enough outcome detail for dispatch.
   implementation contracts and budgets. Partial research/proofs are not acceptance;
   record unresolved items or explicit scope decisions. P0-PROFILES is not a prerequisite.
 
-## Checkpoint follow-up
-
-- **P0-DOC14:** Scoped Sol docs owner reconciles current discovery before P0-GATE use.
-  Paths: `README.md`, `docs/development.md`, `docs/scene-structure.md`,
-  `docs/asset-catalogue.md`, `docs/spikes/{s03-s,s05,s07,s08}.md` only.
-  Sources at accepted `2d545725`: `s05-effect-preparation.md`/`s05-saved-presentation.md`
-  and their exact `2294a111`/`a15a7fbe` notes; render `233493ab` and consumed Card I
-  `af65276d`; upstream `57d33731`/Valve `30471e6a`; S07 cards `30a97532`/driver
-  `8689168d`; S08 standard `52941da4`/handoff `0add6257`/lifecycle `fd375c03`.
-  [Checkpoint findings](../reviews/plan-check-2026-10-08-09.md#targeted-documentation-findings)
-  identify each correction. Done: dated accepted-result/source-consumer/tool links,
-  carrier catalogue entry, no stale missing-slot/completed-next-prerequisite claims,
-  explicit exhausted runtime protocols versus usable offline checks, no invented
-  working/vanished-path recipe. Preserve historical reports/manifests and OPEN draw,
-  capacity, scheduling/strict-release, Steam/testing, target and product gates; avoid
-  circular M1-before-P0 requirements. Verify exact source statements, links/anchors,
-  JSON/whitespace and independent review; remove this task with its resolving commit.
-  No technical rerun, new owner, integration choice or unrelated guide rewrite.
-
 ## First milestone
 
 - **M1-A1:** Deliver standalone/ENet and selected Steam friend sessions; menu flows must

@@ -250,6 +250,43 @@ reset races. Full S05 drawable source-linked saturation, Regner policies and fin
 dimension spacing/contact reruns, M1 lifecycle/journal/load, Steam/Deck/input/feel,
 S07/P0/production gates remain open.
 
+## Current saved prerequisite map — 8 October 2026
+
+This supplement updates discovery, not the production hierarchy above. The earlier
+S05 token-only description is a dated snapshot. Accepted source `2294a111` and saved
+presentation `a15a7fbe` now supply:
+
+- [Carrier Blender source](../art/source/models/spikes/s05_explosion_carrier.blend)
+  → [explicit GLB](../art/models/spikes/s05_explosion_carrier.glb)
+  → [saved Explosion](../tests/fixtures/s05_effect/explosion.tscn), whose
+  `Visuals/Model` is the identity-transform imported model, no collision/generated mesh.
+- [Effect boot](../tests/fixtures/s05_effect/boot.tscn) and
+  [burst](../tests/fixtures/s05_effect/burst.tscn) inherit original S05 fixtures;
+  `Presentation/Slots/Slot0…Slot7` are eight saved effect instances. Match injects
+  references; presentation consumes the existing fence/reservation owner. Runtime
+  supplies effect-root pose/state, not authored model placement. [Saved record](spikes/s05-saved-presentation.md).
+- [Observation burst](../tests/fixtures/s05_draw/burst.tscn) inherits the effect burst
+  with observer script that instantiates the [saved observation view](../tests/fixtures/s05_draw/camera.tscn):
+  current camera at `(6,47,4)`, vertical -Y, FOV42, near/far0.1/160.
+  [Observation record](spikes/s05-render-observation.md) proves node/expiry behavior,
+  not pixels; [Card I](spikes/s05-vsync-image-observation.md) is consumed/failed.
+- [S07 driver intersection](../tests/fixtures/s07_driver/intersection.tscn) inherits
+  S06 with **root-script-only** override, no new node/pose/topology. The
+  [driver](spikes/s07-sustained-driver.md) retires/reloads the saved fixture; this is
+  not production Match reset, traffic or streaming.
+- [S08 saved entrypoint](../tests/fixtures/s08/release_boot.tscn) has one Node root/script.
+  [Standard preparation](spikes/s08-standard-editor-release.md) resolves imported S01
+  assets and saved S03 proof through the normal main, not the failed historical
+  `--script` route. [Handoff](spikes/s08-exported-enet-handoff.md) uses that original
+  saved S08 main; [lifecycle diagnosis](spikes/s08-release-lifecycle.md) instead
+  packages minimal S03 main, excluding S01/S08 assets. Its 10 ms outcomes do not
+  validate original S08-main closure or restored/unexecuted 20 ms source.
+
+All saved scene/resource/import/inheritance identities remain unchanged by this
+reconciliation. No production scene or project main is installed. Eight slot/node
+properties are not DRAW receipts; graphical capacity, clean release/scheduling,
+Steam/Deck/Windows/input/feel/P0/M1 acceptance remains OPEN.
+
 ## Accepted partial S06 saved topology supplement
 
 [Exact7fb302b partial S06](spikes/s06.md#accepted-exact-final-disposition) implements

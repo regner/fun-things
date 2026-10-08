@@ -9,11 +9,13 @@ configuration, the Godot MCP Toolkit, [S01 asset fixtures](docs/spikes/s01.md), 
 The accepted [stopped S03-S compatibility probe](docs/spikes/s03-s-compatibility.md#accepted-exact-final-compatibility-disposition)
 adds source/model/reflection evidence, with no selected Steam adapter.
 The accepted [partial S05 damage/chain fixture](docs/spikes/s05.md#accepted-exact-final-disposition)
-adds finite authoritative outcomes and settled wreck hydration, with eight cosmetic
-tokens rather than drawn explosion effects.
+adds finite authoritative outcomes and settled wreck hydration. Later accepted
+[source carrier](docs/spikes/s05-effect-preparation.md) and
+[saved eight-slot presentation](docs/spikes/s05-saved-presentation.md) add linked geometry,
+not proven drawn explosion effects.
 The accepted [partial S06 two-sector topology/body proof](docs/spikes/s06.md#accepted-exact-final-disposition)
 adds saved source-linked seams, routes, shared map data and fail-closed bake validation.
-There is no production gameplay or main scene yet.
+There is no production gameplay or project main scene yet; S08 has an isolated saved entrypoint.
 The first milestone requires ENet for local testing and Steam for friends playtesting,
 using the existing Steam app through shared session APIs.
 Steam Deck LCD/OLED is the confirmed primary target: 60 FPS at native 1280×800
@@ -135,9 +137,11 @@ API registration/getters establish presence only. See the
 [bounded reproduction/evidence recipes](docs/development.md#s03-s-stopped-compatibility-tooling)
 for the source probe, copied registration and read-only exact-final note retrieval.
 No fetch/model/registration or native experiment ran for this documentation task.
-Root may commission exact immutable upstream-revision evidence, a separately bounded
-native-boundary design, or keep Steam unavailable. No adapter, five-lane fix, reliable
-fallback, SDK/vendor/pin/package or integration choice is selected. Full S03-S,
+Later accepted [upstream assessment](docs/spikes/s03-s-upstream-peer-evidence.md)
+and [Valve public API/interface proposal](docs/spikes/s03-s-valve-api-interface.md)
+complete those source-research steps; adoption and native validation remain open.
+No adapter, five-lane fix, reliable fallback, SDK/vendor/pin/package or integration
+choice is selected. Full S03-S,
 native delivery/lifecycle/queue/allocation, external route/relay/package/device,
 Steam/Deck/S04 and P0/M1/production gates remain open.
 
@@ -190,6 +194,38 @@ stale/rebake negatives are technical evidence. They do not prove drawn minimap/
 camera/readability, final dimensions/feel or contested blockage/stuck/wreck recovery.
 Full S06, S02/S03-R/S04/S05/S07/S08, Steam/Deck/input and P0/M1/production gates stay open.
 
+## Current foundation discovery — 8 October 2026
+
+Accepted research and partial prerequisites, not full foundation acceptance:
+
+- **S05:** source `2294a111` and saved presentation `a15a7fbe` provide an original
+  Blender → GLB → eight saved-slot chain. [Render observation](docs/spikes/s05-render-observation.md)
+  `233493ab` proves node/ENet/natural-expiry behavior, but `can_draw=false` and no
+  workload PNG. [Consumed Card I](docs/spikes/s05-vsync-image-observation.md)
+  `af65276d` failed endpoint-binding **proof** before live/late launch, not a proven
+  native bind fault; no PNG, effective-VSync or image-review credit, no retry.
+- **S07:** [static cards](docs/spikes/s07-run-cards.md) `30a97532` and the accepted
+  [sustained primary-T driver](docs/spikes/s07-sustained-driver.md) `8689168d`
+  provide 57 traversals over 600 declared seconds, not graphical calibration,
+  representative capacity or a load choice. Historical runtime attempts are exhausted.
+- **S08:** [standard-editor/release preparation](docs/spikes/s08-standard-editor-release.md)
+  `52941da4` resolves saved entrypoint and assert-side-effect prerequisites with
+  API106/asset172 positives, while retaining shutdown/exported-host failures.
+  [Handoff](docs/spikes/s08-exported-enet-handoff.md) `0add6257` observes live readiness/
+  admission but fails deadlines. [Lifecycle](docs/spikes/s08-release-lifecycle.md)
+  `fd375c03` passes matrices only under unplanned 10 ms servicing: scheduling/grant
+  compliance FAIL, strict RELEASE diagnostics FAIL (2 host/6 client errors).
+  Restored 20 ms helper source is unexecuted; original saved S08-main stall is unfixed.
+
+[Current helper discovery](docs/development.md#current-foundation-helper-discovery--8-october-2026)
+separates usable offline checks from exhausted runtime protocols and historical paths.
+[Checkpoint09](docs/reviews/plan-check-2026-10-08-09.md) and the
+[reconciliation record](docs/reviews/p0-doc14.md) bind acceptance and immutable evidence.
+Full drawn S05, graphical/capacity S07, clean release, Windows/Linux target proof,
+actual Steam gameplay/testing, LCD/OLED Gaming Mode/native1280×800/60FPS/input/offline/
+suspend, human feel, P0-GATE and M1 remain OPEN. No integration, load, pin or budget
+is selected; Steam testing is deferred, not waived. No runtime ran for this supplement.
+
 ## Project guidance
 
 - [Plan through the first milestone](TODO.md): phase-zero foundations, technical
@@ -218,7 +254,8 @@ This checkout has executable foundation checks and an isolated ENet session-cont
 fixture/runner, but no production gameplay networking or Steam integration. The
 fixture's Linux loopback evidence does not establish Steam or Deck compatibility;
 engine/input decisions and P0-GATE remain open. [S07 preparation](docs/spikes/s07.md)
-assigns one map/content-capacity and diagnostic owner; measurements remain unexecuted.
+assigns one map/content-capacity and diagnostic owner; graphical/capacity measurements
+remain unexecuted.
 It selects no maximum map size, streaming implementation, renderer or engine.
 
 P0-PROFILES' requirements/proposal stage is delivered and independently reviewed:

@@ -24,7 +24,6 @@
   [spike](docs/spikes/s08.md) and [lifecycle record](docs/spikes/s08-release-lifecycle.md).
 - [ ] **P0-GATE — Review foundation evidence and ratify the first milestone plan.**
   After: S02, S03-S, S03-R, S04, S05, S06, S07, S08.
-- [ ] **P0-DOC14 — Reconcile current foundation evidence discovery.**
 
 ## First milestone
 
