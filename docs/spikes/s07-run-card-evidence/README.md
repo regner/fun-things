@@ -44,3 +44,24 @@ response was not captured as a file stream; no invented stdout/stderr payload ex
 Initial unprivileged rebase failed because linked Git metadata is outside the writable
 workspace; the authorized escalated rebase succeeded. No engine/check retry occurred.
 Final reproduction and validation streams below are separately captured actual runs.
+
+## Independent review and necessary fix
+
+Reviewer `cdc5d0fa-3765-402d-bf3d-7e9f2ab3d4a4`, verified Sol6.1 HIGH/auto-review/
+Plan false, requested one P2 change on exact `1ba0f189`/base48aef3d: T lacked an
+accepted repeated-route/reset driver. The complete original report, actual sources,
+argv/exits/full streams (including failures/empty streams), reproduced inventory and
+all80 payloads plus original manifest are retained byte-for-byte in
+[the initial review archive](review-initial.tar.gz).
+[Its receipt](review-initial-package.json) binds the complete explicit source set,
+source hashes, archive and decoded readback. Earlier reviewer retention failures/
+source versions are preserved in that package; provisional payload counts are history.
+The [retention source](retain_review.py) archives an explicit set without pruning.
+
+The narrow T fix names the missing driver, later S07 worker/S06 acceptance ownership,
+restoration/reload constraints and actual repeated-traversal acceptance, and blocks
+primary launch until those receipts exist. No driver, source inventory, fixture or
+TODO change is part of the fix. `post-fix.stdout/stderr` retain the affected static
+check. The SAME reviewer supplies compact exact-final delta disposition before handoff.
+After this necessary fix/review/retention, the workspace remains idle under deferred
+pause steering; no new workstream or broader audit is assigned.

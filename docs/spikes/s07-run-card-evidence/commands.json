@@ -37,5 +37,38 @@
       ],
       "exit": 0
     }
+  ],
+  "post_fix": [
+    {
+      "argv": [
+        "python",
+        "docs/spikes/s07-run-card-evidence/validate.py",
+        "--base",
+        "48aef3dbd133876743f504f94a1b788a26d5638f"
+      ],
+      "exit": 0
+    }
+  ],
+  "review_initial_retention": [
+    {
+      "argv": [
+        "python",
+        "docs/spikes/s07-run-card-evidence/retain_review.py",
+        "/tmp/s07-independent-review/review-cdc5d0fa",
+        "review-initial"
+      ],
+      "exit": 0
+    }
+  ],
+  "fix_retention": [
+    {
+      "argv": [
+        "python",
+        "docs/spikes/s07-run-card-evidence/validate.py",
+        "--base",
+        "48aef3dbd133876743f504f94a1b788a26d5638f"
+      ],
+      "exit": 0
+    }
   ]
 }

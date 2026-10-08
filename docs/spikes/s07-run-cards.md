@@ -159,10 +159,23 @@ Future budget: one focused day; at most12 measured runs total, no growth variant
 - Run six primary cases: uncapped/60-capped × three repeats, standalone graphical
   authority only. Deterministic route order through existing `start_route`: `foot`
   west(-20,0.001,6.5)→east(20,0.001,6.5), `east_to_north` car(-20,0,2.25)→(2.25,0,-20),
-  `west_to_south` car(20,0,-2.25)→(-2.25,0,20). Neutralize/reset through accepted APIs
-  between routes. One moving body at a time, traffic3.5 m/s, foot5 m/s; repeat order
-  through the interval. Existing1200/1800-tick timeout is a failure receipt, not a
-  completed route. This is neither fast driving nor production AI load.
+  `west_to_south` car(20,0,-2.25)→(-2.25,0,20). One moving body at a time,
+  traffic3.5 m/s, foot5 m/s. **Missing prerequisite:** an accepted sustained-route/
+  reset driver. Existing `start_route`/`stop_route` neutralize motion and clear commands,
+  but do not restore position/yaw; repeated calls at the destination immediately finish.
+  The later authorized S07 experiment worker owns the driver recipe, with S06 accepting
+  its body/topology contract. Before each repetition, cancel the route, restore each
+  body's saved starting position/yaw and neutral velocity through an accepted authority/
+  lifecycle path, then revalidate collision admission and bind the next route. No such
+  sustained reset API/driver is accepted here. Acceptance must retain at least two
+  consecutive traversals of each of the three routes with actual nonempty samples,
+  movement from the saved start, destination/exit-direction outcomes and no timeout,
+  then demonstrate the declared repeated workload through the600 s interval.
+  If that owner instead safely tears down/reloads the saved fixture, it must preserve
+  pre-tree roles, source/derived identities and admission, record reload/loading/lifetime
+  as separate phases and distinguish them from normal traversal costs in full-interval
+  telemetry. Existing1200/1800-tick timeout is a failure receipt, not a completed route.
+  This is neither fast driving nor production AI load; no driver is implemented here.
 - Separate effect comparator, only after its own draw gate: at most six cases on
   [saved S05 effect burst](../../tests/fixtures/s05_effect/burst.tscn), same cap/repeat
   split and named graphical host role. Twelve cars at a4 m grid, eight saved slots.
@@ -173,8 +186,9 @@ Future budget: one focused day; at most12 measured runs total, no growth variant
   outcomes and cleared local effects. If unsupported, comparator stays BLOCKED.
   This layout is a separate track control; it is not integrated into S06 or added
   to the5,108-triangle two-sector total.
-- Entry: named hardware/build/telemetry and real drawability for primary; actual
-  drawable S05 gate plus trial-reset receipts for comparator. Saved scene reload/
+- Entry: named hardware/build/telemetry, real drawability **and accepted sustained-route/
+  reset-driver receipts above** for primary; actual drawable S05 gate plus trial-reset
+  receipts for comparator. Primary launch stays BLOCKED without that driver. Saved scene reload/
   source-link validity must be confirmed by the later authorized owner. Four-view,
   six-block and production-capacity rows remain blocked by the table above even if
   T succeeds. Outputs report technical calibration only; no capacity maximum or
