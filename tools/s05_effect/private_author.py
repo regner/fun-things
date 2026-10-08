@@ -8,12 +8,15 @@ import re
 import select
 import signal
 import socket
+import sys
 import subprocess
 import time
 
 ROOT = Path(__file__).resolve().parents[2]
 BASE = 'ef730df936b5b159f0894033f5d01e2b7124386c'
 RUN = Path('/tmp/s05-author-56eb6b28-run01')
+CONTINUE = '--continue' in sys.argv
+LOG = Path('/tmp/s05-author-56eb6b28-run02') if CONTINUE else RUN
 ENGINE = '/home/regner/.local/share/mise/installs/github-godotengine-godot-builds/4.8-dev7/godot'
 PACKAGE = Path('/home/regner/.npm/_npx/ea3a09a27b3d1af0/node_modules')
 PROBE = '''@tool
@@ -129,7 +132,10 @@ def stage():
 def main():
     """Run exactly one initialization and authoring session; stop on readiness failure."""
     os.umask(0o077)
-    RUN.mkdir()
+    if CONTINUE:
+        LOG.mkdir()
+    else:
+        RUN.mkdir()
     streams = []
     editor = connector = init = None
     result = {'ok': False, 'base': BASE, 'start_unix': time.time()}
@@ -139,12 +145,20 @@ def main():
             if hashlib.file_digest(source, 'sha256').hexdigest() != (
                     '6aea356032435e7af19dbfbf48dd20c5012a7dc1267eb8e92406f44e3584b5fd'):
                 raise RuntimeError('engine SHA mismatch')
-        project, prep = stage()
+        if CONTINUE:
+            project, prep = RUN / 'project', RUN / 'prep'
+            for row in json.loads((RUN / 'inputs.json').read_text()):
+                actual = hashlib.sha256((project / row['path']).read_bytes()).hexdigest()
+                if actual != row['sha256']:
+                    raise RuntimeError('changed mirror input: ' + row['path'])
+            (LOG / 'context.gd').write_bytes((RUN / 'context.gd').read_bytes())
+        else:
+            project, prep = stage()
         env = {k: v for k, v in os.environ.items() if not k.startswith('GODOT_MCP_')}
         for key, folder in [('XDG_DATA_HOME', 'data'), ('XDG_CONFIG_HOME', 'config'),
                             ('XDG_CACHE_HOME', 'cache'), ('XDG_RUNTIME_DIR', 'runtime')]:
             path = RUN / folder
-            path.mkdir(mode=0o700)
+            path.mkdir(mode=0o700, exist_ok=CONTINUE)
             env[key] = str(path)
         env.update(GODOT_MCP_PROJECT_PATH=str(project), GODOT_MCP_CONFIG_VERSION='1')
         ports = []
@@ -163,16 +177,16 @@ def main():
         env['GODOT_MCP_LSP_PORT'] = str(ports[0])
         env['GODOT_MCP_LSP_HOST'] = '127.0.0.1'
         argv = lambda path, mode: [ENGINE, '--headless', '--editor', '--path', str(path),
-                '--script', str(RUN / 'context.gd'), *flags,
-                '--log-file', str(RUN / (mode + '.engine.log')), '--', '--' + mode]
+                '--script', str(LOG / 'context.gd'), *flags,
+                '--log-file', str(LOG / (mode + '.engine.log')), '--', '--' + mode]
         result.update(environment={k: v for k, v in env.items()
                                    if k.startswith(('XDG_', 'GODOT_MCP_'))},
-                      init_argv=argv(prep, 'initialize'), editor_argv=argv(project, 'observe'),
+                      init_argv=None if CONTINUE else argv(prep, 'initialize'), editor_argv=argv(project, 'observe'),
                       home_unchanged=env.get('HOME') == os.environ.get('HOME'))
-        save(RUN / 'commands-before-engine.json', result)
-        for mode, path in [('initialize', prep), ('observe', project)]:
-            out = (RUN / (mode + '.stdout')).open('wb')
-            err = (RUN / (mode + '.stderr')).open('wb')
+        save(LOG / 'commands-before-engine.json', result)
+        for mode, path in ([('observe', project)] if CONTINUE else [('initialize', prep), ('observe', project)]):
+            out = (LOG / (mode + '.stdout')).open('wb')
+            err = (LOG / (mode + '.stderr')).open('wb')
             streams.extend([out, err])
             child = subprocess.Popen(argv(path, mode), env=env, cwd=path, stdout=out, stderr=err)
             if mode == 'initialize':
@@ -188,7 +202,7 @@ def main():
         while time.monotonic() < deadline:
             if editor.poll() is not None:
                 raise RuntimeError('authoring editor exited before readiness')
-            rows = [json.loads(line[12:]) for line in (RUN / 'observe.stdout').read_text().splitlines()
+            rows = [json.loads(line[12:]) for line in (LOG / 'observe.stdout').read_text().splitlines()
                     if line.startswith('S05_CONTEXT ')]
             if registry.exists() and len(rows) == 1:
                 context = rows[0]
@@ -208,7 +222,7 @@ def main():
             time.sleep(.1)
         else:
             raise RuntimeError('private readiness60s timeout')
-        client = RUN / 'client.mjs'
+        client = LOG / 'client.mjs'
         client.write_text('''import {Client} from "'''+str(PACKAGE)+'''/@modelcontextprotocol/sdk/dist/esm/client/index.js";
 import {StdioClientTransport} from "'''+str(PACKAGE)+'''/@modelcontextprotocol/sdk/dist/esm/client/stdio.js";
 import readline from "node:readline";
@@ -222,7 +236,7 @@ for await(const line of readline.createInterface({input:process.stdin,crlfDelay:
 }
 await client.close();
 ''')
-        err = (RUN / 'connector.stderr').open('wb')
+        err = (LOG / 'connector.stderr').open('wb')
         streams.append(err)
         connector = subprocess.Popen(['/usr/bin/node', str(client)], env=env, cwd=project,
                 stdin=subprocess.PIPE, stdout=subprocess.PIPE, stderr=err, text=True, bufsize=1)
@@ -233,34 +247,35 @@ await client.close();
             nonlocal sequence
             sequence += 1
             name = 'call-%03d' % sequence
-            save(RUN / (name + '.request.json'), request)
+            save(LOG / (name + '.request.json'), request)
             connector.stdin.write(json.dumps(request) + '\n')
             connector.stdin.flush()
             if not select.select([connector.stdout], [], [], 35)[0]:
                 raise RuntimeError('SDK response35s timeout')
             line = connector.stdout.readline()
-            (RUN / (name + '.response.json')).write_text(line)
+            (LOG / (name + '.response.json')).write_text(line)
             response = json.loads(line)
-            if response.get('isError'):
-                raise RuntimeError('handler error: ' + json.dumps(response))
             return response
 
-        call({'name': 'project_get_settings', 'args': {'prefix': 'application/'}})
-        call({'name': 'editor_get_console', 'args': {'source': 'buffer', 'limit': 100}})
-        diagnostics = (RUN / 'observe.stderr').read_text()
+        for request in [
+                {'name': 'project_get_settings', 'args': {'prefix': 'application/'}},
+                {'name': 'editor_get_console', 'args': {'source': 'buffer', 'limit': 100}}]:
+            if call(request).get('isError'):
+                raise RuntimeError('authenticated readiness handler failed')
+        diagnostics = (LOG / 'observe.stderr').read_text()
         if re.search(r'SCRIPT ERROR:|ERROR:', diagnostics):
             raise RuntimeError('readiness engine diagnostics')
-        save(RUN / 'tool-inventory.json', call({'list': True}))
+        save(LOG / 'tool-inventory.json', call({'list': True}))
         result.update(ready_unix=time.time(), editor_pid=editor.pid)
-        save(RUN / 'lifecycle.json', result)
+        save(LOG / 'lifecycle.json', result)
         print(json.dumps({'ready': True, 'pid': editor.pid, 'project': str(project),
                           'editor_port': entry['port'], 'boost_disabled': True}), flush=True)
-        (RUN / 'requests').mkdir()
-        (RUN / 'responses').mkdir()
+        (LOG / 'requests').mkdir()
+        (LOG / 'responses').mkdir()
         author_deadline = time.monotonic() + 1200
         next_request = 1
         while time.monotonic() < author_deadline:
-            request_path = RUN / 'requests' / ('%03d.json' % next_request)
+            request_path = LOG / 'requests' / ('%03d.json' % next_request)
             if not request_path.exists():
                 time.sleep(.05)
                 continue
@@ -269,7 +284,9 @@ await client.close();
                 result['ok'] = True
                 break
             response = call(request)
-            save(RUN / 'responses' / request_path.name, response)
+            save(LOG / 'responses' / request_path.name, response)
+            # A handler rejection is evidence for the lead to inspect. It is not a
+            # readiness failure and must never trigger teardown of unsaved work.
             next_request += 1
         else:
             raise RuntimeError('authoring20min budget')
@@ -292,7 +309,7 @@ await client.close();
                       connector_exit=None if connector is None else connector.returncode,
                       registry_entry_gone=registry is None or not registry.exists(),
                       all_owned_children_reaped=True, streams_closed=True)
-        save(RUN / 'lifecycle.json', result)
+        save(LOG / 'lifecycle.json', result)
         print(json.dumps({'finished': result}), flush=True)
 
 

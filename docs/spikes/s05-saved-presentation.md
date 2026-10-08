@@ -80,3 +80,38 @@ gracefully quit owned editor2s then owned-handle terminate/kill/reap if necessar
 close all SDK/connector streams and confirm private owned registry entry gone.
 Notify ROOT before the ONE fresh SolHIGH independent review; wait for serialized
 slot release. No merge/push/archive.
+
+## Run01 outcome and explicit run02 continuation grant
+
+Run01 initialized the engine-generated private boolean false and authenticated
+normal automaticWS6551. Actual context: ownedPID555104, editor_hint=true, exact
+full engine revision, private project/settings/token/registry identity matched.
+Initialization exited0 but retained scan-aborted/RID/ObjectDB exit diagnostics;
+not diagnostic-free. Authoring stderr initially had the toolkit dev7/4.7 warning.
+The toolkit created/opened Explosion (uid://dbge3dp3s53r3, node1935466903) and added
+an unsaved Visuals child. Its existing scene.instantiate handler explicitly
+refuses .glb paths at scene_commands.gd:586–590. That tool rejection was recoverable,
+but the supervisor incorrectly raised on every isError and shut down the owned
+connector0/editorSIGINT-2 before saving. Visuals was lost, not recovered; the saved
+root byte history remains. All original mirrored inputs are byte-identical.
+
+ROOT explicitly granted ONE continuation run02, reusing run01 private settings,
+imports and the saved root, without another initialization or vendor repair.
+Changed condition: supervisor returns recoverable authoring tool errors as retained
+responses; readiness errors remain fail-closed. New logs/requests/argv under
+`/tmp/s05-author-56eb6b28-run02`; same mirror and private XDG roots. Normal toolkit
+startup replaces its stale owned registry entry; no manual shared registry edits.
+Readiness <=60s, authoring <=20min, remaining one corrective mutation batch;
+no third editor. Append/commit protocol before launch. Same exact engine/context/
+boostfalse/canonical registry checks precede auth/mutation. No graphical grant.
+
+The scoped @tool editor_probe will use actual ResourceLoader/PackedScene
+instantiate(GEN_EDIT_STATE_INSTANCE), Node.add_child and owner assignment for the
+linked GLB. This is the same engine API used by the existing instantiate handler,
+after its extension check; only its .tscn-only tool restriction requires the helper.
+The helper performs editor authoring, never runtime hierarchy creation. Existing
+script_write/node_set_script/node_call_method author and invoke it. Save/inspect
+each authorized batch before scene switches and cleanup; remove the helper script
+from the final effect before saving. Graceful deferred shutdown runs only with
+EditorInterface.get_unsaved_scenes() empty. Full run01 failures remain part of the
+eventual single independent review and do not become a separate workstream.
