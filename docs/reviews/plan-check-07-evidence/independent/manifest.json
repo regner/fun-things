@@ -1,0 +1,909 @@
+{
+  "schema": "independent-static-review-artifact-manifest-v1",
+  "root": "/tmp/plan-check07-independent-review",
+  "candidate": "b98cad76e2b33ef6f901285151e67616ad7b0aaf",
+  "base": "7fb302ba2829966c9a687a12a7f00d09ce6a7824",
+  "reviewer_id": "7b26565d-a48e-4f1a-a6b0-d2c04f5ba7cc",
+  "report": {
+    "path": "/tmp/plan-check07-independent-review/report.md",
+    "bytes": 38108,
+    "sha256": "01b62737d3bd9cc2781267e76efefa0628603d810f9857d7c7ddac00e06fb449"
+  },
+  "payload_count": 97,
+  "payload_total_bytes": 2268056,
+  "expected_payload_path_set": [
+    "accepted-authored-whitespace.stderr",
+    "accepted-authored-whitespace.stdout",
+    "accepted-whitespace-classification.json",
+    "accepted-whitespace.command.json",
+    "accepted-whitespace.stderr",
+    "accepted-whitespace.stdout",
+    "authored-whitespace.command.json",
+    "authored-whitespace.stderr",
+    "authored-whitespace.stdout",
+    "base-TODO.command.json",
+    "base-TODO.stderr",
+    "base-TODO.stdout",
+    "candidate-accepted-result.json",
+    "candidate-check.command.json",
+    "candidate-check.stderr",
+    "candidate-check.stdout",
+    "candidate-diff.command.json",
+    "candidate-diff.stderr",
+    "candidate-diff.stdout",
+    "candidate-static-result.json",
+    "capture-help-replay.command.json",
+    "capture-help-replay.stderr",
+    "capture-help-replay.stdout",
+    "capture.py",
+    "classify-whitespace.command.json",
+    "classify-whitespace.stderr",
+    "classify-whitespace.stdout",
+    "classify_whitespace.py",
+    "compact-deltas.command.json",
+    "compact-deltas.stderr",
+    "compact-deltas.stdout",
+    "compact_deltas.py",
+    "delta-096469f.diff",
+    "delta-1691424.diff",
+    "delta-1c49113.diff",
+    "delta-6b4a69e.diff",
+    "delta-6c36c12.diff",
+    "delta-7fb302b.diff",
+    "delta-92f5471.diff",
+    "delta-9cfa3c0.diff",
+    "delta-bb7e902.diff",
+    "delta-dbce2f9.diff",
+    "delta-transport-ledger.json",
+    "exploratory-read-failures.txt",
+    "external-skill-reference.json",
+    "final-git-status.command.json",
+    "final-git-status.stderr",
+    "final-git-status.stdout",
+    "final-refs.command.json",
+    "final-refs.stderr",
+    "final-refs.stdout",
+    "finalization-audit.command.json",
+    "finalization-audit.stderr",
+    "finalization-audit.stdout",
+    "finalization-result.json",
+    "finalize.py",
+    "finite-width-delta.command.json",
+    "finite-width-delta.stderr",
+    "finite-width-delta.stdout",
+    "independent-audit-final.command.json",
+    "independent-audit-final.stderr",
+    "independent-audit-final.stdout",
+    "independent-audit-fourth.command.json",
+    "independent-audit-fourth.stderr",
+    "independent-audit-fourth.stdout",
+    "independent-audit-second.command.json",
+    "independent-audit-second.stderr",
+    "independent-audit-second.stdout",
+    "independent-audit-third.command.json",
+    "independent-audit-third.stderr",
+    "independent-audit-third.stdout",
+    "independent-audit.command.json",
+    "independent-audit.stderr",
+    "independent-audit.stdout",
+    "independent-result.json",
+    "independent_audit.py",
+    "independent_audit_fourth.py",
+    "independent_audit_initial.py",
+    "independent_audit_second.py",
+    "independent_audit_third.py",
+    "metadata.json",
+    "missing-manifest-read-replay.command.json",
+    "missing-manifest-read-replay.stderr",
+    "missing-manifest-read-replay.stdout",
+    "range.command.json",
+    "range.stderr",
+    "range.stdout",
+    "read-codec-initial-replay.command.json",
+    "read-codec-initial-replay.py",
+    "read-codec-initial-replay.stderr",
+    "read-codec-initial-replay.stdout",
+    "report.md",
+    "supplemental-audit.command.json",
+    "supplemental-audit.stderr",
+    "supplemental-audit.stdout",
+    "supplemental-result.json",
+    "supplemental_audit.py"
+  ],
+  "actual_payload_path_set": [
+    "accepted-authored-whitespace.stderr",
+    "accepted-authored-whitespace.stdout",
+    "accepted-whitespace-classification.json",
+    "accepted-whitespace.command.json",
+    "accepted-whitespace.stderr",
+    "accepted-whitespace.stdout",
+    "authored-whitespace.command.json",
+    "authored-whitespace.stderr",
+    "authored-whitespace.stdout",
+    "base-TODO.command.json",
+    "base-TODO.stderr",
+    "base-TODO.stdout",
+    "candidate-accepted-result.json",
+    "candidate-check.command.json",
+    "candidate-check.stderr",
+    "candidate-check.stdout",
+    "candidate-diff.command.json",
+    "candidate-diff.stderr",
+    "candidate-diff.stdout",
+    "candidate-static-result.json",
+    "capture-help-replay.command.json",
+    "capture-help-replay.stderr",
+    "capture-help-replay.stdout",
+    "capture.py",
+    "classify-whitespace.command.json",
+    "classify-whitespace.stderr",
+    "classify-whitespace.stdout",
+    "classify_whitespace.py",
+    "compact-deltas.command.json",
+    "compact-deltas.stderr",
+    "compact-deltas.stdout",
+    "compact_deltas.py",
+    "delta-096469f.diff",
+    "delta-1691424.diff",
+    "delta-1c49113.diff",
+    "delta-6b4a69e.diff",
+    "delta-6c36c12.diff",
+    "delta-7fb302b.diff",
+    "delta-92f5471.diff",
+    "delta-9cfa3c0.diff",
+    "delta-bb7e902.diff",
+    "delta-dbce2f9.diff",
+    "delta-transport-ledger.json",
+    "exploratory-read-failures.txt",
+    "external-skill-reference.json",
+    "final-git-status.command.json",
+    "final-git-status.stderr",
+    "final-git-status.stdout",
+    "final-refs.command.json",
+    "final-refs.stderr",
+    "final-refs.stdout",
+    "finalization-audit.command.json",
+    "finalization-audit.stderr",
+    "finalization-audit.stdout",
+    "finalization-result.json",
+    "finalize.py",
+    "finite-width-delta.command.json",
+    "finite-width-delta.stderr",
+    "finite-width-delta.stdout",
+    "independent-audit-final.command.json",
+    "independent-audit-final.stderr",
+    "independent-audit-final.stdout",
+    "independent-audit-fourth.command.json",
+    "independent-audit-fourth.stderr",
+    "independent-audit-fourth.stdout",
+    "independent-audit-second.command.json",
+    "independent-audit-second.stderr",
+    "independent-audit-second.stdout",
+    "independent-audit-third.command.json",
+    "independent-audit-third.stderr",
+    "independent-audit-third.stdout",
+    "independent-audit.command.json",
+    "independent-audit.stderr",
+    "independent-audit.stdout",
+    "independent-result.json",
+    "independent_audit.py",
+    "independent_audit_fourth.py",
+    "independent_audit_initial.py",
+    "independent_audit_second.py",
+    "independent_audit_third.py",
+    "metadata.json",
+    "missing-manifest-read-replay.command.json",
+    "missing-manifest-read-replay.stderr",
+    "missing-manifest-read-replay.stdout",
+    "range.command.json",
+    "range.stderr",
+    "range.stdout",
+    "read-codec-initial-replay.command.json",
+    "read-codec-initial-replay.py",
+    "read-codec-initial-replay.stderr",
+    "read-codec-initial-replay.stdout",
+    "report.md",
+    "supplemental-audit.command.json",
+    "supplemental-audit.stderr",
+    "supplemental-audit.stdout",
+    "supplemental-result.json",
+    "supplemental_audit.py"
+  ],
+  "expected_complete_path_set": [
+    "SHA256SUMS",
+    "accepted-authored-whitespace.stderr",
+    "accepted-authored-whitespace.stdout",
+    "accepted-whitespace-classification.json",
+    "accepted-whitespace.command.json",
+    "accepted-whitespace.stderr",
+    "accepted-whitespace.stdout",
+    "authored-whitespace.command.json",
+    "authored-whitespace.stderr",
+    "authored-whitespace.stdout",
+    "base-TODO.command.json",
+    "base-TODO.stderr",
+    "base-TODO.stdout",
+    "candidate-accepted-result.json",
+    "candidate-check.command.json",
+    "candidate-check.stderr",
+    "candidate-check.stdout",
+    "candidate-diff.command.json",
+    "candidate-diff.stderr",
+    "candidate-diff.stdout",
+    "candidate-static-result.json",
+    "capture-help-replay.command.json",
+    "capture-help-replay.stderr",
+    "capture-help-replay.stdout",
+    "capture.py",
+    "classify-whitespace.command.json",
+    "classify-whitespace.stderr",
+    "classify-whitespace.stdout",
+    "classify_whitespace.py",
+    "compact-deltas.command.json",
+    "compact-deltas.stderr",
+    "compact-deltas.stdout",
+    "compact_deltas.py",
+    "delta-096469f.diff",
+    "delta-1691424.diff",
+    "delta-1c49113.diff",
+    "delta-6b4a69e.diff",
+    "delta-6c36c12.diff",
+    "delta-7fb302b.diff",
+    "delta-92f5471.diff",
+    "delta-9cfa3c0.diff",
+    "delta-bb7e902.diff",
+    "delta-dbce2f9.diff",
+    "delta-transport-ledger.json",
+    "exploratory-read-failures.txt",
+    "external-skill-reference.json",
+    "final-git-status.command.json",
+    "final-git-status.stderr",
+    "final-git-status.stdout",
+    "final-refs.command.json",
+    "final-refs.stderr",
+    "final-refs.stdout",
+    "finalization-audit.command.json",
+    "finalization-audit.stderr",
+    "finalization-audit.stdout",
+    "finalization-result.json",
+    "finalize.py",
+    "finite-width-delta.command.json",
+    "finite-width-delta.stderr",
+    "finite-width-delta.stdout",
+    "independent-audit-final.command.json",
+    "independent-audit-final.stderr",
+    "independent-audit-final.stdout",
+    "independent-audit-fourth.command.json",
+    "independent-audit-fourth.stderr",
+    "independent-audit-fourth.stdout",
+    "independent-audit-second.command.json",
+    "independent-audit-second.stderr",
+    "independent-audit-second.stdout",
+    "independent-audit-third.command.json",
+    "independent-audit-third.stderr",
+    "independent-audit-third.stdout",
+    "independent-audit.command.json",
+    "independent-audit.stderr",
+    "independent-audit.stdout",
+    "independent-result.json",
+    "independent_audit.py",
+    "independent_audit_fourth.py",
+    "independent_audit_initial.py",
+    "independent_audit_second.py",
+    "independent_audit_third.py",
+    "manifest.json",
+    "metadata.json",
+    "missing-manifest-read-replay.command.json",
+    "missing-manifest-read-replay.stderr",
+    "missing-manifest-read-replay.stdout",
+    "range.command.json",
+    "range.stderr",
+    "range.stdout",
+    "read-codec-initial-replay.command.json",
+    "read-codec-initial-replay.py",
+    "read-codec-initial-replay.stderr",
+    "read-codec-initial-replay.stdout",
+    "report.md",
+    "supplemental-audit.command.json",
+    "supplemental-audit.stderr",
+    "supplemental-audit.stdout",
+    "supplemental-result.json",
+    "supplemental_audit.py"
+  ],
+  "actual_complete_path_set": [
+    "SHA256SUMS",
+    "accepted-authored-whitespace.stderr",
+    "accepted-authored-whitespace.stdout",
+    "accepted-whitespace-classification.json",
+    "accepted-whitespace.command.json",
+    "accepted-whitespace.stderr",
+    "accepted-whitespace.stdout",
+    "authored-whitespace.command.json",
+    "authored-whitespace.stderr",
+    "authored-whitespace.stdout",
+    "base-TODO.command.json",
+    "base-TODO.stderr",
+    "base-TODO.stdout",
+    "candidate-accepted-result.json",
+    "candidate-check.command.json",
+    "candidate-check.stderr",
+    "candidate-check.stdout",
+    "candidate-diff.command.json",
+    "candidate-diff.stderr",
+    "candidate-diff.stdout",
+    "candidate-static-result.json",
+    "capture-help-replay.command.json",
+    "capture-help-replay.stderr",
+    "capture-help-replay.stdout",
+    "capture.py",
+    "classify-whitespace.command.json",
+    "classify-whitespace.stderr",
+    "classify-whitespace.stdout",
+    "classify_whitespace.py",
+    "compact-deltas.command.json",
+    "compact-deltas.stderr",
+    "compact-deltas.stdout",
+    "compact_deltas.py",
+    "delta-096469f.diff",
+    "delta-1691424.diff",
+    "delta-1c49113.diff",
+    "delta-6b4a69e.diff",
+    "delta-6c36c12.diff",
+    "delta-7fb302b.diff",
+    "delta-92f5471.diff",
+    "delta-9cfa3c0.diff",
+    "delta-bb7e902.diff",
+    "delta-dbce2f9.diff",
+    "delta-transport-ledger.json",
+    "exploratory-read-failures.txt",
+    "external-skill-reference.json",
+    "final-git-status.command.json",
+    "final-git-status.stderr",
+    "final-git-status.stdout",
+    "final-refs.command.json",
+    "final-refs.stderr",
+    "final-refs.stdout",
+    "finalization-audit.command.json",
+    "finalization-audit.stderr",
+    "finalization-audit.stdout",
+    "finalization-result.json",
+    "finalize.py",
+    "finite-width-delta.command.json",
+    "finite-width-delta.stderr",
+    "finite-width-delta.stdout",
+    "independent-audit-final.command.json",
+    "independent-audit-final.stderr",
+    "independent-audit-final.stdout",
+    "independent-audit-fourth.command.json",
+    "independent-audit-fourth.stderr",
+    "independent-audit-fourth.stdout",
+    "independent-audit-second.command.json",
+    "independent-audit-second.stderr",
+    "independent-audit-second.stdout",
+    "independent-audit-third.command.json",
+    "independent-audit-third.stderr",
+    "independent-audit-third.stdout",
+    "independent-audit.command.json",
+    "independent-audit.stderr",
+    "independent-audit.stdout",
+    "independent-result.json",
+    "independent_audit.py",
+    "independent_audit_fourth.py",
+    "independent_audit_initial.py",
+    "independent_audit_second.py",
+    "independent_audit_third.py",
+    "manifest.json",
+    "metadata.json",
+    "missing-manifest-read-replay.command.json",
+    "missing-manifest-read-replay.stderr",
+    "missing-manifest-read-replay.stdout",
+    "range.command.json",
+    "range.stderr",
+    "range.stdout",
+    "read-codec-initial-replay.command.json",
+    "read-codec-initial-replay.py",
+    "read-codec-initial-replay.stderr",
+    "read-codec-initial-replay.stdout",
+    "report.md",
+    "supplemental-audit.command.json",
+    "supplemental-audit.stderr",
+    "supplemental-audit.stdout",
+    "supplemental-result.json",
+    "supplemental_audit.py"
+  ],
+  "self_index_exclusions": [
+    "SHA256SUMS",
+    "manifest.json"
+  ],
+  "checksum_ledger": {
+    "bytes": 8959,
+    "sha256": "b60b755c642d1af3860ea5d3750aa81df6de437014933ba7331cdebc9fbed9a0"
+  },
+  "artifacts": {
+    "accepted-authored-whitespace.stderr": {
+      "path": "/tmp/plan-check07-independent-review/accepted-authored-whitespace.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "accepted-authored-whitespace.stdout": {
+      "path": "/tmp/plan-check07-independent-review/accepted-authored-whitespace.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "accepted-whitespace-classification.json": {
+      "path": "/tmp/plan-check07-independent-review/accepted-whitespace-classification.json",
+      "bytes": 50862,
+      "sha256": "598d22c4793e8559d38299f1c2d05931fb08e8692346674c366573662de26784"
+    },
+    "accepted-whitespace.command.json": {
+      "path": "/tmp/plan-check07-independent-review/accepted-whitespace.command.json",
+      "bytes": 415,
+      "sha256": "0025c3f11dbda60638b1ff67788dc021c7dc90cdef1b386b12de11db84a69ee4"
+    },
+    "accepted-whitespace.stderr": {
+      "path": "/tmp/plan-check07-independent-review/accepted-whitespace.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "accepted-whitespace.stdout": {
+      "path": "/tmp/plan-check07-independent-review/accepted-whitespace.stdout",
+      "bytes": 86420,
+      "sha256": "5ceb00592e8ab66cfc971ef884ed0cb8933f3d1192bb41b1be04bef94a578cbf"
+    },
+    "authored-whitespace.command.json": {
+      "path": "/tmp/plan-check07-independent-review/authored-whitespace.command.json",
+      "bytes": 411,
+      "sha256": "cdef16b6856b31abed197c8d0064d7b0aa69801c9b36a2a2fc92a2216d2d0eb1"
+    },
+    "authored-whitespace.stderr": {
+      "path": "/tmp/plan-check07-independent-review/authored-whitespace.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "authored-whitespace.stdout": {
+      "path": "/tmp/plan-check07-independent-review/authored-whitespace.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "base-TODO.command.json": {
+      "path": "/tmp/plan-check07-independent-review/base-TODO.command.json",
+      "bytes": 393,
+      "sha256": "dd11149aa93de2724baf675497f9507f40aecb52e21948450e04ff8c476db3a8"
+    },
+    "base-TODO.stderr": {
+      "path": "/tmp/plan-check07-independent-review/base-TODO.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "base-TODO.stdout": {
+      "path": "/tmp/plan-check07-independent-review/base-TODO.stdout",
+      "bytes": 61475,
+      "sha256": "089e744f93d0e3718f2614f456a6d987af9ab94efe38a19836e7ac8fe8f3e615"
+    },
+    "candidate-accepted-result.json": {
+      "path": "/tmp/plan-check07-independent-review/candidate-accepted-result.json",
+      "bytes": 301968,
+      "sha256": "53234e35d5a67802031cad5d32c3c735cc1a7c8bbc0cedfbaecc78afddcb2a4d"
+    },
+    "candidate-check.command.json": {
+      "path": "/tmp/plan-check07-independent-review/candidate-check.command.json",
+      "bytes": 600,
+      "sha256": "761a13c03f035dbf9c8f5f925c6636cdfbb7be58a30ca31a9008d3b9a916cc83"
+    },
+    "candidate-check.stderr": {
+      "path": "/tmp/plan-check07-independent-review/candidate-check.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "candidate-check.stdout": {
+      "path": "/tmp/plan-check07-independent-review/candidate-check.stdout",
+      "bytes": 200,
+      "sha256": "815ba7276a274ea3452ff1c54b9915d648c697c0e18a33f171acf9c398029844"
+    },
+    "candidate-diff.command.json": {
+      "path": "/tmp/plan-check07-independent-review/candidate-diff.command.json",
+      "bytes": 465,
+      "sha256": "7e221e8c814dbfb49a42464604b67532a3c0ba413674dd90512450f9ad6e3823"
+    },
+    "candidate-diff.stderr": {
+      "path": "/tmp/plan-check07-independent-review/candidate-diff.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "candidate-diff.stdout": {
+      "path": "/tmp/plan-check07-independent-review/candidate-diff.stdout",
+      "bytes": 24362,
+      "sha256": "f504094702f767c8cf59557f7bcb0a6e3f0e1ba8f6f77937e97fe7e972c509b7"
+    },
+    "candidate-static-result.json": {
+      "path": "/tmp/plan-check07-independent-review/candidate-static-result.json",
+      "bytes": 17009,
+      "sha256": "fefd124a41522c40d4b1268063e30ef72d8d9eb64afa6e40ac2be5f78c36781e"
+    },
+    "capture-help-replay.command.json": {
+      "path": "/tmp/plan-check07-independent-review/capture-help-replay.command.json",
+      "bytes": 429,
+      "sha256": "6d47d5884b607329dbfbfc98dc80b4a61155782584ea6018d0af72274790c0a6"
+    },
+    "capture-help-replay.stderr": {
+      "path": "/tmp/plan-check07-independent-review/capture-help-replay.stderr",
+      "bytes": 1178,
+      "sha256": "563b4b92a65aacc1446aab99d5e06ed3cb1179d580fea56251811413e976b9c2"
+    },
+    "capture-help-replay.stdout": {
+      "path": "/tmp/plan-check07-independent-review/capture-help-replay.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "capture.py": {
+      "path": "/tmp/plan-check07-independent-review/capture.py",
+      "bytes": 672,
+      "sha256": "706641804a5fa423870791befe0c73424a86cd97f5bb725bb62d32235b698c20"
+    },
+    "classify-whitespace.command.json": {
+      "path": "/tmp/plan-check07-independent-review/classify-whitespace.command.json",
+      "bytes": 426,
+      "sha256": "cedcbd210b6daa12d3d476cd49e9f15265004f8bf8230f7ac7482bbdc54fe311"
+    },
+    "classify-whitespace.stderr": {
+      "path": "/tmp/plan-check07-independent-review/classify-whitespace.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "classify-whitespace.stdout": {
+      "path": "/tmp/plan-check07-independent-review/classify-whitespace.stdout",
+      "bytes": 111,
+      "sha256": "d038f845d171a8c6598a1f8787647e3b3d7437e7dcc9e653d9835d0a58da6841"
+    },
+    "classify_whitespace.py": {
+      "path": "/tmp/plan-check07-independent-review/classify_whitespace.py",
+      "bytes": 1077,
+      "sha256": "97eaeb128809315cf9c38f829393c6c6e930df0fa5357d395d975afd2e4fb3d6"
+    },
+    "compact-deltas.command.json": {
+      "path": "/tmp/plan-check07-independent-review/compact-deltas.command.json",
+      "bytes": 421,
+      "sha256": "c224e0790e09f8748f161539719591fe9c120228c14d34ebe6aa46bdffcecad2"
+    },
+    "compact-deltas.stderr": {
+      "path": "/tmp/plan-check07-independent-review/compact-deltas.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "compact-deltas.stdout": {
+      "path": "/tmp/plan-check07-independent-review/compact-deltas.stdout",
+      "bytes": 135,
+      "sha256": "6aa20414893373d5adb487e3711ed20fecbe2c9f91aee0513c721a449a0bb470"
+    },
+    "compact_deltas.py": {
+      "path": "/tmp/plan-check07-independent-review/compact_deltas.py",
+      "bytes": 1224,
+      "sha256": "1d419b540634bb545bb961de33388b3f57729209d09faad708a0ca3b34e129ea"
+    },
+    "delta-096469f.diff": {
+      "path": "/tmp/plan-check07-independent-review/delta-096469f.diff",
+      "bytes": 35996,
+      "sha256": "037ce5f070e8da932d9f76e62b2c49348cf24a82b7b08dd30d341e0296cab0cd"
+    },
+    "delta-1691424.diff": {
+      "path": "/tmp/plan-check07-independent-review/delta-1691424.diff",
+      "bytes": 19151,
+      "sha256": "3f2c0a45c31aa0c54c16cbe8f7b9780074ff82d9434897de1fbddd091cec3656"
+    },
+    "delta-1c49113.diff": {
+      "path": "/tmp/plan-check07-independent-review/delta-1c49113.diff",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "delta-6b4a69e.diff": {
+      "path": "/tmp/plan-check07-independent-review/delta-6b4a69e.diff",
+      "bytes": 46507,
+      "sha256": "4919cea253b8063d454488416683d4260305bd198e9019d76c84f258529dd016"
+    },
+    "delta-6c36c12.diff": {
+      "path": "/tmp/plan-check07-independent-review/delta-6c36c12.diff",
+      "bytes": 4569,
+      "sha256": "2bf5659dc50e697ee5a27a00fe18fda70417c0db8ac92c06adc3496e9d59b1a3"
+    },
+    "delta-7fb302b.diff": {
+      "path": "/tmp/plan-check07-independent-review/delta-7fb302b.diff",
+      "bytes": 8612,
+      "sha256": "569951438152267799862513d02969aca6779e077801f42933fdda54ebe38d54"
+    },
+    "delta-92f5471.diff": {
+      "path": "/tmp/plan-check07-independent-review/delta-92f5471.diff",
+      "bytes": 21647,
+      "sha256": "8dd6f84f07b44d1b7a0569d1b8cfb39abc572b28492337fb44d28860259e8cc4"
+    },
+    "delta-9cfa3c0.diff": {
+      "path": "/tmp/plan-check07-independent-review/delta-9cfa3c0.diff",
+      "bytes": 6928,
+      "sha256": "bad3b955564e15c358086f77a77a05cc758d6b9ce6dbf91266b8c0e0fd444147"
+    },
+    "delta-bb7e902.diff": {
+      "path": "/tmp/plan-check07-independent-review/delta-bb7e902.diff",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "delta-dbce2f9.diff": {
+      "path": "/tmp/plan-check07-independent-review/delta-dbce2f9.diff",
+      "bytes": 26982,
+      "sha256": "ea29d2489c8a00a33175c383c3ba57f5c08d26f1b1c286ec1cfef44a81dfe710"
+    },
+    "delta-transport-ledger.json": {
+      "path": "/tmp/plan-check07-independent-review/delta-transport-ledger.json",
+      "bytes": 10490,
+      "sha256": "5fd4ad47d1cf2222c8592e36add8bceb66297a065ae797d928c60cdaf0ed29e4"
+    },
+    "exploratory-read-failures.txt": {
+      "path": "/tmp/plan-check07-independent-review/exploratory-read-failures.txt",
+      "bytes": 2235,
+      "sha256": "a79b11e20dab6d6895761060784c9aed2ab4f7b2151d368055213b08ffd425ab"
+    },
+    "external-skill-reference.json": {
+      "path": "/tmp/plan-check07-independent-review/external-skill-reference.json",
+      "bytes": 181,
+      "sha256": "1a050766fd4429fbc15c35eb0345e93d0c6295791f0639df9748ffdd835ccd43"
+    },
+    "final-git-status.command.json": {
+      "path": "/tmp/plan-check07-independent-review/final-git-status.command.json",
+      "bytes": 419,
+      "sha256": "0818b0b13734bcf0d844814af4fd823bd8d128db6a5202337c7038297641a3e6"
+    },
+    "final-git-status.stderr": {
+      "path": "/tmp/plan-check07-independent-review/final-git-status.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "final-git-status.stdout": {
+      "path": "/tmp/plan-check07-independent-review/final-git-status.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "final-refs.command.json": {
+      "path": "/tmp/plan-check07-independent-review/final-refs.command.json",
+      "bytes": 407,
+      "sha256": "74d5dd95cc0febaa1f628c9b3c9661d98d395f34066da062c6950ae7c5a9f9a0"
+    },
+    "final-refs.stderr": {
+      "path": "/tmp/plan-check07-independent-review/final-refs.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "final-refs.stdout": {
+      "path": "/tmp/plan-check07-independent-review/final-refs.stdout",
+      "bytes": 82,
+      "sha256": "0e250266381b33fc68517758edcfb9f409ff95b2aad26a8b2540b18300db4fba"
+    },
+    "finalization-audit.command.json": {
+      "path": "/tmp/plan-check07-independent-review/finalization-audit.command.json",
+      "bytes": 431,
+      "sha256": "ed614b97c2d1e7c6a92d7d981af09f34f0d0087bda878504a1079dc452a2bc68"
+    },
+    "finalization-audit.stderr": {
+      "path": "/tmp/plan-check07-independent-review/finalization-audit.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "finalization-audit.stdout": {
+      "path": "/tmp/plan-check07-independent-review/finalization-audit.stdout",
+      "bytes": 1741,
+      "sha256": "434b16d99aee08e3f94487d0bbb32ba73b67b3c8d5c49b9f18a7a6e8eccfa2f2"
+    },
+    "finalization-result.json": {
+      "path": "/tmp/plan-check07-independent-review/finalization-result.json",
+      "bytes": 1943,
+      "sha256": "af9739c3015e14354dabf52c4d57452b267acfa5846109e42841310761994774"
+    },
+    "finalize.py": {
+      "path": "/tmp/plan-check07-independent-review/finalize.py",
+      "bytes": 4875,
+      "sha256": "de26814893989c8dbb0ff7c766e06614dfdd2db0f4f7514e6c6751973dc711e6"
+    },
+    "finite-width-delta.command.json": {
+      "path": "/tmp/plan-check07-independent-review/finite-width-delta.command.json",
+      "bytes": 478,
+      "sha256": "89ccb1b9aad519472853b81b46e7ddf17eded81a7252211b820ed8572abca4c7"
+    },
+    "finite-width-delta.stderr": {
+      "path": "/tmp/plan-check07-independent-review/finite-width-delta.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "finite-width-delta.stdout": {
+      "path": "/tmp/plan-check07-independent-review/finite-width-delta.stdout",
+      "bytes": 2471,
+      "sha256": "3a294909b5ec0a6b9826e716b19cb0b2fa5ad8f74f1ab351e60c68ef2113c6ec"
+    },
+    "independent-audit-final.command.json": {
+      "path": "/tmp/plan-check07-independent-review/independent-audit-final.command.json",
+      "bytes": 424,
+      "sha256": "7ea6fd9a87190e91f980d67328130c3be3b71fcebad11212a0f0d0a960edb81c"
+    },
+    "independent-audit-final.stderr": {
+      "path": "/tmp/plan-check07-independent-review/independent-audit-final.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "independent-audit-final.stdout": {
+      "path": "/tmp/plan-check07-independent-review/independent-audit-final.stdout",
+      "bytes": 222,
+      "sha256": "4f580f3793f1b717a99746db958c2f384e211458f194f20dbbd02b62465227a2"
+    },
+    "independent-audit-fourth.command.json": {
+      "path": "/tmp/plan-check07-independent-review/independent-audit-fourth.command.json",
+      "bytes": 424,
+      "sha256": "7ea6fd9a87190e91f980d67328130c3be3b71fcebad11212a0f0d0a960edb81c"
+    },
+    "independent-audit-fourth.stderr": {
+      "path": "/tmp/plan-check07-independent-review/independent-audit-fourth.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "independent-audit-fourth.stdout": {
+      "path": "/tmp/plan-check07-independent-review/independent-audit-fourth.stdout",
+      "bytes": 222,
+      "sha256": "4f580f3793f1b717a99746db958c2f384e211458f194f20dbbd02b62465227a2"
+    },
+    "independent-audit-second.command.json": {
+      "path": "/tmp/plan-check07-independent-review/independent-audit-second.command.json",
+      "bytes": 424,
+      "sha256": "7dc41efa1b6776295ce6a25deb060d73655f8fd0e87ef70fd3748c31316afa7f"
+    },
+    "independent-audit-second.stderr": {
+      "path": "/tmp/plan-check07-independent-review/independent-audit-second.stderr",
+      "bytes": 194,
+      "sha256": "ea99705cfeee45751ded7d067303628973ff9dc198c0f3db4baadc3b63a53ac1"
+    },
+    "independent-audit-second.stdout": {
+      "path": "/tmp/plan-check07-independent-review/independent-audit-second.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "independent-audit-third.command.json": {
+      "path": "/tmp/plan-check07-independent-review/independent-audit-third.command.json",
+      "bytes": 424,
+      "sha256": "88348bd97991a83a3e8200aec3ada265411fddf131e0b24934714b1a168564b2"
+    },
+    "independent-audit-third.stderr": {
+      "path": "/tmp/plan-check07-independent-review/independent-audit-third.stderr",
+      "bytes": 795,
+      "sha256": "d90c2a8bcd6d475e58f466245350ad2c530751c9a513b06b3e8e3a406108c9fb"
+    },
+    "independent-audit-third.stdout": {
+      "path": "/tmp/plan-check07-independent-review/independent-audit-third.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "independent-audit.command.json": {
+      "path": "/tmp/plan-check07-independent-review/independent-audit.command.json",
+      "bytes": 424,
+      "sha256": "4465b86218c7917bcef912e01856c034330f5f452115a63cf330bfc51a192a9c"
+    },
+    "independent-audit.stderr": {
+      "path": "/tmp/plan-check07-independent-review/independent-audit.stderr",
+      "bytes": 515,
+      "sha256": "9d457c01d178f4d1e044e2114a5e8b07d0de220ed7d03240f7ed554e8a281b11"
+    },
+    "independent-audit.stdout": {
+      "path": "/tmp/plan-check07-independent-review/independent-audit.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "independent-result.json": {
+      "path": "/tmp/plan-check07-independent-review/independent-result.json",
+      "bytes": 1270827,
+      "sha256": "d62e92a47acd2f0776951bb65aefed54c8c45c91c18a0b6c847f8d96d7408115"
+    },
+    "independent_audit.py": {
+      "path": "/tmp/plan-check07-independent-review/independent_audit.py",
+      "bytes": 14380,
+      "sha256": "6126d5e882b11542cfa83d392ba08abc2699828cde868d549a74128e3a09840d"
+    },
+    "independent_audit_fourth.py": {
+      "path": "/tmp/plan-check07-independent-review/independent_audit_fourth.py",
+      "bytes": 14348,
+      "sha256": "a0fa54ae97da43ac793d662ff32e7ddda0eaffa6cc8af426e2c8fe6b613ac24a"
+    },
+    "independent_audit_initial.py": {
+      "path": "/tmp/plan-check07-independent-review/independent_audit_initial.py",
+      "bytes": 13799,
+      "sha256": "db4146dca1ba0f84a5991832575aed4b6d5a5b0c82e4c6e26082c157facf8597"
+    },
+    "independent_audit_second.py": {
+      "path": "/tmp/plan-check07-independent-review/independent_audit_second.py",
+      "bytes": 14361,
+      "sha256": "559c6f1fc46488592da0d5122fa0dd80a791e42e17d1831e592f411bbe1296f8"
+    },
+    "independent_audit_third.py": {
+      "path": "/tmp/plan-check07-independent-review/independent_audit_third.py",
+      "bytes": 14361,
+      "sha256": "16f2629cc18145c8f0e388ce7a4f7858f6cf3493869c391c1684fa707737efab"
+    },
+    "metadata.json": {
+      "path": "/tmp/plan-check07-independent-review/metadata.json",
+      "bytes": 40274,
+      "sha256": "0ede83162134522bd1d088f08adea149a40f228fd7e66357b746a72b45b4a0fb"
+    },
+    "missing-manifest-read-replay.command.json": {
+      "path": "/tmp/plan-check07-independent-review/missing-manifest-read-replay.command.json",
+      "bytes": 447,
+      "sha256": "c7c15b8cab4a3ef6d46400d336d93d8a22e9a5924e5618115a79662e75f1f745"
+    },
+    "missing-manifest-read-replay.stderr": {
+      "path": "/tmp/plan-check07-independent-review/missing-manifest-read-replay.stderr",
+      "bytes": 104,
+      "sha256": "58a80280f82b1fb9c4a77ace0e450c2a5f888b2e3563a9519bbd2866df2b4ecb"
+    },
+    "missing-manifest-read-replay.stdout": {
+      "path": "/tmp/plan-check07-independent-review/missing-manifest-read-replay.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "range.command.json": {
+      "path": "/tmp/plan-check07-independent-review/range.command.json",
+      "bytes": 436,
+      "sha256": "c93176732ae353a64a62869b55acbe15eeaa34535ac5c399b045abe7c5d844aa"
+    },
+    "range.stderr": {
+      "path": "/tmp/plan-check07-independent-review/range.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "range.stdout": {
+      "path": "/tmp/plan-check07-independent-review/range.stdout",
+      "bytes": 1458,
+      "sha256": "6818b676a5dd9477e0b45ea23db39acfd2501c589ecac09c819f6e920db693b1"
+    },
+    "read-codec-initial-replay.command.json": {
+      "path": "/tmp/plan-check07-independent-review/read-codec-initial-replay.command.json",
+      "bytes": 432,
+      "sha256": "062839f764acb196818dace7bdd863b61bb7a1e7c2e55844c25c6f54320cb24a"
+    },
+    "read-codec-initial-replay.py": {
+      "path": "/tmp/plan-check07-independent-review/read-codec-initial-replay.py",
+      "bytes": 366,
+      "sha256": "fa2f600bb7b9f05ed98085998ce5799d27afed3ae96bc3ead10b2272c57c5080"
+    },
+    "read-codec-initial-replay.stderr": {
+      "path": "/tmp/plan-check07-independent-review/read-codec-initial-replay.stderr",
+      "bytes": 686,
+      "sha256": "dc0761437b7183b27ecd394166aa256abc14b9391493c9a1dc780d3c7d742923"
+    },
+    "read-codec-initial-replay.stdout": {
+      "path": "/tmp/plan-check07-independent-review/read-codec-initial-replay.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "report.md": {
+      "path": "/tmp/plan-check07-independent-review/report.md",
+      "bytes": 38108,
+      "sha256": "01b62737d3bd9cc2781267e76efefa0628603d810f9857d7c7ddac00e06fb449"
+    },
+    "supplemental-audit.command.json": {
+      "path": "/tmp/plan-check07-independent-review/supplemental-audit.command.json",
+      "bytes": 425,
+      "sha256": "4a769ab273c54f32950e97f1e8fd1472a61faddbc756760432a9c5fcb0aa7e4e"
+    },
+    "supplemental-audit.stderr": {
+      "path": "/tmp/plan-check07-independent-review/supplemental-audit.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "supplemental-audit.stdout": {
+      "path": "/tmp/plan-check07-independent-review/supplemental-audit.stdout",
+      "bytes": 119,
+      "sha256": "865531d801283b2046bed1555294df59e7df3495651d714094eb8baae85e9f4d"
+    },
+    "supplemental-result.json": {
+      "path": "/tmp/plan-check07-independent-review/supplemental-result.json",
+      "bytes": 90193,
+      "sha256": "d77cc6b1835a49f3dcc0ee1a24a6fb2e863807a7d0a43ef75b070b714b178d8d"
+    },
+    "supplemental_audit.py": {
+      "path": "/tmp/plan-check07-independent-review/supplemental_audit.py",
+      "bytes": 2466,
+      "sha256": "265e6935418fa6524c87b73cc679a727b8bbb759e99f9370c110f746129c91d0"
+    }
+  }
+}
