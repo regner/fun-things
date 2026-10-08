@@ -307,8 +307,8 @@ func _remote_fire_cases() -> void:
 	var count: int = 12 if state.damage.rows.size() == 12 else 2
 	_check(wire.live_received == count and wire.duplicate_live_rejected == count,
 		"actual duplicate live events consumed once")
-	_check(state.effects.accepted == (8 if count == 12 else 2) \
-		and state.effects.dropped == (4 if count == 12 else 0), "remote cosmetic capacity")
+	_check(state.effects.accepted == count and state.effects.dropped == 0,
+		"every remote explosion receives presentation")
 
 
 ## Injects a second real live RPC solely from the proof to test remote EventId duplicates.
@@ -368,8 +368,8 @@ func _outcomes() -> void:
 	_check(state.damage.total_visits == (144 if count == 12 else 6), "finite target work")
 	_check(state.damage.target_peak <= 4 and state.damage.queue_peak <= 12 \
 		and state.damage.cache_peak <= 12, "reserved workload peaks")
-	_check(state.effects.accepted == (8 if count == 12 else 2) \
-		and state.effects.dropped == (4 if count == 12 else 0), "cosmetics cannot cancel chains")
+	_check(state.effects.accepted == count and state.effects.dropped == 0,
+		"every completed explosion receives presentation")
 	var previous: Dictionary = {}
 	for job: Dictionary in state.damage.completed:
 		_check(job.tick >= job.due, "chain delay respected")

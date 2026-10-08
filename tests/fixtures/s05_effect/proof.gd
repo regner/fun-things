@@ -14,7 +14,7 @@ func _ready() -> void:
 ## Checks saved identity, saturation, fences and local expiry independently of damage.
 func _effect_contract() -> void:
 	var presentation: S05SavedPresentation = state.effects as S05SavedPresentation
-	_check(presentation.receipt().instances == 8, "eight authored effect instances")
+	_check(presentation.receipt().instances == 12, "twelve authored effect instances")
 	for slot: Node3D in $View/Match/Presentation/Slots.get_children():
 		_check(slot.scene_file_path == "res://tests/fixtures/s05_effect/explosion.tscn",
 			"saved explosion ancestry")
@@ -27,14 +27,14 @@ func _effect_contract() -> void:
 	for sequence: int in range(1, 13):
 		_check(presentation.consume(_event(sequence), 1, 0), "new live event accepted")
 
-	_check(presentation.accepted == 8 and presentation.dropped == 4,
-		"literal eight reservations and four saturation drops")
-	_check(presentation.visible_count() == 8, "eight saved nodes visible property")
+	_check(presentation.accepted == 12 and presentation.dropped == 0,
+		"all twelve explosions receive saved presentation")
+	_check(presentation.visible_count() == 12, "twelve saved nodes visible property")
 	_event_fences(presentation)
 	for tick: int in 119:
 		presentation.advance_cosmetic()
 
-	_check(presentation.visible_count() == 8, "visible before literal120 cosmetic ticks")
+	_check(presentation.visible_count() == 12, "visible before literal120 cosmetic ticks")
 	presentation.advance_cosmetic()
 	_check(presentation.visible_count() == 0 and presentation.slots.is_empty(),
 		"local expiry at literal120 ticks without another host event")
@@ -50,8 +50,8 @@ func _effect_contract() -> void:
 	presentation.clear()
 	_check(presentation.visible_count() == 0 and presentation.slots.is_empty(),
 		"clear hides authored slots and retires reservations")
-	print("S05_EFFECT " + JSON.stringify({"event": "api", "instances": 8,
-		"accepted": 8, "dropped": 4, "cleanup_ticks": 120, "ok": failures.is_empty()}))
+	print("S05_EFFECT " + JSON.stringify({"event": "api", "instances": 12,
+		"accepted": 12, "dropped": 0, "cleanup_ticks": 120, "ok": failures.is_empty()}))
 
 
 ## Exercises literal rejected events without allocating more slots or advancing history.
@@ -68,7 +68,7 @@ func _event_fences(presentation: S05SavedPresentation) -> void:
 	invalid = _event(13)
 	invalid.generation = 2
 	_check(not presentation.consume(invalid, 1, 0), "unsupported event generation rejected")
-	_check(presentation.watermark == watermark_before and presentation.visible_count() == 8,
+	_check(presentation.watermark == watermark_before and presentation.visible_count() == 12,
 		"rejected events cannot allocate or advance history")
 
 

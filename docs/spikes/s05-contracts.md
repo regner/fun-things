@@ -14,7 +14,7 @@ The [predeclaration/results](s05.md) own scope and limits.
 | Car health/life/seat sentinel | S05Damage `begin`, `register_shooter`, `resolve_shot`, `advance`, `cut`, `valid_cut`, `apply_cut`, `retire_shooter`, `clear` | One local experimental owner combines minimum Health/DamageResolver/Explosions responsibilities; no second field writer |
 | Body/motion/collision | S05Car inherits unchanged S04Kinematic; `apply_life(host, phase)` | Neutralize and disable simulation before publication; original box remains stationary for wreck, then clears |
 | Reliable current state/events | S05Replication extends S03Replication | New fire request and complete current car cut/live event use existing endpoints/channels; no Synchronizer/Spawner |
-| Cosmetic reservation/history | S05Presentation `begin`, `advance`, `consume`, `clear` | Eight deadline tokens only; no authored explosion effect, audio or draw proof |
+| Cosmetic reservation/history | S05Presentation `begin`, `advance`, `consume`, `clear` | One deadline reservation and saved effect per accepted explosion; no audio contract |
 | Test coordination | S05Proof saved Boot root | Injects collaborators, duplicate live RPC, literal outcome expectations and bounded completion receipts |
 
 Saved hierarchy: inherited S03 `Boot/Session` and `Boot/View/Match/{Replication,
@@ -87,12 +87,13 @@ contract specifies one driver death/release on destruction, never forced ejectio
 production player health/control/respawn/equipment integration remains M1-B1/B2/B3.
 No surviving-car seat race/exit or full destruction transaction architecture here.
 
-Current wreck presentation retains the unchanged technical car mesh. Eight120-tick
-cosmetic slot tokens, monotonically consumed live EventIds and durable dependencies
-prove gameplay independence/deduplication. Saturated events advance history and drop
-cosmetics, never defer/cancel damage. Future-dependency events drop without advancing
-history; current historical hydration emits no events. No actual explosion slots,
-particles, debris, sound, overdraw, drawn feedback or presentation CPU/GPU load measured.
+Current wreck presentation retains the unchanged technical car mesh. The fixture authors
+12 saved explosion instances, equal to its maximum 12 explosion events, so every accepted
+explosion receives one 120-tick presentation reservation and no cosmetic event is dropped.
+Monotonically consumed live EventIds and durable dependencies preserve gameplay independence
+and deduplication. Future-dependency events drop without advancing history; current historical
+hydration emits no events. The saved carrier provides drawn explosion feedback; particles,
+debris, sound, overdraw and presentation CPU/GPU cost remain unmeasured.
 
 ## Reliable cut and admission boundary
 

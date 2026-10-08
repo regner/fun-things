@@ -1,8 +1,8 @@
 class_name S05Presentation
 extends Node
-## Bounded cosmetic reservation receipt only; no rendered explosion or audio claim.
+## Reserves presentation for every explosion possible in the finite fixture.
 
-const MAX_SLOTS: int = 8
+const MAX_SLOTS: int = S05Damage.MAX_CARS
 const LIFETIME_TICKS: int = 120
 
 var session_id: String = ""

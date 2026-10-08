@@ -108,10 +108,11 @@ func _capture_stage(receipt: Dictionary) -> String:
 	if role == "late" and baseline_count > 0 and receipt.presentation.visible == 0:
 		return "hydrated"
 
-	if receipt.presentation.visible == 8 and receipt.dropped == 4:
+	if receipt.presentation.visible == S05Presentation.MAX_SLOTS and receipt.dropped == 0:
 		return "burst"
 
-	if receipt.accepted == 8 and receipt.presentation.visible == 0 and receipt.settled:
+	if receipt.accepted == S05Presentation.MAX_SLOTS \
+			and receipt.presentation.visible == 0 and receipt.settled:
 		return "expired"
 
 	if receipt.accepted == 0 and not state.session_id.is_empty():
