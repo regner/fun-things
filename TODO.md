@@ -376,17 +376,18 @@ implementation. Save editor mutations before playtests; preserve unsaved work.
   using the [reviewed S04 technical body/source](docs/spikes/s04.md#bounded-recommendation-and-next-question).
   Ready for bounded design/fixture preparation under explicit provisional
   collider/visual/handling assumptions; S04 supplies no damage/destruction owner.
-  Partial candidate: [bounded S05 record](docs/spikes/s05.md),
+  Independently reviewed partial technical result: [bounded S05 record](docs/spikes/s05.md),
   [new fixture contract](docs/spikes/s05-contracts.md) and
-  [raw evidence](docs/spikes/s05-evidence/README.md), pending independent review.
+  [full review](docs/spikes/s05-evidence/review/report.md) and
+  [raw evidence](docs/spikes/s05-evidence/README.md). Full S05 remains open.
   The assigned direct Sol lead added only the minimum authoritative damage/life
   owner in new saved scenes; original S02/S03/S04 sources/resources are unchanged.
   Remaining bounded acceptance: authored explosion presentation exercising eight
   cosmetic slots with drawn receipts under a separately named drawable lease;
   current evidence proves eight token reservations, not visible explosion effects.
   Regner ratifies provisional range/obstruction/delay/occupant/wreck policies;
-  rerun affected spacing/contact rows after final S04/S02 dimensions. Review this
-  partial result before downstream use; full joining/reset/sustained load remains
+  rerun affected spacing/contact rows after final S04/S02 dimensions. Use only the
+  reviewed bounded contracts; full joining/reset/sustained load remains
   M1-B3/M1-D. S05 stays open; no P0/S07/production/Steam/device closure.
   Full S04 feel/dimensions are not prerequisites for this scoped preparation,
   but do not ratify blast spacing or production clearance from the technical kit.

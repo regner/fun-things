@@ -40,3 +40,16 @@ python tools/s05/check_resources.py --base c8096b55ef97412552366fdaa74c220b976ed
 Use `--queue-only` for the affected finite pressure row. This is Linux loopback
 technical evidence, no drawn VFX, input/feel, device or Steam acceptance. The
 contract supplement and spike record describe provisional policies/open gates.
+
+The full substantive independent review is `review/report.md`, bound to exact
+f7883c332a3728267afc86343d6e0f8dc696ede6/base c8096b5. `review-artifacts.tar.gz`
+contains the report plus50 other actual audit/check/log artifacts and their exact
+manifest. `review-manifest.json` and `package-verification.json` bind/read back every
+artifact, including raw failure logs. The bundle/report are copied byte for byte;
+use `tar -xzf` into a fresh external directory for the logs. Launch metadata is an
+authored extraction of tool fields, not a byte-faithful copy of an RPC wrapper.
+
+The same reviewer's exact-final report, actual artifacts and operational handoff
+are losslessly encoded in `refs/notes/paseo-orchestration` on delivered HEAD. Note
+JSON is an authored envelope with one terminal LF; embedded artifact bytes/SHA256
+are independently read back. Raw historical EOF blanks remain intentionally exact.
