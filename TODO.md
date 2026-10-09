@@ -68,9 +68,9 @@ recommendations and do not block P1.
   The authorized production commission supersedes the draft concept-only scope;
   production status is tracked separately in [production progress](docs/assets/production/progress.md).
 - [ ] **M1-C1 — Produce production art families.** C1.1 district building/prop families after
-  M1-C0's asset lists; C1.2 follow-ups to the delivered character/vehicle/weapon/effect assets,
-  starting with C1.2a, the hitscan tracer effect from the weapon-effects lead, and including
-  car wreck states; C1.3 Blender road fixtures (signals, street lights, prefab intersection
+  M1-C0's asset lists; C1.2 follow-ups to the delivered character/vehicle/weapon/effect assets
+  (C1.2a, the hitscan tracer `scenes/effects/weapon_effects/weapon_effects_a_tracer.tscn`, is
+  done; the owner's gameplay-camera art checkpoint of it is pending), including car wreck states; C1.3 Blender road fixtures (signals, street lights, prefab intersection
   pieces).
 - [ ] **M1-C2 — Integrate the Brackett world.** C2.1 is done: `scenes/match/match.tscn` makes the
   greybox the play world with a composed content identity (checked dependency manifest plus
