@@ -62,6 +62,54 @@ class ResponseOwnershipTests(unittest.TestCase):
             self.assertTrue(measured["input_expiry"])
             self.assertEqual(measured["expiry_transitions"][0]["previous_age_ms"], 249)
 
+    def test_expiry_rejects_early_underflow_without_threshold_observation(self):
+        with tempfile.TemporaryDirectory() as temporary:
+            directory = Path(temporary)
+            (directory / "host").mkdir()
+            (directory / "client").mkdir()
+            simulation = [
+                {"event": "simulation", "time_ms": 1040, "wall_ms": 1040,
+                 "local_tick": 1000, "receipt_ms": 1000, "held_age_ms": 40,
+                 "decision_age_ms": 40, "held": [0, -1],
+                 "pose": {"entity": 2, "tick": 1, "position": [0, 0, 0],
+                          "velocity": [0, 0, -5]}},
+                {"event": "simulation", "time_ms": 1057, "wall_ms": 1057,
+                 "local_tick": 1001, "receipt_ms": 1000, "held_age_ms": 57,
+                 "decision_age_ms": 57, "held": [0, 0],
+                 "pose": {"entity": 2, "tick": 2, "position": [0, 0, 0],
+                          "velocity": [0, 0, 0]}},
+            ]
+            (directory / "host/stdout.log").write_text(
+                "".join("S03R " + json.dumps(row) + "\n" for row in simulation))
+            (directory / "client/stdout.log").write_text("")
+            measured = analyze(directory, [])
+            self.assertFalse(measured["input_expiry"])
+            self.assertEqual(measured["expiry_transitions"], [])
+
+    def test_expiry_rejects_transition_later_than_one_physics_interval(self):
+        with tempfile.TemporaryDirectory() as temporary:
+            directory = Path(temporary)
+            (directory / "host").mkdir()
+            (directory / "client").mkdir()
+            simulation = [
+                {"event": "simulation", "time_ms": 1253, "wall_ms": 1253,
+                 "local_tick": 1000, "receipt_ms": 1000, "held_age_ms": 249,
+                 "decision_age_ms": 249, "held": [0, -1],
+                 "pose": {"entity": 2, "tick": 1, "position": [0, 0, 0],
+                          "velocity": [0, 0, -5]}},
+                {"event": "simulation", "time_ms": 1270, "wall_ms": 1270,
+                 "local_tick": 1001, "receipt_ms": 1000, "held_age_ms": 280,
+                 "decision_age_ms": 280, "held": [0, 0],
+                 "pose": {"entity": 2, "tick": 2, "position": [0, 0, 0],
+                          "velocity": [0, 0, 0]}},
+            ]
+            (directory / "host/stdout.log").write_text(
+                "".join("S03R " + json.dumps(row) + "\n" for row in simulation))
+            (directory / "client/stdout.log").write_text("")
+            measured = analyze(directory, [])
+            self.assertFalse(measured["input_expiry"])
+            self.assertEqual(measured["expiry_transitions"][0]["age_ms"], 280)
+
     def test_matching_tick_uses_host_source_pose_not_local_restore_diagnostic(self):
         with tempfile.TemporaryDirectory() as temporary:
             directory = Path(temporary)

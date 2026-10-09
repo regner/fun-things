@@ -2,10 +2,12 @@ class_name S03InputFrameQueue
 extends RefCounted
 ## Retains bounded, consistently numbered inputs for one-step authoritative use.
 
-const DEFAULT_CAPACITY: int = 120
+const DEFAULT_CAPACITY: int = 8
+const DEFAULT_SEQUENCE_WINDOW: int = 120
 const MAX_PENDING_LAG_FRAMES: int = 3
 
 var _capacity: int
+var _sequence_window: int
 var _frames: Dictionary = {}
 var _known_by_tick: Dictionary = {}
 var _tick_by_sequence: Dictionary = {}
@@ -16,10 +18,14 @@ var _tick_offset_set: bool = false
 var _last_offer_added: bool = false
 
 
-## Creates a queue with a positive hard frame limit.
-func _init(capacity: int = DEFAULT_CAPACITY) -> void:
+## Creates a queue with separate positive pending-capacity and freshness limits.
+func _init(
+	capacity: int = DEFAULT_CAPACITY, sequence_window: int = DEFAULT_SEQUENCE_WINDOW
+) -> void:
 	assert(capacity > 0)
+	assert(sequence_window > 0)
 	_capacity = capacity
+	_sequence_window = sequence_window
 
 
 ## Atomically offers exact redundancies or consistently advancing fresh frames.
@@ -52,9 +58,9 @@ func offer(  # gdstyle:ignore=quality/max-returns,quality/max-branches
 			return false
 		if sequence <= processed_sequence or tick <= processed_tick:
 			return false
-		if sequence > processed_sequence + _capacity:
+		if sequence > processed_sequence + _sequence_window:
 			return false
-		if processed_sequence > 0 and tick > processed_tick + _capacity:
+		if processed_sequence > 0 and tick > processed_tick + _sequence_window:
 			return false
 		if not next_offset_set:
 			next_offset = tick - sequence
@@ -101,8 +107,16 @@ func pop_next(processed_sequence: int, processed_tick: int) -> Dictionary:
 
 	var ticks: Array = _frames.keys()
 	ticks.sort()
-	var selected_index: int = maxi(0, ticks.size() - MAX_PENDING_LAG_FRAMES)
-	var selected_tick: int = int(ticks[selected_index])
+	var newest_tick: int = int(ticks[-1])
+	var newest_sequence: int = int(_frames[newest_tick].sequence)
+	var selected_tick: int = newest_tick
+	for candidate: int in ticks:
+		var candidate_sequence: int = int(_frames[candidate].sequence)
+		if newest_tick - candidate <= MAX_PENDING_LAG_FRAMES and (
+			newest_sequence - candidate_sequence <= MAX_PENDING_LAG_FRAMES
+		):
+			selected_tick = candidate
+			break
 	var frame: Dictionary = _frames[selected_tick].duplicate(true)
 	for tick: int in ticks:
 		if tick <= selected_tick:
@@ -155,9 +169,9 @@ func _discard_processed(processed_sequence: int, processed_tick: int) -> void:
 			_frames.erase(tick)
 
 
-## Retains only one capacity window of exact-copy validation history.
+## Retains only one freshness window of exact-copy validation history.
 func _prune_known() -> void:
-	var sequence_floor: int = _latest_sequence - _capacity
+	var sequence_floor: int = _latest_sequence - _sequence_window
 	for tick: int in _known_by_tick.keys():
 		var sequence: int = int(_known_by_tick[tick].sequence)
 		if sequence <= sequence_floor:

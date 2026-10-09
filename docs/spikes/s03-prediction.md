@@ -40,13 +40,15 @@ does not edit S04.
 Each nominal 30 Hz unreliable envelope carries at most the canonical three consecutive
 per-physics-tick frames. The bounded host queue accepts exact redundant copies but requires
 every fresh frame to preserve one sequence-to-input-tick offset within the control
-revision. It consumes at most one frame per participant on each normal host physics step.
-If a stall grows the queue, the same step supersedes an obsolete prefix so acknowledged
-lag returns to the declared three-frame bound; it never runs extra simulation steps.
-Receipt age beyond 250 ms supersedes the remaining queue and simulates neutral input on
-that step. Published watermarks advance only through that simulated or explicitly
-superseded work. The deterministic probe covers isolated packet loss, a 15-tick stall,
-post-stall bounded lag, and neutral expiry with 24 pending frames.
+revision. Production retains at most eight queued frames per participant, separately from
+the 120-sequence freshness window, and consumes at most one frame on each normal host
+physics step. The step selects the oldest queued frame whose sequence and input tick are
+within three ticks of the newest accepted frame and supersedes everything older; it never
+runs extra simulation steps. Receipt age beyond 250 ms supersedes the remaining queue and
+simulates neutral input on that step. Published watermarks advance only through that
+simulated or explicitly superseded work. The deterministic probe covers isolated packet
+loss, a 15-tick stall, the sparse `(1, 1)`/`(100, 100)` case, production capacity, and
+neutral expiry with a specially sized 24-frame queue.
 
 The analyzer computes accepted matching-tick error from received pose versus host source
 pose; the immediate local restore remains a separate diagnostic. A regression with a
@@ -54,10 +56,13 @@ zero local diagnostic and a one-metre source mismatch fails that criterion. Wind
 acceptance additionally requires two drawable visible process states, all 20 authority
 and predicted drawn samples, and predicted drawn p95 at or below 50 ms.
 
-Producer silence still begins at tick 1002. The analyzer now accepts neutralization no
-later than 250 ms plus one tick, rather than requiring the authority to reuse stale held
-input until that deadline. This keeps the safety bound while preserving one numbered
-client frame per authoritative movement step.
+Producer silence still begins at tick 1002. Runtime acceptance now requires a non-empty
+set of stale observations and inspects the first physics row whose decision age crosses
+250 ms. That row and the remaining same-receipt stale rows must be neutral, and the
+transition age must be no later than 250 ms plus its observed physics interval and a 2 ms
+clock tolerance. Early queue underflow without a post-threshold observation and a late
+transition both fail regressions. Batched held-result RPCs also return the newest frame
+sequence; selected clients correlated hundreds of actual results rather than `-1`.
 
 ## Measurements
 
@@ -70,19 +75,21 @@ receipt), i.e. when an unpredicted client could respond.
 
 | Profile | Predicted physics p95 | Authority baseline p95 | Predicted drawn p95 | Authority drawn p95 | Correction p95 / max | Replay CPU p95 per frame | Max replay |
 | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
-| Headless loopback | 24 ms | 293 ms | unavailable | unavailable | 0.000 / 0.750 m | 41.00 us | 39 |
-| Headless normal | 20 ms | 264 ms | unavailable | unavailable | 0.083 / 0.250 m | 20.00 us | 48 |
-| Headless adverse | 21 ms | 417 ms | unavailable | unavailable | 0.250 / 3.750 m | 17.72 us | 84 |
-| Windowed loopback | 25 ms | 151 ms | 36 ms | 178 ms | 0.083 / 0.972 m | 48.33 us | 41 |
+| Headless loopback | 19 ms | 146 ms | unavailable | unavailable | 0.083 / 0.917 m | 43.50 us | 39 |
+| Headless normal | 25 ms | 301 ms | unavailable | unavailable | 0.083 / 0.417 m | 25.00 us | 51 |
+| Headless adverse | 19 ms | 413 ms | unavailable | unavailable | 0.250 / 3.750 m | 20.50 us | 81 |
+| Windowed loopback | 29 ms | 139 ms | 39 ms | 170 ms | 0.000 / 0.917 m | 39.20 us | 39 |
 
 All selected runs meet the provisional predicted response target (physics p95 <=50 ms)
 and correction target (p95 <=0.5 m). Maxima are reported rather than hidden; visual
 smoothing does not change authoritative physics. Exact authoritative installation error
 and matching host-source error were 0 m, and no selected run exhausted 120-frame
-history. The bounded authority queue ended every measured step with at most two pending
-frames, below its declared three-frame lag bound. The adverse 1 s interruption and 250 ms
-host stall converged in 360.69 ms and 516 ms respectively, both below 1 s. The maximum
-adverse replay was 84 frames and remained bounded.
+history. The eight-frame authority queue ended every measured step with at most three
+pending frames and enforced that lag by distance from the newest accepted frame. Selected
+expiry transitions occurred at 251–268 ms and retained neutral same-receipt stale rows.
+The adverse 1 s interruption and 250 ms host stall converged in 288.05 ms and 387 ms
+respectively, both below 1 s. The maximum adverse replay was 81 frames and remained
+bounded.
 
 Selected correction classifiers were `none` and `held_timing_or_delivery`; no
 remote-actor contact was observed in the final routes and no car

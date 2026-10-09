@@ -26,6 +26,8 @@ PROFILES = {"baseline": (0, 0, 0), "normal": (75, 30, 0.02),
 MAX_QUEUE = 1024
 MAX_POLL = 128
 MAX_PENDING_INPUT_FRAMES = 3
+HELD_EXPIRY_MS = 250
+EXPIRY_CLOCK_TOLERANCE_MS = 2
 POLL_SECONDS = 0.002
 BLACKOUT_START_SECONDS = 12.15
 BLACKOUT_SECONDS = 1.0
@@ -337,27 +339,30 @@ def analyze(directory, proxy_events):
             705 <= r["local_tick"] <= 715]
     collision = bool(wall) and all(0.37 <= r["pose"]["position"][2] <= 0.41 and
                                   abs(r["pose"]["position"][0] - 6) < 0.01 for r in wall)
-    stale = [r for r in simulation if r["pose"]["entity"] == 2 and
-             1002 <= r["local_tick"] < 1040 and r["decision_age_ms"] > 267]
+    expiry_window = [r for r in simulation if r["pose"]["entity"] == 2 and
+                     990 <= r["local_tick"] <= 1070]
     expiry_transitions = []
-    last_active = {}
-    previous_tick = {}
-    for row in simulation:
-        entity = row["pose"]["entity"]
-        if row["held"] != [0, 0]:
-            last_active[entity] = row["receipt_ms"]
-        elif entity in last_active and row["receipt_ms"] == last_active[entity]:
-            if entity == 2 and 990 <= row["local_tick"] <= 1070:
-                expiry_transitions.append({"entity": entity, "local_tick": row["local_tick"],
-                                           "age_ms": row["held_age_ms"],
-                                           "previous_age_ms": previous_tick[entity]["held_age_ms"],
-                                           "tick_gap_ms": row["time_ms"] - previous_tick[entity]["time_ms"],
-                                           "velocity": row["pose"]["velocity"]})
-            del last_active[entity]
-        previous_tick[entity] = row
-    expired = (bool(expiry_transitions) and all(r["held"] == [0, 0] for r in stale) and
-               all(0 <= r["age_ms"] <= 267 and r["velocity"] == [0, 0, 0]
-                   for r in expiry_transitions))
+    previous = None
+    for row in expiry_window:
+        if (previous is not None and row["receipt_ms"] == previous["receipt_ms"] and
+                previous["decision_age_ms"] <= HELD_EXPIRY_MS < row["decision_age_ms"]):
+            expiry_transitions.append({
+                "entity": 2, "local_tick": row["local_tick"],
+                "receipt_ms": row["receipt_ms"], "age_ms": row["decision_age_ms"],
+                "previous_age_ms": previous["decision_age_ms"],
+                "tick_gap_ms": row["time_ms"] - previous["time_ms"],
+                "velocity": row["pose"]["velocity"],
+            })
+            break
+        previous = row
+    transition = expiry_transitions[0] if expiry_transitions else None
+    stale = ([r for r in expiry_window if r["receipt_ms"] == transition["receipt_ms"] and
+              r["decision_age_ms"] > HELD_EXPIRY_MS] if transition else [])
+    expired = (bool(stale) and transition is not None and
+               HELD_EXPIRY_MS < transition["age_ms"] <=
+               HELD_EXPIRY_MS + transition["tick_gap_ms"] + EXPIRY_CLOCK_TOLERANCE_MS and
+               all(r["held"] == [0, 0] and r["pose"]["velocity"] == [0, 0, 0]
+                   for r in stale))
     # Matching state of a settled authority, after the two isolated recovery segments.
     recovery = []
     for label, low, high in [("interruption", 805, 840), ("host_stall", 960, 995)]:

@@ -118,7 +118,9 @@ func consume_authority_input(
 
 ## Replaces one participant's authority queue at a lifecycle fence.
 func _reset_input_queue(participant: int) -> void:
-	input_queues[participant] = S03InputFrameQueue.new(SEQUENCE_WINDOW)
+	input_queues[participant] = S03InputFrameQueue.new(
+		S03InputFrameQueue.DEFAULT_CAPACITY, SEQUENCE_WINDOW
+	)
 
 
 ## Queues one local numbered input for the client physics owner to simulate once.

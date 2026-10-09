@@ -43,6 +43,8 @@ var last_command: Vector2 = Vector2.ZERO
 var event_index: int = 0
 var capture_pending: bool = false
 var capture_pose: Dictionary = {}
+var submitted_batch_sequences: Dictionary = {}
+var correlated_held_results: int = 0
 var failures: Array[String] = []
 var ending: bool = false
 
@@ -77,6 +79,7 @@ func _ready() -> void:
 	replication.resolve_participant = session.participant_for_peer
 	replication.handoff_confirmed.connect(session.confirm_handoff)
 	replication.admission_received.connect(session.receive_admission)
+	replication.held_result.connect(_on_held_result)
 	match_state.stepped.connect(_on_step)
 	match_state.reconciled.connect(_on_reconciled)
 	match_state.held_received.connect(_on_held_received)
@@ -181,6 +184,7 @@ func _collect_and_send(delta: float) -> void:
 	if role == "host":
 		match_state.submit_held(session.local_participant, envelope)
 	else:
+		submitted_batch_sequences[int(envelope.frames[-1].sequence)] = true
 		replication.send_held(envelope)
 	_record_input_send(sampled, motion_command, sample_ticks_ms, sample_wall_ms)
 
@@ -287,6 +291,17 @@ func _announce(session_id: String) -> void:
 	var participant: int = session.participant_for_peer(multiplayer.get_remote_sender_id())
 	if participant > 0 and match_state.bindings[participant].admitted and started_ms < 0:
 		_start()
+
+
+## Requires batched RPC results to return the newest submitted frame sequence.
+func _on_held_result(_reason: String, result_sequence: int) -> void:
+	if role != "client":
+		return
+	if not submitted_batch_sequences.has(result_sequence):
+		if not failures.has("batched held result lost sequence correlation"):
+			failures.append("batched held result lost sequence correlation")
+		return
+	correlated_held_results += 1
 
 
 ## Records accepted client input immediately inside the authoritative RPC call chain.
@@ -492,10 +507,13 @@ func _finish() -> void:
 	for actor: S03RActor in match_state.bodies:
 		if actor.visible or actor.velocity != Vector3.ZERO or not actor.samples.is_empty():
 			failures.append("body not retired")
+	if role == "client" and correlated_held_results == 0:
+		failures.append("no batched held result sequence was correlated")
 
 	_record({"event": "result", "ok": failures.is_empty(), "failures": failures,
 		"reason": session.close_outcome, "max_held_bytes": replication.max_held_bytes,
 		"max_movement_bytes": replication.max_movement_bytes,
+		"correlated_held_results": correlated_held_results,
 		"accepted": match_state.accepted_count, "rejected": match_state.rejected})
 	get_tree().quit(0 if failures.is_empty() else 1)
 

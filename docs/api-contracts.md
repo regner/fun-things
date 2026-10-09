@@ -420,12 +420,15 @@ Only the host's fresh control revision authorizes sequence 1 again; a baseline
 without that rebind cannot reset a held sequence. Reliable action sequence continues
 across resync, and queued actions from the old binding are invalidated.
 Held input is replaceable. At most three recent frames per message recover loss;
-accept only increasing in-window sequences. The dated S03-P revision (8 October 2026,
-pending owner review at P0-GATE) supersedes the earlier newest-valid-frame wording:
-the host consumes queued frames in order, at most one per physics tick. Pending lag is
-bounded at three frames (50 ms); older frames beyond that bound are explicitly
-superseded without extra simulation steps. This one-to-one mapping keeps host simulation
-aligned with client replay. Receipt age beyond `HELD_EXPIRY_MS` (250 ms) supersedes
+accept only increasing sequences within the separate 120-sequence freshness window,
+and retain at most eight queued frames per participant. The dated S03-P revision
+(8 October 2026, pending owner review at P0-GATE) supersedes the earlier
+newest-valid-frame wording: the host consumes queued frames in order, at most one per
+physics tick. Pending lag is measured by sequence/input-tick distance from the newest
+accepted frame. The host selects the oldest queued frame within three ticks (50 ms) of
+that newest frame and explicitly supersedes everything older without extra simulation
+steps. This one-to-one mapping keeps host simulation aligned with client replay. Receipt
+age beyond `HELD_EXPIRY_MS` (250 ms) supersedes
 pending intent and simulates neutral input. The acknowledgement watermark is the last
 consumed or explicitly superseded frame and advances only on that simulation step;
 receipt alone is never an acknowledgement. Dropped held frames carry no discrete action.

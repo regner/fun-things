@@ -209,6 +209,21 @@ func send_held(envelope: Dictionary) -> void:
 	_held.rpc_id(1, envelope)
 
 
+## Correlates legacy single frames or the newest sequence in a batched envelope.
+func _held_result_sequence(envelope: Variant) -> int:
+	if not envelope is Dictionary:
+		return -1
+	if envelope.get("sequence") is int:
+		return envelope.sequence
+
+	var frames: Variant = envelope.get("frames")
+	if frames is Array and not frames.is_empty() and frames[-1] is Dictionary and (
+		frames[-1].get("sequence") is int
+	):
+		return frames[-1].sequence
+	return -1
+
+
 ## Bound serialized receipt and rate before sender-bound intent validation.
 @rpc("any_peer", "call_remote", "unreliable_ordered", 2)
 func _held(envelope: Variant) -> void:
@@ -232,11 +247,7 @@ func _held(envelope: Variant) -> void:
 		if var_to_bytes(envelope).size() <= MAX_HELD_BYTES:
 			reason = match_state.submit_held(participant, envelope)
 
-	var sequence: int = -1
-	if envelope is Dictionary and envelope.get("sequence") is int:
-		sequence = envelope.sequence
-
-	_result.rpc_id(peer_id, reason, sequence)
+	_result.rpc_id(peer_id, reason, _held_result_sequence(envelope))
 
 
 ## Expose command outcomes to observers without acknowledging unconsumed simulation.
