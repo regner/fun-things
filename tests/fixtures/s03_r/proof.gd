@@ -161,7 +161,7 @@ func _collect_and_send(delta: float) -> void:
 		"aim_yaw": motion_command.aim_yaw,
 	}
 	recent_input_frames.append(input_frame)
-	if recent_input_frames.size() > 4:
+	if recent_input_frames.size() > 3:
 		recent_input_frames.pop_front()
 	if role == "client":
 		match_state.queue_local_prediction(local_tick, motion_command, delta)
@@ -234,11 +234,34 @@ func _check_boundaries() -> void:
 	envelope.frames = [frame]
 	reasons.append(match_state.submit_held(participant, envelope))
 	reasons.append(match_state.submit_held(0, envelope))
-	if reasons != ["INVALID", "STALE_CONTEXT", "WINDOW", "NOT_ADMITTED"] or (
-		binding.pending != before):
+	reasons.append_array(_freshness_boundary_reasons(participant, binding, envelope, frame))
+	var expected: Array[String] = [
+		"INVALID", "STALE_CONTEXT", "WINDOW", "NOT_ADMITTED",
+		"INPUT_QUEUE", "INPUT_QUEUE", "INPUT_QUEUE",
+	]
+	if reasons != expected or binding.pending != before:
 		failures.append("input boundary changed pending state")
 	_record({"event": "boundary_checks", "reasons": reasons,
 		"unchanged_pending": binding.pending == before})
+
+
+## Submits cross-packet sequence/tick conflicts without changing the live binding.
+func _freshness_boundary_reasons(
+	participant: int, binding: Dictionary, envelope: Dictionary, frame: Dictionary
+) -> Array[String]:
+	var reasons: Array[String] = []
+	frame.move = Vector2.ZERO
+	envelope.context = match_state.context(participant)
+	frame.sequence = maxi(1, int(binding.sequence))
+	frame.input_tick = int(binding.last_input_tick) + 1
+	reasons.append(match_state.submit_held(participant, envelope))
+	frame.sequence = maxi(1, int(binding.pending))
+	frame.input_tick = int(binding.last_input_tick) + 17
+	reasons.append(match_state.submit_held(participant, envelope))
+	frame.sequence = maxi(int(binding.pending), int(binding.sequence)) + 1
+	frame.input_tick = int(binding.last_input_tick) + S03Match.SEQUENCE_WINDOW + 1
+	reasons.append(match_state.submit_held(participant, envelope))
+	return reasons
 
 
 ## Starts measurement only after the admitted dependent state has enabled local control.

@@ -37,15 +37,16 @@ does not edit S04.
 
 ## Protocol and analyzer corrections
 
-Each nominal 30 Hz unreliable envelope now redundantly carries at most four consecutive
-per-physics-tick frames. The bounded host queue deduplicates them, consumes at most one
-oldest frame for each participant on each normal host physics step, and advances the
-published watermark only to that frame. A gap before the next available frame is
-explicitly counted as superseded. Missing input produces neutral motion; the host never
-repeats an already acknowledged frame and never runs extra simulation steps to drain a
-stall backlog. The standalone deterministic probe executes all 120 matching numbered
-frames with isolated packet losses and a 15-tick host stall and observes zero source-tick
-correction.
+Each nominal 30 Hz unreliable envelope carries at most the canonical three consecutive
+per-physics-tick frames. The bounded host queue accepts exact redundant copies but requires
+every fresh frame to preserve one sequence-to-input-tick offset within the control
+revision. It consumes at most one frame per participant on each normal host physics step.
+If a stall grows the queue, the same step supersedes an obsolete prefix so acknowledged
+lag returns to the declared three-frame bound; it never runs extra simulation steps.
+Receipt age beyond 250 ms supersedes the remaining queue and simulates neutral input on
+that step. Published watermarks advance only through that simulated or explicitly
+superseded work. The deterministic probe covers isolated packet loss, a 15-tick stall,
+post-stall bounded lag, and neutral expiry with 24 pending frames.
 
 The analyzer computes accepted matching-tick error from received pose versus host source
 pose; the immediate local restore remains a separate diagnostic. A regression with a

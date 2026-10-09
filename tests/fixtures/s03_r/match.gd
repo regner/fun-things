@@ -80,21 +80,40 @@ func _step_authority(delta: float) -> void:
 
 		binding.held_age_ms = Time.get_ticks_msec() - int(binding.receipt_ms)
 		expiry_decision_ages[binding.entity] = binding.held_age_ms
-		var frame: Dictionary = input_queues[participant].pop_next(binding.last_input_tick)
-		if frame.is_empty():
-			binding.held = { "move": Vector2.ZERO, "aim_yaw": actor.rotation.y,
-				"input_tick": binding.last_input_tick }
-		else:
-			binding.held = { "move": frame.move, "aim_yaw": frame.aim_yaw,
-				"input_tick": frame.input_tick }
-			binding.sequence = frame.sequence
-			binding.last_input_tick = frame.input_tick
-			binding.superseded_count += frame.superseded_count
-			binding.sample = (frame.move as Vector2).length()
-			accepted_count += 1
-
+		binding.held = consume_authority_input(
+			participant, actor.rotation.y, binding.held_age_ms
+		)
 		var held: Dictionary = binding.held
 		actor.step({ "move": held.move, "aim_yaw": held.aim_yaw, "fire": false }, delta)
+
+
+## Consumes, supersedes or expires one participant's pending input for this host step.
+func consume_authority_input(
+	participant: int, fallback_yaw: float, receipt_age_ms: int
+) -> Dictionary:
+	var binding: Dictionary = bindings[participant]
+	var queue: S03InputFrameQueue = input_queues[participant]
+	var frame: Dictionary
+	if receipt_age_ms > HELD_EXPIRY_MS:
+		frame = queue.supersede_all(binding.sequence, binding.last_input_tick)
+	else:
+		frame = queue.pop_next(binding.sequence, binding.last_input_tick)
+	if frame.is_empty():
+		return { "move": Vector2.ZERO, "aim_yaw": fallback_yaw,
+			"input_tick": binding.last_input_tick }
+
+	binding.sequence = frame.sequence
+	binding.last_input_tick = frame.input_tick
+	binding.superseded_count += frame.superseded_count
+	if receipt_age_ms > HELD_EXPIRY_MS:
+		binding.sample = 0.0
+		return { "move": Vector2.ZERO, "aim_yaw": fallback_yaw,
+			"input_tick": binding.last_input_tick }
+
+	binding.sample = (frame.move as Vector2).length()
+	accepted_count += 1
+	return { "move": frame.move, "aim_yaw": frame.aim_yaw,
+		"input_tick": frame.input_tick }
 
 
 ## Replaces one participant's authority queue at a lifecycle fence.
@@ -260,7 +279,9 @@ func apply_baseline(data: Dictionary) -> bool:  # gdstyle:ignore=quality/max-ret
 
 
 ## Retains sender/context/window checks while queueing numbered physics input frames.
-func submit_held(participant: int, envelope: Variant) -> String:
+func submit_held(  # gdstyle:ignore=quality/max-returns
+	participant: int, envelope: Variant
+) -> String:
 	if not authoritative or not bindings.has(participant) or not bindings[participant].admitted:
 		return _reject("NOT_ADMITTED")
 	if not _held_shape_valid(envelope):
@@ -273,8 +294,11 @@ func submit_held(participant: int, envelope: Variant) -> String:
 	var newest_sequence: int = int(frames[-1].sequence)
 	if newest_sequence > int(binding.sequence) + SEQUENCE_WINDOW:
 		return _reject("WINDOW")
-	if not input_queues[participant].offer(frames, binding.last_input_tick):
+	var queue: S03InputFrameQueue = input_queues[participant]
+	if not queue.offer(frames, binding.sequence, binding.last_input_tick):
 		return _reject("INPUT_QUEUE")
+	if not queue.last_offer_added():
+		return "OK"
 
 	binding.pending = maxi(binding.pending, newest_sequence)
 	binding.receipt_ms = Time.get_ticks_msec()
@@ -289,7 +313,7 @@ func _held_shape_valid(envelope: Variant) -> bool:
 	if not envelope.get("context") is Dictionary or not envelope.get("frames") is Array:
 		return false
 	var frames: Array = envelope.frames
-	if frames.is_empty() or frames.size() > 4:
+	if frames.is_empty() or frames.size() > 3:
 		return false
 
 	var previous_sequence: int = -1

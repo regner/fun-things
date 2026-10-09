@@ -330,8 +330,8 @@ external-network connectivity.
 
 The historical [S03-R ENet candidate](spikes/s03-r.md) first measured the actual
 S02 controller without prediction. S03-P now owns the required foot prediction
-trial: four-frame redundant input bursts, a bounded deduplicating authority queue,
-one numbered input at most per normal host step, exact processed/superseded tick
+trial: canonical three-frame redundant input bursts, a bounded deduplicating authority
+queue, one numbered input at most per normal host step, exact processed/superseded tick
 watermarks, authoritative restore plus permitted replay, and visual-only correction
 smoothing. No extra host steps drain a stall backlog and missing input neutralizes
 rather than reusing an acknowledged frame. Remote actors remain interpolated. The

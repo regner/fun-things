@@ -25,6 +25,7 @@ PROFILES = {"baseline": (0, 0, 0), "normal": (75, 30, 0.02),
             "adverse": (125, 50, 0.05)}
 MAX_QUEUE = 1024
 MAX_POLL = 128
+MAX_PENDING_INPUT_FRAMES = 3
 POLL_SECONDS = 0.002
 BLACKOUT_START_SECONDS = 12.15
 BLACKOUT_SECONDS = 1.0
@@ -561,6 +562,7 @@ def run_case(args, directory, profile):
                     measurements["correction_samples"] > 100,
                     measurements["prediction_correction_p95_m"] <= 0.5,
                     measurements["history_exhaustions"] == 0,
+                    measurements["pending_input_frames_max"] <= MAX_PENDING_INPUT_FRAMES,
                     all(r["converged"] for r in measurements["recovery"]),
                     visible_response_valid(measurements, args.windowed)]
         if profile == "adverse":
