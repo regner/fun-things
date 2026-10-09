@@ -11,6 +11,9 @@ one-second bidirectional delivery interruption and deterministic 250 ms host sta
 staged fixture source, and hashes for `tools/run_s11.py`, its imported
 `tools/run_s03.py` cleanup helper, and `tools/script_checks.py`. The runner hash is
 `81a3491cc30205cf38b42ded2f9ff8f68f603e3e46822d940715bc5741e242ff`.
+The required final history-only rebase rewrote the measured code commit to
+`5a004527fa932591709ace10c2921158414515b2`; all 29 retained fixture/helper hashes
+were compared after that rebase and match the current branch byte-for-byte.
 
 - `result.json`: full commands, identities/fingerprints, process/environment records,
   per-case profile delivery, stall receipts, measurements and process results.
