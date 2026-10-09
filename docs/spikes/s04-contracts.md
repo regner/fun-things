@@ -32,7 +32,8 @@ frames. The saved presentation child smooths corrections separately; authoritati
 body state remains the sole collision pose. Replay cannot mutate durable gameplay state.
 
 The fixed fixture inherits S03 session/admission/RPC sender validation. One held
-message has context/sequence/four primitive finite bounded drive values; inherited
+message has context/sequence, a bounded input tick that must increase strictly per
+control revision, and four primitive finite bounded drive values; inherited
 120-sequence window, byte/rate limits and no unadmitted mutation apply. Snapshots
 carry12 fields: player marker entity, tick, control/durable dependencies, position,
 yaw, velocity, sequence, explicit vehicle ID, generation/life and collision revision.
@@ -49,6 +50,13 @@ admission. Session/control/entity/generation/life/collision dependencies fence p
 future durable state is dropped, never buffered without its reliable dependency.
 Grant plus fresh dependent pose opens local input; replacing/clearing/rollback
 clears queued poses and floors. There is no general future-state/reset framework.
+
+A moving exit rejection preserves seat, input and prediction state. A successful
+stopped result makes the client body passive, closes input, clears replay history and
+removes its local seat. Exit requests permit one client outstanding request and use a
+small host per-peer token bucket. Disconnect captures binding-independent pose metadata
+before removing the driver binding, so normal telemetry and movement envelopes retain
+the neutral coasting car through rest.
 
 Seated resync retains the injured player, vehicle/driver seat and equipment sentinel
 (`pistol`, magazine7), closes admission, neutralizes velocity/old commands, advances

@@ -11,8 +11,10 @@ existing driver-death rule.
 `S04Kinematic.step`, including the same `move_and_slide` collision path. The client numbers one input
 per local physics tick, retains at most 120 inputs keyed by tick, and sends the newest input tick with
 the existing bounded held command. Host poses acknowledge the newest input tick actually used by a
-host simulation step. On receipt, the local client restores authoritative position, yaw and velocity,
-discards acknowledged input, and replays only the remaining permitted movement frames. Overflow
+host simulation step. Ticks are bounded and must increase strictly within the current control
+revision before held state can mutate. On receipt, the local client restores authoritative position,
+yaw and velocity, discards acknowledged input, and replays only the remaining permitted movement
+frames. Overflow
 selects a host-state snap and clears history rather than unbounded replay.
 
 Replay can move only the local car. It has no entry point for seats, health, inventory, damage, world
@@ -22,11 +24,14 @@ Small corrections are hidden on the saved `PresentationAnchor` and decay separat
 replacement, resync, teardown and retirement clear prediction state.
 
 The host rejects exit while planar speed is **at least 0.5 m/s** with `EXIT_MOVING`. The predicted
-client sends a reliable request and does not change its seat or prediction owner before the host
-verdict. A stopped fixture exit closes command admission and releases the seat. On remote-driver
-disconnect, the host releases the seat and input owner immediately, substitutes neutral controls,
-and continues the surviving car under the shared coast rule until stopped. Driver death still uses
-the pre-existing neutralization path; this task did not change it. No firing from cars was added.
+client permits one outstanding reliable request; the host applies a small per-peer token bucket and
+clears it on disconnect. Rejection does not change seat or prediction ownership. A successful stopped
+verdict disables local input and prediction, clears history, releases the replicated seat and returns
+the car to passive host-pose installation. On remote-driver disconnect, the host releases the seat and
+input owner immediately, retains binding-independent replication metadata, substitutes neutral
+controls, and replicates the surviving car under the shared coast rule until stopped. Driver death
+still uses the pre-existing neutralization path; this task did not change it. No firing from cars was
+added.
 
 The expiry analyzer now records the age used at the start of the host simulation callback. This fixes
 the known Windows boundary where a later post-step telemetry timestamp could make the previous row
@@ -47,6 +52,7 @@ are separate.
 | Post-rebase baseline | 304 ms (14/20) | 62 ms (20/20) | 0.193 m | 90 us | FAIL: six historical authority samples exceeded the 500 ms window |
 | Development normal, 75 ms +/-30 ms one-way, 2% loss | 286 ms | 46 ms | 0.285 m | 36.46 us | PASS |
 | Post-rebase normal | 282 ms | 68 ms | 0.275 m | 44.82 us | PASS |
+| Review-corrected normal | 310 ms | 76 ms | 0.238 m | 27.43 us | PASS |
 | Development adverse, 125 ms +/-50 ms one-way, 5% loss | 417 ms | 68 ms | 0.473 m | 36.67 us | FAIL only on the superseded post-step expiry timestamp boundary |
 | Post-rebase adverse | 487 ms (18/20) | 57 ms (20/20) | 0.576 m | 34.96 us | FAIL: authority sampling and 0.5 m correction target |
 
@@ -67,10 +73,19 @@ is a drawn measurement rather than a full profile pass. An earlier developmental
 the provisional 50 ms visible target on this contended workstation. Synthetic input and automatic
 frame receipts are not physical key, display scanout or subjective handling evidence.
 
+The review-corrected normal pass has 693 matching-tick samples with 0 m maximum installation error.
+Unlike older receipts, it records the actual body immediately after authoritative restoration and
+before replay. An analyzer counterexample supplies a correct wire pose but a body displaced by 4 m
+and reports 4 m error, proving the criterion fails if installation is skipped. Older receipts remain
+historical response/pacing records; their tautological zero-error field is not accepted.
+
 The focused final-source check passed all five cases. Its prediction case independently forces the
-120-frame overflow policy and correction snap; its lifecycle case proves exactly-0.5 m/s rejection,
-0.49 m/s acceptance, immediate authority release on disconnect, continued displacement under neutral
-coast, and eventual stop.
+120-frame overflow policy and correction snap; its lifecycle case proves strictly monotonic bounded
+input ticks, request burst/outstanding bounds, exactly-0.5 m/s rejection, 0.49 m/s acceptance,
+immediate authority release on disconnect, coast pose inclusion, continued displacement under
+neutral coast, and eventual stop. Two separate-process lifecycle cases additionally prove a stopped
+exit makes the predicted client passive and an abrupt client process exit leaves a diagnostic-free
+host, 59 replicated coasting snapshots and a car at rest.
 
 ## Disposition and remaining risk
 

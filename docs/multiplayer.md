@@ -361,9 +361,11 @@ by this fixture. Exact [2370ad1 acceptance](spikes/s04.md#accepted-exact-final-d
 closes P2/P3. Original physics p95 97/269/401 ms and fixed normal/adverse248/380 ms
 remain separate,20/20 each; those authority-only values are historical baselines, not
 prediction corrections. [S04-P](spikes/s04-prediction.md) adds the bounded local car
-input history, host processed-input acknowledgement, rewind/replay, correction smoothing,
-`EXIT_MOVING` and disconnect coast path. Its pre-rebase baseline and exact post-rebase
-normal correction p95 values are 0.163/0.275 m; exact baseline/adverse pacing receipts remain
+input history, strictly monotonic bounded input ticks, host processed-input acknowledgement,
+rewind/replay, correction smoothing, rate-bounded `EXIT_MOVING`, passive stopped-exit lifecycle
+and binding-independent replicated disconnect coast path. Its pre-rebase baseline and exact
+review-corrected normal correction p95 values are 0.163/0.238 m; older matching-installation
+zeros are superseded because they copied wire state. Exact baseline/adverse pacing receipts remain
 mixed and are retained honestly. Physical input/focus, visible response/camera/readability/
 feel, final body/dimensions/turning, foot/car handoff, full S04, Steam/Deck/Linux/exports/
 capacity and P0/M1/production gates remain open.
