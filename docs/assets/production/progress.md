@@ -1,24 +1,24 @@
-# Production progress — safe routing checkpoint
+# Production progress
 
-ROOT fbd92534-e159-432f-aae7-28072c2bf3b2 now owns queue/dispatch directly.
-Technical integrator150f00b5-9e62-44d8-b0aa-a456d2a88b8c is idle after this saved
-light batch, available for concrete4–6 asset integration batches.
+ROOT owns dispatch and the queue. Three Astra/medium sources run in parallel:
+city_sign_supports.01, city_planting.01 and city_planting.02. The technical integrator
+is idle at saved checkpoint `53502af4775ca60551b63a94deb28b52ed88c253`.
 
-Queue covers all223 stable IDs and12 trailing tracks. Initial city_lights.01/.02
-specialists finished and source/export delivered; complete producer sets/bytes/hashes
-verified. Four linked warm/cool prefabs saved/reopened and imported bounds measured.
-Actual1280x800 vertical47 m/42deg capture retained. READY remains pending, with runtime
-UID warnings, collision/query/repetition checks and independent review unresolved.
-See [technical checkpoint](lights-integration.md) and integration-evidence/ raw logs.
+All 223 stable IDs and 12 trailing tracks remain tracked. Three light sources and
+exports are delivered; 3 records are modeling and 217 are queued. No asset has full
+engine/review acceptance. Initial light01/02 have four linked saved/reopened prefabs
+and an actual 1280x800 47m/42deg capture. Runtime UID warnings, collision/query and
+repetition checks, and independent review remain pending. Wall-light integration
+is pending. See [technical handoff](lights-integration.md).
 
-city_lights.04 a69e6e9c-4878-486d-b6b0-417b5786ce80 delivered source/export while this
-checkpoint was saved; ROOT received its report/36-file manifest. This checkpoint does
-not stage or accept its output. Active source ownership: city_sign_supports.01 bf303bbb-ed1e-4570-860f-41060d6c000e. Both codex/gpt-6-astra,
-configured/effective medium, auto-review. Both instructed once to send one compact
-final source handoff to ROOT only; no duplicate coordination or source launches here.
+Four active-agent capacity includes ROOT. Integration and independent review use a
+child slot as source workers finish; the next small batch will include the wall
+light and sign panel. Workers report once through their final saved handoff.
 
-Private editor PID178546, project this worktree, editor/runtime ports22650/22651,
-CLI LSP22652; saved inspector active, runtime stopped, no unsaved scenes at checkpoint.
-Shared endpoint6550 remains unavailable; global connector configuration untouched.
-Baseline2a0fe4f588f86ca1d9b1226f8fb5ede065e6c661, base66400c26a01bf917dfe631af4762c2b444d9c48f.
-No main writes, push, merge, archive, TODO closures or ready/placement acceptance.
+Private editor: PID178546, this worktree, pinned Godot4.8-dev7, editor22650,
+runtime22651, CLI LSP22652. Runtime stopped and no unsaved scenes at checkpoint.
+Guarded resume transport and remaining concrete work are in the technical handoff.
+Blender5.2.2 LTS/glTF5.2.40 is verified; use process-local audio-disabled launches.
+
+Main remains untouched. Placement/device/performance acceptance and TODO closure
+remain pending. No push, merge or archival.

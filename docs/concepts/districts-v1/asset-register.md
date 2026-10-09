@@ -75,12 +75,12 @@ means codes 01–09 and is used only for candidate reuse, not blanket approval.
 
 | Asset and stable ID | Output type | Needed in | Unconfirmed uses | Stage | Next action | Brief |
 | --- | --- | --- | --- | --- | --- | --- |
-| Ordinary street pole · `city_lights.01` | Model design | 01, 02, 03, 04, 05, 06, 07, 08, 09 | — | Source/export delivered; prefab validation pending | Resolve UID/collision/review gates; placement pending | [Brief](../../assets/city_lights.md) |
-| Short pedestrian fixture · `city_lights.02` | Model design | 01, 02, 03, 04, 05, 06, 07, 08 | — | Source/export delivered; prefab validation pending | Resolve UID/collision/review gates; placement pending | [Brief](../../assets/city_lights.md) |
-| Wall light · `city_lights.04` | Model design | 01, 02, 03, 04, 05, 06, 07, 08, 09 | — | Source/export delivered; integration pending | ROOT queues delivered source for integration batch | [Brief](../../assets/city_lights.md) |
-| Flat wall panel · `city_sign_supports.01` | Model design | 01, 02, 04, 05, 06, 07, 08, 09 | Candidate: 03 | Production source in progress | Complete assigned source/export handoff to ROOT | [Brief](../../assets/city_sign_supports.md) |
-| Low rectangular planter · `city_planting.01` | Model design | 03, 04, 05, 06, 07 | Candidate: 01, 02 | Asset concept needed | Refine shared design for recorded districts | [Brief](../../assets/city_planting.md) |
-| Round planter · `city_planting.02` | Model design | 03, 04, 05, 06, 07 | Candidate: 01, 02 | Asset concept needed | Refine shared design for recorded districts | [Brief](../../assets/city_planting.md) |
+| Ordinary street pole · `city_lights.01` | Model design | 01, 02, 03, 04, 05, 06, 07, 08, 09 | — | Source/export delivered | Godot integration and independent review pending | [Brief](../../assets/city_lights.md) |
+| Short pedestrian fixture · `city_lights.02` | Model design | 01, 02, 03, 04, 05, 06, 07, 08 | — | Source/export delivered | Godot integration and independent review pending | [Brief](../../assets/city_lights.md) |
+| Wall light · `city_lights.04` | Model design | 01, 02, 03, 04, 05, 06, 07, 08, 09 | — | Source/export delivered | Godot integration and independent review pending | [Brief](../../assets/city_lights.md) |
+| Flat wall panel · `city_sign_supports.01` | Model design | 01, 02, 04, 05, 06, 07, 08, 09 | Candidate: 03 | Modeling | Astra medium source production; see production queue | [Brief](../../assets/city_sign_supports.md) |
+| Low rectangular planter · `city_planting.01` | Model design | 03, 04, 05, 06, 07 | Candidate: 01, 02 | Modeling | Astra medium source production; see production queue | [Brief](../../assets/city_planting.md) |
+| Round planter · `city_planting.02` | Model design | 03, 04, 05, 06, 07 | Candidate: 01, 02 | Modeling | Astra medium source production; see production queue | [Brief](../../assets/city_planting.md) |
 | Low shrub cluster · `city_planting.03` | Model design | 01, 02, 03, 04, 05, 06, 07, 08, 09 | — | Asset concept needed | Refine shared design for recorded districts | [Brief](../../assets/city_planting.md) |
 | Small broad-canopy tree · `city_planting.04` | Model design | 01, 02, 03, 04, 05, 06, 07, 08, 09 | — | Asset concept needed | Refine shared design for recorded districts | [Brief](../../assets/city_planting.md) |
 | Low weed/rough-grass clump set · `city_planting.05` | Component set | 08 | — | Asset concept needed | Refine shared design for recorded districts | [Brief](../../assets/city_planting.md) |

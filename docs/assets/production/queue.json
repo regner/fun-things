@@ -4,9 +4,9 @@
   "branch": "art/register-production-20261009",
   "base": "66400c26a01bf917dfe631af4762c2b444d9c48f",
   "input_sha256": "910625466166b81bc6fc77d7f78f037c2cb6e6c19db751b5574f9c101eccd0b0",
-  "lead": "150f00b5-9e62-44d8-b0aa-a456d2a88b8c",
+  "lead": "fbd92534-e159-432f-aae7-28072c2bf3b2",
   "parent": "fbd92534-e159-432f-aae7-28072c2bf3b2",
-  "max_running_children": 2,
+  "max_running_children": 3,
   "launch_receipt": "ROOT 2026-10-09: no profiles; codex available; gpt-6-astra medium and gpt-6.1-sol medium/high verified; auto-review verified; no feature overrides",
   "records": [
     {
@@ -24,7 +24,7 @@
       "agent_id": "a320df33-e49b-4a56-8e08-1d2551463068",
       "source_revision": null,
       "review_status": "pending",
-      "integration_status": "prefabs_saved_checks_pending",
+      "integration_status": "partial",
       "placement_status": "pending",
       "blocker": null,
       "attempts": 1,
@@ -67,7 +67,7 @@
       "agent_id": "285fea37-eec1-4e65-98fc-f0713bef0e89",
       "source_revision": null,
       "review_status": "pending",
-      "integration_status": "prefabs_saved_checks_pending",
+      "integration_status": "partial",
       "placement_status": "pending",
       "blocker": null,
       "attempts": 1,
@@ -164,9 +164,12 @@
       "launch": {
         "provider": "codex/gpt-6-astra",
         "configured_effort": "medium",
-        "mode": "auto-review",
         "effective_effort": "medium",
-        "notification_route": "fbd92534-e159-432f-aae7-28072c2bf3b2"
+        "mode": "auto-review",
+        "launched_by": "integrator before routing handoff",
+        "notification_route": [
+          "ROOT"
+        ]
       }
     },
     {
@@ -180,14 +183,14 @@
       "input_next_action": "Refine shared design for recorded districts",
       "brief": "[Brief](../../assets/city_planting.md)",
       "priority": 0,
-      "status": "queued",
-      "agent_id": null,
+      "status": "modeling",
+      "agent_id": "2ca44d19-8b35-441d-815d-8b43c0616fd6",
       "source_revision": null,
       "review_status": "pending",
       "integration_status": "pending",
       "placement_status": "pending",
       "blocker": null,
-      "attempts": 0,
+      "attempts": 1,
       "initial_time_cap_minutes": 90,
       "owned_paths": [
         "art/source/models/environment/city_planting_01/",
@@ -196,7 +199,17 @@
         "art/materials/environment/city_planting_01/",
         "docs/assets/production/city_planting_01.md",
         "docs/assets/production/city_planting_01-evidence/"
-      ]
+      ],
+      "launch": {
+        "provider": "codex/gpt-6-astra",
+        "configured_effort": "medium",
+        "effective_effort": "medium",
+        "mode": "auto-review",
+        "launched_by": "ROOT",
+        "notification_route": [
+          "ROOT"
+        ]
+      }
     },
     {
       "id": "city_planting.02",
@@ -209,14 +222,14 @@
       "input_next_action": "Refine shared design for recorded districts",
       "brief": "[Brief](../../assets/city_planting.md)",
       "priority": 0,
-      "status": "queued",
-      "agent_id": null,
+      "status": "modeling",
+      "agent_id": "6c134cf1-f3ec-454e-bebc-f45ef351bac8",
       "source_revision": null,
       "review_status": "pending",
       "integration_status": "pending",
       "placement_status": "pending",
       "blocker": null,
-      "attempts": 0,
+      "attempts": 1,
       "initial_time_cap_minutes": 90,
       "owned_paths": [
         "art/source/models/environment/city_planting_02/",
@@ -225,7 +238,17 @@
         "art/materials/environment/city_planting_02/",
         "docs/assets/production/city_planting_02.md",
         "docs/assets/production/city_planting_02-evidence/"
-      ]
+      ],
+      "launch": {
+        "provider": "codex/gpt-6-astra",
+        "configured_effort": "medium",
+        "effective_effort": "medium",
+        "mode": "auto-review",
+        "launched_by": "ROOT",
+        "notification_route": [
+          "ROOT"
+        ]
+      }
     },
     {
       "id": "city_planting.03",
@@ -6632,5 +6655,7 @@
     }
   ],
   "queue_owner": "fbd92534-e159-432f-aae7-28072c2bf3b2",
-  "lead_role": "bounded Godot integration/shared tooling implementer; idle after checkpoint"
+  "lead_role": "bounded Godot integration/shared tooling implementer; idle after checkpoint",
+  "integrator": "150f00b5-9e62-44d8-b0aa-a456d2a88b8c",
+  "capacity_contract": "Four active agents including ROOT; integration/review occupies a child slot; at most three source workers while integrator idle."
 }
