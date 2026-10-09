@@ -2,9 +2,12 @@
 
 > **Historical run instructions.** Commands in this record that target `prototypes/` describe
 > the original runnable checkout; they do not run in the current checkout because the archive
-> is hidden by `.gdignore`. To reproduce them, follow the
-> [restore-from-Git procedure](../../prototypes/README.md) in a separate worktree at the recorded
-> pre-cleanup commit.
+> is hidden by `.gdignore`. Follow the
+> [restore-from-Git procedure](../../prototypes/README.md) at pre-cleanup commit
+> `66400c26a01bf917dfe631af4762c2b444d9c48f`, then drop the `prototypes/<group>/`
+> prefix from every listed archived path before running it. For example,
+> `res://prototypes/s02/tests/fixtures/s02/corner.tscn` becomes
+> `res://tests/fixtures/s02/corner.tscn`.
 
 8 October 2026. Sole direct lead `6681e399-01df-42f2-8492-6588c9db791c`,
 configured/runtime GPT-6.1-Sol HIGH, effective HIGH; workspace
@@ -252,7 +255,7 @@ narrower actual result is three automatic callbacks, frames0/1/2 and a nonblank
 exit0 does not close full S02 or physical scanout/input/focus/feel acceptance.
 
 All three accepted auxiliary limitations remain: the source-index builder silently
-skipped nonexistent `prototypes/s02/tools/s02/capture_s02.gd` (the actual historical helper is
+skipped a nonexistent capture-tool path (the actual historical helper is
 `prototypes/s02/tests/fixtures/s02/capture_s02.gd`); its supplemental immutable locator is in the
 full review, without repairing the original index. The invoked external
 `/tmp/s06-editor-relocation/client.mjs` has only a historical source reference,

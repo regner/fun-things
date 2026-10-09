@@ -18,8 +18,12 @@ To inspect one original file without changing the working tree, run:
 git show 66400c26a01bf917dfe631af4762c2b444d9c48f:<path>
 ```
 
-To run a complete old prototype, use a separate worktree or temporary checkout at that commit. Do
-not restore prototype files into production directories merely to make an old receipt runnable.
+To run a complete old prototype, use a separate worktree or temporary checkout at that exact
+commit. The `prototypes/<group>/` directories do not exist there: drop that prefix from every
+archived path in a historical command before running it. For example,
+`res://prototypes/s02/tests/fixtures/s02/corner.tscn` becomes
+`res://tests/fixtures/s02/corner.tscn`. Do not restore prototype files into production directories
+merely to make an old receipt runnable.
 
 ## Cleanup deletion report
 

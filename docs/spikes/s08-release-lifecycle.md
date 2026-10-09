@@ -2,9 +2,12 @@
 
 > **Historical run instructions.** Commands in this record that target `prototypes/` describe
 > the original runnable checkout; they do not run in the current checkout because the archive
-> is hidden by `.gdignore`. To reproduce them, follow the
-> [restore-from-Git procedure](../../prototypes/README.md) in a separate worktree at the recorded
-> pre-cleanup commit.
+> is hidden by `.gdignore`. Follow the
+> [restore-from-Git procedure](../../prototypes/README.md) at pre-cleanup commit
+> `66400c26a01bf917dfe631af4762c2b444d9c48f`, then drop the `prototypes/<group>/`
+> prefix from every listed archived path before running it. For example,
+> `res://prototypes/s02/tests/fixtures/s02/corner.tscn` becomes
+> `res://tests/fixtures/s02/corner.tscn`.
 
 8 October 2026. Base `233493abc7d2e3c106fb620105cfb766f542813b`, workspace
 `wks_994c911f32d1485c`, branch `s08-release-lifecycle-diagnosis`. Direct Sol6.1 HIGH
@@ -43,8 +46,8 @@ The sole independent initial review of `1d5debf0b15cfc9de3e3868a648cc5b5b8488378
 against `30471e6ae4c4ecbe01ce13313cd6d14c3b701bae` found R1/P2: actual supervisors
 at `f178c70efb657ea9fba5951d9440c23c761aea31` and
 `a5756b4b6126a5c9756de981b39fdadc35f3c8fe` poll/forward UDP then sleep10ms, versus
-original `prototypes/s03/tools/run_s03.POLL_SECONDS`20ms. Independent fake-clock/socket evidence
-shows one packet available at5ms can be forwarded at10ms versus20ms. Preserving
+original `POLL_SECONDS` (20 ms) from `prototypes/s03/tools/run_s03.py`. Independent
+fake-clock/socket evidence shows one packet available at5ms can be forwarded at10ms versus20ms. Preserving
 fault event order is not transport service timing preservation. No causation is inferred.
 
 ROOT accepts these two sets **ONLY as truthful qualified partial observations**.
@@ -58,7 +61,8 @@ Exact inverse recovery still establishes preserved saved GDScript statements, no
 that logging/new callbacks or the whole measurement are timing-neutral.
 
 ROOT authorized only a narrow offline source correction: final `lifecycle_diagnostic.py`
-consumes the existing `prototypes/s03/tools/run_s03.POLL_SECONDS` owner instead of literal0.01.
+consumes the existing `POLL_SECONDS` owner in `prototypes/s03/tools/run_s03.py` instead of
+literal 0.01.
 `lifecycle_cadence_test.py` independently requires literal0.020 in that owner and
 rejects the recorded0.01 consumer regression. This is **restored/unexecuted20ms
 source for FUTURE separately commissioned use**, not a gameplay/native fix, measured

@@ -2,9 +2,12 @@
 
 > **Historical run instructions.** Commands in this record that target `prototypes/` describe
 > the original runnable checkout; they do not run in the current checkout because the archive
-> is hidden by `.gdignore`. To reproduce them, follow the
-> [restore-from-Git procedure](../../prototypes/README.md) in a separate worktree at the recorded
-> pre-cleanup commit.
+> is hidden by `.gdignore`. Follow the
+> [restore-from-Git procedure](../../prototypes/README.md) at pre-cleanup commit
+> `66400c26a01bf917dfe631af4762c2b444d9c48f`, then drop the `prototypes/<group>/`
+> prefix from every listed archived path before running it. For example,
+> `res://prototypes/s02/tests/fixtures/s02/corner.tscn` becomes
+> `res://tests/fixtures/s02/corner.tscn`.
 
 8 October 2026. This is the no-network owner feel harness requested after the bounded S04
 body experiment. It instances the accepted saved track and kinematic car, starts with the local

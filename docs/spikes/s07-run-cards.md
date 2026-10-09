@@ -23,7 +23,8 @@ catalogue or a whole-project runtime dependency resolver.
 
 Saved external UID/path pairs, node IDs, inherited composition, export membership,
 GLB headers and source signatures are checked without Godot or Blender. The helper
-reuses `prototypes/shared/tools/check.py:glb`, `prototypes/s06/tools/s06/check_resources.py:uid` and the saved-effect
+reuses `glb` from `prototypes/shared/tools/check.py`, `uid` from
+`prototypes/s06/tools/s06/check_resources.py` and the saved-effect
 link checks from `prototypes/s05_effect/tools/s05_effect/check_resources.py`; no old engine check is run.
 Source-to-export mappings come from the saved handoffs/membership records, not a new
 Blender reopen/reexport. Source geometry and current export equality are not re-proved.

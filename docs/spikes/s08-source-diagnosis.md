@@ -147,7 +147,8 @@ No automatic second set, debug rerun, engine/native build/repair or pin selectio
   observations, exact inverse recovery of original statements/values/await/RPCs,
   unchanged original assets, UIDs, hierarchy, renderer/physics and saved-main transition.
   Derived package is not byte-identical historical PCK and must never be reported so.
-- **Preserved timing:** actual supervisor imports original `prototypes/s03/tools/run_s03.POLL_SECONDS`
+- **Preserved timing:** actual supervisor imports original `POLL_SECONDS` from
+  `prototypes/s03/tools/run_s03.py`
   **0.020s**; poll/forward then sleep20ms,64-datagram poll bound and original stale-held
   deadline2s. No10ms service, independent fast polling thread or rewritten proxy.
   Preserve proof poll10ms, held result wait30ms, cancel retry wait100ms, snapshots120ms,
