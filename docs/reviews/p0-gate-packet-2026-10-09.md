@@ -126,7 +126,7 @@ All timing values explicitly marked **contended** are upper bounds from a shared
 
 ## Owner decisions recorded
 
-The owner recorded decisions 13–23 on 9 October 2026:
+The owner recorded decisions 13–24 on 9 October 2026:
 
 - **Decision 13 — measurement scope and principle:** S17 is the only quiet rerun. Other spike
   timings remain labelled contended. Foundation establishes concepts and high-level limits; M1
@@ -178,12 +178,16 @@ The owner recorded decisions 13–23 on 9 October 2026:
   with the host's accepted transition. Rejection causes no ownership change or snap. Preserve
   S04-T's predicted-entry machinery as a documented later upgrade. Exit remains below 0.5 m/s
   with the authored 1.5 m offset and still requires production clearance queries.
+- **Decision 24 — world concepts:** M1-C0 is in progress under a separate owner-run agent using the
+  [world concept handover](../workflows/world-concept-handover.md). It is outside this orchestration;
+  the owner will report when its work is integrated. The image-provider question is withdrawn.
 
 ## Owner decisions still open
 
 These remaining choices belong to their named production consumer; they are not extra foundation
 or quiet-pass prerequisites under decision 14. An explicit deferral should still name its consumer
-or accepted risk.
+or accepted risk. M1-C0 is not an open decision: it is in progress outside this orchestration, and
+its image-provider question is withdrawn under decision 24.
 
 1. **S04 handling (entry policy settled):** provide drive-scene feedback and an F12 value set.
    **Recommendation:** run the saved harness before freezing B1.1 body/tuning; do not promote
@@ -249,9 +253,10 @@ synthetic noise is uncomfortable.
 - Compare [12-full](../spikes/s15-evidence/12-full.png) and
   [24-full](../spikes/s15-evidence/24-full.png) VFX captures for target/road occlusion and approve
   or reject the proposed tiers.
-- Review the six-block world direction through the separately staged
-  [world concept handover](../workflows/world-concept-handover.md); it begins at Stage 1 and does
-  not authorize later-stage assets before each owner approval.
+- M1-C0 world concepts are in progress under a separate owner-run agent using the
+  [world concept handover](../workflows/world-concept-handover.md). The owner will report when that
+  work is integrated; this orchestration must not dispatch it or reopen the withdrawn image-provider
+  question.
 - On Linux, follow the exact five-step checklist in [S08-X](../spikes/s08-x.md#linux-desktop-launch-checklist)
   and retain Vulkan window/focus/log evidence. This is not a Deck substitute.
 
@@ -273,8 +278,9 @@ they do not require more foundation reruns.
    operation lifecycle, consuming S08-X and S03-S.
 5. **M1-A3.1 — LocalSettings/settings UI:** start after D1.1's test seam, based on S14's schema
    boundary but not its placeholder sounds.
-6. **M1-C1.1 — starter road/building/prop subset:** start after owner art quality selection,
-   using the byte-identical S01/S01-W pipeline.
+6. **M1-C1.1 — starter road/building/prop subset:** do not dispatch it yet. Start only after the
+   owner reports M1-C0 integrated and its production asset list is approved, using
+   the byte-identical S01/S01-W pipeline.
 7. **M1-C2.1 — CityData and first production sector:** begin when the approved starter subset
    exists; preserve one topology/minimap representation from S06.
 8. Continue **M1-A1.2** after the provider seam stabilizes. Do not freeze M1-A2.2's production

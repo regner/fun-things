@@ -10,11 +10,11 @@ qualification and enough outcome detail for dispatch.
 and the audit-derived tasks in
 [section 4 of the readiness audit](../reviews/p0-readiness-audit-2026-10-08.md).
 Most quantitative criteria are planning proposals derived from current product budgets and
-remain tunable during M1. Owner decisions 13–23 ratify the desktop frame target, narrow
+remain tunable during M1. Owner decisions 13–24 ratify the desktop frame target, narrow
 P0-GATE to the S17-only quiet result plus the refreshed gate packet, select the first
 hit-registration policy and combat starting values, accept the S03-P M1 input-queue
-contract, set the initial S11 remote extrapolation policy and S17 soft total budget, and
-choose host-confirmed M1 car entry.
+contract, set the initial S11 remote extrapolation policy and S17 soft total budget, choose
+host-confirmed M1 car entry and assign world concepts to a separate owner-run agent.
 
 - **P0-TOOLING:** Completed. The [baseline repair](../spikes/p0-tooling.md) made the
   canonical script check green, established complete Python discovery, selected the
@@ -176,8 +176,12 @@ Completed discovery reconciliation: [P0-DOC14 record](../reviews/p0-doc14.md).
   and reset restore current state without replaying old effects/work.
 - **M1-B4:** Add readable bounded effects and licensed/source-tracked audio; review the
   walk/shoot/drive/chain slice for duplicate feedback, aim/map readability and cost.
-- **M1-C1:** Produce ratified buildings, roads/props, character rigs, cars/wrecks, weapons
-  and VFX. Preserve Blender-linked sources, catalogue/ancestry and reexport/reload.
+- **M1-C0:** World concepts are in progress under a separate owner-run agent using the
+  [world concept handover](../workflows/world-concept-handover.md), outside this orchestration.
+  The owner will report when the work is integrated; the image-provider question is withdrawn.
+- **M1-C1:** After the owner reports M1-C0 integrated and approves its production asset list,
+  produce ratified buildings, roads/props, character rigs, cars/wrecks, weapons and VFX.
+  Preserve Blender-linked sources, catalogue/ancestry and reexport/reload.
 - **M1-C2:** Start with approved M1-C1 road/building/prop subsets; don't wait for unrelated
   art families. Use S06 topology and S07 environment-envelope guidance to compose saved
   sectors, routes, play space, spawns and boundaries; preserve placement and prove

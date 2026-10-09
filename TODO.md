@@ -22,7 +22,7 @@ follow-ups remain in the M1 requirements rather than reopening the spikes.
 - [ ] **S08 — Run the Linux desktop launch/graphics checklist when a Linux machine is
   available.** This does not block proceeding; keep the ENet workaround and offline review.
 - [ ] **P0-GATE — Review the refreshed packet and record the gate disposition.** The
-  S17-only quiet record and owner decisions 13–23 are integrated in the
+  S17-only quiet record and owner decisions 13–24 are integrated in the
   [review packet](docs/reviews/p0-gate-packet-2026-10-09.md). Under decision 14, the
   remaining human checks and production decisions are not extra foundation prerequisites;
   Linux-only S08 confirmation and P0-PROFILES remain non-blocking.
@@ -56,10 +56,10 @@ All M1 tasks follow P0-GATE.
 
 ### M1-C — City, population and minimap
 
-- [ ] **M1-C0 — Run the staged world concept work** in
-  [the world concept handover](docs/workflows/world-concept-handover.md):
-  setting, city map, districts, roads, lighting, buildings, props, landmarks, greybox
-  and production asset list, each owner-approved before the next.
+- [ ] **M1-C0 — Complete the separately owned staged world concept work** in
+  [the world concept handover](docs/workflows/world-concept-handover.md). It is in progress under
+  an owner-run agent outside this orchestration; the owner will report when it is integrated.
+  The image-provider question is withdrawn.
 - [ ] **M1-C1 — Produce the ratified custom art families.** After: P0-GATE and the
   M1-C0 production asset list.
 - [ ] **M1-C2 — Assemble the authored district in saved sectors.**

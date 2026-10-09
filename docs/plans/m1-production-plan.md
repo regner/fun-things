@@ -484,7 +484,7 @@ numbered row or an explicitly named accepted foundation result.
 | 1. **M1-D1.1 — establish production checks**: pin GUT, add test-only config, release exclusions and CI scripts | M | P0-GATE, accepted P0-TOOLING | Tooling lane. Windows/Linux exact pins; owned scripts compile; complete Python/GUT smoke and diagnostic-negative pass; no addon in export manifest. |
 | 2. **M1-A1.1 — compose Boot and session state machine**: saved Boot/menu/status scenes, typed operations, standalone path and fake correlated provider | M | P0-GATE, accepted S08-X project/export decisions | Session/UI lane. One completion per accepted operation; busy/cancel/close/retry and late callback cleanup tested. |
 | 3. **M1-A3.1 — LocalSettings and settings UI** | S | D1.1 | Settings/UI lane, separate from Boot file owner. Defaults, validation, corrupt recovery, live preview, atomic-save failure and restart pass. |
-| 4. **M1-C1.1 — road/building/prop starter subset** | M | P0-GATE art approval, accepted S01-W | Art lane. Source-linked Blender/GLB families, provenance, collision and reexport/reload identities pass; enough for the first production sector. |
+| 4. **M1-C1.1 — road/building/prop starter subset** | M | Owner-reported integrated M1-C0 production asset list, accepted S01-W | Do not dispatch from this orchestration before decision 24's separate owner-run world concept work integrates. Then the art lane supplies source-linked Blender/GLB families, provenance, collision and reexport/reload identities for the first production sector. |
 | 5. **M1-C2.1 — CityData/spawn-anchor foundation and first production sector** | M | C1.1, accepted S06 contract | Sole world integrator. Production topology/bake, shared clearance, safe spawn anchors, minimap roads and stale-content rejection pass on one linked sector. |
 | 6. **M1-A1.2 — ENet transport and menu host/join flow** | M | A1.1 | Session lane. Workaround before peer publication; standalone and ENet without Steam; bounded full/incompatible/unreachable/host-loss cleanup in real processes. |
 | 7. **M1-A2.1 — production foot command and ActorMotion** | M | D1.1, accepted S02 control update | Actor lane. Standalone/authority/replay equivalence, `client_tick`, collision/aim, focus neutral and malformed command tests. |
@@ -584,7 +584,7 @@ Remaining production reviews are assigned to their consumers rather than P0 prer
 ## 7. Historical suggested task-record reconciliation
 
 The bullets below preserve this plan's original 8 October reconciliation proposal. They are
-historical: current `TODO.md`, task requirements and owner decisions 13–23 supersede them.
+historical: current `TODO.md`, task requirements and owner decisions 13–24 supersede them.
 
 - **P0-GATE:** record the owner's answer on restoring S02/prediction and audit-derived
   dependencies; add P0-TOOLING, S03-L, S08-X, S08-C, S01-W, S03-P, S04-P, S04-T and
