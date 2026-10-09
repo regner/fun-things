@@ -68,7 +68,7 @@ validation = {
                     "but hides doors/fascia; essential wayfinding must not depend on these faces.",
         "limits": "Self-review of isolated Blender views, not native engine or gameplay acceptance",
     },
-    "pending": ["independent review", "tenant graphics", "north facade member .03",
+    "pending": ["independent review", "tenant graphics",
                 "native visuals/gameplay", "road/bridge/parcel fit", "world identity placement",
                 "movement/aim/vehicle/multiplayer", "packaged/device/performance"],
 }

@@ -232,7 +232,7 @@ obsolete dependency hashes. Fresh shared check receipt:
 
 ## Remaining acceptance
 
-Independent technical/art review; tenant graphics; member `.03` north treatment;
+Independent technical/art review; tenant graphics;
 owner final proportions and tenant selection; native gameplay-camera readability,
 actual movement/aim/vehicle and multiplayer checks; current road-tool walking and
 bridge approach fit; saved world identity consolidation/placement; packaged builds,
@@ -240,3 +240,20 @@ repeated-placement profiling, sustained performance and Deck checks remain pendi
 No shared brief, register/queue/progress, TODO, project setting, road, world placement
 or other family member was changed. This is a checked interface candidate, not a
 blanket READY declaration for the building or the district.
+
+## Review round 1 — sibling-delivery status
+
+Removed the completed .03 north treatment from the pending list (P3), including the
+matching `validation.json` entry and its `record.py` producer to prevent regeneration
+of stale status. Independent review and all downstream acceptance gates remain pending.
+Only status documentation/evidence and its producer changed; source, exports, saved
+scenes and renders are unchanged, so export/render/import and geometry checks are
+unaffected. Refreshed affected manifest entries and reran all three members'
+`record.py --verify` checks, including immutable dependency hashes.
+
+Round-1 check command:
+`timeout 1800 mise exec -- python tools/production_checks.py --output C:/tmp/ft/assets/d06_southern_shopping_parade_02/checks-review-round-1`.
+Result: **PASS**, owned compilation/format/lint, Python **9/9**, GUT **23/23** with
+**196 assertions**, intentional negative control detected. Reviewed logs contain no
+ERROR/WARNING diagnostics. A separate Python AST/JSON check confirms the producer
+and retained pending lists match the seven remaining downstream gate groups.
