@@ -1,0 +1,2098 @@
+{
+  "id": "city_small_shop_shells_01",
+  "filepath": "/tmp/batch03-final/frozen/art/source/models/environment/city_small_shop_shells_01/city_small_shop_shells_01.blend",
+  "blender": "5.2.2 LTS",
+  "build": "d13f752e3b9c",
+  "gltf": [
+    5,
+    2,
+    40
+  ],
+  "libraries": [],
+  "images": [
+    {
+      "name": "Render Result",
+      "type": "RENDER_RESULT",
+      "path": "",
+      "packed": false
+    },
+    {
+      "name": "Viewer Node",
+      "type": "COMPOSITING",
+      "path": "",
+      "packed": false
+    }
+  ],
+  "variants": [
+    {
+      "name": "city_small_shop_shells_01",
+      "members": [
+        "city_small_shop_shells_01",
+        "drain_saddle_0.65",
+        "drain_saddle_2.45",
+        "drain_saddle_3.65",
+        "flat_roof_deck",
+        "front_corner_pier_left",
+        "front_corner_pier_right",
+        "front_head_course",
+        "front_parapet_coping",
+        "front_plinth_left",
+        "front_plinth_right",
+        "front_structural_wall_with_two_openings",
+        "join_party_left",
+        "join_party_right",
+        "mount_canopy",
+        "mount_display_window",
+        "mount_door_single",
+        "mount_entrance_single",
+        "mount_fascia",
+        "mount_roof_detail",
+        "party_coping_left",
+        "party_coping_right",
+        "party_wall_left",
+        "party_wall_right",
+        "rain_hopper_back",
+        "rain_hopper_base",
+        "rain_hopper_front",
+        "rain_hopper_left",
+        "rain_hopper_right",
+        "rear_coping",
+        "rear_downpipe",
+        "rear_parapet_left",
+        "rear_parapet_right",
+        "rear_plinth",
+        "rear_scupper_header",
+        "rear_structural_wall",
+        "roof_seam_left",
+        "roof_seam_right",
+        "scupper_lower_lip"
+      ],
+      "objects": [
+        {
+          "name": "city_small_shop_shells_01",
+          "type": "EMPTY",
+          "parent": null,
+          "location": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "modifiers": []
+        },
+        {
+          "name": "front_structural_wall_with_two_openings",
+          "type": "MESH",
+          "parent": "city_small_shop_shells_01",
+          "location": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "modifiers": [],
+          "vertices": 60,
+          "polygons": 60,
+          "triangles": 120,
+          "bounds_blender": [
+            [
+              -3.200000047683716,
+              6.71999979019165,
+              0.0
+            ],
+            [
+              3.200000047683716,
+              7.0,
+              4.949999809265137
+            ]
+          ],
+          "materials": [
+            "shell_muted_plum_render"
+          ],
+          "uv_layers": [],
+          "component_volumes_m3": [
+            6.296027454027357
+          ],
+          "bad_edges": [],
+          "isolated_vertices": [],
+          "degenerate_triangles": [],
+          "invalid_normals": [],
+          "reversed_normal_triangles": [],
+          "minimum_winding_dot": 0.9999998807907104,
+          "nonfinite_positions": 0
+        },
+        {
+          "name": "party_wall_left",
+          "type": "MESH",
+          "parent": "city_small_shop_shells_01",
+          "location": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "modifiers": [],
+          "vertices": 8,
+          "polygons": 6,
+          "triangles": 12,
+          "bounds_blender": [
+            [
+              -3.200000047683716,
+              -7.0,
+              0.0
+            ],
+            [
+              -2.9200000762939453,
+              6.71999979019165,
+              4.599999904632568
+            ]
+          ],
+          "materials": [
+            "shell_muted_plum_render"
+          ],
+          "uv_layers": [],
+          "component_volumes_m3": [
+            17.671358451563563
+          ],
+          "bad_edges": [],
+          "isolated_vertices": [],
+          "degenerate_triangles": [],
+          "invalid_normals": [],
+          "reversed_normal_triangles": [],
+          "minimum_winding_dot": 1.0,
+          "nonfinite_positions": 0
+        },
+        {
+          "name": "party_wall_right",
+          "type": "MESH",
+          "parent": "city_small_shop_shells_01",
+          "location": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "modifiers": [],
+          "vertices": 8,
+          "polygons": 6,
+          "triangles": 12,
+          "bounds_blender": [
+            [
+              2.9200000762939453,
+              -7.0,
+              0.0
+            ],
+            [
+              3.200000047683716,
+              6.71999979019165,
+              4.599999904632568
+            ]
+          ],
+          "materials": [
+            "shell_muted_plum_render"
+          ],
+          "uv_layers": [],
+          "component_volumes_m3": [
+            17.671358451563563
+          ],
+          "bad_edges": [],
+          "isolated_vertices": [],
+          "degenerate_triangles": [],
+          "invalid_normals": [],
+          "reversed_normal_triangles": [],
+          "minimum_winding_dot": 1.0,
+          "nonfinite_positions": 0
+        },
+        {
+          "name": "rear_structural_wall",
+          "type": "MESH",
+          "parent": "city_small_shop_shells_01",
+          "location": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "modifiers": [],
+          "vertices": 8,
+          "polygons": 6,
+          "triangles": 12,
+          "bounds_blender": [
+            [
+              -2.9200000762939453,
+              -7.0,
+              0.0
+            ],
+            [
+              2.9200000762939453,
+              -6.71999979019165,
+              4.300000190734863
+            ]
+          ],
+          "materials": [
+            "shell_muted_plum_render"
+          ],
+          "uv_layers": [],
+          "component_volumes_m3": [
+            7.03136462031064
+          ],
+          "bad_edges": [],
+          "isolated_vertices": [],
+          "degenerate_triangles": [],
+          "invalid_normals": [],
+          "reversed_normal_triangles": [],
+          "minimum_winding_dot": 1.0,
+          "nonfinite_positions": 0
+        },
+        {
+          "name": "rear_parapet_left",
+          "type": "MESH",
+          "parent": "city_small_shop_shells_01",
+          "location": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "modifiers": [],
+          "vertices": 8,
+          "polygons": 6,
+          "triangles": 12,
+          "bounds_blender": [
+            [
+              -2.9200000762939453,
+              -7.0,
+              4.300000190734863
+            ],
+            [
+              2.630000114440918,
+              -6.71999979019165,
+              4.599999904632568
+            ]
+          ],
+          "materials": [
+            "shell_muted_plum_render"
+          ],
+          "uv_layers": [],
+          "component_volumes_m3": [
+            0.46619990607878936
+          ],
+          "bad_edges": [],
+          "isolated_vertices": [],
+          "degenerate_triangles": [],
+          "invalid_normals": [],
+          "reversed_normal_triangles": [],
+          "minimum_winding_dot": 0.9999999403953552,
+          "nonfinite_positions": 0
+        },
+        {
+          "name": "rear_parapet_right",
+          "type": "MESH",
+          "parent": "city_small_shop_shells_01",
+          "location": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "modifiers": [],
+          "vertices": 8,
+          "polygons": 6,
+          "triangles": 12,
+          "bounds_blender": [
+            [
+              2.869999885559082,
+              -7.0,
+              4.300000190734863
+            ],
+            [
+              2.9200000762939453,
+              -6.71999979019165,
+              4.599999904632568
+            ]
+          ],
+          "materials": [
+            "shell_muted_plum_render"
+          ],
+          "uv_layers": [],
+          "component_volumes_m3": [
+            0.004200014956789275
+          ],
+          "bad_edges": [],
+          "isolated_vertices": [],
+          "degenerate_triangles": [],
+          "invalid_normals": [],
+          "reversed_normal_triangles": [],
+          "minimum_winding_dot": 1.0,
+          "nonfinite_positions": 0
+        },
+        {
+          "name": "rear_scupper_header",
+          "type": "MESH",
+          "parent": "city_small_shop_shells_01",
+          "location": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "modifiers": [],
+          "vertices": 8,
+          "polygons": 6,
+          "triangles": 12,
+          "bounds_blender": [
+            [
+              2.630000114440918,
+              -7.0,
+              4.480000019073486
+            ],
+            [
+              2.869999885559082,
+              -6.71999979019165,
+              4.599999904632568
+            ]
+          ],
+          "materials": [
+            "shell_muted_plum_render"
+          ],
+          "uv_layers": [],
+          "component_volumes_m3": [
+            0.008063987957001476
+          ],
+          "bad_edges": [],
+          "isolated_vertices": [],
+          "degenerate_triangles": [],
+          "invalid_normals": [],
+          "reversed_normal_triangles": [],
+          "minimum_winding_dot": 0.9999999403953552,
+          "nonfinite_positions": 0
+        },
+        {
+          "name": "flat_roof_deck",
+          "type": "MESH",
+          "parent": "city_small_shop_shells_01",
+          "location": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "modifiers": [],
+          "vertices": 96,
+          "polygons": 98,
+          "triangles": 188,
+          "bounds_blender": [
+            [
+              -2.9200000762939453,
+              -6.71999979019165,
+              4.139999866485596
+            ],
+            [
+              2.9200000762939453,
+              6.71999979019165,
+              4.300000190734863
+            ]
+          ],
+          "materials": [
+            "shell_quiet_blue_roof"
+          ],
+          "uv_layers": [],
+          "component_volumes_m3": [
+            12.55556968111353
+          ],
+          "bad_edges": [],
+          "isolated_vertices": [],
+          "degenerate_triangles": [],
+          "invalid_normals": [],
+          "reversed_normal_triangles": [],
+          "minimum_winding_dot": 0.9315168650682608,
+          "nonfinite_positions": 0
+        },
+        {
+          "name": "roof_seam_left",
+          "type": "MESH",
+          "parent": "city_small_shop_shells_01",
+          "location": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "modifiers": [],
+          "vertices": 96,
+          "polygons": 98,
+          "triangles": 188,
+          "bounds_blender": [
+            [
+              -0.9980000257492065,
+              -6.599999904632568,
+              4.296000003814697
+            ],
+            [
+              -0.9620000123977661,
+              6.599999904632568,
+              4.322000026702881
+            ]
+          ],
+          "materials": [
+            "shell_quiet_blue_roof"
+          ],
+          "uv_layers": [],
+          "component_volumes_m3": [
+            0.011880856403671897
+          ],
+          "bad_edges": [],
+          "isolated_vertices": [],
+          "degenerate_triangles": [],
+          "invalid_normals": [],
+          "reversed_normal_triangles": [],
+          "minimum_winding_dot": 0.9315019637479054,
+          "nonfinite_positions": 0
+        },
+        {
+          "name": "roof_seam_right",
+          "type": "MESH",
+          "parent": "city_small_shop_shells_01",
+          "location": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "modifiers": [],
+          "vertices": 96,
+          "polygons": 98,
+          "triangles": 188,
+          "bounds_blender": [
+            [
+              0.9620000123977661,
+              -6.599999904632568,
+              4.296000003814697
+            ],
+            [
+              0.9980000257492065,
+              6.599999904632568,
+              4.322000026702881
+            ]
+          ],
+          "materials": [
+            "shell_quiet_blue_roof"
+          ],
+          "uv_layers": [],
+          "component_volumes_m3": [
+            0.011880856403725562
+          ],
+          "bad_edges": [],
+          "isolated_vertices": [],
+          "degenerate_triangles": [],
+          "invalid_normals": [],
+          "reversed_normal_triangles": [],
+          "minimum_winding_dot": 0.9315019637479054,
+          "nonfinite_positions": 0
+        },
+        {
+          "name": "front_parapet_coping",
+          "type": "MESH",
+          "parent": "city_small_shop_shells_01",
+          "location": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "modifiers": [],
+          "vertices": 96,
+          "polygons": 98,
+          "triangles": 188,
+          "bounds_blender": [
+            [
+              -3.200000047683716,
+              6.650000095367432,
+              4.949999809265137
+            ],
+            [
+              3.200000047683716,
+              7.119999885559082,
+              5.050000190734863
+            ]
+          ],
+          "materials": [
+            "shell_dark_drain_coping"
+          ],
+          "uv_layers": [],
+          "component_volumes_m3": [
+            0.29744558446391534
+          ],
+          "bad_edges": [],
+          "isolated_vertices": [],
+          "degenerate_triangles": [],
+          "invalid_normals": [],
+          "reversed_normal_triangles": [],
+          "minimum_winding_dot": 0.9316180630994495,
+          "nonfinite_positions": 0
+        },
+        {
+          "name": "party_coping_left",
+          "type": "MESH",
+          "parent": "city_small_shop_shells_01",
+          "location": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "modifiers": [],
+          "vertices": 96,
+          "polygons": 98,
+          "triangles": 188,
+          "bounds_blender": [
+            [
+              -3.200000047683716,
+              -6.650000095367432,
+              4.599999904632568
+            ],
+            [
+              -2.880000114440918,
+              6.659999847412109,
+              4.699999809265137
+            ]
+          ],
+          "materials": [
+            "shell_dark_drain_coping"
+          ],
+          "uv_layers": [],
+          "component_volumes_m3": [
+            0.4239483052178745
+          ],
+          "bad_edges": [],
+          "isolated_vertices": [],
+          "degenerate_triangles": [],
+          "invalid_normals": [],
+          "reversed_normal_triangles": [],
+          "minimum_winding_dot": 0.9315143182466272,
+          "nonfinite_positions": 0
+        },
+        {
+          "name": "party_coping_right",
+          "type": "MESH",
+          "parent": "city_small_shop_shells_01",
+          "location": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "modifiers": [],
+          "vertices": 96,
+          "polygons": 98,
+          "triangles": 188,
+          "bounds_blender": [
+            [
+              2.880000114440918,
+              -6.650000095367432,
+              4.599999904632568
+            ],
+            [
+              3.200000047683716,
+              6.659999847412109,
+              4.699999809265137
+            ]
+          ],
+          "materials": [
+            "shell_dark_drain_coping"
+          ],
+          "uv_layers": [],
+          "component_volumes_m3": [
+            0.4239483030334621
+          ],
+          "bad_edges": [],
+          "isolated_vertices": [],
+          "degenerate_triangles": [],
+          "invalid_normals": [],
+          "reversed_normal_triangles": [],
+          "minimum_winding_dot": 0.93151522516564,
+          "nonfinite_positions": 0
+        },
+        {
+          "name": "rear_coping",
+          "type": "MESH",
+          "parent": "city_small_shop_shells_01",
+          "location": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "modifiers": [],
+          "vertices": 96,
+          "polygons": 98,
+          "triangles": 188,
+          "bounds_blender": [
+            [
+              -3.200000047683716,
+              -7.079999923706055,
+              4.599999904632568
+            ],
+            [
+              3.200000047683716,
+              -6.650000095367432,
+              4.699999809265137
+            ]
+          ],
+          "materials": [
+            "shell_dark_drain_coping"
+          ],
+          "uv_layers": [],
+          "component_volumes_m3": [
+            0.2736415181025199
+          ],
+          "bad_edges": [],
+          "isolated_vertices": [],
+          "degenerate_triangles": [],
+          "invalid_normals": [],
+          "reversed_normal_triangles": [],
+          "minimum_winding_dot": 0.9315819403418573,
+          "nonfinite_positions": 0
+        },
+        {
+          "name": "front_corner_pier_left",
+          "type": "MESH",
+          "parent": "city_small_shop_shells_01",
+          "location": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "modifiers": [],
+          "vertices": 96,
+          "polygons": 98,
+          "triangles": 188,
+          "bounds_blender": [
+            [
+              -3.200000047683716,
+              6.989999771118164,
+              0.0
+            ],
+            [
+              -2.8299999237060547,
+              7.065000057220459,
+              4.550000190734863
+            ]
+          ],
+          "materials": [
+            "shell_warm_structural_trim"
+          ],
+          "uv_layers": [],
+          "component_volumes_m3": [
+            0.12514461587032322
+          ],
+          "bad_edges": [],
+          "isolated_vertices": [],
+          "degenerate_triangles": [],
+          "invalid_normals": [],
+          "reversed_normal_triangles": [],
+          "minimum_winding_dot": 0.9316028538014507,
+          "nonfinite_positions": 0
+        },
+        {
+          "name": "front_corner_pier_right",
+          "type": "MESH",
+          "parent": "city_small_shop_shells_01",
+          "location": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "modifiers": [],
+          "vertices": 96,
+          "polygons": 98,
+          "triangles": 188,
+          "bounds_blender": [
+            [
+              2.8299999237060547,
+              6.989999771118164,
+              0.0
+            ],
+            [
+              3.200000047683716,
+              7.065000057220459,
+              4.550000190734863
+            ]
+          ],
+          "materials": [
+            "shell_warm_structural_trim"
+          ],
+          "uv_layers": [],
+          "component_volumes_m3": [
+            0.12514459856889507
+          ],
+          "bad_edges": [],
+          "isolated_vertices": [],
+          "degenerate_triangles": [],
+          "invalid_normals": [],
+          "reversed_normal_triangles": [],
+          "minimum_winding_dot": 0.9316028193425154,
+          "nonfinite_positions": 0
+        },
+        {
+          "name": "front_head_course",
+          "type": "MESH",
+          "parent": "city_small_shop_shells_01",
+          "location": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "modifiers": [],
+          "vertices": 96,
+          "polygons": 98,
+          "triangles": 188,
+          "bounds_blender": [
+            [
+              -3.200000047683716,
+              7.0,
+              4.480000019073486
+            ],
+            [
+              3.200000047683716,
+              7.059999942779541,
+              4.610000133514404
+            ]
+          ],
+          "materials": [
+            "shell_warm_structural_trim"
+          ],
+          "uv_layers": [],
+          "component_volumes_m3": [
+            0.04897839390041027
+          ],
+          "bad_edges": [],
+          "isolated_vertices": [],
+          "degenerate_triangles": [],
+          "invalid_normals": [],
+          "reversed_normal_triangles": [],
+          "minimum_winding_dot": 0.931560540368082,
+          "nonfinite_positions": 0
+        },
+        {
+          "name": "front_plinth_left",
+          "type": "MESH",
+          "parent": "city_small_shop_shells_01",
+          "location": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "modifiers": [],
+          "vertices": 96,
+          "polygons": 98,
+          "triangles": 188,
+          "bounds_blender": [
+            [
+              -3.200000047683716,
+              7.000999927520752,
+              0.0
+            ],
+            [
+              1.100000023841858,
+              7.045000076293945,
+              0.30000001192092896
+            ]
+          ],
+          "materials": [
+            "shell_slate_plinth"
+          ],
+          "uv_layers": [],
+          "component_volumes_m3": [
+            0.05629733434365502
+          ],
+          "bad_edges": [],
+          "isolated_vertices": [],
+          "degenerate_triangles": [],
+          "invalid_normals": [],
+          "reversed_normal_triangles": [],
+          "minimum_winding_dot": 0.9315877869157703,
+          "nonfinite_positions": 0
+        },
+        {
+          "name": "front_plinth_right",
+          "type": "MESH",
+          "parent": "city_small_shop_shells_01",
+          "location": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "modifiers": [],
+          "vertices": 96,
+          "polygons": 98,
+          "triangles": 188,
+          "bounds_blender": [
+            [
+              2.799999952316284,
+              7.000999927520752,
+              0.0
+            ],
+            [
+              3.200000047683716,
+              7.045000076293945,
+              0.30000001192092896
+            ]
+          ],
+          "materials": [
+            "shell_slate_plinth"
+          ],
+          "uv_layers": [],
+          "component_volumes_m3": [
+            0.005207594184198351
+          ],
+          "bad_edges": [],
+          "isolated_vertices": [],
+          "degenerate_triangles": [],
+          "invalid_normals": [],
+          "reversed_normal_triangles": [],
+          "minimum_winding_dot": 0.932325207919348,
+          "nonfinite_positions": 0
+        },
+        {
+          "name": "rear_plinth",
+          "type": "MESH",
+          "parent": "city_small_shop_shells_01",
+          "location": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "modifiers": [],
+          "vertices": 96,
+          "polygons": 98,
+          "triangles": 188,
+          "bounds_blender": [
+            [
+              -3.200000047683716,
+              -7.039999961853027,
+              0.0
+            ],
+            [
+              3.200000047683716,
+              -6.989999771118164,
+              0.30000001192092896
+            ]
+          ],
+          "materials": [
+            "shell_slate_plinth"
+          ],
+          "uv_layers": [],
+          "component_volumes_m3": [
+            0.09532689200353808
+          ],
+          "bad_edges": [],
+          "isolated_vertices": [],
+          "degenerate_triangles": [],
+          "invalid_normals": [],
+          "reversed_normal_triangles": [],
+          "minimum_winding_dot": 0.9315547226506169,
+          "nonfinite_positions": 0
+        },
+        {
+          "name": "scupper_lower_lip",
+          "type": "MESH",
+          "parent": "city_small_shop_shells_01",
+          "location": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "modifiers": [],
+          "vertices": 96,
+          "polygons": 98,
+          "triangles": 188,
+          "bounds_blender": [
+            [
+              2.630000114440918,
+              -7.170000076293945,
+              4.284999847412109
+            ],
+            [
+              2.869999885559082,
+              -6.699999809265137,
+              4.315000057220459
+            ]
+          ],
+          "materials": [
+            "shell_dark_drain_coping"
+          ],
+          "uv_layers": [],
+          "component_volumes_m3": [
+            0.0033579466127205177
+          ],
+          "bad_edges": [],
+          "isolated_vertices": [],
+          "degenerate_triangles": [],
+          "invalid_normals": [],
+          "reversed_normal_triangles": [],
+          "minimum_winding_dot": 0.9319086655159481,
+          "nonfinite_positions": 0
+        },
+        {
+          "name": "rain_hopper_back",
+          "type": "MESH",
+          "parent": "city_small_shop_shells_01",
+          "location": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "modifiers": [],
+          "vertices": 96,
+          "polygons": 98,
+          "triangles": 188,
+          "bounds_blender": [
+            [
+              2.5799999237060547,
+              -7.039999961853027,
+              4.039999961853027
+            ],
+            [
+              2.9200000762939453,
+              -7.005000114440918,
+              4.400000095367432
+            ]
+          ],
+          "materials": [
+            "shell_dark_drain_coping"
+          ],
+          "uv_layers": [],
+          "component_volumes_m3": [
+            0.004257783110162742
+          ],
+          "bad_edges": [],
+          "isolated_vertices": [],
+          "degenerate_triangles": [],
+          "invalid_normals": [],
+          "reversed_normal_triangles": [],
+          "minimum_winding_dot": 0.9320281650871038,
+          "nonfinite_positions": 0
+        },
+        {
+          "name": "rain_hopper_front",
+          "type": "MESH",
+          "parent": "city_small_shop_shells_01",
+          "location": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "modifiers": [],
+          "vertices": 96,
+          "polygons": 98,
+          "triangles": 188,
+          "bounds_blender": [
+            [
+              2.5799999237060547,
+              -7.21999979019165,
+              4.039999961853027
+            ],
+            [
+              2.9200000762939453,
+              -7.184999942779541,
+              4.400000095367432
+            ]
+          ],
+          "materials": [
+            "shell_dark_drain_coping"
+          ],
+          "uv_layers": [],
+          "component_volumes_m3": [
+            0.004257808956565474
+          ],
+          "bad_edges": [],
+          "isolated_vertices": [],
+          "degenerate_triangles": [],
+          "invalid_normals": [],
+          "reversed_normal_triangles": [],
+          "minimum_winding_dot": 0.932034361816477,
+          "nonfinite_positions": 0
+        },
+        {
+          "name": "rain_hopper_left",
+          "type": "MESH",
+          "parent": "city_small_shop_shells_01",
+          "location": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "modifiers": [],
+          "vertices": 96,
+          "polygons": 98,
+          "triangles": 188,
+          "bounds_blender": [
+            [
+              2.5799999237060547,
+              -7.184999942779541,
+              4.039999961853027
+            ],
+            [
+              2.615000009536743,
+              -7.039999961853027,
+              4.400000095367432
+            ]
+          ],
+          "materials": [
+            "shell_dark_drain_coping"
+          ],
+          "uv_layers": [],
+          "component_volumes_m3": [
+            0.0018078970053757705
+          ],
+          "bad_edges": [],
+          "isolated_vertices": [],
+          "degenerate_triangles": [],
+          "invalid_normals": [],
+          "reversed_normal_triangles": [],
+          "minimum_winding_dot": 0.9320300453109667,
+          "nonfinite_positions": 0
+        },
+        {
+          "name": "rain_hopper_right",
+          "type": "MESH",
+          "parent": "city_small_shop_shells_01",
+          "location": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "modifiers": [],
+          "vertices": 96,
+          "polygons": 98,
+          "triangles": 188,
+          "bounds_blender": [
+            [
+              2.884999990463257,
+              -7.184999942779541,
+              4.039999961853027
+            ],
+            [
+              2.9200000762939453,
+              -7.039999961853027,
+              4.400000095367432
+            ]
+          ],
+          "materials": [
+            "shell_dark_drain_coping"
+          ],
+          "uv_layers": [],
+          "component_volumes_m3": [
+            0.0018078669495111483
+          ],
+          "bad_edges": [],
+          "isolated_vertices": [],
+          "degenerate_triangles": [],
+          "invalid_normals": [],
+          "reversed_normal_triangles": [],
+          "minimum_winding_dot": 0.9320237548090518,
+          "nonfinite_positions": 0
+        },
+        {
+          "name": "rain_hopper_base",
+          "type": "MESH",
+          "parent": "city_small_shop_shells_01",
+          "location": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "modifiers": [],
+          "vertices": 96,
+          "polygons": 98,
+          "triangles": 188,
+          "bounds_blender": [
+            [
+              2.5799999237060547,
+              -7.21999979019165,
+              4.019999980926514
+            ],
+            [
+              2.9200000762939453,
+              -7.005000114440918,
+              4.054999828338623
+            ]
+          ],
+          "materials": [
+            "shell_dark_drain_coping"
+          ],
+          "uv_layers": [],
+          "component_volumes_m3": [
+            0.002543938240493823
+          ],
+          "bad_edges": [],
+          "isolated_vertices": [],
+          "degenerate_triangles": [],
+          "invalid_normals": [],
+          "reversed_normal_triangles": [],
+          "minimum_winding_dot": 0.9319624664494768,
+          "nonfinite_positions": 0
+        },
+        {
+          "name": "rear_downpipe",
+          "type": "MESH",
+          "parent": "city_small_shop_shells_01",
+          "location": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "modifiers": [],
+          "vertices": 96,
+          "polygons": 98,
+          "triangles": 188,
+          "bounds_blender": [
+            [
+              2.690000057220459,
+              -7.159999847412109,
+              0.18000000715255737
+            ],
+            [
+              2.809999942779541,
+              -7.039999961853027,
+              4.054999828338623
+            ]
+          ],
+          "materials": [
+            "shell_dark_drain_coping"
+          ],
+          "uv_layers": [],
+          "component_volumes_m3": [
+            0.05345291156464868
+          ],
+          "bad_edges": [],
+          "isolated_vertices": [],
+          "degenerate_triangles": [],
+          "invalid_normals": [],
+          "reversed_normal_triangles": [],
+          "minimum_winding_dot": 0.9316979161521886,
+          "nonfinite_positions": 0
+        },
+        {
+          "name": "drain_saddle_0.65",
+          "type": "MESH",
+          "parent": "city_small_shop_shells_01",
+          "location": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "modifiers": [],
+          "vertices": 96,
+          "polygons": 98,
+          "triangles": 188,
+          "bounds_blender": [
+            [
+              2.6649999618530273,
+              -7.170000076293945,
+              0.6499999761581421
+            ],
+            [
+              2.8350000381469727,
+              -7.0,
+              0.699999988079071
+            ]
+          ],
+          "materials": [
+            "shell_dark_drain_coping"
+          ],
+          "uv_layers": [],
+          "component_volumes_m3": [
+            0.0014207690489796796
+          ],
+          "bad_edges": [],
+          "isolated_vertices": [],
+          "degenerate_triangles": [],
+          "invalid_normals": [],
+          "reversed_normal_triangles": [],
+          "minimum_winding_dot": 0.9330425411462784,
+          "nonfinite_positions": 0
+        },
+        {
+          "name": "drain_saddle_2.45",
+          "type": "MESH",
+          "parent": "city_small_shop_shells_01",
+          "location": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "modifiers": [],
+          "vertices": 96,
+          "polygons": 98,
+          "triangles": 188,
+          "bounds_blender": [
+            [
+              2.6649999618530273,
+              -7.170000076293945,
+              2.450000047683716
+            ],
+            [
+              2.8350000381469727,
+              -7.0,
+              2.5
+            ]
+          ],
+          "materials": [
+            "shell_dark_drain_coping"
+          ],
+          "uv_layers": [],
+          "component_volumes_m3": [
+            0.001420775343895914
+          ],
+          "bad_edges": [],
+          "isolated_vertices": [],
+          "degenerate_triangles": [],
+          "invalid_normals": [],
+          "reversed_normal_triangles": [],
+          "minimum_winding_dot": 0.9330389001406729,
+          "nonfinite_positions": 0
+        },
+        {
+          "name": "drain_saddle_3.65",
+          "type": "MESH",
+          "parent": "city_small_shop_shells_01",
+          "location": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "modifiers": [],
+          "vertices": 96,
+          "polygons": 98,
+          "triangles": 188,
+          "bounds_blender": [
+            [
+              2.6649999618530273,
+              -7.170000076293945,
+              3.6500000953674316
+            ],
+            [
+              2.8350000381469727,
+              -7.0,
+              3.700000047683716
+            ]
+          ],
+          "materials": [
+            "shell_dark_drain_coping"
+          ],
+          "uv_layers": [],
+          "component_volumes_m3": [
+            0.0014207632288068977
+          ],
+          "bad_edges": [],
+          "isolated_vertices": [],
+          "degenerate_triangles": [],
+          "invalid_normals": [],
+          "reversed_normal_triangles": [],
+          "minimum_winding_dot": 0.9330390339018777,
+          "nonfinite_positions": 0
+        },
+        {
+          "name": "mount_entrance_single",
+          "type": "EMPTY",
+          "parent": "city_small_shop_shells_01",
+          "location": [
+            1.9500000476837158,
+            7.0,
+            0.0
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "modifiers": []
+        },
+        {
+          "name": "mount_door_single",
+          "type": "EMPTY",
+          "parent": "city_small_shop_shells_01",
+          "location": [
+            1.9500000476837158,
+            7.0,
+            0.0
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "modifiers": []
+        },
+        {
+          "name": "mount_display_window",
+          "type": "EMPTY",
+          "parent": "city_small_shop_shells_01",
+          "location": [
+            -0.949999988079071,
+            7.0,
+            0.47999998927116394
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "modifiers": []
+        },
+        {
+          "name": "mount_canopy",
+          "type": "EMPTY",
+          "parent": "city_small_shop_shells_01",
+          "location": [
+            -0.949999988079071,
+            7.0,
+            3.0
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "modifiers": []
+        },
+        {
+          "name": "mount_fascia",
+          "type": "EMPTY",
+          "parent": "city_small_shop_shells_01",
+          "location": [
+            -0.949999988079071,
+            7.0,
+            3.799999952316284
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "modifiers": []
+        },
+        {
+          "name": "mount_roof_detail",
+          "type": "EMPTY",
+          "parent": "city_small_shop_shells_01",
+          "location": [
+            0.0,
+            -1.0,
+            4.300000190734863
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "modifiers": []
+        },
+        {
+          "name": "join_party_left",
+          "type": "EMPTY",
+          "parent": "city_small_shop_shells_01",
+          "location": [
+            -3.200000047683716,
+            0.0,
+            0.0
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "modifiers": []
+        },
+        {
+          "name": "join_party_right",
+          "type": "EMPTY",
+          "parent": "city_small_shop_shells_01",
+          "location": [
+            3.200000047683716,
+            0.0,
+            0.0
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "modifiers": []
+        }
+      ],
+      "export_settings": {
+        "export_format": "GLB",
+        "use_selection": true,
+        "export_yup": true,
+        "export_apply": true,
+        "export_texcoords": false,
+        "export_normals": true,
+        "export_tangents": false,
+        "export_materials": "EXPORT",
+        "export_cameras": false,
+        "export_lights": false,
+        "export_extras": false,
+        "export_animations": false
+      },
+      "reexport_path": "/home/regner/.paseo/worktrees/0u71f39f/asset-register-production/docs/reviews/asset-production/batch_03/final/reexports/city_small_shop_shells_01.glb",
+      "reexport_bytes": 79820,
+      "reexport_sha256": "76c76364df5d437eb27bfb1a08b76932e46fe89238533bffcb654d6ac66e952a",
+      "candidate_sha256": "76c76364df5d437eb27bfb1a08b76932e46fe89238533bffcb654d6ac66e952a",
+      "byte_identical": true
+    }
+  ],
+  "all_scene_objects": [
+    {
+      "name": "authoring_1m_reference",
+      "type": "MESH",
+      "collections": [
+        "authoring_excluded"
+      ]
+    },
+    {
+      "name": "city_small_shop_shells_01",
+      "type": "EMPTY",
+      "collections": [
+        "export_city_small_shop_shells_01"
+      ]
+    },
+    {
+      "name": "drain_saddle_0.65",
+      "type": "MESH",
+      "collections": [
+        "export_city_small_shop_shells_01"
+      ]
+    },
+    {
+      "name": "drain_saddle_2.45",
+      "type": "MESH",
+      "collections": [
+        "export_city_small_shop_shells_01"
+      ]
+    },
+    {
+      "name": "drain_saddle_3.65",
+      "type": "MESH",
+      "collections": [
+        "export_city_small_shop_shells_01"
+      ]
+    },
+    {
+      "name": "flat_roof_deck",
+      "type": "MESH",
+      "collections": [
+        "export_city_small_shop_shells_01"
+      ]
+    },
+    {
+      "name": "front_corner_pier_left",
+      "type": "MESH",
+      "collections": [
+        "export_city_small_shop_shells_01"
+      ]
+    },
+    {
+      "name": "front_corner_pier_right",
+      "type": "MESH",
+      "collections": [
+        "export_city_small_shop_shells_01"
+      ]
+    },
+    {
+      "name": "front_head_course",
+      "type": "MESH",
+      "collections": [
+        "export_city_small_shop_shells_01"
+      ]
+    },
+    {
+      "name": "front_parapet_coping",
+      "type": "MESH",
+      "collections": [
+        "export_city_small_shop_shells_01"
+      ]
+    },
+    {
+      "name": "front_plinth_left",
+      "type": "MESH",
+      "collections": [
+        "export_city_small_shop_shells_01"
+      ]
+    },
+    {
+      "name": "front_plinth_right",
+      "type": "MESH",
+      "collections": [
+        "export_city_small_shop_shells_01"
+      ]
+    },
+    {
+      "name": "front_structural_wall_with_two_openings",
+      "type": "MESH",
+      "collections": [
+        "export_city_small_shop_shells_01"
+      ]
+    },
+    {
+      "name": "join_party_left",
+      "type": "EMPTY",
+      "collections": [
+        "export_city_small_shop_shells_01"
+      ]
+    },
+    {
+      "name": "join_party_right",
+      "type": "EMPTY",
+      "collections": [
+        "export_city_small_shop_shells_01"
+      ]
+    },
+    {
+      "name": "mount_canopy",
+      "type": "EMPTY",
+      "collections": [
+        "export_city_small_shop_shells_01"
+      ]
+    },
+    {
+      "name": "mount_display_window",
+      "type": "EMPTY",
+      "collections": [
+        "export_city_small_shop_shells_01"
+      ]
+    },
+    {
+      "name": "mount_door_single",
+      "type": "EMPTY",
+      "collections": [
+        "export_city_small_shop_shells_01"
+      ]
+    },
+    {
+      "name": "mount_entrance_single",
+      "type": "EMPTY",
+      "collections": [
+        "export_city_small_shop_shells_01"
+      ]
+    },
+    {
+      "name": "mount_fascia",
+      "type": "EMPTY",
+      "collections": [
+        "export_city_small_shop_shells_01"
+      ]
+    },
+    {
+      "name": "mount_roof_detail",
+      "type": "EMPTY",
+      "collections": [
+        "export_city_small_shop_shells_01"
+      ]
+    },
+    {
+      "name": "party_coping_left",
+      "type": "MESH",
+      "collections": [
+        "export_city_small_shop_shells_01"
+      ]
+    },
+    {
+      "name": "party_coping_right",
+      "type": "MESH",
+      "collections": [
+        "export_city_small_shop_shells_01"
+      ]
+    },
+    {
+      "name": "party_wall_left",
+      "type": "MESH",
+      "collections": [
+        "export_city_small_shop_shells_01"
+      ]
+    },
+    {
+      "name": "party_wall_right",
+      "type": "MESH",
+      "collections": [
+        "export_city_small_shop_shells_01"
+      ]
+    },
+    {
+      "name": "rain_hopper_back",
+      "type": "MESH",
+      "collections": [
+        "export_city_small_shop_shells_01"
+      ]
+    },
+    {
+      "name": "rain_hopper_base",
+      "type": "MESH",
+      "collections": [
+        "export_city_small_shop_shells_01"
+      ]
+    },
+    {
+      "name": "rain_hopper_front",
+      "type": "MESH",
+      "collections": [
+        "export_city_small_shop_shells_01"
+      ]
+    },
+    {
+      "name": "rain_hopper_left",
+      "type": "MESH",
+      "collections": [
+        "export_city_small_shop_shells_01"
+      ]
+    },
+    {
+      "name": "rain_hopper_right",
+      "type": "MESH",
+      "collections": [
+        "export_city_small_shop_shells_01"
+      ]
+    },
+    {
+      "name": "rear_coping",
+      "type": "MESH",
+      "collections": [
+        "export_city_small_shop_shells_01"
+      ]
+    },
+    {
+      "name": "rear_downpipe",
+      "type": "MESH",
+      "collections": [
+        "export_city_small_shop_shells_01"
+      ]
+    },
+    {
+      "name": "rear_parapet_left",
+      "type": "MESH",
+      "collections": [
+        "export_city_small_shop_shells_01"
+      ]
+    },
+    {
+      "name": "rear_parapet_right",
+      "type": "MESH",
+      "collections": [
+        "export_city_small_shop_shells_01"
+      ]
+    },
+    {
+      "name": "rear_plinth",
+      "type": "MESH",
+      "collections": [
+        "export_city_small_shop_shells_01"
+      ]
+    },
+    {
+      "name": "rear_scupper_header",
+      "type": "MESH",
+      "collections": [
+        "export_city_small_shop_shells_01"
+      ]
+    },
+    {
+      "name": "rear_structural_wall",
+      "type": "MESH",
+      "collections": [
+        "export_city_small_shop_shells_01"
+      ]
+    },
+    {
+      "name": "roof_seam_left",
+      "type": "MESH",
+      "collections": [
+        "export_city_small_shop_shells_01"
+      ]
+    },
+    {
+      "name": "roof_seam_right",
+      "type": "MESH",
+      "collections": [
+        "export_city_small_shop_shells_01"
+      ]
+    },
+    {
+      "name": "scupper_lower_lip",
+      "type": "MESH",
+      "collections": [
+        "export_city_small_shop_shells_01"
+      ]
+    }
+  ],
+  "metre_reference": {
+    "dimensions": [
+      1.0,
+      1.0,
+      1.0
+    ],
+    "matrix": [
+      [
+        1.0,
+        0.0,
+        0.0,
+        -4.400000095367432
+      ],
+      [
+        0.0,
+        1.0,
+        0.0,
+        7.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0,
+        0.5
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    ]
+  },
+  "issues": []
+}

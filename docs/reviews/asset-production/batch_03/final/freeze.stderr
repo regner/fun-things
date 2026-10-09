@@ -1,0 +1,5 @@
+Traceback (most recent call last):
+  File "/home/regner/.paseo/worktrees/0u71f39f/asset-register-production/docs/reviews/asset-production/batch_03/final/verify_final.py", line 40, in <module>
+    assert all(r['working_matches'] and r.get('expected_matches',True) for r in list(idx.values())+ei+initial+ref)
+           ~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError

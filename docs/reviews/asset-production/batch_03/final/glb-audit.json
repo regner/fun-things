@@ -1,0 +1,3318 @@
+[
+  {
+    "name": "city_shop_fittings_02",
+    "path": "/tmp/batch03-final/frozen/art/models/environment/city_shop_fittings_02/city_shop_fittings_02.glb",
+    "bytes": 45616,
+    "sha256": "4fd2106f09ef4a35edafbcf3a3a68ea94983e721fd84d852a406e2d26de6552f",
+    "bounds_godot": [
+      [
+        -1.600000023841858,
+        -0.4000000059604645,
+        -0.14000000059604645
+      ],
+      [
+        1.600000023841858,
+        0.4000000059604645,
+        -0.0
+      ]
+    ],
+    "triangles": 1656,
+    "nodes": [
+      {
+        "mesh": 0,
+        "name": "artwork_reveal"
+      },
+      {
+        "mesh": 1,
+        "name": "continuous_face_trim"
+      },
+      {
+        "mesh": 2,
+        "name": "fascia_artwork_carrier"
+      },
+      {
+        "mesh": 3,
+        "name": "folded_back_tray"
+      },
+      {
+        "mesh": 4,
+        "name": "formed_fascia_frame"
+      },
+      {
+        "mesh": 5,
+        "name": "wall_mount_rail_lower"
+      },
+      {
+        "mesh": 6,
+        "name": "wall_mount_rail_upper"
+      },
+      {
+        "children": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "name": "city_shop_fittings_02"
+      }
+    ],
+    "materials": [
+      {
+        "name": "fascia_recess",
+        "pbrMetallicRoughness": {
+          "baseColorFactor": [
+            0.016807375475764275,
+            0.03310476616024971,
+            0.04373503103852272,
+            1
+          ],
+          "metallicFactor": 0,
+          "roughnessFactor": 0.7200000286102295
+        }
+      },
+      {
+        "name": "fascia_warm_trim",
+        "pbrMetallicRoughness": {
+          "baseColorFactor": [
+            0.577580451965332,
+            0.5394794940948486,
+            0.41788506507873535,
+            1
+          ],
+          "metallicFactor": 0.2199999988079071,
+          "roughnessFactor": 0.47999998927116394
+        }
+      },
+      {
+        "name": "fascia_artwork_face",
+        "pbrMetallicRoughness": {
+          "baseColorFactor": [
+            0.5457244515419006,
+            0.5711248517036438,
+            0.5028864741325378,
+            1
+          ],
+          "metallicFactor": 0,
+          "roughnessFactor": 0.5600000023841858
+        }
+      },
+      {
+        "name": "fascia_mount_metal",
+        "pbrMetallicRoughness": {
+          "baseColorFactor": [
+            0.039546236395835876,
+            0.06480326503515244,
+            0.0802198201417923,
+            1
+          ],
+          "metallicFactor": 0.44999998807907104,
+          "roughnessFactor": 0.5
+        }
+      },
+      {
+        "name": "fascia_slate_petrol",
+        "pbrMetallicRoughness": {
+          "baseColorFactor": [
+            0.05126945674419403,
+            0.10461648553609848,
+            0.1384316086769104,
+            1
+          ],
+          "metallicFactor": 0.25,
+          "roughnessFactor": 0.46000000834465027
+        }
+      }
+    ],
+    "mesh_reports": [
+      {
+        "name": "artwork_reveal",
+        "primitives": [
+          {
+            "material": "fascia_recess",
+            "vertices": 112,
+            "triangles": 224,
+            "attributes": [
+              "POSITION",
+              "NORMAL"
+            ],
+            "invalid_normals": [],
+            "nonfinite_positions": [],
+            "degenerate_triangles": [],
+            "inward_average_normals": [],
+            "inward_corner_normals": [],
+            "minimum_corner_dot": 0.34714219542438257,
+            "minimum_average_dot": 0.3491356746307077
+          }
+        ]
+      },
+      {
+        "name": "continuous_face_trim",
+        "primitives": [
+          {
+            "material": "fascia_warm_trim",
+            "vertices": 168,
+            "triangles": 336,
+            "attributes": [
+              "POSITION",
+              "NORMAL"
+            ],
+            "invalid_normals": [],
+            "nonfinite_positions": [],
+            "degenerate_triangles": [],
+            "inward_average_normals": [],
+            "inward_corner_normals": [],
+            "minimum_corner_dot": 0.14419329006138454,
+            "minimum_average_dot": 0.3927928655515538
+          }
+        ]
+      },
+      {
+        "name": "fascia_artwork_carrier",
+        "primitives": [
+          {
+            "material": "fascia_artwork_face",
+            "vertices": 28,
+            "triangles": 26,
+            "attributes": [
+              "POSITION",
+              "NORMAL",
+              "TEXCOORD_0"
+            ],
+            "invalid_normals": [],
+            "nonfinite_positions": [],
+            "degenerate_triangles": [],
+            "inward_average_normals": [],
+            "inward_corner_normals": [],
+            "minimum_corner_dot": 1.0,
+            "minimum_average_dot": 1.0
+          },
+          {
+            "material": "fascia_mount_metal",
+            "vertices": 252,
+            "triangles": 138,
+            "attributes": [
+              "POSITION",
+              "NORMAL",
+              "TEXCOORD_0"
+            ],
+            "invalid_normals": [],
+            "nonfinite_positions": [],
+            "degenerate_triangles": [],
+            "inward_average_normals": [],
+            "inward_corner_normals": [],
+            "minimum_corner_dot": 0.999999962626688,
+            "minimum_average_dot": 0.999999962626688
+          }
+        ]
+      },
+      {
+        "name": "folded_back_tray",
+        "primitives": [
+          {
+            "material": "fascia_slate_petrol",
+            "vertices": 84,
+            "triangles": 164,
+            "attributes": [
+              "POSITION",
+              "NORMAL"
+            ],
+            "invalid_normals": [],
+            "nonfinite_positions": [],
+            "degenerate_triangles": [],
+            "inward_average_normals": [],
+            "inward_corner_normals": [],
+            "minimum_corner_dot": 0.00019558966046121857,
+            "minimum_average_dot": 0.3263523766127746
+          }
+        ]
+      },
+      {
+        "name": "formed_fascia_frame",
+        "primitives": [
+          {
+            "material": "fascia_slate_petrol",
+            "vertices": 196,
+            "triangles": 392,
+            "attributes": [
+              "POSITION",
+              "NORMAL"
+            ],
+            "invalid_normals": [],
+            "nonfinite_positions": [],
+            "degenerate_triangles": [],
+            "inward_average_normals": [],
+            "inward_corner_normals": [],
+            "minimum_corner_dot": 0.5267952084541321,
+            "minimum_average_dot": 0.6731647650400797
+          }
+        ]
+      },
+      {
+        "name": "wall_mount_rail_lower",
+        "primitives": [
+          {
+            "material": "fascia_mount_metal",
+            "vertices": 116,
+            "triangles": 188,
+            "attributes": [
+              "POSITION",
+              "NORMAL",
+              "TEXCOORD_0"
+            ],
+            "invalid_normals": [],
+            "nonfinite_positions": [],
+            "degenerate_triangles": [],
+            "inward_average_normals": [],
+            "inward_corner_normals": [],
+            "minimum_corner_dot": 0.9315803807995664,
+            "minimum_average_dot": 0.938375535292239
+          }
+        ]
+      },
+      {
+        "name": "wall_mount_rail_upper",
+        "primitives": [
+          {
+            "material": "fascia_mount_metal",
+            "vertices": 116,
+            "triangles": 188,
+            "attributes": [
+              "POSITION",
+              "NORMAL",
+              "TEXCOORD_0"
+            ],
+            "invalid_normals": [],
+            "nonfinite_positions": [],
+            "degenerate_triangles": [],
+            "inward_average_normals": [],
+            "inward_corner_normals": [],
+            "minimum_corner_dot": 0.9315803807995664,
+            "minimum_average_dot": 0.938375535292239
+          }
+        ]
+      }
+    ],
+    "artwork_interfaces": [
+      {
+        "mesh": "fascia_artwork_carrier",
+        "material": "fascia_artwork_face",
+        "vertices": 28,
+        "triangles": 26,
+        "errors": [],
+        "uv_bounds": [
+          [
+            0.0,
+            0.0
+          ],
+          [
+            1.0,
+            1.0
+          ]
+        ],
+        "determinant_min": -0.9963358257936554,
+        "determinant_max": -1.410877324303783e-06
+      }
+    ],
+    "issues": []
+  },
+  {
+    "name": "city_shop_fittings_03_double",
+    "path": "/tmp/batch03-final/frozen/art/models/environment/city_shop_fittings_03/city_shop_fittings_03_double.glb",
+    "bytes": 41872,
+    "sha256": "6cde06a6da83baa5731317349bbd1835e5ebe6f0cee9f1f1c14c3cf1478ee5d9",
+    "bounds_godot": [
+      [
+        -1.1699999570846558,
+        0.0,
+        -0.10999999940395355
+      ],
+      [
+        1.1699999570846558,
+        2.4800000190734863,
+        0.5199999809265137
+      ]
+    ],
+    "triangles": 2312,
+    "nodes": [
+      {
+        "mesh": 0,
+        "name": "double_rear_stop"
+      },
+      {
+        "mesh": 1,
+        "name": "double_recessed_reveal"
+      },
+      {
+        "mesh": 2,
+        "name": "double_rounded_face_casing"
+      },
+      {
+        "mesh": 3,
+        "name": "double_sloped_threshold"
+      },
+      {
+        "children": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "name": "city_shop_fittings_03_double"
+      }
+    ],
+    "materials": [
+      {
+        "name": "surround_dark_rebate",
+        "pbrMetallicRoughness": {
+          "baseColorFactor": [
+            0.022173885256052017,
+            0.04373503103852272,
+            0.05612849071621895,
+            1
+          ],
+          "metallicFactor": 0.25,
+          "roughnessFactor": 0.550000011920929
+        }
+      },
+      {
+        "name": "surround_slate_petrol",
+        "pbrMetallicRoughness": {
+          "baseColorFactor": [
+            0.05126945674419403,
+            0.10461648553609848,
+            0.1384316086769104,
+            1
+          ],
+          "metallicFactor": 0.25,
+          "roughnessFactor": 0.46000000834465027
+        }
+      },
+      {
+        "name": "surround_warm_ivory",
+        "pbrMetallicRoughness": {
+          "baseColorFactor": [
+            0.577580451965332,
+            0.5394794940948486,
+            0.41788506507873535,
+            1
+          ],
+          "metallicFactor": 0.2199999988079071,
+          "roughnessFactor": 0.47999998927116394
+        }
+      },
+      {
+        "name": "surround_satin_threshold",
+        "pbrMetallicRoughness": {
+          "baseColorFactor": [
+            0.28744083642959595,
+            0.33716362714767456,
+            0.34670406579971313,
+            1
+          ],
+          "metallicFactor": 0.6499999761581421,
+          "roughnessFactor": 0.3799999952316284
+        }
+      }
+    ],
+    "mesh_reports": [
+      {
+        "name": "double_rear_stop",
+        "primitives": [
+          {
+            "material": "surround_dark_rebate",
+            "vertices": 304,
+            "triangles": 604,
+            "attributes": [
+              "POSITION",
+              "NORMAL"
+            ],
+            "invalid_normals": [],
+            "nonfinite_positions": [],
+            "degenerate_triangles": [],
+            "inward_average_normals": [],
+            "inward_corner_normals": [],
+            "minimum_corner_dot": 0.5465627068743772,
+            "minimum_average_dot": 0.7694806895938067
+          }
+        ]
+      },
+      {
+        "name": "double_recessed_reveal",
+        "primitives": [
+          {
+            "material": "surround_slate_petrol",
+            "vertices": 384,
+            "triangles": 764,
+            "attributes": [
+              "POSITION",
+              "NORMAL"
+            ],
+            "invalid_normals": [],
+            "nonfinite_positions": [],
+            "degenerate_triangles": [],
+            "inward_average_normals": [],
+            "inward_corner_normals": [],
+            "minimum_corner_dot": 0.5515340127229891,
+            "minimum_average_dot": 0.772857887964515
+          }
+        ]
+      },
+      {
+        "name": "double_rounded_face_casing",
+        "primitives": [
+          {
+            "material": "surround_warm_ivory",
+            "vertices": 304,
+            "triangles": 604,
+            "attributes": [
+              "POSITION",
+              "NORMAL"
+            ],
+            "invalid_normals": [],
+            "nonfinite_positions": [],
+            "degenerate_triangles": [],
+            "inward_average_normals": [],
+            "inward_corner_normals": [],
+            "minimum_corner_dot": 0.5470356323164712,
+            "minimum_average_dot": 0.7697457410095345
+          }
+        ]
+      },
+      {
+        "name": "double_sloped_threshold",
+        "primitives": [
+          {
+            "material": "surround_satin_threshold",
+            "vertices": 172,
+            "triangles": 340,
+            "attributes": [
+              "POSITION",
+              "NORMAL"
+            ],
+            "invalid_normals": [],
+            "nonfinite_positions": [],
+            "degenerate_triangles": [],
+            "inward_average_normals": [],
+            "inward_corner_normals": [],
+            "minimum_corner_dot": 0.9390817298789562,
+            "minimum_average_dot": 0.9556370406568252
+          }
+        ]
+      }
+    ],
+    "artwork_interfaces": [],
+    "issues": []
+  },
+  {
+    "name": "city_shop_fittings_03_single",
+    "path": "/tmp/batch03-final/frozen/art/models/environment/city_shop_fittings_03/city_shop_fittings_03_single.glb",
+    "bytes": 41872,
+    "sha256": "29af0c8b3652b7b400598c75f6f99329cb21e510452547e2e28f3c1115d215b9",
+    "bounds_godot": [
+      [
+        -0.7699999809265137,
+        0.0,
+        -0.10999999940395355
+      ],
+      [
+        0.7699999809265137,
+        2.4800000190734863,
+        0.5199999809265137
+      ]
+    ],
+    "triangles": 2312,
+    "nodes": [
+      {
+        "mesh": 0,
+        "name": "single_rear_stop"
+      },
+      {
+        "mesh": 1,
+        "name": "single_recessed_reveal"
+      },
+      {
+        "mesh": 2,
+        "name": "single_rounded_face_casing"
+      },
+      {
+        "mesh": 3,
+        "name": "single_sloped_threshold"
+      },
+      {
+        "children": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "name": "city_shop_fittings_03_single"
+      }
+    ],
+    "materials": [
+      {
+        "name": "surround_dark_rebate",
+        "pbrMetallicRoughness": {
+          "baseColorFactor": [
+            0.022173885256052017,
+            0.04373503103852272,
+            0.05612849071621895,
+            1
+          ],
+          "metallicFactor": 0.25,
+          "roughnessFactor": 0.550000011920929
+        }
+      },
+      {
+        "name": "surround_slate_petrol",
+        "pbrMetallicRoughness": {
+          "baseColorFactor": [
+            0.05126945674419403,
+            0.10461648553609848,
+            0.1384316086769104,
+            1
+          ],
+          "metallicFactor": 0.25,
+          "roughnessFactor": 0.46000000834465027
+        }
+      },
+      {
+        "name": "surround_warm_ivory",
+        "pbrMetallicRoughness": {
+          "baseColorFactor": [
+            0.577580451965332,
+            0.5394794940948486,
+            0.41788506507873535,
+            1
+          ],
+          "metallicFactor": 0.2199999988079071,
+          "roughnessFactor": 0.47999998927116394
+        }
+      },
+      {
+        "name": "surround_satin_threshold",
+        "pbrMetallicRoughness": {
+          "baseColorFactor": [
+            0.28744083642959595,
+            0.33716362714767456,
+            0.34670406579971313,
+            1
+          ],
+          "metallicFactor": 0.6499999761581421,
+          "roughnessFactor": 0.3799999952316284
+        }
+      }
+    ],
+    "mesh_reports": [
+      {
+        "name": "single_rear_stop",
+        "primitives": [
+          {
+            "material": "surround_dark_rebate",
+            "vertices": 304,
+            "triangles": 604,
+            "attributes": [
+              "POSITION",
+              "NORMAL"
+            ],
+            "invalid_normals": [],
+            "nonfinite_positions": [],
+            "degenerate_triangles": [],
+            "inward_average_normals": [],
+            "inward_corner_normals": [],
+            "minimum_corner_dot": 0.5465372905025679,
+            "minimum_average_dot": 0.7694710277079769
+          }
+        ]
+      },
+      {
+        "name": "single_recessed_reveal",
+        "primitives": [
+          {
+            "material": "surround_slate_petrol",
+            "vertices": 384,
+            "triangles": 764,
+            "attributes": [
+              "POSITION",
+              "NORMAL"
+            ],
+            "invalid_normals": [],
+            "nonfinite_positions": [],
+            "degenerate_triangles": [],
+            "inward_average_normals": [],
+            "inward_corner_normals": [],
+            "minimum_corner_dot": 0.5515330771600914,
+            "minimum_average_dot": 0.7730068450432935
+          }
+        ]
+      },
+      {
+        "name": "single_rounded_face_casing",
+        "primitives": [
+          {
+            "material": "surround_warm_ivory",
+            "vertices": 304,
+            "triangles": 604,
+            "attributes": [
+              "POSITION",
+              "NORMAL"
+            ],
+            "invalid_normals": [],
+            "nonfinite_positions": [],
+            "degenerate_triangles": [],
+            "inward_average_normals": [],
+            "inward_corner_normals": [],
+            "minimum_corner_dot": 0.5470334553548609,
+            "minimum_average_dot": 0.7697614230631725
+          }
+        ]
+      },
+      {
+        "name": "single_sloped_threshold",
+        "primitives": [
+          {
+            "material": "surround_satin_threshold",
+            "vertices": 172,
+            "triangles": 340,
+            "attributes": [
+              "POSITION",
+              "NORMAL"
+            ],
+            "invalid_normals": [],
+            "nonfinite_positions": [],
+            "degenerate_triangles": [],
+            "inward_average_normals": [],
+            "inward_corner_normals": [],
+            "minimum_corner_dot": 0.9391088682239314,
+            "minimum_average_dot": 0.9556432395584884
+          }
+        ]
+      }
+    ],
+    "artwork_interfaces": [],
+    "issues": []
+  },
+  {
+    "name": "city_shop_fittings_05",
+    "path": "/tmp/batch03-final/frozen/art/models/environment/city_shop_fittings_05/city_shop_fittings_05.glb",
+    "bytes": 29560,
+    "sha256": "a641d067621301435f5a725803290f74dc7c235bac8bdc5d24c1d2170776faed",
+    "bounds_godot": [
+      [
+        -1.600000023841858,
+        0.0,
+        -0.2199999988079071
+      ],
+      [
+        1.600000023841858,
+        2.0,
+        0.18000000715255737
+      ]
+    ],
+    "triangles": 1368,
+    "nodes": [
+      {
+        "mesh": 0,
+        "name": "centre_mullion"
+      },
+      {
+        "mesh": 1,
+        "name": "formed_perimeter"
+      },
+      {
+        "mesh": 2,
+        "name": "ivory_perimeter_inlay"
+      },
+      {
+        "mesh": 3,
+        "name": "left_glazing_gasket"
+      },
+      {
+        "mesh": 4,
+        "name": "left_opaque_glazing"
+      },
+      {
+        "mesh": 5,
+        "name": "right_glazing_gasket"
+      },
+      {
+        "mesh": 6,
+        "name": "right_opaque_glazing"
+      },
+      {
+        "mesh": 7,
+        "name": "sloped_sill"
+      },
+      {
+        "children": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        "name": "city_shop_fittings_05"
+      }
+    ],
+    "materials": [
+      {
+        "name": "window_slate_petrol",
+        "pbrMetallicRoughness": {
+          "baseColorFactor": [
+            0.05126945674419403,
+            0.10461648553609848,
+            0.1384316086769104,
+            1
+          ],
+          "metallicFactor": 0.25,
+          "roughnessFactor": 0.46000000834465027
+        }
+      },
+      {
+        "name": "window_warm_ivory",
+        "pbrMetallicRoughness": {
+          "baseColorFactor": [
+            0.577580451965332,
+            0.5394794940948486,
+            0.41788506507873535,
+            1
+          ],
+          "metallicFactor": 0.2199999988079071,
+          "roughnessFactor": 0.47999998927116394
+        }
+      },
+      {
+        "name": "window_dark_gasket",
+        "pbrMetallicRoughness": {
+          "baseColorFactor": [
+            0.016807375475764275,
+            0.03310476616024971,
+            0.04373503103852272,
+            1
+          ],
+          "metallicFactor": 0,
+          "roughnessFactor": 0.7200000286102295
+        }
+      },
+      {
+        "name": "window_opaque_tint",
+        "pbrMetallicRoughness": {
+          "baseColorFactor": [
+            0.03433980792760849,
+            0.109461709856987,
+            0.12743768095970154,
+            1
+          ],
+          "metallicFactor": 0.18000000715255737,
+          "roughnessFactor": 0.23999999463558197
+        }
+      },
+      {
+        "name": "window_satin_sill",
+        "pbrMetallicRoughness": {
+          "baseColorFactor": [
+            0.28744083642959595,
+            0.33716362714767456,
+            0.34670406579971313,
+            1
+          ],
+          "metallicFactor": 0.6499999761581421,
+          "roughnessFactor": 0.3799999952316284
+        }
+      }
+    ],
+    "mesh_reports": [
+      {
+        "name": "centre_mullion",
+        "primitives": [
+          {
+            "material": "window_slate_petrol",
+            "vertices": 60,
+            "triangles": 116,
+            "attributes": [
+              "POSITION",
+              "NORMAL"
+            ],
+            "invalid_normals": [],
+            "nonfinite_positions": [],
+            "degenerate_triangles": [],
+            "inward_average_normals": [],
+            "inward_corner_normals": [],
+            "minimum_corner_dot": 0.019418603389074876,
+            "minimum_average_dot": 0.3397300731041635
+          }
+        ]
+      },
+      {
+        "name": "formed_perimeter",
+        "primitives": [
+          {
+            "material": "window_slate_petrol",
+            "vertices": 160,
+            "triangles": 320,
+            "attributes": [
+              "POSITION",
+              "NORMAL"
+            ],
+            "invalid_normals": [],
+            "nonfinite_positions": [],
+            "degenerate_triangles": [],
+            "inward_average_normals": [],
+            "inward_corner_normals": [],
+            "minimum_corner_dot": 0.12290225923061371,
+            "minimum_average_dot": 0.13203682253758112
+          }
+        ]
+      },
+      {
+        "name": "ivory_perimeter_inlay",
+        "primitives": [
+          {
+            "material": "window_warm_ivory",
+            "vertices": 80,
+            "triangles": 160,
+            "attributes": [
+              "POSITION",
+              "NORMAL"
+            ],
+            "invalid_normals": [],
+            "nonfinite_positions": [],
+            "degenerate_triangles": [],
+            "inward_average_normals": [],
+            "inward_corner_normals": [],
+            "minimum_corner_dot": 0.06407074165923635,
+            "minimum_average_dot": 0.262514685542973
+          }
+        ]
+      },
+      {
+        "name": "left_glazing_gasket",
+        "primitives": [
+          {
+            "material": "window_dark_gasket",
+            "vertices": 100,
+            "triangles": 200,
+            "attributes": [
+              "POSITION",
+              "NORMAL"
+            ],
+            "invalid_normals": [],
+            "nonfinite_positions": [],
+            "degenerate_triangles": [],
+            "inward_average_normals": [],
+            "inward_corner_normals": [],
+            "minimum_corner_dot": 0.3874889016151428,
+            "minimum_average_dot": 0.45432567596435547
+          }
+        ]
+      },
+      {
+        "name": "left_opaque_glazing",
+        "primitives": [
+          {
+            "material": "window_opaque_tint",
+            "vertices": 40,
+            "triangles": 76,
+            "attributes": [
+              "POSITION",
+              "NORMAL"
+            ],
+            "invalid_normals": [],
+            "nonfinite_positions": [],
+            "degenerate_triangles": [],
+            "inward_average_normals": [],
+            "inward_corner_normals": [],
+            "minimum_corner_dot": 0.000304997687582634,
+            "minimum_average_dot": 0.0003328390110750024
+          }
+        ]
+      },
+      {
+        "name": "right_glazing_gasket",
+        "primitives": [
+          {
+            "material": "window_dark_gasket",
+            "vertices": 100,
+            "triangles": 200,
+            "attributes": [
+              "POSITION",
+              "NORMAL"
+            ],
+            "invalid_normals": [],
+            "nonfinite_positions": [],
+            "degenerate_triangles": [],
+            "inward_average_normals": [],
+            "inward_corner_normals": [],
+            "minimum_corner_dot": 0.3874889016151428,
+            "minimum_average_dot": 0.45432567596435547
+          }
+        ]
+      },
+      {
+        "name": "right_opaque_glazing",
+        "primitives": [
+          {
+            "material": "window_opaque_tint",
+            "vertices": 40,
+            "triangles": 76,
+            "attributes": [
+              "POSITION",
+              "NORMAL"
+            ],
+            "invalid_normals": [],
+            "nonfinite_positions": [],
+            "degenerate_triangles": [],
+            "inward_average_normals": [],
+            "inward_corner_normals": [],
+            "minimum_corner_dot": 0.00027703105413061493,
+            "minimum_average_dot": 0.00030499797488893124
+          }
+        ]
+      },
+      {
+        "name": "sloped_sill",
+        "primitives": [
+          {
+            "material": "window_satin_sill",
+            "vertices": 112,
+            "triangles": 220,
+            "attributes": [
+              "POSITION",
+              "NORMAL"
+            ],
+            "invalid_normals": [],
+            "nonfinite_positions": [],
+            "degenerate_triangles": [],
+            "inward_average_normals": [],
+            "inward_corner_normals": [],
+            "minimum_corner_dot": 0.9055122902974813,
+            "minimum_average_dot": 0.9357075307775103
+          }
+        ]
+      }
+    ],
+    "artwork_interfaces": [],
+    "issues": []
+  },
+  {
+    "name": "city_shop_fittings_06_double",
+    "path": "/tmp/batch03-final/frozen/art/models/environment/city_shop_fittings_06/city_shop_fittings_06_double.glb",
+    "bytes": 64608,
+    "sha256": "b4138a6a2b7ebd96f934448d4617bc6b0d127d48bf814eab8016695e50153cbf",
+    "bounds_godot": [
+      [
+        -0.9120000004768372,
+        0.029999999329447746,
+        0.35199999809265137
+      ],
+      [
+        0.9120000004768372,
+        2.2320001125335693,
+        0.4749999940395355
+      ]
+    ],
+    "triangles": 3984,
+    "nodes": [
+      {
+        "mesh": 0,
+        "name": "double_leaf_1_glazing"
+      },
+      {
+        "mesh": 1,
+        "name": "double_leaf_1_static_pull"
+      },
+      {
+        "mesh": 2,
+        "name": "double_leaf_1_stiles_rails"
+      },
+      {
+        "mesh": 3,
+        "name": "double_leaf_2_glazing"
+      },
+      {
+        "mesh": 4,
+        "name": "double_leaf_2_static_pull"
+      },
+      {
+        "mesh": 5,
+        "name": "double_leaf_2_stiles_rails"
+      },
+      {
+        "children": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "name": "city_shop_fittings_06_double"
+      }
+    ],
+    "materials": [
+      {
+        "name": "door_opaque_tinted_glazing",
+        "pbrMetallicRoughness": {
+          "baseColorFactor": [
+            0.00802319310605526,
+            0.04666508734226227,
+            0.06480326503515244,
+            1
+          ],
+          "metallicFactor": 0.3199999928474426,
+          "roughnessFactor": 0.2199999988079071
+        }
+      },
+      {
+        "name": "door_satin_handle",
+        "pbrMetallicRoughness": {
+          "baseColorFactor": [
+            0.577580451965332,
+            0.5394794940948486,
+            0.41788506507873535,
+            1
+          ],
+          "metallicFactor": 0.6499999761581421,
+          "roughnessFactor": 0.30000001192092896
+        }
+      },
+      {
+        "name": "door_slate_petrol",
+        "pbrMetallicRoughness": {
+          "baseColorFactor": [
+            0.05126945674419403,
+            0.10461648553609848,
+            0.1384316086769104,
+            1
+          ],
+          "metallicFactor": 0.25,
+          "roughnessFactor": 0.4000000059604645
+        }
+      }
+    ],
+    "mesh_reports": [
+      {
+        "name": "double_leaf_1_glazing",
+        "primitives": [
+          {
+            "material": "door_opaque_tinted_glazing",
+            "vertices": 152,
+            "triangles": 300,
+            "attributes": [
+              "POSITION",
+              "NORMAL"
+            ],
+            "invalid_normals": [],
+            "nonfinite_positions": [],
+            "degenerate_triangles": [],
+            "inward_average_normals": [],
+            "inward_corner_normals": [],
+            "minimum_corner_dot": 0.9568855605294733,
+            "minimum_average_dot": 0.9634557207577975
+          }
+        ]
+      },
+      {
+        "name": "double_leaf_1_static_pull",
+        "primitives": [
+          {
+            "material": "door_satin_handle",
+            "vertices": 304,
+            "triangles": 604,
+            "attributes": [
+              "POSITION",
+              "NORMAL"
+            ],
+            "invalid_normals": [],
+            "nonfinite_positions": [],
+            "degenerate_triangles": [],
+            "inward_average_normals": [],
+            "inward_corner_normals": [],
+            "minimum_corner_dot": 0.5492180805736248,
+            "minimum_average_dot": 0.7709966703747836
+          }
+        ]
+      },
+      {
+        "name": "double_leaf_1_stiles_rails",
+        "primitives": [
+          {
+            "material": "door_slate_petrol",
+            "vertices": 544,
+            "triangles": 1088,
+            "attributes": [
+              "POSITION",
+              "NORMAL"
+            ],
+            "invalid_normals": [],
+            "nonfinite_positions": [],
+            "degenerate_triangles": [],
+            "inward_average_normals": [],
+            "inward_corner_normals": [],
+            "minimum_corner_dot": 0.6120030017808967,
+            "minimum_average_dot": 0.8114757558056415
+          }
+        ]
+      },
+      {
+        "name": "double_leaf_2_glazing",
+        "primitives": [
+          {
+            "material": "door_opaque_tinted_glazing",
+            "vertices": 152,
+            "triangles": 300,
+            "attributes": [
+              "POSITION",
+              "NORMAL"
+            ],
+            "invalid_normals": [],
+            "nonfinite_positions": [],
+            "degenerate_triangles": [],
+            "inward_average_normals": [],
+            "inward_corner_normals": [],
+            "minimum_corner_dot": 0.9568855605294733,
+            "minimum_average_dot": 0.9634557207577975
+          }
+        ]
+      },
+      {
+        "name": "double_leaf_2_static_pull",
+        "primitives": [
+          {
+            "material": "door_satin_handle",
+            "vertices": 304,
+            "triangles": 604,
+            "attributes": [
+              "POSITION",
+              "NORMAL"
+            ],
+            "invalid_normals": [],
+            "nonfinite_positions": [],
+            "degenerate_triangles": [],
+            "inward_average_normals": [],
+            "inward_corner_normals": [],
+            "minimum_corner_dot": 0.5492181983390528,
+            "minimum_average_dot": 0.770998526583988
+          }
+        ]
+      },
+      {
+        "name": "double_leaf_2_stiles_rails",
+        "primitives": [
+          {
+            "material": "door_slate_petrol",
+            "vertices": 544,
+            "triangles": 1088,
+            "attributes": [
+              "POSITION",
+              "NORMAL"
+            ],
+            "invalid_normals": [],
+            "nonfinite_positions": [],
+            "degenerate_triangles": [],
+            "inward_average_normals": [],
+            "inward_corner_normals": [],
+            "minimum_corner_dot": 0.6119794969374991,
+            "minimum_average_dot": 0.8114605936399965
+          }
+        ]
+      }
+    ],
+    "artwork_interfaces": [],
+    "issues": []
+  },
+  {
+    "name": "city_shop_fittings_06_single",
+    "path": "/tmp/batch03-final/frozen/art/models/environment/city_shop_fittings_06/city_shop_fittings_06_single.glb",
+    "bytes": 38928,
+    "sha256": "37e9ce1667105cc66120edf4d114b3a4228972000ac89c14ed1a2608e9b309c6",
+    "bounds_godot": [
+      [
+        -0.5120000243186951,
+        0.029999999329447746,
+        0.35199999809265137
+      ],
+      [
+        0.5120000243186951,
+        2.2320001125335693,
+        0.4749999940395355
+      ]
+    ],
+    "triangles": 1992,
+    "nodes": [
+      {
+        "mesh": 0,
+        "name": "single_leaf_1_glazing"
+      },
+      {
+        "mesh": 1,
+        "name": "single_leaf_1_static_pull"
+      },
+      {
+        "mesh": 2,
+        "name": "single_leaf_1_stiles_rails"
+      },
+      {
+        "children": [
+          0,
+          1,
+          2
+        ],
+        "name": "city_shop_fittings_06_single"
+      }
+    ],
+    "materials": [
+      {
+        "name": "door_opaque_tinted_glazing",
+        "pbrMetallicRoughness": {
+          "baseColorFactor": [
+            0.00802319310605526,
+            0.04666508734226227,
+            0.06480326503515244,
+            1
+          ],
+          "metallicFactor": 0.3199999928474426,
+          "roughnessFactor": 0.2199999988079071
+        }
+      },
+      {
+        "name": "door_satin_handle",
+        "pbrMetallicRoughness": {
+          "baseColorFactor": [
+            0.577580451965332,
+            0.5394794940948486,
+            0.41788506507873535,
+            1
+          ],
+          "metallicFactor": 0.6499999761581421,
+          "roughnessFactor": 0.30000001192092896
+        }
+      },
+      {
+        "name": "door_slate_petrol",
+        "pbrMetallicRoughness": {
+          "baseColorFactor": [
+            0.05126945674419403,
+            0.10461648553609848,
+            0.1384316086769104,
+            1
+          ],
+          "metallicFactor": 0.25,
+          "roughnessFactor": 0.4000000059604645
+        }
+      }
+    ],
+    "mesh_reports": [
+      {
+        "name": "single_leaf_1_glazing",
+        "primitives": [
+          {
+            "material": "door_opaque_tinted_glazing",
+            "vertices": 152,
+            "triangles": 300,
+            "attributes": [
+              "POSITION",
+              "NORMAL"
+            ],
+            "invalid_normals": [],
+            "nonfinite_positions": [],
+            "degenerate_triangles": [],
+            "inward_average_normals": [],
+            "inward_corner_normals": [],
+            "minimum_corner_dot": 0.9569049599283114,
+            "minimum_average_dot": 0.9634525193463617
+          }
+        ]
+      },
+      {
+        "name": "single_leaf_1_static_pull",
+        "primitives": [
+          {
+            "material": "door_satin_handle",
+            "vertices": 304,
+            "triangles": 604,
+            "attributes": [
+              "POSITION",
+              "NORMAL"
+            ],
+            "invalid_normals": [],
+            "nonfinite_positions": [],
+            "degenerate_triangles": [],
+            "inward_average_normals": [],
+            "inward_corner_normals": [],
+            "minimum_corner_dot": 0.5491281693296824,
+            "minimum_average_dot": 0.7709608379257148
+          }
+        ]
+      },
+      {
+        "name": "single_leaf_1_stiles_rails",
+        "primitives": [
+          {
+            "material": "door_slate_petrol",
+            "vertices": 544,
+            "triangles": 1088,
+            "attributes": [
+              "POSITION",
+              "NORMAL"
+            ],
+            "invalid_normals": [],
+            "nonfinite_positions": [],
+            "degenerate_triangles": [],
+            "inward_average_normals": [],
+            "inward_corner_normals": [],
+            "minimum_corner_dot": 0.6120443721381762,
+            "minimum_average_dot": 0.8114803659091488
+          }
+        ]
+      }
+    ],
+    "artwork_interfaces": [],
+    "issues": []
+  },
+  {
+    "name": "city_shop_fittings_07",
+    "path": "/tmp/batch03-final/frozen/art/models/environment/city_shop_fittings_07/city_shop_fittings_07.glb",
+    "bytes": 35940,
+    "sha256": "726af54525323b3f13253052b6fe61d80bafd1601a2ea8845f7238b53b88551b",
+    "bounds_godot": [
+      [
+        -2.4000000953674316,
+        0.0,
+        -0.15000000596046448
+      ],
+      [
+        2.4000000953674316,
+        1.600000023841858,
+        0.1599999964237213
+      ]
+    ],
+    "triangles": 1760,
+    "nodes": [
+      {
+        "mesh": 0,
+        "name": "centre_glazing_seal"
+      },
+      {
+        "mesh": 1,
+        "name": "centre_opaque_pane"
+      },
+      {
+        "mesh": 2,
+        "name": "continuous_window_frame"
+      },
+      {
+        "mesh": 3,
+        "name": "folded_drip_shoe"
+      },
+      {
+        "mesh": 4,
+        "name": "inner_ivory_bead"
+      },
+      {
+        "mesh": 5,
+        "name": "left_glazing_seal"
+      },
+      {
+        "mesh": 6,
+        "name": "left_meeting_stile"
+      },
+      {
+        "mesh": 7,
+        "name": "left_opaque_pane"
+      },
+      {
+        "mesh": 8,
+        "name": "right_glazing_seal"
+      },
+      {
+        "mesh": 9,
+        "name": "right_meeting_stile"
+      },
+      {
+        "mesh": 10,
+        "name": "right_opaque_pane"
+      },
+      {
+        "children": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10
+        ],
+        "name": "city_shop_fittings_07"
+      }
+    ],
+    "materials": [
+      {
+        "name": "upper_dark_gasket",
+        "pbrMetallicRoughness": {
+          "baseColorFactor": [
+            0.016807375475764275,
+            0.03310476616024971,
+            0.04373503103852272,
+            1
+          ],
+          "metallicFactor": 0,
+          "roughnessFactor": 0.7200000286102295
+        }
+      },
+      {
+        "name": "upper_opaque_tint",
+        "pbrMetallicRoughness": {
+          "baseColorFactor": [
+            0.03433980792760849,
+            0.109461709856987,
+            0.12743768095970154,
+            1
+          ],
+          "metallicFactor": 0.18000000715255737,
+          "roughnessFactor": 0.2800000011920929
+        }
+      },
+      {
+        "name": "upper_slate_petrol",
+        "pbrMetallicRoughness": {
+          "baseColorFactor": [
+            0.05126945674419403,
+            0.10461648553609848,
+            0.1384316086769104,
+            1
+          ],
+          "metallicFactor": 0.25,
+          "roughnessFactor": 0.46000000834465027
+        }
+      },
+      {
+        "name": "upper_satin_sill",
+        "pbrMetallicRoughness": {
+          "baseColorFactor": [
+            0.28744083642959595,
+            0.33716362714767456,
+            0.34670406579971313,
+            1
+          ],
+          "metallicFactor": 0.6499999761581421,
+          "roughnessFactor": 0.3799999952316284
+        }
+      },
+      {
+        "name": "upper_warm_ivory",
+        "pbrMetallicRoughness": {
+          "baseColorFactor": [
+            0.577580451965332,
+            0.5394794940948486,
+            0.41788506507873535,
+            1
+          ],
+          "metallicFactor": 0.2199999988079071,
+          "roughnessFactor": 0.47999998927116394
+        }
+      }
+    ],
+    "mesh_reports": [
+      {
+        "name": "centre_glazing_seal",
+        "primitives": [
+          {
+            "material": "upper_dark_gasket",
+            "vertices": 100,
+            "triangles": 200,
+            "attributes": [
+              "POSITION",
+              "NORMAL"
+            ],
+            "invalid_normals": [],
+            "nonfinite_positions": [],
+            "degenerate_triangles": [],
+            "inward_average_normals": [],
+            "inward_corner_normals": [],
+            "minimum_corner_dot": 0.2599087059497833,
+            "minimum_average_dot": 0.32917772730191547
+          }
+        ]
+      },
+      {
+        "name": "centre_opaque_pane",
+        "primitives": [
+          {
+            "material": "upper_opaque_tint",
+            "vertices": 40,
+            "triangles": 76,
+            "attributes": [
+              "POSITION",
+              "NORMAL"
+            ],
+            "invalid_normals": [],
+            "nonfinite_positions": [],
+            "degenerate_triangles": [],
+            "inward_average_normals": [],
+            "inward_corner_normals": [],
+            "minimum_corner_dot": 0.0003046248193668855,
+            "minimum_average_dot": 0.00034191156024942045
+          }
+        ]
+      },
+      {
+        "name": "continuous_window_frame",
+        "primitives": [
+          {
+            "material": "upper_slate_petrol",
+            "vertices": 160,
+            "triangles": 320,
+            "attributes": [
+              "POSITION",
+              "NORMAL"
+            ],
+            "invalid_normals": [],
+            "nonfinite_positions": [],
+            "degenerate_triangles": [],
+            "inward_average_normals": [],
+            "inward_corner_normals": [],
+            "minimum_corner_dot": 0.23200353980064392,
+            "minimum_average_dot": 0.24783082803090414
+          }
+        ]
+      },
+      {
+        "name": "folded_drip_shoe",
+        "primitives": [
+          {
+            "material": "upper_satin_sill",
+            "vertices": 112,
+            "triangles": 220,
+            "attributes": [
+              "POSITION",
+              "NORMAL"
+            ],
+            "invalid_normals": [],
+            "nonfinite_positions": [],
+            "degenerate_triangles": [],
+            "inward_average_normals": [],
+            "inward_corner_normals": [],
+            "minimum_corner_dot": 0.8716400867876926,
+            "minimum_average_dot": 0.916966570821946
+          }
+        ]
+      },
+      {
+        "name": "inner_ivory_bead",
+        "primitives": [
+          {
+            "material": "upper_warm_ivory",
+            "vertices": 80,
+            "triangles": 160,
+            "attributes": [
+              "POSITION",
+              "NORMAL"
+            ],
+            "invalid_normals": [],
+            "nonfinite_positions": [],
+            "degenerate_triangles": [],
+            "inward_average_normals": [],
+            "inward_corner_normals": [],
+            "minimum_corner_dot": 0.1422487198090661,
+            "minimum_average_dot": 0.34295582313146994
+          }
+        ]
+      },
+      {
+        "name": "left_glazing_seal",
+        "primitives": [
+          {
+            "material": "upper_dark_gasket",
+            "vertices": 100,
+            "triangles": 200,
+            "attributes": [
+              "POSITION",
+              "NORMAL"
+            ],
+            "invalid_normals": [],
+            "nonfinite_positions": [],
+            "degenerate_triangles": [],
+            "inward_average_normals": [],
+            "inward_corner_normals": [],
+            "minimum_corner_dot": 0.25880739092826843,
+            "minimum_average_dot": 0.32889042297999066
+          }
+        ]
+      },
+      {
+        "name": "left_meeting_stile",
+        "primitives": [
+          {
+            "material": "upper_slate_petrol",
+            "vertices": 60,
+            "triangles": 116,
+            "attributes": [
+              "POSITION",
+              "NORMAL"
+            ],
+            "invalid_normals": [],
+            "nonfinite_positions": [],
+            "degenerate_triangles": [],
+            "inward_average_normals": [],
+            "inward_corner_normals": [],
+            "minimum_corner_dot": 0.01613644332449125,
+            "minimum_average_dot": 0.337530884402293
+          }
+        ]
+      },
+      {
+        "name": "left_opaque_pane",
+        "primitives": [
+          {
+            "material": "upper_opaque_tint",
+            "vertices": 40,
+            "triangles": 76,
+            "attributes": [
+              "POSITION",
+              "NORMAL"
+            ],
+            "invalid_normals": [],
+            "nonfinite_positions": [],
+            "degenerate_triangles": [],
+            "inward_average_normals": [],
+            "inward_corner_normals": [],
+            "minimum_corner_dot": 0.0008626610547340305,
+            "minimum_average_dot": 0.0008967254620826343
+          }
+        ]
+      },
+      {
+        "name": "right_glazing_seal",
+        "primitives": [
+          {
+            "material": "upper_dark_gasket",
+            "vertices": 100,
+            "triangles": 200,
+            "attributes": [
+              "POSITION",
+              "NORMAL"
+            ],
+            "invalid_normals": [],
+            "nonfinite_positions": [],
+            "degenerate_triangles": [],
+            "inward_average_normals": [],
+            "inward_corner_normals": [],
+            "minimum_corner_dot": 0.25880739092826843,
+            "minimum_average_dot": 0.32889042297999066
+          }
+        ]
+      },
+      {
+        "name": "right_meeting_stile",
+        "primitives": [
+          {
+            "material": "upper_slate_petrol",
+            "vertices": 60,
+            "triangles": 116,
+            "attributes": [
+              "POSITION",
+              "NORMAL"
+            ],
+            "invalid_normals": [],
+            "nonfinite_positions": [],
+            "degenerate_triangles": [],
+            "inward_average_normals": [],
+            "inward_corner_normals": [],
+            "minimum_corner_dot": 0.01613645543527357,
+            "minimum_average_dot": 0.337530884402293
+          }
+        ]
+      },
+      {
+        "name": "right_opaque_pane",
+        "primitives": [
+          {
+            "material": "upper_opaque_tint",
+            "vertices": 40,
+            "triangles": 76,
+            "attributes": [
+              "POSITION",
+              "NORMAL"
+            ],
+            "invalid_normals": [],
+            "nonfinite_positions": [],
+            "degenerate_triangles": [],
+            "inward_average_normals": [],
+            "inward_corner_normals": [],
+            "minimum_corner_dot": 0.0008626608591656228,
+            "minimum_average_dot": 0.0008967254620826343
+          }
+        ]
+      }
+    ],
+    "artwork_interfaces": [],
+    "issues": []
+  },
+  {
+    "name": "city_shop_fittings_08",
+    "path": "/tmp/batch03-final/frozen/art/models/environment/city_shop_fittings_08/city_shop_fittings_08.glb",
+    "bytes": 98848,
+    "sha256": "d826c257c21de7754f0261e6376f942abbc6ddc249fdc5f5d5c7e3a54049a2b6",
+    "bounds_godot": [
+      [
+        -0.10000000149011612,
+        -0.5799999833106995,
+        -0.8799999952316284
+      ],
+      [
+        0.10000000149011612,
+        0.5799999833106995,
+        -0.0
+      ]
+    ],
+    "triangles": 3624,
+    "nodes": [
+      {
+        "mesh": 0,
+        "name": "cantilever_arm_lower"
+      },
+      {
+        "mesh": 1,
+        "name": "cantilever_arm_upper"
+      },
+      {
+        "mesh": 2,
+        "name": "captive_hex_left_lower"
+      },
+      {
+        "mesh": 3,
+        "name": "captive_hex_left_upper"
+      },
+      {
+        "mesh": 4,
+        "name": "captive_hex_right_lower"
+      },
+      {
+        "mesh": 5,
+        "name": "captive_hex_right_upper"
+      },
+      {
+        "mesh": 6,
+        "name": "continuous_trim_negative_x"
+      },
+      {
+        "mesh": 7,
+        "name": "continuous_trim_positive_x"
+      },
+      {
+        "mesh": 8,
+        "name": "dark_reveal_negative_x"
+      },
+      {
+        "mesh": 9,
+        "name": "dark_reveal_positive_x"
+      },
+      {
+        "mesh": 10,
+        "name": "face_negative_x"
+      },
+      {
+        "mesh": 11,
+        "name": "face_positive_x"
+      },
+      {
+        "mesh": 12,
+        "name": "formed_blade_shell"
+      },
+      {
+        "mesh": 13,
+        "name": "tapered_gusset_lower"
+      },
+      {
+        "mesh": 14,
+        "name": "tapered_gusset_upper"
+      },
+      {
+        "mesh": 15,
+        "name": "wall_backplate"
+      },
+      {
+        "children": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15
+        ],
+        "name": "city_shop_fittings_08"
+      }
+    ],
+    "materials": [
+      {
+        "name": "blade_mount_metal",
+        "pbrMetallicRoughness": {
+          "baseColorFactor": [
+            0.039546236395835876,
+            0.06480326503515244,
+            0.0802198201417923,
+            1
+          ],
+          "metallicFactor": 0.44999998807907104,
+          "roughnessFactor": 0.5
+        }
+      },
+      {
+        "name": "blade_warm_trim",
+        "pbrMetallicRoughness": {
+          "baseColorFactor": [
+            0.577580451965332,
+            0.5394794940948486,
+            0.41788506507873535,
+            1
+          ],
+          "metallicFactor": 0.2199999988079071,
+          "roughnessFactor": 0.47999998927116394
+        }
+      },
+      {
+        "name": "blade_recess",
+        "pbrMetallicRoughness": {
+          "baseColorFactor": [
+            0.016807375475764275,
+            0.03310476616024971,
+            0.04373503103852272,
+            1
+          ],
+          "metallicFactor": 0,
+          "roughnessFactor": 0.7200000286102295
+        }
+      },
+      {
+        "name": "blade_artwork_negative_x",
+        "pbrMetallicRoughness": {
+          "baseColorFactor": [
+            0.5457244515419006,
+            0.5711248517036438,
+            0.5028864741325378,
+            1
+          ],
+          "metallicFactor": 0,
+          "roughnessFactor": 0.5600000023841858
+        }
+      },
+      {
+        "name": "blade_artwork_positive_x",
+        "pbrMetallicRoughness": {
+          "baseColorFactor": [
+            0.5457244515419006,
+            0.5711248517036438,
+            0.5028864741325378,
+            1
+          ],
+          "metallicFactor": 0,
+          "roughnessFactor": 0.5600000023841858
+        }
+      },
+      {
+        "name": "blade_slate_petrol",
+        "pbrMetallicRoughness": {
+          "baseColorFactor": [
+            0.05126945674419403,
+            0.10461648553609848,
+            0.1384316086769104,
+            1
+          ],
+          "metallicFactor": 0.25,
+          "roughnessFactor": 0.46000000834465027
+        }
+      }
+    ],
+    "mesh_reports": [
+      {
+        "name": "cantilever_arm_lower",
+        "primitives": [
+          {
+            "material": "blade_mount_metal",
+            "vertices": 116,
+            "triangles": 188,
+            "attributes": [
+              "POSITION",
+              "NORMAL",
+              "TEXCOORD_0"
+            ],
+            "invalid_normals": [],
+            "nonfinite_positions": [],
+            "degenerate_triangles": [],
+            "inward_average_normals": [],
+            "inward_corner_normals": [],
+            "minimum_corner_dot": 0.9333359564566803,
+            "minimum_average_dot": 0.9387942271556083
+          }
+        ]
+      },
+      {
+        "name": "cantilever_arm_upper",
+        "primitives": [
+          {
+            "material": "blade_mount_metal",
+            "vertices": 116,
+            "triangles": 188,
+            "attributes": [
+              "POSITION",
+              "NORMAL",
+              "TEXCOORD_0"
+            ],
+            "invalid_normals": [],
+            "nonfinite_positions": [],
+            "degenerate_triangles": [],
+            "inward_average_normals": [],
+            "inward_corner_normals": [],
+            "minimum_corner_dot": 0.9333359564566803,
+            "minimum_average_dot": 0.9387942271556083
+          }
+        ]
+      },
+      {
+        "name": "captive_hex_left_lower",
+        "primitives": [
+          {
+            "material": "blade_warm_trim",
+            "vertices": 172,
+            "triangles": 236,
+            "attributes": [
+              "POSITION",
+              "NORMAL",
+              "TEXCOORD_0"
+            ],
+            "invalid_normals": [],
+            "nonfinite_positions": [],
+            "degenerate_triangles": [],
+            "inward_average_normals": [],
+            "inward_corner_normals": [],
+            "minimum_corner_dot": 0.8594505255454689,
+            "minimum_average_dot": 0.8912249994023472
+          }
+        ]
+      },
+      {
+        "name": "captive_hex_left_upper",
+        "primitives": [
+          {
+            "material": "blade_warm_trim",
+            "vertices": 172,
+            "triangles": 236,
+            "attributes": [
+              "POSITION",
+              "NORMAL",
+              "TEXCOORD_0"
+            ],
+            "invalid_normals": [],
+            "nonfinite_positions": [],
+            "degenerate_triangles": [],
+            "inward_average_normals": [],
+            "inward_corner_normals": [],
+            "minimum_corner_dot": 0.8594495485650533,
+            "minimum_average_dot": 0.8912246983617963
+          }
+        ]
+      },
+      {
+        "name": "captive_hex_right_lower",
+        "primitives": [
+          {
+            "material": "blade_warm_trim",
+            "vertices": 172,
+            "triangles": 236,
+            "attributes": [
+              "POSITION",
+              "NORMAL",
+              "TEXCOORD_0"
+            ],
+            "invalid_normals": [],
+            "nonfinite_positions": [],
+            "degenerate_triangles": [],
+            "inward_average_normals": [],
+            "inward_corner_normals": [],
+            "minimum_corner_dot": 0.8594495485650533,
+            "minimum_average_dot": 0.8912246983617963
+          }
+        ]
+      },
+      {
+        "name": "captive_hex_right_upper",
+        "primitives": [
+          {
+            "material": "blade_warm_trim",
+            "vertices": 172,
+            "triangles": 236,
+            "attributes": [
+              "POSITION",
+              "NORMAL",
+              "TEXCOORD_0"
+            ],
+            "invalid_normals": [],
+            "nonfinite_positions": [],
+            "degenerate_triangles": [],
+            "inward_average_normals": [],
+            "inward_corner_normals": [],
+            "minimum_corner_dot": 0.859450132687854,
+            "minimum_average_dot": 0.8912249994023472
+          }
+        ]
+      },
+      {
+        "name": "continuous_trim_negative_x",
+        "primitives": [
+          {
+            "material": "blade_warm_trim",
+            "vertices": 216,
+            "triangles": 432,
+            "attributes": [
+              "POSITION",
+              "NORMAL"
+            ],
+            "invalid_normals": [],
+            "nonfinite_positions": [],
+            "degenerate_triangles": [],
+            "inward_average_normals": [],
+            "inward_corner_normals": [],
+            "minimum_corner_dot": 0.22212244154463304,
+            "minimum_average_dot": 0.46978307837808947
+          }
+        ]
+      },
+      {
+        "name": "continuous_trim_positive_x",
+        "primitives": [
+          {
+            "material": "blade_warm_trim",
+            "vertices": 216,
+            "triangles": 432,
+            "attributes": [
+              "POSITION",
+              "NORMAL"
+            ],
+            "invalid_normals": [],
+            "nonfinite_positions": [],
+            "degenerate_triangles": [],
+            "inward_average_normals": [],
+            "inward_corner_normals": [],
+            "minimum_corner_dot": 0.22218753332441327,
+            "minimum_average_dot": 0.4697924265959806
+          }
+        ]
+      },
+      {
+        "name": "dark_reveal_negative_x",
+        "primitives": [
+          {
+            "material": "blade_recess",
+            "vertices": 72,
+            "triangles": 140,
+            "attributes": [
+              "POSITION",
+              "NORMAL"
+            ],
+            "invalid_normals": [],
+            "nonfinite_positions": [],
+            "degenerate_triangles": [],
+            "inward_average_normals": [],
+            "inward_corner_normals": [],
+            "minimum_corner_dot": 0.0003365299570508216,
+            "minimum_average_dot": 0.00037530748591605654
+          }
+        ]
+      },
+      {
+        "name": "dark_reveal_positive_x",
+        "primitives": [
+          {
+            "material": "blade_recess",
+            "vertices": 72,
+            "triangles": 140,
+            "attributes": [
+              "POSITION",
+              "NORMAL"
+            ],
+            "invalid_normals": [],
+            "nonfinite_positions": [],
+            "degenerate_triangles": [],
+            "inward_average_normals": [],
+            "inward_corner_normals": [],
+            "minimum_corner_dot": 0.0003365299570508216,
+            "minimum_average_dot": 0.00037703693505095477
+          }
+        ]
+      },
+      {
+        "name": "face_negative_x",
+        "primitives": [
+          {
+            "material": "blade_artwork_negative_x",
+            "vertices": 36,
+            "triangles": 34,
+            "attributes": [
+              "POSITION",
+              "NORMAL",
+              "TEXCOORD_0"
+            ],
+            "invalid_normals": [],
+            "nonfinite_positions": [],
+            "degenerate_triangles": [],
+            "inward_average_normals": [],
+            "inward_corner_normals": [],
+            "minimum_corner_dot": 1.0,
+            "minimum_average_dot": 1.0
+          },
+          {
+            "material": "blade_mount_metal",
+            "vertices": 180,
+            "triangles": 106,
+            "attributes": [
+              "POSITION",
+              "NORMAL",
+              "TEXCOORD_0"
+            ],
+            "invalid_normals": [],
+            "nonfinite_positions": [],
+            "degenerate_triangles": [],
+            "inward_average_normals": [],
+            "inward_corner_normals": [],
+            "minimum_corner_dot": 0.999999972918809,
+            "minimum_average_dot": 0.999999972918809
+          }
+        ]
+      },
+      {
+        "name": "face_positive_x",
+        "primitives": [
+          {
+            "material": "blade_artwork_positive_x",
+            "vertices": 36,
+            "triangles": 34,
+            "attributes": [
+              "POSITION",
+              "NORMAL",
+              "TEXCOORD_0"
+            ],
+            "invalid_normals": [],
+            "nonfinite_positions": [],
+            "degenerate_triangles": [],
+            "inward_average_normals": [],
+            "inward_corner_normals": [],
+            "minimum_corner_dot": 1.0,
+            "minimum_average_dot": 1.0
+          },
+          {
+            "material": "blade_mount_metal",
+            "vertices": 180,
+            "triangles": 106,
+            "attributes": [
+              "POSITION",
+              "NORMAL",
+              "TEXCOORD_0"
+            ],
+            "invalid_normals": [],
+            "nonfinite_positions": [],
+            "degenerate_triangles": [],
+            "inward_average_normals": [],
+            "inward_corner_normals": [],
+            "minimum_corner_dot": 0.999999972918809,
+            "minimum_average_dot": 0.999999972918809
+          }
+        ]
+      },
+      {
+        "name": "formed_blade_shell",
+        "primitives": [
+          {
+            "material": "blade_slate_petrol",
+            "vertices": 144,
+            "triangles": 284,
+            "attributes": [
+              "POSITION",
+              "NORMAL"
+            ],
+            "invalid_normals": [],
+            "nonfinite_positions": [],
+            "degenerate_triangles": [],
+            "inward_average_normals": [],
+            "inward_corner_normals": [],
+            "minimum_corner_dot": 0.7346660205596633,
+            "minimum_average_dot": 0.7424683780792725
+          }
+        ]
+      },
+      {
+        "name": "tapered_gusset_lower",
+        "primitives": [
+          {
+            "material": "blade_mount_metal",
+            "vertices": 104,
+            "triangles": 204,
+            "attributes": [
+              "POSITION",
+              "NORMAL"
+            ],
+            "invalid_normals": [],
+            "nonfinite_positions": [],
+            "degenerate_triangles": [],
+            "inward_average_normals": [],
+            "inward_corner_normals": [],
+            "minimum_corner_dot": 0.8963262906176244,
+            "minimum_average_dot": 0.9205925431817327
+          }
+        ]
+      },
+      {
+        "name": "tapered_gusset_upper",
+        "primitives": [
+          {
+            "material": "blade_mount_metal",
+            "vertices": 104,
+            "triangles": 204,
+            "attributes": [
+              "POSITION",
+              "NORMAL"
+            ],
+            "invalid_normals": [],
+            "nonfinite_positions": [],
+            "degenerate_triangles": [],
+            "inward_average_normals": [],
+            "inward_corner_normals": [],
+            "minimum_corner_dot": 0.8963283257755912,
+            "minimum_average_dot": 0.9205924203130214
+          }
+        ]
+      },
+      {
+        "name": "wall_backplate",
+        "primitives": [
+          {
+            "material": "blade_mount_metal",
+            "vertices": 116,
+            "triangles": 188,
+            "attributes": [
+              "POSITION",
+              "NORMAL",
+              "TEXCOORD_0"
+            ],
+            "invalid_normals": [],
+            "nonfinite_positions": [],
+            "degenerate_triangles": [],
+            "inward_average_normals": [],
+            "inward_corner_normals": [],
+            "minimum_corner_dot": 0.9319063984708603,
+            "minimum_average_dot": 0.938443547304157
+          }
+        ]
+      }
+    ],
+    "artwork_interfaces": [
+      {
+        "mesh": "face_negative_x",
+        "material": "blade_artwork_negative_x",
+        "vertices": 36,
+        "triangles": 34,
+        "errors": [],
+        "uv_bounds": [
+          [
+            2.8774655547181283e-08,
+            0.0
+          ],
+          [
+            1.0,
+            1.0
+          ]
+        ],
+        "determinant_min": -0.9329311495198107,
+        "determinant_max": -2.4693214852433698e-05
+      },
+      {
+        "mesh": "face_positive_x",
+        "material": "blade_artwork_positive_x",
+        "vertices": 36,
+        "triangles": 34,
+        "errors": [],
+        "uv_bounds": [
+          [
+            -1.1102230246251565e-16,
+            0.0
+          ],
+          [
+            1.0,
+            1.0
+          ]
+        ],
+        "determinant_min": -0.9305117820194131,
+        "determinant_max": -2.4693313456225496e-05
+      }
+    ],
+    "issues": []
+  },
+  {
+    "name": "city_small_shop_shells_01",
+    "path": "/tmp/batch03-final/frozen/art/models/environment/city_small_shop_shells_01/city_small_shop_shells_01.glb",
+    "bytes": 79820,
+    "sha256": "76c76364df5d437eb27bfb1a08b76932e46fe89238533bffcb654d6ac66e952a",
+    "bounds_godot": [
+      [
+        -3.200000047683716,
+        0.0,
+        -7.119999885559082
+      ],
+      [
+        3.200000047683716,
+        5.050000190734863,
+        7.21999979019165
+      ]
+    ],
+    "triangles": 4516,
+    "nodes": [
+      {
+        "mesh": 0,
+        "name": "drain_saddle_0.65"
+      },
+      {
+        "mesh": 1,
+        "name": "drain_saddle_2.45"
+      },
+      {
+        "mesh": 2,
+        "name": "drain_saddle_3.65"
+      },
+      {
+        "mesh": 3,
+        "name": "flat_roof_deck"
+      },
+      {
+        "mesh": 4,
+        "name": "front_corner_pier_left"
+      },
+      {
+        "mesh": 5,
+        "name": "front_corner_pier_right"
+      },
+      {
+        "mesh": 6,
+        "name": "front_head_course"
+      },
+      {
+        "mesh": 7,
+        "name": "front_parapet_coping"
+      },
+      {
+        "mesh": 8,
+        "name": "front_plinth_left"
+      },
+      {
+        "mesh": 9,
+        "name": "front_plinth_right"
+      },
+      {
+        "mesh": 10,
+        "name": "front_structural_wall_with_two_openings"
+      },
+      {
+        "name": "join_party_left",
+        "translation": [
+          -3.200000047683716,
+          0,
+          0
+        ]
+      },
+      {
+        "name": "join_party_right",
+        "translation": [
+          3.200000047683716,
+          0,
+          0
+        ]
+      },
+      {
+        "name": "mount_canopy",
+        "translation": [
+          -0.949999988079071,
+          3,
+          -7
+        ]
+      },
+      {
+        "name": "mount_display_window",
+        "translation": [
+          -0.949999988079071,
+          0.47999998927116394,
+          -7
+        ]
+      },
+      {
+        "name": "mount_door_single",
+        "translation": [
+          1.9500000476837158,
+          0,
+          -7
+        ]
+      },
+      {
+        "name": "mount_entrance_single",
+        "translation": [
+          1.9500000476837158,
+          0,
+          -7
+        ]
+      },
+      {
+        "name": "mount_fascia",
+        "translation": [
+          -0.949999988079071,
+          3.799999952316284,
+          -7
+        ]
+      },
+      {
+        "name": "mount_roof_detail",
+        "translation": [
+          0,
+          4.300000190734863,
+          1
+        ]
+      },
+      {
+        "mesh": 11,
+        "name": "party_coping_left"
+      },
+      {
+        "mesh": 12,
+        "name": "party_coping_right"
+      },
+      {
+        "mesh": 13,
+        "name": "party_wall_left"
+      },
+      {
+        "mesh": 14,
+        "name": "party_wall_right"
+      },
+      {
+        "mesh": 15,
+        "name": "rain_hopper_back"
+      },
+      {
+        "mesh": 16,
+        "name": "rain_hopper_base"
+      },
+      {
+        "mesh": 17,
+        "name": "rain_hopper_front"
+      },
+      {
+        "mesh": 18,
+        "name": "rain_hopper_left"
+      },
+      {
+        "mesh": 19,
+        "name": "rain_hopper_right"
+      },
+      {
+        "mesh": 20,
+        "name": "rear_coping"
+      },
+      {
+        "mesh": 21,
+        "name": "rear_downpipe"
+      },
+      {
+        "mesh": 22,
+        "name": "rear_parapet_left"
+      },
+      {
+        "mesh": 23,
+        "name": "rear_parapet_right"
+      },
+      {
+        "mesh": 24,
+        "name": "rear_plinth"
+      },
+      {
+        "mesh": 25,
+        "name": "rear_scupper_header"
+      },
+      {
+        "mesh": 26,
+        "name": "rear_structural_wall"
+      },
+      {
+        "mesh": 27,
+        "name": "roof_seam_left"
+      },
+      {
+        "mesh": 28,
+        "name": "roof_seam_right"
+      },
+      {
+        "mesh": 29,
+        "name": "scupper_lower_lip"
+      },
+      {
+        "children": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16,
+          17,
+          18,
+          19,
+          20,
+          21,
+          22,
+          23,
+          24,
+          25,
+          26,
+          27,
+          28,
+          29,
+          30,
+          31,
+          32,
+          33,
+          34,
+          35,
+          36,
+          37
+        ],
+        "name": "city_small_shop_shells_01"
+      }
+    ],
+    "materials": [
+      {
+        "name": "shell_dark_drain_coping",
+        "pbrMetallicRoughness": {
+          "baseColorFactor": [
+            0.03310476616024971,
+            0.0666259378194809,
+            0.0802198201417923,
+            1
+          ],
+          "metallicFactor": 0.3499999940395355,
+          "roughnessFactor": 0.47999998927116394
+        }
+      },
+      {
+        "name": "shell_quiet_blue_roof",
+        "pbrMetallicRoughness": {
+          "baseColorFactor": [
+            0.05126945674419403,
+            0.10461648553609848,
+            0.1384316086769104,
+            1
+          ],
+          "metallicFactor": 0.11999999731779099,
+          "roughnessFactor": 0.6499999761581421
+        }
+      },
+      {
+        "name": "shell_warm_structural_trim",
+        "pbrMetallicRoughness": {
+          "baseColorFactor": [
+            0.4969329833984375,
+            0.4677838087081909,
+            0.3915724754333496,
+            1
+          ],
+          "metallicFactor": 0,
+          "roughnessFactor": 0.699999988079071
+        }
+      },
+      {
+        "name": "shell_slate_plinth",
+        "pbrMetallicRoughness": {
+          "baseColorFactor": [
+            0.06847816705703735,
+            0.08650045841932297,
+            0.09758734703063965,
+            1
+          ],
+          "metallicFactor": 0,
+          "roughnessFactor": 0.7799999713897705
+        }
+      },
+      {
+        "name": "shell_muted_plum_render",
+        "pbrMetallicRoughness": {
+          "baseColorFactor": [
+            0.21952620148658752,
+            0.18447498977184296,
+            0.2015562504529953,
+            1
+          ],
+          "metallicFactor": 0,
+          "roughnessFactor": 0.7799999713897705
+        }
+      }
+    ],
+    "mesh_reports": [
+      {
+        "name": "drain_saddle_0.65",
+        "primitives": [
+          {
+            "material": "shell_dark_drain_coping",
+            "vertices": 96,
+            "triangles": 188,
+            "attributes": [
+              "POSITION",
+              "NORMAL"
+            ],
+            "invalid_normals": [],
+            "nonfinite_positions": [],
+            "degenerate_triangles": [],
+            "inward_average_normals": [],
+            "inward_corner_normals": [],
+            "minimum_corner_dot": 0.9330202873734231,
+            "minimum_average_dot": 0.9387206442603039
+          }
+        ]
+      },
+      {
+        "name": "drain_saddle_2.45",
+        "primitives": [
+          {
+            "material": "shell_dark_drain_coping",
+            "vertices": 96,
+            "triangles": 188,
+            "attributes": [
+              "POSITION",
+              "NORMAL"
+            ],
+            "invalid_normals": [],
+            "nonfinite_positions": [],
+            "degenerate_triangles": [],
+            "inward_average_normals": [],
+            "inward_corner_normals": [],
+            "minimum_corner_dot": 0.9330212424414376,
+            "minimum_average_dot": 0.9387160299192878
+          }
+        ]
+      },
+      {
+        "name": "drain_saddle_3.65",
+        "primitives": [
+          {
+            "material": "shell_dark_drain_coping",
+            "vertices": 96,
+            "triangles": 188,
+            "attributes": [
+              "POSITION",
+              "NORMAL"
+            ],
+            "invalid_normals": [],
+            "nonfinite_positions": [],
+            "degenerate_triangles": [],
+            "inward_average_normals": [],
+            "inward_corner_normals": [],
+            "minimum_corner_dot": 0.9330174222570214,
+            "minimum_average_dot": 0.9387131370537993
+          }
+        ]
+      },
+      {
+        "name": "flat_roof_deck",
+        "primitives": [
+          {
+            "material": "shell_quiet_blue_roof",
+            "vertices": 96,
+            "triangles": 188,
+            "attributes": [
+              "POSITION",
+              "NORMAL"
+            ],
+            "invalid_normals": [],
+            "nonfinite_positions": [],
+            "degenerate_triangles": [],
+            "inward_average_normals": [],
+            "inward_corner_normals": [],
+            "minimum_corner_dot": 0.9314983579333357,
+            "minimum_average_dot": 0.9383540790090356
+          }
+        ]
+      },
+      {
+        "name": "front_corner_pier_left",
+        "primitives": [
+          {
+            "material": "shell_warm_structural_trim",
+            "vertices": 96,
+            "triangles": 188,
+            "attributes": [
+              "POSITION",
+              "NORMAL"
+            ],
+            "invalid_normals": [],
+            "nonfinite_positions": [],
+            "degenerate_triangles": [],
+            "inward_average_normals": [],
+            "inward_corner_normals": [],
+            "minimum_corner_dot": 0.9315987535360919,
+            "minimum_average_dot": 0.93838400437374
+          }
+        ]
+      },
+      {
+        "name": "front_corner_pier_right",
+        "primitives": [
+          {
+            "material": "shell_warm_structural_trim",
+            "vertices": 96,
+            "triangles": 188,
+            "attributes": [
+              "POSITION",
+              "NORMAL"
+            ],
+            "invalid_normals": [],
+            "nonfinite_positions": [],
+            "degenerate_triangles": [],
+            "inward_average_normals": [],
+            "inward_corner_normals": [],
+            "minimum_corner_dot": 0.931597744395148,
+            "minimum_average_dot": 0.9383879584701894
+          }
+        ]
+      },
+      {
+        "name": "front_head_course",
+        "primitives": [
+          {
+            "material": "shell_warm_structural_trim",
+            "vertices": 96,
+            "triangles": 188,
+            "attributes": [
+              "POSITION",
+              "NORMAL"
+            ],
+            "invalid_normals": [],
+            "nonfinite_positions": [],
+            "degenerate_triangles": [],
+            "inward_average_normals": [],
+            "inward_corner_normals": [],
+            "minimum_corner_dot": 0.9315514748320209,
+            "minimum_average_dot": 0.9383572643505081
+          }
+        ]
+      },
+      {
+        "name": "front_parapet_coping",
+        "primitives": [
+          {
+            "material": "shell_dark_drain_coping",
+            "vertices": 96,
+            "triangles": 188,
+            "attributes": [
+              "POSITION",
+              "NORMAL"
+            ],
+            "invalid_normals": [],
+            "nonfinite_positions": [],
+            "degenerate_triangles": [],
+            "inward_average_normals": [],
+            "inward_corner_normals": [],
+            "minimum_corner_dot": 0.9316154587660022,
+            "minimum_average_dot": 0.9383934908504504
+          }
+        ]
+      },
+      {
+        "name": "front_plinth_left",
+        "primitives": [
+          {
+            "material": "shell_slate_plinth",
+            "vertices": 96,
+            "triangles": 188,
+            "attributes": [
+              "POSITION",
+              "NORMAL"
+            ],
+            "invalid_normals": [],
+            "nonfinite_positions": [],
+            "degenerate_triangles": [],
+            "inward_average_normals": [],
+            "inward_corner_normals": [],
+            "minimum_corner_dot": 0.9315806671454399,
+            "minimum_average_dot": 0.9383727031552671
+          }
+        ]
+      },
+      {
+        "name": "front_plinth_right",
+        "primitives": [
+          {
+            "material": "shell_slate_plinth",
+            "vertices": 96,
+            "triangles": 188,
+            "attributes": [
+              "POSITION",
+              "NORMAL"
+            ],
+            "invalid_normals": [],
+            "nonfinite_positions": [],
+            "degenerate_triangles": [],
+            "inward_average_normals": [],
+            "inward_corner_normals": [],
+            "minimum_corner_dot": 0.932300265315336,
+            "minimum_average_dot": 0.9385499077582541
+          }
+        ]
+      },
+      {
+        "name": "front_structural_wall_with_two_openings",
+        "primitives": [
+          {
+            "material": "shell_muted_plum_render",
+            "vertices": 140,
+            "triangles": 120,
+            "attributes": [
+              "POSITION",
+              "NORMAL"
+            ],
+            "invalid_normals": [],
+            "nonfinite_positions": [],
+            "degenerate_triangles": [],
+            "inward_average_normals": [],
+            "inward_corner_normals": [],
+            "minimum_corner_dot": 1.0,
+            "minimum_average_dot": 1.0
+          }
+        ]
+      },
+      {
+        "name": "party_coping_left",
+        "primitives": [
+          {
+            "material": "shell_dark_drain_coping",
+            "vertices": 96,
+            "triangles": 188,
+            "attributes": [
+              "POSITION",
+              "NORMAL"
+            ],
+            "invalid_normals": [],
+            "nonfinite_positions": [],
+            "degenerate_triangles": [],
+            "inward_average_normals": [],
+            "inward_corner_normals": [],
+            "minimum_corner_dot": 0.931498359948487,
+            "minimum_average_dot": 0.9383529102281677
+          }
+        ]
+      },
+      {
+        "name": "party_coping_right",
+        "primitives": [
+          {
+            "material": "shell_dark_drain_coping",
+            "vertices": 96,
+            "triangles": 188,
+            "attributes": [
+              "POSITION",
+              "NORMAL"
+            ],
+            "invalid_normals": [],
+            "nonfinite_positions": [],
+            "degenerate_triangles": [],
+            "inward_average_normals": [],
+            "inward_corner_normals": [],
+            "minimum_corner_dot": 0.931498359948487,
+            "minimum_average_dot": 0.9383514693567833
+          }
+        ]
+      },
+      {
+        "name": "party_wall_left",
+        "primitives": [
+          {
+            "material": "shell_muted_plum_render",
+            "vertices": 24,
+            "triangles": 12,
+            "attributes": [
+              "POSITION",
+              "NORMAL"
+            ],
+            "invalid_normals": [],
+            "nonfinite_positions": [],
+            "degenerate_triangles": [],
+            "inward_average_normals": [],
+            "inward_corner_normals": [],
+            "minimum_corner_dot": 1.0,
+            "minimum_average_dot": 1.0
+          }
+        ]
+      },
+      {
+        "name": "party_wall_right",
+        "primitives": [
+          {
+            "material": "shell_muted_plum_render",
+            "vertices": 24,
+            "triangles": 12,
+            "attributes": [
+              "POSITION",
+              "NORMAL"
+            ],
+            "invalid_normals": [],
+            "nonfinite_positions": [],
+            "degenerate_triangles": [],
+            "inward_average_normals": [],
+            "inward_corner_normals": [],
+            "minimum_corner_dot": 1.0,
+            "minimum_average_dot": 1.0
+          }
+        ]
+      },
+      {
+        "name": "rain_hopper_back",
+        "primitives": [
+          {
+            "material": "shell_dark_drain_coping",
+            "vertices": 96,
+            "triangles": 188,
+            "attributes": [
+              "POSITION",
+              "NORMAL"
+            ],
+            "invalid_normals": [],
+            "nonfinite_positions": [],
+            "degenerate_triangles": [],
+            "inward_average_normals": [],
+            "inward_corner_normals": [],
+            "minimum_corner_dot": 0.9320301227780522,
+            "minimum_average_dot": 0.9384675577278516
+          }
+        ]
+      },
+      {
+        "name": "rain_hopper_base",
+        "primitives": [
+          {
+            "material": "shell_dark_drain_coping",
+            "vertices": 96,
+            "triangles": 188,
+            "attributes": [
+              "POSITION",
+              "NORMAL"
+            ],
+            "invalid_normals": [],
+            "nonfinite_positions": [],
+            "degenerate_triangles": [],
+            "inward_average_normals": [],
+            "inward_corner_normals": [],
+            "minimum_corner_dot": 0.9319545421772212,
+            "minimum_average_dot": 0.9384307632932902
+          }
+        ]
+      },
+      {
+        "name": "rain_hopper_front",
+        "primitives": [
+          {
+            "material": "shell_dark_drain_coping",
+            "vertices": 96,
+            "triangles": 188,
+            "attributes": [
+              "POSITION",
+              "NORMAL"
+            ],
+            "invalid_normals": [],
+            "nonfinite_positions": [],
+            "degenerate_triangles": [],
+            "inward_average_normals": [],
+            "inward_corner_normals": [],
+            "minimum_corner_dot": 0.9320563316983764,
+            "minimum_average_dot": 0.9384850627149692
+          }
+        ]
+      },
+      {
+        "name": "rain_hopper_left",
+        "primitives": [
+          {
+            "material": "shell_dark_drain_coping",
+            "vertices": 96,
+            "triangles": 188,
+            "attributes": [
+              "POSITION",
+              "NORMAL"
+            ],
+            "invalid_normals": [],
+            "nonfinite_positions": [],
+            "degenerate_triangles": [],
+            "inward_average_normals": [],
+            "inward_corner_normals": [],
+            "minimum_corner_dot": 0.9320110585739158,
+            "minimum_average_dot": 0.9384774912723426
+          }
+        ]
+      },
+      {
+        "name": "rain_hopper_right",
+        "primitives": [
+          {
+            "material": "shell_dark_drain_coping",
+            "vertices": 96,
+            "triangles": 188,
+            "attributes": [
+              "POSITION",
+              "NORMAL"
+            ],
+            "invalid_normals": [],
+            "nonfinite_positions": [],
+            "degenerate_triangles": [],
+            "inward_average_normals": [],
+            "inward_corner_normals": [],
+            "minimum_corner_dot": 0.9320110585739158,
+            "minimum_average_dot": 0.9384733332178431
+          }
+        ]
+      },
+      {
+        "name": "rear_coping",
+        "primitives": [
+          {
+            "material": "shell_dark_drain_coping",
+            "vertices": 96,
+            "triangles": 188,
+            "attributes": [
+              "POSITION",
+              "NORMAL"
+            ],
+            "invalid_normals": [],
+            "nonfinite_positions": [],
+            "degenerate_triangles": [],
+            "inward_average_normals": [],
+            "inward_corner_normals": [],
+            "minimum_corner_dot": 0.9315887400088104,
+            "minimum_average_dot": 0.9383666765490194
+          }
+        ]
+      },
+      {
+        "name": "rear_downpipe",
+        "primitives": [
+          {
+            "material": "shell_dark_drain_coping",
+            "vertices": 96,
+            "triangles": 188,
+            "attributes": [
+              "POSITION",
+              "NORMAL"
+            ],
+            "invalid_normals": [],
+            "nonfinite_positions": [],
+            "degenerate_triangles": [],
+            "inward_average_normals": [],
+            "inward_corner_normals": [],
+            "minimum_corner_dot": 0.9316870206460263,
+            "minimum_average_dot": 0.9384008066589207
+          }
+        ]
+      },
+      {
+        "name": "rear_parapet_left",
+        "primitives": [
+          {
+            "material": "shell_muted_plum_render",
+            "vertices": 24,
+            "triangles": 12,
+            "attributes": [
+              "POSITION",
+              "NORMAL"
+            ],
+            "invalid_normals": [],
+            "nonfinite_positions": [],
+            "degenerate_triangles": [],
+            "inward_average_normals": [],
+            "inward_corner_normals": [],
+            "minimum_corner_dot": 1.0,
+            "minimum_average_dot": 1.0
+          }
+        ]
+      },
+      {
+        "name": "rear_parapet_right",
+        "primitives": [
+          {
+            "material": "shell_muted_plum_render",
+            "vertices": 24,
+            "triangles": 12,
+            "attributes": [
+              "POSITION",
+              "NORMAL"
+            ],
+            "invalid_normals": [],
+            "nonfinite_positions": [],
+            "degenerate_triangles": [],
+            "inward_average_normals": [],
+            "inward_corner_normals": [],
+            "minimum_corner_dot": 1.0,
+            "minimum_average_dot": 1.0
+          }
+        ]
+      },
+      {
+        "name": "rear_plinth",
+        "primitives": [
+          {
+            "material": "shell_slate_plinth",
+            "vertices": 96,
+            "triangles": 188,
+            "attributes": [
+              "POSITION",
+              "NORMAL"
+            ],
+            "invalid_normals": [],
+            "nonfinite_positions": [],
+            "degenerate_triangles": [],
+            "inward_average_normals": [],
+            "inward_corner_normals": [],
+            "minimum_corner_dot": 0.9315575297718868,
+            "minimum_average_dot": 0.9383565524926869
+          }
+        ]
+      },
+      {
+        "name": "rear_scupper_header",
+        "primitives": [
+          {
+            "material": "shell_muted_plum_render",
+            "vertices": 24,
+            "triangles": 12,
+            "attributes": [
+              "POSITION",
+              "NORMAL"
+            ],
+            "invalid_normals": [],
+            "nonfinite_positions": [],
+            "degenerate_triangles": [],
+            "inward_average_normals": [],
+            "inward_corner_normals": [],
+            "minimum_corner_dot": 1.0,
+            "minimum_average_dot": 1.0
+          }
+        ]
+      },
+      {
+        "name": "rear_structural_wall",
+        "primitives": [
+          {
+            "material": "shell_muted_plum_render",
+            "vertices": 24,
+            "triangles": 12,
+            "attributes": [
+              "POSITION",
+              "NORMAL"
+            ],
+            "invalid_normals": [],
+            "nonfinite_positions": [],
+            "degenerate_triangles": [],
+            "inward_average_normals": [],
+            "inward_corner_normals": [],
+            "minimum_corner_dot": 1.0,
+            "minimum_average_dot": 1.0
+          }
+        ]
+      },
+      {
+        "name": "roof_seam_left",
+        "primitives": [
+          {
+            "material": "shell_quiet_blue_roof",
+            "vertices": 96,
+            "triangles": 188,
+            "attributes": [
+              "POSITION",
+              "NORMAL"
+            ],
+            "invalid_normals": [],
+            "nonfinite_positions": [],
+            "degenerate_triangles": [],
+            "inward_average_normals": [],
+            "inward_corner_normals": [],
+            "minimum_corner_dot": 0.9315009223383673,
+            "minimum_average_dot": 0.938354416265919
+          }
+        ]
+      },
+      {
+        "name": "roof_seam_right",
+        "primitives": [
+          {
+            "material": "shell_quiet_blue_roof",
+            "vertices": 96,
+            "triangles": 188,
+            "attributes": [
+              "POSITION",
+              "NORMAL"
+            ],
+            "invalid_normals": [],
+            "nonfinite_positions": [],
+            "degenerate_triangles": [],
+            "inward_average_normals": [],
+            "inward_corner_normals": [],
+            "minimum_corner_dot": 0.9315009223383673,
+            "minimum_average_dot": 0.938354416265919
+          }
+        ]
+      },
+      {
+        "name": "scupper_lower_lip",
+        "primitives": [
+          {
+            "material": "shell_dark_drain_coping",
+            "vertices": 96,
+            "triangles": 188,
+            "attributes": [
+              "POSITION",
+              "NORMAL"
+            ],
+            "invalid_normals": [],
+            "nonfinite_positions": [],
+            "degenerate_triangles": [],
+            "inward_average_normals": [],
+            "inward_corner_normals": [],
+            "minimum_corner_dot": 0.9319035023919338,
+            "minimum_average_dot": 0.9384388189589826
+          }
+        ]
+      }
+    ],
+    "artwork_interfaces": [],
+    "issues": []
+  }
+]

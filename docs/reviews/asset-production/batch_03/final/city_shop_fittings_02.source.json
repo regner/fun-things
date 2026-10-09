@@ -1,0 +1,541 @@
+{
+  "id": "city_shop_fittings_02",
+  "filepath": "/tmp/batch03-final/frozen/art/source/models/environment/city_shop_fittings_02/city_shop_fittings_02.blend",
+  "blender": "5.2.2 LTS",
+  "build": "d13f752e3b9c",
+  "gltf": [
+    5,
+    2,
+    40
+  ],
+  "libraries": [],
+  "images": [
+    {
+      "name": "Render Result",
+      "type": "RENDER_RESULT",
+      "path": "",
+      "packed": false
+    },
+    {
+      "name": "Viewer Node",
+      "type": "COMPOSITING",
+      "path": "",
+      "packed": false
+    }
+  ],
+  "variants": [
+    {
+      "name": "city_shop_fittings_02",
+      "members": [
+        "artwork_reveal",
+        "city_shop_fittings_02",
+        "continuous_face_trim",
+        "fascia_artwork_carrier",
+        "folded_back_tray",
+        "formed_fascia_frame",
+        "wall_mount_rail_lower",
+        "wall_mount_rail_upper"
+      ],
+      "objects": [
+        {
+          "name": "city_shop_fittings_02",
+          "type": "EMPTY",
+          "parent": null,
+          "location": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "modifiers": []
+        },
+        {
+          "name": "formed_fascia_frame",
+          "type": "MESH",
+          "parent": "city_shop_fittings_02",
+          "location": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "modifiers": [],
+          "vertices": 196,
+          "polygons": 196,
+          "triangles": 392,
+          "bounds_blender": [
+            [
+              -1.600000023841858,
+              0.035999998450279236,
+              -0.4000000059604645
+            ],
+            [
+              1.600000023841858,
+              0.1340000033378601,
+              0.4000000059604645
+            ]
+          ],
+          "materials": [
+            "fascia_slate_petrol"
+          ],
+          "uv_layers": [],
+          "component_volumes_m3": [
+            0.04545415843714373
+          ],
+          "bad_edges": [],
+          "isolated_vertices": [],
+          "degenerate_triangles": [],
+          "invalid_normals": [],
+          "reversed_normal_triangles": [],
+          "minimum_winding_dot": 0.5268336534500122,
+          "nonfinite_positions": 0
+        },
+        {
+          "name": "continuous_face_trim",
+          "type": "MESH",
+          "parent": "city_shop_fittings_02",
+          "location": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "modifiers": [],
+          "vertices": 168,
+          "polygons": 168,
+          "triangles": 336,
+          "bounds_blender": [
+            [
+              -1.559000015258789,
+              0.11500000208616257,
+              -0.35899999737739563
+            ],
+            [
+              1.559000015258789,
+              0.14000000059604645,
+              0.35899999737739563
+            ]
+          ],
+          "materials": [
+            "fascia_warm_trim"
+          ],
+          "uv_layers": [],
+          "component_volumes_m3": [
+            0.007396980416894828
+          ],
+          "bad_edges": [],
+          "isolated_vertices": [],
+          "degenerate_triangles": [],
+          "invalid_normals": [],
+          "reversed_normal_triangles": [],
+          "minimum_winding_dot": 0.14418433606624603,
+          "nonfinite_positions": 0
+        },
+        {
+          "name": "folded_back_tray",
+          "type": "MESH",
+          "parent": "city_shop_fittings_02",
+          "location": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "modifiers": [],
+          "vertices": 84,
+          "polygons": 58,
+          "triangles": 164,
+          "bounds_blender": [
+            [
+              -1.5740000009536743,
+              0.02800000086426735,
+              -0.37400001287460327
+            ],
+            [
+              1.5740000009536743,
+              0.0729999989271164,
+              0.37400001287460327
+            ]
+          ],
+          "materials": [
+            "fascia_slate_petrol"
+          ],
+          "uv_layers": [],
+          "component_volumes_m3": [
+            0.10565690452213364
+          ],
+          "bad_edges": [],
+          "isolated_vertices": [],
+          "degenerate_triangles": [],
+          "invalid_normals": [],
+          "reversed_normal_triangles": [],
+          "minimum_winding_dot": 0.00022968023404246196,
+          "nonfinite_positions": 0
+        },
+        {
+          "name": "artwork_reveal",
+          "type": "MESH",
+          "parent": "city_shop_fittings_02",
+          "location": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "modifiers": [],
+          "vertices": 112,
+          "polygons": 112,
+          "triangles": 224,
+          "bounds_blender": [
+            [
+              -1.5234999656677246,
+              0.11599999666213989,
+              -0.32350000739097595
+            ],
+            [
+              1.5234999656677246,
+              0.1289999932050705,
+              0.32350000739097595
+            ]
+          ],
+          "materials": [
+            "fascia_recess"
+          ],
+          "uv_layers": [],
+          "component_volumes_m3": [
+            0.0019423166181602952
+          ],
+          "bad_edges": [],
+          "isolated_vertices": [],
+          "degenerate_triangles": [],
+          "invalid_normals": [],
+          "reversed_normal_triangles": [],
+          "minimum_winding_dot": 0.34717485308647156,
+          "nonfinite_positions": 0
+        },
+        {
+          "name": "fascia_artwork_carrier",
+          "type": "MESH",
+          "parent": "city_shop_fittings_02",
+          "location": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "modifiers": [],
+          "vertices": 84,
+          "polygons": 58,
+          "triangles": 164,
+          "bounds_blender": [
+            [
+              -1.5,
+              0.07000000029802322,
+              -0.30000001192092896
+            ],
+            [
+              1.5,
+              0.12800000607967377,
+              0.30000001192092896
+            ]
+          ],
+          "materials": [
+            "fascia_artwork_face",
+            "fascia_mount_metal"
+          ],
+          "uv_layers": [
+            "UV0"
+          ],
+          "component_volumes_m3": [
+            0.1038331060577339
+          ],
+          "bad_edges": [],
+          "isolated_vertices": [],
+          "degenerate_triangles": [],
+          "invalid_normals": [],
+          "reversed_normal_triangles": [],
+          "minimum_winding_dot": 0.9999998807907104,
+          "nonfinite_positions": 0
+        },
+        {
+          "name": "wall_mount_rail_lower",
+          "type": "MESH",
+          "parent": "city_shop_fittings_02",
+          "location": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "modifiers": [],
+          "vertices": 96,
+          "polygons": 98,
+          "triangles": 188,
+          "bounds_blender": [
+            [
+              -1.440000057220459,
+              0.0,
+              -0.2824999988079071
+            ],
+            [
+              1.440000057220459,
+              0.04500000178813934,
+              -0.19749999046325684
+            ]
+          ],
+          "materials": [
+            "fascia_mount_metal"
+          ],
+          "uv_layers": [
+            "UVMap"
+          ],
+          "component_volumes_m3": [
+            0.010908010034654643
+          ],
+          "bad_edges": [],
+          "isolated_vertices": [],
+          "degenerate_triangles": [],
+          "invalid_normals": [],
+          "reversed_normal_triangles": [],
+          "minimum_winding_dot": 0.9315735133277485,
+          "nonfinite_positions": 0
+        },
+        {
+          "name": "wall_mount_rail_upper",
+          "type": "MESH",
+          "parent": "city_shop_fittings_02",
+          "location": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "modifiers": [],
+          "vertices": 96,
+          "polygons": 98,
+          "triangles": 188,
+          "bounds_blender": [
+            [
+              -1.440000057220459,
+              0.0,
+              0.19749999046325684
+            ],
+            [
+              1.440000057220459,
+              0.04500000178813934,
+              0.2824999988079071
+            ]
+          ],
+          "materials": [
+            "fascia_mount_metal"
+          ],
+          "uv_layers": [
+            "UVMap"
+          ],
+          "component_volumes_m3": [
+            0.010908010005608225
+          ],
+          "bad_edges": [],
+          "isolated_vertices": [],
+          "degenerate_triangles": [],
+          "invalid_normals": [],
+          "reversed_normal_triangles": [],
+          "minimum_winding_dot": 0.9315735133277485,
+          "nonfinite_positions": 0
+        }
+      ],
+      "export_settings": {
+        "export_format": "GLB",
+        "use_selection": true,
+        "export_yup": true,
+        "export_apply": false,
+        "export_texcoords": true,
+        "export_normals": true,
+        "export_tangents": false,
+        "export_materials": "EXPORT",
+        "export_cameras": false,
+        "export_lights": false,
+        "export_extras": false,
+        "export_animations": false,
+        "export_skins": false,
+        "export_morph": false
+      },
+      "reexport_path": "/home/regner/.paseo/worktrees/0u71f39f/asset-register-production/docs/reviews/asset-production/batch_03/final/reexports/city_shop_fittings_02.glb",
+      "reexport_bytes": 45616,
+      "reexport_sha256": "4fd2106f09ef4a35edafbcf3a3a68ea94983e721fd84d852a406e2d26de6552f",
+      "candidate_sha256": "4fd2106f09ef4a35edafbcf3a3a68ea94983e721fd84d852a406e2d26de6552f",
+      "byte_identical": true
+    }
+  ],
+  "all_scene_objects": [
+    {
+      "name": "artwork_reveal",
+      "type": "MESH",
+      "collections": [
+        "export_city_shop_fittings_02"
+      ]
+    },
+    {
+      "name": "authoring_1m_reference",
+      "type": "MESH",
+      "collections": [
+        "authoring_excluded"
+      ]
+    },
+    {
+      "name": "city_shop_fittings_02",
+      "type": "EMPTY",
+      "collections": [
+        "export_city_shop_fittings_02"
+      ]
+    },
+    {
+      "name": "continuous_face_trim",
+      "type": "MESH",
+      "collections": [
+        "export_city_shop_fittings_02"
+      ]
+    },
+    {
+      "name": "fascia_artwork_carrier",
+      "type": "MESH",
+      "collections": [
+        "export_city_shop_fittings_02"
+      ]
+    },
+    {
+      "name": "folded_back_tray",
+      "type": "MESH",
+      "collections": [
+        "export_city_shop_fittings_02"
+      ]
+    },
+    {
+      "name": "formed_fascia_frame",
+      "type": "MESH",
+      "collections": [
+        "export_city_shop_fittings_02"
+      ]
+    },
+    {
+      "name": "wall_mount_rail_lower",
+      "type": "MESH",
+      "collections": [
+        "export_city_shop_fittings_02"
+      ]
+    },
+    {
+      "name": "wall_mount_rail_upper",
+      "type": "MESH",
+      "collections": [
+        "export_city_shop_fittings_02"
+      ]
+    }
+  ],
+  "metre_reference": {
+    "dimensions": [
+      1.0,
+      1.0,
+      1.0
+    ],
+    "matrix": [
+      [
+        1.0,
+        0.0,
+        0.0,
+        -2.5
+      ],
+      [
+        0.0,
+        1.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    ]
+  },
+  "issues": []
+}

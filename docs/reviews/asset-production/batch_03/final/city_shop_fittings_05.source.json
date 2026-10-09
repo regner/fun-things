@@ -1,0 +1,590 @@
+{
+  "id": "city_shop_fittings_05",
+  "filepath": "/tmp/batch03-final/frozen/art/source/models/environment/city_shop_fittings_05/city_shop_fittings_05.blend",
+  "blender": "5.2.2 LTS",
+  "build": "d13f752e3b9c",
+  "gltf": [
+    5,
+    2,
+    40
+  ],
+  "libraries": [],
+  "images": [
+    {
+      "name": "Render Result",
+      "type": "RENDER_RESULT",
+      "path": "",
+      "packed": false
+    },
+    {
+      "name": "Viewer Node",
+      "type": "COMPOSITING",
+      "path": "",
+      "packed": false
+    }
+  ],
+  "variants": [
+    {
+      "name": "city_shop_fittings_05",
+      "members": [
+        "centre_mullion",
+        "city_shop_fittings_05",
+        "formed_perimeter",
+        "ivory_perimeter_inlay",
+        "left_glazing_gasket",
+        "left_opaque_glazing",
+        "right_glazing_gasket",
+        "right_opaque_glazing",
+        "sloped_sill"
+      ],
+      "objects": [
+        {
+          "name": "city_shop_fittings_05",
+          "type": "EMPTY",
+          "parent": null,
+          "location": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "modifiers": []
+        },
+        {
+          "name": "formed_perimeter",
+          "type": "MESH",
+          "parent": "city_shop_fittings_05",
+          "location": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "modifiers": [],
+          "vertices": 160,
+          "polygons": 160,
+          "triangles": 320,
+          "bounds_blender": [
+            [
+              -1.600000023841858,
+              -0.18000000715255737,
+              0.0
+            ],
+            [
+              1.600000023841858,
+              0.09000000357627869,
+              2.0
+            ]
+          ],
+          "materials": [
+            "window_slate_petrol"
+          ],
+          "uv_layers": [],
+          "component_volumes_m3": [
+            0.17537327597348573
+          ],
+          "bad_edges": [],
+          "isolated_vertices": [],
+          "degenerate_triangles": [],
+          "invalid_normals": [],
+          "reversed_normal_triangles": [],
+          "minimum_winding_dot": 0.12285870313644409,
+          "nonfinite_positions": 0
+        },
+        {
+          "name": "ivory_perimeter_inlay",
+          "type": "MESH",
+          "parent": "city_shop_fittings_05",
+          "location": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "modifiers": [],
+          "vertices": 80,
+          "polygons": 80,
+          "triangles": 160,
+          "bounds_blender": [
+            [
+              -1.5789999961853027,
+              0.08399999886751175,
+              0.020999999716877937
+            ],
+            [
+              1.5789999961853027,
+              0.0989999994635582,
+              1.9789999723434448
+            ]
+          ],
+          "materials": [
+            "window_warm_ivory"
+          ],
+          "uv_layers": [],
+          "component_volumes_m3": [
+            0.003708241924452709
+          ],
+          "bad_edges": [],
+          "isolated_vertices": [],
+          "degenerate_triangles": [],
+          "invalid_normals": [],
+          "reversed_normal_triangles": [],
+          "minimum_winding_dot": 0.0640733391046524,
+          "nonfinite_positions": 0
+        },
+        {
+          "name": "left_glazing_gasket",
+          "type": "MESH",
+          "parent": "city_shop_fittings_05",
+          "location": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "modifiers": [],
+          "vertices": 100,
+          "polygons": 100,
+          "triangles": 200,
+          "bounds_blender": [
+            [
+              -1.4950000047683716,
+              -0.03200000151991844,
+              0.11999999731779099
+            ],
+            [
+              -0.004999999888241291,
+              0.061000000685453415,
+              1.8799999952316284
+            ]
+          ],
+          "materials": [
+            "window_dark_gasket"
+          ],
+          "uv_layers": [],
+          "component_volumes_m3": [
+            0.026166512935339673
+          ],
+          "bad_edges": [],
+          "isolated_vertices": [],
+          "degenerate_triangles": [],
+          "invalid_normals": [],
+          "reversed_normal_triangles": [],
+          "minimum_winding_dot": 0.38751551508903503,
+          "nonfinite_positions": 0
+        },
+        {
+          "name": "left_opaque_glazing",
+          "type": "MESH",
+          "parent": "city_shop_fittings_05",
+          "location": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "modifiers": [],
+          "vertices": 40,
+          "polygons": 22,
+          "triangles": 76,
+          "bounds_blender": [
+            [
+              -1.468999981880188,
+              -0.03999999910593033,
+              0.1459999978542328
+            ],
+            [
+              -0.03099999949336052,
+              0.03500000014901161,
+              1.8539999723434448
+            ]
+          ],
+          "materials": [
+            "window_opaque_tint"
+          ],
+          "uv_layers": [],
+          "component_volumes_m3": [
+            0.18418500770509033
+          ],
+          "bad_edges": [],
+          "isolated_vertices": [],
+          "degenerate_triangles": [],
+          "invalid_normals": [],
+          "reversed_normal_triangles": [],
+          "minimum_winding_dot": 0.0003136828454444185,
+          "nonfinite_positions": 0
+        },
+        {
+          "name": "right_glazing_gasket",
+          "type": "MESH",
+          "parent": "city_shop_fittings_05",
+          "location": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "modifiers": [],
+          "vertices": 100,
+          "polygons": 100,
+          "triangles": 200,
+          "bounds_blender": [
+            [
+              0.004999999888241291,
+              -0.03200000151991844,
+              0.11999999731779099
+            ],
+            [
+              1.4950000047683716,
+              0.061000000685453415,
+              1.8799999952316284
+            ]
+          ],
+          "materials": [
+            "window_dark_gasket"
+          ],
+          "uv_layers": [],
+          "component_volumes_m3": [
+            0.02616651273485178
+          ],
+          "bad_edges": [],
+          "isolated_vertices": [],
+          "degenerate_triangles": [],
+          "invalid_normals": [],
+          "reversed_normal_triangles": [],
+          "minimum_winding_dot": 0.38751548528671265,
+          "nonfinite_positions": 0
+        },
+        {
+          "name": "right_opaque_glazing",
+          "type": "MESH",
+          "parent": "city_shop_fittings_05",
+          "location": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "modifiers": [],
+          "vertices": 40,
+          "polygons": 22,
+          "triangles": 76,
+          "bounds_blender": [
+            [
+              0.03099999949336052,
+              -0.03999999910593033,
+              0.1459999978542328
+            ],
+            [
+              1.468999981880188,
+              0.03500000014901161,
+              1.8539999723434448
+            ]
+          ],
+          "materials": [
+            "window_opaque_tint"
+          ],
+          "uv_layers": [],
+          "component_volumes_m3": [
+            0.184185010858223
+          ],
+          "bad_edges": [],
+          "isolated_vertices": [],
+          "degenerate_triangles": [],
+          "invalid_normals": [],
+          "reversed_normal_triangles": [],
+          "minimum_winding_dot": 0.0003144527581753209,
+          "nonfinite_positions": 0
+        },
+        {
+          "name": "centre_mullion",
+          "type": "MESH",
+          "parent": "city_shop_fittings_05",
+          "location": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "modifiers": [],
+          "vertices": 60,
+          "polygons": 42,
+          "triangles": 116,
+          "bounds_blender": [
+            [
+              -0.03799999877810478,
+              -0.11999999731779099,
+              0.10999999940395355
+            ],
+            [
+              0.03799999877810478,
+              0.09000000357627869,
+              1.8899999856948853
+            ]
+          ],
+          "materials": [
+            "window_slate_petrol"
+          ],
+          "uv_layers": [],
+          "component_volumes_m3": [
+            0.028125225438745263
+          ],
+          "bad_edges": [],
+          "isolated_vertices": [],
+          "degenerate_triangles": [],
+          "invalid_normals": [],
+          "reversed_normal_triangles": [],
+          "minimum_winding_dot": 0.01945351855829358,
+          "nonfinite_positions": 0
+        },
+        {
+          "name": "sloped_sill",
+          "type": "MESH",
+          "parent": "city_shop_fittings_05",
+          "location": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "modifiers": [],
+          "vertices": 112,
+          "polygons": 112,
+          "triangles": 220,
+          "bounds_blender": [
+            [
+              -1.600000023841858,
+              0.012000000104308128,
+              0.0
+            ],
+            [
+              1.600000023841858,
+              0.2199999988079071,
+              0.08500000089406967
+            ]
+          ],
+          "materials": [
+            "window_satin_sill"
+          ],
+          "uv_layers": [],
+          "component_volumes_m3": [
+            0.04598719796884866
+          ],
+          "bad_edges": [],
+          "isolated_vertices": [],
+          "degenerate_triangles": [],
+          "invalid_normals": [],
+          "reversed_normal_triangles": [],
+          "minimum_winding_dot": 0.9055165248500998,
+          "nonfinite_positions": 0
+        }
+      ],
+      "export_settings": {
+        "export_format": "GLB",
+        "use_selection": true,
+        "export_yup": true,
+        "export_apply": true,
+        "export_texcoords": false,
+        "export_normals": true,
+        "export_tangents": false,
+        "export_materials": "EXPORT",
+        "export_cameras": false,
+        "export_lights": false,
+        "export_extras": false,
+        "export_animations": false
+      },
+      "reexport_path": "/home/regner/.paseo/worktrees/0u71f39f/asset-register-production/docs/reviews/asset-production/batch_03/final/reexports/city_shop_fittings_05.glb",
+      "reexport_bytes": 29560,
+      "reexport_sha256": "a641d067621301435f5a725803290f74dc7c235bac8bdc5d24c1d2170776faed",
+      "candidate_sha256": "a641d067621301435f5a725803290f74dc7c235bac8bdc5d24c1d2170776faed",
+      "byte_identical": true
+    }
+  ],
+  "all_scene_objects": [
+    {
+      "name": "authoring_1m_reference",
+      "type": "MESH",
+      "collections": [
+        "authoring_excluded"
+      ]
+    },
+    {
+      "name": "centre_mullion",
+      "type": "MESH",
+      "collections": [
+        "export_city_shop_fittings_05"
+      ]
+    },
+    {
+      "name": "city_shop_fittings_05",
+      "type": "EMPTY",
+      "collections": [
+        "export_city_shop_fittings_05"
+      ]
+    },
+    {
+      "name": "formed_perimeter",
+      "type": "MESH",
+      "collections": [
+        "export_city_shop_fittings_05"
+      ]
+    },
+    {
+      "name": "ivory_perimeter_inlay",
+      "type": "MESH",
+      "collections": [
+        "export_city_shop_fittings_05"
+      ]
+    },
+    {
+      "name": "left_glazing_gasket",
+      "type": "MESH",
+      "collections": [
+        "export_city_shop_fittings_05"
+      ]
+    },
+    {
+      "name": "left_opaque_glazing",
+      "type": "MESH",
+      "collections": [
+        "export_city_shop_fittings_05"
+      ]
+    },
+    {
+      "name": "right_glazing_gasket",
+      "type": "MESH",
+      "collections": [
+        "export_city_shop_fittings_05"
+      ]
+    },
+    {
+      "name": "right_opaque_glazing",
+      "type": "MESH",
+      "collections": [
+        "export_city_shop_fittings_05"
+      ]
+    },
+    {
+      "name": "sloped_sill",
+      "type": "MESH",
+      "collections": [
+        "export_city_shop_fittings_05"
+      ]
+    }
+  ],
+  "metre_reference": {
+    "dimensions": [
+      1.0,
+      1.0,
+      1.0
+    ],
+    "matrix": [
+      [
+        1.0,
+        0.0,
+        0.0,
+        -2.5999999046325684
+      ],
+      [
+        0.0,
+        1.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0,
+        0.5
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    ]
+  },
+  "issues": []
+}

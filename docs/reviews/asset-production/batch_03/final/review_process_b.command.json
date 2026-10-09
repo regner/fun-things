@@ -1,0 +1,24 @@
+{
+  "argv": [
+    "env",
+    "XDG_DATA_HOME=/tmp/batch03-final/review_process_b/data",
+    "XDG_CONFIG_HOME=/tmp/batch03-final/review_process_b/config",
+    "XDG_CACHE_HOME=/tmp/batch03-final/review_process_b/cache",
+    "GODOT_MCP_RUNTIME_PORT=22872",
+    "/home/regner/.local/share/mise/installs/github-godotengine-godot-builds/4.8-dev7/godot",
+    "--headless",
+    "--path",
+    "/tmp/batch03-final/project",
+    "--script",
+    "res://tests/fixtures/asset_production/batch_03_process_probe.gd"
+  ],
+  "cwd": "/home/regner/.paseo/worktrees/0u71f39f/asset-register-production",
+  "started_utc": "2026-10-09T18:59:57.828446+00:00",
+  "elapsed_s": 12.427473406998615,
+  "environment_overrides": {
+    "ALSOFT_DRIVERS": "null",
+    "SDL_AUDIODRIVER": "dummy",
+    "XDG_CACHE_HOME": "/tmp/batch03-final/cache"
+  },
+  "exit_code": 0
+}

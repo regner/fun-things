@@ -1,0 +1,5 @@
+Traceback (most recent call last):
+  File "/home/regner/.paseo/worktrees/0u71f39f/asset-register-production/docs/reviews/asset-production/batch_03/final/verify_editor.py", line 11, in <module>
+    assert '4.8.dev7' in v.stdout and all(any(x['port']==port and x['owned'] and x['state']=='0A' for x in sockets) for port in [22650,22651,22652])
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError

@@ -1,0 +1,7 @@
+Traceback (most recent call last):
+  File "/home/regner/.paseo/worktrees/0u71f39f/asset-register-production/docs/reviews/asset-production/batch_03/final/scratch_audit.py", line 47, in <module>
+    assert all(c['matches'] for a in assemblies for c in a['checks'])
+           ~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError
+
+Error: script failed, file: 'docs/reviews/asset-production/batch_03/final/scratch_audit.py', exiting.

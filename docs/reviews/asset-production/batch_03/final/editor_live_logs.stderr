@@ -1,0 +1,5 @@
+Traceback (most recent call last):
+  File "/home/regner/.paseo/worktrees/0u71f39f/asset-register-production/docs/reviews/asset-production/batch_03/final/editor_log_read.py", line 5, in <module>
+    target=os.readlink('/proc/254275/fd/'+str(fd));p=Path(target);assert target.startswith('/tmp/asset-register-production-editor/') and p.is_file();b=p.read_bytes();rows.append(dict(fd=fd,path=target,bytes=len(b),sha256=hashlib.sha256(b).hexdigest()));print('OWNED_EDITOR_STREAM_FD',fd,target);print(b.decode(errors='replace'))
+                                                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError

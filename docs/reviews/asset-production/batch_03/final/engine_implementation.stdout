@@ -1,0 +1,595 @@
+@tool
+class_name BatchThreeAuthor
+extends Node3D
+## Editor-only saved collision and source-marker assembly for the bounded batch.
+
+
+## Authors deliberate static shells or closed leaves without changing visual imports.
+# Literal extents remain together in this one editor-only authoring operation.
+func collision_boxes(  # gdstyle:ignore=quality/max-local-variables,quality/max-function-length
+	kind: String
+) -> Dictionary:
+	assert(Engine.is_editor_hint())
+	var root: Node3D = EditorInterface.get_edited_scene_root()
+	assert(not root.has_node("Collision"))
+	var boxes: Array[Array] = []
+	if kind == "shell":
+		boxes = [
+			[-3.2, -2.47, 0, 4.3, -7.0, -6.72],
+			[-2.47, .57, 0, .54, -7.0, -6.72],
+			[-2.47, .57, 2.42, 4.3, -7.0, -6.72],
+			[.57, 1.24, 0, 4.3, -7.0, -6.72],
+			[1.24, 2.66, 2.45, 4.3, -7.0, -6.72],
+			[2.66, 3.2, 0, 4.3, -7.0, -6.72],
+			[-3.2, -2.92, 0, 4.3, -6.72, 7.0],
+			[2.92, 3.2, 0, 4.3, -6.72, 7.0],
+			[-2.92, 2.92, 0, 4.3, 6.72, 7.0],
+			[-3.2, 3.2, 4.14, 4.3, -7.0, 7.0],
+		]
+	elif kind == "single":
+		boxes = [[-.512, .512, .03, 2.232, .43, .475]]
+	elif kind == "double":
+		boxes = [[-.912, -.004, .03, 2.232, .43, .475],
+			[.004, .912, .03, 2.232, .43, .475]]
+	elif kind == "pane":
+		boxes = [[-1.469, -.031, .146, 1.854, -.035, .04],
+			[.031, 1.469, .146, 1.854, -.035, .04]]
+	else:
+		assert(false, kind)
+
+	var group: Node3D = Node3D.new()
+	group.name = "Collision"
+	root.add_child(group)
+	group.owner = root
+	var body: StaticBody3D = StaticBody3D.new()
+	body.name = "Body"
+	body.collision_layer = 1
+	body.collision_mask = 0
+	group.add_child(body)
+	body.owner = root
+	for index: int in range(boxes.size()):
+		var b: Array = boxes[index]
+		var shape := BoxShape3D.new()  # gdstyle:ignore=quality/allocation-in-loop
+		shape.size = Vector3(b[1] - b[0], b[3] - b[2], b[5] - b[4])
+		var node := CollisionShape3D.new()  # gdstyle:ignore=quality/allocation-in-loop
+		node.name = "Shape" + str(index)
+		node.shape = shape
+		node.position = Vector3((b[0] + b[1]) / 2.0, (b[2] + b[3]) / 2.0, (b[4] + b[5]) / 2.0)
+		body.add_child(node)
+		node.owner = root
+
+	EditorInterface.mark_scene_as_unsaved()
+	return { "kind": kind, "bounds_xyz": boxes, "count": boxes.size() }
+
+
+## Mounts immutable prefabs at actual imported shell marker transforms in a saved scene.
+func mount_frontage() -> Dictionary:
+	assert(Engine.is_editor_hint())
+	var root: Node3D = EditorInterface.get_edited_scene_root()
+	var model: Node3D = root.get_node("Shell/Visuals/Model")
+	var paths: Dictionary = {
+		"Entrance": ["mount_entrance_single", "city_shop_fittings_03_single"],
+		"Door": ["mount_door_single", "city_shop_fittings_06_single"],
+		"Window": ["mount_display_window", "city_shop_fittings_05"],
+		"Canopy": ["mount_canopy", "city_shop_fittings_01"],
+		"Fascia": ["mount_fascia", "city_shop_fittings_02"],
+	}
+	var rows: Array[Dictionary] = []
+	for label: String in paths:
+		var marker: Node3D = model.find_child(paths[label][0], true, false)
+		assert(marker != null, paths[label][0])
+		var path: String = "res://scenes/prefabs/environment/" + paths[label][1] + ".tscn"
+		var packed: PackedScene = load(path)
+		var node: Node3D = packed.instantiate()  # gdstyle:ignore=quality/allocation-in-loop
+		node.name = label
+		root.add_child(node)
+		node.owner = root
+		node.transform = model.transform * marker.transform
+		rows.append({"node": label, "marker": str(marker.get_path()),
+			"transform": str(node.transform), "prefab": node.scene_file_path})
+
+	EditorInterface.mark_scene_as_unsaved()
+	return { "mounts": rows }
+extends "res://scenes/prefabs/player_character/player_preview.gd"
+## Bounded native measurement of saved frontage, mounting and static closed collision.
+
+const MOTION_TICKS: int = 120
+const SAMPLE_COUNT: int = 120
+const QUERY_COUNT: int = 300
+const STARTS: Array[Vector3] = [Vector3(1.95, 0, -10), Vector3(-2.9, 0, -10),
+	Vector3(-.95, 0, -10), Vector3(4, 0, -10), Vector3(-4, 0, -8.5)]
+const CASES: Array[String] = [
+	"closed_leaf", "shell_wall", "display_pane", "side_clear", "canopy_under",
+]
+
+var samples: Array[Dictionary] = []
+var outcomes: Dictionary = {}
+var _phase: int = 0
+var _ticks: int = 0
+
+@onready var _actor: S02ActorMotion = $ProbeActor
+@onready var _aim: S02AimProbe = $AimProbe
+
+
+## Captures bounded renderer counters after warmup, without imposing a device budget.
+func _process(_delta: float) -> void:
+	if _ticks < 30 or samples.size() >= SAMPLE_COUNT:
+		return
+
+	samples.append({"process_s": Performance.get_monitor(Performance.TIME_PROCESS),
+		"physics_s": Performance.get_monitor(Performance.TIME_PHYSICS_PROCESS),
+		"draw_calls": Performance.get_monitor(Performance.RENDER_TOTAL_DRAW_CALLS_IN_FRAME),
+		"primitives": Performance.get_monitor(Performance.RENDER_TOTAL_PRIMITIVES_IN_FRAME),
+		"video_bytes": Performance.get_monitor(Performance.RENDER_VIDEO_MEM_USED)})
+
+
+## Applies production motion commands to explicit blocking and unobstructed expectations.
+func _physics_process(delta: float) -> void:
+	if _phase >= STARTS.size():
+		return
+
+	var lateral: bool = _phase == 4
+	_actor.step({"move": Vector2.RIGHT if lateral else Vector2.DOWN,
+		"aim_yaw": PI / 2.0 if lateral else PI, "fire": false}, delta)
+	_ticks += 1
+	if _ticks < MOTION_TICKS:
+		return
+
+	var p: Vector3 = _actor.global_position
+	var passed: bool = p.z < -6.9 and p.z > -7.0
+	if _phase == 1:
+		passed = p.z < -7.35 and p.z > -7.5
+	elif _phase == 2:
+		passed = p.z < -7.35 and p.z > -7.5
+	elif _phase == 3:
+		passed = absf(p.z) < .03
+	elif lateral:
+		passed = absf(p.x - 6.0) < .03
+
+	outcomes[CASES[_phase]] = { "passed": passed, "position": [p.x, p.y, p.z] }
+	_actor.neutralize()
+	_phase += 1
+	_ticks = 0
+	if _phase < STARTS.size():
+		_actor.global_position = STARTS[_phase]
+
+
+## Records actual saved mesh envelopes and marker-derived fitting attachment identity.
+func assembly_checks() -> Dictionary:  # gdstyle:ignore=quality/max-local-variables
+	var root: Node3D = $Frontage
+	var model: Node3D = root.get_node("Shell/Visuals/Model")
+	var mounts: Dictionary = {"Entrance": "mount_entrance_single", "Door": "mount_door_single",
+		"Window": "mount_display_window", "Canopy": "mount_canopy", "Fascia": "mount_fascia"}
+	var rows: Dictionary = {}
+	var passed: bool = true
+	for name: String in mounts:
+		var node: Node3D = root.get_node(name)
+		var marker: Node3D = model.find_child(mounts[name], true, false)
+		var error_m: float = node.global_position.distance_to(marker.global_position)
+		passed = passed and error_m < .002 and node.scale.is_equal_approx(Vector3.ONE)
+		rows[name] = {"marker_error_m": error_m, "bounds": _bounds(node),
+			"prefab": node.scene_file_path, "model": node.get_node("Visuals/Model").scene_file_path}
+
+	var window: Dictionary = rows.Window.bounds
+	var canopy: Dictionary = rows.Canopy.bounds
+	var fascia: Dictionary = rows.Fascia.bounds
+	var window_gap: float = canopy.min[1] - window.max[1]
+	var fascia_gap: float = fascia.min[1] - canopy.max[1]
+	var blade: Dictionary = _bounds(root.get_node("Blade"))
+	var headroom: float = blade.min[1] - 1.8
+	var upper_fit: Dictionary = _upper_fit()
+	passed = passed and window_gap >= .099 and fascia_gap >= .159
+	passed = passed and headroom > 1.0 and upper_fit.passed
+	return {"passed": passed, "mounts": rows, "window_canopy_gap_m": window_gap,
+		"canopy_fascia_gap_m": fascia_gap, "blade_actor_headroom_m": headroom,
+		"blade_bounds": blade, "upper_window_bounds": _bounds($UpperWindow),
+		"upper_wall_model": $UpperWall.scene_file_path,
+		"upper_fit": upper_fit,
+		"scope": "marker-linked narrow shell; upper window in separate compatible technical wall"}
+
+
+## Measures the actual technical opening and every imported window vertex behind the wall.
+func _upper_fit() -> Dictionary:  # gdstyle:ignore=quality/max-local-variables
+	var walls: Array[AABB] = []
+	for mesh: MeshInstance3D in $UpperWall.find_children("*", "MeshInstance3D", true, false):
+		walls.append(mesh.global_transform * mesh.get_aabb())
+
+	assert(walls.size() == 4)
+	var left: float = walls[0].end.x
+	var right: float = walls[1].position.x
+	var bottom: float = walls[2].end.y
+	var top: float = walls[3].position.y
+	var minimum_gap: float = INF
+	var rear_m: float = -INF
+	var vertices: int = 0
+	for mesh: MeshInstance3D in $UpperWindow.find_children("*", "MeshInstance3D", true, false):
+		for surface: int in range(mesh.mesh.get_surface_count()):
+			var arrays: Array = mesh.mesh.surface_get_arrays(surface)
+			var points: PackedVector3Array = arrays[Mesh.ARRAY_VERTEX]
+			for point: Vector3 in points:
+				var world: Vector3 = mesh.global_transform * point
+				if world.z <= -7.0:
+					continue
+
+				vertices += 1
+				minimum_gap = minf(minimum_gap, minf(world.x - left, right - world.x))
+				minimum_gap = minf(minimum_gap, minf(world.y - bottom, top - world.y))
+				rear_m = maxf(rear_m, world.z)
+
+	var depth_clearance: float = walls[0].end.z - rear_m
+	return {"passed": vertices > 0 and minimum_gap >= .018 and depth_clearance >= .02,
+		"opening_world_xy": [left, right, bottom, top], "rear_vertices": vertices,
+		"minimum_side_head_bottom_gap_m": minimum_gap, "rear_clearance_m": depth_clearance}
+
+
+## Accumulates actual imported mesh bounds in the comparison world's coordinates.
+func _bounds(node: Node3D) -> Dictionary:
+	var result: AABB
+	var first: bool = true
+	for mesh: MeshInstance3D in node.find_children("*", "MeshInstance3D", true, false):
+		var bounds: AABB = mesh.global_transform * mesh.get_aabb()
+		result = bounds if first else result.merge(bounds)
+		first = false
+
+	assert(not first)
+	var hi: Vector3 = result.end
+	return {"min": [result.position.x, result.position.y, result.position.z],
+		"max": [hi.x, hi.y, hi.z]}
+
+
+## Exercises physical openings before/after static closed leaves and production firing queries.
+func probe_queries() -> Dictionary:  # gdstyle:ignore=quality/max-local-variables
+	var passed: bool = outcomes.size() == CASES.size()
+	for value: Dictionary in outcomes.values():
+		passed = passed and value.passed
+
+	_actor.global_position = Vector3(1.95, 0, -9)
+	_actor.step({ "move": Vector2.ZERO, "aim_yaw": PI, "fire": false }, 1.0 / 60.0)
+	_aim.step(_actor, true, 1.0 / 60.0)
+	var hit: String = str(_aim.last_hit.get_path()) if _aim.last_hit != null else ""
+	passed = passed and hit.ends_with("Frontage/Door/Collision/Body")
+	var query := PhysicsRayQueryParameters3D.create(Vector3(1.95, 1.2, -9),
+		Vector3(1.95, 1.2, -5.9), 1, [$Frontage/Door/Collision/Body.get_rid()])
+	var open_entrance: bool = get_world_3d().direct_space_state.intersect_ray(query).is_empty()
+	query.from = Vector3(-.95, 1.2, -9)
+	query.to = Vector3(-.95, 1.2, -5.9)
+	query.exclude = [$Frontage/Window/Collision/Body.get_rid()]
+	var open_window: bool = get_world_3d().direct_space_state.intersect_ray(query).is_empty()
+	passed = passed and open_entrance and open_window
+	var started: int = Time.get_ticks_usec()
+	for index: int in range(QUERY_COUNT):
+		get_world_3d().direct_space_state.intersect_ray(query)
+
+	return {"passed": passed, "motion": outcomes, "aim_hit": hit,
+		"entrance_structure_void": open_entrance, "display_structure_void": open_window,
+		"query_iterations": QUERY_COUNT, "query_usec": Time.get_ticks_usec() - started,
+		"samples": samples, "scope": "static closed decoration, no opening mechanics or transport"}
+extends SceneTree
+## Replays identical bounded commands in separately isolated physics processes.
+
+const STEP_SECONDS: float = 1.0 / 60.0
+const TICKS_PER_CASE: int = 120
+const STARTS: Array[Vector3] = [
+	Vector3(1.95, 0, -10), Vector3(-2.9, 0, -10),
+	Vector3(-.95, 0, -10), Vector3(4, 0, -10),
+	Vector3(-7.45, 0, -10), Vector3(-6.55, 0, -10),
+]
+
+
+## Defers loaded fixture setup until the tree accepts authored scene children.
+func _initialize() -> void:
+	_run.call_deferred()
+
+
+## Measures real closed facade blocking, clear movement and public aiming without network claims.
+func _run() -> void:  # gdstyle:ignore=quality/max-local-variables
+	var packed: PackedScene = load("res://tests/fixtures/asset_production/batch_03_process.tscn")
+	var fixture: Node3D = packed.instantiate()
+	root.add_child(fixture)
+	await physics_frame
+	await physics_frame
+	var actor: S02ActorMotion = fixture.get_node("ProbeActor")
+	var aim: S02AimProbe = fixture.get_node("AimProbe")
+	var rows: Array[Dictionary] = []
+	var passed: bool = true
+	for index: int in range(STARTS.size()):
+		var position_now: Vector3 = await _travel(  # gdstyle:ignore=quality/await-in-loop
+			actor, STARTS[index]
+		)
+		var correct: bool = position_now.z > -7.0 and position_now.z < -6.9
+		if index in [1, 2]:
+			correct = position_now.z > -7.5 and position_now.z < -7.35
+		elif index == 3:
+			correct = absf(position_now.z) < .03
+
+		passed = passed and correct
+		rows.append({"case": index, "passed": correct,
+			"position": [position_now.x, position_now.y, position_now.z]})
+
+	actor.global_position = Vector3(1.95, 0, -9)
+	actor.step({ "move": Vector2.ZERO, "aim_yaw": PI, "fire": false }, STEP_SECONDS)
+	aim.step(actor, true, STEP_SECONDS)
+	var hit_path: String = str(aim.last_hit.get_path()) if aim.last_hit != null else ""
+	passed = passed and hit_path.ends_with("Frontage/Door/Collision/Body")
+	print("BATCH03_PROCESS ", JSON.stringify({"passed": passed, "pid": OS.get_process_id(),
+		"engine": Engine.get_version_info().string, "rows": rows, "aim_hit": hit_path,
+		"scope": "independent command replay in two physics processes; no transport protocol"}))
+	fixture.queue_free()
+	await process_frame
+	quit(0 if passed else 1)
+
+
+## Advances fixed commands through the same motion owner and live physics world.
+func _travel(actor: S02ActorMotion, start: Vector3) -> Vector3:
+	actor.neutralize()
+	actor.global_position = start
+	await physics_frame
+	for tick: int in range(TICKS_PER_CASE):
+		actor.step({ "move": Vector2.DOWN, "aim_yaw": PI, "fire": false }, STEP_SECONDS)
+		await physics_frame  # gdstyle:ignore=quality/await-in-loop
+
+	actor.neutralize()
+	return actor.global_position
+"""Launch one owned native comparison at physical1280x800; retain argv/PID ownership."""
+import json
+import os
+from pathlib import Path
+import subprocess
+import sys
+
+ROOT = Path(__file__).resolve().parents[3]
+STATE = Path('/tmp/asset-register-production-editor')
+label = sys.argv[1]
+launch = json.loads((STATE/'launch.json').read_text())
+assert os.readlink(f"/proc/{launch['pid']}/cwd") == str(ROOT)
+penv = dict(s.decode().split('=',1) for s in Path(f"/proc/{launch['pid']}/environ").read_bytes().split(b'\0') if b'=' in s)
+overrides = {k:penv[k] for k in ['DISPLAY','WAYLAND_DISPLAY','XDG_RUNTIME_DIR'] if k in penv}
+overrides.update({'XDG_DATA_HOME':str(STATE/'data'),'XDG_CONFIG_HOME':str(STATE/'config'),
+    'XDG_CACHE_HOME':str(STATE/'cache'),'GODOT_MCP_RUNTIME_PORT':'22651'})
+argv=[launch['argv'][0],'--path',str(ROOT),'--resolution','1280x800',
+      f'res://tests/fixtures/asset_production/batch_03_{label}.tscn']
+log=ROOT/f'docs/assets/production/batch_03-evidence/native-{label}.log'
+stream=log.open('w')
+proc=subprocess.Popen(argv,env=dict(os.environ,**overrides),stdout=stream,stderr=subprocess.STDOUT,start_new_session=True)
+row={'pid':proc.pid,'argv':argv,'cwd':str(ROOT),'environment_overrides':overrides,
+     'editor_pid':launch['pid'],'runtime_port':22651}
+(STATE/'batch03/native-launch.json').write_text(json.dumps(row,indent=2)+'\n')
+(ROOT/f'docs/assets/production/batch_03-evidence/native-{label}-launch.json').write_text(json.dumps(row,indent=2)+'\n')
+print(proc.pid)
+@tool
+class_name AssetProductionInspector
+extends Node3D
+## Editor-only measurements and ownership checks for the production commission.
+
+
+## Reports private project/process identity and saved/unsaved editor scenes.
+func context() -> Dictionary:
+	return {"project": ProjectSettings.globalize_path("res://"),
+		"pid": OS.get_process_id(), "engine": Engine.get_version_info().string,
+		"open": EditorInterface.get_open_scenes(),
+		"unsaved": EditorInterface.get_unsaved_scenes()}
+
+
+## Registers existing saved IDs in the editor cache without changing authored resources.
+func register_uids(paths: Array) -> Array[Dictionary]:
+	var rows: Array[Dictionary] = []
+	for path: String in paths:
+		var uid: int = ResourceLoader.get_resource_uid(path)
+		assert(uid != ResourceUID.INVALID_ID, path)
+		var existed: bool = ResourceUID.has_id(uid)
+		var prior: String = ResourceUID.get_id_path(uid) if existed else ""
+		assert(prior.is_empty() or prior == path, "UID collision: " + prior)
+		if not existed:
+			ResourceUID.add_id(uid, path)
+
+		rows.append({"path": path, "uid": ResourceUID.id_to_text(uid),
+			"was_registered": existed, "resolved": ResourceUID.get_id_path(uid)})
+
+	return rows
+
+
+## Authors one source-linked static model with deliberate pole collision in the editor.
+func build_pole(path: String, radius_m: float, height_m: float) -> Dictionary:
+	assert(Engine.is_editor_hint())
+	var root: Node3D = EditorInterface.get_edited_scene_root()
+	assert(root != null and not root.has_node("Visuals"))
+	var visuals: Node3D = Node3D.new()
+	visuals.name = "Visuals"
+	root.add_child(visuals)
+	visuals.owner = root
+	var packed: PackedScene = load(path)
+	assert(packed != null, path)
+	var model: Node3D = packed.instantiate()
+	model.name = "Model"
+	visuals.add_child(model)
+	model.owner = root
+	var collision: Node3D = Node3D.new()
+	collision.name = "Collision"
+	root.add_child(collision)
+	collision.owner = root
+	var body: StaticBody3D = StaticBody3D.new()
+	body.name = "PoleBody"
+	body.collision_layer = 1
+	body.collision_mask = 0
+	collision.add_child(body)
+	body.owner = root
+	var shape: CollisionShape3D = CollisionShape3D.new()
+	shape.name = "Shape"
+	var cylinder: CylinderShape3D = CylinderShape3D.new()
+	cylinder.radius = radius_m
+	cylinder.height = height_m
+	shape.shape = cylinder
+	shape.position.y = height_m * 0.5
+	body.add_child(shape)
+	shape.owner = root
+	EditorInterface.mark_scene_as_unsaved()
+	return {"model": model.scene_file_path, "radius_m": radius_m,
+		"height_m": height_m, "collision_layer": body.collision_layer}
+
+
+## Authors linked static props; facade hardware has no independent gameplay collision.
+# One-shot editor authoring keeps shape construction local; no runtime allocation loop.
+# The collision branches and multiline arguments stay local to this editor-only operation.
+func build_static(  # gdstyle:ignore=quality/max-local-variables
+	path: String, collision_kind: String
+) -> Dictionary:
+	assert(Engine.is_editor_hint())
+	var root: Node3D = EditorInterface.get_edited_scene_root()
+	assert(root != null and not root.has_node("Visuals"))
+	var visuals: Node3D = _owned(root, Node3D.new(), "Visuals", root)
+	var packed: PackedScene = load(path)
+	assert(packed != null, path)
+	var model: Node3D = packed.instantiate()
+	_owned(visuals, model, "Model", root)
+	var shape_count: int = 0
+	if collision_kind != "none":
+		var collision: Node3D = _owned(root, Node3D.new(), "Collision", root)
+		var body: StaticBody3D = _owned(collision, StaticBody3D.new(), "Body", root)
+		body.collision_layer = 1
+		body.collision_mask = 0
+		if collision_kind == "box":
+			var box: BoxShape3D = BoxShape3D.new()
+			box.size = Vector3(2.4, 0.6, 0.9)
+			var shape: CollisionShape3D = _owned(body, CollisionShape3D.new(), "Shape", root)
+			shape.shape = box
+			shape.position.y = 0.3
+			shape_count = 1
+		elif collision_kind == "ring":
+			const SEGMENTS: int = 16
+			const CLEAR_RADIUS_M: float = 0.62
+			const OUTER_R_M: float = 0.9
+			const HEIGHT_M: float = 0.48
+			var inner_radius: float = CLEAR_RADIUS_M / cos(PI / SEGMENTS)
+			for index: int in range(SEGMENTS):
+
+				var convex: ConvexPolygonShape3D
+				convex = ConvexPolygonShape3D.new()  # gdstyle:ignore=quality/allocation-in-loop
+				convex.points = _ring_points(index, SEGMENTS, inner_radius, OUTER_R_M, HEIGHT_M)
+				var shape := CollisionShape3D.new()  # gdstyle:ignore=quality/allocation-in-loop
+				_owned(body, shape, "Segment" + str(index), root)
+				shape.shape = convex
+				shape_count += 1
+
+		else:
+			assert(false, "Unsupported collision kind")
+
+	EditorInterface.mark_scene_as_unsaved()
+	return {"model": model.scene_file_path, "collision_kind": collision_kind,
+		"shape_count": shape_count}
+
+
+## Returns one annular prism's corners while preserving the authored clear inner radius.
+func _ring_points(
+	index: int, segments: int, inner: float, outer: float, height_m: float
+) -> PackedVector3Array:
+	var points: PackedVector3Array = []
+	for height: float in [0.0, height_m]:
+		for radius: float in [inner, outer]:
+			for angle: float in [TAU * index / segments, TAU * (index + 1) / segments]:
+				points.append(Vector3(cos(angle) * radius, height, sin(angle) * radius))
+
+	return points
+
+
+## Assigns explicit scene ownership to editor-authored children while keeping imports linked.
+func _owned(parent: Node, child: Node, label: String, scene_root: Node) -> Node:
+	child.name = label
+	parent.add_child(child)
+	child.owner = scene_root
+	return child
+
+
+## Measures source-linked imported mesh bounds and records model ancestry.
+func inspect_prefab(path: String) -> Dictionary:
+	var packed: PackedScene = load(path)
+	assert(packed != null, path)
+	var instance: Node3D = packed.instantiate()
+	var rows: Array[Dictionary] = []
+	_collect(instance, Transform3D.IDENTITY, rows)
+	var model: Node3D = instance.get_node("Visuals/Model")
+	var result: Dictionary = {"prefab": path, "model": model.scene_file_path,
+		"model_transform": str(model.transform), "mesh_rows": rows}
+	instance.free()
+	return result
+
+
+## Accumulates transformed imported bounds without changing meshes or placement.
+func _collect(node: Node, parent_pose: Transform3D, rows: Array[Dictionary]) -> void:
+	var pose: Transform3D = parent_pose
+	if node is Node3D:
+		pose = parent_pose * node.transform
+
+	if node is MeshInstance3D:
+		var bounds: AABB = pose * node.get_aabb()
+		rows.append({"node": str(node.name), "resource": node.mesh.resource_path,
+			"min": [bounds.position.x, bounds.position.y, bounds.position.z],
+			"size": [bounds.size.x, bounds.size.y, bounds.size.z],
+			"surfaces": _surface_info(node.mesh)})
+
+	for child: Node in node.get_children():
+		_collect(child, pose, rows)
+
+
+## Records imported material response without adding an override or external writer.
+func _surface_info(mesh: Mesh) -> Array[Dictionary]:
+	var rows: Array[Dictionary] = []
+	for index: int in range(mesh.get_surface_count()):
+		var material: StandardMaterial3D = mesh.surface_get_material(index)
+		assert(material != null)
+		rows.append({"slot": index, "name": material.resource_name,
+			"color": str(material.albedo_color), "roughness": material.roughness,
+			"metallic": material.metallic, "cull_mode": material.cull_mode,
+			"transparency": material.transparency, "resource": material.resource_path})
+
+	return rows
+/** Private asset production MCP transport; never discovers or switches a shared editor. */
+import fs from 'node:fs';
+import path from 'node:path';
+
+const state = '/tmp/asset-register-production-editor';
+const root = '/home/regner/.paseo/worktrees/0u71f39f/asset-register-production';
+const launch = JSON.parse(fs.readFileSync(path.join(state, 'launch.json')));
+if (launch.cwd !== root || fs.realpathSync(`/proc/${launch.pid}/cwd`) !== root)
+  throw new Error('Private editor project ownership mismatch');
+const args = fs.readFileSync(`/proc/${launch.pid}/cmdline`, 'utf8').split('\0');
+if (!args.includes(root) || !args.includes('22652')) throw new Error('Private PID mismatch');
+const token = fs.readFileSync(path.join(state,
+  'data/godot/app_userdata/Fun Things/addons/godot_mcp_toolkit/project_instance_e3d7eccfd893/mcp_token'), 'utf8').trim();
+const requests = JSON.parse(fs.readFileSync(process.argv[2], 'utf8'));
+const port = process.argv.includes('--runtime') ? 22651 : 22650;
+const ws = new WebSocket(`ws://127.0.0.1:${port}`);
+let serial = 0;
+const pending = new Map();
+ws.addEventListener('message', event => {
+  const msg = JSON.parse(event.data);
+  if (msg.authed) pending.get('auth')?.(msg);
+  if (msg.id !== undefined) pending.get(msg.id)?.(msg);
+});
+await new Promise((resolve, reject) => {
+  ws.addEventListener('open', resolve, {once:true});
+  ws.addEventListener('error', reject, {once:true});
+});
+await new Promise((resolve, reject) => {
+  const timer = setTimeout(() => reject(new Error('Private endpoint authentication timeout')), 5000);
+  pending.set('auth', msg => {clearTimeout(timer); pending.delete('auth'); resolve(msg);});
+  ws.send(JSON.stringify({auth:token}));
+});
+for (const request of requests) {
+  const id = ++serial;
+  const result = await new Promise((resolve, reject) => {
+    const timer = setTimeout(() => reject(new Error(`Timeout: ${request.method}`)), 45000);
+    pending.set(id, msg => {clearTimeout(timer); pending.delete(id); resolve(msg);});
+    ws.send(JSON.stringify({jsonrpc:'2.0', id, method:request.method, params:request.params ?? {}}));
+  });
+  console.log(JSON.stringify({method:request.method,result}));
+  if (result.error || result.result?.success === false || result.result?.valid === false)
+    throw new Error('MCP command failed');
+  // Editor calls can report protocol success after an assertion; require substantive receipts.
+  if (request.method === 'node.call_method' &&
+      ['context', 'inspect_prefab', 'build_static', 'build_pole'].includes(request.params?.method_name) &&
+      Object.keys(result.result?.result ?? {}).length === 0)
+    throw new Error('Editor method returned an empty validation receipt');
+  if (request.method === 'execute.code' && result.result?.result?.passed === false)
+    throw new Error('Runtime observation returned a failed substantive check');
+}
+ws.close();

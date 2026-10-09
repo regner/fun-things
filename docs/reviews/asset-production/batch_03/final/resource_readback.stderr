@@ -1,0 +1,21 @@
+ERROR: Condition "_sock == -1" is true. Returning: FAILED
+   at: _inet_open (drivers/unix/net_socket_unix.cpp:288)
+   GDScript backtrace (most recent call first):
+       [0] _pin_listen (res://addons/godot_mcp_toolkit/transport/ws_transport.gd:302)
+       [1] ensure_listening (res://addons/godot_mcp_toolkit/transport/ws_transport.gd:252)
+       [2] _start_server (res://addons/godot_mcp_toolkit/runtime/mcp_runtime_server.gd:162)
+       [3] _ready (res://addons/godot_mcp_toolkit/runtime/mcp_runtime_server.gd:111)
+ERROR: Condition "err != OK" is true. Returning: ERR_CANT_CREATE
+   at: listen (core/io/tcp_server.cpp:56)
+   GDScript backtrace (most recent call first):
+       [0] _pin_listen (res://addons/godot_mcp_toolkit/transport/ws_transport.gd:302)
+       [1] ensure_listening (res://addons/godot_mcp_toolkit/transport/ws_transport.gd:252)
+       [2] _start_server (res://addons/godot_mcp_toolkit/runtime/mcp_runtime_server.gd:162)
+       [3] _ready (res://addons/godot_mcp_toolkit/runtime/mcp_runtime_server.gd:111)
+WARNING: [MCPRuntimeServer] pinned port 22870 in use - retrying the same port briefly in case a prior instance is still releasing it
+     at: push_warning (core/variant/variant_utility.cpp:1034)
+     GDScript backtrace (most recent call first):
+         [0] _pin_listen (res://addons/godot_mcp_toolkit/transport/ws_transport.gd:323)
+         [1] ensure_listening (res://addons/godot_mcp_toolkit/transport/ws_transport.gd:252)
+         [2] _start_server (res://addons/godot_mcp_toolkit/runtime/mcp_runtime_server.gd:162)
+         [3] _ready (res://addons/godot_mcp_toolkit/runtime/mcp_runtime_server.gd:111)

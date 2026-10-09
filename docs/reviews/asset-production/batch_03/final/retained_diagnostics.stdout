@@ -1,0 +1,105 @@
+file:///home/regner/.paseo/worktrees/0u71f39f/asset-register-production/tools/asset_production/integration/editor_client.mjs:47
+    throw new Error('Editor method returned an empty validation receipt');
+          ^
+
+Error: Editor method returned an empty validation receipt
+    at file:///home/regner/.paseo/worktrees/0u71f39f/asset-register-production/tools/asset_production/integration/editor_client.mjs:47:11
+    at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+
+Node.js v26.11.1
+file:///home/regner/.paseo/worktrees/0u71f39f/asset-register-production/tools/asset_production/integration/editor_client.mjs:47
+    throw new Error('Editor method returned an empty validation receipt');
+          ^
+
+Error: Editor method returned an empty validation receipt
+    at file:///home/regner/.paseo/worktrees/0u71f39f/asset-register-production/tools/asset_production/integration/editor_client.mjs:47:11
+    at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+
+Node.js v26.11.1
+file:///home/regner/.paseo/worktrees/0u71f39f/asset-register-production/tools/asset_production/integration/editor_client.mjs:42
+    throw new Error('MCP command failed');
+          ^
+
+Error: MCP command failed
+    at file:///home/regner/.paseo/worktrees/0u71f39f/asset-register-production/tools/asset_production/integration/editor_client.mjs:42:11
+    at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+
+Node.js v26.11.1
+file:///home/regner/.paseo/worktrees/0u71f39f/asset-register-production/tools/asset_production/integration/editor_client.mjs:42
+    throw new Error('MCP command failed');
+          ^
+
+Error: MCP command failed
+    at file:///home/regner/.paseo/worktrees/0u71f39f/asset-register-production/tools/asset_production/integration/editor_client.mjs:42:11
+    at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+
+Node.js v26.11.1
+file:///home/regner/.paseo/worktrees/0u71f39f/asset-register-production/tools/asset_production/integration/editor_client.mjs:42
+    throw new Error('MCP command failed');
+          ^
+
+Error: MCP command failed
+    at file:///home/regner/.paseo/worktrees/0u71f39f/asset-register-production/tools/asset_production/integration/editor_client.mjs:42:11
+    at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+
+Node.js v26.11.1
+file:///home/regner/.paseo/worktrees/0u71f39f/asset-register-production/tools/asset_production/integration/editor_client.mjs:42
+    throw new Error('MCP command failed');
+          ^
+
+Error: MCP command failed
+    at file:///home/regner/.paseo/worktrees/0u71f39f/asset-register-production/tools/asset_production/integration/editor_client.mjs:42:11
+    at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+
+Node.js v26.11.1
+file:///home/regner/.paseo/worktrees/0u71f39f/asset-register-production/tools/asset_production/integration/editor_client.mjs:42
+    throw new Error('MCP command failed');
+          ^
+
+Error: MCP command failed
+    at file:///home/regner/.paseo/worktrees/0u71f39f/asset-register-production/tools/asset_production/integration/editor_client.mjs:42:11
+    at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+
+Node.js v26.11.1
+file:///home/regner/.paseo/worktrees/0u71f39f/asset-register-production/tools/asset_production/integration/editor_client.mjs:42
+    throw new Error('MCP command failed');
+          ^
+
+Error: MCP command failed
+    at file:///home/regner/.paseo/worktrees/0u71f39f/asset-register-production/tools/asset_production/integration/editor_client.mjs:42:11
+    at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+
+Node.js v26.11.1
+file:///home/regner/.paseo/worktrees/0u71f39f/asset-register-production/tools/asset_production/integration/editor_client.mjs:42
+    throw new Error('MCP command failed');
+          ^
+
+Error: MCP command failed
+    at file:///home/regner/.paseo/worktrees/0u71f39f/asset-register-production/tools/asset_production/integration/editor_client.mjs:42:11
+    at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+
+Node.js v26.11.1
+file:///home/regner/.paseo/worktrees/0u71f39f/asset-register-production/tools/asset_production/integration/editor_client.mjs:42
+    throw new Error('MCP command failed');
+          ^
+
+Error: MCP command failed
+    at file:///home/regner/.paseo/worktrees/0u71f39f/asset-register-production/tools/asset_production/integration/editor_client.mjs:42:11
+    at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+
+Node.js v26.11.1
+file:///home/regner/.paseo/worktrees/0u71f39f/asset-register-production/tools/asset_production/integration/editor_client.mjs:36
+    const timer = setTimeout(() => reject(new Error(`Timeout: ${request.method}`)), 45000);
+                                          ^
+
+Error: Timeout: editor.screenshot
+    at Timeout._onTimeout (file:///home/regner/.paseo/worktrees/0u71f39f/asset-register-production/tools/asset_production/integration/editor_client.mjs:36:43)
+    at listOnTimeout (node:internal/timers:685:17)
+    at process.processTimers (node:internal/timers:618:7)
+
+Node.js v26.11.1
+Traceback (most recent call last):
+  File "/home/regner/.paseo/worktrees/0u71f39f/asset-register-production/tools/asset_production/integration/verify_batch03.py", line 62, in <module>
+    assert hashlib.sha256((ROOT / path.removeprefix('res://')).read_bytes()).hexdigest() == digest
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError

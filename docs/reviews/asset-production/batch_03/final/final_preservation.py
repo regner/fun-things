@@ -1,0 +1,10 @@
+import json,pathlib,hashlib,subprocess
+O=pathlib.Path(__file__).resolve().parent;index=json.load(open(O/'candidate-file-index.json'));rows=[]
+for group in ['producer_files','engine_files','initial_immutable_references','reference_interfaces']:
+ for e in index[group]:
+  b=pathlib.Path(e['path']).read_bytes();rows.append(dict(group=group,path=e['path'],candidate_bytes=e['bytes'],candidate_sha256=e['sha256'],working_bytes=len(b),working_sha256=hashlib.sha256(b).hexdigest(),matches=len(b)==e['bytes'] and hashlib.sha256(b).hexdigest()==e['sha256']))
+bad=[r for r in rows if not r['matches']];assert [r['path'] for r in bad]==['docs/assets/production/batch_03-evidence/editor-restart.log']
+p=pathlib.Path(bad[0]['path']);b=p.read_bytes();original=subprocess.check_output(['git','show',index['candidate']+':'+str(p)]);assert b.startswith(original);append=b[len(original):];(O/'owned-editor-appended.log').write_bytes(append)
+ctx=[json.loads(l) for l in (O/'final_editor_context.stdout').read_text().splitlines()];assert ctx[0]['result']['result']['was_running']==False;v=ctx[2]['result']['result']['result'];assert v['pid']==254275 and v['unsaved']=='PackedStringArray()' and v['project']==str(pathlib.Path.cwd())+'/'
+r=dict(candidate=index['candidate'],head=subprocess.check_output(['git','rev-parse','HEAD']).decode().strip(),files=rows,mismatches=bad,log_is_exact_candidate_prefix_plus_owned_editor_append=True,append_bytes=len(append),append_sha256=hashlib.sha256(append).hexdigest(),editor_state=v,runtime_stopped=True,lease_released_by_reviewer=True,shared_frozen_log_not_rewritten=True,tracked_diff=subprocess.check_output(['git','diff','--name-status']).decode().splitlines(),index_diff=subprocess.check_output(['git','diff','--cached','--name-status']).decode().splitlines())
+(O/'final-preservation.json').write_text(json.dumps(r,indent=2)+'\n');print(json.dumps({k:v for k,v in r.items() if k not in ['files','editor_state']},indent=2));assert r['head']==index['candidate'];assert not r['index_diff'];assert r['tracked_diff']==['M\t'+str(p)]

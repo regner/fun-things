@@ -1,0 +1,1119 @@
+{
+  "delta_base": "1031a3e1e66a404f67fa1a3857c4888d05f10d1e",
+  "purpose": "F3 evidence retention only; unchanged final reviewer payloads and additive retention pack",
+  "files": [
+    {
+      "path": "docs/assets/production/batch_03-retention-evidence/F3.md",
+      "bytes": 4404,
+      "sha256": "f4bb52a8d1e4b6b5cb6173198f455248b864e52ba9f5ea11ed9655df779805d3"
+    },
+    {
+      "path": "docs/assets/production/batch_03-retention-evidence/append-after-frozen-prefix.log",
+      "bytes": 4870,
+      "sha256": "b7f7decab566d37661c380bb6cc85f0230df283f96db469a0b75e7d7db5eb653"
+    },
+    {
+      "path": "docs/assets/production/batch_03-retention-evidence/complete-editor-through-shutdown.log",
+      "bytes": 34074,
+      "sha256": "1c47b51242e04c46b8d9bc22c658f923571b3d76e82de17ac947190485ff0855"
+    },
+    {
+      "path": "docs/assets/production/batch_03-retention-evidence/final-context-requests.json",
+      "bytes": 312,
+      "sha256": "5ddab5dc2cc59782fbe08dfb6656ec6daaa142556c905f4ebfffedb902111131"
+    },
+    {
+      "path": "docs/assets/production/batch_03-retention-evidence/final-context.execution.json",
+      "bytes": 231,
+      "sha256": "d9898450d68f47617e1855de2bec5bde970dd44b379da0b986c49f4e6fa43e4d"
+    },
+    {
+      "path": "docs/assets/production/batch_03-retention-evidence/final-context.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "docs/assets/production/batch_03-retention-evidence/final-context.stdout.jsonl",
+      "bytes": 3317,
+      "sha256": "124e6c23a40473346d009ba1e9d5beb8dbee9a3240f4e155836e0c83ea65356f"
+    },
+    {
+      "path": "docs/assets/production/batch_03-retention-evidence/frozen-candidate-editor.log",
+      "bytes": 29204,
+      "sha256": "ab20ecf69a33eb2d58617c724bda4bc695247fac82e98057b596144ea44df509"
+    },
+    {
+      "path": "docs/assets/production/batch_03-retention-evidence/git-show.execution.json",
+      "bytes": 168,
+      "sha256": "63a07cd2b144a2984e915c8846e0405734b913abb2b76e27b93a7c6b0e1fcbbe"
+    },
+    {
+      "path": "docs/assets/production/batch_03-retention-evidence/git-show.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "docs/assets/production/batch_03-retention-evidence/isolate_editor_log.py",
+      "bytes": 4942,
+      "sha256": "01992c9d4267ad924874e44cbd3a318e8afee89e592dddd383c64dac635450c6"
+    },
+    {
+      "path": "docs/assets/production/batch_03-retention-evidence/isolation.execution.json",
+      "bytes": 167,
+      "sha256": "dee0254b29294e32cab52629979e8a57b5c286b6d7afbc746d7669a9c463ab9a"
+    },
+    {
+      "path": "docs/assets/production/batch_03-retention-evidence/isolation.json",
+      "bytes": 5529,
+      "sha256": "9b7466699defac26812220a8c48968813d5495050f401bf63ad37305726e1225"
+    },
+    {
+      "path": "docs/assets/production/batch_03-retention-evidence/isolation.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "docs/assets/production/batch_03-retention-evidence/isolation.stdout.log",
+      "bytes": 71,
+      "sha256": "7ff77c4238f1d0e76885c7d12757182f4ef75dc982f4aa38c210b9dcf9de3b35"
+    },
+    {
+      "path": "docs/assets/production/batch_03-retention-evidence/pre-context-requests.json",
+      "bytes": 312,
+      "sha256": "6f0992d0412c219f89335efb352d15ad06417ea133d0ab7fff2619ca6440affb"
+    },
+    {
+      "path": "docs/assets/production/batch_03-retention-evidence/pre-context.execution.json",
+      "bytes": 400,
+      "sha256": "77454658a3b6b08a8201f73f04137f83908ff46938f41894012ebfdd5d8fac65"
+    },
+    {
+      "path": "docs/assets/production/batch_03-retention-evidence/pre-context.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "docs/assets/production/batch_03-retention-evidence/pre-context.stdout.jsonl",
+      "bytes": 3317,
+      "sha256": "e380f0c9e0ff9bc9dca1dcef8a18a3e50c51145faa8799b6016eaf0ee3f79bcf"
+    },
+    {
+      "path": "docs/assets/production/batch_03-retention-evidence/retention-readback.json",
+      "bytes": 108069,
+      "sha256": "162f331f8aa5bbdd59cb385475ef371841973d5284c5e8f4b4f7e007d34195f8"
+    },
+    {
+      "path": "docs/assets/production/batch_03-retention-evidence/verification.execution.json",
+      "bytes": 164,
+      "sha256": "d6d629cc941997ea4bdcef704a69b6ce97643a004b6e1d8d05cc7f75c94f1796"
+    },
+    {
+      "path": "docs/assets/production/batch_03-retention-evidence/verification.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "docs/assets/production/batch_03-retention-evidence/verification.stdout.log",
+      "bytes": 149,
+      "sha256": "661f0cd51bd0247417768c7f381a5eb394379d48a431a36eaac80bf62902872a"
+    },
+    {
+      "path": "docs/assets/production/batch_03-retention-evidence/verify_retention.py",
+      "bytes": 5094,
+      "sha256": "5d2df44bbeacb5045c6b886c8f09b16c85aaea720e353002ee6d39ce28c9dd69"
+    },
+    {
+      "path": "docs/reviews/asset-production/batch_03/final/callback.md",
+      "bytes": 1395,
+      "sha256": "6da9ac2ad13d8077866d4ca6ccfbb1fbff4ffba1a1f8216e255b547385866cef"
+    },
+    {
+      "path": "docs/reviews/asset-production/batch_03/final/candidate-file-index.json",
+      "bytes": 1182837,
+      "sha256": "9985bb14bd8542b3fe482dbc99a66844392cecb450f0e1fdb7042738b4d7312b"
+    },
+    {
+      "path": "docs/reviews/asset-production/batch_03/final/city_shop_fittings_02.source.json",
+      "bytes": 12703,
+      "sha256": "3e45526b56c7646a1b408d29001bdedecb84c34d25886f1011a13203a1a923e6"
+    },
+    {
+      "path": "docs/reviews/asset-production/batch_03/final/city_shop_fittings_02_source.command.json",
+      "bytes": 752,
+      "sha256": "41d2ed253871f260ca167b0747e1f571b5ef3ba9520867aca83705b9043a5f93"
+    },
+    {
+      "path": "docs/reviews/asset-production/batch_03/final/city_shop_fittings_02_source.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "docs/reviews/asset-production/batch_03/final/city_shop_fittings_02_source.stdout",
+      "bytes": 1541,
+      "sha256": "9277c480ada51cdf1543741c76a70543836acab9bdb32b9721c5a519b3c2a7c2"
+    },
+    {
+      "path": "docs/reviews/asset-production/batch_03/final/city_shop_fittings_03.source.json",
+      "bytes": 15547,
+      "sha256": "af9670c4716f72a024bee86740c8b2eec66d71701c97df784df99f27540e9936"
+    },
+    {
+      "path": "docs/reviews/asset-production/batch_03/final/city_shop_fittings_03_source.command.json",
+      "bytes": 752,
+      "sha256": "4ce02d05c6b8eb5f91dfd22bdfe7dc371d787b4f61ebac8c20f2b2eaf65b1dab"
+    },
+    {
+      "path": "docs/reviews/asset-production/batch_03/final/city_shop_fittings_03_source.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "docs/reviews/asset-production/batch_03/final/city_shop_fittings_03_source.stdout",
+      "bytes": 1889,
+      "sha256": "af82456cdb3f4a388881a942b81efa9a35440a7e453ca1596b2e45809b3e79a7"
+    },
+    {
+      "path": "docs/reviews/asset-production/batch_03/final/city_shop_fittings_05.source.json",
+      "bytes": 13944,
+      "sha256": "790b5ce168b60c3a71b7b400b7b1e111125807dca5b95b0a2b465034cc6f12df"
+    },
+    {
+      "path": "docs/reviews/asset-production/batch_03/final/city_shop_fittings_05_source.command.json",
+      "bytes": 752,
+      "sha256": "2ec4b41f889d19494a7f9b3bc07583695567f9420c238913e41a5fab5afb9409"
+    },
+    {
+      "path": "docs/reviews/asset-production/batch_03/final/city_shop_fittings_05_source.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "docs/reviews/asset-production/batch_03/final/city_shop_fittings_05_source.stdout",
+      "bytes": 1629,
+      "sha256": "3b890b2fa41783d90f8206f2151de83b215982a3dc9a0e8bbce1ac1f932b6d09"
+    },
+    {
+      "path": "docs/reviews/asset-production/batch_03/final/city_shop_fittings_06.source.json",
+      "bytes": 17115,
+      "sha256": "54b02131f81fd218717f5e2196c162847eb4f2faaf3ade2babbd69d1bb802131"
+    },
+    {
+      "path": "docs/reviews/asset-production/batch_03/final/city_shop_fittings_06_source.command.json",
+      "bytes": 752,
+      "sha256": "26135092ad52185947ba803a79735de47141973836a088134088816f2b5c0c20"
+    },
+    {
+      "path": "docs/reviews/asset-production/batch_03/final/city_shop_fittings_06_source.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "docs/reviews/asset-production/batch_03/final/city_shop_fittings_06_source.stdout",
+      "bytes": 2009,
+      "sha256": "9c72ce67a164684a25fb937c2755f497641e7f5a534c0b2cf9b59dc47bce0bfd"
+    },
+    {
+      "path": "docs/reviews/asset-production/batch_03/final/city_shop_fittings_07.source.json",
+      "bytes": 18128,
+      "sha256": "548fe7944d565a790e9b214da91bfaf6b6d47286e2bac054af684a8e77b279c6"
+    },
+    {
+      "path": "docs/reviews/asset-production/batch_03/final/city_shop_fittings_07_source.command.json",
+      "bytes": 752,
+      "sha256": "606906f91d3d6fdb1995c4b4b2f6148c5cc68ad25a40721f62ec17418dd39123"
+    },
+    {
+      "path": "docs/reviews/asset-production/batch_03/final/city_shop_fittings_07_source.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "docs/reviews/asset-production/batch_03/final/city_shop_fittings_07_source.stdout",
+      "bytes": 1923,
+      "sha256": "6c21eda8cafc4022f87d66b9a5c6b1e078a5ef845b5b1852d180024330841918"
+    },
+    {
+      "path": "docs/reviews/asset-production/batch_03/final/city_shop_fittings_08.source.json",
+      "bytes": 25783,
+      "sha256": "8b828e25c7af8f5f171a0d3a3f8d1abe9167a5c80bc689daf1634349ed455bda"
+    },
+    {
+      "path": "docs/reviews/asset-production/batch_03/final/city_shop_fittings_08_source.command.json",
+      "bytes": 752,
+      "sha256": "b6952778fcbef6beb94643a53c988fb6043b8e9e8cb4a7e4d682db9656c0317e"
+    },
+    {
+      "path": "docs/reviews/asset-production/batch_03/final/city_shop_fittings_08_source.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "docs/reviews/asset-production/batch_03/final/city_shop_fittings_08_source.stdout",
+      "bytes": 2393,
+      "sha256": "f820323c8ee2e05d4f12dd6b61daee0a0dbb6de8ff250bfb7f588bb4f724f80f"
+    },
+    {
+      "path": "docs/reviews/asset-production/batch_03/final/city_small_shop_shells_01.source.json",
+      "bytes": 49812,
+      "sha256": "43eed7c7a8f89a3ad49812a58e00d29178d92d59f16b17716b28c75898d42596"
+    },
+    {
+      "path": "docs/reviews/asset-production/batch_03/final/city_small_shop_shells_01_source.command.json",
+      "bytes": 764,
+      "sha256": "ddf3e85f4ae9e91ff0369b9982584c07c00dc0255207c1c5fc64542ffc64119b"
+    },
+    {
+      "path": "docs/reviews/asset-production/batch_03/final/city_small_shop_shells_01_source.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "docs/reviews/asset-production/batch_03/final/city_small_shop_shells_01_source.stdout",
+      "bytes": 3768,
+      "sha256": "165a2c5bb4d74f15254cdb709727ba6c29cd9d6f06322e5220d1f9b6ff89ad76"
+    },
+    {
+      "path": "docs/reviews/asset-production/batch_03/final/confirm_readbacks.py",
+      "bytes": 1218,
+      "sha256": "927923571c9db77ddcac1bf613450f310904246ec28f5a1b2c1cb46f9666effb"
+    },
+    {
+      "path": "docs/reviews/asset-production/batch_03/final/contracts.command.json",
+      "bytes": 631,
+      "sha256": "edbd696b5b2ff70277934bd384a2498f98befe8443eccc31a16dc2c0fd7cf65a"
+    },
+    {
+      "path": "docs/reviews/asset-production/batch_03/final/contracts.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "docs/reviews/asset-production/batch_03/final/contracts.stdout",
+      "bytes": 60479,
+      "sha256": "ee0d8aa4000c1a86bf1752f5a9953b60dab1724887e2c43ddca42d77947562fc"
+    },
+    {
+      "path": "docs/reviews/asset-production/batch_03/final/correction-compare.json",
+      "bytes": 3267,
+      "sha256": "f6705d324d1aac9b52e1f5d0c4776631753845b771ee441a04ece4b9f716c278"
+    },
+    {
+      "path": "docs/reviews/asset-production/batch_03/final/correction_compare.command.json",
+      "bytes": 540,
+      "sha256": "4bb5647a3b9dc678ed3bc538b93ce2c19ae53a7a45031b3d38f52400c65faea2"
+    },
+    {
+      "path": "docs/reviews/asset-production/batch_03/final/correction_compare.py",
+      "bytes": 2187,
+      "sha256": "6e79ed6166f2c46f8f5046d5dfcf027d6b4ee2cd1293b8ce8ef34dc6c039ad5d"
+    },
+    {
+      "path": "docs/reviews/asset-production/batch_03/final/correction_compare.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "docs/reviews/asset-production/batch_03/final/correction_compare.stdout",
+      "bytes": 4011,
+      "sha256": "936688f2fb0e6fe751f2ec7f6c1e4a15b9f8fc894519c6fcdb4ba9285cc5c981"
+    },
+    {
+      "path": "docs/reviews/asset-production/batch_03/final/door_front_inner_bevel.png",
+      "bytes": 821290,
+      "sha256": "69e3e683b7345e59d106e8c47678ab4eb0bc1e3a685889f4877828969ba8cfc1"
+    },
+    {
+      "path": "docs/reviews/asset-production/batch_03/final/door_rear_inner_bevel.png",
+      "bytes": 928612,
+      "sha256": "ff7a1a741eebb290bd9fadfe8865c62bf41ae0e8d0743c6909cf84caccf04ed0"
+    },
+    {
+      "path": "docs/reviews/asset-production/batch_03/final/editor-audit-requests.json",
+      "bytes": 2033,
+      "sha256": "047b96c666aed4f2c664d897916c0f56797791a62699fc42e0a395275b9be4c8"
+    },
+    {
+      "path": "docs/reviews/asset-production/batch_03/final/editor-context-requests.json",
+      "bytes": 312,
+      "sha256": "6f0992d0412c219f89335efb352d15ad06417ea133d0ab7fff2619ca6440affb"
+    },
+    {
+      "path": "docs/reviews/asset-production/batch_03/final/editor-log-references.json",
+      "bytes": 529,
+      "sha256": "bab46f2d0f9124b06645598f4ed472f32827e057ee52b7118e6a23b70a20e2a5"
+    },
+    {
+      "path": "docs/reviews/asset-production/batch_03/final/editor-ownership.json",
+      "bytes": 1282,
+      "sha256": "344480c8051ef55a936cb982eda3c640cd85ab411d483f4365e5e04bdccc48a1"
+    },
+    {
+      "path": "docs/reviews/asset-production/batch_03/final/editor_absence.command.json",
+      "bytes": 391,
+      "sha256": "b1e260041ce6f9d25750fe5626960632c11fa38547e03cd3f32028c36bd11c55"
+    },
+    {
+      "path": "docs/reviews/asset-production/batch_03/final/editor_absence.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "docs/reviews/asset-production/batch_03/final/editor_absence.stdout",
+      "bytes": 39869,
+      "sha256": "5029baad6e282ab7b9214cbbdfbc68dc4ecc72428a0f5a24feea57473666505f"
+    },
+    {
+      "path": "docs/reviews/asset-production/batch_03/final/editor_audit.command.json",
+      "bytes": 499,
+      "sha256": "d52f0369f1b503299f9c1ad210eab207bb2995281934864f5dfcf5e13c9ed773"
+    },
+    {
+      "path": "docs/reviews/asset-production/batch_03/final/editor_audit.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "docs/reviews/asset-production/batch_03/final/editor_audit.stdout",
+      "bytes": 54195,
+      "sha256": "64c0a58a9fdc6f9a00029b1a26c1782408a4461305c71591b01ebab070c0c102"
+    },
+    {
+      "path": "docs/reviews/asset-production/batch_03/final/editor_context.command.json",
+      "bytes": 501,
+      "sha256": "9f34991e3d9062326998414e8362c34c72f81b85e2b396ed5dd64ee5987f0ae2"
+    },
+    {
+      "path": "docs/reviews/asset-production/batch_03/final/editor_context.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "docs/reviews/asset-production/batch_03/final/editor_context.stdout",
+      "bytes": 3317,
+      "sha256": "e380f0c9e0ff9bc9dca1dcef8a18a3e50c51145faa8799b6016eaf0ee3f79bcf"
+    },
+    {
+      "path": "docs/reviews/asset-production/batch_03/final/editor_host_ownership.command.json",
+      "bytes": 432,
+      "sha256": "c30d6627596f3f161d5d9d2535966b9af6c3a4bede5d8d7452a423fa5dbb317f"
+    },
+    {
+      "path": "docs/reviews/asset-production/batch_03/final/editor_host_ownership.stderr",
+      "bytes": 506,
+      "sha256": "23ebfe4b885d6e1bf8256a9d8ba131fe3206d90d3efaa01be7a2f2a19ec9ee44"
+    },
+    {
+      "path": "docs/reviews/asset-production/batch_03/final/editor_host_ownership.stdout",
+      "bytes": 1310,
+      "sha256": "0cce08bc4962beb15233db40d73f68dc92f9bb8ffe9e34685fffd971e61a3b46"
+    },
+    {
+      "path": "docs/reviews/asset-production/batch_03/final/editor_live_logs.command.json",
+      "bytes": 435,
+      "sha256": "4726ff47589fab21c9e83350f3fc07a1d7ed7435a5eb0b907b4886736ebbd6ea"
+    },
+    {
+      "path": "docs/reviews/asset-production/batch_03/final/editor_live_logs.stderr",
+      "bytes": 687,
+      "sha256": "f2145a2442ae659771235cf86d7a04bef5880a2a040e2614c9594272eb18308d"
+    },
+    {
+      "path": "docs/reviews/asset-production/batch_03/final/editor_live_logs.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "docs/reviews/asset-production/batch_03/final/editor_live_logs_adapted.command.json",
+      "bytes": 435,
+      "sha256": "5c969b597d105d188d9cc94229d984f059519818eeaa36f43295efdc0f6b3070"
+    },
+    {
+      "path": "docs/reviews/asset-production/batch_03/final/editor_live_logs_adapted.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "docs/reviews/asset-production/batch_03/final/editor_live_logs_adapted.stdout",
+      "bytes": 67218,
+      "sha256": "f1bb8fb8b55309f917cf396342f15611d32928a50a46cbfc797407354df9f9e8"
+    },
+    {
+      "path": "docs/reviews/asset-production/batch_03/final/editor_log_read.py",
+      "bytes": 635,
+      "sha256": "9a89ddf64760a64fb3f4e6d00779be71dae36ca05550604576c75eb487069f33"
+    },
+    {
+      "path": "docs/reviews/asset-production/batch_03/final/editor_log_read_before_adaptation.py",
+      "bytes": 509,
+      "sha256": "ac334151d5bf2c3ee870176dfc13bea753918c165cb37e23b88a407f69cdc324"
+    },
+    {
+      "path": "docs/reviews/asset-production/batch_03/final/editor_ownership.command.json",
+      "bytes": 432,
+      "sha256": "4c2f4af5caf7bc6dab8ee3e89c181f1ffae838f597e410969b376ed4f7290f63"
+    },
+    {
+      "path": "docs/reviews/asset-production/batch_03/final/editor_ownership.stderr",
+      "bytes": 1299,
+      "sha256": "33860c5f4fc508288f0b16addde28add518922091b22b0e787ee80505a18275a"
+    },
+    {
+      "path": "docs/reviews/asset-production/batch_03/final/editor_ownership.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "docs/reviews/asset-production/batch_03/final/editor_stopped_runtime_ownership.command.json",
+      "bytes": 433,
+      "sha256": "d52619c776081ef5f8d04cbd952516510db9b2f23a066cc873797bd1cb8ec971"
+    },
+    {
+      "path": "docs/reviews/asset-production/batch_03/final/editor_stopped_runtime_ownership.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "docs/reviews/asset-production/batch_03/final/editor_stopped_runtime_ownership.stdout",
+      "bytes": 1310,
+      "sha256": "0cce08bc4962beb15233db40d73f68dc92f9bb8ffe9e34685fffd971e61a3b46"
+    },
+    {
+      "path": "docs/reviews/asset-production/batch_03/final/engine-evidence-audit.json",
+      "bytes": 259070,
+      "sha256": "18f72b6b780db74ae71dfb42d10dda265c509a40b856cbdcde9186c89fa32e46"
+    },
+    {
+      "path": "docs/reviews/asset-production/batch_03/final/engine_evidence.command.json",
+      "bytes": 440,
+      "sha256": "c61596942579362f7dd0ef58d568550293c7c9e821182861b3cafafabf87ab5f"
+    },
+    {
+      "path": "docs/reviews/asset-production/batch_03/final/engine_evidence.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "docs/reviews/asset-production/batch_03/final/engine_evidence.stdout",
+      "bytes": 168,
+      "sha256": "74fbd91362b6d27df9fb49807b0d1d557d05d2f957393f752cf9a703d11effd6"
+    },
+    {
+      "path": "docs/reviews/asset-production/batch_03/final/engine_evidence_audit.py",
+      "bytes": 5571,
+      "sha256": "b48e3510635cf5991a4bba4fd7f58cd8285d26d9a17c6f79687edeea6185cb42"
+    },
+    {
+      "path": "docs/reviews/asset-production/batch_03/final/engine_implementation.command.json",
+      "bytes": 731,
+      "sha256": "86b74445987d2e978ef01c75e72964895fa1f425963cd9fe3b0f372acebbbd2d"
+    },
+    {
+      "path": "docs/reviews/asset-production/batch_03/final/engine_implementation.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "docs/reviews/asset-production/batch_03/final/engine_implementation.stdout",
+      "bytes": 25416,
+      "sha256": "c7b45abe6b3a813aeeed497aa643842d0d64c6383ca68b91095dfaa40af7c439"
+    },
+    {
+      "path": "docs/reviews/asset-production/batch_03/final/final-preservation.json",
+      "bytes": 415796,
+      "sha256": "aef9f7510afc2811aa9f38eee619627e20e55a559bccffc8289430210c8972e6"
+    },
+    {
+      "path": "docs/reviews/asset-production/batch_03/final/final_editor_context.command.json",
+      "bytes": 500,
+      "sha256": "b4f5506c25ca7724e9cc9e0e48da64538c8f187ea25128887b0092d85f6a0eba"
+    },
+    {
+      "path": "docs/reviews/asset-production/batch_03/final/final_editor_context.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "docs/reviews/asset-production/batch_03/final/final_editor_context.stdout",
+      "bytes": 3317,
+      "sha256": "e380f0c9e0ff9bc9dca1dcef8a18a3e50c51145faa8799b6016eaf0ee3f79bcf"
+    },
+    {
+      "path": "docs/reviews/asset-production/batch_03/final/final_preservation.command.json",
+      "bytes": 436,
+      "sha256": "af63a2d8bd6cbf11cf65b8f0c449aef8e83118e95ccd6b690eb60a0cf3006210"
+    },
+    {
+      "path": "docs/reviews/asset-production/batch_03/final/final_preservation.py",
+      "bytes": 2051,
+      "sha256": "58363af20f7fc31c0726dec2ad68bbb5768a48c6e121bbcd2c9b19b330ef99bc"
+    },
+    {
+      "path": "docs/reviews/asset-production/batch_03/final/final_preservation.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "docs/reviews/asset-production/batch_03/final/final_preservation.stdout",
+      "bytes": 929,
+      "sha256": "d1ccfa95c7ba4c0f3b74a6dc0024363d8dbafa5a68d251c18eb6a30cd21b4c51"
+    },
+    {
+      "path": "docs/reviews/asset-production/batch_03/final/freeze.command.json",
+      "bytes": 429,
+      "sha256": "a8e7f088be3a7dfbdc4453468e1fcfc33273446a6cffe75fefd50fa53e9824e7"
+    },
+    {
+      "path": "docs/reviews/asset-production/batch_03/final/freeze.stderr",
+      "bytes": 437,
+      "sha256": "87e0b8522f3c309d4b130ebd234ed5a54ac52f3007d29cdc8987a3945626f12c"
+    },
+    {
+      "path": "docs/reviews/asset-production/batch_03/final/freeze.stdout",
+      "bytes": 1909,
+      "sha256": "02ca565fa9d620f5b6b2c885e6492967d5b186fcce3e8944a691d68aef067b93"
+    },
+    {
+      "path": "docs/reviews/asset-production/batch_03/final/freeze_adapted.command.json",
+      "bytes": 429,
+      "sha256": "aff253b2c0a5ebf3f3aedd5a0873ae531a9cbf9fcbad4e85d1cdf8cea5ec83a1"
+    },
+    {
+      "path": "docs/reviews/asset-production/batch_03/final/freeze_adapted.stderr",
+      "bytes": 311,
+      "sha256": "8d092cf9ff169aee570a507881b2f919ed655dc808b61e3b6ee8518897b3fd46"
+    },
+    {
+      "path": "docs/reviews/asset-production/batch_03/final/freeze_adapted.stdout",
+      "bytes": 1909,
+      "sha256": "02ca565fa9d620f5b6b2c885e6492967d5b186fcce3e8944a691d68aef067b93"
+    },
+    {
+      "path": "docs/reviews/asset-production/batch_03/final/fresh_mounted_calibrated_top.png",
+      "bytes": 1578653,
+      "sha256": "6adee9c4f891f70ac373f6216d20c48cb2cc965ce8df06d9e03346703369aed0"
+    },
+    {
+      "path": "docs/reviews/asset-production/batch_03/final/fresh_mounted_overview.png",
+      "bytes": 1636879,
+      "sha256": "cd1b94aae94030e32b1ea8fb5cfd5b629884e82f03543a9dd167e6a54e0cbcfa"
+    },
+    {
+      "path": "docs/reviews/asset-production/batch_03/final/glb-audit.json",
+      "bytes": 87350,
+      "sha256": "f972e7f73114e6bbbda343da985d4a991e66009bca7af30d71c91b095e323dc0"
+    },
+    {
+      "path": "docs/reviews/asset-production/batch_03/final/glb.command.json",
+      "bytes": 428,
+      "sha256": "74c9b81a540942e220f5e916c092c7d8bb8afcc1899b7a48bed402d413a00989"
+    },
+    {
+      "path": "docs/reviews/asset-production/batch_03/final/glb.stderr",
+      "bytes": 303,
+      "sha256": "eeb0e19c029b63460af6c9a106190557c09d7bb3e7d735b2e25cc446971f171b"
+    },
+    {
+      "path": "docs/reviews/asset-production/batch_03/final/glb.stdout",
+      "bytes": 4640,
+      "sha256": "ed81a1173deee63f281edc70570c3d3e96f4df08efa34b6bc4f916bdcd694c7e"
+    },
+    {
+      "path": "docs/reviews/asset-production/batch_03/final/glb_audit.py",
+      "bytes": 7976,
+      "sha256": "e7e858b7a54f10bcb5c89611d4e52baa6ee94620f3159d6f25dbbe8ac5687180"
+    },
+    {
+      "path": "docs/reviews/asset-production/batch_03/final/glb_audit_before_adaptation.py",
+      "bytes": 7976,
+      "sha256": "fc213b716894b05f98db3b05147831951f76f104355b2409d100699b71f2946d"
+    },
+    {
+      "path": "docs/reviews/asset-production/batch_03/final/glb_corrected_counts.command.json",
+      "bytes": 428,
+      "sha256": "f51ef8c7909b1e386cfd484c375f2e1a562609d43c156a70b9321f4546e029d6"
+    },
+    {
+      "path": "docs/reviews/asset-production/batch_03/final/glb_corrected_counts.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "docs/reviews/asset-production/batch_03/final/glb_corrected_counts.stdout",
+      "bytes": 4590,
+      "sha256": "f0b6f3a30791c257f3c40a977813cef15e42051fbc060753455edd75e96b35c6"
+    },
+    {
+      "path": "docs/reviews/asset-production/batch_03/final/imported_geometry.command.json",
+      "bytes": 895,
+      "sha256": "de1cabfe7c333a916a5fb7080e89be00a854682350301b04f3ae46fda0956600"
+    },
+    {
+      "path": "docs/reviews/asset-production/batch_03/final/imported_geometry.stderr",
+      "bytes": 1633,
+      "sha256": "5346915111c005abd9a6fdcbef34b35b4f766a8ae29a20b3d90c59da8d52cb77"
+    },
+    {
+      "path": "docs/reviews/asset-production/batch_03/final/imported_geometry.stdout",
+      "bytes": 28330,
+      "sha256": "4a13c9a1a65db1a2bdd402ae90f229a03e000322f6f8303758af77ab68a0d916"
+    },
+    {
+      "path": "docs/reviews/asset-production/batch_03/final/index_review.command.json",
+      "bytes": 432,
+      "sha256": "baced511279e5398d2d431d74303b0dfa379032b2a8c3b476b9c0fe570035e95"
+    },
+    {
+      "path": "docs/reviews/asset-production/batch_03/final/index_review.py",
+      "bytes": 1414,
+      "sha256": "ca49b19cc5c2e9922bdca839b8d0d65b8804967eb9d9eeba73198892c8a088be"
+    },
+    {
+      "path": "docs/reviews/asset-production/batch_03/final/index_review.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "docs/reviews/asset-production/batch_03/final/index_review.stdout",
+      "bytes": 430,
+      "sha256": "7f83aac6b850482f11cb9ed26b9fecb1c0398bdd27ba9f44570ca075ad9584de"
+    },
+    {
+      "path": "docs/reviews/asset-production/batch_03/final/interface-audit.json",
+      "bytes": 21403,
+      "sha256": "11ca8322e7c0716db2a76504993970e5d13133e04b4304efc62da9044607e985"
+    },
+    {
+      "path": "docs/reviews/asset-production/batch_03/final/interface_audit.py",
+      "bytes": 9342,
+      "sha256": "1e81181848e85e04a264ad7f0b50e5268f696b9631355586f8275a3cf378dac5"
+    },
+    {
+      "path": "docs/reviews/asset-production/batch_03/final/interfaces.command.json",
+      "bytes": 538,
+      "sha256": "ee649c2a86dee795c0b323a982603adab016383d1277c39c5de2c6ad7a02192e"
+    },
+    {
+      "path": "docs/reviews/asset-production/batch_03/final/interfaces.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "docs/reviews/asset-production/batch_03/final/interfaces.stdout",
+      "bytes": 9192,
+      "sha256": "d7d9eecc6ec29db43d5d68d4549f50561e5803ba8e012abc3251c496dba4b873"
+    },
+    {
+      "path": "docs/reviews/asset-production/batch_03/final/isolate.command.json",
+      "bytes": 432,
+      "sha256": "adcab176c56c27a595c5d7a2f8225b956b67d64d5ea4636733f10e50a74bc43b"
+    },
+    {
+      "path": "docs/reviews/asset-production/batch_03/final/isolate.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "docs/reviews/asset-production/batch_03/final/isolate.stdout",
+      "bytes": 76,
+      "sha256": "aee3cec3d82e72450920e300da7e96610aa58e5dac871df2418ae22c99e65503"
+    },
+    {
+      "path": "docs/reviews/asset-production/batch_03/final/isolated-input-index.json",
+      "bytes": 226885,
+      "sha256": "a5df7eafc32b4e9d6ddcd3e90b5ec3e82e426598562b4068a23d97badaa916ca"
+    },
+    {
+      "path": "docs/reviews/asset-production/batch_03/final/owned-editor-appended.log",
+      "bytes": 4490,
+      "sha256": "72ac4453aad0bcd32f00bbdef13d955a2195a17f67061c29b17047a3b81d1c89"
+    },
+    {
+      "path": "docs/reviews/asset-production/batch_03/final/prepare_isolated.py",
+      "bytes": 1512,
+      "sha256": "69e8c8fec8a8e6c6e81ae07a1511cfca8eb4dc6048e2c7801a44f020737db11d"
+    },
+    {
+      "path": "docs/reviews/asset-production/batch_03/final/prepare_roundtrip.command.json",
+      "bytes": 436,
+      "sha256": "3eb80d5feb68bc2ef564df69d8642333684aed2bc743657cb0b3a37ed8730408"
+    },
+    {
+      "path": "docs/reviews/asset-production/batch_03/final/prepare_roundtrip.py",
+      "bytes": 1197,
+      "sha256": "08f5b5b92d26780331d7105f2281a212b4248f82a01a89537b88d2b8ab60266c"
+    },
+    {
+      "path": "docs/reviews/asset-production/batch_03/final/prepare_roundtrip.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "docs/reviews/asset-production/batch_03/final/prepare_roundtrip.stdout",
+      "bytes": 43,
+      "sha256": "1415fac2e09d92e2269e2313985d6452c864a6284d90a22066b40f43ab269ef6"
+    },
+    {
+      "path": "docs/reviews/asset-production/batch_03/final/readback-confirmation.json",
+      "bytes": 195,
+      "sha256": "b98431cea775f0da57fbf9b320eebba64232c3c70133bfdada75b96b4d34d7ce"
+    },
+    {
+      "path": "docs/reviews/asset-production/batch_03/final/readback_confirmation.command.json",
+      "bytes": 436,
+      "sha256": "44c56b37096686f682804b5ccda2205fe9e4840a57e13af4651935609f026bba"
+    },
+    {
+      "path": "docs/reviews/asset-production/batch_03/final/readback_confirmation.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "docs/reviews/asset-production/batch_03/final/readback_confirmation.stdout",
+      "bytes": 185,
+      "sha256": "67d34ce187ffeb99b9c0a190c5838ae3a99828f21603b6c08f4483d1698e7804"
+    },
+    {
+      "path": "docs/reviews/asset-production/batch_03/final/reexports/batch_03_upper_wall.glb",
+      "bytes": 6352,
+      "sha256": "747408621f3912a09a6e4f117745760778394f30e21cf01cb8dfd36be1f5717c"
+    },
+    {
+      "path": "docs/reviews/asset-production/batch_03/final/reexports/city_shop_fittings_02.glb",
+      "bytes": 45616,
+      "sha256": "4fd2106f09ef4a35edafbcf3a3a68ea94983e721fd84d852a406e2d26de6552f"
+    },
+    {
+      "path": "docs/reviews/asset-production/batch_03/final/reexports/city_shop_fittings_03_double.glb",
+      "bytes": 41872,
+      "sha256": "6cde06a6da83baa5731317349bbd1835e5ebe6f0cee9f1f1c14c3cf1478ee5d9"
+    },
+    {
+      "path": "docs/reviews/asset-production/batch_03/final/reexports/city_shop_fittings_03_single.glb",
+      "bytes": 41872,
+      "sha256": "29af0c8b3652b7b400598c75f6f99329cb21e510452547e2e28f3c1115d215b9"
+    },
+    {
+      "path": "docs/reviews/asset-production/batch_03/final/reexports/city_shop_fittings_05.glb",
+      "bytes": 29560,
+      "sha256": "a641d067621301435f5a725803290f74dc7c235bac8bdc5d24c1d2170776faed"
+    },
+    {
+      "path": "docs/reviews/asset-production/batch_03/final/reexports/city_shop_fittings_06_double.glb",
+      "bytes": 64608,
+      "sha256": "b4138a6a2b7ebd96f934448d4617bc6b0d127d48bf814eab8016695e50153cbf"
+    },
+    {
+      "path": "docs/reviews/asset-production/batch_03/final/reexports/city_shop_fittings_06_single.glb",
+      "bytes": 38928,
+      "sha256": "37e9ce1667105cc66120edf4d114b3a4228972000ac89c14ed1a2608e9b309c6"
+    },
+    {
+      "path": "docs/reviews/asset-production/batch_03/final/reexports/city_shop_fittings_07.glb",
+      "bytes": 35940,
+      "sha256": "726af54525323b3f13253052b6fe61d80bafd1601a2ea8845f7238b53b88551b"
+    },
+    {
+      "path": "docs/reviews/asset-production/batch_03/final/reexports/city_shop_fittings_08.glb",
+      "bytes": 98848,
+      "sha256": "d826c257c21de7754f0261e6376f942abbc6ddc249fdc5f5d5c7e3a54049a2b6"
+    },
+    {
+      "path": "docs/reviews/asset-production/batch_03/final/reexports/city_small_shop_shells_01.glb",
+      "bytes": 79820,
+      "sha256": "76c76364df5d437eb27bfb1a08b76932e46fe89238533bffcb654d6ac66e952a"
+    },
+    {
+      "path": "docs/reviews/asset-production/batch_03/final/render-readback.json",
+      "bytes": 2944,
+      "sha256": "28cb60d691acaa994b973980dab553fede33a47e2aaa758e9cb9750e6e73097d"
+    },
+    {
+      "path": "docs/reviews/asset-production/batch_03/final/render_readback.py",
+      "bytes": 3091,
+      "sha256": "68e6413580feb31188d13635a2829d35e97ed69b4eddcb910cca8639e0391dce"
+    },
+    {
+      "path": "docs/reviews/asset-production/batch_03/final/renders.command.json",
+      "bytes": 537,
+      "sha256": "b411927b9a8fdde10742aa5e20eacb4baf6c7b9710b7e654b516711c74b67a61"
+    },
+    {
+      "path": "docs/reviews/asset-production/batch_03/final/renders.stderr",
+      "bytes": 281,
+      "sha256": "4b517610a8d3263e10440e32afc1b60c274403358398201631d3d6f93cab2f02"
+    },
+    {
+      "path": "docs/reviews/asset-production/batch_03/final/renders.stdout",
+      "bytes": 1186,
+      "sha256": "56aec2b5c6af3874e147962c36fb1cd0aa313eb31ff0a9cf028c665ed6beec19"
+    },
+    {
+      "path": "docs/reviews/asset-production/batch_03/final/report.md",
+      "bytes": 20388,
+      "sha256": "5595d350fac41199b807cc946e60cf177eeaa090383dcfeaae5aefa9d41d9c11"
+    },
+    {
+      "path": "docs/reviews/asset-production/batch_03/final/resource_geometry_readback.gd",
+      "bytes": 2582,
+      "sha256": "7c4dedba0236fb87cfbaf1ec7ae346469ae67448d55986857c426fb3a108fff4"
+    },
+    {
+      "path": "docs/reviews/asset-production/batch_03/final/resource_readback.command.json",
+      "bytes": 882,
+      "sha256": "a2b4c8c0deec726419a7c850fac6c1254824be365eacb342b1f9574216e42e40"
+    },
+    {
+      "path": "docs/reviews/asset-production/batch_03/final/resource_readback.gd",
+      "bytes": 2427,
+      "sha256": "f0815a68e0a56aa4fe0c3326445ca4f3b173c7f0c28c0b898b6a793152181c18"
+    },
+    {
+      "path": "docs/reviews/asset-production/batch_03/final/resource_readback.stderr",
+      "bytes": 1633,
+      "sha256": "1bdb0d938496ad5ea1c638cf8bfb9f8ecd755e9c648513785332488d3f931826"
+    },
+    {
+      "path": "docs/reviews/asset-production/batch_03/final/resource_readback.stdout",
+      "bytes": 26914,
+      "sha256": "9d4fb472f6332ea1cbc69ef49b5559cab1201383de5612c5a5ad1d9eb63625fc"
+    },
+    {
+      "path": "docs/reviews/asset-production/batch_03/final/retained_diagnostics.command.json",
+      "bytes": 1368,
+      "sha256": "a1817708ccc265e8f79c3f8d7667ea1219d900973af6b5f56c9be0f9c4d25742"
+    },
+    {
+      "path": "docs/reviews/asset-production/batch_03/final/retained_diagnostics.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "docs/reviews/asset-production/batch_03/final/retained_diagnostics.stdout",
+      "bytes": 5600,
+      "sha256": "71bbec59d236a9e5397e9e3ff3b688997d33be480e72b6e58382cb5136d7a31c"
+    },
+    {
+      "path": "docs/reviews/asset-production/batch_03/final/review-file-index.json",
+      "bytes": 37948,
+      "sha256": "aa642c9597ef61f07be1c50d2535a81fb7088b263b626e9cca03961ef07a38e6"
+    },
+    {
+      "path": "docs/reviews/asset-production/batch_03/final/review-index-readback.json",
+      "bytes": 430,
+      "sha256": "7f83aac6b850482f11cb9ed26b9fecb1c0398bdd27ba9f44570ca075ad9584de"
+    },
+    {
+      "path": "docs/reviews/asset-production/batch_03/final/review-roundtrip-before.json",
+      "bytes": 2030,
+      "sha256": "5de340759ea330ea3ba15ce212fb72587cf5cd6657df5dc2155d5be75de27a77"
+    },
+    {
+      "path": "docs/reviews/asset-production/batch_03/final/review-roundtrip-requests.json",
+      "bytes": 8553,
+      "sha256": "409326ea408c7528382245818aef42802fc9a76a10cbb7f7c040c7b861bedb49"
+    },
+    {
+      "path": "docs/reviews/asset-production/batch_03/final/review_delta.command.json",
+      "bytes": 692,
+      "sha256": "14bf3ba4c4cab9a9824a8e0e4299960c857f6fbf0b9186f9f35d478da00d40eb"
+    },
+    {
+      "path": "docs/reviews/asset-production/batch_03/final/review_delta.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "docs/reviews/asset-production/batch_03/final/review_delta.stdout",
+      "bytes": 61361,
+      "sha256": "f7182f14531a4b235687bc164150df25783c0fb72beca5b15e10ba50920be0fb"
+    },
+    {
+      "path": "docs/reviews/asset-production/batch_03/final/review_process_a.command.json",
+      "bytes": 833,
+      "sha256": "b69c7f88cfd8fa82c27c0408da2e30537cc2d8d7ef137db1931edf1aad66294e"
+    },
+    {
+      "path": "docs/reviews/asset-production/batch_03/final/review_process_a.stderr",
+      "bytes": 13334,
+      "sha256": "d2b81d8b5c892b9ccf566327fdd9f7a3afb9a1a81411033a53dded4ff4c61674"
+    },
+    {
+      "path": "docs/reviews/asset-production/batch_03/final/review_process_a.stdout",
+      "bytes": 815,
+      "sha256": "8be9c663f0c8d60ecd5b3a44e09a178929f278d20d6ded75b930a774e62d2a11"
+    },
+    {
+      "path": "docs/reviews/asset-production/batch_03/final/review_process_b.command.json",
+      "bytes": 833,
+      "sha256": "b902fef2aee371a680b6b2cadf51e9a5e9bc3871a8f2bd73e81b64a918f82ebf"
+    },
+    {
+      "path": "docs/reviews/asset-production/batch_03/final/review_process_b.stderr",
+      "bytes": 13334,
+      "sha256": "f426e68275cb8284145f75774ca6ee4d8a6b30d7acbe08780f18b7f71c5f7411"
+    },
+    {
+      "path": "docs/reviews/asset-production/batch_03/final/review_process_b.stdout",
+      "bytes": 816,
+      "sha256": "fdc8339d48068482eae194d67a6ca056aa49d96efd3726f276dc781577c264ef"
+    },
+    {
+      "path": "docs/reviews/asset-production/batch_03/final/roundtrip.command.json",
+      "bytes": 502,
+      "sha256": "ff035f4cb28624e840b4ebd1407d87983b8e29d5d24bed22f0c4a8fdc54a37f5"
+    },
+    {
+      "path": "docs/reviews/asset-production/batch_03/final/roundtrip.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "docs/reviews/asset-production/batch_03/final/roundtrip.stdout",
+      "bytes": 15756,
+      "sha256": "bf3ea458a50cf31d821301ab7937dd5123d3599f0d02d47b510f90342aacf3e3"
+    },
+    {
+      "path": "docs/reviews/asset-production/batch_03/final/run_check.py",
+      "bytes": 1245,
+      "sha256": "08c1eaa4e98dfee0d006b3579d779f9aba636cb42675fd0aae7e1510c1f902da"
+    },
+    {
+      "path": "docs/reviews/asset-production/batch_03/final/run_processes.py",
+      "bytes": 819,
+      "sha256": "b7d4014819f086d84670cd5264df228613386a1c949c6bb7210e60eb24a79edb"
+    },
+    {
+      "path": "docs/reviews/asset-production/batch_03/final/run_sources.py",
+      "bytes": 666,
+      "sha256": "8582439bd98e88816a1eefe386f1e74559e291d722f3781a6772513471234543"
+    },
+    {
+      "path": "docs/reviews/asset-production/batch_03/final/scratch-audit.json",
+      "bytes": 70362,
+      "sha256": "2e7654bde31590adc6e1c23b82c3594bead9c6d2eb5700fc3c177dde6fcfd973"
+    },
+    {
+      "path": "docs/reviews/asset-production/batch_03/final/scratch.command.json",
+      "bytes": 535,
+      "sha256": "b11db8892890263a7fa4c7dd5f39100ff629a639042683147fd5156d5bbd76b1"
+    },
+    {
+      "path": "docs/reviews/asset-production/batch_03/final/scratch.stderr",
+      "bytes": 451,
+      "sha256": "e8f4b5cadf3420563dcc34cbbb5d17697b55f2a79a98b16210979bba31f9a6f3"
+    },
+    {
+      "path": "docs/reviews/asset-production/batch_03/final/scratch.stdout",
+      "bytes": 4225,
+      "sha256": "5d919aeed1ca52ef0c2f48108fb86deddb6da002d2a27797dc6f81b435e2e82d"
+    },
+    {
+      "path": "docs/reviews/asset-production/batch_03/final/scratch_audit.py",
+      "bytes": 3665,
+      "sha256": "1fef3175dd252b42a2ab8d7d3eb77362ea09fb791ca170395ec83a530fb64f26"
+    },
+    {
+      "path": "docs/reviews/asset-production/batch_03/final/scratch_audit_before_adaptation.py",
+      "bytes": 2995,
+      "sha256": "f77e50741dfca443bea0aea301be43c5671087bc1b532167febebab92ce3bc85"
+    },
+    {
+      "path": "docs/reviews/asset-production/batch_03/final/scratch_historical_and_current.command.json",
+      "bytes": 536,
+      "sha256": "07a32cc9cc960b595e7a0b88d614b3ec06ceb93777d0c0460c99a9c172c2c4d8"
+    },
+    {
+      "path": "docs/reviews/asset-production/batch_03/final/scratch_historical_and_current.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "docs/reviews/asset-production/batch_03/final/scratch_historical_and_current.stdout",
+      "bytes": 2391,
+      "sha256": "624f20bd9f093912134c37cfcad00ce4d6bcf52e64512dfb7b15892fed80101d"
+    },
+    {
+      "path": "docs/reviews/asset-production/batch_03/final/source_audit.py",
+      "bytes": 6738,
+      "sha256": "dcb90220445fc049011b1dbc2d1dfd2e50f7caec902902dc471b25364fa7725d"
+    },
+    {
+      "path": "docs/reviews/asset-production/batch_03/final/source_batch.command.json",
+      "bytes": 427,
+      "sha256": "84145d2bce074cddcabf3f3335901e3268d63bc1ce5e98577be4782e173e376d"
+    },
+    {
+      "path": "docs/reviews/asset-production/batch_03/final/source_batch.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "docs/reviews/asset-production/batch_03/final/source_batch.stdout",
+      "bytes": 641,
+      "sha256": "dc86325825af992a674b1e940945bb94ea1f410572cb6bc0b09b24f0a6043a6c"
+    },
+    {
+      "path": "docs/reviews/asset-production/batch_03/final/two_processes.command.json",
+      "bytes": 431,
+      "sha256": "8d5fbd6dc7cea80f253bfa8887f081154c2ec4a71a65168f399f2eb50da78902"
+    },
+    {
+      "path": "docs/reviews/asset-production/batch_03/final/two_processes.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "docs/reviews/asset-production/batch_03/final/two_processes.stdout",
+      "bytes": 165,
+      "sha256": "90b3eeab7238ed417de9af9206a4a6bbb57d7d254f4ebffa95ecb44a8383cd29"
+    },
+    {
+      "path": "docs/reviews/asset-production/batch_03/final/verify_editor.py",
+      "bytes": 1360,
+      "sha256": "55c0b19463ce08c47b74e7d2db491de04219ab628de86d3bb247f1f7b332cbef"
+    },
+    {
+      "path": "docs/reviews/asset-production/batch_03/final/verify_editor_before_port_adaptation.py",
+      "bytes": 1295,
+      "sha256": "63c6a484c54281e540239392541af773a446fc8e5fac470925d99742645141aa"
+    },
+    {
+      "path": "docs/reviews/asset-production/batch_03/final/verify_final.py",
+      "bytes": 5104,
+      "sha256": "fa35d130a076c3fcfc46b39ab07ccf041155ebc3cffe0fae16e2c997e18aab61"
+    },
+    {
+      "path": "docs/reviews/asset-production/batch_03/final/verify_final_before_adaptation.py",
+      "bytes": 4647,
+      "sha256": "a106261aaafda3e2f8e16e6071ba16aa3797f63ed73ed0b2f5aa87cae64543c7"
+    },
+    {
+      "path": "docs/reviews/asset-production/batch_03/final/wall-fit.json",
+      "bytes": 1394,
+      "sha256": "92c455c2d997217e105bfa0effc06eab6c19842a2f7a6510f21ac90686f12f77"
+    },
+    {
+      "path": "docs/reviews/asset-production/batch_03/final/wall_fit.command.json",
+      "bytes": 531,
+      "sha256": "b0a6e4ddf89fd1d97129ad5c0be9b39ad82c8f966b78cb92ca7197ccd3d384ab"
+    },
+    {
+      "path": "docs/reviews/asset-production/batch_03/final/wall_fit.py",
+      "bytes": 2577,
+      "sha256": "5d608f21deaa6e158135c2119960a486740df7afb2acb3e854d84f314d93fa9e"
+    },
+    {
+      "path": "docs/reviews/asset-production/batch_03/final/wall_fit.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "docs/reviews/asset-production/batch_03/final/wall_fit.stdout",
+      "bytes": 2186,
+      "sha256": "b572fd6ca9b5d6c824c6a766e81cd3e9b50627a9c6b4844f1ff98e9f31751fb2"
+    }
+  ],
+  "self_exclusions": [
+    "docs/assets/production/batch_03-retention-evidence/artifact-index.json"
+  ]
+}
