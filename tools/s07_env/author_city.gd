@@ -1,7 +1,7 @@
 extends SceneTree
 ## Procedural authoring tool that saves fixed-density S07 environment measurement scenes.
 
-const ALLOWED_BLOCK_COUNTS: Array[int] = [6, 24, 96, 384]
+const ALLOWED_BLOCK_COUNTS: Array[int] = [6, 24, 96, 192, 288, 384]
 const BLOCK_SIZE_M: float = 48.0
 const BUILDING_OFFSET_M: float = 16.25
 const CAMERA_HEIGHT_M: float = 47.0
@@ -17,7 +17,7 @@ const BUILDING_SCENES: Array[String] = [
 	"res://tests/fixtures/s02/tall_prefab.tscn",
 	"res://tests/fixtures/s02/low_prefab.tscn",
 ]
-const GRID_COLUMNS: Dictionary = { 6: 3, 24: 6, 96: 12, 384: 24 }
+const GRID_COLUMNS: Dictionary = { 6: 3, 24: 6, 96: 12, 192: 16, 288: 18, 384: 24 }
 
 
 ## Parses one supported block count, authors its scene, and exits nonzero on failure.

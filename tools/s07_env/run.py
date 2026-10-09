@@ -24,7 +24,7 @@ ROOT = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(ROOT / "tools"))
 from script_checks import DIAGNOSTIC, PIN, environment  # noqa: E402
 
-VARIANTS = [6, 24, 96, 384]
+VARIANTS = [6, 24, 96, 192, 288, 384]
 FIELDS = [
     "elapsed_s",
     "frame_interval_ms",
