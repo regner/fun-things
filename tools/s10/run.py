@@ -224,6 +224,16 @@ def main():
                     "seed": seed,
                     "process": process_result,
                     "receipt_available": receipt is not None,
+                    "negative_reaction_guard_failures": (
+                        receipt.get("negative_reaction_guard_failures", [])
+                        if receipt
+                        else []
+                    ),
+                    "negative_graph_guard_failures": (
+                        receipt.get("negative_graph_guard_failures", [])
+                        if receipt
+                        else []
+                    ),
                 }
             )
             if receipt:
