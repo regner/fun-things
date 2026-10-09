@@ -277,9 +277,9 @@ to exercise that production API. Production code never depends on spike paths.
 | S03-R foot response | Do not promote authority-only fixture networking or old tank commands. Implement the required shared-rule prediction in production using post-S02 commands. | Keep adverse proxy, pose-fence and drawn-response regressions; label historical confounded numbers. |
 | S03-S Steam | Promote only backend-neutral operation/transport boundaries from the reviewed abstraction. Do not ship Steam code, addon initialization or Steam acceptance in M1. | Keep source research as design evidence; no M1 runtime test. |
 | S04 car | Port accepted drive-rule math and CharacterBody adapter after owner drive-scene tuning. Rewrite prediction and network binding. Build full VehicleInteraction; the seated-resync fixture codec is not that system. | Keep body/passive/pose-fence tests and the standalone feel scene. Add production seat matrix tests. |
-| S05 chains | Port ShotId retirement, reserved bounded jobs, ordering and movement/lifecycle separation. Replace sentinel occupant and fixed rows with production PlayerLifecycle/VehicleInteraction/entities. Apply the uncapped-effect decision. | Keep three-car, twelve-car, pressure, duplicate, late-hydration and drawn-effect tests. |
+| S05 chains | Port ShotId retirement, reserved bounded jobs, ordering and movement/lifecycle separation. Replace sentinel occupant and fixed rows with production PlayerLifecycle/VehicleInteraction/entities. Replace the fixture's finite 12 saved slots with a lifetime-owned production pool that instances saved effect scenes without dropping events. | Keep three-car, twelve-car, pressure, duplicate, late-hydration and accepted 12-drawn/zero-drop tests. |
 | S06 topology | Port graph/curve/map representation, stable IDs, bounds, stale-bake rejection and editor bake workflow into CityData. Production sectors are newly authored M1 content. | Keep crossing/turn/seam/map/stale-content fixture and rerun after final body dimensions. |
-| S07 environment | Promote no gameplay code. Adopt measured block-scale guidance for sector granularity and art planning only. | Keep generated city variants and capped runner as performance diagnostics. It is not a release gate. |
+| S07 environment | Promote no gameplay code. Use 96 blocks as the last passing shared-grey-block desktop observation and 384 as the first crashing row, not as a product ceiling. Keep the six-block M1 district. | Keep generated city variants and capped runner as performance diagnostics. It is guidance, not a release gate. |
 | S08 export/ENet | Port the ENet bandwidth workaround into ENetTransport and reusable export-runner safety patterns. Do not promote fixture main scenes. | Keep Windows release/debug original-main matrix; add Linux CI smoke and exported production-shell checks. |
 | S09 traffic (planned) | After acceptance, port the selected lane follower, gap/intersection and stuck state as TrafficController calling production VehicleMotion. Avoid AI-only physics. | Keep seeded 10-minute 24/32-car loops, obstacle/wreck and budget regressions. |
 | S10 pedestrians (planned) | Port selected wander/cross/flee state and bounded scheduling as PedestrianController. Final rig comes from S13. | Keep seeded 64-agent normal/flee/crossing/cost cases and both compared motion options. |
@@ -401,8 +401,11 @@ three repeats; report median and worst. A contended run is an upper bound.
 Track frame p50/p95/p99, render CPU/GPU, host simulation p95/p99 including AI/chains,
 working set, draw calls, active counts, encode/decode time and wire bandwidth. Compare
 against the ratified design budgets without silently changing content or quality.
-S07's city-size curve informs authored scope; M1-D3 still validates the integrated
-six-block milestone.
+S07's city-size curve informs authored scope: its repeated grey-block rows passed at
+6, 24 and 96 blocks, while 384 crashed before a result. The fit (about 0.79 MiB working
+set and 138 expanded nodes per repeated-content block) is planning guidance with large
+production-art caveats, not a supported-size promise. M1-D3 still validates the
+integrated six-block milestone.
 
 ## 5. Ordered M1 backlog
 
