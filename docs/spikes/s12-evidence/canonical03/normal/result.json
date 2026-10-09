@@ -1,0 +1,125 @@
+{
+  "ok": true,
+  "profile": "normal",
+  "measurements": {
+    "by_target": {
+      "pedestrian": {
+        "samples": 25,
+        "speed_mps": 1.5,
+        "current_agreement_rate": 0.44,
+        "rewind_agreement_rate": 0.88,
+        "current_false_positives": 6,
+        "rewind_false_positives": 3,
+        "current_false_negatives": 8,
+        "rewind_false_negatives": 0,
+        "rewind_clamped": 24
+      },
+      "car": {
+        "samples": 24,
+        "speed_mps": 12.0,
+        "current_agreement_rate": 0.3333333333333333,
+        "rewind_agreement_rate": 0.7083333333333334,
+        "current_false_positives": 1,
+        "rewind_false_positives": 4,
+        "current_false_negatives": 15,
+        "rewind_false_negatives": 3,
+        "rewind_clamped": 24
+      }
+    },
+    "accepted_shots": 49,
+    "attempts": 64,
+    "responses": 64,
+    "rewind_cpu_usec": {
+      "median": 13,
+      "p95": 26,
+      "worst": 32
+    },
+    "history_peak_bytes": 2988,
+    "history_samples": 24,
+    "host_rejections": {
+      "INVALID": 2,
+      "RATE_LIMITED": 2,
+      "RELOADING": 13,
+      "STALE_SEQUENCE": 1
+    },
+    "rocket_presentation_offset_m": {
+      "samples": 8,
+      "median": 1.602,
+      "p95": 2.016,
+      "worst": 2.016
+    }
+  },
+  "load": {
+    "concurrent_godot_processes": 5,
+    "cpu_load_percent": 51.0,
+    "timing_label": "contended upper bound"
+  },
+  "source_sha256": {
+    "project.godot": "4bf87d31f3ecb8091c59ffc3247a35a954ffbfc54aef30c78c3d691a8b124171",
+    "tests\\fixtures\\s03\\boot.tscn": "73d0a58b6450cbd26b6ccbce53d852b5b737ee3e76de3ecfb71f7aca1f71bec9",
+    "tests\\fixtures\\s03\\entity.gd": "c886014a90fc4258ee964c5ba6cd1610ca6740d6f03ef993d20a874356755ba5",
+    "tests\\fixtures\\s03\\entity.gd.uid": "81edf93e5288f82ace33bd2357c48536e69aaa5af588174179a2b189b86235b6",
+    "tests\\fixtures\\s03\\entity.tscn": "e77ce114f1647862a5fa00bffc0f055aa4c64ac4e751ae74794493ea9276308b",
+    "tests\\fixtures\\s03\\fake_transport.gd": "96f37b5ac9b0689c12105764ee826c4d7f18155b7ebd471cc427f66e3c499657",
+    "tests\\fixtures\\s03\\fake_transport.gd.uid": "109e8258fb5a3834e9a08025d1660faad62a3fb71e096cadf34b4460577eb101",
+    "tests\\fixtures\\s03\\local_rig.tscn": "5aa73ff396f149b5fde6f9e5e658271d8bbc1c4ad37728370992294a0865857d",
+    "tests\\fixtures\\s03\\match.gd": "6aa3ca867e40248ba7695be3e87498f5005b5524df51028f8bc47d0849f67553",
+    "tests\\fixtures\\s03\\match.gd.uid": "4f62dd8bee5d9449e5e3985fb819823c07d6f1321c29a2e6d101798ab4899226",
+    "tests\\fixtures\\s03\\proof.gd": "84942690818fe5bc00e4ad0b51d48edf9fb89e0fb52e206a8c2c5844fab080a7",
+    "tests\\fixtures\\s03\\proof.gd.uid": "274ac1732eb697e7798dcdc080b2f74acf187025d9f13af7d4f85b2067b36c11",
+    "tests\\fixtures\\s03\\replication.gd": "57f4a1312a50b7ad5706423f2491be151803f5438f484b21b3c9b80dc47db7ae",
+    "tests\\fixtures\\s03\\replication.gd.uid": "84934d1bc91d62e44bfd68f90fd011b22a7c79c75dccafb69b509c4267bc7212",
+    "tests\\fixtures\\s03\\session.gd": "bb77d7a0dd65ffd6d0e29da8489678cd3e24aa58470b026ea4f1570fd9ea84d7",
+    "tests\\fixtures\\s03\\session.gd.uid": "577312815f85e86aed2fdfb83214a7b08aa71d52fa304b80caccb4b7bef0479b",
+    "tests\\fixtures\\s03\\transport.gd": "536dbd62dbbb1bce933c29495b99b5aa68d85a44eb86446fcd62d63d0ae6e60c",
+    "tests\\fixtures\\s03\\transport.gd.uid": "13b71af6193f49f136fcfabf98e6aa715dfaf1d30b8a7a7175ddf1aaebc44cb0",
+    "tests\\fixtures\\s12\\boot.tscn": "8bf7d13632bb55cdaf306c7ba5588bf9760f490145df399ea1fc70501a2550db",
+    "tests\\fixtures\\s12\\combat.gd": "7ebdb9b18700d43f3ad9c96cfb1fd0842ce7440681c4e760c6802454420d95a5",
+    "tests\\fixtures\\s12\\combat.gd.uid": "594accf26bd6388cdc6d5baee9fd937ae1a7a92a56d15808b0dcc1b799c8d26e",
+    "tests\\fixtures\\s12\\proof.gd": "dafb053dfe839f89ecd78a5987ecdb7e392f2831ccc030d4b9ca74d65420791d",
+    "tests\\fixtures\\s12\\proof.gd.uid": "13af669e803534b4e0b2f7c9ac25d5e80cc4c0222c1c2a1e02ee20e5f4d000d0",
+    "tests\\fixtures\\s12\\target.gd": "80076cc1c6c1bbdef454039c255bf779a02999e49d2a12854caeef751ccbbdb3",
+    "tests\\fixtures\\s12\\target.gd.uid": "ced77002d8ba1355a15e7639da091d956e61f978b1bc9220f690c8980c6ddf2e",
+    "tests\\fixtures\\s12\\target.tscn": "90552f53461bb9a4e2f5b2b8cdc593853522e290636077cf6da7d92fa71e3876"
+  },
+  "saved_source_unchanged": true,
+  "commands": {
+    "host": [
+      "C:\\Users\\regner.blokandersen\\AppData\\Local\\mise\\installs\\github-godotengine-godot-builds\\4.8-dev7\\godot.exe",
+      "--headless",
+      "--path",
+      "C:\\tmp\\ft\\lanes\\s12-combat\\canonical03\\normal\\project",
+      "--log-file",
+      "C:\\tmp\\ft\\lanes\\s12-combat\\canonical03\\normal\\host\\engine.log",
+      "res://tests/fixtures/s12/boot.tscn",
+      "--",
+      "--role=host",
+      "--port=25260"
+    ],
+    "client": [
+      "C:\\Users\\regner.blokandersen\\AppData\\Local\\mise\\installs\\github-godotengine-godot-builds\\4.8-dev7\\godot.exe",
+      "--headless",
+      "--path",
+      "C:\\tmp\\ft\\lanes\\s12-combat\\canonical03\\normal\\project",
+      "--log-file",
+      "C:\\tmp\\ft\\lanes\\s12-combat\\canonical03\\normal\\client\\engine.log",
+      "res://tests/fixtures/s12/boot.tscn",
+      "--",
+      "--role=client",
+      "--port=25261"
+    ]
+  },
+  "process_ids": [
+    73448,
+    17752
+  ],
+  "exits": [
+    0,
+    0
+  ],
+  "peak_proxy_queue": 9,
+  "ports": [
+    25260,
+    25261
+  ]
+}
