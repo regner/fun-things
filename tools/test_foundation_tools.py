@@ -30,7 +30,7 @@ class ResettingSocket:
 
 
 class FoundationToolsTest(unittest.TestCase):
-    def test_unused_and_owned_addon_scripts_are_discovered(self):
+    def test_unused_and_nonvendor_addon_scripts_are_discovered(self):
         with tempfile.TemporaryDirectory() as temporary:
             root = Path(temporary)
             paths = ["tests/unused.gd", "addons/owned/unused.gd",
@@ -42,7 +42,7 @@ class FoundationToolsTest(unittest.TestCase):
                 path.touch()
             (root / "art/source/.gdignore").touch()
             self.assertEqual([path.relative_to(root).as_posix() for path in owned_scripts(root)],
-                             ["addons/owned/unused.gd", "tests/unused.gd"])
+                             ["addons/godotsteam/vendor.gd", "addons/owned/unused.gd", "tests/unused.gd"])
 
     def test_compile_mirror_disables_only_development_startup(self):
         settings = """[autoload]

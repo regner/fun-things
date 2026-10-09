@@ -455,9 +455,9 @@ backlog below:
 
 | Foundation task | Required result | Hard consumers in this plan |
 | --- | --- | --- |
-| **P0-TOOLING** | Green canonical style/compile command, complete Python test discovery, cross-platform Python invocation, ignored GodotSteam temp artifacts and MCP-free compile mirror | M1-D1.1 and every later CI claim |
+| **P0-TOOLING** | Green canonical style/compile command, complete Python test discovery, cross-platform Python invocation and MCP-free compile mirror; GodotSteam artifact handling is obsolete after addon removal | M1-D1.1 and every later CI claim |
 | **S03-L** | Per-stage Windows baseline latency/pacing diagnosis and a disposition of the S03-R expiry boundary | S03-P, M1-A2.3 and M1-B2.1/S12 interpretation |
-| **S08-X** | Both target exports, a Windows launch, committed main-scene/preset decisions, pinned template identity, explicit GodotSteam export policy, and a Linux launch checklist; Linux launch acceptance remains at M1-A-GATE | M1-A1.1, M1-A-GATE, M1-D3 and M1-D4 |
+| **S08-X** | Both target exports, a Windows launch, committed main-scene/preset decisions, pinned template identity, GodotSteam-removal/package-rejection proof, and a Linux launch checklist; Linux launch acceptance remains at M1-A-GATE | M1-A1.1, M1-A-GATE, M1-D3 and M1-D4 |
 | **S08-C** | Bounded 384-block crash/cutaway diagnosis and a safe capped GPU measurement method | M1-C2.2 and M1-D3 |
 | **S01-W** | Exact Windows Blender version and byte or semantic reexport result | M1-C1.1, M1-C1.2 and S13 asset adoption |
 | **S03-P** | Bounded shared-rule foot prediction/reconciliation evidence after S02 controls and S03-L | M1-A2.3 and S04-T |
@@ -549,7 +549,7 @@ population by replacing missing S09–S11/S17 evidence with dummy behavior.
 | Foundation validation remains red or incomplete | Production lanes cannot make honest pass claims | P0-TOOLING must make the canonical check green and discover every Python test before D1.1. |
 | GUT or its editor plugin conflicts with pinned dev engine/addons | CI instability or exported test code | D1.1 pins and proves headless CLI on both OSes, keeps plugin disabled at runtime and verifies export exclusion. No broad warning suppression. |
 | Shared scenes become parallel merge hotspots | Lost authored placement/identity or accidental multiple writers | Assign one Boot, Match and district integrator. Parallel lanes contribute saved prefabs/public APIs and hand off for placement. |
-| Real project export behavior differs from stripped spike exports | Autoload/native-extension or Linux failures arrive at A-GATE | S08-X is a hard Boot/gate/release input and records the owner-selected GodotSteam policy, templates and both target launches. |
+| Real project export behavior differs from stripped spike exports | Autoload/native-extension or Linux failures arrive at A-GATE | S08-X is a hard Boot/gate/release input and records GodotSteam removal, continued package rejection, templates and both target launches. |
 | Linux release diagnostics or dev-engine regressions recur | One target cannot pass clean export | S08-X runs Linux early; retain exact logs and escalate an engine-pin decision rather than suppress diagnostics. |
 | S02 cutaway removal breaks retained S07 environment scenes | Rebased fixtures have missing scripts/shaders and capacity guidance cannot reproduce | Migrate/regenerate every `s07_env` saved reference before integrating S02; S08-C compares with/without the obsolete path. |
 | The 384-block crash or unsafe uncapped method is reused | Engine/device failure or unsupported city-size inference | S08-C bounds the crash and establishes capped GPU measurement before C2.2/D3. |
@@ -567,8 +567,8 @@ are explicit P0-GATE inputs:
    p99 <= 20 ms on named Windows and Linux hardware.
 3. Choose coast, brake or another stopping policy when a driver **dies**. Disconnect
    already coasts; this plan does not extend that decision to death.
-4. Choose whether GodotSteam is removed from the ENet-only M1 project or remains
-   disabled and explicitly excluded from exports; S08-X records and proves the choice.
+4. **Resolved 9 October 2026:** owner decision 17 removes GodotSteam from the
+   ENet-only M1 project; S08-X keeps rejecting accidental package reintroduction.
 5. Assign the quiet wave-3 remeasurement pass and checkpoint. This proposal assigns
    selected quiet reruns and the integrated quiet/contended comparison to S17 before
    codec/C3 freeze, with M1-D3 repeating final integrated acceptance.

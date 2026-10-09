@@ -177,7 +177,7 @@ matching ticks, not a smoothed current client transform to an earlier host trans
 S01 adds only the P0-03 tooling required for its owned fixtures. Run the installed
 pins through Mise. Shared script/style checks accept `--godot`/`--gdstyle`;
 S01 asset tools accept `GODOT_BIN` when Mise trust-state writes are unavailable. The shared tasks check versions and honor
-hidden/`.gdignore` trees, excluding the two current vendor addons explicitly.
+hidden/`.gdignore` trees, excluding the current MCP vendor addon explicitly.
 
 | Task | Scope |
 | --- | --- |
@@ -222,11 +222,12 @@ python -m unittest discover -s tools -p "*test*.py"
 ```
 
 The first checks pinned formatting and lint. The second also discovers every owned
-`.gd`, honors hidden and `.gdignore` directories, excludes the two named vendor
-addons, and explicitly invokes `--check-only --script` for each file, including
-unused scripts. A fresh dependency mirror retains project settings, gameplay autoloads
-and resources, but disables editor plugins and the development-only MCP runtime autoload
-only in that mirror. Its import discovers classes;
+`.gd`, honors hidden and `.gdignore` directories, excludes the named MCP vendor addon,
+and explicitly invokes `--check-only --script` for each file, including unused scripts.
+The removed
+GodotSteam path is no longer special-cased. A fresh dependency mirror retains project
+settings, gameplay autoloads and resources, but disables editor plugins and the
+development-only MCP runtime autoload only in that mirror. Its import discovers classes;
 separate compilation remains mandatory even when that setup reports errors.
 The source editor and its `.godot` cache are not the compiler's inputs. Logs,
 manifest and per-file outcomes remain in the printed evidence directory.
@@ -261,10 +262,11 @@ An import command's success does not mean scripts compiled or logs were clean.
 ### Real-project desktop exports
 
 The project has a saved `run/main_scene.tscn` entrypoint and four x86-64 presets:
-Windows/Linux, debug/release. Current ENet-only M1 presets keep the vendor addons in
-source but exclude GodotSteam and MCP from packages. This is a provisional export
-boundary pending the owner decision on removing GodotSteam, not a Steam integration
-choice. The exact template hashes, bounded commands, package inspector, Windows smoke
+Windows/Linux, debug/release. The ENet-only M1 project no longer contains GodotSteam;
+the presets exclude MCP and the package inspector still rejects any GodotSteam or
+Steamworks library accidentally reintroduced. A future Steam-adapter task must select a
+pinned release, add and enable its plugin deliberately, then decide and test export
+inclusion. The exact template hashes, bounded commands, package inspector, Windows smoke
 and Linux launch checklist are in [S08-X](spikes/s08-x.md). Use matching pinned
 4.8-dev7 templates, fresh external output directories and the documented timeouts.
 
@@ -516,8 +518,10 @@ manifest remains the authority. Historical restricted-DNS/browser failures and
 successful public downloads are separate receipts, not permission for a new fetch.
 
 The [registration recipe](spikes/s03-s-compatibility-evidence/run_registration.py)
-takes two positional paths, requires a nonexistent destination under `/tmp`, copies
-only the addon into a fresh project, sets auto-init false and seeds that copied
+is historical as of 9 October 2026: it requires separately restored exact addon bytes
+because `addons/godotsteam/` is no longer in the project. It takes two positional paths,
+requires a nonexistent destination under `/tmp`, copies only the addon into a fresh
+project, sets auto-init false and seeds that copied
 project's extension discovery list. Separate XDG data/config/cache and 30 s
 subprocess timeouts apply to version and headless reflection/getters. It retains
 `version.log`, `registration.log`, full `project/registration.json`, selected API/

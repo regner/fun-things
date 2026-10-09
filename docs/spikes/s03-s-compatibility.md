@@ -1,5 +1,9 @@
 # S03-S — bounded compatibility design/probe
 
+**9 October 2026 supplement:** this accepted result is historical; its registration
+runner requires separately restored exact pinned GodotSteam bytes after owner decision
+17 removed the addon from the current source tree.
+
 8 October 2026. Direct implementation owner: `6a768b9c-b35d-4008-b94f-e713554dd1a5`,
 GPT-6.1-Sol HIGH, workspace `wks_18746ba26c666eb7`, branch
 `s03-s-compatibility-design-probe`. Starting LOCAL main:

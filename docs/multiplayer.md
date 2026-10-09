@@ -453,9 +453,11 @@ research and future-adapter constraints; they are not authorization or current w
 
 The initial game uses ENet only, plus Standalone with the same authoritative rules.
 M1 connection, adverse-delivery and target acceptance exercise the ENet provider.
-ENet startup and exports initialize no Steam dependency. The pinned-engine bandwidth
-workaround remains inside ENetTransport before peer publication, and channels 2/3
-remain lossy despite that workaround. Initial target acceptance no longer includes
+ENet startup and exports initialize no Steam dependency. Owner decision 17 removed the
+GodotSteam addon, GDExtension, plugin registration and settings on 9 October 2026; the
+current project and packages contain no native Steam implementation. The pinned-engine
+bandwidth workaround remains inside ENetTransport before peer publication, and channels
+2/3 remain lossy despite that workaround. Initial target acceptance no longer includes
 Steam friend invites, external route/SDR diagnostics, authorized-account delivery or
 Steam package/install/update/launch evidence.
 
@@ -467,9 +469,11 @@ native lifecycle. Lobby/invite/rich-presence/launch handling, if later commissio
 is an optional SessionDirectory that resolves a directory target before Transport
 opens and never grants gameplay admission.
 
-Any Steam adapter is a separate future product/integration decision and task. Before
-registration it must independently prove authenticated identity, the fixed four-stream
-profile, payload/allocation/work bounds, correlated cancel/close/late-callback cleanup,
-safe retry, actual route, packaging and supported targets. Earlier test recipes remain
-the acceptance standard for that possible task, not a current milestone. Failure or
-absence of that future provider must always leave Standalone and ENet usable.
+Any Steam adapter is a separate future product/integration decision and task. It must
+select a pinned addon release, enable its plugin deliberately, and decide and test export
+inclusion. Before registration it must independently prove authenticated identity, the
+fixed four-stream profile, payload/allocation/work bounds, correlated cancel/close/
+late-callback cleanup, safe retry, actual route, packaging and supported targets. Earlier
+test recipes remain the acceptance standard for that possible task, not a current
+milestone. Failure or absence of that future provider must always leave Standalone and
+ENet usable.

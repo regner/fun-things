@@ -1,0 +1,52 @@
+{
+  "date": "2026-10-09",
+  "engine": "4.8.dev7.official.c971f93e7",
+  "source_change": {
+    "addon_path_absent": true,
+    "project_plugin_reference_absent": true,
+    "steam_project_settings_absent": true,
+    "export_source_exclusion_removed": true,
+    "package_rejection_guard_retained": true
+  },
+  "headless_import": {
+    "exit": 0,
+    "missing_plugin_or_extension_diagnostics": false,
+    "known_diagnostic": "MCP toolkit warns that Godot 4.8 is newer than its tested 4.7 range"
+  },
+  "exports": {
+    "windows_debug": {
+      "exit": 0,
+      "package_ok": true,
+      "executable_sha256": "b5827a836746ce342a6678347d587584da1387decd99f47cd541438443346cd0"
+    },
+    "windows_release": {
+      "exit": 0,
+      "package_ok": true,
+      "executable_sha256": "a13b173c265f3759ae67662e655ae2f5d0576b6e24098d838f8e68bde441c35a"
+    },
+    "linux_debug": {
+      "exit": 0,
+      "package_ok": true,
+      "executable_sha256": "8b2871a1e2f8baf482282422f7e64cd7cfcc713eb53d8db671025b041bb23eb9"
+    },
+    "linux_release": {
+      "exit": 0,
+      "package_ok": true,
+      "executable_sha256": "c436b976ff5ac2e5f3197732ba7d9462267573e5a108782f84928d0606885695"
+    },
+    "pck_sha256": "a9ffaf2264566b90e5fef5fcfbd4d00ccff8510627de60a375844f274db39481",
+    "forbidden_pck_entries": [],
+    "forbidden_output_files": []
+  },
+  "windows_release_smoke": {
+    "exit": 0,
+    "boot_ok": true,
+    "smoke_complete_ok": true,
+    "frames": 30,
+    "max_fps": 60,
+    "window_size": "1280x800",
+    "runtime_diagnostics": [],
+    "contention": "steam.exe and two unrelated godot-ai.exe processes were present; functional evidence only"
+  },
+  "external_full_output": "C:/tmp/ft/lanes/remove-godotsteam/"
+}

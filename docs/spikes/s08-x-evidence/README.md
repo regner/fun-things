@@ -1,6 +1,13 @@
 # S08-X real-project export evidence
 
-These are the compact retained receipts for the 8 October 2026 Windows run. Full
+`godotsteam-removal-receipt.json` is the compact 9 October 2026 follow-up after owner
+decision 17. It binds the clean import, four rebuilt packages, continued Steam-library
+rejection and 60-capped Windows release smoke. Steam and unrelated `godot-ai.exe`
+processes were present, so this is functional rather than quiet/performance evidence.
+Full logs/builds are outside the repository under
+`C:/tmp/ft/lanes/remove-godotsteam/`.
+
+The remaining files are compact receipts for the 8 October 2026 Windows run. Full
 build folders and complete export logs remain outside the repository at
 `C:/tmp/ft/lanes/s08-x-review1/`.
 

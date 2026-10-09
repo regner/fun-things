@@ -1,5 +1,8 @@
 # S05 saved explosion presentation
 
+**9 October 2026 supplement:** the statement that the full project enables GodotSteam
+is historical; owner decision 17 removed the addon and its plugin registration.
+
 8 October 2026. Implementation commission, not acceptance. Sole lead
 `56eb6b28-89c7-4944-8321-693144ffc97a`, workspace `wks_80583b9faf9f4332`,
 branch `s05-saved-explosion-presentation`, clean accepted base

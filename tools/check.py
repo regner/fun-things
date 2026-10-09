@@ -1,4 +1,4 @@
-"""Minimum P0-03 checks for S01. Vendor addons and ignored trees stay excluded."""
+"""Minimum P0-03 checks for S01. The vendor addon and ignored trees stay excluded."""
 import argparse
 import json
 import os
@@ -11,7 +11,7 @@ import tempfile
 import tomllib
 
 ROOT = Path(__file__).resolve().parents[1]
-VENDORS = {'addons/godot_mcp_toolkit', 'addons/godotsteam'}
+VENDORS = {'addons/godot_mcp_toolkit'}
 
 
 def owned_files(root=ROOT):

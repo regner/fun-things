@@ -227,8 +227,12 @@ Verified locally on 7 October 2026:
   `mise exec -- gdstyle --version` reports `gdstyle 0.3.0`.
 - The project identifies Forward Plus, uses Jolt and selects D3D12 on Windows.
   Linux graphics/driver and Windows compatibility have not been tested here.
-- The GodotSteam updater addon is present/enabled and reports plugin version
-  `4.23`; this is inventory, not selection or proof of the gameplay peer/native SDK.
+- Historical 7 October inventory found GodotSteam 4.23 present and enabled; it did
+  not prove a gameplay peer or native SDK route. Owner decision 17 removed the addon
+  from the ENet-only project on 9 October 2026.
+
+A later Steam-adapter task must choose a pinned release, enable its plugin deliberately,
+and decide and test export inclusion; current runtime and exports have no Steam dependency.
 
 Subsequent desktop rendering supplement, 7 October 2026: the original P0-01
 observations above describe that inspection, before S02. The
@@ -300,7 +304,7 @@ S03-S, S08, P0-GATE or M1 prerequisites. Do not guess values.
 | Depots | Windows 5294581 and Linux 5294582 in the corresponding VCS VDFs; platform filters and tester-package inclusion still need live verification |
 | Launch settings | VCS exports `VehiclePlayground.exe` / `VehiclePlayground.x86_64`; its guide proposes install directory `Vehicle Playground` and empty Windows launch args. These are repo recipes, not verified live settings or a Fun Things launch decision |
 | Private test branch | Intended branch `fun-things`, selected by Regner on 7 October; live creation/access/build IDs not verified. VCS guide proposes `default` / `friends`, with no `SetLive` in its app VDF; preserve those existing delivery paths |
-| Integration/SDK/peer pins | Unselected; [S03-S preparation](spikes/s03-s.md) identifies bundled GodotSteam 4.23/SDK 1.65 and Linux registration, with source transfer-mode/default-channel mismatches. Selection/gameplay/relay remain unproved |
+| Integration/SDK/peer pins | Unselected; GodotSteam was removed from the ENet-only project on 9 October. Historical [S03-S preparation](spikes/s03-s.md) records the former 4.23/SDK 1.65 bytes and mismatches. Future adapter work must select a pinned release, enable its plugin, decide export inclusion and prove gameplay/relay. |
 | Installation/update evidence | Not run; later Steam delivery work proves tester install/update/launch and retains rollback build identity |
 
 App/package entitlement and branch access are separate checks. Depot inclusion

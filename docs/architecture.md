@@ -339,9 +339,14 @@ acceptance prove the selected ENet path and target behavior without Steam. Refer
 above to S03-S proving native Steam or to Steam delivery blocking P0/M1 are historical
 and do not apply to the ENet-only initial game.
 
+Owner decision 17 removed the GodotSteam addon, GDExtension, plugin registration and
+project settings on 9 October 2026. The provider-neutral boundaries remain; no native
+Steam class or library is part of the current project or exports.
+
 A Steam adapter may be considered only in a separately commissioned future task. It
 must fit the existing Transport plus optional SessionDirectory boundary and independently
 prove identity, four-stream delivery, bounds, cancel/late-callback retirement, safe
-reuse, packaging and target behavior before Boot can register it. That future work must
-not change gameplay owners, treat lobby membership as admission, or make Standalone/ENet
-depend on Steam availability.
+reuse, packaging and target behavior before Boot can register it. That task must select
+a pinned addon release, enable its plugin deliberately, and decide and test export
+inclusion. It must not change gameplay owners, treat lobby membership as admission, or
+make Standalone/ENet depend on Steam availability.

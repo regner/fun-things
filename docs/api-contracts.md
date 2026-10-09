@@ -146,6 +146,8 @@ stream profile and provider-neutral lifecycle are normative. The isolated S03 fi
 smaller capability dictionary remains evidence for ENet behavior, not the production type.
 The [S03-S abstraction review](spikes/s03-s-abstraction-review.md) maps future Steam
 concepts to this boundary and records why no Steam implementation is accepted now.
+Owner decision 17 removed GodotSteam from the project on 9 October 2026; these APIs do
+not require its classes, settings or libraries.
 
 ```text
 Transport.provider_id() -> ProviderId
@@ -235,7 +237,10 @@ flag does not prove actual SDR gameplay traffic.
 `DirectoryCapabilities = {available, friend_sessions, invites, rich_presence_join,
 launch_join, failure?}`. No Steam initialization or native dependency is required by
 Standalone/ENet startup. An absent later adapter returns unavailable capabilities and
-`SERVICE_UNAVAILABLE`. Authentication tickets remain adapter-private; no ticket bytes,
+`SERVICE_UNAVAILABLE`. Re-adding one requires a separately selected pinned release,
+deliberate plugin enablement and an explicit tested export-inclusion decision; installing
+an addon cannot register it as a conforming provider. Authentication tickets remain
+adapter-private; no ticket bytes,
 account IDs or lobby IDs enter common session/gameplay APIs. If later backend ticket
 validation is selected, the provider exposes only its resulting identity assurance and
 readiness. Do not add providers for unselected stores. A fake provider exercises this
