@@ -15,6 +15,7 @@ var _episode_ticks: int = 0
 var _episodes: int = 0
 var _resolved: int = 0
 var _max_stall_ticks: int = 0
+var _episode_receipts: Array[Dictionary] = []
 
 
 ## Starts one independent tracker at an authored conflict-zone center.
@@ -27,6 +28,7 @@ func configure(center: Vector3) -> void:
 	_episodes = 0
 	_resolved = 0
 	_max_stall_ticks = 0
+	_episode_receipts.clear()
 
 
 ## Advances only crossing-route cars, so unrelated outer-loop motion cannot mask gridlock.
@@ -48,11 +50,16 @@ func advance(cars: Array[Dictionary]) -> void:
 	if _episode_active:
 		_episode_ticks += 1
 		_max_stall_ticks = maxi(_max_stall_ticks, _episode_ticks)
+		_episode_receipts[-1].duration_seconds = float(_episode_ticks) / PHYSICS_HZ
 	elif _window_ticks >= PROGRESS_WINDOW_TICKS:
 		_episode_active = true
 		_episode_ticks = _window_ticks
 		_episodes += 1
 		_max_stall_ticks = maxi(_max_stall_ticks, _episode_ticks)
+		_episode_receipts.append({
+			"center": _center, "duration_seconds": float(_episode_ticks) / PHYSICS_HZ,
+			"resolved": false,
+		})
 
 
 ## Reports started, resolved and currently unresolved local episodes plus worst duration.
@@ -61,6 +68,7 @@ func receipt() -> Dictionary:
 		"episodes": _episodes, "resolved": _resolved,
 		"unresolved": 1 if _episode_active else 0,
 		"max_stall_seconds": float(_max_stall_ticks) / PHYSICS_HZ,
+		"episode_receipts": _episode_receipts.duplicate(true),
 	}
 
 
@@ -78,6 +86,7 @@ func _local_positions(cars: Array[Dictionary]) -> Dictionary:
 func _resolve_or_reset() -> void:
 	if _episode_active:
 		_resolved += 1
+		_episode_receipts[-1].resolved = true
 	_episode_active = false
 	_episode_ticks = 0
 	_window_ticks = 0

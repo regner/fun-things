@@ -99,13 +99,17 @@ func _gridlock_regression() -> void:
 		outer.position.x = float(tick)
 		tracker.advance(cars)
 	var blocked: Dictionary = tracker.receipt()
-	_expect(blocked.episodes == 1 and blocked.unresolved == 1,
+	_expect(blocked.episodes == 1 and blocked.unresolved == 1 and
+		blocked.episode_receipts.size() == 1 and
+		not blocked.episode_receipts[0].resolved,
 		"outer motion cannot mask local gridlock")
 	local.position.x = 1.0
 	tracker.advance(cars)
 	var resumed: Dictionary = tracker.receipt()
-	_expect(resumed.resolved == 1 and resumed.unresolved == 0,
-		"local progress resolves gridlock episode")
+	_expect(resumed.resolved == 1 and resumed.unresolved == 0 and
+		resumed.episode_receipts[0].resolved and
+		resumed.episode_receipts[0].duration_seconds >= 4.0,
+		"local progress resolves retained gridlock episode")
 
 
 ## Parses one population/seed/tick/output tuple with strict finite bounds.

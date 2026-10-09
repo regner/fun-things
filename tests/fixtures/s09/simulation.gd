@@ -404,14 +404,16 @@ func _gridlock_receipt() -> Dictionary:
 	var resolved: int = 0
 	var unresolved: int = 0
 	var maximum_seconds: float = 0.0
+	var episode_receipts: Array[Dictionary] = []
 	for tracker: S09GridlockTracker in _gridlock_trackers:
 		var current: Dictionary = tracker.receipt()
 		episodes += current.episodes
 		resolved += current.resolved
 		unresolved += current.unresolved
 		maximum_seconds = maxf(maximum_seconds, current.max_stall_seconds)
+		episode_receipts.append_array(current.episode_receipts)
 	return { "episodes": episodes, "resolved": resolved, "unresolved": unresolved,
-		"max_stall_seconds": maximum_seconds }
+		"max_stall_seconds": maximum_seconds, "episode_receipts": episode_receipts }
 
 
 ## Finds the closest route sample in a bounded moving window or one explicit full rebind.
