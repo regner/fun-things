@@ -1,5 +1,9 @@
 # World concept handover
 
+**9 October owner revision:** the [parallel production workflow](parallel-art-production.md)
+now supersedes the six-block-first scope and sequential stage gates below for the
+commissioned greybox and asset tracks. This handover remains historical context.
+
 Status, 9 October 2026: **ready to start at Stage 1.** Regner (owner) commissioned this
 work. This handover is for an agent that will produce world concepts and mockups for
 Fun Things. It covers the world only: no UI, HUD or menu concepts (UI v1 exists in

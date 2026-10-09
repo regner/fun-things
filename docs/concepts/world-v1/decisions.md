@@ -277,3 +277,51 @@ Next is Stage 4 — streets and roads. Start with a whole-city road hierarchy an
 representative varied block outlines, then develop road sections, junctions and the
 M1 street arrangement. Check actual-camera and minimap readability and the current
 traffic/pedestrian contracts before accepting the road kit.
+
+## 9 October 2026 — give the high-rise centre a stronger grid
+
+> The city center district with high rise buildings should have more of a grid pattern to it
+
+Refine Glassward with straight north–south streets, straight crossing streets and
+predominantly rectangular downtown blocks. The central avenue follows that grid
+through the tower district, then resumes a curved alignment outside it. Retain
+unequal block dimensions and varied tower/podium plots; this does not reinstate an
+equal-size city-wide grid. The curved coastline and surrounding neighbourhoods
+provide transitions at the district edges.
+
+The current Stage 4 plan and Glassward identity board reflect this requested change.
+Exact junction corners, lane turns and street sections remain unvalidated proposals.
+This instruction does not close Stage 4 or approve the rest of its first plan.
+
+## 9 October 2026 — owner-drawn district boundaries
+
+After requesting a polygon editor to align districts with roads where appropriate,
+while retaining water and other non-road divisions, the owner supplied an export:
+
+> I have exported the district boundries
+
+Use [the supplied nine polygons](stage-04-streets/district-editor/brackett-districts.json)
+for the current Stage 4 maps and editor baseline. Preserve the exact coordinates;
+neighbouring polygons remain independent, with small gaps/overlaps rather than an
+inferred snapping pass. Earlier Stage 2 maps remain the historical macro decision.
+Roads, coast, bridge and illustrative roof placement stay fixed for this revision.
+
+Glassward now occupies more of the existing M1 envelope. Keep that envelope and
+the approved six-theme programme pending the local fit study, which must reconcile
+the new district context with the earlier Signal Row / Ironreach identity mix.
+Names remain placeholders. This boundary update does not complete Stage 4.
+
+## 9 October 2026 — parallel production replaces the six-block-first workflow
+
+> I don't want to do "the m1 six block" area.
+
+> integration work will likely be done by another person. Lets keep it in mind, but not plan on doing it ourselves just yet.
+
+> Lets get started.
+
+Start the full-city greybox and independent concept-to-Blender-to-Godot asset
+tracks in dedicated workspaces. Retire the M1 outline as the construction boundary.
+Owner approval still gates each asset's modelling; assets can advance independently.
+District concept/asset breakdown and greybox replacement follow later. Combined
+playable-game integration is outside these assignments. The exact instructions,
+ownership and handoff boundaries are in the [parallel commissioning record](../../workflows/parallel-art-production.md).

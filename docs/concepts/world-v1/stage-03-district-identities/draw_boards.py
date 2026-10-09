@@ -95,16 +95,18 @@ def motif(b):
         s += roof(290,75,125,55,secondary,accent)
         s += path('M232 230 L275 280 M286 384 L318 520 H410','#BED0C3',8,'10 12')
     elif kind == 'towers':
-        s += road('M-20 475 H260 Q360 475 420 420 L505 335 Q550 295 780 295')
-        s += road('M275 -20 V155 Q275 230 320 280 L400 435',39)
-        for x,y,w,h in [(55,70,143,184),(392,56,174,160),(545,398,154,157)]:
+        s += road('M-20 340 H780')
+        s += road('M280 -20 V650',39)
+        s += road('M640 -20 V650',39)
+        s += road('M280 600 H780',32)
+        for x,y,w,h in [(55,65,135,175),(370,65,155,150),(440,425,140,140)]:
             s += roof(x,y,w,h,secondary)
             s += roof(x+25,y+23,w-52,h-45,c,accent)
             s += rect(x+36,y+36,w-74,h-72,'#1A2B4B',5)
-        s += circle(435,263,58,secondary,'#8296A1',2)
-        s += circle(435,263,39,c,extra,5)
+        s += circle(565,255,43,secondary,'#8296A1',2)
+        s += circle(565,255,29,c,extra,5)
         s += rect(60,535,170,50,secondary,4)
-        s += path('M365 388 L433 347','#B7CAD1',18)
+        s += rect(335,393,70,110,'#B7CAD1',4)
     elif kind == 'quay':
         s += path('M790 230 Q545 230 490 400 T180 660','#143E55',215)
         s += road('M-30 525 Q160 520 330 410 T560 170 Q650 100 780 115')

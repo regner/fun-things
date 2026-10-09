@@ -145,11 +145,11 @@ calibrate the shared fixed lighting. Landmark seeds remain broad until Stage 8.
 
 **Mood:** Cool / imposing / self-important
 
-**Play:** Longer driving runs broken by bends and offset junctions. Setback forecourts offer breathing room near busy office corners.
+**Play:** Longer straight driving runs and regular junctions create a distinct downtown rhythm. Setback forecourts offer breathing room near busy office corners.
 
 **Architecture:** A substantial tower district with unequal tower/podium sites and open forecourts. Rectangular, chamfered and rounded crowns vary; a tower need not occupy an entire block.
 
-**Roads:** Selected four-lane avenues connect the larger downtown; two-lane cross streets and small service links divide unequal podium sites. Tower setbacks protect routes.
+**Roads:** Straight avenues and right-angle cross streets form a downtown grid with unequal blocks. Smaller service links reach tower sites; curved edge connections lead into other districts.
 
 **Props:** Large restrained signs, low planters, forecourt lights and grouped street furniture. Roof equipment stays broad and sparse.
 

@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Brackett · District editor</title>
+<link rel="stylesheet" href="style.css">
+<script defer src="map-data.js"></script>
+<script defer src="editor.js"></script>
+</head>
+<body>
+<header><div><small>BRACKETT / STREET PLAN</small><h1>Redraw the districts</h1></div>
+<div class="actions"><button id="undo" disabled>Undo</button><button id="redo" disabled>Redo</button>
+<button id="export">Export JSON</button><button id="import">Import JSON</button>
+<input id="file" type="file" accept=".json,application/json" hidden></div></header>
+<main>
+<aside>
+<label for="district">District</label><select id="district"></select>
+<p id="point-count"></p>
+<div class="tools" aria-label="Editing tools">
+<button id="edit" aria-pressed="true">Move points</button>
+<button id="add" aria-pressed="false">Add point</button>
+<button id="pan" aria-pressed="false">Pan map</button></div>
+<button id="delete" disabled>Delete selected point</button>
+<div class="coordinates"><label>X / m<input id="x" type="number" step="0.1" disabled></label>
+<label>Y / m<input id="y" type="number" step="0.1" disabled></label></div>
+<hr>
+<label class="check"><input id="fills" type="checkbox" checked> District fills</label>
+<label class="check"><input id="boundaries" type="checkbox" checked> All boundaries</label>
+<div class="zoom"><button id="zoom-in" aria-label="Zoom in">+</button>
+<button id="zoom-out" aria-label="Zoom out">−</button><button id="fit">Fit map</button></div>
+<details open><summary>Quick instructions</summary>
+<p>Select a district, then drag its round points. Double-click an edge to insert a point on it.</p>
+<p><b>Add point:</b> click anywhere to insert a corner after the nearest edge. Select a point and press Delete to remove it.</p>
+<p>Scroll to zoom. Use Pan map, or hold Space and drag to move the map. Ctrl/Cmd+Z undoes.</p>
+<p>District polygons are independent: shared edges are not linked, so edits can leave overlaps or gaps. Fills are masked to land; exported points keep your full polygon.</p>
+<p>Coordinates are concept-map metres: X right/east, Y down/south, origin at the map’s upper left. These are planning polygons, not saved Godot geometry.</p>
+</details>
+<button id="reset" class="reset">Reset to supplied boundaries</button>
+<p id="status" role="status" aria-live="polite"></p>
+<a href="../../review.html">← Back to concept gallery</a>
+</aside>
+<section class="canvas" aria-label="District map editor">
+<svg id="map" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1260 720"
+role="img" aria-label="Street map with editable district polygons" tabindex="0"></svg>
+<div class="map-note">Drag points · double-click edges · scroll to zoom</div>
+</section>
+</main>
+</body>
+</html>

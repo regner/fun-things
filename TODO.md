@@ -13,6 +13,11 @@ follow-ups remain in the M1 requirements rather than reopening the spikes.
 
 ## First milestone
 
+Gameplay production tasks retain their recorded prerequisites. The owner has separately
+authorized [parallel content production](docs/workflows/parallel-art-production.md):
+whole-city greybox and independently approved actor/vehicle/weapon/effects assets
+may proceed now. Combined gameplay integration is assigned elsewhere.
+
 ### M1-A — Session and player
 
 - [ ] **M1-A1 — Build the session service and menu flow.** Carry the S06 whole-UI direction
@@ -54,7 +59,9 @@ follow-ups remain in the M1 requirements rather than reopening the spikes.
   Stage 2 complete: 1.2 × 0.65 km planning size and Signal Row / Ironreach M1 slice accepted.
   [Stage 3 district briefs](docs/concepts/world-v1/stage-03-district-identities/README.md)
   approved, including unequal district/block/plot sizes and varied street widths/lane counts.
-  The six-block programme is retained; Stage 4 streets and roads is next.
+  Superseded ordering: the owner now requests a whole-city greybox alongside parallel
+  asset work, then district concepts/asset lists/replacement. The six-block area is
+  no longer the construction scope. See the parallel content workflow above.
 - [ ] **M1-C1 — Produce the ratified custom art families.** After: P0-GATE and the
   M1-C0 production asset list.
 - [ ] **M1-C2 — Assemble the authored district in saved sectors.**
