@@ -1,0 +1,41 @@
+{
+  "date": "2026-10-09",
+  "tool": "image_gen.imagegen",
+  "mode": "built-in",
+  "transparent_background": false,
+  "reference_inputs": [],
+  "original_output_directory": "/home/regner/.codex/generated_images/01a12094-2945-7d63-8e1e-aa3e12c11436",
+  "prompts": "prompts.json",
+  "outputs": [
+    {
+      "file": "a_commuter.png",
+      "original_file": "exec-ee821cc3-238c-4b60-96a0-6344124167fe.png",
+      "width": 1536,
+      "height": 1024,
+      "bytes": 1593534,
+      "sha256": "d20ccf31257ba39874739e211bc5464b8c3c332df9057bb8b41f8577df62a8bb"
+    },
+    {
+      "file": "b_shopper.png",
+      "original_file": "exec-527e2a91-acf9-4a2b-9c58-a50ca2f8b7d5.png",
+      "width": 1536,
+      "height": 1024,
+      "bytes": 1736004,
+      "sha256": "ba1ac8aafa542f9054672d8e2879c7774613c45acb668e598fa15feeec6229c1"
+    },
+    {
+      "file": "c_worker.png",
+      "original_file": "exec-480717bb-b1be-42de-b8dc-03a5163e8bbd.png",
+      "width": 1536,
+      "height": 1024,
+      "bytes": 1688487,
+      "sha256": "42d8637bae59037709330c16dca3be46b932a2eb0aa6e5ff66fdde6395c81ff2"
+    }
+  ],
+  "recovery": "Coordination interruptions cancelled response delivery. A and B were recovered from completed output files and visually identified. A repeat also completed and was excluded. C was generated explicitly afterward. No CLI fallback.",
+  "discarded_output": {
+    "original_file": "exec-7c409ccd-1733-4174-b32a-4cbe49d55d55.png",
+    "prompt_id": "a_commuter",
+    "reason": "Interrupted commuter repeat; not included in the three-option gallery."
+  }
+}
