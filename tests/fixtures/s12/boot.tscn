@@ -1,0 +1,24 @@
+[gd_scene load_steps=5 format=3]
+
+[ext_resource type="PackedScene" path="res://tests/fixtures/s03/boot.tscn" id="1"]
+[ext_resource type="Script" path="res://tests/fixtures/s12/proof.gd" id="2"]
+[ext_resource type="Script" path="res://tests/fixtures/s12/combat.gd" id="3"]
+[ext_resource type="PackedScene" path="res://tests/fixtures/s12/target.tscn" id="4"]
+
+[node name="Boot" instance=ExtResource("1")]
+script = ExtResource("2")
+
+[node name="Combat" type="Node3D" parent="." index="2"]
+script = ExtResource("3")
+
+[node name="Pedestrian" parent="Combat" index="0" instance=ExtResource("4")]
+position = Vector3(-6, 0, -18)
+target_id = "pedestrian"
+speed_mps = 1.5
+hit_radius_m = 0.45
+
+[node name="Car" parent="Combat" index="1" instance=ExtResource("4")]
+position = Vector3(6, 0, -26)
+target_id = "car"
+speed_mps = 12.0
+hit_radius_m = 1.0
