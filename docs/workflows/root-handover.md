@@ -14,14 +14,15 @@ No particular agent platform or delegation tool is required to read it.
 
 ## Current repository state — 9 October 2026
 
-- The integration branch is `main` at `13722e0` (`docs: refresh transition continuity
-  evidence`) when this handover was refreshed. Verify actual HEAD rather than assuming it
+- The integration branch is `main` at `406b9b6` (`docs: record quiet S17 host tick
+  measurement`) when this handover was refreshed. Verify actual HEAD rather than assuming it
   stayed there. The old `s08-enet-bandwidth` branch is deleted.
 - The commissioned foundation lanes through S17, including S03-P, S04-P, S04-T,
-  P0-TOOLING/P0-TOOLING-2 and the audit gap tasks, are integrated. The
-  [P0-GATE packet](../reviews/p0-gate-packet-2026-10-09.md) reconciles their outcomes,
-  contended measurements, residual risks, owner decisions and human checks. Its quiet
-  re-measurement fields are explicit TODOs until the separately running quiet record lands.
+  P0-TOOLING/P0-TOOLING-2 and the audit gap tasks, are integrated. The S17-only
+  [quiet record](../spikes/quiet-remeasure-2026-10-09.md) is integrated, and the refreshed
+  [P0-GATE packet](../reviews/p0-gate-packet-2026-10-09.md) reconciles its result, all
+  deliberately retained contended measurements, residual risks, owner decisions and human
+  checks.
 - Development is on Windows 11. Use the Mise-pinned Godot
   `4.8.dev7.official.c971f93e7`; the owner decided to stay on this pin for now.
 - Orchestration uses pi subagents in parent-created Git worktrees under
@@ -29,11 +30,14 @@ No particular agent platform or delegation tool is required to read it.
   coverage. Child lanes must never stop unrelated processes. Every windowed runner must use
   the exact 60 FPS guard in `tools/window_safety.py`; uncapped rendering is withdrawn on this
   laptop after two GPU device removals.
-- The [owner decisions](../reviews/owner-decisions-2026-10-08.md) govern controls,
+- The [8 October owner decisions](../reviews/owner-decisions-2026-10-08.md) govern controls,
   prediction, vehicles, explosion presentation, UI, environment scaling, initial ENet
   scope, desktop targets, engine pin, profiles and the completeness tasks authorized by
-  instruction 12. The [P0 audit](../reviews/p0-readiness-audit-2026-10-08.md) supplies
-  historical gap rationale; the packet records the current integrated disposition.
+  instruction 12. Decisions 13–17, recorded in the gate packet, restrict quiet reruns to
+  S17, make S10/S17 the first production acceptance work, set capped 60 FPS with
+  p95 ≤16.7 ms / p99 ≤20 ms, define dead-driver coast-to-abandoned behavior, and remove
+  GodotSteam in a separate lane. The [P0 audit](../reviews/p0-readiness-audit-2026-10-08.md)
+  supplies historical gap rationale; the packet records the current integrated disposition.
 - World concept work is separately commissioned and stage-gated at Stage 1; use the
   [world concept handover](world-concept-handover.md). It does not authorize production
   scenes or later concept stages before owner approval.
@@ -105,12 +109,14 @@ fixture, performance, hardware or graphical claim.
 
 ## Current lane order — refreshed 9 October 2026
 
-The earlier foundation queue is complete and historical. Finish the quiet timing record,
-fill the packet's `TODO(QUIET-*)` fields, obtain the listed owner/human dispositions and
-review P0-GATE. Do not begin M1 merely because the executable foundation lanes integrated.
-If P0-GATE passes or explicitly waives a named residual, use the packet's recommended starts
-and the ordered [M1 production plan](../plans/m1-production-plan.md). Linux S08 confirmation
-and P0-PROFILES remain non-blocking under the current owner decisions.
+The earlier foundation queue is complete and historical. The S17-only quiet measurement and
+owner decisions 13–17 are reconciled in the packet. Review it and record the P0-GATE
+disposition; do not begin M1 merely because the executable foundation lanes integrated.
+Under decision 14, the remaining human reviews and open production choices are not additional
+foundation prerequisites. If P0-GATE passes, begin with S10 behavior/budget and S17 production
+host-budget acceptance, then use the packet's other recommended starts and the ordered
+[M1 production plan](../plans/m1-production-plan.md). Linux S08 confirmation and P0-PROFILES
+remain non-blocking.
 
 ## Historical prior recommendation: S08 diagnostic — superseded
 
@@ -212,8 +218,9 @@ diversity, final envelopes and budgets require the user's decisions. None was ch
 - Steam public API/interface and upstream research are accepted; actual Steam
   testing, native integration, external route/accounts and device acceptance are
   deferred. Lobby or ENet proof is not actual Steam gameplay proof.
-- S02/S04 camera/control/feel/final dimensions and S05 policy choices need user
-  ratification. Representative budgets and Windows/Deck/device proof are absent.
+- S02/S04 camera/control/feel/final dimensions and S05 policy choices still need user
+  review. Driver death is decided: coast under neutral input, then leave an abandoned parked
+  car. Representative production budgets and Windows/Linux target-device proof are absent.
 - **P0-GATE remains OPEN. M1 is not authorized to start.**
 - Configuration changes and tool setup remain outside this handover's authority.
   No vendor repair, renderer/pin/transport choice, device/account acquisition or

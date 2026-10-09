@@ -21,12 +21,11 @@ follow-ups remain in the M1 requirements rather than reopening the spikes.
   top-right position are accepted; see [UI concepts](docs/concepts/ui-v1/README.md).
 - [ ] **S08 — Run the Linux desktop launch/graphics checklist when a Linux machine is
   available.** This does not block proceeding; keep the ENet workaround and offline review.
-- [ ] **QUIET — Integrate the 9 October quiet timing re-measurement and refresh the gate
-  packet's TODO(QUIET-*) fields.** Do not infer quiet values from contended records.
-- [ ] **P0-GATE — Record owner decisions, human checks and the quiet-performance
-  disposition.** Use the [review packet](docs/reviews/p0-gate-packet-2026-10-09.md),
-  including the S10 follow-up decision and S17 budget allocation. Linux-only S08
-  confirmation and P0-PROFILES remain non-blocking unless the owner changes that scope.
+- [ ] **P0-GATE — Review the refreshed packet and record the gate disposition.** The
+  S17-only quiet record and owner decisions 13–17 are integrated in the
+  [review packet](docs/reviews/p0-gate-packet-2026-10-09.md). Under decision 14, the
+  remaining human checks and production decisions are not extra foundation prerequisites;
+  Linux-only S08 confirmation and P0-PROFILES remain non-blocking.
 
 ## First milestone
 
@@ -57,7 +56,9 @@ All M1 tasks follow P0-GATE.
   M1-C0 production asset list.
 - [ ] **M1-C2 — Assemble the authored district in saved sectors.**
   Needs approved M1-C1 road/building/prop subsets.
-- [ ] **M1-C3 — Implement host-owned pedestrians and traffic.** After: M1-B1, M1-B2, M1-C2.
+- [ ] **M1-C3 — Implement host-owned pedestrians and traffic.** Start the S10 production
+  behavior/budget work immediately after P0-GATE with explicit acceptance checks; integrate
+  with the city after M1-B1, M1-B2 and M1-C2.
 - [ ] **M1-C4 — Implement the road minimap and HUD integration.** After: M1-A2;
   final alignment with M1-C2.
 
@@ -65,7 +66,8 @@ All M1 tasks follow P0-GATE.
 
 - [ ] **M1-D1 — Complete production validation tooling and CI.** Grows alongside implementation.
 - [ ] **M1-D2 — Run integrated playtests, reviews and feel tuning.** After: M1-B4, M1-C3, M1-C4.
-- [ ] **M1-D3 — Verify capacity, adverse-network behavior and performance.**
-  After: M1-D1, M1-B4, M1-C3, M1-C4.
+- [ ] **M1-D3 — Verify capacity, adverse-network behavior and performance.** Start the S17
+  production host-budget work immediately after P0-GATE; target capped 60 FPS with p95 ≤16.7 ms
+  and p99 ≤20 ms on named desktop hardware. Final gate after: M1-D1, M1-B4, M1-C3, M1-C4.
 - [ ] **M1-D4 — Export and deliver private milestone review builds.** After: M1-D2, M1-D3.
 - [ ] **M1-GATE — Review the first playable milestone.** After: M1-D4.
