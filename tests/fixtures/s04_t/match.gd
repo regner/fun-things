@@ -282,6 +282,11 @@ func _client_step(delta: float) -> void:
 
 ## Sends one bounded redundant input batch for the current control revision.
 func _send_local_input(mode: String, command: Dictionary) -> void:
+	_submit_input.rpc_id(1, _build_local_input_envelope(mode, command))
+
+
+## Builds one monotonic input envelope without crossing mode-specific redundancy.
+func _build_local_input_envelope(mode: String, command: Dictionary) -> Dictionary:
 	local_input_sequence += 1
 	var frame: Dictionary
 	if mode == "foot":
@@ -303,10 +308,10 @@ func _send_local_input(mode: String, command: Dictionary) -> void:
 	local_recent_frames.append(frame)
 	if local_recent_frames.size() > 3:
 		local_recent_frames.pop_front()
-	_submit_input.rpc_id(1, {
+	return {
 		"mode": mode, "revision": control_revision,
 		"frames": local_recent_frames.duplicate(true),
-	})
+	}
 
 
 ## Accepts held input only from the connected sender and current host-owned binding.
@@ -740,6 +745,9 @@ func _action_result(  # gdstyle:ignore=quality/max-function-length,quality/max-l
 	var failure: String = transition.failure
 	var vehicle: String = transition.vehicle
 	var revision: int = transition.revision
+	if revision < control_revision:
+		return
+	var revision_advanced: bool = revision > control_revision
 	var snapshot: Dictionary = transition.snapshot
 	pending_action = false
 	latest_snapshot = snapshot.duplicate(true)
@@ -758,6 +766,8 @@ func _action_result(  # gdstyle:ignore=quality/max-function-length,quality/max-l
 		_switch_to_foot(snapshot, true, "accepted_exit")
 
 	control_revision = revision
+	if revision_advanced:
+		_reset_local_input_revision()
 	var new_focus: Vector3 = _local_focus_position()
 	var record: Dictionary = {
 		"event": "transition",
@@ -989,7 +999,7 @@ func _request_exit(next_stage: String) -> void:
 func _switch_to_car(vehicle: String, snapshot: Dictionary, reason: String) -> void:
 	foot_history.clear()
 	car_history.clear()
-	_reset_local_input_binding()
+	_clear_local_input_redundancy()
 	history_clean = history_clean and foot_history.size() == 0 and car_history.size() == 0
 	foot.neutralize()
 	foot.collision_layer = 0
@@ -1014,7 +1024,7 @@ func _switch_to_car(vehicle: String, snapshot: Dictionary, reason: String) -> vo
 func _switch_to_foot(snapshot: Dictionary, install: bool, reason: String) -> void:
 	foot_history.clear()
 	car_history.clear()
-	_reset_local_input_binding()
+	_clear_local_input_redundancy()
 	history_clean = history_clean and foot_history.size() == 0 and car_history.size() == 0
 	for actor: S04Kinematic in [parked_car, traffic_car]:
 		actor.configure(false)
@@ -1031,8 +1041,13 @@ func _switch_to_foot(snapshot: Dictionary, install: bool, reason: String) -> voi
 	ownership_clean = ownership_clean and reason != "" and _ownership_matches()
 
 
-## Clears local packet numbering when host authority creates a control revision.
-func _reset_local_input_binding() -> void:
+## Prevents redundant frames from one speculative mode leaking into another mode.
+func _clear_local_input_redundancy() -> void:
+	local_recent_frames.clear()
+
+
+## Restarts packet numbering only after authority advances the control revision.
+func _reset_local_input_revision() -> void:
 	local_input_sequence = 0
 	local_recent_frames.clear()
 

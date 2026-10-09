@@ -132,6 +132,21 @@ def analyze(directory: Path, profile: str, proxy: FootProxy) -> dict:
                            if row["revision"] == revision)
         for revision in revisions
     }
+    race_transition = by_stage.get("race_entry", {})
+    race_wall_ms = race_transition.get("wall_ms", 0)
+    revision_one_before_race = [
+        row for row in active_inputs
+        if row["revision"] == 1 and row["wall_ms"] <= race_wall_ms
+    ]
+    revision_one_after_race = [
+        row for row in active_inputs
+        if row["revision"] == 1 and row["wall_ms"] > race_wall_ms
+    ]
+    rejected_entry_continuity = bool(
+        revision_one_before_race and revision_one_after_race
+        and max(row["sequence"] for row in revision_one_after_race)
+        > max(row["sequence"] for row in revision_one_before_race)
+    )
     blackout_begin = next((row for row in proxy.events
                             if row["event"] == "blackout_begin"), None)
     blackout_end = next((row for row in proxy.events
@@ -167,6 +182,9 @@ def analyze(directory: Path, profile: str, proxy: FootProxy) -> dict:
         "proxy_delay_max_ms": max(delays, default=0.0),
         "input_revisions": revisions,
         "minimum_sequence_by_revision": minimum_sequence,
+        "rejected_entry_sequence_continuity": rejected_entry_continuity,
+        "post_rejection_max_sequence": max(
+            (row["sequence"] for row in revision_one_after_race), default=0),
         "varying_input_samples": len({tuple(row["sample"]) for row in active_inputs}),
         "post_blackout_samples": len({tuple(row["sample"]) for row in post_blackout}),
         "post_stall_samples": len({tuple(row["sample"]) for row in post_stall}),
@@ -195,7 +213,9 @@ def analyze(directory: Path, profile: str, proxy: FootProxy) -> dict:
         and host_result.get("action_cache_size", 99) <= 64,
         "one_hydration": host_result.get("hydration_count") == 1,
         "control_revision_resets": revisions == [1, 2, 3, 4]
-        and all(value <= 3 for value in minimum_sequence.values()),
+        and host_result.get("control_reset_count") == 3
+        and all(value <= 8 for value in minimum_sequence.values()),
+        "rejected_entry_sequence_continuity": rejected_entry_continuity,
         "varying_commands": measurements["varying_input_samples"] >= 6,
         "adverse_profile": profile != "adverse" or (
             proxy.blackout_done

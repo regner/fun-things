@@ -8,6 +8,7 @@ var failures: Array[String] = []
 func _init() -> void:
 	_probe_hydration()
 	_probe_input()
+	_probe_rejected_entry_continuity()
 	_probe_actions()
 	_probe_client_messages()
 	if failures.is_empty():
@@ -72,6 +73,41 @@ func _probe_input() -> void:
 	_require(match_state.admit_input_envelope(2, car_bad, 1101) == "INVALID",
 		"car control range")
 	match_state.free()
+
+
+## Proves rejected speculation preserves numbering in its unchanged control revision.
+func _probe_rejected_entry_continuity() -> void:
+	var authority := _admitted_match()
+	var authority_foot := S03RActor.new()
+	authority.add_child(authority_foot)
+	authority.foot = authority_foot
+	_require(authority.admit_input_envelope(2, _foot_envelope(1, 1), 1000) == "OK",
+		"continuity initial foot input")
+	for _index: int in range(3):
+		authority._consume_authority_input()
+	_require(authority.processed_input_sequence == 3, "continuity authority watermark")
+
+	var client := S04TMatch.new()
+	client.control_revision = 1
+	client.local_input_sequence = 3
+	client.input_tick = 4
+	client._clear_local_input_redundancy()
+	var speculative: Dictionary = client._build_local_input_envelope("parked", {
+		"throttle": 0.5, "steer": 0.0, "brake": 0.0, "handbrake": false,
+	})
+	_require(authority.admit_input_envelope(2, speculative, 1001) == "STALE_CONTEXT",
+		"speculative car input rejected without changing revision")
+
+	client.input_tick = 5
+	client._clear_local_input_redundancy()
+	var resumed: Dictionary = client._build_local_input_envelope("foot", {
+		"move": Vector2(0.25, 0.0), "aim_yaw": 0.1,
+	})
+	_require(resumed.frames[0].sequence == 5, "rejected entry kept monotonic sequence")
+	_require(authority.admit_input_envelope(2, resumed, 1002) == "OK",
+		"post-rejection foot input admitted")
+	authority.free()
+	client.free()
 
 
 ## Proves action queue/rate/work/cache/sequence limits and deduplication.
