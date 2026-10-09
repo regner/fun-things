@@ -5,7 +5,7 @@ extends S03Replication
 signal exit_result(reason: String)
 
 const EXIT_BURST: float = 2.0
-const EXIT_RATE: float = 2.0
+const EXIT_RATE: float = 1.0
 
 var exit_pending: bool = false
 var next_exit_request: int = 0
@@ -76,6 +76,7 @@ func _request_exit(session: String, request_id: int) -> void:
 
 	var peer_id: int = multiplayer.get_remote_sender_id()
 	if not _allow_exit_request(peer_id, Time.get_ticks_msec()):
+		_exit_result.rpc_id(peer_id, request_id, "RATE_LIMIT")
 		return
 
 	var participant: int = int(resolve_participant.call(peer_id))

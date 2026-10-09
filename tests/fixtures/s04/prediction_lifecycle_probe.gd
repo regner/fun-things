@@ -92,7 +92,7 @@ func _input_tick_fence() -> void:
 
 
 ## Requires host-only moving exit rejection and neutral coasting after driver disconnect.
-func _exit_and_disconnect() -> void:
+func _exit_and_disconnect() -> void:  # gdstyle:ignore=quality/max-function-length
 	var fixture: Node = _fixture("Lifecycle")
 	var match_state: S04Match = fixture.get_node("View/Match")
 	match_state.authoritative = true
@@ -132,8 +132,13 @@ func _exit_and_disconnect() -> void:
 		"exit request burst was not bounded")
 	replication.forget(7)
 	_require(not replication.exit_rate.has(7), "disconnect retained exit rate state")
-	_require(replication._begin_exit_request() > 0, "first local exit request was not reserved")
+	var request_id: int = replication._begin_exit_request()
+	_require(request_id > 0, "first local exit request was not reserved")
 	_require(replication._begin_exit_request() == 0, "second outstanding exit request was accepted")
+	replication._exit_result(request_id, "RATE_LIMIT")
+	_require(not replication.exit_pending, "rate-limit verdict retained pending request")
+	_require(replication._begin_exit_request() > request_id,
+		"rate-limit verdict did not permit a later request")
 	for step: int in COAST_STEPS:
 		match_state._physics_process(DELTA_SECONDS)
 	_require(coasting.global_position.distance_to(start) > 0.1, "disconnected car did not coast")

@@ -50,6 +50,8 @@ var ending: bool = false
 var exit_verdict: String = ""
 var exit_requested: bool = false
 var lifecycle_stage: int = 0
+var rate_limited_tick: int = 0
+var rate_limit_observed: bool = false
 var scenario_finished: bool = false
 var coast_start: Vector3 = Vector3.ZERO
 var coast_entity: int = 0
@@ -159,23 +161,25 @@ func _lifecycle_process() -> void:  # gdstyle:ignore=quality/max-branches
 			get_tree().quit(0)
 		return
 
-	if lifecycle_stage < 2:
+	if lifecycle_stage <= 5:
 		_send_lifecycle_drive(_lifecycle_drive(false))
-		if lifecycle_stage == 0 and local_tick >= 30 and (
-			match_state.local_body().latest_authoritative_speed_mps >= 2.5):
-			if replication.request_exit():
-				lifecycle_stage = 1
+		var ready: bool = lifecycle_stage in [2, 4] or (lifecycle_stage == 0 and (
+			local_tick >= 30) and (
+			match_state.local_body().latest_authoritative_speed_mps >= 2.5))
+		if ready and replication.request_exit():
+			lifecycle_stage += 1
 		return
 
-	if lifecycle_stage == 2:
+	if lifecycle_stage in [6, 7]:
 		_send_lifecycle_drive(_lifecycle_drive(true))
-		if match_state.local_body().latest_authoritative_speed_mps < 0.4:
+		if lifecycle_stage == 6 and local_tick - rate_limited_tick >= 60 and (
+			match_state.local_body().latest_authoritative_speed_mps < 0.4):
 			if replication.request_exit():
-				lifecycle_stage = 3
+				lifecycle_stage = 7
 		return
 
-	if lifecycle_stage == 4 and not scenario_finished:
-		var passive: bool = not match_state.prediction_enabled and (
+	if lifecycle_stage == 8 and not scenario_finished:
+		var passive: bool = rate_limit_observed and not match_state.prediction_enabled and (
 			not match_state.seats.has(session.local_participant)) and (
 			not match_state.bindings[session.local_participant].admitted) and (
 			not match_state.rig.get_meta("input_enabled", true)) and (
@@ -240,7 +244,8 @@ func _scenario_result(ok: bool, failure: String) -> void:
 		failures.append(failure)
 	_record({"event": "scenario_result", "scenario": scenario,
 		"ok": failures.is_empty(), "failures": failures,
-		"coasting_snapshots": coasting_snapshots})
+		"coasting_snapshots": coasting_snapshots,
+		"rate_limit_observed": rate_limit_observed})
 	get_tree().quit(0 if failures.is_empty() else 1)
 
 
@@ -485,17 +490,25 @@ func _on_exit_result(reason: String) -> void:
 	if scenario != SCENARIO_EXIT:
 		return
 
-	if lifecycle_stage == 1:
+	if lifecycle_stage in [1, 3]:
 		if reason != "EXIT_MOVING" or not match_state.seats.has(session.local_participant) or (
 			not match_state.prediction_enabled):
 			_scenario_result(false, "moving rejection changed predicted lifecycle")
 			return
-		lifecycle_stage = 2
-	elif lifecycle_stage == 3:
-		if reason != "OK":
-			_scenario_result(false, "stopped exit was not accepted")
+		lifecycle_stage += 1
+	elif lifecycle_stage == 5:
+		if reason != "RATE_LIMIT" or not match_state.seats.has(session.local_participant) or (
+			not match_state.prediction_enabled) or replication.exit_pending:
+			_scenario_result(false, "rate-limited exit wedged or changed predicted lifecycle")
 			return
-		lifecycle_stage = 4
+		rate_limit_observed = true
+		rate_limited_tick = local_tick
+		lifecycle_stage = 6
+	elif lifecycle_stage == 7:
+		if reason != "OK":
+			_scenario_result(false, "stopped exit after rate limit was not accepted")
+			return
+		lifecycle_stage = 8
 
 
 ## Receipts actual drawn frames independently of simulation and keeps matched camera captures.
