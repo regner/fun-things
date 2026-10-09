@@ -14,8 +14,8 @@ No particular agent platform or delegation tool is required to read it.
 
 ## Current repository state — 9 October 2026
 
-- The integration branch is `main` at `406b9b6` (`docs: record quiet S17 host tick
-  measurement`) when this handover was refreshed. Verify actual HEAD rather than assuming it
+- The integration branch is `main` at `7351f3b` (`fix: remove remaining GodotSteam
+  exclusions`) when this handover was refreshed. Verify actual HEAD rather than assuming it
   stayed there. The old `s08-enet-bandwidth` branch is deleted.
 - The commissioned foundation lanes through S17, including S03-P, S04-P, S04-T,
   P0-TOOLING/P0-TOOLING-2 and the audit gap tasks, are integrated. The S17-only
@@ -36,9 +36,9 @@ No particular agent platform or delegation tool is required to read it.
   instruction 12. Decisions 13–20, recorded in the gate packet, restrict quiet reruns to
   S17, make S10/S17 the first production acceptance work, set capped 60 FPS with
   p95 ≤16.7 ms / p99 ≤20 ms, define dead-driver coast-to-abandoned behavior, remove
-  GodotSteam in a separate lane, select host-current-time hit verdicts with view-tick-ready
-  fire intents, accept S03-P's ordered bounded M1 input queue, and set S11's initial short
-  extrapolate→hold→smooth-authority policy. The
+  GodotSteam (executed by `660b4fd`/`7351f3b`), select host-current-time hit verdicts with
+  view-tick-ready fire intents, accept S03-P's ordered bounded M1 input queue, and set S11's
+  initial short extrapolate→hold→smooth-authority policy. The
   [P0 audit](../reviews/p0-readiness-audit-2026-10-08.md) supplies historical gap rationale;
   the packet records the current integrated disposition.
 - World concept work is separately commissioned and stage-gated at Stage 1; use the
@@ -267,17 +267,10 @@ proportionate to complexity: routine documentation/source planning succeeded at 
 native lifetime diagnosis warranted higher effort. Do not make high effort a default
 merely because a task mentions maps, 3D or review.
 
-## Checkpoint cadence and first action
+## Current first action
 
-Latest accepted checkpoint examined through
-`2d5457250701ebf93ef6e90f0e82ec9f384fd530`, not its own unseen storage commit.
-Since then there are at most **two substantive source-preparation streams**: S08
-diagnosis and S07 preparation. Documentation reconciliation, review fixes, rebases,
-retention and this handover do not independently count. A full checkpoint was not due:
-normal cadence is roughly 6–8 substantive streams, or earlier consequential scope/
-gate/milestone change. Never advance the examined watermark solely due to a rebase.
-
-After reading and verifying current state, explain the finite S08 diagnostic scope and
-obtain the missing approval for telemetry/package preparation and private runtime
-resources. Alternatively, let the user explicitly select another task. **Do not start
-any S07 slice, S08 run, native repair or configuration change merely to “continue.”**
+Review the refreshed [P0-GATE packet](../reviews/p0-gate-packet-2026-10-09.md) and record
+the gate disposition. Decision 14 makes the integrated S17 quiet record and packet the only
+remaining P0 inputs; human reviews and unresolved subsystem choices are assigned M1 production
+work, not additional foundation blockers. Do not start M1 until that disposition is recorded,
+and do not revive the historical S08 diagnostic or other superseded foundation work.

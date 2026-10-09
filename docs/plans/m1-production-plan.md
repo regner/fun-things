@@ -20,13 +20,12 @@ The owner's 8 October decisions supersede older text where they conflict:
   complexity under load, but it may not drop an explosion.
 - S07 supplies environment-scale planning guidance, not a production capacity gate.
 
-P0-GATE should reconcile the older Steam, Deck, tank-control, cutaway and eight-effect
-wording in the canonical records. Production must not implement those superseded
-requirements merely because the dated drafts still contain them. Owner instruction 12
-decides that the gate depends on unfinished S02–S08 work, S03-P/S04-P, S09–S17, and
-the audit-derived G tasks. The suggested reconciliation must list that full set rather
-than narrowing it to this plan's immediate consumers. Owner review is reserved for
-quantitative criteria or an explicit waiver, not for re-deciding those dependencies.
+P0-GATE reconciles older Steam, Deck, tank-control, cutaway and eight-effect wording;
+production must not implement superseded requirements merely because dated drafts retain
+them. **Historical scope note:** owner instruction 12 originally made unfinished S02–S08,
+S03-P/S04-P, S09–S17 and audit G tasks gate dependencies. Owner decision 14 supersedes
+that gate scope: P0 now waits only for the integrated S17 quiet record and refreshed gate
+packet. Remaining human checks and subsystem choices stay assigned to their M1 consumers.
 
 ## 1. Production shape
 
@@ -437,10 +436,10 @@ Track frame p50/p95/p99, render CPU/GPU, host simulation p95/p99 including AI/ch
 working set, draw calls, active counts, encode/decode time and wire bandwidth. Use the
 safe capped method settled by S08-C; do not repeat the uncapped runs that removed the
 GPU device. The audit's [owner question 2](../reviews/p0-readiness-audit-2026-10-08.md#5-owner-questions)
-notes that deferring Deck left no ratified desktop frame target. This proposal is
-60 FPS with frame p99 <= 20 ms on named Windows and Linux hardware, but M1-D3 cannot
-claim that target until the owner ratifies it. Compare other measurements against the
-ratified design budgets without silently changing content or quality.
+historically noted that deferring Deck left no ratified desktop frame target. Owner
+decision 15 now sets capped 60 FPS with frame p95 <= 16.7 ms and p99 <= 20 ms on the
+named RTX 4070 Laptop Windows reference and a Linux machine when available. The target
+remains tunable during M1; do not silently change content or quality to claim it.
 S07's city-size curve informs authored scope: its repeated grey-block rows passed at
 6, 24 and 96 blocks, while 384 crashed before a result. The fit (about 0.79 MiB working
 set and 138 expanded nodes per repeated-content block) is planning guidance with large
@@ -466,12 +465,11 @@ backlog below:
 | **S17** | Integrated full-cap host-tick composition after S09–S12, including S11 encode for three clients | M1-A2.2 codec freeze, M1-C3 and M1-D3 |
 
 S11's accepted full-cap codec, baseline and wire-budget evidence is independently a
-**hard** M1-A2.2 dependency. S17 does not substitute for it. For full reconciliation,
-P0-GATE depends on all unfinished S02–S08 work; S03-P and S04-P; S09–S17; and audit
-G1–G7 (S03-L, S04-T, S17, S08-X, P0-TOOLING, S08-C, and S01-W). Completed work in
-those ranges remains gate input rather than an open task. Owner review settles proposed
-quantitative criteria or records an explicit waiver; an unresolved dependency is not
-permission to skip ahead.
+**hard** M1-A2.2 dependency. S17 does not substitute for it. **Historical scope note:**
+the 8 October audit reconciliation made unfinished S02–S08, S03-P/S04-P, S09–S17 and
+G1–G7 P0 dependencies. Owner decision 14 supersedes that scope: P0 waits only for the
+integrated S17 quiet record and refreshed gate packet. The other rows above remain
+required M1 consumer inputs and acceptance work, not P0 blockers.
 
 Sizes are dispatch units, not calendar promises: **S** is one narrow owner/API with
 focused tests, **M** spans several collaborators or one real-process matrix, and
@@ -536,11 +534,11 @@ population by replacing missing S09–S11/S17 evidence with dummy behavior.
 
 | Risk | Consequence | Mitigation / owner question |
 | --- | --- | --- |
-| Canonical requirements still name Steam/Deck and rejected controls/effect cap | Teams implement or gate against superseded scope | P0-GATE records one dated reconciliation. **Owner:** confirm this plan's ENet-only, desktop-only M1 wording is the governing milestone scope. |
+| Historical requirements name Steam/Deck and rejected controls/effect cap | Teams implement or gate against superseded scope | Existing scope decisions settle ENet-only desktop M1; decision 17's GodotSteam removal is complete. Treat older wording as historical. |
 | Prediction against CharacterBody contacts is approximate | Visible corrections, divergent foot/car behavior or replay side effects | S03-L precedes S03-P/S04-P; production ports their shared-rule evidence, keeps revision fences and snaps/resyncs on overflow. No historical-world rollback claim. |
 | Predicted foot↔car transfer has multiple owners | Rejected claims or revision changes leave the camera, HUD or replay history on the wrong body | S04-T is a hard B1.2 dependency and measures rejected/racing claims plus replay-history handoff before production interaction. |
 | Vehicle handling remains subjective | B1 foundations may be rebuilt after integration | Owner runs the standalone S04 drive scene and ratifies tuning/body dimensions before B1.1 freezes definitions. |
-| Hitscan policy is unsettled | High-latency disagreement or exploit surface | S12 compares host-current and bounded rewind. **Owner:** approve the recommended policy and maximum rewind before B2.1. |
+| Initial hitscan policy needs production acceptance | High-latency disagreement or exploit surface | Decision 18 starts with host-current-time verdicts, forgiving hit shapes and view-tick-ready intents; add bounded host-only rewind later only if playtests require it. |
 | “Every explosion visible” has no accepted quality-degradation rule | 12/24 effects may violate frame budget or produce unreadable output | S15 measures authored full/cheap variants. **Owner:** confirm reducing particles/lighting while retaining one visible effect per explosion is allowed. |
 | Production art differs greatly from grey-block evidence | Memory, draw and animation costs arrive late | C1 delivers the estimated 10–16-day starter subset early; repeat representative capped tests as each family lands and reforecast the 60–96-day total from actual throughput. |
 | Windows Blender output differs from accepted Linux output | Source/export checks fail after production art starts | S01-W is a hard C1/S13 input; select byte or semantic comparison before asset production. |
@@ -553,43 +551,41 @@ population by replacing missing S09–S11/S17 evidence with dummy behavior.
 | Linux release diagnostics or dev-engine regressions recur | One target cannot pass clean export | S08-X runs Linux early; retain exact logs and escalate an engine-pin decision rather than suppress diagnostics. |
 | S02 cutaway removal breaks retained S07 environment scenes | Rebased fixtures have missing scripts/shaders and capacity guidance cannot reproduce | Migrate/regenerate every `s07_env` saved reference before integrating S02; S08-C compares with/without the obsolete path. |
 | The 384-block crash or unsafe uncapped method is reused | Engine/device failure or unsupported city-size inference | S08-C bounds the crash and establishes capped GPU measurement before C2.2/D3. |
-| Driver-death stopping policy is unsettled | B1.2 silently treats death like disconnect | Owner selects coast, brake or another rule; only disconnect is already ratified as coast. |
+| Driver-death lifecycle is implemented inconsistently | Seat/control or abandoned-car cleanup diverges | Decision 16 releases the seat, neutralizes controls, coasts the surviving car and then applies abandoned-car cleanup/replenishment. |
 | No Deck acceptance in M1 | Later handheld work may require renderer/input/UI changes | Keep 1280×800 and controller-friendly composition in design, but label it unverified. Deck becomes a separately planned post-M1 target. |
 | Schedule pressure encourages making large tasks monolithic | Review and regression gaps | Split every L row at its named owner seams before dispatch; gate integration on public-API tests rather than completion prose. |
 
 The audit's five [owner questions](../reviews/p0-readiness-audit-2026-10-08.md#5-owner-questions)
-are explicit P0-GATE inputs:
+are now resolved or reassigned:
 
-1. Confirm whether P0-GATE again depends on S02 controls, S03-L, S03-P, S04-P,
-   S04-T, P0-TOOLING and the other foundation consumers above. This proposal does;
-   any waiver must name the affected M1 rows rather than silently deleting edges.
-2. Ratify an M1 desktop frame target. This proposal is capped 60 FPS with frame
-   p99 <= 20 ms on named Windows and Linux hardware.
-3. Choose coast, brake or another stopping policy when a driver **dies**. Disconnect
-   already coasts; this plan does not extend that decision to death.
-4. **Resolved 9 October 2026:** owner decision 17 removes GodotSteam from the
-   ENet-only M1 project; S08-X keeps rejecting accidental package reintroduction.
-5. Assign the quiet wave-3 remeasurement pass and checkpoint. This proposal assigns
-   selected quiet reruns and the integrated quiet/contended comparison to S17 before
-   codec/C3 freeze, with M1-D3 repeating final integrated acceptance.
+1. **Decision 14:** P0 waits only for the integrated S17 quiet record and refreshed gate
+   packet. Earlier all-foundation dependency wording is historical; named consumer edges
+   remain M1 requirements.
+2. **Decision 15:** M1 targets capped 60 FPS with p95 <= 16.7 ms and p99 <= 20 ms on
+   named Windows and Linux hardware, tunable during implementation.
+3. **Decision 16:** a surviving dead driver's car releases its seat, neutralizes controls,
+   coasts and becomes an abandoned parked car under existing cleanup/replenishment.
+4. **Decision 17, executed:** GodotSteam is removed from the ENet-only M1 project;
+   S08-X keeps rejecting accidental package reintroduction.
+5. **Decisions 13–14:** only S17 was rerun quietly, and its integrated record plus the
+   refreshed packet complete the P0 inputs. M1-D3 still owns final production acceptance.
 
-Additional owner review at P0-GATE:
+Remaining production reviews are assigned to their consumers rather than P0 prerequisites:
 
-6. Ratify the final vehicle body dimensions and S04 drive tuning when the feel scene
-   result is available.
-7. Ratify S12 weapon damage, fire rate, magazine/reload, rocket cooldown and hit
-   registration defaults before B2.
+6. Ratify final vehicle body dimensions and S04 drive tuning before B1.1 freezes them.
+7. Review S12 weapon damage, fire rate, magazine/reload and rocket cooldown before B2;
+   decision 18 already settles the initial hit-registration policy.
 8. Select the production art quality bar and starter subset that unblock C1.1/C2.1;
    later families must not block initial sector assembly. Review the 60–96 focused
    artist-day estimate after the first two families establish actual throughput.
-9. Confirm that Windows/Linux desktop budget evidence on named available hardware is
-   sufficient for M1 review while Deck remains explicitly untested.
+9. Validate Windows/Linux desktop budgets on named available hardware while Deck remains
+   explicitly untested.
 10. Approve adding the pinned test-only GUT dependency under D1.1.
 
-## 7. Suggested task-record reconciliation
+## 7. Historical suggested task-record reconciliation
 
-Do not edit the task index until the owner reviews this proposal. Suggested concise
-changes for `docs/plans/task-requirements.md` are:
+The bullets below preserve this plan's original 8 October reconciliation proposal. They are
+historical: current `TODO.md`, task requirements and owner decisions 13–20 supersede them.
 
 - **P0-GATE:** record the owner's answer on restoring S02/prediction and audit-derived
   dependencies; add P0-TOOLING, S03-L, S08-X, S08-C, S01-W, S03-P, S04-P, S04-T and

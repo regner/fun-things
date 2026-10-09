@@ -449,7 +449,8 @@ input uses the car EntityRef and its control revision. RESET validates session/a
 and host privilege, not a live body, so a dead host can reset. RESPAWN_RETRY requires
 the current dead/spawn-failed life revision. Other actions validate live life/control/
 equipment suitability. Draft M1 policy: weapons cannot fire/reload from a seat;
-S04/feel review confirms it before P0-GATE.
+S04/feel review confirms it during M1 before B1/B2 acceptance. Under owner decision 14,
+this review is production work rather than a P0 prerequisite.
 
 `ActionResult = {action_sequence, status: APPLIED | REJECTED, failure?,
 durable_revision?}` is emitted after processing, not mere queue admission. A
@@ -577,14 +578,15 @@ velocity, definition and expiry tick; host impacts/expiry end them once. No M1
 lag-compensated historical hitscan/world rollback is implied; host current-state
 queries choose hits. S03-R/S04 measure whether that policy meets feel requirements.
 
-S05 must settle damage/chain queue capacity, processing budget, guaranteed completion,
-overflow admission policy, obstruction/falloff, chain delay and wreck collision/retention
-before P0-GATE. An accepted shot/blast cannot silently lose authoritative outcomes
-to a cosmetic cap or queue overflow. Reserved pending-chain capacity/backpressure
-must be proved on the 12-car burst before production. This is an explicit unresolved
-spike decision, not permission for unbounded queues. Wreck/dead-NPC deadlines and
-safe retention-cap cleanup are likewise S05/Population decisions; active chains
-and occupied live cars cannot be deleted to satisfy a visual cap.
+S05/M1-B3 must settle damage/chain queue capacity, processing budget, guaranteed
+completion, overflow admission policy, obstruction/falloff, chain delay and wreck
+collision/retention before production acceptance. Under owner decision 14 these are M1
+consumer requirements, not P0 prerequisites. An accepted shot/blast cannot silently lose
+authoritative outcomes to a cosmetic cap or queue overflow. Reserved pending-chain
+capacity/backpressure must be proved on the 12-car burst before production. This is
+explicit unresolved production work, not permission for unbounded queues. Wreck/dead-NPC
+deadlines and safe retention-cap cleanup are likewise S05/Population decisions; active
+chains and occupied live cars cannot be deleted to satisfy a visual cap.
 
 ## City, presentation and settings
 
@@ -733,8 +735,8 @@ values are 5/3 m/s forward/reverse, 180°/s turn, capsule radius0.38 m/height1.8
 World bit1 and Actor bit2. The query checks body centre to source-derived muzzle
 before the forward ray, so an extended weapon cannot shoot through world collision.
 Input cancellation is owned by LocalRig/Input; actual native-focus validation and
-user feel remain pending. Rendering cutaway never changes solid collision. These
-are spike candidates for S03-R/S04/P0-GATE, not accepted production tuning.
+user feel remain pending. Rendering cutaway never changes solid collision. Under owner
+decision 14 these are M1 production acceptance inputs, not P0 prerequisites or accepted tuning.
 
 ## S03-R bounded ENet candidate boundary
 

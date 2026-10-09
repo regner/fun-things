@@ -343,11 +343,12 @@ smoothing. This 8 October 2026 revision retains at most eight frames per partici
 separate from its 120-sequence freshness window. It bounds lag by sequence/input-tick
 distance: select the oldest queued frame within three ticks (50 ms) of the newest
 accepted frame, supersede everything older without extra host steps, and neutralize
-receipt age beyond `HELD_EXPIRY_MS` (250 ms). It supersedes the earlier
-newest-valid-frame wording so host simulation remains one-to-one with client replay;
-the owner reviews the policy at P0-GATE. Remote actors remain interpolated. The fixture
-evidence does not establish
-production integration, physical input, subjective feel or full-world rollback.
+receipt age beyond `HELD_EXPIRY_MS` (250 ms). Owner decision 19 accepts this M1 contract;
+it supersedes the earlier newest-valid-frame wording so host simulation remains one-to-one
+with client replay. Decision 20 gives remote actors one tunable 100–150 ms last-velocity
+extrapolation bound, then hold-until-data and smooth blending to authority. The fixture
+evidence does not establish production integration, physical input, subjective feel or
+full-world rollback.
 
 ## Accepted S04 technical boundary
 
@@ -369,8 +370,9 @@ address the controlled vehicle EntityRef. No production wire compatibility is im
 
 [M1-B1's specified matrix](spikes/s04-contracts.md#m1-b1-transition-matrix-specified-not-implemented)
 keeps seat transactions with VehicleInteraction under Match, adverse acceptance with
-M1-D3, and no-seated-fire/reload feel confirmation before P0-GATE. Entry/exit races,
-disconnect/death/destruction/reset and production late join are specified, not proved
+M1-D3, and no-seated-fire/reload feel confirmation as M1-B1/B2 production work under
+decision 14, not a P0 prerequisite. Entry/exit races, disconnect/death/destruction/reset
+and production late join are specified, not proved
 by this fixture. Exact [2370ad1 acceptance](spikes/s04.md#accepted-exact-final-disposition)
 closes P2/P3. Original physics p95 97/269/401 ms and fixed normal/adverse248/380 ms
 remain separate,20/20 each; those authority-only values are historical baselines, not

@@ -80,9 +80,10 @@ remote extrapolation policy.
 - **S08-X:** Completed configuration and Windows smoke. [S08-X](../spikes/s08-x.md) adds
   the real main scene and four desktop presets, verifies addon-free packages and launches
   Windows release with Steam absent. Linux packages were built on Windows; the recorded
-  Linux Vulkan launch checklist remains unexecuted. Owner decision 17 removes GodotSteam in
-  a separate lane while preserving the ENet-first abstraction and S08-X's Steam-library
-  export rejection; add a pinned release only when Steam adapter work is commissioned.
+  Linux Vulkan launch checklist remains unexecuted. Owner decision 17's GodotSteam removal
+  is complete in `660b4fd`/`7351f3b`, preserving the ENet-first abstraction and S08-X's
+  Steam-library export rejection; add a pinned release only when Steam adapter work is
+  commissioned.
 - **S08-C:** Completed bounded triage. [Current no-cutaway 192/288/384 scenes](../spikes/s08-c-stability.md)
   instantiated; the historical access violation did not reproduce and its cause remains
   unknown. Safe workstation GPU evidence is capped frame intervals plus RenderingServer

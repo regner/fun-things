@@ -1,6 +1,6 @@
 # P0-GATE owner review packet — 9 October 2026
 
-This packet reconciles the integrated foundation work through local `main` revision `406b9b6`.
+This packet reconciles the integrated foundation work through local `main` revision `7351f3b`.
 It is a decision aid, not an assertion that P0-GATE has passed. The
 [8 October owner decisions](owner-decisions-2026-10-08.md) remain authoritative; the
 [P0 readiness audit](p0-readiness-audit-2026-10-08.md) explains why the additional
@@ -78,7 +78,7 @@ All timing values explicitly marked **contended** are upper bounds from a shared
 | S06 | Topology complete; visual/UI review open | [Topology](../spikes/s06.md): foot route, two car turns, stale-bake and shared minimap checks pass; scale/top-right accepted | Minimap size/look, whole UI, contested recovery and final-body reruns | n/a |
 | S07 | Complete planning guidance | [Environment envelope](../spikes/s07-environment-scale.md): 6/24/96 pass; historical 384 crash; 96 frame p99 18.405 ms, **contended** | Shared grey-block art is not production; no Deck result; 96 is not a product ceiling | Not rerun; contended retained by decision 13 |
 | S08 | Windows diagnosis complete; Linux follow-up open | [Windows result](../spikes/s08-windows-observation.md): original-main DEBUG/RELEASE matrix passes with workaround | Linux original-main and Linux-only diagnostics remain non-blocking follow-up | n/a |
-| S08-X | Windows/configuration complete; Linux runtime open | [Export smoke](../spikes/s08-x.md): four desktop exports inspect cleanly; Windows release launches quiet; Linux checklist recorded | GodotSteam removal is decided and underway separately; Linux launch not claimed | n/a |
+| S08-X | Windows/configuration complete; Linux runtime open | [Export smoke](../spikes/s08-x.md): four desktop exports inspect cleanly; Windows release launches quiet; Linux checklist recorded | GodotSteam removal completed in `660b4fd`/`7351f3b`; Linux launch not claimed | n/a |
 | S08-C | Complete, bounded | [Stability](../spikes/s08-c-stability.md): current no-cutaway 192/288/384 instantiate; 384 crash not reproduced; safe capped GPU method | Historical cause unknown; owner approval to replace unsafe design wording | short diagnostic only |
 | S09 | Foundation prototype complete | [Traffic](../spikes/s09.md): 24-car p95/p99 1.165/1.690 ms, 18/18 recoveries per aggregate row, zero sampled overlaps/gridlocks; **contended** | Actual bodies, production graph/replenishment and owner intersection policy | Not rerun; contended retained by decision 13 |
 | S10 | Foundation concept complete; first production task | [Pedestrians](../spikes/s10.md): normal graph p95 2.654 ms median, flee 3.658 ms; **contended**; large overlap/stuck counts | Production must improve behavior/budget with acceptance checks; no extra foundation spike | Not rerun; contended retained by decision 13 |
@@ -140,10 +140,10 @@ The owner recorded decisions 13–20 on 9 October 2026:
 - **Decision 16 — driver death (audit Q3):** if the car survives, release the seat, neutralize
   controls and coast to a stop like disconnect; it then becomes an ordinary abandoned parked car
   under the existing cleanup/replenishment policy. Death remains an explicit lifecycle event.
-- **Decision 17 — GodotSteam (audit Q4):** remove the addon/GDExtension in a separate lane, keep
-  the S03-S provider abstraction, re-add a pinned release only when Steam adapter work is
-  commissioned, and retain S08-X's Steam-library export rejection. This packet does not fold that
-  repository change into its docs-only scope.
+- **Decision 17 — GodotSteam (audit Q4):** remove the addon/GDExtension, keep the S03-S
+  provider abstraction, re-add a pinned release only when Steam adapter work is commissioned,
+  and retain S08-X's Steam-library export rejection. The removal is complete in
+  `660b4fd`/`7351f3b`.
 - **Decision 18 — first hit-registration policy:** clients send fire intent only; the host chooses
   the target and damage at host current time using forgiving enlarged hit shapes sized for typical
   network/interpolation delay at target speed. The shooter gets immediate cosmetic muzzle/tracer
