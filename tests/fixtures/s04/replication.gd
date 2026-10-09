@@ -3,6 +3,7 @@ extends S03Replication
 ## Extends the existing S03 RPC writer with actual poses; provider/admission stay unchanged.
 
 signal exit_result(reason: String)
+signal exit_rate_notified(peer_id: int)
 
 const EXIT_BURST: float = 2.0
 const EXIT_RATE: float = 1.0
@@ -54,7 +55,7 @@ func _begin_exit_request() -> int:
 ## Consumes a small per-peer token bucket before any authoritative exit work or reply.
 func _allow_exit_request(peer_id: int, now_ms: int) -> bool:
 	if not exit_rate.has(peer_id):
-		exit_rate[peer_id] = { "tokens": EXIT_BURST, "time": now_ms }
+		exit_rate[peer_id] = { "tokens": EXIT_BURST, "time": now_ms, "notified": false }
 
 	var bucket: Dictionary = exit_rate[peer_id]
 	bucket.tokens = minf(
@@ -65,6 +66,16 @@ func _allow_exit_request(peer_id: int, now_ms: int) -> bool:
 		return false
 
 	bucket.tokens -= 1.0
+	bucket.notified = false
+	return true
+
+
+## Reserves at most one denied-request notification until the bucket next admits work.
+func _take_exit_rate_notification(peer_id: int) -> bool:
+	if not exit_rate.has(peer_id) or exit_rate[peer_id].notified:
+		return false
+
+	exit_rate[peer_id].notified = true
 	return true
 
 
@@ -76,7 +87,9 @@ func _request_exit(session: String, request_id: int) -> void:
 
 	var peer_id: int = multiplayer.get_remote_sender_id()
 	if not _allow_exit_request(peer_id, Time.get_ticks_msec()):
-		_exit_result.rpc_id(peer_id, request_id, "RATE_LIMIT")
+		if _take_exit_rate_notification(peer_id):
+			exit_rate_notified.emit(peer_id)
+			_exit_result.rpc_id(peer_id, request_id, "RATE_LIMIT")
 		return
 
 	var participant: int = int(resolve_participant.call(peer_id))

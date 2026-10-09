@@ -83,7 +83,8 @@ def run_scenario(godot, project, directory, port, scenario):
                     raise RuntimeError(f"diagnostic in {scenario} {role}/{name}")
         ok = all(row["ok"] for row in outcomes.values())
         if scenario == "stopped-exit":
-            ok = ok and outcomes["client"]["rate_limit_observed"]
+            ok = (ok and outcomes["client"]["rate_limit_observed"]
+                  and outcomes["host"]["exit_rate_replies"] == 1)
         elif scenario == "abrupt-disconnect":
             ok = ok and outcomes["host"]["coasting_snapshots"] > 0
         return {"ok": ok, "diagnostic_free": True, "outcomes": outcomes,

@@ -28,6 +28,7 @@ const WALL_END_TICK: int = 720
 const REVERSE_END_TICK: int = 750
 const RESYNC_TICK: int = 1080
 const CAPTURE_EVENTS: int = 4
+const EXIT_FLOOD_REQUESTS: int = 32
 const SCENARIO_MEASUREMENT: String = "measurement"
 const SCENARIO_EXIT: String = "stopped-exit"
 const SCENARIO_DISCONNECT: String = "abrupt-disconnect"
@@ -52,6 +53,7 @@ var exit_requested: bool = false
 var lifecycle_stage: int = 0
 var rate_limited_tick: int = 0
 var rate_limit_observed: bool = false
+var exit_rate_replies: int = 0
 var scenario_finished: bool = false
 var coast_start: Vector3 = Vector3.ZERO
 var coast_entity: int = 0
@@ -88,6 +90,7 @@ func _ready() -> void:
 	match_state.predicted.connect(_on_predicted)
 	match_state.reconciled.connect(_on_reconciled)
 	replication.exit_result.connect(_on_exit_result)
+	replication.exit_rate_notified.connect(_on_exit_rate_notified)
 	input_collector.set_focused(true)
 	RenderingServer.frame_post_draw.connect(_on_rendered)
 	session.select_provider(S03Transport.new(get_tree()))
@@ -168,6 +171,9 @@ func _lifecycle_process() -> void:  # gdstyle:ignore=quality/max-branches
 			match_state.local_body().latest_authoritative_speed_mps >= 2.5))
 		if ready and replication.request_exit():
 			lifecycle_stage += 1
+			if lifecycle_stage == 5:
+				for request_id: int in range(10_000, 10_000 + EXIT_FLOOD_REQUESTS):
+					replication._request_exit.rpc_id(1, session.session_id, request_id)
 		return
 
 	if lifecycle_stage in [6, 7]:
@@ -215,7 +221,8 @@ func _observe_lifecycle_host() -> void:
 	if session.disconnected_count == 0:
 		return
 	if scenario == SCENARIO_EXIT:
-		_scenario_result(true, "host did not observe stopped-exit client cleanup")
+		_scenario_result(exit_rate_replies == 1,
+			"denied exit flood produced an unbounded reliable reply count")
 		return
 	if coast_entity == 0:
 		for entity: int in match_state.body_for_entity:
@@ -245,7 +252,8 @@ func _scenario_result(ok: bool, failure: String) -> void:
 	_record({"event": "scenario_result", "scenario": scenario,
 		"ok": failures.is_empty(), "failures": failures,
 		"coasting_snapshots": coasting_snapshots,
-		"rate_limit_observed": rate_limit_observed})
+		"rate_limit_observed": rate_limit_observed,
+		"exit_rate_replies": exit_rate_replies})
 	get_tree().quit(0 if failures.is_empty() else 1)
 
 
@@ -479,6 +487,12 @@ func _on_reconciled(receipt: Dictionary) -> void:
 
 	receipt["event"] = "correction"
 	_record(receipt)
+
+
+## Counts host notifications independently of the denied request flood size.
+func _on_exit_rate_notified(_peer_id: int) -> void:
+	if role == "host" and scenario == SCENARIO_EXIT:
+		exit_rate_replies += 1
 
 
 ## Verifies rejection is unchanged and advances successful lifecycle acceptance.

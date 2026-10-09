@@ -130,6 +130,17 @@ func _exit_and_disconnect() -> void:  # gdstyle:ignore=quality/max-function-leng
 	_require(replication._allow_exit_request(7, 1000), "second exit request was rate limited")
 	_require(not replication._allow_exit_request(7, 1000),
 		"exit request burst was not bounded")
+	_require(replication._take_exit_rate_notification(7),
+		"first denied request did not reserve a rate notification")
+	for _denied: int in 32:
+		_require(not replication._take_exit_rate_notification(7),
+			"denied request flood reserved more than one reliable reply")
+	_require(replication._allow_exit_request(7, 2000),
+		"refilled bucket did not admit exit work")
+	_require(not replication._allow_exit_request(7, 2000),
+		"refilled bucket admitted excess exit work")
+	_require(replication._take_exit_rate_notification(7),
+		"admitted request did not reset the notification interval")
 	replication.forget(7)
 	_require(not replication.exit_rate.has(7), "disconnect retained exit rate state")
 	var request_id: int = replication._begin_exit_request()
