@@ -52,19 +52,16 @@ active held input without relying on one datagram. The failed run is retained.
 The selected runs used two real ENet processes, the existing seeded bounded UDP proxy and
 Godot `4.8.dev7.official.c971f93e7`. Other lane processes were active on the workstation,
 so timings are labelled contended upper bounds. Each response row has 20/20 samples.
-The headless loopback/normal/adverse runs bind the final fixture source. The selected
-windowed run precedes only the telemetry-only held-decision-age field used by the final
-expiry analyzer; motion, prediction, proxy and presentation behavior are unchanged, and
-its result file retains exact source hashes. “Authority baseline” is the first matching
-host-confirmed pose/sequence (and, windowed, the first subsequent drawn receipt), i.e.
-when an unpredicted client could respond.
+All selected runs bind the final rebased fixture source. “Authority baseline” is the
+first matching host-confirmed pose/sequence (and, windowed, the first subsequent drawn
+receipt), i.e. when an unpredicted client could respond.
 
 | Profile | Predicted physics p95 | Authority baseline p95 | Predicted drawn p95 | Authority drawn p95 | Correction p95 / max | Replay CPU p95 per frame | Max replay |
 | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
-| Headless loopback | 24 ms | 194 ms | unavailable | unavailable | 0.167 / 1.592 m | 78.0 us | 41 |
+| Headless loopback | 27 ms | 147 ms | unavailable | unavailable | 0.083 / 1.502 m | 100.0 us | 40 |
 | Headless normal | 18 ms | 260 ms | unavailable | unavailable | 0.250 / 2.399 m | 27.18 us | 49 |
 | Headless adverse | 29 ms | 374 ms | unavailable | unavailable | 0.250 / 4.000 m | 22.61 us | 89 |
-| Windowed loopback | 22 ms | 123 ms | 35 ms | 149 ms | 0.250 / 0.527 m | 85.0 us | 42 |
+| Windowed loopback | 31 ms | 126 ms | 39 ms | 140 ms | 0.167 / 1.603 m | 85.0 us | 41 |
 
 All selected runs meet the provisional predicted response target (physics p95 <=50 ms)
 and correction target (p95 <=0.5 m). Maxima are reported rather than hidden; visual
