@@ -66,6 +66,36 @@ func test_cancel_late_callback_and_retry_are_correlated() -> void:
 	assert_eq(_completion_count(retry_result.operation_id), 1)
 
 
+## Rejects host-A callbacks and stale tokens after host B becomes active.
+func test_host_callbacks_require_current_operation_and_token_generation() -> void:
+	var host_a: Dictionary = _service.host(_host_request())
+	await get_tree().create_timer(WAIT_SECONDS).timeout
+	assert_eq(_service.view().phase, SessionService.PHASE_ACTIVE)
+	var host_a_token: int = _transport.connection_token_for(7)
+	assert_true(_service.leave().ok)
+	await get_tree().create_timer(WAIT_SECONDS).timeout
+
+	var host_b: Dictionary = _service.host(_host_request())
+	await get_tree().create_timer(WAIT_SECONDS).timeout
+	assert_eq(_service.view().phase, SessionService.PHASE_ACTIVE)
+	var host_b_token: int = _transport.connection_token_for(7)
+	_transport.emit_connected(host_b.operation_id, host_b_token, 7)
+	var host_b_view: Dictionary = _service.view()
+	var ignored_before: int = _service.ignored_callback_count()
+
+	_transport.emit_connected(host_a.operation_id, host_a_token, 7)
+	_transport.emit_disconnected(host_a.operation_id, host_a_token, 7)
+	_transport.emit_connected(host_b.operation_id, host_a_token, 7)
+	await get_tree().process_frame
+	assert_eq(_service.ignored_callback_count(), ignored_before + 3)
+	assert_eq(_service.view(), host_b_view)
+
+	_transport.emit_disconnected(host_b.operation_id, host_b_token, 7)
+	await get_tree().process_frame
+	assert_eq(_service.ignored_callback_count(), ignored_before + 3)
+	assert_eq(_service.view().roster, host_b_view.roster)
+
+
 ## Proves a silent provider cannot extend close beyond the shared local deadline.
 func test_close_timeout_forces_unavailable_without_double_completion() -> void:
 	_transport.auto_ready = false
@@ -117,11 +147,29 @@ func test_join_accepts_provider_target_and_waits_for_admission() -> void:
 	assert_eq(_service.view().phase, SessionService.PHASE_CONNECTING)
 	assert_eq(_completion_count(accepted.operation_id), 0)
 
-	_transport.emit_failure(accepted.operation_id)
+	_transport.emit_failure(accepted.operation_id, &"NATIVE_PROVIDER_DETAIL")
 	await get_tree().create_timer(WAIT_SECONDS).timeout
 	assert_eq(_service.view().phase, SessionService.PHASE_IDLE)
 	assert_eq(_completion_count(accepted.operation_id), 1)
 	assert_eq(_completions[accepted.operation_id][0].failure.code, &"CONNECT_FAILED")
+
+
+## Uses the canonical connection timeout code when no provider connection arrives.
+func test_join_connection_deadline_reports_connect_timeout() -> void:
+	_transport.auto_ready = false
+	_service.connection_timeout_seconds = 0.02
+	var accepted: Dictionary = _service.join(
+		{
+			"provider_id": &"fake",
+			"adapter_generation": 1,
+			"kind": &"TRANSPORT_READY",
+		}
+	)
+	assert_true(accepted.ok)
+	await get_tree().create_timer(WAIT_SECONDS).timeout
+	assert_eq(_service.view().phase, SessionService.PHASE_IDLE)
+	assert_eq(_completion_count(accepted.operation_id), 1)
+	assert_eq(_completions[accepted.operation_id][0].failure.code, &"CONNECT_TIMEOUT")
 
 
 ## Rejects directory-owned targets until SessionDirectory resolves them for transport.

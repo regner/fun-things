@@ -15,6 +15,7 @@ var _active_started_seconds: float = 0.0
 var _cancel_requested: bool = false
 var _leave_requested: bool = false
 var _completed_leaves: int = 0
+var _abuse_sent: bool = false
 var _finished: bool = false
 
 @onready var _session: SessionService = $Session
@@ -121,7 +122,8 @@ func _on_session_changed(current: Dictionary) -> void:
 	)
 	if (
 		_role == "client"
-		and _behavior == "wait_loss"
+		and _behavior
+		in ["wait_loss", "oversized_byte_array", "oversized_string", "repeated_handshake"]
 		and current.phase == SessionService.PHASE_IDLE
 		and failure_code == &"HOST_LOST"
 	):
@@ -132,6 +134,13 @@ func _on_session_changed(current: Dictionary) -> void:
 
 	_active_started_seconds = _now_seconds()
 	_print_event({ "event": "active", "role": _role, "view": current })
+	if _role == "client" and _behavior in [
+		"oversized_byte_array",
+		"oversized_string",
+		"repeated_handshake",
+	]:
+		_send_handshake_abuse.call_deferred(current.operation_id)
+		return
 	if (
 		_role == "client"
 		and _behavior in ["leave", "leave_rejoin"]
@@ -139,6 +148,47 @@ func _on_session_changed(current: Dictionary) -> void:
 	):
 		_leave_requested = true
 		_leave_after_delay.call_deferred()
+
+
+## Sends bounded malicious RPC cases only after ordinary production admission.
+func _send_handshake_abuse(client_operation_id: int) -> void:
+	if _abuse_sent:
+		return
+
+	_abuse_sent = true
+	var payload := PackedByteArray()
+	var request_count: int = SessionService.HANDSHAKE_ABUSE_DISCONNECT_COUNT
+	if _behavior == "oversized_byte_array":
+		payload.resize(SessionService.MAX_HANDSHAKE_LOGICAL_BYTES + 1)
+	elif _behavior == "oversized_string":
+		payload = _build_handshake_payload("x".repeat(SessionService.MAX_ID_BYTES + 1))
+	else:
+		payload = _build_handshake_payload("development")
+		request_count = SessionService.HANDSHAKE_ABUSE_DISCONNECT_COUNT + 1
+
+	for _request_index: int in request_count:
+		_session._request_admission.rpc_id(1, client_operation_id, payload)
+
+
+## Builds the production fixed handshake shape for adverse RPC calls.
+func _build_handshake_payload(content_id: String) -> PackedByteArray:
+	var content: PackedByteArray = content_id.to_utf8_buffer()
+	var district: PackedByteArray = "brackett_island".to_utf8_buffer()
+	var definitions: PackedByteArray = "development".to_utf8_buffer()
+	var payload := PackedByteArray()
+	payload.resize(14 + content.size() + district.size() + definitions.size())
+	payload.encode_u32(0, 1)
+	payload.encode_u32(4, 0)
+	payload.encode_u16(8, content.size())
+	payload.encode_u16(10, district.size())
+	payload.encode_u16(12, definitions.size())
+	var write_offset: int = 14
+	for field: PackedByteArray in [content, district, definitions]:
+		for byte: int in field:
+			payload[write_offset] = byte
+			write_offset += 1
+
+	return payload
 
 
 ## Leaves after ACTIVE was independently observable for at least one frame.
@@ -176,7 +226,14 @@ func _on_session_completed(operation_id: int, result: Dictionary) -> void:
 		_leave_requested
 		or _cancel_requested
 		or failure_code
-		in [&"INCOMPATIBLE", &"CONTENT_INVALID", &"SESSION_FULL", &"HOST_LOST", &"UNREACHABLE_HOST"]
+		in [
+			&"INCOMPATIBLE",
+			&"CONTENT_INVALID",
+			&"FULL",
+			&"HOST_LOST",
+			&"CONNECT_FAILED",
+			&"CONNECT_TIMEOUT",
+		]
 	)
 	_finish(expected_terminal, failure_code)
 

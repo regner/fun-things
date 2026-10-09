@@ -10,6 +10,12 @@ const CLOSE_TIMEOUT_SECONDS: float = 5.0
 const CONNECTION_TIMEOUT_SECONDS: float = 15.0
 const HANDSHAKE_TIMEOUT_SECONDS: float = 5.0
 const MAX_ID_BYTES: int = 128
+const MAX_HANDSHAKE_LOGICAL_BYTES: int = 512
+const HANDSHAKE_HEADER_BYTES: int = 14
+const HANDSHAKE_REQUESTS_PER_WINDOW: int = 2
+const HANDSHAKE_REQUEST_WINDOW_SECONDS: float = 1.0
+const HANDSHAKE_ABUSE_DISCONNECT_COUNT: int = 3
+const MAX_WIRE_INTEGER: int = 2_147_483_647
 const PROVIDER_STANDALONE: StringName = &"standalone"
 const OPERATION_NONE: StringName = &"NONE"
 const OPERATION_HOST: StringName = &"HOST"
@@ -57,6 +63,8 @@ var _host_state: Dictionary = {
 	"participant_by_peer": {},
 	"token_by_peer": {},
 	"pending_deadlines": {},
+	"handshake_requests": {},
+	"blocked_peers": {},
 	"roster_by_participant": {},
 }
 
@@ -74,7 +82,9 @@ func _process(_delta: float) -> void:
 	elif _operation.phase in [PHASE_CONNECTING, PHASE_NEGOTIATING]:
 		if now_seconds >= _operation.deadline_seconds:
 			var code: StringName = (
-				&"UNREACHABLE_HOST" if _operation.phase == PHASE_CONNECTING else &"INCOMPATIBLE"
+				&"CONNECT_TIMEOUT"
+				if _operation.phase == PHASE_CONNECTING
+				else &"HANDSHAKE_TIMEOUT"
 			)
 			_begin_close(_make_failure(code, true))
 	elif _operation.kind == OPERATION_HOST and _operation.phase == PHASE_ACTIVE:
@@ -388,11 +398,21 @@ func _on_transport_connected(
 	connection_token: int,
 	native_peer_id: int,
 ) -> void:
+	if not _is_current_transport_callback(
+		source_operation_id, connection_token, native_peer_id
+	):
+		_ignored_callback_count += 1
+		return
 	if _operation.kind == OPERATION_HOST and _operation.phase == PHASE_ACTIVE:
 		_host_state.token_by_peer[native_peer_id] = connection_token
 		_host_state.pending_deadlines[native_peer_id] = _now_seconds() + handshake_timeout_seconds
+		_host_state.handshake_requests[native_peer_id] = {
+			"window_start": _now_seconds(),
+			"count": 0,
+			"abuse_count": 0,
+		}
 		return
-	if source_operation_id != _operation.id or _operation.phase != PHASE_CONNECTING:
+	if _operation.phase != PHASE_CONNECTING:
 		_ignored_callback_count += 1
 		return
 
@@ -400,17 +420,7 @@ func _on_transport_connected(
 	_operation.phase = PHASE_NEGOTIATING
 	_operation.deadline_seconds = _now_seconds() + handshake_timeout_seconds
 	_emit_changed()
-	_request_admission.rpc_id(
-		1,
-		_operation.id,
-		[
-			_compatibility.protocol_version,
-			String(_compatibility.content_id),
-			String(_compatibility.district_id),
-			_compatibility.topology_revision,
-			String(_compatibility.definition_set_id),
-		],
-	)
+	_request_admission.rpc_id(1, _operation.id, _encode_handshake(_compatibility))
 
 
 ## Releases a host reservation or closes a client after native disconnection.
@@ -420,6 +430,11 @@ func _on_transport_disconnected(
 	native_peer_id: int,
 	failure: Dictionary,
 ) -> void:
+	if not _is_current_transport_callback(
+		source_operation_id, connection_token, native_peer_id
+	):
+		_ignored_callback_count += 1
+		return
 	if _operation.kind == OPERATION_HOST and _operation.phase == PHASE_ACTIVE:
 		if _host_state.token_by_peer.get(native_peer_id, -1) != connection_token:
 			_ignored_callback_count += 1
@@ -427,12 +442,14 @@ func _on_transport_disconnected(
 
 		_host_state.token_by_peer.erase(native_peer_id)
 		_host_state.pending_deadlines.erase(native_peer_id)
+		_host_state.handshake_requests.erase(native_peer_id)
+		_host_state.blocked_peers.erase(native_peer_id)
 		var participant_id: int = _host_state.participant_by_peer.get(native_peer_id, 0)
 		_host_state.participant_by_peer.erase(native_peer_id)
 		_host_state.roster_by_participant.erase(participant_id)
 		_emit_changed()
 		return
-	if source_operation_id != _operation.id or _operation.phase in [PHASE_IDLE, PHASE_CLOSING]:
+	if _operation.phase in [PHASE_IDLE, PHASE_CLOSING]:
 		_ignored_callback_count += 1
 		return
 
@@ -461,23 +478,141 @@ func _on_transport_closed(source_operation_id: int, result: Dictionary) -> void:
 	_finish_close()
 
 
-## Validates one sender-derived handshake and delegates its explicit verdict.
+## Validates one sender-derived bounded wire handshake before admission mutation.
 @rpc("any_peer", "call_remote", "reliable", 0)
-func _request_admission(client_operation_id: int, handshake: Array) -> void:
+func _request_admission(client_operation_id: int, handshake: PackedByteArray) -> void:
 	var sender_peer_id: int = multiplayer.get_remote_sender_id()
 	if _operation.kind != OPERATION_HOST or _operation.phase != PHASE_ACTIVE:
 		return
-	if sender_peer_id <= 1 or handshake.size() != 5:
+	if not _is_current_handshake_sender(sender_peer_id):
+		_ignored_callback_count += 1
+		return
+	if _host_state.blocked_peers.has(sender_peer_id):
+		return
+	if not _consume_handshake_request(sender_peer_id):
 		return
 
-	var candidate: Dictionary = {
-		"protocol_version": handshake[0],
-		"content_id": handshake[1],
-		"district_id": StringName(handshake[2]) if handshake[2] is String else &"",
-		"topology_revision": handshake[3],
-		"definition_set_id": handshake[4],
-	}
+	var candidate: Dictionary = _decode_handshake(handshake)
+	if candidate.is_empty():
+		_record_handshake_abuse(sender_peer_id)
+		return
+
 	_evaluate_admission(sender_peer_id, client_operation_id, candidate)
+
+
+## Encodes the three bounded UTF-8 identities into the fixed handshake wire shape.
+func _encode_handshake(compatibility: Dictionary) -> PackedByteArray:
+	var content: PackedByteArray = String(compatibility.content_id).to_utf8_buffer()
+	var district: PackedByteArray = String(compatibility.district_id).to_utf8_buffer()
+	var definitions: PackedByteArray = String(compatibility.definition_set_id).to_utf8_buffer()
+	var payload := PackedByteArray()
+	payload.resize(HANDSHAKE_HEADER_BYTES + content.size() + district.size() + definitions.size())
+	payload.encode_u32(0, compatibility.protocol_version)
+	payload.encode_u32(4, compatibility.topology_revision)
+	payload.encode_u16(8, content.size())
+	payload.encode_u16(10, district.size())
+	payload.encode_u16(12, definitions.size())
+	var write_offset: int = HANDSHAKE_HEADER_BYTES
+	for field: PackedByteArray in [content, district, definitions]:
+		for byte: int in field:
+			payload[write_offset] = byte
+			write_offset += 1
+
+	return payload
+
+
+## Decodes only an exact bounded payload, validating bytes before StringName allocation.
+func _decode_handshake(payload: PackedByteArray) -> Dictionary:
+	if payload.size() < HANDSHAKE_HEADER_BYTES or payload.size() > MAX_HANDSHAKE_LOGICAL_BYTES:
+		return {}
+
+	var content_size: int = payload.decode_u16(8)
+	var district_size: int = payload.decode_u16(10)
+	var definition_size: int = payload.decode_u16(12)
+	var field_sizes: Array[int] = [content_size, district_size, definition_size]
+	for field_size: int in field_sizes:
+		if field_size < 1 or field_size > MAX_ID_BYTES:
+			return {}
+	if payload.size() != HANDSHAKE_HEADER_BYTES + content_size + district_size + definition_size:
+		return {}
+
+	var fields: Array[String] = []
+	var read_offset: int = HANDSHAKE_HEADER_BYTES
+	for field_size: int in field_sizes:
+		var raw: PackedByteArray = payload.slice(read_offset, read_offset + field_size)
+		var decoded: String = raw.get_string_from_utf8()
+		if decoded.is_empty() or decoded.to_utf8_buffer() != raw:
+			return {}
+
+		fields.append(decoded)
+		read_offset += field_size
+
+	var protocol_version: int = payload.decode_u32(0)
+	var topology_revision: int = payload.decode_u32(4)
+	if (
+		protocol_version < 1
+		or protocol_version > MAX_WIRE_INTEGER
+		or topology_revision < 0
+		or topology_revision > MAX_WIRE_INTEGER
+	):
+		return {}
+
+	return {
+		"protocol_version": protocol_version,
+		"content_id": fields[0],
+		"district_id": StringName(fields[1]),
+		"topology_revision": topology_revision,
+		"definition_set_id": fields[2],
+	}
+
+
+## Confirms an RPC sender still maps to this host operation and token generation.
+func _is_current_handshake_sender(sender_peer_id: int) -> bool:
+	if sender_peer_id <= 1 or not _host_state.token_by_peer.has(sender_peer_id):
+		return false
+
+	return _is_current_transport_callback(
+		_operation.id,
+		_host_state.token_by_peer[sender_peer_id],
+		sender_peer_id,
+	)
+
+
+## Applies a fixed per-peer request window before decoding any handshake payload.
+func _consume_handshake_request(sender_peer_id: int) -> bool:
+	var record: Dictionary = _host_state.handshake_requests.get(sender_peer_id, {})
+	if record.is_empty():
+		_record_handshake_abuse(sender_peer_id)
+		return false
+
+	var now_seconds: float = _now_seconds()
+	if now_seconds - record.window_start >= HANDSHAKE_REQUEST_WINDOW_SECONDS:
+		record.window_start = now_seconds
+		record.count = 0
+
+	record.count += 1
+	_host_state.handshake_requests[sender_peer_id] = record
+	if record.count > HANDSHAKE_REQUESTS_PER_WINDOW:
+		_record_handshake_abuse(sender_peer_id)
+		return false
+
+	return true
+
+
+## Counts malformed/rate-limited handshakes and disconnects repeated abuse once.
+func _record_handshake_abuse(sender_peer_id: int) -> void:
+	var record: Dictionary = _host_state.handshake_requests.get(sender_peer_id, {})
+	if record.is_empty():
+		return
+
+	record.abuse_count += 1
+	_host_state.handshake_requests[sender_peer_id] = record
+	if record.abuse_count < HANDSHAKE_ABUSE_DISCONNECT_COUNT:
+		return
+
+	_host_state.blocked_peers[sender_peer_id] = true
+	_host_state.pending_deadlines.erase(sender_peer_id)
+	multiplayer.multiplayer_peer.disconnect_peer(sender_peer_id)
 
 
 ## Allocates or rejects one participant after compatibility and duplicate checks.
@@ -497,7 +632,7 @@ func _evaluate_admission(
 	var validation: Dictionary = validate_compatibility(candidate)
 	var failure_code: StringName = validation.get("failure", {}).get("code", &"")
 	if failure_code == &"" and _host_state.roster_by_participant.size() >= _host_state.capacity:
-		failure_code = &"SESSION_FULL"
+		failure_code = &"FULL"
 	if failure_code != &"":
 		_send_admission(sender_peer_id, client_operation_id, failure_code, 0)
 		_disconnect_rejected_peer.call_deferred(sender_peer_id)
@@ -575,7 +710,7 @@ func _receive_admission(client_operation_id: int, verdict: Array) -> void:
 ## Normalizes the finite host rejection codes before starting client cleanup.
 func _apply_admission_failure(failure_code: String) -> void:
 	var code: StringName = StringName(failure_code)
-	if code not in [&"INCOMPATIBLE", &"CONTENT_INVALID", &"SESSION_FULL"]:
+	if code not in [&"INCOMPATIBLE", &"CONTENT_INVALID", &"FULL"]:
 		code = &"INCOMPATIBLE"
 
 	_begin_close(_make_failure(code, code != &"CONTENT_INVALID"))
@@ -620,6 +755,21 @@ func _disconnect_rejected_peer(peer_id: int) -> void:
 		multiplayer.multiplayer_peer.disconnect_peer(peer_id)
 
 
+## Confirms operation and opaque token generation before any callback mutation.
+func _is_current_transport_callback(
+	source_operation_id: int,
+	connection_token: int,
+	native_peer_id: int,
+) -> bool:
+	return (
+		_transport != null
+		and source_operation_id == _operation.id
+		and _transport.is_current_connection_token(
+			source_operation_id, connection_token, native_peer_id
+		)
+	)
+
+
 ## Removes a registered provider's signal links before replacing it while idle.
 func _disconnect_transport(transport: SessionTransport) -> void:
 	if transport.peer_ready.is_connected(_on_peer_ready):
@@ -648,6 +798,8 @@ func _clear_session_state() -> void:
 	_host_state.participant_by_peer.clear()
 	_host_state.token_by_peer.clear()
 	_host_state.pending_deadlines.clear()
+	_host_state.handshake_requests.clear()
+	_host_state.blocked_peers.clear()
 	_host_state.roster_by_participant.clear()
 
 
@@ -696,12 +848,14 @@ func _valid_compatibility(candidate: Dictionary) -> bool:
 	return (
 		candidate.get("protocol_version") is int
 		and candidate.get("protocol_version", 0) > 0
+		and candidate.get("protocol_version", 0) <= MAX_WIRE_INTEGER
 		and _valid_bounded_string(candidate.get("content_id"))
 		and candidate.get("district_id") is StringName
 		and candidate.get("district_id", &"") != &""
 		and candidate.get("district_id", &"").to_utf8_buffer().size() <= MAX_ID_BYTES
 		and candidate.get("topology_revision") is int
 		and candidate.get("topology_revision", -1) >= 0
+		and candidate.get("topology_revision", -1) <= MAX_WIRE_INTEGER
 		and _valid_bounded_string(candidate.get("definition_set_id"))
 	)
 
@@ -721,12 +875,14 @@ func _adapter_failure(adapter_result: Dictionary) -> Dictionary:
 	if failure is Dictionary and not failure.is_empty():
 		return _normalize_failure(failure)
 
-	return _make_failure(&"PROVIDER_FAILED", true)
+	return _make_failure(&"CONNECT_FAILED", true)
 
 
-## Adds current operation context to a provider-safe failure record.
+## Adds current operation context and canonicalizes provider failure vocabulary.
 func _normalize_failure(failure: Dictionary) -> Dictionary:
-	var code: StringName = StringName(failure.get("code", &"PROVIDER_FAILED"))
+	var code: StringName = _canonical_failure_code(
+		StringName(failure.get("code", &"CONNECT_FAILED"))
+	)
 	return {
 		"code": code,
 		"phase": _operation.phase,
@@ -734,6 +890,34 @@ func _normalize_failure(failure: Dictionary) -> Dictionary:
 		"retryable": failure.get("retryable", true),
 		"message_key": StringName("session." + String(code).to_lower()),
 	}
+
+
+## Maps all UI-visible failures to the documented public vocabulary.
+func _canonical_failure_code(code: StringName) -> StringName:
+	if code in [
+		&"BUSY",
+		&"CANCELED",
+		&"TARGET_EXPIRED",
+		&"SERVICE_UNAVAILABLE",
+		&"UNSUPPORTED",
+		&"CONNECT_FAILED",
+		&"CONNECT_TIMEOUT",
+		&"HANDSHAKE_TIMEOUT",
+		&"FULL",
+		&"INCOMPATIBLE",
+		&"CONTENT_INVALID",
+		&"HOST_LOST",
+		&"CLEANUP_TIMEOUT",
+		&"INVALID_REQUEST",
+		&"INVALID_ENDPOINT",
+		&"STALE_OPERATION",
+		&"NOT_CANCELABLE",
+		&"NOT_ACTIVE",
+		&"NO_RETRY",
+	]:
+		return code
+
+	return &"CONNECT_FAILED"
 
 
 ## Constructs one UI-safe normalized failure record.

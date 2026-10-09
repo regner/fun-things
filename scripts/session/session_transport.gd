@@ -37,6 +37,15 @@ func parse_endpoint(_address: String, _port: int) -> Dictionary:
 	return _failure(&"INVALID_ENDPOINT")
 
 
+## Confirms that a callback token belongs to the adapter's current native generation.
+func is_current_connection_token(
+	_operation_id: int,
+	_connection_token: int,
+	_native_peer_id: int,
+) -> bool:
+	return false
+
+
 ## Opens a host endpoint for one correlated session operation.
 func open_host(_operation_id: int, _options: Dictionary) -> Dictionary:
 	return _failure(&"SERVICE_UNAVAILABLE")

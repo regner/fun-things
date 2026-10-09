@@ -1,8 +1,8 @@
 Godot Engine v4.8.dev7.official.c971f93e7 - https://godotengine.org
 
 [MCPRuntimeServer] port: scanning 6570-6585 (default)
-[MCPRuntimeServer] listening on 127.0.0.1:6571
-[MCPRegistry] runtime port 6571 registered for c:/gamedev/git/ft-lanes/m1-a1-2
+[MCPRuntimeServer] listening on 127.0.0.1:6570
+[MCPRegistry] runtime port 6570 registered for c:/gamedev/git/ft-lanes/m1-a1-2
 ---  GUT  ---
 [1m[INFO]:  [0musing [C:/Users/regner.blokandersen/AppData/Roaming/Godot/app_userdata/Fun Things] for temporary output.
 Godot version:  4.8.0
@@ -18,12 +18,14 @@ res://tests/unit/session/test_enet_transport.gd
 res://tests/unit/session/test_session_service.gd
 * test_standalone_reaches_active_and_completes_once
 * test_cancel_late_callback_and_retry_are_correlated
+* test_host_callbacks_require_current_operation_and_token_generation
 * test_close_timeout_forces_unavailable_without_double_completion
 * test_join_accepts_provider_target_and_waits_for_admission
+* test_join_connection_deadline_reports_connect_timeout
 * test_join_rejects_directory_target_without_opening_transport
 * test_view_shape_retains_capacity_for_current_session_kind
 * test_compatibility_validation_returns_normalized_failures
-7/7 passed.
+9/9 passed.
 
 
 res://tests/unit/session/test_session_ui.gd
@@ -42,10 +44,10 @@ res://tests/unit/session/test_session_ui.gd
 Totals
 ------
 Scripts               3
-Tests                12
-Passing Tests        12
-Asserts             100
-Time              1.042s
+Tests                14
+Passing Tests        14
+Asserts             116
+Time              1.375s
 
 
 ---- All tests passed! ----

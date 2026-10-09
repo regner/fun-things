@@ -14,6 +14,8 @@ var _peer: ENetMultiplayerPeer
 var _role: StringName = &""
 var _host_capacity: int = 0
 var _workaround_applied: bool = false
+var _next_connection_sequence: int = 1
+var _token_by_peer: Dictionary[int, int] = {}
 
 
 ## Connects process-lifetime multiplayer callbacks before a peer is published.
@@ -68,6 +70,19 @@ func parse_endpoint(address: String, port: int) -> Dictionary:
 	}
 
 
+## Confirms callback identity against the active operation and adapter generation.
+func is_current_connection_token(
+	operation_id: int,
+	connection_token: int,
+	native_peer_id: int,
+) -> bool:
+	return (
+		_peer != null
+		and operation_id == _operation_id
+		and connection_token == _token_by_peer.get(native_peer_id, -1)
+	)
+
+
 ## Opens a bounded listen endpoint and applies the pinned-engine workaround first.
 func open_host(operation_id: int, options: Dictionary) -> Dictionary:
 	if not is_available():
@@ -89,12 +104,12 @@ func open_host(operation_id: int, options: Dictionary) -> Dictionary:
 
 	var candidate := ENetMultiplayerPeer.new()
 	candidate.set_bind_ip(bind_address)
-	# One bounded rejection slot lets SessionService return SESSION_FULL explicitly.
+	# One bounded rejection slot lets SessionService return FULL explicitly.
 	var max_native_clients: int = capacity - 1 + REJECTION_SLOT_COUNT
 	var error: Error = candidate.create_server(port, max_native_clients, CHANNEL_COUNT)
 	if error != OK:
 		candidate.close()
-		return _failure(&"HOST_UNAVAILABLE")
+		return _failure(&"SERVICE_UNAVAILABLE")
 
 	# Godot c971 passes max_channels as incoming bandwidth during create_server.
 	candidate.host.bandwidth_limit(0, 0)
@@ -133,7 +148,7 @@ func open_client(operation_id: int, target: Dictionary) -> Dictionary:
 	var error: Error = candidate.create_client(address, port, CHANNEL_COUNT)
 	if error != OK:
 		candidate.close()
-		return _failure(&"UNREACHABLE_HOST")
+		return _failure(&"CONNECT_FAILED")
 
 	_operation_id = operation_id
 	_role = &"CLIENT"
@@ -147,10 +162,12 @@ func open_client(operation_id: int, target: Dictionary) -> Dictionary:
 ## Releases native resources, expires old targets, and reports safe local reuse.
 func close(operation_id: int) -> Dictionary:
 	_adapter_generation += 1
+	_next_connection_sequence = 1
 	_operation_id = 0
 	_role = &""
 	_host_capacity = 0
 	_workaround_applied = false
+	_token_by_peer.clear()
 	if _peer != null:
 		_peer.close()
 		_peer = null
@@ -174,7 +191,8 @@ func _on_connected_to_server() -> void:
 	if _peer == null or _role != &"CLIENT":
 		return
 
-	connected.emit(_operation_id, _connection_token(1), 1)
+	var connection_token: int = _allocate_connection_token(1)
+	connected.emit(_operation_id, connection_token, 1)
 
 
 ## Normalizes a refused or unreachable native client attempt.
@@ -182,7 +200,7 @@ func _on_connection_failed() -> void:
 	if _peer == null or _role != &"CLIENT":
 		return
 
-	failed.emit(_operation_id, _failure_record(&"UNREACHABLE_HOST", true))
+	failed.emit(_operation_id, _failure_record(&"CONNECT_FAILED", true))
 
 
 ## Ends a client session when its authoritative host disappears.
@@ -190,12 +208,14 @@ func _on_server_disconnected() -> void:
 	if _peer == null or _role != &"CLIENT":
 		return
 
+	var connection_token: int = _token_by_peer.get(1, -1)
 	disconnected.emit(
 		_operation_id,
-		_connection_token(1),
+		connection_token,
 		1,
 		_failure_record(&"HOST_LOST", true),
 	)
+	_token_by_peer.erase(1)
 
 
 ## Publishes one host-observed native peer without assigning gameplay identity.
@@ -203,7 +223,8 @@ func _on_peer_connected(peer_id: int) -> void:
 	if _peer == null or _role != &"HOST":
 		return
 
-	connected.emit(_operation_id, _connection_token(peer_id), peer_id)
+	var connection_token: int = _allocate_connection_token(peer_id)
+	connected.emit(_operation_id, connection_token, peer_id)
 
 
 ## Publishes host-side peer loss so SessionService can release its reservation.
@@ -211,12 +232,14 @@ func _on_peer_disconnected(peer_id: int) -> void:
 	if _peer == null or _role != &"HOST":
 		return
 
+	var connection_token: int = _token_by_peer.get(peer_id, -1)
 	disconnected.emit(
 		_operation_id,
-		_connection_token(peer_id),
+		connection_token,
 		peer_id,
-		_failure_record(&"PEER_LEFT", true),
+		_failure_record(&"CONNECT_FAILED", true),
 	)
+	_token_by_peer.erase(peer_id)
 
 
 ## Defers close completion so SessionService finishes its synchronous close call first.
@@ -224,9 +247,12 @@ func _emit_closed(operation_id: int) -> void:
 	closed.emit(operation_id, { "reuse_status": REUSE_SAFE })
 
 
-## Produces a token that cannot alias another adapter generation.
-func _connection_token(peer_id: int) -> int:
-	return (_adapter_generation << 32) | peer_id
+## Allocates a token that cannot alias peer-ID reuse or another adapter generation.
+func _allocate_connection_token(peer_id: int) -> int:
+	var connection_token: int = (_adapter_generation << 32) | _next_connection_sequence
+	_next_connection_sequence += 1
+	_token_by_peer[peer_id] = connection_token
+	return connection_token
 
 
 ## Validates bounded IP and DNS text without resolving or allocating native work.
@@ -236,7 +262,8 @@ func _valid_address(address: String) -> bool:
 	if address.is_valid_ip_address():
 		return true
 
-	var labels: PackedStringArray = address.split(".", false)
+	# FQDN trailing dots are rejected so every accepted target has one canonical spelling.
+	var labels: PackedStringArray = address.split(".", true)
 	if labels.is_empty():
 		return false
 	for label: String in labels:

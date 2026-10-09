@@ -49,8 +49,11 @@ Handshake: `{protocol_version: int, content_id: string, district_id: WorldId,
 topology_revision: int, definition_set_id: string}`. Protocol starts at 1; require
 exact equality for M1, with no backward-compatible negotiation. Content/definition
 IDs are build-time fingerprints of required gameplay resources/bakes, bounded to
-128 bytes each; their generation is S06/M1 work. Display version and engine version
-are diagnostic metadata, not compatibility. Unknown definitions or world IDs fail
+128 bytes each; their generation is S06/M1 work. ENet admission encodes this identity in a fixed
+packed-byte request capped at 512 logical bytes; the host checks raw lengths and UTF-8 before
+`StringName` conversion, rate-limits requests per native peer and disconnects repeated abuse.
+Display version and engine version are diagnostic metadata, not compatibility. Unknown definitions
+or world IDs fail
 admission with `INCOMPATIBLE`/`CONTENT_INVALID`, never a fallback gameplay definition.
 
 SessionService maps `(active provider operation, ConnectionToken, native peer ID)` to
@@ -710,12 +713,14 @@ total deadlines apply; whichever expires first ends the attempt. Retain serializ
 payload and actual transport-byte measurements separately, including join overhead.
 
 Normalized codes: `BUSY`, `CANCELED`, `TARGET_EXPIRED`, `SERVICE_UNAVAILABLE`,
-`UNSUPPORTED`, `CONNECT_FAILED`, `CONNECT_TIMEOUT`, `HANDSHAKE_TIMEOUT`, `FULL`,
+`UNSUPPORTED`, `INVALID_REQUEST`, `INVALID_ENDPOINT`, `STALE_OPERATION`, `NOT_CANCELABLE`,
+`NOT_ACTIVE`, `NO_RETRY`, `CONNECT_FAILED`, `CONNECT_TIMEOUT`, `HANDSHAKE_TIMEOUT`, `FULL`,
 `INCOMPATIBLE`, `CONTENT_INVALID`, `LOAD_TIMEOUT`, `SYNC_TIMEOUT`, `HOST_LOST`,
 `INVALID_COMMAND`, `NOT_ADMITTED`, `NOT_OWNER`, `STALE_STATE`, `STALE_SEQUENCE`,
 `RATE_LIMITED`, `STATE_LIMIT`, `SEAT_OCCUPIED`, `OUT_OF_RANGE`, `VEHICLE_MOVING`,
 `EXIT_BLOCKED`, `SPAWN_BLOCKED`, `NO_ROUTE`, `NOT_ALLOWED`, `COOLDOWN`, `NO_AMMO`,
 `RELOADING`, `SETTINGS_INVALID`, `STORAGE_FAILED`, `CLEANUP_TIMEOUT`.
+The request/endpoint/state codes are synchronous session-shell rejections and allocate no operation.
 Unexpected provider failures normalize to `CONNECT_FAILED` with retained local logs.
 Malformed/rate-limited gameplay requests are dropped/rejected before mutation;
 M1-D3 must settle and test a bounded repeated-abuse disconnect policy; S03 exercises

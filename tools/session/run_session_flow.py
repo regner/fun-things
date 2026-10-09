@@ -191,8 +191,11 @@ class SessionFlowRunner:
         return self.launch(case, name, arguments)
 
     def settle(self, children):
-        """Collect exits and reject new engine/script diagnostics."""
+        """Collect exits and reject nonzero children or engine/script diagnostics."""
         exits = {child.name: child.finish() for child in children}
+        failed_exits = {name: code for name, code in exits.items() if code != 0}
+        if failed_exits:
+            raise RuntimeError(f"nonzero child exits: {failed_exits}")
         diagnostics = {
             child.name: child.diagnostics() for child in children if child.diagnostics()
         }
@@ -223,7 +226,7 @@ class SessionFlowRunner:
         return self.settle([client, host])
 
     def case_full(self):
-        """Keep one admitted client while a second receives SESSION_FULL."""
+        """Keep one admitted client while a second receives canonical FULL."""
         case = "session_full"
         port = self.allocate_port()
         host = self.host(case, port, capacity=2, duration_ms=3000)
@@ -231,7 +234,7 @@ class SessionFlowRunner:
         first.wait_event(self.active, 3.0)
         second = self.client(case, "client_two", port, behavior="leave")
         terminal = second.wait_event(self.finished, 3.0)
-        if not terminal.get("ok") or terminal.get("failure") != "SESSION_FULL":
+        if not terminal.get("ok") or terminal.get("failure") != "FULL":
             raise RuntimeError(f"{case}: {terminal}")
         return self.settle([second, first, host])
 
@@ -243,6 +246,17 @@ class SessionFlowRunner:
         client = self.client(case, "client", port, behavior="wait_loss")
         client.wait_event(self.active, 3.0)
         terminal = client.wait_event(self.finished, 4.0)
+        if not terminal.get("ok") or terminal.get("failure") != "HOST_LOST":
+            raise RuntimeError(f"{case}: {terminal}")
+        return self.settle([client, host])
+
+    def case_handshake_abuse(self, case, behavior):
+        """Send malformed or repeated production RPCs and require host removal."""
+        port = self.allocate_port()
+        host = self.host(case, port, duration_ms=2500)
+        client = self.client(case, "client", port, behavior=behavior)
+        client.wait_event(self.active, 3.0)
+        terminal = client.wait_event(self.finished, 3.0)
         if not terminal.get("ok") or terminal.get("failure") != "HOST_LOST":
             raise RuntimeError(f"{case}: {terminal}")
         return self.settle([client, host])
@@ -263,7 +277,7 @@ class SessionFlowRunner:
         port = self.allocate_port()
         client = self.client(case, "client", port, behavior="leave")
         terminal = client.wait_event(self.finished, 3.0)
-        if not terminal.get("ok") or terminal.get("failure") != "UNREACHABLE_HOST":
+        if not terminal.get("ok") or terminal.get("failure") != "CONNECT_TIMEOUT":
             raise RuntimeError(f"{case}: {terminal}")
         return self.settle([client])
 
@@ -303,6 +317,24 @@ def main():
         ),
         ("session_full", runner.case_full),
         ("host_loss", runner.case_host_loss),
+        (
+            "oversized_handshake_byte_array",
+            lambda: runner.case_handshake_abuse(
+                "oversized_handshake_byte_array", "oversized_byte_array"
+            ),
+        ),
+        (
+            "oversized_handshake_string",
+            lambda: runner.case_handshake_abuse(
+                "oversized_handshake_string", "oversized_string"
+            ),
+        ),
+        (
+            "repeated_handshake",
+            lambda: runner.case_handshake_abuse(
+                "repeated_handshake", "repeated_handshake"
+            ),
+        ),
         ("cancel_connect", runner.case_cancel_connect),
         ("unreachable", runner.case_unreachable),
     ]
@@ -326,7 +358,11 @@ def main():
     finally:
         runner.cleanup()
 
-    summary = {"ok": all(row["ok"] for row in results.values()), "cases": results}
+    summary = {
+        "ok": all(row["ok"] for row in results.values()),
+        "timing_context": "contended wall-clock diagnostics; not performance evidence",
+        "cases": results,
+    }
     (output / "summary.json").write_text(
         json.dumps(summary, indent=2) + "\n", encoding="utf-8"
     )

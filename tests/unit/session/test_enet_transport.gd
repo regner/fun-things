@@ -22,6 +22,9 @@ func test_parse_endpoint_owns_address_validation() -> void:
 	assert_true(_transport.parse_endpoint("127.0.0.1", 65_535).ok)
 	assert_false(_transport.parse_endpoint("bad host", 24_900).ok)
 	assert_false(_transport.parse_endpoint("-bad.example", 24_900).ok)
+	assert_false(_transport.parse_endpoint(".localhost", 24_900).ok)
+	assert_false(_transport.parse_endpoint("bad..example", 24_900).ok)
+	assert_false(_transport.parse_endpoint("localhost.", 24_900).ok)
 	assert_false(_transport.parse_endpoint("localhost", 0).ok)
 	assert_false(_transport.parse_endpoint("localhost", 65_536).ok)
 
