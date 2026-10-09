@@ -42,8 +42,10 @@ recommendations and do not block P1.
 
 ### M1-B — Vehicles, combat and destruction
 
-- [ ] **M1-B1 — Implement vehicles and authoritative driver transitions (P2).** Use the three
-  delivered cars and decision 30's owner-approved handling. Entry is host-confirmed after a
+- [ ] **M1-B1 — Implement vehicles and authoritative driver transitions (P2).** B1.1's standalone
+  drive-rule port is done: one `VehicleMotion` step with decision 30 tuning, the three delivered
+  car entity scenes, wheel presentation and the `scenes/dev/vehicle_drive.tscn` tuning harness.
+  B1.1's local prediction and corrections follow A2.3. Entry is host-confirmed after a
   short ~0.3 s presentation; transfer control and camera/HUD ownership only on acceptance, with
   no rejection snap. Preserve exit below 0.5 m/s at the authored 1.5 m offset and add production
   clearance. After: M1-A2.3, M1-A2.4.
