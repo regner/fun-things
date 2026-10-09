@@ -669,5 +669,23 @@
     "receive_to_forward_ms measures actual proxy queue dwell; schedule_overrun_ms measures forwarding after the requested due time.",
     "Process counts changed as unrelated lane-owned Godot processes started/stopped; cross-case deltas are diagnostic, not controlled benchmarks.",
     "Technical failures are retained rather than discarded. No gameplay criterion was weakened."
-  ]
+  ],
+  "blocking_call_audit": {
+    "s11_sampler_pattern_present": false,
+    "in_measurement_tasklist_wmic_powershell_cpu_queries": false,
+    "subprocess_boundaries": [
+      "engine version before all cases/proxies",
+      "isolated import before FootProxy construction",
+      "host spawn before polling",
+      "client spawn before client start/proxy timing/input measurement",
+      "owned-child cleanup after measurement exit"
+    ],
+    "matrix_process_count_collection": "tasklist in the outer matrix shell before each runner invocation",
+    "accepted_max_poll_gap_ms": {
+      "proxied-hires": 69.87790018320084,
+      "windowed-vsync-capped60": 39.907800033688545,
+      "windowed-vsync-off-capped60": 120.6372999586165
+    },
+    "disposition": "No S11-style synchronous sampler was present; no relocation or sampler-triggered rerun required."
+  }
 }
