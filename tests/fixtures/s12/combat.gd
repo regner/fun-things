@@ -18,7 +18,9 @@ const FIRE_INTERVAL_USEC: int = 100_000
 const CLIENT_FIRE_INTERVAL_USEC: int = 150_000
 const MAGAZINE_SIZE: int = 30
 const RELOAD_USEC: int = 1_800_000
-const SHOT_COUNT: int = 64
+const SHOT_COUNT: int = 96
+const HOST_STALL_TICK: int = 600
+const HOST_STALL_MS: int = 250
 const ROCKET_COOLDOWN_USEC: int = 1_000_000
 const ROCKET_SPEED_MPS: float = 18.0
 const MAX_RANGE_M: float = 50.0
@@ -26,6 +28,7 @@ const AIM_FACTORS: Array[float] = [-1.2, -0.6, 0.0, 0.6, 1.2]
 
 var session: S03Session
 var role: String = "host"
+var profile: String = "normal"
 var targets: Dictionary = {}
 var history: Array[Dictionary] = []
 var presentation: Dictionary = {}
@@ -46,14 +49,16 @@ var rocket_sent: int = 0
 var rocket_responses: int = 0
 var client_rows: Array[Dictionary] = []
 var rocket_rows: Array[Dictionary] = []
+var probe_rows: Array[Dictionary] = []
 var probes_sent: bool = false
 var done_sent: bool = false
 
 
-## Bind session identity and the authored target actors before measurement starts.
-func configure(source_session: S03Session, source_role: String) -> void:
+## Bind session identity, delivery profile and authored targets before measurement starts.
+func configure(source_session: S03Session, source_role: String, source_profile: String) -> void:
 	session = source_session
 	role = source_role
+	profile = source_profile
 	for child: Node in get_children():
 		if child is S12Target:
 			targets[(child as S12Target).target_id] = child
@@ -73,6 +78,13 @@ func physics_step(delta: float) -> void:
 ## Capture authoritative target history and publish replaceable presentation snapshots.
 func _host_step(delta: float) -> void:
 	host_tick += 1
+	if profile == "adverse" and host_tick == HOST_STALL_TICK:
+		receipt.emit({ "event": "stall_begin", "tick": host_tick,
+			"duration_ms": HOST_STALL_MS })
+		OS.delay_msec(HOST_STALL_MS)
+		receipt.emit({ "event": "stall_end", "tick": host_tick,
+			"duration_ms": HOST_STALL_MS })
+
 	for target: S12Target in targets.values():
 		target.step(delta)
 
@@ -298,6 +310,7 @@ func _verdict(row: Dictionary) -> void:
 
 	if probes_sent:
 		probe_responses += 1
+		probe_rows.append(row.duplicate())
 	else:
 		client_responses += 1
 		if row.get("accepted", false):
@@ -385,7 +398,8 @@ func _host_summary(host_summary: Dictionary) -> void:
 		return
 
 	client_finished.emit({"shots": client_rows, "rockets": rocket_rows,
-		"host": host_summary, "attempts": SHOT_COUNT, "responses": client_responses})
+		"probes": probe_rows, "host": host_summary, "attempts": SHOT_COUNT,
+		"responses": client_responses})
 	_finish_ack.rpc_id(1, session.session_id)
 
 

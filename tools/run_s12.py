@@ -15,10 +15,11 @@ import tempfile
 import time
 
 from run_s03 import stop_children
-from run_s03_r import FootProxy, POLL_SECONDS, PROFILES
+from run_s03_r import FootProxy, POLL_SECONDS
 from script_checks import ROOT, DIAGNOSTIC, checked_command, engine_version, environment
 
 DEFAULT_PROFILES = ["normal", "adverse"]
+EXPECTED_PROBE_REASONS = ["STALE_SEQUENCE", "INVALID", "INVALID"]
 
 
 def percentile(values, quantile=0.95):
@@ -69,11 +70,59 @@ def analyze(client_summary):
         "history_peak_bytes": client_summary["host"]["history_peak_bytes"],
         "history_samples": client_summary["host"]["history_samples"],
         "host_rejections": client_summary["host"]["rejections"],
+        "security_probes": client_summary["probes"],
         "rocket_presentation_offset_m": {"samples": len(offsets),
                                           "median": percentile(offsets, 0.5),
                                           "p95": percentile(offsets),
                                           "worst": max(offsets, default=0)},
     }
+
+
+def evaluate_case(measurements, profile, proxy_events, host_records, unchanged):
+    """Return independently reviewable criteria, including probes and adverse events."""
+    attempts = measurements["attempts"]
+    probes = measurements["security_probes"]
+    probe_shape = len(probes) == len(EXPECTED_PROBE_REASONS)
+    if probe_shape:
+        probe_shape = all(
+            row.get("accepted") is False
+            and row.get("sequence") == attempts + index
+            and row.get("reason") == reason
+            for index, (row, reason) in enumerate(zip(probes, EXPECTED_PROBE_REASONS))
+        )
+    events = [row.get("event") for row in proxy_events]
+    blackout_drops = [row for row in proxy_events if row.get("event") == "drop"
+                      and row.get("reason") in ["blackout", "blackout_pending"]]
+    stall_begin = [row for row in host_records if row.get("event") == "stall_begin"]
+    stall_end = [row for row in host_records if row.get("event") == "stall_end"]
+    stall_complete = len(stall_begin) == 1 and len(stall_end) == 1
+    if stall_complete:
+        stall_complete = (stall_end[0]["wall_usec"] - stall_begin[0]["wall_usec"]
+                          >= 250_000)
+    adverse_complete = True
+    profile_isolated = True
+    if profile == "adverse":
+        adverse_complete = (events.count("blackout_begin") == 1
+                            and events.count("blackout_end") == 1
+                            and bool(blackout_drops) and stall_complete)
+    else:
+        profile_isolated = ("blackout_begin" not in events and "blackout_end" not in events
+                            and not blackout_drops and not stall_begin and not stall_end)
+    criteria = {
+        "all_attempts_answered": measurements["responses"] == attempts,
+        "accepted_sample_floor": measurements["accepted_shots"] >= attempts // 2,
+        "per_target_sample_floor": all(
+            row["samples"] >= attempts // 4
+            for row in measurements["by_target"].values()),
+        "history_sample_bound": measurements["history_samples"] <= 24,
+        "history_byte_bound": measurements["history_peak_bytes"] < 32768,
+        "security_probe_outcomes": probe_shape,
+        "rocket_sample_floor": measurements["rocket_presentation_offset_m"]["samples"] >= 6,
+        "adverse_interruption_and_stall": adverse_complete,
+        "profile_isolated": profile_isolated,
+        "saved_source_unchanged": unchanged,
+    }
+    return criteria
 
 
 def host_load():
@@ -140,7 +189,7 @@ def run_case(args, directory, profile):
             role_dir.mkdir()
             command = [args.godot, "--headless", "--path", str(project), "--log-file",
                        str(role_dir / "engine.log"), "res://tests/fixtures/s12/boot.tscn", "--",
-                       "--role=" + role, "--port=" + str(port)]
+                       "--role=" + role, "--port=" + str(port), "--profile=" + profile]
             commands[role] = command
             logs[role] = (role_dir / "stdout.log").open("w")
             child = subprocess.Popen(command, stdout=logs[role], stderr=subprocess.STDOUT,
@@ -193,16 +242,10 @@ def run_case(args, directory, profile):
         measurements = analyze(client_summary)
         unchanged = all(hashlib.sha256((project / path).read_bytes()).hexdigest() == digest
                         for path, digest in before.items())
-        rejection_total = sum(measurements["host_rejections"].values())
-        required = [measurements["responses"] == 64,
-                    measurements["accepted_shots"] >= 32,
-                    all(row["samples"] >= 15 for row in measurements["by_target"].values()),
-                    measurements["history_samples"] <= 24,
-                    measurements["history_peak_bytes"] < 32768,
-                    rejection_total >= 3,
-                    measurements["rocket_presentation_offset_m"]["samples"] >= 4,
-                    unchanged]
-        summary = {"ok": all(required), "profile": profile, "measurements": measurements,
+        host_records = records(directory / "host/stdout.log")
+        criteria = evaluate_case(measurements, profile, proxy.events, host_records, unchanged)
+        summary = {"ok": all(criteria.values()), "profile": profile,
+                   "criteria": criteria, "measurements": measurements,
                    "load": load, "source_sha256": before, "saved_source_unchanged": unchanged,
                    "commands": commands, "process_ids": [child.pid for child in children],
                    "exits": [child.returncode for child in children],
@@ -223,7 +266,7 @@ def main():
     parser.add_argument("--godot", default=shutil.which("godot") or "godot")
     parser.add_argument("--port", type=int, default=25200)
     parser.add_argument("--proxy-port", type=int, default=25201)
-    parser.add_argument("--deadline", type=float, default=35)
+    parser.add_argument("--deadline", type=float, default=45)
     parser.add_argument("--profiles", nargs="+", choices=["normal", "adverse"],
                         default=DEFAULT_PROFILES)
     parser.add_argument("--output", type=Path)

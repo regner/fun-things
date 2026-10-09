@@ -2,9 +2,10 @@ class_name S12Proof
 extends Node
 ## Coordinates S12 combat through the unchanged S03 admission and transport owners.
 
-const CASE_DEADLINE_MS: int = 25_000
+const CASE_DEADLINE_MS: int = 30_000
 
 var role: String = "host"
+var profile: String = "normal"
 var port: int = 25_200
 var deadline_ms: int = 0
 var host_summary: Dictionary = {}
@@ -23,6 +24,8 @@ func _ready() -> void:
 			role = argument.trim_prefix("--role=")
 		elif argument.begins_with("--port="):
 			port = int(argument.trim_prefix("--port="))
+		elif argument.begins_with("--profile="):
+			profile = argument.trim_prefix("--profile=")
 
 	session.match_state = match_state
 	session.replication = replication
@@ -30,7 +33,7 @@ func _ready() -> void:
 	replication.resolve_participant = session.participant_for_peer
 	replication.handoff_confirmed.connect(session.confirm_handoff)
 	replication.admission_received.connect(session.receive_admission)
-	combat.configure(session, role)
+	combat.configure(session, role, profile)
 	combat.receipt.connect(_on_receipt)
 	combat.client_finished.connect(_on_client_finished)
 	combat.host_finished.connect(_on_host_finished)
