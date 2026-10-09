@@ -1,0 +1,42 @@
+[gd_scene format=3 uid="uid://dwoujphvjw3nr"]
+
+[ext_resource type="PackedScene" uid="uid://bskwy6dksancb" path="res://art/models/environment/d06_harbour_footbridge_06/d06_harbour_footbridge_06_support_tall.glb" id="1_model"]
+
+[sub_resource type="BoxShape3D" id="Shape_Foot"]
+size = Vector3(1.2, 0.2, 1.2)
+
+[sub_resource type="BoxShape3D" id="Shape_Collar"]
+size = Vector3(0.85, 0.15, 0.85)
+
+[sub_resource type="BoxShape3D" id="Shape_Pier"]
+size = Vector3(0.65, 4.5, 0.65)
+
+[sub_resource type="BoxShape3D" id="Shape_Head"]
+size = Vector3(2.4, 0.3, 0.7)
+
+[node name="d06_harbour_footbridge_06_support_tall" type="Node3D" unique_id=2078827382]
+
+[node name="Visuals" type="Node3D" parent="." unique_id=1564057002]
+
+[node name="Model" type="Node3D" parent="Visuals" unique_id=618543950 instance=ExtResource("1_model")]
+
+[node name="Collision" type="Node3D" parent="." unique_id=1651258767]
+
+[node name="Body" type="StaticBody3D" parent="Collision" unique_id=704909794]
+collision_mask = 0
+
+[node name="Foot" type="CollisionShape3D" parent="Collision/Body" unique_id=1783050434]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, 0)
+shape = SubResource("Shape_Foot")
+
+[node name="Collar" type="CollisionShape3D" parent="Collision/Body" unique_id=1225612284]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.275, 0)
+shape = SubResource("Shape_Collar")
+
+[node name="Pier" type="CollisionShape3D" parent="Collision/Body" unique_id=1902213911]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.6, 0)
+shape = SubResource("Shape_Pier")
+
+[node name="Head" type="CollisionShape3D" parent="Collision/Body" unique_id=858479097]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5, 0)
+shape = SubResource("Shape_Head")

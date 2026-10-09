@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://d23c40rychplo"]
+
+[ext_resource type="PackedScene" uid="uid://bjtw238f3j0b4" path="res://art/models/environment/d06_harbour_footbridge_06/d06_harbour_footbridge_06_span.glb" id="1_model"]
+
+[sub_resource type="ConvexPolygonShape3D" id="Shape_Guard00"]
+margin = 0.005
+points = PackedVector3Array(-1.66, -0.15, 0, -1.54, -0.15, 0, -1.66, -0.15, -12, -1.54, -0.15, -12, -1.66, 1.2, 0, -1.54, 1.2, 0, -1.66, 1.2, -12, -1.54, 1.2, -12)
+
+[sub_resource type="ConvexPolygonShape3D" id="Shape_Guard01"]
+margin = 0.005
+points = PackedVector3Array(1.54, -0.15, 0, 1.66, -0.15, 0, 1.54, -0.15, -12, 1.66, -0.15, -12, 1.54, 1.2, 0, 1.66, 1.2, 0, 1.54, 1.2, -12, 1.66, 1.2, -12)
+
+[node name="d06_harbour_footbridge_06_span" type="Node3D" unique_id=2131854655]
+
+[node name="Visuals" type="Node3D" parent="." unique_id=2071126319]
+
+[node name="Model" type="Node3D" parent="Visuals" unique_id=2618741 instance=ExtResource("1_model")]
+
+[node name="Collision" type="Node3D" parent="." unique_id=805078720]
+
+[node name="Body" type="StaticBody3D" parent="Collision" unique_id=2023981705]
+collision_mask = 0
+
+[node name="Guard00" type="CollisionShape3D" parent="Collision/Body" unique_id=43115861]
+shape = SubResource("Shape_Guard00")
+
+[node name="Guard01" type="CollisionShape3D" parent="Collision/Body" unique_id=244350223]
+shape = SubResource("Shape_Guard01")

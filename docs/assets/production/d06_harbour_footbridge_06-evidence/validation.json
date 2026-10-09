@@ -1,0 +1,1707 @@
+{
+  "asset_id": "d06_harbour_footbridge.06",
+  "status": "PASS",
+  "blender": "5.2.2 LTS",
+  "build": "d13f752e3b9c",
+  "exporter": "5.2.40",
+  "variants": {
+    "junction": {
+      "source_vertices": 2240,
+      "triangles": 4320,
+      "glb_vertices_including_surface_splits": 3840,
+      "mesh_count": 1,
+      "surface_count": 2,
+      "degenerate_faces": 0,
+      "nonmanifold_edges": 0,
+      "degenerate_export_triangles": 0,
+      "unit_corner_and_export_normals": true,
+      "source_signed_volume_m3": 0.5951128341825882,
+      "aabb_godot": {
+        "min": [
+          -3.0,
+          -0.15000000596046448,
+          -3.0
+        ],
+        "max": [
+          3.292632579803467,
+          1.2000000476837158,
+          3.2926321029663086
+        ],
+        "size": [
+          6.292632579803467,
+          1.3500000536441803,
+          6.292632102966309
+        ]
+      },
+      "nominal_aabb_godot": {
+        "min": [
+          -3,
+          -0.15,
+          -3
+        ],
+        "max": [
+          3.295118,
+          1.2,
+          3.295118
+        ]
+      },
+      "pivot_godot": [
+        0,
+        0,
+        0
+      ],
+      "materials": [
+        {
+          "name": "rail_dark_teal",
+          "pbrMetallicRoughness": {
+            "baseColorFactor": [
+              0.02500000037252903,
+              0.07500000298023224,
+              0.09000000357627869,
+              1
+            ],
+            "metallicFactor": 0,
+            "roughnessFactor": 0.46000000834465027
+          }
+        },
+        {
+          "emissiveFactor": [
+            0.0539999973624945,
+            0.2924999815225604,
+            0.3240000042915341
+          ],
+          "name": "edge_cyan",
+          "pbrMetallicRoughness": {
+            "baseColorFactor": [
+              0.11999999731779099,
+              0.6499999761581421,
+              0.7200000286102295,
+              1
+            ],
+            "metallicFactor": 0,
+            "roughnessFactor": 0.3799999952316284
+          }
+        }
+      ],
+      "export_nodes": [
+        {
+          "mesh": 0,
+          "name": "D06HarbourFootbridge06_junction_Mesh"
+        },
+        {
+          "children": [
+            0
+          ],
+          "name": "D06HarbourFootbridge06_junction"
+        }
+      ],
+      "glb_sha256": "80c76c407339cdeefc7cba5bde2c8d1077b494a03765db8b515f73dcc12b3602",
+      "fresh_reexport_byte_identical": true
+    },
+    "span": {
+      "source_vertices": 1456,
+      "triangles": 2808,
+      "glb_vertices_including_surface_splits": 2496,
+      "mesh_count": 1,
+      "surface_count": 2,
+      "degenerate_faces": 0,
+      "nonmanifold_edges": 0,
+      "degenerate_export_triangles": 0,
+      "unit_corner_and_export_normals": true,
+      "source_signed_volume_m3": 1.0140254282941001,
+      "aabb_godot": {
+        "min": [
+          -1.659999966621399,
+          -0.15000000596046448,
+          -12.0
+        ],
+        "max": [
+          1.659999966621399,
+          1.2000000476837158,
+          -0.0
+        ],
+        "size": [
+          3.319999933242798,
+          1.3500000536441803,
+          12.0
+        ]
+      },
+      "nominal_aabb_godot": {
+        "min": [
+          -1.66,
+          -0.15,
+          -12
+        ],
+        "max": [
+          1.66,
+          1.2,
+          0
+        ]
+      },
+      "pivot_godot": [
+        0,
+        0,
+        0
+      ],
+      "materials": [
+        {
+          "name": "rail_dark_teal",
+          "pbrMetallicRoughness": {
+            "baseColorFactor": [
+              0.02500000037252903,
+              0.07500000298023224,
+              0.09000000357627869,
+              1
+            ],
+            "metallicFactor": 0,
+            "roughnessFactor": 0.46000000834465027
+          }
+        },
+        {
+          "emissiveFactor": [
+            0.0539999973624945,
+            0.2924999815225604,
+            0.3240000042915341
+          ],
+          "name": "edge_cyan",
+          "pbrMetallicRoughness": {
+            "baseColorFactor": [
+              0.11999999731779099,
+              0.6499999761581421,
+              0.7200000286102295,
+              1
+            ],
+            "metallicFactor": 0,
+            "roughnessFactor": 0.3799999952316284
+          }
+        }
+      ],
+      "export_nodes": [
+        {
+          "mesh": 0,
+          "name": "D06HarbourFootbridge06_span_Mesh"
+        },
+        {
+          "children": [
+            0
+          ],
+          "name": "D06HarbourFootbridge06_span"
+        }
+      ],
+      "glb_sha256": "27cf20f38be994e988a4a7c0bd546b54f30c9ba3185dbcb803efc0387884b3c6",
+      "fresh_reexport_byte_identical": true
+    },
+    "main": {
+      "source_vertices": 4368,
+      "triangles": 8424,
+      "glb_vertices_including_surface_splits": 7360,
+      "mesh_count": 1,
+      "surface_count": 2,
+      "degenerate_faces": 0,
+      "nonmanifold_edges": 0,
+      "degenerate_export_triangles": 0,
+      "unit_corner_and_export_normals": true,
+      "source_signed_volume_m3": 1.8094666581436039,
+      "aabb_godot": {
+        "min": [
+          -1.659999966621399,
+          -0.15000000596046448,
+          -19.84000015258789
+        ],
+        "max": [
+          1.659999966621399,
+          6.877658367156982,
+          -0.0
+        ],
+        "size": [
+          3.319999933242798,
+          7.027658373117447,
+          19.84000015258789
+        ]
+      },
+      "nominal_aabb_godot": {
+        "min": [
+          -1.66,
+          -0.15,
+          -19.84
+        ],
+        "max": [
+          1.66,
+          6.88,
+          0
+        ]
+      },
+      "pivot_godot": [
+        0,
+        0,
+        0
+      ],
+      "materials": [
+        {
+          "name": "rail_dark_teal",
+          "pbrMetallicRoughness": {
+            "baseColorFactor": [
+              0.02500000037252903,
+              0.07500000298023224,
+              0.09000000357627869,
+              1
+            ],
+            "metallicFactor": 0,
+            "roughnessFactor": 0.46000000834465027
+          }
+        },
+        {
+          "emissiveFactor": [
+            0.0539999973624945,
+            0.2924999815225604,
+            0.3240000042915341
+          ],
+          "name": "edge_cyan",
+          "pbrMetallicRoughness": {
+            "baseColorFactor": [
+              0.11999999731779099,
+              0.6499999761581421,
+              0.7200000286102295,
+              1
+            ],
+            "metallicFactor": 0,
+            "roughnessFactor": 0.3799999952316284
+          }
+        }
+      ],
+      "export_nodes": [
+        {
+          "mesh": 0,
+          "name": "D06HarbourFootbridge06_main_Mesh"
+        },
+        {
+          "children": [
+            0
+          ],
+          "name": "D06HarbourFootbridge06_main"
+        }
+      ],
+      "glb_sha256": "0eed2b2df3ac72550c807b8cfff841607d0312578f07465dcff899740a7fe2bd",
+      "fresh_reexport_byte_identical": true
+    },
+    "south": {
+      "source_vertices": 4368,
+      "triangles": 8424,
+      "glb_vertices_including_surface_splits": 7360,
+      "mesh_count": 1,
+      "surface_count": 2,
+      "degenerate_faces": 0,
+      "nonmanifold_edges": 0,
+      "degenerate_export_triangles": 0,
+      "unit_corner_and_export_normals": true,
+      "source_signed_volume_m3": 1.8094644473923132,
+      "aabb_godot": {
+        "min": [
+          -1.659999966621399,
+          -0.15000000596046448,
+          -11.579999923706055
+        ],
+        "max": [
+          9.920000076293945,
+          6.877658367156982,
+          -0.0
+        ],
+        "size": [
+          11.580000042915344,
+          7.027658373117447,
+          11.579999923706055
+        ]
+      },
+      "nominal_aabb_godot": {
+        "min": [
+          -1.66,
+          -0.15,
+          -11.58
+        ],
+        "max": [
+          9.92,
+          6.88,
+          0
+        ]
+      },
+      "pivot_godot": [
+        0,
+        0,
+        0
+      ],
+      "materials": [
+        {
+          "name": "rail_dark_teal",
+          "pbrMetallicRoughness": {
+            "baseColorFactor": [
+              0.02500000037252903,
+              0.07500000298023224,
+              0.09000000357627869,
+              1
+            ],
+            "metallicFactor": 0,
+            "roughnessFactor": 0.46000000834465027
+          }
+        },
+        {
+          "emissiveFactor": [
+            0.0539999973624945,
+            0.2924999815225604,
+            0.3240000042915341
+          ],
+          "name": "edge_cyan",
+          "pbrMetallicRoughness": {
+            "baseColorFactor": [
+              0.11999999731779099,
+              0.6499999761581421,
+              0.7200000286102295,
+              1
+            ],
+            "metallicFactor": 0,
+            "roughnessFactor": 0.3799999952316284
+          }
+        }
+      ],
+      "export_nodes": [
+        {
+          "mesh": 0,
+          "name": "D06HarbourFootbridge06_south_Mesh"
+        },
+        {
+          "children": [
+            0
+          ],
+          "name": "D06HarbourFootbridge06_south"
+        }
+      ],
+      "glb_sha256": "62a70b14b6996c166de70cd1561306c25c78d0016aabfac95cd6751c82ddb72d",
+      "fresh_reexport_byte_identical": true
+    },
+    "quay": {
+      "source_vertices": 4368,
+      "triangles": 8424,
+      "glb_vertices_including_surface_splits": 7360,
+      "mesh_count": 1,
+      "surface_count": 2,
+      "degenerate_faces": 0,
+      "nonmanifold_edges": 0,
+      "degenerate_export_triangles": 0,
+      "unit_corner_and_export_normals": true,
+      "source_signed_volume_m3": 1.809464517957918,
+      "aabb_godot": {
+        "min": [
+          -9.920000076293945,
+          -0.15000000596046448,
+          -11.579999923706055
+        ],
+        "max": [
+          1.659999966621399,
+          6.877658367156982,
+          -0.0
+        ],
+        "size": [
+          11.580000042915344,
+          7.027658373117447,
+          11.579999923706055
+        ]
+      },
+      "nominal_aabb_godot": {
+        "min": [
+          -9.92,
+          -0.15,
+          -11.58
+        ],
+        "max": [
+          1.66,
+          6.88,
+          0
+        ]
+      },
+      "pivot_godot": [
+        0,
+        0,
+        0
+      ],
+      "materials": [
+        {
+          "name": "rail_dark_teal",
+          "pbrMetallicRoughness": {
+            "baseColorFactor": [
+              0.02500000037252903,
+              0.07500000298023224,
+              0.09000000357627869,
+              1
+            ],
+            "metallicFactor": 0,
+            "roughnessFactor": 0.46000000834465027
+          }
+        },
+        {
+          "emissiveFactor": [
+            0.0539999973624945,
+            0.2924999815225604,
+            0.3240000042915341
+          ],
+          "name": "edge_cyan",
+          "pbrMetallicRoughness": {
+            "baseColorFactor": [
+              0.11999999731779099,
+              0.6499999761581421,
+              0.7200000286102295,
+              1
+            ],
+            "metallicFactor": 0,
+            "roughnessFactor": 0.3799999952316284
+          }
+        }
+      ],
+      "export_nodes": [
+        {
+          "mesh": 0,
+          "name": "D06HarbourFootbridge06_quay_Mesh"
+        },
+        {
+          "children": [
+            0
+          ],
+          "name": "D06HarbourFootbridge06_quay"
+        }
+      ],
+      "glb_sha256": "7fac4788a7d43d5d391f5b6fa6edeba81bf9f74824fa4388318209eade0a33d2",
+      "fresh_reexport_byte_identical": true
+    },
+    "support_tall": {
+      "source_vertices": 224,
+      "triangles": 432,
+      "glb_vertices_including_surface_splits": 384,
+      "mesh_count": 1,
+      "surface_count": 3,
+      "degenerate_faces": 0,
+      "nonmanifold_edges": 0,
+      "degenerate_export_triangles": 0,
+      "unit_corner_and_export_normals": true,
+      "source_signed_volume_m3": 2.393907531258901,
+      "aabb_godot": {
+        "min": [
+          -1.2000000476837158,
+          0.0,
+          -0.6000000238418579
+        ],
+        "max": [
+          1.2000000476837158,
+          5.150000095367432,
+          0.6000000238418579
+        ],
+        "size": [
+          2.4000000953674316,
+          5.150000095367432,
+          1.2000000476837158
+        ]
+      },
+      "nominal_aabb_godot": {
+        "min": [
+          -1.2,
+          0,
+          -0.6
+        ],
+        "max": [
+          1.2,
+          5.15,
+          0.6
+        ]
+      },
+      "pivot_godot": [
+        0,
+        0,
+        0
+      ],
+      "materials": [
+        {
+          "name": "deck_warm_pale",
+          "pbrMetallicRoughness": {
+            "baseColorFactor": [
+              0.7200000286102295,
+              0.7300000190734863,
+              0.6600000262260437,
+              1
+            ],
+            "metallicFactor": 0,
+            "roughnessFactor": 0.7799999713897705
+          }
+        },
+        {
+          "name": "deck_pale_fascia",
+          "pbrMetallicRoughness": {
+            "baseColorFactor": [
+              0.49000000953674316,
+              0.5899999737739563,
+              0.5899999737739563,
+              1
+            ],
+            "metallicFactor": 0,
+            "roughnessFactor": 0.5600000023841858
+          }
+        },
+        {
+          "name": "deck_petrol_underside",
+          "pbrMetallicRoughness": {
+            "baseColorFactor": [
+              0.07500000298023224,
+              0.1599999964237213,
+              0.18000000715255737,
+              1
+            ],
+            "metallicFactor": 0,
+            "roughnessFactor": 0.6499999761581421
+          }
+        }
+      ],
+      "export_nodes": [
+        {
+          "mesh": 0,
+          "name": "D06HarbourFootbridge06_support_tall_Mesh"
+        },
+        {
+          "children": [
+            0
+          ],
+          "name": "D06HarbourFootbridge06_support_tall"
+        }
+      ],
+      "glb_sha256": "72931b80b5959cfddedceb9f1a6a73f92dc2bae6ffcf9dad21c24e35e966b1ff",
+      "fresh_reexport_byte_identical": true
+    },
+    "support_mid": {
+      "source_vertices": 224,
+      "triangles": 432,
+      "glb_vertices_including_surface_splits": 384,
+      "mesh_count": 1,
+      "surface_count": 3,
+      "degenerate_faces": 0,
+      "nonmanifold_edges": 0,
+      "degenerate_export_triangles": 0,
+      "unit_corner_and_export_normals": true,
+      "source_signed_volume_m3": 1.4805758862659513,
+      "aabb_godot": {
+        "min": [
+          -1.2000000476837158,
+          0.0,
+          -0.6000000238418579
+        ],
+        "max": [
+          1.2000000476837158,
+          2.4000000953674316,
+          0.6000000238418579
+        ],
+        "size": [
+          2.4000000953674316,
+          2.4000000953674316,
+          1.2000000476837158
+        ]
+      },
+      "nominal_aabb_godot": {
+        "min": [
+          -1.2,
+          0,
+          -0.6
+        ],
+        "max": [
+          1.2,
+          2.4,
+          0.6
+        ]
+      },
+      "pivot_godot": [
+        0,
+        0,
+        0
+      ],
+      "materials": [
+        {
+          "name": "deck_warm_pale",
+          "pbrMetallicRoughness": {
+            "baseColorFactor": [
+              0.7200000286102295,
+              0.7300000190734863,
+              0.6600000262260437,
+              1
+            ],
+            "metallicFactor": 0,
+            "roughnessFactor": 0.7799999713897705
+          }
+        },
+        {
+          "name": "deck_pale_fascia",
+          "pbrMetallicRoughness": {
+            "baseColorFactor": [
+              0.49000000953674316,
+              0.5899999737739563,
+              0.5899999737739563,
+              1
+            ],
+            "metallicFactor": 0,
+            "roughnessFactor": 0.5600000023841858
+          }
+        },
+        {
+          "name": "deck_petrol_underside",
+          "pbrMetallicRoughness": {
+            "baseColorFactor": [
+              0.07500000298023224,
+              0.1599999964237213,
+              0.18000000715255737,
+              1
+            ],
+            "metallicFactor": 0,
+            "roughnessFactor": 0.6499999761581421
+          }
+        }
+      ],
+      "export_nodes": [
+        {
+          "mesh": 0,
+          "name": "D06HarbourFootbridge06_support_mid_Mesh"
+        },
+        {
+          "children": [
+            0
+          ],
+          "name": "D06HarbourFootbridge06_support_mid"
+        }
+      ],
+      "glb_sha256": "44a84b91ab2f28939282eba80d8909fac8daf600347732fcc76ad810ac82ddc4",
+      "fresh_reexport_byte_identical": true
+    }
+  },
+  "nominal_envelope_tolerance_m": 0.008,
+  "source_export_tolerance_m": 1e-05,
+  "shell_note": "Separate closed rail/post/strip/pier shells; intentional joint overlaps.",
+  "support_placement": "Unplaced: road/land fit approval required.",
+  "engine": {
+    "assembly": {
+      "capsules": [
+        {
+          "centre": "(0.0, 6.41, -3.01)",
+          "hit_count": 0,
+          "solid": false
+        },
+        {
+          "centre": "(0.0, 6.41, -2.99)",
+          "hit_count": 0,
+          "solid": false
+        },
+        {
+          "centre": "(0.0, 6.41, -15.01)",
+          "hit_count": 0,
+          "solid": false
+        },
+        {
+          "centre": "(0.0, 6.41, -14.99)",
+          "hit_count": 0,
+          "solid": false
+        },
+        {
+          "centre": "(2.128391, 6.41, 2.128391)",
+          "hit_count": 0,
+          "solid": false
+        },
+        {
+          "centre": "(2.114249, 6.41, 2.114249)",
+          "hit_count": 0,
+          "solid": false
+        },
+        {
+          "centre": "(10.61367, 6.41, 10.61367)",
+          "hit_count": 0,
+          "solid": false
+        },
+        {
+          "centre": "(10.59953, 6.41, 10.59953)",
+          "hit_count": 0,
+          "solid": false
+        },
+        {
+          "centre": "(-3.01, 6.41, 0.0)",
+          "hit_count": 0,
+          "solid": false
+        },
+        {
+          "centre": "(-2.99, 6.41, -0.0)",
+          "hit_count": 0,
+          "solid": false
+        },
+        {
+          "centre": "(-15.01, 6.41, 0.0)",
+          "hit_count": 0,
+          "solid": false
+        },
+        {
+          "centre": "(-14.99, 6.41, -0.0)",
+          "hit_count": 0,
+          "solid": false
+        }
+      ],
+      "rays": [
+        {
+          "from": "(0.0, 6.1, -3.01)",
+          "hit": "(-1.54, 6.1, -3.01)",
+          "solid": true,
+          "to": "(-2.0, 6.1, -3.01)"
+        },
+        {
+          "from": "(0.0, 6.1, -3.01)",
+          "hit": "(1.54, 6.1, -3.01)",
+          "solid": true,
+          "to": "(2.0, 6.1, -3.01)"
+        },
+        {
+          "from": "(0.0, 6.1, -2.99)",
+          "hit": "(-1.54, 6.1, -2.99)",
+          "solid": true,
+          "to": "(-2.0, 6.1, -2.99)"
+        },
+        {
+          "from": "(0.0, 6.1, -2.99)",
+          "hit": "(1.54, 6.1, -2.99)",
+          "solid": true,
+          "to": "(2.0, 6.1, -2.99)"
+        },
+        {
+          "from": "(0.0, 6.1, -3.5)",
+          "hit": null,
+          "solid": false,
+          "to": "(0.0, 6.1, -2.5)"
+        },
+        {
+          "from": "(0.0, 6.1, -15.01)",
+          "hit": "(-1.54, 6.1, -15.01)",
+          "solid": true,
+          "to": "(-2.0, 6.1, -15.01)"
+        },
+        {
+          "from": "(0.0, 6.1, -15.01)",
+          "hit": "(1.54, 6.1, -15.01)",
+          "solid": true,
+          "to": "(2.0, 6.1, -15.01)"
+        },
+        {
+          "from": "(0.0, 6.1, -14.99)",
+          "hit": "(-1.54, 6.1, -14.99)",
+          "solid": true,
+          "to": "(-2.0, 6.1, -14.99)"
+        },
+        {
+          "from": "(0.0, 6.1, -14.99)",
+          "hit": "(1.54, 6.1, -14.99)",
+          "solid": true,
+          "to": "(2.0, 6.1, -14.99)"
+        },
+        {
+          "from": "(0.0, 6.1, -15.5)",
+          "hit": null,
+          "solid": false,
+          "to": "(0.0, 6.1, -14.5)"
+        },
+        {
+          "from": "(2.128391, 6.1, 2.128391)",
+          "hit": "(3.217336, 6.1, 1.039447)",
+          "solid": true,
+          "to": "(3.542605, 6.1, 0.714178)"
+        },
+        {
+          "from": "(2.128391, 6.1, 2.128391)",
+          "hit": "(1.039447, 6.1, 3.217335)",
+          "solid": true,
+          "to": "(0.714178, 6.1, 3.542605)"
+        },
+        {
+          "from": "(2.114249, 6.1, 2.114249)",
+          "hit": "(3.203194, 6.1, 1.025305)",
+          "solid": true,
+          "to": "(3.528463, 6.1, 0.700036)"
+        },
+        {
+          "from": "(2.114249, 6.1, 2.114249)",
+          "hit": "(1.025305, 6.1, 3.203194)",
+          "solid": true,
+          "to": "(0.700036, 6.1, 3.528463)"
+        },
+        {
+          "from": "(2.474874, 6.1, 2.474874)",
+          "hit": null,
+          "solid": false,
+          "to": "(1.767767, 6.1, 1.767767)"
+        },
+        {
+          "from": "(10.61367, 6.1, 10.61367)",
+          "hit": "(11.70262, 6.1, 9.524729)",
+          "solid": true,
+          "to": "(12.02789, 6.1, 9.199459)"
+        },
+        {
+          "from": "(10.61367, 6.1, 10.61367)",
+          "hit": "(9.524729, 6.1, 11.70262)",
+          "solid": true,
+          "to": "(9.199459, 6.1, 12.02789)"
+        },
+        {
+          "from": "(10.59953, 6.1, 10.59953)",
+          "hit": "(11.68847, 6.1, 9.510587)",
+          "solid": true,
+          "to": "(12.01374, 6.1, 9.185317)"
+        },
+        {
+          "from": "(10.59953, 6.1, 10.59953)",
+          "hit": "(9.510586, 6.1, 11.68847)",
+          "solid": true,
+          "to": "(9.185317, 6.1, 12.01374)"
+        },
+        {
+          "from": "(10.96016, 6.1, 10.96016)",
+          "hit": null,
+          "solid": false,
+          "to": "(10.25305, 6.1, 10.25305)"
+        },
+        {
+          "from": "(-3.01, 6.1, 0.0)",
+          "hit": "(-3.01, 6.1, 1.54)",
+          "solid": true,
+          "to": "(-3.01, 6.1, 2.0)"
+        },
+        {
+          "from": "(-3.01, 6.1, 0.0)",
+          "hit": "(-3.01, 6.1, -1.539999)",
+          "solid": true,
+          "to": "(-3.01, 6.1, -2.0)"
+        },
+        {
+          "from": "(-2.99, 6.1, -0.0)",
+          "hit": "(-2.99, 6.1, 1.54)",
+          "solid": true,
+          "to": "(-2.99, 6.1, 2.0)"
+        },
+        {
+          "from": "(-2.99, 6.1, -0.0)",
+          "hit": "(-2.99, 6.1, -1.54)",
+          "solid": true,
+          "to": "(-2.99, 6.1, -2.0)"
+        },
+        {
+          "from": "(-3.5, 6.1, 0.0)",
+          "hit": null,
+          "solid": false,
+          "to": "(-2.5, 6.1, -0.0)"
+        },
+        {
+          "from": "(-15.01, 6.1, 0.0)",
+          "hit": "(-15.01, 6.1, 1.540001)",
+          "solid": true,
+          "to": "(-15.01, 6.1, 2.0)"
+        },
+        {
+          "from": "(-15.01, 6.1, 0.0)",
+          "hit": "(-15.01, 6.1, -1.539999)",
+          "solid": true,
+          "to": "(-15.01, 6.1, -2.0)"
+        },
+        {
+          "from": "(-14.99, 6.1, -0.0)",
+          "hit": "(-14.99, 6.1, 1.540001)",
+          "solid": true,
+          "to": "(-14.99, 6.1, 2.0)"
+        },
+        {
+          "from": "(-14.99, 6.1, -0.0)",
+          "hit": "(-14.99, 6.1, -1.539998)",
+          "solid": true,
+          "to": "(-14.99, 6.1, -2.0)"
+        },
+        {
+          "from": "(-15.5, 6.1, 0.0)",
+          "hit": null,
+          "solid": false,
+          "to": "(-14.5, 6.1, -0.0)"
+        }
+      ],
+      "support_instances": 0
+    },
+    "engine": "4.8-dev7 (official)",
+    "failures": [],
+    "ok": true,
+    "variants": {
+      "junction": {
+        "bounds": {
+          "min": "(-3.0, -0.15, -3.0)",
+          "size": "(6.292633, 1.35, 6.292632)"
+        },
+        "capsules": [
+          {
+            "centre": "(0.0, 0.91, 0.0)",
+            "hit_count": 0,
+            "solid": false
+          }
+        ],
+        "collision_shapes": 6,
+        "glb_uid": "uid://caegd4o17k6oe",
+        "linked_identity_model": true,
+        "materials": [
+          "rail_dark_teal",
+          "edge_cyan"
+        ],
+        "rays": [
+          {
+            "from": "(-1.0, 0.6, -2.3)",
+            "hit": "(-1.54, 0.6, -2.3)",
+            "solid": true,
+            "to": "(-2.0, 0.6, -2.3)"
+          },
+          {
+            "from": "(-2.3, 0.6, -1.0)",
+            "hit": "(-2.3, 0.6, -1.54)",
+            "solid": true,
+            "to": "(-2.3, 0.6, -2.0)"
+          },
+          {
+            "from": "(-2.0, 0.6, 1.0)",
+            "hit": "(-2.0, 0.6, 1.54)",
+            "solid": true,
+            "to": "(-2.0, 0.6, 2.0)"
+          },
+          {
+            "from": "(0.4, 0.6, 2.0)",
+            "hit": "(0.111056, 0.6, 2.288944)",
+            "solid": true,
+            "to": "(-0.3, 0.6, 2.7)"
+          },
+          {
+            "from": "(2.0, 0.6, 0.4)",
+            "hit": "(2.288944, 0.6, 0.111056)",
+            "solid": true,
+            "to": "(2.7, 0.6, -0.3)"
+          },
+          {
+            "from": "(1.0, 0.6, -2.0)",
+            "hit": "(1.54, 0.6, -2.0)",
+            "solid": true,
+            "to": "(2.0, 0.6, -2.0)"
+          },
+          {
+            "from": "(0.0, 0.6, -2.5)",
+            "hit": null,
+            "solid": false,
+            "to": "(0.0, 0.6, -3.5)"
+          },
+          {
+            "from": "(-2.5, 0.6, 0.0)",
+            "hit": null,
+            "solid": false,
+            "to": "(-3.5, 0.6, 0.0)"
+          },
+          {
+            "from": "(1.8, 0.6, 1.8)",
+            "hit": null,
+            "solid": false,
+            "to": "(2.5, 0.6, 2.5)"
+          }
+        ],
+        "tscn_uid": "uid://b4jwnu32khnh0",
+        "save_reload_byte_stable": true
+      },
+      "main": {
+        "bounds": {
+          "min": "(-1.66, -0.15, -19.84)",
+          "size": "(3.32, 7.027658, 19.84)"
+        },
+        "capsules": [
+          {
+            "centre": "(0.0, 6.41, -1.6)",
+            "hit_count": 0,
+            "solid": false
+          }
+        ],
+        "collision_shapes": 10,
+        "glb_uid": "uid://qktd7uavsavg",
+        "linked_identity_model": true,
+        "materials": [
+          "rail_dark_teal",
+          "edge_cyan"
+        ],
+        "rays": [
+          {
+            "from": "(0.0, 6.1, -1.6)",
+            "hit": "(1.54, 6.1, -1.6)",
+            "solid": true,
+            "to": "(2.0, 6.1, -1.6)"
+          },
+          {
+            "from": "(0.0, 6.1, -1.6)",
+            "hit": "(-1.54, 6.1, -1.6)",
+            "solid": true,
+            "to": "(-2.0, 6.1, -1.6)"
+          },
+          {
+            "from": "(0.0, 4.725, -5.76)",
+            "hit": "(1.54, 4.725, -5.76)",
+            "solid": true,
+            "to": "(2.0, 4.725, -5.76)"
+          },
+          {
+            "from": "(0.0, 4.725, -5.76)",
+            "hit": "(-1.54, 4.725, -5.76)",
+            "solid": true,
+            "to": "(-2.0, 4.725, -5.76)"
+          },
+          {
+            "from": "(0.0, 6.1, 0.5)",
+            "hit": null,
+            "solid": false,
+            "to": "(0.0, 6.1, -0.5)"
+          },
+          {
+            "from": "(0.0, 3.35, -9.92)",
+            "hit": "(1.54, 3.35, -9.92)",
+            "solid": true,
+            "to": "(2.0, 3.35, -9.92)"
+          },
+          {
+            "from": "(0.0, 3.35, -9.92)",
+            "hit": "(-1.54, 3.35, -9.92)",
+            "solid": true,
+            "to": "(-2.0, 3.35, -9.92)"
+          },
+          {
+            "from": "(0.0, 1.975, -14.08)",
+            "hit": "(1.54, 1.975, -14.08)",
+            "solid": true,
+            "to": "(2.0, 1.975, -14.08)"
+          },
+          {
+            "from": "(0.0, 1.975, -14.08)",
+            "hit": "(-1.54, 1.975, -14.08)",
+            "solid": true,
+            "to": "(-2.0, 1.975, -14.08)"
+          },
+          {
+            "from": "(0.0, 0.6, -18.24)",
+            "hit": "(1.54, 0.6, -18.24)",
+            "solid": true,
+            "to": "(2.0, 0.6, -18.24)"
+          },
+          {
+            "from": "(0.0, 0.6, -18.24)",
+            "hit": "(-1.54, 0.6, -18.24)",
+            "solid": true,
+            "to": "(-2.0, 0.6, -18.24)"
+          },
+          {
+            "from": "(0.0, 0.6, -19.0)",
+            "hit": null,
+            "solid": false,
+            "to": "(0.0, 0.6, -20.5)"
+          },
+          {
+            "from": "(0.0, 6.1, -3.19)",
+            "hit": "(-1.54, 6.1, -3.19)",
+            "solid": true,
+            "to": "(-2.0, 6.1, -3.19)"
+          },
+          {
+            "from": "(0.0, 6.1, -3.19)",
+            "hit": "(1.54, 6.1, -3.19)",
+            "solid": true,
+            "to": "(2.0, 6.1, -3.19)"
+          },
+          {
+            "from": "(0.0, 6.1, -3.21)",
+            "hit": "(-1.54, 6.1, -3.21)",
+            "solid": true,
+            "to": "(-2.0, 6.1, -3.21)"
+          },
+          {
+            "from": "(0.0, 6.1, -3.21)",
+            "hit": "(1.54, 6.1, -3.21)",
+            "solid": true,
+            "to": "(2.0, 6.1, -3.21)"
+          },
+          {
+            "from": "(0.0, 3.35, -8.31)",
+            "hit": "(-1.54, 3.35, -8.31)",
+            "solid": true,
+            "to": "(-2.0, 3.35, -8.31)"
+          },
+          {
+            "from": "(0.0, 3.35, -8.31)",
+            "hit": "(1.54, 3.35, -8.31)",
+            "solid": true,
+            "to": "(2.0, 3.35, -8.31)"
+          },
+          {
+            "from": "(0.0, 3.35, -8.33)",
+            "hit": "(-1.54, 3.35, -8.33)",
+            "solid": true,
+            "to": "(-2.0, 3.35, -8.33)"
+          },
+          {
+            "from": "(0.0, 3.35, -8.33)",
+            "hit": "(1.54, 3.35, -8.33)",
+            "solid": true,
+            "to": "(2.0, 3.35, -8.33)"
+          }
+        ],
+        "tscn_uid": "uid://nnsaklc5b8qe",
+        "save_reload_byte_stable": true
+      },
+      "quay": {
+        "bounds": {
+          "min": "(-9.92, -0.15, -11.58)",
+          "size": "(11.58, 7.027658, 11.58)"
+        },
+        "capsules": [
+          {
+            "centre": "(0.0, 6.41, -1.6)",
+            "hit_count": 0,
+            "solid": false
+          },
+          {
+            "centre": "(0.0, 3.66, -9.92)",
+            "hit_count": 0,
+            "solid": false
+          }
+        ],
+        "collision_shapes": 10,
+        "glb_uid": "uid://bvrri80avp82p",
+        "linked_identity_model": true,
+        "materials": [
+          "rail_dark_teal",
+          "edge_cyan"
+        ],
+        "rays": [
+          {
+            "from": "(0.0, 6.1, -1.6)",
+            "hit": "(1.54, 6.1, -1.6)",
+            "solid": true,
+            "to": "(2.0, 6.1, -1.6)"
+          },
+          {
+            "from": "(0.0, 6.1, -1.6)",
+            "hit": "(-1.54, 6.1, -1.6)",
+            "solid": true,
+            "to": "(-2.0, 6.1, -1.6)"
+          },
+          {
+            "from": "(0.0, 4.725, -5.76)",
+            "hit": "(1.54, 4.725, -5.76)",
+            "solid": true,
+            "to": "(2.0, 4.725, -5.76)"
+          },
+          {
+            "from": "(0.0, 4.725, -5.76)",
+            "hit": "(-1.54, 4.725, -5.76)",
+            "solid": true,
+            "to": "(-2.0, 4.725, -5.76)"
+          },
+          {
+            "from": "(0.0, 6.1, 0.5)",
+            "hit": null,
+            "solid": false,
+            "to": "(0.0, 6.1, -0.5)"
+          },
+          {
+            "from": "(0.0, 3.35, -9.92)",
+            "hit": "(1.54, 3.35, -9.92)",
+            "solid": true,
+            "to": "(2.0, 3.35, -9.92)"
+          },
+          {
+            "from": "(0.0, 3.35, -9.92)",
+            "hit": "(0.0, 3.35, -11.46)",
+            "solid": true,
+            "to": "(0.0, 3.35, -12.0)"
+          },
+          {
+            "from": "(0.0, 3.35, -9.92)",
+            "hit": null,
+            "solid": false,
+            "to": "(-2.0, 3.35, -9.92)"
+          },
+          {
+            "from": "(-4.16, 1.975, -9.92)",
+            "hit": "(-4.16, 1.975, -8.38)",
+            "solid": true,
+            "to": "(-4.16, 1.975, -7.92)"
+          },
+          {
+            "from": "(-4.16, 1.975, -9.92)",
+            "hit": "(-4.16, 1.975, -11.46)",
+            "solid": true,
+            "to": "(-4.16, 1.975, -11.92)"
+          },
+          {
+            "from": "(-8.32, 0.6, -9.92)",
+            "hit": "(-8.32, 0.6, -8.38)",
+            "solid": true,
+            "to": "(-8.32, 0.6, -7.92)"
+          },
+          {
+            "from": "(-8.32, 0.6, -9.92)",
+            "hit": "(-8.32, 0.6, -11.46)",
+            "solid": true,
+            "to": "(-8.32, 0.6, -11.92)"
+          },
+          {
+            "from": "(-9.0, 0.6, -9.92)",
+            "hit": null,
+            "solid": false,
+            "to": "(-10.5, 0.6, -9.92)"
+          },
+          {
+            "from": "(0.0, 6.1, -3.19)",
+            "hit": "(-1.54, 6.1, -3.19)",
+            "solid": true,
+            "to": "(-2.0, 6.1, -3.19)"
+          },
+          {
+            "from": "(0.0, 6.1, -3.19)",
+            "hit": "(1.54, 6.1, -3.19)",
+            "solid": true,
+            "to": "(2.0, 6.1, -3.19)"
+          },
+          {
+            "from": "(0.0, 6.1, -3.21)",
+            "hit": "(-1.54, 6.1, -3.21)",
+            "solid": true,
+            "to": "(-2.0, 6.1, -3.21)"
+          },
+          {
+            "from": "(0.0, 6.1, -3.21)",
+            "hit": "(1.54, 6.1, -3.21)",
+            "solid": true,
+            "to": "(2.0, 6.1, -3.21)"
+          },
+          {
+            "from": "(0.0, 3.35, -8.31)",
+            "hit": "(-1.54, 3.35, -8.31)",
+            "solid": true,
+            "to": "(-2.0, 3.35, -8.31)"
+          },
+          {
+            "from": "(0.0, 3.35, -8.31)",
+            "hit": "(1.54, 3.35, -8.31)",
+            "solid": true,
+            "to": "(2.0, 3.35, -8.31)"
+          },
+          {
+            "from": "(0.0, 3.35, -8.33)",
+            "hit": "(-1.6, 3.35, -8.33)",
+            "solid": true,
+            "to": "(-2.0, 3.35, -8.33)"
+          },
+          {
+            "from": "(0.0, 3.35, -8.33)",
+            "hit": "(1.54, 3.35, -8.33)",
+            "solid": true,
+            "to": "(2.0, 3.35, -8.33)"
+          }
+        ],
+        "tscn_uid": "uid://doht1cmapxnw7",
+        "save_reload_byte_stable": true
+      },
+      "south": {
+        "bounds": {
+          "min": "(-1.66, -0.15, -11.58)",
+          "size": "(11.58, 7.027658, 11.58)"
+        },
+        "capsules": [
+          {
+            "centre": "(0.0, 6.41, -1.6)",
+            "hit_count": 0,
+            "solid": false
+          },
+          {
+            "centre": "(0.0, 3.66, -9.92)",
+            "hit_count": 0,
+            "solid": false
+          }
+        ],
+        "collision_shapes": 10,
+        "glb_uid": "uid://cqge648xtl23k",
+        "linked_identity_model": true,
+        "materials": [
+          "rail_dark_teal",
+          "edge_cyan"
+        ],
+        "rays": [
+          {
+            "from": "(0.0, 6.1, -1.6)",
+            "hit": "(1.54, 6.1, -1.6)",
+            "solid": true,
+            "to": "(2.0, 6.1, -1.6)"
+          },
+          {
+            "from": "(0.0, 6.1, -1.6)",
+            "hit": "(-1.54, 6.1, -1.6)",
+            "solid": true,
+            "to": "(-2.0, 6.1, -1.6)"
+          },
+          {
+            "from": "(0.0, 4.725, -5.76)",
+            "hit": "(1.54, 4.725, -5.76)",
+            "solid": true,
+            "to": "(2.0, 4.725, -5.76)"
+          },
+          {
+            "from": "(0.0, 4.725, -5.76)",
+            "hit": "(-1.54, 4.725, -5.76)",
+            "solid": true,
+            "to": "(-2.0, 4.725, -5.76)"
+          },
+          {
+            "from": "(0.0, 6.1, 0.5)",
+            "hit": null,
+            "solid": false,
+            "to": "(0.0, 6.1, -0.5)"
+          },
+          {
+            "from": "(0.0, 3.35, -9.92)",
+            "hit": "(-1.54, 3.35, -9.92)",
+            "solid": true,
+            "to": "(-2.0, 3.35, -9.92)"
+          },
+          {
+            "from": "(0.0, 3.35, -9.92)",
+            "hit": "(0.0, 3.35, -11.46)",
+            "solid": true,
+            "to": "(0.0, 3.35, -12.0)"
+          },
+          {
+            "from": "(0.0, 3.35, -9.92)",
+            "hit": null,
+            "solid": false,
+            "to": "(2.0, 3.35, -9.92)"
+          },
+          {
+            "from": "(4.16, 1.975, -9.92)",
+            "hit": "(4.16, 1.975, -8.38)",
+            "solid": true,
+            "to": "(4.16, 1.975, -7.92)"
+          },
+          {
+            "from": "(4.16, 1.975, -9.92)",
+            "hit": "(4.16, 1.975, -11.46)",
+            "solid": true,
+            "to": "(4.16, 1.975, -11.92)"
+          },
+          {
+            "from": "(8.32, 0.6, -9.92)",
+            "hit": "(8.32, 0.6, -8.38)",
+            "solid": true,
+            "to": "(8.32, 0.6, -7.92)"
+          },
+          {
+            "from": "(8.32, 0.6, -9.92)",
+            "hit": "(8.32, 0.6, -11.46)",
+            "solid": true,
+            "to": "(8.32, 0.6, -11.92)"
+          },
+          {
+            "from": "(9.0, 0.6, -9.92)",
+            "hit": null,
+            "solid": false,
+            "to": "(10.5, 0.6, -9.92)"
+          },
+          {
+            "from": "(0.0, 6.1, -3.19)",
+            "hit": "(-1.54, 6.1, -3.19)",
+            "solid": true,
+            "to": "(-2.0, 6.1, -3.19)"
+          },
+          {
+            "from": "(0.0, 6.1, -3.19)",
+            "hit": "(1.54, 6.1, -3.19)",
+            "solid": true,
+            "to": "(2.0, 6.1, -3.19)"
+          },
+          {
+            "from": "(0.0, 6.1, -3.21)",
+            "hit": "(-1.54, 6.1, -3.21)",
+            "solid": true,
+            "to": "(-2.0, 6.1, -3.21)"
+          },
+          {
+            "from": "(0.0, 6.1, -3.21)",
+            "hit": "(1.54, 6.1, -3.21)",
+            "solid": true,
+            "to": "(2.0, 6.1, -3.21)"
+          },
+          {
+            "from": "(0.0, 3.35, -8.31)",
+            "hit": "(-1.54, 3.35, -8.31)",
+            "solid": true,
+            "to": "(-2.0, 3.35, -8.31)"
+          },
+          {
+            "from": "(0.0, 3.35, -8.31)",
+            "hit": "(1.54, 3.35, -8.31)",
+            "solid": true,
+            "to": "(2.0, 3.35, -8.31)"
+          },
+          {
+            "from": "(0.0, 3.35, -8.33)",
+            "hit": "(-1.54, 3.35, -8.33)",
+            "solid": true,
+            "to": "(-2.0, 3.35, -8.33)"
+          },
+          {
+            "from": "(0.0, 3.35, -8.33)",
+            "hit": "(1.6, 3.35, -8.33)",
+            "solid": true,
+            "to": "(2.0, 3.35, -8.33)"
+          }
+        ],
+        "tscn_uid": "uid://dygm3ohve6wol",
+        "save_reload_byte_stable": true
+      },
+      "span": {
+        "bounds": {
+          "min": "(-1.66, -0.15, -12.0)",
+          "size": "(3.32, 1.35, 12.0)"
+        },
+        "capsules": [
+          {
+            "centre": "(0.0, 0.91, -6.0)",
+            "hit_count": 0,
+            "solid": false
+          },
+          {
+            "centre": "(1.1, 0.91, -6.0)",
+            "hit_count": 0,
+            "solid": false
+          },
+          {
+            "centre": "(1.3, 0.91, -6.0)",
+            "hit_count": 1,
+            "solid": true
+          }
+        ],
+        "collision_shapes": 2,
+        "glb_uid": "uid://bjtw238f3j0b4",
+        "linked_identity_model": true,
+        "materials": [
+          "rail_dark_teal",
+          "edge_cyan"
+        ],
+        "rays": [
+          {
+            "from": "(0.0, 0.5, -6.0)",
+            "hit": "(-1.54, 0.5, -6.0)",
+            "solid": true,
+            "to": "(-2.0, 0.5, -6.0)"
+          },
+          {
+            "from": "(0.0, 0.5, -6.0)",
+            "hit": "(1.54, 0.5, -6.0)",
+            "solid": true,
+            "to": "(2.0, 0.5, -6.0)"
+          },
+          {
+            "from": "(0.0, 0.5, 1.0)",
+            "hit": null,
+            "solid": false,
+            "to": "(0.0, 0.5, -13.0)"
+          },
+          {
+            "from": "(-2.0, 1.21, -6.0)",
+            "hit": null,
+            "solid": false,
+            "to": "(2.0, 1.21, -6.0)"
+          },
+          {
+            "from": "(-2.0, -0.16, -6.0)",
+            "hit": null,
+            "solid": false,
+            "to": "(2.0, -0.16, -6.0)"
+          }
+        ],
+        "tscn_uid": "uid://d23c40rychplo",
+        "save_reload_byte_stable": true
+      },
+      "support_mid": {
+        "bounds": {
+          "min": "(-1.2, 0.0, -0.6)",
+          "size": "(2.4, 2.4, 1.2)"
+        },
+        "capsules": [
+          {
+            "centre": "(0.0, 0.91, 0.0)",
+            "hit_count": 3,
+            "solid": true
+          },
+          {
+            "centre": "(1.1, 0.91, 0.0)",
+            "hit_count": 0,
+            "solid": false
+          }
+        ],
+        "collision_shapes": 4,
+        "glb_uid": "uid://c3x1qe3u1hjlu",
+        "linked_identity_model": true,
+        "materials": [
+          "deck_warm_pale",
+          "deck_pale_fascia",
+          "deck_petrol_underside"
+        ],
+        "rays": [
+          {
+            "from": "(-2.0, 0.1, 0.0)",
+            "hit": "(-0.6, 0.1, 0.0)",
+            "solid": true,
+            "to": "(2.0, 0.1, 0.0)"
+          },
+          {
+            "from": "(-2.0, 1.0, 0.0)",
+            "hit": "(-0.325, 1.0, 0.0)",
+            "solid": true,
+            "to": "(2.0, 1.0, 0.0)"
+          },
+          {
+            "from": "(-2.0, 2.25, 0.0)",
+            "hit": "(-1.2, 2.25, 0.0)",
+            "solid": true,
+            "to": "(2.0, 2.25, 0.0)"
+          },
+          {
+            "from": "(-2.0, 2.41, 0.0)",
+            "hit": null,
+            "solid": false,
+            "to": "(2.0, 2.41, 0.0)"
+          },
+          {
+            "from": "(0.8, 0.4, -1.0)",
+            "hit": null,
+            "solid": false,
+            "to": "(0.8, 0.4, 1.0)"
+          }
+        ],
+        "tscn_uid": "uid://cgavv5uisfbwg",
+        "save_reload_byte_stable": true
+      },
+      "support_tall": {
+        "bounds": {
+          "min": "(-1.2, 0.0, -0.6)",
+          "size": "(2.4, 5.15, 1.2)"
+        },
+        "capsules": [
+          {
+            "centre": "(0.0, 0.91, 0.0)",
+            "hit_count": 3,
+            "solid": true
+          },
+          {
+            "centre": "(1.1, 0.91, 0.0)",
+            "hit_count": 0,
+            "solid": false
+          }
+        ],
+        "collision_shapes": 4,
+        "glb_uid": "uid://bskwy6dksancb",
+        "linked_identity_model": true,
+        "materials": [
+          "deck_warm_pale",
+          "deck_pale_fascia",
+          "deck_petrol_underside"
+        ],
+        "rays": [
+          {
+            "from": "(-2.0, 0.1, 0.0)",
+            "hit": "(-0.6, 0.1, 0.0)",
+            "solid": true,
+            "to": "(2.0, 0.1, 0.0)"
+          },
+          {
+            "from": "(-2.0, 1.0, 0.0)",
+            "hit": "(-0.325, 1.0, 0.0)",
+            "solid": true,
+            "to": "(2.0, 1.0, 0.0)"
+          },
+          {
+            "from": "(-2.0, 5.0, 0.0)",
+            "hit": "(-1.2, 5.0, 0.0)",
+            "solid": true,
+            "to": "(2.0, 5.0, 0.0)"
+          },
+          {
+            "from": "(-2.0, 5.16, 0.0)",
+            "hit": null,
+            "solid": false,
+            "to": "(2.0, 5.16, 0.0)"
+          },
+          {
+            "from": "(0.8, 0.4, -1.0)",
+            "hit": null,
+            "solid": false,
+            "to": "(0.8, 0.4, 1.0)"
+          }
+        ],
+        "tscn_uid": "uid://dwoujphvjw3nr",
+        "save_reload_byte_stable": true
+      }
+    }
+  },
+  "query_totals": {
+    "rays": 116,
+    "capsule_overlaps": 25,
+    "total": 141,
+    "assembled_seams": 6
+  },
+  "production_checks": {
+    "overall_ok": true,
+    "results": {
+      "engine": {
+        "ok": true,
+        "version": "4.8.dev7.official.c971f93e7"
+      },
+      "gut_pin": {
+        "ok": true,
+        "version": "9.7.1"
+      },
+      "owned_scripts": {
+        "ok": true,
+        "returncode": 0
+      },
+      "python_tests": {
+        "ok": true,
+        "returncode": 0
+      },
+      "gut_import": {
+        "ok": true,
+        "returncode": 0
+      },
+      "gut_tests": {
+        "ok": true,
+        "returncode": 0
+      },
+      "gut_negative": {
+        "ok": true,
+        "observed_returncode": 1
+      }
+    },
+    "compiled_scripts": 85,
+    "failed_scripts": [],
+    "python_tests": 11,
+    "gut_tests": 40,
+    "gut_assertions": 458
+  },
+  "visual_self_review": {
+    "renders_inspected": [
+      "hero.png",
+      "side.png",
+      "guard_detail.png",
+      "overhead_47m_42deg.png"
+    ],
+    "observation": "Dark thin guards preserve the pale route and open mouths. Cyan is a narrow fascia accent. Straight and quarter-turn stairs remain distinct overhead. Piers are visibly detached catalogue components, never approved placements.",
+    "camera": "Vertical-down, 47 m above ground, 42 degree vertical FOV, 1280x720 overhead",
+    "renderer": "Isolated Blender Cycles CPU, 32 samples, AgX; PNG95, film dither off",
+    "resolution": "Hero/detail 1120x630, side/overhead 1280x720 (production cleanliness limit)",
+    "not_claimed": "Engine visual, assembled map, gameplay movement, device or engineering acceptance"
+  }
+}
