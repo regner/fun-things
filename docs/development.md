@@ -258,6 +258,16 @@ mise exec -- godot --headless --editor --path . --import
 
 An import command's success does not mean scripts compiled or logs were clean.
 
+### Real-project desktop exports
+
+The project has a saved `run/main_scene.tscn` entrypoint and four x86-64 presets:
+Windows/Linux, debug/release. Current ENet-only M1 presets keep the vendor addons in
+source but exclude GodotSteam and MCP from packages. This is a provisional export
+boundary pending the owner decision on removing GodotSteam, not a Steam integration
+choice. The exact template hashes, bounded commands, package inspector, Windows smoke
+and Linux launch checklist are in [S08-X](spikes/s08-x.md). Use matching pinned
+4.8-dev7 templates, fresh external output directories and the documented timeouts.
+
 ### S02 desktop fixture tooling
 
 The [reviewed desktop handoff](spikes/s02.md#reviewed-desktop-handoff) and

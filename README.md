@@ -15,9 +15,9 @@ adds finite authoritative outcomes and settled wreck hydration. Later accepted
 not proven drawn explosion effects.
 The accepted [partial S06 two-sector topology/body proof](docs/spikes/s06.md#accepted-exact-final-disposition)
 adds saved source-linked seams, routes, shared map data and fail-closed bake validation.
-There is no production gameplay or project main scene yet; S08 has an isolated saved entrypoint.
-The first milestone requires ENet for local testing and Steam for friends playtesting,
-using the existing Steam app through shared session APIs.
+There is no production gameplay yet; the real project now has an S08-X boot scene that
+loads the saved S06 intersection for desktop export smoke checks. The first milestone
+uses ENet only; the session/transport APIs preserve room for a later Steam adapter.
 Steam Deck LCD/OLED is the confirmed primary target: 60 FPS at native 1280×800
 with stylized graphics. Product scope is ratified; budgets and proof-dependent
 toolchain choices remain provisional.
@@ -37,7 +37,9 @@ mise run editor
 **3.14.2**. Keep the gdstyle pin aligned with `.gdstyle-version`. Use the pinned
 engine for editor, imports, checks, and exports; install export templates matching
 that exact release.
-`mise run play` is available once a main scene has been configured.
+`mise run play` opens the saved S06-intersection boot scene. Matching desktop export
+template hashes and install/export recipes are recorded in
+[S08-X](docs/spikes/s08-x.md).
 
 The foundation checks use the Mise-pinned Python and tools on Windows and Linux:
 

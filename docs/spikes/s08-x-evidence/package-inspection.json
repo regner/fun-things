@@ -1,0 +1,117 @@
+{
+  "ok": true,
+  "exports": {
+    "windows_debug": {
+      "ok": true,
+      "executable": {
+        "path": "C:/tmp/ft/lanes/s08-x/windows-debug/FunThingsDebug.exe",
+        "bytes": 105550336,
+        "sha256": "b5827a836746ce342a6678347d587584da1387decd99f47cd541438443346cd0"
+      },
+      "package": {
+        "path": "C:/tmp/ft/lanes/s08-x/windows-debug/FunThingsDebug.pck",
+        "bytes": 2287280,
+        "sha256": "3d2271ec5a36c45d80be841ca05915cb3daa513a38657d3af586d9bce0c8c59f"
+      },
+      "format": "PE",
+      "pck_entry_count": 377,
+      "required_matches": {
+        "run/main_scene": [
+          "run/main_scene.gd.remap",
+          "run/main_scene.gdc",
+          "run/main_scene.tscn.remap"
+        ],
+        "tests/fixtures/s06/intersection": [
+          "tests/fixtures/s06/intersection.tscn.remap",
+          "tests/fixtures/s06/intersection_wide.tscn.remap"
+        ]
+      },
+      "forbidden_pck_entries": [],
+      "forbidden_output_files": []
+    },
+    "windows_release": {
+      "ok": true,
+      "executable": {
+        "path": "C:/tmp/ft/lanes/s08-x/windows-release/FunThings.exe",
+        "bytes": 111795200,
+        "sha256": "a13b173c265f3759ae67662e655ae2f5d0576b6e24098d838f8e68bde441c35a"
+      },
+      "package": {
+        "path": "C:/tmp/ft/lanes/s08-x/windows-release/FunThings.pck",
+        "bytes": 2287280,
+        "sha256": "3d2271ec5a36c45d80be841ca05915cb3daa513a38657d3af586d9bce0c8c59f"
+      },
+      "format": "PE",
+      "pck_entry_count": 377,
+      "required_matches": {
+        "run/main_scene": [
+          "run/main_scene.gd.remap",
+          "run/main_scene.gdc",
+          "run/main_scene.tscn.remap"
+        ],
+        "tests/fixtures/s06/intersection": [
+          "tests/fixtures/s06/intersection.tscn.remap",
+          "tests/fixtures/s06/intersection_wide.tscn.remap"
+        ]
+      },
+      "forbidden_pck_entries": [],
+      "forbidden_output_files": []
+    },
+    "linux_debug": {
+      "ok": true,
+      "executable": {
+        "path": "C:/tmp/ft/lanes/s08-x/linux-debug/FunThingsDebug.x86_64",
+        "bytes": 78405256,
+        "sha256": "8b2871a1e2f8baf482282422f7e64cd7cfcc713eb53d8db671025b041bb23eb9"
+      },
+      "package": {
+        "path": "C:/tmp/ft/lanes/s08-x/linux-debug/FunThingsDebug.pck",
+        "bytes": 2287280,
+        "sha256": "3d2271ec5a36c45d80be841ca05915cb3daa513a38657d3af586d9bce0c8c59f"
+      },
+      "format": "ELF",
+      "pck_entry_count": 377,
+      "required_matches": {
+        "run/main_scene": [
+          "run/main_scene.gd.remap",
+          "run/main_scene.gdc",
+          "run/main_scene.tscn.remap"
+        ],
+        "tests/fixtures/s06/intersection": [
+          "tests/fixtures/s06/intersection.tscn.remap",
+          "tests/fixtures/s06/intersection_wide.tscn.remap"
+        ]
+      },
+      "forbidden_pck_entries": [],
+      "forbidden_output_files": []
+    },
+    "linux_release": {
+      "ok": true,
+      "executable": {
+        "path": "C:/tmp/ft/lanes/s08-x/linux-release/FunThings.x86_64",
+        "bytes": 78376584,
+        "sha256": "c436b976ff5ac2e5f3197732ba7d9462267573e5a108782f84928d0606885695"
+      },
+      "package": {
+        "path": "C:/tmp/ft/lanes/s08-x/linux-release/FunThings.pck",
+        "bytes": 2287280,
+        "sha256": "3d2271ec5a36c45d80be841ca05915cb3daa513a38657d3af586d9bce0c8c59f"
+      },
+      "format": "ELF",
+      "pck_entry_count": 377,
+      "required_matches": {
+        "run/main_scene": [
+          "run/main_scene.gd.remap",
+          "run/main_scene.gdc",
+          "run/main_scene.tscn.remap"
+        ],
+        "tests/fixtures/s06/intersection": [
+          "tests/fixtures/s06/intersection.tscn.remap",
+          "tests/fixtures/s06/intersection_wide.tscn.remap"
+        ]
+      },
+      "forbidden_pck_entries": [],
+      "forbidden_output_files": []
+    }
+  }
+}
