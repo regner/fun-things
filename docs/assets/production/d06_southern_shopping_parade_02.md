@@ -213,6 +213,23 @@ Headless editor shutdown emits the known scan/RID/ObjectDB diagnostics and toolk
 The standalone Blender version probe reports one tiny unfreed block at exit; final
 geometry validation and all four rendering jobs exit 0.
 
+## Dependency refresh after the north-corner repair
+
+During member .03 production, its close render exposed coplanar north-end trim caps
+in the .01 shell. The supervisor authorized .01's **2 mm north trim-cap recess** and
+this dependent evidence refresh in a separate family repair commit. See [.01's repair
+record](d06_southern_shopping_parade_01.md#north-corner-seam-repair-during-member-03-production).
+No .02 scene, transform, mesh or material was edited. Both saved scenes remain byte-unchanged.
+
+The existing engine reference checker, pack/save/reload, source/actual-GLB fit checker,
+four renders and production checks were rerun at the repaired dependency state. All
+pass with the same bounds, counts, 10,812 insertion vertices, 60 cross-fitting checks
+and 288 intentional flush contacts reported above. All four refreshed renders were
+inspected; .03's close assembly confirms the black corner stripe is gone. Validation
+and producer manifests now hash the repaired .01 source/export rather than retaining
+obsolete dependency hashes. Fresh shared check receipt:
+`C:/tmp/ft/assets/d06_southern_shopping_parade_03/checks-family-fix/`.
+
 ## Remaining acceptance
 
 Independent technical/art review; tenant graphics; member `.03` north treatment;

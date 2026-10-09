@@ -49,6 +49,8 @@
   "west_bay_count": 6,
   "mount_interface": "6.4m stations, 10m pitch; city_small_shop_shells_01 literal offsets",
   "rear_interface": "Same 6.4m mount frames, solid quiet wall; no rear fitting insertion openings",
+  "north_trim_cap_regression_rays": 3,
+  "north_trim_recess_m": 0.002,
   "export_nodes": 75,
   "materials": [
     {
@@ -118,8 +120,8 @@
     }
   ],
   "reexport_byte_identical": true,
-  "glb_bytes": 100724,
-  "glb_sha256": "826631ea4c5f2db37bcd1608b8780faf0cc5f3e4bf64ce0c144e2104041fad98",
+  "glb_bytes": 100740,
+  "glb_sha256": "84467808a65e6d65fb17b833a1c9c728bec74a9e593f7352907bfcda3e0969c7",
   "status": "PASS source/raw GLB/reexport; engine and downstream gates recorded separately",
   "engine": {
     "aabb_min": [
@@ -284,7 +286,7 @@
         "observed_returncode": 1
       }
     },
-    "compiled_script_count": 63,
+    "compiled_script_count": 65,
     "python_tests": 9,
     "gut_tests": 23,
     "gut_assertions": 196,

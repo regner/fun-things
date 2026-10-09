@@ -173,7 +173,7 @@ one mesh; five surfaces; 75 exported nodes** (root, mesh, twelve station frames,
 sixty fitting markers and north datum). **Zero degenerate faces/triangles, zero
 nonmanifold edges, unit-length source/export normals, positive triangle/normal
 alignment.** Actual decoded GLB bounds match source axis conversion; exact named
-membership excludes the studio. GLB **100,724 bytes**, fresh saved-source re-export
+membership excludes the studio. GLB **100,740 bytes**, fresh saved-source re-export
 **byte-identical**. `validation.json` records these results, map fit and engine checks;
 `manifest.json` hashes every produced payload except itself.
 
@@ -205,6 +205,29 @@ The last command requires a fresh output directory. Map checking uses Shapely (a
 existing greybox tools do). `record.py` assembles retained final scratch receipts
 and writes the lean manifest after reviewing all outputs; `record.py --verify`
 checks the complete deliverable set/hashes without modifying anything.
+
+## North-corner seam repair during member .03 production
+
+The .03 close assembly render exposed coplanar end caps in this source: the northmost
+west structural pier and both head courses ended exactly at the north wall plane.
+The supervisor explicitly authorized a separate minimal .01 repair and downstream
+.02 evidence refresh. Their north ends now stop at Blender Y=29.998 instead of 30:
+a **2 mm recess**, with no change to the approved total envelope, roof, collision,
+pivot, fitting stations or saved prefab/GLB UIDs. This does not widen .03 to hide a fault.
+
+Three new literal source-ray regression cases at X=-8.85/Z=2, X=-8.85/Z=4.55 and
+X=8.85/Z=4.55 verify that the visible north cap is the plum wall, never competing
+warm trim. Source topology, raw GLB and byte-identical saved-source reexport pass;
+all four source renders, import, prefab roundtrip and runtime physics were rerun.
+The .02 reference's original fit checker and four renders also pass; its saved scenes
+are byte-unchanged. All refreshed renders were inspected. The close .03 view confirms
+the black corner stripe is gone. Production checks pass at the repaired family state.
+Counts and bounds above are unchanged; payload size/hash and manifests are refreshed.
+
+Exact repair checks use the reproduction commands above plus .02's documented checker,
+validator and renderer. Fresh shared production-check receipt for this repair:
+`C:/tmp/ft/assets/d06_southern_shopping_parade_03/checks-family-fix/`.
+This is bounded source/visual repair, not independent acceptance or world placement.
 
 ## Diagnostics and remaining acceptance
 

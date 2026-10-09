@@ -64,6 +64,12 @@ for number, centre in enumerate((25,15,5,-5,-15,-25), 1):
                            "fascia": (-.95,0,3.8)}.items():
         marker = bpy.data.objects[f"west_bay_{number:02}_mount_{name}"]
         assert (marker.location - Vector(position)).length < 1e-6
+# North trim caps must not compete with the wall's coplanar outward surface.
+# Literal ray locations cover the corner pier and both end head-course contacts.
+for x, z in [(-8.85,2), (-8.85,4.55), (8.85,4.55)]:
+    hit, point, normal, face = obj.ray_cast(Vector((x,31,z)),Vector((0,-1,0)))
+    assert hit and abs(point.y - 30) < 1e-6 and normal.y > .999
+    assert mesh.materials[mesh.polygons[face].material_index].name == "parade_muted_plum_render"
 raw = GLB.read_bytes()
 magic, version, length = struct.unpack_from('<4sII', raw)
 assert magic == b'glTF' and version == 2 and length == len(raw)
@@ -127,6 +133,7 @@ report = {
     'aperture_insertion_ray_probes': probes, 'west_bay_count':6,
     'mount_interface': '6.4m stations, 10m pitch; city_small_shop_shells_01 literal offsets',
     'rear_interface': 'Same 6.4m mount frames, solid quiet wall; no rear fitting insertion openings',
+    'north_trim_cap_regression_rays': 3, 'north_trim_recess_m': .002,
     'export_nodes': len(doc['nodes']), 'materials':doc['materials'],
     'reexport_byte_identical': True, 'glb_bytes':len(raw),
     'glb_sha256': hashlib.sha256(raw).hexdigest(),

@@ -13,6 +13,7 @@ EVIDENCE = ROOT / f"docs/assets/production/{NID}-evidence"
 SOURCE = ROOT / f"art/source/models/environment/{NID}/{NID}.blend"
 WIDTH, LENGTH, HEIGHT = 18.0, 60.0, 5.4
 BAY_CENTRES = (25, 15, 5, -5, -15, -25)
+NORTH_TRIM_END = 29.998  # Recess end caps 2 mm to avoid coplanarity with the north wall.
 assert bpy.app.version_string == "5.2.2 LTS"
 bpy.ops.object.select_all(action="SELECT")
 bpy.ops.object.delete(use_global=False)
@@ -135,8 +136,8 @@ for number, centre in enumerate(BAY_CENTRES, 1):
     # Plinth gaps leave the shared entry surround's insertion and threshold clear.
     box(f"Bay_{number:02}_plinth", (-9.035,centre-3.2,0), (-8.70,centre+1.10,.30), base, 0)
 # Continuous horizontal courses prevent a row-of-pavilions read.
-box("West_head_course", (-9.04,-30,4.48), (-8.64,30,4.63), trim)
-box("Rear_head_course", (8.64,-30,4.48), (9.04,30,4.63), trim)
+box("West_head_course", (-9.04,-30,4.48), (-8.64,NORTH_TRIM_END,4.63), trim)
+box("Rear_head_course", (8.64,-30,4.48), (9.04,NORTH_TRIM_END,4.63), trim)
 box("Rear_plinth", (8.70,-30,0), (9.035,30,.30), base, 0)
 for y in (-30.035, 29.735):
     box("End_plinth", (-8.70,y,0), (8.70,y+.30,.30), base, 0)
@@ -151,7 +152,8 @@ for x in (-3, 3):
         (x+.035,29.50,5.175), roof, .012)
 # Quiet broad structural bay piers stay outside the standard 6.4 m fitting stations.
 for y in (-30, -20.22, -10.22, -.22, 9.78, 19.78, 29.56):
-    box("West_structural_pier", (-9.045,y,.30), (-8.68,y+.44,4.48), trim)
+    box("West_structural_pier", (-9.045,y,.30),
+        (-8.68,min(y+.44,NORTH_TRIM_END),4.48), trim)
 
 bpy.ops.object.select_all(action="DESELECT")
 for obj in parts:
