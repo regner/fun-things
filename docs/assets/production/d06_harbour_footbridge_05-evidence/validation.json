@@ -1,0 +1,1015 @@
+{
+  "asset_id": "d06_harbour_footbridge.05",
+  "status": "PASS",
+  "blender": "5.2.2 LTS",
+  "build": "d13f752e3b9c",
+  "exporter": "5.2.40",
+  "variants": {
+    "main": {
+      "source_vertices": 964,
+      "triangles": 1908,
+      "glb_vertices_including_surface_splits": 1728,
+      "mesh_count": 1,
+      "surface_count": 3,
+      "degenerate_faces": 0,
+      "nonmanifold_edges": 0,
+      "degenerate_export_triangles": 0,
+      "unit_corner_and_export_normals": true,
+      "source_signed_volume_m3": 25.035061763101865,
+      "aabb_godot": {
+        "min": [
+          -1.600000023841858,
+          -0.3499999940395355,
+          -19.84000015258789
+        ],
+        "max": [
+          1.600000023841858,
+          5.5,
+          -0.0
+        ],
+        "size": [
+          3.200000047683716,
+          5.8499999940395355,
+          19.84000015258789
+        ]
+      },
+      "pivot_godot": [
+        0,
+        0,
+        0
+      ],
+      "broad_horizontal_levels_m": [
+        0.0,
+        0.171875,
+        0.34375,
+        0.515625,
+        0.6875,
+        0.859375,
+        1.03125,
+        1.203125,
+        1.375,
+        1.546875,
+        1.71875,
+        1.890625,
+        2.0625,
+        2.234375,
+        2.40625,
+        2.578125,
+        2.75,
+        2.921875,
+        3.09375,
+        3.265625,
+        3.4375,
+        3.609375,
+        3.78125,
+        3.953125,
+        4.125,
+        4.296875,
+        4.46875,
+        4.640625,
+        4.8125,
+        4.984375,
+        5.15625,
+        5.328125,
+        5.5
+      ],
+      "sockets": {
+        "incoming": {
+          "position_godot": [
+            0,
+            5.5,
+            0
+          ],
+          "outward_godot": [
+            0,
+            0,
+            1
+          ],
+          "measured_width_m": 3.200000047683716
+        },
+        "ground": {
+          "position_godot": [
+            0,
+            0,
+            -19.84
+          ],
+          "outward_godot": [
+            0,
+            0,
+            -1
+          ],
+          "measured_width_m": 3.200000047683716
+        }
+      },
+      "materials": [
+        {
+          "name": "deck_warm_pale",
+          "pbrMetallicRoughness": {
+            "baseColorFactor": [
+              0.7200000286102295,
+              0.7300000190734863,
+              0.6600000262260437,
+              1
+            ],
+            "metallicFactor": 0,
+            "roughnessFactor": 0.7799999713897705
+          }
+        },
+        {
+          "name": "deck_pale_fascia",
+          "pbrMetallicRoughness": {
+            "baseColorFactor": [
+              0.49000000953674316,
+              0.5899999737739563,
+              0.5899999737739563,
+              1
+            ],
+            "metallicFactor": 0,
+            "roughnessFactor": 0.5600000023841858
+          }
+        },
+        {
+          "name": "deck_petrol_underside",
+          "pbrMetallicRoughness": {
+            "baseColorFactor": [
+              0.07500000298023224,
+              0.1599999964237213,
+              0.18000000715255737,
+              1
+            ],
+            "metallicFactor": 0,
+            "roughnessFactor": 0.6499999761581421
+          }
+        }
+      ],
+      "export_nodes": [
+        {
+          "mesh": 0,
+          "name": "D06HarbourFootbridge05_main_Mesh"
+        },
+        {
+          "name": "socket_ground_main",
+          "translation": [
+            0,
+            0,
+            -19.84000015258789
+          ]
+        },
+        {
+          "name": "socket_incoming_main",
+          "rotation": [
+            0,
+            -1,
+            0,
+            4.371138828673793e-08
+          ],
+          "translation": [
+            0,
+            5.5,
+            0
+          ]
+        },
+        {
+          "children": [
+            0,
+            1,
+            2
+          ],
+          "name": "D06HarbourFootbridge05_main"
+        }
+      ],
+      "glb_sha256": "d715e11ebf82f15f8c7e941dff97fc313ad46beab4b1289f7742d2bb4f847509",
+      "fresh_reexport_byte_identical": true
+    },
+    "south": {
+      "source_vertices": 964,
+      "triangles": 1908,
+      "glb_vertices_including_surface_splits": 1728,
+      "mesh_count": 1,
+      "surface_count": 3,
+      "degenerate_faces": 0,
+      "nonmanifold_edges": 0,
+      "degenerate_export_triangles": 0,
+      "unit_corner_and_export_normals": true,
+      "source_signed_volume_m3": 25.035065857241648,
+      "aabb_godot": {
+        "min": [
+          -1.600000023841858,
+          -0.3499999940395355,
+          -11.520000457763672
+        ],
+        "max": [
+          9.920000076293945,
+          5.5,
+          -0.0
+        ],
+        "size": [
+          11.520000100135803,
+          5.8499999940395355,
+          11.520000457763672
+        ]
+      },
+      "pivot_godot": [
+        0,
+        0,
+        0
+      ],
+      "broad_horizontal_levels_m": [
+        0.0,
+        0.171875,
+        0.34375,
+        0.515625,
+        0.6875,
+        0.859375,
+        1.03125,
+        1.203125,
+        1.375,
+        1.546875,
+        1.71875,
+        1.890625,
+        2.0625,
+        2.234375,
+        2.40625,
+        2.578125,
+        2.75,
+        2.921875,
+        3.09375,
+        3.265625,
+        3.4375,
+        3.609375,
+        3.78125,
+        3.953125,
+        4.125,
+        4.296875,
+        4.46875,
+        4.640625,
+        4.8125,
+        4.984375,
+        5.15625,
+        5.328125,
+        5.5
+      ],
+      "sockets": {
+        "incoming": {
+          "position_godot": [
+            0,
+            5.5,
+            0
+          ],
+          "outward_godot": [
+            0,
+            0,
+            1
+          ],
+          "measured_width_m": 3.200000047683716
+        },
+        "ground": {
+          "position_godot": [
+            9.92,
+            0,
+            -9.92
+          ],
+          "outward_godot": [
+            1,
+            0,
+            0
+          ],
+          "measured_width_m": 3.200000762939453
+        }
+      },
+      "materials": [
+        {
+          "name": "deck_warm_pale",
+          "pbrMetallicRoughness": {
+            "baseColorFactor": [
+              0.7200000286102295,
+              0.7300000190734863,
+              0.6600000262260437,
+              1
+            ],
+            "metallicFactor": 0,
+            "roughnessFactor": 0.7799999713897705
+          }
+        },
+        {
+          "name": "deck_pale_fascia",
+          "pbrMetallicRoughness": {
+            "baseColorFactor": [
+              0.49000000953674316,
+              0.5899999737739563,
+              0.5899999737739563,
+              1
+            ],
+            "metallicFactor": 0,
+            "roughnessFactor": 0.5600000023841858
+          }
+        },
+        {
+          "name": "deck_petrol_underside",
+          "pbrMetallicRoughness": {
+            "baseColorFactor": [
+              0.07500000298023224,
+              0.1599999964237213,
+              0.18000000715255737,
+              1
+            ],
+            "metallicFactor": 0,
+            "roughnessFactor": 0.6499999761581421
+          }
+        }
+      ],
+      "export_nodes": [
+        {
+          "mesh": 0,
+          "name": "D06HarbourFootbridge05_south_Mesh"
+        },
+        {
+          "name": "socket_ground_south",
+          "rotation": [
+            0,
+            -0.7071068286895752,
+            0,
+            0.7071068286895752
+          ],
+          "translation": [
+            9.920000076293945,
+            0,
+            -9.920000076293945
+          ]
+        },
+        {
+          "name": "socket_incoming_south",
+          "rotation": [
+            0,
+            -1,
+            0,
+            4.371138828673793e-08
+          ],
+          "translation": [
+            0,
+            5.5,
+            0
+          ]
+        },
+        {
+          "children": [
+            0,
+            1,
+            2
+          ],
+          "name": "D06HarbourFootbridge05_south"
+        }
+      ],
+      "glb_sha256": "aba532231fbd180039e66f153674b0725fe891f186c25fbcaef6affbd59fb6fa",
+      "fresh_reexport_byte_identical": true
+    },
+    "quay": {
+      "source_vertices": 964,
+      "triangles": 1908,
+      "glb_vertices_including_surface_splits": 1728,
+      "mesh_count": 1,
+      "surface_count": 3,
+      "degenerate_faces": 0,
+      "nonmanifold_edges": 0,
+      "degenerate_export_triangles": 0,
+      "unit_corner_and_export_normals": true,
+      "source_signed_volume_m3": 25.035065858076667,
+      "aabb_godot": {
+        "min": [
+          -9.920000076293945,
+          -0.3499999940395355,
+          -11.520000457763672
+        ],
+        "max": [
+          1.600000023841858,
+          5.5,
+          -0.0
+        ],
+        "size": [
+          11.520000100135803,
+          5.8499999940395355,
+          11.520000457763672
+        ]
+      },
+      "pivot_godot": [
+        0,
+        0,
+        0
+      ],
+      "broad_horizontal_levels_m": [
+        0.0,
+        0.171875,
+        0.34375,
+        0.515625,
+        0.6875,
+        0.859375,
+        1.03125,
+        1.203125,
+        1.375,
+        1.546875,
+        1.71875,
+        1.890625,
+        2.0625,
+        2.234375,
+        2.40625,
+        2.578125,
+        2.75,
+        2.921875,
+        3.09375,
+        3.265625,
+        3.4375,
+        3.609375,
+        3.78125,
+        3.953125,
+        4.125,
+        4.296875,
+        4.46875,
+        4.640625,
+        4.8125,
+        4.984375,
+        5.15625,
+        5.328125,
+        5.5
+      ],
+      "sockets": {
+        "incoming": {
+          "position_godot": [
+            0,
+            5.5,
+            0
+          ],
+          "outward_godot": [
+            0,
+            0,
+            1
+          ],
+          "measured_width_m": 3.200000047683716
+        },
+        "ground": {
+          "position_godot": [
+            -9.92,
+            0,
+            -9.92
+          ],
+          "outward_godot": [
+            -1,
+            0,
+            0
+          ],
+          "measured_width_m": 3.200000762939453
+        }
+      },
+      "materials": [
+        {
+          "name": "deck_warm_pale",
+          "pbrMetallicRoughness": {
+            "baseColorFactor": [
+              0.7200000286102295,
+              0.7300000190734863,
+              0.6600000262260437,
+              1
+            ],
+            "metallicFactor": 0,
+            "roughnessFactor": 0.7799999713897705
+          }
+        },
+        {
+          "name": "deck_pale_fascia",
+          "pbrMetallicRoughness": {
+            "baseColorFactor": [
+              0.49000000953674316,
+              0.5899999737739563,
+              0.5899999737739563,
+              1
+            ],
+            "metallicFactor": 0,
+            "roughnessFactor": 0.5600000023841858
+          }
+        },
+        {
+          "name": "deck_petrol_underside",
+          "pbrMetallicRoughness": {
+            "baseColorFactor": [
+              0.07500000298023224,
+              0.1599999964237213,
+              0.18000000715255737,
+              1
+            ],
+            "metallicFactor": 0,
+            "roughnessFactor": 0.6499999761581421
+          }
+        }
+      ],
+      "export_nodes": [
+        {
+          "mesh": 0,
+          "name": "D06HarbourFootbridge05_quay_Mesh"
+        },
+        {
+          "name": "socket_ground_quay",
+          "rotation": [
+            0,
+            0.7071068286895752,
+            0,
+            0.7071068286895752
+          ],
+          "translation": [
+            -9.920000076293945,
+            0,
+            -9.920000076293945
+          ]
+        },
+        {
+          "name": "socket_incoming_quay",
+          "rotation": [
+            0,
+            -1,
+            0,
+            4.371138828673793e-08
+          ],
+          "translation": [
+            0,
+            5.5,
+            0
+          ]
+        },
+        {
+          "children": [
+            0,
+            1,
+            2
+          ],
+          "name": "D06HarbourFootbridge05_quay"
+        }
+      ],
+      "glb_sha256": "288232bce069c5094c074f736ed268e19e437f4b6836c5d2d053ec4c0f0df7ce",
+      "fresh_reexport_byte_identical": true
+    }
+  },
+  "dimension_tolerance_m": 1e-05,
+  "datum": "Ground below incoming centre; apron foundation extends to Y=-0.35",
+  "source_shells_per_variant": 5,
+  "shell_note": "Closed flight/landing shells meet on end planes; internal caps retained.",
+  "collision_note": "Ramp proxy lies up to 0.171875 m below treads; traversal pending.",
+  "engine": {
+    "actor_contract_observed": {
+      "floor_max_angle_degrees": 45.0000012522391,
+      "motion_mode": 1,
+      "traversal": "Pending: current player is FLOATING; ActorMotion has no gravity/descent."
+    },
+    "engine": "4.8-dev7 (official)",
+    "failures": [],
+    "ok": true,
+    "variants": {
+      "main": {
+        "bounds": {
+          "min": "(-1.6, -0.35, -19.84)",
+          "size": "(3.2, 5.85, 19.84)"
+        },
+        "collision_shapes": 5,
+        "glb_uid": "uid://dr0gjsln27dgo",
+        "ground_socket": "(0.0, 0.0, -19.84)",
+        "isolated_rays": [
+          {
+            "height": 5.49999952316284,
+            "sample": "(0.0, 5.5, -1.6)",
+            "slope_degrees": 0.0
+          },
+          {
+            "height": 4.12499952316284,
+            "sample": "(0.0, 4.125, -5.76)",
+            "slope_degrees": 28.2406602178467
+          },
+          {
+            "height": 2.75,
+            "sample": "(0.0, 2.75, -9.92)",
+            "slope_degrees": 0.0
+          },
+          {
+            "height": 1.375,
+            "sample": "(0.0, 1.375, -14.08)",
+            "slope_degrees": 28.2406687555831
+          },
+          {
+            "height": 0.0,
+            "sample": "(0.0, 0.0, -18.24)",
+            "slope_degrees": 0.0
+          },
+          {
+            "sample": "(1.61, 0.0, -5.76)",
+            "solid": false
+          },
+          {
+            "sample": "(-1.61, 0.0, -5.76)",
+            "solid": false
+          },
+          {
+            "sample": "(0.0, 0.0, 0.1)",
+            "solid": false
+          },
+          {
+            "sample": "(3.0, 0.0, -2.0)",
+            "solid": false
+          },
+          {
+            "height": 5.49999952316284,
+            "sample": "(0.0, 5.5, -3.19)",
+            "slope_degrees": 0.0
+          },
+          {
+            "height": 5.49462842941284,
+            "sample": "(0.0, 5.5, -3.21)",
+            "slope_degrees": 28.2406602178467
+          },
+          {
+            "height": 2.75537061691284,
+            "sample": "(0.0, 2.75, -8.31)",
+            "slope_degrees": 28.2406602178467
+          },
+          {
+            "height": 2.75,
+            "sample": "(0.0, 2.75, -8.33)",
+            "slope_degrees": 0.0
+          },
+          {
+            "height": 2.75,
+            "sample": "(0.0, 2.75, -11.51)",
+            "slope_degrees": 0.0
+          },
+          {
+            "height": 2.74462890625,
+            "sample": "(0.0, 2.75, -11.53)",
+            "slope_degrees": 28.2406687555831
+          },
+          {
+            "height": 0.00537109375,
+            "sample": "(0.0, 0.0, -16.63)",
+            "slope_degrees": 28.2406687555831
+          },
+          {
+            "height": 0.0,
+            "sample": "(0.0, 0.0, -16.65)",
+            "slope_degrees": 0.0
+          }
+        ],
+        "linked_identity_model": true,
+        "materials": [
+          "deck_warm_pale",
+          "deck_pale_fascia",
+          "deck_petrol_underside"
+        ],
+        "socket_transforms_match_source": true,
+        "span_02_seam": [
+          {
+            "height": 5.5,
+            "sample": "(-1.5, 5.5, 0.01)",
+            "slope_degrees": 0.0
+          },
+          {
+            "height": 5.49999952316284,
+            "sample": "(-1.5, 5.5, -0.01)",
+            "slope_degrees": 0.0
+          },
+          {
+            "height": 5.5,
+            "sample": "(0.0, 5.5, 0.01)",
+            "slope_degrees": 0.0
+          },
+          {
+            "height": 5.49999952316284,
+            "sample": "(0.0, 5.5, -0.01)",
+            "slope_degrees": 0.0
+          },
+          {
+            "height": 5.5,
+            "sample": "(1.5, 5.5, 0.01)",
+            "slope_degrees": 0.0
+          },
+          {
+            "height": 5.49999952316284,
+            "sample": "(1.5, 5.5, -0.01)",
+            "slope_degrees": 0.0
+          }
+        ],
+        "tscn_uid": "uid://dcgvj3jp5tviw",
+        "save_reload_byte_stable": true
+      },
+      "quay": {
+        "bounds": {
+          "min": "(-9.92, -0.35, -11.52)",
+          "size": "(11.52, 5.85, 11.52)"
+        },
+        "collision_shapes": 5,
+        "glb_uid": "uid://bhbm8ilji2tdv",
+        "ground_socket": "(-9.92, 0.0, -9.92)",
+        "isolated_rays": [
+          {
+            "height": 5.5,
+            "sample": "(0.0, 5.5, -1.6)",
+            "slope_degrees": 0.0
+          },
+          {
+            "height": 4.125,
+            "sample": "(0.0, 4.125, -5.76)",
+            "slope_degrees": 28.2406602178467
+          },
+          {
+            "height": 2.75000047683716,
+            "sample": "(0.0, 2.75, -9.92)",
+            "slope_degrees": 0.0
+          },
+          {
+            "height": 1.375,
+            "sample": "(-4.16, 1.375, -9.92)",
+            "slope_degrees": 28.2406636329412
+          },
+          {
+            "height": 4.76837158203125e-07,
+            "sample": "(-8.32, 0.0, -9.92)",
+            "slope_degrees": 0.0
+          },
+          {
+            "sample": "(1.61, 0.0, -5.76)",
+            "solid": false
+          },
+          {
+            "sample": "(-1.61, 0.0, -5.76)",
+            "solid": false
+          },
+          {
+            "sample": "(0.0, 0.0, 0.1)",
+            "solid": false
+          },
+          {
+            "sample": "(3.0, 0.0, -2.0)",
+            "solid": false
+          },
+          {
+            "height": 5.5,
+            "sample": "(0.0, 5.5, -3.19)",
+            "slope_degrees": 0.0
+          },
+          {
+            "height": 5.49462890625,
+            "sample": "(0.0, 5.5, -3.21)",
+            "slope_degrees": 28.2406602178467
+          },
+          {
+            "height": 2.75537109375,
+            "sample": "(0.0, 2.75, -8.31)",
+            "slope_degrees": 28.2406602178467
+          },
+          {
+            "height": 2.75000047683716,
+            "sample": "(0.0, 2.75, -8.33)",
+            "slope_degrees": 0.0
+          },
+          {
+            "height": 2.75000047683716,
+            "sample": "(-1.59, 2.75, -9.92)",
+            "slope_degrees": 0.0
+          },
+          {
+            "height": 2.74462890625,
+            "sample": "(-1.61, 2.75, -9.92)",
+            "slope_degrees": 28.2406636329412
+          },
+          {
+            "height": 0.0053706169128418,
+            "sample": "(-6.71, 0.0, -9.92)",
+            "slope_degrees": 28.2406636329412
+          },
+          {
+            "height": 4.76837158203125e-07,
+            "sample": "(-6.73, 0.0, -9.92)",
+            "slope_degrees": 0.0
+          }
+        ],
+        "linked_identity_model": true,
+        "materials": [
+          "deck_warm_pale",
+          "deck_pale_fascia",
+          "deck_petrol_underside"
+        ],
+        "socket_transforms_match_source": true,
+        "span_04_seam": [
+          {
+            "height": 5.5,
+            "sample": "(-1.5, 5.5, 0.01)",
+            "slope_degrees": 0.0
+          },
+          {
+            "height": 5.5,
+            "sample": "(-1.5, 5.5, -0.01)",
+            "slope_degrees": 0.0
+          },
+          {
+            "height": 5.5,
+            "sample": "(0.0, 5.5, 0.01)",
+            "slope_degrees": 0.0
+          },
+          {
+            "height": 5.5,
+            "sample": "(0.0, 5.5, -0.01)",
+            "slope_degrees": 0.0
+          },
+          {
+            "height": 5.5,
+            "sample": "(1.5, 5.5, 0.01)",
+            "slope_degrees": 0.0
+          },
+          {
+            "height": 5.5,
+            "sample": "(1.5, 5.5, -0.01)",
+            "slope_degrees": 0.0
+          }
+        ],
+        "tscn_uid": "uid://byk7ryicjls71",
+        "save_reload_byte_stable": true
+      },
+      "south": {
+        "bounds": {
+          "min": "(-1.6, -0.35, -11.52)",
+          "size": "(11.52, 5.85, 11.52)"
+        },
+        "collision_shapes": 5,
+        "glb_uid": "uid://bidwr3287t2yu",
+        "ground_socket": "(9.92, 0.0, -9.92)",
+        "isolated_rays": [
+          {
+            "height": 5.5,
+            "sample": "(0.0, 5.5, -1.6)",
+            "slope_degrees": 0.0
+          },
+          {
+            "height": 4.125,
+            "sample": "(0.0, 4.125, -5.76)",
+            "slope_degrees": 28.2406602178467
+          },
+          {
+            "height": 2.75000047683716,
+            "sample": "(0.0, 2.75, -9.92)",
+            "slope_degrees": 0.0
+          },
+          {
+            "height": 1.375,
+            "sample": "(4.16, 1.375, -9.92)",
+            "slope_degrees": 28.2406636329412
+          },
+          {
+            "height": 4.76837158203125e-07,
+            "sample": "(8.32, 0.0, -9.92)",
+            "slope_degrees": 0.0
+          },
+          {
+            "sample": "(1.61, 0.0, -5.76)",
+            "solid": false
+          },
+          {
+            "sample": "(-1.61, 0.0, -5.76)",
+            "solid": false
+          },
+          {
+            "sample": "(0.0, 0.0, 0.1)",
+            "solid": false
+          },
+          {
+            "sample": "(3.0, 0.0, -2.0)",
+            "solid": false
+          },
+          {
+            "height": 5.5,
+            "sample": "(0.0, 5.5, -3.19)",
+            "slope_degrees": 0.0
+          },
+          {
+            "height": 5.49462890625,
+            "sample": "(0.0, 5.5, -3.21)",
+            "slope_degrees": 28.2406602178467
+          },
+          {
+            "height": 2.75537109375,
+            "sample": "(0.0, 2.75, -8.31)",
+            "slope_degrees": 28.2406602178467
+          },
+          {
+            "height": 2.75000047683716,
+            "sample": "(0.0, 2.75, -8.33)",
+            "slope_degrees": 0.0
+          },
+          {
+            "height": 2.75000047683716,
+            "sample": "(1.59, 2.75, -9.92)",
+            "slope_degrees": 0.0
+          },
+          {
+            "height": 2.74462890625,
+            "sample": "(1.61, 2.75, -9.92)",
+            "slope_degrees": 28.2406636329412
+          },
+          {
+            "height": 0.00537014007568359,
+            "sample": "(6.71, 0.0, -9.92)",
+            "slope_degrees": 28.2406636329412
+          },
+          {
+            "height": 4.76837158203125e-07,
+            "sample": "(6.73, 0.0, -9.92)",
+            "slope_degrees": 0.0
+          }
+        ],
+        "linked_identity_model": true,
+        "materials": [
+          "deck_warm_pale",
+          "deck_pale_fascia",
+          "deck_petrol_underside"
+        ],
+        "socket_transforms_match_source": true,
+        "span_03_seam": [
+          {
+            "height": 5.5,
+            "sample": "(-1.5, 5.5, 0.01)",
+            "slope_degrees": 0.0
+          },
+          {
+            "height": 5.5,
+            "sample": "(-1.5, 5.5, -0.01)",
+            "slope_degrees": 0.0
+          },
+          {
+            "height": 5.5,
+            "sample": "(0.0, 5.5, 0.01)",
+            "slope_degrees": 0.0
+          },
+          {
+            "height": 5.5,
+            "sample": "(0.0, 5.5, -0.01)",
+            "slope_degrees": 0.0
+          },
+          {
+            "height": 5.5,
+            "sample": "(1.5, 5.5, 0.01)",
+            "slope_degrees": 0.0
+          },
+          {
+            "height": 5.5,
+            "sample": "(1.5, 5.5, -0.01)",
+            "slope_degrees": 0.0
+          }
+        ],
+        "tscn_uid": "uid://li5fojsleqhl",
+        "save_reload_byte_stable": true
+      }
+    }
+  },
+  "production_checks": {
+    "overall_ok": true,
+    "results": {
+      "engine": {
+        "ok": true,
+        "version": "4.8.dev7.official.c971f93e7"
+      },
+      "gut_pin": {
+        "ok": true,
+        "version": "9.7.1"
+      },
+      "owned_scripts": {
+        "ok": true,
+        "returncode": 0
+      },
+      "python_tests": {
+        "ok": true,
+        "returncode": 0
+      },
+      "gut_import": {
+        "ok": true,
+        "returncode": 0
+      },
+      "gut_tests": {
+        "ok": true,
+        "returncode": 0
+      },
+      "gut_negative": {
+        "ok": true,
+        "observed_returncode": 1
+      }
+    },
+    "compiled_scripts": 84,
+    "failed_scripts": [],
+    "python_tests": 11,
+    "gut_tests": 40,
+    "gut_assertions": 458
+  },
+  "visual_self_review": {
+    "renders_inspected": [
+      "hero.png",
+      "side.png",
+      "landing_detail.png",
+      "overhead_47m_42deg.png"
+    ],
+    "observation": "Straight and left/right quarter-turn routes, tread rhythm and clear landings read overhead. Pale/slender family language preserved. No guards/supports claimed.",
+    "camera": "Vertical-down, 47 m above ground, FOV 42 degrees, 1280x720; comparison offsets only",
+    "renderer": "Isolated Blender Cycles CPU, 32 samples, AgX; PNG95, film dithering disabled",
+    "not_claimed": "In-engine visual, movement, assembled-map or device acceptance"
+  }
+}

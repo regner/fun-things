@@ -1,0 +1,55 @@
+[gd_scene format=3 uid="uid://dcgvj3jp5tviw"]
+
+[ext_resource type="PackedScene" uid="uid://dr0gjsln27dgo" path="res://art/models/environment/d06_harbour_footbridge_05/d06_harbour_footbridge_05_main.glb" id="1_model"]
+
+[sub_resource type="BoxShape3D" id="Shape_Upper"]
+size = Vector3(3.2, 0.35, 3.2)
+
+[sub_resource type="ConvexPolygonShape3D" id="Shape_Flight1"]
+points = PackedVector3Array(-1.6, 2.75, -8.32, 1.6, 2.75, -8.32, 1.6, 5.5, -3.2, -1.6, 5.5, -3.2, -1.6, 2.4, -8.32, 1.6, 2.4, -8.32, 1.6, 5.15, -3.2, -1.6, 5.15, -3.2)
+
+[sub_resource type="BoxShape3D" id="Shape_Mid"]
+size = Vector3(3.2, 0.35, 3.2)
+
+[sub_resource type="ConvexPolygonShape3D" id="Shape_Flight2"]
+points = PackedVector3Array(-1.6, 0, -16.64, 1.6, 0, -16.64, 1.6, 2.75, -11.52, -1.6, 2.75, -11.52, -1.6, -0.35, -16.64, 1.6, -0.35, -16.64, 1.6, 2.4, -11.52, -1.6, 2.4, -11.52)
+
+[sub_resource type="BoxShape3D" id="Shape_Apron"]
+size = Vector3(3.2, 0.35, 3.2)
+
+[node name="d06_harbour_footbridge_05_main" type="Node3D" unique_id=450333610]
+
+[node name="Visuals" type="Node3D" parent="." unique_id=2114290651]
+
+[node name="Model" type="Node3D" parent="Visuals" unique_id=539790845 instance=ExtResource("1_model")]
+
+[node name="Collision" type="Node3D" parent="." unique_id=95289586]
+
+[node name="Body" type="StaticBody3D" parent="Collision" unique_id=2026177583]
+collision_mask = 0
+
+[node name="Upper" type="CollisionShape3D" parent="Collision/Body" unique_id=523381114]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.325, -1.6)
+shape = SubResource("Shape_Upper")
+
+[node name="Flight1" type="CollisionShape3D" parent="Collision/Body" unique_id=1526915681]
+shape = SubResource("Shape_Flight1")
+
+[node name="Mid" type="CollisionShape3D" parent="Collision/Body" unique_id=582589829]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.575, -9.92)
+shape = SubResource("Shape_Mid")
+
+[node name="Flight2" type="CollisionShape3D" parent="Collision/Body" unique_id=1480630633]
+shape = SubResource("Shape_Flight2")
+
+[node name="Apron" type="CollisionShape3D" parent="Collision/Body" unique_id=672523962]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.175, -18.24)
+shape = SubResource("Shape_Apron")
+
+[node name="Sockets" type="Node3D" parent="." unique_id=1820749029]
+
+[node name="Incoming" type="Marker3D" parent="Sockets" unique_id=721344753]
+transform = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, -1, 0, 5.5, 0)
+
+[node name="Ground" type="Marker3D" parent="Sockets" unique_id=1922035814]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -19.84)
