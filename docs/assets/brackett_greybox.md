@@ -354,3 +354,16 @@ released to the coordinator. Four completed-output Blender shutdown waiters rema
 (52459, 52805, 66150, 97438), left untouched. No live Godot editor is required to
 open the committed preview. Owner visual selection and all previously listed
 camera/gameplay/vehicle/device gates remain pending.
+
+## Local main fast-forward — 9 October 2026
+
+At the owner's explicit request, the four greybox commits were rebased onto the
+then-current local `main` tip, `48be65568f8cec0d439fd54d11b9b89983f00864`, which
+had advanced from `e4e80cc` to include the pistol handoff during coordination.
+The same clean-context reviewer confirmed all 231 greybox blobs/modes and all four
+binary commit patches were unchanged; latest main files/modes remain intact, history
+is linear, and the rebased tip is a fast-forward from that base. The full independent
+post-rebase receipt and all five evidence files are retained under
+`review/height_revision/rebase/`. No engine rerun was needed because reviewed asset
+bytes did not change. Local main is advanced to this reviewed handoff; no remote push
+or gameplay integration was performed.
