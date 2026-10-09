@@ -261,7 +261,7 @@ An import command's success does not mean scripts compiled or logs were clean.
 
 ### Real-project desktop exports
 
-The project has a saved `run/main_scene.tscn` entrypoint and four x86-64 presets:
+The project has a saved `scenes/boot/boot.tscn` entrypoint and four x86-64 presets:
 Windows/Linux, debug/release. The ENet-only M1 project no longer contains GodotSteam;
 the presets exclude MCP and the package inspector still rejects any GodotSteam or
 Steamworks library accidentally reintroduced. A future Steam-adapter task must select a

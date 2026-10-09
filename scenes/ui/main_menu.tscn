@@ -1,0 +1,367 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://scripts/ui/main_menu.gd" id="1_menu"]
+
+[sub_resource type="StyleBoxFlat" id="StyleButtonHover"]
+content_margin_left = 19.0
+content_margin_top = 13.0
+content_margin_right = 19.0
+content_margin_bottom = 13.0
+bg_color = Color(0.12549, 0.313725, 0.309804, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(1, 0.752941, 0.352941, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleButton"]
+content_margin_left = 20.0
+content_margin_top = 14.0
+content_margin_right = 20.0
+content_margin_bottom = 14.0
+bg_color = Color(0.0627451, 0.184314, 0.227451, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.270588, 0.380392, 0.419608, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleField"]
+content_margin_left = 16.0
+content_margin_top = 12.0
+content_margin_right = 16.0
+content_margin_bottom = 12.0
+bg_color = Color(0.0470588, 0.133333, 0.168627, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.270588, 0.380392, 0.419608, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StylePanel"]
+content_margin_left = 28.0
+content_margin_top = 24.0
+content_margin_right = 28.0
+content_margin_bottom = 24.0
+bg_color = Color(0.0627451, 0.184314, 0.227451, 0.96)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.270588, 0.380392, 0.419608, 1)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+
+[sub_resource type="Theme" id="ThemeMenu"]
+default_font_size = 20
+Button/colors/font_color = Color(0.964706, 0.945098, 0.862745, 1)
+Button/colors/font_focus_color = Color(0.964706, 0.945098, 0.862745, 1)
+Button/colors/font_hover_color = Color(0.964706, 0.945098, 0.862745, 1)
+Button/font_sizes/font_size = 22
+Button/styles/focus = SubResource("StyleButtonHover")
+Button/styles/hover = SubResource("StyleButtonHover")
+Button/styles/normal = SubResource("StyleButton")
+LineEdit/colors/font_color = Color(0.964706, 0.945098, 0.862745, 1)
+LineEdit/font_sizes/font_size = 24
+LineEdit/styles/normal = SubResource("StyleField")
+PanelContainer/styles/panel = SubResource("StylePanel")
+SpinBox/font_sizes/font_size = 24
+
+[sub_resource type="StyleBoxFlat" id="StylePrimary"]
+content_margin_left = 20.0
+content_margin_top = 14.0
+content_margin_right = 20.0
+content_margin_bottom = 14.0
+bg_color = Color(1, 0.447059, 0.364706, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("ThemeMenu")
+script = ExtResource("1_menu")
+
+[node name="Background" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.0470588, 0.133333, 0.168627, 1)
+mouse_filter = 2
+
+[node name="Accent" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -640.0
+offset_top = -18.0
+offset_right = 640.0
+grow_horizontal = 2
+grow_vertical = 0
+color = Color(1, 0.447059, 0.364706, 1)
+mouse_filter = 2
+
+[node name="PageMargin" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 48.0
+offset_top = 38.0
+offset_right = -48.0
+offset_bottom = -38.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Page" type="VBoxContainer" parent="PageMargin"]
+layout_mode = 2
+theme_override_constants/separation = 18
+
+[node name="Brand" type="Label" parent="PageMargin/Page"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.447059, 0.364706, 1)
+theme_override_font_sizes/font_size = 16
+text = "FUN THINGS"
+
+[node name="Title" type="Label" parent="PageMargin/Page"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.964706, 0.945098, 0.862745, 1)
+theme_override_font_sizes/font_size = 58
+text = "A little city. A lot of trouble."
+
+[node name="Subtitle" type="Label" parent="PageMargin/Page"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.682353, 0.764706, 0.776471, 1)
+theme_override_font_sizes/font_size = 20
+text = "Go solo, host a direct game, or meet a friend at their address."
+
+[node name="Body" type="HBoxContainer" parent="PageMargin/Page"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 28
+
+[node name="MainActions" type="VBoxContainer" parent="PageMargin/Page/Body"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(420, 0)
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="SoloButton" type="Button" parent="PageMargin/Page/Body/MainActions"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0.0470588, 0.133333, 0.168627, 1)
+theme_override_styles/normal = SubResource("StylePrimary")
+text = "Go solo"
+alignment = 0
+
+[node name="HostButton" type="Button" parent="PageMargin/Page/Body/MainActions"]
+layout_mode = 2
+text = "Host direct ENet"
+alignment = 0
+
+[node name="JoinButton" type="Button" parent="PageMargin/Page/Body/MainActions"]
+layout_mode = 2
+text = "Join at an address"
+alignment = 0
+
+[node name="QuitButton" type="Button" parent="PageMargin/Page/Body/MainActions"]
+layout_mode = 2
+text = "Quit"
+alignment = 0
+
+[node name="HostPanel" type="PanelContainer" parent="PageMargin/Page/Body"]
+unique_name_in_owner = true
+visible = false
+custom_minimum_size = Vector2(700, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Content" type="VBoxContainer" parent="PageMargin/Page/Body/HostPanel"]
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="Eyebrow" type="Label" parent="PageMargin/Page/Body/HostPanel/Content"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.752941, 0.352941, 1)
+text = "DIRECT ENET / CURRENT M1"
+
+[node name="Heading" type="Label" parent="PageMargin/Page/Body/HostPanel/Content"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 36
+text = "Make some room."
+
+[node name="Copy" type="Label" parent="PageMargin/Page/Body/HostPanel/Content"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.682353, 0.764706, 0.776471, 1)
+text = "Room for four. Share your address and port with friends."
+
+[node name="PortLabel" type="Label" parent="PageMargin/Page/Body/HostPanel/Content"]
+layout_mode = 2
+text = "Port"
+
+[node name="HostPort" type="SpinBox" parent="PageMargin/Page/Body/HostPanel/Content"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(260, 58)
+layout_mode = 2
+min_value = 1.0
+max_value = 65535.0
+value = 24900.0
+allow_greater = false
+allow_lesser = false
+
+[node name="HostNote" type="Label" parent="PageMargin/Page/Body/HostPanel/Content"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.682353, 0.764706, 0.776471, 1)
+text = "No server browser or automatic internet port forwarding."
+
+[node name="HostActions" type="HBoxContainer" parent="PageMargin/Page/Body/HostPanel/Content"]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="HostBackButton" type="Button" parent="PageMargin/Page/Body/HostPanel/Content/HostActions"]
+layout_mode = 2
+text = "Back"
+
+[node name="CreateHostButton" type="Button" parent="PageMargin/Page/Body/HostPanel/Content/HostActions"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0.0470588, 0.133333, 0.168627, 1)
+theme_override_styles/normal = SubResource("StylePrimary")
+text = "Create ENet lobby"
+
+[node name="JoinPanel" type="PanelContainer" parent="PageMargin/Page/Body"]
+unique_name_in_owner = true
+visible = false
+custom_minimum_size = Vector2(700, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Content" type="VBoxContainer" parent="PageMargin/Page/Body/JoinPanel"]
+layout_mode = 2
+theme_override_constants/separation = 14
+
+[node name="Eyebrow" type="Label" parent="PageMargin/Page/Body/JoinPanel/Content"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.752941, 0.352941, 1)
+text = "DIRECT ENET / CURRENT M1"
+
+[node name="Heading" type="Label" parent="PageMargin/Page/Body/JoinPanel/Content"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 36
+text = "Meet at the address."
+
+[node name="AddressLabel" type="Label" parent="PageMargin/Page/Body/JoinPanel/Content"]
+layout_mode = 2
+text = "Host address"
+
+[node name="JoinAddress" type="LineEdit" parent="PageMargin/Page/Body/JoinPanel/Content"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 62)
+layout_mode = 2
+placeholder_text = "192.168.1.42"
+
+[node name="PortLabel" type="Label" parent="PageMargin/Page/Body/JoinPanel/Content"]
+layout_mode = 2
+text = "Port"
+
+[node name="JoinPort" type="SpinBox" parent="PageMargin/Page/Body/JoinPanel/Content"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(260, 58)
+layout_mode = 2
+min_value = 1.0
+max_value = 65535.0
+value = 24900.0
+allow_greater = false
+allow_lesser = false
+
+[node name="JoinNote" type="Label" parent="PageMargin/Page/Body/JoinPanel/Content"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.682353, 0.764706, 0.776471, 1)
+text = "Ask your host for both fields. No automatic NAT traversal."
+
+[node name="JoinActions" type="HBoxContainer" parent="PageMargin/Page/Body/JoinPanel/Content"]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="JoinBackButton" type="Button" parent="PageMargin/Page/Body/JoinPanel/Content/JoinActions"]
+layout_mode = 2
+text = "Back"
+
+[node name="ConnectButton" type="Button" parent="PageMargin/Page/Body/JoinPanel/Content/JoinActions"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0.0470588, 0.133333, 0.168627, 1)
+theme_override_styles/normal = SubResource("StylePrimary")
+text = "Connect"
+
+[node name="DirectionCard" type="PanelContainer" parent="PageMargin/Page/Body"]
+custom_minimum_size = Vector2(360, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Copy" type="VBoxContainer" parent="PageMargin/Page/Body/DirectionCard"]
+layout_mode = 2
+theme_override_constants/separation = 14
+
+[node name="Label" type="Label" parent="PageMargin/Page/Body/DirectionCard/Copy"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.447059, 0.364706, 1)
+text = "QUIET INSTRUMENTS"
+
+[node name="Heading" type="Label" parent="PageMargin/Page/Body/DirectionCard/Copy"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 28
+text = "One city, one session."
+
+[node name="Body" type="Label" parent="PageMargin/Page/Body/DirectionCard/Copy"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0.682353, 0.764706, 0.776471, 1)
+text = "Standalone uses the same authority path without a fake network peer.
+
+Direct ENet hosting and joining plug into this shell in M1-A1.2.
+
+Steam features are not part of current M1."
+autowrap_mode = 2
+
+[node name="Feedback" type="Label" parent="PageMargin/Page"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 28)
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.752941, 0.352941, 1)
+text = ""
+
+[connection signal="pressed" from="PageMargin/Page/Body/MainActions/SoloButton" to="." method="_on_solo_pressed"]
+[connection signal="pressed" from="PageMargin/Page/Body/MainActions/HostButton" to="." method="_on_host_pressed"]
+[connection signal="pressed" from="PageMargin/Page/Body/MainActions/JoinButton" to="." method="_on_join_pressed"]
+[connection signal="pressed" from="PageMargin/Page/Body/MainActions/QuitButton" to="." method="_on_quit_pressed"]
+[connection signal="pressed" from="PageMargin/Page/Body/HostPanel/Content/HostActions/HostBackButton" to="." method="_on_back_pressed"]
+[connection signal="pressed" from="PageMargin/Page/Body/HostPanel/Content/HostActions/CreateHostButton" to="." method="_on_create_host_pressed"]
+[connection signal="pressed" from="PageMargin/Page/Body/JoinPanel/Content/JoinActions/JoinBackButton" to="." method="_on_back_pressed"]
+[connection signal="pressed" from="PageMargin/Page/Body/JoinPanel/Content/JoinActions/ConnectButton" to="." method="_on_connect_pressed"]

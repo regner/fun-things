@@ -138,6 +138,22 @@ in ACTIVE it asks before leaving the match. Keep at most one pending external re
 a newer target replaces the pending target, never silently leaves the current match.
 Settings/menu focus neutralizes local intent without pausing shared simulation.
 
+### M1-A1.1 production session shell
+
+`res://scripts/session/session_service.gd` now owns the process-lifetime operation ID,
+phase, selected provider, local session identity, retry request and five-second close deadline.
+Its public `host`, `join`, `start_standalone`, `cancel`, `leave`, `retry` and `view` methods use
+normalized Dictionary result records matching the contract shapes above. Synchronous rejection
+allocates no operation; each accepted operation emits `completed` once. Standalone reaches ACTIVE
+without creating a fake peer. `SessionTransport` is the provider seam, while
+`FakeSessionTransport` supplies correlated delayed callbacks for unit tests only.
+
+M1-A1.1 intentionally stops at the transport seam: Boot registers no network provider yet. Raw
+address text remains in the menu until M1-A1.2 adds ENet endpoint parsing, transport capabilities
+and real host/join behavior. Closing first replaces the active peer with an offline peer, then waits
+for the correlated provider close result or the one shared five-second monotonic deadline. A late
+peer is disposed and a late close/failure callback cannot change view state or complete again.
+
 ## Transport and session-directory adapters
 
 This is the **M1-A1 contract**: ENet is the only initial provider, while the boundary

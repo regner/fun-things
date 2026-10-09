@@ -1,7 +1,8 @@
 # Scene and authored-resource contracts
 
-P0-02 draft, 7 October 2026. These are reserved production paths and proposed node
-contracts; production scenes remain unimplemented. Isolated [S01 fixtures](spikes/s01.md)
+P0-02 draft, 7 October 2026. These paths and node contracts guide production composition.
+M1-A1.1 now implements the Boot, main-menu and session-status scenes; later rows remain
+reserved until their owning production task lands. Isolated [S01 fixtures](spikes/s01.md)
 exercise linked imports and wrapper-level material inheritance. The isolated
 [S03 fixture](spikes/s03.md) uses fixed Boot/Session and Match/Replication paths
 with saved marker entities and a saved local rig. Create directories only when
@@ -14,7 +15,7 @@ resource and topology details before P0-GATE.
 | Path | Purpose and lifetime |
 | --- | --- |
 | `res://scenes/boot/boot.tscn` | Main scene; process-lifetime Boot and services |
-| `res://scenes/ui/main_menu.tscn`, `settings.tscn`, `session_status.tscn` | Reusable menu, audio settings and connection/loading/error UI |
+| `res://scenes/ui/main_menu.tscn`, `session_status.tscn` | Reusable main menu and connection/loading/error UI; settings moves to M1-D5 |
 | `res://scenes/match/match.tscn` | One active Match; authoritative simulation or client replica |
 | `res://scenes/world/district_01.tscn` | Saved CityRoot composition, fully loaded in M1 |
 | `res://scenes/world/sectors/<sector_id>.tscn` | Saved sector composition with prefab instances and authored anchors |
@@ -35,9 +36,7 @@ resource and topology details before P0-GATE.
 ```text
 /root/Boot                         boot.tscn, Node; never replaced during a session
 ├── Session                        SessionService and fixed admission RPC endpoint
-├── Settings                       LocalSettings
-├── Platform                       optional adapter, absent/unavailable is supported
-└── View                           Node; contains MainMenu or Match
+└── View                           Control; contains MainMenu/SessionStatus or Match
     └── Match                      match.tscn, Node3D; fixed name on every peer
         ├── Replication            match RPC endpoint and replica state application
         ├── CityRoot               district_01.tscn instance, authored placement
@@ -55,7 +54,9 @@ resource and topology details before P0-GATE.
             └── UI                CanvasLayer with HUD, Minimap and local menu
 ```
 
-Menu children replace Match only after session cleanup. Session exists before
+M1-A1.1 saves `Boot/Session` and `Boot/View/{MainMenu,SessionStatus}` and uses no
+project autoload for them. LocalSettings and its settings screen are intentionally absent until
+M1-D5. Menu children replace Match only after session cleanup. Session exists before
 attaching a peer so handshake messages have an endpoint while Match loads.
 Match/Replication exists before world-ready is sent; do not send match RPCs before
 that readiness. Admission messages use `/root/Boot/Session`; match messages use

@@ -1,0 +1,25 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://scripts/boot/boot.gd" id="1_boot"]
+[ext_resource type="Script" path="res://scripts/session/session_service.gd" id="2_session"]
+[ext_resource type="PackedScene" path="res://scenes/ui/main_menu.tscn" id="3_menu"]
+[ext_resource type="PackedScene" path="res://scenes/ui/session_status.tscn" id="4_status"]
+
+[node name="Boot" type="Node"]
+process_mode = 3
+script = ExtResource("1_boot")
+
+[node name="Session" type="Node" parent="."]
+script = ExtResource("2_session")
+
+[node name="View" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MainMenu" parent="View" instance=ExtResource("3_menu")]
+
+[node name="SessionStatus" parent="View" instance=ExtResource("4_status")]

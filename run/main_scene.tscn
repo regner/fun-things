@@ -1,9 +1,0 @@
-[gd_scene load_steps=3 format=3]
-
-[ext_resource type="Script" path="res://run/main_scene.gd" id="1_main"]
-[ext_resource type="PackedScene" uid="uid://c61a1l4vio22q" path="res://tests/fixtures/s06/intersection.tscn" id="2_s06"]
-
-[node name="Main" type="Node"]
-script = ExtResource("1_main")
-
-[node name="Intersection" parent="." instance=ExtResource("2_s06")]

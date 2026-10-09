@@ -1,0 +1,137 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://scripts/ui/session_status.gd" id="1_status"]
+
+[sub_resource type="StyleBoxFlat" id="StyleFocus"]
+content_margin_left = 18.0
+content_margin_top = 12.0
+content_margin_right = 18.0
+content_margin_bottom = 12.0
+bg_color = Color(0.12549, 0.313725, 0.309804, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(1, 0.752941, 0.352941, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleButton"]
+content_margin_left = 20.0
+content_margin_top = 14.0
+content_margin_right = 20.0
+content_margin_bottom = 14.0
+bg_color = Color(0.0627451, 0.184314, 0.227451, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.270588, 0.380392, 0.419608, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StylePanel"]
+content_margin_left = 36.0
+content_margin_top = 32.0
+content_margin_right = 36.0
+content_margin_bottom = 32.0
+bg_color = Color(0.0627451, 0.184314, 0.227451, 0.98)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.270588, 0.380392, 0.419608, 1)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+
+[sub_resource type="Theme" id="ThemeStatus"]
+default_font_size = 20
+Button/colors/font_color = Color(0.964706, 0.945098, 0.862745, 1)
+Button/font_sizes/font_size = 22
+Button/styles/focus = SubResource("StyleFocus")
+Button/styles/hover = SubResource("StyleFocus")
+Button/styles/normal = SubResource("StyleButton")
+PanelContainer/styles/panel = SubResource("StylePanel")
+
+[node name="SessionStatus" type="Control"]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("ThemeStatus")
+script = ExtResource("1_status")
+
+[node name="Backdrop" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.0470588, 0.133333, 0.168627, 0.94)
+
+[node name="Center" type="CenterContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Card" type="PanelContainer" parent="Center"]
+custom_minimum_size = Vector2(760, 380)
+layout_mode = 2
+
+[node name="Content" type="VBoxContainer" parent="Center/Card"]
+layout_mode = 2
+theme_override_constants/separation = 18
+
+[node name="Eyebrow" type="Label" parent="Center/Card/Content"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.447059, 0.364706, 1)
+theme_override_font_sizes/font_size = 15
+text = "SESSION / IDLE"
+
+[node name="Title" type="Label" parent="Center/Card/Content"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0.964706, 0.945098, 0.862745, 1)
+theme_override_font_sizes/font_size = 44
+text = "Getting you into the city."
+
+[node name="Detail" type="Label" parent="Center/Card/Content"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0.682353, 0.764706, 0.776471, 1)
+theme_override_font_sizes/font_size = 20
+text = "Current state is installed before controls unlock."
+autowrap_mode = 2
+
+[node name="Actions" type="HBoxContainer" parent="Center/Card/Content"]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="BackButton" type="Button" parent="Center/Card/Content/Actions"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Back"
+
+[node name="PrimaryButton" type="Button" parent="Center/Card/Content/Actions"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Cancel"
+
+[connection signal="pressed" from="Center/Card/Content/Actions/BackButton" to="." method="_on_back_pressed"]
+[connection signal="pressed" from="Center/Card/Content/Actions/PrimaryButton" to="." method="_on_primary_pressed"]
