@@ -27,7 +27,7 @@ TYPES = {
     1: [('campus_hall', 28, 18, 12), ('campus_classroom', 20, 14, 9), ('campus_annex', 14, 12, 6)],
     2: [('house', 10, 12, 6), ('semi', 14, 12, 7), ('terrace', 20, 11, 8)],
     3: [('apartment', 24, 15, 16), ('apartment_slab', 32, 14, 21), ('apartment_small', 18, 16, 13)],
-    4: [('tower_high', 30, 28, 38), ('tower_mid', 28, 26, 30), ('office', 24, 22, 22)],
+    4: [('tower_high', 30, 28, 90), ('tower_mid', 28, 26, 68), ('office', 24, 22, 42)],
     5: [('quay_house', 12, 15, 9), ('quay_row', 20, 12, 12), ('quay_hall', 26, 18, 14)],
     6: [('shop', 18, 15, 10), ('entertainment_hall', 30, 23, 15), ('shop_row', 26, 14, 13)],
     7: [('retail_large', 65, 38, 10), ('retail_box', 45, 30, 8), ('retail_small', 28, 22, 7)],

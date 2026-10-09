@@ -57,9 +57,9 @@ resource wiring and bookkeeping may use **Sol 6.1 medium/high**. If a running So
 turn cannot take the changed model setting, save its checkpoint and end the turn
 before spatial work resumes. Preserve unsaved sources/process state during a
 transition; no duplicate lead/worktree. The current checkpoint is already saved,
-and no further modeling was performed after this instruction arrived. The
-coordinator is setting this lead to `gpt-6-astra/high`; that announced setting is
-not substituted for an effective-runtime check before future modeling.
+and no further modeling was performed in that initial turn. Before the subsequent
+Glassward height revision, Paseo `get_agent_status` confirmed the effective runtime
+as `gpt-6-astra`, thinking `high`, in this exact worktree (9 October 2026).
 
 ## Layout and replaceable content
 
@@ -98,11 +98,11 @@ parcel planning or final population capacity.
 | 09 | East Docks | 21 | `district_09_kit.blend`: warehouse, warehouse_small, dock_shed |
 
 There are 27 reusable building types. Not every type is placed: the first Glassward
-pass contains 26 offices at 22 m and three stepped towers at 30 m. A 38 m tower
+pass now contains 26 offices at 42 m and three stepped towers at 68 m. A 90 m tower
 variant is supplied but unplaced. Ground-centred footprints range from 10 × 12 m
 houses to 65 × 38 m retail. The exact X/height/Z dimensions and collision boxes
 are listed in `tools/brackett_greybox/editor_input.json`; imported AABBs are checked
-to 0.01 m in `review/scene_checks.json`. No claim is made that 38 m or taller towers
+to 0.01 m in `review/scene_checks.json`. No claim is made that the taller towers
 are already visually resolved at the 47 m camera height.
 
 Each district is a saved sector, with explicit `district_id`, `district_name` and
@@ -250,7 +250,7 @@ first full-island source/GLB/saved-placement checkpoint; retain traversal, large
 vehicle turning/yard access, production district art replacement and integration
 as pending. Do not close foundation, gameplay, device or production tasks.
 
-## Independent review
+## Independent review of the original checkpoint
 
 **Accepted as a technical whole-island greybox checkpoint**, 9 October 2026,
 by clean-context reviewer `/root/greybox_review` using Sol 6.1 high. Reviewed
@@ -276,3 +276,51 @@ and actor/vehicle readability, roof occlusion, all traversal/large-vehicle envel
 networking and device/performance acceptance remain pending. This follow-up commit
 records the review/routing policy and adds evidence only; it does not change the
 reviewed Blender, GLB, scene or script bytes.
+
+## Glassward height revision — 9 October 2026
+
+Owner instruction: “The buildings in the high rise area should be taller.”
+Codex authored the height change under verified effective **Astra/high**, using
+[raise_glassward.py](../../tools/brackett_greybox/raise_glassward.py). This is a
+one-time source revision from `cf6dae7a420ec477dd85654b615e0fb296ed8aaa`, not a runtime
+resizer or placement generator. Offices changed **22 → 42 m** (26 placements),
+stepped towers **30 → 68 m** (three placements), and the supplied unplaced high-tower
+variant **38 → 90 m**. Podiums remain 6 m. Horizontal dimensions, 0.12 m bevel widths,
+materials, object/collection names, source membership and all placement IDs remain.
+Only `district_04_kit.blend`, its three GLBs and the three wrapper collision sizes /
+vertical centres changed; all district scene bytes and map geometry are unchanged.
+Metadata and bootstrap defaults match the revised heights. No detailed art was added.
+
+Actual saved-source re-export completed with Blender exit 0: three changed GLBs,
+37 byte-identical GLBs. Import and file checks passed (27 measured building bounds,
+40 exports, 50 scenes, 290 IDs). The six affected prefab/sector/city/preview consumers
+were opened, saved, closed and reopened through the verified private editor;
+a second save retained identical hashes for all six. A fresh bounded Godot process
+passed the eight existing ground/bridge/harbour rays, and another captured all
+11 views at 1280×800 with unchanged cameras and lighting. Both exited 0 without
+runtime warnings/errors. These rays do not test walking, driving or tower traversal.
+Evidence and raw logs: `review/height_revision/`; refreshed current measurements and
+images: `review/scene_checks.json`, `review/capture.json` and the review PNGs. Older
+`review/independent/`, re-export and editor receipts describe the original checkpoint,
+not this revision. Renewed independent review is recorded below when complete.
+
+![Taller Glassward at the unchanged 47 m / 42° game camera](../../art/source/models/brackett_greybox/review/district_04.png)
+
+The overview now shows a substantially taller downtown skyline. At the fixed 47 m
+camera, office roofs are only 5 m below the lens and the placed tower roofs are 21 m
+above it. The saved downtown street view shows deep walls/shadows and roof projection
+near the frame; it does **not** prove camera-follow visibility around or through
+all tower sites. Roof clipping/hiding, actor visibility, camera-follow transitions,
+traversal, vehicle clearance/turning and networking remain integrator-owned and
+unvalidated. No collision was hidden to improve the screenshot, and no camera height
+was changed. Owner approval of this height choice and density remains open.
+
+The revision's source save completed, but its first sandboxed Blender process
+lingered during audio shutdown after a blocked external thumbnail-cache write.
+A second approach used private XDG directories and `ALSOFT_DRIVERS=null`; the fresh
+saved-source export completed and quit cleanly. Three older greybox Blender shutdown
+waiters were also discovered still alive (52459, 52805, 66150); the earlier report of
+all processes being reaped was inaccurate. They were waiting with completed outputs,
+not performing ongoing authoring; no process was killed or another workspace touched.
+The headless editor still emits dummy-renderer thumbnail diagnostics during successful
+saves. The successful fresh graphical capture is the visual evidence.

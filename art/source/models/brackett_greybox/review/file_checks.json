@@ -183,14 +183,6 @@
       "art/models/brackett_greybox/house.glb"
     ],
     [
-      "scenes/world/brackett_greybox/prefabs/office.tscn",
-      "scenes/world/brackett_greybox/placement.gd"
-    ],
-    [
-      "scenes/world/brackett_greybox/prefabs/office.tscn",
-      "art/models/brackett_greybox/office.glb"
-    ],
-    [
       "scenes/world/brackett_greybox/prefabs/quay_hall.tscn",
       "scenes/world/brackett_greybox/placement.gd"
     ],
@@ -279,22 +271,6 @@
       "art/models/brackett_greybox/terrace.glb"
     ],
     [
-      "scenes/world/brackett_greybox/prefabs/tower_high.tscn",
-      "scenes/world/brackett_greybox/placement.gd"
-    ],
-    [
-      "scenes/world/brackett_greybox/prefabs/tower_high.tscn",
-      "art/models/brackett_greybox/tower_high.glb"
-    ],
-    [
-      "scenes/world/brackett_greybox/prefabs/tower_mid.tscn",
-      "scenes/world/brackett_greybox/placement.gd"
-    ],
-    [
-      "scenes/world/brackett_greybox/prefabs/tower_mid.tscn",
-      "art/models/brackett_greybox/tower_mid.glb"
-    ],
-    [
       "scenes/world/brackett_greybox/prefabs/warehouse.tscn",
       "scenes/world/brackett_greybox/placement.gd"
     ],
@@ -325,6 +301,30 @@
     [
       "scenes/world/brackett_greybox/prefabs/workshop_large.tscn",
       "art/models/brackett_greybox/workshop_large.glb"
+    ],
+    [
+      "scenes/world/brackett_greybox/prefabs/office.tscn",
+      "scenes/world/brackett_greybox/placement.gd"
+    ],
+    [
+      "scenes/world/brackett_greybox/prefabs/office.tscn",
+      "art/models/brackett_greybox/office.glb"
+    ],
+    [
+      "scenes/world/brackett_greybox/prefabs/tower_mid.tscn",
+      "scenes/world/brackett_greybox/placement.gd"
+    ],
+    [
+      "scenes/world/brackett_greybox/prefabs/tower_mid.tscn",
+      "art/models/brackett_greybox/tower_mid.glb"
+    ],
+    [
+      "scenes/world/brackett_greybox/prefabs/tower_high.tscn",
+      "scenes/world/brackett_greybox/placement.gd"
+    ],
+    [
+      "scenes/world/brackett_greybox/prefabs/tower_high.tscn",
+      "art/models/brackett_greybox/tower_high.glb"
     ],
     [
       "scenes/world/brackett_greybox/sectors/district_01.tscn",
@@ -373,18 +373,6 @@
     [
       "scenes/world/brackett_greybox/sectors/district_03.tscn",
       "scenes/world/brackett_greybox/prefabs/apartment_slab.tscn"
-    ],
-    [
-      "scenes/world/brackett_greybox/sectors/district_04.tscn",
-      "scenes/world/brackett_greybox/placement.gd"
-    ],
-    [
-      "scenes/world/brackett_greybox/sectors/district_04.tscn",
-      "scenes/world/brackett_greybox/prefabs/office.tscn"
-    ],
-    [
-      "scenes/world/brackett_greybox/sectors/district_04.tscn",
-      "scenes/world/brackett_greybox/prefabs/tower_mid.tscn"
     ],
     [
       "scenes/world/brackett_greybox/sectors/district_05.tscn",
@@ -541,6 +529,18 @@
     [
       "scenes/world/brackett_greybox/sectors/ground_03_02.tscn",
       "art/models/brackett_greybox/ground_03_02.glb"
+    ],
+    [
+      "scenes/world/brackett_greybox/sectors/district_04.tscn",
+      "scenes/world/brackett_greybox/placement.gd"
+    ],
+    [
+      "scenes/world/brackett_greybox/sectors/district_04.tscn",
+      "scenes/world/brackett_greybox/prefabs/office.tscn"
+    ],
+    [
+      "scenes/world/brackett_greybox/sectors/district_04.tscn",
+      "scenes/world/brackett_greybox/prefabs/tower_mid.tscn"
     ]
   ],
   "resource_uids": {
@@ -555,7 +555,6 @@
     "uid://huh5tp2xcxho": "scenes/world/brackett_greybox/prefabs/dock_shed.tscn",
     "uid://d4byopsw7fbby": "scenes/world/brackett_greybox/prefabs/entertainment_hall.tscn",
     "uid://cb16o4i5f3b8r": "scenes/world/brackett_greybox/prefabs/house.tscn",
-    "uid://3l7w3cscuhvt": "scenes/world/brackett_greybox/prefabs/office.tscn",
     "uid://jjgdjgcnjlpm": "scenes/world/brackett_greybox/prefabs/quay_hall.tscn",
     "uid://hf2uqbbd4488": "scenes/world/brackett_greybox/prefabs/quay_house.tscn",
     "uid://lg0xou3ool18": "scenes/world/brackett_greybox/prefabs/quay_row.tscn",
@@ -567,16 +566,16 @@
     "uid://b6rmrciwcv4yx": "scenes/world/brackett_greybox/prefabs/shop.tscn",
     "uid://eq8dl1qcu7j2": "scenes/world/brackett_greybox/prefabs/shop_row.tscn",
     "uid://1ys7mm33x6jf": "scenes/world/brackett_greybox/prefabs/terrace.tscn",
-    "uid://c7d18em66i2uu": "scenes/world/brackett_greybox/prefabs/tower_high.tscn",
-    "uid://cb6hpyx5jyccx": "scenes/world/brackett_greybox/prefabs/tower_mid.tscn",
     "uid://ik6fmq24sm1t": "scenes/world/brackett_greybox/prefabs/warehouse.tscn",
     "uid://p0ul5bmdenlb": "scenes/world/brackett_greybox/prefabs/warehouse_small.tscn",
     "uid://b4xg4n6snl0tp": "scenes/world/brackett_greybox/prefabs/workshop.tscn",
     "uid://olxkjhp2pcqj": "scenes/world/brackett_greybox/prefabs/workshop_large.tscn",
+    "uid://3l7w3cscuhvt": "scenes/world/brackett_greybox/prefabs/office.tscn",
+    "uid://cb6hpyx5jyccx": "scenes/world/brackett_greybox/prefabs/tower_mid.tscn",
+    "uid://c7d18em66i2uu": "scenes/world/brackett_greybox/prefabs/tower_high.tscn",
     "uid://mh0w7imrdl6x": "scenes/world/brackett_greybox/sectors/district_01.tscn",
     "uid://cl433k48vx7t5": "scenes/world/brackett_greybox/sectors/district_02.tscn",
     "uid://bm4wio6f35tga": "scenes/world/brackett_greybox/sectors/district_03.tscn",
-    "uid://bq5kkmbdkgmxk": "scenes/world/brackett_greybox/sectors/district_04.tscn",
     "uid://bfh0quome30kv": "scenes/world/brackett_greybox/sectors/district_05.tscn",
     "uid://dv5n3qixkysb3": "scenes/world/brackett_greybox/sectors/district_06.tscn",
     "uid://cp5lagoq744xx": "scenes/world/brackett_greybox/sectors/district_07.tscn",
@@ -593,6 +592,7 @@
     "uid://bu83rdodfdgxm": "scenes/world/brackett_greybox/sectors/ground_02_02.tscn",
     "uid://b7ncqdtuccuph": "scenes/world/brackett_greybox/sectors/ground_03_00.tscn",
     "uid://ged6yhk2scnl": "scenes/world/brackett_greybox/sectors/ground_03_01.tscn",
-    "uid://f67xuna5060x": "scenes/world/brackett_greybox/sectors/ground_03_02.tscn"
+    "uid://f67xuna5060x": "scenes/world/brackett_greybox/sectors/ground_03_02.tscn",
+    "uid://bq5kkmbdkgmxk": "scenes/world/brackett_greybox/sectors/district_04.tscn"
   }
 }

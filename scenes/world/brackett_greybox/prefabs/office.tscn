@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://bp4tgjft25e6b" path="res://art/models/brackett_greybox/office.glb" id="2_s5log"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_8y6gq"]
-size = Vector3(24, 22, 22)
+size = Vector3(24, 42, 22)
 
 [node name="office" type="Node3D" unique_id=142916307]
 script = ExtResource("1_h2uhn")
@@ -20,5 +20,5 @@ asset_id = &"office"
 collision_mask = 0
 
 [node name="Envelope0" type="CollisionShape3D" parent="Collision/Solid" unique_id=1983904006]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 11, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 21, 0)
 shape = SubResource("BoxShape3D_8y6gq")

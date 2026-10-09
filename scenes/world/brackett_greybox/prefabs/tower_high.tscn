@@ -7,7 +7,7 @@
 size = Vector3(30, 6, 28)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ag3un"]
-size = Vector3(18.3, 32, 17.08)
+size = Vector3(18.3, 84, 17.08)
 
 [node name="tower_high" type="Node3D" unique_id=6549833]
 script = ExtResource("1_wvn1n")
@@ -27,5 +27,5 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 0)
 shape = SubResource("BoxShape3D_va1dg")
 
 [node name="Envelope1" type="CollisionShape3D" parent="Collision/Solid" unique_id=739618487]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 22, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 48, 0)
 shape = SubResource("BoxShape3D_ag3un")
