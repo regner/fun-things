@@ -1,0 +1,11 @@
+{
+  "source": "art/source/models/weapons_smg/smg_wedgewire_a.blend",
+  "export_script": "tools/smg_wedgewire_a/export.py",
+  "byte_identical_outputs": [
+    "art/models/weapons_smg/smg_wedgewire_a.glb",
+    "art/models/weapons_smg/smg_wedgewire_review_pad.glb"
+  ],
+  "command": "blender --background <source> --python-exit-code 1 --python tools/smg_wedgewire_a/export.py -- <scratch>",
+  "exit": 0,
+  "diagnostic": "Known optional MeshOptimizer library missing; GLBs have no extensionsUsed."
+}

@@ -1,0 +1,234 @@
+{
+  "smg_wedgewire_a": {
+    "collection": "export_smg_wedgewire_a",
+    "members": [
+      "Wedgewire_ApertureShadow",
+      "Wedgewire_CoralShell",
+      "Wedgewire_CyanRoofBand",
+      "Wedgewire_CyanSideLeft",
+      "Wedgewire_FrontCollar",
+      "Wedgewire_Magazine",
+      "Wedgewire_MagazineFoot",
+      "Wedgewire_MainGrip",
+      "Wedgewire_Muzzle",
+      "Wedgewire_RearBody",
+      "Wedgewire_ShoulderPad",
+      "Wedgewire_Stock",
+      "Wedgewire_TriggerAccent",
+      "Wedgewire_TriggerGuardBottom",
+      "Wedgewire_TriggerGuardFront",
+      "Wedgewire_Underbody",
+      "socket_grip",
+      "socket_grip_contact",
+      "socket_muzzle",
+      "socket_shoulder",
+      "socket_support_hand"
+    ],
+    "aabb_min": [
+      -0.13500000536441803,
+      -0.13099999725818634,
+      -0.5199999809265137
+    ],
+    "aabb_max": [
+      0.13500000536441803,
+      0.21299999952316284,
+      0.2800000011920929
+    ],
+    "triangles": 3748,
+    "materials": [
+      "smg_wedgewire_charcoal_body",
+      "smg_wedgewire_coral_shell",
+      "smg_wedgewire_cyan_band",
+      "smg_wedgewire_grip_rubber",
+      "smg_wedgewire_muzzle_metal"
+    ]
+  },
+  "smg_wedgewire_review_pad": {
+    "collection": "export_smg_wedgewire_review_pad",
+    "members": [
+      "Review_ConcreteStrip",
+      "Review_PetrolPad"
+    ],
+    "aabb_min": [
+      -32.5,
+      -0.125,
+      -22.5
+    ],
+    "aabb_max": [
+      32.5,
+      -0.007000001147389412,
+      22.5
+    ],
+    "triangles": 24,
+    "materials": [
+      "smg_wedgewire_review_concrete",
+      "smg_wedgewire_review_petrol"
+    ]
+  },
+  "sockets": {
+    "socket_grip": {
+      "position_godot": [
+        0.0,
+        0.0,
+        -0.0
+      ],
+      "basis_godot": [
+        [
+          1,
+          0,
+          0
+        ],
+        [
+          0,
+          1,
+          0
+        ],
+        [
+          0,
+          0,
+          1
+        ]
+      ],
+      "contact_normal_godot": null
+    },
+    "socket_muzzle": {
+      "position_godot": [
+        0.0,
+        0.14000000059604645,
+        -0.5199999809265137
+      ],
+      "basis_godot": [
+        [
+          1,
+          0,
+          0
+        ],
+        [
+          0,
+          1,
+          0
+        ],
+        [
+          0,
+          0,
+          1
+        ]
+      ],
+      "contact_normal_godot": null
+    },
+    "socket_grip_contact": {
+      "position_godot": [
+        0.03200000151991844,
+        0.0,
+        -0.0
+      ],
+      "basis_godot": [
+        [
+          1,
+          0,
+          0
+        ],
+        [
+          0,
+          1,
+          0
+        ],
+        [
+          0,
+          0,
+          1
+        ]
+      ],
+      "contact_normal_godot": [
+        1,
+        0,
+        0
+      ]
+    },
+    "socket_support_hand": {
+      "position_godot": [
+        0.0,
+        0.054999999701976776,
+        -0.3100000023841858
+      ],
+      "basis_godot": [
+        [
+          1,
+          0,
+          0
+        ],
+        [
+          0,
+          1,
+          0
+        ],
+        [
+          0,
+          0,
+          1
+        ]
+      ],
+      "contact_normal_godot": [
+        0,
+        -1,
+        0
+      ]
+    },
+    "socket_shoulder": {
+      "position_godot": [
+        0.0,
+        0.12800000607967377,
+        0.2800000011920929
+      ],
+      "basis_godot": [
+        [
+          1,
+          0,
+          0
+        ],
+        [
+          0,
+          1,
+          0
+        ],
+        [
+          0,
+          0,
+          1
+        ]
+      ],
+      "contact_normal_godot": [
+        0,
+        0,
+        1
+      ]
+    }
+  },
+  "settings": {
+    "export_format": "GLB",
+    "use_selection": false,
+    "use_visible": false,
+    "export_yup": true,
+    "export_apply": false,
+    "export_texcoords": true,
+    "export_normals": true,
+    "export_tangents": false,
+    "export_materials": "EXPORT",
+    "export_cameras": false,
+    "export_lights": false,
+    "export_extras": false,
+    "export_skins": false,
+    "export_all_influences": false,
+    "export_animation_mode": "ACTIONS",
+    "export_merge_animation": "ACTION",
+    "export_frame_range": false,
+    "export_frame_step": 1,
+    "export_force_sampling": true,
+    "export_optimize_animation_size": false,
+    "export_morph": false,
+    "export_morph_animation": false,
+    "export_animations": false
+  },
+  "blender_version": "5.2.2 LTS",
+  "blender_hash": "d13f752e3b9c"
+}

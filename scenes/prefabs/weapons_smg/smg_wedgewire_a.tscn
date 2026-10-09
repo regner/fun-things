@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://cbp2jd2aa6boi"]
+
+[ext_resource type="PackedScene" uid="uid://dkoct7bg2xgfd" path="res://art/models/weapons_smg/smg_wedgewire_a.glb" id="1_ofg53"]
+
+[node name="SmgWedgewireA" type="Node3D" unique_id=1348462693]
+editor_description = "Wedgewire SMG; approved option C. Grip origin, metres, -Z forward. Rigid visual only; no firing rules/collision/VFX."
+
+[node name="Visuals" type="Node3D" parent="." unique_id=913702133]
+
+[node name="Model" parent="Visuals" unique_id=759765119 instance=ExtResource("1_ofg53")]
+
+[node name="Sockets" type="Node3D" parent="." unique_id=2078855179]
+
+[node name="Grip" type="Marker3D" parent="Sockets" unique_id=1381322579]
+
+[node name="Muzzle" type="Marker3D" parent="Sockets" unique_id=1877443838]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.14, -0.52)
+
+[node name="GripContact" type="Marker3D" parent="Sockets" unique_id=584204433]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.032, 0, 0)
+
+[node name="SupportHand" type="Marker3D" parent="Sockets" unique_id=518504722]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.055, -0.31)
+
+[node name="Shoulder" type="Marker3D" parent="Sockets" unique_id=718621379]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.128, 0.28)

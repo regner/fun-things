@@ -1,6 +1,8 @@
 # SMG concept selection
 
-9 October 2026. Three original visual directions; **Regner selection pending**.
+9 October 2026. **Regner selected C — Wedgewire.**
+The [production asset handoff](../../../assets/smg_wedgewire_a.md) records the
+Blender source, imported wrapper and actual Godot camera evidence.
 Open [the review gallery](index.html) or each full sheet:
 
 | Option | Sheet | Main overhead cue | Tradeoff |
@@ -39,7 +41,7 @@ checked at 1280×800, north-up, against player occlusion and dark city surfaces.
 
 ## Compatibility and next decision
 
-- Regner selects A/B/C or requests a visual revision directly in this workstream.
+- Regner selected C — Wedgewire directly in this workstream on 9 October 2026.
 - Provisional length near 0.8 m is a concept target, not an approved envelope.
 - Weapon origin is the firing-hand grip; source `socket_grip` and `socket_muzzle`
   remain authored in metres. Blender +Z up/+Y front converts once to Godot +Y up/-Z.
@@ -52,9 +54,9 @@ checked at 1280×800, north-up, against player occlusion and dark city surfaces.
 - Effects confirmed this muzzle contract is sufficient; no additional SMG anchor.
   Measured aperture clearance/bounds follow selection. No embedded flashes/shells/trails.
 
-No detailed modelling has begun. The selected direction will receive its own
-Blender source, explicit GLB, materials, saved imported wrapper and local preview.
-Only required animation will be added after the holding contract is known.
+Wedgewire now has its own Blender source, explicit GLB, materials, saved imported
+wrapper and local preview. It is a rigid visual; player holding clips remain with
+the player lead, and equipped acceptance waits for the shared rig contract.
 
 Provenance and exact built-in imagegen prompts are in [prompts.json](prompts.json).
 Tool availability, scoped catalogue delta and integrator responsibilities are in

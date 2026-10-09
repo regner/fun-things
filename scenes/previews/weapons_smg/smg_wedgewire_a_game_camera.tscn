@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://8put4g1rfcel"]
+
+[ext_resource type="PackedScene" uid="uid://b0gjh38di3qvl" path="res://scenes/previews/weapons_smg/smg_wedgewire_a_preview.tscn" id="1"]
+
+[node name="SmgWedgewireGameCamera" unique_id=917480300 instance=ExtResource("1")]
+
+[node name="OverviewCamera" parent="." index="2" unique_id=251599670]
+current = false
+
+[node name="GameCamera" parent="." index="3" unique_id=1035031226]
+current = true

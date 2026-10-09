@@ -2,13 +2,32 @@
 
 Date: 9 October 2026. Base: `c030d66d7d0a9db19c0c2aebf1aa2b83eded6275`.
 Owned worktree: `/home/regner/.paseo/worktrees/0u71f39f/brackett-smg`.
-Status: three concept sheets delivered; Regner selection awaited. No production
-asset, gameplay implementation or integration acceptance is claimed.
+Status: Regner selected **C — Wedgewire** on 9 October 2026. Static source/export,
+linked Godot wrapper and local preview are in progress. No production-completion,
+gameplay implementation or integration acceptance is claimed yet.
+
+## Owner model routing — 9 October 2026
+
+Owner instruction supersedes the earlier Sol lead policy: modelling, UV/skin
+deformation, spatial rig/rest/bone design, keyframes/poses/motion and spatial VFX
+animation must run on **Astra**. Non-spatial Godot imports, resource/animation/rig
+configuration, technical wiring and bookkeeping may run on Sol 6.1 medium/high.
+Verify actual effective runtime before resuming spatial mutations after any switch;
+preserve in-flight operations and unsaved state. This applies to subagents too.
+
+The first source/model was authored before this prospective instruction. At the
+next safe boundary, Paseo `get_agent_status` for SMG reported active
+`codex-turn-9`, runtime `gpt-6-astra`, thinking `high`, session
+`01a12094-50e1-7d43-95a8-2713e0fa991d`. Spatial refinements continue only after
+that verification. Current source and editor state were preserved.
+
+Current static source/export/scene status and checks: [production handoff](../../../assets/smg_wedgewire_a.md).
+The remaining sections preserve the initial concept checkpoint and its planned path.
 
 ## Owners and evidence
 
 SMG brief/concept/source/export/prefab/local-preview owner: persistent SMG lead,
-agent `c39c4577-4fa7-4fdf-9123-db3e81a3c554`. Art selection: Regner, pending.
+agent `c39c4577-4fa7-4fdf-9123-db3e81a3c554`. Art selection: Regner, C Wedgewire approved 9 October 2026.
 Player/rig/holding owner: `7016b739-5eea-480c-afa3-2c0cbad484a2`.
 Effects owner: `c9207bb9-925b-46e4-bd68-e37aaa66a617`.
 Gameplay/world integrator: external person, identity and acceptance pending.
@@ -66,7 +85,7 @@ use suitable editor tools or explain their concrete limitation before file fallb
 Preserve unsaved work and record refresh/reopen/save evidence. Bounded graphical
 preview uses 60 FPS/VSync. No shared service/configuration changes authorized here.
 
-## Remaining deliverables after Regner selection
+## Historical production plan from the concept checkpoint
 
 Assign a stable family ID from the selected direction, e.g. `smg_wedgewire_a`.
 Use `art/source/models/weapons_smg/<asset_id>.blend`, collection
