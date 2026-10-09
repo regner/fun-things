@@ -55,7 +55,8 @@ follow-ups remain in the M1 requirements rather than reopening the spikes.
   Needs approved M1-C1 road/building/prop subsets.
 - [ ] **M1-C3 — Implement host-owned pedestrians and traffic.** S10 production behavior is
   current priority work; report subsystem timings without treating the old pedestrian/traffic
-  shares as gates. Integrate with the city after M1-B1, M1-B2 and M1-C2.
+  shares as gates. AI traffic yields to marked-crosswalk reservations; player cars do not
+  (decision 32). Integrate with the city after M1-B1, M1-B2 and M1-C2.
 - [ ] **M1-C4 — Implement the road minimap and HUD integration.** Settle S06's minimap
   size/look and carry the whole-UI direction into the HUD. After: M1-A2; final alignment with
   M1-C2.
@@ -63,6 +64,7 @@ follow-ups remain in the M1 requirements rather than reopening the spikes.
 ### M1-D — Integration and review builds
 
 - [ ] **M1-D1 — Complete production validation tooling and CI.** Grows alongside implementation.
+  Use pinned, test-only GUT excluded from exports (decision 31).
 - [ ] **M1-D2 — Run integrated playtests, reviews and feel tuning.** After: M1-B4, M1-C3, M1-C4.
 - [ ] **M1-D3 — Verify capacity, adverse-network behavior and performance.** S17 production
   host-budget work is current priority work; regularly track the soft ~4 ms total host p95 at

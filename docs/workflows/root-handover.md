@@ -22,6 +22,12 @@ No particular agent platform or delegation tool is required to read it.
   [quiet record](../spikes/quiet-remeasure-2026-10-09.md) is integrated, and the refreshed
   [P0-GATE packet](../reviews/p0-gate-packet-2026-10-09.md) records the 9 October 2026 pass under
   owner decision 27. M1 production has started.
+- **M1 work is on hold (owner, 9 October).** The first wave (M1-D1.1 GUT/checks and M1-A1.1
+  Boot/session) was launched and stopped after a few minutes with no commits; the production
+  pedestrian core lane was never started. The owner is integrating work from another computer
+  first. After that lands, verify HEAD and relaunch these lanes fresh rather than reviving the
+  stopped partial worktrees. Decisions 31 (pinned test-only GUT) and 32 (AI traffic yields to
+  marked-crosswalk reservations) are recorded in the task requirements.
 - Development is on Windows 11. Use the Mise-pinned Godot
   `4.8.dev7.official.c971f93e7`; the owner decided to stay on this pin for now.
 - Orchestration uses pi subagents in parent-created Git worktrees under

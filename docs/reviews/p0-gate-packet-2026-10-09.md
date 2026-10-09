@@ -206,10 +206,14 @@ risk. M1-C0 is not an open decision: it is in progress outside this orchestratio
 image-provider/concept-method question belongs to the owner-run work under decision 24 and is not an
 orchestrator decision.
 
-1. **S04 handling (entry policy settled):** decision 26 records the owner's drive-scene session and
+1. **Decided 9 October — decision 30:** after two handbrake fixes the owner ratified the
+   M1-B1 starting handling values (see [S04 drive scene](../spikes/s04-drive-scene.md)).
+   Original entry: **S04 handling (entry policy settled):** decision 26 records the owner's drive-scene session and
    F12 values (`coast_mps2` 10.0, `grip_per_second` 9.0). The handbrake had no longitudinal braking;
    its fix lane is in progress, followed by an owner re-test before B1.1 freezes handling.
-2. **Traffic/crossing policy:** choose reservation priority/lights and whether cars yield at marked
+2. **Decided 9 October — decision 32:** pedestrians reserve marked crosswalks and AI traffic
+   yields to active reservations; player-driven cars never auto-yield; lights may come later.
+   Original entry: **Traffic/crossing policy:** choose reservation priority/lights and whether cars yield at marked
    crossings. **Recommendation:** deterministic authored reservations; cars yield at selected marked
    crossings, while uncontrolled player cars remain collision-authoritative.
 3. **VFX degradation:** confirm full→reduced→minimum tiers when many explosions overlap, with one
@@ -220,7 +224,8 @@ orchestrator decision.
    after the listening checklist.
 5. **Safe GPU wording:** replace the design's uncapped-headroom instruction with S08-C's capped
    frame/RenderingServer method. **Recommendation:** approve; uncapped runs caused two device removals.
-6. **Production testing:** approve adding pinned test-only GUT under M1-D1.1.
+6. **Decided 9 October — decision 31:** GUT approved, pinned and test-only.
+   Original entry: **Production testing:** approve adding pinned test-only GUT under M1-D1.1.
     **Recommendation:** approve, excluded from release exports and runtime autoloads.
 
 ## Human checks still needed

@@ -10,10 +10,12 @@ qualification and enough outcome detail for dispatch.
 and the audit-derived tasks in
 [section 4 of the readiness audit](../reviews/p0-readiness-audit-2026-10-08.md).
 Most quantitative criteria are planning proposals derived from current product budgets and
-remain tunable during M1. Owner decisions 13–30 ratify the desktop frame target, select the
+remain tunable during M1. Owner decisions 13–32 ratify the desktop frame target, select the
 first hit-registration policy and combat starting values, accept the input/remote-motion/host
 budget policies, choose host-confirmed car entry, assign world concepts separately, record the
-S02/S04 owner sessions and approved handling, pass P0-GATE and move settings to M1-D.
+S02/S04 owner sessions and approved handling, pass P0-GATE, move settings to M1-D, approve
+pinned test-only GUT (decision 31) and make AI traffic yield to marked-crosswalk reservations
+(decision 32).
 
 - **P0-TOOLING:** Completed. The [baseline repair](../spikes/p0-tooling.md) made the
   canonical script check green, established complete Python discovery, selected the
@@ -190,12 +192,17 @@ Completed discovery reconciliation: [P0-DOC14 record](../reviews/p0-doc14.md).
 - **M1-C3:** S10 production behavior/budget is current priority work with explicit acceptance
   checks. Implement bounded host-owned pedestrians/traffic, legal routes, crossing and
   blocked/stuck recovery, NPC transfer, late joins and reset without moving city content.
+  Decision 32: pedestrians reserve marked crosswalks through a finite reservation API and AI
+  traffic yields to active reservations; player-driven cars never auto-yield. Traffic lights
+  may be added later at selected landmark intersections.
 - **M1-C4:** After M1-A2, build the road map from shared city data and local entity marker;
   settle S06's minimap size/look and carry its whole-UI direction into the HUD. Align with M1-C2
   when the district is ready; check walking/driving/late-join seams and read HUD values from
   gameplay owners.
 - **M1-D1:** Build reproducible local/CI checks that catch owned code/resource/gameplay
   violations, including unused scripts, without broad suppression or copied formulas.
+  Decision 31: use GUT pinned to an exact version, test-only — never in exported builds or
+  runtime autoloads, with S08-X package inspection rejecting it.
 - **M1-D2:** Playtest desktop keyboard/mouse multiplayer feel, camera/aim, driving,
   spectacle, exploration, menus/focus and audio; fix findings or have the user scope
   them out. Gamepad/controller playtesting is owner-deferred.
