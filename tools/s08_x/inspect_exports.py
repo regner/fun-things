@@ -35,6 +35,7 @@ RESOURCE_PATH = re.compile(r"res://[^\"')\s]+")
 IMPORTED_PATH = re.compile(r'^path="res://([^"]+)"$', re.MULTILINE)
 MAIN_SCENE = re.compile(r'^run/main_scene="(res://[^"]+)"$', re.MULTILINE)
 TEXT_DEPENDENCY_SUFFIXES = frozenset({".gd", ".gdshader", ".tres", ".tscn"})
+ROAD_GENERATOR_PATH = Path("addons/road-generator")
 
 
 def identity(path: Path) -> dict:
@@ -119,6 +120,14 @@ def project_export_requirements(project_root: Path) -> list[str]:
     return sorted(discovered)
 
 
+def road_generator_runtime_requirements(project_root: Path) -> list[str]:
+    """List every vendored runtime script that decision 41 requires in packages."""
+    addon = project_root / ROAD_GENERATOR_PATH
+    if not addon.is_dir():
+        return []
+    return sorted(path.relative_to(project_root).as_posix() for path in addon.rglob("*.gd"))
+
+
 def exported_entry_needles(project_root: Path, resource_path: str) -> list[str]:
     """Map one source resource to its exact raw, remapped, or imported package names."""
     source = project_root / resource_path
@@ -155,16 +164,29 @@ def missing_required_entries(
 def inspect(root: Path, project_root: Path = ROOT) -> dict:
     """Validate all configured exports and return their hashes and package membership."""
     required = project_export_requirements(project_root)
-    result = {"ok": True, "exports": {}, "required_source_paths": required}
+    road_scripts = road_generator_runtime_requirements(project_root)
+    result = {
+        "ok": True,
+        "exports": {},
+        "required_source_paths": required,
+        "required_road_generator_scripts": road_scripts,
+    }
     for label, (relative, expected_format) in EXPORTS.items():
         executable = root / relative
         package = executable.with_suffix(".pck")
         entries = pck_entries(package)
         leaks = [entry for entry in entries if is_forbidden_export_path(entry)]
         missing = missing_required_entries(entries, required, project_root)
+        missing_road_scripts = missing_required_entries(entries, road_scripts, project_root)
         actual_format = executable_format(executable)
         output_leaks = find_forbidden_output_files(executable.parent)
-        passed = actual_format == expected_format and not leaks and not missing and not output_leaks
+        passed = (
+            actual_format == expected_format
+            and not leaks
+            and not missing
+            and not missing_road_scripts
+            and not output_leaks
+        )
         result["exports"][label] = {
             "ok": passed,
             "executable": identity(executable),
@@ -175,6 +197,7 @@ def inspect(root: Path, project_root: Path = ROOT) -> dict:
                 path: requirement_matches(entries, path, project_root) for path in required
             },
             "missing_required_paths": missing,
+            "missing_road_generator_scripts": missing_road_scripts,
             "forbidden_pck_entries": leaks,
             "forbidden_output_files": output_leaks,
         }

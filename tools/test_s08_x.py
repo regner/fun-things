@@ -9,6 +9,7 @@ from s08_x.inspect_exports import (
     is_forbidden_export_path,
     missing_required_entries,
     project_export_requirements,
+    road_generator_runtime_requirements,
 )
 
 
@@ -49,6 +50,22 @@ class S08XExportInspectionTest(unittest.TestCase):
             missing_required_entries(entries, required),
             ["scenes/view.tscn"],
         )
+
+    def test_requires_vendored_road_generator_scripts_at_runtime(self):
+        with tempfile.TemporaryDirectory() as temporary:
+            root = Path(temporary)
+            addon = root / "addons/road-generator"
+            (addon / "nodes").mkdir(parents=True)
+            (addon / "plugin.gd").write_text("extends EditorPlugin\n")
+            (addon / "nodes/road_manager.gd").write_text("extends Node3D\n")
+            (addon / "README.md").write_text("not a runtime script\n")
+
+            requirements = road_generator_runtime_requirements(root)
+
+        self.assertEqual(requirements, [
+            "addons/road-generator/nodes/road_manager.gd",
+            "addons/road-generator/plugin.gd",
+        ])
 
     def test_rejects_test_only_content_in_pack_paths(self):
         forbidden = [

@@ -11,7 +11,7 @@ import subprocess
 import tempfile
 
 ROOT = Path(__file__).resolve().parents[1]
-VENDOR = {"addons/godot_mcp_toolkit", "addons/gut"}
+VENDOR = {"addons/godot_mcp_toolkit", "addons/gut", "addons/road-generator"}
 DIAGNOSTIC = re.compile(r"(?:SCRIPT ERROR:|ERROR:|WARNING:)")
 PIN = "4.8.dev7.official.c971f93e7"
 PROJECT_IMPORT_TIMEOUT_SECONDS = 300

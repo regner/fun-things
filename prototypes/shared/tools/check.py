@@ -11,7 +11,7 @@ import tempfile
 import tomllib
 
 ROOT = Path(__file__).resolve().parents[1]
-VENDORS = {'addons/godot_mcp_toolkit', 'addons/gut'}
+VENDORS = {'addons/godot_mcp_toolkit', 'addons/gut', 'addons/road-generator'}
 
 
 def owned_files(root=ROOT):

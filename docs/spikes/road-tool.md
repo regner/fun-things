@@ -6,6 +6,73 @@ asset, task record or addon. The addon and all generated geometry stayed in a di
 project under `C:/tmp/ft/road-spike/`; only this record and compact evidence are
 committed.
 
+## Production decision supplement — 9 October 2026
+
+Owner decisions 40–44 supersede this spike's proposed editor-only dependency,
+explicit-bake workflow and addon-free package boundary. The project conditionally adopts
+the tool, with RT-01 selecting and vendoring an exact release. Roads generate live in
+the editor; road, sidewalk, curb, procedural-intersection and crosswalk surfaces may
+also generate from the same saved road network at level load. The addon is therefore a
+runtime dependency and must be present in desktop packages.
+
+Traffic/foot graphs, crossings/reservations, spawn candidates and minimap data derive
+from the road nodes at level load on host and clients. There is no bake command in the
+current workflow. Common 3/4-way junctions use reusable Blender-authored prefab pieces;
+procedural intersections remain the fallback for odd angles and unusual widths. Traffic
+signals at selected signalized junctions and street lights configured by road type are
+independent automatically placed Blender-authored fixtures. Sections below preserve the
+pre-decision spike evidence and rejected bake proposal as history, not current policy.
+
+### RT-01 release hardening results
+
+RT-01 selected tag `0.9.4`, commit
+`9d144dc4a28dd6bee870895d2b77d69174356281`, after checking that no newer tag existed
+on 9 October 2026. The vendored addon is an unmodified exact archive; its provenance
+note records the archive digest. The pinned-engine preflight builds an ordinary road,
+a procedural four-branch intersection and the supplied `4way_1x1` custom container,
+checks generated lanes/meshes, saves only the authored road source nodes, reloads and
+regenerates the same counts, then repeats in a 60 FPS-capped graphical launch. Headless
+and windowed runtime logs are diagnostic-free.
+
+The editor-plugin clean import exits zero but has one exact upstream material-UID path
+fallback and editor teardown reports one set of road preview renderer resources still
+in use. RT-01 records those exact lines as known diagnostics and rejects every other
+diagnostic; they are not represented as a fully clean shutdown. Disabling the plugin
+makes the same clean-import command diagnostic-free, so that retained import resource
+set is addon-editor lifecycle behavior on this engine. Runtime launches free their
+fixture and exit cleanly.
+
+The spike's automatic windowed-editor shutdown crash **does reproduce** with the
+mise-pinned executable: a 60 FPS-capped editor exited with signal 11 after
+`--quit-after 120`. The identical automatic exit also crashes with the road plugin
+disabled and in a new empty project, so this reproduction is an engine/editor automatic
+shutdown defect on this workstation, not addon-caused. A second distribution of the
+same engine revision exited zero but retained renderer resources, which is not strong
+enough to clear the pinned build. The owner trial remains the required normal
+interactive close/disable/re-enable check; automated `--quit-after` editor exit is not
+an accepted proxy for it.
+
+The six failures previously reported under upstream's bundled GUT 9.4.0 are all
+**harness-only**, not addon behavior failures:
+
+- `test_road_container.gd::test_on_road_updated_single_segment`;
+- `test_road_intersection.gd::test_on_road_updated_signal_after_container_refresh`;
+- `test_road_intersection.gd::test_on_road_updated_signal_after_inter_moved`;
+- `test_road_intersection.gd::test_on_road_updated_signal_after_rp_moved`;
+- `test_road_intersection.gd::test_intersection_add_branch`; and
+- `test_road_intersection.gd::test_intersection_remove_branch`.
+
+Every failing assertion was GUT 9.4.0 rejecting a preloaded GDScript (`RoadSegment`,
+`RoadIntersection` or `RoadPoint`) as argument 2 of `assert_is`; the road operations ran
+before the assertion. In a fresh 0.9.4 scratch checkout using the project's pinned GUT
+9.7.1, those assertions pass and the legacy-semantics run is 83/83. GUT 9.7.1's new
+default error tracker separately makes 62 upstream tests fail because their fixture
+construction emits transient `push_error` and engine diagnostics that GUT 9.4.0 did
+not turn into test failures; disabling only that new tracker produces 83/83 and 473
+passing assertions. This is a second upstream-harness compatibility gap, not a waiver
+of those diagnostics. Production's independent valid-state preflight rejects runtime
+diagnostics. No vendor patch was made.
+
 ## Disposition
 
 **Iteration time is the primary evaluation criterion under owner decision 34.** The
@@ -665,7 +732,7 @@ L = roughly 6–10; art and owner review time are separate.
 
 | Task | Size | Depends on | Acceptance focus |
 | --- | --- | --- | --- |
-| RT-01 release hardening and vendor decision | M | Owner approves conditional adoption | Quiet timed point/type/intersection edit, undo/redo/save/reopen trial on 4.8-dev7; understand/fix upstream GUT failures; select exact release; retain MIT/provenance; addon excluded from exports. |
+| RT-01 release hardening and vendor decision | M | Owner approves conditional adoption | Pinned-engine construction/save/reload regression; understand upstream GUT failures; select exact release; retain MIT/provenance; addon included in exports; owner point/type/intersection and undo/redo/save/reopen trial. |
 | RT-02 road preset/identity authoring adapter | M | RT-01, whole-city integrator owner | Five Brackett presets/specs, stable IDs, preset drift rejection, class transitions, JSON bootstrap, connection validation, no duplicate spline. |
 | RT-03 incremental bake core and stale contract | L | RT-02, existing S06 CityData contract | Fast affected-container preview; dirty-chunk extraction/reload; whole-city publish reuses unchanged outputs; deterministic manifest; bake-twice/source-change rejection; no runtime rebake. |
 | RT-04 road/sidewalk surface and collision bake | L | RT-03, owner asset exception, accepted source materials | Native direct extraction without glTF round trip; edge-curve sidewalk/curb sweeps; terrain-collision ownership; dirty spatial chunk/seam checks; addon-free runtime scenes. |
@@ -675,7 +742,7 @@ L = roughly 6–10; art and owner review time are separate.
 | RT-08 signal/street-light placement | M + art | RT-05/07, owner resolves “lights” wording | Separate control/lighting flags; already-imported Blender fixtures instanced at sockets/edge spacing without entering the road edit loop; exclusions; authoritative signal groups where selected. |
 | RT-09 ROAD/minimap output | M | RT-03/05, UI contract | Same-source centre/area data, widths/bounds, seam agreement, 3 px/m consumer and stale/corrupt negatives. |
 | RT-10 connected whole-Brackett production pilot | L | RT-04–09, twelve-sector composition | All 50 routes/69 junctions, real downtown slice and bridge; point/type/intersection p50/p95; `<=1 s` dirty-chunk and `<=10 s` full-publish review triggers; seams, counts/collision/culling, turns, crossings, spawns and minimap agreement. |
-| RT-11 packaging and upgrade gate | M | RT-10, export tooling | Windows/Linux clean import; PCK contains runtime outputs but no addon/GUT/authoring sources; upgrade golden fixture and provenance check. |
+| RT-11 packaging and upgrade gate | M | RT-10, export tooling | Windows/Linux clean import; PCK contains the pinned runtime addon and generated road dependencies but no GUT/test/prototype content; upgrade golden fixture and provenance check. |
 
 The critical path is RT-01 → RT-02 → RT-03 → RT-04/05 → RT-06/07/09 → RT-10.
 The whole-city CityData integrator remains the sole world integrator throughout.
