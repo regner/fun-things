@@ -2,7 +2,7 @@
 
 import unittest
 
-from run_s11 import worst_window_bytes
+from run_s11 import delivered_profile, worst_window_bytes
 
 
 class S11AccountingTests(unittest.TestCase):
@@ -22,6 +22,32 @@ class S11AccountingTests(unittest.TestCase):
 
     def test_empty_window_is_zero(self):
         self.assertEqual(worst_window_bytes([], "down"), 0)
+
+    def test_delivered_profile_separates_random_and_interruption_loss(self):
+        events = [
+            {"event": "ingress", "monotonic": 1.0, "direction": "down", "wire_bytes": 100},
+            {"event": "ingress", "monotonic": 1.1, "direction": "down", "wire_bytes": 100},
+            {"event": "ingress", "monotonic": 1.2, "direction": "up", "wire_bytes": 40},
+            {"event": "drop", "monotonic": 1.0, "direction": "down", "reason": "random"},
+            {"event": "drop", "monotonic": 1.1, "direction": "down",
+             "reason": "blackout_pending"},
+            {"event": "delivery", "monotonic": 1.3, "direction": "up",
+             "actual_delay_ms": 80.0},
+            {"event": "blackout_begin", "monotonic": 4.0},
+            {"event": "blackout_end", "monotonic": 5.01},
+        ]
+
+        summary = delivered_profile(events)
+
+        self.assertEqual(summary["directions"]["down"]["random_drop_datagrams"], 1)
+        self.assertEqual(summary["directions"]["down"]["blackout_drop_datagrams"], 1)
+        self.assertEqual(summary["directions"]["down"]["random_drop_percent"], 50.0)
+        self.assertEqual(summary["directions"]["up"]["actual_delay_ms"]["p95"], 80.0)
+        self.assertEqual(
+            summary["directions"]["up"]["actual_delay_variation_ms"]["p95_absolute_deviation"],
+            0.0,
+        )
+        self.assertAlmostEqual(summary["interruption"]["duration_ms"], 1010.0)
 
 
 if __name__ == "__main__":

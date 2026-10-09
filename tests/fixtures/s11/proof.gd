@@ -13,6 +13,8 @@ const SNAPSHOT_INTERVAL_TICKS: int = 4
 const INTERPOLATION_DELAY_TICKS: float = 12.0
 const MAX_EXTRAPOLATION_TICKS: float = 12.0
 const RUN_TICKS: int = 660
+const HOST_STALL_TICK: int = 420
+const HOST_STALL_MS: int = 250
 const FINISH_DELAY_TICKS: int = 900
 
 var codec: S11SnapshotCodec = CodecScript.new()
@@ -20,6 +22,7 @@ var transport: S03Transport
 var role: String = ""
 var port: int = 0
 var expected_clients: int = 1
+var profile: String = "normal"
 var connected_peers: Array[int] = []
 var baseline_acks: Dictionary = {}
 var running: bool = false
@@ -52,14 +55,12 @@ var result_emitted_ms: int = 0
 ## Parse the bounded process role and open the unchanged S03 ENet transport.
 func _ready() -> void:
 	for argument: String in OS.get_cmdline_user_args():
-		if argument.begins_with("--role="):
-			role = argument.trim_prefix("--role=")
-		elif argument.begins_with("--port="):
-			port = int(argument.trim_prefix("--port="))
-		elif argument.begins_with("--clients="):
-			expected_clients = int(argument.trim_prefix("--clients="))
+		_parse_argument(argument)
 
-	if role not in ["host", "client"] or port < 1 or expected_clients < 1:
+	if role not in ["host", "client"] or profile not in ["normal", "adverse"]:
+		_fail("invalid process arguments")
+		return
+	if port < 1 or expected_clients < 1:
 		_fail("invalid process arguments")
 		return
 
@@ -98,6 +99,8 @@ func _physics_process(_delta: float) -> void:
 		_publish_lifecycle(2, 101, 1, 3, "despawn")
 	elif run_tick == 246:
 		_publish_lifecycle(1, 101, 2, 1, "spawn")
+
+	_apply_scheduled_host_stall()
 
 	if run_tick % SNAPSHOT_INTERVAL_TICKS == 0 and run_tick <= RUN_TICKS:
 		_publish_snapshot()
@@ -154,6 +157,28 @@ func _process(delta: float) -> void:  # gdstyle:ignore=quality/max-local-variabl
 		if extrapolated and history.size() < 2:
 			jitter_samples_m.append(0.0)
 		displayed[entity_id] = position
+
+
+## Apply one recognized process argument without exposing native transport state.
+func _parse_argument(argument: String) -> void:
+	if argument.begins_with("--role="):
+		role = argument.trim_prefix("--role=")
+	elif argument.begins_with("--port="):
+		port = int(argument.trim_prefix("--port="))
+	elif argument.begins_with("--clients="):
+		expected_clients = int(argument.trim_prefix("--clients="))
+	elif argument.begins_with("--profile="):
+		profile = argument.trim_prefix("--profile=")
+
+
+## Block one adverse host callback and retain the observed stall interval.
+func _apply_scheduled_host_stall() -> void:
+	if profile != "adverse" or run_tick != HOST_STALL_TICK:
+		return
+
+	_emit({ "event": "host_stall_begin", "time_ms": Time.get_ticks_msec() })
+	OS.delay_msec(HOST_STALL_MS)
+	_emit({ "event": "host_stall_end", "time_ms": Time.get_ticks_msec() })
 
 
 ## Begin one complete reliable baseline after every expected client is connected.

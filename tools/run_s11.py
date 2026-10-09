@@ -28,6 +28,8 @@ POLL_SECONDS = 0.002
 WIRE_OVERHEAD_BYTES = 28
 BLACKOUT_START_SECONDS = 4.0
 BLACKOUT_SECONDS = 1.0
+MIN_HOST_STALL_MS = 245
+MEASUREMENT_SOURCES = ["tools/run_s11.py", "tools/run_s03.py", "tools/script_checks.py"]
 
 
 class PopulationProxy:
@@ -146,6 +148,67 @@ def worst_window_bytes(events, direction, seconds=10.0):
     return worst
 
 
+def delivered_profile(events):
+    """Summarize actual impairment outcomes per direction from retained proxy events."""
+    directions = {}
+    for direction in ["up", "down"]:
+        ingress = [event for event in events
+                   if event["event"] == "ingress" and event["direction"] == direction]
+        deliveries = [event for event in events
+                      if event["event"] == "delivery" and event["direction"] == direction]
+        random_drops = [event for event in events
+                        if event["event"] == "drop" and event["direction"] == direction
+                        and event["reason"] == "random"]
+        blackout_drops = [event for event in events
+                          if event["event"] == "drop" and event["direction"] == direction
+                          and event["reason"].startswith("blackout")]
+        delays = [event["actual_delay_ms"] for event in deliveries]
+        median_delay = percentile(delays, 0.5)
+        delay_variation = [abs(delay - median_delay) for delay in delays]
+        directions[direction] = {
+            "ingress_datagrams": len(ingress),
+            "random_drop_datagrams": len(random_drops),
+            "random_drop_percent": len(random_drops) / len(ingress) * 100.0 if ingress else 0.0,
+            "blackout_drop_datagrams": len(blackout_drops),
+            "delivered_datagrams": len(deliveries),
+            "actual_delay_ms": {
+                "min": min(delays, default=0),
+                "median": median_delay,
+                "p95": percentile(delays),
+                "max": max(delays, default=0),
+            },
+            "actual_delay_variation_ms": {
+                "median_absolute_deviation": percentile(delay_variation, 0.5),
+                "p95_absolute_deviation": percentile(delay_variation),
+                "max_absolute_deviation": max(delay_variation, default=0),
+            },
+        }
+    blackout_begin = next((event["monotonic"] for event in events
+                            if event["event"] == "blackout_begin"), None)
+    blackout_end = next((event["monotonic"] for event in events
+                          if event["event"] == "blackout_end"), None)
+    return {
+        "directions": directions,
+        "interruption": {
+            "observed": blackout_begin is not None and blackout_end is not None,
+            "duration_ms": ((blackout_end - blackout_begin) * 1000.0
+                            if blackout_begin is not None and blackout_end is not None else 0),
+        },
+    }
+
+
+def summarize_delivered_profiles(routes):
+    """Retain both aggregate and per-client-route delivered profile characteristics."""
+    aggregate_events = [event for route in routes for event in route.events]
+    aggregate_events.sort(key=lambda event: event["monotonic"])
+    return {
+        "route": "IPv4 UDP loopback through one independent proxy socket per client",
+        "aggregate": delivered_profile(aggregate_events),
+        "clients": [{"client": index + 1, **delivered_profile(route.events)}
+                    for index, route in enumerate(routes)],
+    }
+
+
 def process_environment():
     """Record concurrent Godot count and an OS CPU-load observation for timing context."""
     godot_count = None
@@ -204,6 +267,28 @@ def source_fingerprints(project):
     return {path.relative_to(project).as_posix(): hashlib.sha256(path.read_bytes()).hexdigest()
             for fixture in ["s03", "s11"]
             for path in sorted((project / "tests/fixtures" / fixture).iterdir()) if path.is_file()}
+
+
+def repository_identity():
+    """Bind the result to the exact committed repository revision and tree under test."""
+    def git(*arguments):
+        result = subprocess.run(["git", *arguments], cwd=ROOT, capture_output=True, text=True,
+                                timeout=10, check=True)
+        return result.stdout.strip()
+
+    return {
+        "commit": git("rev-parse", "HEAD"),
+        "tree": git("rev-parse", "HEAD^{tree}"),
+        "status_porcelain": git("status", "--porcelain").splitlines(),
+    }
+
+
+def measurement_source_fingerprints():
+    """Hash runner and imported helpers that own impairment, accounting and cleanup."""
+    return {path: {
+        "sha256": hashlib.sha256((ROOT / path).read_bytes()).hexdigest(),
+        "bytes": (ROOT / path).stat().st_size,
+    } for path in MEASUREMENT_SOURCES}
 
 
 def summarize_network(routes, measurement_start, join_bytes):
@@ -268,6 +353,7 @@ def run_case(args, project, case_dir, profile, repetition):
     measurement_start = None
     join_bytes = [0] * args.clients
     environment_measurement = None
+    host_stall_records = []
 
     def start(role_name, role, connect_port):
         role_dir = case_dir / role_name
@@ -275,7 +361,8 @@ def run_case(args, project, case_dir, profile, repetition):
         command = [args.godot, "--headless", "--max-fps", "60", "--path", str(project),
                    "--log-file", str(role_dir / "engine.log"),
                    "res://tests/fixtures/s11/boot.tscn", "--", f"--role={role}",
-                   f"--port={connect_port}", f"--clients={args.clients}"]
+                   f"--port={connect_port}", f"--clients={args.clients}",
+                   f"--profile={profile}"]
         commands[role_name] = command
         logs[role_name] = (role_dir / "stdout.log").open("w")
         offsets[role_name] = 0
@@ -304,6 +391,8 @@ def run_case(args, project, case_dir, profile, repetition):
                         record = json.loads(line.removeprefix("S11 "))
                         if role_name == "host" and record["event"] == "ready":
                             ready = True
+                        elif role_name == "host" and record["event"].startswith("host_stall_"):
+                            host_stall_records.append(record)
                         elif role_name == "host" and record["event"] == "snapshots_started":
                             started = True
                             measurement_start = time.monotonic()
@@ -343,6 +432,17 @@ def run_case(args, project, case_dir, profile, repetition):
                     raise RuntimeError(f"diagnostic in {role_name}/{filename}")
         if profile == "adverse" and not all(route.blackout_end for route in routes):
             raise RuntimeError("adverse blackout schedule incomplete")
+        stall_duration_ms = 0
+        if len(host_stall_records) == 2:
+            stall_duration_ms = host_stall_records[1]["time_ms"] - host_stall_records[0]["time_ms"]
+        stall_complete = (len(host_stall_records) == 2 and
+                          host_stall_records[0]["event"] == "host_stall_begin" and
+                          host_stall_records[1]["event"] == "host_stall_end" and
+                          stall_duration_ms >= MIN_HOST_STALL_MS)
+        if profile == "adverse" and not stall_complete:
+            raise RuntimeError(f"adverse host stall incomplete: {host_stall_records}")
+        if profile == "normal" and host_stall_records:
+            raise RuntimeError("normal profile unexpectedly stalled the host")
 
         network = summarize_network(routes, measurement_start, join_bytes)
         host = results["host"]
@@ -351,6 +451,13 @@ def run_case(args, project, case_dir, profile, repetition):
         decode_values = [value for client in clients for value in client["decode_usec"]]
         measurements = {
             "network": network,
+            "delivered_profile": summarize_delivered_profiles(routes),
+            "host_stall": {
+                "required": profile == "adverse",
+                "complete": stall_complete,
+                "duration_ms": stall_duration_ms,
+                "records": host_stall_records,
+            },
             "application_bytes_per_entity_row": host["bytes_per_entity_row"],
             "baseline_payload_bytes_per_client": host["baseline_payload_bytes"] // args.clients,
             "encode_usec_per_snapshot": {
@@ -369,6 +476,7 @@ def run_case(args, project, case_dir, profile, repetition):
         }
         requirements = list(network["budget_pass"].values()) + [
             network["join_baseline_pass"], host["max_packet_bytes"] <= 1200,
+            stall_complete if profile == "adverse" else not host_stall_records,
             all(client["entities"] == 148 for client in clients),
             all(client["lifecycle_events"] == ["death", "wreck", "despawn", "spawn"]
                 for client in clients),
@@ -437,6 +545,8 @@ def main():
     aggregate = {"ok": False, "cases": []}
     try:
         aggregate["engine"] = engine_version(args.godot)
+        aggregate["repository"] = repository_identity()
+        aggregate["measurement_source_sha256"] = measurement_source_fingerprints()
         project = stage(output)
         aggregate["source_sha256"] = source_fingerprints(project)
         import_command = [args.godot, "--headless", "--editor", "--path", str(project),
