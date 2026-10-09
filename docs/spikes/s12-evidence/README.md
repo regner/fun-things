@@ -18,10 +18,10 @@ Each profile retains:
 - `host.log` / `client.log`: structured `S12` runtime receipts and engine startup;
 - `proxy.jsonl`: actual seeded native UDP deliveries/drops/delays.
 
-Every adverse result asserts one proxy blackout begin/end, traffic dropped during that
-one-second interruption, and one observed host stall of at least 250 ms while the
-96-shot/rocket schedule remains active. Blackout drop counts were 38/35/37 and observed
-host stalls were 265/278/266 ms. Every profile also asserts the three probe-specific
+Every adverse result asserts one proxy blackout begin/end spanning at least 950 ms, traffic dropped during that one-second
+interruption, and one observed host stall of at least 250 ms while the 96-shot/rocket
+schedule remains active. Observed blackouts were 1000.9/998.3/1000.2 ms with 38/35/37
+drops; host stalls were 265/278/266 ms. Every profile also asserts the three probe-specific
 verdicts independently: duplicate sequence 96 `STALE_SEQUENCE`, nonfinite sequence 97
 `INVALID`, and oversized sequence 98 `INVALID`.
 

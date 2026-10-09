@@ -20,6 +20,7 @@ from script_checks import ROOT, DIAGNOSTIC, checked_command, engine_version, env
 
 DEFAULT_PROFILES = ["normal", "adverse"]
 EXPECTED_PROBE_REASONS = ["STALE_SEQUENCE", "INVALID", "INVALID"]
+MIN_BLACKOUT_DURATION_MS = 950.0
 
 
 def percentile(values, quantile=0.95):
@@ -91,8 +92,14 @@ def evaluate_case(measurements, profile, proxy_events, host_records, unchanged):
             for index, (row, reason) in enumerate(zip(probes, EXPECTED_PROBE_REASONS))
         )
     events = [row.get("event") for row in proxy_events]
+    blackout_begin = [row for row in proxy_events if row.get("event") == "blackout_begin"]
+    blackout_end = [row for row in proxy_events if row.get("event") == "blackout_end"]
     blackout_drops = [row for row in proxy_events if row.get("event") == "drop"
                       and row.get("reason") in ["blackout", "blackout_pending"]]
+    blackout_complete = len(blackout_begin) == 1 and len(blackout_end) == 1
+    if blackout_complete:
+        blackout_complete = ((blackout_end[0]["monotonic"] - blackout_begin[0]["monotonic"])
+                             * 1000.0 >= MIN_BLACKOUT_DURATION_MS)
     stall_begin = [row for row in host_records if row.get("event") == "stall_begin"]
     stall_end = [row for row in host_records if row.get("event") == "stall_end"]
     stall_complete = len(stall_begin) == 1 and len(stall_end) == 1
@@ -102,9 +109,7 @@ def evaluate_case(measurements, profile, proxy_events, host_records, unchanged):
     adverse_complete = True
     profile_isolated = True
     if profile == "adverse":
-        adverse_complete = (events.count("blackout_begin") == 1
-                            and events.count("blackout_end") == 1
-                            and bool(blackout_drops) and stall_complete)
+        adverse_complete = blackout_complete and bool(blackout_drops) and stall_complete
     else:
         profile_isolated = ("blackout_begin" not in events and "blackout_end" not in events
                             and not blackout_drops and not stall_begin and not stall_end)

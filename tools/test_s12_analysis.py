@@ -51,9 +51,9 @@ class CombatAnalysisTests(unittest.TestCase):
             "rocket_presentation_offset_m": {"samples": 8},
         }
         proxy = [
-            {"event": "blackout_begin"},
+            {"event": "blackout_begin", "monotonic": 10.0},
             {"event": "drop", "reason": "blackout"},
-            {"event": "blackout_end"},
+            {"event": "blackout_end", "monotonic": 11.0},
         ]
         host = [
             {"event": "stall_begin", "wall_usec": 1_000_000},
@@ -70,6 +70,9 @@ class CombatAnalysisTests(unittest.TestCase):
         criteria = evaluate_case(measurements, "adverse", [], host, True)
         self.assertFalse(criteria["adverse_interruption_and_stall"])
         criteria = evaluate_case(measurements, "adverse", proxy, host[:1], True)
+        self.assertFalse(criteria["adverse_interruption_and_stall"])
+        short_blackout = [proxy[0], proxy[1], {"event": "blackout_end", "monotonic": 10.5}]
+        criteria = evaluate_case(measurements, "adverse", short_blackout, host, True)
         self.assertFalse(criteria["adverse_interruption_and_stall"])
 
 
