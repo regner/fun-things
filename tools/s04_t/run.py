@@ -30,7 +30,7 @@ PROFILES = {
     "adverse": (125, 50, 0.05),
 }
 POLL_SECONDS = 0.002
-GODOT_COMMAND_TIMEOUT_SECONDS = 50
+GODOT_COMMAND_TIMEOUT_SECONDS = 40
 MEASUREMENT_SOURCES = [
     "tools/s04_t",
     "tools/measurement_identity.py",
