@@ -250,9 +250,10 @@ spike fixture.
 
 WeaponState validates fire rate, magazine, reload, rocket cooldown, alive/unseated
 state and gameplay capacity before allocating ShotId. DamageResolver owns hitscan,
-projectile and attribution. S12 selects host-current-state versus bounded rewind;
-client-claimed hits are not acceptable authority. Rockets are host gameplay entities
-with cosmetic client flight and a reliable impact/expiry result.
+projectile and attribution. Decisions 18/21 select host-current-time verdicts and accept
+S12's combat values as playtest-tuned M1 starting values; client-claimed hits are not
+acceptable authority. Rockets are host gameplay entities with cosmetic client flight
+and a reliable impact/expiry result.
 
 Explosions reserves authoritative work before accepting it, marks a car terminal
 once, orders jobs by due tick/EventId, completes occupant/seat/health/collision state
@@ -495,8 +496,8 @@ numbered row or an explicitly named accepted foundation result.
 | 13. **M1-A-GATE — exported multiplayer shell** | L | D1.1, A1.2, A2.3, A2.4, A3.2, accepted S08-X | Integration. Two Windows and two Linux processes cover settings, join/admission, movement/prediction, respawn/reset, errors and host loss; no Steam criterion. |
 | 14. **M1-B1.1 — production vehicle motion, prediction and tuning** | M | A-GATE, owner drive-scene values, accepted S03-L, accepted S04-P | Vehicle lane. Port the proved replay mapping; same rules for standalone/host/replay/AI, with bounded corrections and wall/brake/reverse/handbrake cases. |
 | 15. **M1-B1.2 — VehicleInteraction transaction matrix** | M | B1.1, A2.4, accepted S04-T | Match/vehicle lane. Same-tick claims, stopped/blocked exit, selected driver-death policy, disconnect coast, reset/resync/destruction and revision fences pass. |
-| 16. **M1-B2.1 — WeaponState and hitscan** | M | A-GATE, accepted S03-L, accepted S12 decision | Combat lane. Pistol/SMG rate/ammo/reload/equip/no-seated-fire, ShotId duplicates and host verdict pass normal/adverse tests. |
-| 17. **M1-B2.2 — rockets, Health and player/pedestrian death** | M | B2.1, A2.4 | Combat/lifecycle lane. Capacity/cooldown, impact/expiry, friendly/self damage, full-loadout respawn and hydration pass. |
+| 16. **M1-B2.1 — WeaponState and hitscan** | M | A-GATE, accepted S03-L, accepted S12 decisions | Combat lane. Decision 21 pistol/SMG starting values, rate/ammo/reload/equip/no-seated-fire, ShotId duplicates and decision 18 host verdict pass normal/adverse tests. |
+| 17. **M1-B2.2 — rockets, Health and player/pedestrian death** | M | B2.1, A2.4 | Combat/lifecycle lane. Decision 21 health/rocket/car-impact starting values, capacity/cooldown, impact/expiry, friendly/self damage, full-loadout respawn and hydration pass. |
 | 18. **M1-B3.1 — explosions, wrecks and chains** | M | B1.2, B2.2 | Combat lane. Three/12-car outcomes, bounded work, occupied destruction, collision fence, retention, in-flight late join and reset pass off-camera. |
 | 19. **M1-B4.1 — combat VFX/audio/HUD feedback** | M | B3.1, accepted S14/S15 evidence | Presentation lane. Every explosion visible, duplicates suppressed, cheaper quality fallback measured, readable weapon/rocket feedback and bounded audio. |
 | 20. **M1-C1.2 — character, vehicle, weapon and effect production assets** | L | C1.1, accepted S01-W, accepted S13/S15 evidence and owner art review | Parallel asset lanes by family. Linked sources, rigs/clips/sockets/collision/provenance and target-camera readability pass before integration. Reforecast from measured starter-subset throughput. |
@@ -573,19 +574,17 @@ are now resolved or reassigned:
 Remaining production reviews are assigned to their consumers rather than P0 prerequisites:
 
 6. Ratify final vehicle body dimensions and S04 drive tuning before B1.1 freezes them.
-7. Review S12 weapon damage, fire rate, magazine/reload and rocket cooldown before B2;
-   decision 18 already settles the initial hit-registration policy.
-8. Select the production art quality bar and starter subset that unblock C1.1/C2.1;
+7. Select the production art quality bar and starter subset that unblock C1.1/C2.1;
    later families must not block initial sector assembly. Review the 60–96 focused
    artist-day estimate after the first two families establish actual throughput.
-9. Validate Windows/Linux desktop budgets on named available hardware while Deck remains
+8. Validate Windows/Linux desktop budgets on named available hardware while Deck remains
    explicitly untested.
-10. Approve adding the pinned test-only GUT dependency under D1.1.
+9. Approve adding the pinned test-only GUT dependency under D1.1.
 
 ## 7. Historical suggested task-record reconciliation
 
 The bullets below preserve this plan's original 8 October reconciliation proposal. They are
-historical: current `TODO.md`, task requirements and owner decisions 13–20 supersede them.
+historical: current `TODO.md`, task requirements and owner decisions 13–21 supersede them.
 
 - **P0-GATE:** record the owner's answer on restoring S02/prediction and audit-derived
   dependencies; add P0-TOOLING, S03-L, S08-X, S08-C, S01-W, S03-P, S04-P, S04-T and

@@ -542,10 +542,15 @@ changes; eviction must never make an old shot acceptable again.
 Actor/vehicle definitions own max health and movement/collision tuning. Weapon definitions
 own `id`, kind, damage, range_m, fire_interval_s, magazine_size/reload_s for pistol/SMG,
 and rocket speed_mps/lifetime_s/blast_definition_id/cooldown_s. Damage/blast definitions
-own radius_m, obstruction/falloff policy and chain_delay_s. S05/M1-B2 settle exact
-values, with weapon distinction required by the brief. WeaponState owns ammo/timers;
-DamageResolver owns hit/friendly/self-damage policy. Shared immutable definitions
-cannot carry mutable health/ammo or provider types.
+own radius_m, obstruction/falloff policy and chain_delay_s. Owner decision 21 accepts
+these M1 starting values, tuned in playtests: health 100 for players/pedestrians/cars;
+pistol 34 damage, 0.25 s fire interval, 12 rounds, 1.4 s reload and 45 m range; SMG
+12 damage, 0.10 s, 30 rounds, 1.8 s reload and 35 m; rocket/S05 damage 100, 1.0 s
+cooldown, 18 m/s, 2.5 s lifetime and 4.1 m radius. Car-pedestrian impact uses host
+contact/velocity only: none below 6 m/s, 25 at 6 m/s linearly to 100 at 14 m/s, with
+a 0.5 s per-car/target cooldown. WeaponState owns ammo/timers; DamageResolver owns
+hit/friendly/self-damage policy. Shared immutable definitions cannot carry mutable
+health/ammo or provider types.
 
 Validate equipped/allowed weapon, alive/unseated life, current revisions, muzzle
 clearance, ammo/reload/cooldown and gameplay capacity before committing a shot.

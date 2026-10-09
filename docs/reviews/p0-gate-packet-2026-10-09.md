@@ -83,7 +83,7 @@ All timing values explicitly marked **contended** are upper bounds from a shared
 | S09 | Foundation prototype complete | [Traffic](../spikes/s09.md): 24-car p95/p99 1.165/1.690 ms, 18/18 recoveries per aggregate row, zero sampled overlaps/gridlocks; **contended** | Actual bodies, production graph/replenishment and owner intersection policy | Not rerun; contended retained by decision 13 |
 | S10 | Foundation concept complete; first production task | [Pedestrians](../spikes/s10.md): normal graph p95 2.654 ms median, flee 3.658 ms; **contended**; large overlap/stuck counts | Production must improve behavior/budget with acceptance checks; no extra foundation spike | Not rerun; contended retained by decision 13 |
 | S11 | Codec/bandwidth direction and initial remote policy complete; smoothness acceptance open | [Population replication](../spikes/s11.md): worst host out 55.16 KiB/s vs 256 budget; 3.2 KiB join vs 1 MiB; adverse extrapolation median 15.30% | Implement 100–150 ms tunable extrapolation→hold→smooth correction; drawable playtest and full production baseline/input | Not rerun; contended CPU retained by decision 13 |
-| S12 | Foundation comparison complete; first hit policy decided | [Combat](../spikes/s12.md) retains bounded ≤250 ms rewind evidence for later; decision 18 starts with host-current-time verdicts and forgiving hit shapes | Review damage/rate starting values; production fire-intent, confirmation, damage/respawn and rocket integration | Not rerun; contended retained by decision 13 |
+| S12 | Foundation comparison complete; hit policy and M1 starting values decided | [Combat](../spikes/s12.md) retains bounded ≤250 ms rewind evidence for later; decisions 18/21 set host-current-time verdicts, forgiving hit shapes and starting combat values | Tune values in playtests; production fire-intent, confirmation, damage/respawn, impact and rocket integration | Not rerun; contended retained by decision 13 |
 | S13 | Technical rig path complete | [Characters](../spikes/s13.md): 68 live + 16 dead; throttling 68→30 mixers; contended headless median proxy 35.9% lower | Production art/readability, blending and target-platform evidence | Not rerun; contended retained by decision 13 |
 | S14 | Automated audio/settings foundation complete; listening open | [Audio](../spikes/s14.md): exact 8 engine / 8 explosion / 6 weapon voice caps and settings roundtrip | Human mix/listening, production assets/licenses, attributable CPU profiling | Not rerun; contended context retained by decision 13 |
 | S15 | Technical VFX comparison complete | [VFX](../spikes/s15.md): all 12/24 roots retained; 24-full frame p95 18.445 ms median, **contended** | Owner approval for tiers; adaptive `amount_ratio` did not prove lower cost; readability | Not rerun; contended retained by decision 13 |
@@ -125,7 +125,7 @@ All timing values explicitly marked **contended** are upper bounds from a shared
 
 ## Owner decisions recorded
 
-The owner recorded decisions 13–20 on 9 October 2026:
+The owner recorded decisions 13–21 on 9 October 2026:
 
 - **Decision 13 — measurement scope and principle:** S17 is the only quiet rerun. Other spike
   timings remain labelled contended. Foundation establishes concepts and high-level limits; M1
@@ -161,6 +161,12 @@ The owner recorded decisions 13–20 on 9 October 2026:
   Remote entities extrapolate along their last velocity, then hold position until data arrives,
   then blend smoothly to authority. Revisit alternatives such as per-entity-type hybrids after
   drawable playtests.
+- **Decision 21 — S12 combat starting values:** accept health 100 for players, pedestrians and
+  cars. Pistol starts at 34 damage / 0.25 s / 12 rounds / 1.4 s reload / 45 m; SMG at
+  12 damage / 0.10 s / 30 rounds / 1.8 s reload / 35 m; rocket at 100 damage via S05 /
+  1.0 s cooldown / 18 m/s / 2.5 s lifetime / 4.1 m radius. Car-pedestrian impact uses host
+  contact/velocity only: none below 6 m/s, 25 at 6 m/s linearly to 100 at 14 m/s, with a
+  0.5 s per-car/target cooldown. These are M1 starting values, tuned in playtests.
 
 ## Owner decisions still open
 
@@ -168,26 +174,24 @@ These remaining choices belong to their named production consumer; they are not 
 or quiet-pass prerequisites under decision 14. An explicit deferral should still name its consumer
 or accepted risk.
 
-1. **S12 damage/rate defaults:** review the pistol/SMG/rocket/car-impact starting values as
-   balance choices before M1-B2.
-2. **S04 handling:** provide drive-scene feedback and an F12 value set. **Recommendation:** run the
+1. **S04 handling:** provide drive-scene feedback and an F12 value set. **Recommendation:** run the
    saved harness before freezing B1.1 body/tuning; do not promote defaults solely from automated
    route success.
-3. **S17 budget allocation:** ratify or revise traffic 1.5, pedestrians 1.0, replication 0.75,
+2. **S17 budget allocation:** ratify or revise traffic 1.5, pedestrians 1.0, replication 0.75,
    combat 0.25, chains 0.10 and remaining work 0.40 ms p95, all inside 4 ms.
    **Recommendation:** use them as adjustable profiling ceilings, not independent entitlements.
-4. **Traffic/crossing policy:** choose reservation priority/lights and whether cars yield at marked
+3. **Traffic/crossing policy:** choose reservation priority/lights and whether cars yield at marked
    crossings. **Recommendation:** deterministic authored reservations; cars yield at selected marked
    crossings, while uncontrolled player cars remain collision-authoritative.
-5. **VFX degradation:** confirm full→reduced→minimum tiers when many explosions overlap, with one
+4. **VFX degradation:** confirm full→reduced→minimum tiers when many explosions overlap, with one
    visible root and all feedback families retained per event. **Recommendation:** approve; dropping
    an event remains forbidden.
-6. **Audio starting policy:** accept/revise nearest-eight engines, eight blast voices, six weapon
+5. **Audio starting policy:** accept/revise nearest-eight engines, eight blast voices, six weapon
    voices and ambience under Music. **Recommendation:** treat these as first-pass caps and decide only
    after the listening checklist.
-7. **Safe GPU wording:** replace the design's uncapped-headroom instruction with S08-C's capped
+6. **Safe GPU wording:** replace the design's uncapped-headroom instruction with S08-C's capped
    frame/RenderingServer method. **Recommendation:** approve; uncapped runs caused two device removals.
-8. **Production testing:** approve adding pinned test-only GUT under M1-D1.1.
+7. **Production testing:** approve adding pinned test-only GUT under M1-D1.1.
     **Recommendation:** approve, excluded from release exports and runtime autoloads.
 
 ## Human checks still needed

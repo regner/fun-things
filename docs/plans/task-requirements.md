@@ -10,10 +10,10 @@ qualification and enough outcome detail for dispatch.
 and the audit-derived tasks in
 [section 4 of the readiness audit](../reviews/p0-readiness-audit-2026-10-08.md).
 Most quantitative criteria are planning proposals derived from current product budgets and
-remain tunable during M1. Owner decisions 13–20 ratify the desktop frame target, narrow
+remain tunable during M1. Owner decisions 13–21 ratify the desktop frame target, narrow
 P0-GATE to the S17-only quiet result plus the refreshed gate packet, select the first
-hit-registration policy, accept the S03-P M1 input-queue contract and set the initial S11
-remote extrapolation policy.
+hit-registration policy and combat starting values, accept the S03-P M1 input-queue
+contract and set the initial S11 remote extrapolation policy.
 
 - **P0-TOOLING:** Completed. The [baseline repair](../spikes/p0-tooling.md) made the
   canonical script check green, established complete Python discovery, selected the
@@ -109,7 +109,11 @@ remote extrapolation policy.
   host-authoritative verdicts at host current time: clients send fire intent plus the shooter's
   view tick, the host chooses target/damage using forgiving delay-sized hit shapes, the shooter
   gets immediate cosmetic muzzle/tracer feedback, and impact/damage waits for host confirmation.
-  Pistol/SMG/rocket/car-impact damage and rate values remain reviewable starting values.
+  Owner decision 21 accepts M1 playtest starting values: health 100; pistol
+  34/0.25 s/12/1.4 s/45 m; SMG 12/0.10 s/30/1.8 s/35 m; rocket 100 via S05 with
+  1.0 s cooldown, 18 m/s, 2.5 s lifetime and 4.1 m radius; host-only car-pedestrian
+  impact none below 6 m/s, 25 at 6 m/s linearly to 100 at 14 m/s, with 0.5 s cooldown
+  per car/target.
 - **S13:** Completed technical path. [S13](../spikes/s13.md) proves one linked rig with four
   clips/three palettes at 68 live plus 16 dead and presentation-only throttling from 68 to
   30 active mixers. All timing remains contended by owner decision 13; production art,
