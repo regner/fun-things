@@ -67,6 +67,53 @@ timeout 600s python tools/script_checks.py \
 timeout 300s python -m unittest discover -s tools -p "*test*.py"
 ```
 
+## Handbrake turning follow-up — 9 October 2026
+
+| File | Meaning |
+| --- | --- |
+| `handbrake2-body.log` | Final public-rule/body receipt: sideways 15→5 m/s, -1.5 rad/s sideways steering, forward handbrake checks, and relative slide/share criteria all pass. |
+| `handbrake2-slide-bound-failure.log` | Retained pre-revision failure of the old absolute `ordinary + 1.0 m/s` slide bound after decision 29 made the handbrake scrub the complete velocity. |
+| `handbrake2-s04-checks-result.json` | Body, baseline, pose fence, producer and prediction checks all pass with unchanged staged source. |
+| `handbrake2-smoke-headless.log` | Existing standalone tuning persistence and drive outcomes pass. The isolated user directory did not read or modify the owner's saved tuning. |
+| `handbrake2-s04-p-normal-result.json` | The headless normal prediction profile passes all technical criteria and unchanged scripted `handbrake=false` outcomes. |
+| `handbrake2-s04-p-adverse-failure-result.json` | Retained first adverse attempt: host/client fixture verdicts pass, but four authority response samples were absent under contended Windows pacing. |
+| `handbrake2-s04-t-result.json` | Capped-window normal/adverse transition profiles and offline probes pass; scripted drive commands remain `handbrake=false`. |
+| `handbrake2-windowed-drive.log` | Direct 1280×800 Forward+ / D3D12 launch capped at 60 FPS for 120 frames exits without diagnostics. |
+| `handbrake2-script-checks.log`, `handbrake2-tool-tests.log` | All-owned formatting/lint/compilation and all 85 Python tests pass. |
+
+The owner-required full-vector scrub made the prior absolute lateral-speed bound incompatible with
+its original start speed: after 0.5 seconds the 10 m/s² handbrake deliberately leaves only 2.07 m/s
+total speed. The approved replacement requires at least four times ordinary lateral velocity and a
+slip share at least 0.25 higher; `handbrake2-body.log` retains both candidate bodies' measurements.
+Direct text editing was used because the editor was unavailable. No scene, resource, UID, or user
+save changed.
+
+```sh
+# Shared rule/body checks and standalone smoke
+timeout 300s python tools/s04/run_checks.py --godot "$GODOT_WIN" \
+  --output C:/tmp/ft/lanes/s04-handbrake/handbrake2-s04-checks-dev2
+timeout 90s godot --headless --path . \
+  --script res://tests/fixtures/s04_drive/smoke.gd
+
+# Existing prediction and transition callers
+timeout 90s python tools/run_s04.py --godot "$GODOT_WIN" --profiles normal \
+  --port 26600 --proxy-port 26601 \
+  --output C:/tmp/ft/lanes/s04-handbrake/handbrake2-s04-p-normal
+timeout 90s python tools/run_s04.py --godot "$GODOT_WIN" --profiles adverse \
+  --port 26610 --proxy-port 26611 \
+  --output C:/tmp/ft/lanes/s04-handbrake/handbrake2-s04-p-adverse
+timeout 180s python tools/s04_t/run.py --godot "$GODOT_WIN" \
+  --profiles normal adverse --windowed --port 26630 --proxy-port 26631 \
+  --output C:/tmp/ft/lanes/s04-handbrake/handbrake2-s04-t
+
+# Capped graphical load and repository-wide checks
+timeout 30s godot --max-fps 60 --path . --resolution 1280x800 --quit-after 120 \
+  res://tests/fixtures/s04_drive/drive.tscn
+timeout 600s python tools/script_checks.py \
+  --output C:/tmp/ft/lanes/s04-handbrake/handbrake2-script-checks
+timeout 300s python -m unittest discover -s tools -p "*test*.py"
+```
+
 ## Original drive-scene commands
 
 The executable paths were resolved with `mise -C C:/GameDev/git/fun-things which ...` before use.

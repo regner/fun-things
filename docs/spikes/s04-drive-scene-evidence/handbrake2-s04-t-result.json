@@ -1,0 +1,758 @@
+{
+  "ok": true,
+  "engine": "4.8.dev7.official.c971f93e7",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "measurement_identity": {
+    "repository": {
+      "commit": "caf4b9b42301c736aae69c6ba005155ced354575",
+      "tree": "5afd79054c3f3ec925735d5166c40afaff8d27bb",
+      "status_porcelain": [
+        "M docs/spikes/s04-drive-scene.md",
+        " M tests/fixtures/s04/body_comparison.gd",
+        " M tests/fixtures/s04/drive_rules.gd"
+      ]
+    },
+    "measurement_sources": {
+      "tests/fixtures/s02/actor.tscn": {
+        "sha256": "551bd1eafd7771c003a571115e8044aff4e68c61755754e524c7385171ee9ca8",
+        "bytes": 1586
+      },
+      "tests/fixtures/s02/actor_motion.gd": {
+        "sha256": "e8e8d1e228ee7e28983324f00e20cfda1d1ddf36cb4c300ecfaffe48218973c7",
+        "bytes": 1015
+      },
+      "tests/fixtures/s02/actor_motion.gd.uid": {
+        "sha256": "42dfa733fa0958615246b2853efdcc3fa6a89e5ec6288f040813b933d89b9025",
+        "bytes": 20
+      },
+      "tests/fixtures/s02/aim_probe.gd": {
+        "sha256": "f247b6eba63313b90badf3c666dd78c59f07ce88e9ff48dcd11c48d5a914dd1b",
+        "bytes": 1687
+      },
+      "tests/fixtures/s02/aim_probe.gd.uid": {
+        "sha256": "816adaff9b88557b7142b1f2f26ef5f45ebc283473ff5664eb9a629385df33b7",
+        "bytes": 20
+      },
+      "tests/fixtures/s02/camera_rig.gd": {
+        "sha256": "280c9fad168d1b470ea7f3e04738f3ac8e92327492edabed9b27a37e500a60da",
+        "bytes": 1116
+      },
+      "tests/fixtures/s02/camera_rig.gd.uid": {
+        "sha256": "73acfe761e1268ccb8316a88493096fad0dd1337153b71f7fc83f412ca44f21a",
+        "bytes": 19
+      },
+      "tests/fixtures/s02/capture_s02.gd": {
+        "sha256": "6b4f15f4fe5a2e1e3ddb814485ae72e08843e26062ac1182e350dbe314aee0af",
+        "bytes": 3516
+      },
+      "tests/fixtures/s02/capture_s02.gd.uid": {
+        "sha256": "b962c25c26aa7d41b47716a14e083df1fe39802800c1bf7480b368f874deb541",
+        "bytes": 20
+      },
+      "tests/fixtures/s02/check_s02.gd": {
+        "sha256": "632835ce5166e8177e76995a45b9635d4670445e177ea37feb469c39f8504b1e",
+        "bytes": 16251
+      },
+      "tests/fixtures/s02/check_s02.gd.uid": {
+        "sha256": "66dac85956be0967a9eca87027df98e7d80ee925093b6e24e945f6653b2136d1",
+        "bytes": 20
+      },
+      "tests/fixtures/s02/corner.tscn": {
+        "sha256": "663baf0eec1983ebc857e05e4aeeeb1593bfc9005591e40ae15d4101891aab46",
+        "bytes": 4501
+      },
+      "tests/fixtures/s02/corner_wide.tscn": {
+        "sha256": "51a089a1c2b2e15fd574779f2e8eb110345b9e1410400be1a02da3e09fd6f504",
+        "bytes": 352
+      },
+      "tests/fixtures/s02/desktop_input.gd": {
+        "sha256": "137f9fc746e1b9f71792634f692f691303bb71329bbc988f12008699e7d75a95",
+        "bytes": 4903
+      },
+      "tests/fixtures/s02/desktop_input.gd.uid": {
+        "sha256": "ae8b9ea33f9149c85def43f3a7296577b33d2d9a9730c9075b932f6a84fcfd35",
+        "bytes": 20
+      },
+      "tests/fixtures/s02/editor_harness.tscn": {
+        "sha256": "ed2189f359de958a0cba5415abae8c70b4a82936dac8a4bc272120f2b3a9b70b",
+        "bytes": 243
+      },
+      "tests/fixtures/s02/fixture.gd": {
+        "sha256": "7053952fbeffa71b341481d782655ca5b4a8db4cdd34a6a65e191931af71a2b5",
+        "bytes": 2054
+      },
+      "tests/fixtures/s02/fixture.gd.uid": {
+        "sha256": "7d45e3efc41a8ff564fe3519c1f3ed750ffdcde7d4af292a25f86005cf136403",
+        "bytes": 19
+      },
+      "tests/fixtures/s02/focus_evidence.gd": {
+        "sha256": "8eb92b1606d525a4ca79ce454ca1f129bb5c6dda1b84cfb0c3147a49f9748b4f",
+        "bytes": 6460
+      },
+      "tests/fixtures/s02/focus_evidence.gd.uid": {
+        "sha256": "e30416e99858ea58a946a7545dee4e75aeed1124de5b02319e88c98f699717bb",
+        "bytes": 20
+      },
+      "tests/fixtures/s02/focus_runner.tscn": {
+        "sha256": "e97d9e997d1bffd2ab933b4c62219f9fefbd8d3ab05d7eb68e3ac0109af5b6b9",
+        "bytes": 462
+      },
+      "tests/fixtures/s02/ground_prefab.tscn": {
+        "sha256": "ffcaf39427734a414b9e0ec4356593837f8e6c10781c50f3c47743c41e946694",
+        "bytes": 832
+      },
+      "tests/fixtures/s02/low_prefab.tscn": {
+        "sha256": "874a5bf8d3445ea7b76ada0e060e4bec83868543d7a97262ed871f68c6d5773f",
+        "bytes": 819
+      },
+      "tests/fixtures/s02/motion_rules.gd": {
+        "sha256": "83a1eace03d816b308bff683babcd5e95513c870e7deddca534d01d83d52be25",
+        "bytes": 1026
+      },
+      "tests/fixtures/s02/motion_rules.gd.uid": {
+        "sha256": "6c003dd3713cd15e59a48dd744fc4de8a1b851d327bdc7b8407cad5cf9f045c4",
+        "bytes": 19
+      },
+      "tests/fixtures/s02/near_prefab.tscn": {
+        "sha256": "2ae3bf330720a874a2f3ce25bbaf9d3263e2190d6b940b2cfcf17a2ccb9dd84a",
+        "bytes": 825
+      },
+      "tests/fixtures/s02/observe_windows.gd": {
+        "sha256": "2fe09bf0b5605c4b132417e9652558ce5ab573b57bc6c61feb47ced5e4e9879f",
+        "bytes": 6034
+      },
+      "tests/fixtures/s02/observe_windows.gd.uid": {
+        "sha256": "ffd95058567211475b5bf83616ffd4fec92c93502ad1bd933ea486c9bed10fe5",
+        "bytes": 20
+      },
+      "tests/fixtures/s02/probe_overlay.gd": {
+        "sha256": "95e165247ffdf4cada72615829291f04062e3b339d9114b645b9858d38d0d889",
+        "bytes": 1613
+      },
+      "tests/fixtures/s02/probe_overlay.gd.uid": {
+        "sha256": "08b3822ba3f9e8d130dc355fb7edf5c90421465647421f1dfd55c31b1ea3190c",
+        "bytes": 20
+      },
+      "tests/fixtures/s02/tall_prefab.tscn": {
+        "sha256": "24510d11c73e7163bde7ad62c02df8b8535487693493d347fd48c94a4426928b",
+        "bytes": 826
+      },
+      "tests/fixtures/s02/target_prefab.tscn": {
+        "sha256": "53d81ba372dc616b299ee86473be9fe4bf8e8266d57b0b3330f142d38fcf847d",
+        "bytes": 705
+      },
+      "tests/fixtures/s02/weapon_studies.tscn": {
+        "sha256": "939e17fb99a4d71ebec50adcb4ce678b7c56bd3914e8239a9aa0b81be3fdcf2a",
+        "bytes": 3277
+      },
+      "tests/fixtures/s03_r/actor.gd": {
+        "sha256": "8ea321d7eb8858c33a569b3d680be2f64f8e6809588c6f403e89a83f1b071d59",
+        "bytes": 3384
+      },
+      "tests/fixtures/s03_r/actor.gd.uid": {
+        "sha256": "cdbd59444603e8aaf2e1526eaf73ce0ec54eb4b90d60fc8b9cc3598400e8df51",
+        "bytes": 20
+      },
+      "tests/fixtures/s03_r/actor.tscn": {
+        "sha256": "d3d744260c81626de3d93815773a76ecba18db28d8ca62e06e740179267a0b18",
+        "bytes": 367
+      },
+      "tests/fixtures/s03_r/boot.tscn": {
+        "sha256": "5ba827b95fc1844c0836b26c724b746d35a2b4f1342bd657f923f2f57b4b7b48",
+        "bytes": 4472
+      },
+      "tests/fixtures/s03_r/input_frame_queue.gd": {
+        "sha256": "0c0f6e41592e9e7a9cff4fa6d587624a6c38362ebaa18af67420268ec7dec724",
+        "bytes": 5832
+      },
+      "tests/fixtures/s03_r/input_frame_queue.gd.uid": {
+        "sha256": "63aa768b484d637fbebf35634f0055d4d3bb5bea3ca535dab4d2aa70fb20cf3c",
+        "bytes": 20
+      },
+      "tests/fixtures/s03_r/match.gd": {
+        "sha256": "d06add12a3557abaa5c029d655e8408b1b354d4842fbddac86dba58c3f3dfc0b",
+        "bytes": 17706
+      },
+      "tests/fixtures/s03_r/match.gd.uid": {
+        "sha256": "7f2ff641bb287a0aaa8140f4c5a78b1d97f8e7b53c961a4abedaeba6cd9b4582",
+        "bytes": 20
+      },
+      "tests/fixtures/s03_r/pose_fence_probe.gd": {
+        "sha256": "43d49962032360615ee99d53fad144926760131be360c4cd407ed0529c1ed6c5",
+        "bytes": 4935
+      },
+      "tests/fixtures/s03_r/pose_fence_probe.gd.uid": {
+        "sha256": "91f709eea87db8cd5cf3a66003a84c4c9c6fa70b5543b1fb8a367dea1b7d1160",
+        "bytes": 20
+      },
+      "tests/fixtures/s03_r/prediction_history.gd": {
+        "sha256": "9c5cd5c45271ee322c90589efa47a3dcbc62a805487dcb83f9c3fe95477c5283",
+        "bytes": 1798
+      },
+      "tests/fixtures/s03_r/prediction_history.gd.uid": {
+        "sha256": "b87fb6c46f918e7d83a16c75120f0dee95c4e450a60897758b132f3ae9f839f6",
+        "bytes": 20
+      },
+      "tests/fixtures/s03_r/prediction_history_probe.gd": {
+        "sha256": "933e5bddae6d8b039c38c4c5b5090a69fc81fee9eadc79023ea15dca3908d59c",
+        "bytes": 8966
+      },
+      "tests/fixtures/s03_r/prediction_history_probe.gd.uid": {
+        "sha256": "e387f1f302830cf80002892ecf85ef8ae846f5c24d6f80320d7a2459a533bb53",
+        "bytes": 20
+      },
+      "tests/fixtures/s03_r/proof.gd": {
+        "sha256": "98cf8edcacddda708618bc528d24d58993bc109a3dd6f9dc33d3083af790ac4e",
+        "bytes": 20959
+      },
+      "tests/fixtures/s03_r/proof.gd.uid": {
+        "sha256": "c5b68db0e02afae50c2c221f79f3a2de628c3e0395b69e8b4bc41887330c2a9e",
+        "bytes": 20
+      },
+      "tests/fixtures/s03_r/replication.gd": {
+        "sha256": "ad0263562836006b7b5561d138b2410d09840cfe59004a1cda00a5ef24ffc3e0",
+        "bytes": 764
+      },
+      "tests/fixtures/s03_r/replication.gd.uid": {
+        "sha256": "37f01ffdc6b925569c9422be3b8065425ee59522675bc9128f403ba762876787",
+        "bytes": 20
+      },
+      "tests/fixtures/s04/baseline_probe.gd": {
+        "sha256": "83a95bc43edbe83b56de45d4051156197d7933e58434bf3c10bfceff7dea6136",
+        "bytes": 2285
+      },
+      "tests/fixtures/s04/baseline_probe.gd.uid": {
+        "sha256": "ae178f023b43a126af634efd8d9e764a81d37549d150c6afa036f1ddfadc8392",
+        "bytes": 20
+      },
+      "tests/fixtures/s04/body_comparison.gd": {
+        "sha256": "fd185a204704732e37c901c70d121f8be68ee8bf87c9e7340b03c640b3ba3b1c",
+        "bytes": 9706
+      },
+      "tests/fixtures/s04/body_comparison.gd.uid": {
+        "sha256": "ea12053d9a886258d784066831f3d964297396fe7d3ceedbb066ebc34ad8d457",
+        "bytes": 20
+      },
+      "tests/fixtures/s04/body_comparison.tscn": {
+        "sha256": "29d5bb1b1c76f7264c7b3da2eb18eb61a62ba6f467b47c0cfbebeaab45304ae1",
+        "bytes": 2066
+      },
+      "tests/fixtures/s04/boot.tscn": {
+        "sha256": "5a59735087c9bc662fddd98a0ac32f41827fd5d7651b8123806c03b2344c75e0",
+        "bytes": 3206
+      },
+      "tests/fixtures/s04/camera_rig.gd": {
+        "sha256": "606ab99365e3bcd8314f1ff6157896dc00ce994f2a8f489f4d3769968f2af491",
+        "bytes": 1112
+      },
+      "tests/fixtures/s04/camera_rig.gd.uid": {
+        "sha256": "e4c2a01d83b1eef3a910058dc840c5d5a809eb6085801407c03c6b45ae1c660a",
+        "bytes": 20
+      },
+      "tests/fixtures/s04/desktop_input.gd": {
+        "sha256": "85d4014b8cecb27cc3a86810af1fa8888ed8f8975209352cb3472dfc66c30e32",
+        "bytes": 488
+      },
+      "tests/fixtures/s04/desktop_input.gd.uid": {
+        "sha256": "6a811258865be10f83c55464307a41ec840e799ee7f673d6e1e145ff89e09835",
+        "bytes": 19
+      },
+      "tests/fixtures/s04/drive_rules.gd": {
+        "sha256": "ee5993e6e12c11a9f07d75d7287fc8b94bc872d0c5f924d3ca4659a389607416",
+        "bytes": 4230
+      },
+      "tests/fixtures/s04/drive_rules.gd.uid": {
+        "sha256": "f2cd0ed422cc003b6cd45e68c0ca3be704a5706728a32f70d63423c8036f77fe",
+        "bytes": 20
+      },
+      "tests/fixtures/s04/dynamic.gd": {
+        "sha256": "25ff9a4778dfaeeed80652e3bb8e946c601ce05cb2df4228c1f7655df100dd8c",
+        "bytes": 2347
+      },
+      "tests/fixtures/s04/dynamic.gd.uid": {
+        "sha256": "ae65c0e226d80b0b463c8f01739c153c7c28fe3dbf10c60f6ea1a0b66cfee991",
+        "bytes": 19
+      },
+      "tests/fixtures/s04/dynamic.tscn": {
+        "sha256": "2dd308165ba97c29a8a9e367458f221e2cab29a131ce4041ea66795d0a8195c8",
+        "bytes": 1934
+      },
+      "tests/fixtures/s04/editor_harness.tscn": {
+        "sha256": "2d6bb10372f92905ff0e6587cccccfd0684fed0ce2df47bb00ec8051bfb086f1",
+        "bytes": 249
+      },
+      "tests/fixtures/s04/kinematic.gd": {
+        "sha256": "fbf59b8a420285786aa4036e73f51af7a9622228ad2ac7304d13e8660ee3c317",
+        "bytes": 3983
+      },
+      "tests/fixtures/s04/kinematic.gd.uid": {
+        "sha256": "ccfbdc89912dfbf284e47581162120f57969de005fcea15b73c327331adc9a27",
+        "bytes": 19
+      },
+      "tests/fixtures/s04/kinematic.tscn": {
+        "sha256": "df7cb51232f34708287b81cd9ac9b0d26e69a787ffa67b58169a2c93952b6994",
+        "bytes": 1772
+      },
+      "tests/fixtures/s04/match.gd": {
+        "sha256": "c6aa56775fa06534244ec9b36509c5f5dd8e0c9cba33217d19a21d2ea1113118",
+        "bytes": 20802
+      },
+      "tests/fixtures/s04/match.gd.uid": {
+        "sha256": "7286ca345d9ad646d41f01f2bd62977d44293d0aae61f7a8e106e0593949b362",
+        "bytes": 19
+      },
+      "tests/fixtures/s04/pose_fence_probe.gd": {
+        "sha256": "35e30952377d070c8927798d1caf0e0a1ad85a7763dc968faba3f268898fe535",
+        "bytes": 4800
+      },
+      "tests/fixtures/s04/pose_fence_probe.gd.uid": {
+        "sha256": "a5ede863670036e775568e6f802f5402ef3956b785887257e068f66d5da3f4f3",
+        "bytes": 20
+      },
+      "tests/fixtures/s04/prediction_lifecycle_probe.gd": {
+        "sha256": "b8680cdfb6214ee5023830acef3039410c817ee449f90253b9f6b74782b90beb",
+        "bytes": 7993
+      },
+      "tests/fixtures/s04/prediction_lifecycle_probe.gd.uid": {
+        "sha256": "d75b6f1d745a1ffb7ea92cf5ea15b43167eeecca9ac133146fc394fd192f896f",
+        "bytes": 19
+      },
+      "tests/fixtures/s04/producer_probe.gd": {
+        "sha256": "776b67ae4f8bd67fc20a9a8cf4bb32bcbf848962bdb790d2834280b5572aff3d",
+        "bytes": 5187
+      },
+      "tests/fixtures/s04/producer_probe.gd.uid": {
+        "sha256": "868b6779ea3e8043e3c9bf44d7740527108721f0ad733a65d006dbd29c66d0df",
+        "bytes": 20
+      },
+      "tests/fixtures/s04/producer_proof.gd": {
+        "sha256": "4b93bb248bf290c5caea70b5b00bf1e1f9fd3bdb03083e4ecd621963a167d4de",
+        "bytes": 219
+      },
+      "tests/fixtures/s04/producer_proof.gd.uid": {
+        "sha256": "398b8cfdb10571d0e84347d6e014ba434510ff00159643b429b5f797757de5c8",
+        "bytes": 20
+      },
+      "tests/fixtures/s04/producer_replication.gd": {
+        "sha256": "97098096253e6ccae6a171749f4ae861672ffb451b06c5701d908199391881c0",
+        "bytes": 320
+      },
+      "tests/fixtures/s04/producer_replication.gd.uid": {
+        "sha256": "e625d29b115a1bf28f699e4e4c0deda19d37f94f53ab134cfd91d6cdedb73954",
+        "bytes": 20
+      },
+      "tests/fixtures/s04/proof.gd": {
+        "sha256": "98d30ed03e59eabd6e0926857eec21294dc2745221704316a4a08b9330a06e77",
+        "bytes": 23373
+      },
+      "tests/fixtures/s04/proof.gd.uid": {
+        "sha256": "c6c9c9f74ed820f02315d236deb11db053d8b9b949ce49386b3fe921f4f51144",
+        "bytes": 20
+      },
+      "tests/fixtures/s04/replication.gd": {
+        "sha256": "9684bb422ac19503644a6010471baf06fe06c305f6694e7d599b3cc834a4793a",
+        "bytes": 4014
+      },
+      "tests/fixtures/s04/replication.gd.uid": {
+        "sha256": "3861241f90cc88a90beb8c2ffc0ccc58d33bcb11e4758eb031d5f855a73ad711",
+        "bytes": 20
+      },
+      "tests/fixtures/s04/track.tscn": {
+        "sha256": "d957cc0a33bc483ae1e5efd85cec66b04bda5191fd9fd16e6d75adf8ada36f97",
+        "bytes": 1995
+      },
+      "tests/fixtures/s04_t/boot.tscn": {
+        "sha256": "768eee937043a3bfa9f42f34872d56e2e9fde2ef20f714d90c618c7ead524e06",
+        "bytes": 2240
+      },
+      "tests/fixtures/s04_t/boundary_probe.gd": {
+        "sha256": "2e686679381d2f9f94f6499505fbd8b46050f1100b42a7fc40a79dc3e20efcfd",
+        "bytes": 9701
+      },
+      "tests/fixtures/s04_t/boundary_probe.gd.uid": {
+        "sha256": "aba7d41bf763d1508690f69a82822b08d05f01c45e36a7263863ce950368e848",
+        "bytes": 20
+      },
+      "tests/fixtures/s04_t/match.gd": {
+        "sha256": "da06735e21545b6a967d603f05738f4e8b10d645141af9234afb5b7a2ba596c4",
+        "bytes": 44280
+      },
+      "tests/fixtures/s04_t/match.gd.uid": {
+        "sha256": "4899b4c49ed2f4a8cc5c4ec5060a981ff0775e4e2620440564e38d55916db0ed",
+        "bytes": 19
+      },
+      "tools/measurement_identity.py": {
+        "sha256": "09ec9e7387a846b15b8d6105df8132fde63938a973b9798782cc1a67fd0c6d95",
+        "bytes": 3845
+      },
+      "tools/run_s03.py": {
+        "sha256": "705b56b042d71bf69be88e9f026a1140d6fd6c504e689c995f450f21e93f6458",
+        "bytes": 13156
+      },
+      "tools/run_s03_r.py": {
+        "sha256": "c5cd8a10bc54d9e7827acda37ba686f95bddca0087d04716209954f15afcea56",
+        "bytes": 34832
+      },
+      "tools/s04_t/__init__.py": {
+        "sha256": "f9efa622b6a4d7a6b13370546dd6adf2b2a2946c566b38a1c64c2ccf5170d6f7",
+        "bytes": 61
+      },
+      "tools/s04_t/run.py": {
+        "sha256": "d86affb03f3b72dcccfa0e745e057be4c5c1a056669ea12db5598a386352bd44",
+        "bytes": 19966
+      },
+      "tools/s04_t/test_runner.py": {
+        "sha256": "b2a2c140a99a90f8db491d8d9aed799b58dcd11a51e850de679d19189ae48c1e",
+        "bytes": 3933
+      },
+      "tools/script_checks.py": {
+        "sha256": "4629e3493b5b7db7c777d07b083c75f6014904d106898e172e5dba79ced5af9e",
+        "bytes": 6929
+      },
+      "tools/window_safety.py": {
+        "sha256": "d3ef0628378ecc30d04f223c58bec3469d26ed95f4686a5779e8a14c13d28be9",
+        "bytes": 1016
+      }
+    },
+    "invocation": {
+      "argv": [
+        "tools/s04_t/run.py",
+        "--godot",
+        "C:\\Users\\regner.blokandersen\\AppData\\Local\\mise\\installs\\github-godotengine-godot-builds\\4.8-dev7\\godot.exe",
+        "--profiles",
+        "normal",
+        "adverse",
+        "--windowed",
+        "--port",
+        "26630",
+        "--proxy-port",
+        "26631",
+        "--output",
+        "C:/tmp/ft/lanes/s04-handbrake/handbrake2-s04-t"
+      ],
+      "cwd": "C:\\GameDev\\git\\ft-lanes\\s04-handbrake",
+      "effective_parameters": {
+        "godot": "C:\\Users\\regner.blokandersen\\AppData\\Local\\mise\\installs\\github-godotengine-godot-builds\\4.8-dev7\\godot.exe",
+        "port": 26630,
+        "proxy_port": 26631,
+        "deadline": 45,
+        "profiles": [
+          "normal",
+          "adverse"
+        ],
+        "windowed": true,
+        "output": "C:\\tmp\\ft\\lanes\\s04-handbrake\\handbrake2-s04-t"
+      }
+    }
+  },
+  "profiles": [
+    {
+      "profile": "normal",
+      "ok": true,
+      "criteria": {
+        "two_process_results": true,
+        "host_granted_race": true,
+        "all_verdicts": true,
+        "history_clean": true,
+        "ownership_flips": true,
+        "traffic_released": true,
+        "disconnect_coasted": true,
+        "bounded_input_queue": true,
+        "bounded_actions": true,
+        "one_hydration": true,
+        "control_revision_resets": true,
+        "rejected_entry_sequence_continuity": true,
+        "varying_commands": true,
+        "adverse_profile": true,
+        "malformed_flood_probe": true,
+        "draw_receipts": true
+      },
+      "measurements": {
+        "entry_correction_m": {
+          "race_entry": 2.61888146400452,
+          "parked_entry": 0.115172415971756,
+          "traffic_entry": 0.667319059371948
+        },
+        "entry_visual_jump_m": {
+          "race_entry": 2.61888146400452,
+          "parked_entry": 0.115172415971756,
+          "traffic_entry": 0.667319059371948
+        },
+        "transition_visual_jump_p95_m": 2.61888146400452,
+        "accepted_time_to_control_p95_ms": 17,
+        "action_round_trip_p95_ms": 201,
+        "history_clean": true,
+        "ownership_flips": true,
+        "proxy_delay_p95_ms": 105.41850002482533,
+        "proxy_delay_max_ms": 192.86359986290336,
+        "input_revisions": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "minimum_sequence_by_revision": {
+          "1": 1,
+          "2": 1,
+          "3": 1,
+          "4": 1
+        },
+        "rejected_entry_sequence_continuity": true,
+        "post_rejection_max_sequence": 37,
+        "varying_input_samples": 43,
+        "post_blackout_samples": 0,
+        "post_stall_samples": 0,
+        "blackout_expiry": false,
+        "blackout_duration_ms": null,
+        "host_stall_ms": null,
+        "captures": [
+          "forced_blocked_exit.png",
+          "moving_exit.png",
+          "parked_entry.png",
+          "race_entry.png",
+          "successful_exit.png",
+          "traffic_entry.png"
+        ]
+      },
+      "host_result": {
+        "action_cache_size": 6,
+        "action_processed_peak": 1,
+        "action_queue_peak": 1,
+        "action_rejections": {},
+        "blocked_rejected": true,
+        "control_reset_count": 3,
+        "disconnect_coast_m": 49.9574394226074,
+        "event": "result",
+        "final_speed_mps": 0.0,
+        "hydration_count": 1,
+        "input_expiry_count": 5,
+        "input_queue_peak": 6,
+        "input_rejections": {
+          "STALE_CONTEXT": 34
+        },
+        "input_superseded_count": 37,
+        "moving_rejected": true,
+        "ok": true,
+        "race_complete": true,
+        "role": "host",
+        "traffic_ai_active": false,
+        "traffic_stolen": true,
+        "wall_ms": 1791548282263.0
+      },
+      "client_result": {
+        "event": "result",
+        "history_clean": true,
+        "ok": true,
+        "ownership_clean": true,
+        "role": "client",
+        "transition_count": 6,
+        "wall_ms": 1791548277146.0
+      },
+      "commands": {
+        "host": [
+          "C:\\Program Files\\Git\\usr\\bin\\timeout.EXE",
+          "40s",
+          "C:\\Users\\regner.blokandersen\\AppData\\Local\\mise\\installs\\github-godotengine-godot-builds\\4.8-dev7\\godot.exe",
+          "--max-fps",
+          "60",
+          "--path",
+          "C:\\tmp\\ft\\lanes\\s04-handbrake\\handbrake2-s04-t\\normal\\project",
+          "--resolution",
+          "1280x800",
+          "--position",
+          "0,0",
+          "--log-file",
+          "C:\\tmp\\ft\\lanes\\s04-handbrake\\handbrake2-s04-t\\normal\\host\\engine.log",
+          "res://tests/fixtures/s04_t/boot.tscn",
+          "--",
+          "--role=host",
+          "--port=26630",
+          "--profile=normal"
+        ],
+        "client": [
+          "C:\\Program Files\\Git\\usr\\bin\\timeout.EXE",
+          "40s",
+          "C:\\Users\\regner.blokandersen\\AppData\\Local\\mise\\installs\\github-godotengine-godot-builds\\4.8-dev7\\godot.exe",
+          "--max-fps",
+          "60",
+          "--path",
+          "C:\\tmp\\ft\\lanes\\s04-handbrake\\handbrake2-s04-t\\normal\\project",
+          "--resolution",
+          "1280x800",
+          "--position",
+          "1280,0",
+          "--log-file",
+          "C:\\tmp\\ft\\lanes\\s04-handbrake\\handbrake2-s04-t\\normal\\client\\engine.log",
+          "res://tests/fixtures/s04_t/boot.tscn",
+          "--",
+          "--role=client",
+          "--port=26631",
+          "--profile=normal"
+        ]
+      },
+      "process_ids": [
+        49584,
+        7184
+      ],
+      "exits": [
+        0,
+        0
+      ],
+      "peak_proxy_queue": 22
+    },
+    {
+      "profile": "adverse",
+      "ok": true,
+      "criteria": {
+        "two_process_results": true,
+        "host_granted_race": true,
+        "all_verdicts": true,
+        "history_clean": true,
+        "ownership_flips": true,
+        "traffic_released": true,
+        "disconnect_coasted": true,
+        "bounded_input_queue": true,
+        "bounded_actions": true,
+        "one_hydration": true,
+        "control_revision_resets": true,
+        "rejected_entry_sequence_continuity": true,
+        "varying_commands": true,
+        "adverse_profile": true,
+        "malformed_flood_probe": true,
+        "draw_receipts": true
+      },
+      "measurements": {
+        "entry_correction_m": {
+          "race_entry": 2.85253882408142,
+          "parked_entry": 0.375928670167923,
+          "traffic_entry": 0.999805450439453
+        },
+        "entry_visual_jump_m": {
+          "race_entry": 2.85253882408142,
+          "parked_entry": 0.375928670167923,
+          "traffic_entry": 0.999805450439453
+        },
+        "transition_visual_jump_p95_m": 2.85253882408142,
+        "accepted_time_to_control_p95_ms": 16,
+        "action_round_trip_p95_ms": 366,
+        "history_clean": true,
+        "ownership_flips": true,
+        "proxy_delay_p95_ms": 171.6086999513209,
+        "proxy_delay_max_ms": 178.89640014618635,
+        "input_revisions": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "minimum_sequence_by_revision": {
+          "1": 1,
+          "2": 1,
+          "3": 2,
+          "4": 1
+        },
+        "rejected_entry_sequence_continuity": true,
+        "post_rejection_max_sequence": 45,
+        "varying_input_samples": 43,
+        "post_blackout_samples": 24,
+        "post_stall_samples": 18,
+        "blackout_expiry": true,
+        "blackout_duration_ms": 998.523193359375,
+        "host_stall_ms": 254,
+        "captures": [
+          "forced_blocked_exit.png",
+          "moving_exit.png",
+          "parked_entry.png",
+          "race_entry.png",
+          "successful_exit.png",
+          "traffic_entry.png"
+        ]
+      },
+      "host_result": {
+        "action_cache_size": 6,
+        "action_processed_peak": 1,
+        "action_queue_peak": 1,
+        "action_rejections": {},
+        "blocked_rejected": true,
+        "control_reset_count": 3,
+        "disconnect_coast_m": 48.879508972168,
+        "event": "result",
+        "final_speed_mps": 0.0,
+        "hydration_count": 1,
+        "input_expiry_count": 7,
+        "input_queue_peak": 6,
+        "input_rejections": {
+          "STALE_CONTEXT": 36
+        },
+        "input_superseded_count": 160,
+        "moving_rejected": true,
+        "ok": true,
+        "race_complete": true,
+        "role": "host",
+        "traffic_ai_active": false,
+        "traffic_stolen": true,
+        "wall_ms": 1791548313073.0
+      },
+      "client_result": {
+        "event": "result",
+        "history_clean": true,
+        "ok": true,
+        "ownership_clean": true,
+        "role": "client",
+        "transition_count": 6,
+        "wall_ms": 1791548308023.0
+      },
+      "commands": {
+        "host": [
+          "C:\\Program Files\\Git\\usr\\bin\\timeout.EXE",
+          "40s",
+          "C:\\Users\\regner.blokandersen\\AppData\\Local\\mise\\installs\\github-godotengine-godot-builds\\4.8-dev7\\godot.exe",
+          "--max-fps",
+          "60",
+          "--path",
+          "C:\\tmp\\ft\\lanes\\s04-handbrake\\handbrake2-s04-t\\adverse\\project",
+          "--resolution",
+          "1280x800",
+          "--position",
+          "0,0",
+          "--log-file",
+          "C:\\tmp\\ft\\lanes\\s04-handbrake\\handbrake2-s04-t\\adverse\\host\\engine.log",
+          "res://tests/fixtures/s04_t/boot.tscn",
+          "--",
+          "--role=host",
+          "--port=26632",
+          "--profile=adverse"
+        ],
+        "client": [
+          "C:\\Program Files\\Git\\usr\\bin\\timeout.EXE",
+          "40s",
+          "C:\\Users\\regner.blokandersen\\AppData\\Local\\mise\\installs\\github-godotengine-godot-builds\\4.8-dev7\\godot.exe",
+          "--max-fps",
+          "60",
+          "--path",
+          "C:\\tmp\\ft\\lanes\\s04-handbrake\\handbrake2-s04-t\\adverse\\project",
+          "--resolution",
+          "1280x800",
+          "--position",
+          "1280,0",
+          "--log-file",
+          "C:\\tmp\\ft\\lanes\\s04-handbrake\\handbrake2-s04-t\\adverse\\client\\engine.log",
+          "res://tests/fixtures/s04_t/boot.tscn",
+          "--",
+          "--role=client",
+          "--port=26633",
+          "--profile=adverse"
+        ]
+      },
+      "process_ids": [
+        43436,
+        51236
+      ],
+      "exits": [
+        0,
+        0
+      ],
+      "peak_proxy_queue": 18
+    }
+  ]
+}

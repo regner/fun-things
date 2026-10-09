@@ -25,8 +25,8 @@ Confirm `--version` is `4.8.dev7.official.c971f93e7` if resolving the binary on 
 
 - **W / S**: throttle forward; opposite input brakes, then selects reverse once stopped.
 - **A / D**: steer left / right. Arrow-key aliases also work.
-- **Space**: handbrake. The shared `S04DriveRules` applies 10.0 m/s² longitudinal braking while
-  retaining lower sideways grip for a sliding turn.
+- **Space**: handbrake. The shared `S04DriveRules` applies 10.0 m/s² braking to the complete
+  planar velocity while retaining lower sideways grip for a sliding turn.
 - **R**: reset the car to its authored start pose and clear carried speed/input.
 - **Escape**: pause/resume the existing desktop input collector.
 - **F1–F10**: select the value shown by that row in the tuning panel. F10 selects handbrake
@@ -73,6 +73,30 @@ renames the serialized `slide_grip_per_second` property's display label to `Hand
 F12 still saves and prints; startup loads a valid saved tuning resource, and Backspace restores the
 checked-in values and removes that override. Direct text editing was used because the Godot editor
 was unavailable; the saved HUD scene change only enlarges the existing panel and updates its text.
+
+## Handbrake turning follow-up — 9 October 2026
+
+The owner re-test found that braking improved, but a turning handbrake slide lost yaw authority and
+continued sideways because braking and steering scale used only the car's forward velocity component.
+The shared rule now reduces the complete planar velocity magnitude without crossing zero, then applies
+the existing 1.0/s handbrake side grip to its travel direction. Steering authority scales from planar
+speed, so a sideways-moving car can keep turning. Reverse steering flips only with at least 0.05 m/s
+of reverse forward-component speed, avoiding direction jitter as a slide rotates through sideways.
+Service braking still wins when it is stronger, throttle remains suppressed, and ordinary commands
+and the four-field network contract are unchanged. The owner's saved tuning resource was not read or
+modified.
+
+Decision 29's full-vector braking invalidated the earlier body comparison's absolute requirement that
+handbrake lateral speed exceed ordinary lateral speed by 1.0 m/s after 0.5 seconds: the complete car
+now deliberately loses 5.0 m/s during that interval. With supervisor approval, the independent slide
+criterion now requires at least four times ordinary lateral speed plus a slip share at least 0.25
+higher. The final kinematic result is 1.070 versus 0.212 m/s and 0.517 versus 0.070 slip share; the
+dynamic result is 0.901 versus 0.212 m/s and 0.489 versus 0.070. A separate public-rule case measures
+a pure sideways 15 m/s car at 5.000 m/s after one second and full-steer yaw at -1.5 rad/s. The old
+absolute-bound failure is retained with the round-2 evidence rather than hidden.
+
+Round 2 directly edited only project-owned scripts and documentation because the Godot editor was
+unavailable; no scene, resource, UID, or saved `user://drive_tuning.tres` data changed.
 
 ## Saved-scene authoring and checks
 

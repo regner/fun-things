@@ -26,6 +26,7 @@ func _enter_tree() -> void:
 func _ready() -> void:  # gdstyle:ignore=quality/await-in-loop
 	dynamic.sampled.connect(_on_solver_sample)
 	_check_handbrake_rule()
+	_check_sideways_handbrake_rule()
 	var passive_origin: Vector3 = passive.global_position
 	await _compare(kinematic)
 	kinematic.retire()
@@ -81,6 +82,28 @@ func _check_handbrake_rule() -> void:
 		"combined_brake_speed_mps": service_braked.length()})
 
 
+## Checks full-vector handbrake scrub and sideways steering through the public rule API.
+func _check_sideways_handbrake_rule() -> void:
+	var command: Dictionary = S04DriveRules.neutral()
+	command.handbrake = true
+	var sideways: Vector3 = Vector3(15.0, 0.0, 0.0)
+	for _tick: int in 60:
+		sideways = S04DriveRules.advance(
+			sideways, 0.0, command, TICK_SECONDS
+		).velocity
+
+	_expect(absf(sideways.length() - 5.0) < 0.05,
+		"sideways handbrake did not scrub 15 m/s to about 5 m/s after one second")
+	command.steer = 1.0
+	var steering: Dictionary = S04DriveRules.advance(
+		Vector3(12.0, 0.0, 0.0), 0.0, command, TICK_SECONDS
+	)
+	_expect(absf(float(steering.yaw_rate) + 1.5) < 0.001,
+		"sideways handbrake slide lost full steering authority")
+	_record({"event": "rule_case", "case": "sideways_handbrake",
+		"one_second_speed_mps": sideways.length(), "yaw_rate": steering.yaw_rate})
+
+
 ## Uses independent speed/heading/contact expectations for both adapters on one authored track.
 func _compare(body: Node3D) -> void:
 	_reset(body, Vector3(15.0, 0.001, 10.0), Vector3.ZERO)
@@ -121,17 +144,27 @@ func _compare_contact(body: Node3D) -> void:  # gdstyle:ignore=quality/await-in-
 	var forward: Dictionary = { "throttle": 1.0, "steer": 0.0,
 		"brake": 0.0, "handbrake": false }
 	var lateral: Array[float] = []
+	var planar_speed: Array[float] = []
 	for sliding: bool in [false, true]:
 		_reset(body, Vector3(15.0, 0.001, 10.0), Vector3(5.0, 0.0, -5.0))
 		var grip: Dictionary = S04DriveRules.neutral()
 		grip.handbrake = sliding
 		# Serial cases must complete before resetting the same engine body.
 		await _advance(body, grip, 30)  # gdstyle:ignore=quality/await-in-loop
-		lateral.append(absf((body.motion_state().velocity as Vector3).x))
+		var velocity: Vector3 = body.motion_state().velocity
+		lateral.append(absf(velocity.x))
+		planar_speed.append(Vector2(velocity.x, velocity.z).length())
 
-	_expect(lateral[1] > lateral[0] + 1.0, body.name + " handbrake did not retain slide")
+	var slip_share: Array[float] = [
+		lateral[0] / planar_speed[0], lateral[1] / planar_speed[1],
+	]
+	_expect(lateral[1] >= lateral[0] * 4.0,
+		body.name + " handbrake did not retain four times ordinary lateral speed")
+	_expect(slip_share[1] >= slip_share[0] + 0.25,
+		body.name + " handbrake did not retain a materially higher slip share")
 	_record({"event": "body_case", "body": body.name, "case": "slide",
-		"ordinary_lateral_mps": lateral[0], "handbrake_lateral_mps": lateral[1]})
+		"ordinary_lateral_mps": lateral[0], "handbrake_lateral_mps": lateral[1],
+		"ordinary_slip_share": slip_share[0], "handbrake_slip_share": slip_share[1]})
 
 	_reset(body, Vector3(0.0, 0.001, -10.0), Vector3.ZERO)
 	await _advance(body, forward, 120)
