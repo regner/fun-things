@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://c0nx7h52ncu3s"]
+
+[ext_resource type="Script" uid="uid://ixxhk1qrxwk0" path="res://tests/fixtures/s13/character.gd" id="1_character"]
+[ext_resource type="PackedScene" uid="uid://b0qh8gck8xfb5" path="res://art/models/characters/s13_humanoid.glb" id="2_model"]
+[ext_resource type="Material" uid="uid://cpn5btw27n5po" path="res://art/materials/s13_ivory.tres" id="3_palette"]
+
+[node name="Character" type="Node3D"]
+script = ExtResource("1_character")
+palette_material = ExtResource("3_palette")
+
+[node name="PresentationAnchor" type="Node3D" parent="."]
+
+[node name="Visuals" type="Node3D" parent="PresentationAnchor"]
+
+[node name="Model" parent="PresentationAnchor/Visuals" instance=ExtResource("2_model")]
+
+[node name="VisibleOnScreenNotifier3D" type="VisibleOnScreenNotifier3D" parent="."]
+aabb = AABB(-0.65, -0.05, -0.65, 1.3, 1.95, 1.3)
