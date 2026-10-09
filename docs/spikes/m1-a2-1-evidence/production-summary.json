@@ -9,7 +9,7 @@
       "--gdstyle",
       "C:\\Users\\regner.blokandersen\\AppData\\Local\\mise\\installs\\github-atelico-gdstyle\\0.3.0\\gdstyle.EXE",
       "--output",
-      "C:\\tmp\\ft\\lanes\\m1-a2-1\\production-final\\script-checks"
+      "C:\\tmp\\ft\\lanes\\m1-a2-1\\production-review-fix\\script-checks"
     ],
     "python_tests": [
       "C:\\Users\\regner.blokandersen\\AppData\\Local\\Programs\\Python\\Python314\\python.exe",
@@ -26,19 +26,19 @@
       "--headless",
       "--editor",
       "--path",
-      "C:\\tmp\\ft\\lanes\\m1-a2-1\\production-final\\script-checks\\compiler-project",
+      "C:\\tmp\\ft\\lanes\\m1-a2-1\\production-review-fix\\script-checks\\compiler-project",
       "--import",
       "--quit",
       "--log-file",
-      "C:\\tmp\\ft\\lanes\\m1-a2-1\\production-final\\gut-import.engine.log"
+      "C:\\tmp\\ft\\lanes\\m1-a2-1\\production-review-fix\\gut-import.engine.log"
     ],
     "gut_tests": [
       "C:\\Users\\regner.blokandersen\\AppData\\Local\\mise\\installs\\github-godotengine-godot-builds\\4.8-dev7\\godot.EXE",
       "--log-file",
-      "C:\\tmp\\ft\\lanes\\m1-a2-1\\production-final\\gut.engine.log",
+      "C:\\tmp\\ft\\lanes\\m1-a2-1\\production-review-fix\\gut.engine.log",
       "--headless",
       "--path",
-      "C:\\tmp\\ft\\lanes\\m1-a2-1\\production-final\\script-checks\\compiler-project",
+      "C:\\tmp\\ft\\lanes\\m1-a2-1\\production-review-fix\\script-checks\\compiler-project",
       "--script",
       "res://addons/gut/gut_cmdln.gd",
       "-gconfig=",
@@ -46,15 +46,15 @@
       "-ginclude_subdirs",
       "-gexit",
       "-gdisable_colors",
-      "-gjunit_xml_file=C:/tmp/ft/lanes/m1-a2-1/production-final/gut-results.xml"
+      "-gjunit_xml_file=C:/tmp/ft/lanes/m1-a2-1/production-review-fix/gut-results.xml"
     ],
     "gut_negative": [
       "C:\\Users\\regner.blokandersen\\AppData\\Local\\mise\\installs\\github-godotengine-godot-builds\\4.8-dev7\\godot.EXE",
       "--log-file",
-      "C:\\tmp\\ft\\lanes\\m1-a2-1\\production-final\\gut-negative.engine.log",
+      "C:\\tmp\\ft\\lanes\\m1-a2-1\\production-review-fix\\gut-negative.engine.log",
       "--headless",
       "--path",
-      "C:\\tmp\\ft\\lanes\\m1-a2-1\\production-final\\script-checks\\compiler-project",
+      "C:\\tmp\\ft\\lanes\\m1-a2-1\\production-review-fix\\script-checks\\compiler-project",
       "--script",
       "res://addons/gut/gut_cmdln.gd",
       "-gconfig=",

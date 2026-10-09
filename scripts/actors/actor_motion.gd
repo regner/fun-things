@@ -14,12 +14,13 @@ const SPEED_MPS: float = 5.0
 ) as PlayerMotionPresentation
 
 
-## Applies one fixed command through the identical authority or permitted replay rule.
+## Applies one command only when its delta matches the active fixed physics step.
 func step(command: FootCommand, delta_seconds: float, mode: StepMode) -> bool:
 	if command == null or not command.is_valid():
 		neutralize()
 		return false
-	if not is_finite(delta_seconds) or delta_seconds <= 0.0:
+	var active_fixed_delta := 1.0 / float(Engine.physics_ticks_per_second)
+	if not is_finite(delta_seconds) or not is_equal_approx(delta_seconds, active_fixed_delta):
 		neutralize()
 		return false
 	if mode != StepMode.AUTHORITY and mode != StepMode.REPLAY:

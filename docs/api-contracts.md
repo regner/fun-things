@@ -429,7 +429,9 @@ boundary. Capture `multiplayer.get_remote_sender_id()` while handling the RPC an
 resolve its admitted participant; never accept a caller-created source over the wire.
 Check sender admission, SessionId/MatchRevision, live EntityRef, life/control revision
 and controller binding before forwarding. Authority remains with the host even when
-a client drives. Delta is the fixed host physics step, never a client value.
+a client drives. Delta is the fixed host physics step, never a client value. `ActorMotion.step`
+accepts a delta only when it approximately matches `1.0 / Engine.physics_ticks_per_second`; it
+rejects the command and neutralizes motion before collision integration on any mismatch.
 
 Production foot-command update, 10 October 2026 (owner decisions 3 and 25; M1-A2.1):
 `FootCommand = {sequence: int, client_tick: int, move: Vector2 (world-relative, length <= 1),

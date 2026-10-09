@@ -7,7 +7,7 @@ was bounded by `timeout`. Runner output originated outside the checkout under
 
 | File | Result |
 | --- | --- |
-| `gut.log` | Focused `tests/unit/actors`: 13/13 tests, 120 assertions passed. |
+| `gut.log` | Focused `tests/unit/actors`: 14/14 tests, 126 assertions passed. |
 | `harness-smoke.log` | Actual saved harness/player moved 0.500 m and exited successfully. |
 | `style.log` | All 53 current project-owned GDScripts passed zero-warning lint. |
 | `production-summary.json` | Canonical layers; known unreconciled asset-production failures remain. |

@@ -68,6 +68,24 @@ func test_invalid_command_is_rejected_and_neutralized() -> void:
 	assert_eq(actor.velocity, Vector3.ZERO)
 
 
+## Rejects a mismatched delta and moves only for the active fixed physics step.
+func test_delta_must_match_active_fixed_physics_step() -> void:
+	var actor: ActorMotion = _add_actor()
+	await get_tree().physics_frame
+	var command := FootCommand.new(1, 1, Vector2.RIGHT, 0.0, false, false)
+	var starting_position := actor.global_position
+	var active_fixed_delta := 1.0 / float(Engine.physics_ticks_per_second)
+
+	assert_true(actor.step(command, active_fixed_delta, ActorMotion.StepMode.AUTHORITY))
+	assert_true(is_equal_approx(actor.velocity.length(), 5.0))
+	assert_gt(actor.global_position.x, starting_position.x)
+	var moved_position := actor.global_position
+
+	assert_false(actor.step(command, active_fixed_delta * 0.5, ActorMotion.StepMode.AUTHORITY))
+	assert_eq(actor.velocity, Vector3.ZERO)
+	assert_eq(actor.global_position, moved_position)
+
+
 ## Uses CharacterBody collision to stop the production capsule at a static world wall.
 func test_character_body_collides_with_static_world() -> void:
 	var actor: ActorMotion = PLAYER_SCENE.instantiate() as ActorMotion
