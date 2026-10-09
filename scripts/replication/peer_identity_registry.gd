@@ -5,7 +5,7 @@ extends RefCounted
 const MAX_PARTICIPANTS: int = 4
 
 var _next_participant_id: int = 1
-var _participant_by_peer: Dictionary[int, int] = { }
+var _participant_by_peer: Dictionary[int, int] = {}
 
 
 ## Admits one native peer with a fresh participant identity owned by this registry.

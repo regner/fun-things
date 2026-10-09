@@ -51,8 +51,7 @@ func test_identity_validators_reject_out_of_range_shapes() -> void:
 	assert_true(ReplicationIdentity.is_valid_entity_ref({ "id": 1, "generation": 1 }))
 	assert_false(ReplicationIdentity.is_valid_entity_ref({ "id": 0, "generation": 1 }))
 	assert_false(ReplicationIdentity.is_valid_entity_ref({ "id": 1, "generation": 0 }))
-	assert_false(
-		ReplicationIdentity.is_valid_entity_ref({ "id": 1, "generation": 1, "extra": true })
-	)
+	var extended_ref: Dictionary = { "id": 1, "generation": 1, "extra": true }
+	assert_false(ReplicationIdentity.is_valid_entity_ref(extended_ref))
 	assert_true(ReplicationIdentity.is_current_envelope(session_id, 2, session_id, 2))
 	assert_false(ReplicationIdentity.is_current_envelope(session_id, 1, session_id, 2))

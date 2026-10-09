@@ -399,6 +399,18 @@ these modes; S03 exercises all four with ENet. A future provider must pass the s
 profile before registration. The fixture's tiny JSON baseline/Variant intent and
 movement codec is not the production codec or a measured maximum transport limit.
 
+M1-A2.2 freezes S11's measured movement layout: a 12-byte header, complete 16-byte rows,
+and at most 1,200 application bytes per chunk. Each row carries entity ID/generation,
+kind/phase/flags, planar X/Z, planar velocity and yaw. X/Z use signed 16-bit two-centimetre
+units around the fixed Brackett origin `(-0.51565, 199.42865)`, covering about ±655 m.
+The codec reserves at least 50 m between every current saved Brackett node origin and
+saturation. A production test traverses the saved city and fails if authored growth enters
+that margin. Runtime values outside the representable domain saturate and increment a
+counter; they never wrap. Full-precision authoritative state remains unchanged, and the
+maximum planar quantization error is 1 cm. The measured row has no Y field, so it makes no
+vertical clamp claim; a later vertical-pose field requires its own measured codec decision
+rather than silently consuming flags or changing this row.
+
 **Split movement decision from S03:** a packet watermark does not imply receipt
 of entities omitted from that packet. Apply freshness per EntityRef/control binding;
 do not discard another entity's row merely because a newer subset arrived. ENet's

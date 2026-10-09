@@ -31,16 +31,19 @@ static func is_valid_session_id(session_id: Variant) -> bool:
 ## Builds one bounded entity reference accepted by the measured movement codec.
 static func entity_ref(entity_id: int, generation: int) -> Dictionary:
 	if not is_valid_entity_ref({ "id": entity_id, "generation": generation }):
-		return { }
+		return {}
 
 	return { "id": entity_id, "generation": generation }
 
 
 ## Validates an exact entity-reference shape and its positive wire ranges.
 static func is_valid_entity_ref(value: Variant) -> bool:
-	if value is not Dictionary or value.size() != 2:
-		return false
-	if not value.has("id") or not value.has("generation"):
+	return value is Dictionary and value.size() == 2 and has_valid_entity_ref_fields(value)
+
+
+## Validates entity-reference fields embedded in a larger fixed record.
+static func has_valid_entity_ref_fields(value: Variant) -> bool:
+	if value is not Dictionary or not value.has("id") or not value.has("generation"):
 		return false
 
 	var entity_id: Variant = value.id
