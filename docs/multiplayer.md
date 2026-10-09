@@ -328,12 +328,12 @@ external-network connectivity.
   `PACKET_THROTTLE_SCALE`. This does not change the lossy contract for unreliable
   held input or motion; never wait indefinitely for a result from one unreliable send.
 
-The [bounded S03-R ENet candidate](spikes/s03-r.md) exercises the actual unchanged
-S02 controller in two headless processes over baseline and impaired UDP delivery.
-Its simulation-response/convergence metrics do not prove visible response, remote
-presentation continuity, prediction corrections or user feel. No production foot
-prediction choice is selected. S03-R remains open for drawable measurements,
-bounded host-tick/held replay mapping if warranted, and the existing Steam/target gates.
+The historical [S03-R ENet candidate](spikes/s03-r.md) first measured the actual
+S02 controller without prediction. S03-P now owns the required foot prediction
+trial: numbered bounded history, processed-input acknowledgement, authoritative
+restore plus permitted replay, and visual-only correction smoothing. Remote actors
+remain interpolated. The fixture evidence does not establish production integration,
+physical input, subjective feel or full-world rollback.
 
 ## Accepted S04 technical boundary
 

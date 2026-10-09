@@ -299,14 +299,12 @@ Actual-camera captures and native focus use separate graphical tools documented 
 [S02 reproducibility](spikes/s02.md#tools-authoring-and-reproducibility); a headless
 API pass cannot substitute for an observed OS focus switch or physical-key Alt-Tab.
 
-Accepted receipts support the bounded desktop technical fixture only. Its 47 m/42°
-camera, speed/turn/follow, marker/cutaway and held silhouettes remain candidates.
-Current native OS focus revalidation is incomplete; historical passes do not close
-it. Physical-key playtesting, human feel/latency, moving-camera/roof/weapon readability
-and LCD/OLED Deck controls/Gaming Mode/native 1280×800/60 FPS remain unproved.
-The fixture's fixed engine-step motion is not a validated arbitrary-delta/prediction
-replay contract; S03-R owns that decision. [S07](spikes/s07.md) preparation supplies
-capacity axes and diagnostic method, with actual measurements still unexecuted.
+This handoff paragraph is historical. The owner later ratified the 47 m/42° fixed
+north-up camera, replaced tank turning with normalized world-relative WASD plus mouse
+facing, and removed the building cutaway. See the current
+[S02 controls record](spikes/s02-controls.md); held silhouettes and physical-key feel,
+native focus, roof/weapon readability and Deck acceptance remain open. S03-P validates
+the shared motion rule's bounded prediction replay separately from this old handoff.
 
 ### S03-R foot-response tooling
 

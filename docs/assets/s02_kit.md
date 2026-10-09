@@ -90,10 +90,11 @@ exports contain no compression extension. Full logs and hashes accompany S02.
 
 Flat source materials use sRGB art swatches converted to linear shader values;
 roughness0.8. Godot default per-asset import settings are retained in sidecars.
-Buildings use per-instance ShaderMaterials reading the imported palette, with a
-30 px actor cutaway. This presentation treatment copies no vertices and changes
-no collision. Its abrupt circular edge and impact on shadows need user visual review.
-No shared imported material is mutated. Costs are unmeasured.
+Historically, buildings used per-instance ShaderMaterials with a 30 px actor
+cutaway. The owner removed that treatment; current fixtures retain the imported
+palette and unchanged collision without a cutaway. See
+[the current S02 controls record](../spikes/s02-controls.md). No shared imported
+material is mutated.
 
 `socket_grip` is authored at (0.43,1.2,-0.6) in imported actor space. The pistol's
 `socket_muzzle_s02_pistol` is (0,0,-0.42) relative to the grip. Editor integration
