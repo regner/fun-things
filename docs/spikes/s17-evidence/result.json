@@ -1,0 +1,694 @@
+{
+  "engine": "4.8.dev7.official.c971f93e7",
+  "seeds": [
+    171,
+    272,
+    373
+  ],
+  "ticks_per_seed": 36000,
+  "simulated_minutes_per_seed": 10,
+  "import": {
+    "ok": true,
+    "returncode": 0,
+    "telemetry": null
+  },
+  "commands": [
+    [
+      "\\Users\\regner.blokandersen\\AppData\\Local\\mise\\installs\\github-godotengine-godot-builds\\4.8-dev7/godot",
+      "--headless",
+      "--path",
+      "C:\\tmp\\ft\\lanes\\s17-host-tick\\reproduction2\\project",
+      "--script",
+      "res://tests/fixtures/s17/run.gd",
+      "--log-file",
+      "C:\\tmp\\ft\\lanes\\s17-host-tick\\reproduction2\\seed-171.engine.log",
+      "--",
+      "--seed",
+      "171",
+      "--output",
+      "C:\\tmp\\ft\\lanes\\s17-host-tick\\reproduction2\\seed-171.json"
+    ],
+    [
+      "\\Users\\regner.blokandersen\\AppData\\Local\\mise\\installs\\github-godotengine-godot-builds\\4.8-dev7/godot",
+      "--headless",
+      "--path",
+      "C:\\tmp\\ft\\lanes\\s17-host-tick\\reproduction2\\project",
+      "--script",
+      "res://tests/fixtures/s17/run.gd",
+      "--log-file",
+      "C:\\tmp\\ft\\lanes\\s17-host-tick\\reproduction2\\seed-272.engine.log",
+      "--",
+      "--seed",
+      "272",
+      "--output",
+      "C:\\tmp\\ft\\lanes\\s17-host-tick\\reproduction2\\seed-272.json"
+    ],
+    [
+      "\\Users\\regner.blokandersen\\AppData\\Local\\mise\\installs\\github-godotengine-godot-builds\\4.8-dev7/godot",
+      "--headless",
+      "--path",
+      "C:\\tmp\\ft\\lanes\\s17-host-tick\\reproduction2\\project",
+      "--script",
+      "res://tests/fixtures/s17/run.gd",
+      "--log-file",
+      "C:\\tmp\\ft\\lanes\\s17-host-tick\\reproduction2\\seed-373.engine.log",
+      "--",
+      "--seed",
+      "373",
+      "--output",
+      "C:\\tmp\\ft\\lanes\\s17-host-tick\\reproduction2\\seed-373.json"
+    ]
+  ],
+  "runs": [
+    {
+      "budget": {
+        "p95_limit_ms": 4.0,
+        "p95_pass": false,
+        "p99_limit_ms": 8.0,
+        "p99_pass": true,
+        "pedestrian_share_ms": 1.0,
+        "traffic_audit_share_ms": 1.5,
+        "traffic_s09_share_ms": 2.0
+      },
+      "combat": {
+        "accepted_shots": 9600,
+        "history_peak_bytes": 2988,
+        "history_samples": 24,
+        "players": 4,
+        "rejected_shots": {},
+        "rewind_queries": 9600
+      },
+      "equivalence": {
+        "combat": {
+          "duplicate": "STALE_SEQUENCE",
+          "nonfinite": "INVALID",
+          "ok": true,
+          "valid": "OK"
+        },
+        "pedestrians": {
+          "maximum_position_error_m": 0.0,
+          "metrics_match": true,
+          "ok": true,
+          "ticks": 120
+        },
+        "traffic": {
+          "adapter_drive_rule_steps": 2880,
+          "maximum_position_error_m": 0.0,
+          "ok": true,
+          "source_drive_rule_steps": 2880,
+          "ticks": 120
+        }
+      },
+      "explosion_chains": [
+        {
+          "completed": 12,
+          "outcome": "OK",
+          "queue_peak": 5,
+          "target_peak": 4,
+          "target_visits": 144,
+          "trigger_tick": 0
+        },
+        {
+          "completed": 12,
+          "outcome": "OK",
+          "queue_peak": 5,
+          "target_peak": 4,
+          "target_visits": 144,
+          "trigger_tick": 7200
+        },
+        {
+          "completed": 12,
+          "outcome": "OK",
+          "queue_peak": 5,
+          "target_peak": 4,
+          "target_visits": 144,
+          "trigger_tick": 14400
+        },
+        {
+          "completed": 12,
+          "outcome": "OK",
+          "queue_peak": 5,
+          "target_peak": 4,
+          "target_visits": 144,
+          "trigger_tick": 21600
+        },
+        {
+          "completed": 12,
+          "outcome": "OK",
+          "queue_peak": 5,
+          "target_peak": 4,
+          "target_visits": 144,
+          "trigger_tick": 28800
+        }
+      ],
+      "failures": [],
+      "pedestrians": {
+        "live": 64,
+        "off_sidewalk_agent_ticks": 0,
+        "retained_dead": 16,
+        "road_outside_crossing_agent_ticks": 0,
+        "slots": 64
+      },
+      "population": {
+        "dead_pedestrians": 16,
+        "moving_cars": 24,
+        "parked_cars": 8,
+        "pedestrians": 64,
+        "players": 4,
+        "rockets": 16,
+        "wrecks": 16
+      },
+      "seed": 171,
+      "simulated_seconds": 600,
+      "snapshot": {
+        "clients_per_tick": 3,
+        "encoded_bytes": 258336000,
+        "entities_per_client_tick": 148,
+        "maximum_packet_bytes": 1196,
+        "packets": 216000
+      },
+      "ticks": 36000,
+      "timing_ms": {
+        "combat": {
+          "count": 36000,
+          "median": 0.041,
+          "p95": 0.115,
+          "p99": 0.203,
+          "worst": 2.746
+        },
+        "explosions": {
+          "count": 36000,
+          "median": 0.006,
+          "p95": 0.012,
+          "p99": 0.028,
+          "worst": 4.157
+        },
+        "pedestrians": {
+          "count": 36000,
+          "median": 1.212,
+          "p95": 2.431,
+          "p99": 3.453,
+          "worst": 25.913
+        },
+        "snapshot_encode": {
+          "count": 36000,
+          "median": 1.004,
+          "p95": 2.045,
+          "p99": 2.893,
+          "worst": 34.948
+        },
+        "total": {
+          "count": 36000,
+          "median": 2.97,
+          "p95": 5.22,
+          "p99": 7.015,
+          "worst": 37.544
+        },
+        "traffic": {
+          "count": 36000,
+          "median": 0.606,
+          "p95": 1.322,
+          "p99": 1.937,
+          "worst": 17.001
+        }
+      },
+      "traffic": {
+        "collisions": 0,
+        "drive_rule_steps": 864000,
+        "gridlock": {
+          "episode_receipts": [],
+          "episodes": 0,
+          "max_stall_seconds": 0.0,
+          "resolved": 0,
+          "unresolved": 0
+        },
+        "moving_cars": 24,
+        "parked_cars": 8
+      },
+      "contention": {
+        "before": {
+          "godot_processes": 3,
+          "cpu_load": {
+            "percent": 46.0,
+            "source": "Win32_Processor"
+          }
+        },
+        "during": {
+          "godot_processes": 4,
+          "cpu_load": {
+            "percent": 77.0,
+            "source": "Win32_Processor"
+          }
+        },
+        "after": {
+          "godot_processes": 3,
+          "cpu_load": {
+            "percent": 5.0,
+            "source": "Win32_Processor"
+          }
+        }
+      },
+      "timing_label": "contended upper bound"
+    },
+    {
+      "budget": {
+        "p95_limit_ms": 4.0,
+        "p95_pass": false,
+        "p99_limit_ms": 8.0,
+        "p99_pass": true,
+        "pedestrian_share_ms": 1.0,
+        "traffic_audit_share_ms": 1.5,
+        "traffic_s09_share_ms": 2.0
+      },
+      "combat": {
+        "accepted_shots": 9600,
+        "history_peak_bytes": 2988,
+        "history_samples": 24,
+        "players": 4,
+        "rejected_shots": {},
+        "rewind_queries": 9600
+      },
+      "equivalence": {
+        "combat": {
+          "duplicate": "STALE_SEQUENCE",
+          "nonfinite": "INVALID",
+          "ok": true,
+          "valid": "OK"
+        },
+        "pedestrians": {
+          "maximum_position_error_m": 0.0,
+          "metrics_match": true,
+          "ok": true,
+          "ticks": 120
+        },
+        "traffic": {
+          "adapter_drive_rule_steps": 2880,
+          "maximum_position_error_m": 0.0,
+          "ok": true,
+          "source_drive_rule_steps": 2880,
+          "ticks": 120
+        }
+      },
+      "explosion_chains": [
+        {
+          "completed": 12,
+          "outcome": "OK",
+          "queue_peak": 5,
+          "target_peak": 4,
+          "target_visits": 144,
+          "trigger_tick": 0
+        },
+        {
+          "completed": 12,
+          "outcome": "OK",
+          "queue_peak": 5,
+          "target_peak": 4,
+          "target_visits": 144,
+          "trigger_tick": 7200
+        },
+        {
+          "completed": 12,
+          "outcome": "OK",
+          "queue_peak": 5,
+          "target_peak": 4,
+          "target_visits": 144,
+          "trigger_tick": 14400
+        },
+        {
+          "completed": 12,
+          "outcome": "OK",
+          "queue_peak": 5,
+          "target_peak": 4,
+          "target_visits": 144,
+          "trigger_tick": 21600
+        },
+        {
+          "completed": 12,
+          "outcome": "OK",
+          "queue_peak": 5,
+          "target_peak": 4,
+          "target_visits": 144,
+          "trigger_tick": 28800
+        }
+      ],
+      "failures": [],
+      "pedestrians": {
+        "live": 64,
+        "off_sidewalk_agent_ticks": 0,
+        "retained_dead": 16,
+        "road_outside_crossing_agent_ticks": 0,
+        "slots": 64
+      },
+      "population": {
+        "dead_pedestrians": 16,
+        "moving_cars": 24,
+        "parked_cars": 8,
+        "pedestrians": 64,
+        "players": 4,
+        "rockets": 16,
+        "wrecks": 16
+      },
+      "seed": 272,
+      "simulated_seconds": 600,
+      "snapshot": {
+        "clients_per_tick": 3,
+        "encoded_bytes": 258336000,
+        "entities_per_client_tick": 148,
+        "maximum_packet_bytes": 1196,
+        "packets": 216000
+      },
+      "ticks": 36000,
+      "timing_ms": {
+        "combat": {
+          "count": 36000,
+          "median": 0.042,
+          "p95": 0.115,
+          "p99": 0.186,
+          "worst": 9.621
+        },
+        "explosions": {
+          "count": 36000,
+          "median": 0.006,
+          "p95": 0.012,
+          "p99": 0.024,
+          "worst": 1.272
+        },
+        "pedestrians": {
+          "count": 36000,
+          "median": 1.242,
+          "p95": 2.366,
+          "p99": 3.344,
+          "worst": 26.217
+        },
+        "snapshot_encode": {
+          "count": 36000,
+          "median": 1.012,
+          "p95": 1.991,
+          "p99": 2.769,
+          "worst": 22.228
+        },
+        "total": {
+          "count": 36000,
+          "median": 2.962,
+          "p95": 5.09,
+          "p99": 6.757,
+          "worst": 36.441
+        },
+        "traffic": {
+          "count": 36000,
+          "median": 0.57,
+          "p95": 1.235,
+          "p99": 1.794,
+          "worst": 14.901
+        }
+      },
+      "traffic": {
+        "collisions": 0,
+        "drive_rule_steps": 864000,
+        "gridlock": {
+          "episode_receipts": [],
+          "episodes": 0,
+          "max_stall_seconds": 0.0,
+          "resolved": 0,
+          "unresolved": 0
+        },
+        "moving_cars": 24,
+        "parked_cars": 8
+      },
+      "contention": {
+        "before": {
+          "godot_processes": 2,
+          "cpu_load": {
+            "percent": 1.0,
+            "source": "Win32_Processor"
+          }
+        },
+        "during": {
+          "godot_processes": 3,
+          "cpu_load": {
+            "percent": 5.0,
+            "source": "Win32_Processor"
+          }
+        },
+        "after": {
+          "godot_processes": 2,
+          "cpu_load": {
+            "percent": 60.0,
+            "source": "Win32_Processor"
+          }
+        }
+      },
+      "timing_label": "contended upper bound"
+    },
+    {
+      "budget": {
+        "p95_limit_ms": 4.0,
+        "p95_pass": false,
+        "p99_limit_ms": 8.0,
+        "p99_pass": true,
+        "pedestrian_share_ms": 1.0,
+        "traffic_audit_share_ms": 1.5,
+        "traffic_s09_share_ms": 2.0
+      },
+      "combat": {
+        "accepted_shots": 9600,
+        "history_peak_bytes": 2988,
+        "history_samples": 24,
+        "players": 4,
+        "rejected_shots": {},
+        "rewind_queries": 9600
+      },
+      "equivalence": {
+        "combat": {
+          "duplicate": "STALE_SEQUENCE",
+          "nonfinite": "INVALID",
+          "ok": true,
+          "valid": "OK"
+        },
+        "pedestrians": {
+          "maximum_position_error_m": 0.0,
+          "metrics_match": true,
+          "ok": true,
+          "ticks": 120
+        },
+        "traffic": {
+          "adapter_drive_rule_steps": 2880,
+          "maximum_position_error_m": 0.0,
+          "ok": true,
+          "source_drive_rule_steps": 2880,
+          "ticks": 120
+        }
+      },
+      "explosion_chains": [
+        {
+          "completed": 12,
+          "outcome": "OK",
+          "queue_peak": 5,
+          "target_peak": 4,
+          "target_visits": 144,
+          "trigger_tick": 0
+        },
+        {
+          "completed": 12,
+          "outcome": "OK",
+          "queue_peak": 5,
+          "target_peak": 4,
+          "target_visits": 144,
+          "trigger_tick": 7200
+        },
+        {
+          "completed": 12,
+          "outcome": "OK",
+          "queue_peak": 5,
+          "target_peak": 4,
+          "target_visits": 144,
+          "trigger_tick": 14400
+        },
+        {
+          "completed": 12,
+          "outcome": "OK",
+          "queue_peak": 5,
+          "target_peak": 4,
+          "target_visits": 144,
+          "trigger_tick": 21600
+        },
+        {
+          "completed": 12,
+          "outcome": "OK",
+          "queue_peak": 5,
+          "target_peak": 4,
+          "target_visits": 144,
+          "trigger_tick": 28800
+        }
+      ],
+      "failures": [],
+      "pedestrians": {
+        "live": 64,
+        "off_sidewalk_agent_ticks": 0,
+        "retained_dead": 16,
+        "road_outside_crossing_agent_ticks": 0,
+        "slots": 64
+      },
+      "population": {
+        "dead_pedestrians": 16,
+        "moving_cars": 24,
+        "parked_cars": 8,
+        "pedestrians": 64,
+        "players": 4,
+        "rockets": 16,
+        "wrecks": 16
+      },
+      "seed": 373,
+      "simulated_seconds": 600,
+      "snapshot": {
+        "clients_per_tick": 3,
+        "encoded_bytes": 258336000,
+        "entities_per_client_tick": 148,
+        "maximum_packet_bytes": 1196,
+        "packets": 216000
+      },
+      "ticks": 36000,
+      "timing_ms": {
+        "combat": {
+          "count": 36000,
+          "median": 0.044,
+          "p95": 0.118,
+          "p99": 0.233,
+          "worst": 4.458
+        },
+        "explosions": {
+          "count": 36000,
+          "median": 0.006,
+          "p95": 0.013,
+          "p99": 0.032,
+          "worst": 1.091
+        },
+        "pedestrians": {
+          "count": 36000,
+          "median": 1.252,
+          "p95": 2.542,
+          "p99": 3.474,
+          "worst": 30.577
+        },
+        "snapshot_encode": {
+          "count": 36000,
+          "median": 1.032,
+          "p95": 2.149,
+          "p99": 2.893,
+          "worst": 13.151
+        },
+        "total": {
+          "count": 36000,
+          "median": 3.084,
+          "p95": 5.354,
+          "p99": 6.917,
+          "worst": 33.275
+        },
+        "traffic": {
+          "count": 36000,
+          "median": 0.575,
+          "p95": 1.303,
+          "p99": 1.847,
+          "worst": 27.92
+        }
+      },
+      "traffic": {
+        "collisions": 0,
+        "drive_rule_steps": 864000,
+        "gridlock": {
+          "episode_receipts": [],
+          "episodes": 0,
+          "max_stall_seconds": 0.0,
+          "resolved": 0,
+          "unresolved": 0
+        },
+        "moving_cars": 24,
+        "parked_cars": 8
+      },
+      "contention": {
+        "before": {
+          "godot_processes": 2,
+          "cpu_load": {
+            "percent": 41.0,
+            "source": "Win32_Processor"
+          }
+        },
+        "during": {
+          "godot_processes": 3,
+          "cpu_load": {
+            "percent": 31.0,
+            "source": "Win32_Processor"
+          }
+        },
+        "after": {
+          "godot_processes": 2,
+          "cpu_load": {
+            "percent": 16.0,
+            "source": "Win32_Processor"
+          }
+        }
+      },
+      "timing_label": "contended upper bound"
+    }
+  ],
+  "aggregate": {
+    "timing_ms": {
+      "pedestrians": {
+        "count": 108000,
+        "median": 1.234,
+        "p95": 2.455,
+        "p99": 3.432,
+        "worst": 30.577
+      },
+      "traffic": {
+        "count": 108000,
+        "median": 0.59,
+        "p95": 1.286,
+        "p99": 1.86,
+        "worst": 27.92
+      },
+      "combat": {
+        "count": 108000,
+        "median": 0.042,
+        "p95": 0.116,
+        "p99": 0.208,
+        "worst": 9.621
+      },
+      "explosions": {
+        "count": 108000,
+        "median": 0.006,
+        "p95": 0.012,
+        "p99": 0.028,
+        "worst": 4.157
+      },
+      "snapshot_encode": {
+        "count": 108000,
+        "median": 1.016,
+        "p95": 2.069,
+        "p99": 2.86,
+        "worst": 34.948
+      },
+      "total": {
+        "count": 108000,
+        "median": 2.999,
+        "p95": 5.233,
+        "p99": 6.901,
+        "worst": 37.544
+      }
+    },
+    "budget": {
+      "total_p95_limit_ms": 4.0,
+      "total_p99_limit_ms": 8.0,
+      "total_p95_pass": false,
+      "total_p99_pass": true,
+      "traffic_audit_share_ms": 1.5,
+      "traffic_audit_share_pass": true,
+      "traffic_s09_share_ms": 2.0,
+      "traffic_s09_share_pass": true,
+      "pedestrian_share_ms": 1.0,
+      "pedestrian_share_pass": false
+    }
+  },
+  "timing_interpretation": "Rows marked contended upper bound had another Godot process observed. CPU-load snapshots are instantaneous and do not prove exclusive machine use.",
+  "failures": []
+}
