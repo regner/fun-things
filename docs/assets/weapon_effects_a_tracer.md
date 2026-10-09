@@ -101,7 +101,10 @@ GUT tests cover immediate play, busy retention, completion once/reuse/clear, sto
 semantics, finite/vertical/translated endpoints, invalid input retaining state, independent
 40-event lifetimes, shared resources, no collision/particles, fixed AABB and saved-scene
 roundtrip ancestry. Canonical production checks also clean-import a test mirror and
-explicitly compile all owned scripts.
+explicitly compile all owned scripts. Final full canonical run: **56/56 GUT tests**
+(including six tracer tests), **898 assertions**, **12 Python tests**, all owned
+formatting/lint/compilation and clean import passed; the intentional negative GUT
+fixture correctly returned 1. See `production-checks.json` for exact commands/results.
 
 ## Tooling and reproduction
 
