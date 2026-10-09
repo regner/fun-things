@@ -1,8 +1,8 @@
 # Off-Shift Worker — first civilian pedestrian
 
 Status, 9 October 2026: approved concept C implemented as a reusable skinned
-presentation asset. Technical and visual self-checks pass; **independent production
-review pending**. Gameplay, crowd spawning, collision, network and device/performance
+presentation asset. Technical and visual checks pass; **independent production
+review accepted**, with no unresolved findings on `723ef39`. Gameplay, crowd spawning, collision, network and device/performance
 acceptance belong to the external integrator.
 
 [Production gallery](../concepts/assets-v1/pedestrian/production.html) ·
@@ -22,7 +22,7 @@ geometry, vertex-region mask, skin weights and NPC clips. No external model, rig
 texture, motion-capture or animation library was used. Blender primitive/sweep tools
 and the committed authoring scripts are the original modelling/animation recipe.
 The shared armature is original project work by the player lead, appended unchanged.
-Regner approves art direction; one independent reviewer checks the production handoff.
+Regner approves art direction; the independent Sol 6.1 high reviewer accepted the scoped production handoff.
 No main merge, push or gameplay integration is included.
 
 Owner model policy: all modelling, skinning and animation work uses Astra. The
@@ -148,7 +148,7 @@ not certify the full project's unrelated scripts, plugins or packaged game. Init
 sandbox socket setup and pre-refresh UID warnings were corrected before the retained
 final checks. Source GLTF exporter reports unavailable optional MeshOptimizer; no
 MeshOptimizer compression/extension is used. No remaining runtime error is suppressed. Pinned gdstyle reports no errors; its
-14 warnings are confined to authoring/check tooling (long functions/lines and the
+19 warnings are confined to authoring/check tooling (long functions/lines and the
 intentional frame-capture await loop). The runtime presentation/preview scripts
 have no style warnings.
 
@@ -163,14 +163,17 @@ refresh an export, as that can replace artist edits or node identities.
 
 Accepted: Regner's concept C selection. Technical self-checks: source/export freshness,
 rig/rest/weight rules, palette reuse, imported clips, source linkage and saved preview.
-Pending: clean-context independent production review; owner's judgement of final art;
-integrator's collision, movement-speed/stride matching, clip transitions under actual
+[Independent production review](pedestrian_worker_a-evidence/independent-review/review.md):
+accepted on immutable `723ef39cac4bf193497dd6a4c07f7bc826d8dff5`, no unresolved findings.
+The initial Inspector palette-refresh defect was fixed and independently rechecked.
+Regner retains final art judgement. Pending external acceptance: integrator's collision, movement-speed/stride matching, clip transitions under actual
 states, crowd variety/readability, lifecycle/network behavior and device performance.
 No gameplay/network gate is closed by this preview.
 
 Catalogue delta for later reconciliation: add `pedestrian_worker_a` → this record,
 family `pedestrian_civilian`, concept C selected, source/prefab/preview paths above.
 TODO delta: concept and first source/import/presentation implementation complete;
-retain production review/final-art acceptance and external integration tasks. Do not
+record independent production acceptance; retain external integration tasks and
+Regner's final art judgement. Do not
 close S13 or any other foundation item. Shared catalogue/TODO/planning files were
 not edited in this worktree.

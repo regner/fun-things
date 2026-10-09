@@ -1,0 +1,34 @@
+Godot Engine v4.8.dev7.official.c971f93e7 - https://godotengine.org
+
+[   0% ] [90m[1mfirst_scan_filesystem[22m | Started Project initialization (5 steps)[39m[0m
+[   0% ] [90m[1mfirst_scan_filesystem[22m | Scanning file structure...[39m[0m
+[  16% ] [90m[1mfirst_scan_filesystem[22m | Loading global class names...[39m[0m
+[  33% ] [90m[1mfirst_scan_filesystem[22m | Verifying GDExtensions...[39m[0m
+[  50% ] [90m[1mfirst_scan_filesystem[22m | Creating autoload scripts...[39m[0m
+[  66% ] [90m[1mfirst_scan_filesystem[22m | Initializing plugins...[39m[0m
+[  83% ] [90m[1mfirst_scan_filesystem[22m | Starting file scan...[39m[0m
+[92m[ DONE ][39m [1mfirst_scan_filesystem[22m
+[0m
+INDEPENDENT_PROBE {"api_edit_updates":true,"bone_count":28,"clips":{"npc/death":{"length":1.6,"loop":0,"paths":["Rig/Skeleton3D:pelvis","Rig/Skeleton3D:pelvis","Rig/Skeleton3D:chest","Rig/Skeleton3D:upper_arm_l","Rig/Skeleton3D:forearm_l","Rig/Skeleton3D:upper_arm_r","Rig/Skeleton3D:forearm_r","Rig/Skeleton3D:thigh_l","Rig/Skeleton3D:shin_l","Rig/Skeleton3D:foot_l","Rig/Skeleton3D:thigh_r","Rig/Skeleton3D:shin_r","Rig/Skeleton3D:foot_r"],"root_error":0.0},"npc/idle":{"length":2.0,"loop":1,"paths":["Rig/Skeleton3D:pelvis","Rig/Skeleton3D:pelvis","Rig/Skeleton3D:chest","Rig/Skeleton3D:upper_arm_l","Rig/Skeleton3D:forearm_l","Rig/Skeleton3D:upper_arm_r","Rig/Skeleton3D:forearm_r","Rig/Skeleton3D:thigh_l","Rig/Skeleton3D:shin_l","Rig/Skeleton3D:foot_l","Rig/Skeleton3D:thigh_r","Rig/Skeleton3D:shin_r","Rig/Skeleton3D:foot_r"],"root_error":0.0},"npc/run":{"length":0.8,"loop":1,"paths":["Rig/Skeleton3D:pelvis","Rig/Skeleton3D:pelvis","Rig/Skeleton3D:chest","Rig/Skeleton3D:upper_arm_l","Rig/Skeleton3D:forearm_l","Rig/Skeleton3D:upper_arm_r","Rig/Skeleton3D:forearm_r","Rig/Skeleton3D:thigh_l","Rig/Skeleton3D:shin_l","Rig/Skeleton3D:foot_l","Rig/Skeleton3D:thigh_r","Rig/Skeleton3D:shin_r","Rig/Skeleton3D:foot_r"],"root_error":0.0},"npc/walk":{"length":1.0,"loop":1,"paths":["Rig/Skeleton3D:pelvis","Rig/Skeleton3D:pelvis","Rig/Skeleton3D:chest","Rig/Skeleton3D:upper_arm_l","Rig/Skeleton3D:forearm_l","Rig/Skeleton3D:upper_arm_r","Rig/Skeleton3D:forearm_r","Rig/Skeleton3D:thigh_l","Rig/Skeleton3D:shin_l","Rig/Skeleton3D:foot_l","Rig/Skeleton3D:thigh_r","Rig/Skeleton3D:shin_r","Rig/Skeleton3D:foot_r"],"root_error":0.0}},"editor_hint":true,"mesh_aabb":"[P: (-0.76869, 0.0, -0.295), S: (1.537381, 1.859, 0.46)]","model_transform":"[X: (1.0, 0.0, 0.0), Y: (0.0, 1.0, 0.0), Z: (0.0, 0.0, 1.0), O: (0.0, 0.0, 0.0)]","property_edit":{"stored_colour":"(1.0, 0.0, 1.0, 1.0)","uniform_after":"(0.9255, 0.6353, 0.2431, 1.0)","uniform_before":"(0.9255, 0.6353, 0.2431, 1.0)","updates_immediately":false},"scene_transform":"[X: (1.0, 0.0, 0.0), Y: (0.0, 1.0, 0.0), Z: (0.0, 0.0, 1.0), O: (0.0, 0.0, 0.0)]","skin_binds":28,"track_paths":[]}
+[   0% ] [90m[1mupdate_scripts_classes[22m | Started Registering global classes... (3 steps)[39m[0m
+[   0% ] [90m[1mupdate_scripts_classes[22m | PedestrianWorkerVisual[39m[0m
+[  25% ] [90m[1mupdate_scripts_classes[22m | PedestrianWorkerPreview[39m[0m
+[  50% ] [90m[1mupdate_scripts_classes[22m | [39m[0m
+[92m[ DONE ][39m [1mupdate_scripts_classes[22m
+[0m
+[   0% ] [90m[1mloading_editor_layout[22m | Started Loading editor (5 steps)[39m[0m
+[   0% ] [90m[1mloading_editor_layout[22m | Loading editor layout...[39m[0m
+[  16% ] [90m[1mloading_editor_layout[22m | Loading docks...[39m[0m
+[92m[ DONE ][39m [1mloading_editor_layout[22m
+[0m
+WARNING: 5 RIDs of type "Canvas" were leaked.
+   at: _free_rids (servers/rendering/renderer_canvas_cull.cpp:2735)
+WARNING: 30 RIDs of type "CanvasItem" were leaked.
+   at: _free_rids (servers/rendering/renderer_canvas_cull.cpp:2735)
+WARNING: 166 ObjectDB instances were leaked at exit (run with `--verbose` for details).
+   at: cleanup (core/object/object.cpp:2604)
+ERROR: 5 RID allocations of type 'N16RendererViewport8ViewportE' were leaked at exit.
+ERROR: 8 RID allocations of type 'PN13RendererDummy14TextureStorage12DummyTextureE' were leaked at exit.
+ERROR: 1 RID allocations of type 'N17RendererSceneCull8ScenarioE' were leaked at exit.
+ERROR: 52 RID allocations of type 'PN18TextServerAdvanced22ShapedTextDataAdvancedE' were leaked at exit.
+ERROR: 1 RID allocations of type 'PN18TextServerAdvanced12FontAdvancedE' were leaked at exit.

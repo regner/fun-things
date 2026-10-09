@@ -26,8 +26,25 @@ tools/pedestrian_civilian/capture_motion.gd
             await RenderingServer.frame_post_draw
       ^
 
+tools/pedestrian_civilian/check_imported_contact.gd
+  11:1 warning function '_check' has 16 local variables (max 10) [quality/max-local-variables]
+      func _check() -> void:
+      ^
+  12:101 warning line is 111 characters long (max 100) [format/max-line-length]
+        var actor: Node3D = load("res://scenes/prefabs/pedestrian_civilian/pedestrian_worker_a.tscn").instantiate()
+                                                                                                           ^
+  34:101 warning line is 130 characters long (max 100) [format/max-line-length]
+                    transforms.append(skeleton.global_transform * skeleton.get_bone_global_pose(bone) * mesh.skin.get_bind_pose(bind))
+                                                                                                                    ^
+  43:16 warning add space after '{' in single-line dictionary literal [format/brace-spacing]
+                rows.append({"clip": clip, "time": time, "world_min_y": minimum})
+                            ^
+  43:67 warning add space before '}' in single-line dictionary literal [format/brace-spacing]
+                rows.append({"clip": clip, "time": time, "world_min_y": minimum})
+                                                                               ^
+
 tools/pedestrian_civilian/check_worker.gd
-  16:1 warning function '_check' is 103 lines long (max 50) [quality/max-function-length]
+  16:1 warning function '_check' is 106 lines long (max 50) [quality/max-function-length]
       func _check() -> void:
       ^
   16:1 warning function '_check' has 25 local variables (max 10) [quality/max-local-variables]
@@ -36,14 +53,14 @@ tools/pedestrian_civilian/check_worker.gd
   49:101 warning line is 125 characters long (max 100) [format/max-line-length]
         var other_mesh: MeshInstance3D = other.get_node("PresentationAnchor/Visuals/Model").find_child("WorkerMesh", true, false)
                                                                                                            ^
-  68:101 warning line is 107 characters long (max 100) [format/max-line-length]
+  71:101 warning line is 107 characters long (max 100) [format/max-line-length]
             _expect(animation.loop_mode == (Animation.LOOP_NONE if clip == "death" else Animation.LOOP_LINEAR),
                                                                                                               ^
-  82:101 warning line is 105 characters long (max 100) [format/max-line-length]
+  85:101 warning line is 105 characters long (max 100) [format/max-line-length]
             _expect(skeleton.get_bone_pose(skeleton.find_bone("root")).is_equal_approx(Transform3D.IDENTITY),
                                                                                                              ^
-  113:101 warning line is 121 characters long (max 100) [format/max-line-length]
+  116:101 warning line is 121 characters long (max 100) [format/max-line-length]
             "clips": clips, "failures": _failures, "scope": "asset preview only; no gameplay/network/performance acceptance"}
                                                                                                               ^
 
-5 files checked, 14 warnings found.
+6 files checked, 19 warnings found.
