@@ -115,10 +115,11 @@ intersections. The world integrator owns CityData and road revisions.
 - [ ] **M1-D2 — Run integrated playtests, reviews and feel tuning.** After: M1-A-GATE, M1-B4,
   M1-C3, M1-C4, RT-10.
 - [ ] **M1-D3 — Verify capacity, adverse-network behavior and performance.** Decision 14 makes
-  S17 host-budget work first production work: **D3.0 starts now**, instrumenting the host tick
-  from the first simulation rows and tracking the soft ~4 ms total host p95 at tunable
-  full-population settings as each simulation row lands and at every checkpoint, with subsystem
-  timings as reports only. Final D3 is the integrated acceptance. Include S05 final-body
+  S17 host-budget work first production work. D3.0 is done: `scripts/diagnostics/` host-tick
+  sections and `tools/host_budget_tracking.py` (first baseline total p95 2.265 ms, headless and
+  contended; see [the D3.0 record](docs/spikes/m1-d3-0.md)). Each later simulation row adds its
+  section and the soft ~4 ms total host p95 is tracked at tunable full-population settings as
+  rows land and at every checkpoint, with subsystem timings as reports only. Final D3 is the integrated acceptance. Include S05 final-body
   chain evidence. Record A1.2's residual: the pinned engine has no configurable native ENet
   receive/reassembly ceiling (see the API contract), so revisit it before any public release. Target capped 60 FPS with p95 ≤16.7 ms and p99 ≤20 ms on named desktop hardware
   across the whole island. Final gate after: M1-D1, M1-D2, M1-B4, M1-C3, M1-C4.
