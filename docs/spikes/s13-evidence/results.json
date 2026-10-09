@@ -1,0 +1,1632 @@
+{
+  "ok": true,
+  "engine": "4.8.dev7.official.c971f93e7",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "processor": "Intel64 Family 6 Model 170 Stepping 4, GenuineIntel",
+  "revision": "13630629f1665629e95b61c82d3ca1853131e4a7",
+  "source_status": "",
+  "warmup_seconds": 5.0,
+  "duration_seconds": 10.0,
+  "repeats": 3,
+  "groups": [
+    "graphical",
+    "headless"
+  ],
+  "import": {
+    "command": [
+      "C:\\Users\\regner.blokandersen\\AppData\\Local\\mise\\installs\\github-godotengine-godot-builds\\4.8-dev7\\godot.EXE",
+      "--headless",
+      "--editor",
+      "--path",
+      "C:\\tmp\\ft\\lanes\\s13-characters\\measurement2\\project",
+      "--import",
+      "--quit",
+      "--log-file",
+      "C:\\tmp\\ft\\lanes\\s13-characters\\measurement2\\import.engine.log"
+    ],
+    "exit": 0,
+    "diagnostics": []
+  },
+  "command": "python tools/s13/run.py --output C:/tmp/ft/lanes/s13-characters/<fresh> --warmup 5 --duration 10 --repeats 3",
+  "cases": [
+    {
+      "name": "graphical-full-1",
+      "ok": true,
+      "exit": 0,
+      "timed_out": false,
+      "diagnostics": [],
+      "system_load": {
+        "concurrent_godot_processes_before_start": 3,
+        "cpu_load_percent_before_start": 41.0,
+        "tasklist_error": null,
+        "cpu_error": null
+      },
+      "distributions": {
+        "draw_calls": {
+          "samples": 524,
+          "median": 163.0,
+          "p95": 163.0,
+          "p99": 163.0,
+          "worst": 163.0
+        },
+        "frame_ms": {
+          "samples": 525,
+          "median": 16.667,
+          "p95": 16.815,
+          "p99": 17.307,
+          "worst": 466.226
+        },
+        "objects": {
+          "samples": 524,
+          "median": 163.0,
+          "p95": 163.0,
+          "p99": 163.0,
+          "worst": 163.0
+        },
+        "physics_ms": {
+          "samples": 525,
+          "median": 0.043,
+          "p95": 0.059,
+          "p99": 0.059,
+          "worst": 0.059
+        },
+        "primitives": {
+          "samples": 524,
+          "median": 64548.0,
+          "p95": 64548.0,
+          "p99": 64548.0,
+          "worst": 64548.0
+        },
+        "process_ms": {
+          "samples": 525,
+          "median": 3.974,
+          "p95": 466.123,
+          "p99": 466.123,
+          "worst": 466.123
+        },
+        "render_cpu_ms": {
+          "samples": 524,
+          "median": 0.730000019073486,
+          "p95": 1.15299999713898,
+          "p99": 1.33700001239777,
+          "worst": 1.39999997615814
+        },
+        "render_gpu_ms": {
+          "samples": 524,
+          "median": 0.921999990940094,
+          "p95": 1.13499999046326,
+          "p99": 1.20500004291534,
+          "worst": 4.45599985122681
+        }
+      },
+      "metadata": {
+        "mode": "full",
+        "display": "Windows",
+        "adapter": "NVIDIA GeForce RTX 4070 Laptop GPU",
+        "api": "12_0",
+        "max_fps": 60,
+        "vsync": 1,
+        "live_count": 68,
+        "dead_count": 16,
+        "active_animation_count": 68,
+        "clips": [
+          "death",
+          "idle",
+          "run",
+          "walk"
+        ],
+        "bones": [
+          "root",
+          "leg_l",
+          "leg_r",
+          "spine",
+          "arm_l",
+          "arm_r",
+          "head"
+        ],
+        "triangles_per_character": 396,
+        "node_count": 847.0,
+        "video_memory_bytes": 96260096.0
+      }
+    },
+    {
+      "name": "graphical-throttled-1",
+      "ok": true,
+      "exit": 0,
+      "timed_out": false,
+      "diagnostics": [],
+      "system_load": {
+        "concurrent_godot_processes_before_start": 3,
+        "cpu_load_percent_before_start": 91.0,
+        "tasklist_error": null,
+        "cpu_error": null
+      },
+      "distributions": {
+        "draw_calls": {
+          "samples": 497,
+          "median": 163.0,
+          "p95": 163.0,
+          "p99": 163.0,
+          "worst": 163.0
+        },
+        "frame_ms": {
+          "samples": 498,
+          "median": 16.666,
+          "p95": 16.827,
+          "p99": 27.571,
+          "worst": 489.009
+        },
+        "objects": {
+          "samples": 497,
+          "median": 163.0,
+          "p95": 163.0,
+          "p99": 163.0,
+          "worst": 163.0
+        },
+        "physics_ms": {
+          "samples": 498,
+          "median": 0.042,
+          "p95": 0.081,
+          "p99": 0.081,
+          "worst": 0.081
+        },
+        "primitives": {
+          "samples": 497,
+          "median": 64548.0,
+          "p95": 64548.0,
+          "p99": 64548.0,
+          "worst": 64548.0
+        },
+        "process_ms": {
+          "samples": 498,
+          "median": 4.896,
+          "p95": 488.88,
+          "p99": 488.88,
+          "worst": 488.88
+        },
+        "render_cpu_ms": {
+          "samples": 497,
+          "median": 0.763000011444092,
+          "p95": 1.28299999237061,
+          "p99": 1.41100001335144,
+          "worst": 1.54100000858307
+        },
+        "render_gpu_ms": {
+          "samples": 497,
+          "median": 0.939999997615814,
+          "p95": 1.19500005245209,
+          "p99": 2.07200002670288,
+          "worst": 2.57999992370605
+        }
+      },
+      "metadata": {
+        "mode": "throttled",
+        "display": "Windows",
+        "adapter": "NVIDIA GeForce RTX 4070 Laptop GPU",
+        "api": "12_0",
+        "max_fps": 60,
+        "vsync": 1,
+        "live_count": 68,
+        "dead_count": 16,
+        "active_animation_count": 30,
+        "clips": [
+          "death",
+          "idle",
+          "run",
+          "walk"
+        ],
+        "bones": [
+          "root",
+          "leg_l",
+          "leg_r",
+          "spine",
+          "arm_l",
+          "arm_r",
+          "head"
+        ],
+        "triangles_per_character": 396,
+        "node_count": 847.0,
+        "video_memory_bytes": 96260096.0
+      }
+    },
+    {
+      "name": "graphical-full-2",
+      "ok": true,
+      "exit": 0,
+      "timed_out": false,
+      "diagnostics": [],
+      "system_load": {
+        "concurrent_godot_processes_before_start": 6,
+        "cpu_load_percent_before_start": 84.0,
+        "tasklist_error": null,
+        "cpu_error": null
+      },
+      "distributions": {
+        "draw_calls": {
+          "samples": 496,
+          "median": 163.0,
+          "p95": 163.0,
+          "p99": 163.0,
+          "worst": 163.0
+        },
+        "frame_ms": {
+          "samples": 496,
+          "median": 16.667,
+          "p95": 16.907,
+          "p99": 454.283,
+          "worst": 485.64
+        },
+        "objects": {
+          "samples": 496,
+          "median": 163.0,
+          "p95": 163.0,
+          "p99": 163.0,
+          "worst": 163.0
+        },
+        "physics_ms": {
+          "samples": 496,
+          "median": 0.046,
+          "p95": 0.885,
+          "p99": 0.885,
+          "worst": 0.885
+        },
+        "primitives": {
+          "samples": 496,
+          "median": 64548.0,
+          "p95": 64548.0,
+          "p99": 64548.0,
+          "worst": 64548.0
+        },
+        "process_ms": {
+          "samples": 496,
+          "median": 4.475,
+          "p95": 468.776,
+          "p99": 468.776,
+          "worst": 468.776
+        },
+        "render_cpu_ms": {
+          "samples": 496,
+          "median": 0.612999975681305,
+          "p95": 1.10599994659424,
+          "p99": 1.38699996471405,
+          "worst": 3.36800003051758
+        },
+        "render_gpu_ms": {
+          "samples": 496,
+          "median": 0.578999996185303,
+          "p95": 1.30200004577637,
+          "p99": 1.48599994182587,
+          "worst": 3.4909999370575
+        }
+      },
+      "metadata": {
+        "mode": "full",
+        "display": "Windows",
+        "adapter": "NVIDIA GeForce RTX 4070 Laptop GPU",
+        "api": "12_0",
+        "max_fps": 60,
+        "vsync": 1,
+        "live_count": 68,
+        "dead_count": 16,
+        "active_animation_count": 68,
+        "clips": [
+          "death",
+          "idle",
+          "run",
+          "walk"
+        ],
+        "bones": [
+          "root",
+          "leg_l",
+          "leg_r",
+          "spine",
+          "arm_l",
+          "arm_r",
+          "head"
+        ],
+        "triangles_per_character": 396,
+        "node_count": 847.0,
+        "video_memory_bytes": 96260096.0
+      }
+    },
+    {
+      "name": "graphical-throttled-2",
+      "ok": true,
+      "exit": 0,
+      "timed_out": false,
+      "diagnostics": [],
+      "system_load": {
+        "concurrent_godot_processes_before_start": 6,
+        "cpu_load_percent_before_start": 0.0,
+        "tasklist_error": null,
+        "cpu_error": null
+      },
+      "distributions": {
+        "draw_calls": {
+          "samples": 523,
+          "median": 163.0,
+          "p95": 163.0,
+          "p99": 163.0,
+          "worst": 163.0
+        },
+        "frame_ms": {
+          "samples": 523,
+          "median": 16.667,
+          "p95": 16.911,
+          "p99": 17.578,
+          "worst": 505.985
+        },
+        "objects": {
+          "samples": 523,
+          "median": 163.0,
+          "p95": 163.0,
+          "p99": 163.0,
+          "worst": 163.0
+        },
+        "physics_ms": {
+          "samples": 523,
+          "median": 0.043,
+          "p95": 0.194,
+          "p99": 0.194,
+          "worst": 0.194
+        },
+        "primitives": {
+          "samples": 523,
+          "median": 64548.0,
+          "p95": 64548.0,
+          "p99": 64548.0,
+          "worst": 64548.0
+        },
+        "process_ms": {
+          "samples": 523,
+          "median": 4.26,
+          "p95": 505.858,
+          "p99": 505.858,
+          "worst": 505.858
+        },
+        "render_cpu_ms": {
+          "samples": 523,
+          "median": 0.930000007152557,
+          "p95": 1.15600001811981,
+          "p99": 1.44000005722046,
+          "worst": 1.51499998569489
+        },
+        "render_gpu_ms": {
+          "samples": 523,
+          "median": 0.990000009536743,
+          "p95": 1.19599997997284,
+          "p99": 2.24200010299683,
+          "worst": 2.50699996948242
+        }
+      },
+      "metadata": {
+        "mode": "throttled",
+        "display": "Windows",
+        "adapter": "NVIDIA GeForce RTX 4070 Laptop GPU",
+        "api": "12_0",
+        "max_fps": 60,
+        "vsync": 1,
+        "live_count": 68,
+        "dead_count": 16,
+        "active_animation_count": 30,
+        "clips": [
+          "death",
+          "idle",
+          "run",
+          "walk"
+        ],
+        "bones": [
+          "root",
+          "leg_l",
+          "leg_r",
+          "spine",
+          "arm_l",
+          "arm_r",
+          "head"
+        ],
+        "triangles_per_character": 396,
+        "node_count": 847.0,
+        "video_memory_bytes": 96260096.0
+      }
+    },
+    {
+      "name": "graphical-full-3",
+      "ok": true,
+      "exit": 0,
+      "timed_out": false,
+      "diagnostics": [],
+      "system_load": {
+        "concurrent_godot_processes_before_start": 4,
+        "cpu_load_percent_before_start": 90.0,
+        "tasklist_error": null,
+        "cpu_error": null
+      },
+      "distributions": {
+        "draw_calls": {
+          "samples": 525,
+          "median": 163.0,
+          "p95": 163.0,
+          "p99": 163.0,
+          "worst": 163.0
+        },
+        "frame_ms": {
+          "samples": 526,
+          "median": 16.666,
+          "p95": 16.829,
+          "p99": 17.719,
+          "worst": 454.515
+        },
+        "objects": {
+          "samples": 525,
+          "median": 163.0,
+          "p95": 163.0,
+          "p99": 163.0,
+          "worst": 163.0
+        },
+        "physics_ms": {
+          "samples": 526,
+          "median": 0.04,
+          "p95": 1.098,
+          "p99": 1.098,
+          "worst": 1.098
+        },
+        "primitives": {
+          "samples": 525,
+          "median": 64548.0,
+          "p95": 64548.0,
+          "p99": 64548.0,
+          "worst": 64548.0
+        },
+        "process_ms": {
+          "samples": 526,
+          "median": 4.867,
+          "p95": 454.4,
+          "p99": 454.4,
+          "worst": 454.4
+        },
+        "render_cpu_ms": {
+          "samples": 525,
+          "median": 0.669000029563904,
+          "p95": 1.04999995231628,
+          "p99": 1.19599997997284,
+          "worst": 2.45199990272522
+        },
+        "render_gpu_ms": {
+          "samples": 525,
+          "median": 0.982999980449677,
+          "p95": 1.14300000667572,
+          "p99": 1.2059999704361,
+          "worst": 2.32299995422363
+        }
+      },
+      "metadata": {
+        "mode": "full",
+        "display": "Windows",
+        "adapter": "NVIDIA GeForce RTX 4070 Laptop GPU",
+        "api": "12_0",
+        "max_fps": 60,
+        "vsync": 1,
+        "live_count": 68,
+        "dead_count": 16,
+        "active_animation_count": 68,
+        "clips": [
+          "death",
+          "idle",
+          "run",
+          "walk"
+        ],
+        "bones": [
+          "root",
+          "leg_l",
+          "leg_r",
+          "spine",
+          "arm_l",
+          "arm_r",
+          "head"
+        ],
+        "triangles_per_character": 396,
+        "node_count": 847.0,
+        "video_memory_bytes": 96260096.0
+      }
+    },
+    {
+      "name": "graphical-throttled-3",
+      "ok": true,
+      "exit": 0,
+      "timed_out": false,
+      "diagnostics": [],
+      "system_load": {
+        "concurrent_godot_processes_before_start": 2,
+        "cpu_load_percent_before_start": 62.0,
+        "tasklist_error": null,
+        "cpu_error": null
+      },
+      "distributions": {
+        "draw_calls": {
+          "samples": 524,
+          "median": 163.0,
+          "p95": 163.0,
+          "p99": 163.0,
+          "worst": 163.0
+        },
+        "frame_ms": {
+          "samples": 525,
+          "median": 16.665,
+          "p95": 16.766,
+          "p99": 17.297,
+          "worst": 479.782
+        },
+        "objects": {
+          "samples": 524,
+          "median": 163.0,
+          "p95": 163.0,
+          "p99": 163.0,
+          "worst": 163.0
+        },
+        "physics_ms": {
+          "samples": 525,
+          "median": 0.04,
+          "p95": 0.078,
+          "p99": 0.078,
+          "worst": 0.078
+        },
+        "primitives": {
+          "samples": 524,
+          "median": 64548.0,
+          "p95": 64548.0,
+          "p99": 64548.0,
+          "worst": 64548.0
+        },
+        "process_ms": {
+          "samples": 525,
+          "median": 4.38,
+          "p95": 479.617,
+          "p99": 479.617,
+          "worst": 479.617
+        },
+        "render_cpu_ms": {
+          "samples": 524,
+          "median": 0.658999979496002,
+          "p95": 1.07299995422363,
+          "p99": 1.26999998092651,
+          "worst": 2.37899994850159
+        },
+        "render_gpu_ms": {
+          "samples": 524,
+          "median": 0.885999977588654,
+          "p95": 1.08599996566772,
+          "p99": 1.12999999523163,
+          "worst": 1.66199994087219
+        }
+      },
+      "metadata": {
+        "mode": "throttled",
+        "display": "Windows",
+        "adapter": "NVIDIA GeForce RTX 4070 Laptop GPU",
+        "api": "12_0",
+        "max_fps": 60,
+        "vsync": 1,
+        "live_count": 68,
+        "dead_count": 16,
+        "active_animation_count": 30,
+        "clips": [
+          "death",
+          "idle",
+          "run",
+          "walk"
+        ],
+        "bones": [
+          "root",
+          "leg_l",
+          "leg_r",
+          "spine",
+          "arm_l",
+          "arm_r",
+          "head"
+        ],
+        "triangles_per_character": 396,
+        "node_count": 847.0,
+        "video_memory_bytes": 96260096.0
+      }
+    },
+    {
+      "name": "headless-full-1",
+      "ok": true,
+      "exit": 0,
+      "timed_out": false,
+      "diagnostics": [],
+      "system_load": {
+        "concurrent_godot_processes_before_start": 3,
+        "cpu_load_percent_before_start": 68.0,
+        "tasklist_error": null,
+        "cpu_error": null
+      },
+      "distributions": {
+        "draw_calls": {
+          "samples": 0,
+          "median": null,
+          "p95": null,
+          "p99": null,
+          "worst": null
+        },
+        "frame_ms": {
+          "samples": 1266,
+          "median": 8.627,
+          "p95": 17.007,
+          "p99": 20.096,
+          "worst": 57.157
+        },
+        "objects": {
+          "samples": 0,
+          "median": null,
+          "p95": null,
+          "p99": null,
+          "worst": null
+        },
+        "physics_ms": {
+          "samples": 1266,
+          "median": 0.908,
+          "p95": 5.066,
+          "p99": 5.066,
+          "worst": 5.066
+        },
+        "primitives": {
+          "samples": 0,
+          "median": null,
+          "p95": null,
+          "p99": null,
+          "worst": null
+        },
+        "process_ms": {
+          "samples": 1266,
+          "median": 5.33,
+          "p95": 10.569,
+          "p99": 10.569,
+          "worst": 10.569
+        },
+        "render_cpu_ms": {
+          "samples": 0,
+          "median": null,
+          "p95": null,
+          "p99": null,
+          "worst": null
+        },
+        "render_gpu_ms": {
+          "samples": 0,
+          "median": null,
+          "p95": null,
+          "p99": null,
+          "worst": null
+        }
+      },
+      "metadata": {
+        "mode": "full",
+        "display": "headless",
+        "adapter": "",
+        "api": "",
+        "max_fps": 1000,
+        "vsync": 1,
+        "live_count": 68,
+        "dead_count": 16,
+        "active_animation_count": 68,
+        "clips": [
+          "death",
+          "idle",
+          "run",
+          "walk"
+        ],
+        "bones": [
+          "root",
+          "leg_l",
+          "leg_r",
+          "spine",
+          "arm_l",
+          "arm_r",
+          "head"
+        ],
+        "triangles_per_character": 396,
+        "node_count": 847.0,
+        "video_memory_bytes": 0.0
+      }
+    },
+    {
+      "name": "headless-throttled-1",
+      "ok": true,
+      "exit": 0,
+      "timed_out": false,
+      "diagnostics": [],
+      "system_load": {
+        "concurrent_godot_processes_before_start": 2,
+        "cpu_load_percent_before_start": 69.0,
+        "tasklist_error": null,
+        "cpu_error": null
+      },
+      "distributions": {
+        "draw_calls": {
+          "samples": 0,
+          "median": null,
+          "p95": null,
+          "p99": null,
+          "worst": null
+        },
+        "frame_ms": {
+          "samples": 1275,
+          "median": 9.242,
+          "p95": 16.418,
+          "p99": 19.706,
+          "worst": 42.746
+        },
+        "objects": {
+          "samples": 0,
+          "median": null,
+          "p95": null,
+          "p99": null,
+          "worst": null
+        },
+        "physics_ms": {
+          "samples": 1275,
+          "median": 1.106,
+          "p95": 2.583,
+          "p99": 2.583,
+          "worst": 2.583
+        },
+        "primitives": {
+          "samples": 0,
+          "median": null,
+          "p95": null,
+          "p99": null,
+          "worst": null
+        },
+        "process_ms": {
+          "samples": 1275,
+          "median": 2.966,
+          "p95": 5.976,
+          "p99": 5.976,
+          "worst": 5.976
+        },
+        "render_cpu_ms": {
+          "samples": 0,
+          "median": null,
+          "p95": null,
+          "p99": null,
+          "worst": null
+        },
+        "render_gpu_ms": {
+          "samples": 0,
+          "median": null,
+          "p95": null,
+          "p99": null,
+          "worst": null
+        }
+      },
+      "metadata": {
+        "mode": "throttled",
+        "display": "headless",
+        "adapter": "",
+        "api": "",
+        "max_fps": 1000,
+        "vsync": 1,
+        "live_count": 68,
+        "dead_count": 16,
+        "active_animation_count": 30,
+        "clips": [
+          "death",
+          "idle",
+          "run",
+          "walk"
+        ],
+        "bones": [
+          "root",
+          "leg_l",
+          "leg_r",
+          "spine",
+          "arm_l",
+          "arm_r",
+          "head"
+        ],
+        "triangles_per_character": 396,
+        "node_count": 847.0,
+        "video_memory_bytes": 0.0
+      }
+    },
+    {
+      "name": "headless-full-2",
+      "ok": true,
+      "exit": 0,
+      "timed_out": false,
+      "diagnostics": [],
+      "system_load": {
+        "concurrent_godot_processes_before_start": 4,
+        "cpu_load_percent_before_start": 0.0,
+        "tasklist_error": null,
+        "cpu_error": null
+      },
+      "distributions": {
+        "draw_calls": {
+          "samples": 0,
+          "median": null,
+          "p95": null,
+          "p99": null,
+          "worst": null
+        },
+        "frame_ms": {
+          "samples": 1264,
+          "median": 8.56,
+          "p95": 16.878,
+          "p99": 19.84,
+          "worst": 34.869
+        },
+        "objects": {
+          "samples": 0,
+          "median": null,
+          "p95": null,
+          "p99": null,
+          "worst": null
+        },
+        "physics_ms": {
+          "samples": 1264,
+          "median": 0.258,
+          "p95": 1.024,
+          "p99": 1.024,
+          "worst": 1.024
+        },
+        "primitives": {
+          "samples": 0,
+          "median": null,
+          "p95": null,
+          "p99": null,
+          "worst": null
+        },
+        "process_ms": {
+          "samples": 1264,
+          "median": 3.751,
+          "p95": 12.215,
+          "p99": 18.025,
+          "worst": 18.025
+        },
+        "render_cpu_ms": {
+          "samples": 0,
+          "median": null,
+          "p95": null,
+          "p99": null,
+          "worst": null
+        },
+        "render_gpu_ms": {
+          "samples": 0,
+          "median": null,
+          "p95": null,
+          "p99": null,
+          "worst": null
+        }
+      },
+      "metadata": {
+        "mode": "full",
+        "display": "headless",
+        "adapter": "",
+        "api": "",
+        "max_fps": 1000,
+        "vsync": 1,
+        "live_count": 68,
+        "dead_count": 16,
+        "active_animation_count": 68,
+        "clips": [
+          "death",
+          "idle",
+          "run",
+          "walk"
+        ],
+        "bones": [
+          "root",
+          "leg_l",
+          "leg_r",
+          "spine",
+          "arm_l",
+          "arm_r",
+          "head"
+        ],
+        "triangles_per_character": 396,
+        "node_count": 847.0,
+        "video_memory_bytes": 0.0
+      }
+    },
+    {
+      "name": "headless-throttled-2",
+      "ok": true,
+      "exit": 0,
+      "timed_out": false,
+      "diagnostics": [],
+      "system_load": {
+        "concurrent_godot_processes_before_start": 3,
+        "cpu_load_percent_before_start": 1.0,
+        "tasklist_error": null,
+        "cpu_error": null
+      },
+      "distributions": {
+        "draw_calls": {
+          "samples": 0,
+          "median": null,
+          "p95": null,
+          "p99": null,
+          "worst": null
+        },
+        "frame_ms": {
+          "samples": 1249,
+          "median": 8.804,
+          "p95": 17.117,
+          "p99": 21.385,
+          "worst": 46.553
+        },
+        "objects": {
+          "samples": 0,
+          "median": null,
+          "p95": null,
+          "p99": null,
+          "worst": null
+        },
+        "physics_ms": {
+          "samples": 1249,
+          "median": 0.347,
+          "p95": 1.278,
+          "p99": 1.278,
+          "worst": 1.278
+        },
+        "primitives": {
+          "samples": 0,
+          "median": null,
+          "p95": null,
+          "p99": null,
+          "worst": null
+        },
+        "process_ms": {
+          "samples": 1249,
+          "median": 2.907,
+          "p95": 46.141,
+          "p99": 46.141,
+          "worst": 46.141
+        },
+        "render_cpu_ms": {
+          "samples": 0,
+          "median": null,
+          "p95": null,
+          "p99": null,
+          "worst": null
+        },
+        "render_gpu_ms": {
+          "samples": 0,
+          "median": null,
+          "p95": null,
+          "p99": null,
+          "worst": null
+        }
+      },
+      "metadata": {
+        "mode": "throttled",
+        "display": "headless",
+        "adapter": "",
+        "api": "",
+        "max_fps": 1000,
+        "vsync": 1,
+        "live_count": 68,
+        "dead_count": 16,
+        "active_animation_count": 30,
+        "clips": [
+          "death",
+          "idle",
+          "run",
+          "walk"
+        ],
+        "bones": [
+          "root",
+          "leg_l",
+          "leg_r",
+          "spine",
+          "arm_l",
+          "arm_r",
+          "head"
+        ],
+        "triangles_per_character": 396,
+        "node_count": 847.0,
+        "video_memory_bytes": 0.0
+      }
+    },
+    {
+      "name": "headless-full-3",
+      "ok": true,
+      "exit": 0,
+      "timed_out": false,
+      "diagnostics": [],
+      "system_load": {
+        "concurrent_godot_processes_before_start": 6,
+        "cpu_load_percent_before_start": 65.0,
+        "tasklist_error": null,
+        "cpu_error": null
+      },
+      "distributions": {
+        "draw_calls": {
+          "samples": 0,
+          "median": null,
+          "p95": null,
+          "p99": null,
+          "worst": null
+        },
+        "frame_ms": {
+          "samples": 1281,
+          "median": 8.524,
+          "p95": 16.086,
+          "p99": 17.824,
+          "worst": 26.708
+        },
+        "objects": {
+          "samples": 0,
+          "median": null,
+          "p95": null,
+          "p99": null,
+          "worst": null
+        },
+        "physics_ms": {
+          "samples": 1281,
+          "median": 0.406,
+          "p95": 1.006,
+          "p99": 1.006,
+          "worst": 1.006
+        },
+        "primitives": {
+          "samples": 0,
+          "median": null,
+          "p95": null,
+          "p99": null,
+          "worst": null
+        },
+        "process_ms": {
+          "samples": 1281,
+          "median": 3.41,
+          "p95": 14.742,
+          "p99": 14.742,
+          "worst": 14.742
+        },
+        "render_cpu_ms": {
+          "samples": 0,
+          "median": null,
+          "p95": null,
+          "p99": null,
+          "worst": null
+        },
+        "render_gpu_ms": {
+          "samples": 0,
+          "median": null,
+          "p95": null,
+          "p99": null,
+          "worst": null
+        }
+      },
+      "metadata": {
+        "mode": "full",
+        "display": "headless",
+        "adapter": "",
+        "api": "",
+        "max_fps": 1000,
+        "vsync": 1,
+        "live_count": 68,
+        "dead_count": 16,
+        "active_animation_count": 68,
+        "clips": [
+          "death",
+          "idle",
+          "run",
+          "walk"
+        ],
+        "bones": [
+          "root",
+          "leg_l",
+          "leg_r",
+          "spine",
+          "arm_l",
+          "arm_r",
+          "head"
+        ],
+        "triangles_per_character": 396,
+        "node_count": 847.0,
+        "video_memory_bytes": 0.0
+      }
+    },
+    {
+      "name": "headless-throttled-3",
+      "ok": true,
+      "exit": 0,
+      "timed_out": false,
+      "diagnostics": [],
+      "system_load": {
+        "concurrent_godot_processes_before_start": 6,
+        "cpu_load_percent_before_start": 77.0,
+        "tasklist_error": null,
+        "cpu_error": null
+      },
+      "distributions": {
+        "draw_calls": {
+          "samples": 0,
+          "median": null,
+          "p95": null,
+          "p99": null,
+          "worst": null
+        },
+        "frame_ms": {
+          "samples": 1256,
+          "median": 8.25,
+          "p95": 16.884,
+          "p99": 21.824,
+          "worst": 40.807
+        },
+        "objects": {
+          "samples": 0,
+          "median": null,
+          "p95": null,
+          "p99": null,
+          "worst": null
+        },
+        "physics_ms": {
+          "samples": 1256,
+          "median": 0.168,
+          "p95": 3.104,
+          "p99": 3.104,
+          "worst": 3.104
+        },
+        "primitives": {
+          "samples": 0,
+          "median": null,
+          "p95": null,
+          "p99": null,
+          "worst": null
+        },
+        "process_ms": {
+          "samples": 1256,
+          "median": 3.984,
+          "p95": 6.338,
+          "p99": 6.338,
+          "worst": 6.338
+        },
+        "render_cpu_ms": {
+          "samples": 0,
+          "median": null,
+          "p95": null,
+          "p99": null,
+          "worst": null
+        },
+        "render_gpu_ms": {
+          "samples": 0,
+          "median": null,
+          "p95": null,
+          "p99": null,
+          "worst": null
+        }
+      },
+      "metadata": {
+        "mode": "throttled",
+        "display": "headless",
+        "adapter": "",
+        "api": "",
+        "max_fps": 1000,
+        "vsync": 1,
+        "live_count": 68,
+        "dead_count": 16,
+        "active_animation_count": 30,
+        "clips": [
+          "death",
+          "idle",
+          "run",
+          "walk"
+        ],
+        "bones": [
+          "root",
+          "leg_l",
+          "leg_r",
+          "spine",
+          "arm_l",
+          "arm_r",
+          "head"
+        ],
+        "triangles_per_character": 396,
+        "node_count": 847.0,
+        "video_memory_bytes": 0.0
+      }
+    }
+  ],
+  "aggregate": {
+    "graphical": {
+      "full": {
+        "runs": 3,
+        "all_ok": true,
+        "telemetry": {
+          "draw_calls": {
+            "samples": 1545,
+            "median": 163.0,
+            "p95": 163.0,
+            "p99": 163.0,
+            "worst": 163.0,
+            "repeat_median": 163.0,
+            "repeat_worst": 163.0
+          },
+          "frame_ms": {
+            "samples": 1547,
+            "median": 16.666,
+            "p95": 16.857,
+            "p99": 18.518,
+            "worst": 485.64,
+            "repeat_median": 16.667,
+            "repeat_worst": 485.64
+          },
+          "objects": {
+            "samples": 1545,
+            "median": 163.0,
+            "p95": 163.0,
+            "p99": 163.0,
+            "worst": 163.0,
+            "repeat_median": 163.0,
+            "repeat_worst": 163.0
+          },
+          "physics_ms": {
+            "samples": 1547,
+            "median": 0.045,
+            "p95": 0.885,
+            "p99": 1.098,
+            "worst": 1.098,
+            "repeat_median": 0.043,
+            "repeat_worst": 1.098
+          },
+          "primitives": {
+            "samples": 1545,
+            "median": 64548.0,
+            "p95": 64548.0,
+            "p99": 64548.0,
+            "worst": 64548.0,
+            "repeat_median": 64548.0,
+            "repeat_worst": 64548.0
+          },
+          "process_ms": {
+            "samples": 1547,
+            "median": 4.304,
+            "p95": 466.123,
+            "p99": 468.776,
+            "worst": 468.776,
+            "repeat_median": 4.475,
+            "repeat_worst": 468.776
+          },
+          "render_cpu_ms": {
+            "samples": 1545,
+            "median": 0.666999995708466,
+            "p95": 1.11500000953674,
+            "p99": 1.33700001239777,
+            "worst": 3.36800003051758,
+            "repeat_median": 0.669000029563904,
+            "repeat_worst": 3.36800003051758
+          },
+          "render_gpu_ms": {
+            "samples": 1545,
+            "median": 0.870000004768372,
+            "p95": 1.19099998474121,
+            "p99": 1.43400001525879,
+            "worst": 4.45599985122681,
+            "repeat_median": 0.921999990940094,
+            "repeat_worst": 4.45599985122681
+          }
+        },
+        "system_load": [
+          {
+            "concurrent_godot_processes_before_start": 3,
+            "cpu_load_percent_before_start": 41.0,
+            "tasklist_error": null,
+            "cpu_error": null
+          },
+          {
+            "concurrent_godot_processes_before_start": 6,
+            "cpu_load_percent_before_start": 84.0,
+            "tasklist_error": null,
+            "cpu_error": null
+          },
+          {
+            "concurrent_godot_processes_before_start": 4,
+            "cpu_load_percent_before_start": 90.0,
+            "tasklist_error": null,
+            "cpu_error": null
+          }
+        ]
+      },
+      "throttled": {
+        "runs": 3,
+        "all_ok": true,
+        "telemetry": {
+          "draw_calls": {
+            "samples": 1544,
+            "median": 163.0,
+            "p95": 163.0,
+            "p99": 163.0,
+            "worst": 163.0,
+            "repeat_median": 163.0,
+            "repeat_worst": 163.0
+          },
+          "frame_ms": {
+            "samples": 1546,
+            "median": 16.666,
+            "p95": 16.833,
+            "p99": 17.661,
+            "worst": 505.985,
+            "repeat_median": 16.666,
+            "repeat_worst": 505.985
+          },
+          "objects": {
+            "samples": 1544,
+            "median": 163.0,
+            "p95": 163.0,
+            "p99": 163.0,
+            "worst": 163.0,
+            "repeat_median": 163.0,
+            "repeat_worst": 163.0
+          },
+          "physics_ms": {
+            "samples": 1546,
+            "median": 0.042,
+            "p95": 0.081,
+            "p99": 0.194,
+            "worst": 0.194,
+            "repeat_median": 0.042,
+            "repeat_worst": 0.194
+          },
+          "primitives": {
+            "samples": 1544,
+            "median": 64548.0,
+            "p95": 64548.0,
+            "p99": 64548.0,
+            "worst": 64548.0,
+            "repeat_median": 64548.0,
+            "repeat_worst": 64548.0
+          },
+          "process_ms": {
+            "samples": 1546,
+            "median": 4.855,
+            "p95": 488.88,
+            "p99": 505.858,
+            "worst": 505.858,
+            "repeat_median": 4.38,
+            "repeat_worst": 505.858
+          },
+          "render_cpu_ms": {
+            "samples": 1544,
+            "median": 0.746999979019165,
+            "p95": 1.24000000953674,
+            "p99": 1.41100001335144,
+            "worst": 2.37899994850159,
+            "repeat_median": 0.763000011444092,
+            "repeat_worst": 2.37899994850159
+          },
+          "render_gpu_ms": {
+            "samples": 1544,
+            "median": 0.947000026702881,
+            "p95": 1.18700003623962,
+            "p99": 1.42200005054474,
+            "worst": 2.57999992370605,
+            "repeat_median": 0.939999997615814,
+            "repeat_worst": 2.57999992370605
+          }
+        },
+        "system_load": [
+          {
+            "concurrent_godot_processes_before_start": 3,
+            "cpu_load_percent_before_start": 91.0,
+            "tasklist_error": null,
+            "cpu_error": null
+          },
+          {
+            "concurrent_godot_processes_before_start": 6,
+            "cpu_load_percent_before_start": 0.0,
+            "tasklist_error": null,
+            "cpu_error": null
+          },
+          {
+            "concurrent_godot_processes_before_start": 2,
+            "cpu_load_percent_before_start": 62.0,
+            "tasklist_error": null,
+            "cpu_error": null
+          }
+        ]
+      }
+    },
+    "headless": {
+      "full": {
+        "runs": 3,
+        "all_ok": true,
+        "telemetry": {
+          "draw_calls": {
+            "samples": 0,
+            "median": null,
+            "p95": null,
+            "p99": null,
+            "worst": null,
+            "repeat_median": null,
+            "repeat_worst": null
+          },
+          "frame_ms": {
+            "samples": 3811,
+            "median": 8.588,
+            "p95": 16.692,
+            "p99": 19.402,
+            "worst": 57.157,
+            "repeat_median": 8.56,
+            "repeat_worst": 57.157
+          },
+          "objects": {
+            "samples": 0,
+            "median": null,
+            "p95": null,
+            "p99": null,
+            "worst": null,
+            "repeat_median": null,
+            "repeat_worst": null
+          },
+          "physics_ms": {
+            "samples": 3811,
+            "median": 0.465,
+            "p95": 2.88,
+            "p99": 5.066,
+            "worst": 5.066,
+            "repeat_median": 0.406,
+            "repeat_worst": 5.066
+          },
+          "primitives": {
+            "samples": 0,
+            "median": null,
+            "p95": null,
+            "p99": null,
+            "worst": null,
+            "repeat_median": null,
+            "repeat_worst": null
+          },
+          "process_ms": {
+            "samples": 3811,
+            "median": 3.94,
+            "p95": 12.215,
+            "p99": 14.742,
+            "worst": 18.025,
+            "repeat_median": 3.751,
+            "repeat_worst": 18.025
+          },
+          "render_cpu_ms": {
+            "samples": 0,
+            "median": null,
+            "p95": null,
+            "p99": null,
+            "worst": null,
+            "repeat_median": null,
+            "repeat_worst": null
+          },
+          "render_gpu_ms": {
+            "samples": 0,
+            "median": null,
+            "p95": null,
+            "p99": null,
+            "worst": null,
+            "repeat_median": null,
+            "repeat_worst": null
+          }
+        },
+        "system_load": [
+          {
+            "concurrent_godot_processes_before_start": 3,
+            "cpu_load_percent_before_start": 68.0,
+            "tasklist_error": null,
+            "cpu_error": null
+          },
+          {
+            "concurrent_godot_processes_before_start": 4,
+            "cpu_load_percent_before_start": 0.0,
+            "tasklist_error": null,
+            "cpu_error": null
+          },
+          {
+            "concurrent_godot_processes_before_start": 6,
+            "cpu_load_percent_before_start": 65.0,
+            "tasklist_error": null,
+            "cpu_error": null
+          }
+        ]
+      },
+      "throttled": {
+        "runs": 3,
+        "all_ok": true,
+        "telemetry": {
+          "draw_calls": {
+            "samples": 0,
+            "median": null,
+            "p95": null,
+            "p99": null,
+            "worst": null,
+            "repeat_median": null,
+            "repeat_worst": null
+          },
+          "frame_ms": {
+            "samples": 3780,
+            "median": 8.652,
+            "p95": 16.739,
+            "p99": 20.805,
+            "worst": 46.553,
+            "repeat_median": 8.804,
+            "repeat_worst": 46.553
+          },
+          "objects": {
+            "samples": 0,
+            "median": null,
+            "p95": null,
+            "p99": null,
+            "worst": null,
+            "repeat_median": null,
+            "repeat_worst": null
+          },
+          "physics_ms": {
+            "samples": 3780,
+            "median": 0.299,
+            "p95": 2.583,
+            "p99": 3.104,
+            "worst": 3.104,
+            "repeat_median": 0.347,
+            "repeat_worst": 3.104
+          },
+          "primitives": {
+            "samples": 0,
+            "median": null,
+            "p95": null,
+            "p99": null,
+            "worst": null,
+            "repeat_median": null,
+            "repeat_worst": null
+          },
+          "process_ms": {
+            "samples": 3780,
+            "median": 3.064,
+            "p95": 7.525,
+            "p99": 46.141,
+            "worst": 46.141,
+            "repeat_median": 2.966,
+            "repeat_worst": 46.141
+          },
+          "render_cpu_ms": {
+            "samples": 0,
+            "median": null,
+            "p95": null,
+            "p99": null,
+            "worst": null,
+            "repeat_median": null,
+            "repeat_worst": null
+          },
+          "render_gpu_ms": {
+            "samples": 0,
+            "median": null,
+            "p95": null,
+            "p99": null,
+            "worst": null,
+            "repeat_median": null,
+            "repeat_worst": null
+          }
+        },
+        "system_load": [
+          {
+            "concurrent_godot_processes_before_start": 2,
+            "cpu_load_percent_before_start": 69.0,
+            "tasklist_error": null,
+            "cpu_error": null
+          },
+          {
+            "concurrent_godot_processes_before_start": 3,
+            "cpu_load_percent_before_start": 1.0,
+            "tasklist_error": null,
+            "cpu_error": null
+          },
+          {
+            "concurrent_godot_processes_before_start": 6,
+            "cpu_load_percent_before_start": 77.0,
+            "tasklist_error": null,
+            "cpu_error": null
+          }
+        ]
+      }
+    },
+    "headless_process_median_delta_ms": 0.8759999999999999
+  }
+}

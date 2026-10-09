@@ -1,0 +1,27 @@
+{
+  "ok": true,
+  "command": [
+    "C:/Program Files/Blender Foundation/Blender 5.2/blender.exe",
+    "-b",
+    "C:\\GameDev\\git\\ft-lanes\\s13-characters\\art\\source\\models\\characters\\s13_humanoid.blend",
+    "--python-exit-code",
+    "1",
+    "--python",
+    "C:\\GameDev\\git\\ft-lanes\\s13-characters\\tools\\s13\\export_humanoid.py",
+    "--",
+    "C:\\tmp\\ft\\lanes\\s13-characters\\reexport1\\s13_humanoid.glb"
+  ],
+  "exit": 0,
+  "animations": [
+    "death",
+    "idle",
+    "run",
+    "walk"
+  ],
+  "extensions": [],
+  "images": [],
+  "byte_identical": true,
+  "source_sha256": "0701eca99837822a877ad18a5989d0ef14c8827959923eda363e38cd7b616a2d",
+  "export_sha256": "98b61c729170a09f718878c0422ee90909ef70e5676518cdc83c16e770859f42",
+  "committed_export_sha256": "98b61c729170a09f718878c0422ee90909ef70e5676518cdc83c16e770859f42"
+}
