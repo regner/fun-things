@@ -29,6 +29,7 @@ FORBIDDEN_NATIVE_NAMES = frozenset({
 })
 ROOT = Path(__file__).resolve().parents[2]
 RESOURCE_PATH = re.compile(r"res://[^\"')\s]+")
+IMPORTED_PATH = re.compile(r'^path="res://([^"]+)"$', re.MULTILINE)
 MAIN_SCENE = re.compile(r'^run/main_scene="(res://[^"]+)"$', re.MULTILINE)
 TEXT_DEPENDENCY_SUFFIXES = frozenset({".gd", ".gdshader", ".tres", ".tscn"})
 
@@ -115,15 +116,37 @@ def project_export_requirements(project_root: Path) -> list[str]:
     return sorted(discovered)
 
 
-def requirement_matches(entries: list[str], resource_path: str) -> list[str]:
+def exported_entry_needles(project_root: Path, resource_path: str) -> list[str]:
+    """Map one source resource to its exact raw, remapped, or imported package names."""
+    source = project_root / resource_path
+    import_sidecar = Path(str(source) + ".import")
+    if import_sidecar.is_file():
+        match = IMPORTED_PATH.search(import_sidecar.read_text(encoding="utf-8"))
+        if match is not None:
+            return [match.group(1)]
+
+    if source.suffix == ".gd":
+        return [resource_path + ".remap", source.with_suffix(".gdc").relative_to(project_root).as_posix()]
+    if source.suffix in TEXT_DEPENDENCY_SUFFIXES:
+        return [resource_path, resource_path + ".remap"]
+    return [resource_path]
+
+
+def requirement_matches(
+    entries: list[str], resource_path: str, project_root: Path = ROOT
+) -> list[str]:
     """Find exported/remapped members corresponding to one source resource path."""
-    needle = resource_path.rsplit(".", maxsplit=1)[0]
-    return [entry for entry in entries if needle in entry]
+    needles = exported_entry_needles(project_root, resource_path)
+    return [entry for entry in entries if entry in needles]
 
 
-def missing_required_entries(entries: list[str], required_paths: list[str]) -> list[str]:
+def missing_required_entries(
+    entries: list[str], required_paths: list[str], project_root: Path = ROOT
+) -> list[str]:
     """Return source requirements with no corresponding package member."""
-    return [path for path in required_paths if not requirement_matches(entries, path)]
+    return [
+        path for path in required_paths if not requirement_matches(entries, path, project_root)
+    ]
 
 
 def inspect(root: Path, project_root: Path = ROOT) -> dict:
@@ -135,7 +158,7 @@ def inspect(root: Path, project_root: Path = ROOT) -> dict:
         package = executable.with_suffix(".pck")
         entries = pck_entries(package)
         leaks = [entry for entry in entries if is_forbidden_export_path(entry)]
-        missing = missing_required_entries(entries, required)
+        missing = missing_required_entries(entries, required, project_root)
         actual_format = executable_format(executable)
         output_leaks = find_forbidden_output_files(executable.parent)
         passed = actual_format == expected_format and not leaks and not missing and not output_leaks
@@ -146,7 +169,7 @@ def inspect(root: Path, project_root: Path = ROOT) -> dict:
             "format": actual_format,
             "pck_entry_count": len(entries),
             "required_matches": {
-                path: requirement_matches(entries, path) for path in required
+                path: requirement_matches(entries, path, project_root) for path in required
             },
             "missing_required_paths": missing,
             "forbidden_pck_entries": leaks,

@@ -38,7 +38,11 @@ class S08XExportInspectionTest(unittest.TestCase):
         ])
 
     def test_reports_missing_main_dependency_from_synthetic_package_listing(self):
-        entries = ["scenes/boot.tscn.remap", "scripts/boot.gdc"]
+        entries = [
+            "scenes/boot.tscn.remap",
+            "scripts/boot.gdc",
+            "scenes/view.gd.remap",
+        ]
         required = ["scenes/boot.tscn", "scripts/boot.gd", "scenes/view.tscn"]
 
         self.assertEqual(
