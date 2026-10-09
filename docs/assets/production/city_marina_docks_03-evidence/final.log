@@ -1,0 +1,43 @@
+city_marina_docks.03 — final bounded production receipt, 10 October 2026
+Working tree: C:/GameDev/git/ft-lanes/a-marina; branch lane/a-marina.
+Pins: Blender 5.2.2 LTS d13f752e3b9c / glTF 5.2.40; Godot 4.8.dev7.official.c971f93e7.
+
+All Blender calls: ALSOFT_DRIVERS=null SDL_AUDIODRIVER=dummy; timeout 900;
+"C:/Program Files/Blender Foundation/Blender 5.2/blender.exe" -noaudio --background
+--factory-startup --threads 4 --python-exit-code 1 --python tools/asset_production/city_marina_docks_03/{step}.py
+- author.py: exit 0, original source saved; final guard uprights inset to remove coplanar overlaps.
+- export.py: exit 0, explicit named collection exported using shared contract.
+- export.py -- C:/tmp/ft/assets/city_marina_docks_03/reexport.glb: exit 0, separate fresh process.
+- validate.py -- C:/tmp/ft/assets/city_marina_docks_03/reexport.glb: exit 0, byte-identical GLB.
+- render.py: exit 0, four final 1280x720 isolated renders; all visually inspected.
+Source: 5280 vertices, 10340 triangles, one mesh / five surfaces; zero nonmanifold edges,
+zero degenerates, consistent winding, unit normals. GLB: 6370 split vertices, 270832 bytes.
+Godot AABB (-1,.25,-4) -> (1,2.483527184,4), dimensions (2,2.233527184,8).
+
+Godot commands use "$(mise which godot)" only:
+- timeout 300 ... --headless --editor --path . --import: exit 0.
+- timeout 180 ... --headless --editor --path . --script tools/asset_production/city_marina_docks_03/check.gd -- --normalize:
+  final exit 0; dependency UIDs, linked model, bounds, materials, collision contracts and
+  two byte-stable load/pack/save/reload cycles pass after final collider-winding correction.
+- timeout 180 ... --headless --path . --script tools/asset_production/city_marina_docks_03/check.gd:
+  two final separate standalone processes exit 0; no script warnings/errors/leaks.
+  Eleven support rays, two blocking rail rays, four clear landing-side rays pass.
+  AUTHORITY and REPLAY: 144 ticks per uphill/downhill traversal, 36 ticks per guard side.
+  Uphill destination (.000014685,1.500513196,6.832562447).
+  Downhill destination (0,.501001239,-7.002119064).
+  Guard stops X=-.5390625 and +.5390625; continuous downward support queries pass.
+- "$(mise which gdstyle)" --max-warnings 0 tools/asset_production/city_marina_docks_03/check.gd:
+  exit 0, zero warnings.
+- timeout 1800 mise exec -- python tools/production_checks.py --output C:/tmp/ft/assets/city_marina_docks_03/checks:
+  exit 0; engine/GUT pins, owned style/lint/explicit compilation, 14 Python tests,
+  75/75 GUT tests / 2041 assertions and intentional negative control all pass.
+
+Corrected initial owned findings: coplanar guard/upright highlights; reversed Godot collider
+winding (detected by support normals/heights and motion); float equality; style warnings.
+Non-blocking tool diagnostics: Blender use_nodes deprecation; addon engine-version warning;
+headless editor shutdown RID/ObjectDB leaks. No suppression; final runtime tests clean.
+Full raw logs and scratch GLB remain under C:/tmp/ft/assets/city_marina_docks_03/.
+
+Pending: independent review, real shore/basin fit, water/fall-off, navigation, actual engine
+camera/actor contrast, packaged/device/Deck/LOD/performance and multiplayer transport checks.
+No live editor/MCP session or other asset was mutated. Detailed commands/contracts: ../city_marina_docks_03.md.
