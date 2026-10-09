@@ -2,7 +2,9 @@
 
 Canonical contended protocol-compliant run: `result.json`, with complete 3,600-tick warmup
 receipts and 36,000 measured tick samples in `seed-171.json`, `seed-272.json`, and
-`seed-373.json`. Each seed has eight measured chains, for 24 total. The matching `.log` and
+`seed-373.json`. Each seed has eight measured chains, for 24 total. Every seed receipt also
+binds S10's continuous owner ticks: warmup ends at -1, measurement spans 0..35,999, and only
+owner ticks 35,700..35,999 suppress new car-contact deaths. The matching `.log` and
 `.engine.log` files contain process output; `import*.log` retain the isolated-project import.
 `SHA256SUMS.txt` binds every retained raw file.
 

@@ -3,11 +3,17 @@ extends RefCounted
 ## Exposes S10's selected graph-kinematic motion as one integrated-tick seam.
 
 const MOTION: String = "graph_kinematic"
+const UNSET_TICK: int = -1_000_000_000
 const BENCHMARK_SCENE: PackedScene = preload("res://tests/fixtures/s10/benchmark.tscn")
 
 var _population: S10Population = S10Population.new()
 var _fixture: Node3D
 var _graph: Dictionary = {}
+var _last_tick: int = UNSET_TICK
+var _warmup_final_tick: int = UNSET_TICK
+var _first_measured_tick: int = UNSET_TICK
+var _measurement_started: bool = false
+var _tick_domain_continuous: bool = true
 
 
 ## Admits current S06 graph data and creates S10's unchanged 64-slot population.
@@ -21,18 +27,45 @@ func begin(fixture: Node3D, seed: int) -> Array[String]:
 	# S10 exposes only a monolithic run API; S17 calls its unchanged per-tick units.
 	_population._reset(_fixture, _graph, seed)
 	_population._spawn_initial_population()
+	_last_tick = UNSET_TICK
+	_warmup_final_tick = UNSET_TICK
+	_first_measured_tick = UNSET_TICK
+	_measurement_started = false
+	_tick_domain_continuous = true
 	return []
 
 
-## Advances S10's normal-play events and graph-kinematic population once.
+## Advances S10 once and asserts continuity across its warmup/measurement boundary.
 func step(tick: int) -> void:
+	if _last_tick != UNSET_TICK:
+		_tick_domain_continuous = _tick_domain_continuous and tick == _last_tick + 1
+		assert(_tick_domain_continuous, "S10 tick domain must remain continuous")
+	if _measurement_started and _first_measured_tick == UNSET_TICK:
+		_first_measured_tick = tick
+		assert(tick == 0, "S10 measurement must begin at tick zero")
+	_last_tick = tick
 	_population._tick(tick, MOTION, false)
 
 
-## Clears only S10 legality counters while retaining warmed population and event state.
-func begin_measurement() -> void:
+## Clears only S10 counters and asserts that warmup ended immediately before tick zero.
+func begin_measurement() -> bool:
+	_warmup_final_tick = _last_tick
+	var boundary_ok: bool = _warmup_final_tick == -1
+	assert(boundary_ok, "S10 warmup must end at tick -1")
+	_measurement_started = true
 	_population._metrics.off_sidewalk_ticks = 0
 	_population._metrics.road_outside_crossing_ticks = 0
+	return boundary_ok
+
+
+## Maps a zero-based warmup sample onto S10's negative pre-measurement tick domain.
+static func warmup_tick(sample: int, warmup_ticks: int) -> int:
+	return sample - warmup_ticks
+
+
+## Maps a zero-based measured sample onto S10's ten-minute owner tick domain.
+static func measured_tick(sample: int) -> int:
+	return sample
 
 
 ## Returns one complete S11 movement row for every live or retained S10 slot.
@@ -63,6 +96,15 @@ func receipt() -> Dictionary:
 		"retained_dead": _population._dead_presentations.size(),
 		"off_sidewalk_agent_ticks": _population._metrics.off_sidewalk_ticks,
 		"road_outside_crossing_agent_ticks": _population._metrics.road_outside_crossing_ticks,
+		"tick_domain": {
+			"warmup_final_tick": _warmup_final_tick,
+			"first_measured_tick": _first_measured_tick,
+			"last_measured_tick": _last_tick,
+			"continuous": _tick_domain_continuous,
+			"car_contact_active_through_tick": (
+				S10Population.SIMULATION_TICKS - S10Population.REPLENISH_DELAY_TICKS - 1),
+			"terminal_suppression_ticks": S10Population.REPLENISH_DELAY_TICKS,
+		},
 	}
 
 

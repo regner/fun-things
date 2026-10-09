@@ -274,6 +274,19 @@ def aggregate(receipts):
     }
 
 
+def valid_pedestrian_tick_domain(receipt):
+    """Require S10's warmed -1-to-0 boundary and intended terminal suppression."""
+    domain = receipt.get("pedestrians", {}).get("tick_domain", {})
+    return domain == {
+        "car_contact_active_through_tick": 35_699,
+        "continuous": True,
+        "first_measured_tick": 0,
+        "last_measured_tick": 35_999,
+        "terminal_suppression_ticks": 300,
+        "warmup_final_tick": -1,
+    }
+
+
 def compact_receipt(receipt, telemetry):
     """Retain outcomes and summaries in aggregate JSON while raw samples stay per seed."""
     compact = {
@@ -369,6 +382,8 @@ def main():
                 receipts.append(receipt)
                 runs.append(compact_receipt(receipt, process_result["telemetry"]))
                 failures.extend(f"seed {seed}: {item}" for item in receipt["failures"])
+                if not valid_pedestrian_tick_domain(receipt):
+                    failures.append(f"seed {seed}: invalid S10 tick-domain boundary")
             if not process_result["ok"] or receipt is None:
                 failures.append(f"seed {seed} process or receipt failed")
 

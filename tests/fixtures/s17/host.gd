@@ -77,7 +77,7 @@ func _adapter_equivalence(seed: int) -> Dictionary:
 ## Advances every composed owner for 3,600 unmeasured ticks and warms both codec paths.
 func _warm_up() -> void:
 	for tick: int in WARMUP_TICKS:
-		_pedestrians.step(tick)
+		_pedestrians.step(S17PedestrianAdapter.warmup_tick(tick, WARMUP_TICKS))
 		_traffic.step(tick)
 		_combat_adapter.step(tick)
 		if tick == 0:
@@ -92,7 +92,8 @@ func _prepare_measurement(failures: Array[String]) -> void:
 	if _current_chain_outcome != "OK" or _damage.completed.size() != 12:
 		failures.append("warmup S05 chain did not settle before measurement")
 	_traffic.begin_measurement()
-	_pedestrians.begin_measurement()
+	if not _pedestrians.begin_measurement():
+		failures.append("S10 warmup did not end at owner tick -1")
 	_combat_adapter.begin_measurement()
 	_start_chain_session()
 	_current_chain_trigger_tick = -1
@@ -129,7 +130,7 @@ func _measure_tick(tick: int, sample: int) -> void:  # gdstyle:ignore=quality/ma
 
 	total_started = Time.get_ticks_usec()
 	section_started = Time.get_ticks_usec()
-	_pedestrians.step(tick)
+	_pedestrians.step(S17PedestrianAdapter.measured_tick(sample))
 	pedestrians_usec = Time.get_ticks_usec() - section_started
 
 	section_started = Time.get_ticks_usec()
@@ -318,6 +319,14 @@ func _validate_receipts(failures: Array[String], receipts: Dictionary) -> void:
 	if pedestrians.slots != 64 or pedestrians.off_sidewalk_agent_ticks != 0 or (
 		pedestrians.road_outside_crossing_agent_ticks != 0):
 		failures.append("pedestrian population or graph legality receipt failed")
+	var pedestrian_ticks: Dictionary = pedestrians.tick_domain
+	if pedestrian_ticks.first_measured_tick != 0 or (
+		pedestrian_ticks.last_measured_tick != MEASURED_TICKS - 1) or (
+		not pedestrian_ticks.continuous) or (
+		pedestrian_ticks.car_contact_active_through_tick != (
+			MEASURED_TICKS - 5 * TICKS_PER_SECOND - 1)) or (
+		pedestrian_ticks.terminal_suppression_ticks != 5 * TICKS_PER_SECOND):
+		failures.append("S10 warmup/measurement tick-domain boundary failed")
 	if traffic.moving_cars != 24 or traffic.parked_cars != 8 or (
 		traffic.drive_rule_steps != 24 * MEASURED_TICKS):
 		failures.append("traffic population or S04 drive-rule receipt failed")

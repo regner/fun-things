@@ -56,6 +56,22 @@ class S17AggregationTests(unittest.TestCase):
         self.assertEqual(Path(command[0]).stem.lower(), "timeout")
         self.assertEqual(command[1:], ["30", "godot", "--version"])
 
+    def test_s10_tick_domain_rejects_absolute_measured_ticks(self):
+        """Keep warmup from shifting S10 beyond its intended ten-minute horizon."""
+        domain = {
+            "car_contact_active_through_tick": 35_699,
+            "continuous": True,
+            "first_measured_tick": 0,
+            "last_measured_tick": 35_999,
+            "terminal_suppression_ticks": 300,
+            "warmup_final_tick": -1,
+        }
+        receipt = {"pedestrians": {"tick_domain": domain}}
+        self.assertTrue(RUNNER.valid_pedestrian_tick_domain(receipt))
+        domain["first_measured_tick"] = 3_600
+        domain["last_measured_tick"] = 39_599
+        self.assertFalse(RUNNER.valid_pedestrian_tick_domain(receipt))
+
 
 if __name__ == "__main__":
     unittest.main()
