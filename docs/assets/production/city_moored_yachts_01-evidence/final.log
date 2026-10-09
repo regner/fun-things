@@ -1,0 +1,80 @@
+city_moored_yachts.01 final producer receipt
+Raw retry/full logs: C:/tmp/ft/assets/city_moored_yachts_01/ (uncommitted scratch).
+Exact reproduction commands and variable expansions: ../city_moored_yachts_01.md.
+
+PINNED TOOLS
+Blender 5.2.2 LTS, d13f752e3b9c; glTF exporter 5.2.40.
+Godot 4.8.dev7.official.c971f93e7, selected with mise which godot.
+gdstyle 0.3.0, selected with mise which gdstyle.
+
+SOURCE / EXPORT
+Final author.py invocation: timeout 900, isolated factory-startup/background Blender,
+threads 4, python-exit-code 1, ALSOFT_DRIVERS=null SDL_AUDIODRIVER=dummy. Exit 0.
+Final validate.py invocation: same Blender setup, timeout 180. Exit 0.
+PASS: topology, normals, independent bounds, GLB content and byte-identical reexport.
+Independent saved-source export.py invocation: timeout 180, exit 0.
+cmp production GLB vs independent-export GLB: exit 0 (byte-identical).
+7,626 triangles; 3,941 source vertices; 4,525 exported vertices; 1 mesh; 7 surfaces.
+0 nonmanifold edges; 0 degenerate source faces/source triangles/exported triangles.
+GLB 197,480 bytes. Full bounds, material values and hashes: validation.json / manifest.json.
+All final renders inspected: hero 1280x720, side 1280x720, detail 1024x576,
+overhead 1280x720 at 47 m / 42-degree vertical FOV. All PNGs <400 KB.
+Pinned Blender use_nodes deprecation advice occurred; no author/validation failure.
+
+ENGINE
+Headless --editor --import --quit: timeout 300, exit 0.
+Headless --editor check_prefab.gd: timeout 180, exit 0, checks passed;
+shutdown has the baseline diagnostics below and is NOT a diagnostic-clean editor run.
+PASS: yacht prefab checks; editor=true; completed ActorMotion cases=0
+Headless runtime check_prefab.gd: timeout 180, exit 0, no ERROR/WARNING/SCRIPT ERROR.
+PASS: yacht prefab checks; editor=false; completed ActorMotion cases=6
+Linked model at identity, source-backed mesh, 7 opaque/back-culled surfaces,
+independent bounds, 3 static collision boxes, UID registration and byte-stable save/reload pass.
+Hull/cabin ray blocking and sphere sweep blocking pass; overhead, underwater, bow-rail
+height and side-clear rays pass. Actual ActorMotion authority/replay endpoints identical:
+hull stop X=2.15039253234863, bow stop Z=-6.57031345367432,
+clear bypass X=-6.00000095367432. Six scenarios, 120 commands each.
+No real transport, actual dock, native renderer or boat mechanics acceptance implied.
+
+EDITOR CONTROL
+A scratch SceneTree control only waits four seconds and quits; it never explicitly
+loads/instantiates yacht resources. Same pinned --headless --editor project, timeout 180.
+CONTROL: no asset resources loaded by the script
+Control and final editor check have the same shutdown diagnostic signature:
+ERROR: 5 RID allocations of type 'N16RendererViewport8ViewportE' were leaked at exit.
+ERROR: 8 RID allocations of type 'PN13RendererDummy14TextureStorage12DummyTextureE' were leaked at exit.
+ERROR: 1 RID allocations of type 'N17RendererSceneCull8ScenarioE' were leaked at exit.
+ERROR: 52 RID allocations of type 'PN18TextServerAdvanced22ShapedTextDataAdvancedE' were leaked at exit.
+ERROR: 1 RID allocations of type 'PN18TextServerAdvanced12FontAdvancedE' were leaked at exit.
+WARNING: 5 RIDs of type "Canvas" were leaked.
+WARNING: 31 RIDs of type "CanvasItem" were leaked.
+WARNING: 168 ObjectDB instances were leaked at exit (run with --verbose for details).
+Both also report the vendor MCP plugin's Godot 4.8 / latest-tested-4.7 advice.
+No live editor/MCP requests were made. CLI auto-started plugins stopped on process exit.
+
+CANONICAL PRODUCTION CHECK (FINAL)
+timeout 1800 env PYTHONUTF8=1 python tools/production_checks.py
+  --godot "$(mise which godot)" --gdstyle "$(mise which gdstyle)"
+  --output C:/tmp/ft/assets/city_moored_yachts_01/checks-final
+Exit 0; all seven summary layers ok=true; no known-failure exemptions used.
+Engine pin: PASS. GUT pin 9.7.1: PASS.
+106/106 owned GDScripts compiled, including city_moored_yachts_01/check_prefab.gd.
+gdstyle: 106 files checked, no issues found; 106 files already formatted.
+Python unittest: Ran 14 tests, OK.
+GUT: 17 scripts, 75 tests, 75 passing tests, 2,041 assertions; All tests passed.
+Negative diagnostic fixture: expected nonzero return code 1 and intentional failure detected.
+Separate owned gdstyle lint + fmt --check: exit 0, no issues, already formatted.
+
+CORRECTED ATTEMPTS (not final passes)
+Initial author review: the thin sheer cap's broad nonplanar cap hid part of the foredeck
+inlay. Replaced with section-following closed geometry and raised the inlay; final
+renders/source/GLB regenerated and validated together.
+Initial editor-mode movement attempt: ActorMotion is non-tool and has no callable step
+in the editor stub. Split editor roundtrip and runtime motion; required six completed
+cases and propagated helper assertion failures before writing a successful receipt.
+First bare production_checks invocation resolved gdvm, not mise, then failed version
+text decoding under cp1252 before running tests. Explicit mise pins + UTF-8 fixed the
+invocation. Both subsequent pinned full production runs passed; final run covers final code.
+
+Remaining gates: independent art/technical review, actual berth placement/clearance,
+in-engine camera/lighting, real weapon/network integration and target-device performance.

@@ -1,0 +1,35 @@
+[gd_scene format=3 uid="uid://d1tdcjio5d6r6"]
+
+[ext_resource type="PackedScene" uid="uid://bm2vno5m2pem7" path="res://art/models/environment/city_moored_yachts_01/city_moored_yachts_01.glb" id="1_model"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_hull"]
+size = Vector3(3.6, 1.25, 9.5)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_bow"]
+size = Vector3(2.5, 1.45, 2.92)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_cabin"]
+size = Vector3(2.7, 1.45, 4.75)
+
+[node name="city_moored_yachts_01" type="Node3D" unique_id=715341525]
+
+[node name="Visuals" type="Node3D" parent="." unique_id=718158872]
+
+[node name="Model" type="Node3D" parent="Visuals" unique_id=192868948 instance=ExtResource("1_model")]
+
+[node name="Collision" type="Node3D" parent="." unique_id=573663007]
+
+[node name="Body" type="StaticBody3D" parent="Collision" unique_id=1523169217]
+collision_mask = 0
+
+[node name="Hull" type="CollisionShape3D" parent="Collision/Body" unique_id=427408475]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.625, 1.45)
+shape = SubResource("BoxShape3D_hull")
+
+[node name="Bow" type="CollisionShape3D" parent="Collision/Body" unique_id=25601014]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.725, -4.76)
+shape = SubResource("BoxShape3D_bow")
+
+[node name="Cabin" type="CollisionShape3D" parent="Collision/Body" unique_id=1926122230]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.975, 0.2)
+shape = SubResource("BoxShape3D_cabin")

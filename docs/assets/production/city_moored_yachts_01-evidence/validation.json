@@ -1,0 +1,255 @@
+{
+  "asset_id": "city_moored_yachts.01",
+  "blender": "5.2.2 LTS",
+  "build_hash": "d13f752e3b9c",
+  "datum": {
+    "bow": "Godot -Z",
+    "draft_m": 1.0,
+    "nominal_envelope_tolerance_m": 0.015,
+    "pivot": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "source_export_tolerance_m": 0.00001,
+    "waterline_y_m": 0.0
+  },
+  "evidence_camera": {
+    "height_m": 47.0,
+    "north_up": true,
+    "render": "isolated Blender; not engine acceptance",
+    "resolution": [
+      1280.0,
+      720.0
+    ],
+    "vertical_fov_degrees": 42.0
+  },
+  "exporter": "5.2.40",
+  "glb": {
+    "bytes": 197480.0,
+    "degenerate_triangles": 0.0,
+    "fresh_saved_source_reexport_byte_identical": true,
+    "materials": [
+      {
+        "name": "hull_ivory",
+        "pbrMetallicRoughness": {
+          "baseColorFactor": [
+            0.879999995231628,
+            0.870000004768372,
+            0.769999980926514,
+            1.0
+          ],
+          "metallicFactor": 0.0799999982118607,
+          "roughnessFactor": 0.310000002384186
+        }
+      },
+      {
+        "name": "waterline_navy",
+        "pbrMetallicRoughness": {
+          "baseColorFactor": [
+            0.025000000372529,
+            0.0450000017881393,
+            0.063000001013279,
+            1.0
+          ],
+          "metallicFactor": 0.0500000007450581,
+          "roughnessFactor": 0.449999988079071
+        }
+      },
+      {
+        "name": "deck_sand",
+        "pbrMetallicRoughness": {
+          "baseColorFactor": [
+            0.379999995231628,
+            0.280000001192093,
+            0.170000001788139,
+            1.0
+          ],
+          "metallicFactor": 0.0,
+          "roughnessFactor": 0.649999976158142
+        }
+      },
+      {
+        "name": "glazing_petrol",
+        "pbrMetallicRoughness": {
+          "baseColorFactor": [
+            0.0179999992251396,
+            0.0659999996423721,
+            0.0810000002384186,
+            1.0
+          ],
+          "metallicFactor": 0.300000011920929,
+          "roughnessFactor": 0.230000004172325
+        }
+      },
+      {
+        "name": "hardware_slate",
+        "pbrMetallicRoughness": {
+          "baseColorFactor": [
+            0.389999985694885,
+            0.469999998807907,
+            0.490000009536743,
+            1.0
+          ],
+          "metallicFactor": 0.649999976158142,
+          "roughnessFactor": 0.300000011920929
+        }
+      },
+      {
+        "name": "upholstery_cream",
+        "pbrMetallicRoughness": {
+          "baseColorFactor": [
+            0.699999988079071,
+            0.670000016689301,
+            0.540000021457672,
+            1.0
+          ],
+          "metallicFactor": 0.0,
+          "roughnessFactor": 0.720000028610229
+        }
+      },
+      {
+        "name": "accent_coral",
+        "pbrMetallicRoughness": {
+          "baseColorFactor": [
+            0.899999976158142,
+            0.189999997615814,
+            0.119999997317791,
+            1.0
+          ],
+          "metallicFactor": 0.0,
+          "roughnessFactor": 0.600000023841858
+        }
+      }
+    ],
+    "max_unit_normal_error": 0.00000014156102134,
+    "meshes": 1.0,
+    "sha256": "7ff0123315fc85a65f31c81df4aaf30544f77e50a864d4ad04a7eeab2b2ca035",
+    "surfaces": 7.0,
+    "triangles": 7626.0,
+    "vertices": 4525.0
+  },
+  "godot": {
+    "authority_replay_endpoints_identical": true,
+    "bounds_match": true,
+    "collision": {
+      "boxes": 3,
+      "layer": 1,
+      "mask": 0,
+      "waterline_base_m": 0
+    },
+    "dependency_uids_resolve": true,
+    "linked_model_identity": true,
+    "meshes": 1,
+    "production_actor_motion": [
+      {
+        "case": "hull_stop",
+        "end": [
+          2.15039253234863,
+          0.550000011920929,
+          0.0
+        ],
+        "mode": 0
+      },
+      {
+        "case": "bow_stop",
+        "end": [
+          0.0,
+          0.550000011920929,
+          -6.57031345367432
+        ],
+        "mode": 0
+      },
+      {
+        "case": "clear_bypass",
+        "end": [
+          -6.00000095367432,
+          0.550000011920929,
+          7.5
+        ],
+        "mode": 0
+      },
+      {
+        "case": "hull_stop",
+        "end": [
+          2.15039253234863,
+          0.550000011920929,
+          0.0
+        ],
+        "mode": 1
+      },
+      {
+        "case": "bow_stop",
+        "end": [
+          0.0,
+          0.550000011920929,
+          -6.57031345367432
+        ],
+        "mode": 1
+      },
+      {
+        "case": "clear_bypass",
+        "end": [
+          -6.00000095367432,
+          0.550000011920929,
+          7.5
+        ],
+        "mode": 1
+      }
+    ],
+    "queries": {
+      "hull_and_cabin_rays_blocked": true,
+      "overhead_underwater_bow_rail_and_side_clear": true,
+      "projectile_sweep_blocked": true
+    },
+    "save_reload_byte_stable": true,
+    "scope": "Saved player ActorMotion authority/replay; no transport or weapons-system proof",
+    "surfaces": 7,
+    "version": "4.8-dev7 (official)"
+  },
+  "godot_axis_bounds": {
+    "max": [
+      1.89999997615814,
+      3.09999990463257,
+      6.19999980926514
+    ],
+    "min": [
+      -1.89999997615814,
+      -1.0,
+      -6.21215152740479
+    ],
+    "size": [
+      3.79999995231628,
+      4.09999990463257,
+      12.4121513366699
+    ]
+  },
+  "pending": [
+    "independent review",
+    "actual dock placement and clearance",
+    "production actor/weapon and network checks",
+    "target-device performance"
+  ],
+  "source": {
+    "bounds_blender": {
+      "max": [
+        1.89999997615814,
+        6.21215152740479,
+        3.09999990463257
+      ],
+      "min": [
+        -1.89999997615814,
+        -6.19999980926514,
+        -1.0
+      ]
+    },
+    "degenerate_faces": 0.0,
+    "degenerate_triangles": 0.0,
+    "material_surfaces": 7.0,
+    "max_unit_normal_error": 0.00000017698040866,
+    "mesh_count": 1.0,
+    "nonmanifold_edges": 0.0,
+    "triangles": 7626.0,
+    "vertices": 3941.0
+  }
+}
