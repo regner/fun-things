@@ -1,0 +1,50 @@
+{
+  "cwd": "/home/regner/.paseo/worktrees/0u71f39f/brackett-greybox",
+  "commands": [
+    {
+      "argv": ["timeout", "90s", "blender", "--factory-startup", "-b", "-noaudio", "-t", "2", "--python", "/tmp/brackett-height-review/reexport_three.py"],
+      "environment": {
+        "ALSOFT_DRIVERS": "null",
+        "XDG_CONFIG_HOME": "/tmp/brackett-height-review/config",
+        "XDG_CACHE_HOME": "/tmp/brackett-height-review/cache",
+        "XDG_DATA_HOME": "/tmp/brackett-height-review/data"
+      },
+      "exit_status": 0,
+      "stdout_stderr": "blender.log",
+      "receipts": ["fresh_export.json", "exports/office.glb", "exports/tower_mid.glb", "exports/tower_high.glb"]
+    },
+    {
+      "argv": ["python", "/tmp/brackett-height-review/static_review.py"],
+      "exit_status": 0,
+      "receipt": "static_checks.json",
+      "note": "Final bounded GLB/static check passed. Two exploratory runs first asserted exact and then 1e-5 normal equality; both exited1 because exporter normal rounding differs by up to 0.000134. Final check requires unit normals and retains actual geometry/material comparisons. These exploratory comparison failures are not asset failures or acceptance runs."
+    },
+    {
+      "argv": ["python", "-"],
+      "exit_status": 0,
+      "receipt": "static_checks.json",
+      "stdout": "PASS 3 GLB/collision matches; all 40 fingerprints; 47 unchanged scenes, 3 identity-preserving wrappers",
+      "note": "Inline collision/fingerprint verifier preserved verbatim as collision_fingerprints.py afterward; that saved file was not rerun."
+    },
+    {
+      "argv": ["git", "status", "--short"],
+      "exit_status": 0,
+      "stdout": "",
+      "note": "Read-only review kept the worktree clean."
+    }
+  ],
+  "explicit_evidence_files": [
+    "verdict.txt",
+    "commands.json",
+    "reexport_three.py",
+    "static_review.py",
+    "collision_fingerprints.py",
+    "blender.log",
+    "fresh_export.json",
+    "static_checks.json",
+    "exports/office.glb",
+    "exports/tower_mid.glb",
+    "exports/tower_high.glb"
+  ],
+  "coverage_limits": "No fresh reviewer Godot process or editor connection. Producer editor/import/ray/capture receipts were inspected and matched where applicable. No gameplay, moving-camera, actor/vehicle readability, multiplayer, device/performance, production-art or owner visual acceptance claim. Source model and export queries only; no spatial authoring."
+}

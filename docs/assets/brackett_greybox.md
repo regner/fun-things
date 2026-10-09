@@ -324,3 +324,33 @@ all processes being reaped was inaccurate. They were waiting with completed outp
 not performing ongoing authoring; no process was killed or another workspace touched.
 The headless editor still emits dummy-renderer thumbnail diagnostics during successful
 saves. The successful fresh graphical capture is the visual evidence.
+
+### Renewed independent disposition
+
+**Technically accepted, greybox height revision only**, by clean-context
+`/root/height_review`, Sol 6.1 high, candidate
+`21fd536aa4415488d2d06b05ee0a8e3b7cf5227f` against
+`cf6dae7a420ec477dd85654b615e0fb296ed8aaa`. No observed P1/P2/P3 defects.
+The reviewer independently re-exported the three collections from the saved Blender
+source (exit 0; all three GLBs byte-identical), decoded actual mesh vertices and
+matched collision boxes, checked all 40 source/export fingerprints and unchanged
+import sidecars, confirmed 47 unchanged scenes and preserved identities in the three
+changed wrappers, and inspected the overview and district 04 images. Two exploratory
+exact-normal comparison assertions were too strict for exporter rounding (maximum
+component delta 0.000134); the final checks verified unit normals and actual geometry.
+Those attempts and all bounded coverage are disclosed in the retained report.
+No fresh reviewer Godot process ran: producer editor/ray/capture receipts were
+inspected, with six current scene hashes matching the stability receipt.
+
+Complete report, check sources, raw Blender log, command/exit receipt, three fresh
+outputs and verified evidence-file hashes are under
+[height_revision/independent/](../../art/source/models/brackett_greybox/review/height_revision/independent/).
+All 11 declared evidence files were copied verbatim and read back successfully.
+This metadata-only review recording does not modify the reviewed asset bytes.
+
+The private revision editor (PID 97721) quit normally through its own Godot API
+with exit 0 after all scenes were saved; ports 16650–16654 were checked free and
+released to the coordinator. Four completed-output Blender shutdown waiters remain
+(52459, 52805, 66150, 97438), left untouched. No live Godot editor is required to
+open the committed preview. Owner visual selection and all previously listed
+camera/gameplay/vehicle/device gates remain pending.

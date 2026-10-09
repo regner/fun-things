@@ -1,0 +1,28 @@
+Independent Glassward height revision review — 9 October 2026
+Reviewer: /root/height_review, Sol 6.1 high, read-only technical review.
+Base: cf6dae7a420ec477dd85654b615e0fb296ed8aaa
+Candidate: 21fd536aa4415488d2d06b05ee0a8e3b7cf5227f
+Verdict: accepted as a bounded technical greybox height checkpoint; no observed P1/P2/P3 defects within scope. Owner height/density selection and gameplay/integration acceptance remain pending.
+
+Independently checked:
+- Saved district_04_kit.blend loaded under pinned Blender 5.2.2 LTS build d13f752e3b9c in private XDG dirs, factory startup, noaudio and ALSOFT_DRIVERS=null. No source or worktree mutation.
+- Three declared export collections have exactly the recorded members, unit object scale/zero object rotation, unit scene scale. Fresh exports of office/tower_mid/tower_high reproduce committed GLBs byte-for-byte; process exit 0. Optional MeshOptimizer missing diagnostic retained; outputs have no compression extensions.
+- Decoded actual GLB vertex data and translations, not only declared accessor bounds. Every corresponding X/Z vertex and material definition preserved versus base. Actual bounds: office24x42x22m at ground0; tower_mid podium28x6x26m and shaft17.08x62x15.86m spanningY6..68; tower_high podium30x6x28m and shaft18.3x84x17.08m spanningY6..90. Normals remain unit length; tiny exporter-normal rounding differs, maximum component delta 0.000134, with no observed defect.
+- Each actual visual object AABB matches its saved collision box within 0.00001 m. Collision shape parentage remains Collision/Solid/Envelope*, layer1/mask0.
+- All 40 source/export SHA256 fingerprints match current files. All 40 import sidecars base-identical. Source manifest unchanged.
+-47 of 50 scenes base-identical. The three changed wrappers preserve saved resource/dependency UIDs, subresource/extresource IDs and node unique_ids; only height and vertical centre changed. All nine district scenes, city and preview are byte-identical to base. Glassward remains26 offices + 3 mid towers; high tower unplaced. Placement IDs/transforms and all road/coast/other district geometry are unchanged.
+- Six current scene hashes match producer's editor-stability receipt. Inspected producer's 18 successful second-pass roundtrip responses, graphical capture log and physics log; no runtime warnings/errors in the latter two. Did not independently connect to or run Godot, so producer editor/import/ray process outcomes are disclosed reliance, not fresh reviewer gameplay tests.
+- Visually inspected current actual overview.png and district_04.png at 1280x800. Overview clearly shows taller downtown; district04 retains visible street strip with very large projected walls and deep shadows at 47 m / 42 degrees. Accepted brief explicitly allows towers at/past camera height; no invented below-camera ceiling imposed. This static view does not demonstrate follow transitions or target visibility around all tower sites.
+
+Evidence generated only in /tmp/brackett-height-review/: fresh_export.json, blender.log, exports/{office,tower_mid,tower_high}.glb, static_checks.json, reexport_three.py, static_review.py, verdict.txt.
+Producer evidence inspected in art/source/models/brackett_greybox/review/height_revision/: editor_stability.json, height-roundtrip.jsonl.gz, height-capture.stdout.log.gz, height-check.stdout.log.gz; current review/capture.json and overview.png/district_04.png.
+Worktree remained clean; no editor ports contacted, no other processes killed.
+
+Handoff dispositions:
+- Source/export/collision/saved identity height revision: technically accepted, greybox-only.
+- Static skyline and actual saved-camera evidence: inspected; owner's artistic selection pending.
+- Moving-camera occlusion, actor/vehicle readability, movement, traversal/large vehicle clearances, multiplayer, performance/device/export proof: pending with external integrator/downstream tasks; no acceptance claim and no observed failure asserted.
+- Rigs, animations, sockets, external textures, mesh VFX: not applicable to static neutral architecture.
+
+Reproduction/process receipt:
+See commands.json for explicit argv/environment, recorded exits, exploratory comparison limits and complete new evidence file list. The collision/fingerprint check was executed as python-stdin and is preserved as collision_fingerprints.py without rerunning. Blender raw stdout/stderr was retained directly. The final static and collision assertions exited0; two earlier exploratory exact-normal comparison assertions exited1 before the tiny rounding tolerance was correctly scoped. No claim is made that normals are bit-identical to base.
