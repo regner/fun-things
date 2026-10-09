@@ -1,0 +1,52 @@
+d06_poster_drum.01 — concise producer validation receipt
+
+Blender: 5.2.2 LTS / d13f752e3b9c; glTF exporter 5.2.40.
+Author: exit 0; source, explicit GLB and four renders produced.
+Validate: exit 0; 2296 triangles, 1152 source vertices, 1556 GLB vertices,
+2 meshes / 3 surfaces / 2 materials, zero degenerate faces/triangles,
+zero nonmanifold edges, unit normals, ground datum and approved bounds pass.
+Fresh source reexport byte-identical; 66628 bytes;
+SHA256 ab56993ceb0d5f1bda0cfba57110b7ca15aae46ebda36818c4bf457c86bbdf3b.
+Blender author warnings: use_nodes deprecation for Blender 6.0; current pinned export passes.
+
+Godot pin: 4.8.dev7.official.c971f93e7.
+Headless import: exit 0, no missing assets; toolkit version warning retained.
+Headless editor check_prefab.gd: exit 0, all assertions pass:
+- linked identity model, source-backed meshes and expected imported bounds;
+- separate radius .45 m / height 1.45 m cylinder, layer 1 / mask 0;
+- center ray hit, side ray clear, overhead ray clear;
+- scene/model UIDs resolve; pack-save-reload-resave bytes stable.
+Headless editor shutdown is NOT diagnostic-clean:
+WARNING: [MCP] Godot 4.8 detected - latest tested version is 4.7.0.
+ERROR: 5 RendererViewport Viewport RID allocations leaked at exit.
+ERROR: 8 RendererDummy DummyTexture RID allocations leaked at exit.
+ERROR: 1 RendererSceneCull Scenario RID allocation leaked at exit.
+ERROR: 52 TextServerAdvanced ShapedTextDataAdvanced RID allocations leaked at exit.
+ERROR: 1 TextServerAdvanced FontAdvanced RID allocation leaked at exit.
+WARNING: 5 Canvas RIDs and 31 CanvasItem RIDs leaked; 168 ObjectDB instances leaked.
+These follow the passing custom editor-script checks; not reported as a clean editor exit.
+Separate headless runtime prefab load: exit 0, no ERROR/WARNING/missing-dependency diagnostics.
+Final explicit --check-only script compilation: exit 0, no diagnostics.
+Final gdstyle 0.3.0: 1 file already formatted; 1 file checked, no issues found.
+
+Canonical production_checks.py (checks-complete): exit 1.
+Engine pin and GUT 9.7.1 pin pass. Python: 9 tests PASS.
+GUT import PASS; 9 tests / 70 assertions PASS; intentional negative case detected PASS.
+46-script lint PASS; owned drum check script compilation PASS.
+Only pre-existing failures:
+- formatting: tests/fixtures/asset_production/batch_observation.gd,
+  tools/asset_production/integration/batch03_author.gd and integration/inspector.gd;
+- compile: tests/fixtures/asset_production/batch_02_observation.gd,
+  batch_02_process_probe.gd, batch_03_observation.gd,
+  batch_03_process_probe.gd, batch_observation.gd:
+  unresolved historical S02ActorMotion / S02AimProbe types.
+No shared file was edited to hide those failures.
+
+Corrected local attempts: runtime-mode resource save stripped/missed UIDs, fixed by
+--editor normalization; type inference fixed with explicit Node3D; function-size,
+spacing and wait-loop lint addressed. Startup filesystem_changed wait stalled;
+final bounded frame polling passes (one purpose-commented await-in-loop exemption).
+One initial failed assertion was externally timed out, producing shutdown errors;
+final check has its own 30-second failure deadline. No unchanged failing step repeated.
+Full transient logs/check mirrors: C:/tmp/ft/assets/d06_poster_drum_01/ (not committed).
+All four isolated Blender renders visually inspected; gameplay/world/device review pending.
