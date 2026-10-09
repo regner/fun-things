@@ -1,0 +1,50 @@
+[gd_scene format=3 uid="uid://7ca4ulfovoo2"]
+
+[ext_resource type="PackedScene" uid="uid://54i1fprfoqch" path="res://scenes/audio/audio_voice_service.tscn" id="1_service"]
+[ext_resource type="PackedScene" uid="uid://c5vxpmbyvooi5" path="res://scenes/audio/state_audio_emitter_3d.tscn" id="2_emitter"]
+[ext_resource type="AudioStream" uid="uid://0qmurgnpcrdb" path="res://tests/unit/audio/audio/policy_test_tone.wav" id="3_tone"]
+
+[node name="AudioVoiceTest" type="Node3D"]
+
+[node name="VoiceService" parent="." instance=ExtResource("1_service")]
+unique_name_in_owner = true
+
+[node name="Emitter01" parent="." instance=ExtResource("2_emitter")]
+position = Vector3(1, 0, 0)
+stream = ExtResource("3_tone")
+
+[node name="Emitter02" parent="." instance=ExtResource("2_emitter")]
+position = Vector3(2, 0, 0)
+stream = ExtResource("3_tone")
+
+[node name="Emitter03" parent="." instance=ExtResource("2_emitter")]
+position = Vector3(3, 0, 0)
+stream = ExtResource("3_tone")
+
+[node name="Emitter04" parent="." instance=ExtResource("2_emitter")]
+position = Vector3(4, 0, 0)
+stream = ExtResource("3_tone")
+
+[node name="Emitter05" parent="." instance=ExtResource("2_emitter")]
+position = Vector3(5, 0, 0)
+stream = ExtResource("3_tone")
+
+[node name="Emitter06" parent="." instance=ExtResource("2_emitter")]
+position = Vector3(6, 0, 0)
+stream = ExtResource("3_tone")
+
+[node name="Emitter07" parent="." instance=ExtResource("2_emitter")]
+position = Vector3(7, 0, 0)
+stream = ExtResource("3_tone")
+
+[node name="Emitter08" parent="." instance=ExtResource("2_emitter")]
+position = Vector3(8, 0, 0)
+stream = ExtResource("3_tone")
+
+[node name="Emitter09" parent="." instance=ExtResource("2_emitter")]
+position = Vector3(9, 0, 0)
+stream = ExtResource("3_tone")
+
+[node name="Emitter10" parent="." instance=ExtResource("2_emitter")]
+position = Vector3(10, 0, 0)
+stream = ExtResource("3_tone")
