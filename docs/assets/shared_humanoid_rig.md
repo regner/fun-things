@@ -70,45 +70,37 @@ must preserve joint locations or be treated as a new rig/retargeting task.
 
 ## Animation libraries and attachments
 
-**Binding checkpoint remains unchanged; separate motion deliveries now exist.**
-Player candidate sources, 24 clips, skin-swap API, disjoint move/aim libraries and
-source-derived grip profiles are documented in [the player checkpoint](player_character/README.md).
-They pass source/export and asset-profile API checks but await final spatial review and
-independent production audit. The pedestrian's separately owned NPC library is accepted
-at `211df6e72e80d791521d91fa70cd80425366ec35`; it preserves these same 28 rest transforms.
+Player motion candidate: `art/source/models/shared_humanoid/shared_humanoid_player_motion_v1.blend`
+→ `art/models/shared_humanoid/shared_humanoid_player_motion_v1.glb` →
+`art/animations/shared_humanoid/player_v1.tres`. It contains 24 full-body clips with
+all 84 bone transform channels retained. `player_upper_v1.tres` and `player_lower_v1.tres`
+filter those same keys into disjoint upper-body and locomotion tracks; they do not
+invent motion. [Player handoff](player_character/README.md) lists durations, loops,
+source collections, skin-swap API and the remaining external integration work.
 
-Historical binding-checkpoint status:
-The source/export contains no animations. Subsequent motion sources and libraries
-will be separate for `npc` and `player`, on these same rest transforms.
-NPC coverage: in-place looping idle/walk/run with elbow/knee motion; one-shot death
-retaining final pose. Player additionally needs weapon holding/aiming while stationary
-and moving, independent move/aim directions, pistol/SMG reload and weapon firing
-recovery. Exact clip names/source frame ranges and import-loop evidence follow with
-those deliverables. Root `root` and gameplay simulation transforms never receive
-locomotion translation or gameplay events; death may animate the presentation pelvis.
+The pedestrian owns its separate NPC idle/walk/run/death library at
+`art/animations/pedestrian_civilian/npc_locomotion_v1.tres`, independently accepted at
+`211df6e72e80d791521d91fa70cd80425366ec35`. Player motion does not overwrite NPC actions.
+Both preserve these exact rest transforms. `root` never receives gameplay movement;
+death animates only the presentation skeleton. Clip transitions/event timing and
+combined gameplay movement/aim are integrator-owned.
 
-Weapon pose convention: right dominant hand, left support, right shoulder for SMG/
-launcher. `socket_grip` / `socket_muzzle` remain weapon-owned source markers;
-`Sockets/WeaponMount` / `Sockets/Muzzle` remain prefab-facing contracts. A hand bone's
-local basis is **not** the weapon frame. Player-owned bone-to-grip offsets and hand
-pose are still pending fit checks. Weapon contact markers use -Z front/+Y up and
-identify contact surfaces; surface normals are supplied separately. Do not substitute
-wrist origins for those markers or infer production offsets from S02/S13.
+Right hand is dominant, left hand supports SMG/launcher, right shoulder receives the
+stock/pad. Source `socket_grip` and `socket_muzzle` remain weapon-owned. Player wrapper
+`Sockets/WeaponMount` selects the authored offsets from
+`art/source/models/player_character/weapon_profiles.json`; the equipped weapon wrapper
+retains its own `Sockets/Muzzle`. Hand-bone local axes are not the weapon frame. The
+source-to-import checks confirm -Z front / +Y up at the selected grip frame.
 
-Measured candidate inputs:
-
-- Coral Stub `b8363f55a6cfe8ab6cf02b1458a3d193629de59b`: pivot zero, handle width
-  0.117–0.122 m, muzzle (0,0.122,-0.421) m. Optional support cups the same grip;
-  no shoulder contact. Its technical-mannequin preview is not player fit acceptance.
-- Dock Thumper (reviewed revision forthcoming): grip cross-section 0.090 X × 0.100 Z m,
-  Y range [-0.075,0.175]. Support (0,-0.0825,-0.430) m, shoulder (0,0.085,0.280) m,
-  both contact normals (0,-1,0); muzzle (0,0.300,-0.905) m. Full visual AABB minimum
-  (-0.203,-0.0825,-0.900), size (0.406,0.585,1.430) m. Hold/aim/fire recovery only;
-  no launcher reload animation required.
-- Wedgewire static final `a05f22d`: grip root zero; GripContact (0.032,0,0),
-  support (0,0.055,-0.310), shoulder (0,0.128,0.280) m; identity marker bases.
-  These are mesh contact surfaces, not wrist/bone origins. Current player fit is pending
-  final shoulder/support clearance review.
+The current Coral Courier fit uses immutable Coral Stub, Wedgewire and Dock Thumper
+static GLBs listed with revisions/hashes in
+[player weapon dependencies](player_character/evidence/weapon_dependencies.json).
+Stationary shoulder and support contacts are within 5 mm of the deformed skin surfaces;
+launcher head lateral clearance is 6.72 mm. Source ray/nearest-surface measurements are
+in [weapon contacts](player_character/evidence/weapon_contacts.json). These offsets fit
+Coral Courier's skin. Another compatible skin must separately check garment/hand/head
+clearance; shared rest compatibility alone does not accept unseen deformation or fit.
+No S02/S13 wrist/rest assumptions were inherited. No launcher reload is required.
 
 ## Checks and consumers
 
@@ -116,8 +108,8 @@ Blender 5.2.2 LTS / build d13f752e3b9c; explicit S01 GLB settings. Initial inspe
 found exactly 28 exported joints, one skin, no animation, images or GLB extensions.
 Fresh saved-source reexport was byte-identical. Godot imported all 28 joint names,
 parents and global rest origins within 0.00001 m; see
-[player evidence](player_character/evidence/rig_checkpoint.json). Motion/skin-swapping
-evidence remains pending; no import alone establishes production motion or gameplay.
+[player evidence](player_character/evidence/rig_checkpoint.json). Motion and skin-swapping checks now pass in the player candidate; see its evidence.
+The independent player production audit remains pending. Import does not establish gameplay.
 
 Consumers: player Coral Courier and pedestrian Off-Shift Worker (pedestrian-owned
 mesh). No existing S13 consumer is migrated. The original source is project-owned,

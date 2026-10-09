@@ -32,7 +32,7 @@ func build_preview() -> void:
 	var ground: PackedScene = load("res://art/models/spikes/s02_ground.glb")
 	add_owned(self, ground.instantiate(), "Ground")
 	var camera: Camera3D = add_owned(self, Camera3D.new(), "Camera") as Camera3D
-	camera.position = Vector3(2.7, 2.1, -3.9)
+	camera.position = Vector3(-2.7, 2.1, -3.9)
 	camera.look_at(Vector3(0.0, 0.95, 0.0))
 	camera.fov = 32.0
 	camera.near = 0.01
@@ -78,7 +78,11 @@ func save_motion_libraries() -> Dictionary:
 		var stem: String = "shared_humanoid_" + family + "_motion_v1"
 		var manifest: Dictionary = JSON.parse_string(FileAccess.get_file_as_string(
 			"res://art/source/models/shared_humanoid/" + stem + ".json"))
-		var packed: PackedScene = load("res://art/models/shared_humanoid/" + stem + ".glb")
+		# Extraction must consume the fresh imported file, not an editor-held older scene.
+		var packed: PackedScene = ResourceLoader.load(
+			"res://art/models/shared_humanoid/" + stem + ".glb",
+			"PackedScene", ResourceLoader.CACHE_MODE_IGNORE_DEEP
+		)
 		var source: Node = packed.instantiate()
 		var imported: AnimationPlayer = source.find_child(
 			"AnimationPlayer",
@@ -158,7 +162,9 @@ func _reimport_motion(paths: PackedStringArray) -> void:
 
 ## Save complementary animation libraries without inventing or changing source keyframes.
 func save_layer_libraries() -> void:
-	var full: AnimationLibrary = load(MOTION_PATH)
+	var full: AnimationLibrary = ResourceLoader.load(
+		MOTION_PATH, "AnimationLibrary", ResourceLoader.CACHE_MODE_IGNORE_DEEP
+	)
 	var upper: AnimationLibrary = AnimationLibrary.new()
 	var lower: AnimationLibrary = AnimationLibrary.new()
 	var lower_bones: PackedStringArray = ["root", "pelvis", "spine", "thigh_r", "shin_r",
@@ -260,4 +266,12 @@ func add_review_overlay() -> void:
 	caption.add_theme_constant_override("shadow_offset_x", 2)
 	caption.add_theme_constant_override("shadow_offset_y", 2)
 	caption.text = "Coral Courier • idle\n← / → clip    Tab camera\nClose review"
+	EditorInterface.mark_scene_as_unsaved()
+
+
+## View the support side so the launcher does not hide the face in the close inspection.
+func set_support_side_camera() -> void:
+	var camera: Camera3D = get_node("Camera")
+	camera.position = Vector3(-2.7, 2.1, -3.9)
+	camera.look_at(Vector3(0.0, 0.95, 0.0))
 	EditorInterface.mark_scene_as_unsaved()

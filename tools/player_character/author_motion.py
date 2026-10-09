@@ -111,13 +111,16 @@ def pose(rig, clip, t, duration, kind):
     # Keep the face looking down the firing line. Launcher head leans clear of the tube.
     for name in ['neck','head']:
         rest=rig.data.bones[name].matrix_local.copy()
-        desired[name]=Matrix.Translation((-.055 if weapon=='launcher' else 0,0,bob)) @ rest
+        lean=Matrix.Translation((0,0,1.40+bob)) @ rotation('Y',-.33) @ Matrix.Translation((0,0,-1.40)) if weapon=='launcher' else Matrix.Translation((0,0,bob))
+        desired[name]=lean @ rest
+    # Measured cloth surfaces: SMG butt sits 0.175 m forward of the shoulder joint;
+    # launcher pad sits 0.075 m above it. These are skin-fit offsets, not rest edits.
     grip=None
     if weapon:
         shoulder=desired['upper_arm_r'].translation
         if weapon=='pistol':grip=Vector((.30,.43,1.20+bob))
-        elif weapon=='smg':grip=shoulder+Vector((0,.280,-.128))
-        else:grip=shoulder+Vector((.110,.280,-.085))
+        elif weapon=='smg':grip=shoulder+Vector((0,.455,-.128))
+        else:grip=shoulder+Vector((.140,.280,-.010))
         if 'fire' in clip:
             pulse=math.sin(min(1,t/(duration*.33))*math.pi)*.035 if t<duration*.33 else 0
             grip+=Vector((0,-pulse,pulse*.45))
@@ -133,7 +136,7 @@ def pose(rig, clip, t, duration, kind):
             hand_dir=Vector((0,.12,-1));normal=Vector((-1,0,0))
         elif weapon in ['smg','launcher']:
             contact=grip+Vector((0,.310,.055)) if weapon=='smg' else grip+Vector((0,.430,-.0825))
-            wrist=contact+Vector((-.065,-.045,-.045))
+            wrist=contact+Vector((-.065,-.045,-.039))
             hand_dir=Vector((.8,.6,0));normal=Vector((0,0,1))
         elif weapon=='pistol' and 'reload' in clip:
             wrist=grip+Vector((-.060,.01,-.17))
@@ -196,7 +199,7 @@ def library(kind):
         for weapon in ['pistol','smg','launcher']:
             matrices=pose(rig,weapon+'_hold',0,2,kind)
             shoulder=matrices['upper_arm_r'].translation
-            grip=Vector((.30,.43,1.175)) if weapon=='pistol' else shoulder+Vector((0,.280,-.128)) if weapon=='smg' else shoulder+Vector((.110,.280,-.085))
+            grip=Vector((.30,.43,1.175)) if weapon=='pistol' else shoulder+Vector((0,.455,-.128)) if weapon=='smg' else shoulder+Vector((.140,.280,-.010))
             offset=matrices['hand_r'].inverted() @ Matrix.Translation(grip)
             profiles[weapon]={'hold_grip_blender':list(grip),'hand_to_grip_blender':[list(row) for row in offset]}
         (ROOT/'art/source/models/player_character/weapon_profiles.json').write_text(json.dumps({'contract':'shared_humanoid/1.0.0','profiles':profiles},indent=2)+'\n')
@@ -222,7 +225,7 @@ def library(kind):
     bpy.ops.export_scene.gltf(**settings)
     manifest={'contract':'shared_humanoid/1.0.0','library':kind,'source':str(source.relative_to(ROOT)),
               'export':str(output.relative_to(ROOT)),'collection':col.name,'clips':records,
-              'rest_sha256':rig['rest_sha256'],'status':'candidate; imported playback/fit checks pending'}
+              'rest_sha256':rig['rest_sha256'],'status':'source export; acceptance tracked in docs/assets/player_character/README.md'}
     (CANON.parent/('shared_humanoid_'+kind+'_motion_v1.json')).write_text(json.dumps(manifest,indent=2)+'\n')
     print('MOTION_AUTHORED',kind,len(records))
 

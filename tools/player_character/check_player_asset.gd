@@ -114,12 +114,11 @@ func check() -> void:  # gdstyle:ignore=quality/max-local-variables
 	for family: String in ["player"]:
 		var library_path: String = "res://art/animations/shared_humanoid/" + family + "_v1.tres"
 		var library: AnimationLibrary = load(library_path)
-		if family == "npc":
-			player.add_animation_library(&"npc", library)
 		var source_path: String = "res://art/source/models/shared_humanoid/shared_humanoid_"
 		source_path += family + "_motion_v1.json"
 		var manifest: Dictionary = JSON.parse_string(FileAccess.get_file_as_string(source_path))
 		check_library(library, manifest, player, skeleton, family + "/")
+	check_source_tracks(player)
 	check_attachments(actor, player, skeleton)
 	check_layers(actor, player, skeleton)
 	print("PLAYER_ASSET_CHECK ", JSON.stringify({"failures": failures, "player_clips": 24,
@@ -173,3 +172,28 @@ func check_layers(
 	)
 	expect(actor.play_clip(&"idle"), "return from layers")
 	expect(not upper.is_playing() and not lower.is_playing(), "full clip stops layer writers")
+
+
+## Compare every extracted player key with the current imported source to detect stale caches.
+func check_source_tracks(player: AnimationPlayer) -> void:
+	var path: String = "res://art/models/shared_humanoid/shared_humanoid_player_motion_v1.glb"
+	var source: Node = (load(path) as PackedScene).instantiate()
+	var imported: AnimationPlayer = source.find_child("AnimationPlayer", true, false)
+	var library: AnimationLibrary = player.get_animation_library(&"player")
+	for name: StringName in library.get_animation_list():
+		var actual: Animation = library.get_animation(name)
+		var expected: Animation = imported.get_animation(name)
+		expect(actual.get_track_count() == expected.get_track_count(), str(name) + " source tracks")
+		for track: int in range(actual.get_track_count()):
+			expect(actual.track_get_path(track) == expected.track_get_path(track), "source path")
+			expect(
+				actual.track_get_key_count(track) == expected.track_get_key_count(track),
+				"source keys",
+			)
+			for key: int in range(actual.track_get_key_count(track)):
+				expect(is_equal_approx(actual.track_get_key_time(track, key),
+					expected.track_get_key_time(track, key)), "source key time")
+				var value: Variant = actual.track_get_key_value(track, key)
+				var reference: Variant = expected.track_get_key_value(track, key)
+				expect(value.is_equal_approx(reference), str(name) + " source key value")
+	source.free()

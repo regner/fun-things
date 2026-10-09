@@ -4,9 +4,8 @@ Regner selected concept A on 9 October 2026 and explicitly chose **one shared sk
 separate player and NPC animation libraries**. Future player skins replace the mesh and
 inverse-bind resource while retaining the existing skeleton and animation players.
 
-**Status: checked work-in-progress, not finished production acceptance.** Remaining:
-spatial shoulder/support contact review, final motion/deformation review and a clean-context
-independent production audit. Gameplay, networking, full-city readability and device
+**Status: production candidate; clean-context independent audit pending.** Source,
+import, skin swapping, motion playback and stationary weapon contact checks are complete. Gameplay, networking, full-city readability and device
 performance belong to the external integrator and are not accepted here.
 
 [Review gallery and motion recording](gallery.html) ·
@@ -95,21 +94,31 @@ editor bridge builds and saves the temporary fit scene; it requires an editable
 project-owned Courier wrapper instance to retain its added weapon children.
 
 Current captures prove attachment playback and the source/import grip conversion.
-They are **not final shoulder/support clearance or gameplay acceptance**. Remaining
-spatial review should inspect the SMG stock against the jacket front and launcher pad
-against the shoulder crown, plus close and top-down hand/head clearance through clips.
+A source-mesh ray/nearest-surface check places the SMG shoulder contact 2.69 mm within
+its cloth surface, the launcher pad 0.40 mm within its shoulder surface, and both support
+palms 2.62 mm from their weapon markers. These small clearances are within the declared
+5 mm static fit tolerance. Launcher head/weapon horizontal bounds have 6.72 mm clearance.
+See [measured contacts](evidence/weapon_contacts.json), reproduced by
+`audit_weapon_contacts.py`. A slight launcher head lean is animated; no rest bones moved.
+These are stationary fitted-pose checks, not gameplay collision or universal skin fit.
+Fire recovery intentionally releases/compresses the shoulder contact; reload hands leave
+the support target. Gameplay timing, weapon effects and combined movement/aim acceptance
+remain external integration work.
 
 ## Preview and checks
 
 Open `scenes/prefabs/player_character/preview.tscn` and run that scene: Left/Right cycles
 clips; Tab switches close/game camera. Preview caps at 60 FPS with VSync. Saved game
 camera: vertically down, north up, height 47 m, FOV 42°, near 0.1 m, far 160 m. Captures
-are native 1280×800, Forward+ Vulkan on GTX 1070. They use unchanged source-linked S02
+are native 1280×800, Forward+ Vulkan on GTX 1070. Close camera is at
+(-2.7,2.1,-3.9) m, looking at (0,0.95,0), FOV 32°; this support-side view keeps
+the launcher wearer’s face visible. They use unchanged source-linked S02
 ground (`art/source/models/spikes/s02_kit.blend` provenance in S02), not city placement.
 
 - Saved-source skin and motion reexports are byte-identical to committed candidates.
 - Fresh isolated Godot 4.8.dev7 asset profile imports without errors/warnings.
-- 24 clips pass duration, loop endpoint, finite-transform and fixed-root checks.
+- 24 clips pass duration, loop endpoint, finite-transform and fixed-root checks. Every
+  extracted animation key is compared against the current imported motion GLB.
 - Skin swapping, clip reset coverage, disjoint layer writers and authored grip transforms pass.
 - Source deformation bounds are sampled every three frames. Death settles 2.5 mm above
   the source ground plane; no sampled pose goes below the plane.
@@ -131,16 +140,16 @@ awarness, such as configuring animations and rigs or importing models, can use S
 Spatial authoring was performed after runtime receipts reported `gpt-6-astra/high`.
 At the next planned spatial fit pass, runtime verification unexpectedly returned
 `gpt-6-luna/high` despite the configured Astra lead. No further geometry, rest, pose or
-keyframe mutation proceeded after that receipt. Current sources/editor state and bounded
-capture results are preserved; Astra transition is requested before remaining spatial
-work. This checkpoint is not a production-completion claim.
+keyframe mutation proceeded after that receipt. Sources/editor state and bounded capture results were preserved. A subsequent active-turn
+receipt confirmed `gpt-6-astra/high`; the spatial contact correction then proceeded under
+Astra. The complete candidate now awaits its independent audit.
 
 ## Catalogue / TODO reconciliation delta for the integrator
 
-- Add `coral_courier` → this handoff, selected concept A, production checkpoint pending review.
+- Add `coral_courier` → this handoff, selected concept A, production candidate pending independent review.
 - Add shared rig `shared_humanoid/1.0.0` → `docs/assets/shared_humanoid_rig.md`; canonical
   skeleton shared with pedestrian, separate libraries.
-- Remaining player acceptance: shoulder/support spatial fit, final motion review,
-  independent audit, then external gameplay/network/city/device integration.
+- Remaining player acceptance: independent production audit, then external
+  gameplay/network/city/device integration.
 
 Shared catalogue, TODO, planning, main launch scene and main branch were not edited.
