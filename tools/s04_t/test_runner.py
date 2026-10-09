@@ -1,0 +1,70 @@
+"""Independent counterexamples for S04-T transition telemetry acceptance."""
+
+import json
+from pathlib import Path
+import sys
+import tempfile
+import unittest
+
+sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
+from s04_t.run import analyze
+
+
+class ProxyStub:
+    """Supplies the analyzer's bounded proxy evidence surface."""
+
+    blackout_done = True
+    events = [{"event": "delivery", "actual_delay_ms": 75.0}]
+
+
+class TransitionMetrics(unittest.TestCase):
+    """Reject telemetry that claims a transition without clean replay domains."""
+
+    def _analyze(self, dirty_stage: str = "") -> dict:
+        """Build one complete synthetic cut with an optional dirty history stage."""
+        expected = [
+            ("race_entry", False, "SEAT_OCCUPIED", "foot"),
+            ("parked_entry", True, "", "car"),
+            ("moving_exit", False, "EXIT_MOVING", "car"),
+            ("blocked_exit", False, "EXIT_BLOCKED", "car"),
+            ("successful_exit", True, "", "foot"),
+            ("traffic_entry", True, "", "car"),
+        ]
+        client = []
+        for stage, accepted, failure, owner in expected:
+            client.append({
+                "event": "transition", "stage": stage, "accepted": accepted,
+                "failure": failure, "correction_m": 0.2, "visual_jump_m": 0.1,
+                "time_to_control_ms": 16, "round_trip_ms": 150,
+                "foot_history": 1 if stage == dirty_stage else 0,
+                "car_history": 0, "camera_owner": owner, "hud_owner": owner,
+            })
+        client.append({"event": "result", "ok": True})
+        host = [
+            {"event": "seat_race", "winner": 1, "loser": 2},
+            {"event": "result", "ok": True, "traffic_stolen": True,
+             "traffic_ai_active": False, "disconnect_coast_m": 0.5,
+             "final_speed_mps": 0.0},
+        ]
+        with tempfile.TemporaryDirectory() as temporary:
+            root = Path(temporary)
+            for role, rows in [("host", host), ("client", client)]:
+                (root / role / "captures").mkdir(parents=True)
+                (root / role / "stdout.log").write_text("".join(
+                    "S04T " + json.dumps(row) + "\n" for row in rows))
+            (root / "client/captures/accepted.png").write_bytes(b"receipt")
+            return analyze(root, "normal", ProxyStub())
+
+    def test_complete_transition_cut_passes(self):
+        """Accept all six verdicts with clean history and matched presentation owners."""
+        self.assertTrue(self._analyze()["ok"])
+
+    def test_dirty_source_history_fails(self):
+        """Fail an otherwise valid cut when entry retains foot replay history."""
+        result = self._analyze("parked_entry")
+        self.assertFalse(result["ok"])
+        self.assertFalse(result["criteria"]["history_clean"])
+
+
+if __name__ == "__main__":
+    unittest.main()
