@@ -1,0 +1,158 @@
+city_moored_yachts.02 — final producer validation receipt
+Producer: worker; branch lane/a-yachts; independent review pending.
+Exact reproduction commands: docs/assets/production/city_moored_yachts_02.md
+All Blender/Godot CLI invocations used explicit timeout and pinned executable.
+No live editor/MCP tools used. No shared project/asset paths changed.
+
+Final author.py: exit 0; Blender 5.2.2 LTS d13f752e3b9c; glTF 5.2.40.
+Final validate.py: exit 0; topology, transforms, independent bounds, actual GLB arrays,
+  unit normals and fresh saved-source byte-identical reexport PASS.
+{
+  "source": {
+    "bounds_blender": {
+      "max": [
+        1.69999992847443,
+        5.80988931655884,
+        10.0
+      ],
+      "min": [
+        -1.69999992847443,
+        -5.81370115280151,
+        -1.60000002384186
+      ]
+    },
+    "degenerate_faces": 0.0,
+    "degenerate_triangles": 0.0,
+    "material_surfaces": 7.0,
+    "max_unit_normal_error": 1.7567079013e-07,
+    "mesh_count": 1.0,
+    "nonmanifold_edges": 0.0,
+    "triangles": 7004.0,
+    "vertices": 3644.0
+  },
+  "godot_axis_bounds": {
+    "max": [
+      1.69999992847443,
+      10.0,
+      5.81370115280151
+    ],
+    "min": [
+      -1.69999992847443,
+      -1.60000002384186,
+      -5.80988931655884
+    ],
+    "size": [
+      3.39999985694885,
+      11.6000000238419,
+      11.6235904693604
+    ]
+  }
+}
+GLB vertices=4040, triangles=7004, meshes=1, surfaces=7, bytes=178228.
+Four 1280x720 final renders inspected: hero, side, detail, overhead_47m_42deg.
+Overhead camera vertical-down north-up, 47m, 42deg vertical FOV.
+Detail 437969 bytes; other renders below 400KB.
+
+Headless import: exit 0; declared GLB imported.
+Headless editor prefab normalization/check: exit 0; assertions PASS; byte-stable roundtrip.
+Headless runtime prefab check: exit 0; assertions PASS; six ActorMotion cases complete.
+{
+  "authority_replay_endpoints_identical": true,
+  "bounds_match": true,
+  "collision": {
+    "boxes": 3,
+    "layer": 1,
+    "mask": 0,
+    "waterline_base_m": 0
+  },
+  "dependency_uids_resolve": true,
+  "linked_model_identity": true,
+  "meshes": 1,
+  "production_actor_motion": [
+    {
+      "case": "hull_stop",
+      "end": [
+        1.9505227804184,
+        0.550000011920929,
+        0.0
+      ],
+      "mode": 0
+    },
+    {
+      "case": "bow_stop",
+      "end": [
+        0.0,
+        0.550000011920929,
+        -6.17089891433716
+      ],
+      "mode": 0
+    },
+    {
+      "case": "clear_bypass",
+      "end": [
+        -6.00000095367432,
+        0.550000011920929,
+        7.5
+      ],
+      "mode": 0
+    },
+    {
+      "case": "hull_stop",
+      "end": [
+        1.9505227804184,
+        0.550000011920929,
+        0.0
+      ],
+      "mode": 1
+    },
+    {
+      "case": "bow_stop",
+      "end": [
+        0.0,
+        0.550000011920929,
+        -6.17089891433716
+      ],
+      "mode": 1
+    },
+    {
+      "case": "clear_bypass",
+      "end": [
+        -6.00000095367432,
+        0.550000011920929,
+        7.5
+      ],
+      "mode": 1
+    }
+  ],
+  "queries": {
+    "hull_and_cabin_rays_blocked": true,
+    "mast_underwater_bow_rail_and_side_clear": true,
+    "projectile_sweep_blocked": true
+  },
+  "save_reload_byte_stable": true,
+  "scope": "Saved player ActorMotion authority/replay; no transport or weapons-system proof",
+  "surfaces": 7,
+  "version": "4.8-dev7 (official)"
+}
+
+Canonical production checks: exit 0; all summary gates pass.
+107/107 GDScript compilations, 107 formatted files, gdstyle lint PASS.
+14/14 Python tests PASS.
+GUT: 17 scripts, 75/75 tests, 2041 assertions PASS.
+GUT negative probe: expected exit 1 observed; harness gate PASS.
+
+Diagnostics / corrections:
+- Initial gdstyle format check exit 1; pinned formatter applied; final lint/format pass.
+- Initial side studio horizon removed by extending non-export floor.
+- Detail framing widened to reduce PNG size, no geometry changed.
+- Blender use_nodes API deprecation advice remains visible; command exits 0.
+- CLI editor warns plugin tested version 4.7 vs 4.8 and reports exit leaks:
+  5 viewports, 8 textures, 1 scenario, 52 shaped-text objects, 1 font,
+  5 canvases, 31 canvas items, 168 ObjectDB instances.
+  Signature matches earlier .01 no-yacht control; not a clean editor log claim.
+- Final runtime prefab log contains no errors or warnings.
+- No known-failure exemptions used for canonical checks.
+
+Raw scratch logs: C:/tmp/ft/assets/city_moored_yachts_02/ (not deliverables).
+Pending: independent review, actual berth placement/clearance, combat and transport,
+engine camera/LOD temporal checks and target-device performance.
