@@ -1266,14 +1266,14 @@
       "input_next_action": "Explore fictional tenant graphics",
       "brief": "[Brief](../../assets/d06_commercial_graphics.md)",
       "priority": 1,
-      "status": "queued",
-      "agent_id": null,
-      "source_revision": null,
-      "review_status": "pending",
-      "integration_status": "pending",
+      "status": "production_prefab_accepted",
+      "agent_id": "d2ef81d2-2251-4959-80b4-0088e10958cc",
+      "source_revision": "948ef89",
+      "review_status": "accepted source/export/prefab scope (independent Sol review)",
+      "integration_status": "accepted",
       "placement_status": "pending",
       "blocker": null,
-      "attempts": 0,
+      "attempts": 1,
       "initial_time_cap_minutes": 90,
       "owned_paths": [
         "art/source/models/environment/d06_commercial_graphics_01/",
@@ -1281,8 +1281,20 @@
         "art/textures/environment/d06_commercial_graphics_01/",
         "art/materials/environment/d06_commercial_graphics_01/",
         "docs/assets/production/d06_commercial_graphics_01.md",
-        "docs/assets/production/d06_commercial_graphics_01-evidence/"
-      ]
+        "docs/assets/production/d06_commercial_graphics_01-evidence/",
+        "tools/asset_production/d06_commercial_graphics_01/",
+        "scenes/prefabs/environment/d06_commercial_graphics_01.tscn"
+      ],
+      "launch": {
+        "provider": "portkey/gpt-6-astra",
+        "configured_effort": "medium",
+        "mode": "orchestrator asset lane",
+        "lane": "a-d06gfx"
+      },
+      "producer_manifest": "docs/assets/production/d06_commercial_graphics_01-evidence/manifest.json",
+      "report": "docs/assets/production/d06_commercial_graphics_01.md",
+      "reviewer_id": "a1623c1a-7844-46be-ab6a-e6088029e9f6",
+      "integrated_revision": "9e79410"
     },
     {
       "id": "d06_commercial_graphics.02",
@@ -1295,14 +1307,14 @@
       "input_next_action": "Explore fictional tenant graphics",
       "brief": "[Brief](../../assets/d06_commercial_graphics.md)",
       "priority": 1,
-      "status": "queued",
-      "agent_id": null,
-      "source_revision": null,
-      "review_status": "pending",
-      "integration_status": "pending",
+      "status": "production_prefab_accepted",
+      "agent_id": "f0303767-282b-4b92-a570-0e1b9fec08f5",
+      "source_revision": "c55e6c8",
+      "review_status": "accepted source/export/prefab scope (independent Sol review)",
+      "integration_status": "accepted",
       "placement_status": "pending",
       "blocker": null,
-      "attempts": 0,
+      "attempts": 1,
       "initial_time_cap_minutes": 90,
       "owned_paths": [
         "art/source/models/environment/d06_commercial_graphics_02/",
@@ -1310,8 +1322,20 @@
         "art/textures/environment/d06_commercial_graphics_02/",
         "art/materials/environment/d06_commercial_graphics_02/",
         "docs/assets/production/d06_commercial_graphics_02.md",
-        "docs/assets/production/d06_commercial_graphics_02-evidence/"
-      ]
+        "docs/assets/production/d06_commercial_graphics_02-evidence/",
+        "tools/asset_production/d06_commercial_graphics_02/",
+        "scenes/prefabs/environment/d06_commercial_graphics_02.tscn"
+      ],
+      "launch": {
+        "provider": "portkey/gpt-6-astra",
+        "configured_effort": "medium",
+        "mode": "orchestrator asset lane",
+        "lane": "a-d06gfx"
+      },
+      "producer_manifest": "docs/assets/production/d06_commercial_graphics_02-evidence/manifest.json",
+      "report": "docs/assets/production/d06_commercial_graphics_02.md",
+      "reviewer_id": "a1623c1a-7844-46be-ab6a-e6088029e9f6",
+      "integrated_revision": "9e79410"
     },
     {
       "id": "d06_commercial_graphics.03",
@@ -1324,14 +1348,14 @@
       "input_next_action": "Explore fictional tenant graphics",
       "brief": "[Brief](../../assets/d06_commercial_graphics.md)",
       "priority": 1,
-      "status": "queued",
-      "agent_id": null,
-      "source_revision": null,
-      "review_status": "pending",
-      "integration_status": "pending",
+      "status": "production_prefab_accepted",
+      "agent_id": "71863fb0-e693-4b61-b3c4-5e6e17987013",
+      "source_revision": "b01503f",
+      "review_status": "accepted source/export/prefab scope (independent Sol review)",
+      "integration_status": "accepted",
       "placement_status": "pending",
       "blocker": null,
-      "attempts": 0,
+      "attempts": 1,
       "initial_time_cap_minutes": 90,
       "owned_paths": [
         "art/source/models/environment/d06_commercial_graphics_03/",
@@ -1339,8 +1363,20 @@
         "art/textures/environment/d06_commercial_graphics_03/",
         "art/materials/environment/d06_commercial_graphics_03/",
         "docs/assets/production/d06_commercial_graphics_03.md",
-        "docs/assets/production/d06_commercial_graphics_03-evidence/"
-      ]
+        "docs/assets/production/d06_commercial_graphics_03-evidence/",
+        "tools/asset_production/d06_commercial_graphics_03/",
+        "scenes/prefabs/environment/d06_commercial_graphics_03.tscn"
+      ],
+      "launch": {
+        "provider": "portkey/gpt-6-astra",
+        "configured_effort": "medium",
+        "mode": "orchestrator asset lane",
+        "lane": "a-d06gfx"
+      },
+      "producer_manifest": "docs/assets/production/d06_commercial_graphics_03-evidence/manifest.json",
+      "report": "docs/assets/production/d06_commercial_graphics_03.md",
+      "reviewer_id": "a1623c1a-7844-46be-ab6a-e6088029e9f6",
+      "integrated_revision": "9e79410"
     },
     {
       "id": "d06_commercial_graphics.04",
@@ -1353,14 +1389,14 @@
       "input_next_action": "Explore fictional tenant graphics",
       "brief": "[Brief](../../assets/d06_commercial_graphics.md)",
       "priority": 1,
-      "status": "queued",
-      "agent_id": null,
-      "source_revision": null,
-      "review_status": "pending",
-      "integration_status": "pending",
+      "status": "production_prefab_accepted",
+      "agent_id": "23a89647-19ac-4b10-871c-b37285625b5b",
+      "source_revision": "9e79410",
+      "review_status": "accepted source/export/prefab scope (independent Sol review)",
+      "integration_status": "accepted",
       "placement_status": "pending",
       "blocker": null,
-      "attempts": 0,
+      "attempts": 1,
       "initial_time_cap_minutes": 90,
       "owned_paths": [
         "art/source/models/environment/d06_commercial_graphics_04/",
@@ -1368,8 +1404,20 @@
         "art/textures/environment/d06_commercial_graphics_04/",
         "art/materials/environment/d06_commercial_graphics_04/",
         "docs/assets/production/d06_commercial_graphics_04.md",
-        "docs/assets/production/d06_commercial_graphics_04-evidence/"
-      ]
+        "docs/assets/production/d06_commercial_graphics_04-evidence/",
+        "tools/asset_production/d06_commercial_graphics_04/",
+        "scenes/prefabs/environment/d06_commercial_graphics_04.tscn"
+      ],
+      "launch": {
+        "provider": "portkey/gpt-6-astra",
+        "configured_effort": "medium",
+        "mode": "orchestrator asset lane",
+        "lane": "a-d06gfx"
+      },
+      "producer_manifest": "docs/assets/production/d06_commercial_graphics_04-evidence/manifest.json",
+      "report": "docs/assets/production/d06_commercial_graphics_04.md",
+      "reviewer_id": "a1623c1a-7844-46be-ab6a-e6088029e9f6",
+      "integrated_revision": "9e79410"
     },
     {
       "id": "d06_southern_shopping_parade.01",
