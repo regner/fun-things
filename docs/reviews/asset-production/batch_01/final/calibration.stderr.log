@@ -1,0 +1,7 @@
+Traceback (most recent call last):
+  File "/home/regner/.paseo/worktrees/0u71f39f/asset-register-production/docs/reviews/asset-production/batch_01/final/inspect_calibration.py", line 19, in <module>
+    inst=bpy.data.objects[aid];col=inst.instance_collection;fixture=bpy.data.objects[aid+'_reference_1m'];assert inst.instance_type=='COLLECTION' and col.name=='export_'+aid
+                                                                                                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError
+
+Error: script failed, file: 'docs/reviews/asset-production/batch_01/final/inspect_calibration.py', exiting.

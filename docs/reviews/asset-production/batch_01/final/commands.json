@@ -1,0 +1,409 @@
+[
+  {
+    "label": "private-context",
+    "argv": [
+      "node",
+      "tools/asset_production/integration/editor_client.mjs",
+      "/tmp/six-final-context.json"
+    ],
+    "cwd": "/home/regner/.paseo/worktrees/0u71f39f/asset-register-production",
+    "environment_overrides": {
+      "GIT_OPTIONAL_LOCKS": "0",
+      "ALSOFT_DRIVERS": "null",
+      "SDL_AUDIODRIVER": "dummy",
+      "XDG_CACHE_HOME": "/tmp/six-final-review-cache"
+    },
+    "exit": 1,
+    "elapsed_seconds": 0.06405758857727051
+  },
+  {
+    "label": "private-context-host",
+    "argv": [
+      "node",
+      "tools/asset_production/integration/editor_client.mjs",
+      "/tmp/six-final-context.json"
+    ],
+    "cwd": "/home/regner/.paseo/worktrees/0u71f39f/asset-register-production",
+    "environment_overrides": {
+      "GIT_OPTIONAL_LOCKS": "0",
+      "ALSOFT_DRIVERS": "null",
+      "SDL_AUDIODRIVER": "dummy",
+      "XDG_CACHE_HOME": "/tmp/six-final-review-cache"
+    },
+    "exit": 0,
+    "elapsed_seconds": 0.16420817375183105
+  },
+  {
+    "label": "static-audit",
+    "argv": [
+      "python3",
+      "docs/reviews/asset-production/batch_01/final/static_audit.py"
+    ],
+    "cwd": "/home/regner/.paseo/worktrees/0u71f39f/asset-register-production",
+    "environment_overrides": {
+      "GIT_OPTIONAL_LOCKS": "0",
+      "ALSOFT_DRIVERS": "null",
+      "SDL_AUDIODRIVER": "dummy",
+      "XDG_CACHE_HOME": "/tmp/six-final-review-cache"
+    },
+    "exit": 0,
+    "elapsed_seconds": 0.11411499977111816
+  },
+  {
+    "label": "calibration",
+    "argv": [
+      "/usr/bin/blender",
+      "-b",
+      "--factory-startup",
+      "-noaudio",
+      "--threads",
+      "2",
+      "--python-exit-code",
+      "1",
+      "--python",
+      "docs/reviews/asset-production/batch_01/final/inspect_calibration.py"
+    ],
+    "cwd": "/home/regner/.paseo/worktrees/0u71f39f/asset-register-production",
+    "environment_overrides": {
+      "GIT_OPTIONAL_LOCKS": "0",
+      "ALSOFT_DRIVERS": "null",
+      "SDL_AUDIODRIVER": "dummy",
+      "XDG_CACHE_HOME": "/tmp/six-final-review-cache"
+    },
+    "exit": 1,
+    "elapsed_seconds": 0.6650691032409668
+  },
+  {
+    "label": "calibration-inventory",
+    "argv": [
+      "/usr/bin/blender",
+      "-b",
+      "--factory-startup",
+      "-noaudio",
+      "--threads",
+      "2",
+      "--python-exit-code",
+      "1",
+      "--python",
+      "docs/reviews/asset-production/batch_01/final/calibration_inventory.py"
+    ],
+    "cwd": "/home/regner/.paseo/worktrees/0u71f39f/asset-register-production",
+    "environment_overrides": {
+      "GIT_OPTIONAL_LOCKS": "0",
+      "ALSOFT_DRIVERS": "null",
+      "SDL_AUDIODRIVER": "dummy",
+      "XDG_CACHE_HOME": "/tmp/six-final-review-cache"
+    },
+    "exit": 0,
+    "elapsed_seconds": 0.564723014831543
+  },
+  {
+    "label": "calibration-adapted",
+    "argv": [
+      "/usr/bin/blender",
+      "-b",
+      "--factory-startup",
+      "-noaudio",
+      "--threads",
+      "2",
+      "--python-exit-code",
+      "1",
+      "--python",
+      "docs/reviews/asset-production/batch_01/final/inspect_calibration.py"
+    ],
+    "cwd": "/home/regner/.paseo/worktrees/0u71f39f/asset-register-production",
+    "environment_overrides": {
+      "GIT_OPTIONAL_LOCKS": "0",
+      "ALSOFT_DRIVERS": "null",
+      "SDL_AUDIODRIVER": "dummy",
+      "XDG_CACHE_HOME": "/tmp/six-final-review-cache"
+    },
+    "exit": 1,
+    "elapsed_seconds": 0.6648824214935303
+  },
+  {
+    "label": "calibration-components",
+    "argv": [
+      "/usr/bin/blender",
+      "-b",
+      "--factory-startup",
+      "-noaudio",
+      "--threads",
+      "2",
+      "--python-exit-code",
+      "1",
+      "--python",
+      "docs/reviews/asset-production/batch_01/final/calibration_diagnostic.py"
+    ],
+    "cwd": "/home/regner/.paseo/worktrees/0u71f39f/asset-register-production",
+    "environment_overrides": {
+      "GIT_OPTIONAL_LOCKS": "0",
+      "ALSOFT_DRIVERS": "null",
+      "SDL_AUDIODRIVER": "dummy",
+      "XDG_CACHE_HOME": "/tmp/six-final-review-cache"
+    },
+    "exit": 0,
+    "elapsed_seconds": 1.1154108047485352
+  },
+  {
+    "label": "live-guard-host",
+    "argv": [
+      "python3",
+      "docs/reviews/asset-production/batch_01/final/live_guard.py"
+    ],
+    "cwd": "/home/regner/.paseo/worktrees/0u71f39f/asset-register-production",
+    "environment_overrides": {
+      "GIT_OPTIONAL_LOCKS": "0",
+      "ALSOFT_DRIVERS": "null",
+      "SDL_AUDIODRIVER": "dummy",
+      "XDG_CACHE_HOME": "/tmp/six-final-review-cache"
+    },
+    "exit": 0,
+    "elapsed_seconds": 0.06418585777282715
+  },
+  {
+    "label": "private-prefabs",
+    "argv": [
+      "node",
+      "tools/asset_production/integration/editor_client.mjs",
+      "docs/reviews/asset-production/batch_01/final/private-prefabs-requests.json"
+    ],
+    "cwd": "/home/regner/.paseo/worktrees/0u71f39f/asset-register-production",
+    "environment_overrides": {
+      "GIT_OPTIONAL_LOCKS": "0",
+      "ALSOFT_DRIVERS": "null",
+      "SDL_AUDIODRIVER": "dummy",
+      "XDG_CACHE_HOME": "/tmp/six-final-review-cache"
+    },
+    "exit": 1,
+    "elapsed_seconds": 0.21460652351379395
+  },
+  {
+    "label": "scratch-import",
+    "argv": [
+      "/home/regner/.local/share/mise/installs/github-godotengine-godot-builds/4.8-dev7/godot",
+      "--headless",
+      "--path",
+      "/tmp/six-engine-review-c4067ff",
+      "--editor",
+      "--import"
+    ],
+    "cwd": "/home/regner/.paseo/worktrees/0u71f39f/asset-register-production",
+    "environment_overrides": {
+      "GIT_OPTIONAL_LOCKS": "0",
+      "ALSOFT_DRIVERS": "null",
+      "SDL_AUDIODRIVER": "dummy",
+      "XDG_CACHE_HOME": "/tmp/six-final-review-cache"
+    },
+    "exit": 0,
+    "elapsed_seconds": 4.890562295913696
+  },
+  {
+    "label": "private-ancestry",
+    "argv": [
+      "node",
+      "tools/asset_production/integration/editor_client.mjs",
+      "docs/reviews/asset-production/batch_01/final/private-ancestry-requests.json"
+    ],
+    "cwd": "/home/regner/.paseo/worktrees/0u71f39f/asset-register-production",
+    "environment_overrides": {
+      "GIT_OPTIONAL_LOCKS": "0",
+      "ALSOFT_DRIVERS": "null",
+      "SDL_AUDIODRIVER": "dummy",
+      "XDG_CACHE_HOME": "/tmp/six-final-review-cache"
+    },
+    "exit": 0,
+    "elapsed_seconds": 0.4147477149963379
+  },
+  {
+    "label": "private-start",
+    "argv": [
+      "node",
+      "tools/asset_production/integration/editor_client.mjs",
+      "docs/reviews/asset-production/batch_01/final/private-start-requests.json"
+    ],
+    "cwd": "/home/regner/.paseo/worktrees/0u71f39f/asset-register-production",
+    "environment_overrides": {
+      "GIT_OPTIONAL_LOCKS": "0",
+      "ALSOFT_DRIVERS": "null",
+      "SDL_AUDIODRIVER": "dummy",
+      "XDG_CACHE_HOME": "/tmp/six-final-review-cache"
+    },
+    "exit": 0,
+    "elapsed_seconds": 0.26444077491760254
+  },
+  {
+    "label": "scratch-interfaces",
+    "argv": [
+      "/home/regner/.local/share/mise/installs/github-godotengine-godot-builds/4.8-dev7/godot",
+      "--headless",
+      "--path",
+      "/tmp/six-engine-review-c4067ff",
+      "--script",
+      "/home/regner/.paseo/worktrees/0u71f39f/asset-register-production/docs/reviews/asset-production/batch_01/final/headless_probe.gd"
+    ],
+    "cwd": "/home/regner/.paseo/worktrees/0u71f39f/asset-register-production",
+    "environment_overrides": {
+      "GIT_OPTIONAL_LOCKS": "0",
+      "ALSOFT_DRIVERS": "null",
+      "SDL_AUDIODRIVER": "dummy",
+      "XDG_CACHE_HOME": "/tmp/six-final-review-cache"
+    },
+    "exit": 0,
+    "elapsed_seconds": 0.16404271125793457
+  },
+  {
+    "label": "private-runtime",
+    "argv": [
+      "node",
+      "tools/asset_production/integration/editor_client.mjs",
+      "docs/reviews/asset-production/batch_01/final/private-runtime-requests.json",
+      "--runtime"
+    ],
+    "cwd": "/home/regner/.paseo/worktrees/0u71f39f/asset-register-production",
+    "environment_overrides": {
+      "GIT_OPTIONAL_LOCKS": "0",
+      "ALSOFT_DRIVERS": "null",
+      "SDL_AUDIODRIVER": "dummy",
+      "XDG_CACHE_HOME": "/tmp/six-final-review-cache"
+    },
+    "exit": 0,
+    "elapsed_seconds": 0.26450467109680176
+  },
+  {
+    "label": "private-close-start",
+    "argv": [
+      "node",
+      "tools/asset_production/integration/editor_client.mjs",
+      "docs/reviews/asset-production/batch_01/final/private-close-start-requests.json"
+    ],
+    "cwd": "/home/regner/.paseo/worktrees/0u71f39f/asset-register-production",
+    "environment_overrides": {
+      "GIT_OPTIONAL_LOCKS": "0",
+      "ALSOFT_DRIVERS": "null",
+      "SDL_AUDIODRIVER": "dummy",
+      "XDG_CACHE_HOME": "/tmp/six-final-review-cache"
+    },
+    "exit": 0,
+    "elapsed_seconds": 0.3146352767944336
+  },
+  {
+    "label": "private-close-runtime",
+    "argv": [
+      "node",
+      "tools/asset_production/integration/editor_client.mjs",
+      "docs/reviews/asset-production/batch_01/final/private-close-runtime-requests.json",
+      "--runtime"
+    ],
+    "cwd": "/home/regner/.paseo/worktrees/0u71f39f/asset-register-production",
+    "environment_overrides": {
+      "GIT_OPTIONAL_LOCKS": "0",
+      "ALSOFT_DRIVERS": "null",
+      "SDL_AUDIODRIVER": "dummy",
+      "XDG_CACHE_HOME": "/tmp/six-final-review-cache"
+    },
+    "exit": 0,
+    "elapsed_seconds": 0.26462316513061523
+  },
+  {
+    "label": "private-stop",
+    "argv": [
+      "node",
+      "tools/asset_production/integration/editor_client.mjs",
+      "docs/reviews/asset-production/batch_01/final/private-stop-requests.json"
+    ],
+    "cwd": "/home/regner/.paseo/worktrees/0u71f39f/asset-register-production",
+    "environment_overrides": {
+      "GIT_OPTIONAL_LOCKS": "0",
+      "ALSOFT_DRIVERS": "null",
+      "SDL_AUDIODRIVER": "dummy",
+      "XDG_CACHE_HOME": "/tmp/six-final-review-cache"
+    },
+    "exit": 0,
+    "elapsed_seconds": 0.2645854949951172
+  },
+  {
+    "label": "evidence-analysis",
+    "argv": [
+      "python3",
+      "docs/reviews/asset-production/batch_01/final/evidence_analysis.py"
+    ],
+    "cwd": "/home/regner/.paseo/worktrees/0u71f39f/asset-register-production",
+    "environment_overrides": {
+      "GIT_OPTIONAL_LOCKS": "0",
+      "ALSOFT_DRIVERS": "null",
+      "SDL_AUDIODRIVER": "dummy",
+      "XDG_CACHE_HOME": "/tmp/six-final-review-cache"
+    },
+    "exit": 0,
+    "elapsed_seconds": 0.36461544036865234
+  },
+  {
+    "label": "scoped-gdstyle",
+    "argv": [
+      "/home/regner/.local/share/mise/installs/github-atelico-gdstyle/0.3.0/gdstyle",
+      "--no-color",
+      "--config",
+      "/tmp/six-engine-review-c4067ff/gdstyle.toml",
+      "/tmp/six-engine-review-c4067ff/tools/asset_production/integration/inspector.gd",
+      "/tmp/six-engine-review-c4067ff/tests/fixtures/asset_production/batch_observation.gd"
+    ],
+    "cwd": "/home/regner/.paseo/worktrees/0u71f39f/asset-register-production",
+    "environment_overrides": {
+      "GIT_OPTIONAL_LOCKS": "0",
+      "ALSOFT_DRIVERS": "null",
+      "SDL_AUDIODRIVER": "dummy",
+      "XDG_CACHE_HOME": "/tmp/six-final-review-cache"
+    },
+    "exit": 0,
+    "elapsed_seconds": 0.003734588623046875
+  },
+  {
+    "label": "final-preservation-host",
+    "argv": [
+      "python3",
+      "docs/reviews/asset-production/batch_01/final/final_guard.py"
+    ],
+    "cwd": "/home/regner/.paseo/worktrees/0u71f39f/asset-register-production",
+    "environment_overrides": {
+      "GIT_OPTIONAL_LOCKS": "0",
+      "ALSOFT_DRIVERS": "null",
+      "SDL_AUDIODRIVER": "dummy",
+      "XDG_CACHE_HOME": "/tmp/six-final-review-cache"
+    },
+    "exit": 0,
+    "elapsed_seconds": 0.5648348331451416
+  },
+  {
+    "label": "saved-ring-geometry",
+    "argv": [
+      "python3",
+      "docs/reviews/asset-production/batch_01/final/collision_geometry.py"
+    ],
+    "cwd": "/home/regner/.paseo/worktrees/0u71f39f/asset-register-production",
+    "environment_overrides": {
+      "GIT_OPTIONAL_LOCKS": "0",
+      "ALSOFT_DRIVERS": "null",
+      "SDL_AUDIODRIVER": "dummy",
+      "XDG_CACHE_HOME": "/tmp/six-final-review-cache"
+    },
+    "exit": 0,
+    "elapsed_seconds": 0.032187700271606445
+  },
+  {
+    "label": "gdstyle-version",
+    "argv": [
+      "/home/regner/.local/share/mise/installs/github-atelico-gdstyle/0.3.0/gdstyle",
+      "--version"
+    ],
+    "cwd": "/home/regner/.paseo/worktrees/0u71f39f/asset-register-production",
+    "environment_overrides": {
+      "GIT_OPTIONAL_LOCKS": "0",
+      "ALSOFT_DRIVERS": "null",
+      "SDL_AUDIODRIVER": "dummy",
+      "XDG_CACHE_HOME": "/tmp/six-final-review-cache"
+    },
+    "exit": 0,
+    "elapsed_seconds": 0.004403591156005859
+  }
+]

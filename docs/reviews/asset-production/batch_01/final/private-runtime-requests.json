@@ -1,0 +1,38 @@
+[
+  {
+    "method": "execute.code",
+    "params": {
+      "code": "get_tree().current_scene.probe_queries()"
+    }
+  },
+  {
+    "method": "execute.code",
+    "params": {
+      "code": "{\"scene\": get_tree().current_scene.scene_file_path, \"viewport\": str(get_viewport().get_visible_rect()), \"camera_transform\": str(get_viewport().get_camera_3d().global_transform), \"fov\": get_viewport().get_camera_3d().fov, \"near\": get_viewport().get_camera_3d().near, \"far\": get_viewport().get_camera_3d().far, \"projection\": get_viewport().get_camera_3d().projection, \"keep_aspect\": get_viewport().get_camera_3d().keep_aspect}"
+    }
+  },
+  {
+    "method": "execute.code",
+    "params": {
+      "code": "get_tree().current_scene.get_node(\"ProbeActor\").test_move(Transform3D(Basis(),Vector3(0,0,6)),Vector3(0,0,-4))"
+    }
+  },
+  {
+    "method": "execute.code",
+    "params": {
+      "code": "get_tree().current_scene.get_node(\"ProbeActor\").test_move(Transform3D(Basis(),Vector3(3,0,6)),Vector3(0,0,-10))"
+    }
+  },
+  {
+    "method": "execute.code",
+    "params": {
+      "code": "get_tree().current_scene.get_node(\"ProbeActor\").test_move(Transform3D(Basis(),Vector3(-4,0,3)),Vector3(0.02,0,0))"
+    }
+  },
+  {
+    "method": "execute.code",
+    "params": {
+      "code": "get_viewport().get_texture().get_image().save_png(\"res://docs/reviews/asset-production/batch_01/final/native-gameplay.png\")"
+    }
+  }
+]

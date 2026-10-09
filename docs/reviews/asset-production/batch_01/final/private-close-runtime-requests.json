@@ -1,0 +1,14 @@
+[
+  {
+    "method": "execute.code",
+    "params": {
+      "code": "{\"scene\": get_tree().current_scene.scene_file_path, \"window_size\": str(get_window().size), \"viewport\": str(get_viewport().get_visible_rect()), \"camera\": str(get_viewport().get_camera_3d().global_transform), \"fov\": get_viewport().get_camera_3d().fov}"
+    }
+  },
+  {
+    "method": "execute.code",
+    "params": {
+      "code": "get_viewport().get_texture().get_image().save_png(\"res://docs/reviews/asset-production/batch_01/final/native-mounting.png\")"
+    }
+  }
+]

@@ -1,0 +1,14 @@
+ERROR: Condition "_sock == -1" is true. Returning: FAILED
+   at: _inet_open (drivers/unix/net_socket_unix.cpp:288)
+While attempting to print an error, another error was printed:
+ERROR: Condition "p_image.is_null()" is true.
+   at: add_image (scene/gui/rich_text_label.cpp:4559)
+ERROR: Condition "err != OK" is true. Returning: ERR_CANT_CREATE
+   at: listen (core/io/tcp_server.cpp:56)
+While attempting to print an error, another error was printed:
+ERROR: Condition "p_image.is_null()" is true.
+   at: add_image (scene/gui/rich_text_label.cpp:4559)
+ERROR: Condition "_sock == -1" is true. Returning: FAILED
+   at: _inet_open (drivers/unix/net_socket_unix.cpp:288)
+ERROR: Condition "err != OK" is true. Returning: ERR_CANT_CREATE
+   at: listen (core/io/tcp_server.cpp:56)

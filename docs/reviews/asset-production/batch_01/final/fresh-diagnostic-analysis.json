@@ -1,0 +1,34 @@
+[
+  {
+    "source": "/tmp/asset-register-production-editor/editor-restarted.log",
+    "retained": "private-editor-restarted.log",
+    "start_byte_offset": 21816,
+    "end_byte_offset": 33466,
+    "review_tail_diagnostics": [
+      {
+        "line": 20,
+        "text": "ERROR: Do not use progress dialog (task) while flushing the message queue or using call_deferred()!"
+      },
+      {
+        "line": 34,
+        "text": "ERROR: Condition \"!tasks.has(p_task)\" is true. Returning: canceled"
+      },
+      {
+        "line": 48,
+        "text": "ERROR: Condition \"!tasks.has(p_task)\" is true. Returning: canceled"
+      },
+      {
+        "line": 62,
+        "text": "ERROR: Condition \"!tasks.has(p_task)\" is true. Returning: canceled"
+      },
+      {
+        "line": 76,
+        "text": "ERROR: Condition \"!tasks.has(p_task)\" is true. Returning: canceled"
+      },
+      {
+        "line": 90,
+        "text": "ERROR: Condition \"!tasks.has(p_task)\" is true."
+      }
+    ]
+  }
+]

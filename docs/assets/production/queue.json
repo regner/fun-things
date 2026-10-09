@@ -20,11 +20,11 @@
       "input_next_action": "Refine shared design for recorded districts",
       "brief": "[Brief](../../assets/city_lights.md)",
       "priority": 0,
-      "status": "source_export_delivered",
+      "status": "production_prefab_accepted",
       "agent_id": "a320df33-e49b-4a56-8e08-1d2551463068",
-      "source_revision": null,
-      "review_status": "pending",
-      "integration_status": "partial",
+      "source_revision": "390377dc6530e101eddcbf38b2946a1b235137c7",
+      "review_status": "accepted source/export/prefab/bounded native scope",
+      "integration_status": "accepted",
       "placement_status": "pending",
       "blocker": null,
       "attempts": 1,
@@ -44,13 +44,16 @@
         "mode": "auto-review",
         "launched_by": "ROOT",
         "notification_route": [
-          "ROOT",
-          "150f00b5-9e62-44d8-b0aa-a456d2a88b8c"
+          "ROOT"
         ]
       },
       "producer_manifest": "docs/assets/production/city_lights_01-evidence/manifest.json",
       "producer_set_verified": true,
-      "integration_record": "docs/assets/production/lights-integration.md"
+      "integration_record": "docs/assets/production/lights-integration.md",
+      "report": "docs/assets/production/city_lights_01.md",
+      "engine_candidate": "c4067ff3abe1384301471d9a64e94e84201235e2",
+      "reviewed_revision": "c4067ff3abe1384301471d9a64e94e84201235e2",
+      "review_report": "docs/reviews/asset-production/batch_01/final/report.md"
     },
     {
       "id": "city_lights.02",
@@ -63,11 +66,11 @@
       "input_next_action": "Refine shared design for recorded districts",
       "brief": "[Brief](../../assets/city_lights.md)",
       "priority": 0,
-      "status": "source_export_delivered",
+      "status": "production_prefab_accepted",
       "agent_id": "285fea37-eec1-4e65-98fc-f0713bef0e89",
-      "source_revision": null,
-      "review_status": "pending",
-      "integration_status": "partial",
+      "source_revision": "390377dc6530e101eddcbf38b2946a1b235137c7",
+      "review_status": "accepted source/export/prefab/bounded native scope",
+      "integration_status": "accepted",
       "placement_status": "pending",
       "blocker": null,
       "attempts": 1,
@@ -87,13 +90,16 @@
         "mode": "auto-review",
         "launched_by": "ROOT",
         "notification_route": [
-          "ROOT",
-          "150f00b5-9e62-44d8-b0aa-a456d2a88b8c"
+          "ROOT"
         ]
       },
       "producer_manifest": "docs/assets/production/city_lights_02-evidence/manifest.json",
       "producer_set_verified": true,
-      "integration_record": "docs/assets/production/lights-integration.md"
+      "integration_record": "docs/assets/production/lights-integration.md",
+      "report": "docs/assets/production/city_lights_02.md",
+      "engine_candidate": "c4067ff3abe1384301471d9a64e94e84201235e2",
+      "reviewed_revision": "c4067ff3abe1384301471d9a64e94e84201235e2",
+      "review_report": "docs/reviews/asset-production/batch_01/final/report.md"
     },
     {
       "id": "city_lights.04",
@@ -106,11 +112,11 @@
       "input_next_action": "Refine shared design for recorded districts",
       "brief": "[Brief](../../assets/city_lights.md)",
       "priority": 0,
-      "status": "source_export_delivered",
+      "status": "production_prefab_accepted",
       "agent_id": "a69e6e9c-4878-486d-b6b0-417b5786ce80",
-      "source_revision": null,
-      "review_status": "pending",
-      "integration_status": "pending",
+      "source_revision": "390377dc6530e101eddcbf38b2946a1b235137c7",
+      "review_status": "accepted source/export/prefab/bounded native scope",
+      "integration_status": "accepted",
       "placement_status": "pending",
       "blocker": null,
       "attempts": 1,
@@ -126,12 +132,19 @@
       "launch": {
         "provider": "codex/gpt-6-astra",
         "configured_effort": "medium",
+        "effective_effort": "medium",
         "mode": "auto-review",
-        "notification_route": "150f00b5-9e62-44d8-b0aa-a456d2a88b8c",
-        "effective_effort": "medium"
+        "launched_by": "integrator before lean handoff",
+        "notification_route": [
+          "ROOT"
+        ]
       },
       "producer_manifest": "docs/assets/production/city_lights_04-evidence/manifest.json",
-      "producer_set_verified": false
+      "producer_set_verified": false,
+      "report": "docs/assets/production/city_lights_04.md",
+      "engine_candidate": "c4067ff3abe1384301471d9a64e94e84201235e2",
+      "reviewed_revision": "c4067ff3abe1384301471d9a64e94e84201235e2",
+      "review_report": "docs/reviews/asset-production/batch_01/final/report.md"
     },
     {
       "id": "city_sign_supports.01",
@@ -144,11 +157,11 @@
       "input_next_action": "Refine shared design for recorded districts",
       "brief": "[Brief](../../assets/city_sign_supports.md)",
       "priority": 0,
-      "status": "modeling",
+      "status": "production_prefab_accepted",
       "agent_id": "bf303bbb-ed1e-4570-860f-41060d6c000e",
-      "source_revision": null,
-      "review_status": "pending",
-      "integration_status": "pending",
+      "source_revision": "390377dc6530e101eddcbf38b2946a1b235137c7",
+      "review_status": "accepted source/export/prefab/bounded native scope",
+      "integration_status": "accepted",
       "placement_status": "pending",
       "blocker": null,
       "attempts": 1,
@@ -166,11 +179,15 @@
         "configured_effort": "medium",
         "effective_effort": "medium",
         "mode": "auto-review",
-        "launched_by": "integrator before routing handoff",
+        "launched_by": "integrator before lean handoff",
         "notification_route": [
           "ROOT"
         ]
-      }
+      },
+      "report": "docs/assets/production/city_sign_supports_01.md",
+      "engine_candidate": "c4067ff3abe1384301471d9a64e94e84201235e2",
+      "reviewed_revision": "c4067ff3abe1384301471d9a64e94e84201235e2",
+      "review_report": "docs/reviews/asset-production/batch_01/final/report.md"
     },
     {
       "id": "city_planting.01",
@@ -183,11 +200,11 @@
       "input_next_action": "Refine shared design for recorded districts",
       "brief": "[Brief](../../assets/city_planting.md)",
       "priority": 0,
-      "status": "modeling",
+      "status": "production_prefab_accepted",
       "agent_id": "2ca44d19-8b35-441d-815d-8b43c0616fd6",
-      "source_revision": null,
-      "review_status": "pending",
-      "integration_status": "pending",
+      "source_revision": "390377dc6530e101eddcbf38b2946a1b235137c7",
+      "review_status": "accepted source/export/prefab/bounded native scope",
+      "integration_status": "accepted",
       "placement_status": "pending",
       "blocker": null,
       "attempts": 1,
@@ -209,7 +226,11 @@
         "notification_route": [
           "ROOT"
         ]
-      }
+      },
+      "report": "docs/assets/production/city_planting_01.md",
+      "engine_candidate": "c4067ff3abe1384301471d9a64e94e84201235e2",
+      "reviewed_revision": "c4067ff3abe1384301471d9a64e94e84201235e2",
+      "review_report": "docs/reviews/asset-production/batch_01/final/report.md"
     },
     {
       "id": "city_planting.02",
@@ -222,11 +243,11 @@
       "input_next_action": "Refine shared design for recorded districts",
       "brief": "[Brief](../../assets/city_planting.md)",
       "priority": 0,
-      "status": "modeling",
+      "status": "production_prefab_accepted",
       "agent_id": "6c134cf1-f3ec-454e-bebc-f45ef351bac8",
-      "source_revision": null,
-      "review_status": "pending",
-      "integration_status": "pending",
+      "source_revision": "390377dc6530e101eddcbf38b2946a1b235137c7",
+      "review_status": "accepted source/export/prefab/bounded native scope",
+      "integration_status": "accepted",
       "placement_status": "pending",
       "blocker": null,
       "attempts": 1,
@@ -248,7 +269,11 @@
         "notification_route": [
           "ROOT"
         ]
-      }
+      },
+      "report": "docs/assets/production/city_planting_02.md",
+      "engine_candidate": "c4067ff3abe1384301471d9a64e94e84201235e2",
+      "reviewed_revision": "c4067ff3abe1384301471d9a64e94e84201235e2",
+      "review_report": "docs/reviews/asset-production/batch_01/final/report.md"
     },
     {
       "id": "city_planting.03",
@@ -261,14 +286,14 @@
       "input_next_action": "Refine shared design for recorded districts",
       "brief": "[Brief](../../assets/city_planting.md)",
       "priority": 0,
-      "status": "queued",
-      "agent_id": null,
+      "status": "source_export_delivered",
+      "agent_id": "c691d6cb-1980-454e-b912-84932a974418",
       "source_revision": null,
       "review_status": "pending",
       "integration_status": "pending",
       "placement_status": "pending",
       "blocker": null,
-      "attempts": 0,
+      "attempts": 1,
       "initial_time_cap_minutes": 90,
       "owned_paths": [
         "art/source/models/environment/city_planting_03/",
@@ -277,7 +302,18 @@
         "art/materials/environment/city_planting_03/",
         "docs/assets/production/city_planting_03.md",
         "docs/assets/production/city_planting_03-evidence/"
-      ]
+      ],
+      "launch": {
+        "provider": "codex/gpt-6-astra",
+        "configured_effort": "medium",
+        "effective_effort": "medium",
+        "mode": "auto-review",
+        "launched_by": "ROOT",
+        "notification_route": [
+          "ROOT"
+        ]
+      },
+      "report": "docs/assets/production/city_planting_03.md"
     },
     {
       "id": "city_planting.04",
@@ -290,14 +326,14 @@
       "input_next_action": "Refine shared design for recorded districts",
       "brief": "[Brief](../../assets/city_planting.md)",
       "priority": 0,
-      "status": "queued",
-      "agent_id": null,
+      "status": "source_export_delivered",
+      "agent_id": "5d1a3797-09d6-469b-b1f0-eb894a7e2f94",
       "source_revision": null,
       "review_status": "pending",
       "integration_status": "pending",
       "placement_status": "pending",
       "blocker": null,
-      "attempts": 0,
+      "attempts": 1,
       "initial_time_cap_minutes": 90,
       "owned_paths": [
         "art/source/models/environment/city_planting_04/",
@@ -306,7 +342,18 @@
         "art/materials/environment/city_planting_04/",
         "docs/assets/production/city_planting_04.md",
         "docs/assets/production/city_planting_04-evidence/"
-      ]
+      ],
+      "launch": {
+        "provider": "codex/gpt-6-astra",
+        "configured_effort": "medium",
+        "effective_effort": "medium",
+        "mode": "auto-review",
+        "launched_by": "ROOT",
+        "notification_route": [
+          "ROOT"
+        ]
+      },
+      "report": "docs/assets/production/city_planting_04.md"
     },
     {
       "id": "city_planting.05",
@@ -319,14 +366,14 @@
       "input_next_action": "Refine shared design for recorded districts",
       "brief": "[Brief](../../assets/city_planting.md)",
       "priority": 0,
-      "status": "queued",
-      "agent_id": null,
+      "status": "source_export_delivered",
+      "agent_id": "2a88bc02-23cb-4e6f-b8a2-bdb9ccae7889",
       "source_revision": null,
       "review_status": "pending",
       "integration_status": "pending",
       "placement_status": "pending",
       "blocker": null,
-      "attempts": 0,
+      "attempts": 1,
       "initial_time_cap_minutes": 90,
       "owned_paths": [
         "art/source/models/environment/city_planting_05/",
@@ -335,7 +382,18 @@
         "art/materials/environment/city_planting_05/",
         "docs/assets/production/city_planting_05.md",
         "docs/assets/production/city_planting_05-evidence/"
-      ]
+      ],
+      "launch": {
+        "provider": "codex/gpt-6-astra",
+        "configured_effort": "medium",
+        "effective_effort": "medium",
+        "mode": "auto-review",
+        "launched_by": "ROOT",
+        "notification_route": [
+          "ROOT"
+        ]
+      },
+      "report": "docs/assets/production/city_planting_05.md"
     },
     {
       "id": "city_roof_details.01",
@@ -348,14 +406,14 @@
       "input_next_action": "Refine shared design for recorded districts",
       "brief": "[Brief](../../assets/city_roof_details.md)",
       "priority": 0,
-      "status": "queued",
-      "agent_id": null,
+      "status": "source_export_delivered",
+      "agent_id": "144bf996-5279-4d03-9f2e-672f476fd183",
       "source_revision": null,
       "review_status": "pending",
       "integration_status": "pending",
       "placement_status": "pending",
       "blocker": null,
-      "attempts": 0,
+      "attempts": 1,
       "initial_time_cap_minutes": 90,
       "owned_paths": [
         "art/source/models/environment/city_roof_details_01/",
@@ -364,7 +422,18 @@
         "art/materials/environment/city_roof_details_01/",
         "docs/assets/production/city_roof_details_01.md",
         "docs/assets/production/city_roof_details_01-evidence/"
-      ]
+      ],
+      "launch": {
+        "provider": "codex/gpt-6-astra",
+        "configured_effort": "medium",
+        "effective_effort": "medium",
+        "mode": "auto-review",
+        "launched_by": "ROOT",
+        "notification_route": [
+          "ROOT"
+        ]
+      },
+      "report": "docs/assets/production/city_roof_details_01.md"
     },
     {
       "id": "city_roof_details.02",
@@ -377,14 +446,14 @@
       "input_next_action": "Refine shared design for recorded districts",
       "brief": "[Brief](../../assets/city_roof_details.md)",
       "priority": 0,
-      "status": "queued",
-      "agent_id": null,
+      "status": "source_export_delivered",
+      "agent_id": "1cfcd098-b913-488f-aa0a-80181e160534",
       "source_revision": null,
       "review_status": "pending",
       "integration_status": "pending",
       "placement_status": "pending",
       "blocker": null,
-      "attempts": 0,
+      "attempts": 1,
       "initial_time_cap_minutes": 90,
       "owned_paths": [
         "art/source/models/environment/city_roof_details_02/",
@@ -393,7 +462,18 @@
         "art/materials/environment/city_roof_details_02/",
         "docs/assets/production/city_roof_details_02.md",
         "docs/assets/production/city_roof_details_02-evidence/"
-      ]
+      ],
+      "launch": {
+        "provider": "codex/gpt-6-astra",
+        "configured_effort": "medium",
+        "effective_effort": "medium",
+        "mode": "auto-review",
+        "launched_by": "ROOT",
+        "notification_route": [
+          "ROOT"
+        ]
+      },
+      "report": "docs/assets/production/city_roof_details_02.md"
     },
     {
       "id": "city_shop_fittings.01",
@@ -406,14 +486,14 @@
       "input_next_action": "Refine shared design for recorded districts",
       "brief": "[Brief](../../assets/city_shop_fittings.md)",
       "priority": 0,
-      "status": "queued",
-      "agent_id": null,
+      "status": "source_export_delivered",
+      "agent_id": "7e47223a-3ac4-461b-a661-a9874ff01a40",
       "source_revision": null,
       "review_status": "pending",
       "integration_status": "pending",
       "placement_status": "pending",
       "blocker": null,
-      "attempts": 0,
+      "attempts": 1,
       "initial_time_cap_minutes": 90,
       "owned_paths": [
         "art/source/models/environment/city_shop_fittings_01/",
@@ -422,7 +502,18 @@
         "art/materials/environment/city_shop_fittings_01/",
         "docs/assets/production/city_shop_fittings_01.md",
         "docs/assets/production/city_shop_fittings_01-evidence/"
-      ]
+      ],
+      "launch": {
+        "provider": "codex/gpt-6-astra",
+        "configured_effort": "medium",
+        "effective_effort": "medium",
+        "mode": "auto-review",
+        "launched_by": "ROOT",
+        "notification_route": [
+          "ROOT"
+        ]
+      },
+      "report": "docs/assets/production/city_shop_fittings_01.md"
     },
     {
       "id": "city_shop_fittings.02",
@@ -435,14 +526,14 @@
       "input_next_action": "Refine shared design for recorded districts",
       "brief": "[Brief](../../assets/city_shop_fittings.md)",
       "priority": 0,
-      "status": "queued",
-      "agent_id": null,
+      "status": "source_export_delivered",
+      "agent_id": "d7c85edf-6b85-4161-8514-17a171165b46",
       "source_revision": null,
       "review_status": "pending",
       "integration_status": "pending",
       "placement_status": "pending",
       "blocker": null,
-      "attempts": 0,
+      "attempts": 1,
       "initial_time_cap_minutes": 90,
       "owned_paths": [
         "art/source/models/environment/city_shop_fittings_02/",
@@ -451,7 +542,18 @@
         "art/materials/environment/city_shop_fittings_02/",
         "docs/assets/production/city_shop_fittings_02.md",
         "docs/assets/production/city_shop_fittings_02-evidence/"
-      ]
+      ],
+      "launch": {
+        "provider": "codex/gpt-6-astra",
+        "configured_effort": "medium",
+        "effective_effort": "medium",
+        "mode": "auto-review",
+        "launched_by": "ROOT",
+        "notification_route": [
+          "ROOT"
+        ]
+      },
+      "report": "docs/assets/production/city_shop_fittings_02.md"
     },
     {
       "id": "city_shop_fittings.03",
@@ -464,14 +566,14 @@
       "input_next_action": "Refine shared design for recorded districts",
       "brief": "[Brief](../../assets/city_shop_fittings.md)",
       "priority": 0,
-      "status": "queued",
-      "agent_id": null,
+      "status": "source_export_delivered",
+      "agent_id": "0bbb8cc7-8f6a-4ccf-91cd-fec79eda117f",
       "source_revision": null,
       "review_status": "pending",
       "integration_status": "pending",
       "placement_status": "pending",
       "blocker": null,
-      "attempts": 0,
+      "attempts": 1,
       "initial_time_cap_minutes": 90,
       "owned_paths": [
         "art/source/models/environment/city_shop_fittings_03/",
@@ -480,7 +582,18 @@
         "art/materials/environment/city_shop_fittings_03/",
         "docs/assets/production/city_shop_fittings_03.md",
         "docs/assets/production/city_shop_fittings_03-evidence/"
-      ]
+      ],
+      "launch": {
+        "provider": "codex/gpt-6-astra",
+        "configured_effort": "medium",
+        "effective_effort": "medium",
+        "mode": "auto-review",
+        "launched_by": "ROOT",
+        "notification_route": [
+          "ROOT"
+        ]
+      },
+      "report": "docs/assets/production/city_shop_fittings_03.md"
     },
     {
       "id": "city_shop_fittings.05",
@@ -493,14 +606,14 @@
       "input_next_action": "Refine shared design for recorded districts",
       "brief": "[Brief](../../assets/city_shop_fittings.md)",
       "priority": 0,
-      "status": "queued",
-      "agent_id": null,
+      "status": "source_export_delivered",
+      "agent_id": "d4c4cff1-0b57-4815-8d22-602a2b679ede",
       "source_revision": null,
       "review_status": "pending",
       "integration_status": "pending",
       "placement_status": "pending",
       "blocker": null,
-      "attempts": 0,
+      "attempts": 1,
       "initial_time_cap_minutes": 90,
       "owned_paths": [
         "art/source/models/environment/city_shop_fittings_05/",
@@ -509,7 +622,18 @@
         "art/materials/environment/city_shop_fittings_05/",
         "docs/assets/production/city_shop_fittings_05.md",
         "docs/assets/production/city_shop_fittings_05-evidence/"
-      ]
+      ],
+      "launch": {
+        "provider": "codex/gpt-6-astra",
+        "configured_effort": "medium",
+        "effective_effort": "medium",
+        "mode": "auto-review",
+        "launched_by": "ROOT",
+        "notification_route": [
+          "ROOT"
+        ]
+      },
+      "report": "docs/assets/production/city_shop_fittings_05.md"
     },
     {
       "id": "city_shop_fittings.06",
@@ -522,14 +646,14 @@
       "input_next_action": "Refine shared design for recorded districts",
       "brief": "[Brief](../../assets/city_shop_fittings.md)",
       "priority": 0,
-      "status": "queued",
-      "agent_id": null,
+      "status": "modeling",
+      "agent_id": "414e57e5-002a-4ed8-a39b-fca002a205e6",
       "source_revision": null,
       "review_status": "pending",
       "integration_status": "pending",
       "placement_status": "pending",
       "blocker": null,
-      "attempts": 0,
+      "attempts": 1,
       "initial_time_cap_minutes": 90,
       "owned_paths": [
         "art/source/models/environment/city_shop_fittings_06/",
@@ -538,7 +662,18 @@
         "art/materials/environment/city_shop_fittings_06/",
         "docs/assets/production/city_shop_fittings_06.md",
         "docs/assets/production/city_shop_fittings_06-evidence/"
-      ]
+      ],
+      "launch": {
+        "provider": "codex/gpt-6-astra",
+        "configured_effort": "medium",
+        "effective_effort": "medium",
+        "mode": "auto-review",
+        "launched_by": "ROOT",
+        "notification_route": [
+          "ROOT"
+        ]
+      },
+      "report": "docs/assets/production/city_shop_fittings_06.md"
     },
     {
       "id": "city_shop_fittings.07",
@@ -551,14 +686,14 @@
       "input_next_action": "Refine shared design for recorded districts",
       "brief": "[Brief](../../assets/city_shop_fittings.md)",
       "priority": 0,
-      "status": "queued",
-      "agent_id": null,
+      "status": "modeling",
+      "agent_id": "13bbbcee-af07-4887-8a35-ae2dcb9cd4b9",
       "source_revision": null,
       "review_status": "pending",
       "integration_status": "pending",
       "placement_status": "pending",
       "blocker": null,
-      "attempts": 0,
+      "attempts": 1,
       "initial_time_cap_minutes": 90,
       "owned_paths": [
         "art/source/models/environment/city_shop_fittings_07/",
@@ -567,7 +702,18 @@
         "art/materials/environment/city_shop_fittings_07/",
         "docs/assets/production/city_shop_fittings_07.md",
         "docs/assets/production/city_shop_fittings_07-evidence/"
-      ]
+      ],
+      "launch": {
+        "provider": "codex/gpt-6-astra",
+        "configured_effort": "medium",
+        "effective_effort": "medium",
+        "mode": "auto-review",
+        "launched_by": "ROOT",
+        "notification_route": [
+          "ROOT"
+        ]
+      },
+      "report": "docs/assets/production/city_shop_fittings_07.md"
     },
     {
       "id": "city_shop_fittings.08",
@@ -6657,5 +6803,47 @@
   "queue_owner": "fbd92534-e159-432f-aae7-28072c2bf3b2",
   "lead_role": "bounded Godot integration/shared tooling implementer; idle after checkpoint",
   "integrator": "150f00b5-9e62-44d8-b0aa-a456d2a88b8c",
-  "capacity_contract": "Four active agents including ROOT; integration/review occupies a child slot; at most three source workers while integrator idle."
+  "capacity_contract": "Four active agents including ROOT; integration/review occupies a child slot; at most three source workers while integrator idle.",
+  "batches": {
+    "01": {
+      "assets": [
+        "city_lights.01",
+        "city_lights.02",
+        "city_lights.04",
+        "city_sign_supports.01",
+        "city_planting.01",
+        "city_planting.02"
+      ],
+      "source_candidate": "390377dc6530e101eddcbf38b2946a1b235137c7",
+      "engine_candidate": "c4067ff3abe1384301471d9a64e94e84201235e2",
+      "reviewer": "88d917ff-a9d8-4faa-b276-007c50bd4f05",
+      "source_review": "accepted; G1 closed",
+      "engine_review": "accepted",
+      "ready": false,
+      "ready_scope": "Source/export, calibration, nine linked-prefab stages and bounded native checks accepted; full game-ready/world acceptance remains pending per same reviewer",
+      "final_report": "docs/reviews/asset-production/batch_01/final/report.md",
+      "production_prefab_accepted": true
+    },
+    "02": {
+      "assets": [
+        "city_planting.03",
+        "city_planting.04",
+        "city_planting.05",
+        "city_roof_details.01",
+        "city_roof_details.02",
+        "city_shop_fittings.01"
+      ],
+      "integration": "next concrete assignment",
+      "ready": false
+    },
+    "03": {
+      "assets": [
+        "city_shop_fittings.02",
+        "city_shop_fittings.03",
+        "city_shop_fittings.05"
+      ],
+      "integration": "queued",
+      "ready": false
+    }
+  }
 }

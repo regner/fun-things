@@ -1,0 +1,1508 @@
+{
+  "repeat_counts": {
+    "city_lights_01": 8,
+    "city_lights_02": 8,
+    "city_lights_04": 8,
+    "city_sign_supports_01": 8,
+    "city_planting_01": 8,
+    "city_planting_02": 8
+  },
+  "repeat_total": 48,
+  "observations": [
+    {
+      "file": "batch-final-styled-probe-results.jsonl",
+      "raw_frame_count": 120,
+      "analysis_frame_indices": [
+        60,
+        119
+      ],
+      "medians": {
+        "draw_calls": 256.0,
+        "frame_s": 0.000189,
+        "physics_s": 0.000434,
+        "primitives": 35916.0,
+        "video_bytes": 92321488.0
+      },
+      "first_frame": {
+        "draw_calls": 0,
+        "frame_s": 0,
+        "physics_s": 0,
+        "primitives": 0,
+        "video_bytes": 0
+      },
+      "last_frame": {
+        "draw_calls": 256,
+        "frame_s": 0.000189,
+        "physics_s": 0.000434,
+        "primitives": 35916,
+        "video_bytes": 92321488
+      },
+      "queries": 300,
+      "query_batch_usec": 118,
+      "motion": {
+        "bypass_crossed": true,
+        "bypass_end_z_m": -4.00000095367432,
+        "planter_stop_z_m": 3.83007478713989,
+        "planter_stopped": true
+      },
+      "outcomes": {
+        "below_wall_lamp_clear": {
+          "expected": false,
+          "hit": false
+        },
+        "pedestrian_pole_solid": {
+          "expected": true,
+          "hit": true
+        },
+        "rectangular_planter_solid": {
+          "expected": true,
+          "hit": true
+        },
+        "rectangular_walkway_clear": {
+          "expected": false,
+          "hit": false
+        },
+        "round_centre_clear": {
+          "expected": false,
+          "hit": false
+        },
+        "round_ring_solid": {
+          "expected": true,
+          "hit": true
+        },
+        "street_pole_solid": {
+          "expected": true,
+          "hit": true
+        }
+      },
+      "passed": true
+    },
+    {
+      "file": "batch-repeat-probe-results.jsonl",
+      "raw_frame_count": 120,
+      "analysis_frame_indices": [
+        60,
+        119
+      ],
+      "medians": {
+        "draw_calls": 439.0,
+        "frame_s": 0.000168,
+        "physics_s": 0.000645,
+        "primitives": 153096.0,
+        "video_bytes": 92321488.0
+      },
+      "first_frame": {
+        "draw_calls": 0,
+        "frame_s": 0,
+        "physics_s": 0,
+        "primitives": 0,
+        "video_bytes": 0
+      },
+      "last_frame": {
+        "draw_calls": 439,
+        "frame_s": 0.000168,
+        "physics_s": 0.000645,
+        "primitives": 153096,
+        "video_bytes": 92321488
+      },
+      "queries": 300,
+      "query_batch_usec": 126,
+      "motion": {
+        "bypass_crossed": true,
+        "bypass_end_z_m": -4.00000095367432,
+        "planter_stop_z_m": 3.83007478713989,
+        "planter_stopped": true
+      },
+      "outcomes": {
+        "below_wall_lamp_clear": {
+          "expected": false,
+          "hit": false
+        },
+        "pedestrian_pole_solid": {
+          "expected": true,
+          "hit": true
+        },
+        "rectangular_planter_solid": {
+          "expected": true,
+          "hit": true
+        },
+        "rectangular_walkway_clear": {
+          "expected": false,
+          "hit": false
+        },
+        "round_centre_clear": {
+          "expected": false,
+          "hit": false
+        },
+        "round_ring_solid": {
+          "expected": true,
+          "hit": true
+        },
+        "street_pole_solid": {
+          "expected": true,
+          "hit": true
+        }
+      },
+      "passed": true
+    }
+  ],
+  "roundtrip_operations": [
+    {
+      "method": "scene.open",
+      "receipt": {
+        "path": "res://scenes/prefabs/environment/city_lights_01.tscn",
+        "success": true
+      }
+    },
+    {
+      "method": "editor.save_scene",
+      "receipt": {
+        "path": "res://scenes/prefabs/environment/city_lights_01.tscn",
+        "success": true
+      }
+    },
+    {
+      "method": "scene.close",
+      "receipt": {
+        "path": "res://scenes/prefabs/environment/city_lights_01.tscn",
+        "success": true,
+        "unsaved_changes_discarded": false
+      }
+    },
+    {
+      "method": "scene.open",
+      "receipt": {
+        "path": "res://scenes/prefabs/environment/city_lights_01.tscn",
+        "success": true
+      }
+    },
+    {
+      "method": "editor.save_scene",
+      "receipt": {
+        "path": "res://scenes/prefabs/environment/city_lights_01.tscn",
+        "success": true
+      }
+    },
+    {
+      "method": "scene.open",
+      "receipt": {
+        "path": "res://scenes/prefabs/environment/city_lights_01_cool.tscn",
+        "success": true
+      }
+    },
+    {
+      "method": "editor.save_scene",
+      "receipt": {
+        "path": "res://scenes/prefabs/environment/city_lights_01_cool.tscn",
+        "success": true
+      }
+    },
+    {
+      "method": "scene.close",
+      "receipt": {
+        "path": "res://scenes/prefabs/environment/city_lights_01_cool.tscn",
+        "success": true,
+        "unsaved_changes_discarded": false
+      }
+    },
+    {
+      "method": "scene.open",
+      "receipt": {
+        "path": "res://scenes/prefabs/environment/city_lights_01_cool.tscn",
+        "success": true
+      }
+    },
+    {
+      "method": "editor.save_scene",
+      "receipt": {
+        "path": "res://scenes/prefabs/environment/city_lights_01_cool.tscn",
+        "success": true
+      }
+    },
+    {
+      "method": "scene.open",
+      "receipt": {
+        "path": "res://scenes/prefabs/environment/city_lights_02.tscn",
+        "success": true
+      }
+    },
+    {
+      "method": "editor.save_scene",
+      "receipt": {
+        "path": "res://scenes/prefabs/environment/city_lights_02.tscn",
+        "success": true
+      }
+    },
+    {
+      "method": "scene.close",
+      "receipt": {
+        "path": "res://scenes/prefabs/environment/city_lights_02.tscn",
+        "success": true,
+        "unsaved_changes_discarded": false
+      }
+    },
+    {
+      "method": "scene.open",
+      "receipt": {
+        "path": "res://scenes/prefabs/environment/city_lights_02.tscn",
+        "success": true
+      }
+    },
+    {
+      "method": "editor.save_scene",
+      "receipt": {
+        "path": "res://scenes/prefabs/environment/city_lights_02.tscn",
+        "success": true
+      }
+    },
+    {
+      "method": "scene.open",
+      "receipt": {
+        "path": "res://scenes/prefabs/environment/city_lights_02_cool.tscn",
+        "success": true
+      }
+    },
+    {
+      "method": "editor.save_scene",
+      "receipt": {
+        "path": "res://scenes/prefabs/environment/city_lights_02_cool.tscn",
+        "success": true
+      }
+    },
+    {
+      "method": "scene.close",
+      "receipt": {
+        "path": "res://scenes/prefabs/environment/city_lights_02_cool.tscn",
+        "success": true,
+        "unsaved_changes_discarded": false
+      }
+    },
+    {
+      "method": "scene.open",
+      "receipt": {
+        "path": "res://scenes/prefabs/environment/city_lights_02_cool.tscn",
+        "success": true
+      }
+    },
+    {
+      "method": "editor.save_scene",
+      "receipt": {
+        "path": "res://scenes/prefabs/environment/city_lights_02_cool.tscn",
+        "success": true
+      }
+    },
+    {
+      "method": "scene.open",
+      "receipt": {
+        "path": "res://scenes/prefabs/environment/city_lights_04.tscn",
+        "success": true
+      }
+    },
+    {
+      "method": "editor.save_scene",
+      "receipt": {
+        "path": "res://scenes/prefabs/environment/city_lights_04.tscn",
+        "success": true
+      }
+    },
+    {
+      "method": "scene.close",
+      "receipt": {
+        "path": "res://scenes/prefabs/environment/city_lights_04.tscn",
+        "success": true,
+        "unsaved_changes_discarded": false
+      }
+    },
+    {
+      "method": "scene.open",
+      "receipt": {
+        "path": "res://scenes/prefabs/environment/city_lights_04.tscn",
+        "success": true
+      }
+    },
+    {
+      "method": "editor.save_scene",
+      "receipt": {
+        "path": "res://scenes/prefabs/environment/city_lights_04.tscn",
+        "success": true
+      }
+    },
+    {
+      "method": "scene.open",
+      "receipt": {
+        "path": "res://scenes/prefabs/environment/city_lights_04_cool.tscn",
+        "success": true
+      }
+    },
+    {
+      "method": "editor.save_scene",
+      "receipt": {
+        "path": "res://scenes/prefabs/environment/city_lights_04_cool.tscn",
+        "success": true
+      }
+    },
+    {
+      "method": "scene.close",
+      "receipt": {
+        "path": "res://scenes/prefabs/environment/city_lights_04_cool.tscn",
+        "success": true,
+        "unsaved_changes_discarded": false
+      }
+    },
+    {
+      "method": "scene.open",
+      "receipt": {
+        "path": "res://scenes/prefabs/environment/city_lights_04_cool.tscn",
+        "success": true
+      }
+    },
+    {
+      "method": "editor.save_scene",
+      "receipt": {
+        "path": "res://scenes/prefabs/environment/city_lights_04_cool.tscn",
+        "success": true
+      }
+    },
+    {
+      "method": "scene.open",
+      "receipt": {
+        "path": "res://scenes/prefabs/environment/city_sign_supports_01.tscn",
+        "success": true
+      }
+    },
+    {
+      "method": "editor.save_scene",
+      "receipt": {
+        "path": "res://scenes/prefabs/environment/city_sign_supports_01.tscn",
+        "success": true
+      }
+    },
+    {
+      "method": "scene.close",
+      "receipt": {
+        "path": "res://scenes/prefabs/environment/city_sign_supports_01.tscn",
+        "success": true,
+        "unsaved_changes_discarded": false
+      }
+    },
+    {
+      "method": "scene.open",
+      "receipt": {
+        "path": "res://scenes/prefabs/environment/city_sign_supports_01.tscn",
+        "success": true
+      }
+    },
+    {
+      "method": "editor.save_scene",
+      "receipt": {
+        "path": "res://scenes/prefabs/environment/city_sign_supports_01.tscn",
+        "success": true
+      }
+    },
+    {
+      "method": "scene.open",
+      "receipt": {
+        "path": "res://scenes/prefabs/environment/city_planting_01.tscn",
+        "success": true
+      }
+    },
+    {
+      "method": "editor.save_scene",
+      "receipt": {
+        "path": "res://scenes/prefabs/environment/city_planting_01.tscn",
+        "success": true
+      }
+    },
+    {
+      "method": "scene.close",
+      "receipt": {
+        "path": "res://scenes/prefabs/environment/city_planting_01.tscn",
+        "success": true,
+        "unsaved_changes_discarded": false
+      }
+    },
+    {
+      "method": "scene.open",
+      "receipt": {
+        "path": "res://scenes/prefabs/environment/city_planting_01.tscn",
+        "success": true
+      }
+    },
+    {
+      "method": "editor.save_scene",
+      "receipt": {
+        "path": "res://scenes/prefabs/environment/city_planting_01.tscn",
+        "success": true
+      }
+    },
+    {
+      "method": "scene.open",
+      "receipt": {
+        "path": "res://scenes/prefabs/environment/city_planting_02.tscn",
+        "success": true
+      }
+    },
+    {
+      "method": "editor.save_scene",
+      "receipt": {
+        "path": "res://scenes/prefabs/environment/city_planting_02.tscn",
+        "success": true
+      }
+    },
+    {
+      "method": "scene.close",
+      "receipt": {
+        "path": "res://scenes/prefabs/environment/city_planting_02.tscn",
+        "success": true,
+        "unsaved_changes_discarded": false
+      }
+    },
+    {
+      "method": "scene.open",
+      "receipt": {
+        "path": "res://scenes/prefabs/environment/city_planting_02.tscn",
+        "success": true
+      }
+    },
+    {
+      "method": "editor.save_scene",
+      "receipt": {
+        "path": "res://scenes/prefabs/environment/city_planting_02.tscn",
+        "success": true
+      }
+    },
+    {
+      "method": "scene.open",
+      "receipt": {
+        "path": "res://tests/fixtures/asset_production/batch_01_camera.tscn",
+        "success": true
+      }
+    },
+    {
+      "method": "editor.save_scene",
+      "receipt": {
+        "path": "res://tests/fixtures/asset_production/batch_01_camera.tscn",
+        "success": true
+      }
+    },
+    {
+      "method": "scene.close",
+      "receipt": {
+        "path": "res://tests/fixtures/asset_production/batch_01_camera.tscn",
+        "success": true,
+        "unsaved_changes_discarded": false
+      }
+    },
+    {
+      "method": "scene.open",
+      "receipt": {
+        "path": "res://tests/fixtures/asset_production/batch_01_camera.tscn",
+        "success": true
+      }
+    },
+    {
+      "method": "editor.save_scene",
+      "receipt": {
+        "path": "res://tests/fixtures/asset_production/batch_01_camera.tscn",
+        "success": true
+      }
+    },
+    {
+      "method": "scene.open",
+      "receipt": {
+        "path": "res://tests/fixtures/asset_production/batch_01_close.tscn",
+        "success": true
+      }
+    },
+    {
+      "method": "editor.save_scene",
+      "receipt": {
+        "path": "res://tests/fixtures/asset_production/batch_01_close.tscn",
+        "success": true
+      }
+    },
+    {
+      "method": "scene.close",
+      "receipt": {
+        "path": "res://tests/fixtures/asset_production/batch_01_close.tscn",
+        "success": true,
+        "unsaved_changes_discarded": false
+      }
+    },
+    {
+      "method": "scene.open",
+      "receipt": {
+        "path": "res://tests/fixtures/asset_production/batch_01_close.tscn",
+        "success": true
+      }
+    },
+    {
+      "method": "editor.save_scene",
+      "receipt": {
+        "path": "res://tests/fixtures/asset_production/batch_01_close.tscn",
+        "success": true
+      }
+    },
+    {
+      "method": "scene.open",
+      "receipt": {
+        "path": "res://tests/fixtures/asset_production/batch_01_repeat.tscn",
+        "success": true
+      }
+    },
+    {
+      "method": "editor.save_scene",
+      "receipt": {
+        "path": "res://tests/fixtures/asset_production/batch_01_repeat.tscn",
+        "success": true
+      }
+    },
+    {
+      "method": "scene.close",
+      "receipt": {
+        "path": "res://tests/fixtures/asset_production/batch_01_repeat.tscn",
+        "success": true,
+        "unsaved_changes_discarded": false
+      }
+    },
+    {
+      "method": "scene.open",
+      "receipt": {
+        "path": "res://tests/fixtures/asset_production/batch_01_repeat.tscn",
+        "success": true
+      }
+    },
+    {
+      "method": "editor.save_scene",
+      "receipt": {
+        "path": "res://tests/fixtures/asset_production/batch_01_repeat.tscn",
+        "success": true
+      }
+    },
+    {
+      "method": "scene.open",
+      "receipt": {
+        "path": "res://tools/asset_production/integration/inspector.tscn",
+        "success": true
+      }
+    }
+  ],
+  "roundtrip_operation_count": 61,
+  "independent_imported_assets": [
+    {
+      "prefab": "res://scenes/prefabs/environment/city_lights_01.tscn",
+      "model": "res://art/models/environment/city_lights_01/city_lights_01_warm.glb",
+      "bounds": {
+        "min": [
+          -0.360000014305115,
+          0.0,
+          -1.40000009536743
+        ],
+        "max": [
+          0.360000014305115,
+          6.19999980926514,
+          0.210000038146973
+        ]
+      },
+      "surface_count": 4,
+      "materials": [
+        {
+          "albedo": "(0.1718, 0.3035, 0.3318, 1.0)",
+          "albedo_texture": "<Object#null>",
+          "class": "StandardMaterial3D",
+          "cull_mode": 2,
+          "emission": "(0.0, 0.0, 0.0, 1.0)",
+          "emission_enabled": false,
+          "metallic": 0.449999988079071,
+          "name": "pole_petrol",
+          "path": "res://art/models/environment/city_lights_01/city_lights_01_warm.glb::StandardMaterial3D_8aqyd",
+          "roughness": 0.46000000834465
+        },
+        {
+          "albedo": "(0.2934, 0.3959, 0.4236, 1.0)",
+          "albedo_texture": "<Object#null>",
+          "class": "StandardMaterial3D",
+          "cull_mode": 2,
+          "emission": "(0.0, 0.0, 0.0, 1.0)",
+          "emission_enabled": false,
+          "metallic": 0.5,
+          "name": "fixture_rim",
+          "path": "res://art/models/environment/city_lights_01/city_lights_01_warm.glb::StandardMaterial3D_it5pq",
+          "roughness": 0.419999986886978
+        },
+        {
+          "albedo": "(0.1121, 0.1718, 0.1897, 1.0)",
+          "albedo_texture": "<Object#null>",
+          "class": "StandardMaterial3D",
+          "cull_mode": 2,
+          "emission": "(0.0, 0.0, 0.0, 1.0)",
+          "emission_enabled": false,
+          "metallic": 0.25,
+          "name": "service_recess",
+          "path": "res://art/models/environment/city_lights_01/city_lights_01_warm.glb::StandardMaterial3D_2ls8r",
+          "roughness": 0.5
+        },
+        {
+          "albedo": "(0.9777, 0.8489, 0.6012, 1.0)",
+          "albedo_texture": "<Object#null>",
+          "class": "StandardMaterial3D",
+          "cull_mode": 2,
+          "emission": "(0.6854, 0.5931, 0.4155, 1.0)",
+          "emission_enabled": true,
+          "metallic": 0.0,
+          "name": "lens_warm",
+          "path": "res://art/models/environment/city_lights_01/city_lights_01_warm.glb::StandardMaterial3D_uorg4",
+          "roughness": 0.319999992847443
+        }
+      ]
+    },
+    {
+      "prefab": "res://scenes/prefabs/environment/city_lights_01_cool.tscn",
+      "model": "res://art/models/environment/city_lights_01/city_lights_01_cool.glb",
+      "bounds": {
+        "min": [
+          -0.360000014305115,
+          0.0,
+          -1.40000009536743
+        ],
+        "max": [
+          0.360000014305115,
+          6.19999980926514,
+          0.210000038146973
+        ]
+      },
+      "surface_count": 4,
+      "materials": [
+        {
+          "albedo": "(0.1718, 0.3035, 0.3318, 1.0)",
+          "albedo_texture": "<Object#null>",
+          "class": "StandardMaterial3D",
+          "cull_mode": 2,
+          "emission": "(0.0, 0.0, 0.0, 1.0)",
+          "emission_enabled": false,
+          "metallic": 0.449999988079071,
+          "name": "pole_petrol",
+          "path": "res://art/models/environment/city_lights_01/city_lights_01_cool.glb::StandardMaterial3D_cf1c6",
+          "roughness": 0.46000000834465
+        },
+        {
+          "albedo": "(0.2934, 0.3959, 0.4236, 1.0)",
+          "albedo_texture": "<Object#null>",
+          "class": "StandardMaterial3D",
+          "cull_mode": 2,
+          "emission": "(0.0, 0.0, 0.0, 1.0)",
+          "emission_enabled": false,
+          "metallic": 0.5,
+          "name": "fixture_rim",
+          "path": "res://art/models/environment/city_lights_01/city_lights_01_cool.glb::StandardMaterial3D_f4iyt",
+          "roughness": 0.419999986886978
+        },
+        {
+          "albedo": "(0.1121, 0.1718, 0.1897, 1.0)",
+          "albedo_texture": "<Object#null>",
+          "class": "StandardMaterial3D",
+          "cull_mode": 2,
+          "emission": "(0.0, 0.0, 0.0, 1.0)",
+          "emission_enabled": false,
+          "metallic": 0.25,
+          "name": "service_recess",
+          "path": "res://art/models/environment/city_lights_01/city_lights_01_cool.glb::StandardMaterial3D_2wfcr",
+          "roughness": 0.5
+        },
+        {
+          "albedo": "(0.7084, 0.8962, 0.964, 1.0)",
+          "albedo_texture": "<Object#null>",
+          "class": "StandardMaterial3D",
+          "cull_mode": 2,
+          "emission": "(0.4923, 0.627, 0.6756, 1.0)",
+          "emission_enabled": true,
+          "metallic": 0.0,
+          "name": "lens_cool",
+          "path": "res://art/models/environment/city_lights_01/city_lights_01_cool.glb::StandardMaterial3D_s3ac4",
+          "roughness": 0.319999992847443
+        }
+      ]
+    },
+    {
+      "prefab": "res://scenes/prefabs/environment/city_lights_02.tscn",
+      "model": "res://art/models/environment/city_lights_02/city_lights_02.glb",
+      "bounds": {
+        "min": [
+          -0.360000014305115,
+          0.0,
+          -0.360000014305115
+        ],
+        "max": [
+          0.360000014305115,
+          3.0,
+          0.360000014305115
+        ]
+      },
+      "surface_count": 8,
+      "materials": [
+        {
+          "albedo": "(1.0, 0.8627, 0.6392, 1.0)",
+          "albedo_texture": "<Object#null>",
+          "class": "StandardMaterial3D",
+          "cull_mode": 2,
+          "emission": "(0.7014, 0.603, 0.4427, 1.0)",
+          "emission_enabled": true,
+          "metallic": 0.0,
+          "name": "city_lights_02_lens_warm",
+          "path": "res://art/models/environment/city_lights_02/city_lights_02.glb::StandardMaterial3D_4j33v",
+          "roughness": 0.550000011920929
+        },
+        {
+          "albedo": "(0.098, 0.2471, 0.2745, 1.0)",
+          "albedo_texture": "<Object#null>",
+          "class": "StandardMaterial3D",
+          "cull_mode": 2,
+          "emission": "(0.0, 0.0, 0.0, 1.0)",
+          "emission_enabled": false,
+          "metallic": 0.550000011920929,
+          "name": "city_lights_02_petrol_metal",
+          "path": "res://art/models/environment/city_lights_02/city_lights_02.glb::StandardMaterial3D_s1xn2",
+          "roughness": 0.379999995231628
+        },
+        {
+          "albedo": "(0.051, 0.1137, 0.1333, 1.0)",
+          "albedo_texture": "<Object#null>",
+          "class": "StandardMaterial3D",
+          "cull_mode": 2,
+          "emission": "(0.0, 0.0, 0.0, 1.0)",
+          "emission_enabled": false,
+          "metallic": 0.300000011920929,
+          "name": "city_lights_02_recess_dark",
+          "path": "res://art/models/environment/city_lights_02/city_lights_02.glb::StandardMaterial3D_kxaap",
+          "roughness": 0.379999995231628
+        },
+        {
+          "albedo": "(0.098, 0.2471, 0.2745, 1.0)",
+          "albedo_texture": "<Object#null>",
+          "class": "StandardMaterial3D",
+          "cull_mode": 2,
+          "emission": "(0.0, 0.0, 0.0, 1.0)",
+          "emission_enabled": false,
+          "metallic": 0.550000011920929,
+          "name": "city_lights_02_petrol_metal",
+          "path": "res://art/models/environment/city_lights_02/city_lights_02.glb::StandardMaterial3D_s1xn2",
+          "roughness": 0.379999995231628
+        },
+        {
+          "albedo": "(0.051, 0.1137, 0.1333, 1.0)",
+          "albedo_texture": "<Object#null>",
+          "class": "StandardMaterial3D",
+          "cull_mode": 2,
+          "emission": "(0.0, 0.0, 0.0, 1.0)",
+          "emission_enabled": false,
+          "metallic": 0.300000011920929,
+          "name": "city_lights_02_recess_dark",
+          "path": "res://art/models/environment/city_lights_02/city_lights_02.glb::StandardMaterial3D_kxaap",
+          "roughness": 0.379999995231628
+        },
+        {
+          "albedo": "(0.098, 0.2471, 0.2745, 1.0)",
+          "albedo_texture": "<Object#null>",
+          "class": "StandardMaterial3D",
+          "cull_mode": 2,
+          "emission": "(0.0, 0.0, 0.0, 1.0)",
+          "emission_enabled": false,
+          "metallic": 0.550000011920929,
+          "name": "city_lights_02_petrol_metal",
+          "path": "res://art/models/environment/city_lights_02/city_lights_02.glb::StandardMaterial3D_s1xn2",
+          "roughness": 0.379999995231628
+        },
+        {
+          "albedo": "(0.098, 0.2471, 0.2745, 1.0)",
+          "albedo_texture": "<Object#null>",
+          "class": "StandardMaterial3D",
+          "cull_mode": 2,
+          "emission": "(0.0, 0.0, 0.0, 1.0)",
+          "emission_enabled": false,
+          "metallic": 0.550000011920929,
+          "name": "city_lights_02_petrol_metal",
+          "path": "res://art/models/environment/city_lights_02/city_lights_02.glb::StandardMaterial3D_s1xn2",
+          "roughness": 0.379999995231628
+        },
+        {
+          "albedo": "(0.098, 0.2471, 0.2745, 1.0)",
+          "albedo_texture": "<Object#null>",
+          "class": "StandardMaterial3D",
+          "cull_mode": 2,
+          "emission": "(0.0, 0.0, 0.0, 1.0)",
+          "emission_enabled": false,
+          "metallic": 0.550000011920929,
+          "name": "city_lights_02_petrol_metal",
+          "path": "res://art/models/environment/city_lights_02/city_lights_02.glb::StandardMaterial3D_s1xn2",
+          "roughness": 0.379999995231628
+        }
+      ]
+    },
+    {
+      "prefab": "res://scenes/prefabs/environment/city_lights_02_cool.tscn",
+      "model": "res://art/models/environment/city_lights_02/city_lights_02_cool.glb",
+      "bounds": {
+        "min": [
+          -0.360000014305115,
+          0.0,
+          -0.360000014305115
+        ],
+        "max": [
+          0.360000014305115,
+          3.0,
+          0.360000014305115
+        ]
+      },
+      "surface_count": 8,
+      "materials": [
+        {
+          "albedo": "(0.6745, 0.8706, 0.9373, 1.0)",
+          "albedo_texture": "<Object#null>",
+          "class": "StandardMaterial3D",
+          "cull_mode": 2,
+          "emission": "(0.468, 0.6086, 0.6564, 1.0)",
+          "emission_enabled": true,
+          "metallic": 0.0,
+          "name": "city_lights_02_lens_cool",
+          "path": "res://art/models/environment/city_lights_02/city_lights_02_cool.glb::StandardMaterial3D_vt625",
+          "roughness": 0.550000011920929
+        },
+        {
+          "albedo": "(0.098, 0.2471, 0.2745, 1.0)",
+          "albedo_texture": "<Object#null>",
+          "class": "StandardMaterial3D",
+          "cull_mode": 2,
+          "emission": "(0.0, 0.0, 0.0, 1.0)",
+          "emission_enabled": false,
+          "metallic": 0.550000011920929,
+          "name": "city_lights_02_petrol_metal",
+          "path": "res://art/models/environment/city_lights_02/city_lights_02_cool.glb::StandardMaterial3D_h047x",
+          "roughness": 0.379999995231628
+        },
+        {
+          "albedo": "(0.051, 0.1137, 0.1333, 1.0)",
+          "albedo_texture": "<Object#null>",
+          "class": "StandardMaterial3D",
+          "cull_mode": 2,
+          "emission": "(0.0, 0.0, 0.0, 1.0)",
+          "emission_enabled": false,
+          "metallic": 0.300000011920929,
+          "name": "city_lights_02_recess_dark",
+          "path": "res://art/models/environment/city_lights_02/city_lights_02_cool.glb::StandardMaterial3D_q1s33",
+          "roughness": 0.379999995231628
+        },
+        {
+          "albedo": "(0.098, 0.2471, 0.2745, 1.0)",
+          "albedo_texture": "<Object#null>",
+          "class": "StandardMaterial3D",
+          "cull_mode": 2,
+          "emission": "(0.0, 0.0, 0.0, 1.0)",
+          "emission_enabled": false,
+          "metallic": 0.550000011920929,
+          "name": "city_lights_02_petrol_metal",
+          "path": "res://art/models/environment/city_lights_02/city_lights_02_cool.glb::StandardMaterial3D_h047x",
+          "roughness": 0.379999995231628
+        },
+        {
+          "albedo": "(0.051, 0.1137, 0.1333, 1.0)",
+          "albedo_texture": "<Object#null>",
+          "class": "StandardMaterial3D",
+          "cull_mode": 2,
+          "emission": "(0.0, 0.0, 0.0, 1.0)",
+          "emission_enabled": false,
+          "metallic": 0.300000011920929,
+          "name": "city_lights_02_recess_dark",
+          "path": "res://art/models/environment/city_lights_02/city_lights_02_cool.glb::StandardMaterial3D_q1s33",
+          "roughness": 0.379999995231628
+        },
+        {
+          "albedo": "(0.098, 0.2471, 0.2745, 1.0)",
+          "albedo_texture": "<Object#null>",
+          "class": "StandardMaterial3D",
+          "cull_mode": 2,
+          "emission": "(0.0, 0.0, 0.0, 1.0)",
+          "emission_enabled": false,
+          "metallic": 0.550000011920929,
+          "name": "city_lights_02_petrol_metal",
+          "path": "res://art/models/environment/city_lights_02/city_lights_02_cool.glb::StandardMaterial3D_h047x",
+          "roughness": 0.379999995231628
+        },
+        {
+          "albedo": "(0.098, 0.2471, 0.2745, 1.0)",
+          "albedo_texture": "<Object#null>",
+          "class": "StandardMaterial3D",
+          "cull_mode": 2,
+          "emission": "(0.0, 0.0, 0.0, 1.0)",
+          "emission_enabled": false,
+          "metallic": 0.550000011920929,
+          "name": "city_lights_02_petrol_metal",
+          "path": "res://art/models/environment/city_lights_02/city_lights_02_cool.glb::StandardMaterial3D_h047x",
+          "roughness": 0.379999995231628
+        },
+        {
+          "albedo": "(0.098, 0.2471, 0.2745, 1.0)",
+          "albedo_texture": "<Object#null>",
+          "class": "StandardMaterial3D",
+          "cull_mode": 2,
+          "emission": "(0.0, 0.0, 0.0, 1.0)",
+          "emission_enabled": false,
+          "metallic": 0.550000011920929,
+          "name": "city_lights_02_petrol_metal",
+          "path": "res://art/models/environment/city_lights_02/city_lights_02_cool.glb::StandardMaterial3D_h047x",
+          "roughness": 0.379999995231628
+        }
+      ]
+    },
+    {
+      "prefab": "res://scenes/prefabs/environment/city_lights_04.tscn",
+      "model": "res://art/models/environment/city_lights_04/city_lights_04_warm.glb",
+      "bounds": {
+        "min": [
+          -0.319999992847443,
+          -0.230000004172325,
+          -0.709999978542328
+        ],
+        "max": [
+          0.319999992847443,
+          0.305000007152557,
+          0.0
+        ]
+      },
+      "surface_count": 9,
+      "materials": [
+        {
+          "albedo": "(0.098, 0.2471, 0.2745, 1.0)",
+          "albedo_texture": "<Object#null>",
+          "class": "StandardMaterial3D",
+          "cull_mode": 2,
+          "emission": "(0.0, 0.0, 0.0, 1.0)",
+          "emission_enabled": false,
+          "metallic": 0.550000011920929,
+          "name": "city_lights_04_petrol_metal",
+          "path": "res://art/models/environment/city_lights_04/city_lights_04_warm.glb::StandardMaterial3D_toxpk",
+          "roughness": 0.379999995231628
+        },
+        {
+          "albedo": "(1.0, 0.8627, 0.6392, 1.0)",
+          "albedo_texture": "<Object#null>",
+          "class": "StandardMaterial3D",
+          "cull_mode": 2,
+          "emission": "(0.7014, 0.603, 0.4427, 1.0)",
+          "emission_enabled": true,
+          "metallic": 0.0,
+          "name": "city_lights_04_lens_warm",
+          "path": "res://art/models/environment/city_lights_04/city_lights_04_warm.glb::StandardMaterial3D_ltmk0",
+          "roughness": 0.550000011920929
+        },
+        {
+          "albedo": "(0.051, 0.1137, 0.1333, 1.0)",
+          "albedo_texture": "<Object#null>",
+          "class": "StandardMaterial3D",
+          "cull_mode": 2,
+          "emission": "(0.0, 0.0, 0.0, 1.0)",
+          "emission_enabled": false,
+          "metallic": 0.300000011920929,
+          "name": "city_lights_04_recess_dark",
+          "path": "res://art/models/environment/city_lights_04/city_lights_04_warm.glb::StandardMaterial3D_81yxp",
+          "roughness": 0.419999986886978
+        },
+        {
+          "albedo": "(0.098, 0.2471, 0.2745, 1.0)",
+          "albedo_texture": "<Object#null>",
+          "class": "StandardMaterial3D",
+          "cull_mode": 2,
+          "emission": "(0.0, 0.0, 0.0, 1.0)",
+          "emission_enabled": false,
+          "metallic": 0.550000011920929,
+          "name": "city_lights_04_petrol_metal",
+          "path": "res://art/models/environment/city_lights_04/city_lights_04_warm.glb::StandardMaterial3D_toxpk",
+          "roughness": 0.379999995231628
+        },
+        {
+          "albedo": "(0.098, 0.2471, 0.2745, 1.0)",
+          "albedo_texture": "<Object#null>",
+          "class": "StandardMaterial3D",
+          "cull_mode": 2,
+          "emission": "(0.0, 0.0, 0.0, 1.0)",
+          "emission_enabled": false,
+          "metallic": 0.550000011920929,
+          "name": "city_lights_04_petrol_metal",
+          "path": "res://art/models/environment/city_lights_04/city_lights_04_warm.glb::StandardMaterial3D_toxpk",
+          "roughness": 0.379999995231628
+        },
+        {
+          "albedo": "(0.051, 0.1137, 0.1333, 1.0)",
+          "albedo_texture": "<Object#null>",
+          "class": "StandardMaterial3D",
+          "cull_mode": 2,
+          "emission": "(0.0, 0.0, 0.0, 1.0)",
+          "emission_enabled": false,
+          "metallic": 0.300000011920929,
+          "name": "city_lights_04_recess_dark",
+          "path": "res://art/models/environment/city_lights_04/city_lights_04_warm.glb::StandardMaterial3D_81yxp",
+          "roughness": 0.419999986886978
+        },
+        {
+          "albedo": "(0.051, 0.1137, 0.1333, 1.0)",
+          "albedo_texture": "<Object#null>",
+          "class": "StandardMaterial3D",
+          "cull_mode": 2,
+          "emission": "(0.0, 0.0, 0.0, 1.0)",
+          "emission_enabled": false,
+          "metallic": 0.300000011920929,
+          "name": "city_lights_04_recess_dark",
+          "path": "res://art/models/environment/city_lights_04/city_lights_04_warm.glb::StandardMaterial3D_81yxp",
+          "roughness": 0.419999986886978
+        },
+        {
+          "albedo": "(0.098, 0.2471, 0.2745, 1.0)",
+          "albedo_texture": "<Object#null>",
+          "class": "StandardMaterial3D",
+          "cull_mode": 2,
+          "emission": "(0.0, 0.0, 0.0, 1.0)",
+          "emission_enabled": false,
+          "metallic": 0.550000011920929,
+          "name": "city_lights_04_petrol_metal",
+          "path": "res://art/models/environment/city_lights_04/city_lights_04_warm.glb::StandardMaterial3D_toxpk",
+          "roughness": 0.379999995231628
+        },
+        {
+          "albedo": "(0.051, 0.1137, 0.1333, 1.0)",
+          "albedo_texture": "<Object#null>",
+          "class": "StandardMaterial3D",
+          "cull_mode": 2,
+          "emission": "(0.0, 0.0, 0.0, 1.0)",
+          "emission_enabled": false,
+          "metallic": 0.300000011920929,
+          "name": "city_lights_04_recess_dark",
+          "path": "res://art/models/environment/city_lights_04/city_lights_04_warm.glb::StandardMaterial3D_81yxp",
+          "roughness": 0.419999986886978
+        }
+      ]
+    },
+    {
+      "prefab": "res://scenes/prefabs/environment/city_lights_04_cool.tscn",
+      "model": "res://art/models/environment/city_lights_04/city_lights_04_cool.glb",
+      "bounds": {
+        "min": [
+          -0.319999992847443,
+          -0.230000004172325,
+          -0.709999978542328
+        ],
+        "max": [
+          0.319999992847443,
+          0.305000007152557,
+          0.0
+        ]
+      },
+      "surface_count": 9,
+      "materials": [
+        {
+          "albedo": "(0.098, 0.2471, 0.2745, 1.0)",
+          "albedo_texture": "<Object#null>",
+          "class": "StandardMaterial3D",
+          "cull_mode": 2,
+          "emission": "(0.0, 0.0, 0.0, 1.0)",
+          "emission_enabled": false,
+          "metallic": 0.550000011920929,
+          "name": "city_lights_04_petrol_metal",
+          "path": "res://art/models/environment/city_lights_04/city_lights_04_cool.glb::StandardMaterial3D_p5mn5",
+          "roughness": 0.379999995231628
+        },
+        {
+          "albedo": "(0.6745, 0.8706, 0.9373, 1.0)",
+          "albedo_texture": "<Object#null>",
+          "class": "StandardMaterial3D",
+          "cull_mode": 2,
+          "emission": "(0.468, 0.6086, 0.6564, 1.0)",
+          "emission_enabled": true,
+          "metallic": 0.0,
+          "name": "city_lights_04_lens_cool",
+          "path": "res://art/models/environment/city_lights_04/city_lights_04_cool.glb::StandardMaterial3D_duqhj",
+          "roughness": 0.550000011920929
+        },
+        {
+          "albedo": "(0.051, 0.1137, 0.1333, 1.0)",
+          "albedo_texture": "<Object#null>",
+          "class": "StandardMaterial3D",
+          "cull_mode": 2,
+          "emission": "(0.0, 0.0, 0.0, 1.0)",
+          "emission_enabled": false,
+          "metallic": 0.300000011920929,
+          "name": "city_lights_04_recess_dark",
+          "path": "res://art/models/environment/city_lights_04/city_lights_04_cool.glb::StandardMaterial3D_vtp17",
+          "roughness": 0.419999986886978
+        },
+        {
+          "albedo": "(0.098, 0.2471, 0.2745, 1.0)",
+          "albedo_texture": "<Object#null>",
+          "class": "StandardMaterial3D",
+          "cull_mode": 2,
+          "emission": "(0.0, 0.0, 0.0, 1.0)",
+          "emission_enabled": false,
+          "metallic": 0.550000011920929,
+          "name": "city_lights_04_petrol_metal",
+          "path": "res://art/models/environment/city_lights_04/city_lights_04_cool.glb::StandardMaterial3D_p5mn5",
+          "roughness": 0.379999995231628
+        },
+        {
+          "albedo": "(0.098, 0.2471, 0.2745, 1.0)",
+          "albedo_texture": "<Object#null>",
+          "class": "StandardMaterial3D",
+          "cull_mode": 2,
+          "emission": "(0.0, 0.0, 0.0, 1.0)",
+          "emission_enabled": false,
+          "metallic": 0.550000011920929,
+          "name": "city_lights_04_petrol_metal",
+          "path": "res://art/models/environment/city_lights_04/city_lights_04_cool.glb::StandardMaterial3D_p5mn5",
+          "roughness": 0.379999995231628
+        },
+        {
+          "albedo": "(0.051, 0.1137, 0.1333, 1.0)",
+          "albedo_texture": "<Object#null>",
+          "class": "StandardMaterial3D",
+          "cull_mode": 2,
+          "emission": "(0.0, 0.0, 0.0, 1.0)",
+          "emission_enabled": false,
+          "metallic": 0.300000011920929,
+          "name": "city_lights_04_recess_dark",
+          "path": "res://art/models/environment/city_lights_04/city_lights_04_cool.glb::StandardMaterial3D_vtp17",
+          "roughness": 0.419999986886978
+        },
+        {
+          "albedo": "(0.051, 0.1137, 0.1333, 1.0)",
+          "albedo_texture": "<Object#null>",
+          "class": "StandardMaterial3D",
+          "cull_mode": 2,
+          "emission": "(0.0, 0.0, 0.0, 1.0)",
+          "emission_enabled": false,
+          "metallic": 0.300000011920929,
+          "name": "city_lights_04_recess_dark",
+          "path": "res://art/models/environment/city_lights_04/city_lights_04_cool.glb::StandardMaterial3D_vtp17",
+          "roughness": 0.419999986886978
+        },
+        {
+          "albedo": "(0.098, 0.2471, 0.2745, 1.0)",
+          "albedo_texture": "<Object#null>",
+          "class": "StandardMaterial3D",
+          "cull_mode": 2,
+          "emission": "(0.0, 0.0, 0.0, 1.0)",
+          "emission_enabled": false,
+          "metallic": 0.550000011920929,
+          "name": "city_lights_04_petrol_metal",
+          "path": "res://art/models/environment/city_lights_04/city_lights_04_cool.glb::StandardMaterial3D_p5mn5",
+          "roughness": 0.379999995231628
+        },
+        {
+          "albedo": "(0.051, 0.1137, 0.1333, 1.0)",
+          "albedo_texture": "<Object#null>",
+          "class": "StandardMaterial3D",
+          "cull_mode": 2,
+          "emission": "(0.0, 0.0, 0.0, 1.0)",
+          "emission_enabled": false,
+          "metallic": 0.300000011920929,
+          "name": "city_lights_04_recess_dark",
+          "path": "res://art/models/environment/city_lights_04/city_lights_04_cool.glb::StandardMaterial3D_vtp17",
+          "roughness": 0.419999986886978
+        }
+      ]
+    },
+    {
+      "prefab": "res://scenes/prefabs/environment/city_sign_supports_01.tscn",
+      "model": "res://art/models/environment/city_sign_supports_01/city_sign_supports_01.glb",
+      "bounds": {
+        "min": [
+          -0.699999988079071,
+          -0.5,
+          -0.100000001490116
+        ],
+        "max": [
+          0.699999988079071,
+          0.5,
+          0.0
+        ]
+      },
+      "surface_count": 13,
+      "materials": [
+        {
+          "albedo": "(0.66, 0.7, 0.67, 1.0)",
+          "albedo_texture": "<Object#null>",
+          "class": "StandardMaterial3D",
+          "cull_mode": 2,
+          "emission": "(0.0, 0.0, 0.0, 1.0)",
+          "emission_enabled": false,
+          "metallic": 0.0,
+          "name": "sign_face",
+          "path": "res://art/models/environment/city_sign_supports_01/city_sign_supports_01.glb::StandardMaterial3D_is6or",
+          "roughness": 0.560000002384186
+        },
+        {
+          "albedo": "(0.31, 0.39, 0.41, 1.0)",
+          "albedo_texture": "<Object#null>",
+          "class": "StandardMaterial3D",
+          "cull_mode": 2,
+          "emission": "(0.0, 0.0, 0.0, 1.0)",
+          "emission_enabled": false,
+          "metallic": 0.649999976158142,
+          "name": "mount_metal",
+          "path": "res://art/models/environment/city_sign_supports_01/city_sign_supports_01.glb::StandardMaterial3D_24ii7",
+          "roughness": 0.379999995231628
+        },
+        {
+          "albedo": "(0.043, 0.075, 0.087, 1.0)",
+          "albedo_texture": "<Object#null>",
+          "class": "StandardMaterial3D",
+          "cull_mode": 2,
+          "emission": "(0.0, 0.0, 0.0, 1.0)",
+          "emission_enabled": false,
+          "metallic": 0.0,
+          "name": "recess_gasket",
+          "path": "res://art/models/environment/city_sign_supports_01/city_sign_supports_01.glb::StandardMaterial3D_100jg",
+          "roughness": 0.720000028610229
+        },
+        {
+          "albedo": "(0.31, 0.39, 0.41, 1.0)",
+          "albedo_texture": "<Object#null>",
+          "class": "StandardMaterial3D",
+          "cull_mode": 2,
+          "emission": "(0.0, 0.0, 0.0, 1.0)",
+          "emission_enabled": false,
+          "metallic": 0.649999976158142,
+          "name": "mount_metal",
+          "path": "res://art/models/environment/city_sign_supports_01/city_sign_supports_01.glb::StandardMaterial3D_24ii7",
+          "roughness": 0.379999995231628
+        },
+        {
+          "albedo": "(0.31, 0.39, 0.41, 1.0)",
+          "albedo_texture": "<Object#null>",
+          "class": "StandardMaterial3D",
+          "cull_mode": 2,
+          "emission": "(0.0, 0.0, 0.0, 1.0)",
+          "emission_enabled": false,
+          "metallic": 0.649999976158142,
+          "name": "mount_metal",
+          "path": "res://art/models/environment/city_sign_supports_01/city_sign_supports_01.glb::StandardMaterial3D_24ii7",
+          "roughness": 0.379999995231628
+        },
+        {
+          "albedo": "(0.105, 0.205, 0.232, 1.0)",
+          "albedo_texture": "<Object#null>",
+          "class": "StandardMaterial3D",
+          "cull_mode": 2,
+          "emission": "(0.0, 0.0, 0.0, 1.0)",
+          "emission_enabled": false,
+          "metallic": 0.180000007152557,
+          "name": "support_petrol",
+          "path": "res://art/models/environment/city_sign_supports_01/city_sign_supports_01.glb::StandardMaterial3D_41ajr",
+          "roughness": 0.319999992847443
+        },
+        {
+          "albedo": "(0.31, 0.39, 0.41, 1.0)",
+          "albedo_texture": "<Object#null>",
+          "class": "StandardMaterial3D",
+          "cull_mode": 2,
+          "emission": "(0.0, 0.0, 0.0, 1.0)",
+          "emission_enabled": false,
+          "metallic": 0.649999976158142,
+          "name": "mount_metal",
+          "path": "res://art/models/environment/city_sign_supports_01/city_sign_supports_01.glb::StandardMaterial3D_24ii7",
+          "roughness": 0.379999995231628
+        },
+        {
+          "albedo": "(0.31, 0.39, 0.41, 1.0)",
+          "albedo_texture": "<Object#null>",
+          "class": "StandardMaterial3D",
+          "cull_mode": 2,
+          "emission": "(0.0, 0.0, 0.0, 1.0)",
+          "emission_enabled": false,
+          "metallic": 0.649999976158142,
+          "name": "mount_metal",
+          "path": "res://art/models/environment/city_sign_supports_01/city_sign_supports_01.glb::StandardMaterial3D_24ii7",
+          "roughness": 0.379999995231628
+        },
+        {
+          "albedo": "(0.105, 0.205, 0.232, 1.0)",
+          "albedo_texture": "<Object#null>",
+          "class": "StandardMaterial3D",
+          "cull_mode": 2,
+          "emission": "(0.0, 0.0, 0.0, 1.0)",
+          "emission_enabled": false,
+          "metallic": 0.180000007152557,
+          "name": "support_petrol",
+          "path": "res://art/models/environment/city_sign_supports_01/city_sign_supports_01.glb::StandardMaterial3D_41ajr",
+          "roughness": 0.319999992847443
+        },
+        {
+          "albedo": "(0.043, 0.075, 0.087, 1.0)",
+          "albedo_texture": "<Object#null>",
+          "class": "StandardMaterial3D",
+          "cull_mode": 2,
+          "emission": "(0.0, 0.0, 0.0, 1.0)",
+          "emission_enabled": false,
+          "metallic": 0.0,
+          "name": "recess_gasket",
+          "path": "res://art/models/environment/city_sign_supports_01/city_sign_supports_01.glb::StandardMaterial3D_100jg",
+          "roughness": 0.720000028610229
+        },
+        {
+          "albedo": "(0.043, 0.075, 0.087, 1.0)",
+          "albedo_texture": "<Object#null>",
+          "class": "StandardMaterial3D",
+          "cull_mode": 2,
+          "emission": "(0.0, 0.0, 0.0, 1.0)",
+          "emission_enabled": false,
+          "metallic": 0.0,
+          "name": "recess_gasket",
+          "path": "res://art/models/environment/city_sign_supports_01/city_sign_supports_01.glb::StandardMaterial3D_100jg",
+          "roughness": 0.720000028610229
+        },
+        {
+          "albedo": "(0.043, 0.075, 0.087, 1.0)",
+          "albedo_texture": "<Object#null>",
+          "class": "StandardMaterial3D",
+          "cull_mode": 2,
+          "emission": "(0.0, 0.0, 0.0, 1.0)",
+          "emission_enabled": false,
+          "metallic": 0.0,
+          "name": "recess_gasket",
+          "path": "res://art/models/environment/city_sign_supports_01/city_sign_supports_01.glb::StandardMaterial3D_100jg",
+          "roughness": 0.720000028610229
+        },
+        {
+          "albedo": "(0.043, 0.075, 0.087, 1.0)",
+          "albedo_texture": "<Object#null>",
+          "class": "StandardMaterial3D",
+          "cull_mode": 2,
+          "emission": "(0.0, 0.0, 0.0, 1.0)",
+          "emission_enabled": false,
+          "metallic": 0.0,
+          "name": "recess_gasket",
+          "path": "res://art/models/environment/city_sign_supports_01/city_sign_supports_01.glb::StandardMaterial3D_100jg",
+          "roughness": 0.720000028610229
+        }
+      ]
+    },
+    {
+      "prefab": "res://scenes/prefabs/environment/city_planting_01.tscn",
+      "model": "res://art/models/environment/city_planting_01/city_planting_01.glb",
+      "bounds": {
+        "min": [
+          -1.20000004768372,
+          0.0,
+          -0.449999988079071
+        ],
+        "max": [
+          1.20000004768372,
+          0.600000023841858,
+          0.449999988079071
+        ]
+      },
+      "surface_count": 4,
+      "materials": [
+        {
+          "albedo": "(0.1882, 0.2863, 0.2824, 1.0)",
+          "albedo_texture": "<Object#null>",
+          "class": "StandardMaterial3D",
+          "cull_mode": 2,
+          "emission": "(0.0, 0.0, 0.0, 1.0)",
+          "emission_enabled": false,
+          "metallic": 0.0,
+          "name": "planter_recess_petrol",
+          "path": "res://art/models/environment/city_planting_01/city_planting_01.glb::StandardMaterial3D_7ndl2",
+          "roughness": 0.800000011920929
+        },
+        {
+          "albedo": "(0.5922, 0.6431, 0.5922, 1.0)",
+          "albedo_texture": "<Object#null>",
+          "class": "StandardMaterial3D",
+          "cull_mode": 2,
+          "emission": "(0.0, 0.0, 0.0, 1.0)",
+          "emission_enabled": false,
+          "metallic": 0.0,
+          "name": "planter_sage_cast_stone",
+          "path": "res://art/models/environment/city_planting_01/city_planting_01.glb::StandardMaterial3D_4xn7p",
+          "roughness": 0.759999990463257
+        },
+        {
+          "albedo": "(0.7333, 0.7608, 0.6745, 1.0)",
+          "albedo_texture": "<Object#null>",
+          "class": "StandardMaterial3D",
+          "cull_mode": 2,
+          "emission": "(0.0, 0.0, 0.0, 1.0)",
+          "emission_enabled": false,
+          "metallic": 0.0,
+          "name": "planter_pale_stone_rim",
+          "path": "res://art/models/environment/city_planting_01/city_planting_01.glb::StandardMaterial3D_f00lk",
+          "roughness": 0.699999988079071
+        },
+        {
+          "albedo": "(0.2471, 0.2235, 0.1725, 1.0)",
+          "albedo_texture": "<Object#null>",
+          "class": "StandardMaterial3D",
+          "cull_mode": 2,
+          "emission": "(0.0, 0.0, 0.0, 1.0)",
+          "emission_enabled": false,
+          "metallic": 0.0,
+          "name": "planter_quiet_earth",
+          "path": "res://art/models/environment/city_planting_01/city_planting_01.glb::StandardMaterial3D_c55rj",
+          "roughness": 0.949999988079071
+        }
+      ]
+    },
+    {
+      "prefab": "res://scenes/prefabs/environment/city_planting_02.tscn",
+      "model": "res://art/models/environment/city_planting_02/city_planting_02.glb",
+      "bounds": {
+        "min": [
+          -0.899999976158142,
+          0.0,
+          -0.899999976158142
+        ],
+        "max": [
+          0.899999976158142,
+          0.480000019073486,
+          0.899999976158142
+        ]
+      },
+      "surface_count": 3,
+      "materials": [
+        {
+          "albedo": "(0.5922, 0.6431, 0.5922, 1.0)",
+          "albedo_texture": "<Object#null>",
+          "class": "StandardMaterial3D",
+          "cull_mode": 2,
+          "emission": "(0.0, 0.0, 0.0, 1.0)",
+          "emission_enabled": false,
+          "metallic": 0.0,
+          "name": "planter_sage_cast_stone",
+          "path": "res://art/models/environment/city_planting_02/city_planting_02.glb::StandardMaterial3D_1niwr",
+          "roughness": 0.759999990463257
+        },
+        {
+          "albedo": "(0.7333, 0.7608, 0.6745, 1.0)",
+          "albedo_texture": "<Object#null>",
+          "class": "StandardMaterial3D",
+          "cull_mode": 2,
+          "emission": "(0.0, 0.0, 0.0, 1.0)",
+          "emission_enabled": false,
+          "metallic": 0.0,
+          "name": "planter_pale_stone_rim",
+          "path": "res://art/models/environment/city_planting_02/city_planting_02.glb::StandardMaterial3D_oqdyv",
+          "roughness": 0.699999988079071
+        },
+        {
+          "albedo": "(0.1882, 0.2863, 0.2824, 1.0)",
+          "albedo_texture": "<Object#null>",
+          "class": "StandardMaterial3D",
+          "cull_mode": 2,
+          "emission": "(0.0, 0.0, 0.0, 1.0)",
+          "emission_enabled": false,
+          "metallic": 0.0,
+          "name": "planter_recess_petrol",
+          "path": "res://art/models/environment/city_planting_02/city_planting_02.glb::StandardMaterial3D_7i16r",
+          "roughness": 0.800000011920929
+        }
+      ]
+    }
+  ]
+}

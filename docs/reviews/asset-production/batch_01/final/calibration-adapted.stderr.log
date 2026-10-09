@@ -1,0 +1,7 @@
+Traceback (most recent call last):
+  File "/home/regner/.paseo/worktrees/0u71f39f/asset-register-production/docs/reviews/asset-production/batch_01/final/inspect_calibration.py", line 29, in <module>
+    source_col=requested.collections[0];now={basename(o.name):signature(o) for o in source_col.all_objects};assert original==now,aid
+                                                                                                                   ^^^^^^^^^^^^^
+AssertionError: city_lights_02
+
+Error: script failed, file: 'docs/reviews/asset-production/batch_01/final/inspect_calibration.py', exiting.

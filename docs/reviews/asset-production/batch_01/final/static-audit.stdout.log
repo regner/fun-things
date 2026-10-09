@@ -1,0 +1,203 @@
+{
+  "candidate": "c4067ff3abe1384301471d9a64e94e84201235e2",
+  "source_candidate": "390377dc6530e101eddcbf38b2946a1b235137c7",
+  "base": "66400c26a01bf917dfe631af4762c2b444d9c48f",
+  "indices": [
+    {
+      "index": "docs/reviews/asset-production/batch_01/candidate-scope-file-index.json",
+      "count": 180,
+      "mismatches": []
+    },
+    {
+      "index": "docs/reviews/asset-production/batch_01/artifact-index.json",
+      "count": 67,
+      "mismatches": []
+    },
+    {
+      "index": "docs/assets/production/batch_01-evidence/integration-artifact-index.json",
+      "count": 104,
+      "mismatches": []
+    }
+  ],
+  "source_geometry_or_tool_changes": [],
+  "delta_count": 196,
+  "prefabs": [
+    {
+      "path": "scenes/prefabs/environment/city_lights_01.tscn",
+      "sha256": "d6d66f7c53d21b9fe1cb73e161c28ba35e542406ce6e994e5681adb982fe4d5a",
+      "references": [
+        {
+          "path": "art/models/environment/city_lights_01/city_lights_01_warm.glb",
+          "scene_uid": "uid://dycoyplqtq8oa",
+          "import_uid": "uid://dycoyplqtq8oa",
+          "uid_matches": true
+        }
+      ],
+      "embedded_render_mesh": false,
+      "editable_imported_children": false,
+      "script_attached": false,
+      "node_id_count": 6,
+      "collision_shapes": 1
+    },
+    {
+      "path": "scenes/prefabs/environment/city_lights_01_cool.tscn",
+      "sha256": "59e125a494c145efe167b5ea9a24e5af1e401d4c1c26fde345f3a8a6a6d9da4c",
+      "references": [
+        {
+          "path": "art/models/environment/city_lights_01/city_lights_01_cool.glb",
+          "scene_uid": "uid://hehkaly6ec6e",
+          "import_uid": "uid://hehkaly6ec6e",
+          "uid_matches": true
+        }
+      ],
+      "embedded_render_mesh": false,
+      "editable_imported_children": false,
+      "script_attached": false,
+      "node_id_count": 6,
+      "collision_shapes": 1
+    },
+    {
+      "path": "scenes/prefabs/environment/city_lights_02.tscn",
+      "sha256": "aac581c61ff43c23f887b7a5bc8422d76591ae0d371d59e18c8c29aae3c7569b",
+      "references": [
+        {
+          "path": "art/models/environment/city_lights_02/city_lights_02.glb",
+          "scene_uid": "uid://ckytu70vc12dm",
+          "import_uid": "uid://ckytu70vc12dm",
+          "uid_matches": true
+        }
+      ],
+      "embedded_render_mesh": false,
+      "editable_imported_children": false,
+      "script_attached": false,
+      "node_id_count": 6,
+      "collision_shapes": 1
+    },
+    {
+      "path": "scenes/prefabs/environment/city_lights_02_cool.tscn",
+      "sha256": "30687c88c0e7efbc091c5b11106a4af16b14f5877ae1626aa50a9483cbd4374f",
+      "references": [
+        {
+          "path": "art/models/environment/city_lights_02/city_lights_02_cool.glb",
+          "scene_uid": "uid://bq8l6g4sd5bag",
+          "import_uid": "uid://bq8l6g4sd5bag",
+          "uid_matches": true
+        }
+      ],
+      "embedded_render_mesh": false,
+      "editable_imported_children": false,
+      "script_attached": false,
+      "node_id_count": 6,
+      "collision_shapes": 1
+    },
+    {
+      "path": "scenes/prefabs/environment/city_lights_04.tscn",
+      "sha256": "54f8960b2ed810f27a6c1dec28c2b32b1ca9b384c6f564b489404ed47d5191be",
+      "references": [
+        {
+          "path": "art/models/environment/city_lights_04/city_lights_04_warm.glb",
+          "scene_uid": "uid://csqi2ca1ty17v",
+          "import_uid": "uid://csqi2ca1ty17v",
+          "uid_matches": true
+        }
+      ],
+      "embedded_render_mesh": false,
+      "editable_imported_children": false,
+      "script_attached": false,
+      "node_id_count": 3,
+      "collision_shapes": 0
+    },
+    {
+      "path": "scenes/prefabs/environment/city_lights_04_cool.tscn",
+      "sha256": "ca5046d7fbc2a2598e47238ba6c326336503c4e97651e2270d64e25083f1decc",
+      "references": [
+        {
+          "path": "art/models/environment/city_lights_04/city_lights_04_cool.glb",
+          "scene_uid": "uid://vs2iyljt8w16",
+          "import_uid": "uid://vs2iyljt8w16",
+          "uid_matches": true
+        }
+      ],
+      "embedded_render_mesh": false,
+      "editable_imported_children": false,
+      "script_attached": false,
+      "node_id_count": 3,
+      "collision_shapes": 0
+    },
+    {
+      "path": "scenes/prefabs/environment/city_planting_01.tscn",
+      "sha256": "060857431b2933816c65c4eb1ac9745344de0f483262be9c05412306ea701694",
+      "references": [
+        {
+          "path": "art/models/environment/city_planting_01/city_planting_01.glb",
+          "scene_uid": "uid://ubco1yjrgfpq",
+          "import_uid": "uid://ubco1yjrgfpq",
+          "uid_matches": true
+        }
+      ],
+      "embedded_render_mesh": false,
+      "editable_imported_children": false,
+      "script_attached": false,
+      "node_id_count": 6,
+      "collision_shapes": 1
+    },
+    {
+      "path": "scenes/prefabs/environment/city_planting_02.tscn",
+      "sha256": "1a8902eed954d24c0ce0e73b2c6033448ae1e5b717869a23790808e590387f2d",
+      "references": [
+        {
+          "path": "art/models/environment/city_planting_02/city_planting_02.glb",
+          "scene_uid": "uid://bbexf0pcftp8f",
+          "import_uid": "uid://bbexf0pcftp8f",
+          "uid_matches": true
+        }
+      ],
+      "embedded_render_mesh": false,
+      "editable_imported_children": false,
+      "script_attached": false,
+      "node_id_count": 21,
+      "collision_shapes": 16
+    },
+    {
+      "path": "scenes/prefabs/environment/city_sign_supports_01.tscn",
+      "sha256": "ab310f5945a0ef0d8b07fcb2920deb9398359c525d37926202e21b43b974edfe",
+      "references": [
+        {
+          "path": "art/models/environment/city_sign_supports_01/city_sign_supports_01.glb",
+          "scene_uid": "uid://bdlt6f8x0t868",
+          "import_uid": "uid://bdlt6f8x0t868",
+          "uid_matches": true
+        }
+      ],
+      "embedded_render_mesh": false,
+      "editable_imported_children": false,
+      "script_attached": false,
+      "node_id_count": 3,
+      "collision_shapes": 0
+    }
+  ],
+  "unindexed_delta_paths": [
+    "art/models/environment/city_lights_04/city_lights_04_cool.glb.import",
+    "art/models/environment/city_lights_04/city_lights_04_warm.glb.import",
+    "art/models/environment/city_planting_01/city_planting_01.glb.import",
+    "art/models/environment/city_planting_02/city_planting_02.glb.import",
+    "art/models/environment/city_sign_supports_01/city_sign_supports_01.glb.import",
+    "docs/assets/production/batch_01-integration.md",
+    "scenes/prefabs/environment/city_lights_02.tscn",
+    "scenes/prefabs/environment/city_lights_02_cool.tscn",
+    "scenes/prefabs/environment/city_lights_04.tscn",
+    "scenes/prefabs/environment/city_lights_04_cool.tscn",
+    "scenes/prefabs/environment/city_planting_01.tscn",
+    "scenes/prefabs/environment/city_planting_02.tscn",
+    "scenes/prefabs/environment/city_sign_supports_01.tscn",
+    "tests/fixtures/asset_production/batch_01_camera.tscn",
+    "tests/fixtures/asset_production/batch_01_close.tscn",
+    "tests/fixtures/asset_production/batch_01_repeat.tscn",
+    "tests/fixtures/asset_production/batch_observation.gd",
+    "tests/fixtures/asset_production/batch_observation.gd.uid",
+    "tools/asset_production/integration/calibrate_batch.py",
+    "tools/asset_production/integration/editor_client.mjs",
+    "tools/asset_production/integration/inspector.gd",
+    "tools/asset_production/integration/verify_batch.py"
+  ]
+}

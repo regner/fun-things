@@ -1,0 +1,37 @@
+{
+  "candidate": "c4067ff3abe1384301471d9a64e94e84201235e2",
+  "actual_delta_base": "390377dc6530e101eddcbf38b2946a1b235137c7",
+  "original_base": "66400c26a01bf917dfe631af4762c2b444d9c48f",
+  "branch": "art/register-production-20261009",
+  "workspace": "/home/regner/.paseo/worktrees/0u71f39f/asset-register-production",
+  "workspace_id": "wks_59891ad7a05813e5",
+  "reviewer": "same independent Codex GPT-6.1 Sol high reviewer",
+  "review_start_utc": "2026-10-09 16:53:50 UTC",
+  "review_completed_utc": "2026-10-09T17:18:35.439066+00:00",
+  "initial_cap_minutes": 60,
+  "report": "report.md",
+  "initial_review": "../report.md",
+  "scope_ids": [
+    "city_lights.01",
+    "city_lights.02",
+    "city_lights.04",
+    "city_sign_supports.01",
+    "city_planting.01",
+    "city_planting.02"
+  ],
+  "source_stage": "accepted bounded production source/export",
+  "calibration_G1": "accepted; closed",
+  "prefab_stage": "accepted production linked-prefab handoff",
+  "native_engine_stage": "accepted bounded native standalone fixture checks",
+  "overall_game_ready_stage": "pending downstream world/combat/network/export/platform/performance acceptance",
+  "actionable_asset_findings": [],
+  "implementation_fixes_requested": [],
+  "residual_tooling": "disclosed editor progress-dialog/task errors; no asset runtime/UID warning observed",
+  "writes": "only final reviewer directory and isolated /tmp scratch; no implementation/index/commit/subagent operations",
+  "editor_handoff": {
+    "pid": 195352,
+    "runtime_stopped": true,
+    "unsaved_scenes": [],
+    "ownership": "saved quiescent private editor returned with final completion"
+  }
+}

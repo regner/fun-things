@@ -1,0 +1,430 @@
+{
+  "candidate": "c4067ff3abe1384301471d9a64e94e84201235e2",
+  "actual_delta_base": "390377dc6530e101eddcbf38b2946a1b235137c7",
+  "original_base": "66400c26a01bf917dfe631af4762c2b444d9c48f",
+  "self_hash_exclusion": "artifact-index.json excludes itself; all other final report/check/result/raw diagnostic/request/script/image files, including .gdignore, are indexed",
+  "original_review_preservation": "original 180 candidate-scope rows and 67 reviewer artifacts reverified; referenced without copying their payload",
+  "file_count": 84,
+  "files": [
+    {
+      "path": "docs/reviews/asset-production/batch_01/final/.gdignore",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "docs/reviews/asset-production/batch_01/final/actual-delta-file-index.json",
+      "bytes": 56950,
+      "sha256": "f83704c8ca5c53a641ff4894a5ee8ef2ff7e4db8ecc90475db85fa35ca3ee610"
+    },
+    {
+      "path": "docs/reviews/asset-production/batch_01/final/actual-delta.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "docs/reviews/asset-production/batch_01/final/actual-delta.stdout.log",
+      "bytes": 14733,
+      "sha256": "68a93c3027bc74b74e6e50621e16ca384816a91df528384f3e0cf8d6bcfeb9a7"
+    },
+    {
+      "path": "docs/reviews/asset-production/batch_01/final/calibration-adapted.stderr.log",
+      "bytes": 601,
+      "sha256": "cda30804aa310c5bba562cb9a2faf8b28d2f44ffe799db601f7a886601d5a66d"
+    },
+    {
+      "path": "docs/reviews/asset-production/batch_01/final/calibration-adapted.stdout.log",
+      "bytes": 241,
+      "sha256": "07a54e86f2f9cc3a2d28568ca99d51aed8a130abf932218ca53c696c089f4e95"
+    },
+    {
+      "path": "docs/reviews/asset-production/batch_01/final/calibration-component-diagnostic.json",
+      "bytes": 5445,
+      "sha256": "54c8aa4905c7f8353d729c0d50ae38bebbf7d1ffc0ab2b121c624027fb8403ce"
+    },
+    {
+      "path": "docs/reviews/asset-production/batch_01/final/calibration-components.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "docs/reviews/asset-production/batch_01/final/calibration-components.stdout.log",
+      "bytes": 4459,
+      "sha256": "d6158cd27a8b6e18131c8e5be3147658b128d9f7b7e628d2956d8d127bb63101"
+    },
+    {
+      "path": "docs/reviews/asset-production/batch_01/final/calibration-inventory.json",
+      "bytes": 9156,
+      "sha256": "f13fc4431871edcd3cf5737434e3dc50034c19d71c9eaf08d379b848cd2b12a4"
+    },
+    {
+      "path": "docs/reviews/asset-production/batch_01/final/calibration-inventory.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "docs/reviews/asset-production/batch_01/final/calibration-inventory.stdout.log",
+      "bytes": 1400,
+      "sha256": "b012a02ade0b902d5abe659d335c72591223a7be5eff3542ae6dee018e4f6507"
+    },
+    {
+      "path": "docs/reviews/asset-production/batch_01/final/calibration.stderr.log",
+      "bytes": 671,
+      "sha256": "4ceca47068d017664a76893c4661b6fa48244fef260a8802e568a023d28b9966"
+    },
+    {
+      "path": "docs/reviews/asset-production/batch_01/final/calibration.stdout.log",
+      "bytes": 241,
+      "sha256": "4619029083ccfc737671a8cba5b7ec4522f59bac1ba3489e75c960bde5a9d66b"
+    },
+    {
+      "path": "docs/reviews/asset-production/batch_01/final/calibration_diagnostic.py",
+      "bytes": 3007,
+      "sha256": "63a7c9d7320e1336602143433e2eaa78d583030af8e4b6f7fea310b4ad6bebc2"
+    },
+    {
+      "path": "docs/reviews/asset-production/batch_01/final/calibration_inventory.py",
+      "bytes": 628,
+      "sha256": "fb20b481c7eca1c5baa534906603fc42bdde544ab5ae7bfa1f9fa38b209ac5b1"
+    },
+    {
+      "path": "docs/reviews/asset-production/batch_01/final/check.py",
+      "bytes": 1029,
+      "sha256": "dad69b0871fb74c70193aba3c65ae638b3d900eb2d6f0af28beeada63c0301e0"
+    },
+    {
+      "path": "docs/reviews/asset-production/batch_01/final/collision_geometry.py",
+      "bytes": 1842,
+      "sha256": "db9f40ee79102b76cd65f839600375200f69c34f47acc818ffed4e3ce2632867"
+    },
+    {
+      "path": "docs/reviews/asset-production/batch_01/final/commands.json",
+      "bytes": 12413,
+      "sha256": "59cf9251191743d100628426e4147f166067e62ad11cadbb163272c3295afa26"
+    },
+    {
+      "path": "docs/reviews/asset-production/batch_01/final/engine_probe.gd",
+      "bytes": 4706,
+      "sha256": "e3c72cc37a10556a71f8f3e7d612e207504799ac4604684e7d08c0e7717acca5"
+    },
+    {
+      "path": "docs/reviews/asset-production/batch_01/final/evidence-analysis.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "docs/reviews/asset-production/batch_01/final/evidence-analysis.stdout.log",
+      "bytes": 7903,
+      "sha256": "daf186799d586c124dda65d176a43163b025a04adf294398688af471c6bdc2d1"
+    },
+    {
+      "path": "docs/reviews/asset-production/batch_01/final/evidence_analysis.py",
+      "bytes": 5716,
+      "sha256": "319774d667e38bfa6655e1e077c40f2699d9181b2735d61e4608c4ffe92fa611"
+    },
+    {
+      "path": "docs/reviews/asset-production/batch_01/final/final-preservation-and-quiescence.json",
+      "bytes": 11777,
+      "sha256": "884e5c51e4301dadaf695b12548094b767bb173fe259cb11287cd436bd97a61e"
+    },
+    {
+      "path": "docs/reviews/asset-production/batch_01/final/final-preservation-host.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "docs/reviews/asset-production/batch_01/final/final-preservation-host.stdout.log",
+      "bytes": 191,
+      "sha256": "2bc5d1d8cc93fcf6afb9ee69f379f37e1b22af6e54cbe6c7d943c6ca5decc52d"
+    },
+    {
+      "path": "docs/reviews/asset-production/batch_01/final/final_guard.py",
+      "bytes": 4462,
+      "sha256": "aefbbe0c9b1f6881ac7dfe3a7d25ef83e581125ac2e2fd9c2593a705773b3b32"
+    },
+    {
+      "path": "docs/reviews/asset-production/batch_01/final/fresh-diagnostic-analysis.json",
+      "bytes": 991,
+      "sha256": "98a630f138eaa9ba07190a347ed968b8199cc572ca2b7cbb5db4c49444a15cd3"
+    },
+    {
+      "path": "docs/reviews/asset-production/batch_01/final/gdstyle-version.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "docs/reviews/asset-production/batch_01/final/gdstyle-version.stdout.log",
+      "bytes": 14,
+      "sha256": "8650a0efa8783ff3e8ffab8518d64271d0cfbfce6b65b3ed591893d4280bdf52"
+    },
+    {
+      "path": "docs/reviews/asset-production/batch_01/final/headless_probe.gd",
+      "bytes": 1115,
+      "sha256": "e455a4db18c3abef2e6632fa3fe2fb85bf6795619bc5a68f7400fe6353757485"
+    },
+    {
+      "path": "docs/reviews/asset-production/batch_01/final/independent-engine-interfaces.json",
+      "bytes": 78702,
+      "sha256": "e4a7f79bdfeceee1718fe8f5a257e51ec39f073241240d659cbaba0c3bc3f830"
+    },
+    {
+      "path": "docs/reviews/asset-production/batch_01/final/independent-ring-collision.json",
+      "bytes": 15757,
+      "sha256": "7b30134dc29dfefb5acc77f0917ed27a5ee97239bf39326778d592a121968108"
+    },
+    {
+      "path": "docs/reviews/asset-production/batch_01/final/inspect_calibration-initial.py",
+      "bytes": 3793,
+      "sha256": "ff230b270c0e8ef97547622bd763a0a0a8a9f3fbfbbfea94c18e2e263d4d5345"
+    },
+    {
+      "path": "docs/reviews/asset-production/batch_01/final/inspect_calibration.py",
+      "bytes": 3910,
+      "sha256": "6dfee5217aee498861a40d27bc48f005a8bdbaebc3b395af45233fea40ef7724"
+    },
+    {
+      "path": "docs/reviews/asset-production/batch_01/final/live-guard-host.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "docs/reviews/asset-production/batch_01/final/live-guard-host.stdout.log",
+      "bytes": 91,
+      "sha256": "ab4d918cc777d1828f7fd88734889a2523cdf3d4b087ce53bab69c3a7c43ed3b"
+    },
+    {
+      "path": "docs/reviews/asset-production/batch_01/final/live-guard.json",
+      "bytes": 13710,
+      "sha256": "71341242d8b69b0c053046052e2349e27782a1129b1dabc746c73e5ffa1a55d2"
+    },
+    {
+      "path": "docs/reviews/asset-production/batch_01/final/live_guard.py",
+      "bytes": 1818,
+      "sha256": "243682457936204e4b4b2acc2c563e9f0d3fe5a6d275a84c71f1f6c48b0a4034"
+    },
+    {
+      "path": "docs/reviews/asset-production/batch_01/final/measured-evidence-analysis.json",
+      "bytes": 50054,
+      "sha256": "9e6ab9dc2f5931ec75d309014e536a6bf8c2939c886b584008b6eaafdeb7a42b"
+    },
+    {
+      "path": "docs/reviews/asset-production/batch_01/final/native-gameplay.png",
+      "bytes": 74065,
+      "sha256": "d5c16f4767f6a3ee10aee695a5fdd0aaac7e53b796029f22a0cda0d749870049"
+    },
+    {
+      "path": "docs/reviews/asset-production/batch_01/final/native-mounting.png",
+      "bytes": 216052,
+      "sha256": "906f2be7b3c83609c312a0eda1046fa7d7d0655d7f885c0b4b4f32aba204c08b"
+    },
+    {
+      "path": "docs/reviews/asset-production/batch_01/final/private-ancestry-requests.json",
+      "bytes": 1964,
+      "sha256": "736fc8d018ceaf4206526ff6e0ca849a1b7da8c883d4dcf7d6eddc659e1631ba"
+    },
+    {
+      "path": "docs/reviews/asset-production/batch_01/final/private-ancestry.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "docs/reviews/asset-production/batch_01/final/private-ancestry.stdout.log",
+      "bytes": 17010,
+      "sha256": "d21f8fac2c79ea16b68e033423680e2dfcbd843ca64385b2e865948b97ce57f5"
+    },
+    {
+      "path": "docs/reviews/asset-production/batch_01/final/private-close-runtime-requests.json",
+      "bytes": 543,
+      "sha256": "66ba3e7210c6f68b762a767917752694851e0b7610cfc37ac8394e7bfebe6dc7"
+    },
+    {
+      "path": "docs/reviews/asset-production/batch_01/final/private-close-runtime.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "docs/reviews/asset-production/batch_01/final/private-close-runtime.stdout.log",
+      "bytes": 453,
+      "sha256": "485bf6b6c85aa9edb66610b96b9dd1f69907f955aa0ff12a500ffb88bf2c4074"
+    },
+    {
+      "path": "docs/reviews/asset-production/batch_01/final/private-close-start-requests.json",
+      "bytes": 227,
+      "sha256": "6df02df4a89f763959e92da10d3629ebe2955123529ed2b66399f9901bf48326"
+    },
+    {
+      "path": "docs/reviews/asset-production/batch_01/final/private-close-start.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "docs/reviews/asset-production/batch_01/final/private-close-start.stdout.log",
+      "bytes": 326,
+      "sha256": "7abdc108f0af3053ea86472caf04be8c2c4fc68cb13c2e9491b771849b952a07"
+    },
+    {
+      "path": "docs/reviews/asset-production/batch_01/final/private-context-host.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "docs/reviews/asset-production/batch_01/final/private-context-host.stdout.log",
+      "bytes": 1207,
+      "sha256": "e20163d36c2c82a893594fb79ce6219779b88746108ddc6e5e3aee410443f04e"
+    },
+    {
+      "path": "docs/reviews/asset-production/batch_01/final/private-context.stderr.log",
+      "bytes": 674,
+      "sha256": "7701e5065eb0096a97f9e21c88ecb5fbf2a822b47a8857e0883d415ca52bb51f"
+    },
+    {
+      "path": "docs/reviews/asset-production/batch_01/final/private-context.stdout.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "docs/reviews/asset-production/batch_01/final/private-editor-restarted.log",
+      "bytes": 33466,
+      "sha256": "14931d416fa8fd41284c0dc1e3d76a1fa860622e5a7fa69e368d4a7846efce0e"
+    },
+    {
+      "path": "docs/reviews/asset-production/batch_01/final/private-prefabs-requests.json",
+      "bytes": 721,
+      "sha256": "206b50df1a3bb4e021f6811d09f8e052c1180be2b89f1c0bf8b7b8c158069667"
+    },
+    {
+      "path": "docs/reviews/asset-production/batch_01/final/private-prefabs.stderr.log",
+      "bytes": 449,
+      "sha256": "107306ac640efa59c7a1bb69a051f7ba4245c911e341556446bb715626b0858a"
+    },
+    {
+      "path": "docs/reviews/asset-production/batch_01/final/private-prefabs.stdout.log",
+      "bytes": 607,
+      "sha256": "0c7e758a9fac0d260eedc535204215271f1d197cdde1cc5bb1a52a2083e132b7"
+    },
+    {
+      "path": "docs/reviews/asset-production/batch_01/final/private-runtime-requests.json",
+      "bytes": 1416,
+      "sha256": "afc856cf69f86e439e522e30437261c71649ee5eb6b9a1d05ef5cc9a6cb29e51"
+    },
+    {
+      "path": "docs/reviews/asset-production/batch_01/final/private-runtime.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "docs/reviews/asset-production/batch_01/final/private-runtime.stdout.log",
+      "bytes": 13663,
+      "sha256": "feffe6b710b0af1d03ff9c8004bee2db20d3866c765f23eabda2b3fdfe26dc31"
+    },
+    {
+      "path": "docs/reviews/asset-production/batch_01/final/private-start-requests.json",
+      "bytes": 175,
+      "sha256": "92681afa61f11a3fd7ff0adbc27b8957c4f1636c7ec13d32d1b711a61f87dd23"
+    },
+    {
+      "path": "docs/reviews/asset-production/batch_01/final/private-start.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "docs/reviews/asset-production/batch_01/final/private-start.stdout.log",
+      "bytes": 225,
+      "sha256": "2ef64768918d48d286e8b5461259c098e299369453d0badcc8b5ea787a015237"
+    },
+    {
+      "path": "docs/reviews/asset-production/batch_01/final/private-stop-requests.json",
+      "bytes": 176,
+      "sha256": "788507bb4be551df9f05bf6f614a679b7c03ff32aa32723c16c9817719bae826"
+    },
+    {
+      "path": "docs/reviews/asset-production/batch_01/final/private-stop.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "docs/reviews/asset-production/batch_01/final/private-stop.stdout.log",
+      "bytes": 1309,
+      "sha256": "f8cf9a1d342107504ab0109b6f35eee61061df846cdc5422f69ae30219dcee78"
+    },
+    {
+      "path": "docs/reviews/asset-production/batch_01/final/report.md",
+      "bytes": 18221,
+      "sha256": "563e6900ba266b05212e4d4d78cb99ab3d23bec147e8633694a1fae3ac05fd9a"
+    },
+    {
+      "path": "docs/reviews/asset-production/batch_01/final/retained-diagnostic-analysis.json",
+      "bytes": 25235,
+      "sha256": "0e601681871c06b7e8865f20e72ca70ea8a4c0a521beb6168fdf9d787ca3b2a4"
+    },
+    {
+      "path": "docs/reviews/asset-production/batch_01/final/review-identity.json",
+      "bytes": 1641,
+      "sha256": "f7750322af37ff8f737ec8af6af6a679cf5062ea5e828b61f61f4f00efe3b61c"
+    },
+    {
+      "path": "docs/reviews/asset-production/batch_01/final/saved-ring-geometry.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "docs/reviews/asset-production/batch_01/final/saved-ring-geometry.stdout.log",
+      "bytes": 130,
+      "sha256": "cf3249a21e582008ff984682ddc4b4fb9093f1f3d7db062f4b757c1b49fcd546"
+    },
+    {
+      "path": "docs/reviews/asset-production/batch_01/final/scoped-gdstyle.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "docs/reviews/asset-production/batch_01/final/scoped-gdstyle.stdout.log",
+      "bytes": 39,
+      "sha256": "48551903a2d2f62c3f08f7f962a97fdd58299f8cf3ed80c4a1a87e69e75c8821"
+    },
+    {
+      "path": "docs/reviews/asset-production/batch_01/final/scratch-import.stderr.log",
+      "bytes": 770,
+      "sha256": "8b822be51ef34a9f0c40d4ad867398834ba4cc3d9f7c139e5d4f0e7a795c279a"
+    },
+    {
+      "path": "docs/reviews/asset-production/batch_01/final/scratch-import.stdout.log",
+      "bytes": 82953,
+      "sha256": "7963c0976828e877809649f5760be31554e12c07c8adffd4b8f901628ba47d86"
+    },
+    {
+      "path": "docs/reviews/asset-production/batch_01/final/scratch-interfaces.stderr.log",
+      "bytes": 217,
+      "sha256": "14c79cd69e09042bf52505ddb6df597a38cfe1bd9bb69f70748049af38d4aaa5"
+    },
+    {
+      "path": "docs/reviews/asset-production/batch_01/final/scratch-interfaces.stdout.log",
+      "bytes": 149,
+      "sha256": "10ea71eca8cae8ba77fceb498a5a8accc8674d00f66f03b8b2a859ca376ecf29"
+    },
+    {
+      "path": "docs/reviews/asset-production/batch_01/final/seal_review.py",
+      "bytes": 3264,
+      "sha256": "b4985d0cf97d04920f2387e794880f54e8f174c9218745e95bfcf20c1588a943"
+    },
+    {
+      "path": "docs/reviews/asset-production/batch_01/final/static-audit.json",
+      "bytes": 41786,
+      "sha256": "b9fff1f21e06bf379813ccb09fa73f7658a400a86516130ad7cccb0b1055237b"
+    },
+    {
+      "path": "docs/reviews/asset-production/batch_01/final/static-audit.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "docs/reviews/asset-production/batch_01/final/static-audit.stdout.log",
+      "bytes": 7397,
+      "sha256": "eae9a2979d01ca378042ad57aab9cd36d06603399e6c48e33c4fe8f39e018be4"
+    },
+    {
+      "path": "docs/reviews/asset-production/batch_01/final/static_audit.py",
+      "bytes": 5016,
+      "sha256": "88d6da4d05799f0fe0f9d3fa3f186d7e39ca3d2166e4ade8f221e0399db5e639"
+    }
+  ]
+}

@@ -1,24 +1,25 @@
 # Production progress
 
-ROOT owns dispatch and the queue. Three Astra/medium sources run in parallel:
-city_sign_supports.01, city_planting.01 and city_planting.02. The technical integrator
-is idle at saved checkpoint `53502af4775ca60551b63a94deb28b52ed88c253`.
+ROOT owns dispatch. All 223 stable IDs and 12 trailing tracks remain tracked.
+Six assets have accepted production source/export, linked prefabs and bounded native
+engine checks. Nine further source/export handoffs are delivered; two assets are
+modeling; 206 remain queued. All source specialists are Astra/medium.
 
-All 223 stable IDs and 12 trailing tracks remain tracked. Three light sources and
-exports are delivered; 3 records are modeling and 217 are queued. No asset has full
-engine/review acceptance. Initial light01/02 have four linked saved/reopened prefabs
-and an actual 1280x800 47m/42deg capture. Runtime UID warnings, collision/query and
-repetition checks, and independent review remain pending. Wall-light integration
-is pending. See [technical handoff](lights-integration.md).
+Batch01 accepted at `c4067ff3abe1384301471d9a64e94e84201235e2`: three light designs,
+wall sign panel and two planters. SAME-reviewer final verdict closes G1 scale evidence
+and accepts nine linked prefabs. [Full review](../../reviews/asset-production/batch_01/final/report.md).
+World placement/combat-network/export-device/sustained performance are pending;
+this asset-handoff acceptance does not close whole-game gates or TODOs.
 
-Four active-agent capacity includes ROOT. Integration and independent review use a
-child slot as source workers finish; the next small batch will include the wall
-light and sign panel. Workers report once through their final saved handoff.
+Batch02 queued for concrete integration: shrub, two tree crowns, grass/weed variants,
+roof vent, roof plant enclosure and short canopy. Frontage batch follows: fascia,
+entrance surround and display-window bay sources are delivered. Single/double door
+leaves and upper-floor window group are modeling.
 
-Private editor: PID178546, this worktree, pinned Godot4.8-dev7, editor22650,
-runtime22651, CLI LSP22652. Runtime stopped and no unsaved scenes at checkpoint.
-Guarded resume transport and remaining concrete work are in the technical handoff.
-Blender5.2.2 LTS/glTF5.2.40 is verified; use process-local audio-disabled launches.
+Capacity is four active agents including ROOT. Integration/review uses released
+source slots; no duplicate coordinator or routine handoff relays. Private editor
+was saved with runtime stopped by final reviewer; next owner verifies guarded
+launch/context/project before access. No global connector changes.
 
-Main remains untouched. Placement/device/performance acceptance and TODO closure
-remain pending. No push, merge or archival.
+Main untouched. No push, merge, archival or TODO closure. Exact queue ownership,
+source receipts, reports and stage dispositions are in queue.json.
