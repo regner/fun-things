@@ -18,14 +18,18 @@ class S09RunnerTest(unittest.TestCase):
             for seed in (11, 29, 47):
                 cases.append({
                     "population": population, "ai_tick_usec_samples": [100, 200],
-                    "stuck_recovery_samples_seconds": [2.5], "ai_collisions": 0,
-                    "deadlocks": 0, "stuck_events": 1,
+                    "stuck_recovery_samples_seconds": [3.5], "ai_collisions": 0,
+                    "deadlocks": 0,
+                    "intersection_gridlock": {"episodes": 0, "resolved": 0,
+                                              "unresolved": 0, "max_stall_seconds": 3.0},
+                    "stuck_events": 1,
                     "lane_error_m": {"p95": 0.4, "worst": 0.8},
                 })
         result = aggregate_cases(cases)
         self.assertEqual(result["24"]["ai_tick_ms"]["count"], 6)
         self.assertEqual(result["24"]["ai_tick_ms"]["median"], 0.1)
         self.assertEqual(result["32"]["stuck_recovery_seconds"]["count"], 3)
+        self.assertEqual(result["32"]["intersection_gridlock"]["max_stall_seconds"], 3.0)
         self.assertEqual(result["32"]["lane_error_worst_m_by_seed"], [0.8, 0.8, 0.8])
 
 

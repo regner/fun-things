@@ -47,6 +47,16 @@ def aggregate_cases(cases):
             "runs": len(selected), "ai_tick_ms": distribution(samples_ms),
             "ai_collisions": sum(case["ai_collisions"] for case in selected),
             "deadlocks": sum(case["deadlocks"] for case in selected),
+            "intersection_gridlock": {
+                "episodes": sum(case["intersection_gridlock"]["episodes"]
+                                for case in selected),
+                "resolved": sum(case["intersection_gridlock"]["resolved"]
+                                for case in selected),
+                "unresolved": sum(case["intersection_gridlock"]["unresolved"]
+                                  for case in selected),
+                "max_stall_seconds": max(case["intersection_gridlock"]
+                                         ["max_stall_seconds"] for case in selected),
+            },
             "stuck_events": sum(case["stuck_events"] for case in selected),
             "stuck_recovery_seconds": distribution(recoveries),
             "lane_error_p95_m_by_seed": [case["lane_error_m"]["p95"] for case in selected],
@@ -158,8 +168,9 @@ def main():
                "semantic_success": semantic_success, "saved_files_unchanged": unchanged,
                "commands": commands, "source_fingerprints": before,
                "cases": [{key: case[key] for key in ("population", "seed", "host_snapshot",
-                           "ai_tick_ms", "ai_collisions", "deadlocks", "stuck_events",
-                           "stuck_recovery_seconds", "lane_error_m", "failures")}
+                           "ai_tick_ms", "ai_collisions", "deadlocks",
+                           "intersection_gridlock", "stuck_events", "stuck_recovery_seconds",
+                           "lane_error_m", "failures")}
                          for case in cases],
                "by_population": aggregate_cases(cases) if complete else {}}
     (output / "summary.json").write_text(json.dumps(summary, indent=2) + "\n")

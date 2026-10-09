@@ -12,9 +12,15 @@ const NEAREST_FORWARD_POINTS: int = 32
 const BLOCK_LOOKAHEAD_M: float = 14.0
 const BLOCK_WAIT_TICKS: int = 120
 const REVERSE_TICKS: int = 30
+const RECOVERY_PROGRESS_TICKS: int = 30
+const RECOVERY_FORWARD_MPS: float = 1.0
+const RECOVERY_PROGRESS_M: float = 1.0
+const RECOVERY_CLEARANCE_M: float = 0.1
 const SAFE_GAP_BASE_M: float = 6.0
 const SAFE_GAP_SECONDS: float = 1.0
-const COLLISION_DISTANCE_M: float = 1.7
+const CAR_WIDTH_M: float = 1.8
+const CAR_LENGTH_M: float = 3.4
+const CAR_HALF_DIAGONAL_M: float = 1.9235384
 const INTERSECTION_APPROACH_M: float = 10.0
 const INTERSECTION_ENTERED_M: float = 3.0
 const GRIDLOCK_TICKS: int = 240
@@ -24,24 +30,25 @@ var _topology: S09Topology
 var _routes: Dictionary = {}
 var _cars: Array[Dictionary] = []
 var _intersection_reservations: Array[Dictionary] = []
+var _gridlock_trackers: Array[S09GridlockTracker] = []
 var _collision_pairs: Dictionary = {}
 var _collision_count: int = 0
 var _collision_details: Dictionary = { "same_family": 0, "cross_family": 0 }
 var _collision_events: Array[Dictionary] = []
-var _deadlock_count: int = 0
-var _gridlock_ticks: int = 0
 var _stuck_events: int = 0
 var _recoveries: Array[float] = []
 var _lane_tick_errors: Array[float] = []
 var _drive_rule_steps: int = 0
 
 
-## Admits one valid saved topology before any host simulation work.
+## Admits one valid saved topology atomically before any host simulation work.
 func configure(topology: S09Topology) -> String:
-	_topology = topology
+	_topology = null
 	_routes.clear()
 	if topology == null or topology.validate_content() != "OK":
 		return "CONTENT_INVALID"
+
+	var candidate_routes: Dictionary = {}
 	for route_id: StringName in [
 		&"s09/horizontal", &"s09/horizontal_detour",
 		&"s09/vertical", &"s09/vertical_detour", &"s09/outer",
@@ -49,8 +56,10 @@ func configure(topology: S09Topology) -> String:
 		var points: PackedVector3Array = topology.route_points(route_id)
 		if points.is_empty():
 			return "CONTENT_INVALID"
-		_routes[route_id] = points
+		candidate_routes[route_id] = points
 
+	_topology = topology
+	_routes = candidate_routes
 	return "OK"
 
 
@@ -75,7 +84,9 @@ func run(population: int, seed: int, ticks: int) -> Dictionary:
 		"ai_tick_ms": _distribution(timing_ms),
 		"ai_tick_usec_samples": timings_usec,
 		"ai_collisions": _collision_count, "collision_details": _collision_details,
-		"collision_events": _collision_events, "deadlocks": _deadlock_count,
+		"collision_events": _collision_events,
+		"intersection_gridlock": _gridlock_receipt(),
+		"deadlocks": _gridlock_receipt().episodes,
 		"stuck_events": _stuck_events,
 		"stuck_recovery_seconds": _distribution(_recoveries),
 		"stuck_recovery_samples_seconds": _recoveries,
@@ -90,20 +101,27 @@ func run(population: int, seed: int, ticks: int) -> Dictionary:
 func _reset_case() -> void:
 	_cars.clear()
 	_intersection_reservations.clear()
+	_gridlock_trackers.clear()
 	for center: Vector3 in _topology.intersection_centers():
 		_intersection_reservations.append({
 			"center": center, "owner": -1, "entered": false,
 		})
+		_gridlock_trackers.append(_new_gridlock_tracker(center))
 	_collision_pairs.clear()
 	_collision_count = 0
 	_collision_details = { "same_family": 0, "cross_family": 0 }
 	_collision_events.clear()
-	_deadlock_count = 0
-	_gridlock_ticks = 0
 	_stuck_events = 0
 	_recoveries.clear()
 	_lane_tick_errors.clear()
 	_drive_rule_steps = 0
+
+
+## Creates one case-local intersection tracker outside the hot simulation path.
+func _new_gridlock_tracker(center: Vector3) -> S09GridlockTracker:
+	var tracker: S09GridlockTracker = S09GridlockTracker.new()
+	tracker.configure(center)
+	return tracker
 
 
 ## Creates a bounded, seeded distribution on the two authored base loops.
@@ -136,8 +154,9 @@ func _spawn(population: int, seed: int) -> void:
 			"position": points[index],
 			"yaw": atan2(-direction.x, -direction.z), "velocity": Vector3.ZERO,
 			"route_index": index, "recovery_state": "driving", "blocked_tick": -1,
-			"reverse_until_tick": -1, "progress_origin": points[index],
-			"progress_tick": 0,
+			"reverse_until_tick": -1, "recovery_origin": points[index],
+			"recovery_progress_ticks": 0, "blocked_position": Vector3.ZERO,
+			"blocked_radius_m": 0.0, "progress_origin": points[index], "progress_tick": 0,
 		})
 
 
@@ -166,10 +185,12 @@ func _step(tick: int) -> void:
 		car.velocity = next.velocity
 		car.position += car.velocity * STEP_SECONDS
 		_drive_rule_steps += 1
+		_update_recovery_progress(car, tick)
 		_update_stuck(car, tick)
 	_lane_tick_errors.append(maximum_lane_error)
 	_update_collisions()
-	_update_gridlock()
+	for tracker: S09GridlockTracker in _gridlock_trackers:
+		tracker.advance(_cars)
 
 
 ## Produces throttle, steer, brake and handbrake without bypassing the handling owner.
@@ -211,10 +232,11 @@ func _recovery_command(car: Dictionary, tick: int) -> Dictionary:
 		car.route_id = replacement
 		var nearest: Dictionary = _nearest(_routes[replacement], car.position, 0, true)
 		car.route_index = nearest.index
-		car.recovery_state = "driving"
-		_recoveries.append(float(tick - int(car.blocked_tick)) / PHYSICS_HZ)
+		car.recovery_state = "recovering"
+		car.recovery_origin = car.position
+		car.recovery_progress_ticks = 0
 
-	if not str(car.route_id).ends_with("_detour"):
+	if car.recovery_state == "driving" and not str(car.route_id).ends_with("_detour"):
 		for blockage: Dictionary in _topology.blockages():
 			if blockage.route_id != car.route_id:
 				continue
@@ -223,10 +245,34 @@ func _recovery_command(car: Dictionary, tick: int) -> Dictionary:
 			if offset.length() <= BLOCK_LOOKAHEAD_M and forward.dot(offset) > 0.0:
 				car.recovery_state = "waiting"
 				car.blocked_tick = tick
+				car.blocked_position = blockage.position
+				car.blocked_radius_m = blockage.radius_m
 				return { "throttle": 0.0, "steer": 0.0, "brake": 1.0,
 					"handbrake": false }
 
 	return {}
+
+
+## Completes recovery only after obstacle clearance and sustained forward detour progress.
+func _update_recovery_progress(car: Dictionary, tick: int) -> void:
+	if car.recovery_state != "recovering":
+		return
+
+	var clearance_m: float = float(car.blocked_radius_m) + CAR_HALF_DIAGONAL_M + (
+		RECOVERY_CLEARANCE_M)
+	var forward: Vector3 = Vector3(-sin(car.yaw), 0.0, -cos(car.yaw))
+	var clear: bool = car.position.distance_to(car.blocked_position) >= clearance_m
+	var progressing: bool = car.position.distance_to(car.recovery_origin) >= RECOVERY_PROGRESS_M
+	var moving_forward: bool = car.velocity.dot(forward) >= RECOVERY_FORWARD_MPS
+	if clear and progressing and moving_forward:
+		car.recovery_progress_ticks += 1
+	else:
+		car.recovery_progress_ticks = 0
+	if int(car.recovery_progress_ticks) < RECOVERY_PROGRESS_TICKS:
+		return
+
+	car.recovery_state = "driving"
+	_recoveries.append(float(tick - int(car.blocked_tick) + 1) / PHYSICS_HZ)
 
 
 ## Stops an approaching car unless it owns every nearby authored conflict zone.
@@ -293,20 +339,43 @@ func _update_stuck(car: Dictionary, tick: int) -> void:
 		_stuck_events += 1
 
 
-## Counts new close-contact episodes between AI cars without double-counting held overlap.
+## Counts new provisional S04 oriented-footprint overlaps without double-counting episodes.
 func _update_collisions() -> void:
 	var current: Dictionary = {}
 	for left_index: int in _cars.size():
 		for right_index: int in range(left_index + 1, _cars.size()):
 			var left: Dictionary = _cars[left_index]
 			var right: Dictionary = _cars[right_index]
-			if left.position.distance_to(right.position) >= COLLISION_DISTANCE_M:
+			if not footprints_overlap(left.position, left.yaw, right.position, right.yaw):
 				continue
 			var key: String = "%d:%d" % [left.id, right.id]
 			current[key] = true
 			if not _collision_pairs.has(key):
 				_record_collision(left, right)
 	_collision_pairs = current
+
+
+## Tests the provisional 1.8 by 3.4 metre S04 oriented footprints with planar SAT.
+static func footprints_overlap(left_position: Vector3, left_yaw: float,
+		right_position: Vector3, right_yaw: float) -> bool:
+	var left_forward: Vector2 = Vector2(-sin(left_yaw), -cos(left_yaw))
+	var left_right: Vector2 = Vector2(cos(left_yaw), -sin(left_yaw))
+	var right_forward: Vector2 = Vector2(-sin(right_yaw), -cos(right_yaw))
+	var right_right: Vector2 = Vector2(cos(right_yaw), -sin(right_yaw))
+	var offset: Vector2 = Vector2(
+		right_position.x - left_position.x, right_position.z - left_position.z)
+	for axis: Vector2 in [left_forward, left_right, right_forward, right_right]:
+		var limit: float = _footprint_radius(axis, left_forward, left_right) + (
+			_footprint_radius(axis, right_forward, right_right))
+		if absf(offset.dot(axis)) > limit:
+			return false
+	return true
+
+
+## Projects one provisional car half-envelope onto a separating axis.
+static func _footprint_radius(axis: Vector2, forward: Vector2, right: Vector2) -> float:
+	return absf(axis.dot(forward)) * CAR_LENGTH_M * 0.5 + (
+		absf(axis.dot(right)) * CAR_WIDTH_M * 0.5)
 
 
 ## Retains one collision episode and a bounded diagnostic position sample.
@@ -326,20 +395,20 @@ func _route_family(route_id: StringName) -> String:
 	return str(route_id).trim_prefix("s09/").trim_suffix("_detour")
 
 
-## Counts a gridlock only when the complete moving population remains stopped for four seconds.
-func _update_gridlock() -> void:
-	var moving: bool = false
-	for car: Dictionary in _cars:
-		if car.velocity.length() >= 0.2:
-			moving = true
-			break
-	if moving:
-		_gridlock_ticks = 0
-		return
-
-	_gridlock_ticks += 1
-	if _gridlock_ticks == GRIDLOCK_TICKS:
-		_deadlock_count += 1
+## Aggregates intersection-local episodes without allowing outer-loop motion to hide them.
+func _gridlock_receipt() -> Dictionary:
+	var episodes: int = 0
+	var resolved: int = 0
+	var unresolved: int = 0
+	var maximum_seconds: float = 0.0
+	for tracker: S09GridlockTracker in _gridlock_trackers:
+		var current: Dictionary = tracker.receipt()
+		episodes += current.episodes
+		resolved += current.resolved
+		unresolved += current.unresolved
+		maximum_seconds = maxf(maximum_seconds, current.max_stall_seconds)
+	return { "episodes": episodes, "resolved": resolved, "unresolved": unresolved,
+		"max_stall_seconds": maximum_seconds }
 
 
 ## Finds the closest route sample in a bounded moving window or one explicit full rebind.

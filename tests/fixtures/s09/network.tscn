@@ -1,7 +1,7 @@
-[gd_scene format=3]
+[gd_scene format=3 uid="uid://coi48a816fiq"]
 
-[ext_resource type="Script" path="res://tests/fixtures/s09/topology.gd" id="1_topology"]
-[ext_resource type="Script" path="res://tests/fixtures/s09/lane.gd" id="2_lane"]
+[ext_resource type="Script" uid="uid://d3qjceuw6pl3d" path="res://tests/fixtures/s09/topology.gd" id="1_topology"]
+[ext_resource type="Script" uid="uid://dhxa05xso16op" path="res://tests/fixtures/s09/lane.gd" id="2_lane"]
 
 [node name="S09Network" type="Node3D"]
 script = ExtResource("1_topology")
