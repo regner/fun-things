@@ -1,7 +1,7 @@
 {
   "ok": true,
   "engine": "4.8.dev7.official.c971f93e7",
-  "revision": "796f0c03071f403efed6351dc1e73dc06d1d9330",
+  "revision": "df8162e86443d90b53d804b24fad5652b6cfdfb1",
   "dirty_inputs": "",
   "platform": "Windows-11-10.0.26200-SP0",
   "processor": "Intel64 Family 6 Model 170 Stepping 4, GenuineIntel",
@@ -18,11 +18,11 @@
     "tests/fixtures/s14/audio_test.tscn": "a2902c4b9463f631a7984b7cb847d6fd6436b0ce29394cd83f3f35d5c0d70258",
     "tests/fixtures/s14/bus_layout.tres": "0be5508a661ad9bdb95de00be9a9a8fdca7ba5ea39df81b77903c553f25bb7ec",
     "tests/fixtures/s14/generate_audio.py": "5c967478ad2711a8da9042bfa39a0070265d6e7fcfa3e31f1d7021d8b825efd8",
-    "tests/fixtures/s14/s14_fixture.gd": "aac961b30fc28bc05b9b319b8c4c05612e17746487bcf780b8d9834722d3590c",
+    "tests/fixtures/s14/s14_fixture.gd": "4cfb7dfa202a7d542cbd2ed8fad0793aec48622f65378308abc08a9a2777ef67",
     "tests/fixtures/s14/s14_fixture.gd.uid": "7b048ed7aea00e7f05e6c64b01c5421c7bd80a3cacabf5b434d2aab12dacf5e4",
     "tests/fixtures/s14/s14_settings.gd": "2568fe996d089ba52acd91acb349fd9ddd2efaf05f27a31cdce3a1449bf3456a",
     "tests/fixtures/s14/s14_settings.gd.uid": "d603fd1a292b0d292d183e2ecde756a51fdcfa284bd40c7039dea1bd77a03044",
-    "tests/fixtures/s14/s14_voice_manager.gd": "145cf184b111e6d6413022ab7c4e4d2ed930d6f0eaf624bbf30988697b524fff",
+    "tests/fixtures/s14/s14_voice_manager.gd": "ca3228477818c38918893407a5b08a612055a038fb48a6799940802d181a86e5",
     "tests/fixtures/s14/s14_voice_manager.gd.uid": "ab7e1b9a777222569dd1b45d250a39f945445e57abb65539b614931d9953c6a5"
   },
   "cases": [
@@ -34,12 +34,12 @@
         "C:\\Users\\regner.blokandersen\\AppData\\Local\\mise\\installs\\github-godotengine-godot-builds\\4.8-dev7\\godot.exe",
         "--headless",
         "--path",
-        "C:\\tmp\\ft\\lanes\\s14-audio\\run03\\project",
+        "C:\\tmp\\ft\\lanes\\s14-audio\\run04\\project",
         "--log-file",
-        "C:\\tmp\\ft\\lanes\\s14-audio\\run03\\headless-1\\engine.log",
+        "C:\\tmp\\ft\\lanes\\s14-audio\\run04\\headless-1\\engine.log",
         "res://tests/fixtures/s14/audio_test.tscn",
         "--",
-        "--s14-output=C:\\tmp\\ft\\lanes\\s14-audio\\run03\\headless-1\\receipt.json",
+        "--s14-output=C:\\tmp\\ft\\lanes\\s14-audio\\run04\\headless-1\\receipt.json",
         "--s14-mode=headless"
       ],
       "exit": 0,
@@ -47,8 +47,8 @@
       "known_dummy_audio_teardown_diagnostics": [],
       "semantic_failures": [],
       "environment_before": {
-        "godot_processes": 9,
-        "cpu_load_percent": 33.585
+        "godot_processes": 7,
+        "cpu_load_percent": 49.931
       },
       "timing_label": "contended upper bound",
       "receipt": {
@@ -85,9 +85,9 @@
           "audio_output_latency_ms_median": 0.0,
           "audio_output_latency_ms_worst": 0.0,
           "physics_process_ms_median": 0.0,
-          "physics_process_ms_worst": 0.0,
+          "physics_process_ms_worst": 1.752,
           "process_ms_median": 0.0,
-          "process_ms_worst": 0.0,
+          "process_ms_worst": 4.547,
           "sample_count": 48
         },
         "performance_note": "Godot exposes output latency but no per-bus or audio-mix CPU Performance monitor; process-frame time is context only and does not isolate audio cost.",
@@ -124,7 +124,7 @@
         "settled": {
           "active": {
             "engines": 8,
-            "explosions": 1,
+            "explosions": 3,
             "weapons": 0
           },
           "caps": {
@@ -152,12 +152,12 @@
         "C:\\Users\\regner.blokandersen\\AppData\\Local\\mise\\installs\\github-godotengine-godot-builds\\4.8-dev7\\godot.exe",
         "--headless",
         "--path",
-        "C:\\tmp\\ft\\lanes\\s14-audio\\run03\\project",
+        "C:\\tmp\\ft\\lanes\\s14-audio\\run04\\project",
         "--log-file",
-        "C:\\tmp\\ft\\lanes\\s14-audio\\run03\\headless-2\\engine.log",
+        "C:\\tmp\\ft\\lanes\\s14-audio\\run04\\headless-2\\engine.log",
         "res://tests/fixtures/s14/audio_test.tscn",
         "--",
-        "--s14-output=C:\\tmp\\ft\\lanes\\s14-audio\\run03\\headless-2\\receipt.json",
+        "--s14-output=C:\\tmp\\ft\\lanes\\s14-audio\\run04\\headless-2\\receipt.json",
         "--s14-mode=headless"
       ],
       "exit": 0,
@@ -165,8 +165,8 @@
       "known_dummy_audio_teardown_diagnostics": [],
       "semantic_failures": [],
       "environment_before": {
-        "godot_processes": 9,
-        "cpu_load_percent": 25.368
+        "godot_processes": 10,
+        "cpu_load_percent": 33.653
       },
       "timing_label": "contended upper bound",
       "receipt": {
@@ -242,7 +242,7 @@
         "settled": {
           "active": {
             "engines": 8,
-            "explosions": 3,
+            "explosions": 2,
             "weapons": 0
           },
           "caps": {
@@ -270,12 +270,12 @@
         "C:\\Users\\regner.blokandersen\\AppData\\Local\\mise\\installs\\github-godotengine-godot-builds\\4.8-dev7\\godot.exe",
         "--headless",
         "--path",
-        "C:\\tmp\\ft\\lanes\\s14-audio\\run03\\project",
+        "C:\\tmp\\ft\\lanes\\s14-audio\\run04\\project",
         "--log-file",
-        "C:\\tmp\\ft\\lanes\\s14-audio\\run03\\headless-3\\engine.log",
+        "C:\\tmp\\ft\\lanes\\s14-audio\\run04\\headless-3\\engine.log",
         "res://tests/fixtures/s14/audio_test.tscn",
         "--",
-        "--s14-output=C:\\tmp\\ft\\lanes\\s14-audio\\run03\\headless-3\\receipt.json",
+        "--s14-output=C:\\tmp\\ft\\lanes\\s14-audio\\run04\\headless-3\\receipt.json",
         "--s14-mode=headless"
       ],
       "exit": 0,
@@ -283,8 +283,8 @@
       "known_dummy_audio_teardown_diagnostics": [],
       "semantic_failures": [],
       "environment_before": {
-        "godot_processes": 7,
-        "cpu_load_percent": 45.181
+        "godot_processes": 10,
+        "cpu_load_percent": 28.178
       },
       "timing_label": "contended upper bound",
       "receipt": {
@@ -360,7 +360,7 @@
         "settled": {
           "active": {
             "engines": 8,
-            "explosions": 3,
+            "explosions": 2,
             "weapons": 0
           },
           "caps": {
@@ -390,12 +390,12 @@
         "--resolution",
         "1280x800",
         "--path",
-        "C:\\tmp\\ft\\lanes\\s14-audio\\run03\\project",
+        "C:\\tmp\\ft\\lanes\\s14-audio\\run04\\project",
         "--log-file",
-        "C:\\tmp\\ft\\lanes\\s14-audio\\run03\\windowed-1\\engine.log",
+        "C:\\tmp\\ft\\lanes\\s14-audio\\run04\\windowed-1\\engine.log",
         "res://tests/fixtures/s14/audio_test.tscn",
         "--",
-        "--s14-output=C:\\tmp\\ft\\lanes\\s14-audio\\run03\\windowed-1\\receipt.json",
+        "--s14-output=C:\\tmp\\ft\\lanes\\s14-audio\\run04\\windowed-1\\receipt.json",
         "--s14-mode=windowed"
       ],
       "exit": 0,
@@ -403,8 +403,8 @@
       "known_dummy_audio_teardown_diagnostics": [],
       "semantic_failures": [],
       "environment_before": {
-        "godot_processes": 11,
-        "cpu_load_percent": 27.438
+        "godot_processes": 13,
+        "cpu_load_percent": 33.543
       },
       "timing_label": "contended upper bound",
       "receipt": {
@@ -440,10 +440,10 @@
         "performance": {
           "audio_output_latency_ms_median": 9.99999977648258,
           "audio_output_latency_ms_worst": 9.99999977648258,
-          "physics_process_ms_median": 2.677,
-          "physics_process_ms_worst": 16.582,
-          "process_ms_median": 4.42,
-          "process_ms_worst": 420.856,
+          "physics_process_ms_median": 2.089,
+          "physics_process_ms_worst": 8.196,
+          "process_ms_median": 4.438,
+          "process_ms_worst": 68.501,
           "sample_count": 48
         },
         "performance_note": "Godot exposes output latency but no per-bus or audio-mix CPU Performance monitor; process-frame time is context only and does not isolate audio cost.",
@@ -510,12 +510,12 @@
         "--resolution",
         "1280x800",
         "--path",
-        "C:\\tmp\\ft\\lanes\\s14-audio\\run03\\project",
+        "C:\\tmp\\ft\\lanes\\s14-audio\\run04\\project",
         "--log-file",
-        "C:\\tmp\\ft\\lanes\\s14-audio\\run03\\windowed-2\\engine.log",
+        "C:\\tmp\\ft\\lanes\\s14-audio\\run04\\windowed-2\\engine.log",
         "res://tests/fixtures/s14/audio_test.tscn",
         "--",
-        "--s14-output=C:\\tmp\\ft\\lanes\\s14-audio\\run03\\windowed-2\\receipt.json",
+        "--s14-output=C:\\tmp\\ft\\lanes\\s14-audio\\run04\\windowed-2\\receipt.json",
         "--s14-mode=windowed"
       ],
       "exit": 0,
@@ -523,8 +523,8 @@
       "known_dummy_audio_teardown_diagnostics": [],
       "semantic_failures": [],
       "environment_before": {
-        "godot_processes": 12,
-        "cpu_load_percent": 45.59
+        "godot_processes": 10,
+        "cpu_load_percent": 30.134
       },
       "timing_label": "contended upper bound",
       "receipt": {
@@ -560,10 +560,10 @@
         "performance": {
           "audio_output_latency_ms_median": 9.99999977648258,
           "audio_output_latency_ms_worst": 9.99999977648258,
-          "physics_process_ms_median": 15.35,
-          "physics_process_ms_worst": 15.35,
-          "process_ms_median": 75.441,
-          "process_ms_worst": 75.441,
+          "physics_process_ms_median": 2.248,
+          "physics_process_ms_worst": 18.241,
+          "process_ms_median": 6.3,
+          "process_ms_worst": 42.89,
           "sample_count": 48
         },
         "performance_note": "Godot exposes output latency but no per-bus or audio-mix CPU Performance monitor; process-frame time is context only and does not isolate audio cost.",
@@ -600,7 +600,7 @@
         "settled": {
           "active": {
             "engines": 8,
-            "explosions": 2,
+            "explosions": 5,
             "weapons": 0
           },
           "caps": {
@@ -630,12 +630,12 @@
         "--resolution",
         "1280x800",
         "--path",
-        "C:\\tmp\\ft\\lanes\\s14-audio\\run03\\project",
+        "C:\\tmp\\ft\\lanes\\s14-audio\\run04\\project",
         "--log-file",
-        "C:\\tmp\\ft\\lanes\\s14-audio\\run03\\windowed-3\\engine.log",
+        "C:\\tmp\\ft\\lanes\\s14-audio\\run04\\windowed-3\\engine.log",
         "res://tests/fixtures/s14/audio_test.tscn",
         "--",
-        "--s14-output=C:\\tmp\\ft\\lanes\\s14-audio\\run03\\windowed-3\\receipt.json",
+        "--s14-output=C:\\tmp\\ft\\lanes\\s14-audio\\run04\\windowed-3\\receipt.json",
         "--s14-mode=windowed"
       ],
       "exit": 0,
@@ -643,8 +643,8 @@
       "known_dummy_audio_teardown_diagnostics": [],
       "semantic_failures": [],
       "environment_before": {
-        "godot_processes": 6,
-        "cpu_load_percent": 56.842
+        "godot_processes": 11,
+        "cpu_load_percent": 29.542
       },
       "timing_label": "contended upper bound",
       "receipt": {
@@ -680,10 +680,10 @@
         "performance": {
           "audio_output_latency_ms_median": 9.99999977648258,
           "audio_output_latency_ms_worst": 9.99999977648258,
-          "physics_process_ms_median": 17.214,
-          "physics_process_ms_worst": 17.214,
-          "process_ms_median": 85.956,
-          "process_ms_worst": 85.956,
+          "physics_process_ms_median": 2.636,
+          "physics_process_ms_worst": 10.566,
+          "process_ms_median": 4.444,
+          "process_ms_worst": 458.154,
           "sample_count": 48
         },
         "performance_note": "Godot exposes output latency but no per-bus or audio-mix CPU Performance monitor; process-frame time is context only and does not isolate audio cost.",
@@ -720,7 +720,7 @@
         "settled": {
           "active": {
             "engines": 8,
-            "explosions": 1,
+            "explosions": 0,
             "weapons": 0
           },
           "caps": {
@@ -747,7 +747,7 @@
       "--headless",
       "--editor",
       "--path",
-      "C:\\tmp\\ft\\lanes\\s14-audio\\run03\\project",
+      "C:\\tmp\\ft\\lanes\\s14-audio\\run04\\project",
       "--import",
       "--quit"
     ],
@@ -758,14 +758,14 @@
     "headless": {
       "runs": 3,
       "process_ms_run_median": 0.0,
-      "process_ms_worst": 0.0,
+      "process_ms_worst": 4.547,
       "audio_output_latency_ms_run_median": 0.0,
       "note": "Process time is not an audio-mix CPU measurement."
     },
     "windowed": {
       "runs": 3,
-      "process_ms_run_median": 75.441,
-      "process_ms_worst": 420.856,
+      "process_ms_run_median": 4.444,
+      "process_ms_worst": 458.154,
       "audio_output_latency_ms_run_median": 9.99999977648258,
       "note": "Process time is not an audio-mix CPU measurement."
     }
