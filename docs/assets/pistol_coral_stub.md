@@ -5,6 +5,8 @@ Regner selected **A — Coral Stub** with “Lets go with concept A.” on 9 Oct
 Original concept/provenance: [selection gallery](../concepts/assets-v1/pistol/review.html),
 [exact ImageGen prompts](../concepts/assets-v1/pistol/provenance.json).
 Baseline `c030d66d7d0a9db19c0c2aebf1aa2b83eded6275`; asset-local production scope.
+Regner approved the delivered Coral Stub static asset handoff with “Approved.” on
+9 October 2026, after delivery commit `2f1846e9d883bbd15a0bcda4f826170b55ea2b5c`.
 
 ## Brief, ownership and current disposition
 
@@ -185,11 +187,12 @@ remain pending with their respective owners.
 | Source/export/import | checked, asset-local technical scope | committed source, explicit output, freshness, clean profile and measurements |
 | Prefab/preview | checked, asset-local presentation scope | linked import, sockets, save/reopen, actual graphical views |
 | Independent production handoff review | accepted, scoped static visual delivery | clean-context Sol6.1 medium reviewer `01e2af3f-334d-4831-9b95-7cf2e9031dc0`, candidate `b8363f55a6cfe8ab6cf02b1458a3d193629de59b`, base `c030d66d7d0a9db19c0c2aebf1aa2b83eded6275`; no actionable findings; [full receipt](pistol_coral_stub-evidence/independent-review.md) |
+| Owner static asset approval | accepted by Regner, 9 October | “Approved.” for the delivered Coral Stub handoff at `2f1846e9d883bbd15a0bcda4f826170b55ea2b5c`; downstream fit/integration checks remain as listed below |
 | Production-player/world/gameplay acceptance | pending, external integrator/player/effects | no completed gameplay/network/device claim |
 
 Catalogue delta for later shared-file owner: add `pistol_coral_stub` → this handoff.
 TODO delta: concept selection and scoped source/export/static wrapper/preview delivery
-are complete, with independent review accepted. Keep player grip/holding and gameplay/world/
+are complete, with independent review and owner approval accepted. Keep player grip/holding and gameplay/world/
 effects/device integration tasks open. No unrelated foundation TODO is resolved.
 
 The final receipt commit adds review evidence and updates handoff status only; source,
