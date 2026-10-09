@@ -232,3 +232,48 @@ selected broad relationships; precise boundaries and local geometry refine later
 All names remain placeholders. Stage 3 can now develop district identity briefs,
 going deepest on this selected M1 area. No asset production or gameplay validation
 is implied by the concept approvals.
+
+## 9 October 2026 — district identities supported; vary city and street scale
+
+> The individual districts look good. my biggest concern is that districts and city blocks all end up being the same size. we should probably have wider streets with more lanes where it makes sense, smaller streets with fewer lanes where it makes sense. and the size of "blocks" shouldn't be the same across the city. residential houses and warehouses don't take up the same space.
+
+Retain the positively received district characters. Refine their spatial expression:
+unequal district areas, different block dimensions and subdivisions, small house
+plots versus large warehouse/retail sites, and streets of different widths and lane
+counts suited to their function. Do not treat the old 64 × 56 m M1 lot or 81 × 73 m
+comparison module as a universal city tile.
+
+This explicitly authorizes exploring narrower streets and wider multi-lane roads.
+The 9 m two-way carriageway / 4 m sidewalks remains a reference ordinary-street type,
+not a rule for every road. Exact dimensions, lane counts, one-way choices and traffic
+support remain proposals requiring Stage 4 design and validation. No simulation or
+production changes are made by this concept decision.
+
+The [scale refinement](stage-03-district-identities/urban-scale.md) and same-scale
+comparison respond to this concern. Preserve the approved city envelope and broad
+district relationships; do not infer equal areas from identically sized board panels.
+M1 keeps its approximate six-block scope with unequal blocks and its retained content
+programme. The revised spatial treatment remains for discussion; this qualified
+feedback is not recorded as unconditional approval of every Stage 3 detail.
+
+## 9 October 2026 — district briefs and spatial refinement approved; Stage 3 complete
+
+After reviewing the district identities and the shared-scale refinement, the owner replied:
+
+> That looks great. whats next?
+
+Together with the preceding positive feedback on the individual districts, this
+accepts the Stage 3 identity direction, the balanced Signal Row / Ironreach M1 mix,
+and the requirement for unequal district areas, varied blocks and plots, and streets
+of different widths and lane counts suited to their role.
+
+**Stage 3 is complete.** The diagrams are concept briefs, not final placement or
+validated geometry. Illustration dimensions, exact lane arrangements and transitions
+remain to be designed in Stage 4. Landmark seeds, sign examples and colour relationships
+guide later stages without approving finished assets or calibrated lighting. All
+names remain placeholders; M1 remains approximately six connected, unequal blocks.
+
+Next is Stage 4 — streets and roads. Start with a whole-city road hierarchy and
+representative varied block outlines, then develop road sections, junctions and the
+M1 street arrangement. Check actual-camera and minimap readability and the current
+traffic/pedestrian contracts before accepting the road kit.

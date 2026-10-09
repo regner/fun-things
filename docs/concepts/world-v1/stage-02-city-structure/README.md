@@ -130,10 +130,13 @@ crashed before results. No map option here is a validated capacity or performanc
 promise. Representative production content must be measured later.
 
 Main-road lines show connectivity and role, **not carriageway width or lane count**.
-Start with the existing 9 m two-way carriageway plus 4 m sidewalks (17 m corridor)
-for ordinary streets, including important through routes where adequate. Wider
-arterials are not silently selected. In older/curving quarters, alter block shape
-rather than squeeze the ordinary corridor. Housing dead ends need turning geometry
+**Later owner refinement:** vary district areas, block sizes, plot subdivisions,
+street widths and lane counts according to use; see the
+[Stage 3 scale brief](../stage-03-district-identities/urban-scale.md).
+The existing 9 m two-way carriageway plus 4 m sidewalks (17 m corridor) is one
+reference type, not a universal road width. Narrower streets and wider multi-lane
+connectors are authorized for exploration; final cross-sections remain Stage 4 work.
+Housing dead ends need turning geometry
 appropriate to the traffic admitted there; warehouse/service routes may use the
 existing provisional 6 m service carriageway with foot strips where validated.
 Campus and retail plots can combine several reference lots without widening every road.

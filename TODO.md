@@ -52,7 +52,9 @@ follow-ups remain in the M1 requirements rather than reopening the spikes.
   [Stage 2 whole-city map options](docs/concepts/world-v1/stage-02-city-structure/README.md)
   have structure A and nine district identities accepted; all names are placeholders.
   Stage 2 complete: 1.2 × 0.65 km planning size and Signal Row / Ironreach M1 slice accepted.
-  The six-block programme is retained; Stage 3 district identity briefs are next.
+  [Stage 3 district briefs](docs/concepts/world-v1/stage-03-district-identities/README.md)
+  approved, including unequal district/block/plot sizes and varied street widths/lane counts.
+  The six-block programme is retained; Stage 4 streets and roads is next.
 - [ ] **M1-C1 — Produce the ratified custom art families.** After: P0-GATE and the
   M1-C0 production asset list.
 - [ ] **M1-C2 — Assemble the authored district in saved sectors.**
