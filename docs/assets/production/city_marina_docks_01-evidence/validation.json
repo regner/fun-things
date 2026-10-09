@@ -1,0 +1,227 @@
+{
+  "applied_transforms": true,
+  "asset": "city_marina_docks.01",
+  "blender": "5.2.2 LTS",
+  "build_hash": "d13f752e3b9c",
+  "consistent_winding": true,
+  "datum": "waterline",
+  "deck_height_m": 0.5,
+  "degenerate_faces": 0.0,
+  "dimension_tolerance_m": 0.001,
+  "dimensions_godot_m": [
+    3.0,
+    0.82,
+    8.0
+  ],
+  "end_joins_godot": [
+    [
+      0.0,
+      0.5,
+      -4.0
+    ],
+    [
+      0.0,
+      0.5,
+      4.0
+    ]
+  ],
+  "fresh_reexport_byte_identical": true,
+  "glb_bytes": 169224.0,
+  "glb_sha256": "231b2df0faafcf75d2788d30ce79bddd93b32abb5f7230e79d84c8ca64afc017",
+  "glb_vertices": 3933.0,
+  "godot": {
+    "bounds_min": [
+      -1.5,
+      -0.300000011920929,
+      -4.0
+    ],
+    "bounds_size": [
+      3.0,
+      0.820000052452087,
+      8.0
+    ],
+    "engine": "4.8-dev7 (official)",
+    "linked_model_identity": true,
+    "physics": {
+      "actor_motion_seam_ticks_per_mode": 48,
+      "authority_replay_equal": true,
+      "deck_support_rays": 6,
+      "outside_edge_clear_rays": 1,
+      "seam_end_position": [
+        0.0,
+        0.500999987125397,
+        6.00000190734863
+      ],
+      "water_falloff_and_network_transport": "not tested; outside component scope"
+    },
+    "save_reload_byte_stable": true
+  },
+  "godot_aabb": {
+    "max": [
+      1.5,
+      0.520000040531158,
+      4.0
+    ],
+    "min": [
+      -1.5,
+      -0.300000011920929,
+      -4.0
+    ]
+  },
+  "materials": [
+    {
+      "name": "dock_float_petrol",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.0179999992251396,
+          0.0450000017881393,
+          0.0509999990463257,
+          1.0
+        ],
+        "metallicFactor": 0.0,
+        "roughnessFactor": 0.540000021457672
+      }
+    },
+    {
+      "name": "dock_frame_metal",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.0549999997019768,
+          0.0750000029802322,
+          0.0790000036358833,
+          1.0
+        ],
+        "metallicFactor": 0.550000011920929,
+        "roughnessFactor": 0.439999997615814
+      }
+    },
+    {
+      "name": "dock_deck_dark_composite",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.0750000029802322,
+          0.0900000035762787,
+          0.0850000008940697,
+          1.0
+        ],
+        "metallicFactor": 0.0,
+        "roughnessFactor": 0.600000023841858
+      }
+    },
+    {
+      "name": "dock_deck_soft_variation",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.0820000022649765,
+          0.0979999974370003,
+          0.0920000001788139,
+          1.0
+        ],
+        "metallicFactor": 0.0,
+        "roughnessFactor": 0.600000023841858
+      }
+    },
+    {
+      "name": "dock_edge_warm_pale",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.569999992847443,
+          0.589999973773956,
+          0.509999990463257,
+          1.0
+        ],
+        "metallicFactor": 0.119999997317791,
+        "roughnessFactor": 0.479999989271164
+      }
+    }
+  ],
+  "mesh_count": 1.0,
+  "nonmanifold_edges": 0.0,
+  "pivot": [
+    0.0,
+    0.0,
+    0.0
+  ],
+  "source_aabb": {
+    "max": [
+      1.5,
+      4.0,
+      0.520000040531158
+    ],
+    "min": [
+      -1.5,
+      -4.0,
+      -0.300000011920929
+    ]
+  },
+  "status": "PASS source and export",
+  "surfaces": 5.0,
+  "triangles": 6392.0,
+  "unit_normals": true,
+  "vertices": 3264.0,
+  "production_checks": {
+    "engine": {
+      "ok": true,
+      "version": "4.8.dev7.official.c971f93e7"
+    },
+    "gut_pin": {
+      "ok": true,
+      "version": "9.7.1"
+    },
+    "owned_scripts": {
+      "ok": true,
+      "returncode": 0
+    },
+    "python_tests": {
+      "ok": true,
+      "returncode": 0
+    },
+    "gut_import": {
+      "ok": true,
+      "returncode": 0
+    },
+    "gut_tests": {
+      "ok": true,
+      "returncode": 0
+    },
+    "gut_negative": {
+      "ok": true,
+      "observed_returncode": 1
+    }
+  },
+  "renders": [
+    {
+      "file": "hero.png",
+      "size_px": [
+        1280,
+        720
+      ],
+      "bytes": 424355
+    },
+    {
+      "file": "side.png",
+      "size_px": [
+        1280,
+        720
+      ],
+      "bytes": 387880
+    },
+    {
+      "file": "detail.png",
+      "size_px": [
+        1280,
+        720
+      ],
+      "bytes": 423441
+    },
+    {
+      "file": "overhead_47m_42deg.png",
+      "size_px": [
+        1280,
+        720
+      ],
+      "bytes": 381221
+    }
+  ],
+  "render_encoding": "RGB 7 significant bits per channel, PNG compression 9"
+}

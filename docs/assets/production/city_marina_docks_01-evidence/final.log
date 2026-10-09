@@ -1,0 +1,60 @@
+city_marina_docks.01 final bounded production receipt
+Blender 5.2.2 LTS d13f752e3b9c; glTF 5.2.40; Godot 4.8.dev7.official.c971f93e7
+All Blender calls: ALSOFT_DRIVERS=null SDL_AUDIODRIVER=dummy; timeout 900; -noaudio --background --factory-startup --threads 4 --python-exit-code 1.
+author.py PASS; export.py PASS; fresh export.py PASS; validate.py PASS; render.py PASS.
+GLB fresh export byte equality validated; 6392 triangles, 3264 source vertices, 3933 GLB vertices, 1 mesh/5 surfaces; zero degenerates/nonmanifold edges.
+Godot import: timeout 300, exit 0. Editor normalization: timeout 180, exit 0; linked prefab and fixture save/reload byte-stable.
+Editor-only diagnostics retained below; not counted as a clean runtime check.
+Initial editor physics attempt failed (ActorMotion non-tool methods unavailable); final checker separates editor normalization from standalone runtime physics.
+Final standalone runtime checks (two runs): timeout 180, exit 0; no ERROR/WARNING diagnostics.
+Godot Engine v4.8.dev7.official.c971f93e7 - https://godotengine.org
+
+[MCPRuntimeServer] port: scanning 6570-6585 (default)
+[MCPRuntimeServer] listening on 127.0.0.1:6570
+[MCPRegistry] runtime port 6570 registered for c:/gamedev/git/ft-lanes/a-marina
+CITY_MARINA_DOCKS_01_CHECK_PASS {"bounds_min":[-1.5,-0.300000011920929,-4.0],"bounds_size":[3.0,0.820000052452087,8.0],"engine":"4.8-dev7 (official)","linked_model_identity":true,"physics":{"actor_motion_seam_ticks_per_mode":48,"authority_replay_equal":true,"deck_support_rays":6,"outside_edge_clear_rays":1,"seam_end_position":[0.0,0.500999987125397,6.00000190734863],"water_falloff_and_network_transport":"not tested; outside component scope"},"save_reload_byte_stable":true}
+Pinned gdstyle 0.3.0: zero warnings; formatter check passed.
+production_checks.py: timeout 1800, exit 0; results:
+{
+  "engine": {
+    "ok": true,
+    "version": "4.8.dev7.official.c971f93e7"
+  },
+  "gut_pin": {
+    "ok": true,
+    "version": "9.7.1"
+  },
+  "owned_scripts": {
+    "ok": true,
+    "returncode": 0
+  },
+  "python_tests": {
+    "ok": true,
+    "returncode": 0
+  },
+  "gut_import": {
+    "ok": true,
+    "returncode": 0
+  },
+  "gut_tests": {
+    "ok": true,
+    "returncode": 0
+  },
+  "gut_negative": {
+    "ok": true,
+    "observed_returncode": 1
+  }
+}
+Python: 14 tests passed. GUT: 75 tests, 2041 asserts passed. Negative control: expected exit 1 observed.
+All 4 final isolated renders inspected; 256-color trial rejected for shadow banding; 7 significant RGB bits retained instead.
+Raw logs and retry artifacts are outside the repository at C:/tmp/ft/assets/city_marina_docks_01/.
+Editor normalization diagnostic excerpt:
+WARNING: [MCP] Godot 4.8 detected - latest tested version is 4.7.0. The plugin will run normally but some features may behave unexpectedly. Please report issues at https://github.com/NPGameDev/godot-mcp-toolkit/issues
+ERROR: 5 RID allocations of type 'N16RendererViewport8ViewportE' were leaked at exit.
+ERROR: 8 RID allocations of type 'PN13RendererDummy14TextureStorage12DummyTextureE' were leaked at exit.
+ERROR: 1 RID allocations of type 'N17RendererSceneCull8ScenarioE' were leaked at exit.
+ERROR: 52 RID allocations of type 'PN18TextServerAdvanced22ShapedTextDataAdvancedE' were leaked at exit.
+ERROR: 1 RID allocations of type 'PN18TextServerAdvanced12FontAdvancedE' were leaked at exit.
+WARNING: 5 RIDs of type "Canvas" were leaked.
+WARNING: 31 RIDs of type "CanvasItem" were leaked.
+WARNING: 168 ObjectDB instances were leaked at exit (run with `--verbose` for details).

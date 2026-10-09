@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://cb6i57s45wjfy"]
+
+[ext_resource type="PackedScene" uid="uid://b77ur6wbgrjg1" path="res://scenes/prefabs/environment/city_marina_docks_01.tscn" id="1_dock"]
+[ext_resource type="Script" uid="uid://jthmfio4c27p" path="res://scripts/actors/actor_motion.gd" id="2_motion"]
+
+[sub_resource type="CapsuleShape3D" id="Capsule_actor"]
+radius = 0.35
+height = 1.8
+
+[node name="PontoonWalkCheck" type="Node3D" unique_id=150888900]
+
+[node name="DockA" parent="." unique_id=1825871328 instance=ExtResource("1_dock")]
+
+[node name="DockB" parent="." unique_id=881571952 instance=ExtResource("1_dock")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 8)
+
+[node name="Actor" type="CharacterBody3D" parent="." unique_id=1501838643]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.501, 2)
+collision_layer = 2
+script = ExtResource("2_motion")
+
+[node name="Capsule" type="CollisionShape3D" parent="Actor" unique_id=1432519886]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0)
+shape = SubResource("Capsule_actor")
