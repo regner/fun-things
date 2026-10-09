@@ -1,0 +1,12 @@
+00:00.306  blend            | Read blend: "/tmp/dock-thumper-review-0be3af3-i14mvols/snapshot/art/source/models/rocket_launcher/dock_thumper_a.blend"
+Traceback (most recent call last):
+  File "/tmp/dock-thumper-review-0be3af3-i14mvols/inspect_blender.py", line 50, in <module>
+    assert not report["failures"]
+           ^^^^^^^^^^^^^^^^^^^^^^
+AssertionError
+INDEPENDENT_SOURCE_REPORT /tmp/dock-thumper-review-0be3af3-i14mvols/source-inspection.json failures ['RearRecess degenerate geometry', 'RocketIvoryBand degenerate geometry', 'ExhaustRecess degenerate geometry']
+
+Error: script failed, file: '/tmp/dock-thumper-review-0be3af3-i14mvols/inspect_blender.py', exiting.
+Blender 5.2.2 LTS (hash d13f752e3b9c built 2026-09-22 17:10:25)
+
+Blender quit

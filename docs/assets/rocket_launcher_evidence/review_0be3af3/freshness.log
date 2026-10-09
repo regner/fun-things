@@ -1,0 +1,251 @@
+{
+  "blender": "5.2.2 LTS",
+  "build": "d13f752e3b9c",
+  "source_sha256": "22edb5d6ccf5dc4093c159b841e5addfaa9dac857b4db64d3db55a2f8eecee12",
+  "fresh_byte_comparison": true,
+  "outputs": [
+    {
+      "path": "art/models/rocket_launcher/dock_thumper_launcher_a.glb",
+      "sha256": "5e6d18ac4c095351441fd4fea7d5edb72061e2e2eaf82655f8be274c0bb59237",
+      "members": 26,
+      "triangles": 8268,
+      "aabb_min": [
+        -0.2029999941587448,
+        -0.08249999582767487,
+        -0.8999999761581421
+      ],
+      "aabb_max": [
+        0.2029999941587448,
+        0.5024999976158142,
+        0.5299999713897705
+      ],
+      "sockets": [
+        {
+          "name": "socket_grip",
+          "type": "EMPTY",
+          "location_blender": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "position_godot": [
+            0.0,
+            0.0,
+            -0.0
+          ],
+          "basis_godot": [
+            [
+              1,
+              0,
+              0
+            ],
+            [
+              0,
+              1,
+              0
+            ],
+            [
+              0,
+              0,
+              1
+            ]
+          ]
+        },
+        {
+          "name": "socket_muzzle",
+          "type": "EMPTY",
+          "location_blender": [
+            0.0,
+            0.9049999713897705,
+            0.30000001192092896
+          ],
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "position_godot": [
+            0.0,
+            0.30000001192092896,
+            -0.9049999713897705
+          ],
+          "basis_godot": [
+            [
+              1,
+              0,
+              0
+            ],
+            [
+              0,
+              1,
+              0
+            ],
+            [
+              0,
+              0,
+              1
+            ]
+          ]
+        },
+        {
+          "name": "socket_support_hand",
+          "type": "EMPTY",
+          "location_blender": [
+            0.0,
+            0.4300000071525574,
+            -0.08250000327825546
+          ],
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "position_godot": [
+            0.0,
+            -0.08250000327825546,
+            -0.4300000071525574
+          ],
+          "basis_godot": [
+            [
+              1,
+              0,
+              0
+            ],
+            [
+              0,
+              1,
+              0
+            ],
+            [
+              0,
+              0,
+              1
+            ]
+          ],
+          "contact_normal_godot": [
+            0,
+            -1,
+            0
+          ]
+        },
+        {
+          "name": "socket_shoulder",
+          "type": "EMPTY",
+          "location_blender": [
+            0.0,
+            -0.2800000011920929,
+            0.08500000089406967
+          ],
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "position_godot": [
+            0.0,
+            0.08500000089406967,
+            0.2800000011920929
+          ],
+          "basis_godot": [
+            [
+              1,
+              0,
+              0
+            ],
+            [
+              0,
+              1,
+              0
+            ],
+            [
+              0,
+              0,
+              1
+            ]
+          ],
+          "contact_normal_godot": [
+            0,
+            -1,
+            0
+          ]
+        }
+      ]
+    },
+    {
+      "path": "art/models/rocket_launcher/dock_thumper_rocket_a.glb",
+      "sha256": "030703d902d81d82e3073728b6b659101b047d81d3856d80cd47173bc6b256fa",
+      "members": 9,
+      "triangles": 3842,
+      "aabb_min": [
+        -0.06409462541341782,
+        -0.10581900179386139,
+        -0.22499999403953552
+      ],
+      "aabb_max": [
+        0.11999999731779099,
+        0.10581900179386139,
+        0.22499999403953552
+      ],
+      "sockets": [
+        {
+          "name": "socket_trail",
+          "type": "EMPTY",
+          "location_blender": [
+            0.0,
+            -0.23000000417232513,
+            0.0
+          ],
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "position_godot": [
+            0.0,
+            0.0,
+            0.23000000417232513
+          ],
+          "basis_godot": [
+            [
+              1,
+              0,
+              0
+            ],
+            [
+              0,
+              1,
+              0
+            ],
+            [
+              0,
+              0,
+              1
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "path": "art/models/rocket_launcher/dock_thumper_preview_stage.glb",
+      "sha256": "28af9f8f881c4eac763e6a6008cc09ef05b6271432e5945f4746f07fc9f246dc",
+      "members": 4,
+      "triangles": 752,
+      "aabb_min": [
+        -32.0,
+        -0.10999999940395355,
+        -24.0
+      ],
+      "aabb_max": [
+        32.0,
+        0.00800000037997961,
+        24.0
+      ],
+      "sockets": []
+    }
+  ]
+}

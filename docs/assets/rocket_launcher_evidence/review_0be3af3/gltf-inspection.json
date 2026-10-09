@@ -1,0 +1,843 @@
+{
+  "dock_thumper_rocket_a.glb": {
+    "meshes": [
+      {
+        "object": "ExhaustRecess",
+        "triangles": 508,
+        "degenerate_1e-12": 64,
+        "exact_zero": 64,
+        "minimum_area_m2": 0.0,
+        "normal_length_min": 0.9999999614103042,
+        "normal_length_max": 1.000000106601949,
+        "material": "dock_thumper_graphite"
+      },
+      {
+        "object": "ExhaustRim",
+        "triangles": 1024,
+        "degenerate_1e-12": 0,
+        "exact_zero": 0,
+        "minimum_area_m2": 6.69729986803955e-06,
+        "normal_length_min": 0.9999999624117362,
+        "normal_length_max": 1.0000001253121849,
+        "material": "dock_thumper_graphite"
+      },
+      {
+        "object": "IvoryFin_0",
+        "triangles": 188,
+        "degenerate_1e-12": 0,
+        "exact_zero": 0,
+        "minimum_area_m2": 4.4961554986808375e-07,
+        "normal_length_min": 0.9999999569331055,
+        "normal_length_max": 1.0000000894987284,
+        "material": "dock_thumper_ivory"
+      },
+      {
+        "object": "IvoryFin_1",
+        "triangles": 188,
+        "degenerate_1e-12": 0,
+        "exact_zero": 0,
+        "minimum_area_m2": 4.4961392484703073e-07,
+        "normal_length_min": 0.9999999367141414,
+        "normal_length_max": 1.000000114585433,
+        "material": "dock_thumper_ivory"
+      },
+      {
+        "object": "IvoryFin_2",
+        "triangles": 188,
+        "degenerate_1e-12": 0,
+        "exact_zero": 0,
+        "minimum_area_m2": 4.496143202527469e-07,
+        "normal_length_min": 0.9999999367141414,
+        "normal_length_max": 1.000000114585433,
+        "material": "dock_thumper_ivory"
+      },
+      {
+        "object": "RocketBody",
+        "triangles": 508,
+        "degenerate_1e-12": 0,
+        "exact_zero": 0,
+        "minimum_area_m2": 9.360605445818404e-06,
+        "normal_length_min": 0.9999999624117362,
+        "normal_length_max": 1.000000106601949,
+        "material": "dock_thumper_petrol"
+      },
+      {
+        "object": "RocketIvoryBand",
+        "triangles": 1024,
+        "degenerate_1e-12": 64,
+        "exact_zero": 64,
+        "minimum_area_m2": 0.0,
+        "normal_length_min": 0.9999999537723805,
+        "normal_length_max": 1.0000001253121849,
+        "material": "dock_thumper_ivory"
+      },
+      {
+        "object": "RoundedCoralNose",
+        "triangles": 214,
+        "degenerate_1e-12": 0,
+        "exact_zero": 0,
+        "minimum_area_m2": 3.174855133179213e-07,
+        "normal_length_min": 0.9999999728106956,
+        "normal_length_max": 1.0000001111688415,
+        "material": "dock_thumper_coral"
+      }
+    ],
+    "material_definitions": [
+      {
+        "doubleSided": true,
+        "name": "dock_thumper_graphite",
+        "pbrMetallicRoughness": {
+          "baseColorFactor": [
+            0.006571403704583645,
+            0.009264310821890831,
+            0.012510408647358418,
+            1
+          ],
+          "metallicFactor": 0,
+          "roughnessFactor": 0.5799999833106995
+        }
+      },
+      {
+        "doubleSided": true,
+        "name": "dock_thumper_ivory",
+        "pbrMetallicRoughness": {
+          "baseColorFactor": [
+            0.7874122858047485,
+            0.7293471097946167,
+            0.5070785284042358,
+            1
+          ],
+          "metallicFactor": 0,
+          "roughnessFactor": 0.5199999809265137
+        }
+      },
+      {
+        "doubleSided": true,
+        "name": "dock_thumper_petrol",
+        "pbrMetallicRoughness": {
+          "baseColorFactor": [
+            0.0134117491543293,
+            0.0300741046667099,
+            0.05087608844041824,
+            1
+          ],
+          "metallicFactor": 0.15000000596046448,
+          "roughnessFactor": 0.41999998688697815
+        }
+      },
+      {
+        "doubleSided": true,
+        "name": "dock_thumper_coral",
+        "pbrMetallicRoughness": {
+          "baseColorFactor": [
+            0.911407470703125,
+            0.10653922706842422,
+            0.05087608844041824,
+            1
+          ],
+          "metallicFactor": 0,
+          "roughnessFactor": 0.5
+        }
+      }
+    ],
+    "generator": {
+      "generator": "Khronos glTF Blender I/O v5.2.40",
+      "version": "2.0"
+    },
+    "extras": false,
+    "external_dependencies": [],
+    "nodes": [
+      {
+        "mesh": 0,
+        "name": "ExhaustRecess",
+        "translation": [
+          0,
+          0,
+          0.19900000095367432
+        ]
+      },
+      {
+        "mesh": 1,
+        "name": "ExhaustRim"
+      },
+      {
+        "mesh": 2,
+        "name": "IvoryFin_0"
+      },
+      {
+        "mesh": 3,
+        "name": "IvoryFin_1"
+      },
+      {
+        "mesh": 4,
+        "name": "IvoryFin_2"
+      },
+      {
+        "mesh": 5,
+        "name": "RocketBody",
+        "translation": [
+          0,
+          0,
+          0.054999999701976776
+        ]
+      },
+      {
+        "mesh": 6,
+        "name": "RocketIvoryBand"
+      },
+      {
+        "mesh": 7,
+        "name": "RoundedCoralNose"
+      },
+      {
+        "name": "socket_trail",
+        "translation": [
+          0,
+          0,
+          0.23000000417232513
+        ]
+      }
+    ]
+  },
+  "dock_thumper_preview_stage.glb": {
+    "meshes": [
+      {
+        "object": "AsphaltStage",
+        "triangles": 188,
+        "degenerate_1e-12": 0,
+        "exact_zero": 0,
+        "minimum_area_m2": 1.447465680270286e-06,
+        "normal_length_min": 0.9999999464571804,
+        "normal_length_max": 1.0000000997110154,
+        "material": "dock_thumper_asphalt"
+      },
+      {
+        "object": "MetreReference",
+        "triangles": 188,
+        "degenerate_1e-12": 0,
+        "exact_zero": 0,
+        "minimum_area_m2": 2.3134312754422012e-07,
+        "normal_length_min": 0.9999999480476065,
+        "normal_length_max": 1.0000000705855474,
+        "material": "dock_thumper_ivory"
+      },
+      {
+        "object": "MetreTick_-1.5",
+        "triangles": 188,
+        "degenerate_1e-12": 0,
+        "exact_zero": 0,
+        "minimum_area_m2": 2.313364577781897e-07,
+        "normal_length_min": 0.9999999509774261,
+        "normal_length_max": 1.0000000705855474,
+        "material": "dock_thumper_coral"
+      },
+      {
+        "object": "MetreTick_-2.5",
+        "triangles": 188,
+        "degenerate_1e-12": 0,
+        "exact_zero": 0,
+        "minimum_area_m2": 2.313364577781897e-07,
+        "normal_length_min": 0.9999999509774261,
+        "normal_length_max": 1.0000000705855474,
+        "material": "dock_thumper_coral"
+      }
+    ],
+    "material_definitions": [
+      {
+        "doubleSided": true,
+        "name": "dock_thumper_asphalt",
+        "pbrMetallicRoughness": {
+          "baseColorFactor": [
+            0.011645430698990822,
+            0.01960664801299572,
+            0.027211781591176987,
+            1
+          ],
+          "metallicFactor": 0,
+          "roughnessFactor": 0.8500000238418579
+        }
+      },
+      {
+        "doubleSided": true,
+        "name": "dock_thumper_ivory",
+        "pbrMetallicRoughness": {
+          "baseColorFactor": [
+            0.7874122858047485,
+            0.7293471097946167,
+            0.5070785284042358,
+            1
+          ],
+          "metallicFactor": 0,
+          "roughnessFactor": 0.5199999809265137
+        }
+      },
+      {
+        "doubleSided": true,
+        "name": "dock_thumper_coral",
+        "pbrMetallicRoughness": {
+          "baseColorFactor": [
+            0.911407470703125,
+            0.10653922706842422,
+            0.05087608844041824,
+            1
+          ],
+          "metallicFactor": 0,
+          "roughnessFactor": 0.5
+        }
+      }
+    ],
+    "generator": {
+      "generator": "Khronos glTF Blender I/O v5.2.40",
+      "version": "2.0"
+    },
+    "extras": false,
+    "external_dependencies": [],
+    "nodes": [
+      {
+        "mesh": 0,
+        "name": "AsphaltStage",
+        "translation": [
+          0,
+          -0.05999999865889549,
+          0
+        ]
+      },
+      {
+        "mesh": 1,
+        "name": "MetreReference",
+        "translation": [
+          -2,
+          0.0020000000949949026,
+          0
+        ]
+      },
+      {
+        "mesh": 2,
+        "name": "MetreTick_-1.5",
+        "translation": [
+          -1.5,
+          0.0020000000949949026,
+          0
+        ]
+      },
+      {
+        "mesh": 3,
+        "name": "MetreTick_-2.5",
+        "translation": [
+          -2.5,
+          0.0020000000949949026,
+          0
+        ]
+      }
+    ]
+  },
+  "dock_thumper_launcher_a.glb": {
+    "meshes": [
+      {
+        "object": "CoralMuzzleCollar",
+        "triangles": 1024,
+        "degenerate_1e-12": 0,
+        "exact_zero": 0,
+        "minimum_area_m2": 2.7804391273733486e-05,
+        "normal_length_min": 0.9999999624117362,
+        "normal_length_max": 1.0000001253121849,
+        "material": "dock_thumper_coral"
+      },
+      {
+        "object": "CyanStatus",
+        "triangles": 188,
+        "degenerate_1e-12": 0,
+        "exact_zero": 0,
+        "minimum_area_m2": 9.253491659747421e-07,
+        "normal_length_min": 0.9999999509734506,
+        "normal_length_max": 1.0000000705855474,
+        "material": "dock_thumper_cyan"
+      },
+      {
+        "object": "DominantGrip",
+        "triangles": 188,
+        "degenerate_1e-12": 0,
+        "exact_zero": 0,
+        "minimum_area_m2": 1.30127304626108e-05,
+        "normal_length_min": 0.9999999509774261,
+        "normal_length_max": 1.0000000705855474,
+        "material": "dock_thumper_graphite"
+      },
+      {
+        "object": "FrontGraphiteBand",
+        "triangles": 1024,
+        "degenerate_1e-12": 0,
+        "exact_zero": 0,
+        "minimum_area_m2": 2.9833151793408217e-05,
+        "normal_length_min": 0.9999999624117362,
+        "normal_length_max": 1.0000001253121849,
+        "material": "dock_thumper_graphite"
+      },
+      {
+        "object": "FrontVent_1",
+        "triangles": 188,
+        "degenerate_1e-12": 0,
+        "exact_zero": 0,
+        "minimum_area_m2": 9.253481933060586e-07,
+        "normal_length_min": 0.9999999509774261,
+        "normal_length_max": 1.0000000705855474,
+        "material": "dock_thumper_graphite"
+      },
+      {
+        "object": "FrontVent_-1",
+        "triangles": 188,
+        "degenerate_1e-12": 0,
+        "exact_zero": 0,
+        "minimum_area_m2": 9.253481933060586e-07,
+        "normal_length_min": 0.9999999509774261,
+        "normal_length_max": 1.0000000705855474,
+        "material": "dock_thumper_graphite"
+      },
+      {
+        "object": "GripCoralInset",
+        "triangles": 188,
+        "degenerate_1e-12": 0,
+        "exact_zero": 0,
+        "minimum_area_m2": 2.833887413645896e-06,
+        "normal_length_min": 0.9999999509774261,
+        "normal_length_max": 1.0000000705855474,
+        "material": "dock_thumper_coral"
+      },
+      {
+        "object": "IvoryCrown",
+        "triangles": 16,
+        "degenerate_1e-12": 0,
+        "exact_zero": 0,
+        "minimum_area_m2": 0.009518115432275426,
+        "normal_length_min": 0.9999999627745091,
+        "normal_length_max": 1.0000000231264659,
+        "material": "dock_thumper_ivory"
+      },
+      {
+        "object": "MuzzleRecess",
+        "triangles": 508,
+        "degenerate_1e-12": 0,
+        "exact_zero": 0,
+        "minimum_area_m2": 1.3526377018069947e-05,
+        "normal_length_min": 0.9999999624117362,
+        "normal_length_max": 1.0000001253121849,
+        "material": "dock_thumper_graphite"
+      },
+      {
+        "object": "RearGraphiteCollar",
+        "triangles": 1024,
+        "degenerate_1e-12": 0,
+        "exact_zero": 0,
+        "minimum_area_m2": 2.6383366284541985e-05,
+        "normal_length_min": 0.9999999624117362,
+        "normal_length_max": 1.0000001253121849,
+        "material": "dock_thumper_graphite"
+      },
+      {
+        "object": "RearIvoryBand",
+        "triangles": 1024,
+        "degenerate_1e-12": 0,
+        "exact_zero": 0,
+        "minimum_area_m2": 2.9833566570110062e-05,
+        "normal_length_min": 0.9999999624117362,
+        "normal_length_max": 1.0000001253121849,
+        "material": "dock_thumper_ivory"
+      },
+      {
+        "object": "RearRecess",
+        "triangles": 508,
+        "degenerate_1e-12": 64,
+        "exact_zero": 64,
+        "minimum_area_m2": 0.0,
+        "normal_length_min": 0.9999999614103042,
+        "normal_length_max": 1.000000106601949,
+        "material": "dock_thumper_graphite"
+      },
+      {
+        "object": "RearSidePanel_1",
+        "triangles": 188,
+        "degenerate_1e-12": 0,
+        "exact_zero": 0,
+        "minimum_area_m2": 2.8338891158195193e-06,
+        "normal_length_min": 0.9999999509734506,
+        "normal_length_max": 1.0000000705855474,
+        "material": "dock_thumper_petrol"
+      },
+      {
+        "object": "RearSidePanel_-1",
+        "triangles": 188,
+        "degenerate_1e-12": 0,
+        "exact_zero": 0,
+        "minimum_area_m2": 2.8338891158195193e-06,
+        "normal_length_min": 0.9999999509734506,
+        "normal_length_max": 1.0000000705855474,
+        "material": "dock_thumper_petrol"
+      },
+      {
+        "object": "ShoulderCoralTrim",
+        "triangles": 188,
+        "degenerate_1e-12": 0,
+        "exact_zero": 0,
+        "minimum_area_m2": 5.7834218658937455e-06,
+        "normal_length_min": 0.9999999509774261,
+        "normal_length_max": 1.0000000705855474,
+        "material": "dock_thumper_coral"
+      },
+      {
+        "object": "ShoulderPad",
+        "triangles": 188,
+        "degenerate_1e-12": 0,
+        "exact_zero": 0,
+        "minimum_area_m2": 8.328147496070913e-06,
+        "normal_length_min": 0.9999999509774261,
+        "normal_length_max": 1.0000000705855474,
+        "material": "dock_thumper_graphite"
+      },
+      {
+        "object": "SightBlock_0.55",
+        "triangles": 188,
+        "degenerate_1e-12": 0,
+        "exact_zero": 0,
+        "minimum_area_m2": 4.684582966539888e-06,
+        "normal_length_min": 0.9999999509734506,
+        "normal_length_max": 1.0000000705855474,
+        "material": "dock_thumper_graphite"
+      },
+      {
+        "object": "SightBlock_-0.3",
+        "triangles": 188,
+        "degenerate_1e-12": 0,
+        "exact_zero": 0,
+        "minimum_area_m2": 4.684582966539888e-06,
+        "normal_length_min": 0.9999999509734506,
+        "normal_length_max": 1.0000000705855474,
+        "material": "dock_thumper_graphite"
+      },
+      {
+        "object": "SupportGrip",
+        "triangles": 188,
+        "degenerate_1e-12": 0,
+        "exact_zero": 0,
+        "minimum_area_m2": 1.1335534091874297e-05,
+        "normal_length_min": 0.9999999509734506,
+        "normal_length_max": 1.0000000705855474,
+        "material": "dock_thumper_graphite"
+      },
+      {
+        "object": "SupportIvoryBase",
+        "triangles": 188,
+        "degenerate_1e-12": 0,
+        "exact_zero": 0,
+        "minimum_area_m2": 2.833887899981938e-06,
+        "normal_length_min": 0.9999999509734506,
+        "normal_length_max": 1.0000000705855474,
+        "material": "dock_thumper_ivory"
+      },
+      {
+        "object": "TubeBody",
+        "triangles": 508,
+        "degenerate_1e-12": 0,
+        "exact_zero": 0,
+        "minimum_area_m2": 4.382787874406059e-05,
+        "normal_length_min": 0.9999999624117362,
+        "normal_length_max": 1.0000001253121849,
+        "material": "dock_thumper_petrol"
+      },
+      {
+        "object": "UpperRail",
+        "triangles": 188,
+        "degenerate_1e-12": 0,
+        "exact_zero": 0,
+        "minimum_area_m2": 3.7013877709310092e-06,
+        "normal_length_min": 0.9999999509774261,
+        "normal_length_max": 1.0000000705855474,
+        "material": "dock_thumper_petrol"
+      }
+    ],
+    "material_definitions": [
+      {
+        "doubleSided": true,
+        "name": "dock_thumper_coral",
+        "pbrMetallicRoughness": {
+          "baseColorFactor": [
+            0.911407470703125,
+            0.10653922706842422,
+            0.05087608844041824,
+            1
+          ],
+          "metallicFactor": 0,
+          "roughnessFactor": 0.5
+        }
+      },
+      {
+        "doubleSided": true,
+        "emissiveFactor": [
+          0.007693331278229076,
+          0.2233991137845326,
+          0.26194493026486576
+        ],
+        "name": "dock_thumper_cyan",
+        "pbrMetallicRoughness": {
+          "baseColorFactor": [
+            0.021980946883559227,
+            0.6382831931114197,
+            0.7484140992164612,
+            1
+          ],
+          "metallicFactor": 0,
+          "roughnessFactor": 0.3799999952316284
+        }
+      },
+      {
+        "doubleSided": true,
+        "name": "dock_thumper_graphite",
+        "pbrMetallicRoughness": {
+          "baseColorFactor": [
+            0.006571403704583645,
+            0.009264310821890831,
+            0.012510408647358418,
+            1
+          ],
+          "metallicFactor": 0,
+          "roughnessFactor": 0.5799999833106995
+        }
+      },
+      {
+        "doubleSided": true,
+        "name": "dock_thumper_ivory",
+        "pbrMetallicRoughness": {
+          "baseColorFactor": [
+            0.7874122858047485,
+            0.7293471097946167,
+            0.5070785284042358,
+            1
+          ],
+          "metallicFactor": 0,
+          "roughnessFactor": 0.5199999809265137
+        }
+      },
+      {
+        "doubleSided": true,
+        "name": "dock_thumper_petrol",
+        "pbrMetallicRoughness": {
+          "baseColorFactor": [
+            0.0134117491543293,
+            0.0300741046667099,
+            0.05087608844041824,
+            1
+          ],
+          "metallicFactor": 0.15000000596046448,
+          "roughnessFactor": 0.41999998688697815
+        }
+      }
+    ],
+    "generator": {
+      "generator": "Khronos glTF Blender I/O v5.2.40",
+      "version": "2.0"
+    },
+    "extras": false,
+    "external_dependencies": [],
+    "nodes": [
+      {
+        "mesh": 0,
+        "name": "CoralMuzzleCollar"
+      },
+      {
+        "mesh": 1,
+        "name": "CyanStatus",
+        "translation": [
+          0,
+          0.45899999141693115,
+          -0.6520000100135803
+        ]
+      },
+      {
+        "mesh": 2,
+        "name": "DominantGrip",
+        "translation": [
+          0,
+          0.05000000074505806,
+          0
+        ]
+      },
+      {
+        "mesh": 3,
+        "name": "FrontGraphiteBand"
+      },
+      {
+        "mesh": 4,
+        "name": "FrontVent_1",
+        "translation": [
+          0.19699999690055847,
+          0.30000001192092896,
+          -0.8100000023841858
+        ]
+      },
+      {
+        "mesh": 5,
+        "name": "FrontVent_-1",
+        "translation": [
+          -0.19699999690055847,
+          0.30000001192092896,
+          -0.8100000023841858
+        ]
+      },
+      {
+        "mesh": 6,
+        "name": "GripCoralInset",
+        "translation": [
+          0,
+          0.054999999701976776,
+          -0.03500000014901161
+        ]
+      },
+      {
+        "mesh": 7,
+        "name": "IvoryCrown"
+      },
+      {
+        "mesh": 8,
+        "name": "MuzzleRecess",
+        "translation": [
+          0,
+          0.30000001192092896,
+          -0.7350000143051147
+        ]
+      },
+      {
+        "mesh": 9,
+        "name": "RearGraphiteCollar"
+      },
+      {
+        "mesh": 10,
+        "name": "RearIvoryBand"
+      },
+      {
+        "mesh": 11,
+        "name": "RearRecess",
+        "translation": [
+          0,
+          0.30000001192092896,
+          0.46000000834465027
+        ]
+      },
+      {
+        "mesh": 12,
+        "name": "RearSidePanel_1",
+        "translation": [
+          0.15000000596046448,
+          0.28999999165534973,
+          0.25999999046325684
+        ]
+      },
+      {
+        "mesh": 13,
+        "name": "RearSidePanel_-1",
+        "translation": [
+          -0.15000000596046448,
+          0.28999999165534973,
+          0.25999999046325684
+        ]
+      },
+      {
+        "mesh": 14,
+        "name": "ShoulderCoralTrim",
+        "translation": [
+          0,
+          0.1589999943971634,
+          0.2800000011920929
+        ]
+      },
+      {
+        "mesh": 15,
+        "name": "ShoulderPad",
+        "translation": [
+          0,
+          0.11749999970197678,
+          0.2800000011920929
+        ]
+      },
+      {
+        "mesh": 16,
+        "name": "SightBlock_0.55",
+        "translation": [
+          0,
+          0.47999998927116394,
+          -0.550000011920929
+        ]
+      },
+      {
+        "mesh": 17,
+        "name": "SightBlock_-0.3",
+        "translation": [
+          0,
+          0.47999998927116394,
+          0.30000001192092896
+        ]
+      },
+      {
+        "name": "socket_grip"
+      },
+      {
+        "name": "socket_muzzle",
+        "translation": [
+          0,
+          0.30000001192092896,
+          -0.9049999713897705
+        ]
+      },
+      {
+        "name": "socket_shoulder",
+        "translation": [
+          0,
+          0.08500000089406967,
+          0.2800000011920929
+        ]
+      },
+      {
+        "name": "socket_support_hand",
+        "translation": [
+          0,
+          -0.08250000327825546,
+          -0.4300000071525574
+        ]
+      },
+      {
+        "mesh": 18,
+        "name": "SupportGrip",
+        "translation": [
+          0,
+          0.04500000178813934,
+          -0.4300000071525574
+        ]
+      },
+      {
+        "mesh": 19,
+        "name": "SupportIvoryBase",
+        "translation": [
+          0,
+          -0.06499999761581421,
+          -0.4300000071525574
+        ]
+      },
+      {
+        "mesh": 20,
+        "name": "TubeBody",
+        "translation": [
+          0,
+          0.30000001192092896,
+          -0.14000000059604645
+        ]
+      },
+      {
+        "mesh": 21,
+        "name": "UpperRail",
+        "translation": [
+          0,
+          0.4690000116825104,
+          -0.03999999910593033
+        ]
+      }
+    ]
+  }
+}

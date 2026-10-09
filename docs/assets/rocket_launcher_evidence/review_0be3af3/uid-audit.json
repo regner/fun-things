@@ -1,0 +1,85 @@
+[
+  {
+    "scene": "scenes/prefabs/rocket_launcher/dock_thumper_launcher_a.tscn",
+    "uid_dependencies": [
+      {
+        "uid": "uid://bu176g73py147",
+        "path": "art/models/rocket_launcher/dock_thumper_launcher_a.glb",
+        "definition_match": true,
+        "duplicate_definitions": []
+      }
+    ]
+  },
+  {
+    "scene": "scenes/prefabs/rocket_launcher/dock_thumper_rocket_a.tscn",
+    "uid_dependencies": [
+      {
+        "uid": "uid://c6rarivmu7kwa",
+        "path": "art/models/rocket_launcher/dock_thumper_rocket_a.glb",
+        "definition_match": true,
+        "duplicate_definitions": []
+      }
+    ]
+  },
+  {
+    "scene": "tests/fixtures/rocket_launcher/editor_harness.tscn",
+    "uid_dependencies": [
+      {
+        "uid": "uid://bhe8k57t7s7wy",
+        "path": "tools/s02/editor_probe.gd",
+        "definition_match": true,
+        "duplicate_definitions": []
+      }
+    ]
+  },
+  {
+    "scene": "tests/fixtures/rocket_launcher/preview.tscn",
+    "uid_dependencies": [
+      {
+        "uid": "uid://cec2nso7dix47",
+        "path": "tests/fixtures/rocket_launcher/preview.gd",
+        "definition_match": true,
+        "duplicate_definitions": []
+      },
+      {
+        "uid": "uid://b1uhhq0o4xt86",
+        "path": "scenes/prefabs/rocket_launcher/dock_thumper_launcher_a.tscn",
+        "definition_match": true,
+        "duplicate_definitions": []
+      },
+      {
+        "uid": "uid://y65o51lxm7kw",
+        "path": "scenes/prefabs/rocket_launcher/dock_thumper_rocket_a.tscn",
+        "definition_match": true,
+        "duplicate_definitions": []
+      },
+      {
+        "uid": "uid://2atrkeso52o7",
+        "path": "tests/fixtures/rocket_launcher/stage.tscn",
+        "definition_match": true,
+        "duplicate_definitions": []
+      },
+      {
+        "uid": "uid://dimjpfsojkrwi",
+        "path": "tests/fixtures/rocket_launcher/studio_environment.tres",
+        "definition_match": true,
+        "duplicate_definitions": []
+      }
+    ]
+  },
+  {
+    "scene": "tests/fixtures/rocket_launcher/stage.tscn",
+    "uid_dependencies": [
+      {
+        "uid": "uid://b3tet4fm8eokx",
+        "path": "art/models/rocket_launcher/dock_thumper_preview_stage.glb",
+        "definition_match": true,
+        "duplicate_definitions": []
+      }
+    ]
+  },
+  {
+    "scene": "tests/fixtures/rocket_launcher/studio_environment.tres",
+    "uid_dependencies": []
+  }
+]

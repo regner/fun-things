@@ -2,7 +2,8 @@
 
 9 October 2026. Regner approved **A — Dock Thumper** for its top-down silhouette.
 This handoff covers the static launcher, visible rocket and asset-local preview.
-Independent review is pending on the candidate commit. Equipped poses remain pending
+Independent technical review of `0be3af33d6c9cab30cffca1aed748875b9a36373`
+returned no P1/P2 findings and two P3 corrections, both still open. Equipped poses remain pending
 on the player-owned production rig; gameplay, networking and effect integration
 belong to the external integrator. No shared planning files were changed.
 
@@ -169,7 +170,16 @@ project, multiplayer, target-device performance or packaged builds.
 
 Owner concept: accepted A. Source/export, imported static geometry, saved wrappers,
 marker contracts and isolated visual evidence: produced and locally checked.
-Independent review: pending candidate audit. Equipped rig/hold/aim/fire recovery:
+Independent review: [complete report](rocket_launcher_evidence/review_0be3af3/REPORT.md),
+reviewer `554a3fc2-a56a-43f2-979c-579a28de1978`, Sol 6.1 high, base
+`504486494f5ce21e9ffa5e58eed4373f8ba7d286`, candidate `0be3af33d6c9cab30cffca1aed748875b9a36373`.
+Open F1: remove source/export degenerate faces on RearRecess, ExhaustRecess and
+RocketIvoryBand, then verify imported triangle areas. Open F2: save normalized stage
+through the private editor and refresh the roundtrip evidence; the original stage
+byte-identical claim is superseded by the reviewer reproduction. Same reviewer must
+dispose of the exact corrected candidate. Runtime check before these geometry fixes
+returned Luna high; no geometry mutation proceeded. Astra high was requested for
+the next art turn; saved source/editor state remains preserved. Equipped rig/hold/aim/fire recovery:
 pending player contract and actual fit checks. Projectile simulation, damage,
 networking, collision, effect integration and game launch: external integrator.
 
