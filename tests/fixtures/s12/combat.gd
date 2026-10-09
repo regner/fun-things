@@ -296,13 +296,12 @@ func _verdict(row: Dictionary) -> void:
 	if role != "client":
 		return
 
-	var sequence: int = int(row.get("sequence", -1))
-	if sequence <= SHOT_COUNT:
+	if probes_sent:
+		probe_responses += 1
+	else:
 		client_responses += 1
 		if row.get("accepted", false):
 			client_rows.append(row)
-	else:
-		probe_responses += 1
 	receipt.emit({ "event": "verdict", "row": row })
 
 
