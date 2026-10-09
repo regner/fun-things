@@ -1,0 +1,58 @@
+# Independent Coral Courier production asset audit
+
+**Verdict: rejected for the current production presentation API; broader animation visual acceptance remains pending.** One P2 defect was found. Source/export/binding checks passed within this asset-only scope. This is a read-only review, not authorization to integrate or alter art.
+
+## Finding
+
+### P2 — Inspector-selected skins are silently ignored in release builds
+
+Location: `scenes/prefabs/player_character/player_character_visual.gd:20`, `_ready()`; exported property `appearance` at line 8.
+
+The only startup call to `apply_skin(appearance)` is the expression inside `assert(...)`. Godot removes assertion expressions from release builds, including their side effects. Thus a compatible skin selected through the production wrapper's Inspector export applies during editor/debug playback but never replaces the default Courier mesh in a release export. This breaks the offered appearance API and the owner's future player-skin contract. Direct calls to `apply_skin()` remain functional; the supplied skin-swap check exercises those direct calls and does not cover the exported-property route.
+
+Evidence: static control-flow inspection of the immutable candidate, plus [Godot's documented assertion semantics](https://docs.godotengine.org/en/4.3/tutorials/scripting/gdscript/gdscript_basics.html#assert-keyword). The release consequence is a high-confidence static finding; a release executable was **not** built or run in this audit. No matching release templates were found in the standard local template directory.
+
+Reproduction: make a wrapper instance whose `appearance` is the supplied compatible `shared_humanoid_bind_v1.glb` (or a distinguishable compatible production skin). Compare its mesh resource after `_ready()` in a debug run and a release export. Debug invokes the swap; release retains `coral_courier.glb` geometry.
+
+Minimal correction, technical presentation owner: call `apply_skin(appearance)` outside the assertion, store the returned Boolean, and assert/check that result separately. Retest the exported-property route in debug and release, with both accepted and rejected skins. No rig, mesh, pose or keyframe changes are needed.
+
+## Scope and identity
+
+- Baseline: `c030d66d7d0a9db19c0c2aebf1aa2b83eded6275`.
+- Immutable candidate: `4f92259c127c8051350448faf41ee430ae582fc8`.
+- Reviewer: GPT-6.1 Sol/high, assigned independent review profile; 9 October 2026.
+- Producer: player lead, declared original GPT-6-Astra/high spatial authorship; runtime receipts are described in the handoff, not independently authenticated by this file audit.
+- Handoff stage: production candidate, not gameplay/controller integration.
+- Diff: 96 added files; complete paths retained in `/tmp/player_asset_review/changed_paths.txt`.
+- Reviewed exact committed content via `git archive` into `/tmp/player_asset_review/candidate`. All generated checks/report/evidence were written under `/tmp`. No live-editor tool, port, peer workspace, geometry/pose authoring, merge or push was used. The original worktree was not edited.
+
+Read repository guidance, parallel-art-production workflow, art-review skill, art direction/world layout, asset/scene contracts, catalogue, S01 limitations, current design validation envelope/TODO, and the player/shared-rig/concept handoffs. The catalogue omission is an explicitly deferred integrator reconciliation in this track, not an invented gameplay requirement.
+
+## Checks actually performed
+
+1. `python3 tools/player_character/verify_delivery.py`, from the candidate archive. First execution returned 1 solely because isolated Godot editor import emitted sandbox socket failures. Its source/export and API checks passed. Retained initial diagnostics: `/tmp/player_asset_review/sandbox_clean_import.log`, `/tmp/player_asset_review/verify_delivery.stdout`. Reran with permitted ephemeral local sockets; exit 0, no Godot errors/warnings. `/tmp/player_asset_review/verify_delivery_permitted.stdout` identifies fresh profile `/tmp/brackett-player-verify-cptwi4i8/profile`, pinned engine `4.8.dev7.official.c971f93e7`. Reproduced skin/motion GLBs byte-identically, source fingerprint/weights/degenerate-triangle/bounds checks, all 24 full-library duration/loop/root/finite-transform checks, every imported-to-extracted animation key, direct skin swap/rest rejection/reset/layer/socket checks. Regenerated archive logs and results: `candidate/docs/assets/player_character/evidence/{source_freshness.json,source_audit.json,verification.json,clean_import.log,asset_check.log,rig_final_check.log}`.
+2. `blender --factory-startup --background --threads 2 -noaudio --python-exit-code 1 --python tools/player_character/audit_weapon_contacts.py`, archive cwd; exit 0. `/tmp/player_asset_review/weapon_contacts.stdout` and regenerated archive `evidence/weapon_contacts.json`: SMG shoulder -2.689 mm, launcher shoulder -0.401 mm, support distances 2.621/2.622 mm, launcher head lateral clearance 6.720 mm. This is a stationary frame-zero source-surface check. Initial audio sandbox diagnostics are retained; they are environmental, not hidden asset failures.
+3. Canonical saved-source reexport with `ALSOFT_DRIVERS=null blender --background --threads 2 -noaudio art/source/models/shared_humanoid/shared_humanoid_v1.blend --python-exit-code 1 --python tools/player_character/reexport.py -- export_shared_humanoid_bind_v1 /tmp/player_asset_review/shared_humanoid_bind_v1.glb`; exit 0; `cmp` to committed bind GLB passed. Log: `/tmp/player_asset_review/canonical_reexport.log`. Optional MeshOptimizer-unavailable exporter diagnostic is retained; compression is unused, and the byte comparison passed.
+4. Independent read-only saved-source inventory with `/tmp/player_asset_review/source_inventory.py`, Blender 5.2.2 LTS/hash `d13f752e3b9c`; exit 0. `source_inventory.{json,log}` proves all three saved rig rests have canonical fingerprint `df5a1e7117a9de8800df2ab5766f70e8018700878dd5bc84877b86767abc25c9`, Metric/unit scale 1, identity object roots, declared export collection membership, no linked Blender libraries/file textures, 24 motion actions, all 11,600 skin polygons smooth, and only the armature modifier retained. Canonical JSON also exactly matches frozen checkpoint `3eccf8f691fe34132ee8504d10dfceda4f7e2bb6` (file SHA256 `bdbdc6324702ff608516894f27cd4f38cbb511e7cc72a8ef4f5639437bf067b6`).
+5. Independent Godot layer parity probe `/tmp/player_asset_review/check_layers.gd`, run in the fresh profile with `/tmp` XDG directories; exit 0 and clean log `/tmp/player_asset_review/layer_parity.log`. All 3,417 retained layer keys/times match their full-library source; durations/loop modes match; lower 11 and upper 17 bone sets are disjoint and cover 28 bones. Initial user-data-directory permission diagnostics were corrected by isolated XDG settings and retained in `layer_parity_initial_environment.log`.
+6. Pinned `gdstyle -c gdstyle.toml --max-warnings 0 --no-color scenes/prefabs/player_character tools/player_character`; exit 0, six GDScript files, no issues; `/tmp/player_asset_review/gdstyle.log`.
+7. Read immutable peer GLBs with `git show` for all three `weapon_dependencies.json` revisions; SHA256s exactly match. Socket grip pivots are identity and muzzle/shoulder/support source markers are present. Independent result `/tmp/player_asset_review/weapon_dependency_check.json`. No peer assets were shipped or edited by this review.
+8. Inspected actual committed close and native 1280×800 game-camera images for idle/weapon holds, selected concept A and the city lighting reference. Inspected the retained motion recording through a 4 fps contact sheet `/tmp/player_asset_review/motion_sheet.png`; `ffprobe` confirms 1280×800, 30 fps, 7.433 s. Read saved scenes, source authoring/export scripts, import metadata, full/layer libraries, preview/capture logic, public API callers and editor-roundtrip record.
+
+## Handoff status and limits
+
+| Area | Status | Evidence and limits |
+| --- | --- | --- |
+| Source ownership/linkage/export freshness | accepted, scoped production | Three committed sources explicitly reexport; wrapper instantiates imported GLB, no copied/generated visible mesh. Original authorship/provenance is recorded; no external file dependencies found. |
+| Canonical rig/direct skin swap | accepted, scoped production | Exact shared 28-bone rest; S13 rejected; different geometry retains skeleton/player/time. Unseen skins and malformed arbitrary content remain subject to their own authoring/deformation review. |
+| Exported appearance startup API | rejected | P2 above; default Courier alone does not exercise the failure. |
+| Library technical behavior | accepted, asset profile only | Full source-key parity, loop/reset/root checks, disjoint extracted layer parity and actual playback tests pass. This is not a controller/AnimationTree or blended gameplay acceptance. |
+| Concept/material appearance in retained views | accepted, bounded visual review | Coral cropped bomber/ivory yoke, dark trousers, ivory forelock and chunky shoes preserve the selected direction. Production geometry is more simplified than the raster, but no specific contract-breaking style discrepancy was established. Opaque flat PBR/no texture maps is documented and appropriate here. |
+| Stationary fitted attachments | accepted, Coral Courier only | Declared peer revisions, converted grip axes and frame-zero surface tolerances reproduce. Contact script uses confirmed peer marker values; it does not prove all poses or skin variants. |
+| Armed movement/fire/recovery/reload/layer visual review | pending | Clips exist and technically play, but retained video shows only idle/walk/run/holds/death; gallery weapon views are stationary. No visual pass is claimed for armed locomotion, recoil/recovery, reload hand paths or combined layered aim. Next bounded check: player spatial owner samples existing clips/layers with exact staged weapons at close and game cameras, retains short recordings, and reviews deformation/contacts; author any necessary spatial corrections only under Astra. |
+| Camera/readability | accepted only for retained asset preview | Saved vertical north-up 47 m/42° perspective camera, near/far 0.1/160 and native captures are present. Actor is small (~tens of pixels); ivory/coral identity and launcher extent remain visible on simple ground. Full-city lighting/background, other actors, HUD, occlusion and moving targets are unmeasured and stay external. |
+| Saved scene/import identities | accepted by inspection; independent editor roundtrip not rerun | New scene/resource/script UIDs and imported ancestry are saved. Producer's close/open/save receipt covers preview; no live editor was touched. Fresh CLI import does not prove the producer's open editor is synchronized. |
+| Collision/world placement/VFX/gameplay/network | not applicable to this asset-only delivery | Presentation wrapper intentionally has no gameplay collision/components. Weapon mechanisms/events/effects and authoritative simulation belong to their owners/integrator. |
+| LOD/performance/platform release | pending integration | Import enables asset LOD generation. No new arbitrary budget was imposed. No Deck, sustained city/crowd cost, package or platform acceptance was run. The P2 release finding is static, not a packaged-build test receipt. |
+
+The smallest next change is the non-spatial startup skin fix and focused debug/release retest. Required armed-action visual evidence can then close the remaining asset animation review without expanding into gameplay or city integration. No other actionable defect was established with this coverage.

@@ -75,7 +75,8 @@ presentation APIs, not a player controller or a gameplay AnimationTree.
 with identity object ancestry, matching ordered bones/parents/rests and valid inverse
 binds. It swaps only Mesh/Skin resources. A technical BindTemplate swap and restoration
 prove different geometry can retain Skeleton3D identity, AnimationPlayer identity and
-playback time. S13 and transformed candidates are rejected. This does not certify
+playback time. The exported `appearance` property is also exercised before `_ready()`;
+its startup swap runs outside assertions, so release assertion removal cannot skip it. S13 and transformed candidates are rejected. This does not certify
 unseen skins or different proportions; each new skin needs its own deformation check.
 
 Right hand is dominant; left hand supports SMG/launcher; right shoulder is used for
@@ -130,6 +131,24 @@ Reproduce source/export and clean asset checks with `python3 tools/player_charac
 The fresh profile excludes gameplay/addons and is not full-project compilation or Deck
 performance evidence. The original worktree runtime captures include the actual project
 renderer and saved scenes. Source checks, logs, captures and recording are in `evidence/`.
+
+## Independent review follow-up
+
+The [initial independent Sol 6.1/high audit](evidence/independent-review/initial-review.md)
+reviewed immutable `4f92259c127c8051350448faf41ee430ae582fc8` against baseline
+`c030d66d7d0a9db19c0c2aebf1aa2b83eded6275`. It found one P2: an Inspector-selected
+skin was applied inside a debug assertion. The startup call now executes outside
+assertions, with a regression check for initialization through the exported property.
+No matching release export template was available; no packaged release run is claimed.
+
+The review also requested armed-action visual evidence. `armed_close/game.mp4` show
+all eleven weapon walk/run/fire/reload clips at full duration, and
+`layered_close/game.mp4` show eight directional lower-body + weapon upper-body pairs.
+The capture logs record ordered clips, frame offsets and durations; all are sampled
+at 30 FPS from saved animation resources, using the same immutable weapon dependencies.
+The source/rest/keyframes did not change in this review follow-up. These recordings
+cover asset deformation and hand/recovery paths, not gameplay event timing or blends.
+Final independent delta review remains pending.
 
 ## Runtime routing checkpoint — 9 October 2026
 

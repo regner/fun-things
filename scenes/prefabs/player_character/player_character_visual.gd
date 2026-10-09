@@ -17,7 +17,8 @@ const REST_TOLERANCE: float = 0.00001
 ## Apply an optional compatible skin after the saved scene's skeleton enters the tree.
 func _ready() -> void:
 	if appearance != null:
-		assert(apply_skin(appearance), "Player skin does not match shared_humanoid/1.0.0")
+		if not apply_skin(appearance):
+			push_error("Player skin does not match shared_humanoid/1.0.0")
 
 
 ## Replace only mesh and inverse-bind resources; preserve skeleton, clips and playback time.

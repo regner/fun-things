@@ -118,6 +118,7 @@ func check() -> void:  # gdstyle:ignore=quality/max-local-variables
 		source_path += family + "_motion_v1.json"
 		var manifest: Dictionary = JSON.parse_string(FileAccess.get_file_as_string(source_path))
 		check_library(library, manifest, player, skeleton, family + "/")
+	check_startup_appearance(template)
 	check_source_tracks(player)
 	check_attachments(actor, player, skeleton)
 	check_layers(actor, player, skeleton)
@@ -197,3 +198,22 @@ func check_source_tracks(player: AnimationPlayer) -> void:
 				var reference: Variant = expected.track_get_key_value(track, key)
 				expect(value.is_equal_approx(reference), str(name) + " source key value")
 	source.free()
+
+
+## Exercise the exported property before ready; initialization must actually change geometry.
+func check_startup_appearance(template: PackedScene) -> void:
+	var actor: PlayerCharacterVisual = load(ACTOR).instantiate()
+	var skeleton: Skeleton3D = actor.get_node("PresentationAnchor/Visuals/Model/Rig/Skeleton3D")
+	var mesh: MeshInstance3D = skeleton.find_children("*", "MeshInstance3D", true, false)[0]
+	var original_mesh: Mesh = mesh.mesh
+	var animation: AnimationPlayer = actor.get_node("AnimationPlayer")
+	actor.appearance = template
+	root.add_child(actor)
+	expect(mesh.mesh != original_mesh, "exported appearance applied during ready")
+	expect(actor.get_skeleton() == skeleton, "startup appearance retains skeleton")
+	expect(actor.get_animation_player() == animation, "startup appearance retains animation")
+	expect(actor.play_clip(&"walk"), "startup skin retains player library")
+	animation.pause()
+	animation.seek(0.25, true)
+	expect(skeleton.get_bone_count() == 28, "startup skin retains 28 bones")
+	actor.free()
