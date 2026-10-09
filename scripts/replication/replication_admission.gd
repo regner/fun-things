@@ -4,7 +4,9 @@ extends RefCounted
 
 const MAX_JOURNAL_BYTES: int = 2 * 1024 * 1024
 const MAX_JOURNAL_RECORDS: int = 4096
-const ADMISSION_TIMEOUT_MSEC: int = 15_000
+const BASELINE_TIMEOUT_MSEC: int = 10_000
+const HANDOFF_TIMEOUT_MSEC: int = 5_000
+const TOTAL_ATTEMPT_TIMEOUT_MSEC: int = 60_000
 const PHASE_BASELINE: StringName = &"BASELINE"
 const PHASE_HANDOFF: StringName = &"HANDOFF"
 const PHASE_ADMITTED: StringName = &"ADMITTED"
@@ -58,6 +60,7 @@ func start(
 	var metadata: Dictionary = _baseline_metadata(baseline_id, cut_tick, rows.size(), packets)
 	if metadata.is_empty():
 		return _failure(&"STATE_LIMIT")
+	var now_msec: int = Time.get_ticks_msec()
 	_attempt_by_peer[native_peer_id] = {
 		"baseline_id": baseline_id,
 		"phase": PHASE_BASELINE,
@@ -66,7 +69,8 @@ func start(
 		"journal": [],
 		"journal_bytes": 0,
 		"sent_journal_count": 0,
-		"deadline_msec": Time.get_ticks_msec() + ADMISSION_TIMEOUT_MSEC,
+		"phase_deadline_msec": now_msec + BASELINE_TIMEOUT_MSEC,
+		"attempt_deadline_msec": now_msec + TOTAL_ATTEMPT_TIMEOUT_MSEC,
 	}
 	if not _transport.send_baseline(native_peer_id, metadata, packets):
 		_abort(native_peer_id, &"TRANSPORT_FAILED")
@@ -107,6 +111,7 @@ func acknowledge_baseline(native_peer_id: int, baseline_id: int) -> Dictionary:
 		return _failure(&"TRANSPORT_FAILED")
 	attempt.phase = PHASE_HANDOFF
 	attempt.commit_revision = _durable_revision
+	attempt.phase_deadline_msec = Time.get_ticks_msec() + HANDOFF_TIMEOUT_MSEC
 	if not _transport.send_handoff(native_peer_id, baseline_id, _durable_revision):
 		_abort(native_peer_id, &"TRANSPORT_FAILED")
 		return _failure(&"TRANSPORT_FAILED")
@@ -128,6 +133,7 @@ func acknowledge_handoff(
 			_abort(native_peer_id, &"TRANSPORT_FAILED")
 			return _failure(&"TRANSPORT_FAILED")
 		attempt.commit_revision = _durable_revision
+		attempt.phase_deadline_msec = Time.get_ticks_msec() + HANDOFF_TIMEOUT_MSEC
 		if not _transport.send_handoff(native_peer_id, baseline_id, _durable_revision):
 			_abort(native_peer_id, &"TRANSPORT_FAILED")
 			return _failure(&"TRANSPORT_FAILED")
@@ -161,7 +167,13 @@ func input_participant(native_peer_id: int) -> int:
 func expire_attempts(now_msec: int) -> void:
 	for native_peer_id: int in _attempt_by_peer.keys():
 		var attempt: Dictionary = _attempt_by_peer[native_peer_id]
-		if attempt.phase != PHASE_ADMITTED and now_msec >= int(attempt.deadline_msec):
+		if (
+			attempt.phase != PHASE_ADMITTED
+			and (
+				now_msec >= int(attempt.phase_deadline_msec)
+				or now_msec >= int(attempt.attempt_deadline_msec)
+			)
+		):
 			_abort(native_peer_id, &"SYNC_TIMEOUT")
 
 

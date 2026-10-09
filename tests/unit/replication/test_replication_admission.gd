@@ -114,7 +114,22 @@ func test_baseline_assembler_exposes_only_complete_validated_rows() -> void:
 ## Aborts only one expired admission and never converts timeout into a grant.
 func test_admission_timeout_clears_attempt_and_input() -> void:
 	assert_true(_admission.start(NATIVE_PEER_ID, BASELINE_ID, 40, [_row(1)]).ok)
-	_admission.expire_attempts(Time.get_ticks_msec() + ReplicationAdmission.ADMISSION_TIMEOUT_MSEC)
+	_admission.expire_attempts(
+		Time.get_ticks_msec() + ReplicationAdmission.BASELINE_TIMEOUT_MSEC,
+	)
+
+	assert_eq(_transport.events.back().kind, &"abort")
+	assert_eq(_transport.events.back().code, &"SYNC_TIMEOUT")
+	assert_eq(_admission.input_participant(NATIVE_PEER_ID), 0)
+
+
+## Applies the shorter handoff deadline after a baseline acknowledgement.
+func test_handoff_timeout_clears_attempt_without_grant() -> void:
+	assert_true(_admission.start(NATIVE_PEER_ID, BASELINE_ID, 40, [_row(1)]).ok)
+	assert_true(_admission.acknowledge_baseline(NATIVE_PEER_ID, BASELINE_ID).ok)
+	_admission.expire_attempts(
+		Time.get_ticks_msec() + ReplicationAdmission.HANDOFF_TIMEOUT_MSEC,
+	)
 
 	assert_eq(_transport.events.back().kind, &"abort")
 	assert_eq(_transport.events.back().code, &"SYNC_TIMEOUT")
