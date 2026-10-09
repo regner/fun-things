@@ -26,7 +26,7 @@ func _initialize() -> void:
 
 
 ## Proves loss/stall supersession restores declared lag without extra host steps.
-func _verify_frame_map(  # gdstyle:ignore=quality/max-function-length,quality/max-local-variables
+func _verify_frame_map(  # gdstyle:ignore=format/max-line-length,quality/max-function-length,quality/max-local-variables,quality/max-branches,quality/max-nesting-depth
 ) -> void:
 	const FRAME_COUNT: int = 120
 	const STALL_START: int = 50
@@ -68,9 +68,6 @@ func _verify_frame_map(  # gdstyle:ignore=quality/max-function-length,quality/ma
 			var consumed: Dictionary = queue.pop_next(consumed_sequence, consumed_tick)
 			if not consumed.is_empty():
 				host_position = _advance_position(host_position, consumed, DELTA)
-				if not host_position.is_equal_approx(client_positions[consumed.input_tick]):
-					print("FRAME MAP MISMATCH ", tick, " ", consumed, " ", host_position,
-						" ", client_positions[consumed.input_tick])
 				assert(host_position.is_equal_approx(client_positions[consumed.input_tick]))
 				consumed_sequence = int(consumed.sequence)
 				consumed_tick = int(consumed.input_tick)

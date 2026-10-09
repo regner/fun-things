@@ -70,18 +70,19 @@ receipt), i.e. when an unpredicted client could respond.
 
 | Profile | Predicted physics p95 | Authority baseline p95 | Predicted drawn p95 | Authority drawn p95 | Correction p95 / max | Replay CPU p95 per frame | Max replay |
 | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
-| Headless loopback | 28 ms | 155 ms | unavailable | unavailable | 0.000 / 1.917 m | 37.67 us | 39 |
-| Headless normal | 24 ms | 316 ms | unavailable | unavailable | 0.000 / 1.917 m | 19.71 us | 50 |
-| Headless adverse | 23 ms | 446 ms | unavailable | unavailable | 0.000 / 3.750 m | 23.63 us | 82 |
-| Windowed loopback | 25 ms | 191 ms | 35 ms | 205 ms | 0.000 / 1.917 m | 33.8 us | 40 |
+| Headless loopback | 24 ms | 293 ms | unavailable | unavailable | 0.000 / 0.750 m | 41.00 us | 39 |
+| Headless normal | 20 ms | 264 ms | unavailable | unavailable | 0.083 / 0.250 m | 20.00 us | 48 |
+| Headless adverse | 21 ms | 417 ms | unavailable | unavailable | 0.250 / 3.750 m | 17.72 us | 84 |
+| Windowed loopback | 25 ms | 151 ms | 36 ms | 178 ms | 0.083 / 0.972 m | 48.33 us | 41 |
 
 All selected runs meet the provisional predicted response target (physics p95 <=50 ms)
 and correction target (p95 <=0.5 m). Maxima are reported rather than hidden; visual
 smoothing does not change authoritative physics. Exact authoritative installation error
 and matching host-source error were 0 m, and no selected run exhausted 120-frame
-history. The largest pending authority queue was 22 frames. The adverse 1 s interruption
-and 250 ms host stall converged in 354.67 ms and 227 ms respectively, both below 1 s.
-The maximum adverse replay was 82 frames and remained bounded.
+history. The bounded authority queue ended every measured step with at most two pending
+frames, below its declared three-frame lag bound. The adverse 1 s interruption and 250 ms
+host stall converged in 360.69 ms and 516 ms respectively, both below 1 s. The maximum
+adverse replay was 84 frames and remained bounded.
 
 Selected correction classifiers were `none` and `held_timing_or_delivery`; no
 remote-actor contact was observed in the final routes and no car
@@ -123,6 +124,8 @@ godot --headless --path . \
 The bounded required prediction mechanism passes its fixture criteria. Production still
 needs the same core integrated under the production Match/local rig, explicit restore
 state for slopes/grounding, moving actor/car contact trials, reset/respawn/seat-transfer
-history policy, camera/aim continuity review, and physical-input feel. The Windows
-headless authority variance remains S03-L evidence; prediction tuning did not compensate
-for it. Steam-specific work is outside the ENet-only initial scope.
+history policy, camera/aim continuity review, and physical-input feel. At P0-GATE the
+owner must review the dated S03-P choice to consume queued input in order with a
+three-frame pending-lag bound instead of the earlier newest-valid-frame wording. The
+Windows headless authority variance remains S03-L evidence; prediction tuning did not
+compensate for it. Steam-specific work is outside the ENet-only initial scope.

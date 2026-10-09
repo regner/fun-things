@@ -420,13 +420,18 @@ Only the host's fresh control revision authorizes sequence 1 again; a baseline
 without that rebind cannot reset a held sequence. Reliable action sequence continues
 across resync, and queued actions from the old binding are invalidated.
 Held input is replaceable. At most three recent frames per message recover loss;
-accept only increasing in-window sequences. Each physics tick uses the newest valid
-frame available and explicitly supersedes older pending frames. Acknowledgement
-advances only after that tick's simulation, through consumed/superseded frames;
-receipt alone is never an acknowledgement. Reuse held values until expiry, then
-neutralize them. Dropped held frames carry no discrete action. Focus loss/local UI
-releases controls immediately locally and sends neutral input; host expiry remains
-the fallback. A new life/control revision starts neutral, even before another packet.
+accept only increasing in-window sequences. The dated S03-P revision (8 October 2026,
+pending owner review at P0-GATE) supersedes the earlier newest-valid-frame wording:
+the host consumes queued frames in order, at most one per physics tick. Pending lag is
+bounded at three frames (50 ms); older frames beyond that bound are explicitly
+superseded without extra simulation steps. This one-to-one mapping keeps host simulation
+aligned with client replay. Receipt age beyond `HELD_EXPIRY_MS` (250 ms) supersedes
+pending intent and simulates neutral input. The acknowledgement watermark is the last
+consumed or explicitly superseded frame and advances only on that simulation step;
+receipt alone is never an acknowledgement. Dropped held frames carry no discrete action.
+Focus loss/local UI releases controls immediately locally and sends neutral input; host
+expiry remains the fallback. A new life/control revision starts neutral, even before
+another packet.
 
 `ActionRequest = {context, action_sequence, kind, payload}`. Kinds/payloads: ENTER
 `{vehicle_ref}`, EXIT `{}`, EQUIP `{weapon_id}`, RELOAD `{}`, RESET `{}` and

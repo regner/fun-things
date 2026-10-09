@@ -91,9 +91,12 @@ At every remotely callable input boundary:
 
 Use the server's fixed simulation step. Never trust client elapsed time or run
 extra simulation steps just to drain a backlog. Define a bounded backlog policy
-that prevents a host stall from causing persistent delayed controls. Superseding
-obsolete controls must agree with acknowledgement/replay semantics and preserve
-important discrete actions.
+that prevents a host stall from causing persistent delayed controls. The dated S03-P
+foot-input revision consumes queued frames in order at one per tick, limits pending
+lag to three frames (50 ms), and supersedes older work without extra steps. Receipt
+age beyond `HELD_EXPIRY_MS` (250 ms) supersedes pending intent and simulates neutral
+input. Its acknowledgement watermark is the last consumed or superseded frame.
+Supersession must agree with replay semantics and preserve important discrete actions.
 
 ## Session and join lifecycle
 
@@ -331,12 +334,14 @@ external-network connectivity.
 The historical [S03-R ENet candidate](spikes/s03-r.md) first measured the actual
 S02 controller without prediction. S03-P now owns the required foot prediction
 trial: canonical three-frame redundant input bursts, a bounded deduplicating authority
-queue, one numbered input at most per normal host step, exact processed/superseded tick
+queue, one numbered input in order per normal host step, exact processed/superseded tick
 watermarks, authoritative restore plus permitted replay, and visual-only correction
-smoothing. No extra host steps drain a stall backlog and missing input neutralizes
-rather than reusing an acknowledged frame. Remote actors remain interpolated. The
-fixture evidence does not establish production integration, physical input,
-subjective feel or full-world rollback.
+smoothing. This 8 October 2026 revision bounds pending lag at three frames (50 ms),
+supersedes older frames without extra host steps, and neutralizes receipt age beyond
+`HELD_EXPIRY_MS` (250 ms). It supersedes the earlier newest-valid-frame wording so host
+simulation remains one-to-one with client replay; the owner reviews the policy at
+P0-GATE. Remote actors remain interpolated. The fixture evidence does not establish
+production integration, physical input, subjective feel or full-world rollback.
 
 ## Accepted S04 technical boundary
 
