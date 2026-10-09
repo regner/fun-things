@@ -20,22 +20,22 @@
   },
   "measurements": {
     "entry_correction_m": {
-      "race_entry": 2.9076464176178,
-      "parked_entry": 0.42037695646286,
-      "traffic_entry": 1.6670515537262
+      "race_entry": 2.85253882408142,
+      "parked_entry": 3.34964680671692,
+      "traffic_entry": 8.64609432220459
     },
     "entry_visual_jump_m": {
-      "race_entry": 2.9076464176178,
-      "parked_entry": 0.42037695646286,
-      "traffic_entry": 1.6670515537262
+      "race_entry": 2.85253882408142,
+      "parked_entry": 3.34964680671692,
+      "traffic_entry": 8.64609432220459
     },
-    "transition_visual_jump_p95_m": 2.9076464176178,
+    "transition_visual_jump_p95_m": 8.64609432220459,
     "accepted_time_to_control_p95_ms": 17,
-    "action_round_trip_p95_ms": 334,
+    "action_round_trip_p95_ms": 834,
     "history_clean": true,
     "ownership_flips": true,
-    "proxy_delay_p95_ms": 171.3371998630464,
-    "proxy_delay_max_ms": 177.76089999824762,
+    "proxy_delay_p95_ms": 171.8961000442505,
+    "proxy_delay_max_ms": 190.63459988683462,
     "input_revisions": [
       1,
       2,
@@ -49,11 +49,11 @@
       "4": 1
     },
     "varying_input_samples": 43,
-    "post_blackout_samples": 14,
-    "post_stall_samples": 9,
+    "post_blackout_samples": 19,
+    "post_stall_samples": 12,
     "blackout_expiry": true,
-    "blackout_duration_ms": 1001.300048828125,
-    "host_stall_ms": 253,
+    "blackout_duration_ms": 999.072265625,
+    "host_stall_ms": 254,
     "captures": [
       "forced_blocked_exit.png",
       "moving_exit.png",
@@ -70,24 +70,24 @@
     "action_rejections": {},
     "blocked_rejected": true,
     "control_reset_count": 3,
-    "disconnect_coast_m": 41.492057800293,
+    "disconnect_coast_m": 45.6744003295898,
     "event": "result",
     "final_speed_mps": 0.0,
     "hydration_count": 1,
     "input_expiry_count": 7,
-    "input_queue_peak": 6,
+    "input_queue_peak": 7,
     "input_rejections": {
-      "INPUT_QUEUE": 4,
-      "STALE_CONTEXT": 31
+      "INPUT_QUEUE": 5,
+      "STALE_CONTEXT": 56
     },
-    "input_superseded_count": 151,
+    "input_superseded_count": 142,
     "moving_rejected": true,
     "ok": true,
     "race_complete": true,
     "role": "host",
     "traffic_ai_active": false,
     "traffic_stolen": true,
-    "wall_ms": 1791540196227.0
+    "wall_ms": 1791540426462.0
   },
   "client_result": {
     "event": "result",
@@ -96,57 +96,57 @@
     "ownership_clean": true,
     "role": "client",
     "transition_count": 6,
-    "wall_ms": 1791540191511.0
+    "wall_ms": 1791540421466.0
   },
   "commands": {
     "host": [
       "C:\\Program Files\\Git\\usr\\bin\\timeout.EXE",
-      "50s",
+      "40s",
       "C:\\Users\\regner.blokandersen\\AppData\\Local\\mise\\installs\\github-godotengine-godot-builds\\4.8-dev7\\godot.EXE",
       "--max-fps",
       "60",
       "--path",
-      "C:\\tmp\\ft\\lanes\\s04-t\\review1-selected-final\\adverse\\project",
+      "C:\\tmp\\ft\\lanes\\s04-t\\review1-selected-final2\\adverse\\project",
       "--resolution",
       "1280x800",
       "--position",
       "0,0",
       "--log-file",
-      "C:\\tmp\\ft\\lanes\\s04-t\\review1-selected-final\\adverse\\host\\engine.log",
+      "C:\\tmp\\ft\\lanes\\s04-t\\review1-selected-final2\\adverse\\host\\engine.log",
       "res://tests/fixtures/s04_t/boot.tscn",
       "--",
       "--role=host",
-      "--port=25842",
+      "--port=25942",
       "--profile=adverse"
     ],
     "client": [
       "C:\\Program Files\\Git\\usr\\bin\\timeout.EXE",
-      "50s",
+      "40s",
       "C:\\Users\\regner.blokandersen\\AppData\\Local\\mise\\installs\\github-godotengine-godot-builds\\4.8-dev7\\godot.EXE",
       "--max-fps",
       "60",
       "--path",
-      "C:\\tmp\\ft\\lanes\\s04-t\\review1-selected-final\\adverse\\project",
+      "C:\\tmp\\ft\\lanes\\s04-t\\review1-selected-final2\\adverse\\project",
       "--resolution",
       "1280x800",
       "--position",
       "1280,0",
       "--log-file",
-      "C:\\tmp\\ft\\lanes\\s04-t\\review1-selected-final\\adverse\\client\\engine.log",
+      "C:\\tmp\\ft\\lanes\\s04-t\\review1-selected-final2\\adverse\\client\\engine.log",
       "res://tests/fixtures/s04_t/boot.tscn",
       "--",
       "--role=client",
-      "--port=25843",
+      "--port=25943",
       "--profile=adverse"
     ]
   },
   "process_ids": [
-    4296,
-    10072
+    19500,
+    10316
   ],
   "exits": [
     0,
     0
   ],
-  "peak_proxy_queue": 16
+  "peak_proxy_queue": 17
 }
