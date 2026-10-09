@@ -1,0 +1,41 @@
+d06_commercial_graphics.02 producer validation, 9 October 2026
+PASS Python 3.14.2 / Pillow 12.3.0: three original 2000x400 RGB PNGs authored.
+PASS Four artwork tests: exact PNG reproduction, opaque dimensions, safe edges,
+     literal motif pixels and 75x4 colour-mass differentiation.
+PASS Blender 5.2.2 LTS d13f752e3b9c / glTF 5.2.40: shared source topology,
+     UVs, transforms, normals and bounds; fresh 45616-byte GLB byte-identical.
+     Per fascia: 836 source vertices, 1072 GLB vertices, 1656 triangles,
+     7 meshes/8 surfaces; zero degenerates and non-manifold edges.
+PASS Four Blender 1280x800 renders; producer inspected all images.
+     Side camera framing corrected to retain all frame corners.
+     Overhead distinguishes broad colour distributions; text/icon semantics not claimed.
+PASS Godot 4.8.dev7.official.c971f93e7 complete headless import.
+PASS Three saved prefab dependencies/identity model transforms/original mesh resources,
+     one front-surface-only override each, literal bounds, no collision.
+PASS Two normalize/pack/save cycles and another process invocation preserve scene bytes.
+PASS Final non-editor load: no ERROR, WARNING or SCRIPT ERROR lines.
+PASS gdstyle 0.3.0 owned GDScript check and fmt --check.
+PASS Full production_checks: formatting/style/explicit compilation, 9 Python tests,
+     23 GUT tests / 196 assertions, import; intentional negative test exits 1 as expected.
+
+Corrected development diagnostics (not final asset failures):
+- PNG test harness lacked explicit format for BytesIO; fixed and four tests rerun.
+- One GDScript line-length warning fixed before full checks.
+- First immediate post-normalization load used path fallback for new material UIDs;
+  complete headless import registered those UIDs, final load has no warnings.
+
+Retained environment/tool diagnostics:
+- Blender --version probe: 1 unfreed block, 0.000023 MB; production validation exits 0.
+- Blender rendering: node API deprecation warnings on the pinned supported version.
+- Headless editor normalization exits 0, checks pass, but editor shutdown reports:
+  WARNING: [MCP] Godot 4.8 detected - latest tested version is 4.7.0.
+  WARNING: Scan thread aborted...
+  ERROR: RID allocations leaked at exit (Viewport 5, DummyTexture 8, Scenario 1,
+         ShapedTextDataAdvanced 52, FontAdvanced 1).
+  WARNING: 5 Canvas RIDs, 31 CanvasItem RIDs, 168 ObjectDB instances leaked at exit.
+  These are not hidden or counted as a clean editor shutdown. Full import and final
+  non-editor load are separate successful checks. No live owner session was accessed.
+
+Scratch/raw logs: C:/tmp/ft/assets/d06_commercial_graphics_02/
+Pending: independent review, final copy, world placement/navigation/readability,
+         future shared-hardware hierarchy retention, packaged renderer/Deck performance.

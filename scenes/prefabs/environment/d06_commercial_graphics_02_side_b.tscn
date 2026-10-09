@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://c2xox6j3pdj51"]
+
+[ext_resource type="PackedScene" uid="uid://cdtnvrp3u64wi" path="res://art/models/environment/city_shop_fittings_02/city_shop_fittings_02.glb" id="1_model"]
+[ext_resource type="Material" uid="uid://cv42daa3fkmcw" path="res://art/materials/environment/d06_commercial_graphics_02/side_b.tres" id="2_artwork"]
+
+[node name="d06_commercial_graphics_02_side_b" type="Node3D" unique_id=2079185671]
+
+[node name="Visuals" type="Node3D" parent="." unique_id=301011769]
+
+[node name="Model" parent="Visuals" unique_id=1509585213 instance=ExtResource("1_model")]
+
+[node name="fascia_artwork_carrier" parent="Visuals/Model/city_shop_fittings_02" parent_id_path=PackedInt32Array(1509585213, 1434029566) index="2" unique_id=247601221]
+surface_material_override/0 = ExtResource("2_artwork")
+
+[editable path="Visuals/Model"]
