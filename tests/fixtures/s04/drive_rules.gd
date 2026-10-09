@@ -22,7 +22,7 @@ static func neutral() -> Dictionary:
 
 ## Applies bounded acceleration, opposite-direction braking, lateral grip and speed-aware yaw.
 static func advance(velocity: Vector3, yaw: float, command: Dictionary,
-		delta: float) -> Dictionary:
+		delta: float, tuning: Resource = null) -> Dictionary:
 	var forward: Vector3 = Vector3(-sin(yaw), 0.0, -cos(yaw))
 	var right: Vector3 = Vector3(cos(yaw), 0.0, -sin(yaw))
 	var speed: float = velocity.dot(forward)
@@ -30,18 +30,40 @@ static func advance(velocity: Vector3, yaw: float, command: Dictionary,
 	var throttle: float = command.throttle
 	var braking: bool = command.brake > 0.0 or (speed * throttle < 0.0)
 	if braking:
-		speed = move_toward(speed, 0.0, BRAKE_MPS2 * delta)
+		speed = move_toward(
+			speed, 0.0, _value(tuning, &"brake_mps2", BRAKE_MPS2) * delta
+		)
 	elif throttle != 0.0:
-		speed = clampf(speed + throttle * ACCELERATION_MPS2 * delta,
-			-MAX_REVERSE_MPS, MAX_FORWARD_MPS)
+		speed = clampf(
+			speed + throttle * _value(tuning, &"acceleration_mps2", ACCELERATION_MPS2)
+			* delta,
+			-_value(tuning, &"max_reverse_mps", MAX_REVERSE_MPS),
+			_value(tuning, &"max_forward_mps", MAX_FORWARD_MPS)
+		)
 	else:
-		speed = move_toward(speed, 0.0, COAST_MPS2 * delta)
+		speed = move_toward(
+			speed, 0.0, _value(tuning, &"coast_mps2", COAST_MPS2) * delta
+		)
 
-	var grip: float = SLIDE_GRIP_PER_SECOND if command.handbrake else GRIP_PER_SECOND
+	var grip: float = _value(
+		tuning,
+		&"slide_grip_per_second" if command.handbrake else &"grip_per_second",
+		SLIDE_GRIP_PER_SECOND if command.handbrake else GRIP_PER_SECOND
+	)
 	lateral *= maxf(0.0, 1.0 - grip * delta)
-	var yaw_rate: float = -command.steer * TURN_RAD_PER_SECOND * (
-		clampf(absf(speed) / FULL_STEER_SPEED_MPS, 0.0, 1.0))
+	var yaw_rate: float = -command.steer * _value(
+		tuning, &"turn_rad_per_second", TURN_RAD_PER_SECOND
+	) * clampf(
+		absf(speed) / _value(tuning, &"full_steer_speed_mps", FULL_STEER_SPEED_MPS),
+		0.0,
+		1.0
+	)
 	if speed < 0.0:
 		yaw_rate = -yaw_rate
 
 	return { "velocity": forward * speed + right * lateral, "yaw_rate": yaw_rate }
+
+
+## Resolves optional standalone tuning without changing fixture defaults.
+static func _value(tuning: Resource, property: StringName, fallback: float) -> float:
+	return fallback if tuning == null else float(tuning.get(property))

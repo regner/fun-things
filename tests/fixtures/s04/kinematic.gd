@@ -15,9 +15,9 @@ func configure(authority: bool) -> void:
 
 
 ## Advances shared handling once on the physics callback and captures solved wall contact.
-func step(command: Dictionary, delta: float) -> void:
+func step(command: Dictionary, delta: float, tuning: Resource = null) -> void:
 	assert(simulation_enabled)
-	var next: Dictionary = S04DriveRules.advance(velocity, rotation.y, command, delta)
+	var next: Dictionary = S04DriveRules.advance(velocity, rotation.y, command, delta, tuning)
 	rotation.y = wrapf(rotation.y + float(next.yaw_rate) * delta, -PI, PI)
 	velocity = next.velocity
 	move_and_slide()

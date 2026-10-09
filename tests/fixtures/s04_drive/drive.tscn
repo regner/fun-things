@@ -1,0 +1,50 @@
+[gd_scene format=3 uid="uid://b5m2a7ddd0c74"]
+
+[ext_resource type="Script" uid="uid://cw513dxvx6ul8" path="res://tests/fixtures/s04_drive/drive.gd" id="1_drive"]
+[ext_resource type="Resource" uid="uid://bmv3yfme36tu" path="res://tests/fixtures/s04_drive/drive_tuning.tres" id="2_tuning"]
+[ext_resource type="PackedScene" uid="uid://whg1w4ybnvqq" path="res://tests/fixtures/s04/track.tscn" id="3_track"]
+[ext_resource type="PackedScene" uid="uid://cyyhi67pisbql" path="res://tests/fixtures/s04/kinematic.tscn" id="4_car"]
+[ext_resource type="Script" uid="uid://ioa3f2cddayr" path="res://tests/fixtures/s04/kinematic.gd" id="5_a1unu"]
+[ext_resource type="Script" uid="uid://vhpq0td4r0xp" path="res://tests/fixtures/s04/desktop_input.gd" id="5_input"]
+[ext_resource type="PackedScene" uid="uid://q1a7f35d7e8s" path="res://tests/fixtures/s04_drive/camera_rig.tscn" id="6_camera"]
+[ext_resource type="PackedScene" uid="uid://doo18wbbmp07o" path="res://tests/fixtures/s04_drive/drive_hud.tscn" id="7_hud"]
+[ext_resource type="Script" uid="uid://c8gmgnegvmc3t" path="res://tests/fixtures/s04/camera_rig.gd" id="8_rprg0"]
+[ext_resource type="Script" uid="uid://dueix8ne3srpm" path="res://tests/fixtures/s04_drive/drive_hud.gd" id="10_q5ces"]
+
+[sub_resource type="Environment" id="Environment_drive"]
+background_mode = 1
+background_color = Color(0.025, 0.055, 0.075, 1)
+ambient_light_source = 2
+ambient_light_color = Color(0.58, 0.7, 0.82, 1)
+ambient_light_energy = 0.72
+
+[node name="S04Drive" type="Node3D" unique_id=1493490938]
+script = ExtResource("1_drive")
+tuning = ExtResource("2_tuning")
+
+[node name="Track" type="Node3D" parent="." unique_id=1943514348 instance=ExtResource("3_track")]
+
+[node name="Car" type="CharacterBody3D" parent="." unique_id=1110260024 instance=ExtResource("4_car")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.001, 10)
+collision_layer = 0
+collision_mask = 0
+motion_mode = 1
+script = ExtResource("5_a1unu")
+
+[node name="Input" type="Node" parent="." unique_id=1316605378]
+script = ExtResource("5_input")
+
+[node name="CameraRig" type="Node3D" parent="." unique_id=1614499312 instance=ExtResource("6_camera")]
+process_priority = -10
+script = ExtResource("8_rprg0")
+
+[node name="Sun" type="DirectionalLight3D" parent="." unique_id=1687263521]
+transform = Transform3D(0.8660254, 0.43301272, -0.24999999, 0, 0.49999997, 0.86602545, 0.5, -0.75, 0.43301266, 0, 0, 0)
+light_energy = 1.2
+shadow_enabled = true
+
+[node name="Environment" type="WorldEnvironment" parent="." unique_id=1284512514]
+environment = SubResource("Environment_drive")
+
+[node name="Hud" type="CanvasLayer" parent="." unique_id=1193407824 instance=ExtResource("7_hud")]
+script = ExtResource("10_q5ces")

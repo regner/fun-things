@@ -1,0 +1,65 @@
+[gd_scene format=3 uid="uid://doo18wbbmp07o"]
+
+[ext_resource type="Script" uid="uid://dueix8ne3srpm" path="res://tests/fixtures/s04_drive/drive_hud.gd" id="1_hud"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBox_panel"]
+bg_color = Color(0.025, 0.04, 0.055, 0.92)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.2, 0.82, 0.74, 0.9)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+
+[node name="HUD" type="CanvasLayer" unique_id=101985154]
+script = ExtResource("1_hud")
+
+[node name="Panel" type="PanelContainer" parent="." unique_id=677651801]
+offset_left = 18.0
+offset_top = 18.0
+offset_right = 480.0
+offset_bottom = 410.0
+theme_override_styles/panel = SubResource("StyleBox_panel")
+
+[node name="Margin" type="MarginContainer" parent="Panel" unique_id=1952904636]
+layout_mode = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 14
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 14
+
+[node name="Rows" type="VBoxContainer" parent="Panel/Margin" unique_id=2139487837]
+layout_mode = 2
+theme_override_constants/separation = 9
+
+[node name="Title" type="Label" parent="Panel/Margin/Rows" unique_id=806529919]
+layout_mode = 2
+theme_override_font_sizes/font_size = 22
+theme_override_colors/font_color = Color(1, 0.47, 0.36, 1)
+text = "S04  STANDALONE DRIVE LAB"
+
+[node name="Speed" type="Label" parent="Panel/Margin/Rows" unique_id=1722312387]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+theme_override_colors/font_color = Color(0.35, 1, 0.86, 1)
+text = "SPEED    0.0 m/s"
+
+[node name="Controls" type="Label" parent="Panel/Margin/Rows" unique_id=725918536]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.84, 0.88, 0.92, 1)
+text = "W/S throttle, brake, reverse  •  A/D steer
+Space handbrake  •  R reset  •  Esc menu/input pause"
+
+[node name="Values" type="Label" parent="Panel/Margin/Rows" unique_id=418375040]
+layout_mode = 2
+theme_override_font_sizes/font_size = 15
+theme_override_colors/font_color = Color(0.92, 0.93, 0.78, 1)
+text = "Tuning values"
+
+[node name="Notice" type="Label" parent="Panel/Margin/Rows" unique_id=2076952344]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.55, 0.86, 1, 1)
+text = "F1-F9 select • +/- adjust • F12 save + print"
