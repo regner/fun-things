@@ -4,38 +4,106 @@ extends S03Replication
 
 signal exit_result(reason: String)
 
+const EXIT_BURST: float = 2.0
+const EXIT_RATE: float = 2.0
 
-## Sends complete refreshed actual movement rows within the original message budget.
-func send_movement(peer_id: int, participants: Array, _tick: int, _sample: float) -> void:
+var exit_pending: bool = false
+var next_exit_request: int = 0
+var exit_rate: Dictionary = {}
+
+
+## Builds a movement envelope including binding-independent coasting vehicles.
+func movement_envelope(participants: Array) -> Dictionary:
 	var actual: S04Match = match_state as S04Match
 	var rows: Array = []
 	for participant: int in participants:
 		rows.append(actual.pose_for_entity(int(actual.bindings[participant].entity)))
+	for entity: int in actual.coasting_entities():
+		rows.append(actual.pose_for_entity(entity))
+	return { "session": actual.session_id, "revision": 1, "rows": rows }
 
-	var envelope: Dictionary = { "session": actual.session_id, "revision": 1, "rows": rows }
+
+## Sends complete refreshed actual movement rows within the original message budget.
+func send_movement(peer_id: int, participants: Array, _tick: int, _sample: float) -> void:
+	var envelope: Dictionary = movement_envelope(participants)
 	max_movement_bytes = maxi(max_movement_bytes, var_to_bytes(envelope).size())
 	assert(max_movement_bytes <= MAX_HELD_BYTES)
 	_movement.rpc_id(peer_id, envelope)
 
 
-## Requests an authoritative seat exit without changing predicted client ownership locally.
-func request_exit() -> void:
-	_request_exit.rpc_id(1, match_state.session_id)
+## Sends at most one authoritative seat-exit request until its matching verdict arrives.
+func request_exit() -> bool:
+	var request_id: int = _begin_exit_request()
+	if request_id == 0:
+		return false
+
+	_request_exit.rpc_id(1, match_state.session_id, request_id)
+	return true
 
 
-## Derives the participant from the RPC sender and returns the host-owned exit verdict.
+## Reserves one bounded client request identity without changing predicted ownership.
+func _begin_exit_request() -> int:
+	if exit_pending:
+		return 0
+
+	next_exit_request += 1
+	exit_pending = true
+	return next_exit_request
+
+
+## Consumes a small per-peer token bucket before any authoritative exit work or reply.
+func _allow_exit_request(peer_id: int, now_ms: int) -> bool:
+	if not exit_rate.has(peer_id):
+		exit_rate[peer_id] = { "tokens": EXIT_BURST, "time": now_ms }
+
+	var bucket: Dictionary = exit_rate[peer_id]
+	bucket.tokens = minf(
+		EXIT_BURST, bucket.tokens + (now_ms - int(bucket.time)) * EXIT_RATE / 1000.0
+	)
+	bucket.time = now_ms
+	if bucket.tokens < 1.0:
+		return false
+
+	bucket.tokens -= 1.0
+	return true
+
+
+## Derives the sender and rate-bounds the host-owned exit verdict.
 @rpc("any_peer", "call_remote", "reliable", 0)
-func _request_exit(session: String) -> void:
-	if not multiplayer.is_server() or session != match_state.session_id:
+func _request_exit(session: String, request_id: int) -> void:
+	if not multiplayer.is_server() or session != match_state.session_id or request_id <= 0:
 		return
 
 	var peer_id: int = multiplayer.get_remote_sender_id()
+	if not _allow_exit_request(peer_id, Time.get_ticks_msec()):
+		return
+
 	var participant: int = int(resolve_participant.call(peer_id))
 	var reason: String = (match_state as S04Match).request_exit(participant)
-	_exit_result.rpc_id(peer_id, reason)
+	_exit_result.rpc_id(peer_id, request_id, reason)
 
 
-## Publishes the verdict for presentation; rejection leaves prediction and seat untouched.
+## Applies successful lifecycle state before publishing the matching verdict.
 @rpc("authority", "call_remote", "reliable", 0)
-func _exit_result(reason: String) -> void:
+func _exit_result(request_id: int, reason: String) -> void:
+	if not exit_pending or request_id != next_exit_request:
+		return
+
+	exit_pending = false
+	if reason == "OK":
+		(match_state as S04Match).apply_local_exit()
 	exit_result.emit(reason)
+
+
+## Drops disconnected exit-rate work alongside inherited replication buffers.
+func forget(peer_id: int) -> void:
+	super.forget(peer_id)
+	exit_rate.erase(peer_id)
+
+
+## Clears attempt-local request and rate state during session teardown.
+func clear() -> void:
+	super.clear()
+	exit_pending = false
+	next_exit_request = 0
+	exit_rate.clear()

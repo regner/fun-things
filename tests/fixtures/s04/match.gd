@@ -8,6 +8,7 @@ signal reconciled(receipt: Dictionary)
 
 const MAX_POSE_COORDINATE_M: float = 100.0
 const PREDICTION_HISTORY_LIMIT: int = 120
+const MAX_INPUT_TICK: int = 1_000_000
 const EXIT_STOP_SPEED_MPS: float = 0.5
 const PARKED_SPEED_MPS: float = 0.01
 
@@ -18,6 +19,7 @@ var body_for_entity: Dictionary = {}
 var spawns: Array[Transform3D] = []
 var seats: Dictionary = {}
 var coasting_bodies: Dictionary = {}
+var coasting_states: Dictionary = {}
 var prediction_history: Dictionary = {}
 var prediction_ticks: Array[int] = []
 var prediction_enabled: bool = false
@@ -88,15 +90,17 @@ func _client_step(delta: float) -> void:
 	for entity: int in pending_poses:
 		var pose: Dictionary = pending_poses[entity]
 		var actor: S04Kinematic = body_for_entity[entity]
+		var installed: Dictionary
 		if prediction_enabled and entity == bindings[participant_id].entity:
-			_reconcile(actor, pose)
+			installed = _reconcile(actor, pose)
 		else:
 			actor.install_pose(pose, int(pose.receipt_ms))
+			installed = actor.motion_state()
 
 		print("S04 " + JSON.stringify({"event": "apply", "time_ms": Time.get_ticks_msec(),
 			"wall_ms": Time.get_unix_time_from_system() * 1000.0,
-			"entity": entity, "pose": pose, "position": pose.position,
-			"yaw": pose.yaw}))
+			"entity": entity, "pose": pose, "position": vector(installed.position),
+			"yaw": installed.yaw}))
 	pending_poses.clear()
 
 	if prediction_enabled and queued_input_tick > last_predicted_tick:
@@ -121,7 +125,7 @@ func _predict(input_tick: int, command: Dictionary, delta: float) -> void:
 
 
 ## Restores the host pose and replays only unacknowledged local drive-rule frames.
-func _reconcile(actor: S04Kinematic, pose: Dictionary) -> void:
+func _reconcile(actor: S04Kinematic, pose: Dictionary) -> Dictionary:
 	var previous_display: Dictionary = actor.display_state()
 	var previous_position: Vector3 = actor.global_position
 	var acknowledged_tick: int = pose.input_tick
@@ -129,6 +133,7 @@ func _reconcile(actor: S04Kinematic, pose: Dictionary) -> void:
 		prediction_history.erase(prediction_ticks.pop_front())
 
 	actor.restore_authoritative(pose)
+	var installed: Dictionary = actor.motion_state()
 	var replayed: int = 0
 	var started_usec: int = Time.get_ticks_usec()
 	if prediction_overflowed:
@@ -150,6 +155,7 @@ func _reconcile(actor: S04Kinematic, pose: Dictionary) -> void:
 		"magnitude_m": correction_m, "replayed": replayed, "cpu_usec": elapsed_usec,
 		"cpu_per_tick_usec": float(elapsed_usec) / maxf(1.0, replayed)}
 	reconciled.emit(last_correction)
+	return installed
 
 
 ## Adds a saved actual body to S03's provisional entity binding.
@@ -335,14 +341,25 @@ func _held_shape_valid(envelope: Variant) -> bool:
 
 	if not envelope.sequence is int or not envelope.input_tick is int:
 		return false
-	if envelope.input_tick <= 0 or not envelope.move is Dictionary:
+	if envelope.input_tick <= 0 or envelope.input_tick > MAX_INPUT_TICK or (
+		not envelope.move is Dictionary):
 		return false
 
 	return _drive_valid(envelope.move)
 
 
-## Retains the newest validated client tick for post-simulation acknowledgement.
+## Retains only a strictly newer bounded client tick for the current control revision.
 func submit_held(participant: int, envelope: Variant) -> String:
+	if authoritative and bindings.has(participant) and bindings[participant].admitted and (
+		_held_shape_valid(envelope)) and envelope.context is Dictionary and (
+		envelope.context == context(participant)):
+		var binding: Dictionary = bindings[participant]
+		var input_floor: int = maxi(
+			int(binding.pending_input_tick), int(binding.processed_input_tick)
+		)
+		if envelope.input_tick <= input_floor:
+			return _reject("STALE_INPUT_TICK")
+
 	var result: String = super.submit_held(participant, envelope)
 	if result == "OK":
 		bindings[participant].pending_input_tick = envelope.input_tick
@@ -372,17 +389,25 @@ func prepare_resync(participant: int) -> void:
 	body_for_entity[bindings[participant].entity].neutralize()
 
 
-## Publishes only movement state and consumed-or-superseded sequence after simulation.
+## Publishes movement from a live binding or its binding-independent coasting state.
 func pose_for_entity(entity: int) -> Dictionary:
 	var actor: S04Kinematic = body_for_entity[entity]
 	var participant: int = participant_for_entity(entity)
-	var binding: Dictionary = bindings[participant]
-	return {"entity": entity, "tick": server_tick, "control": binding.control,
+	var state: Dictionary = bindings[participant] if participant > 0 else coasting_states[entity]
+	return {"entity": entity, "tick": server_tick, "control": state.control,
 		"durable": durable_revision, "position": vector(actor.global_position),
-		"yaw": actor.rotation.y, "velocity": vector(actor.velocity), "sequence": binding.sequence,
-		"input_tick": binding.processed_input_tick,
-		"vehicle": entity + 1000, "generation": binding.generation,
-		"life": binding.life, "collision": 1}
+		"yaw": actor.rotation.y, "velocity": vector(actor.velocity), "sequence": state.sequence,
+		"input_tick": state.processed_input_tick,
+		"vehicle": entity + 1000, "generation": state.generation,
+		"life": state.life, "collision": 1}
+
+
+## Lists unbound coasting entities that remain eligible for movement replication.
+func coasting_entities() -> Array[int]:
+	var result: Array[int] = []
+	for entity: int in coasting_states:
+		result.append(entity)
+	return result
 
 
 ## Validates a bounded pose's exact primitive fields before any replica state change.
@@ -413,7 +438,7 @@ func pose_valid(pose: Variant) -> bool:  # gdstyle:ignore=quality/max-returns
 
 
 ## Buffers only the latest dependency-valid pose per entity for next physics installation.
-func apply_movement(envelope: Dictionary) -> bool:
+func apply_movement(envelope: Dictionary) -> bool:  # gdstyle:ignore=quality/max-branches
 	if envelope.get("session") != session_id or envelope.get("revision") != 1:
 		return false
 
@@ -431,11 +456,15 @@ func apply_movement(envelope: Dictionary) -> bool:
 			continue
 
 		var participant: int = participant_for_entity(entity)
-		if pose.vehicle != entity + 1000 or pose.generation != bindings[participant].generation:
+		var state: Dictionary = bindings[participant] if participant > 0 else (
+			coasting_states.get(entity, {}) as Dictionary)
+		if state.is_empty():
 			continue
-		if pose.life != bindings[participant].life or pose.collision != 1:
+		if pose.vehicle != entity + 1000 or pose.generation != state.generation:
 			continue
-		if pose.control != bindings[participant].control:
+		if pose.life != state.life or pose.collision != 1:
+			continue
+		if pose.control != state.control:
 			continue
 		if pose.tick <= maxi(int(motion_ticks.get(entity, -1)),
 			int(baseline_ticks.get(entity, -1))):
@@ -474,6 +503,27 @@ func queue_local_input(input_tick: int, command: Dictionary) -> void:
 	queued_command = command.duplicate(true)
 
 
+## Applies a successful host verdict by returning the local body to passive installation.
+func apply_local_exit() -> bool:
+	if authoritative or not bindings.has(participant_id):
+		return false
+
+	var binding: Dictionary = bindings[participant_id]
+	binding.admitted = false
+	seats.erase(participant_id)
+	prediction_history.clear()
+	prediction_ticks.clear()
+	prediction_enabled = false
+	prediction_overflowed = false
+	queued_input_tick = 0
+	queued_command.clear()
+	last_predicted_tick = 0
+	local_body().configure(false)
+	if rig != null:
+		rig.set_meta("input_enabled", false)
+	return true
+
+
 ## Host-validates exit without allowing the predicted client to pre-empt the verdict.
 func request_exit(participant: int) -> String:
 	if not authoritative or not bindings.has(participant) or not bindings[participant].admitted:
@@ -502,6 +552,8 @@ func rollback(participant: int) -> void:
 		var actor: S04Kinematic = body_for_entity[entity]
 		if authoritative and bindings[participant].admitted:
 			coasting_bodies[entity] = actor
+			coasting_states[entity] = bindings[participant].duplicate(true)
+			coasting_states[entity].held = S04DriveRules.neutral()
 		else:
 			actor.retire()
 			body_for_entity.erase(entity)
@@ -520,6 +572,7 @@ func clear() -> void:
 	baseline_ticks.clear()
 	seats.clear()
 	coasting_bodies.clear()
+	coasting_states.clear()
 	prediction_history.clear()
 	prediction_ticks.clear()
 	prediction_enabled = false

@@ -28,10 +28,14 @@ const WALL_END_TICK: int = 720
 const REVERSE_END_TICK: int = 750
 const RESYNC_TICK: int = 1080
 const CAPTURE_EVENTS: int = 4
+const SCENARIO_MEASUREMENT: String = "measurement"
+const SCENARIO_EXIT: String = "stopped-exit"
+const SCENARIO_DISCONNECT: String = "abrupt-disconnect"
 
 var role: String = "host"
 var port: int = 24_900
 var profile: String = "baseline"
+var scenario: String = SCENARIO_MEASUREMENT
 var local_tick: int = 0
 var started_ms: int = -1
 var sequence: int = 0
@@ -45,6 +49,11 @@ var failures: Array[String] = []
 var ending: bool = false
 var exit_verdict: String = ""
 var exit_requested: bool = false
+var lifecycle_stage: int = 0
+var scenario_finished: bool = false
+var coast_start: Vector3 = Vector3.ZERO
+var coast_entity: int = 0
+var coasting_snapshots: int = 0
 
 @onready var session: S03Session = $Session
 @onready var match_state: S04Match = $View/Match
@@ -64,6 +73,8 @@ func _ready() -> void:
 			port = int(argument.trim_prefix("--port="))
 		elif argument.begins_with("--profile="):
 			profile = argument.trim_prefix("--profile=")
+		elif argument.begins_with("--scenario="):
+			scenario = argument.trim_prefix("--scenario=")
 
 	session.match_state = match_state
 	session.replication = replication
@@ -101,6 +112,10 @@ func _physics_process(_delta: float) -> void:  # gdstyle:ignore=quality/max-bran
 		return
 
 	local_tick += 1
+	if scenario != SCENARIO_MEASUREMENT:
+		_lifecycle_process()
+		return
+
 	if role == "host" and profile == "adverse" and local_tick == STALL_TICK:
 		_record({ "event": "stall_begin", "tick": local_tick })
 		OS.delay_msec(STALL_MS)
@@ -128,6 +143,105 @@ func _physics_process(_delta: float) -> void:  # gdstyle:ignore=quality/max-bran
 		ending = true
 		session.leave()
 		_end_after_cleanup()
+
+
+## Runs a bounded two-process exit or abrupt-disconnect lifecycle scenario.
+func _lifecycle_process() -> void:  # gdstyle:ignore=quality/max-branches
+	if role == "host":
+		_observe_lifecycle_host()
+		return
+
+	if scenario == SCENARIO_DISCONNECT:
+		_send_lifecycle_drive(_lifecycle_drive(false))
+		if local_tick >= 60 and match_state.local_body().latest_authoritative_speed_mps >= 4.0:
+			_record({"event": "scenario_result", "scenario": scenario, "ok": true,
+				"speed_mps": match_state.local_body().latest_authoritative_speed_mps})
+			get_tree().quit(0)
+		return
+
+	if lifecycle_stage < 2:
+		_send_lifecycle_drive(_lifecycle_drive(false))
+		if lifecycle_stage == 0 and local_tick >= 30 and (
+			match_state.local_body().latest_authoritative_speed_mps >= 2.5):
+			if replication.request_exit():
+				lifecycle_stage = 1
+		return
+
+	if lifecycle_stage == 2:
+		_send_lifecycle_drive(_lifecycle_drive(true))
+		if match_state.local_body().latest_authoritative_speed_mps < 0.4:
+			if replication.request_exit():
+				lifecycle_stage = 3
+		return
+
+	if lifecycle_stage == 4 and not scenario_finished:
+		var passive: bool = not match_state.prediction_enabled and (
+			not match_state.seats.has(session.local_participant)) and (
+			not match_state.bindings[session.local_participant].admitted) and (
+			not match_state.rig.get_meta("input_enabled", true)) and (
+			not match_state.local_body().simulation_enabled) and (
+			match_state.prediction_ticks.is_empty())
+		_scenario_result(passive, "successful exit did not install passive lifecycle")
+
+
+## Sends one lifecycle command through prediction and the sender-bound host validator.
+func _send_lifecycle_drive(drive: Dictionary) -> void:
+	match_state.queue_local_input(local_tick, drive)
+	if local_tick % INPUT_INTERVAL_TICKS != 0:
+		return
+
+	sequence += 1
+	var envelope: Dictionary = {"context": match_state.context(session.local_participant),
+		"sequence": sequence, "input_tick": local_tick, "move": drive}
+	replication.send_held(envelope)
+
+
+## Accelerates for lifecycle setup or brakes to an authoritative stopped state.
+func _lifecycle_drive(braking: bool) -> Dictionary:
+	var drive: Dictionary = S04DriveRules.neutral()
+	if braking:
+		drive.brake = 1.0
+	else:
+		drive.throttle = 1.0
+	return drive
+
+
+## Verifies host survival and rest after the remote process disappears abruptly.
+func _observe_lifecycle_host() -> void:
+	if session.disconnected_count == 0:
+		return
+	if scenario == SCENARIO_EXIT:
+		_scenario_result(true, "host did not observe stopped-exit client cleanup")
+		return
+	if coast_entity == 0:
+		for entity: int in match_state.body_for_entity:
+			if match_state.participant_for_entity(entity) == 0:
+				coast_entity = entity
+				coast_start = match_state.body_for_entity[entity].global_position
+				break
+	if coast_entity == 0:
+		_scenario_result(false, "disconnect did not retain an unbound car")
+		return
+
+	var actor: S04Kinematic = match_state.body_for_entity[coast_entity]
+	if not match_state.coasting_bodies.has(coast_entity):
+		var coasted: bool = actor.global_position.distance_to(coast_start) > 0.1
+		var parked: bool = actor.velocity.length() < S04Match.PARKED_SPEED_MPS
+		_scenario_result(coasted and parked and coasting_snapshots > 0,
+			"unbound car did not replicate while coasting to rest")
+
+
+## Emits one lifecycle outcome before terminating the isolated process.
+func _scenario_result(ok: bool, failure: String) -> void:
+	if scenario_finished:
+		return
+	scenario_finished = true
+	if not ok:
+		failures.append(failure)
+	_record({"event": "scenario_result", "scenario": scenario,
+		"ok": failures.is_empty(), "failures": failures,
+		"coasting_snapshots": coasting_snapshots})
+	get_tree().quit(0 if failures.is_empty() else 1)
 
 
 ## Applies a fresh binding then sends one sampled held envelope through the common validator.
@@ -206,8 +320,16 @@ func _check_boundaries() -> void:
 	envelope.sequence = binding.sequence + S03Match.SEQUENCE_WINDOW + 1
 	reasons.append(match_state.submit_held(participant, envelope))
 	reasons.append(match_state.submit_held(0, envelope))
-	if reasons != ["INVALID", "STALE_CONTEXT", "WINDOW", "NOT_ADMITTED"] or (
-		binding.pending != before):
+	envelope.context = match_state.context(participant)
+	envelope.sequence = binding.pending + 1
+	envelope.input_tick = binding.pending_input_tick
+	reasons.append(match_state.submit_held(participant, envelope))
+	envelope.input_tick = maxi(1, int(binding.pending_input_tick) - 1)
+	reasons.append(match_state.submit_held(participant, envelope))
+	envelope.input_tick = S04Match.MAX_INPUT_TICK + 1
+	reasons.append(match_state.submit_held(participant, envelope))
+	if reasons != ["INVALID", "STALE_CONTEXT", "WINDOW", "NOT_ADMITTED",
+		"STALE_INPUT_TICK", "STALE_INPUT_TICK", "INVALID"] or binding.pending != before:
 		failures.append("input boundary changed pending state")
 	_record({"event": "boundary_checks", "reasons": reasons,
 		"unchanged_pending": binding.pending == before})
@@ -315,15 +437,20 @@ func _on_step(tick: int) -> void:
 	if role == "host":
 		for entity: int in match_state.body_for_entity:
 			var participant: int = match_state.participant_for_entity(entity)
-			var binding: Dictionary = match_state.bindings[participant]
+			var state: Dictionary = match_state.bindings[participant] if participant > 0 else (
+				match_state.coasting_states[entity] as Dictionary)
 			var actor: S04Kinematic = match_state.body_for_entity[entity]
 			_record({"event": "simulation", "local_tick": local_tick,
 				"pose": match_state.pose_for_entity(entity),
-				"held": binding.held, "receipt_ms": binding.receipt_ms,
-				"decision_age_ms": binding.decision_age_ms,
+				"held": state.held, "receipt_ms": state.receipt_ms,
+				"decision_age_ms": state.get("decision_age_ms", 0),
 				"phase": "post_move_and_slide", "contacts": actor.get_slide_collision_count()})
 
 		if tick % SNAPSHOT_INTERVAL_TICKS == 0:
+			var envelope: Dictionary = replication.movement_envelope(match_state.bindings.keys())
+			if not match_state.coasting_states.is_empty():
+				coasting_snapshots += 1
+				_record({ "event": "coasting_replication", "rows": envelope.rows })
 			for peer_id: int in session.roster:
 				if session.roster[peer_id].phase == "ADMITTED":
 					replication.send_movement(peer_id, match_state.bindings.keys(), tick, 0.0)
@@ -349,12 +476,26 @@ func _on_reconciled(receipt: Dictionary) -> void:
 	_record(receipt)
 
 
-## Keeps the predicted car seated when the host rejects a moving exit.
+## Verifies rejection is unchanged and advances successful lifecycle acceptance.
 func _on_exit_result(reason: String) -> void:
 	exit_verdict = reason
 	_record({"event": "exit_result", "reason": reason,
 		"still_seated": match_state.seats.has(session.local_participant),
 		"prediction_enabled": match_state.prediction_enabled})
+	if scenario != SCENARIO_EXIT:
+		return
+
+	if lifecycle_stage == 1:
+		if reason != "EXIT_MOVING" or not match_state.seats.has(session.local_participant) or (
+			not match_state.prediction_enabled):
+			_scenario_result(false, "moving rejection changed predicted lifecycle")
+			return
+		lifecycle_stage = 2
+	elif lifecycle_stage == 3:
+		if reason != "OK":
+			_scenario_result(false, "stopped exit was not accepted")
+			return
+		lifecycle_stage = 4
 
 
 ## Receipts actual drawn frames independently of simulation and keeps matched camera captures.

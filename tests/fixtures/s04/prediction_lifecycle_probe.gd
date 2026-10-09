@@ -16,6 +16,7 @@ func _initialize() -> void:
 ## Exercises prediction and host lifecycle outcomes through the production fixture APIs.
 func _run() -> void:
 	_prediction_replay()
+	_input_tick_fence()
 	_exit_and_disconnect()
 	print("S04_PREDICTION " + JSON.stringify(
 		{ "ok": failures.is_empty(), "failures": failures }
@@ -57,6 +58,39 @@ func _prediction_replay() -> void:
 	fixture.queue_free()
 
 
+## Rejects equal, lower and extreme input ticks before any held-state mutation.
+func _input_tick_fence() -> void:
+	var fixture: Node = _fixture("InputTick")
+	var match_state: S04Match = fixture.get_node("View/Match")
+	match_state.authoritative = true
+	match_state.session_id = "input-tick-regression"
+	match_state.prepare_initial(1)
+	match_state.admit(1)
+	var neutral: Dictionary = S04DriveRules.neutral()
+	var envelope: Dictionary = {"context": match_state.context(1), "sequence": 1,
+		"input_tick": 10, "move": neutral}
+	_require(match_state.submit_held(1, envelope) == "OK", "initial input tick was rejected")
+	var held_before: Dictionary = match_state.bindings[1].held.duplicate(true)
+	envelope.sequence = 2
+	for rejected_tick: int in [10, 9]:
+		envelope.input_tick = rejected_tick
+		_require(match_state.submit_held(1, envelope) == "STALE_INPUT_TICK",
+			"non-monotonic input tick was accepted")
+	envelope.input_tick = S04Match.MAX_INPUT_TICK + 1
+	_require(match_state.submit_held(1, envelope) == "INVALID", "extreme input tick was accepted")
+	_require(match_state.bindings[1].pending_input_tick == 10 and (
+		match_state.bindings[1].pending == 1) and match_state.bindings[1].held == held_before,
+		"rejected input tick mutated pending intent")
+	match_state.prepare_resync(1)
+	match_state.admit(1)
+	envelope.context = match_state.context(1)
+	envelope.sequence = 1
+	envelope.input_tick = 100
+	_require(match_state.submit_held(1, envelope) == "OK",
+		"new control revision did not accept a fresh monotonic tick")
+	fixture.queue_free()
+
+
 ## Requires host-only moving exit rejection and neutral coasting after driver disconnect.
 func _exit_and_disconnect() -> void:
 	var fixture: Node = _fixture("Lifecycle")
@@ -70,6 +104,7 @@ func _exit_and_disconnect() -> void:
 	var exiting: S04Kinematic = match_state.body_for_entity[2]
 	exiting.velocity = Vector3(0.0, 0.0, -S04Match.EXIT_STOP_SPEED_MPS)
 	_require(match_state.request_exit(2) == "EXIT_MOVING", "moving exit was not rejected")
+	_require(match_state.request_exit(2) == "EXIT_MOVING", "repeated moving exit changed verdict")
 	_require(match_state.seats.has(2) and match_state.bindings[2].admitted,
 		"moving exit changed seat state")
 	exiting.velocity = Vector3(0.0, 0.0, -(S04Match.EXIT_STOP_SPEED_MPS - 0.01))
@@ -83,6 +118,22 @@ func _exit_and_disconnect() -> void:
 	_require(match_state.coasting_bodies.has(1), "disconnect retired car instead of coasting")
 	_require(not match_state.bindings.has(1) and not match_state.seats.has(1),
 		"disconnect retained driver authority")
+	var replication: S04Replication = fixture.get_node("View/Match/Replication")
+	replication.match_state = match_state
+	var rows: Array = replication.movement_envelope(match_state.bindings.keys()).rows
+	var coast_replicated: bool = false
+	for row: Dictionary in rows:
+		if row.entity == 1:
+			coast_replicated = true
+	_require(coast_replicated, "coasting car was omitted from replicated movement")
+	_require(replication._allow_exit_request(7, 1000), "first exit request was rate limited")
+	_require(replication._allow_exit_request(7, 1000), "second exit request was rate limited")
+	_require(not replication._allow_exit_request(7, 1000),
+		"exit request burst was not bounded")
+	replication.forget(7)
+	_require(not replication.exit_rate.has(7), "disconnect retained exit rate state")
+	_require(replication._begin_exit_request() > 0, "first local exit request was not reserved")
+	_require(replication._begin_exit_request() == 0, "second outstanding exit request was accepted")
 	for step: int in COAST_STEPS:
 		match_state._physics_process(DELTA_SECONDS)
 	_require(coasting.global_position.distance_to(start) > 0.1, "disconnected car did not coast")

@@ -38,6 +38,22 @@ class CarMetrics(unittest.TestCase):
         self.assertEqual(result['responses'][0]['physics_ms'], None)
         self.assertEqual(result['physics_response_missing'], 1)
 
+    def test_matching_tick_error_uses_observed_installed_body_position(self):
+        source = {'event': 'simulation', 'time_ms': 100, 'wall_ms': 100,
+                  'local_tick': 10, 'receipt_ms': 90, 'decision_age_ms': 10,
+                  'held': {'throttle': 0.0, 'steer': 0.0, 'brake': 0.0,
+                           'handbrake': False},
+                  'pose': {'entity': 2, 'tick': 10, 'position': [5, 0, 0],
+                           'velocity': [0, 0, 0], 'yaw': 0}}
+        # The wire pose is correct, but this observed body position represents a skipped install.
+        applied = {'event': 'apply', 'entity': 2, 'time_ms': 120, 'wall_ms': 120,
+                   'position': [9, 0, 0], 'yaw': 0,
+                   'pose': {'entity': 2, 'tick': 10, 'position': [5, 0, 0],
+                            'velocity': [0, 0, 0], 'yaw': 0, 'sequence': 1}}
+        result = self.analyze_rows([source], [applied])
+        self.assertEqual(result['matching_tick_samples'], 1)
+        self.assertEqual(result['matching_tick_install_error_max_m'], 4.0)
+
     def test_expiry_neutralizes_intent_without_requiring_parked_velocity(self):
         drive = {'throttle': 1.0, 'steer': 0.0, 'brake': 0.0, 'handbrake': False}
         neutral = dict(drive, throttle=0.0)
