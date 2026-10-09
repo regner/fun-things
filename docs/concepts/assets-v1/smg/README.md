@@ -1,5 +1,7 @@
 # SMG concept selection
 
+Concept images for completed production assets were removed during production cleanup; retrieve them from commit `80d0f24`.
+
 9 October 2026. **Regner selected C — Wedgewire.**
 The [production asset handoff](../../../assets/smg_wedgewire_a.md) records the
 Blender source, imported wrapper and actual Godot camera evidence.
@@ -7,9 +9,9 @@ Open [the review gallery](index.html) or each full sheet:
 
 | Option | Sheet | Main overhead cue | Tradeoff |
 | --- | --- | --- | --- |
-| A — Switchback | [01_switchback.png](01_switchback.png) | Open forked stock and broad coral receiver | Stock gap may close at game scale or disappear over the player |
-| B — Roundabout | [02_roundabout.png](02_roundabout.png) | Broad rounded drum lobes around a narrow roof | Strong comic identity; broad belly may crowd support hand and torso |
-| C — Wedgewire | [03_wedgewire.png](03_wedgewire.png) | Tapered shell with large coral/cyan planes | Strong forward direction; requires held-view check to avoid rifle read |
+| A — Switchback | 01_switchback | Open forked stock and broad coral receiver | Stock gap may close at game scale or disappear over the player |
+| B — Roundabout | 02_roundabout | Broad rounded drum lobes around a narrow roof | Strong comic identity; broad belly may crowd support hand and torso |
+| C — Wedgewire | 03_wedgewire | Tapered shell with large coral/cyan planes | Strong forward direction; requires held-view check to avoid rifle read |
 
 **Recommendation: C — Wedgewire.** Its short muzzle, broad tapered body and large
 roof color regions offer a compact two-hand silhouette without the long cylindrical

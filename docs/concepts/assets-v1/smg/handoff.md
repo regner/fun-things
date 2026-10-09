@@ -92,8 +92,8 @@ preview uses 60 FPS/VSync. No shared service/configuration changes authorized he
 ## Historical production plan from the concept checkpoint
 
 Assign a stable family ID from the selected direction, e.g. `smg_wedgewire_a`.
-Use `art/source/models/weapons_smg/<asset_id>.blend`, collection
-`export_<asset_id>`, explicit `art/models/weapons_smg/<asset_id>.glb` plus import
+Use `art/source/models/weapons/smg_wedgewire/<asset_id>.blend`, collection
+`export_<asset_id>`, explicit `art/models/weapons/smg_wedgewire/<asset_id>.glb` plus import
 metadata, and `scenes/prefabs/weapons_smg/<asset_id>.tscn`. Runtime materials remain
 asset-owned; textures/rig/clips only if the selected brief requires them. The wrapper
 keeps a linked imported `Visuals/Model` and source-relayed socket. Preview/test paths

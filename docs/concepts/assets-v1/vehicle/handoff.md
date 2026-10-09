@@ -46,9 +46,9 @@ for `scenes/entities/vehicle.tscn` or an implicit choice of production body clas
 Regner selected all three: `car_latch_a`, `car_crate_a`, `car_sable_a`.
 Family directory is `city_cars`; check current consumers before creating paths.
 
-- `art/source/models/city_cars/<asset_id>.blend`, collection `export_<asset_id>`;
+- `art/source/models/vehicles/<asset_id>.blend`, collection `export_<asset_id>`;
   preserve the existing source `.gdignore`.
-- `art/models/city_cars/<asset_id>.glb` and Godot `.glb.import`.
+- `art/models/vehicles/<asset_id>.glb` and Godot `.glb.import`.
 - `scenes/prefabs/city_cars/<asset_id>.tscn`, imported `Visuals/Model`, no driving
   controller or gameplay collision authority. Integrator mounts this visual scene
   under its own `PresentationAnchor`.

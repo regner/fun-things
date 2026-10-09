@@ -5,7 +5,7 @@ go all the way to the back of the car. Compare to the concept image.”
 Vehicle lead authored this revision with verified runtime Astra/high, following
 checkpoint documentation commit `f6374662c2b717f7787d5ca038761f30d401ef14`.
 
-The [approved sheet](../../concepts/assets-v1/vehicle/01_latch_compact.png) shows a
+The approved sheet (image retained at commit `80d0f24`) shows a
 front door ending ahead of the rear wheel, with fixed rear-quarter body and glazing.
 The first model incorrectly carried almost the whole cabin side with each door.
 Both sides now split at Blender Y=-0.62 m (Godot Z=+0.62 m):

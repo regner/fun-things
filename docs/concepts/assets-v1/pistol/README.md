@@ -1,5 +1,7 @@
 # Pistol — first concept selection
 
+Concept images for completed production assets were removed during production cleanup; retrieve them from commit `80d0f24`.
+
 9 October 2026. Owner: Codex pistol workstream, Paseo agent
 `04572f3d-e2f3-4779-8e40-03a35caaecd5`, branch `art/brackett-pistol`.
 Baseline: `c030d66d7d0a9db19c0c2aebf1aa2b83eded6275`.
@@ -12,9 +14,9 @@ sheet contains side, top, three-quarter and black silhouette views.
 
 | Option | Direction | Self-review / tradeoff |
 | --- | --- | --- |
-| [A — Coral Stub](01_coral_stub.png) | Soft rectangular coral slide, cream rear patch, dark petrol grip | Recommended: compact familiar pistol shape, broad bright overhead blocks; small cyan patch and side grooves must not carry recognition. |
-| [B — Mint Capsule](02_mint_capsule.png) | Rounded pale mint shell, magenta rear cap, violet frame | Strongest playful consumer-object character and bright overhead contrast; rounder silhouette risks reading as a gadget. |
-| [C — Petrol Wedge](03_petrol_wedge.png) | Tapered petrol shroud, orange rear shoulders, cream frame | Most distinct overhead contour; dark blue forward body risks blending into night streets. |
+| A — Coral Stub | Soft rectangular coral slide, cream rear patch, dark petrol grip | Recommended: compact familiar pistol shape, broad bright overhead blocks; small cyan patch and side grooves must not carry recognition. |
+| B — Mint Capsule | Rounded pale mint shell, magenta rear cap, violet frame | Strongest playful consumer-object character and bright overhead contrast; rounder silhouette risks reading as a gadget. |
+| C — Petrol Wedge | Tapered petrol shroud, orange rear shoulders, cream frame | Most distinct overhead contour; dark blue forward body risks blending into night streets. |
 
 ## Original commission and provenance
 

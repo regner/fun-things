@@ -8,7 +8,7 @@ Status: **reviewable source/import/preview checkpoint; final production art pend
 
 ## Brief and sources
 
-Sable sedan, based on the [approved concept](../concepts/assets-v1/vehicle/03_sable_sedan.png).
+Sable sedan, based on the approved concept (image retained at commit `80d0f24`).
 Smooth chunky original city vehicle, unbranded. Actual closed visual size is
 1.9330 m wide × 1.4400 m high × 4.2820 m long.
 Provisional visual sizing includes tire/hub/light overhang and is not a collider.

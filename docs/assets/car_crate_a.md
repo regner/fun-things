@@ -8,7 +8,7 @@ Status: **reviewable source/import/preview checkpoint; final production art pend
 
 ## Brief and sources
 
-Crate hatch, based on the [approved concept](../concepts/assets-v1/vehicle/02_crate_hatch.png).
+Crate hatch, based on the approved concept (image retained at commit `80d0f24`).
 Smooth chunky original city vehicle, unbranded. Actual closed visual size is
 1.9130 m wide × 1.6500 m high × 3.6820 m long.
 Provisional visual sizing includes tire/hub/light overhang and is not a collider.

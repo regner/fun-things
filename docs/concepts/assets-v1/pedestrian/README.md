@@ -1,5 +1,7 @@
 # First civilian pedestrian concepts
 
+Concept images for completed production assets were removed during production cleanup; retrieve them from commit `80d0f24`.
+
 9 October 2026. **Regner selected C — Off-Shift Worker** and authorised the reusable
 NPC-colour/shared-rig approach. The source is now bound to shared_humanoid/1.0.0,
 with a separate NPC clip library and imported preview. [Production gallery](production.html).
@@ -13,9 +15,9 @@ All names are placeholders; the designs carry no real brands.
 
 | Option | Everyday identity and shape | First-asset tradeoff |
 | --- | --- | --- |
-| [A — Everyday Commuter](a_commuter.png) | Coral short windbreaker, petrol shoulder yoke, dark short hair, small cross-body bag, ivory shoes | Recommended: compact clothing and hands free; broad colour masses suit a reusable first civilian |
-| [B — Corner-Shop Regular](b_shopper.png) | Cobalt mid-thigh coat, silver hair mass, amber sweater, ivory shopping tote | Strong civilian variety; coat deformation and held tote add motion checks |
-| [C — Off-Shift Worker](c_worker.png) | Amber short jacket, cobalt shoulders, petrol cap, broad stocky build | Cap brim helps facing; shoulders must stay distinct from the selected player |
+| A — Everyday Commuter | Coral short windbreaker, petrol shoulder yoke, dark short hair, small cross-body bag, ivory shoes | Recommended: compact clothing and hands free; broad colour masses suit a reusable first civilian |
+| B — Corner-Shop Regular | Cobalt mid-thigh coat, silver hair mass, amber sweater, ivory shopping tote | Strong civilian variety; coat deformation and held tote add motion checks |
+| C — Off-Shift Worker | Amber short jacket, cobalt shoulders, petrol cap, broad stocky build | Cap brim helps facing; shoulders must stay distinct from the selected player |
 
 These were alternative directions for **one** initial asset, not an approved
 three-person production set. The original recommendation was A; the owner selected C.

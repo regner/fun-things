@@ -1,5 +1,7 @@
 # Rocket launcher — concept selection
 
+Concept images for completed production assets were removed during production cleanup; retrieve them from commit `80d0f24`.
+
 9 October 2026. **Regner selected A — Dock Thumper:** “Lets go with A, it provides a
 nice top down silhouette”. Production is authorized. These are original fictional
 game visuals, not production models or functional weapon designs.
@@ -16,9 +18,9 @@ Open [the review gallery](gallery.html) or the individual sheets:
 
 | Option | Sheet | Direction and tradeoff |
 | --- | --- | --- |
-| **A — Dock Thumper (recommended)** | [01_dock_thumper.png](01_dock_thumper.png) | Fat shoulder tube, coral muzzle collar, pale upper stripe. Familiar heavy-weapon silhouette and clear front/back contrast; less eccentric than C. |
-| B — Arcade Pod | [02_arcade_pod.png](02_arcade_pod.png) | Broad rounded rectangular body with cyan roof. Bold color footprint; could read as equipment rather than a launcher when the muzzle is hidden. |
-| C — Coral Bell | [03_coral_bell.png](03_coral_bell.png) | Flared coral muzzle and narrow tube. Strong directional silhouette and playful proportions; the bell risks reading as a horn without the held pose. |
+| **A — Dock Thumper (recommended)** | 01_dock_thumper | Fat shoulder tube, coral muzzle collar, pale upper stripe. Familiar heavy-weapon silhouette and clear front/back contrast; less eccentric than C. |
+| B — Arcade Pod | 02_arcade_pod | Broad rounded rectangular body with cyan roof. Bold color footprint; could read as equipment rather than a launcher when the muzzle is hidden. |
+| C — Coral Bell | 03_coral_bell | Flared coral muzzle and narrow tube. Strong directional silhouette and playful proportions; the bell risks reading as a horn without the held pose. |
 
 Names are working asset labels, not brands or settled world lore. Selection may
 combine a silhouette with another option's palette; the result needs a consistent
@@ -109,9 +111,9 @@ After selection, unique families will be `rocket_launcher` for the launcher and
 rocket source/export, prefab and owned materials. Stable asset IDs will reflect
 the selected silhouette. Planned paths follow [assets](../../../assets.md):
 
-- `art/source/models/rocket_launcher/<selected_asset_id>.blend`
-- `art/models/rocket_launcher/<selected_asset_id>.glb` and `.glb.import`
-- `art/materials/rocket_launcher_<material_id>.tres` when external materials are needed
+- `art/source/models/weapons/dock_thumper/<selected_asset_id>.blend`
+- `art/models/weapons/dock_thumper/<selected_asset_id>.glb` and `.glb.import`
+- `art/materials/weapons/dock_thumper/<material_id>.tres` when external materials are needed
 - `scenes/prefabs/rocket_launcher/<selected_asset_id>.tscn`
 - `scenes/prefabs/rocket_launcher/<selected_rocket_id>.tscn` (visual only)
 - `tests/fixtures/rocket_launcher/preview.tscn`

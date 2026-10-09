@@ -1,5 +1,7 @@
 # First city car — concept selection
 
+Concept images for completed production assets were removed during production cleanup; retrieve them from commit `80d0f24`.
+
 9 October 2026. Vehicle lead: Codex, dedicated `brackett-vehicle` worktree and
 agent `103de18c-e4b8-4daa-83d8-17d3da68128c`. Concept accepting owner: Regner.
 Baseline: `c030d66d7d0a9db19c0c2aebf1aa2b83eded6275`.
@@ -11,11 +13,12 @@ First production modeling checkpoint is now available in the
 [rendered model gallery](../../../assets/vehicle_car_evidence/index.html), with separate
 sources/imports, movable side doors and saved previews. Final art acceptance is pending.
 
-Regner also requested a larger bus and a dock/workshop truck. Their new concept
-sheets are presented in the same gallery; approval of those two is **pending**.
+Regner also requested a larger bus and a dock/workshop truck. Their retained
+[Tandem city bus](04_tandem_city_bus.png) and
+[Keel service truck](05_keel_service_truck.png) concept sheets are **pending** approval.
 See [larger vehicle brief and self-review](larger_vehicles.md).
 
-[Review gallery](review.html) · [Exact imagegen prompts](prompts.json) ·
+[Exact imagegen prompts](prompts.json) ·
 [Scoped handoff and reconciliation delta](handoff.md).
 
 ## Brief and options

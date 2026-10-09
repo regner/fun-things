@@ -10,7 +10,7 @@ performance belong to the external integrator and are not accepted here.
 
 [Review gallery and motion recording](gallery.html) ·
 [Shared binding contract](../shared_humanoid_rig.md) ·
-[approved concept](../../concepts/assets-v1/player-character/01_coral_courier.png)
+approved concept (image retained at commit `80d0f24`)
 
 ## Deliverables and source linkage
 

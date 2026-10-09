@@ -1,5 +1,7 @@
 # Player character — first concept selection
 
+Concept images for completed production assets were removed during production cleanup; retrieve them from commit `80d0f24`.
+
 9 October 2026. **Regner approved A — Coral Courier for production.** Regner also
 confirmed a shared underlying skeleton with separate player/NPC animation libraries,
 and future interchangeable player skins. Production is underway; production model,
@@ -10,9 +12,9 @@ Open [the local gallery](gallery.html) or the three full-resolution sheets:
 
 | Direction | Sheet | Main visual idea | Tradeoff |
 | --- | --- | --- | --- |
-| A — Coral Courier | [image](01_coral_courier.png) | Rounded bomber shoulders, broad ivory yoke, pale forelock, compact street silhouette | Needs simplified sleeves/hair and separation from coral pedestrian outfits |
-| B — Night Shift | [image](02_lime_utility.png) | Sturdy square mass, yellow shoulder blocks, silver head, ordinary municipal workwear | Very bright; could read as a service NPC without other player presentation |
-| C — After Hours | [image](03_violet_hustler.png) | Slim fashion silhouette, angular shoulders, pale back triangle, platform shoes | Dark violet may merge into night streets; shoes and narrow legs need motion checks |
+| A — Coral Courier | historical image | Rounded bomber shoulders, broad ivory yoke, pale forelock, compact street silhouette | Needs simplified sleeves/hair and separation from coral pedestrian outfits |
+| B — Night Shift | historical image | Sturdy square mass, yellow shoulder blocks, silver head, ordinary municipal workwear | Very bright; could read as a service NPC without other player presentation |
+| C — After Hours | historical image | Slim fashion silhouette, angular shoulders, pale back triangle, platform shoes | Dark violet may merge into night streets; shoes and narrow legs need motion checks |
 
 **Selected: A.** Its broad ivory shoulder marker and pale forelock are visible
 above the body, and the short bomber leaves arms and hips available for weapon and
@@ -139,7 +141,7 @@ does not by itself require seat/entry animation production.
 
 After approval, player-specific paths use `player_character/` under source/runtime
 art and asset-local preview areas. Shared ownership is
-`docs/assets/shared_humanoid_rig.md` and `art/source/models/shared_humanoid/`.
+`docs/assets/shared_humanoid_rig.md` and `art/source/models/characters/shared_humanoid/`.
 These production files are owned by player lead; immutable compatibility checkpoints
 will be sent to consumers as they become available.
 

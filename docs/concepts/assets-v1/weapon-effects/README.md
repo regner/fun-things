@@ -1,5 +1,7 @@
 # Weapon effects — concept selection
 
+Concept images for completed production assets were removed during production cleanup; retrieve them from commit `80d0f24`.
+
 9 October 2026. Owned by the weapon effects lead; art selection belongs to Regner.
 Base: `c030d66d7d0a9db19c0c2aebf1aa2b83eded6275`. Concept status:
 **A selected by Regner, 9 October 2026; production in progress**.
@@ -14,9 +16,9 @@ Open [the gallery](gallery.html) to compare the sheets at full resolution.
 
 | Option | Visual language | Self-review / recommendation |
 | --- | --- | --- |
-| [A — Compact combustion](a_compact_combustion.png) | Ivory/amber directional flash, small spark impact, short porous warm trail, coral/orange separated fire lobes and broken slate smoke | Recommended. Closest to the accepted fire language; warm action separates from cyan/magenta street lighting. Keep impact distinctly smaller than explosion. |
-| [B — Neon ion](b_neon_ion.png) | Cyan-white forks and cores, coral/violet petals, broken arc impacts, discrete luminous trail knots | Strong sci-fi alternative; cyan/magenta effects compete with signs and imply energized weapons. This is a proposed style change requiring Regner's selection. |
-| [C — Arcade pop](c_arcade_pop.png) | Rounded butter-yellow pops, orange droplets, scalloped fire petals, tiny pink accents | Strongest irreverent arcade tone; oversized petals could read as flowers. Tighten the centre and shorten the trail if chosen. |
+| A — Compact combustion | Ivory/amber directional flash, small spark impact, short porous warm trail, coral/orange separated fire lobes and broken slate smoke | Recommended. Closest to the accepted fire language; warm action separates from cyan/magenta street lighting. Keep impact distinctly smaller than explosion. |
+| B — Neon ion | Cyan-white forks and cores, coral/violet petals, broken arc impacts, discrete luminous trail knots | Strong sci-fi alternative; cyan/magenta effects compete with signs and imply energized weapons. This is a proposed style change requiring Regner's selection. |
+| C — Arcade pop | Rounded butter-yellow pops, orange droplets, scalloped fire petals, tiny pink accents | Strongest irreverent arcade tone; oversized petals could read as flowers. Tighten the centre and shorten the trail if chosen. |
 
 ## Brief and camera
 
@@ -29,7 +31,7 @@ lighting, chunky silhouettes, warm/cool separation and restrained bloom.
 Target camera: vertical downward perspective, north-up, height 47 m, vertical FOV
 42 degrees, viewport 1280×800. Nominal ground span is approximately 58×36 m at
 ground level. All sheets contain overhead sequences and context studies; the
-[supplementary comparison](camera_comparison.png) keeps approximately matching
+supplementary comparison keeps approximately matching
 street placement across the directions. **These are imagegen illustrations, not
 actual camera renders or measured scale evidence.** The generated insets and
 supplementary panel aspect ratios differ from 16:10, and some visible facades
@@ -87,8 +89,8 @@ may be iterated for project concept work; they do not establish Blender provenan
 or constitute a third-party license. No generated raster is installed as runtime art.
 
 After Regner selects/iterates: author distinct `weapon_effects_*` family sources
-under `art/source/models/weapon_effects/` (committed Blender collections and
-explicit GLBs under `art/models/weapon_effects/`), source textures where needed,
+under `art/source/models/effects/weapon_effects/` (committed Blender collections and
+explicit GLBs under `art/models/effects/weapon_effects/`), source textures where needed,
 local runtime textures/materials, and saved reusable `scenes/effects/weapon_effects_*`
 scenes. Non-mesh flash/smoke may use documented source textures/shaders; all visible
 mesh lobes/sparks/debris need Blender provenance. Decoration has no collision.
