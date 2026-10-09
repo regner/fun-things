@@ -1,0 +1,137 @@
+
+READ-ONLY REVIEW / SCRATCH TEST PROBE independent-pistol-review.py
+from pathlib import Path
+import tempfile, os, subprocess, shutil, re, json, hashlib, struct, socket
+root=Path.cwd(); out=root/'docs/assets/pistol_coral_stub-evidence'; tmp=Path(tempfile.mkdtemp(prefix='independent-pistol-')); print(tmp)
+(out/'independent-context.log').write_text(subprocess.check_output(['git','rev-parse','HEAD']).decode()+subprocess.check_output(['git','merge-base','HEAD','c030d66d7d0a9db19c0c2aebf1aa2b83eded6275']).decode()+'scratch='+str(tmp)+'\n')
+env=os.environ.copy()
+for k in ['XDG_DATA_HOME','XDG_CONFIG_HOME','XDG_CACHE_HOME']:
+ p=tmp/k.lower();p.mkdir();env[k]=str(p)
+for port in range(16780,16785):
+ with socket.socket() as s:s.bind(('127.0.0.1',port))
+env['GODOT_MCP_EDITOR_PORT']='16780';env['GODOT_MCP_RUNTIME_PORT']='16781'
+(tmp/'env.json').write_text(json.dumps(env));(out/'independent-context.log').open('a').write('unused reserved test range checked: 16780-16784; toolkit excluded from test profile\n')
+def run(name,args,cwd=root):
+ with (out/('independent-'+name+'.log')).open('w') as f:
+  f.write('COMMAND '+repr(args)+'\n');f.flush()
+  r=subprocess.run(args,cwd=cwd,env=env,stdout=f,stderr=subprocess.STDOUT,timeout=110)
+  f.write('\nEXIT '+str(r.returncode)+'\n')
+ print(name,r.returncode)
+ return r.returncode
+bl='/usr/bin/blender';god='/home/regner/.local/share/mise/installs/github-godotengine-godot-builds/4.8-dev7/godot';style='/home/regner/.local/share/mise/installs/github-atelico-gdstyle/0.3.0/gdstyle'
+run('blender-freshness',[bl,'--factory-startup','--background','--threads','2','-noaudio',str(root/'art/source/models/pistol_coral_stub/pistol_coral_stub.blend'),'--python-exit-code','1','--python',str(root/'tools/pistol_coral_stub/reexport.py'),'--',str(tmp/'reexport.glb')])
+src=root/'art/models/pistol_coral_stub/pistol_coral_stub.glb';data=src.read_bytes(); glb=json.loads(data[20:20+struct.unpack_from('<I',data,12)[0]])
+report={'byte_identical':data==(tmp/'reexport.glb').read_bytes(),'glb_asset':glb['asset'],'glb_materials':glb['materials'],'nodes':glb['nodes'],'meshes':len(glb['meshes']),'excluded_counts':{k:len(glb.get(k,[])) for k in ['images','textures','skins','animations','cameras','extensionsUsed']},'fingerprints':{p:hashlib.sha256((root/p).read_bytes()).hexdigest()==v for p,v in json.loads((out/'fingerprints.json').read_text()).items()}}
+(out/'independent-glb.json').write_text(json.dumps(report,indent=2)+'\n');print('freshness',report['byte_identical'])
+profile=tmp/'project';profile.mkdir()
+for rel in ['art/models/pistol_coral_stub','scenes/prefabs/pistol_coral_stub','tests/fixtures/pistol_coral_stub','tools/pistol_coral_stub']:
+ shutil.copytree(root/rel,profile/rel)
+for asset in ['s02_actor','s02_ground']:
+ for ext in ['.glb','.glb.import']:
+  dest=profile/('art/models/spikes/'+asset+ext);dest.parent.mkdir(parents=True,exist_ok=True);shutil.copyfile(root/dest.relative_to(profile),dest)
+config=(root/'project.godot').read_text()
+for section in ['autoload','editor_plugins']:
+ config=re.sub(r'(?ms)^\['+section+r'\]\n.*?(?=^\[|\Z)','',config)
+(profile/'project.godot').write_text(config)
+run('import',[god,'--headless','--path',str(profile),'--editor','--import'])
+run('fixture',[god,'--headless','--path',str(profile),'--script','res://tests/fixtures/pistol_coral_stub/check_asset.gd'])
+for name in ['tests/fixtures/pistol_coral_stub/check_asset.gd','tools/pistol_coral_stub/editor_bridge.gd']:
+ run('compile-'+Path(name).stem,[god,'--headless','--path',str(profile),'--check-only','--script','res://'+name])
+run('format',[style,'fmt','--check','tests/fixtures/pistol_coral_stub/check_asset.gd','tools/pistol_coral_stub/editor_bridge.gd'])
+run('lint',[style,'--max-line-length','100','--max-warnings','0','tests/fixtures/pistol_coral_stub/check_asset.gd','tools/pistol_coral_stub/editor_bridge.gd'])
+(out/'independent-context.log').open('a').write('profile='+str(profile)+'\n')
+
+READ-ONLY REVIEW / SCRATCH TEST PROBE independent-pistol-source.py
+import bpy, io_scene_gltf2, json
+from mathutils import Vector
+c=bpy.data.collections['export_pistol_coral_stub']
+result={'blender_version':bpy.app.version_string,'build_hash':bpy.app.build_hash.decode(),'exporter_file':io_scene_gltf2.__file__,'exporter_version':io_scene_gltf2.bl_info['version'],'units':{'system':bpy.context.scene.unit_settings.system,'scale':bpy.context.scene.unit_settings.scale_length},'libraries':[l.filepath for l in bpy.data.libraries],'images':[i.filepath for i in bpy.data.images],'objects':[],'materials':[]}
+for o in sorted(c.all_objects,key=lambda o:o.name):
+ result['objects'].append({'name':o.name,'type':o.type,'parent':o.parent.name if o.parent else None,'location':list(o.location),'rotation':list(o.rotation_euler),'scale':list(o.scale),'determinant':o.matrix_world.determinant(),'modifiers':[m.type for m in o.modifiers],'slots':[m.name for m in o.data.materials] if o.type=='MESH' else [],'faces':len(o.data.polygons) if o.type=='MESH' else 0,'bound_world':[list(o.matrix_world@Vector(v)) for v in o.bound_box] if o.type=='MESH' else None})
+for m in bpy.data.materials:
+ p=next((n for n in m.node_tree.nodes if n.type=='BSDF_PRINCIPLED'),None)
+ result['materials'].append({'name':m.name,'base_color':list(p.inputs['Base Color'].default_value),'metallic':p.inputs['Metallic'].default_value,'roughness':p.inputs['Roughness'].default_value,'emission_strength':p.inputs['Emission Strength'].default_value})
+print('INDEPENDENT_SOURCE '+json.dumps(result,sort_keys=True))
+assert bpy.app.version_string=='5.2.2 LTS' and bpy.app.build_hash==b'd13f752e3b9c'
+assert io_scene_gltf2.bl_info['version']==(5,2,40)
+assert not bpy.data.libraries and not bpy.data.images
+assert bpy.context.scene.unit_settings.system=='METRIC' and bpy.context.scene.unit_settings.scale_length==1
+assert len([o for o in c.all_objects if o.type=='MESH'])==12
+assert len([o for o in c.all_objects if o.type=='EMPTY'])==2
+for o in c.all_objects:
+ assert all(abs(v)<1e-6 for v in o.rotation_euler),o.name
+ assert all(abs(v-1)<1e-6 for v in o.scale),o.name
+ assert not o.modifiers and not o.animation_data,o.name
+print('INDEPENDENT_SOURCE_CHECK passed')
+
+READ-ONLY REVIEW / SCRATCH TEST PROBE independent-pistol-extra.py
+import json,subprocess
+from pathlib import Path
+root=Path.cwd();out=root/'docs/assets/pistol_coral_stub-evidence';tmp=Path('/tmp/independent-pistol-sln9t31p');env=json.loads((tmp/'env.json').read_text())
+args=['/usr/bin/blender','--factory-startup','--background','--threads','2','-noaudio',str(root/'art/source/models/pistol_coral_stub/pistol_coral_stub.blend'),'--python-exit-code','1','--python','/tmp/independent-pistol-source.py']
+with (out/'independent-source.log').open('w') as f:
+ f.write('COMMAND '+repr(args)+'\n');f.flush();r=subprocess.run(args,env=env,stdout=f,stderr=subprocess.STDOUT,timeout=60);f.write('\nEXIT '+str(r.returncode)+'\n')
+print('source',r.returncode)
+profile=tmp/'project';persist=[]
+for rel in ['scenes/prefabs/pistol_coral_stub','art/models/pistol_coral_stub','tests/fixtures/pistol_coral_stub','tools/pistol_coral_stub']:
+ for p in (root/rel).rglob('*'):
+  if p.is_file() and p.suffix in ['.tscn','.tres','.uid','.import']:
+   assert p.read_bytes()==(profile/p.relative_to(root)).read_bytes(),p
+   persist.append(str(p.relative_to(root)))
+(out/'independent-persisted.log').write_text('Clean import preserved bytes for:\n'+'\n'.join(persist)+'\nPASS\n')
+
+READ-ONLY REVIEW / SCRATCH TEST PROBE independent-pistol-final-checks.py
+import json,struct,math,hashlib,re,subprocess
+from pathlib import Path
+root=Path.cwd();out=root/'docs/assets/pistol_coral_stub-evidence';tmp=Path('/tmp/independent-pistol-sln9t31p');profile=tmp/'project';env=json.loads((tmp/'env.json').read_text())
+p=profile/'project.godot';s=p.read_text();s=re.sub(r'(?m)^run/main_scene=.*$', 'run/main_scene="res://scenes/prefabs/pistol_coral_stub/preview.tscn"',s);p.write_text(s)
+args=['/home/regner/.local/share/mise/installs/github-godotengine-godot-builds/4.8-dev7/godot','--headless','--path',str(profile),'--editor','--import']
+with (out/'independent-import-final.log').open('w') as f:
+ f.write('COMMAND '+repr(args)+'\nprofile main_scene changed only in scratch to owned preview; first import omitted original main-scene dependency\n');f.flush();r=subprocess.run(args,env=env,stdout=f,stderr=subprocess.STDOUT,timeout=60);f.write('\nEXIT '+str(r.returncode)+'\n')
+assert r.returncode==0
+assert not re.search(r'(?m)^(ERROR:|SCRIPT ERROR:|WARNING:)',(out/'independent-import-final.log').read_text())
+results={}
+concepts=root/'docs/concepts/assets-v1/pistol';meta=json.loads((concepts/'provenance.json').read_text())
+for c in meta['concepts']:
+ data=(concepts/c['file']).read_bytes();assert hashlib.sha256(data).hexdigest()==c['sha256'];assert list(struct.unpack_from('>II',data,16))==c['dimensions_px']
+results['concept_hashes_and_png_dimensions']='pass'
+b=(root/'art/models/pistol_coral_stub/pistol_coral_stub.glb').read_bytes();size=struct.unpack_from('<I',b,12)[0];g=json.loads(b[20:20+size]);binary=b[28+size:]
+def accessor(idx):
+ a=g['accessors'][idx];v=g['bufferViews'][a['bufferView']];n={'SCALAR':1,'VEC3':3,'VEC2':2}[a['type']];fmt={5126:'f',5123:'H',5125:'I'}[a['componentType']];width=struct.calcsize('<'+fmt*n);stride=v.get('byteStride',width);offset=v.get('byteOffset',0)+a.get('byteOffset',0)
+ return [struct.unpack_from('<'+fmt*n,binary,offset+i*stride) for i in range(a['count'])]
+tri=0;normals=0
+for m in g['meshes']:
+ for p in m['primitives']:
+  assert p.get('mode',4)==4
+  pos=accessor(p['attributes']['POSITION']);ns=accessor(p['attributes']['NORMAL']);indices=accessor(p['indices']);assert len(pos)==len(ns)
+  assert all(all(math.isfinite(x) for x in v) for v in pos+ns)
+  assert all(abs(sum(x*x for x in v)-1)<.001 for v in ns)
+  assert len(indices)%3==0 and all(0<=v[0]<len(pos) for v in indices)
+  tri+=len(indices)//3;normals+=len(ns)
+assert tri==2424
+results['glb_accessors']={'triangles':tri,'finite_unit_normals':normals,'indices':'in range'}
+assert all('uri' not in x for x in g['buffers']);assert not any(g.get(k) for k in ['skins','animations','images','textures','cameras','extensionsUsed'])
+results['glb_external_buffers_and_unwanted_content']='absent'
+manifest=json.loads((root/'tools/pistol_coral_stub/manifest.json').read_text());source=json.loads(next(l.split('INDEPENDENT_SOURCE ',1)[1] for l in (out/'independent-source.log').read_text().splitlines() if l.startswith('INDEPENDENT_SOURCE ')))
+assert sorted(o['name'] for o in source['objects'])==manifest['members'];assert sorted(n['name'] for n in g['nodes'])==manifest['members']
+assert sorted(m['name'] for m in g['materials'])==sorted(manifest['materials'])
+for name,expected in manifest['sockets_godot_m'].items():
+ o=next(o for o in source['objects'] if o['name']==name);x,y,z=o['location'];assert max(abs(a-b) for a,b in zip((x,z,-y),expected))<1e-6
+ n=next(n for n in g['nodes'] if n['name']==name);assert max(abs(a-b) for a,b in zip(n.get('translation',[0,0,0]),expected))<1e-6
+results['source_glb_members_material_names_and_marker_axis_conversion']='pass'
+import sys
+sys.path.insert(0,str(root/'tools'))
+from check import owned_files
+ids={}
+for p in owned_files(root):
+ if any(t in p.parts for t in ['.git','.godot','.tools','.venv','addons']) or p.suffix not in ['.tscn','.tres','.import','.uid']:continue
+ text=p.read_text();uid=text.strip() if p.suffix=='.uid' else next(iter(re.findall(r'(?:^uid=|^\[gd_.*?uid=)"(uid://[^"]+)"',text,re.M)),None)
+ if uid:
+  assert uid not in ids,(uid,p,ids.get(uid));ids[uid]=str(p.relative_to(root))
+results['owned_uid_uniqueness']='pass; '+str(len(ids))+' identities'
+results['source_gdignore']=(root/'art/source/.gdignore').is_file();assert results['source_gdignore']
+for p in (root/'scenes/prefabs/pistol_coral_stub').glob('*'):
+ text=p.read_text();assert not re.search(r'(ArrayMesh|CSG|script\s*=|Collision|AnimationPlayer|GPUParticles|CPUParticles|editable)',text),p
+results['saved_pistol_scenes']='linked instances; no copied/generated meshes, scripts, collision, animation, particles or editable imported children'
+(out/'independent-integrity.log').write_text(json.dumps(results,indent=2)+'\nPASS\n')
+print(json.dumps(results,indent=2))

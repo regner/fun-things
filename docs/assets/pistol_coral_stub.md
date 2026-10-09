@@ -19,7 +19,9 @@ Pistol lead owns source/export, local materials, wrapper, preview and checks. Re
 concept selection. Player lead owns shared humanoid rig, holding poses and hand offsets;
 effects lead owns the flash/VFX. An external integrator owns gameplay/world use, collision,
 authoritative muzzle queries, firing/damage/ammo, networking and production-player fit.
-Shared planning/catalogue/TODO files remain untouched. Independent review receipt follows.
+Shared planning/catalogue/TODO files remain untouched. The
+[independent review](pistol_coral_stub-evidence/independent-review.md) accepts this
+scoped static visual asset delivery with no actionable findings.
 
 Owner routing update, 9 October 2026, applies prospectively: modeling/animation,
 geometry, UV/skin deformation, spatial rig/rest/bone design, keyframes/poses/motion
@@ -182,10 +184,15 @@ remain pending with their respective owners.
 | Concept | accepted by Regner, 9 October | A selected; exact original prompt/selection retained |
 | Source/export/import | checked, asset-local technical scope | committed source, explicit output, freshness, clean profile and measurements |
 | Prefab/preview | checked, asset-local presentation scope | linked import, sockets, save/reopen, actual graphical views |
-| Independent production handoff review | pending | clean-context Sol6.1 review of immutable candidate will be appended |
+| Independent production handoff review | accepted, scoped static visual delivery | clean-context Sol6.1 medium reviewer `01e2af3f-334d-4831-9b95-7cf2e9031dc0`, candidate `b8363f55a6cfe8ab6cf02b1458a3d193629de59b`, base `c030d66d7d0a9db19c0c2aebf1aa2b83eded6275`; no actionable findings; [full receipt](pistol_coral_stub-evidence/independent-review.md) |
 | Production-player/world/gameplay acceptance | pending, external integrator/player/effects | no completed gameplay/network/device claim |
 
 Catalogue delta for later shared-file owner: add `pistol_coral_stub` → this handoff.
-TODO delta: concept selection is complete; record source/export/static wrapper/preview
-delivery when independent review completes. Keep player grip/holding and gameplay/world/
+TODO delta: concept selection and scoped source/export/static wrapper/preview delivery
+are complete, with independent review accepted. Keep player grip/holding and gameplay/world/
 effects/device integration tasks open. No unrelated foundation TODO is resolved.
+
+The final receipt commit adds review evidence and updates handoff status only; source,
+GLB, import metadata, scripts and saved scenes remain byte-identical to the independently
+reviewed candidate. Both bounded graphical preview processes exited successfully.
+The worktree-private editor retains the saved close-up preview for owner inspection.

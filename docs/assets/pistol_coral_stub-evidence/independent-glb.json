@@ -1,0 +1,207 @@
+{
+  "byte_identical": true,
+  "glb_asset": {
+    "generator": "Khronos glTF Blender I/O v5.2.40",
+    "version": "2.0"
+  },
+  "glb_materials": [
+    {
+      "doubleSided": true,
+      "name": "petrol_frame",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.009721217676997185,
+          0.023153366521000862,
+          0.03560131415724754,
+          1
+        ],
+        "metallicFactor": 0.15000000596046448,
+        "roughnessFactor": 0.6499999761581421
+      }
+    },
+    {
+      "doubleSided": true,
+      "name": "coral_shell",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          1,
+          0.16202937066555023,
+          0.12477181851863861,
+          1
+        ],
+        "metallicFactor": 0.10000000149011612,
+        "roughnessFactor": 0.5600000023841858
+      }
+    },
+    {
+      "doubleSided": true,
+      "name": "cream_rear",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.9215818643569946,
+          0.8307698965072632,
+          0.6444796919822693,
+          1
+        ],
+        "metallicFactor": 0,
+        "roughnessFactor": 0.6600000262260437
+      }
+    },
+    {
+      "doubleSided": true,
+      "name": "dark_grip",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.006512090563774109,
+          0.009721217676997185,
+          0.014443843625485897,
+          1
+        ],
+        "metallicFactor": 0,
+        "roughnessFactor": 0.8500000238418579
+      }
+    },
+    {
+      "doubleSided": true,
+      "name": "muzzle_dark",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.002428215928375721,
+          0.004024717025458813,
+          0.006048833020031452,
+          1
+        ],
+        "metallicFactor": 0,
+        "roughnessFactor": 0.949999988079071
+      }
+    },
+    {
+      "doubleSided": true,
+      "name": "cyan_status",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.04373503103852272,
+          0.7529422044754028,
+          0.8148465752601624,
+          1
+        ],
+        "metallicFactor": 0,
+        "roughnessFactor": 0.550000011920929
+      }
+    }
+  ],
+  "nodes": [
+    {
+      "mesh": 0,
+      "name": "AngledGrip"
+    },
+    {
+      "mesh": 1,
+      "name": "CoralSlide",
+      "translation": [
+        0,
+        0.12800000607967377,
+        -0.2224999964237213
+      ]
+    },
+    {
+      "mesh": 2,
+      "name": "CreamRearCap",
+      "translation": [
+        0,
+        0.12950000166893005,
+        0.009999999776482582
+      ]
+    },
+    {
+      "mesh": 3,
+      "name": "FrontSight",
+      "translation": [
+        0,
+        0.19050000607967377,
+        -0.35100001096725464
+      ]
+    },
+    {
+      "mesh": 4,
+      "name": "GripInsert"
+    },
+    {
+      "mesh": 5,
+      "name": "LowerFrame",
+      "translation": [
+        0,
+        0.039500001817941666,
+        -0.18250000476837158
+      ]
+    },
+    {
+      "mesh": 6,
+      "name": "MuzzleAperture"
+    },
+    {
+      "mesh": 7,
+      "name": "MuzzleCollar",
+      "translation": [
+        0,
+        0.12200000137090683,
+        -0.4009999930858612
+      ]
+    },
+    {
+      "mesh": 8,
+      "name": "RearSight",
+      "translation": [
+        0,
+        0.19300000369548798,
+        0.02199999988079071
+      ]
+    },
+    {
+      "name": "socket_grip"
+    },
+    {
+      "name": "socket_muzzle",
+      "translation": [
+        0,
+        0.12200000137090683,
+        -0.42100000381469727
+      ]
+    },
+    {
+      "mesh": 9,
+      "name": "TopStatusInsert",
+      "translation": [
+        0,
+        0.18400000035762787,
+        -0.02500000037252903
+      ]
+    },
+    {
+      "mesh": 10,
+      "name": "TriggerGuard"
+    },
+    {
+      "mesh": 11,
+      "name": "TriggerVisual"
+    }
+  ],
+  "meshes": 12,
+  "excluded_counts": {
+    "images": 0,
+    "textures": 0,
+    "skins": 0,
+    "animations": 0,
+    "cameras": 0,
+    "extensionsUsed": 0
+  },
+  "fingerprints": {
+    "art/source/models/pistol_coral_stub/pistol_coral_stub.blend": true,
+    "art/models/pistol_coral_stub/pistol_coral_stub.glb": true,
+    "art/models/pistol_coral_stub/pistol_coral_stub.glb.import": true,
+    "scenes/prefabs/pistol_coral_stub/pistol_coral_stub.tscn": true,
+    "scenes/prefabs/pistol_coral_stub/preview.tscn": true,
+    "scenes/prefabs/pistol_coral_stub/preview_game_camera.tscn": true,
+    "scenes/prefabs/pistol_coral_stub/preview_environment.tres": true
+  }
+}

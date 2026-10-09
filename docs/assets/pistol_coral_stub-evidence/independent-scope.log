@@ -1,0 +1,56 @@
+COMMAND ['git', 'rev-parse', 'HEAD']
+b8363f55a6cfe8ab6cf02b1458a3d193629de59b
+EXIT 0
+COMMAND ['git', 'merge-base', 'HEAD', 'c030d66d7d0a9db19c0c2aebf1aa2b83eded6275']
+c030d66d7d0a9db19c0c2aebf1aa2b83eded6275
+EXIT 0
+COMMAND ['git', 'log', '--oneline', 'c030d66d7d0a9db19c0c2aebf1aa2b83eded6275..HEAD']
+b8363f5 Record owner Astra routing and verified pistol runtime
+117316a Produce source-linked Coral Stub pistol and saved Godot previews
+89455f9 Record confirmed pistol muzzle effects contract
+088e000 Add three original pistol concepts and scoped selection handoff
+EXIT 0
+COMMAND ['git', 'diff', '--name-only', 'c030d66d7d0a9db19c0c2aebf1aa2b83eded6275', 'HEAD']
+art/models/pistol_coral_stub/pistol_coral_stub.glb
+art/models/pistol_coral_stub/pistol_coral_stub.glb.import
+art/source/models/pistol_coral_stub/pistol_coral_stub.blend
+docs/assets/pistol_coral_stub-evidence/.gdignore
+docs/assets/pistol_coral_stub-evidence/blender-aperture.log
+docs/assets/pistol_coral_stub-evidence/blender-author.log
+docs/assets/pistol_coral_stub-evidence/blender-export-final.log
+docs/assets/pistol_coral_stub-evidence/blender-freshness.log
+docs/assets/pistol_coral_stub-evidence/capture-camera-final.jsonl
+docs/assets/pistol_coral_stub-evidence/capture-close-final.jsonl
+docs/assets/pistol_coral_stub-evidence/clean-check-final.log
+docs/assets/pistol_coral_stub-evidence/clean-import-final.log
+docs/assets/pistol_coral_stub-evidence/close.png
+docs/assets/pistol_coral_stub-evidence/editor-prefab.jsonl
+docs/assets/pistol_coral_stub-evidence/editor-previews.jsonl
+docs/assets/pistol_coral_stub-evidence/editor-refresh-final.jsonl
+docs/assets/pistol_coral_stub-evidence/editor-style-fix.jsonl
+docs/assets/pistol_coral_stub-evidence/fingerprints.json
+docs/assets/pistol_coral_stub-evidence/game_camera.png
+docs/assets/pistol_coral_stub-evidence/preview-camera-final.log
+docs/assets/pistol_coral_stub-evidence/preview-close-final.log
+docs/assets/pistol_coral_stub.md
+docs/concepts/assets-v1/pistol/.gdignore
+docs/concepts/assets-v1/pistol/01_coral_stub.png
+docs/concepts/assets-v1/pistol/02_mint_capsule.png
+docs/concepts/assets-v1/pistol/03_petrol_wedge.png
+docs/concepts/assets-v1/pistol/README.md
+docs/concepts/assets-v1/pistol/provenance.json
+docs/concepts/assets-v1/pistol/review.html
+scenes/prefabs/pistol_coral_stub/pistol_coral_stub.tscn
+scenes/prefabs/pistol_coral_stub/preview.tscn
+scenes/prefabs/pistol_coral_stub/preview_environment.tres
+scenes/prefabs/pistol_coral_stub/preview_game_camera.tscn
+tests/fixtures/pistol_coral_stub/check_asset.gd
+tests/fixtures/pistol_coral_stub/check_asset.gd.uid
+tools/pistol_coral_stub/author.py
+tools/pistol_coral_stub/editor_bridge.gd
+tools/pistol_coral_stub/editor_bridge.gd.uid
+tools/pistol_coral_stub/manifest.json
+tools/pistol_coral_stub/reexport.py
+EXIT 0
+COMMAND ['git', 'diff', '--check']
+EXIT 0

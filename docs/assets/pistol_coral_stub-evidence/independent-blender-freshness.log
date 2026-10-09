@@ -1,0 +1,37 @@
+COMMAND ['/usr/bin/blender', '--factory-startup', '--background', '--threads', '2', '-noaudio', '/home/regner/.paseo/worktrees/0u71f39f/brackett-pistol/art/source/models/pistol_coral_stub/pistol_coral_stub.blend', '--python-exit-code', '1', '--python', '/home/regner/.paseo/worktrees/0u71f39f/brackett-pistol/tools/pistol_coral_stub/reexport.py', '--', '/tmp/independent-pistol-sln9t31p/reexport.glb']
+00:00.306  blend            | Read blend: "/home/regner/.paseo/worktrees/0u71f39f/brackett-pistol/art/source/models/pistol_coral_stub/pistol_coral_stub.blend"
+INFO Draco is available, use library at /usr/lib/blender/5.2/scripts/addons_core/io_scene_gltf2/libbf_intern_draco_bridge.so
+ERROR MeshOptimizer is not available because library could not be found at /usr/lib/blender/5.2/scripts/addons_core/io_scene_gltf2/libbf_intern_meshopt_bridge.so
+13:43:01 | INFO: Starting glTF 2.0 export
+13:43:01 | INFO: Extracting primitive: AngledGrip_mesh
+13:43:01 | INFO: Primitives created: 1
+13:43:01 | INFO: Extracting primitive: Cube
+13:43:01 | INFO: Primitives created: 1
+13:43:01 | INFO: Extracting primitive: Cube.001
+13:43:01 | INFO: Primitives created: 1
+13:43:01 | INFO: Extracting primitive: Cube.005
+13:43:01 | INFO: Primitives created: 1
+13:43:01 | INFO: Extracting primitive: GripInsert_mesh
+13:43:01 | INFO: Primitives created: 1
+13:43:01 | INFO: Extracting primitive: Cube.002
+13:43:01 | INFO: Primitives created: 1
+13:43:01 | INFO: Extracting primitive: MuzzleAperture_mesh
+13:43:01 | INFO: Primitives created: 1
+13:43:01 | INFO: Extracting primitive: Cube.003
+13:43:01 | INFO: Primitives created: 1
+13:43:01 | INFO: Extracting primitive: Cube.004
+13:43:01 | INFO: Primitives created: 1
+13:43:01 | INFO: Extracting primitive: Cube.006
+13:43:01 | INFO: Primitives created: 1
+13:43:01 | INFO: Extracting primitive: TriggerGuard_mesh
+13:43:01 | INFO: Primitives created: 1
+13:43:01 | INFO: Extracting primitive: TriggerVisual_mesh
+13:43:01 | INFO: Primitives created: 1
+13:43:01 | INFO: Finished glTF 2.0 export in 0.026657581329345703 s
+
+PISTOL_EXPORT 5.2.2 LTS b'd13f752e3b9c' /tmp/independent-pistol-sln9t31p/reexport.glb
+Blender 5.2.2 LTS (hash d13f752e3b9c built 2026-09-22 17:10:25)
+
+Blender quit
+
+EXIT 0
