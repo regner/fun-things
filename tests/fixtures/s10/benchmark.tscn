@@ -1,9 +1,9 @@
-[gd_scene load_steps=9 format=3]
+[gd_scene format=3 uid="uid://5qfnvv68hkb6"]
 
-[ext_resource type="Script" path="res://tests/fixtures/s06/city.gd" id="1_city"]
-[ext_resource type="PackedScene" path="res://tests/fixtures/s06/west.tscn" id="2_west"]
-[ext_resource type="PackedScene" path="res://tests/fixtures/s06/east.tscn" id="3_east"]
-[ext_resource type="Resource" path="res://tests/fixtures/s06/derived.tres" id="4_derived"]
+[ext_resource type="Script" uid="uid://b6ev1pqwuqjql" path="res://tests/fixtures/s06/city.gd" id="1_city"]
+[ext_resource type="PackedScene" uid="uid://b243gxu4qpp0a" path="res://tests/fixtures/s06/west.tscn" id="2_west"]
+[ext_resource type="PackedScene" uid="uid://chhg1wj1jcwpu" path="res://tests/fixtures/s06/east.tscn" id="3_east"]
+[ext_resource type="Resource" uid="uid://dt54nay70c1tr" path="res://tests/fixtures/s06/derived.tres" id="4_derived"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_car"]
 size = Vector3(1.8, 1.5, 3.4)
