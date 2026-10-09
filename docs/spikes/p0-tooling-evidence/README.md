@@ -18,6 +18,10 @@ correctness checks, not timing measurements.
 
 Commands:
 
+**9 October 2026 supplement:** the `git check-ignore` invocation below is a historical
+receipt. Owner decision 17 removed both `addons/godotsteam/` and its `~lib*` ignore rule,
+so this invocation is no longer expected to pass on the current tree.
+
 ```sh
 timeout 300s python tools/script_checks.py \
   --output C:/tmp/ft/lanes/p0-tooling/script-checks-pre

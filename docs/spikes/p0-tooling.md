@@ -20,6 +20,10 @@ every discovered owned script, and discovers Python tests in tool subdirectories
   test command is `python -m unittest discover -s tools -p "*test*.py"`.
 - GodotSteam `~lib*` generated import artifacts below `addons/godotsteam/` are ignored.
 
+**9 October 2026 supplement:** the preceding ignore behavior is historical. Owner
+decision 17 removed the GodotSteam addon and its `~lib*` ignore rule, so that check is
+no longer expected to pass on the current tree.
+
 These repository-tool and documentation edits were made directly because no Godot MCP
 editor was running. No saved scene hierarchy or serialized identity changed.
 
