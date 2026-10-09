@@ -744,9 +744,11 @@ step and pistol-ray probe. It selects no prediction/network/combat API. Candidat
 values are 5/3 m/s forward/reverse, 180°/s turn, capsule radius0.38 m/height1.8 m,
 World bit1 and Actor bit2. The query checks body centre to source-derived muzzle
 before the forward ray, so an extended weapon cannot shoot through world collision.
-Input cancellation is owned by LocalRig/Input; actual native-focus validation and
-user feel remain pending. Rendering cutaway never changes solid collision. Under owner
-decision 14 these are M1 production acceptance inputs, not P0 prerequisites or accepted tuning.
+Input cancellation is owned by LocalRig/Input. Owner decision 25 records the bounded S02
+physical controls/readability and Alt-Tab native-focus owner play test as passing. Drawable
+S03-R remote continuity and later production playtests remain open. Rendering cutaway never
+changes solid collision. Under owner decision 14 the remaining production acceptance work is
+not a P0 prerequisite or accepted tuning.
 
 ## S03-R bounded ENet candidate boundary
 
@@ -802,8 +804,9 @@ reservations/4 drops and hidden visuals. They do not measure eight actual effect
 real draw cost or sustained capacity. Full S05 source-linked drawable saturation,
 Regner provisional blast/obstruction/falloff/delay/order/occupant/wreck ratification
 and post-final-S02/S04-dimension spacing/contact reruns remain required. M1-B1/B2/B3/
-B4/D and S07 retain production lifecycle/journal/reset/load/feedback; every Steam/
-Deck/input/feel/P0/M1/production gate remains open.
+B4/D and S07 retain production lifecycle/journal/reset/load/feedback. Steam, Deck, P0, M1
+and production gates remain open; input/feel checks beyond decision 25's bounded S02 pass
+also remain open.
 
 ## Accepted partial S06 executable topology boundary
 

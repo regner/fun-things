@@ -35,8 +35,9 @@ adjustable during M1. Accordingly:
   policy, while drawable smoothness acceptance remains production work.
 - S03-L retains a provisional 350 ms p95 contended Windows authoritative-loop allowance.
 - Linux graphical/runtime confirmation remains unperformed; Steam Deck remains later.
-- Physical Alt-Tab, walking/aim feel, vehicle handling, audio listening and visual reviews remain
-  valuable production acceptance/tuning work, but are not P0-GATE prerequisites under decision 14.
+- Decision 25 closes the bounded S02 physical controls/readability and Alt-Tab native-focus owner
+  checklist. S03-R drawable remote continuity plus later production playtests, vehicle handling,
+  audio listening and other visual reviews remain M1 work, not P0-GATE prerequisites.
 
 ## Quiet re-measurement — completed S17-only scope
 
@@ -66,9 +67,9 @@ All timing values explicitly marked **contended** are upper bounds from a shared
 | --- | --- | --- | --- | --- |
 | S01 | Complete, bounded | [Asset workflow](../spikes/s01.md): explicit Blender→GLB links, wrapper variants and byte-identical re-export | Production art, direct imported-child overrides and throughput remain outside the proof | n/a |
 | S01-W | Complete | [Windows supplement](../spikes/s01-w.md): both GLBs byte-identical; Blender 5.2.2 / exporter 5.2.40 | Recheck after tool/source changes | n/a |
-| S02 | Automated implementation complete; human check open | [Controls](../spikes/s02-controls.md): 5 m/s normalized WASD, mouse yaw, left-click fire, 42°/47 m camera, no cutaway | Physical Alt-Tab, aim/control feel, roof and weapon readability | n/a |
+| S02 | Complete; bounded owner play test passed | [Controls](../spikes/s02-controls.md): 5 m/s normalized WASD, mouse yaw, left-click fire, 42°/47 m camera, no cutaway; decision 25 passes physical controls/readability and Alt-Tab native focus | Later production playtests remain M1 work | n/a |
 | S03 | Complete, bounded | [Session proof](../spikes/s03.md): ENet admission, handoff, freshness and cleanup; ENet bandwidth workaround retained | Production Session/Replication and full baseline still M1 work | n/a |
-| S03-R | Technical response/expiry complete; feel open | [Response record](../spikes/s03-r.md) plus [S03-L](../spikes/s03-l.md): exact decision-age expiry fix passes | Physical feel and remote continuity; old pre-fix response values are historical | see S03-L |
+| S03-R | Technical response/expiry complete; remote review open | [Response record](../spikes/s03-r.md) plus [S03-L](../spikes/s03-l.md): exact decision-age expiry fix passes | Drawable remote continuity and later production playtests; old pre-fix response values are historical | see S03-L |
 | S03-L | Diagnostic complete | Corrected passing direct loopback 317 ms p95; provisional **350 ms p95 allowance**, all contended | Linux comparison and production tuning | Not rerun; contended retained by decision 13 |
 | S03-P | Complete, bounded; M1 queue contract accepted | [Foot prediction](../spikes/s03-prediction.md): predicted p95 19–29 ms physics, 39 ms drawn; correction p95 ≤0.25 m in selected runs, contended | Production moving-body contacts, lifecycle and queue acceptance tests | Not rerun; contended retained by decision 13 |
 | S03-S | Documentation review complete | [Abstraction review](../spikes/s03-s-abstraction-review.md): ENet-first provider/stream/lifecycle seam | Future Steam adapter has no runtime evidence by design | n/a |
@@ -126,7 +127,7 @@ All timing values explicitly marked **contended** are upper bounds from a shared
 
 ## Owner decisions recorded
 
-The owner recorded decisions 13–24 on 9 October 2026:
+The owner recorded decisions 13–25 on 9 October 2026:
 
 - **Decision 13 — measurement scope and principle:** S17 is the only quiet rerun. Other spike
   timings remain labelled contended. Foundation establishes concepts and high-level limits; M1
@@ -180,14 +181,21 @@ The owner recorded decisions 13–24 on 9 October 2026:
   with the authored 1.5 m offset and still requires production clearance queries.
 - **Decision 24 — world concepts:** M1-C0 is in progress under a separate owner-run agent using the
   [world concept handover](../workflows/world-concept-handover.md). It is outside this orchestration;
-  the owner will report when its work is integrated. The image-provider question is withdrawn.
+  the owner will report when its work is integrated. Its image-provider/concept-method question
+  belongs to that owner-run work, not to this orchestration.
+- **Decision 25 — S02 owner play test:** the Windows laptop physical mouse/keyboard test passed
+  screen-relative WASD and equal-speed diagonals, moving/stationary mouse facing, wall-blocked and
+  post-corner shots, no-cutaway readability, and Alt-Tab native-focus neutralization until a fresh
+  press. This closes only the bounded S02 human controls/readability/native-focus checklist;
+  drawable S03-R remote continuity and later production playtests remain open.
 
 ## Owner decisions still open
 
 These remaining choices belong to their named production consumer; they are not extra foundation
 or quiet-pass prerequisites under decision 14. An explicit deferral should still name its consumer
-or accepted risk. M1-C0 is not an open decision: it is in progress outside this orchestration, and
-its image-provider question is withdrawn under decision 24.
+or accepted risk. M1-C0 is not an open decision: it is in progress outside this orchestration. Its
+image-provider/concept-method question belongs to the owner-run work under decision 24 and is not an
+orchestrator decision.
 
 1. **S04 handling (entry policy settled):** provide drive-scene feedback and an F12 value set.
    **Recommendation:** run the saved harness before freezing B1.1 body/tuning; do not promote
@@ -210,18 +218,6 @@ its image-provider question is withdrawn under decision 24.
 
 Use the pinned Godot `4.8.dev7.official.c971f93e7`. These are future owner/reviewer runs;
 none was performed while drafting this packet.
-
-### Physical controls, focus and camera
-
-```sh
-mise exec -- godot --path . res://tests/fixtures/s02/corner.tscn
-```
-
-At 1280×800: walk W and W+D through the four-metre passage; move the mouse independently of
-travel; fire before/after rounding the corner; back away while aiming elsewhere; compare roof and
-weapon readability. Then hold movement and left mouse, physically Alt-Tab, release both outside
-Godot and return. Require neutral movement/fire until a fresh press. Record confusion, misses,
-follow comfort, roof obstruction and pistol/SMG/launcher readability.
 
 ### Vehicle handling
 
@@ -255,8 +251,8 @@ synthetic noise is uncomfortable.
   or reject the proposed tiers.
 - M1-C0 world concepts are in progress under a separate owner-run agent using the
   [world concept handover](../workflows/world-concept-handover.md). The owner will report when that
-  work is integrated; this orchestration must not dispatch it or reopen the withdrawn image-provider
-  question.
+  work is integrated; this orchestration must not dispatch it or decide its
+  image-provider/concept method.
 - On Linux, follow the exact five-step checklist in [S08-X](../spikes/s08-x.md#linux-desktop-launch-checklist)
   and retain Vulkan window/focus/log evidence. This is not a Deck substitute.
 

@@ -584,7 +584,7 @@ Remaining production reviews are assigned to their consumers rather than P0 prer
 ## 7. Historical suggested task-record reconciliation
 
 The bullets below preserve this plan's original 8 October reconciliation proposal. They are
-historical: current `TODO.md`, task requirements and owner decisions 13–24 supersede them.
+historical: current `TODO.md`, task requirements and owner decisions 13–25 supersede them.
 
 - **P0-GATE:** record the owner's answer on restoring S02/prediction and audit-derived
   dependencies; add P0-TOOLING, S03-L, S08-X, S08-C, S01-W, S03-P, S04-P, S04-T and

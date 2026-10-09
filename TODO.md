@@ -10,9 +10,9 @@ follow-ups remain in the M1 requirements rather than reopening the spikes.
 
 - [ ] **P0-PROFILES — Review the retained Paseo profiles task later.** Non-blocking;
   configuration remains deferred and outside P0-GATE.
-- [ ] **S02/S03-R — Complete physical Alt-Tab, control/aim/remote-continuity and feel
-  review.** World-relative controls, prediction and exact adverse expiry are implemented;
-  use the packet's human instructions.
+- [ ] **S03-R — Complete drawable remote-continuity review and later production
+  playtests.** Decision 25 closes the S02 physical controls, readability and native-focus
+  checklist; prediction and exact adverse expiry are implemented.
 - [ ] **S04 — Ratify handling through the standalone drive scene.** Record the F12 tuning
   JSON and maneuver-specific feedback before M1-B1 freezes handling.
 - [ ] **S05 — Carry remaining wreck, in-flight hydration, lifecycle-race and final-body
@@ -22,7 +22,7 @@ follow-ups remain in the M1 requirements rather than reopening the spikes.
 - [ ] **S08 — Run the Linux desktop launch/graphics checklist when a Linux machine is
   available.** This does not block proceeding; keep the ENet workaround and offline review.
 - [ ] **P0-GATE — Review the refreshed packet and record the gate disposition.** The
-  S17-only quiet record and owner decisions 13–24 are integrated in the
+  S17-only quiet record and owner decisions 13–25 are integrated in the
   [review packet](docs/reviews/p0-gate-packet-2026-10-09.md). Under decision 14, the
   remaining human checks and production decisions are not extra foundation prerequisites;
   Linux-only S08 confirmation and P0-PROFILES remain non-blocking.
@@ -59,7 +59,8 @@ All M1 tasks follow P0-GATE.
 - [ ] **M1-C0 — Complete the separately owned staged world concept work** in
   [the world concept handover](docs/workflows/world-concept-handover.md). It is in progress under
   an owner-run agent outside this orchestration; the owner will report when it is integrated.
-  The image-provider question is withdrawn.
+  Its image-provider/concept-method question belongs to that owner-run work under decision 24,
+  not to this orchestration.
 - [ ] **M1-C1 — Produce the ratified custom art families.** After: P0-GATE and the
   M1-C0 production asset list.
 - [ ] **M1-C2 — Assemble the authored district in saved sectors.**

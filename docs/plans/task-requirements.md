@@ -10,11 +10,12 @@ qualification and enough outcome detail for dispatch.
 and the audit-derived tasks in
 [section 4 of the readiness audit](../reviews/p0-readiness-audit-2026-10-08.md).
 Most quantitative criteria are planning proposals derived from current product budgets and
-remain tunable during M1. Owner decisions 13–24 ratify the desktop frame target, narrow
+remain tunable during M1. Owner decisions 13–25 ratify the desktop frame target, narrow
 P0-GATE to the S17-only quiet result plus the refreshed gate packet, select the first
 hit-registration policy and combat starting values, accept the S03-P M1 input-queue
 contract, set the initial S11 remote extrapolation policy and S17 soft total budget, choose
-host-confirmed M1 car entry and assign world concepts to a separate owner-run agent.
+host-confirmed M1 car entry, assign world concepts to a separate owner-run agent and close the
+bounded S02 physical controls/readability/native-focus owner checklist.
 
 - **P0-TOOLING:** Completed. The [baseline repair](../spikes/p0-tooling.md) made the
   canonical script check green, established complete Python discovery, selected the
@@ -29,15 +30,15 @@ host-confirmed M1 car entry and assign world concepts to a separate owner-run ag
   LTS / glTF exporter 5.2.40 and reproduced both committed S01 GLBs byte-for-byte.
 - **S02:** The [implemented controls](../spikes/s02-controls.md) use the ratified 47 m,
   north-up 42° camera, normalized 5 m/s world-relative WASD, mouse-ground facing,
-  left-click fire and no cutaway. Physical Alt-Tab, control/aim feel and roof/weapon
-  readability remain human checks in the [gate packet](../reviews/p0-gate-packet-2026-10-09.md).
+  left-click fire and no cutaway. Decision 25 records the physical controls/readability and
+  Alt-Tab native-focus owner play test as passing. Later production playtests remain M1 work.
 - **S03-S:** Completed as an abstraction review. The
   [ENet-first result](../spikes/s03-s-abstraction-review.md) specifies provider IDs,
   optional directories, opaque connection generations, four logical streams and safe
   close/reuse. Actual Steam implementation/testing remains deferred beyond M1.
 - **S03-R:** Technical response and expiry work is complete. [S03-L](../spikes/s03-l.md)
   applies exact decision-age telemetry and a fresh adverse run passes the unchanged 250 ms
-  rule. Physical feel and drawable remote continuity remain human/production checks.
+  rule. Drawable remote continuity and later production playtests remain open.
 - **S03-L:** Completed diagnosis. Corrected passing evidence still shows a contended
   direct-loopback p95 of 317 ms, so prediction/S12 carry a provisional 350 ms p95 Windows
   authoritative-loop allowance until production Windows and later Linux evidence replace it.
@@ -178,7 +179,8 @@ Completed discovery reconciliation: [P0-DOC14 record](../reviews/p0-doc14.md).
   walk/shoot/drive/chain slice for duplicate feedback, aim/map readability and cost.
 - **M1-C0:** World concepts are in progress under a separate owner-run agent using the
   [world concept handover](../workflows/world-concept-handover.md), outside this orchestration.
-  The owner will report when the work is integrated; the image-provider question is withdrawn.
+  The owner will report when the work is integrated. Its image-provider/concept-method question
+  belongs to that owner-run work under decision 24, not to this orchestration.
 - **M1-C1:** After the owner reports M1-C0 integrated and approves its production asset list,
   produce ratified buildings, roads/props, character rigs, cars/wrecks, weapons and VFX.
   Preserve Blender-linked sources, catalogue/ancestry and reexport/reload.

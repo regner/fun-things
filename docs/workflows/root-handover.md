@@ -33,21 +33,23 @@ No particular agent platform or delegation tool is required to read it.
 - The [8 October owner decisions](../reviews/owner-decisions-2026-10-08.md) govern controls,
   prediction, vehicles, explosion presentation, UI, environment scaling, initial ENet
   scope, desktop targets, engine pin, profiles and the completeness tasks authorized by
-  instruction 12. Decisions 13–24, recorded in the gate packet, restrict quiet reruns to
+  instruction 12. Decisions 13–25, recorded in the gate packet, restrict quiet reruns to
   S17, make S10/S17 the first production acceptance work, set capped 60 FPS with
   p95 ≤16.7 ms / p99 ≤20 ms, define dead-driver coast-to-abandoned behavior, remove
   GodotSteam (executed by `660b4fd`/`7351f3b`), select host-current-time hit verdicts with
   view-tick-ready fire intents, accept S12's M1 combat starting values, accept S03-P's
   ordered bounded M1 input queue, set S11's initial short extrapolate→hold→smooth-authority
   policy, make S17's ~4 ms total host p95 a soft tracked target with no subsystem gates,
-  choose host-confirmed M1 car entry with acceptance-only ownership transfer, and assign M1-C0
-  world concepts to a separate owner-run agent. The
+  choose host-confirmed M1 car entry with acceptance-only ownership transfer, assign M1-C0
+  world concepts to a separate owner-run agent, and close the bounded S02 physical
+  controls/readability/native-focus owner checklist. The
   [P0 audit](../reviews/p0-readiness-audit-2026-10-08.md) supplies historical gap rationale;
   the packet records the current integrated disposition.
 - World concept work is in progress outside this orchestration under a separate owner-run agent;
   use the [world concept handover](world-concept-handover.md). The owner will report when it is
-  integrated, and the image-provider question is withdrawn. Do not dispatch M1-C0 or start M1-C1
-  before that report; do not authorize production scenes or later concept stages before owner approval.
+  integrated. Its image-provider/concept-method question belongs to that owner-run work under
+  decision 24 and is not an orchestrator decision. Do not dispatch M1-C0 or start M1-C1 before
+  that report; do not authorize production scenes or later concept stages before owner approval.
 - Do not push. Parent orchestration owns lane review, integration and cleanup.
 
 On adoption, inspect Git status, HEAD, worktrees and operation markers. Preserve any
@@ -117,7 +119,7 @@ fixture, performance, hardware or graphical claim.
 ## Current lane order — refreshed 9 October 2026
 
 The earlier foundation queue is complete and historical. The S17-only quiet measurement and
-owner decisions 13–24 are reconciled in the packet. Review it and record the P0-GATE
+owner decisions 13–25 are reconciled in the packet. Review it and record the P0-GATE
 disposition; do not begin M1 merely because the executable foundation lanes integrated.
 Under decision 14, the remaining human reviews and open production choices are not additional
 foundation prerequisites. If P0-GATE passes, begin with S10 behavior/budget and S17 production
@@ -200,7 +202,8 @@ no identical retry. This is not a demonstrated native bind or rendering fault.
 
 Stopped S02 drawability observation produced 2112×1320, not required 1280×800;
 native focus was false and input suspended. Full positive criteria FAILED. No usable
-physical-input/focus/scanout route was established for automated work. Resume stopped
+physical-input/focus/scanout route was established for automated work. That historical automation
+failure does not contradict decision 25's later passing physical owner play test. Resume stopped
 experiments only with changed conditions and explicit authority.
 
 ### S07
@@ -225,9 +228,11 @@ diversity, final envelopes and budgets require the user's decisions. None was ch
 - Steam public API/interface and upstream research are accepted; actual Steam
   testing, native integration, external route/accounts and device acceptance are
   deferred. Lobby or ENet proof is not actual Steam gameplay proof.
-- S02/S04 camera/control/feel/final dimensions and S05 policy choices still need user
-  review. Driver death is decided: coast under neutral input, then leave an abandoned parked
-  car. Representative production budgets and Windows/Linux target-device proof are absent.
+- Decision 25 closes the bounded S02 physical controls/readability/native-focus owner checklist.
+  S03-R drawable remote continuity, later production playtests, S04 camera/control/feel/final
+  dimensions and S05 policy choices remain open. Driver death is decided: coast under neutral
+  input, then leave an abandoned parked car. Representative production budgets and Windows/Linux
+  target-device proof are absent.
 - **P0-GATE remains OPEN. M1 is not authorized to start.**
 - Configuration changes and tool setup remain outside this handover's authority.
   No vendor repair, renderer/pin/transport choice, device/account acquisition or
