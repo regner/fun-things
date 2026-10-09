@@ -21,7 +21,9 @@ import time
 
 ROOT = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(ROOT / "tools"))
+from incremental_log import prefixed_json_records  # noqa: E402
 from script_checks import DIAGNOSTIC, PIN, environment  # noqa: E402
+from window_safety import capped_window_arguments, require_capped_window  # noqa: E402
 
 SCENE = "res://tests/fixtures/s05_draw/burst.tscn"
 FIXTURES = ["s02", "s03", "s04", "s05", "s05_effect", "s05_draw"]
@@ -30,6 +32,7 @@ IMPORT_SECONDS = 120
 SET_SECONDS = 45.0
 CLEANUP_SECONDS = 2.0
 WINDOW_X = {"host": 0, "client": 640, "late": 1280}
+LOG_STATE = {}
 
 
 def identity(path):
@@ -67,19 +70,8 @@ def stage(output):
 
 
 def rows(path):
-    """Decode complete S05 rows only."""
-    if not path.exists():
-        return []
-    text = path.read_text(errors="replace")
-    end = text.rfind("\n") + 1
-    found = []
-    for line in text[:end].splitlines():
-        if line.startswith("S05 "):
-            try:
-                found.append(json.loads(line[4:]))
-            except json.JSONDecodeError:
-                found.append({"event": "unparsed"})
-    return found
+    """Decode only newly appended complete S05 rows and retain prior observations."""
+    return prefixed_json_records(path, b"S05 ", LOG_STATE)
 
 
 def cleanup(children, deadline):
@@ -108,6 +100,7 @@ def main():
     parser.add_argument("--godot", default=shutil.which("godot"))
     parser.add_argument("--output", type=Path)
     args = parser.parse_args()
+    LOG_STATE.clear()
     if args.godot is None:
         parser.error("godot not found on PATH; pass --godot")
     output = (args.output or Path(tempfile.mkdtemp(prefix="s05-draw-win-"))).resolve()
@@ -153,9 +146,11 @@ def main():
         def start(role):
             folder = output / role
             folder.mkdir()
-            command = [args.godot, "--path", str(project), "--windowed", "--position",
-                       f"{WINDOW_X[role]},40", "--log-file", str(folder / "engine.log"), SCENE,
-                       "--", f"--role={role}", f"--port={port}"]
+            command = [args.godot, "--path", str(project), "--windowed",
+                       *capped_window_arguments(), "--position", f"{WINDOW_X[role]},40",
+                       "--log-file", str(folder / "engine.log"), SCENE, "--",
+                       f"--role={role}", f"--port={port}"]
+            require_capped_window(command)
             out, err = (folder / "stdout").open("wb"), (folder / "stderr").open("wb")
             streams.extend([out, err])
             child = subprocess.Popen(command, cwd=project, stdout=out, stderr=err,

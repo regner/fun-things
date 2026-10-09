@@ -14,6 +14,7 @@ import subprocess
 import tempfile
 import time
 
+from measurement_identity import measurement_identity
 from script_checks import (ROOT, DIAGNOSTIC, checked_command, compile_all,
                            engine_version, environment)
 
@@ -23,6 +24,8 @@ MAX_DATAGRAM = 65535
 MOVEMENT_CHANNEL = 4  # Godot's two reserved ENet channels + application channel 3 - 1.
 COMMAND_SIZES = {1: 8, 2: 48, 3: 44, 4: 8, 5: 4, 6: 6, 7: 8,
                  8: 24, 9: 8, 10: 12, 11: 16, 12: 24}
+MEASUREMENT_SOURCES = ["tools/run_s03.py", "tools/measurement_identity.py",
+                       "tools/script_checks.py", "tests/fixtures/s03"]
 
 
 def movement_datagram(data):
@@ -145,7 +148,8 @@ def stage_fixture(directory):
     return project
 
 
-def run(args, directory):
+def run(args, directory, identity):
+    """Execute one bounded proof using the identity captured before any engine work."""
     started = time.monotonic()
     version = engine_version(args.godot)
     project = stage_fixture(directory)
@@ -229,7 +233,9 @@ def run(args, directory):
             raise RuntimeError(f"native movement fault schedule incomplete: {proxy.events}")
         if results["host"]["user_dir"] == results["client"]["user_dir"]:
             raise RuntimeError("process user directories overlap")
-        return {"ok": True, "engine": version, "commands": commands, "results": results,
+        return {"ok": True, "engine": version,
+                "measurement_identity": identity,
+                "commands": commands, "results": results,
                 "ready": readiness, "proxy": proxy.events, "proxy_resets": proxy.resets,
                 "ports": {"host": args.port, "proxy": args.proxy_port},
                 "platform": platform.platform(), "duration_seconds": time.monotonic() - started,
@@ -268,13 +274,16 @@ def main():
     print(f"S03 evidence: {directory}", flush=True)
     def interrupted(_signal, _frame):
         raise KeyboardInterrupt
+    identity = measurement_identity(
+        ROOT, MEASUREMENT_SOURCES, {**vars(args), "output": directory})
     previous_handler = signal.signal(signal.SIGTERM, interrupted)
     try:
-        result = run(args, directory)
+        result = run(args, directory, identity)
     except (OSError, RuntimeError, subprocess.SubprocessError) as error:
-        result = {"ok": False, "failure": str(error)}
+        result = {"ok": False, "failure": str(error), "measurement_identity": identity}
     except KeyboardInterrupt:
-        result = {"ok": False, "failure": "runner interrupted; own children stopped"}
+        result = {"ok": False, "failure": "runner interrupted; own children stopped",
+                  "measurement_identity": identity}
     finally:
         signal.signal(signal.SIGTERM, previous_handler)
     (directory / "result.json").write_text(json.dumps(result, indent=2) + "\n")

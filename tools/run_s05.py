@@ -11,9 +11,12 @@ import subprocess
 import tempfile
 import time
 
+from incremental_log import prefixed_json_records
 from run_s03 import stop_children
 from run_s04 import stage as stage_dependencies
 from script_checks import ROOT, DIAGNOSTIC, checked_command, engine_version, environment
+
+LOG_STATE = {}
 
 
 def stage(directory):
@@ -25,8 +28,8 @@ def stage(directory):
 
 
 def records(path):
-    return [json.loads(line[4:]) for line in path.read_text().splitlines()
-            if line.startswith('S05 ')]
+    """Read only complete appended S05 rows and retain prior records per log."""
+    return prefixed_json_records(path, b"S05 ", LOG_STATE)
 
 
 def inspect_logs(directory, roles):
@@ -123,6 +126,7 @@ def main():
     parser.add_argument('--api-only', action='store_true')
     parser.add_argument('--queue-only', action='store_true')
     args = parser.parse_args()
+    LOG_STATE.clear()
     if not 1 <= args.port <= 65534 or not 1 <= args.deadline <= 30:
         parser.error('port 1..65534 and deadline 1..30 seconds required')
     directory = (args.output or Path(tempfile.mkdtemp(prefix='s05-'))).resolve()

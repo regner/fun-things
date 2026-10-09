@@ -3,9 +3,13 @@ import argparse
 import json
 from pathlib import Path
 import shutil
+import sys
 import time
 
 from support import ROOT, ENGINE, command, environment, identity, save, stage, verify_engine
+
+sys.path.insert(0, str(ROOT / "tools"))
+from measurement_identity import measurement_identity  # noqa: E402
 
 
 
@@ -37,6 +41,11 @@ def main():
     save(output / 'budget.json', ledger)
     phase = output / f'{args.phase}-{ledger[args.phase]}'
     phase.mkdir()
+    staged_sources = list(json.loads((output / 'staged-inputs.json').read_text()))
+    sources = ['tools/s07_driver/run.py', 'tools/s07_driver/support.py',
+               'tools/measurement_identity.py', *staged_sources]
+    save(phase / 'measurement-identity.json', measurement_identity(
+        ROOT, sources, {**vars(args), 'output': output}))
     env = environment(phase / 'private')
     cap = {'import': 90, 'development': 120, 'sustained': 660}[args.phase]
     started = time.monotonic()

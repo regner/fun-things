@@ -15,13 +15,16 @@ import time
 
 ROOT = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(ROOT / "tools"))
+from measurement_identity import measurement_identity  # noqa: E402
 from script_checks import DIAGNOSTIC, PIN, environment  # noqa: E402
+from window_safety import capped_window_arguments, require_capped_window  # noqa: E402
 
 FIXTURE = ROOT / "tests/fixtures/s13"
 MODEL = ROOT / "art/models/characters"
 MATERIAL_NAMES = ["s13_ivory.tres", "s13_coral.tres", "s13_cobalt.tres"]
 SCENE = "res://tests/fixtures/s13/crowd.tscn"
 CLEANUP_SECONDS = 5
+QUIET_SETTLE_SECONDS = 1.0
 
 
 def save(path, value):
@@ -51,7 +54,7 @@ def distribution(values):
 
 
 def system_load():
-    """Sample concurrent Godot processes and Windows CPU load immediately before a case."""
+    """Sample Godot processes and Windows CPU load only after a measured case exits."""
     godot_count = None
     tasklist_error = None
     try:
@@ -71,11 +74,18 @@ def system_load():
     except (OSError, ValueError, subprocess.SubprocessError) as error:
         cpu_error = repr(error)
     return {
-        "concurrent_godot_processes_before_start": godot_count,
-        "cpu_load_percent_before_start": cpu_percent,
+        "godot_processes_after_case": godot_count,
+        "cpu_load_percent_after_case": cpu_percent,
         "tasklist_error": tasklist_error,
         "cpu_error": cpu_error,
     }
+
+
+def identity_sources():
+    """Return measurement owner, helper, and staged fixture/model input paths."""
+    return ["tools/s13/run.py", "tools/measurement_identity.py", "tools/window_safety.py",
+            "tools/script_checks.py", "tests/fixtures/s13", "art/models/characters",
+            *(f"art/materials/{name}" for name in MATERIAL_NAMES), "project.godot"]
 
 
 def stage(output):
@@ -135,9 +145,10 @@ def run_case(args, project, output, group, mode, repeat):
     if group == "headless":
         command.append("--headless")
     else:
-        command.extend(["--windowed", "--resolution", "1280x800"])
+        command.extend(["--windowed", *capped_window_arguments(),
+                        "--resolution", "1280x800"])
+        require_capped_window(command)
     command.append(SCENE)
-    load = system_load()
     deadline_seconds = args.warmup + args.duration + 45
     with (folder / "stdout.log").open("wb") as stdout, (folder / "stderr.log").open("wb") as stderr:
         child = subprocess.Popen(command, cwd=project, env=child_environment,
@@ -148,6 +159,8 @@ def run_case(args, project, output, group, mode, repeat):
         except subprocess.TimeoutExpired:
             timed_out = True
             stop(child)
+    load = system_load()
+    time.sleep(QUIET_SETTLE_SECONDS)
     diagnostics = read_diagnostics(folder)
     telemetry = json.loads(result_path.read_text()) if result_path.exists() else None
     record = {
@@ -257,6 +270,8 @@ def main():
         "duration_seconds": args.duration,
         "repeats": args.repeats,
         "groups": args.groups,
+        "measurement_identity": measurement_identity(
+            ROOT, identity_sources(), {**vars(args), "output": output}),
         "cases": [],
     }
     if version != PIN:

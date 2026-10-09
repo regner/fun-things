@@ -22,7 +22,9 @@ import time
 
 ROOT = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(ROOT / "tools"))
+from measurement_identity import measurement_identity  # noqa: E402
 from script_checks import DIAGNOSTIC, PIN, environment  # noqa: E402
+from window_safety import capped_window_arguments, require_capped_window  # noqa: E402
 
 VARIANTS = [6, 24, 96, 192, 288, 384]
 FIELDS = [
@@ -79,6 +81,18 @@ class Memory(ctypes.Structure):
         ("PagefileUsage", ctypes.c_size_t),
         ("PeakPagefileUsage", ctypes.c_size_t),
     ]
+
+
+def identity_sources(variants):
+    """Return measurement owner, helpers, and exact staged-input source paths."""
+    sources = ["tools/s07_env/run.py", "tools/measurement_identity.py",
+               "tools/window_safety.py", "tools/script_checks.py", "project.godot",
+               *FIXTURE_FILES]
+    sources.extend(f"tests/fixtures/s07_env/city_{variant}.tscn" for variant in variants)
+    for model_name in MODEL_NAMES:
+        sources.extend([f"art/models/spikes/{model_name}",
+                        f"art/models/spikes/{model_name}.import"])
+    return sources
 
 
 def save(path, value):
@@ -205,6 +219,7 @@ def run_case(args, project, output, variant, repeat):
         "--path",
         str(project),
         "--windowed",
+        *capped_window_arguments(),
         "--resolution",
         "1280x800",
         "--log-file",
@@ -214,6 +229,7 @@ def run_case(args, project, output, variant, repeat):
         "--",
         scene,
     ]
+    require_capped_window(argv)
     deadline = time.monotonic() + args.warmup + args.duration + CASE_SLACK_SECONDS
     memory = []
     with (folder / "stdout.log").open("wb") as stdout, (
@@ -326,6 +342,8 @@ def main():
         "warmup_s": args.warmup,
         "repeats": args.repeats,
         "variants_requested": args.variants,
+        "measurement_identity": measurement_identity(
+            ROOT, identity_sources(args.variants), {**vars(args), "output": output}),
         "cases": [],
     }
     if version != PIN:

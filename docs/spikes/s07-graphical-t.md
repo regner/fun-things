@@ -92,8 +92,10 @@ The retained 30 s smoke case at the same revision reports measured mean 978.576 
 and render GPU p95 0.173 ms before the failures. Whether the trigger is the laptop
 driver/thermal limits under high uncapped load or a Godot D3D12 defect is unknown.
 Uncapped headroom on this machine is therefore **not measured**. The card's single
-controlled rerun is spent, and a further attempt needs a changed condition (another
-GPU or driver, Vulkan, or an FPS ceiling above 60 such as 240).
+controlled rerun is spent. As of the runner-safety follow-up, uncapped mode is withdrawn:
+the runner and fixture accept only an explicit 60 FPS cap because uncapped execution caused
+`DXGI_ERROR_DEVICE_REMOVED` on this laptop. Historical failure evidence above is retained;
+any future higher-cap experiment requires a separately reviewed changed condition.
 
 ## Scope
 

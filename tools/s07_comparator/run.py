@@ -14,6 +14,7 @@ import time
 ROOT = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(ROOT / "tools"))
 from script_checks import DIAGNOSTIC, PIN, environment  # noqa: E402
+from window_safety import capped_window_arguments, require_capped_window  # noqa: E402
 
 FIXTURES = ["s02", "s03", "s04", "s05", "s05_effect", "s05_draw", "s07_comparator"]
 MODELS = ["s02_*.*", "s04_*.*", "s05_*.*"]
@@ -201,7 +202,8 @@ def main():
         argv = [args.godot, "--path", str(project),
                 "--windowed" if args.windowed else "--headless"]
         if args.windowed:
-            argv.extend(["--resolution", "1280x800"])
+            argv.extend([*capped_window_arguments(), "--resolution", "1280x800"])
+            require_capped_window(argv)
         argv.extend(["--log-file", str(folder / "engine.log"), "--script", SCRIPT, "--",
                      f"--trials={args.trials}", f"--initial-delay={args.initial_delay}",
                      f"--spacing={args.spacing}"])

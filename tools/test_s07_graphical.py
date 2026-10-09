@@ -22,10 +22,22 @@ class GraphicalRunnerChecks(unittest.TestCase):
         ) as check:
             self.assertEqual(RUNNER.dirty_inputs(), "M project.godot")
         check.assert_called_once_with(
-            ["git", "status", "--porcelain", "--", "tests", "art", "project.godot"],
+            ["git", "status", "--porcelain", "--", "tests", "art", "project.godot",
+             "tools/s07_graphical"],
             cwd=RUNNER.ROOT,
             text=True,
         )
+
+    def test_runner_exposes_only_capped_mode(self):
+        """Keep the withdrawn uncapped mode out of defaults and command construction."""
+        source = (ROOT / "tools/s07_graphical/run.py").read_text()
+        fixture = (ROOT / "tests/fixtures/s07_graphical/run.gd").read_text()
+        self.assertIn('choices=["capped60"]', source)
+        self.assertNotIn('choices=["uncapped", "capped60"]', source)
+        self.assertIn("*capped_window_arguments()", source)
+        self.assertIn("Engine.max_fps = CAPPED_FPS", fixture)
+        self.assertIn('push_error("S07 graphical requires capped60 mode")', fixture)
+        self.assertNotIn("Engine.max_fps = 0", fixture)
 
 
 if __name__ == "__main__":

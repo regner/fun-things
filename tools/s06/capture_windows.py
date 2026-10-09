@@ -15,6 +15,7 @@ import tempfile
 ROOT = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(ROOT / "tools"))
 from script_checks import DIAGNOSTIC, PIN, environment  # noqa: E402
+from window_safety import capped_window_arguments, require_capped_window  # noqa: E402
 
 FIXTURES = ["s02", "s03", "s04", "s06"]
 MODELS = ["s02_*", "s04_*", "s06_*"]
@@ -79,10 +80,12 @@ def run_observer(godot, output, project, label, scene):
     """Launch one owned windowed child and stop only that child if its budget expires."""
     folder = output / label
     folder.mkdir()
-    command = [godot, "--path", str(project), "--windowed", "--resolution", "1280x800",
-               "--position", "40,40", "--log-file", str(folder / "engine.log"),
-               "--script", "res://tools/s06/capture_observer.gd", "--",
-               f"--scene={scene}", f"--label={label}", f"--output={folder}"]
+    command = [godot, "--path", str(project), "--windowed", *capped_window_arguments(),
+               "--resolution", "1280x800", "--position", "40,40", "--log-file",
+               str(folder / "engine.log"), "--script",
+               "res://tools/s06/capture_observer.gd", "--", f"--scene={scene}",
+               f"--label={label}", f"--output={folder}"]
+    require_capped_window(command)
     record = {"argv": command, "cleanup": []}
     with (folder / "stdout.log").open("wb") as stdout, (
             folder / "stderr.log").open("wb") as stderr:

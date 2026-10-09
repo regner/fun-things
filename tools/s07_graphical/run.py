@@ -2,8 +2,9 @@
 """Graphical T runs: the accepted S07 sustained driver plus per-frame telemetry, windowed.
 
 Stages the saved S02/S03/S04/S06/S07 fixtures and models into a fresh external project,
-imports once, then runs each requested case (uncapped/capped60 x repeats) sequentially with
-one bounded deadline per case. Samples OS resident memory of the owned child on Windows.
+imports once, then runs capped60 repeats sequentially with one bounded deadline per case.
+The former uncapped mode is withdrawn after retained DXGI device-removal failures on this laptop.
+Samples OS resident memory of the owned child on Windows.
 Records frame-interval, render CPU/GPU, process/physics, draw-call, primitive, object and
 video-memory percentiles separately for warmup and measured time. See
 docs/spikes/s07-graphical-t.md.
@@ -25,7 +26,10 @@ import time
 
 ROOT = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(ROOT / "tools"))
+from measurement_identity import measurement_identity  # noqa: E402
 from script_checks import DIAGNOSTIC, PIN, environment  # noqa: E402
+from window_safety import (capped_window_arguments, require_capped_modes,
+                           require_capped_window)  # noqa: E402
 
 FIXTURES = ["s02", "s03", "s04", "s06", "s07_driver", "s07_graphical"]
 MODELS = ["s02_*", "s04_*", "s06_*"]
@@ -34,7 +38,7 @@ FIELDS = ["elapsed_s", "frame_interval_ms", "render_cpu_ms", "render_gpu_ms", "p
           "physics_ms", "draw_calls", "primitives", "objects", "video_mem_bytes"]
 CLEANUP_SECONDS = 5
 CASE_SLACK_SECONDS = 90
-STAGED_INPUTS = ["tests", "art", "project.godot"]
+STAGED_INPUTS = ["tests", "art", "project.godot", "tools/s07_graphical"]
 
 
 def save(path, value):
@@ -47,6 +51,17 @@ def dirty_inputs():
     return subprocess.check_output(
         ["git", "status", "--porcelain", "--", *STAGED_INPUTS], cwd=ROOT, text=True
     ).strip()
+
+
+def identity_sources():
+    """Return runner/helper and exact staged-input sources that own this measurement."""
+    sources = ["tools/s07_graphical/run.py", "tools/measurement_identity.py",
+               "tools/window_safety.py", "tools/script_checks.py", "project.godot"]
+    sources.extend(f"tests/fixtures/{fixture}" for fixture in FIXTURES)
+    for pattern in MODELS:
+        sources.extend(path.relative_to(ROOT).as_posix()
+                       for path in (ROOT / "art/models/spikes").glob(pattern))
+    return sources
 
 
 def stage(output):
@@ -137,9 +152,10 @@ def run_case(args, project, output, name, mode):
         (project / leftover).unlink(missing_ok=True)
     env = environment(folder / "user")
     env.update(S07_GRAPHICAL_MODE=mode, S07_GRAPHICAL_WARMUP=str(args.warmup))
-    argv = [args.godot, "--path", str(project), "--windowed", "--resolution", "1280x800",
-            "--log-file", str(folder / "engine.log"), "--script", SCRIPT, "--",
-            str(args.duration)]
+    argv = [args.godot, "--path", str(project), "--windowed",
+            *capped_window_arguments(), "--resolution", "1280x800", "--log-file",
+            str(folder / "engine.log"), "--script", SCRIPT, "--", str(args.duration)]
+    require_capped_window(argv)
     deadline = time.monotonic() + args.warmup + args.duration + CASE_SLACK_SECONDS
     memory = []
     with (folder / "stdout.log").open("wb") as out, (folder / "stderr.log").open("wb") as err:
@@ -192,11 +208,14 @@ def main():
     parser.add_argument("--duration", type=float, default=600.0)
     parser.add_argument("--warmup", type=float, default=60.0)
     parser.add_argument("--repeats", type=int, default=3)
-    parser.add_argument("--modes", nargs="+", choices=["uncapped", "capped60"],
-                        default=["uncapped", "capped60"])
+    parser.add_argument("--modes", nargs="+", choices=["capped60"], default=["capped60"])
     args = parser.parse_args()
     if args.godot is None:
         parser.error("godot not found on PATH; pass --godot")
+    try:
+        require_capped_modes(args.modes)
+    except ValueError as error:
+        parser.error(str(error))
     if not (0 < args.duration <= 600 and 0 <= args.warmup <= 120 and 1 <= args.repeats <= 3):
         parser.error("duration 0..600 s, warmup 0..120 s, repeats 1..3")
     output = (args.output or Path(tempfile.mkdtemp(prefix="s07-graphical-"))).resolve()
@@ -212,7 +231,9 @@ def main():
     dirty = dirty_inputs()
     summary = {"ok": False, "engine": version, "revision": revision, "dirty_inputs": dirty,
                "platform": platform.platform(), "processor": platform.processor(),
-               "duration_s": args.duration, "warmup_s": args.warmup, "cases": []}
+               "duration_s": args.duration, "warmup_s": args.warmup, "cases": [],
+               "measurement_identity": measurement_identity(
+                   ROOT, identity_sources(), {**vars(args), "output": output})}
     if version != PIN:
         summary["failure"] = f"expected {PIN}, got {version}"
     else:

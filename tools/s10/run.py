@@ -16,9 +16,11 @@ import time
 
 ROOT = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(ROOT / "tools"))
+from measurement_identity import measurement_identity  # noqa: E402
 from script_checks import DIAGNOSTIC, engine_version, environment  # noqa: E402
 
 DEFAULT_SEEDS = (101, 202, 303)
+QUIET_SETTLE_SECONDS = 1.0
 
 
 def process_count():
@@ -76,6 +78,16 @@ def telemetry_snapshot():
     return {"godot_processes": process_count(), "cpu_load": cpu_load()}
 
 
+def identity_sources():
+    """Return measurement owner, helper, and exact staged input source paths."""
+    sources = ["tools/s10/run.py", "tools/measurement_identity.py",
+               "tools/script_checks.py", "tests/fixtures/s06", "tests/fixtures/s10",
+               "project.godot"]
+    sources.extend(path.relative_to(ROOT).as_posix()
+                   for path in (ROOT / "art/models/spikes").glob("s06_*"))
+    return sources
+
+
 def stage_project(project):
     """Copy only S06/S10 saved dependencies into an addon-free external project."""
     shutil.copytree(ROOT / "tests/fixtures/s06", project / "tests/fixtures/s06")
@@ -95,14 +107,9 @@ def stage_project(project):
 
 
 def checked_process(command, log, engine_log, env, timeout_seconds, observe=False):
-    """Run one owned child with a deadline, retained logs and optional live telemetry."""
-    before = telemetry_snapshot() if observe else None
+    """Run one owned child with a deadline, then collect optional post-case telemetry."""
     with log.open("w") as output:
         child = subprocess.Popen(command, stdout=output, stderr=subprocess.STDOUT, env=env)
-        during = None
-        if observe:
-            time.sleep(0.1)
-            during = telemetry_snapshot()
         try:
             returncode = child.wait(timeout=timeout_seconds)
         except subprocess.TimeoutExpired:
@@ -115,15 +122,17 @@ def checked_process(command, log, engine_log, env, timeout_seconds, observe=Fals
             output.write("\nCHECK DEADLINE EXCEEDED\n")
             returncode = -1
     after = telemetry_snapshot() if observe else None
+    if observe:
+        time.sleep(QUIET_SETTLE_SECONDS)
     text = log.read_text(errors="replace")
     if engine_log.exists():
         text += engine_log.read_text(errors="replace")
     return {
         "ok": returncode == 0 and not DIAGNOSTIC.search(text),
         "returncode": returncode,
-        "telemetry": {"before": before, "during": during, "after": after}
-        if observe
-        else None,
+        "telemetry": {"after": after,
+                      "mode": "post-case only; no sampler ran in timed window"}
+        if observe else None,
     }
 
 
@@ -176,6 +185,8 @@ def main():
     output.mkdir(parents=True, exist_ok=True)
     print(f"S10 evidence: {output}", flush=True)
 
+    identity = measurement_identity(
+        ROOT, identity_sources(), {**vars(args), "output": output})
     version = engine_version(args.godot)
     project = output / "project"
     project.mkdir()
@@ -239,7 +250,7 @@ def main():
             if receipt:
                 for run in receipt["runs"]:
                     run["contention"] = process_result["telemetry"]
-                    run["timing_label"] = "contended upper bound"
+                    run["timing_label"] = "post-case contention context; exclusivity not proven"
                     all_runs.append(run)
 
     failures = []
@@ -259,6 +270,7 @@ def main():
 
     result = {
         "engine": version,
+        "measurement_identity": identity,
         "seeds": list(args.seeds),
         "simulation_seconds_per_run": 600,
         "population_per_run": 64,
@@ -268,8 +280,8 @@ def main():
         "runs": all_runs,
         "aggregate": aggregate(all_runs),
         "timing_interpretation": (
-            "All timing rows are contended upper bounds because process/CPU snapshots do "
-            "not prove exclusive machine use throughout a run."
+            "Process/CPU snapshots are post-case context only and do not prove exclusive "
+            "machine use throughout a run."
         ),
         "failures": failures,
     }

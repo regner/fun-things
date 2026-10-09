@@ -7,15 +7,22 @@ import shutil
 import subprocess
 import sys
 import tempfile
+import time
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(ROOT / "tools"))
+from measurement_identity import measurement_identity
 from script_checks import checked_command, engine_version, environment
 
 POPULATIONS = (24, 32)
 SEEDS = (11, 29, 47)
 TICKS = 36_000
+QUIET_SETTLE_SECONDS = 1.0
+MEASUREMENT_SOURCES = ["tools/s09/run.py", "tools/measurement_identity.py",
+                       "tools/script_checks.py", "tests/fixtures/s09",
+                       "tests/fixtures/s04/drive_rules.gd",
+                       "tests/fixtures/s04/drive_rules.gd.uid", "project.godot"]
 
 
 def percentile(values, fraction):
@@ -67,7 +74,7 @@ def aggregate_cases(cases):
 
 
 def host_snapshot():
-    """Sample Windows CPU load and other Godot processes immediately before a case."""
+    """Sample Windows CPU load and Godot processes only after a measured case exits."""
     process = subprocess.run(["tasklist", "/FO", "CSV", "/NH"], capture_output=True,
                              text=True, timeout=10, check=True)
     godot_count = sum(1 for line in process.stdout.splitlines()
@@ -78,10 +85,9 @@ def host_snapshot():
         "Measure-Object -Property LoadPercentage -Average).Average",
     ], capture_output=True, text=True, timeout=10, check=True)
     cpu_percent = float(cpu.stdout.strip())
-    return {"other_godot_processes_before_launch": godot_count,
-            "godot_processes_at_launch_including_measurement": godot_count + 1,
-            "cpu_load_percent_before_launch": cpu_percent,
-            "timing_label": "contended upper bound" if godot_count else "uncontended"}
+    return {"godot_processes_after_case": godot_count,
+            "cpu_load_percent_after_case": cpu_percent,
+            "timing_label": "post-case context only; measurement exclusivity not proven"}
 
 
 def fingerprints(root):
@@ -123,6 +129,8 @@ def main():
     if any(output.iterdir()):
         parser.error("fresh external output required")
     print("S09 evidence:", output, flush=True)
+    identity = measurement_identity(
+        ROOT, MEASUREMENT_SOURCES, {**vars(args), "output": output})
     version = engine_version(args.godot)
     project = output / "project"
     project.mkdir()
@@ -138,7 +146,6 @@ def main():
     if imported:
         for population in POPULATIONS:
             for seed in SEEDS:
-                snapshot = host_snapshot()
                 result_path = output / "cases" / f"population-{population}-seed-{seed}.json"
                 result_path.parent.mkdir(exist_ok=True)
                 command = base_command + ["--script",
@@ -148,6 +155,8 @@ def main():
                 commands.append(command)
                 passed = checked_command(command, output / "cases" /
                                          f"population-{population}-seed-{seed}.log", user, 180)
+                snapshot = host_snapshot()
+                time.sleep(QUIET_SETTLE_SECONDS)
                 if result_path.exists():
                     case = json.loads(result_path.read_text())
                     case["host_snapshot"] = snapshot
@@ -163,6 +172,7 @@ def main():
     semantic_success = complete and all(not case["failures"] and case["command_passed"]
                                         for case in cases)
     summary = {"engine": version, "ticks_per_case": args.ticks,
+               "measurement_identity": identity,
                "accepted_duration_used": args.ticks == TICKS,
                "import_passed": imported, "cases_complete": complete,
                "semantic_success": semantic_success, "saved_files_unchanged": unchanged,

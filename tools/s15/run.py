@@ -17,7 +17,9 @@ import time
 
 ROOT = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(ROOT / "tools"))
+from measurement_identity import measurement_identity  # noqa: E402
 from script_checks import DIAGNOSTIC, PIN, environment  # noqa: E402
+from window_safety import capped_window_arguments, require_capped_window  # noqa: E402
 
 FIXTURES = ["s02", "s03", "s04", "s06", "s15"]
 MODELS = ["s02_*", "s04_*", "s06_*"]
@@ -36,6 +38,7 @@ STAGED_INPUTS = [
 ]
 CASE_SLACK_SECONDS = 60
 CLEANUP_SECONDS = 5
+QUIET_SETTLE_SECONDS = 1.0
 
 
 class FileTime(ctypes.Structure):
@@ -187,13 +190,10 @@ def run_case(args, project, output, explosions, quality, repeat):
     if repeat == 1 and (explosions, quality) in [(12, "full"), (24, "full")]:
         env["S15_CAPTURE_PATH"] = str(capture_path)
     argv = [
-        args.godot, "--path", str(project), "--windowed", "--resolution", "1280x800",
-        "--log-file", str(folder / "engine.log"), SCENE,
+        args.godot, "--path", str(project), "--windowed", *capped_window_arguments(),
+        "--resolution", "1280x800", "--log-file", str(folder / "engine.log"), SCENE,
     ]
-    contention = {
-        "godot_processes_before": godot_process_count(),
-        "cpu_before": cpu_load_percent(),
-    }
+    require_capped_window(argv)
     with (folder / "stdout.log").open("wb") as stdout, (
         folder / "stderr.log"
     ).open("wb") as stderr:
@@ -209,6 +209,12 @@ def run_case(args, project, output, explosions, quality, repeat):
             except subprocess.TimeoutExpired:
                 child.kill()
                 child.wait(timeout=CLEANUP_SECONDS)
+    contention = {
+        "godot_processes_after": godot_process_count(),
+        "cpu_after": cpu_load_percent(),
+        "mode": "post-case only; no sampler ran in timed window",
+    }
+    time.sleep(QUIET_SETTLE_SECONDS)
     text = "".join(
         (folder / filename).read_text(errors="replace")
         for filename in ["stdout.log", "stderr.log", "engine.log"]
@@ -319,6 +325,12 @@ def main():
         "duration_s": args.duration,
         "warmup_s": args.warmup,
         "repeats": args.repeats,
+        "measurement_identity": measurement_identity(
+            ROOT,
+            [*STAGED_INPUTS, "tools/measurement_identity.py", "tools/window_safety.py",
+             "tools/script_checks.py"],
+            {**vars(args), "output": output},
+        ),
         "cases": [],
     }
     if version != PIN:

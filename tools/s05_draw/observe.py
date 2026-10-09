@@ -10,9 +10,13 @@ import signal
 import socket
 import stat
 import subprocess
+import sys
 import time
 
 ROOT = Path(__file__).resolve().parents[2]
+sys.path.insert(0, str(ROOT / "tools"))
+from incremental_log import appended_complete_lines, prefixed_json_records  # noqa: E402
+from window_safety import capped_window_arguments, require_capped_window  # noqa: E402
 ENGINE = '/home/regner/.local/share/mise/installs/github-godotengine-godot-builds/4.8-dev7/godot'
 ENGINE_SHA = '6aea356032435e7af19dbfbf48dd20c5012a7dc1267eb8e92406f44e3584b5fd'
 SCENE = 'res://tests/fixtures/s05_draw/burst.tscn'
@@ -21,6 +25,8 @@ CLEANUP_PHASE_SECONDS = 2
 PRESERVATION_RESERVE_SECONDS = 4
 COLLECTION_SECONDS = BUDGET_SECONDS - 3 * CLEANUP_PHASE_SECONDS - PRESERVATION_RESERVE_SECONDS
 MAX_COPY_BYTES = 8 * 1024 * 1024
+LOG_STATE = {}
+DIAGNOSTIC_STATE = {}
 
 
 def save(path, value):
@@ -29,11 +35,8 @@ def save(path, value):
 
 
 def rows(path):
-    """Decode only complete actual fixture rows; an incomplete last write waits for polling."""
-    if not path.exists():
-        return []
-    return [json.loads(line[4:]) for line in path.read_text().splitlines(keepends=True)
-            if line.startswith('S05 ') and line.endswith('\n')]
+    """Decode only newly appended complete fixture rows and retain prior observations."""
+    return prefixed_json_records(path, b"S05 ", LOG_STATE)
 
 
 def require_before(deadline, phase):
@@ -145,6 +148,8 @@ def main():
     parser.add_argument('--group', type=int, choices=[1, 2], required=True)
     parser.add_argument('--audio-driver', choices=['Dummy'])
     args = parser.parse_args()
+    LOG_STATE.clear()
+    DIAGNOSTIC_STATE.clear()
     output = args.output.resolve()
     if not output.is_relative_to(Path('/tmp')) or output.exists():
         parser.error('fresh /tmp output required')
@@ -188,9 +193,11 @@ def main():
                 target.mkdir(mode=0o700)
                 env[key] = str(target)
             env['WAYLAND_DISPLAY'] = str(socket_path)
-            command = [ENGINE, '--path', str(project), '--display-driver', 'wayland',
-                       '--log-file', str(folder / 'engine.log'), SCENE, '--',
-                       '--role=' + role, '--port=' + str(port)]
+            command = [ENGINE, *capped_window_arguments(), '--path', str(project),
+                       '--display-driver', 'wayland', '--log-file',
+                       str(folder / 'engine.log'), SCENE, '--', '--role=' + role,
+                       '--port=' + str(port)]
+            require_capped_window(command)
             if args.audio_driver:
                 command[1:1] = ['--audio-driver', args.audio_driver]
             record = {'argv': command, 'start_unix': time.time(),
@@ -216,8 +223,8 @@ def main():
                     raise RuntimeError('fixture expectation failure: ' + role)
                 for filename in ['stdout', 'stderr', 'engine.log']:
                     path = output / role / filename
-                    if path.exists() and re.search(r'SCRIPT ERROR:|ERROR:|WARNING:',
-                                                  path.read_text(errors='replace')):
+                    if any(re.search(r'SCRIPT ERROR:|ERROR:|WARNING:', line)
+                           for line in appended_complete_lines(path, DIAGNOSTIC_STATE)):
                         raise RuntimeError('runtime diagnostic: ' + role + '/' + filename)
                 if child.poll() is not None and child.returncode != 0:
                     raise RuntimeError('nonzero role exit: ' + role)

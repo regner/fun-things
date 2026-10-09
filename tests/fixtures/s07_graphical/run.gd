@@ -6,23 +6,25 @@ const FIELDS: int = 10
 const CAPPED_FPS: int = 60
 
 var warmup_seconds: float = WARMUP_SECONDS_DEFAULT
-var mode: String = "uncapped"
+var mode: String = "capped60"
 var samples: PackedFloat64Array = PackedFloat64Array()
 var previous_frame_usec: int = 0
 var viewport_rid: RID
 
 
-## Applies the requested presentation cap and subscribes to completed automatic frames.
-## The base driver accepts exactly one user argument, so options arrive by environment.
+## Applies the required presentation cap and subscribes to completed automatic frames.
+## Uncapped mode is withdrawn after retained DXGI device-removal failures on this laptop.
 func _initialize() -> void:
 	mode = OS.get_environment("S07_GRAPHICAL_MODE")
-	if mode not in ["uncapped", "capped60"]:
-		mode = "uncapped"
+	if mode != "capped60":
+		push_error("S07 graphical requires capped60 mode")
+		quit(2)
+		return
 	if OS.has_environment("S07_GRAPHICAL_WARMUP"):
 		warmup_seconds = OS.get_environment("S07_GRAPHICAL_WARMUP").to_float()
 
 	DisplayServer.window_set_vsync_mode(DisplayServer.VSYNC_DISABLED)
-	Engine.max_fps = CAPPED_FPS if mode == "capped60" else 0
+	Engine.max_fps = CAPPED_FPS
 	viewport_rid = root.get_viewport_rid()
 	RenderingServer.viewport_set_measure_render_time(viewport_rid, true)
 	RenderingServer.frame_post_draw.connect(_post_draw)

@@ -12,6 +12,7 @@ import struct
 import subprocess
 import time
 
+from measurement_identity import measurement_identity
 from run_s03 import Proxy, POLL_SECONDS
 from script_checks import environment, ROOT
 
@@ -24,6 +25,9 @@ CLIENT_CASES = ['provider_substitution_late_cleanup', 'baseline_cancel_retry',
                 'held_window_resync', 'subset_reorder_loss_recovery']
 PROXY_EVENTS = ['armed', 'hold_subset_A', 'deliver_B_then_A', 'drop_subset_A',
                 'refresh_subset', 'refresh_subset']
+MEASUREMENT_SOURCES = ['tools/run_s08_linux.py', 'tools/run_s03.py',
+                       'tools/measurement_identity.py', 'tools/script_checks.py',
+                       'tools/s08_receipt.gd']
 
 
 def write_json(path, value):
@@ -395,7 +399,9 @@ def main():
     task = args.taskdir.resolve()
     if not task.is_relative_to(Path('/tmp')) or (task/'observation.json').exists():
         parser.error('fresh commissioned /tmp taskdir required; no repeat observation')
-    record = {'ok':False,'input_revision':BASE,'completed':[]}
+    record = {'ok':False,'input_revision':BASE,'completed':[],
+              'measurement_identity': measurement_identity(
+                  ROOT, MEASUREMENT_SOURCES, {**vars(args), 'taskdir': task})}
     write_json(task/'observation.json',record)
     try:
         for name in ['download.json','archive.json']:

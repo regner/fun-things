@@ -14,6 +14,7 @@ import subprocess
 import tempfile
 import time
 
+from measurement_identity import measurement_identity
 from run_s03 import stop_children
 from run_s03_r import FootProxy, POLL_SECONDS
 from script_checks import ROOT, DIAGNOSTIC, checked_command, engine_version, environment
@@ -21,6 +22,10 @@ from script_checks import ROOT, DIAGNOSTIC, checked_command, engine_version, env
 DEFAULT_PROFILES = ["normal", "adverse"]
 EXPECTED_PROBE_REASONS = ["STALE_SEQUENCE", "INVALID", "INVALID"]
 MIN_BLACKOUT_DURATION_MS = 950.0
+QUIET_SETTLE_SECONDS = 1.0
+MEASUREMENT_SOURCES = ["tools/run_s12.py", "tools/run_s03.py", "tools/run_s03_r.py",
+                       "tools/measurement_identity.py", "tools/script_checks.py",
+                       "tests/fixtures/s03", "tests/fixtures/s12", "project.godot"]
 
 
 def percentile(values, quantile=0.95):
@@ -131,7 +136,7 @@ def evaluate_case(measurements, profile, proxy_events, host_records, unchanged):
 
 
 def host_load():
-    """Record concurrent Godot process count and best-effort Windows CPU utilization."""
+    """Record Godot process count and CPU utilization only after a case exits."""
     count = 0
     try:
         listing = subprocess.run(["tasklist", "/FO", "CSV", "/NH"], capture_output=True,
@@ -149,8 +154,8 @@ def host_load():
         cpu = float(output) if output else None
     except (OSError, ValueError, subprocess.SubprocessError):
         pass
-    return {"concurrent_godot_processes": count, "cpu_load_percent": cpu,
-            "timing_label": "quiet measurement" if count == 0 else "contended upper bound"}
+    return {"godot_processes_after_case": count, "cpu_load_percent_after_case": cpu,
+            "timing_label": "post-case context only; measurement exclusivity not proven"}
 
 
 def stage(directory):
@@ -178,7 +183,6 @@ def run_case(args, directory, profile):
                            environment(directory / "import-user")):
         raise RuntimeError("isolated fixture import failed")
 
-    load = host_load()
     logs = {}
     offsets = {"host": 0, "client": 0}
     children = []
@@ -249,6 +253,8 @@ def run_case(args, directory, profile):
                         for path, digest in before.items())
         host_records = records(directory / "host/stdout.log")
         criteria = evaluate_case(measurements, profile, proxy.events, host_records, unchanged)
+        load = host_load()
+        time.sleep(QUIET_SETTLE_SECONDS)
         summary = {"ok": all(criteria.values()), "profile": profile,
                    "criteria": criteria, "measurements": measurements,
                    "load": load, "source_sha256": before, "saved_source_unchanged": unchanged,
@@ -291,6 +297,8 @@ def main():
         raise KeyboardInterrupt
 
     previous = signal.signal(signal.SIGTERM, interrupted)
+    identity = measurement_identity(
+        ROOT, MEASUREMENT_SOURCES, {**vars(args), "output": directory})
     results = []
     try:
         version = engine_version(args.godot)
@@ -302,12 +310,13 @@ def main():
             if not result["ok"]:
                 raise RuntimeError("independent criteria failed; inspect profile result")
         summary = {"ok": True, "engine": version, "platform": platform.platform(),
-                   "profiles": results}
+                   "measurement_identity": identity, "profiles": results}
     except (OSError, ValueError, RuntimeError, subprocess.SubprocessError) as error:
-        summary = {"ok": False, "failure": str(error), "profiles": results}
+        summary = {"ok": False, "failure": str(error),
+                   "measurement_identity": identity, "profiles": results}
     except KeyboardInterrupt:
         summary = {"ok": False, "failure": "runner interrupted; owned children stopped",
-                   "profiles": results}
+                   "measurement_identity": identity, "profiles": results}
     finally:
         signal.signal(signal.SIGTERM, previous)
     (directory / "result.json").write_text(json.dumps(summary, indent=2) + "\n")

@@ -10,9 +10,13 @@ import signal
 import socket
 import stat
 import subprocess
+import sys
 import time
 
 ROOT = Path(__file__).resolve().parents[2]
+sys.path.insert(0, str(ROOT / "tools"))
+from incremental_log import appended_complete_lines, prefixed_json_records  # noqa: E402
+from window_safety import capped_window_arguments, require_capped_window  # noqa: E402
 BASE = '3f5fb4067c5ce5fca721f54d42165a833e4c884c'
 ENGINE = '/home/regner/.local/share/mise/installs/github-godotengine-godot-builds/4.8-dev7/godot'
 ENGINE_SHA = '6aea356032435e7af19dbfbf48dd20c5012a7dc1267eb8e92406f44e3584b5fd'
@@ -22,6 +26,8 @@ SOURCE_CAP = 8 * 1024 * 1024
 TOTAL_SECONDS, PREP_SECONDS, COLLECTION_SECONDS = 120, 90, 20
 CLEANUP_SECONDS, READBACK_SECONDS = 6, 4
 DIAGNOSTIC = re.compile(r'SCRIPT ERROR:|ERROR:|WARNING:')
+LOG_STATE = {}
+DIAGNOSTIC_STATE = {}
 
 
 def save(path, value):
@@ -175,18 +181,16 @@ def bound_endpoint(child, port, receipt_path):
 
 
 def production_rows(path):
-    """Read complete fixture rows without manufacturing a partially written receipt."""
-    if not path.exists():
-        return []
-    return [json.loads(line[4:]) for line in path.read_text().splitlines(keepends=True)
-            if line.startswith('S05 ') and line.endswith('\n')]
+    """Read only appended complete fixture rows while retaining prior observations."""
+    return prefixed_json_records(path, b"S05 ", LOG_STATE)
 
 
 def diagnostics(folder):
-    """Reject complete runtime warnings/errors without suppressing any raw stream."""
+    """Reject diagnostics while scanning only newly appended complete log lines."""
     for name in ['stdout', 'stderr', 'engine.log']:
         path = folder / name
-        if path.exists() and DIAGNOSTIC.search(path.read_text(errors='replace')):
+        if any(DIAGNOSTIC.search(line)
+               for line in appended_complete_lines(path, DIAGNOSTIC_STATE)):
             raise RuntimeError('engine/script diagnostic: ' + str(path))
 
 
@@ -232,6 +236,8 @@ def main():
     parser.add_argument('--output', type=Path, required=True)
     parser.add_argument('--candidate', required=True)
     args = parser.parse_args()
+    LOG_STATE.clear()
+    DIAGNOSTIC_STATE.clear()
     output = args.output.resolve()
     if output.exists() or not output.name.startswith('p0-image-') or output.parent != Path('/tmp'):
         parser.error('fresh direct /tmp/p0-image-<worker>-<attempt> required')
@@ -314,10 +320,12 @@ def main():
             result['wayland_socket_prelaunch'] = socket_identity()
             if result['wayland_socket_prelaunch'] != result['wayland_socket_before']:
                 raise RuntimeError('shared socket identity changed')
-            return spawn(role, [ENGINE, '--audio-driver', 'Dummy', '--disable-vsync',
-                '--path', str(project), '--display-driver', 'wayland', '--log-file',
-                str(output / role / 'engine.log'), SCENE, '--', '--role=' + role,
-                '--port=' + str(port)], min(prep, collect) if role == 'host' else collect)
+            command = [ENGINE, '--audio-driver', 'Dummy', '--disable-vsync',
+                *capped_window_arguments(), '--path', str(project), '--display-driver',
+                'wayland', '--log-file', str(output / role / 'engine.log'), SCENE, '--',
+                '--role=' + role, '--port=' + str(port)]
+            require_capped_window(command)
+            return spawn(role, command, min(prep, collect) if role == 'host' else collect)
         graphical('host')
         while time.monotonic() < collect:
             for role, child in list(children.items()):

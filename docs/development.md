@@ -781,6 +781,19 @@ The foundation tools now also run on Windows 11 with the Mise-pinned engine
 - Headless Windows pacing is slower and burstier than windowed runs. Use windowed
   runs for response/feel numbers and physics-frame waits for tick-sensitive
   harness steps.
+- Windowed measurement runners must carry an explicit 60 FPS cap. Shared
+  `tools/window_safety.py` guards exact cap construction and rejects withdrawn or
+  incorrectly capped modes; fixture VSync defaults are not treated as the safety boundary.
+- Quiet timing runners collect task-list, PowerShell/CIM/Get-Counter, or equivalent
+  workstation snapshots only after the measured child exits, followed by an explicit
+  one-second settle before another case can launch. Such snapshots are post-case context
+  and do not prove that the timed window was uncontended.
+- `tools/measurement_identity.py` records the repository commit/tree/dirty state,
+  fingerprints the runner, imported helpers and declared staged inputs, and retains
+  `sys.argv`, the runner working directory and effective parameters. Measurement receipts
+  use this shared shape rather than each runner implementing a partial identity format.
+- Polling runners use retained byte offsets for growing logs. They decode only complete
+  appended lines, so polling work does not grow with all previously retained output.
 
 New Windows runners take `--output` outside the checkout and fail on their scoped
 diagnostics/process criteria. Their source-binding behavior differs: S08 stages committed
@@ -793,7 +806,7 @@ copies.
 | --- | --- |
 | [S08 Windows observation](../tools/s08/windows_observation.py) | Verifies the 4.8-dev7 TPZ (`--templates`), exports the saved S08 main for Windows release/debug and runs one 20 ms host/client set per mode. [Record](spikes/s08-windows-observation.md). |
 | [S05 Windows draw](../tools/s05_draw/observe_windows.py) | Windowed host/live/settled-late draw observer: burst, expiry and hydrated frames. [Record](spikes/s05-windows-draw.md). |
-| [S07 graphical T](../tools/s07_graphical/run.py) | Accepted sustained driver plus per-frame telemetry, uncapped/60-capped × repeats, windowed. [Record](spikes/s07-graphical-t.md). |
+| [S07 graphical T](../tools/s07_graphical/run.py) | Accepted sustained driver plus per-frame telemetry, now 60-capped only; retained historical evidence includes the withdrawn uncapped failures. [Record](spikes/s07-graphical-t.md). |
 | `run_s03_r.py`/`run_s04.py --windowed` | Existing runners; real drawn receipts on Windows. |
 
 ### Safe capped GPU measurement

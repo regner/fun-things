@@ -18,6 +18,7 @@ import time
 ROOT = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(ROOT / "tools"))
 from script_checks import DIAGNOSTIC, PIN, environment  # noqa: E402
+from window_safety import capped_window_arguments, require_capped_window  # noqa: E402
 
 DRAW_SCRIPT = "res://tests/fixtures/s02/observe_windows.gd"
 FOCUS_SCENE = "res://tests/fixtures/s02/focus_runner.tscn"
@@ -132,6 +133,7 @@ def run_window(project, folder, godot, arguments, deadline_seconds, focus_gate=N
         "--path",
         str(project),
         "--windowed",
+        *capped_window_arguments(),
         "--resolution",
         "1280x800",
         "--position",
@@ -140,6 +142,7 @@ def run_window(project, folder, godot, arguments, deadline_seconds, focus_gate=N
         str(folder / "engine.log"),
         *arguments,
     ]
+    require_capped_window(command)
     before = foreground_window()
     started = time.monotonic()
     timeline = []

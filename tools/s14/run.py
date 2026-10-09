@@ -19,10 +19,13 @@ import time
 
 ROOT = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(ROOT / "tools"))
+from measurement_identity import measurement_identity  # noqa: E402
 from script_checks import DIAGNOSTIC, PIN, environment  # noqa: E402
+from window_safety import capped_window_arguments, require_capped_window  # noqa: E402
 
 SCENE = "res://tests/fixtures/s14/audio_test.tscn"
 CASE_TIMEOUT_SECONDS = 20
+QUIET_SETTLE_SECONDS = 1.0
 
 
 def _save(path: Path, value: object) -> None:
@@ -65,7 +68,7 @@ def _source_manifest(inventory: list[Path]) -> dict[str, str]:
 
 
 def _godot_process_count() -> int | None:
-    """Count other Godot processes immediately before a timed case."""
+    """Count Godot processes only after a timed case exits."""
     try:
         if platform.system() == "Windows":
             text = subprocess.check_output(
@@ -160,7 +163,9 @@ def _run_case(godot: str, project: Path, output: Path, mode: str, repeat: int) -
     if mode == "headless":
         argv.append("--headless")
     else:
-        argv.extend(["--windowed", "--resolution", "1280x800"])
+        argv.extend(["--windowed", *capped_window_arguments(),
+                     "--resolution", "1280x800"])
+        require_capped_window(argv)
     argv.extend(
         [
             "--path",
@@ -173,10 +178,6 @@ def _run_case(godot: str, project: Path, output: Path, mode: str, repeat: int) -
             f"--s14-mode={mode}",
         ]
     )
-    environment_before = {
-        "godot_processes": _godot_process_count(),
-        "cpu_load_percent": _cpu_load_percent(),
-    }
     with (folder / "stdout.log").open("wb") as stdout:
         completed = subprocess.run(
             argv,
@@ -187,6 +188,11 @@ def _run_case(godot: str, project: Path, output: Path, mode: str, repeat: int) -
             timeout=CASE_TIMEOUT_SECONDS,
             check=False,
         )
+    environment_after = {
+        "godot_processes": _godot_process_count(),
+        "cpu_load_percent": _cpu_load_percent(),
+    }
+    time.sleep(QUIET_SETTLE_SECONDS)
     logs = "\n".join(
         path.read_text(encoding="utf-8", errors="replace")
         for path in (folder / "stdout.log", folder / "engine.log")
@@ -196,7 +202,6 @@ def _run_case(godot: str, project: Path, output: Path, mode: str, repeat: int) -
     receipt = json.loads(receipt_path.read_text(encoding="utf-8")) if receipt_path.exists() else None
     semantic_failures = validate_receipt(receipt) if receipt else ["missing receipt"]
     known_diagnostics, diagnostics = classify_diagnostics(all_diagnostics, receipt)
-    contended = environment_before["godot_processes"] not in (None, 0)
     record = {
         "name": case_name,
         "mode": mode,
@@ -206,8 +211,8 @@ def _run_case(godot: str, project: Path, output: Path, mode: str, repeat: int) -
         "diagnostics": diagnostics,
         "known_pinned_dummy_teardown_diagnostics": known_diagnostics,
         "semantic_failures": semantic_failures,
-        "environment_before": environment_before,
-        "timing_label": "contended upper bound" if contended else "uncontended desktop sample",
+        "environment_after": environment_after,
+        "timing_label": "post-case context only; measurement exclusivity not proven",
         "receipt": receipt,
     }
     record["ok"] = completed.returncode == 0 and not diagnostics and not semantic_failures
@@ -280,6 +285,13 @@ def main() -> int:
         "processor": platform.processor(),
         "source_inventory": [path.as_posix() for path in inventory],
         "source_manifest": _source_manifest(inventory),
+        "measurement_identity": measurement_identity(
+            ROOT,
+            ["tools/s14/run.py", "tools/measurement_identity.py",
+             "tools/window_safety.py", "tools/script_checks.py", "project.godot",
+             *(path.as_posix() for path in inventory)],
+            {**vars(args), "output": output},
+        ),
         "cases": [],
     }
     if version != PIN:

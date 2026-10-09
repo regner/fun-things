@@ -2,7 +2,6 @@
 """Measure full-cap packed population replication through bounded ENet fault proxies."""
 
 import argparse
-import concurrent.futures
 import hashlib
 import heapq
 import json
@@ -18,6 +17,7 @@ import subprocess
 import tempfile
 import time
 
+from measurement_identity import measurement_identity
 from run_s03 import stop_children
 from script_checks import ROOT, DIAGNOSTIC, checked_command, engine_version, environment
 
@@ -26,12 +26,15 @@ BUDGETS_KIB_S = {"host_out": 256, "host_in": 128, "client_in": 96, "client_out":
 MAX_QUEUE = 1024
 MAX_POLL = 128
 POLL_SECONDS = 0.002
+QUIET_SETTLE_SECONDS = 1.0
 WIRE_OVERHEAD_BYTES = 28
 BLACKOUT_START_SECONDS = 4.0
 BLACKOUT_SECONDS = 1.0
 MIN_HOST_STALL_MS = 245
 DELIVERY_SCHEDULING_ALLOWANCE_MS = 250
-MEASUREMENT_SOURCES = ["tools/run_s11.py", "tools/run_s03.py", "tools/script_checks.py"]
+MEASUREMENT_SOURCES = ["tools/run_s11.py", "tools/run_s03.py", "tools/script_checks.py",
+                       "tools/measurement_identity.py", "tests/fixtures/s03",
+                       "tests/fixtures/s11"]
 
 
 class PopulationProxy:
@@ -287,28 +290,6 @@ def source_fingerprints(project):
             for path in sorted((project / "tests/fixtures" / fixture).iterdir()) if path.is_file()}
 
 
-def repository_identity():
-    """Bind the result to the exact committed repository revision and tree under test."""
-    def git(*arguments):
-        result = subprocess.run(["git", *arguments], cwd=ROOT, capture_output=True, text=True,
-                                timeout=10, check=True)
-        return result.stdout.strip()
-
-    return {
-        "commit": git("rev-parse", "HEAD"),
-        "tree": git("rev-parse", "HEAD^{tree}"),
-        "status_porcelain": git("status", "--porcelain").splitlines(),
-    }
-
-
-def measurement_source_fingerprints():
-    """Hash runner and imported helpers that own impairment, accounting and cleanup."""
-    return {path: {
-        "sha256": hashlib.sha256((ROOT / path).read_bytes()).hexdigest(),
-        "bytes": (ROOT / path).stat().st_size,
-    } for path in MEASUREMENT_SOURCES}
-
-
 def summarize_network(routes, measurement_start, join_bytes):
     """Compare actual endpoint datagrams, including IP/UDP overhead, with all four budgets."""
     aggregate_events = [event for route in routes for event in route.events]
@@ -364,15 +345,11 @@ def run_case(args, project, case_dir, profile, repetition):
         routes.append(PopulationProxy(host_port, proxy_port, profile,
                                       1103 + repetition * 100 + index, log))
 
-    environment_before = process_environment()
     deadline = time.monotonic() + args.deadline
     ready = False
     started = False
     measurement_start = None
     join_bytes = [0] * args.clients
-    environment_measurement = None
-    environment_future = None
-    environment_executor = concurrent.futures.ThreadPoolExecutor(max_workers=1)
     host_stall_records = []
 
     def start(role_name, role, connect_port):
@@ -422,7 +399,6 @@ def run_case(args, project, case_dir, profile, repetition):
                                           for route in routes]
                             for route in routes:
                                 route.measurement_start = measurement_start
-                            environment_future = environment_executor.submit(process_environment)
                         elif record["event"] == "result":
                             results[role_name] = record
                             if not record.get("ok"):
@@ -443,12 +419,6 @@ def run_case(args, project, case_dir, profile, repetition):
 
         if not started or measurement_start is None:
             raise RuntimeError("host never started snapshots")
-        if environment_future is None:
-            raise RuntimeError("measurement environment observation was not scheduled")
-        try:
-            environment_measurement = environment_future.result(timeout=30)
-        except TimeoutError as error:
-            raise RuntimeError("measurement environment observation timed out") from error
         if any(child.returncode != 0 for child in children):
             raise RuntimeError("nonzero fixture process exit")
         for role_name in logs:
@@ -514,6 +484,8 @@ def run_case(args, project, case_dir, profile, repetition):
             all(client["lifecycle_events"] == ["death", "wreck", "despawn", "spawn"]
                 for client in clients),
         ]
+        environment_after = process_environment()
+        time.sleep(QUIET_SETTLE_SECONDS)
         summary = {
             "ok": all(requirements),
             "profile": profile,
@@ -521,12 +493,9 @@ def run_case(args, project, case_dir, profile, repetition):
             "commands": commands,
             "process_ids": [child.pid for child in children],
             "exits": [child.returncode for child in children],
-            "environment_before": environment_before,
-            "environment_measurement": environment_measurement,
-            "environment_measurement_mode": "background thread; proxy polling continued",
-            "timing_label": ("contended upper bound" if
-                             (environment_before["godot_processes"] or 0) > 0 else
-                             "uncontended before launch"),
+            "environment_after": environment_after,
+            "environment_measurement_mode": "post-case only; no sampler ran in timed window",
+            "timing_label": "post-case contention context; exclusivity not proven",
             "measurements": measurements,
             "results": results,
             "peak_proxy_queues": [route.peak_queue for route in routes],
@@ -538,7 +507,6 @@ def run_case(args, project, case_dir, profile, repetition):
         return summary
     finally:
         stop_children(children)
-        environment_executor.shutdown(wait=True, cancel_futures=True)
         for output in logs.values():
             output.close()
         for route in routes:
@@ -580,8 +548,8 @@ def main():
     aggregate = {"ok": False, "cases": []}
     try:
         aggregate["engine"] = engine_version(args.godot)
-        aggregate["repository"] = repository_identity()
-        aggregate["measurement_source_sha256"] = measurement_source_fingerprints()
+        aggregate["measurement_identity"] = measurement_identity(
+            ROOT, MEASUREMENT_SOURCES, {**vars(args), "output": output})
         project = stage(output)
         aggregate["source_sha256"] = source_fingerprints(project)
         import_command = [args.godot, "--headless", "--editor", "--path", str(project),
