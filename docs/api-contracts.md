@@ -727,13 +727,13 @@ script checks and a bounded runner, integrated with completed S01 asset/resource
 | Reset/teardown — S03 tiny leave/host-loss evidence; M1-A2 reset coordinator, M1-B3 combat/seats/chains, M1-C3 population, M1-D3 full acceptance; M1-A1/M1-A-GATE shell cleanup/reset | Admitted peers remain after host reset; old-match commands/events do nothing; no layout transforms change; callbacks/history/input/loops are cleared on leave and retry. Reset while driving/firing/joining rehydrates new revisions and clears old work; S03 implements no reset. |
 | City/asset identity — S01 bounded accepted route; S06 topology decision; M1-C1/C2/C4 production content, M1-D1/D4 checks/exports | Reexport/inheritance/roundtrip preserves placement/import ancestry/IDs; stale bake rejects use; route crosses two-sector seam and shared minimap roads align. S01 acceptance is limited to linked wrappers and wrapper-level variants, not direct imported-child overrides or production art. |
 | Settings — M1-A3 implementation/tests, M1-A-GATE shell, M1-D4 targets | Levels/mute survive restart; corrupt fields default; save failure retains last good file and reports retry; live audio preview leaves shared simulation running. |
-| Prediction/targets — S03-R/S04 response decisions, S07 budgets, S08 target proof; M1-A2/B1 implementation, M1-D3/D4 full acceptance | Matching-tick authoritative convergence and bounded replay meet selected budgets; no replay damage/effects; the exact exported ENet path passes on initial targets. A later provider requires its own target acceptance before registration; loopback markers cannot close that future proof. |
+| Prediction/targets — S03-P/S04-P bounded prediction evidence, S03-R/S04 response decisions, S07 budgets, S08 target proof; M1-A2/B1 implementation, M1-D3/D4 full acceptance | Matching-tick authoritative convergence and bounded replay meet selected budgets; no replay damage/effects; the exact exported ENet path passes on initial targets. A later provider requires its own target acceptance before registration; loopback markers cannot close that future proof. |
 
 Pending exact choices are owned: future-adapter integration/correlation and tested limits
 (a later separately commissioned provider task, informed by the S03-S abstraction review),
-production codecs/snapshot batching/abuse disconnect (M1-D3, informed by S03), motion extras/camera and
-prediction (S02/S03-R/S04), interaction thresholds/stopping (S04), combat tuning and
-chain/retention capacity policy (S05), topology/route/bake bounds (S06), toolchain and
+production codecs/snapshot batching/abuse disconnect (M1-D3, informed by S03), motion extras/camera
+and drawable remote continuity (S02/S03-R/S04), interaction thresholds/stopping (S04),
+combat tuning and chain/retention capacity policy (S05), topology/route/bake bounds (S06), toolchain and
 measured budgets (S07/S08). These remain active tasks in [TODO](../TODO.md); P0-02
 completes the draft, not those proofs or production acceptance.
 
@@ -759,9 +759,11 @@ extension carries host tick and consumed-or-superseded intent sequence after the
 step; repeated held input can span several host ticks. This does not establish a
 one-sequence/one-step replay mapping or select a production codec/prediction API.
 Headless input-to-applied-physics latency, snapshot installation and settled-host
-convergence are distinct from visible response and predicted matching-tick correction.
-The latter measurements and Steam/feel/hardware acceptance remain open; S03-R owns
-the bounded replay-mapping follow-up in [TODO](../TODO.md).
+convergence are distinct from visible response and predicted matching-tick correction. The
+[S03-P prediction record](spikes/s03-prediction.md) supplies completed bounded restore/replay
+evidence; [M1-A2.3](plans/m1-production-plan.md#5-foundation-entry-criteria-and-ordered-m1-backlog)
+owns production integration. S03-R retains drawable remote-continuity review, while later
+production feel and hardware acceptance remain open.
 
 ## Accepted partial S05 executable boundary
 
