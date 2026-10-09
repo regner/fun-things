@@ -1,6 +1,6 @@
 # S09 traffic evidence
 
-Accepted bounded run: `C:\tmp\ft\lanes\s09-traffic-ai\accepted-03`, copied here without
+Accepted bounded run: `C:\tmp\ft\lanes\s09-traffic-ai\accepted-05`, copied here without
 the staged project or private user directory. Every committed file is below 5 MiB.
 
 - `summary.json`: exact commands, engine version, source SHA-256 values, per-case host
@@ -10,8 +10,8 @@ the staged project or private user directory. Every committed file is below 5 Mi
 - Matching `.log` and `.engine.log`: process output and engine log for each case.
 - `import.log` and `import.engine.log`: isolated addon-free project import.
 
-The timing samples are contended upper bounds. The case receipts record 10–15 total Godot
-processes including the measurement and 0–80% sampled CPU load; consult `summary.json`
+The timing samples are contended upper bounds. The case receipts record 3–6 total Godot
+processes including the measurement and 3–71% sampled CPU load; consult `summary.json`
 rather than inferring workstation load from an instantaneous Windows CPU sample.
 The runner counted processes and sampled CPU immediately before each case. It did not kill
 or pause concurrent workers.
