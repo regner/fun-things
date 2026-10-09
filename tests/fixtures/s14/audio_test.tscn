@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3]
+[gd_scene format=3]
 
 [ext_resource type="Script" path="res://tests/fixtures/s14/s14_fixture.gd" id="1_fixture"]
 [ext_resource type="Script" path="res://tests/fixtures/s14/s14_voice_manager.gd" id="2_manager"]
@@ -13,25 +13,20 @@
 
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_explosion"]
 resource_name = "S14 Explosion Variations"
-streams_count = 3
-stream_0/stream = ExtResource("4_exp1")
-stream_0/weight = 1.0
-stream_1/stream = ExtResource("5_exp2")
-stream_1/weight = 1.0
-stream_2/stream = ExtResource("6_exp3")
-stream_2/weight = 1.0
 random_pitch = 1.08
 random_volume_offset_db = 1.5
+streams_count = 3
+stream_0/stream = ExtResource("4_exp1")
+stream_1/stream = ExtResource("5_exp2")
+stream_2/stream = ExtResource("6_exp3")
 
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_smg"]
 resource_name = "S14 SMG Variations"
-streams_count = 2
-stream_0/stream = ExtResource("7_smg1")
-stream_0/weight = 1.0
-stream_1/stream = ExtResource("8_smg2")
-stream_1/weight = 1.0
 random_pitch = 1.04
 random_volume_offset_db = 0.8
+streams_count = 2
+stream_0/stream = ExtResource("7_smg1")
+stream_1/stream = ExtResource("8_smg2")
 
 [node name="S14AudioTest" type="Node3D"]
 script = ExtResource("1_fixture")
