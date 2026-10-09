@@ -22,7 +22,7 @@ follow-ups remain in the M1 requirements rather than reopening the spikes.
 - [ ] **S08 — Run the Linux desktop launch/graphics checklist when a Linux machine is
   available.** This does not block proceeding; keep the ENet workaround and offline review.
 - [ ] **P0-GATE — Review the refreshed packet and record the gate disposition.** The
-  S17-only quiet record and owner decisions 13–18 are integrated in the
+  S17-only quiet record and owner decisions 13–19 are integrated in the
   [review packet](docs/reviews/p0-gate-packet-2026-10-09.md). Under decision 14, the
   remaining human checks and production decisions are not extra foundation prerequisites;
   Linux-only S08 confirmation and P0-PROFILES remain non-blocking.
@@ -34,7 +34,8 @@ All M1 tasks follow P0-GATE.
 ### M1-A — Session and player
 
 - [ ] **M1-A1 — Build the session service and menu flow.** After: P0-GATE.
-- [ ] **M1-A2 — Implement player simulation and replication.** After: M1-A1.
+- [ ] **M1-A2 — Implement player simulation and replication.** Use decision 19's ordered,
+  distance-bounded held-input queue contract. After: M1-A1.
 - [ ] **M1-A3 — Add settings, audio and persistence.** After: P0-GATE.
 - [ ] **M1-A-GATE — Verify the multiplayer shell in exported builds.**
   After: M1-A2, M1-A3.

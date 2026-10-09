@@ -427,7 +427,7 @@ across resync, and queued actions from the old binding are invalidated.
 Held input is replaceable. At most three recent frames per message recover loss;
 accept only increasing sequences within the separate 120-sequence freshness window,
 and retain at most eight queued frames per participant. The dated S03-P revision
-(8 October 2026, pending owner review at P0-GATE) supersedes the earlier
+(8 October 2026; owner-accepted 9 October 2026 as the M1 contract) supersedes the earlier
 newest-valid-frame wording: the host consumes queued frames in order, at most one per
 physics tick. Pending lag is measured by sequence/input-tick distance from the newest
 accepted frame. The host selects the oldest queued frame within three ticks (50 ms) of

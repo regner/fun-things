@@ -68,7 +68,7 @@ All timing values explicitly marked **contended** are upper bounds from a shared
 | S03 | Complete, bounded | [Session proof](../spikes/s03.md): ENet admission, handoff, freshness and cleanup; ENet bandwidth workaround retained | Production Session/Replication and full baseline still M1 work | n/a |
 | S03-R | Technical response/expiry complete; feel open | [Response record](../spikes/s03-r.md) plus [S03-L](../spikes/s03-l.md): exact decision-age expiry fix passes | Physical feel and remote continuity; old pre-fix response values are historical | see S03-L |
 | S03-L | Diagnostic complete | Corrected passing direct loopback 317 ms p95; provisional **350 ms p95 allowance**, all contended | Linux comparison and production tuning | Not rerun; contended retained by decision 13 |
-| S03-P | Complete, bounded | [Foot prediction](../spikes/s03-prediction.md): predicted p95 19–29 ms physics, 39 ms drawn; correction p95 ≤0.25 m in selected runs, contended | Owner approval of three-frame pending-lag revision; production moving-body contacts and lifecycle | Not rerun; contended retained by decision 13 |
+| S03-P | Complete, bounded; M1 queue contract accepted | [Foot prediction](../spikes/s03-prediction.md): predicted p95 19–29 ms physics, 39 ms drawn; correction p95 ≤0.25 m in selected runs, contended | Production moving-body contacts, lifecycle and queue acceptance tests | Not rerun; contended retained by decision 13 |
 | S03-S | Documentation review complete | [Abstraction review](../spikes/s03-s-abstraction-review.md): ENet-first provider/stream/lifecycle seam | Future Steam adapter has no runtime evidence by design | n/a |
 | S04 | Technical body complete; handling review open | [Car spike](../spikes/s04.md), [drive scene](../spikes/s04-drive-scene.md): CharacterBody candidate and live tuning harness | Owner tuning and final dimensions; death now coasts then becomes abandoned/parked | n/a |
 | S04-P | Complete, bounded with mixed adverse results | [Car prediction](../spikes/s04-prediction.md): normal passes; post-rebase adverse correction p95 0.576 m fails 0.5 m target; drawn p95 85 ms; **contended** | Clean adverse production proof, moving-car contacts, subjective feel | Not rerun; contended retained by decision 13 |
@@ -124,7 +124,7 @@ All timing values explicitly marked **contended** are upper bounds from a shared
 
 ## Owner decisions recorded
 
-The owner recorded decisions 13–18 on 9 October 2026:
+The owner recorded decisions 13–19 on 9 October 2026:
 
 - **Decision 13 — measurement scope and principle:** S17 is the only quiet rerun. Other spike
   timings remain labelled contended. Foundation establishes concepts and high-level limits; M1
@@ -149,6 +149,13 @@ The owner recorded decisions 13–18 on 9 October 2026:
   feedback, while impacts and damage wait for host confirmation. Every intent carries the shooter's
   view tick from day one so S12's bounded ≤250 ms rewind can be added later as a host-only change if
   playtests require it. This non-competitive game favors the simple policy that works and looks fair.
+- **Decision 19 — S03-P input-queue contract:** accept ordered one-frame-per-tick held-input
+  consumption for M1. Pending lag is bounded to three ticks (50 ms) by tick/sequence distance from
+  the newest accepted frame; the hard eight-frame participant queue remains separate from the
+  120-sequence freshness window. Older frames are superseded without extra simulation, held intent
+  neutralizes after 250 ms, and the acknowledgement watermark is the last consumed or superseded
+  frame. This supersedes the earlier newest-valid-frame wording and is marked owner-accepted in
+  [`api-contracts.md`](../api-contracts.md).
 
 ## Owner decisions still open
 
@@ -156,32 +163,29 @@ These remaining choices belong to their named production consumer; they are not 
 or quiet-pass prerequisites under decision 14. An explicit deferral should still name its consumer
 or accepted risk.
 
-1. **S03-P command contract:** accept oldest-valid consumption with a three-frame pending-lag bound,
-   replacing the earlier newest-valid wording. **Recommendation:** accept; it bounds queue work while
-   preserving one host step per tick and measured prediction behavior.
-2. **S11 extrapolation:** choose how remote actors behave after the interpolation buffer is exhausted.
+1. **S11 extrapolation:** choose how remote actors behave after the interpolation buffer is exhausted.
    **Recommendation:** retain 200 ms extrapolation then freeze as the safe default, subject to a
    drawable comparison; never extend through the one-second adverse blackout by default.
-3. **S12 damage/rate defaults:** review the pistol/SMG/rocket/car-impact starting values as
+2. **S12 damage/rate defaults:** review the pistol/SMG/rocket/car-impact starting values as
    balance choices before M1-B2.
-4. **S04 handling:** provide drive-scene feedback and an F12 value set. **Recommendation:** run the
+3. **S04 handling:** provide drive-scene feedback and an F12 value set. **Recommendation:** run the
    saved harness before freezing B1.1 body/tuning; do not promote defaults solely from automated
    route success.
-5. **S17 budget allocation:** ratify or revise traffic 1.5, pedestrians 1.0, replication 0.75,
+4. **S17 budget allocation:** ratify or revise traffic 1.5, pedestrians 1.0, replication 0.75,
    combat 0.25, chains 0.10 and remaining work 0.40 ms p95, all inside 4 ms.
    **Recommendation:** use them as adjustable profiling ceilings, not independent entitlements.
-6. **Traffic/crossing policy:** choose reservation priority/lights and whether cars yield at marked
+5. **Traffic/crossing policy:** choose reservation priority/lights and whether cars yield at marked
    crossings. **Recommendation:** deterministic authored reservations; cars yield at selected marked
    crossings, while uncontrolled player cars remain collision-authoritative.
-7. **VFX degradation:** confirm full→reduced→minimum tiers when many explosions overlap, with one
+6. **VFX degradation:** confirm full→reduced→minimum tiers when many explosions overlap, with one
    visible root and all feedback families retained per event. **Recommendation:** approve; dropping
    an event remains forbidden.
-8. **Audio starting policy:** accept/revise nearest-eight engines, eight blast voices, six weapon
+7. **Audio starting policy:** accept/revise nearest-eight engines, eight blast voices, six weapon
    voices and ambience under Music. **Recommendation:** treat these as first-pass caps and decide only
    after the listening checklist.
-9. **Safe GPU wording:** replace the design's uncapped-headroom instruction with S08-C's capped
+8. **Safe GPU wording:** replace the design's uncapped-headroom instruction with S08-C's capped
    frame/RenderingServer method. **Recommendation:** approve; uncapped runs caused two device removals.
-10. **Production testing:** approve adding pinned test-only GUT under M1-D1.1.
+9. **Production testing:** approve adding pinned test-only GUT under M1-D1.1.
     **Recommendation:** approve, excluded from release exports and runtime autoloads.
 
 ## Human checks still needed

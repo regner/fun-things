@@ -10,9 +10,9 @@ qualification and enough outcome detail for dispatch.
 and the audit-derived tasks in
 [section 4 of the readiness audit](../reviews/p0-readiness-audit-2026-10-08.md).
 Most quantitative criteria are planning proposals derived from current product budgets and
-remain tunable during M1. Owner decisions 13–18 ratify the desktop frame target, narrow
-P0-GATE to the S17-only quiet result plus the refreshed gate packet, and select the first
-hit-registration policy.
+remain tunable during M1. Owner decisions 13–19 ratify the desktop frame target, narrow
+P0-GATE to the S17-only quiet result plus the refreshed gate packet, select the first
+hit-registration policy and accept the S03-P M1 input-queue contract.
 
 - **P0-TOOLING:** Completed. The [baseline repair](../spikes/p0-tooling.md) made the
   canonical script check green, established complete Python discovery, selected the
@@ -43,8 +43,10 @@ hit-registration policy.
 - **S03-P:** Completed bounded implementation. [Foot prediction](../spikes/s03-prediction.md)
   shares S02 motion/collision rules, restores authority and replays bounded side-effect-free
   history. Selected predicted physics p95 is 19–29 ms and drawn p95 39 ms, all contended.
-  Approval of the dated three-frame pending-lag/oldest-valid queue revision remains an open
-  production decision; owner decision 14 does not make it an extra foundation gate.
+  Owner decision 19 accepts the dated M1 queue contract: ordered one-frame-per-tick
+  consumption, three-tick distance-bounded pending lag, eight queued frames separate from
+  the 120-sequence freshness window, supersession without extra simulation, 250 ms held-input
+  expiry, and a last-consumed-or-superseded acknowledgement watermark.
 - **S04:** The technical car body and [standalone drive scene](../spikes/s04-drive-scene.md)
   are complete. Owner handling feedback/F12 tuning remains open. Cars cannot fire; exit
   requires speed below 0.5 m/s; disconnect coasts. Owner decision 16 releases a dead
@@ -140,8 +142,9 @@ Completed discovery reconciliation: [P0-DOC14 record](../reviews/p0-doc14.md).
 - **M1-A1:** Deliver standalone/ENet sessions and Steam-adapter-capable boundaries;
   menu flows must handle cancel, stale/failure/host loss and cleanup. Only host/standalone
   can reset. Steam friend sessions are owner-deferred beyond M1.
-- **M1-A2:** Share rules offline/authority/permitted prediction; handle focus/expiry,
-  respawn and reset rehydration before input while rejecting stale-match commands.
+- **M1-A2:** Share rules offline/authority/permitted prediction; implement decision 19's
+  ordered bounded input queue and acknowledgement watermark; handle focus/expiry, respawn and
+  reset rehydration before input while rejecting stale-match commands.
 - **M1-A3:** Persist validated audio settings with defaults/recovery and live preview;
   device settings cannot mutate shared gameplay.
 - **M1-A-GATE:** Validate two exported ENet processes, settings and lifecycle/reset/error
