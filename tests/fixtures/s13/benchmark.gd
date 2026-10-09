@@ -70,12 +70,11 @@ func _process(_delta: float) -> void:
 	var now_usec: int = Time.get_ticks_usec()
 	var elapsed_seconds: float = (now_usec - _started_usec) / 1000000.0
 	if elapsed_seconds >= _warmup_seconds:
+		_samples.frame_ms.append((now_usec - _previous_frame_usec) / 1000.0)
 		_samples.process_ms.append(Performance.get_monitor(Performance.TIME_PROCESS) * 1000.0)
 		_samples.physics_ms.append(
 			Performance.get_monitor(Performance.TIME_PHYSICS_PROCESS) * 1000.0
 		)
-		if DisplayServer.get_name() == "headless":
-			_samples.frame_ms.append((now_usec - _previous_frame_usec) / 1000.0)
 	_previous_frame_usec = now_usec
 	if elapsed_seconds >= _warmup_seconds + _duration_seconds:
 		_finish()
@@ -124,7 +123,6 @@ func _on_frame_post_draw() -> void:
 	var now_usec: int = Time.get_ticks_usec()
 	var elapsed_seconds: float = (now_usec - _started_usec) / 1000000.0
 	if elapsed_seconds >= _warmup_seconds:
-		_samples.frame_ms.append((now_usec - _previous_frame_usec) / 1000.0)
 		_samples.render_cpu_ms.append(
 			RenderingServer.viewport_get_measured_render_time_cpu(_viewport_rid)
 		)
@@ -146,7 +144,6 @@ func _on_frame_post_draw() -> void:
 			if capture_error != OK:
 				push_error("S13 capture failed: %s" % error_string(capture_error))
 			_capture_saved = true
-	_previous_frame_usec = now_usec
 
 
 ## Writes raw telemetry and immutable run metadata before exiting cleanly.
