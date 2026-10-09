@@ -1,0 +1,149 @@
+{
+  "scope": "Blender-only temporary comparison, not saved placement or engine acceptance",
+  "reference": {
+    "path": "art/models/brackett_greybox/shop.glb",
+    "sha256_before": "243730bb68daac7c67bce56bdb765f964d075cdd5e909ddb9258e435837b7a06",
+    "sha256_after": "243730bb68daac7c67bce56bdb765f964d075cdd5e909ddb9258e435837b7a06",
+    "blender_bounds_m": [
+      [
+        -9.0,
+        -7.5,
+        0.0
+      ],
+      [
+        9.0,
+        7.5,
+        10.0
+      ]
+    ],
+    "dimensions_m": [
+      18,
+      15,
+      10
+    ],
+    "scale_unchanged": true,
+    "temporary_translation_blender_m": [
+      0,
+      0,
+      -10
+    ]
+  },
+  "plant_roof_offset_blender_m": [
+    3,
+    2,
+    0
+  ],
+  "plant_footprint_area_fraction": 0.026074074074074076,
+  "plant_height_building_fraction": 0.155,
+  "project_camera": {
+    "world_height_m": 47,
+    "roof_height_m": 10,
+    "roof_relative_height_m": 37,
+    "vertical_fov_degrees": 42.00000169963833,
+    "rotation": [
+      0.0,
+      -0.0,
+      0.0
+    ],
+    "note": "dark_roof_study alone uses temporary studio material; other reference views retain original materials"
+  },
+  "views": [
+    {
+      "file": "hero.png",
+      "location_blender_m": [
+        4.6,
+        5.6,
+        3.8
+      ],
+      "target_blender_m": [
+        0,
+        0,
+        0.72
+      ],
+      "lens_mm": 52,
+      "resolution": [
+        1200,
+        900
+      ],
+      "projection": "perspective"
+    },
+    {
+      "file": "louver_detail.png",
+      "location_blender_m": [
+        3.2,
+        4.5,
+        1.9
+      ],
+      "target_blender_m": [
+        0,
+        0,
+        0.8
+      ],
+      "lens_mm": 58,
+      "resolution": [
+        1200,
+        900
+      ],
+      "projection": "perspective"
+    },
+    {
+      "file": "project_camera_roof_context.png",
+      "location_blender_m": [
+        0,
+        0,
+        37
+      ],
+      "target_blender_m": [
+        0,
+        0,
+        0
+      ],
+      "lens_mm": 41.68142503510083,
+      "resolution": [
+        1280,
+        800
+      ],
+      "projection": "perspective"
+    },
+    {
+      "file": "project_camera_dark_roof_study.png",
+      "location_blender_m": [
+        0,
+        0,
+        37
+      ],
+      "target_blender_m": [
+        0,
+        0,
+        0
+      ],
+      "lens_mm": 41.68142503510083,
+      "resolution": [
+        1280,
+        800
+      ],
+      "projection": "perspective"
+    },
+    {
+      "file": "unchanged_shop_scale_comparison.png",
+      "location_blender_m": [
+        23,
+        29,
+        21
+      ],
+      "target_blender_m": [
+        0,
+        0,
+        -3
+      ],
+      "lens_mm": 48,
+      "resolution": [
+        1280,
+        900
+      ],
+      "projection": "perspective"
+    }
+  ],
+  "renderer": "Cycles CPU 4 threads, 32 samples, denoise, AgX",
+  "source_saved": false
+}

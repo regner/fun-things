@@ -1,0 +1,39 @@
+"""Read-only round-surround and existing actor comparison, never saved/exported."""
+import bpy,math,json,hashlib
+from pathlib import Path
+from mathutils import Vector
+from bpy_extras.object_utils import world_to_camera_view
+R=Path(__file__).resolve().parents[3]; E=R/'docs/assets/production/city_planting_04-evidence'; s=bpy.context.scene
+inputs=[]; actors={}; trees={}
+def imported(rel,offset):
+    path=R/rel; before=set(bpy.data.objects); bpy.ops.import_scene.gltf(filepath=str(path))
+    objects=set(bpy.data.objects)-before
+    for o in objects:
+        if o.parent is None:o.location+=Vector(offset)
+    inputs.append({'path':rel,'bytes':path.stat().st_size,'sha256':hashlib.sha256(path.read_bytes()).hexdigest()})
+    return objects
+for variant,x in [('compact',-2.5),('broad',2.5)]:
+    col=bpy.data.collections['export_city_planting_04_'+variant]; col.hide_viewport=False; col.hide_render=False
+    col.objects['city_planting_04_'+variant].location=(x,0,0); trees[variant]=list(col.objects)
+    imported('art/models/environment/city_planting_02/city_planting_02.glb',(x,0,0))
+    actors[variant]=imported('art/models/characters/coral_courier/coral_courier.glb',(x,-2.6,0))
+bpy.context.view_layer.update()
+hero=bpy.data.objects['hero_camera']; hero.location=(7,-11,8); hero.rotation_euler=(Vector((0,-.2,1.5))-hero.location).to_track_quat('-Z','Y').to_euler(); hero.data.ortho_scale=10
+s.camera=hero; s.render.resolution_x=1400; s.render.resolution_y=900; s.render.filepath=str(E/'pair_surround_actor_hero.png'); bpy.ops.render.render(write_still=True)
+s.camera=bpy.data.objects['project_vertical_47m_42deg']; s.render.resolution_x=1280; s.render.resolution_y=800
+frame=s.camera.data.view_frame(scene=s); vfov=math.degrees(2*math.atan(max(abs(v.y/v.z) for v in frame)))
+assert abs(vfov-42)<.001 and all(abs(v)<1e-6 for v in s.camera.rotation_euler)
+s.render.filepath=str(E/'pair_surround_actor_project_camera.png'); bpy.ops.render.render(write_still=True)
+def screen_bounds(objects):
+    pts=[]; dg=bpy.context.evaluated_depsgraph_get()
+    for o in objects:
+        if o.type!='MESH':continue
+        ev=o.evaluated_get(dg); me=ev.to_mesh()
+        pts.extend(world_to_camera_view(s,s.camera,ev.matrix_world@v.co) for v in me.vertices); ev.to_mesh_clear()
+    return [[min(p[i] for p in pts)*[1280,800][i] for i in range(2)],[max(p[i] for p in pts)*[1280,800][i] for i in range(2)]]
+checks=[]
+for variant in trees:
+    t=screen_bounds(trees[variant]); a=screen_bounds(actors[variant]); gap=t[0][1]-a[1][1]
+    assert gap>5,(variant,gap)
+    checks.append({'variant':variant,'tree_pixel_bounds_bottom_left':t,'actor_pixel_bounds_bottom_left':a,'vertical_separation_px':gap,'actor_relative_ground_translation_blender':[0,-2.6,0]})
+(E/'assembly_preview.json').write_text(json.dumps({'scope':'Blender static studio comparison only; no runtime or all-placement acceptance','inputs':inputs,'camera':{'height_m':47,'vertical_fov_deg':vfov,'viewport':[1280,800],'rotation_radians':list(s.camera.rotation_euler)},'checks':checks,'source_saved':False},indent=2)+'\n')

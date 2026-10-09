@@ -1,0 +1,113 @@
+"""Original compact mechanical-plant enclosure; all geometry authored with private Blender."""
+import bpy, bmesh, math
+from pathlib import Path
+from mathutils import Vector
+import io_scene_gltf2
+R=Path(__file__).resolve().parents[3]
+assert bpy.app.version[:3]==(5,2,2) and bpy.app.build_hash.decode()=='d13f752e3b9c'
+assert io_scene_gltf2.bl_info['version']==(5,2,40)
+bpy.ops.object.select_all(action='SELECT'); bpy.ops.object.delete(use_global=False)
+for c in list(bpy.data.collections): bpy.data.collections.remove(c)
+s=bpy.context.scene; s.unit_settings.system='METRIC'; s.unit_settings.scale_length=1
+col=bpy.data.collections.new('export_city_roof_details_02'); s.collection.children.link(col)
+studio=bpy.data.collections.new('authoring_excluded'); s.collection.children.link(studio)
+root=bpy.data.objects.new('city_roof_details_02',None); col.objects.link(root)
+root['datum']='Ground-centred roof attachment: Blender Z=0 / Godot Y=0; +Y front'
+root['purpose']='Decorative mechanical plant enclosure; no simulation, collision, smoke or access'
+
+def material(name,swatch,metal,rough):
+    m=bpy.data.materials.new(name); m.use_nodes=True; m.use_backface_culling=True
+    rgb=[int(swatch[i:i+2],16)/255 for i in (0,2,4)]
+    rgba=tuple(v/12.92 if v<=.04045 else ((v+.055)/1.055)**2.4 for v in rgb)+(1,)
+    p=m.node_tree.nodes.get('Principled BSDF'); p.inputs['Base Color'].default_value=rgba
+    p.inputs['Metallic'].default_value=metal; p.inputs['Roughness'].default_value=rough
+    m.diffuse_color=rgba; return m
+paint=material('roof_plant_dark_petrol','273F43',.28,.52)
+edge=material('roof_plant_folded_metal','314D50',.30,.55)
+recess=material('roof_plant_shadow','172B30',.05,.78)
+
+def finish(o,name,mat,collection=col,bevel=0):
+    o.name=name
+    for c in list(o.users_collection): c.objects.unlink(o)
+    collection.objects.link(o); o.data.materials.clear(); o.data.materials.append(mat)
+    bpy.ops.object.select_all(action='DESELECT'); o.select_set(True); bpy.context.view_layer.objects.active=o
+    bpy.ops.object.transform_apply(location=True,rotation=True,scale=True)
+    bm=bmesh.new(); bm.from_mesh(o.data); bmesh.ops.recalc_face_normals(bm,faces=list(bm.faces)); bm.to_mesh(o.data); bm.free()
+    if bevel:
+        mod=o.modifiers.new('rolled_edge','BEVEL'); mod.width=bevel; mod.segments=3
+        bpy.ops.object.modifier_apply(modifier=mod.name)
+    for f in o.data.polygons: f.use_smooth=True
+    mod=o.modifiers.new('restrained_broad_face_normals','WEIGHTED_NORMAL'); mod.keep_sharp=True
+    bpy.ops.object.modifier_apply(modifier=mod.name)
+    if collection==col: o.parent=root
+    o.select_set(False); return o
+
+def mesh(name,verts,faces,mat,bevel=0):
+    m=bpy.data.meshes.new(name); m.from_pydata(verts,[],faces); m.update()
+    o=bpy.data.objects.new(name,m); col.objects.link(o); return finish(o,name,mat,bevel=bevel)
+
+def rounded(w,d,r,z,n=8):
+    return [(cx+r*math.cos(a),cy+r*math.sin(a),z)
+            for cx,cy,start in [(w/2-r,d/2-r,0),(-w/2+r,d/2-r,90),(-w/2+r,-d/2+r,180),(w/2-r,-d/2+r,270)]
+            for a in [math.radians(start+j*90/n) for j in range(n+1)]]
+
+def ring(name,profiles,mat,closed=True):
+    loops=[rounded(*p) for p in profiles]; n=len(loops[0]); verts=sum(loops,[]); faces=[]
+    for k in range(len(loops) if closed else len(loops)-1):
+        q=(k+1)%len(loops)
+        faces.extend((k*n+j,k*n+(j+1)%n,q*n+(j+1)%n,q*n+j) for j in range(n))
+    if not closed: faces.extend([tuple(reversed(range(n))),tuple((len(loops)-1)*n+j for j in range(n))])
+    return mesh(name,verts,faces,mat)
+
+def box(name,loc,dim,mat,bevel=.02,collection=col):
+    bpy.ops.mesh.primitive_cube_add(size=1,location=loc); o=bpy.context.object; o.dimensions=dim
+    return finish(o,name,mat,collection,bevel)
+def join(parts,name):
+    bpy.ops.object.select_all(action='DESELECT')
+    for o in parts: o.select_set(True)
+    bpy.context.view_layer.objects.active=parts[0]; bpy.ops.object.join(); parts[0].name=name
+    bpy.ops.object.select_all(action='DESELECT')
+# Original enclosure: folded roof curb, substantial shoulder and quiet swept cover.
+ring('flashing_and_curb',[(3.2,2.2,.19,0),(3.2,2.2,.19,.03),
+    (2.98,1.98,.16,.075),(2.94,1.94,.15,.25),(2.84,1.84,.13,.27),
+    (2.70,1.70,.12,.27),(2.68,1.68,.11,.04),(2.68,1.68,.11,0)],edge)
+ring('formed_enclosure_body',[(2.84,1.84,.14,.22),(2.90,1.90,.16,.29),
+    (2.90,1.90,.16,1.26),(2.84,1.84,.18,1.35),(2.62,1.62,.19,1.45)],paint,False)
+ring('swept_rain_cover',[(2.94,1.94,.18,1.355),(2.98,1.98,.20,1.38),
+    (2.98,1.98,.20,1.42),(2.92,1.92,.20,1.46),
+    (2.78,1.78,.19,1.51),(2.50,1.50,.18,1.55)],edge,False)
+# Recessed-looking panel assemblies sit ahead of the opaque shell, all finite solids.
+# Broad flanges surround three open visual slots, without dozens of grille bars.
+frames=[]; backings=[]; blades=[]
+for side in (-1,1):
+    x=-.38 if side==1 else 0
+    width=1.58 if side==1 else 2.24
+    backings.append(box('intake_shadow', (x,side*.959,.79),(width+.10,.05,.78),recess,.04))
+    for end in (-1,1):
+        frames.append(box('intake_jamb',(x+end*(width/2+.035),side*1.005,.79),(.07,.11,.82),paint,.024))
+    for z in (.38,1.20):
+        frames.append(box('intake_rail',(x,side*1.005,z),(width+.14,.11,.065),paint,.023))
+    # Sloped upper face and downturned lip, three original broad formed blades.
+    profile=[(.978,.095),(1.018,.093),(1.052,.069),(1.064,.038),
+             (1.064,0),(1.040,0),(1.040,.032),(1.012,.063),(.978,.065)]
+    for k,z in enumerate((.44,.68,.92)):
+        verts=[(xx,side*y,z+dz) for xx in (x-width/2,x+width/2) for y,dz in profile]
+        n=len(profile)
+        faces=[tuple(reversed(range(n))),tuple(n+j for j in range(n))]
+        faces.extend((j,(j+1)%n,n+(j+1)%n,n+j) for j in range(n))
+        blades.append(mesh('blade_%s_%s'%(side,k),verts,faces,paint,.006))
+join(frames,'intake_frames'); join(backings,'intake_shadow_panels'); join(blades,'six_formed_louvers')
+# The small right-hand maintenance panel establishes +Y front and distinguishes
+# this enclosure from a symmetric passive vent. It is a fixed panel, not a door.
+box('service_panel_gasket',(.95,.958,.80),(.69,.048,.86),recess,.045)
+box('service_panel',(.95,.989,.80),(.61,.036,.78),paint,.035)
+box('service_latch',(.95,1.021,.71),(.21,.036,.056),edge,.018)
+ref=box('authoring_1m_reference',(-2.5,0,.5),(1,1,1),edge,0,studio)
+ref.hide_render=True; ref.hide_set(True); ref['measured_dimensions_m']=[1.,1.,1.]
+s['provenance']='Original Codex city_roof_details.02 geometry authored by author.py; no external model or texture.'
+s['axis_contract']='Blender +Y service-panel front/+Z up => Godot -Z front/+Y up'
+s['interface']='Level roof Z=0; flashing 3.2 x 2.2 m; visual component solids overlap intentionally'
+s['status']='Producer source/export candidate; integration and independent acceptance pending'
+bpy.context.preferences.filepaths.save_version=0
+bpy.ops.wm.save_as_mainfile(filepath=str(R/'art/source/models/environment/city_roof_details_02/city_roof_details_02.blend'))
+print('AUTHOR_COMPLETE')

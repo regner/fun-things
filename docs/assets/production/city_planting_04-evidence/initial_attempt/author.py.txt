@@ -1,0 +1,123 @@
+"""Original small city trees; authored crown profiles and swept expressive trunks."""
+import bpy, math, json
+from pathlib import Path
+from mathutils import Vector
+import io_scene_gltf2
+R=Path(__file__).resolve().parents[3]; E=R/'docs/assets/production/city_planting_04-evidence'
+assert bpy.app.version[:3]==(5,2,2) and bpy.app.build_hash.decode()=='d13f752e3b9c'
+assert io_scene_gltf2.bl_info['version']==(5,2,40)
+bpy.ops.object.select_all(action='SELECT'); bpy.ops.object.delete(use_global=False)
+s=bpy.context.scene; s.unit_settings.system='METRIC'; s.unit_settings.scale_length=1
+s.render.threads_mode='FIXED'; s.render.threads=4
+main=bpy.data.collections.new('export_city_planting_04'); s.collection.children.link(main)
+def material(name,rgb,rough):
+    m=bpy.data.materials.new(name); m.use_nodes=True; m.use_backface_culling=True
+    c=[((v/255+.055)/1.055)**2.4 if v>10 else v/3294.6 for v in rgb]
+    m.diffuse_color=(*c,1); p=m.node_tree.nodes.get('Principled BSDF')
+    p.inputs['Base Color'].default_value=(*c,1); p.inputs['Roughness'].default_value=rough
+    return m
+jade=material('tree_quiet_jade',(66,105,74),.87)
+sage=material('tree_soft_sage',(77,112,77),.87)
+bark=material('tree_warm_umber',(91,77,55),.93)
+def mesh(name,vs,fs,mat,col,root):
+    me=bpy.data.meshes.new(name+'_mesh'); me.from_pydata(vs,[],fs); me.update()
+    o=bpy.data.objects.new(name,me); col.objects.link(o); o.parent=root
+    me.materials.append(mat)
+    for p in me.polygons:p.use_smooth=True
+    return o
+# A profile, not a scaled primitive: tucked base, broad low shoulder, offset dome.
+PROFILE=[(0,0),(.065,.40),(.15,.68),(.27,.90),(.40,1),(.54,.99),(.68,.91),(.80,.76),(.90,.56),(.965,.30),(1,0)]
+def crown(name,center,radii,phase,mat,col,root):
+    cx,cy,cz=center; rx,ry,h=radii; n=40
+    vs=[(cx-.05,cy,cz)]
+    for z,r in PROFILE[1:-1]:
+        for i in range(n):
+            a=2*math.pi*i/n
+            wave=1+.065*math.cos(3*a+phase)+.025*math.sin(5*a-phase)
+            lean=.11*math.sin(math.pi*z)
+            vs.append((cx+rx*r*math.cos(a)*wave+lean,
+                       cy+ry*r*math.sin(a)*wave+.045*math.sin(2*a+phase)*r,
+                       cz+h*z+.035*math.cos(2*a+phase)*math.sin(math.pi*z)))
+    vs.append((cx+.035,cy,cz+h)); top=len(vs)-1; rings=len(PROFILE)-2
+    fs=[(0,1+(i+1)%n,1+i) for i in range(n)]
+    for j in range(rings-1):
+        for i in range(n):
+            a=1+j*n+i; b=1+j*n+(i+1)%n; fs.append((a,b,b+n,a+n))
+    fs.extend((1+(rings-1)*n+i,1+(rings-1)*n+(i+1)%n,top) for i in range(n))
+    return mesh(name,vs,fs,mat,col,root)
+def wood(name,paths,col,root):
+    vs=[]; fs=[]; n=16
+    for path in paths:
+        start=len(vs)
+        for j,(x,y,z,r) in enumerate(path):
+            for i in range(n):
+                a=2*math.pi*i/n; flare=1+.09*math.cos(5*a+.3)*max(0,1-z/.5)
+                vs.append((x+r*math.cos(a)*flare,y+r*math.sin(a)*flare,z))
+        fs.append(tuple(start+i for i in reversed(range(n))))
+        for j in range(len(path)-1):
+            for i in range(n):
+                a=start+j*n+i; b=start+j*n+(i+1)%n; fs.append((a,b,b+n,a+n))
+        fs.append(tuple(start+(len(path)-1)*n+i for i in range(n)))
+    o=mesh(name,vs,fs,bark,col,root)
+    # Unite branch collars locally; the finished editable mesh retains a smooth fork.
+    bpy.context.view_layer.objects.active=o; o.select_set(True)
+    rem=o.modifiers.new('unified_branch_collars','REMESH'); rem.mode='VOXEL'; rem.voxel_size=.025; rem.use_smooth_shade=True
+    bpy.ops.object.modifier_apply(modifier=rem.name)
+    smooth=o.modifiers.new('soft_wood','SMOOTH'); smooth.factor=.6; smooth.iterations=3
+    bpy.ops.object.modifier_apply(modifier=smooth.name)
+    dec=o.modifiers.new('restrained_wood_density','DECIMATE'); dec.ratio=.35
+    bpy.ops.object.modifier_apply(modifier=dec.name)
+    # Ground datum exact after voxel union; original flare remains below 0.23 m radius.
+    low=min(v.co.z for v in o.data.vertices)
+    for v in o.data.vertices:v.co.z-=low
+    o.select_set(False)
+    return o
+variants={
+ 'compact':[
+ ('leader',(.02,.03,2.60),(.65,.60,1.00),1.2,jade),
+ ('west',(-.47,.02,2.16),(.58,.59,.88),.4,jade),
+ ('east',(.48,.10,2.30),(.52,.55,.82),2.2,sage),
+ ('front',(.04,.47,2.25),(.57,.49,.82),3.7,jade),
+ ('back',(-.12,-.43,2.32),(.57,.48,.86),4.5,sage)],
+ 'broad':[
+ ('leader',(-.08,.02,2.55),(.86,.76,.77),1.2,jade),
+ ('west',(-.69,.02,2.12),(.75,.70,.78),.4,jade),
+ ('east',(.68,.10,2.19),(.72,.66,.77),2.2,sage),
+ ('front',(.06,.62,2.17),(.77,.63,.78),3.7,jade),
+ ('back',(-.14,-.57,2.24),(.73,.64,.75),4.5,sage)]}
+collections={}
+for variant,specs in variants.items():
+    col=bpy.data.collections.new('export_city_planting_04_'+variant); main.children.link(col); collections[variant]=col
+    root=bpy.data.objects.new('city_planting_04_'+variant,None); col.objects.link(root)
+    root['provenance']='Original Codex Blender authoring 2026-10-09; city_planting.04'
+    root['axes']='metres; ground centre; +Y front / +Z up -> Godot -Z / +Y'
+    root['interface']='Same ground datum as city_planting.02 open surround; base radius <0.23m'
+    paths=[[(0,0,0,.19),(.015,0,.12,.15),(.055,-.012,.40,.115),(.09,-.03,.9,.102),(.04,0,1.4,.088),(-.04,.03,1.85,.073),(.02,.03,2.35,.05),(.03,.03,2.83,.015)]]
+    for k,(name,c,r,phase,mat) in enumerate(specs[1:]):
+        x,y,z=c
+        paths.append([(.035,0,1.60+.08*k,.075),(.035+x*.35,y*.35,2.0+.04*k,.060),(x*.77,y*.77,z+.22,.041),(x,y,z+.45,.014)])
+    wood(variant+'_sculpted_trunk',paths,col,root)
+    for name,c,r,phase,mat in specs:crown(variant+'_crown_'+name,c,r,phase,mat,col,root)
+studio=bpy.data.collections.new('studio_do_not_export'); s.collection.children.link(studio)
+def move(o):
+    for col in list(o.users_collection):col.objects.unlink(o)
+    studio.objects.link(o); return o
+bpy.ops.mesh.primitive_plane_add(size=200,location=(0,0,-.012)); move(bpy.context.object).data.materials.append(material('studio_slate',(104,119,126),.9))
+def camera(name,loc,target):
+    bpy.ops.object.camera_add(location=loc); o=move(bpy.context.object); o.name=name
+    o.rotation_euler=(Vector(target)-o.location).to_track_quat('-Z','Y').to_euler(); return o
+hero=camera('hero_camera',(5,8,5.1),(0,0,1.65)); hero.data.type='ORTHO'; hero.data.ortho_scale=4.9
+project=camera('project_vertical_47m_42deg',(0,0,47),(0,0,0)); project.data.sensor_fit='VERTICAL'; project.data.angle=math.radians(42)
+for name,loc,power,size in [('key',(1,4,7),1100,5),('fill',(-4,1,5),650,5),('rim',(2,-4,6),850,4)]:
+    bpy.ops.object.light_add(type='AREA',location=loc); o=move(bpy.context.object); o.name=name; o.data.energy=power; o.data.shape='DISK'; o.data.size=size; o.rotation_euler=(Vector((0,0,1.6))-o.location).to_track_quat('-Z','Y').to_euler()
+s.world.color=(.25,.25,.25); s.render.engine='CYCLES'; s.cycles.samples=32; s.cycles.use_denoising=True
+s.render.image_settings.file_format='PNG'; s.view_settings.view_transform='AgX'; s.render.resolution_percentage=100
+s.camera=hero; s.render.resolution_x=1100; s.render.resolution_y=900
+# Both variants occupy their true identical datum; hide the broad alternative initially.
+collections['broad'].hide_render=True; collections['broad'].hide_viewport=True
+bpy.ops.wm.save_as_mainfile(filepath=str(R/'art/source/models/environment/city_planting_04/city_planting_04.blend'))
+for variant in variants:
+    for key,col in collections.items():col.hide_render=key!=variant; col.hide_viewport=key!=variant
+    s.camera=hero; s.render.resolution_x=1100; s.render.resolution_y=900; s.render.filepath=str(E/(variant+'_hero.png')); bpy.ops.render.render(write_still=True)
+    s.camera=project; s.render.resolution_x=1280; s.render.resolution_y=800; s.render.filepath=str(E/(variant+'_project_camera.png')); bpy.ops.render.render(write_still=True)
+print('AUTHOR_COMPLETE')

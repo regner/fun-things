@@ -1,0 +1,68 @@
+"""Independently inspect binary triangles, winding, material payloads and scope."""
+import json, struct, math, hashlib
+from pathlib import Path
+R=Path(__file__).resolve().parents[3]; E=R/'docs/assets/production/city_planting_05-evidence'
+reports=[]
+for variant,dims,tris in [('short_tuft',(.56,.26,.42),1170),('spreading_clump',(1,.20,.62),1950)]:
+    path=R/('art/models/environment/city_planting_05/city_planting_05_'+variant+'.glb')
+    blob=path.read_bytes(); assert struct.unpack_from('<III',blob)==(0x46546c67,2,len(blob))
+    size,kind=struct.unpack_from('<II',blob,12); assert kind==0x4e4f534a
+    doc=json.loads(blob[20:20+size]); bin_size,kind=struct.unpack_from('<II',blob,20+size)
+    assert kind==0x004e4942; binary=blob[28+size:]; assert len(binary)==bin_size
+    def accessor(i):
+        """Read actual buffer data instead of trusting accessor min/max metadata."""
+        a=doc['accessors'][i]; v=doc['bufferViews'][a['bufferView']]
+        fmt={5126:'f',5123:'H',5125:'I'}[a['componentType']]
+        n={'SCALAR':1,'VEC3':3,'VEC4':4}[a['type']]; step=struct.calcsize('<'+fmt*n)
+        offset=v.get('byteOffset',0)+a.get('byteOffset',0)
+        return [struct.unpack_from('<'+fmt*n,binary,offset+k*v.get('byteStride',step)) for k in range(a['count'])]
+    assert len(doc['nodes'])==2 and len(doc['meshes'])==1
+    assert {n['name'] for n in doc['nodes']}=={'city_planting_05_'+variant,variant+'_blades'}
+    assert not doc.get('images') and not doc.get('textures') and not doc.get('animations') and not doc.get('skins') and not doc.get('cameras')
+    assert 'KHR_lights_punctual' not in doc.get('extensionsUsed',[])
+    for n in doc['nodes']:
+        assert 'matrix' not in n and 'rotation' not in n
+        assert n.get('scale',[1,1,1])==[1,1,1]
+        assert n.get('translation',[0,0,0])==[0,0,0]
+    positions=[]; triangles=0; minimum_area=math.inf; min_normal_alignment=1; edges={}; signed_volume=0
+    for p in doc['meshes'][0]['primitives']:
+        assert p.get('mode',4)==4 and set(p['attributes'])=={'POSITION','NORMAL'}
+        pos=accessor(p['attributes']['POSITION']); normals=accessor(p['attributes']['NORMAL'])
+        assert len(pos)==len(normals)
+        assert all(math.isfinite(x) for v in pos for x in v)
+        assert all(abs(sum(x*x for x in n)-1)<.002 for n in normals)
+        ids=[v[0] for v in accessor(p['indices'])]; assert len(ids)%3==0
+        for k in range(0,len(ids),3):
+            idx=ids[k:k+3]; a,b,c=[pos[i] for i in idx]
+            u=[b[j]-a[j] for j in range(3)]; v=[c[j]-a[j] for j in range(3)]
+            cross=[u[1]*v[2]-u[2]*v[1],u[2]*v[0]-u[0]*v[2],u[0]*v[1]-u[1]*v[0]]
+            length=math.sqrt(sum(x*x for x in cross)); minimum_area=min(minimum_area,length/2)
+            assert length/2>1e-10
+            avg=[sum(normals[i][j] for i in idx)/3 for j in range(3)]
+            alignment=sum(cross[j]*avg[j] for j in range(3))/length
+            min_normal_alignment=min(min_normal_alignment,alignment)
+            assert alignment>0,(variant,k,alignment)
+            signed_volume+=sum(a[j]*cross[j] for j in range(3))/6
+            # Weld identical float coordinates only; normal/material splits cannot
+            # disguise unpaired boundary edges or inconsistent triangle winding.
+            for x,y in [(a,b),(b,c),(c,a)]:
+                key=tuple(sorted((x,y))); sign=1 if x<y else -1
+                edges.setdefault(key,[]).append(sign)
+        triangles+=len(ids)//3; positions.extend(pos)
+    assert all(len(v)==2 and sum(v)==0 for v in edges.values())
+    assert signed_volume>0
+    low=[min(v[i] for v in positions) for i in range(3)]; high=[max(v[i] for v in positions) for i in range(3)]
+    elo=[-dims[0]/2,0,-dims[2]/2]; ehi=[dims[0]/2,dims[1],dims[2]/2]
+    assert all(abs(a-b)<1e-6 for a,b in zip(low,elo))
+    assert all(abs(a-b)<1e-6 for a,b in zip(high,ehi))
+    assert triangles==tris
+    assert [m['name'] for m in doc['materials']]==['weed_olive','weed_olive_light','weed_olive_dry']
+    for m in doc['materials']:
+        assert m.get('alphaMode','OPAQUE')=='OPAQUE'
+        assert m['pbrMetallicRoughness'].get('metallicFactor',1)==0
+        expected_roughness={'weed_olive':.89,'weed_olive_light':.88,'weed_olive_dry':.94}[m['name']]
+        assert abs(m['pbrMetallicRoughness']['roughnessFactor']-expected_roughness)<1e-6
+        assert not m.get('doubleSided',False)
+    reports.append({'file':str(path.relative_to(R)),'godot_axis_aabb_m':[low,high],'triangles':triangles,'mesh_count':1,'material_primitives':len(doc['meshes'][0]['primitives']),'minimum_triangle_area_m2':minimum_area,'minimum_face_vs_vertex_normal_alignment':min_normal_alignment,'signed_volume_m3':signed_volume,'welded_edges_closed_consistent':True,'materials':doc['materials'],'sha256':hashlib.sha256(blob).hexdigest(),'checks':'PASS: exact independent bounds, unit transforms, finite normals, winding, nondegenerate faces, closed surfaces, intended scope, no fixture/cameras/animation/textures'})
+(E/'glb_checks.json').write_text(json.dumps(reports,indent=2)+'\n')
+print('GLB_CHECKS_PASS',json.dumps(reports,indent=2))

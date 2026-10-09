@@ -1,0 +1,26 @@
+{
+  "name": "preview_measurements",
+  "argv": [
+    "/usr/bin/blender",
+    "-b",
+    "-noaudio",
+    "-t",
+    "4",
+    "art/source/models/environment/city_planting_05/city_planting_05.blend",
+    "--python-exit-code",
+    "1",
+    "--python",
+    "tools/asset_production/city_planting_05/preview.py",
+    "--",
+    "--measure-only"
+  ],
+  "cwd": "/home/regner/.paseo/worktrees/0u71f39f/asset-register-production",
+  "environment_overrides": {
+    "ALSOFT_DRIVERS": "null",
+    "SDL_AUDIODRIVER": "dummy"
+  },
+  "started_utc": "2026-10-09T16:53:24.962906+00:00",
+  "finished_utc": "2026-10-09T16:53:25.718707+00:00",
+  "exit_code": 0,
+  "raw_log": "preview_measurements.log"
+}

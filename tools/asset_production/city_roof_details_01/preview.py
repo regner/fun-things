@@ -1,0 +1,64 @@
+"""Hero and calibrated roof comparison; read-only source/reference, no engine claims."""
+import bpy,math,json,hashlib
+from pathlib import Path
+from mathutils import Vector
+R=Path(__file__).resolve().parents[3]; E=R/'docs/assets/production/city_roof_details_01-evidence'
+s=bpy.context.scene; studio=bpy.data.collections['authoring_excluded']; root=bpy.data.objects['city_roof_details_01']
+world=bpy.data.worlds.new('preview_world'); s.world=world; world.use_nodes=True
+world.node_tree.nodes['Background'].inputs[0].default_value=(.22,.28,.32,1); world.node_tree.nodes['Background'].inputs[1].default_value=.45
+for name,loc,energy,size in [('key',(2,4,6),650,5),('fill',(-4,1,3),400,4),('rim',(1,-3,5),700,4)]:
+    data=bpy.data.lights.new(name,'AREA'); data.energy=energy; data.shape='DISK'; data.size=size
+    o=bpy.data.objects.new(name,data); studio.objects.link(o); o.location=loc
+    o.rotation_euler=(Vector((0,0,.3))-o.location).to_track_quat('-Z','Y').to_euler()
+mat=bpy.data.materials.new('preview_roof_slate'); mat.use_nodes=True
+p=mat.node_tree.nodes.get('Principled BSDF'); p.inputs['Base Color'].default_value=(.065,.095,.11,1); p.inputs['Roughness'].default_value=.85
+bpy.ops.mesh.primitive_plane_add(size=200); floor=bpy.context.object; floor.name='preview_floor'; floor.location.z=-.003; floor.data.materials.append(mat)
+cam_data=bpy.data.cameras.new('preview_camera'); cam=bpy.data.objects.new('preview_camera',cam_data); studio.objects.link(cam); s.camera=cam
+s.render.engine='CYCLES'; s.cycles.samples=32; s.cycles.use_denoising=True
+s.render.resolution_percentage=100; s.render.image_settings.file_format='PNG'; s.view_settings.view_transform='AgX'
+views=[]
+def render(name,loc,target,lens=52,res=(1200,900)):
+    cam.location=loc; cam.rotation_euler=(Vector(target)-cam.location).to_track_quat('-Z','Y').to_euler()
+    cam_data.type='PERSP'; cam_data.lens=lens
+    s.render.resolution_x,s.render.resolution_y=res; s.render.filepath=str(E/(name+'.png'))
+    bpy.ops.render.render(write_still=True)
+    views.append(dict(file=name+'.png',location_blender_m=list(loc),target_blender_m=list(target),lens_mm=lens,resolution=res,projection='perspective'))
+render('hero',(3.5,4.2,2.65),(0,0,.32))
+render('louver_detail',(2.2,3.3,1.22),(0,0,.36),65)
+# Preserve unmodified reference asset bytes and imported scale; translation only.
+reference=R/'art/models/brackett_greybox/shop.glb'; before_hash=hashlib.sha256(reference.read_bytes()).hexdigest()
+before=set(bpy.data.objects); bpy.ops.import_scene.gltf(filepath=str(reference))
+imported=set(bpy.data.objects)-before; bpy.context.view_layer.update()
+coords=[o.matrix_world@v.co for o in imported if o.type=='MESH' for v in o.data.vertices]
+low=[min(v[i] for v in coords) for i in range(3)]; high=[max(v[i] for v in coords) for i in range(3)]
+assert all(abs(a-b)<1e-4 for a,b in zip([high[i]-low[i] for i in range(3)],[18,15,10]))
+for o in imported:
+    if o.parent is None: o.location.z-=10
+root.location=(3,2,0)
+# Render temporary assembly expressed relative to the 10 m roof, camera 47 m world.
+# Broad key is now sunlit daylight; avoid tiny studio lights in gameplay comparison.
+for o in studio.objects:
+    if o.type=='LIGHT': o.hide_render=True
+sun=bpy.data.lights.new('daylight','SUN'); sun.energy=2; sun.angle=.2
+light=bpy.data.objects.new('daylight',sun); studio.objects.link(light); light.rotation_euler=(.45,-.55,-.3)
+floor.location.z=-10.01
+cam_data.sensor_fit='VERTICAL'; cam_data.sensor_height=32
+lens=16/math.tan(math.radians(42)/2)
+render('project_camera_roof_context',(0,0,37),(0,0,0),lens,(1280,800))
+frame=cam_data.view_frame(scene=s); vfov=math.degrees(2*math.atan(max(abs(v.y/v.z) for v in frame)))
+assert abs(vfov-42)<.001
+project_rotation=list(cam.rotation_euler)
+assert all(abs(v)<1e-6 for v in project_rotation)
+# Additional authored roof-color study. Geometry/scale remain unchanged; material
+# override is temporary and explicitly separate from the unchanged comparison.
+originals={o:list(o.data.materials) for o in imported if o.type=='MESH'}
+for o in originals:
+    for i in range(len(o.data.materials)): o.data.materials[i]=mat
+render('project_camera_dark_roof_study',(0,0,37),(0,0,0),lens,(1280,800))
+for o,mats in originals.items():
+    for i,m in enumerate(mats): o.data.materials[i]=m
+# Oblique retains unchanged shop dimensions and makes height subordination explicit.
+render('unchanged_shop_scale_comparison',(23,29,21),(0,0,-3),48,(1280,900))
+after_hash=hashlib.sha256(reference.read_bytes()).hexdigest(); assert before_hash==after_hash
+(E/'preview_checks.json').write_text(json.dumps(dict(scope='Blender-only temporary comparison, not saved placement or engine acceptance',reference=dict(path=str(reference.relative_to(R)),sha256_before=before_hash,sha256_after=after_hash,blender_bounds_m=[low,high],dimensions_m=[18,15,10],scale_unchanged=True,temporary_translation_blender_m=[0,0,-10]),vent_roof_offset_blender_m=[3,2,0],vent_footprint_area_fraction=2.6*1.6/(18*15),vent_height_building_fraction=.76/10,project_camera=dict(world_height_m=47,roof_height_m=10,roof_relative_height_m=37,vertical_fov_degrees=vfov,rotation=project_rotation,note='dark_roof_study alone uses temporary studio material; other reference views retain original materials'),views=views,renderer='Cycles CPU 4 threads, 32 samples, denoise, AgX',source_saved=False),indent=2)+'\n')
+print('PREVIEWS_COMPLETE')

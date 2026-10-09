@@ -1,0 +1,94 @@
+{
+  "blender": "5.2.2 LTS",
+  "build": "d13f752e3b9c",
+  "exporter": [
+    5,
+    2,
+    40
+  ],
+  "objects": [
+    {
+      "name": "formed_canopy",
+      "vertices": 136,
+      "triangles": 268,
+      "nonmanifold_or_inconsistent_edges": 0,
+      "component_signed_volumes_m3": [
+        0.6049890105094474
+      ],
+      "material_slots": [
+        "canopy_slate_petrol"
+      ]
+    },
+    {
+      "name": "rolled_front_rim",
+      "vertices": 176,
+      "triangles": 348,
+      "nonmanifold_or_inconsistent_edges": 0,
+      "component_signed_volumes_m3": [
+        0.021792257803525644
+      ],
+      "material_slots": [
+        "canopy_warm_ivory_rim"
+      ]
+    },
+    {
+      "name": "wall_mount_rail",
+      "vertices": 96,
+      "triangles": 188,
+      "nonmanifold_or_inconsistent_edges": 0,
+      "component_signed_volumes_m3": [
+        0.10144503507376024
+      ],
+      "material_slots": [
+        "canopy_dark_mounts"
+      ]
+    },
+    {
+      "name": "paired_tapered_gussets",
+      "vertices": 224,
+      "triangles": 440,
+      "nonmanifold_or_inconsistent_edges": 0,
+      "component_signed_volumes_m3": [
+        0.023729830138685352,
+        0.023729829255668706
+      ],
+      "material_slots": [
+        "canopy_dark_mounts"
+      ]
+    }
+  ],
+  "blender_bounds": [
+    [
+      -1.600000023841858,
+      0.0,
+      -0.41999998688697815
+    ],
+    [
+      1.600000023841858,
+      1.100000023841858,
+      0.23999999463558197
+    ]
+  ],
+  "triangles": 1244,
+  "authoring_reference_dimensions_m": [
+    1.0,
+    1.0,
+    1.0
+  ],
+  "export_settings": {
+    "export_format": "GLB",
+    "use_selection": true,
+    "export_yup": true,
+    "export_apply": true,
+    "export_texcoords": false,
+    "export_normals": true,
+    "export_tangents": false,
+    "export_materials": "EXPORT",
+    "export_cameras": false,
+    "export_lights": false,
+    "export_extras": false,
+    "export_animations": false
+  },
+  "sha256": "56d087d4adae431cb2296b42597a2ea395d7c6ed0042f6cbd2c06b248404faaf",
+  "bytes": 26196
+}

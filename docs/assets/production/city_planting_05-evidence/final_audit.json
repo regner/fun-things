@@ -1,0 +1,52 @@
+{
+  "result": "PASS",
+  "scope": "producer source/export handoff only",
+  "runtime_variants": [
+    "city_planting_05_short_tuft.glb",
+    "city_planting_05_spreading_clump.glb"
+  ],
+  "all_owned_blender_writers_stopped": true,
+  "comparison_assets_unchanged": true,
+  "actor_render_geometry_bounds_blender_m": [
+    [
+      1.6034183502197266,
+      -0.2800000011920929,
+      0.0024998579174280167
+    ],
+    [
+      3.1965818405151367,
+      0.17649993300437927,
+      1.8566508293151855
+    ]
+  ],
+  "gameplay_actor_horizontal_gap_px": {
+    "short_tuft": 69.98790740966797,
+    "spreading_clump": 37.30491638183594
+  },
+  "measured_weed_pixel_extents": {
+    "short_tuft": [
+      12.416763305664062,
+      9.33389663696289
+    ],
+    "spreading_clump": [
+      22.214584350585938,
+      13.78016471862793
+    ]
+  },
+  "scripts_compile": true,
+  "report_links_exist": true,
+  "raw_logs_have_command_receipts": true,
+  "retained_nonzero_exits": {
+    "requested_version": 127,
+    "check_glb": 1,
+    "final_audit": 1
+  },
+  "pending": [
+    "Godot import",
+    "prefab/inherited save roundtrip",
+    "collision policy and movement",
+    "runtime camera",
+    "device/performance",
+    "independent acceptance"
+  ]
+}

@@ -1,0 +1,6 @@
+{
+  "finding": "Exported opaque closed solids were doubleSided by Blender material default. Strict GLB material assertion failed.",
+  "initial_evidence": "initial_failure/",
+  "fix": "Set use_backface_culling=True on original asset materials. No geometry changed. Added accurate stored project-camera rotation and separate dark-roof material study.",
+  "fix_cycles": 1
+}

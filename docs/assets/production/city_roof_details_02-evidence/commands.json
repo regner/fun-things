@@ -1,0 +1,146 @@
+[
+  {
+    "name": "requested_binary_version",
+    "argv": [
+      "/usr/bin/blender5.2.2LTS",
+      "-b",
+      "-noaudio",
+      "--version"
+    ],
+    "cwd": "/home/regner/.paseo/worktrees/0u71f39f/asset-register-production",
+    "environment_overrides": {
+      "ALSOFT_DRIVERS": "null",
+      "SDL_AUDIODRIVER": "dummy"
+    },
+    "started_utc": "2026-10-09T16:59:19.873948+00:00",
+    "exit_code": 127,
+    "raw_log": "requested_binary_version.log"
+  },
+  {
+    "name": "version",
+    "argv": [
+      "/usr/bin/blender",
+      "-b",
+      "-noaudio",
+      "-t",
+      "4",
+      "--version"
+    ],
+    "cwd": "/home/regner/.paseo/worktrees/0u71f39f/asset-register-production",
+    "environment_overrides": {
+      "ALSOFT_DRIVERS": "null",
+      "SDL_AUDIODRIVER": "dummy"
+    },
+    "started_utc": "2026-10-09T16:59:19.874702+00:00",
+    "exit_code": 0,
+    "raw_log": "version.log"
+  },
+  {
+    "name": "author",
+    "argv": [
+      "/usr/bin/blender",
+      "-b",
+      "-noaudio",
+      "-t",
+      "4",
+      "--python-exit-code",
+      "1",
+      "--python",
+      "/home/regner/.paseo/worktrees/0u71f39f/asset-register-production/tools/asset_production/city_roof_details_02/author.py"
+    ],
+    "cwd": "/home/regner/.paseo/worktrees/0u71f39f/asset-register-production",
+    "environment_overrides": {
+      "ALSOFT_DRIVERS": "null",
+      "SDL_AUDIODRIVER": "dummy"
+    },
+    "started_utc": "2026-10-09T16:59:20.052040+00:00",
+    "exit_code": 0,
+    "raw_log": "author.log"
+  },
+  {
+    "name": "export",
+    "argv": [
+      "/usr/bin/blender",
+      "-b",
+      "-noaudio",
+      "-t",
+      "4",
+      "/home/regner/.paseo/worktrees/0u71f39f/asset-register-production/art/source/models/environment/city_roof_details_02/city_roof_details_02.blend",
+      "--python-exit-code",
+      "1",
+      "--python",
+      "/home/regner/.paseo/worktrees/0u71f39f/asset-register-production/tools/asset_production/city_roof_details_02/export.py"
+    ],
+    "cwd": "/home/regner/.paseo/worktrees/0u71f39f/asset-register-production",
+    "environment_overrides": {
+      "ALSOFT_DRIVERS": "null",
+      "SDL_AUDIODRIVER": "dummy"
+    },
+    "started_utc": "2026-10-09T16:59:20.661936+00:00",
+    "exit_code": 0,
+    "raw_log": "export.log"
+  },
+  {
+    "name": "check_glb",
+    "argv": [
+      "/usr/bin/python",
+      "/home/regner/.paseo/worktrees/0u71f39f/asset-register-production/tools/asset_production/city_roof_details_02/check_glb.py"
+    ],
+    "cwd": "/home/regner/.paseo/worktrees/0u71f39f/asset-register-production",
+    "environment_overrides": {
+      "ALSOFT_DRIVERS": "null",
+      "SDL_AUDIODRIVER": "dummy"
+    },
+    "started_utc": "2026-10-09T16:59:21.302006+00:00",
+    "exit_code": 0,
+    "raw_log": "check_glb.log"
+  },
+  {
+    "name": "reexport",
+    "argv": [
+      "/usr/bin/blender",
+      "-b",
+      "-noaudio",
+      "-t",
+      "4",
+      "/home/regner/.paseo/worktrees/0u71f39f/asset-register-production/art/source/models/environment/city_roof_details_02/city_roof_details_02.blend",
+      "--python-exit-code",
+      "1",
+      "--python",
+      "/home/regner/.paseo/worktrees/0u71f39f/asset-register-production/tools/asset_production/city_roof_details_02/export.py",
+      "--",
+      "/home/regner/.paseo/worktrees/0u71f39f/asset-register-production/docs/assets/production/city_roof_details_02-evidence/reexport.glb"
+    ],
+    "cwd": "/home/regner/.paseo/worktrees/0u71f39f/asset-register-production",
+    "environment_overrides": {
+      "ALSOFT_DRIVERS": "null",
+      "SDL_AUDIODRIVER": "dummy"
+    },
+    "started_utc": "2026-10-09T16:59:21.361857+00:00",
+    "exit_code": 0,
+    "raw_log": "reexport.log"
+  },
+  {
+    "name": "preview",
+    "argv": [
+      "/usr/bin/blender",
+      "-b",
+      "-noaudio",
+      "-t",
+      "4",
+      "/home/regner/.paseo/worktrees/0u71f39f/asset-register-production/art/source/models/environment/city_roof_details_02/city_roof_details_02.blend",
+      "--python-exit-code",
+      "1",
+      "--python",
+      "/home/regner/.paseo/worktrees/0u71f39f/asset-register-production/tools/asset_production/city_roof_details_02/preview.py"
+    ],
+    "cwd": "/home/regner/.paseo/worktrees/0u71f39f/asset-register-production",
+    "environment_overrides": {
+      "ALSOFT_DRIVERS": "null",
+      "SDL_AUDIODRIVER": "dummy"
+    },
+    "started_utc": "2026-10-09T16:59:21.997373+00:00",
+    "exit_code": 0,
+    "raw_log": "preview.log"
+  }
+]

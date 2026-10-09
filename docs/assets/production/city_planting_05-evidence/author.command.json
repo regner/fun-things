@@ -1,0 +1,23 @@
+{
+  "name": "author",
+  "argv": [
+    "/usr/bin/blender",
+    "-b",
+    "-noaudio",
+    "-t",
+    "4",
+    "--python-exit-code",
+    "1",
+    "--python",
+    "tools/asset_production/city_planting_05/author.py"
+  ],
+  "cwd": "/home/regner/.paseo/worktrees/0u71f39f/asset-register-production",
+  "environment_overrides": {
+    "ALSOFT_DRIVERS": "null",
+    "SDL_AUDIODRIVER": "dummy"
+  },
+  "started_utc": "2026-10-09T16:46:51.653477+00:00",
+  "finished_utc": "2026-10-09T16:46:52.364466+00:00",
+  "exit_code": 0,
+  "raw_log": "author.log"
+}

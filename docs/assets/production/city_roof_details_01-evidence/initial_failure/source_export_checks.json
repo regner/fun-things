@@ -1,0 +1,111 @@
+{
+  "blender": "5.2.2 LTS",
+  "build": "d13f752e3b9c",
+  "exporter": [
+    5,
+    2,
+    40
+  ],
+  "objects": [
+    {
+      "name": "flashing_and_curb",
+      "vertices": 288,
+      "triangles": 576,
+      "nonmanifold_or_inconsistent_edges": 0,
+      "component_signed_volumes_m3": [
+        0.2644790493965059
+      ],
+      "material_slots": [
+        "roof_vent_folded_metal"
+      ]
+    },
+    {
+      "name": "formed_rain_cowl",
+      "vertices": 252,
+      "triangles": 500,
+      "nonmanifold_or_inconsistent_edges": 0,
+      "component_signed_volumes_m3": [
+        0.6199312938732935
+      ],
+      "material_slots": [
+        "roof_vent_dark_petrol"
+      ]
+    },
+    {
+      "name": "two_formed_end_cheeks",
+      "vertices": 192,
+      "triangles": 376,
+      "nonmanifold_or_inconsistent_edges": 0,
+      "component_signed_volumes_m3": [
+        0.050723756877034676,
+        0.05072375706668399
+      ],
+      "material_slots": [
+        "roof_vent_dark_petrol"
+      ]
+    },
+    {
+      "name": "recessed_throat_baffle",
+      "vertices": 96,
+      "triangles": 188,
+      "nonmanifold_or_inconsistent_edges": 0,
+      "component_signed_volumes_m3": [
+        0.4815497977540716
+      ],
+      "material_slots": [
+        "roof_vent_shadow"
+      ]
+    },
+    {
+      "name": "six_broad_curved_louvers",
+      "vertices": 960,
+      "triangles": 1896,
+      "nonmanifold_or_inconsistent_edges": 0,
+      "component_signed_volumes_m3": [
+        0.009671282034772832,
+        0.009671275536478627,
+        0.009671283307972298,
+        0.00967129344294636,
+        0.009671291706196426,
+        0.00967127453934105
+      ],
+      "material_slots": [
+        "roof_vent_dark_petrol"
+      ]
+    }
+  ],
+  "blender_bounds": [
+    [
+      -1.2999999523162842,
+      -0.800000011920929,
+      0.0
+    ],
+    [
+      1.2999999523162842,
+      0.800000011920929,
+      0.7599999904632568
+    ]
+  ],
+  "triangles": 3536,
+  "authoring_reference_dimensions_m": [
+    1.0,
+    1.0,
+    1.0
+  ],
+  "export_settings": {
+    "export_format": "GLB",
+    "use_selection": true,
+    "export_yup": true,
+    "export_apply": true,
+    "export_texcoords": false,
+    "export_normals": true,
+    "export_tangents": false,
+    "export_materials": "EXPORT",
+    "export_cameras": false,
+    "export_lights": false,
+    "export_extras": false,
+    "export_animations": false
+  },
+  "sha256": "675e0a8c98d962d269784165cde3cfb8a5d54ee8564abe94e38b124f131d54df",
+  "bytes": 68440
+}

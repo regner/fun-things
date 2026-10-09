@@ -1,0 +1,170 @@
+{
+  "scope": "Blender source studio comparison only; no Godot/runtime/device acceptance",
+  "inputs": [
+    {
+      "path": "art/models/environment/city_planting_03/city_planting_03.glb",
+      "bytes": 70556,
+      "sha256": "572bb17a248b686df1917181e569b04a3662fbd6994de230dc8b17cd634cb7cd",
+      "scale_factor": 1,
+      "translation_blender_m": [
+        1.05,
+        0,
+        0
+      ]
+    },
+    {
+      "path": "art/models/characters/coral_courier/coral_courier.glb",
+      "bytes": 468860,
+      "sha256": "35e6c6a6eb1cda01e6409ec1834f8aed544f71b3308ababade3b06f91afb5ae8",
+      "scale_factor": 1,
+      "translation_blender_m": [
+        2.4,
+        -0.1,
+        0
+      ]
+    }
+  ],
+  "camera": {
+    "height_m": 47,
+    "vertical_fov_deg": 42.00000169963833,
+    "viewport": [
+      1280,
+      800
+    ],
+    "rotation_radians": [
+      0.0,
+      -0.0,
+      0.0
+    ]
+  },
+  "order_left_to_right": [
+    "one_metre_fixture",
+    "short_tuft",
+    "spreading_clump",
+    "shrub_03",
+    "courier"
+  ],
+  "measurements": {
+    "short_tuft": {
+      "blender_world_bounds_m": [
+        [
+          -2.0799999237060547,
+          -0.20999999344348907,
+          0.0
+        ],
+        [
+          -1.5199999809265137,
+          0.20999999344348907,
+          0.25999999046325684
+        ]
+      ],
+      "gameplay_pixel_bounds_bottom_left": [
+        [
+          593.7890243530273,
+          395.3339099884033
+        ],
+        [
+          606.2057876586914,
+          404.6678066253662
+        ]
+      ]
+    },
+    "spreading_clump": {
+      "blender_world_bounds_m": [
+        [
+          -1.0499999523162842,
+          -0.3100000023841858,
+          0.0
+        ],
+        [
+          -0.050000011920928955,
+          0.3100000023841858,
+          0.20000000298023224
+        ]
+      ],
+      "gameplay_pixel_bounds_bottom_left": [
+        [
+          616.6741943359375,
+          393.11137199401855
+        ],
+        [
+          638.8887786865234,
+          406.8915367126465
+        ]
+      ]
+    },
+    "shrub_03": {
+      "blender_world_bounds_m": [
+        [
+          0.506970226764679,
+          -0.3346724510192871,
+          0.0
+        ],
+        [
+          1.5904994010925293,
+          0.35622134804725647,
+          0.6700000166893005
+        ]
+      ],
+      "gameplay_pixel_bounds_bottom_left": [
+        [
+          651.3401794433594,
+          392.5234794616699
+        ],
+        [
+          675.5537414550781,
+          407.9592227935791
+        ]
+      ]
+    },
+    "courier": {
+      "blender_world_bounds_m": [
+        [
+          1.4489421844482422,
+          -1.0999999046325684,
+          -1.0
+        ],
+        [
+          3.351058006286621,
+          0.8999999165534973,
+          1.8566508293151855
+        ]
+      ],
+      "gameplay_pixel_bounds_bottom_left": [
+        [
+          672.1244812011719,
+          375.61192512512207
+        ],
+        [
+          714.2961883544922,
+          419.95387077331543
+        ]
+      ]
+    },
+    "one_metre_fixture": {
+      "blender_world_bounds_m": [
+        [
+          -2.617499828338623,
+          -0.017500000074505806,
+          0.0
+        ],
+        [
+          -2.5824999809265137,
+          0.017500000074505806,
+          1.0
+        ]
+      ],
+      "gameplay_pixel_bounds_bottom_left": [
+        [
+          580.7059097290039,
+          399.60358142852783
+        ],
+        [
+          582.7434539794922,
+          400.3964424133301
+        ]
+      ]
+    }
+  },
+  "source_saved": false
+}

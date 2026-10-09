@@ -1,0 +1,13 @@
+00:00.290  blend            | Read blend: "/home/regner/.paseo/worktrees/0u71f39f/asset-register-production/art/source/models/environment/city_planting_04/city_planting_04.blend"
+Traceback (most recent call last):
+  File "/home/regner/.paseo/worktrees/0u71f39f/asset-register-production/tools/asset_production/city_planting_04/export.py", line 30, in <module>
+    assert volume>0 and all(p.area>1e-10 for p in o.data.polygons)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError
+BlenderMCP addon registered
+
+Error: script failed, file: '/home/regner/.paseo/worktrees/0u71f39f/asset-register-production/tools/asset_production/city_planting_04/export.py', exiting.
+BlenderMCP addon unregistered
+Blender 5.2.2 LTS (hash d13f752e3b9c built 2026-09-22 17:10:25)
+
+Blender quit

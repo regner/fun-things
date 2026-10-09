@@ -1,0 +1,132 @@
+GLB_CHECKS_PASS [
+  {
+    "file": "art/models/environment/city_planting_05/city_planting_05_short_tuft.glb",
+    "godot_axis_aabb_m": [
+      [
+        -0.2800000011920929,
+        0.0,
+        -0.20999999344348907
+      ],
+      [
+        0.2800000011920929,
+        0.25999999046325684,
+        0.20999999344348907
+      ]
+    ],
+    "triangles": 1170,
+    "mesh_count": 1,
+    "material_primitives": 3,
+    "minimum_triangle_area_m2": 7.266100556414672e-06,
+    "minimum_face_vs_vertex_normal_alignment": 0.19420888001508244,
+    "signed_volume_m3": 0.0005414825956611763,
+    "welded_edges_closed_consistent": true,
+    "materials": [
+      {
+        "name": "weed_olive",
+        "pbrMetallicRoughness": {
+          "baseColorFactor": [
+            0.10702310502529144,
+            0.14995978772640228,
+            0.04666508734226227,
+            1
+          ],
+          "metallicFactor": 0,
+          "roughnessFactor": 0.8899999856948853
+        }
+      },
+      {
+        "name": "weed_olive_light",
+        "pbrMetallicRoughness": {
+          "baseColorFactor": [
+            0.16202937066555023,
+            0.1946178376674652,
+            0.06480326503515244,
+            1
+          ],
+          "metallicFactor": 0,
+          "roughnessFactor": 0.8799999952316284
+        }
+      },
+      {
+        "name": "weed_olive_dry",
+        "pbrMetallicRoughness": {
+          "baseColorFactor": [
+            0.20507873594760895,
+            0.19120168685913086,
+            0.07227185368537903,
+            1
+          ],
+          "metallicFactor": 0,
+          "roughnessFactor": 0.9399999976158142
+        }
+      }
+    ],
+    "sha256": "6151495091e7046e7796f1d3f4593f24e1345d7ce4548dbfd8c07041a17a3944",
+    "checks": "PASS: exact independent bounds, unit transforms, finite normals, winding, nondegenerate faces, closed surfaces, intended scope, no fixture/cameras/animation/textures"
+  },
+  {
+    "file": "art/models/environment/city_planting_05/city_planting_05_spreading_clump.glb",
+    "godot_axis_aabb_m": [
+      [
+        -0.5,
+        0.0,
+        -0.3100000023841858
+      ],
+      [
+        0.5,
+        0.20000000298023224,
+        0.3100000023841858
+      ]
+    ],
+    "triangles": 1950,
+    "mesh_count": 1,
+    "material_primitives": 3,
+    "minimum_triangle_area_m2": 7.736960676283366e-06,
+    "minimum_face_vs_vertex_normal_alignment": 0.35071108801339684,
+    "signed_volume_m3": 0.0008791901479346591,
+    "welded_edges_closed_consistent": true,
+    "materials": [
+      {
+        "name": "weed_olive",
+        "pbrMetallicRoughness": {
+          "baseColorFactor": [
+            0.10702310502529144,
+            0.14995978772640228,
+            0.04666508734226227,
+            1
+          ],
+          "metallicFactor": 0,
+          "roughnessFactor": 0.8899999856948853
+        }
+      },
+      {
+        "name": "weed_olive_light",
+        "pbrMetallicRoughness": {
+          "baseColorFactor": [
+            0.16202937066555023,
+            0.1946178376674652,
+            0.06480326503515244,
+            1
+          ],
+          "metallicFactor": 0,
+          "roughnessFactor": 0.8799999952316284
+        }
+      },
+      {
+        "name": "weed_olive_dry",
+        "pbrMetallicRoughness": {
+          "baseColorFactor": [
+            0.20507873594760895,
+            0.19120168685913086,
+            0.07227185368537903,
+            1
+          ],
+          "metallicFactor": 0,
+          "roughnessFactor": 0.9399999976158142
+        }
+      }
+    ],
+    "sha256": "e9e651ba2e9389b925f00874f88f36538165d1d22608c90fc36600e531745fe8",
+    "checks": "PASS: exact independent bounds, unit transforms, finite normals, winding, nondegenerate faces, closed surfaces, intended scope, no fixture/cameras/animation/textures"
+  }
+]

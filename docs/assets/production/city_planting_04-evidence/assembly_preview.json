@@ -1,0 +1,99 @@
+{
+  "scope": "Blender static studio comparison only; no runtime or all-placement acceptance",
+  "inputs": [
+    {
+      "path": "art/models/environment/city_planting_02/city_planting_02.glb",
+      "bytes": 68156,
+      "sha256": "20eb2d5e44bd57ea6b01c15c177d9e561f775ab808170379da52b926258baa34"
+    },
+    {
+      "path": "art/models/characters/coral_courier/coral_courier.glb",
+      "bytes": 468860,
+      "sha256": "35e6c6a6eb1cda01e6409ec1834f8aed544f71b3308ababade3b06f91afb5ae8"
+    },
+    {
+      "path": "art/models/environment/city_planting_02/city_planting_02.glb",
+      "bytes": 68156,
+      "sha256": "20eb2d5e44bd57ea6b01c15c177d9e561f775ab808170379da52b926258baa34"
+    },
+    {
+      "path": "art/models/characters/coral_courier/coral_courier.glb",
+      "bytes": 468860,
+      "sha256": "35e6c6a6eb1cda01e6409ec1834f8aed544f71b3308ababade3b06f91afb5ae8"
+    }
+  ],
+  "camera": {
+    "height_m": 47,
+    "vertical_fov_deg": 42.00000169963833,
+    "viewport": [
+      1280,
+      800
+    ],
+    "rotation_radians": [
+      0.0,
+      -0.0,
+      0.0
+    ]
+  },
+  "checks": [
+    {
+      "variant": "compact",
+      "tree_pixel_bounds_bottom_left": [
+        [
+          559.9918746948242,
+          378.9541721343994
+        ],
+        [
+          606.84814453125,
+          422.4086284637451
+        ]
+      ],
+      "actor_pixel_bounds_bottom_left": [
+        [
+          563.4867095947266,
+          320.1845169067383
+        ],
+        [
+          605.6584548950195,
+          364.52646255493164
+        ]
+      ],
+      "vertical_separation_px": 14.427709579467773,
+      "actor_relative_ground_translation_blender": [
+        0,
+        -2.6,
+        0
+      ]
+    },
+    {
+      "variant": "broad",
+      "tree_pixel_bounds_bottom_left": [
+        [
+          668.3872222900391,
+          371.7576742172241
+        ],
+        [
+          733.3914184570312,
+          429.0386199951172
+        ]
+      ],
+      "actor_pixel_bounds_bottom_left": [
+        [
+          674.3415832519531,
+          320.1845169067383
+        ],
+        [
+          716.5132904052734,
+          364.52646255493164
+        ]
+      ],
+      "vertical_separation_px": 7.2312116622924805,
+      "actor_relative_ground_translation_blender": [
+        0,
+        -2.6,
+        0
+      ]
+    }
+  ],
+  "source_saved": false
+}

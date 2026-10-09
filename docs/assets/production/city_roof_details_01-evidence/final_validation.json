@@ -1,0 +1,42 @@
+{
+  "status": "producer artifact checks passed; downstream acceptance pending",
+  "syntax": "6 Python tools parsed",
+  "closed_components": 11,
+  "authored_vertices": 1788,
+  "triangles": 3536,
+  "meshes": 5,
+  "materials": 3,
+  "source_export_bytes_identical": true,
+  "images": {
+    "hero.png": [
+      1200,
+      900
+    ],
+    "louver_detail.png": [
+      1200,
+      900
+    ],
+    "project_camera_roof_context.png": [
+      1280,
+      800
+    ],
+    "project_camera_dark_roof_study.png": [
+      1280,
+      800
+    ],
+    "unchanged_shop_scale_comparison.png": [
+      1280,
+      900
+    ]
+  },
+  "visual_self_review": "Hero/detail smooth cowl and broad gaps; roof-context and oblique preserve roof mass; dark-roof study has subdued fitting. Not independent acceptance.",
+  "owned_processes": "All run.py subprocesses completed with recorded exit codes; no retained owned background writer",
+  "fix_cycles": 1,
+  "pending": [
+    "Godot import/sidecars",
+    "linked prefab/save-reopen",
+    "mounting/collision/runtime",
+    "device performance",
+    "independent art/technical acceptance"
+  ]
+}

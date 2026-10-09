@@ -1,0 +1,105 @@
+"""Original broad gravity-vent source; all geometry authored with private Blender."""
+import bpy, bmesh, math
+from pathlib import Path
+from mathutils import Vector
+import io_scene_gltf2
+R=Path(__file__).resolve().parents[3]
+assert bpy.app.version[:3]==(5,2,2) and bpy.app.build_hash.decode()=='d13f752e3b9c'
+assert io_scene_gltf2.bl_info['version']==(5,2,40)
+bpy.ops.object.select_all(action='SELECT'); bpy.ops.object.delete(use_global=False)
+for c in list(bpy.data.collections): bpy.data.collections.remove(c)
+s=bpy.context.scene; s.unit_settings.system='METRIC'; s.unit_settings.scale_length=1
+col=bpy.data.collections.new('export_city_roof_details_01'); s.collection.children.link(col)
+studio=bpy.data.collections.new('authoring_excluded'); s.collection.children.link(studio)
+root=bpy.data.objects.new('city_roof_details_01',None); col.objects.link(root)
+root['datum']='Ground-centred roof attachment: Blender Z=0 / Godot Y=0; +Y front'
+root['purpose']='Decorative broad passive vent; no collision, smoke, fan, light or access'
+
+def material(name,swatch,metal,rough):
+    m=bpy.data.materials.new(name); m.use_nodes=True
+    rgb=[int(swatch[i:i+2],16)/255 for i in (0,2,4)]
+    rgba=tuple(v/12.92 if v<=.04045 else ((v+.055)/1.055)**2.4 for v in rgb)+(1,)
+    p=m.node_tree.nodes.get('Principled BSDF'); p.inputs['Base Color'].default_value=rgba
+    p.inputs['Metallic'].default_value=metal; p.inputs['Roughness'].default_value=rough
+    m.diffuse_color=rgba; return m
+paint=material('roof_vent_dark_petrol','273F43',.28,.52)
+edge=material('roof_vent_folded_metal','314D50',.30,.55)
+recess=material('roof_vent_shadow','172B30',.05,.78)
+
+def finish(o,name,mat,collection=col,bevel=0):
+    o.name=name
+    for c in list(o.users_collection): c.objects.unlink(o)
+    collection.objects.link(o); o.data.materials.clear(); o.data.materials.append(mat)
+    bpy.ops.object.select_all(action='DESELECT'); o.select_set(True); bpy.context.view_layer.objects.active=o
+    bpy.ops.object.transform_apply(location=True,rotation=True,scale=True)
+    bm=bmesh.new(); bm.from_mesh(o.data); bmesh.ops.recalc_face_normals(bm,faces=list(bm.faces)); bm.to_mesh(o.data); bm.free()
+    if bevel:
+        mod=o.modifiers.new('rolled_edge','BEVEL'); mod.width=bevel; mod.segments=3
+        bpy.ops.object.modifier_apply(modifier=mod.name)
+    for f in o.data.polygons: f.use_smooth=True
+    mod=o.modifiers.new('restrained_broad_face_normals','WEIGHTED_NORMAL'); mod.keep_sharp=True
+    bpy.ops.object.modifier_apply(modifier=mod.name)
+    if collection==col: o.parent=root
+    o.select_set(False); return o
+
+def mesh(name,verts,faces,mat,bevel=0):
+    m=bpy.data.meshes.new(name); m.from_pydata(verts,[],faces); m.update()
+    o=bpy.data.objects.new(name,m); col.objects.link(o); return finish(o,name,mat,bevel=bevel)
+
+def rounded(w,d,r,z,n=8):
+    return [(cx+r*math.cos(a),cy+r*math.sin(a),z)
+            for cx,cy,start in [(w/2-r,d/2-r,0),(-w/2+r,d/2-r,90),(-w/2+r,-d/2+r,180),(w/2-r,-d/2+r,270)]
+            for a in [math.radians(start+j*90/n) for j in range(n+1)]]
+
+def ring(name,profiles,mat,closed=True):
+    loops=[rounded(*p) for p in profiles]; n=len(loops[0]); verts=sum(loops,[]); faces=[]
+    for k in range(len(loops) if closed else len(loops)-1):
+        q=(k+1)%len(loops)
+        faces.extend((k*n+j,k*n+(j+1)%n,q*n+(j+1)%n,q*n+j) for j in range(n))
+    if not closed: faces.extend([tuple(reversed(range(n))),tuple((len(loops)-1)*n+j for j in range(n))])
+    return mesh(name,verts,faces,mat)
+
+# Flat concealed contact band, folded external flashing and rounded raised curb.
+ring('flashing_and_curb',[(2.60,1.60,.18,0),(2.60,1.60,.18,.025),
+    (2.30,1.30,.14,.060),(2.24,1.24,.13,.255),(2.18,1.18,.11,.270),
+    (2.04,1.04,.09,.270),(2.02,1.02,.08,.040),(2.02,1.02,.08,0)],edge)
+# The rolled cowl has a broad smooth central crown and a downward-draining rim.
+ring('formed_rain_cowl',[(2.42,1.42,.23,.565),(2.48,1.48,.25,.580),
+    (2.48,1.48,.25,.610),(2.44,1.44,.24,.650),(2.34,1.34,.22,.700),
+    (2.16,1.16,.20,.740),(1.94,.94,.18,.760)],paint,False)
+
+def box(name,loc,dim,mat,bevel=.02,collection=col):
+    bpy.ops.mesh.primitive_cube_add(size=1,location=loc); o=bpy.context.object; o.dimensions=dim
+    return finish(o,name,mat,collection,bevel)
+# Large quiet end cheeks structurally connect the cowl to the curb.
+ends=[box('end_cheek_'+label,(x,0,.412),(.16,1.08,.324),paint,.06) for x,label in [(-1.035,'left'),(1.035,'right')]]
+# Inner static baffle gives finite shadow depth without fake black plane openings.
+box('recessed_throat_baffle',(0,0,.357),(1.94,.86,.30),recess,.08)
+# Curved downturned blades: three broad slots per long side, no dense wire grille.
+# Profile spans Y .465-.690, rolled lip drops from Z .067 to .000.
+profile=[(.465,.067),(.505,.068),(.555,.056),(.605,.035),(.655,.009),
+         (.684,0),(.694,.010),(.679,.023),(.623,.050),(.569,.074),(.512,.087),(.465,.087)]
+blades=[]
+for side in (-1,1):
+    for k,z in enumerate((.252,.357,.462)):
+        verts=[(x,side*y,z+dz) for x in (-.985,.985) for y,dz in profile]; n=len(profile)
+        faces=[tuple(reversed(range(n))),tuple(n+j for j in range(n))]
+        faces.extend((j,(j+1)%n,n+(j+1)%n,n+j) for j in range(n))
+        blades.append(mesh('louver_%s_%s'%(side,k+1),verts,faces,paint,.007))
+# Join by semantic assembly; preserve editable disconnected blade solids.
+def join(parts,name):
+    bpy.ops.object.select_all(action='DESELECT')
+    for o in parts: o.select_set(True)
+    bpy.context.view_layer.objects.active=parts[0]; bpy.ops.object.join(); parts[0].name=name
+    bpy.ops.object.select_all(action='DESELECT')
+join(ends,'two_formed_end_cheeks'); join(blades,'six_broad_curved_louvers')
+ref=box('authoring_1m_reference',(-2.2,0,.5),(1,1,1),edge,0,studio); ref.hide_render=True
+ref['measured_dimensions_m']=[1.,1.,1.]; ref.hide_set(True)
+s['provenance']='Original Codex authored Blender mesh for commissioned city_roof_details.01. No external models/textures.'
+s['axis_contract']='Blender +Y front/+Z up => Godot -Z front/+Y up'
+s['interface']='Level roof attachment plane Z=0. No pitch adaptation. Base 2.60 x 1.60 m.'
+s['geometry_note']='Closed component solids with intentional assembly overlaps; cavities are visual, not gameplay openings.'
+s['preview_note']='Studio supplied by preview.py; no scene/import/runtime acceptance'
+# Save an uncluttered editable source, with authoring-only measurement cube excluded.
+bpy.ops.wm.save_as_mainfile(filepath=str(R/'art/source/models/environment/city_roof_details_01/city_roof_details_01.blend'))
+print('AUTHOR_COMPLETE')

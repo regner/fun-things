@@ -1,0 +1,59 @@
+{
+  "source": {
+    "path": "art/source/models/environment/city_planting_04/city_planting_04.blend",
+    "bytes": 461682,
+    "sha256": "013b9b20765a6e12b341f3e0c7590164aac2efb8ac5bd184a25117f031a9439b"
+  },
+  "checks": "PASS: final jobs exit 0; complete logged jobs; owned Python syntax; six PNG CRC/inflate checks; reference fingerprints unchanged; both GLB byte comparisons",
+  "images": [
+    {
+      "path": "docs/assets/production/city_planting_04-evidence/broad_hero.png",
+      "size": [
+        1100,
+        900
+      ]
+    },
+    {
+      "path": "docs/assets/production/city_planting_04-evidence/broad_project_camera.png",
+      "size": [
+        1280,
+        800
+      ]
+    },
+    {
+      "path": "docs/assets/production/city_planting_04-evidence/compact_hero.png",
+      "size": [
+        1100,
+        900
+      ]
+    },
+    {
+      "path": "docs/assets/production/city_planting_04-evidence/compact_project_camera.png",
+      "size": [
+        1280,
+        800
+      ]
+    },
+    {
+      "path": "docs/assets/production/city_planting_04-evidence/pair_surround_actor_hero.png",
+      "size": [
+        1400,
+        900
+      ]
+    },
+    {
+      "path": "docs/assets/production/city_planting_04-evidence/pair_surround_actor_project_camera.png",
+      "size": [
+        1280,
+        800
+      ]
+    }
+  ],
+  "owned_writers": "Blender subprocesses completed; no live editor or owned background writer",
+  "remaining_gates": [
+    "Godot import/prefab",
+    "collision/runtime",
+    "device performance",
+    "independent acceptance"
+  ]
+}

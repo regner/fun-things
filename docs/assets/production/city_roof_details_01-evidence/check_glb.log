@@ -1,0 +1,61 @@
+[
+  {
+    "file": "art/models/environment/city_roof_details_01/city_roof_details_01.glb",
+    "godot_axis_aabb": [
+      [
+        -1.2999999523162842,
+        0.0,
+        -0.800000011920929
+      ],
+      [
+        1.2999999523162842,
+        0.7599999904632568,
+        0.800000011920929
+      ]
+    ],
+    "triangles": 3536,
+    "mesh_count": 5,
+    "materials": [
+      {
+        "name": "roof_vent_folded_metal",
+        "pbrMetallicRoughness": {
+          "baseColorFactor": [
+            0.03071344457566738,
+            0.07421357184648514,
+            0.0802198201417923,
+            1
+          ],
+          "metallicFactor": 0.30000001192092896,
+          "roughnessFactor": 0.550000011920929
+        }
+      },
+      {
+        "name": "roof_vent_dark_petrol",
+        "pbrMetallicRoughness": {
+          "baseColorFactor": [
+            0.020288562402129173,
+            0.04970656707882881,
+            0.05612849071621895,
+            1
+          ],
+          "metallicFactor": 0.2800000011920929,
+          "roughnessFactor": 0.5199999809265137
+        }
+      },
+      {
+        "name": "roof_vent_shadow",
+        "pbrMetallicRoughness": {
+          "baseColorFactor": [
+            0.008568125776946545,
+            0.024157632142305374,
+            0.02955683507025242,
+            1
+          ],
+          "metallicFactor": 0.05000000074505806,
+          "roughnessFactor": 0.7799999713897705
+        }
+      }
+    ],
+    "checks": "PASS: exact dimensions, unit transforms, finite unit normals, nondegenerate triangles, studio exclusion, no lights/animations/textures"
+  }
+]

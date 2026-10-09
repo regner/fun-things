@@ -1,0 +1,49 @@
+BlenderMCP addon registered
+BlenderMCP addon unregistered
+17:53:49 | INFO: Data are loaded, start creating Blender stuff
+17:53:49 | INFO: Blender create Mesh node coral_courier_skin
+17:53:50 | INFO: glTF import finished in 0.04s
+[
+  {
+    "name": "Icosphere",
+    "type": "MESH",
+    "scene_member": true,
+    "hide_render": false,
+    "hide_viewport": false,
+    "visible_get": false,
+    "collections": [
+      "glTF_not_exported"
+    ],
+    "vertices": 42,
+    "polygons": 80
+  },
+  {
+    "name": "Rig",
+    "type": "ARMATURE",
+    "scene_member": true,
+    "hide_render": false,
+    "hide_viewport": false,
+    "visible_get": true,
+    "collections": [
+      "Scene Collection"
+    ],
+    "vertices": null,
+    "polygons": null
+  },
+  {
+    "name": "Skin",
+    "type": "MESH",
+    "scene_member": true,
+    "hide_render": false,
+    "hide_viewport": false,
+    "visible_get": true,
+    "collections": [
+      "Scene Collection"
+    ],
+    "vertices": 7235,
+    "polygons": 11600
+  }
+]
+Blender 5.2.2 LTS (hash d13f752e3b9c built 2026-09-22 17:10:25)
+
+Blender quit

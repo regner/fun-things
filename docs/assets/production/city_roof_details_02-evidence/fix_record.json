@@ -1,0 +1,9 @@
+{
+  "failure": "Initial source audit stopped on zero-area polygons in thin bevelled panels. No failed GLB was published.",
+  "root_cause": "Bevel width reached half of panel thickness; clamped opposing bevels collapsed intervening faces.",
+  "fix": "Box helper limits bevel to 40% of smallest dimension, preserving a finite face strip. No export checks relaxed.",
+  "evidence": "initial_failure/initial.blend, geometry_diagnostic.json, diagnostic.log, tools snapshots, commands and raw author/export logs",
+  "diagnostic_exit_code": 0,
+  "diagnostic_command": "ALSOFT_DRIVERS=null SDL_AUDIODRIVER=dummy /usr/bin/blender -b -noaudio -t 4 docs/assets/production/city_roof_details_02-evidence/initial_failure/initial.blend --python-exit-code 1 --python tools/asset_production/city_roof_details_02/diagnose.py",
+  "fix_cycles": 1
+}

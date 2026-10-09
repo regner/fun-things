@@ -1,0 +1,39 @@
+00:00.292  blend            | Read blend: "/home/regner/.paseo/worktrees/0u71f39f/asset-register-production/art/source/models/environment/city_planting_04/city_planting_04.blend"
+BlenderMCP addon registered
+INFO Draco is available, use library at /usr/lib/blender/5.2/scripts/addons_core/io_scene_gltf2/libbf_intern_draco_bridge.so
+ERROR MeshOptimizer is not available because library could not be found at /usr/lib/blender/5.2/scripts/addons_core/io_scene_gltf2/libbf_intern_meshopt_bridge.so
+17:42:59 | INFO: Starting glTF 2.0 export
+17:42:59 | INFO: Extracting primitive: compact_crown_back_mesh
+17:42:59 | INFO: Primitives created: 1
+17:42:59 | INFO: Extracting primitive: compact_crown_east_mesh
+17:42:59 | INFO: Primitives created: 1
+17:42:59 | INFO: Extracting primitive: compact_crown_front_mesh
+17:42:59 | INFO: Primitives created: 1
+17:42:59 | INFO: Extracting primitive: compact_crown_leader_mesh
+17:42:59 | INFO: Primitives created: 1
+17:42:59 | INFO: Extracting primitive: compact_crown_west_mesh
+17:42:59 | INFO: Primitives created: 1
+17:42:59 | INFO: Extracting primitive: compact_sculpted_trunk_mesh
+17:42:59 | INFO: Primitives created: 1
+17:42:59 | INFO: Finished glTF 2.0 export in 0.024087905883789062 s
+
+17:42:59 | INFO: Starting glTF 2.0 export
+17:42:59 | INFO: Extracting primitive: broad_crown_back_mesh
+17:42:59 | INFO: Primitives created: 1
+17:42:59 | INFO: Extracting primitive: broad_crown_east_mesh
+17:42:59 | INFO: Primitives created: 1
+17:42:59 | INFO: Extracting primitive: broad_crown_front_mesh
+17:42:59 | INFO: Primitives created: 1
+17:42:59 | INFO: Extracting primitive: broad_crown_leader_mesh
+17:42:59 | INFO: Primitives created: 1
+17:42:59 | INFO: Extracting primitive: broad_crown_west_mesh
+17:42:59 | INFO: Primitives created: 1
+17:42:59 | INFO: Extracting primitive: broad_sculpted_trunk_mesh
+17:42:59 | INFO: Primitives created: 1
+17:42:59 | INFO: Finished glTF 2.0 export in 0.01847243309020996 s
+
+SOURCE_EXPORT_CHECKS_PASS [{"variant": "compact", "blender": "5.2.2 LTS", "build": "d13f752e3b9c", "exporter": [5, 2, 40], "objects": [{"name": "compact_sculpted_trunk", "vertices": 2046, "triangles": 4082, "bad_edges": 0, "signed_volume_m3": 0.09497546111760263, "material_slots": ["tree_warm_umber"]}, {"name": "compact_crown_leader", "vertices": 1522, "triangles": 3040, "bad_edges": 0, "signed_volume_m3": 0.7464479195218706, "material_slots": ["tree_quiet_jade"]}, {"name": "compact_crown_west", "vertices": 1522, "triangles": 3040, "bad_edges": 0, "signed_volume_m3": 0.5764064594028027, "material_slots": ["tree_quiet_jade"]}, {"name": "compact_crown_east", "vertices": 1522, "triangles": 3040, "bad_edges": 0, "signed_volume_m3": 0.4490460371759328, "material_slots": ["tree_soft_sage"]}, {"name": "compact_crown_front", "vertices": 1522, "triangles": 3040, "bad_edges": 0, "signed_volume_m3": 0.43880116920485085, "material_slots": ["tree_quiet_jade"]}, {"name": "compact_crown_back", "vertices": 1522, "triangles": 3040, "bad_edges": 0, "signed_volume_m3": 0.450868226456478, "material_slots": ["tree_soft_sage"]}], "blender_bounds": [[-0.908597469329834, -0.8941905498504639, 0.0], [1.0899916887283325, 0.9533852338790894, 3.596365451812744]], "godot_bounds": [[-0.908597469329834, 0.0, -0.9533852338790894], [1.0899916887283325, 3.596365451812744, 0.8941905498504639]], "triangles": 19282, "crown_min_height_m": 2.165928363800049, "below_surround_rim_max_radius_m": 0.19721672080597574, "surround_radial_gap_min_m": 0.4220332791940242, "export_settings": {"export_format": "GLB", "use_selection": true, "export_yup": true, "export_apply": true, "export_texcoords": false, "export_normals": true, "export_tangents": false, "export_materials": "EXPORT", "export_cameras": false, "export_lights": false, "export_extras": false, "export_animations": false}, "bytes": 278900, "sha256": "7e1a678453324fc9843e9941ddf9c3fad30e19d6f206d11ee404932cc525708e"}, {"variant": "broad", "blender": "5.2.2 LTS", "build": "d13f752e3b9c", "exporter": [5, 2, 40], "objects": [{"name": "broad_sculpted_trunk", "vertices": 2111, "triangles": 4218, "bad_edges": 0, "signed_volume_m3": 0.09398130276481372, "material_slots": ["tree_warm_umber"]}, {"name": "broad_crown_leader", "vertices": 1522, "triangles": 3040, "bad_edges": 0, "signed_volume_m3": 0.9623006319060943, "material_slots": ["tree_quiet_jade"]}, {"name": "broad_crown_west", "vertices": 1522, "triangles": 3040, "bad_edges": 0, "signed_volume_m3": 0.7832457170037402, "material_slots": ["tree_quiet_jade"]}, {"name": "broad_crown_east", "vertices": 1522, "triangles": 3040, "bad_edges": 0, "signed_volume_m3": 0.7000264500597617, "material_slots": ["tree_soft_sage"]}, {"name": "broad_crown_front", "vertices": 1522, "triangles": 3040, "bad_edges": 0, "signed_volume_m3": 0.7240397799032406, "material_slots": ["tree_quiet_jade"]}, {"name": "broad_crown_back", "vertices": 1522, "triangles": 3040, "bad_edges": 0, "signed_volume_m3": 0.6704541422907275, "material_slots": ["tree_soft_sage"]}], "blender_bounds": [[-1.2882429361343384, -1.203524112701416, 0.0], [1.483805775642395, 1.2381691932678223, 3.317199468612671]], "godot_bounds": [[-1.2882429361343384, 0.0, -1.2381691932678223], [1.483805775642395, 3.317199468612671, 1.203524112701416]], "triangles": 19418, "crown_min_height_m": 2.1252543926239014, "below_surround_rim_max_radius_m": 0.1976978629828886, "surround_radial_gap_min_m": 0.42155213701711136, "export_settings": {"export_format": "GLB", "use_selection": true, "export_yup": true, "export_apply": true, "export_texcoords": false, "export_normals": true, "export_tangents": false, "export_materials": "EXPORT", "export_cameras": false, "export_lights": false, "export_extras": false, "export_animations": false}, "bytes": 281264, "sha256": "b02f3594925972cf4002811042b606734fbc8a5c7f1d9ed5c719022809b1130b"}]
+BlenderMCP addon unregistered
+Blender 5.2.2 LTS (hash d13f752e3b9c built 2026-09-22 17:10:25)
+
+Blender quit

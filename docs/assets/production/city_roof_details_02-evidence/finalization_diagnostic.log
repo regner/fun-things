@@ -1,0 +1,6 @@
+First report-link check ran before manifest generation.
+Traceback (most recent call last):
+  File "<stdin>", line 8, in <module>
+AssertionError: city_roof_details_02-evidence/manifest.json
+The following manifest command exited 0: MANIFEST_VERIFIED 46 files 9222575 bytes
+Resolution: run link validation after manifest exists, then regenerate final manifest. No source/output changed.

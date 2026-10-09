@@ -1,0 +1,346 @@
+{
+  "asset": "city_planting.04",
+  "scope": "producer payload; excludes manifest itself and Python cache; importer-owned .import sidecars are not producer outputs",
+  "files": [
+    {
+      "path": "art/source/models/environment/city_planting_04/city_planting_04.blend",
+      "bytes": 461682,
+      "sha256": "013b9b20765a6e12b341f3e0c7590164aac2efb8ac5bd184a25117f031a9439b"
+    },
+    {
+      "path": "art/models/environment/city_planting_04/city_planting_04_broad.glb",
+      "bytes": 281264,
+      "sha256": "b02f3594925972cf4002811042b606734fbc8a5c7f1d9ed5c719022809b1130b"
+    },
+    {
+      "path": "art/models/environment/city_planting_04/city_planting_04_compact.glb",
+      "bytes": 278900,
+      "sha256": "7e1a678453324fc9843e9941ddf9c3fad30e19d6f206d11ee404932cc525708e"
+    },
+    {
+      "path": "tools/asset_production/city_planting_04/assembly_preview.py",
+      "bytes": 3067,
+      "sha256": "c651ede46ce849afd30c5feeb776befcc3452d2eec2726c67b1b20d906f46f8f"
+    },
+    {
+      "path": "tools/asset_production/city_planting_04/author.py",
+      "bytes": 8316,
+      "sha256": "6159dd94d09dc6b8ea63410c40ae615f074c5bb8c314373736586fc18905dcea"
+    },
+    {
+      "path": "tools/asset_production/city_planting_04/check_glb.py",
+      "bytes": 3989,
+      "sha256": "e9325cc292b2da6997ea6c25f1ebc3fad5151de7b2418dcde952f36480080e7d"
+    },
+    {
+      "path": "tools/asset_production/city_planting_04/export.py",
+      "bytes": 4151,
+      "sha256": "e9f2a8961a9f97ea8c80a49847c8fa7ac60315bfe94859752ef9fb5548269dc0"
+    },
+    {
+      "path": "tools/asset_production/city_planting_04/final_audit.py",
+      "bytes": 2451,
+      "sha256": "093794895b6fcfde97ab3e73629fb6556bb63099fe500cb6ed78d286a4e1a957"
+    },
+    {
+      "path": "tools/asset_production/city_planting_04/inspect_areas.py",
+      "bytes": 357,
+      "sha256": "360055ff422b43f07f8f1db932b674fc8052d771305240bee3819c53e667d983"
+    },
+    {
+      "path": "tools/asset_production/city_planting_04/inspect_failure.py",
+      "bytes": 365,
+      "sha256": "3e9a8681fd6ac73eb346a4db25e31e9fdb6ff0d4469c14883d812e7e620cca99"
+    },
+    {
+      "path": "tools/asset_production/city_planting_04/manifest.py",
+      "bytes": 1020,
+      "sha256": "bd83ca1e5fefc4d41c5eef6913249289f28e2268f5bdb898eb0fe6955eb822ea"
+    },
+    {
+      "path": "tools/asset_production/city_planting_04/preview_saved.py",
+      "bytes": 815,
+      "sha256": "a70fbbe8f8e8ee2dc790f8a66c8b734c6870fcca8b445eb1f0d7ef7de217d6e2"
+    },
+    {
+      "path": "tools/asset_production/city_planting_04/repair_tips.py",
+      "bytes": 1123,
+      "sha256": "172838a676a4681b94449940638a7ac6afff924d92ba8ab7db33e975c726c25f"
+    },
+    {
+      "path": "tools/asset_production/city_planting_04/run.py",
+      "bytes": 1509,
+      "sha256": "6106f7e8387018eba69b02885fee25f982d5f1d917e28f3c850d4e6aaef45498"
+    },
+    {
+      "path": "docs/assets/production/city_planting_04.md",
+      "bytes": 11575,
+      "sha256": "e659326c69dbc0a13981b2377afc17e6aa875835f050f780ce1333f41b8c2718"
+    },
+    {
+      "path": "docs/assets/production/city_planting_04-evidence/assembly_preview.json",
+      "bytes": 2320,
+      "sha256": "bf87d64762120177e6f3b56c3bb31b9e8598565378c254bd4700202630c88685"
+    },
+    {
+      "path": "docs/assets/production/city_planting_04-evidence/assembly_preview.log",
+      "bytes": 1984,
+      "sha256": "b0ceaee3daf12751b8ffd857d288075e366164720dbbdaf2aae5541246bd46ef"
+    },
+    {
+      "path": "docs/assets/production/city_planting_04-evidence/assembly_preview_final.log",
+      "bytes": 1533,
+      "sha256": "16c1baafeaf9b6814d064bf11585643c986bcbecb9c0cf2c688abddba5810cb6"
+    },
+    {
+      "path": "docs/assets/production/city_planting_04-evidence/author.log",
+      "bytes": 1341,
+      "sha256": "838c5697ed08012be7298c8c74c513a9a92af918762a0e284a6d6ab595418b4c"
+    },
+    {
+      "path": "docs/assets/production/city_planting_04-evidence/author_fix.log",
+      "bytes": 1341,
+      "sha256": "7087b9329db9b302fa04badcc0592e520908a2d037f11d2fc83240dc46d97e74"
+    },
+    {
+      "path": "docs/assets/production/city_planting_04-evidence/broad_hero.png",
+      "bytes": 1545378,
+      "sha256": "81166ac75d9cf5d8007534b12ad8565f2fdb6b97b22af8d80d7d7a6bf3613919"
+    },
+    {
+      "path": "docs/assets/production/city_planting_04-evidence/broad_project_camera.png",
+      "bytes": 1503863,
+      "sha256": "0690d7671de90d6995caf64912b3ea7f3f262e3fd0a8b9dd275f62380c0b3475"
+    },
+    {
+      "path": "docs/assets/production/city_planting_04-evidence/check_glb.log",
+      "bytes": 3048,
+      "sha256": "e01f0a8fb4c976a8da5119eaeb64a67eb52ac55b1413db571c69a8dffe12924e"
+    },
+    {
+      "path": "docs/assets/production/city_planting_04-evidence/commands.json",
+      "bytes": 13309,
+      "sha256": "832ef33c9620e4bff9dda6ae5f8e2cd969ca07e10c1f3be4ad923420482515cc"
+    },
+    {
+      "path": "docs/assets/production/city_planting_04-evidence/compact_hero.png",
+      "bytes": 1533438,
+      "sha256": "7b01b397987f26f09ad6e991961612a4e3bfddc6d8b6abf1086b27aed06f176c"
+    },
+    {
+      "path": "docs/assets/production/city_planting_04-evidence/compact_project_camera.png",
+      "bytes": 1500846,
+      "sha256": "a9e6aca706a070f0a2b5ac9dde31b13523de4c18b77da80f1570ad6bd36e4b7b"
+    },
+    {
+      "path": "docs/assets/production/city_planting_04-evidence/export.log",
+      "bytes": 747,
+      "sha256": "edba4bda25ebee6c4a1bc475ffa7248341f80b4cc0f7606383856064d3fdc11d"
+    },
+    {
+      "path": "docs/assets/production/city_planting_04-evidence/export_final.log",
+      "bytes": 801,
+      "sha256": "c89e8cac954fc49efd7f6a0b5c78369864765ea6a4faca0810c7e035a9d6550b"
+    },
+    {
+      "path": "docs/assets/production/city_planting_04-evidence/export_fix.log",
+      "bytes": 747,
+      "sha256": "87415f0d25b4064ba72d6c8968aaac78030988afec8f2103b7fb96e67cfd2b71"
+    },
+    {
+      "path": "docs/assets/production/city_planting_04-evidence/export_verified.log",
+      "bytes": 5931,
+      "sha256": "5f96f6607a4a799dec914384fc9196d4f315eb3af83cb1b655f901641830bb47"
+    },
+    {
+      "path": "docs/assets/production/city_planting_04-evidence/final_audit.json",
+      "bytes": 1555,
+      "sha256": "4f4f1aef6780b2fa964f1eed2317546a9d53bd3a3e294f30d12b457a650bd84a"
+    },
+    {
+      "path": "docs/assets/production/city_planting_04-evidence/final_audit.log",
+      "bytes": 17,
+      "sha256": "b4cf9ef480c7134d79984362b07564f9e95dc0d6de052d5ea2dbaab92cb63887"
+    },
+    {
+      "path": "docs/assets/production/city_planting_04-evidence/final_audit_initial.log",
+      "bytes": 159,
+      "sha256": "b77ddaf82d649caa7330aa8357af42de744380b54569a494f9bdb13ed7c3bd42"
+    },
+    {
+      "path": "docs/assets/production/city_planting_04-evidence/glb_checks.json",
+      "bytes": 3048,
+      "sha256": "e01f0a8fb4c976a8da5119eaeb64a67eb52ac55b1413db571c69a8dffe12924e"
+    },
+    {
+      "path": "docs/assets/production/city_planting_04-evidence/initial_attempt/assembly_spacing_2_3m.py.txt",
+      "bytes": 3067,
+      "sha256": "125926764c545e679465219cbd112a23c92fa6fbc5ed0771d12da4d5558b80dd"
+    },
+    {
+      "path": "docs/assets/production/city_planting_04-evidence/initial_attempt/author.log",
+      "bytes": 1341,
+      "sha256": "838c5697ed08012be7298c8c74c513a9a92af918762a0e284a6d6ab595418b4c"
+    },
+    {
+      "path": "docs/assets/production/city_planting_04-evidence/initial_attempt/author.py.txt",
+      "bytes": 7772,
+      "sha256": "807a9e840befc110d2ff0e85d4b6fbc7c2c258a55956abb9cf1c57c4b0c7ab9d"
+    },
+    {
+      "path": "docs/assets/production/city_planting_04-evidence/initial_attempt/broad_hero.png",
+      "bytes": 1545226,
+      "sha256": "7f3312b244420ab48b81f1a786760da594e2403e9b5aca397019fcb4aaace870"
+    },
+    {
+      "path": "docs/assets/production/city_planting_04-evidence/initial_attempt/broad_project_camera.png",
+      "bytes": 1503821,
+      "sha256": "8891326e8091ea3b7c7dae58656e1aba697603f4b30f19e8d3d6cc93749af7de"
+    },
+    {
+      "path": "docs/assets/production/city_planting_04-evidence/initial_attempt/city_planting_04.blend",
+      "bytes": 314460,
+      "sha256": "48be2d4acdc11a96a5bc1040f070119479c51bc8c50066fbe48d70da8142cf10"
+    },
+    {
+      "path": "docs/assets/production/city_planting_04-evidence/initial_attempt/commands.json",
+      "bytes": 1802,
+      "sha256": "9a39e602f71722817d4e841845ecf2e283680f9e2f21230876abe573db35b9c5"
+    },
+    {
+      "path": "docs/assets/production/city_planting_04-evidence/initial_attempt/compact_hero.png",
+      "bytes": 1532788,
+      "sha256": "c4ba059afee68b31b6b7189decdeee6379734ae036834fa5962d2718d5609d4c"
+    },
+    {
+      "path": "docs/assets/production/city_planting_04-evidence/initial_attempt/compact_project_camera.png",
+      "bytes": 1501374,
+      "sha256": "6520d7482ce04f9af1f1864af22baa93b6f3701577a6e0d075898d7a3b736902"
+    },
+    {
+      "path": "docs/assets/production/city_planting_04-evidence/initial_attempt/export.log",
+      "bytes": 747,
+      "sha256": "edba4bda25ebee6c4a1bc475ffa7248341f80b4cc0f7606383856064d3fdc11d"
+    },
+    {
+      "path": "docs/assets/production/city_planting_04-evidence/initial_attempt/export.py.txt",
+      "bytes": 4151,
+      "sha256": "e9f2a8961a9f97ea8c80a49847c8fa7ac60315bfe94859752ef9fb5548269dc0"
+    },
+    {
+      "path": "docs/assets/production/city_planting_04-evidence/initial_attempt/inspect_failure.log",
+      "bytes": 1846,
+      "sha256": "4205b975edaf1ea5b57612018b4b8bf0ce5f4f514c12ed73f91d6bb0de8d5c63"
+    },
+    {
+      "path": "docs/assets/production/city_planting_04-evidence/initial_attempt/repair_tips_failed.py.txt",
+      "bytes": 1013,
+      "sha256": "52a73b9421ce69ddacf4c061fde4435870ee7045947c6814e90f94bbce157522"
+    },
+    {
+      "path": "docs/assets/production/city_planting_04-evidence/initial_attempt/repair_tips_intermediate.py.txt",
+      "bytes": 1034,
+      "sha256": "0c522e008449e6e101069a632f58577594995b48afe375ec269027a02115def6"
+    },
+    {
+      "path": "docs/assets/production/city_planting_04-evidence/initial_attempt/spacing_2_3m_pair_surround_actor_hero.png",
+      "bytes": 2088678,
+      "sha256": "53cbb3739d3c9f25fc85c14a9a7e1dbe2452852d2dc9f957700fda8bb3fb3674"
+    },
+    {
+      "path": "docs/assets/production/city_planting_04-evidence/initial_attempt/spacing_2_3m_pair_surround_actor_project_camera.png",
+      "bytes": 1508899,
+      "sha256": "bfdcbf0ac95943b8464950476ac2281134da2a3d2e6e00fead7ac8f23c134b6b"
+    },
+    {
+      "path": "docs/assets/production/city_planting_04-evidence/initial_attempt/subdivided_before_tip_repair.blend",
+      "bytes": 465728,
+      "sha256": "98b786d2260eb37e0c6b8cc05857b182bccf23afb1edda1efb29ef6f8f42171b"
+    },
+    {
+      "path": "docs/assets/production/city_planting_04-evidence/inspect_areas.log",
+      "bytes": 1425,
+      "sha256": "317964be3a684cb7e2bb6d44d76f34ade0181fa49dd5bcfde9c542b0c96a7301"
+    },
+    {
+      "path": "docs/assets/production/city_planting_04-evidence/inspect_failure.log",
+      "bytes": 1846,
+      "sha256": "4205b975edaf1ea5b57612018b4b8bf0ce5f4f514c12ed73f91d6bb0de8d5c63"
+    },
+    {
+      "path": "docs/assets/production/city_planting_04-evidence/inspect_fix.log",
+      "bytes": 1846,
+      "sha256": "c195779e7d7a8de0cc7db7b2e2b53cf640e33e7725e856fd5cc592374896ad7c"
+    },
+    {
+      "path": "docs/assets/production/city_planting_04-evidence/pair_surround_actor_hero.png",
+      "bytes": 2089728,
+      "sha256": "c067f320d423738697f94f519c6777e5c1fb0ef107d9ed801a0d3060a851cfe6"
+    },
+    {
+      "path": "docs/assets/production/city_planting_04-evidence/pair_surround_actor_project_camera.png",
+      "bytes": 1508824,
+      "sha256": "abe3c326b4094e2e0e3e036643ff3ff492dbfe3952d24ea714462bea3cfc7cad"
+    },
+    {
+      "path": "docs/assets/production/city_planting_04-evidence/preview_saved.log",
+      "bytes": 1011,
+      "sha256": "65218b573338f973c1eb01190c4572a50d1b9f6d4861d213ebdda0dd05d246fd"
+    },
+    {
+      "path": "docs/assets/production/city_planting_04-evidence/reexport/city_planting_04_broad.glb",
+      "bytes": 281264,
+      "sha256": "b02f3594925972cf4002811042b606734fbc8a5c7f1d9ed5c719022809b1130b"
+    },
+    {
+      "path": "docs/assets/production/city_planting_04-evidence/reexport/city_planting_04_compact.glb",
+      "bytes": 278900,
+      "sha256": "7e1a678453324fc9843e9941ddf9c3fad30e19d6f206d11ee404932cc525708e"
+    },
+    {
+      "path": "docs/assets/production/city_planting_04-evidence/reexport.log",
+      "bytes": 5931,
+      "sha256": "f18e135a836f836b5a7252170fbe53d0d52eb566efc27cd4f608f75f916eac27"
+    },
+    {
+      "path": "docs/assets/production/city_planting_04-evidence/reexport_checks.json",
+      "bytes": 5510,
+      "sha256": "f870c2c0bada5de2ef27abc540c608b1b8b1e31a847c53ea499364da1bfefec1"
+    },
+    {
+      "path": "docs/assets/production/city_planting_04-evidence/reexport_comparison.json",
+      "bytes": 331,
+      "sha256": "37ec625308317022051cdf10a177f494f135f12e94ae6fc2b68b9f4b10f5ec85"
+    },
+    {
+      "path": "docs/assets/production/city_planting_04-evidence/reference_inputs.json",
+      "bytes": 2989,
+      "sha256": "69006bcd6609b5d997e313c272825fb0f4159d2d7e5bd1b92ff24afc2d022108"
+    },
+    {
+      "path": "docs/assets/production/city_planting_04-evidence/repair_degenerate.log",
+      "bytes": 665,
+      "sha256": "5a6b73409483db67048c2dea6d53ea147cc554e05d97f1285c8a514c09f3060e"
+    },
+    {
+      "path": "docs/assets/production/city_planting_04-evidence/repair_tips.log",
+      "bytes": 818,
+      "sha256": "ed531e2b0da28d3d19764a05b755ce3009505db14e16f3ec216f42ca8f590851"
+    },
+    {
+      "path": "docs/assets/production/city_planting_04-evidence/repair_tips_final.log",
+      "bytes": 665,
+      "sha256": "202a42d4caa876e595e2e5329d15de0e42428e1a4869facd3d569a05ec009ac2"
+    },
+    {
+      "path": "docs/assets/production/city_planting_04-evidence/source_export_checks.json",
+      "bytes": 5510,
+      "sha256": "f870c2c0bada5de2ef27abc540c608b1b8b1e31a847c53ea499364da1bfefec1"
+    },
+    {
+      "path": "docs/assets/production/city_planting_04-evidence/version.log",
+      "bytes": 2261,
+      "sha256": "87c8a90db41ece4eea5400d0604959f31c2530cbaed5faa45c46f1a48e2e8d7e"
+    }
+  ]
+}

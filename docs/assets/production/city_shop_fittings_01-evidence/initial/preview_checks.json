@@ -1,0 +1,142 @@
+{
+  "scope": "Blender-only temporary assembly; no engine or saved placement acceptance",
+  "reference": {
+    "path": "art/models/brackett_greybox/shop.glb",
+    "sha256_before": "243730bb68daac7c67bce56bdb765f964d075cdd5e909ddb9258e435837b7a06",
+    "sha256_after": "243730bb68daac7c67bce56bdb765f964d075cdd5e909ddb9258e435837b7a06",
+    "blender_bounds_m": [
+      [
+        -9.0,
+        -7.5,
+        0.0
+      ],
+      [
+        9.0,
+        7.5,
+        10.0
+      ]
+    ],
+    "dimensions_m": [
+      18,
+      15,
+      10
+    ],
+    "modified": false
+  },
+  "canopy_pivot_blender_m": [
+    0.0,
+    7.5,
+    3.0
+  ],
+  "mount_ground_height_m": 3,
+  "lowest_clearance_m": 2.58,
+  "canopy_to_facade_width_ratio": 0.17777777777777778,
+  "one_metre_reference_dimensions": [
+    1.0,
+    1.0,
+    1.0
+  ],
+  "project_camera": {
+    "height_m": 47,
+    "vertical_fov_degrees": 42.00000169963833,
+    "rotation": [
+      0.0,
+      -0.0,
+      0.0
+    ]
+  },
+  "views": [
+    {
+      "file": "hero.png",
+      "location_blender_m": [
+        4,
+        5,
+        2.4
+      ],
+      "target_blender_m": [
+        0,
+        0.45,
+        -0.04
+      ],
+      "lens_mm": 50,
+      "resolution": [
+        1200,
+        900
+      ]
+    },
+    {
+      "file": "attachment_side.png",
+      "location_blender_m": [
+        3.7,
+        2,
+        -1.2
+      ],
+      "target_blender_m": [
+        0,
+        0.42,
+        -0.08
+      ],
+      "lens_mm": 55,
+      "resolution": [
+        1200,
+        900
+      ]
+    },
+    {
+      "file": "measured_1m_comparison.png",
+      "location_blender_m": [
+        4,
+        7,
+        3
+      ],
+      "target_blender_m": [
+        -0.6,
+        0.4,
+        0
+      ],
+      "lens_mm": 48,
+      "resolution": [
+        1200,
+        900
+      ]
+    },
+    {
+      "file": "unchanged_shop_scale_comparison.png",
+      "location_blender_m": [
+        23,
+        29,
+        17
+      ],
+      "target_blender_m": [
+        0,
+        0,
+        4
+      ],
+      "lens_mm": 48,
+      "resolution": [
+        1280,
+        900
+      ]
+    },
+    {
+      "file": "project_camera.png",
+      "location_blender_m": [
+        0,
+        0,
+        47
+      ],
+      "target_blender_m": [
+        0,
+        0,
+        0
+      ],
+      "lens_mm": 41.68142503510083,
+      "resolution": [
+        1280,
+        800
+      ]
+    }
+  ],
+  "renderer": "Cycles CPU 4 threads, 32 samples, AgX",
+  "source_saved": false
+}

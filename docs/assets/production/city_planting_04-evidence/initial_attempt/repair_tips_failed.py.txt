@@ -1,0 +1,21 @@
+"""Close the diagnosed four-edge, nonplanar branch-tip loops; retain exact source."""
+import bpy,bmesh
+from pathlib import Path
+R=Path(__file__).resolve().parents[3]
+for o in bpy.data.objects:
+ if o.type!='MESH' or 'sculpted_trunk' not in o.name:continue
+ bm=bmesh.new(); bm.from_mesh(o.data); boundary=[e for e in bm.edges if e.is_boundary]
+ print(o.name,'boundary_before',len(boundary))
+ while boundary:
+  edge=boundary.pop(); verts=list(edge.verts); current=verts[-1]
+  while current!=verts[0]:
+   next_edge=next(e for e in boundary if current in e.verts); boundary.remove(next_edge)
+   current=next_edge.other_vert(current)
+   if current!=verts[0]:verts.append(current)
+  assert len(verts)==4
+  face=bm.faces.new(verts); bmesh.ops.triangulate(bm,faces=[face])
+ bmesh.ops.recalc_face_normals(bm,faces=list(bm.faces))
+ assert all(e.is_manifold and e.is_contiguous for e in bm.edges)
+ bm.to_mesh(o.data); bm.free(); o.data.update()
+ print(o.name,'closed')
+bpy.ops.wm.save_as_mainfile(filepath=bpy.data.filepath)

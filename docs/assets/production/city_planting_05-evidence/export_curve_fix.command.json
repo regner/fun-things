@@ -1,0 +1,23 @@
+{
+  "name": "export_curve_fix",
+  "argv": [
+    "/usr/bin/blender",
+    "-b",
+    "-noaudio",
+    "-t",
+    "4",
+    "art/source/models/environment/city_planting_05/city_planting_05.blend",
+    "--python-exit-code",
+    "1",
+    "--python",
+    "tools/asset_production/city_planting_05/export.py"
+  ],
+  "cwd": "/home/regner/.paseo/worktrees/0u71f39f/asset-register-production",
+  "environment_overrides": {
+    "ALSOFT_DRIVERS": "null",
+    "SDL_AUDIODRIVER": "dummy"
+  },
+  "exit_code": 0,
+  "raw_log": "export_curve_fix.log",
+  "receipt_note": "Exact executed argv and exit reconstructed from terminal tool results after initial concurrent preview ledger overwrite. Full original raw log retained; start/end UTC unavailable."
+}
