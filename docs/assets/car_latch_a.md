@@ -45,7 +45,9 @@ Four source-authored axle centres under `Visuals/Model/car_latch_a/Wheels`:
 corresponding `Spin…` child. Wheel spin uses local X; steering uses Godot Y.
 There are 2 rigid door hinges under `Visuals/Model/car_latch_a/Doors`:
 `HingeFrontLeft`, `HingeFrontRight`.
-Each hinge owns its panel/window/handle and front-door mirror. No skin or armature
+Each hinge owns its shortened panel/window/handle and front-door mirror. The rear
+quarter panels and glazing remain fixed to the root; see the owner-requested
+[door correction](vehicle_car_evidence/latch_door_revision.md). No skin or armature
 is required. Simple interior floor/seats/dashboard support the opening-door view;
 no detailed interior, working handles, rear hatch/trunk or passenger animation is claimed.
 
@@ -79,7 +81,7 @@ these materials and lamps use restrained emission. No textures, external materia
 remaps or texture-channel/UV-bake workflow is needed at this checkpoint. Glass is
 opaque stylized glazing. No shared material writer or external texture dependency.
 
-Source has 10104 triangles after applied authoring operations; no triangle
+Source has 10480 triangles after applied authoring operations; no triangle
 or sustained-device budget is ratified. Generated import LOD appearance and crowd
 performance remain unmeasured.
 

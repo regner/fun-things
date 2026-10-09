@@ -33,6 +33,10 @@
     "MirrorRight",
     "PillarLeft",
     "PillarRight",
+    "QuarterGlassLeft",
+    "QuarterGlassRight",
+    "QuarterPanelLeft",
+    "QuarterPanelRight",
     "RearBumper",
     "RearGlass",
     "Roof",
@@ -122,7 +126,7 @@
       -0.1
     ]
   },
-  "triangles": 10104,
+  "triangles": 10480,
   "materials": [
     "body_paint",
     "hood_inset",
@@ -141,5 +145,111 @@
   ],
   "rigid_animation_contract": "Hinge rotation around Godot +Y; wheel spin around local +X; no skin/armature",
   "spatial_author": "gpt-6-astra high; runtime verified in active codex-turn-6",
-  "panel_depth_revision": 1
+  "panel_depth_revision": 1,
+  "latch_short_door_revision": 1,
+  "door_seam_blender_y_m": -0.62,
+  "rear_quarter_nodes": [
+    "QuarterPanelLeft",
+    "QuarterPanelRight",
+    "QuarterGlassLeft",
+    "QuarterGlassRight"
+  ],
+  "door_split_bounds_blender_m": {
+    "DoorPanelFrontLeft": {
+      "min": [
+        -0.8700000047683716,
+        -0.6140000820159912,
+        0.46000003814697266
+      ],
+      "max": [
+        -0.625,
+        0.6310000419616699,
+        1.0399999618530273
+      ]
+    },
+    "QuarterPanelLeft": {
+      "min": [
+        -0.8700000047683716,
+        -1.3009999990463257,
+        0.46000003814697266
+      ],
+      "max": [
+        -0.625,
+        -0.625999927520752,
+        1.038804531097412
+      ]
+    },
+    "DoorWindowFrontLeft": {
+      "min": [
+        -0.7699999809265137,
+        -0.6140000820159912,
+        1.0581469535827637
+      ],
+      "max": [
+        -0.6622175574302673,
+        0.6399999856948853,
+        1.4800000190734863
+      ]
+    },
+    "QuarterGlassLeft": {
+      "min": [
+        -0.7699999809265137,
+        -1.309999942779541,
+        1.0581469535827637
+      ],
+      "max": [
+        -0.6622175574302673,
+        -0.625999927520752,
+        1.4800000190734863
+      ]
+    },
+    "DoorPanelFrontRight": {
+      "min": [
+        0.625,
+        -0.6140000820159912,
+        0.46000003814697266
+      ],
+      "max": [
+        0.8700000047683716,
+        0.6310000419616699,
+        1.0399999618530273
+      ]
+    },
+    "QuarterPanelRight": {
+      "min": [
+        0.625,
+        -1.3009999990463257,
+        0.46000003814697266
+      ],
+      "max": [
+        0.8700000047683716,
+        -0.625999927520752,
+        1.038804531097412
+      ]
+    },
+    "DoorWindowFrontRight": {
+      "min": [
+        0.6700000166893005,
+        -0.6140000820159912,
+        1.059999942779541
+      ],
+      "max": [
+        0.7777824401855469,
+        0.6399999856948853,
+        1.4818530082702637
+      ]
+    },
+    "QuarterGlassRight": {
+      "min": [
+        0.6700000166893005,
+        -1.309999942779541,
+        1.059999942779541
+      ],
+      "max": [
+        0.7777824401855469,
+        -0.625999927520752,
+        1.4818530082702637
+      ]
+    }
+  }
 }
