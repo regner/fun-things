@@ -64,6 +64,13 @@ func step(tick: int) -> void:
 		_rewind_queries += 1
 
 
+## Clears only combat receipts while retaining warmed history, cadence and sequence state.
+func begin_measurement() -> void:
+	_accepted = 0
+	_rejected.clear()
+	_rewind_queries = 0
+
+
 ## Reports accepted validation and rewind-query work across all four scripted players.
 func receipt() -> Dictionary:
 	return {

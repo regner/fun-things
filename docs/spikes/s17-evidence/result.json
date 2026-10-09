@@ -1,12 +1,23 @@
 {
   "engine": "4.8.dev7.official.c971f93e7",
+  "machine": {
+    "cpu_model": "Intel(R) Core(TM) Ultra 7 165H",
+    "logical_cpu_count": 22,
+    "os": "Microsoft Windows 11 Enterprise version 10.0.26200 build 26200",
+    "system": "Windows",
+    "release": "11",
+    "version": "10.0.26200",
+    "machine": "AMD64"
+  },
   "seeds": [
     171,
     272,
     373
   ],
-  "ticks_per_seed": 36000,
-  "simulated_minutes_per_seed": 10,
+  "warmup_ticks_per_seed": 3600,
+  "measured_ticks_per_seed": 36000,
+  "warmup_minutes_per_seed": 1,
+  "measured_minutes_per_seed": 10,
   "import": {
     "ok": true,
     "returncode": 0,
@@ -14,59 +25,67 @@
   },
   "commands": [
     [
+      "C:\\Program Files\\Git\\usr\\bin\\timeout.EXE",
+      "1400",
       "\\Users\\regner.blokandersen\\AppData\\Local\\mise\\installs\\github-godotengine-godot-builds\\4.8-dev7/godot",
       "--headless",
       "--path",
-      "C:\\tmp\\ft\\lanes\\s17-host-tick\\reproduction2\\project",
+      "C:\\tmp\\ft\\lanes\\s17-host-tick\\reproduction3\\project",
       "--script",
       "res://tests/fixtures/s17/run.gd",
       "--log-file",
-      "C:\\tmp\\ft\\lanes\\s17-host-tick\\reproduction2\\seed-171.engine.log",
+      "C:\\tmp\\ft\\lanes\\s17-host-tick\\reproduction3\\seed-171.engine.log",
       "--",
       "--seed",
       "171",
       "--output",
-      "C:\\tmp\\ft\\lanes\\s17-host-tick\\reproduction2\\seed-171.json"
+      "C:\\tmp\\ft\\lanes\\s17-host-tick\\reproduction3\\seed-171.json"
     ],
     [
+      "C:\\Program Files\\Git\\usr\\bin\\timeout.EXE",
+      "1400",
       "\\Users\\regner.blokandersen\\AppData\\Local\\mise\\installs\\github-godotengine-godot-builds\\4.8-dev7/godot",
       "--headless",
       "--path",
-      "C:\\tmp\\ft\\lanes\\s17-host-tick\\reproduction2\\project",
+      "C:\\tmp\\ft\\lanes\\s17-host-tick\\reproduction3\\project",
       "--script",
       "res://tests/fixtures/s17/run.gd",
       "--log-file",
-      "C:\\tmp\\ft\\lanes\\s17-host-tick\\reproduction2\\seed-272.engine.log",
+      "C:\\tmp\\ft\\lanes\\s17-host-tick\\reproduction3\\seed-272.engine.log",
       "--",
       "--seed",
       "272",
       "--output",
-      "C:\\tmp\\ft\\lanes\\s17-host-tick\\reproduction2\\seed-272.json"
+      "C:\\tmp\\ft\\lanes\\s17-host-tick\\reproduction3\\seed-272.json"
     ],
     [
+      "C:\\Program Files\\Git\\usr\\bin\\timeout.EXE",
+      "1400",
       "\\Users\\regner.blokandersen\\AppData\\Local\\mise\\installs\\github-godotengine-godot-builds\\4.8-dev7/godot",
       "--headless",
       "--path",
-      "C:\\tmp\\ft\\lanes\\s17-host-tick\\reproduction2\\project",
+      "C:\\tmp\\ft\\lanes\\s17-host-tick\\reproduction3\\project",
       "--script",
       "res://tests/fixtures/s17/run.gd",
       "--log-file",
-      "C:\\tmp\\ft\\lanes\\s17-host-tick\\reproduction2\\seed-373.engine.log",
+      "C:\\tmp\\ft\\lanes\\s17-host-tick\\reproduction3\\seed-373.engine.log",
       "--",
       "--seed",
       "373",
       "--output",
-      "C:\\tmp\\ft\\lanes\\s17-host-tick\\reproduction2\\seed-373.json"
+      "C:\\tmp\\ft\\lanes\\s17-host-tick\\reproduction3\\seed-373.json"
     ]
   ],
   "runs": [
     {
       "budget": {
+        "conservative_p95_pass": false,
+        "conservative_p99_pass": false,
         "p95_limit_ms": 4.0,
-        "p95_pass": false,
         "p99_limit_ms": 8.0,
-        "p99_pass": true,
         "pedestrian_share_ms": 1.0,
+        "production_schedule_p95_pass": false,
+        "production_schedule_p99_pass": true,
         "traffic_audit_share_ms": 1.5,
         "traffic_s09_share_ms": 2.0
       },
@@ -77,6 +96,22 @@
         "players": 4,
         "rejected_shots": {},
         "rewind_queries": 9600
+      },
+      "empty_timer_baseline_ms": {
+        "count": 10000,
+        "median": 0.0,
+        "p95": 0.001,
+        "p99": 0.001,
+        "worst": 0.012
+      },
+      "environment": {
+        "can_draw": false,
+        "display_server": "headless",
+        "godot_version": "4.8-dev7 (official)",
+        "headless": true,
+        "renderer": "forward_plus",
+        "video_adapter": "",
+        "video_adapter_api": ""
       },
       "equivalence": {
         "combat": {
@@ -114,7 +149,7 @@
           "queue_peak": 5,
           "target_peak": 4,
           "target_visits": 144,
-          "trigger_tick": 7200
+          "trigger_tick": 5000
         },
         {
           "completed": 12,
@@ -122,7 +157,7 @@
           "queue_peak": 5,
           "target_peak": 4,
           "target_visits": 144,
-          "trigger_tick": 14400
+          "trigger_tick": 10000
         },
         {
           "completed": 12,
@@ -130,7 +165,7 @@
           "queue_peak": 5,
           "target_peak": 4,
           "target_visits": 144,
-          "trigger_tick": 21600
+          "trigger_tick": 15000
         },
         {
           "completed": 12,
@@ -138,10 +173,35 @@
           "queue_peak": 5,
           "target_peak": 4,
           "target_visits": 144,
-          "trigger_tick": 28800
+          "trigger_tick": 20000
+        },
+        {
+          "completed": 12,
+          "outcome": "OK",
+          "queue_peak": 5,
+          "target_peak": 4,
+          "target_visits": 144,
+          "trigger_tick": 25000
+        },
+        {
+          "completed": 12,
+          "outcome": "OK",
+          "queue_peak": 5,
+          "target_peak": 4,
+          "target_visits": 144,
+          "trigger_tick": 30000
+        },
+        {
+          "completed": 12,
+          "outcome": "OK",
+          "queue_peak": 5,
+          "target_peak": 4,
+          "target_visits": 144,
+          "trigger_tick": 35000
         }
       ],
       "failures": [],
+      "measured_ticks": 36000,
       "pedestrians": {
         "live": 64,
         "off_sidewalk_agent_ticks": 0,
@@ -159,57 +219,88 @@
         "wrecks": 16
       },
       "seed": 171,
-      "simulated_seconds": 600,
+      "simulated_measured_seconds": 600,
+      "simulated_warmup_seconds": 60,
       "snapshot": {
-        "clients_per_tick": 3,
-        "encoded_bytes": 258336000,
-        "entities_per_client_tick": 148,
-        "maximum_packet_bytes": 1196,
-        "packets": 216000
+        "clients": 3,
+        "conservative_every_tick": {
+          "encoded_bytes": 258336000,
+          "encodes": 108000,
+          "packet_sizes": [
+            1196,
+            1196
+          ],
+          "packets": 216000
+        },
+        "entities": 148,
+        "s11_production_schedule": {
+          "broadcast_clients": 3,
+          "encoded_bytes": 10764000,
+          "encodes": 9000,
+          "interval_ticks": 4,
+          "packet_sizes": [
+            1196
+          ],
+          "publications": 9000,
+          "rows_per_publication": 74
+        }
       },
-      "ticks": 36000,
       "timing_ms": {
         "combat": {
           "count": 36000,
-          "median": 0.041,
-          "p95": 0.115,
-          "p99": 0.203,
-          "worst": 2.746
+          "median": 0.056,
+          "p95": 0.17,
+          "p99": 0.338,
+          "worst": 8.131
         },
         "explosions": {
           "count": 36000,
-          "median": 0.006,
-          "p95": 0.012,
-          "p99": 0.028,
-          "worst": 4.157
+          "median": 0.009,
+          "p95": 0.021,
+          "p99": 0.063,
+          "worst": 3.235
         },
         "pedestrians": {
           "count": 36000,
-          "median": 1.212,
-          "p95": 2.431,
-          "p99": 3.453,
-          "worst": 25.913
+          "median": 1.576,
+          "p95": 3.43,
+          "p99": 5.016,
+          "worst": 62.91
         },
         "snapshot_encode": {
           "count": 36000,
-          "median": 1.004,
-          "p95": 2.045,
-          "p99": 2.893,
-          "worst": 34.948
+          "median": 1.303,
+          "p95": 2.879,
+          "p99": 4.235,
+          "worst": 151.333
+        },
+        "snapshot_encode_production_schedule": {
+          "count": 36000,
+          "median": 0.002,
+          "p95": 0.788,
+          "p99": 1.243,
+          "worst": 24.923
         },
         "total": {
           "count": 36000,
-          "median": 2.97,
-          "p95": 5.22,
-          "p99": 7.015,
-          "worst": 37.544
+          "median": 3.838,
+          "p95": 7.64,
+          "p99": 10.049,
+          "worst": 153.142
+        },
+        "total_production_schedule": {
+          "count": 36000,
+          "median": 2.61,
+          "p95": 5.378,
+          "p99": 7.308,
+          "worst": 109.276
         },
         "traffic": {
           "count": 36000,
-          "median": 0.606,
-          "p95": 1.322,
-          "p99": 1.937,
-          "worst": 17.001
+          "median": 0.719,
+          "p95": 1.627,
+          "p99": 2.558,
+          "worst": 107.34
         }
       },
       "traffic": {
@@ -225,25 +316,26 @@
         "moving_cars": 24,
         "parked_cars": 8
       },
+      "warmup_ticks": 3600,
       "contention": {
         "before": {
-          "godot_processes": 3,
+          "godot_processes": 2,
           "cpu_load": {
-            "percent": 46.0,
+            "percent": 53.0,
             "source": "Win32_Processor"
           }
         },
-        "during": {
-          "godot_processes": 4,
+        "startup_or_warmup": {
+          "godot_processes": 3,
           "cpu_load": {
-            "percent": 77.0,
+            "percent": 44.0,
             "source": "Win32_Processor"
           }
         },
         "after": {
           "godot_processes": 3,
           "cpu_load": {
-            "percent": 5.0,
+            "percent": 30.0,
             "source": "Win32_Processor"
           }
         }
@@ -252,11 +344,13 @@
     },
     {
       "budget": {
+        "conservative_p95_pass": false,
+        "conservative_p99_pass": false,
         "p95_limit_ms": 4.0,
-        "p95_pass": false,
         "p99_limit_ms": 8.0,
-        "p99_pass": true,
         "pedestrian_share_ms": 1.0,
+        "production_schedule_p95_pass": false,
+        "production_schedule_p99_pass": true,
         "traffic_audit_share_ms": 1.5,
         "traffic_s09_share_ms": 2.0
       },
@@ -267,6 +361,22 @@
         "players": 4,
         "rejected_shots": {},
         "rewind_queries": 9600
+      },
+      "empty_timer_baseline_ms": {
+        "count": 10000,
+        "median": 0.0,
+        "p95": 0.0,
+        "p99": 0.001,
+        "worst": 0.001
+      },
+      "environment": {
+        "can_draw": false,
+        "display_server": "headless",
+        "godot_version": "4.8-dev7 (official)",
+        "headless": true,
+        "renderer": "forward_plus",
+        "video_adapter": "",
+        "video_adapter_api": ""
       },
       "equivalence": {
         "combat": {
@@ -304,7 +414,7 @@
           "queue_peak": 5,
           "target_peak": 4,
           "target_visits": 144,
-          "trigger_tick": 7200
+          "trigger_tick": 5000
         },
         {
           "completed": 12,
@@ -312,7 +422,7 @@
           "queue_peak": 5,
           "target_peak": 4,
           "target_visits": 144,
-          "trigger_tick": 14400
+          "trigger_tick": 10000
         },
         {
           "completed": 12,
@@ -320,7 +430,7 @@
           "queue_peak": 5,
           "target_peak": 4,
           "target_visits": 144,
-          "trigger_tick": 21600
+          "trigger_tick": 15000
         },
         {
           "completed": 12,
@@ -328,10 +438,35 @@
           "queue_peak": 5,
           "target_peak": 4,
           "target_visits": 144,
-          "trigger_tick": 28800
+          "trigger_tick": 20000
+        },
+        {
+          "completed": 12,
+          "outcome": "OK",
+          "queue_peak": 5,
+          "target_peak": 4,
+          "target_visits": 144,
+          "trigger_tick": 25000
+        },
+        {
+          "completed": 12,
+          "outcome": "OK",
+          "queue_peak": 5,
+          "target_peak": 4,
+          "target_visits": 144,
+          "trigger_tick": 30000
+        },
+        {
+          "completed": 12,
+          "outcome": "OK",
+          "queue_peak": 5,
+          "target_peak": 4,
+          "target_visits": 144,
+          "trigger_tick": 35000
         }
       ],
       "failures": [],
+      "measured_ticks": 36000,
       "pedestrians": {
         "live": 64,
         "off_sidewalk_agent_ticks": 0,
@@ -349,57 +484,88 @@
         "wrecks": 16
       },
       "seed": 272,
-      "simulated_seconds": 600,
+      "simulated_measured_seconds": 600,
+      "simulated_warmup_seconds": 60,
       "snapshot": {
-        "clients_per_tick": 3,
-        "encoded_bytes": 258336000,
-        "entities_per_client_tick": 148,
-        "maximum_packet_bytes": 1196,
-        "packets": 216000
+        "clients": 3,
+        "conservative_every_tick": {
+          "encoded_bytes": 258336000,
+          "encodes": 108000,
+          "packet_sizes": [
+            1196,
+            1196
+          ],
+          "packets": 216000
+        },
+        "entities": 148,
+        "s11_production_schedule": {
+          "broadcast_clients": 3,
+          "encoded_bytes": 10764000,
+          "encodes": 9000,
+          "interval_ticks": 4,
+          "packet_sizes": [
+            1196
+          ],
+          "publications": 9000,
+          "rows_per_publication": 74
+        }
       },
-      "ticks": 36000,
       "timing_ms": {
         "combat": {
           "count": 36000,
-          "median": 0.042,
-          "p95": 0.115,
-          "p99": 0.186,
-          "worst": 9.621
+          "median": 0.05,
+          "p95": 0.134,
+          "p99": 0.256,
+          "worst": 4.795
         },
         "explosions": {
           "count": 36000,
-          "median": 0.006,
-          "p95": 0.012,
-          "p99": 0.024,
-          "worst": 1.272
+          "median": 0.007,
+          "p95": 0.016,
+          "p99": 0.056,
+          "worst": 4.625
         },
         "pedestrians": {
           "count": 36000,
-          "median": 1.242,
-          "p95": 2.366,
-          "p99": 3.344,
-          "worst": 26.217
+          "median": 1.432,
+          "p95": 2.942,
+          "p99": 4.22,
+          "worst": 268.555
         },
         "snapshot_encode": {
           "count": 36000,
-          "median": 1.012,
-          "p95": 1.991,
-          "p99": 2.769,
-          "worst": 22.228
+          "median": 1.154,
+          "p95": 2.397,
+          "p99": 3.549,
+          "worst": 45.47
+        },
+        "snapshot_encode_production_schedule": {
+          "count": 36000,
+          "median": 0.002,
+          "p95": 0.656,
+          "p99": 1.032,
+          "worst": 47.877
         },
         "total": {
           "count": 36000,
-          "median": 2.962,
-          "p95": 5.09,
-          "p99": 6.757,
-          "worst": 36.441
+          "median": 3.496,
+          "p95": 6.387,
+          "p99": 8.445,
+          "worst": 300.359
+        },
+        "total_production_schedule": {
+          "count": 36000,
+          "median": 2.384,
+          "p95": 4.526,
+          "p99": 6.15,
+          "worst": 269.677
         },
         "traffic": {
           "count": 36000,
-          "median": 0.57,
-          "p95": 1.235,
-          "p99": 1.794,
-          "worst": 14.901
+          "median": 0.639,
+          "p95": 1.403,
+          "p99": 2.228,
+          "worst": 13.787
         }
       },
       "traffic": {
@@ -415,25 +581,26 @@
         "moving_cars": 24,
         "parked_cars": 8
       },
+      "warmup_ticks": 3600,
       "contention": {
         "before": {
-          "godot_processes": 2,
+          "godot_processes": 3,
           "cpu_load": {
-            "percent": 1.0,
+            "percent": 16.0,
             "source": "Win32_Processor"
           }
         },
-        "during": {
-          "godot_processes": 3,
+        "startup_or_warmup": {
+          "godot_processes": 4,
           "cpu_load": {
-            "percent": 5.0,
+            "percent": 8.0,
             "source": "Win32_Processor"
           }
         },
         "after": {
-          "godot_processes": 2,
+          "godot_processes": 5,
           "cpu_load": {
-            "percent": 60.0,
+            "percent": 54.0,
             "source": "Win32_Processor"
           }
         }
@@ -442,11 +609,13 @@
     },
     {
       "budget": {
+        "conservative_p95_pass": false,
+        "conservative_p99_pass": false,
         "p95_limit_ms": 4.0,
-        "p95_pass": false,
         "p99_limit_ms": 8.0,
-        "p99_pass": true,
         "pedestrian_share_ms": 1.0,
+        "production_schedule_p95_pass": false,
+        "production_schedule_p99_pass": true,
         "traffic_audit_share_ms": 1.5,
         "traffic_s09_share_ms": 2.0
       },
@@ -457,6 +626,22 @@
         "players": 4,
         "rejected_shots": {},
         "rewind_queries": 9600
+      },
+      "empty_timer_baseline_ms": {
+        "count": 10000,
+        "median": 0.0,
+        "p95": 0.0,
+        "p99": 0.001,
+        "worst": 0.038
+      },
+      "environment": {
+        "can_draw": false,
+        "display_server": "headless",
+        "godot_version": "4.8-dev7 (official)",
+        "headless": true,
+        "renderer": "forward_plus",
+        "video_adapter": "",
+        "video_adapter_api": ""
       },
       "equivalence": {
         "combat": {
@@ -494,7 +679,7 @@
           "queue_peak": 5,
           "target_peak": 4,
           "target_visits": 144,
-          "trigger_tick": 7200
+          "trigger_tick": 5000
         },
         {
           "completed": 12,
@@ -502,7 +687,7 @@
           "queue_peak": 5,
           "target_peak": 4,
           "target_visits": 144,
-          "trigger_tick": 14400
+          "trigger_tick": 10000
         },
         {
           "completed": 12,
@@ -510,7 +695,7 @@
           "queue_peak": 5,
           "target_peak": 4,
           "target_visits": 144,
-          "trigger_tick": 21600
+          "trigger_tick": 15000
         },
         {
           "completed": 12,
@@ -518,10 +703,35 @@
           "queue_peak": 5,
           "target_peak": 4,
           "target_visits": 144,
-          "trigger_tick": 28800
+          "trigger_tick": 20000
+        },
+        {
+          "completed": 12,
+          "outcome": "OK",
+          "queue_peak": 5,
+          "target_peak": 4,
+          "target_visits": 144,
+          "trigger_tick": 25000
+        },
+        {
+          "completed": 12,
+          "outcome": "OK",
+          "queue_peak": 5,
+          "target_peak": 4,
+          "target_visits": 144,
+          "trigger_tick": 30000
+        },
+        {
+          "completed": 12,
+          "outcome": "OK",
+          "queue_peak": 5,
+          "target_peak": 4,
+          "target_visits": 144,
+          "trigger_tick": 35000
         }
       ],
       "failures": [],
+      "measured_ticks": 36000,
       "pedestrians": {
         "live": 64,
         "off_sidewalk_agent_ticks": 0,
@@ -539,57 +749,88 @@
         "wrecks": 16
       },
       "seed": 373,
-      "simulated_seconds": 600,
+      "simulated_measured_seconds": 600,
+      "simulated_warmup_seconds": 60,
       "snapshot": {
-        "clients_per_tick": 3,
-        "encoded_bytes": 258336000,
-        "entities_per_client_tick": 148,
-        "maximum_packet_bytes": 1196,
-        "packets": 216000
+        "clients": 3,
+        "conservative_every_tick": {
+          "encoded_bytes": 258336000,
+          "encodes": 108000,
+          "packet_sizes": [
+            1196,
+            1196
+          ],
+          "packets": 216000
+        },
+        "entities": 148,
+        "s11_production_schedule": {
+          "broadcast_clients": 3,
+          "encoded_bytes": 10764000,
+          "encodes": 9000,
+          "interval_ticks": 4,
+          "packet_sizes": [
+            1196
+          ],
+          "publications": 9000,
+          "rows_per_publication": 74
+        }
       },
-      "ticks": 36000,
       "timing_ms": {
         "combat": {
           "count": 36000,
-          "median": 0.044,
-          "p95": 0.118,
-          "p99": 0.233,
-          "worst": 4.458
+          "median": 0.052,
+          "p95": 0.137,
+          "p99": 0.262,
+          "worst": 6.262
         },
         "explosions": {
           "count": 36000,
-          "median": 0.006,
-          "p95": 0.013,
-          "p99": 0.032,
-          "worst": 1.091
+          "median": 0.007,
+          "p95": 0.016,
+          "p99": 0.056,
+          "worst": 14.992
         },
         "pedestrians": {
           "count": 36000,
-          "median": 1.252,
-          "p95": 2.542,
-          "p99": 3.474,
-          "worst": 30.577
+          "median": 1.44,
+          "p95": 2.909,
+          "p99": 4.163,
+          "worst": 84.589
         },
         "snapshot_encode": {
           "count": 36000,
-          "median": 1.032,
-          "p95": 2.149,
-          "p99": 2.893,
-          "worst": 13.151
+          "median": 1.171,
+          "p95": 2.397,
+          "p99": 3.485,
+          "worst": 31.68
+        },
+        "snapshot_encode_production_schedule": {
+          "count": 36000,
+          "median": 0.001,
+          "p95": 0.665,
+          "p99": 1.013,
+          "worst": 30.499
         },
         "total": {
           "count": 36000,
-          "median": 3.084,
-          "p95": 5.354,
-          "p99": 6.917,
-          "worst": 33.275
+          "median": 3.534,
+          "p95": 6.421,
+          "p99": 8.265,
+          "worst": 117.077
+        },
+        "total_production_schedule": {
+          "count": 36000,
+          "median": 2.402,
+          "p95": 4.535,
+          "p99": 6.122,
+          "worst": 98.609
         },
         "traffic": {
           "count": 36000,
-          "median": 0.575,
-          "p95": 1.303,
-          "p99": 1.847,
-          "worst": 27.92
+          "median": 0.647,
+          "p95": 1.41,
+          "p99": 2.127,
+          "worst": 59.102
         }
       },
       "traffic": {
@@ -605,25 +846,26 @@
         "moving_cars": 24,
         "parked_cars": 8
       },
+      "warmup_ticks": 3600,
       "contention": {
         "before": {
-          "godot_processes": 2,
+          "godot_processes": 5,
           "cpu_load": {
-            "percent": 41.0,
+            "percent": 0.0,
             "source": "Win32_Processor"
           }
         },
-        "during": {
-          "godot_processes": 3,
+        "startup_or_warmup": {
+          "godot_processes": 6,
           "cpu_load": {
-            "percent": 31.0,
+            "percent": 1.0,
             "source": "Win32_Processor"
           }
         },
         "after": {
-          "godot_processes": 2,
+          "godot_processes": 4,
           "cpu_load": {
-            "percent": 16.0,
+            "percent": 51.0,
             "source": "Win32_Processor"
           }
         }
@@ -635,52 +877,75 @@
     "timing_ms": {
       "pedestrians": {
         "count": 108000,
-        "median": 1.234,
-        "p95": 2.455,
-        "p99": 3.432,
-        "worst": 30.577
+        "median": 1.472,
+        "p95": 3.121,
+        "p99": 4.527,
+        "worst": 268.555
       },
       "traffic": {
         "count": 108000,
-        "median": 0.59,
-        "p95": 1.286,
-        "p99": 1.86,
-        "worst": 27.92
+        "median": 0.661,
+        "p95": 1.492,
+        "p99": 2.324,
+        "worst": 107.34
       },
       "combat": {
         "count": 108000,
-        "median": 0.042,
-        "p95": 0.116,
-        "p99": 0.208,
-        "worst": 9.621
+        "median": 0.052,
+        "p95": 0.146,
+        "p99": 0.284,
+        "worst": 8.131
       },
       "explosions": {
         "count": 108000,
-        "median": 0.006,
-        "p95": 0.012,
-        "p99": 0.028,
-        "worst": 4.157
+        "median": 0.008,
+        "p95": 0.018,
+        "p99": 0.059,
+        "worst": 14.992
       },
       "snapshot_encode": {
         "count": 108000,
-        "median": 1.016,
-        "p95": 2.069,
-        "p99": 2.86,
-        "worst": 34.948
+        "median": 1.199,
+        "p95": 2.589,
+        "p99": 3.819,
+        "worst": 151.333
+      },
+      "snapshot_encode_production_schedule": {
+        "count": 108000,
+        "median": 0.002,
+        "p95": 0.698,
+        "p99": 1.106,
+        "worst": 47.877
       },
       "total": {
         "count": 108000,
-        "median": 2.999,
-        "p95": 5.233,
-        "p99": 6.901,
-        "worst": 37.544
+        "median": 3.601,
+        "p95": 6.901,
+        "p99": 9.088,
+        "worst": 300.359
+      },
+      "total_production_schedule": {
+        "count": 108000,
+        "median": 2.452,
+        "p95": 4.86,
+        "p99": 6.684,
+        "worst": 269.677
       }
+    },
+    "empty_timer_baseline_ms": {
+      "count": 30000,
+      "median": 0.0,
+      "p95": 0.001,
+      "p99": 0.001,
+      "worst": 0.038
     },
     "budget": {
       "total_p95_limit_ms": 4.0,
       "total_p99_limit_ms": 8.0,
-      "total_p95_pass": false,
-      "total_p99_pass": true,
+      "conservative_total_p95_pass": false,
+      "conservative_total_p99_pass": false,
+      "production_schedule_total_p95_pass": false,
+      "production_schedule_total_p99_pass": true,
       "traffic_audit_share_ms": 1.5,
       "traffic_audit_share_pass": true,
       "traffic_s09_share_ms": 2.0,
@@ -689,6 +954,6 @@
       "pedestrian_share_pass": false
     }
   },
-  "timing_interpretation": "Rows marked contended upper bound had another Godot process observed. CPU-load snapshots are instantaneous and do not prove exclusive machine use.",
+  "timing_interpretation": "Rows marked contended upper bound had another Godot process observed before launch or during startup/warmup. No contention subprocess runs in the measured window. CPU-load snapshots are instantaneous and do not prove exclusive use.",
   "failures": []
 }

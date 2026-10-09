@@ -29,6 +29,12 @@ func step(tick: int) -> void:
 	_population._tick(tick, MOTION, false)
 
 
+## Clears only S10 legality counters while retaining warmed population and event state.
+func begin_measurement() -> void:
+	_population._metrics.off_sidewalk_ticks = 0
+	_population._metrics.road_outside_crossing_ticks = 0
+
+
 ## Returns one complete S11 movement row for every live or retained S10 slot.
 func snapshot_rows(first_id: int) -> Array[Dictionary]:
 	var rows: Array[Dictionary] = []

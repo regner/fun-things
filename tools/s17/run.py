@@ -6,6 +6,7 @@ import csv
 import json
 import os
 from pathlib import Path
+import platform
 import re
 import shutil
 import subprocess
@@ -14,17 +15,56 @@ import time
 
 ROOT = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(ROOT / "tools"))
-from script_checks import DIAGNOSTIC, engine_version, environment  # noqa: E402
+from script_checks import DIAGNOSTIC, PIN, environment  # noqa: E402
 
 DEFAULT_SEEDS = (171, 272, 373)
+
+
+def external_timeout():
+    """Resolve GNU timeout rather than Windows' unrelated interactive utility."""
+    if os.name == "nt":
+        git = shutil.which("git")
+        if git:
+            candidate = Path(git).resolve().parents[1] / "usr/bin/timeout.exe"
+            if candidate.is_file():
+                return str(candidate)
+    command = shutil.which("timeout")
+    if not command:
+        raise RuntimeError("GNU timeout is required to run Godot")
+    return command
+
+
+TIMEOUT = external_timeout()
 SUBSYSTEMS = (
     "pedestrians",
     "traffic",
     "combat",
     "explosions",
     "snapshot_encode",
+    "snapshot_encode_production_schedule",
     "total",
+    "total_production_schedule",
 )
+
+
+def godot_command(godot, timeout_seconds, arguments):
+    """Wrap every engine invocation in the external deadline required by the lane."""
+    return [TIMEOUT, str(timeout_seconds), godot, *arguments]
+
+
+def pinned_engine_version(godot):
+    """Read and verify the engine version through a bounded Godot invocation."""
+    result = subprocess.run(
+        godot_command(godot, 30, ["--version"]),
+        capture_output=True,
+        text=True,
+        timeout=35,
+        check=True,
+    )
+    version = result.stdout.strip()
+    if version != PIN:
+        raise RuntimeError(f"expected pinned engine {PIN}; got {version}")
+    return version
 
 
 def process_count():
@@ -77,8 +117,52 @@ def cpu_load():
         return {"percent": None, "source": "loadavg_unavailable"}
 
 
+def command_text(command):
+    """Return bounded command output without turning identity gaps into run failures."""
+    try:
+        result = subprocess.run(
+            command, capture_output=True, text=True, timeout=10, check=False
+        )
+    except (OSError, subprocess.TimeoutExpired):
+        return None
+    return result.stdout.strip() or None
+
+
+def machine_identity():
+    """Capture stable host CPU and OS identity before any measured child starts."""
+    cpu_model = platform.processor() or None
+    os_details = None
+    if os.name == "nt":
+        cpu_model = command_text(
+            [
+                "powershell",
+                "-NoProfile",
+                "-Command",
+                "(Get-CimInstance Win32_Processor | Select-Object -First 1).Name",
+            ]
+        ) or cpu_model
+        os_details = command_text(
+            [
+                "powershell",
+                "-NoProfile",
+                "-Command",
+                "$o=Get-CimInstance Win32_OperatingSystem; "
+                '"$($o.Caption) version $($o.Version) build $($o.BuildNumber)"',
+            ]
+        )
+    return {
+        "cpu_model": cpu_model,
+        "logical_cpu_count": os.cpu_count(),
+        "os": os_details or platform.platform(),
+        "system": platform.system(),
+        "release": platform.release(),
+        "version": platform.version(),
+        "machine": platform.machine(),
+    }
+
+
 def telemetry_snapshot():
-    """Capture concurrent engine count and CPU load around one repetition."""
+    """Capture concurrent engine count and CPU load outside the measured window."""
     return {"godot_processes": process_count(), "cpu_load": cpu_load()}
 
 
@@ -101,14 +185,14 @@ def stage_project(project):
 
 
 def checked_process(command, log, engine_log, env, timeout_seconds, observe=False):
-    """Run one owned child with bounded cleanup, retained logs and telemetry."""
+    """Run one owned child with bounded cleanup and only out-of-window telemetry."""
     before = telemetry_snapshot() if observe else None
     with log.open("w") as output:
         child = subprocess.Popen(command, stdout=output, stderr=subprocess.STDOUT, env=env)
-        during = None
+        startup_warmup = None
         if observe:
             time.sleep(0.1)
-            during = telemetry_snapshot()
+            startup_warmup = telemetry_snapshot()
         try:
             returncode = child.wait(timeout=timeout_seconds)
         except subprocess.TimeoutExpired:
@@ -127,7 +211,11 @@ def checked_process(command, log, engine_log, env, timeout_seconds, observe=Fals
     return {
         "ok": returncode == 0 and not DIAGNOSTIC.search(text),
         "returncode": returncode,
-        "telemetry": {"before": before, "during": during, "after": after}
+        "telemetry": {
+            "before": before,
+            "startup_or_warmup": startup_warmup,
+            "after": after,
+        }
         if observe
         else None,
     }
@@ -152,20 +240,30 @@ def distribution(samples):
 
 
 def aggregate(receipts):
-    """Pool equal-duration seed samples and evaluate whole-host and subsystem shares."""
+    """Pool equal-duration seed samples and evaluate both host-tick cases."""
     timing = {}
     for subsystem in SUBSYSTEMS:
         samples = []
         for receipt in receipts:
             samples.extend(receipt["timing_usec_samples"][subsystem])
         timing[subsystem] = distribution(samples)
+    timer_samples = []
+    for receipt in receipts:
+        timer_samples.extend(receipt["empty_timer_usec_samples"])
     return {
         "timing_ms": timing,
+        "empty_timer_baseline_ms": distribution(timer_samples),
         "budget": {
             "total_p95_limit_ms": 4.0,
             "total_p99_limit_ms": 8.0,
-            "total_p95_pass": timing["total"]["p95"] <= 4.0,
-            "total_p99_pass": timing["total"]["p99"] <= 8.0,
+            "conservative_total_p95_pass": timing["total"]["p95"] <= 4.0,
+            "conservative_total_p99_pass": timing["total"]["p99"] <= 8.0,
+            "production_schedule_total_p95_pass": (
+                timing["total_production_schedule"]["p95"] <= 4.0
+            ),
+            "production_schedule_total_p99_pass": (
+                timing["total_production_schedule"]["p99"] <= 8.0
+            ),
             "traffic_audit_share_ms": 1.5,
             "traffic_audit_share_pass": timing["traffic"]["p95"] <= 1.5,
             "traffic_s09_share_ms": 2.0,
@@ -178,9 +276,14 @@ def aggregate(receipts):
 
 def compact_receipt(receipt, telemetry):
     """Retain outcomes and summaries in aggregate JSON while raw samples stay per seed."""
-    compact = {key: value for key, value in receipt.items() if key != "timing_usec_samples"}
+    compact = {
+        key: value
+        for key, value in receipt.items()
+        if key not in ("timing_usec_samples", "empty_timer_usec_samples")
+    }
     compact["contention"] = telemetry
-    count = telemetry["during"]["godot_processes"] if telemetry else None
+    warmup = telemetry["startup_or_warmup"] if telemetry else None
+    count = warmup["godot_processes"] if warmup else None
     compact["timing_label"] = (
         "contended upper bound" if count is None or count > 1 else "quiet candidate"
     )
@@ -204,19 +307,26 @@ def main():
     output.mkdir(parents=True, exist_ok=True)
     print(f"S17 evidence: {output}", flush=True)
 
-    version = engine_version(args.godot)
+    machine = machine_identity()
+    version = pinned_engine_version(args.godot)
     project = output / "project"
     project.mkdir()
     stage_project(project)
     env = environment(output / "user")
-    base = [args.godot, "--headless", "--path", str(project)]
+    base_arguments = ["--headless", "--path", str(project)]
     import_engine = output / "import.engine.log"
+    import_command = godot_command(
+        args.godot,
+        120,
+        base_arguments
+        + ["--editor", "--import", "--quit", "--log-file", str(import_engine)],
+    )
     import_result = checked_process(
-        base + ["--editor", "--import", "--quit", "--log-file", str(import_engine)],
+        import_command,
         output / "import.log",
         import_engine,
         env,
-        120,
+        130,
     )
 
     receipts = []
@@ -229,24 +339,29 @@ def main():
         for seed in args.seeds:
             receipt_path = output / f"seed-{seed}.json"
             engine_log = output / f"seed-{seed}.engine.log"
-            command = base + [
-                "--script",
-                "res://tests/fixtures/s17/run.gd",
-                "--log-file",
-                str(engine_log),
-                "--",
-                "--seed",
-                str(seed),
-                "--output",
-                str(receipt_path),
-            ]
+            command = godot_command(
+                args.godot,
+                1400,
+                base_arguments
+                + [
+                    "--script",
+                    "res://tests/fixtures/s17/run.gd",
+                    "--log-file",
+                    str(engine_log),
+                    "--",
+                    "--seed",
+                    str(seed),
+                    "--output",
+                    str(receipt_path),
+                ],
+            )
             commands.append(command)
             process_result = checked_process(
                 command,
                 output / f"seed-{seed}.log",
                 engine_log,
                 env,
-                1200,
+                1410,
                 observe=True,
             )
             receipt = json.loads(receipt_path.read_text()) if receipt_path.exists() else None
@@ -262,16 +377,20 @@ def main():
     aggregate_result = aggregate(receipts) if len(receipts) == len(args.seeds) else {}
     result = {
         "engine": version,
+        "machine": machine,
         "seeds": list(args.seeds),
-        "ticks_per_seed": 36_000,
-        "simulated_minutes_per_seed": 10,
+        "warmup_ticks_per_seed": 3_600,
+        "measured_ticks_per_seed": 36_000,
+        "warmup_minutes_per_seed": 1,
+        "measured_minutes_per_seed": 10,
         "import": import_result,
         "commands": commands,
         "runs": runs,
         "aggregate": aggregate_result,
         "timing_interpretation": (
-            "Rows marked contended upper bound had another Godot process observed. CPU-load "
-            "snapshots are instantaneous and do not prove exclusive machine use."
+            "Rows marked contended upper bound had another Godot process observed before "
+            "launch or during startup/warmup. No contention subprocess runs in the measured "
+            "window. CPU-load snapshots are instantaneous and do not prove exclusive use."
         ),
         "failures": failures,
     }

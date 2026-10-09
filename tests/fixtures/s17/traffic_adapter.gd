@@ -25,6 +25,17 @@ func step(tick: int) -> void:
 	_simulation._step(tick)
 
 
+## Clears only S09 measurement counters while retaining warmed traffic state.
+func begin_measurement() -> void:
+	_simulation._collision_count = 0
+	_simulation._collision_details = { "same_family": 0, "cross_family": 0 }
+	_simulation._collision_events.clear()
+	_simulation._stuck_events = 0
+	_simulation._recoveries.clear()
+	_simulation._lane_tick_errors.clear()
+	_simulation._drive_rule_steps = 0
+
+
 ## Returns 24 moving rows plus eight no-controller parked rows for S11 encoding.
 func snapshot_rows(first_id: int) -> Array[Dictionary]:
 	var rows: Array[Dictionary] = []
