@@ -1,0 +1,219 @@
+{
+  "status": "PASS: source and GLB; engine/gameplay gates recorded separately",
+  "blender": "5.2.2 LTS",
+  "build_hash": "d13f752e3b9c",
+  "glTF_exporter": "5.2.40",
+  "source_vertices": 140,
+  "connected_canopy_and_diffuser": true,
+  "family_source_sha256": {
+    "d06_entertainment_hall_01": "b3787d0141da30063f63199a21a936309c84daa71c9fe379bfd3decabecd37b5",
+    "d06_entertainment_hall_02": "c0223c9570a5548d9fe0f201d513635911cc7411fc57c9c3d7288a53bd024500"
+  },
+  "camera_primary_ray_samples": [
+    {
+      "blender_xy": [
+        -3.8,
+        11.5
+      ],
+      "cyan_visible": true
+    },
+    {
+      "blender_xy": [
+        0,
+        11.5
+      ],
+      "cyan_visible": true
+    },
+    {
+      "blender_xy": [
+        3.8,
+        11.5
+      ],
+      "cyan_visible": true
+    }
+  ],
+  "roof_centre_unobstructed": true,
+  "source_triangles": 276,
+  "source_degenerate_faces": 0,
+  "source_nonmanifold_edges": 0,
+  "source_max_normal_length_error": 1.1362136054238192e-07,
+  "glb_vertices_including_surface_splits": 200,
+  "glb_triangles": 276,
+  "glb_degenerate_triangles": 0,
+  "glb_max_normal_length_error": 8.579066324010398e-08,
+  "mesh_count": 1,
+  "surface_count": 2,
+  "aabb_godot": {
+    "min": [
+      -5.0,
+      3.5999999046325684,
+      -11.800000190734863
+    ],
+    "max": [
+      5.0,
+      4.050000190734863,
+      -8.850000381469727
+    ],
+    "size": [
+      10.0,
+      0.4500002861022949,
+      2.9499998092651367
+    ]
+  },
+  "expected_aabb_godot": {
+    "min": [
+      -5.0,
+      3.6,
+      -11.8
+    ],
+    "max": [
+      5.0,
+      4.05,
+      -8.85
+    ]
+  },
+  "envelope_tolerance_m": 0.001,
+  "hall_ground_datum_pivot": [
+    0,
+    0,
+    0
+  ],
+  "materials": [
+    {
+      "name": "canopy_housing_petrol",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.03500000014901161,
+          0.10499999672174454,
+          0.125,
+          1
+        ],
+        "metallicFactor": 0.25,
+        "roughnessFactor": 0.4300000071525574
+      }
+    },
+    {
+      "emissiveFactor": [
+        0.006749999670311813,
+        0.26099998557567616,
+        0.30599999511241904
+      ],
+      "name": "canopy_diffuser_cyan",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.014999999664723873,
+          0.5799999833106995,
+          0.6800000071525574,
+          1
+        ],
+        "metallicFactor": 0,
+        "roughnessFactor": 0.3799999952316284
+      }
+    }
+  ],
+  "reexport_byte_identical": true,
+  "glb_sha256": "0e8eb94b52293043eb5dc5d09cfb201068957c1fbca573f680bb0682d6d90866",
+  "glb_bytes": 8432,
+  "interfaces_godot": {
+    "wall_contact_m": [
+      0,
+      3.6,
+      -9
+    ],
+    "rear_contact_z_m": -8.850000381469727,
+    "ring_vertical_gap_m": 2.7,
+    "projection_from_contact_m": 2.8
+  },
+  "engine": {
+    "aabb_min": [
+      -5.0,
+      3.59999990463257,
+      -11.8000001907349
+    ],
+    "aabb_size": [
+      10.0,
+      0.450000286102295,
+      2.94999980926514
+    ],
+    "collision_shape_count": 0,
+    "diffuser_emission": [
+      0.0764606297016144,
+      0.547817707061768,
+      0.589124381542206
+    ],
+    "engine": "4.8-dev7 (official)",
+    "failures": [],
+    "linked_model_identity": true,
+    "materials": [
+      "canopy_housing_petrol",
+      "canopy_diffuser_cyan"
+    ],
+    "mesh_count": 1,
+    "model_uid": "uid://c61jmg86cdijr",
+    "ok": true,
+    "prefab_uid": "uid://cp36vl7qdg5us",
+    "save_reload_byte_stable": true,
+    "normalization_diagnostics": "Editor-mode normalization exits 0 and proves two-save stability, but reports RID/ObjectDB shutdown leaks. Fresh non-editor load is diagnostic-free."
+  },
+  "production_checks": {
+    "results": {
+      "engine": {
+        "ok": true,
+        "version": "4.8.dev7.official.c971f93e7"
+      },
+      "gut_pin": {
+        "ok": true,
+        "version": "9.7.1"
+      },
+      "owned_scripts": {
+        "ok": false,
+        "returncode": 1
+      },
+      "python_tests": {
+        "ok": true,
+        "returncode": 0
+      },
+      "gut_import": {
+        "ok": true,
+        "returncode": 0
+      },
+      "gut_tests": {
+        "ok": true,
+        "returncode": 0
+      },
+      "gut_negative": {
+        "ok": true,
+        "observed_returncode": 1
+      }
+    },
+    "overall_ok": false,
+    "failed_compilation_paths": [
+      "tests/fixtures/asset_production/batch_02_observation.gd",
+      "tests/fixtures/asset_production/batch_02_process_probe.gd",
+      "tests/fixtures/asset_production/batch_03_observation.gd",
+      "tests/fixtures/asset_production/batch_03_process_probe.gd",
+      "tests/fixtures/asset_production/batch_observation.gd"
+    ],
+    "formatting_failures": [
+      "Would reformat: C:\\GameDev\\git\\ft-lanes\\a-d06hall\\tests\\fixtures\\asset_production\\batch_observation.gd",
+      "Would reformat: C:\\GameDev\\git\\ft-lanes\\a-d06hall\\tools\\asset_production\\integration\\batch03_author.gd",
+      "Would reformat: C:\\GameDev\\git\\ft-lanes\\a-d06hall\\tools\\asset_production\\integration\\inspector.gd"
+    ],
+    "owned_gdscript_style_format_compile": "PASS",
+    "python_tests": 9,
+    "gut_tests": 9,
+    "gut_assertions": 70
+  },
+  "visual_review": {
+    "renders_inspected": [
+      "hero.png",
+      "side.png",
+      "entry_detail.png",
+      "overhead_47m_42deg.png"
+    ],
+    "scratch_unlit_comparison_inspected": "C:\\tmp\\ft\\assets\\d06_entertainment_hall_03\\unlit_overhead.png",
+    "observation": "Cyan leading shoulder visible beyond ring; rear partly occluded by roof/ring. Quiet centres, coherent entry coverage and contact; unlit family shape still reads.",
+    "renderer": "Blender Cycles CPU, 32 samples, AgX, 1280x800; not game lighting acceptance",
+    "camera": "Vertical down, 47 m, 42 degree vertical perspective FOV, north up"
+  }
+}
