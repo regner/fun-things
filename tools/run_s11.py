@@ -2,6 +2,7 @@
 """Measure full-cap packed population replication through bounded ENet fault proxies."""
 
 import argparse
+import concurrent.futures
 import hashlib
 import heapq
 import json
@@ -29,6 +30,7 @@ WIRE_OVERHEAD_BYTES = 28
 BLACKOUT_START_SECONDS = 4.0
 BLACKOUT_SECONDS = 1.0
 MIN_HOST_STALL_MS = 245
+DELIVERY_SCHEDULING_ALLOWANCE_MS = 250
 MEASUREMENT_SOURCES = ["tools/run_s11.py", "tools/run_s03.py", "tools/script_checks.py"]
 
 
@@ -197,12 +199,28 @@ def delivered_profile(events):
     }
 
 
-def summarize_delivered_profiles(routes):
+def delivery_delay_limit_ms(profile):
+    """Bound proxy delivery delay beyond configured delay and jitter."""
+    delay_ms, jitter_ms, _loss = PROFILES[profile]
+    return delay_ms + jitter_ms + DELIVERY_SCHEDULING_ALLOWANCE_MS
+
+
+def unexplained_delivery_excursions(events, profile):
+    """Return deliveries that exceeded the profile plus runner scheduling allowance."""
+    limit_ms = delivery_delay_limit_ms(profile)
+    return [event for event in events
+            if event["event"] == "delivery" and event["actual_delay_ms"] > limit_ms]
+
+
+def summarize_delivered_profiles(routes, profile):
     """Retain both aggregate and per-client-route delivered profile characteristics."""
     aggregate_events = [event for route in routes for event in route.events]
     aggregate_events.sort(key=lambda event: event["monotonic"])
+    excursions = unexplained_delivery_excursions(aggregate_events, profile)
     return {
         "route": "IPv4 UDP loopback through one independent proxy socket per client",
+        "delivery_delay_guard_ms": delivery_delay_limit_ms(profile),
+        "unexplained_delivery_excursions": len(excursions),
         "aggregate": delivered_profile(aggregate_events),
         "clients": [{"client": index + 1, **delivered_profile(route.events)}
                     for index, route in enumerate(routes)],
@@ -353,6 +371,8 @@ def run_case(args, project, case_dir, profile, repetition):
     measurement_start = None
     join_bytes = [0] * args.clients
     environment_measurement = None
+    environment_future = None
+    environment_executor = concurrent.futures.ThreadPoolExecutor(max_workers=1)
     host_stall_records = []
 
     def start(role_name, role, connect_port):
@@ -402,7 +422,7 @@ def run_case(args, project, case_dir, profile, repetition):
                                           for route in routes]
                             for route in routes:
                                 route.measurement_start = measurement_start
-                            environment_measurement = process_environment()
+                            environment_future = environment_executor.submit(process_environment)
                         elif record["event"] == "result":
                             results[role_name] = record
                             if not record.get("ok"):
@@ -423,6 +443,12 @@ def run_case(args, project, case_dir, profile, repetition):
 
         if not started or measurement_start is None:
             raise RuntimeError("host never started snapshots")
+        if environment_future is None:
+            raise RuntimeError("measurement environment observation was not scheduled")
+        try:
+            environment_measurement = environment_future.result(timeout=30)
+        except TimeoutError as error:
+            raise RuntimeError("measurement environment observation timed out") from error
         if any(child.returncode != 0 for child in children):
             raise RuntimeError("nonzero fixture process exit")
         for role_name in logs:
@@ -444,6 +470,13 @@ def run_case(args, project, case_dir, profile, repetition):
         if profile == "normal" and host_stall_records:
             raise RuntimeError("normal profile unexpectedly stalled the host")
 
+        delivered_summary = summarize_delivered_profiles(routes, profile)
+        if delivered_summary["unexplained_delivery_excursions"]:
+            raise RuntimeError(
+                "unexplained proxy delivery delay exceeded "
+                f"{delivered_summary['delivery_delay_guard_ms']} ms"
+            )
+
         network = summarize_network(routes, measurement_start, join_bytes)
         host = results["host"]
         clients = [results[f"client{index + 1}"] for index in range(args.clients)]
@@ -451,7 +484,7 @@ def run_case(args, project, case_dir, profile, repetition):
         decode_values = [value for client in clients for value in client["decode_usec"]]
         measurements = {
             "network": network,
-            "delivered_profile": summarize_delivered_profiles(routes),
+            "delivered_profile": delivered_summary,
             "host_stall": {
                 "required": profile == "adverse",
                 "complete": stall_complete,
@@ -490,6 +523,7 @@ def run_case(args, project, case_dir, profile, repetition):
             "exits": [child.returncode for child in children],
             "environment_before": environment_before,
             "environment_measurement": environment_measurement,
+            "environment_measurement_mode": "background thread; proxy polling continued",
             "timing_label": ("contended upper bound" if
                              (environment_before["godot_processes"] or 0) > 0 else
                              "uncontended before launch"),
@@ -504,6 +538,7 @@ def run_case(args, project, case_dir, profile, repetition):
         return summary
     finally:
         stop_children(children)
+        environment_executor.shutdown(wait=True, cancel_futures=True)
         for output in logs.values():
             output.close()
         for route in routes:

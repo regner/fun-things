@@ -2,7 +2,12 @@
 
 import unittest
 
-from run_s11 import delivered_profile, worst_window_bytes
+from run_s11 import (
+    delivered_profile,
+    delivery_delay_limit_ms,
+    unexplained_delivery_excursions,
+    worst_window_bytes,
+)
 
 
 class S11AccountingTests(unittest.TestCase):
@@ -48,6 +53,20 @@ class S11AccountingTests(unittest.TestCase):
             0.0,
         )
         self.assertAlmostEqual(summary["interruption"]["duration_ms"], 1010.0)
+
+    def test_delivery_delay_guard_rejects_only_values_above_profile_bound(self):
+        limit_ms = delivery_delay_limit_ms("normal")
+        events = [
+            {"event": "delivery", "actual_delay_ms": limit_ms},
+            {"event": "delivery", "actual_delay_ms": limit_ms + 0.01},
+            {"event": "ingress", "actual_delay_ms": limit_ms + 1000.0},
+        ]
+
+        excursions = unexplained_delivery_excursions(events, "normal")
+
+        self.assertEqual(limit_ms, 355)
+        self.assertEqual(excursions, [events[1]])
+        self.assertEqual(delivery_delay_limit_ms("adverse"), 425)
 
 
 if __name__ == "__main__":
