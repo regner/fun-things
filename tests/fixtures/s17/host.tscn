@@ -1,0 +1,79 @@
+[gd_scene format=3 uid="uid://ck8ranbh60twx"]
+
+[ext_resource type="Script" uid="uid://b67p8435j4jxy" path="res://tests/fixtures/s17/host.gd" id="1_host"]
+[ext_resource type="PackedScene" uid="uid://coi48a816fiq" path="res://tests/fixtures/s09/network.tscn" id="2_traffic"]
+[ext_resource type="PackedScene" uid="uid://5qfnvv68hkb6" path="res://tests/fixtures/s10/benchmark.tscn" id="3_pedestrians"]
+[ext_resource type="Script" uid="uid://sbhmush8ix0w" path="res://tests/fixtures/s03/session.gd" id="4_session"]
+[ext_resource type="Script" uid="uid://jknum8ao4b01" path="res://tests/fixtures/s12/combat.gd" id="5_combat"]
+[ext_resource type="PackedScene" uid="uid://dkiyvh721yrbt" path="res://tests/fixtures/s12/target.tscn" id="6_target"]
+[ext_resource type="Script" uid="uid://cjjldbrpt6jp7" path="res://tests/fixtures/s05/damage.gd" id="7_damage"]
+[ext_resource type="PackedScene" uid="uid://kr8c5l2ica0j" path="res://tests/fixtures/s05/car.tscn" id="8_car"]
+
+[node name="S17Host" type="Node3D"]
+script = ExtResource("1_host")
+
+[node name="Traffic" parent="." instance=ExtResource("2_traffic")]
+
+[node name="Pedestrians" parent="." instance=ExtResource("3_pedestrians")]
+
+[node name="Session" type="Node" parent="."]
+process_mode = 4
+script = ExtResource("4_session")
+
+[node name="Combat" type="Node3D" parent="."]
+script = ExtResource("5_combat")
+
+[node name="Pedestrian" parent="Combat" instance=ExtResource("6_target")]
+position = Vector3(-6, 0, -18)
+target_id = "pedestrian"
+speed_mps = 1.5
+hit_radius_m = 0.45
+
+[node name="Car" parent="Combat" instance=ExtResource("6_target")]
+position = Vector3(6, 0, -26)
+target_id = "car"
+speed_mps = 12.0
+hit_radius_m = 1.0
+
+[node name="Explosion" type="Node3D" parent="."]
+
+[node name="Damage" type="Node" parent="Explosion"]
+script = ExtResource("7_damage")
+
+[node name="Cars" type="Node3D" parent="Explosion"]
+
+[node name="Car01" parent="Explosion/Cars" instance=ExtResource("8_car")]
+position = Vector3(0, 0.001, 0)
+
+[node name="Car02" parent="Explosion/Cars" instance=ExtResource("8_car")]
+position = Vector3(4, 0.001, 0)
+
+[node name="Car03" parent="Explosion/Cars" instance=ExtResource("8_car")]
+position = Vector3(8, 0.001, 0)
+
+[node name="Car04" parent="Explosion/Cars" instance=ExtResource("8_car")]
+position = Vector3(12, 0.001, 0)
+
+[node name="Car05" parent="Explosion/Cars" instance=ExtResource("8_car")]
+position = Vector3(0, 0.001, 4)
+
+[node name="Car06" parent="Explosion/Cars" instance=ExtResource("8_car")]
+position = Vector3(4, 0.001, 4)
+
+[node name="Car07" parent="Explosion/Cars" instance=ExtResource("8_car")]
+position = Vector3(8, 0.001, 4)
+
+[node name="Car08" parent="Explosion/Cars" instance=ExtResource("8_car")]
+position = Vector3(12, 0.001, 4)
+
+[node name="Car09" parent="Explosion/Cars" instance=ExtResource("8_car")]
+position = Vector3(0, 0.001, 8)
+
+[node name="Car10" parent="Explosion/Cars" instance=ExtResource("8_car")]
+position = Vector3(4, 0.001, 8)
+
+[node name="Car11" parent="Explosion/Cars" instance=ExtResource("8_car")]
+position = Vector3(8, 0.001, 8)
+
+[node name="Car12" parent="Explosion/Cars" instance=ExtResource("8_car")]
+position = Vector3(12, 0.001, 8)
