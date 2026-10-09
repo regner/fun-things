@@ -1,0 +1,22 @@
+Independent second post-rebase disposition — 9 October 2026
+Reviewer: /root/height_review; read-only technical review.
+Exact HEAD: 708b59e5edfbf17d67deb3b16914dd22495dd682
+Exact main base: 4f2ed147de3a10a0a9c197dd3f7b0ba5cca59252
+Pre-rebase HEAD including retained first rebase disposition: 615ccf89fb1baa3fb885250e8d9d2ae4808267c4
+Prior independently reviewed height candidate: 21fd536aa4415488d2d06b05ee0a8e3b7cf5227f
+
+Disposition: prior bounded technical greybox acceptance carries forward to this exact HEAD/base. No unexpected conflict resolution or content change observed. No fresh engine run needed because reviewed asset bytes remain unchanged.
+
+Actual checks:
+- All 237 owned tracked blob IDs and file modes match pre-rebase HEAD exactly, covering source, GLBs/import sidecars, saved scenes/scripts, tools, documentation and all retained evidence.
+- All five original/rebased commit pairs have byte-identical git diff --binary patches; hashes retained in receipt.json. Full range-diff reports equality for all five commits.
+- All latest main blobs and modes are preserved by candidate. Candidate adds only owned Brackett paths; concurrent pistol and SMG handoff content is inherited unchanged from main.
+- git merge-base --is-ancestor returned 0 for exact base -> HEAD. Five commits above base each have exactly one parent. Current main is exactly recorded base; current HEAD is exactly recorded candidate. Fast-forward eligible from that verified main state.
+- git status --short produced no output; worktree clean. No refs or worktree content changed by this review.
+
+Coverage limits: Git content/history checks only; no engine/editor connection, spatial authoring, fresh gameplay test or review of the concurrent weapon subsystems. Technical greybox source/export/collision/identity acceptance carries forward. Owner visual selection, moving-camera occlusion, actor/vehicle readability, traversal/vehicle clearances, multiplayer and device/performance acceptance remain pending. A future main advance requires updating the integration disposition again.
+
+Commands and retained files:
+1. python /tmp/brackett-height-review/rebase_smg/check_rebase.py — exit 0. check.log and receipt.json retain assertions and patch hashes. Script invokes git ls-tree, diff --binary, merge-base --is-ancestor, rev-list --parents, rev-parse and status --short.
+2. git range-diff 48be65568f8cec0d439fd54d11b9b89983f00864..615ccf89fb1baa3fb885250e8d9d2ae4808267c4 4f2ed147de3a10a0a9c197dd3f7b0ba5cca59252..708b59e5edfbf17d67deb3b16914dd22495dd682 — exit 0; range-diff.log retained.
+Explicit new file list: check_rebase.py, check.log, receipt.json, range-diff.log, disposition.txt, all under /tmp/brackett-height-review/rebase_smg/.

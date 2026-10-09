@@ -367,3 +367,12 @@ post-rebase receipt and all five evidence files are retained under
 `review/height_revision/rebase/`. No engine rerun was needed because reviewed asset
 bytes did not change. Local main is advanced to this reviewed handoff; no remote push
 or gameplay integration was performed.
+
+### Rebase onto the latest concurrent main tip
+
+Before the fast-forward, local main advanced again to the reviewed SMG handoff
+`4f2ed147de3a10a0a9c197dd3f7b0ba5cca59252`. The greybox branch was rebased once
+more as requested. The same independent reviewer verified all 237 greybox blobs and
+modes and all five commit patches remained byte-identical, latest main files/modes
+were preserved, and the history stayed linear and fast-forward eligible. The complete
+report and five check artifacts are retained in `review/height_revision/rebase_smg/`.
