@@ -1,5 +1,8 @@
 # Stage 1 — Six whole-city settings
 
+**Naming note:** Brackett and all later district names are placeholders, likely to
+change. The selected setting and art direction do not lock down final names.
+
 **Selected direction:** [Round 4 — cyberpunk Long Island](round-4.md), approved by
 the owner on 9 October 2026. **Stage 1 complete:** the city is **Brackett**, with the
 working tone **electric, irreverent, workaday**. Stage 2 is authorized. Earlier material

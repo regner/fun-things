@@ -1,5 +1,9 @@
 # World v1 — owner decisions
 
+**Naming policy:** Brackett and every district name are placeholders, expected to
+change later. Approval of a setting, layout or district identity does not make its
+current name final.
+
 ## 9 October 2026 — collaborative process and whole-city-first scope
 
 Owner: Regner. Recorded by Codex from this session.
@@ -167,3 +171,64 @@ Stage 1 is complete: selected setting and visual reference are the cyberpunk-ins
 flat Long Island with harbour bridge, named Brackett. Stage 2 will present alternative
 whole-city structures and candidate six-block M1 slices for review. It does not choose
 a district or increase production scope without the next owner decision.
+
+## 9 October 2026 — Stage 2 structure A selected
+
+> I agree with you that a seems best
+
+The owner selects **A — Neighbourhood loops** as Brackett's whole-city structure.
+Carry forward its connected local circuits, coastal route and broad spatial
+relationships. B and C remain comparison studies, not competing active directions.
+
+This selects the structure asked about in the presentation. District identities and
+working names, exact boundaries, provisional scale, M1 location and adaptation of the
+six-block brief remain open. Stage 2 is still in progress; no Stage 3 detail work or
+M1 district selection is implied by this response.
+
+## 9 October 2026 — nine district identities accepted; all names provisional
+
+> That all looks good for now. We should note that these names, as well as the city name, are all placeholders and will likely change later.
+
+The nine district identities presented for structure A are accepted for now: campus,
+low-rise residential crescents, apartment courts, downtown, old harbour, commercial/
+entertainment streets, large retail/car-park plots, repair/workshop yards and working
+docks. **Brackett and all nine district names are placeholders and likely to change.**
+Treat these labels as discussion aids, not final naming or immutable saved identities.
+
+Precise boundaries, whole-city scale, M1 location and adaptation of the six-block
+brief remain open. Stage 2 continues; this does not authorize later-stage detail work.
+
+## 9 October 2026 — provisional city scale accepted
+
+Asked whether to use approximately 1.2 × 0.65 km as the whole-island planning envelope,
+the owner replied:
+
+> Let’s go with that for now.
+
+Use **approximately 1.2 × 0.65 km** as the accepted provisional planning size for
+structure A. This is revisitable as the layout is refined, not a measured performance
+or gameplay acceptance. Keep M1 at roughly six connected blocks. District boundaries
+remain schematic; M1 location and the adaptation of its original brief are still open.
+
+## 9 October 2026 — M1 area selected; Stage 2 complete
+
+Asked whether to use the highlighted Signal Row / Ironreach area as the M1 slice,
+retaining the six-block programme, the owner replied:
+
+> Yeah I think that will work well
+
+Select that commercial/workshop transition as the first playable exterior area,
+touching the downtown and retail edges. Carry forward shops/foot passage, workshops,
+depot/service alley, central plaza, a residential pocket with tower exposure, and an
+open repair/parking area for chains. Retain roughly six blocks, two driving loops and
+pedestrian alternatives. Adapt local lot edges/routes to the selected city structure;
+the yellow rectangle remains an approximate 260 × 163 m size reference, not exact
+production placement. Building four complete named districts is not authorized.
+
+**Stage 2 is complete at macro-plan level:** structure A, the nine provisional district
+identities, approximately 1.2 × 0.65 km planning size, this M1 location and the retained
+six-block programme are accepted. The coloured district territories express the
+selected broad relationships; precise boundaries and local geometry refine later.
+All names remain placeholders. Stage 3 can now develop district identity briefs,
+going deepest on this selected M1 area. No asset production or gameplay validation
+is implied by the concept approvals.
