@@ -1,6 +1,6 @@
 {
   "date": "2026-10-09",
-  "scope": "Concept artifacts only; visual self-review in README.md",
+  "scope": "Concept artifacts only; visual self-review in README.md and larger_vehicles.md",
   "images": [
     {
       "path": "01_latch_compact.png",
@@ -31,11 +31,35 @@
       "size_bytes": 1691202,
       "sha256": "5f14dfd4e72b05986aa8c85a8d31e03a8d1ba9ec5d46f3037947282937f84fe3",
       "png_chunks_crc_and_zlib": "passed"
+    },
+    {
+      "path": "04_tandem_city_bus.png",
+      "dimensions_px": [
+        1586,
+        992
+      ],
+      "size_bytes": 1664954,
+      "sha256": "83a6049a75b3eac74d50ef548c115ea84e3955adc466004abe59cd9eca955322",
+      "png_chunks_crc_and_zlib": "passed"
+    },
+    {
+      "path": "05_keel_service_truck.png",
+      "dimensions_px": [
+        1536,
+        1024
+      ],
+      "size_bytes": 1775451,
+      "sha256": "d84fdfdc8afc8474c3fe70b9d02256641d165f66473ee18f9692dbb85605c325",
+      "png_chunks_crc_and_zlib": "passed"
     }
   ],
   "gallery_local_links": "all resolved",
-  "prompt_count": 3,
-  "engine_preview": "not run; selection pending",
+  "prompt_count": 5,
+  "owner_approval": {
+    "A_B_C": "approved all three cars",
+    "D_E": "pending"
+  },
+  "engine_preview": "not run",
   "production_review": "not applicable to initial concepts",
-  "validation_note": "Pillow unavailable; standard-library PNG signature/chunk CRC/IDAT decompression checked instead."
+  "validation_note": "Standard-library PNG signature/chunk CRC/IDAT decompression checks."
 }

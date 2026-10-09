@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>First city car — three concept directions</title>
+  <title>Vehicle family — approved cars and larger vehicle concepts</title>
   <style>
     :root { color-scheme: dark; background: #101e29; color: #f6f1dc;
       font: 16px/1.55 system-ui, sans-serif; }
@@ -33,6 +33,10 @@
     .b img { width: 161px; left: -110px; top: -6px; }
     .c { width: 49px; height: 94px; }
     .c img { width: 204px; left: -145px; top: -5px; }
+    .d { width: 96px; height: 266px; }
+    .d img { width: 520px; left: -398px; top: -17px; }
+    .e { width: 72px; height: 160px; }
+    .e img { width: 361px; left: -269px; top: -11px; }
     table { border-collapse: collapse; width: 100%; max-width: 850px; }
     th, td { text-align: left; padding: 9px 12px; border-bottom: 1px solid #49606c; }
     @media (max-width: 600px) { main { padding: 20px 14px 40px; }
@@ -41,17 +45,21 @@
 </head>
 <body>
 <main>
-  <p class="tag">VEHICLE · 9 OCTOBER 2026 · OWNER SELECTION PENDING</p>
-  <h1>One everyday city car, three directions</h1>
+  <p class="tag">VEHICLE · 9 OCTOBER 2026 · CARS APPROVED · BUS/TRUCK APPROVAL PENDING</p>
+  <h1>Three city cars, a bus and a working truck</h1>
   <p>Smooth chunky shapes for the darker vibrant cyberpunk city. Each sheet shows
     a three-quarter view and an overhead roof view, front pointing up.
-    <strong>Recommendation: B — Crate</strong>, for its clear ivory roof and squared hatch.</p>
+    <strong>Regner approved all three cars.</strong> The new bus and truck are ready
+    for owner review before their modeling begins.</p>
   <p class="note">Original unbranded generated concept art. Dimensions are provisional
     design suggestions, not measured image geometry or changes to handling/collision.
-    Detailed Blender modeling waits for Regner's selection.</p>
+    A/B/C are approved concept families; D/E await approval. Production asset and
+    gameplay acceptance remain separate.</p>
   <nav aria-label="Concepts and evidence">
     <a href="#latch">A · Latch</a><a href="#crate">B · Crate</a>
-    <a href="#sable">C · Sable</a><a href="README.md">Brief and self-review</a>
+    <a href="#sable">C · Sable</a><a href="#tandem">D · Bus</a>
+    <a href="#keel">E · Truck</a><a href="README.md">Brief and self-review</a>
+    <a href="larger_vehicles.md">Larger vehicle review notes</a>
     <a href="prompts.json">Exact prompts</a><a href="handoff.md">Handoff</a>
   </nav>
   <h2>Small-scale roof check</h2>
@@ -66,9 +74,13 @@
       <figcaption>B · squared, bright</figcaption></figure>
     <figure><div class="crop c"><img src="03_sable_sedan.png" alt="Small dark purple sedan roof"></div>
       <figcaption>C · long, subdued</figcaption></figure>
+    <figure><div class="crop d"><img src="04_tandem_city_bus.png" alt="Reduced long ivory city bus roof"></div>
+      <figcaption>D · large, calm roof</figcaption></figure>
+    <figure><div class="crop e"><img src="05_keel_service_truck.png" alt="Reduced orange truck cab and open pale bed"></div>
+      <figcaption>E · cab plus open bed</figcaption></figure>
   </div>
   <article id="latch">
-    <h2>A — Latch compact</h2>
+    <h2>A — Latch compact <span class="tag">· approved</span></h2>
     <p>Short rounded three-door commuter. Coral paint, petrol glass and an ivory hood
       panel. The most compact option, with nominal dimensions matching the S04 visual fixture.</p>
     <figure><a href="01_latch_compact.png"><img class="sheet" src="01_latch_compact.png"
@@ -77,7 +89,7 @@
         blocks; simplify wheel and trim detail during modeling.</figcaption></figure>
   </article>
   <article id="crate">
-    <h2>B — Crate hatch <span class="tag">· recommended</span></h2>
+    <h2>B — Crate hatch <span class="tag">· approved</span></h2>
     <p>Boxy five-door neighborhood runabout. Broad ivory roof, short petrol hood,
       upright rear hatch and chunky rubber bumpers. Strongest top-down visual identity.</p>
     <figure><a href="02_crate_hatch.png"><img class="sheet" src="02_crate_hatch.png"
@@ -86,7 +98,7 @@
         clearance needs integrator reconciliation. Keep it a small city hatch.</figcaption></figure>
   </article>
   <article id="sable">
-    <h2>C — Sable sedan</h2>
+    <h2>C — Sable sedan <span class="tag">· approved</span></h2>
     <p>Low four-door street sedan. Aubergine body, coral hood inset, a longer bonnet
       and separate trunk. Best choice for a more imposing first car.</p>
     <figure><a href="03_sable_sedan.png"><img class="sheet" src="03_sable_sedan.png"
@@ -94,13 +106,36 @@
       <figcaption>Provisional W 1.92 × H 1.44 × L 4.25 m. Distinct length, but dark
         roof contrast and the larger envelope need further checks.</figcaption></figure>
   </article>
+  <article id="tandem">
+    <h2>D — Tandem city bus <span class="tag">· proposed addition</span></h2>
+    <p>A larger single-deck city workhorse. Long ivory roof, petrol lower body,
+      coral band and a simple rear roof ventilation pod. The three-quarter view
+      proposes a tandem rear axle group.</p>
+    <figure><a href="04_tandem_city_bus.png"><img class="sheet" src="04_tandem_city_bus.png"
+      alt="Ivory and coral long city bus, three-quarter view and vertical overhead roof with small auxiliary studies"></a>
+      <figcaption>Provisional construction proposal W 2.50 × H 3.15 × L 12.0 m
+        (body width; mirrors measured later). Generated wheel/door details are concept
+        references; see the explicit prompt-departure notes.</figcaption></figure>
+  </article>
+  <article id="keel">
+    <h2>E — Keel dock/workshop truck <span class="tag">· proposed addition</span></h2>
+    <p>A rigid cab-over dropside cargo truck. Orange cab, petrol bed sides and pale
+      empty deck make its working role readable from above. Fits dock and workshop
+      deliveries without a trailer or crane.</p>
+    <figure><a href="05_keel_service_truck.png"><img class="sheet" src="05_keel_service_truck.png"
+      alt="Orange cab-over truck with dark low bed sides and an empty pale deck, three-quarter and overhead views plus auxiliary studies"></a>
+      <figcaption>Provisional construction proposal W 2.40 × H 2.90 × L 7.20 m
+        (body width; mirrors measured later). Tandem rear axle proposal, open empty
+        bed. Cargo/loading mechanics belong to later gameplay work.</figcaption></figure>
+  </article>
   <article>
     <h2>Scope of this checkpoint</h2>
     <table>
       <thead><tr><th>Deliverable</th><th>Status</th></tr></thead>
-      <tbody><tr><td>Three raster concepts, original prompts, visual self-review</td><td>Complete</td></tr>
-        <tr><td>Owner concept selection</td><td>Pending</td></tr>
-        <tr><td>Blender source, wheels/markers, export, imported saved preview</td><td>After selection</td></tr>
+      <tbody><tr><td>Five raster concepts, original prompts, visual self-review</td><td>Complete</td></tr>
+        <tr><td>Owner car concept selection (A/B/C)</td><td>All three approved</td></tr>
+        <tr><td>Owner bus/truck concept approval (D/E)</td><td>Pending</td></tr>
+        <tr><td>Blender source, wheels/markers, export, imported saved preview</td><td>Cars queued; bus/truck after approval</td></tr>
         <tr><td>Gameplay, collision/seat/network integration</td><td>External integrator</td></tr></tbody>
     </table>
     <p class="note">No engine screenshot, gameplay acceptance or production-completion

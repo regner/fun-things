@@ -3,14 +3,22 @@
 9 October 2026. Vehicle lead: Codex, dedicated `brackett-vehicle` worktree and
 agent `103de18c-e4b8-4daa-83d8-17d3da68128c`. Concept accepting owner: Regner.
 Baseline: `c030d66d7d0a9db19c0c2aebf1aa2b83eded6275`.
-Status: three concepts presented; selection **pending**. No production modeling.
+Status: Regner **approved all three cars** on 9 October 2026:
+“I like and want all three.” Approved concept families are `car_latch_a`,
+`car_crate_a` and `car_sable_a`; all three enter the modeling queue. This is art
+direction approval, not measured dimensions, gameplay or production acceptance.
+No production modeling has run at this checkpoint.
+
+Regner also requested a larger bus and a dock/workshop truck. Their new concept
+sheets are presented in the same gallery; approval of those two is **pending**.
+See [larger vehicle brief and self-review](larger_vehicles.md).
 
 [Review gallery](review.html) · [Exact imagegen prompts](prompts.json) ·
 [Scoped handoff and reconciliation delta](handoff.md).
 
 ## Brief and options
 
-One reusable original ordinary city car for the smooth stylized cyberpunk city.
+Three reusable original ordinary city cars for the smooth stylized cyberpunk city.
 Broad bevelled shapes, quiet surface detail, practical wheels/doors and a readable
 roof/hood/rear arrangement. No real brands. The selected
 [island reference](../../world-v1/stage-01-setting/15-long-island-cyberpunk.png)
@@ -61,7 +69,8 @@ Self-review of all three generated PNGs:
   Preserve primary masses and color blocks rather than every tire groove or trim line.
 
 Initial concept self-review only. Production acceptance and independent production
-review have not run. Regner chooses/iterates directly in this workspace.
+review have not run. Regner has accepted A/B/C and chooses/iterates D/E directly
+in this workspace. The original prompts remain unchanged for provenance.
 
 ## Provenance
 

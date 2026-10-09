@@ -2,7 +2,8 @@
 
 9 October 2026. Producer: dedicated vehicle lead. Art selector: Regner.
 Receiving gameplay integrator: another person, not yet named.
-Stage: concept selection pending; not a finished production vehicle.
+Stage: all three cars approved by Regner on 9 October 2026; modeling queued.
+New bus/truck concepts presented, approval pending. No finished production vehicles.
 
 ## Existing evidence and boundary
 
@@ -24,7 +25,7 @@ for `scenes/entities/vehicle.tscn` or an implicit choice of production body clas
 
 ## Proposed selected-family output map
 
-Use one of `car_latch_a`, `car_crate_a`, `car_sable_a` only after owner selection.
+Regner selected all three: `car_latch_a`, `car_crate_a`, `car_sable_a`.
 Family directory is `city_cars`; check current consumers before creating paths.
 
 - `art/source/models/city_cars/<asset_id>.blend`, collection `export_<asset_id>`;
@@ -73,9 +74,10 @@ suspension, seat transitions or network acceptance.
 Do not apply concurrently to shared files:
 
 - Catalogue: first production vehicle concept checkpoint exists at
-  `docs/concepts/assets-v1/vehicle/README.md`; three original directions, Regner
-  selection pending, provisional dimensions explicit. Production asset ID pending.
-- TODO: vehicle concept generation done; owner selection/iteration pending;
+  `docs/concepts/assets-v1/vehicle/README.md`; all three cars approved by Regner.
+  New `bus_tandem_a` / `truck_keel_a` proposals described in `larger_vehicles.md`,
+  pending approval, unique family `city_commercial`; provisional dimensions explicit.
+- TODO: car concepts/owner selection done; bus/truck concept approval pending;
   selected source/model/materials/wheels/markers, GLB import/metadata, saved wrapper
   and preview, source/export checks and clean-context independent review still pending.
 - Integration dependencies: final visual/collider envelope reconciliation, driver
