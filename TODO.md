@@ -4,43 +4,29 @@
 
 ## Foundations
 
+Completed foundation tasks are reconciled in the
+[P0-GATE packet](docs/reviews/p0-gate-packet-2026-10-09.md); their production
+follow-ups remain in the M1 requirements rather than reopening the spikes.
+
 - [ ] **P0-PROFILES — Review the retained Paseo profiles task later.** Non-blocking;
   configuration remains deferred and outside P0-GATE.
-- [ ] **S02 — Complete physical-key focus, control/aim and feel validation.** The
-  selected controls/camera and cutaway removal are implemented; see
-  [spike](docs/spikes/s02.md).
-- [ ] **S03-S — Review ENet session APIs for a later Steam adapter.** Steam implementation
-  and testing are deferred. See [spike](docs/spikes/s03-s.md).
-- [ ] **S03-R — Close on-foot response, adverse expiry and feel evidence.** See
-  [spike](docs/spikes/s03-r.md).
-- [ ] **S03-P — Implement and validate required local on-foot prediction.**
-- [ ] **S04 — Validate car handling and rules through the drive scene.** See
-  [spike](docs/spikes/s04.md).
-- [ ] **S04-P — Implement and validate required local-car prediction.**
-- [ ] **S04-T — Prove predicted foot-to-car control transitions and seat races.**
-- [ ] **S05 — Close remaining wreck, in-flight hydration and final-dimension evidence.**
-  Uncapped explosion presentation is implemented; see [spike](docs/spikes/s05.md).
-- [ ] **S06 — Iterate whole-UI mockups and settle minimap size/look.** Layout scale and
-  top-right position are accepted. See [spike](docs/spikes/s06.md).
-- [ ] **S08 — Follow up 4.8-dev7 Linux confirmation when a Linux machine is available.**
-  This does not block proceeding; keep the ENet workaround and offline upstream review.
-- [ ] **P0-TOOLING — Repair the validation baseline and complete test discovery.**
-- [ ] **S01-W — Verify the S01 art reexport pipeline with Windows Blender.**
-- [ ] **S03-L — Diagnose Windows ENet authority latency and adverse expiry timing.**
-- [ ] **S08-X — Prove real-project Windows/Linux export configuration and launch.**
-- [ ] **S08-C — Triage the 384-block crash and define safe GPU measurement.**
-- [ ] **S09 — Prototype and measure host-owned traffic AI.**
-- [ ] **S10 — Prototype and measure host-owned pedestrian AI.**
-- [ ] **S11 — Prove population replication, bandwidth and spawning bounds.**
-- [ ] **S12 — Compare and select authoritative combat hit registration.**
-- [ ] **S13 — Prove the character rig, animation strategy and crowd cost.**
-- [ ] **S14 — Prove bounded, readable audio and settings persistence.**
-- [ ] **S15 — Measure weapon/explosion VFX cost without dropping explosion effects.**
-- [ ] **S17 — Measure the integrated full-cap host physics-tick composition.**
-- [ ] **P0-GATE — Review remaining foundation evidence against the ratified decisions.**
-  After: unfinished blocking S02–S06 and S08 work; S03-P, S04-P, S04-T, S09–S15,
-  S17, P0-TOOLING, S01-W, S03-L, S08-X and S08-C. Completed S07 guidance and the
-  S16 plan are gate inputs; Linux-only S08 confirmation and P0-PROFILES are non-blocking.
+- [ ] **S02/S03-R — Complete physical Alt-Tab, control/aim/remote-continuity and feel
+  review.** World-relative controls, prediction and exact adverse expiry are implemented;
+  use the packet's human instructions.
+- [ ] **S04 — Ratify handling through the standalone drive scene.** Record the F12 tuning
+  JSON and maneuver-specific feedback before M1-B1 freezes handling.
+- [ ] **S05 — Carry remaining wreck, in-flight hydration, lifecycle-race and final-body
+  evidence into M1-B3/M1-D3.** Bounded chain logic and 12/12 visible effects are complete.
+- [ ] **S06 — Iterate the whole UI and settle minimap size/look.** Layout scale and the
+  top-right position are accepted; see [UI concepts](docs/concepts/ui-v1/README.md).
+- [ ] **S08 — Run the Linux desktop launch/graphics checklist when a Linux machine is
+  available.** This does not block proceeding; keep the ENet workaround and offline review.
+- [ ] **QUIET — Integrate the 9 October quiet timing re-measurement and refresh the gate
+  packet's TODO(QUIET-*) fields.** Do not infer quiet values from contended records.
+- [ ] **P0-GATE — Record owner decisions, human checks and the quiet-performance
+  disposition.** Use the [review packet](docs/reviews/p0-gate-packet-2026-10-09.md),
+  including the S10 follow-up decision and S17 budget allocation. Linux-only S08
+  confirmation and P0-PROFILES remain non-blocking unless the owner changes that scope.
 
 ## First milestone
 

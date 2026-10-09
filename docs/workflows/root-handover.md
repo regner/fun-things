@@ -1,7 +1,7 @@
 # Fun Things continuation handover
 
-Prepared 8 October 2026. This document transfers repository context to a new coding
-agent. It is not a new experiment grant, technical acceptance or plan checkpoint.
+Prepared 8 October 2026; current repository state refreshed 9 October 2026. This
+document transfers repository context to a new coding agent. It is not a new experiment grant, technical acceptance or plan checkpoint.
 No particular agent platform or delegation tool is required to read it.
 
 ## Prompt for the receiving agent
@@ -12,22 +12,31 @@ No particular agent platform or delegation tool is required to read it.
 > Git HEAD and preserve unexpected work. Continue through the current parent-created
 > lane queue; do not revive superseded experiment recommendations or push remotely.
 
-## Current repository state — 8 October 2026
+## Current repository state — 9 October 2026
 
-- Main and `s08-enet-bandwidth` are at `070233b` (`docs: address M1 plan review
-  and audit`). Verify actual HEAD rather than assuming it stayed there.
+- The integration branch is `main` at `13722e0` (`docs: refresh transition continuity
+  evidence`) when this handover was refreshed. Verify actual HEAD rather than assuming it
+  stayed there. The old `s08-enet-bandwidth` branch is deleted.
+- The commissioned foundation lanes through S17, including S03-P, S04-P, S04-T,
+  P0-TOOLING/P0-TOOLING-2 and the audit gap tasks, are integrated. The
+  [P0-GATE packet](../reviews/p0-gate-packet-2026-10-09.md) reconciles their outcomes,
+  contended measurements, residual risks, owner decisions and human checks. Its quiet
+  re-measurement fields are explicit TODOs until the separately running quiet record lands.
 - Development is on Windows 11. Use the Mise-pinned Godot
   `4.8.dev7.official.c971f93e7`; the owner decided to stay on this pin for now.
 - Orchestration uses pi subagents in parent-created Git worktrees under
-  `C:\GameDev\git\ft-lanes`. Managed subagent worktrees fail on this machine.
+  `C:\GameDev\git\ft-lanes`. Parent launches use three-hour child timeouts and keep-awake
+  coverage. Child lanes must never stop unrelated processes. Every windowed runner must use
+  the exact 60 FPS guard in `tools/window_safety.py`; uncapped rendering is withdrawn on this
+  laptop after two GPU device removals.
 - The [owner decisions](../reviews/owner-decisions-2026-10-08.md) govern controls,
   prediction, vehicles, explosion presentation, UI, environment scaling, initial ENet
   scope, desktop targets, engine pin, profiles and the completeness tasks authorized by
-  instruction 12. The [P0 audit](../reviews/p0-readiness-audit-2026-10-08.md) defines
-  the audit-derived task proposals.
-- Active worktrees: P0-TOOLING, S01-W, S03-L, S03-P, S03-S abstraction, S04-P,
-  S08-X, S08-C and S09–S15. S04-T and S17 are queued. S02 controls, S04 drive,
-  S05 uncapped effects, S07 environment scale, UI mockups, S16 and the audit are integrated.
+  instruction 12. The [P0 audit](../reviews/p0-readiness-audit-2026-10-08.md) supplies
+  historical gap rationale; the packet records the current integrated disposition.
+- World concept work is separately commissioned and stage-gated at Stage 1; use the
+  [world concept handover](world-concept-handover.md). It does not authorize production
+  scenes or later concept stages before owner approval.
 - Do not push. Parent orchestration owns lane review, integration and cleanup.
 
 On adoption, inspect Git status, HEAD, worktrees and operation markers. Preserve any
@@ -94,12 +103,14 @@ inventory, with two later S03 telemetry changes explicitly distinguished. Its fo
 early static-check failures and retrieval errors remain retained. It made no gameplay,
 fixture, performance, hardware or graphical claim.
 
-## Current lane order
+## Current lane order — refreshed 9 October 2026
 
-Continue the parent-created lane queue recorded in the current-state section. The
-owner's decisions supersede the prior S08-first recommendation: Linux S08 confirmation
-is follow-up for a Linux machine and does not block current work. Each lane retains
-its own brief, review and integration boundary.
+The earlier foundation queue is complete and historical. Finish the quiet timing record,
+fill the packet's `TODO(QUIET-*)` fields, obtain the listed owner/human dispositions and
+review P0-GATE. Do not begin M1 merely because the executable foundation lanes integrated.
+If P0-GATE passes or explicitly waives a named residual, use the packet's recommended starts
+and the ordered [M1 production plan](../plans/m1-production-plan.md). Linux S08 confirmation
+and P0-PROFILES remain non-blocking under the current owner decisions.
 
 ## Historical prior recommendation: S08 diagnostic — superseded
 
