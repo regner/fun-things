@@ -1,0 +1,43 @@
+[gd_scene load_steps=9 format=3]
+
+[ext_resource type="Script" path="res://tests/fixtures/s06/city.gd" id="1_city"]
+[ext_resource type="PackedScene" path="res://tests/fixtures/s06/west.tscn" id="2_west"]
+[ext_resource type="PackedScene" path="res://tests/fixtures/s06/east.tscn" id="3_east"]
+[ext_resource type="Resource" path="res://tests/fixtures/s06/derived.tres" id="4_derived"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_car"]
+size = Vector3(1.8, 1.5, 3.4)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_car"]
+albedo_color = Color(0.8, 0.12, 0.08, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_car"]
+size = Vector3(1.8, 1.5, 3.4)
+
+[node name="S10Benchmark" type="Node3D"]
+
+[node name="City" type="Node3D" parent="."]
+script = ExtResource("1_city")
+derived = ExtResource("4_derived")
+
+[node name="Sectors" type="Node3D" parent="City"]
+
+[node name="West" parent="City/Sectors" instance=ExtResource("2_west")]
+
+[node name="East" parent="City/Sectors" instance=ExtResource("3_east")]
+
+[node name="Population" type="Node3D" parent="."]
+
+[node name="DeadPresentations" type="Node3D" parent="."]
+
+[node name="CrossingCar" type="AnimatableBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.75, -20)
+collision_layer = 4
+collision_mask = 0
+
+[node name="Mesh" type="MeshInstance3D" parent="CrossingCar"]
+mesh = SubResource("BoxMesh_car")
+material_override = SubResource("StandardMaterial3D_car")
+
+[node name="Collision" type="CollisionShape3D" parent="CrossingCar"]
+shape = SubResource("BoxShape3D_car")
