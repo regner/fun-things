@@ -66,5 +66,27 @@ receipts are under [`s02-controls-evidence/`](s02-controls-evidence/).
 The S02 outcome now independently checks equal-speed cardinal movement, normalized
 movement, facing-independent translation, snap aim, instant stop, collision, mouse ray
 projection, left-click/Space fire, lifecycle cancellation, cadence and unchanged source
-links. S03-R, S04, S06 and S07 receipts remain separate so a downstream regression cannot
-be hidden by the standalone result.
+links. The old tank-model turn-without-strafe and turn-rate samples were replaced only by
+the corresponding independent strafe, stationary snap-aim and network aim-yaw checks.
+S03-R, S04, S06 and S07 receipts remain separate so a downstream regression cannot be
+hidden by the standalone result.
+
+| Check | Result |
+| --- | --- |
+| S02 isolated movement/input/query/resources | Pass; no failures and staged files unchanged |
+| Windows automatic draw | Pass; 30 callbacks and three 1280x800 captures without cutaway |
+| Native focus automation | Inconclusive because initial foreground focus was unavailable |
+| S03-R baseline/normal/adverse headless | Pass; 20/20 applied physics responses in each profile |
+| S03-R windowed baseline | Pass on the bounded final run, including 20/20 drawn responses |
+| S04 saved body/baseline/fence/producer checks | Pass |
+| S06 content and all three body routes | Pass |
+| S07 driver offline checks and capped 30 s graphical smoke | Pass |
+| Rebasing compatibility with S07 environment variants | Pass; 6-block two-repeat smoke |
+| All-owned compilation | Pass, 78/78 scripts |
+| Formatting/lint wrapper | Expected nonzero: two newly integrated S07 environment scripts are pre-existing unformatted inputs, plus the three accepted S07-driver lint warnings; changed S02/control scripts add no finding |
+| Tool unit tests | Pass, 17 tests |
+
+The first S03-R headless/windowed attempts around the workstation standby/warm-up boundary
+missed bounded response samples; their exact failed receipts are retained separately from
+the clean final runs rather than being relabelled as passes. No accepted criterion was
+weakened to obtain the final results.
