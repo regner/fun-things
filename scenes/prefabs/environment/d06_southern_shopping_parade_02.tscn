@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://crisdyjpa2ee1"]
+
+[ext_resource type="PackedScene" uid="uid://cjhrw3fdflgkg" path="res://scenes/prefabs/environment/d06_southern_shopping_parade_01.tscn" id="1"]
+[ext_resource type="PackedScene" uid="uid://bi2mydn1p1q82" path="res://scenes/prefabs/environment/d06_southern_shopping_parade_02_bay.tscn" id="2"]
+
+[node name="D06SouthernShoppingParade02" type="Node3D" unique_id=617082777]
+
+[node name="Shell" parent="." unique_id=811267932 instance=ExtResource("1")]
+
+[node name="WestBays" type="Node3D" parent="." unique_id=1883790245]
+
+[node name="WestBay01" parent="WestBays" unique_id=961406457 instance=ExtResource("2")]
+transform = Transform3D(0, 0, 1, 0, 1, 0, -1, 0, 0, -9, 0, -25)
+
+[node name="WestBay02" parent="WestBays" unique_id=283616331 instance=ExtResource("2")]
+transform = Transform3D(0, 0, 1, 0, 1, 0, -1, 0, 0, -9, 0, -15)
+
+[node name="WestBay03" parent="WestBays" unique_id=219457893 instance=ExtResource("2")]
+transform = Transform3D(0, 0, 1, 0, 1, 0, -1, 0, 0, -9, 0, -5)
+
+[node name="WestBay04" parent="WestBays" unique_id=435129837 instance=ExtResource("2")]
+transform = Transform3D(0, 0, 1, 0, 1, 0, -1, 0, 0, -9, 0, 5)
+
+[node name="WestBay05" parent="WestBays" unique_id=948176733 instance=ExtResource("2")]
+transform = Transform3D(0, 0, 1, 0, 1, 0, -1, 0, 0, -9, 0, 15)
+
+[node name="WestBay06" parent="WestBays" unique_id=91868343 instance=ExtResource("2")]
+transform = Transform3D(0, 0, 1, 0, 1, 0, -1, 0, 0, -9, 0, 25)
