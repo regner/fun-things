@@ -54,7 +54,7 @@ Performance/device acceptance is unmeasured. This handoff does not close gamepla
 | Same wrapper, three held poses | Same GLB | `scenes/prefabs/pistol_coral_stub/preview_game_camera.tscn` / `North`, `East`, `South` weapon mounts |
 
 Declared collection members and source sockets are in
-[`manifest.json`](../../tools/pistol_coral_stub/manifest.json). Twelve render objects,
+[`manifest.json`](../../tools/assets/weapons/pistol_coral_stub/manifest.json). Twelve render objects,
 two source empties, six materials; 2,424 imported base triangles. No GLB images, skins,
 animations, cameras, lights or compression extensions. No linked Blender libraries or
 images. Source subtree is covered by committed `art/source/.gdignore`.
@@ -69,7 +69,7 @@ saved Godot nodes. Reexport reads the saved source and never reconstructs geomet
 ```bash
 blender --factory-startup --background --threads 2 -noaudio \
   art/source/models/weapons/pistol_coral_stub/pistol_coral_stub.blend \
-  --python tools/pistol_coral_stub/reexport.py -- /tmp/pistol_coral_stub.glb
+  --python tools/assets/weapons/pistol_coral_stub/reexport.py -- /tmp/pistol_coral_stub.glb
 cmp art/models/weapons/pistol_coral_stub/pistol_coral_stub.glb /tmp/pistol_coral_stub.glb
 ```
 
@@ -147,7 +147,7 @@ Private editor PID61057 / port16670 was verified bound to this worktree; private
 16671, LSP/DAP/debug16672–16674, XDG state `/tmp/brackett-pistol`. The exposed MCP connector
 still targeted unreachable6550, so a temporary local authenticated client used the
 existing toolkit commands at the verified private endpoint. `scene.instantiate` rejects
-GLBs; the editor-only [bridge](../../tools/pistol_coral_stub/editor_bridge.gd) adds linked
+GLBs; the editor-only [bridge](../../tools/assets/weapons/pistol_coral_stub/editor_bridge.gd) adds linked
 imports and relays sockets through editor tool calls, then is detached before saves.
 No direct authored `.tscn` writes were used. After external GLB replacement the editor
 refreshed, closed/reopened and saved the prefab and both previews. Receipts are retained.
@@ -159,7 +159,7 @@ checked through toolkit and pinned gdstyle; native and close-up graphical captur
 saved scene roundtrips. The resource checker runs with:
 
 ```bash
-godot --headless --path . --script res://tests/fixtures/pistol_coral_stub/check_asset.gd
+godot --headless --path . --script res://tests/assets/weapons/pistol_coral_stub/check_asset.gd
 ```
 
 Log distinctions: Blender's known optional MeshOptimizer diagnostic is present; delivered

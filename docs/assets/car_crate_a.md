@@ -30,7 +30,7 @@ Blender 5.2.2 LTS `d13f752e3b9c`, glTF settings inherited explicitly from
 `tools/s01/export_settings.json`, with skins/animations disabled for these rigid
 source parts. Export includes only the named collection: applied bevels, normals,
 triangulation and glTF Y-up conversion. The non-export metre reference stays in
-Blender. `tools/vehicle_assets/reexport.py` reads the saved sources without rebuilding
+Blender. `tools/assets/vehicles/city_cars/reexport.py` reads the saved sources without rebuilding
 geometry. Four-source byte-identical scratch reexport passes, including preview floor.
 
 Godot 4.8-dev7 `c971f93e7`, default per-asset import with generated LODs; no global

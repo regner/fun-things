@@ -31,7 +31,7 @@ or gameplay components are added to this presentation-only prefab.
 
 The mesh and motion are original player-lead authorship under verified GPT-6-Astra/high.
 Bootstrap instructions and authored numerical choices are preserved in
-`tools/player_character/author_coral_courier.py` and `author_motion.py`. Subsequent
+`tools/assets/characters/coral_courier/author_coral_courier.py` and `author_motion.py`. Subsequent
 reexport reads the saved `.blend` through `reexport.py`; it does not reconstruct geometry.
 Concept image prompts/provenance remain in the concept directory. No real brands,
 external character/rig library, or third-party texture source is used.
@@ -127,7 +127,7 @@ ground (`art/source/models/spikes/s02_kit.blend` provenance in S02), not city pl
   generation or embedded model replacement was introduced.
 - Pinned gdstyle scoped lint passes. Initial independent findings and the review fix are retained below.
 
-Reproduce source/export and clean asset checks with `python tools/player_character/verify_delivery.py`.
+Reproduce source/export and clean asset checks with `python tools/assets/characters/coral_courier/verify_delivery.py`.
 The fresh profile excludes gameplay/addons and is not full-project compilation or Deck
 performance evidence. The original worktree runtime captures include the actual project
 renderer and saved scenes. Source checks, logs, captures and recording are in `evidence/`.

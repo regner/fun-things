@@ -116,7 +116,7 @@ the selected silhouette. Planned paths follow [assets](../../../assets.md):
 - `art/materials/weapons/dock_thumper/<material_id>.tres` when external materials are needed
 - `scenes/prefabs/rocket_launcher/<selected_asset_id>.tscn`
 - `scenes/prefabs/rocket_launcher/<selected_rocket_id>.tscn` (visual only)
-- `tests/fixtures/rocket_launcher/preview.tscn`
+- `tests/assets/weapons/dock_thumper/preview.tscn`
 - `docs/assets/rocket_launcher_<selected_direction>.md` scoped production handoff
 
 Sources live under the existing `art/source/.gdignore`. Visible preview geometry

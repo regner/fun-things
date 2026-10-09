@@ -104,12 +104,12 @@ linkage only; it defines no projectile speed or lifetime.
 
 ## Saved preview and actual camera evidence
 
-Open `tests/fixtures/rocket_launcher/preview.tscn` with pinned Godot
+Open `tests/assets/weapons/dock_thumper/preview.tscn` with pinned Godot
 **4.8.dev7.official.c971f93e7**. Keys: 1 game camera, 2 launcher detail, 3 rocket
 detail, Escape close. Preview caps 60 FPS and enables VSync. For bounded playback:
 
 ```sh
-godot --path . --max-fps 60 --resolution 1280x800 --quit-after 600 tests/fixtures/rocket_launcher/preview.tscn
+godot --path . --max-fps 60 --resolution 1280x800 --quit-after 600 tests/assets/weapons/dock_thumper/preview.tscn
 ```
 
 The saved stage contains four launcher headings at grip height 1.35 m and a rocket
@@ -130,19 +130,19 @@ motion acceptance remain pending. Screenshots are not performance measurements.
 
 ## Validation and reproducibility
 
-`tools/rocket_launcher/capture_check.gd` loads the saved preview and asserts source
+`tools/assets/weapons/dock_thumper/capture_check.gd` loads the saved preview and asserts source
 instance ancestry, unit roots, no physics collision, marker/wrapper transforms,
 independent numeric expectations, imported AABBs and camera settings. It instantiates
 saved content only. `-- --capture` additionally writes the three native PNGs.
 
 ```sh
 blender --background --factory-startup -noaudio art/source/models/weapons/dock_thumper/dock_thumper_a.blend --python art/source/models/weapons/dock_thumper/reexport_dock_thumper.py -- /tmp/dock-thumper-fresh
-python3 tools/rocket_launcher/check_files.py /tmp/dock-thumper-fresh
-gdstyle check tests/fixtures/rocket_launcher/preview.gd tools/rocket_launcher/capture_check.gd --no-color --max-warnings 0
-python3 tools/rocket_launcher/prepare_clean.py /tmp/dock-thumper-clean
+python3 tools/assets/weapons/dock_thumper/check_files.py /tmp/dock-thumper-fresh
+gdstyle check tests/assets/weapons/dock_thumper/preview.gd tools/assets/weapons/dock_thumper/capture_check.gd --no-color --max-warnings 0
+python3 tools/assets/weapons/dock_thumper/prepare_clean.py /tmp/dock-thumper-clean
 # Run import/check with private XDG directories and available private editor/debug ports.
 godot --headless --path /tmp/dock-thumper-clean --import
-godot --headless --path /tmp/dock-thumper-clean --max-fps 60 --quit-after 900 --script res://tools/rocket_launcher/capture_check.gd
+godot --headless --path /tmp/dock-thumper-clean --max-fps 60 --quit-after 900 --script res://tools/assets/weapons/dock_thumper/capture_check.gd
 ```
 
 | Check actually completed | Retained evidence | Result |

@@ -161,7 +161,7 @@ Pinned Godot `4.8.dev7.official.c971f93e7` was found through Mise. Private edito
 PID 78374 runs this worktree, capped at 60 FPS, using `/tmp/brackett-player-editor`
 XDG state and editor/runtime/LSP/debug/DAP ports 17650/17651/17652/17653/17654.
 The default connector remains bound to an unavailable endpoint; owned
-`tools/player_character/private_editor.mjs` calls the same toolkit commands through
+`tools/assets/characters/coral_courier/private_editor.mjs` calls the same toolkit commands through
 the explicitly verified private endpoint, checking registry/project/PID before each
 connection. It does not scan or switch other editors. Initial scene query found the
 baseline `run/main_scene.tscn`; no scene mutation or replacement occurred.

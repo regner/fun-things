@@ -55,7 +55,7 @@ Source membership, settings and AABBs are in
 [export_receipt.json](smg_wedgewire_a_evidence/export_receipt.json).
 
 Blender **5.2.2 LTS d13f752e3b9c**, bundled glTF exporter **5.2.40**;
-Godot **4.8.dev7.official.c971f93e7**. `tools/smg_wedgewire_a/export.py` opens the
+Godot **4.8.dev7.official.c971f93e7**. `tools/assets/weapons/smg_wedgewire/export.py` opens the
 saved source and uses the inspected S01 export settings with explicit collections,
 animations/skins disabled. Modifiers and triangulation are baked in source; explicit
 corner normals are set after triangulation. Reexport never regenerates geometry.

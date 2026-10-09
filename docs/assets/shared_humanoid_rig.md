@@ -19,8 +19,8 @@ Rest SHA256: `df5a1e7117a9de8800df2ab5766f70e8018700878dd5bc84877b86767abc25c9`.
 | `art/source/models/characters/shared_humanoid/shared_humanoid_v1.blend` | Canonical `Rig` armature, A-pose; original player-lead authorship |
 | `art/source/models/characters/shared_humanoid/shared_humanoid_v1.json` | Exact ordered names/parents/Blender rest matrices, compatibility fingerprint |
 | `art/models/characters/shared_humanoid/shared_humanoid_bind_v1.glb` | Explicit `export_shared_humanoid_bind_v1` collection; `Rig` plus technical `BindTemplate` |
-| `tools/player_character/author_shared_rig.py` | Original bootstrap prompt-as-code; not a runtime or reexport geometry generator |
-| `tools/player_character/reexport.py` | Reexport saved source; does not reconstruct geometry |
+| `tools/assets/characters/coral_courier/author_shared_rig.py` | Original bootstrap prompt-as-code; not a runtime or reexport geometry generator |
+| `tools/assets/characters/coral_courier/reexport.py` | Reexport saved source; does not reconstruct geometry |
 
 Append/copy the canonical **Rig object and armature datablock** from the saved blend
 into an owned skin source. Preserve armature object identity transform and the exact

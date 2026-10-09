@@ -42,8 +42,8 @@ The earlier S13 seven-bone technical rig and its clips are not used.
 | NPC-only reusable library derived from the imported GLB actions | `art/animations/characters/pedestrian_worker/npc_locomotion_v1.tres` |
 | Source-linked reusable presentation prefab | `scenes/prefabs/pedestrian_civilian/pedestrian_worker_a.tscn` |
 | Presentation API | `scripts/presentation/pedestrian_civilian/pedestrian_worker_visual.gd` + `.uid` |
-| Saved four-instance preview and bounded playback script | `tests/fixtures/pedestrian_civilian/pedestrian_worker_a_preview.tscn`, `pedestrian_worker_preview.gd` + `.uid` |
-| Source authoring/export/checks and Godot authoring context | `tools/pedestrian_civilian/` |
+| Saved four-instance preview and bounded playback script | `tests/assets/characters/pedestrian_worker/pedestrian_worker_a_preview.tscn`, `pedestrian_worker_preview.gd` + `.uid` |
+| Source authoring/export/checks and Godot authoring context | `tools/assets/characters/pedestrian_worker/` |
 
 Source `.gdignore` excludes Blender data from runtime import/export. There are no runtime-generated visible meshes, gameplay
 colliders, weapon sockets, actor AI or population rules. Wrapper structure is
@@ -151,7 +151,7 @@ intentional frame-capture await loop). The runtime presentation/preview scripts
 have no style warnings.
 
 Run `check_source.py` inside pinned Blender with the saved source, and
-`godot --path . --script res://tools/pedestrian_civilian/check_worker.gd` with a private
+`godot --path . --script res://tools/assets/characters/pedestrian_worker/check_worker.gd` with a private
 runtime port. `export_worker.py -- <scratch-directory>` exports from saved source
 without reconstructing geometry. `author_worker.py` and `author_scenes.gd` are initial
 creation recipes; do not rerun them over edited production sources/scenes merely to

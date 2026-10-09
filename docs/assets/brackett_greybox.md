@@ -32,9 +32,9 @@ Python authoring tools. No purchased meshes, downloaded textures, real brands,
 image-to-mesh service or third-party model generator was used. Project-owned map
 references guide the geometry; no additional attribution requirement was introduced.
 The tool instructions are preserved as executable source in
-[prepare.py](../../tools/brackett_greybox/prepare.py),
-[author_blender.py](../../tools/brackett_greybox/author_blender.py), and
-[author_editor.gd](../../tools/brackett_greybox/author_editor.gd).
+[prepare.py](../../tools/assets/world/brackett_greybox/prepare.py),
+[author_blender.py](../../tools/assets/world/brackett_greybox/author_blender.py), and
+[author_editor.gd](../../tools/assets/world/brackett_greybox/author_editor.gd).
 Their operative brief is: preserve the accepted full-map geometry; union road
 junction surfaces; reserve corridor and pedestrian-link clearance; author neutral
 Blender building types; save finite independent placements in Godot. These are
@@ -102,7 +102,7 @@ There are 27 reusable building types. Not every type is placed: the first Glassw
 pass now contains 26 offices at 42 m and three stepped towers at 68 m. A 90 m tower
 variant is supplied but unplaced. Ground-centred footprints range from 10 × 12 m
 houses to 65 × 38 m retail. The exact X/height/Z dimensions and collision boxes
-are listed in `tools/brackett_greybox/editor_input.json`; imported AABBs are checked
+are listed in `tools/assets/world/brackett_greybox/editor_input.json`; imported AABBs are checked
 to 0.01 m in `review/scene_checks.json`. No claim is made that the taller towers
 are already visually resolved at the 47 m camera height.
 
@@ -282,7 +282,7 @@ reviewed Blender, GLB, scene or script bytes.
 
 Owner instruction: “The buildings in the high rise area should be taller.”
 Codex authored the height change under verified effective **Astra/high**, using
-[raise_glassward.py](../../tools/brackett_greybox/raise_glassward.py). This is a
+[raise_glassward.py](../../tools/assets/world/brackett_greybox/raise_glassward.py). This is a
 one-time source revision from `cf6dae7a420ec477dd85654b615e0fb296ed8aaa`, not a runtime
 resizer or placement generator. Offices changed **22 → 42 m** (26 placements),
 stepped towers **30 → 68 m** (three placements), and the supplied unplaced high-tower
