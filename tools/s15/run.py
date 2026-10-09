@@ -21,6 +21,7 @@ from script_checks import DIAGNOSTIC, PIN, environment  # noqa: E402
 
 FIXTURES = ["s02", "s03", "s04", "s06", "s15"]
 MODELS = ["s02_*", "s04_*", "s06_*"]
+EFFECT_MODELS = "s15_*"
 SCENE = "res://tests/fixtures/s15/stress.tscn"
 CHECK_SCRIPT = "res://tests/fixtures/s15/check.gd"
 FIELDS = [
@@ -30,8 +31,8 @@ FIELDS = [
 CASES = [(12, "full"), (24, "full"), (24, "adaptive")]
 STAGED_INPUTS = [
     "tests/fixtures/s02", "tests/fixtures/s03", "tests/fixtures/s04",
-    "tests/fixtures/s06", "tests/fixtures/s15", "art/models/spikes", "project.godot",
-    "tools/s15/run.py",
+    "tests/fixtures/s06", "tests/fixtures/s15", "art/models/spikes",
+    "art/models/effects", "project.godot", "tools/s15/run.py",
 ]
 CASE_SLACK_SECONDS = 60
 CLEANUP_SECONDS = 5
@@ -74,6 +75,10 @@ def stage(output):
     for pattern in MODELS:
         for path in (ROOT / "art/models/spikes").glob(pattern):
             shutil.copy2(path, models / path.name)
+    effects = project / "art/models/effects"
+    effects.mkdir(parents=True)
+    for path in (ROOT / "art/models/effects").glob(EFFECT_MODELS):
+        shutil.copy2(path, effects / path.name)
     settings = (ROOT / "project.godot").read_text()
     settings = re.sub(r"(?ms)^\[(?:autoload|editor_plugins)\]\n.*?(?=^\[|\Z)", "", settings)
     settings = settings.replace('config/icon="res://icon.svg"\n', "")

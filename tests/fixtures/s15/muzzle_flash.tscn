@@ -1,5 +1,8 @@
 [gd_scene format=3 uid="uid://0w3qwt73eu0t"]
 
+[ext_resource type="Script" path="res://tests/fixtures/s15/particle_mesh.gd" id="1_script"]
+[ext_resource type="PackedScene" uid="uid://dsppcilqd0iff" path="res://art/models/effects/s15_muzzle_flash.glb" id="2_mesh"]
+
 [sub_resource type="Gradient" id="Gradient_flash"]
 colors = PackedColorArray(1, 1, 0.65, 1, 1, 0.2, 0.01, 0)
 
@@ -19,11 +22,9 @@ shading_mode = 0
 albedo_color = Color(1, 0.82, 0.22, 0.95)
 billboard_mode = 1
 
-[sub_resource type="QuadMesh" id="Mesh_flash"]
-material = SubResource("Material_flash")
-size = Vector2(0.9, 0.9)
-
 [node name="MuzzleFlash" type="GPUParticles3D"]
+material_override = SubResource("Material_flash")
+script = ExtResource("1_script")
 emitting = false
 amount = 6
 lifetime = 0.12
@@ -31,4 +32,6 @@ one_shot = true
 explosiveness = 1.0
 visibility_aabb = AABB(-2, -2, -2, 4, 4, 4)
 process_material = SubResource("Process_flash")
-draw_pass_1 = SubResource("Mesh_flash")
+
+[node name="MeshSource" parent="." instance=ExtResource("2_mesh")]
+visible = false

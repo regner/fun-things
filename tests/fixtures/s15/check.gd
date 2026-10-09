@@ -23,6 +23,7 @@ func _initialize() -> void:
 		var instance: Node = packed.instantiate()
 		if instance == null:
 			failures.append("failed to instantiate %s" % path)
+			continue
 		instance.free()
 
 	var stress_scene: PackedScene = load("res://tests/fixtures/s15/stress.tscn")

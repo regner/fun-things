@@ -4,6 +4,15 @@ extends Node3D
 var _active: bool = true
 
 
+## Binds each saved linked Blender mesh as its matching particle draw pass.
+func _ready() -> void:
+	for child: Node in get_children():
+		if child is GPUParticles3D:
+			var source_root: Node = child.get_node("MeshSource")
+			var source: MeshInstance3D = source_root.get_child(0) as MeshInstance3D
+			child.draw_pass_1 = source.mesh
+
+
 ## Enables or disables this authored effect slot without removing it from the stress scene.
 func set_active(active: bool) -> void:
 	_active = active

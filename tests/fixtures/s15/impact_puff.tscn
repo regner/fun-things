@@ -1,5 +1,8 @@
 [gd_scene format=3 uid="uid://cgf5yqu03s2hr"]
 
+[ext_resource type="Script" path="res://tests/fixtures/s15/particle_mesh.gd" id="1_script"]
+[ext_resource type="PackedScene" uid="uid://dssy8gtpiknkl" path="res://art/models/effects/s15_impact.glb" id="2_mesh"]
+
 [sub_resource type="Gradient" id="Gradient_impact"]
 colors = PackedColorArray(1, 0.78, 0.32, 0.8, 0.45, 0.5, 0.48, 0)
 
@@ -25,11 +28,9 @@ vertex_color_use_as_albedo = true
 albedo_color = Color(0.75, 0.78, 0.68, 0.72)
 billboard_mode = 1
 
-[sub_resource type="QuadMesh" id="Mesh_impact"]
-material = SubResource("Material_impact")
-size = Vector2(0.65, 0.65)
-
 [node name="ImpactPuff" type="GPUParticles3D"]
+material_override = SubResource("Material_impact")
+script = ExtResource("1_script")
 emitting = false
 amount = 8
 lifetime = 0.45
@@ -37,4 +38,6 @@ one_shot = true
 explosiveness = 1.0
 visibility_aabb = AABB(-3, -3, -3, 6, 6, 6)
 process_material = SubResource("Process_impact")
-draw_pass_1 = SubResource("Mesh_impact")
+
+[node name="MeshSource" parent="." instance=ExtResource("2_mesh")]
+visible = false

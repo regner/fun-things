@@ -1,5 +1,8 @@
 [gd_scene format=3 uid="uid://slq30p7hpedu"]
 
+[ext_resource type="Script" path="res://tests/fixtures/s15/particle_mesh.gd" id="1_script"]
+[ext_resource type="PackedScene" uid="uid://0x1h5cabjs8x" path="res://art/models/effects/s15_tracer.glb" id="2_mesh"]
+
 [sub_resource type="ParticleProcessMaterial" id="Process_tracer"]
 particle_flag_disable_z = true
 spread = 2.0
@@ -13,13 +16,13 @@ shading_mode = 0
 albedo_color = Color(1, 0.67, 0.16, 0.9)
 billboard_mode = 1
 
-[sub_resource type="QuadMesh" id="Mesh_tracer"]
-material = SubResource("Material_tracer")
-size = Vector2(0.12, 1.8)
-
 [node name="Tracer" type="GPUParticles3D"]
+material_override = SubResource("Material_tracer")
+script = ExtResource("1_script")
 amount = 24
 lifetime = 0.45
 visibility_aabb = AABB(-2, -3, -3, 36, 6, 6)
 process_material = SubResource("Process_tracer")
-draw_pass_1 = SubResource("Mesh_tracer")
+
+[node name="MeshSource" parent="." instance=ExtResource("2_mesh")]
+visible = false
