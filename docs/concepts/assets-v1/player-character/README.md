@@ -91,6 +91,29 @@ Player concept selection remains pending. Once the versioned production rig defi
 the hand pose and attachment transform, player lead sends settled grip dimensions
 and pose needs to the pistol lead for a source-linked fit check.
 
+9 October dependency updates: Regner selected **SMG C — Wedgewire**, a broad tapered
+receiver/short stock around 0.8 m overall, and **launcher A — Dock Thumper**, a fat
+shoulder tube with coral muzzle collar/pale upper stripe. Launcher lead proposes
+1.4 m overall length, 0.34 m body diameter and 0.40 m muzzle diameter; these art
+envelopes await measured exports and actual-camera review. Weapon leads author
+static grip/support/shoulder references; launcher uses `socket_support_hand` beneath
+the front and `socket_shoulder` behind the dominant grip. Launcher geometry is fixed,
+with no weapon-owned skeletal clip requirement. Neither selection approves player
+art, settles player reach or accepts equipped motion.
+
+Provisional pose convention for weapon compatibility: **right dominant hand, left
+support hand, right shoulder** for SMG/launcher. This is a player-lead art convention,
+not a frozen bone/rest contract or gameplay handedness feature. Author contact
+markers in the weapon frame: imported +X right/+Y up/-Z forward (Blender +X right/
++Z up/+Y forward), unit scale; include numeric imported positions and bases in the
+weapon handoff. `socket_grip` remains the mount pivot at origin. Support/shoulder
+markers identify measured contact-surface centres, not guessed wrist/bone origins.
+Use the same forward/up frame for these reference markers; document each contact
+surface's normal separately so palm/shoulder orientation can be fitted explicitly
+later. Do not infer a hand bone basis, twist the weapon root to compensate for one,
+or bind against S13. Player lead will derive and verify bone-to-grip and contact
+offsets in the versioned production rig after player concept approval.
+
 Required coverage includes in-place unarmed idle/walk/run and retained final death
 pose; pistol, two-hand SMG and shoulder-launcher holding/aiming while stationary
 and moving; independent movement/aim directions from the design brief; and pistol/
