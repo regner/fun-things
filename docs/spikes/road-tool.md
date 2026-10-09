@@ -20,8 +20,9 @@ from the road nodes at level load on host and clients. There is no bake command 
 current workflow. Common 3/4-way junctions use reusable Blender-authored prefab pieces;
 procedural intersections remain the fallback for odd angles and unusual widths. Traffic
 signals at selected signalized junctions and street lights configured by road type are
-independent automatically placed Blender-authored fixtures. Sections below preserve the
-pre-decision spike evidence and rejected bake proposal as history, not current policy.
+independent automatically placed Blender-authored fixtures. The section explicitly
+headed **Historical evaluation and rejected bake proposal** preserves the pre-decision
+evidence; the current maintenance and production sections after it own the live plan.
 
 ### RT-01 release hardening results
 
@@ -73,7 +74,13 @@ passing assertions. This is a second upstream-harness compatibility gap, not a w
 of those diagnostics. Production's independent valid-state preflight rejects runtime
 diagnostics. No vendor patch was made.
 
-## Disposition
+## Historical evaluation and rejected bake proposal
+
+The remainder of this historical section records the pre-decisions 40–44 evaluation.
+Its editor-only dependency, explicit-bake, addon-free runtime and approval-request
+language is rejected and must not be used as the production plan.
+
+### Disposition
 
 **Iteration time is the primary evaluation criterion under owner decision 34.** The
 spike exists because changing a Blender-authored road currently requires too much
@@ -123,7 +130,7 @@ owns the difficult spline editing, width transitions, lane markings, collision,
 connections, intersection turns, edge curves and custom-container seams. Reimplementing
 those before encountering a demonstrated blocker would duplicate mature work.
 
-## Evidence and provenance
+### Evidence and provenance
 
 The exact requested release is tag `0.9.3` (there is no `v0.9.3` tag), commit
 `980bc04c9f95a5c49b787f0a7a64a458156d5b9b`, plugin version `0.9.3`, dated
@@ -145,7 +152,7 @@ custom intersection prefab can carry these children and still expose addon road/
 connectors. It does **not** prove accepted Blender sources, pedestrian legality,
 reservation behavior, turning clearance or final art.
 
-## Primary criterion: edit-to-visible iteration time
+### Primary criterion: edit-to-visible iteration time
 
 The meaningful loop is: manipulate the saved Godot road source, refresh a trustworthy
 visual preview, then explicitly publish an addon-free accepted bake. The ordinary edit
@@ -222,7 +229,7 @@ whole-island collision recooking, rewriting all semantic resources for a local e
 and any mesh export/import round trip. The benchmark's low native refresh time supports
 the recommendation only if production avoids those paths.
 
-## 1. Compatibility and release comparison
+### 1. Compatibility and release comparison
 
 | Observation | 0.9.3 requested release | 0.9.4 observed `main` |
 | --- | --- | --- |
@@ -251,7 +258,7 @@ comments describing glTF replace-in-place instability, directionality and lane-r
 TODOs, NodePath-based internal connections, and generated-node ownership complexity.
 These are reasons for an adapter and regression suite, not reasons to fork immediately.
 
-## 2. Authoring workflow and data model
+### 2. Authoring workflow and data model
 
 The addon is not one arbitrary `Curve3D` free spline. Its authoring unit is:
 
@@ -322,7 +329,7 @@ Blender-authored structural profile. A preset may choose a custom surface
 material/profile, but geometry, direction and semantic width must still agree at
 connected endpoints.
 
-### Seeding the existing street plan
+#### Seeding the existing street plan
 
 `docs/concepts/world-v1/stage-04-streets/district-editor/brackett-districts.json` contains
 nine district polygons and coordinate metadata, not roads, so it cannot seed splines by
@@ -341,9 +348,9 @@ ambiguous coincident paths. After review, the Godot spline scene becomes the sol
 editable road source; the stage-04/greybox JSON and its hash remain provenance rather
 than a second writer.
 
-## 3. Geometry, collision, intersections and explicit bake
+### 3. Geometry, collision, intersections and explicit bake
 
-### Native generation
+#### Native generation
 
 The addon generates a low-poly road ribbon from paired RoadPoints, UV lane markings,
 shoulders/gutters, optional underside and trimesh collision. It can generate N-gon
@@ -358,7 +365,7 @@ Likewise, a custom intersection can own its local Blender mesh, sidewalks, cross
 and anchors once, while road graph placement selects the prefab automatically. It is
 not hand-placing every world road mesh.
 
-### Current export limitation
+#### Current export limitation
 
 The plugin has a selected-`RoadContainer` glTF export action. Its own source warns that
 replace-in-place is disabled because saving after replacement was unstable. The scratch
@@ -374,7 +381,7 @@ would execute addon scripts (`_ready` rebuilds containers even if auto refresh i
 and preserve a runtime dependency. Production needs a project-owned bake that writes
 plain runtime scenes/resources and never instances the authoring graph in play.
 
-### Proposed incremental explicit bake
+#### Proposed incremental explicit bake
 
 Live native preview is disposable. **Bake Dirty Roads** extracts/reloads only affected
 chunks for rapid review but does not advance accepted CityData. **Publish City Roads**
@@ -419,7 +426,7 @@ twice, save/reload, compare manifests and semantic resources, then repeat in cle
 Windows and Linux imports. Mesh bytes may require semantic canonicalization if Godot's
 resource serializer differs while geometry is equal.
 
-## 4. Traffic lanes, turns and vehicle spawn data
+### 4. Traffic lanes, turns and vehicle spawn data
 
 With `generate_ai_lanes`, each segment gets directed `RoadLane` curves. Procedural
 intersections generate separate through/turn paths, and custom prefabs can author their
@@ -449,9 +456,9 @@ distance, pose, vehicle class policy and clearance envelope. Runtime authoritati
 Population still checks occupancy, threat, visibility and bounded retries; bake data
 is a candidate set, never permission to spawn blindly.
 
-## 5. Sidewalks and adjacent features
+### 5. Sidewalks and adjacent features
 
-### Addon-native mechanisms first
+#### Addon-native mechanisms first
 
 **Decoration edge curves are useful.** Setting `create_edge_curves` generates left,
 right and center `Path3D` curves on road segments. Release 0.9.3 also generates exterior
@@ -488,7 +495,7 @@ bake. Procedural intersections remain the fallback for odd branch angles or unco
 width combinations, where the baker follows generated exterior curves to make corners
 and crossings.
 
-### Project-owned post-bake semantics
+#### Project-owned post-bake semantics
 
 For every sidewalk-enabled road section, sample its exterior edge, offset inward to the
 clear-walk centre and write a FOOT link with width/corridor bounds. At each junction:
@@ -522,7 +529,7 @@ upstream internals. Start with composition and extraction. Fork only if a produc
 pilot proves a blocker in intersection edge continuity, stable rebuild hooks or custom
 metadata UI that cannot be solved through documented public APIs.
 
-## 6. Minimap from the same source
+### 6. Minimap from the same source
 
 Minimap derivation is straightforward and should not use separate splines. The baker
 samples the road centre curve—or derives the centre between validated road edges—into
@@ -538,7 +545,7 @@ outputs, but all derive in one transaction from one road graph and one set of ju
 specs, satisfying “one authored representation” without pretending the semantics are
 identical.
 
-## 7. Contract and ownership fit
+### 7. Contract and ownership fit
 
 The authoring source belongs in saved sector/editor scenes. The City integrator is the
 sole operation that can assign the whole-city bake revision and publish runtime
@@ -561,9 +568,9 @@ preview state nor dirty-chunk output is accepted until whole-city validation suc
 Publish failure leaves the last valid assigned resource in place but reports the source
 as dirty/stale; play and join still reject it.
 
-## 8. Brackett replacement, measured scale and capacity
+### 8. Brackett replacement, measured scale and capacity
 
-### Replacing greybox road/walk surfaces
+#### Replacing greybox road/walk surfaces
 
 The current `city.tscn` composes twelve source-linked ground sectors and nine building
 district scenes. Keep the district building scenes, land/coast/field visuals, water and
@@ -588,7 +595,7 @@ coast while replacing Blender-authored grey road/walk presentation with the one 
 source. It requires the asset exception in section 9 and a coordinated Blender ground
 revision; this spike makes neither change.
 
-### Actual street-plan benchmark
+#### Actual street-plan benchmark
 
 The input is the committed Brackett `authoring_plan.json`, SHA-256
 `064ddd567a68d9c0bf12ee641f58272292ee0c733d79be65cd42823909436e56`.
@@ -631,7 +638,7 @@ warmed and 2.65 seconds including construction/two frames on the contended works
 so a full pipeline should target single-digit seconds but must separately time extraction,
 merging, serialization, import and reload.
 
-### S07 capacity and chunking
+#### S07 capacity and chunking
 
 S07's preserved 384-block run hit an access violation before expanded-count
 instrumentation; scene composition implied 52,998 nodes and 3,072 static colliders. S08
@@ -661,7 +668,7 @@ physics time, visibility/culling, load/reload cost and 60-capped runtime. Raise 
 those triggers from measured evidence. This directly guards the S07 failure mode while
 preserving sector streaming/culling and a debuggable bridge boundary.
 
-## 9. Required asset-rule owner decision
+### 9. Required asset-rule owner decision
 
 Current guidance forbids generated render meshes and requires visible 3D models from
 Blender. Free spline roads and swept sidewalks cannot satisfy that literally without
@@ -690,77 +697,90 @@ This is an owner decision, not a change made by this spike. Prefab intersections
 custom fixed pieces reduce the exception's surface area, but ordinary curved road and
 sidewalk ribbons still need it.
 
-## 10. License, maintenance, quality and upgrade policy
+## Current license, maintenance and upgrade policy
 
-MIT permits vendoring/modification with the copyright/license notice retained. If
-adopted, vendor only `addons/road-generator` at the chosen commit plus upstream LICENSE
-and a project provenance file; do not include bundled GUT in runtime/export. The addon
-is GDScript (24 addon scripts, about 12,969 lines in 0.9.3), not C#. It includes unit
-and integration tests and active release/dev work through October 2026.
+MIT permits vendoring and modification with the copyright and license notice retained.
+The project vendors exact tag `0.9.4` plus its LICENSE and project provenance record;
+the upstream files have no local patch. The addon is a runtime dependency. Desktop
+packages include its scripts and generated-road dependencies while excluding bundled
+GUT, tests and development tooling.
 
-Quality is mixed but workable: core concepts have typed classes, purpose comments,
-tests and reusable resources, while internals also expose many NodePaths, untyped
-values/TODOs and generated child lifecycle assumptions. As pre-1.0 software it offers
-no stability guarantee adequate for direct gameplay coupling. Put all access behind
-one project adapter with contract tests. Do not subclass or call private underscore
-methods unless an upstream issue establishes no public seam.
+The addon remains pre-1.0 and exposes transient generated nodes and NodePaths. Project
+systems consume a project-owned, validated view of the saved road network rather than
+coupling gameplay identities to generated child names or private addon methods. The
+saved network revision, addon pin and project derivation-schema revision identify the
+road state used by generation and load-time derived data.
 
 Upgrade procedure:
 
-1. Fetch the candidate tag into scratch; record commit/archive digest/license changes.
-2. Review addon-only diff, especially RoadPoint/RoadLane/intersection naming and output.
-3. Run upstream tests with our pinned engine and retain failures; run our authoring,
-   bake-twice, stale, addon-free import/package and semantic golden tests.
-4. Re-bake the fixed downtown fixture and whole-island source, then compare
-   manifest/topology/geometry semantics.
-5. Manually exercise editor snapping/undo/save/reopen and inspect representative scenes.
-6. Upgrade the vendor pin and affected bakes together only after review; never track a
-   branch or auto-upgrade from AssetLib.
+1. Fetch a candidate tagged release into scratch and record its exact commit, archive
+   digest, date, license changes and selection rationale; never track a branch or
+   auto-upgrade from AssetLib.
+2. Review the addon-only diff, especially saved properties, RoadPoint/RoadLane and
+   intersection connections, generated geometry, lane curves and node lifecycle.
+3. Run upstream tests and the pinned-engine preflight, including ordinary roads,
+   procedural and prefab intersections, lanes, save/reload, headless runtime and the
+   capped graphical check.
+4. Re-run fixed-network regression fixtures and compare generated road, sidewalk, curb,
+   crosswalk and intersection output plus collision and placement anchors.
+5. Re-derive traffic and foot graphs, crossings/reservations, spawn candidates and
+   minimap data at load; compare stable IDs, topology, bounds and revisions, and reject
+   stale or internally inconsistent results.
+6. Manually exercise editor snapping, undo/redo, save/reopen and representative prefab
+   and procedural junctions, then verify Windows/Linux packages include the candidate
+   runtime addon and exclude GUT, tests and development content.
+7. Update the vendor pin and provenance only after generated-output, derived-data,
+   editor and package regressions pass together. There are no bake artifacts to update.
 
-## Options compared
+## Historical options comparison (pre-decisions 40–44)
 
-| Option | Advantages | Costs/risks | Disposition |
+This table explains the rejected bake framing evaluated before the owner selected the
+live runtime-addon architecture. It is not an implementation choice still awaiting
+approval.
+
+| Option | Advantages | Costs/risks | Historical disposition |
 | --- | --- | --- | --- |
-| **A. Adopt release + project incremental-bake adapter** | Reuses spline UX, transitions, geometry/collision, intersections, lanes, edge curves and prefabs. Keeps ordinary road edits in Godot and our contracts outside the vendor. | Requires typed metadata UI, chunk dependency tracking/static extraction, stale contract, sidewalk semantics and packaging tests. Must prove dirty-bake timing; upstream suite needs adaptation on 4.8-dev7. | **Recommended, conditional production pilot.** |
-| **B. Fork and extend addon** | Deepest integration; could put presets, explicit bake and semantics in one plugin UI. | Permanent merge burden against active 0.x internals; project contracts become coupled to generated-node implementation; still needs asset/bake work. | Do only after a measured blocker that cannot be composed or contributed upstream. |
-| **C. Build our own, using addon as reference** | Total control over identities, serialization and narrow feature set. | Rebuilds spline gizmos, snapping, width transitions, UVs, intersections, lane curves, collision and custom-piece seams before proving need. Highest schedule and geometry risk. | Reject for Brackett production unless the pilot fails hard requirements. |
+| **A. Release plus incremental-bake adapter** | Reused spline editing and generated geometry while proposing addon-free runtime output. | Added extraction, stale-bake and publish machinery now rejected by decision 41. | Superseded by the live runtime-addon plan. |
+| **B. Fork and extend addon** | Offered deep control over presets and bake UI. | Permanent merge burden against active 0.x internals. | Rejected unless a demonstrated blocker later requires a minimal documented patch. |
+| **C. Build a replacement** | Offered full control over identities and serialization. | Duplicated spline gizmos, snapping, transitions, intersections, lanes and collision before proving need. | Rejected for the production pilot. |
 
-## Production breakdown
+## Production breakdown — decisions 40–44 no-bake plan
 
 Sizes are implementation estimates, not commitments. M = roughly 3–5 focused days,
-L = roughly 6–10; art and owner review time are separate.
+L = roughly 6–10; art and owner review time are separate. No task produces a road bake
+or addon-free runtime scene.
 
 | Task | Size | Depends on | Acceptance focus |
 | --- | --- | --- | --- |
-| RT-01 release hardening and vendor decision | M | Owner approves conditional adoption | Pinned-engine construction/save/reload regression; understand upstream GUT failures; select exact release; retain MIT/provenance; addon included in exports; owner point/type/intersection and undo/redo/save/reopen trial. |
-| RT-02 road preset/identity authoring adapter | M | RT-01, whole-city integrator owner | Five Brackett presets/specs, stable IDs, preset drift rejection, class transitions, JSON bootstrap, connection validation, no duplicate spline. |
-| RT-03 incremental bake core and stale contract | L | RT-02, existing S06 CityData contract | Fast affected-container preview; dirty-chunk extraction/reload; whole-city publish reuses unchanged outputs; deterministic manifest; bake-twice/source-change rejection; no runtime rebake. |
-| RT-04 road/sidewalk surface and collision bake | L | RT-03, owner asset exception, accepted source materials | Native direct extraction without glTF round trip; edge-curve sidewalk/curb sweeps; terrain-collision ownership; dirty spatial chunk/seam checks; addon-free runtime scenes. |
-| RT-05 intersection prefab kit and procedural fallback | L + art | RT-02/04, Brackett hierarchy, Blender sources | Lightweight shared 3/4-way class-pair prefabs with connectors/corners/crosswalk sockets; local add/remove timing; odd-angle/width procedural validation; turn clearance. |
-| RT-06 TRAFFIC graph and spawn extraction | L | RT-03/05, S09 rules | Directed links/turns, stable IDs, bounds/work caps, spawn candidates, signal/crossing conflicts, blocked/stuck integration tests. |
-| RT-07 FOOT graph, crossings and reservations | L | RT-03/04/05, decision 32, S10 | Continuous sidewalk links, marked crossing IDs, conflict sets, reservation/yield behavior and illegal-road negatives. |
-| RT-08 signal/street-light placement | M + art | RT-05/07, owner resolves “lights” wording | Separate control/lighting flags; already-imported Blender fixtures instanced at sockets/edge spacing without entering the road edit loop; exclusions; authoritative signal groups where selected. |
-| RT-09 ROAD/minimap output | M | RT-03/05, UI contract | Same-source centre/area data, widths/bounds, seam agreement, 3 px/m consumer and stale/corrupt negatives. |
-| RT-10 connected whole-Brackett production pilot | L | RT-04–09, twelve-sector composition | All 50 routes/69 junctions, real downtown slice and bridge; point/type/intersection p50/p95; `<=1 s` dirty-chunk and `<=10 s` full-publish review triggers; seams, counts/collision/culling, turns, crossings, spawns and minimap agreement. |
-| RT-11 packaging and upgrade gate | M | RT-10, export tooling | Windows/Linux clean import; PCK contains the pinned runtime addon and generated road dependencies but no GUT/test/prototype content; upgrade golden fixture and provenance check. |
+| RT-01 release hardening and vendor decision | M | Decision 40 | Exact release/provenance, pinned-engine construction and save/reload regression, classified upstream tests, owner editor trial, and runtime addon present in desktop exports. |
+| RT-02 road preset, identity and revision adapter | M | RT-01, whole-city integrator owner | Five Brackett presets/specs, stable road/section/point/junction IDs, source revision ownership, preset drift rejection, class transitions, JSON bootstrap and connection validation without duplicating the spline. |
+| RT-03 live infrastructure generation | L | RT-02, decision 42, accepted materials | Addon roads plus project-script sidewalks, curbs and crosswalk markings generate from the saved network in the editor and at level load; collision ownership, seam checks and local edit-to-visible timing remain bounded. |
+| RT-04 hybrid intersection system | L + art | RT-02/03, decision 44, Blender sources | Reusable Blender-authored common 3/4-way prefab pieces with compatible connectors and crosswalk/fixture anchors; procedural fallback for odd angles and widths; generated turns, clearance and save/reload regression. |
+| RT-05 load-time derivation and consistency core | L | RT-02–04, CityData/content contracts | One bounded derivation pass reads the validated live road network and publishes traffic, foot, crossing/reservation, spawn and minimap datasets with stable IDs and a common source/schema revision; host/client results and dependent counts/references must agree or admission fails `CONTENT_INVALID`. |
+| RT-06 traffic graph and spawn derivation | L | RT-05, S09 rules | Directed lane/turn links, stable maneuvers, work caps, legal spawn candidates, signal/crossing conflicts and blocked/stuck integration tests derived at load. |
+| RT-07 foot graph, crossings and reservations | L | RT-05/06, decision 32, S10 | Continuous sidewalk links, marked crossing IDs, conflict sets, reservation/yield behavior, work caps and illegal-road negatives derived at load. |
+| RT-08 traffic signals and street lights | M + art | RT-04/06/07, decision 43 | Independently configured signal control and street lighting; automatically place linked Blender-authored fixtures from road/junction metadata; authoritative signal groups at selected junctions and road-type light spacing. |
+| RT-09 minimap derivation | M | RT-05, UI contract | ROAD centre/area data, widths, bounds and seams derive from the same source revision at load; 3 px/m consumption plus stale, corrupt and cross-dataset mismatch negatives. |
+| RT-10 connected whole-Brackett production pilot | L | RT-03–09, twelve-sector composition | All 50 routes/69 junctions, downtown slice and bridge; point/type/intersection edit p50/p95; generation/load cost, nodes/collision/culling, graph turns, crossings, reservations, spawns, signals/lights and minimap consistency. |
+| RT-11 runtime packaging and upgrade gate | M | RT-10, export tooling | Windows/Linux clean import and Boot; PCK contains the pinned runtime addon and all road-generation dependencies but no GUT/test/development content; candidate re-pin repeats generated-output and load-time-derived-data regression. |
 
-The critical path is RT-01 → RT-02 → RT-03 → RT-04/05 → RT-06/07/09 → RT-10.
-The whole-city CityData integrator remains the sole world integrator throughout.
-Traffic/pedestrian systems can
-start against bounded graph resources once RT-06/07 schemas settle; they should not
-wait for final signal/light art.
+The critical path is RT-01 → RT-02 → RT-03/04 → RT-05 → RT-06/07/09 → RT-10.
+The whole-city CityData integrator remains the sole world integrator. Traffic and
+pedestrian simulation can consume validated load-time datasets once RT-06/07 schemas
+settle; final signal and street-light art does not block their schema work.
 
-## Owner decisions requested at production start
+## Owner decisions 40–44 — resolved
 
-1. Approve option A's conditional pilot and permit selection of a newer exact release
-   after regression, rather than treating requested 0.9.3 as permanently fixed.
-2. Approve, revise or reject the editor-baked infrastructure asset exception above.
-3. Confirm that “intersection lights” requires both independently configured traffic
-   signals and street lights. Recommendation: yes; signal only selected landmark
-   junctions initially, street-light ordinary roads through preset spacing.
-4. Confirm common Blender-authored 3/4-way prefabs plus procedural odd-angle fallback.
-   Recommendation: yes; it maximizes native support and keeps exceptional geometry
-   flexible without hand-placing world meshes.
+1. **Decision 40:** conditionally adopt the Road Generator pilot and select an exact
+   release through regression; RT-01 selected and vendored `0.9.4`.
+2. **Decision 41:** use no bake command; generate live in the editor and at level load,
+   ship the addon in runtime packages, and derive gameplay data at load.
+3. **Decision 42:** permit generated road, sidewalk, curb, procedural-intersection and
+   crosswalk-marking surfaces from the saved road network as the narrow asset exception.
+4. **Decision 43:** provide independently configured traffic signals and street lights,
+   using automatically placed Blender-authored fixtures.
+5. **Decision 44:** use reusable Blender-authored common 3/4-way intersection prefabs
+   with procedural fallback for unusual angles and widths.
 
-Until those decisions and RT-01 pass, this evaluation authorizes no production vendor,
-mesh or contract change.
+These decisions authorize the conditional production pilot subject to the RT-01 owner
+editor trial and the current regression, consistency and packaging gates above.
