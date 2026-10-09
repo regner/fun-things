@@ -9,24 +9,24 @@ script = ExtResource("1_topology")
 [node name="Horizontal" type="Node3D" parent="."]
 script = ExtResource("2_lane")
 world_id = &"s09/horizontal"
-controls = PackedVector3Array(-40, 0, -2.25, -12, 0, -2.25, 0, 0, -2.25, 12, 0, -2.25, 36, 0, -2.25, 40, 0, -1, 40, 0, 1, 36, 0, 2.25, -36, 0, 2.25, -40, 0, 1, -40, 0, -1)
+controls = PackedVector3Array(-40, 0, -2.25, -12, 0, -2.25, 0, 0, -2.25, 12, 0, -2.25, 36, 0, -2.25, 40, 0, -6, 40, 0, -44, 36, 0, -48, -36, 0, -48, -40, 0, -44, -40, 0, -6)
 
 [node name="HorizontalDetour" type="Node3D" parent="."]
 script = ExtResource("2_lane")
 world_id = &"s09/horizontal_detour"
 replacement_for = &"s09/horizontal"
-controls = PackedVector3Array(-40, 0, -2.25, -12, 0, -2.25, 0, 0, -2.25, 10, 0, -2.25, 14, 0, -7, 23, 0, -7, 27, 0, -2.25, 36, 0, -2.25, 40, 0, -1, 40, 0, 1, 36, 0, 2.25, -36, 0, 2.25, -40, 0, 1, -40, 0, -1)
+controls = PackedVector3Array(-40, 0, -2.25, -12, 0, -2.25, 0, 0, -2.25, 10, 0, -2.25, 14, 0, -7, 23, 0, -7, 27, 0, -2.25, 36, 0, -2.25, 40, 0, -6, 40, 0, -44, 36, 0, -48, -36, 0, -48, -40, 0, -44, -40, 0, -6)
 
 [node name="Vertical" type="Node3D" parent="."]
 script = ExtResource("2_lane")
 world_id = &"s09/vertical"
-controls = PackedVector3Array(2.25, 0, -40, 2.25, 0, -12, 2.25, 0, 0, 2.25, 0, 12, 2.25, 0, 36, 1, 0, 40, -1, 0, 40, -2.25, 0, 36, -2.25, 0, -36, -1, 0, -40, 1, 0, -40)
+controls = PackedVector3Array(2.25, 0, -40, 2.25, 0, -12, 2.25, 0, 0, 2.25, 0, 12, 2.25, 0, 36, 6, 0, 40, 44, 0, 40, 48, 0, 36, 48, 0, -36, 44, 0, -40, 6, 0, -40)
 
 [node name="VerticalDetour" type="Node3D" parent="."]
 script = ExtResource("2_lane")
 world_id = &"s09/vertical_detour"
 replacement_for = &"s09/vertical"
-controls = PackedVector3Array(2.25, 0, -40, 2.25, 0, -12, 2.25, 0, 0, 2.25, 0, 10, 7, 0, 14, 7, 0, 23, 2.25, 0, 27, 2.25, 0, 36, 1, 0, 40, -1, 0, 40, -2.25, 0, 36, -2.25, 0, -36, -1, 0, -40, 1, 0, -40)
+controls = PackedVector3Array(2.25, 0, -40, 2.25, 0, -12, 2.25, 0, 0, 2.25, 0, 10, 7, 0, 14, 7, 0, 23, 2.25, 0, 27, 2.25, 0, 36, 6, 0, 40, 44, 0, 40, 48, 0, 36, 48, 0, -36, 44, 0, -40, 6, 0, -40)
 
 [node name="Outer" type="Node3D" parent="."]
 script = ExtResource("2_lane")
@@ -34,6 +34,9 @@ world_id = &"s09/outer"
 controls = PackedVector3Array(-51, 0, -55, 51, 0, -55, 55, 0, -51, 55, 0, 51, 51, 0, 55, -51, 0, 55, -55, 0, 51, -55, 0, -51)
 
 [node name="Intersection" type="Marker3D" parent="."]
+
+[node name="SecondaryIntersection" type="Marker3D" parent="."]
+position = Vector3(40, 0, -40)
 
 [node name="PlayerObstacle" type="Node3D" parent="."]
 position = Vector3(18, 0, -2.25)

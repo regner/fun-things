@@ -15,14 +15,15 @@ const REVERSE_TICKS: int = 30
 const SAFE_GAP_BASE_M: float = 6.0
 const SAFE_GAP_SECONDS: float = 1.0
 const COLLISION_DISTANCE_M: float = 1.7
+const INTERSECTION_APPROACH_M: float = 10.0
+const INTERSECTION_ENTERED_M: float = 3.0
 const GRIDLOCK_TICKS: int = 240
 const PROGRESS_DISTANCE_M: float = 0.25
 
 var _topology: S09Topology
 var _routes: Dictionary = {}
 var _cars: Array[Dictionary] = []
-var _intersection_owner: int = -1
-var _intersection_entered: bool = false
+var _intersection_reservations: Array[Dictionary] = []
 var _collision_pairs: Dictionary = {}
 var _collision_count: int = 0
 var _collision_details: Dictionary = { "same_family": 0, "cross_family": 0 }
@@ -88,8 +89,11 @@ func run(population: int, seed: int, ticks: int) -> Dictionary:
 ## Clears all mutable case state so seeds and population rows are independent.
 func _reset_case() -> void:
 	_cars.clear()
-	_intersection_owner = -1
-	_intersection_entered = false
+	_intersection_reservations.clear()
+	for center: Vector3 in _topology.intersection_centers():
+		_intersection_reservations.append({
+			"center": center, "owner": -1, "entered": false,
+		})
 	_collision_pairs.clear()
 	_collision_count = 0
 	_collision_details = { "same_family": 0, "cross_family": 0 }
@@ -139,16 +143,16 @@ func _spawn(population: int, seed: int) -> void:
 
 ## Assigns most cars to the nonconflicting outer loop while retaining both blocked approaches.
 func _spawn_route(car_id: int) -> StringName:
-	if car_id % 8 == 0:
+	if car_id < 24 and car_id % 8 == 0:
 		return &"s09/horizontal"
-	if car_id % 8 == 1:
+	if car_id < 24 and car_id % 8 == 1:
 		return &"s09/vertical"
 	return &"s09/outer"
 
 
 ## Applies reservation, following, blockage recovery and shared handling once for every car.
 func _step(tick: int) -> void:
-	_update_intersection_reservation()
+	_update_intersection_reservations()
 	var maximum_lane_error: float = 0.0
 	for car: Dictionary in _cars:
 		var points: PackedVector3Array = _routes[car.route_id]
@@ -225,10 +229,14 @@ func _recovery_command(car: Dictionary, tick: int) -> Dictionary:
 	return {}
 
 
-## Stops an approaching car unless it owns the bounded central conflict zone.
+## Stops an approaching car unless it owns every nearby authored conflict zone.
 func _must_yield_intersection(car: Dictionary) -> bool:
-	var distance: float = car.position.distance_to(_topology.intersection_center())
-	return distance < 12.0 and _intersection_owner != int(car.id)
+	for reservation: Dictionary in _intersection_reservations:
+		var distance: float = car.position.distance_to(reservation.center)
+		if distance < INTERSECTION_APPROACH_M and int(reservation.owner) != int(car.id):
+			return true
+
+	return false
 
 
 ## Uses a speed-sensitive same-lane gap without changing another car's state.
@@ -245,17 +253,23 @@ func _must_follow(car: Dictionary) -> bool:
 	return false
 
 
-## Grants the intersection to the nearest stable car ID and releases after its exit.
-func _update_intersection_reservation() -> void:
-	var center: Vector3 = _topology.intersection_center()
-	if _intersection_owner >= 0:
-		var owner: Dictionary = _cars[_intersection_owner]
+## Updates each authored intersection reservation independently with bounded work.
+func _update_intersection_reservations() -> void:
+	for reservation: Dictionary in _intersection_reservations:
+		_update_reservation(reservation)
+
+
+## Grants one conflict zone to the nearest stable car ID and releases after its exit.
+func _update_reservation(reservation: Dictionary) -> void:
+	var center: Vector3 = reservation.center
+	if int(reservation.owner) >= 0:
+		var owner: Dictionary = _cars[int(reservation.owner)]
 		var distance: float = owner.position.distance_to(center)
-		if distance < 4.0:
-			_intersection_entered = true
-		if _intersection_entered and distance > 14.0:
-			_intersection_owner = -1
-			_intersection_entered = false
+		if distance < INTERSECTION_ENTERED_M:
+			reservation.entered = true
+		if bool(reservation.entered) and distance > INTERSECTION_APPROACH_M:
+			reservation.owner = -1
+			reservation.entered = false
 		else:
 			return
 
@@ -263,11 +277,11 @@ func _update_intersection_reservation() -> void:
 	var candidate_distance: float = INF
 	for car: Dictionary in _cars:
 		var distance: float = car.position.distance_to(center)
-		if distance <= 14.0 and (distance < candidate_distance or (
+		if distance <= INTERSECTION_APPROACH_M and (distance < candidate_distance or (
 			is_equal_approx(distance, candidate_distance) and int(car.id) < candidate_id)):
 			candidate_id = car.id
 			candidate_distance = distance
-	_intersection_owner = candidate_id
+	reservation.owner = candidate_id
 
 
 ## Tracks failure to make progress separately from expected short reservation waits.

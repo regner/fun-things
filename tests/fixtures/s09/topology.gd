@@ -18,7 +18,8 @@ func validate_content() -> String:
 			return "CONTENT_INVALID"
 	if not routes.has(&"s09/horizontal") or not routes.has(&"s09/vertical"):
 		return "CONTENT_INVALID"
-	if not has_node("PlayerObstacle") or not has_node("Wreck"):
+	if (not has_node("PlayerObstacle") or not has_node("Wreck")
+			or not has_node("Intersection") or not has_node("SecondaryIntersection")):
 		return "CONTENT_INVALID"
 
 	return "OK"
@@ -51,9 +52,12 @@ func blockages() -> Array[Dictionary]:
 	]
 
 
-## Returns the authored four-way conflict-zone center.
-func intersection_center() -> Vector3:
-	return get_node("Intersection").global_position
+## Returns both authored conflict zones where the two closed loops cross.
+func intersection_centers() -> PackedVector3Array:
+	return PackedVector3Array([
+		get_node("Intersection").global_position,
+		get_node("SecondaryIntersection").global_position,
+	])
 
 
 ## Indexes unique saved lane identities without deriving gameplay identity from node paths.
