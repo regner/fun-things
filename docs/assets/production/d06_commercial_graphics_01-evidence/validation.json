@@ -1,0 +1,389 @@
+{
+  "blender": "5.2.2 LTS",
+  "build_hash": "d13f752e3b9c",
+  "gltf_exporter": [
+    5,
+    2,
+    40
+  ],
+  "members": [
+    "city_shop_fittings_02",
+    "formed_fascia_frame",
+    "continuous_face_trim",
+    "folded_back_tray",
+    "artwork_reveal",
+    "fascia_artwork_carrier",
+    "wall_mount_rail_lower",
+    "wall_mount_rail_upper"
+  ],
+  "export_settings": {
+    "export_format": "GLB",
+    "use_selection": true,
+    "export_yup": true,
+    "export_apply": false,
+    "export_texcoords": true,
+    "export_normals": true,
+    "export_tangents": false,
+    "export_materials": "EXPORT",
+    "export_cameras": false,
+    "export_lights": false,
+    "export_extras": false,
+    "export_animations": false,
+    "export_skins": false,
+    "export_morph": false
+  },
+  "objects": [
+    {
+      "name": "formed_fascia_frame",
+      "vertices": 196,
+      "triangles": 392,
+      "volume_m3": 0.045454173661439966,
+      "material_slots": [
+        "fascia_slate_petrol"
+      ],
+      "nonmanifold_edges": 0,
+      "inconsistent_winding_edges": 0,
+      "degenerate_triangles": 0,
+      "applied_transforms": true
+    },
+    {
+      "name": "continuous_face_trim",
+      "vertices": 168,
+      "triangles": 336,
+      "volume_m3": 0.0073969591153363766,
+      "material_slots": [
+        "fascia_warm_trim"
+      ],
+      "nonmanifold_edges": 0,
+      "inconsistent_winding_edges": 0,
+      "degenerate_triangles": 0,
+      "applied_transforms": true
+    },
+    {
+      "name": "folded_back_tray",
+      "vertices": 84,
+      "triangles": 164,
+      "volume_m3": 0.10565693593112108,
+      "material_slots": [
+        "fascia_slate_petrol"
+      ],
+      "nonmanifold_edges": 0,
+      "inconsistent_winding_edges": 0,
+      "degenerate_triangles": 0,
+      "applied_transforms": true
+    },
+    {
+      "name": "artwork_reveal",
+      "vertices": 112,
+      "triangles": 224,
+      "volume_m3": 0.0019423169033959263,
+      "material_slots": [
+        "fascia_recess"
+      ],
+      "nonmanifold_edges": 0,
+      "inconsistent_winding_edges": 0,
+      "degenerate_triangles": 0,
+      "applied_transforms": true
+    },
+    {
+      "name": "fascia_artwork_carrier",
+      "vertices": 84,
+      "triangles": 164,
+      "volume_m3": 0.10383310088116884,
+      "material_slots": [
+        "fascia_artwork_face",
+        "fascia_mount_metal"
+      ],
+      "nonmanifold_edges": 0,
+      "inconsistent_winding_edges": 0,
+      "degenerate_triangles": 0,
+      "applied_transforms": true
+    },
+    {
+      "name": "wall_mount_rail_lower",
+      "vertices": 96,
+      "triangles": 188,
+      "volume_m3": 0.01090800941556869,
+      "material_slots": [
+        "fascia_mount_metal"
+      ],
+      "nonmanifold_edges": 0,
+      "inconsistent_winding_edges": 0,
+      "degenerate_triangles": 0,
+      "applied_transforms": true
+    },
+    {
+      "name": "wall_mount_rail_upper",
+      "vertices": 96,
+      "triangles": 188,
+      "volume_m3": 0.010908009415568692,
+      "material_slots": [
+        "fascia_mount_metal"
+      ],
+      "nonmanifold_edges": 0,
+      "inconsistent_winding_edges": 0,
+      "degenerate_triangles": 0,
+      "applied_transforms": true
+    }
+  ],
+  "material_backface_culling": {
+    "fascia_slate_petrol": true,
+    "fascia_warm_trim": true,
+    "fascia_recess": true,
+    "fascia_artwork_face": true,
+    "fascia_mount_metal": true
+  },
+  "bounds_blender": [
+    [
+      -1.600000023841858,
+      0.0,
+      -0.4000000059604645
+    ],
+    [
+      1.600000023841858,
+      0.14000000059604645,
+      0.4000000059604645
+    ]
+  ],
+  "triangles": 1656,
+  "artwork_front_y": 0.128,
+  "artwork_uv_orientation": "U increases toward Blender -X; V toward +Z; glTF V storage flips",
+  "artwork_material": "fascia_artwork_face",
+  "authoring_reference_dimensions_m": [
+    1.0,
+    1.0,
+    1.0
+  ],
+  "width_to_1m_reference_ratio": 3.200000047683716,
+  "asset_id": "d06_commercial_graphics.01",
+  "output_type": "Artwork set reusing unchanged fascia geometry",
+  "new_geometry": false,
+  "shared_source": "art\\source\\models\\environment\\city_shop_fittings_02\\city_shop_fittings_02.blend",
+  "shared_glb": "art\\models\\environment\\city_shop_fittings_02\\city_shop_fittings_02.glb",
+  "shared_dependency_sha256": {
+    "art\\source\\models\\environment\\city_shop_fittings_02\\city_shop_fittings_02.blend": "44b3165d4d6d9cf4b0f3ef577e0c70fc80dae72726b04ebbe53272581e4454db",
+    "art\\models\\environment\\city_shop_fittings_02\\city_shop_fittings_02.glb": "4fd2106f09ef4a35edafbcf3a3a68ea94983e721fd84d852a406e2d26de6552f"
+  },
+  "shared_dependencies_unchanged": true,
+  "fresh_reexport_byte_identical": true,
+  "source_vertices": 836,
+  "glb_vertices": 1072,
+  "glb_triangles": 1656,
+  "mesh_count": 7,
+  "surface_count": 8,
+  "degenerate_faces": 0,
+  "degenerate_triangles": 0,
+  "nonmanifold_edges": 0,
+  "unit_length_corner_normals": true,
+  "godot_aabb_min": [
+    -1.6,
+    -0.4,
+    -0.14
+  ],
+  "godot_aabb_max": [
+    1.6,
+    0.4,
+    0
+  ],
+  "pivot": "Wall contact centre (0,0,0), not ground-mounted",
+  "artwork_plane_godot_z": -0.128,
+  "artwork_dimensions_m": [
+    3.0,
+    0.6
+  ],
+  "artwork_safe_dimensions_m": [
+    2.94,
+    0.54
+  ],
+  "status": "PASS; bounded producer source/export checks, independent review pending",
+  "godot_load": {
+    "aabb_max": [
+      1.6,
+      0.4,
+      0.0
+    ],
+    "aabb_min": [
+      -1.6,
+      -0.4,
+      -0.14
+    ],
+    "engine": "4.8-dev7 (official)",
+    "face_only_overrides": 1,
+    "filter": "linear_mipmap",
+    "identity_model_transform": true,
+    "imported_mesh_resources_unchanged": true,
+    "linked_model": "res://art/models/environment/city_shop_fittings_02/city_shop_fittings_02.glb",
+    "meshes": 7,
+    "no_collision": true,
+    "prefab": "res://scenes/prefabs/environment/d06_commercial_graphics_01.tscn",
+    "repeat": false,
+    "status": "PASS",
+    "surfaces": 8,
+    "texture_size": [
+      2000,
+      400
+    ]
+  },
+  "godot_normalization": {
+    "aabb_max": [
+      1.6,
+      0.4,
+      0.0
+    ],
+    "aabb_min": [
+      -1.6,
+      -0.4,
+      -0.14
+    ],
+    "engine": "4.8-dev7 (official)",
+    "face_only_overrides": 1,
+    "filter": "linear_mipmap",
+    "identity_model_transform": true,
+    "imported_mesh_resources_unchanged": true,
+    "linked_model": "res://art/models/environment/city_shop_fittings_02/city_shop_fittings_02.glb",
+    "meshes": 7,
+    "no_collision": true,
+    "prefab": "res://scenes/prefabs/environment/d06_commercial_graphics_01.tscn",
+    "repeat": false,
+    "second_roundtrip_byte_identical": true,
+    "status": "PASS",
+    "surfaces": 8,
+    "texture_size": [
+      2000,
+      400
+    ]
+  },
+  "prefab_sha256": "93da7e2813437ca595a9710aca17e1593901ac3ca47b2e6e0b95901245875e11",
+  "artwork": {
+    "python": "3.14.2",
+    "pillow": "12.3.0",
+    "size": [
+      2000,
+      400
+    ],
+    "mode": "RGB",
+    "tests": 4,
+    "passed": 4,
+    "fresh_reauthor_byte_identical": true,
+    "safe_margins_px": [
+      20,
+      20
+    ],
+    "new_meshes": 0
+  },
+  "production_checks": {
+    "ok": true,
+    "commands": {
+      "owned_scripts": [
+        "C:\\Users\\regner.blokandersen\\AppData\\Local\\mise\\installs\\python\\3.14.2\\python.exe",
+        "C:\\GameDev\\git\\ft-lanes\\a-d06gfx\\tools\\script_checks.py",
+        "--godot",
+        "C:\\Users\\regner.blokandersen\\AppData\\Local\\mise\\installs\\github-godotengine-godot-builds\\4.8-dev7\\godot.EXE",
+        "--gdstyle",
+        "C:\\Users\\regner.blokandersen\\AppData\\Local\\mise\\installs\\github-atelico-gdstyle\\0.3.0\\gdstyle.EXE",
+        "--output",
+        "C:\\tmp\\ft\\assets\\d06_commercial_graphics_01\\checks_final\\script-checks"
+      ],
+      "python_tests": [
+        "C:\\Users\\regner.blokandersen\\AppData\\Local\\mise\\installs\\python\\3.14.2\\python.exe",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tools",
+        "-p",
+        "*test*.py"
+      ],
+      "gut_import": [
+        "C:\\Users\\regner.blokandersen\\AppData\\Local\\mise\\installs\\github-godotengine-godot-builds\\4.8-dev7\\godot.EXE",
+        "--headless",
+        "--editor",
+        "--path",
+        "C:\\tmp\\ft\\assets\\d06_commercial_graphics_01\\checks_final\\script-checks\\compiler-project",
+        "--import",
+        "--quit",
+        "--log-file",
+        "C:\\tmp\\ft\\assets\\d06_commercial_graphics_01\\checks_final\\gut-import.engine.log"
+      ],
+      "gut_tests": [
+        "C:\\Users\\regner.blokandersen\\AppData\\Local\\mise\\installs\\github-godotengine-godot-builds\\4.8-dev7\\godot.EXE",
+        "--log-file",
+        "C:\\tmp\\ft\\assets\\d06_commercial_graphics_01\\checks_final\\gut.engine.log",
+        "--headless",
+        "--path",
+        "C:\\tmp\\ft\\assets\\d06_commercial_graphics_01\\checks_final\\script-checks\\compiler-project",
+        "--script",
+        "res://addons/gut/gut_cmdln.gd",
+        "-gjunit_xml_file=C:/tmp/ft/assets/d06_commercial_graphics_01/checks_final/gut-results.xml"
+      ],
+      "gut_negative": [
+        "C:\\Users\\regner.blokandersen\\AppData\\Local\\mise\\installs\\github-godotengine-godot-builds\\4.8-dev7\\godot.EXE",
+        "--log-file",
+        "C:\\tmp\\ft\\assets\\d06_commercial_graphics_01\\checks_final\\gut-negative.engine.log",
+        "--headless",
+        "--path",
+        "C:\\tmp\\ft\\assets\\d06_commercial_graphics_01\\checks_final\\script-checks\\compiler-project",
+        "--script",
+        "res://addons/gut/gut_cmdln.gd",
+        "-gconfig=",
+        "-gdir=res://tests/diagnostic/gut_failure",
+        "-gexit",
+        "-gdisable_colors"
+      ]
+    },
+    "results": {
+      "engine": {
+        "ok": true,
+        "version": "4.8.dev7.official.c971f93e7"
+      },
+      "gut_pin": {
+        "ok": true,
+        "version": "9.7.1"
+      },
+      "owned_scripts": {
+        "ok": true,
+        "returncode": 0
+      },
+      "python_tests": {
+        "ok": true,
+        "returncode": 0
+      },
+      "gut_import": {
+        "ok": true,
+        "returncode": 0
+      },
+      "gut_tests": {
+        "ok": true,
+        "returncode": 0
+      },
+      "gut_negative": {
+        "ok": true,
+        "observed_returncode": 1
+      }
+    }
+  },
+  "visual_review": {
+    "renders": [
+      "hero.png",
+      "side.png",
+      "detail.png",
+      "overhead_47m_42deg.png"
+    ],
+    "all_inspected": true,
+    "engine_capture": false,
+    "overhead_readability": "Neither emblem nor copy reliable at 47m on inherited vertical 3m fascia; decorative only, gameplay identity pending hall roof cue."
+  },
+  "diagnostics": {
+    "corrected_failures": [
+      "Initial missing imported root in override path; corrected, headless load now passes.",
+      "Initial owned script style warnings; corrected, final production suite passes."
+    ],
+    "normalization_exit": 0,
+    "normalization_clean_log": false,
+    "normalization_diagnostics": [
+      "MCP addon engine version warning",
+      "Editor shutdown scan/RID/ObjectDB leak diagnostics"
+    ],
+    "final_runtime_load_clean_log": true
+  }
+}

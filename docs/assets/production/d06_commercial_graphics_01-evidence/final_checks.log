@@ -1,0 +1,57 @@
+d06_commercial_graphics.01 — final bounded producer evidence, 2026-10-09
+Worktree: C:/GameDev/git/ft-lanes/a-d06gfx; branch lane/a-d06gfx.
+Approved scope: original artwork + material + saved face-only override on unchanged shared fascia.
+No new/duplicate mesh, GLB or blend. No live MCP calls or shared-file changes.
+
+Pins: Python 3.14.2; Pillow 12.3.0; Blender 5.2.2 LTS d13f752e3b9c;
+glTF exporter 5.2.40; Godot 4.8.dev7.official.c971f93e7; gdstyle 0.3.0.
+All Blender calls used factory startup, -noaudio, threads 4,
+ALSOFT_DRIVERS=null and SDL_AUDIODRIVER=dummy under timeout <=900 seconds.
+All Godot calls were pinned/headless under timeout (import 300s, checks 180s).
+Exact reproduction commands are in ../d06_commercial_graphics_01.md.
+
+PASS author.py: original 2000x400 opaque RGB artwork.
+PASS preview.py (exit 0): four 1280x800 renders; all self-inspected.
+PASS validate.py (exit 0): 836 source vertices, 1072 GLB vertices, 1656 triangles,
+7 meshes, 8 surfaces; zero degenerate faces/triangles/nonmanifold edges;
+unit normals, applied transforms, source metre reference and front UV interface.
+PASS shared GLB reexport: byte-identical 45616 bytes;
+SHA256 4fd2106f09ef4a35edafbcf3a3a68ea94983e721fd84d852a406e2d26de6552f.
+PASS shared source and GLB hashes unchanged before/after.
+PASS headless import (exit 0): no missing asset dependencies.
+PASS check_prefab.gd --normalize assertions (exit 0): two stable load/pack/save cycles,
+plus unchanged scene SHA256 across a later invocation; UIDs/import parent IDs preserved.
+NOTE normalization is NOT a diagnostic-clean editor exit: see below.
+PASS final non-editor check_prefab.gd (exit 0, no ERROR/WARNING/SCRIPT ERROR):
+linked identity Model; 7 original mesh resources; exactly 1 face-only surface override;
+3.2x0.8x0.14m AABB; no collision; 2000x400 clamped opaque mipmapped texture.
+PASS test_artwork.py: 4 tests (independent pixel colours/gaps, safe margins/quiet field,
+size/RGB, fresh author PNG byte identity).
+PASS gdstyle check and fmt --check: 1 owned GDScript, zero warnings, already formatted.
+PASS Python py_compile for all owned Python scripts.
+PASS production_checks.py --output C:/tmp/ft/assets/d06_commercial_graphics_01/checks_final:
+formatting/style/explicit script compilation; 9 repository Python tests;
+23 GUT tests with 196 assertions; GUT import; intentional negative diagnostic test.
+PASS git diff --check.
+
+Corrected failures:
+- Initial override path omitted importer-added city_shop_fittings_02 root. Godot child-
+  vanished warning and assertion failure caused timeout exit124. Corrected actual path;
+  current clean non-editor load proves face override present and all other surfaces original.
+- Initial production check failed 5 owned style/complexity warnings. Named helpers/spacing
+  corrected; final complete production suite exited0 with all layers passing.
+
+Retained environmental/tool diagnostics:
+- Headless editor addon warns Godot4.8 exceeds its latest tested4.7.
+- --editor --script normalization shutdown emits scan-aborted and RID/ObjectDB leaks:
+  5 Viewport, 8 DummyTexture, 1 Scenario, 52 ShapedTextData, 1 Font,
+  5 Canvas, 31 CanvasItem, 168 ObjectDB instances. Assertions and scene byte checks pass;
+  these diagnostics are not suppressed or described as a clean editor exit.
+- Blender preview Material/World.use_nodes deprecation warnings; actual jobs exit0.
+- Blender --version probe emitted a 0.000023MB allocation diagnostic; production jobs did not.
+Full scratch logs/receipts remain C:/tmp/ft/assets/d06_commercial_graphics_01/.
+
+Visual limitation: 47m/42deg vertical camera gives approximately75x7px fascia strip.
+Neither emblem nor copy reliably identifies the hall from overhead; keep decorative.
+Hall architectural/roof-ring cue, world placement, actual renderer, independent review,
+future reexport-ID retention, packaged-device and sustained Deck performance remain pending.
