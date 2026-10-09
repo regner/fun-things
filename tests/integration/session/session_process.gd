@@ -17,6 +17,7 @@ var _leave_requested: bool = false
 var _completed_leaves: int = 0
 var _abuse_sent: bool = false
 var _finished: bool = false
+var _malicious_peer: ENetMultiplayerPeer
 
 @onready var _session: SessionService = $Session
 @onready var _transport: ENetTransport = $Session/ENetTransport
@@ -32,6 +33,14 @@ func _ready() -> void:
 	_capacity = int(options.get("capacity", 4))
 	_duration_seconds = float(options.get("duration_ms", 1500)) / 1000.0
 	_process_deadline_seconds = _now_seconds() + PROCESS_TIMEOUT_SECONDS
+	if _role == "client" and _behavior in [
+		"oversized_byte_array",
+		"oversized_string",
+		"repeated_handshake",
+	]:
+		_start_malicious_auth_client()
+		return
+
 	_session.connection_timeout_seconds = float(options.get("connection_timeout_ms", 700)) / 1000.0
 	_session.handshake_timeout_seconds = float(options.get("handshake_timeout_ms", 700)) / 1000.0
 	_session.changed.connect(_on_session_changed)
@@ -122,8 +131,7 @@ func _on_session_changed(current: Dictionary) -> void:
 	)
 	if (
 		_role == "client"
-		and _behavior
-		in ["wait_loss", "oversized_byte_array", "oversized_string", "repeated_handshake"]
+		and _behavior == "wait_loss"
 		and current.phase == SessionService.PHASE_IDLE
 		and failure_code == &"HOST_LOST"
 	):
@@ -134,13 +142,6 @@ func _on_session_changed(current: Dictionary) -> void:
 
 	_active_started_seconds = _now_seconds()
 	_print_event({ "event": "active", "role": _role, "view": current })
-	if _role == "client" and _behavior in [
-		"oversized_byte_array",
-		"oversized_string",
-		"repeated_handshake",
-	]:
-		_send_handshake_abuse.call_deferred(current.operation_id)
-		return
 	if (
 		_role == "client"
 		and _behavior in ["leave", "leave_rejoin"]
@@ -150,45 +151,88 @@ func _on_session_changed(current: Dictionary) -> void:
 		_leave_after_delay.call_deferred()
 
 
-## Sends bounded malicious RPC cases only after ordinary production admission.
-func _send_handshake_abuse(client_operation_id: int) -> void:
+## Starts a raw unauthenticated ENet client outside SessionService admission.
+func _start_malicious_auth_client() -> void:
+	var scene_multiplayer := multiplayer as SceneMultiplayer
+	scene_multiplayer.auth_timeout = 0.7
+	scene_multiplayer.auth_callback = _ignore_auth_payload
+	scene_multiplayer.peer_authenticating.connect(_on_malicious_peer_authenticating)
+	scene_multiplayer.peer_authentication_failed.connect(_on_malicious_auth_failed)
+	scene_multiplayer.server_disconnected.connect(_on_malicious_auth_disconnected)
+	scene_multiplayer.connection_failed.connect(_on_malicious_connection_failed)
+
+	_malicious_peer = ENetMultiplayerPeer.new()
+	var error: Error = _malicious_peer.create_client("127.0.0.1", _port, 0, 0, 4)
+	if error != OK:
+		_finish(false, &"MALICIOUS_CONNECT_FAILED")
+		return
+
+	scene_multiplayer.multiplayer_peer = _malicious_peer
+
+
+## Sends malformed raw auth while ordinary RPC dispatch remains unavailable.
+func _on_malicious_peer_authenticating(peer_id: int) -> void:
 	if _abuse_sent:
 		return
 
 	_abuse_sent = true
 	var payload := PackedByteArray()
-	var request_count: int = SessionService.HANDSHAKE_ABUSE_DISCONNECT_COUNT
+	var request_count: int = 1
 	if _behavior == "oversized_byte_array":
-		payload.resize(SessionService.MAX_HANDSHAKE_LOGICAL_BYTES + 1)
+		payload.resize(70 * 1024)
 	elif _behavior == "oversized_string":
 		payload = _build_handshake_payload("x".repeat(SessionService.MAX_ID_BYTES + 1))
 	else:
-		payload = _build_handshake_payload("development")
-		request_count = SessionService.HANDSHAKE_ABUSE_DISCONNECT_COUNT + 1
+		payload = _build_handshake_payload("x".repeat(SessionService.MAX_ID_BYTES + 1))
+		request_count = SessionService.HANDSHAKE_ABUSE_DISCONNECT_COUNT
 
 	for _request_index: int in request_count:
-		_session._request_admission.rpc_id(1, client_operation_id, payload)
+		var error: Error = (multiplayer as SceneMultiplayer).send_auth(peer_id, payload)
+		if error != OK:
+			_finish(false, &"AUTH_SEND_FAILED")
+			return
+
+	_print_event(
+		{
+			"event": "auth_payload_sent",
+			"bytes": payload.size(),
+			"requests": request_count,
+		}
+	)
 
 
-## Builds the production fixed handshake shape for adverse RPC calls.
+## Ignores host authentication data because malformed clients cannot be admitted.
+func _ignore_auth_payload(_peer_id: int, _payload: PackedByteArray) -> void:
+	pass
+
+
+## Accepts only bounded authentication failure as the malicious client's outcome.
+func _on_malicious_auth_failed(_peer_id: int) -> void:
+	_finish(true, &"AUTH_REJECTED")
+
+
+## Accepts server removal after malformed authentication was sent.
+func _on_malicious_auth_disconnected() -> void:
+	_finish(_abuse_sent, &"AUTH_REJECTED" if _abuse_sent else &"AUTH_NOT_SENT")
+
+
+## Rejects inability to reach the host because it does not exercise authentication.
+func _on_malicious_connection_failed() -> void:
+	_finish(false, &"MALICIOUS_CONNECT_FAILED")
+
+
+## Builds the production fixed authentication handshake for adverse raw sends.
 func _build_handshake_payload(content_id: String) -> PackedByteArray:
-	var content: PackedByteArray = content_id.to_utf8_buffer()
-	var district: PackedByteArray = "brackett_island".to_utf8_buffer()
-	var definitions: PackedByteArray = "development".to_utf8_buffer()
-	var payload := PackedByteArray()
-	payload.resize(14 + content.size() + district.size() + definitions.size())
-	payload.encode_u32(0, 1)
-	payload.encode_u32(4, 0)
-	payload.encode_u16(8, content.size())
-	payload.encode_u16(10, district.size())
-	payload.encode_u16(12, definitions.size())
-	var write_offset: int = 14
-	for field: PackedByteArray in [content, district, definitions]:
-		for byte: int in field:
-			payload[write_offset] = byte
-			write_offset += 1
-
-	return payload
+	return SessionAuthCodec.encode_handshake(
+		1,
+		{
+			"protocol_version": 1,
+			"content_id": content_id,
+			"district_id": &"brackett_island",
+			"topology_revision": 0,
+			"definition_set_id": "development",
+		},
+	)
 
 
 ## Leaves after ACTIVE was independently observable for at least one frame.

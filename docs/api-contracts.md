@@ -49,10 +49,13 @@ Handshake: `{protocol_version: int, content_id: string, district_id: WorldId,
 topology_revision: int, definition_set_id: string}`. Protocol starts at 1; require
 exact equality for M1, with no backward-compatible negotiation. Content/definition
 IDs are build-time fingerprints of required gameplay resources/bakes, bounded to
-128 bytes each; their generation is S06/M1 work. ENet admission encodes this identity in a fixed
-packed-byte request capped at 512 logical bytes; the host checks raw lengths and UTF-8 before
-`StringName` conversion, rate-limits requests per native peer and disconnects repeated abuse.
-Display version and engine version are diagnostic metadata, not compatibility. Unknown definitions
+128 bytes each; their generation is S06/M1 work. ENet admission uses `SceneMultiplayer`
+authentication, not an RPC: `auth_callback` receives a fixed raw `PackedByteArray`, `send_auth`
+returns the fixed verdict, and both sides call `complete_auth` only after acceptance. Unauthenticated
+peers therefore cannot dispatch RPCs. The request is capped at 512 logical bytes; the host checks raw
+lengths and UTF-8 before `StringName` conversion, rate-limits requests per transport peer and
+disconnects repeated abuse. Display version and engine version are diagnostic metadata, not
+compatibility. Unknown definitions
 or world IDs fail
 admission with `INCOMPATIBLE`/`CONTENT_INVALID`, never a fallback gameplay definition.
 
@@ -214,7 +217,9 @@ server creation and before `peer_ready`; that workaround is adapter-internal and
 change the lossy contract of channels 2/3.
 
 `TransportCapabilities = {available, identity_assurance, streams,
-max_receive_packet_bytes, route_diagnostics_available, failure?}`. Identity assurance is
+max_receive_packet_bytes, native_receive_packet_limit_available, max_auth_payload_bytes,
+route_diagnostics_available, failure?}`. A zero receive limit means unknown/unavailable, not
+unbounded safety. Identity assurance is
 `NONE | PROVIDER_AUTHENTICATED`; ENet uses `NONE`, while any later account-targeted adapter
 must authenticate the expected provider identity before emitting `connected`. Each stream
 row is `{channel, delivery, queue_policy, max_logical_payload_bytes}`. M1 requires exactly:
@@ -227,7 +232,13 @@ row is `{channel, delivery, queue_policy, max_logical_payload_bytes}`. M1 requir
 | 3 movement | `UNRELIABLE_ORDERED` | `REPLACEABLE_LOSSY` | 1200 bytes |
 
 Limits describe tested logical-message support including audited peer framing; they are
-not native MTUs, fragment ceilings or decoder-allocation guarantees. The adapter must
+not native MTUs, fragment ceilings or decoder-allocation guarantees. Godot 4.8-dev7 exposes no
+configurable ENet receive/reassembly or native packet-size ceiling through `ENetMultiplayerPeer`,
+`ENetConnection` or `ENetPacketPeer`; ENet reports that native limit as unavailable. The 512-byte
+auth cap is enforced on raw `PackedByteArray` data before Variant/RPC decoding, but after native ENet
+receive and reassembly. A substantially oversized native packet can therefore consume native receive
+resources before application rejection; this is a residual release risk rather than a claimed
+transport bound. The adapter must
 reject aliasing, reliable substitution, unsupported modes and oversize packets instead
 of silently falling back. Provider-specific native lanes and sequence filtering remain
 inside the adapter. Native message numbers never acknowledge simulation, durable state

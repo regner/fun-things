@@ -9,9 +9,8 @@ signal standalone_started(operation_id: int, district_id: StringName)
 const CLOSE_TIMEOUT_SECONDS: float = 5.0
 const CONNECTION_TIMEOUT_SECONDS: float = 15.0
 const HANDSHAKE_TIMEOUT_SECONDS: float = 5.0
-const MAX_ID_BYTES: int = 128
-const MAX_HANDSHAKE_LOGICAL_BYTES: int = 512
-const HANDSHAKE_HEADER_BYTES: int = 14
+const MAX_ID_BYTES: int = SessionAuthCodec.MAX_ID_BYTES
+const MAX_HANDSHAKE_LOGICAL_BYTES: int = SessionAuthCodec.MAX_HANDSHAKE_LOGICAL_BYTES
 const HANDSHAKE_REQUESTS_PER_WINDOW: int = 2
 const HANDSHAKE_REQUEST_WINDOW_SECONDS: float = 1.0
 const HANDSHAKE_ABUSE_DISCONNECT_COUNT: int = 3
@@ -367,6 +366,13 @@ func _complete(source_operation_id: int, result: Dictionary) -> void:
 	completed.emit(source_operation_id, result.duplicate(true))
 
 
+## Configures raw authentication before an ENet peer can dispatch RPCs.
+func _configure_authentication() -> void:
+	var scene_multiplayer := multiplayer as SceneMultiplayer
+	scene_multiplayer.auth_timeout = handshake_timeout_seconds
+	scene_multiplayer.auth_callback = _on_auth_payload
+
+
 ## Attaches only a current peer and waits for connectivity before client admission.
 func _on_peer_ready(source_operation_id: int, peer: MultiplayerPeer) -> void:
 	if (
@@ -381,6 +387,7 @@ func _on_peer_ready(source_operation_id: int, peer: MultiplayerPeer) -> void:
 
 		return
 
+	_configure_authentication()
 	multiplayer.multiplayer_peer = peer
 	if _operation.kind == OPERATION_HOST:
 		_identity.session_id = Crypto.new().generate_random_bytes(16).hex_encode()
@@ -420,7 +427,11 @@ func _on_transport_connected(
 	_operation.phase = PHASE_NEGOTIATING
 	_operation.deadline_seconds = _now_seconds() + handshake_timeout_seconds
 	_emit_changed()
-	_request_admission.rpc_id(1, _operation.id, _encode_handshake(_compatibility))
+	var send_error: Error = (multiplayer as SceneMultiplayer).send_auth(
+		1, SessionAuthCodec.encode_handshake(_operation.id, _compatibility)
+	)
+	if send_error != OK:
+		_begin_close(_make_failure(&"CONNECT_FAILED", true))
 
 
 ## Releases a host reservation or closes a client after native disconnection.
@@ -478,95 +489,37 @@ func _on_transport_closed(source_operation_id: int, result: Dictionary) -> void:
 	_finish_close()
 
 
-## Validates one sender-derived bounded wire handshake before admission mutation.
-@rpc("any_peer", "call_remote", "reliable", 0)
-func _request_admission(client_operation_id: int, handshake: PackedByteArray) -> void:
-	var sender_peer_id: int = multiplayer.get_remote_sender_id()
-	if _operation.kind != OPERATION_HOST or _operation.phase != PHASE_ACTIVE:
+## Routes raw authentication bytes before peers gain access to RPC dispatch.
+func _on_auth_payload(peer_id: int, payload: PackedByteArray) -> void:
+	if _operation.kind == OPERATION_HOST and _operation.phase == PHASE_ACTIVE:
+		_handle_host_auth_payload(peer_id, payload)
 		return
-	if not _is_current_handshake_sender(sender_peer_id):
+	if _operation.kind == OPERATION_JOIN and _operation.phase == PHASE_NEGOTIATING:
+		if peer_id == 1:
+			_apply_auth_verdict(payload)
+		else:
+			_ignored_callback_count += 1
+
+
+## Validates one sender-derived bounded authentication payload before admission mutation.
+func _handle_host_auth_payload(peer_id: int, payload: PackedByteArray) -> void:
+	if not _is_current_handshake_sender(peer_id):
 		_ignored_callback_count += 1
 		return
-	if _host_state.blocked_peers.has(sender_peer_id):
+	if _host_state.blocked_peers.has(peer_id):
 		return
-	if not _consume_handshake_request(sender_peer_id):
-		return
-
-	var candidate: Dictionary = _decode_handshake(handshake)
-	if candidate.is_empty():
-		_record_handshake_abuse(sender_peer_id)
+	if not _consume_handshake_request(peer_id):
 		return
 
-	_evaluate_admission(sender_peer_id, client_operation_id, candidate)
+	var decoded: Dictionary = SessionAuthCodec.decode_handshake(payload)
+	if decoded.is_empty():
+		_record_handshake_abuse(peer_id)
+		return
+
+	_evaluate_admission(peer_id, decoded.client_operation_id, decoded.compatibility)
 
 
-## Encodes the three bounded UTF-8 identities into the fixed handshake wire shape.
-func _encode_handshake(compatibility: Dictionary) -> PackedByteArray:
-	var content: PackedByteArray = String(compatibility.content_id).to_utf8_buffer()
-	var district: PackedByteArray = String(compatibility.district_id).to_utf8_buffer()
-	var definitions: PackedByteArray = String(compatibility.definition_set_id).to_utf8_buffer()
-	var payload := PackedByteArray()
-	payload.resize(HANDSHAKE_HEADER_BYTES + content.size() + district.size() + definitions.size())
-	payload.encode_u32(0, compatibility.protocol_version)
-	payload.encode_u32(4, compatibility.topology_revision)
-	payload.encode_u16(8, content.size())
-	payload.encode_u16(10, district.size())
-	payload.encode_u16(12, definitions.size())
-	var write_offset: int = HANDSHAKE_HEADER_BYTES
-	for field: PackedByteArray in [content, district, definitions]:
-		for byte: int in field:
-			payload[write_offset] = byte
-			write_offset += 1
-
-	return payload
-
-
-## Decodes only an exact bounded payload, validating bytes before StringName allocation.
-func _decode_handshake(payload: PackedByteArray) -> Dictionary:
-	if payload.size() < HANDSHAKE_HEADER_BYTES or payload.size() > MAX_HANDSHAKE_LOGICAL_BYTES:
-		return {}
-
-	var content_size: int = payload.decode_u16(8)
-	var district_size: int = payload.decode_u16(10)
-	var definition_size: int = payload.decode_u16(12)
-	var field_sizes: Array[int] = [content_size, district_size, definition_size]
-	for field_size: int in field_sizes:
-		if field_size < 1 or field_size > MAX_ID_BYTES:
-			return {}
-	if payload.size() != HANDSHAKE_HEADER_BYTES + content_size + district_size + definition_size:
-		return {}
-
-	var fields: Array[String] = []
-	var read_offset: int = HANDSHAKE_HEADER_BYTES
-	for field_size: int in field_sizes:
-		var raw: PackedByteArray = payload.slice(read_offset, read_offset + field_size)
-		var decoded: String = raw.get_string_from_utf8()
-		if decoded.is_empty() or decoded.to_utf8_buffer() != raw:
-			return {}
-
-		fields.append(decoded)
-		read_offset += field_size
-
-	var protocol_version: int = payload.decode_u32(0)
-	var topology_revision: int = payload.decode_u32(4)
-	if (
-		protocol_version < 1
-		or protocol_version > MAX_WIRE_INTEGER
-		or topology_revision < 0
-		or topology_revision > MAX_WIRE_INTEGER
-	):
-		return {}
-
-	return {
-		"protocol_version": protocol_version,
-		"content_id": fields[0],
-		"district_id": StringName(fields[1]),
-		"topology_revision": topology_revision,
-		"definition_set_id": fields[2],
-	}
-
-
-## Confirms an RPC sender still maps to this host operation and token generation.
+## Confirms an authentication sender still maps to this host operation and token generation.
 func _is_current_handshake_sender(sender_peer_id: int) -> bool:
 	if sender_peer_id <= 1 or not _host_state.token_by_peer.has(sender_peer_id):
 		return false
@@ -578,7 +531,7 @@ func _is_current_handshake_sender(sender_peer_id: int) -> bool:
 	)
 
 
-## Applies a fixed per-peer request window before decoding any handshake payload.
+## Applies a fixed per-peer request window before decoding any authentication payload.
 func _consume_handshake_request(sender_peer_id: int) -> bool:
 	var record: Dictionary = _host_state.handshake_requests.get(sender_peer_id, {})
 	if record.is_empty():
@@ -599,7 +552,7 @@ func _consume_handshake_request(sender_peer_id: int) -> bool:
 	return true
 
 
-## Counts malformed/rate-limited handshakes and disconnects repeated abuse once.
+## Counts malformed/rate-limited auth and disconnects repeated abuse once.
 func _record_handshake_abuse(sender_peer_id: int) -> void:
 	var record: Dictionary = _host_state.handshake_requests.get(sender_peer_id, {})
 	if record.is_empty():
@@ -612,7 +565,7 @@ func _record_handshake_abuse(sender_peer_id: int) -> void:
 
 	_host_state.blocked_peers[sender_peer_id] = true
 	_host_state.pending_deadlines.erase(sender_peer_id)
-	multiplayer.multiplayer_peer.disconnect_peer(sender_peer_id)
+	(multiplayer as SceneMultiplayer).disconnect_peer(sender_peer_id)
 
 
 ## Allocates or rejects one participant after compatibility and duplicate checks.
@@ -648,62 +601,65 @@ func _evaluate_admission(
 	_emit_changed()
 
 
-## Sends one fixed-shape admission verdict on the reliable session channel.
+## Sends one fixed raw admission verdict and completes successful host authentication.
 func _send_admission(
 	peer_id: int,
 	client_operation_id: int,
 	failure_code: StringName,
 	participant_id: int,
 ) -> void:
-	_receive_admission.rpc_id(
+	var scene_multiplayer := multiplayer as SceneMultiplayer
+	var send_error: Error = scene_multiplayer.send_auth(
 		peer_id,
-		client_operation_id,
-		[
-			failure_code == &"",
-			String(failure_code),
+		SessionAuthCodec.encode_verdict(
+			client_operation_id,
+			failure_code,
 			participant_id,
-			_identity.session_id if failure_code == &"" else "",
 			_host_state.capacity,
-		],
+			_identity.session_id,
+		),
 	)
+	if send_error != OK:
+		scene_multiplayer.disconnect_peer(peer_id)
+		return
+	if failure_code == &"":
+		var complete_error: Error = scene_multiplayer.complete_auth(peer_id)
+		if complete_error != OK:
+			scene_multiplayer.disconnect_peer(peer_id)
 
 
-## Applies a host verdict only to the current negotiating client operation.
-@rpc("authority", "call_remote", "reliable", 0)
-func _receive_admission(client_operation_id: int, verdict: Array) -> void:
-	if (
-		_operation.kind != OPERATION_JOIN
-		or _operation.phase != PHASE_NEGOTIATING
-		or client_operation_id != _operation.id
-		or verdict.size() != 5
-	):
+## Applies a host auth verdict only to the current negotiating client operation.
+func _apply_auth_verdict(payload: PackedByteArray) -> void:
+	var verdict: Dictionary = SessionAuthCodec.decode_verdict(payload)
+	if verdict.is_empty():
+		_begin_close(_make_failure(&"INCOMPATIBLE", false))
+		return
+	if verdict.client_operation_id != _operation.id:
 		_ignored_callback_count += 1
 		return
-
-	var admitted: Variant = verdict[0]
-	var failure_code: Variant = verdict[1]
-	var participant_id: Variant = verdict[2]
-	var session_id: Variant = verdict[3]
-	var capacity: Variant = verdict[4]
-	if admitted is not bool or failure_code is not String:
-		_begin_close(_make_failure(&"INCOMPATIBLE", false))
+	if not verdict.admitted:
+		_apply_admission_failure(String(verdict.failure_code))
 		return
-	if not admitted:
-		_apply_admission_failure(failure_code)
-		return
-	if not _valid_admission_identity(participant_id, session_id, capacity):
+	if not _valid_admission_identity(
+		verdict.participant_id, verdict.session_id, verdict.capacity
+	):
 		_begin_close(_make_failure(&"INCOMPATIBLE", false))
 		return
 
-	_identity.local_participant_id = participant_id
-	_identity.session_id = session_id
-	_host_state.capacity = capacity
-	_host_state.roster_by_participant[participant_id] = _roster_row(
-		participant_id, "Local player"
+	var complete_error: Error = (multiplayer as SceneMultiplayer).complete_auth(1)
+	if complete_error != OK:
+		_begin_close(_make_failure(&"CONNECT_FAILED", true))
+		return
+
+	_identity.local_participant_id = verdict.participant_id
+	_identity.session_id = verdict.session_id
+	_host_state.capacity = verdict.capacity
+	_host_state.roster_by_participant[verdict.participant_id] = _roster_row(
+		verdict.participant_id, "Local player"
 	)
 	_operation.phase = PHASE_ACTIVE
 	_operation.deadline_seconds = 0.0
-	_complete(client_operation_id, { "ok": true, "view": view() })
+	_complete(verdict.client_operation_id, { "ok": true, "view": view() })
 	_emit_changed()
 
 
@@ -741,7 +697,7 @@ func _expire_pending_peers(now_seconds: float) -> void:
 
 		_host_state.pending_deadlines.erase(peer_id)
 		if _host_state.token_by_peer.has(peer_id):
-			multiplayer.multiplayer_peer.disconnect_peer(peer_id)
+			(multiplayer as SceneMultiplayer).disconnect_peer(peer_id)
 
 
 ## Delays rejection disconnect long enough for its reliable verdict to flush.
@@ -752,7 +708,7 @@ func _disconnect_rejected_peer(peer_id: int) -> void:
 		and _operation.phase == PHASE_ACTIVE
 		and _host_state.token_by_peer.has(peer_id)
 	):
-		multiplayer.multiplayer_peer.disconnect_peer(peer_id)
+		(multiplayer as SceneMultiplayer).disconnect_peer(peer_id)
 
 
 ## Confirms operation and opaque token generation before any callback mutation.
@@ -784,9 +740,10 @@ func _disconnect_transport(transport: SessionTransport) -> void:
 		transport.closed.disconnect(_on_transport_closed)
 
 
-## Replaces any native peer before provider cleanup can publish completion.
+## Replaces any native peer and removes its authentication callback.
 func _detach_peer() -> void:
 	multiplayer.multiplayer_peer = OfflineMultiplayerPeer.new()
+	(multiplayer as SceneMultiplayer).auth_callback = Callable()
 
 
 ## Clears identities, roster, and connection mappings at the teardown boundary.

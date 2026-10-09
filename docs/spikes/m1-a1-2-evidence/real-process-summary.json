@@ -4,7 +4,7 @@
   "cases": {
     "admitted_leave": {
       "ok": true,
-      "elapsed_seconds": 4.251,
+      "elapsed_seconds": 4.274,
       "exits": {
         "client": 0,
         "host": 0
@@ -12,7 +12,7 @@
     },
     "incompatible_protocol": {
       "ok": true,
-      "elapsed_seconds": 2.578,
+      "elapsed_seconds": 2.523,
       "exits": {
         "client": 0,
         "host": 0
@@ -20,7 +20,7 @@
     },
     "invalid_content": {
       "ok": true,
-      "elapsed_seconds": 2.578,
+      "elapsed_seconds": 2.686,
       "exits": {
         "client": 0,
         "host": 0
@@ -28,7 +28,7 @@
     },
     "session_full": {
       "ok": true,
-      "elapsed_seconds": 3.684,
+      "elapsed_seconds": 3.834,
       "exits": {
         "client_two": 0,
         "client_one": 0,
@@ -37,7 +37,7 @@
     },
     "host_loss": {
       "ok": true,
-      "elapsed_seconds": 2.681,
+      "elapsed_seconds": 3.01,
       "exits": {
         "client": 0,
         "host": 0
@@ -45,38 +45,41 @@
     },
     "oversized_handshake_byte_array": {
       "ok": true,
-      "elapsed_seconds": 3.219,
+      "elapsed_seconds": 4.339,
       "exits": {
-        "client": 0,
+        "attacker": 0,
+        "probe": 0,
         "host": 0
       }
     },
     "oversized_handshake_string": {
       "ok": true,
-      "elapsed_seconds": 3.261,
+      "elapsed_seconds": 4.274,
       "exits": {
-        "client": 0,
+        "attacker": 0,
+        "probe": 0,
         "host": 0
       }
     },
     "repeated_handshake": {
       "ok": true,
-      "elapsed_seconds": 3.238,
+      "elapsed_seconds": 4.279,
       "exits": {
-        "client": 0,
+        "attacker": 0,
+        "probe": 0,
         "host": 0
       }
     },
     "cancel_connect": {
       "ok": true,
-      "elapsed_seconds": 0.733,
+      "elapsed_seconds": 0.722,
       "exits": {
         "client": 0
       }
     },
     "unreachable": {
       "ok": true,
-      "elapsed_seconds": 1.469,
+      "elapsed_seconds": 1.41,
       "exits": {
         "client": 0
       }

@@ -15,6 +15,15 @@ res://tests/unit/session/test_enet_transport.gd
 2/2 passed.
 
 
+res://tests/unit/session/test_session_auth_codec.gd
+* test_valid_handshake_round_trips
+* test_oversized_handshakes_are_rejected
+* test_invalid_utf8_is_rejected
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (ff)
+* test_admission_verdicts_round_trip
+4/4 passed.
+
+
 res://tests/unit/session/test_session_service.gd
 * test_standalone_reaches_active_and_completes_once
 * test_cancel_late_callback_and_retry_are_correlated
@@ -43,11 +52,11 @@ res://tests/unit/session/test_session_ui.gd
 
 Totals
 ------
-Scripts               3
-Tests                14
-Passing Tests        14
-Asserts             116
-Time              1.375s
+Scripts               4
+Tests                18
+Passing Tests        18
+Asserts             129
+Time              1.382s
 
 
 ---- All tests passed! ----

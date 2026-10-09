@@ -20,10 +20,10 @@ var _token_by_peer: Dictionary[int, int] = {}
 
 ## Connects process-lifetime multiplayer callbacks before a peer is published.
 func _ready() -> void:
-	multiplayer.connected_to_server.connect(_on_connected_to_server)
+	multiplayer.peer_authenticating.connect(_on_peer_authenticating)
+	multiplayer.peer_authentication_failed.connect(_on_peer_authentication_failed)
 	multiplayer.connection_failed.connect(_on_connection_failed)
 	multiplayer.server_disconnected.connect(_on_server_disconnected)
-	multiplayer.peer_connected.connect(_on_peer_connected)
 	multiplayer.peer_disconnected.connect(_on_peer_disconnected)
 
 
@@ -42,7 +42,9 @@ func capabilities() -> Dictionary:
 	return {
 		"available": is_available(),
 		"identity_assurance": &"NONE",
-		"max_receive_packet_bytes": 16 * 1024,
+		"max_receive_packet_bytes": 0,
+		"native_receive_packet_limit_available": false,
+		"max_auth_payload_bytes": 512,
 		"route_diagnostics_available": false,
 		"streams": [
 			_stream(0, &"RELIABLE_ORDERED", &"DURABLE", 4096),
@@ -186,13 +188,28 @@ func bandwidth_workaround_applied() -> bool:
 	return _workaround_applied
 
 
-## Emits the client connection with a generation-scoped opaque token.
-func _on_connected_to_server() -> void:
-	if _peer == null or _role != &"CLIENT":
+## Publishes one unauthenticated native peer with a generation-scoped token.
+func _on_peer_authenticating(peer_id: int) -> void:
+	if _peer == null:
 		return
 
-	var connection_token: int = _allocate_connection_token(1)
-	connected.emit(_operation_id, connection_token, 1)
+	var connection_token: int = _allocate_connection_token(peer_id)
+	connected.emit(_operation_id, connection_token, peer_id)
+
+
+## Releases a peer rejected by SceneMultiplayer authentication.
+func _on_peer_authentication_failed(peer_id: int) -> void:
+	if _peer == null or not _token_by_peer.has(peer_id):
+		return
+
+	var connection_token: int = _token_by_peer[peer_id]
+	disconnected.emit(
+		_operation_id,
+		connection_token,
+		peer_id,
+		_failure_record(&"HANDSHAKE_TIMEOUT", true),
+	)
+	_token_by_peer.erase(peer_id)
 
 
 ## Normalizes a refused or unreachable native client attempt.
@@ -205,10 +222,10 @@ func _on_connection_failed() -> void:
 
 ## Ends a client session when its authoritative host disappears.
 func _on_server_disconnected() -> void:
-	if _peer == null or _role != &"CLIENT":
+	if _peer == null or _role != &"CLIENT" or not _token_by_peer.has(1):
 		return
 
-	var connection_token: int = _token_by_peer.get(1, -1)
+	var connection_token: int = _token_by_peer[1]
 	disconnected.emit(
 		_operation_id,
 		connection_token,
@@ -218,21 +235,12 @@ func _on_server_disconnected() -> void:
 	_token_by_peer.erase(1)
 
 
-## Publishes one host-observed native peer without assigning gameplay identity.
-func _on_peer_connected(peer_id: int) -> void:
-	if _peer == null or _role != &"HOST":
-		return
-
-	var connection_token: int = _allocate_connection_token(peer_id)
-	connected.emit(_operation_id, connection_token, peer_id)
-
-
 ## Publishes host-side peer loss so SessionService can release its reservation.
 func _on_peer_disconnected(peer_id: int) -> void:
-	if _peer == null or _role != &"HOST":
+	if _peer == null or _role != &"HOST" or not _token_by_peer.has(peer_id):
 		return
 
-	var connection_token: int = _token_by_peer.get(peer_id, -1)
+	var connection_token: int = _token_by_peer[peer_id]
 	disconnected.emit(
 		_operation_id,
 		connection_token,

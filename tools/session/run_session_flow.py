@@ -251,15 +251,25 @@ class SessionFlowRunner:
         return self.settle([client, host])
 
     def case_handshake_abuse(self, case, behavior):
-        """Send malformed or repeated production RPCs and require host removal."""
+        """Reject raw unauthenticated abuse, then admit a healthy probe client."""
         port = self.allocate_port()
-        host = self.host(case, port, duration_ms=2500)
-        client = self.client(case, "client", port, behavior=behavior)
-        client.wait_event(self.active, 3.0)
-        terminal = client.wait_event(self.finished, 3.0)
-        if not terminal.get("ok") or terminal.get("failure") != "HOST_LOST":
+        host = self.host(case, port, duration_ms=3500)
+        attacker = self.client(case, "attacker", port, behavior=behavior)
+        sent = attacker.wait_event(
+            lambda event: event.get("event") == "auth_payload_sent", 3.0
+        )
+        if behavior == "oversized_byte_array" and sent.get("bytes", 0) < 65536:
+            raise RuntimeError(f"{case}: oversized auth payload was not sent")
+        terminal = attacker.wait_event(self.finished, 3.0)
+        if not terminal.get("ok") or terminal.get("failure") != "AUTH_REJECTED":
             raise RuntimeError(f"{case}: {terminal}")
-        return self.settle([client, host])
+
+        probe = self.client(case, "probe", port, behavior="leave")
+        probe.wait_event(self.active, 3.0)
+        probe_terminal = probe.wait_event(self.finished, 3.0)
+        if not probe_terminal.get("ok") or probe_terminal.get("failure"):
+            raise RuntimeError(f"{case}: host health probe failed: {probe_terminal}")
+        return self.settle([attacker, probe, host])
 
     def case_cancel_connect(self):
         """Cancel an unreachable in-flight client before its connection deadline."""
