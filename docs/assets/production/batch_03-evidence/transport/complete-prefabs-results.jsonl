@@ -1,0 +1,6 @@
+{"method":"game.stop","result":{"id":1,"jsonrpc":"2.0","result":{"success":true,"was_running":false}}}
+{"method":"editor.refresh","result":{"id":2,"jsonrpc":"2.0","result":{"errors_cleared":18,"mode":"full","reloaded":0,"scan_waited_ms":612,"success":true}}}
+{"method":"editor.wait_for_idle","result":{"id":3,"jsonrpc":"2.0","result":{"success":true,"waited_ms":0,"was_scanning":false}}}
+{"method":"scene.open","result":{"id":4,"jsonrpc":"2.0","result":{"path":"res://scenes/prefabs/environment/city_shop_fittings_08.tscn","success":true}}}
+{"method":"node.set_script","result":{"id":5,"jsonrpc":"2.0","result":{"path":".","properties":[],"script":"res://tools/asset_production/integration/inspector.gd","success":true}}}
+{"method":"node.call_method","result":{"id":6,"jsonrpc":"2.0","result":{"method":"build_static","path":".","result":{},"success":true}}}

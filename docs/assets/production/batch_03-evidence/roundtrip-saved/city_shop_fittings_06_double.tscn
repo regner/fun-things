@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://c0njcayl2261o"]
+
+[ext_resource type="PackedScene" uid="uid://c2qwavc6nt21c" path="res://art/models/environment/city_shop_fittings_06/city_shop_fittings_06_double.glb" id="1_ekcok"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ekcok"]
+size = Vector3(0.908, 2.202, 0.045)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_v0u6q"]
+size = Vector3(0.908, 2.202, 0.045)
+
+[node name="city_shop_fittings_06_double" type="Node3D" unique_id=2021808555]
+
+[node name="Visuals" type="Node3D" parent="." unique_id=1931058678]
+
+[node name="Model" parent="Visuals" unique_id=1589037042 instance=ExtResource("1_ekcok")]
+
+[node name="Collision" type="Node3D" parent="." unique_id=1532202488]
+
+[node name="Body" type="StaticBody3D" parent="Collision" unique_id=1141454653]
+collision_mask = 0
+
+[node name="Shape0" type="CollisionShape3D" parent="Collision/Body" unique_id=518503194]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.458, 1.131, 0.4525)
+shape = SubResource("BoxShape3D_ekcok")
+
+[node name="Shape1" type="CollisionShape3D" parent="Collision/Body" unique_id=1971458137]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.458, 1.131, 0.4525)
+shape = SubResource("BoxShape3D_v0u6q")

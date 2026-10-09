@@ -1,0 +1,42 @@
+[gd_scene format=3 uid="uid://bivmh70n4vcpd"]
+
+[ext_resource type="PackedScene" uid="uid://bsyw5afxrhg20" path="res://scenes/prefabs/player_character/preview.tscn" id="1"]
+[ext_resource type="Script" uid="uid://bbcg0fryb0rti" path="res://tests/fixtures/asset_production/batch_03_observation.gd" id="2_1ta6u"]
+[ext_resource type="PackedScene" uid="uid://c5f38dwws3tw7" path="res://tests/fixtures/asset_production/batch_03_frontage.tscn" id="3_s2ffk"]
+[ext_resource type="PackedScene" uid="uid://ctp2hp6c84jnj" path="res://tests/fixtures/asset_production/batch_03_upper_wall.tscn" id="4_t4g44"]
+[ext_resource type="PackedScene" uid="uid://8lks7nm4c64g" path="res://scenes/prefabs/environment/city_shop_fittings_07.tscn" id="5_xvtm7"]
+[ext_resource type="PackedScene" uid="uid://c4twupsmyptwp" path="res://scenes/prefabs/environment/city_shop_fittings_03_double.tscn" id="6_epdp5"]
+[ext_resource type="PackedScene" uid="uid://c0njcayl2261o" path="res://scenes/prefabs/environment/city_shop_fittings_06_double.tscn" id="7_nc0tn"]
+[ext_resource type="PackedScene" uid="uid://dl05tre3pd6e0" path="res://tests/fixtures/s02/actor.tscn" id="8_0nv8s"]
+[ext_resource type="Script" uid="uid://do25kfajpfdwc" path="res://tests/fixtures/s02/aim_probe.gd" id="10_gl3wb"]
+
+[node name="preview" unique_id=1558730228 instance=ExtResource("1")]
+script = ExtResource("2_1ta6u")
+
+[node name="Courier" parent="." index="0" unique_id=1839496001]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.95, 0, -9.6)
+
+[node name="GameCamera" parent="." index="6" unique_id=1677099671]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 47, -3)
+current = true
+
+[node name="Frontage" parent="." index="8" unique_id=106478947 instance=ExtResource("3_s2ffk")]
+
+[node name="UpperWall" parent="." index="9" unique_id=2075951448 instance=ExtResource("4_t4g44")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 0, -7)
+
+[node name="UpperWindow" parent="." index="10" unique_id=1073076605 instance=ExtResource("5_xvtm7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 4.65, -7)
+
+[node name="DoubleSurround" parent="." index="11" unique_id=216806548 instance=ExtResource("6_epdp5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 0, -7)
+
+[node name="DoubleLeaves" parent="." index="12" unique_id=2021808555 instance=ExtResource("7_nc0tn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 0, -7)
+
+[node name="ProbeActor" parent="." index="13" unique_id=987036009 instance=ExtResource("8_0nv8s")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.95, 0, -10)
+visible = false
+
+[node name="AimProbe" type="Node" parent="." index="14" unique_id=1002311872]
+script = ExtResource("10_gl3wb")

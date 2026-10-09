@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://8lks7nm4c64g"]
+
+[ext_resource type="PackedScene" uid="uid://uangmwqvm65p" path="res://art/models/environment/city_shop_fittings_07/city_shop_fittings_07.glb" id="1_x5hnr"]
+
+[node name="city_shop_fittings_07" type="Node3D" unique_id=1073076605]
+
+[node name="Visuals" type="Node3D" parent="." unique_id=735668854]
+
+[node name="Model" parent="Visuals" unique_id=510584582 instance=ExtResource("1_x5hnr")]

@@ -1,0 +1,10 @@
+file:///home/regner/.paseo/worktrees/0u71f39f/asset-register-production/tools/asset_production/integration/editor_client.mjs:36
+    const timer = setTimeout(() => reject(new Error(`Timeout: ${request.method}`)), 45000);
+                                          ^
+
+Error: Timeout: editor.screenshot
+    at Timeout._onTimeout (file:///home/regner/.paseo/worktrees/0u71f39f/asset-register-production/tools/asset_production/integration/editor_client.mjs:36:43)
+    at listOnTimeout (node:internal/timers:685:17)
+    at process.processTimers (node:internal/timers:618:7)
+
+Node.js v26.11.1

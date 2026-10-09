@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://c5f38dwws3tw7"]
+
+[ext_resource type="PackedScene" uid="uid://dt13kdefgxvyd" path="res://scenes/prefabs/environment/city_small_shop_shells_01.tscn" id="1_oc3g5"]
+[ext_resource type="PackedScene" uid="uid://c1d8t0k7tqrw3" path="res://scenes/prefabs/environment/city_shop_fittings_03_single.tscn" id="2_xpwem"]
+[ext_resource type="PackedScene" uid="uid://2gvcu7e3yq53" path="res://scenes/prefabs/environment/city_shop_fittings_06_single.tscn" id="3_c2br8"]
+[ext_resource type="PackedScene" uid="uid://drtqegqkmfgp2" path="res://scenes/prefabs/environment/city_shop_fittings_05.tscn" id="4_y01bx"]
+[ext_resource type="PackedScene" uid="uid://bsh8gy3l470g1" path="res://scenes/prefabs/environment/city_shop_fittings_01.tscn" id="5_lm4t4"]
+[ext_resource type="PackedScene" uid="uid://fpcm6q4n57qx" path="res://scenes/prefabs/environment/city_shop_fittings_02.tscn" id="6_xql6l"]
+[ext_resource type="PackedScene" uid="uid://drktfqcsvn00p" path="res://scenes/prefabs/environment/city_shop_fittings_08.tscn" id="7_6qpfs"]
+
+[node name="batch_03_frontage" type="Node3D" unique_id=106478947]
+
+[node name="Shell" parent="." unique_id=1348708954 instance=ExtResource("1_oc3g5")]
+
+[node name="Entrance" parent="." unique_id=1803408686 instance=ExtResource("2_xpwem")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.95, 0, -7)
+
+[node name="Door" parent="." unique_id=1617065666 instance=ExtResource("3_c2br8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.95, 0, -7)
+
+[node name="Window" parent="." unique_id=978869094 instance=ExtResource("4_y01bx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.95, 0.48, -7)
+
+[node name="Canopy" parent="." unique_id=1858841794 instance=ExtResource("5_lm4t4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.95, 3, -7)
+
+[node name="Fascia" parent="." unique_id=308066633 instance=ExtResource("6_xql6l")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.95, 3.8, -7)
+
+[node name="Blade" parent="." unique_id=1779234172 instance=ExtResource("7_6qpfs")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 3.45, -7)

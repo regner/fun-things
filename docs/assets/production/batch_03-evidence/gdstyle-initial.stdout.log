@@ -1,0 +1,51 @@
+tests/fixtures/asset_production/batch_03_observation.gd
+  9:101 warning line is 104 characters long (max 100) [format/max-line-length]
+      const CASES: Array[String] = ["closed_leaf", "shell_wall", "display_pane", "side_clear", "canopy_under"]
+                                                                                                          ^
+  55:28 warning add space after '{' in single-line dictionary literal [format/brace-spacing]
+      	outcomes[CASES[_phase]] = {"passed": passed, "position": [p.x, p.y, p.z]}
+      	                          ^
+  55:74 warning add space before '}' in single-line dictionary literal [format/brace-spacing]
+      	outcomes[CASES[_phase]] = {"passed": passed, "position": [p.x, p.y, p.z]}
+      	                                                                        ^
+  117:14 warning add space after '{' in single-line dictionary literal [format/brace-spacing]
+      	_actor.step({"move": Vector2.ZERO, "aim_yaw": PI, "fire": false}, 1.0 / 60.0)
+      	            ^
+  117:65 warning add space before '}' in single-line dictionary literal [format/brace-spacing]
+      	_actor.step({"move": Vector2.ZERO, "aim_yaw": PI, "fire": false}, 1.0 / 60.0)
+      	                                                               ^
+
+tests/fixtures/asset_production/batch_03_process_probe.gd
+  6:101 warning line is 120 characters long (max 100) [format/max-line-length]
+      const STARTS: Array[Vector3] = [Vector3(1.95, 0, -10), Vector3(-2.9, 0, -10), Vector3(-.95, 0, -10), Vector3(4, 0, -10)]
+                                                                                                          ^
+
+tools/asset_production/integration/batch03_author.gd
+  8:1 warning function 'collision_boxes' is 53 lines long (max 50) [quality/max-function-length]
+      func collision_boxes(kind: String) -> Dictionary:  # gdstyle:ignore=quality/max-local-variables
+      ^
+  59:9 warning add space after '{' in single-line dictionary literal [format/brace-spacing]
+      	return {"kind": kind, "bounds_xyz": boxes, "count": boxes.size()}
+      	       ^
+  59:66 warning add space before '}' in single-line dictionary literal [format/brace-spacing]
+      	return {"kind": kind, "bounds_xyz": boxes, "count": boxes.size()}
+      	                                                                ^
+  78:101 warning line is 103 characters long (max 100) [format/max-line-length]
+      		var packed: PackedScene = load("res://scenes/prefabs/environment/" + paths[label][1] + ".tscn")
+      		                                                                                               ^
+  88:9 warning add space after '{' in single-line dictionary literal [format/brace-spacing]
+      	return {"mounts": rows}
+      	       ^
+  88:24 warning add space before '}' in single-line dictionary literal [format/brace-spacing]
+      	return {"mounts": rows}
+      	                      ^
+
+tools/asset_production/integration/inspector.gd
+  131:9 warning add space after '{' in single-line dictionary literal [format/brace-spacing]
+      	return {"resolved": resolved}
+      	       ^
+  131:30 warning add space before '}' in single-line dictionary literal [format/brace-spacing]
+      	return {"resolved": resolved}
+      	                            ^
+
+4 files checked, 14 warnings found.

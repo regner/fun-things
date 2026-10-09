@@ -1,0 +1,664 @@
+{
+  "passed": true,
+  "original_source": "028775618c4493ca672646e6e37fdc3c83e0e313",
+  "corrected_source": "4f11c54d4abf4aa77813a1cf8bcf885fd040b7c9",
+  "producer_payloads": 594,
+  "linked_variants": [
+    {
+      "name": "city_shop_fittings_02",
+      "bounds": [
+        [
+          -1.60000002384186,
+          -0.400000005960464,
+          -0.140000000596046
+        ],
+        [
+          1.60000002384186,
+          0.400000005960465,
+          0.0
+        ]
+      ],
+      "source": "res://art/models/environment/city_shop_fittings_02/city_shop_fittings_02.glb",
+      "material_count": 8
+    },
+    {
+      "name": "city_shop_fittings_03_single",
+      "bounds": [
+        [
+          -0.769999980926514,
+          0,
+          -0.109999999403954
+        ],
+        [
+          0.769999980926516,
+          2.48000001907349,
+          0.5199999958276746
+        ]
+      ],
+      "source": "res://art/models/environment/city_shop_fittings_03/city_shop_fittings_03_single.glb",
+      "material_count": 4
+    },
+    {
+      "name": "city_shop_fittings_03_double",
+      "bounds": [
+        [
+          -1.16999995708466,
+          0,
+          -0.109999999403954
+        ],
+        [
+          1.1699999570846502,
+          2.48000001907349,
+          0.5199999958276746
+        ]
+      ],
+      "source": "res://art/models/environment/city_shop_fittings_03/city_shop_fittings_03_double.glb",
+      "material_count": 4
+    },
+    {
+      "name": "city_shop_fittings_05",
+      "bounds": [
+        [
+          -1.60000002384186,
+          0,
+          -0.219999998807907
+        ],
+        [
+          1.60000002384186,
+          2,
+          0.18000000715255732
+        ]
+      ],
+      "source": "res://art/models/environment/city_shop_fittings_05/city_shop_fittings_05.glb",
+      "material_count": 8
+    },
+    {
+      "name": "city_shop_fittings_06_single",
+      "bounds": [
+        [
+          -0.512000024318695,
+          0.0299999993294477,
+          0.351999998092651
+        ],
+        [
+          0.512000024318695,
+          2.232000140473248,
+          0.4749999940395351
+        ]
+      ],
+      "source": "res://art/models/environment/city_shop_fittings_06/city_shop_fittings_06_single.glb",
+      "material_count": 3
+    },
+    {
+      "name": "city_shop_fittings_06_double",
+      "bounds": [
+        [
+          -0.912000000476837,
+          0.0299999993294477,
+          0.351999998092651
+        ],
+        [
+          0.9119999925605948,
+          2.232000140473248,
+          0.4749999940395351
+        ]
+      ],
+      "source": "res://art/models/environment/city_shop_fittings_06/city_shop_fittings_06_double.glb",
+      "material_count": 6
+    },
+    {
+      "name": "city_shop_fittings_07",
+      "bounds": [
+        [
+          -2.40000009536743,
+          0,
+          -0.150000005960464
+        ],
+        [
+          2.40000009536743,
+          1.60000002384186,
+          0.1599999964237217
+        ]
+      ],
+      "source": "res://art/models/environment/city_shop_fittings_07/city_shop_fittings_07.glb",
+      "material_count": 11
+    },
+    {
+      "name": "city_shop_fittings_08",
+      "bounds": [
+        [
+          -0.100000001490116,
+          -0.579999983310699,
+          -0.879999995231628
+        ],
+        [
+          0.100000001490116,
+          0.579999983310701,
+          0.0
+        ]
+      ],
+      "source": "res://art/models/environment/city_shop_fittings_08/city_shop_fittings_08.glb",
+      "material_count": 18
+    },
+    {
+      "name": "city_small_shop_shells_01",
+      "bounds": [
+        [
+          -3.20000004768372,
+          0,
+          -7.11999988555908
+        ],
+        [
+          3.200000047683721,
+          5.050000190734867,
+          7.219999790191652
+        ]
+      ],
+      "source": "res://art/models/environment/city_small_shop_shells_01/city_small_shop_shells_01.glb",
+      "material_count": 30
+    }
+  ],
+  "registered_identities": 25,
+  "byte_stable_roundtrips": 15,
+  "observations": [
+    {
+      "label": "native-final-recapture",
+      "motion": {
+        "canopy_under": {
+          "passed": true,
+          "position": [
+            6.00000095367432,
+            0,
+            -8.5
+          ]
+        },
+        "closed_leaf": {
+          "passed": true,
+          "position": [
+            1.95000004768372,
+            0,
+            -6.95052671432495
+          ]
+        },
+        "display_pane": {
+          "passed": true,
+          "position": [
+            -0.949999988079071,
+            0,
+            -7.41439437866211
+          ]
+        },
+        "shell_wall": {
+          "passed": true,
+          "position": [
+            -2.90000009536743,
+            0,
+            -7.38021469116211
+          ]
+        },
+        "side_clear": {
+          "passed": true,
+          "position": [
+            4,
+            0,
+            -1.50501728057861e-06
+          ]
+        }
+      },
+      "aim_hit": "/root/preview/Frontage/Door/Collision/Body",
+      "query_usec": 250,
+      "assembly": {
+        "blade_actor_headroom_m": 1.07000012397766,
+        "blade_bounds": {
+          "max": [
+            3.09999990463257,
+            4.03000020980835,
+            -7
+          ],
+          "min": [
+            2.90000009536743,
+            2.87000012397766,
+            -7.88000011444092
+          ]
+        },
+        "canopy_fascia_gap_m": 0.159999847412109,
+        "mounts": {
+          "Canopy": {
+            "bounds": {
+              "max": [
+                0.650000095367432,
+                3.24000000953674,
+                -7
+              ],
+              "min": [
+                -2.54999995231628,
+                2.57999992370605,
+                -8.10000038146973
+              ]
+            },
+            "marker_error_m": 0,
+            "model": "res://art/models/environment/city_shop_fittings_01/city_shop_fittings_01.glb",
+            "prefab": "res://scenes/prefabs/environment/city_shop_fittings_01.tscn"
+          },
+          "Door": {
+            "bounds": {
+              "max": [
+                2.46200013160706,
+                2.23200011253357,
+                -6.52500009536743
+              ],
+              "min": [
+                1.43799996376038,
+                0.0299999993294477,
+                -6.64799976348877
+              ]
+            },
+            "marker_error_m": 0,
+            "model": "res://art/models/environment/city_shop_fittings_06/city_shop_fittings_06_single.glb",
+            "prefab": "res://scenes/prefabs/environment/city_shop_fittings_06_single.tscn"
+          },
+          "Entrance": {
+            "bounds": {
+              "max": [
+                2.72000002861023,
+                2.48000001907349,
+                -6.48000001907349
+              ],
+              "min": [
+                1.1800000667572,
+                0,
+                -7.1100001335144
+              ]
+            },
+            "marker_error_m": 0,
+            "model": "res://art/models/environment/city_shop_fittings_03/city_shop_fittings_03_single.glb",
+            "prefab": "res://scenes/prefabs/environment/city_shop_fittings_03_single.tscn"
+          },
+          "Fascia": {
+            "bounds": {
+              "max": [
+                0.650000095367432,
+                4.19999980926514,
+                -7
+              ],
+              "min": [
+                -2.54999995231628,
+                3.39999985694885,
+                -7.1399998664856
+              ]
+            },
+            "marker_error_m": 0,
+            "model": "res://art/models/environment/city_shop_fittings_02/city_shop_fittings_02.glb",
+            "prefab": "res://scenes/prefabs/environment/city_shop_fittings_02.tscn"
+          },
+          "Window": {
+            "bounds": {
+              "max": [
+                0.650000095367432,
+                2.48000001907349,
+                -6.82000017166138
+              ],
+              "min": [
+                -2.54999995231628,
+                0.479999989271164,
+                -7.21999979019165
+              ]
+            },
+            "marker_error_m": 0,
+            "model": "res://art/models/environment/city_shop_fittings_05/city_shop_fittings_05.glb",
+            "prefab": "res://scenes/prefabs/environment/city_shop_fittings_05.tscn"
+          }
+        },
+        "passed": true,
+        "scope": "marker-linked narrow shell; upper window in separate compatible technical wall",
+        "upper_wall_model": "res://tests/fixtures/asset_production/batch_03_upper_wall.tscn",
+        "upper_wall_opening_xyz": [
+          -2.34,
+          2.34,
+          4.71,
+          6.19
+        ],
+        "upper_window_bounds": {
+          "max": [
+            11.3999996185303,
+            6.25,
+            -6.84000015258789
+          ],
+          "min": [
+            6.59999990463257,
+            4.65000009536743,
+            -7.15000009536743
+          ]
+        },
+        "window_canopy_gap_m": 0.0999999046325684
+      },
+      "medians_last_60": {
+        "draw_calls": 358.0,
+        "physics_s": 0.000377,
+        "primitives": 31812.0,
+        "process_s": 0.000152,
+        "video_bytes": 92159872.0
+      }
+    },
+    {
+      "label": "repeat-probe",
+      "motion": {
+        "canopy_under": {
+          "passed": true,
+          "position": [
+            6.00000095367432,
+            0,
+            -8.5
+          ]
+        },
+        "closed_leaf": {
+          "passed": true,
+          "position": [
+            1.95000004768372,
+            0,
+            -6.95052671432495
+          ]
+        },
+        "display_pane": {
+          "passed": true,
+          "position": [
+            -0.949999988079071,
+            0,
+            -7.41439437866211
+          ]
+        },
+        "shell_wall": {
+          "passed": true,
+          "position": [
+            -2.90000009536743,
+            0,
+            -7.38021469116211
+          ]
+        },
+        "side_clear": {
+          "passed": true,
+          "position": [
+            4,
+            0,
+            -1.50501728057861e-06
+          ]
+        }
+      },
+      "aim_hit": "/root/preview/Frontage/Door/Collision/Body",
+      "query_usec": 264,
+      "assembly": {
+        "blade_actor_headroom_m": 1.07000012397766,
+        "blade_bounds": {
+          "max": [
+            3.09999990463257,
+            4.03000020980835,
+            -7
+          ],
+          "min": [
+            2.90000009536743,
+            2.87000012397766,
+            -7.88000011444092
+          ]
+        },
+        "canopy_fascia_gap_m": 0.159999847412109,
+        "mounts": {
+          "Canopy": {
+            "bounds": {
+              "max": [
+                0.650000095367432,
+                3.24000000953674,
+                -7
+              ],
+              "min": [
+                -2.54999995231628,
+                2.57999992370605,
+                -8.10000038146973
+              ]
+            },
+            "marker_error_m": 0,
+            "model": "res://art/models/environment/city_shop_fittings_01/city_shop_fittings_01.glb",
+            "prefab": "res://scenes/prefabs/environment/city_shop_fittings_01.tscn"
+          },
+          "Door": {
+            "bounds": {
+              "max": [
+                2.46200013160706,
+                2.23200011253357,
+                -6.52500009536743
+              ],
+              "min": [
+                1.43799996376038,
+                0.0299999993294477,
+                -6.64799976348877
+              ]
+            },
+            "marker_error_m": 0,
+            "model": "res://art/models/environment/city_shop_fittings_06/city_shop_fittings_06_single.glb",
+            "prefab": "res://scenes/prefabs/environment/city_shop_fittings_06_single.tscn"
+          },
+          "Entrance": {
+            "bounds": {
+              "max": [
+                2.72000002861023,
+                2.48000001907349,
+                -6.48000001907349
+              ],
+              "min": [
+                1.1800000667572,
+                0,
+                -7.1100001335144
+              ]
+            },
+            "marker_error_m": 0,
+            "model": "res://art/models/environment/city_shop_fittings_03/city_shop_fittings_03_single.glb",
+            "prefab": "res://scenes/prefabs/environment/city_shop_fittings_03_single.tscn"
+          },
+          "Fascia": {
+            "bounds": {
+              "max": [
+                0.650000095367432,
+                4.19999980926514,
+                -7
+              ],
+              "min": [
+                -2.54999995231628,
+                3.39999985694885,
+                -7.1399998664856
+              ]
+            },
+            "marker_error_m": 0,
+            "model": "res://art/models/environment/city_shop_fittings_02/city_shop_fittings_02.glb",
+            "prefab": "res://scenes/prefabs/environment/city_shop_fittings_02.tscn"
+          },
+          "Window": {
+            "bounds": {
+              "max": [
+                0.650000095367432,
+                2.48000001907349,
+                -6.82000017166138
+              ],
+              "min": [
+                -2.54999995231628,
+                0.479999989271164,
+                -7.21999979019165
+              ]
+            },
+            "marker_error_m": 0,
+            "model": "res://art/models/environment/city_shop_fittings_05/city_shop_fittings_05.glb",
+            "prefab": "res://scenes/prefabs/environment/city_shop_fittings_05.tscn"
+          }
+        },
+        "passed": true,
+        "scope": "marker-linked narrow shell; upper window in separate compatible technical wall",
+        "upper_wall_model": "res://tests/fixtures/asset_production/batch_03_upper_wall.tscn",
+        "upper_wall_opening_xyz": [
+          -2.34,
+          2.34,
+          4.71,
+          6.19
+        ],
+        "upper_window_bounds": {
+          "max": [
+            11.3999996185303,
+            6.25,
+            -6.84000015258789
+          ],
+          "min": [
+            6.59999990463257,
+            4.65000009536743,
+            -7.15000009536743
+          ]
+        },
+        "window_canopy_gap_m": 0.0999999046325684
+      },
+      "medians_last_60": {
+        "draw_calls": 635.0,
+        "physics_s": 0.00040050000000000003,
+        "primitives": 78012.0,
+        "process_s": 0.00015250000000000002,
+        "video_bytes": 92159872.0
+      }
+    }
+  ],
+  "separate_processes": [
+    {
+      "aim_hit": "/root/preview/Frontage/Door/Collision/Body",
+      "engine": "4.8-dev7 (official)",
+      "passed": true,
+      "pid": 259301,
+      "rows": [
+        {
+          "case": 0,
+          "passed": true,
+          "position": [
+            1.95000004768372,
+            0.0,
+            -6.95052671432495
+          ]
+        },
+        {
+          "case": 1,
+          "passed": true,
+          "position": [
+            -2.90000009536743,
+            0.0,
+            -7.38021469116211
+          ]
+        },
+        {
+          "case": 2,
+          "passed": true,
+          "position": [
+            -0.949999988079071,
+            0.0,
+            -7.41439437866211
+          ]
+        },
+        {
+          "case": 3,
+          "passed": true,
+          "position": [
+            4.0,
+            0.0,
+            -1.50501728057861e-06
+          ]
+        },
+        {
+          "case": 4,
+          "passed": true,
+          "position": [
+            -7.44999980926514,
+            0.0,
+            -6.95052671432495
+          ]
+        },
+        {
+          "case": 5,
+          "passed": true,
+          "position": [
+            -6.55000019073486,
+            0.0,
+            -6.95052671432495
+          ]
+        }
+      ],
+      "scope": "independent command replay in two physics processes; no transport protocol"
+    },
+    {
+      "aim_hit": "/root/preview/Frontage/Door/Collision/Body",
+      "engine": "4.8-dev7 (official)",
+      "passed": true,
+      "pid": 259300,
+      "rows": [
+        {
+          "case": 0,
+          "passed": true,
+          "position": [
+            1.95000004768372,
+            0.0,
+            -6.95052671432495
+          ]
+        },
+        {
+          "case": 1,
+          "passed": true,
+          "position": [
+            -2.90000009536743,
+            0.0,
+            -7.38021469116211
+          ]
+        },
+        {
+          "case": 2,
+          "passed": true,
+          "position": [
+            -0.949999988079071,
+            0.0,
+            -7.41439437866211
+          ]
+        },
+        {
+          "case": 3,
+          "passed": true,
+          "position": [
+            4.0,
+            0.0,
+            -1.50501728057861e-06
+          ]
+        },
+        {
+          "case": 4,
+          "passed": true,
+          "position": [
+            -7.44999980926514,
+            0.0,
+            -6.95052671432495
+          ]
+        },
+        {
+          "case": 5,
+          "passed": true,
+          "position": [
+            -6.55000019073486,
+            0.0,
+            -6.95052671432495
+          ]
+        }
+      ],
+      "scope": "independent command replay in two physics processes; no transport protocol"
+    }
+  ],
+  "upper_fit": {
+    "minimum_side_head_bottom_gap_m": 0.019981861114502,
+    "opening_world_xy": [
+      6.65999984741211,
+      11.3400001525879,
+      4.71000003814697,
+      6.19000005722046
+    ],
+    "passed": true,
+    "rear_clearance_m": 0.12000036239624,
+    "rear_vertices": 260
+  },
+  "scope": "bounded static engine candidate; reviewer pending, no world/device/transport acceptance"
+}

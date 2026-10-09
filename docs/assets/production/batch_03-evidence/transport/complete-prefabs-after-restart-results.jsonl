@@ -1,0 +1,3 @@
+{"method":"game.stop","result":{"id":1,"jsonrpc":"2.0","result":{"success":true,"was_running":false}}}
+{"method":"editor.refresh","result":{"id":2,"jsonrpc":"2.0","result":{"errors_cleared":1,"mode":"full","reloaded":0,"scan_waited_ms":5004,"success":true}}}
+{"method":"editor.wait_for_idle","result":{"id":3,"jsonrpc":"2.0","result":{"code":"TIMEOUT","error":"EditorFileSystem still scanning after 30007ms; consider increasing timeout_ms or checking editor.get_console for import errors","hint":"The editor may be busy. Try editor.wait_for_idle before retrying.","success":false}}}

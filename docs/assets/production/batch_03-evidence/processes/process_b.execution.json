@@ -1,0 +1,20 @@
+{
+  "label": "process_b",
+  "pid": 259300,
+  "argv": [
+    "/home/regner/.local/share/mise/installs/github-godotengine-godot-builds/4.8-dev7/godot",
+    "--headless",
+    "--path",
+    "/home/regner/.paseo/worktrees/0u71f39f/asset-register-production",
+    "--script",
+    "res://tests/fixtures/asset_production/batch_03_process_probe.gd"
+  ],
+  "environment_overrides": {
+    "XDG_DATA_HOME": "/tmp/asset-register-production-editor/batch03/process_b/data",
+    "XDG_CONFIG_HOME": "/tmp/asset-register-production-editor/batch03/process_b/config",
+    "XDG_CACHE_HOME": "/tmp/asset-register-production-editor/batch03/process_b/cache",
+    "GODOT_MCP_RUNTIME_PORT": "22672"
+  },
+  "exit_code": 0,
+  "elapsed_s": 12.3817720413208
+}

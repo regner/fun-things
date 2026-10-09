@@ -1,0 +1,20 @@
+{
+  "argv": [
+    "/usr/bin/blender",
+    "-noaudio",
+    "--background",
+    "--factory-startup",
+    "--threads",
+    "2",
+    "--python-exit-code",
+    "1",
+    "--python",
+    "tools/asset_production/integration/author_batch03_fixture.py"
+  ],
+  "exit_code": 0,
+  "elapsed_s": 0.73042893409729,
+  "environment_overrides": {
+    "ALSOFT_DRIVERS": "null",
+    "SDL_AUDIODRIVER": "dummy"
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "operation": "prepare six released producer expected sets",
+  "observed_error": "TypeError: list indices must be integers or slices, not str",
+  "cause": "Revised fascia producer manifest is a list instead of files dictionary",
+  "recovery": "Read actual list-or-dictionary schema, verify every byte/hash before editor mutation; downstream missing request failure retained in tool conversation",
+  "exit_code": 1
+}
