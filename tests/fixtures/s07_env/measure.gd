@@ -79,15 +79,12 @@ func _run() -> void:  # gdstyle:ignore=quality/max-function-length,quality/max-l
 		await process_frame  # gdstyle:ignore=quality/await-in-loop
 
 	await RenderingServer.frame_post_draw
-	_write_results(
-		output_directory,
-		scene_path,
-		warmup_seconds,
-		duration_seconds,
-		cold_resource_load_ms,
-		cold_first_load_ms,
-		warm_reload_ms,
-	)
+	var loading: Dictionary = {
+		"cold_resource_load_ms": cold_resource_load_ms,
+		"cold_first_load_ms": cold_first_load_ms,
+		"warm_reload_ms": warm_reload_ms,
+	}
+	_write_results(output_directory, scene_path, warmup_seconds, duration_seconds, loading)
 	quit()
 
 
@@ -154,15 +151,12 @@ func _post_draw() -> void:
 
 
 ## Writes binary frame samples and compact run metadata to the external evidence directory.
-# gdstyle:ignore=quality/max-parameters
 func _write_results(
 	output_directory: String,
 	scene_path: String,
 	warmup_seconds: float,
 	duration_seconds: float,
-	cold_resource_load_ms: float,
-	cold_first_load_ms: float,
-	warm_reload_ms: float,
+	loading: Dictionary,
 ) -> void:
 	var frame_path: String = output_directory.path_join("frames.f64")
 	var frame_file: FileAccess = FileAccess.open(frame_path, FileAccess.WRITE)
@@ -177,9 +171,9 @@ func _write_results(
 			"node_count"],
 		"warmup_seconds": warmup_seconds,
 		"duration_seconds": duration_seconds,
-		"cold_resource_load_ms": cold_resource_load_ms,
-		"cold_first_load_ms": cold_first_load_ms,
-		"warm_reload_ms": warm_reload_ms,
+		"cold_resource_load_ms": loading.cold_resource_load_ms,
+		"cold_first_load_ms": loading.cold_first_load_ms,
+		"warm_reload_ms": loading.warm_reload_ms,
 		"block_count": int(city.get_meta("block_count")),
 		"authored_instance_count": int(city.get_meta("block_count")) * 6,
 		"scene_node_count": _count_nodes(city),

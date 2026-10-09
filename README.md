@@ -33,20 +33,24 @@ mise exec -- godot --version
 mise run editor
 ```
 
-`mise.toml` currently pins Godot **4.8-dev7** and gdstyle **0.3.0**. Keep the
-gdstyle pin aligned with `.gdstyle-version`. Use the pinned engine for editor,
-imports, checks, and exports; install export templates matching that exact release.
+`mise.toml` currently pins Godot **4.8-dev7**, gdstyle **0.3.0**, and Python
+**3.14.2**. Keep the gdstyle pin aligned with `.gdstyle-version`. Use the pinned
+engine for editor, imports, checks, and exports; install export templates matching
+that exact release.
 `mise run play` is available once a main scene has been configured.
 
-The foundation checks use Python 3.10+ and the pinned tools:
+The foundation checks use the Mise-pinned Python and tools on Windows and Linux:
 
 ```sh
 mise run gdstyle:check
 mise run gdscript:check
 mise run tools:check
 mise run spike:s03
-# Alternate ports and a fresh retained evidence directory:
-mise exec -- python3 tools/run_s03.py --port 24700 --proxy-port 24701 --output /tmp/s03-my-run
+# Direct validation baseline and an alternate runner invocation:
+python tools/script_checks.py
+python -m unittest discover -s tools -p "*test*.py"
+mise exec -- python tools/run_s03.py --port 24700 --proxy-port 24701 \
+  --output /tmp/s03-my-run
 ```
 
 Each command prints its evidence directory. The runner imports the saved fixture

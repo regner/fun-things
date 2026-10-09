@@ -7,7 +7,7 @@ import tempfile
 import unittest
 
 from run_s03 import Proxy, stop_children
-from script_checks import checked_command, environment, owned_scripts
+from script_checks import compile_project_settings, checked_command, environment, owned_scripts
 
 
 class ResettingSocket:
@@ -43,6 +43,23 @@ class FoundationToolsTest(unittest.TestCase):
             (root / "art/source/.gdignore").touch()
             self.assertEqual([path.relative_to(root).as_posix() for path in owned_scripts(root)],
                              ["addons/owned/unused.gd", "tests/unused.gd"])
+
+    def test_compile_mirror_disables_only_development_startup(self):
+        settings = """[autoload]
+Gameplay="*res://gameplay.gd"
+MCPRuntimeServer="*res://addons/godot_mcp_toolkit/runtime/mcp_runtime_server.gd"
+
+[editor_plugins]
+enabled=PackedStringArray("res://addons/godot_mcp_toolkit/plugin.cfg")
+
+[display]
+window/size/viewport_width=1280
+"""
+        stripped = compile_project_settings(settings)
+        self.assertIn('Gameplay="*res://gameplay.gd"', stripped)
+        self.assertNotIn("MCPRuntimeServer", stripped)
+        self.assertNotIn("[editor_plugins]", stripped)
+        self.assertIn("[display]", stripped)
 
     def test_success_exit_with_script_error_fails_and_retains_output(self):
         with tempfile.TemporaryDirectory() as temporary:

@@ -11,6 +11,7 @@ import signal
 import subprocess
 import sys
 from tempfile import TemporaryDirectory
+import unittest
 from unittest.mock import patch
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -113,7 +114,7 @@ def scenario(name, prep_seconds=3):
                 (project / '.godot/last-generated').write_bytes(b'fake-generated')
             return project, [{'path': 'project.godot', **real_digest(b'fake-settings')}]
         def read(path):
-            return pin if str(path) == module.ENGINE else real_read(path)
+            return pin if path.as_posix() == module.ENGINE else real_read(path)
         def digest(data):
             if data == b'fake-generated':
                 clock.sleep(100)
@@ -137,19 +138,26 @@ def scenario(name, prep_seconds=3):
             return [{'event': 'ready'}, {'event': 'settled'}] if path.parent.name == 'host' else []
         def git(command, **_kwargs):
             return 'candidate\n' if command[1] == 'rev-parse' else b''
+        fake_output = Path('/tmp') / ('p0-image-' + Path(temporary).name + '-attempt01')
+        real_resolve = Path.resolve
+        private_environment = (module.private_environment if os.name != 'nt'
+                               else lambda _folder: os.environ.copy())
+        def resolve(path, *args, **kwargs):
+            return path if path == fake_output else real_resolve(path, *args, **kwargs)
         with patch.object(module, 'time', clock), patch.object(module, 'stage', stage), \
              patch.object(module, 'digest', digest), patch.object(Path, 'read_bytes', read), \
+             patch.object(Path, 'resolve', resolve), \
              patch.object(module, 'ENGINE_SHA', real_digest(pin)['sha256']), \
              patch.object(module, 'socket_identity', lambda: {'owned': True}), \
              patch.object(module, 'identity', lambda c: {'pid': c.pid}), \
              patch.object(module, 'bound_endpoint', lambda c, p, r: {'port': p, 'address': '127.0.0.1'}), \
              patch.object(module, 'production_rows', rows), \
+             patch.object(module, 'private_environment', private_environment), \
              patch.object(module.subprocess, 'check_output', git), \
              patch.object(module.subprocess, 'Popen', popen), \
              patch.object(module.socket, 'socket', lambda *_args: Socket()), \
              redirect_stdout(io.StringIO()):
             # A fresh direct-/tmp fake output exercises the real production path gate.
-            fake_output = Path('/tmp') / (Path(temporary).name + '-attempt01')
             with patch.object(sys, 'argv', ['run.py', '--output', str(fake_output),
                                            '--candidate', 'candidate']):
                 try:
@@ -161,7 +169,7 @@ def scenario(name, prep_seconds=3):
                         shutil.rmtree(fake_output)
         assert receipt['within_budget'] and receipt['elapsed_s'] <= 120
         assert receipt['streams_closed']
-        assert receipt['source_preserved'] == (name != 'slow-readback')
+        assert receipt['source_preserved'] == (name != 'slow-readback'), receipt
         assert receipt['all_owned_children_reaped'] and all(c.reaped for c in children)
         assert receipt['start_monotonic'] == 100 and receipt['absolute_deadline'] == 220
         assert receipt['readback_elapsed_s'] == (5 if name == 'slow-readback' else 3)
@@ -173,7 +181,8 @@ def scenario(name, prep_seconds=3):
             assert exit_code == 1 and len(children) == 4 and not receipt['readback_within_budget']
             assert math.isclose(receipt['elapsed_s'], 17, abs_tol=.01)
         elif name == 'normal':
-            assert exit_code == 0 and len(children) == 4 and not receipt['cleanup_phases']
+            assert exit_code == 0 and len(children) == 4 and not receipt['cleanup_phases'], (
+                receipt, children)
         elif name == 'preparation-cutoff':
             assert exit_code == 1 and not children
         elif name == 'import-timeout':
@@ -248,14 +257,15 @@ def endpoint_cases():
             proc = root / 'proc/123'
             (proc / 'fd').mkdir(parents=True)
             (proc / 'net').mkdir()
-            (proc / 'fd/10').symlink_to('socket:[77]')
+            (proc / 'fd/10').touch()
             for filename in ['udp', 'udp6']:
                 (proc / 'net' / filename).write_text('header\n')
             row = f'0: {address}:D903 00000000:0000 07 0:0 0:0 0 1000 0 {inode} 2\n'
             (proc / 'net' / table).write_text('header\n' + row + (row if duplicate else ''))
             actual_path = Path
             with patch.object(module, 'Path', lambda p: root / 'proc' if str(p) == '/proc'
-                              else actual_path(p)):
+                              else actual_path(p)), \
+                 patch.object(module.os, 'readlink', lambda _path: 'socket:[77]'):
                 try:
                     result = module.bound_endpoint(SimpleNamespace(pid=123), 55555, root / 'lookup.json')
                     accepted = True
@@ -267,6 +277,27 @@ def endpoint_cases():
             assert table in lookup['tables'] and lookup['handles']['10'] == 'socket:[77]'
             results.append({'case': name, 'accepted': accepted, 'synthetic_inputs': lookup})
     return results
+
+
+class OfflineChecks(unittest.TestCase):
+    """Expose the standalone offline checks to repository-wide unittest discovery."""
+
+    def test_supervisor_failure_paths(self):
+        """Exercise aggregate bounds and shared cleanup grace across supervisor outcomes."""
+        for name, prep_seconds in [('normal', 3), ('three-stubborn', 3),
+                                   ('preparation-cutoff', 90), ('import-timeout', 3),
+                                   ('live-spawn-cutoff', 3), ('slow-generated', 3),
+                                   ('slow-readback', 3)]:
+            with self.subTest(name=name):
+                scenario(name, prep_seconds)
+
+    def test_evaluator_rejects_historical_streams(self):
+        """Reject historical streams that omit current image and lifecycle evidence."""
+        evaluator_negatives()
+
+    def test_endpoint_probe_cases(self):
+        """Accept only uniquely owned loopback endpoints in the synthetic proc table."""
+        endpoint_cases()
 
 
 def main():

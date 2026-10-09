@@ -19,6 +19,16 @@ func _run() -> void:
 	fixture.authoritative = false
 	root.add_child(fixture)
 	await process_frame
+	await _check_initial_lifecycle(fixture)
+	await _check_fresh_reload()
+	var file: FileAccess = FileAccess.open("res://guards.json", FileAccess.WRITE)
+	file.store_string(JSON.stringify({ "checks": checks, "failures": failures }, "\t") + "\n")
+	file.close()
+	quit(0 if failures.is_empty() else 1)
+
+
+## Checks admission, one-shot fencing, motion cancellation, and retirement on one instance.
+func _check_initial_lifecycle(fixture: S07DriverFixture) -> void:
 	_expect(fixture.saved_start_valid(), "pre-admission saved starts and passive collision")
 	_expect(fixture.begin_route("foot") == "NOT_OWNER", "passive authority refused")
 	fixture.authoritative = true
@@ -53,6 +63,10 @@ func _run() -> void:
 	fixture.queue_free()
 	await process_frame
 	_expect(not is_instance_valid(fixture), "retired fixture freed before reload")
+
+
+## Checks that a fresh saved instance restores content, physical state, and passive roles.
+func _check_fresh_reload() -> void:
 	var fresh: S07DriverFixture = load(FIXTURE).instantiate()
 	fresh.authoritative = true
 	root.add_child(fresh)
@@ -69,10 +83,6 @@ func _run() -> void:
 	fresh.queue_free()
 	await process_frame
 	_expect(not is_instance_valid(fresh), "fresh fixture teardown complete")
-	var file: FileAccess = FileAccess.open("res://guards.json", FileAccess.WRITE)
-	file.store_string(JSON.stringify({ "checks": checks, "failures": failures }, "\t") + "\n")
-	file.close()
-	quit(0 if failures.is_empty() else 1)
 
 
 ## Records every literal public-boundary expectation and any failure.

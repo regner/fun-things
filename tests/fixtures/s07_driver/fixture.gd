@@ -3,7 +3,9 @@ extends S06Fixture
 ## One-shot inherited S06 authority; repetition requires teardown and saved-scene reload.
 
 const CASES: Array[String] = ["foot", "east_to_north", "west_to_south"]
-const EXPECTED_SIGNATURE: String = "eaec39bbde6bd39e0b9c6c5c005f6285be49881faeb3a2cbfa02363014ff1604"
+const EXPECTED_SIGNATURE: String = (
+	"eaec39bbde6bd39e0b9c6c5c005f6285be49881faeb3a2cbfa02363014ff1604"
+)
 const START_TOLERANCE_M: float = 0.001
 const START_YAW_TOLERANCE_RAD: float = 0.001
 

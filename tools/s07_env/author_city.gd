@@ -74,7 +74,7 @@ func _author_city(block_count: int) -> Error:  # gdstyle:ignore=quality/max-loca
 	root_node.set_meta("grid_columns", columns)
 	root_node.set_meta("grid_rows", rows)
 	root_node.set_meta("block_size_m", BLOCK_SIZE_M)
-	_place_blocks(root_node, roads, buildings, road_scenes, building_scenes, columns, rows)
+	_place_blocks(root_node, road_scenes, building_scenes, columns, rows)
 	_add_presentation(root_node, columns, rows)
 
 	var packed := PackedScene.new()
@@ -116,16 +116,15 @@ func _load_scenes(paths: Array[String]) -> Array[PackedScene]:
 
 
 ## Places two linked road sectors and four mixed-height buildings for every block.
-# gdstyle:ignore=quality/max-parameters
 func _place_blocks(
 	root_node: Node3D,
-	roads: Node3D,
-	buildings: Node3D,
 	road_scenes: Array[PackedScene],
 	building_scenes: Array[PackedScene],
 	columns: int,
 	rows: int,
 ) -> void:
+	var roads: Node3D = root_node.get_node("RoadSectors")
+	var buildings: Node3D = root_node.get_node("Buildings")
 	var block_index: int = 0
 	for row: int in range(rows):
 		for column: int in range(columns):

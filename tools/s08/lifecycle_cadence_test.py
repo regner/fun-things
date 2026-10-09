@@ -2,6 +2,7 @@
 """Offline literal cadence regression: inspect production source, never construct UDP resources."""
 import ast
 from pathlib import Path
+import unittest
 
 ROOT = Path(__file__).resolve().parents[2]
 
@@ -40,6 +41,14 @@ def main():
         print('PASS: literal20ms shared owner; recorded10ms regression rejected offline')
     else:
         raise AssertionError('accepted the wrong service cadence')
+
+
+class LifecycleCadenceChecks(unittest.TestCase):
+    """Expose the offline cadence regression to repository-wide unittest discovery."""
+
+    def test_shared_twenty_millisecond_cadence(self):
+        """Require the shared20ms owner and reject the recorded10ms consumer regression."""
+        main()
 
 
 if __name__ == '__main__':

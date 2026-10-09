@@ -1,0 +1,48 @@
+test_coast_foreign_pose_and_unacknowledged_motion_do_not_count (s04.test_runner.CarMetrics.test_coast_foreign_pose_and_unacknowledged_motion_do_not_count) ... ok
+test_expiry_neutralizes_intent_without_requiring_parked_velocity (s04.test_runner.CarMetrics.test_expiry_neutralizes_intent_without_requiring_parked_velocity) ... ok
+test_endpoint_probe_cases (s05_vsync_image.test_offline.OfflineChecks.test_endpoint_probe_cases)
+Accept only uniquely owned loopback endpoints in the synthetic proc table. ... ok
+test_evaluator_rejects_historical_streams (s05_vsync_image.test_offline.OfflineChecks.test_evaluator_rejects_historical_streams)
+Reject historical streams that omit current image and lifecycle evidence. ... ok
+test_supervisor_failure_paths (s05_vsync_image.test_offline.OfflineChecks.test_supervisor_failure_paths)
+Exercise aggregate bounds and shared cleanup grace across supervisor outcomes. ... ok
+test_configured_capacity_controls_expected_effects (s07_comparator.test_offline.ComparatorReceiptChecks.test_configured_capacity_controls_expected_effects)
+Derive a constrained fixture's effects without embedding the current capacity. ... ok
+test_graphical_counterexamples (s07_comparator.test_offline.ComparatorReceiptChecks.test_graphical_counterexamples)
+Require a genuine drawable callback, configured visible count and a saved PNG. ... ok
+test_valid_and_lifecycle_counterexamples (s07_comparator.test_offline.ComparatorReceiptChecks.test_valid_and_lifecycle_counterexamples)
+Accept the baseline and reject stale-session, visit and cleanup corruption. ... ok
+test_actual_receipt_and_faults (s07_driver.test_offline.DriverChecks.test_actual_receipt_and_faults)
+Require actual positives and refusal of independent lifecycle/trajectory corruptions. ... ok
+test_minimal_runtime_closure (s07_driver.test_offline.DriverChecks.test_minimal_runtime_closure)
+Require linked saved originals without service/native addons or arbitrary fixture copies. ... ok
+test_shared_twenty_millisecond_cadence (s08.lifecycle_cadence_test.LifecycleCadenceChecks.test_shared_twenty_millisecond_cadence)
+Require the shared20ms owner and reject the recorded10ms consumer regression. ... ok
+test_child_environment_isolates_windows_user_roots (test_foundation_tools.FoundationToolsTest.test_child_environment_isolates_windows_user_roots) ... ok
+test_cleanup_leaves_unrelated_process_alive (test_foundation_tools.FoundationToolsTest.test_cleanup_leaves_unrelated_process_alive) ... ok
+test_compile_mirror_disables_only_development_startup (test_foundation_tools.FoundationToolsTest.test_compile_mirror_disables_only_development_startup) ... ok
+test_proxy_survives_windows_udp_reset_notification (test_foundation_tools.FoundationToolsTest.test_proxy_survives_windows_udp_reset_notification) ... ok
+test_success_exit_with_script_error_fails_and_retains_output (test_foundation_tools.FoundationToolsTest.test_success_exit_with_script_error_fails_and_retains_output) ... ok
+test_unused_and_owned_addon_scripts_are_discovered (test_foundation_tools.FoundationToolsTest.test_unused_and_owned_addon_scripts_are_discovered) ... ok
+test_initial_focus_requires_sustained_child_ownership_before_stage (test_s02_windows_observation.WindowsObservationTest.test_initial_focus_requires_sustained_child_ownership_before_stage) ... ok
+test_prefixed_rows_ignore_other_output_and_keep_malformed_receipt (test_s02_windows_observation.WindowsObservationTest.test_prefixed_rows_ignore_other_output_and_keep_malformed_receipt) ... ok
+test_preflight_owner_before_restored_child_does_not_count_as_steal (test_s02_windows_observation.WindowsObservationTest.test_preflight_owner_before_restored_child_does_not_count_as_steal) ... ok
+test_preflight_owner_steal_after_restored_child_authorizes_retry (test_s02_windows_observation.WindowsObservationTest.test_preflight_owner_steal_after_restored_child_authorizes_retry) ... ok
+test_host_ack_cannot_count_as_client_response (test_s03_r_analysis.ResponseOwnershipTests.test_host_ack_cannot_count_as_client_response) ... ok
+test_dirty_check_includes_project_and_runner_directory (test_s07_env.EnvironmentRunnerChecks.test_dirty_check_includes_project_and_runner_directory)
+Require project settings and both S07 environment tools in the Git query. ... ok
+test_limits_are_strictly_greater_than_thresholds (test_s07_env.EnvironmentRunnerChecks.test_limits_are_strictly_greater_than_thresholds)
+Treat values exactly at owner limits as inside the measured envelope. ... ok
+test_stop_reasons_cover_frame_load_and_memory_limits (test_s07_env.EnvironmentRunnerChecks.test_stop_reasons_cover_frame_load_and_memory_limits)
+Stop growth when any predeclared numerical limit is exceeded. ... ok
+test_dirty_check_includes_project_settings (test_s07_graphical.GraphicalRunnerChecks.test_dirty_check_includes_project_settings)
+Require project.godot beside fixture and art paths in the dirty query. ... ok
+test_export_diagnostic_fails_even_with_exact_outputs (test_windows_observation.ExportGateTest.test_export_diagnostic_fails_even_with_exact_outputs) ... ok
+test_import_diagnostic_with_zero_exit_stops_before_export (test_windows_observation.ExportGateTest.test_import_diagnostic_with_zero_exit_stops_before_export) ... ok
+test_missing_engine_on_path_is_a_structured_failure (test_windows_observation.ExportGateTest.test_missing_engine_on_path_is_a_structured_failure) ... ok
+
+----------------------------------------------------------------------
+Ran 29 tests in 19.332s
+
+OK
+PASS: literal20ms shared owner; recorded10ms regression rejected offline

@@ -1,5 +1,6 @@
 [tools]
 node = "24"
+python = "3.14.2"
 # Keep this version aligned with .gdstyle-version, used by CI.
 [tools."github:atelico/gdstyle"]
 version = "0.3.0"
@@ -25,11 +26,11 @@ run = "godot --path ."
 
 [tasks."gdstyle:check"]
 description = "Lint owned scripts; preserve comments/spacing through manual review"
-run = "python3 tools/script_checks.py --style-only"
+run = "python tools/script_checks.py --style-only"
 
 [tasks."gdscript:check"]
 description = "Explicitly compile every owned script, including unused scripts"
-run = "python3 tools/script_checks.py"
+run = "python tools/script_checks.py"
 
 [tasks."resources:check"]
 description = "Check S01 source/resource/identity/animation contracts"
@@ -45,8 +46,8 @@ run = "python tools/s01/reexport.py"
 
 [tasks."spike:s03"]
 description = "Run the bounded real-process ENet session-contract proof"
-run = "python3 tools/run_s03.py"
+run = "python tools/run_s03.py"
 
 [tasks."tools:check"]
 description = "Check foundation runner discovery, diagnostics and child ownership"
-run = "python3 -m unittest discover -s tools -p 'test_*.py'"
+run = "python -m unittest discover -s tools -p '*test*.py'"

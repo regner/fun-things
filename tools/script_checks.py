@@ -72,6 +72,12 @@ def checked_command(command, log, env, timeout=30):
         return False
 
 
+def compile_project_settings(settings):
+    """Disable development-only editor and MCP startup in the isolated compile mirror."""
+    settings = re.sub(r"(?ms)^\[editor_plugins\]\n.*?(?=^\[|\Z)", "", settings)
+    return re.sub(r"(?m)^MCPRuntimeServer=.*\n", "", settings)
+
+
 def compile_all(godot, directory):
     """Import for class discovery, then compile each script in a separate engine invocation."""
     env = environment(directory / "compiler-user")
@@ -80,15 +86,14 @@ def compile_all(godot, directory):
     manifest = [path.relative_to(ROOT).as_posix() for path in scripts]
     (directory / "scripts.json").write_text(json.dumps(manifest, indent=2) + "\n")
     # A clean dependency mirror makes class discovery independent of the source
-    # editor/cache. Preserve autoload declarations and runtime settings, but do
-    # not execute editor plugins during compiler setup.
+    # editor/cache. Preserve gameplay autoloads and runtime settings, but do not
+    # execute editor plugins or the development-only MCP runtime during setup.
     project = directory / "compiler-project"
     shutil.copytree(ROOT, project, ignore=lambda _path, names: [
         name for name in names if (name.startswith(".") and name != ".gdignore")
         or name == "__pycache__"
     ])
-    settings = (project / "project.godot").read_text()
-    settings = re.sub(r"(?ms)^\[editor_plugins\]\n.*?(?=^\[|\Z)", "", settings)
+    settings = compile_project_settings((project / "project.godot").read_text())
     (project / "project.godot").write_text(settings)
     setup_ok = checked_command([godot, "--headless", "--editor", "--path", str(project),
                                 "--import", "--quit",

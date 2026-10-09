@@ -6,7 +6,10 @@ from pathlib import Path
 import tempfile
 import unittest
 
-from support import ROOT, stage_runtime
+if __package__:
+    from .support import ROOT, stage_runtime
+else:
+    from support import ROOT, stage_runtime
 
 spec = importlib.util.spec_from_file_location('s07_analysis', ROOT / 'tools/s07_driver/analyze.py')
 analysis = importlib.util.module_from_spec(spec)

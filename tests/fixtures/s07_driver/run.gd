@@ -89,28 +89,12 @@ func _traverse(case_name: String) -> void:  # gdstyle:ignore=quality/max-local-v
 	var city: S06City = fixture.get_node("City")
 	var signature: String = city.signature()
 	var route: Dictionary = _route(city, case_name)
-	var code: String = fixture.begin_route(case_name)
-	var rows: Array = []
-	var timed_out: bool = true
-	if code == "OK":
-		var finished: Array = await fixture.route_finished
-		rows = finished[1]
-		timed_out = finished[2]
-	else:
-		failures.append(case_name + " admission: " + code)
-
+	var outcome: Dictionary = await _run_route(fixture, case_name)
+	var code: String = outcome.code
+	var rows: Array = outcome.rows
+	var timed_out: bool = outcome.timed_out
 	var end: Dictionary = _state_json(fixture.body_state(case_name))
-	var stopped: bool = fixture.passive_valid() and end.velocity == [0.0, 0.0, 0.0]
-	if timed_out or rows.is_empty() or not stopped:
-		failures.append(case_name + " timeout/empty/uncancelled route")
-	if not _destination_valid(case_name, fixture.body_state(case_name)):
-		failures.append(case_name + " destination/exit direction")
-	for row: Dictionary in rows:
-		simulation_seconds += float(row.delta)
-		if not row.contacts.is_empty():
-			failures.append(case_name + " solid contact")
-			break
-
+	var stopped: bool = _record_route_outcome(case_name, fixture, rows, timed_out, end)
 	var traversal_end: int = Time.get_ticks_usec()
 	fixture.cancel_owned()
 	var disconnected: bool = not fixture.controller.enabled and fixture.active_body == null
@@ -136,6 +120,43 @@ func _traverse(case_name: String) -> void:  # gdstyle:ignore=quality/max-local-v
 		"retired_seconds": (retired - measurement_start_usec) / 1000000.0}
 	stream.store_line(JSON.stringify(receipt))
 	stream.flush()
+
+
+## Starts one admitted route and waits for its completion signal.
+func _run_route(fixture: S07DriverFixture, case_name: String) -> Dictionary:
+	var code: String = fixture.begin_route(case_name)
+	var rows: Array = []
+	var timed_out: bool = true
+	if code == "OK":
+		var finished: Array = await fixture.route_finished
+		rows = finished[1]
+		timed_out = finished[2]
+	else:
+		failures.append(case_name + " admission: " + code)
+
+	return { "code": code, "rows": rows, "timed_out": timed_out }
+
+
+## Records route completion, destination, simulation duration, and contact expectations.
+func _record_route_outcome(
+	case_name: String,
+	fixture: S07DriverFixture,
+	rows: Array,
+	timed_out: bool,
+	end: Dictionary,
+) -> bool:
+	var stopped: bool = fixture.passive_valid() and end.velocity == [0.0, 0.0, 0.0]
+	if timed_out or rows.is_empty() or not stopped:
+		failures.append(case_name + " timeout/empty/uncancelled route")
+	if not _destination_valid(case_name, fixture.body_state(case_name)):
+		failures.append(case_name + " destination/exit direction")
+	for row: Dictionary in rows:
+		simulation_seconds += float(row.delta)
+		if not row.contacts.is_empty():
+			failures.append(case_name + " solid contact")
+			break
+
+	return stopped
 
 
 ## Queries canonical routes without constructing an independent path or placement writer.

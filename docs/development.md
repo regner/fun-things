@@ -215,24 +215,32 @@ mise run gdstyle:check
 mise run gdscript:check
 mise run tools:check
 mise run spike:s03
+
+# Equivalent direct validation baseline (from the repository root):
+python tools/script_checks.py
+python -m unittest discover -s tools -p "*test*.py"
 ```
 
 The first checks pinned formatting and lint. The second also discovers every owned
 `.gd`, honors hidden and `.gdignore` directories, excludes the two named vendor
 addons, and explicitly invokes `--check-only --script` for each file, including
-unused scripts. A fresh dependency mirror retains project settings/autoloads and
-resources but disables editor plugins during setup. Its import discovers classes;
+unused scripts. A fresh dependency mirror retains project settings, gameplay autoloads
+and resources, but disables editor plugins and the development-only MCP runtime autoload
+only in that mirror. Its import discovers classes;
 separate compilation remains mandatory even when that setup reports errors.
 The source editor and its `.godot` cache are not the compiler's inputs. Logs,
 manifest and per-file outcomes remain in the printed evidence directory.
 
-`tools:check` covers discovery, diagnostics with zero exit status and child-process
-ownership. The [S03 runner](spikes/s03.md) copies the saved fixture into an addon-free
-project, then uses real ENet host/client processes and a focused UDP fault proxy.
+`tools:check` discovers the root tests and packaged tool tests, including S04, S05 image,
+S07 comparator/driver and S08 cadence checks. It covers diagnostics with zero exit status
+and child-process ownership. The [S03 runner](spikes/s03.md) copies the saved fixture
+into an addon-free project, then uses real ENet host/client processes and a focused UDP
+fault proxy.
 It supplies independent process user/log directories, configurable host/proxy ports,
 structured readiness/results, case/runner deadlines, and child-only cleanup.
 Both tools accept explicit executables and an external evidence directory; defaults
-use tools on PATH. Python 3.10+ is required. Use the exact installed engine pin.
+use tools on PATH. Mise pins Python 3.14.2 so task commands use the same `python`
+executable name on Windows and Linux. Use the exact installed engine pin.
 
 Review function purpose comments, two empty lines between functions, export groups,
 and intent inside functions manually. The preserving formatter wrapper remains
@@ -736,10 +744,10 @@ M1 completion. Native/API/Steam/device/target/feel/P0/M1 gates remain OPEN.
 The foundation tools now also run on Windows 11 with the Mise-pinned engine
 (`mise which godot`). Practical notes:
 
-- `python3` may resolve to the Microsoft Store stub, and the Mise tasks call
-  `python3`. Run the scripts with `python` directly, with the pinned engine and
-  gdstyle directories on `PATH`. `godot` is also on PATH through gdvm, which
-  auto-installs a version on first use; prefer Mise's binary.
+- `python3` may resolve to the Microsoft Store stub. Mise pins Python 3.14.2 and all
+  repository tasks invoke `python`, which is also the direct-command spelling on Windows
+  and Linux. Put the pinned engine and gdstyle directories on `PATH`; do not use an
+  auto-installing Godot shim in place of Mise's binary.
 - `script_checks.environment()` redirects `APPDATA`/`LOCALAPPDATA` as well as XDG,
   because Godot on Windows ignores XDG. Without this, host/client user directories
   overlap and S05's base import aborted its scan.
