@@ -201,6 +201,30 @@ and its original `__file__`. No shared file or geometry-validator copy is writte
 owner's established explicit export settings/selection filter remain intact. `manifest.py --write`
 explicitly refreshes hashes after intentional updates; default invocation only verifies.
 
+## Review round 1 — retained-log encoding
+
+The supplied independent review accepted `.01`–`.03` and accepted `.04` with one P3 nit;
+there were no P1/P2 findings. Corrected the Windows-1252 `0x97` title separator in
+`final_checks.log` to a UTF-8 em dash (U+2014). All remaining log bytes are unchanged.
+Refreshed this record's and the log's SHA-256 entries with `manifest.py --write`.
+
+Validation for this documentation-only correction:
+
+- Strict UTF-8 decode and exact byte comparison against the reviewed log pass.
+- All four family manifests verify; `.01`–`.03` payloads remain unchanged.
+- The four `.04` artwork tests pass, including exact committed-PNG reproduction.
+- Re-ran the full production command above with output suffix `checks_review_round_1`:
+  all layers pass, including nine Python tests, 23 GUT tests / 196 assertions, pinned
+  engine import, script compilation/style and the expected-exit-1 negative check.
+  Actual run logs contain no WARNING/ERROR/SCRIPT ERROR diagnostics; full receipts stay at
+  `C:/tmp/ft/assets/d06_commercial_graphics_04/checks_review_round_1/`.
+- No source, artwork, material, prefab, import metadata or geometry changed. Blender
+  export/topology/render and dedicated prefab normalization were not rerun because this
+  encoding correction does not affect those gates; their prior evidence remains unchanged.
+
+This records the supplied review, not new world/gameplay or target-device acceptance.
+The correction remains subject to reviewer confirmation.
+
 ## Diagnostics and remaining gates
 
 - Initial owned lint flagged one 103-character constant; split its string declaration and
