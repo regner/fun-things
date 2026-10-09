@@ -1,0 +1,42 @@
+{"method":"resource.write","id":1,"jsonrpc":"2.0","result":{"indexed":true,"path":"res://scenes/prefabs/pistol_coral_stub/preview_environment.tres","resource_class":"Environment","status":"created","success":true,"warnings":[]}}
+{"method":"scene.create","id":2,"jsonrpc":"2.0","result":{"hint":"Scene saved. Open it for editing with scene_open.","indexed":true,"path":"res://scenes/prefabs/pistol_coral_stub/preview.tscn","root_name":"CoralStubPreview","root_path":".","root_type":"Node3D","status":"created","success":true}}
+{"method":"scene.open","id":3,"jsonrpc":"2.0","result":{"path":"res://scenes/prefabs/pistol_coral_stub/preview.tscn","success":true}}
+{"method":"scene.create_node","id":4,"jsonrpc":"2.0","result":{"path":"Environment","properties_set":1,"status":"created","success":true}}
+{"method":"scene.create_node","id":5,"jsonrpc":"2.0","result":{"path":"KeyLight","properties_set":2,"status":"created","success":true}}
+{"method":"scene.create_node","id":6,"jsonrpc":"2.0","result":{"path":"Camera","properties_set":4,"status":"created","success":true,"warnings":["note: 'near' stored 0.01 but you requested 0.01 — the engine adjusted the value to fit float."]}}
+{"method":"scene.create_node","id":7,"jsonrpc":"2.0","result":{"path":"UI","status":"created","success":true}}
+{"method":"scene.create_node","id":8,"jsonrpc":"2.0","result":{"path":"UI/Caption","properties_set":2,"status":"created","success":true}}
+{"method":"scene.instantiate","id":9,"jsonrpc":"2.0","result":{"class_name":"Node3D","path":"Pistol","status":"created","success":true}}
+{"method":"node.call_method","id":10,"jsonrpc":"2.0","result":{"hint":"Return value was null. A non-@tool GDScript never runs in the editor, so callv() cannot find the method (the editor logs 'Method not found'). To call it: (1) runtime, reliable — game.start, then execute_code or runtime_get_node_state on the live node; (2) editor — add @tool, then close and reopen the scene (scene_close + scene_open); editor_refresh is not sufficient.","method":"look_at_from_position","path":"Camera","result":null,"success":true}}
+{"method":"editor.save_scene","id":11,"jsonrpc":"2.0","result":{"path":"res://scenes/prefabs/pistol_coral_stub/preview.tscn","success":true}}
+{"method":"scene.close","id":12,"jsonrpc":"2.0","result":{"path":"res://scenes/prefabs/pistol_coral_stub/preview.tscn","success":true,"unsaved_changes_discarded":false}}
+{"method":"scene.open","id":13,"jsonrpc":"2.0","result":{"path":"res://scenes/prefabs/pistol_coral_stub/preview.tscn","success":true}}
+{"method":"editor.save_scene","id":14,"jsonrpc":"2.0","result":{"path":"res://scenes/prefabs/pistol_coral_stub/preview.tscn","success":true}}
+{"method":"scene.create","id":15,"jsonrpc":"2.0","result":{"hint":"Scene saved. Open it for editing with scene_open.","indexed":true,"path":"res://scenes/prefabs/pistol_coral_stub/preview_game_camera.tscn","root_name":"CoralStubGameCamera","root_path":".","root_type":"Node3D","status":"created","success":true}}
+{"method":"scene.open","id":16,"jsonrpc":"2.0","result":{"path":"res://scenes/prefabs/pistol_coral_stub/preview_game_camera.tscn","success":true}}
+{"method":"scene.create_node","id":17,"jsonrpc":"2.0","result":{"path":"Environment","properties_set":1,"status":"created","success":true}}
+{"method":"scene.create_node","id":18,"jsonrpc":"2.0","result":{"path":"KeyLight","properties_set":2,"status":"created","success":true}}
+{"method":"scene.create_node","id":19,"jsonrpc":"2.0","result":{"path":"Camera","properties_set":4,"status":"created","success":true,"warnings":["note: 'near' stored 0.1 but you requested 0.1 — the engine adjusted the value to fit float."]}}
+{"method":"scene.create_node","id":20,"jsonrpc":"2.0","result":{"path":"UI","status":"created","success":true}}
+{"method":"scene.create_node","id":21,"jsonrpc":"2.0","result":{"path":"UI/Caption","properties_set":2,"status":"created","success":true}}
+{"method":"node.set_script","id":22,"jsonrpc":"2.0","result":{"path":".","properties":[],"script":"res://tools/pistol_coral_stub/editor_bridge.gd","success":true}}
+{"method":"node.call_method","id":23,"jsonrpc":"2.0","result":{"method":"add_imported_model","path":".","result":"Ground","success":true}}
+{"method":"scene.create_node","id":24,"jsonrpc":"2.0","result":{"path":"North","properties_set":2,"status":"created","success":true}}
+{"method":"node.call_method","id":25,"jsonrpc":"2.0","result":{"method":"add_imported_model","path":".","result":"North/Mannequin","success":true}}
+{"method":"scene.create_node","id":26,"jsonrpc":"2.0","result":{"path":"North/WeaponMount","properties_set":1,"status":"created","success":true}}
+{"method":"scene.instantiate","id":27,"jsonrpc":"2.0","result":{"class_name":"Node3D","path":"North/WeaponMount/Pistol","status":"created","success":true}}
+{"method":"scene.create_node","id":28,"jsonrpc":"2.0","result":{"path":"East","properties_set":2,"status":"created","success":true}}
+{"method":"node.call_method","id":29,"jsonrpc":"2.0","result":{"method":"add_imported_model","path":".","result":"East/Mannequin","success":true}}
+{"method":"scene.create_node","id":30,"jsonrpc":"2.0","result":{"path":"East/WeaponMount","properties_set":1,"status":"created","success":true}}
+{"method":"scene.instantiate","id":31,"jsonrpc":"2.0","result":{"class_name":"Node3D","path":"East/WeaponMount/Pistol","status":"created","success":true}}
+{"method":"scene.create_node","id":32,"jsonrpc":"2.0","result":{"path":"South","properties_set":2,"status":"created","success":true}}
+{"method":"node.call_method","id":33,"jsonrpc":"2.0","result":{"method":"add_imported_model","path":".","result":"South/Mannequin","success":true}}
+{"method":"scene.create_node","id":34,"jsonrpc":"2.0","result":{"path":"South/WeaponMount","properties_set":1,"status":"created","success":true}}
+{"method":"scene.instantiate","id":35,"jsonrpc":"2.0","result":{"class_name":"Node3D","path":"South/WeaponMount/Pistol","status":"created","success":true}}
+{"method":"node.set_script","id":36,"jsonrpc":"2.0","result":{"path":".","properties":[],"script":null,"success":true}}
+{"method":"node.set_property","id":37,"jsonrpc":"2.0","result":{"success":true}}
+{"method":"node.set_property","id":38,"jsonrpc":"2.0","result":{"success":true}}
+{"method":"editor.save_scene","id":39,"jsonrpc":"2.0","result":{"path":"res://scenes/prefabs/pistol_coral_stub/preview_game_camera.tscn","success":true}}
+{"method":"scene.close","id":40,"jsonrpc":"2.0","result":{"path":"res://scenes/prefabs/pistol_coral_stub/preview_game_camera.tscn","success":true,"unsaved_changes_discarded":false}}
+{"method":"scene.open","id":41,"jsonrpc":"2.0","result":{"path":"res://scenes/prefabs/pistol_coral_stub/preview_game_camera.tscn","success":true}}
+{"method":"editor.save_scene","id":42,"jsonrpc":"2.0","result":{"path":"res://scenes/prefabs/pistol_coral_stub/preview_game_camera.tscn","success":true}}

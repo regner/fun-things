@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://dup5wdshw8sli"]
+
+[ext_resource type="Environment" uid="uid://w6ovjk6t4lki" path="res://scenes/prefabs/pistol_coral_stub/preview_environment.tres" id="1_ne7dk"]
+[ext_resource type="PackedScene" uid="uid://d074bk5ladf6v" path="res://scenes/prefabs/pistol_coral_stub/pistol_coral_stub.tscn" id="2_cdhb1"]
+
+[node name="CoralStubPreview" type="Node3D" unique_id=730322936]
+
+[node name="Environment" type="WorldEnvironment" parent="." unique_id=2005960239]
+environment = ExtResource("1_ne7dk")
+
+[node name="KeyLight" type="DirectionalLight3D" parent="." unique_id=1507830228]
+transform = Transform3D(0.8253356, 0.4050497, -0.3933902, 0, 0.6967067, 0.7173561, 0.5646425, -0.59205955, 0.57501686, 0, 0, 0)
+light_energy = 1.25
+
+[node name="Camera" type="Camera3D" parent="." unique_id=417617074]
+transform = Transform3D(-0.7124838, -0.28688338, 0.6403629, 0, 0.9126028, 0.40884718, -0.7016886, 0.291297, -0.65021473, 0.65, 0.43, -0.8)
+current = true
+fov = 42.0
+near = 0.01
+far = 10.0
+
+[node name="UI" type="CanvasLayer" parent="." unique_id=575574183]
+
+[node name="Caption" type="Label" parent="UI" unique_id=153686512]
+offset_left = 20.0
+offset_top = 20.0
+offset_right = 21.0
+offset_bottom = 43.0
+text = "CORAL STUB — Linked Blender model · static visual asset · grip-origin metres"
+
+[node name="Pistol" parent="." unique_id=1616170364 instance=ExtResource("2_cdhb1")]

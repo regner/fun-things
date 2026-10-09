@@ -1,0 +1,11 @@
+Blender 5.2.2 LTS (hash d13f752e3b9c built 2026-09-22 17:10:25)
+[ALSOFT] (EE) Failed to connect PipeWire event context (errno: 1)
+/home/regner/.paseo/worktrees/0u71f39f/brackett-pistol/tools/pistol_coral_stub/author.py:23: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  mat.use_nodes = True
+00:00.569  image.write      | ERROR OpenImageIO write failed: Could not open file "/home/regner/.cache/thumbnails/large/blender_3_fa968a8a7e66e8176364e2e9a4659a24.png.png"
+BlenderMCP addon registered
+BlenderMCP addon unregistered
+Extensions: writing cache failed ([Errno 30] Read-only file system: '/home/regner/.config/blender/5.2/extensions').
+Info: Saved as "pistol_coral_stub.blend"
+PISTOL_SOURCE /home/regner/.paseo/worktrees/0u71f39f/brackett-pistol/art/source/models/pistol_coral_stub/pistol_coral_stub.blend {'asset_id': 'pistol_coral_stub', 'source': 'art/source/models/pistol_coral_stub/pistol_coral_stub.blend', 'collection': 'export_pistol_coral_stub', 'members': ['AngledGrip', 'CoralSlide', 'CreamRearCap', 'FrontSight', 'GripInsert', 'LowerFrame', 'MuzzleAperture', 'MuzzleCollar', 'RearSight', 'TopStatusInsert', 'TriggerGuard', 'TriggerVisual', 'socket_grip', 'socket_muzzle'], 'materials': ['coral_shell', 'cream_rear', 'petrol_frame', 'dark_grip', 'cyan_status', 'muzzle_dark'], 'sockets_godot_m': {'socket_grip': [0, 0, 0], 'socket_muzzle': [0, 0.122, -0.421]}, 'muzzle_aperture_radius_m': 0.024, 'animation': 'None; static presentation prop, no moving-part requirement selected'}
+pa_write() failed while trying to wake up the mainloop: Operation not permitted

@@ -1,0 +1,12 @@
+{"method":"editor.refresh","id":1,"jsonrpc":"2.0","result":{"errors_cleared":4,"mode":"full","reloaded":0,"scan_waited_ms":209,"success":true}}
+{"method":"editor.wait_for_idle","id":2,"jsonrpc":"2.0","result":{"success":true,"waited_ms":0,"was_scanning":false}}
+{"method":"scene.close","id":3,"jsonrpc":"2.0","result":{"hint":"Closing a non-active scene tab may produce a _set_main_scene_state error in the editor console. This is benign Godot engine noise — safe to ignore.","path":"res://scenes/prefabs/pistol_coral_stub/pistol_coral_stub.tscn","success":true,"unsaved_changes_discarded":false}}
+{"method":"scene.open","id":4,"jsonrpc":"2.0","result":{"path":"res://scenes/prefabs/pistol_coral_stub/pistol_coral_stub.tscn","success":true}}
+{"method":"editor.save_scene","id":5,"jsonrpc":"2.0","result":{"path":"res://scenes/prefabs/pistol_coral_stub/pistol_coral_stub.tscn","success":true}}
+{"method":"scene.close","id":6,"jsonrpc":"2.0","result":{"path":"res://scenes/prefabs/pistol_coral_stub/preview.tscn","success":true,"unsaved_changes_discarded":false}}
+{"method":"scene.open","id":7,"jsonrpc":"2.0","result":{"path":"res://scenes/prefabs/pistol_coral_stub/preview.tscn","success":true}}
+{"method":"node.call_method","id":8,"jsonrpc":"2.0","result":{"hint":"Return value was null. A non-@tool GDScript never runs in the editor, so callv() cannot find the method (the editor logs 'Method not found'). To call it: (1) runtime, reliable — game.start, then execute_code or runtime_get_node_state on the live node; (2) editor — add @tool, then close and reopen the scene (scene_close + scene_open); editor_refresh is not sufficient.","method":"look_at_from_position","path":"Camera","result":null,"success":true}}
+{"method":"editor.save_scene","id":9,"jsonrpc":"2.0","result":{"path":"res://scenes/prefabs/pistol_coral_stub/preview.tscn","success":true}}
+{"method":"scene.close","id":10,"jsonrpc":"2.0","result":{"hint":"Closing a non-active scene tab may produce a _set_main_scene_state error in the editor console. This is benign Godot engine noise — safe to ignore.","path":"res://scenes/prefabs/pistol_coral_stub/preview_game_camera.tscn","success":true,"unsaved_changes_discarded":false}}
+{"method":"scene.open","id":11,"jsonrpc":"2.0","result":{"path":"res://scenes/prefabs/pistol_coral_stub/preview_game_camera.tscn","success":true}}
+{"method":"editor.save_scene","id":12,"jsonrpc":"2.0","result":{"path":"res://scenes/prefabs/pistol_coral_stub/preview_game_camera.tscn","success":true}}

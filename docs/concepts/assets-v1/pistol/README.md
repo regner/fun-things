@@ -3,7 +3,9 @@
 9 October 2026. Owner: Codex pistol workstream, Paseo agent
 `04572f3d-e2f3-4779-8e40-03a35caaecd5`, branch `art/brackett-pistol`.
 Baseline: `c030d66d7d0a9db19c0c2aebf1aa2b83eded6275`.
-**Awaiting Regner's selection. No detailed Blender production has started.**
+**Regner selected A — Coral Stub on 9 October 2026. Blender production is authorized.**
+
+Production source/export/prefab and evidence: [Coral Stub handoff](../../../assets/pistol_coral_stub.md).
 
 Open [review.html](review.html) for the simple gallery. Each original generated
 sheet contains side, top, three-quarter and black silhouette views.

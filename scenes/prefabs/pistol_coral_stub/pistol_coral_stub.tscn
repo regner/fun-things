@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://d074bk5ladf6v"]
+
+[ext_resource type="PackedScene" uid="uid://b76txaphm8oqg" path="res://art/models/pistol_coral_stub/pistol_coral_stub.glb" id="1_b2663"]
+
+[node name="CoralStub" type="Node3D" unique_id=1616170364]
+
+[node name="Visuals" type="Node3D" parent="." unique_id=1373528363]
+
+[node name="Model" parent="Visuals" unique_id=521259013 instance=ExtResource("1_b2663")]
+
+[node name="Sockets" type="Node3D" parent="." unique_id=1739929152]
+
+[node name="Grip" type="Marker3D" parent="Sockets" unique_id=248102770]
+
+[node name="Muzzle" type="Marker3D" parent="Sockets" unique_id=1019905040]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.122, -0.421)

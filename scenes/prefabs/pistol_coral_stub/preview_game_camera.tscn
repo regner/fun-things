@@ -1,0 +1,63 @@
+[gd_scene format=3 uid="uid://bipia6nkd2b2w"]
+
+[ext_resource type="Environment" uid="uid://w6ovjk6t4lki" path="res://scenes/prefabs/pistol_coral_stub/preview_environment.tres" id="1_lmkod"]
+[ext_resource type="PackedScene" uid="uid://sg8ridp7l3to" path="res://art/models/spikes/s02_ground.glb" id="2_t0oj6"]
+[ext_resource type="PackedScene" uid="uid://bkccqft5jbfk0" path="res://art/models/spikes/s02_actor.glb" id="3_fj6h2"]
+[ext_resource type="PackedScene" uid="uid://d074bk5ladf6v" path="res://scenes/prefabs/pistol_coral_stub/pistol_coral_stub.tscn" id="4_rxyle"]
+
+[node name="CoralStubGameCamera" type="Node3D" unique_id=2095508772]
+
+[node name="Environment" type="WorldEnvironment" parent="." unique_id=1896082491]
+environment = ExtResource("1_lmkod")
+
+[node name="KeyLight" type="DirectionalLight3D" parent="." unique_id=133306775]
+transform = Transform3D(0.8253356, 0.4050497, -0.3933902, 0, 0.6967067, 0.7173561, 0.5646425, -0.59205955, 0.57501686, 0, 0, 0)
+light_energy = 1.25
+
+[node name="Camera" type="Camera3D" parent="." unique_id=973999015]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 47, 0)
+current = true
+fov = 42.0
+near = 0.1
+far = 160.0
+
+[node name="UI" type="CanvasLayer" parent="." unique_id=303896716]
+
+[node name="Caption" type="Label" parent="UI" unique_id=1536696616]
+offset_left = 20.0
+offset_top = 20.0
+offset_right = 21.0
+offset_bottom = 43.0
+text = "CORAL STUB — 47m / 42deg / 1280x800 · S02 technical mannequin · north / east / south"
+
+[node name="Ground" parent="." unique_id=846458591 instance=ExtResource("2_t0oj6")]
+
+[node name="North" type="Node3D" parent="." unique_id=415741262]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0, 0)
+
+[node name="Mannequin" parent="North" unique_id=413610764 instance=ExtResource("3_fj6h2")]
+
+[node name="WeaponMount" type="Node3D" parent="North" unique_id=304040596]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.43, 1.2, -0.6)
+
+[node name="Pistol" parent="North/WeaponMount" unique_id=1616170364 instance=ExtResource("4_rxyle")]
+
+[node name="East" type="Node3D" parent="." unique_id=171476244]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 0, 0)
+
+[node name="Mannequin" parent="East" unique_id=517739570 instance=ExtResource("3_fj6h2")]
+
+[node name="WeaponMount" type="Node3D" parent="East" unique_id=582113516]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.43, 1.2, -0.6)
+
+[node name="Pistol" parent="East/WeaponMount" unique_id=1081208467 instance=ExtResource("4_rxyle")]
+
+[node name="South" type="Node3D" parent="." unique_id=800437705]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 3, 0, 0)
+
+[node name="Mannequin" parent="South" unique_id=928939055 instance=ExtResource("3_fj6h2")]
+
+[node name="WeaponMount" type="Node3D" parent="South" unique_id=741251392]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.43, 1.2, -0.6)
+
+[node name="Pistol" parent="South/WeaponMount" unique_id=2139393995 instance=ExtResource("4_rxyle")]
