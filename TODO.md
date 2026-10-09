@@ -22,7 +22,7 @@ follow-ups remain in the M1 requirements rather than reopening the spikes.
 - [ ] **S08 — Run the Linux desktop launch/graphics checklist when a Linux machine is
   available.** This does not block proceeding; keep the ENet workaround and offline review.
 - [ ] **P0-GATE — Review the refreshed packet and record the gate disposition.** The
-  S17-only quiet record and owner decisions 13–22 are integrated in the
+  S17-only quiet record and owner decisions 13–23 are integrated in the
   [review packet](docs/reviews/p0-gate-packet-2026-10-09.md). Under decision 14, the
   remaining human checks and production decisions are not extra foundation prerequisites;
   Linux-only S08 confirmation and P0-PROFILES remain non-blocking.
@@ -43,7 +43,10 @@ All M1 tasks follow P0-GATE.
 
 ### M1-B — Vehicles, combat and destruction
 
-- [ ] **M1-B1 — Implement vehicles and authoritative driver transitions.** After: M1-A-GATE.
+- [ ] **M1-B1 — Implement vehicles and authoritative driver transitions.** Entry is
+  host-confirmed after a short ~0.3 s presentation; transfer control and camera/HUD ownership
+  only on acceptance, with no rejection snap. Preserve exit below 0.5 m/s at the authored
+  1.5 m offset and add production clearance. After: M1-A-GATE.
 - [ ] **M1-B2 — Implement weapons, host-current-time hit verdicts, health, damage and
   respawn.** Use decision 21's accepted combat values as playtest-tuned M1 starting values;
   fire intents carry the shooter's view tick so bounded host-only rewind remains possible

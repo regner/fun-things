@@ -462,11 +462,16 @@ gameplay state; the reliable transition is the sole state application.
 
 Host acceptance order is `(accepted_tick, participant_id, action_sequence)` for
 same-tick actions. The first valid seat claim wins; others get `SEAT_OCCUPIED`.
+Owner decision 23 makes M1 entry host-confirmed, not predicted: the client sends intent
+and plays a short ~0.3 s get-in presentation, but control and camera/HUD ownership
+change only on the accepted host transition. Rejection causes no ownership change or
+snap. S04-T's predicted-entry machinery remains documented for a later upgrade.
 Entry checks alive/unseated player, available/nonterminal car, range, eligible
-speed, authored sockets and clearance before disabling foot-body gameplay. S04
-settles range/speed values on VehicleInteraction tuning. Exit tests left/right
-authored candidates in a fixed order with the actor clearance query; all blocked
-returns `EXIT_BLOCKED` and leaves the entire seat/control state unchanged.
+speed, authored sockets and clearance before disabling foot-body gameplay; VehicleInteraction
+tuning still settles entry range/eligible speed. Exit remains below 0.5 m/s with the authored
+1.5 m offset; it tests left/right authored candidates in a fixed order with the actor
+clearance query. All blocked returns `EXIT_BLOCKED` and
+leaves the entire seat/control state unchanged.
 
 Successful transfers increment control revisions, neutralize previous controllers,
 clear affected prediction and commit both player/car rows. Traffic ownership stops

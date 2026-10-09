@@ -74,7 +74,7 @@ All timing values explicitly marked **contended** are upper bounds from a shared
 | S03-S | Documentation review complete | [Abstraction review](../spikes/s03-s-abstraction-review.md): ENet-first provider/stream/lifecycle seam | Future Steam adapter has no runtime evidence by design | n/a |
 | S04 | Technical body complete; handling review open | [Car spike](../spikes/s04.md), [drive scene](../spikes/s04-drive-scene.md): CharacterBody candidate and live tuning harness | Owner tuning and final dimensions; death now coasts then becomes abandoned/parked | n/a |
 | S04-P | Complete, bounded with mixed adverse results | [Car prediction](../spikes/s04-prediction.md): normal passes; post-rebase adverse correction p95 0.576 m fails 0.5 m target; drawn p95 85 ms; **contended** | Clean adverse production proof, moving-car contacts, subjective feel | Not rerun; contended retained by decision 13 |
-| S04-T | Complete, bounded | [Transition fixture](../spikes/s04-t.md): seat race, moving/blocked exit, AI release and disconnect coast pass; timings **contended** | Adverse moving-traffic transfer correction 6.999 m; camera smoothing, real clearance and lifecycle races remain | Not rerun; contended retained by decision 13 |
+| S04-T | Complete, bounded; M1 entry policy decided | [Transition fixture](../spikes/s04-t.md): seat race, moving/blocked exit, AI release and disconnect coast pass; predicted-entry machinery remains a later option; timings **contended** | Implement ~0.3 s confirmed-entry presentation, acceptance-only control/camera/HUD transfer, rejection without snap, real exit clearance and lifecycle races | Not rerun; contended retained by decision 13 |
 | S05 | Foundation logic/presentation complete | [Chain](../spikes/s05.md), [uncapped presentation](../spikes/s05-uncapped-effects.md): 12 explosions, 144 visits, 12 drawn/0 dropped | Production pool, in-flight join/reset, wreck art/contact and final dimensions | S15 owns cost |
 | S06 | Topology complete; visual/UI review open | [Topology](../spikes/s06.md): foot route, two car turns, stale-bake and shared minimap checks pass; scale/top-right accepted | Minimap size/look, whole UI, contested recovery and final-body reruns | n/a |
 | S07 | Complete planning guidance | [Environment envelope](../spikes/s07-environment-scale.md): 6/24/96 pass; historical 384 crash; 96 frame p99 18.405 ms, **contended** | Shared grey-block art is not production; no Deck result; 96 is not a product ceiling | Not rerun; contended retained by decision 13 |
@@ -116,16 +116,17 @@ All timing values explicitly marked **contended** are upper bounds from a shared
 5. **Linux and Deck.** Windows is the only passing graphical/runtime platform in the recent
    foundation work. Run S08-X's Linux Vulkan checklist before M1-A-GATE. Deck remains later and
    must stay labelled unverified; desktop evidence cannot become a Deck claim.
-6. **Foot/car transfer presentation.** S04-T proves ownership safety but reports a 6.999 m adverse
-   moving-traffic correction. Preserve camera world framing, define snap/smooth thresholds and
-   reject speculative control cleanly before production B1.2.
+6. **Foot/car transfer presentation.** S04-T proves ownership safety but its predicted-entry
+   path reports a 6.999 m adverse moving-traffic correction. Decision 23 avoids speculative M1
+   ownership: play a short ~0.3 s get-in presentation, transfer control and camera/HUD ownership
+   only on host acceptance, and leave rejection without an ownership change or snap.
 7. **Production content cost.** S07 reuses tiny grey-block assets; S13/S15 are technical carriers.
    Measure representative production art as C1 families land rather than treating 96 blocks or
    current draw calls as a production budget.
 
 ## Owner decisions recorded
 
-The owner recorded decisions 13–22 on 9 October 2026:
+The owner recorded decisions 13–23 on 9 October 2026:
 
 - **Decision 13 — measurement scope and principle:** S17 is the only quiet rerun. Other spike
   timings remain labelled contended. Foundation establishes concepts and high-level limits; M1
@@ -172,6 +173,11 @@ The owner recorded decisions 13–22 on 9 October 2026:
   Pedestrian 1.0 ms and traffic 1.5/2.0 ms shares are reporting only. When the total is
   threatened, optimize the largest contributor—pedestrians first. Population counts remain
   tunable settings, starting from 64 pedestrians and 32 cars.
+- **Decision 23 — M1 car entry:** entry is host-confirmed, not predicted. The client sends intent
+  and plays a short ~0.3 s get-in presentation; control and camera/HUD ownership transfer only
+  with the host's accepted transition. Rejection causes no ownership change or snap. Preserve
+  S04-T's predicted-entry machinery as a documented later upgrade. Exit remains below 0.5 m/s
+  with the authored 1.5 m offset and still requires production clearance queries.
 
 ## Owner decisions still open
 
@@ -179,9 +185,9 @@ These remaining choices belong to their named production consumer; they are not 
 or quiet-pass prerequisites under decision 14. An explicit deferral should still name its consumer
 or accepted risk.
 
-1. **S04 handling:** provide drive-scene feedback and an F12 value set. **Recommendation:** run the
-   saved harness before freezing B1.1 body/tuning; do not promote defaults solely from automated
-   route success.
+1. **S04 handling (entry policy settled):** provide drive-scene feedback and an F12 value set.
+   **Recommendation:** run the saved harness before freezing B1.1 body/tuning; do not promote
+   defaults solely from automated route success.
 2. **Traffic/crossing policy:** choose reservation priority/lights and whether cars yield at marked
    crossings. **Recommendation:** deterministic authored reservations; cars yield at selected marked
    crossings, while uncontrolled player cars remain collision-authoritative.

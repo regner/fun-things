@@ -119,7 +119,7 @@ class for every noun.
 | ActorMotion | Foot pose, velocity and facing rule | Local input, host remote input and pedestrian controller submit typed commands |
 | PlayerLifecycle | Death, three-second respawn, safe-spawn result and controlled entity | Coordinates Health, WeaponState and VehicleInteraction before publication |
 | VehicleMotion | Car pose, velocity, handling/contact state and coast-to-stop policy | Player prediction, authority and traffic all call the same drive step |
-| VehicleInteraction | Seat, enter/exit, control revision and transfer transactions | Enforces stopped exit and no partial transition |
+| VehicleInteraction | Seat, enter/exit, control revision and transfer transactions | Enforces host-confirmed entry, stopped exit and no partial transition |
 | WeaponState | Selection, magazine, reload/cooldown and ShotId allocation | Local UI reads; DamageResolver receives accepted shots |
 | Health | Health value, revision and damage deduplication | Lifecycle owners consume lethal outcomes |
 | DamageResolver | Hitscan/projectile verdict, attribution and friendly/self damage | Host physics only; clients never submit hits or damage |
@@ -462,7 +462,7 @@ backlog below:
 | **S01-W** | Exact Windows Blender version and byte or semantic reexport result | M1-C1.1, M1-C1.2 and S13 asset adoption |
 | **S03-P** | Bounded shared-rule foot prediction/reconciliation evidence after S02 controls and S03-L | M1-A2.3 and S04-T |
 | **S04-P** | Bounded shared-rule car prediction/reconciliation evidence after S03-L | M1-B1.1 and S04-T |
-| **S04-T** | After S03-P/S04-P, two-process predicted foot↔car handoff, racing claims, moving/blocked exit, AI release and disconnect coast | M1-B1.2 and M1-D2 |
+| **S04-T** | Two-process predicted foot↔car evidence, racing claims, moving/blocked exit, AI release and disconnect coast; decision 23 retains predicted entry only as a later option | M1-B1.2 and M1-D2 |
 | **S17** | Integrated full-cap host-tick composition after S09–S12, including S11 encode for three clients | M1-A2.2 codec freeze, M1-C3 and M1-D3 |
 
 S11's accepted full-cap codec, baseline and wire-budget evidence is independently a
@@ -495,7 +495,7 @@ numbered row or an explicitly named accepted foundation result.
 | 12. **M1-A3.2 — production audio buses and voice policy** | M | A3.1, accepted S14 evidence | Audio lane. Persistent settings, category limits, state-driven emitters and clean teardown; owner listening review remains explicit. |
 | 13. **M1-A-GATE — exported multiplayer shell** | L | D1.1, A1.2, A2.3, A2.4, A3.2, accepted S08-X | Integration. Two Windows and two Linux processes cover settings, join/admission, movement/prediction, respawn/reset, errors and host loss; no Steam criterion. |
 | 14. **M1-B1.1 — production vehicle motion, prediction and tuning** | M | A-GATE, owner drive-scene values, accepted S03-L, accepted S04-P | Vehicle lane. Port the proved replay mapping; same rules for standalone/host/replay/AI, with bounded corrections and wall/brake/reverse/handbrake cases. |
-| 15. **M1-B1.2 — VehicleInteraction transaction matrix** | M | B1.1, A2.4, accepted S04-T | Match/vehicle lane. Same-tick claims, stopped/blocked exit, selected driver-death policy, disconnect coast, reset/resync/destruction and revision fences pass. |
+| 15. **M1-B1.2 — VehicleInteraction transaction matrix** | M | B1.1, A2.4, accepted S04-T | Match/vehicle lane. Decision 23 host-confirmed entry with ~0.3 s presentation, acceptance-only control/camera/HUD transfer and snap-free rejection; <0.5 m/s exit at the authored 1.5 m offset plus clearance, same-tick claims, driver death, disconnect, reset/resync/destruction and revision fences pass. |
 | 16. **M1-B2.1 — WeaponState and hitscan** | M | A-GATE, accepted S03-L, accepted S12 decisions | Combat lane. Decision 21 pistol/SMG starting values, rate/ammo/reload/equip/no-seated-fire, ShotId duplicates and decision 18 host verdict pass normal/adverse tests. |
 | 17. **M1-B2.2 — rockets, Health and player/pedestrian death** | M | B2.1, A2.4 | Combat/lifecycle lane. Decision 21 health/rocket/car-impact starting values, capacity/cooldown, impact/expiry, friendly/self damage, full-loadout respawn and hydration pass. |
 | 18. **M1-B3.1 — explosions, wrecks and chains** | M | B1.2, B2.2 | Combat lane. Three/12-car outcomes, bounded work, occupied destruction, collision fence, retention, in-flight late join and reset pass off-camera. |
@@ -537,7 +537,7 @@ population by replacing missing S09–S11/S17 evidence with dummy behavior.
 | --- | --- | --- |
 | Historical requirements name Steam/Deck and rejected controls/effect cap | Teams implement or gate against superseded scope | Existing scope decisions settle ENet-only desktop M1; decision 17's GodotSteam removal is complete. Treat older wording as historical. |
 | Prediction against CharacterBody contacts is approximate | Visible corrections, divergent foot/car behavior or replay side effects | S03-L precedes S03-P/S04-P; production ports their shared-rule evidence, keeps revision fences and snaps/resyncs on overflow. No historical-world rollback claim. |
-| Predicted foot↔car transfer has multiple owners | Rejected claims or revision changes leave the camera, HUD or replay history on the wrong body | S04-T is a hard B1.2 dependency and measures rejected/racing claims plus replay-history handoff before production interaction. |
+| Confirmed foot→car transfer has multiple owners | Rejected claims or revision changes leave camera/HUD/control on the wrong body | Decision 23 transfers ownership only on host acceptance after a short presentation; rejection cannot snap. S04-T's predicted machinery remains a documented later option. |
 | Vehicle handling remains subjective | B1 foundations may be rebuilt after integration | Owner runs the standalone S04 drive scene and ratifies tuning/body dimensions before B1.1 freezes definitions. |
 | Initial hitscan policy needs production acceptance | High-latency disagreement or exploit surface | Decision 18 starts with host-current-time verdicts, forgiving hit shapes and view-tick-ready intents; add bounded host-only rewind later only if playtests require it. |
 | “Every explosion visible” has no accepted quality-degradation rule | 12/24 effects may violate frame budget or produce unreadable output | S15 measures authored full/cheap variants. **Owner:** confirm reducing particles/lighting while retaining one visible effect per explosion is allowed. |
@@ -584,7 +584,7 @@ Remaining production reviews are assigned to their consumers rather than P0 prer
 ## 7. Historical suggested task-record reconciliation
 
 The bullets below preserve this plan's original 8 October reconciliation proposal. They are
-historical: current `TODO.md`, task requirements and owner decisions 13–22 supersede them.
+historical: current `TODO.md`, task requirements and owner decisions 13–23 supersede them.
 
 - **P0-GATE:** record the owner's answer on restoring S02/prediction and audit-derived
   dependencies; add P0-TOOLING, S03-L, S08-X, S08-C, S01-W, S03-P, S04-P, S04-T and

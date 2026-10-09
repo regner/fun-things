@@ -10,10 +10,11 @@ qualification and enough outcome detail for dispatch.
 and the audit-derived tasks in
 [section 4 of the readiness audit](../reviews/p0-readiness-audit-2026-10-08.md).
 Most quantitative criteria are planning proposals derived from current product budgets and
-remain tunable during M1. Owner decisions 13–22 ratify the desktop frame target, narrow
+remain tunable during M1. Owner decisions 13–23 ratify the desktop frame target, narrow
 P0-GATE to the S17-only quiet result plus the refreshed gate packet, select the first
 hit-registration policy and combat starting values, accept the S03-P M1 input-queue
-contract, set the initial S11 remote extrapolation policy and make S17 a soft total budget.
+contract, set the initial S11 remote extrapolation policy and S17 soft total budget, and
+choose host-confirmed M1 car entry.
 
 - **P0-TOOLING:** Completed. The [baseline repair](../spikes/p0-tooling.md) made the
   canonical script check green, established complete Python discovery, selected the
@@ -59,9 +60,11 @@ contract, set the initial S11 remote extrapolation policy and make S17 a soft to
   so production still needs clean adverse and moving-contact acceptance.
 - **S04-T:** Completed bounded mechanism. The [transition fixture](../spikes/s04-t.md)
   proves authoritative seat races, `EXIT_MOVING`, blocked retention, AI release, disconnect
-  coast and prediction-domain transfer under normal/adverse profiles. Production must
-  address the retained 6.999 m adverse moving-traffic correction, real clearance and full
-  death/destruction/reset races.
+  coast and prediction-domain transfer under normal/adverse profiles. Decision 23 makes M1
+  entry host-confirmed: play a short ~0.3 s get-in presentation, then transfer control and
+  camera/HUD ownership only on host acceptance; rejection causes no ownership change or snap.
+  Keep predicted-entry machinery documented for a later upgrade. Exit remains below 0.5 m/s
+  with the authored 1.5 m offset; production still needs real clearance and full lifecycle races.
 - **S05:** Bounded chain logic and uncapped fixture presentation are complete. The
   [chain record](../spikes/s05.md) completes 12 explosions/144 visits; the
   [presentation supplement](../spikes/s05-uncapped-effects.md) draws 12 and drops zero.
@@ -160,8 +163,11 @@ Completed discovery reconciliation: [P0-DOC14 record](../reviews/p0-doc14.md).
 - **M1-A-GATE:** Validate two exported ENet processes, settings and lifecycle/reset/error
   flows with Steam absent. Actual Steam gameplay transport is owner-deferred beyond M1.
 - **M1-B1:** Implement vehicle handling and authoritative driver transitions; resolve
-  claim/exit/death/disconnect/destruction races. A dead driver's car coasts under neutral
-  input, then remains as an abandoned parked car.
+  claim/exit/death/disconnect/destruction races. Entry is host-confirmed with a short ~0.3 s
+  presentation; control and camera/HUD ownership transfer only on acceptance, and rejection
+  does not snap or change ownership. Exit remains below 0.5 m/s with the authored 1.5 m offset
+  plus production clearance. A dead driver's car coasts under neutral input, then remains as
+  an abandoned parked car.
 - **M1-B2:** Implement decision 18's host-current-time hit verdicts and forgiving delay-sized
   hit shapes. Fire intents carry the shooter's view tick; only muzzle/tracer feedback is immediate,
   while impact/damage waits for host confirmation. Keep bounded ≤250 ms host-only rewind possible,

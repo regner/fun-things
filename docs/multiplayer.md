@@ -371,8 +371,11 @@ address the controlled vehicle EntityRef. No production wire compatibility is im
 [M1-B1's specified matrix](spikes/s04-contracts.md#m1-b1-transition-matrix-specified-not-implemented)
 keeps seat transactions with VehicleInteraction under Match, adverse acceptance with
 M1-D3, and no-seated-fire/reload feel confirmation as M1-B1/B2 production work under
-decision 14, not a P0 prerequisite. Entry/exit races, disconnect/death/destruction/reset
-and production late join are specified, not proved
+decision 14, not a P0 prerequisite. Decision 23 replaces predicted M1 entry with a short
+~0.3 s presentation followed by acceptance-only control/camera/HUD transfer; rejection
+cannot change ownership or snap. Predicted-entry machinery remains a later option. Exit
+stays below 0.5 m/s at the authored 1.5 m offset with production clearance. Entry/exit
+races, disconnect/death/destruction/reset and production late join are specified, not proved
 by this fixture. Exact [2370ad1 acceptance](spikes/s04.md#accepted-exact-final-disposition)
 closes P2/P3. Original physics p95 97/269/401 ms and fixed normal/adverse248/380 ms
 remain separate,20/20 each; those authority-only values are historical baselines, not
