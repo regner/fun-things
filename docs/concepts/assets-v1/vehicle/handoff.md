@@ -2,8 +2,26 @@
 
 9 October 2026. Producer: dedicated vehicle lead. Art selector: Regner.
 Receiving gameplay integrator: another person, not yet named.
-Stage: all three cars approved by Regner on 9 October 2026; modeling queued.
+Stage: all three cars approved by Regner on 9 October 2026; first source/import/preview
+checkpoint created. [Production gallery](../../../assets/vehicle_car_evidence/index.html).
 New bus/truck concepts presented, approval pending. No finished production vehicles.
+
+## Owner model-routing update — 9 October 2026
+
+Owner instruction supersedes the cohort's earlier Sol lead policy: all geometry,
+UV/skin deformation, spatial rig/rest/bone design, keyframes/poses/motion and spatial
+VFX authoring use Astra. Non-spatial Godot imports, resource/rig/animation configuration,
+bookkeeping and technical wiring may use Sol 6.1 medium/high. Verify effective runtime
+model before resuming spatial work; preserve in-flight work and end a Sol turn if the
+new settings are only effective next turn. This applies to any art subagent too.
+
+Paseo `get_agent_status` verified active session
+`01a12094-3419-70f1-b170-ee8dbb9bacb2`, active turn `codex-turn-6`,
+`runtimeInfo.model=gpt-6-astra`, `runtimeInfo.thinkingOptionId=high` before subsequent
+spatial mutations. Three first-pass sources and GLBs were already saved by the
+in-flight earlier operation. They are preserved, with no process kill or discard.
+The owner then raised door opening; movable side doors use rigid hinge pivots and
+cosmetic preview clips, without requiring a skinned skeleton or gameplay seat logic.
 
 ## Existing evidence and boundary
 
@@ -78,8 +96,10 @@ Do not apply concurrently to shared files:
   New `bus_tandem_a` / `truck_keel_a` proposals described in `larger_vehicles.md`,
   pending approval, unique family `city_commercial`; provisional dimensions explicit.
 - TODO: car concepts/owner selection done; bus/truck concept approval pending;
-  selected source/model/materials/wheels/markers, GLB import/metadata, saved wrapper
-  and preview, source/export checks and clean-context independent review still pending.
+  car sources/materials/wheels/hinged side doors/markers, GLB import/metadata and saved
+  wrappers/previews now exist. Reexport, imported bounds/sockets, saved roundtrip and
+  actual camera/door-pose checks pass. First checkpoint independent review is next;
+  final art polish/owner model acceptance and integration checks remain pending.
 - Integration dependencies: final visual/collider envelope reconciliation, driver
   fit, safe entry/grounded exits, district turns/contacts/spawn queries, gameplay
   root/lifecycle/networking, target performance and playable acceptance remain with

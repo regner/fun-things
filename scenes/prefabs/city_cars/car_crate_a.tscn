@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://cdek0yeu7ttlc"]
+
+[ext_resource type="PackedScene" uid="uid://b6kq76sosw5hu" path="res://art/models/city_cars/car_crate_a.glb" id="1_a5lpd"]
+
+[node name="car_crate_a" type="Node3D" unique_id=1837703532]
+metadata/asset_id = "car_crate_a"
+metadata/visual_only = true
+
+[node name="Visuals" type="Node3D" parent="." unique_id=527491494]
+
+[node name="Model" parent="Visuals" unique_id=1556081500 instance=ExtResource("1_a5lpd")]
+
+[node name="Sockets" type="Node3D" parent="." unique_id=1929708663]
+
+[node name="DriverSeat" type="Marker3D" parent="Sockets" unique_id=2142494214]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.34, 0.86, -0.12)
+
+[node name="EntryLeft" type="Marker3D" parent="Sockets" unique_id=900176662]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.35, 0, -0.1)
+
+[node name="EntryRight" type="Marker3D" parent="Sockets" unique_id=1790795348]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.35, 0, -0.1)
+
+[node name="ExitLeft" type="Marker3D" parent="Sockets" unique_id=785962644]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.57, 0, -0.1)
+
+[node name="ExitRight" type="Marker3D" parent="Sockets" unique_id=818672810]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.57, 0, -0.1)

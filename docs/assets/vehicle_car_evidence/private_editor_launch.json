@@ -1,0 +1,32 @@
+{
+  "pid": 72501,
+  "cwd": "/home/regner/.paseo/worktrees/0u71f39f/brackett-vehicle",
+  "command": [
+    "/home/regner/.local/share/mise/installs/github-godotengine-godot-builds/4.8-dev7/godot",
+    "--editor",
+    "--display-driver",
+    "x11",
+    "--rendering-method",
+    "gl_compatibility",
+    "--path",
+    "/home/regner/.paseo/worktrees/0u71f39f/brackett-vehicle",
+    "--max-fps",
+    "60",
+    "--lsp-port",
+    "21652",
+    "--dap-port",
+    "21653",
+    "--debug-server",
+    "tcp://127.0.0.1:21654",
+    "--log-file",
+    "/tmp/brackett-vehicle-production/logs/editor.log"
+  ],
+  "private_state": "/tmp/brackett-vehicle-production",
+  "ports": [
+    21650,
+    21651,
+    21652,
+    21653,
+    21654
+  ]
+}

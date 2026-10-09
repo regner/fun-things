@@ -1,0 +1,303 @@
+[gd_scene format=3 uid="uid://chlxb10u1qp8y"]
+
+[ext_resource type="Script" uid="uid://dmpr8o7anngw5" path="res://tools/vehicle_assets/preview_capture.gd" id="1_qrt8c"]
+[ext_resource type="PackedScene" uid="uid://bsj0e1urxc2nl" path="res://art/models/city_cars/car_preview_stage.glb" id="1_wh51s"]
+[ext_resource type="PackedScene" uid="uid://kb8srk8ghgmy" path="res://scenes/prefabs/city_cars/car_sable_a.tscn" id="2_qrt8c"]
+
+[sub_resource type="Environment" id="Environment_wh51s"]
+background_mode = 1
+background_color = Color(0.09411765, 0.14901961, 0.19607843, 1)
+ambient_light_source = 2
+ambient_light_color = Color(0.68235296, 0.79607844, 0.8235294, 1)
+ambient_light_energy = 0.3
+
+[sub_resource type="Animation" id="Animation_qrt8c"]
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Car/Visuals/Model/car_sable_a/Doors/HingeFrontLeft:rotation:y")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Car/Visuals/Model/car_sable_a/Doors/HingeFrontRight:rotation:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Car/Visuals/Model/car_sable_a/Doors/HingeRearLeft:rotation:y")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Car/Visuals/Model/car_sable_a/Doors/HingeRearRight:rotation:y")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Car/Visuals/Model/car_sable_a/Wheels/SteerFrontLeft/SpinFrontLeft:rotation:x")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Car/Visuals/Model/car_sable_a/Wheels/SteerFrontLeft:rotation:y")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Car/Visuals/Model/car_sable_a/Wheels/SteerFrontRight/SpinFrontRight:rotation:x")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Car/Visuals/Model/car_sable_a/Wheels/SteerFrontRight:rotation:y")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Car/Visuals/Model/car_sable_a/Wheels/SteerRearLeft/SpinRearLeft:rotation:x")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("Car/Visuals/Model/car_sable_a/Wheels/SteerRearRight/SpinRearRight:rotation:x")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_u1fw7"]
+length = 6.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Car/Visuals/Model/car_sable_a/Doors/HingeFrontLeft:rotation:y")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 2, 3.3, 4.5, 6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 0.0, -0.872664626, -0.872664626, 0.0, 0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Car/Visuals/Model/car_sable_a/Doors/HingeFrontRight:rotation:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1, 2, 3.3, 4.5, 6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 0.0, 0.872664626, 0.872664626, 0.0, 0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Car/Visuals/Model/car_sable_a/Doors/HingeRearLeft:rotation:y")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1, 2, 3.3, 4.5, 6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 0.0, -0.872664626, -0.872664626, 0.0, 0.0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Car/Visuals/Model/car_sable_a/Doors/HingeRearRight:rotation:y")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 1, 2, 3.3, 4.5, 6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 0.0, 0.872664626, 0.872664626, 0.0, 0.0]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Car/Visuals/Model/car_sable_a/Wheels/SteerFrontLeft/SpinFrontLeft:rotation:x")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 6.283185307179586]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Car/Visuals/Model/car_sable_a/Wheels/SteerFrontLeft:rotation:y")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 1.5, 3, 4.5, 6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 0.3, 0.0, -0.3, 0.0]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Car/Visuals/Model/car_sable_a/Wheels/SteerFrontRight/SpinFrontRight:rotation:x")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 6.283185307179586]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Car/Visuals/Model/car_sable_a/Wheels/SteerFrontRight:rotation:y")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0, 1.5, 3, 4.5, 6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 0.3, 0.0, -0.3, 0.0]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Car/Visuals/Model/car_sable_a/Wheels/SteerRearLeft/SpinRearLeft:rotation:x")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0, 6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 6.283185307179586]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("Car/Visuals/Model/car_sable_a/Wheels/SteerRearRight/SpinRearRight:rotation:x")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0, 6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 6.283185307179586]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_xuqhp"]
+_data = {
+&"RESET": SubResource("Animation_qrt8c"),
+&"mechanical_demo": SubResource("Animation_u1fw7")
+}
+
+[node name="car_sable_a_preview" type="Node3D" unique_id=572937472]
+script = ExtResource("1_qrt8c")
+metadata/asset_id = "car_sable_a"
+metadata/preview_only = true
+
+[node name="Stage" parent="." unique_id=403023818 instance=ExtResource("1_wh51s")]
+
+[node name="Car" parent="." unique_id=977520266 instance=ExtResource("2_qrt8c")]
+
+[node name="Environment" type="WorldEnvironment" parent="." unique_id=975759618]
+environment = SubResource("Environment_wh51s")
+
+[node name="KeyLight" type="DirectionalLight3D" parent="." unique_id=529608701]
+transform = Transform3D(0.8480481, 0.43408445, -0.3039492, 0, 0.57357645, 0.81915206, 0.52991927, -0.69468033, 0.48642042, 0, 0, 0)
+light_color = Color(1, 0.96, 0.92, 1)
+light_energy = 0.85
+shadow_enabled = true
+shadow_bias = 0.15
+
+[node name="FillLight" type="DirectionalLight3D" parent="." unique_id=1359160149]
+transform = Transform3D(-0.76604444, -0.32139382, 0.5566704, 0, 0.8660254, 0.5, -0.64278764, 0.38302222, -0.66341394, 0, 0, 0)
+light_color = Color(0.47058824, 0.73333335, 0.78039217, 1)
+light_energy = 0.25
+
+[node name="GameCamera" type="Camera3D" parent="." unique_id=900256196]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 47, 0)
+current = true
+fov = 42.0
+near = 0.1
+far = 160.0
+
+[node name="InspectionCamera" type="Camera3D" parent="." unique_id=1805814932]
+transform = Transform3D(-0.7612432, -0.2490008, 0.5987548, 0, 0.9233397, 0.3839841, -0.64846647, 0.2923053, -0.7028861, 4.6, 3.7, -5.4)
+fov = 42.0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1683905526]
+libraries/ = SubResource("AnimationLibrary_xuqhp")
+autoplay = &"mechanical_demo"

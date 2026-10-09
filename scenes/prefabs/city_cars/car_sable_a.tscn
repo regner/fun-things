@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://kb8srk8ghgmy"]
+
+[ext_resource type="PackedScene" uid="uid://4jcd2d8dmvs4" path="res://art/models/city_cars/car_sable_a.glb" id="1_hkqwx"]
+
+[node name="car_sable_a" type="Node3D" unique_id=977520266]
+metadata/asset_id = "car_sable_a"
+metadata/visual_only = true
+
+[node name="Visuals" type="Node3D" parent="." unique_id=703559801]
+
+[node name="Model" parent="Visuals" unique_id=2093096075 instance=ExtResource("1_hkqwx")]
+
+[node name="Sockets" type="Node3D" parent="." unique_id=2028230255]
+
+[node name="DriverSeat" type="Marker3D" parent="Sockets" unique_id=399488755]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.34, 0.86, -0.12)
+
+[node name="EntryLeft" type="Marker3D" parent="Sockets" unique_id=1315393744]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.36, 0, -0.1)
+
+[node name="EntryRight" type="Marker3D" parent="Sockets" unique_id=1949373856]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.36, 0, -0.1)
+
+[node name="ExitLeft" type="Marker3D" parent="Sockets" unique_id=2004212357]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.58, 0, -0.1)
+
+[node name="ExitRight" type="Marker3D" parent="Sockets" unique_id=712027550]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.58, 0, -0.1)

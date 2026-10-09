@@ -1,0 +1,156 @@
+{
+  "id": "car_sable_a",
+  "source": "art/source/models/city_cars/car_sable_a.blend",
+  "export": "art/models/city_cars/car_sable_a.glb",
+  "collection": "export_car_sable_a",
+  "members": [
+    "Body",
+    "CabinFloor",
+    "Dashboard",
+    "DoorHandleFrontLeft",
+    "DoorHandleFrontRight",
+    "DoorHandleRearLeft",
+    "DoorHandleRearRight",
+    "DoorPanelFrontLeft",
+    "DoorPanelFrontRight",
+    "DoorPanelRearLeft",
+    "DoorPanelRearRight",
+    "DoorWindowFrontLeft",
+    "DoorWindowFrontRight",
+    "DoorWindowRearLeft",
+    "DoorWindowRearRight",
+    "Doors",
+    "FrontBumper",
+    "HeadlampLeft",
+    "HeadlampRight",
+    "HingeFrontLeft",
+    "HingeFrontRight",
+    "HingeRearLeft",
+    "HingeRearRight",
+    "HoodInset",
+    "HubCenterFrontLeft",
+    "HubCenterFrontRight",
+    "HubCenterRearLeft",
+    "HubCenterRearRight",
+    "HubFrontLeft",
+    "HubFrontRight",
+    "HubRearLeft",
+    "HubRearRight",
+    "Markers",
+    "MirrorLeft",
+    "MirrorRight",
+    "PillarLeft",
+    "PillarRight",
+    "RearBumper",
+    "RearDeck",
+    "RearGlass",
+    "Roof",
+    "SeatBack_-1",
+    "SeatBack_1",
+    "SeatCushion_-1",
+    "SeatCushion_1",
+    "SpinFrontLeft",
+    "SpinFrontRight",
+    "SpinRearLeft",
+    "SpinRearRight",
+    "SteerFrontLeft",
+    "SteerFrontRight",
+    "SteerRearLeft",
+    "SteerRearRight",
+    "TaillampLeft",
+    "TaillampRight",
+    "TireFrontLeft",
+    "TireFrontRight",
+    "TireRearLeft",
+    "TireRearRight",
+    "Wheels",
+    "Windshield",
+    "car_sable_a",
+    "socket_driver",
+    "socket_entry_left",
+    "socket_entry_right",
+    "socket_exit_left",
+    "socket_exit_right"
+  ],
+  "source_spec": {
+    "id": "car_sable_a",
+    "width": 1.92,
+    "height": 1.44,
+    "length": 4.25,
+    "radius": 0.32,
+    "paint": [
+      91,
+      48,
+      91
+    ],
+    "hood": [
+      181,
+      101,
+      97
+    ],
+    "roof_width": 1.37,
+    "roof_front": 0.29,
+    "roof_back": -0.9,
+    "glass_front": 0.92,
+    "glass_back": -1.37
+  },
+  "godot_aabb_min": [
+    -0.9664999842643738,
+    0.0,
+    -2.1449999809265137
+  ],
+  "godot_aabb_max": [
+    0.9664999842643738,
+    1.4399999380111694,
+    2.13700008392334
+  ],
+  "sockets_godot_m": {
+    "socket_driver": [
+      -0.34,
+      0.86,
+      -0.12
+    ],
+    "socket_entry_left": [
+      -1.3599999999999999,
+      0,
+      -0.1
+    ],
+    "socket_entry_right": [
+      1.3599999999999999,
+      0,
+      -0.1
+    ],
+    "socket_exit_left": [
+      -1.58,
+      0,
+      -0.1
+    ],
+    "socket_exit_right": [
+      1.58,
+      0,
+      -0.1
+    ]
+  },
+  "triangles": 11116,
+  "materials": [
+    "body_paint",
+    "hood_inset",
+    "glass",
+    "tire",
+    "trim",
+    "wheel_hub",
+    "headlamp",
+    "tail_lamp"
+  ],
+  "blender_version": "5.2.2 LTS",
+  "blender_hash": "d13f752e3b9c",
+  "door_hinges": [
+    "HingeFrontLeft",
+    "HingeFrontRight",
+    "HingeRearLeft",
+    "HingeRearRight"
+  ],
+  "rigid_animation_contract": "Hinge rotation around Godot +Y; wheel spin around local +X; no skin/armature",
+  "spatial_author": "gpt-6-astra high; runtime verified in active codex-turn-6",
+  "panel_depth_revision": 1
+}

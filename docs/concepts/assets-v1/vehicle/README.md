@@ -7,7 +7,9 @@ Status: Regner **approved all three cars** on 9 October 2026:
 “I like and want all three.” Approved concept families are `car_latch_a`,
 `car_crate_a` and `car_sable_a`; all three enter the modeling queue. This is art
 direction approval, not measured dimensions, gameplay or production acceptance.
-No production modeling has run at this checkpoint.
+First production modeling checkpoint is now available in the
+[rendered model gallery](../../../assets/vehicle_car_evidence/index.html), with separate
+sources/imports, movable side doors and saved previews. Final art acceptance is pending.
 
 Regner also requested a larger bus and a dock/workshop truck. Their new concept
 sheets are presented in the same gallery; approval of those two is **pending**.
