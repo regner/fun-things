@@ -125,6 +125,8 @@ class S14AudioTests(unittest.TestCase):
         with tempfile.TemporaryDirectory(prefix="s14-inventory-") as temporary:
             project = S14_RUN._stage(Path(temporary), inventory)
             staged_root = project / "tests" / "fixtures" / "s14"
+            project_settings = (project / "project.godot").read_text(encoding="utf-8")
+            self.assertNotIn("run/main_scene=", project_settings)
             staged_names = {
                 path.relative_to(project).as_posix()
                 for path in staged_root.rglob("*")

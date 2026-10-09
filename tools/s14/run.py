@@ -51,6 +51,7 @@ def _stage(output: Path, inventory: list[Path]) -> Path:
     settings = (ROOT / "project.godot").read_text(encoding="utf-8")
     settings = re.sub(r"(?ms)^\[(?:autoload|editor_plugins)\]\n.*?(?=^\[|\Z)", "", settings)
     settings = settings.replace('config/icon="res://icon.svg"\n', "")
+    settings = re.sub(r'^run/main_scene=.*\n', "", settings, flags=re.MULTILINE)
     (project / "project.godot").write_text(settings, encoding="utf-8", newline="\n")
     return project
 
