@@ -38,8 +38,10 @@ smooth shading are deliberate technical readability choices, not final topology.
 Stable technical bones are `root`, `spine`, `head`, `arm_l`, `arm_r`, `leg_l` and
 `leg_r`. Every vertex has one influence. This is enough to measure a skinned crowd,
 but is not an anatomical production hierarchy. There are no hand/weapon sockets,
-fingers, facial bones, retargeting contract, corrective shapes or LODs. Production
-must add required attachment bones/sockets through a coordinated rig migration.
+fingers, facial bones, retargeting contract, corrective shapes or authored LOD meshes.
+The committed Godot import configuration enables automatic mesh LOD generation;
+production must add required attachment bones/sockets and validate its LOD strategy
+through a coordinated rig migration.
 
 | Clip | Blender frames at 30 fps | Imported duration | Technical behavior |
 | --- | ---: | ---: | --- |
@@ -74,7 +76,7 @@ collision, movement, health, AI, network state or gameplay authority in this fix
 | Brief | accepted, spike-only | Dimensions, triangle ceiling, rig/clips, populations, camera and variants are explicit |
 | Concept | accepted, technical-only | Chunky neutral blockout follows Petrol & Coral; production concept selection is unchanged |
 | Blender blockout | accepted, technical-only | Committed source/authoring script; 396 triangles; measured bounds and stable names |
-| Production asset | pending | Final anatomy, clothing/hair silhouettes, weapon socket, production motion, LOD and art review are absent |
+| Production asset | pending | Final anatomy, clothing/hair silhouettes, weapon socket, production motion, authored/validated LOD strategy and art review are absent |
 | Export/import | accepted, spike-only | Pinned Blender export is byte-identical; isolated Godot import and public API checks pass |
 | Prefab | accepted, fixture-only | Linked GLB, saved material API, notifier and imported animation paths; no copied mesh |
 | Placement | accepted, fixture-only | Saved 68-live/16-dead population and 42°/47 m camera; production world placement is not implied |

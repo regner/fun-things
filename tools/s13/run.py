@@ -43,13 +43,14 @@ def percentile(values, quantile):
 
 
 def distribution(values):
-    """Summarize one telemetry series without hiding worst frames."""
+    """Summarize available telemetry samples without hiding worst frames."""
+    available = [value for value in values if value is not None]
     return {
-        "samples": len(values),
-        "median": percentile(values, 0.5),
-        "p95": percentile(values, 0.95),
-        "p99": percentile(values, 0.99),
-        "worst": max(values) if values else None,
+        "samples": len(available),
+        "median": percentile(available, 0.5),
+        "p95": percentile(available, 0.95),
+        "p99": percentile(available, 0.99),
+        "worst": max(available) if available else None,
     }
 
 

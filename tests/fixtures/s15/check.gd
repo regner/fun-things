@@ -37,6 +37,11 @@ func _initialize() -> void:
 		if [explosion_count, shooter_count, rocket_count] != [24, 4, 16]:
 			failures.append("unexpected stress counts: %s" % [
 				explosion_count, shooter_count, rocket_count])
+		if OS.has_environment("S15_EXPLOSIONS"):
+			failures.append("headless default check requires S15_EXPLOSIONS to be absent")
+		elif stress.call("_explosion_count_from_environment") != 24:
+			failures.append("absent S15_EXPLOSIONS did not preserve the 24-root default")
+
 		var explosion: Node = stress.get_node("Effects/Explosions").get_child(0)
 		if not explosion.has_method("set_quality") or not explosion.has_method("trigger"):
 			failures.append("explosion public API missing")

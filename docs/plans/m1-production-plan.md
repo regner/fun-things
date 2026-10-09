@@ -22,10 +22,11 @@ The owner's 8 October decisions supersede older text where they conflict:
 
 P0-GATE should reconcile the older Steam, Deck, tank-control, cutaway and eight-effect
 wording in the canonical records. Production must not implement those superseded
-requirements merely because the dated drafts still contain them. The independent
-[P0 readiness audit](../reviews/p0-readiness-audit-2026-10-08.md) also identifies
-foundation evidence that this plan now treats as explicit dependencies rather than
-work to discover during production.
+requirements merely because the dated drafts still contain them. Owner instruction 12
+decides that the gate depends on unfinished S02–S08 work, S03-P/S04-P, S09–S17, and
+the audit-derived G tasks. The suggested reconciliation must list that full set rather
+than narrowing it to this plan's immediate consumers. Owner review is reserved for
+quantitative criteria or an explicit waiver, not for re-deciding those dependencies.
 
 ## 1. Production shape
 
@@ -456,7 +457,7 @@ backlog below:
 | --- | --- | --- |
 | **P0-TOOLING** | Green canonical style/compile command, complete Python test discovery, cross-platform Python invocation, ignored GodotSteam temp artifacts and MCP-free compile mirror | M1-D1.1 and every later CI claim |
 | **S03-L** | Per-stage Windows baseline latency/pacing diagnosis and a disposition of the S03-R expiry boundary | S03-P, M1-A2.3 and M1-B2.1/S12 interpretation |
-| **S08-X** | Real-project Windows/Linux export smoke, committed main-scene/preset decisions, pinned template identity and explicit GodotSteam export policy | M1-A1.1, M1-A-GATE, M1-D3 and M1-D4 |
+| **S08-X** | Both target exports, a Windows launch, committed main-scene/preset decisions, pinned template identity, explicit GodotSteam export policy, and a Linux launch checklist; Linux launch acceptance remains at M1-A-GATE | M1-A1.1, M1-A-GATE, M1-D3 and M1-D4 |
 | **S08-C** | Bounded 384-block crash/cutaway diagnosis and a safe capped GPU measurement method | M1-C2.2 and M1-D3 |
 | **S01-W** | Exact Windows Blender version and byte or semantic reexport result | M1-C1.1, M1-C1.2 and S13 asset adoption |
 | **S03-P** | Bounded shared-rule foot prediction/reconciliation evidence after S02 controls and S03-L | M1-A2.3 and S04-T |
@@ -465,11 +466,12 @@ backlog below:
 | **S17** | Integrated full-cap host-tick composition after S09–S12, including S11 encode for three clients | M1-A2.2 codec freeze, M1-C3 and M1-D3 |
 
 S11's accepted full-cap codec, baseline and wire-budget evidence is independently a
-**hard** M1-A2.2 dependency. S17 does not substitute for it. The audit's
-[owner question 1](../reviews/p0-readiness-audit-2026-10-08.md#5-owner-questions)
-asks whether these foundation rows and prediction should gate P0. This proposal says
-yes for each hard consumer unless the owner explicitly records a narrower scope at
-P0-GATE; an unresolved dependency is not permission to skip ahead.
+**hard** M1-A2.2 dependency. S17 does not substitute for it. For full reconciliation,
+P0-GATE depends on all unfinished S02–S08 work; S03-P and S04-P; S09–S17; and audit
+G1–G7 (S03-L, S04-T, S17, S08-X, P0-TOOLING, S08-C, and S01-W). Completed work in
+those ranges remains gate input rather than an open task. Owner review settles proposed
+quantitative criteria or records an explicit waiver; an unresolved dependency is not
+permission to skip ahead.
 
 Sizes are dispatch units, not calendar promises: **S** is one narrow owner/API with
 focused tests, **M** spans several collaborators or one real-process matrix, and

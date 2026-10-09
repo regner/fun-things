@@ -2,7 +2,7 @@
 
 Canonical measurements were replaced after review round 1 and produced on Windows 11
 with pinned Godot `4.8.dev7.official.c971f93e7` after the complete-adverse-profile fix.
-The result source manifests bind the exact fixture/tool bytes. The three directories are
+The result source manifests bind the exact staged fixture bytes. The three directories are
 independent complete normal/adverse repetitions with fresh ports/output:
 
 | Repetition | Ports | Top-level receipt |

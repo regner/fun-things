@@ -349,10 +349,12 @@ def main():
         if import_result["exit"] != 0 or import_result["diagnostics"]:
             summary["failure"] = "import failed or reported diagnostics"
         else:
+            check_environment = environment(output / "check-user")
+            check_environment.pop("S15_EXPLOSIONS", None)
             check_result = run_checked(
                 [args.godot, "--headless", "--path", str(project), "--script", CHECK_SCRIPT],
                 output / "check.log",
-                environment(output / "check-user"),
+                check_environment,
                 60,
             )
             summary["check"] = check_result

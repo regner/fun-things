@@ -792,8 +792,9 @@ The foundation tools now also run on Windows 11 with the Mise-pinned engine
   fingerprints the runner, imported helpers and declared staged inputs, and retains
   `sys.argv`, the runner working directory and effective parameters. Measurement receipts
   use this shared shape rather than each runner implementing a partial identity format.
-- Polling runners use retained byte offsets for growing logs. They decode only complete
-  appended lines, so polling work does not grow with all previously retained output.
+- Polling runners use retained byte offsets for growing logs. File reads and JSON
+  decoding cover only complete appended lines and do not rescan prior bytes; callers
+  may still copy or inspect the cached records they receive.
 
 New Windows runners take `--output` outside the checkout and fail on their scoped
 diagnostics/process criteria. Their source-binding behavior differs: S08 stages committed

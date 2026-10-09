@@ -132,10 +132,10 @@ class QuietTimingSourceTests(unittest.TestCase):
 
 
 class IncrementalLogTests(unittest.TestCase):
-    """Keep polling cost proportional to newly appended complete bytes."""
+    """Keep file reads and JSON decoding from rescanning prior log bytes."""
 
     def test_required_polling_runners_use_incremental_reader(self):
-        """Fence all four audited whole-log polling loops to the shared offset reader."""
+        """Fence all four audited polling loops to the shared offset reader."""
         runners = [
             "run_s05.py", "s05_vsync_image/run.py", "s05_draw/observe.py",
             "s05_draw/observe_windows.py",

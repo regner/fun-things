@@ -23,7 +23,7 @@ var _viewport_rid: RID
 
 ## Applies environment-selected load, starts capped rendering, and schedules the bounded run.
 func _ready() -> void:
-	_explosion_count = clampi(int(OS.get_environment("S15_EXPLOSIONS")), 1, 24)
+	_explosion_count = _explosion_count_from_environment()
 	_quality = OS.get_environment("S15_QUALITY")
 	if _quality not in ["full", "adaptive"]:
 		_quality = "full"
@@ -50,6 +50,13 @@ func _process(delta: float) -> void:
 
 	for index: int in rockets.get_child_count():
 		rockets.get_child(index).advance(delta)
+
+
+## Returns the requested explosion count without replacing the default when no override exists.
+func _explosion_count_from_environment() -> int:
+	if not OS.has_environment("S15_EXPLOSIONS"):
+		return _explosion_count
+	return clampi(int(OS.get_environment("S15_EXPLOSIONS")), 1, 24)
 
 
 ## Executes warmup, measurement, optional capture, and clean fixture shutdown.

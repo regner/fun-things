@@ -15,10 +15,13 @@ class S13RunnerTests(unittest.TestCase):
     def test_distribution_retains_tail_and_ignores_unavailable_values(self):
         """Unavailable renderer monitors must not break valid headless distributions."""
         self.assertEqual(
-            S13_RUN.distribution([1.0, 2.0, 3.0, 100.0]),
+            S13_RUN.distribution([1.0, None, 2.0, 3.0, 100.0, None]),
             {"samples": 4, "median": 2.0, "p95": 100.0, "p99": 100.0, "worst": 100.0},
         )
-        self.assertIsNone(S13_RUN.percentile([None, None], 0.95))
+        self.assertEqual(
+            S13_RUN.distribution([None, None]),
+            {"samples": 0, "median": None, "p95": None, "p99": None, "worst": None},
+        )
 
     def test_aggregate_reports_headless_process_median_delta(self):
         """The optimization claim compares measured full and throttled process medians."""
