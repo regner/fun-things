@@ -3,6 +3,8 @@ extends S03Match
 ## Reuses S03 lifecycle/markers while saved S02-derived bodies own actual foot motion.
 
 signal stepped(tick: int)
+signal held_received(participant: int, sequence: int, receipt_ms: int)
+signal movement_buffered(rows: Array)
 
 const BODY_LAYER: int = 2
 const BODY_MASK: int = 3
@@ -11,6 +13,7 @@ const MAX_POSE_COORDINATE_M: float = 100.0
 var server_tick: int = 0
 var pending_poses: Dictionary = {}
 var baseline_ticks: Dictionary = {}
+var expiry_decision_ages: Dictionary = {}
 var body_for_entity: Dictionary = {}
 var spawns: Array[Transform3D] = []
 
@@ -42,7 +45,9 @@ func _physics_process(delta: float) -> void:
 				actor.neutralize()
 				continue
 
-			if Time.get_ticks_msec() - int(binding.receipt_ms) > HELD_EXPIRY_MS:
+			var decision_age_ms: int = Time.get_ticks_msec() - int(binding.receipt_ms)
+			expiry_decision_ages[binding.entity] = decision_age_ms
+			if decision_age_ms > HELD_EXPIRY_MS:
 				binding.held = { "move": Vector2.ZERO, "aim_yaw": actor.rotation.y }
 
 			var held: Dictionary = binding.held
@@ -134,7 +139,7 @@ func apply_baseline(data: Dictionary) -> bool:  # gdstyle:ignore=quality/max-ret
 	return true
 
 
-## Retains sender/context/window checks while queueing the complete foot command.
+## Retains sender/context/window checks and reports accepted complete foot commands.
 func submit_held(participant: int, envelope: Variant) -> String:
 	if not authoritative or not bindings.has(participant) or not bindings[participant].admitted:
 		return _reject("NOT_ADMITTED")
@@ -153,6 +158,7 @@ func submit_held(participant: int, envelope: Variant) -> String:
 	binding.pending = envelope.sequence
 	binding.held = { "move": envelope.move, "aim_yaw": envelope.aim_yaw }
 	binding.receipt_ms = Time.get_ticks_msec()
+	held_received.emit(participant, envelope.sequence, int(binding.receipt_ms))
 	return "OK"
 
 
@@ -228,6 +234,7 @@ func apply_movement(envelope: Dictionary) -> bool:
 		if not pose_valid(pose):
 			return false
 
+	var buffered: Array = []
 	for pose: Dictionary in rows:
 		var entity: int = pose.entity
 		if not body_for_entity.has(entity) or pose.durable > durable_revision:
@@ -244,7 +251,10 @@ func apply_movement(envelope: Dictionary) -> bool:
 		var pending_pose: Dictionary = pose.duplicate(true)
 		pending_pose["receipt_ms"] = Time.get_ticks_msec()
 		pending_poses[entity] = pending_pose
+		buffered.append({ "entity": entity, "sequence": pose.sequence, "tick": pose.tick })
 
+	if not buffered.is_empty():
+		movement_buffered.emit(buffered)
 	return true
 
 
@@ -269,6 +279,7 @@ func rollback(participant: int) -> void:
 		body_for_entity.erase(entity)
 		pending_poses.erase(entity)
 		baseline_ticks.erase(entity)
+		expiry_decision_ages.erase(entity)
 	super.rollback(participant)
 
 
@@ -279,6 +290,7 @@ func clear() -> void:
 	body_for_entity.clear()
 	pending_poses.clear()
 	baseline_ticks.clear()
+	expiry_decision_ages.clear()
 	super.clear()
 
 

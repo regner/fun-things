@@ -2,6 +2,7 @@
 """Bounded actual-foot-controller ENet experiment with retained native fault telemetry."""
 
 import argparse
+import ctypes
 import heapq
 import hashlib
 import json
@@ -27,6 +28,23 @@ MAX_POLL = 128
 POLL_SECONDS = 0.002
 BLACKOUT_START_SECONDS = 12.15
 BLACKOUT_SECONDS = 1.0
+TIMER_PERIOD_MS = 1
+
+
+def begin_timer_period(enabled):
+    """Request Windows' 1 ms scheduler period for this proxy process when selected."""
+    if not enabled or platform.system() != "Windows":
+        return False
+    result = ctypes.WinDLL("winmm").timeBeginPeriod(TIMER_PERIOD_MS)
+    if result != 0:
+        raise OSError(f"timeBeginPeriod({TIMER_PERIOD_MS}) failed: {result}")
+    return True
+
+
+def end_timer_period(active):
+    """Balance a successful Windows timer-period request."""
+    if active:
+        ctypes.WinDLL("winmm").timeEndPeriod(TIMER_PERIOD_MS)
 
 
 class FootProxy:
@@ -135,6 +153,81 @@ def angle(a, b):
     return abs((a - b + math.pi) % (2 * math.pi) - math.pi)
 
 
+def _row_sequence(row, entity=2):
+    """Return an entity sequence from either one pose or a staged row list."""
+    if "pose" in row and row["pose"].get("entity") == entity:
+        return row["pose"]["sequence"]
+    if row.get("entity") == entity:
+        return row.get("sequence")
+    if "sequence" in row and "rows" not in row:
+        return row["sequence"]
+    for item in row.get("rows", []):
+        if item.get("entity") == entity:
+            return item.get("sequence")
+    return None
+
+
+def _first_stage(rows, event, sequence, after_ms):
+    """Find the first correlated stage at or after the preceding same-machine wall time."""
+    return next((row for row in rows if row["event"] == event and
+                 row.get("wall_ms", 0) >= after_ms and
+                 (_row_sequence(row) or -1) >= sequence), None)
+
+
+def latency_budget(host, client):
+    """Correlate the first accepted sequence for each pulse across every instrumented stage."""
+    host_receipts = {row["sequence"]: row for row in host if
+                     row["event"] == "host_receive" and row["participant"] == 2}
+    sends = [row for row in client if row["event"] == "input_send"]
+    stage_rows = []
+    for entry in (row for row in client if row["event"] == "input" and row["index"] <= 20):
+        candidates = [row for row in sends if row["index"] == entry["index"] and
+                      row["sequence"] >= entry["sequence_floor"] and
+                      row["sequence"] in host_receipts]
+        if not candidates:
+            continue
+        sent = candidates[0]
+        received = host_receipts[sent["sequence"]]
+        consumed = _first_stage(host, "simulation", sent["sequence"], received["wall_ms"])
+        state_sent = (_first_stage(host, "state_send", sent["sequence"], consumed["wall_ms"])
+                      if consumed else None)
+        state_received = (_first_stage(client, "state_receive", sent["sequence"],
+                                       state_sent["send_wall_ms"]) if state_sent else None)
+        applied = (_first_stage(client, "apply", sent["sequence"], state_received["wall_ms"])
+                   if state_received else None)
+        drawn = (_first_stage(client, "render", sent["sequence"], applied["wall_ms"])
+                 if applied else None)
+        required = [sent, received, consumed, state_sent, state_received, applied]
+        if any(row is None for row in required):
+            continue
+        times = [sent["sample_wall_ms"], sent["send_wall_ms"], received["wall_ms"],
+                 consumed["wall_ms"], state_sent["send_wall_ms"], state_received["wall_ms"],
+                 applied["wall_ms"]]
+        labels = ["sample_to_send_ms", "send_to_host_receive_ms", "receive_to_consume_ms",
+                  "consume_to_state_send_ms", "state_send_to_receive_ms",
+                  "state_receive_to_apply_ms"]
+        row = {"index": entry["index"], "sequence": sent["sequence"],
+               **{label: times[index + 1] - times[index]
+                  for index, label in enumerate(labels)},
+               "sample_to_apply_ms": times[-1] - times[0],
+               "apply_to_draw_ms": None,
+               "sample_to_draw_ms": None}
+        if drawn is not None:
+            row["apply_to_draw_ms"] = drawn["wall_ms"] - times[-1]
+            row["sample_to_draw_ms"] = drawn["wall_ms"] - times[0]
+        stage_rows.append(row)
+    labels = ["sample_to_send_ms", "send_to_host_receive_ms", "receive_to_consume_ms",
+              "consume_to_state_send_ms", "state_send_to_receive_ms",
+              "state_receive_to_apply_ms", "sample_to_apply_ms", "apply_to_draw_ms",
+              "sample_to_draw_ms"]
+    summary = {}
+    for label in labels:
+        values = [row[label] for row in stage_rows if row[label] is not None]
+        summary[label] = {"samples": len(values), "p50": percentile(values, 0.5),
+                          "p95": percentile(values), "max": max(values, default=None)}
+    return {"samples": len(stage_rows), "stages_ms": summary, "rows": stage_rows}
+
+
 def analyze(directory, proxy_events):
     """Compare outcome telemetry independently; targets may fail while an experiment succeeds."""
     host = records(directory / "host/stdout.log")
@@ -158,8 +251,11 @@ def analyze(directory, proxy_events):
         previous[pose["entity"]] = receipt["position"]
     response = []
     for entry in (r for r in client if r["event"] == "input" and r["index"] <= 20):
-        row = {"index": entry["index"], "move": entry["move"],
-               "aim_yaw": entry["aim_yaw"]}
+        row = {"index": entry["index"], "move": entry["move"]}
+        if "aim_yaw" in entry:
+            row["aim_yaw"] = entry["aim_yaw"]
+        elif "turn" in entry:  # Retained pre-world-relative S03-L evidence.
+            row["turn"] = entry["turn"]
         for kind, label in [("apply", "physics_ms"), ("render", "rendered_frame_ms")]:
             candidate = None
             for frame in client:
@@ -183,7 +279,7 @@ def analyze(directory, proxy_events):
             705 <= r["local_tick"] <= 715]
     collision = bool(wall) and all(0.37 <= r["pose"]["position"][2] <= 0.41 and
                                   abs(r["pose"]["position"][0] - 6) < 0.01 for r in wall)
-    stale = [r for r in simulation if r["time_ms"] - r["receipt_ms"] > 267]
+    stale = [r for r in simulation if r.get("decision_age_ms", -1) > 267]
     expiry_transitions = []
     last_active = {}
     previous_tick = {}
@@ -192,15 +288,20 @@ def analyze(directory, proxy_events):
         if row["held"] != [0, 0]:
             last_active[entity] = row["receipt_ms"]
         elif entity in last_active and row["receipt_ms"] == last_active[entity]:
-            expiry_transitions.append({"entity": entity, "age_ms": row["time_ms"] - row["receipt_ms"],
-                                       "previous_age_ms": previous_tick[entity]["time_ms"] - row["receipt_ms"],
-                                       "tick_gap_ms": row["time_ms"] - previous_tick[entity]["time_ms"],
+            expiry_transitions.append({"entity": entity,
+                                       "decision_age_ms": row["decision_age_ms"],
+                                       "previous_decision_age_ms":
+                                           previous_tick[entity]["decision_age_ms"],
+                                       "receipt_to_telemetry_ms":
+                                           row["time_ms"] - row["receipt_ms"],
+                                       "tick_gap_ms": row["time_ms"] -
+                                           previous_tick[entity]["time_ms"],
                                        "velocity": row["pose"]["velocity"]})
             del last_active[entity]
         previous_tick[entity] = row
     expired = (bool(expiry_transitions) and all(r["held"] == [0, 0] for r in stale) and
-               all(r["previous_age_ms"] <= 250 < r["age_ms"] and r["velocity"] == [0, 0, 0]
-                   for r in expiry_transitions))
+               all(r["previous_decision_age_ms"] <= 250 < r["decision_age_ms"] and
+                   r["velocity"] == [0, 0, 0] for r in expiry_transitions))
     # Matching state of a settled authority, after the two isolated recovery segments.
     recovery = []
     for label, low, high in [("interruption", 805, 840), ("host_stall", 960, 995)]:
@@ -240,6 +341,7 @@ def analyze(directory, proxy_events):
                                                    resync["health"] == 70 and resync["control"] == 2),
             "proxy_delays_ms": {"min": min(delays, default=0), "p95": percentile(delays),
                                 "max": max(delays, default=0)},
+            "latency_budget": latency_budget(host, client),
             "native_drops": sum(r["event"] == "drop" for r in proxy_events), "results": final}
 
 
@@ -277,7 +379,11 @@ def run_case(args, directory, profile):
     ready = False
     commands = {}
     proxy_log = (directory / "proxy.jsonl").open("w")
-    proxy = FootProxy(args.port, args.proxy_port, profile, proxy_log)
+    proxy = None if args.bypass_proxy else FootProxy(
+        args.port, args.proxy_port, profile, proxy_log)
+    proxy_log.write(json.dumps({"event": "configuration", "wall_ms": time.time() * 1000,
+                                "proxy_mode": "bypassed" if proxy is None else "proxied",
+                                "high_resolution_timer": args.high_resolution_timer}) + "\n")
     deadline = time.monotonic() + args.deadline
     try:
         def start(role, port):
@@ -288,11 +394,14 @@ def run_case(args, directory, profile):
             env = environment(role_dir / "user")
             env["S03R_CAPTURE_DIR"] = str(capture_dir)
             command = [args.godot, *([] if args.windowed else ["--headless"]),
+                       *(["--disable-vsync"] if args.disable_vsync else []),
                        "--path", str(project), "--resolution", "1280x800",
                        "--position", "0,0" if role == "host" else "1280,0",
                        "--log-file", str(role_dir / "engine.log"),
                        "res://tests/fixtures/s03_r/boot.tscn", "--",
-                       "--role=" + role, "--port=" + str(port), "--profile=" + profile]
+                       "--role=" + role, "--port=" + str(port), "--profile=" + profile,
+                       "--max-fps=" + str(args.max_fps),
+                       *(["--low-processor-mode"] if args.low_processor_mode else [])]
             commands[role] = command
             logs[role] = (role_dir / "stdout.log").open("w")
             child = subprocess.Popen(command, stdout=logs[role], stderr=subprocess.STDOUT, env=env)
@@ -300,7 +409,8 @@ def run_case(args, directory, profile):
 
         start("host", args.port)
         while time.monotonic() < deadline:
-            proxy.poll()
+            if proxy is not None:
+                proxy.poll()
             for role in list(logs):
                 with (directory / role / "stdout.log").open() as output:
                     output.seek(offsets[role])
@@ -316,14 +426,14 @@ def run_case(args, directory, profile):
                         record = json.loads(line.removeprefix("S03R "))
                         if record["event"] == "ready" and role == "host":
                             ready = True
-                        if record["event"] == "start" and role == "client":
+                        if record["event"] == "start" and role == "client" and proxy is not None:
                             proxy.start = time.monotonic()
                         if record["event"] == "result":
                             results[role] = record
                             if not record["ok"]:
                                 raise RuntimeError(f"{role} outcome failures: {record['failures']}")
             if ready and "client" not in logs:
-                start("client", args.proxy_port)
+                start("client", args.port if proxy is None else args.proxy_port)
             if len(results) == 2 and all(c.poll() is not None for c in children):
                 break
             for index, child in enumerate(children):
@@ -339,7 +449,7 @@ def run_case(args, directory, profile):
             for name in ["stdout.log", "engine.log"]:
                 if DIAGNOSTIC.search((directory / role / name).read_text(errors="replace")):
                     raise RuntimeError(f"engine/script diagnostics in {role}/{name}")
-        measurements = analyze(directory, proxy.events)
+        measurements = analyze(directory, [] if proxy is None else proxy.events)
         required = [measurements["wall_stop"], measurements["input_expiry"],
                     measurements["resync_retained_entity_health"],
                     measurements["matching_tick_samples"] > 100,
@@ -348,21 +458,28 @@ def run_case(args, directory, profile):
                     all(r["physics_ms"] is not None for r in measurements["responses"]),
                     all(r["converged"] for r in measurements["recovery"])]
         if profile == "adverse":
-            required.append(proxy.blackout_done)
+            required.append(proxy is not None and proxy.blackout_done)
         unchanged = all(hashlib.sha256((project / path).read_bytes()).hexdigest() == digest
                         for path, digest in before.items())
         summary = {"ok": all(required) and unchanged, "profile": profile,
                    "measurements": measurements, "source_sha256": before,
                    "saved_source_unchanged": unchanged, "commands": commands,
                    "process_ids": [c.pid for c in children], "exits": [c.returncode for c in children],
-                   "peak_proxy_queue": proxy.peak_queue, "ports": [args.port, args.proxy_port]}
+                   "peak_proxy_queue": 0 if proxy is None else proxy.peak_queue,
+                   "proxy_mode": "bypassed" if proxy is None else "proxied",
+                   "pacing": {"max_fps": args.max_fps,
+                              "low_processor_mode": args.low_processor_mode,
+                              "disable_vsync": args.disable_vsync,
+                              "high_resolution_timer": args.high_resolution_timer},
+                   "ports": [args.port, args.proxy_port]}
         (directory / "result.json").write_text(json.dumps(summary, indent=2) + "\n")
         return summary
     finally:
         stop_children(children)
         for output in logs.values():
             output.close()
-        proxy.socket.close()
+        if proxy is not None:
+            proxy.socket.close()
         proxy_log.close()
 
 
@@ -374,12 +491,25 @@ def main():
     parser.add_argument("--deadline", type=float, default=45)
     parser.add_argument("--windowed", action="store_true",
                         help="attempt real graphical frame receipts; never substitute forced draws")
+    parser.add_argument("--bypass-proxy", action="store_true",
+                        help="connect baseline client directly to the host's loopback port")
+    parser.add_argument("--high-resolution-timer", action="store_true",
+                        help="request a balanced Windows timeBeginPeriod(1) for proxy pacing")
+    parser.add_argument("--max-fps", type=int, default=0,
+                        help="set Engine.max_fps in both fixture processes (0 is uncapped)")
+    parser.add_argument("--low-processor-mode", action="store_true",
+                        help="enable OS.low_processor_usage_mode in both fixture processes")
+    parser.add_argument("--disable-vsync", action="store_true",
+                        help="pass Godot's --disable-vsync to both fixture processes")
     parser.add_argument("--profiles", nargs="+", choices=PROFILES, default=list(PROFILES))
     parser.add_argument("--output", type=Path)
     args = parser.parse_args()
     if not (1 <= args.port <= 65535 and 1 <= args.proxy_port <= 65535 and
-            args.port != args.proxy_port and 1 <= args.deadline <= 90):
-        parser.error("distinct ports 1..65535 and deadline 1..90 seconds required")
+            args.port != args.proxy_port and 1 <= args.deadline <= 90 and
+            0 <= args.max_fps <= 1000):
+        parser.error("distinct ports 1..65535, deadline 1..90, and max-fps 0..1000 required")
+    if args.bypass_proxy and args.profiles != ["baseline"]:
+        parser.error("proxy bypass is a baseline-only diagnosis")
     directory = (args.output or Path(tempfile.mkdtemp(prefix="s03-r-"))).resolve()
     if directory.is_relative_to(ROOT):
         parser.error("evidence output must be outside checkout")
@@ -391,8 +521,10 @@ def main():
         raise KeyboardInterrupt
     previous = signal.signal(signal.SIGTERM, interrupted)
     results = []
+    timer_period_active = False
     try:
         version = engine_version(args.godot)
+        timer_period_active = begin_timer_period(args.high_resolution_timer)
         for profile in args.profiles:
             result = run_case(args, directory / profile, profile)
             results.append(result)
@@ -401,13 +533,14 @@ def main():
             if not result["ok"]:
                 raise RuntimeError("independent outcome criteria failed; inspect result/logs")
         summary = {"ok": True, "engine": version, "platform": platform.platform(),
-                   "profiles": results}
+                   "timer_period_active": timer_period_active, "profiles": results}
     except (OSError, ValueError, RuntimeError, subprocess.SubprocessError) as error:
         summary = {"ok": False, "failure": str(error), "profiles": results}
     except KeyboardInterrupt:
         summary = {"ok": False, "failure": "runner interrupted; owned children stopped",
                    "profiles": results}
     finally:
+        end_timer_period(timer_period_active)
         signal.signal(signal.SIGTERM, previous)
     (directory / "result.json").write_text(json.dumps(summary, indent=2) + "\n")
     print(json.dumps({"ok": summary["ok"], "failure": summary.get("failure")}))

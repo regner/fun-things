@@ -1,0 +1,767 @@
+{
+  "scope": "Windows S03-R baseline pacing diagnosis; all timings contended",
+  "engine": "4.8.dev7.official.c971f93e7",
+  "attempts": [
+    {
+      "attempt": "matrix-01",
+      "case": "direct-default",
+      "timing_label": "contended",
+      "godot_processes_before": 10,
+      "runner_exit": 1,
+      "technical_ok": false,
+      "failed_criteria": {
+        "wall_stop": true,
+        "missing_physics_responses": 5,
+        "input_expiry": false,
+        "recovery": false
+      },
+      "proxy_mode": "bypassed",
+      "pacing": {
+        "max_fps": 0,
+        "low_processor_mode": false,
+        "disable_vsync": false,
+        "high_resolution_timer": false
+      },
+      "effective_process_settings": [
+        {
+          "role": "host",
+          "max_fps": 0,
+          "low_processor_mode": false,
+          "vsync_mode": 1,
+          "display": "headless",
+          "can_draw": false
+        },
+        {
+          "role": "client",
+          "max_fps": 0,
+          "low_processor_mode": false,
+          "vsync_mode": 1,
+          "display": "headless",
+          "can_draw": false
+        }
+      ],
+      "physics_response_p95_ms": 335,
+      "drawn_response_p95_ms": null,
+      "proxy_delay_p95_ms": null,
+      "latency_budget_samples": 20,
+      "latency_budget_p95_ms": {
+        "sample_to_send_ms": 1.0,
+        "send_to_host_receive_ms": 126.0,
+        "receive_to_consume_ms": 18.0,
+        "consume_to_state_send_ms": 31.0,
+        "state_send_to_receive_ms": 676.0,
+        "state_receive_to_apply_ms": 33.0,
+        "sample_to_apply_ms": 763.0,
+        "apply_to_draw_ms": null,
+        "sample_to_draw_ms": null
+      }
+    },
+    {
+      "attempt": "matrix-01",
+      "case": "proxied-default",
+      "timing_label": "contended",
+      "godot_processes_before": 11,
+      "runner_exit": 1,
+      "technical_ok": false,
+      "failed_criteria": {
+        "wall_stop": false,
+        "missing_physics_responses": 1,
+        "input_expiry": false,
+        "recovery": false
+      },
+      "proxy_mode": "proxied",
+      "pacing": {
+        "max_fps": 0,
+        "low_processor_mode": false,
+        "disable_vsync": false,
+        "high_resolution_timer": false
+      },
+      "effective_process_settings": [
+        {
+          "role": "host",
+          "max_fps": 0,
+          "low_processor_mode": false,
+          "vsync_mode": 1,
+          "display": "headless",
+          "can_draw": false
+        },
+        {
+          "role": "client",
+          "max_fps": 0,
+          "low_processor_mode": false,
+          "vsync_mode": 1,
+          "display": "headless",
+          "can_draw": false
+        }
+      ],
+      "physics_response_p95_ms": 297,
+      "drawn_response_p95_ms": null,
+      "proxy_delay_p95_ms": 0.0,
+      "latency_budget_samples": 20,
+      "latency_budget_p95_ms": {
+        "sample_to_send_ms": 1.0,
+        "send_to_host_receive_ms": 25.0,
+        "receive_to_consume_ms": 16.0,
+        "consume_to_state_send_ms": 44.0,
+        "state_send_to_receive_ms": 198.0,
+        "state_receive_to_apply_ms": 27.0,
+        "sample_to_apply_ms": 283.0,
+        "apply_to_draw_ms": null,
+        "sample_to_draw_ms": null
+      }
+    },
+    {
+      "attempt": "matrix-01",
+      "case": "proxied-hires",
+      "timing_label": "contended",
+      "godot_processes_before": 6,
+      "runner_exit": 0,
+      "technical_ok": true,
+      "failed_criteria": {
+        "wall_stop": false,
+        "missing_physics_responses": 0,
+        "input_expiry": false,
+        "recovery": false
+      },
+      "proxy_mode": "proxied",
+      "pacing": {
+        "max_fps": 0,
+        "low_processor_mode": false,
+        "disable_vsync": false,
+        "high_resolution_timer": true
+      },
+      "effective_process_settings": [
+        {
+          "role": "host",
+          "max_fps": 0,
+          "low_processor_mode": false,
+          "vsync_mode": 1,
+          "display": "headless",
+          "can_draw": false
+        },
+        {
+          "role": "client",
+          "max_fps": 0,
+          "low_processor_mode": false,
+          "vsync_mode": 1,
+          "display": "headless",
+          "can_draw": false
+        }
+      ],
+      "physics_response_p95_ms": 126,
+      "drawn_response_p95_ms": null,
+      "proxy_delay_p95_ms": 0.0,
+      "latency_budget_samples": 20,
+      "latency_budget_p95_ms": {
+        "sample_to_send_ms": 1.0,
+        "send_to_host_receive_ms": 19.0,
+        "receive_to_consume_ms": 16.0,
+        "consume_to_state_send_ms": 39.0,
+        "state_send_to_receive_ms": 21.0,
+        "state_receive_to_apply_ms": 26.0,
+        "sample_to_apply_ms": 107.0,
+        "apply_to_draw_ms": null,
+        "sample_to_draw_ms": null
+      }
+    },
+    {
+      "attempt": "matrix-01",
+      "case": "proxied-lowprocessor",
+      "timing_label": "contended",
+      "godot_processes_before": 6,
+      "runner_exit": 1,
+      "technical_ok": false,
+      "failed_criteria": {
+        "wall_stop": true,
+        "missing_physics_responses": 0,
+        "input_expiry": false,
+        "recovery": true
+      },
+      "proxy_mode": "proxied",
+      "pacing": {
+        "max_fps": 0,
+        "low_processor_mode": true,
+        "disable_vsync": false,
+        "high_resolution_timer": false
+      },
+      "effective_process_settings": [
+        {
+          "role": "host",
+          "max_fps": 0,
+          "low_processor_mode": true,
+          "vsync_mode": 1,
+          "display": "headless",
+          "can_draw": false
+        },
+        {
+          "role": "client",
+          "max_fps": 0,
+          "low_processor_mode": true,
+          "vsync_mode": 1,
+          "display": "headless",
+          "can_draw": false
+        }
+      ],
+      "physics_response_p95_ms": 281,
+      "drawn_response_p95_ms": null,
+      "proxy_delay_p95_ms": 0.0,
+      "latency_budget_samples": 20,
+      "latency_budget_p95_ms": {
+        "sample_to_send_ms": 2.0,
+        "send_to_host_receive_ms": 94.0,
+        "receive_to_consume_ms": 29.0,
+        "consume_to_state_send_ms": 38.0,
+        "state_send_to_receive_ms": 111.0,
+        "state_receive_to_apply_ms": 29.0,
+        "sample_to_apply_ms": 268.0,
+        "apply_to_draw_ms": null,
+        "sample_to_draw_ms": null
+      }
+    },
+    {
+      "attempt": "matrix-01",
+      "case": "proxied-maxfps60",
+      "timing_label": "contended",
+      "godot_processes_before": 5,
+      "runner_exit": 1,
+      "technical_ok": false,
+      "failed_criteria": {
+        "wall_stop": true,
+        "missing_physics_responses": 1,
+        "input_expiry": false,
+        "recovery": false
+      },
+      "proxy_mode": "proxied",
+      "pacing": {
+        "max_fps": 60,
+        "low_processor_mode": false,
+        "disable_vsync": false,
+        "high_resolution_timer": false
+      },
+      "effective_process_settings": [
+        {
+          "role": "host",
+          "max_fps": 60,
+          "low_processor_mode": false,
+          "vsync_mode": 1,
+          "display": "headless",
+          "can_draw": false
+        },
+        {
+          "role": "client",
+          "max_fps": 60,
+          "low_processor_mode": false,
+          "vsync_mode": 1,
+          "display": "headless",
+          "can_draw": false
+        }
+      ],
+      "physics_response_p95_ms": 222,
+      "drawn_response_p95_ms": null,
+      "proxy_delay_p95_ms": 0.0,
+      "latency_budget_samples": 20,
+      "latency_budget_p95_ms": {
+        "sample_to_send_ms": 0.0,
+        "send_to_host_receive_ms": 111.0,
+        "receive_to_consume_ms": 34.0,
+        "consume_to_state_send_ms": 29.0,
+        "state_send_to_receive_ms": 25.0,
+        "state_receive_to_apply_ms": 33.0,
+        "sample_to_apply_ms": 207.0,
+        "apply_to_draw_ms": null,
+        "sample_to_draw_ms": null
+      }
+    },
+    {
+      "attempt": "matrix-01",
+      "case": "windowed-vsync",
+      "timing_label": "contended",
+      "godot_processes_before": 5,
+      "runner_exit": 1,
+      "technical_ok": false,
+      "failed_criteria": {
+        "wall_stop": false,
+        "missing_physics_responses": 4,
+        "input_expiry": false,
+        "recovery": false
+      },
+      "proxy_mode": "proxied",
+      "pacing": {
+        "max_fps": 0,
+        "low_processor_mode": false,
+        "disable_vsync": false,
+        "high_resolution_timer": false
+      },
+      "effective_process_settings": [
+        {
+          "role": "host",
+          "max_fps": 0,
+          "low_processor_mode": false,
+          "vsync_mode": 1,
+          "display": "Windows",
+          "can_draw": true
+        },
+        {
+          "role": "client",
+          "max_fps": 0,
+          "low_processor_mode": false,
+          "vsync_mode": 1,
+          "display": "Windows",
+          "can_draw": true
+        }
+      ],
+      "physics_response_p95_ms": 249,
+      "drawn_response_p95_ms": 260,
+      "proxy_delay_p95_ms": 0.0,
+      "latency_budget_samples": 20,
+      "latency_budget_p95_ms": {
+        "sample_to_send_ms": 0.0,
+        "send_to_host_receive_ms": 145.0,
+        "receive_to_consume_ms": 50.0,
+        "consume_to_state_send_ms": 28.0,
+        "state_send_to_receive_ms": 354.0,
+        "state_receive_to_apply_ms": 64.0,
+        "sample_to_apply_ms": 602.0,
+        "apply_to_draw_ms": 26.0,
+        "sample_to_draw_ms": 638.0
+      }
+    },
+    {
+      "attempt": "matrix-01",
+      "case": "windowed-vsync-off",
+      "timing_label": "contended",
+      "godot_processes_before": 3,
+      "runner_exit": 1,
+      "technical_ok": false,
+      "failed_criteria": {
+        "wall_stop": true,
+        "missing_physics_responses": 1,
+        "input_expiry": false,
+        "recovery": false
+      },
+      "proxy_mode": "proxied",
+      "pacing": {
+        "max_fps": 0,
+        "low_processor_mode": false,
+        "disable_vsync": true,
+        "high_resolution_timer": false
+      },
+      "effective_process_settings": [
+        {
+          "role": "host",
+          "max_fps": 0,
+          "low_processor_mode": false,
+          "vsync_mode": 0,
+          "display": "Windows",
+          "can_draw": true
+        },
+        {
+          "role": "client",
+          "max_fps": 0,
+          "low_processor_mode": false,
+          "vsync_mode": 0,
+          "display": "Windows",
+          "can_draw": true
+        }
+      ],
+      "physics_response_p95_ms": 205,
+      "drawn_response_p95_ms": 219,
+      "proxy_delay_p95_ms": 0.0,
+      "latency_budget_samples": 20,
+      "latency_budget_p95_ms": {
+        "sample_to_send_ms": 1.0,
+        "send_to_host_receive_ms": 103.0,
+        "receive_to_consume_ms": 33.0,
+        "consume_to_state_send_ms": 39.0,
+        "state_send_to_receive_ms": 36.0,
+        "state_receive_to_apply_ms": 30.0,
+        "sample_to_apply_ms": 191.0,
+        "apply_to_draw_ms": 20.0,
+        "sample_to_draw_ms": 571.0
+      }
+    },
+    {
+      "attempt": "matrix-02",
+      "case": "direct-default",
+      "timing_label": "contended",
+      "godot_processes_before": 8,
+      "runner_exit": 0,
+      "technical_ok": true,
+      "failed_criteria": {
+        "wall_stop": false,
+        "missing_physics_responses": 0,
+        "input_expiry": false,
+        "recovery": false
+      },
+      "proxy_mode": "bypassed",
+      "pacing": {
+        "max_fps": 0,
+        "low_processor_mode": false,
+        "disable_vsync": false,
+        "high_resolution_timer": false
+      },
+      "effective_process_settings": [
+        {
+          "role": "host",
+          "max_fps": 0,
+          "low_processor_mode": false,
+          "vsync_mode": 1,
+          "display": "headless",
+          "can_draw": false
+        },
+        {
+          "role": "client",
+          "max_fps": 0,
+          "low_processor_mode": false,
+          "vsync_mode": 1,
+          "display": "headless",
+          "can_draw": false
+        }
+      ],
+      "physics_response_p95_ms": 257,
+      "drawn_response_p95_ms": null,
+      "proxy_delay_p95_ms": null,
+      "latency_budget_samples": 20,
+      "latency_budget_p95_ms": {
+        "sample_to_send_ms": 2.0,
+        "send_to_host_receive_ms": 43.0,
+        "receive_to_consume_ms": 15.0,
+        "consume_to_state_send_ms": 34.0,
+        "state_send_to_receive_ms": 210.0,
+        "state_receive_to_apply_ms": 27.0,
+        "sample_to_apply_ms": 250.0,
+        "apply_to_draw_ms": null,
+        "sample_to_draw_ms": null
+      }
+    },
+    {
+      "attempt": "matrix-02",
+      "case": "proxied-default",
+      "timing_label": "contended",
+      "godot_processes_before": 2,
+      "runner_exit": 1,
+      "technical_ok": false,
+      "failed_criteria": {
+        "wall_stop": true,
+        "missing_physics_responses": 4,
+        "input_expiry": false,
+        "recovery": false
+      },
+      "proxy_mode": "proxied",
+      "pacing": {
+        "max_fps": 0,
+        "low_processor_mode": false,
+        "disable_vsync": false,
+        "high_resolution_timer": false
+      },
+      "effective_process_settings": [
+        {
+          "role": "host",
+          "max_fps": 0,
+          "low_processor_mode": false,
+          "vsync_mode": 1,
+          "display": "headless",
+          "can_draw": false
+        },
+        {
+          "role": "client",
+          "max_fps": 0,
+          "low_processor_mode": false,
+          "vsync_mode": 1,
+          "display": "headless",
+          "can_draw": false
+        }
+      ],
+      "physics_response_p95_ms": 248,
+      "drawn_response_p95_ms": null,
+      "proxy_delay_p95_ms": 0.0,
+      "latency_budget_samples": 20,
+      "latency_budget_p95_ms": {
+        "sample_to_send_ms": 1.0,
+        "send_to_host_receive_ms": 119.0,
+        "receive_to_consume_ms": 35.0,
+        "consume_to_state_send_ms": 42.0,
+        "state_send_to_receive_ms": 904.0,
+        "state_receive_to_apply_ms": 20.0,
+        "sample_to_apply_ms": 1039.0,
+        "apply_to_draw_ms": null,
+        "sample_to_draw_ms": null
+      }
+    },
+    {
+      "attempt": "matrix-02",
+      "case": "proxied-hires",
+      "timing_label": "contended",
+      "godot_processes_before": 5,
+      "runner_exit": 1,
+      "technical_ok": false,
+      "failed_criteria": {
+        "wall_stop": true,
+        "missing_physics_responses": 0,
+        "input_expiry": false,
+        "recovery": false
+      },
+      "proxy_mode": "proxied",
+      "pacing": {
+        "max_fps": 0,
+        "low_processor_mode": false,
+        "disable_vsync": false,
+        "high_resolution_timer": true
+      },
+      "effective_process_settings": [
+        {
+          "role": "host",
+          "max_fps": 0,
+          "low_processor_mode": false,
+          "vsync_mode": 1,
+          "display": "headless",
+          "can_draw": false
+        },
+        {
+          "role": "client",
+          "max_fps": 0,
+          "low_processor_mode": false,
+          "vsync_mode": 1,
+          "display": "headless",
+          "can_draw": false
+        }
+      ],
+      "physics_response_p95_ms": 303,
+      "drawn_response_p95_ms": null,
+      "proxy_delay_p95_ms": 0.0,
+      "latency_budget_samples": 20,
+      "latency_budget_p95_ms": {
+        "sample_to_send_ms": 1.0,
+        "send_to_host_receive_ms": 127.0,
+        "receive_to_consume_ms": 37.0,
+        "consume_to_state_send_ms": 41.0,
+        "state_send_to_receive_ms": 154.0,
+        "state_receive_to_apply_ms": 33.0,
+        "sample_to_apply_ms": 289.0,
+        "apply_to_draw_ms": null,
+        "sample_to_draw_ms": null
+      }
+    },
+    {
+      "attempt": "matrix-02",
+      "case": "proxied-lowprocessor",
+      "timing_label": "contended",
+      "godot_processes_before": 3,
+      "runner_exit": 0,
+      "technical_ok": true,
+      "failed_criteria": {
+        "wall_stop": false,
+        "missing_physics_responses": 0,
+        "input_expiry": false,
+        "recovery": false
+      },
+      "proxy_mode": "proxied",
+      "pacing": {
+        "max_fps": 0,
+        "low_processor_mode": true,
+        "disable_vsync": false,
+        "high_resolution_timer": false
+      },
+      "effective_process_settings": [
+        {
+          "role": "host",
+          "max_fps": 0,
+          "low_processor_mode": true,
+          "vsync_mode": 1,
+          "display": "headless",
+          "can_draw": false
+        },
+        {
+          "role": "client",
+          "max_fps": 0,
+          "low_processor_mode": true,
+          "vsync_mode": 1,
+          "display": "headless",
+          "can_draw": false
+        }
+      ],
+      "physics_response_p95_ms": 111,
+      "drawn_response_p95_ms": null,
+      "proxy_delay_p95_ms": 0.0,
+      "latency_budget_samples": 20,
+      "latency_budget_p95_ms": {
+        "sample_to_send_ms": 1.0,
+        "send_to_host_receive_ms": 29.0,
+        "receive_to_consume_ms": 15.0,
+        "consume_to_state_send_ms": 40.0,
+        "state_send_to_receive_ms": 17.0,
+        "state_receive_to_apply_ms": 22.0,
+        "sample_to_apply_ms": 92.0,
+        "apply_to_draw_ms": null,
+        "sample_to_draw_ms": null
+      }
+    },
+    {
+      "attempt": "matrix-02",
+      "case": "proxied-maxfps60",
+      "timing_label": "contended",
+      "godot_processes_before": 3,
+      "runner_exit": 1,
+      "technical_ok": false,
+      "failed_criteria": {
+        "wall_stop": true,
+        "missing_physics_responses": 9,
+        "input_expiry": false,
+        "recovery": false
+      },
+      "proxy_mode": "proxied",
+      "pacing": {
+        "max_fps": 60,
+        "low_processor_mode": false,
+        "disable_vsync": false,
+        "high_resolution_timer": false
+      },
+      "effective_process_settings": [
+        {
+          "role": "host",
+          "max_fps": 60,
+          "low_processor_mode": false,
+          "vsync_mode": 1,
+          "display": "headless",
+          "can_draw": false
+        },
+        {
+          "role": "client",
+          "max_fps": 60,
+          "low_processor_mode": false,
+          "vsync_mode": 1,
+          "display": "headless",
+          "can_draw": false
+        }
+      ],
+      "physics_response_p95_ms": 296,
+      "drawn_response_p95_ms": null,
+      "proxy_delay_p95_ms": 0.0,
+      "latency_budget_samples": 20,
+      "latency_budget_p95_ms": {
+        "sample_to_send_ms": 2.0,
+        "send_to_host_receive_ms": 355.0,
+        "receive_to_consume_ms": 140.0,
+        "consume_to_state_send_ms": 69.0,
+        "state_send_to_receive_ms": 3619.0,
+        "state_receive_to_apply_ms": 30.0,
+        "sample_to_apply_ms": 4069.0,
+        "apply_to_draw_ms": null,
+        "sample_to_draw_ms": null
+      }
+    },
+    {
+      "attempt": "matrix-02",
+      "case": "windowed-vsync",
+      "timing_label": "contended",
+      "godot_processes_before": 6,
+      "runner_exit": 1,
+      "technical_ok": false,
+      "failed_criteria": {
+        "wall_stop": true,
+        "missing_physics_responses": 15,
+        "input_expiry": false,
+        "recovery": false
+      },
+      "proxy_mode": "proxied",
+      "pacing": {
+        "max_fps": 0,
+        "low_processor_mode": false,
+        "disable_vsync": false,
+        "high_resolution_timer": false
+      },
+      "effective_process_settings": [
+        {
+          "role": "host",
+          "max_fps": 0,
+          "low_processor_mode": false,
+          "vsync_mode": 1,
+          "display": "Windows",
+          "can_draw": true
+        },
+        {
+          "role": "client",
+          "max_fps": 0,
+          "low_processor_mode": false,
+          "vsync_mode": 1,
+          "display": "Windows",
+          "can_draw": true
+        }
+      ],
+      "physics_response_p95_ms": 144,
+      "drawn_response_p95_ms": 163,
+      "proxy_delay_p95_ms": 0.0,
+      "latency_budget_samples": 5,
+      "latency_budget_p95_ms": {
+        "sample_to_send_ms": 1.0,
+        "send_to_host_receive_ms": 43.0,
+        "receive_to_consume_ms": 23.0,
+        "consume_to_state_send_ms": 43.0,
+        "state_send_to_receive_ms": 30.0,
+        "state_receive_to_apply_ms": 23.0,
+        "sample_to_apply_ms": 132.0,
+        "apply_to_draw_ms": 20.0,
+        "sample_to_draw_ms": 149.0
+      }
+    },
+    {
+      "attempt": "matrix-02",
+      "case": "windowed-vsync-off",
+      "timing_label": "contended",
+      "godot_processes_before": 2,
+      "runner_exit": 1,
+      "technical_ok": false,
+      "failed_criteria": {
+        "wall_stop": true,
+        "missing_physics_responses": 20,
+        "input_expiry": false,
+        "recovery": false
+      },
+      "proxy_mode": "proxied",
+      "pacing": {
+        "max_fps": 0,
+        "low_processor_mode": false,
+        "disable_vsync": true,
+        "high_resolution_timer": false
+      },
+      "effective_process_settings": [
+        {
+          "role": "host",
+          "max_fps": 0,
+          "low_processor_mode": false,
+          "vsync_mode": 0,
+          "display": "Windows",
+          "can_draw": true
+        },
+        {
+          "role": "client",
+          "max_fps": 0,
+          "low_processor_mode": false,
+          "vsync_mode": 0,
+          "display": "Windows",
+          "can_draw": true
+        }
+      ],
+      "physics_response_p95_ms": null,
+      "drawn_response_p95_ms": null,
+      "proxy_delay_p95_ms": 0.0,
+      "latency_budget_samples": 0,
+      "latency_budget_p95_ms": {
+        "sample_to_send_ms": null,
+        "send_to_host_receive_ms": null,
+        "receive_to_consume_ms": null,
+        "consume_to_state_send_ms": null,
+        "state_send_to_receive_ms": null,
+        "state_receive_to_apply_ms": null,
+        "sample_to_apply_ms": null,
+        "apply_to_draw_ms": null,
+        "sample_to_draw_ms": null
+      }
+    }
+  ],
+  "notes": [
+    "matrix-01 result files predate the final offline correlation fix; values here are reanalyzed from retained raw logs.",
+    "Process counts changed as unrelated lane-owned Godot processes started/stopped; cross-case deltas are diagnostic, not controlled benchmarks.",
+    "Technical failures are retained rather than discarded. No gameplay criterion was weakened."
+  ]
+}

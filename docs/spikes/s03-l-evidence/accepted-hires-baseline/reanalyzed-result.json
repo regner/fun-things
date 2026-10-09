@@ -1,0 +1,588 @@
+{
+  "source": "matrix-01/proxied-hires raw logs",
+  "analysis": {
+    "responses": [
+      {
+        "index": 1,
+        "move": 1.0,
+        "turn": 0.0,
+        "physics_ms": 71,
+        "rendered_frame_ms": null
+      },
+      {
+        "index": 2,
+        "move": 0.0,
+        "turn": 1.0,
+        "physics_ms": 87,
+        "rendered_frame_ms": null
+      },
+      {
+        "index": 3,
+        "move": 1.0,
+        "turn": 0.0,
+        "physics_ms": 79,
+        "rendered_frame_ms": null
+      },
+      {
+        "index": 4,
+        "move": 0.0,
+        "turn": -1.0,
+        "physics_ms": 78,
+        "rendered_frame_ms": null
+      },
+      {
+        "index": 5,
+        "move": 1.0,
+        "turn": 0.0,
+        "physics_ms": 76,
+        "rendered_frame_ms": null
+      },
+      {
+        "index": 6,
+        "move": 0.0,
+        "turn": 1.0,
+        "physics_ms": 68,
+        "rendered_frame_ms": null
+      },
+      {
+        "index": 7,
+        "move": 1.0,
+        "turn": 0.0,
+        "physics_ms": 78,
+        "rendered_frame_ms": null
+      },
+      {
+        "index": 8,
+        "move": 0.0,
+        "turn": -1.0,
+        "physics_ms": 185,
+        "rendered_frame_ms": null
+      },
+      {
+        "index": 9,
+        "move": 1.0,
+        "turn": 0.0,
+        "physics_ms": 103,
+        "rendered_frame_ms": null
+      },
+      {
+        "index": 10,
+        "move": 0.0,
+        "turn": 1.0,
+        "physics_ms": 90,
+        "rendered_frame_ms": null
+      },
+      {
+        "index": 11,
+        "move": 1.0,
+        "turn": 0.0,
+        "physics_ms": 76,
+        "rendered_frame_ms": null
+      },
+      {
+        "index": 12,
+        "move": 0.0,
+        "turn": -1.0,
+        "physics_ms": 74,
+        "rendered_frame_ms": null
+      },
+      {
+        "index": 13,
+        "move": 1.0,
+        "turn": 0.0,
+        "physics_ms": 72,
+        "rendered_frame_ms": null
+      },
+      {
+        "index": 14,
+        "move": 0.0,
+        "turn": 1.0,
+        "physics_ms": 73,
+        "rendered_frame_ms": null
+      },
+      {
+        "index": 15,
+        "move": 1.0,
+        "turn": 0.0,
+        "physics_ms": 65,
+        "rendered_frame_ms": null
+      },
+      {
+        "index": 16,
+        "move": 0.0,
+        "turn": -1.0,
+        "physics_ms": 81,
+        "rendered_frame_ms": null
+      },
+      {
+        "index": 17,
+        "move": 1.0,
+        "turn": 0.0,
+        "physics_ms": 126,
+        "rendered_frame_ms": null
+      },
+      {
+        "index": 18,
+        "move": 0.0,
+        "turn": 1.0,
+        "physics_ms": 69,
+        "rendered_frame_ms": null
+      },
+      {
+        "index": 19,
+        "move": 1.0,
+        "turn": 0.0,
+        "physics_ms": 70,
+        "rendered_frame_ms": null
+      },
+      {
+        "index": 20,
+        "move": 0.0,
+        "turn": -1.0,
+        "physics_ms": 97,
+        "rendered_frame_ms": null
+      }
+    ],
+    "response_p95_ms": {
+      "physics_ms": 126,
+      "rendered_frame_ms": null
+    },
+    "response_samples": 20,
+    "response_missing": 20,
+    "snapshot_age_p95_ms": 66.0,
+    "snapshot_age_max_ms": 164.0,
+    "matching_tick_install_error_max_m": 0.0,
+    "matching_tick_samples": 843,
+    "update_jump_p95_m": 0.24999926584388724,
+    "prediction_correction": "not measured: no predicted state",
+    "wall_stop": true,
+    "input_expiry": true,
+    "expiry_transitions": [
+      {
+        "entity": 2,
+        "decision_age_ms": 267,
+        "previous_decision_age_ms": 219,
+        "receipt_to_telemetry_ms": 274,
+        "tick_gap_ms": 19,
+        "velocity": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      }
+    ],
+    "recovery": [
+      {
+        "case": "interruption",
+        "settled_tick": 846,
+        "observed_delay_ms": 15.0,
+        "converged": true
+      },
+      {
+        "case": "host_stall",
+        "settled_tick": 1001,
+        "observed_delay_ms": 53.0,
+        "converged": true
+      }
+    ],
+    "window_states": [
+      {
+        "can_draw": false,
+        "display": "headless",
+        "engine": "4.8-dev7 (official)",
+        "event": "start",
+        "low_processor_mode": false,
+        "max_fps": 0,
+        "pid": 52444,
+        "profile": "baseline",
+        "renderer": "forward_plus",
+        "role": "host",
+        "time_ms": 870,
+        "user_dir": "C:/tmp/ft/lanes/s03-l/matrix-01/proxied-hires/baseline/host/user/appdata/Godot/app_userdata/Fun Things",
+        "vsync_mode": 1,
+        "wall_ms": 1791529722634.0,
+        "window_mode": 1,
+        "window_visible": true
+      },
+      {
+        "can_draw": false,
+        "display": "headless",
+        "engine": "4.8-dev7 (official)",
+        "event": "start",
+        "low_processor_mode": false,
+        "max_fps": 0,
+        "pid": 68396,
+        "profile": "baseline",
+        "renderer": "forward_plus",
+        "role": "client",
+        "time_ms": 424,
+        "user_dir": "C:/tmp/ft/lanes/s03-l/matrix-01/proxied-hires/baseline/client/user/appdata/Godot/app_userdata/Fun Things",
+        "vsync_mode": 1,
+        "wall_ms": 1791529722621.0,
+        "window_mode": 1,
+        "window_visible": true
+      }
+    ],
+    "resync_retained_entity_health": true,
+    "proxy_delays_ms": {
+      "min": 0.0,
+      "p95": 0.0,
+      "max": 0.0
+    },
+    "latency_budget": {
+      "samples": 20,
+      "stages_ms": {
+        "sample_to_send_ms": {
+          "samples": 20,
+          "p50": 0.0,
+          "p95": 1.0,
+          "max": 2.0
+        },
+        "send_to_host_receive_ms": {
+          "samples": 20,
+          "p50": 12.0,
+          "p95": 19.0,
+          "max": 22.0
+        },
+        "receive_to_consume_ms": {
+          "samples": 20,
+          "p50": 8.0,
+          "p95": 16.0,
+          "max": 34.0
+        },
+        "consume_to_state_send_ms": {
+          "samples": 20,
+          "p50": 27.0,
+          "p95": 39.0,
+          "max": 48.0
+        },
+        "state_send_to_receive_ms": {
+          "samples": 20,
+          "p50": 8.0,
+          "p95": 21.0,
+          "max": 96.0
+        },
+        "state_receive_to_apply_ms": {
+          "samples": 20,
+          "p50": 11.0,
+          "p95": 26.0,
+          "max": 27.0
+        },
+        "sample_to_apply_ms": {
+          "samples": 20,
+          "p50": 71.0,
+          "p95": 107.0,
+          "max": 179.0
+        },
+        "apply_to_draw_ms": {
+          "samples": 0,
+          "p50": null,
+          "p95": null,
+          "max": null
+        },
+        "sample_to_draw_ms": {
+          "samples": 0,
+          "p50": null,
+          "p95": null,
+          "max": null
+        }
+      },
+      "rows": [
+        {
+          "index": 1,
+          "sequence": 1,
+          "sample_to_send_ms": 0.0,
+          "send_to_host_receive_ms": 6.0,
+          "receive_to_consume_ms": 9.0,
+          "consume_to_state_send_ms": 25.0,
+          "state_send_to_receive_ms": 8.0,
+          "state_receive_to_apply_ms": 8.0,
+          "sample_to_apply_ms": 56.0,
+          "apply_to_draw_ms": null,
+          "sample_to_draw_ms": null
+        },
+        {
+          "index": 2,
+          "sequence": 15,
+          "sample_to_send_ms": 0.0,
+          "send_to_host_receive_ms": 7.0,
+          "receive_to_consume_ms": 7.0,
+          "consume_to_state_send_ms": 39.0,
+          "state_send_to_receive_ms": 10.0,
+          "state_receive_to_apply_ms": 19.0,
+          "sample_to_apply_ms": 82.0,
+          "apply_to_draw_ms": null,
+          "sample_to_draw_ms": null
+        },
+        {
+          "index": 3,
+          "sequence": 30,
+          "sample_to_send_ms": 1.0,
+          "send_to_host_receive_ms": 6.0,
+          "receive_to_consume_ms": 9.0,
+          "consume_to_state_send_ms": 36.0,
+          "state_send_to_receive_ms": 5.0,
+          "state_receive_to_apply_ms": 14.0,
+          "sample_to_apply_ms": 71.0,
+          "apply_to_draw_ms": null,
+          "sample_to_draw_ms": null
+        },
+        {
+          "index": 4,
+          "sequence": 45,
+          "sample_to_send_ms": 0.0,
+          "send_to_host_receive_ms": 8.0,
+          "receive_to_consume_ms": 7.0,
+          "consume_to_state_send_ms": 37.0,
+          "state_send_to_receive_ms": 6.0,
+          "state_receive_to_apply_ms": 14.0,
+          "sample_to_apply_ms": 72.0,
+          "apply_to_draw_ms": null,
+          "sample_to_draw_ms": null
+        },
+        {
+          "index": 5,
+          "sequence": 60,
+          "sample_to_send_ms": 0.0,
+          "send_to_host_receive_ms": 7.0,
+          "receive_to_consume_ms": 5.0,
+          "consume_to_state_send_ms": 39.0,
+          "state_send_to_receive_ms": 3.0,
+          "state_receive_to_apply_ms": 15.0,
+          "sample_to_apply_ms": 69.0,
+          "apply_to_draw_ms": null,
+          "sample_to_draw_ms": null
+        },
+        {
+          "index": 6,
+          "sequence": 75,
+          "sample_to_send_ms": 0.0,
+          "send_to_host_receive_ms": 11.0,
+          "receive_to_consume_ms": 6.0,
+          "consume_to_state_send_ms": 25.0,
+          "state_send_to_receive_ms": 9.0,
+          "state_receive_to_apply_ms": 7.0,
+          "sample_to_apply_ms": 58.0,
+          "apply_to_draw_ms": null,
+          "sample_to_draw_ms": null
+        },
+        {
+          "index": 7,
+          "sequence": 90,
+          "sample_to_send_ms": 0.0,
+          "send_to_host_receive_ms": 18.0,
+          "receive_to_consume_ms": 6.0,
+          "consume_to_state_send_ms": 24.0,
+          "state_send_to_receive_ms": 9.0,
+          "state_receive_to_apply_ms": 15.0,
+          "sample_to_apply_ms": 72.0,
+          "apply_to_draw_ms": null,
+          "sample_to_draw_ms": null
+        },
+        {
+          "index": 8,
+          "sequence": 105,
+          "sample_to_send_ms": 0.0,
+          "send_to_host_receive_ms": 22.0,
+          "receive_to_consume_ms": 4.0,
+          "consume_to_state_send_ms": 48.0,
+          "state_send_to_receive_ms": 96.0,
+          "state_receive_to_apply_ms": 9.0,
+          "sample_to_apply_ms": 179.0,
+          "apply_to_draw_ms": null,
+          "sample_to_draw_ms": null
+        },
+        {
+          "index": 9,
+          "sequence": 120,
+          "sample_to_send_ms": 0.0,
+          "send_to_host_receive_ms": 16.0,
+          "receive_to_consume_ms": 34.0,
+          "consume_to_state_send_ms": 15.0,
+          "state_send_to_receive_ms": 6.0,
+          "state_receive_to_apply_ms": 26.0,
+          "sample_to_apply_ms": 97.0,
+          "apply_to_draw_ms": null,
+          "sample_to_draw_ms": null
+        },
+        {
+          "index": 10,
+          "sequence": 135,
+          "sample_to_send_ms": 0.0,
+          "send_to_host_receive_ms": 12.0,
+          "receive_to_consume_ms": 5.0,
+          "consume_to_state_send_ms": 36.0,
+          "state_send_to_receive_ms": 21.0,
+          "state_receive_to_apply_ms": 9.0,
+          "sample_to_apply_ms": 83.0,
+          "apply_to_draw_ms": null,
+          "sample_to_draw_ms": null
+        },
+        {
+          "index": 11,
+          "sequence": 150,
+          "sample_to_send_ms": 0.0,
+          "send_to_host_receive_ms": 19.0,
+          "receive_to_consume_ms": 9.0,
+          "consume_to_state_send_ms": 11.0,
+          "state_send_to_receive_ms": 18.0,
+          "state_receive_to_apply_ms": 14.0,
+          "sample_to_apply_ms": 71.0,
+          "apply_to_draw_ms": null,
+          "sample_to_draw_ms": null
+        },
+        {
+          "index": 12,
+          "sequence": 165,
+          "sample_to_send_ms": 0.0,
+          "send_to_host_receive_ms": 17.0,
+          "receive_to_consume_ms": 6.0,
+          "consume_to_state_send_ms": 23.0,
+          "state_send_to_receive_ms": 10.0,
+          "state_receive_to_apply_ms": 10.0,
+          "sample_to_apply_ms": 66.0,
+          "apply_to_draw_ms": null,
+          "sample_to_draw_ms": null
+        },
+        {
+          "index": 13,
+          "sequence": 180,
+          "sample_to_send_ms": 0.0,
+          "send_to_host_receive_ms": 3.0,
+          "receive_to_consume_ms": 8.0,
+          "consume_to_state_send_ms": 33.0,
+          "state_send_to_receive_ms": 8.0,
+          "state_receive_to_apply_ms": 10.0,
+          "sample_to_apply_ms": 62.0,
+          "apply_to_draw_ms": null,
+          "sample_to_draw_ms": null
+        },
+        {
+          "index": 14,
+          "sequence": 195,
+          "sample_to_send_ms": 0.0,
+          "send_to_host_receive_ms": 14.0,
+          "receive_to_consume_ms": 16.0,
+          "consume_to_state_send_ms": 14.0,
+          "state_send_to_receive_ms": 10.0,
+          "state_receive_to_apply_ms": 11.0,
+          "sample_to_apply_ms": 65.0,
+          "apply_to_draw_ms": null,
+          "sample_to_draw_ms": null
+        },
+        {
+          "index": 15,
+          "sequence": 210,
+          "sample_to_send_ms": 2.0,
+          "send_to_host_receive_ms": 12.0,
+          "receive_to_consume_ms": 5.0,
+          "consume_to_state_send_ms": 28.0,
+          "state_send_to_receive_ms": 2.0,
+          "state_receive_to_apply_ms": 8.0,
+          "sample_to_apply_ms": 57.0,
+          "apply_to_draw_ms": null,
+          "sample_to_draw_ms": null
+        },
+        {
+          "index": 16,
+          "sequence": 225,
+          "sample_to_send_ms": 0.0,
+          "send_to_host_receive_ms": 8.0,
+          "receive_to_consume_ms": 10.0,
+          "consume_to_state_send_ms": 27.0,
+          "state_send_to_receive_ms": 10.0,
+          "state_receive_to_apply_ms": 16.0,
+          "sample_to_apply_ms": 71.0,
+          "apply_to_draw_ms": null,
+          "sample_to_draw_ms": null
+        },
+        {
+          "index": 17,
+          "sequence": 240,
+          "sample_to_send_ms": 0.0,
+          "send_to_host_receive_ms": 14.0,
+          "receive_to_consume_ms": 8.0,
+          "consume_to_state_send_ms": 38.0,
+          "state_send_to_receive_ms": 20.0,
+          "state_receive_to_apply_ms": 27.0,
+          "sample_to_apply_ms": 107.0,
+          "apply_to_draw_ms": null,
+          "sample_to_draw_ms": null
+        },
+        {
+          "index": 18,
+          "sequence": 255,
+          "sample_to_send_ms": 0.0,
+          "send_to_host_receive_ms": 19.0,
+          "receive_to_consume_ms": 10.0,
+          "consume_to_state_send_ms": 17.0,
+          "state_send_to_receive_ms": 7.0,
+          "state_receive_to_apply_ms": 11.0,
+          "sample_to_apply_ms": 64.0,
+          "apply_to_draw_ms": null,
+          "sample_to_draw_ms": null
+        },
+        {
+          "index": 19,
+          "sequence": 270,
+          "sample_to_send_ms": 0.0,
+          "send_to_host_receive_ms": 15.0,
+          "receive_to_consume_ms": 13.0,
+          "consume_to_state_send_ms": 17.0,
+          "state_send_to_receive_ms": 8.0,
+          "state_receive_to_apply_ms": 9.0,
+          "sample_to_apply_ms": 62.0,
+          "apply_to_draw_ms": null,
+          "sample_to_draw_ms": null
+        },
+        {
+          "index": 20,
+          "sequence": 285,
+          "sample_to_send_ms": 0.0,
+          "send_to_host_receive_ms": 13.0,
+          "receive_to_consume_ms": 14.0,
+          "consume_to_state_send_ms": 33.0,
+          "state_send_to_receive_ms": 6.0,
+          "state_receive_to_apply_ms": 18.0,
+          "sample_to_apply_ms": 84.0,
+          "apply_to_draw_ms": null,
+          "sample_to_draw_ms": null
+        }
+      ]
+    },
+    "native_drops": 0,
+    "results": {
+      "host": {
+        "accepted": 1194,
+        "event": "result",
+        "failures": [],
+        "max_held_bytes": 256,
+        "max_movement_bytes": 604,
+        "ok": true,
+        "reason": "LEFT",
+        "rejected": {
+          "INVALID": 1,
+          "NOT_ADMITTED": 1,
+          "STALE_CONTEXT": 1,
+          "WINDOW": 1
+        },
+        "role": "host",
+        "time_ms": 25862,
+        "wall_ms": 1791529747626.0
+      },
+      "client": {
+        "accepted": 0,
+        "event": "result",
+        "failures": [],
+        "max_held_bytes": 0,
+        "max_movement_bytes": 0,
+        "ok": true,
+        "reason": "HOST_LOST",
+        "rejected": {},
+        "role": "client",
+        "time_ms": 25414,
+        "wall_ms": 1791529747611.0
+      }
+    }
+  }
+}

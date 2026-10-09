@@ -31,6 +31,8 @@ const CAPTURE_EVENTS: int = 4
 var role: String = "host"
 var port: int = 24_900
 var profile: String = "baseline"
+var requested_max_fps: int = 0
+var requested_low_processor_mode: bool = false
 var local_tick: int = 0
 var started_ms: int = -1
 var sequence: int = 0
@@ -61,7 +63,13 @@ func _ready() -> void:
 			port = int(argument.trim_prefix("--port="))
 		elif argument.begins_with("--profile="):
 			profile = argument.trim_prefix("--profile=")
+		elif argument.begins_with("--max-fps="):
+			requested_max_fps = int(argument.trim_prefix("--max-fps="))
+		elif argument == "--low-processor-mode":
+			requested_low_processor_mode = true
 
+	Engine.max_fps = requested_max_fps
+	OS.low_processor_usage_mode = requested_low_processor_mode
 	session.match_state = match_state
 	session.replication = replication
 	replication.match_state = match_state
@@ -69,6 +77,8 @@ func _ready() -> void:
 	replication.handoff_confirmed.connect(session.confirm_handoff)
 	replication.admission_received.connect(session.receive_admission)
 	match_state.stepped.connect(_on_step)
+	match_state.held_received.connect(_on_held_received)
+	match_state.movement_buffered.connect(_on_movement_buffered)
 	input_collector.set_focused(true)
 	RenderingServer.frame_post_draw.connect(_on_rendered)
 	session.select_provider(S03Transport.new(get_tree()))
@@ -142,6 +152,8 @@ func _collect_and_send() -> void:
 		if role == "client" and local_tick >= PRODUCER_SILENCE_START_TICK and (
 			local_tick < PRODUCER_SILENCE_END_TICK):
 			return
+		var sample_ticks_ms: int = Time.get_ticks_msec()
+		var sample_wall_ms: float = Time.get_unix_time_from_system() * 1000.0
 		var sampled: Dictionary = input_collector.sample()
 		var envelope: Dictionary = {"context": match_state.context(session.local_participant),
 			"sequence": sequence, "move": sampled.move, "aim_yaw": _aim_yaw(command)}
@@ -149,6 +161,12 @@ func _collect_and_send() -> void:
 			match_state.submit_held(session.local_participant, envelope)
 		else:
 			replication.send_held(envelope)
+		if role == "client" and event_index <= PULSE_COUNT and sampled.move != Vector2.ZERO:
+			_record({"event": "input_send", "index": event_index, "sequence": sequence,
+				"move": [sampled.move.x, sampled.move.y], "aim_yaw": envelope.aim_yaw,
+				"sample_ticks_ms": sample_ticks_ms, "sample_wall_ms": sample_wall_ms,
+				"send_ticks_ms": Time.get_ticks_msec(),
+				"send_wall_ms": Time.get_unix_time_from_system() * 1000.0})
 
 
 ## Checks admission/identity/value fences and local focus cancellation through existing owners.
@@ -197,7 +215,9 @@ func _start() -> void:
 		"window_visible": get_window().visible, "window_mode": get_window().mode,
 		"can_draw": DisplayServer.window_can_draw(), "display": DisplayServer.get_name(),
 		"user_dir": OS.get_user_data_dir(), "engine": Engine.get_version_info().string,
-		"renderer": RenderingServer.get_current_rendering_method()})
+		"renderer": RenderingServer.get_current_rendering_method(),
+		"max_fps": Engine.max_fps, "low_processor_mode": OS.low_processor_usage_mode,
+		"vsync_mode": DisplayServer.window_get_vsync_mode()})
 
 
 ## Admits the fixture's measurement handshake only from an admitted mapped sender.
@@ -209,6 +229,23 @@ func _announce(session_id: String) -> void:
 	var participant: int = session.participant_for_peer(multiplayer.get_remote_sender_id())
 	if participant > 0 and match_state.bindings[participant].admitted and started_ms < 0:
 		_start()
+
+
+## Records accepted client input immediately inside the authoritative RPC call chain.
+func _on_held_received(participant: int, received_sequence: int, receipt_ms: int) -> void:
+	if role != "host" or participant == session.local_participant or local_tick >= WALL_START_TICK:
+		return
+
+	_record({"event": "host_receive", "participant": participant,
+		"sequence": received_sequence, "receipt_ms": receipt_ms})
+
+
+## Records movement arrival before the replica's next physics installation.
+func _on_movement_buffered(rows: Array) -> void:
+	if role != "client" or local_tick >= WALL_START_TICK:
+		return
+
+	_record({ "event": "state_receive", "rows": rows })
 
 
 ## Provides independently timed motion/turn pulses followed by collision and recovery cases.
@@ -302,16 +339,33 @@ func _on_step(tick: int) -> void:
 				"pose": match_state.pose_for_entity(entity),
 				"held": [binding.held.move.x, binding.held.move.y],
 				"aim_yaw": binding.held.aim_yaw, "receipt_ms": binding.receipt_ms,
+				"decision_age_ms": match_state.expiry_decision_ages.get(entity, -1),
 				"muzzle": match_state.vector(actor.muzzle_position()),
 				"aim": match_state.vector(-actor.global_basis.z)})
 
 		if tick % SNAPSHOT_INTERVAL_TICKS == 0:
-			for peer_id: int in session.roster:
-				if session.roster[peer_id].phase == "ADMITTED":
-					replication.send_movement(peer_id, match_state.bindings.keys(), tick, 0.0)
+			_send_snapshot(tick)
 
 	status.text = "S03-R %s | %s | tick %d | authoritative baseline" % [
 		role, profile, local_tick]
+
+
+## Sends one instrumented movement snapshot to every admitted peer.
+func _send_snapshot(tick: int) -> void:
+	var rows: Array = []
+	for entity: int in match_state.body_for_entity:
+		var pose: Dictionary = match_state.pose_for_entity(entity)
+		rows.append({ "entity": entity, "sequence": pose.sequence, "tick": pose.tick })
+
+	for peer_id: int in session.roster:
+		if session.roster[peer_id].phase != "ADMITTED":
+			continue
+
+		var send_wall_ms: float = Time.get_unix_time_from_system() * 1000.0
+		replication.send_movement(peer_id, match_state.bindings.keys(), tick, 0.0)
+		if local_tick < WALL_START_TICK:
+			_record({ "event": "state_send", "peer": peer_id, "rows": rows,
+				"send_wall_ms": send_wall_ms })
 
 
 ## Receipts actual drawn frames independently of simulation and keeps matched camera captures.
