@@ -4,7 +4,6 @@
 [ext_resource type="Script" path="res://tests/fixtures/s06/sector.gd" id="2_2k42s"]
 [ext_resource type="PackedScene" path="res://tests/fixtures/s06/east.tscn" id="3_vw7qv"]
 [ext_resource type="PackedScene" path="res://tests/fixtures/s02/low_prefab.tscn" id="4_ylqdk"]
-[ext_resource type="Script" path="res://tests/fixtures/s02/building_view.gd" id="5_aaprc"]
 [ext_resource type="PackedScene" path="res://tests/fixtures/s02/near_prefab.tscn" id="6_xpqxh"]
 [ext_resource type="PackedScene" path="res://tests/fixtures/s02/tall_prefab.tscn" id="7_c266m"]
 
@@ -87,99 +86,75 @@ world_id = &"s06/sector/east"
 
 [node name="Block000Building0" type="Node3D" parent="Buildings" unique_id=1338630014 instance=ExtResource("4_ylqdk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -64.25, 0, -40.25)
-script = ExtResource("5_aaprc")
 
 [node name="Block000Building1" type="Node3D" parent="Buildings" unique_id=93153907 instance=ExtResource("6_xpqxh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31.75, 0, -40.25)
-script = ExtResource("5_aaprc")
 
 [node name="Block000Building2" type="Node3D" parent="Buildings" unique_id=1625145547 instance=ExtResource("7_c266m")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -64.25, 0, -7.75)
-script = ExtResource("5_aaprc")
 
 [node name="Block000Building3" type="Node3D" parent="Buildings" unique_id=1672737214 instance=ExtResource("4_ylqdk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31.75, 0, -7.75)
-script = ExtResource("5_aaprc")
 
 [node name="Block001Building0" type="Node3D" parent="Buildings" unique_id=295196762 instance=ExtResource("6_xpqxh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.25, 0, -40.25)
-script = ExtResource("5_aaprc")
 
 [node name="Block001Building1" type="Node3D" parent="Buildings" unique_id=298198978 instance=ExtResource("7_c266m")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.25, 0, -40.25)
-script = ExtResource("5_aaprc")
 
 [node name="Block001Building2" type="Node3D" parent="Buildings" unique_id=664652359 instance=ExtResource("4_ylqdk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.25, 0, -7.75)
-script = ExtResource("5_aaprc")
 
 [node name="Block001Building3" type="Node3D" parent="Buildings" unique_id=1969562947 instance=ExtResource("4_ylqdk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.25, 0, -7.75)
-script = ExtResource("5_aaprc")
 
 [node name="Block002Building0" type="Node3D" parent="Buildings" unique_id=1931299352 instance=ExtResource("7_c266m")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 31.75, 0, -40.25)
-script = ExtResource("5_aaprc")
 
 [node name="Block002Building1" type="Node3D" parent="Buildings" unique_id=22725622 instance=ExtResource("4_ylqdk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 64.25, 0, -40.25)
-script = ExtResource("5_aaprc")
 
 [node name="Block002Building2" type="Node3D" parent="Buildings" unique_id=2005521398 instance=ExtResource("4_ylqdk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 31.75, 0, -7.75)
-script = ExtResource("5_aaprc")
 
 [node name="Block002Building3" type="Node3D" parent="Buildings" unique_id=395122182 instance=ExtResource("6_xpqxh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 64.25, 0, -7.75)
-script = ExtResource("5_aaprc")
 
 [node name="Block003Building0" type="Node3D" parent="Buildings" unique_id=2139353801 instance=ExtResource("4_ylqdk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -64.25, 0, 7.75)
-script = ExtResource("5_aaprc")
 
 [node name="Block003Building1" type="Node3D" parent="Buildings" unique_id=437479333 instance=ExtResource("4_ylqdk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31.75, 0, 7.75)
-script = ExtResource("5_aaprc")
 
 [node name="Block003Building2" type="Node3D" parent="Buildings" unique_id=9342925 instance=ExtResource("6_xpqxh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -64.25, 0, 40.25)
-script = ExtResource("5_aaprc")
 
 [node name="Block003Building3" type="Node3D" parent="Buildings" unique_id=1918719697 instance=ExtResource("7_c266m")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31.75, 0, 40.25)
-script = ExtResource("5_aaprc")
 
 [node name="Block004Building0" type="Node3D" parent="Buildings" unique_id=2060081652 instance=ExtResource("4_ylqdk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.25, 0, 7.75)
-script = ExtResource("5_aaprc")
 
 [node name="Block004Building1" type="Node3D" parent="Buildings" unique_id=1609945002 instance=ExtResource("6_xpqxh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.25, 0, 7.75)
-script = ExtResource("5_aaprc")
 
 [node name="Block004Building2" type="Node3D" parent="Buildings" unique_id=1519747936 instance=ExtResource("7_c266m")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.25, 0, 40.25)
-script = ExtResource("5_aaprc")
 
 [node name="Block004Building3" type="Node3D" parent="Buildings" unique_id=1861584536 instance=ExtResource("4_ylqdk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.25, 0, 40.25)
-script = ExtResource("5_aaprc")
 
 [node name="Block005Building0" type="Node3D" parent="Buildings" unique_id=866496754 instance=ExtResource("6_xpqxh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 31.75, 0, 7.75)
-script = ExtResource("5_aaprc")
 
 [node name="Block005Building1" type="Node3D" parent="Buildings" unique_id=1183747555 instance=ExtResource("7_c266m")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 64.25, 0, 7.75)
-script = ExtResource("5_aaprc")
 
 [node name="Block005Building2" type="Node3D" parent="Buildings" unique_id=1012022565 instance=ExtResource("4_ylqdk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 31.75, 0, 40.25)
-script = ExtResource("5_aaprc")
 
 [node name="Block005Building3" type="Node3D" parent="Buildings" unique_id=1449417591 instance=ExtResource("4_ylqdk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 64.25, 0, 40.25)
-script = ExtResource("5_aaprc")
 
 [node name="Camera" type="Camera3D" parent="." unique_id=2144031736]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -48, 47, -24)
