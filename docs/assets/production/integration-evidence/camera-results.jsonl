@@ -1,0 +1,4 @@
+{"method":"scene.create_inherited","result":{"id":1,"jsonrpc":"2.0","result":{"base_scene":"res://scenes/prefabs/player_character/preview.tscn","file_path":"res://tests/fixtures/asset_production/lights_camera.tscn","root_name":"preview","success":true}}}
+{"method":"scene.open","result":{"id":2,"jsonrpc":"2.0","result":{"path":"res://tests/fixtures/asset_production/lights_camera.tscn","success":true}}}
+{"method":"node.set_property","result":{"id":3,"jsonrpc":"2.0","result":{"success":true}}}
+{"method":"scene.instantiate","result":{"id":4,"jsonrpc":"2.0","result":{"code":"INVALID_PARAMS","error":"position/rotation/scale expect a tagged Vector2 {type:'Vector2', x, y} (or Vector3 {type:'Vector3', x, y, z} for 3D) — a bare {x, y} is not coerced","success":false}}}

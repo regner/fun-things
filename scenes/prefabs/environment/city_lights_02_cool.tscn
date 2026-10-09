@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://dc1kamixdnvca"]
+
+[ext_resource type="PackedScene" uid="uid://bq8l6g4sd5bag" path="res://art/models/environment/city_lights_02/city_lights_02_cool.glb" id="1_ouagq"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_2bskb"]
+height = 2.63
+radius = 0.135
+
+[node name="city_lights_02_cool" type="Node3D" unique_id=1877841748]
+
+[node name="Visuals" type="Node3D" parent="." unique_id=1073604606]
+
+[node name="Model" type="Node3D" parent="Visuals" unique_id=1364271936 instance=ExtResource("1_ouagq")]
+
+[node name="Collision" type="Node3D" parent="." unique_id=964044753]
+
+[node name="PoleBody" type="StaticBody3D" parent="Collision" unique_id=110667534]
+collision_mask = 0
+
+[node name="Shape" type="CollisionShape3D" parent="Collision/PoleBody" unique_id=1982615099]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.315, 0)
+shape = SubResource("CylinderShape3D_2bskb")

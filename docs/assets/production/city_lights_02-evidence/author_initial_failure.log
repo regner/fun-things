@@ -1,0 +1,15 @@
+Blender 5.2.2 LTS (hash d13f752e3b9c built 2026-09-22 17:10:25)
+[ALSOFT] (EE) Failed to connect PipeWire event context (errno: 1)
+/home/regner/.paseo/worktrees/0u71f39f/asset-register-production/tools/asset_production/city_lights_02/author.py:22: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  m=bpy.data.materials.new(name); m.use_nodes=True
+00:00.335  image.write      | ERROR OpenImageIO write failed: Could not open file "/home/regner/.cache/thumbnails/large/blender_6_b641a6ef942592c339ad3242e19a08b9.png.png"
+Traceback (most recent call last):
+  File "/home/regner/.paseo/worktrees/0u71f39f/asset-register-production/tools/asset_production/city_lights_02/author.py", line 100, in <module>
+    exec(compile((Path(__file__).with_name('export.py')).read_text(),str(Path(__file__).with_name('export.py')),'exec'))
+    ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/regner/.paseo/worktrees/0u71f39f/asset-register-production/tools/asset_production/city_lights_02/export.py", line 25, in <module>
+    assert all(p.area>1e-10 for p in o.data.polygons),o.name
+           ~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: front_service_panel
+Info: Saved as "city_lights_02.blend"
+pa_write() failed while trying to wake up the mainloop: Operation not permitted

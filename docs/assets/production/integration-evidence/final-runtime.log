@@ -1,0 +1,42 @@
+SCRIPT ERROR: Invalid call. Nonexistent 'int' constructor.
+          at: lower (res://addons/godot_mcp_toolkit/core/unfocused_sleep_controller.gd:111)
+          GDScript backtrace (most recent call first):
+              [0] lower (res://addons/godot_mcp_toolkit/core/unfocused_sleep_controller.gd:111)
+              [1] _on_peer_authed (res://addons/godot_mcp_toolkit/transport/mcp_server.gd:650)
+              [2] validate_auth (res://addons/godot_mcp_toolkit/transport/ws_transport.gd:465)
+              [3] _handle_message (res://addons/godot_mcp_toolkit/transport/mcp_server.gd:619)
+              [4] poll_peers (res://addons/godot_mcp_toolkit/transport/ws_transport.gd:422)
+              [5] pump (res://addons/godot_mcp_toolkit/transport/ws_transport.gd:224)
+              [6] _poll_connections (res://addons/godot_mcp_toolkit/transport/mcp_server.gd:591)
+[MCP] MCP client connected (1 peer)
+Godot Engine v4.8.dev7.official.c971f93e7 - https://godotengine.org
+Vulkan 1.4.312 - Forward+ - Using Device #0: NVIDIA - NVIDIA GeForce GTX 1070
+[MCP] MCP client disconnected
+
+WARNING: res://tests/fixtures/asset_production/lights_camera.tscn:4 - ext_resource, invalid UID: uid://ut0gchfm6vov - using text path instead: res://scenes/prefabs/environment/city_lights_01.tscn
+     at: load (scene/resources/resource_format_text.cpp:489)
+WARNING: res://tests/fixtures/asset_production/lights_camera.tscn:5 - ext_resource, invalid UID: uid://c6bw5k07j3uo3 - using text path instead: res://scenes/prefabs/environment/city_lights_01_cool.tscn
+     at: load (scene/resources/resource_format_text.cpp:489)
+WARNING: res://tests/fixtures/asset_production/lights_camera.tscn:6 - ext_resource, invalid UID: uid://t4cmo7iwh7ja - using text path instead: res://scenes/prefabs/environment/city_lights_02.tscn
+     at: load (scene/resources/resource_format_text.cpp:489)
+WARNING: res://tests/fixtures/asset_production/lights_camera.tscn:7 - ext_resource, invalid UID: uid://dc1kamixdnvca - using text path instead: res://scenes/prefabs/environment/city_lights_02_cool.tscn
+     at: load (scene/resources/resource_format_text.cpp:489)
+[MCPRuntimeServer] port 22651 (pinned via GODOT_MCP_RUNTIME_PORT)
+[MCPRuntimeServer] listening on 127.0.0.1:22651
+[MCPRegistry] runtime port 22651 registered for /home/regner/.paseo/worktrees/0u71f39f/asset-register-production
+[MCPTools] execute.code: get_viewport().get_texture().get_image().save_png("res://docs/assets/production/integration-evidence/lights_gameplay.png")
+[MCPTools] execute.code: get_viewport().get_visible_rect()
+SCRIPT ERROR: Invalid call. Nonexistent 'int' constructor.
+          at: lower (res://addons/godot_mcp_toolkit/core/unfocused_sleep_controller.gd:111)
+          GDScript backtrace (most recent call first):
+              [0] lower (res://addons/godot_mcp_toolkit/core/unfocused_sleep_controller.gd:111)
+              [1] _on_peer_authed (res://addons/godot_mcp_toolkit/transport/mcp_server.gd:650)
+              [2] validate_auth (res://addons/godot_mcp_toolkit/transport/ws_transport.gd:465)
+              [3] _handle_message (res://addons/godot_mcp_toolkit/transport/mcp_server.gd:619)
+              [4] poll_peers (res://addons/godot_mcp_toolkit/transport/ws_transport.gd:422)
+              [5] pump (res://addons/godot_mcp_toolkit/transport/ws_transport.gd:224)
+              [6] _poll_connections (res://addons/godot_mcp_toolkit/transport/mcp_server.gd:591)
+[MCP] MCP client connected (1 peer)
+[MCPServer] broadcasting game_stopped to 1 authed peer
+[MCPTools] node.call_method invoked ..context(0 args)
+[MCP] MCP client disconnected

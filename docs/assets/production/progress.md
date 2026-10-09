@@ -1,20 +1,24 @@
-# Production progress
+# Production progress — safe routing checkpoint
 
-9 October 2026 initialization: snapshot verified and restored; exact base/branch
-verified clean before restore. Full durable inventory in queue.json: 223 stable IDs
-(158 physical model/component, 48 artwork, 10 assembly/interface, 7 material), plus
-12 trailing readiness tracks. No row is ready or accepted from input documents.
+ROOT fbd92534-e159-432f-aae7-28072c2bf3b2 now owns queue/dispatch directly.
+Technical integrator150f00b5-9e62-44d8-b0aa-a456d2a88b8c is idle after this saved
+light batch, available for concrete4–6 asset integration batches.
 
-Active sources: city_lights.01 (a320df33-e49b-4a56-8e08-1d2551463068) and
-city_lights.02 (285fea37-eec1-4e65-98fc-f0713bef0e89), ROOT-launched Astra medium.
-Next dispatch: city_lights.04, after an active slot releases; physical outputs first.
-Review slot reserved when the first committed batch is available.
+Queue covers all223 stable IDs and12 trailing tracks. Initial city_lights.01/.02
+specialists finished and source/export delivered; complete producer sets/bytes/hashes
+verified. Four linked warm/cool prefabs saved/reopened and imported bounds measured.
+Actual1280x800 vertical47 m/42deg capture retained. READY remains pending, with runtime
+UID warnings, collision/query/repetition checks and independent review unresolved.
+See [technical checkpoint](lights-integration.md) and integration-evidence/ raw logs.
 
-Tool observation: /usr/bin/blender reports 5.2.2 LTS, build d13f752e3b9c.
-Pinned Godot installed under mise 4.8-dev7. Connector discovery found suitable scene,
-asset and editor tools but read-only project query returned CONNECT_FAILED:
-ECONNREFUSED 127.0.0.1:6550. No shared editor mutation occurred. Private pinned editor
-integration preparation is next; preserve this explicit fallback limitation.
+city_lights.04 a69e6e9c-4878-486d-b6b0-417b5786ce80 delivered source/export while this
+checkpoint was saved; ROOT received its report/36-file manifest. This checkpoint does
+not stage or accept its output. Active source ownership: city_sign_supports.01 bf303bbb-ed1e-4570-860f-41060d6c000e. Both codex/gpt-6-astra,
+configured/effective medium, auto-review. Both instructed once to send one compact
+final source handoff to ROOT only; no duplicate coordination or source launches here.
 
-Lead owns queue/register/catalogue/Git/editor. Workers own unique normalized-ID
-source/export/report/evidence paths. Placement and hardware acceptance stay pending.
+Private editor PID178546, project this worktree, editor/runtime ports22650/22651,
+CLI LSP22652; saved inspector active, runtime stopped, no unsaved scenes at checkpoint.
+Shared endpoint6550 remains unavailable; global connector configuration untouched.
+Baseline2a0fe4f588f86ca1d9b1226f8fb5ede065e6c661, base66400c26a01bf917dfe631af4762c2b444d9c48f.
+No main writes, push, merge, archive, TODO closures or ready/placement acceptance.

@@ -31,3 +31,13 @@ Existing actors, vehicles, weapons and effects are linked there to their owner
 handoffs. The technical fixture table above remains a source/handoff discovery index,
 not a second environment planning tracker. Road surfaces remain outside the art
 inventory and belong to future automatic tooling.
+
+## Asset register production — 9 October 2026
+
+[Commission and ownership](assets/production/commission.md) · [Complete queue](assets/production/queue.json) · [Progress](assets/production/progress.md).
+
+- city_lights.01: [source handoff](assets/production/city_lights_01.md).
+- city_lights.02: [source handoff](assets/production/city_lights_02.md).
+- [Initial light prefab integration and remaining gates](assets/production/lights-integration.md).
+
+Source/export delivery is separate from engine readiness and downstream placement.

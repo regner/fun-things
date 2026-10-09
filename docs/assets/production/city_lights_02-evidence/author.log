@@ -1,0 +1,51 @@
+Blender 5.2.2 LTS (hash d13f752e3b9c built 2026-09-22 17:10:25)
+[ALSOFT] (EE) Failed to connect PipeWire event context (errno: 1)
+/home/regner/.paseo/worktrees/0u71f39f/asset-register-production/tools/asset_production/city_lights_02/author.py:22: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  m=bpy.data.materials.new(name); m.use_nodes=True
+00:00.354  image.write      | ERROR OpenImageIO write failed: Could not open file "/home/regner/.cache/thumbnails/large/blender_5_b641a6ef942592c339ad3242e19a08b9.png.png"
+Info: Saved as "city_lights_02.blend"
+INFO Draco is available, use library at /usr/lib/blender/5.2/scripts/addons_core/io_scene_gltf2/libbf_intern_draco_bridge.so
+ERROR MeshOptimizer is not available because library could not be found at /usr/lib/blender/5.2/scripts/addons_core/io_scene_gltf2/libbf_intern_meshopt_bridge.so
+17:10:16 | INFO: Starting glTF 2.0 export
+17:10:16 | INFO: Extracting primitive: broad_recessed_diffuser_mesh
+17:10:16 | INFO: Primitives created: 1
+17:10:16 | INFO: Extracting primitive: broad_rounded_canopy_mesh
+17:10:16 | INFO: Primitives created: 1
+17:10:16 | INFO: Extracting primitive: crown_seal_mesh
+17:10:16 | INFO: Primitives created: 1
+17:10:16 | INFO: Extracting primitive: foot_splayed_casting_mesh
+17:10:16 | INFO: Primitives created: 1
+17:10:16 | INFO: Extracting primitive: Cube.001
+17:10:16 | INFO: Primitives created: 1
+17:10:16 | INFO: Extracting primitive: lantern_neck_mesh
+17:10:16 | INFO: Primitives created: 1
+17:10:16 | INFO: Extracting primitive: lower_shield_mesh
+17:10:16 | INFO: Primitives created: 1
+17:10:16 | INFO: Extracting primitive: quiet_tapered_pole_mesh
+17:10:16 | INFO: Primitives created: 1
+17:10:16 | INFO: Finished glTF 2.0 export in 0.019588470458984375 s
+
+17:10:16 | INFO: Starting glTF 2.0 export
+17:10:16 | INFO: Extracting primitive: broad_recessed_diffuser_mesh
+17:10:16 | INFO: Primitives created: 1
+17:10:16 | INFO: Extracting primitive: broad_rounded_canopy_mesh
+17:10:16 | INFO: Primitives created: 1
+17:10:16 | INFO: Extracting primitive: crown_seal_mesh
+17:10:16 | INFO: Primitives created: 1
+17:10:16 | INFO: Extracting primitive: foot_splayed_casting_mesh
+17:10:16 | INFO: Primitives created: 1
+17:10:16 | INFO: Extracting primitive: Cube.001
+17:10:16 | INFO: Primitives created: 1
+17:10:16 | INFO: Extracting primitive: lantern_neck_mesh
+17:10:16 | INFO: Primitives created: 1
+17:10:16 | INFO: Extracting primitive: lower_shield_mesh
+17:10:16 | INFO: Primitives created: 1
+17:10:16 | INFO: Extracting primitive: quiet_tapered_pole_mesh
+17:10:16 | INFO: Primitives created: 1
+17:10:16 | INFO: Finished glTF 2.0 export in 0.015143632888793945 s
+00:09.064  render           | Saved: '/home/regner/.paseo/worktrees/0u71f39f/asset-register-production/docs/assets/production/city_lights_02-evidence/warm_three_quarter.png'
+00:18.446  render           | Saved: '/home/regner/.paseo/worktrees/0u71f39f/asset-register-production/docs/assets/production/city_lights_02-evidence/cool_three_quarter.png'
+00:28.246  render           | Saved: '/home/regner/.paseo/worktrees/0u71f39f/asset-register-production/docs/assets/production/city_lights_02-evidence/head_detail.png'
+
+CITY_LIGHTS_02_CHECKS_PASS {"blender": "5.2.2 LTS", "build_hash": "d13f752e3b9c", "exporter": [5, 2, 40], "bounds_blender": [[-0.36000001430511475, -0.36000001430511475, 0.0], [0.36000001430511475, 0.36000001430511475, 3.0]], "dimensions_godot_m": [0.72, 3, 0.72], "objects": [{"name": "foot_splayed_casting", "vertices": 256, "triangles": 508, "nonmanifold_edges": 0, "signed_volume": 0.009914714955689212}, {"name": "quiet_tapered_pole", "vertices": 128, "triangles": 252, "nonmanifold_edges": 0, "signed_volume": 0.021866503600965148}, {"name": "lantern_neck", "vertices": 240, "triangles": 476, "nonmanifold_edges": 0, "signed_volume": 0.0034741090614071324}, {"name": "lower_shield", "vertices": 288, "triangles": 572, "nonmanifold_edges": 0, "signed_volume": 0.026096153428533914}, {"name": "broad_recessed_diffuser", "vertices": 192, "triangles": 380, "nonmanifold_edges": 0, "signed_volume": 0.03735520180365731}, {"name": "crown_seal", "vertices": 192, "triangles": 380, "nonmanifold_edges": 0, "signed_volume": 0.013635963077334612}, {"name": "broad_rounded_canopy", "vertices": 432, "triangles": 860, "nonmanifold_edges": 0, "signed_volume": 0.03568550879095622}, {"name": "front_service_panel", "vertices": 96, "triangles": 188, "nonmanifold_edges": 0, "signed_volume": 0.00012839197402807534}], "triangles": 3616, "export_settings": {"export_format": "GLB", "use_selection": true, "export_yup": true, "export_apply": true, "export_texcoords": false, "export_normals": true, "export_tangents": false, "export_materials": "EXPORT", "export_cameras": false, "export_lights": false, "export_extras": false, "export_animations": false}, "outputs": {"art/models/environment/city_lights_02/city_lights_02.glb": {"bytes": 69564, "sha256": "2bbcd84482dd4305d632f3321377854e0080fdda8bab621479a10d29c070fae6"}, "art/models/environment/city_lights_02/city_lights_02_cool.glb": {"bytes": 69580, "sha256": "88b51c17ce8b68f05bb90334ea7171deb14f4da53c35f7f691b545ee13599c2a"}}}
+pa_write() failed while trying to wake up the mainloop: Operation not permitted

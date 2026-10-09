@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://cu4s5g5yrmgod"]
+
+[ext_resource type="PackedScene" uid="uid://bsyw5afxrhg20" path="res://scenes/prefabs/player_character/preview.tscn" id="1"]
+[ext_resource type="PackedScene" uid="uid://ut0gchfm6vov" path="res://scenes/prefabs/environment/city_lights_01.tscn" id="2_fharw"]
+[ext_resource type="PackedScene" uid="uid://c6bw5k07j3uo3" path="res://scenes/prefabs/environment/city_lights_01_cool.tscn" id="3_slyrc"]
+[ext_resource type="PackedScene" uid="uid://t4cmo7iwh7ja" path="res://scenes/prefabs/environment/city_lights_02.tscn" id="4_sx8qc"]
+[ext_resource type="PackedScene" uid="uid://dc1kamixdnvca" path="res://scenes/prefabs/environment/city_lights_02_cool.tscn" id="5_t4pka"]
+
+[node name="preview" unique_id=333067975 instance=ExtResource("1")]
+
+[node name="GameCamera" parent="." index="6" unique_id=1677099671]
+current = true
+
+[node name="city_lights_01" parent="." index="8" unique_id=1251605537 instance=ExtResource("2_fharw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, 0)
+
+[node name="city_lights_01_cool" parent="." index="9" unique_id=1717012341 instance=ExtResource("3_slyrc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, 0)
+
+[node name="city_lights_02" parent="." index="10" unique_id=991736401 instance=ExtResource("4_sx8qc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 0)
+
+[node name="city_lights_02_cool" parent="." index="11" unique_id=1877841748 instance=ExtResource("5_t4pka")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, 0)

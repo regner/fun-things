@@ -1,0 +1,32 @@
+{
+  "date": "2026-10-09",
+  "owned_sessions_stopped": true,
+  "attempts": [
+    {
+      "command": "blender --background --factory-startup --threads 6 --python tools/asset_production/city_lights_02/author.py",
+      "attempt": "initial",
+      "exit": 130,
+      "result": "source saved; validation rejected degenerate service-panel face; stalled audio teardown; owned session interrupted",
+      "log": "author_initial_failure.log"
+    },
+    {
+      "command": "blender --background --factory-startup --threads 6 --python tools/asset_production/city_lights_02/author.py",
+      "attempt": "one corrected cycle",
+      "exit": 130,
+      "result": "all source checks, two GLB exports, three renders completed; stalled audio teardown; owned session interrupted",
+      "log": "author.log"
+    },
+    {
+      "command": "timeout 45s blender -noaudio --background --factory-startup --threads 2 art/source/models/environment/city_lights_02/city_lights_02.blend --python tools/asset_production/city_lights_02/export.py",
+      "exit": 130,
+      "result": "saved-source checks and both exports completed; byte comparison passed; stalled audio teardown; owned session interrupted",
+      "log": "reexport.log"
+    },
+    {
+      "command": "python tools/asset_production/city_lights_02/check_glb.py",
+      "exit": 0,
+      "result": "PASS",
+      "log": "glb_checks.log"
+    }
+  ]
+}

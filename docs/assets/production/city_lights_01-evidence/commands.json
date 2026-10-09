@@ -1,0 +1,80 @@
+[
+  {
+    "argv": [
+      "/usr/bin/blender",
+      "-noaudio",
+      "--background",
+      "--threads",
+      "2",
+      "--python-exit-code",
+      "1",
+      "--factory-startup",
+      "--python",
+      "tools/asset_production/city_lights_01/validate.py"
+    ],
+    "exit_code": 0,
+    "timeout_terminated_owned_group": false,
+    "log": "docs/assets/production/city_lights_01-evidence/validation_final.log",
+    "environment_overrides": {
+      "ALSOFT_DRIVERS": "null",
+      "SDL_AUDIODRIVER": "dummy"
+    }
+  },
+  {
+    "argv": [
+      "/usr/bin/blender",
+      "-noaudio",
+      "--background",
+      "--threads",
+      "2",
+      "--python-exit-code",
+      "1",
+      "art/source/models/environment/city_lights_01/city_lights_01.blend",
+      "--python",
+      "tools/asset_production/city_lights_01/export.py",
+      "--",
+      "/tmp/city_lights_01_reexport_sxr4ysov"
+    ],
+    "exit_code": 0,
+    "timeout_terminated_owned_group": false,
+    "log": "docs/assets/production/city_lights_01-evidence/reexport.log",
+    "environment_overrides": {
+      "ALSOFT_DRIVERS": "null",
+      "SDL_AUDIODRIVER": "dummy"
+    }
+  },
+  {
+    "phase": "historical author and validation runs",
+    "exit_code": null,
+    "diagnostics": "Outputs completed; shutdown pa_write/PipeWire diagnostics retained; tool sessions did not report exit. Not counted as successful exits. No termination attempted.",
+    "logs": [
+      "author_initial.log",
+      "pre_cleanup_author.log",
+      "author.log",
+      "validation_initial.log",
+      "pre_cleanup_validation.log",
+      "validation.log"
+    ],
+    "argv_author": [
+      "blender",
+      "--background",
+      "--factory-startup",
+      "--threads",
+      "4",
+      "--python",
+      "tools/asset_production/city_lights_01/author.py"
+    ],
+    "argv_cleanup_author": [
+      "blender",
+      "-noaudio",
+      "--background",
+      "--factory-startup",
+      "--threads",
+      "4",
+      "--python-exit-code",
+      "1",
+      "--python",
+      "tools/asset_production/city_lights_01/author.py"
+    ]
+  }
+]

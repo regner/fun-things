@@ -1,0 +1,26 @@
+Blender 5.2.2 LTS (hash d13f752e3b9c built 2026-09-22 17:10:25)
+[ALSOFT] (EE) Failed to connect PipeWire event context (errno: 1)
+/home/regner/.paseo/worktrees/0u71f39f/asset-register-production/tools/asset_production/city_lights_01/author.py:18: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  m.use_nodes = True
+/home/regner/.paseo/worktrees/0u71f39f/asset-register-production/tools/asset_production/city_lights_01/author.py:123: DeprecationWarning: 'World.use_nodes' is expected to be removed in Blender 6.0
+  world=scene.world; world.use_nodes=True
+00:00.339  image.write      | ERROR OpenImageIO write failed: Could not open file "/home/regner/.cache/thumbnails/large/blender_4_d8c577c27c40c05d3fe1ddb26d3697d2.png.png"
+Info: Saved as "city_lights_01.blend"
+EXPORTER {'name': 'glTF 2.0 format', 'author': 'Blender Foundation, Khronos Group', 'version': (5, 2, 40), 'blender': (5, 2, 0), 'location': 'File > Import-Export', 'description': 'Import-Export as glTF 2.0', 'warning': '', 'doc_url': '{BLENDER_MANUAL_URL}/addons/import_export/scene_gltf2.html', 'tracker_url': 'https://github.com/KhronosGroup/glTF-Blender-IO/issues/', 'support': 'OFFICIAL', 'category': 'Import-Export'}
+INFO Draco is available, use library at /usr/lib/blender/5.2/scripts/addons_core/io_scene_gltf2/libbf_intern_draco_bridge.so
+ERROR MeshOptimizer is not available because library could not be found at /usr/lib/blender/5.2/scripts/addons_core/io_scene_gltf2/libbf_intern_meshopt_bridge.so
+17:13:24 | INFO: Starting glTF 2.0 export
+17:13:24 | INFO: Extracting primitive: Tapered pole
+17:13:24 | INFO: Primitives created: 4
+17:13:24 | INFO: Finished glTF 2.0 export in 0.01429438591003418 s
+
+17:13:24 | INFO: Starting glTF 2.0 export
+17:13:24 | INFO: Extracting primitive: Tapered pole
+17:13:24 | INFO: Primitives created: 4
+17:13:24 | INFO: Finished glTF 2.0 export in 0.008494853973388672 s
+00:10.192  render           | Saved: '/home/regner/.paseo/worktrees/0u71f39f/asset-register-production/docs/assets/production/city_lights_01-evidence/hero.png'
+00:20.242  render           | Saved: '/home/regner/.paseo/worktrees/0u71f39f/asset-register-production/docs/assets/production/city_lights_01-evidence/side.png'
+00:26.568  render           | Saved: '/home/regner/.paseo/worktrees/0u71f39f/asset-register-production/docs/assets/production/city_lights_01-evidence/lens_detail.png'
+00:41.101  render           | Saved: '/home/regner/.paseo/worktrees/0u71f39f/asset-register-production/docs/assets/production/city_lights_01-evidence/overhead_47m_42deg.png'
+
+pa_write() failed while trying to wake up the mainloop: Operation not permitted

@@ -20,11 +20,11 @@
       "input_next_action": "Refine shared design for recorded districts",
       "brief": "[Brief](../../assets/city_lights.md)",
       "priority": 0,
-      "status": "modeling",
+      "status": "source_export_delivered",
       "agent_id": "a320df33-e49b-4a56-8e08-1d2551463068",
       "source_revision": null,
       "review_status": "pending",
-      "integration_status": "pending",
+      "integration_status": "prefabs_saved_checks_pending",
       "placement_status": "pending",
       "blocker": null,
       "attempts": 1,
@@ -47,7 +47,10 @@
           "ROOT",
           "150f00b5-9e62-44d8-b0aa-a456d2a88b8c"
         ]
-      }
+      },
+      "producer_manifest": "docs/assets/production/city_lights_01-evidence/manifest.json",
+      "producer_set_verified": true,
+      "integration_record": "docs/assets/production/lights-integration.md"
     },
     {
       "id": "city_lights.02",
@@ -60,11 +63,11 @@
       "input_next_action": "Refine shared design for recorded districts",
       "brief": "[Brief](../../assets/city_lights.md)",
       "priority": 0,
-      "status": "modeling",
+      "status": "source_export_delivered",
       "agent_id": "285fea37-eec1-4e65-98fc-f0713bef0e89",
       "source_revision": null,
       "review_status": "pending",
-      "integration_status": "pending",
+      "integration_status": "prefabs_saved_checks_pending",
       "placement_status": "pending",
       "blocker": null,
       "attempts": 1,
@@ -87,7 +90,10 @@
           "ROOT",
           "150f00b5-9e62-44d8-b0aa-a456d2a88b8c"
         ]
-      }
+      },
+      "producer_manifest": "docs/assets/production/city_lights_02-evidence/manifest.json",
+      "producer_set_verified": true,
+      "integration_record": "docs/assets/production/lights-integration.md"
     },
     {
       "id": "city_lights.04",
@@ -100,14 +106,14 @@
       "input_next_action": "Refine shared design for recorded districts",
       "brief": "[Brief](../../assets/city_lights.md)",
       "priority": 0,
-      "status": "queued",
-      "agent_id": null,
+      "status": "source_export_delivered",
+      "agent_id": "a69e6e9c-4878-486d-b6b0-417b5786ce80",
       "source_revision": null,
       "review_status": "pending",
       "integration_status": "pending",
       "placement_status": "pending",
       "blocker": null,
-      "attempts": 0,
+      "attempts": 1,
       "initial_time_cap_minutes": 90,
       "owned_paths": [
         "art/source/models/environment/city_lights_04/",
@@ -116,7 +122,16 @@
         "art/materials/environment/city_lights_04/",
         "docs/assets/production/city_lights_04.md",
         "docs/assets/production/city_lights_04-evidence/"
-      ]
+      ],
+      "launch": {
+        "provider": "codex/gpt-6-astra",
+        "configured_effort": "medium",
+        "mode": "auto-review",
+        "notification_route": "150f00b5-9e62-44d8-b0aa-a456d2a88b8c",
+        "effective_effort": "medium"
+      },
+      "producer_manifest": "docs/assets/production/city_lights_04-evidence/manifest.json",
+      "producer_set_verified": false
     },
     {
       "id": "city_sign_supports.01",
@@ -129,14 +144,14 @@
       "input_next_action": "Refine shared design for recorded districts",
       "brief": "[Brief](../../assets/city_sign_supports.md)",
       "priority": 0,
-      "status": "queued",
-      "agent_id": null,
+      "status": "modeling",
+      "agent_id": "bf303bbb-ed1e-4570-860f-41060d6c000e",
       "source_revision": null,
       "review_status": "pending",
       "integration_status": "pending",
       "placement_status": "pending",
       "blocker": null,
-      "attempts": 0,
+      "attempts": 1,
       "initial_time_cap_minutes": 90,
       "owned_paths": [
         "art/source/models/environment/city_sign_supports_01/",
@@ -145,7 +160,14 @@
         "art/materials/environment/city_sign_supports_01/",
         "docs/assets/production/city_sign_supports_01.md",
         "docs/assets/production/city_sign_supports_01-evidence/"
-      ]
+      ],
+      "launch": {
+        "provider": "codex/gpt-6-astra",
+        "configured_effort": "medium",
+        "mode": "auto-review",
+        "effective_effort": "medium",
+        "notification_route": "fbd92534-e159-432f-aae7-28072c2bf3b2"
+      }
     },
     {
       "id": "city_planting.01",
@@ -6608,5 +6630,7 @@
       "agent_id": null,
       "blocker": null
     }
-  ]
+  ],
+  "queue_owner": "fbd92534-e159-432f-aae7-28072c2bf3b2",
+  "lead_role": "bounded Godot integration/shared tooling implementer; idle after checkpoint"
 }

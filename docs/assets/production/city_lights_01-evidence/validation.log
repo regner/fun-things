@@ -1,0 +1,240 @@
+Blender 5.2.2 LTS (hash d13f752e3b9c built 2026-09-22 17:10:25)
+[ALSOFT] (EE) Failed to connect PipeWire event context (errno: 1)
+00:00.301  blend            | Read blend: "/home/regner/.paseo/worktrees/0u71f39f/asset-register-production/art/source/models/environment/city_lights_01/city_lights_01.blend"
+SMALL_FACES []
+{
+  "blender": "5.2.2 LTS",
+  "build_hash": "d13f752e3b9c",
+  "source_bounds_blender": {
+    "min": [
+      -0.36000001430511475,
+      -0.20999999344348907,
+      0.0
+    ],
+    "max": [
+      0.36000001430511475,
+      1.4000000953674316,
+      6.199999809265137
+    ]
+  },
+  "expected_godot_bounds": {
+    "min": [
+      -0.36000001430511475,
+      0.0,
+      -1.4000000953674316
+    ],
+    "max": [
+      0.36000001430511475,
+      6.199999809265137,
+      0.20999999344348907
+    ]
+  },
+  "pivot": [
+    0,
+    0,
+    0
+  ],
+  "vertices": 1232,
+  "triangles": 2424,
+  "small_faces": [],
+  "nonmanifold_edges": 0,
+  "mesh_objects": 1,
+  "source_material_slots": [
+    "pole_petrol",
+    "fixture_rim",
+    "service_recess",
+    "lens_warm"
+  ],
+  "exports": {
+    "warm": {
+      "file": "art/models/environment/city_lights_01/city_lights_01_warm.glb",
+      "bytes": 61664,
+      "sha256": "6b5a0e8939ec6098737fe634a5782e03aca510e6182279479070ec07f67f3cdd",
+      "actual_godot_axis_bounds": {
+        "min": [
+          -0.36000001430511475,
+          0,
+          -1.4000000953674316
+        ],
+        "max": [
+          0.36000001430511475,
+          6.199999809265137,
+          0.20999999344348907
+        ]
+      },
+      "triangles": 2424,
+      "surfaces": 4,
+      "materials": [
+        {
+          "doubleSided": true,
+          "name": "pole_petrol",
+          "pbrMetallicRoughness": {
+            "baseColorFactor": [
+              0.02500000037252903,
+              0.07500000298023224,
+              0.09000000357627869,
+              1
+            ],
+            "metallicFactor": 0.44999998807907104,
+            "roughnessFactor": 0.46000000834465027
+          }
+        },
+        {
+          "doubleSided": true,
+          "name": "fixture_rim",
+          "pbrMetallicRoughness": {
+            "baseColorFactor": [
+              0.07000000029802322,
+              0.12999999523162842,
+              0.15000000596046448,
+              1
+            ],
+            "metallicFactor": 0.5,
+            "roughnessFactor": 0.41999998688697815
+          }
+        },
+        {
+          "doubleSided": true,
+          "name": "service_recess",
+          "pbrMetallicRoughness": {
+            "baseColorFactor": [
+              0.012000000104308128,
+              0.02500000037252903,
+              0.029999999329447746,
+              1
+            ],
+            "metallicFactor": 0.25,
+            "roughnessFactor": 0.5
+          }
+        },
+        {
+          "doubleSided": true,
+          "emissiveFactor": [
+            0.4274999833106996,
+            0.31049999070167544,
+            0.143999992966652
+          ],
+          "name": "lens_warm",
+          "pbrMetallicRoughness": {
+            "baseColorFactor": [
+              0.949999988079071,
+              0.6899999976158142,
+              0.3199999928474426,
+              1
+            ],
+            "metallicFactor": 0,
+            "roughnessFactor": 0.3199999928474426
+          }
+        }
+      ],
+      "nodes": [
+        {
+          "mesh": 0,
+          "name": "CityLights01_Mesh"
+        },
+        {
+          "children": [
+            0
+          ],
+          "name": "CityLights01"
+        }
+      ]
+    },
+    "cool": {
+      "file": "art/models/environment/city_lights_01/city_lights_01_cool.glb",
+      "bytes": 61664,
+      "sha256": "7b8caef20cdcb7aa29e00389e314364803fd12474a7414a02de7d33526d89966",
+      "actual_godot_axis_bounds": {
+        "min": [
+          -0.36000001430511475,
+          0,
+          -1.4000000953674316
+        ],
+        "max": [
+          0.36000001430511475,
+          6.199999809265137,
+          0.20999999344348907
+        ]
+      },
+      "triangles": 2424,
+      "surfaces": 4,
+      "materials": [
+        {
+          "doubleSided": true,
+          "name": "pole_petrol",
+          "pbrMetallicRoughness": {
+            "baseColorFactor": [
+              0.02500000037252903,
+              0.07500000298023224,
+              0.09000000357627869,
+              1
+            ],
+            "metallicFactor": 0.44999998807907104,
+            "roughnessFactor": 0.46000000834465027
+          }
+        },
+        {
+          "doubleSided": true,
+          "name": "fixture_rim",
+          "pbrMetallicRoughness": {
+            "baseColorFactor": [
+              0.07000000029802322,
+              0.12999999523162842,
+              0.15000000596046448,
+              1
+            ],
+            "metallicFactor": 0.5,
+            "roughnessFactor": 0.41999998688697815
+          }
+        },
+        {
+          "doubleSided": true,
+          "name": "service_recess",
+          "pbrMetallicRoughness": {
+            "baseColorFactor": [
+              0.012000000104308128,
+              0.02500000037252903,
+              0.029999999329447746,
+              1
+            ],
+            "metallicFactor": 0.25,
+            "roughnessFactor": 0.5
+          }
+        },
+        {
+          "doubleSided": true,
+          "emissiveFactor": [
+            0.2069999982714652,
+            0.3509999778270725,
+            0.4139999965429304
+          ],
+          "name": "lens_cool",
+          "pbrMetallicRoughness": {
+            "baseColorFactor": [
+              0.46000000834465027,
+              0.7799999713897705,
+              0.9200000166893005,
+              1
+            ],
+            "metallicFactor": 0,
+            "roughnessFactor": 0.3199999928474426
+          }
+        }
+      ],
+      "nodes": [
+        {
+          "mesh": 0,
+          "name": "CityLights01_Mesh"
+        },
+        {
+          "children": [
+            0
+          ],
+          "name": "CityLights01"
+        }
+      ]
+    }
+  },
+  "status": "PASS: source topology/transforms/dimensions and actual GLB structure/axis bounds; engine acceptance pending"
+}
+pa_write() failed while trying to wake up the mainloop: Operation not permitted

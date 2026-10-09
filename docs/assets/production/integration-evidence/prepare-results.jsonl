@@ -1,0 +1,6 @@
+{"method":"script.write","result":{"id":1,"jsonrpc":"2.0","result":{"bytes":1637,"diagnostics":[],"indexed":false,"success":true,"undoable":true,"valid":true}}}
+{"method":"scene.create","result":{"id":2,"jsonrpc":"2.0","result":{"hint":"Scene saved. Open it for editing with scene_open.","indexed":false,"path":"res://tools/asset_production/integration/inspector.tscn","root_name":"inspector","root_path":".","root_type":"Node3D","status":"created","success":true}}}
+{"method":"scene.open","result":{"id":3,"jsonrpc":"2.0","result":{"path":"res://tools/asset_production/integration/inspector.tscn","success":true}}}
+{"method":"node.set_script","result":{"id":4,"jsonrpc":"2.0","result":{"path":".","properties":[],"script":"res://tools/asset_production/integration/inspector.gd","success":true}}}
+{"method":"editor.save_scene","result":{"id":5,"jsonrpc":"2.0","result":{"path":"res://tools/asset_production/integration/inspector.tscn","success":true}}}
+{"method":"node.call_method","result":{"id":6,"jsonrpc":"2.0","result":{"code":"INVALID_PARAMS","error":"missing node_path or method_name","success":false}}}
