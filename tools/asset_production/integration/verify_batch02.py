@@ -6,6 +6,8 @@ import re
 import statistics
 import struct
 
+from fixture_paths import assert_reviewed_roundtrips, current_path
+
 ROOT = Path(__file__).resolve().parents[3]
 OUT = ROOT / 'docs/assets/production/batch_02-evidence'
 RAW = OUT / 'transport'
@@ -44,7 +46,7 @@ for name in ['audit-results.jsonl', 'source-uid-results.jsonl']:
         if value.get('method') == 'register_uids':
             for item in value['result']:
                 assert item['was_registered'] and item['path'] == item['resolved']
-                path = ROOT / item['path'].removeprefix('res://')
+                path = current_path(ROOT, item['path'])
                 identity_file = path if path.suffix == '.tscn' else Path(str(path) + '.import')
                 identity = re.search(r'uid="([^"]+)"', identity_file.read_text()).group(1)
                 assert identity == item['uid']
@@ -65,7 +67,7 @@ for name in ['audit-results.jsonl', 'source-uid-results.jsonl']:
                             'linked_model': value['model'], 'surfaces': sum(len(m['surfaces']) for m in rows)})
 assert len(bounds_rows) == 8 and uid_count == 21
 roundtrip = json.loads((RAW / 'roundtrip-before.json').read_text())
-assert all(hashlib.sha256((ROOT / p).read_bytes()).hexdigest() == h for p, h in roundtrip.items())
+assert_reviewed_roundtrips(ROOT, roundtrip)
 observations = []
 for name in ['final-native-probe-results.jsonl', 'repeat-final-probe-results.jsonl']:
     value = receipts(name)[0]['result']['result']['result']

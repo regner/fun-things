@@ -1,0 +1,14 @@
+===== isolated process A =====
+Godot Engine v4.8.dev7.official.c971f93e7 - https://godotengine.org
+
+[MCPRuntimeServer] port: scanning 6570-6585 (default)
+[MCPRuntimeServer] listening on 127.0.0.1:6570
+[MCPRegistry] runtime port 6570 registered for c:/gamedev/git/ft-lanes/asset-prod-reconcile
+BATCH02_PROCESS {"aim_hit":"/root/preview/BroadTree/Collision/PoleBody","engine":"4.8-dev7 (official)","passed":true,"pid":53284,"rows":[{"case":0,"passed":true,"position":[-4.0,0.0,2.60025811195374]},{"case":1,"passed":true,"position":[4.0,0.0,2.60025811195374]},{"case":2,"passed":true,"position":[0.0,0.0,-4.00000095367432]}],"scope":"independent command replay in two physics processes; no transport protocol"}
+===== isolated process B =====
+Godot Engine v4.8.dev7.official.c971f93e7 - https://godotengine.org
+
+[MCPRuntimeServer] port: scanning 6570-6585 (default)
+[MCPRuntimeServer] listening on 127.0.0.1:6570
+[MCPRegistry] runtime port 6570 registered for c:/gamedev/git/ft-lanes/asset-prod-reconcile
+BATCH02_PROCESS {"aim_hit":"/root/preview/BroadTree/Collision/PoleBody","engine":"4.8-dev7 (official)","passed":true,"pid":18508,"rows":[{"case":0,"passed":true,"position":[-4.0,0.0,2.60025811195374]},{"case":1,"passed":true,"position":[4.0,0.0,2.60025811195374]},{"case":2,"passed":true,"position":[0.0,0.0,-4.00000095367432]}],"scope":"independent command replay in two physics processes; no transport protocol"}

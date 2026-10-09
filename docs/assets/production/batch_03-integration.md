@@ -28,7 +28,14 @@ The native1280×800 straight-down47m/FOV42deg north-up camera includes the accep
 
 ## Physical APIs and separate processes
 
-Native fixture uses existing public S02 motion/query owners: closed single leaf stops atZ-6.950526714m, shell wall at-7.380214691m, display pane at-7.414394379m. The clear side reachesZ≈0m; route below canopy/sign reachesX6.000000954m. Production aiming identifies `Frontage/Door/Collision/Body`. Rays excluding the closed fitting bodies confirm shell entrance and display rear voids are structurally clear.
+At the original review, the native fixture used S02 motion/query owners: closed single leaf stops at Z=-6.950526714 m, shell wall at -7.380214691 m and display pane at -7.414394379 m. The clear side reaches Z≈0 m; the route below canopy/sign reaches X=6.000000954 m. Its aim query identifies `Frontage/Door/Collision/Body`. Rays excluding the closed fitting bodies confirm shell entrance and display rear voids are structurally clear.
+
+The 9 October cleaned-project reconciliation moved the fixture to
+`tests/assets/asset_production/` and replaced archived S02 classes with test-only
+accepted-envelope clearance and line-of-sight probes. Current headless observation and
+separate-process replay preserve all six retained movement positions, the door aim hit,
+structural void results, assembly gaps and upper-window fit values. Headless query timings
+differ and are not graphical cost evidence.
 
 Two fresh isolated pinned physics processes, PIDs259301/259300, replay six actual movement cases: single closed leaf, wall, pane, side clear, and both double leaves. Both exit0 with empty stderr and identical positions/query hits. This is bounded command replay in separate physics worlds, not multiplayer transport/admission/prediction authority proof. No authoritative simulation or world/network setting was modified.
 

@@ -16,8 +16,8 @@ var motion_outcomes: Dictionary = {}
 var _phase: int = 0
 var _ticks: int = 0
 
-@onready var _actor: S02ActorMotion = $ProbeActor
-@onready var _aim: S02AimProbe = $AimProbe
+@onready var _actor: AssetScaleClearanceProbe = $ProbeActor
+@onready var _aim: AssetLineOfSightProbe = $AimProbe
 
 
 ## Records named desktop counters, excluding the first thirty warmup frames.
@@ -32,7 +32,7 @@ func _process(_delta: float) -> void:
 		"video_bytes": Performance.get_monitor(Performance.RENDER_VIDEO_MEM_USED)})
 
 
-## Exercises trunk stops and clear routes with the existing public motion owner.
+## Exercises trunk stops and clear routes with the test-only accepted-envelope probe.
 func _physics_process(delta: float) -> void:
 	if _phase >= MOTION_STARTS.size():
 		return
@@ -100,7 +100,8 @@ func probe_queries() -> Dictionary:  # gdstyle:ignore=quality/max-local-variable
 		"query_batch_usec": Time.get_ticks_usec() - start_usec,
 		"frame_samples": frame_samples, "canopy_lowest_y_m": 2.58,
 		"actor_height_m": shape.height, "roof_plane_y_m": 10.0,
-		"required_roof_edge_margin_m": .5, "scope": "saved fixture / public S02 motion and aim"}
+		"required_roof_edge_margin_m": .5,
+		"scope": "saved fixture / test-only clearance and line-of-sight probes"}
 
 
 ## Measures saved mounting transforms against imported roof and wall geometry.

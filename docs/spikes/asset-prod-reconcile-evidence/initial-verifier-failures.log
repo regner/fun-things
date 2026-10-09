@@ -1,0 +1,39 @@
+===== verify_batch.py (expected pre-reconciliation failure) =====
+Traceback (most recent call last):
+  File "C:\GameDev\git\ft-lanes\asset-prod-reconcile\tools\asset_production\integration\verify_batch.py", line 58, in <module>
+    assert all(hashlib.sha256((ROOT / p).read_bytes()).hexdigest() == h for p, h in roundtrip.items())
+           ^^^
+  File "C:\GameDev\git\ft-lanes\asset-prod-reconcile\tools\asset_production\integration\verify_batch.py", line 58, in <genexpr>
+    assert all(hashlib.sha256((ROOT / p).read_bytes()).hexdigest() == h for p, h in roundtrip.items())
+                              ~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\regner.blokandersen\AppData\Local\Programs\Python\Python314\Lib\pathlib\__init__.py", line 777, in read_bytes
+    with self.open(mode='rb', buffering=0) as f:
+         ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\regner.blokandersen\AppData\Local\Programs\Python\Python314\Lib\pathlib\__init__.py", line 771, in open
+    return io.open(self, mode, buffering, encoding, errors, newline)
+           ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: 'C:\\GameDev\\git\\ft-lanes\\asset-prod-reconcile\\tests\\fixtures\\asset_production\\batch_01_camera.tscn'
+===== verify_batch02.py (expected pre-reconciliation failure) =====
+Traceback (most recent call last):
+  File "C:\GameDev\git\ft-lanes\asset-prod-reconcile\tools\asset_production\integration\verify_batch02.py", line 49, in <module>
+    identity = re.search(r'uid="([^"]+)"', identity_file.read_text()).group(1)
+                                           ~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\regner.blokandersen\AppData\Local\Programs\Python\Python314\Lib\pathlib\__init__.py", line 787, in read_text
+    with self.open(mode='r', encoding=encoding, errors=errors, newline=newline) as f:
+         ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\regner.blokandersen\AppData\Local\Programs\Python\Python314\Lib\pathlib\__init__.py", line 771, in open
+    return io.open(self, mode, buffering, encoding, errors, newline)
+           ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: 'C:\\GameDev\\git\\ft-lanes\\asset-prod-reconcile\\tests\\fixtures\\asset_production\\batch_02_camera.tscn'
+===== verify_batch03.py (expected pre-reconciliation failure) =====
+Traceback (most recent call last):
+  File "C:\GameDev\git\ft-lanes\asset-prod-reconcile\tools\asset_production\integration\verify_batch03.py", line 40, in <module>
+    data = p.read_text() if p.suffix == '.tscn' else Path(str(p) + '.import').read_text()
+           ~~~~~~~~~~~^^
+  File "C:\Users\regner.blokandersen\AppData\Local\Programs\Python\Python314\Lib\pathlib\__init__.py", line 787, in read_text
+    with self.open(mode='r', encoding=encoding, errors=errors, newline=newline) as f:
+         ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\regner.blokandersen\AppData\Local\Programs\Python\Python314\Lib\pathlib\__init__.py", line 771, in open
+    return io.open(self, mode, buffering, encoding, errors, newline)
+           ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: 'C:\\GameDev\\git\\ft-lanes\\asset-prod-reconcile\\tests\\fixtures\\asset_production\\batch_03_frontage.tscn'

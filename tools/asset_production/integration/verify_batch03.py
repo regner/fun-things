@@ -6,6 +6,8 @@ import re
 import statistics
 import struct
 
+from fixture_paths import assert_reviewed_roundtrips, current_path
+
 ROOT = Path(__file__).resolve().parents[3]
 OUT = ROOT / 'docs/assets/production/batch_03-evidence'
 RAW = OUT / 'transport'
@@ -36,7 +38,7 @@ for row in receipts('audit-results.jsonl'):
     if value.get('method') == 'register_uids':
         for identity in value['result']:
             assert identity['was_registered'] and identity['path'] == identity['resolved']
-            p = ROOT / identity['path'].removeprefix('res://')
+            p = current_path(ROOT, identity['path'])
             data = p.read_text() if p.suffix == '.tscn' else Path(str(p) + '.import').read_text()
             assert re.search(r'uid="([^"]+)"', data).group(1) == identity['uid']
             uids.append(identity)
@@ -58,8 +60,7 @@ for row in receipts('audit-results.jsonl'):
 assert len(models) == 9 and len(uids) == 25
 before = json.loads((OUT / 'roundtrip-stable-before.json').read_text())
 assert len(before) == 15
-for path, digest in before.items():
-    assert hashlib.sha256((ROOT / path.removeprefix('res://')).read_bytes()).hexdigest() == digest
+assert_reviewed_roundtrips(ROOT, before)
 observations = []
 for label in ['native-final-recapture', 'repeat-probe']:
     values = receipts(label + '-results.jsonl')

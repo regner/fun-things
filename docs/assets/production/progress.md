@@ -6,6 +6,17 @@ fixtures. All 19 source specialists, the integrator and three reviewers are idle
 The remaining **204 of 223 register IDs are queued and unstarted**. All 12 trailing
 readiness tracks are preserved. Resume requires an explicit user instruction.
 
+**9 October 2026 — cleaned-project reconciliation.** Runnable review fixtures moved from
+`tests/fixtures/asset_production/` to `tests/assets/asset_production/`, preserving their
+saved scene and script UIDs. Their archived S02 dependencies were replaced by test-only
+accepted-envelope clearance and line-of-sight probes under `tests/assets/support/`; the
+Coral Courier is the probe's visible scale reference, and the Batch 01 mounting facade now
+uses the delivered Brackett greybox shop prefab. Current headless observations preserve the
+retained movement, clearance and aim outcomes. These stand-ins must switch to the production
+player/`ActorMotion` API when M1-A2.1 lands. The editor was unavailable, so this reconciliation
+used direct text edits followed by pinned headless import and fixture loading. The paused
+asset-production workspace must rebase onto this reconciliation commit before dispatch resumes.
+
 | Batch | Assets | Reviewed candidate | Final disposition |
 | --- | --- | --- | --- |
 | 01 | Three lights, wall sign panel, two planters | `c4067ff3abe1384301471d9a64e94e84201235e2` | [Source/prefab review accepted; G1 closed](../../reviews/asset-production/batch_01/final/report.md) |

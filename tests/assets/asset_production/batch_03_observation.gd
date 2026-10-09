@@ -15,8 +15,8 @@ var outcomes: Dictionary = {}
 var _phase: int = 0
 var _ticks: int = 0
 
-@onready var _actor: S02ActorMotion = $ProbeActor
-@onready var _aim: S02AimProbe = $AimProbe
+@onready var _actor: AssetScaleClearanceProbe = $ProbeActor
+@onready var _aim: AssetLineOfSightProbe = $AimProbe
 
 
 ## Captures bounded renderer counters after warmup, without imposing a device budget.
@@ -31,7 +31,7 @@ func _process(_delta: float) -> void:
 		"video_bytes": Performance.get_monitor(Performance.RENDER_VIDEO_MEM_USED)})
 
 
-## Applies production motion commands to explicit blocking and unobstructed expectations.
+## Applies test-only probe commands to explicit blocking and unobstructed expectations.
 func _physics_process(delta: float) -> void:
 	if _phase >= STARTS.size():
 		return

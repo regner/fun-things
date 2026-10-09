@@ -44,13 +44,21 @@ owned inspector receipts, because protocol success alone previously hid failed a
 Saved `batch_01_camera.tscn` uses the accepted Courier/preview fixture, vertical 47 m,
 42° perspective, fixed north-up yaw, native 1280×800. `gameplay.png` is an actual engine
 capture. Seven actor-capsule overlap expectations pass, including solid poles/planter/ring,
-clear round centre/walkway/below-wall clearance. `S02ActorMotion.step` moved the saved
-radius .38 m / height 1.8 m actor for 120 physics ticks per case: planter stop at
-Z=3.83007 m and clear bypass at X=3 m ending Z=-4.00000 m. Initial X=2 bypass hit an
+clear round centre/walkway/below-wall clearance. At the original review, archived `S02ActorMotion.step` moved the saved radius .38 m /
+height 1.8 m actor for 120 physics ticks per case: planter stop at Z=3.83007 m and clear
+bypass at X=3 m ending Z=-4.00000 m. Initial X=2 bypass hit an
 existing pedestrian pole; that fixture failure and correction remain raw evidence.
 `mounting-close.png` captures the saved close camera and warm/cool facade mounts.
 Camera capture is idle Courier presentation; combat/aim, populated-city occlusion and
 separate-process authoritative/predicted movement are not accepted by these checks.
+
+The 9 October cleaned-project reconciliation moved this fixture to
+`tests/assets/asset_production/` and replaced the archived actor with the test-only accepted
+foot-envelope probe. The archived low building was replaced by the delivered Brackett shop,
+shifted to preserve the facade plane at Z=-6 m. A current headless replay retains the same
+planter stop (Z=3.830074787 m), bypass end (Z=-4.000000954 m), seven overlap expectations and
+blocked/clear `test_move` outcomes; only headless query timing changed and is not compared to
+the retained graphical observation.
 
 `batch_01_repeat.tscn` adds eight saved copies of each of the six designs (48 instances).
 Desktop Forward+ / Vulkan, GTX 1070; same camera/lighting, capped 60 Hz preview.

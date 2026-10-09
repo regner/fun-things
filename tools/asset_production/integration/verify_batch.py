@@ -4,6 +4,8 @@ import json
 from pathlib import Path
 import statistics
 
+from fixture_paths import assert_reviewed_roundtrips
+
 ROOT = Path(__file__).resolve().parents[3]
 OUT = ROOT / 'docs/assets/production/batch_01-evidence'
 RAW = OUT / 'transport'
@@ -55,7 +57,7 @@ for row in audit:
         assert all(v['path'] == v['resolved'] and v['was_registered'] for v in result['result'])
 assert len(bounds) == 9
 roundtrip = json.loads((RAW / 'final-before-roundtrip.json').read_text())
-assert all(hashlib.sha256((ROOT / p).read_bytes()).hexdigest() == h for p, h in roundtrip.items())
+assert_reviewed_roundtrips(ROOT, roundtrip)
 observations = []
 for name in ['batch-final-styled-probe-results.jsonl', 'batch-repeat-probe-results.jsonl']:
     value = receipts(name)[0]['result']['result']['result']

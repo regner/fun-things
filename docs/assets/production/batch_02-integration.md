@@ -8,7 +8,14 @@ Eight editor-authored prefabs instance the corresponding imported GLB under `Vis
 
 Only tree trunks have authored static collision: cylinder radius 0.22m, height 1.6m, base on ground, layer1/mask0. Crowns, shrub, weed, roof details and canopy are decorative; enclosing buildings and planting containers own applicable collision. Decorative canopy volume is not a solid obstruction. This avoids invented foliage, opening or roof access mechanics.
 
-Native production S02 movement/aim APIs verify trunk contacts in an isolated saved fixture, clear bypass and canopy passage. Two real separate pinned engine processes (227633/227634, exit0, empty stderr) replayed the same production commands with identical outcomes: both tree contacts stop at Z2.60025811m; clear route reaches Z-4.00000095m; aim query identifies the broad trunk. This is separate-process physics equivalence, not multiplayer transport/admission/prediction proof. The native planted fixture separately stops actors at Z3.27734089m against surrounding planters; its original overly high threshold failure and bounded corrected ring-specific expectation are retained.
+At the original review, native S02 movement/aim APIs verified trunk contacts in an isolated saved fixture, clear bypass and canopy passage. Two real separate pinned engine processes (227633/227634, exit0, empty stderr) replayed the same commands with identical outcomes: both tree contacts stop at Z2.60025811m; clear route reaches Z-4.00000095m; aim query identifies the broad trunk. This is separate-process physics equivalence, not multiplayer transport/admission/prediction proof. The native planted fixture separately stops actors at Z3.27734089m against surrounding planters; its original overly high threshold failure and bounded corrected ring-specific expectation are retained.
+
+The 9 October cleaned-project reconciliation moved the fixture to
+`tests/assets/asset_production/` and replaced archived S02 classes with test-only
+accepted-envelope clearance and line-of-sight probes. Current headless observation and
+separate-process replay preserve the retained trunk stops (Z=2.600258112 m), clear route
+(Z=-4.000000954 m), planted stops (Z=3.277340889 m), broad-trunk aim hit, overlap outcomes
+and mounting margins. Headless query timings differ and are not graphical cost evidence.
 
 ## Visual and placement evidence
 

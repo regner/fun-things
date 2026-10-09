@@ -2,9 +2,9 @@
 class_name BatchThreeAuthor
 extends Node3D
 ## Editor-only saved collision and source-marker assembly for the bounded batch.
-
-
 ## Authors deliberate static shells or closed leaves without changing visual imports.
+
+
 # Literal extents remain together in this one editor-only authoring operation.
 func collision_boxes(  # gdstyle:ignore=quality/max-local-variables,quality/max-function-length
 	kind: String

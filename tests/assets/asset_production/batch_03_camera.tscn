@@ -1,14 +1,14 @@
 [gd_scene format=3 uid="uid://bivmh70n4vcpd"]
 
 [ext_resource type="PackedScene" uid="uid://bsyw5afxrhg20" path="res://scenes/prefabs/player_character/preview.tscn" id="1"]
-[ext_resource type="Script" uid="uid://bbcg0fryb0rti" path="res://tests/fixtures/asset_production/batch_03_observation.gd" id="2_1ta6u"]
-[ext_resource type="PackedScene" uid="uid://c5f38dwws3tw7" path="res://tests/fixtures/asset_production/batch_03_frontage.tscn" id="3_s2ffk"]
-[ext_resource type="PackedScene" uid="uid://ctp2hp6c84jnj" path="res://tests/fixtures/asset_production/batch_03_upper_wall.tscn" id="4_t4g44"]
+[ext_resource type="Script" uid="uid://bbcg0fryb0rti" path="res://tests/assets/asset_production/batch_03_observation.gd" id="2_1ta6u"]
+[ext_resource type="PackedScene" uid="uid://c5f38dwws3tw7" path="res://tests/assets/asset_production/batch_03_frontage.tscn" id="3_s2ffk"]
+[ext_resource type="PackedScene" uid="uid://ctp2hp6c84jnj" path="res://tests/assets/asset_production/batch_03_upper_wall.tscn" id="4_t4g44"]
 [ext_resource type="PackedScene" uid="uid://8lks7nm4c64g" path="res://scenes/prefabs/environment/city_shop_fittings_07.tscn" id="5_xvtm7"]
 [ext_resource type="PackedScene" uid="uid://c4twupsmyptwp" path="res://scenes/prefabs/environment/city_shop_fittings_03_double.tscn" id="6_epdp5"]
 [ext_resource type="PackedScene" uid="uid://c0njcayl2261o" path="res://scenes/prefabs/environment/city_shop_fittings_06_double.tscn" id="7_nc0tn"]
-[ext_resource type="PackedScene" uid="uid://dl05tre3pd6e0" path="res://tests/fixtures/s02/actor.tscn" id="8_0nv8s"]
-[ext_resource type="Script" uid="uid://do25kfajpfdwc" path="res://tests/fixtures/s02/aim_probe.gd" id="10_gl3wb"]
+[ext_resource type="PackedScene" uid="uid://dg4k7hy81pn4v" path="res://tests/assets/support/asset_scale_clearance_probe.tscn" id="8_0nv8s"]
+[ext_resource type="Script" uid="uid://wg7b1q6fxow5" path="res://tests/assets/support/asset_line_of_sight_probe.gd" id="10_gl3wb"]
 
 [node name="preview" unique_id=1558730228 instance=ExtResource("1")]
 script = ExtResource("2_1ta6u")

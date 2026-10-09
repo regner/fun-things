@@ -53,7 +53,7 @@ corrected commands then succeeded; no failed check is reclassified as passed.
 
 ## Actual camera observation and diagnostics
 
-Saved tests/fixtures/asset_production/lights_camera.tscn inherits the existing
+Saved tests/assets/asset_production/lights_camera.tscn inherits the existing
 player-character preview, reuses its Blender-sourced ground/Coral Courier and lights,
 selects its existing vertical47 m/42deg north-up perspective GameCamera, and adds four
 saved light instances at X=-2,-5,+2,+5 m. Actual Forward+ NVIDIA GTX1070 Vulkan capture

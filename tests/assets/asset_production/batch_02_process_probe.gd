@@ -13,13 +13,13 @@ func _initialize() -> void:
 
 ## Measures real trunk blocking, clear movement and public aiming without network claims.
 func _run() -> void:  # gdstyle:ignore=quality/max-local-variables
-	var packed: PackedScene = load("res://tests/fixtures/asset_production/batch_02_trunks.tscn")
+	var packed: PackedScene = load("res://tests/assets/asset_production/batch_02_trunks.tscn")
 	var fixture: Node3D = packed.instantiate()
 	root.add_child(fixture)
 	await physics_frame
 	await physics_frame
-	var actor: S02ActorMotion = fixture.get_node("ProbeActor")
-	var aim: S02AimProbe = fixture.get_node("AimProbe")
+	var actor: AssetScaleClearanceProbe = fixture.get_node("ProbeActor")
+	var aim: AssetLineOfSightProbe = fixture.get_node("AimProbe")
 	var rows: Array[Dictionary] = []
 	var passed: bool = true
 	for index: int in range(STARTS.size()):
@@ -48,7 +48,7 @@ func _run() -> void:  # gdstyle:ignore=quality/max-local-variables
 
 
 ## Advances fixed commands through the same motion owner and live physics world.
-func _travel(actor: S02ActorMotion, start: Vector3) -> Vector3:
+func _travel(actor: AssetScaleClearanceProbe, start: Vector3) -> Vector3:
 	actor.neutralize()
 	actor.global_position = start
 	await physics_frame

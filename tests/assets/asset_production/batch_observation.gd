@@ -5,12 +5,13 @@ const QUERY_MASK: int = 1
 const QUERY_ITERATIONS: int = 300
 const OBSERVATION_FRAMES: int = 120
 const MOTION_TICKS_PER_CASE: int = 120
+
 var frame_samples: Array[Dictionary] = []
 var _motion_phase: int = 0
 var _motion_ticks: int = 0
 var motion_outcomes: Dictionary = {}
 
-@onready var _actor: S02ActorMotion = $ProbeActor
+@onready var _actor: AssetScaleClearanceProbe = $ProbeActor
 
 
 ## Records desktop render/query observation without deciding any gameplay outcome.
@@ -30,7 +31,7 @@ func _physics_process(delta: float) -> void:
 	if _motion_phase > 1:
 		return
 
-	var actor: S02ActorMotion = _actor
+	var actor: AssetScaleClearanceProbe = _actor
 	actor.step({ "move": Vector2(0, -1), "aim_yaw": 0.0, "fire": false }, delta)
 	_motion_ticks += 1
 	if _motion_ticks < MOTION_TICKS_PER_CASE:
@@ -50,10 +51,9 @@ func _physics_process(delta: float) -> void:
 	_motion_phase += 1
 
 
-## Tests solid envelopes, ring opening and wall clearance with the saved actor collider.
-# Bounded evidence routine keeps the independent expected outcomes beside observations.
+## Tests solid envelopes, ring opening and wall clearance against independent expectations.
 func probe_queries() -> Dictionary:  # gdstyle:ignore=quality/max-local-variables
-	var actor: S02ActorMotion = _actor
+	var actor: AssetScaleClearanceProbe = _actor
 	var shape: CapsuleShape3D = ($ProbeActor/Collision as CollisionShape3D).shape
 	var query: PhysicsShapeQueryParameters3D = PhysicsShapeQueryParameters3D.new()
 	query.shape = shape
@@ -100,4 +100,4 @@ func probe_queries() -> Dictionary:  # gdstyle:ignore=quality/max-local-variable
 		"actor_height_m": shape.height, "queries": QUERY_ITERATIONS,
 		"query_batch_usec": Time.get_ticks_usec() - started_usec,
 		"render_samples": frame_samples, "motion_outcomes": motion_outcomes,
-		"scope": "S02 actor envelope/public physics APIs"}
+		"scope": "test-only accepted foot envelope/public physics APIs"}

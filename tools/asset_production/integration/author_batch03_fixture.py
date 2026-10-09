@@ -5,7 +5,7 @@ import json
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[3]
-OUT = ROOT / 'tests/fixtures/asset_production/batch_03_upper_wall'
+OUT = ROOT / 'tests/assets/asset_production/batch_03_upper_wall'
 OUT.mkdir(exist_ok=True)
 assert bpy.app.version == (5, 2, 2)
 bpy.ops.wm.read_factory_settings(use_empty=True)

@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://hik8rg1e7j6e"]
 
 [ext_resource type="PackedScene" uid="uid://bsyw5afxrhg20" path="res://scenes/prefabs/player_character/preview.tscn" id="1"]
-[ext_resource type="Script" uid="uid://1vyupa07oshm" path="res://tests/fixtures/asset_production/batch_02_observation.gd" id="2_vdny4"]
+[ext_resource type="Script" uid="uid://1vyupa07oshm" path="res://tests/assets/asset_production/batch_02_observation.gd" id="2_vdny4"]
 [ext_resource type="PackedScene" uid="uid://deflk03raeayy" path="res://scenes/prefabs/environment/city_planting_04_compact.tscn" id="3_tj5um"]
 [ext_resource type="PackedScene" uid="uid://cboblknp1ednx" path="res://scenes/prefabs/environment/city_planting_04_broad.tscn" id="4_83m43"]
 [ext_resource type="PackedScene" uid="uid://cs6vjjktp7na8" path="res://scenes/prefabs/environment/city_planting_02.tscn" id="5_kesrw"]
@@ -13,9 +13,9 @@
 [ext_resource type="PackedScene" uid="uid://betkeuy2if3t3" path="res://scenes/prefabs/environment/city_roof_details_01.tscn" id="12_5704j"]
 [ext_resource type="PackedScene" uid="uid://50ylj3cwr5kb" path="res://scenes/prefabs/environment/city_roof_details_02.tscn" id="13_8dick"]
 [ext_resource type="PackedScene" uid="uid://bsh8gy3l470g1" path="res://scenes/prefabs/environment/city_shop_fittings_01.tscn" id="14_hp3lg"]
-[ext_resource type="PackedScene" uid="uid://dl05tre3pd6e0" path="res://tests/fixtures/s02/actor.tscn" id="15_bslwq"]
+[ext_resource type="PackedScene" uid="uid://dg4k7hy81pn4v" path="res://tests/assets/support/asset_scale_clearance_probe.tscn" id="15_bslwq"]
 [ext_resource type="PackedScene" uid="uid://wrydf8221mfm" path="res://scenes/prefabs/player_character/coral_courier.tscn" id="16_vdny4"]
-[ext_resource type="Script" uid="uid://do25kfajpfdwc" path="res://tests/fixtures/s02/aim_probe.gd" id="17_kqor7"]
+[ext_resource type="Script" uid="uid://wg7b1q6fxow5" path="res://tests/assets/support/asset_line_of_sight_probe.gd" id="17_kqor7"]
 
 [node name="preview" unique_id=67449191 instance=ExtResource("1")]
 script = ExtResource("2_vdny4")
