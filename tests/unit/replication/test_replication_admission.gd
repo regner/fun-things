@@ -17,7 +17,7 @@ func before_each() -> void:
 	_transport = FakeReplicationTransport.new()
 	_identities = PeerIdentityRegistry.new()
 	_session_id = ReplicationIdentity.create_session_id()
-	assert_true(_identities.admit_peer(NATIVE_PEER_ID).ok)
+	assert_true(_identities.bind_peer(NATIVE_PEER_ID, 2).ok)
 	_admission = ReplicationAdmission.new(
 		_codec,
 		_transport,

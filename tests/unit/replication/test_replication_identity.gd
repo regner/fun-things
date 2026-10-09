@@ -14,19 +14,19 @@ func test_session_identity_is_exact_and_fresh() -> void:
 	assert_false(ReplicationIdentity.is_valid_session_id(first.left(31)))
 
 
-## Resolves participants from native senders and never from claimed payload identity.
-func test_peer_registry_allocates_fresh_identity_after_reconnect() -> void:
+## Mirrors Session identities and rejects stale participant reuse after reconnect.
+func test_peer_registry_fences_stale_identity_after_reconnect() -> void:
 	var registry := PeerIdentityRegistry.new()
-	var first: Dictionary = registry.admit_peer(41)
+	var first: Dictionary = registry.bind_peer(41, 7)
 
 	assert_true(first.ok)
-	assert_eq(registry.resolve_sender(41), first.participant_id)
+	assert_eq(registry.resolve_sender(41), 7)
 	assert_eq(registry.resolve_sender(999), 0)
 
 	registry.remove_peer(41)
-	var reconnect: Dictionary = registry.admit_peer(41)
-	assert_true(reconnect.ok)
-	assert_gt(reconnect.participant_id, first.participant_id)
+	assert_false(registry.bind_peer(41, 7).ok)
+	assert_true(registry.bind_peer(41, 8).ok)
+	assert_eq(registry.resolve_sender(41), 8)
 
 
 ## Advances generation before reuse and leaves retired references stale.
