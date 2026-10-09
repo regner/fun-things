@@ -49,16 +49,20 @@ checked at 1280×800, north-up, against player occlusion and dark city surfaces.
   marker; the player's `Sockets/WeaponMount` is owned by the player lead.
 - All options need firing hand at grip, support hand beneath the forward receiver,
   and shoulder contact with the stock during aim. A's support loop and B's drum
-  require extra clearance review. Exact transforms wait for the selected concept
-  and the player lead's versioned shared humanoid rig; S13 is not that rig.
+  require extra clearance review. Wedgewire's measured source contact transforms are
+  now in the production handoff; fitted bone-to-grip offsets remain player-led.
+  Published binding contract: shared_humanoid/1.0.0; S13 is not that rig.
 - Effects confirmed this muzzle contract is sufficient; no additional SMG anchor.
-  Measured aperture clearance/bounds follow selection. No embedded flashes/shells/trails.
+  Measured aperture clearance/bounds are in the production handoff. No embedded
+  flashes/shells/trails.
 
 Wedgewire now has its own Blender source, explicit GLB, materials, saved imported
 wrapper and local preview. It is a rigid visual; player holding clips remain with
-the player lead, and equipped acceptance waits for the shared rig contract.
+the player lead. The shared rig is published; equipped acceptance still awaits
+contact fitting and production clips.
 
 Provenance and exact built-in imagegen prompts are in [prompts.json](prompts.json).
 Tool availability, scoped catalogue delta and integrator responsibilities are in
-[handoff.md](handoff.md). Production review, import, saved scene roundtrip,
-gameplay/network and device acceptance remain pending.
+[handoff.md](handoff.md). Static import, saved scene roundtrip and independent review
+are recorded in the production handoff. Equipped city recognition, gameplay/network
+and device acceptance remain pending.

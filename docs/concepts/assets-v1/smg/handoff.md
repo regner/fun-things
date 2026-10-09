@@ -3,8 +3,9 @@
 Date: 9 October 2026. Base: `c030d66d7d0a9db19c0c2aebf1aa2b83eded6275`.
 Owned worktree: `/home/regner/.paseo/worktrees/0u71f39f/brackett-smg`.
 Status: Regner selected **C — Wedgewire** on 9 October 2026. Static source/export,
-linked Godot wrapper and local preview are in progress. No production-completion,
-gameplay implementation or integration acceptance is claimed yet.
+linked Godot wrapper and local preview are committed as static candidate `bc1075c`.
+Independent review found no static asset defects; the production handoff records
+the bounded disposition and remaining equipped/gameplay/device acceptance.
 
 ## Owner model routing — 9 October 2026
 
@@ -31,8 +32,11 @@ agent `c39c4577-4fa7-4fdf-9123-db3e81a3c554`. Art selection: Regner, C Wedgewire
 Player/rig/holding owner: `7016b739-5eea-480c-afa3-2c0cbad484a2`.
 Effects owner: `c9207bb9-925b-46e4-bd68-e37aaa66a617`.
 Gameplay/world integrator: external person, identity and acceptance pending.
-Independent production reviewer: to be assigned for immutable finished checkpoint,
-Sol 6.1 medium/high per owner instruction. Initial concept self-review is in README.
+Independent static reviewer: `e5300248-3294-4767-95cf-4c85ad677370`, Sol 6.1/high,
+immutable candidate `bc1075c985e11ced6c2c23f948808ebf482ba178`.
+See the [review receipt](../../../assets/smg_wedgewire_a_evidence/review.md).
+Initial concept self-review is in README. Historical dependencies/plans below reflect
+the concept checkpoint; current measurements and rig version are in the production handoff.
 
 Inspected canonical assets/scene contracts, parallel-art-production commissioning,
 accepted world reference, S02 source handoff, `weapon_studies.tscn`, actor/muzzle

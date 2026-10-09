@@ -112,9 +112,14 @@ private editor, retaining the import's scene ancestry and noneditable children.
 
 Right hand is dominant, left hand supports the forward underside, and the stock
 contacts the right shoulder during aim. Actual mesh-ray checks verify the three
-contact surface centres within the 1 mm tolerance. The player-owned versioned rest
-rig and bone-to-grip offsets do not exist yet; reserved shared paths are
-`docs/assets/shared_humanoid_rig.md` and `art/source/models/shared_humanoid/`.
+contact surface centres within the 1 mm tolerance. Player has published the binding
+contract **shared_humanoid/1.0.0** at commit
+`3eccf8f691fe34132ee8504d10dfceda4f7e2bb6` on `art/brackett-player-character`:
+`docs/assets/shared_humanoid_rig.md`, with source under
+`art/source/models/shared_humanoid/`. That version freezes the 28-bone rest hierarchy
+for skin binding; it does not establish weapon fit or production motion. Bone-to-grip
+and contact offsets, hand twist, holding/aim/reload clips and equipped acceptance
+remain pending player-led fitting. The shared source was not copied into this branch.
 No S13 binding, guessed bone origin, retarget rig or corrective root rotation is used.
 Player owns `Sockets/WeaponMount`; it is not duplicated inside this weapon.
 
@@ -167,7 +172,11 @@ restore the measured flat contact patch. Final contact errors are below 0.000001
 Baseline for this production checkpoint: concept commit
 `4bab6edadcaf655473f36836706efe2f4a8a6683`; shared source baseline
 `c030d66d7d0a9db19c0c2aebf1aa2b83eded6275`.
-Independent production review is pending the immutable candidate commit.
+Independent Sol 6.1/high review inspected immutable static candidate
+`bc1075c985e11ced6c2c23f948808ebf482ba178` against the concept base above.
+No P0–P3 static asset defects were found. See the
+[full review and limitations](smg_wedgewire_a_evidence/review.md).
+This final receipt updates documentation only; the reviewed implementation is unchanged.
 
 | Check | Evidence / scope |
 | --- | --- |
@@ -178,6 +187,7 @@ Independent production review is pending the immutable candidate commit.
 | Clean asset import | `clean_import.json`, fresh asset-only copy, exit0/no diagnostics; input bytes preserved |
 | Script compilation | All four owned GDScripts explicitly compiled in the clean copy; logs retained; separate from import |
 | Style | Pinned gdstyle0.3.0 format and lint pass; comments, tabs and two-line function spacing reviewed |
+| Independent review | No P0–P3 static defects; independent byte-identical source reexport, contact/resource/compile/style checks and fresh diagnostic-free import; see `review.md` and retained evidence archive |
 | Pixels | Three real Forward+ screenshots and capture logs, save_error0, native1280×800 |
 
 The default MCP Godot endpoint6550 and Blender endpoint were unavailable. A fresh
@@ -193,10 +203,13 @@ Blender6.0 deprecation for `Material.use_nodes`. Full-project editor startup rep
 the pre-existing Steam `get_godotsteam_version` API mismatch. Toolkit save/reimport
 calls can log deferred progress-dialog diagnostics. Clean asset-profile import,
 all four script compiles and final runtime checks/captures have no errors/warnings.
-This profile does not certify the full project's plugins or gameplay.
+The independent reviewer initially hit restricted editor-listener errors; an authorized
+fresh import with listener access passed without errors/warnings and preserved all
+15 inputs, including sidecars/UIDs. Both logs are retained in the review archive.
+These profiles do not certify the full project's plugins or gameplay.
 
-Required independent review, final handoff disposition and candidate revision will
-be recorded in `smg_wedgewire_a_evidence/review.md`. Gameplay/network acceptance,
+The independent review accepts source/export freshness, measured markers and linked
+wrapper/preview within bounded static technical scope. Gameplay/network acceptance,
 Windows/Steam/Deck, sustained performance, equipped poses and camera readability in
 the city remain pending. No movement/collision behavior changed in this task.
 
