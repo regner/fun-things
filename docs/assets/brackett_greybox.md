@@ -48,6 +48,19 @@ macro geometry dependency; see `authoring_plan.json` and `review/file_checks.jso
 Existing S01/S06 source, import, wrapper and sector conventions were inspected.
 No existing spike, shared material, main scene or gameplay system was modified.
 
+Owner model routing, received 9 October during checkpoint review, applies
+prospectively to the lead and all modeling/animation subagents: use **Astra** for
+geometry, UV/skin deformation, spatial rig/rest/bone design, keyframes, poses,
+motion and spatial VFX animation. Verify the actual effective runtime model before
+the next spatial mutation. Non-spatial Godot imports, rig/animation configuration,
+resource wiring and bookkeeping may use **Sol 6.1 medium/high**. If a running Sol
+turn cannot take the changed model setting, save its checkpoint and end the turn
+before spatial work resumes. Preserve unsaved sources/process state during a
+transition; no duplicate lead/worktree. The current checkpoint is already saved,
+and no further modeling was performed after this instruction arrived. The
+coordinator is setting this lead to `gpt-6-astra/high`; that announced setting is
+not substituted for an effective-runtime check before future modeling.
+
 ## Layout and replaceable content
 
 The coast is 1,155 × 620 m, matching the approximately 1.2 × 0.65 km concept.
@@ -239,5 +252,27 @@ as pending. Do not close foundation, gameplay, device or production tasks.
 
 ## Independent review
 
-Pending immutable-commit technical review. The final review disposition will be
-recorded here without treating preview playback as gameplay acceptance.
+**Accepted as a technical whole-island greybox checkpoint**, 9 October 2026,
+by clean-context reviewer `/root/greybox_review` using Sol 6.1 high. Reviewed
+candidate `93cf06137fbfa0ad931432291a7c3045fffb371e` against base
+`c030d66d7d0a9db19c0c2aebf1aa2b83eded6275`. No observed P1/P2 defects.
+
+The reviewer independently checked exact road/district references, decoded GLB
+geometry, measured all 27 building bounds, validated all 290 saved transforms and
+footprints, inspected all 11 images, reconciled source/export/consumer membership,
+and matched all 50 final scene hashes and 301 successful editor commands. Actual
+land/road/walk unions match concept-derived surfaces within 1 mm; the largest
+aggregate symmetric area difference was 0.1192 m² across 61,997 m² of walk surface.
+The reviewer's fresh Blender re-export reproduced all 40 GLBs byte-for-byte.
+Its outputs completed, but Blender lingered during PipeWire/`pa_write` shutdown and
+was interrupted/reaped with exit 130: output reproducibility passed; a clean process
+exit is not claimed. Optional MeshOptimizer was absent and no compression extension
+was used.
+
+Independent evidence is retained under `review/independent/`. The reviewer did not
+rerun Godot movement tests and relied on the disclosed producer ray/capture/editor
+receipts for those bounded checks. Owner approval of density/height, camera-follow
+and actor/vehicle readability, roof occlusion, all traversal/large-vehicle envelopes,
+networking and device/performance acceptance remain pending. This follow-up commit
+records the review/routing policy and adds evidence only; it does not change the
+reviewed Blender, GLB, scene or script bytes.
