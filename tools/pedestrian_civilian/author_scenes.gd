@@ -16,8 +16,28 @@ func build() -> Dictionary:
 	assert(ProjectSettings.globalize_path("res://").ends_with("brackett-pedestrian/"))
 	for path: String in [FAMILY, LIBRARY.get_base_dir(), PREVIEW.get_base_dir()]:
 		DirAccess.make_dir_recursive_absolute(path)
+
 	var imported: PackedScene = load(MODEL)
 	var model: Node3D = imported.instantiate(PackedScene.GEN_EDIT_STATE_INSTANCE)
+	var library: AnimationLibrary = _create_animation_library(model)
+	var material: ShaderMaterial = _create_palette_material()
+	var worker: Node3D = _create_worker(model, material, library)
+	save_scene(worker, FAMILY + "pedestrian_worker_a.tscn")
+	worker.free()
+
+	var packed: PackedScene = load(FAMILY + "pedestrian_worker_a.tscn")
+	var preview: Node3D = _create_preview(packed)
+	save_scene(preview, PREVIEW)
+	preview.free()
+	return {
+		"pid": OS.get_process_id(),
+		"project": ProjectSettings.globalize_path("res://"),
+		"saved": [FAMILY + "pedestrian_worker_a.tscn", PREVIEW, LIBRARY, MATERIAL],
+	}
+
+
+## Copy imported clips into the independently saved NPC animation library.
+func _create_animation_library(model: Node3D) -> AnimationLibrary:
 	var imported_player: AnimationPlayer = model.find_child("AnimationPlayer", true, false)
 	assert(imported_player != null)
 	var library := AnimationLibrary.new()
@@ -28,13 +48,27 @@ func build() -> Dictionary:
 		library.add_animation(clip, animation)
 	assert(ResourceSaver.save(library, LIBRARY) == OK)
 	library.take_over_path(LIBRARY)
+	return library
+
+
+## Save the shared palette shader material used by every worker instance.
+func _create_palette_material() -> ShaderMaterial:
 	var material := ShaderMaterial.new()
 	material.shader = load("res://art/materials/pedestrian_worker_a_palette.gdshader")
 	assert(ResourceSaver.save(material, MATERIAL) == OK)
 	material.take_over_path(MATERIAL)
+	return material
+
+
+## Compose one source-linked worker scene around the imported model.
+func _create_worker(
+	model: Node3D, material: ShaderMaterial, library: AnimationLibrary
+) -> Node3D:
 	var worker := Node3D.new()
 	worker.name = "PedestrianWorkerA"
-	worker.set_script(load("res://scripts/presentation/pedestrian_civilian/pedestrian_worker_visual.gd"))
+	worker.set_script(
+		load("res://scripts/presentation/pedestrian_civilian/pedestrian_worker_visual.gd")
+	)
 	worker.set("palette_material", material)
 	worker.set("npc_library", library)
 	var anchor := Node3D.new()
@@ -45,15 +79,31 @@ func build() -> Dictionary:
 	own(anchor, visuals, worker)
 	model.name = "Model"
 	own(visuals, model, worker)
-	save_scene(worker, FAMILY + "pedestrian_worker_a.tscn")
-	worker.free()
-	var packed: PackedScene = load(FAMILY + "pedestrian_worker_a.tscn")
+	return worker
+
+
+## Compose the bounded review scene in its original child order.
+func _create_preview(packed: PackedScene) -> Node3D:
 	var preview := Node3D.new()
 	preview.name = "PedestrianWorkerPreview"
-	preview.set_script(load("res://tests/fixtures/pedestrian_civilian/pedestrian_worker_preview.gd"))
-	var ground: Node3D = load("res://art/models/pedestrian_civilian/pedestrian_worker_stage.glb").instantiate(PackedScene.GEN_EDIT_STATE_INSTANCE)
+	preview.set_script(
+		load("res://tests/fixtures/pedestrian_civilian/pedestrian_worker_preview.gd")
+	)
+	var stage: PackedScene = load(
+		"res://art/models/pedestrian_civilian/pedestrian_worker_stage.glb"
+	)
+	var ground: Node3D = stage.instantiate(PackedScene.GEN_EDIT_STATE_INSTANCE)
 	ground.name = "BlenderStage"
 	own(preview, ground, preview)
+	_add_workers(preview, packed)
+	_add_cameras(preview)
+	_add_lighting(preview)
+	_add_review_label(preview)
+	return preview
+
+
+## Add the four clip and palette review instances to the preview.
+func _add_workers(preview: Node3D, packed: PackedScene) -> void:
 	var workers := Node3D.new()
 	workers.name = "Workers"
 	own(preview, workers, preview)
@@ -74,6 +124,10 @@ func build() -> Dictionary:
 			palette[4] = Color("373f50")
 		actor.set("palette", palette)
 		own(workers, actor, preview)
+
+
+## Add the approved gameplay and overview cameras to the preview.
+func _add_cameras(preview: Node3D) -> void:
 	var game_camera := Camera3D.new()
 	game_camera.name = "GameCamera"
 	game_camera.position = Vector3(0, 47, 0)
@@ -89,6 +143,10 @@ func build() -> Dictionary:
 	overview.fov = 42
 	own(preview, overview, preview)
 	overview.look_at_from_position(overview.position, Vector3(0, .7, 0))
+
+
+## Add the authored dusk environment and key and fill lights.
+func _add_lighting(preview: Node3D) -> void:
 	var sun := DirectionalLight3D.new()
 	sun.name = "CityKey"
 	sun.rotation_degrees = Vector3(-55, -35, 0)
@@ -115,22 +173,22 @@ func build() -> Dictionary:
 	fill.light_energy = 2.5
 	fill.omni_range = 14
 	own(preview, fill, preview)
+
+
+## Add the unchanged review context label to the preview.
+func _add_review_label(preview: Node3D) -> void:
 	var canvas := CanvasLayer.new()
 	canvas.name = "ReviewLabels"
 	own(preview, canvas, preview)
 	var label := Label.new()
 	label.name = "Context"
 	label.text = (
-		"OFF-SHIFT WORKER  /  idle · walk · run · death\n" +
-		"Shared skeleton · separate NPC clips · independent instance colours\n" +
-		"47 m · 42° · north-up · 1280×800   |   bounded 20-second preview"
+		"OFF-SHIFT WORKER  /  idle · walk · run · death\n"
+		+ "Shared skeleton · separate NPC clips · independent instance colours\n"
+		+ "47 m · 42° · north-up · 1280×800   |   bounded 20-second preview"
 	)
 	label.position = Vector2(28, 24)
 	own(canvas, label, preview)
-	save_scene(preview, PREVIEW)
-	preview.free()
-	return {"pid": OS.get_process_id(), "project": ProjectSettings.globalize_path("res://"),
-		"saved": [FAMILY + "pedestrian_worker_a.tscn", PREVIEW, LIBRARY, MATERIAL]}
 
 
 ## Keep authored children owned by the saved scene while preserving imported subtrees.

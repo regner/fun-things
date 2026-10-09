@@ -17,7 +17,6 @@ const CLIPS: PackedStringArray = ["idle", "walk", "run", "death"]
 			return
 		palette = colors.duplicate()
 		_apply_palette_uniforms()
-
 @export var palette_material: ShaderMaterial
 @export var npc_library: AnimationLibrary
 @export_enum("idle", "walk", "run", "death") var initial_clip: String = "idle"
