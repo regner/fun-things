@@ -1,0 +1,367 @@
+{
+  "state": "paused",
+  "at": "2026-10-09T19:24:29.621827+00:00",
+  "reviewed_revision": "dbcbd8e60dfe7da1bd15a77d87cb908d446b11c3",
+  "engine_candidate": "1031a3e1e66a404f67fa1a3857c4888d05f10d1e",
+  "counts": {
+    "started_accepted_bounded_stages": 19,
+    "queued_unstarted": 204,
+    "register_total": 223,
+    "trailing_tracks_unchanged": 12,
+    "linked_variant_prefabs": 26
+  },
+  "full_game_ready": false,
+  "new_dispatch": false,
+  "review_pack": {
+    "root": "docs/reviews/asset-production/batch_03/retention-final",
+    "complete_expected_count": 35,
+    "indexed_payload_count": 30,
+    "index_sha256": "b9681c90984bf882c58da03a21c2d3eaddcc7c6795ee5ffbaa095a583fb03f93",
+    "all_expected_paths_bytes_hashes_verified": true,
+    "files": [
+      {
+        "path": "docs/reviews/asset-production/batch_03/retention-final/callback.md",
+        "bytes": 1194,
+        "sha256": "235af4114d311a0996bf0baad870002a6cf6b2c8f4a3e7b75334ee47a1b853a5"
+      },
+      {
+        "path": "docs/reviews/asset-production/batch_03/retention-final/context-dedicated-requests.json",
+        "bytes": 234,
+        "sha256": "ecfdf8fe044022f653d30e9c15ea56ac96c5329cb162bd6744ebfa3bfd2fcca2"
+      },
+      {
+        "path": "docs/reviews/asset-production/batch_03/retention-final/context-requests.json",
+        "bytes": 369,
+        "sha256": "8e1623942e878425d9aa93e05a250a4abc0b825bd711c4f7afb87b39acff2e84"
+      },
+      {
+        "path": "docs/reviews/asset-production/batch_03/retention-final/contract_and_fix_reads.command.json",
+        "bytes": 716,
+        "sha256": "fb4676335e9f19e11ace3cd381130857a8c81dd25f0a953f34b649c9649f50ad"
+      },
+      {
+        "path": "docs/reviews/asset-production/batch_03/retention-final/contract_and_fix_reads.stderr",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "path": "docs/reviews/asset-production/batch_03/retention-final/contract_and_fix_reads.stdout",
+        "bytes": 33552,
+        "sha256": "47a59fdd62a0f01cc4dfbcaf6862898087dc0e5a6c2d4d1ce6c57708e5a6f0a7"
+      },
+      {
+        "path": "docs/reviews/asset-production/batch_03/retention-final/editor_context.command.json",
+        "bytes": 515,
+        "sha256": "8fe6ab01f1d69ef55f8e3d0a69a9a34a4ed83f61b178123887f9c70b5f75fe09"
+      },
+      {
+        "path": "docs/reviews/asset-production/batch_03/retention-final/editor_context.stderr",
+        "bytes": 449,
+        "sha256": "107306ac640efa59c7a1bb69a051f7ba4245c911e341556446bb715626b0858a"
+      },
+      {
+        "path": "docs/reviews/asset-production/batch_03/retention-final/editor_context.stdout",
+        "bytes": 3745,
+        "sha256": "00e3937fd2c24e9efcae1b605ddd15b7cd0d5c842d55cd2f0c2abd832f42b569"
+      },
+      {
+        "path": "docs/reviews/asset-production/batch_03/retention-final/editor_context_dedicated.command.json",
+        "bytes": 525,
+        "sha256": "f0e0da5f2cef17380d8c1283ba809f6b63fc4c29f7c8d896311d61f1cf0a8519"
+      },
+      {
+        "path": "docs/reviews/asset-production/batch_03/retention-final/editor_context_dedicated.stderr",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "path": "docs/reviews/asset-production/batch_03/retention-final/editor_context_dedicated.stdout",
+        "bytes": 3474,
+        "sha256": "f55b17149d45c5415153f435665e4b4047dfeebd4b257d52a30062f55ac41206"
+      },
+      {
+        "path": "docs/reviews/asset-production/batch_03/retention-final/editor_ownership.command.json",
+        "bytes": 459,
+        "sha256": "6d24a11b1be50246760d2d8caed2f203b22afcf7c1f76306a8fb4f3d8e58ac00"
+      },
+      {
+        "path": "docs/reviews/asset-production/batch_03/retention-final/editor_ownership.stderr",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "path": "docs/reviews/asset-production/batch_03/retention-final/editor_ownership.stdout",
+        "bytes": 1648,
+        "sha256": "a1a2b2a50ae3b7fb01d57af25f34c5c28f5e8f0d48a9e359314bed65335207d2"
+      },
+      {
+        "path": "docs/reviews/asset-production/batch_03/retention-final/final-readback.json",
+        "bytes": 289754,
+        "sha256": "dcfc7ab3d58a4885e144b8e0716c5bdb9d2ff4602ee7f2e7a0c810c43be90b60"
+      },
+      {
+        "path": "docs/reviews/asset-production/batch_03/retention-final/final_readback.command.json",
+        "bytes": 453,
+        "sha256": "3ec05d8c372388b41fb10caa6d9b6da19bb15e9afcb198ce20835df3fa457a1e"
+      },
+      {
+        "path": "docs/reviews/asset-production/batch_03/retention-final/final_readback.py",
+        "bytes": 2082,
+        "sha256": "e062eacc21985d69aedbefdd7b828633b02996ca80725aeff112adba73b70153"
+      },
+      {
+        "path": "docs/reviews/asset-production/batch_03/retention-final/final_readback.stderr",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "path": "docs/reviews/asset-production/batch_03/retention-final/final_readback.stdout",
+        "bytes": 674,
+        "sha256": "fd303d072310f8de8f44d74fc1bf7029fac7af45bc65e356879361c3c8545acc"
+      },
+      {
+        "path": "docs/reviews/asset-production/batch_03/retention-final/index_review.command.json",
+        "bytes": 453,
+        "sha256": "68cffd65678beb3146d2502898983d0e5087d62e8fac247dbc1461bc7dbb4a65"
+      },
+      {
+        "path": "docs/reviews/asset-production/batch_03/retention-final/index_review.py",
+        "bytes": 1399,
+        "sha256": "b9bbbbbc9faa9c553b1c0ab8b2d49cb697dac498e59095b75ec88c77848540bb"
+      },
+      {
+        "path": "docs/reviews/asset-production/batch_03/retention-final/index_review.stderr",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "path": "docs/reviews/asset-production/batch_03/retention-final/index_review.stdout",
+        "bytes": 428,
+        "sha256": "186596914379bc22aba81983a934900e58e57e6ab93330cbc8d4ab0ce21d12ea"
+      },
+      {
+        "path": "docs/reviews/asset-production/batch_03/retention-final/owned-editor-readback.json",
+        "bytes": 1620,
+        "sha256": "5f48ad41f4916bd8ccd24741d7e0b3a8d100d0f457c8e081d7977f1f22ef98f8"
+      },
+      {
+        "path": "docs/reviews/asset-production/batch_03/retention-final/report.md",
+        "bytes": 7316,
+        "sha256": "7755f920931218e69ae63d69443052874882ad2cede62411fe32266e4be829e7"
+      },
+      {
+        "path": "docs/reviews/asset-production/batch_03/retention-final/retention_delta.command.json",
+        "bytes": 459,
+        "sha256": "bee1b439f59e2e9a9dfaadd0a96385932a3b9f78144d75e9988fa86bdba9a148"
+      },
+      {
+        "path": "docs/reviews/asset-production/batch_03/retention-final/retention_delta.stderr",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "path": "docs/reviews/asset-production/batch_03/retention-final/retention_delta.stdout",
+        "bytes": 1037,
+        "sha256": "7b9ff1ff5230a5a4c0c1e8aeb2c0f91264b1e522c585cbce2ae4ce485340752f"
+      },
+      {
+        "path": "docs/reviews/asset-production/batch_03/retention-final/review-file-index.json",
+        "bytes": 6068,
+        "sha256": "b9681c90984bf882c58da03a21c2d3eaddcc7c6795ee5ffbaa095a583fb03f93"
+      },
+      {
+        "path": "docs/reviews/asset-production/batch_03/retention-final/review-index-readback.json",
+        "bytes": 428,
+        "sha256": "186596914379bc22aba81983a934900e58e57e6ab93330cbc8d4ab0ce21d12ea"
+      },
+      {
+        "path": "docs/reviews/asset-production/batch_03/retention-final/run_check.py",
+        "bytes": 1256,
+        "sha256": "873ce6788070b4ae345f22e7be70841eb8806f6fb505aa97bdbe986932a5a516"
+      },
+      {
+        "path": "docs/reviews/asset-production/batch_03/retention-final/verified-file-index.json",
+        "bytes": 803511,
+        "sha256": "3406672ea19e9e6f2f1b55b5cd5cb8968c0457304712be4fec1b2136761bef79"
+      },
+      {
+        "path": "docs/reviews/asset-production/batch_03/retention-final/verify_owned_editor.py",
+        "bytes": 2260,
+        "sha256": "951cf8a824806baa50571599e8c03232c0dfd7680e96ad01d0ce498024f86935"
+      },
+      {
+        "path": "docs/reviews/asset-production/batch_03/retention-final/verify_retention_delta.py",
+        "bytes": 6507,
+        "sha256": "8acd0ce5e6e91e98f7f5df8b5d944d3140e5f590575be3e48e35dd0dff318547"
+      }
+    ]
+  },
+  "agents": [
+    {
+      "id": "ac61aff0-5362-4c48-aa80-1cb9366ecebd",
+      "title": "Batch 03 — Independent frontage review",
+      "status": "idle",
+      "model": "gpt-6.1-sol",
+      "effective_effort": "high"
+    },
+    {
+      "id": "150f00b5-9e62-44d8-b0aa-a456d2a88b8c",
+      "title": "Asset production queue and Godot integration",
+      "status": "idle",
+      "model": "gpt-6.1-sol",
+      "effective_effort": "medium"
+    },
+    {
+      "id": "414e57e5-002a-4ed8-a39b-fca002a205e6",
+      "title": "city_shop_fittings.06 — Glazed door leaves",
+      "status": "idle",
+      "model": "gpt-6-astra",
+      "effective_effort": "medium"
+    },
+    {
+      "id": "d7c85edf-6b85-4161-8514-17a171165b46",
+      "title": "city_shop_fittings.02 — Flat fascia frame",
+      "status": "idle",
+      "model": "gpt-6-astra",
+      "effective_effort": "medium"
+    },
+    {
+      "id": "1116a4ef-54ba-430a-90b5-7a2c38af709c",
+      "title": "Batch 02 — Independent asset review",
+      "status": "idle",
+      "model": "gpt-6.1-sol",
+      "effective_effort": "high"
+    },
+    {
+      "id": "9896225d-c358-448a-9b13-3acbdd15a8df",
+      "title": "city_small_shop_shells.01 — Narrow inline shop",
+      "status": "idle",
+      "model": "gpt-6-astra",
+      "effective_effort": "medium"
+    },
+    {
+      "id": "d4c4cff1-0b57-4815-8d22-602a2b679ede",
+      "title": "city_shop_fittings.05 — Display-window bay",
+      "status": "idle",
+      "model": "gpt-6-astra",
+      "effective_effort": "medium"
+    },
+    {
+      "id": "88d917ff-a9d8-4faa-b276-007c50bd4f05",
+      "title": "Batch 01 — Independent asset review",
+      "status": "idle",
+      "model": "gpt-6.1-sol",
+      "effective_effort": "high"
+    },
+    {
+      "id": "7e47223a-3ac4-461b-a661-a9874ff01a40",
+      "title": "city_shop_fittings.01 — Short shop canopy",
+      "status": "idle",
+      "model": "gpt-6-astra",
+      "effective_effort": "medium"
+    },
+    {
+      "id": "5d1a3797-09d6-469b-b1f0-eb894a7e2f94",
+      "title": "city_planting.04 — Small canopy tree",
+      "status": "idle",
+      "model": "gpt-6-astra",
+      "effective_effort": "medium"
+    },
+    {
+      "id": "1cfcd098-b913-488f-aa0a-80181e160534",
+      "title": "city_roof_details.02 — Roof plant enclosure",
+      "status": "idle",
+      "model": "gpt-6-astra",
+      "effective_effort": "medium"
+    },
+    {
+      "id": "0bbb8cc7-8f6a-4ccf-91cd-fec79eda117f",
+      "title": "city_shop_fittings.03 — Entrance surround",
+      "status": "idle",
+      "model": "gpt-6-astra",
+      "effective_effort": "medium"
+    },
+    {
+      "id": "c691d6cb-1980-454e-b912-84932a974418",
+      "title": "city_planting.03 — Low shrub cluster",
+      "status": "idle",
+      "model": "gpt-6-astra",
+      "effective_effort": "medium"
+    },
+    {
+      "id": "bf303bbb-ed1e-4570-860f-41060d6c000e",
+      "title": "city_sign_supports.01 flat wall panel",
+      "status": "idle",
+      "model": "gpt-6-astra",
+      "effective_effort": "medium"
+    },
+    {
+      "id": "6c134cf1-f3ec-454e-bebc-f45ef351bac8",
+      "title": "city_planting.02 — Round planter",
+      "status": "idle",
+      "model": "gpt-6-astra",
+      "effective_effort": "medium"
+    },
+    {
+      "id": "2ca44d19-8b35-441d-815d-8b43c0616fd6",
+      "title": "city_planting.01 — Rectangular planter",
+      "status": "idle",
+      "model": "gpt-6-astra",
+      "effective_effort": "medium"
+    },
+    {
+      "id": "a320df33-e49b-4a56-8e08-1d2551463068",
+      "title": "city_lights.01 — Street pole",
+      "status": "idle",
+      "model": "gpt-6-astra",
+      "effective_effort": "medium"
+    },
+    {
+      "id": "285fea37-eec1-4e65-98fc-f0713bef0e89",
+      "title": "city_lights.02 — Pedestrian light",
+      "status": "idle",
+      "model": "gpt-6-astra",
+      "effective_effort": "medium"
+    },
+    {
+      "id": "a69e6e9c-4878-486d-b6b0-417b5786ce80",
+      "title": "city_lights.04 wall-light production",
+      "status": "idle",
+      "model": "gpt-6-astra",
+      "effective_effort": "medium"
+    },
+    {
+      "id": "dff384b6-c757-4e73-89eb-00d8cbc22705",
+      "title": "city_shop_fittings.08 — Projecting blade sign",
+      "status": "idle",
+      "model": "gpt-6-astra",
+      "effective_effort": "medium"
+    },
+    {
+      "id": "2a88bc02-23cb-4e6f-b8a2-bdb9ccae7889",
+      "title": "city_planting.05 — Low grass and weed clumps",
+      "status": "idle",
+      "model": "gpt-6-astra",
+      "effective_effort": "medium"
+    },
+    {
+      "id": "144bf996-5279-4d03-9f2e-672f476fd183",
+      "title": "city_roof_details.01 — Broad roof vent",
+      "status": "idle",
+      "model": "gpt-6-astra",
+      "effective_effort": "medium"
+    },
+    {
+      "id": "13bbbcee-af07-4887-8a35-ae2dcb9cd4b9",
+      "title": "city_shop_fittings.07 — Upper-floor windows",
+      "status": "idle",
+      "model": "gpt-6-astra",
+      "effective_effort": "medium"
+    }
+  ],
+  "main_head_unchanged": "66400c26a01bf917dfe631af4762c2b444d9c48f",
+  "main_worktree": "User input tracked/untracked edits preserved; no production integration.",
+  "production_untracked_exclusions": "46 review-only importer .import/.uid files preserved unstaged",
+  "private_editor": "PID277464 saved Inspector, no unsaved scenes, runtime stopped; lease released; live log outside frozen packs",
+  "scope": "Metadata and immutable review storage only; no technical bytes changed and no READY/TODO closure."
+}

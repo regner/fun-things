@@ -1,0 +1,478 @@
+# Repository guidance
+
+Use this guidance for project-owned code and assets. Preserve third-party addon
+formatting and contracts unless the task explicitly changes them. The longer
+guides are [development](docs/development.md), [assets](docs/assets.md), and
+[multiplayer](docs/multiplayer.md).
+
+## Working approach
+
+- Prefer the simplest implementation that meets the current requirement. Add
+  abstractions, caches, or optimization when a demonstrated limitation warrants
+  them, and record the reason. Keep complexity local.
+- Inspect the affected subsystem, callers, serialized data, and tests before
+  changing it. Search for existing rules before adding a second implementation.
+- Give each gameplay rule and state transition one owner. Keep shared values
+  with that owner rather than in a global collection of unrelated constants.
+- Call down, signal up: parents coordinate children through their public APIs;
+  children emit events instead of depending on a particular parent or sibling.
+  See [development](docs/development.md#godot-scene-and-script-conventions) for
+  scene boundaries, explicit dependency injection and other Godot conventions.
+- Separate input collection, simulation, network replication, and presentation.
+  Standalone, authoritative simulation, and prediction must share equivalent
+  gameplay rules. HUDs and visual effects consume state; they do not decide it.
+- Preserve Inspector exports, public APIs, serialized property names, and saved
+  identities unless the requested change requires a coordinated migration.
+- Keep behavior-preserving cleanup separately reviewable from behavior changes.
+  Avoid unrelated refactoring. Update contract documentation when behavior changes.
+- Keep branch history linear. Update from `main` by rebasing; do not create merge commits.
+
+## Editor workflow
+
+- Prefer Godot MCP Toolkit tools for editor-managed scripts, scenes, resources,
+  and project settings when a suitable tool is available. Discover and inspect
+  the relevant tools and affected editor state before making mutations.
+- Make scene/node changes through editor tools. Save each mutation batch before
+  switching scenes or playtesting; verify both editor state and the saved diff.
+- If editor tools are unavailable or insufficient, explain the limitation before
+  a direct-file fallback. Preserve unsaved work, then refresh external files and
+  reload/reopen affected scenes before further saves or playtests. A filesystem
+  scan or headless import does not prove a separate open scene is synchronized.
+- Direct filesystem edits are appropriate for documentation and repository tools.
+- Author UI, 2D and 3D node composition, layout and placement in saved scene files.
+  Runtime code instantiates those scenes and supplies data/state; it must not build
+  authored node hierarchies or overwrite editor placement. This includes menus,
+  HUDs, reusable widgets, actors and effects. Document intentional procedural systems.
+
+## GDScript style
+
+- Use type hints, tabs, LF endings, and a 100-character line target. Use the pinned
+  gdstyle configuration for member ordering and automated formatting.
+- Give every named function a concise `##` purpose or contract comment immediately
+  above its declaration, before annotations such as `@rpc`. Include callbacks,
+  private helpers, and test helpers. Prefer named callbacks for meaningful behavior.
+- Explain intent and constraints inside functions; avoid narrating statements.
+  Preserve useful rationale and lint directives.
+- Separate functions with two empty lines. Use one empty line between logical
+  steps and after completed control blocks before unrelated following statements.
+  Keep related assignments together and `elif`/`else` attached to their `if`.
+- Separate `@export_group` and `@export_subgroup` blocks with an empty line.
+  Review these spacing rules manually until a preserving formatter wrapper exists.
+- Name significant thresholds, tuning factors, durations, collision masks, limits,
+  and protocol values. Use constants for fixed values and exports for Inspector
+  tuning. Include units where helpful and use engine enums instead of raw integers.
+  Obvious zero/one values, indices, and explicit vector/color data need no wrappers.
+- Preserve behavior during style changes, especially authority checks, ordering,
+  numerical values, and serialized names. Split meaningful steps rather than
+  compressing code to satisfy complexity limits.
+
+## Saved resources and source assets
+
+- Create visible 3D models in Blender, including blockouts and spike fixtures.
+  Keep committed sources and explicit exports linked through imported model
+  instances. Do not add generated render meshes; see [assets](docs/assets.md).
+- Preserve scene/resource UIDs, dependency UIDs, editor-generated node identities,
+  inheritance identifiers, required `.uid` sidecars, and source `.import` files.
+  Commit these with the resources they describe. Keep `.godot/` untracked.
+- Import new assets with the pinned engine, save project-owned scenes/resources
+  through Godot, and inspect dependency resolution and saved IDs. Test affected
+  inherited scenes through an editor save/reload roundtrip.
+- Edit source assets and re-export their outputs together. Keep imported model
+  instances linked to their sources; inspect unexpected embedded mesh data.
+- Keep visual decoration separate from gameplay collision. Collision changes
+  require affected movement, query, and multiplayer checks.
+
+## Multiplayer invariants
+
+For an authoritative host/server model, apply these rules from the first prototype:
+
+- Clients submit intent. The authoritative process owns outcomes, spawning,
+  damage, inventory/pickups, respawning, and persistent world mutation.
+- Derive remote identity from the RPC sender, validate admission and ownership,
+  and reject malformed values at the network boundary. Bound packet sizes,
+  request rates, queues, history, and per-tick processing work.
+- A driver's input ownership is separate from Godot multiplayer authority and
+  scene `owner`. Configure simulation ownership before nodes enter the tree,
+  including child scripts, so replicas cannot mutate gameplay during `_ready`.
+- Use session identities, entity generations, and relevant state revisions to
+  reject obsolete input and state. Do not let movement overwrite reliable
+  lifecycle, equipment, health, or world state.
+- Late joiners receive current authoritative state before admission. Apply
+  dependent collision/lifecycle state before movement or prediction that needs it.
+- Prediction replays only permitted local simulation. Suppress authoritative
+  mutation and duplicate effects during replay. Authoritative corrections win.
+- Complete lifecycle transitions before publishing them: stop stale commands,
+  restore authoritative component state, update collision/presentation, then
+  notify observers. Clear history and callbacks on teardown.
+- Use one replication writer per state field. Test gameplay over real separate
+  processes; validate each platform transport independently.
+
+## Validation and task records
+
+- Run checks appropriate to the change: formatting/lint, compilation, saved
+  resource checks, affected gameplay/network tests, and visual review as needed.
+  Do not claim an unavailable task ran or treat import alone as all-script validation.
+- Assert outcomes through production APIs. Protect important contracts with
+  independent expectations rather than copying implementation formulas into tests.
+- Review runtime logs as well as exit status. Distinguish environment failures,
+  known diagnostics, and new errors; avoid broad error suppression.
+- Keep future tasks actionable. Remove completed items from a TODO list and keep
+  the update with the resolving change. When a TODO is completed, commit its removal
+  from `TODO.md` together with the changes that completed it.
+- Report what changed, what was checked, and any material limitations. Keep current
+  behavior distinct from historical plans and proposed work.
+---
+name: art-review
+description: Review Fun Things art assets, linked Godot prefabs and world placement against accepted concepts, Blender provenance and scene contracts. Use for requested art reviews or asset handoff audits; distinguish technical fixtures from production art and measured gameplay acceptance.
+---
+
+# Project art review
+
+Review the requested asset, diff or handoff. Produce independently evidenced findings;
+review alone does not authorize fixes, new art direction or production acceptance.
+Resolve links relative to this skill directory.
+
+## Establish scope and source of truth
+
+Read [repository guidance](../../../AGENTS.md), the accepted
+[art direction](../../../docs/art-direction.md) and
+[world layout](../../../docs/world-layout.md), then the affected
+[asset workflow](../../../docs/assets.md) and
+[scene contracts](../../../docs/scene-structure.md). Find the asset's brief/handoffs
+through the [catalogue](../../../docs/asset-catalogue.md); follow its source, export,
+material, prefab, inherited-variant and placed-instance mappings in both directions.
+Search actual consumers; a catalogue entry alone does not prove ancestry.
+
+Record base/candidate revision, changed paths, intended use, producer/reviewer and
+handoff stage. Separate accepted direction from proposed dimensions and unfinished
+proofs. Read [S01](../../../docs/spikes/s01.md) for the bounded import/inheritance
+route and its known failures, not as production art approval. Consult the
+[product validation envelope](../../../docs/design.md#provisional-validation-envelope)
+and [active tasks](../../../TODO.md) for outstanding owners/gates. Neutral technical
+fixtures may use their own brief; do not reject them for lacking production detail.
+Missing briefs or conflicting constraints are evidence gaps to resolve with the
+owning handoff, not permission to invent an art or gameplay requirement.
+
+## Inspect applicable review lenses
+
+Mark unused systems not applicable with a reason. Missing evidence for an applicable
+requirement stays pending; do not turn every planned feature into a defect.
+
+- **Concept and style:** compare actual assets and views with the selected concept,
+  silhouette families, smooth broad forms, restrained detail and Petrol & Coral
+  hierarchy. Inspect geometry-based car/weapon recognition, actor/background contrast,
+  roofs, conventional high-rises, signage and shadows. Name the reference and visible
+  discrepancy; distinguish personal preference from a contract failure. Concept PNGs
+  and their illustrative dimensions are not calibrated engine/material evidence.
+- **Provenance and ancestry:** trace placed instance → prefab/inherited wrapper →
+  imported GLB → handoff → committed Blender source, export collection and dependencies.
+  Check authorship/license, source `.gdignore`, explicit outputs, sidecars, tools/settings,
+  reverse consumers and source/export freshness. File existence alone proves neither
+  a fresh export nor rights. Inspect unexpected embedded meshes, generated draw meshes,
+  import suffix collision, detached models and copied vertex data. Visible 3D fixtures
+  and mesh VFX also need Blender sources. Source edits require affected exports together.
+  Preserve UIDs, node/inheritance identities and placed IDs. On the S01 pin use its
+  supported wrapper-level appearance route; direct imported-child overrides have an
+  observed identity failure. Test changed base/inherited scenes through save/reopen.
+- **Gameplay camera and readability:** inspect actual vertically downward perspective,
+  fixed-yaw captures at recorded height/FOV/near/far planes and native 1280×800, plus
+  a useful overview. Compare matched lighting, renderer and states. Check foot/car
+  motion, aim/held weapons, local player/target separation, HUD/minimap and camera-edge
+  silhouettes. Test towers below, near and above camera height, follow transitions,
+  clipping and visual occlusion without changing authoritative collision. S02/S04
+  own final camera/envelopes. Provisional captures, concept art and S01's overview
+  cannot close those gates; absence of actual camera evidence is not a visual pass.
+- **Scale, pivots, sockets and rigs:** measure imported AABBs, datum and axes against
+  the asset brief/tolerance in metres, +Y up and project -Z forward. Check unit roots,
+  applied static transforms, winding/normals and documented asymmetry; avoid corrective
+  prefab scaling/rotation that hides export faults. Inspect source markers → stable
+  prefab-facing socket mappings and physics versus smoothed presentation consumers.
+  For rigs check bind/rest alignment, shared bones/skins/weights, attachments, intended
+  clips/durations/loop seams and animated/death bounds. Animation must not move the
+  simulation root or decide gameplay. A rest-pose screenshot cannot prove attachments
+  or clip behavior. Do not impose production socket paths on a documented neutral test.
+- **Materials:** inspect stable slots, external remaps and intentional inherited
+  overrides, shared-resource mutation, UVs/seams, channel/color-space conventions,
+  normal orientation, mip/filter/compression and alpha/emission. Follow editable
+  texture provenance and runtime outputs. Check contrast, shimmer, highlights and
+  silhouette preservation under target lighting; uncalibrated palette swatches do
+  not prove rendered color. No arbitrary texture/triangle budget is ratified.
+- **Collision and routes:** compare intentional solid envelope with visual footprint,
+  decorative overhang, ground contact, masks and required shape parentage. Inspect
+  corners, seams, sidewalks/crossings, two-way turns, alternate routes, spawn/exit
+  candidates and boundaries. Check saved placement, stable IDs and affected derived
+  navigation/minimap/occluder revisions; do not introduce a second placement writer.
+  Confirm behavior through actual movement/query APIs and affected separate-process
+  multiplayer checks, including blocked exits and lifecycle changes. Static bounds
+  expose mismatches, but neither bounds nor screenshots certify traversability.
+- **VFX bounds and overdraw:** inspect lifetime, spawn/concurrency/debris caps, particle
+  travel/animated bounds, camera-edge culling, transparent layering and target/road
+  visibility during worst bursts. Require Blender provenance for mesh carriers,
+  collision-free cosmetics and no presentation authority over damage/chains. Measure
+  overdraw/cost under relevant bursts; a pretty keyframe is not load evidence.
+- **LOD and culling:** inspect per-asset import settings or explicit source/output
+  LODs, rationale and transitions at actual camera distances. Check silhouettes,
+  normals/shadows, roof/road seams and maximum animation/effect extents. Visual
+  culling must not stop simulation, chain propagation or routes. LOD is optional
+  until measurement justifies it; do not prescribe streaming or global compression
+  changes to solve an isolated defect.
+- **Measured performance:** require build/source identity, engine, hardware/OS,
+  renderer/API, quality/resolution, scenario, population/effect counts, role,
+  duration/warmup and retained profiler/log evidence. Compare normal/burst/load
+  cases with CPU/GPU frame and physics time, pacing, draw calls/primitives, memory
+  and relevant overdraw. Use the current validation envelope and label provisional
+  budgets. Desktop, headless or capped-FPS results do not certify sustained 60 FPS
+  on Deck LCD/OLED, Gaming Mode, controls or packaged builds. Report unmeasured cost
+  as pending, not an invented performance defect or a pass.
+
+## Obtain evidence without disrupting authoring
+
+Discover actual checks in [Mise](../../../mise.toml), repository tools and
+[validation instructions](../../../docs/development.md#foundation-validation-tasks).
+Use relevant checks, inspect their coverage and logs, and retain command, version,
+exit status and diagnostics. Import is not all-script compilation; S01's resource
+checker is specific to its fixtures. Do not extrapolate a clean asset-profile copy
+to full-project plugin, gameplay, export or device compatibility.
+
+Prefer suitable Godot MCP tools; inspect current editor state before mutations,
+coordinate exclusive shared-editor/source access and preserve unsaved work. Save
+mutation batches and compare saved diffs. If tools are unavailable/insufficient,
+explain the fallback before using it. An authorized isolated copy with fresh CLI
+processes can inspect resources without touching a shared editor; identify precisely
+what that evidence establishes. Before later saves/playtests in an existing editor,
+refresh external changes and close/reopen affected scenes. Headless import never
+proves that another editor's open scenes are synchronized. Do not manufacture
+screenshots, device access, measurements, successful checks or acceptance.
+
+## Report a bounded verdict
+
+Lead with actionable findings ordered by severity (P1 blocking the scoped handoff,
+P2 substantive defect, P3 minor issue); reserve P0 for immediate critical impact.
+For each give file and line/node/resource or source object, violated contract,
+observed evidence and reproduction, impact, minimal correction/fix owner and retest.
+Separate observed behavior, static inference, visual judgment and missing evidence.
+Avoid repeating one cause as multiple findings; do not report speculative defects.
+
+Then state reviewed scope/revision, checks actually run and evidence paths, applicable
+coverage and limits, and each handoff status (`accepted`, `rejected`, `pending`, or
+reasoned `not applicable`). Acceptance is explicitly technical/spike-only or
+production. Reject observed failures; missing required evidence remains pending,
+with the next bounded check and owning task. No findings means only that none were
+found with the stated coverage. Review does not replace movement/load/device proof.
+# Reviewer contract
+
+Review directly with clean context. Read raw requirements, applicable repository/domain
+contracts, exact candidate/base and actual artifacts; do not inherit the implementer's
+conversation or verdict. Follow the shared model, concurrency and evidence rules.
+Do not create another coordinator/reviewer or change implementation. Live resources
+require their own authorization and ownership; static review needs no unrelated lock.
+
+Assess scope, observable acceptance, regression risks, truthful partial gates and
+meaningful validation. For workflow edits use static role, recovery, concurrency,
+retention and cadence scenarios, plus frontmatter, links and whitespace checks.
+Return severity, file location, violated contract, evidence and actionable findings;
+state exact HEAD/base, checks, limitations and disposition. Retain the full report
+and actual check artifacts, including required empty diagnostic streams.
+
+After material fixes or a rebase, the same reviewer assesses the actual final delta
+and gives an explicit exact-new-HEAD/base disposition. Metadata storage on unchanged
+HEAD/tree/base creates no automatic acknowledgement. Material evidence changes or an
+unresolved review condition still need assessment. No merge, archive or push.
+# Batch03 F3 retention correction
+
+Exact engine candidate `1031a3e1e66a404f67fa1a3857c4888d05f10d1e`; corrected source `4f11c54d4abf4aa77813a1cf8bcf885fd040b7c9`; initial source `028775618c4493ca672646e6e37fdc3c83e0e313`. SAME reviewer's final report is retained unchanged under `docs/reviews/asset-production/batch_03/final/`. It accepts seven source/export assets (F1/F2 closed), nine prefab resources/collision and bounded fixture checks; F3 frozen-log retention remained pending. This correction changes only additive evidence retention and live private-log destination, with final same-reviewer disposition still required.
+
+## Exact preservation
+
+Owned editor254275 descriptors1/2 targeted the frozen `batch_03-evidence/editor-restart.log`. Guarded context confirmed saved inspector/no unsaved scenes and runtime already stopped. After SIGTERM, the old PID was confirmed stopped before copying or restoring its log. No observed OS exit code is invented for that detached editor.
+
+The complete closed-writer log is34,074bytes: exactly the29,204-byte candidate prefix followed by4,870bytes. `complete-editor-through-shutdown.log` preserves the entire stream; `append-after-frozen-prefix.log` preserves the append separately; `frozen-candidate-editor.log` preserves the exact Git bytes. The reviewer's original4,490-byte append is an exact prefix of that complete append; remaining380bytes are the integrator's authorized pre-restart context traffic. Full hashes and equality relations are recorded in `isolation.json`. The original engine log was restored to its exact committed bytes only after the writer stopped. No raw diagnostic stream was discarded or broadly suppressed.
+
+The private pinned editor restarted with the same executable/project/cwd/args and isolated XDG settings. CurrentPID277464, editor22650/runtime22651/LSP22652. Both output descriptors point exclusively to `/tmp/asset-register-production-editor/f3/editor-live.log`, outside the workspace/frozen evidence. Guarded `/tmp/asset-register-production-editor/launch.json` was updated with the new PID; no connector/project/vendor/audio setting changed. Existing private pinned Blender wrapper/configuration is preserved. The ongoing private log remains live under `/tmp` and is deliberately not represented as an immutable snapshot or successful process exit. Future snapshotting must follow closing its writers.
+
+## Complete readback and scope
+
+`retention-readback.json` enumerates every300 engine expected path (299 indexed payloads plus the self-index), all byte/SHA matches against both original Git blobs and restored working bytes. All15 saved scenes, their UIDs/imports and all tracked source/export/initial-review files therefore remain unchanged; tracked Git diff/index were empty at verification. No asset, fixture, hierarchy, collision, material, camera or source was remodelled/reexported.
+
+The complete final-review pack is retained unchanged:193 payloads listed by `review-file-index.json`, plus its five explicit terminal self-exclusions. Every indexed byte count/SHA and terminal index signing receipt matches. The original reviewer report/index/checks/raw streams remain untouched. Sixteen subsequently generated review-only importer sidecars are observed and listed outside the frozen review expected set; these and the earlier30review sidecars are neither staged as producer/reviewer payload nor erased. No generic staging was performed.
+
+`isolation.execution.json`, `pre-context.execution.json`, `git-show.execution.json`, `final-context.execution.json` and `verification.execution.json` retain exact argv/exits with full separate output streams. The retention validator exited0. Host FD/cwd/executable/argv/socket ownership is independently recorded: editor/LSP listeners belong to277464; runtime22651has no listener. Inspector is selected/saved with no unsaved scenes, runtime stopped; old254275is stopped. Source/asset acceptance and downstream world/device/transport limits remain exactly as the retained review states.
+
+This additive retention pack and the unchanged198-file final-review pack are committed together; `artifact-index.json` supplies the exact expected paths/bytes/SHA, self-excluding its own row. Final commit identity is supplied in the handoff. Lease released to ROOT/SAME reviewer for exact-delta F3 disposition; integrator returns idle. User pause-after19started-assets remains in force.
+"""Preserve a frozen log's complete append, then restart only its saved private editor."""
+import hashlib
+import json
+import os
+from pathlib import Path
+import signal
+import subprocess
+import time
+
+ROOT = Path(__file__).resolve().parents[4]
+OUT = Path(__file__).resolve().parent
+STATE = Path('/tmp/asset-register-production-editor')
+CANDIDATE = '1031a3e1e66a404f67fa1a3857c4888d05f10d1e'
+LOG = ROOT / 'docs/assets/production/batch_03-evidence/editor-restart.log'
+launch = json.loads((STATE / 'launch.json').read_text())
+pid = launch['pid']
+assert pid == 254275 and os.readlink(f'/proc/{pid}/cwd') == str(ROOT)
+assert os.readlink(f'/proc/{pid}/exe') == launch['argv'][0]
+argv = Path(f'/proc/{pid}/cmdline').read_text().split('\0')
+assert argv[:-1] == launch['argv']
+fds = {str(fd): os.readlink(f'/proc/{pid}/fd/{fd}') for fd in (1, 2)}
+assert all(path == str(LOG) for path in fds.values())
+requests = OUT / 'pre-context-requests.json'
+requests.write_text(json.dumps([{'method':'game.stop','params':{}},
+    {'method':'scene.open','params':{'file_path':'res://tools/asset_production/integration/inspector.tscn'}},
+    {'method':'node.call_method','params':{'node_path':'.','method_name':'context'}}], indent=2)+'\n')
+context_argv = ['node', str(ROOT / 'tools/asset_production/integration/editor_client.mjs'), str(requests)]
+with (OUT / 'pre-context.stdout.jsonl').open('w') as stdout, (OUT / 'pre-context.stderr.log').open('w') as stderr:
+    result = subprocess.run(context_argv, cwd=ROOT, stdout=stdout, stderr=stderr)
+(OUT / 'pre-context.execution.json').write_text(json.dumps({'argv':context_argv,
+    'cwd':str(ROOT),'exit_code':result.returncode},indent=2)+'\n')
+assert result.returncode == 0
+rows = [json.loads(s) for s in (OUT/'pre-context.stdout.jsonl').read_text().splitlines()]
+assert rows[0]['result']['result']['was_running'] is False
+context = rows[-1]['result']['result']['result']
+assert context['pid'] == pid and context['unsaved'] == 'PackedStringArray()'
+assert context['project'].rstrip('/') == str(ROOT)
+env_items = Path(f'/proc/{pid}/environ').read_bytes().split(b'\0')
+parent_env = dict(s.decode().split('=',1) for s in env_items if b'=' in s)
+overrides = {k:parent_env[k] for k in ['DISPLAY','WAYLAND_DISPLAY','XDG_RUNTIME_DIR'] if k in parent_env}
+overrides.update({'XDG_DATA_HOME':str(STATE/'data'),'XDG_CONFIG_HOME':str(STATE/'config'),
+    'XDG_CACHE_HOME':str(STATE/'cache'),'GODOT_MCP_EDITOR_PORT':'22650','GODOT_MCP_RUNTIME_PORT':'22651'})
+os.kill(pid, signal.SIGTERM)
+for _ in range(100):
+    path = Path(f'/proc/{pid}/status')
+    if not path.exists() or 'State:\tZ' in path.read_text():
+        break
+    time.sleep(.1)
+else:
+    raise RuntimeError('Owned editor did not stop; log not restored')
+show_argv = ['git','show',CANDIDATE+':'+str(LOG.relative_to(ROOT))]
+result = subprocess.run(show_argv, cwd=ROOT, capture_output=True)
+(OUT/'git-show.stderr.log').write_bytes(result.stderr)
+(OUT/'git-show.execution.json').write_text(json.dumps({'argv':show_argv,
+    'exit_code':result.returncode},indent=2)+'\n')
+assert result.returncode == 0
+frozen = result.stdout
+complete = LOG.read_bytes()
+assert complete.startswith(frozen)
+append = complete[len(frozen):]
+reviewer = (ROOT/'docs/reviews/asset-production/batch_03/final/owned-editor-appended.log').read_bytes()
+assert append.startswith(reviewer)
+(OUT/'complete-editor-through-shutdown.log').write_bytes(complete)
+(OUT/'append-after-frozen-prefix.log').write_bytes(append)
+(OUT/'frozen-candidate-editor.log').write_bytes(frozen)
+LOG.write_bytes(frozen)
+assert LOG.read_bytes() == frozen
+live_path = STATE/'f3/editor-live.log'
+assert not live_path.exists(), 'Do not overwrite an existing private live log'
+stream = live_path.open('w')
+proc = subprocess.Popen(launch['argv'], cwd=ROOT, env=dict(os.environ,**overrides),
+    stdout=stream, stderr=subprocess.STDOUT, start_new_session=True)
+current = dict(launch, pid=proc.pid)
+(STATE/'launch.json').write_text(json.dumps(current,indent=2)+'\n')
+summary = {'frozen_candidate':CANDIDATE,'old_launch':launch,'old_fds':fds,
+    'old_saved_context':context,'old_editor_stopped':True,
+    'old_os_exit':'not observed; stopped/zombie PID verified after SIGTERM',
+    'complete_bytes':len(complete),'complete_sha256':hashlib.sha256(complete).hexdigest(),
+    'frozen_bytes':len(frozen),'frozen_sha256':hashlib.sha256(frozen).hexdigest(),
+    'append_bytes':len(append),'append_sha256':hashlib.sha256(append).hexdigest(),
+    'complete_equals_frozen_plus_append':complete == frozen+append,
+    'reviewer_append_is_exact_prefix':append.startswith(reviewer),
+    'reviewer_append_bytes':len(reviewer),'reviewer_append_sha256':hashlib.sha256(reviewer).hexdigest(),
+    'current_launch':current,'live_log':str(live_path),'environment_overrides':overrides}
+(OUT/'isolation.json').write_text(json.dumps(summary,indent=2)+'\n')
+print(json.dumps({'current_pid':proc.pid,'complete_bytes':len(complete),'append_bytes':len(append)}))
+"""Verify exact frozen engine bytes, complete final review retention and live-log isolation."""
+import hashlib
+import json
+import os
+from pathlib import Path
+import subprocess
+
+ROOT = Path(__file__).resolve().parents[4]
+OUT = Path(__file__).resolve().parent
+CANDIDATE = '1031a3e1e66a404f67fa1a3857c4888d05f10d1e'
+ENGINE = ROOT / 'docs/assets/production/batch_03-evidence/engine-artifact-index.json'
+review = ROOT / 'docs/reviews/asset-production/batch_03/final'
+index = json.loads(ENGINE.read_text())
+engine_rows = []
+for row in index['files']:
+    data = (ROOT / row['path']).read_bytes()
+    assert len(data) == row['bytes'] and hashlib.sha256(data).hexdigest() == row['sha256'], row['path']
+    frozen = subprocess.check_output(['git','show',CANDIDATE+':'+row['path']],cwd=ROOT)
+    assert data == frozen, row['path']
+    engine_rows.append(row)
+engine_blob = subprocess.check_output(['git','show',CANDIDATE+':'+str(ENGINE.relative_to(ROOT))],cwd=ROOT)
+assert ENGINE.read_bytes() == engine_blob
+assert len(engine_rows) == 299
+engine_rows.append({'path':str(ENGINE.relative_to(ROOT)),'bytes':len(engine_blob),
+                    'sha256':hashlib.sha256(engine_blob).hexdigest()})
+rindex_path = review/'review-file-index.json'
+rindex = json.loads(rindex_path.read_text())
+assert len(rindex['files']) == 193
+assert set(r['path'] for r in rindex['files']) == set(rindex['expected_paths'])
+review_rows = []
+for row in rindex['files']:
+    data = (review/row['path']).read_bytes()
+    assert len(data) == row['bytes'] and hashlib.sha256(data).hexdigest() == row['sha256'], row['path']
+    review_rows.append(dict(row,path=str((review/row['path']).relative_to(ROOT))))
+assert len(rindex['self_exclusions']) == 5
+for path in rindex['self_exclusions']:
+    p = review/path
+    data = p.read_bytes()
+    review_rows.append({'path':str(p.relative_to(ROOT)),'bytes':len(data),
+                       'sha256':hashlib.sha256(data).hexdigest(),'terminal_self_exclusion':True})
+terminal = json.loads((review/'review-index-readback.json').read_text())
+assert terminal['index_sha256'] == hashlib.sha256(rindex_path.read_bytes()).hexdigest()
+expected = set(rindex['expected_paths']) | set(rindex['self_exclusions'])
+actual = {str(p.relative_to(review)) for p in review.rglob('*') if p.is_file()}
+assert expected <= actual
+extras = sorted(actual-expected)
+assert all(p.endswith(('.import','.gd.uid')) for p in extras)
+isolation = json.loads((OUT/'isolation.json').read_text())
+pid = isolation['current_launch']['pid']
+assert os.readlink(f'/proc/{pid}/cwd') == str(ROOT)
+assert os.readlink(f'/proc/{pid}/exe') == isolation['current_launch']['argv'][0]
+assert Path(f'/proc/{pid}/cmdline').read_text().split('\0')[:-1] == isolation['current_launch']['argv']
+fds = {str(n):os.readlink(f'/proc/{pid}/fd/{n}') for n in (1,2)}
+assert all(p == isolation['live_log'] for p in fds.values())
+assert not any(str(ROOT) in p for p in fds.values())
+rows = [json.loads(s) for s in (OUT/'final-context.stdout.jsonl').read_text().splitlines()]
+context = rows[1]['result']['result']['result']
+assert context['pid'] == pid and context['unsaved'] == 'PackedStringArray()'
+assert rows[2]['result']['result']['was_running'] is False
+owned_socket_ids = set()
+for fd in Path(f'/proc/{pid}/fd').iterdir():
+    try:
+        target = os.readlink(fd)
+    except FileNotFoundError:
+        continue
+    if target.startswith('socket:['):
+        owned_socket_ids.add(target[8:-1])
+listeners = {}
+for filename in ['tcp','tcp6']:
+    for line in Path('/proc/net/'+filename).read_text().splitlines()[1:]:
+        fields = line.split()
+        if fields[3] == '0A':
+            listeners[int(fields[1].split(':')[-1],16)] = fields[9]
+assert listeners[22650] in owned_socket_ids and listeners[22652] in owned_socket_ids
+assert 22651 not in listeners
+old = Path(f"/proc/{isolation['old_launch']['pid']}/status")
+assert not old.exists() or 'State:\tZ' in old.read_text()
+assert subprocess.check_output(['git','diff','--name-only',CANDIDATE],cwd=ROOT) == b''
+assert subprocess.check_output(['git','diff','--cached','--name-only'],cwd=ROOT) == b''
+summary = {'candidate':CANDIDATE,'complete_engine_expected_set':engine_rows,
+    'engine_path_count':len(engine_rows),'all_engine_git_working_bytes_sha_match':True,
+    'final_review_expected_set':review_rows,'review_payload_count':193,
+    'review_terminal_self_exclusions':5,'review_index_sha256':terminal['index_sha256'],
+    'all_review_bytes_sha_match':True,'unlisted_importer_metadata_not_staged':extras,
+    'live_editor':{'pid':pid,'fds':fds,'ports':{'editor':22650,'runtime_stopped':22651,'lsp':22652},
+                   'context':context,'runtime_listener_absent':True},
+    'tracked_git_diff_empty':True,'git_index_empty':True,
+    'scope':'F3 evidence retention only; no asset/scene/source changes or transferred downstream acceptance'}
+(OUT/'retention-readback.json').write_text(json.dumps(summary,indent=2)+'\n')
+print(json.dumps({'engine_paths':300,'review_payloads':193,'terminal_receipts':5,
+                  'live_editor_pid':pid,'runtime_stopped':True,'all_checks_passed':True}))

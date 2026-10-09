@@ -1,0 +1,15 @@
+[
+  {
+    "method": "node.call_method",
+    "params": {
+      "node_path": ".",
+      "method_name": "context"
+    }
+  },
+  {
+    "method": "execute.code",
+    "params": {
+      "code": "{\"scene\": EditorInterface.get_edited_scene_root().scene_file_path, \"playing\": EditorInterface.is_playing_scene(), \"unsaved\": EditorInterface.get_unsaved_scenes()}"
+    }
+  }
+]
