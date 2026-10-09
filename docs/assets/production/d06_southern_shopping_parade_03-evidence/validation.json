@@ -1,0 +1,1379 @@
+{
+  "asset_id": "d06_southern_shopping_parade.03",
+  "output_type": "Component design",
+  "status": "PASS bounded source/export/prefab candidate; independent acceptance pending",
+  "geometry": {
+    "asset_id": "d06_southern_shopping_parade.03",
+    "blender": "5.2.2 LTS",
+    "build_hash": "d13f752e3b9c",
+    "source_vertices": 1632,
+    "export_vertices": 1632,
+    "triangles": 3196,
+    "mesh_count": 1,
+    "surface_count": 5,
+    "nonmanifold_edges": 0,
+    "degenerate_faces": 0,
+    "unit_source_and_export_normals": true,
+    "positive_triangle_normal_alignment": true,
+    "source_bounds": {
+      "min": [
+        -8.699999809265137,
+        0.0,
+        0.0
+      ],
+      "max": [
+        8.699999809265137,
+        0.18000000715255737,
+        4.800000190734863
+      ]
+    },
+    "godot_bounds": {
+      "min": [
+        -8.699999809265137,
+        0.0,
+        -0.18000000715255737
+      ],
+      "max": [
+        8.699999809265137,
+        4.800000190734863,
+        -0.0
+      ]
+    },
+    "size_xyz_m": [
+      17.4,
+      4.8,
+      0.18
+    ],
+    "ground_wall_pivot": [
+      0,
+      0,
+      0
+    ],
+    "mount_godot": [
+      0,
+      0,
+      -30
+    ],
+    "north_wall_and_existing_plinth_clear": true,
+    "collision_size_xyz_m": [
+      17.4,
+      4.8,
+      0.18
+    ],
+    "collision_center_xyz_m": [
+      0,
+      2.4,
+      -0.09
+    ],
+    "export_nodes": 2,
+    "materials": [
+      {
+        "name": "parade_quiet_blue_roof",
+        "pbrMetallicRoughness": {
+          "baseColorFactor": [
+            0.05126945674419403,
+            0.10461648553609848,
+            0.1384316086769104,
+            1
+          ],
+          "metallicFactor": 0.11999999731779099,
+          "roughnessFactor": 0.6499999761581421
+        }
+      },
+      {
+        "name": "parade_muted_plum_render",
+        "pbrMetallicRoughness": {
+          "baseColorFactor": [
+            0.21952620148658752,
+            0.18447498977184296,
+            0.2015562504529953,
+            1
+          ],
+          "metallicFactor": 0,
+          "roughnessFactor": 0.699999988079071
+        }
+      },
+      {
+        "name": "north_deep_plum_relief",
+        "pbrMetallicRoughness": {
+          "baseColorFactor": [
+            0.16202937066555023,
+            0.11953842639923096,
+            0.15896083414554596,
+            1
+          ],
+          "metallicFactor": 0,
+          "roughnessFactor": 0.699999988079071
+        }
+      },
+      {
+        "name": "north_cyan_inlay",
+        "pbrMetallicRoughness": {
+          "baseColorFactor": [
+            0.11697066575288773,
+            0.41788506507873535,
+            0.4910208582878113,
+            1
+          ],
+          "metallicFactor": 0.15000000596046448,
+          "roughnessFactor": 0.5
+        }
+      },
+      {
+        "name": "north_magenta_inlay",
+        "pbrMetallicRoughness": {
+          "baseColorFactor": [
+            0.46207699179649353,
+            0.12213877588510513,
+            0.2746773064136505,
+            1
+          ],
+          "metallicFactor": 0.15000000596046448,
+          "roughnessFactor": 0.5
+        }
+      }
+    ],
+    "reexport_byte_identical": true,
+    "glb_bytes": 57864,
+    "glb_sha256": "e3b879b606952b3056d18fa068295aa3804fe9f086efe169f11273ba8d5d9b71",
+    "status": "PASS source/raw GLB/reexport; engine and downstream gates recorded separately"
+  },
+  "engine": {
+    "active_collision_shapes": 2,
+    "capsule_queries": [
+      {
+        "point": "(0.0, 0.9, -30.56)",
+        "solid": false
+      },
+      {
+        "point": "(0.0, 0.9, -30.4)",
+        "solid": true
+      },
+      {
+        "point": "(0.0, 0.9, -35.0)",
+        "solid": false
+      },
+      {
+        "point": "(-9.4, 0.9, -30.5)",
+        "solid": false
+      },
+      {
+        "point": "(9.4, 0.9, -30.5)",
+        "solid": false
+      }
+    ],
+    "capsule_stop_z": -30.53125,
+    "component_bounds_min": [
+      -8.69999980926514,
+      0.0,
+      -0.180000007152557
+    ],
+    "component_bounds_size": [
+      17.3999996185303,
+      4.80000019073486,
+      0.180000007152557
+    ],
+    "engine": "4.8-dev7 (official)",
+    "failures": [],
+    "model_instances": [
+      {
+        "matrix_godot": [
+          [
+            1.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            1.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            1.0,
+            0.0
+          ],
+          [
+            0,
+            0,
+            0,
+            1
+          ]
+        ],
+        "model": "res://art/models/environment/d06_southern_shopping_parade_01/d06_southern_shopping_parade_01.glb",
+        "path": "Parade/Shell/Visuals/Model"
+      },
+      {
+        "matrix_godot": [
+          [
+            0.0,
+            0.0,
+            1.0,
+            -9.0
+          ],
+          [
+            0.0,
+            1.0,
+            0.0,
+            0.0
+          ],
+          [
+            -1.0,
+            0.0,
+            0.0,
+            -26.9500007629395
+          ],
+          [
+            0,
+            0,
+            0,
+            1
+          ]
+        ],
+        "model": "res://art/models/environment/city_shop_fittings_03/city_shop_fittings_03_single.glb",
+        "path": "Parade/WestBays/WestBay01/Entrance/Visuals/Model"
+      },
+      {
+        "matrix_godot": [
+          [
+            0.0,
+            0.0,
+            1.0,
+            -9.0
+          ],
+          [
+            0.0,
+            1.0,
+            0.0,
+            0.0
+          ],
+          [
+            -1.0,
+            0.0,
+            0.0,
+            -26.9500007629395
+          ],
+          [
+            0,
+            0,
+            0,
+            1
+          ]
+        ],
+        "model": "res://art/models/environment/city_shop_fittings_06/city_shop_fittings_06_single.glb",
+        "path": "Parade/WestBays/WestBay01/Door/Visuals/Model"
+      },
+      {
+        "matrix_godot": [
+          [
+            0.0,
+            0.0,
+            1.0,
+            -9.0
+          ],
+          [
+            0.0,
+            1.0,
+            0.0,
+            0.479999989271164
+          ],
+          [
+            -1.0,
+            0.0,
+            0.0,
+            -24.0499992370605
+          ],
+          [
+            0,
+            0,
+            0,
+            1
+          ]
+        ],
+        "model": "res://art/models/environment/city_shop_fittings_05/city_shop_fittings_05.glb",
+        "path": "Parade/WestBays/WestBay01/Window/Visuals/Model"
+      },
+      {
+        "matrix_godot": [
+          [
+            0.0,
+            0.0,
+            1.0,
+            -9.0
+          ],
+          [
+            0.0,
+            1.0,
+            0.0,
+            3.0
+          ],
+          [
+            -1.0,
+            0.0,
+            0.0,
+            -24.0499992370605
+          ],
+          [
+            0,
+            0,
+            0,
+            1
+          ]
+        ],
+        "model": "res://art/models/environment/city_shop_fittings_01/city_shop_fittings_01.glb",
+        "path": "Parade/WestBays/WestBay01/Canopy/Visuals/Model"
+      },
+      {
+        "matrix_godot": [
+          [
+            0.0,
+            0.0,
+            1.0,
+            -9.0
+          ],
+          [
+            0.0,
+            1.0,
+            0.0,
+            3.79999995231628
+          ],
+          [
+            -1.0,
+            0.0,
+            0.0,
+            -24.0499992370605
+          ],
+          [
+            0,
+            0,
+            0,
+            1
+          ]
+        ],
+        "model": "res://art/models/environment/city_shop_fittings_02/city_shop_fittings_02.glb",
+        "path": "Parade/WestBays/WestBay01/Fascia/Visuals/Model"
+      },
+      {
+        "matrix_godot": [
+          [
+            0.0,
+            0.0,
+            1.0,
+            -9.0
+          ],
+          [
+            0.0,
+            1.0,
+            0.0,
+            0.0
+          ],
+          [
+            -1.0,
+            0.0,
+            0.0,
+            -16.9500007629395
+          ],
+          [
+            0,
+            0,
+            0,
+            1
+          ]
+        ],
+        "model": "res://art/models/environment/city_shop_fittings_03/city_shop_fittings_03_single.glb",
+        "path": "Parade/WestBays/WestBay02/Entrance/Visuals/Model"
+      },
+      {
+        "matrix_godot": [
+          [
+            0.0,
+            0.0,
+            1.0,
+            -9.0
+          ],
+          [
+            0.0,
+            1.0,
+            0.0,
+            0.0
+          ],
+          [
+            -1.0,
+            0.0,
+            0.0,
+            -16.9500007629395
+          ],
+          [
+            0,
+            0,
+            0,
+            1
+          ]
+        ],
+        "model": "res://art/models/environment/city_shop_fittings_06/city_shop_fittings_06_single.glb",
+        "path": "Parade/WestBays/WestBay02/Door/Visuals/Model"
+      },
+      {
+        "matrix_godot": [
+          [
+            0.0,
+            0.0,
+            1.0,
+            -9.0
+          ],
+          [
+            0.0,
+            1.0,
+            0.0,
+            0.479999989271164
+          ],
+          [
+            -1.0,
+            0.0,
+            0.0,
+            -14.0500001907349
+          ],
+          [
+            0,
+            0,
+            0,
+            1
+          ]
+        ],
+        "model": "res://art/models/environment/city_shop_fittings_05/city_shop_fittings_05.glb",
+        "path": "Parade/WestBays/WestBay02/Window/Visuals/Model"
+      },
+      {
+        "matrix_godot": [
+          [
+            0.0,
+            0.0,
+            1.0,
+            -9.0
+          ],
+          [
+            0.0,
+            1.0,
+            0.0,
+            3.0
+          ],
+          [
+            -1.0,
+            0.0,
+            0.0,
+            -14.0500001907349
+          ],
+          [
+            0,
+            0,
+            0,
+            1
+          ]
+        ],
+        "model": "res://art/models/environment/city_shop_fittings_01/city_shop_fittings_01.glb",
+        "path": "Parade/WestBays/WestBay02/Canopy/Visuals/Model"
+      },
+      {
+        "matrix_godot": [
+          [
+            0.0,
+            0.0,
+            1.0,
+            -9.0
+          ],
+          [
+            0.0,
+            1.0,
+            0.0,
+            3.79999995231628
+          ],
+          [
+            -1.0,
+            0.0,
+            0.0,
+            -14.0500001907349
+          ],
+          [
+            0,
+            0,
+            0,
+            1
+          ]
+        ],
+        "model": "res://art/models/environment/city_shop_fittings_02/city_shop_fittings_02.glb",
+        "path": "Parade/WestBays/WestBay02/Fascia/Visuals/Model"
+      },
+      {
+        "matrix_godot": [
+          [
+            0.0,
+            0.0,
+            1.0,
+            -9.0
+          ],
+          [
+            0.0,
+            1.0,
+            0.0,
+            0.0
+          ],
+          [
+            -1.0,
+            0.0,
+            0.0,
+            -6.94999980926514
+          ],
+          [
+            0,
+            0,
+            0,
+            1
+          ]
+        ],
+        "model": "res://art/models/environment/city_shop_fittings_03/city_shop_fittings_03_single.glb",
+        "path": "Parade/WestBays/WestBay03/Entrance/Visuals/Model"
+      },
+      {
+        "matrix_godot": [
+          [
+            0.0,
+            0.0,
+            1.0,
+            -9.0
+          ],
+          [
+            0.0,
+            1.0,
+            0.0,
+            0.0
+          ],
+          [
+            -1.0,
+            0.0,
+            0.0,
+            -6.94999980926514
+          ],
+          [
+            0,
+            0,
+            0,
+            1
+          ]
+        ],
+        "model": "res://art/models/environment/city_shop_fittings_06/city_shop_fittings_06_single.glb",
+        "path": "Parade/WestBays/WestBay03/Door/Visuals/Model"
+      },
+      {
+        "matrix_godot": [
+          [
+            0.0,
+            0.0,
+            1.0,
+            -9.0
+          ],
+          [
+            0.0,
+            1.0,
+            0.0,
+            0.479999989271164
+          ],
+          [
+            -1.0,
+            0.0,
+            0.0,
+            -4.05000019073486
+          ],
+          [
+            0,
+            0,
+            0,
+            1
+          ]
+        ],
+        "model": "res://art/models/environment/city_shop_fittings_05/city_shop_fittings_05.glb",
+        "path": "Parade/WestBays/WestBay03/Window/Visuals/Model"
+      },
+      {
+        "matrix_godot": [
+          [
+            0.0,
+            0.0,
+            1.0,
+            -9.0
+          ],
+          [
+            0.0,
+            1.0,
+            0.0,
+            3.0
+          ],
+          [
+            -1.0,
+            0.0,
+            0.0,
+            -4.05000019073486
+          ],
+          [
+            0,
+            0,
+            0,
+            1
+          ]
+        ],
+        "model": "res://art/models/environment/city_shop_fittings_01/city_shop_fittings_01.glb",
+        "path": "Parade/WestBays/WestBay03/Canopy/Visuals/Model"
+      },
+      {
+        "matrix_godot": [
+          [
+            0.0,
+            0.0,
+            1.0,
+            -9.0
+          ],
+          [
+            0.0,
+            1.0,
+            0.0,
+            3.79999995231628
+          ],
+          [
+            -1.0,
+            0.0,
+            0.0,
+            -4.05000019073486
+          ],
+          [
+            0,
+            0,
+            0,
+            1
+          ]
+        ],
+        "model": "res://art/models/environment/city_shop_fittings_02/city_shop_fittings_02.glb",
+        "path": "Parade/WestBays/WestBay03/Fascia/Visuals/Model"
+      },
+      {
+        "matrix_godot": [
+          [
+            0.0,
+            0.0,
+            1.0,
+            -9.0
+          ],
+          [
+            0.0,
+            1.0,
+            0.0,
+            0.0
+          ],
+          [
+            -1.0,
+            0.0,
+            0.0,
+            3.04999995231628
+          ],
+          [
+            0,
+            0,
+            0,
+            1
+          ]
+        ],
+        "model": "res://art/models/environment/city_shop_fittings_03/city_shop_fittings_03_single.glb",
+        "path": "Parade/WestBays/WestBay04/Entrance/Visuals/Model"
+      },
+      {
+        "matrix_godot": [
+          [
+            0.0,
+            0.0,
+            1.0,
+            -9.0
+          ],
+          [
+            0.0,
+            1.0,
+            0.0,
+            0.0
+          ],
+          [
+            -1.0,
+            0.0,
+            0.0,
+            3.04999995231628
+          ],
+          [
+            0,
+            0,
+            0,
+            1
+          ]
+        ],
+        "model": "res://art/models/environment/city_shop_fittings_06/city_shop_fittings_06_single.glb",
+        "path": "Parade/WestBays/WestBay04/Door/Visuals/Model"
+      },
+      {
+        "matrix_godot": [
+          [
+            0.0,
+            0.0,
+            1.0,
+            -9.0
+          ],
+          [
+            0.0,
+            1.0,
+            0.0,
+            0.479999989271164
+          ],
+          [
+            -1.0,
+            0.0,
+            0.0,
+            5.94999980926514
+          ],
+          [
+            0,
+            0,
+            0,
+            1
+          ]
+        ],
+        "model": "res://art/models/environment/city_shop_fittings_05/city_shop_fittings_05.glb",
+        "path": "Parade/WestBays/WestBay04/Window/Visuals/Model"
+      },
+      {
+        "matrix_godot": [
+          [
+            0.0,
+            0.0,
+            1.0,
+            -9.0
+          ],
+          [
+            0.0,
+            1.0,
+            0.0,
+            3.0
+          ],
+          [
+            -1.0,
+            0.0,
+            0.0,
+            5.94999980926514
+          ],
+          [
+            0,
+            0,
+            0,
+            1
+          ]
+        ],
+        "model": "res://art/models/environment/city_shop_fittings_01/city_shop_fittings_01.glb",
+        "path": "Parade/WestBays/WestBay04/Canopy/Visuals/Model"
+      },
+      {
+        "matrix_godot": [
+          [
+            0.0,
+            0.0,
+            1.0,
+            -9.0
+          ],
+          [
+            0.0,
+            1.0,
+            0.0,
+            3.79999995231628
+          ],
+          [
+            -1.0,
+            0.0,
+            0.0,
+            5.94999980926514
+          ],
+          [
+            0,
+            0,
+            0,
+            1
+          ]
+        ],
+        "model": "res://art/models/environment/city_shop_fittings_02/city_shop_fittings_02.glb",
+        "path": "Parade/WestBays/WestBay04/Fascia/Visuals/Model"
+      },
+      {
+        "matrix_godot": [
+          [
+            0.0,
+            0.0,
+            1.0,
+            -9.0
+          ],
+          [
+            0.0,
+            1.0,
+            0.0,
+            0.0
+          ],
+          [
+            -1.0,
+            0.0,
+            0.0,
+            13.0500001907349
+          ],
+          [
+            0,
+            0,
+            0,
+            1
+          ]
+        ],
+        "model": "res://art/models/environment/city_shop_fittings_03/city_shop_fittings_03_single.glb",
+        "path": "Parade/WestBays/WestBay05/Entrance/Visuals/Model"
+      },
+      {
+        "matrix_godot": [
+          [
+            0.0,
+            0.0,
+            1.0,
+            -9.0
+          ],
+          [
+            0.0,
+            1.0,
+            0.0,
+            0.0
+          ],
+          [
+            -1.0,
+            0.0,
+            0.0,
+            13.0500001907349
+          ],
+          [
+            0,
+            0,
+            0,
+            1
+          ]
+        ],
+        "model": "res://art/models/environment/city_shop_fittings_06/city_shop_fittings_06_single.glb",
+        "path": "Parade/WestBays/WestBay05/Door/Visuals/Model"
+      },
+      {
+        "matrix_godot": [
+          [
+            0.0,
+            0.0,
+            1.0,
+            -9.0
+          ],
+          [
+            0.0,
+            1.0,
+            0.0,
+            0.479999989271164
+          ],
+          [
+            -1.0,
+            0.0,
+            0.0,
+            15.9499998092651
+          ],
+          [
+            0,
+            0,
+            0,
+            1
+          ]
+        ],
+        "model": "res://art/models/environment/city_shop_fittings_05/city_shop_fittings_05.glb",
+        "path": "Parade/WestBays/WestBay05/Window/Visuals/Model"
+      },
+      {
+        "matrix_godot": [
+          [
+            0.0,
+            0.0,
+            1.0,
+            -9.0
+          ],
+          [
+            0.0,
+            1.0,
+            0.0,
+            3.0
+          ],
+          [
+            -1.0,
+            0.0,
+            0.0,
+            15.9499998092651
+          ],
+          [
+            0,
+            0,
+            0,
+            1
+          ]
+        ],
+        "model": "res://art/models/environment/city_shop_fittings_01/city_shop_fittings_01.glb",
+        "path": "Parade/WestBays/WestBay05/Canopy/Visuals/Model"
+      },
+      {
+        "matrix_godot": [
+          [
+            0.0,
+            0.0,
+            1.0,
+            -9.0
+          ],
+          [
+            0.0,
+            1.0,
+            0.0,
+            3.79999995231628
+          ],
+          [
+            -1.0,
+            0.0,
+            0.0,
+            15.9499998092651
+          ],
+          [
+            0,
+            0,
+            0,
+            1
+          ]
+        ],
+        "model": "res://art/models/environment/city_shop_fittings_02/city_shop_fittings_02.glb",
+        "path": "Parade/WestBays/WestBay05/Fascia/Visuals/Model"
+      },
+      {
+        "matrix_godot": [
+          [
+            0.0,
+            0.0,
+            1.0,
+            -9.0
+          ],
+          [
+            0.0,
+            1.0,
+            0.0,
+            0.0
+          ],
+          [
+            -1.0,
+            0.0,
+            0.0,
+            23.0499992370605
+          ],
+          [
+            0,
+            0,
+            0,
+            1
+          ]
+        ],
+        "model": "res://art/models/environment/city_shop_fittings_03/city_shop_fittings_03_single.glb",
+        "path": "Parade/WestBays/WestBay06/Entrance/Visuals/Model"
+      },
+      {
+        "matrix_godot": [
+          [
+            0.0,
+            0.0,
+            1.0,
+            -9.0
+          ],
+          [
+            0.0,
+            1.0,
+            0.0,
+            0.0
+          ],
+          [
+            -1.0,
+            0.0,
+            0.0,
+            23.0499992370605
+          ],
+          [
+            0,
+            0,
+            0,
+            1
+          ]
+        ],
+        "model": "res://art/models/environment/city_shop_fittings_06/city_shop_fittings_06_single.glb",
+        "path": "Parade/WestBays/WestBay06/Door/Visuals/Model"
+      },
+      {
+        "matrix_godot": [
+          [
+            0.0,
+            0.0,
+            1.0,
+            -9.0
+          ],
+          [
+            0.0,
+            1.0,
+            0.0,
+            0.479999989271164
+          ],
+          [
+            -1.0,
+            0.0,
+            0.0,
+            25.9500007629395
+          ],
+          [
+            0,
+            0,
+            0,
+            1
+          ]
+        ],
+        "model": "res://art/models/environment/city_shop_fittings_05/city_shop_fittings_05.glb",
+        "path": "Parade/WestBays/WestBay06/Window/Visuals/Model"
+      },
+      {
+        "matrix_godot": [
+          [
+            0.0,
+            0.0,
+            1.0,
+            -9.0
+          ],
+          [
+            0.0,
+            1.0,
+            0.0,
+            3.0
+          ],
+          [
+            -1.0,
+            0.0,
+            0.0,
+            25.9500007629395
+          ],
+          [
+            0,
+            0,
+            0,
+            1
+          ]
+        ],
+        "model": "res://art/models/environment/city_shop_fittings_01/city_shop_fittings_01.glb",
+        "path": "Parade/WestBays/WestBay06/Canopy/Visuals/Model"
+      },
+      {
+        "matrix_godot": [
+          [
+            0.0,
+            0.0,
+            1.0,
+            -9.0
+          ],
+          [
+            0.0,
+            1.0,
+            0.0,
+            3.79999995231628
+          ],
+          [
+            -1.0,
+            0.0,
+            0.0,
+            25.9500007629395
+          ],
+          [
+            0,
+            0,
+            0,
+            1
+          ]
+        ],
+        "model": "res://art/models/environment/city_shop_fittings_02/city_shop_fittings_02.glb",
+        "path": "Parade/WestBays/WestBay06/Fascia/Visuals/Model"
+      },
+      {
+        "matrix_godot": [
+          [
+            1.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            1.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            1.0,
+            -30.0
+          ],
+          [
+            0,
+            0,
+            0,
+            1
+          ]
+        ],
+        "model": "res://art/models/environment/d06_southern_shopping_parade_03/d06_southern_shopping_parade_03.glb",
+        "path": "NorthFacade/Visuals/Model"
+      }
+    ],
+    "north_rays": [
+      {
+        "body": "NorthFacade/Collision/Body",
+        "x": -7.0,
+        "z": -30.1800003051758
+      },
+      {
+        "body": "NorthFacade/Collision/Body",
+        "x": 0.0,
+        "z": -30.1800003051758
+      },
+      {
+        "body": "NorthFacade/Collision/Body",
+        "x": 7.0,
+        "z": -30.1800003051758
+      },
+      {
+        "body": "Parade/Shell/Collision/Body",
+        "x": 8.9,
+        "z": -30.0
+      }
+    ],
+    "ok": true,
+    "reference_bounds_max": [
+      9.03999900817871,
+      5.40000009536743,
+      30.0349998474121
+    ],
+    "reference_bounds_min": [
+      -10.1000003814697,
+      0.0,
+      -30.1800003051758
+    ],
+    "reference_mesh_count": 158,
+    "registered_uids": {
+      "res://art/models/environment/d06_southern_shopping_parade_03/d06_southern_shopping_parade_03.glb": "uid://2e3i68tsb4t3",
+      "res://scenes/prefabs/environment/d06_southern_shopping_parade_03.tscn": "uid://vjfyl4jhgw8c",
+      "res://scenes/prefabs/environment/d06_southern_shopping_parade_03_reference.tscn": "uid://ciucr7qgmuw7l"
+    }
+  },
+  "save_reload": {
+    "engine": "4.8-dev7 (official)",
+    "failures": [],
+    "ok": true,
+    "save_reload_byte_stable": true
+  },
+  "production_checks": {
+    "engine": {
+      "ok": true,
+      "version": "4.8.dev7.official.c971f93e7"
+    },
+    "gut_pin": {
+      "ok": true,
+      "version": "9.7.1"
+    },
+    "owned_scripts": {
+      "ok": true,
+      "returncode": 0
+    },
+    "python_tests": {
+      "ok": true,
+      "returncode": 0
+    },
+    "gut_import": {
+      "ok": true,
+      "returncode": 0
+    },
+    "gut_tests": {
+      "ok": true,
+      "returncode": 0
+    },
+    "gut_negative": {
+      "ok": true,
+      "observed_returncode": 1
+    }
+  },
+  "dependencies": [
+    {
+      "path": "art/source/models/environment/d06_southern_shopping_parade_01/d06_southern_shopping_parade_01.blend",
+      "bytes": 156924,
+      "sha256": "761ca7d793db2bb9d9a11c0fc6bef3f8f2a70557f0f2795033d0c56cb2506ba3"
+    },
+    {
+      "path": "art/models/environment/d06_southern_shopping_parade_01/d06_southern_shopping_parade_01.glb",
+      "bytes": 100740,
+      "sha256": "84467808a65e6d65fb17b833a1c9c728bec74a9e593f7352907bfcda3e0969c7"
+    },
+    {
+      "path": "art/models/environment/d06_southern_shopping_parade_01/d06_southern_shopping_parade_01.glb.import",
+      "bytes": 1314,
+      "sha256": "e4b585659d9569cc41b80c48803fba241875dc4b1dba1c03df53c8e9a7720f84"
+    },
+    {
+      "path": "scenes/prefabs/environment/d06_southern_shopping_parade_01.tscn",
+      "bytes": 924,
+      "sha256": "3e94d65b8abb6925f1ca6d091612627e5e8d783531f801dcad0aec6d97825325"
+    },
+    {
+      "path": "art/source/models/environment/city_shop_fittings_01/city_shop_fittings_01.blend",
+      "bytes": 122025,
+      "sha256": "db572713536c2e73dd0b4f3dcc8a8275c62d218f1d6515b80061b0c4f0ed73bd"
+    },
+    {
+      "path": "art/models/environment/city_shop_fittings_01/city_shop_fittings_01.glb",
+      "bytes": 25620,
+      "sha256": "80fb54cbcf4667f9da4b417b5a2a2ebf5db0cf2641520ab9c78de3ed5a38de69"
+    },
+    {
+      "path": "art/models/environment/city_shop_fittings_01/city_shop_fittings_01.glb.import",
+      "bytes": 1275,
+      "sha256": "c477891e553386770ac3d13fd82a6630c2b6d0dee540c84348fa9810a129a59d"
+    },
+    {
+      "path": "scenes/prefabs/environment/city_shop_fittings_01.tscn",
+      "bytes": 435,
+      "sha256": "0ea42e1eb851a6c10658bb8ab65243a2d6e7d985860131a0ea1653820bcb26fa"
+    },
+    {
+      "path": "art/source/models/environment/city_shop_fittings_02/city_shop_fittings_02.blend",
+      "bytes": 116378,
+      "sha256": "44b3165d4d6d9cf4b0f3ef577e0c70fc80dae72726b04ebbe53272581e4454db"
+    },
+    {
+      "path": "art/models/environment/city_shop_fittings_02/city_shop_fittings_02.glb",
+      "bytes": 45616,
+      "sha256": "4fd2106f09ef4a35edafbcf3a3a68ea94983e721fd84d852a406e2d26de6552f"
+    },
+    {
+      "path": "art/models/environment/city_shop_fittings_02/city_shop_fittings_02.glb.import",
+      "bytes": 1275,
+      "sha256": "7f9b932ce569523280a8a300efc1b5948ab508d686f15beec209669122357ef3"
+    },
+    {
+      "path": "scenes/prefabs/environment/city_shop_fittings_02.tscn",
+      "bytes": 433,
+      "sha256": "926b2695667c997f9fc22223be80e7a342bf8633e28b0f21aa36496beef6a599"
+    },
+    {
+      "path": "art/source/models/environment/city_shop_fittings_03/city_shop_fittings_03.blend",
+      "bytes": 141027,
+      "sha256": "4192fd80abafb270afe64e92b1fbbf897649ca3302aa696e3f45a7e1c4d954d6"
+    },
+    {
+      "path": "art/models/environment/city_shop_fittings_03/city_shop_fittings_03_single.glb",
+      "bytes": 41872,
+      "sha256": "29af0c8b3652b7b400598c75f6f99329cb21e510452547e2e28f3c1115d215b9"
+    },
+    {
+      "path": "art/models/environment/city_shop_fittings_03/city_shop_fittings_03_single.glb.import",
+      "bytes": 1296,
+      "sha256": "1c5437c685e3ace325083a40d042b2d8c3a7b82d1f785b41e99953ff7629b7bd"
+    },
+    {
+      "path": "scenes/prefabs/environment/city_shop_fittings_03_single.tscn",
+      "bytes": 449,
+      "sha256": "7e799e1fca6533508f96c6b6ceb7e4c7b9a74cd6f4045acac8c52fd73f92a8ca"
+    },
+    {
+      "path": "art/source/models/environment/city_shop_fittings_05/city_shop_fittings_05.blend",
+      "bytes": 118153,
+      "sha256": "e9d5aa510aafb55fa4edf69928ff566599c1e0eb4ea6defadc68f58ba55e52fd"
+    },
+    {
+      "path": "art/models/environment/city_shop_fittings_05/city_shop_fittings_05.glb",
+      "bytes": 29560,
+      "sha256": "a641d067621301435f5a725803290f74dc7c235bac8bdc5d24c1d2170776faed"
+    },
+    {
+      "path": "art/models/environment/city_shop_fittings_05/city_shop_fittings_05.glb.import",
+      "bytes": 1274,
+      "sha256": "2407ccf1aec7d05e8a4a003c84cddb2f7bd0719a72ed82cae9c8a0ab130df694"
+    },
+    {
+      "path": "scenes/prefabs/environment/city_shop_fittings_05.tscn",
+      "bytes": 1183,
+      "sha256": "3a7a285cdf8c05246383126289063da9e428ec33458cf7e13a778bc8dfcf7915"
+    },
+    {
+      "path": "art/source/models/environment/city_shop_fittings_06/city_shop_fittings_06.blend",
+      "bytes": 146546,
+      "sha256": "40122b4ab26a6a348fc914e936421e75453a33f77cee88c16bd86df2a87e4fe7"
+    },
+    {
+      "path": "art/models/environment/city_shop_fittings_06/city_shop_fittings_06_single.glb",
+      "bytes": 38928,
+      "sha256": "37e9ce1667105cc66120edf4d114b3a4228972000ac89c14ed1a2608e9b309c6"
+    },
+    {
+      "path": "art/models/environment/city_shop_fittings_06/city_shop_fittings_06_single.glb.import",
+      "bytes": 1296,
+      "sha256": "407187c18017c08bc5c3f6243a2193b001247384cd5291bd38232dc70919f37a"
+    },
+    {
+      "path": "scenes/prefabs/environment/city_shop_fittings_06_single.tscn",
+      "bytes": 909,
+      "sha256": "91d603d75387ee22bac343b3b2a398fbc947a839e5bd58337f410d449d8fee7c"
+    },
+    {
+      "path": "scenes/prefabs/environment/d06_southern_shopping_parade_02.tscn",
+      "bytes": 1476,
+      "sha256": "63d45c545d5d7797ca5126f053087152a6ea76648473ad22e89185fcb83719fa"
+    },
+    {
+      "path": "scenes/prefabs/environment/d06_southern_shopping_parade_02_bay.tscn",
+      "bytes": 2026,
+      "sha256": "60f1ba3b1b273baf7f32a9ade44038950b98e4bd5050fae1ac094d4ed4d10ad4"
+    }
+  ],
+  "visual_self_review": {
+    "images": [
+      "hero.png",
+      "side.png",
+      "relief_detail.png",
+      "overhead_47m_42deg.png"
+    ],
+    "renderer": "Blender Cycles CPU, 24 samples, AgX, 1280x800",
+    "camera": "Vertical down, north-up at Blender (0,38,47), vertical FOV 42 degrees",
+    "observed": "Plum end relief and quiet blue brow preserve one building. Grouped cyan/magenta inlays add restrained corner rhythm; north forecourt stays empty. Only a thin facade band reads overhead; it carries no essential wayfinding. North-corner black stripe removed by separately approved .01 2 mm cap recess.",
+    "limits": "Isolated Blender self-review, not native engine or gameplay acceptance"
+  },
+  "collision": "One 17.4x4.8x0.18 m box at (0,2.4,-0.09); shell retains main collision. Box intentionally bridges shallow relief gaps to prevent snags/clipping.",
+  "reference_totals": {
+    "triangles": 58440,
+    "source_vertices": 29540,
+    "export_vertices": 31632,
+    "mesh_instances": 158,
+    "surfaces": 172
+  },
+  "family_repair_commit": "dd66d23",
+  "pending": [
+    "independent review",
+    "final proportions and parcel selection",
+    "tenant graphics",
+    "native camera/gameplay",
+    "road-tool and bridge fit",
+    "world identity placement",
+    "actual player/vehicle/aim and multiplayer",
+    "packaged/device/performance"
+  ]
+}

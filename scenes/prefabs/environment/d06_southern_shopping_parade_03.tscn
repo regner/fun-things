@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://vjfyl4jhgw8c"]
+
+[ext_resource type="PackedScene" uid="uid://2e3i68tsb4t3" path="res://art/models/environment/d06_southern_shopping_parade_03/d06_southern_shopping_parade_03.glb" id="1"]
+
+[sub_resource type="BoxShape3D" id="Box_relief"]
+size = Vector3(17.4, 4.8, 0.18)
+
+[node name="D06SouthernShoppingParade03" type="Node3D" unique_id=2114637137]
+
+[node name="Visuals" type="Node3D" parent="." unique_id=941386013]
+
+[node name="Model" type="Node3D" parent="Visuals" unique_id=744321120 instance=ExtResource("1")]
+
+[node name="Collision" type="Node3D" parent="." unique_id=2125509357]
+
+[node name="Body" type="StaticBody3D" parent="Collision" unique_id=1295539081]
+collision_mask = 0
+
+[node name="ReliefEnvelope" type="CollisionShape3D" parent="Collision/Body" unique_id=759638638]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.4, -0.09)
+shape = SubResource("Box_relief")
