@@ -25,8 +25,9 @@ recommendations and do not block P1.
 
 ### M1-A — Session and player
 
-- [ ] **M1-A1 — Build the session service and menu flow.** A1.1 Boot/session is done; A1.2
-  adds ENet host/join. Carry the S06 whole-UI direction into authored menus.
+- [ ] **M1-A1 — Build the session service and menu flow.** A1.1 Boot/session and A1.2 ENet
+  host/join (pre-RPC SceneMultiplayer authentication, bounded cleanup, real-process matrix) are
+  done. Remaining: carry the S06 whole-UI direction into the authored menus.
 - [ ] **M1-A2 — Implement player simulation, presentation and replication.** A2.1 (the shared
   `FootCommand` and production `ActorMotion` on the Coral Courier player) is done. Use decision 19's
   ordered, distance-bounded held-input queue and decision 20's tunable short
@@ -118,7 +119,8 @@ intersections. The world integrator owns CityData and road revisions.
   from the first simulation rows and tracking the soft ~4 ms total host p95 at tunable
   full-population settings as each simulation row lands and at every checkpoint, with subsystem
   timings as reports only. Final D3 is the integrated acceptance. Include S05 final-body
-  chain evidence. Target capped 60 FPS with p95 ≤16.7 ms and p99 ≤20 ms on named desktop hardware
+  chain evidence. Record A1.2's residual: the pinned engine has no configurable native ENet
+  receive/reassembly ceiling (see the API contract), so revisit it before any public release. Target capped 60 FPS with p95 ≤16.7 ms and p99 ≤20 ms on named desktop hardware
   across the whole island. Final gate after: M1-D1, M1-D2, M1-B4, M1-C3, M1-C4.
 - [ ] **M1-D5 — Add the settings screen and settings persistence.** Audio volumes/mutes first;
   validate defaults, corrupt-file recovery and live preview. Device settings never mutate shared
