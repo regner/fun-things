@@ -7,10 +7,13 @@ const ENET_PROVIDER_ID: StringName = &"enet"
 const SMOKE_ARGUMENT: String = "--m1-a1-1-smoke"
 const EXPORT_SMOKE_ARGUMENT: String = "--s08-x-export-smoke"
 const EXPORT_SMOKE_FRAMES: int = 30
+const MATCH_SCENE: PackedScene = preload("res://scenes/match/match.tscn")
+const PLAYER_SCENE: PackedScene = preload("res://scenes/entities/player.tscn")
 
 var _smoke_failures: Array[String] = []
 var _last_join_address: String = ""
 var _last_join_port: int = 0
+var _match: Node3D
 
 @onready var _session: SessionService = $Session
 @onready var _enet_transport: ENetTransport = $Session/ENetTransport
@@ -26,6 +29,7 @@ func _ready() -> void:
 
 	_session.changed.connect(_on_session_changed)
 	_session.completed.connect(_on_session_completed)
+	_session.standalone_started.connect(_on_standalone_started)
 	_main_menu.standalone_requested.connect(_on_standalone_requested)
 	_main_menu.host_requested.connect(_on_host_requested)
 	_main_menu.join_requested.connect(_on_join_requested)
@@ -79,6 +83,7 @@ func _on_status_primary_requested() -> void:
 	var phase: StringName = current.phase
 	var result: Dictionary
 	if phase == SessionService.PHASE_ACTIVE:
+		_teardown_match()
 		result = _session.leave()
 	elif phase == SessionService.PHASE_IDLE and not _last_join_address.is_empty():
 		var parsed: Dictionary = _enet_transport.parse_endpoint(
@@ -100,11 +105,69 @@ func _on_status_back_requested() -> void:
 		_main_menu.show_main()
 
 
+## Creates the saved standalone match, local actor, and one process-local rig binding.
+func _on_standalone_started(_operation_id: int, district_id: StringName) -> void:
+	if district_id != DISTRICT_ID or is_instance_valid(_match):
+		return
+
+	var match: Node3D = MATCH_SCENE.instantiate() as Node3D
+	var actor: ActorMotion = PLAYER_SCENE.instantiate() as ActorMotion
+	var runtime_entities: Node3D = match.get_node("RuntimeEntities") as Node3D
+	var spawn: Marker3D = match.get_node("Anchors/PlayerSpawns/Spawn01") as Marker3D
+	var rig: LocalRig = match.get_node("LocalRig") as LocalRig
+	actor.name = "LocalPlayer"
+	# Both saved containers are identity transforms under Match; retain the authored spawn pose.
+	actor.transform = spawn.transform
+	runtime_entities.add_child(actor)
+	$View.add_child(match)
+	_match = match
+	rig.leave_requested.connect(_on_local_match_leave_requested)
+	if not rig.bind_actor(actor):
+		push_error("Standalone LocalRig could not bind its saved local player")
+		_teardown_match()
+		_session.leave()
+		return
+
+	_main_menu.visible = false
+	_session_status.visible = false
+
+
+## Closes local input and asks the process session owner to leave standalone play.
+func _on_local_match_leave_requested() -> void:
+	if _session.view().phase != SessionService.PHASE_ACTIVE:
+		return
+
+	_teardown_match()
+	_handle_acceptance(_session.leave())
+
+
+## Removes match-owned actors and rig state before returning to process-lifetime menus.
+func _teardown_match() -> void:
+	if not is_instance_valid(_match):
+		_match = null
+		return
+
+	var rig: LocalRig = _match.get_node_or_null("LocalRig") as LocalRig
+	if rig != null:
+		rig.unbind_actor()
+	_match.queue_free()
+	_match = null
+
+
 ## Applies immutable session views to the authored menu and status scenes.
 func _on_session_changed(current: Dictionary) -> void:
 	_session_status.present(current)
 	var phase: StringName = current.phase
-	_main_menu.visible = phase == SessionService.PHASE_IDLE and current.failure.is_empty()
+	if phase != SessionService.PHASE_ACTIVE:
+		_teardown_match()
+
+	var playing_standalone: bool = phase == SessionService.PHASE_ACTIVE and (
+		is_instance_valid(_match)
+	)
+	_main_menu.visible = (
+		phase == SessionService.PHASE_IDLE and current.failure.is_empty()
+	)
+	_session_status.visible = _session_status.visible and not playing_standalone
 	if phase == SessionService.PHASE_IDLE and current.failure.is_empty():
 		_main_menu.show_main()
 

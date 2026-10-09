@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://cc8n7b2fmn7hp" path="res://scripts/world/city_data.gd" id="1_city_data"]
 [ext_resource type="Script" uid="uid://e4ilfnx7pn56" path="res://scripts/world/world_anchor.gd" id="2_anchor"]
 [ext_resource type="PackedScene" uid="uid://c6ogmv4d7i8yn" path="res://scenes/world/brackett_greybox/city.tscn" id="3_city"]
+[ext_resource type="PackedScene" uid="uid://bk8hhplahsqnk" path="res://scenes/local/local_rig.tscn" id="4_local_rig"]
 
 [node name="Match" type="Node3D"]
 metadata/world_scope = "whole Brackett island greybox"
@@ -68,3 +69,9 @@ transform = Transform3D(0, 0, 1, 0, 1, 0, -1, 0, 0, -92, 0.05, -10)
 script = ExtResource("2_anchor")
 world_id = &"brackett/district_06/parked_car_crate_01"
 anchor_kind = &"PARKED_CAR"
+
+[node name="RuntimeEntities" type="Node3D" parent="."]
+
+[node name="RuntimeEffects" type="Node3D" parent="."]
+
+[node name="LocalRig" parent="." instance=ExtResource("4_local_rig")]

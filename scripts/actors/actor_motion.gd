@@ -8,10 +8,20 @@ enum StepMode {
 }
 
 const SPEED_MPS: float = 5.0
+const GRAVITY_MPS_SQUARED: float = 9.8
+const FLOOR_SNAP_LENGTH_M: float = 0.25
+const FLOOR_MAX_ANGLE_DEGREES: float = 45.0
 
 @onready var _presentation: PlayerMotionPresentation = get_node_or_null(
 	"PresentationAnchor"
 ) as PlayerMotionPresentation
+
+
+## Configures the shared grounded-body slope and downward-following contract.
+func _ready() -> void:
+	motion_mode = CharacterBody3D.MOTION_MODE_GROUNDED
+	floor_snap_length = FLOOR_SNAP_LENGTH_M
+	floor_max_angle = deg_to_rad(FLOOR_MAX_ANGLE_DEGREES)
 
 
 ## Applies one command only when its delta matches the active fixed physics step.
@@ -27,7 +37,9 @@ func step(command: FootCommand, delta_seconds: float, mode: StepMode) -> bool:
 		neutralize()
 		return false
 
-	velocity = Vector3(command.move.x, 0.0, command.move.y) * SPEED_MPS
+	velocity.x = command.move.x * SPEED_MPS
+	velocity.z = command.move.y * SPEED_MPS
+	velocity.y = 0.0 if is_on_floor() else velocity.y - GRAVITY_MPS_SQUARED * delta_seconds
 	rotation.y = command.aim_yaw
 	move_and_slide()
 	_update_presentation()
