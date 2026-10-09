@@ -220,7 +220,7 @@ def library(kind):
     source=CANON.parent/('shared_humanoid_'+kind+'_motion_v1.blend')
     output=ROOT/'art/models/characters/shared_humanoid'/('shared_humanoid_'+kind+'_motion_v1.glb')
     bpy.ops.wm.save_as_mainfile(filepath=str(source))
-    settings=json.loads((ROOT/'tools/assets/export_settings.json').read_text())
+    settings=json.loads((ROOT/'tools/assets/blender/export_settings.json').read_text())
     settings.update(collection=col.name,filepath=str(output),export_animations=True)
     bpy.ops.export_scene.gltf(**settings)
     manifest={'contract':'shared_humanoid/1.0.0','library':kind,'source':str(source.relative_to(ROOT)),

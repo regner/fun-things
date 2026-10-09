@@ -59,7 +59,7 @@ Full exported PBR values and actual material order are in validation.json.
 Godot material remapping and any light nodes remain lead-owned.
 
 Blender **5.2.2 LTS**, build `d13f752e3b9c`; glTF exporter **5.2.40**.
-Explicit shared `tools/s01/export_settings.json` options are loaded by the owned
+Explicit shared `tools/assets/blender/export_settings.json` options are loaded by the owned
 export script: collection filter, GLB, Y-up, normals/UVs, no cameras/lights,
 no animations/skins/morphs. Static modifiers are applied before saving; glTF
 triangulates mesh faces. All geometry is editable in the saved .blend; the

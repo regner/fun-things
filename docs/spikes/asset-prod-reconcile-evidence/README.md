@@ -20,10 +20,16 @@ and Python 3.14 in the `lane/asset-prod-reconcile` worktree.
   `initial-verifier-failures.log`. They now validate unchanged reviewed resources by hash
   and intentionally migrated fixture scenes by their preserved saved UIDs.
 - `python tools/production_checks.py --output
-  C:/tmp/ft/lanes/asset-prod-reconcile/production-checks-final` passed all canonical
+  C:/tmp/ft/lanes/asset-prod-reconcile/production-checks-followup` passed all canonical
   checks, including owned-script format/style/compilation, Python tests, headless import,
   positive GUT, and the required negative GUT control. See
   `production-checks-summary.json`.
+- The documented `city_lights_01` Blender 5.2.2 reexport loaded the production shared
+  contract from `tools/assets/blender/export_settings.json`, exited 0, and reproduced both
+  committed GLBs byte-for-byte. See `city-lights-01-reexport.log`.
+- A `tools/**` prototype-reference audit found no production dependency. Its only remaining
+  matches are the deliberate `prototypes/` exclusion in `s08_x/inspect_exports.py` and
+  prototype-path rejection vectors in `test_s08_x.py`.
 
 The logs prove saved fixture and bounded desktop behavior only. They do not accept world
 placement, device readability, packaged performance, or multiplayer transport/prediction.

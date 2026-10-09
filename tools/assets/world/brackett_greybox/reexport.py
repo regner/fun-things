@@ -19,7 +19,7 @@ def main():
     destination = Path(sys.argv[sys.argv.index('--')+1]).resolve()
     destination.mkdir(parents=True, exist_ok=True)
     sources = ROOT/'art/source/models/brackett_greybox/source_manifest.json'
-    settings = json.loads((ROOT/'tools/assets/export_settings.json').read_text())
+    settings = json.loads((ROOT/'tools/assets/blender/export_settings.json').read_text())
     settings['export_animations'] = False
     fingerprints = []
     for entry in json.loads(sources.read_text()):

@@ -239,7 +239,7 @@ def build(spec):
         'car_latch_a':'Latch compact','car_crate_a':'Crate hatch','car_sable_a':'Sable sedan'
     }[asset]+'; completed concept images remain in commit 80d0f24'
     bpy.ops.wm.save_as_mainfile(filepath=str(source))
-    settings=json.loads((ROOT/'tools/assets/export_settings.json').read_text())
+    settings=json.loads((ROOT/'tools/assets/blender/export_settings.json').read_text())
     settings.update(export_animations=False,export_skins=False,collection=col.name,
         filepath=str(output))
     bpy.ops.export_scene.gltf(**settings)

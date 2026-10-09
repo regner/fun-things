@@ -12,7 +12,7 @@ OUT.mkdir(parents=True, exist_ok=True)
 assert bpy.app.version_string == '5.2.2 LTS'
 assert Path(bpy.data.filepath).name == 'smg_wedgewire_a.blend'
 assert bpy.context.scene.unit_settings.scale_length == 1
-settings = json.loads((ROOT / 'tools/assets/export_settings.json').read_text())
+settings = json.loads((ROOT / 'tools/assets/blender/export_settings.json').read_text())
 settings.update(export_animations=False, export_skins=False)
 rows = {}
 for name in ['smg_wedgewire_a']:

@@ -39,7 +39,7 @@ for record_path in sorted((ROOT/'docs/assets/vehicle_car_evidence').glob('car_*_
         bpy.ops.object.modifier_apply(modifier=mod.name)
     scene['panel_depth_revision']=True
     bpy.ops.wm.save_as_mainfile(filepath=str(ROOT/record['source']))
-    settings=json.loads((ROOT/'tools/assets/export_settings.json').read_text())
+    settings=json.loads((ROOT/'tools/assets/blender/export_settings.json').read_text())
     settings.update(export_animations=False,export_skins=False,collection=col.name,
         filepath=str(ROOT/record['export']))
     bpy.ops.export_scene.gltf(**settings)

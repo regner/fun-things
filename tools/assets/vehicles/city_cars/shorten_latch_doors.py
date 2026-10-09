@@ -103,7 +103,7 @@ for name in evidence:
     bpy.ops.object.modifier_apply(modifier=mod.name)
 bpy.context.scene['latch_short_door_revision'] = 1
 bpy.ops.wm.save_as_mainfile(filepath=str(source))
-settings = json.loads((ROOT / 'tools/assets/export_settings.json').read_text())
+settings = json.loads((ROOT / 'tools/assets/blender/export_settings.json').read_text())
 settings.update(export_animations=False, export_skins=False, collection=col.name,
                 filepath=str(ROOT / record['export']))
 bpy.ops.export_scene.gltf(**settings)

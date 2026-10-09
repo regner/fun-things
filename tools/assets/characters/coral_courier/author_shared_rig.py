@@ -142,7 +142,7 @@ def main():
     SOURCE.parent.mkdir(parents=True,exist_ok=True)
     OUTPUT.parent.mkdir(parents=True,exist_ok=True)
     bpy.ops.wm.save_as_mainfile(filepath=str(SOURCE))
-    settings=json.loads((ROOT/'tools/assets/export_settings.json').read_text())
+    settings=json.loads((ROOT/'tools/assets/blender/export_settings.json').read_text())
     settings.update(collection=COLLECTION,export_animations=False,filepath=str(OUTPUT))
     bpy.ops.export_scene.gltf(**settings)
     manifest={'contract':'shared_humanoid/1.0.0','source':str(SOURCE.relative_to(ROOT)),

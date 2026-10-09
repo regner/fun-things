@@ -19,7 +19,7 @@ def export_all(destination=None):
         raise RuntimeError("Worker source path mismatch")
     destination = Path(destination or ROOT / "art/models/characters/pedestrian_worker")
     destination.mkdir(parents=True, exist_ok=True)
-    settings = json.loads((ROOT / "tools/assets/export_settings.json").read_text())
+    settings = json.loads((ROOT / "tools/assets/blender/export_settings.json").read_text())
     settings["export_animations"] = False
     settings["export_vertex_color"] = "NAME"
     settings["export_vertex_color_name"] = "worker_region"

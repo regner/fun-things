@@ -6,7 +6,7 @@ assert bpy.app.version_string == '5.2.2 LTS', bpy.app.version_string
 import io_scene_gltf2
 print('EXPORTER', io_scene_gltf2.bl_info)
 assert io_scene_gltf2.bl_info['version'] == (5,2,40)
-settings=json.loads((ROOT/'tools/s01/export_settings.json').read_text())
+settings=json.loads((ROOT/'tools/assets/blender/export_settings.json').read_text())
 settings.update(collection='export_city_lights_01',export_animations=False,export_skins=False)
 outdir=Path(sys.argv[sys.argv.index('--')+1]) if '--' in sys.argv else ROOT/'art/models/environment/city_lights_01'
 outdir.mkdir(parents=True,exist_ok=True)

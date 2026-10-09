@@ -1,0 +1,27 @@
+COMMAND: ALSOFT_DRIVERS=null SDL_AUDIODRIVER=dummy timeout 300s "C:/Program Files/Blender Foundation/Blender 5.2/blender.exe" -noaudio --background --factory-startup --threads 2 art/source/models/environment/city_lights_01/city_lights_01.blend --python-exit-code 1 --python tools/asset_production/city_lights_01/export.py -- C:/tmp/ft/lanes/asset-prod-reconcile/city-lights-01-reexport-shared-settings
+EXIT: 0
+
+00:02.047  blend            | Read blend: "C:\GameDev\git\ft-lanes\asset-prod-reconcile\art\source\models\environment\city_lights_01\city_lights_01.blend"
+EXPORTER {'name': 'glTF 2.0 format', 'author': 'Blender Foundation, Khronos Group', 'version': (5, 2, 40), 'blender': (5, 2, 0), 'location': 'File > Import-Export', 'description': 'Import-Export as glTF 2.0', 'warning': '', 'doc_url': '{BLENDER_MANUAL_URL}/addons/import_export/scene_gltf2.html', 'tracker_url': 'https://github.com/KhronosGroup/glTF-Blender-IO/issues/', 'support': 'OFFICIAL', 'category': 'Import-Export'}
+INFO Draco is available, use library at C:\Program Files\Blender Foundation\Blender 5.2\5.2\scripts\addons_core\io_scene_gltf2\bf_intern_draco_bridge.dll
+INFO MeshOptimizer is available, use library at C:\Program Files\Blender Foundation\Blender 5.2\5.2\scripts\addons_core\io_scene_gltf2\bf_intern_meshopt_bridge.dll
+22:01:48 | INFO: Starting glTF 2.0 export
+22:01:48 | INFO: Extracting primitive: Tapered pole
+22:01:48 | INFO: Primitives created: 4
+22:01:48 | INFO: Finished glTF 2.0 export in 0.0781850814819336 s
+
+22:01:48 | INFO: Starting glTF 2.0 export
+22:01:48 | INFO: Extracting primitive: Tapered pole
+22:01:48 | INFO: Primitives created: 4
+22:01:48 | INFO: Finished glTF 2.0 export in 0.011130332946777344 s
+
+Blender 5.2.2 LTS (hash d13f752e3b9c built 2026-09-15 01:37:04)
+
+Blender quit
+
+6b5a0e8939ec6098737fe634a5782e03aca510e6182279479070ec07f67f3cdd *art/models/environment/city_lights_01/city_lights_01_warm.glb
+6b5a0e8939ec6098737fe634a5782e03aca510e6182279479070ec07f67f3cdd */c/tmp/ft/lanes/asset-prod-reconcile/city-lights-01-reexport-shared-settings/city_lights_01_warm.glb
+7b8caef20cdcb7aa29e00389e314364803fd12474a7414a02de7d33526d89966 *art/models/environment/city_lights_01/city_lights_01_cool.glb
+7b8caef20cdcb7aa29e00389e314364803fd12474a7414a02de7d33526d89966 */c/tmp/ft/lanes/asset-prod-reconcile/city-lights-01-reexport-shared-settings/city_lights_01_cool.glb
+WARM_BYTE_IDENTICAL: true
+COOL_BYTE_IDENTICAL: true
