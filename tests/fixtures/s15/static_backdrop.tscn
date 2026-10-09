@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://c34h8wl32rqjw"]
+
+[ext_resource type="PackedScene" uid="uid://c61a1l4vio22q" path="res://tests/fixtures/s06/intersection.tscn" id="1_city"]
+[ext_resource type="Script" uid="uid://bchecyscxaevc" path="res://tests/fixtures/s15/static_backdrop.gd" id="2_script"]
+
+[node name="Backdrop" instance=ExtResource("1_city")]
+script = ExtResource("2_script")
+
+[node name="Ui" parent="." index="7"]
+visible = false
+
+[editable path="City"]

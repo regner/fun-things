@@ -1,0 +1,42 @@
+[gd_scene format=3 uid="uid://im28glgle16x"]
+
+[sub_resource type="Gradient" id="Gradient_trail"]
+offsets = PackedFloat32Array(0, 0.4, 1)
+colors = PackedColorArray(1, 0.62, 0.18, 0.85, 0.5, 0.58, 0.56, 0.45, 0.18, 0.23, 0.24, 0)
+
+[sub_resource type="GradientTexture1D" id="Ramp_trail"]
+gradient = SubResource("Gradient_trail")
+
+[sub_resource type="ParticleProcessMaterial" id="Process_trail"]
+emission_shape = 1
+emission_sphere_radius = 0.18
+direction = Vector3(-1, 0, 0)
+spread = 24.0
+initial_velocity_min = 0.5
+initial_velocity_max = 1.8
+gravity = Vector3(0, 0.5, 0)
+scale_min = 0.3
+scale_max = 0.9
+color_ramp = SubResource("Ramp_trail")
+
+[sub_resource type="StandardMaterial3D" id="Material_trail"]
+transparency = 1
+shading_mode = 0
+vertex_color_use_as_albedo = true
+albedo_color = Color(0.7, 0.78, 0.76, 0.55)
+billboard_mode = 1
+
+[sub_resource type="SphereMesh" id="Mesh_trail"]
+material = SubResource("Material_trail")
+radius = 0.28
+height = 0.56
+radial_segments = 8
+rings = 4
+
+[node name="RocketTrail" type="GPUParticles3D"]
+amount = 32
+lifetime = 0.7
+local_coords = false
+visibility_aabb = AABB(-40, -4, -40, 80, 8, 80)
+process_material = SubResource("Process_trail")
+draw_pass_1 = SubResource("Mesh_trail")

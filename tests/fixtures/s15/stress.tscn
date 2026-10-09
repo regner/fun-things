@@ -1,0 +1,156 @@
+[gd_scene format=3 uid="uid://cnmfult08leg7"]
+
+[ext_resource type="Script" uid="uid://d1hqpa1jy4tgf" path="res://tests/fixtures/s15/stress.gd" id="1_script"]
+[ext_resource type="PackedScene" uid="uid://c34h8wl32rqjw" path="res://tests/fixtures/s15/static_backdrop.tscn" id="2_backdrop"]
+[ext_resource type="PackedScene" uid="uid://bvxoovspntt3s" path="res://tests/fixtures/s15/explosion.tscn" id="3_explosion"]
+[ext_resource type="PackedScene" uid="uid://clxlon3gjycp" path="res://tests/fixtures/s15/shooter.tscn" id="4_shooter"]
+[ext_resource type="PackedScene" uid="uid://1h38llg1ikrm" path="res://tests/fixtures/s15/rocket.tscn" id="5_rocket"]
+
+[node name="S15Stress" type="Node3D"]
+script = ExtResource("1_script")
+
+[node name="Backdrop" parent="." instance=ExtResource("2_backdrop")]
+
+[node name="Effects" type="Node3D" parent="."]
+
+[node name="Explosions" type="Node3D" parent="Effects"]
+
+[node name="Explosion00" parent="Effects/Explosions" instance=ExtResource("3_explosion")]
+position = Vector3(-15, 0.45, -12)
+
+[node name="Explosion01" parent="Effects/Explosions" instance=ExtResource("3_explosion")]
+position = Vector3(-9, 0.45, -12)
+
+[node name="Explosion02" parent="Effects/Explosions" instance=ExtResource("3_explosion")]
+position = Vector3(-3, 0.45, -12)
+
+[node name="Explosion03" parent="Effects/Explosions" instance=ExtResource("3_explosion")]
+position = Vector3(3, 0.45, -12)
+
+[node name="Explosion04" parent="Effects/Explosions" instance=ExtResource("3_explosion")]
+position = Vector3(9, 0.45, -12)
+
+[node name="Explosion05" parent="Effects/Explosions" instance=ExtResource("3_explosion")]
+position = Vector3(15, 0.45, -12)
+
+[node name="Explosion06" parent="Effects/Explosions" instance=ExtResource("3_explosion")]
+position = Vector3(-15, 0.45, -4)
+
+[node name="Explosion07" parent="Effects/Explosions" instance=ExtResource("3_explosion")]
+position = Vector3(-9, 0.45, -4)
+
+[node name="Explosion08" parent="Effects/Explosions" instance=ExtResource("3_explosion")]
+position = Vector3(-3, 0.45, -4)
+
+[node name="Explosion09" parent="Effects/Explosions" instance=ExtResource("3_explosion")]
+position = Vector3(3, 0.45, -4)
+
+[node name="Explosion10" parent="Effects/Explosions" instance=ExtResource("3_explosion")]
+position = Vector3(9, 0.45, -4)
+
+[node name="Explosion11" parent="Effects/Explosions" instance=ExtResource("3_explosion")]
+position = Vector3(15, 0.45, -4)
+
+[node name="Explosion12" parent="Effects/Explosions" instance=ExtResource("3_explosion")]
+position = Vector3(-15, 0.45, 4)
+
+[node name="Explosion13" parent="Effects/Explosions" instance=ExtResource("3_explosion")]
+position = Vector3(-9, 0.45, 4)
+
+[node name="Explosion14" parent="Effects/Explosions" instance=ExtResource("3_explosion")]
+position = Vector3(-3, 0.45, 4)
+
+[node name="Explosion15" parent="Effects/Explosions" instance=ExtResource("3_explosion")]
+position = Vector3(3, 0.45, 4)
+
+[node name="Explosion16" parent="Effects/Explosions" instance=ExtResource("3_explosion")]
+position = Vector3(9, 0.45, 4)
+
+[node name="Explosion17" parent="Effects/Explosions" instance=ExtResource("3_explosion")]
+position = Vector3(15, 0.45, 4)
+
+[node name="Explosion18" parent="Effects/Explosions" instance=ExtResource("3_explosion")]
+position = Vector3(-15, 0.45, 12)
+
+[node name="Explosion19" parent="Effects/Explosions" instance=ExtResource("3_explosion")]
+position = Vector3(-9, 0.45, 12)
+
+[node name="Explosion20" parent="Effects/Explosions" instance=ExtResource("3_explosion")]
+position = Vector3(-3, 0.45, 12)
+
+[node name="Explosion21" parent="Effects/Explosions" instance=ExtResource("3_explosion")]
+position = Vector3(3, 0.45, 12)
+
+[node name="Explosion22" parent="Effects/Explosions" instance=ExtResource("3_explosion")]
+position = Vector3(9, 0.45, 12)
+
+[node name="Explosion23" parent="Effects/Explosions" instance=ExtResource("3_explosion")]
+position = Vector3(15, 0.45, 12)
+
+[node name="Shooters" type="Node3D" parent="Effects"]
+
+[node name="Shooter0" parent="Effects/Shooters" instance=ExtResource("4_shooter")]
+position = Vector3(-18, 0.7, -10)
+rotation = Vector3(0, 0, 0)
+
+[node name="Shooter1" parent="Effects/Shooters" instance=ExtResource("4_shooter")]
+position = Vector3(-18, 0.7, -3)
+rotation = Vector3(0, 0, 0)
+
+[node name="Shooter2" parent="Effects/Shooters" instance=ExtResource("4_shooter")]
+position = Vector3(-18, 0.7, 4)
+rotation = Vector3(0, 0, 0)
+
+[node name="Shooter3" parent="Effects/Shooters" instance=ExtResource("4_shooter")]
+position = Vector3(-18, 0.7, 11)
+rotation = Vector3(0, 0, 0)
+
+[node name="Rockets" type="Node3D" parent="Effects"]
+
+[node name="Rocket00" parent="Effects/Rockets" instance=ExtResource("5_rocket")]
+position = Vector3(-16, 1.1, -15)
+
+[node name="Rocket01" parent="Effects/Rockets" instance=ExtResource("5_rocket")]
+position = Vector3(-6, 1.1, -15)
+
+[node name="Rocket02" parent="Effects/Rockets" instance=ExtResource("5_rocket")]
+position = Vector3(4, 1.1, -15)
+
+[node name="Rocket03" parent="Effects/Rockets" instance=ExtResource("5_rocket")]
+position = Vector3(14, 1.1, -15)
+
+[node name="Rocket04" parent="Effects/Rockets" instance=ExtResource("5_rocket")]
+position = Vector3(-16, 1.1, -5)
+
+[node name="Rocket05" parent="Effects/Rockets" instance=ExtResource("5_rocket")]
+position = Vector3(-6, 1.1, -5)
+
+[node name="Rocket06" parent="Effects/Rockets" instance=ExtResource("5_rocket")]
+position = Vector3(4, 1.1, -5)
+
+[node name="Rocket07" parent="Effects/Rockets" instance=ExtResource("5_rocket")]
+position = Vector3(14, 1.1, -5)
+
+[node name="Rocket08" parent="Effects/Rockets" instance=ExtResource("5_rocket")]
+position = Vector3(-16, 1.1, 5)
+
+[node name="Rocket09" parent="Effects/Rockets" instance=ExtResource("5_rocket")]
+position = Vector3(-6, 1.1, 5)
+
+[node name="Rocket10" parent="Effects/Rockets" instance=ExtResource("5_rocket")]
+position = Vector3(4, 1.1, 5)
+
+[node name="Rocket11" parent="Effects/Rockets" instance=ExtResource("5_rocket")]
+position = Vector3(14, 1.1, 5)
+
+[node name="Rocket12" parent="Effects/Rockets" instance=ExtResource("5_rocket")]
+position = Vector3(-16, 1.1, 15)
+
+[node name="Rocket13" parent="Effects/Rockets" instance=ExtResource("5_rocket")]
+position = Vector3(-6, 1.1, 15)
+
+[node name="Rocket14" parent="Effects/Rockets" instance=ExtResource("5_rocket")]
+position = Vector3(4, 1.1, 15)
+
+[node name="Rocket15" parent="Effects/Rockets" instance=ExtResource("5_rocket")]
+position = Vector3(14, 1.1, 15)

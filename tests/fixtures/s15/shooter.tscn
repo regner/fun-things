@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://clxlon3gjycp"]
+
+[ext_resource type="Script" uid="uid://dy0ycl2whwhcw" path="res://tests/fixtures/s15/shooter.gd" id="1_script"]
+[ext_resource type="PackedScene" uid="uid://0w3qwt73eu0t" path="res://tests/fixtures/s15/muzzle_flash.tscn" id="2_muzzle"]
+[ext_resource type="PackedScene" uid="uid://slq30p7hpedu" path="res://tests/fixtures/s15/tracer.tscn" id="3_tracer"]
+[ext_resource type="PackedScene" uid="uid://cgf5yqu03s2hr" path="res://tests/fixtures/s15/impact_puff.tscn" id="4_impact"]
+
+[node name="Shooter" type="Node3D"]
+script = ExtResource("1_script")
+
+[node name="Muzzle" parent="." instance=ExtResource("2_muzzle")]
+
+[node name="Tracer" parent="." instance=ExtResource("3_tracer")]
+
+[node name="Impact" parent="." instance=ExtResource("4_impact")]
+position = Vector3(14, 0, 0)
