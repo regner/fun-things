@@ -1,0 +1,44 @@
+{
+  "date": "2026-10-09",
+  "scope": "Concept integrity and gallery link check only",
+  "base": "c030d66d7d0a9db19c0c2aebf1aa2b83eded6275",
+  "checks": [
+    "three PNG headers/dimensions/hashes",
+    "all gallery local links resolve",
+    "prompt provenance JSON valid",
+    "concept subtree excluded from Godot import"
+  ],
+  "images": [
+    {
+      "file": "01_switchback.png",
+      "width": 1536,
+      "height": 1024,
+      "bytes": 1969125,
+      "sha256": "5c9d105a29f5881b600c8038f28f491a218550a23be84c8aaf6bc4358a8d6794"
+    },
+    {
+      "file": "02_roundabout.png",
+      "width": 1536,
+      "height": 1024,
+      "bytes": 1785723,
+      "sha256": "0a9fa1494496b74605b55ae0254ad7e44adbf8645824cf2fc47cb1e11de83f4b"
+    },
+    {
+      "file": "03_wedgewire.png",
+      "width": 1536,
+      "height": 1024,
+      "bytes": 1694332,
+      "sha256": "d15139e6b460b704fadea0daa5ee7d24b7de4c323d6414d9d8ea1fc1840cefae"
+    }
+  ],
+  "projection_estimate_px": 18.24,
+  "not_run": [
+    "Godot preview",
+    "Blender authoring/export",
+    "import/UID checks",
+    "saved scene roundtrip",
+    "gameplay/network/device tests",
+    "independent production review"
+  ],
+  "visual_review": "Author inspected each full sheet; limitations documented in README."
+}

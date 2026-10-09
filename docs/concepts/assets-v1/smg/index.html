@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SMG — three concept directions</title>
+<style>
+  :root { color-scheme: dark; font-family: system-ui, sans-serif; }
+  body { margin: 0; background: #091820; color: #e7f1f3; }
+  main { max-width: 1440px; margin: auto; padding: 24px; }
+  h1 { margin-bottom: 8px; }
+  p { line-height: 1.5; max-width: 1000px; }
+  a { color: #72dde3; }
+  nav { display: flex; gap: 20px; flex-wrap: wrap; margin: 24px 0; }
+  article { background: #132a34; border: 1px solid #29434e; border-radius: 12px;
+    padding: 20px; margin: 24px 0; scroll-margin-top: 16px; }
+  article img { display: block; width: 100%; height: auto; border-radius: 6px; }
+  .state { color: #ff9b94; }
+  .tag { display: inline-block; font-size: 0.8rem; color: #091820; background: #72dde3;
+    border-radius: 6px; padding: 5px 8px; vertical-align: middle; }
+  footer { padding: 8px 0 32px; color: #a3b8c2; }
+</style>
+<main>
+  <h1>SMG — three original directions</h1>
+  <p class="state">Regner selection pending · raster concepts · 9 October 2026</p>
+  <p>Compact two-hand props for the smooth, chunky cyberpunk city. Each sheet shows
+    overhead and side/three-quarter views. Click a sheet for its full resolution.</p>
+  <p><strong>Recommendation: C — Wedgewire.</strong> Its broad taper and large coral/cyan
+    roof planes give the clearest forward direction in these sheets. Exact dimensions,
+    hand poses and recognition still require a model checked at the actual camera.</p>
+  <nav aria-label="Concepts"><a href="#a">A — Switchback</a><a href="#b">B — Roundabout</a>
+    <a href="#c">C — Wedgewire</a><a href="README.md">Review notes</a>
+    <a href="handoff.md">Handoff</a><a href="prompts.json">Exact prompts/provenance</a></nav>
+  <article id="a">
+    <h2>A — Switchback</h2>
+    <p>Forked stock and coral receiver. The open gap is its identity, but may close
+      at game scale or overlap the player. Support hand uses the forward underside;
+      stock contacts shoulder during aim.</p>
+    <a href="01_switchback.png"><img src="01_switchback.png" width="1536" height="1024"
+      alt="Switchback concept: chunky coral receiver, petrol forked stock, overhead and side views."></a>
+    <p>Self-review: overhead muzzle is too front-on and stock interpretations differ
+      across views. Resolve in blockout if selected. No holding pose established.</p>
+  </article>
+  <article id="b">
+    <h2>B — Roundabout</h2>
+    <p>Rounded coral drum lobes create the broadest, most comic overhead outline.
+      Support hand must clear the belly; short stock contacts shoulder. Broad mass
+      risks crowding the torso.</p>
+    <a href="02_roundabout.png"><img src="02_roundabout.png" width="1536" height="1024"
+      alt="Roundabout concept: petrol body, broad coral rounded drum sides, cyan roof, side and overhead views."></a>
+    <p>Self-review: the tiny figure is schematic, with no reliable hand/shoulder fit.</p>
+  </article>
+  <article id="c">
+    <h2>C — Wedgewire <span class="tag">Recommended</span></h2>
+    <p>Broad coral shell tapers to a short muzzle; cyan stripe reinforces direction.
+      Support hand cups the front underside and stock contacts shoulder. Needs a
+      held-view check to preserve compact SMG identity.</p>
+    <a href="03_wedgewire.png"><img src="03_wedgewire.png" width="1536" height="1024"
+      alt="Wedgewire concept: tapered coral shell with cyan stripe, stock and box magazine, overhead, side and two-hand aim views."></a>
+    <p>Self-review: most coherent shape/color grouping across views. Pose is a visual
+      proposal; player rig, hand offsets and holding clips remain unselected.</p>
+  </article>
+  <footer>
+    <p>Generated scale studies are illustrative. A provisional 0.8 m length projects
+      to about 18 px at 47 m/42°/1280×800 (assuming 1.3 m weapon height). This is an
+      analytical estimate, not a Godot capture. Unrequested slogans/decorative
+      graphics are unselected. No production/gameplay/network acceptance claimed.</p>
+    <p>Source grip/muzzle sockets and -Z forward/+Y up are retained. No additional
+      effect anchor, embedded VFX or combat rules. Detailed modelling awaits Regner.</p>
+  </footer>
+</main>
+</html>
