@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://c3akome7og3ak"]
+
+[ext_resource type="PackedScene" uid="uid://b77ur6wbgrjg1" path="res://scenes/prefabs/environment/city_marina_docks_01.tscn" id="1_main"]
+[ext_resource type="PackedScene" uid="uid://d3tbrryl0w1ed" path="res://scenes/prefabs/environment/city_marina_docks_02.tscn" id="2_finger"]
+[ext_resource type="Script" uid="uid://jthmfio4c27p" path="res://scripts/actors/actor_motion.gd" id="3_motion"]
+
+[sub_resource type="CapsuleShape3D" id="Capsule_actor"]
+radius = 0.35
+height = 1.8
+
+[node name="FingerPontoonWalkCheck" type="Node3D" unique_id=1355411374]
+
+[node name="Main" parent="." unique_id=1083594192 instance=ExtResource("1_main")]
+
+[node name="Finger" parent="." unique_id=308981194 instance=ExtResource("2_finger")]
+transform = Transform3D(0, 0, -1, 0, 1, 0, 1, 0, 0, 4.5, 0, 0)
+
+[node name="Extension" parent="." unique_id=1988226473 instance=ExtResource("2_finger")]
+transform = Transform3D(0, 0, -1, 0, 1, 0, 1, 0, 0, 10.5, 0, 0)
+
+[node name="Actor" type="CharacterBody3D" parent="." unique_id=1930679682]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.501, 0)
+collision_layer = 2
+script = ExtResource("3_motion")
+
+[node name="Capsule" type="CollisionShape3D" parent="Actor" unique_id=1062722544]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0)
+shape = SubResource("Capsule_actor")

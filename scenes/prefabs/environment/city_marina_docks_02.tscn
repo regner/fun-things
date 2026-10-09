@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://d3tbrryl0w1ed"]
+
+[ext_resource type="PackedScene" uid="uid://kopvc048qkhl" path="res://art/models/environment/city_marina_docks_02/city_marina_docks_02.glb" id="1_model"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_deck"]
+size = Vector3(1.5, 0.16, 6)
+
+[node name="city_marina_docks_02" type="Node3D" unique_id=1837043536]
+
+[node name="Visuals" type="Node3D" parent="." unique_id=172722109]
+
+[node name="Model" parent="Visuals" unique_id=657319974 instance=ExtResource("1_model")]
+
+[node name="Collision" type="Node3D" parent="." unique_id=1321507082]
+
+[node name="Body" type="StaticBody3D" parent="Collision" unique_id=1215568381]
+collision_mask = 0
+
+[node name="Deck" type="CollisionShape3D" parent="Collision/Body" unique_id=1806815662]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.42, 0)
+shape = SubResource("BoxShape3D_deck")
