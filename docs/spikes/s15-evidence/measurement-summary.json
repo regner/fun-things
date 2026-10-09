@@ -1,7 +1,7 @@
 {
   "ok": true,
   "engine": "4.8.dev7.official.c971f93e7",
-  "revision": "513e4e778c1c100429cf96b232244226a653a8da",
+  "revision": "f29bb725abfebbcd88644f59eb2d8a80f3e02edf",
   "dirty_inputs": "",
   "platform": "Windows-11-10.0.26200-SP0",
   "duration_s": 20.0,
@@ -13,7 +13,7 @@
       "--headless",
       "--editor",
       "--path",
-      "C:\\tmp\\ft\\lanes\\s15-vfx\\measurement-02\\project",
+      "C:\\tmp\\ft\\lanes\\s15-vfx\\measurement-04\\project",
       "--import",
       "--quit"
     ],
@@ -25,7 +25,7 @@
       "C:\\Users\\regner.blokandersen\\AppData\\Local\\mise\\installs\\github-godotengine-godot-builds\\4.8-dev7\\godot.exe",
       "--headless",
       "--path",
-      "C:\\tmp\\ft\\lanes\\s15-vfx\\measurement-02\\project",
+      "C:\\tmp\\ft\\lanes\\s15-vfx\\measurement-04\\project",
       "--script",
       "res://tests/fixtures/s15/check.gd"
     ],
@@ -40,60 +40,60 @@
       ],
       "contention": [
         {
-          "godot_processes_before": 9,
+          "godot_processes_before": 3,
           "cpu_before": {
-            "percent": 69.32
+            "percent": 30.03
+          }
+        },
+        {
+          "godot_processes_before": 8,
+          "cpu_before": {
+            "percent": 52.84
           }
         },
         {
           "godot_processes_before": 7,
           "cpu_before": {
-            "percent": 36.23
-          }
-        },
-        {
-          "godot_processes_before": 9,
-          "cpu_before": {
-            "percent": 55.82
+            "percent": 79.71
           }
         }
       ],
       "metrics": {
         "frame_interval_ms_p50": {
-          "median": 16.656,
-          "worst": 16.668
+          "median": 16.647,
+          "worst": 16.681
         },
         "frame_interval_ms_p95": {
-          "median": 18.267,
-          "worst": 18.373
+          "median": 18.3,
+          "worst": 19.042
         },
         "frame_interval_ms_p99": {
-          "median": 463.442,
-          "worst": 470.673
+          "median": 36.863,
+          "worst": 472.251
         },
         "render_cpu_ms_p50": {
-          "median": 0.628000020980835,
-          "worst": 0.745999991893768
+          "median": 0.837999999523163,
+          "worst": 0.970000028610229
         },
         "render_cpu_ms_p95": {
-          "median": 1.08200001716614,
-          "worst": 1.27799999713898
+          "median": 1.33700001239777,
+          "worst": 1.40900003910065
         },
         "render_cpu_ms_p99": {
-          "median": 1.32200002670288,
-          "worst": 1.52900004386902
+          "median": 1.43900001049042,
+          "worst": 1.56599998474121
         },
         "render_gpu_ms_p50": {
-          "median": 0.99099999666214,
-          "worst": 1.24899995326996
+          "median": 1.6710000038147,
+          "worst": 1.89400005340576
         },
         "render_gpu_ms_p95": {
-          "median": 2.48399996757507,
-          "worst": 2.66799998283386
+          "median": 1.87800002098084,
+          "worst": 2.36999988555908
         },
         "render_gpu_ms_p99": {
-          "median": 3.37299990653992,
-          "worst": 5.14900016784668
+          "median": 2.13700008392334,
+          "worst": 2.69700002670288
         },
         "draw_calls_p50": {
           "median": 128.0,
@@ -116,60 +116,60 @@
       ],
       "contention": [
         {
-          "godot_processes_before": 7,
+          "godot_processes_before": 6,
           "cpu_before": {
-            "percent": 45.22
-          }
-        },
-        {
-          "godot_processes_before": 12,
-          "cpu_before": {
-            "percent": 41.19
+            "percent": 41.98
           }
         },
         {
           "godot_processes_before": 7,
           "cpu_before": {
-            "percent": 66.96
+            "percent": 52.91
+          }
+        },
+        {
+          "godot_processes_before": 7,
+          "cpu_before": {
+            "percent": 42.35
           }
         }
       ],
       "metrics": {
         "frame_interval_ms_p50": {
-          "median": 16.623,
-          "worst": 16.635
+          "median": 16.642,
+          "worst": 16.704
         },
         "frame_interval_ms_p95": {
-          "median": 18.523,
-          "worst": 18.602
+          "median": 18.661,
+          "worst": 19.001
         },
         "frame_interval_ms_p99": {
-          "median": 466.138,
-          "worst": 471.531
+          "median": 20.81,
+          "worst": 21.648
         },
         "render_cpu_ms_p50": {
-          "median": 0.66100001335144,
-          "worst": 0.855000019073486
+          "median": 0.830999970436096,
+          "worst": 0.851000010967255
         },
         "render_cpu_ms_p95": {
-          "median": 1.22599995136261,
-          "worst": 1.38300001621246
+          "median": 1.36199998855591,
+          "worst": 1.57500004768372
         },
         "render_cpu_ms_p99": {
-          "median": 1.48599994182587,
-          "worst": 1.59899997711182
+          "median": 1.6139999628067,
+          "worst": 2.03299999237061
         },
         "render_gpu_ms_p50": {
-          "median": 1.53799998760223,
-          "worst": 1.76900005340576
+          "median": 1.51300001144409,
+          "worst": 1.557000041008
         },
         "render_gpu_ms_p95": {
-          "median": 2.28299999237061,
-          "worst": 2.60999989509583
+          "median": 1.78100001811981,
+          "worst": 1.79200005531311
         },
         "render_gpu_ms_p99": {
-          "median": 3.08299994468689,
-          "worst": 3.09100008010864
+          "median": 1.92799997329712,
+          "worst": 2.5460000038147
         },
         "draw_calls_p50": {
           "median": 176.0,
@@ -192,60 +192,60 @@
       ],
       "contention": [
         {
-          "godot_processes_before": 12,
+          "godot_processes_before": 6,
           "cpu_before": {
-            "percent": 58.18
+            "percent": 48.3
           }
         },
         {
-          "godot_processes_before": 13,
+          "godot_processes_before": 3,
           "cpu_before": {
-            "percent": 50.57
+            "percent": 56.55
           }
         },
         {
-          "godot_processes_before": 14,
+          "godot_processes_before": 8,
           "cpu_before": {
-            "percent": 40.83
+            "percent": 51.85
           }
         }
       ],
       "metrics": {
         "frame_interval_ms_p50": {
-          "median": 16.644,
-          "worst": 16.664
+          "median": 16.657,
+          "worst": 16.675
         },
         "frame_interval_ms_p95": {
-          "median": 18.518,
-          "worst": 18.873
+          "median": 18.219,
+          "worst": 19.593
         },
         "frame_interval_ms_p99": {
-          "median": 19.803,
-          "worst": 20.414
+          "median": 19.038,
+          "worst": 22.127
         },
         "render_cpu_ms_p50": {
-          "median": 0.851999998092651,
-          "worst": 0.865000009536743
+          "median": 0.666000008583069,
+          "worst": 0.689000010490417
         },
         "render_cpu_ms_p95": {
-          "median": 1.37399995326996,
-          "worst": 1.45799994468689
+          "median": 1.27999997138977,
+          "worst": 1.39600002765656
         },
         "render_cpu_ms_p99": {
-          "median": 1.59700000286102,
-          "worst": 1.63800001144409
+          "median": 1.51600003242493,
+          "worst": 1.72099995613098
         },
         "render_gpu_ms_p50": {
-          "median": 1.52600002288818,
-          "worst": 1.72000002861023
+          "median": 0.748000025749207,
+          "worst": 0.857999980449677
         },
         "render_gpu_ms_p95": {
-          "median": 2.26600003242493,
-          "worst": 2.2720000743866
+          "median": 1.52400004863739,
+          "worst": 2.01999998092651
         },
         "render_gpu_ms_p99": {
-          "median": 2.43400001525879,
-          "worst": 3.73099994659424
+          "median": 3.97499990463257,
+          "worst": 4.28399991989136
         },
         "draw_calls_p50": {
           "median": 176.0,
@@ -271,9 +271,9 @@
       "quality": "full",
       "repeat": 1,
       "contention": {
-        "godot_processes_before": 9,
+        "godot_processes_before": 3,
         "cpu_before": {
-          "percent": 69.32
+          "percent": 30.03
         }
       },
       "particle_capacity": 1408,
@@ -281,195 +281,37 @@
       "adapter": "NVIDIA GeForce RTX 4070 Laptop GPU",
       "api_version": "12_0",
       "frames": {
-        "frames": 1142,
-        "span_s": 22.482562,
+        "frames": 1071,
+        "span_s": 25.785105,
         "frame_interval_ms": {
-          "p50": 16.656,
-          "p95": 18.267,
-          "p99": 19.155,
-          "max": 515.437
+          "p50": 16.647,
+          "p95": 18.3,
+          "p99": 472.251,
+          "max": 526.092
         },
         "render_cpu_ms": {
-          "p50": 0.628000020980835,
-          "p95": 1.08200001716614,
-          "p99": 1.32200002670288,
-          "max": 1.41100001335144
+          "p50": 0.725000023841858,
+          "p95": 1.25899994373322,
+          "p99": 1.43299996852875,
+          "max": 2.70000004768372
         },
         "render_gpu_ms": {
-          "p50": 0.910000026226044,
-          "p95": 2.66799998283386,
-          "p99": 5.14900016784668,
-          "max": 8.38099956512451
+          "p50": 1.89400005340576,
+          "p95": 2.36999988555908,
+          "p99": 2.69700002670288,
+          "max": 3.43400001525879
         },
         "process_ms": {
-          "p50": 4.203,
-          "p95": 485.477,
-          "p99": 501.416,
-          "max": 501.416
+          "p50": 454.812,
+          "p95": 508.848,
+          "p99": 511.811,
+          "max": 511.811
         },
         "physics_ms": {
-          "p50": 0.135,
-          "p95": 0.161,
-          "p99": 0.161,
-          "max": 0.161
-        },
-        "draw_calls": {
-          "p50": 128.0,
-          "p95": 129.0,
-          "p99": 129.0,
-          "max": 129.0
-        },
-        "primitives": {
-          "p50": 76078.0,
-          "p95": 76222.0,
-          "p99": 76222.0,
-          "max": 76222.0
-        },
-        "objects": {
-          "p50": 139.0,
-          "p95": 151.0,
-          "p99": 151.0,
-          "max": 151.0
-        },
-        "video_mem_bytes": {
-          "p50": 112422912.0,
-          "p95": 112422912.0,
-          "p99": 112422912.0,
-          "max": 112422912.0
-        },
-        "mean_fps": 50.75666543463972,
-        "hitches_over_33ms": 9
-      },
-      "capture": "C:\\tmp\\ft\\lanes\\s15-vfx\\measurement-02\\e12-full-r1\\frame.png"
-    },
-    {
-      "name": "e12-full-r2",
-      "ok": true,
-      "exit": 0,
-      "explosions": 12,
-      "quality": "full",
-      "repeat": 2,
-      "contention": {
-        "godot_processes_before": 7,
-        "cpu_before": {
-          "percent": 36.23
-        }
-      },
-      "particle_capacity": 1408,
-      "renderer": "forward_plus",
-      "adapter": "NVIDIA GeForce RTX 4070 Laptop GPU",
-      "api_version": "12_0",
-      "frames": {
-        "frames": 1089,
-        "span_s": 24.744425,
-        "frame_interval_ms": {
-          "p50": 16.611,
-          "p95": 18.373,
-          "p99": 470.673,
-          "max": 529.067
-        },
-        "render_cpu_ms": {
-          "p50": 0.745999991893768,
-          "p95": 1.27799999713898,
-          "p99": 1.52900004386902,
-          "max": 2.10999989509583
-        },
-        "render_gpu_ms": {
-          "p50": 1.24899995326996,
-          "p95": 2.36400008201599,
-          "p99": 2.85199999809265,
-          "max": 8.06099987030029
-        },
-        "process_ms": {
-          "p50": 450.943,
-          "p95": 504.413,
-          "p99": 514.509,
-          "max": 514.509
-        },
-        "physics_ms": {
-          "p50": 0.159,
-          "p95": 0.419,
-          "p99": 1.206,
-          "max": 1.206
-        },
-        "draw_calls": {
-          "p50": 128.0,
-          "p95": 129.0,
-          "p99": 129.0,
-          "max": 129.0
-        },
-        "primitives": {
-          "p50": 76078.0,
-          "p95": 76222.0,
-          "p99": 76222.0,
-          "max": 76222.0
-        },
-        "objects": {
-          "p50": 139.0,
-          "p95": 151.0,
-          "p99": 151.0,
-          "max": 151.0
-        },
-        "video_mem_bytes": {
-          "p50": 112160768.0,
-          "p95": 112160768.0,
-          "p99": 112422912.0,
-          "max": 112422912.0
-        },
-        "mean_fps": 43.97951887133289,
-        "hitches_over_33ms": 15
-      },
-      "capture": null
-    },
-    {
-      "name": "e12-full-r3",
-      "ok": true,
-      "exit": 0,
-      "explosions": 12,
-      "quality": "full",
-      "repeat": 3,
-      "contention": {
-        "godot_processes_before": 9,
-        "cpu_before": {
-          "percent": 55.82
-        }
-      },
-      "particle_capacity": 1408,
-      "renderer": "forward_plus",
-      "adapter": "NVIDIA GeForce RTX 4070 Laptop GPU",
-      "api_version": "12_0",
-      "frames": {
-        "frames": 1099,
-        "span_s": 24.339917,
-        "frame_interval_ms": {
-          "p50": 16.668,
-          "p95": 17.932,
-          "p99": 463.442,
-          "max": 516.391
-        },
-        "render_cpu_ms": {
-          "p50": 0.564999997615814,
-          "p95": 1.01600003242493,
-          "p99": 1.17700004577637,
-          "max": 1.33299994468689
-        },
-        "render_gpu_ms": {
-          "p50": 0.99099999666214,
-          "p95": 2.48399996757507,
-          "p99": 3.37299990653992,
-          "max": 7.07800006866455
-        },
-        "process_ms": {
-          "p50": 447.547,
-          "p95": 489.271,
-          "p99": 502.263,
-          "max": 502.263
-        },
-        "physics_ms": {
-          "p50": 0.128,
-          "p95": 0.335,
-          "p99": 0.871,
-          "max": 0.871
+          "p50": 0.131,
+          "p95": 0.284,
+          "p99": 1.636,
+          "max": 1.636
         },
         "draw_calls": {
           "p50": 117.0,
@@ -490,13 +332,171 @@
           "max": 151.0
         },
         "video_mem_bytes": {
-          "p50": 112160768.0,
+          "p50": 112422912.0,
           "p95": 112422912.0,
           "p99": 112422912.0,
           "max": 112422912.0
         },
-        "mean_fps": 45.12236845546543,
+        "mean_fps": 41.50897004579397,
+        "hitches_over_33ms": 19
+      },
+      "capture": "C:\\tmp\\ft\\lanes\\s15-vfx\\measurement-04\\e12-full-r1\\frame.png"
+    },
+    {
+      "name": "e12-full-r2",
+      "ok": true,
+      "exit": 0,
+      "explosions": 12,
+      "quality": "full",
+      "repeat": 2,
+      "contention": {
+        "godot_processes_before": 8,
+        "cpu_before": {
+          "percent": 52.84
+        }
+      },
+      "particle_capacity": 1408,
+      "renderer": "forward_plus",
+      "adapter": "NVIDIA GeForce RTX 4070 Laptop GPU",
+      "api_version": "12_0",
+      "frames": {
+        "frames": 1141,
+        "span_s": 21.362775000000003,
+        "frame_interval_ms": {
+          "p50": 16.644,
+          "p95": 19.042,
+          "p99": 36.863,
+          "max": 710.105
+        },
+        "render_cpu_ms": {
+          "p50": 0.970000028610229,
+          "p95": 1.40900003910065,
+          "p99": 1.56599998474121,
+          "max": 2.43899989128113
+        },
+        "render_gpu_ms": {
+          "p50": 1.6710000038147,
+          "p95": 1.87800002098084,
+          "p99": 2.13700008392334,
+          "max": 4.24399995803833
+        },
+        "process_ms": {
+          "p50": 4.87,
+          "p95": 349.354,
+          "p99": 458.78,
+          "max": 478.939
+        },
+        "physics_ms": {
+          "p50": 0.144,
+          "p95": 0.436,
+          "p99": 0.436,
+          "max": 0.436
+        },
+        "draw_calls": {
+          "p50": 128.0,
+          "p95": 129.0,
+          "p99": 129.0,
+          "max": 129.0
+        },
+        "primitives": {
+          "p50": 76102.0,
+          "p95": 76198.0,
+          "p99": 76222.0,
+          "max": 76222.0
+        },
+        "objects": {
+          "p50": 141.0,
+          "p95": 149.0,
+          "p99": 151.0,
+          "max": 151.0
+        },
+        "video_mem_bytes": {
+          "p50": 112685056.0,
+          "p95": 112685056.0,
+          "p99": 112685056.0,
+          "max": 112685056.0
+        },
+        "mean_fps": 53.36689694880263,
         "hitches_over_33ms": 14
+      },
+      "capture": null
+    },
+    {
+      "name": "e12-full-r3",
+      "ok": true,
+      "exit": 0,
+      "explosions": 12,
+      "quality": "full",
+      "repeat": 3,
+      "contention": {
+        "godot_processes_before": 7,
+        "cpu_before": {
+          "percent": 79.71
+        }
+      },
+      "particle_capacity": 1408,
+      "renderer": "forward_plus",
+      "adapter": "NVIDIA GeForce RTX 4070 Laptop GPU",
+      "api_version": "12_0",
+      "frames": {
+        "frames": 1196,
+        "span_s": 19.968747999999998,
+        "frame_interval_ms": {
+          "p50": 16.681,
+          "p95": 18.273,
+          "p99": 19.006,
+          "max": 94.228
+        },
+        "render_cpu_ms": {
+          "p50": 0.837999999523163,
+          "p95": 1.33700001239777,
+          "p99": 1.43900001049042,
+          "max": 2.44099998474121
+        },
+        "render_gpu_ms": {
+          "p50": 1.50999999046326,
+          "p95": 1.83200001716614,
+          "p99": 1.90100002288818,
+          "max": 3.60500001907349
+        },
+        "process_ms": {
+          "p50": 4.457,
+          "p95": 10.613,
+          "p99": 10.613,
+          "max": 10.613
+        },
+        "physics_ms": {
+          "p50": 0.141,
+          "p95": 0.204,
+          "p99": 0.204,
+          "max": 0.204
+        },
+        "draw_calls": {
+          "p50": 128.0,
+          "p95": 129.0,
+          "p99": 129.0,
+          "max": 129.0
+        },
+        "primitives": {
+          "p50": 76150.0,
+          "p95": 76222.0,
+          "p99": 76222.0,
+          "max": 76222.0
+        },
+        "objects": {
+          "p50": 145.0,
+          "p95": 151.0,
+          "p99": 151.0,
+          "max": 151.0
+        },
+        "video_mem_bytes": {
+          "p50": 112160768.0,
+          "p95": 112160768.0,
+          "p99": 112160768.0,
+          "max": 112160768.0
+        },
+        "mean_fps": 59.84387154222761,
+        "hitches_over_33ms": 1
       },
       "capture": null
     },
@@ -508,9 +508,9 @@
       "quality": "full",
       "repeat": 1,
       "contention": {
-        "godot_processes_before": 7,
+        "godot_processes_before": 6,
         "cpu_before": {
-          "percent": 45.22
+          "percent": 41.98
         }
       },
       "particle_capacity": 2152,
@@ -518,37 +518,37 @@
       "adapter": "NVIDIA GeForce RTX 4070 Laptop GPU",
       "api_version": "12_0",
       "frames": {
-        "frames": 1121,
-        "span_s": 23.376196,
+        "frames": 1196,
+        "span_s": 19.984564000000002,
         "frame_interval_ms": {
-          "p50": 16.623,
-          "p95": 18.366,
-          "p99": 47.275,
-          "max": 491.323
+          "p50": 16.704,
+          "p95": 18.661,
+          "p99": 20.81,
+          "max": 76.12
         },
         "render_cpu_ms": {
-          "p50": 0.577000021934509,
-          "p95": 1.20000004768372,
-          "p99": 1.47699999809265,
-          "max": 1.75999999046326
+          "p50": 0.830999970436096,
+          "p95": 1.36199998855591,
+          "p99": 1.6139999628067,
+          "max": 5.47200012207031
         },
         "render_gpu_ms": {
-          "p50": 0.667999982833862,
-          "p95": 2.28299999237061,
-          "p99": 3.08299994468689,
-          "max": 3.75799989700317
+          "p50": 1.557000041008,
+          "p95": 1.79200005531311,
+          "p99": 1.8639999628067,
+          "max": 1.90299999713898
         },
         "process_ms": {
-          "p50": 448.788,
-          "p95": 475.851,
-          "p99": 478.033,
-          "max": 478.033
+          "p50": 5.231,
+          "p95": 39.764,
+          "p99": 39.764,
+          "max": 39.764
         },
         "physics_ms": {
-          "p50": 0.173,
-          "p95": 0.267,
-          "p99": 0.308,
-          "max": 0.308
+          "p50": 0.985,
+          "p95": 2.172,
+          "p99": 2.172,
+          "max": 2.172
         },
         "draw_calls": {
           "p50": 176.0,
@@ -569,15 +569,15 @@
           "max": 199.0
         },
         "video_mem_bytes": {
-          "p50": 122908672.0,
-          "p95": 122908672.0,
-          "p99": 122908672.0,
-          "max": 122908672.0
+          "p50": 121597952.0,
+          "p95": 121597952.0,
+          "p99": 121597952.0,
+          "max": 121597952.0
         },
-        "mean_fps": 47.921354602036025,
-        "hitches_over_33ms": 13
+        "mean_fps": 59.79788913451356,
+        "hitches_over_33ms": 2
       },
-      "capture": "C:\\tmp\\ft\\lanes\\s15-vfx\\measurement-02\\e24-full-r1\\frame.png"
+      "capture": "C:\\tmp\\ft\\lanes\\s15-vfx\\measurement-04\\e24-full-r1\\frame.png"
     },
     {
       "name": "e24-full-r2",
@@ -587,9 +587,9 @@
       "quality": "full",
       "repeat": 2,
       "contention": {
-        "godot_processes_before": 12,
+        "godot_processes_before": 7,
         "cpu_before": {
-          "percent": 41.19
+          "percent": 52.91
         }
       },
       "particle_capacity": 2152,
@@ -597,37 +597,37 @@
       "adapter": "NVIDIA GeForce RTX 4070 Laptop GPU",
       "api_version": "12_0",
       "frames": {
-        "frames": 1085,
-        "span_s": 25.075488,
+        "frames": 1199,
+        "span_s": 19.985422,
         "frame_interval_ms": {
-          "p50": 16.635,
-          "p95": 18.523,
-          "p99": 471.531,
-          "max": 534.892
+          "p50": 16.627,
+          "p95": 19.001,
+          "p99": 21.648,
+          "max": 57.552
         },
         "render_cpu_ms": {
-          "p50": 0.66100001335144,
-          "p95": 1.22599995136261,
-          "p99": 1.48599994182587,
-          "max": 1.60899996757507
+          "p50": 0.851000010967255,
+          "p95": 1.57500004768372,
+          "p99": 2.03299999237061,
+          "max": 4.44999980926514
         },
         "render_gpu_ms": {
-          "p50": 1.53799998760223,
-          "p95": 2.60999989509583,
-          "p99": 3.09100008010864,
-          "max": 5.3439998626709
+          "p50": 1.51300001144409,
+          "p95": 1.78100001811981,
+          "p99": 1.92799997329712,
+          "max": 3.06399989128113
         },
         "process_ms": {
-          "p50": 452.584,
-          "p95": 505.005,
-          "p99": 520.185,
-          "max": 520.185
+          "p50": 6.195,
+          "p95": 9.581,
+          "p99": 11.058,
+          "max": 11.058
         },
         "physics_ms": {
-          "p50": 0.149,
-          "p95": 0.354,
-          "p99": 0.389,
-          "max": 0.389
+          "p50": 1.021,
+          "p95": 6.179,
+          "p99": 6.179,
+          "max": 6.179
         },
         "draw_calls": {
           "p50": 176.0,
@@ -648,13 +648,13 @@
           "max": 199.0
         },
         "video_mem_bytes": {
-          "p50": 122908672.0,
-          "p95": 122908672.0,
-          "p99": 122908672.0,
-          "max": 122908672.0
+          "p50": 122384384.0,
+          "p95": 122384384.0,
+          "p99": 122384384.0,
+          "max": 122384384.0
         },
-        "mean_fps": 43.24385508804808,
-        "hitches_over_33ms": 16
+        "mean_fps": 59.94958934531299,
+        "hitches_over_33ms": 1
       },
       "capture": null
     },
@@ -668,7 +668,7 @@
       "contention": {
         "godot_processes_before": 7,
         "cpu_before": {
-          "percent": 66.96
+          "percent": 42.35
         }
       },
       "particle_capacity": 2152,
@@ -676,37 +676,195 @@
       "adapter": "NVIDIA GeForce RTX 4070 Laptop GPU",
       "api_version": "12_0",
       "frames": {
-        "frames": 1105,
-        "span_s": 24.522124,
+        "frames": 1199,
+        "span_s": 19.998076,
         "frame_interval_ms": {
-          "p50": 16.621,
-          "p95": 18.602,
-          "p99": 466.138,
-          "max": 533.521
+          "p50": 16.642,
+          "p95": 18.375,
+          "p99": 19.361,
+          "max": 75.947
         },
         "render_cpu_ms": {
-          "p50": 0.855000019073486,
-          "p95": 1.38300001621246,
-          "p99": 1.59899997711182,
-          "max": 3.64599990844727
+          "p50": 0.509999990463257,
+          "p95": 1.06900000572205,
+          "p99": 1.39900004863739,
+          "max": 2.56200003623962
         },
         "render_gpu_ms": {
-          "p50": 1.76900005340576,
-          "p95": 2.15700006484985,
-          "p99": 2.62400007247925,
-          "max": 3.24499988555908
+          "p50": 0.435000002384186,
+          "p95": 1.35500001907349,
+          "p99": 2.5460000038147,
+          "max": 4.55499982833862
         },
         "process_ms": {
-          "p50": 452.825,
-          "p95": 509.837,
-          "p99": 519.495,
-          "max": 519.495
+          "p50": 5.09,
+          "p95": 10.916,
+          "p99": 10.916,
+          "max": 10.916
         },
         "physics_ms": {
-          "p50": 0.156,
-          "p95": 0.23,
-          "p99": 0.23,
-          "max": 0.23
+          "p50": 0.239,
+          "p95": 0.423,
+          "p99": 0.423,
+          "max": 0.423
+        },
+        "draw_calls": {
+          "p50": 176.0,
+          "p95": 177.0,
+          "p99": 177.0,
+          "max": 177.0
+        },
+        "primitives": {
+          "p50": 107878.0,
+          "p95": 107998.0,
+          "p99": 107998.0,
+          "max": 107998.0
+        },
+        "objects": {
+          "p50": 189.0,
+          "p95": 199.0,
+          "p99": 199.0,
+          "max": 199.0
+        },
+        "video_mem_bytes": {
+          "p50": 121597952.0,
+          "p95": 121597952.0,
+          "p99": 121597952.0,
+          "max": 121597952.0
+        },
+        "mean_fps": 59.90486168671905,
+        "hitches_over_33ms": 1
+      },
+      "capture": null
+    },
+    {
+      "name": "e24-adaptive-r1",
+      "ok": true,
+      "exit": 0,
+      "explosions": 24,
+      "quality": "adaptive",
+      "repeat": 1,
+      "contention": {
+        "godot_processes_before": 6,
+        "cpu_before": {
+          "percent": 48.3
+        }
+      },
+      "particle_capacity": 1408,
+      "renderer": "forward_plus",
+      "adapter": "NVIDIA GeForce RTX 4070 Laptop GPU",
+      "api_version": "12_0",
+      "frames": {
+        "frames": 1201,
+        "span_s": 19.983661,
+        "frame_interval_ms": {
+          "p50": 16.675,
+          "p95": 18.172,
+          "p99": 19.038,
+          "max": 29.506
+        },
+        "render_cpu_ms": {
+          "p50": 0.497000008821487,
+          "p95": 1.27999997138977,
+          "p99": 1.51600003242493,
+          "max": 1.75499999523163
+        },
+        "render_gpu_ms": {
+          "p50": 0.748000025749207,
+          "p95": 2.01999998092651,
+          "p99": 4.28399991989136,
+          "max": 6.16400003433228
+        },
+        "process_ms": {
+          "p50": 4.552,
+          "p95": 5.764,
+          "p99": 6.359,
+          "max": 6.359
+        },
+        "physics_ms": {
+          "p50": 0.185,
+          "p95": 0.262,
+          "p99": 0.302,
+          "max": 0.302
+        },
+        "draw_calls": {
+          "p50": 176.0,
+          "p95": 177.0,
+          "p99": 177.0,
+          "max": 177.0
+        },
+        "primitives": {
+          "p50": 107878.0,
+          "p95": 107974.0,
+          "p99": 107998.0,
+          "max": 107998.0
+        },
+        "objects": {
+          "p50": 189.0,
+          "p95": 197.0,
+          "p99": 199.0,
+          "max": 199.0
+        },
+        "video_mem_bytes": {
+          "p50": 121597952.0,
+          "p95": 121597952.0,
+          "p99": 121597952.0,
+          "max": 121597952.0
+        },
+        "mean_fps": 60.05242611801516,
+        "hitches_over_33ms": 0
+      },
+      "capture": null
+    },
+    {
+      "name": "e24-adaptive-r2",
+      "ok": true,
+      "exit": 0,
+      "explosions": 24,
+      "quality": "adaptive",
+      "repeat": 2,
+      "contention": {
+        "godot_processes_before": 3,
+        "cpu_before": {
+          "percent": 56.55
+        }
+      },
+      "particle_capacity": 1408,
+      "renderer": "forward_plus",
+      "adapter": "NVIDIA GeForce RTX 4070 Laptop GPU",
+      "api_version": "12_0",
+      "frames": {
+        "frames": 1198,
+        "span_s": 19.964003,
+        "frame_interval_ms": {
+          "p50": 16.615,
+          "p95": 19.593,
+          "p99": 22.127,
+          "max": 44.569
+        },
+        "render_cpu_ms": {
+          "p50": 0.689000010490417,
+          "p95": 1.39600002765656,
+          "p99": 1.72099995613098,
+          "max": 3.00200009346008
+        },
+        "render_gpu_ms": {
+          "p50": 0.363999992609024,
+          "p95": 1.43299996852875,
+          "p99": 2.56800007820129,
+          "max": 3.59999990463257
+        },
+        "process_ms": {
+          "p50": 6.122,
+          "p95": 11.574,
+          "p99": 86.262,
+          "max": 86.262
+        },
+        "physics_ms": {
+          "p50": 0.373,
+          "p95": 24.729,
+          "p99": 24.729,
+          "max": 24.729
         },
         "draw_calls": {
           "p50": 176.0,
@@ -727,171 +885,13 @@
           "max": 199.0
         },
         "video_mem_bytes": {
-          "p50": 123170816.0,
-          "p95": 123170816.0,
-          "p99": 123170816.0,
-          "max": 123170816.0
-        },
-        "mean_fps": 45.030526825785124,
-        "hitches_over_33ms": 14
-      },
-      "capture": null
-    },
-    {
-      "name": "e24-adaptive-r1",
-      "ok": true,
-      "exit": 0,
-      "explosions": 24,
-      "quality": "adaptive",
-      "repeat": 1,
-      "contention": {
-        "godot_processes_before": 12,
-        "cpu_before": {
-          "percent": 58.18
-        }
-      },
-      "particle_capacity": 1408,
-      "renderer": "forward_plus",
-      "adapter": "NVIDIA GeForce RTX 4070 Laptop GPU",
-      "api_version": "12_0",
-      "frames": {
-        "frames": 1156,
-        "span_s": 21.988421000000002,
-        "frame_interval_ms": {
-          "p50": 16.644,
-          "p95": 18.518,
-          "p99": 19.803,
-          "max": 523.955
-        },
-        "render_cpu_ms": {
-          "p50": 0.638999998569489,
-          "p95": 1.04999995231628,
-          "p99": 1.27600002288818,
-          "max": 1.83000004291534
-        },
-        "render_gpu_ms": {
-          "p50": 0.550999999046326,
-          "p95": 2.26600003242493,
-          "p99": 3.73099994659424,
-          "max": 5.31500005722046
-        },
-        "process_ms": {
-          "p50": 5.329,
-          "p95": 505.871,
-          "p99": 509.495,
-          "max": 509.495
-        },
-        "physics_ms": {
-          "p50": 0.168,
-          "p95": 0.193,
-          "p99": 0.193,
-          "max": 0.193
-        },
-        "draw_calls": {
-          "p50": 176.0,
-          "p95": 177.0,
-          "p99": 177.0,
-          "max": 177.0
-        },
-        "primitives": {
-          "p50": 107854.0,
-          "p95": 107998.0,
-          "p99": 107998.0,
-          "max": 107998.0
-        },
-        "objects": {
-          "p50": 187.0,
-          "p95": 199.0,
-          "p99": 199.0,
-          "max": 199.0
-        },
-        "video_mem_bytes": {
-          "p50": 123170816.0,
-          "p95": 123170816.0,
-          "p99": 123170816.0,
-          "max": 123170816.0
-        },
-        "mean_fps": 52.53417402554106,
-        "hitches_over_33ms": 6
-      },
-      "capture": null
-    },
-    {
-      "name": "e24-adaptive-r2",
-      "ok": true,
-      "exit": 0,
-      "explosions": 24,
-      "quality": "adaptive",
-      "repeat": 2,
-      "contention": {
-        "godot_processes_before": 13,
-        "cpu_before": {
-          "percent": 50.57
-        }
-      },
-      "particle_capacity": 1408,
-      "renderer": "forward_plus",
-      "adapter": "NVIDIA GeForce RTX 4070 Laptop GPU",
-      "api_version": "12_0",
-      "frames": {
-        "frames": 1142,
-        "span_s": 22.454677999999998,
-        "frame_interval_ms": {
-          "p50": 16.596,
-          "p95": 18.873,
-          "p99": 20.414,
-          "max": 519.951
-        },
-        "render_cpu_ms": {
-          "p50": 0.865000009536743,
-          "p95": 1.45799994468689,
-          "p99": 1.63800001144409,
-          "max": 2.9779999256134
-        },
-        "render_gpu_ms": {
-          "p50": 1.52600002288818,
-          "p95": 2.2720000743866,
-          "p99": 2.43400001525879,
-          "max": 4.49399995803833
-        },
-        "process_ms": {
-          "p50": 5.503,
-          "p95": 505.931,
-          "p99": 505.931,
-          "max": 505.931
-        },
-        "physics_ms": {
-          "p50": 0.167,
-          "p95": 0.929,
-          "p99": 1.438,
-          "max": 1.438
-        },
-        "draw_calls": {
-          "p50": 176.0,
-          "p95": 177.0,
-          "p99": 177.0,
-          "max": 177.0
-        },
-        "primitives": {
-          "p50": 107854.0,
-          "p95": 107998.0,
-          "p99": 107998.0,
-          "max": 107998.0
-        },
-        "objects": {
-          "p50": 187.0,
-          "p95": 199.0,
-          "p99": 199.0,
-          "max": 199.0
-        },
-        "video_mem_bytes": {
-          "p50": 121860096.0,
+          "p50": 122646528.0,
           "p95": 122646528.0,
-          "p99": 122908672.0,
-          "max": 122908672.0
+          "p99": 122646528.0,
+          "max": 122646528.0
         },
-        "mean_fps": 50.81865877811563,
-        "hitches_over_33ms": 8
+        "mean_fps": 59.95087131185168,
+        "hitches_over_33ms": 2
       },
       "capture": null
     },
@@ -903,9 +903,9 @@
       "quality": "adaptive",
       "repeat": 3,
       "contention": {
-        "godot_processes_before": 14,
+        "godot_processes_before": 8,
         "cpu_before": {
-          "percent": 40.83
+          "percent": 51.85
         }
       },
       "particle_capacity": 1408,
@@ -913,37 +913,37 @@
       "adapter": "NVIDIA GeForce RTX 4070 Laptop GPU",
       "api_version": "12_0",
       "frames": {
-        "frames": 1132,
-        "span_s": 22.772660000000002,
+        "frames": 1201,
+        "span_s": 19.999129,
         "frame_interval_ms": {
-          "p50": 16.664,
-          "p95": 18.428,
-          "p99": 19.635,
-          "max": 520.722
+          "p50": 16.657,
+          "p95": 18.219,
+          "p99": 18.991,
+          "max": 22.005
         },
         "render_cpu_ms": {
-          "p50": 0.851999998092651,
-          "p95": 1.37399995326996,
-          "p99": 1.59700000286102,
-          "max": 2.35999989509583
+          "p50": 0.666000008583069,
+          "p95": 1.19200003147125,
+          "p99": 1.40499997138977,
+          "max": 2.54699993133545
         },
         "render_gpu_ms": {
-          "p50": 1.72000002861023,
-          "p95": 2.04200005531311,
-          "p99": 2.4300000667572,
-          "max": 3.30200004577637
+          "p50": 0.857999980449677,
+          "p95": 1.52400004863739,
+          "p99": 3.97499990463257,
+          "max": 6.26800012588501
         },
         "process_ms": {
-          "p50": 5.23,
-          "p95": 505.784,
-          "p99": 506.157,
-          "max": 506.157
+          "p50": 4.308,
+          "p95": 6.472,
+          "p99": 7.979,
+          "max": 7.979
         },
         "physics_ms": {
-          "p50": 0.163,
-          "p95": 0.18,
-          "p99": 0.18,
-          "max": 0.18
+          "p50": 0.184,
+          "p95": 0.514,
+          "p99": 2.037,
+          "max": 2.037
         },
         "draw_calls": {
           "p50": 176.0,
@@ -952,25 +952,25 @@
           "max": 177.0
         },
         "primitives": {
-          "p50": 107854.0,
-          "p95": 107998.0,
+          "p50": 107926.0,
+          "p95": 107974.0,
           "p99": 107998.0,
           "max": 107998.0
         },
         "objects": {
-          "p50": 187.0,
-          "p95": 199.0,
+          "p50": 193.0,
+          "p95": 197.0,
           "p99": 199.0,
           "max": 199.0
         },
         "video_mem_bytes": {
-          "p50": 123170816.0,
-          "p95": 123170816.0,
-          "p99": 123170816.0,
-          "max": 123170816.0
+          "p50": 121597952.0,
+          "p95": 121597952.0,
+          "p99": 121597952.0,
+          "max": 121597952.0
         },
-        "mean_fps": 49.6727217070847,
-        "hitches_over_33ms": 9
+        "mean_fps": 60.00284376508502,
+        "hitches_over_33ms": 0
       },
       "capture": null
     }
