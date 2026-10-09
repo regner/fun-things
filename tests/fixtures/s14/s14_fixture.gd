@@ -18,21 +18,53 @@ func _enter_tree() -> void:
 func _ready() -> void:
 	Engine.max_fps = 60
 	var output_path := _argument_value("--s14-output=")
-	var mode := _argument_value("--s14-mode=")
 	if output_path.is_empty():
 		push_error("S14 requires --s14-output=<external JSON path>")
 		get_tree().quit(2)
 		return
 
 	await get_tree().process_frame
+	var result: Dictionary = await _run_fixture(_argument_value("--s14-mode="))
+	var write_error := _write_json(output_path, result)
+	await _stop_audio_and_settle()
+	if write_error != OK:
+		push_error("S14 could not write result: %s" % error_string(write_error))
+		get_tree().quit(3)
+		return
+
+	get_tree().quit(0 if result["success"] else 1)
+
+
+## Runs the public settings, request, cap, and monitor checks.
+func _run_fixture(mode: String) -> Dictionary:
 	var failures: Array[String] = []
 	if not _voice_manager.configure(_listener):
 		failures.append("saved voice pool sizes do not match category caps")
-
 	var settings_result := _check_settings_roundtrip()
 	if not settings_result["passed"]:
 		failures.append("ConfigFile settings roundtrip failed")
 
+	var peak_report := _start_storm()
+	_validate_peak_report(peak_report, failures)
+	var monitor_samples: Array[Dictionary] = await _sample_monitors()
+	var settled_report := _voice_manager.report()
+	if settled_report["ducking_active"]:
+		failures.append("explosion ducking did not restore within its bounded window")
+
+	return _build_result(
+		mode,
+		failures,
+		{
+			"settings": settings_result,
+			"peak": peak_report,
+			"settled": settled_report,
+			"monitors": monitor_samples,
+		},
+	)
+
+
+## Starts the saved engine bed, explosion storm, and SMG burst.
+func _start_storm() -> Dictionary:
 	var speeds := PackedFloat32Array([0.0, 4.0, 8.0, 12.0, 16.0, 20.0, 24.0, 30.0])
 	_voice_manager.set_engine_speeds(speeds)
 	for index in 24:
@@ -40,20 +72,27 @@ func _ready() -> void:
 		_voice_manager.request_explosion(Vector3(cos(angle) * 6.0, 0.5, sin(angle) * 6.0))
 	for index in 12:
 		_voice_manager.request_weapon_shot(Vector3(float(index % 4) - 1.5, 0.8, -2.0))
+	return _voice_manager.report()
 
-	var peak_report := _voice_manager.report()
-	_validate_peak_report(peak_report, failures)
-	var monitor_samples: Array[Dictionary] = []
+
+## Samples available engine monitors while advancing bounded ducking time.
+func _sample_monitors() -> Array[Dictionary]:
+	var samples: Array[Dictionary] = []
 	for _frame in SAMPLE_FRAMES:
-		await get_tree().process_frame
+		# Each draw frame is one intentional sample; a timer would hide frame outliers.
+		await get_tree().process_frame  # gdstyle:ignore=quality/await-in-loop
 		_voice_manager.update_duck(Time.get_ticks_msec())
-		monitor_samples.append(_read_monitors())
+		samples.append(_read_monitors())
+	return samples
 
-	var settled_report := _voice_manager.report()
-	if settled_report["ducking_active"]:
-		failures.append("explosion ducking did not restore within its bounded window")
 
-	var result := {
+## Builds the structured result shared by headless and windowed cases.
+func _build_result(
+	mode: String,
+	failures: Array[String],
+	observations: Dictionary,
+) -> Dictionary:
+	return {
 		"success": failures.is_empty(),
 		"failures": failures,
 		"mode": mode,
@@ -67,25 +106,22 @@ func _ready() -> void:
 			"position": _listener.global_position,
 			"rotation_degrees": _listener.global_rotation_degrees,
 		},
-		"requests": {"engine_emitters": 32, "explosions": 24, "smg_shots": 12},
-		"peak": peak_report,
-		"settled": settled_report,
-		"settings_roundtrip": settings_result,
-		"performance": _summarize_monitors(monitor_samples),
+		"requests":
+		{
+			"engine_emitters": 32,
+			"explosions": 24,
+			"smg_shots": 12,
+		},
+		"peak": observations["peak"],
+		"settled": observations["settled"],
+		"settings_roundtrip": observations["settings"],
+		"performance": _summarize_monitors(observations["monitors"]),
 		"performance_note":
 		(
 			"Godot exposes output latency but no per-bus or audio-mix CPU Performance monitor; "
 			+ "process-frame time is context only and does not isolate audio cost."
 		),
 	}
-	var write_error := _write_json(output_path, result)
-	await _stop_audio_and_settle()
-	if write_error != OK:
-		push_error("S14 could not write result: %s" % error_string(write_error))
-		get_tree().quit(3)
-		return
-
-	get_tree().quit(0 if failures.is_empty() else 1)
 
 
 ## Stops all saved players and gives the audio server time to release playbacks.
@@ -94,7 +130,8 @@ func _stop_audio_and_settle() -> void:
 	%Music.stop()
 	%Ambience.stop()
 	for _frame in 3:
-		await get_tree().process_frame
+		# Three frames are intentionally bounded audio teardown settling.
+		await get_tree().process_frame  # gdstyle:ignore=quality/await-in-loop
 
 
 ## Saves, reloads, and applies non-default local audio settings.
