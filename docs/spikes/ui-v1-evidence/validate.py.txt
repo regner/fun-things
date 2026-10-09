@@ -26,6 +26,7 @@ expected = [
     '05-foot-damage', '06-car-moving', '07-car-stopped', '08-minimap-directions',
     '09-main-menu', '10-host', '11-join-steam', '12-join-direct', '13-lobby',
     '14-pause', '15-audio-settings', '16-host-lost', '17-join-error', '18-join-loading',
+    '19-host-steam-future', '20-lobby-steam-future', '21-loading-steam-future',
 ]
 assert sorted(p.stem for p in folder.glob('*.svg')) == expected
 assert sorted(p.stem for p in folder.glob('*.png')) == expected
@@ -37,7 +38,11 @@ sources = [
 sha = lambda data: hashlib.sha256(data).hexdigest()
 source_hashes = {name: sha((root / name).read_bytes()) for name in sources}
 ns = {'s': 'http://www.w3.org/2000/svg'}
-manifest = json.loads((evidence / 'renders/render-results.json').read_text())
+manifest = {row['svg']: row for row in
+            json.loads((evidence / 'renders/render-results.json').read_text())}
+# Retain the original receipts; newer render rows supersede only the revised screens.
+manifest.update({row['svg']: row for row in
+                 json.loads((evidence / 'revision-01/render-results.json').read_text())})
 rows = []
 for name in expected:
     svg = folder / (name + '.svg')
@@ -63,7 +68,7 @@ for name in expected:
     with Image.open(png) as image:
         assert image.size == (1280, 800)
         image.verify()
-    original = next(r for r in manifest if r['svg'].endswith(name + '.svg'))
+    original = manifest[svg.relative_to(root).as_posix()]
     assert original['ok'] and original['returncode'] == 0
     assert original['svg_sha256'] == sha(svg.read_bytes())
     assert original['png_sha256'] == sha(png.read_bytes())
@@ -90,9 +95,36 @@ assert 'Return to main menu' in texts('16-host-lost')
 assert {'Master', 'Music', 'SFX', 'MUTE ALL'} <= set(texts('15-audio-settings'))
 assert 'Cancel' in texts('18-join-loading')
 
+# Review P1: current M1 cannot offer Steam as a selectable/default feature.
+current = ['10-host', '12-join-direct', '13-lobby', '18-join-loading']
+future = ['11-join-steam', '19-host-steam-future',
+          '20-lobby-steam-future', '21-loading-steam-future']
+for name in current:
+    values = texts(name)
+    assert not {'Steam friends', 'Create Steam lobby', 'Invite Steam friends'} & set(values)
+    assert any('ENet-only' in value or 'CURRENT M1 / ENET' in value for value in values)
+assert 'Create ENet lobby' in texts('10-host')
+assert 'SHARE ADDRESS + PORT' in texts('13-lobby')
+for name in future:
+    values = texts(name)
+    assert 'FUTURE ADAPTER EXPLORATION' in values
+    assert 'CURRENT M1: ENET ONLY · NO STEAM FEATURES OR TESTING NOW' in values
+    tree = ET.fromstring((folder / (name + '.svg')).read_bytes())
+    assert tree.find('s:title', ns).text.startswith('FUTURE ADAPTER EXPLORATION')
+    assert 'Current M1 is ENet-only' in tree.find('s:desc', ns).text
+index = (folder / 'README.md').read_text(encoding='utf-8')
+gallery = (folder / 'review.html').read_text(encoding='utf-8')
+assert '**Current M1 is ENet-only**' in index
+assert '<strong>Current M1 is ENet-only.</strong>' in gallery
+current_gallery, future_gallery = gallery.split('<h2 id="future">', 1)
+for name in future:
+    assert f'href="{name}.png"' not in current_gallery
+    assert f'href="{name}.png"' in future_gallery
+    assert f'({name}.svg)' in index
+
 links = []
 for doc in [folder / 'README.md', folder / 'review.html', evidence / 'README.md',
-            evidence / 'initial-attempt/README.md']:
+            evidence / 'initial-attempt/README.md', evidence / 'revision-01/README.md']:
     content = doc.read_text(encoding='utf-8')
     targets = re.findall(r'(?:href|src)="([^"]+)"', content)
     targets += re.findall(r'\]\(([^)]+)\)', content)
@@ -126,6 +158,9 @@ result = {'ok': True, 'screens': rows, 'source_sha256': source_hashes,
           'delivered_files_checked_for_size_and_scope': len(files),
           'largest_file_bytes': max(p.stat().st_size for p in files),
           'contrast_ratios': contrast,
+          'scope_review': {'current_enet_sheets': current, 'future_only_steam_sheets': future,
+                           'steam_not_selectable_in_current_flow': True},
+
           'limitations': ['Solid-token contrast only; no physical Deck or accessibility certification.',
                          'State text assertions do not exercise actual gameplay or menu behaviour.']}
 args.output.parent.mkdir(parents=True, exist_ok=True)

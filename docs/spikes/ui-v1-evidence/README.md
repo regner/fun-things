@@ -3,10 +3,17 @@
 8 October 2026. Lane `ui-mockups`. [Concept index](../../concepts/ui-v1/README.md) ·
 [Visual gallery](../../concepts/ui-v1/review.html).
 
+**Current revision:** [review R1 correction and checks](revision-01/README.md).
+Current M1 is **ENet-only**. Sheets 10/12/13/18 are the current ENet flow;
+11/19/20/21 are visibly tagged **FUTURE ADAPTER EXPLORATION**, not current Steam features
+or testing. The original review's Steam-default presentation was rejected and superseded.
+
 ## Scope and provenance
 
-This is **documentation/concept art only**: eighteen standalone SVGs and eighteen
-headless-Edge PNGs, all 1280 × 800. No scenes, themes, gameplay, runtime UI code, TODOs,
+This is **documentation/concept art only**: twenty-one standalone SVGs and twenty-one
+headless-Edge PNGs, all 1280 × 800. The initial pass had eighteen; review R1 adds three
+labelled future-only copies so the Steam studies remain available without occupying the
+current ENet host/lobby/admission paths. No scenes, themes, gameplay, runtime UI code, TODOs,
 other task bullets or accepted concept/capture sources changed. SVG and documentation
 were authored directly because the editor was not running and MCP tools were unavailable.
 The new concept/evidence directories have `.gdignore`; no engine imports or UIDs were
@@ -14,9 +21,10 @@ needed for these documentation assets. No project editor was opened or synchroni
 
 Actual initial checkout: `e174c4d` on `lane/ui-mockups`, clean. The common brief named
 `19fbd4d`, but three commits already existed above it: `29ee423`, `e0b152f`, `e174c4d`.
-Those are inherited work, not this lane's edits. The requested `19fbd4d..HEAD` review
-patch therefore also contains those earlier changes. The lane-specific diff starts
-at `e174c4d`. See [changed-files.txt](changed-files.txt) for this delivery's file list.
+Those are inherited work, not this lane's edits. The original `19fbd4d..HEAD` review
+patch included those earlier changes. The review follow-up now requests a rebase onto
+`s08-enet-bandwidth` and patch `git diff s08-enet-bandwidth...HEAD`; this supersedes the
+old patch recipe. See [changed-files.txt](changed-files.txt) for this delivery's file list.
 
 Only these committed PNG sources were embedded; the [static audit](static-validation.json)
 binds their SHA256s and checks every embedded image against those exact bytes:
@@ -28,11 +36,16 @@ binds their SHA256s and checks every embedded image against those exact bytes:
 All new 2D lines, icon shapes and type are authored SVG. The artwork/capture sources are
 not modified. No generated 3D assets, external font downloads or third-party icons.
 
-## Results
+## Initial-pass results (historical)
+
+These receipts bind the original eighteen-screen pass, not all current revised bytes.
+Use [R1 results](revision-01/README.md) for the latest scope assertions, eight rerenders,
+21-screen asset audit and post-rebase quick checks. Engine checks below are historical;
+no engine/Steam test is claimed for a documentation-only revision.
 
 | Check | Outcome and evidence |
 | --- | --- |
-| Final Edge render | **18/18 exit 0**, PNGs exactly **1280 × 800**; [expanded commands and source/output hashes](renders/render-results.json), [per-screen logs](renders/01-foot-compact.log). Other logs use the same SVG basename. |
+| Initial final Edge render | **18/18 exit 0**, PNGs exactly **1280 × 800**; [expanded commands and source/output hashes](renders/render-results.json), [per-screen logs](renders/01-foot-compact.log). Other logs use the same SVG basename. |
 | XML and asset audit | [static-validation.json](static-validation.json): expected 18 SVG/PNG pairs, root size/viewBox, no script/foreignObject or external references, embedded source equality, SVG/PNG hashes, required state labels, local links and <5 MB per delivered file. |
 | Browser text bounds | [text-bounds.json](text-bounds.json): 430 text elements, **zero outside the frame**. Four font-metric box intersections, not four visible clipping defects; see manual review below. [Browser log](text-bounds.log). |
 | Visual inspection | Opened all 18 native PNGs, not just thumbnails. Final two car images reopened after rotating the local car map glyph to match the pictured left-facing car. Other 16 PNGs byte-identical to the reviewed render-02 versions. |
@@ -137,15 +150,15 @@ Other observations:
   recommendation is a design preference from these stills, not acceptance or a new product
   rule. Independent reviewer gate and owner selection remain next steps.
 
-## Lane criteria
+## Lane criteria (current delivery)
 
 | Requested deliverable | Status |
 | --- | --- |
 | Foot HUD on street capture; 2–3 top-right minimap variants, health, weapon/ammo, interaction, hit/damage and peer tags | Delivered: 01–05, with three 160/200/240 px variants |
 | In-car speed, condition, stopped-only exit and car minimap marker | Delivered: 06–07; no firing UI |
 | Three minimap directions with requested symbol vocabulary and native-size discussion | Delivered: 08 and index; all north-up |
-| Main menu, Steam/direct host and join, four-player lobby, local menu, audio-only settings, host-lost/error | Delivered: 09–18 |
-| Self-contained native SVG plus headless Edge PNG for each | Delivered and checked: 18 pairs |
+| Current ENet main/host/join/lobby, local menu, audio-only settings and connection states; retained future Steam concepts | Current: 09–10, 12–18. FUTURE ADAPTER EXPLORATION only: 11, 19–21. No current Steam feature/testing promise. |
+| Self-contained native SVG plus headless Edge PNG for each | Delivered: 21 pairs; current hashes combine unchanged initial receipts with eight R1 rerenders. |
 | README thumbnails, per-screen rationale/readability/questions, coherent token table | Delivered, plus browseable HTML gallery |
 | Concept-only scope; no staged files; lane commit and review patch | Committed lane-only documentation; reviewer consumes the required `.pi/review/lane.patch` |
 
