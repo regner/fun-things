@@ -82,7 +82,7 @@ All timing values explicitly marked **contended** are upper bounds from a shared
 | S09 | Foundation prototype complete | [Traffic](../spikes/s09.md): 24-car p95/p99 1.165/1.690 ms, 18/18 recoveries per aggregate row, zero sampled overlaps/gridlocks; **contended** | Actual bodies, production graph/replenishment and owner intersection policy | Not rerun; contended retained by decision 13 |
 | S10 | Foundation concept complete; first production task | [Pedestrians](../spikes/s10.md): normal graph p95 2.654 ms median, flee 3.658 ms; **contended**; large overlap/stuck counts | Production must improve behavior/budget with acceptance checks; no extra foundation spike | Not rerun; contended retained by decision 13 |
 | S11 | Codec/bandwidth direction complete; smoothness open | [Population replication](../spikes/s11.md): worst host out 55.16 KiB/s vs 256 budget; 3.2 KiB join vs 1 MiB; adverse extrapolation median 15.30% | Drawable interpolation/extrapolation policy, full production baseline/input | Not rerun; contended CPU retained by decision 13 |
-| S12 | Foundation comparison complete; owner selection open | [Combat](../spikes/s12.md): 250 ms target rewind improves normal agreement to 89.3% pedestrian / 62.5% car medians; adverse fast car 44.8% | Ratify rewind and combat defaults; production damage/respawn/rocket integration | Not rerun; contended retained by decision 13 |
+| S12 | Foundation comparison complete; first hit policy decided | [Combat](../spikes/s12.md) retains bounded ≤250 ms rewind evidence for later; decision 18 starts with host-current-time verdicts and forgiving hit shapes | Review damage/rate starting values; production fire-intent, confirmation, damage/respawn and rocket integration | Not rerun; contended retained by decision 13 |
 | S13 | Technical rig path complete | [Characters](../spikes/s13.md): 68 live + 16 dead; throttling 68→30 mixers; contended headless median proxy 35.9% lower | Production art/readability, blending and target-platform evidence | Not rerun; contended retained by decision 13 |
 | S14 | Automated audio/settings foundation complete; listening open | [Audio](../spikes/s14.md): exact 8 engine / 8 explosion / 6 weapon voice caps and settings roundtrip | Human mix/listening, production assets/licenses, attributable CPU profiling | Not rerun; contended context retained by decision 13 |
 | S15 | Technical VFX comparison complete | [VFX](../spikes/s15.md): all 12/24 roots retained; 24-full frame p95 18.445 ms median, **contended** | Owner approval for tiers; adaptive `amount_ratio` did not prove lower cost; readability | Not rerun; contended retained by decision 13 |
@@ -106,7 +106,8 @@ All timing values explicitly marked **contended** are upper bounds from a shared
 3. **Windows authoritative latency floor (S03-L).** A provisional contended 350 ms p95 allowance
    is much larger than desirable. Keep local prediction mandatory and size history for the tail.
    Replace this allowance with production Windows and later Linux evidence; do not compensate by
-   weakening host authority or increasing S12 rewind without owner review.
+   weakening host authority or enabling S12 rewind without the playtest need and bounded host-only
+   change required by decision 18.
 4. **Remote smoothness (S11).** Bandwidth passes, but adverse delivery extrapolated/froze 15.30%
    of sampled entity frames. Compare the current 200 ms-then-freeze policy with a modestly longer
    bound in a drawable production-like route. Recommend bounded freeze rather than long invented
@@ -123,7 +124,7 @@ All timing values explicitly marked **contended** are upper bounds from a shared
 
 ## Owner decisions recorded
 
-The owner recorded decisions 13–17 on 9 October 2026:
+The owner recorded decisions 13–18 on 9 October 2026:
 
 - **Decision 13 — measurement scope and principle:** S17 is the only quiet rerun. Other spike
   timings remain labelled contended. Foundation establishes concepts and high-level limits; M1
@@ -142,6 +143,12 @@ The owner recorded decisions 13–17 on 9 October 2026:
   the S03-S provider abstraction, re-add a pinned release only when Steam adapter work is
   commissioned, and retain S08-X's Steam-library export rejection. This packet does not fold that
   repository change into its docs-only scope.
+- **Decision 18 — first hit-registration policy:** clients send fire intent only; the host chooses
+  the target and damage at host current time using forgiving enlarged hit shapes sized for typical
+  network/interpolation delay at target speed. The shooter gets immediate cosmetic muzzle/tracer
+  feedback, while impacts and damage wait for host confirmation. Every intent carries the shooter's
+  view tick from day one so S12's bounded ≤250 ms rewind can be added later as a host-only change if
+  playtests require it. This non-competitive game favors the simple policy that works and looks fair.
 
 ## Owner decisions still open
 
@@ -155,9 +162,8 @@ or accepted risk.
 2. **S11 extrapolation:** choose how remote actors behave after the interpolation buffer is exhausted.
    **Recommendation:** retain 200 ms extrapolation then freeze as the safe default, subject to a
    drawable comparison; never extend through the one-second adverse blackout by default.
-3. **S12 hit registration and combat defaults:** accept/revise 250 ms target-only rewind and the
-   pistol/SMG/rocket/car-impact starting values. **Recommendation:** accept target-only rewind and
-   client-intent-only authority; review balance values separately before M1-B2.
+3. **S12 damage/rate defaults:** review the pistol/SMG/rocket/car-impact starting values as
+   balance choices before M1-B2.
 4. **S04 handling:** provide drive-scene feedback and an F12 value set. **Recommendation:** run the
    saved harness before freezing B1.1 body/tuning; do not promote defaults solely from automated
    route success.

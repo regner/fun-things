@@ -33,11 +33,12 @@ No particular agent platform or delegation tool is required to read it.
 - The [8 October owner decisions](../reviews/owner-decisions-2026-10-08.md) govern controls,
   prediction, vehicles, explosion presentation, UI, environment scaling, initial ENet
   scope, desktop targets, engine pin, profiles and the completeness tasks authorized by
-  instruction 12. Decisions 13–17, recorded in the gate packet, restrict quiet reruns to
+  instruction 12. Decisions 13–18, recorded in the gate packet, restrict quiet reruns to
   S17, make S10/S17 the first production acceptance work, set capped 60 FPS with
-  p95 ≤16.7 ms / p99 ≤20 ms, define dead-driver coast-to-abandoned behavior, and remove
-  GodotSteam in a separate lane. The [P0 audit](../reviews/p0-readiness-audit-2026-10-08.md)
-  supplies historical gap rationale; the packet records the current integrated disposition.
+  p95 ≤16.7 ms / p99 ≤20 ms, define dead-driver coast-to-abandoned behavior, remove
+  GodotSteam in a separate lane, and select host-current-time hit verdicts with view-tick-ready
+  fire intents. The [P0 audit](../reviews/p0-readiness-audit-2026-10-08.md) supplies historical
+  gap rationale; the packet records the current integrated disposition.
 - World concept work is separately commissioned and stage-gated at Stage 1; use the
   [world concept handover](world-concept-handover.md). It does not authorize production
   scenes or later concept stages before owner approval.
@@ -110,7 +111,7 @@ fixture, performance, hardware or graphical claim.
 ## Current lane order — refreshed 9 October 2026
 
 The earlier foundation queue is complete and historical. The S17-only quiet measurement and
-owner decisions 13–17 are reconciled in the packet. Review it and record the P0-GATE
+owner decisions 13–18 are reconciled in the packet. Review it and record the P0-GATE
 disposition; do not begin M1 merely because the executable foundation lanes integrated.
 Under decision 14, the remaining human reviews and open production choices are not additional
 foundation prerequisites. If P0-GATE passes, begin with S10 behavior/budget and S17 production

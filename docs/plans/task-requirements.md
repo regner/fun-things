@@ -10,8 +10,9 @@ qualification and enough outcome detail for dispatch.
 and the audit-derived tasks in
 [section 4 of the readiness audit](../reviews/p0-readiness-audit-2026-10-08.md).
 Most quantitative criteria are planning proposals derived from current product budgets and
-remain tunable during M1. Owner decisions 13–17 ratify the desktop frame target and narrow
-P0-GATE to the S17-only quiet result plus the refreshed gate packet.
+remain tunable during M1. Owner decisions 13–18 ratify the desktop frame target, narrow
+P0-GATE to the S17-only quiet result plus the refreshed gate packet, and select the first
+hit-registration policy.
 
 - **P0-TOOLING:** Completed. The [baseline repair](../spikes/p0-tooling.md) made the
   canonical script check green, established complete Python discovery, selected the
@@ -97,10 +98,12 @@ P0-GATE to the S17-only quiet result plus the refreshed gate packet.
   movement payloads; worst measured host output is 55.16 KiB/s against 256 KiB/s and join
   wire bytes are about 3.2 KiB against 1 MiB. Production baseline/input remain unmeasured,
   and remote drawable smoothness/extrapolation policy is open.
-- **S12:** Completed decision prototype. [S12](../spikes/s12.md) recommends 250 ms
-  target-only rewind: normal median agreement reaches 89.3% for pedestrians and 62.5% for
-  fast cars, while adverse fast-car agreement remains 44.8%. Owner must ratify the rewind
-  fairness bound and combat/impact defaults; clients never claim damage.
+- **S12:** Completed decision prototype. [S12](../spikes/s12.md) retains bounded ≤250 ms
+  rewind evidence for a possible later host-only change. Owner decision 18 starts with
+  host-authoritative verdicts at host current time: clients send fire intent plus the shooter's
+  view tick, the host chooses target/damage using forgiving delay-sized hit shapes, the shooter
+  gets immediate cosmetic muzzle/tracer feedback, and impact/damage waits for host confirmation.
+  Pistol/SMG/rocket/car-impact damage and rate values remain reviewable starting values.
 - **S13:** Completed technical path. [S13](../spikes/s13.md) proves one linked rig with four
   clips/three palettes at 68 live plus 16 dead and presentation-only throttling from 68 to
   30 active mixers. All timing remains contended by owner decision 13; production art,
@@ -146,8 +149,10 @@ Completed discovery reconciliation: [P0-DOC14 record](../reviews/p0-doc14.md).
 - **M1-B1:** Implement vehicle handling and authoritative driver transitions; resolve
   claim/exit/death/disconnect/destruction races. A dead driver's car coasts under neutral
   input, then remains as an abandoned parked car.
-- **M1-B2:** Implement the ratified weapons and authoritative damage/death state; reject
-  stale fire commands and hydrate late joiners.
+- **M1-B2:** Implement decision 18's host-current-time hit verdicts and forgiving delay-sized
+  hit shapes. Fire intents carry the shooter's view tick; only muzzle/tracer feedback is immediate,
+  while impact/damage waits for host confirmation. Keep bounded ≤250 ms host-only rewind possible,
+  reject stale fire commands and hydrate late joiners.
 - **M1-B3:** Bound/deduplicate chains and complete wreck/collision lifecycle; late join
   and reset restore current state without replaying old effects/work.
 - **M1-B4:** Add readable bounded effects and licensed/source-tracked audio; review the
