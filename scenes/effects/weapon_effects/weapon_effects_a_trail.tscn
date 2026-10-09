@@ -1,0 +1,79 @@
+[gd_scene format=3 uid="uid://b7q4h8x7c4sxy"]
+
+[ext_resource type="Script" uid="uid://bp4rf74ywinkg" path="res://scenes/effects/weapon_effects/effect.gd" id="1_tojdd"]
+[ext_resource type="Material" uid="uid://dl5xst6oc3y4o" path="res://art/materials/weapon_effects/weapon_effects_a_trail.tres" id="2_ln036"]
+[ext_resource type="PackedScene" uid="uid://dumh7hxlvbvkv" path="res://art/models/weapon_effects/weapon_effects_a_trail_puff.glb" id="2_vutda"]
+[ext_resource type="ArrayMesh" uid="uid://cdwov24cd7iei" path="res://art/models/weapon_effects/weapon_effects_a_trail_puff_mesh.res" id="3_lii8t"]
+[ext_resource type="Material" uid="uid://qtwbv886nos4" path="res://art/materials/weapon_effects/weapon_effects_a_smoke.tres" id="5_hbkq6"]
+
+[sub_resource type="Curve" id="Curve_ln036"]
+_data = [Vector2(0, 0.1), 0.0, 0.0, 0, 0, Vector2(0.25, 0.9), 0.0, 0.0, 0, 0, Vector2(0.7, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 4
+
+[sub_resource type="CurveTexture" id="CurveTexture_lii8t"]
+curve = SubResource("Curve_ln036")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_hbkq6"]
+emission_shape = 1
+emission_sphere_radius = 0.012
+direction = Vector3(0, 0, 1)
+spread = 10.0
+initial_velocity_min = 2.2
+initial_velocity_max = 3.2
+gravity = Vector3(0, 0, 0)
+scale_min = 0.3
+scale_curve = SubResource("CurveTexture_lii8t")
+
+[sub_resource type="Curve" id="Curve_7lyu2"]
+_data = [Vector2(0, 0.1), 0.0, 0.0, 0, 0, Vector2(0.25, 0.9), 0.0, 0.0, 0, 0, Vector2(0.7, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 4
+
+[sub_resource type="CurveTexture" id="CurveTexture_4yx80"]
+curve = SubResource("Curve_7lyu2")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_bg3y1"]
+emission_shape = 1
+emission_sphere_radius = 0.012
+direction = Vector3(0, 0, 1)
+spread = 10.0
+initial_velocity_min = 2.2
+initial_velocity_max = 3.2
+gravity = Vector3(0, 0, 0)
+scale_min = 0.6
+scale_max = 1.2
+scale_curve = SubResource("CurveTexture_4yx80")
+
+[node name="RocketTrail" type="Node3D" unique_id=2099010864]
+visible = false
+script = ExtResource("1_tojdd")
+settle_seconds = 0.58
+continuous = true
+metadata/asset_family = "weapon_effects_a"
+metadata/selected_concept = "A compact combustion"
+metadata/bounds_note = "Provisional +/-12m; integrator must validate residual travel at actual speed"
+
+[node name="Hot" type="GPUParticles3D" parent="." unique_id=2100419668]
+material_override = ExtResource("2_ln036")
+emitting = false
+amount = 5
+lifetime = 0.25
+fixed_fps = 60
+visibility_aabb = AABB(-12, -3, -12, 24, 6, 24)
+process_material = SubResource("ParticleProcessMaterial_hbkq6")
+draw_pass_1 = ExtResource("3_lii8t")
+
+[node name="MeshSource" parent="Hot" unique_id=214926804 instance=ExtResource("2_vutda")]
+visible = false
+
+[node name="Cool" type="GPUParticles3D" parent="." unique_id=1109587752]
+material_override = ExtResource("5_hbkq6")
+emitting = false
+amount = 6
+lifetime = 0.5
+fixed_fps = 60
+visibility_aabb = AABB(-12, -3, -12, 24, 6, 24)
+process_material = SubResource("ParticleProcessMaterial_bg3y1")
+draw_pass_1 = ExtResource("3_lii8t")
+
+[node name="MeshSource" parent="Cool" unique_id=2080231147 instance=ExtResource("2_vutda")]
+visible = false

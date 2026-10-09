@@ -1,0 +1,169 @@
+[gd_scene format=3 uid="uid://b6weoqrdqie13"]
+
+[ext_resource type="Script" uid="uid://bp4rf74ywinkg" path="res://scenes/effects/weapon_effects/effect.gd" id="1_nu2t0"]
+[ext_resource type="PackedScene" uid="uid://f37vr1l1uvcf" path="res://art/models/weapon_effects/weapon_effects_a_fire_lobe.glb" id="2_6ahw4"]
+[ext_resource type="Material" uid="uid://t4684ycgth8" path="res://art/materials/weapon_effects/weapon_effects_a_fire_tint.tres" id="2_12gxk"]
+[ext_resource type="PackedScene" uid="uid://btkytmpgnyqev" path="res://art/models/weapon_effects/weapon_effects_a_smoke_puff.glb" id="3_axv3g"]
+[ext_resource type="ArrayMesh" uid="uid://d07m2o58fqeok" path="res://art/models/weapon_effects/weapon_effects_a_fire_lobe_mesh.res" id="3_ep1eg"]
+[ext_resource type="PackedScene" uid="uid://cv17qg1mdkmqf" path="res://art/models/weapon_effects/weapon_effects_a_spark.glb" id="4_82xxm"]
+[ext_resource type="PackedScene" uid="uid://bkkgogq4lxy30" path="res://art/models/weapon_effects/weapon_effects_a_chip.glb" id="5_1xs68"]
+[ext_resource type="Material" uid="uid://qtwbv886nos4" path="res://art/materials/weapon_effects/weapon_effects_a_smoke.tres" id="5_vdtbp"]
+[ext_resource type="ArrayMesh" uid="uid://cmefbk7q1hscw" path="res://art/models/weapon_effects/weapon_effects_a_smoke_puff_mesh.res" id="6_emc4a"]
+[ext_resource type="Material" uid="uid://cm63lhvrr2hf7" path="res://art/materials/weapon_effects/weapon_effects_a_spark.tres" id="8_phjb5"]
+[ext_resource type="ArrayMesh" uid="uid://dja55fsdaa1o4" path="res://art/models/weapon_effects/weapon_effects_a_spark_mesh.res" id="9_awl66"]
+[ext_resource type="Material" uid="uid://b7fbuigq80k8i" path="res://art/materials/weapon_effects/weapon_effects_a_chip.tres" id="11_n76uo"]
+[ext_resource type="ArrayMesh" uid="uid://j04s0u5s1pu2" path="res://art/models/weapon_effects/weapon_effects_a_chip_mesh.res" id="12_b4oy1"]
+
+[sub_resource type="Gradient" id="Gradient_n4txy"]
+offsets = PackedFloat32Array(0, 0.25, 0.7, 1)
+colors = PackedColorArray(1, 1, 0.72, 1, 1, 0.75, 0.3, 1, 1, 0.3, 0.16, 1, 0.55, 0.12, 0.08, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_syo16"]
+gradient = SubResource("Gradient_n4txy")
+
+[sub_resource type="Curve" id="Curve_12gxk"]
+_data = [Vector2(0, 0.15), 0.0, 0.0, 0, 0, Vector2(0.22, 1), 0.0, 0.0, 0, 0, Vector2(0.6, 0.8), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 4
+
+[sub_resource type="CurveTexture" id="CurveTexture_ep1eg"]
+curve = SubResource("Curve_12gxk")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_vdtbp"]
+emission_shape = 1
+emission_sphere_radius = 0.55
+direction = Vector3(0, 1, 0)
+spread = 90.0
+initial_velocity_min = 1.2
+initial_velocity_max = 2.5
+gravity = Vector3(0, 0, 0)
+scale_min = 0.9
+scale_max = 1.4
+scale_curve = SubResource("CurveTexture_ep1eg")
+color_ramp = SubResource("GradientTexture1D_syo16")
+
+[sub_resource type="Curve" id="Curve_emc4a"]
+_data = [Vector2(0, 0.05), 0.0, 0.0, 0, 0, Vector2(0.4, 0.85), 0.0, 0.0, 0, 0, Vector2(0.65, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 4
+
+[sub_resource type="CurveTexture" id="CurveTexture_phjb5"]
+curve = SubResource("Curve_emc4a")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_awl66"]
+emission_shape = 1
+emission_sphere_radius = 1.0
+direction = Vector3(0, 1, 0)
+spread = 90.0
+initial_velocity_min = 0.5
+initial_velocity_max = 1.3
+gravity = Vector3(0, 0.6, 0)
+scale_min = 0.65
+scale_curve = SubResource("CurveTexture_phjb5")
+
+[sub_resource type="Curve" id="Curve_n76uo"]
+_data = [Vector2(0, 0.15), 0.0, 0.0, 0, 0, Vector2(0.22, 1), 0.0, 0.0, 0, 0, Vector2(0.6, 0.8), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 4
+
+[sub_resource type="CurveTexture" id="CurveTexture_b4oy1"]
+curve = SubResource("Curve_n76uo")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_4ejvm"]
+particle_flag_align_y = true
+emission_shape = 1
+emission_sphere_radius = 0.3
+direction = Vector3(0, 1, 0)
+spread = 90.0
+initial_velocity_min = 2.2
+initial_velocity_max = 4.6
+gravity = Vector3(0, 0, 0)
+scale_min = 0.5
+scale_max = 1.1
+scale_curve = SubResource("CurveTexture_b4oy1")
+
+[sub_resource type="Curve" id="Curve_5uwbc"]
+_data = [Vector2(0, 0.15), 0.0, 0.0, 0, 0, Vector2(0.22, 1), 0.0, 0.0, 0, 0, Vector2(0.6, 0.8), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 4
+
+[sub_resource type="CurveTexture" id="CurveTexture_v0dqf"]
+curve = SubResource("Curve_5uwbc")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_ttaof"]
+emission_shape = 1
+emission_sphere_radius = 0.3
+direction = Vector3(0, 1, 0)
+spread = 90.0
+initial_velocity_min = 1.6
+initial_velocity_max = 3.3
+gravity = Vector3(0, 0, 0)
+scale_min = 0.6
+scale_curve = SubResource("CurveTexture_v0dqf")
+
+[node name="Explosion" type="Node3D" unique_id=1401737409]
+visible = false
+script = ExtResource("1_nu2t0")
+settle_seconds = 1.45
+metadata/asset_family = "weapon_effects_a"
+metadata/selected_concept = "A compact combustion"
+
+[node name="Fire" type="GPUParticles3D" parent="." unique_id=2032078824]
+material_override = ExtResource("2_12gxk")
+emitting = false
+amount = 9
+lifetime = 0.5
+one_shot = true
+explosiveness = 1.0
+fixed_fps = 60
+visibility_aabb = AABB(-4.5, -1.6, -4.5, 9, 5.8, 9)
+local_coords = true
+process_material = SubResource("ParticleProcessMaterial_vdtbp")
+draw_pass_1 = ExtResource("3_ep1eg")
+
+[node name="MeshSource" parent="Fire" unique_id=737925578 instance=ExtResource("2_6ahw4")]
+visible = false
+
+[node name="Smoke" type="GPUParticles3D" parent="." unique_id=86200533]
+material_override = ExtResource("5_vdtbp")
+emitting = false
+amount = 7
+lifetime = 1.15
+one_shot = true
+explosiveness = 1.0
+fixed_fps = 60
+visibility_aabb = AABB(-4.5, -1.6, -4.5, 9, 5.8, 9)
+local_coords = true
+process_material = SubResource("ParticleProcessMaterial_awl66")
+draw_pass_1 = ExtResource("6_emc4a")
+
+[node name="MeshSource" parent="Smoke" unique_id=1646782837 instance=ExtResource("3_axv3g")]
+visible = false
+
+[node name="Sparks" type="GPUParticles3D" parent="." unique_id=66479422]
+material_override = ExtResource("8_phjb5")
+emitting = false
+amount = 14
+lifetime = 0.52
+one_shot = true
+explosiveness = 1.0
+fixed_fps = 60
+visibility_aabb = AABB(-4.5, -1.6, -4.5, 9, 5.8, 9)
+local_coords = true
+process_material = SubResource("ParticleProcessMaterial_4ejvm")
+draw_pass_1 = ExtResource("9_awl66")
+
+[node name="MeshSource" parent="Sparks" unique_id=1792450397 instance=ExtResource("4_82xxm")]
+visible = false
+
+[node name="Chips" type="GPUParticles3D" parent="." unique_id=819326357]
+material_override = ExtResource("11_n76uo")
+emitting = false
+amount = 5
+lifetime = 0.75
+one_shot = true
+explosiveness = 1.0
+fixed_fps = 60
+visibility_aabb = AABB(-4.5, -1.6, -4.5, 9, 5.8, 9)
+local_coords = true
+process_material = SubResource("ParticleProcessMaterial_ttaof")
+draw_pass_1 = ExtResource("12_b4oy1")
+
+[node name="MeshSource" parent="Chips" unique_id=1202931793 instance=ExtResource("5_1xs68")]
+visible = false

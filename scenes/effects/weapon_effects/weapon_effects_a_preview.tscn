@@ -1,0 +1,129 @@
+[gd_scene format=3 uid="uid://df1r04psp5co"]
+
+[ext_resource type="Script" uid="uid://dqakcscldnx77" path="res://scenes/effects/weapon_effects/preview.gd" id="1_wbpte"]
+[ext_resource type="PackedScene" uid="uid://cmrxf3f1lkc6c" path="res://art/models/weapon_effects/weapon_effects_a_preview_stage.glb" id="2_qcuu8"]
+[ext_resource type="PackedScene" uid="uid://d1htdsktia0dq" path="res://scenes/effects/weapon_effects/weapon_effects_a_muzzle.tscn" id="3_8jdfn"]
+[ext_resource type="PackedScene" uid="uid://mbhnsfu434ew" path="res://scenes/effects/weapon_effects/weapon_effects_a_hit.tscn" id="5_1dg65"]
+[ext_resource type="PackedScene" uid="uid://b6weoqrdqie13" path="res://scenes/effects/weapon_effects/weapon_effects_a_explosion.tscn" id="6_bls1l"]
+[ext_resource type="PackedScene" uid="uid://b7q4h8x7c4sxy" path="res://scenes/effects/weapon_effects/weapon_effects_a_trail.tscn" id="7_0be6l"]
+
+[sub_resource type="Environment" id="Environment_oqjx6"]
+background_mode = 1
+background_color = Color(0.015, 0.025, 0.04, 1)
+ambient_light_source = 2
+ambient_light_color = Color(0.45, 0.58, 0.75, 1)
+ambient_light_energy = 0.35
+tonemap_mode = 2
+tonemap_exposure = 0.45
+glow_enabled = true
+glow_intensity = 0.45
+
+[node name="WeaponEffectsPreview" type="Node3D" unique_id=2089126507]
+script = ExtResource("1_wbpte")
+
+[node name="Stage" parent="." unique_id=532659736 instance=ExtResource("2_qcuu8")]
+
+[node name="Camera" type="Camera3D" parent="." unique_id=1015380917]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 47, 0)
+current = true
+fov = 42.0
+near = 0.1
+far = 160.0
+
+[node name="Moon" type="DirectionalLight3D" parent="." unique_id=1027375212]
+transform = Transform3D(0.90630776, 0.36599818, -0.21130912, 0, 0.49999997, 0.86602545, 0.42261827, -0.7848856, 0.45315385, 0, 0, 0)
+light_color = Color(0.68, 0.79, 1, 1)
+light_energy = 0.65
+
+[node name="Environment" type="WorldEnvironment" parent="." unique_id=661319259]
+environment = SubResource("Environment_oqjx6")
+
+[node name="Muzzle" parent="." unique_id=115813443 instance=ExtResource("3_8jdfn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17, 1.2, -7)
+
+[node name="Hit" parent="." unique_id=948364749 instance=ExtResource("5_1dg65")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0.3, -7)
+
+[node name="Explosion" parent="." unique_id=1401737409 instance=ExtResource("6_bls1l")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12, 0.6, 7)
+
+[node name="TrailAnchor" type="Marker3D" parent="." unique_id=861075326]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 1.2, -7)
+metadata/source_socket_trail = Vector3(0, 0, 0.23)
+metadata/fixture_note = "Stationary emission marker; no duplicated rocket or speed simulation"
+
+[node name="Trail" parent="TrailAnchor" unique_id=2099010864 instance=ExtResource("7_0be6l")]
+
+[node name="Overlap" type="Node3D" parent="." unique_id=406247179]
+
+[node name="Explosion0" parent="Overlap" unique_id=428712093 instance=ExtResource("6_bls1l")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 0.6, 6)
+
+[node name="Explosion1" parent="Overlap" unique_id=1796055216 instance=ExtResource("6_bls1l")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 0.6, 6)
+
+[node name="Explosion2" parent="Overlap" unique_id=432010050 instance=ExtResource("6_bls1l")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 0.6, 8)
+
+[node name="Explosion3" parent="Overlap" unique_id=1711117918 instance=ExtResource("6_bls1l")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 0.6, 8)
+
+[node name="Overlay" type="CanvasLayer" parent="." unique_id=953715658]
+
+[node name="Header" type="Label" parent="Overlay" unique_id=829888056]
+offset_left = 26.0
+offset_top = 18.0
+offset_right = 26.0
+offset_bottom = 18.0
+text = "A / COMPACT COMBUSTION   •   ASSET PLAYBACK ONLY
+47 m / 42° / NORTH UP / 1280×800   |   SPACE play/clear   R restart   ESC clear
+Automatic playback stops after 24 s."
+
+[node name="Caption2" type="Label" parent="Overlay" unique_id=686828183]
+offset_left = 205.0
+offset_top = 205.0
+offset_right = 205.0
+offset_bottom = 205.0
+text = "MUZZLE"
+
+[node name="Caption3" type="Label" parent="Overlay" unique_id=1229437101]
+offset_left = 448.0
+offset_top = 205.0
+offset_right = 448.0
+offset_bottom = 205.0
+text = "HIT"
+
+[node name="Caption4" type="Label" parent="Overlay" unique_id=1820641790]
+offset_left = 704.0
+offset_top = 205.0
+offset_right = 704.0
+offset_bottom = 205.0
+text = "TRAIL / MARKER ONLY"
+
+[node name="Caption5" type="Label" parent="Overlay" unique_id=206314430]
+offset_left = 315.0
+offset_top = 465.0
+offset_right = 404.0
+offset_bottom = 488.0
+text = "EXPLOSION"
+
+[node name="Caption6" type="Label" parent="Overlay" unique_id=1326624505]
+offset_left = 765.0
+offset_top = 465.0
+offset_right = 948.0
+offset_bottom = 488.0
+text = "4 INDEPENDENT ROOTS"
+
+[node name="Caption7" type="Label" parent="Overlay" unique_id=1408268272]
+offset_left = 170.0
+offset_top = 685.0
+offset_right = 170.0
+offset_bottom = 685.0
+text = "1m ticks"
+
+[node name="Caption8" type="Label" parent="Overlay" unique_id=1150129262]
+offset_left = 875.0
+offset_top = 685.0
+offset_right = 875.0
+offset_bottom = 685.0
+text = "4m strip"

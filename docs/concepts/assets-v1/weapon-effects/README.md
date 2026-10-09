@@ -1,7 +1,11 @@
 # Weapon effects — concept selection
 
 9 October 2026. Owned by the weapon effects lead; art selection belongs to Regner.
-Base: `c030d66d7d0a9db19c0c2aebf1aa2b83eded6275`. Concept status: **pending owner selection**.
+Base: `c030d66d7d0a9db19c0c2aebf1aa2b83eded6275`. Concept status:
+**A selected by Regner, 9 October 2026; production in progress**.
+
+Owner selection: “I really like both A and B. Lets start with A and we can review again later.”
+Keep B as an alternate for later review; this selection authorizes A source/scene production.
 
 Original generated visual references for muzzle flash, surface hit, rocket trail and
 explosion. This checkpoint contains no production model, texture atlas, shader,
@@ -110,3 +114,10 @@ effects/S15 readability, overdraw, device/performance and every-explosion accept
 open. No shared TODO completion/removal is claimed by concept delivery. Gameplay
 event plumbing, duplicate suppression, collision, damage/chains, network acceptance,
 overflow policy and main-scene/world integration belong to the external integrator.
+
+## Approved A implementation
+
+Regner selected A on 9 October 2026; B stays available. The first saved Godot
+revision now has an [actual-camera sequence](production-a/index.html) and
+[scoped asset handoff](../../../assets/weapon_effects_a.md). Concept-only caveats
+above describe the generated sheets; production checks/limits are in that handoff.

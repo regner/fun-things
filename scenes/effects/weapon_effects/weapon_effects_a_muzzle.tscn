@@ -1,0 +1,77 @@
+[gd_scene format=3 uid="uid://d1htdsktia0dq"]
+
+[ext_resource type="Script" uid="uid://bp4rf74ywinkg" path="res://scenes/effects/weapon_effects/effect.gd" id="1_gavnk"]
+[ext_resource type="ArrayMesh" uid="uid://dj3vokl67ytjd" path="res://art/models/weapon_effects/weapon_effects_a_muzzle_drop_mesh.res" id="2_e8mjs"]
+[ext_resource type="PackedScene" uid="uid://dgj4bbp7thfak" path="res://art/models/weapon_effects/weapon_effects_a_muzzle_drop.glb" id="2_v6lky"]
+[ext_resource type="PackedScene" uid="uid://cv17qg1mdkmqf" path="res://art/models/weapon_effects/weapon_effects_a_spark.glb" id="3_bfmxo"]
+[ext_resource type="Material" uid="uid://cm63lhvrr2hf7" path="res://art/materials/weapon_effects/weapon_effects_a_spark.tres" id="4_xuijx"]
+[ext_resource type="ArrayMesh" uid="uid://dja55fsdaa1o4" path="res://art/models/weapon_effects/weapon_effects_a_spark_mesh.res" id="5_6f5xy"]
+
+[sub_resource type="Curve" id="Curve_e8mjs"]
+_data = [Vector2(0, 0.05), 0.0, 0.0, 0, 0, Vector2(0.2, 1), 0.0, 0.0, 0, 0, Vector2(0.65, 0.5), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 4
+
+[sub_resource type="CurveTexture" id="CurveTexture_xuijx"]
+curve = SubResource("Curve_e8mjs")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_6f5xy"]
+direction = Vector3(0, 0, -1)
+spread = 0.0
+gravity = Vector3(0, 0, 0)
+scale_curve = SubResource("CurveTexture_xuijx")
+
+[sub_resource type="Curve" id="Curve_qb1q6"]
+_data = [Vector2(0, 0.15), 0.0, 0.0, 0, 0, Vector2(0.22, 1), 0.0, 0.0, 0, 0, Vector2(0.6, 0.8), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 4
+
+[sub_resource type="CurveTexture" id="CurveTexture_px5xd"]
+curve = SubResource("Curve_qb1q6")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_1imx7"]
+particle_flag_align_y = true
+direction = Vector3(0, 0, -1)
+spread = 22.0
+initial_velocity_min = 2.0
+initial_velocity_max = 3.5
+gravity = Vector3(0, 0, 0)
+scale_min = 0.3
+scale_max = 0.6
+scale_curve = SubResource("CurveTexture_px5xd")
+
+[node name="MuzzleFlash" type="Node3D" unique_id=115813443]
+visible = false
+script = ExtResource("1_gavnk")
+settle_seconds = 0.17
+metadata/asset_family = "weapon_effects_a"
+metadata/selected_concept = "A compact combustion"
+
+[node name="Flash" type="GPUParticles3D" parent="." unique_id=2028305443]
+emitting = false
+amount = 1
+lifetime = 0.11
+one_shot = true
+explosiveness = 1.0
+fixed_fps = 60
+visibility_aabb = AABB(-0.45, -0.3, -1.05, 0.9, 0.6, 1.12)
+local_coords = true
+process_material = SubResource("ParticleProcessMaterial_6f5xy")
+draw_pass_1 = ExtResource("2_e8mjs")
+
+[node name="MeshSource" parent="Flash" unique_id=578496879 instance=ExtResource("2_v6lky")]
+visible = false
+
+[node name="Sparks" type="GPUParticles3D" parent="." unique_id=545049224]
+material_override = ExtResource("4_xuijx")
+emitting = false
+amount = 2
+lifetime = 0.14
+one_shot = true
+explosiveness = 1.0
+fixed_fps = 60
+visibility_aabb = AABB(-0.45, -0.3, -1.05, 0.9, 0.6, 1.12)
+local_coords = true
+process_material = SubResource("ParticleProcessMaterial_1imx7")
+draw_pass_1 = ExtResource("5_6f5xy")
+
+[node name="MeshSource" parent="Sparks" unique_id=1792450397 instance=ExtResource("3_bfmxo")]
+visible = false

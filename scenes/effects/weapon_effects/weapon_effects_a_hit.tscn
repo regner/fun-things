@@ -1,0 +1,82 @@
+[gd_scene format=3 uid="uid://mbhnsfu434ew"]
+
+[ext_resource type="Script" uid="uid://bp4rf74ywinkg" path="res://scenes/effects/weapon_effects/effect.gd" id="1_w8qc2"]
+[ext_resource type="Material" uid="uid://cm63lhvrr2hf7" path="res://art/materials/weapon_effects/weapon_effects_a_spark.tres" id="2_4pmql"]
+[ext_resource type="PackedScene" uid="uid://cv17qg1mdkmqf" path="res://art/models/weapon_effects/weapon_effects_a_spark.glb" id="2_qt3jn"]
+[ext_resource type="ArrayMesh" uid="uid://dja55fsdaa1o4" path="res://art/models/weapon_effects/weapon_effects_a_spark_mesh.res" id="3_cofp1"]
+[ext_resource type="PackedScene" uid="uid://btkytmpgnyqev" path="res://art/models/weapon_effects/weapon_effects_a_smoke_puff.glb" id="3_mgfpe"]
+[ext_resource type="Material" uid="uid://qtwbv886nos4" path="res://art/materials/weapon_effects/weapon_effects_a_smoke.tres" id="5_3pa8n"]
+[ext_resource type="ArrayMesh" uid="uid://cmefbk7q1hscw" path="res://art/models/weapon_effects/weapon_effects_a_smoke_puff_mesh.res" id="6_180ho"]
+
+[sub_resource type="Curve" id="Curve_0jb7k"]
+_data = [Vector2(0, 0.15), 0.0, 0.0, 0, 0, Vector2(0.22, 1), 0.0, 0.0, 0, 0, Vector2(0.6, 0.8), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 4
+
+[sub_resource type="CurveTexture" id="CurveTexture_4pmql"]
+curve = SubResource("Curve_0jb7k")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_cofp1"]
+particle_flag_align_y = true
+direction = Vector3(0, 1, 0)
+spread = 90.0
+initial_velocity_min = 3.0
+initial_velocity_max = 4.0
+gravity = Vector3(0, 0, 0)
+scale_max = 1.4
+scale_curve = SubResource("CurveTexture_4pmql")
+
+[sub_resource type="Curve" id="Curve_180ho"]
+_data = [Vector2(0, 0.15), 0.0, 0.0, 0, 0, Vector2(0.22, 1), 0.0, 0.0, 0, 0, Vector2(0.6, 0.8), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 4
+
+[sub_resource type="CurveTexture" id="CurveTexture_2q8e7"]
+curve = SubResource("Curve_180ho")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_2aic8"]
+direction = Vector3(0, 1, 0)
+spread = 90.0
+initial_velocity_min = 0.4
+initial_velocity_max = 0.8
+gravity = Vector3(0, 0, 0)
+scale_min = 0.25
+scale_max = 0.45
+scale_curve = SubResource("CurveTexture_2q8e7")
+
+[node name="SurfaceHit" type="Node3D" unique_id=948364749]
+visible = false
+script = ExtResource("1_w8qc2")
+settle_seconds = 0.4
+metadata/asset_family = "weapon_effects_a"
+metadata/selected_concept = "A compact combustion"
+
+[node name="Sparks" type="GPUParticles3D" parent="." unique_id=838296980]
+material_override = ExtResource("2_4pmql")
+emitting = false
+amount = 7
+lifetime = 0.24
+one_shot = true
+explosiveness = 1.0
+fixed_fps = 60
+visibility_aabb = AABB(-1.3, -0.4, -1.3, 2.6, 2, 2.6)
+local_coords = true
+process_material = SubResource("ParticleProcessMaterial_cofp1")
+draw_pass_1 = ExtResource("3_cofp1")
+
+[node name="MeshSource" parent="Sparks" unique_id=1792450397 instance=ExtResource("2_qt3jn")]
+visible = false
+
+[node name="Dust" type="GPUParticles3D" parent="." unique_id=2035266505]
+material_override = ExtResource("5_3pa8n")
+emitting = false
+amount = 3
+lifetime = 0.32
+one_shot = true
+explosiveness = 1.0
+fixed_fps = 60
+visibility_aabb = AABB(-1.3, -0.4, -1.3, 2.6, 2, 2.6)
+local_coords = true
+process_material = SubResource("ParticleProcessMaterial_2aic8")
+draw_pass_1 = ExtResource("6_180ho")
+
+[node name="MeshSource" parent="Dust" unique_id=1646782837 instance=ExtResource("3_mgfpe")]
+visible = false
