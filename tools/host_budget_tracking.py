@@ -63,7 +63,7 @@ def pinned_engine_version(godot, timeout_tool):
 
 def run_tracking(godot, timeout_tool, output, warmup_ticks, measured_ticks):
     """Run one capped headless scene and return its augmented report."""
-    output.mkdir(parents=True)
+    output.mkdir(parents=True, exist_ok=True)
     raw_result = output / "scene-result.json"
     engine_log = output / "godot.engine.log"
     process_log = output / "godot.log"
