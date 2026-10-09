@@ -1,0 +1,1039 @@
+{
+  "engine": "4.8.dev7.official.c971f93e7",
+  "seeds": [
+    101,
+    202,
+    303
+  ],
+  "simulation_seconds_per_run": 600,
+  "population_per_run": 64,
+  "import": {
+    "ok": true,
+    "returncode": 0,
+    "telemetry": null
+  },
+  "commands": [
+    [
+      "\\Users\\regner.blokandersen\\AppData\\Local\\mise\\installs\\github-godotengine-godot-builds\\4.8-dev7/godot",
+      "--headless",
+      "--path",
+      "C:\\tmp\\ft\\lanes\\s10-pedestrian-ai\\dev-run01\\project",
+      "--script",
+      "res://tests/fixtures/s10/benchmark.gd",
+      "--log-file",
+      "C:\\tmp\\ft\\lanes\\s10-pedestrian-ai\\dev-run01\\seed-101.engine.log",
+      "--",
+      "--seed",
+      "101",
+      "--output",
+      "C:\\tmp\\ft\\lanes\\s10-pedestrian-ai\\dev-run01\\seed-101.json"
+    ],
+    [
+      "\\Users\\regner.blokandersen\\AppData\\Local\\mise\\installs\\github-godotengine-godot-builds\\4.8-dev7/godot",
+      "--headless",
+      "--path",
+      "C:\\tmp\\ft\\lanes\\s10-pedestrian-ai\\dev-run01\\project",
+      "--script",
+      "res://tests/fixtures/s10/benchmark.gd",
+      "--log-file",
+      "C:\\tmp\\ft\\lanes\\s10-pedestrian-ai\\dev-run01\\seed-202.engine.log",
+      "--",
+      "--seed",
+      "202",
+      "--output",
+      "C:\\tmp\\ft\\lanes\\s10-pedestrian-ai\\dev-run01\\seed-202.json"
+    ],
+    [
+      "\\Users\\regner.blokandersen\\AppData\\Local\\mise\\installs\\github-godotengine-godot-builds\\4.8-dev7/godot",
+      "--headless",
+      "--path",
+      "C:\\tmp\\ft\\lanes\\s10-pedestrian-ai\\dev-run01\\project",
+      "--script",
+      "res://tests/fixtures/s10/benchmark.gd",
+      "--log-file",
+      "C:\\tmp\\ft\\lanes\\s10-pedestrian-ai\\dev-run01\\seed-303.engine.log",
+      "--",
+      "--seed",
+      "303",
+      "--output",
+      "C:\\tmp\\ft\\lanes\\s10-pedestrian-ai\\dev-run01\\seed-303.json"
+    ]
+  ],
+  "seed_receipts": [
+    {
+      "seed": 101,
+      "process": {
+        "ok": false,
+        "returncode": 1,
+        "telemetry": {
+          "before": {
+            "godot_processes": 5,
+            "cpu_load": {
+              "percent": 1.0,
+              "source": "Win32_Processor"
+            }
+          },
+          "during": {
+            "godot_processes": 6,
+            "cpu_load": {
+              "percent": 58.0,
+              "source": "Win32_Processor"
+            }
+          },
+          "after": {
+            "godot_processes": 6,
+            "cpu_load": {
+              "percent": 31.0,
+              "source": "Win32_Processor"
+            }
+          }
+        }
+      },
+      "receipt_available": true
+    },
+    {
+      "seed": 202,
+      "process": {
+        "ok": false,
+        "returncode": 1,
+        "telemetry": {
+          "before": {
+            "godot_processes": 6,
+            "cpu_load": {
+              "percent": 65.0,
+              "source": "Win32_Processor"
+            }
+          },
+          "during": {
+            "godot_processes": 3,
+            "cpu_load": {
+              "percent": 80.0,
+              "source": "Win32_Processor"
+            }
+          },
+          "after": {
+            "godot_processes": 3,
+            "cpu_load": {
+              "percent": 48.0,
+              "source": "Win32_Processor"
+            }
+          }
+        }
+      },
+      "receipt_available": true
+    },
+    {
+      "seed": 303,
+      "process": {
+        "ok": false,
+        "returncode": 1,
+        "telemetry": {
+          "before": {
+            "godot_processes": 3,
+            "cpu_load": {
+              "percent": 12.0,
+              "source": "Win32_Processor"
+            }
+          },
+          "during": {
+            "godot_processes": 4,
+            "cpu_load": {
+              "percent": 80.0,
+              "source": "Win32_Processor"
+            }
+          },
+          "after": {
+            "godot_processes": 8,
+            "cpu_load": {
+              "percent": 85.0,
+              "source": "Win32_Processor"
+            }
+          }
+        }
+      },
+      "receipt_available": true
+    }
+  ],
+  "runs": [
+    {
+      "ai_movement_ms": {
+        "max": 19.144,
+        "mean": 0.931593777777778,
+        "median": 0.769,
+        "p95": 1.631,
+        "p99": 2.723
+      },
+      "city_validation": "OK",
+      "failures": [
+        "pedestrian left the legal foot corridor"
+      ],
+      "metrics": {
+        "blast_deaths": 16,
+        "car_hits": 41,
+        "crossing_wait_agent_ticks": 186438,
+        "deaths": 57,
+        "end_live": 64,
+        "flee_latency_ms": {
+          "max": 83.3333333333333,
+          "median": 33.3333333333333,
+          "p95": 83.3333333333333
+        },
+        "flee_reactions": 547,
+        "max_live": 64,
+        "max_overlap_pairs": 284,
+        "max_retained_dead": 16,
+        "min_live": 55,
+        "off_sidewalk_agent_ticks": 842315,
+        "overlap_pair_samples": 103514,
+        "overlap_sample_count": 600,
+        "replacements": 57,
+        "retained_dead": 16,
+        "road_outside_crossing_agent_ticks": 0,
+        "stuck_entities": 83
+      },
+      "motion": "graph_kinematic",
+      "route_point_count": 251,
+      "scenario": "normal",
+      "seed": 101,
+      "simulated_seconds": 600,
+      "ticks": 36000,
+      "contention": {
+        "before": {
+          "godot_processes": 5,
+          "cpu_load": {
+            "percent": 1.0,
+            "source": "Win32_Processor"
+          }
+        },
+        "during": {
+          "godot_processes": 6,
+          "cpu_load": {
+            "percent": 58.0,
+            "source": "Win32_Processor"
+          }
+        },
+        "after": {
+          "godot_processes": 6,
+          "cpu_load": {
+            "percent": 31.0,
+            "source": "Win32_Processor"
+          }
+        }
+      },
+      "timing_label": "contended upper bound"
+    },
+    {
+      "ai_movement_ms": {
+        "max": 17.721,
+        "mean": 1.10159613888889,
+        "median": 0.929,
+        "p95": 1.868,
+        "p99": 3.068
+      },
+      "city_validation": "OK",
+      "failures": [
+        "pedestrian left the legal foot corridor"
+      ],
+      "metrics": {
+        "blast_deaths": 16,
+        "car_hits": 41,
+        "crossing_wait_agent_ticks": 182557,
+        "deaths": 57,
+        "end_live": 64,
+        "flee_latency_ms": {
+          "max": 83.3333333333333,
+          "median": 33.3333333333333,
+          "p95": 83.3333333333333
+        },
+        "flee_reactions": 564,
+        "max_live": 64,
+        "max_overlap_pairs": 291,
+        "max_retained_dead": 16,
+        "min_live": 55,
+        "off_sidewalk_agent_ticks": 848820,
+        "overlap_pair_samples": 103792,
+        "overlap_sample_count": 600,
+        "replacements": 57,
+        "retained_dead": 16,
+        "road_outside_crossing_agent_ticks": 0,
+        "stuck_entities": 82
+      },
+      "motion": "character_body",
+      "route_point_count": 251,
+      "scenario": "normal",
+      "seed": 101,
+      "simulated_seconds": 600,
+      "ticks": 36000,
+      "contention": {
+        "before": {
+          "godot_processes": 5,
+          "cpu_load": {
+            "percent": 1.0,
+            "source": "Win32_Processor"
+          }
+        },
+        "during": {
+          "godot_processes": 6,
+          "cpu_load": {
+            "percent": 58.0,
+            "source": "Win32_Processor"
+          }
+        },
+        "after": {
+          "godot_processes": 6,
+          "cpu_load": {
+            "percent": 31.0,
+            "source": "Win32_Processor"
+          }
+        }
+      },
+      "timing_label": "contended upper bound"
+    },
+    {
+      "ai_movement_ms": {
+        "max": 28.014,
+        "mean": 1.24915038888889,
+        "median": 1.038,
+        "p95": 2.13,
+        "p99": 3.523
+      },
+      "city_validation": "OK",
+      "failures": [
+        "pedestrian left the legal foot corridor"
+      ],
+      "metrics": {
+        "blast_deaths": 0,
+        "car_hits": 0,
+        "crossing_wait_agent_ticks": 278918,
+        "deaths": 0,
+        "end_live": 64,
+        "flee_latency_ms": {
+          "max": 83.3333333333333,
+          "median": 33.3333333333333,
+          "p95": 83.3333333333333
+        },
+        "flee_reactions": 7680,
+        "max_live": 64,
+        "max_overlap_pairs": 167,
+        "max_retained_dead": 0,
+        "min_live": 64,
+        "off_sidewalk_agent_ticks": 647667,
+        "overlap_pair_samples": 98767,
+        "overlap_sample_count": 600,
+        "replacements": 0,
+        "retained_dead": 0,
+        "road_outside_crossing_agent_ticks": 0,
+        "stuck_entities": 64
+      },
+      "motion": "graph_kinematic",
+      "route_point_count": 251,
+      "scenario": "flee_storm",
+      "seed": 101,
+      "simulated_seconds": 600,
+      "ticks": 36000,
+      "contention": {
+        "before": {
+          "godot_processes": 5,
+          "cpu_load": {
+            "percent": 1.0,
+            "source": "Win32_Processor"
+          }
+        },
+        "during": {
+          "godot_processes": 6,
+          "cpu_load": {
+            "percent": 58.0,
+            "source": "Win32_Processor"
+          }
+        },
+        "after": {
+          "godot_processes": 6,
+          "cpu_load": {
+            "percent": 31.0,
+            "source": "Win32_Processor"
+          }
+        }
+      },
+      "timing_label": "contended upper bound"
+    },
+    {
+      "ai_movement_ms": {
+        "max": 66.479,
+        "mean": 1.42073511111111,
+        "median": 1.179,
+        "p95": 2.371,
+        "p99": 3.7
+      },
+      "city_validation": "OK",
+      "failures": [
+        "pedestrian left the legal foot corridor"
+      ],
+      "metrics": {
+        "blast_deaths": 0,
+        "car_hits": 0,
+        "crossing_wait_agent_ticks": 278918,
+        "deaths": 0,
+        "end_live": 64,
+        "flee_latency_ms": {
+          "max": 83.3333333333333,
+          "median": 33.3333333333333,
+          "p95": 83.3333333333333
+        },
+        "flee_reactions": 7680,
+        "max_live": 64,
+        "max_overlap_pairs": 167,
+        "max_retained_dead": 0,
+        "min_live": 64,
+        "off_sidewalk_agent_ticks": 647667,
+        "overlap_pair_samples": 98767,
+        "overlap_sample_count": 600,
+        "replacements": 0,
+        "retained_dead": 0,
+        "road_outside_crossing_agent_ticks": 0,
+        "stuck_entities": 64
+      },
+      "motion": "character_body",
+      "route_point_count": 251,
+      "scenario": "flee_storm",
+      "seed": 101,
+      "simulated_seconds": 600,
+      "ticks": 36000,
+      "contention": {
+        "before": {
+          "godot_processes": 5,
+          "cpu_load": {
+            "percent": 1.0,
+            "source": "Win32_Processor"
+          }
+        },
+        "during": {
+          "godot_processes": 6,
+          "cpu_load": {
+            "percent": 58.0,
+            "source": "Win32_Processor"
+          }
+        },
+        "after": {
+          "godot_processes": 6,
+          "cpu_load": {
+            "percent": 31.0,
+            "source": "Win32_Processor"
+          }
+        }
+      },
+      "timing_label": "contended upper bound"
+    },
+    {
+      "ai_movement_ms": {
+        "max": 15.913,
+        "mean": 0.885212416666667,
+        "median": 0.729,
+        "p95": 1.573,
+        "p99": 2.625
+      },
+      "city_validation": "OK",
+      "failures": [
+        "pedestrian left the legal foot corridor"
+      ],
+      "metrics": {
+        "blast_deaths": 16,
+        "car_hits": 44,
+        "crossing_wait_agent_ticks": 216297,
+        "deaths": 60,
+        "end_live": 64,
+        "flee_latency_ms": {
+          "max": 83.3333333333333,
+          "median": 33.3333333333333,
+          "p95": 83.3333333333333
+        },
+        "flee_reactions": 791,
+        "max_live": 64,
+        "max_overlap_pairs": 288,
+        "max_retained_dead": 16,
+        "min_live": 53,
+        "off_sidewalk_agent_ticks": 861945,
+        "overlap_pair_samples": 95221,
+        "overlap_sample_count": 600,
+        "replacements": 60,
+        "retained_dead": 16,
+        "road_outside_crossing_agent_ticks": 0,
+        "stuck_entities": 88
+      },
+      "motion": "graph_kinematic",
+      "route_point_count": 251,
+      "scenario": "normal",
+      "seed": 202,
+      "simulated_seconds": 600,
+      "ticks": 36000,
+      "contention": {
+        "before": {
+          "godot_processes": 6,
+          "cpu_load": {
+            "percent": 65.0,
+            "source": "Win32_Processor"
+          }
+        },
+        "during": {
+          "godot_processes": 3,
+          "cpu_load": {
+            "percent": 80.0,
+            "source": "Win32_Processor"
+          }
+        },
+        "after": {
+          "godot_processes": 3,
+          "cpu_load": {
+            "percent": 48.0,
+            "source": "Win32_Processor"
+          }
+        }
+      },
+      "timing_label": "contended upper bound"
+    },
+    {
+      "ai_movement_ms": {
+        "max": 27.05,
+        "mean": 1.05649858333333,
+        "median": 0.87,
+        "p95": 1.863,
+        "p99": 3.239
+      },
+      "city_validation": "OK",
+      "failures": [
+        "pedestrian left the legal foot corridor"
+      ],
+      "metrics": {
+        "blast_deaths": 16,
+        "car_hits": 48,
+        "crossing_wait_agent_ticks": 207188,
+        "deaths": 64,
+        "end_live": 64,
+        "flee_latency_ms": {
+          "max": 83.3333333333333,
+          "median": 33.3333333333333,
+          "p95": 83.3333333333333
+        },
+        "flee_reactions": 773,
+        "max_live": 64,
+        "max_overlap_pairs": 287,
+        "max_retained_dead": 16,
+        "min_live": 53,
+        "off_sidewalk_agent_ticks": 895697,
+        "overlap_pair_samples": 98288,
+        "overlap_sample_count": 600,
+        "replacements": 64,
+        "retained_dead": 16,
+        "road_outside_crossing_agent_ticks": 0,
+        "stuck_entities": 89
+      },
+      "motion": "character_body",
+      "route_point_count": 251,
+      "scenario": "normal",
+      "seed": 202,
+      "simulated_seconds": 600,
+      "ticks": 36000,
+      "contention": {
+        "before": {
+          "godot_processes": 6,
+          "cpu_load": {
+            "percent": 65.0,
+            "source": "Win32_Processor"
+          }
+        },
+        "during": {
+          "godot_processes": 3,
+          "cpu_load": {
+            "percent": 80.0,
+            "source": "Win32_Processor"
+          }
+        },
+        "after": {
+          "godot_processes": 3,
+          "cpu_load": {
+            "percent": 48.0,
+            "source": "Win32_Processor"
+          }
+        }
+      },
+      "timing_label": "contended upper bound"
+    },
+    {
+      "ai_movement_ms": {
+        "max": 13.304,
+        "mean": 1.07561436111111,
+        "median": 0.871,
+        "p95": 1.823,
+        "p99": 3.642
+      },
+      "city_validation": "OK",
+      "failures": [
+        "pedestrian left the legal foot corridor"
+      ],
+      "metrics": {
+        "blast_deaths": 0,
+        "car_hits": 0,
+        "crossing_wait_agent_ticks": 278918,
+        "deaths": 0,
+        "end_live": 64,
+        "flee_latency_ms": {
+          "max": 83.3333333333333,
+          "median": 33.3333333333333,
+          "p95": 83.3333333333333
+        },
+        "flee_reactions": 7680,
+        "max_live": 64,
+        "max_overlap_pairs": 167,
+        "max_retained_dead": 0,
+        "min_live": 64,
+        "off_sidewalk_agent_ticks": 647667,
+        "overlap_pair_samples": 98767,
+        "overlap_sample_count": 600,
+        "replacements": 0,
+        "retained_dead": 0,
+        "road_outside_crossing_agent_ticks": 0,
+        "stuck_entities": 64
+      },
+      "motion": "graph_kinematic",
+      "route_point_count": 251,
+      "scenario": "flee_storm",
+      "seed": 202,
+      "simulated_seconds": 600,
+      "ticks": 36000,
+      "contention": {
+        "before": {
+          "godot_processes": 6,
+          "cpu_load": {
+            "percent": 65.0,
+            "source": "Win32_Processor"
+          }
+        },
+        "during": {
+          "godot_processes": 3,
+          "cpu_load": {
+            "percent": 80.0,
+            "source": "Win32_Processor"
+          }
+        },
+        "after": {
+          "godot_processes": 3,
+          "cpu_load": {
+            "percent": 48.0,
+            "source": "Win32_Processor"
+          }
+        }
+      },
+      "timing_label": "contended upper bound"
+    },
+    {
+      "ai_movement_ms": {
+        "max": 224.375,
+        "mean": 1.24380366666667,
+        "median": 1.018,
+        "p95": 1.987,
+        "p99": 3.384
+      },
+      "city_validation": "OK",
+      "failures": [
+        "pedestrian left the legal foot corridor"
+      ],
+      "metrics": {
+        "blast_deaths": 0,
+        "car_hits": 0,
+        "crossing_wait_agent_ticks": 278918,
+        "deaths": 0,
+        "end_live": 64,
+        "flee_latency_ms": {
+          "max": 83.3333333333333,
+          "median": 33.3333333333333,
+          "p95": 83.3333333333333
+        },
+        "flee_reactions": 7680,
+        "max_live": 64,
+        "max_overlap_pairs": 167,
+        "max_retained_dead": 0,
+        "min_live": 64,
+        "off_sidewalk_agent_ticks": 647667,
+        "overlap_pair_samples": 98767,
+        "overlap_sample_count": 600,
+        "replacements": 0,
+        "retained_dead": 0,
+        "road_outside_crossing_agent_ticks": 0,
+        "stuck_entities": 64
+      },
+      "motion": "character_body",
+      "route_point_count": 251,
+      "scenario": "flee_storm",
+      "seed": 202,
+      "simulated_seconds": 600,
+      "ticks": 36000,
+      "contention": {
+        "before": {
+          "godot_processes": 6,
+          "cpu_load": {
+            "percent": 65.0,
+            "source": "Win32_Processor"
+          }
+        },
+        "during": {
+          "godot_processes": 3,
+          "cpu_load": {
+            "percent": 80.0,
+            "source": "Win32_Processor"
+          }
+        },
+        "after": {
+          "godot_processes": 3,
+          "cpu_load": {
+            "percent": 48.0,
+            "source": "Win32_Processor"
+          }
+        }
+      },
+      "timing_label": "contended upper bound"
+    },
+    {
+      "ai_movement_ms": {
+        "max": 28.605,
+        "mean": 0.875769888888889,
+        "median": 0.71,
+        "p95": 1.529,
+        "p99": 2.62
+      },
+      "city_validation": "OK",
+      "failures": [
+        "pedestrian left the legal foot corridor"
+      ],
+      "metrics": {
+        "blast_deaths": 16,
+        "car_hits": 38,
+        "crossing_wait_agent_ticks": 163501,
+        "deaths": 54,
+        "end_live": 64,
+        "flee_latency_ms": {
+          "max": 83.3333333333333,
+          "median": 33.3333333333333,
+          "p95": 83.3333333333333
+        },
+        "flee_reactions": 692,
+        "max_live": 64,
+        "max_overlap_pairs": 273,
+        "max_retained_dead": 16,
+        "min_live": 54,
+        "off_sidewalk_agent_ticks": 1029426,
+        "overlap_pair_samples": 107362,
+        "overlap_sample_count": 600,
+        "replacements": 54,
+        "retained_dead": 16,
+        "road_outside_crossing_agent_ticks": 0,
+        "stuck_entities": 85
+      },
+      "motion": "graph_kinematic",
+      "route_point_count": 251,
+      "scenario": "normal",
+      "seed": 303,
+      "simulated_seconds": 600,
+      "ticks": 36000,
+      "contention": {
+        "before": {
+          "godot_processes": 3,
+          "cpu_load": {
+            "percent": 12.0,
+            "source": "Win32_Processor"
+          }
+        },
+        "during": {
+          "godot_processes": 4,
+          "cpu_load": {
+            "percent": 80.0,
+            "source": "Win32_Processor"
+          }
+        },
+        "after": {
+          "godot_processes": 8,
+          "cpu_load": {
+            "percent": 85.0,
+            "source": "Win32_Processor"
+          }
+        }
+      },
+      "timing_label": "contended upper bound"
+    },
+    {
+      "ai_movement_ms": {
+        "max": 135.213,
+        "mean": 0.980462194444444,
+        "median": 0.783,
+        "p95": 1.723,
+        "p99": 3.12
+      },
+      "city_validation": "OK",
+      "failures": [
+        "pedestrian left the legal foot corridor"
+      ],
+      "metrics": {
+        "blast_deaths": 16,
+        "car_hits": 53,
+        "crossing_wait_agent_ticks": 168920,
+        "deaths": 69,
+        "end_live": 64,
+        "flee_latency_ms": {
+          "max": 83.3333333333333,
+          "median": 33.3333333333333,
+          "p95": 83.3333333333333
+        },
+        "flee_reactions": 678,
+        "max_live": 64,
+        "max_overlap_pairs": 232,
+        "max_retained_dead": 16,
+        "min_live": 54,
+        "off_sidewalk_agent_ticks": 801255,
+        "overlap_pair_samples": 89870,
+        "overlap_sample_count": 600,
+        "replacements": 69,
+        "retained_dead": 16,
+        "road_outside_crossing_agent_ticks": 0,
+        "stuck_entities": 85
+      },
+      "motion": "character_body",
+      "route_point_count": 251,
+      "scenario": "normal",
+      "seed": 303,
+      "simulated_seconds": 600,
+      "ticks": 36000,
+      "contention": {
+        "before": {
+          "godot_processes": 3,
+          "cpu_load": {
+            "percent": 12.0,
+            "source": "Win32_Processor"
+          }
+        },
+        "during": {
+          "godot_processes": 4,
+          "cpu_load": {
+            "percent": 80.0,
+            "source": "Win32_Processor"
+          }
+        },
+        "after": {
+          "godot_processes": 8,
+          "cpu_load": {
+            "percent": 85.0,
+            "source": "Win32_Processor"
+          }
+        }
+      },
+      "timing_label": "contended upper bound"
+    },
+    {
+      "ai_movement_ms": {
+        "max": 153.857,
+        "mean": 1.13017319444444,
+        "median": 0.903,
+        "p95": 1.949,
+        "p99": 3.36
+      },
+      "city_validation": "OK",
+      "failures": [
+        "pedestrian left the legal foot corridor"
+      ],
+      "metrics": {
+        "blast_deaths": 0,
+        "car_hits": 0,
+        "crossing_wait_agent_ticks": 278918,
+        "deaths": 0,
+        "end_live": 64,
+        "flee_latency_ms": {
+          "max": 83.3333333333333,
+          "median": 33.3333333333333,
+          "p95": 83.3333333333333
+        },
+        "flee_reactions": 7680,
+        "max_live": 64,
+        "max_overlap_pairs": 167,
+        "max_retained_dead": 0,
+        "min_live": 64,
+        "off_sidewalk_agent_ticks": 647667,
+        "overlap_pair_samples": 98767,
+        "overlap_sample_count": 600,
+        "replacements": 0,
+        "retained_dead": 0,
+        "road_outside_crossing_agent_ticks": 0,
+        "stuck_entities": 64
+      },
+      "motion": "graph_kinematic",
+      "route_point_count": 251,
+      "scenario": "flee_storm",
+      "seed": 303,
+      "simulated_seconds": 600,
+      "ticks": 36000,
+      "contention": {
+        "before": {
+          "godot_processes": 3,
+          "cpu_load": {
+            "percent": 12.0,
+            "source": "Win32_Processor"
+          }
+        },
+        "during": {
+          "godot_processes": 4,
+          "cpu_load": {
+            "percent": 80.0,
+            "source": "Win32_Processor"
+          }
+        },
+        "after": {
+          "godot_processes": 8,
+          "cpu_load": {
+            "percent": 85.0,
+            "source": "Win32_Processor"
+          }
+        }
+      },
+      "timing_label": "contended upper bound"
+    },
+    {
+      "ai_movement_ms": {
+        "max": 124.621,
+        "mean": 1.37532852777778,
+        "median": 1.12,
+        "p95": 2.365,
+        "p99": 3.843
+      },
+      "city_validation": "OK",
+      "failures": [
+        "pedestrian left the legal foot corridor"
+      ],
+      "metrics": {
+        "blast_deaths": 0,
+        "car_hits": 0,
+        "crossing_wait_agent_ticks": 278918,
+        "deaths": 0,
+        "end_live": 64,
+        "flee_latency_ms": {
+          "max": 83.3333333333333,
+          "median": 33.3333333333333,
+          "p95": 83.3333333333333
+        },
+        "flee_reactions": 7680,
+        "max_live": 64,
+        "max_overlap_pairs": 167,
+        "max_retained_dead": 0,
+        "min_live": 64,
+        "off_sidewalk_agent_ticks": 647667,
+        "overlap_pair_samples": 98767,
+        "overlap_sample_count": 600,
+        "replacements": 0,
+        "retained_dead": 0,
+        "road_outside_crossing_agent_ticks": 0,
+        "stuck_entities": 64
+      },
+      "motion": "character_body",
+      "route_point_count": 251,
+      "scenario": "flee_storm",
+      "seed": 303,
+      "simulated_seconds": 600,
+      "ticks": 36000,
+      "contention": {
+        "before": {
+          "godot_processes": 3,
+          "cpu_load": {
+            "percent": 12.0,
+            "source": "Win32_Processor"
+          }
+        },
+        "during": {
+          "godot_processes": 4,
+          "cpu_load": {
+            "percent": 80.0,
+            "source": "Win32_Processor"
+          }
+        },
+        "after": {
+          "godot_processes": 8,
+          "cpu_load": {
+            "percent": 85.0,
+            "source": "Win32_Processor"
+          }
+        }
+      },
+      "timing_label": "contended upper bound"
+    }
+  ],
+  "aggregate": {
+    "flee_storm/character_body": {
+      "repetitions": 3,
+      "median_of_tick_medians_ms": 1.12,
+      "median_of_tick_p95_ms": 2.365,
+      "worst_tick_p95_ms": 2.371,
+      "median_of_tick_p99_ms": 3.7,
+      "worst_tick_p99_ms": 3.843,
+      "worst_tick_max_ms": 224.375,
+      "max_flee_latency_ms": 83.3333333333333,
+      "max_stuck_entities": 64,
+      "max_overlap_pairs": 167,
+      "total_off_sidewalk_agent_ticks": 1943001,
+      "total_road_outside_crossing_agent_ticks": 0
+    },
+    "flee_storm/graph_kinematic": {
+      "repetitions": 3,
+      "median_of_tick_medians_ms": 0.903,
+      "median_of_tick_p95_ms": 1.949,
+      "worst_tick_p95_ms": 2.13,
+      "median_of_tick_p99_ms": 3.523,
+      "worst_tick_p99_ms": 3.642,
+      "worst_tick_max_ms": 153.857,
+      "max_flee_latency_ms": 83.3333333333333,
+      "max_stuck_entities": 64,
+      "max_overlap_pairs": 167,
+      "total_off_sidewalk_agent_ticks": 1943001,
+      "total_road_outside_crossing_agent_ticks": 0
+    },
+    "normal/character_body": {
+      "repetitions": 3,
+      "median_of_tick_medians_ms": 0.87,
+      "median_of_tick_p95_ms": 1.863,
+      "worst_tick_p95_ms": 1.868,
+      "median_of_tick_p99_ms": 3.12,
+      "worst_tick_p99_ms": 3.239,
+      "worst_tick_max_ms": 135.213,
+      "max_flee_latency_ms": 83.3333333333333,
+      "max_stuck_entities": 89,
+      "max_overlap_pairs": 291,
+      "total_off_sidewalk_agent_ticks": 2545772,
+      "total_road_outside_crossing_agent_ticks": 0
+    },
+    "normal/graph_kinematic": {
+      "repetitions": 3,
+      "median_of_tick_medians_ms": 0.729,
+      "median_of_tick_p95_ms": 1.573,
+      "worst_tick_p95_ms": 1.631,
+      "median_of_tick_p99_ms": 2.625,
+      "worst_tick_p99_ms": 2.723,
+      "worst_tick_max_ms": 28.605,
+      "max_flee_latency_ms": 83.3333333333333,
+      "max_stuck_entities": 88,
+      "max_overlap_pairs": 288,
+      "total_off_sidewalk_agent_ticks": 2733686,
+      "total_road_outside_crossing_agent_ticks": 0
+    }
+  },
+  "timing_interpretation": "All timing rows are contended upper bounds because process/CPU snapshots do not prove exclusive machine use throughout a run.",
+  "failures": [
+    "seed 101 process or receipt failed",
+    "seed 202 process or receipt failed",
+    "seed 303 process or receipt failed",
+    "seed 101 normal/graph_kinematic: pedestrian left the legal foot corridor",
+    "seed 101 normal/character_body: pedestrian left the legal foot corridor",
+    "seed 101 flee_storm/graph_kinematic: pedestrian left the legal foot corridor",
+    "seed 101 flee_storm/character_body: pedestrian left the legal foot corridor",
+    "seed 202 normal/graph_kinematic: pedestrian left the legal foot corridor",
+    "seed 202 normal/character_body: pedestrian left the legal foot corridor",
+    "seed 202 flee_storm/graph_kinematic: pedestrian left the legal foot corridor",
+    "seed 202 flee_storm/character_body: pedestrian left the legal foot corridor",
+    "seed 303 normal/graph_kinematic: pedestrian left the legal foot corridor",
+    "seed 303 normal/character_body: pedestrian left the legal foot corridor",
+    "seed 303 flee_storm/graph_kinematic: pedestrian left the legal foot corridor",
+    "seed 303 flee_storm/character_body: pedestrian left the legal foot corridor"
+  ]
+}
