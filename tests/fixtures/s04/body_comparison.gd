@@ -100,8 +100,15 @@ func _check_sideways_handbrake_rule() -> void:
 	)
 	_expect(absf(float(steering.yaw_rate) + 1.5) < 0.001,
 		"sideways handbrake slide lost full steering authority")
+	command.handbrake = false
+	var ordinary_steering: Dictionary = S04DriveRules.advance(
+		Vector3(12.0, 0.0, 0.0), 0.0, command, TICK_SECONDS
+	)
+	_expect(float(ordinary_steering.yaw_rate) == 0.0,
+		"sideways ordinary motion gained steering authority")
 	_record({"event": "rule_case", "case": "sideways_handbrake",
-		"one_second_speed_mps": sideways.length(), "yaw_rate": steering.yaw_rate})
+		"one_second_speed_mps": sideways.length(), "yaw_rate": steering.yaw_rate,
+		"ordinary_yaw_rate": ordinary_steering.yaw_rate})
 
 
 ## Uses independent speed/heading/contact expectations for both adapters on one authored track.

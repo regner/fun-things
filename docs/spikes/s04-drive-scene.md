@@ -80,11 +80,12 @@ The owner re-test found that braking improved, but a turning handbrake slide los
 continued sideways because braking and steering scale used only the car's forward velocity component.
 The shared rule now reduces the complete planar velocity magnitude without crossing zero, then applies
 the existing 1.0/s handbrake side grip to its travel direction. Steering authority scales from planar
-speed, so a sideways-moving car can keep turning. Reverse steering flips only with at least 0.05 m/s
-of reverse forward-component speed, avoiding direction jitter as a slide rotates through sideways.
-Service braking still wins when it is stronger, throttle remains suppressed, and ordinary commands
-and the four-field network contract are unchanged. The owner's saved tuning resource was not read or
-modified.
+speed only while the handbrake is held, so a sideways-moving slide can keep turning without changing
+ordinary steering. During a handbrake slide, reverse steering flips only with at least 0.05 m/s of
+reverse forward-component speed, avoiding direction jitter as the slide rotates through sideways.
+Ordinary steering retains its original forward-speed authority and reverse sign rule exactly. Service
+braking still wins when it is stronger, throttle remains suppressed, and the four-field network
+contract is unchanged. The owner's saved tuning resource was not read or modified.
 
 Decision 29's full-vector braking invalidated the earlier body comparison's absolute requirement that
 handbrake lateral speed exceed ordinary lateral speed by 1.0 m/s after 0.5 seconds: the complete car

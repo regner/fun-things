@@ -4,8 +4,8 @@
   "platform": "Windows-11-10.0.26200-SP0",
   "measurement_identity": {
     "repository": {
-      "commit": "caf4b9b42301c736aae69c6ba005155ced354575",
-      "tree": "5afd79054c3f3ec925735d5166c40afaff8d27bb",
+      "commit": "77e3731a5cbb6a839a5ae742af28ade419b5b4a0",
+      "tree": "887a5c101794a373dc1bff1135cccbf1592069f3",
       "status_porcelain": [
         "M docs/spikes/s04-drive-scene.md",
         " M tests/fixtures/s04/body_comparison.gd",
@@ -226,8 +226,8 @@
         "bytes": 20
       },
       "tests/fixtures/s04/body_comparison.gd": {
-        "sha256": "fd185a204704732e37c901c70d121f8be68ee8bf87c9e7340b03c640b3ba3b1c",
-        "bytes": 9706
+        "sha256": "f2d2d27a847abfba4d55b1acadfa66b21c6ce78df8d22697186658305d0f3450",
+        "bytes": 10008
       },
       "tests/fixtures/s04/body_comparison.gd.uid": {
         "sha256": "ea12053d9a886258d784066831f3d964297396fe7d3ceedbb066ebc34ad8d457",
@@ -258,8 +258,8 @@
         "bytes": 19
       },
       "tests/fixtures/s04/drive_rules.gd": {
-        "sha256": "ee5993e6e12c11a9f07d75d7287fc8b94bc872d0c5f924d3ca4659a389607416",
-        "bytes": 4230
+        "sha256": "71b6a22cd6b836cd0b47ec81c1d7679c0e444f21346d5c9f6bc1f2c2f07860e8",
+        "bytes": 4422
       },
       "tests/fixtures/s04/drive_rules.gd.uid": {
         "sha256": "f2cd0ed422cc003b6cd45e68c0ca3be704a5706728a32f70d63423c8036f77fe",
@@ -424,24 +424,24 @@
         "adverse",
         "--windowed",
         "--port",
-        "26630",
+        "26730",
         "--proxy-port",
-        "26631",
+        "26731",
         "--output",
-        "C:/tmp/ft/lanes/s04-handbrake/handbrake2-s04-t"
+        "C:/tmp/ft/lanes/s04-handbrake/handbrake2-review-s04-t"
       ],
       "cwd": "C:\\GameDev\\git\\ft-lanes\\s04-handbrake",
       "effective_parameters": {
         "godot": "C:\\Users\\regner.blokandersen\\AppData\\Local\\mise\\installs\\github-godotengine-godot-builds\\4.8-dev7\\godot.exe",
-        "port": 26630,
-        "proxy_port": 26631,
+        "port": 26730,
+        "proxy_port": 26731,
         "deadline": 45,
         "profiles": [
           "normal",
           "adverse"
         ],
         "windowed": true,
-        "output": "C:\\tmp\\ft\\lanes\\s04-handbrake\\handbrake2-s04-t"
+        "output": "C:\\tmp\\ft\\lanes\\s04-handbrake\\handbrake2-review-s04-t"
       }
     }
   },
@@ -469,22 +469,22 @@
       },
       "measurements": {
         "entry_correction_m": {
-          "race_entry": 2.61888146400452,
-          "parked_entry": 0.115172415971756,
-          "traffic_entry": 0.667319059371948
+          "race_entry": 2.63203477859497,
+          "parked_entry": 0.276781290769577,
+          "traffic_entry": 0.00012630334822461
         },
         "entry_visual_jump_m": {
-          "race_entry": 2.61888146400452,
-          "parked_entry": 0.115172415971756,
-          "traffic_entry": 0.667319059371948
+          "race_entry": 2.63203477859497,
+          "parked_entry": 0.276781290769577,
+          "traffic_entry": 0.00012630334822461
         },
-        "transition_visual_jump_p95_m": 2.61888146400452,
-        "accepted_time_to_control_p95_ms": 17,
-        "action_round_trip_p95_ms": 201,
+        "transition_visual_jump_p95_m": 2.63203477859497,
+        "accepted_time_to_control_p95_ms": 16,
+        "action_round_trip_p95_ms": 534,
         "history_clean": true,
         "ownership_flips": true,
-        "proxy_delay_p95_ms": 105.41850002482533,
-        "proxy_delay_max_ms": 192.86359986290336,
+        "proxy_delay_p95_ms": 104.0798001922667,
+        "proxy_delay_max_ms": 139.1594000160694,
         "input_revisions": [
           1,
           2,
@@ -498,7 +498,7 @@
           "4": 1
         },
         "rejected_entry_sequence_continuity": true,
-        "post_rejection_max_sequence": 37,
+        "post_rejection_max_sequence": 41,
         "varying_input_samples": 43,
         "post_blackout_samples": 0,
         "post_stall_samples": 0,
@@ -521,23 +521,23 @@
         "action_rejections": {},
         "blocked_rejected": true,
         "control_reset_count": 3,
-        "disconnect_coast_m": 49.9574394226074,
+        "disconnect_coast_m": 49.5217132568359,
         "event": "result",
         "final_speed_mps": 0.0,
         "hydration_count": 1,
-        "input_expiry_count": 5,
-        "input_queue_peak": 6,
+        "input_expiry_count": 6,
+        "input_queue_peak": 5,
         "input_rejections": {
-          "STALE_CONTEXT": 34
+          "STALE_CONTEXT": 33
         },
-        "input_superseded_count": 37,
+        "input_superseded_count": 28,
         "moving_rejected": true,
         "ok": true,
         "race_complete": true,
         "role": "host",
         "traffic_ai_active": false,
         "traffic_stolen": true,
-        "wall_ms": 1791548282263.0
+        "wall_ms": 1791549397482.0
       },
       "client_result": {
         "event": "result",
@@ -546,7 +546,7 @@
         "ownership_clean": true,
         "role": "client",
         "transition_count": 6,
-        "wall_ms": 1791548277146.0
+        "wall_ms": 1791549392434.0
       },
       "commands": {
         "host": [
@@ -556,17 +556,17 @@
           "--max-fps",
           "60",
           "--path",
-          "C:\\tmp\\ft\\lanes\\s04-handbrake\\handbrake2-s04-t\\normal\\project",
+          "C:\\tmp\\ft\\lanes\\s04-handbrake\\handbrake2-review-s04-t\\normal\\project",
           "--resolution",
           "1280x800",
           "--position",
           "0,0",
           "--log-file",
-          "C:\\tmp\\ft\\lanes\\s04-handbrake\\handbrake2-s04-t\\normal\\host\\engine.log",
+          "C:\\tmp\\ft\\lanes\\s04-handbrake\\handbrake2-review-s04-t\\normal\\host\\engine.log",
           "res://tests/fixtures/s04_t/boot.tscn",
           "--",
           "--role=host",
-          "--port=26630",
+          "--port=26730",
           "--profile=normal"
         ],
         "client": [
@@ -576,29 +576,29 @@
           "--max-fps",
           "60",
           "--path",
-          "C:\\tmp\\ft\\lanes\\s04-handbrake\\handbrake2-s04-t\\normal\\project",
+          "C:\\tmp\\ft\\lanes\\s04-handbrake\\handbrake2-review-s04-t\\normal\\project",
           "--resolution",
           "1280x800",
           "--position",
           "1280,0",
           "--log-file",
-          "C:\\tmp\\ft\\lanes\\s04-handbrake\\handbrake2-s04-t\\normal\\client\\engine.log",
+          "C:\\tmp\\ft\\lanes\\s04-handbrake\\handbrake2-review-s04-t\\normal\\client\\engine.log",
           "res://tests/fixtures/s04_t/boot.tscn",
           "--",
           "--role=client",
-          "--port=26631",
+          "--port=26731",
           "--profile=normal"
         ]
       },
       "process_ids": [
-        49584,
-        7184
+        4564,
+        58488
       ],
       "exits": [
         0,
         0
       ],
-      "peak_proxy_queue": 22
+      "peak_proxy_queue": 12
     },
     {
       "profile": "adverse",
@@ -623,22 +623,22 @@
       },
       "measurements": {
         "entry_correction_m": {
-          "race_entry": 2.85253882408142,
-          "parked_entry": 0.375928670167923,
-          "traffic_entry": 0.999805450439453
+          "race_entry": 2.9076464176178,
+          "parked_entry": 0.517122626304626,
+          "traffic_entry": 1.67032623291016
         },
         "entry_visual_jump_m": {
-          "race_entry": 2.85253882408142,
-          "parked_entry": 0.375928670167923,
-          "traffic_entry": 0.999805450439453
+          "race_entry": 2.9076464176178,
+          "parked_entry": 0.517122626304626,
+          "traffic_entry": 1.67032623291016
         },
-        "transition_visual_jump_p95_m": 2.85253882408142,
+        "transition_visual_jump_p95_m": 2.9076464176178,
         "accepted_time_to_control_p95_ms": 16,
-        "action_round_trip_p95_ms": 366,
+        "action_round_trip_p95_ms": 334,
         "history_clean": true,
         "ownership_flips": true,
-        "proxy_delay_p95_ms": 171.6086999513209,
-        "proxy_delay_max_ms": 178.89640014618635,
+        "proxy_delay_p95_ms": 171.62160016596317,
+        "proxy_delay_max_ms": 190.82739995792508,
         "input_revisions": [
           1,
           2,
@@ -648,17 +648,17 @@
         "minimum_sequence_by_revision": {
           "1": 1,
           "2": 1,
-          "3": 2,
-          "4": 1
+          "3": 3,
+          "4": 2
         },
         "rejected_entry_sequence_continuity": true,
-        "post_rejection_max_sequence": 45,
+        "post_rejection_max_sequence": 48,
         "varying_input_samples": 43,
-        "post_blackout_samples": 24,
-        "post_stall_samples": 18,
+        "post_blackout_samples": 16,
+        "post_stall_samples": 8,
         "blackout_expiry": true,
-        "blackout_duration_ms": 998.523193359375,
-        "host_stall_ms": 254,
+        "blackout_duration_ms": 999.916748046875,
+        "host_stall_ms": 253,
         "captures": [
           "forced_blocked_exit.png",
           "moving_exit.png",
@@ -675,23 +675,23 @@
         "action_rejections": {},
         "blocked_rejected": true,
         "control_reset_count": 3,
-        "disconnect_coast_m": 48.879508972168,
+        "disconnect_coast_m": 42.0129356384277,
         "event": "result",
         "final_speed_mps": 0.0,
         "hydration_count": 1,
         "input_expiry_count": 7,
         "input_queue_peak": 6,
         "input_rejections": {
-          "STALE_CONTEXT": 36
+          "STALE_CONTEXT": 40
         },
-        "input_superseded_count": 160,
+        "input_superseded_count": 173,
         "moving_rejected": true,
         "ok": true,
         "race_complete": true,
         "role": "host",
         "traffic_ai_active": false,
         "traffic_stolen": true,
-        "wall_ms": 1791548313073.0
+        "wall_ms": 1791549428958.0
       },
       "client_result": {
         "event": "result",
@@ -700,7 +700,7 @@
         "ownership_clean": true,
         "role": "client",
         "transition_count": 6,
-        "wall_ms": 1791548308023.0
+        "wall_ms": 1791549424193.0
       },
       "commands": {
         "host": [
@@ -710,17 +710,17 @@
           "--max-fps",
           "60",
           "--path",
-          "C:\\tmp\\ft\\lanes\\s04-handbrake\\handbrake2-s04-t\\adverse\\project",
+          "C:\\tmp\\ft\\lanes\\s04-handbrake\\handbrake2-review-s04-t\\adverse\\project",
           "--resolution",
           "1280x800",
           "--position",
           "0,0",
           "--log-file",
-          "C:\\tmp\\ft\\lanes\\s04-handbrake\\handbrake2-s04-t\\adverse\\host\\engine.log",
+          "C:\\tmp\\ft\\lanes\\s04-handbrake\\handbrake2-review-s04-t\\adverse\\host\\engine.log",
           "res://tests/fixtures/s04_t/boot.tscn",
           "--",
           "--role=host",
-          "--port=26632",
+          "--port=26732",
           "--profile=adverse"
         ],
         "client": [
@@ -730,29 +730,29 @@
           "--max-fps",
           "60",
           "--path",
-          "C:\\tmp\\ft\\lanes\\s04-handbrake\\handbrake2-s04-t\\adverse\\project",
+          "C:\\tmp\\ft\\lanes\\s04-handbrake\\handbrake2-review-s04-t\\adverse\\project",
           "--resolution",
           "1280x800",
           "--position",
           "1280,0",
           "--log-file",
-          "C:\\tmp\\ft\\lanes\\s04-handbrake\\handbrake2-s04-t\\adverse\\client\\engine.log",
+          "C:\\tmp\\ft\\lanes\\s04-handbrake\\handbrake2-review-s04-t\\adverse\\client\\engine.log",
           "res://tests/fixtures/s04_t/boot.tscn",
           "--",
           "--role=client",
-          "--port=26633",
+          "--port=26733",
           "--profile=adverse"
         ]
       },
       "process_ids": [
-        43436,
-        51236
+        76048,
+        63232
       ],
       "exits": [
         0,
         0
       ],
-      "peak_proxy_queue": 18
+      "peak_proxy_queue": 17
     }
   ]
 }

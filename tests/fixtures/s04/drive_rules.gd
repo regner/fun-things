@@ -67,23 +67,27 @@ static func advance(velocity: Vector3, yaw: float, command: Dictionary,
 		planar_velocity = planar_velocity.normalized() * handbrake_target_speed
 		speed = planar_velocity.dot(forward)
 
-	var yaw_rate: float = _yaw_rate(planar_velocity, speed, command.steer, tuning)
+	var yaw_rate: float = _yaw_rate(
+		planar_velocity, speed, command.steer, command.handbrake, tuning
+	)
 	return { "velocity": planar_velocity, "yaw_rate": yaw_rate }
 
 
-## Scales steering by travel speed while requiring meaningful reverse motion to flip direction.
+## Uses planar authority only for handbrake slides while preserving ordinary steering exactly.
 static func _yaw_rate(planar_velocity: Vector3, forward_speed: float,
-		steer: float, tuning: Resource) -> float:
+		steer: float, handbrake: bool, tuning: Resource) -> float:
+	var authority_speed: float = planar_velocity.length() if handbrake else absf(forward_speed)
 	var yaw_rate: float = -steer * _value(
 		tuning, &"turn_rad_per_second", TURN_RAD_PER_SECOND
 	) * clampf(
-		planar_velocity.length()
+		authority_speed
 		/ _value(tuning, &"full_steer_speed_mps", FULL_STEER_SPEED_MPS),
 		0.0,
 		1.0
 	)
-	# A meaningful reverse component avoids yaw-direction jitter while rotating through sideways.
-	return -yaw_rate if forward_speed < -REVERSE_YAW_FLIP_MPS else yaw_rate
+	# Only slides need a dead zone; ordinary reverse steering retains the original sign rule.
+	var reverse_threshold: float = REVERSE_YAW_FLIP_MPS if handbrake else 0.0
+	return -yaw_rate if forward_speed < -reverse_threshold else yaw_rate
 
 
 ## Brakes the complete planar vector without changing its travel direction or crossing zero.
