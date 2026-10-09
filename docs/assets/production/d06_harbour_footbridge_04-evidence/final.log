@@ -1,0 +1,30 @@
+FINAL COMPONENT VALIDATION â€” verbose logs/retries remain in external scratch
+Blender 5.2.2 LTS d13f752e3b9c, exporter 5.2.40. Author and validator exit 0.
+Author emits use_nodes future-version deprecation warnings; pinned execution succeeds.
+60 triangles, 32 source vertices, 72 exported vertices, 1 mesh, 3 surfaces.
+Zero degenerate faces/triangles; zero nonmanifold edges; unit normals; byte-identical reexport.
+Godot 4.8.dev7.official.c971f93e7 import exit 0; existing MCP pin warning.
+Editor normalization exit 0; two-save byte stability and registered UIDs pass.
+Editor-mode shutdown diagnostics (not suppressed or represented as clean):
+WARNING: [MCP] Godot 4.8 detected - latest tested version is 4.7.0. The plugin will run normally but some features may behave unexpectedly. Please report issues at https://github.com/NPGameDev/godot-mcp-toolkit/issues
+ERROR: 5 RID allocations of type 'N16RendererViewport8ViewportE' were leaked at exit.
+ERROR: 8 RID allocations of type 'PN13RendererDummy14TextureStorage12DummyTextureE' were leaked at exit.
+ERROR: 1 RID allocations of type 'N17RendererSceneCull8ScenarioE' were leaked at exit.
+ERROR: 52 RID allocations of type 'PN18TextServerAdvanced22ShapedTextDataAdvancedE' were leaked at exit.
+ERROR: 1 RID allocations of type 'PN18TextServerAdvanced12FontAdvancedE' were leaked at exit.
+WARNING: 5 RIDs of type "Canvas" were leaked.
+WARNING: 31 RIDs of type "CanvasItem" were leaked.
+WARNING: 168 ObjectDB instances were leaked at exit (run with `--verbose` for details).
+
+Fresh non-editor check exit 0 without ERROR/WARNING:
+Godot Engine v4.8.dev7.official.c971f93e7 - https://godotengine.org
+
+[MCPRuntimeServer] port: scanning 6570-6585 (default)
+[MCPRuntimeServer] listening on 127.0.0.1:6570
+[MCPRegistry] runtime port 6570 registered for c:/gamedev/git/ft-lanes/a-d06bridge
+{"aabb_min":[-1.60000002384186,-0.349999994039536,-12.0],"aabb_size":[3.20000004768372,0.349999994039536,12.0],"collision_shape_count":1,"engine":"4.8-dev7 (official)","failures":[],"horizontal_ray_at_5m_clear":true,"junction_west_mating":{"incoming_coincident":true,"outgoing_position":[-15,5.5,0],"seam_ray_queries":[{"surface_y":5.5,"x":-2.99000000953674,"z":-1.5},{"surface_y":5.5,"x":-3.00999999046326,"z":-1.5},{"surface_y":5.5,"x":-2.99000000953674,"z":0.0},{"surface_y":5.5,"x":-3.00999999046326,"z":0.0},{"surface_y":5.5,"x":-2.99000000953674,"z":1.5},{"surface_y":5.5,"x":-3.00999999046326,"z":1.5}]},"linked_model_identity":true,"materials":["deck_warm_pale","deck_pale_fascia","deck_petrol_underside"],"mesh_count":1,"model_uid":"uid://buet8707wnl16","ok":true,"physics_ray_queries":[{"case":"centre","solid":true},{"case":"incoming_portal","solid":true},{"case":"outgoing_portal","solid":true},{"case":"left_inside","solid":true},{"case":"right_inside","solid":true},{"case":"left_outside","solid":false},{"case":"right_outside","solid":false},{"case":"beyond_incoming","solid":false},{"case":"beyond_outgoing","solid":false}],"prefab_uid":"uid://cni7ajmxohclj","slab_only_underside_height_m":5.14999961853027,"sockets":[{"socket":"Incoming","source_mapping_matches":true},{"socket":"Outgoing","source_mapping_matches":true}]}
+
+Canonical production checks final exit 0: formatting/lint/compilation, 11 Python tests, 40 GUT tests/458 assertions and diagnostic negative control all pass.
+Nine isolated solid/void rays, underside/headroom rays and six West seam rays pass.
+Initial overhead illumination break corrected by moving studio lights with elevated slab.
+No actual bridge player/car movement, transport, world placement or device acceptance claimed.
