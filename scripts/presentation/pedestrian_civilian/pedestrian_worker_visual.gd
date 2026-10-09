@@ -11,7 +11,13 @@ const CLIPS: PackedStringArray = ["idle", "walk", "run", "death"]
 @export var palette: PackedColorArray = PackedColorArray([
 	Color("b77d53"), Color("eca23e"), Color("326dc0"), Color("48596c"), Color("22525d"),
 	Color("26333b"), Color("202b32"), Color("e2d6b9"), Color("392c25"),
-])
+]):
+	set(colors):
+		if colors.size() != REGIONS.size():
+			return
+		palette = colors.duplicate()
+		_apply_palette_uniforms()
+
 @export var palette_material: ShaderMaterial
 @export var npc_library: AnimationLibrary
 @export_enum("idle", "walk", "run", "death") var initial_clip: String = "idle"
@@ -40,10 +46,7 @@ func _ready() -> void:
 func apply_palette(colors: PackedColorArray) -> bool:
 	if colors.size() != REGIONS.size():
 		return false
-	palette = colors.duplicate()
-	if is_instance_valid(_mesh):
-		for index: int in REGIONS.size():
-			_mesh.set_instance_shader_parameter(REGIONS[index] + "_color", palette[index])
+	palette = colors
 	return true
 
 
@@ -58,3 +61,11 @@ func play_clip(clip: String, blend_seconds: float = 0.12) -> bool:
 ## Expose the existing imported player for asset review and presentation coordination.
 func animation_player() -> AnimationPlayer:
 	return _player
+
+
+## Refresh per-instance uniforms for both Inspector changes and runtime API calls.
+func _apply_palette_uniforms() -> void:
+	if not is_instance_valid(_mesh):
+		return
+	for index: int in REGIONS.size():
+		_mesh.set_instance_shader_parameter(REGIONS[index] + "_color", palette[index])

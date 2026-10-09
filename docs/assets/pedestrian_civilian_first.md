@@ -84,7 +84,9 @@ respawn. No animation track dispatches gameplay events or changes collision.
 One shared shader material uses a constant face-region mask in vertex `COLOR.r`:
 index / 8 for skin, jacket, yoke, trousers, cap, shirt, boots, trim, hair. The other
 channels carry no appearance data. `apply_palette(PackedColorArray)` requires those
-nine colours in order and writes per-instance shader uniforms. Instances share the
+nine colours in order and writes per-instance shader uniforms. Inspector palette edits refresh the live
+`@tool` instance through the same setter; invalid-length palettes are rejected.
+Instances share the
 same mesh and material without changing each other's colours. No textures or UV
 maps are required for this deliberately flat-colour treatment. Blender's material
 previews the same region mapping; the Godot wrapper applies the runtime shader.
@@ -130,8 +132,12 @@ save; native runtime and clean asset checks do not reproduce it.
 
 [Native runtime check](pedestrian_worker_a-evidence/godot_checks.json) verifies all
 28 names/parents/rest origins (maximum error 0.000000231 m), mesh/material sharing,
-independent recolouring and invalid-palette rejection, clip API/loop policy/root
-invariance, matching loop endpoints and retained death pose. Forward+/Vulkan on
+independent recolouring, live exported-palette updates and invalid-palette rejection,
+clip API/loop policy/root
+invariance, matching loop endpoints and retained death pose. A separate CPU check
+reconstructs imported skin positions from Godot pose/bind matrices: sampled idle
+contact is effectively zero, walk/run contact within 3.5 mm and death +3 mm, all
+inside the 6 mm contact tolerance; see `imported_contact.json`. Forward+/Vulkan on
 GTX 1070; previews capped at 60 fps/VSync and bounded. The default preview quits after
 20 s. `-- --worker-overview` selects the closer view. The 20 fps review recording is
 sampled playback, not a frame-rate/performance measurement.

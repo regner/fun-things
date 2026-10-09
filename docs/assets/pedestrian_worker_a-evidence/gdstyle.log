@@ -6,24 +6,24 @@ tools/pedestrian_civilian/author_scenes.gd
       func build() -> Dictionary:
       ^
   37:101 warning line is 105 characters long (max 100) [format/max-line-length]
-      	worker.set_script(load("res://scripts/presentation/pedestrian_civilian/pedestrian_worker_visual.gd"))
-      	                                                                                                   ^
+        worker.set_script(load("res://scripts/presentation/pedestrian_civilian/pedestrian_worker_visual.gd"))
+                                                                                                           ^
   53:101 warning line is 101 characters long (max 100) [format/max-line-length]
-      	preview.set_script(load("res://tests/fixtures/pedestrian_civilian/pedestrian_worker_preview.gd"))
-      	                                                                                                 ^
+        preview.set_script(load("res://tests/fixtures/pedestrian_civilian/pedestrian_worker_preview.gd"))
+                                                                                                         ^
   54:101 warning line is 146 characters long (max 100) [format/max-line-length]
-      	var ground: Node3D = load("res://art/models/pedestrian_civilian/pedestrian_worker_stage.glb").instantiate(PackedScene.GEN_EDIT_STATE_INSTANCE)
-      	                                                                                                   ^
+        var ground: Node3D = load("res://art/models/pedestrian_civilian/pedestrian_worker_stage.glb").instantiate(PackedScene.GEN_EDIT_STATE_INSTANCE)
+                                                                                                           ^
 
 tools/pedestrian_civilian/capture_motion.gd
   17:101 warning line is 119 characters long (max 100) [format/max-line-length]
-      	var scene: Node3D = load("res://tests/fixtures/pedestrian_civilian/pedestrian_worker_a_preview.tscn").instantiate()
-      	                                                                                                   ^
+        var scene: Node3D = load("res://tests/fixtures/pedestrian_civilian/pedestrian_worker_a_preview.tscn").instantiate()
+                                                                                                           ^
   38:1 warning 'await' used inside a loop [quality/await-in-loop]
-      		await process_frame
+            await process_frame
       ^
   39:1 warning 'await' used inside a loop [quality/await-in-loop]
-      		await RenderingServer.frame_post_draw
+            await RenderingServer.frame_post_draw
       ^
 
 tools/pedestrian_civilian/check_worker.gd
@@ -34,16 +34,16 @@ tools/pedestrian_civilian/check_worker.gd
       func _check() -> void:
       ^
   49:101 warning line is 125 characters long (max 100) [format/max-line-length]
-      	var other_mesh: MeshInstance3D = other.get_node("PresentationAnchor/Visuals/Model").find_child("WorkerMesh", true, false)
-      	                                                                                                   ^
+        var other_mesh: MeshInstance3D = other.get_node("PresentationAnchor/Visuals/Model").find_child("WorkerMesh", true, false)
+                                                                                                           ^
   68:101 warning line is 107 characters long (max 100) [format/max-line-length]
-      		_expect(animation.loop_mode == (Animation.LOOP_NONE if clip == "death" else Animation.LOOP_LINEAR),
-      		                                                                                                  ^
+            _expect(animation.loop_mode == (Animation.LOOP_NONE if clip == "death" else Animation.LOOP_LINEAR),
+                                                                                                              ^
   82:101 warning line is 105 characters long (max 100) [format/max-line-length]
-      		_expect(skeleton.get_bone_pose(skeleton.find_bone("root")).is_equal_approx(Transform3D.IDENTITY),
-      		                                                                                                 ^
+            _expect(skeleton.get_bone_pose(skeleton.find_bone("root")).is_equal_approx(Transform3D.IDENTITY),
+                                                                                                             ^
   113:101 warning line is 121 characters long (max 100) [format/max-line-length]
-      		"clips": clips, "failures": _failures, "scope": "asset preview only; no gameplay/network/performance acceptance"}
-      		                                                                                                  ^
+            "clips": clips, "failures": _failures, "scope": "asset preview only; no gameplay/network/performance acceptance"}
+                                                                                                              ^
 
 5 files checked, 14 warnings found.

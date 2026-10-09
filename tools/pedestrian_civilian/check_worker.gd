@@ -55,6 +55,9 @@ func _check() -> void:
 	var other_color: Variant = other_mesh.get_instance_shader_parameter("jacket_color")
 	var recolor: PackedColorArray = worker.palette.duplicate()
 	recolor[1] = Color("72aaee")
+	worker.set("palette", recolor)
+	_expect(mesh.get_instance_shader_parameter("jacket_color") == recolor[1],
+		"exported palette edits refresh live instance uniforms")
 	_expect(worker.apply_palette(recolor), "palette API accepts nine regions")
 	_expect(other_mesh.get_instance_shader_parameter("jacket_color") == other_color,
 		"one instance recolor preserves another instance")
