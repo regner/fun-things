@@ -1,5 +1,11 @@
 # S05 — every finite-fixture explosion is presented
 
+> **Historical run instructions.** Commands in this record that target `prototypes/` describe
+> the original runnable checkout; they do not run in the current checkout because the archive
+> is hidden by `.gdignore`. To reproduce them, follow the
+> [restore-from-Git procedure](../../prototypes/README.md) in a separate worktree at the recorded
+> pre-cleanup commit.
+
 8 October 2026, Windows 11 desktop, pinned
 `4.8.dev7.official.c971f93e7`. This implements the owner's decision to remove the
 on-screen explosion cap. [Retained evidence](s05-uncapped-effects-evidence/) binds

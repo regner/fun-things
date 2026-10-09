@@ -1,5 +1,11 @@
 # P0 drawable/output route discovery — 8 October 2026
 
+> **Historical run instructions.** Commands in this record that target `prototypes/` describe
+> the original runnable checkout; they do not run in the current checkout because the archive
+> is hidden by `.gdignore`. To reproduce them, follow the
+> [restore-from-Git procedure](../../prototypes/README.md) in a separate worktree at the recorded
+> pre-cleanup commit.
+
 Read-only source/capability discovery at base
 `233493abc7d2e3c106fb620105cfb766f542813b`, branch
 `p0-drawable-route-discovery`, workspace `wks_9fbea4862375417d`.

@@ -1,5 +1,11 @@
 # S05 conditional disabled-VSync image observation — 8 October 2026
 
+> **Historical run instructions.** Commands in this record that target `prototypes/` describe
+> the original runnable checkout; they do not run in the current checkout because the archive
+> is hidden by `.gdignore`. To reproduce them, follow the
+> [restore-from-Git procedure](../../prototypes/README.md) in a separate worktree at the recorded
+> pre-cleanup commit.
+
 Workspace `wks_d1e27dac99ebaab3`, branch `s05-vsync-image-observation`, original
 commissioned base `3f5fb4067c5ce5fca721f54d42165a833e4c884c`. Lead pi session
 `01a11bc0-4150-732b-9910-86aadb16c700` verified effective OpenAI/GPT-6.1-Sol HIGH

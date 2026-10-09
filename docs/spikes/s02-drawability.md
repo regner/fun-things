@@ -1,5 +1,11 @@
 # S02 bounded operational drawability observation
 
+> **Historical run instructions.** Commands in this record that target `prototypes/` describe
+> the original runnable checkout; they do not run in the current checkout because the archive
+> is hidden by `.gdignore`. To reproduce them, follow the
+> [restore-from-Git procedure](../../prototypes/README.md) in a separate worktree at the recorded
+> pre-cleanup commit.
+
 8 October 2026. Sole direct lead `6681e399-01df-42f2-8492-6588c9db791c`,
 configured/runtime GPT-6.1-Sol HIGH, effective HIGH; workspace
 `wks_6b67bad794fd5c28`, branch `s02-drawability-evidence-path`, accepted LOCAL

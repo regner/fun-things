@@ -1,5 +1,11 @@
 # S02 controls — world-relative movement and mouse aim
 
+> **Historical run instructions.** Commands in this record that target `prototypes/` describe
+> the original runnable checkout; they do not run in the current checkout because the archive
+> is hidden by `.gdignore`. To reproduce them, follow the
+> [restore-from-Git procedure](../../prototypes/README.md) in a separate worktree at the recorded
+> pre-cleanup commit.
+
 8 October 2026. This lane applies the owner's ratified desktop-control decision to the
 saved S02 technical corner and its accepted downstream fixtures. It is not a human feel,
 native-focus, Deck, prediction or production acceptance result.

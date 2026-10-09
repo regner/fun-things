@@ -161,6 +161,7 @@ func check_lifecycle(  # gdstyle:ignore=quality/max-local-variables,quality/max-
 	expect(actor.apply_skin(courier_scene), "restore courier")
 	expect(mesh.mesh == original_mesh, "courier resource restored")
 	expect(not actor.apply_skin(null), "null rejected")
+	check_incompatible_skin(actor, template)
 	var bad: Node3D = template.instantiate()
 	bad.scale = Vector3(2, 2, 2)
 	var bad_scene: PackedScene = PackedScene.new()
@@ -175,6 +176,25 @@ func check_lifecycle(  # gdstyle:ignore=quality/max-local-variables,quality/max-
 	check_attachments(actor, player, skeleton)
 	check_layers(actor, player, skeleton)
 	finish(actor)
+
+
+## Prove that a retained production skin with a changed bone contract is rejected.
+func check_incompatible_skin(actor: PlayerCharacterVisual, template: PackedScene) -> void:
+	var candidate: Node = template.instantiate()
+	var skeleton: Skeleton3D = candidate.find_child("Skeleton3D", true, false) as Skeleton3D
+	if skeleton == null:
+		expect(false, "incompatible-skin fixture contains a skeleton")
+		candidate.free()
+		return
+
+	var original_name: StringName = skeleton.get_bone_name(0)
+	skeleton.set_bone_name(0, StringName(str(original_name) + "_incompatible"))
+	var incompatible_scene: PackedScene = PackedScene.new()
+	var packed: Error = incompatible_scene.pack(candidate)
+	expect(packed == OK, "incompatible-skin fixture packs")
+	if packed == OK:
+		expect(not actor.apply_skin(incompatible_scene), "changed bone name rejected")
+	candidate.free()
 
 
 ## Print the retained result and terminate even when resource setup fails early.

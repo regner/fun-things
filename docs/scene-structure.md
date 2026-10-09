@@ -29,7 +29,6 @@ resource and topology details before P0-GATE.
 | `res://art/source/` | Committed `.blend` authoring files under `.gdignore`; excluded from runtime export |
 | `res://art/models/` | Explicit GLB exports plus source `.import` settings linked to source records |
 | `res://art/{textures,materials,audio}/` | Runtime art and provenance; conventions follow [assets](assets.md) |
-| `res://tests/fixtures/<spike_id>/` | Isolated proof scenes/resources; not production exports |
 
 ## Required tree and node boundaries
 
@@ -168,9 +167,11 @@ two-sector seams, routes and map alignment. The [S03 proof](spikes/s03.md)
 checks fixed RPC paths, pre-tree marker ownership and exactly one saved local rig
 per process. Its rig has Input, CameraAnchor/Camera3D and UI placeholders; no device,
 camera-follow or HUD behavior is claimed. Empty CityRoot/marker entities introduce
-no visible models or collision fixtures. S01 provides P0-03's asset/resource
-checks through the [development tasks](development.md#foundation-validation-tasks). Use the [asset workflow](assets.md) for handoffs/catalogue conventions;
-S01 records export/import settings and their roundtrip.
+no visible models or collision fixtures. S01's historical asset/resource checks are
+retained in the prototype archive. Use the
+[current production checks](development.md#canonical-production-checks) and the
+[asset workflow](assets.md) for handoffs/catalogue conventions; S01 records its
+historical export/import settings and roundtrip.
 
 ## Prototype and test boundaries
 

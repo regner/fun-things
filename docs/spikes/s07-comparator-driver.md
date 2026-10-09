@@ -1,5 +1,11 @@
 # S07 C0 — fresh-session effect comparator driver
 
+> **Historical run instructions.** Commands in this record that target `prototypes/` describe
+> the original runnable checkout; they do not run in the current checkout because the archive
+> is hidden by `.gdignore`. To reproduce them, follow the
+> [restore-from-Git procedure](../../prototypes/README.md) in a separate worktree at the recorded
+> pre-cleanup commit.
+
 8 October 2026. This implements the bounded C0 prerequisite for the separate S05
 comparator in [technical card T](s07-run-cards.md#t--technical-two-sector-calibration-blocked-not-representative-capacity).
 It is a standalone correctness driver and short draw smoke, not any of the card's

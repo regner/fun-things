@@ -27,7 +27,7 @@ Two obsolete bridges were deleted instead of archived because their only purpose
 that is now reference-only:
 
 - `tests/fixtures/rocket_launcher/editor_harness.tscn` depended on the archived S02 editor probe.
-- `tools/assets/world/brackett_greybox/editor_call.py` depended on the archived S08 editor bridge.
+- `tools/brackett_greybox/editor_call.py` depended on the archived S08 editor bridge.
 
 The current Dock Thumper preview and Brackett greybox source/check/reexport paths remain in the
 production asset trees.

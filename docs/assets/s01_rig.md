@@ -22,7 +22,8 @@ move a physics or placement root.
 | `prototypes/s01/art/source/models/spikes/s01_rig.blend`; no linked library | `export_s01_rig`; synthetic GLB root; Rig, Skin, socket_grip | `prototypes/s01/art/models/spikes/s01_rig.glb`, `.glb.import`; preset in `prototypes/s01/tools/s01/export_settings.json` | `prototypes/s01/tests/fixtures/s01/rig_prefab.tscn`; RigA/RigB in saved `roundtrip.tscn` |
 
 Skin slot `body_paint` remaps through the import sidecar to shared external
-`prototypes/s01/art/materials/s01_petrol.tres` and `art/textures/spikes/s01_palette.png`, whose
+`prototypes/s01/art/materials/s01_petrol.tres` and
+`prototypes/s01/art/textures/spikes/s01_palette.png`, whose
 editable source belongs to s01_static's record. Normalized smooth normals,
 triangulated bevel geometry and default cube UVs; no embedded textures, automatic
 LOD, production material/triangle budget, normal/ORM maps, alpha or effects.

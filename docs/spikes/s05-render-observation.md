@@ -1,5 +1,11 @@
 # S05 automatic render observation
 
+> **Historical run instructions.** Commands in this record that target `prototypes/` describe
+> the original runnable checkout; they do not run in the current checkout because the archive
+> is hidden by `.gdignore`. To reproduce them, follow the
+> [restore-from-Git procedure](../../prototypes/README.md) in a separate worktree at the recorded
+> pre-cleanup commit.
+
 8 October 2026. Workspace `wks_0623f6e411329bb8`, branch
 `s05-automatic-render-observation`, accepted base
 `48aef3dbd133876743f504f94a1b788a26d5638f`. Lead

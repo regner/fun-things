@@ -1,5 +1,11 @@
 # S03-P — required local on-foot prediction
 
+> **Historical run instructions.** Commands in this record that target `prototypes/` describe
+> the original runnable checkout; they do not run in the current checkout because the archive
+> is hidden by `.gdignore`. To reproduce them, follow the
+> [restore-from-Git procedure](../../prototypes/README.md) in a separate worktree at the recorded
+> pre-cleanup commit.
+
 8 October 2026. This bounded S03-R fixture trial implements the owner's required local
 foot prediction. It is Windows technical evidence on the pinned engine, not production,
 physical-input, subjective-feel, Linux, export or full-world rollback acceptance.

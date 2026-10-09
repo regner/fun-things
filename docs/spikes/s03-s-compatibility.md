@@ -1,5 +1,11 @@
 # S03-S — bounded compatibility design/probe
 
+> **Historical run instructions.** Commands in this record that target `prototypes/` describe
+> the original runnable checkout; they do not run in the current checkout because the archive
+> is hidden by `.gdignore`. To reproduce them, follow the
+> [restore-from-Git procedure](../../prototypes/README.md) in a separate worktree at the recorded
+> pre-cleanup commit.
+
 **9 October 2026 supplement:** this accepted result is historical; its registration
 runner requires separately restored exact pinned GodotSteam bytes after owner decision
 17 removed the addon from the current source tree.

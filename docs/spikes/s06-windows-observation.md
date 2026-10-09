@@ -1,5 +1,11 @@
 # S06 — Windows topology proof and drawn review captures
 
+> **Historical run instructions.** Commands in this record that target `prototypes/` describe
+> the original runnable checkout; they do not run in the current checkout because the archive
+> is hidden by `.gdignore`. To reproduce them, follow the
+> [restore-from-Git procedure](../../prototypes/README.md) in a separate worktree at the recorded
+> pre-cleanup commit.
+
 8 October 2026, Windows 11 desktop, NVIDIA GeForce RTX 4070 Laptop GPU,
 D3D12 Forward+, pinned `4.8.dev7.official.c971f93e7`. This reruns the accepted
 partial topology proof and supplies drawn material for a human layout review. It

@@ -1,5 +1,11 @@
 # S08 — Bounded exported ENet handoff
 
+> **Historical run instructions.** Commands in this record that target `prototypes/` describe
+> the original runnable checkout; they do not run in the current checkout because the archive
+> is hidden by `.gdignore`. To reproduce them, follow the
+> [restore-from-Git procedure](../../prototypes/README.md) in a separate worktree at the recorded
+> pre-cleanup commit.
+
 8 October 2026. Direct implementer `8cae02a7-484d-4f59-a7e1-fee6db52abd5`,
 workspace `wks_4172940689632780`, branch `s08-exported-enet-handoff`.
 Exact accepted base `52941da4b4c92a547a8066b5c13f733043ecbe48`.

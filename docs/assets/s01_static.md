@@ -22,7 +22,7 @@ views and renderer are recorded in S01, not claimed as approved gameplay views.
 
 | Source/dependencies | Collection/root/members | Output/settings | Consumers |
 | --- | --- | --- | --- |
-| `prototypes/s01/art/source/models/spikes/s01_static.blend`; packed palette also retained as `art/source/textures/spikes/s01_palette.png` | `export_s01_static`; synthetic glTF scene root; Body, Front, Meter, socket_muzzle, right_axis, up_axis | `prototypes/s01/art/models/spikes/s01_static.glb` and `.glb.import`; palette exported separately to `art/textures/spikes/s01_palette.png` and `.png.import` | `prototypes/s01/tests/fixtures/s01/static_prefab.tscn`, inherited `static_variant.tscn`; StaticA/StaticB/Variant in `roundtrip.tscn` |
+| `prototypes/s01/art/source/models/spikes/s01_static.blend`; packed palette also retained as `prototypes/s01/art/source/textures/spikes/s01_palette.png` | `export_s01_static`; synthetic glTF scene root; Body, Front, Meter, socket_muzzle, right_axis, up_axis | `prototypes/s01/art/models/spikes/s01_static.glb` and `.glb.import`; palette exported separately to `prototypes/s01/art/textures/spikes/s01_palette.png` and `.png.import` | `prototypes/s01/tests/fixtures/s01/static_prefab.tscn`, inherited `static_variant.tscn`; StaticA/StaticB/Variant in `roundtrip.tscn` |
 
 Material slots: Body uses `body_paint` → external `s01_petrol.tres` → explicit
 runtime palette; Front uses `front_accent` (flat coral), Meter `meter_reference`

@@ -1,5 +1,11 @@
 # Quiet foundation remeasurement — 9 October 2026
 
+> **Historical run instructions.** Commands in this record that target `prototypes/` describe
+> the original runnable checkout; they do not run in the current checkout because the archive
+> is hidden by `.gdignore`. To reproduce them, follow the
+> [restore-from-Git procedure](../../prototypes/README.md) in a separate worktree at the recorded
+> pre-cleanup commit.
+
 ## Scope and method
 
 The owner reduced this pass to the S17 integrated host-tick measurement only: make the

@@ -1,5 +1,11 @@
 # S07 primary T — sustained saved-reload route driver
 
+> **Historical run instructions.** Commands in this record that target `prototypes/` describe
+> the original runnable checkout; they do not run in the current checkout because the archive
+> is hidden by `.gdignore`. To reproduce them, follow the
+> [restore-from-Git procedure](../../prototypes/README.md) in a separate worktree at the recorded
+> pre-cleanup commit.
+
 8 October 2026. Bounded prerequisite for [primary technical card T](s07-run-cards.md#t--technical-two-sector-calibration-blocked-not-representative-capacity),
 **not graphical calibration or representative capacity acceptance**. Base
 `233493abc7d2e3c106fb620105cfb766f542813b`, branch `s07-sustained-route-reset-driver`,

@@ -1,5 +1,11 @@
 # S04 standalone drive scene
 
+> **Historical run instructions.** Commands in this record that target `prototypes/` describe
+> the original runnable checkout; they do not run in the current checkout because the archive
+> is hidden by `.gdignore`. To reproduce them, follow the
+> [restore-from-Git procedure](../../prototypes/README.md) in a separate worktree at the recorded
+> pre-cleanup commit.
+
 8 October 2026. This is the no-network owner feel harness requested after the bounded S04
 body experiment. It instances the accepted saved track and kinematic car, starts with the local
 player controlling that car immediately (seated), and uses the ratified fixed-north 47 m / 42°
