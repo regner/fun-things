@@ -22,7 +22,10 @@ The owner's 8 October decisions supersede older text where they conflict:
 
 P0-GATE should reconcile the older Steam, Deck, tank-control, cutaway and eight-effect
 wording in the canonical records. Production must not implement those superseded
-requirements merely because the dated drafts still contain them.
+requirements merely because the dated drafts still contain them. The independent
+[P0 readiness audit](../reviews/p0-readiness-audit-2026-10-08.md) also identifies
+foundation evidence that this plan now treats as explicit dependencies rather than
+work to discover during production.
 
 ## 1. Production shape
 
@@ -144,17 +147,18 @@ Every movement rule has a typed command and state transition independent of devi
 collection or networking:
 
 ```text
-FootCommand {sequence, move_xz, aim_yaw, fire_held}
+FootCommand {sequence, client_tick, move_xz, aim_yaw, fire_held}
 ActorMotion.step(command, fixed_delta, AUTHORITY | REPLAY)
 
-DriveCommand {sequence, throttle, steer, brake, handbrake}
+DriveCommand {sequence, client_tick, throttle, steer, brake, handbrake}
 VehicleMotion.step(command, fixed_delta, AUTHORITY | REPLAY)
 ```
 
 Foot movement normalizes diagonals, travels at 5 m/s, starts/stops immediately and
 sets facing to the aim yaw. Input obtains the yaw from the mouse/camera ground-plane
-intersection; simulation never reads mouse coordinates. Vehicle AI and players use
-the same drive step and tuning resource.
+intersection; simulation never reads mouse coordinates. `client_tick` remains the
+canonical diagnostic/replay-ordering field; it never grants elapsed host time.
+Vehicle AI and players use the same drive step and tuning resource.
 
 Standalone and the host-local player submit trusted local intent through the same
 validator used after sender mapping for remote intent. Only the command source
@@ -293,6 +297,36 @@ A fixture may preload a production script/resource for a public-API test. If tha
 would make its historical evidence ambiguous, add a new production regression and
 leave the historical fixture unchanged.
 
+### 3.1 Art production throughput estimate
+
+This is a planning range, not a delivery promise. One **focused artist-day** means a
+source edit plus explicit export, linked wrapper/collision or rig setup, source record,
+reexport check and one review correction on the established pipeline. It excludes
+waiting for owner feedback and unrelated engine/tool repairs. Before using the range,
+S01-W must establish the exact Windows Blender result and the owner must select a
+production quality bar.
+
+| Deliverable package | Starting scope | Estimated focused artist-days |
+| --- | --- | ---: |
+| District starter subset | Road/sidewalk kit, two building families and two prop/sign families, sufficient to start C2.1 | 10–16 |
+| Remaining district kit | Four building/landmark families and four prop/sign families | 12–20 |
+| Vehicles | Two silhouettes, color variants and corresponding wreck states | 8–12 |
+| Shared people | Player/pedestrian rig, readable variants and idle/walk/run/death clips | 10–15 |
+| Weapons and held presentation | Pistol, SMG, launcher, mounts/muzzles and variants | 4–7 |
+| Production VFX art | Muzzle/impact/tracer/rocket and full/cheap explosion families | 6–10 |
+
+The subtotal is **50–80 focused artist-days**. Reserve about 20% (10–16 days) for
+cross-family camera readability, collision/socket correction, source reexports and
+world-integration review, giving **60–96 focused artist-days** for the visible M1 kit.
+Audio sourcing/editing is tracked separately under S14/A3.2. Two genuinely independent
+asset lanes could improve wall-clock throughput, but shared character, material and
+world integration plus owner review prevent assuming a linear 2× speedup.
+
+The starter subset is intentionally first: at roughly 10–16 artist-days it unlocks
+C2.1 while the remaining families continue in parallel. Record actual throughput for
+the first two accepted families and reforecast C1.2; do not respond to a slower rate
+by dropping source, identity or review checks.
+
 ## 4. Production test strategy
 
 ### 4.1 Godot unit framework decision
@@ -399,118 +433,179 @@ renderer, power state and concurrent Godot-process/CPU-load record. Run at least
 three repeats; report median and worst. A contended run is an upper bound.
 
 Track frame p50/p95/p99, render CPU/GPU, host simulation p95/p99 including AI/chains,
-working set, draw calls, active counts, encode/decode time and wire bandwidth. Compare
-against the ratified design budgets without silently changing content or quality.
+working set, draw calls, active counts, encode/decode time and wire bandwidth. Use the
+safe capped method settled by S08-C; do not repeat the uncapped runs that removed the
+GPU device. The audit's [owner question 2](../reviews/p0-readiness-audit-2026-10-08.md#5-owner-questions)
+notes that deferring Deck left no ratified desktop frame target. This proposal is
+60 FPS with frame p99 <= 20 ms on named Windows and Linux hardware, but M1-D3 cannot
+claim that target until the owner ratifies it. Compare other measurements against the
+ratified design budgets without silently changing content or quality.
 S07's city-size curve informs authored scope: its repeated grey-block rows passed at
 6, 24 and 96 blocks, while 384 crashed before a result. The fit (about 0.79 MiB working
 set and 138 expanded nodes per repeated-content block) is planning guidance with large
 production-art caveats, not a supported-size promise. M1-D3 still validates the
 integrated six-block milestone.
 
-## 5. Ordered M1 backlog
+## 5. Foundation entry criteria and ordered M1 backlog
+
+The audit found risks that should produce evidence before their production consumers,
+not be rediscovered inside M1. These IDs are external foundation dependencies in the
+backlog below:
+
+| Foundation task | Required result | Hard consumers in this plan |
+| --- | --- | --- |
+| **P0-TOOLING** | Green canonical style/compile command, complete Python test discovery, cross-platform Python invocation, ignored GodotSteam temp artifacts and MCP-free compile mirror | M1-D1.1 and every later CI claim |
+| **S03-L** | Per-stage Windows baseline latency/pacing diagnosis and a disposition of the S03-R expiry boundary | S03-P, M1-A2.3 and M1-B2.1/S12 interpretation |
+| **S08-X** | Real-project Windows/Linux export smoke, committed main-scene/preset decisions, pinned template identity and explicit GodotSteam export policy | M1-A1.1, M1-A-GATE, M1-D3 and M1-D4 |
+| **S08-C** | Bounded 384-block crash/cutaway diagnosis and a safe capped GPU measurement method | M1-C2.2 and M1-D3 |
+| **S01-W** | Exact Windows Blender version and byte or semantic reexport result | M1-C1.1, M1-C1.2 and S13 asset adoption |
+| **S03-P** | Bounded shared-rule foot prediction/reconciliation evidence after S02 controls and S03-L | M1-A2.3 and S04-T |
+| **S04-P** | Bounded shared-rule car prediction/reconciliation evidence after S03-L | M1-B1.1 and S04-T |
+| **S04-T** | After S03-P/S04-P, two-process predicted foot↔car handoff, racing claims, moving/blocked exit, AI release and disconnect coast | M1-B1.2 and M1-D2 |
+| **S17** | Integrated full-cap host-tick composition after S09–S12, including S11 encode for three clients | M1-A2.2 codec freeze, M1-C3 and M1-D3 |
+
+S11's accepted full-cap codec, baseline and wire-budget evidence is independently a
+**hard** M1-A2.2 dependency. S17 does not substitute for it. The audit's
+[owner question 1](../reviews/p0-readiness-audit-2026-10-08.md#5-owner-questions)
+asks whether these foundation rows and prediction should gate P0. This proposal says
+yes for each hard consumer unless the owner explicitly records a narrower scope at
+P0-GATE; an unresolved dependency is not permission to skip ahead.
 
 Sizes are dispatch units, not calendar promises: **S** is one narrow owner/API with
 focused tests, **M** spans several collaborators or one real-process matrix, and
 **L** is an integration outcome that must be split into its listed children before
 implementation. A lane owns distinct files; one integrator owns shared Boot, Match,
-district and project/export settings.
+district and project/export settings. Every numbered row depends only on an earlier
+numbered row or an explicitly named accepted foundation result.
 
 | Order / task | Size | Depends on | Parallel lane and acceptance |
 | --- | --- | --- | --- |
-| 1. **M1-D1.1 — establish production checks**: pin GUT, add test-only config, release exclusions and CI scripts | M | P0-GATE | Tooling lane. Windows/Linux exact pins; owned scripts compile; Python/GUT smoke and diagnostic-negative pass; no addon in export manifest. |
-| 2. **M1-A1.1 — compose Boot and session state machine**: saved Boot/menu/status scenes, typed operations, standalone path and fake correlated provider | M | P0-GATE | Session/UI lane. One completion per accepted operation; busy/cancel/close/retry and late callback cleanup tested. |
-| 3. **M1-A3.1 — LocalSettings and settings UI** | S | P0-GATE, D1.1 test seam | Settings/UI lane, separate from Boot file owner. Defaults, validation, corrupt recovery, live preview, atomic-save failure and restart pass. |
-| 4. **M1-C1.1 — road/building/prop starter subset** | M | P0-GATE art approval | Art lane. Source-linked Blender/GLB families, provenance, collision and reexport/reload identities pass; enough for first production sector. |
-| 5. **M1-A1.2 — ENet transport and menu host/join flow** | M | A1.1 | Session lane. Workaround before peer publication; standalone and ENet without Steam; bounded full/incompatible/unreachable/host-loss cleanup in real processes. |
-| 6. **M1-A2.1 — production foot command and ActorMotion** | M | D1.1, ratified S02 control update | Actor lane. Standalone/authority/replay equivalence, collision/aim, focus neutral and malformed command tests. |
-| 7. **M1-A2.2 — identity, baseline and durable replication core** | L | A1.2, A2.1 | Replication lane, split codec/admission/state-apply commits. Current state before input, bounded transfer/journal, stale revisions and subset recovery pass. |
-| 8. **M1-A2.3 — local foot prediction and remote interpolation** | M | A2.1, A2.2 | Local/replication lane. Normal/adverse correction, history bounds, life/control/collision invalidation and replay side-effect exclusion pass. |
-| 9. **M1-A2.4 — player lifecycle, safe respawn and match reset** | M | A2.2, C2.1 spawn anchors | Match lane. Three-second respawn, bounded blocked search/retry and reset rehydration retain admitted peers with no old work. |
-| 10. **M1-C4.1 — HUD/minimap shell** | M | A2.2, production CityData from C2.1 | UI lane. Reads owner state, shared roads align, controlled marker rebind/late join works at supported resolutions. |
-| 11. **M1-A3.2 — production audio buses and voice policy** | M | A3.1, accepted S14 evidence | Audio lane. Persistent settings, category limits, state-driven emitters and clean teardown; owner listening review remains explicit. |
-| 12. **M1-A-GATE — exported multiplayer shell** | L | A1.2, A2.3, A2.4, A3.2 | Integration. Two Windows and two Linux processes cover settings, join/admission, movement/prediction, respawn/reset, errors and host loss; no Steam criterion. |
-| 13. **M1-B1.1 — production vehicle motion and tuning** | M | A-GATE, owner drive-scene values | Vehicle lane. Same rules for standalone/host/replay/AI; local prediction corrects boundedly; wall/brake/reverse/handbrake cases pass. |
-| 14. **M1-B1.2 — VehicleInteraction transaction matrix** | M | B1.1, A2.4 | Match/vehicle lane. Same-tick claims, stopped/blocked exit, death/disconnect coast, reset/resync/destruction and revision fences pass. |
-| 15. **M1-B2.1 — WeaponState and hitscan** | M | A-GATE, S12 decision | Combat lane. Pistol/SMG rate/ammo/reload/equip/no-seated-fire, ShotId duplicates and host verdict pass normal/adverse tests. |
-| 16. **M1-B2.2 — rockets, Health and player/pedestrian death** | M | B2.1, A2.4 | Combat/lifecycle lane. Capacity/cooldown, impact/expiry, friendly/self damage, full-loadout respawn and hydration pass. |
-| 17. **M1-B3.1 — explosions, wrecks and chains** | M | B1.2, B2.2 | Combat lane. Three/12-car outcomes, bounded work, occupied destruction, collision fence, retention, late join and reset pass off-camera. |
-| 18. **M1-B4.1 — combat VFX/audio/HUD feedback** | M | B3.1, accepted S14/S15 evidence | Presentation lane. Every explosion visible, duplicates suppressed, cheaper quality fallback measured, readable weapon/rocket feedback and bounded audio. |
-| 19. **M1-C1.2 — character, vehicle, weapon and effect production assets** | L | Accepted S13/S15 technical evidence and owner art review | Parallel asset lanes by family. Linked sources, rigs/clips/sockets/collision/provenance and target-camera readability pass before integration. |
-| 20. **M1-C2.1 — saved production district and CityData bake** | L | C1.1; later consumes approved C1.2 subsets | Sole world integrator. Six blocks, two loops, alley, landmark and stunt area; seam/route/clearance/map/stale-bake/source identity checks pass. |
-| 21. **M1-C3.1 — traffic controller and car population** | M | B1.2, C2.1, accepted S09 | Population lane. 24 traffic/32 total cap, lanes/turns, obstacle/wreck recovery, abandoned cars parked and bounded unseen replenishment pass seeded runs. |
-| 22. **M1-C3.2 — pedestrian controller and population** | M | B2.2, C2.1, accepted S10, C1.2 rig | Population lane. 64 cap, sidewalk/crossing, flee, damage/death/16 retention and bounded unseen replenishment pass seeded runs. |
-| 23. **M1-C3.3 — population replication and capacity profile** | L | C3.1, C3.2, accepted S11 codec | Replication integrator. Full current join, lifecycle reliability, smoothing, baseline and all four-player bandwidth budgets pass. |
-| 24. **M1-D1.2 — complete production validation/CI** | M | All owner APIs stable enough | Tooling lane. Contract/resource/export discovery includes every production path and catches unused/broken scripts without broad suppression. |
-| 25. **M1-D2 — integrated playtest and tuning** | L | B4.1, C3.3, C4.1 | Integration/owner review. Walk/aim/shoot/drive/chain/explore, menus/focus, audio and readability findings are fixed or explicitly scoped out. |
-| 26. **M1-D3 — integrated capacity and adverse delivery** | L | D1.2, D2 | Performance/network lane. Named Windows/Linux hardware, host+3 clients, six-block caps/bursts/lifecycle; ratified frame/sim/memory/bandwidth/recovery budgets with raw evidence. |
-| 27. **M1-D4 — private review builds** | M | D2, D3 | Release lane. Exact Windows/Linux exports, identity/exclusions, clean launch/input/audio/ENet, retained hashes/results/rollback and VCS delivery; no Steam upload. |
-| 28. **M1-GATE — owner review** | — | D4 | Owner accepts the playable district or records bounded follow-ups/scope changes. |
+| 1. **M1-D1.1 — establish production checks**: pin GUT, add test-only config, release exclusions and CI scripts | M | P0-GATE, accepted P0-TOOLING | Tooling lane. Windows/Linux exact pins; owned scripts compile; complete Python/GUT smoke and diagnostic-negative pass; no addon in export manifest. |
+| 2. **M1-A1.1 — compose Boot and session state machine**: saved Boot/menu/status scenes, typed operations, standalone path and fake correlated provider | M | P0-GATE, accepted S08-X project/export decisions | Session/UI lane. One completion per accepted operation; busy/cancel/close/retry and late callback cleanup tested. |
+| 3. **M1-A3.1 — LocalSettings and settings UI** | S | D1.1 | Settings/UI lane, separate from Boot file owner. Defaults, validation, corrupt recovery, live preview, atomic-save failure and restart pass. |
+| 4. **M1-C1.1 — road/building/prop starter subset** | M | P0-GATE art approval, accepted S01-W | Art lane. Source-linked Blender/GLB families, provenance, collision and reexport/reload identities pass; enough for the first production sector. |
+| 5. **M1-C2.1 — CityData/spawn-anchor foundation and first production sector** | M | C1.1, accepted S06 contract | Sole world integrator. Production topology/bake, shared clearance, safe spawn anchors, minimap roads and stale-content rejection pass on one linked sector. |
+| 6. **M1-A1.2 — ENet transport and menu host/join flow** | M | A1.1 | Session lane. Workaround before peer publication; standalone and ENet without Steam; bounded full/incompatible/unreachable/host-loss cleanup in real processes. |
+| 7. **M1-A2.1 — production foot command and ActorMotion** | M | D1.1, accepted S02 control update | Actor lane. Standalone/authority/replay equivalence, `client_tick`, collision/aim, focus neutral and malformed command tests. |
+| 8. **M1-A2.2 — identity, measured codec, baseline and durable replication core** | L | A1.2, A2.1, accepted S11 codec/baseline evidence, accepted S17 composition | Replication lane, split codec/admission/state-apply commits. Freeze only the measured codec; current state before input, bounded transfer/journal, stale revisions and subset recovery pass. |
+| 9. **M1-A2.3 — integrate local foot prediction and remote interpolation** | M | A2.1, A2.2, accepted S03-L, accepted S03-P | Local/replication lane. Port the proved replay mapping; normal/adverse correction, history bounds, life/control/collision invalidation and replay side-effect exclusion pass. |
+| 10. **M1-A2.4 — player lifecycle, safe respawn and match reset** | M | A2.2, C2.1 | Match lane. Three-second respawn, bounded blocked search/retry and reset rehydration retain admitted peers with no old work. |
+| 11. **M1-C4.1 — HUD/minimap shell** | M | A2.2, C2.1 | UI lane. Reads owner state, shared roads align, controlled marker rebind/late join works at supported resolutions. |
+| 12. **M1-A3.2 — production audio buses and voice policy** | M | A3.1, accepted S14 evidence | Audio lane. Persistent settings, category limits, state-driven emitters and clean teardown; owner listening review remains explicit. |
+| 13. **M1-A-GATE — exported multiplayer shell** | L | D1.1, A1.2, A2.3, A2.4, A3.2, accepted S08-X | Integration. Two Windows and two Linux processes cover settings, join/admission, movement/prediction, respawn/reset, errors and host loss; no Steam criterion. |
+| 14. **M1-B1.1 — production vehicle motion, prediction and tuning** | M | A-GATE, owner drive-scene values, accepted S03-L, accepted S04-P | Vehicle lane. Port the proved replay mapping; same rules for standalone/host/replay/AI, with bounded corrections and wall/brake/reverse/handbrake cases. |
+| 15. **M1-B1.2 — VehicleInteraction transaction matrix** | M | B1.1, A2.4, accepted S04-T | Match/vehicle lane. Same-tick claims, stopped/blocked exit, selected driver-death policy, disconnect coast, reset/resync/destruction and revision fences pass. |
+| 16. **M1-B2.1 — WeaponState and hitscan** | M | A-GATE, accepted S03-L, accepted S12 decision | Combat lane. Pistol/SMG rate/ammo/reload/equip/no-seated-fire, ShotId duplicates and host verdict pass normal/adverse tests. |
+| 17. **M1-B2.2 — rockets, Health and player/pedestrian death** | M | B2.1, A2.4 | Combat/lifecycle lane. Capacity/cooldown, impact/expiry, friendly/self damage, full-loadout respawn and hydration pass. |
+| 18. **M1-B3.1 — explosions, wrecks and chains** | M | B1.2, B2.2 | Combat lane. Three/12-car outcomes, bounded work, occupied destruction, collision fence, retention, in-flight late join and reset pass off-camera. |
+| 19. **M1-B4.1 — combat VFX/audio/HUD feedback** | M | B3.1, accepted S14/S15 evidence | Presentation lane. Every explosion visible, duplicates suppressed, cheaper quality fallback measured, readable weapon/rocket feedback and bounded audio. |
+| 20. **M1-C1.2 — character, vehicle, weapon and effect production assets** | L | C1.1, accepted S01-W, accepted S13/S15 evidence and owner art review | Parallel asset lanes by family. Linked sources, rigs/clips/sockets/collision/provenance and target-camera readability pass before integration. Reforecast from measured starter-subset throughput. |
+| 21. **M1-C2.2 — complete saved production district** | L | C2.1, C1.2, accepted S08-C | Sole world integrator. Six blocks, two loops, alley, landmark and stunt area; seam/route/clearance/map/stale-bake/source identity checks pass. |
+| 22. **M1-C3.1 — traffic controller and car population** | M | B1.2, C2.2, accepted S09, accepted S17 | Population lane. 24 traffic/32 total cap, lanes/turns, obstacle/wreck recovery, abandoned cars parked and bounded unseen replenishment pass seeded runs. |
+| 23. **M1-C3.2 — pedestrian controller and population** | M | B2.2, C2.2, C1.2 rig, accepted S10, accepted S17 | Population lane. 64 cap, sidewalk/crossing, flee, damage/death/16 retention and bounded unseen replenishment pass seeded runs. |
+| 24. **M1-C3.3 — population replication and capacity profile** | L | C3.1, C3.2, accepted S11, accepted S17 | Replication integrator. Full current join, lifecycle reliability, smoothing, baseline and all four-player bandwidth budgets pass. |
+| 25. **M1-D1.2 — complete production validation/CI** | M | D1.1, B4.1, C3.3, C4.1 | Tooling lane. Contract/resource/export discovery includes every production path and catches unused/broken scripts without broad suppression. |
+| 26. **M1-D2 — integrated playtest and tuning** | L | B4.1, C2.2, C3.3, C4.1, A3.2, accepted S04-T | Integration/owner review. Walk/aim/shoot/drive/transition/chain/explore, menus/focus, audio and readability findings are fixed or explicitly scoped out. |
+| 27. **M1-D3 — integrated capacity and adverse delivery** | L | D1.2, D2, accepted S08-C, accepted S08-X, accepted S17 | Performance/network lane. Named Windows/Linux hardware, host+3 clients, six-block caps/bursts/lifecycle; owner-ratified desktop frame plus sim/memory/bandwidth/recovery budgets pass with raw evidence. |
+| 28. **M1-D4 — private review builds** | M | D2, D3, accepted S08-X | Release lane. Exact Windows/Linux exports, identity/exclusions, clean launch/input/audio/ENet, retained hashes/results/rollback and VCS delivery; no Steam upload. |
+| 29. **M1-GATE — owner review** | — | D4 | Owner accepts the playable district or records bounded follow-ups/scope changes. |
 
-C1.1 can proceed beside the session shell and settings. C2.1 begins as soon as its
-approved road/building subset exists rather than waiting for characters/audio/VFX.
+C1.1 can proceed beside the session shell and settings. C2.1 now immediately follows
+the starter art subset, so A2.4 and C4.1 never depend on a later backlog row. C2.2
+adds the full district after later art families without changing CityData ownership.
 Actor, replication and world integrators must agree on APIs before parallel file
 work; they do not concurrently edit Boot, Match or district scenes.
 
 ### First five starts
 
-1. Start **D1.1** so all subsequent code lands with one unit/CI path.
-2. Start **A1.1** in parallel, owning Boot/Session composition.
-3. Start **A3.1** in a separate settings scene/script lane.
-4. Start **C1.1** in separate source/prefab files with one world integrator designated.
-5. Start **A1.2** immediately after A1.1 freezes the provider seam; it is the first
-   dependent continuation, while the other three lanes continue.
+1. After accepted **P0-TOOLING**, start **D1.1** so later code lands with one unit/CI path.
+2. After accepted **S08-X**, start **A1.1** in parallel, owning Boot/Session composition.
+3. Start **A3.1** when D1.1's test seam lands, in a separate settings scene/script lane.
+4. After accepted **S01-W**, start **C1.1** in separate source/prefab files.
+5. Start **C2.1** immediately after C1.1 supplies the reviewed starter subset; this
+   unblocks production spawn/lifecycle and minimap work before later asset families.
 
-Do not start production replication by copying the S03 fixture before A1.1/A1.2 and
-the production identity types are reviewed. Do not start C3 population by replacing
-missing S09–S11 evidence with dummy behavior.
+A1.2 is the next session continuation as soon as A1.1 freezes the provider seam and
+may run in parallel with the art/world sequence. Do not start A2.2 by copying the S03
+fixture: accepted S11 and S17 evidence are hard codec-freeze inputs. Do not start C3
+population by replacing missing S09–S11/S17 evidence with dummy behavior.
 
 ## 6. Risk register and owner-review questions
 
 | Risk | Consequence | Mitigation / owner question |
 | --- | --- | --- |
 | Canonical requirements still name Steam/Deck and rejected controls/effect cap | Teams implement or gate against superseded scope | P0-GATE records one dated reconciliation. **Owner:** confirm this plan's ENet-only, desktop-only M1 wording is the governing milestone scope. |
-| Prediction against CharacterBody contacts is approximate | Visible corrections, divergent foot/car behavior or replay side effects | Separate motion replay state, revision fences and adverse tests before gameplay integration. Snap/resync on overflow; no historical-world rollback claim. |
+| Prediction against CharacterBody contacts is approximate | Visible corrections, divergent foot/car behavior or replay side effects | S03-L precedes S03-P/S04-P; production ports their shared-rule evidence, keeps revision fences and snaps/resyncs on overflow. No historical-world rollback claim. |
+| Predicted foot↔car transfer has multiple owners | Rejected claims or revision changes leave the camera, HUD or replay history on the wrong body | S04-T is a hard B1.2 dependency and measures rejected/racing claims plus replay-history handoff before production interaction. |
 | Vehicle handling remains subjective | B1 foundations may be rebuilt after integration | Owner runs the standalone S04 drive scene and ratifies tuning/body dimensions before B1.1 freezes definitions. |
 | Hitscan policy is unsettled | High-latency disagreement or exploit surface | S12 compares host-current and bounded rewind. **Owner:** approve the recommended policy and maximum rewind before B2.1. |
 | “Every explosion visible” has no accepted quality-degradation rule | 12/24 effects may violate frame budget or produce unreadable output | S15 measures authored full/cheap variants. **Owner:** confirm reducing particles/lighting while retaining one visible effect per explosion is allowed. |
-| Production art differs greatly from grey-block evidence | Memory, draw and animation costs arrive late | C1 delivers source-linked subsets early; repeat representative capped tests as each family lands. S07 is planning guidance, not a pass. |
-| AI spikes may meet correctness but consume too much of the 4 ms host budget | Integrated host misses simulation target | S09/S10 propose measured shares; C3 runs both together before content lock and reduces bounded update frequency only with correctness evidence. |
-| Full population codec misses bandwidth/join targets | Late replication rewrite | S11 measures full caps before A2 codec freeze where possible; retain replaceable motion, per-entity refresh and immutable durable ownership. |
+| Production art differs greatly from grey-block evidence | Memory, draw and animation costs arrive late | C1 delivers the estimated 10–16-day starter subset early; repeat representative capped tests as each family lands and reforecast the 60–96-day total from actual throughput. |
+| Windows Blender output differs from accepted Linux output | Source/export checks fail after production art starts | S01-W is a hard C1/S13 input; select byte or semantic comparison before asset production. |
+| AI spikes may meet correctness but consume too much of the 4 ms host budget | Integrated host misses simulation target | S17 composes S09–S12 and S11 encode before A2 codec freeze/C3; individual budget shares cannot be accepted in isolation. |
+| Full population codec misses bandwidth/join targets | Late replication rewrite | Accepted S11 baseline/codec evidence is a hard A2.2 dependency, reinforced but never replaced by S17. Retain replaceable motion, per-entity refresh and immutable durable ownership. |
+| Foundation validation remains red or incomplete | Production lanes cannot make honest pass claims | P0-TOOLING must make the canonical check green and discover every Python test before D1.1. |
 | GUT or its editor plugin conflicts with pinned dev engine/addons | CI instability or exported test code | D1.1 pins and proves headless CLI on both OSes, keeps plugin disabled at runtime and verifies export exclusion. No broad warning suppression. |
 | Shared scenes become parallel merge hotspots | Lost authored placement/identity or accidental multiple writers | Assign one Boot, Match and district integrator. Parallel lanes contribute saved prefabs/public APIs and hand off for placement. |
-| Linux release diagnostics or dev-engine regressions recur | One target cannot pass clean export | Run Linux export smoke at A-GATE, retain exact logs, and escalate an engine-pin decision rather than suppress diagnostics. |
+| Real project export behavior differs from stripped spike exports | Autoload/native-extension or Linux failures arrive at A-GATE | S08-X is a hard Boot/gate/release input and records the owner-selected GodotSteam policy, templates and both target launches. |
+| Linux release diagnostics or dev-engine regressions recur | One target cannot pass clean export | S08-X runs Linux early; retain exact logs and escalate an engine-pin decision rather than suppress diagnostics. |
+| S02 cutaway removal breaks retained S07 environment scenes | Rebased fixtures have missing scripts/shaders and capacity guidance cannot reproduce | Migrate/regenerate every `s07_env` saved reference before integrating S02; S08-C compares with/without the obsolete path. |
+| The 384-block crash or unsafe uncapped method is reused | Engine/device failure or unsupported city-size inference | S08-C bounds the crash and establishes capped GPU measurement before C2.2/D3. |
+| Driver-death stopping policy is unsettled | B1.2 silently treats death like disconnect | Owner selects coast, brake or another rule; only disconnect is already ratified as coast. |
 | No Deck acceptance in M1 | Later handheld work may require renderer/input/UI changes | Keep 1280×800 and controller-friendly composition in design, but label it unverified. Deck becomes a separately planned post-M1 target. |
 | Schedule pressure encourages making large tasks monolithic | Review and regression gaps | Split every L row at its named owner seams before dispatch; gate integration on public-API tests rather than completion prose. |
 
+The audit's five [owner questions](../reviews/p0-readiness-audit-2026-10-08.md#5-owner-questions)
+are explicit P0-GATE inputs:
+
+1. Confirm whether P0-GATE again depends on S02 controls, S03-L, S03-P, S04-P,
+   S04-T, P0-TOOLING and the other foundation consumers above. This proposal does;
+   any waiver must name the affected M1 rows rather than silently deleting edges.
+2. Ratify an M1 desktop frame target. This proposal is capped 60 FPS with frame
+   p99 <= 20 ms on named Windows and Linux hardware.
+3. Choose coast, brake or another stopping policy when a driver **dies**. Disconnect
+   already coasts; this plan does not extend that decision to death.
+4. Choose whether GodotSteam is removed from the ENet-only M1 project or remains
+   disabled and explicitly excluded from exports; S08-X records and proves the choice.
+5. Assign the quiet wave-3 remeasurement pass and checkpoint. This proposal assigns
+   selected quiet reruns and the integrated quiet/contended comparison to S17 before
+   codec/C3 freeze, with M1-D3 repeating final integrated acceptance.
+
 Additional owner review at P0-GATE:
 
-1. Ratify the final vehicle body dimensions and S04 drive tuning when the feel scene
+6. Ratify the final vehicle body dimensions and S04 drive tuning when the feel scene
    result is available.
-2. Ratify S12 weapon damage, fire rate, magazine/reload, rocket cooldown and hit
+7. Ratify S12 weapon damage, fire rate, magazine/reload, rocket cooldown and hit
    registration defaults before B2.
-3. Select the production art subsets that unblock C1.1/C2.1; later families must not
-   block initial sector assembly.
-4. Confirm that Windows/Linux desktop budget evidence on named available hardware is
+8. Select the production art quality bar and starter subset that unblock C1.1/C2.1;
+   later families must not block initial sector assembly. Review the 60–96 focused
+   artist-day estimate after the first two families establish actual throughput.
+9. Confirm that Windows/Linux desktop budget evidence on named available hardware is
    sufficient for M1 review while Deck remains explicitly untested.
-5. Approve adding the pinned test-only GUT dependency under D1.1.
+10. Approve adding the pinned test-only GUT dependency under D1.1.
 
 ## 7. Suggested task-record reconciliation
 
 Do not edit the task index until the owner reviews this proposal. Suggested concise
 changes for `docs/plans/task-requirements.md` are:
 
+- **P0-GATE:** record the owner's answer on restoring S02/prediction and audit-derived
+  dependencies; add P0-TOOLING, S03-L, S08-X, S08-C, S01-W, S03-P, S04-P, S04-T and
+  S17 with the hard consumers listed above.
 - **M1-A1/A-GATE:** ENet and standalone only for M1; prove the backend-neutral seam,
   but move real Steam gameplay/install criteria to a later milestone.
 - **M1-A2:** explicitly require local foot prediction with world-relative WASD and
   mouse-facing, plus authoritative correction/replay side-effect fences.
 - **M1-B1:** explicitly require local car prediction, stopped-only exit below 0.5 m/s,
-  no firing from cars and coast-on-disconnect.
+  no firing from cars and coast-on-disconnect; leave driver-death stopping pending the
+  separate owner answer.
 - **M1-B3/B4:** every committed explosion receives a visible effect; quality may
   degrade under measured load, but dropping effects is not an accepted fallback.
 - **M1-D3/D4:** M1 target exports are Windows and Linux desktop. Remove Deck and
   Steam from M1 acceptance and retain them as later target/transport work.
 - **S07/C2:** use the environment cost-versus-block envelope as city-planning guidance,
-  not a population/network/capacity gate.
+  not a population/network/capacity gate; require S08-C before the full district and
+  use only capped GPU measurements on this machine.
 
 Suggested TODO refinement: keep the existing M1-A..D outcome bullets concise and
 link this plan for the ordered child tasks and acceptance checks rather than copying
