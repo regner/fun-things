@@ -979,14 +979,14 @@
       "input_next_action": "Refine shared design for recorded districts",
       "brief": "[Brief](../../assets/city_small_shop_shells.md)",
       "priority": 0,
-      "status": "queued",
-      "agent_id": null,
-      "source_revision": null,
-      "review_status": "pending",
-      "integration_status": "pending",
+      "status": "production_prefab_accepted",
+      "agent_id": "36fa8e6b-c621-445e-9006-75abab7258bb",
+      "source_revision": "959d12b",
+      "review_status": "accepted source/export/prefab scope (independent Sol review)",
+      "integration_status": "accepted",
       "placement_status": "pending",
       "blocker": null,
-      "attempts": 0,
+      "attempts": 1,
       "initial_time_cap_minutes": 90,
       "owned_paths": [
         "art/source/models/environment/city_small_shop_shells_02/",
@@ -994,8 +994,20 @@
         "art/textures/environment/city_small_shop_shells_02/",
         "art/materials/environment/city_small_shop_shells_02/",
         "docs/assets/production/city_small_shop_shells_02.md",
-        "docs/assets/production/city_small_shop_shells_02-evidence/"
-      ]
+        "docs/assets/production/city_small_shop_shells_02-evidence/",
+        "tools/asset_production/city_small_shop_shells_02/",
+        "scenes/prefabs/environment/city_small_shop_shells_02.tscn"
+      ],
+      "launch": {
+        "provider": "portkey/gpt-6-astra",
+        "configured_effort": "medium",
+        "mode": "orchestrator asset lane",
+        "lane": "a-shops"
+      },
+      "producer_manifest": "docs/assets/production/city_small_shop_shells_02-evidence/manifest.json",
+      "report": "docs/assets/production/city_small_shop_shells_02.md",
+      "reviewer_id": "235d1a38-e3be-4490-b039-36493a6fd936",
+      "integrated_revision": "34ebdbb"
     },
     {
       "id": "city_small_shop_shells.04",
@@ -1008,14 +1020,14 @@
       "input_next_action": "Refine shared design for recorded districts",
       "brief": "[Brief](../../assets/city_small_shop_shells.md)",
       "priority": 0,
-      "status": "queued",
-      "agent_id": null,
-      "source_revision": null,
-      "review_status": "pending",
-      "integration_status": "pending",
+      "status": "production_prefab_accepted",
+      "agent_id": "6ba00ac1-0a70-40c0-84a7-12378b67b163",
+      "source_revision": "4575834",
+      "review_status": "accepted source/export/prefab scope (independent Sol review)",
+      "integration_status": "accepted",
       "placement_status": "pending",
       "blocker": null,
-      "attempts": 0,
+      "attempts": 1,
       "initial_time_cap_minutes": 90,
       "owned_paths": [
         "art/source/models/environment/city_small_shop_shells_04/",
@@ -1023,8 +1035,20 @@
         "art/textures/environment/city_small_shop_shells_04/",
         "art/materials/environment/city_small_shop_shells_04/",
         "docs/assets/production/city_small_shop_shells_04.md",
-        "docs/assets/production/city_small_shop_shells_04-evidence/"
-      ]
+        "docs/assets/production/city_small_shop_shells_04-evidence/",
+        "tools/asset_production/city_small_shop_shells_04/",
+        "scenes/prefabs/environment/city_small_shop_shells_04.tscn"
+      ],
+      "launch": {
+        "provider": "portkey/gpt-6-astra",
+        "configured_effort": "medium",
+        "mode": "orchestrator asset lane",
+        "lane": "a-shops"
+      },
+      "producer_manifest": "docs/assets/production/city_small_shop_shells_04-evidence/manifest.json",
+      "report": "docs/assets/production/city_small_shop_shells_04.md",
+      "reviewer_id": "235d1a38-e3be-4490-b039-36493a6fd936",
+      "integrated_revision": "34ebdbb"
     },
     {
       "id": "d06_entertainment_hall.01",
@@ -3620,14 +3644,14 @@
       "input_next_action": "Review in district concept",
       "brief": "[Brief](../../assets/city_small_shop_shells.md)",
       "priority": 0,
-      "status": "queued",
-      "agent_id": null,
-      "source_revision": null,
-      "review_status": "pending",
-      "integration_status": "pending",
+      "status": "production_prefab_accepted",
+      "agent_id": "25c9867b-16d4-41ca-b73d-a436d1548cac",
+      "source_revision": "34ebdbb",
+      "review_status": "accepted source/export/prefab scope (independent Sol review)",
+      "integration_status": "accepted",
       "placement_status": "pending",
       "blocker": null,
-      "attempts": 0,
+      "attempts": 1,
       "initial_time_cap_minutes": 90,
       "owned_paths": [
         "art/source/models/environment/city_small_shop_shells_03/",
@@ -3635,8 +3659,20 @@
         "art/textures/environment/city_small_shop_shells_03/",
         "art/materials/environment/city_small_shop_shells_03/",
         "docs/assets/production/city_small_shop_shells_03.md",
-        "docs/assets/production/city_small_shop_shells_03-evidence/"
-      ]
+        "docs/assets/production/city_small_shop_shells_03-evidence/",
+        "tools/asset_production/city_small_shop_shells_03/",
+        "scenes/prefabs/environment/city_small_shop_shells_03.tscn"
+      ],
+      "launch": {
+        "provider": "portkey/gpt-6-astra",
+        "configured_effort": "medium",
+        "mode": "orchestrator asset lane",
+        "lane": "a-shops"
+      },
+      "producer_manifest": "docs/assets/production/city_small_shop_shells_03-evidence/manifest.json",
+      "report": "docs/assets/production/city_small_shop_shells_03.md",
+      "reviewer_id": "235d1a38-e3be-4490-b039-36493a6fd936",
+      "integrated_revision": "34ebdbb"
     },
     {
       "id": "city_roof_details.04",
