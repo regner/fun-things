@@ -71,9 +71,12 @@ recommendations and do not block P1.
   starting with C1.2a, the hitscan tracer effect from the weapon-effects lead, and including
   car wreck states; C1.3 Blender road fixtures (signals, street lights, prefab intersection
   pieces).
-- [ ] **M1-C2 — Integrate the Brackett world.** C2.1 makes the greybox the play world with
-  content identity, spawn/parked-car anchors, traversal checks and a whole-island capacity
-  baseline; C2.2 later replaces greybox districts with production art, keeping `world_id`s.
+- [ ] **M1-C2 — Integrate the Brackett world.** C2.1 is done: `scenes/match/match.tscn` makes the
+  greybox the play world with a composed content identity (checked dependency manifest plus
+  anchors), provisional Signal Row spawn/parked-car anchors, traversal checks and a capacity
+  baseline. C2.2 later replaces greybox districts with production art, keeping `world_id`s;
+  any change to city dependencies must regenerate `scenes/match/brackett_content_manifest.json`
+  through `CityData.build_content_manifest()` (stale manifests fail closed).
 - [ ] **M1-C3 — Implement host-owned pedestrians and traffic (P4).** Decision 14 makes S10
   pedestrian behavior/budget first production work. C3.0, the host-only pedestrian core
   (compact state, spatial grid, bounded threats, crossing reservations and recorded seeded
