@@ -14,7 +14,6 @@ const INTERPOLATION_DELAY_TICKS: float = 12.0
 const MAX_EXTRAPOLATION_TICKS: float = 12.0
 const RUN_TICKS: int = 660
 const FINISH_DELAY_TICKS: int = 300
-const CLIENT_RUN_TIMEOUT_MS: int = 13_000
 
 var codec: S11SnapshotCodec = CodecScript.new()
 var transport: S03Transport
@@ -121,10 +120,6 @@ func _process(delta: float) -> void:  # gdstyle:ignore=quality/max-local-variabl
 		return
 
 	var now_ms: int = Time.get_ticks_msec()
-	if now_ms - started_ms >= CLIENT_RUN_TIMEOUT_MS:
-		running = false
-		_emit_result(false)
-		return
 	for entity_id: int in samples.keys():
 		var history: Array = samples[entity_id]
 		if history.is_empty():
@@ -410,6 +405,10 @@ func _complete_run(_host_summary: Dictionary) -> void:
 func _host_closed() -> void:
 	if result_emitted_ms > 0:
 		get_tree().quit(0)
+		return
+
+	running = false
+	_emit_result()
 
 
 ## Emit one machine-readable result and optionally close this owned process.
