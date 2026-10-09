@@ -1,0 +1,60 @@
+Blender 5.2.2 LTS (hash d13f752e3b9c built 2026-09-22 17:10:25)
+[ALSOFT] (EE) Failed to connect PipeWire event context (errno: 1)
+/home/regner/.paseo/worktrees/0u71f39f/asset-register-production/tools/asset_production/city_lights_04/author.py:18: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  m=bpy.data.materials.new('city_lights_04_'+name);m.use_nodes=True;m.use_fake_user=True
+/home/regner/.paseo/worktrees/0u71f39f/asset-register-production/tools/asset_production/city_lights_04/author.py:97: DeprecationWarning: 'World.use_nodes' is expected to be removed in Blender 6.0
+  scene.world=world;world.use_nodes=True;world.node_tree.nodes['Background'].inputs[0].default_value=(.16,.20,.25,1);world.node_tree.nodes['Background'].inputs[1].default_value=.4
+00:00.342  image.write      | ERROR OpenImageIO write failed: Could not open file "/home/regner/.cache/thumbnails/large/blender_11_dc80872c00520767c29efb51229d98e2.png.png"
+Info: Saved as "city_lights_04.blend"
+INFO Draco is available, use library at /usr/lib/blender/5.2/scripts/addons_core/io_scene_gltf2/libbf_intern_draco_bridge.so
+ERROR MeshOptimizer is not available because library could not be found at /usr/lib/blender/5.2/scripts/addons_core/io_scene_gltf2/libbf_intern_meshopt_bridge.so
+17:16:50 | INFO: Starting glTF 2.0 export
+17:16:50 | INFO: Extracting primitive: broad_oval_canopy
+17:16:50 | INFO: Primitives created: 1
+17:16:50 | INFO: Extracting primitive: broad_recessed_diffuser
+17:16:50 | INFO: Primitives created: 1
+17:16:50 | INFO: Extracting primitive: canopy_seal
+17:16:50 | INFO: Primitives created: 1
+17:16:50 | INFO: Extracting primitive: curved_arm
+17:16:50 | INFO: Primitives created: 1
+17:16:50 | INFO: Extracting primitive: lower_shield
+17:16:50 | INFO: Primitives created: 1
+17:16:50 | INFO: Extracting primitive: Sphere
+17:16:50 | INFO: Primitives created: 1
+17:16:50 | INFO: Extracting primitive: Sphere.001
+17:16:50 | INFO: Primitives created: 1
+17:16:50 | INFO: Extracting primitive: Cube.001
+17:16:50 | INFO: Primitives created: 1
+17:16:50 | INFO: Extracting primitive: Cube.002
+17:16:50 | INFO: Primitives created: 1
+17:16:50 | INFO: Finished glTF 2.0 export in 0.018988370895385742 s
+
+17:16:50 | INFO: Starting glTF 2.0 export
+17:16:50 | INFO: Extracting primitive: broad_oval_canopy
+17:16:50 | INFO: Primitives created: 1
+17:16:50 | INFO: Extracting primitive: broad_recessed_diffuser
+17:16:50 | INFO: Primitives created: 1
+17:16:50 | INFO: Extracting primitive: canopy_seal
+17:16:50 | INFO: Primitives created: 1
+17:16:50 | INFO: Extracting primitive: curved_arm
+17:16:50 | INFO: Primitives created: 1
+17:16:50 | INFO: Extracting primitive: lower_shield
+17:16:50 | INFO: Primitives created: 1
+17:16:50 | INFO: Extracting primitive: Sphere
+17:16:50 | INFO: Primitives created: 1
+17:16:50 | INFO: Extracting primitive: Sphere.001
+17:16:50 | INFO: Primitives created: 1
+17:16:50 | INFO: Extracting primitive: Cube.001
+17:16:50 | INFO: Primitives created: 1
+17:16:50 | INFO: Extracting primitive: Cube.002
+17:16:50 | INFO: Primitives created: 1
+17:16:50 | INFO: Finished glTF 2.0 export in 0.013767004013061523 s
+
+{"blender": "5.2.2 LTS", "build_hash": "d13f752e3b9c", "exporter": [5, 2, 40], "collection": "export_city_lights_04", "root": "CityLights04", "members": ["CityLights04", "mounting_backplate", "mounting_gasket", "mount_fastener_lower", "mount_fastener_upper", "curved_cast_arm", "lower_shield", "broad_recessed_diffuser", "canopy_seal", "broad_oval_canopy"], "settings": {"export_format": "GLB", "use_selection": true, "export_yup": true, "export_apply": false, "export_texcoords": false, "export_normals": true, "export_tangents": false, "export_materials": "EXPORT", "export_cameras": false, "export_lights": false, "export_extras": false, "export_animations": false, "export_skins": false, "export_morph": false}, "objects": [{"name": "mounting_backplate", "vertices": 152, "triangles": 300, "volume_m3": 0.004843151806228924, "slot_0": "city_lights_04_petrol_metal", "nonmanifold_edges": 0}, {"name": "mounting_gasket", "vertices": 152, "triangles": 300, "volume_m3": 0.0009186713591277471, "slot_0": "city_lights_04_recess_dark", "nonmanifold_edges": 0}, {"name": "mount_fastener_lower", "vertices": 114, "triangles": 224, "volume_m3": 6.808719157683176e-06, "slot_0": "city_lights_04_recess_dark", "nonmanifold_edges": 0}, {"name": "mount_fastener_upper", "vertices": 114, "triangles": 224, "volume_m3": 6.808719157683173e-06, "slot_0": "city_lights_04_recess_dark", "nonmanifold_edges": 0}, {"name": "curved_cast_arm", "vertices": 336, "triangles": 668, "volume_m3": 0.0015939909859268644, "slot_0": "city_lights_04_petrol_metal", "nonmanifold_edges": 0}, {"name": "lower_shield", "vertices": 384, "triangles": 764, "volume_m3": 0.00888309018860025, "slot_0": "city_lights_04_petrol_metal", "nonmanifold_edges": 0}, {"name": "broad_recessed_diffuser", "vertices": 256, "triangles": 508, "volume_m3": 0.016380087099246883, "slot_0": "city_lights_04_lens_warm", "nonmanifold_edges": 0}, {"name": "canopy_seal", "vertices": 256, "triangles": 508, "volume_m3": 0.004122995441414354, "slot_0": "city_lights_04_recess_dark", "nonmanifold_edges": 0}, {"name": "broad_oval_canopy", "vertices": 448, "triangles": 892, "volume_m3": 0.014534026097867617, "slot_0": "city_lights_04_petrol_metal", "nonmanifold_edges": 0}], "bounds_blender": [[-0.3199999928474426, 0.0, -0.23000000417232513], [0.3199999928474426, 0.7099999785423279, 0.3050000071525574]], "triangles": 4388, "outputs": [{"path": "/home/regner/.paseo/worktrees/0u71f39f/asset-register-production/art/models/environment/city_lights_04/city_lights_04_warm.glb", "bytes": 81392, "sha256": "53c8169f4b85b576644d1eccc2623d8933621d3409b6291b0d0f9bc6405fd60f"}, {"path": "/home/regner/.paseo/worktrees/0u71f39f/asset-register-production/art/models/environment/city_lights_04/city_lights_04_cool.glb", "bytes": 81408, "sha256": "e618bba7cccf83648e3ae28187fbd2a49f35da432c1267d92be590d7f81048b0"}]}
+00:19.635  render           | Saved: '/home/regner/.paseo/worktrees/0u71f39f/asset-register-production/docs/assets/production/city_lights_04-evidence/hero_warm.png'
+00:41.066  render           | Saved: '/home/regner/.paseo/worktrees/0u71f39f/asset-register-production/docs/assets/production/city_lights_04-evidence/detail_underside.png'
+00:59.845  render           | Saved: '/home/regner/.paseo/worktrees/0u71f39f/asset-register-production/docs/assets/production/city_lights_04-evidence/hero_cool.png'
+01:07.907  render           | Saved: '/home/regner/.paseo/worktrees/0u71f39f/asset-register-production/docs/assets/production/city_lights_04-evidence/vertical_down_detail.png'
+01:14.299  render           | Saved: '/home/regner/.paseo/worktrees/0u71f39f/asset-register-production/docs/assets/production/city_lights_04-evidence/vertical_down_47m_42deg.png'
+CITY_LIGHTS_04_COMPLETE
+pa_write() failed while trying to wake up the mainloop: Operation not permitted

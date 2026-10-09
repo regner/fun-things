@@ -1,0 +1,35 @@
+00:00.292  blend            | Read blend: "/home/regner/.paseo/worktrees/0u71f39f/asset-register-production/art/source/models/environment/city_sign_supports_01/city_sign_supports_01.blend"
+INFO Draco is available, use library at /usr/lib/blender/5.2/scripts/addons_core/io_scene_gltf2/libbf_intern_draco_bridge.so
+ERROR MeshOptimizer is not available because library could not be found at /usr/lib/blender/5.2/scripts/addons_core/io_scene_gltf2/libbf_intern_meshopt_bridge.so
+17:22:53 | INFO: Starting glTF 2.0 export
+17:22:53 | INFO: Extracting primitive: artwork_carrier_mesh
+17:22:53 | INFO: Primitives created: 2
+17:22:53 | INFO: Extracting primitive: face_gasket_mesh
+17:22:53 | INFO: Primitives created: 1
+17:22:53 | INFO: Extracting primitive: Cube.001
+17:22:53 | INFO: Primitives created: 1
+17:22:53 | INFO: Extracting primitive: Cube.004
+17:22:53 | INFO: Primitives created: 1
+17:22:53 | INFO: Extracting primitive: rear_shell_mesh
+17:22:53 | INFO: Primitives created: 1
+17:22:53 | INFO: Extracting primitive: Cube.007
+17:22:53 | INFO: Primitives created: 1
+17:22:53 | INFO: Extracting primitive: Cube.008
+17:22:53 | INFO: Primitives created: 1
+17:22:53 | INFO: Extracting primitive: rounded_frame_mesh
+17:22:53 | INFO: Primitives created: 1
+17:22:53 | INFO: Extracting primitive: Cube.002
+17:22:53 | INFO: Primitives created: 1
+17:22:53 | INFO: Extracting primitive: Cube.003
+17:22:53 | INFO: Primitives created: 1
+17:22:53 | INFO: Extracting primitive: Cube.005
+17:22:53 | INFO: Primitives created: 1
+17:22:53 | INFO: Extracting primitive: Cube.006
+17:22:53 | INFO: Primitives created: 1
+17:22:53 | INFO: Finished glTF 2.0 export in 0.02239680290222168 s
+
+{"blender": "5.2.2 LTS", "build_hash": "d13f752e3b9c", "gltf_exporter": [5, 2, 40], "members": ["CitySignSupports01", "rounded_frame", "rear_shell", "face_gasket", "artwork_carrier", "mount_rail_lower", "mount_rail_upper", "wall_pad_lower_left", "wall_pad_lower_right", "wall_pad_upper_left", "wall_pad_upper_right", "release_tab_left", "release_tab_right"], "export_settings": {"export_format": "GLB", "use_selection": true, "export_yup": true, "export_apply": false, "export_texcoords": true, "export_normals": true, "export_tangents": false, "export_materials": "EXPORT", "export_cameras": false, "export_lights": false, "export_extras": false, "export_animations": false, "export_skins": false, "export_morph": false}, "objects": [{"name": "rounded_frame", "vertices": 252, "triangles": 504, "volume_m3": 0.023093607986843893, "material_slots": ["support_petrol"], "nonmanifold_edges": 0, "inconsistent_winding_edges": 0, "degenerate_triangles": 0, "applied_transforms": true}, {"name": "rear_shell", "vertices": 108, "triangles": 212, "volume_m3": 0.050051261183935075, "material_slots": ["support_petrol"], "nonmanifold_edges": 0, "inconsistent_winding_edges": 0, "degenerate_triangles": 0, "applied_transforms": true}, {"name": "face_gasket", "vertices": 144, "triangles": 288, "volume_m3": 0.0008759191961627455, "material_slots": ["recess_gasket"], "nonmanifold_edges": 0, "inconsistent_winding_edges": 0, "degenerate_triangles": 0, "applied_transforms": true}, {"name": "artwork_carrier", "vertices": 108, "triangles": 212, "volume_m3": 0.009959915123312412, "material_slots": ["sign_face", "mount_metal"], "nonmanifold_edges": 0, "inconsistent_winding_edges": 0, "degenerate_triangles": 0, "applied_transforms": true}, {"name": "mount_rail_lower", "vertices": 96, "triangles": 188, "volume_m3": 0.002360706282386076, "material_slots": ["mount_metal"], "nonmanifold_edges": 0, "inconsistent_winding_edges": 0, "degenerate_triangles": 0, "applied_transforms": true}, {"name": "wall_pad_lower_left", "vertices": 96, "triangles": 188, "volume_m3": 0.00012713776813619434, "material_slots": ["recess_gasket"], "nonmanifold_edges": 0, "inconsistent_winding_edges": 0, "degenerate_triangles": 0, "applied_transforms": true}, {"name": "wall_pad_lower_right", "vertices": 96, "triangles": 188, "volume_m3": 0.00012713776813619434, "material_slots": ["recess_gasket"], "nonmanifold_edges": 0, "inconsistent_winding_edges": 0, "degenerate_triangles": 0, "applied_transforms": true}, {"name": "mount_rail_upper", "vertices": 96, "triangles": 188, "volume_m3": 0.002360706282386076, "material_slots": ["mount_metal"], "nonmanifold_edges": 0, "inconsistent_winding_edges": 0, "degenerate_triangles": 0, "applied_transforms": true}, {"name": "wall_pad_upper_left", "vertices": 96, "triangles": 188, "volume_m3": 0.00012713776813619429, "material_slots": ["recess_gasket"], "nonmanifold_edges": 0, "inconsistent_winding_edges": 0, "degenerate_triangles": 0, "applied_transforms": true}, {"name": "wall_pad_upper_right", "vertices": 96, "triangles": 188, "volume_m3": 0.0001271377681361944, "material_slots": ["recess_gasket"], "nonmanifold_edges": 0, "inconsistent_winding_edges": 0, "degenerate_triangles": 0, "applied_transforms": true}, {"name": "release_tab_left", "vertices": 96, "triangles": 188, "volume_m3": 1.1277961845209017e-05, "material_slots": ["mount_metal"], "nonmanifold_edges": 0, "inconsistent_winding_edges": 0, "degenerate_triangles": 0, "applied_transforms": true}, {"name": "release_tab_right", "vertices": 96, "triangles": 188, "volume_m3": 1.1277961845208983e-05, "material_slots": ["mount_metal"], "nonmanifold_edges": 0, "inconsistent_winding_edges": 0, "degenerate_triangles": 0, "applied_transforms": true}], "bounds_blender": [[-0.699999988079071, 0.0, -0.5], [0.699999988079071, 0.10000000149011612, 0.5]], "triangles": 2720, "artwork_front_y": 0.088, "artwork_uv_orientation": "U increases toward Blender -X; V toward +Z; glTF V storage flips", "artwork_material": "sign_face", "output_bytes": 75768, "output_sha256": "5f54105825e00bb73c038bed252910abec548ad1beb81603b2713c2c69796e0b"}
+CITY_SIGN_SUPPORTS_01_COMPLETE
+Blender 5.2.2 LTS (hash d13f752e3b9c built 2026-09-22 17:10:25)
+
+Blender quit

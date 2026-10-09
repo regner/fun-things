@@ -1,0 +1,20 @@
+Raw initial diagnostic command (before preview launch):
+python - <<'PY'
+from PIL import Image, ImageDraw
+p='docs/assets/production/city_sign_supports_01-evidence/uv_diagnostic.png'
+im=Image.new('RGB',(1220,820));d=ImageDraw.Draw(im)
+for box,col in [((0,0,609,409),'coral'),((610,0,1219,409),'royalblue'),((0,410,609,819),'ivory'),((610,410,1219,819),'teal')]: d.rectangle(box,fill=col)
+d.text((70,70),'TOP LEFT / UV DIAGNOSTIC',fill='black',font_size=42)
+d.text((710,70),'TOP RIGHT',fill='white',font_size=42)
+d.text((70,720),'BOTTOM LEFT',fill='black',font_size=42)
+d.text((710,720),'BOTTOM RIGHT',fill='white',font_size=42)
+d.polygon([(545,330),(610,230),(675,330),(638,330),(638,580),(582,580),(582,330)],fill='white')
+im.save(p)
+PY
+Python exited 1. Combined shell continued to launch the preview runner.
+Raw output:
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+ModuleNotFoundError: No module named 'PIL'
+
+Changed approach: make_uv_diagnostic.py uses struct/zlib only; no package/environment mutation.

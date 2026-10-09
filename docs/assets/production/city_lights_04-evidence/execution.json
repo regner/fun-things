@@ -1,0 +1,132 @@
+[
+  {
+    "label": "tool_version",
+    "argv": [
+      "/usr/bin/blender",
+      "--version"
+    ],
+    "cwd": "/home/regner/.paseo/worktrees/0u71f39f/asset-register-production",
+    "pid": 6,
+    "exit_status": 0,
+    "seconds": 1.0004756450653076,
+    "completed_marker": false,
+    "terminated_owned_process": false,
+    "log": "docs/assets/production/city_lights_04-evidence/tool_version.log"
+  },
+  {
+    "label": "tool_help",
+    "argv": [
+      "/usr/bin/blender",
+      "--help"
+    ],
+    "cwd": "/home/regner/.paseo/worktrees/0u71f39f/asset-register-production",
+    "pid": 8,
+    "exit_status": 0,
+    "seconds": 1.00046968460083,
+    "completed_marker": false,
+    "terminated_owned_process": false,
+    "log": "docs/assets/production/city_lights_04-evidence/tool_help.log"
+  },
+  {
+    "label": "glb_check",
+    "argv": [
+      "python",
+      "tools/asset_production/city_lights_04/check_glb.py"
+    ],
+    "cwd": "/home/regner/.paseo/worktrees/0u71f39f/asset-register-production",
+    "pid": 4,
+    "exit_status": 0,
+    "seconds": 1.0006096363067627,
+    "completed_marker": true,
+    "terminated_owned_process": false,
+    "log": "docs/assets/production/city_lights_04-evidence/initial_glb_check.log"
+  },
+  {
+    "label": "author",
+    "argv": [
+      "/usr/bin/blender",
+      "-noaudio",
+      "--background",
+      "--factory-startup",
+      "--threads",
+      "4",
+      "--python-exit-code",
+      "1",
+      "--python",
+      "tools/asset_production/city_lights_04/author.py"
+    ],
+    "cwd": "/home/regner/.paseo/worktrees/0u71f39f/asset-register-production",
+    "pid": 11,
+    "exit_status": -9,
+    "seconds": 105.03346633911133,
+    "completed_marker": true,
+    "terminated_owned_process": true,
+    "log": "docs/assets/production/city_lights_04-evidence/initial_author.log"
+  },
+  {
+    "label": "author_final",
+    "argv": [
+      "env",
+      "ALSOFT_DRIVERS=null",
+      "/usr/bin/blender",
+      "-noaudio",
+      "--background",
+      "--factory-startup",
+      "--threads",
+      "4",
+      "--python-exit-code",
+      "1",
+      "--python",
+      "tools/asset_production/city_lights_04/author.py"
+    ],
+    "cwd": "/home/regner/.paseo/worktrees/0u71f39f/asset-register-production",
+    "pid": 4,
+    "exit_status": 0,
+    "seconds": 74.01308631896973,
+    "completed_marker": true,
+    "terminated_owned_process": false,
+    "log": "docs/assets/production/city_lights_04-evidence/author_final.log"
+  },
+  {
+    "label": "reexport",
+    "argv": [
+      "env",
+      "ALSOFT_DRIVERS=null",
+      "/usr/bin/blender",
+      "-noaudio",
+      "--background",
+      "--factory-startup",
+      "--threads",
+      "2",
+      "art/source/models/environment/city_lights_04/city_lights_04.blend",
+      "--python-exit-code",
+      "1",
+      "--python",
+      "tools/asset_production/city_lights_04/export.py",
+      "--",
+      "docs/assets/production/city_lights_04-evidence/reexport"
+    ],
+    "cwd": "/home/regner/.paseo/worktrees/0u71f39f/asset-register-production",
+    "pid": 3,
+    "exit_status": 0,
+    "seconds": 1.0008881092071533,
+    "completed_marker": true,
+    "terminated_owned_process": false,
+    "log": "docs/assets/production/city_lights_04-evidence/reexport.log"
+  },
+  {
+    "label": "final_payload_check",
+    "argv": [
+      "python",
+      "tools/asset_production/city_lights_04/check_glb.py",
+      "docs/assets/production/city_lights_04-evidence/reexport"
+    ],
+    "cwd": "/home/regner/.paseo/worktrees/0u71f39f/asset-register-production",
+    "pid": 3,
+    "exit_status": 0,
+    "seconds": 1.0005640983581543,
+    "completed_marker": true,
+    "terminated_owned_process": false,
+    "log": "docs/assets/production/city_lights_04-evidence/final_payload_check.log"
+  }
+]

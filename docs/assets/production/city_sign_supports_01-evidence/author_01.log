@@ -1,0 +1,17 @@
+/home/regner/.paseo/worktrees/0u71f39f/asset-register-production/tools/asset_production/city_sign_supports_01/author.py:21: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  mat = bpy.data.materials.new(name); mat.use_nodes = True
+00:00.475  image.write      | ERROR OpenImageIO write failed: Could not open file "/home/regner/.cache/thumbnails/large/blender_5_94b1b6c2dd53efe5e5050484f0eb081d.png.png"
+Traceback (most recent call last):
+  File "/home/regner/.paseo/worktrees/0u71f39f/asset-register-production/tools/asset_production/city_sign_supports_01/author.py", line 99, in <module>
+    export.perform(ROOT/'art/models/environment/city_sign_supports_01/city_sign_supports_01.glb', ROOT/'docs/assets/production/city_sign_supports_01-evidence/source_checks.json')
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/regner/.paseo/worktrees/0u71f39f/asset-register-production/tools/asset_production/city_sign_supports_01/export.py", line 38, in perform
+    assert all(abs(a-b)<1e-6 for a,b in zip(low,[-.70,0,-.50])),low
+           ~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: [-0.699999988079071, 0.0, -0.500499963760376]
+Info: Saved as "city_sign_supports_01.blend"
+
+Error: script failed, file: 'tools/asset_production/city_sign_supports_01/author.py', exiting.
+Blender 5.2.2 LTS (hash d13f752e3b9c built 2026-09-22 17:10:25)
+
+Blender quit

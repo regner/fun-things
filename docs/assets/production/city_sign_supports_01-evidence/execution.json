@@ -1,0 +1,221 @@
+[
+  {
+    "label": "blender_help",
+    "argv": [
+      "/usr/bin/blender",
+      "--help"
+    ],
+    "cwd": "/home/regner/.paseo/worktrees/0u71f39f/asset-register-production",
+    "pid": 5,
+    "environment_overrides": {
+      "ALSOFT_DRIVERS": "null",
+      "SDL_AUDIODRIVER": "dummy"
+    },
+    "exit_status": 0,
+    "seconds": 0.36421942710876465,
+    "terminated_owned_process": false
+  },
+  {
+    "label": "blender_version",
+    "argv": [
+      "/usr/bin/blender",
+      "--version"
+    ],
+    "cwd": "/home/regner/.paseo/worktrees/0u71f39f/asset-register-production",
+    "pid": 4,
+    "environment_overrides": {
+      "ALSOFT_DRIVERS": "null",
+      "SDL_AUDIODRIVER": "dummy"
+    },
+    "exit_status": 0,
+    "seconds": 0.21393847465515137,
+    "terminated_owned_process": false
+  },
+  {
+    "label": "author_01",
+    "argv": [
+      "/usr/bin/blender",
+      "-b",
+      "-noaudio",
+      "--factory-startup",
+      "--python-exit-code",
+      "1",
+      "--python",
+      "tools/asset_production/city_sign_supports_01/author.py"
+    ],
+    "cwd": "/home/regner/.paseo/worktrees/0u71f39f/asset-register-production",
+    "pid": 5,
+    "environment_overrides": {
+      "ALSOFT_DRIVERS": "null",
+      "SDL_AUDIODRIVER": "dummy"
+    },
+    "exit_status": 1,
+    "seconds": 0.7648801803588867,
+    "terminated_owned_process": false
+  },
+  {
+    "label": "author_02",
+    "argv": [
+      "/usr/bin/blender",
+      "-b",
+      "-noaudio",
+      "--factory-startup",
+      "--python-exit-code",
+      "1",
+      "--python",
+      "tools/asset_production/city_sign_supports_01/author.py"
+    ],
+    "cwd": "/home/regner/.paseo/worktrees/0u71f39f/asset-register-production",
+    "pid": 6,
+    "environment_overrides": {
+      "ALSOFT_DRIVERS": "null",
+      "SDL_AUDIODRIVER": "dummy",
+      "XDG_CACHE_HOME": "/home/regner/.paseo/worktrees/0u71f39f/asset-register-production/docs/assets/production/city_sign_supports_01-evidence/process_cache"
+    },
+    "exit_status": 0,
+    "seconds": 0.8149847984313965,
+    "terminated_owned_process": false
+  },
+  {
+    "label": "previews_01",
+    "argv": [
+      "/usr/bin/blender",
+      "-b",
+      "-noaudio",
+      "art/source/models/environment/city_sign_supports_01/city_sign_supports_01.blend",
+      "--python-exit-code",
+      "1",
+      "--python",
+      "tools/asset_production/city_sign_supports_01/preview.py"
+    ],
+    "cwd": "/home/regner/.paseo/worktrees/0u71f39f/asset-register-production",
+    "pid": 5,
+    "environment_overrides": {
+      "ALSOFT_DRIVERS": "null",
+      "SDL_AUDIODRIVER": "dummy",
+      "XDG_CACHE_HOME": "/home/regner/.paseo/worktrees/0u71f39f/asset-register-production/docs/assets/production/city_sign_supports_01-evidence/process_cache"
+    },
+    "exit_status": 1,
+    "seconds": 17.999826669692993,
+    "terminated_owned_process": false
+  },
+  {
+    "label": "diagnostic_01",
+    "argv": [
+      "python",
+      "tools/asset_production/city_sign_supports_01/make_uv_diagnostic.py"
+    ],
+    "cwd": "/home/regner/.paseo/worktrees/0u71f39f/asset-register-production",
+    "pid": 5,
+    "environment_overrides": {
+      "ALSOFT_DRIVERS": "null",
+      "SDL_AUDIODRIVER": "dummy",
+      "XDG_CACHE_HOME": "/home/regner/.paseo/worktrees/0u71f39f/asset-register-production/docs/assets/production/city_sign_supports_01-evidence/process_cache"
+    },
+    "exit_status": 0,
+    "seconds": 0.6145544052124023,
+    "terminated_owned_process": false
+  },
+  {
+    "label": "previews_02",
+    "argv": [
+      "/usr/bin/blender",
+      "-b",
+      "-noaudio",
+      "--factory-startup",
+      "art/source/models/environment/city_sign_supports_01/city_sign_supports_01.blend",
+      "--python-exit-code",
+      "1",
+      "--python",
+      "tools/asset_production/city_sign_supports_01/preview.py"
+    ],
+    "cwd": "/home/regner/.paseo/worktrees/0u71f39f/asset-register-production",
+    "pid": 4,
+    "environment_overrides": {
+      "ALSOFT_DRIVERS": "null",
+      "SDL_AUDIODRIVER": "dummy",
+      "XDG_CACHE_HOME": "/home/regner/.paseo/worktrees/0u71f39f/asset-register-production/docs/assets/production/city_sign_supports_01-evidence/process_cache"
+    },
+    "exit_status": 0,
+    "seconds": 32.02689719200134,
+    "terminated_owned_process": false
+  },
+  {
+    "label": "reexport_01",
+    "argv": [
+      "/usr/bin/blender",
+      "-b",
+      "-noaudio",
+      "--factory-startup",
+      "art/source/models/environment/city_sign_supports_01/city_sign_supports_01.blend",
+      "--python-exit-code",
+      "1",
+      "--python",
+      "tools/asset_production/city_sign_supports_01/export.py",
+      "--",
+      "docs/assets/production/city_sign_supports_01-evidence/reexport_city_sign_supports_01.glb",
+      "docs/assets/production/city_sign_supports_01-evidence/reexport_source_checks.json"
+    ],
+    "cwd": "/home/regner/.paseo/worktrees/0u71f39f/asset-register-production",
+    "pid": 5,
+    "environment_overrides": {
+      "ALSOFT_DRIVERS": "null",
+      "SDL_AUDIODRIVER": "dummy",
+      "XDG_CACHE_HOME": "/home/regner/.paseo/worktrees/0u71f39f/asset-register-production/docs/assets/production/city_sign_supports_01-evidence/process_cache"
+    },
+    "exit_status": 0,
+    "seconds": 0.6646473407745361,
+    "terminated_owned_process": false
+  },
+  {
+    "label": "glb_checks_01",
+    "argv": [
+      "python",
+      "tools/asset_production/city_sign_supports_01/check_glb.py"
+    ],
+    "cwd": "/home/regner/.paseo/worktrees/0u71f39f/asset-register-production",
+    "pid": 39,
+    "environment_overrides": {
+      "ALSOFT_DRIVERS": "null",
+      "SDL_AUDIODRIVER": "dummy",
+      "XDG_CACHE_HOME": "/home/regner/.paseo/worktrees/0u71f39f/asset-register-production/docs/assets/production/city_sign_supports_01-evidence/process_cache"
+    },
+    "exit_status": 1,
+    "seconds": 0.06377911567687988,
+    "terminated_owned_process": false
+  },
+  {
+    "label": "glb_checks_02",
+    "argv": [
+      "python",
+      "tools/asset_production/city_sign_supports_01/check_glb.py"
+    ],
+    "cwd": "/home/regner/.paseo/worktrees/0u71f39f/asset-register-production",
+    "pid": 5,
+    "environment_overrides": {
+      "ALSOFT_DRIVERS": "null",
+      "SDL_AUDIODRIVER": "dummy",
+      "XDG_CACHE_HOME": "/home/regner/.paseo/worktrees/0u71f39f/asset-register-production/docs/assets/production/city_sign_supports_01-evidence/process_cache"
+    },
+    "exit_status": 0,
+    "seconds": 0.06381368637084961,
+    "terminated_owned_process": false
+  },
+  {
+    "label": "final_audit_01",
+    "argv": [
+      "python",
+      "tools/asset_production/city_sign_supports_01/final_audit.py"
+    ],
+    "cwd": "/home/regner/.paseo/worktrees/0u71f39f/asset-register-production",
+    "pid": 7,
+    "environment_overrides": {
+      "ALSOFT_DRIVERS": "null",
+      "SDL_AUDIODRIVER": "dummy",
+      "XDG_CACHE_HOME": "/home/regner/.paseo/worktrees/0u71f39f/asset-register-production/docs/assets/production/city_sign_supports_01-evidence/process_cache"
+    },
+    "exit_status": 0,
+    "seconds": 0.06386852264404297,
+    "terminated_owned_process": false
+  }
+]

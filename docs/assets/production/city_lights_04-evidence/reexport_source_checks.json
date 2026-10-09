@@ -1,0 +1,138 @@
+{
+  "blender": "5.2.2 LTS",
+  "build_hash": "d13f752e3b9c",
+  "exporter": [
+    5,
+    2,
+    40
+  ],
+  "collection": "export_city_lights_04",
+  "root": "CityLights04",
+  "members": [
+    "CityLights04",
+    "mounting_backplate",
+    "mounting_gasket",
+    "mount_fastener_lower",
+    "mount_fastener_upper",
+    "curved_cast_arm",
+    "lower_shield",
+    "broad_recessed_diffuser",
+    "canopy_seal",
+    "broad_oval_canopy"
+  ],
+  "settings": {
+    "export_format": "GLB",
+    "use_selection": true,
+    "export_yup": true,
+    "export_apply": false,
+    "export_texcoords": false,
+    "export_normals": true,
+    "export_tangents": false,
+    "export_materials": "EXPORT",
+    "export_cameras": false,
+    "export_lights": false,
+    "export_extras": false,
+    "export_animations": false,
+    "export_skins": false,
+    "export_morph": false
+  },
+  "objects": [
+    {
+      "name": "mounting_backplate",
+      "vertices": 152,
+      "triangles": 300,
+      "volume_m3": 0.004843151806228924,
+      "slot_0": "city_lights_04_petrol_metal",
+      "nonmanifold_edges": 0
+    },
+    {
+      "name": "mounting_gasket",
+      "vertices": 152,
+      "triangles": 300,
+      "volume_m3": 0.0009186713591277471,
+      "slot_0": "city_lights_04_recess_dark",
+      "nonmanifold_edges": 0
+    },
+    {
+      "name": "mount_fastener_lower",
+      "vertices": 114,
+      "triangles": 224,
+      "volume_m3": 6.808719157683171e-06,
+      "slot_0": "city_lights_04_recess_dark",
+      "nonmanifold_edges": 0
+    },
+    {
+      "name": "mount_fastener_upper",
+      "vertices": 114,
+      "triangles": 224,
+      "volume_m3": 6.808719157683171e-06,
+      "slot_0": "city_lights_04_recess_dark",
+      "nonmanifold_edges": 0
+    },
+    {
+      "name": "curved_cast_arm",
+      "vertices": 336,
+      "triangles": 668,
+      "volume_m3": 0.0016441806061255168,
+      "slot_0": "city_lights_04_petrol_metal",
+      "nonmanifold_edges": 0
+    },
+    {
+      "name": "lower_shield",
+      "vertices": 384,
+      "triangles": 764,
+      "volume_m3": 0.00888309018860025,
+      "slot_0": "city_lights_04_petrol_metal",
+      "nonmanifold_edges": 0
+    },
+    {
+      "name": "broad_recessed_diffuser",
+      "vertices": 256,
+      "triangles": 508,
+      "volume_m3": 0.016380087099246883,
+      "slot_0": "city_lights_04_lens_warm",
+      "nonmanifold_edges": 0
+    },
+    {
+      "name": "canopy_seal",
+      "vertices": 256,
+      "triangles": 508,
+      "volume_m3": 0.004122995441414354,
+      "slot_0": "city_lights_04_recess_dark",
+      "nonmanifold_edges": 0
+    },
+    {
+      "name": "broad_oval_canopy",
+      "vertices": 448,
+      "triangles": 892,
+      "volume_m3": 0.014534026097867617,
+      "slot_0": "city_lights_04_petrol_metal",
+      "nonmanifold_edges": 0
+    }
+  ],
+  "bounds_blender": [
+    [
+      -0.3199999928474426,
+      0.0,
+      -0.23000000417232513
+    ],
+    [
+      0.3199999928474426,
+      0.7099999785423279,
+      0.3050000071525574
+    ]
+  ],
+  "triangles": 4388,
+  "outputs": [
+    {
+      "path": "docs/assets/production/city_lights_04-evidence/reexport/city_lights_04_warm.glb",
+      "bytes": 79916,
+      "sha256": "af3d16bc5a31e27dbd7a278b0340c13ac11c7781c794cbd782ecaf9b34f87fb8"
+    },
+    {
+      "path": "docs/assets/production/city_lights_04-evidence/reexport/city_lights_04_cool.glb",
+      "bytes": 79932,
+      "sha256": "18951e4d15351c5cc746c6dfc251c2443f21d3fa3aadba8ebb46f01777365bf6"
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+00:00.313  blend            | Read blend: "/home/regner/.paseo/worktrees/0u71f39f/asset-register-production/art/source/models/environment/city_sign_supports_01/city_sign_supports_01.blend"
+00:06.934  render           | Saved: '/home/regner/.paseo/worktrees/0u71f39f/asset-register-production/docs/assets/production/city_sign_supports_01-evidence/hero.png'
+00:13.682  render           | Saved: '/home/regner/.paseo/worktrees/0u71f39f/asset-register-production/docs/assets/production/city_sign_supports_01-evidence/detail.png'
+00:17.710  render           | Saved: '/home/regner/.paseo/worktrees/0u71f39f/asset-register-production/docs/assets/production/city_sign_supports_01-evidence/rear.png'
+Traceback (most recent call last):
+  File "/home/regner/.paseo/worktrees/0u71f39f/asset-register-production/tools/asset_production/city_sign_supports_01/preview.py", line 41, in <module>
+    image=bpy.data.images.load(str(E/'uv_diagnostic.png'));tex=test.node_tree.nodes.new('ShaderNodeTexImage');tex.image=image;tex.extension='EXTEND'
+RuntimeError: Error: Cannot read '/home/regner/.paseo/worktrees/0u71f39f/asset-register-production/docs/assets/production/city_sign_supports_01-evidence/uv_diagnostic.png': No such file or directory
+
+BlenderMCP addon registered
+
+Error: script failed, file: 'tools/asset_production/city_sign_supports_01/preview.py', exiting.
+BlenderMCP addon unregistered
+Blender 5.2.2 LTS (hash d13f752e3b9c built 2026-09-22 17:10:25)
+
+Blender quit

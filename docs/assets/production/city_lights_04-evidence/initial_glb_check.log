@@ -1,0 +1,249 @@
+[
+  {
+    "path": "art/models/environment/city_lights_04/city_lights_04_cool.glb",
+    "bytes": 81408,
+    "sha256": "e618bba7cccf83648e3ae28187fbd2a49f35da432c1267d92be590d7f81048b0",
+    "godot_axis_aabb": [
+      [
+        -0.3199999928474426,
+        -0.23000000417232513,
+        -0.7099999785423279
+      ],
+      [
+        0.3199999928474426,
+        0.3050000071525574,
+        -0.0
+      ]
+    ],
+    "triangles": 4388,
+    "meshes": 9,
+    "primitives": 9,
+    "minimum_triangle_area_m2": 9.166680820878847e-07,
+    "nodes": [
+      {
+        "mesh": 0,
+        "name": "broad_oval_canopy"
+      },
+      {
+        "mesh": 1,
+        "name": "broad_recessed_diffuser"
+      },
+      {
+        "mesh": 2,
+        "name": "canopy_seal"
+      },
+      {
+        "mesh": 3,
+        "name": "curved_cast_arm"
+      },
+      {
+        "mesh": 4,
+        "name": "lower_shield"
+      },
+      {
+        "mesh": 5,
+        "name": "mount_fastener_lower"
+      },
+      {
+        "mesh": 6,
+        "name": "mount_fastener_upper"
+      },
+      {
+        "mesh": 7,
+        "name": "mounting_backplate"
+      },
+      {
+        "mesh": 8,
+        "name": "mounting_gasket"
+      },
+      {
+        "children": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8
+        ],
+        "name": "CityLights04"
+      }
+    ],
+    "materials": [
+      {
+        "doubleSided": true,
+        "name": "city_lights_04_petrol_metal",
+        "pbrMetallicRoughness": {
+          "baseColorFactor": [
+            0.009721217676997185,
+            0.04970656707882881,
+            0.061246052384376526,
+            1
+          ],
+          "metallicFactor": 0.550000011920929,
+          "roughnessFactor": 0.3799999952316284
+        }
+      },
+      {
+        "doubleSided": true,
+        "emissiveFactor": [
+          0.1856441701943563,
+          0.3287073346321492,
+          0.3884207354407643
+        ],
+        "name": "city_lights_04_lens_cool",
+        "pbrMetallicRoughness": {
+          "baseColorFactor": [
+            0.4125426113605499,
+            0.7304607629776001,
+            0.8631572127342224,
+            1
+          ],
+          "metallicFactor": 0,
+          "roughnessFactor": 0.550000011920929
+        }
+      },
+      {
+        "doubleSided": true,
+        "name": "city_lights_04_recess_dark",
+        "pbrMetallicRoughness": {
+          "baseColorFactor": [
+            0.004024717025458813,
+            0.012286487966775894,
+            0.01599629409611225,
+            1
+          ],
+          "metallicFactor": 0.30000001192092896,
+          "roughnessFactor": 0.41999998688697815
+        }
+      }
+    ],
+    "pass": true
+  },
+  {
+    "path": "art/models/environment/city_lights_04/city_lights_04_warm.glb",
+    "bytes": 81392,
+    "sha256": "53c8169f4b85b576644d1eccc2623d8933621d3409b6291b0d0f9bc6405fd60f",
+    "godot_axis_aabb": [
+      [
+        -0.3199999928474426,
+        -0.23000000417232513,
+        -0.7099999785423279
+      ],
+      [
+        0.3199999928474426,
+        0.3050000071525574,
+        -0.0
+      ]
+    ],
+    "triangles": 4388,
+    "meshes": 9,
+    "primitives": 9,
+    "minimum_triangle_area_m2": 9.166680820878847e-07,
+    "nodes": [
+      {
+        "mesh": 0,
+        "name": "broad_oval_canopy"
+      },
+      {
+        "mesh": 1,
+        "name": "broad_recessed_diffuser"
+      },
+      {
+        "mesh": 2,
+        "name": "canopy_seal"
+      },
+      {
+        "mesh": 3,
+        "name": "curved_cast_arm"
+      },
+      {
+        "mesh": 4,
+        "name": "lower_shield"
+      },
+      {
+        "mesh": 5,
+        "name": "mount_fastener_lower"
+      },
+      {
+        "mesh": 6,
+        "name": "mount_fastener_upper"
+      },
+      {
+        "mesh": 7,
+        "name": "mounting_backplate"
+      },
+      {
+        "mesh": 8,
+        "name": "mounting_gasket"
+      },
+      {
+        "children": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8
+        ],
+        "name": "CityLights04"
+      }
+    ],
+    "materials": [
+      {
+        "doubleSided": true,
+        "name": "city_lights_04_petrol_metal",
+        "pbrMetallicRoughness": {
+          "baseColorFactor": [
+            0.009721217676997185,
+            0.04970656707882881,
+            0.061246052384376526,
+            1
+          ],
+          "metallicFactor": 0.550000011920929,
+          "roughnessFactor": 0.3799999952316284
+        }
+      },
+      {
+        "doubleSided": true,
+        "emissiveFactor": [
+          0.44999998807907104,
+          0.32206205468543203,
+          0.16481366614994286
+        ],
+        "name": "city_lights_04_lens_warm",
+        "pbrMetallicRoughness": {
+          "baseColorFactor": [
+            1,
+            0.715693473815918,
+            0.366252601146698,
+            1
+          ],
+          "metallicFactor": 0,
+          "roughnessFactor": 0.550000011920929
+        }
+      },
+      {
+        "doubleSided": true,
+        "name": "city_lights_04_recess_dark",
+        "pbrMetallicRoughness": {
+          "baseColorFactor": [
+            0.004024717025458813,
+            0.012286487966775894,
+            0.01599629409611225,
+            1
+          ],
+          "metallicFactor": 0.30000001192092896,
+          "roughnessFactor": 0.41999998688697815
+        }
+      }
+    ],
+    "pass": true
+  }
+]
+CITY_LIGHTS_04_COMPLETE

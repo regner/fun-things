@@ -1,0 +1,71 @@
+{
+  "blender": "5.2.2 LTS",
+  "build_hash": "d13f752e3b9c",
+  "exporter": [
+    5,
+    2,
+    40
+  ],
+  "objects": [
+    {
+      "name": "recessed_ground_foot",
+      "vertices": 144,
+      "triangles": 284,
+      "nonmanifold_or_inconsistent_edges": 0,
+      "signed_volume_m3": 0.13940989562949166,
+      "material_slots": [
+        "planter_recess_petrol"
+      ]
+    },
+    {
+      "name": "rounded_cast_trough",
+      "vertices": 468,
+      "triangles": 932,
+      "nonmanifold_or_inconsistent_edges": 0,
+      "signed_volume_m3": 0.5940000797275443,
+      "material_slots": [
+        "planter_sage_cast_stone",
+        "planter_pale_stone_rim"
+      ]
+    },
+    {
+      "name": "separate_recessed_soil_insert",
+      "vertices": 108,
+      "triangles": 212,
+      "nonmanifold_or_inconsistent_edges": 0,
+      "signed_volume_m3": 0.060221927589742874,
+      "material_slots": [
+        "planter_quiet_earth"
+      ]
+    }
+  ],
+  "blender_bounds": [
+    [
+      -1.2000000476837158,
+      -0.44999998807907104,
+      0.0
+    ],
+    [
+      1.2000000476837158,
+      0.44999998807907104,
+      0.6000000238418579
+    ]
+  ],
+  "triangles": 1428,
+  "export_settings": {
+    "export_format": "GLB",
+    "use_selection": true,
+    "export_yup": true,
+    "export_apply": true,
+    "export_texcoords": false,
+    "export_normals": true,
+    "export_tangents": false,
+    "export_materials": "EXPORT",
+    "export_cameras": false,
+    "export_lights": false,
+    "export_extras": false,
+    "export_animations": false
+  },
+  "sha256": "4a46f752ecba59975a4d01c088477eb25c372714f022d9a59f21ba60a3c12bd7",
+  "bytes": 36544
+}

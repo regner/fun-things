@@ -1,0 +1,117 @@
+[
+  {
+    "argv": [
+      "/usr/bin/blender5.2.2LTS",
+      "-b",
+      "-noaudio",
+      "--version"
+    ],
+    "exit_code": 127,
+    "diagnostic": "/usr/bin/bash: line 1: /usr/bin/blender5.2.2LTS: No such file or directory",
+    "resolution": "/usr/bin/blender verified exact build d13f752e3b9c"
+  },
+  {
+    "name": "version",
+    "argv": [
+      "/usr/bin/blender",
+      "-b",
+      "-noaudio",
+      "-t",
+      "4",
+      "--version"
+    ],
+    "cwd": "/home/regner/.paseo/worktrees/0u71f39f/asset-register-production",
+    "environment_overrides": {
+      "ALSOFT_DRIVERS": "null",
+      "SDL_AUDIODRIVER": "dummy"
+    },
+    "started_utc": "2026-10-09T16:25:39.329067+00:00",
+    "exit_code": 0,
+    "raw_log": "version.log"
+  },
+  {
+    "name": "author",
+    "argv": [
+      "/usr/bin/blender",
+      "-b",
+      "-noaudio",
+      "-t",
+      "4",
+      "--python-exit-code",
+      "1",
+      "--python",
+      "/home/regner/.paseo/worktrees/0u71f39f/asset-register-production/tools/asset_production/city_planting_02/author.py"
+    ],
+    "cwd": "/home/regner/.paseo/worktrees/0u71f39f/asset-register-production",
+    "environment_overrides": {
+      "ALSOFT_DRIVERS": "null",
+      "SDL_AUDIODRIVER": "dummy"
+    },
+    "started_utc": "2026-10-09T16:25:39.507968+00:00",
+    "exit_code": 0,
+    "raw_log": "author.log"
+  },
+  {
+    "name": "export",
+    "argv": [
+      "/usr/bin/blender",
+      "-b",
+      "-noaudio",
+      "-t",
+      "4",
+      "/home/regner/.paseo/worktrees/0u71f39f/asset-register-production/art/source/models/environment/city_planting_02/city_planting_02.blend",
+      "--python-exit-code",
+      "1",
+      "--python",
+      "/home/regner/.paseo/worktrees/0u71f39f/asset-register-production/tools/asset_production/city_planting_02/export.py"
+    ],
+    "cwd": "/home/regner/.paseo/worktrees/0u71f39f/asset-register-production",
+    "environment_overrides": {
+      "ALSOFT_DRIVERS": "null",
+      "SDL_AUDIODRIVER": "dummy"
+    },
+    "started_utc": "2026-10-09T16:26:16.740096+00:00",
+    "exit_code": 0,
+    "raw_log": "export.log"
+  },
+  {
+    "name": "check_glb",
+    "argv": [
+      "python",
+      "/home/regner/.paseo/worktrees/0u71f39f/asset-register-production/tools/asset_production/city_planting_02/check_glb.py"
+    ],
+    "cwd": "/home/regner/.paseo/worktrees/0u71f39f/asset-register-production",
+    "environment_overrides": {
+      "ALSOFT_DRIVERS": "null",
+      "SDL_AUDIODRIVER": "dummy"
+    },
+    "started_utc": "2026-10-09T16:26:17.359619+00:00",
+    "exit_code": 0,
+    "raw_log": "check_glb.log"
+  },
+  {
+    "name": "reexport",
+    "argv": [
+      "/usr/bin/blender",
+      "-b",
+      "-noaudio",
+      "-t",
+      "4",
+      "/home/regner/.paseo/worktrees/0u71f39f/asset-register-production/art/source/models/environment/city_planting_02/city_planting_02.blend",
+      "--python-exit-code",
+      "1",
+      "--python",
+      "/home/regner/.paseo/worktrees/0u71f39f/asset-register-production/tools/asset_production/city_planting_02/export.py",
+      "--",
+      "/home/regner/.paseo/worktrees/0u71f39f/asset-register-production/docs/assets/production/city_planting_02-evidence/reexport.glb"
+    ],
+    "cwd": "/home/regner/.paseo/worktrees/0u71f39f/asset-register-production",
+    "environment_overrides": {
+      "ALSOFT_DRIVERS": "null",
+      "SDL_AUDIODRIVER": "dummy"
+    },
+    "started_utc": "2026-10-09T16:26:17.393841+00:00",
+    "exit_code": 0,
+    "raw_log": "reexport.log"
+  }
+]

@@ -1,0 +1,64 @@
+[
+  {
+    "file": "art/models/environment/city_planting_02/city_planting_02.glb",
+    "godot_axis_aabb": [
+      [
+        -0.8999999761581421,
+        0.0,
+        -0.8999999761581421
+      ],
+      [
+        0.8999999761581421,
+        0.47999998927116394,
+        0.8999999761581421
+      ]
+    ],
+    "triangles": 3456,
+    "mesh_count": 2,
+    "materials": [
+      {
+        "doubleSided": true,
+        "name": "planter_sage_cast_stone",
+        "pbrMetallicRoughness": {
+          "baseColorFactor": [
+            0.30946892499923706,
+            0.37123769521713257,
+            0.30946892499923706,
+            1
+          ],
+          "metallicFactor": 0,
+          "roughnessFactor": 0.7599999904632568
+        }
+      },
+      {
+        "doubleSided": true,
+        "name": "planter_pale_stone_rim",
+        "pbrMetallicRoughness": {
+          "baseColorFactor": [
+            0.4969329833984375,
+            0.5394794940948486,
+            0.4125426113605499,
+            1
+          ],
+          "metallicFactor": 0,
+          "roughnessFactor": 0.699999988079071
+        }
+      },
+      {
+        "doubleSided": true,
+        "name": "planter_recess_petrol",
+        "pbrMetallicRoughness": {
+          "baseColorFactor": [
+            0.02955683507025242,
+            0.0666259378194809,
+            0.06480326503515244,
+            1
+          ],
+          "metallicFactor": 0,
+          "roughnessFactor": 0.800000011920929
+        }
+      }
+    ],
+    "checks": "PASS: exact dimensions, unit transforms, finite unit normals, nondegenerate triangles, studio exclusion, no lights/animations/textures"
+  }
+]

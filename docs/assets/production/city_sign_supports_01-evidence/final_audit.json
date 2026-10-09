@@ -1,0 +1,41 @@
+{
+  "status": "PASS",
+  "owned_blender_processes_running": [],
+  "all_recorded_processes_reaped": true,
+  "parsed_python_scripts": [
+    "tools/asset_production/city_sign_supports_01/run.py",
+    "tools/asset_production/city_sign_supports_01/author.py",
+    "tools/asset_production/city_sign_supports_01/export.py",
+    "tools/asset_production/city_sign_supports_01/preview.py",
+    "tools/asset_production/city_sign_supports_01/make_uv_diagnostic.py",
+    "tools/asset_production/city_sign_supports_01/check_glb.py",
+    "tools/asset_production/city_sign_supports_01/final_audit.py",
+    "tools/asset_production/city_sign_supports_01/manifest.py"
+  ],
+  "reference_sha256": {
+    "AGENTS.md": "12b3038108dd6014210dac6e879b143861c9c57d66f3fb3b23654624646465cd",
+    "docs/assets.md": "d4532173d2585cd192ddd0565aae01976fa498bb58715549c4b41e94256473f8",
+    "docs/art-direction.md": "ca41a4d6a2378e768875ebd1715c909a4b8d54ed896ddffcd58b20b49c7c12f7",
+    "docs/assets/production/commission.md": "2a887752de1bfe3d4a88bbe8b1754171032d495299d307d061ae7b37ca30dd30",
+    "docs/assets/city_sign_supports.md": "51a5ea3cc4ce6a5463bf80da998583ffb17bdf1c3bd02d992f191a2e95c428f6",
+    "docs/concepts/world-v1/stage-03-district-identities/README.md": "3613048a0b789636df9c9d4b97e71f81a418c7af284d0dc9ec05938f4c65a191",
+    "docs/concepts/districts-v1/README.md": "e95b66284389bd404467a10546a691feec428d9bfc3e5cc9402729d3450adc2a",
+    "docs/concepts/districts-v1/brief-contract.md": "f4ac0e17541c5ed81d920206682270f6bbed84e06379084b8419e2b958e8ee44",
+    "docs/concepts/districts-v1/signal-row.md": "faff8ea95b14ac914e130629a5117c66dfc33ed0bf9cfa46574c8cf81a4303af",
+    "docs/concepts/districts-v1/old-quay.md": "cca98f490f630900d9b1917ceebee973b3a66e3de16d1fa41e4e331ab4fe8976",
+    "docs/concepts/districts-v1/map-context.md": "10ba551d2501c9ac95b72d6eeacec1943a8ec76c1dd8c0398fb8ff16437aaf32",
+    "docs/world-layout.md": "b98305af397535dd6a3a3709225336d3baefd1f19bb01e5f0694343fffbf29b6",
+    "docs/concepts/districts-v1/06-signal-row-v03.png": "b9ceffe5d88aa74bf953c6ef83dc004abc06903b9570089a8cfc7ee780eecff1",
+    "docs/concepts/districts-v1/05-old-quay-v03.png": "b2fc434da3dce0a402fa6dbab7a1539c5bb4deaca8ba54c4b5b7860beeeb489f",
+    "docs/concepts/districts-v1/06-signal-row-map.png": "dfc6b1efefb570ee3bff779a49c07d605e6bd552b45305e141fbb27b5d40809f"
+  },
+  "production_blend_bytes": 127713,
+  "report_links_checked": true,
+  "shared_writes": "none; no Git/index, prefab, engine/project/world or shared docs mutations",
+  "limitations": [
+    "No Godot import/prefab/scene roundtrip",
+    "No gameplay/collision/navigation",
+    "No measured device/runtime/performance acceptance",
+    "Producer visual evidence; independent acceptance pending"
+  ]
+}
