@@ -22,7 +22,7 @@ class CarMetrics(unittest.TestCase):
     def test_coast_foreign_pose_and_unacknowledged_motion_do_not_count(self):
         onset = {'event': 'input', 'index': 1, 'move': 1, 'turn': 0,
                  'time_ms': 100, 'position': [0, 0, 0], 'yaw': 0,
-                 'velocity': [0, 0, -5], 'sequence_floor': 10}
+                 'velocity': [0, 0, -5], 'sequence_floor': 10, 'input_tick_floor': 20}
         def frame(at, entity, speed, sequence):
             return {'event': 'apply', 'entity': entity, 'time_ms': at,
                     'position': [0, 0, -1], 'yaw': 0,
@@ -43,7 +43,7 @@ class CarMetrics(unittest.TestCase):
         neutral = dict(drive, throttle=0.0)
         def state(at, held):
             return {'event': 'simulation', 'time_ms': at, 'wall_ms': at,
-                    'local_tick': 1, 'receipt_ms': 0, 'held': held,
+                    'local_tick': 1, 'receipt_ms': 0, 'decision_age_ms': at, 'held': held,
                     'pose': {'entity': 2, 'tick': at, 'position': [0, 0, 0],
                              'velocity': [0, 0, -3]}}
         result = self.analyze_rows([state(250, drive), state(267, neutral)], [])

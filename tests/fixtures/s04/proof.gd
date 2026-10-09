@@ -8,6 +8,7 @@ const HOST_REVERSE_START_TICK: int = 120
 const HOST_REVERSE_END_TICK: int = 180
 const STALL_REVERSE_START_TICK: int = 888
 const STALL_REVERSE_END_TICK: int = 906
+const EXIT_REQUEST_TICK: int = 100
 const BOUNDARY_CHECK_TICK: int = 950
 const EXPIRY_PULSE_START_TICK: int = 1000
 const PRODUCER_SILENCE_START_TICK: int = 1002
@@ -42,6 +43,8 @@ var capture_pending: bool = false
 var capture_pose: Dictionary = {}
 var failures: Array[String] = []
 var ending: bool = false
+var exit_verdict: String = ""
+var exit_requested: bool = false
 
 @onready var session: S03Session = $Session
 @onready var match_state: S04Match = $View/Match
@@ -69,6 +72,9 @@ func _ready() -> void:
 	replication.handoff_confirmed.connect(session.confirm_handoff)
 	replication.admission_received.connect(session.receive_admission)
 	match_state.stepped.connect(_on_step)
+	match_state.predicted.connect(_on_predicted)
+	match_state.reconciled.connect(_on_reconciled)
+	replication.exit_result.connect(_on_exit_result)
 	input_collector.set_focused(true)
 	RenderingServer.frame_post_draw.connect(_on_rendered)
 	session.select_provider(S03Transport.new(get_tree()))
@@ -138,20 +144,27 @@ func _collect_and_send() -> void:
 
 	var command: Vector2 = _command(local_tick)
 	_set_keys(command)
+	var drive: Dictionary = input_collector.drive_sample()
+	# Test recovery compares a settled car, so both host and prediction apply explicit brake.
+	if role == "client" and ((local_tick >= REVERSE_END_TICK and
+		local_tick < STALL_REVERSE_START_TICK) or (local_tick >= STALL_REVERSE_END_TICK and
+		local_tick < EXPIRY_PULSE_START_TICK)):
+		drive.brake = 1.0
+	if role == "client":
+		match_state.queue_local_input(local_tick, drive)
+		if not exit_requested and local_tick >= EXIT_REQUEST_TICK and (
+			match_state.local_body().velocity.length() >= 5.0):
+			exit_requested = true
+			replication.request_exit()
+
 	if local_tick % INPUT_INTERVAL_TICKS == 0:
 		sequence += 1
 		# A bounded loss-of-producer segment tests expiry independently of proxy randomness.
 		if role == "client" and local_tick >= PRODUCER_SILENCE_START_TICK and (
 			local_tick < PRODUCER_SILENCE_END_TICK):
 			return
-		var drive: Dictionary = input_collector.drive_sample()
-		# Test recovery compares a settled car, so these declared phases explicitly brake.
-		if role == "client" and ((local_tick >= REVERSE_END_TICK and
-			local_tick < STALL_REVERSE_START_TICK) or (local_tick >= STALL_REVERSE_END_TICK and
-			local_tick < EXPIRY_PULSE_START_TICK)):
-			drive.brake = 1.0
 		var envelope: Dictionary = {"context": match_state.context(session.local_participant),
-			"sequence": sequence, "move": drive}
+			"sequence": sequence, "input_tick": local_tick, "move": drive}
 		if role == "host":
 			match_state.submit_held(session.local_participant, envelope)
 		else:
@@ -179,7 +192,7 @@ func _check_boundaries() -> void:
 	var binding: Dictionary = match_state.bindings[participant]
 	var before: int = binding.pending
 	var envelope: Dictionary = {"context": match_state.context(participant),
-		"sequence": sequence + 1, "move": {
+		"sequence": sequence + 1, "input_tick": local_tick, "move": {
 			"throttle": NAN,
 			"steer": 0.0,
 			"brake": 0.0,
@@ -273,6 +286,7 @@ func _set_keys(command: Vector2) -> void:
 		capture_pose = actor.motion_state()
 		_record({"event": "input", "index": event_index, "tick": local_tick,
 			"move": command.x, "turn": command.y, "sequence_floor": sequence + 1,
+			"input_tick_floor": local_tick,
 			"position": match_state.vector(actor.global_position),
 			"velocity": match_state.vector(actor.velocity), "yaw": actor.rotation.y})
 
@@ -306,6 +320,7 @@ func _on_step(tick: int) -> void:
 			_record({"event": "simulation", "local_tick": local_tick,
 				"pose": match_state.pose_for_entity(entity),
 				"held": binding.held, "receipt_ms": binding.receipt_ms,
+				"decision_age_ms": binding.decision_age_ms,
 				"phase": "post_move_and_slide", "contacts": actor.get_slide_collision_count()})
 
 		if tick % SNAPSHOT_INTERVAL_TICKS == 0:
@@ -313,8 +328,33 @@ func _on_step(tick: int) -> void:
 				if session.roster[peer_id].phase == "ADMITTED":
 					replication.send_movement(peer_id, match_state.bindings.keys(), tick, 0.0)
 
-	status.text = "S04 %s | %s | tick %d | authoritative baseline" % [
-		role, profile, local_tick]
+	status.text = "S04 %s | %s | tick %d | local prediction" % [role, profile, local_tick]
+
+
+## Records immediate local simulation separately from authoritative snapshot application.
+func _on_predicted(receipt: Dictionary) -> void:
+	if role != "client":
+		return
+
+	receipt["event"] = "prediction"
+	_record(receipt)
+
+
+## Records bounded rewind/replay work and simulation correction magnitude.
+func _on_reconciled(receipt: Dictionary) -> void:
+	if role != "client":
+		return
+
+	receipt["event"] = "correction"
+	_record(receipt)
+
+
+## Keeps the predicted car seated when the host rejects a moving exit.
+func _on_exit_result(reason: String) -> void:
+	exit_verdict = reason
+	_record({"event": "exit_result", "reason": reason,
+		"still_seated": match_state.seats.has(session.local_participant),
+		"prediction_enabled": match_state.prediction_enabled})
 
 
 ## Receipts actual drawn frames independently of simulation and keeps matched camera captures.
@@ -327,7 +367,7 @@ func _on_rendered() -> void:
 	var screen: Vector2 = camera_rig.camera().unproject_position(state.position + Vector3.UP)
 	_record({"event": "render", "index": event_index, "tick": local_tick,
 		"position": match_state.vector(state.position), "yaw": state.yaw,
-		"sequence": actor.latest_sequence,
+		"sequence": actor.latest_sequence, "input_tick": actor.latest_input_tick,
 		"screen": [screen.x, screen.y], "viewport": get_viewport().get_visible_rect().size})
 	if capture_pending and (
 		(state.position as Vector3).distance_to(capture_pose.position) > RESPONSE_DISTANCE_M
@@ -356,6 +396,8 @@ func _end_after_cleanup() -> void:
 ## Requires actual lifecycle cleanup and publishes structured process disposition.
 func _finish() -> void:
 	ending = true
+	if role == "client" and exit_verdict != "EXIT_MOVING":
+		failures.append("moving exit did not preserve host-owned seat")
 	if session.phase != "IDLE" or not match_state.bindings.is_empty() or (
 		not match_state.entities.is_empty() or not match_state.pending_poses.is_empty()):
 		failures.append("lifecycle cleanup incomplete")

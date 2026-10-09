@@ -1,10 +1,15 @@
-class_name S04Match
+class_name S04Match  # gdstyle:ignore=quality/max-class-variables
 extends S03Match
 ## Reuses S03 lifecycle/markers while saved S04 bodies own planar vehicle motion.
 
 signal stepped(tick: int)
+signal predicted(receipt: Dictionary)
+signal reconciled(receipt: Dictionary)
 
 const MAX_POSE_COORDINATE_M: float = 100.0
+const PREDICTION_HISTORY_LIMIT: int = 120
+const EXIT_STOP_SPEED_MPS: float = 0.5
+const PARKED_SPEED_MPS: float = 0.01
 
 var server_tick: int = 0
 var pending_poses: Dictionary = {}
@@ -12,6 +17,15 @@ var baseline_ticks: Dictionary = {}
 var body_for_entity: Dictionary = {}
 var spawns: Array[Transform3D] = []
 var seats: Dictionary = {}
+var coasting_bodies: Dictionary = {}
+var prediction_history: Dictionary = {}
+var prediction_ticks: Array[int] = []
+var prediction_enabled: bool = false
+var prediction_overflowed: bool = false
+var queued_input_tick: int = 0
+var queued_command: Dictionary = {}
+var last_predicted_tick: int = 0
+var last_correction: Dictionary = {}
 
 @onready var bodies: Array[S04Kinematic] = [$Bodies/Host, $Bodies/Client]
 
@@ -32,36 +46,110 @@ func _ready() -> void:
 ## Uses one shared vehicle step per authoritative tick, then acknowledges intent.
 func _physics_process(delta: float) -> void:
 	if authoritative:
-		server_tick += 1
-		for participant: int in bindings:
-			var binding: Dictionary = bindings[participant]
-			var actor: S04Kinematic = body_for_entity[binding.entity]
-			if not binding.admitted:
-				actor.neutralize()
-				continue
-
-			if Time.get_ticks_msec() - int(binding.receipt_ms) > HELD_EXPIRY_MS:
-				binding.held = S04DriveRules.neutral()
-
-			var held: Dictionary = binding.held
-			actor.step(held, delta)
-			if binding.pending > binding.sequence:
-				binding.sequence = binding.pending
-				binding.sample = held.throttle
-				accepted_count += 1
-
+		_server_step(delta)
 	else:
-		for entity: int in pending_poses:
-			var pose: Dictionary = pending_poses[entity]
-			var actor: S04Kinematic = body_for_entity[entity]
-			actor.install_pose(pose, int(pose.receipt_ms))
-			print("S04 " + JSON.stringify({"event": "apply", "time_ms": Time.get_ticks_msec(),
-				"wall_ms": Time.get_unix_time_from_system() * 1000.0,
-				"entity": entity, "pose": pose, "position": vector(actor.global_position),
-				"yaw": actor.rotation.y}))
-		pending_poses.clear()
+		_client_step(delta)
 
 	stepped.emit(server_tick)
+
+
+## Advances admitted and disconnected coasting cars without inventing catch-up steps.
+func _server_step(delta: float) -> void:
+	server_tick += 1
+	for participant: int in bindings:
+		var binding: Dictionary = bindings[participant]
+		var actor: S04Kinematic = body_for_entity[binding.entity]
+		if not binding.admitted:
+			actor.neutralize()
+			continue
+
+		binding.decision_age_ms = Time.get_ticks_msec() - int(binding.receipt_ms)
+		if binding.decision_age_ms > HELD_EXPIRY_MS:
+			binding.held = S04DriveRules.neutral()
+
+		var held: Dictionary = binding.held
+		actor.step(held, delta)
+		binding.processed_input_tick = binding.pending_input_tick
+		if binding.pending > binding.sequence:
+			binding.sequence = binding.pending
+			binding.sample = held.throttle
+			accepted_count += 1
+
+	for entity: int in coasting_bodies.keys():
+		var actor: S04Kinematic = coasting_bodies[entity]
+		actor.step(S04DriveRules.neutral(), delta)
+		if actor.velocity.length() < PARKED_SPEED_MPS:
+			actor.neutralize()
+			coasting_bodies.erase(entity)
+
+
+## Reconciles local prediction, installs remote poses, then predicts the current input tick.
+func _client_step(delta: float) -> void:
+	for entity: int in pending_poses:
+		var pose: Dictionary = pending_poses[entity]
+		var actor: S04Kinematic = body_for_entity[entity]
+		if prediction_enabled and entity == bindings[participant_id].entity:
+			_reconcile(actor, pose)
+		else:
+			actor.install_pose(pose, int(pose.receipt_ms))
+
+		print("S04 " + JSON.stringify({"event": "apply", "time_ms": Time.get_ticks_msec(),
+			"wall_ms": Time.get_unix_time_from_system() * 1000.0,
+			"entity": entity, "pose": pose, "position": pose.position,
+			"yaw": pose.yaw}))
+	pending_poses.clear()
+
+	if prediction_enabled and queued_input_tick > last_predicted_tick:
+		_predict(queued_input_tick, queued_command, delta)
+
+
+## Runs one local permitted step and retains only the bounded replay inputs.
+func _predict(input_tick: int, command: Dictionary, delta: float) -> void:
+	var actor: S04Kinematic = local_body()
+	actor.step(command, delta)
+	actor.latest_input_tick = input_tick
+	prediction_history[input_tick] = { "command": command.duplicate(true), "delta": delta }
+	prediction_ticks.append(input_tick)
+	last_predicted_tick = input_tick
+	if prediction_ticks.size() > PREDICTION_HISTORY_LIMIT:
+		prediction_history.erase(prediction_ticks.pop_front())
+		prediction_overflowed = true
+
+	predicted.emit({"input_tick": input_tick, "position": vector(actor.global_position),
+		"yaw": actor.rotation.y, "velocity": vector(actor.velocity),
+		"history_size": prediction_ticks.size()})
+
+
+## Restores the host pose and replays only unacknowledged local drive-rule frames.
+func _reconcile(actor: S04Kinematic, pose: Dictionary) -> void:
+	var previous_display: Dictionary = actor.display_state()
+	var previous_position: Vector3 = actor.global_position
+	var acknowledged_tick: int = pose.input_tick
+	while not prediction_ticks.is_empty() and prediction_ticks[0] <= acknowledged_tick:
+		prediction_history.erase(prediction_ticks.pop_front())
+
+	actor.restore_authoritative(pose)
+	var replayed: int = 0
+	var started_usec: int = Time.get_ticks_usec()
+	if prediction_overflowed:
+		prediction_history.clear()
+		prediction_ticks.clear()
+		prediction_overflowed = false
+	else:
+		for tick: int in prediction_ticks:
+			var frame: Dictionary = prediction_history[tick]
+			actor.step(frame.command, frame.delta)
+			actor.latest_input_tick = tick
+			replayed += 1
+
+	var elapsed_usec: int = Time.get_ticks_usec() - started_usec
+	var correction_m: float = previous_position.distance_to(actor.global_position)
+	actor.preserve_visual_pose(previous_display.position, previous_display.yaw)
+	last_correction = {
+		"authoritative_tick": pose.tick, "acknowledged_input_tick": acknowledged_tick,
+		"magnitude_m": correction_m, "replayed": replayed, "cpu_usec": elapsed_usec,
+		"cpu_per_tick_usec": float(elapsed_usec) / maxf(1.0, replayed)}
+	reconciled.emit(last_correction)
 
 
 ## Adds a saved actual body to S03's provisional entity binding.
@@ -70,6 +158,8 @@ func prepare_initial(participant: int) -> int:
 	if not body_for_entity.has(entity):
 		_activate_body(entity, body_for_entity.size())
 		bindings[participant].held = S04DriveRules.neutral()
+		bindings[participant].pending_input_tick = 0
+		bindings[participant].processed_input_tick = 0
 		seats[participant] = {"player": entity, "vehicle": entity + 1000,
 			"equipment": { "selected": "pistol", "magazine": 7 }, "seat": "driver"}
 	return entity
@@ -89,8 +179,8 @@ func _activate_body(entity: int, slot: int) -> void:
 func baseline(participant: int, baseline_id: int) -> Dictionary:
 	var data: Dictionary = super.baseline(participant, baseline_id)
 	var poses: Array = []
-	for entity: int in body_for_entity:
-		poses.append(pose_for_entity(entity))
+	for binding: Dictionary in bindings.values():
+		poses.append(pose_for_entity(binding.entity))
 	data["poses"] = poses
 	data["seats"] = seats.duplicate(true)
 	return data
@@ -118,6 +208,8 @@ func apply_baseline(data: Dictionary) -> bool:
 
 	for participant: int in bindings:
 		bindings[participant].held = S04DriveRules.neutral()
+		bindings[participant].pending_input_tick = 0
+		bindings[participant].processed_input_tick = 0
 	return true
 
 
@@ -184,7 +276,7 @@ func _normalize_pose(pose: Variant) -> bool:
 	if not pose is Dictionary:
 		return false
 
-	for field: String in ["entity", "tick", "control", "durable", "sequence",
+	for field: String in ["entity", "tick", "control", "durable", "sequence", "input_tick",
 		"vehicle", "generation", "life", "collision"]:
 		var value: Variant = pose.get(field)
 		if not (value is float or value is int) or not is_finite(float(value)):
@@ -234,16 +326,27 @@ func _positive_integer(value: Variant) -> bool:
 
 ## Retains S03's sender/context/window checks while accepting bounded drive intent.
 func _held_shape_valid(envelope: Variant) -> bool:
-	if not envelope is Dictionary or envelope.size() != 3:
+	if not envelope is Dictionary or envelope.size() != 4:
 		return false
 
-	if not envelope.has("context") or not envelope.has("sequence") or not envelope.has("move"):
-		return false
+	for field: String in ["context", "sequence", "input_tick", "move"]:
+		if not envelope.has(field):
+			return false
 
-	if not envelope.sequence is int or not envelope.move is Dictionary:
+	if not envelope.sequence is int or not envelope.input_tick is int:
+		return false
+	if envelope.input_tick <= 0 or not envelope.move is Dictionary:
 		return false
 
 	return _drive_valid(envelope.move)
+
+
+## Retains the newest validated client tick for post-simulation acknowledgement.
+func submit_held(participant: int, envelope: Variant) -> String:
+	var result: String = super.submit_held(participant, envelope)
+	if result == "OK":
+		bindings[participant].pending_input_tick = envelope.input_tick
+	return result
 
 
 ## Validates only the four primitive bounded car controls.
@@ -264,6 +367,8 @@ func _drive_valid(held: Dictionary) -> bool:
 func prepare_resync(participant: int) -> void:
 	super.prepare_resync(participant)
 	bindings[participant].held = S04DriveRules.neutral()
+	bindings[participant].pending_input_tick = 0
+	bindings[participant].processed_input_tick = 0
 	body_for_entity[bindings[participant].entity].neutralize()
 
 
@@ -275,16 +380,17 @@ func pose_for_entity(entity: int) -> Dictionary:
 	return {"entity": entity, "tick": server_tick, "control": binding.control,
 		"durable": durable_revision, "position": vector(actor.global_position),
 		"yaw": actor.rotation.y, "velocity": vector(actor.velocity), "sequence": binding.sequence,
+		"input_tick": binding.processed_input_tick,
 		"vehicle": entity + 1000, "generation": binding.generation,
 		"life": binding.life, "collision": 1}
 
 
 ## Validates a bounded pose's exact primitive fields before any replica state change.
 func pose_valid(pose: Variant) -> bool:  # gdstyle:ignore=quality/max-returns
-	if not pose is Dictionary or pose.size() != 12:
+	if not pose is Dictionary or pose.size() != 13:
 		return false
 
-	for field: String in ["entity", "tick", "control", "durable", "sequence",
+	for field: String in ["entity", "tick", "control", "durable", "sequence", "input_tick",
 		"vehicle", "generation", "life", "collision"]:
 		if not pose.get(field) is int or pose[field] < 0:
 			return false
@@ -351,17 +457,54 @@ func participant_for_entity(entity: int) -> int:
 	return 0
 
 
+## Enables local prediction only after admission and fresh dependent movement.
+func enable_local() -> void:
+	super.enable_local()
+	if not authoritative and bindings.has(participant_id):
+		prediction_enabled = true
+		local_body().configure_prediction()
+
+
+## Queues one numbered local input; simulation consumes it on the next client physics step.
+func queue_local_input(input_tick: int, command: Dictionary) -> void:
+	if authoritative or not prediction_enabled or input_tick <= queued_input_tick:
+		return
+
+	queued_input_tick = input_tick
+	queued_command = command.duplicate(true)
+
+
+## Host-validates exit without allowing the predicted client to pre-empt the verdict.
+func request_exit(participant: int) -> String:
+	if not authoritative or not bindings.has(participant) or not bindings[participant].admitted:
+		return "NOT_ADMITTED"
+
+	var actor: S04Kinematic = body_for_entity[bindings[participant].entity]
+	if actor.velocity.length() >= EXIT_STOP_SPEED_MPS:
+		return "EXIT_MOVING"
+
+	bindings[participant].admitted = false
+	bindings[participant].held = S04DriveRules.neutral()
+	actor.neutralize()
+	seats.erase(participant)
+	return "OK"
+
+
 ## Returns the current locally controlled body's public actual motion API.
 func local_body() -> S04Kinematic:
 	return body_for_entity[bindings[participant_id].entity] as S04Kinematic
 
 
-## Removes participant state and immediately retires its physical/presentation body.
+## Releases a disconnected driver while the authoritative car coasts under shared rules.
 func rollback(participant: int) -> void:
 	if bindings.has(participant):
 		var entity: int = bindings[participant].entity
-		body_for_entity[entity].retire()
-		body_for_entity.erase(entity)
+		var actor: S04Kinematic = body_for_entity[entity]
+		if authoritative and bindings[participant].admitted:
+			coasting_bodies[entity] = actor
+		else:
+			actor.retire()
+			body_for_entity.erase(entity)
 		pending_poses.erase(entity)
 		baseline_ticks.erase(entity)
 	seats.erase(participant)
@@ -376,6 +519,15 @@ func clear() -> void:
 	pending_poses.clear()
 	baseline_ticks.clear()
 	seats.clear()
+	coasting_bodies.clear()
+	prediction_history.clear()
+	prediction_ticks.clear()
+	prediction_enabled = false
+	prediction_overflowed = false
+	queued_input_tick = 0
+	queued_command.clear()
+	last_predicted_tick = 0
+	last_correction.clear()
 	super.clear()
 
 

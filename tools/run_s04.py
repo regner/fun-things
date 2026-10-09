@@ -159,7 +159,11 @@ def analyze(directory, proxy_events):
     response = []
     for entry in (r for r in client if r["event"] == "input" and r["index"] <= 20):
         row = {"index": entry["index"], "move": entry["move"], "turn": entry["turn"]}
-        for kind, label in [("apply", "physics_ms"), ("render", "rendered_frame_ms")]:
+        kinds = [("apply", "physics_ms", False),
+                 ("render", "rendered_frame_ms", False),
+                 ("prediction", "predicted_physics_ms", True),
+                 ("render", "predicted_frame_ms", True)]
+        for kind, label, predicted in kinds:
             candidate = None
             for frame in client:
                 if frame["event"] != kind or frame["time_ms"] < entry["time_ms"]:
@@ -168,13 +172,19 @@ def analyze(directory, proxy_events):
                     continue  # The fixed fixture's client owns entity2, never the host's pose.
                 if frame["time_ms"] >= entry["time_ms"] + 500:
                     break
-                sequence = frame["pose"]["sequence"] if kind == "apply" else frame["sequence"]
-                if sequence < entry["sequence_floor"]:
-                    continue
+                if predicted:
+                    if frame.get("input_tick", -1) < entry["input_tick_floor"]:
+                        continue
+                else:
+                    sequence = (frame["pose"]["sequence"] if kind == "apply"
+                                else frame["sequence"])
+                    if sequence < entry["sequence_floor"]:
+                        continue
                 if entry["turn"]:
                     changed = angle(frame["yaw"], entry["yaw"]) > math.radians(0.2)
-                elif kind == "apply":
-                    changed = abs(math.dist(frame["pose"]["velocity"], [0, 0, 0]) -
+                elif kind in ["apply", "prediction"]:
+                    velocity = frame["pose"]["velocity"] if kind == "apply" else frame["velocity"]
+                    changed = abs(math.dist(velocity, [0, 0, 0]) -
                                   math.dist(entry["velocity"], [0, 0, 0])) > 0.05
                 else:
                     changed = distance(frame["position"], entry["position"]) > 0.005
@@ -187,7 +197,7 @@ def analyze(directory, proxy_events):
             705 <= r["local_tick"] <= 715]
     collision = bool(wall) and all(-17.85 <= r["pose"]["position"][2] <= -17.65 and
                                   abs(r["pose"]["position"][0]) < 0.01 for r in wall)
-    stale = [r for r in simulation if r["time_ms"] - r["receipt_ms"] > 267]
+    stale = [r for r in simulation if r["decision_age_ms"] > 250]
     expiry_transitions = []
     last_active = {}
     previous_tick = {}
@@ -196,14 +206,19 @@ def analyze(directory, proxy_events):
         if row["held"] != {"throttle": 0.0, "steer": 0.0, "brake": 0.0, "handbrake": False}:
             last_active[entity] = row["receipt_ms"]
         elif entity in last_active and row["receipt_ms"] == last_active[entity]:
-            expiry_transitions.append({"entity": entity, "age_ms": row["time_ms"] - row["receipt_ms"],
-                                       "previous_age_ms": previous_tick[entity]["time_ms"] - row["receipt_ms"],
+            expiry_transitions.append({"entity": entity,
+                                       "age_ms": row["time_ms"] - row["receipt_ms"],
+                                       "previous_age_ms": (previous_tick[entity]["time_ms"] -
+                                                           row["receipt_ms"]),
+                                       "decision_age_ms": row["decision_age_ms"],
+                                       "previous_decision_age_ms":
+                                           previous_tick[entity]["decision_age_ms"],
                                        "tick_gap_ms": row["time_ms"] - previous_tick[entity]["time_ms"],
                                        "velocity": row["pose"]["velocity"]})
             del last_active[entity]
         previous_tick[entity] = row
     expired = (bool(expiry_transitions) and all(r["held"] == {"throttle": 0.0, "steer": 0.0, "brake": 0.0, "handbrake": False} for r in stale) and
-               all(r["previous_age_ms"] <= 250 < r["age_ms"]
+               all(r["previous_decision_age_ms"] <= 250 < r["decision_age_ms"]
                    for r in expiry_transitions))
     # Matching state of a settled authority, after the two isolated recovery segments.
     recovery = []
@@ -228,17 +243,48 @@ def analyze(directory, proxy_events):
     final = {role: next((r for r in reversed(rows) if r["event"] == "result"), None)
              for role, rows in [("host", host), ("client", client)]}
     resync = next((r for r in client if r["event"] == "resync_applied"), None)
+    corrections = [r for r in client if r["event"] == "correction"]
+    correction_magnitudes = [r["magnitude_m"] for r in corrections]
+    replay_per_tick = [r["cpu_per_tick_usec"] for r in corrections if r["replayed"] > 0]
+    prediction_recovery = []
+    for label, origin in [
+            ("interruption", next((r["wall_ms"] for r in proxy_events
+                                   if r["event"] == "blackout_end"), None)),
+            ("host_stall", next((r["wall_ms"] for r in host
+                                 if r["event"] == "stall_end"), None))]:
+        if origin is None:
+            prediction_recovery.append({"case": label, "observed_delay_ms": None,
+                                        "converged": True})
+            continue
+        matching = next((r for r in corrections if r["wall_ms"] >= origin and
+                         r["magnitude_m"] <= 0.01), None)
+        delay = matching["wall_ms"] - origin if matching else None
+        prediction_recovery.append({"case": label, "observed_delay_ms": delay,
+                                    "converged": delay is not None and delay <= 1000})
     delays = [r["actual_delay_ms"] for r in proxy_events if r["event"] == "delivery"]
+    response_keys = ["physics_ms", "rendered_frame_ms", "predicted_physics_ms",
+                     "predicted_frame_ms"]
     return {"responses": response,
             "response_p95_ms": {key: percentile([r[key] for r in response if r[key] is not None])
-                                for key in ["physics_ms", "rendered_frame_ms"]},
+                                for key in response_keys},
             "response_samples": len(response),
             "response_missing": sum(r["rendered_frame_ms"] is None for r in response),
             "physics_response_missing": sum(r["physics_ms"] is None for r in response),
+            "predicted_response_missing": sum(r["predicted_physics_ms"] is None
+                                              for r in response),
+            "predicted_frame_missing": sum(r["predicted_frame_ms"] is None
+                                           for r in response),
+            "correction_samples": len(corrections),
+            "correction_p95_m": percentile(correction_magnitudes),
+            "correction_max_m": max(correction_magnitudes, default=0),
+            "correction_target_m": 0.5,
+            "replay_cpu_per_tick_usec": {"p95": percentile(replay_per_tick),
+                                          "max": max(replay_per_tick, default=0)},
+            "prediction_recovery": prediction_recovery,
             "snapshot_age_p95_ms": percentile(ages), "snapshot_age_max_ms": max(ages, default=0),
             "matching_tick_install_error_max_m": max(errors, default=0),
             "matching_tick_samples": len(errors), "update_jump_p95_m": percentile(jumps),
-            "prediction_correction": "not measured: no predicted state",
+            "prediction_correction": "rewind and replay correction magnitude",
             "wall_stop": collision, "input_expiry": expired,
             "expiry_transitions": expiry_transitions, "recovery": recovery,
             "window_states": [r for r in host + client if r["event"] == "start"],
@@ -355,7 +401,11 @@ def run_case(args, directory, profile):
                     measurements["matching_tick_install_error_max_m"] < 0.00001,
                     measurements["response_samples"] == 20,
                     measurements["physics_response_missing"] == 0,
-                    all(r["converged"] for r in measurements["recovery"])]
+                    measurements["predicted_response_missing"] == 0,
+                    measurements["correction_samples"] > 100,
+                    measurements["correction_p95_m"] <= measurements["correction_target_m"],
+                    all(r["converged"] for r in measurements["recovery"]),
+                    all(r["converged"] for r in measurements["prediction_recovery"])]
         if profile == "adverse":
             required.append(proxy.blackout_done)
         unchanged = all(hashlib.sha256((project / path).read_bytes()).hexdigest() == digest

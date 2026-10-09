@@ -4,8 +4,9 @@ Build multiplayer around explicit simulation ownership, current-state admission,
 and clean session teardown. The isolated [S03 proof](spikes/s03.md) now exercises
 a tiny real-process ENet connection contract. Accepted bounded
 [S03-R foot](spikes/s03-r.md) and [S04 car](spikes/s04.md#accepted-exact-final-disposition)
-experiments add applied-physics response evidence; production gameplay and drawn
-responsiveness/feel acceptance remain future work.
+experiments add applied-physics response evidence. The bounded
+[S04-P car follow-up](spikes/s04-prediction.md) now executes required local car prediction;
+production gameplay and full responsiveness/feel acceptance remain future work.
 ENet for local testing and Steam for friends playtesting are confirmed first-milestone
 requirements, using the existing Steam app. The [ratified brief](design.md) selects
 an authoritative listen server, 1–4 players, late joining and match termination on
@@ -210,10 +211,10 @@ budget are examples for its small vehicle match, not universal defaults.
 
 ## Interpolation prediction and reconciliation
 
-Start with authoritative simulation and remote snapshot interpolation. Add owned
-client prediction when measured latency makes local controls insufficiently
-responsive. Interpolation smooths remote presentation; prediction responds locally
-and then reconciles with the server. Neither grants authority to the client.
+Start with authoritative simulation and remote snapshot interpolation. Owner decisions
+require prediction for the locally controlled foot actor and car; it is not conditional
+on a later latency choice. Interpolation smooths remote presentation; prediction responds
+locally and then reconciles with the server. Neither grants authority to the client.
 
 Prediction should use the same movement function as host simulation:
 
@@ -299,8 +300,8 @@ launch and gameplay on the milestone build. See
 3. **Adverse delivery:** inject delay, jitter, loss, duplicates, stale sessions and
    revisions, slow admission, deferred collision, and host stalls. Verify queue,
    packet, processing, and timeout limits at intended capacity.
-4. **Responsiveness:** if prediction is added, show local response before host
-   confirmation and convergence afterward. Measure correction sizes/continuity,
+4. **Responsiveness:** for required local foot/car prediction, show local response before
+   host confirmation and convergence afterward. Measure correction sizes/continuity,
    test history exhaustion, and inspect two real windows for HUD/camera/aim/audio.
 5. **Target delivery:** exercise exported builds through both ENet and Steam on
    supported platforms. Prove ENet without Steam and Steam with distinct accounts
@@ -358,10 +359,14 @@ M1-D3, and no-seated-fire/reload feel confirmation before P0-GATE. Entry/exit ra
 disconnect/death/destruction/reset and production late join are specified, not proved
 by this fixture. Exact [2370ad1 acceptance](spikes/s04.md#accepted-exact-final-disposition)
 closes P2/P3. Original physics p95 97/269/401 ms and fixed normal/adverse248/380 ms
-remain separate,20/20 each; no drawn receipt exists. Zero matching-tick install error
-and update jumps are not prediction correction. Physical input/focus, visible
-response/camera/readability/feel, final body/dimensions/turning/prediction, full S04,
-Steam/Deck/Windows/exports/capacity and P0/M1/production gates remain open.
+remain separate,20/20 each; those authority-only values are historical baselines, not
+prediction corrections. [S04-P](spikes/s04-prediction.md) adds the bounded local car
+input history, host processed-input acknowledgement, rewind/replay, correction smoothing,
+`EXIT_MOVING` and disconnect coast path. Its clean baseline and normal-development
+correction p95 values are 0.163/0.285 m; exact-final normal/adverse pacing receipts remain
+mixed and are retained honestly. Physical input/focus, visible response/camera/readability/
+feel, final body/dimensions/turning, foot/car handoff, full S04, Steam/Deck/Linux/exports/
+capacity and P0/M1/production gates remain open.
 
 ## Accepted stopped Steam compatibility boundary
 

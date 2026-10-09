@@ -12,7 +12,8 @@ steering, coast, braking and grip. Input collection converts the existing S02
 physical bindings into four primitive car controls; test injection is labelled.
 `S04Kinematic.step` adapts the rule to actual `move_and_slide` and uses solved
 velocity after collision. `S04Dynamic` compares the same rule through solver-owned
-integration. Neither provides cross-peer determinism, a rollback history or effects.
+integration. [S04-P](s04-prediction.md) adds bounded local input history and replay
+through that same kinematic step; it does not claim cross-peer determinism or add effects.
 Pre-tree `configure(false)` establishes roles. Character replicas have zero layers
 and masks and install host poses only; rigid passive bodies freeze STATIC, zero
 velocities/gravity, sleep, and never take the authoritative integration branch.
@@ -24,9 +25,11 @@ The host's physics callback advances each admitted driver's held intent once per
 then captures actual position/yaw/solved velocity and consumed-or-superseded sequence.
 A held sequence may drive many ticks. Rigid comparison receipts are solver-entry
 state for the previous completed interval, before writing the next velocities.
-Replica installation occurs at physics phase, not render interpolation. There is
-one writer per body pose; presentation and camera consume it. No predicted state
-exists, so jump distance cannot be called prediction correction.
+Remote replica installation occurs at physics phase, not render interpolation. The
+locally controlled client body instead predicts numbered physics inputs, restores host
+position/yaw/velocity at the acknowledged input tick and replays at most 120 retained
+frames. The saved presentation child smooths corrections separately; authoritative
+body state remains the sole collision pose. Replay cannot mutate durable gameplay state.
 
 The fixed fixture inherits S03 session/admission/RPC sender validation. One held
 message has context/sequence/four primitive finite bounded drive values; inherited
@@ -71,9 +74,9 @@ are invented from the flat fixture.
 | Entry into eligible car | Alive unseated player, available nonterminal car, current revisions, range/speed/socket/clearance pass; disable foot simulation/collision, assign driver and new control revision in one transaction | Valid left/right entry; moving/out-of-range/blocked/no socket/stale car/dead player rejection |
 | Two claims in one tick | First valid ordered claim wins; other receives `SEAT_OCCUPIED`; exactly one driver | Same/different peer, reversed receipt order, duplicate request/result and retry after vacancy |
 | Player claims two cars / car has existing driver | First committed valid claim determines state; subsequent request validates new control/life and rejects | Same-tick pair, stale pre-entry context, NPC possession stopped before player admission; no immediate AI restart |
-| Exit | Query authored left then right candidates with complete actor clearance/ground; first safe candidate restores foot pose/collision and transfers control atomically | Left free; left blocked/right free; both blocked => `EXIT_BLOCKED` with entire seat/foot/control unchanged; moving/terminal car policy pending feel |
+| Exit | Reject speed >=0.5 m/s as `EXIT_MOVING`; when slower, query authored left then right candidates with complete actor clearance/ground; first safe candidate restores foot pose/collision and transfers control atomically | Moving rejection; left free; left blocked/right free; both blocked => `EXIT_BLOCKED` with entire seat/foot/control unchanged; terminal-car policy remains M1 work |
 | Entry versus exit / death / destruction / reset | Ordered validation uses latest life/control/terminal revisions; no partial ownership or resurrection | Every pair in both orders, duplicate callbacks and delayed reliable/movement packets |
-| Driver disconnect / admission failure | Close commands and cancel reservations/actions, release seat exactly once; neutralize surviving vehicle; never immediately resume traffic AI | Before claim, during provisional handoff, admitted, resync loading, duplicate disconnect; stopping/park policy awaits feel |
+| Driver disconnect / admission failure | Close commands and cancel reservations/actions, release seat exactly once; apply neutral controls and coast the surviving vehicle to a stop under drive rules; never immediately resume traffic AI | Before claim, during provisional handoff, admitted, resync loading, duplicate disconnect; verify replicated coast for remaining peers in the production seat system |
 | Driver death | Close commands, clear driver seat once, cancel seat/action/reload/prediction work; surviving vehicle neutral; dead player foot simulation disabled | Death before/after exit, during resync, delayed baseline cannot preserve a subsequently killed driver |
 | Vehicle destruction / retirement | Commit terminal car state and occupant death/release once; disable old collision/controller and reject old generation | Driver occupied/unoccupied, simultaneous player death, pending exit/entry, cleanup plus late movement; S05/M1-B3 own damage/chains |
 | Seated resync | Retain live injured player, seat/vehicle and equipment; close old control until current handoff and fresh dependent pose | Window overflow, loss/retry, death/destruction/exit during loading; stale grants/acks/input cannot reopen old control |
