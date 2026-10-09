@@ -1,0 +1,17 @@
+{
+  "checks": {
+    "fresh_reexport_byte_identical": true,
+    "godot_named_bone_rest_origins_and_parents": "28 pass",
+    "animations": "none; not ready"
+  },
+  "sha256": {
+    "art/source/models/shared_humanoid/shared_humanoid_v1.blend": "7f450353ec049207f2e198fa5ab87ccf83502c9f60b33d0f440a1225cb4ba20b",
+    "art/source/models/shared_humanoid/shared_humanoid_v1.json": "bdbdc6324702ff608516894f27cd4f38cbb511e7cc72a8ef4f5639437bf067b6",
+    "art/models/shared_humanoid/shared_humanoid_bind_v1.glb": "fb1c56ad2dcd22bdd5deb5d4c9f86c4ff5d27693ab6c4c13d8ba0c712e3151c9"
+  },
+  "limitations": [
+    "Full skin deformation and weapon fit pending",
+    "Initial author process saved outputs then stalled in sandbox audio shutdown; outputs validated by clean fresh source reexport with ALSOFT_DRIVERS=null",
+    "Initial sandbox Godot check passed rest assertions but autoload sockets failed; clean permitted-socket rerun passed"
+  ]
+}
