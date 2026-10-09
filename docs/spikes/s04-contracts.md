@@ -55,8 +55,10 @@ clears queued poses and floors. There is no general future-state/reset framework
 A moving exit rejection preserves seat, input and prediction state. A successful
 stopped result makes the client body passive, closes input, clears replay history and
 removes its local seat. Exit requests permit one client outstanding request and use a
-small host per-peer token bucket. A matching reliable `RATE_LIMIT` verdict clears only
-that pending request so a later stopped exit can proceed. Disconnect captures
+small host per-peer token bucket. Only the first denied request before a refill receives a
+reliable `RATE_LIMIT`; further denied replies are suppressed until admitted work resets the
+notification interval. The matching verdict clears only that pending request so a later stopped
+exit can proceed. Disconnect captures
 binding-independent pose metadata before removing the driver binding, so normal telemetry
 and movement envelopes retain
 the neutral coasting car through rest.
