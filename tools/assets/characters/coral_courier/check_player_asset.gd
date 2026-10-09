@@ -79,29 +79,86 @@ func check_library(
 				expect(matrix.is_finite(), name + " finite pose")
 
 
-## Exercise one bounded lifecycle with retained identities and independent resource references.
-func check() -> void:  # gdstyle:ignore=quality/max-local-variables
-	var actor: PlayerCharacterVisual = load(ACTOR).instantiate()
+## Load the complete asset closure before entering checks that dereference scene children.
+func check() -> void:
+	var actor_scene: PackedScene = load(ACTOR) as PackedScene
+	var template: PackedScene = (
+		load(SHARED_MODELS + "shared_humanoid_bind_v1.glb") as PackedScene
+	)
+	var courier_scene: PackedScene = (
+		load("res://art/models/characters/coral_courier/coral_courier.glb") as PackedScene
+	)
+	var library: AnimationLibrary = load(SHARED_ANIMATIONS + "player_v1.tres") as AnimationLibrary
+	var source_motion: PackedScene = (
+		load(SHARED_MODELS + "shared_humanoid_player_motion_v1.glb") as PackedScene
+	)
+	for resource: Resource in [actor_scene, template, courier_scene, library, source_motion]:
+		if resource == null:
+			expect(false, "required player asset resource loads")
+			finish()
+			return
+
+	check_loaded_resources(actor_scene, template, courier_scene, library, source_motion)
+
+
+## Validate instantiated dependencies before exercising the bounded lifecycle.
+func check_loaded_resources(
+	actor_scene: PackedScene,
+	template: PackedScene,
+	courier_scene: PackedScene,
+	library: AnimationLibrary,
+	source_motion: PackedScene,
+) -> void:
+	var actor: PlayerCharacterVisual = actor_scene.instantiate() as PlayerCharacterVisual
+	if actor == null:
+		expect(false, "player actor instantiates with the expected API")
+		finish()
+		return
+
 	root.add_child(actor)
 	var skeleton: Skeleton3D = actor.get_skeleton()
 	var player: AnimationPlayer = actor.get_animation_player()
-	var mesh: MeshInstance3D = skeleton.find_children("*", "MeshInstance3D", true, false)[0]
+	if skeleton == null or player == null:
+		expect(false, "player actor initializes its skeleton and animation player")
+		finish(actor)
+		return
+
+	var meshes: Array[Node] = skeleton.find_children("*", "MeshInstance3D", true, false)
+	if meshes.is_empty():
+		expect(false, "player skeleton contains skinned geometry")
+		finish(actor)
+		return
+
+	check_lifecycle(
+		actor, skeleton, player, meshes[0] as MeshInstance3D, actor_scene,
+		template, courier_scene, library, source_motion,
+	)
+
+
+## Exercise skin, animation, attachment, and layering contracts with validated inputs.
+func check_lifecycle(  # gdstyle:ignore=quality/max-local-variables,quality/max-parameters
+	actor: PlayerCharacterVisual,
+	skeleton: Skeleton3D,
+	player: AnimationPlayer,
+	mesh: MeshInstance3D,
+	actor_scene: PackedScene,
+	template: PackedScene,
+	courier_scene: PackedScene,
+	library: AnimationLibrary,
+	source_motion: PackedScene,
+) -> void:
 	var original_mesh: Mesh = mesh.mesh
 	var skeleton_id: int = skeleton.get_instance_id()
 	var player_id: int = player.get_instance_id()
 	expect(actor.play_clip(&"run"), "play run")
 	player.pause()
 	player.seek(0.23, true)
-	var template: PackedScene = load(SHARED_MODELS + "shared_humanoid_bind_v1.glb")
 	expect(actor.apply_skin(template), "compatible different mesh skin swap")
 	expect(mesh.mesh != original_mesh, "geometry actually changed")
 	expect(actor.get_skeleton().get_instance_id() == skeleton_id, "skeleton retained")
 	expect(actor.get_animation_player().get_instance_id() == player_id, "animation player retained")
 	expect(absf(player.current_animation_position - 0.23) < EPSILON, "playback time retained")
-	expect(
-		actor.apply_skin(load("res://art/models/characters/coral_courier/coral_courier.glb")),
-		"restore courier",
-	)
+	expect(actor.apply_skin(courier_scene), "restore courier")
 	expect(mesh.mesh == original_mesh, "courier resource restored")
 	expect(not actor.apply_skin(null), "null rejected")
 	var bad: Node3D = template.instantiate()
@@ -110,20 +167,22 @@ func check() -> void:  # gdstyle:ignore=quality/max-local-variables
 	bad_scene.pack(bad)
 	expect(not actor.apply_skin(bad_scene), "transformed hierarchy rejected")
 	bad.free()
-	for family: String in ["player"]:
-		var library_path: String = SHARED_ANIMATIONS + family + "_v1.tres"
-		var library: AnimationLibrary = load(library_path)
-		var source_path: String = SHARED_SOURCE + "shared_humanoid_"
-		source_path += family + "_motion_v1.json"
-		var manifest: Dictionary = JSON.parse_string(FileAccess.get_file_as_string(source_path))
-		check_library(library, manifest, player, skeleton, family + "/")
-	check_startup_appearance(template)
-	check_source_tracks(player)
+	var source_path: String = SHARED_SOURCE + "shared_humanoid_player_motion_v1.json"
+	var manifest: Dictionary = JSON.parse_string(FileAccess.get_file_as_string(source_path))
+	check_library(library, manifest, player, skeleton, "player/")
+	check_startup_appearance(template, actor_scene)
+	check_source_tracks(player, source_motion)
 	check_attachments(actor, player, skeleton)
 	check_layers(actor, player, skeleton)
+	finish(actor)
+
+
+## Print the retained result and terminate even when resource setup fails early.
+func finish(actor: Node = null) -> void:
 	print("PLAYER_ASSET_CHECK ", JSON.stringify({"failures": failures, "player_clips": 24,
 		"bones": 28, "skin_swap": "different geometry; stable skeleton/time"}))
-	actor.free()
+	if actor != null:
+		actor.free()
 	quit(0 if failures.is_empty() else 1)
 
 
@@ -175,10 +234,14 @@ func check_layers(
 
 
 ## Compare every extracted player key with the current imported source to detect stale caches.
-func check_source_tracks(player: AnimationPlayer) -> void:
-	var path: String = SHARED_MODELS + "shared_humanoid_player_motion_v1.glb"
-	var source: Node = (load(path) as PackedScene).instantiate()
+func check_source_tracks(player: AnimationPlayer, source_scene: PackedScene) -> void:
+	var source: Node = source_scene.instantiate()
 	var imported: AnimationPlayer = source.find_child("AnimationPlayer", true, false)
+	if imported == null:
+		expect(false, "source motion contains an animation player")
+		source.free()
+		return
+
 	var library: AnimationLibrary = player.get_animation_library(&"player")
 	for name: StringName in library.get_animation_list():
 		var actual: Animation = library.get_animation(name)
@@ -200,12 +263,29 @@ func check_source_tracks(player: AnimationPlayer) -> void:
 
 
 ## Exercise the exported property before ready; initialization must actually change geometry.
-func check_startup_appearance(template: PackedScene) -> void:
-	var actor: PlayerCharacterVisual = load(ACTOR).instantiate()
-	var skeleton: Skeleton3D = actor.get_node("PresentationAnchor/Visuals/Model/Rig/Skeleton3D")
-	var mesh: MeshInstance3D = skeleton.find_children("*", "MeshInstance3D", true, false)[0]
+func check_startup_appearance(template: PackedScene, actor_scene: PackedScene) -> void:
+	var actor: PlayerCharacterVisual = actor_scene.instantiate() as PlayerCharacterVisual
+	if actor == null:
+		expect(false, "startup appearance actor instantiates")
+		return
+
+	var skeleton: Skeleton3D = actor.get_node_or_null(
+		"PresentationAnchor/Visuals/Model/Rig/Skeleton3D"
+	) as Skeleton3D
+	var animation: AnimationPlayer = actor.get_node_or_null("AnimationPlayer") as AnimationPlayer
+	if skeleton == null or animation == null:
+		expect(false, "startup appearance dependencies exist")
+		actor.free()
+		return
+
+	var meshes: Array[Node] = skeleton.find_children("*", "MeshInstance3D", true, false)
+	if meshes.is_empty():
+		expect(false, "startup appearance contains skinned geometry")
+		actor.free()
+		return
+
+	var mesh: MeshInstance3D = meshes[0] as MeshInstance3D
 	var original_mesh: Mesh = mesh.mesh
-	var animation: AnimationPlayer = actor.get_node("AnimationPlayer")
 	actor.appearance = template
 	root.add_child(actor)
 	expect(mesh.mesh != original_mesh, "exported appearance applied during ready")
