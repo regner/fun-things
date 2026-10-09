@@ -114,6 +114,17 @@ later. Do not infer a hand bone basis, twist the weapon root to compensate for o
 or bind against S13. Player lead will derive and verify bone-to-grip and contact
 offsets in the versioned production rig after player concept approval.
 
+9 October pedestrian dependency update: Regner selected **C — Off-Shift Worker**
+and authorized reusable per-NPC colours with the shared rig approach. Pedestrian
+lead owns the cap, broad short amber/cobalt jacket, slate trousers and boots; no
+held props or extra sockets. Required shared motion includes relaxed arm swing
+with elbows/knees, in-place looping `idle` / `walk` / `run`, and one-shot `death`
+retaining its final pose. Height near 1.8 m remains provisional. Worker mesh/source
+can proceed independently; binding waits for the player-owned immutable contract/
+source revision with hierarchy, rest pose, skin mapping and clip conventions.
+Common production locomotion/death clips are **not ready for reuse** at this
+checkpoint; S13's technical clips do not establish production compatibility.
+
 Required coverage includes in-place unarmed idle/walk/run and retained final death
 pose; pistol, two-hand SMG and shoulder-launcher holding/aiming while stationary
 and moving; independent movement/aim directions from the design brief; and pistol/
