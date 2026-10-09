@@ -1,0 +1,59 @@
+{
+  "revision": "2db8ee8e02c9196589d4d8dbbd7b86f61a12eab1",
+  "commands": [
+    {
+      "command": "python -m unittest discover -s tools -p \"test_*.py\"",
+      "exit_code": 0,
+      "tests_run": 14,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "result": "OK",
+      "log": "validation-unittest.log"
+    },
+    {
+      "command": "python tools/script_checks.py",
+      "exit_code": 1,
+      "owned_scripts": 76,
+      "formatting": true,
+      "style": false,
+      "compilation": true,
+      "warning_count": 3,
+      "diagnostics": [
+        {
+          "path": "tests/fixtures/s07_driver/fixture.gd",
+          "line": 6,
+          "column": 101,
+          "rule": "format/max-line-length",
+          "message": "line is 101 characters long (max 100)"
+        },
+        {
+          "path": "tests/fixtures/s07_driver/guards.gd",
+          "line": 17,
+          "column": 1,
+          "rule": "quality/max-function-length",
+          "message": "function '_run' is 60 lines long (max 50)"
+        },
+        {
+          "path": "tests/fixtures/s07_driver/run.gd",
+          "line": 75,
+          "column": 1,
+          "rule": "quality/max-function-length",
+          "message": "function '_traverse' is 65 lines long (max 50)"
+        }
+      ],
+      "failure_reason": "three accepted pre-existing warnings exceed the configured zero-warning limit",
+      "log": "validation-script-checks.log"
+    }
+  ],
+  "s06_runner_sources": {
+    "tools/s06/capture_windows.py": {
+      "bytes": 10562,
+      "sha256": "9030b7305a0a706b092dd30fa378afb208a9526a69e9b98150007faf4d0ca644"
+    },
+    "tools/script_checks.py": {
+      "bytes": 6705,
+      "sha256": "f8efab7962fb39601038c69cfc9fc739d8fc39193f507f82f52e9c137ac9c9e0"
+    }
+  }
+}

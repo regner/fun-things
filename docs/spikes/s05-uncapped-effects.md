@@ -99,7 +99,11 @@ The unittest suite passed all 14 tests. `script_checks.py` formatted and explici
 compiled all 76 owned scripts successfully, then exited 1 only because its zero-warning
 limit encountered the three accepted pre-existing S07 driver warnings named in the
 repository brief: `fixture.gd` line length, `guards.gd` function length, and `run.gd`
-function length. No new warning was reported.
+function length. No new warning was reported. The exact commands, exit codes, counts,
+diagnostics, and source identities are retained in the
+[validation receipt](s05-uncapped-effects-evidence/validation-receipt.json), with the
+[unittest](s05-uncapped-effects-evidence/validation-unittest.log) and
+[script-checks](s05-uncapped-effects-evidence/validation-script-checks.log) output.
 
 ## Small review corrections
 
@@ -107,9 +111,9 @@ The comparator draw-wait purpose comment now describes all expected accepted sav
 effect slots instead of the historical eight. The S06 Windows capture runner's clean
 input scope now includes `tools/s06/capture_windows.py` and
 `tools/script_checks.py`, and every result records both source byte counts and SHA-256
-identities in `runner_sources`. Current hashes are respectively
-`9030b7305a0a706b092dd30fa378afb208a9526a69e9b98150007faf4d0ca644` and
-`f8efab7962fb39601038c69cfc9fc739d8fc39193f507f82f52e9c137ac9c9e0`.
+identities in `runner_sources`. The retained validation receipt records 10,562 bytes /
+`9030b7305a0a706b092dd30fa378afb208a9526a69e9b98150007faf4d0ca644` and 6,705 bytes /
+`f8efab7962fb39601038c69cfc9fc739d8fc39193f507f82f52e9c137ac9c9e0`, respectively.
 
 ## Limits
 
