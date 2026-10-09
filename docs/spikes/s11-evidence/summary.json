@@ -1,0 +1,251 @@
+{
+  "source": "C:\\tmp\\ft\\lanes\\s11-population-net\\full-06\\result.json",
+  "engine": "4.8.dev7.official.c971f93e7",
+  "case_count": 6,
+  "profiles": {
+    "normal": {
+      "host_out": {
+        "values_kib_s": [
+          52.5515625,
+          58.491015625,
+          53.4580078125
+        ],
+        "median_kib_s": 53.4580078125,
+        "worst_kib_s": 58.491015625
+      },
+      "host_in": {
+        "values_kib_s": [
+          0.5724609375,
+          0.47421875,
+          0.5765625
+        ],
+        "median_kib_s": 0.5724609375,
+        "worst_kib_s": 0.5765625
+      },
+      "client_in": {
+        "values_kib_s": [
+          19.2787109375,
+          20.09931640625,
+          18.3951171875
+        ],
+        "median_kib_s": 19.2787109375,
+        "worst_kib_s": 20.09931640625
+      },
+      "client_out": {
+        "values_kib_s": [
+          0.193359375,
+          0.17265625,
+          0.2029296875
+        ],
+        "median_kib_s": 0.193359375,
+        "worst_kib_s": 0.2029296875
+      },
+      "encode_usec_per_snapshot": {
+        "p95_values_usec": [
+          484,
+          467,
+          515
+        ],
+        "median_p95_usec": 484,
+        "worst_usec": 3965
+      },
+      "decode_usec_per_packet": {
+        "p95_values_usec": [
+          867,
+          846,
+          632
+        ],
+        "median_p95_usec": 846,
+        "worst_usec": 9631
+      },
+      "jitter_p95_m": {
+        "values": [
+          0.0642173825178146,
+          0.101401317712016,
+          0.0834650983942615,
+          0.101699866851171,
+          0.104399718840917,
+          0.0964964634137948,
+          0.081450500090917,
+          0.0656003554662069,
+          0.0813105232512951
+        ],
+        "median": 0.0834650983942615,
+        "worst": 0.104399718840917
+      },
+      "extrapolated_entity_frame_percent": {
+        "values": [
+          21.446002842661375,
+          2.699028080661228,
+          17.88813495174502,
+          3.981927145481116,
+          0.812238995580663,
+          3.0017903054287984,
+          7.78905746094955,
+          14.953310339025826,
+          10.826214796337844
+        ],
+        "median": 7.78905746094955,
+        "worst": 21.446002842661375
+      },
+      "join_wire_bytes_worst": 3149,
+      "environment": [
+        {
+          "before": {
+            "godot_processes": 6,
+            "cpu_load_percent": 77.0
+          },
+          "measurement": {
+            "godot_processes": 9,
+            "cpu_load_percent": 58.0
+          },
+          "label": "contended upper bound"
+        },
+        {
+          "before": {
+            "godot_processes": 5,
+            "cpu_load_percent": 68.0
+          },
+          "measurement": {
+            "godot_processes": 10,
+            "cpu_load_percent": 68.0
+          },
+          "label": "contended upper bound"
+        },
+        {
+          "before": {
+            "godot_processes": 5,
+            "cpu_load_percent": 73.0
+          },
+          "measurement": {
+            "godot_processes": 9,
+            "cpu_load_percent": 59.0
+          },
+          "label": "contended upper bound"
+        }
+      ]
+    },
+    "adverse": {
+      "host_out": {
+        "values_kib_s": [
+          37.62177734375,
+          53.51630859375,
+          57.8736328125
+        ],
+        "median_kib_s": 53.51630859375,
+        "worst_kib_s": 57.8736328125
+      },
+      "host_in": {
+        "values_kib_s": [
+          0.3794921875,
+          0.3572265625,
+          0.3697265625
+        ],
+        "median_kib_s": 0.3697265625,
+        "worst_kib_s": 0.3794921875
+      },
+      "client_in": {
+        "values_kib_s": [
+          14.38642578125,
+          19.66298828125,
+          19.8310546875
+        ],
+        "median_kib_s": 19.66298828125,
+        "worst_kib_s": 19.8310546875
+      },
+      "client_out": {
+        "values_kib_s": [
+          0.1322265625,
+          0.121875,
+          0.13125
+        ],
+        "median_kib_s": 0.13125,
+        "worst_kib_s": 0.1322265625
+      },
+      "encode_usec_per_snapshot": {
+        "p95_values_usec": [
+          1421,
+          678,
+          851
+        ],
+        "median_p95_usec": 851,
+        "worst_usec": 9387
+      },
+      "decode_usec_per_packet": {
+        "p95_values_usec": [
+          611,
+          639,
+          948
+        ],
+        "median_p95_usec": 639,
+        "worst_usec": 4376
+      },
+      "jitter_p95_m": {
+        "values": [
+          0.0413784016442299,
+          0.0400000015894572,
+          0.0400000015894572,
+          0.0400000015894572,
+          0.0703992446263631,
+          0.0429799678722223,
+          0.0433333350552453,
+          0.081450500090917,
+          0.0406776016163826
+        ],
+        "median": 0.0413784016442299,
+        "worst": 0.081450500090917
+      },
+      "extrapolated_entity_frame_percent": {
+        "values": [
+          33.831242565156266,
+          35.242602262837245,
+          69.89403670342395,
+          33.2601435746404,
+          18.5052725694901,
+          38.47839491533463,
+          21.677530929892246,
+          16.497502604236224,
+          21.40751951569221
+        ],
+        "median": 33.2601435746404,
+        "worst": 69.89403670342395
+      },
+      "join_wire_bytes_worst": 3269,
+      "environment": [
+        {
+          "before": {
+            "godot_processes": 4,
+            "cpu_load_percent": 71.0
+          },
+          "measurement": {
+            "godot_processes": 8,
+            "cpu_load_percent": 65.0
+          },
+          "label": "contended upper bound"
+        },
+        {
+          "before": {
+            "godot_processes": 3,
+            "cpu_load_percent": 74.0
+          },
+          "measurement": {
+            "godot_processes": 8,
+            "cpu_load_percent": 64.0
+          },
+          "label": "contended upper bound"
+        },
+        {
+          "before": {
+            "godot_processes": 4,
+            "cpu_load_percent": 48.0
+          },
+          "measurement": {
+            "godot_processes": 6,
+            "cpu_load_percent": 53.0
+          },
+          "label": "contended upper bound"
+        }
+      ]
+    }
+  }
+}
