@@ -1,6 +1,7 @@
 # First civilian pedestrian — scoped concept handoff
 
-Status: concept options delivered; **selection pending Regner**, 9 October 2026.
+Status: **C — Off-Shift Worker selected by Regner**, 9 October 2026.
+Geometry/material authoring underway; final binding/production clips pending player contract.
 Base: `c030d66d7d0a9db19c0c2aebf1aa2b83eded6275`.
 
 Pedestrian lead owns brief, concepts, eventual approved Blender model/materials,
@@ -17,8 +18,9 @@ garment and shoe masses. Style follows the selected island cyberpunk setting and
 smooth 3D art direction. [Three sheets, recommendation and self-review](../concepts/assets-v1/pedestrian/README.md)
 and [simple gallery](../concepts/assets-v1/pedestrian/review.html) are the deliverables
 at this checkpoint. Exact authored prompts, producer and image hashes are retained
-beside the sheets. No detailed production has started; no production acceptance is
-claimed. No shared catalogue, TODO, launch scene, project configuration or spike
+beside the sheets. The owner selected C with "OK, lets start with that and use option C,
+the shift worker". Production asset acceptance remains pending. No shared catalogue,
+TODO, launch scene, project configuration or spike
 consumer has been changed.
 
 Camera target: vertical-down perspective, north-up, 47 m, FOV42°, 1280×800.
@@ -36,6 +38,9 @@ hand sockets, production rest pose or anatomical rig. Its existing palette swap
 wrapper and manual locomotion restart are technical evidence, not production APIs
 to duplicate. Existing S13 files are untouched.
 
+Player's reply at `d53266afb093f55a7944549f7b4f627f1b52050d` confirms no production
+rig/rest/skin contract or reusable clips exist yet. Reserved owner paths are
+`docs/assets/shared_humanoid_rig.md` and `art/source/models/shared_humanoid/`.
 Final binding waits for the player-owned versioned hierarchy, rest/bind transforms,
 skin influence contract and clip/attachment conventions. Do not author a competing
 skeleton. Pedestrian needs in-place `idle`, `walk`, `run` looping and one-shot
@@ -45,11 +50,27 @@ A's cross-body bag can follow the torso/hip; B may need a hand-bound tote and co
 weight checks; C needs no extra attachment. Confirm whether shared clips suffice
 or pedestrian-specific compatible clips belong in the selected asset source.
 
+## Owner routing and animation-library decision
+
+Regner approved one shared underlying skeleton with **separate player and NPC
+animation libraries**, preserving interchangeable player skins. The worker owns its
+civilian clips against the versioned player-owned skeleton; player clips are not
+assumed to be the NPC library. S13 is not a retarget source.
+
+Owner model-routing instruction, 9 October 2026: "Any time any of those workspaces
+are doing modeling or animation work they should be using the Astra model. Work in
+Godot that doesn't need spatial awarness, such as configuring animations and rigs
+or importing models, can use Sol 6.1." This overrides the earlier lead-model rule.
+Before spatial mutations, verify actual effective runtime; preserve sources and
+end an old Sol turn if the change cannot take effect safely. Sol remains permitted
+for non-spatial import/configuration/bookkeeping. At the first modelling boundary,
+Paseo `get_agent_status` reported `runtimeInfo.model=gpt-6-astra`, high, for this
+agent/session/worktree. No geometry/keyframes existed before this verification.
+
 ## Reserved asset-local production paths
 
-Choose one stable ID after approval: `pedestrian_commuter_a`,
-`pedestrian_shopper_a`, or `pedestrian_worker_a`. These are alternatives, not three
-production promises. Use the unique family `pedestrian_civilian`:
+Selected stable ID: `pedestrian_worker_a`, unique family `pedestrian_civilian`.
+A and B remain uncommissioned concept alternatives.
 
 - `art/source/models/pedestrian_civilian/<id>.blend`, collection `export_<id>`.
 - `art/models/pedestrian_civilian/<id>.glb` and Godot-generated `.import`.

@@ -1,7 +1,9 @@
 # First civilian pedestrian concepts
 
-9 October 2026. Concept selection **pending Regner**. Production modelling has not
-started. [Open the review gallery](review.html). [Asset handoff](../../../assets/pedestrian_civilian_first.md).
+9 October 2026. **Regner selected C — Off-Shift Worker** and authorised the reusable
+NPC-colour/shared-rig approach. Geometry/material authoring is underway; final binding
+waits for the player-owned production rig. [Open the review gallery](review.html).
+[Asset handoff](../../../assets/pedestrian_civilian_first.md).
 
 The assignment is one reusable civilian pedestrian for the smooth, chunky city
 direction. The inspected setting reference is
@@ -14,9 +16,8 @@ All names are placeholders; the designs carry no real brands.
 | [B — Corner-Shop Regular](b_shopper.png) | Cobalt mid-thigh coat, silver hair mass, amber sweater, ivory shopping tote | Strong civilian variety; coat deformation and held tote add motion checks |
 | [C — Off-Shift Worker](c_worker.png) | Amber short jacket, cobalt shoulders, petrol cap, broad stocky build | Cap brim helps facing; shoulders must stay distinct from the selected player |
 
-These are alternative directions for **one** initial asset, not an approved three-person
-production set. Regner may select or request changes directly in this workstream.
-The recommendation does not select the concept on the owner's behalf.
+These were alternative directions for **one** initial asset, not an approved
+three-person production set. The original recommendation was A; the owner selected C.
 
 ## Self-review
 
@@ -61,6 +62,7 @@ responses: completed image files were recovered and visually identified. A secon
 commuter output from the interrupted repeat was discarded from this gallery. C was
 then generated explicitly and returned normally. No CLI/API fallback was used.
 
-Approval record: pending; reviewer Regner; selected option/date unset. Initial
+Approval record: accepted concept C, reviewer Regner, 9 October 2026; exact owner
+instruction: "OK, lets start with that and use option C, the shift worker". Initial
 concept self-review is complete within the limited scope above; independent
 production review is still required after actual asset work.
