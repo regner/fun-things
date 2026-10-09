@@ -21,6 +21,7 @@ const SAFE_GAP_SECONDS: float = 1.0
 const CAR_WIDTH_M: float = 1.8
 const CAR_LENGTH_M: float = 3.4
 const CAR_HALF_DIAGONAL_M: float = 1.9235384
+const CAR_OVERLAP_BROADPHASE_M2: float = 14.8
 const INTERSECTION_APPROACH_M: float = 10.0
 const INTERSECTION_ENTERED_M: float = 3.0
 const GRIDLOCK_TICKS: int = 240
@@ -346,6 +347,8 @@ func _update_collisions() -> void:
 		for right_index: int in range(left_index + 1, _cars.size()):
 			var left: Dictionary = _cars[left_index]
 			var right: Dictionary = _cars[right_index]
+			if left.position.distance_squared_to(right.position) > CAR_OVERLAP_BROADPHASE_M2:
+				continue
 			if not footprints_overlap(left.position, left.yaw, right.position, right.yaw):
 				continue
 			var key: String = "%d:%d" % [left.id, right.id]
