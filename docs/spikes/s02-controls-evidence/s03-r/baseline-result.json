@@ -10,7 +10,7 @@
           -1.0
         ],
         "aim_yaw": 0.0,
-        "physics_ms": 52,
+        "physics_ms": 50,
         "rendered_frame_ms": null
       },
       {
@@ -20,7 +20,7 @@
           0.0
         ],
         "aim_yaw": -1.5707963267949,
-        "physics_ms": 73,
+        "physics_ms": 59,
         "rendered_frame_ms": null
       },
       {
@@ -30,7 +30,7 @@
           -1.0
         ],
         "aim_yaw": 0.0,
-        "physics_ms": 66,
+        "physics_ms": 54,
         "rendered_frame_ms": null
       },
       {
@@ -40,7 +40,7 @@
           0.0
         ],
         "aim_yaw": 1.5707963267949,
-        "physics_ms": 72,
+        "physics_ms": 76,
         "rendered_frame_ms": null
       },
       {
@@ -50,7 +50,7 @@
           -1.0
         ],
         "aim_yaw": 0.0,
-        "physics_ms": 65,
+        "physics_ms": 58,
         "rendered_frame_ms": null
       },
       {
@@ -60,7 +60,7 @@
           0.0
         ],
         "aim_yaw": -1.5707963267949,
-        "physics_ms": 71,
+        "physics_ms": 75,
         "rendered_frame_ms": null
       },
       {
@@ -70,7 +70,7 @@
           -1.0
         ],
         "aim_yaw": 0.0,
-        "physics_ms": 80,
+        "physics_ms": 68,
         "rendered_frame_ms": null
       },
       {
@@ -80,7 +80,7 @@
           0.0
         ],
         "aim_yaw": 1.5707963267949,
-        "physics_ms": 86,
+        "physics_ms": 63,
         "rendered_frame_ms": null
       },
       {
@@ -90,7 +90,7 @@
           -1.0
         ],
         "aim_yaw": 0.0,
-        "physics_ms": 145,
+        "physics_ms": 111,
         "rendered_frame_ms": null
       },
       {
@@ -100,7 +100,7 @@
           0.0
         ],
         "aim_yaw": -1.5707963267949,
-        "physics_ms": 70,
+        "physics_ms": 56,
         "rendered_frame_ms": null
       },
       {
@@ -110,7 +110,7 @@
           -1.0
         ],
         "aim_yaw": 0.0,
-        "physics_ms": 81,
+        "physics_ms": 253,
         "rendered_frame_ms": null
       },
       {
@@ -120,7 +120,7 @@
           0.0
         ],
         "aim_yaw": 1.5707963267949,
-        "physics_ms": 82,
+        "physics_ms": 218,
         "rendered_frame_ms": null
       },
       {
@@ -130,7 +130,7 @@
           -1.0
         ],
         "aim_yaw": 0.0,
-        "physics_ms": 98,
+        "physics_ms": 172,
         "rendered_frame_ms": null
       },
       {
@@ -140,7 +140,7 @@
           0.0
         ],
         "aim_yaw": -1.5707963267949,
-        "physics_ms": 65,
+        "physics_ms": 103,
         "rendered_frame_ms": null
       },
       {
@@ -150,7 +150,7 @@
           -1.0
         ],
         "aim_yaw": 0.0,
-        "physics_ms": 81,
+        "physics_ms": 50,
         "rendered_frame_ms": null
       },
       {
@@ -160,7 +160,7 @@
           0.0
         ],
         "aim_yaw": 1.5707963267949,
-        "physics_ms": 52,
+        "physics_ms": 79,
         "rendered_frame_ms": null
       },
       {
@@ -170,7 +170,7 @@
           -1.0
         ],
         "aim_yaw": 0.0,
-        "physics_ms": 93,
+        "physics_ms": 97,
         "rendered_frame_ms": null
       },
       {
@@ -180,7 +180,7 @@
           0.0
         ],
         "aim_yaw": -1.5707963267949,
-        "physics_ms": 95,
+        "physics_ms": 55,
         "rendered_frame_ms": null
       },
       {
@@ -190,7 +190,7 @@
           -1.0
         ],
         "aim_yaw": 0.0,
-        "physics_ms": 52,
+        "physics_ms": 50,
         "rendered_frame_ms": null
       },
       {
@@ -200,20 +200,20 @@
           0.0
         ],
         "aim_yaw": 1.5707963267949,
-        "physics_ms": 66,
+        "physics_ms": 67,
         "rendered_frame_ms": null
       }
     ],
     "response_p95_ms": {
-      "physics_ms": 98,
+      "physics_ms": 218,
       "rendered_frame_ms": null
     },
     "response_samples": 20,
     "response_missing": 20,
-    "snapshot_age_p95_ms": 37.0,
-    "snapshot_age_max_ms": 93.0,
+    "snapshot_age_p95_ms": 41.0,
+    "snapshot_age_max_ms": 54.0,
     "matching_tick_install_error_max_m": 0.0,
-    "matching_tick_samples": 841,
+    "matching_tick_samples": 817,
     "update_jump_p95_m": 0.25000047683716,
     "prediction_correction": "not measured: no predicted state",
     "wall_stop": true,
@@ -222,8 +222,8 @@
       {
         "entity": 2,
         "age_ms": 255,
-        "previous_age_ms": 249,
-        "tick_gap_ms": 6,
+        "previous_age_ms": 239,
+        "tick_gap_ms": 16,
         "velocity": [
           0.0,
           0.0,
@@ -234,14 +234,14 @@
     "recovery": [
       {
         "case": "interruption",
-        "settled_tick": 841,
-        "observed_delay_ms": 64.0,
+        "settled_tick": 842,
+        "observed_delay_ms": 38.0,
         "converged": true
       },
       {
         "case": "host_stall",
-        "settled_tick": 996,
-        "observed_delay_ms": 16.0,
+        "settled_tick": 997,
+        "observed_delay_ms": 65.0,
         "converged": true
       }
     ],
@@ -251,13 +251,13 @@
         "display": "headless",
         "engine": "4.8-dev7 (official)",
         "event": "start",
-        "pid": 53208,
+        "pid": 9076,
         "profile": "baseline",
         "renderer": "forward_plus",
         "role": "host",
-        "time_ms": 764,
-        "user_dir": "C:/tmp/ft/lanes/s02-controls/s03r-final/baseline/host/user/appdata/Godot/app_userdata/Fun Things",
-        "wall_ms": 1791527493066.0,
+        "time_ms": 758,
+        "user_dir": "C:/tmp/ft/lanes/s02-controls/final-s03r/baseline/host/user/appdata/Godot/app_userdata/Fun Things",
+        "wall_ms": 1791528138287.0,
         "window_mode": 1,
         "window_visible": true
       },
@@ -266,13 +266,13 @@
         "display": "headless",
         "engine": "4.8-dev7 (official)",
         "event": "start",
-        "pid": 17088,
+        "pid": 39072,
         "profile": "baseline",
         "renderer": "forward_plus",
         "role": "client",
         "time_ms": 377,
-        "user_dir": "C:/tmp/ft/lanes/s02-controls/s03r-final/baseline/client/user/appdata/Godot/app_userdata/Fun Things",
-        "wall_ms": 1791527493059.0,
+        "user_dir": "C:/tmp/ft/lanes/s02-controls/final-s03r/baseline/client/user/appdata/Godot/app_userdata/Fun Things",
+        "wall_ms": 1791528138278.0,
         "window_mode": 1,
         "window_visible": true
       }
@@ -286,7 +286,7 @@
     "native_drops": 0,
     "results": {
       "host": {
-        "accepted": 1287,
+        "accepted": 1286,
         "event": "result",
         "failures": [],
         "max_held_bytes": 284,
@@ -300,8 +300,8 @@
           "WINDOW": 1
         },
         "role": "host",
-        "time_ms": 22806,
-        "wall_ms": 1791527515108.0
+        "time_ms": 22785,
+        "wall_ms": 1791528160314.0
       },
       "client": {
         "accepted": 0,
@@ -313,15 +313,15 @@
         "reason": "HOST_LOST",
         "rejected": {},
         "role": "client",
-        "time_ms": 22425,
-        "wall_ms": 1791527515107.0
+        "time_ms": 22412,
+        "wall_ms": 1791528160314.0
       }
     }
   },
   "source_sha256": {
     "project.godot": "5deb5eeadb74e91b6bae268000982e442c06af794a989ff644be029e1894baf7",
     "tests\\fixtures\\s02\\actor.tscn": "551bd1eafd7771c003a571115e8044aff4e68c61755754e524c7385171ee9ca8",
-    "tests\\fixtures\\s02\\actor_motion.gd": "8dc63f6f3769b08c97905b6d25967f4450e030bf8b5af8d9be71c5ae923aa41f",
+    "tests\\fixtures\\s02\\actor_motion.gd": "e8e8d1e228ee7e28983324f00e20cfda1d1ddf36cb4c300ecfaffe48218973c7",
     "tests\\fixtures\\s02\\actor_motion.gd.uid": "42dfa733fa0958615246b2853efdcc3fa6a89e5ec6288f040813b933d89b9025",
     "tests\\fixtures\\s02\\aim_probe.gd": "f247b6eba63313b90badf3c666dd78c59f07ce88e9ff48dcd11c48d5a914dd1b",
     "tests\\fixtures\\s02\\aim_probe.gd.uid": "816adaff9b88557b7142b1f2f26ef5f45ebc283473ff5664eb9a629385df33b7",
@@ -329,21 +329,21 @@
     "tests\\fixtures\\s02\\camera_rig.gd.uid": "73acfe761e1268ccb8316a88493096fad0dd1337153b71f7fc83f412ca44f21a",
     "tests\\fixtures\\s02\\capture_s02.gd": "6b4f15f4fe5a2e1e3ddb814485ae72e08843e26062ac1182e350dbe314aee0af",
     "tests\\fixtures\\s02\\capture_s02.gd.uid": "b962c25c26aa7d41b47716a14e083df1fe39802800c1bf7480b368f874deb541",
-    "tests\\fixtures\\s02\\check_s02.gd": "6ffd6a8e2e32322b0761cc07212e1b5b1df3b60ca3ad8c87266219dbd2ff0c2b",
+    "tests\\fixtures\\s02\\check_s02.gd": "632835ce5166e8177e76995a45b9635d4670445e177ea37feb469c39f8504b1e",
     "tests\\fixtures\\s02\\check_s02.gd.uid": "66dac85956be0967a9eca87027df98e7d80ee925093b6e24e945f6653b2136d1",
     "tests\\fixtures\\s02\\corner.tscn": "663baf0eec1983ebc857e05e4aeeeb1593bfc9005591e40ae15d4101891aab46",
     "tests\\fixtures\\s02\\corner_wide.tscn": "51a089a1c2b2e15fd574779f2e8eb110345b9e1410400be1a02da3e09fd6f504",
     "tests\\fixtures\\s02\\desktop_input.gd": "137f9fc746e1b9f71792634f692f691303bb71329bbc988f12008699e7d75a95",
     "tests\\fixtures\\s02\\desktop_input.gd.uid": "ae8b9ea33f9149c85def43f3a7296577b33d2d9a9730c9075b932f6a84fcfd35",
     "tests\\fixtures\\s02\\editor_harness.tscn": "ed2189f359de958a0cba5415abae8c70b4a82936dac8a4bc272120f2b3a9b70b",
-    "tests\\fixtures\\s02\\fixture.gd": "953f1a83dbd05bc40a6a7ef4c5f81eb8f8b0ba8934639e916be7abeb06cc9591",
+    "tests\\fixtures\\s02\\fixture.gd": "7053952fbeffa71b341481d782655ca5b4a8db4cdd34a6a65e191931af71a2b5",
     "tests\\fixtures\\s02\\fixture.gd.uid": "7d45e3efc41a8ff564fe3519c1f3ed750ffdcde7d4af292a25f86005cf136403",
     "tests\\fixtures\\s02\\focus_evidence.gd": "8eb92b1606d525a4ca79ce454ca1f129bb5c6dda1b84cfb0c3147a49f9748b4f",
     "tests\\fixtures\\s02\\focus_evidence.gd.uid": "e30416e99858ea58a946a7545dee4e75aeed1124de5b02319e88c98f699717bb",
     "tests\\fixtures\\s02\\focus_runner.tscn": "e97d9e997d1bffd2ab933b4c62219f9fefbd8d3ab05d7eb68e3ac0109af5b6b9",
     "tests\\fixtures\\s02\\ground_prefab.tscn": "ffcaf39427734a414b9e0ec4356593837f8e6c10781c50f3c47743c41e946694",
     "tests\\fixtures\\s02\\low_prefab.tscn": "874a5bf8d3445ea7b76ada0e060e4bec83868543d7a97262ed871f68c6d5773f",
-    "tests\\fixtures\\s02\\motion_rules.gd": "b3ab62f32b5e96c118c935c07c55c600d12fb58797141b818dd59226e9269102",
+    "tests\\fixtures\\s02\\motion_rules.gd": "83a1eace03d816b308bff683babcd5e95513c870e7deddca534d01d83d52be25",
     "tests\\fixtures\\s02\\motion_rules.gd.uid": "6c003dd3713cd15e59a48dd744fc4de8a1b851d327bdc7b8407cad5cf9f045c4",
     "tests\\fixtures\\s02\\near_prefab.tscn": "2ae3bf330720a874a2f3ce25bbaf9d3263e2190d6b940b2cfcf17a2ccb9dd84a",
     "tests\\fixtures\\s02\\observe_windows.gd": "2fe09bf0b5605c4b132417e9652558ce5ab573b57bc6c61feb47ced5e4e9879f",
@@ -374,7 +374,7 @@
     "tests\\fixtures\\s03_r\\actor.gd.uid": "cdbd59444603e8aaf2e1526eaf73ce0ec54eb4b90d60fc8b9cc3598400e8df51",
     "tests\\fixtures\\s03_r\\actor.tscn": "d3d744260c81626de3d93815773a76ecba18db28d8ca62e06e740179267a0b18",
     "tests\\fixtures\\s03_r\\boot.tscn": "5ba827b95fc1844c0836b26c724b746d35a2b4f1342bd657f923f2f57b4b7b48",
-    "tests\\fixtures\\s03_r\\match.gd": "8c3155ebec0b79d2b894d7797d3b67acb3ac9edbef15ddbcfe579973e44e5a5b",
+    "tests\\fixtures\\s03_r\\match.gd": "a0c6a2342a70cc0086c3d385e92a1a2f6879f768c0b620401e2249d390d33551",
     "tests\\fixtures\\s03_r\\match.gd.uid": "7f2ff641bb287a0aaa8140f4c5a78b1d97f8e7b53c961a4abedaeba6cd9b4582",
     "tests\\fixtures\\s03_r\\pose_fence_probe.gd": "43d49962032360615ee99d53fad144926760131be360c4cd407ed0529c1ed6c5",
     "tests\\fixtures\\s03_r\\pose_fence_probe.gd.uid": "91f709eea87db8cd5cf3a66003a84c4c9c6fa70b5543b1fb8a367dea1b7d1160",
@@ -407,48 +407,48 @@
       "C:\\Users\\regner.blokandersen\\AppData\\Local\\mise\\installs\\github-godotengine-godot-builds\\4.8-dev7\\godot.exe",
       "--headless",
       "--path",
-      "C:\\tmp\\ft\\lanes\\s02-controls\\s03r-final\\baseline\\project",
+      "C:\\tmp\\ft\\lanes\\s02-controls\\final-s03r\\baseline\\project",
       "--resolution",
       "1280x800",
       "--position",
       "0,0",
       "--log-file",
-      "C:\\tmp\\ft\\lanes\\s02-controls\\s03r-final\\baseline\\host\\engine.log",
+      "C:\\tmp\\ft\\lanes\\s02-controls\\final-s03r\\baseline\\host\\engine.log",
       "res://tests/fixtures/s03_r/boot.tscn",
       "--",
       "--role=host",
-      "--port=24920",
+      "--port=24900",
       "--profile=baseline"
     ],
     "client": [
       "C:\\Users\\regner.blokandersen\\AppData\\Local\\mise\\installs\\github-godotengine-godot-builds\\4.8-dev7\\godot.exe",
       "--headless",
       "--path",
-      "C:\\tmp\\ft\\lanes\\s02-controls\\s03r-final\\baseline\\project",
+      "C:\\tmp\\ft\\lanes\\s02-controls\\final-s03r\\baseline\\project",
       "--resolution",
       "1280x800",
       "--position",
       "1280,0",
       "--log-file",
-      "C:\\tmp\\ft\\lanes\\s02-controls\\s03r-final\\baseline\\client\\engine.log",
+      "C:\\tmp\\ft\\lanes\\s02-controls\\final-s03r\\baseline\\client\\engine.log",
       "res://tests/fixtures/s03_r/boot.tscn",
       "--",
       "--role=client",
-      "--port=24921",
+      "--port=24901",
       "--profile=baseline"
     ]
   },
   "process_ids": [
-    53208,
-    17088
+    9076,
+    39072
   ],
   "exits": [
     0,
     0
   ],
-  "peak_proxy_queue": 5,
+  "peak_proxy_queue": 4,
   "ports": [
-    24920,
-    24921
+    24900,
+    24901
   ]
 }
