@@ -35,7 +35,8 @@ class FoundationToolsTest(unittest.TestCase):
             root = Path(temporary)
             paths = ["tests/unused.gd", "addons/owned/unused.gd",
                      "addons/godotsteam/vendor.gd", "addons/godot_mcp_toolkit/vendor.gd",
-                     ".hidden/hidden.gd", "art/source/ignored.gd"]
+                     "addons/gut/vendor.gd", ".hidden/hidden.gd",
+                     "art/source/ignored.gd"]
             for relative in paths:
                 path = root / relative
                 path.parent.mkdir(parents=True, exist_ok=True)

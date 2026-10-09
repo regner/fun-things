@@ -1,0 +1,14 @@
+{
+  "engine": "4.8.dev7.official.c971f93e7",
+  "scratch_project": "C:/tmp/ft/lanes/m1-d1-1/export-scratch-project",
+  "output": "C:/tmp/ft/lanes/m1-d1-1/export-scratch-output",
+  "commands": [
+    "godot --headless --path . --export-debug Windows Debug <output>/windows-debug/FunThingsDebug.exe",
+    "godot --headless --path . --export-release Windows Release <output>/windows-release/FunThings.exe",
+    "godot --headless --path . --export-debug Linux Debug <output>/linux-debug/FunThingsDebug.x86_64",
+    "godot --headless --path . --export-release Linux Release <output>/linux-release/FunThings.x86_64",
+    "python tools/s08_x/inspect_exports.py --root <output> --project <scratch-project> --output <output>/package-inspection.json"
+  ],
+  "result": "All commands exited 0; package inspection passed all four packages.",
+  "scope": "Scratch proof only: the scratch copy replaced run/main_scene.tscn with a minimal non-test Node scene. The committed fixture-dependent main was not changed."
+}

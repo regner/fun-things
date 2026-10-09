@@ -1,10 +1,11 @@
 #!/usr/bin/env python3
-"""Inspect the four S08-X desktop exports and reject development-addon leaks."""
+"""Inspect desktop exports and reject development or test-only content leaks."""
 
 import argparse
 import hashlib
 import json
 from pathlib import Path
+import re
 import struct
 
 
@@ -14,14 +15,22 @@ EXPORTS = {
     "linux_debug": ("linux-debug/FunThingsDebug.x86_64", "ELF"),
     "linux_release": ("linux-release/FunThings.x86_64", "ELF"),
 }
-FORBIDDEN_PREFIXES = ("addons/godot_mcp_toolkit/", "addons/godotsteam/")
+FORBIDDEN_PREFIXES = (
+    "addons/godot_mcp_toolkit/",
+    "addons/godotsteam/",
+    "addons/gut/",
+    "tests/",
+)
 FORBIDDEN_NATIVE_NAMES = frozenset({
     "steam_api.dll",
     "steam_api64.dll",
     "libsteam_api.so",
     "libsteam_api.dylib",
 })
-REQUIRED = ("run/main_scene", "tests/fixtures/s06/intersection")
+ROOT = Path(__file__).resolve().parents[2]
+RESOURCE_PATH = re.compile(r"res://[^\"')\s]+")
+MAIN_SCENE = re.compile(r'^run/main_scene="(res://[^"]+)"$', re.MULTILINE)
+TEXT_DEPENDENCY_SUFFIXES = frozenset({".gd", ".gdshader", ".tres", ".tscn"})
 
 
 def identity(path: Path) -> dict:
@@ -64,7 +73,7 @@ def pck_entries(path: Path) -> list[str]:
 
 
 def is_forbidden_export_path(path: str) -> bool:
-    """Identify MCP and all bundled GodotSteam/Steamworks export artifacts."""
+    """Identify test-only, MCP, and bundled GodotSteam/Steamworks artifacts."""
     normalized = path.replace("\\", "/").removeprefix("res://").lower()
     basename = normalized.rsplit("/", maxsplit=1)[-1]
     if normalized.startswith(FORBIDDEN_PREFIXES):
@@ -82,16 +91,51 @@ def find_forbidden_output_files(directory: Path) -> list[str]:
     return [path for path in files if is_forbidden_export_path(path)]
 
 
-def inspect(root: Path) -> dict:
+def project_export_requirements(project_root: Path) -> list[str]:
+    """Discover the configured main scene and its source-addressable dependencies."""
+    settings = (project_root / "project.godot").read_text(encoding="utf-8")
+    match = MAIN_SCENE.search(settings)
+    if match is None:
+        raise ValueError("project.godot has no run/main_scene")
+
+    pending = [match.group(1)]
+    discovered = set()
+    while pending:
+        resource_path = pending.pop()
+        normalized = resource_path.removeprefix("res://")
+        if normalized in discovered:
+            continue
+        discovered.add(normalized)
+
+        source = project_root / normalized
+        if source.suffix not in TEXT_DEPENDENCY_SUFFIXES or not source.is_file():
+            continue
+        text = source.read_text(encoding="utf-8", errors="replace")
+        pending.extend(RESOURCE_PATH.findall(text))
+    return sorted(discovered)
+
+
+def requirement_matches(entries: list[str], resource_path: str) -> list[str]:
+    """Find exported/remapped members corresponding to one source resource path."""
+    needle = resource_path.rsplit(".", maxsplit=1)[0]
+    return [entry for entry in entries if needle in entry]
+
+
+def missing_required_entries(entries: list[str], required_paths: list[str]) -> list[str]:
+    """Return source requirements with no corresponding package member."""
+    return [path for path in required_paths if not requirement_matches(entries, path)]
+
+
+def inspect(root: Path, project_root: Path = ROOT) -> dict:
     """Validate all configured exports and return their hashes and package membership."""
-    result = {"ok": True, "exports": {}}
+    required = project_export_requirements(project_root)
+    result = {"ok": True, "exports": {}, "required_source_paths": required}
     for label, (relative, expected_format) in EXPORTS.items():
         executable = root / relative
         package = executable.with_suffix(".pck")
         entries = pck_entries(package)
         leaks = [entry for entry in entries if is_forbidden_export_path(entry)]
-        missing = [required for required in REQUIRED
-                   if not any(required in entry for entry in entries)]
+        missing = missing_required_entries(entries, required)
         actual_format = executable_format(executable)
         output_leaks = find_forbidden_output_files(executable.parent)
         passed = actual_format == expected_format and not leaks and not missing and not output_leaks
@@ -102,9 +146,9 @@ def inspect(root: Path) -> dict:
             "format": actual_format,
             "pck_entry_count": len(entries),
             "required_matches": {
-                required: [entry for entry in entries if required in entry]
-                for required in REQUIRED
+                path: requirement_matches(entries, path) for path in required
             },
+            "missing_required_paths": missing,
             "forbidden_pck_entries": leaks,
             "forbidden_output_files": output_leaks,
         }
@@ -116,9 +160,10 @@ def main() -> int:
     """Parse arguments, retain one JSON receipt, and signal contract failure."""
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--root", type=Path, required=True)
+    parser.add_argument("--project", type=Path, default=ROOT)
     parser.add_argument("--output", type=Path, required=True)
     args = parser.parse_args()
-    result = inspect(args.root.resolve())
+    result = inspect(args.root.resolve(), args.project.resolve())
     args.output.parent.mkdir(parents=True, exist_ok=True)
     args.output.write_text(json.dumps(result, indent=2) + "\n", encoding="utf-8")
     print(json.dumps(result))

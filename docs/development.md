@@ -222,8 +222,8 @@ python -m unittest discover -s tools -p "*test*.py"
 ```
 
 The first checks pinned formatting and lint. The second also discovers every owned
-`.gd`, honors hidden and `.gdignore` directories, excludes the named MCP vendor addon,
-and explicitly invokes `--check-only --script` for each file, including unused scripts.
+`.gd`, honors hidden and `.gdignore` directories, excludes only the named MCP and GUT vendor
+addons, and explicitly invokes `--check-only --script` for each file, including unused scripts.
 The removed
 GodotSteam path is no longer special-cased. A fresh dependency mirror retains project
 settings, gameplay autoloads and resources, but disables editor plugins and the
@@ -242,6 +242,30 @@ structured readiness/results, case/runner deadlines, and child-only cleanup.
 Both tools accept explicit executables and an external evidence directory; defaults
 use tools on PATH. Mise pins Python 3.14.2 so task commands use the same `python`
 executable name on Windows and Linux. Use the exact installed engine pin.
+
+### Canonical production checks
+
+Run the complete production check from the repository root with the exact Mise pins:
+
+```sh
+export PATH="$(dirname "$(mise which godot)"):$(dirname "$(mise which gdstyle)"):$PATH"
+python tools/production_checks.py --output /tmp/ft/production-checks
+```
+
+On Windows, use a fresh directory such as `C:/tmp/ft/lanes/<lane>/production-checks`.
+The entrypoint requires engine version `4.8.dev7.official.c971f93e7`, then runs owned-script
+formatting, zero-warning lint and explicit compilation, complete Python unittest discovery,
+a clean headless test-mirror import, and the test-only GUT suite under `tests/unit/`. It also
+runs the isolated intentional GUT failure under `tests/diagnostic/` and passes that check only
+when GUT exits nonzero with the expected failure marker. Logs, JUnit XML and a JSON summary stay
+in the external output directory.
+
+GUT is pinned to v9.7.1 under `addons/gut/`; its editor plugin is not enabled. Vendor scripts
+are excluded by exact path from project-owned style and compile discovery, while production and
+test scripts remain covered. Export presets exclude `addons/gut/**` and `tests/**`, and the
+package inspector rejects either path. The GitHub Actions workflow runs the same entrypoint on
+Windows and Linux through `mise.toml`; local Linux execution remains required when a Linux
+machine is available rather than inferred from Windows.
 
 Review function purpose comments, two empty lines between functions, export groups,
 and intent inside functions manually. The preserving formatter wrapper remains

@@ -1,0 +1,43 @@
+name: Production checks
+
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+
+jobs:
+  checks:
+    name: ${{ matrix.os }}
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 20
+    strategy:
+      fail-fast: false
+      matrix:
+        os:
+          - ubuntu-latest
+          - windows-latest
+
+    steps:
+      - uses: actions/checkout@v4
+      - uses: jdx/mise-action@v3
+        with:
+          install: true
+          cache: true
+      - name: Run canonical checks
+        shell: bash
+        run: >-
+          python tools/production_checks.py
+          --output "$RUNNER_TEMP/production-checks"
+      - name: Retain check logs
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: production-checks-${{ matrix.os }}
+          if-no-files-found: warn
+          path: |
+            ${{ runner.temp }}/production-checks/*.json
+            ${{ runner.temp }}/production-checks/*.log
+            ${{ runner.temp }}/production-checks/*.xml
+            ${{ runner.temp }}/production-checks/script-checks/*.json
+            ${{ runner.temp }}/production-checks/script-checks/*.log

@@ -12,7 +12,7 @@ import tempfile
 import time
 
 ROOT = Path(__file__).resolve().parents[1]
-VENDOR = {"addons/godot_mcp_toolkit"}
+VENDOR = {"addons/godot_mcp_toolkit", "addons/gut"}
 DIAGNOSTIC = re.compile(r"(?:SCRIPT ERROR:|ERROR:|WARNING:)")
 PIN = "4.8.dev7.official.c971f93e7"
 
@@ -89,8 +89,9 @@ def compile_all(godot, directory):
     # editor/cache. Preserve gameplay autoloads and runtime settings, but do not
     # execute editor plugins or the development-only MCP runtime during setup.
     project = directory / "compiler-project"
+    mirror_dotfiles = {".gdignore", ".gutconfig.json"}
     shutil.copytree(ROOT, project, ignore=lambda _path, names: [
-        name for name in names if (name.startswith(".") and name != ".gdignore")
+        name for name in names if (name.startswith(".") and name not in mirror_dotfiles)
         or name == "__pycache__"
     ])
     settings = compile_project_settings((project / "project.godot").read_text())

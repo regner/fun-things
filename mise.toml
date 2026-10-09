@@ -51,3 +51,7 @@ run = "python tools/run_s03.py"
 [tasks."tools:check"]
 description = "Check foundation runner discovery, diagnostics and child ownership"
 run = "python -m unittest discover -s tools -p '*test*.py'"
+
+[tasks."production:check"]
+description = "Run owned script, Python, and GUT production checks"
+run = "python tools/production_checks.py"
