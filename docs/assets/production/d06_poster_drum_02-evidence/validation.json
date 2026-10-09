@@ -1,0 +1,152 @@
+{
+  "blender": "5.2.2 LTS",
+  "blender_build": "d13f752e3b9c",
+  "cap_seating_height_m": 1.35,
+  "cap_seating_radius_m": 0.42,
+  "coordinate_tolerance_m": 0.00001,
+  "degenerate_faces": 0.0,
+  "degenerate_glb_triangles": 0.0,
+  "dimension_tolerance_m": 0.001,
+  "dimensions_m": [
+    0.9,
+    1.53,
+    0.9
+  ],
+  "family_source": "art/source/models/environment/d06_poster_drum_01/d06_poster_drum_01.blend",
+  "family_source_sha256": "9819caf5680b676a798a42ac10d7cbd3279b53765115da07e98ef1e077d9c52b",
+  "fresh_reexport_byte_identical": true,
+  "glb_bytes": 87912.0,
+  "glb_sha256": "58115616cd1adfadd9a485cc69027f64324e75ab6c8ef462736c1b999ad69f3c",
+  "glb_vertices": 2076.0,
+  "gltf_exporter": "5.2.40",
+  "godot": {
+    "bounds_match": true,
+    "collision": {
+      "height_m": 1.53,
+      "layer": 1,
+      "mask": 0,
+      "radius_m": 0.45
+    },
+    "dependency_uids_resolve": true,
+    "linked_model_identity": true,
+    "mesh_count": 2,
+    "ray_queries": {
+      "above_clear": true,
+      "cap_hit": true,
+      "center_hit": true,
+      "side_clear": true
+    },
+    "save_reload_byte_stable": true,
+    "surfaces": 4,
+    "version": "4.8-dev7 (official)"
+  },
+  "godot_aabb": {
+    "max": [
+      0.449999988079071,
+      1.52999997138977,
+      0.449999988079071
+    ],
+    "min": [
+      -0.449999988079071,
+      0.0,
+      -0.449999988079071
+    ]
+  },
+  "ground_datum_m": 0.0,
+  "materials": [
+    {
+      "name": "drum_frame_petrol",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.025000000372529,
+          0.0750000029802322,
+          0.0900000035762787,
+          1.0
+        ],
+        "metallicFactor": 0.400000005960464,
+        "roughnessFactor": 0.430000007152557
+      }
+    },
+    {
+      "name": "poster_wrap",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.921999990940094,
+          0.879999995231628,
+          0.716000020503998,
+          1.0
+        ],
+        "metallicFactor": 0.0,
+        "roughnessFactor": 0.699999988079071
+      }
+    },
+    {
+      "name": "cap_inset_coral",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.519999980926514,
+          0.159999996423721,
+          0.119999997317791,
+          1.0
+        ],
+        "metallicFactor": 0.150000005960464,
+        "roughnessFactor": 0.5
+      }
+    }
+  ],
+  "meshes": 2.0,
+  "nonmanifold_edges": 0.0,
+  "pivot": [
+    0.0,
+    0.0,
+    0.0
+  ],
+  "source_meshes": [
+    {
+      "degenerate_faces": 0.0,
+      "materials": [
+        "drum_frame_petrol",
+        "poster_wrap"
+      ],
+      "name": "D06PosterDrum02_Body",
+      "nonmanifold_edges": 0.0,
+      "triangles": 1532.0,
+      "unit_corner_normals": true,
+      "vertices": 768.0
+    },
+    {
+      "degenerate_faces": 0.0,
+      "materials": [
+        "drum_frame_petrol",
+        "cap_inset_coral"
+      ],
+      "name": "D06PosterDrum02_Cap",
+      "nonmanifold_edges": 0.0,
+      "triangles": 1532.0,
+      "unit_corner_normals": true,
+      "vertices": 768.0
+    }
+  ],
+  "source_vertices": 1536.0,
+  "status": "PASS",
+  "surfaces": 4.0,
+  "triangles": 3064.0,
+  "unchanged_appended_family_body": true,
+  "unit_source_and_export_normals": true,
+  "wrap_uv": {
+    "bottom_m": 0.24,
+    "front_u": 0.5,
+    "glb_v_direction": "0 top / 1 bottom (glTF texture convention)",
+    "max": [
+      1.0,
+      1.0
+    ],
+    "min": [
+      0.0,
+      0.0
+    ],
+    "radius_m": 0.397,
+    "seam": "Godot +Z",
+    "top_m": 1.28
+  }
+}

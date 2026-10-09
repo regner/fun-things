@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://buyfyku5o4dy8"]
+
+[ext_resource type="PackedScene" uid="uid://bg2xnyw6j0emq" path="res://art/models/environment/d06_poster_drum_02/d06_poster_drum_02.glb" id="1_model"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_body"]
+height = 1.53
+radius = 0.45
+
+[node name="d06_poster_drum_02" type="Node3D" unique_id=860031441]
+
+[node name="Visuals" type="Node3D" parent="." unique_id=1303420478]
+
+[node name="Model" type="Node3D" parent="Visuals" unique_id=1457676009 instance=ExtResource("1_model")]
+
+[node name="Collision" type="Node3D" parent="." unique_id=1319810855]
+
+[node name="Body" type="StaticBody3D" parent="Collision" unique_id=197089886]
+collision_mask = 0
+
+[node name="Shape" type="CollisionShape3D" parent="Collision/Body" unique_id=556860147]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.765, 0)
+shape = SubResource("CylinderShape3D_body")

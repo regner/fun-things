@@ -1,0 +1,66 @@
+d06_poster_drum.02 — concise producer validation receipt
+Base: a9a32f4 (completed .01 family asset). No .01 or shared files modified.
+Raw logs and scratch outputs: C:/tmp/ft/assets/d06_poster_drum_02/
+Exact reusable command lines: ../d06_poster_drum_02.md, Exact reproduction.
+
+Tool pins:
+  Blender 5.2.2 LTS, build d13f752e3b9c; glTF exporter 5.2.40.
+  Godot 4.8.dev7.official.c971f93e7, resolved by mise.
+  Blender invocations: ALSOFT_DRIVERS=null SDL_AUDIODRIVER=dummy,
+  -noaudio --background --factory-startup --threads 4 --python-exit-code 1.
+  Author timeout 900s; validate/export 180s; Godot import 300s; engine checks 180s.
+
+Commands/results:
+  author.py: exit 0; source, explicit GLB and four evidence PNGs generated.
+  First visual pass found near-horizontal crown shading bands; fixed the cap
+  polygon smoothing only. Final author.py: exit 0, four replacement renders.
+  Both source-validation passes exit 0; final validate.py confirms:
+    3064 triangles, 1536 source vertices, 2076 GLB vertices, 2 meshes, 4 surfaces;
+    0 nonmanifold edges, 0 degenerate faces/triangles, unit normals;
+    AABB (-.45,0,-.45) -> (.45,1.53,.45), ground pivot, .42m seat at 1.35m;
+    appended .01 body geometry/normals/UV/materials unchanged;
+    87912-byte GLB, byte-identical fresh export.
+  Explicit export.py from saved .blend to scratch: exit 0; independent byte
+  comparison passes, SHA256 58115616cd1adfadd9a485cc69027f64324e75ab6c8ef462736c1b999ad69f3c.
+  Godot --headless --editor --import --quit: exit 0; model imported.
+  Godot --headless --editor --script .../check_prefab.gd: exit 0.
+    PASS: linked prefab, bounds, collision rays, UIDs and stable save/reload.
+    Rays: center/cap hit, side/above clear. Engine evidence in validation.json.
+  Godot --headless --scene .../d06_poster_drum_02.tscn --quit-after 3: exit 0.
+    No errors/warnings/missing dependencies.
+  Godot --headless --check-only --script .../check_prefab.gd: exit 0.
+    No errors/warnings.
+  mise exec -- gdstyle fmt --check .../check_prefab.gd: exit 0, already formatted.
+  mise exec -- gdstyle --max-line-length 100 --max-warnings 0 .../check_prefab.gd:
+    exit 0, 1 file checked, no issues.
+  timeout 1800 mise exec -- python tools/production_checks.py
+    --output C:/tmp/ft/assets/d06_poster_drum_02/checks: exit 1 (existing failures).
+    Engine/GUT pins, Python 9/9, GUT import, GUT 9/9 with 70 assertions,
+    intentional-negative detector PASS. All 47 scripts lint-clean; owned script
+    compiled successfully. Only five known fixture compilation failures:
+      tests/fixtures/asset_production/batch_02_observation.gd
+      tests/fixtures/asset_production/batch_02_process_probe.gd
+      tests/fixtures/asset_production/batch_03_observation.gd
+      tests/fixtures/asset_production/batch_03_process_probe.gd
+      tests/fixtures/asset_production/batch_observation.gd
+    These reference absent S02ActorMotion / S02AimProbe types.
+    Formatting failures are only the known batch_observation.gd and
+    tools/asset_production/integration/{batch03_author,inspector}.gd.
+
+Diagnostic classification (not suppressed):
+  Blender warns use_nodes will be removed in 6.0; current pinned output succeeds.
+  Editor startup toolkit warns 4.8 exceeds its tested 4.7.
+  After successful editor prefab assertions, shutdown reports leaked viewport,
+  dummy texture, scenario, shaped text and font RIDs plus Canvas/CanvasItem and
+  ObjectDB instances. Same editor-only teardown pattern as .01; runtime load and
+  targeted compile have no diagnostics. This is not a clean editor-log claim.
+
+Visual self-review:
+  All four final PNGs opened: continuous smooth dome after correction, restrained
+  coral shoulder, unchanged broad blank wrap, small ~20px overhead circle.
+  No real engine screenshot, actor/hall comparison or target-device proof claimed.
+
+Remaining gates:
+  Independent technical/art review; final placement/dimensions; commercial artwork;
+  actual gameplay camera, actor/car collision, combat/aim, real multiplayer,
+  packaged builds, repeat-placement cost and sustained Deck/device performance.
