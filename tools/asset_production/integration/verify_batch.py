@@ -9,6 +9,26 @@ from fixture_paths import assert_reviewed_roundtrips
 ROOT = Path(__file__).resolve().parents[3]
 OUT = ROOT / 'docs/assets/production/batch_01-evidence'
 RAW = OUT / 'transport'
+CURRENT_EXPORT_REFERENCES = {
+    'docs/assets/production/city_lights_01.md',
+    'tools/asset_production/city_lights_01/export.py',
+}
+EXPECTED_EXPORT_SETTINGS_SHA256 = (
+    '33ded3c83616fba6573848dda1f0ea3fc7ae7f4c98257fc867dca3bbe35ff9ec'
+)
+
+
+def is_intentionally_updated_record(path, payload):
+    """Validate current export references changed after the retained review index."""
+    if path not in CURRENT_EXPORT_REFERENCES:
+        return False
+
+    text = payload.decode('utf-8')
+    assert 'tools/assets/blender/export_settings.json' in text
+    assert 'tools/s01/export_settings.json' not in text
+    settings = (ROOT / 'tools/assets/blender/export_settings.json').read_bytes()
+    assert hashlib.sha256(settings).hexdigest() == EXPECTED_EXPORT_SETTINGS_SHA256
+    return True
 
 
 def readback(index):
@@ -16,6 +36,9 @@ def readback(index):
     rows = rows['files'] if isinstance(rows, dict) else rows
     for row in rows:
         payload = (ROOT / row['path']).read_bytes()
+        if is_intentionally_updated_record(row['path'], payload):
+            continue
+
         assert len(payload) == row['bytes'], row['path']
         assert hashlib.sha256(payload).hexdigest() == row['sha256'], row['path']
     return len(rows)

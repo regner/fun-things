@@ -20,7 +20,7 @@ and Python 3.14 in the `lane/asset-prod-reconcile` worktree.
   `initial-verifier-failures.log`. They now validate unchanged reviewed resources by hash
   and intentionally migrated fixture scenes by their preserved saved UIDs.
 - `python tools/production_checks.py --output
-  C:/tmp/ft/lanes/asset-prod-reconcile/production-checks-followup` passed all canonical
+  C:/tmp/ft/lanes/asset-prod-reconcile/production-checks-rebased-final` passed all canonical
   checks, including owned-script format/style/compilation, Python tests, headless import,
   positive GUT, and the required negative GUT control. See
   `production-checks-summary.json`.
@@ -30,6 +30,11 @@ and Python 3.14 in the `lane/asset-prod-reconcile` worktree.
 - A `tools/**` prototype-reference audit found no production dependency. Its only remaining
   matches are the deliberate `prototypes/` exclusion in `s08_x/inspect_exports.py` and
   prototype-path rejection vectors in `test_s08_x.py`.
+
+M1-A2.1 landed after these checks. Migrating the fixtures to its production player is a separate
+coordinated follow-up because the production capsule radius is 0.35 m and the retained accepted
+fixture envelope is 0.38 m. That migration must keep independent clearance expectations and
+explicitly reconcile contact-outcome changes rather than silently rebaseline this evidence.
 
 The logs prove saved fixture and bounded desktop behavior only. They do not accept world
 placement, device readability, packaged performance, or multiplayer transport/prediction.

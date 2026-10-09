@@ -12,9 +12,12 @@ saved scene and script UIDs. Their archived S02 dependencies were replaced by te
 accepted-envelope clearance and line-of-sight probes under `tests/assets/support/`; the
 Coral Courier is the probe's visible scale reference, and the Batch 01 mounting facade now
 uses the delivered Brackett greybox shop prefab. Current headless observations preserve the
-retained movement, clearance and aim outcomes. These stand-ins must switch to the production
-player/`ActorMotion` API when M1-A2.1 lands. The editor was unavailable, so this reconciliation
-used direct text edits followed by pinned headless import and fixture loading. The paused
+retained movement, clearance and aim outcomes. M1-A2.1 has since landed, but switching these
+fixtures to the production player/`ActorMotion` API is a separate coordinated follow-up: the
+production capsule radius is 0.35 m while the retained accepted fixture envelope is 0.38 m, so
+the migration must preserve independent clearance expectations and explicitly reconcile changed
+contact outcomes. The editor was unavailable, so this reconciliation used direct text edits
+followed by pinned headless import and fixture loading. The paused
 asset-production workspace must rebase onto this reconciliation commit before dispatch resumes.
 
 | Batch | Assets | Reviewed candidate | Final disposition |
