@@ -34,8 +34,6 @@ recommendations and do not block P1.
   extrapolate→hold→smooth remote-motion policy; present the delivered Coral Courier under the
   47 m / 42° camera in the Brackett greybox; include drawable remote-continuity acceptance from
   S03-R. After: M1-A1, M1-C2.1.
-- [ ] **M1-A3 — Add production audio buses and voice policy.** Use default bus levels with no
-  settings dependency; listening waits for real assets.
 - [ ] **M1-A-GATE — Verify the multiplayer shell in exported builds (P1).** After: M1-A2,
   M1-C4.1. Validate two exported ENet processes walking together in Brackett,
   lifecycle/reset/error flows and the S08 Linux desktop checklist with Steam absent.
