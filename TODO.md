@@ -27,7 +27,8 @@ recommendations and do not block P1.
 
 - [ ] **M1-A1 — Build the session service and menu flow.** A1.1 Boot/session is done; A1.2
   adds ENet host/join. Carry the S06 whole-UI direction into authored menus.
-- [ ] **M1-A2 — Implement player simulation, presentation and replication.** Use decision 19's
+- [ ] **M1-A2 — Implement player simulation, presentation and replication.** A2.1 (the shared
+  `FootCommand` and production `ActorMotion` on the Coral Courier player) is done. Use decision 19's
   ordered, distance-bounded held-input queue and decision 20's tunable short
   extrapolate→hold→smooth remote-motion policy; present the delivered Coral Courier under the
   47 m / 42° camera in the Brackett greybox; include drawable remote-continuity acceptance from
@@ -74,10 +75,10 @@ recommendations and do not block P1.
   content identity, spawn/parked-car anchors, traversal checks and a whole-island capacity
   baseline; C2.2 later replaces greybox districts with production art, keeping `world_id`s.
 - [ ] **M1-C3 — Implement host-owned pedestrians and traffic (P4).** Decision 14 makes S10
-  pedestrian behavior/budget first production work: **C3.0 starts now** with compact state, a
-  spatial grid, crossing reservations (decision 32), recorded behavior thresholds and
-  reporting-only timings (decision 22), against an injected navigation interface and synthetic
-  graphs. C3.1 traffic and C3.2 pedestrian world integration consume RT-06/RT-07 load-time
+  pedestrian behavior/budget first production work. C3.0, the host-only pedestrian core
+  (compact state, spatial grid, bounded threats, crossing reservations and recorded seeded
+  thresholds), is done; see [the C3.0 record](docs/spikes/m1-c3-0.md).
+  C3.1 traffic and C3.2 pedestrian world integration consume RT-06/RT-07 load-time
   graphs. AI traffic yields to marked-crosswalk reservations; player cars do not. C3.1/C3.2
   after: M1-B1, M1-B2, C3.0 and the owner's population-placement answer.
 - [ ] **M1-C4 — Implement the HUD and road minimap.** C4.1 HUD shell after M1-A2; C4.2 minimap
