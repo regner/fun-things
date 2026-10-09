@@ -14,8 +14,8 @@ No particular agent platform or delegation tool is required to read it.
 
 ## Current repository state — 8 October 2026
 
-- Main and `s08-enet-bandwidth` are at `846b1b9` (`docs: record P0 readiness
-  audit`). Verify actual HEAD rather than assuming it stayed there.
+- Main and `s08-enet-bandwidth` are at `070233b` (`docs: address M1 plan review
+  and audit`). Verify actual HEAD rather than assuming it stayed there.
 - Development is on Windows 11. Use the Mise-pinned Godot
   `4.8.dev7.official.c971f93e7`; the owner decided to stay on this pin for now.
 - Orchestration uses pi subagents in parent-created Git worktrees under
@@ -25,9 +25,9 @@ No particular agent platform or delegation tool is required to read it.
   scope, desktop targets, engine pin, profiles and the completeness tasks authorized by
   instruction 12. The [P0 audit](../reviews/p0-readiness-audit-2026-10-08.md) defines
   the audit-derived task proposals.
-- Active worktrees: P0-TOOLING, S01-W, S02 controls, S03-L, S03-S abstraction,
-  S04-P, S08-X, S08-C and S09–S16. S03-P, S04-T and S17 are queued. S04 drive,
-  S05 uncapped effects, S07 environment scale, UI mockups and the audit are integrated.
+- Active worktrees: P0-TOOLING, S01-W, S03-L, S03-P, S03-S abstraction, S04-P,
+  S08-X, S08-C and S09–S15. S04-T and S17 are queued. S02 controls, S04 drive,
+  S05 uncapped effects, S07 environment scale, UI mockups, S16 and the audit are integrated.
 - Do not push. Parent orchestration owns lane review, integration and cleanup.
 
 On adoption, inspect Git status, HEAD, worktrees and operation markers. Preserve any

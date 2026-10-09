@@ -23,10 +23,9 @@ budgets, not ratified values; the owner reviews them at P0-GATE.
   recording its exact version and comparing outputs with the Linux-authored GLBs.
   Proposed acceptance is byte identity, or a documented platform pin/semantic check
   when byte identity is impossible, before Windows-authored S13/M1-C1 assets proceed.
-- **S02:** Implement the ratified 47 m, north-up 42° camera and replace tank turning
-  with normalized screen/world-relative WASD movement at 5 m/s, instant start/stop,
-  mouse-ground facing each physics tick and left-click fire. Remove building cutaway;
-  keep held weapon silhouettes. Revalidate focus and control/aim/feel on desktop;
+- **S02:** The ratified 47 m, north-up 42° camera, normalized screen/world-relative
+  WASD movement, mouse-ground facing, left-click fire and cutaway removal are implemented.
+  Remaining acceptance is physical-key Alt-Tab/focus plus desktop control/aim/feel review;
   gamepad and Deck work are deferred.
 - **S03-S:** The initial game uses ENet only. Review session and transport APIs for
   a later Steam adapter covering friend joins, lobby identity mapping, reliable and
@@ -56,23 +55,19 @@ budgets, not ratified values; the owner reviews them at P0-GATE.
   and disconnect coasting.
   Proposed acceptance includes replay-history/camera/HUD ownership transfer plus measured
   discontinuity and corrections for accepted/rejected transitions under both profiles.
-- **S05:** Remove the on-screen explosion cap: every explosion receives its effect.
-  Start from 100 car HP, 100 blast damage, 4.1 m radius, no falloff or obstruction,
-  0.1 s chain delay, 5 s wreck duration and friendly fire/self-damage always on.
-  Remeasure effect cost and update saturation evidence without dropped presentations;
-  settled hydration is not in-flight proof.
+- **S05:** Uncapped presentation now passes the saved 12-car fixture with 12 effects
+  drawn and none dropped, using the accepted damage/radius/chain/wreck defaults.
+  Remaining acceptance is drawn wreck presentation, in-flight rather than settled-only
+  hydration, final-dimension/contact checks and effect cost (owned by S15).
 - **S06:** The grey-block 9 m roads, 4 m sidewalks and 48 m extent are accepted.
   The minimap's top-right position is accepted; its size and look are not. Commission
   and iterate whole-UI mockups, then revalidate layout/crossing/minimap readability.
   Partial topology is not production traffic or recovery evidence.
-- **S07:** Reframe this as a visual/graphical environment-scaling investigation, not
-  a requirement or capacity gate. Build saved city variants of increasing block counts
-  (for example 6, 24, 96 and 384; stop early at a limit) from existing grey-block sectors
-  and building prefabs. Measure load time, RAM/VRAM, node/static-collider counts and
-  60-capped frame time along a 42° camera route. Report a cost-versus-block envelope,
-  caveating shared grey-block assets versus production-art variety and no Deck result.
-  Network, AI and population are out of scope; budgets are guidance only. Do not repeat
-  the accepted sustained primary-T driver.
+- **S07:** The [completed environment-scale record](../spikes/s07-environment-scale.md)
+  measured saved grey-block cities at 6/24/96/384 blocks with the 42° camera. Six, 24
+  and 96 blocks passed its desktop stop limits; 384 crashed before telemetry, making
+  96 the last observed pass and 384 the first fail. This is planning guidance, not a
+  capacity gate or M1 district expansion. S08-C owns the distinct 384-block diagnosis.
 - **S08:** Stay on Godot 4.8-dev7. Keep the S03Transport workaround for the upstream
   ENet bandwidth defect and retain the offline upstream review; do not file the proposed
   issue yet. Windows is the current development platform. Linux original-main and
@@ -120,22 +115,21 @@ budgets, not ratified values; the owner reviews them at P0-GATE.
   effects while preserving an effect for every explosion. Proposed acceptance uses capped
   Forward+ stress at 12/24 explosions, four SMG shooters and 16 rockets, retained frame/CPU/GPU/
   particle/draw evidence, per-effect budgets and a non-dropping quality fallback.
-- **S16:** Propose production architecture, fixture promotion, test/CI strategy and an
-  ordered M1 backlog. Proposed acceptance for owner review maps single rule owners and
-  standalone/authority/prediction/replication boundaries, disposes S02-S15 fixtures,
-  selects a Godot test approach, identifies dependencies/sizes/parallel lanes and first
-  five tasks, and records risks and owner questions.
+- **S16:** The completed [M1 production-plan proposal](m1-production-plan.md) maps rule
+  owners and simulation boundaries, disposes S02–S15 fixtures, proposes testing/CI,
+  orders and sizes the backlog, identifies the first five tasks, and records risks and
+  owner questions. P0-GATE reviews the proposal; this task is not reopened.
 - **S17:** After S09–S12, compose one full-cap headless host from their fixtures: 64
   pedestrians, 24 moving plus 8 parked cars, four firing players, a 12-car chain and
   S11 encoding for three clients. Proposed acceptance measures subsystem and total tick
   median/p95/p99 in quiet and contended runs, compares proposed p95 ≤4 ms/p99 ≤8 ms,
   and reconciles oversubscribed subsystem shares before production architecture freezes.
 - **P0-GATE:** Review foundation evidence against the 8 October owner decisions after
-  unfinished blocking S02–S08 work; S03-P, S04-P, S04-T, S09–S17, P0-TOOLING, S01-W,
-  S03-L, S08-X and S08-C. Do not reopen ratified camera/control, vehicle, explosion,
-  layout, ENet or target choices without a new owner decision. Quantitative criteria for
-  the newly authorized tasks are orchestrator proposals pending this owner review.
-  S07 environment guidance, Linux-only S08 confirmation and P0-PROFILES are non-blocking.
+  unfinished blocking S02–S06 and S08 work; S03-P, S04-P, S04-T, S09–S15, S17,
+  P0-TOOLING, S01-W, S03-L, S08-X and S08-C. Completed S07 guidance and the S16 plan
+  are gate inputs, not open tasks. Do not reopen ratified choices without a new owner
+  decision. New quantitative criteria are orchestrator proposals pending owner review;
+  Linux-only S08 confirmation and P0-PROFILES remain non-blocking.
 
 ## Checkpoint follow-up
 
