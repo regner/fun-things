@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://cskp2vxj4y3nm"]
+
+[ext_resource type="PackedScene" uid="uid://bmect8xq81xes" path="res://scenes/prefabs/environment/d06_poster_drum_01.tscn" id="1_drum"]
+[ext_resource type="Material" uid="uid://cp2j3f8i2n62f" path="res://art/materials/environment/d06_commercial_graphics_03/small_prices.tres" id="2_artwork"]
+
+[node name="d06_commercial_graphics_03_small_prices" unique_id=670197472 instance=ExtResource("1_drum")]
+
+[node name="D06PosterDrum01_Body" parent="Visuals/Model/D06PosterDrum01" parent_id_path=PackedInt32Array(674291569, 7306127) index="0" unique_id=1927634215]
+surface_material_override/1 = ExtResource("2_artwork")
+
+[editable path="Visuals/Model"]

@@ -1,0 +1,31 @@
+d06_commercial_graphics.03 final producer checks
+Blender 5.2.2 LTS / d13f752e3b9c / exporter 5.2.40: source audit and fresh shared GLB reexport exit 0.
+Shared hardware/dependencies unchanged; 2296 triangles, 1152 source / 1556 GLB vertices, 2 meshes, 3 surfaces.
+Zero degenerate faces/triangles, zero nonmanifold edges, unit normals, UV orientation samples pass.
+Four original-artwork unit tests pass.
+Four 1280x800 Cycles renders completed exit 0 and visually inspected, including explicit rear seam.
+Pinned gdstyle 0.3.0 lint/format clean; canonical production suite all layers pass.
+Production Python tool tests: 9. GUT: 23 tests / 196 assertions. Intentional negative diagnostic: observed exit 1, as expected.
+Headless import exit 0. Two prefab normalization cycles plus second invocation preserve scene bytes.
+Normalization exit 0 with passing assertions but known addon/scan/shutdown diagnostics below.
+Final non-editor check exit 0 with no WARNING/ERROR/SCRIPT ERROR; real mipmaps and unchanged inherited cylinder confirmed.
+Scratch logs and full receipts: C:/tmp/ft/assets/d06_commercial_graphics_03
+
+Final normalization diagnostics:
+POSTER_WRAP_PREFABS_PASS: linked geometry, wrap-only overrides, inherited collision
+WARNING: [MCP] Godot 4.8 detected - latest tested version is 4.7.0. The plugin will run normally but some features may behave unexpectedly. Please report issues at https://github.com/NPGameDev/godot-mcp-toolkit/issues
+WARNING: Scan thread aborted...
+ERROR: 5 RID allocations of type 'N16RendererViewport8ViewportE' were leaked at exit.
+ERROR: 8 RID allocations of type 'PN13RendererDummy14TextureStorage12DummyTextureE' were leaked at exit.
+ERROR: 1 RID allocations of type 'N17RendererSceneCull8ScenarioE' were leaked at exit.
+ERROR: 52 RID allocations of type 'PN18TextServerAdvanced22ShapedTextDataAdvancedE' were leaked at exit.
+ERROR: 1 RID allocations of type 'PN18TextServerAdvanced12FontAdvancedE' were leaked at exit.
+WARNING: 5 RIDs of type "Canvas" were leaked.
+WARNING: 31 RIDs of type "CanvasItem" were leaked.
+WARNING: 168 ObjectDB instances were leaked at exit (run with `--verbose` for details).
+
+Final Blender render diagnostics:
+C:\GameDev\git\ft-lanes\a-d06gfx\tools\asset_production\d06_commercial_graphics_03\preview.py:41: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+C:\GameDev\git\ft-lanes\a-d06gfx\tools\asset_production\d06_commercial_graphics_03\preview.py:56: DeprecationWarning: 'World.use_nodes' is expected to be removed in Blender 6.0
+
+Pending: independent review, final copy, world placement, real renderer/gameplay visibility, packaged/Deck/performance.
