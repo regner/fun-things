@@ -1,125 +1,125 @@
 {
-  "source": "C:\\tmp\\ft\\lanes\\s11-population-net\\full-06\\result.json",
+  "source": "C:\\tmp\\ft\\lanes\\s11-population-net\\full-09\\result.json",
   "engine": "4.8.dev7.official.c971f93e7",
   "case_count": 6,
   "profiles": {
     "normal": {
       "host_out": {
         "values_kib_s": [
-          52.5515625,
-          58.491015625,
-          53.4580078125
+          50.6890625,
+          58.20185546875,
+          53.57509765625
         ],
-        "median_kib_s": 53.4580078125,
-        "worst_kib_s": 58.491015625
+        "median_kib_s": 53.57509765625,
+        "worst_kib_s": 58.20185546875
       },
       "host_in": {
         "values_kib_s": [
-          0.5724609375,
-          0.47421875,
-          0.5765625
+          0.576953125,
+          0.49775390625,
+          0.56953125
         ],
-        "median_kib_s": 0.5724609375,
-        "worst_kib_s": 0.5765625
+        "median_kib_s": 0.56953125,
+        "worst_kib_s": 0.576953125
       },
       "client_in": {
         "values_kib_s": [
-          19.2787109375,
-          20.09931640625,
-          18.3951171875
+          17.45205078125,
+          19.52763671875,
+          17.990234375
         ],
-        "median_kib_s": 19.2787109375,
-        "worst_kib_s": 20.09931640625
+        "median_kib_s": 17.990234375,
+        "worst_kib_s": 19.52763671875
       },
       "client_out": {
         "values_kib_s": [
-          0.193359375,
-          0.17265625,
-          0.2029296875
+          0.19765625,
+          0.18642578125,
+          0.1935546875
         ],
-        "median_kib_s": 0.193359375,
-        "worst_kib_s": 0.2029296875
+        "median_kib_s": 0.1935546875,
+        "worst_kib_s": 0.19765625
       },
       "encode_usec_per_snapshot": {
         "p95_values_usec": [
-          484,
-          467,
-          515
+          797,
+          617,
+          870
         ],
-        "median_p95_usec": 484,
-        "worst_usec": 3965
+        "median_p95_usec": 797,
+        "worst_usec": 4468
       },
       "decode_usec_per_packet": {
         "p95_values_usec": [
-          867,
-          846,
-          632
+          1040,
+          1323,
+          1298
         ],
-        "median_p95_usec": 846,
-        "worst_usec": 9631
+        "median_p95_usec": 1298,
+        "worst_usec": 14710
       },
       "jitter_p95_m": {
         "values": [
-          0.0642173825178146,
-          0.101401317712016,
-          0.0834650983942615,
-          0.101699866851171,
-          0.104399718840917,
-          0.0964964634137948,
-          0.081450500090917,
-          0.0656003554662069,
-          0.0813105232512951
+          0.0795755000578033,
+          0.0750919279611508,
+          0.0751667936642965,
+          0.102130452460713,
+          0.0925509907185634,
+          0.0990000148614248,
+          0.0828009029229482,
+          0.0892395653863748,
+          0.081450500090917
         ],
-        "median": 0.0834650983942615,
-        "worst": 0.104399718840917
+        "median": 0.0828009029229482,
+        "worst": 0.102130452460713
       },
       "extrapolated_entity_frame_percent": {
         "values": [
-          21.446002842661375,
-          2.699028080661228,
-          17.88813495174502,
-          3.981927145481116,
-          0.812238995580663,
-          3.0017903054287984,
-          7.78905746094955,
-          14.953310339025826,
-          10.826214796337844
+          21.74974483462525,
+          10.930576070901035,
+          19.888245033112582,
+          3.3173830311170804,
+          16.38332044494676,
+          5.6065482020428155,
+          14.332926429868701,
+          11.687209717756343,
+          10.892265644727656
         ],
-        "median": 7.78905746094955,
-        "worst": 21.446002842661375
+        "median": 11.687209717756343,
+        "worst": 21.74974483462525
       },
       "join_wire_bytes_worst": 3149,
       "environment": [
         {
           "before": {
-            "godot_processes": 6,
-            "cpu_load_percent": 77.0
+            "godot_processes": 9,
+            "cpu_load_percent": 0.0
           },
           "measurement": {
-            "godot_processes": 9,
-            "cpu_load_percent": 58.0
+            "godot_processes": 13,
+            "cpu_load_percent": 54.0
           },
           "label": "contended upper bound"
         },
         {
           "before": {
-            "godot_processes": 5,
-            "cpu_load_percent": 68.0
+            "godot_processes": 8,
+            "cpu_load_percent": 82.0
           },
           "measurement": {
             "godot_processes": 10,
-            "cpu_load_percent": 68.0
+            "cpu_load_percent": 85.0
           },
           "label": "contended upper bound"
         },
         {
           "before": {
-            "godot_processes": 5,
-            "cpu_load_percent": 73.0
+            "godot_processes": 8,
+            "cpu_load_percent": 68.0
           },
           "measurement": {
-            "godot_processes": 9,
-            "cpu_load_percent": 59.0
+            "godot_processes": 12,
+            "cpu_load_percent": 80.0
           },
           "label": "contended upper bound"
         }
@@ -128,120 +128,120 @@
     "adverse": {
       "host_out": {
         "values_kib_s": [
-          37.62177734375,
-          53.51630859375,
-          57.8736328125
+          58.49599609375,
+          56.77646484375,
+          58.337890625
         ],
-        "median_kib_s": 53.51630859375,
-        "worst_kib_s": 57.8736328125
+        "median_kib_s": 58.337890625,
+        "worst_kib_s": 58.49599609375
       },
       "host_in": {
         "values_kib_s": [
-          0.3794921875,
-          0.3572265625,
-          0.3697265625
+          0.3380859375,
+          0.3236328125,
+          0.32421875
         ],
-        "median_kib_s": 0.3697265625,
-        "worst_kib_s": 0.3794921875
+        "median_kib_s": 0.32421875,
+        "worst_kib_s": 0.3380859375
       },
       "client_in": {
         "values_kib_s": [
-          14.38642578125,
-          19.66298828125,
-          19.8310546875
+          19.82919921875,
+          20.06494140625,
+          20.06240234375
         ],
-        "median_kib_s": 19.66298828125,
-        "worst_kib_s": 19.8310546875
+        "median_kib_s": 20.06240234375,
+        "worst_kib_s": 20.06494140625
       },
       "client_out": {
         "values_kib_s": [
-          0.1322265625,
-          0.121875,
-          0.13125
+          0.1169921875,
+          0.133203125,
+          0.11796875
         ],
-        "median_kib_s": 0.13125,
-        "worst_kib_s": 0.1322265625
+        "median_kib_s": 0.11796875,
+        "worst_kib_s": 0.133203125
       },
       "encode_usec_per_snapshot": {
         "p95_values_usec": [
-          1421,
-          678,
-          851
+          1324,
+          1384,
+          846
         ],
-        "median_p95_usec": 851,
-        "worst_usec": 9387
+        "median_p95_usec": 1324,
+        "worst_usec": 55158
       },
       "decode_usec_per_packet": {
         "p95_values_usec": [
-          611,
-          639,
-          948
+          1570,
+          1227,
+          1599
         ],
-        "median_p95_usec": 639,
-        "worst_usec": 4376
+        "median_p95_usec": 1570,
+        "worst_usec": 6752
       },
       "jitter_p95_m": {
         "values": [
-          0.0413784016442299,
+          0.0841499944527944,
+          0.0756171663602193,
+          0.0585348241859012,
+          0.0911473155888584,
+          0.0583730653088888,
+          0.0539952295291026,
+          0.0739668329556783,
           0.0400000015894572,
-          0.0400000015894572,
-          0.0400000015894572,
-          0.0703992446263631,
-          0.0429799678722223,
-          0.0433333350552453,
-          0.081450500090917,
-          0.0406776016163826
+          0.0595151268184052
         ],
-        "median": 0.0413784016442299,
-        "worst": 0.081450500090917
+        "median": 0.0595151268184052,
+        "worst": 0.0911473155888584
       },
       "extrapolated_entity_frame_percent": {
         "values": [
-          33.831242565156266,
-          35.242602262837245,
-          69.89403670342395,
-          33.2601435746404,
-          18.5052725694901,
-          38.47839491533463,
-          21.677530929892246,
-          16.497502604236224,
-          21.40751951569221
+          18.777119737305032,
+          18.984972906541532,
+          19.52825093780561,
+          18.224453101588253,
+          25.795672500599377,
+          25.866013071895427,
+          16.394212831815608,
+          39.46203469886416,
+          19.824136259779824
         ],
-        "median": 33.2601435746404,
-        "worst": 69.89403670342395
+        "median": 19.52825093780561,
+        "worst": 39.46203469886416
       },
       "join_wire_bytes_worst": 3269,
       "environment": [
         {
           "before": {
-            "godot_processes": 4,
-            "cpu_load_percent": 71.0
+            "godot_processes": 7,
+            "cpu_load_percent": 0.0
           },
           "measurement": {
-            "godot_processes": 8,
-            "cpu_load_percent": 65.0
+            "godot_processes": 13,
+            "cpu_load_percent": 0.0
           },
           "label": "contended upper bound"
         },
         {
           "before": {
-            "godot_processes": 3,
-            "cpu_load_percent": 74.0
+            "godot_processes": 11,
+            "cpu_load_percent": 66.0
           },
           "measurement": {
-            "godot_processes": 8,
-            "cpu_load_percent": 64.0
+            "godot_processes": 15,
+            "cpu_load_percent": 94.0
           },
           "label": "contended upper bound"
         },
         {
           "before": {
-            "godot_processes": 4,
-            "cpu_load_percent": 48.0
+            "godot_processes": 9,
+            "cpu_load_percent": 85.0
           },
           "measurement": {
-            "godot_processes": 6,
-            "cpu_load_percent": 53.0
+            "godot_processes": 13,
+            "cpu_load_percent": 54.0
           },
           "label": "contended upper bound"
         }
