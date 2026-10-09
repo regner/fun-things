@@ -1,0 +1,69 @@
+[gd_scene format=3 uid="uid://ccvmie2f3engk"]
+
+[ext_resource type="Script" uid="uid://cc8n7b2fmn7hp" path="res://scripts/world/city_data.gd" id="1_city_data"]
+[ext_resource type="Script" uid="uid://e4ilfnx7pn56" path="res://scripts/world/world_anchor.gd" id="2_anchor"]
+[ext_resource type="PackedScene" uid="uid://c6ogmv4d7i8yn" path="res://scenes/world/brackett_greybox/city.tscn" id="3_city"]
+
+[node name="Match" type="Node3D"]
+metadata/world_scope = "whole Brackett island greybox"
+
+[node name="CityData" type="Node" parent="."]
+script = ExtResource("1_city_data")
+district_id = &"brackett"
+content_revision = 1
+content_signature = "bc5b814890b44bc3b00a483590d9ec824a5418d411bac2a3266f3abf4ebe3581"
+world_path = NodePath("../World")
+player_spawns_path = NodePath("../Anchors/PlayerSpawns")
+parked_cars_path = NodePath("../Anchors/ParkedCars")
+
+[node name="World" parent="." instance=ExtResource("3_city")]
+
+[node name="Anchors" type="Node3D" parent="."]
+metadata/provisional = "pending owner answer to production-plan question 5"
+metadata/area = "Signal Row"
+
+[node name="PlayerSpawns" type="Node3D" parent="Anchors"]
+
+[node name="Spawn01" type="Marker3D" parent="Anchors/PlayerSpawns"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -84, 0.05, -5)
+script = ExtResource("2_anchor")
+world_id = &"brackett/district_06/player_spawn_01"
+anchor_kind = &"PLAYER_SPAWN"
+
+[node name="Spawn02" type="Marker3D" parent="Anchors/PlayerSpawns"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -80, 0.05, -5)
+script = ExtResource("2_anchor")
+world_id = &"brackett/district_06/player_spawn_02"
+anchor_kind = &"PLAYER_SPAWN"
+
+[node name="Spawn03" type="Marker3D" parent="Anchors/PlayerSpawns"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -76, 0.05, -5)
+script = ExtResource("2_anchor")
+world_id = &"brackett/district_06/player_spawn_03"
+anchor_kind = &"PLAYER_SPAWN"
+
+[node name="Spawn04" type="Marker3D" parent="Anchors/PlayerSpawns"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -72, 0.05, -5)
+script = ExtResource("2_anchor")
+world_id = &"brackett/district_06/player_spawn_04"
+anchor_kind = &"PLAYER_SPAWN"
+
+[node name="ParkedCars" type="Node3D" parent="Anchors"]
+
+[node name="Sable01" type="Marker3D" parent="Anchors/ParkedCars"]
+transform = Transform3D(0, 0, 1, 0, 1, 0, -1, 0, 0, -104, 0.05, -10)
+script = ExtResource("2_anchor")
+world_id = &"brackett/district_06/parked_car_sable_01"
+anchor_kind = &"PARKED_CAR"
+
+[node name="Latch01" type="Marker3D" parent="Anchors/ParkedCars"]
+transform = Transform3D(0, 0, 1, 0, 1, 0, -1, 0, 0, -98, 0.05, -10)
+script = ExtResource("2_anchor")
+world_id = &"brackett/district_06/parked_car_latch_01"
+anchor_kind = &"PARKED_CAR"
+
+[node name="Crate01" type="Marker3D" parent="Anchors/ParkedCars"]
+transform = Transform3D(0, 0, 1, 0, 1, 0, -1, 0, 0, -92, 0.05, -10)
+script = ExtResource("2_anchor")
+world_id = &"brackett/district_06/parked_car_crate_01"
+anchor_kind = &"PARKED_CAR"
