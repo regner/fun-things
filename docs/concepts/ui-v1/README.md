@@ -5,7 +5,7 @@
 [Open the visual gallery](review.html) · [Start with the 200 px HUD](02-foot-balanced.png) ·
 [Compare minimaps](08-minimap-directions.png) · [Main menu](09-main-menu.png)
 
-Eighteen **1280 × 800** screens, each supplied as an editable, standalone SVG and an
+Twenty-one **1280 × 800** screens, each supplied as an editable, standalone SVG and an
 Edge-rendered PNG. Open the PNG links at **100%**, not the thumbnail size. The SVGs
 embed their background PNGs, use system sans fonts, and need no network or sibling
 assets to render. The gallery uses the adjacent PNG files.
@@ -15,6 +15,19 @@ of the proposed HUD, or Steam/Deck acceptance**. No Godot scenes, themes, gamepl
 product rules, TODOs or task requirements were changed. Documentation assets were
 written directly: the editor was not running and no MCP editor tools were available.
 `.gdignore` keeps this concept pack out of Godot's asset import scan.
+
+## Current scope — ENet only
+
+**Current M1 is ENet-only**, per owner decision 9 (8 October). There are no current
+Steam-specific features, selectable Steam transport, friend invites or Steam testing.
+The default/current multiplayer flow is **10 Host → 13 Lobby**, or **12 Join direct →
+18 Admission**. These drawings now show only ENet, not a transport picker.
+
+**FUTURE ADAPTER EXPLORATION:** sheets **11, 19, 20 and 21** preserve the Steam concepts
+solely to inform abstractions/APIs for a later adapter. Each carries that visible title
+tag and an explicit ENet-only-current-M1 footer. They are not current feature commitments,
+implementation tasks or authorization for Steam-specific testing. The earlier Steam-default
+presentation was rejected in review; this revision supersedes it without discarding the art.
 
 ## Direction
 
@@ -97,15 +110,26 @@ Questions below are design-review prompts, **not blocking decisions or approved 
 | Preview / source | Rationale and 1280 × 800 readability | Owner review question |
 | --- | --- | --- |
 | [<img src="09-main-menu.png" width="256" alt="Main menu with large Fun Things title and solo, host, join, settings and quit actions">](09-main-menu.png)<br>**09 · Main menu** · [SVG](09-main-menu.svg) | The city supplies personality; a left-side scrim makes the five 56 px actions readable. Solo is independent of Steam. A build/revision area is reserved, not populated with a fake build number. | Does the playful copy fit the game's tone? |
-| [<img src="10-host.png" width="256" alt="Steam host form with annotated alternate direct ENet port form">](10-host.png)<br>**10 · Host** · [SVG](10-host.svg) | Connection chosen before creating the lobby. Steam is selected; the right card is **annotated alternate ENet tab content**, not a simultaneous transport. Port field has ample space. | Should the first visual emphasis be Steam friends or a neutral connection choice? |
-| [<img src="11-join-steam.png" width="256" alt="Steam friend join list including an available game and full game">](11-join-steam.png)<br>**11 · Join friends** · [SVG](11-join-steam.svg) | Broad friend rows, explicit counts and a non-action Full badge. Refresh and a clear fallback to solo/direct ENet. Sample names, not account data. | Are friend name and player count enough, without decorative session metadata? |
-| [<img src="12-join-direct.png" width="256" alt="Direct ENet address and port form with visible text focus">](12-join-direct.png)<br>**12 · Join direct** · [SVG](12-join-direct.svg) | 26 px address/port text, separate fields and visible focus. Planned on-screen keyboard path is called out; no LAN browser or NAT-traversal promise. | Is the connection guidance clear for a friend who has never used direct ENet? |
-| [<img src="13-lobby.png" width="256" alt="Four-slot lobby showing three connected players and one open place">](13-lobby.png)<br>**13 · Lobby** · [SVG](13-lobby.svg) | Four slots maximum; number + name + status, no teams or speculative ready mechanic. Host starts; guests wait. Steam invite swaps for address/port sharing on ENet. | Does the lobby need anything beyond people, invite/share and Start? |
+| [<img src="10-host.png" width="256" alt="Current M1 ENet-only host form with explicit port">](10-host.png)<br>**10 · Current M1: ENet host** · [SVG](10-host.svg) | Default/current host presentation: explicit port and Create ENet lobby. No Steam selector. Port focus and 26 px text stay clear. Prior Steam host retained in 19. | Are the port and address-sharing instructions clear enough? |
+| [<img src="12-join-direct.png" width="256" alt="Direct ENet address and port form with visible text focus">](12-join-direct.png)<br>**12 · Current M1: ENet join** · [SVG](12-join-direct.svg) | Default/current join presentation: 26 px address/port text, separate fields and visible focus. No Steam tab, LAN browser or NAT-traversal promise. Handheld keyboard layout is a later study. | Is the connection guidance clear for a friend who has never used direct ENet? |
+| [<img src="13-lobby.png" width="256" alt="Four-slot lobby showing three connected players and one open place">](13-lobby.png)<br>**13 · Current M1: ENet lobby** · [SVG](13-lobby.svg) | Four slots maximum; number + name + status, no teams or speculative ready mechanic. Host starts; guests wait. Explicit address/port sharing replaces Steam invites; prior Steam lobby retained in 20. | Does the lobby need anything beyond people, invite/share and Start? |
 | [<img src="14-pause.png" width="256" alt="Online host local menu warning that the world keeps running">](14-pause.png)<br>**14 · Local pause menu** · [SVG](14-pause.svg) | Unambiguous ONLINE — WORLD STILL RUNNING message. Resume is initially focused. Reset/leave are separated from benign actions; right card explains the host-only state. | Is the live-world warning prominent enough without overwhelming Resume? |
 | [<img src="15-audio-settings.png" width="256" alt="Audio-only settings with master music SFX sliders and mute">](15-audio-settings.png)<br>**15 · Audio settings** · [SVG](15-audio-settings.svg) | Master/Music/SFX and mute only. Wide sliders, numeric percentages, amber focus, immediate local preview/persistence. No graphics or gameplay tabs. | Do these slider proportions and the separate mute control read comfortably? |
 | [<img src="16-host-lost.png" width="256" alt="Host lost dialog ending the match with a focused return to main menu action">](16-host-lost.png)<br>**16 · Host lost** · [SVG](16-host-lost.svg) | A single recovery action, explicit match end and no migration promise. Critical message 40 px; supporting copy 20 px. No ambiguous Resume or reconnect countdown. | Does the wording explain the loss without sounding like a crash? |
 | [<img src="17-join-error.png" width="256" alt="Unreachable direct ENet join error with edit address and retry actions">](17-join-error.png)<br>**17 · Join error** · [SVG](17-join-error.svg) | Unreachable case keeps the sample address visible. Edit address is focused; Retry is available after attempt cleanup. The same shell can carry accurate Full/Incompatible messages. | Is Edit address the most helpful initial focus on this failure? |
-| [<img src="18-join-loading.png" width="256" alt="Join admission stages with current state installation and cancel action">](18-join-loading.png)<br>**18 · Joining / cancel** · [SVG](18-join-loading.svg) | Connection, current-state installation and admission are distinct. No invented percentage or ETA. Large reachable Cancel; controls unlock only after admission. | Is this amount of progress detail reassuring rather than technical noise? |
+| [<img src="18-join-loading.png" width="256" alt="Join admission stages with current state installation and cancel action">](18-join-loading.png)<br>**18 · Current M1: ENet admission** · [SVG](18-join-loading.svg) | Direct ENet connection, current-state installation and admission are distinct. No invented percentage or ETA. Large reachable Cancel; controls unlock only after admission. Prior Steam version retained in 21. | Is this amount of progress detail reassuring rather than technical noise? |
+
+### FUTURE ADAPTER EXPLORATION — not current M1
+
+These retained drawings are separate from the ENet-only flow above. The labels apply to
+all controls shown inside them, including any Steam/ENet comparison tabs.
+
+| Preview / source | Rationale and 1280 × 800 readability | Future-only review question |
+| --- | --- | --- |
+| [<img src="11-join-steam.png" width="256" alt="FUTURE ADAPTER EXPLORATION: Steam friends join">](11-join-steam.png)<br>**11 · FUTURE ADAPTER EXPLORATION: friends join** · [SVG](11-join-steam.svg) | Preserved broad friend rows, player counts and Full badge. Visible future-only title and current-M1 ENet-only footer prevent treating this as a current selectable service. | For a later adapter, are name and count enough? |
+| [<img src="19-host-steam-future.png" width="256" alt="FUTURE ADAPTER EXPLORATION: Steam host">](19-host-steam-future.png)<br>**19 · FUTURE ADAPTER EXPLORATION: Steam host** · [SVG](19-host-steam-future.svg) | Preserves the original Steam host study and comparison card, with the future-only title and ENet-only-current-M1 footer. Main port/action spacing remains native size. | Could a later adapter reuse the same host/session boundary? |
+| [<img src="20-lobby-steam-future.png" width="256" alt="FUTURE ADAPTER EXPLORATION: Steam lobby">](20-lobby-steam-future.png)<br>**20 · FUTURE ADAPTER EXPLORATION: Steam lobby** · [SVG](20-lobby-steam-future.svg) | Preserves the original four-slot Steam invite layout with explicit future-only labelling. Name/status hierarchy stays identical to the current ENet lobby. | Can future identity/invite presentation stay separate from admission? |
+| [<img src="21-loading-steam-future.png" width="256" alt="FUTURE ADAPTER EXPLORATION: Steam admission">](21-loading-steam-future.png)<br>**21 · FUTURE ADAPTER EXPLORATION: Steam admission** · [SVG](21-loading-steam-future.svg) | Retains the original Steam progress/cancel study with explicit future-only title and footer. No percentage or ETA is invented. | Can a later adapter retain the common cancel/admission lifecycle? |
 
 ## State and presentation notes
 
@@ -113,7 +137,9 @@ The [product brief](../../design.md) owns gameplay/session scope. For this pass,
 8 October owner handoff supersedes its older camera/control wording: **42° FOV, 47 m,
 vertically top-down, fixed north-up; WASD movement plus mouse aim; no building cutaway;
 no firing from cars; exit only when stopped; four players**. No camera rotation is
-proposed. This README does not reconcile other lanes' product records.
+proposed. Decision 9 supersedes the older Steam feature scope: **current M1 is ENet-only**.
+Decision 10 places desktop M1 before later Deck work. This README does not reconcile other
+lanes' product records.
 
 - **Foot:** show weapon name + magazine/capacity, unlimited reserve for pistol/SMG;
   launcher would use the same slot for cooldown, not finite rocket inventory. Values
@@ -139,11 +165,14 @@ proposed. This README does not reconcile other lanes' product records.
   detected in these screenshots. Numbering is a visual sample, not a network identity or
   host-always-1 rule. Names must eventually handle truncation/localization; hide/occlusion
   behaviour and simultaneous tag clutter need a real scene, not these scattered samples.
-- **Sessions:** select Steam or ENet before the attempt, keep it until teardown. Solo and
-  ENet remain usable without Steam. Lobby membership is not gameplay admission. Late join
-  installs current state before control; it does not replay historical explosion effects.
-  Cancel/retry must drain the old attempt. An invite during a match first asks before
-  leaving; reuse the dialog shell with Cancel initially focused, do not silently switch.
+- **Current sessions:** ENet only; no transport selector or Steam-specific features/testing.
+  Solo is independent of the network. Host/join use explicit port/address and the common
+  session lifecycle. Membership is not gameplay admission. Late join installs current state
+  before control; it does not replay historical explosion effects. Cancel/retry drains the
+  old attempt. Current host/join/lobby/admission sheets are 10, 12, 13 and 18.
+- **Future adapter exploration only (11, 19–21):** Steam friend joins, lobby identity mapping,
+  message lanes and connection lifecycle may inform abstractions/APIs for a later adapter.
+  The invite/leave-confirmation concept is not a current M1 feature or testing requirement.
 - **Host loss and local menu:** no migration; clients return to a usable menu. Online
   settings/local menu never pause shared simulation. Only host/standalone can reset, with
   explicit destructive confirmation; guests omit Reset. Host leave warns that everyone
@@ -206,11 +235,13 @@ mkdir -p /c/tmp/ft/lanes/ui-mockups/my-render
   file:///C:/GameDev/git/ft-lanes/ui-mockups/docs/concepts/ui-v1/02-foot-balanced.svg
 ```
 
-The final render manifest contains all 18 expanded commands. Do not use a shared personal
+The evidence index separates the original 18-screen render manifest from the review-R1
+manifest for eight revised/new screens; together they bind the current 21-screen pack. Do not use a shared personal
 browser profile. An initial shared scratch-profile run timed out after its third PNG was
 written; the failed attempt and clean isolated-profile rerun are retained separately.
 No runtime application code or automated gameplay tests were added for this concept pass.
 
 **Next review:** pick a map direction/size and a HUD density from 01–08, then review menu
-wording/focus from 09–18. Take the chosen candidate into a separately assigned saved-Godot-UI
-pass and an actual 1280 × 800 Deck check; do not convert these drawings into ratified scope.
+wording/focus in the current ENet-only flow (10, 12, 13, 18). Future Steam sheets 11 and
+19–21 are abstraction references only, not selectable M1 features. Take the chosen candidate
+into a separately assigned saved-Godot-UI pass; physical Deck work is later, not an M1 blocker.
