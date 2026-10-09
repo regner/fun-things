@@ -43,26 +43,29 @@ are separate.
 
 | Receipt | Authority p95 | Predicted p95 | Correction p95 | Replay CPU p95/tick | Disposition |
 | --- | ---: | ---: | ---: | ---: | --- |
-| Final headless baseline | 179 ms | 58 ms | 0.163 m | 64 us | PASS |
+| Pre-rebase headless baseline | 179 ms | 58 ms | 0.163 m | 64 us | PASS |
+| Post-rebase baseline | 304 ms (14/20) | 62 ms (20/20) | 0.193 m | 90 us | FAIL: six historical authority samples exceeded the 500 ms window |
 | Development normal, 75 ms +/-30 ms one-way, 2% loss | 286 ms | 46 ms | 0.285 m | 36.46 us | PASS |
-| Final normal | 359 ms (19/20) | 89 ms (20/20) | 0.255 m | 37.63 us | FAIL: one historical authority sample exceeded the 500 ms observation window |
+| Post-rebase normal | 282 ms | 68 ms | 0.275 m | 44.82 us | PASS |
 | Development adverse, 125 ms +/-50 ms one-way, 5% loss | 417 ms | 68 ms | 0.473 m | 36.67 us | FAIL only on the superseded post-step expiry timestamp boundary |
-| Final contended adverse | 421 ms (9/20) | 117 ms (20/20) | 0.601 m | 38.06 us | FAIL: authority sampling, 0.5 m correction target, wall/recovery and expiry checks |
+| Post-rebase adverse | 487 ms (18/20) | 57 ms (20/20) | 0.576 m | 34.96 us | FAIL: authority sampling and 0.5 m correction target |
 
 The useful adverse development receipt converged predicted correction after interruption/stall in
-381/249 ms; authority settled-state receipt was 301/253 ms. Correction p95 was below the 0.5 m design
-target in baseline, normal and that useful adverse run. The approximately 27.8 m correction maxima
-include the fixture's intentional wall-segment authority teleport; they are retained rather than
-silently filtered. The final adverse run occurred during severe local pacing contention (proxy delay
-max 297.5 ms versus its 175 ms configured envelope, 11 missing authority samples) and is not accepted
-as an adverse pass. It demonstrates that this lane did not tune simulation around the parallel
-Windows latency investigation.
+381/249 ms; authority settled-state receipt was 301/253 ms. The post-rebase adverse run converged in
+157/176 ms but correction p95 was 0.576 m. Correction p95 was below the 0.5 m design target in both
+baseline receipts, both normal passes and the useful adverse development run. The approximately
+27.8 m correction maxima include the fixture's intentional wall-segment authority teleport; they are
+retained rather than silently filtered. The exact post-rebase adverse proxy reached 282 ms one-way
+against its configured 175 ms envelope and is not accepted as an adverse pass. This lane did not tune
+simulation around the parallel Windows latency investigation.
 
-One actual drawn Windows baseline produced 20/20 samples: authority drawn p95 **136 ms**, predicted
-drawn p95 **104 ms**, correction p95 **0.146 m**. `window_can_draw` was true and paired PNGs are
-retained. The predicted drawn response improved but did not meet the provisional 50 ms visible target
-on this contended workstation. Synthetic input and automatic frame receipts are not physical key,
-display scanout or subjective handling evidence.
+The exact post-rebase drawn Windows baseline produced 20/20 samples: authority drawn p95 **391 ms**,
+predicted drawn p95 **85 ms**, and correction p95 **0.498 m**. `window_can_draw` was true and paired
+PNGs are retained. Its runner failed the later wall-stop outcome under severe graphical pacing, so it
+is a drawn measurement rather than a full profile pass. An earlier developmental drawn baseline was
+136/104 ms with correction p95 0.146 m. Prediction improved drawn response in both, but neither met
+the provisional 50 ms visible target on this contended workstation. Synthetic input and automatic
+frame receipts are not physical key, display scanout or subjective handling evidence.
 
 The focused final-source check passed all five cases. Its prediction case independently forces the
 120-frame overflow policy and correction snap; its lifecycle case proves exactly-0.5 m/s rejection,
@@ -73,9 +76,10 @@ coast, and eventual stop.
 
 The implementation requirement is complete in the bounded S04 fixture: local prediction, host input
 acknowledgement, rewind/replay, bounded history, separate visual smoothing, moving-exit rejection and
-disconnect coasting are executable and independently checked. The normal/adverse measurement set is
-honestly mixed because Windows process pacing remained unstable. The 50 ms drawn target and a clean
-exact-final adverse run remain open; do not reinterpret a failed retained result as a pass.
+disconnect coasting are executable and independently checked. The exact post-rebase normal profile
+passes; baseline authority sampling and adverse correction remain mixed because Windows process
+pacing was unstable. The 50 ms drawn target and a clean exact-final adverse run remain open; do not
+reinterpret a failed retained result as a pass.
 
 This is not full-world rollback. Replay uses current static collision and does not preserve historical
 world geometry. Moving-car contact, foot/car prediction handoff, rejected predicted entry, blocked

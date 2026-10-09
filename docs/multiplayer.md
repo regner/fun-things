@@ -362,8 +362,8 @@ closes P2/P3. Original physics p95 97/269/401 ms and fixed normal/adverse248/380
 remain separate,20/20 each; those authority-only values are historical baselines, not
 prediction corrections. [S04-P](spikes/s04-prediction.md) adds the bounded local car
 input history, host processed-input acknowledgement, rewind/replay, correction smoothing,
-`EXIT_MOVING` and disconnect coast path. Its clean baseline and normal-development
-correction p95 values are 0.163/0.285 m; exact-final normal/adverse pacing receipts remain
+`EXIT_MOVING` and disconnect coast path. Its pre-rebase baseline and exact post-rebase
+normal correction p95 values are 0.163/0.275 m; exact baseline/adverse pacing receipts remain
 mixed and are retained honestly. Physical input/focus, visible response/camera/readability/
 feel, final body/dimensions/turning, foot/car handoff, full S04, Steam/Deck/Linux/exports/
 capacity and P0/M1/production gates remain open.

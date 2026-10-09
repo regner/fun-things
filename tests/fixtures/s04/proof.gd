@@ -152,8 +152,8 @@ func _collect_and_send() -> void:
 		drive.brake = 1.0
 	if role == "client":
 		match_state.queue_local_input(local_tick, drive)
-		if not exit_requested and local_tick >= EXIT_REQUEST_TICK and (
-			match_state.local_body().velocity.length() >= 5.0):
+		if not exit_requested and local_tick >= EXIT_REQUEST_TICK and drive.throttle > 0.0 and (
+			match_state.local_body().latest_authoritative_speed_mps >= 2.5):
 			exit_requested = true
 			replication.request_exit()
 

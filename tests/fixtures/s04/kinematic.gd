@@ -7,6 +7,7 @@ const CORRECTION_DECAY_PER_SECOND: float = 12.0
 var simulation_enabled: bool = false
 var latest_sequence: int = 0
 var latest_input_tick: int = 0
+var latest_authoritative_speed_mps: float = 0.0
 
 @onready var _presentation_anchor: Node3D = $PresentationAnchor
 
@@ -77,6 +78,7 @@ func _restore_pose(pose: Dictionary) -> void:
 	velocity = Vector3(pose.velocity[0], pose.velocity[1], pose.velocity[2])
 	latest_sequence = int(pose.sequence)
 	latest_input_tick = int(pose.input_tick)
+	latest_authoritative_speed_mps = velocity.length()
 
 
 ## Retires collision and motion before lifecycle completion is observable.
@@ -85,6 +87,7 @@ func retire() -> void:
 	visible = false
 	latest_sequence = 0
 	latest_input_tick = 0
+	latest_authoritative_speed_mps = 0.0
 	if is_instance_valid(_presentation_anchor):
 		_presentation_anchor.position = Vector3.ZERO
 		_presentation_anchor.rotation = Vector3.ZERO
