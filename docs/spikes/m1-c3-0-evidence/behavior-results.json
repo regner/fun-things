@@ -1,0 +1,93 @@
+{
+  "engine": "4.8.dev7.official.c971f93e7",
+  "command": "godot --headless --path <compiler-project> --script res://addons/gut/gut_cmdln.gd -gconfig= -gdir=res://tests/unit/population -ginclude_subdirs -gexit -gdisable_colors",
+  "agent_count": 64,
+  "ticks_per_run": 7200,
+  "seconds_per_run": 120,
+  "seeds": [101, 202, 303],
+  "thresholds": {
+    "max_sampled_overlap_pairs": 24,
+    "max_continuous_overlap_ticks": 180,
+    "max_stuck_identities": 26,
+    "max_crossing_wait_ticks": 360,
+    "max_crossing_queue": 16,
+    "max_reservation_overlap_ticks": 300,
+    "max_flee_reaction_ticks": 5
+  },
+  "results": [
+    {
+      "scenario": "normal",
+      "seed": 101,
+      "max_sampled_overlap_pairs": 0,
+      "max_continuous_overlap_ticks": 0,
+      "stuck_identities": 6,
+      "max_crossing_wait_ticks": 180,
+      "max_crossing_queue": 2,
+      "max_reservation_overlap_ticks": 300,
+      "max_flee_reaction_ticks": 5,
+      "reaction_count": 89
+    },
+    {
+      "scenario": "normal",
+      "seed": 202,
+      "max_sampled_overlap_pairs": 0,
+      "max_continuous_overlap_ticks": 0,
+      "stuck_identities": 26,
+      "max_crossing_wait_ticks": 180,
+      "max_crossing_queue": 1,
+      "max_reservation_overlap_ticks": 300,
+      "max_flee_reaction_ticks": 5,
+      "reaction_count": 85
+    },
+    {
+      "scenario": "normal",
+      "seed": 303,
+      "max_sampled_overlap_pairs": 0,
+      "max_continuous_overlap_ticks": 11,
+      "stuck_identities": 13,
+      "max_crossing_wait_ticks": 180,
+      "max_crossing_queue": 2,
+      "max_reservation_overlap_ticks": 300,
+      "max_flee_reaction_ticks": 5,
+      "reaction_count": 111
+    },
+    {
+      "scenario": "flee",
+      "seed": 101,
+      "max_sampled_overlap_pairs": 1,
+      "max_continuous_overlap_ticks": 13,
+      "stuck_identities": 21,
+      "max_crossing_wait_ticks": 0,
+      "max_crossing_queue": 0,
+      "max_reservation_overlap_ticks": 0,
+      "max_flee_reaction_ticks": 5,
+      "reaction_count": 1536
+    },
+    {
+      "scenario": "flee",
+      "seed": 202,
+      "max_sampled_overlap_pairs": 0,
+      "max_continuous_overlap_ticks": 10,
+      "stuck_identities": 13,
+      "max_crossing_wait_ticks": 0,
+      "max_crossing_queue": 0,
+      "max_reservation_overlap_ticks": 0,
+      "max_flee_reaction_ticks": 5,
+      "reaction_count": 1536
+    },
+    {
+      "scenario": "flee",
+      "seed": 303,
+      "max_sampled_overlap_pairs": 0,
+      "max_continuous_overlap_ticks": 12,
+      "stuck_identities": 20,
+      "max_crossing_wait_ticks": 0,
+      "max_crossing_queue": 0,
+      "max_reservation_overlap_ticks": 0,
+      "max_flee_reaction_ticks": 5,
+      "reaction_count": 1536
+    }
+  ],
+  "timing_gate": false,
+  "notes": "Behavior-only accelerated synthetic graph runs. Storm initial-node assignment varies by seed. Reactions are matched by exact live threat identity and pruned with expiry. Timing belongs to M1-D3.0."
+}

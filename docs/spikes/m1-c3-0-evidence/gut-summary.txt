@@ -1,0 +1,18 @@
+Pinned engine: 4.8.dev7.official.c971f93e7
+GUT: 9.7.1
+Scope: res://tests/unit/population
+Scripts: 3
+Tests: 11
+Passing tests: 11
+Assertions: 208
+Elapsed (contended, reporting only): 36.448 s
+Engine/script diagnostics: none
+Result: PASS
+
+Tests:
+- crossing queue capacity, conflict query, wait and overlap expiry (2)
+- seeded 64-agent normal/flee behavior thresholds (1)
+- production FootCommand adapter and staggered reaction bound (2)
+- typed threat-kind, all-receipts, scan/live-cap, expiry and churn regressions (6)
+
+Behavior values are retained in behavior-results.json.
