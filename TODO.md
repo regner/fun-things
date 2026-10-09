@@ -44,13 +44,14 @@ follow-ups remain in the M1 requirements rather than reopening the spikes.
 
 ### M1-C — City, population and minimap
 
-- [ ] **M1-C0 — Complete the separately owned staged world concept work** in
-  [the world concept handover](docs/workflows/world-concept-handover.md). It is in progress under
-  an owner-run agent outside this orchestration; the owner will report when it is integrated.
-  Its image-provider/concept-method question belongs to that owner-run work under decision 24,
-  not to this orchestration.
-- [ ] **M1-C1 — Produce the ratified custom art families.** After: the M1-C0 production
-  asset list.
+- [ ] **M1-C0 — Complete the staged world concept work** in
+  [the world concept handover](docs/workflows/world-concept-handover.md): setting, city map,
+  districts, roads, lighting, buildings, props, landmarks, greybox and production asset list,
+  each owner-approved before the next. Stage 1 is approved: [Brackett — cyberpunk island]
+  (docs/concepts/world-v1/decisions.md#9-october-2026--brackett-named-stage-1-complete).
+  Stage 2 whole-city map options are next; M1 remains a six-block district.
+- [ ] **M1-C1 — Produce the ratified custom art families.** After: P0-GATE and the M1-C0
+  production asset list.
 - [ ] **M1-C2 — Assemble the authored district in saved sectors.**
   Needs approved M1-C1 road/building/prop subsets.
 - [ ] **M1-C3 — Implement host-owned pedestrians and traffic.** S10 production behavior is

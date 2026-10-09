@@ -1,0 +1,27 @@
+{
+  "date": "2026-10-09",
+  "stage": "Stage 1 round 4: cyberpunk exploration of the preferred Standard + bridge",
+  "tool": "Built-in image_gen.imagegen",
+  "transparent_background": false,
+  "reference_role": "Standard + bridge is the layout and modelling reference; change surface treatment, signage and lighting.",
+  "external_visual_references": [],
+  "rights": "Original in-project generated image and original prompt; no external image, brand or named fictional city used.",
+  "lighting_status": "Blue-hour / early-night is the agent's exploratory lighting choice for this alternative, not an owner-approved change to fixed daytime production scope.",
+  "encoding": "magick SOURCE -resize 1600x -strip -define dither:diffusion-amount=50% -dither FloydSteinberg -colors 256 -define png:compression-level=9 PNG8:DESTINATION",
+  "images": [
+    {
+      "file": "15-long-island-cyberpunk.png",
+      "source_file": "/home/regner/.codex/generated_images/01a11fba-1b3a-71a0-a327-d274029c0a0d/exec-3b2b0802-3592-408a-8235-8ac359d47c82.png",
+      "prompt": "Use case: style-transfer. Create ONE strong cyberpunk game-art reinterpretation of the supplied STANDARD LONG ISLAND WITH HARBOUR BRIDGE. Preserve the overall city layout and the source's smooth stylized 3D modelling quality; this is an alternative material, architectural dressing and atmosphere direction for a playable top-down 3D city game, NOT a new map. Make the cyberpunk transformation unmistakable at thumbnail size.\n\nCOMPOSITION INVARIANTS: same elongated flat island from upper-left university/playing fields to near-right shipping docks; same full-island aerial viewpoint and framing; same enlarged downtown upper-right centre, older harbour quarter near-left, residential neighbourhoods mid-left, rounded entertainment hall beside marina, three large foreground retail buildings and their broad SURFACE CAR PARKS, workshops/warehouses right and shipping cranes far right. Same coastline, major roads, street curves, district masses and relative building heights. Keep the SINGLE SHORT ROAD BRIDGE across the marina's near-left mouth with clearly OPEN WATER beneath connecting the small harbour to the surrounding sea. Bridge links two banks of the same island, never mainland. No new bridges, elevated roads, highways, canals, towers, hills or terrain levels.\n\nCYBERPUNK DESIGN: retrofit the recognisable ordinary city rather than replacing it with a futuristic megastructure. Deep graphite, petrol, indigo and plum architectural materials; blue-black glass, muted brushed-metal panels, sparse broad cyan and hot-coral signage panels, selective magenta and amber accents. Colourful signs and light spill on existing commercial frontage, slim luminous architectural panels on some downtown towers, occasional oversized but simple abstract rooftop advertisement shapes, restrained antenna/service assemblies, metallic warehouse cladding. Keep roofs broad, readable and largely quiet. Preserve the pitched-roof old port and university character with futuristic surface retrofits; do not turn every building into the same neon box. No dense greebles, fine cables, grime or window-noise.\n\nDISTRICT DIFFERENTIATION: downtown is cold cyan/indigo glass and light with a few strong magenta/coral panels; old harbour retains masonry and slate roofs with warm amber/coral shop frontage; entertainment area has the strongest magenta/cyan signs; campus stays quieter blue-grey with subtle institutional cyan and readable green fields; residential areas mix subdued violet/teal with warm lit-window groups; foreground big-box shops have large restrained graphic-lit facades and dark open car parks with small readable bright cars; warehouses/cranes use warm industrial amber against cobalt metal. Uneven light hierarchy, not uniform neon outlines on every edge. Parking lots remain flat, visibly open and navigable.\n\nLIGHTING: a deliberate BLUE-HOUR / EARLY-NIGHT CONCEPT STUDY, an exploratory departure from the daytime baseline. Strong cool sky ambient fill keeps every street, roof silhouette and small car legible. Rich luminous cyan, magenta and amber accents cast short controlled pools of light. Lightly wet asphalt and harbour water catch restrained coloured reflections, not mirror-floor glare. Distant atmosphere very subtle; NO thick fog or rain obscuring the city. Deep ink sea, visually connected through the harbour bridge. No completely black streets or crush-dark roofs, no excessive bloom or blinding signs. Cyberpunk colour and lighting must be clearly visible across the WHOLE island.\n\nGAME-APPROPRIATE ART: coherent stylized real-time-looking 3D, smooth bevels, controlled material highlights, simple readable props, no noisy realism, no 2D poster or static painting. Preserve ordinary car silhouettes, no flying vehicles, robots, holographic people or new gameplay objects. Future traffic and pedestrian readability takes priority over light spectacle. This is original design, no borrowed fictional city, no real brands, logos or legible textual signage. Abstract original sign graphics only. No title, labels, UI, HUD or borders. Landscape at least 1600 pixels wide.",
+      "referenced_image_paths": [
+        "/home/regner/.codex/generated_images/01a11fba-1b3a-71a0-a327-d274029c0a0d/exec-996f0f31-aa86-4fd5-b31d-acd37441b81e.png"
+      ],
+      "project_reference_files": [
+        "10-long-island-bridge.png"
+      ],
+      "width": 1600,
+      "height": 914,
+      "bytes": 837869
+    }
+  ]
+}
