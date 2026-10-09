@@ -9,7 +9,7 @@ const HOST_REVERSE_END_TICK: int = 180
 const STALL_REVERSE_START_TICK: int = 888
 const STALL_REVERSE_END_TICK: int = 930
 const BOUNDARY_CHECK_TICK: int = 950
-const EXPIRY_PULSE_START_TICK: int = 1000
+const EXPIRY_PULSE_START_TICK: int = 990
 const PRODUCER_SILENCE_START_TICK: int = 1002
 const PRODUCER_SILENCE_END_TICK: int = 1040
 const RESPONSE_DISTANCE_M: float = 0.005
@@ -37,6 +37,7 @@ var local_tick: int = 0
 var started_ms: int = -1
 var sequence: int = 0
 var control: int = 1
+var recent_input_frames: Array[Dictionary] = []
 var resync_sent: bool = false
 var last_command: Vector2 = Vector2.ZERO
 var event_index: int = 0
@@ -77,6 +78,7 @@ func _ready() -> void:
 	replication.handoff_confirmed.connect(session.confirm_handoff)
 	replication.admission_received.connect(session.receive_admission)
 	match_state.stepped.connect(_on_step)
+	match_state.reconciled.connect(_on_reconciled)
 	match_state.held_received.connect(_on_held_received)
 	match_state.movement_buffered.connect(_on_movement_buffered)
 	input_collector.set_focused(true)
@@ -90,7 +92,7 @@ func _ready() -> void:
 
 
 ## Samples synthetic bound keys and sends replaceable intent at the proposed 30 Hz.
-func _physics_process(_delta: float) -> void:  # gdstyle:ignore=quality/max-branches
+func _physics_process(delta: float) -> void:  # gdstyle:ignore=quality/max-branches
 	if ending:
 		return
 	if started_ms < 0:
@@ -124,7 +126,7 @@ func _physics_process(_delta: float) -> void:  # gdstyle:ignore=quality/max-bran
 		input_collector.clear()
 		return
 
-	_collect_and_send()
+	_collect_and_send(delta)
 
 	if local_tick >= END_TICK and role == "host":
 		ending = true
@@ -132,12 +134,13 @@ func _physics_process(_delta: float) -> void:  # gdstyle:ignore=quality/max-bran
 		_end_after_cleanup()
 
 
-## Applies a fresh binding then sends one sampled held envelope through the common validator.
-func _collect_and_send() -> void:
+## Predicts each fixed input and sends replaceable samples through the common validator.
+func _collect_and_send(delta: float) -> void:
 	var binding: Dictionary = match_state.bindings[session.local_participant]
 	if binding.control != control:
 		control = binding.control
 		sequence = 0
+		recent_input_frames.clear()
 		_record({"event": "resync_applied", "control": control, "entity": binding.entity,
 			"health": binding.health})
 
@@ -146,27 +149,45 @@ func _collect_and_send() -> void:
 
 	var command: Vector2 = _command(local_tick)
 	_set_keys(command)
-	if local_tick % INPUT_INTERVAL_TICKS == 0:
-		sequence += 1
-		# A bounded loss-of-producer segment tests expiry independently of proxy randomness.
-		if role == "client" and local_tick >= PRODUCER_SILENCE_START_TICK and (
-			local_tick < PRODUCER_SILENCE_END_TICK):
-			return
-		var sample_ticks_ms: int = Time.get_ticks_msec()
-		var sample_wall_ms: float = Time.get_unix_time_from_system() * 1000.0
-		var sampled: Dictionary = input_collector.sample()
-		var envelope: Dictionary = {"context": match_state.context(session.local_participant),
-			"sequence": sequence, "move": sampled.move, "aim_yaw": _aim_yaw(command)}
-		if role == "host":
-			match_state.submit_held(session.local_participant, envelope)
-		else:
-			replication.send_held(envelope)
-		if role == "client" and event_index <= PULSE_COUNT and sampled.move != Vector2.ZERO:
-			_record({"event": "input_send", "index": event_index, "sequence": sequence,
-				"move": [sampled.move.x, sampled.move.y], "aim_yaw": envelope.aim_yaw,
-				"sample_ticks_ms": sample_ticks_ms, "sample_wall_ms": sample_wall_ms,
-				"send_ticks_ms": Time.get_ticks_msec(),
-				"send_wall_ms": Time.get_unix_time_from_system() * 1000.0})
+	var sampled: Dictionary = input_collector.sample()
+	var motion_command: Dictionary = {
+		"move": sampled.move, "aim_yaw": _aim_yaw(command), "fire": false,
+	}
+	sequence += 1
+	var input_frame: Dictionary = {
+		"sequence": sequence,
+		"input_tick": local_tick,
+		"move": sampled.move,
+		"aim_yaw": motion_command.aim_yaw,
+	}
+	recent_input_frames.append(input_frame)
+	if recent_input_frames.size() > 4:
+		recent_input_frames.pop_front()
+	if role == "client":
+		match_state.queue_local_prediction(local_tick, motion_command, delta)
+	if local_tick % INPUT_INTERVAL_TICKS != 0:
+		return
+
+	# A bounded loss-of-producer segment tests expiry independently of proxy randomness.
+	if role == "client" and local_tick >= PRODUCER_SILENCE_START_TICK and (
+		local_tick < PRODUCER_SILENCE_END_TICK):
+		return
+	var sample_ticks_ms: int = Time.get_ticks_msec()
+	var sample_wall_ms: float = Time.get_unix_time_from_system() * 1000.0
+	var envelope: Dictionary = {
+		"context": match_state.context(session.local_participant),
+		"frames": recent_input_frames.duplicate(true),
+	}
+	if role == "host":
+		match_state.submit_held(session.local_participant, envelope)
+	else:
+		replication.send_held(envelope)
+	if role == "client" and event_index <= PULSE_COUNT and sampled.move != Vector2.ZERO:
+		_record({"event": "input_send", "index": event_index, "sequence": sequence,
+			"move": [sampled.move.x, sampled.move.y], "aim_yaw": motion_command.aim_yaw,
+			"sample_ticks_ms": sample_ticks_ms, "sample_wall_ms": sample_wall_ms,
+			"send_ticks_ms": Time.get_ticks_msec(),
+			"send_wall_ms": Time.get_unix_time_from_system() * 1000.0})
 
 
 ## Checks admission/identity/value fences and local focus cancellation through existing owners.
@@ -189,14 +210,19 @@ func _check_boundaries() -> void:
 	var participant: int = session.local_participant
 	var binding: Dictionary = match_state.bindings[participant]
 	var before: int = binding.pending
-	var envelope: Dictionary = {"context": match_state.context(participant),
-		"sequence": sequence + 1, "move": Vector2(NAN, 0.0), "aim_yaw": 0.0}
+	var frame: Dictionary = {"sequence": sequence + 1, "input_tick": local_tick,
+		"move": Vector2(NAN, 0.0), "aim_yaw": 0.0}
+	var envelope: Dictionary = {
+		"context": match_state.context(participant), "frames": [frame],
+	}
 	var reasons: Array[String] = [match_state.submit_held(participant, envelope)]
-	envelope.move = Vector2.ZERO
+	frame.move = Vector2.ZERO
+	envelope.frames = [frame]
 	envelope.context.entity = 2
 	reasons.append(match_state.submit_held(participant, envelope))
 	envelope.context = match_state.context(participant)
-	envelope.sequence = binding.sequence + S03Match.SEQUENCE_WINDOW + 1
+	frame.sequence = binding.sequence + S03Match.SEQUENCE_WINDOW + 1
+	envelope.frames = [frame]
 	reasons.append(match_state.submit_held(participant, envelope))
 	reasons.append(match_state.submit_held(0, envelope))
 	if reasons != ["INVALID", "STALE_CONTEXT", "WINDOW", "NOT_ADMITTED"] or (
@@ -339,14 +365,27 @@ func _on_step(tick: int) -> void:
 				"pose": match_state.pose_for_entity(entity),
 				"held": [binding.held.move.x, binding.held.move.y],
 				"aim_yaw": binding.held.aim_yaw, "receipt_ms": binding.receipt_ms,
+				"held_age_ms": binding.held_age_ms,
 				"decision_age_ms": match_state.expiry_decision_ages.get(entity, -1),
+				"pending_input_frames": match_state.input_queues[participant].size(),
+				"superseded_input_frames": binding.superseded_count,
 				"muzzle": match_state.vector(actor.muzzle_position()),
 				"aim": match_state.vector(-actor.global_basis.z)})
 
 		if tick % SNAPSHOT_INTERVAL_TICKS == 0:
 			_send_snapshot(tick)
+	else:
+		var actor: S03RActor = match_state.local_body()
+		_record({
+			"event": "prediction",
+			"tick": local_tick,
+			"predicted_tick": actor.latest_predicted_tick,
+			"position": match_state.vector(actor.global_position),
+			"yaw": actor.rotation.y,
+			"history_size": match_state.prediction_history.size(),
+		})
 
-	status.text = "S03-R %s | %s | tick %d | authoritative baseline" % [
+	status.text = "S03-R %s | %s | tick %d | local prediction" % [
 		role, profile, local_tick]
 
 
@@ -368,6 +407,13 @@ func _send_snapshot(tick: int) -> void:
 				"send_wall_ms": send_wall_ms })
 
 
+## Retains correction, bounded replay cost and observable mismatch cause telemetry.
+func _on_reconciled(details: Dictionary) -> void:
+	details["event"] = "correction"
+	details["tick"] = local_tick
+	_record(details)
+
+
 ## Receipts actual drawn frames independently of simulation and keeps matched camera captures.
 func _on_rendered() -> void:
 	if started_ms < 0 or ending or match_state.body_for_entity.is_empty():
@@ -378,7 +424,7 @@ func _on_rendered() -> void:
 	var screen: Vector2 = camera_rig.camera().unproject_position(state.position + Vector3.UP)
 	_record({"event": "render", "index": event_index, "tick": local_tick,
 		"position": match_state.vector(state.position), "yaw": state.yaw,
-		"sequence": actor.latest_sequence,
+		"sequence": actor.latest_sequence, "predicted_tick": actor.latest_predicted_tick,
 		"screen": [screen.x, screen.y], "viewport": get_viewport().get_visible_rect().size})
 	if capture_pending and (
 		(state.position as Vector3).distance_to(capture_pose.position) > RESPONSE_DISTANCE_M

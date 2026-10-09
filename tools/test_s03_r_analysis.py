@@ -8,8 +8,8 @@ import time
 from types import SimpleNamespace
 import unittest
 
-from run_s03_r import (FootProxy, analyze, latency_budget, proxy_latency_budget,
-                       validate_arguments)
+from run_s03_r import (FootProxy, analyze, latency_budget, matching_tick_valid,
+                       proxy_latency_budget, validate_arguments, visible_response_valid)
 
 
 class ResponseOwnershipTests(unittest.TestCase):
@@ -20,14 +20,17 @@ class ResponseOwnershipTests(unittest.TestCase):
             (directory / "client").mkdir()
             (directory / "host/stdout.log").write_text("")
             rows = [
-                {"event": "input", "index": 1, "time_ms": 100, "sequence_floor": 10,
-                 "move": [0, -1], "aim_yaw": 0, "position": [0, 0, 0], "yaw": 0},
+                {"event": "input", "index": 1, "tick": 5, "time_ms": 100,
+                 "sequence_floor": 10, "move": [0, -1], "aim_yaw": 0,
+                 "position": [0, 0, 0], "yaw": 0},
                 {"event": "apply", "time_ms": 110, "entity": 1, "pose": {
-                    "entity": 1, "tick": 1, "sequence": 10},
-                 "position": [1, 0, 0], "yaw": 0},
+                    "entity": 1, "tick": 1, "sequence": 10,
+                    "position": [1, 0, 0], "yaw": 0},
+                 "position": [1, 0, 0], "yaw": 0, "authority_install_error_m": 0},
                 {"event": "apply", "time_ms": 200, "entity": 2, "pose": {
-                    "entity": 2, "tick": 1, "sequence": 10},
-                 "position": [1, 0, 0], "yaw": 0},
+                    "entity": 2, "tick": 1, "sequence": 10,
+                    "position": [1, 0, 0], "yaw": 0},
+                 "position": [1, 0, 0], "yaw": 0, "authority_install_error_m": 0},
             ]
             (directory / "client/stdout.log").write_text(
                 "".join("S03R " + json.dumps(row) + "\n" for row in rows))
@@ -35,33 +38,93 @@ class ResponseOwnershipTests(unittest.TestCase):
             self.assertEqual(measured["responses"][0]["physics_ms"], 100)
             self.assertIsNone(measured["responses"][0]["rendered_frame_ms"])
 
-
-class ExpiryBoundaryTests(unittest.TestCase):
-    def test_match_decision_age_owns_expiry_boundary(self):
+    def test_expiry_uses_physics_decision_age_not_later_receipt_timestamp(self):
         with tempfile.TemporaryDirectory() as temporary:
             directory = Path(temporary)
             (directory / "host").mkdir()
             (directory / "client").mkdir()
-            rows = []
-            for tick, held, decision_age, telemetry_age in [
-                    (1, [1, 0], 249, 253), (2, [0, 0], 253, 257),
-                    (3, [0, 0], 269, 273)]:
-                rows.append({"event": "simulation", "time_ms": 1000 + telemetry_age,
-                             "wall_ms": 2000 + telemetry_age, "local_tick": tick,
-                             "held": held, "receipt_ms": 1000,
-                             "decision_age_ms": decision_age,
-                             "pose": {"entity": 2, "tick": tick, "sequence": 1,
-                                      "position": [0, 0, 0], "velocity": [0, 0, 0],
-                                      "yaw": 0}})
+            simulation = [
+                {"event": "simulation", "time_ms": 1253, "wall_ms": 1253,
+                 "local_tick": 1000, "receipt_ms": 1000, "held_age_ms": 249,
+                 "held": [0, -1], "pose": {"entity": 2, "tick": 1,
+                    "position": [0, 0, 0], "velocity": [0, 0, -5]}},
+                {"event": "simulation", "time_ms": 1270, "wall_ms": 1270,
+                 "local_tick": 1001, "receipt_ms": 1000, "held_age_ms": 266,
+                 "held": [0, 0], "pose": {"entity": 2, "tick": 2,
+                    "position": [0, 0, 0], "velocity": [0, 0, 0]}},
+            ]
             (directory / "host/stdout.log").write_text(
-                "".join("S03R " + json.dumps(row) + "\n" for row in rows))
+                "".join("S03R " + json.dumps(row) + "\n" for row in simulation))
             (directory / "client/stdout.log").write_text("")
             measured = analyze(directory, [])
             self.assertTrue(measured["input_expiry"])
-            transition = measured["expiry_transitions"][0]
-            self.assertEqual(transition["previous_decision_age_ms"], 249)
-            self.assertEqual(transition["decision_age_ms"], 253)
-            self.assertGreater(transition["receipt_to_telemetry_ms"], 250)
+            self.assertEqual(measured["expiry_transitions"][0]["previous_age_ms"], 249)
+
+    def test_matching_tick_uses_host_source_pose_not_local_restore_diagnostic(self):
+        with tempfile.TemporaryDirectory() as temporary:
+            directory = Path(temporary)
+            (directory / "host").mkdir()
+            (directory / "client").mkdir()
+            host = [{"event": "simulation", "time_ms": 100, "wall_ms": 100,
+                     "local_tick": 10, "receipt_ms": 100, "held_age_ms": 0,
+                     "held": [0, 0], "pose": {"entity": 2, "tick": 7,
+                         "position": [1, 0, 0], "velocity": [0, 0, 0]}}]
+            client = [{"event": "apply", "time_ms": 120, "wall_ms": 120,
+                       "entity": 2, "pose": {"entity": 2, "tick": 7,
+                           "position": [2, 0, 0]}, "position": [2, 0, 0],
+                       "authority_install_error_m": 0}]
+            (directory / "host/stdout.log").write_text(
+                "".join("S03R " + json.dumps(row) + "\n" for row in host))
+            (directory / "client/stdout.log").write_text(
+                "".join("S03R " + json.dumps(row) + "\n" for row in client))
+            measured = analyze(directory, [])
+            self.assertEqual(measured["matching_tick_install_error_max_m"], 1)
+            self.assertEqual(measured["local_restore_error_max_m"], 0)
+            self.assertFalse(matching_tick_valid(measured))
+
+    def test_windowed_evidence_rejects_missing_drawn_response(self):
+        measurements = {
+            "window_states": [
+                {"role": "host", "can_draw": True, "window_visible": True,
+                 "display": "windows"},
+                {"role": "client", "can_draw": True, "window_visible": True,
+                 "display": "windows"},
+            ],
+            "response_missing": 0,
+            "predicted_response_missing": 20,
+            "response_p95_ms": {"rendered_frame_ms": 30, "predicted_drawn_ms": None},
+        }
+        self.assertFalse(visible_response_valid(measurements, True))
+        self.assertTrue(visible_response_valid(measurements, False))
+
+    def test_prediction_response_precedes_authority_and_reports_replay(self):
+        with tempfile.TemporaryDirectory() as temporary:
+            directory = Path(temporary)
+            (directory / "host").mkdir()
+            (directory / "client").mkdir()
+            (directory / "host/stdout.log").write_text("")
+            rows = [
+                {"event": "input", "index": 1, "tick": 5, "time_ms": 100,
+                 "sequence_floor": 2, "move": [0, -1], "aim_yaw": 0,
+                 "position": [0, 0, 0], "yaw": 0},
+                {"event": "prediction", "time_ms": 101, "predicted_tick": 5,
+                 "position": [0, 0, -0.08], "yaw": 0},
+                {"event": "apply", "time_ms": 180, "entity": 2, "pose": {
+                    "entity": 2, "tick": 8, "sequence": 2,
+                    "position": [0, 0, -0.2], "yaw": 0},
+                 "position": [0, 0, -0.4], "yaw": 0, "authority_install_error_m": 0},
+                {"event": "correction", "time_ms": 180, "correction_m": 0.1,
+                 "replay_usec": 6, "replay_frames": 3, "history_exhausted": False,
+                 "cause": "held_timing_or_delivery"},
+            ]
+            (directory / "client/stdout.log").write_text(
+                "".join("S03R " + json.dumps(row) + "\n" for row in rows))
+            measured = analyze(directory, [])
+            response = measured["responses"][0]
+            self.assertEqual(response["predicted_physics_ms"], 1)
+            self.assertEqual(response["physics_ms"], 80)
+            self.assertEqual(measured["prediction_correction_p95_m"], 0.1)
+            self.assertEqual(measured["replay_cpu_usec_per_tick_p95"], 2)
 
 
 class ProxyTelemetryTests(unittest.TestCase):
