@@ -69,6 +69,7 @@ class FootProxy:
         self.log = log
         self.events = []
         self.peak_queue = 0
+        self.last_poll_end = time.monotonic()
         self.blackout_open = False
         self.blackout_done = False
 
@@ -79,10 +80,11 @@ class FootProxy:
         self.log.write(json.dumps(record) + "\n")
 
     def poll(self):
-        now = time.monotonic()
+        """Receive, schedule and forward bounded packets with actual boundary timestamps."""
+        poll_started = time.monotonic()
         interrupted = False
         if self.profile == "adverse" and self.start is not None:
-            age = now - self.start
+            age = poll_started - self.start
             interrupted = BLACKOUT_START_SECONDS <= age < (
                 BLACKOUT_START_SECONDS + BLACKOUT_SECONDS)
             if interrupted and not self.blackout_open:
@@ -94,6 +96,8 @@ class FootProxy:
         for _ in range(MAX_POLL):
             try:
                 data, source = self.socket.recvfrom(65535)
+                received = time.monotonic()
+                received_wall_ms = time.time() * 1000
             except BlockingIOError:
                 break
             except ConnectionResetError:
@@ -108,6 +112,10 @@ class FootProxy:
             if destination is None:
                 raise RuntimeError("host datagram before client route")
             self.serial += 1
+            self.record("receive", id=self.serial, direction=direction, bytes=len(data),
+                        receive_monotonic=received, receive_wall_ms=received_wall_ms,
+                        poll_gap_ms=(received - self.last_poll_end) * 1000,
+                        poll_active_ms=(received - poll_started) * 1000)
             rng = self.random[direction]
             lost = rng.random() < self.loss
             delay_ms = max(0, self.delay + rng.uniform(-self.jitter, self.jitter))
@@ -117,21 +125,31 @@ class FootProxy:
                 continue
             if len(self.queue) >= MAX_QUEUE:
                 raise RuntimeError("proxy queue limit exceeded")
-            heapq.heappush(self.queue, (now + delay_ms / 1000, self.serial, now,
-                                      data, destination, direction))
+            heapq.heappush(self.queue, (received + delay_ms / 1000, self.serial, received,
+                                      received_wall_ms, data, destination, direction))
             self.peak_queue = max(self.peak_queue, len(self.queue))
         for _ in range(MAX_POLL):
-            if not self.queue or self.queue[0][0] > now:
+            forward_started = time.monotonic()
+            if not self.queue or self.queue[0][0] > forward_started:
                 break
-            due, serial, received, data, destination, direction = heapq.heappop(self.queue)
+            due, serial, received, received_wall_ms, data, destination, direction = (
+                heapq.heappop(self.queue))
             if interrupted:
                 self.record("drop", id=serial, direction=direction, bytes=len(data),
                             reason="blackout_pending")
                 continue
             self.socket.sendto(data, destination)
+            forwarded = time.monotonic()
+            forwarded_wall_ms = time.time() * 1000
             self.record("delivery", id=serial, direction=direction, bytes=len(data),
-                        actual_delay_ms=(now - received) * 1000,
-                        scheduled_delay_ms=(due - received) * 1000)
+                        receive_monotonic=received, receive_wall_ms=received_wall_ms,
+                        forward_started_monotonic=forward_started,
+                        forward_monotonic=forwarded, forward_wall_ms=forwarded_wall_ms,
+                        actual_delay_ms=(forwarded - received) * 1000,
+                        scheduled_delay_ms=(due - received) * 1000,
+                        schedule_overrun_ms=max(0, forward_started - due) * 1000,
+                        send_call_ms=(forwarded - forward_started) * 1000)
+        self.last_poll_end = time.monotonic()
 
 
 def records(path):
@@ -226,6 +244,32 @@ def latency_budget(host, client):
         summary[label] = {"samples": len(values), "p50": percentile(values, 0.5),
                           "p95": percentile(values), "max": max(values, default=None)}
     return {"samples": len(stage_rows), "stages_ms": summary, "rows": stage_rows}
+
+
+def proxy_latency_budget(proxy_events):
+    """Summarize measured proxy polling, queue dwell and socket-forward boundaries."""
+    receives = [row for row in proxy_events if row["event"] == "receive"]
+    deliveries = [row for row in proxy_events if row["event"] == "delivery"]
+    fields = {"poll_gap_ms": receives,
+              "receive_to_forward_ms": deliveries,
+              "schedule_overrun_ms": deliveries,
+              "send_call_ms": deliveries}
+    sources = {"poll_gap_ms": "poll_gap_ms",
+               "receive_to_forward_ms": "actual_delay_ms",
+               "schedule_overrun_ms": "schedule_overrun_ms",
+               "send_call_ms": "send_call_ms"}
+    summary = {}
+    for label, rows in fields.items():
+        values = [row[sources[label]] for row in rows]
+        summary[label] = {"samples": len(values), "p50": percentile(values, 0.5),
+                          "p95": percentile(values), "max": max(values, default=None)}
+    summary["directions"] = {}
+    for direction in ["up", "down"]:
+        values = [row["actual_delay_ms"] for row in deliveries if
+                  row["direction"] == direction]
+        summary["directions"][direction] = {
+            "samples": len(values), "p95_receive_to_forward_ms": percentile(values)}
+    return summary
 
 
 def analyze(directory, proxy_events):
@@ -341,6 +385,7 @@ def analyze(directory, proxy_events):
                                                    resync["health"] == 70 and resync["control"] == 2),
             "proxy_delays_ms": {"min": min(delays, default=0), "p95": percentile(delays),
                                 "max": max(delays, default=0)},
+            "proxy_stage_ms": proxy_latency_budget(proxy_events),
             "latency_budget": latency_budget(host, client),
             "native_drops": sum(r["event"] == "drop" for r in proxy_events), "results": final}
 
@@ -483,6 +528,18 @@ def run_case(args, directory, profile):
         proxy_log.close()
 
 
+def validate_arguments(args):
+    """Reject invalid ranges and unsafe uncapped windowed rendering before any engine launch."""
+    if not (1 <= args.port <= 65535 and 1 <= args.proxy_port <= 65535 and
+            args.port != args.proxy_port and 1 <= args.deadline <= 90 and
+            0 <= args.max_fps <= 1000):
+        raise ValueError("distinct ports 1..65535, deadline 1..90, and max-fps 0..1000 required")
+    if args.bypass_proxy and args.profiles != ["baseline"]:
+        raise ValueError("proxy bypass is a baseline-only diagnosis")
+    if args.windowed and args.max_fps != 60:
+        raise ValueError("safe windowed diagnosis requires --max-fps 60")
+
+
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--godot", default=shutil.which("godot") or "godot")
@@ -490,7 +547,7 @@ def main():
     parser.add_argument("--proxy-port", type=int, default=24901)
     parser.add_argument("--deadline", type=float, default=45)
     parser.add_argument("--windowed", action="store_true",
-                        help="attempt real graphical frame receipts; never substitute forced draws")
+                        help="attempt real graphical receipts; requires --max-fps 60")
     parser.add_argument("--bypass-proxy", action="store_true",
                         help="connect baseline client directly to the host's loopback port")
     parser.add_argument("--high-resolution-timer", action="store_true",
@@ -504,12 +561,10 @@ def main():
     parser.add_argument("--profiles", nargs="+", choices=PROFILES, default=list(PROFILES))
     parser.add_argument("--output", type=Path)
     args = parser.parse_args()
-    if not (1 <= args.port <= 65535 and 1 <= args.proxy_port <= 65535 and
-            args.port != args.proxy_port and 1 <= args.deadline <= 90 and
-            0 <= args.max_fps <= 1000):
-        parser.error("distinct ports 1..65535, deadline 1..90, and max-fps 0..1000 required")
-    if args.bypass_proxy and args.profiles != ["baseline"]:
-        parser.error("proxy bypass is a baseline-only diagnosis")
+    try:
+        validate_arguments(args)
+    except ValueError as error:
+        parser.error(str(error))
     directory = (args.output or Path(tempfile.mkdtemp(prefix="s03-r-"))).resolve()
     if directory.is_relative_to(ROOT):
         parser.error("evidence output must be outside checkout")

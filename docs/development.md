@@ -337,10 +337,10 @@ establish the existing options:
 | `--port`, `--proxy-port` | `24900`, `24901`; distinct UDP ports in 1–65535, reused across sequential profiles |
 | `--deadline` | 45 s per host/client case, starts after isolated import; accepted range 1–90 s, separate import timeout 30 s |
 | `--output` | Printed `s03-r-` temporary directory if omitted; supplied directory may be absent or empty, must resolve outside the checkout |
-| `--windowed` | Off; attempts actual graphical frame receipts at 1280×800, host/client positions (0,0)/(1280,0); no forced-draw substitute or automatic visible/feel acceptance |
+| `--windowed` | Off; attempts actual graphical frame receipts at 1280×800, host/client positions (0,0)/(1280,0); requires exactly `--max-fps 60` and rejects every other value before engine launch; no forced-draw substitute or automatic visible/feel acceptance |
 | `--bypass-proxy` | Off; baseline-only direct loopback diagnosis, connecting the client to the host port |
 | `--high-resolution-timer` | Off; balances Windows `timeBeginPeriod(1)`/`timeEndPeriod(1)` around the run; retained as a diagnostic, not a default fix |
-| `--max-fps` | `0`, range 0–1000; records and applies `Engine.max_fps` in both fixture processes |
+| `--max-fps` | `0`, range 0–1000 for headless runs; windowed runs require exactly 60; records and applies `Engine.max_fps` in both fixture processes |
 | `--low-processor-mode` | Off; records and applies `OS.low_processor_usage_mode` in both fixture processes |
 | `--disable-vsync` | Off; passes the engine's VSync-disable option to both fixture processes |
 
@@ -392,11 +392,14 @@ physical-key, S02/Steam/Deck/Windows/export, P0-GATE and production gates remain
 Historical editor-relocation receipts do not certify current shared editor state;
 future authoring/reexports still need the existing save/refresh/reopen workflow.
 
-The dated [S03-L Windows diagnosis](spikes/s03-l.md) adds sequence-correlated stage timing and
-records every measurement as contended. It did not prove the Python proxy, timer resolution,
-VSync or one engine pacing setting as the sole Windows floor. Until a quiet rerun replaces it,
-prediction/S12 should carry its provisional 300 ms p95 local Windows scheduling allowance. The
-expiry analyzer now reads Match's exact decision age and preserves the strict 250 ms criterion.
+The dated [S03-L Windows diagnosis](spikes/s03-l.md) adds sequence-correlated engine timing and
+separately measured proxy receive/forward boundaries; every timing remains labelled contended.
+It did not prove the Python proxy, timer resolution, VSync or one pacing setting as the sole
+Windows floor. Unsafe historical uncapped window rows and pre-fix zero-by-construction proxy
+telemetry are explicitly invalid. Corrected VSync on/off rows both use a 60 FPS cap. Until a quiet
+rerun replaces it, prediction/S12 should carry its provisional 350 ms p95 local Windows scheduling
+allowance. The expiry analyzer reads Match's exact decision age and preserves the strict 250 ms
+criterion.
 
 ### S04 car fixture tooling
 

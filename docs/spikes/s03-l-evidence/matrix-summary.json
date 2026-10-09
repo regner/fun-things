@@ -1,12 +1,369 @@
 {
-  "scope": "Windows S03-R baseline pacing diagnosis; all timings contended",
+  "scope": "Corrected Windows S03-R baseline pacing diagnosis; all timings contended",
   "engine": "4.8.dev7.official.c971f93e7",
-  "attempts": [
+  "measurement_revision": 2,
+  "safety_rule": "Every windowed run requires max_fps=60; the runner rejects every other value.",
+  "cases": [
     {
-      "attempt": "matrix-01",
       "case": "direct-default",
       "timing_label": "contended",
-      "godot_processes_before": 10,
+      "godot_processes_before": 2,
+      "runner_exit": 0,
+      "technical_ok": true,
+      "failed_criteria": {
+        "wall_stop": false,
+        "missing_physics_responses": 0,
+        "input_expiry": false,
+        "recovery": false
+      },
+      "proxy_mode": "bypassed",
+      "pacing": {
+        "max_fps": 0,
+        "low_processor_mode": false,
+        "disable_vsync": false,
+        "high_resolution_timer": false
+      },
+      "safety_valid": true,
+      "effective_process_settings": [
+        {
+          "role": "host",
+          "max_fps": 0,
+          "low_processor_mode": false,
+          "vsync_mode": 1,
+          "display": "headless",
+          "can_draw": false
+        },
+        {
+          "role": "client",
+          "max_fps": 0,
+          "low_processor_mode": false,
+          "vsync_mode": 1,
+          "display": "headless",
+          "can_draw": false
+        }
+      ],
+      "physics_response_p95_ms": 317,
+      "drawn_response_p95_ms": null,
+      "latency_budget_samples": 20,
+      "latency_budget_p95_ms": {
+        "sample_to_send_ms": 1.0,
+        "send_to_host_receive_ms": 17.0,
+        "receive_to_consume_ms": 16.0,
+        "consume_to_state_send_ms": 34.0,
+        "state_send_to_receive_ms": 276.0,
+        "state_receive_to_apply_ms": 28.0,
+        "sample_to_apply_ms": 308.0,
+        "apply_to_draw_ms": null,
+        "sample_to_draw_ms": null
+      },
+      "proxy_stage_ms": {
+        "poll_gap_ms": {
+          "samples": 0,
+          "p50": null,
+          "p95": null,
+          "max": null
+        },
+        "receive_to_forward_ms": {
+          "samples": 0,
+          "p50": null,
+          "p95": null,
+          "max": null
+        },
+        "schedule_overrun_ms": {
+          "samples": 0,
+          "p50": null,
+          "p95": null,
+          "max": null
+        },
+        "send_call_ms": {
+          "samples": 0,
+          "p50": null,
+          "p95": null,
+          "max": null
+        },
+        "directions": {
+          "up": {
+            "samples": 0,
+            "p95_receive_to_forward_ms": null
+          },
+          "down": {
+            "samples": 0,
+            "p95_receive_to_forward_ms": null
+          }
+        }
+      }
+    },
+    {
+      "case": "proxied-default",
+      "timing_label": "contended",
+      "godot_processes_before": 2,
+      "runner_exit": 1,
+      "technical_ok": false,
+      "failed_criteria": {
+        "wall_stop": false,
+        "missing_physics_responses": 3,
+        "input_expiry": false,
+        "recovery": false
+      },
+      "proxy_mode": "proxied",
+      "pacing": {
+        "max_fps": 0,
+        "low_processor_mode": false,
+        "disable_vsync": false,
+        "high_resolution_timer": false
+      },
+      "safety_valid": true,
+      "effective_process_settings": [
+        {
+          "role": "host",
+          "max_fps": 0,
+          "low_processor_mode": false,
+          "vsync_mode": 1,
+          "display": "headless",
+          "can_draw": false
+        },
+        {
+          "role": "client",
+          "max_fps": 0,
+          "low_processor_mode": false,
+          "vsync_mode": 1,
+          "display": "headless",
+          "can_draw": false
+        }
+      ],
+      "physics_response_p95_ms": 299,
+      "drawn_response_p95_ms": null,
+      "latency_budget_samples": 20,
+      "latency_budget_p95_ms": {
+        "sample_to_send_ms": 2.0,
+        "send_to_host_receive_ms": 52.0,
+        "receive_to_consume_ms": 33.0,
+        "consume_to_state_send_ms": 46.0,
+        "state_send_to_receive_ms": 659.0,
+        "state_receive_to_apply_ms": 23.0,
+        "sample_to_apply_ms": 720.0,
+        "apply_to_draw_ms": null,
+        "sample_to_draw_ms": null
+      },
+      "proxy_stage_ms": {
+        "poll_gap_ms": {
+          "samples": 2165,
+          "p50": 3.5065999254584312,
+          "p95": 8.648000191897154,
+          "max": 108.11819974333048
+        },
+        "receive_to_forward_ms": {
+          "samples": 2165,
+          "p50": 0.17170002683997154,
+          "p95": 0.4262002184987068,
+          "max": 29.316899832338095
+        },
+        "schedule_overrun_ms": {
+          "samples": 2165,
+          "p50": 0.10879989713430405,
+          "p95": 0.3172997385263443,
+          "max": 29.154099989682436
+        },
+        "send_call_ms": {
+          "samples": 2165,
+          "p50": 0.06120000034570694,
+          "p95": 0.1313001848757267,
+          "max": 23.89149973168969
+        },
+        "directions": {
+          "up": {
+            "samples": 1164,
+            "p95_receive_to_forward_ms": 0.44430000707507133
+          },
+          "down": {
+            "samples": 1001,
+            "p95_receive_to_forward_ms": 0.3806999884545803
+          }
+        }
+      }
+    },
+    {
+      "case": "proxied-hires",
+      "timing_label": "contended",
+      "godot_processes_before": 0,
+      "runner_exit": 0,
+      "technical_ok": true,
+      "failed_criteria": {
+        "wall_stop": false,
+        "missing_physics_responses": 0,
+        "input_expiry": false,
+        "recovery": false
+      },
+      "proxy_mode": "proxied",
+      "pacing": {
+        "max_fps": 0,
+        "low_processor_mode": false,
+        "disable_vsync": false,
+        "high_resolution_timer": true
+      },
+      "safety_valid": true,
+      "effective_process_settings": [
+        {
+          "role": "host",
+          "max_fps": 0,
+          "low_processor_mode": false,
+          "vsync_mode": 1,
+          "display": "headless",
+          "can_draw": false
+        },
+        {
+          "role": "client",
+          "max_fps": 0,
+          "low_processor_mode": false,
+          "vsync_mode": 1,
+          "display": "headless",
+          "can_draw": false
+        }
+      ],
+      "physics_response_p95_ms": 119,
+      "drawn_response_p95_ms": null,
+      "latency_budget_samples": 20,
+      "latency_budget_p95_ms": {
+        "sample_to_send_ms": 2.0,
+        "send_to_host_receive_ms": 21.0,
+        "receive_to_consume_ms": 12.0,
+        "consume_to_state_send_ms": 51.0,
+        "state_send_to_receive_ms": 21.0,
+        "state_receive_to_apply_ms": 36.0,
+        "sample_to_apply_ms": 110.0,
+        "apply_to_draw_ms": null,
+        "sample_to_draw_ms": null
+      },
+      "proxy_stage_ms": {
+        "poll_gap_ms": {
+          "samples": 2446,
+          "p50": 3.6133001558482647,
+          "p95": 7.859800010919571,
+          "max": 69.87790018320084
+        },
+        "receive_to_forward_ms": {
+          "samples": 2446,
+          "p50": 0.16669975593686104,
+          "p95": 0.4396997392177582,
+          "max": 63.38989967480302
+        },
+        "schedule_overrun_ms": {
+          "samples": 2446,
+          "p50": 0.10399986058473587,
+          "p95": 0.34689996391534805,
+          "max": 63.29069985076785
+        },
+        "send_call_ms": {
+          "samples": 2446,
+          "p50": 0.05759997293353081,
+          "p95": 0.1162998378276825,
+          "max": 2.1666004322469234
+        },
+        "directions": {
+          "up": {
+            "samples": 1308,
+            "p95_receive_to_forward_ms": 0.5024001002311707
+          },
+          "down": {
+            "samples": 1138,
+            "p95_receive_to_forward_ms": 0.4020002670586109
+          }
+        }
+      }
+    },
+    {
+      "case": "proxied-lowprocessor",
+      "timing_label": "contended",
+      "godot_processes_before": 3,
+      "runner_exit": 1,
+      "technical_ok": false,
+      "failed_criteria": {
+        "wall_stop": false,
+        "missing_physics_responses": 3,
+        "input_expiry": false,
+        "recovery": false
+      },
+      "proxy_mode": "proxied",
+      "pacing": {
+        "max_fps": 0,
+        "low_processor_mode": true,
+        "disable_vsync": false,
+        "high_resolution_timer": false
+      },
+      "safety_valid": true,
+      "effective_process_settings": [
+        {
+          "role": "host",
+          "max_fps": 0,
+          "low_processor_mode": true,
+          "vsync_mode": 1,
+          "display": "headless",
+          "can_draw": false
+        },
+        {
+          "role": "client",
+          "max_fps": 0,
+          "low_processor_mode": true,
+          "vsync_mode": 1,
+          "display": "headless",
+          "can_draw": false
+        }
+      ],
+      "physics_response_p95_ms": 374,
+      "drawn_response_p95_ms": null,
+      "latency_budget_samples": 20,
+      "latency_budget_p95_ms": {
+        "sample_to_send_ms": 1.0,
+        "send_to_host_receive_ms": 17.0,
+        "receive_to_consume_ms": 14.0,
+        "consume_to_state_send_ms": 41.0,
+        "state_send_to_receive_ms": 705.0,
+        "state_receive_to_apply_ms": 24.0,
+        "sample_to_apply_ms": 758.0,
+        "apply_to_draw_ms": null,
+        "sample_to_draw_ms": null
+      },
+      "proxy_stage_ms": {
+        "poll_gap_ms": {
+          "samples": 2155,
+          "p50": 3.5269996151328087,
+          "p95": 6.607400253415108,
+          "max": 137.43579993024468
+        },
+        "receive_to_forward_ms": {
+          "samples": 2155,
+          "p50": 0.17819972708821297,
+          "p95": 0.5185003392398357,
+          "max": 6.566300056874752
+        },
+        "schedule_overrun_ms": {
+          "samples": 2155,
+          "p50": 0.1079002395272255,
+          "p95": 0.33040018752217293,
+          "max": 6.149999797344208
+        },
+        "send_call_ms": {
+          "samples": 2155,
+          "p50": 0.0654999166727066,
+          "p95": 0.15660002827644348,
+          "max": 6.3725002110004425
+        },
+        "directions": {
+          "up": {
+            "samples": 1163,
+            "p95_receive_to_forward_ms": 0.5943998694419861
+          },
+          "down": {
+            "samples": 992,
+            "p95_receive_to_forward_ms": 0.3796000964939594
+          }
+        }
+      }
+    },
+    {
+      "case": "proxied-maxfps60",
+      "timing_label": "contended",
+      "godot_processes_before": 0,
       "runner_exit": 1,
       "technical_ok": false,
       "failed_criteria": {
@@ -15,71 +372,18 @@
         "input_expiry": false,
         "recovery": false
       },
-      "proxy_mode": "bypassed",
-      "pacing": {
-        "max_fps": 0,
-        "low_processor_mode": false,
-        "disable_vsync": false,
-        "high_resolution_timer": false
-      },
-      "effective_process_settings": [
-        {
-          "role": "host",
-          "max_fps": 0,
-          "low_processor_mode": false,
-          "vsync_mode": 1,
-          "display": "headless",
-          "can_draw": false
-        },
-        {
-          "role": "client",
-          "max_fps": 0,
-          "low_processor_mode": false,
-          "vsync_mode": 1,
-          "display": "headless",
-          "can_draw": false
-        }
-      ],
-      "physics_response_p95_ms": 335,
-      "drawn_response_p95_ms": null,
-      "proxy_delay_p95_ms": null,
-      "latency_budget_samples": 20,
-      "latency_budget_p95_ms": {
-        "sample_to_send_ms": 1.0,
-        "send_to_host_receive_ms": 126.0,
-        "receive_to_consume_ms": 18.0,
-        "consume_to_state_send_ms": 31.0,
-        "state_send_to_receive_ms": 676.0,
-        "state_receive_to_apply_ms": 33.0,
-        "sample_to_apply_ms": 763.0,
-        "apply_to_draw_ms": null,
-        "sample_to_draw_ms": null
-      }
-    },
-    {
-      "attempt": "matrix-01",
-      "case": "proxied-default",
-      "timing_label": "contended",
-      "godot_processes_before": 11,
-      "runner_exit": 1,
-      "technical_ok": false,
-      "failed_criteria": {
-        "wall_stop": false,
-        "missing_physics_responses": 1,
-        "input_expiry": false,
-        "recovery": false
-      },
       "proxy_mode": "proxied",
       "pacing": {
-        "max_fps": 0,
+        "max_fps": 60,
         "low_processor_mode": false,
         "disable_vsync": false,
         "high_resolution_timer": false
       },
+      "safety_valid": true,
       "effective_process_settings": [
         {
           "role": "host",
-          "max_fps": 0,
+          "max_fps": 60,
           "low_processor_mode": false,
           "vsync_mode": 1,
           "display": "headless",
@@ -87,147 +391,73 @@
         },
         {
           "role": "client",
-          "max_fps": 0,
+          "max_fps": 60,
           "low_processor_mode": false,
           "vsync_mode": 1,
           "display": "headless",
           "can_draw": false
         }
       ],
-      "physics_response_p95_ms": 297,
+      "physics_response_p95_ms": 492,
       "drawn_response_p95_ms": null,
-      "proxy_delay_p95_ms": 0.0,
-      "latency_budget_samples": 20,
+      "latency_budget_samples": 19,
       "latency_budget_p95_ms": {
         "sample_to_send_ms": 1.0,
-        "send_to_host_receive_ms": 25.0,
-        "receive_to_consume_ms": 16.0,
-        "consume_to_state_send_ms": 44.0,
-        "state_send_to_receive_ms": 198.0,
-        "state_receive_to_apply_ms": 27.0,
-        "sample_to_apply_ms": 283.0,
+        "send_to_host_receive_ms": 512.0,
+        "receive_to_consume_ms": 244.0,
+        "consume_to_state_send_ms": 56.0,
+        "state_send_to_receive_ms": 145.0,
+        "state_receive_to_apply_ms": 93.0,
+        "sample_to_apply_ms": 815.0,
         "apply_to_draw_ms": null,
         "sample_to_draw_ms": null
+      },
+      "proxy_stage_ms": {
+        "poll_gap_ms": {
+          "samples": 2566,
+          "p50": 3.5679000429809093,
+          "p95": 15.887899789959192,
+          "max": 58.64709988236427
+        },
+        "receive_to_forward_ms": {
+          "samples": 2566,
+          "p50": 0.18850015476346016,
+          "p95": 0.4213000647723675,
+          "max": 14.228399842977524
+        },
+        "schedule_overrun_ms": {
+          "samples": 2566,
+          "p50": 0.11709984391927719,
+          "p95": 0.30880002304911613,
+          "max": 14.168099965900183
+        },
+        "send_call_ms": {
+          "samples": 2566,
+          "p50": 0.06320001557469368,
+          "p95": 0.1333998516201973,
+          "max": 14.031500089913607
+        },
+        "directions": {
+          "up": {
+            "samples": 1328,
+            "p95_receive_to_forward_ms": 0.4648999311029911
+          },
+          "down": {
+            "samples": 1238,
+            "p95_receive_to_forward_ms": 0.36869989708065987
+          }
+        }
       }
     },
     {
-      "attempt": "matrix-01",
-      "case": "proxied-hires",
+      "case": "windowed-vsync-capped60",
       "timing_label": "contended",
-      "godot_processes_before": 6,
+      "godot_processes_before": 3,
       "runner_exit": 0,
       "technical_ok": true,
       "failed_criteria": {
         "wall_stop": false,
         "missing_physics_responses": 0,
-        "input_expiry": false,
-        "recovery": false
-      },
-      "proxy_mode": "proxied",
-      "pacing": {
-        "max_fps": 0,
-        "low_processor_mode": false,
-        "disable_vsync": false,
-        "high_resolution_timer": true
-      },
-      "effective_process_settings": [
-        {
-          "role": "host",
-          "max_fps": 0,
-          "low_processor_mode": false,
-          "vsync_mode": 1,
-          "display": "headless",
-          "can_draw": false
-        },
-        {
-          "role": "client",
-          "max_fps": 0,
-          "low_processor_mode": false,
-          "vsync_mode": 1,
-          "display": "headless",
-          "can_draw": false
-        }
-      ],
-      "physics_response_p95_ms": 126,
-      "drawn_response_p95_ms": null,
-      "proxy_delay_p95_ms": 0.0,
-      "latency_budget_samples": 20,
-      "latency_budget_p95_ms": {
-        "sample_to_send_ms": 1.0,
-        "send_to_host_receive_ms": 19.0,
-        "receive_to_consume_ms": 16.0,
-        "consume_to_state_send_ms": 39.0,
-        "state_send_to_receive_ms": 21.0,
-        "state_receive_to_apply_ms": 26.0,
-        "sample_to_apply_ms": 107.0,
-        "apply_to_draw_ms": null,
-        "sample_to_draw_ms": null
-      }
-    },
-    {
-      "attempt": "matrix-01",
-      "case": "proxied-lowprocessor",
-      "timing_label": "contended",
-      "godot_processes_before": 6,
-      "runner_exit": 1,
-      "technical_ok": false,
-      "failed_criteria": {
-        "wall_stop": true,
-        "missing_physics_responses": 0,
-        "input_expiry": false,
-        "recovery": true
-      },
-      "proxy_mode": "proxied",
-      "pacing": {
-        "max_fps": 0,
-        "low_processor_mode": true,
-        "disable_vsync": false,
-        "high_resolution_timer": false
-      },
-      "effective_process_settings": [
-        {
-          "role": "host",
-          "max_fps": 0,
-          "low_processor_mode": true,
-          "vsync_mode": 1,
-          "display": "headless",
-          "can_draw": false
-        },
-        {
-          "role": "client",
-          "max_fps": 0,
-          "low_processor_mode": true,
-          "vsync_mode": 1,
-          "display": "headless",
-          "can_draw": false
-        }
-      ],
-      "physics_response_p95_ms": 281,
-      "drawn_response_p95_ms": null,
-      "proxy_delay_p95_ms": 0.0,
-      "latency_budget_samples": 20,
-      "latency_budget_p95_ms": {
-        "sample_to_send_ms": 2.0,
-        "send_to_host_receive_ms": 94.0,
-        "receive_to_consume_ms": 29.0,
-        "consume_to_state_send_ms": 38.0,
-        "state_send_to_receive_ms": 111.0,
-        "state_receive_to_apply_ms": 29.0,
-        "sample_to_apply_ms": 268.0,
-        "apply_to_draw_ms": null,
-        "sample_to_draw_ms": null
-      }
-    },
-    {
-      "attempt": "matrix-01",
-      "case": "proxied-maxfps60",
-      "timing_label": "contended",
-      "godot_processes_before": 5,
-      "runner_exit": 1,
-      "technical_ok": false,
-      "failed_criteria": {
-        "wall_stop": true,
-        "missing_physics_responses": 1,
         "input_expiry": false,
         "recovery": false
       },
@@ -238,313 +468,78 @@
         "disable_vsync": false,
         "high_resolution_timer": false
       },
+      "safety_valid": true,
       "effective_process_settings": [
         {
           "role": "host",
           "max_fps": 60,
           "low_processor_mode": false,
           "vsync_mode": 1,
-          "display": "headless",
-          "can_draw": false
+          "display": "Windows",
+          "can_draw": true
         },
         {
           "role": "client",
           "max_fps": 60,
           "low_processor_mode": false,
           "vsync_mode": 1,
-          "display": "headless",
-          "can_draw": false
-        }
-      ],
-      "physics_response_p95_ms": 222,
-      "drawn_response_p95_ms": null,
-      "proxy_delay_p95_ms": 0.0,
-      "latency_budget_samples": 20,
-      "latency_budget_p95_ms": {
-        "sample_to_send_ms": 0.0,
-        "send_to_host_receive_ms": 111.0,
-        "receive_to_consume_ms": 34.0,
-        "consume_to_state_send_ms": 29.0,
-        "state_send_to_receive_ms": 25.0,
-        "state_receive_to_apply_ms": 33.0,
-        "sample_to_apply_ms": 207.0,
-        "apply_to_draw_ms": null,
-        "sample_to_draw_ms": null
-      }
-    },
-    {
-      "attempt": "matrix-01",
-      "case": "windowed-vsync",
-      "timing_label": "contended",
-      "godot_processes_before": 5,
-      "runner_exit": 1,
-      "technical_ok": false,
-      "failed_criteria": {
-        "wall_stop": false,
-        "missing_physics_responses": 4,
-        "input_expiry": false,
-        "recovery": false
-      },
-      "proxy_mode": "proxied",
-      "pacing": {
-        "max_fps": 0,
-        "low_processor_mode": false,
-        "disable_vsync": false,
-        "high_resolution_timer": false
-      },
-      "effective_process_settings": [
-        {
-          "role": "host",
-          "max_fps": 0,
-          "low_processor_mode": false,
-          "vsync_mode": 1,
-          "display": "Windows",
-          "can_draw": true
-        },
-        {
-          "role": "client",
-          "max_fps": 0,
-          "low_processor_mode": false,
-          "vsync_mode": 1,
           "display": "Windows",
           "can_draw": true
         }
       ],
-      "physics_response_p95_ms": 249,
-      "drawn_response_p95_ms": 260,
-      "proxy_delay_p95_ms": 0.0,
-      "latency_budget_samples": 20,
-      "latency_budget_p95_ms": {
-        "sample_to_send_ms": 0.0,
-        "send_to_host_receive_ms": 145.0,
-        "receive_to_consume_ms": 50.0,
-        "consume_to_state_send_ms": 28.0,
-        "state_send_to_receive_ms": 354.0,
-        "state_receive_to_apply_ms": 64.0,
-        "sample_to_apply_ms": 602.0,
-        "apply_to_draw_ms": 26.0,
-        "sample_to_draw_ms": 638.0
-      }
-    },
-    {
-      "attempt": "matrix-01",
-      "case": "windowed-vsync-off",
-      "timing_label": "contended",
-      "godot_processes_before": 3,
-      "runner_exit": 1,
-      "technical_ok": false,
-      "failed_criteria": {
-        "wall_stop": true,
-        "missing_physics_responses": 1,
-        "input_expiry": false,
-        "recovery": false
-      },
-      "proxy_mode": "proxied",
-      "pacing": {
-        "max_fps": 0,
-        "low_processor_mode": false,
-        "disable_vsync": true,
-        "high_resolution_timer": false
-      },
-      "effective_process_settings": [
-        {
-          "role": "host",
-          "max_fps": 0,
-          "low_processor_mode": false,
-          "vsync_mode": 0,
-          "display": "Windows",
-          "can_draw": true
-        },
-        {
-          "role": "client",
-          "max_fps": 0,
-          "low_processor_mode": false,
-          "vsync_mode": 0,
-          "display": "Windows",
-          "can_draw": true
-        }
-      ],
-      "physics_response_p95_ms": 205,
-      "drawn_response_p95_ms": 219,
-      "proxy_delay_p95_ms": 0.0,
+      "physics_response_p95_ms": 98,
+      "drawn_response_p95_ms": 105,
       "latency_budget_samples": 20,
       "latency_budget_p95_ms": {
         "sample_to_send_ms": 1.0,
-        "send_to_host_receive_ms": 103.0,
-        "receive_to_consume_ms": 33.0,
-        "consume_to_state_send_ms": 39.0,
-        "state_send_to_receive_ms": 36.0,
-        "state_receive_to_apply_ms": 30.0,
-        "sample_to_apply_ms": 191.0,
-        "apply_to_draw_ms": 20.0,
-        "sample_to_draw_ms": 571.0
-      }
-    },
-    {
-      "attempt": "matrix-02",
-      "case": "direct-default",
-      "timing_label": "contended",
-      "godot_processes_before": 8,
-      "runner_exit": 0,
-      "technical_ok": true,
-      "failed_criteria": {
-        "wall_stop": false,
-        "missing_physics_responses": 0,
-        "input_expiry": false,
-        "recovery": false
-      },
-      "proxy_mode": "bypassed",
-      "pacing": {
-        "max_fps": 0,
-        "low_processor_mode": false,
-        "disable_vsync": false,
-        "high_resolution_timer": false
-      },
-      "effective_process_settings": [
-        {
-          "role": "host",
-          "max_fps": 0,
-          "low_processor_mode": false,
-          "vsync_mode": 1,
-          "display": "headless",
-          "can_draw": false
-        },
-        {
-          "role": "client",
-          "max_fps": 0,
-          "low_processor_mode": false,
-          "vsync_mode": 1,
-          "display": "headless",
-          "can_draw": false
-        }
-      ],
-      "physics_response_p95_ms": 257,
-      "drawn_response_p95_ms": null,
-      "proxy_delay_p95_ms": null,
-      "latency_budget_samples": 20,
-      "latency_budget_p95_ms": {
-        "sample_to_send_ms": 2.0,
-        "send_to_host_receive_ms": 43.0,
-        "receive_to_consume_ms": 15.0,
+        "send_to_host_receive_ms": 12.0,
+        "receive_to_consume_ms": 17.0,
         "consume_to_state_send_ms": 34.0,
-        "state_send_to_receive_ms": 210.0,
-        "state_receive_to_apply_ms": 27.0,
-        "sample_to_apply_ms": 250.0,
-        "apply_to_draw_ms": null,
-        "sample_to_draw_ms": null
-      }
-    },
-    {
-      "attempt": "matrix-02",
-      "case": "proxied-default",
-      "timing_label": "contended",
-      "godot_processes_before": 2,
-      "runner_exit": 1,
-      "technical_ok": false,
-      "failed_criteria": {
-        "wall_stop": true,
-        "missing_physics_responses": 4,
-        "input_expiry": false,
-        "recovery": false
+        "state_send_to_receive_ms": 16.0,
+        "state_receive_to_apply_ms": 25.0,
+        "sample_to_apply_ms": 88.0,
+        "apply_to_draw_ms": 8.0,
+        "sample_to_draw_ms": 95.0
       },
-      "proxy_mode": "proxied",
-      "pacing": {
-        "max_fps": 0,
-        "low_processor_mode": false,
-        "disable_vsync": false,
-        "high_resolution_timer": false
-      },
-      "effective_process_settings": [
-        {
-          "role": "host",
-          "max_fps": 0,
-          "low_processor_mode": false,
-          "vsync_mode": 1,
-          "display": "headless",
-          "can_draw": false
+      "proxy_stage_ms": {
+        "poll_gap_ms": {
+          "samples": 2476,
+          "p50": 3.736499696969986,
+          "p95": 6.238599773496389,
+          "max": 39.907800033688545
         },
-        {
-          "role": "client",
-          "max_fps": 0,
-          "low_processor_mode": false,
-          "vsync_mode": 1,
-          "display": "headless",
-          "can_draw": false
-        }
-      ],
-      "physics_response_p95_ms": 248,
-      "drawn_response_p95_ms": null,
-      "proxy_delay_p95_ms": 0.0,
-      "latency_budget_samples": 20,
-      "latency_budget_p95_ms": {
-        "sample_to_send_ms": 1.0,
-        "send_to_host_receive_ms": 119.0,
-        "receive_to_consume_ms": 35.0,
-        "consume_to_state_send_ms": 42.0,
-        "state_send_to_receive_ms": 904.0,
-        "state_receive_to_apply_ms": 20.0,
-        "sample_to_apply_ms": 1039.0,
-        "apply_to_draw_ms": null,
-        "sample_to_draw_ms": null
-      }
-    },
-    {
-      "attempt": "matrix-02",
-      "case": "proxied-hires",
-      "timing_label": "contended",
-      "godot_processes_before": 5,
-      "runner_exit": 1,
-      "technical_ok": false,
-      "failed_criteria": {
-        "wall_stop": true,
-        "missing_physics_responses": 0,
-        "input_expiry": false,
-        "recovery": false
-      },
-      "proxy_mode": "proxied",
-      "pacing": {
-        "max_fps": 0,
-        "low_processor_mode": false,
-        "disable_vsync": false,
-        "high_resolution_timer": true
-      },
-      "effective_process_settings": [
-        {
-          "role": "host",
-          "max_fps": 0,
-          "low_processor_mode": false,
-          "vsync_mode": 1,
-          "display": "headless",
-          "can_draw": false
+        "receive_to_forward_ms": {
+          "samples": 2476,
+          "p50": 0.24489965289831161,
+          "p95": 0.5987002514302731,
+          "max": 10.667500086128712
         },
-        {
-          "role": "client",
-          "max_fps": 0,
-          "low_processor_mode": false,
-          "vsync_mode": 1,
-          "display": "headless",
-          "can_draw": false
+        "schedule_overrun_ms": {
+          "samples": 2476,
+          "p50": 0.1449999399483204,
+          "p95": 0.4502004012465477,
+          "max": 10.470499750226736
+        },
+        "send_call_ms": {
+          "samples": 2476,
+          "p50": 0.09160023182630539,
+          "p95": 0.19990000873804092,
+          "max": 2.0674001425504684
+        },
+        "directions": {
+          "up": {
+            "samples": 1319,
+            "p95_receive_to_forward_ms": 0.5726004019379616
+          },
+          "down": {
+            "samples": 1157,
+            "p95_receive_to_forward_ms": 0.646399799734354
+          }
         }
-      ],
-      "physics_response_p95_ms": 303,
-      "drawn_response_p95_ms": null,
-      "proxy_delay_p95_ms": 0.0,
-      "latency_budget_samples": 20,
-      "latency_budget_p95_ms": {
-        "sample_to_send_ms": 1.0,
-        "send_to_host_receive_ms": 127.0,
-        "receive_to_consume_ms": 37.0,
-        "consume_to_state_send_ms": 41.0,
-        "state_send_to_receive_ms": 154.0,
-        "state_receive_to_apply_ms": 33.0,
-        "sample_to_apply_ms": 289.0,
-        "apply_to_draw_ms": null,
-        "sample_to_draw_ms": null
       }
     },
     {
-      "attempt": "matrix-02",
-      "case": "proxied-lowprocessor",
+      "case": "windowed-vsync-off-capped60",
       "timing_label": "contended",
       "godot_processes_before": 3,
       "runner_exit": 0,
@@ -557,177 +552,16 @@
       },
       "proxy_mode": "proxied",
       "pacing": {
-        "max_fps": 0,
-        "low_processor_mode": true,
-        "disable_vsync": false,
-        "high_resolution_timer": false
-      },
-      "effective_process_settings": [
-        {
-          "role": "host",
-          "max_fps": 0,
-          "low_processor_mode": true,
-          "vsync_mode": 1,
-          "display": "headless",
-          "can_draw": false
-        },
-        {
-          "role": "client",
-          "max_fps": 0,
-          "low_processor_mode": true,
-          "vsync_mode": 1,
-          "display": "headless",
-          "can_draw": false
-        }
-      ],
-      "physics_response_p95_ms": 111,
-      "drawn_response_p95_ms": null,
-      "proxy_delay_p95_ms": 0.0,
-      "latency_budget_samples": 20,
-      "latency_budget_p95_ms": {
-        "sample_to_send_ms": 1.0,
-        "send_to_host_receive_ms": 29.0,
-        "receive_to_consume_ms": 15.0,
-        "consume_to_state_send_ms": 40.0,
-        "state_send_to_receive_ms": 17.0,
-        "state_receive_to_apply_ms": 22.0,
-        "sample_to_apply_ms": 92.0,
-        "apply_to_draw_ms": null,
-        "sample_to_draw_ms": null
-      }
-    },
-    {
-      "attempt": "matrix-02",
-      "case": "proxied-maxfps60",
-      "timing_label": "contended",
-      "godot_processes_before": 3,
-      "runner_exit": 1,
-      "technical_ok": false,
-      "failed_criteria": {
-        "wall_stop": true,
-        "missing_physics_responses": 9,
-        "input_expiry": false,
-        "recovery": false
-      },
-      "proxy_mode": "proxied",
-      "pacing": {
         "max_fps": 60,
-        "low_processor_mode": false,
-        "disable_vsync": false,
-        "high_resolution_timer": false
-      },
-      "effective_process_settings": [
-        {
-          "role": "host",
-          "max_fps": 60,
-          "low_processor_mode": false,
-          "vsync_mode": 1,
-          "display": "headless",
-          "can_draw": false
-        },
-        {
-          "role": "client",
-          "max_fps": 60,
-          "low_processor_mode": false,
-          "vsync_mode": 1,
-          "display": "headless",
-          "can_draw": false
-        }
-      ],
-      "physics_response_p95_ms": 296,
-      "drawn_response_p95_ms": null,
-      "proxy_delay_p95_ms": 0.0,
-      "latency_budget_samples": 20,
-      "latency_budget_p95_ms": {
-        "sample_to_send_ms": 2.0,
-        "send_to_host_receive_ms": 355.0,
-        "receive_to_consume_ms": 140.0,
-        "consume_to_state_send_ms": 69.0,
-        "state_send_to_receive_ms": 3619.0,
-        "state_receive_to_apply_ms": 30.0,
-        "sample_to_apply_ms": 4069.0,
-        "apply_to_draw_ms": null,
-        "sample_to_draw_ms": null
-      }
-    },
-    {
-      "attempt": "matrix-02",
-      "case": "windowed-vsync",
-      "timing_label": "contended",
-      "godot_processes_before": 6,
-      "runner_exit": 1,
-      "technical_ok": false,
-      "failed_criteria": {
-        "wall_stop": true,
-        "missing_physics_responses": 15,
-        "input_expiry": false,
-        "recovery": false
-      },
-      "proxy_mode": "proxied",
-      "pacing": {
-        "max_fps": 0,
-        "low_processor_mode": false,
-        "disable_vsync": false,
-        "high_resolution_timer": false
-      },
-      "effective_process_settings": [
-        {
-          "role": "host",
-          "max_fps": 0,
-          "low_processor_mode": false,
-          "vsync_mode": 1,
-          "display": "Windows",
-          "can_draw": true
-        },
-        {
-          "role": "client",
-          "max_fps": 0,
-          "low_processor_mode": false,
-          "vsync_mode": 1,
-          "display": "Windows",
-          "can_draw": true
-        }
-      ],
-      "physics_response_p95_ms": 144,
-      "drawn_response_p95_ms": 163,
-      "proxy_delay_p95_ms": 0.0,
-      "latency_budget_samples": 5,
-      "latency_budget_p95_ms": {
-        "sample_to_send_ms": 1.0,
-        "send_to_host_receive_ms": 43.0,
-        "receive_to_consume_ms": 23.0,
-        "consume_to_state_send_ms": 43.0,
-        "state_send_to_receive_ms": 30.0,
-        "state_receive_to_apply_ms": 23.0,
-        "sample_to_apply_ms": 132.0,
-        "apply_to_draw_ms": 20.0,
-        "sample_to_draw_ms": 149.0
-      }
-    },
-    {
-      "attempt": "matrix-02",
-      "case": "windowed-vsync-off",
-      "timing_label": "contended",
-      "godot_processes_before": 2,
-      "runner_exit": 1,
-      "technical_ok": false,
-      "failed_criteria": {
-        "wall_stop": true,
-        "missing_physics_responses": 20,
-        "input_expiry": false,
-        "recovery": false
-      },
-      "proxy_mode": "proxied",
-      "pacing": {
-        "max_fps": 0,
         "low_processor_mode": false,
         "disable_vsync": true,
         "high_resolution_timer": false
       },
+      "safety_valid": true,
       "effective_process_settings": [
         {
           "role": "host",
-          "max_fps": 0,
+          "max_fps": 60,
           "low_processor_mode": false,
           "vsync_mode": 0,
           "display": "Windows",
@@ -735,32 +569,104 @@
         },
         {
           "role": "client",
-          "max_fps": 0,
+          "max_fps": 60,
           "low_processor_mode": false,
           "vsync_mode": 0,
           "display": "Windows",
           "can_draw": true
         }
       ],
-      "physics_response_p95_ms": null,
-      "drawn_response_p95_ms": null,
-      "proxy_delay_p95_ms": 0.0,
-      "latency_budget_samples": 0,
+      "physics_response_p95_ms": 100,
+      "drawn_response_p95_ms": 107,
+      "latency_budget_samples": 20,
       "latency_budget_p95_ms": {
-        "sample_to_send_ms": null,
-        "send_to_host_receive_ms": null,
-        "receive_to_consume_ms": null,
-        "consume_to_state_send_ms": null,
-        "state_send_to_receive_ms": null,
-        "state_receive_to_apply_ms": null,
-        "sample_to_apply_ms": null,
-        "apply_to_draw_ms": null,
-        "sample_to_draw_ms": null
+        "sample_to_send_ms": 1.0,
+        "send_to_host_receive_ms": 20.0,
+        "receive_to_consume_ms": 16.0,
+        "consume_to_state_send_ms": 35.0,
+        "state_send_to_receive_ms": 15.0,
+        "state_receive_to_apply_ms": 25.0,
+        "sample_to_apply_ms": 94.0,
+        "apply_to_draw_ms": 8.0,
+        "sample_to_draw_ms": 100.0
+      },
+      "proxy_stage_ms": {
+        "poll_gap_ms": {
+          "samples": 2446,
+          "p50": 3.7818001583218575,
+          "p95": 7.967000361531973,
+          "max": 120.6372999586165
+        },
+        "receive_to_forward_ms": {
+          "samples": 2446,
+          "p50": 0.22080028429627419,
+          "p95": 0.5524000152945518,
+          "max": 6.2547000125050545
+        },
+        "schedule_overrun_ms": {
+          "samples": 2446,
+          "p50": 0.13229995965957642,
+          "p95": 0.39400020614266396,
+          "max": 6.092000287026167
+        },
+        "send_call_ms": {
+          "samples": 2446,
+          "p50": 0.07979990914463997,
+          "p95": 0.17539970576763153,
+          "max": 5.9691001661121845
+        },
+        "directions": {
+          "up": {
+            "samples": 1299,
+            "p95_receive_to_forward_ms": 0.5057998932898045
+          },
+          "down": {
+            "samples": 1147,
+            "p95_receive_to_forward_ms": 0.588100403547287
+          }
+        }
       }
     }
   ],
+  "invalidated_historical_evidence": {
+    "uncapped_windowed": [
+      {
+        "attempt": "matrix-01",
+        "case": "windowed-vsync",
+        "reason": "INVALID/UNSAFE: windowed rendering ran uncapped (max_fps=0); do not use any timing or image evidence."
+      },
+      {
+        "attempt": "matrix-01",
+        "case": "windowed-vsync-off",
+        "reason": "INVALID/UNSAFE: windowed rendering ran uncapped (max_fps=0); do not use any timing or image evidence."
+      },
+      {
+        "attempt": "matrix-02",
+        "case": "windowed-vsync",
+        "reason": "INVALID/UNSAFE: windowed rendering ran uncapped (max_fps=0); do not use any timing or image evidence."
+      },
+      {
+        "attempt": "matrix-02",
+        "case": "windowed-vsync-off",
+        "reason": "INVALID/UNSAFE: windowed rendering ran uncapped (max_fps=0); do not use any timing or image evidence."
+      }
+    ],
+    "proxy_stage": {
+      "affected_attempts": [
+        "matrix-01",
+        "matrix-02"
+      ],
+      "reason": "INVALID proxy-stage telemetry: receive and forward used one pre-recv poll timestamp, forcing same-poll baseline delivery to zero. Historical non-proxy gameplay outcomes remain history, but are not used for the corrected stage budget."
+    }
+  },
+  "adverse_expiry_process_count": {
+    "godot_processes_before": 0,
+    "wording": "zero unrelated Godot processes observed at launch; conservatively labelled contended because the workstation was not otherwise isolated"
+  },
   "notes": [
-    "matrix-01 result files predate the final offline correlation fix; values here are reanalyzed from retained raw logs.",
+    "receive timestamps are captured immediately after recvfrom; forward timestamps bracket sendto.",
+    "poll_gap_ms is an upper bound from the previous poll completion to recvfrom return. It includes runner scheduling and possible kernel residence but is not an exact kernel-arrival timestamp.",
+    "receive_to_forward_ms measures actual proxy queue dwell; schedule_overrun_ms measures forwarding after the requested due time.",
     "Process counts changed as unrelated lane-owned Godot processes started/stopped; cross-case deltas are diagnostic, not controlled benchmarks.",
     "Technical failures are retained rather than discarded. No gameplay criterion was weakened."
   ]

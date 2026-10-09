@@ -1,0 +1,8 @@
+usage: run_s03_r.py [-h] [--godot GODOT] [--port PORT]
+                    [--proxy-port PROXY_PORT] [--deadline DEADLINE]
+                    [--windowed] [--bypass-proxy] [--high-resolution-timer]
+                    [--max-fps MAX_FPS] [--low-processor-mode]
+                    [--disable-vsync]
+                    [--profiles {baseline,normal,adverse} [{baseline,normal,adverse} ...]]
+                    [--output OUTPUT]
+run_s03_r.py: error: safe windowed diagnosis requires --max-fps 60
