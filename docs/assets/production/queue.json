@@ -1430,14 +1430,14 @@
       "input_next_action": "Define asset shape / variants",
       "brief": "[Brief](../../assets/d06_southern_shopping_parade.md)",
       "priority": 0,
-      "status": "queued",
-      "agent_id": null,
-      "source_revision": null,
-      "review_status": "pending",
-      "integration_status": "pending",
+      "status": "production_prefab_accepted",
+      "agent_id": "c6a9ecdb-8ee3-42d3-b7ac-0e833558d099",
+      "source_revision": "a6a22fd",
+      "review_status": "accepted source/export/prefab scope (independent Sol review)",
+      "integration_status": "accepted",
       "placement_status": "pending",
       "blocker": null,
-      "attempts": 0,
+      "attempts": 1,
       "initial_time_cap_minutes": 90,
       "owned_paths": [
         "art/source/models/environment/d06_southern_shopping_parade_01/",
@@ -1445,8 +1445,20 @@
         "art/textures/environment/d06_southern_shopping_parade_01/",
         "art/materials/environment/d06_southern_shopping_parade_01/",
         "docs/assets/production/d06_southern_shopping_parade_01.md",
-        "docs/assets/production/d06_southern_shopping_parade_01-evidence/"
-      ]
+        "docs/assets/production/d06_southern_shopping_parade_01-evidence/",
+        "tools/asset_production/d06_southern_shopping_parade_01/",
+        "scenes/prefabs/environment/d06_southern_shopping_parade_01.tscn"
+      ],
+      "launch": {
+        "provider": "portkey/gpt-6-astra",
+        "configured_effort": "medium",
+        "mode": "orchestrator asset lane",
+        "lane": "a-d06parade"
+      },
+      "producer_manifest": "docs/assets/production/d06_southern_shopping_parade_01-evidence/manifest.json",
+      "report": "docs/assets/production/d06_southern_shopping_parade_01.md",
+      "reviewer_id": "3b5b7a5a-f461-4232-b7bc-528ad3001f4a",
+      "integrated_revision": "da91417"
     },
     {
       "id": "d06_southern_shopping_parade.02",
@@ -1459,14 +1471,14 @@
       "input_next_action": "Define openings/mounts; reuse city_shop_fittings",
       "brief": "[Brief](../../assets/d06_southern_shopping_parade.md)",
       "priority": 2,
-      "status": "queued",
-      "agent_id": null,
-      "source_revision": null,
-      "review_status": "pending",
-      "integration_status": "pending",
+      "status": "production_prefab_accepted",
+      "agent_id": "a93f5c95-e8ec-47f1-8583-418625ffdfcb",
+      "source_revision": "da91417",
+      "review_status": "accepted source/export/prefab scope (independent Sol review)",
+      "integration_status": "accepted",
       "placement_status": "pending",
       "blocker": null,
-      "attempts": 0,
+      "attempts": 1,
       "initial_time_cap_minutes": 90,
       "owned_paths": [
         "art/source/models/environment/d06_southern_shopping_parade_02/",
@@ -1474,8 +1486,20 @@
         "art/textures/environment/d06_southern_shopping_parade_02/",
         "art/materials/environment/d06_southern_shopping_parade_02/",
         "docs/assets/production/d06_southern_shopping_parade_02.md",
-        "docs/assets/production/d06_southern_shopping_parade_02-evidence/"
-      ]
+        "docs/assets/production/d06_southern_shopping_parade_02-evidence/",
+        "tools/asset_production/d06_southern_shopping_parade_02/",
+        "scenes/prefabs/environment/d06_southern_shopping_parade_02.tscn"
+      ],
+      "launch": {
+        "provider": "portkey/gpt-6-astra",
+        "configured_effort": "medium",
+        "mode": "orchestrator asset lane",
+        "lane": "a-d06parade"
+      },
+      "producer_manifest": "docs/assets/production/d06_southern_shopping_parade_02-evidence/manifest.json",
+      "report": "docs/assets/production/d06_southern_shopping_parade_02.md",
+      "reviewer_id": "3b5b7a5a-f461-4232-b7bc-528ad3001f4a",
+      "integrated_revision": "da91417"
     },
     {
       "id": "d06_southern_shopping_parade.03",
@@ -1488,14 +1512,14 @@
       "input_next_action": "Define asset shape / variants",
       "brief": "[Brief](../../assets/d06_southern_shopping_parade.md)",
       "priority": 0,
-      "status": "queued",
-      "agent_id": null,
-      "source_revision": null,
-      "review_status": "pending",
-      "integration_status": "pending",
+      "status": "production_prefab_accepted",
+      "agent_id": "2facf723-e17a-43ad-92be-b755f5ee687f",
+      "source_revision": "1ad1c8f",
+      "review_status": "accepted source/export/prefab scope (independent Sol review)",
+      "integration_status": "accepted",
       "placement_status": "pending",
       "blocker": null,
-      "attempts": 0,
+      "attempts": 1,
       "initial_time_cap_minutes": 90,
       "owned_paths": [
         "art/source/models/environment/d06_southern_shopping_parade_03/",
@@ -1503,8 +1527,20 @@
         "art/textures/environment/d06_southern_shopping_parade_03/",
         "art/materials/environment/d06_southern_shopping_parade_03/",
         "docs/assets/production/d06_southern_shopping_parade_03.md",
-        "docs/assets/production/d06_southern_shopping_parade_03-evidence/"
-      ]
+        "docs/assets/production/d06_southern_shopping_parade_03-evidence/",
+        "tools/asset_production/d06_southern_shopping_parade_03/",
+        "scenes/prefabs/environment/d06_southern_shopping_parade_03.tscn"
+      ],
+      "launch": {
+        "provider": "portkey/gpt-6-astra",
+        "configured_effort": "medium",
+        "mode": "orchestrator asset lane",
+        "lane": "a-d06parade"
+      },
+      "producer_manifest": "docs/assets/production/d06_southern_shopping_parade_03-evidence/manifest.json",
+      "report": "docs/assets/production/d06_southern_shopping_parade_03.md",
+      "reviewer_id": "3b5b7a5a-f461-4232-b7bc-528ad3001f4a",
+      "integrated_revision": "da91417"
     },
     {
       "id": "d06_harbour_footbridge.01",
