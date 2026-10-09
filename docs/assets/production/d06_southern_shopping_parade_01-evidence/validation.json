@@ -1,0 +1,311 @@
+{
+  "asset_id": "d06_southern_shopping_parade.01",
+  "blender": "5.2.2 LTS",
+  "build_hash": "d13f752e3b9c",
+  "source_vertices": 2060,
+  "export_vertices": 2736,
+  "triangles": 4004,
+  "mesh_count": 1,
+  "surface_count": 5,
+  "nonmanifold_edges": 0,
+  "degenerate_faces": 0,
+  "unit_source_and_export_normals": true,
+  "positive_triangle_normal_alignment": true,
+  "source_bounds": {
+    "min": [
+      -9.045000076293945,
+      -30.03499984741211,
+      0.0
+    ],
+    "max": [
+      9.039999961853027,
+      30.03499984741211,
+      5.400000095367432
+    ]
+  },
+  "godot_bounds": {
+    "min": [
+      -9.045000076293945,
+      0.0,
+      -30.03499984741211
+    ],
+    "max": [
+      9.039999961853027,
+      5.400000095367432,
+      30.03499984741211
+    ]
+  },
+  "structural_footprint_m": [
+    18,
+    60
+  ],
+  "height_m": 5.4,
+  "ground_pivot": [
+    0,
+    0,
+    0
+  ],
+  "aperture_insertion_ray_probes": 972,
+  "west_bay_count": 6,
+  "mount_interface": "6.4m stations, 10m pitch; city_small_shop_shells_01 literal offsets",
+  "rear_interface": "Same 6.4m mount frames, solid quiet wall; no rear fitting insertion openings",
+  "export_nodes": 75,
+  "materials": [
+    {
+      "name": "parade_muted_plum_render",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.21952620148658752,
+          0.18447498977184296,
+          0.2015562504529953,
+          1
+        ],
+        "metallicFactor": 0,
+        "roughnessFactor": 0.699999988079071
+      }
+    },
+    {
+      "name": "parade_dark_coping_recess",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.03310476616024971,
+          0.0666259378194809,
+          0.0802198201417923,
+          1
+        ],
+        "metallicFactor": 0.20000000298023224,
+        "roughnessFactor": 0.550000011920929
+      }
+    },
+    {
+      "name": "parade_slate_plinth",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.06847816705703735,
+          0.08650045841932297,
+          0.09758734703063965,
+          1
+        ],
+        "metallicFactor": 0,
+        "roughnessFactor": 0.699999988079071
+      }
+    },
+    {
+      "name": "parade_warm_structural_trim",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.4969329833984375,
+          0.4677838087081909,
+          0.3915724754333496,
+          1
+        ],
+        "metallicFactor": 0,
+        "roughnessFactor": 0.699999988079071
+      }
+    },
+    {
+      "name": "parade_quiet_blue_roof",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.05126945674419403,
+          0.10461648553609848,
+          0.1384316086769104,
+          1
+        ],
+        "metallicFactor": 0.11999999731779099,
+        "roughnessFactor": 0.6499999761581421
+      }
+    }
+  ],
+  "reexport_byte_identical": true,
+  "glb_bytes": 100724,
+  "glb_sha256": "826631ea4c5f2db37bcd1608b8780faf0cc5f3e4bf64ce0c144e2104041fad98",
+  "status": "PASS source/raw GLB/reexport; engine and downstream gates recorded separately",
+  "engine": {
+    "aabb_min": [
+      -9.04500007629395,
+      0.0,
+      -30.0349998474121
+    ],
+    "aabb_size": [
+      18.0849990844727,
+      5.40000009536743,
+      60.0699996948242
+    ],
+    "collision_shape_count": 1,
+    "engine": "4.8-dev7 (official)",
+    "failures": [],
+    "front_ray_hit": [
+      -9.0,
+      1.0,
+      -26.9500007629395
+    ],
+    "linked_model_identity": true,
+    "materials": [
+      "parade_muted_plum_render",
+      "parade_dark_coping_recess",
+      "parade_slate_plinth",
+      "parade_warm_structural_trim",
+      "parade_quiet_blue_roof"
+    ],
+    "mesh_count": 1,
+    "model_uid": "uid://ru0vf0cfypuj",
+    "ok": true,
+    "physics_shape_queries": [
+      {
+        "case": "interior_solid",
+        "solid": true
+      },
+      {
+        "case": "west_closed_entry",
+        "solid": true
+      },
+      {
+        "case": "north_forecourt_clear",
+        "solid": false
+      },
+      {
+        "case": "south_route_clear",
+        "solid": false
+      },
+      {
+        "case": "west_passage_clear",
+        "solid": false
+      },
+      {
+        "case": "east_passage_clear",
+        "solid": false
+      },
+      {
+        "case": "above_roof_clear",
+        "solid": false
+      }
+    ],
+    "prefab_uid": "uid://cjhrw3fdflgkg",
+    "west_bay_01_path_below_model": "D06SouthernShoppingParade01/west_bay_01",
+    "save_reload_byte_stable": true
+  },
+  "map_fit_candidate": {
+    "status": "PASS candidate-only frozen-map checks; NOT placement or movement acceptance",
+    "source": "art/source/models/brackett_greybox/authoring_plan.json",
+    "source_sha256": "064ddd567a68d9c0bf12ee641f58272292ee0c733d79be65cd42823909436e56",
+    "candidate_map_centre_east_south_m": [
+      528,
+      499
+    ],
+    "candidate_godot_root_m": [
+      -102,
+      0,
+      144
+    ],
+    "candidate_yaw_degrees": 0,
+    "measurements": {
+      "visual_shell": {
+        "map_bounds_m": [
+          518.955,
+          468.965,
+          537.04,
+          529.035
+        ],
+        "inside_district": true,
+        "carriageway_overlap_m2": 0.0,
+        "minimum_distance_to_frozen_carriageway_m": 8.415961158301716
+      },
+      "west_walk_3m_beyond_fitting_reservation": {
+        "map_bounds_m": [
+          514.8,
+          469.0,
+          517.8,
+          529.0
+        ],
+        "inside_district": true,
+        "carriageway_overlap_m2": 0.0,
+        "minimum_distance_to_frozen_carriageway_m": 5.896686855012414
+      },
+      "east_walk_3m": {
+        "map_bounds_m": [
+          537.04,
+          469.0,
+          540.04,
+          529.0
+        ],
+        "inside_district": true,
+        "carriageway_overlap_m2": 0.0,
+        "minimum_distance_to_frozen_carriageway_m": 7.614239999999996
+      },
+      "north_forecourt_18m_by_9_965m": {
+        "map_bounds_m": [
+          519.0,
+          459.0,
+          537.0,
+          468.965
+        ],
+        "inside_district": true,
+        "carriageway_overlap_m2": 0.0,
+        "minimum_distance_to_frozen_carriageway_m": 7.679131976526578
+      }
+    },
+    "affected_existing_ids_unchanged": [
+      "brackett/district_06/building_0001",
+      "brackett/district_06/building_0008",
+      "brackett/district_06/building_0005"
+    ],
+    "limits": "Frozen greybox carriageway only, not current road-tool surfaces, sidewalks, bridge landing engineering, fitted frontages, navigation or actor/vehicle sweeps. No map, scene, identity, road or boundary was modified."
+  },
+  "production_checks": {
+    "overall_ok": true,
+    "results": {
+      "engine": {
+        "ok": true,
+        "version": "4.8.dev7.official.c971f93e7"
+      },
+      "gut_pin": {
+        "ok": true,
+        "version": "9.7.1"
+      },
+      "owned_scripts": {
+        "ok": true,
+        "returncode": 0
+      },
+      "python_tests": {
+        "ok": true,
+        "returncode": 0
+      },
+      "gut_import": {
+        "ok": true,
+        "returncode": 0
+      },
+      "gut_tests": {
+        "ok": true,
+        "returncode": 0
+      },
+      "gut_negative": {
+        "ok": true,
+        "observed_returncode": 1
+      }
+    },
+    "compiled_script_count": 63,
+    "python_tests": 9,
+    "gut_tests": 23,
+    "gut_assertions": 196,
+    "ignored_failures": []
+  },
+  "visual_self_review": {
+    "images": [
+      "hero.png",
+      "side.png",
+      "bay_detail.png",
+      "overhead_47m_42deg.png"
+    ],
+    "renderer": "Blender Cycles CPU, 24 samples, AgX; 1280x800",
+    "gameplay_camera": "Vertical down at Blender (-6,0,47), north-up, vertical FOV 42 degrees",
+    "observed": "One continuous quiet roof and six paired west recesses; intentional central overhead crop because a 60 m shell exceeds the calibrated frustum. Door/window faces are hidden overhead; essential wayfinding must not rely on them.",
+    "limits": "Self-review only; not native engine or independent art/gameplay acceptance"
+  },
+  "diagnostics": {
+    "editor_normalize": "Exit 0 with stable saved bytes; toolkit compatibility warning and scan-thread/RID/ObjectDB shutdown diagnostics retained in final.log",
+    "initial_owned_fixes": "Added @tool for editor execution and stopped before runtime physics; UIDs established by editor save plus rescan; lint warnings corrected",
+    "fresh_runtime": "Exit 0 without ERROR/WARNING",
+    "production_checks": "All layers PASS"
+  }
+}
