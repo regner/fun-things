@@ -63,7 +63,12 @@ All M1 tasks follow P0-GATE.
 
 ### M1-C — City, population and minimap
 
-- [ ] **M1-C1 — Produce the ratified custom art families.** After: P0-GATE.
+- [ ] **M1-C0 — Run the staged world concept work** in
+  [the world concept handover](docs/workflows/world-concept-handover.md):
+  setting, city map, districts, roads, lighting, buildings, props, landmarks, greybox
+  and production asset list, each owner-approved before the next.
+- [ ] **M1-C1 — Produce the ratified custom art families.** After: P0-GATE and the
+  M1-C0 production asset list.
 - [ ] **M1-C2 — Assemble the authored district in saved sectors.**
   Needs approved M1-C1 road/building/prop subsets.
 - [ ] **M1-C3 — Implement host-owned pedestrians and traffic.** After: M1-B1, M1-B2, M1-C2.
