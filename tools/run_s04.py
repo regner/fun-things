@@ -311,6 +311,7 @@ def stage(directory):
     for section in ["autoload", "editor_plugins"]:
         settings = re.sub(r"(?ms)^\[" + section + r"\]\n.*?(?=^\[|\Z)", "", settings)
     settings = settings.replace('config/icon="res://icon.svg"', '')
+    settings = re.sub(r'(?m)^run/main_scene=.*\n', '', settings)
     settings += '\n'
     (project / "project.godot").write_text(settings)
     return project
