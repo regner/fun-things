@@ -113,7 +113,7 @@ func decode_movement(packet: PackedByteArray) -> Dictionary:
 	var rows: Array[Dictionary] = []
 	for _row_index: int in range(row_count):
 		var row: Dictionary = _get_movement_row(stream)
-		if not ReplicationIdentity.has_valid_entity_ref_fields(row):
+		if not _valid_movement_row(row):
 			return _failure(&"MALFORMED_ROW")
 
 		rows.append(row)

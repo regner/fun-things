@@ -65,6 +65,7 @@ func start(
 		"commit_revision": -1,
 		"journal": [],
 		"journal_bytes": 0,
+		"sent_journal_count": 0,
 		"deadline_msec": Time.get_ticks_msec() + ADMISSION_TIMEOUT_MSEC,
 	}
 	if not _transport.send_baseline(native_peer_id, metadata, packets):
@@ -91,9 +92,6 @@ func publish_durable(event: Dictionary) -> Dictionary:
 			continue
 		if not _append_journal(attempt, packet):
 			_abort(native_peer_id, &"STATE_LIMIT")
-			continue
-		if attempt.phase == PHASE_HANDOFF:
-			_transport.send_durable(native_peer_id, packet)
 
 	return { "ok": true, "revision": _durable_revision }
 
@@ -104,10 +102,9 @@ func acknowledge_baseline(native_peer_id: int, baseline_id: int) -> Dictionary:
 	if attempt.is_empty():
 		return _failure(&"STALE_ACK")
 
-	for packet: PackedByteArray in attempt.journal:
-		if not _transport.send_durable(native_peer_id, packet):
-			_abort(native_peer_id, &"TRANSPORT_FAILED")
-			return _failure(&"TRANSPORT_FAILED")
+	if not _send_unsent_journal(native_peer_id, attempt):
+		_abort(native_peer_id, &"TRANSPORT_FAILED")
+		return _failure(&"TRANSPORT_FAILED")
 	attempt.phase = PHASE_HANDOFF
 	attempt.commit_revision = _durable_revision
 	if not _transport.send_handoff(native_peer_id, baseline_id, _durable_revision):
@@ -126,6 +123,16 @@ func acknowledge_handoff(
 	var attempt: Dictionary = _current_attempt(native_peer_id, baseline_id, PHASE_HANDOFF)
 	if attempt.is_empty() or int(attempt.commit_revision) != commit_revision:
 		return _failure(&"STALE_ACK")
+	if int(attempt.sent_journal_count) < attempt.journal.size():
+		if not _send_unsent_journal(native_peer_id, attempt):
+			_abort(native_peer_id, &"TRANSPORT_FAILED")
+			return _failure(&"TRANSPORT_FAILED")
+		attempt.commit_revision = _durable_revision
+		if not _transport.send_handoff(native_peer_id, baseline_id, _durable_revision):
+			_abort(native_peer_id, &"TRANSPORT_FAILED")
+			return _failure(&"TRANSPORT_FAILED")
+
+		return { "ok": true, "admitted": false, "commit_revision": _durable_revision }
 
 	attempt.phase = PHASE_ADMITTED
 	if not _transport.send_grant(native_peer_id, baseline_id, commit_revision):
@@ -134,6 +141,7 @@ func acknowledge_handoff(
 
 	return {
 		"ok": true,
+		"admitted": true,
 		"participant_id": _identities.resolve_sender(native_peer_id),
 		"commit_revision": commit_revision,
 	}
@@ -191,6 +199,16 @@ func _baseline_metadata(
 		"row_count": row_count,
 		"checksum": checksum_context.finish().hex_encode(),
 	}
+
+
+## Sends only records not covered by the previous reliable handoff marker.
+func _send_unsent_journal(native_peer_id: int, attempt: Dictionary) -> bool:
+	var journal: Array = attempt.journal
+	for index: int in range(int(attempt.sent_journal_count), journal.size()):
+		if not _transport.send_durable(native_peer_id, journal[index]):
+			return false
+	attempt.sent_journal_count = journal.size()
+	return true
 
 
 ## Adds one record by value and rejects count or byte overflow before mutation.

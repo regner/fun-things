@@ -46,10 +46,25 @@ func test_baseline_and_journal_complete_before_input_grant() -> void:
 	assert_eq(_transport.events[2].kind, &"handoff")
 	assert_eq(_admission.input_participant(NATIVE_PEER_ID), 0)
 
+	assert_true(_admission.publish_durable(_event(2, 42)).ok)
+	assert_eq(_transport.events.size(), 3)
 	assert_false(_admission.acknowledge_handoff(NATIVE_PEER_ID, BASELINE_ID, 0).ok)
 	assert_eq(_admission.input_participant(NATIVE_PEER_ID), 0)
-	assert_true(_admission.acknowledge_handoff(NATIVE_PEER_ID, BASELINE_ID, 1).ok)
-	assert_eq(_transport.events[3].kind, &"grant")
+	var repeated_handoff: Dictionary = _admission.acknowledge_handoff(
+		NATIVE_PEER_ID,
+		BASELINE_ID,
+		1,
+	)
+	assert_true(repeated_handoff.ok)
+	assert_false(repeated_handoff.admitted)
+	assert_eq(_transport.events[3].kind, &"durable")
+	assert_eq(_transport.events[4].kind, &"handoff")
+	assert_eq(_admission.input_participant(NATIVE_PEER_ID), 0)
+
+	var granted: Dictionary = _admission.acknowledge_handoff(NATIVE_PEER_ID, BASELINE_ID, 2)
+	assert_true(granted.ok)
+	assert_true(granted.admitted)
+	assert_eq(_transport.events[5].kind, &"grant")
 	assert_gt(_admission.input_participant(NATIVE_PEER_ID), 0)
 
 

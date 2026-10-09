@@ -56,6 +56,9 @@ func test_malformed_payloads_fail_before_exposing_rows() -> void:
 	var reserved: PackedByteArray = packet.duplicate()
 	reserved[11] = 1
 	assert_false(codec.decode_movement(reserved).ok)
+	var invalid_phase: PackedByteArray = packet.duplicate()
+	invalid_phase[16] = 0
+	assert_false(codec.decode_movement(invalid_phase).ok)
 
 	var extra: Dictionary = _row(1, 0.0, 0.0)
 	extra.health = 100
