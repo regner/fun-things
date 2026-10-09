@@ -46,6 +46,7 @@ var jitter_samples_m: Array[float] = []
 var lifecycle_events_received: Array[String] = []
 var stale_rows_rejected: int = 0
 var started_ms: int = 0
+var result_emitted_ms: int = 0
 
 
 ## Parse the bounded process role and open the unchanged S03 ENet transport.
@@ -73,6 +74,7 @@ func _ready() -> void:
 		multiplayer.multiplayer_peer = transport.peer
 		_emit({"event": "ready", "entities": ENTITY_COUNT})
 	else:
+		multiplayer.server_disconnected.connect(_host_closed)
 		var target: Dictionary = transport.parse_endpoint("127.0.0.1", port)
 		var error: Error = transport.open_client(1, target)
 		if error != OK:
@@ -109,7 +111,12 @@ func _physics_process(_delta: float) -> void:
 
 ## Interpolate remote rows behind estimated server time and bound extrapolation.
 func _process(delta: float) -> void:
-	if role != "client" or not running:
+	if role != "client":
+		return
+	if result_emitted_ms > 0 and Time.get_ticks_msec() - result_emitted_ms > 5000:
+		get_tree().quit(0)
+		return
+	if not running:
 		return
 
 	var now_ms: int = Time.get_ticks_msec()
@@ -386,11 +393,17 @@ func _kind_for(entity_id: int) -> int:
 func _complete_run(_host_summary: Dictionary) -> void:
 	if role == "client" and multiplayer.get_remote_sender_id() == 1:
 		running = false
-		_emit_result()
+		_emit_result(false)
 
 
-## Emit one machine-readable result and close this owned process.
-func _emit_result() -> void:
+## Exit a completed client after the authoritative process closes the transport.
+func _host_closed() -> void:
+	if result_emitted_ms > 0:
+		get_tree().quit(0)
+
+
+## Emit one machine-readable result and optionally close this owned process.
+func _emit_result(quit_process: bool = true) -> void:
 	running = false
 	var failures: Array[String] = []
 	if role == "host":
@@ -433,7 +446,9 @@ func _emit_result() -> void:
 		"duration_ms": Time.get_ticks_msec() - started_ms,
 	}
 	_emit(result)
-	get_tree().quit(0 if failures.is_empty() else 1)
+	result_emitted_ms = Time.get_ticks_msec()
+	if quit_process:
+		get_tree().quit(0 if failures.is_empty() else 1)
 
 
 ## Report an early process failure in the same result envelope.
