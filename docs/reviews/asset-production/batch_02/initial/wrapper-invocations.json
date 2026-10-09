@@ -1,0 +1,38 @@
+[
+  {
+    "argv": [
+      "python",
+      "docs/reviews/asset-production/batch_02/initial/run_checks.py"
+    ],
+    "cwd": "/home/regner/.paseo/worktrees/0u71f39f/asset-register-production",
+    "stdout": "runner.stdout",
+    "stderr": "runner.stderr",
+    "observed_exit": 0,
+    "timing": "not captured by outer shell; subprocess receipts retain actual UTC times",
+    "note": "outer driver exit does not replace per-check exit inspection"
+  },
+  {
+    "argv": [
+      "python",
+      "docs/reviews/asset-production/batch_02/initial/adapt_checks.py"
+    ],
+    "cwd": "/home/regner/.paseo/worktrees/0u71f39f/asset-register-production",
+    "stdout": "adaptation.stdout",
+    "stderr": "adaptation.stderr",
+    "observed_exit": 0,
+    "timing": "not captured by outer shell; subprocess receipts retain actual UTC times",
+    "note": "outer driver exit does not replace per-check exit inspection"
+  },
+  {
+    "argv": [
+      "python",
+      "docs/reviews/asset-production/batch_02/initial/final_checks.py"
+    ],
+    "cwd": "/home/regner/.paseo/worktrees/0u71f39f/asset-register-production",
+    "stdout": "final-checks.stdout",
+    "stderr": "final-checks.stderr",
+    "observed_exit": 0,
+    "timing": "not captured by outer shell; subprocess receipts retain actual UTC times",
+    "note": "outer driver exit does not replace per-check exit inspection"
+  }
+]

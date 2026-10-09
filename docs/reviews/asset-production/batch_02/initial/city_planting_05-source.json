@@ -1,0 +1,572 @@
+{
+  "asset": "city_planting_05",
+  "source_sha256": "60c8df59f3436ccaa9c686412b14e2e7957280fb8a4153b9da8995344f90e8a1",
+  "pin": {
+    "blender": "5.2.2 LTS",
+    "build": "d13f752e3b9c",
+    "gltf": [
+      5,
+      2,
+      40
+    ]
+  },
+  "libraries": [],
+  "images": [
+    {
+      "name": "Render Result",
+      "path": "",
+      "packed": false
+    },
+    {
+      "name": "Viewer Node",
+      "path": "",
+      "packed": false
+    }
+  ],
+  "all_collections": {
+    "authoring_reference_excluded": [
+      "reference_one_metre_vertical",
+      "preview_ground_excluded",
+      "hero_camera",
+      "project_vertical_47m_42deg",
+      "key",
+      "fill",
+      "rim"
+    ],
+    "Collection": [],
+    "export_city_planting_05": [],
+    "variant_short_tuft": [
+      "city_planting_05_short_tuft",
+      "short_tuft_blades"
+    ],
+    "variant_spreading_clump": [
+      "city_planting_05_spreading_clump",
+      "spreading_clump_blades"
+    ]
+  },
+  "all_objects": [
+    {
+      "name": "city_planting_05_short_tuft",
+      "type": "EMPTY",
+      "parent": null,
+      "custom_properties": {
+        "provenance": "Original Codex Blender construction for city_planting.05, 2026-10-09",
+        "front": "Blender +Y/+Z up -> Godot -Z/+Y up",
+        "ground_datum_m": 0.0,
+        "runtime": "Static visual dressing; no collision, wind, growth, rigs or sockets",
+        "blade_count": 9,
+        "blender_dimensions_m": [
+          0.56,
+          0.42,
+          0.26
+        ]
+      }
+    },
+    {
+      "name": "city_planting_05_spreading_clump",
+      "type": "EMPTY",
+      "parent": null,
+      "custom_properties": {
+        "provenance": "Original Codex Blender construction for city_planting.05, 2026-10-09",
+        "front": "Blender +Y/+Z up -> Godot -Z/+Y up",
+        "ground_datum_m": 0.0,
+        "runtime": "Static visual dressing; no collision, wind, growth, rigs or sockets",
+        "blade_count": 15,
+        "blender_dimensions_m": [
+          1.0,
+          0.62,
+          0.2
+        ]
+      }
+    },
+    {
+      "name": "fill",
+      "type": "LIGHT",
+      "parent": null,
+      "custom_properties": {}
+    },
+    {
+      "name": "hero_camera",
+      "type": "CAMERA",
+      "parent": null,
+      "custom_properties": {}
+    },
+    {
+      "name": "key",
+      "type": "LIGHT",
+      "parent": null,
+      "custom_properties": {}
+    },
+    {
+      "name": "preview_ground_excluded",
+      "type": "MESH",
+      "parent": null,
+      "custom_properties": {}
+    },
+    {
+      "name": "project_vertical_47m_42deg",
+      "type": "CAMERA",
+      "parent": null,
+      "custom_properties": {}
+    },
+    {
+      "name": "reference_one_metre_vertical",
+      "type": "MESH",
+      "parent": null,
+      "custom_properties": {
+        "height_m": 1.0,
+        "excluded_from_runtime": true
+      }
+    },
+    {
+      "name": "rim",
+      "type": "LIGHT",
+      "parent": null,
+      "custom_properties": {}
+    },
+    {
+      "name": "short_tuft_blades",
+      "type": "MESH",
+      "parent": "city_planting_05_short_tuft",
+      "custom_properties": {}
+    },
+    {
+      "name": "spreading_clump_blades",
+      "type": "MESH",
+      "parent": "city_planting_05_spreading_clump",
+      "custom_properties": {}
+    }
+  ],
+  "variants": [
+    {
+      "root": "city_planting_05_short_tuft",
+      "collection": "variant_short_tuft",
+      "objects": [
+        {
+          "name": "short_tuft_blades",
+          "vertices": 603,
+          "triangles": 1170,
+          "minimum_triangle_area_m2": 7.266100379707512e-06,
+          "bad_edges": [],
+          "islands": [
+            {
+              "vertices": 67,
+              "faces": 67,
+              "signed_volume": 7.035272775732946e-05,
+              "zero_face_vertex_coordinates": []
+            },
+            {
+              "vertices": 67,
+              "faces": 67,
+              "signed_volume": 6.429321228077514e-05,
+              "zero_face_vertex_coordinates": []
+            },
+            {
+              "vertices": 67,
+              "faces": 67,
+              "signed_volume": 5.881880237383056e-05,
+              "zero_face_vertex_coordinates": []
+            },
+            {
+              "vertices": 67,
+              "faces": 67,
+              "signed_volume": 4.8254126212674354e-05,
+              "zero_face_vertex_coordinates": []
+            },
+            {
+              "vertices": 67,
+              "faces": 67,
+              "signed_volume": 6.112140098291488e-05,
+              "zero_face_vertex_coordinates": []
+            },
+            {
+              "vertices": 67,
+              "faces": 67,
+              "signed_volume": 5.940904250366859e-05,
+              "zero_face_vertex_coordinates": []
+            },
+            {
+              "vertices": 67,
+              "faces": 67,
+              "signed_volume": 6.268620216418871e-05,
+              "zero_face_vertex_coordinates": []
+            },
+            {
+              "vertices": 67,
+              "faces": 67,
+              "signed_volume": 6.416290350759406e-05,
+              "zero_face_vertex_coordinates": []
+            },
+            {
+              "vertices": 67,
+              "faces": 67,
+              "signed_volume": 5.2386201958370596e-05,
+              "zero_face_vertex_coordinates": []
+            }
+          ],
+          "uv_layers": [],
+          "custom_normals": false,
+          "materials": [
+            "weed_olive",
+            "weed_olive_light",
+            "weed_olive_dry"
+          ],
+          "matrix_world": [
+            [
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              1.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              1.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ]
+        }
+      ],
+      "blender_bounds": [
+        [
+          -0.2800000011920929,
+          -0.20999999344348907,
+          0.0
+        ],
+        [
+          0.2800000011920929,
+          0.20999999344348907,
+          0.25999999046325684
+        ]
+      ],
+      "godot_bounds": [
+        [
+          -0.2800000011920929,
+          0.0,
+          -0.20999999344348907
+        ],
+        [
+          0.2800000011920929,
+          0.25999999046325684,
+          0.20999999344348907
+        ]
+      ],
+      "materials": [
+        {
+          "name": "weed_olive",
+          "base_color": [
+            0.10702310502529144,
+            0.14995978772640228,
+            0.04666508734226227,
+            1.0
+          ],
+          "metallic": 0.0,
+          "roughness": 0.8899999856948853,
+          "backface_culling": true,
+          "texture_nodes": []
+        },
+        {
+          "name": "weed_olive_light",
+          "base_color": [
+            0.16202937066555023,
+            0.1946178376674652,
+            0.06480326503515244,
+            1.0
+          ],
+          "metallic": 0.0,
+          "roughness": 0.8799999952316284,
+          "backface_culling": true,
+          "texture_nodes": []
+        },
+        {
+          "name": "weed_olive_dry",
+          "base_color": [
+            0.20507873594760895,
+            0.19120168685913086,
+            0.07227185368537903,
+            1.0
+          ],
+          "metallic": 0.0,
+          "roughness": 0.9399999976158142,
+          "backface_culling": true,
+          "texture_nodes": []
+        }
+      ],
+      "export_settings": {
+        "export_format": "GLB",
+        "use_selection": true,
+        "export_yup": true,
+        "export_apply": true,
+        "export_texcoords": false,
+        "export_normals": true,
+        "export_tangents": false,
+        "export_materials": "EXPORT",
+        "export_cameras": false,
+        "export_lights": false,
+        "export_extras": false,
+        "export_animations": false
+      },
+      "fresh_bytes": 24200,
+      "fresh_sha256": "6151495091e7046e7796f1d3f4593f24e1345d7ce4548dbfd8c07041a17a3944",
+      "review_camera": {
+        "position": [
+          1.0080000162124634,
+          -1.399999976158142,
+          1.0820000171661377
+        ],
+        "rotation": [
+          1.0665390491485596,
+          2.6736877600797015e-08,
+          0.6240231394767761
+        ],
+        "orthographic_scale": 0.7839999794960022,
+        "samples": 16
+      }
+    },
+    {
+      "root": "city_planting_05_spreading_clump",
+      "collection": "variant_spreading_clump",
+      "objects": [
+        {
+          "name": "spreading_clump_blades",
+          "vertices": 1005,
+          "triangles": 1950,
+          "minimum_triangle_area_m2": 7.736960670303061e-06,
+          "bad_edges": [],
+          "islands": [
+            {
+              "vertices": 67,
+              "faces": 67,
+              "signed_volume": 6.0202815050551536e-05,
+              "zero_face_vertex_coordinates": []
+            },
+            {
+              "vertices": 67,
+              "faces": 67,
+              "signed_volume": 6.571596162130863e-05,
+              "zero_face_vertex_coordinates": []
+            },
+            {
+              "vertices": 67,
+              "faces": 67,
+              "signed_volume": 6.571600650643854e-05,
+              "zero_face_vertex_coordinates": []
+            },
+            {
+              "vertices": 67,
+              "faces": 67,
+              "signed_volume": 5.671751457672202e-05,
+              "zero_face_vertex_coordinates": []
+            },
+            {
+              "vertices": 67,
+              "faces": 67,
+              "signed_volume": 5.671730500186631e-05,
+              "zero_face_vertex_coordinates": []
+            },
+            {
+              "vertices": 67,
+              "faces": 67,
+              "signed_volume": 6.38192974751951e-05,
+              "zero_face_vertex_coordinates": []
+            },
+            {
+              "vertices": 67,
+              "faces": 67,
+              "signed_volume": 6.381934191658862e-05,
+              "zero_face_vertex_coordinates": []
+            },
+            {
+              "vertices": 67,
+              "faces": 67,
+              "signed_volume": 6.020276967816974e-05,
+              "zero_face_vertex_coordinates": []
+            },
+            {
+              "vertices": 67,
+              "faces": 67,
+              "signed_volume": 6.020275716056042e-05,
+              "zero_face_vertex_coordinates": []
+            },
+            {
+              "vertices": 67,
+              "faces": 67,
+              "signed_volume": 4.661228714606351e-05,
+              "zero_face_vertex_coordinates": []
+            },
+            {
+              "vertices": 67,
+              "faces": 67,
+              "signed_volume": 4.6612249059128126e-05,
+              "zero_face_vertex_coordinates": []
+            },
+            {
+              "vertices": 67,
+              "faces": 67,
+              "signed_volume": 6.571619526991283e-05,
+              "zero_face_vertex_coordinates": []
+            },
+            {
+              "vertices": 67,
+              "faces": 67,
+              "signed_volume": 5.671750065385491e-05,
+              "zero_face_vertex_coordinates": []
+            },
+            {
+              "vertices": 67,
+              "faces": 67,
+              "signed_volume": 4.661228228076715e-05,
+              "zero_face_vertex_coordinates": []
+            },
+            {
+              "vertices": 67,
+              "faces": 67,
+              "signed_volume": 6.381928057339783e-05,
+              "zero_face_vertex_coordinates": []
+            }
+          ],
+          "uv_layers": [],
+          "custom_normals": false,
+          "materials": [
+            "weed_olive",
+            "weed_olive_light",
+            "weed_olive_dry"
+          ],
+          "matrix_world": [
+            [
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              1.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              1.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ]
+        }
+      ],
+      "blender_bounds": [
+        [
+          -0.5,
+          -0.3100000023841858,
+          0.0
+        ],
+        [
+          0.5,
+          0.3100000023841858,
+          0.20000000298023224
+        ]
+      ],
+      "godot_bounds": [
+        [
+          -0.5,
+          0.0,
+          -0.3100000023841858
+        ],
+        [
+          0.5,
+          0.20000000298023224,
+          0.3100000023841858
+        ]
+      ],
+      "materials": [
+        {
+          "name": "weed_olive",
+          "base_color": [
+            0.10702310502529144,
+            0.14995978772640228,
+            0.04666508734226227,
+            1.0
+          ],
+          "metallic": 0.0,
+          "roughness": 0.8899999856948853,
+          "backface_culling": true,
+          "texture_nodes": []
+        },
+        {
+          "name": "weed_olive_light",
+          "base_color": [
+            0.16202937066555023,
+            0.1946178376674652,
+            0.06480326503515244,
+            1.0
+          ],
+          "metallic": 0.0,
+          "roughness": 0.8799999952316284,
+          "backface_culling": true,
+          "texture_nodes": []
+        },
+        {
+          "name": "weed_olive_dry",
+          "base_color": [
+            0.20507873594760895,
+            0.19120168685913086,
+            0.07227185368537903,
+            1.0
+          ],
+          "metallic": 0.0,
+          "roughness": 0.9399999976158142,
+          "backface_culling": true,
+          "texture_nodes": []
+        }
+      ],
+      "export_settings": {
+        "export_format": "GLB",
+        "use_selection": true,
+        "export_yup": true,
+        "export_apply": true,
+        "export_texcoords": false,
+        "export_normals": true,
+        "export_tangents": false,
+        "export_materials": "EXPORT",
+        "export_cameras": false,
+        "export_lights": false,
+        "export_extras": false,
+        "export_animations": false
+      },
+      "fresh_bytes": 36044,
+      "fresh_sha256": "e9e651ba2e9389b925f00874f88f36538165d1d22608c90fc36600e531745fe8",
+      "review_camera": {
+        "position": [
+          1.7999999523162842,
+          -2.5,
+          1.8000000715255737
+        ],
+        "rotation": [
+          1.0665391683578491,
+          7.99991823896562e-08,
+          0.6240230798721313
+        ],
+        "orthographic_scale": 1.399999976158142,
+        "samples": 16
+      }
+    }
+  ]
+}

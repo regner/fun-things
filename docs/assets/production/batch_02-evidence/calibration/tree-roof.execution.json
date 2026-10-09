@@ -1,0 +1,20 @@
+{
+  "argv": [
+    "/usr/bin/blender",
+    "-noaudio",
+    "--background",
+    "--factory-startup",
+    "--threads",
+    "2",
+    "--python-exit-code",
+    "1",
+    "--python",
+    "tools/asset_production/integration/calibrate_batch02.py"
+  ],
+  "exit_code": 0,
+  "elapsed_s": 19.854462146759033,
+  "environment_overrides": {
+    "ALSOFT_DRIVERS": "null",
+    "SDL_AUDIODRIVER": "dummy"
+  }
+}

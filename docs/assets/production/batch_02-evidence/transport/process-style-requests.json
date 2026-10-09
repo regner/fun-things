@@ -1,0 +1,1 @@
+[{"method": "script.edit", "params": {"file_path": "res://tests/fixtures/asset_production/batch_02_process_probe.gd", "old_string": "var position_now: Vector3 = await _travel(actor, STARTS[index])", "new_string": "var position_now: Vector3 = await _travel(  # gdstyle:ignore=quality/await-in-loop\n\t\t\tactor, STARTS[index]\n\t\t)"}}]

@@ -1,0 +1,960 @@
+{
+  "asset": "city_planting_04",
+  "source_sha256": "013b9b20765a6e12b341f3e0c7590164aac2efb8ac5bd184a25117f031a9439b",
+  "pin": {
+    "blender": "5.2.2 LTS",
+    "build": "d13f752e3b9c",
+    "gltf": [
+      5,
+      2,
+      40
+    ]
+  },
+  "libraries": [],
+  "images": [
+    {
+      "name": "Render Result",
+      "path": "",
+      "packed": false
+    },
+    {
+      "name": "Viewer Node",
+      "path": "",
+      "packed": false
+    }
+  ],
+  "all_collections": {
+    "Collection": [],
+    "export_city_planting_04": [],
+    "export_city_planting_04_broad": [
+      "city_planting_04_broad",
+      "broad_sculpted_trunk",
+      "broad_crown_leader",
+      "broad_crown_west",
+      "broad_crown_east",
+      "broad_crown_front",
+      "broad_crown_back"
+    ],
+    "export_city_planting_04_compact": [
+      "city_planting_04_compact",
+      "compact_sculpted_trunk",
+      "compact_crown_leader",
+      "compact_crown_west",
+      "compact_crown_east",
+      "compact_crown_front",
+      "compact_crown_back"
+    ],
+    "studio_do_not_export": [
+      "Plane",
+      "hero_camera",
+      "project_vertical_47m_42deg",
+      "key",
+      "fill",
+      "rim"
+    ]
+  },
+  "all_objects": [
+    {
+      "name": "broad_crown_back",
+      "type": "MESH",
+      "parent": "city_planting_04_broad",
+      "custom_properties": {}
+    },
+    {
+      "name": "broad_crown_east",
+      "type": "MESH",
+      "parent": "city_planting_04_broad",
+      "custom_properties": {}
+    },
+    {
+      "name": "broad_crown_front",
+      "type": "MESH",
+      "parent": "city_planting_04_broad",
+      "custom_properties": {}
+    },
+    {
+      "name": "broad_crown_leader",
+      "type": "MESH",
+      "parent": "city_planting_04_broad",
+      "custom_properties": {}
+    },
+    {
+      "name": "broad_crown_west",
+      "type": "MESH",
+      "parent": "city_planting_04_broad",
+      "custom_properties": {}
+    },
+    {
+      "name": "broad_sculpted_trunk",
+      "type": "MESH",
+      "parent": "city_planting_04_broad",
+      "custom_properties": {}
+    },
+    {
+      "name": "city_planting_04_broad",
+      "type": "EMPTY",
+      "parent": null,
+      "custom_properties": {
+        "provenance": "Original Codex Blender authoring 2026-10-09; city_planting.04",
+        "axes": "metres; ground centre; +Y front / +Z up -> Godot -Z / +Y",
+        "interface": "Same ground datum as city_planting.02 open surround; base radius <0.23m"
+      }
+    },
+    {
+      "name": "city_planting_04_compact",
+      "type": "EMPTY",
+      "parent": null,
+      "custom_properties": {
+        "provenance": "Original Codex Blender authoring 2026-10-09; city_planting.04",
+        "axes": "metres; ground centre; +Y front / +Z up -> Godot -Z / +Y",
+        "interface": "Same ground datum as city_planting.02 open surround; base radius <0.23m"
+      }
+    },
+    {
+      "name": "compact_crown_back",
+      "type": "MESH",
+      "parent": "city_planting_04_compact",
+      "custom_properties": {}
+    },
+    {
+      "name": "compact_crown_east",
+      "type": "MESH",
+      "parent": "city_planting_04_compact",
+      "custom_properties": {}
+    },
+    {
+      "name": "compact_crown_front",
+      "type": "MESH",
+      "parent": "city_planting_04_compact",
+      "custom_properties": {}
+    },
+    {
+      "name": "compact_crown_leader",
+      "type": "MESH",
+      "parent": "city_planting_04_compact",
+      "custom_properties": {}
+    },
+    {
+      "name": "compact_crown_west",
+      "type": "MESH",
+      "parent": "city_planting_04_compact",
+      "custom_properties": {}
+    },
+    {
+      "name": "compact_sculpted_trunk",
+      "type": "MESH",
+      "parent": "city_planting_04_compact",
+      "custom_properties": {}
+    },
+    {
+      "name": "fill",
+      "type": "LIGHT",
+      "parent": null,
+      "custom_properties": {}
+    },
+    {
+      "name": "hero_camera",
+      "type": "CAMERA",
+      "parent": null,
+      "custom_properties": {}
+    },
+    {
+      "name": "key",
+      "type": "LIGHT",
+      "parent": null,
+      "custom_properties": {}
+    },
+    {
+      "name": "Plane",
+      "type": "MESH",
+      "parent": null,
+      "custom_properties": {}
+    },
+    {
+      "name": "project_vertical_47m_42deg",
+      "type": "CAMERA",
+      "parent": null,
+      "custom_properties": {}
+    },
+    {
+      "name": "rim",
+      "type": "LIGHT",
+      "parent": null,
+      "custom_properties": {}
+    }
+  ],
+  "variants": [
+    {
+      "root": "city_planting_04_compact",
+      "collection": "export_city_planting_04_compact",
+      "objects": [
+        {
+          "name": "compact_sculpted_trunk",
+          "vertices": 2046,
+          "triangles": 4082,
+          "minimum_triangle_area_m2": 1.0690077980854419e-05,
+          "bad_edges": [],
+          "islands": [
+            {
+              "vertices": 2039,
+              "faces": 3108,
+              "signed_volume": 0.09498420294974784,
+              "zero_face_vertex_coordinates": []
+            },
+            {
+              "vertices": 6,
+              "faces": 7,
+              "signed_volume": 2.3175434653926737e-07,
+              "zero_face_vertex_coordinates": []
+            },
+            {
+              "vertices": 1,
+              "faces": 0,
+              "signed_volume": 0,
+              "zero_face_vertex_coordinates": [
+                [
+                  0.04999981075525284,
+                  0.47499996423721313,
+                  2.700007200241089
+                ]
+              ]
+            }
+          ],
+          "uv_layers": [],
+          "custom_normals": false,
+          "materials": [
+            "tree_warm_umber"
+          ],
+          "matrix_world": [
+            [
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              1.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              1.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ]
+        },
+        {
+          "name": "compact_crown_leader",
+          "vertices": 1522,
+          "triangles": 3040,
+          "minimum_triangle_area_m2": 0.000298285847357684,
+          "bad_edges": [],
+          "islands": [
+            {
+              "vertices": 1522,
+              "faces": 1520,
+              "signed_volume": 0.7464512643600395,
+              "zero_face_vertex_coordinates": []
+            }
+          ],
+          "uv_layers": [],
+          "custom_normals": false,
+          "materials": [
+            "tree_quiet_jade"
+          ],
+          "matrix_world": [
+            [
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              1.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              1.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ]
+        },
+        {
+          "name": "compact_crown_west",
+          "vertices": 1522,
+          "triangles": 3040,
+          "minimum_triangle_area_m2": 0.0002621228546334957,
+          "bad_edges": [],
+          "islands": [
+            {
+              "vertices": 1522,
+              "faces": 1520,
+              "signed_volume": 0.5764091079118454,
+              "zero_face_vertex_coordinates": []
+            }
+          ],
+          "uv_layers": [],
+          "custom_normals": false,
+          "materials": [
+            "tree_quiet_jade"
+          ],
+          "matrix_world": [
+            [
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              1.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              1.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ]
+        },
+        {
+          "name": "compact_crown_east",
+          "vertices": 1522,
+          "triangles": 3040,
+          "minimum_triangle_area_m2": 0.00019774345341971752,
+          "bad_edges": [],
+          "islands": [
+            {
+              "vertices": 1522,
+              "faces": 1520,
+              "signed_volume": 0.4490481894911105,
+              "zero_face_vertex_coordinates": []
+            }
+          ],
+          "uv_layers": [],
+          "custom_normals": false,
+          "materials": [
+            "tree_soft_sage"
+          ],
+          "matrix_world": [
+            [
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              1.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              1.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ]
+        },
+        {
+          "name": "compact_crown_front",
+          "vertices": 1522,
+          "triangles": 3040,
+          "minimum_triangle_area_m2": 0.0002020562770629815,
+          "bad_edges": [],
+          "islands": [
+            {
+              "vertices": 1522,
+              "faces": 1520,
+              "signed_volume": 0.4388030341675969,
+              "zero_face_vertex_coordinates": []
+            }
+          ],
+          "uv_layers": [],
+          "custom_normals": false,
+          "materials": [
+            "tree_quiet_jade"
+          ],
+          "matrix_world": [
+            [
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              1.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              1.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ]
+        },
+        {
+          "name": "compact_crown_back",
+          "vertices": 1522,
+          "triangles": 3040,
+          "minimum_triangle_area_m2": 0.00018769937434316307,
+          "bad_edges": [],
+          "islands": [
+            {
+              "vertices": 1522,
+              "faces": 1520,
+              "signed_volume": 0.4508701390302819,
+              "zero_face_vertex_coordinates": []
+            }
+          ],
+          "uv_layers": [],
+          "custom_normals": false,
+          "materials": [
+            "tree_soft_sage"
+          ],
+          "matrix_world": [
+            [
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              1.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              1.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ]
+        }
+      ],
+      "blender_bounds": [
+        [
+          -0.908597469329834,
+          -0.8941905498504639,
+          0.0
+        ],
+        [
+          1.0899916887283325,
+          0.9533852338790894,
+          3.596365451812744
+        ]
+      ],
+      "godot_bounds": [
+        [
+          -0.908597469329834,
+          0.0,
+          -0.9533852338790894
+        ],
+        [
+          1.0899916887283325,
+          3.596365451812744,
+          0.8941905498504639
+        ]
+      ],
+      "materials": [
+        {
+          "name": "tree_warm_umber",
+          "base_color": [
+            0.10461648553609848,
+            0.07421357184648514,
+            0.0382043719291687,
+            1.0
+          ],
+          "metallic": 0.0,
+          "roughness": 0.9300000071525574,
+          "backface_culling": true,
+          "texture_nodes": []
+        },
+        {
+          "name": "tree_soft_sage",
+          "base_color": [
+            0.07421357184648514,
+            0.16202937066555023,
+            0.07421357184648514,
+            1.0
+          ],
+          "metallic": 0.0,
+          "roughness": 0.8700000047683716,
+          "backface_culling": true,
+          "texture_nodes": []
+        },
+        {
+          "name": "tree_quiet_jade",
+          "base_color": [
+            0.05448027700185776,
+            0.14126329123973846,
+            0.06847816705703735,
+            1.0
+          ],
+          "metallic": 0.0,
+          "roughness": 0.8700000047683716,
+          "backface_culling": true,
+          "texture_nodes": []
+        }
+      ],
+      "export_settings": {
+        "export_format": "GLB",
+        "use_selection": true,
+        "export_yup": true,
+        "export_apply": true,
+        "export_texcoords": false,
+        "export_normals": true,
+        "export_tangents": false,
+        "export_materials": "EXPORT",
+        "export_cameras": false,
+        "export_lights": false,
+        "export_extras": false,
+        "export_animations": false
+      },
+      "fresh_bytes": 278900,
+      "fresh_sha256": "7e1a678453324fc9843e9941ddf9c3fad30e19d6f206d11ee404932cc525708e",
+      "review_camera": {
+        "position": [
+          6.564155101776123,
+          -8.961316108703613,
+          7.912004470825195
+        ],
+        "rotation": [
+          1.06653892993927,
+          5.6839446926915116e-08,
+          0.6240230798721313
+        ],
+        "orthographic_scale": 5.034911632537842,
+        "samples": 16
+      }
+    },
+    {
+      "root": "city_planting_04_broad",
+      "collection": "export_city_planting_04_broad",
+      "objects": [
+        {
+          "name": "broad_sculpted_trunk",
+          "vertices": 2111,
+          "triangles": 4218,
+          "minimum_triangle_area_m2": 1.2749904009517832e-05,
+          "bad_edges": [],
+          "islands": [
+            {
+              "vertices": 2111,
+              "faces": 3242,
+              "signed_volume": 0.09396284565331126,
+              "zero_face_vertex_coordinates": []
+            }
+          ],
+          "uv_layers": [],
+          "custom_normals": false,
+          "materials": [
+            "tree_warm_umber"
+          ],
+          "matrix_world": [
+            [
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              1.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              1.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ]
+        },
+        {
+          "name": "broad_crown_leader",
+          "vertices": 1522,
+          "triangles": 3040,
+          "minimum_triangle_area_m2": 0.0005084791358671549,
+          "bad_edges": [],
+          "islands": [
+            {
+              "vertices": 1522,
+              "faces": 1520,
+              "signed_volume": 0.9623049447256451,
+              "zero_face_vertex_coordinates": []
+            }
+          ],
+          "uv_layers": [],
+          "custom_normals": false,
+          "materials": [
+            "tree_quiet_jade"
+          ],
+          "matrix_world": [
+            [
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              1.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              1.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ]
+        },
+        {
+          "name": "broad_crown_west",
+          "vertices": 1522,
+          "triangles": 3040,
+          "minimum_triangle_area_m2": 0.0004090144860034132,
+          "bad_edges": [],
+          "islands": [
+            {
+              "vertices": 1522,
+              "faces": 1520,
+              "signed_volume": 0.7832493293308262,
+              "zero_face_vertex_coordinates": []
+            }
+          ],
+          "uv_layers": [],
+          "custom_normals": false,
+          "materials": [
+            "tree_quiet_jade"
+          ],
+          "matrix_world": [
+            [
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              1.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              1.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ]
+        },
+        {
+          "name": "broad_crown_east",
+          "vertices": 1522,
+          "triangles": 3040,
+          "minimum_triangle_area_m2": 0.0003403405755076324,
+          "bad_edges": [],
+          "islands": [
+            {
+              "vertices": 1522,
+              "faces": 1520,
+              "signed_volume": 0.7000297822746918,
+              "zero_face_vertex_coordinates": []
+            }
+          ],
+          "uv_layers": [],
+          "custom_normals": false,
+          "materials": [
+            "tree_soft_sage"
+          ],
+          "matrix_world": [
+            [
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              1.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              1.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ]
+        },
+        {
+          "name": "broad_crown_front",
+          "vertices": 1522,
+          "triangles": 3040,
+          "minimum_triangle_area_m2": 0.0003690350408073001,
+          "bad_edges": [],
+          "islands": [
+            {
+              "vertices": 1522,
+              "faces": 1520,
+              "signed_volume": 0.7240429330964647,
+              "zero_face_vertex_coordinates": []
+            }
+          ],
+          "uv_layers": [],
+          "custom_normals": false,
+          "materials": [
+            "tree_quiet_jade"
+          ],
+          "matrix_world": [
+            [
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              1.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              1.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ]
+        },
+        {
+          "name": "broad_crown_back",
+          "vertices": 1522,
+          "triangles": 3040,
+          "minimum_triangle_area_m2": 0.0003333666989401388,
+          "bad_edges": [],
+          "islands": [
+            {
+              "vertices": 1522,
+              "faces": 1520,
+              "signed_volume": 0.670457013834318,
+              "zero_face_vertex_coordinates": []
+            }
+          ],
+          "uv_layers": [],
+          "custom_normals": false,
+          "materials": [
+            "tree_soft_sage"
+          ],
+          "matrix_world": [
+            [
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              1.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              1.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ]
+        }
+      ],
+      "blender_bounds": [
+        [
+          -1.2882429361343384,
+          -1.203524112701416,
+          0.0
+        ],
+        [
+          1.483805775642395,
+          1.2381691932678223,
+          3.317199468612671
+        ]
+      ],
+      "godot_bounds": [
+        [
+          -1.2882429361343384,
+          0.0,
+          -1.2381691932678223
+        ],
+        [
+          1.483805775642395,
+          3.317199468612671,
+          1.203524112701416
+        ]
+      ],
+      "materials": [
+        {
+          "name": "tree_warm_umber",
+          "base_color": [
+            0.10461648553609848,
+            0.07421357184648514,
+            0.0382043719291687,
+            1.0
+          ],
+          "metallic": 0.0,
+          "roughness": 0.9300000071525574,
+          "backface_culling": true,
+          "texture_nodes": []
+        },
+        {
+          "name": "tree_soft_sage",
+          "base_color": [
+            0.07421357184648514,
+            0.16202937066555023,
+            0.07421357184648514,
+            1.0
+          ],
+          "metallic": 0.0,
+          "roughness": 0.8700000047683716,
+          "backface_culling": true,
+          "texture_nodes": []
+        },
+        {
+          "name": "tree_quiet_jade",
+          "base_color": [
+            0.05448027700185776,
+            0.14126329123973846,
+            0.06847816705703735,
+            1.0
+          ],
+          "metallic": 0.0,
+          "roughness": 0.8700000047683716,
+          "backface_culling": true,
+          "texture_nodes": []
+        }
+      ],
+      "export_settings": {
+        "export_format": "GLB",
+        "use_selection": true,
+        "export_yup": true,
+        "export_apply": true,
+        "export_texcoords": false,
+        "export_normals": true,
+        "export_tangents": false,
+        "export_materials": "EXPORT",
+        "export_cameras": false,
+        "export_lights": false,
+        "export_extras": false,
+        "export_animations": false
+      },
+      "fresh_bytes": 281264,
+      "fresh_sha256": "b02f3594925972cf4002811042b606734fbc8a5c7f1d9ed5c719022809b1130b",
+      "review_camera": {
+        "position": [
+          6.068739891052246,
+          -8.275675773620605,
+          7.297839164733887
+        ],
+        "rotation": [
+          1.0665390491485596,
+          5.557404492151363e-08,
+          0.6240230798721313
+        ],
+        "orthographic_scale": 4.644079208374023,
+        "samples": 16
+      }
+    }
+  ]
+}

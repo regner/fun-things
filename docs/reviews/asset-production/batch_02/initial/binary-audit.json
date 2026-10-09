@@ -1,0 +1,1037 @@
+[
+  {
+    "asset": "city_planting_03",
+    "root": "city_planting_03",
+    "committed_path": "art/models/environment/city_planting_03/city_planting_03.glb",
+    "bytes": 70556,
+    "sha256": "572bb17a248b686df1917181e569b04a3662fbd6994de230dc8b17cd634cb7cd",
+    "fresh_byte_identical": true,
+    "nodes": [
+      "crown_back_shoulder",
+      "crown_centre",
+      "crown_east",
+      "crown_front_shoulder",
+      "crown_west",
+      "three_recessed_stems",
+      "city_planting_03"
+    ],
+    "godot_bounds": [
+      [
+        -0.5430297255516052,
+        0.0,
+        -0.35622134804725647
+      ],
+      [
+        0.5404995083808899,
+        0.6700000166893005,
+        0.3346724510192871
+      ]
+    ],
+    "triangles": 4932,
+    "surfaces": [
+      {
+        "node": "crown_back_shoulder",
+        "triangles": 960,
+        "minimum_triangle_area_m2": 6.771810029430344e-05,
+        "minimum_face_normal_dot": 0.9306744645534669,
+        "opposed_shading_normal_faces": 0,
+        "material": "shrub_muted_sage"
+      },
+      {
+        "node": "crown_centre",
+        "triangles": 960,
+        "minimum_triangle_area_m2": 0.00014799114633355358,
+        "minimum_face_normal_dot": 0.9338575670492042,
+        "opposed_shading_normal_faces": 0,
+        "material": "shrub_quiet_jade"
+      },
+      {
+        "node": "crown_east",
+        "triangles": 960,
+        "minimum_triangle_area_m2": 0.00010636996787393036,
+        "minimum_face_normal_dot": 0.9170617042183498,
+        "opposed_shading_normal_faces": 0,
+        "material": "shrub_muted_sage"
+      },
+      {
+        "node": "crown_front_shoulder",
+        "triangles": 960,
+        "minimum_triangle_area_m2": 5.9839104402993474e-05,
+        "minimum_face_normal_dot": 0.9167068041043764,
+        "opposed_shading_normal_faces": 0,
+        "material": "shrub_quiet_jade"
+      },
+      {
+        "node": "crown_west",
+        "triangles": 960,
+        "minimum_triangle_area_m2": 0.00011446983615158247,
+        "minimum_face_normal_dot": 0.9136088182043276,
+        "opposed_shading_normal_faces": 0,
+        "material": "shrub_quiet_jade"
+      },
+      {
+        "node": "three_recessed_stems",
+        "triangles": 132,
+        "minimum_triangle_area_m2": 1.935920012380299e-05,
+        "minimum_face_normal_dot": 0.6447146733601888,
+        "opposed_shading_normal_faces": 0,
+        "material": "shrub_woody_umber"
+      }
+    ],
+    "materials": [
+      {
+        "doubleSided": true,
+        "name": "shrub_muted_sage",
+        "pbrMetallicRoughness": {
+          "baseColorFactor": [
+            0.09305896610021591,
+            0.18447498977184296,
+            0.07618538290262222,
+            1
+          ],
+          "metallicFactor": 0,
+          "roughnessFactor": 0.8600000143051147
+        }
+      },
+      {
+        "doubleSided": true,
+        "name": "shrub_quiet_jade",
+        "pbrMetallicRoughness": {
+          "baseColorFactor": [
+            0.05448027700185776,
+            0.14126329123973846,
+            0.06847816705703735,
+            1
+          ],
+          "metallicFactor": 0,
+          "roughnessFactor": 0.8700000047683716
+        }
+      },
+      {
+        "doubleSided": true,
+        "name": "shrub_woody_umber",
+        "pbrMetallicRoughness": {
+          "baseColorFactor": [
+            0.07227185368537903,
+            0.05448027700185776,
+            0.026241222396492958,
+            1
+          ],
+          "metallicFactor": 0,
+          "roughnessFactor": 0.9399999976158142
+        }
+      }
+    ],
+    "interfaces": {
+      "0.2": {
+        "bounds": [
+          [
+            -0.40911476860547585,
+            0.0,
+            -0.16636049911679757
+          ],
+          [
+            0.41715415960238833,
+            0.20000000000000004,
+            0.15444213985069835
+          ]
+        ],
+        "max_radius_m": 0.41733527326192715
+      },
+      "0.48": {
+        "bounds": [
+          [
+            -0.5430297255516052,
+            0.0,
+            -0.35622134804725647
+          ],
+          [
+            0.5404995083808899,
+            0.48,
+            0.3346724510192871
+          ]
+        ],
+        "max_radius_m": 0.5443566597334838
+      }
+    }
+  },
+  {
+    "asset": "city_planting_04",
+    "root": "city_planting_04_compact",
+    "committed_path": "art/models/environment/city_planting_04/city_planting_04_compact.glb",
+    "bytes": 278900,
+    "sha256": "7e1a678453324fc9843e9941ddf9c3fad30e19d6f206d11ee404932cc525708e",
+    "fresh_byte_identical": true,
+    "nodes": [
+      "compact_crown_back",
+      "compact_crown_east",
+      "compact_crown_front",
+      "compact_crown_leader",
+      "compact_crown_west",
+      "compact_sculpted_trunk",
+      "city_planting_04_compact"
+    ],
+    "godot_bounds": [
+      [
+        -0.908597469329834,
+        0.0,
+        -0.9533852338790894
+      ],
+      [
+        1.0899916887283325,
+        3.596365451812744,
+        0.8941905498504639
+      ]
+    ],
+    "triangles": 19282,
+    "surfaces": [
+      {
+        "node": "compact_crown_back",
+        "triangles": 3040,
+        "minimum_triangle_area_m2": 0.000187699423707291,
+        "minimum_face_normal_dot": 0.9787298847868396,
+        "opposed_shading_normal_faces": 0,
+        "material": "tree_soft_sage"
+      },
+      {
+        "node": "compact_crown_east",
+        "triangles": 3040,
+        "minimum_triangle_area_m2": 0.0001977434792707344,
+        "minimum_face_normal_dot": 0.9811293451765564,
+        "opposed_shading_normal_faces": 0,
+        "material": "tree_soft_sage"
+      },
+      {
+        "node": "compact_crown_front",
+        "triangles": 3040,
+        "minimum_triangle_area_m2": 0.00020205631385503364,
+        "minimum_face_normal_dot": 0.9801678762016552,
+        "opposed_shading_normal_faces": 0,
+        "material": "tree_quiet_jade"
+      },
+      {
+        "node": "compact_crown_leader",
+        "triangles": 3040,
+        "minimum_triangle_area_m2": 0.00029828586621670364,
+        "minimum_face_normal_dot": 0.9783713148895845,
+        "opposed_shading_normal_faces": 0,
+        "material": "tree_quiet_jade"
+      },
+      {
+        "node": "compact_crown_west",
+        "triangles": 3040,
+        "minimum_triangle_area_m2": 0.0002621228515413112,
+        "minimum_face_normal_dot": 0.9806796812242565,
+        "opposed_shading_normal_faces": 0,
+        "material": "tree_quiet_jade"
+      },
+      {
+        "node": "compact_sculpted_trunk",
+        "triangles": 4082,
+        "minimum_triangle_area_m2": 1.0690077839711222e-05,
+        "minimum_face_normal_dot": 0.13105216170770148,
+        "opposed_shading_normal_faces": 0,
+        "material": "tree_warm_umber"
+      }
+    ],
+    "materials": [
+      {
+        "name": "tree_soft_sage",
+        "pbrMetallicRoughness": {
+          "baseColorFactor": [
+            0.07421357184648514,
+            0.16202937066555023,
+            0.07421357184648514,
+            1
+          ],
+          "metallicFactor": 0,
+          "roughnessFactor": 0.8700000047683716
+        }
+      },
+      {
+        "name": "tree_quiet_jade",
+        "pbrMetallicRoughness": {
+          "baseColorFactor": [
+            0.05448027700185776,
+            0.14126329123973846,
+            0.06847816705703735,
+            1
+          ],
+          "metallicFactor": 0,
+          "roughnessFactor": 0.8700000047683716
+        }
+      },
+      {
+        "name": "tree_warm_umber",
+        "pbrMetallicRoughness": {
+          "baseColorFactor": [
+            0.10461648553609848,
+            0.07421357184648514,
+            0.0382043719291687,
+            1
+          ],
+          "metallicFactor": 0,
+          "roughnessFactor": 0.9300000071525574
+        }
+      }
+    ],
+    "interfaces": {
+      "0.48": {
+        "bounds": [
+          [
+            -0.1739974319934845,
+            0.0,
+            -0.17767676711082458
+          ],
+          [
+            0.19720786809921265,
+            0.48,
+            0.17807145416736603
+          ]
+        ],
+        "max_radius_m": 0.19721672080597574
+      }
+    }
+  },
+  {
+    "asset": "city_planting_04",
+    "root": "city_planting_04_broad",
+    "committed_path": "art/models/environment/city_planting_04/city_planting_04_broad.glb",
+    "bytes": 281264,
+    "sha256": "b02f3594925972cf4002811042b606734fbc8a5c7f1d9ed5c719022809b1130b",
+    "fresh_byte_identical": true,
+    "nodes": [
+      "broad_crown_back",
+      "broad_crown_east",
+      "broad_crown_front",
+      "broad_crown_leader",
+      "broad_crown_west",
+      "broad_sculpted_trunk",
+      "city_planting_04_broad"
+    ],
+    "godot_bounds": [
+      [
+        -1.2882429361343384,
+        0.0,
+        -1.2381691932678223
+      ],
+      [
+        1.483805775642395,
+        3.317199468612671,
+        1.203524112701416
+      ]
+    ],
+    "triangles": 19418,
+    "surfaces": [
+      {
+        "node": "broad_crown_back",
+        "triangles": 3040,
+        "minimum_triangle_area_m2": 0.00033336679120069397,
+        "minimum_face_normal_dot": 0.9777521362102776,
+        "opposed_shading_normal_faces": 0,
+        "material": "tree_soft_sage"
+      },
+      {
+        "node": "broad_crown_east",
+        "triangles": 3040,
+        "minimum_triangle_area_m2": 0.00034034057371355535,
+        "minimum_face_normal_dot": 0.9786289023200248,
+        "opposed_shading_normal_faces": 0,
+        "material": "tree_soft_sage"
+      },
+      {
+        "node": "broad_crown_front",
+        "triangles": 3040,
+        "minimum_triangle_area_m2": 0.00036903503195084527,
+        "minimum_face_normal_dot": 0.9786165231932472,
+        "opposed_shading_normal_faces": 0,
+        "material": "tree_quiet_jade"
+      },
+      {
+        "node": "broad_crown_leader",
+        "triangles": 3040,
+        "minimum_triangle_area_m2": 0.0005084790679608554,
+        "minimum_face_normal_dot": 0.9744313745957676,
+        "opposed_shading_normal_faces": 0,
+        "material": "tree_quiet_jade"
+      },
+      {
+        "node": "broad_crown_west",
+        "triangles": 3040,
+        "minimum_triangle_area_m2": 0.0004090145228714327,
+        "minimum_face_normal_dot": 0.9780302612451471,
+        "opposed_shading_normal_faces": 0,
+        "material": "tree_quiet_jade"
+      },
+      {
+        "node": "broad_sculpted_trunk",
+        "triangles": 4218,
+        "minimum_triangle_area_m2": 1.2749903726974554e-05,
+        "minimum_face_normal_dot": 0.2441369343482476,
+        "opposed_shading_normal_faces": 0,
+        "material": "tree_warm_umber"
+      }
+    ],
+    "materials": [
+      {
+        "name": "tree_soft_sage",
+        "pbrMetallicRoughness": {
+          "baseColorFactor": [
+            0.07421357184648514,
+            0.16202937066555023,
+            0.07421357184648514,
+            1
+          ],
+          "metallicFactor": 0,
+          "roughnessFactor": 0.8700000047683716
+        }
+      },
+      {
+        "name": "tree_quiet_jade",
+        "pbrMetallicRoughness": {
+          "baseColorFactor": [
+            0.05448027700185776,
+            0.14126329123973846,
+            0.06847816705703735,
+            1
+          ],
+          "metallicFactor": 0,
+          "roughnessFactor": 0.8700000047683716
+        }
+      },
+      {
+        "name": "tree_warm_umber",
+        "pbrMetallicRoughness": {
+          "baseColorFactor": [
+            0.10461648553609848,
+            0.07421357184648514,
+            0.0382043719291687,
+            1
+          ],
+          "metallicFactor": 0,
+          "roughnessFactor": 0.9300000071525574
+        }
+      }
+    ],
+    "interfaces": {
+      "0.48": {
+        "bounds": [
+          [
+            -0.1739974319934845,
+            0.0,
+            -0.17767676711082458
+          ],
+          [
+            0.19769786298274994,
+            0.48,
+            0.17807145416736603
+          ]
+        ],
+        "max_radius_m": 0.1976978629828886
+      }
+    }
+  },
+  {
+    "asset": "city_planting_05",
+    "root": "city_planting_05_short_tuft",
+    "committed_path": "art/models/environment/city_planting_05/city_planting_05_short_tuft.glb",
+    "bytes": 24200,
+    "sha256": "6151495091e7046e7796f1d3f4593f24e1345d7ce4548dbfd8c07041a17a3944",
+    "fresh_byte_identical": true,
+    "nodes": [
+      "short_tuft_blades",
+      "city_planting_05_short_tuft"
+    ],
+    "godot_bounds": [
+      [
+        -0.2800000011920929,
+        0.0,
+        -0.20999999344348907
+      ],
+      [
+        0.2800000011920929,
+        0.25999999046325684,
+        0.20999999344348907
+      ]
+    ],
+    "triangles": 1170,
+    "surfaces": [
+      {
+        "node": "short_tuft_blades",
+        "triangles": 780,
+        "minimum_triangle_area_m2": 7.266100556414672e-06,
+        "minimum_face_normal_dot": 0.19420888001508244,
+        "opposed_shading_normal_faces": 0,
+        "material": "weed_olive"
+      },
+      {
+        "node": "short_tuft_blades",
+        "triangles": 260,
+        "minimum_triangle_area_m2": 8.624211952124406e-06,
+        "minimum_face_normal_dot": 0.2923501615305312,
+        "opposed_shading_normal_faces": 0,
+        "material": "weed_olive_light"
+      },
+      {
+        "node": "short_tuft_blades",
+        "triangles": 130,
+        "minimum_triangle_area_m2": 8.39829921862112e-06,
+        "minimum_face_normal_dot": 0.3543418863153947,
+        "opposed_shading_normal_faces": 0,
+        "material": "weed_olive_dry"
+      }
+    ],
+    "materials": [
+      {
+        "name": "weed_olive",
+        "pbrMetallicRoughness": {
+          "baseColorFactor": [
+            0.10702310502529144,
+            0.14995978772640228,
+            0.04666508734226227,
+            1
+          ],
+          "metallicFactor": 0,
+          "roughnessFactor": 0.8899999856948853
+        }
+      },
+      {
+        "name": "weed_olive_light",
+        "pbrMetallicRoughness": {
+          "baseColorFactor": [
+            0.16202937066555023,
+            0.1946178376674652,
+            0.06480326503515244,
+            1
+          ],
+          "metallicFactor": 0,
+          "roughnessFactor": 0.8799999952316284
+        }
+      },
+      {
+        "name": "weed_olive_dry",
+        "pbrMetallicRoughness": {
+          "baseColorFactor": [
+            0.20507873594760895,
+            0.19120168685913086,
+            0.07227185368537903,
+            1
+          ],
+          "metallicFactor": 0,
+          "roughnessFactor": 0.9399999976158142
+        }
+      }
+    ],
+    "interfaces": {}
+  },
+  {
+    "asset": "city_planting_05",
+    "root": "city_planting_05_spreading_clump",
+    "committed_path": "art/models/environment/city_planting_05/city_planting_05_spreading_clump.glb",
+    "bytes": 36044,
+    "sha256": "e9e651ba2e9389b925f00874f88f36538165d1d22608c90fc36600e531745fe8",
+    "fresh_byte_identical": true,
+    "nodes": [
+      "spreading_clump_blades",
+      "city_planting_05_spreading_clump"
+    ],
+    "godot_bounds": [
+      [
+        -0.5,
+        0.0,
+        -0.3100000023841858
+      ],
+      [
+        0.5,
+        0.20000000298023224,
+        0.3100000023841858
+      ]
+    ],
+    "triangles": 1950,
+    "surfaces": [
+      {
+        "node": "spreading_clump_blades",
+        "triangles": 1170,
+        "minimum_triangle_area_m2": 8.572429791859339e-06,
+        "minimum_face_normal_dot": 0.35071108801339684,
+        "opposed_shading_normal_faces": 0,
+        "material": "weed_olive"
+      },
+      {
+        "node": "spreading_clump_blades",
+        "triangles": 390,
+        "minimum_triangle_area_m2": 8.36481422317207e-06,
+        "minimum_face_normal_dot": 0.37681228309546966,
+        "opposed_shading_normal_faces": 0,
+        "material": "weed_olive_light"
+      },
+      {
+        "node": "spreading_clump_blades",
+        "triangles": 390,
+        "minimum_triangle_area_m2": 7.736960676283366e-06,
+        "minimum_face_normal_dot": 0.36988900351200066,
+        "opposed_shading_normal_faces": 0,
+        "material": "weed_olive_dry"
+      }
+    ],
+    "materials": [
+      {
+        "name": "weed_olive",
+        "pbrMetallicRoughness": {
+          "baseColorFactor": [
+            0.10702310502529144,
+            0.14995978772640228,
+            0.04666508734226227,
+            1
+          ],
+          "metallicFactor": 0,
+          "roughnessFactor": 0.8899999856948853
+        }
+      },
+      {
+        "name": "weed_olive_light",
+        "pbrMetallicRoughness": {
+          "baseColorFactor": [
+            0.16202937066555023,
+            0.1946178376674652,
+            0.06480326503515244,
+            1
+          ],
+          "metallicFactor": 0,
+          "roughnessFactor": 0.8799999952316284
+        }
+      },
+      {
+        "name": "weed_olive_dry",
+        "pbrMetallicRoughness": {
+          "baseColorFactor": [
+            0.20507873594760895,
+            0.19120168685913086,
+            0.07227185368537903,
+            1
+          ],
+          "metallicFactor": 0,
+          "roughnessFactor": 0.9399999976158142
+        }
+      }
+    ],
+    "interfaces": {}
+  },
+  {
+    "asset": "city_roof_details_01",
+    "root": "city_roof_details_01",
+    "committed_path": "art/models/environment/city_roof_details_01/city_roof_details_01.glb",
+    "bytes": 68384,
+    "sha256": "3b868ceda54173b273618bcce39ff3da4c0ac5fb3ad3eb951dd3e504ff504d52",
+    "fresh_byte_identical": true,
+    "nodes": [
+      "flashing_and_curb",
+      "formed_rain_cowl",
+      "recessed_throat_baffle",
+      "six_broad_curved_louvers",
+      "two_formed_end_cheeks",
+      "city_roof_details_01"
+    ],
+    "godot_bounds": [
+      [
+        -1.2999999523162842,
+        0.0,
+        -0.800000011920929
+      ],
+      [
+        1.2999999523162842,
+        0.7599999904632568,
+        0.800000011920929
+      ]
+    ],
+    "triangles": 3536,
+    "surfaces": [
+      {
+        "node": "flashing_and_curb",
+        "triangles": 576,
+        "minimum_triangle_area_m2": 0.00031365375377969356,
+        "minimum_face_normal_dot": 0.16431851530106362,
+        "opposed_shading_normal_faces": 0,
+        "material": "roof_vent_folded_metal"
+      },
+      {
+        "node": "formed_rain_cowl",
+        "triangles": 500,
+        "minimum_triangle_area_m2": 0.00012145402803476202,
+        "minimum_face_normal_dot": 0.8484172864717806,
+        "opposed_shading_normal_faces": 0,
+        "material": "roof_vent_dark_petrol"
+      },
+      {
+        "node": "recessed_throat_baffle",
+        "triangles": 188,
+        "minimum_triangle_area_m2": 0.00037013953299530936,
+        "minimum_face_normal_dot": 0.9386724065631885,
+        "opposed_shading_normal_faces": 0,
+        "material": "roof_vent_shadow"
+      },
+      {
+        "node": "six_broad_curved_louvers",
+        "triangles": 1896,
+        "minimum_triangle_area_m2": 2.5717740018853045e-07,
+        "minimum_face_normal_dot": 0.8433165460839555,
+        "opposed_shading_normal_faces": 0,
+        "material": "roof_vent_dark_petrol"
+      },
+      {
+        "node": "two_formed_end_cheeks",
+        "triangles": 376,
+        "minimum_triangle_area_m2": 0.00020820315382355636,
+        "minimum_face_normal_dot": 0.9387952568817944,
+        "opposed_shading_normal_faces": 0,
+        "material": "roof_vent_dark_petrol"
+      }
+    ],
+    "materials": [
+      {
+        "name": "roof_vent_folded_metal",
+        "pbrMetallicRoughness": {
+          "baseColorFactor": [
+            0.03071344457566738,
+            0.07421357184648514,
+            0.0802198201417923,
+            1
+          ],
+          "metallicFactor": 0.30000001192092896,
+          "roughnessFactor": 0.550000011920929
+        }
+      },
+      {
+        "name": "roof_vent_dark_petrol",
+        "pbrMetallicRoughness": {
+          "baseColorFactor": [
+            0.020288562402129173,
+            0.04970656707882881,
+            0.05612849071621895,
+            1
+          ],
+          "metallicFactor": 0.2800000011920929,
+          "roughnessFactor": 0.5199999809265137
+        }
+      },
+      {
+        "name": "roof_vent_shadow",
+        "pbrMetallicRoughness": {
+          "baseColorFactor": [
+            0.008568125776946545,
+            0.024157632142305374,
+            0.02955683507025242,
+            1
+          ],
+          "metallicFactor": 0.05000000074505806,
+          "roughnessFactor": 0.7799999713897705
+        }
+      }
+    ],
+    "interfaces": {
+      "contact_plane": {
+        "godot_y": 0,
+        "contact_vertices": 432,
+        "bounds": [
+          [
+            -1.2999999523162842,
+            0.0,
+            -0.800000011920929
+          ],
+          [
+            1.2999999523162842,
+            0.0,
+            0.800000011920929
+          ]
+        ]
+      }
+    }
+  },
+  {
+    "asset": "city_roof_details_02",
+    "root": "city_roof_details_02",
+    "committed_path": "art/models/environment/city_roof_details_02/city_roof_details_02.glb",
+    "bytes": 116664,
+    "sha256": "18d0ede1099abed3b84b1a8d0f983441aa53f7b0d99e9893b4d4ff430ba24b35",
+    "fresh_byte_identical": true,
+    "nodes": [
+      "flashing_and_curb",
+      "formed_enclosure_body",
+      "intake_frames",
+      "intake_shadow_panels",
+      "service_latch",
+      "service_panel",
+      "service_panel_gasket",
+      "six_formed_louvers",
+      "swept_rain_cover",
+      "city_roof_details_02"
+    ],
+    "godot_bounds": [
+      [
+        -1.600000023841858,
+        0.0,
+        -1.100000023841858
+      ],
+      [
+        1.600000023841858,
+        1.5499999523162842,
+        1.100000023841858
+      ]
+    ],
+    "triangles": 6180,
+    "surfaces": [
+      {
+        "node": "flashing_and_curb",
+        "triangles": 576,
+        "minimum_triangle_area_m2": 0.0004312739209222258,
+        "minimum_face_normal_dot": 0.23342777821586194,
+        "opposed_shading_normal_faces": 0,
+        "material": "roof_plant_folded_metal"
+      },
+      {
+        "node": "formed_enclosure_body",
+        "triangles": 356,
+        "minimum_triangle_area_m2": 7.347206153696106e-05,
+        "minimum_face_normal_dot": 0.582758078320103,
+        "opposed_shading_normal_faces": 0,
+        "material": "roof_plant_dark_petrol"
+      },
+      {
+        "node": "intake_frames",
+        "triangles": 1504,
+        "minimum_triangle_area_m2": 3.0594119504013245e-05,
+        "minimum_face_normal_dot": 0.9384383728311386,
+        "opposed_shading_normal_faces": 0,
+        "material": "roof_plant_dark_petrol"
+      },
+      {
+        "node": "intake_shadow_panels",
+        "triangles": 376,
+        "minimum_triangle_area_m2": 2.3133209469159825e-05,
+        "minimum_face_normal_dot": 0.9384204246585185,
+        "opposed_shading_normal_faces": 0,
+        "material": "roof_plant_shadow"
+      },
+      {
+        "node": "service_latch",
+        "triangles": 188,
+        "minimum_triangle_area_m2": 1.1992506782584986e-05,
+        "minimum_face_normal_dot": 0.9389234477228663,
+        "opposed_shading_normal_faces": 0,
+        "material": "roof_plant_folded_metal"
+      },
+      {
+        "node": "service_panel",
+        "triangles": 188,
+        "minimum_triangle_area_m2": 1.1992378724209598e-05,
+        "minimum_face_normal_dot": 0.9384923333198476,
+        "opposed_shading_normal_faces": 0,
+        "material": "roof_plant_dark_petrol"
+      },
+      {
+        "node": "service_panel_gasket",
+        "triangles": 188,
+        "minimum_triangle_area_m2": 2.1320040515431087e-05,
+        "minimum_face_normal_dot": 0.938520095022146,
+        "opposed_shading_normal_faces": 0,
+        "material": "roof_plant_shadow"
+      },
+      {
+        "node": "six_formed_louvers",
+        "triangles": 2376,
+        "minimum_triangle_area_m2": 2.0479790105709248e-06,
+        "minimum_face_normal_dot": 0.8901427074093359,
+        "opposed_shading_normal_faces": 0,
+        "material": "roof_plant_dark_petrol"
+      },
+      {
+        "node": "swept_rain_cover",
+        "triangles": 428,
+        "minimum_triangle_area_m2": 0.00012145286911646735,
+        "minimum_face_normal_dot": 0.7234424773545989,
+        "opposed_shading_normal_faces": 0,
+        "material": "roof_plant_folded_metal"
+      }
+    ],
+    "materials": [
+      {
+        "name": "roof_plant_folded_metal",
+        "pbrMetallicRoughness": {
+          "baseColorFactor": [
+            0.03071344457566738,
+            0.07421357184648514,
+            0.0802198201417923,
+            1
+          ],
+          "metallicFactor": 0.30000001192092896,
+          "roughnessFactor": 0.550000011920929
+        }
+      },
+      {
+        "name": "roof_plant_dark_petrol",
+        "pbrMetallicRoughness": {
+          "baseColorFactor": [
+            0.020288562402129173,
+            0.04970656707882881,
+            0.05612849071621895,
+            1
+          ],
+          "metallicFactor": 0.2800000011920929,
+          "roughnessFactor": 0.5199999809265137
+        }
+      },
+      {
+        "name": "roof_plant_shadow",
+        "pbrMetallicRoughness": {
+          "baseColorFactor": [
+            0.008568125776946545,
+            0.024157632142305374,
+            0.02955683507025242,
+            1
+          ],
+          "metallicFactor": 0.05000000074505806,
+          "roughnessFactor": 0.7799999713897705
+        }
+      }
+    ],
+    "interfaces": {
+      "contact_plane": {
+        "godot_y": 0,
+        "contact_vertices": 432,
+        "bounds": [
+          [
+            -1.600000023841858,
+            0.0,
+            -1.100000023841858
+          ],
+          [
+            1.600000023841858,
+            0.0,
+            1.100000023841858
+          ]
+        ]
+      }
+    }
+  },
+  {
+    "asset": "city_shop_fittings_01",
+    "root": "city_shop_fittings_01",
+    "committed_path": "art/models/environment/city_shop_fittings_01/city_shop_fittings_01.glb",
+    "bytes": 25620,
+    "sha256": "80fb54cbcf4667f9da4b417b5a2a2ebf5db0cf2641520ab9c78de3ed5a38de69",
+    "fresh_byte_identical": true,
+    "nodes": [
+      "formed_canopy",
+      "paired_tapered_gussets",
+      "rolled_front_rim",
+      "wall_mount_rail",
+      "city_shop_fittings_01"
+    ],
+    "godot_bounds": [
+      [
+        -1.600000023841858,
+        -0.41999998688697815,
+        -1.100000023841858
+      ],
+      [
+        1.600000023841858,
+        0.23999999463558197,
+        -0.0
+      ]
+    ],
+    "triangles": 1212,
+    "surfaces": [
+      {
+        "node": "formed_canopy",
+        "triangles": 236,
+        "minimum_triangle_area_m2": 1.7953541802009693e-05,
+        "minimum_face_normal_dot": 0.8983185440566909,
+        "opposed_shading_normal_faces": 0,
+        "material": "canopy_slate_petrol"
+      },
+      {
+        "node": "paired_tapered_gussets",
+        "triangles": 440,
+        "minimum_triangle_area_m2": 1.8607965669433762e-06,
+        "minimum_face_normal_dot": 0.8767820999142006,
+        "opposed_shading_normal_faces": 0,
+        "material": "canopy_dark_mounts"
+      },
+      {
+        "node": "rolled_front_rim",
+        "triangles": 348,
+        "minimum_triangle_area_m2": 1.94894663091822e-06,
+        "minimum_face_normal_dot": 0.8709067643773042,
+        "opposed_shading_normal_faces": 0,
+        "material": "canopy_warm_ivory_rim"
+      },
+      {
+        "node": "wall_mount_rail",
+        "triangles": 188,
+        "minimum_triangle_area_m2": 1.1335518529171688e-05,
+        "minimum_face_normal_dot": 0.9383857173802443,
+        "opposed_shading_normal_faces": 0,
+        "material": "canopy_dark_mounts"
+      }
+    ],
+    "materials": [
+      {
+        "name": "canopy_slate_petrol",
+        "pbrMetallicRoughness": {
+          "baseColorFactor": [
+            0.05126945674419403,
+            0.10461648553609848,
+            0.1384316086769104,
+            1
+          ],
+          "metallicFactor": 0.25,
+          "roughnessFactor": 0.46000000834465027
+        }
+      },
+      {
+        "name": "canopy_dark_mounts",
+        "pbrMetallicRoughness": {
+          "baseColorFactor": [
+            0.022173885256052017,
+            0.04373503103852272,
+            0.05612849071621895,
+            1
+          ],
+          "metallicFactor": 0.3499999940395355,
+          "roughnessFactor": 0.550000011920929
+        }
+      },
+      {
+        "name": "canopy_warm_ivory_rim",
+        "pbrMetallicRoughness": {
+          "baseColorFactor": [
+            0.577580451965332,
+            0.5394794940948486,
+            0.41788506507873535,
+            1
+          ],
+          "metallicFactor": 0.2199999988079071,
+          "roughnessFactor": 0.47999998927116394
+        }
+      }
+    ],
+    "interfaces": {
+      "wall_contact": {
+        "godot_z": 0,
+        "contact_vertices": 26,
+        "bounds": [
+          [
+            -1.5059999227523804,
+            -0.22599999606609344,
+            -0.0
+          ],
+          [
+            1.5059999227523804,
+            0.22599999606609344,
+            -0.0
+          ]
+        ]
+      }
+    }
+  }
+]

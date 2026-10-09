@@ -1,0 +1,310 @@
+[
+  {
+    "result": "docs/assets/production/batch_02-evidence/transport/actor-pose-results.jsonl",
+    "argv": [
+      "node",
+      "tools/asset_production/integration/editor_client.mjs",
+      "/tmp/asset-register-production-editor/batch02/actor-pose-requests.json",
+      "--runtime"
+    ],
+    "observed_client_exit_code": 0,
+    "completed_response_count": 2,
+    "note": "Transport result is not substantive acceptance; separately asserted receipts required.",
+    "retained_request": "docs/assets/production/batch_02-evidence/transport/actor-pose-requests.json"
+  },
+  {
+    "result": "docs/assets/production/batch_02-evidence/transport/actor-results.jsonl",
+    "argv": [
+      "node",
+      "tools/asset_production/integration/editor_client.mjs",
+      "/tmp/asset-register-production-editor/batch02/actor-requests.json"
+    ],
+    "observed_client_exit_code": 0,
+    "completed_response_count": 11,
+    "note": "Transport result is not substantive acceptance; separately asserted receipts required.",
+    "retained_request": "docs/assets/production/batch_02-evidence/transport/actor-requests.json"
+  },
+  {
+    "result": "docs/assets/production/batch_02-evidence/transport/audit-results.jsonl",
+    "argv": [
+      "node",
+      "tools/asset_production/integration/editor_client.mjs",
+      "/tmp/asset-register-production-editor/batch02/audit-requests.json"
+    ],
+    "observed_client_exit_code": 0,
+    "completed_response_count": 78,
+    "note": "Transport result is not substantive acceptance; separately asserted receipts required.",
+    "retained_request": "docs/assets/production/batch_02-evidence/transport/audit-requests.json"
+  },
+  {
+    "result": "docs/assets/production/batch_02-evidence/transport/camera-recovery-results.jsonl",
+    "argv": [
+      "node",
+      "tools/asset_production/integration/editor_client.mjs",
+      "/tmp/asset-register-production-editor/batch02/camera-recovery-requests.json"
+    ],
+    "observed_client_exit_code": 0,
+    "completed_response_count": 7,
+    "note": "Transport result is not substantive acceptance; separately asserted receipts required.",
+    "retained_request": "docs/assets/production/batch_02-evidence/transport/camera-recovery-requests.json"
+  },
+  {
+    "result": "docs/assets/production/batch_02-evidence/transport/camera-results.jsonl",
+    "argv": [
+      "node",
+      "tools/asset_production/integration/editor_client.mjs",
+      "/tmp/asset-register-production-editor/batch02/camera-requests.json"
+    ],
+    "observed_client_exit_code": 1,
+    "completed_response_count": 22,
+    "note": "Transport result is not substantive acceptance; separately asserted receipts required.",
+    "retained_request": "docs/assets/production/batch_02-evidence/transport/camera-requests.json"
+  },
+  {
+    "result": "docs/assets/production/batch_02-evidence/transport/close-capture-results.jsonl",
+    "argv": [
+      "node",
+      "tools/asset_production/integration/editor_client.mjs",
+      "/tmp/asset-register-production-editor/batch02/close-capture-requests.json",
+      "--runtime"
+    ],
+    "observed_client_exit_code": 0,
+    "completed_response_count": 1,
+    "note": "Transport result is not substantive acceptance; separately asserted receipts required.",
+    "retained_request": "docs/assets/production/batch_02-evidence/transport/close-capture-requests.json"
+  },
+  {
+    "result": "docs/assets/production/batch_02-evidence/transport/close-fixtures-results.jsonl",
+    "argv": [
+      "node",
+      "tools/asset_production/integration/editor_client.mjs",
+      "/tmp/asset-register-production-editor/batch02/close-fixtures-requests.json"
+    ],
+    "observed_client_exit_code": 0,
+    "completed_response_count": 24,
+    "note": "Transport result is not substantive acceptance; separately asserted receipts required.",
+    "retained_request": "docs/assets/production/batch_02-evidence/transport/close-fixtures-requests.json"
+  },
+  {
+    "result": "docs/assets/production/batch_02-evidence/transport/context-results.jsonl",
+    "argv": [
+      "node",
+      "tools/asset_production/integration/editor_client.mjs",
+      "/tmp/asset-register-production-editor/batch02/context-requests.json"
+    ],
+    "observed_client_exit_code": 0,
+    "completed_response_count": 1,
+    "note": "Transport result is not substantive acceptance; separately asserted receipts required.",
+    "retained_request": "docs/assets/production/batch_02-evidence/transport/context-requests.json"
+  },
+  {
+    "result": "docs/assets/production/batch_02-evidence/transport/final-native-probe-results.jsonl",
+    "argv": [
+      "node",
+      "tools/asset_production/integration/editor_client.mjs",
+      "/tmp/asset-register-production-editor/batch02/final-native-probe-requests.json",
+      "--runtime"
+    ],
+    "observed_client_exit_code": 0,
+    "completed_response_count": 4,
+    "note": "Transport result is not substantive acceptance; separately asserted receipts required.",
+    "retained_request": "docs/assets/production/batch_02-evidence/transport/final-native-probe-requests.json"
+  },
+  {
+    "result": "docs/assets/production/batch_02-evidence/transport/material-helper-results.jsonl",
+    "argv": [
+      "node",
+      "tools/asset_production/integration/editor_client.mjs",
+      "/tmp/asset-register-production-editor/batch02/material-helper-requests.json"
+    ],
+    "observed_client_exit_code": 0,
+    "completed_response_count": 1,
+    "note": "Transport result is not substantive acceptance; separately asserted receipts required.",
+    "retained_request": "docs/assets/production/batch_02-evidence/transport/material-helper-requests.json"
+  },
+  {
+    "result": "docs/assets/production/batch_02-evidence/transport/motion-fix-results.jsonl",
+    "argv": [
+      "node",
+      "tools/asset_production/integration/editor_client.mjs",
+      "/tmp/asset-register-production-editor/batch02/motion-fix-requests.json"
+    ],
+    "observed_client_exit_code": 0,
+    "completed_response_count": 18,
+    "note": "Transport result is not substantive acceptance; separately asserted receipts required.",
+    "retained_request": "docs/assets/production/batch_02-evidence/transport/motion-fix-requests.json"
+  },
+  {
+    "result": "docs/assets/production/batch_02-evidence/transport/placement-helper-results.jsonl",
+    "argv": [
+      "node",
+      "tools/asset_production/integration/editor_client.mjs",
+      "/tmp/asset-register-production-editor/batch02/placement-helper-requests.json"
+    ],
+    "observed_client_exit_code": 0,
+    "completed_response_count": 1,
+    "note": "Transport result is not substantive acceptance; separately asserted receipts required.",
+    "retained_request": "docs/assets/production/batch_02-evidence/transport/placement-helper-requests.json"
+  },
+  {
+    "result": "docs/assets/production/batch_02-evidence/transport/prefab-results.jsonl",
+    "argv": [
+      "node",
+      "tools/asset_production/integration/editor_client.mjs",
+      "/tmp/asset-register-production-editor/batch02/prefab-requests.json"
+    ],
+    "observed_client_exit_code": 0,
+    "completed_response_count": 82,
+    "note": "Transport result is not substantive acceptance; separately asserted receipts required.",
+    "retained_request": "docs/assets/production/batch_02-evidence/transport/prefab-requests.json"
+  },
+  {
+    "result": "docs/assets/production/batch_02-evidence/transport/probe-fixed-results.jsonl",
+    "argv": [
+      "node",
+      "tools/asset_production/integration/editor_client.mjs",
+      "/tmp/asset-register-production-editor/batch02/probe-requests.json",
+      "--runtime"
+    ],
+    "observed_client_exit_code": 0,
+    "completed_response_count": 4,
+    "note": "Transport result is not substantive acceptance; separately asserted receipts required.",
+    "retained_request": "docs/assets/production/batch_02-evidence/transport/probe-requests.json"
+  },
+  {
+    "result": "docs/assets/production/batch_02-evidence/transport/probe-results.jsonl",
+    "argv": [
+      "node",
+      "tools/asset_production/integration/editor_client.mjs",
+      "/tmp/asset-register-production-editor/batch02/probe-requests.json",
+      "--runtime"
+    ],
+    "observed_client_exit_code": 0,
+    "completed_response_count": 4,
+    "note": "Transport result is not substantive acceptance; separately asserted receipts required.",
+    "retained_request": "docs/assets/production/batch_02-evidence/transport/probe-requests.json"
+  },
+  {
+    "result": "docs/assets/production/batch_02-evidence/transport/process-helper-results.jsonl",
+    "argv": [
+      "node",
+      "tools/asset_production/integration/editor_client.mjs",
+      "/tmp/asset-register-production-editor/batch02/process-helper-requests.json"
+    ],
+    "observed_client_exit_code": 0,
+    "completed_response_count": 2,
+    "note": "Transport result is not substantive acceptance; separately asserted receipts required.",
+    "retained_request": "docs/assets/production/batch_02-evidence/transport/process-helper-requests.json"
+  },
+  {
+    "result": "docs/assets/production/batch_02-evidence/transport/process-style-results.jsonl",
+    "argv": [
+      "node",
+      "tools/asset_production/integration/editor_client.mjs",
+      "/tmp/asset-register-production-editor/batch02/process-style-requests.json"
+    ],
+    "observed_client_exit_code": 0,
+    "completed_response_count": 1,
+    "note": "Transport result is not substantive acceptance; separately asserted receipts required.",
+    "retained_request": "docs/assets/production/batch_02-evidence/transport/process-style-requests.json"
+  },
+  {
+    "result": "docs/assets/production/batch_02-evidence/transport/refresh-results.jsonl",
+    "argv": [
+      "node",
+      "tools/asset_production/integration/editor_client.mjs",
+      "/tmp/asset-register-production-editor/batch02/refresh-requests.json"
+    ],
+    "observed_client_exit_code": 0,
+    "completed_response_count": 2,
+    "note": "Transport result is not substantive acceptance; separately asserted receipts required.",
+    "retained_request": "docs/assets/production/batch_02-evidence/transport/refresh-requests.json"
+  },
+  {
+    "result": "docs/assets/production/batch_02-evidence/transport/repeat-final-probe-results.jsonl",
+    "argv": [
+      "node",
+      "tools/asset_production/integration/editor_client.mjs",
+      "/tmp/asset-register-production-editor/batch02/repeat-probe-requests.json",
+      "--runtime"
+    ],
+    "observed_client_exit_code": 0,
+    "completed_response_count": 5,
+    "note": "Transport result is not substantive acceptance; separately asserted receipts required.",
+    "retained_request": "docs/assets/production/batch_02-evidence/transport/repeat-probe-requests.json"
+  },
+  {
+    "result": "docs/assets/production/batch_02-evidence/transport/repeat-probe-results.jsonl",
+    "argv": [
+      "node",
+      "tools/asset_production/integration/editor_client.mjs",
+      "/tmp/asset-register-production-editor/batch02/repeat-probe-requests.json",
+      "--runtime"
+    ],
+    "observed_client_exit_code": 1,
+    "completed_response_count": 2,
+    "note": "Transport result is not substantive acceptance; separately asserted receipts required.",
+    "retained_request": "docs/assets/production/batch_02-evidence/transport/repeat-probe-requests.json"
+  },
+  {
+    "result": "docs/assets/production/batch_02-evidence/transport/repeat-reload-results.jsonl",
+    "argv": [
+      "node",
+      "tools/asset_production/integration/editor_client.mjs",
+      "/tmp/asset-register-production-editor/batch02/repeat-reload-requests.json"
+    ],
+    "observed_client_exit_code": 0,
+    "completed_response_count": 2,
+    "note": "Transport result is not substantive acceptance; separately asserted receipts required.",
+    "retained_request": "docs/assets/production/batch_02-evidence/transport/repeat-reload-requests.json"
+  },
+  {
+    "result": "docs/assets/production/batch_02-evidence/transport/repeat-results.jsonl",
+    "argv": [
+      "node",
+      "tools/asset_production/integration/editor_client.mjs",
+      "/tmp/asset-register-production-editor/batch02/repeat-requests.json"
+    ],
+    "observed_client_exit_code": 0,
+    "completed_response_count": 40,
+    "note": "Transport result is not substantive acceptance; separately asserted receipts required.",
+    "retained_request": "docs/assets/production/batch_02-evidence/transport/repeat-requests.json"
+  },
+  {
+    "result": "docs/assets/production/batch_02-evidence/transport/roof-capture-results.jsonl",
+    "argv": [
+      "node",
+      "tools/asset_production/integration/editor_client.mjs",
+      "/tmp/asset-register-production-editor/batch02/roof-capture-requests.json",
+      "--runtime"
+    ],
+    "observed_client_exit_code": 0,
+    "completed_response_count": 1,
+    "note": "Transport result is not substantive acceptance; separately asserted receipts required.",
+    "retained_request": "docs/assets/production/batch_02-evidence/transport/roof-capture-requests.json"
+  },
+  {
+    "result": "docs/assets/production/batch_02-evidence/transport/roof-start-results.jsonl",
+    "argv": [
+      "node",
+      "tools/asset_production/integration/editor_client.mjs",
+      "/tmp/asset-register-production-editor/batch02/roof-start-requests.json"
+    ],
+    "observed_client_exit_code": 0,
+    "completed_response_count": 2,
+    "note": "Transport result is not substantive acceptance; separately asserted receipts required.",
+    "retained_request": "docs/assets/production/batch_02-evidence/transport/roof-start-requests.json"
+  },
+  {
+    "result": "docs/assets/production/batch_02-evidence/transport/source-uid-results.jsonl",
+    "argv": [
+      "node",
+      "tools/asset_production/integration/editor_client.mjs",
+      "/tmp/asset-register-production-editor/batch02/source-uid-requests.json"
+    ],
+    "observed_client_exit_code": 0,
+    "completed_response_count": 2,
+    "note": "Transport result is not substantive acceptance; separately asserted receipts required.",
+    "retained_request": "docs/assets/production/batch_02-evidence/transport/source-uid-requests.json"
+  }
+]

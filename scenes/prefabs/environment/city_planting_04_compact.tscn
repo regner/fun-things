@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://deflk03raeayy"]
+
+[ext_resource type="PackedScene" uid="uid://cw8wq4sptjklm" path="res://art/models/environment/city_planting_04/city_planting_04_compact.glb" id="1_n8ybg"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_b1imn"]
+height = 1.6
+radius = 0.22
+
+[node name="city_planting_04_compact" type="Node3D" unique_id=706930414]
+
+[node name="Visuals" type="Node3D" parent="." unique_id=2139597727]
+
+[node name="Model" parent="Visuals" unique_id=2121302517 instance=ExtResource("1_n8ybg")]
+
+[node name="Collision" type="Node3D" parent="." unique_id=779515320]
+
+[node name="PoleBody" type="StaticBody3D" parent="Collision" unique_id=790351903]
+collision_mask = 0
+
+[node name="Shape" type="CollisionShape3D" parent="Collision/PoleBody" unique_id=1395252097]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8, 0)
+shape = SubResource("CylinderShape3D_b1imn")

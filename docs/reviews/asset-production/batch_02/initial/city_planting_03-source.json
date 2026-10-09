@@ -1,0 +1,513 @@
+{
+  "asset": "city_planting_03",
+  "source_sha256": "ad18140d3040dde8a6c092c42499ad9df65059ffa6a4edc8a77b55a5c1d41303",
+  "pin": {
+    "blender": "5.2.2 LTS",
+    "build": "d13f752e3b9c",
+    "gltf": [
+      5,
+      2,
+      40
+    ]
+  },
+  "libraries": [],
+  "images": [
+    {
+      "name": "Render Result",
+      "path": "",
+      "packed": false
+    },
+    {
+      "name": "Viewer Node",
+      "path": "",
+      "packed": false
+    }
+  ],
+  "all_collections": {
+    "Collection": [],
+    "export_city_planting_03": [
+      "city_planting_03",
+      "crown_west",
+      "crown_centre",
+      "crown_east",
+      "crown_front_shoulder",
+      "crown_back_shoulder",
+      "three_recessed_stems"
+    ],
+    "studio_do_not_export": [
+      "studio_floor",
+      "hero_camera",
+      "project_vertical_47m_42deg",
+      "key",
+      "fill",
+      "rim"
+    ]
+  },
+  "all_objects": [
+    {
+      "name": "city_planting_03",
+      "type": "EMPTY",
+      "parent": null,
+      "custom_properties": {
+        "provenance": "Original Codex Blender authored geometry, city_planting.03, 2026-10-09",
+        "front": "Blender +Y -> Godot -Z; Z up -> Y up",
+        "interface": "Ground pivot; rectangular soil placement +0.40m; round opening ground placement"
+      }
+    },
+    {
+      "name": "crown_back_shoulder",
+      "type": "MESH",
+      "parent": "city_planting_03",
+      "custom_properties": {}
+    },
+    {
+      "name": "crown_centre",
+      "type": "MESH",
+      "parent": "city_planting_03",
+      "custom_properties": {}
+    },
+    {
+      "name": "crown_east",
+      "type": "MESH",
+      "parent": "city_planting_03",
+      "custom_properties": {}
+    },
+    {
+      "name": "crown_front_shoulder",
+      "type": "MESH",
+      "parent": "city_planting_03",
+      "custom_properties": {}
+    },
+    {
+      "name": "crown_west",
+      "type": "MESH",
+      "parent": "city_planting_03",
+      "custom_properties": {}
+    },
+    {
+      "name": "fill",
+      "type": "LIGHT",
+      "parent": null,
+      "custom_properties": {}
+    },
+    {
+      "name": "hero_camera",
+      "type": "CAMERA",
+      "parent": null,
+      "custom_properties": {}
+    },
+    {
+      "name": "key",
+      "type": "LIGHT",
+      "parent": null,
+      "custom_properties": {}
+    },
+    {
+      "name": "project_vertical_47m_42deg",
+      "type": "CAMERA",
+      "parent": null,
+      "custom_properties": {}
+    },
+    {
+      "name": "rim",
+      "type": "LIGHT",
+      "parent": null,
+      "custom_properties": {}
+    },
+    {
+      "name": "studio_floor",
+      "type": "MESH",
+      "parent": null,
+      "custom_properties": {}
+    },
+    {
+      "name": "three_recessed_stems",
+      "type": "MESH",
+      "parent": "city_planting_03",
+      "custom_properties": {}
+    }
+  ],
+  "variants": [
+    {
+      "root": "city_planting_03",
+      "collection": "export_city_planting_03",
+      "objects": [
+        {
+          "name": "crown_west",
+          "vertices": 482,
+          "triangles": 960,
+          "minimum_triangle_area_m2": 0.0001144698378832379,
+          "bad_edges": [],
+          "islands": [
+            {
+              "vertices": 482,
+              "faces": 512,
+              "signed_volume": 0.05367668438273286
+            }
+          ],
+          "uv_layers": [],
+          "custom_normals": false,
+          "materials": [
+            "shrub_quiet_jade"
+          ],
+          "matrix_world": [
+            [
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              1.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              1.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ]
+        },
+        {
+          "name": "crown_centre",
+          "vertices": 482,
+          "triangles": 960,
+          "minimum_triangle_area_m2": 0.0001479911387762694,
+          "bad_edges": [],
+          "islands": [
+            {
+              "vertices": 482,
+              "faces": 512,
+              "signed_volume": 0.08787221166799242
+            }
+          ],
+          "uv_layers": [],
+          "custom_normals": false,
+          "materials": [
+            "shrub_quiet_jade"
+          ],
+          "matrix_world": [
+            [
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              1.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              1.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ]
+        },
+        {
+          "name": "crown_east",
+          "vertices": 482,
+          "triangles": 960,
+          "minimum_triangle_area_m2": 0.00010636996934210596,
+          "bad_edges": [],
+          "islands": [
+            {
+              "vertices": 482,
+              "faces": 512,
+              "signed_volume": 0.051108529871961655
+            }
+          ],
+          "uv_layers": [],
+          "custom_normals": false,
+          "materials": [
+            "shrub_muted_sage"
+          ],
+          "matrix_world": [
+            [
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              1.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              1.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ]
+        },
+        {
+          "name": "crown_front_shoulder",
+          "vertices": 482,
+          "triangles": 960,
+          "minimum_triangle_area_m2": 5.983910289941845e-05,
+          "bad_edges": [],
+          "islands": [
+            {
+              "vertices": 482,
+              "faces": 512,
+              "signed_volume": 0.020407825305128774
+            }
+          ],
+          "uv_layers": [],
+          "custom_normals": false,
+          "materials": [
+            "shrub_quiet_jade"
+          ],
+          "matrix_world": [
+            [
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              1.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              1.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ]
+        },
+        {
+          "name": "crown_back_shoulder",
+          "vertices": 482,
+          "triangles": 960,
+          "minimum_triangle_area_m2": 6.771809913282955e-05,
+          "bad_edges": [],
+          "islands": [
+            {
+              "vertices": 482,
+              "faces": 512,
+              "signed_volume": 0.02281083936905762
+            }
+          ],
+          "uv_layers": [],
+          "custom_normals": false,
+          "materials": [
+            "shrub_muted_sage"
+          ],
+          "matrix_world": [
+            [
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              1.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              1.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ]
+        },
+        {
+          "name": "three_recessed_stems",
+          "vertices": 72,
+          "triangles": 132,
+          "minimum_triangle_area_m2": 1.9359200721014515e-05,
+          "bad_edges": [],
+          "islands": [
+            {
+              "vertices": 24,
+              "faces": 14,
+              "signed_volume": 0.00048204058041283134
+            },
+            {
+              "vertices": 24,
+              "faces": 14,
+              "signed_volume": 0.0004686503853327638
+            },
+            {
+              "vertices": 24,
+              "faces": 14,
+              "signed_volume": 0.000575769996841253
+            }
+          ],
+          "uv_layers": [],
+          "custom_normals": false,
+          "materials": [
+            "shrub_woody_umber"
+          ],
+          "matrix_world": [
+            [
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              1.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              1.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ]
+        }
+      ],
+      "blender_bounds": [
+        [
+          -0.5430297255516052,
+          -0.3346724510192871,
+          0.0
+        ],
+        [
+          0.5404995083808899,
+          0.35622134804725647,
+          0.6700000166893005
+        ]
+      ],
+      "godot_bounds": [
+        [
+          -0.5430297255516052,
+          0.0,
+          -0.35622134804725647
+        ],
+        [
+          0.5404995083808899,
+          0.6700000166893005,
+          0.3346724510192871
+        ]
+      ],
+      "materials": [
+        {
+          "name": "shrub_muted_sage",
+          "base_color": [
+            0.09305896610021591,
+            0.18447498977184296,
+            0.07618538290262222,
+            1.0
+          ],
+          "metallic": 0.0,
+          "roughness": 0.8600000143051147,
+          "backface_culling": false,
+          "texture_nodes": []
+        },
+        {
+          "name": "shrub_quiet_jade",
+          "base_color": [
+            0.05448027700185776,
+            0.14126329123973846,
+            0.06847816705703735,
+            1.0
+          ],
+          "metallic": 0.0,
+          "roughness": 0.8700000047683716,
+          "backface_culling": false,
+          "texture_nodes": []
+        },
+        {
+          "name": "shrub_woody_umber",
+          "base_color": [
+            0.07227185368537903,
+            0.05448027700185776,
+            0.026241222396492958,
+            1.0
+          ],
+          "metallic": 0.0,
+          "roughness": 0.9399999976158142,
+          "backface_culling": false,
+          "texture_nodes": []
+        }
+      ],
+      "export_settings": {
+        "export_format": "GLB",
+        "use_selection": true,
+        "export_yup": true,
+        "export_apply": true,
+        "export_texcoords": false,
+        "export_normals": true,
+        "export_tangents": false,
+        "export_materials": "EXPORT",
+        "export_cameras": false,
+        "export_lights": false,
+        "export_extras": false,
+        "export_animations": false
+      },
+      "fresh_bytes": 70556,
+      "fresh_sha256": "572bb17a248b686df1917181e569b04a3662fbd6994de230dc8b17cd634cb7cd",
+      "review_camera": {
+        "position": [
+          1.949087381362915,
+          -2.6980488300323486,
+          2.176999807357788
+        ],
+        "rotation": [
+          1.0665391683578491,
+          1.4604171383325593e-07,
+          0.6240230798721313
+        ],
+        "orthographic_scale": 1.516940951347351,
+        "samples": 16
+      }
+    }
+  ]
+}

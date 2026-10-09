@@ -45,5 +45,7 @@ for (const request of requests) {
       ['context', 'inspect_prefab', 'build_static', 'build_pole'].includes(request.params?.method_name) &&
       Object.keys(result.result?.result ?? {}).length === 0)
     throw new Error('Editor method returned an empty validation receipt');
+  if (request.method === 'execute.code' && result.result?.result?.passed === false)
+    throw new Error('Runtime observation returned a failed substantive check');
 }
 ws.close();

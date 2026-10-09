@@ -1,0 +1,9 @@
+tests/fixtures/asset_production/batch_02_observation.gd
+  10:101 warning line is 106 characters long (max 100) [format/max-line-length]
+      const MOTION_NAMES: Array[String] = ["compact_surround", "broad_surround", "clear_bypass", "canopy_under"]
+                                                                                                          ^
+  46:101 warning line is 112 characters long (max 100) [format/max-line-length]
+      	var passed: bool = position_now.z >= 3.25 and position_now.z < 3.45 if _phase < 2 else position_now.z < -3.5
+      	                                                                                                   ^
+
+2 files checked, 2 warnings found.

@@ -1,0 +1,110 @@
+tools/asset_production/city_shop_fittings_01/preview.py:1:"""Unsaved Blender studio views and measured unchanged shop reference."""
+tools/asset_production/city_shop_fittings_01/preview.py:2:import bpy, math, json, hashlib, sys
+tools/asset_production/city_shop_fittings_01/preview.py:11: o=bpy.data.objects.new(name,d); studio.objects.link(o); o.location=loc
+tools/asset_production/city_shop_fittings_01/preview.py:12: o.rotation_euler=(Vector((0,.5,0))-o.location).to_track_quat('-Z','Y').to_euler()
+tools/asset_production/city_shop_fittings_01/preview.py:13:d=bpy.data.cameras.new('preview_camera'); cam=bpy.data.objects.new('preview_camera',d); studio.objects.link(cam); s.camera=cam
+tools/asset_production/city_shop_fittings_01/preview.py:17:def render(name,loc,target,lens=50,res=(1200,900)):
+tools/asset_production/city_shop_fittings_01/preview.py:18: cam.location=loc; cam.rotation_euler=(Vector(target)-cam.location).to_track_quat('-Z','Y').to_euler()
+tools/asset_production/city_shop_fittings_01/preview.py:19: d.type='PERSP'; d.lens=lens; s.render.resolution_x,s.render.resolution_y=res
+tools/asset_production/city_shop_fittings_01/preview.py:22: if '--project-only' not in sys.argv or name=='project_camera': bpy.ops.render.render(write_still=True)
+tools/asset_production/city_shop_fittings_01/preview.py:23: views.append(dict(file=name+'.png',location_blender_m=list(loc),target_blender_m=list(target),lens_mm=lens,resolution=res))
+tools/asset_production/city_shop_fittings_01/preview.py:29:ref=bpy.data.objects['authoring_1m_reference']; ref.hide_set(False); ref.hide_render=False
+tools/asset_production/city_shop_fittings_01/preview.py:32:path=R/'art/models/brackett_greybox/shop.glb'; h=hashlib.sha256(path.read_bytes()).hexdigest()
+tools/asset_production/city_shop_fittings_01/preview.py:37:root.location=(0,hi[1],3)
+tools/asset_production/city_shop_fittings_01/preview.py:42:render('unchanged_shop_scale_comparison',(23,29,17),(0,0,4),48,(1280,900))
+tools/asset_production/city_shop_fittings_01/preview.py:43:d.sensor_fit='VERTICAL'; d.sensor_height=32
+tools/asset_production/city_shop_fittings_01/preview.py:44:render('project_camera',(0,12,47),(0,12,0),16/math.tan(math.radians(42)/2),(1280,800))
+tools/asset_production/city_shop_fittings_01/preview.py:47:assert h==hashlib.sha256(path.read_bytes()).hexdigest()
+tools/asset_production/city_shop_fittings_01/preview.py:48:(E/'preview_checks.json').write_text(json.dumps(dict(scope='Blender-only temporary assembly; no engine or saved placement acceptance',reference=dict(path=str(path.relative_to(R)),sha256_before=h,sha256_after=h,blender_bounds_m=[lo,hi],dimensions_m=[18,15,10],modified=False),canopy_pivot_blender_m=list(root.location),mount_ground_height_m=3,lowest_clearance_m=2.58,canopy_to_facade_width_ratio=3.2/18,one_metre_reference_dimensions=list(ref.dimensions),project_camera=dict(height_m=47,vertical_fov_degrees=fov,rotation=list(cam.rotation_euler)),views=views,renderer='Cycles CPU 4 threads, 32 samples, AgX',source_saved=False),indent=2)+'\n')
+tools/asset_production/city_roof_details_01/preview.py:1:"""Hero and calibrated roof comparison; read-only source/reference, no engine claims."""
+tools/asset_production/city_roof_details_01/preview.py:2:import bpy,math,json,hashlib
+tools/asset_production/city_roof_details_01/preview.py:11:    o=bpy.data.objects.new(name,data); studio.objects.link(o); o.location=loc
+tools/asset_production/city_roof_details_01/preview.py:12:    o.rotation_euler=(Vector((0,0,.3))-o.location).to_track_quat('-Z','Y').to_euler()
+tools/asset_production/city_roof_details_01/preview.py:15:bpy.ops.mesh.primitive_plane_add(size=200); floor=bpy.context.object; floor.name='preview_floor'; floor.location.z=-.003; floor.data.materials.append(mat)
+tools/asset_production/city_roof_details_01/preview.py:16:cam_data=bpy.data.cameras.new('preview_camera'); cam=bpy.data.objects.new('preview_camera',cam_data); studio.objects.link(cam); s.camera=cam
+tools/asset_production/city_roof_details_01/preview.py:20:def render(name,loc,target,lens=52,res=(1200,900)):
+tools/asset_production/city_roof_details_01/preview.py:21:    cam.location=loc; cam.rotation_euler=(Vector(target)-cam.location).to_track_quat('-Z','Y').to_euler()
+tools/asset_production/city_roof_details_01/preview.py:22:    cam_data.type='PERSP'; cam_data.lens=lens
+tools/asset_production/city_roof_details_01/preview.py:25:    views.append(dict(file=name+'.png',location_blender_m=list(loc),target_blender_m=list(target),lens_mm=lens,resolution=res,projection='perspective'))
+tools/asset_production/city_roof_details_01/preview.py:28:# Preserve unmodified reference asset bytes and imported scale; translation only.
+tools/asset_production/city_roof_details_01/preview.py:29:reference=R/'art/models/brackett_greybox/shop.glb'; before_hash=hashlib.sha256(reference.read_bytes()).hexdigest()
+tools/asset_production/city_roof_details_01/preview.py:30:before=set(bpy.data.objects); bpy.ops.import_scene.gltf(filepath=str(reference))
+tools/asset_production/city_roof_details_01/preview.py:36:    if o.parent is None: o.location.z-=10
+tools/asset_production/city_roof_details_01/preview.py:37:root.location=(3,2,0)
+tools/asset_production/city_roof_details_01/preview.py:38:# Render temporary assembly expressed relative to the 10 m roof, camera 47 m world.
+tools/asset_production/city_roof_details_01/preview.py:44:floor.location.z=-10.01
+tools/asset_production/city_roof_details_01/preview.py:45:cam_data.sensor_fit='VERTICAL'; cam_data.sensor_height=32
+tools/asset_production/city_roof_details_01/preview.py:46:lens=16/math.tan(math.radians(42)/2)
+tools/asset_production/city_roof_details_01/preview.py:47:render('project_camera_roof_context',(0,0,37),(0,0,0),lens,(1280,800))
+tools/asset_production/city_roof_details_01/preview.py:52:# Additional authored roof-color study. Geometry/scale remain unchanged; material
+tools/asset_production/city_roof_details_01/preview.py:57:render('project_camera_dark_roof_study',(0,0,37),(0,0,0),lens,(1280,800))
+tools/asset_production/city_roof_details_01/preview.py:60:# Oblique retains unchanged shop dimensions and makes height subordination explicit.
+tools/asset_production/city_roof_details_01/preview.py:61:render('unchanged_shop_scale_comparison',(23,29,21),(0,0,-3),48,(1280,900))
+tools/asset_production/city_roof_details_01/preview.py:62:after_hash=hashlib.sha256(reference.read_bytes()).hexdigest(); assert before_hash==after_hash
+tools/asset_production/city_roof_details_01/preview.py:63:(E/'preview_checks.json').write_text(json.dumps(dict(scope='Blender-only temporary comparison, not saved placement or engine acceptance',reference=dict(path=str(reference.relative_to(R)),sha256_before=before_hash,sha256_after=after_hash,blender_bounds_m=[low,high],dimensions_m=[18,15,10],scale_unchanged=True,temporary_translation_blender_m=[0,0,-10]),vent_roof_offset_blender_m=[3,2,0],vent_footprint_area_fraction=2.6*1.6/(18*15),vent_height_building_fraction=.76/10,project_camera=dict(world_height_m=47,roof_height_m=10,roof_relative_height_m=37,vertical_fov_degrees=vfov,rotation=project_rotation,note='dark_roof_study alone uses temporary studio material; other reference views retain original materials'),views=views,renderer='Cycles CPU 4 threads, 32 samples, denoise, AgX',source_saved=False),indent=2)+'\n')
+tools/asset_production/city_planting_05/preview.py:1:"""Render source and read-only scale comparisons; never save preview placements."""
+tools/asset_production/city_planting_05/preview.py:2:import bpy, math, json, hashlib, sys
+tools/asset_production/city_planting_05/preview.py:5:from bpy_extras.object_utils import world_to_camera_view
+tools/asset_production/city_planting_05/preview.py:10:s=bpy.context.scene; hero=bpy.data.objects['hero_camera']; fixture=bpy.data.objects['reference_one_metre_vertical']
+tools/asset_production/city_planting_05/preview.py:15:    s.camera=hero; hero.data.ortho_scale=1.1 if variant=='short_tuft' else 1.55
+tools/asset_production/city_planting_05/preview.py:17:# Retain unmodified, unit-scale production actor and shrub for scale and vocabulary.
+tools/asset_production/city_planting_05/preview.py:24:        if o.parent is None:o.location+=Vector(offset)
+tools/asset_production/city_planting_05/preview.py:26:    inputs.append({'path':rel,'bytes':len(data),'sha256':hashlib.sha256(data).hexdigest(),'scale_factor':1,'translation_blender_m':offset})
+tools/asset_production/city_planting_05/preview.py:30:    col.objects['city_planting_05_'+variant].location=(x,0,0)
+tools/asset_production/city_planting_05/preview.py:34:fixture.hide_render=False; fixture.location=(-2.6,0,.5); groups['one_metre_fixture']=[fixture]
+tools/asset_production/city_planting_05/preview.py:36:hero.location=(3,-7,4.6); hero.rotation_euler=(Vector((0,0,.55))-hero.location).to_track_quat('-Z','Y').to_euler(); hero.data.ortho_scale=6.5
+tools/asset_production/city_planting_05/preview.py:37:s.camera=hero; s.render.resolution_x=1400; s.render.resolution_y=850
+tools/asset_production/city_planting_05/preview.py:38:s.render.filepath=str(E/'scale_comparison_hero.png'); render()
+tools/asset_production/city_planting_05/preview.py:39:project=bpy.data.objects['project_vertical_47m_42deg']; s.camera=project
+tools/asset_production/city_planting_05/preview.py:44:s.render.filepath=str(E/'scale_comparison_gameplay.png'); render()
+tools/asset_production/city_planting_05/preview.py:53:            pts.append(world_to_camera_view(s,s.camera,p) if screen else p)
+tools/asset_production/city_planting_05/preview.py:67:s.camera=hero; hero.location=(0,0,8); hero.rotation_euler=(0,0,0); hero.data.ortho_scale=6.5
+tools/asset_production/city_planting_05/preview.py:70:(E/'preview_checks.json').write_text(json.dumps({'scope':'Blender source studio comparison only; no Godot/runtime/device acceptance','inputs':inputs,'camera':{'height_m':47,'vertical_fov_deg':vfov,'viewport':[1280,800],'rotation_radians':list(project.rotation_euler)},'order_left_to_right':['one_metre_fixture','short_tuft','spreading_clump','shrub_03','courier'],'measurements':measurements,'source_saved':False},indent=2)+'\n')
+tools/asset_production/city_planting_04/assembly_preview.py:2:import bpy,math,json,hashlib
+tools/asset_production/city_planting_04/assembly_preview.py:5:from bpy_extras.object_utils import world_to_camera_view
+tools/asset_production/city_planting_04/assembly_preview.py:12:        if o.parent is None:o.location+=Vector(offset)
+tools/asset_production/city_planting_04/assembly_preview.py:13:    inputs.append({'path':rel,'bytes':path.stat().st_size,'sha256':hashlib.sha256(path.read_bytes()).hexdigest()})
+tools/asset_production/city_planting_04/assembly_preview.py:17:    col.objects['city_planting_04_'+variant].location=(x,0,0); trees[variant]=list(col.objects)
+tools/asset_production/city_planting_04/assembly_preview.py:21:hero=bpy.data.objects['hero_camera']; hero.location=(7,-11,8); hero.rotation_euler=(Vector((0,-.2,1.5))-hero.location).to_track_quat('-Z','Y').to_euler(); hero.data.ortho_scale=10
+tools/asset_production/city_planting_04/assembly_preview.py:22:s.camera=hero; s.render.resolution_x=1400; s.render.resolution_y=900; s.render.filepath=str(E/'pair_surround_actor_hero.png'); bpy.ops.render.render(write_still=True)
+tools/asset_production/city_planting_04/assembly_preview.py:23:s.camera=bpy.data.objects['project_vertical_47m_42deg']; s.render.resolution_x=1280; s.render.resolution_y=800
+tools/asset_production/city_planting_04/assembly_preview.py:24:frame=s.camera.data.view_frame(scene=s); vfov=math.degrees(2*math.atan(max(abs(v.y/v.z) for v in frame)))
+tools/asset_production/city_planting_04/assembly_preview.py:25:assert abs(vfov-42)<.001 and all(abs(v)<1e-6 for v in s.camera.rotation_euler)
+tools/asset_production/city_planting_04/assembly_preview.py:26:s.render.filepath=str(E/'pair_surround_actor_project_camera.png'); bpy.ops.render.render(write_still=True)
+tools/asset_production/city_planting_04/assembly_preview.py:32:        pts.extend(world_to_camera_view(s,s.camera,ev.matrix_world@v.co) for v in me.vertices); ev.to_mesh_clear()
+tools/asset_production/city_planting_04/assembly_preview.py:39:(E/'assembly_preview.json').write_text(json.dumps({'scope':'Blender static studio comparison only; no runtime or all-placement acceptance','inputs':inputs,'camera':{'height_m':47,'vertical_fov_deg':vfov,'viewport':[1280,800],'rotation_radians':list(s.camera.rotation_euler)},'checks':checks,'source_saved':False},indent=2)+'\n')
+tools/asset_production/city_roof_details_02/preview.py:1:"""Hero and calibrated roof comparison; read-only source/reference, no engine claims."""
+tools/asset_production/city_roof_details_02/preview.py:2:import bpy,math,json,hashlib
+tools/asset_production/city_roof_details_02/preview.py:11:    o=bpy.data.objects.new(name,data); studio.objects.link(o); o.location=loc
+tools/asset_production/city_roof_details_02/preview.py:12:    o.rotation_euler=(Vector((0,0,.3))-o.location).to_track_quat('-Z','Y').to_euler()
+tools/asset_production/city_roof_details_02/preview.py:15:bpy.ops.mesh.primitive_plane_add(size=200); floor=bpy.context.object; floor.name='preview_floor'; floor.location.z=-.003; floor.data.materials.append(mat)
+tools/asset_production/city_roof_details_02/preview.py:16:cam_data=bpy.data.cameras.new('preview_camera'); cam=bpy.data.objects.new('preview_camera',cam_data); studio.objects.link(cam); s.camera=cam
+tools/asset_production/city_roof_details_02/preview.py:20:def render(name,loc,target,lens=52,res=(1200,900)):
+tools/asset_production/city_roof_details_02/preview.py:21:    cam.location=loc; cam.rotation_euler=(Vector(target)-cam.location).to_track_quat('-Z','Y').to_euler()
+tools/asset_production/city_roof_details_02/preview.py:22:    cam_data.type='PERSP'; cam_data.lens=lens
+tools/asset_production/city_roof_details_02/preview.py:25:    views.append(dict(file=name+'.png',location_blender_m=list(loc),target_blender_m=list(target),lens_mm=lens,resolution=res,projection='perspective'))
+tools/asset_production/city_roof_details_02/preview.py:28:# Preserve unmodified reference asset bytes and imported scale; translation only.
+tools/asset_production/city_roof_details_02/preview.py:29:reference=R/'art/models/brackett_greybox/shop.glb'; before_hash=hashlib.sha256(reference.read_bytes()).hexdigest()
+tools/asset_production/city_roof_details_02/preview.py:30:before=set(bpy.data.objects); bpy.ops.import_scene.gltf(filepath=str(reference))
+tools/asset_production/city_roof_details_02/preview.py:36:    if o.parent is None: o.location.z-=10
+tools/asset_production/city_roof_details_02/preview.py:37:root.location=(3,2,0)
+tools/asset_production/city_roof_details_02/preview.py:38:# Render temporary assembly expressed relative to the 10 m roof, camera 47 m world.
+tools/asset_production/city_roof_details_02/preview.py:44:floor.location.z=-10.01
+tools/asset_production/city_roof_details_02/preview.py:45:cam_data.sensor_fit='VERTICAL'; cam_data.sensor_height=32
+tools/asset_production/city_roof_details_02/preview.py:46:lens=16/math.tan(math.radians(42)/2)
+tools/asset_production/city_roof_details_02/preview.py:47:render('project_camera_roof_context',(0,0,37),(0,0,0),lens,(1280,800))
+tools/asset_production/city_roof_details_02/preview.py:52:# Additional authored roof-color study. Geometry/scale remain unchanged; material
+tools/asset_production/city_roof_details_02/preview.py:57:render('project_camera_dark_roof_study',(0,0,37),(0,0,0),lens,(1280,800))
+tools/asset_production/city_roof_details_02/preview.py:60:# Oblique retains unchanged shop dimensions and makes height subordination explicit.
+tools/asset_production/city_roof_details_02/preview.py:61:render('unchanged_shop_scale_comparison',(23,29,21),(0,0,-3),48,(1280,900))
+tools/asset_production/city_roof_details_02/preview.py:62:after_hash=hashlib.sha256(reference.read_bytes()).hexdigest(); assert before_hash==after_hash
+tools/asset_production/city_roof_details_02/preview.py:63:(E/'preview_checks.json').write_text(json.dumps(dict(scope='Blender-only temporary comparison, not saved placement or engine acceptance',reference=dict(path=str(reference.relative_to(R)),sha256_before=before_hash,sha256_after=after_hash,blender_bounds_m=[low,high],dimensions_m=[18,15,10],scale_unchanged=True,temporary_translation_blender_m=[0,0,-10]),plant_roof_offset_blender_m=[3,2,0],plant_footprint_area_fraction=3.2*2.2/(18*15),plant_height_building_fraction=1.55/10,project_camera=dict(world_height_m=47,roof_height_m=10,roof_relative_height_m=37,vertical_fov_degrees=vfov,rotation=project_rotation,note='dark_roof_study alone uses temporary studio material; other reference views retain original materials'),views=views,renderer='Cycles CPU 4 threads, 32 samples, denoise, AgX',source_saved=False),indent=2)+'\n')
+tools/asset_production/city_planting_03/assembly_preview.py:10:    r=bpy.data.objects.new(name,None); s.collection.objects.link(r); r.location=offset
+tools/asset_production/city_planting_03/assembly_preview.py:15:root.location=(-1.7-.48,0,.40)
+tools/asset_production/city_planting_03/assembly_preview.py:22:        if o.parent is None:o.location=offset
+tools/asset_production/city_planting_03/assembly_preview.py:23:c=s.camera; c.location=(3,6,4.8); c.rotation_euler=(Vector((-.5,0,.5))-c.location).to_track_quat('-Z','Y').to_euler(); c.data.ortho_scale=6.4
+tools/asset_production/city_planting_03/assembly_preview.py:25:s.camera=bpy.data.objects['project_vertical_47m_42deg']; s.render.resolution_x=1280; s.render.resolution_y=800
+tools/asset_production/city_planting_03/assembly_preview.py:26:frame=s.camera.data.view_frame(scene=s)
+tools/asset_production/city_planting_03/assembly_preview.py:29:assert all(abs(v)<1e-6 for v in s.camera.rotation_euler)
+tools/asset_production/city_planting_03/assembly_preview.py:30:s.render.filepath=str(E/'planter_fit_project_camera.png'); bpy.ops.render.render(write_still=True)
+tools/asset_production/city_planting_03/assembly_preview.py:31:(E/'assembly_preview.json').write_text(json.dumps({'scope':'Blender studio only, read-only imported planter GLBs; no prefab/physics acceptance','rectangular_shrub_translations_blender':[[-2.18,0,.4],[-1.22,0,.4]],'round_shrub_translation_blender':[1.2,0,0],'camera':{'height_m':47,'vertical_fov_degrees':42,'viewport':[1280,800]},'source_saved':False},indent=2)+'\n')

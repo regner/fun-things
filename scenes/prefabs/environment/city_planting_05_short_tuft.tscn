@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://bxqr7b65713rp"]
+
+[ext_resource type="PackedScene" uid="uid://8j1ufmaxv2oh" path="res://art/models/environment/city_planting_05/city_planting_05_short_tuft.glb" id="1_0m1kg"]
+
+[node name="city_planting_05_short_tuft" type="Node3D" unique_id=433576659]
+
+[node name="Visuals" type="Node3D" parent="." unique_id=912186936]
+
+[node name="Model" parent="Visuals" unique_id=584118986 instance=ExtResource("1_0m1kg")]

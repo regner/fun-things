@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://betkeuy2if3t3"]
+
+[ext_resource type="PackedScene" uid="uid://dbysj6l66pwa4" path="res://art/models/environment/city_roof_details_01/city_roof_details_01.glb" id="1_aic7v"]
+
+[node name="city_roof_details_01" type="Node3D" unique_id=1201319848]
+
+[node name="Visuals" type="Node3D" parent="." unique_id=852668223]
+
+[node name="Model" parent="Visuals" unique_id=866783287 instance=ExtResource("1_aic7v")]

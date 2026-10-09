@@ -1,0 +1,725 @@
+{
+  "asset": "city_roof_details_02",
+  "source_sha256": "a92112805fbf697ce321bca5c5c40b51958ece1a28b59bfebab39222d10a72b8",
+  "pin": {
+    "blender": "5.2.2 LTS",
+    "build": "d13f752e3b9c",
+    "gltf": [
+      5,
+      2,
+      40
+    ]
+  },
+  "libraries": [],
+  "images": [
+    {
+      "name": "Render Result",
+      "path": "",
+      "packed": false
+    },
+    {
+      "name": "Viewer Node",
+      "path": "",
+      "packed": false
+    }
+  ],
+  "all_collections": {
+    "authoring_excluded": [
+      "authoring_1m_reference"
+    ],
+    "export_city_roof_details_02": [
+      "city_roof_details_02",
+      "flashing_and_curb",
+      "formed_enclosure_body",
+      "swept_rain_cover",
+      "intake_shadow_panels",
+      "intake_frames",
+      "six_formed_louvers",
+      "service_panel_gasket",
+      "service_panel",
+      "service_latch"
+    ]
+  },
+  "all_objects": [
+    {
+      "name": "authoring_1m_reference",
+      "type": "MESH",
+      "parent": null,
+      "custom_properties": {
+        "measured_dimensions_m": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      }
+    },
+    {
+      "name": "city_roof_details_02",
+      "type": "EMPTY",
+      "parent": null,
+      "custom_properties": {
+        "datum": "Ground-centred roof attachment: Blender Z=0 / Godot Y=0; +Y front",
+        "purpose": "Decorative mechanical plant enclosure; no simulation, collision, smoke or access"
+      }
+    },
+    {
+      "name": "flashing_and_curb",
+      "type": "MESH",
+      "parent": "city_roof_details_02",
+      "custom_properties": {}
+    },
+    {
+      "name": "formed_enclosure_body",
+      "type": "MESH",
+      "parent": "city_roof_details_02",
+      "custom_properties": {}
+    },
+    {
+      "name": "intake_frames",
+      "type": "MESH",
+      "parent": "city_roof_details_02",
+      "custom_properties": {}
+    },
+    {
+      "name": "intake_shadow_panels",
+      "type": "MESH",
+      "parent": "city_roof_details_02",
+      "custom_properties": {}
+    },
+    {
+      "name": "service_latch",
+      "type": "MESH",
+      "parent": "city_roof_details_02",
+      "custom_properties": {}
+    },
+    {
+      "name": "service_panel",
+      "type": "MESH",
+      "parent": "city_roof_details_02",
+      "custom_properties": {}
+    },
+    {
+      "name": "service_panel_gasket",
+      "type": "MESH",
+      "parent": "city_roof_details_02",
+      "custom_properties": {}
+    },
+    {
+      "name": "six_formed_louvers",
+      "type": "MESH",
+      "parent": "city_roof_details_02",
+      "custom_properties": {}
+    },
+    {
+      "name": "swept_rain_cover",
+      "type": "MESH",
+      "parent": "city_roof_details_02",
+      "custom_properties": {}
+    }
+  ],
+  "variants": [
+    {
+      "root": "city_roof_details_02",
+      "collection": "export_city_roof_details_02",
+      "objects": [
+        {
+          "name": "flashing_and_curb",
+          "vertices": 288,
+          "triangles": 576,
+          "minimum_triangle_area_m2": 0.0004312739122989248,
+          "bad_edges": [],
+          "islands": [
+            {
+              "vertices": 288,
+              "faces": 288,
+              "signed_volume": 0.3977454309479764,
+              "zero_face_vertex_coordinates": []
+            }
+          ],
+          "uv_layers": [],
+          "custom_normals": true,
+          "materials": [
+            "roof_plant_folded_metal"
+          ],
+          "matrix_world": [
+            [
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              1.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              1.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ]
+        },
+        {
+          "name": "formed_enclosure_body",
+          "vertices": 180,
+          "triangles": 356,
+          "minimum_triangle_area_m2": 7.347205167642993e-05,
+          "bad_edges": [],
+          "islands": [
+            {
+              "vertices": 180,
+              "faces": 146,
+              "signed_volume": 6.647649486757027,
+              "zero_face_vertex_coordinates": []
+            }
+          ],
+          "uv_layers": [],
+          "custom_normals": true,
+          "materials": [
+            "roof_plant_dark_petrol"
+          ],
+          "matrix_world": [
+            [
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              1.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              1.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ]
+        },
+        {
+          "name": "swept_rain_cover",
+          "vertices": 216,
+          "triangles": 428,
+          "minimum_triangle_area_m2": 0.00012145284465820817,
+          "bad_edges": [],
+          "islands": [
+            {
+              "vertices": 216,
+              "faces": 182,
+              "signed_volume": 1.041844193253575,
+              "zero_face_vertex_coordinates": []
+            }
+          ],
+          "uv_layers": [],
+          "custom_normals": true,
+          "materials": [
+            "roof_plant_folded_metal"
+          ],
+          "matrix_world": [
+            [
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              1.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              1.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ]
+        },
+        {
+          "name": "intake_shadow_panels",
+          "vertices": 192,
+          "triangles": 376,
+          "minimum_triangle_area_m2": 2.313320929875537e-05,
+          "bad_edges": [],
+          "islands": [
+            {
+              "vertices": 96,
+              "faces": 98,
+              "signed_volume": 0.09000546270070423,
+              "zero_face_vertex_coordinates": []
+            },
+            {
+              "vertices": 96,
+              "faces": 98,
+              "signed_volume": 0.06452949773555236,
+              "zero_face_vertex_coordinates": []
+            }
+          ],
+          "uv_layers": [
+            "UVMap"
+          ],
+          "custom_normals": true,
+          "materials": [
+            "roof_plant_shadow"
+          ],
+          "matrix_world": [
+            [
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              1.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              1.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ]
+        },
+        {
+          "name": "intake_frames",
+          "vertices": 768,
+          "triangles": 1504,
+          "minimum_triangle_area_m2": 3.05941216132304e-05,
+          "bad_edges": [],
+          "islands": [
+            {
+              "vertices": 96,
+              "faces": 98,
+              "signed_volume": 0.005761462334132166,
+              "zero_face_vertex_coordinates": []
+            },
+            {
+              "vertices": 96,
+              "faces": 98,
+              "signed_volume": 0.005761477987982523,
+              "zero_face_vertex_coordinates": []
+            },
+            {
+              "vertices": 96,
+              "faces": 98,
+              "signed_volume": 0.015686115429257887,
+              "zero_face_vertex_coordinates": []
+            },
+            {
+              "vertices": 96,
+              "faces": 98,
+              "signed_volume": 0.01568612772114877,
+              "zero_face_vertex_coordinates": []
+            },
+            {
+              "vertices": 96,
+              "faces": 98,
+              "signed_volume": 0.011316208813949756,
+              "zero_face_vertex_coordinates": []
+            },
+            {
+              "vertices": 96,
+              "faces": 98,
+              "signed_volume": 0.005761487601624538,
+              "zero_face_vertex_coordinates": []
+            },
+            {
+              "vertices": 96,
+              "faces": 98,
+              "signed_volume": 0.011316214195230124,
+              "zero_face_vertex_coordinates": []
+            },
+            {
+              "vertices": 96,
+              "faces": 98,
+              "signed_volume": 0.005761478759155373,
+              "zero_face_vertex_coordinates": []
+            }
+          ],
+          "uv_layers": [
+            "UVMap"
+          ],
+          "custom_normals": true,
+          "materials": [
+            "roof_plant_dark_petrol"
+          ],
+          "matrix_world": [
+            [
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              1.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              1.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ]
+        },
+        {
+          "name": "six_formed_louvers",
+          "vertices": 1200,
+          "triangles": 2376,
+          "minimum_triangle_area_m2": 2.0479790298008694e-06,
+          "bad_edges": [],
+          "islands": [
+            {
+              "vertices": 200,
+              "faces": 201,
+              "signed_volume": 0.005709000556817512,
+              "zero_face_vertex_coordinates": []
+            },
+            {
+              "vertices": 200,
+              "faces": 201,
+              "signed_volume": 0.008096020704111901,
+              "zero_face_vertex_coordinates": []
+            },
+            {
+              "vertices": 200,
+              "faces": 201,
+              "signed_volume": 0.008096096634560358,
+              "zero_face_vertex_coordinates": []
+            },
+            {
+              "vertices": 200,
+              "faces": 201,
+              "signed_volume": 0.00570898971190823,
+              "zero_face_vertex_coordinates": []
+            },
+            {
+              "vertices": 200,
+              "faces": 201,
+              "signed_volume": 0.008096042086379226,
+              "zero_face_vertex_coordinates": []
+            },
+            {
+              "vertices": 200,
+              "faces": 201,
+              "signed_volume": 0.005708958292022898,
+              "zero_face_vertex_coordinates": []
+            }
+          ],
+          "uv_layers": [],
+          "custom_normals": true,
+          "materials": [
+            "roof_plant_dark_petrol"
+          ],
+          "matrix_world": [
+            [
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              1.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              1.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ]
+        },
+        {
+          "name": "service_panel_gasket",
+          "vertices": 96,
+          "triangles": 188,
+          "minimum_triangle_area_m2": 2.132004077012036e-05,
+          "bad_edges": [],
+          "islands": [
+            {
+              "vertices": 96,
+              "faces": 98,
+              "signed_volume": 0.02790614082344077,
+              "zero_face_vertex_coordinates": []
+            }
+          ],
+          "uv_layers": [
+            "UVMap"
+          ],
+          "custom_normals": true,
+          "materials": [
+            "roof_plant_shadow"
+          ],
+          "matrix_world": [
+            [
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              1.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              1.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ]
+        },
+        {
+          "name": "service_panel",
+          "vertices": 96,
+          "triangles": 188,
+          "minimum_triangle_area_m2": 1.1992378650311565e-05,
+          "bad_edges": [],
+          "islands": [
+            {
+              "vertices": 96,
+              "faces": 98,
+              "signed_volume": 0.01683813495519895,
+              "zero_face_vertex_coordinates": []
+            }
+          ],
+          "uv_layers": [
+            "UVMap"
+          ],
+          "custom_normals": true,
+          "materials": [
+            "roof_plant_dark_petrol"
+          ],
+          "matrix_world": [
+            [
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              1.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              1.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ]
+        },
+        {
+          "name": "service_latch",
+          "vertices": 96,
+          "triangles": 188,
+          "minimum_triangle_area_m2": 1.1992506811440554e-05,
+          "bad_edges": [],
+          "islands": [
+            {
+              "vertices": 96,
+              "faces": 98,
+              "signed_volume": 0.00036581261859026373,
+              "zero_face_vertex_coordinates": []
+            }
+          ],
+          "uv_layers": [
+            "UVMap"
+          ],
+          "custom_normals": true,
+          "materials": [
+            "roof_plant_folded_metal"
+          ],
+          "matrix_world": [
+            [
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              1.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              1.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ]
+        }
+      ],
+      "blender_bounds": [
+        [
+          -1.600000023841858,
+          -1.100000023841858,
+          0.0
+        ],
+        [
+          1.600000023841858,
+          1.100000023841858,
+          1.5499999523162842
+        ]
+      ],
+      "godot_bounds": [
+        [
+          -1.600000023841858,
+          0.0,
+          -1.100000023841858
+        ],
+        [
+          1.600000023841858,
+          1.5499999523162842,
+          1.100000023841858
+        ]
+      ],
+      "materials": [
+        {
+          "name": "roof_plant_folded_metal",
+          "base_color": [
+            0.03071344457566738,
+            0.07421357184648514,
+            0.0802198201417923,
+            1.0
+          ],
+          "metallic": 0.30000001192092896,
+          "roughness": 0.550000011920929,
+          "backface_culling": true,
+          "texture_nodes": []
+        },
+        {
+          "name": "roof_plant_shadow",
+          "base_color": [
+            0.008568125776946545,
+            0.024157632142305374,
+            0.02955683507025242,
+            1.0
+          ],
+          "metallic": 0.05000000074505806,
+          "roughness": 0.7799999713897705,
+          "backface_culling": true,
+          "texture_nodes": []
+        },
+        {
+          "name": "roof_plant_dark_petrol",
+          "base_color": [
+            0.020288562402129173,
+            0.04970656707882881,
+            0.05612849071621895,
+            1.0
+          ],
+          "metallic": 0.2800000011920929,
+          "roughness": 0.5199999809265137,
+          "backface_culling": true,
+          "texture_nodes": []
+        }
+      ],
+      "export_settings": {
+        "export_format": "GLB",
+        "use_selection": true,
+        "export_yup": true,
+        "export_apply": true,
+        "export_texcoords": false,
+        "export_normals": true,
+        "export_tangents": false,
+        "export_materials": "EXPORT",
+        "export_cameras": false,
+        "export_lights": false,
+        "export_extras": false,
+        "export_animations": false
+      },
+      "fresh_bytes": 116664,
+      "fresh_sha256": "18d0ede1099abed3b84b1a8d0f983441aa53f7b0d99e9893b4d4ff430ba24b35",
+      "review_camera": {
+        "position": [
+          5.759999752044678,
+          -8.0,
+          6.215000152587891
+        ],
+        "rotation": [
+          1.0665391683578491,
+          3.9517090044682845e-08,
+          0.6240231394767761
+        ],
+        "orthographic_scale": 4.480000019073486,
+        "samples": 16
+      }
+    }
+  ]
+}

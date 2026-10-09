@@ -1,0 +1,7 @@
+{"method":"scene.create_node","result":{"id":1,"jsonrpc":"2.0","result":{"path":"AimProbe","status":"created","success":true}}}
+{"method":"node.set_script","result":{"id":2,"jsonrpc":"2.0","result":{"path":"AimProbe","properties":[{"hint":0,"hint_string":"","name":"range_m","type":3},{"hint":0,"hint_string":"","name":"interval_seconds","type":3}],"script":"res://tests/fixtures/s02/aim_probe.gd","success":true}}}
+{"method":"editor.save_scene","result":{"id":3,"jsonrpc":"2.0","result":{"path":"res://tests/fixtures/asset_production/batch_02_camera.tscn","success":true}}}
+{"method":"scene.close","result":{"id":4,"jsonrpc":"2.0","result":{"path":"res://tests/fixtures/asset_production/batch_02_camera.tscn","success":true,"unsaved_changes_discarded":false}}}
+{"method":"scene.open","result":{"id":5,"jsonrpc":"2.0","result":{"path":"res://tests/fixtures/asset_production/batch_02_camera.tscn","success":true}}}
+{"method":"editor.save_scene","result":{"id":6,"jsonrpc":"2.0","result":{"path":"res://tests/fixtures/asset_production/batch_02_camera.tscn","success":true}}}
+{"method":"game.start","result":{"id":7,"jsonrpc":"2.0","result":{"runtime_discovery":"bridge","runtime_port":null,"runtime_ready":false,"success":true,"target":"res://tests/fixtures/asset_production/batch_02_camera.tscn"}}}

@@ -1,0 +1,481 @@
+[
+  {
+    "command": "candidate-tree",
+    "receipt": "candidate-tree.command.json",
+    "exit": 0,
+    "check_sources": [],
+    "stdout": {
+      "path": "candidate-tree.stdout",
+      "bytes": 901419,
+      "sha256": "4099779d0b0c027b6fada0ded0bae8f90285bf1b62a6e795378cfb7446051e7e"
+    },
+    "stderr": {
+      "path": "candidate-tree.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  },
+  {
+    "command": "parent-tree",
+    "receipt": "parent-tree.command.json",
+    "exit": 0,
+    "check_sources": [],
+    "stdout": {
+      "path": "parent-tree.stdout",
+      "bytes": 858465,
+      "sha256": "34d3663a3c00910c1850ed1105bfe377381643eb955228aa9f6d183a60981a0e"
+    },
+    "stderr": {
+      "path": "parent-tree.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  },
+  {
+    "command": "delta-parent",
+    "receipt": "delta-parent.command.json",
+    "exit": 0,
+    "check_sources": [],
+    "stdout": {
+      "path": "delta-parent.stdout",
+      "bytes": 25512,
+      "sha256": "fabc780c05dfae1c0e9f3fe4617fe75c29f9397046157101fcc9efbff1255235"
+    },
+    "stderr": {
+      "path": "delta-parent.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  },
+  {
+    "command": "delta-original-base",
+    "receipt": "delta-original-base.command.json",
+    "exit": 0,
+    "check_sources": [],
+    "stdout": {
+      "path": "delta-original-base.stdout",
+      "bytes": 67963,
+      "sha256": "230b42d41fc67660146e6d23c4995dbf031abd96b32df884295a3a1069bfce3a"
+    },
+    "stderr": {
+      "path": "delta-original-base.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  },
+  {
+    "command": "candidate-whitespace",
+    "receipt": "candidate-whitespace.command.json",
+    "exit": 2,
+    "check_sources": [],
+    "stdout": {
+      "path": "candidate-whitespace.stdout",
+      "bytes": 18384,
+      "sha256": "8a9fe55dc3890854b0f71d438d916474971d1b47a6bb81ade06d6d2ad39bec7a"
+    },
+    "stderr": {
+      "path": "candidate-whitespace.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  },
+  {
+    "command": "blender-pin",
+    "receipt": "blender-pin.command.json",
+    "exit": 0,
+    "check_sources": [],
+    "stdout": {
+      "path": "blender-pin.stdout",
+      "bytes": 2129,
+      "sha256": "ff51eab7f5293cf09931a47a182e4c4197e0808c589c4cbbfce762b8548c0368"
+    },
+    "stderr": {
+      "path": "blender-pin.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  },
+  {
+    "command": "binary-audit",
+    "receipt": "binary-audit.command.json",
+    "exit": 1,
+    "check_sources": [
+      {
+        "path": "glb_audit.py",
+        "bytes": 8606,
+        "sha256": "00ed30d88e0ab66a9afb9706bf04b0b770be89bc25e23866ed16fe57b3ccce9d"
+      }
+    ],
+    "stdout": {
+      "path": "binary-audit.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "stderr": {
+      "path": "binary-audit.stderr",
+      "bytes": 962,
+      "sha256": "1fa862013f49d7be4d90a337935608b65f8a3f58ce92732025c4be066e0355b0"
+    }
+  },
+  {
+    "command": "binary-audit-adapted",
+    "receipt": "binary-audit-adapted.command.json",
+    "exit": 0,
+    "check_sources": [
+      {
+        "path": "glb_audit.py",
+        "bytes": 8606,
+        "sha256": "00ed30d88e0ab66a9afb9706bf04b0b770be89bc25e23866ed16fe57b3ccce9d"
+      }
+    ],
+    "stdout": {
+      "path": "binary-audit-adapted.stdout",
+      "bytes": 44,
+      "sha256": "2c5fe6128e489fafe235a23ff8d70814325f718fdc4194157a4a302997a7ea76"
+    },
+    "stderr": {
+      "path": "binary-audit-adapted.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  },
+  {
+    "command": "reference-audit",
+    "receipt": "reference-audit.command.json",
+    "exit": 0,
+    "check_sources": [
+      {
+        "path": "reference_audit.py",
+        "bytes": 2603,
+        "sha256": "1b0fa6a72499da155aeb96cb059ea6a784428941281b54a4235322fcdd86ca27"
+      },
+      {
+        "path": "run_checks.py",
+        "bytes": 5847,
+        "sha256": "10df164d2847b21b17d2a88ee1253b3dc89a35d0ad0e7629d4d5a5aad5eaa458"
+      }
+    ],
+    "stdout": {
+      "path": "reference-audit.stdout",
+      "bytes": 145,
+      "sha256": "c957bb04eec09254188f22d0e0f44d6cb880d08f4af2aa02c5b83a20175b5342"
+    },
+    "stderr": {
+      "path": "reference-audit.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  },
+  {
+    "command": "calibration-source",
+    "receipt": "calibration-source.command.json",
+    "exit": 0,
+    "check_sources": [
+      {
+        "path": "calibration_source.py",
+        "bytes": 1648,
+        "sha256": "52dfef869ed3c74e19e3d20ec72d21c180c59eefa5a2d81429a3a198f3a743dd"
+      }
+    ],
+    "stdout": {
+      "path": "calibration-source.stdout",
+      "bytes": 1105,
+      "sha256": "c338eda852929e7f50365ed872f307f124bbb1d2dbb6d9e998b9f335061f7c44"
+    },
+    "stderr": {
+      "path": "calibration-source.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  },
+  {
+    "command": "reverse-consumers",
+    "receipt": "reverse-consumers.command.json",
+    "exit": 1,
+    "check_sources": [],
+    "stdout": {
+      "path": "reverse-consumers.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "stderr": {
+      "path": "reverse-consumers.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  },
+  {
+    "command": "owned-authoring-provenance",
+    "receipt": "owned-authoring-provenance.command.json",
+    "exit": 0,
+    "check_sources": [],
+    "stdout": {
+      "path": "owned-authoring-provenance.stdout",
+      "bytes": 3917,
+      "sha256": "bcf9bfbb2322e9d656a221f8b1e2e31f704c409b2fad91de749bac7200c79e3c"
+    },
+    "stderr": {
+      "path": "owned-authoring-provenance.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  },
+  {
+    "command": "mounting-and-calibration-claims",
+    "receipt": "mounting-and-calibration-claims.command.json",
+    "exit": 0,
+    "check_sources": [],
+    "stdout": {
+      "path": "mounting-and-calibration-claims.stdout",
+      "bytes": 18314,
+      "sha256": "3bb9fa8a374b11aafe5eccc9569de053f0c4f52a05ef8bade17f4474fcef76d3"
+    },
+    "stderr": {
+      "path": "mounting-and-calibration-claims.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  },
+  {
+    "command": "city_planting_03-source",
+    "receipt": "city_planting_03-source.command.json",
+    "exit": 0,
+    "check_sources": [
+      {
+        "path": "source_audit-first.py",
+        "bytes": 7849,
+        "sha256": "fef8e3375adf216007f0b34fd62b6a5883ccb6dcec0e8f29dbbcc94a46d18f40"
+      }
+    ],
+    "stdout": {
+      "path": "city_planting_03-source.stdout",
+      "bytes": 1516,
+      "sha256": "5d86d2fe93e55eaadb3bde0d4a94ff6d954b927634d94d15da20809fdd6f2d55"
+    },
+    "stderr": {
+      "path": "city_planting_03-source.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  },
+  {
+    "command": "city_planting_04-source",
+    "receipt": "city_planting_04-source.command.json",
+    "exit": 1,
+    "check_sources": [
+      {
+        "path": "source_audit-first.py",
+        "bytes": 7849,
+        "sha256": "fef8e3375adf216007f0b34fd62b6a5883ccb6dcec0e8f29dbbcc94a46d18f40"
+      }
+    ],
+    "stdout": {
+      "path": "city_planting_04-source.stdout",
+      "bytes": 287,
+      "sha256": "5af83f10d6a1a1a7f7fb05013092db363bb3ac8831175afeb79d129b23038539"
+    },
+    "stderr": {
+      "path": "city_planting_04-source.stderr",
+      "bytes": 470,
+      "sha256": "ef2179ad23fd70408532dfb8ae03d2c584acd50bc2aff35ba545b8830fea7079"
+    }
+  },
+  {
+    "command": "city_planting_05-source",
+    "receipt": "city_planting_05-source.command.json",
+    "exit": 1,
+    "check_sources": [
+      {
+        "path": "source_audit-first.py",
+        "bytes": 7849,
+        "sha256": "fef8e3375adf216007f0b34fd62b6a5883ccb6dcec0e8f29dbbcc94a46d18f40"
+      }
+    ],
+    "stdout": {
+      "path": "city_planting_05-source.stdout",
+      "bytes": 1405,
+      "sha256": "4fc5861d333ab162f2df58c965a0e2bece29ac0c8d070aa8e61d7cbdbe42cc7b"
+    },
+    "stderr": {
+      "path": "city_planting_05-source.stderr",
+      "bytes": 1249,
+      "sha256": "b6568fef92efc1386c59860e56da46f3749112fe2f04ffaf31f8443aa32d382d"
+    }
+  },
+  {
+    "command": "city_roof_details_01-source",
+    "receipt": "city_roof_details_01-source.command.json",
+    "exit": 1,
+    "check_sources": [
+      {
+        "path": "source_audit-first.py",
+        "bytes": 7849,
+        "sha256": "fef8e3375adf216007f0b34fd62b6a5883ccb6dcec0e8f29dbbcc94a46d18f40"
+      }
+    ],
+    "stdout": {
+      "path": "city_roof_details_01-source.stdout",
+      "bytes": 1337,
+      "sha256": "0f0d93cc081fb16b2e84b004fe9bb344d2ff15dfe251a042c18c4a68ab90c78d"
+    },
+    "stderr": {
+      "path": "city_roof_details_01-source.stderr",
+      "bytes": 1250,
+      "sha256": "b99d87102678057e15cdbb71bb2c8b5bfd689382b7cfe74a478a760422a1bdb9"
+    }
+  },
+  {
+    "command": "city_roof_details_02-source",
+    "receipt": "city_roof_details_02-source.command.json",
+    "exit": 1,
+    "check_sources": [
+      {
+        "path": "source_audit-first.py",
+        "bytes": 7849,
+        "sha256": "fef8e3375adf216007f0b34fd62b6a5883ccb6dcec0e8f29dbbcc94a46d18f40"
+      }
+    ],
+    "stdout": {
+      "path": "city_roof_details_02-source.stdout",
+      "bytes": 1697,
+      "sha256": "c24bd3d42c300351ebad443de1f3695261a51a22719a83267975f674b5a0c4a0"
+    },
+    "stderr": {
+      "path": "city_roof_details_02-source.stderr",
+      "bytes": 1250,
+      "sha256": "b99d87102678057e15cdbb71bb2c8b5bfd689382b7cfe74a478a760422a1bdb9"
+    }
+  },
+  {
+    "command": "city_shop_fittings_01-source",
+    "receipt": "city_shop_fittings_01-source.command.json",
+    "exit": 1,
+    "check_sources": [
+      {
+        "path": "source_audit-first.py",
+        "bytes": 7849,
+        "sha256": "fef8e3375adf216007f0b34fd62b6a5883ccb6dcec0e8f29dbbcc94a46d18f40"
+      }
+    ],
+    "stdout": {
+      "path": "city_shop_fittings_01-source.stdout",
+      "bytes": 1244,
+      "sha256": "bf2ad0babbc45973a9cdc21eae882c9e4a61531c88f27b21504c8fbcf17f6bba"
+    },
+    "stderr": {
+      "path": "city_shop_fittings_01-source.stderr",
+      "bytes": 1250,
+      "sha256": "b99d87102678057e15cdbb71bb2c8b5bfd689382b7cfe74a478a760422a1bdb9"
+    }
+  },
+  {
+    "command": "city_planting_04-source-adapted",
+    "receipt": "city_planting_04-source-adapted.command.json",
+    "exit": 0,
+    "check_sources": [
+      {
+        "path": "source_audit.py",
+        "bytes": 7989,
+        "sha256": "f49d54573a1162f3216cc6f8a89336affb2136984d1e7eb3b09a6d9319e7f4a6"
+      }
+    ],
+    "stdout": {
+      "path": "city_planting_04-source-adapted.stdout",
+      "bytes": 2457,
+      "sha256": "b4969345cebd327ad74c259e9d1d845df04dba98b3236b877255abae9f0206dc"
+    },
+    "stderr": {
+      "path": "city_planting_04-source-adapted.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  },
+  {
+    "command": "city_planting_05-source-adapted",
+    "receipt": "city_planting_05-source-adapted.command.json",
+    "exit": 0,
+    "check_sources": [
+      {
+        "path": "source_audit.py",
+        "bytes": 7989,
+        "sha256": "f49d54573a1162f3216cc6f8a89336affb2136984d1e7eb3b09a6d9319e7f4a6"
+      }
+    ],
+    "stdout": {
+      "path": "city_planting_05-source-adapted.stdout",
+      "bytes": 1455,
+      "sha256": "08bde93f5802d9ed2a63a7e1d7d5172d3530cf98f3385a14319f720cf2aa5b52"
+    },
+    "stderr": {
+      "path": "city_planting_05-source-adapted.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  },
+  {
+    "command": "city_roof_details_01-source-adapted",
+    "receipt": "city_roof_details_01-source-adapted.command.json",
+    "exit": 0,
+    "check_sources": [
+      {
+        "path": "source_audit.py",
+        "bytes": 7989,
+        "sha256": "f49d54573a1162f3216cc6f8a89336affb2136984d1e7eb3b09a6d9319e7f4a6"
+      }
+    ],
+    "stdout": {
+      "path": "city_roof_details_01-source-adapted.stdout",
+      "bytes": 1392,
+      "sha256": "4f96cd28acb479cf0fd9ea69f2eeddc2fea2359f73fbca7d36085482fa4f813b"
+    },
+    "stderr": {
+      "path": "city_roof_details_01-source-adapted.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  },
+  {
+    "command": "city_roof_details_02-source-adapted",
+    "receipt": "city_roof_details_02-source-adapted.command.json",
+    "exit": 0,
+    "check_sources": [
+      {
+        "path": "source_audit.py",
+        "bytes": 7989,
+        "sha256": "f49d54573a1162f3216cc6f8a89336affb2136984d1e7eb3b09a6d9319e7f4a6"
+      }
+    ],
+    "stdout": {
+      "path": "city_roof_details_02-source-adapted.stdout",
+      "bytes": 1752,
+      "sha256": "6169dad3fd072c6c2ce071b89365d27cc825518f2d2d1339935f2a5195e0ea77"
+    },
+    "stderr": {
+      "path": "city_roof_details_02-source-adapted.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  },
+  {
+    "command": "city_shop_fittings_01-source-adapted",
+    "receipt": "city_shop_fittings_01-source-adapted.command.json",
+    "exit": 0,
+    "check_sources": [
+      {
+        "path": "source_audit.py",
+        "bytes": 7989,
+        "sha256": "f49d54573a1162f3216cc6f8a89336affb2136984d1e7eb3b09a6d9319e7f4a6"
+      }
+    ],
+    "stdout": {
+      "path": "city_shop_fittings_01-source-adapted.stdout",
+      "bytes": 1300,
+      "sha256": "a2518f7a1d653744ab019c866b14b3f6de47be2c9fcbaecc2dee2705f973f44e"
+    },
+    "stderr": {
+      "path": "city_shop_fittings_01-source-adapted.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  }
+]

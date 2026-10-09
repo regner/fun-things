@@ -1,0 +1,109 @@
+[gd_scene format=3 uid="uid://we2vmj4uabkr"]
+
+[ext_resource type="PackedScene" uid="uid://hik8rg1e7j6e" path="res://tests/fixtures/asset_production/batch_02_camera.tscn" id="1"]
+[ext_resource type="PackedScene" uid="uid://doayxv4m8blnc" path="res://scenes/prefabs/environment/city_planting_03.tscn" id="2_4rova"]
+[ext_resource type="PackedScene" uid="uid://deflk03raeayy" path="res://scenes/prefabs/environment/city_planting_04_compact.tscn" id="3_1vidl"]
+[ext_resource type="PackedScene" uid="uid://cboblknp1ednx" path="res://scenes/prefabs/environment/city_planting_04_broad.tscn" id="4_4x414"]
+[ext_resource type="PackedScene" uid="uid://bxqr7b65713rp" path="res://scenes/prefabs/environment/city_planting_05_short_tuft.tscn" id="5_43nyw"]
+[ext_resource type="PackedScene" uid="uid://vkmj1rskrwmu" path="res://scenes/prefabs/environment/city_planting_05_spreading_clump.tscn" id="6_xsxvt"]
+[ext_resource type="PackedScene" uid="uid://betkeuy2if3t3" path="res://scenes/prefabs/environment/city_roof_details_01.tscn" id="7_cax65"]
+[ext_resource type="PackedScene" uid="uid://50ylj3cwr5kb" path="res://scenes/prefabs/environment/city_roof_details_02.tscn" id="8_75clo"]
+[ext_resource type="PackedScene" uid="uid://bsh8gy3l470g1" path="res://scenes/prefabs/environment/city_shop_fittings_01.tscn" id="9_oatp0"]
+
+[node name="preview" unique_id=235953546 instance=ExtResource("1")]
+
+[node name="Repeat_city_planting_03_0" parent="." index="26" unique_id=984906004 instance=ExtResource("2_4rova")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12, 0, 8)
+
+[node name="Repeat_city_planting_03_1" parent="." index="27" unique_id=612449870 instance=ExtResource("2_4rova")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 0, 8)
+
+[node name="Repeat_city_planting_03_2" parent="." index="28" unique_id=8416734 instance=ExtResource("2_4rova")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, 8)
+
+[node name="Repeat_city_planting_03_3" parent="." index="29" unique_id=200491436 instance=ExtResource("2_4rova")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 0, 8)
+
+[node name="Repeat_city_planting_04_compact_0" parent="." index="30" unique_id=706930414 instance=ExtResource("3_1vidl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12, 0, 9.15)
+
+[node name="Repeat_city_planting_04_compact_1" parent="." index="31" unique_id=780882739 instance=ExtResource("3_1vidl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 0, 9.15)
+
+[node name="Repeat_city_planting_04_compact_2" parent="." index="32" unique_id=1563243938 instance=ExtResource("3_1vidl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, 9.15)
+
+[node name="Repeat_city_planting_04_compact_3" parent="." index="33" unique_id=869104787 instance=ExtResource("3_1vidl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 0, 9.15)
+
+[node name="Repeat_city_planting_04_broad_0" parent="." index="34" unique_id=1804466579 instance=ExtResource("4_4x414")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12, 0, 10.3)
+
+[node name="Repeat_city_planting_04_broad_1" parent="." index="35" unique_id=903414384 instance=ExtResource("4_4x414")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 0, 10.3)
+
+[node name="Repeat_city_planting_04_broad_2" parent="." index="36" unique_id=1119314726 instance=ExtResource("4_4x414")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, 10.3)
+
+[node name="Repeat_city_planting_04_broad_3" parent="." index="37" unique_id=501641997 instance=ExtResource("4_4x414")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 0, 10.3)
+
+[node name="Repeat_city_planting_05_short_tuft_0" parent="." index="38" unique_id=433576659 instance=ExtResource("5_43nyw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12, 0, 11.45)
+
+[node name="Repeat_city_planting_05_short_tuft_1" parent="." index="39" unique_id=2090697293 instance=ExtResource("5_43nyw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 0, 11.45)
+
+[node name="Repeat_city_planting_05_short_tuft_2" parent="." index="40" unique_id=27864002 instance=ExtResource("5_43nyw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, 11.45)
+
+[node name="Repeat_city_planting_05_short_tuft_3" parent="." index="41" unique_id=2101823829 instance=ExtResource("5_43nyw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 0, 11.45)
+
+[node name="Repeat_city_planting_05_spreading_clump_0" parent="." index="42" unique_id=331951527 instance=ExtResource("6_xsxvt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12, 0, 12.6)
+
+[node name="Repeat_city_planting_05_spreading_clump_1" parent="." index="43" unique_id=1027274562 instance=ExtResource("6_xsxvt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 0, 12.6)
+
+[node name="Repeat_city_planting_05_spreading_clump_2" parent="." index="44" unique_id=581095643 instance=ExtResource("6_xsxvt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, 12.6)
+
+[node name="Repeat_city_planting_05_spreading_clump_3" parent="." index="45" unique_id=1400478996 instance=ExtResource("6_xsxvt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 0, 12.6)
+
+[node name="Repeat_city_roof_details_01_0" parent="." index="46" unique_id=1201319848 instance=ExtResource("7_cax65")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12, 0, 13.75)
+
+[node name="Repeat_city_roof_details_01_1" parent="." index="47" unique_id=2015535903 instance=ExtResource("7_cax65")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 0, 13.75)
+
+[node name="Repeat_city_roof_details_01_2" parent="." index="48" unique_id=365333053 instance=ExtResource("7_cax65")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, 13.75)
+
+[node name="Repeat_city_roof_details_01_3" parent="." index="49" unique_id=1464158966 instance=ExtResource("7_cax65")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 0, 13.75)
+
+[node name="Repeat_city_roof_details_02_0" parent="." index="50" unique_id=996771340 instance=ExtResource("8_75clo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12, 0, 14.9)
+
+[node name="Repeat_city_roof_details_02_1" parent="." index="51" unique_id=1144931909 instance=ExtResource("8_75clo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 0, 14.9)
+
+[node name="Repeat_city_roof_details_02_2" parent="." index="52" unique_id=1719605146 instance=ExtResource("8_75clo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, 14.9)
+
+[node name="Repeat_city_roof_details_02_3" parent="." index="53" unique_id=67480566 instance=ExtResource("8_75clo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 0, 14.9)
+
+[node name="Repeat_city_shop_fittings_01_0" parent="." index="54" unique_id=1858841794 instance=ExtResource("9_oatp0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12, 3, 16.05)
+
+[node name="Repeat_city_shop_fittings_01_1" parent="." index="55" unique_id=404701526 instance=ExtResource("9_oatp0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 3, 16.05)
+
+[node name="Repeat_city_shop_fittings_01_2" parent="." index="56" unique_id=163698458 instance=ExtResource("9_oatp0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 3, 16.05)
+
+[node name="Repeat_city_shop_fittings_01_3" parent="." index="57" unique_id=699719750 instance=ExtResource("9_oatp0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 3, 16.05)

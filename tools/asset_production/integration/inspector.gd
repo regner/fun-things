@@ -165,7 +165,22 @@ func _collect(node: Node, parent_pose: Transform3D, rows: Array[Dictionary]) -> 
 		var bounds: AABB = pose * node.get_aabb()
 		rows.append({"node": str(node.name), "resource": node.mesh.resource_path,
 			"min": [bounds.position.x, bounds.position.y, bounds.position.z],
-			"size": [bounds.size.x, bounds.size.y, bounds.size.z]})
+			"size": [bounds.size.x, bounds.size.y, bounds.size.z],
+			"surfaces": _surface_info(node.mesh)})
 
 	for child: Node in node.get_children():
 		_collect(child, pose, rows)
+
+
+## Records imported material response without adding an override or external writer.
+func _surface_info(mesh: Mesh) -> Array[Dictionary]:
+	var rows: Array[Dictionary] = []
+	for index: int in range(mesh.get_surface_count()):
+		var material: StandardMaterial3D = mesh.surface_get_material(index)
+		assert(material != null)
+		rows.append({"slot": index, "name": material.resource_name,
+			"color": str(material.albedo_color), "roughness": material.roughness,
+			"metallic": material.metallic, "cull_mode": material.cull_mode,
+			"transparency": material.transparency, "resource": material.resource_path})
+
+	return rows

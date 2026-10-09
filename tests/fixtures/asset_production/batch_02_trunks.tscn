@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://b1bvfmpmlaxrj"]
+
+[ext_resource type="PackedScene" uid="uid://bsyw5afxrhg20" path="res://scenes/prefabs/player_character/preview.tscn" id="1"]
+[ext_resource type="PackedScene" uid="uid://deflk03raeayy" path="res://scenes/prefabs/environment/city_planting_04_compact.tscn" id="2_djmt8"]
+[ext_resource type="PackedScene" uid="uid://cboblknp1ednx" path="res://scenes/prefabs/environment/city_planting_04_broad.tscn" id="3_iu80q"]
+[ext_resource type="PackedScene" uid="uid://dl05tre3pd6e0" path="res://tests/fixtures/s02/actor.tscn" id="4_45dbt"]
+[ext_resource type="Script" uid="uid://do25kfajpfdwc" path="res://tests/fixtures/s02/aim_probe.gd" id="6_xe5mb"]
+
+[node name="preview" unique_id=71567977 instance=ExtResource("1")]
+
+[node name="CompactTree" parent="." index="8" unique_id=706930414 instance=ExtResource("2_djmt8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, 2)
+
+[node name="BroadTree" parent="." index="9" unique_id=1804466579 instance=ExtResource("3_iu80q")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, 2)
+
+[node name="ProbeActor" parent="." index="10" unique_id=987036009 instance=ExtResource("4_45dbt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, 6)
+visible = false
+
+[node name="AimProbe" type="Node" parent="." index="11" unique_id=744745917]
+script = ExtResource("6_xe5mb")

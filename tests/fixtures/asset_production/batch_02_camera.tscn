@@ -1,0 +1,79 @@
+[gd_scene format=3 uid="uid://hik8rg1e7j6e"]
+
+[ext_resource type="PackedScene" uid="uid://bsyw5afxrhg20" path="res://scenes/prefabs/player_character/preview.tscn" id="1"]
+[ext_resource type="Script" uid="uid://1vyupa07oshm" path="res://tests/fixtures/asset_production/batch_02_observation.gd" id="2_vdny4"]
+[ext_resource type="PackedScene" uid="uid://deflk03raeayy" path="res://scenes/prefabs/environment/city_planting_04_compact.tscn" id="3_tj5um"]
+[ext_resource type="PackedScene" uid="uid://cboblknp1ednx" path="res://scenes/prefabs/environment/city_planting_04_broad.tscn" id="4_83m43"]
+[ext_resource type="PackedScene" uid="uid://cs6vjjktp7na8" path="res://scenes/prefabs/environment/city_planting_02.tscn" id="5_kesrw"]
+[ext_resource type="PackedScene" uid="uid://diinbdkhlyjwf" path="res://scenes/prefabs/environment/city_planting_01.tscn" id="6_vceql"]
+[ext_resource type="PackedScene" uid="uid://doayxv4m8blnc" path="res://scenes/prefabs/environment/city_planting_03.tscn" id="7_6fgun"]
+[ext_resource type="PackedScene" uid="uid://bxqr7b65713rp" path="res://scenes/prefabs/environment/city_planting_05_short_tuft.tscn" id="8_r1bb5"]
+[ext_resource type="PackedScene" uid="uid://vkmj1rskrwmu" path="res://scenes/prefabs/environment/city_planting_05_spreading_clump.tscn" id="9_sgj3b"]
+[ext_resource type="PackedScene" uid="uid://b6rmrciwcv4yx" path="res://scenes/world/brackett_greybox/prefabs/shop.tscn" id="10_4ogxi"]
+[ext_resource type="PackedScene" uid="uid://betkeuy2if3t3" path="res://scenes/prefabs/environment/city_roof_details_01.tscn" id="12_5704j"]
+[ext_resource type="PackedScene" uid="uid://50ylj3cwr5kb" path="res://scenes/prefabs/environment/city_roof_details_02.tscn" id="13_8dick"]
+[ext_resource type="PackedScene" uid="uid://bsh8gy3l470g1" path="res://scenes/prefabs/environment/city_shop_fittings_01.tscn" id="14_hp3lg"]
+[ext_resource type="PackedScene" uid="uid://dl05tre3pd6e0" path="res://tests/fixtures/s02/actor.tscn" id="15_bslwq"]
+[ext_resource type="PackedScene" uid="uid://wrydf8221mfm" path="res://scenes/prefabs/player_character/coral_courier.tscn" id="16_vdny4"]
+[ext_resource type="Script" uid="uid://do25kfajpfdwc" path="res://tests/fixtures/s02/aim_probe.gd" id="17_kqor7"]
+
+[node name="preview" unique_id=67449191 instance=ExtResource("1")]
+script = ExtResource("2_vdny4")
+
+[node name="GameCamera" parent="." index="6" unique_id=1677099671]
+current = true
+
+[node name="CompactTree" parent="." index="8" unique_id=706930414 instance=ExtResource("3_tj5um")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, 2)
+
+[node name="BroadTree" parent="." index="9" unique_id=1804466579 instance=ExtResource("4_83m43")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, 2)
+
+[node name="CompactSurround" parent="." index="10" unique_id=649196182 instance=ExtResource("5_kesrw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, 2)
+
+[node name="BroadSurround" parent="." index="11" unique_id=154195422 instance=ExtResource("5_kesrw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, 2)
+
+[node name="Trough" parent="." index="12" unique_id=2037252806 instance=ExtResource("6_vceql")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 5)
+
+[node name="ShrubWest" parent="." index="13" unique_id=984906004 instance=ExtResource("7_6fgun")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.48, 0.4, 5)
+
+[node name="ShrubEast" parent="." index="14" unique_id=1312323993 instance=ExtResource("7_6fgun")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.48, 0.4, 5)
+
+[node name="ShrubStandalone" parent="." index="15" unique_id=2055480207 instance=ExtResource("7_6fgun")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 0, 0)
+
+[node name="ShortTuft" parent="." index="16" unique_id=433576659 instance=ExtResource("8_r1bb5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, 5)
+
+[node name="SpreadingClump" parent="." index="17" unique_id=331951527 instance=ExtResource("9_sgj3b")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, 5)
+
+[node name="Shop" parent="." index="18" unique_id=1256354008 instance=ExtResource("10_4ogxi")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, -14)
+
+[node name="RoofVent" parent="." index="19" unique_id=1201319848 instance=ExtResource("12_5704j")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 10, -12)
+
+[node name="RoofEnclosure" parent="." index="20" unique_id=996771340 instance=ExtResource("13_8dick")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 10, -12)
+
+[node name="Canopy" parent="." index="21" unique_id=1858841794 instance=ExtResource("14_hp3lg")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 3, -6.5)
+
+[node name="ProbeActor" parent="." index="22" unique_id=987036009 instance=ExtResource("15_bslwq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, 6)
+visible = false
+
+[node name="AimProbe" type="Node" parent="." index="23" unique_id=1102305995]
+script = ExtResource("17_kqor7")
+
+[node name="CompactActor" parent="." index="24" unique_id=1839496001 instance=ExtResource("16_vdny4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, 4.6)
+
+[node name="BroadActor" parent="." index="25" unique_id=696046601 instance=ExtResource("16_vdny4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, 4.6)

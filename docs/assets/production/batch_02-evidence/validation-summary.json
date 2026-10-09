@@ -1,0 +1,324 @@
+{
+  "passed": true,
+  "source_payload_count": 335,
+  "source_candidate": "5e94cc0ea4155219285db49c64b5728e0882b093",
+  "bounds": [
+    {
+      "asset": "city_planting_03",
+      "min": [
+        -0.543029725551605,
+        0,
+        -0.356221348047256
+      ],
+      "max": [
+        0.5404995083808901,
+        0.6699999906122686,
+        0.3346724526491016
+      ],
+      "linked_model": "res://art/models/environment/city_planting_03/city_planting_03.glb",
+      "surfaces": 6
+    },
+    {
+      "asset": "city_planting_04_compact",
+      "min": [
+        -0.908597469329834,
+        0,
+        -0.953385233879089
+      ],
+      "max": [
+        1.0899916812777555,
+        3.596365451812739,
+        0.8941905312240127
+      ],
+      "linked_model": "res://art/models/environment/city_planting_04/city_planting_04_compact.glb",
+      "surfaces": 6
+    },
+    {
+      "asset": "city_planting_04_broad",
+      "min": [
+        -1.28824293613434,
+        0,
+        -1.23816919326782
+      ],
+      "max": [
+        1.48380572721362,
+        3.317199468612666,
+        1.2035241574048947
+      ],
+      "linked_model": "res://art/models/environment/city_planting_04/city_planting_04_broad.glb",
+      "surfaces": 6
+    },
+    {
+      "asset": "city_planting_05_short_tuft",
+      "min": [
+        -0.280000001192093,
+        0,
+        -0.209999993443489
+      ],
+      "max": [
+        0.280000001192093,
+        0.259999990463257,
+        0.209999993443489
+      ],
+      "linked_model": "res://art/models/environment/city_planting_05/city_planting_05_short_tuft.glb",
+      "surfaces": 3
+    },
+    {
+      "asset": "city_planting_05_spreading_clump",
+      "min": [
+        -0.5,
+        0,
+        -0.310000002384186
+      ],
+      "max": [
+        0.5,
+        0.200000002980232,
+        0.310000002384186
+      ],
+      "linked_model": "res://art/models/environment/city_planting_05/city_planting_05_spreading_clump.glb",
+      "surfaces": 3
+    },
+    {
+      "asset": "city_roof_details_01",
+      "min": [
+        -1.29999995231628,
+        0,
+        -0.800000011920929
+      ],
+      "max": [
+        1.2999999523162902,
+        0.759999990463257,
+        0.800000011920931
+      ],
+      "linked_model": "res://art/models/environment/city_roof_details_01/city_roof_details_01.glb",
+      "surfaces": 5
+    },
+    {
+      "asset": "city_roof_details_02",
+      "min": [
+        -1.60000002384186,
+        0,
+        -1.10000002384186
+      ],
+      "max": [
+        1.60000002384186,
+        1.5499999523162882,
+        1.10000002384186
+      ],
+      "linked_model": "res://art/models/environment/city_roof_details_02/city_roof_details_02.glb",
+      "surfaces": 9
+    },
+    {
+      "asset": "city_shop_fittings_01",
+      "min": [
+        -1.60000002384186,
+        -0.419999986886978,
+        -1.10000002384186
+      ],
+      "max": [
+        1.60000002384186,
+        0.239999994635582,
+        0.0
+      ],
+      "linked_model": "res://art/models/environment/city_shop_fittings_01/city_shop_fittings_01.glb",
+      "surfaces": 4
+    }
+  ],
+  "uid_resolution_count": 21,
+  "byte_stable_roundtrips": 13,
+  "observations": [
+    {
+      "receipt": "final-native-probe-results.jsonl",
+      "query_batch_usec": 195,
+      "motion": {
+        "broad_surround": {
+          "passed": true,
+          "position": [
+            3.99999976158142,
+            0,
+            3.27734088897705
+          ],
+          "yaw": 0
+        },
+        "canopy_under": {
+          "passed": true,
+          "position": [
+            8.0000057220459,
+            0,
+            -5.80000019073486
+          ],
+          "yaw": 1.57079637050629
+        },
+        "clear_bypass": {
+          "passed": true,
+          "position": [
+            -2.5,
+            0,
+            -4.00000095367432
+          ],
+          "yaw": 0
+        },
+        "compact_surround": {
+          "passed": true,
+          "position": [
+            -4,
+            0,
+            3.27734088897705
+          ],
+          "yaw": 0
+        }
+      },
+      "aim_hit": "/root/preview/BroadTree/Collision/PoleBody",
+      "medians_last_60": {
+        "draw_calls": 274.0,
+        "physics_s": 0.0011325,
+        "primitives": 65952.0,
+        "process_s": 0.00020600000000000002,
+        "video_bytes": 93696064.0
+      }
+    },
+    {
+      "receipt": "repeat-final-probe-results.jsonl",
+      "query_batch_usec": 227,
+      "motion": {
+        "broad_surround": {
+          "passed": true,
+          "position": [
+            3.99999976158142,
+            0,
+            3.27734088897705
+          ],
+          "yaw": 0
+        },
+        "canopy_under": {
+          "passed": true,
+          "position": [
+            8.0000057220459,
+            0,
+            -5.80000019073486
+          ],
+          "yaw": 1.57079637050629
+        },
+        "clear_bypass": {
+          "passed": true,
+          "position": [
+            -2.5,
+            0,
+            -4.00000095367432
+          ],
+          "yaw": 0
+        },
+        "compact_surround": {
+          "passed": true,
+          "position": [
+            -4,
+            0,
+            3.27734088897705
+          ],
+          "yaw": 0
+        }
+      },
+      "aim_hit": "/root/preview/BroadTree/Collision/PoleBody",
+      "medians_last_60": {
+        "draw_calls": 444.0,
+        "physics_s": 0.00045149999999999997,
+        "primitives": 170856.0,
+        "process_s": 0.00021500000000000002,
+        "video_bytes": 93696064.0
+      }
+    }
+  ],
+  "placement": {
+    "canopy_actor_headroom_m": 0.779999971389771,
+    "canopy_lowest_y_m": 2.57999992370605,
+    "canopy_wall_datum_error_m": 9.5367431640625e-07,
+    "passed": true,
+    "roof": {
+      "RoofEnclosure": {
+        "edge_margin_m": 4.40000057220459,
+        "roof_plane_error_m": 0
+      },
+      "RoofVent": {
+        "edge_margin_m": 4.70000076293945,
+        "roof_plane_error_m": 0
+      }
+    },
+    "roof_top_y_m": 10,
+    "tree_surround_ground_datum_error_m": 0
+  },
+  "separate_process_equivalence": [
+    {
+      "aim_hit": "/root/preview/BroadTree/Collision/PoleBody",
+      "engine": "4.8-dev7 (official)",
+      "passed": true,
+      "pid": 227633,
+      "rows": [
+        {
+          "case": 0,
+          "passed": true,
+          "position": [
+            -4.0,
+            0.0,
+            2.60025811195374
+          ]
+        },
+        {
+          "case": 1,
+          "passed": true,
+          "position": [
+            4.0,
+            0.0,
+            2.60025811195374
+          ]
+        },
+        {
+          "case": 2,
+          "passed": true,
+          "position": [
+            0.0,
+            0.0,
+            -4.00000095367432
+          ]
+        }
+      ],
+      "scope": "independent command replay in two physics processes; no transport protocol"
+    },
+    {
+      "aim_hit": "/root/preview/BroadTree/Collision/PoleBody",
+      "engine": "4.8-dev7 (official)",
+      "passed": true,
+      "pid": 227634,
+      "rows": [
+        {
+          "case": 0,
+          "passed": true,
+          "position": [
+            -4.0,
+            0.0,
+            2.60025811195374
+          ]
+        },
+        {
+          "case": 1,
+          "passed": true,
+          "position": [
+            4.0,
+            0.0,
+            2.60025811195374
+          ]
+        },
+        {
+          "case": 2,
+          "passed": true,
+          "position": [
+            0.0,
+            0.0,
+            -4.00000095367432
+          ]
+        }
+      ],
+      "scope": "independent command replay in two physics processes; no transport protocol"
+    }
+  ],
+  "scope": "Imported static props and bounded desktop/command replay; no network/device/world acceptance"
+}

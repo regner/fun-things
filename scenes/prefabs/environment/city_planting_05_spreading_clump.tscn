@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://vkmj1rskrwmu"]
+
+[ext_resource type="PackedScene" uid="uid://xcd440ijg4oe" path="res://art/models/environment/city_planting_05/city_planting_05_spreading_clump.glb" id="1_gek05"]
+
+[node name="city_planting_05_spreading_clump" type="Node3D" unique_id=331951527]
+
+[node name="Visuals" type="Node3D" parent="." unique_id=674451257]
+
+[node name="Model" parent="Visuals" unique_id=505805766 instance=ExtResource("1_gek05")]

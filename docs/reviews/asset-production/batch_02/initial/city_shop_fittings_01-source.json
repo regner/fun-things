@@ -1,0 +1,380 @@
+{
+  "asset": "city_shop_fittings_01",
+  "source_sha256": "db572713536c2e73dd0b4f3dcc8a8275c62d218f1d6515b80061b0c4f0ed73bd",
+  "pin": {
+    "blender": "5.2.2 LTS",
+    "build": "d13f752e3b9c",
+    "gltf": [
+      5,
+      2,
+      40
+    ]
+  },
+  "libraries": [],
+  "images": [
+    {
+      "name": "Render Result",
+      "path": "",
+      "packed": false
+    },
+    {
+      "name": "Viewer Node",
+      "path": "",
+      "packed": false
+    }
+  ],
+  "all_collections": {
+    "authoring_excluded": [
+      "authoring_1m_reference"
+    ],
+    "export_city_shop_fittings_01": [
+      "city_shop_fittings_01",
+      "formed_canopy",
+      "rolled_front_rim",
+      "wall_mount_rail",
+      "paired_tapered_gussets"
+    ]
+  },
+  "all_objects": [
+    {
+      "name": "authoring_1m_reference",
+      "type": "MESH",
+      "parent": null,
+      "custom_properties": {
+        "measured_dimensions_m": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      }
+    },
+    {
+      "name": "city_shop_fittings_01",
+      "type": "EMPTY",
+      "parent": null,
+      "custom_properties": {
+        "datum": "Wall attachment pivot at rear plane Y=0, mount centre Z=0; +Y front",
+        "purpose": "Static shop canopy; no collision or behavior"
+      }
+    },
+    {
+      "name": "formed_canopy",
+      "type": "MESH",
+      "parent": "city_shop_fittings_01",
+      "custom_properties": {}
+    },
+    {
+      "name": "paired_tapered_gussets",
+      "type": "MESH",
+      "parent": "city_shop_fittings_01",
+      "custom_properties": {}
+    },
+    {
+      "name": "rolled_front_rim",
+      "type": "MESH",
+      "parent": "city_shop_fittings_01",
+      "custom_properties": {}
+    },
+    {
+      "name": "wall_mount_rail",
+      "type": "MESH",
+      "parent": "city_shop_fittings_01",
+      "custom_properties": {}
+    }
+  ],
+  "variants": [
+    {
+      "root": "city_shop_fittings_01",
+      "collection": "export_city_shop_fittings_01",
+      "objects": [
+        {
+          "name": "formed_canopy",
+          "vertices": 120,
+          "triangles": 236,
+          "minimum_triangle_area_m2": 1.795354218081849e-05,
+          "bad_edges": [],
+          "islands": [
+            {
+              "vertices": 120,
+              "faces": 116,
+              "signed_volume": 0.566574606562351,
+              "zero_face_vertex_coordinates": []
+            }
+          ],
+          "uv_layers": [],
+          "custom_normals": true,
+          "materials": [
+            "canopy_slate_petrol"
+          ],
+          "matrix_world": [
+            [
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              1.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              1.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ]
+        },
+        {
+          "name": "rolled_front_rim",
+          "vertices": 176,
+          "triangles": 348,
+          "minimum_triangle_area_m2": 1.948946588919262e-06,
+          "bad_edges": [],
+          "islands": [
+            {
+              "vertices": 176,
+              "faces": 177,
+              "signed_volume": 0.021792257803525644,
+              "zero_face_vertex_coordinates": []
+            }
+          ],
+          "uv_layers": [],
+          "custom_normals": true,
+          "materials": [
+            "canopy_warm_ivory_rim"
+          ],
+          "matrix_world": [
+            [
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              1.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              1.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ]
+        },
+        {
+          "name": "wall_mount_rail",
+          "vertices": 96,
+          "triangles": 188,
+          "minimum_triangle_area_m2": 1.1335518638995012e-05,
+          "bad_edges": [],
+          "islands": [
+            {
+              "vertices": 96,
+              "faces": 98,
+              "signed_volume": 0.10144503507376024,
+              "zero_face_vertex_coordinates": []
+            }
+          ],
+          "uv_layers": [
+            "UVMap"
+          ],
+          "custom_normals": true,
+          "materials": [
+            "canopy_dark_mounts"
+          ],
+          "matrix_world": [
+            [
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              1.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              1.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ]
+        },
+        {
+          "name": "paired_tapered_gussets",
+          "vertices": 224,
+          "triangles": 440,
+          "minimum_triangle_area_m2": 1.8607965606834836e-06,
+          "bad_edges": [],
+          "islands": [
+            {
+              "vertices": 112,
+              "faces": 112,
+              "signed_volume": 0.023729829255668706,
+              "zero_face_vertex_coordinates": []
+            },
+            {
+              "vertices": 112,
+              "faces": 112,
+              "signed_volume": 0.023729830138685352,
+              "zero_face_vertex_coordinates": []
+            }
+          ],
+          "uv_layers": [],
+          "custom_normals": true,
+          "materials": [
+            "canopy_dark_mounts"
+          ],
+          "matrix_world": [
+            [
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              1.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              1.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ]
+        }
+      ],
+      "blender_bounds": [
+        [
+          -1.600000023841858,
+          0.0,
+          -0.41999998688697815
+        ],
+        [
+          1.600000023841858,
+          1.100000023841858,
+          0.23999999463558197
+        ]
+      ],
+      "godot_bounds": [
+        [
+          -1.600000023841858,
+          -0.41999998688697815,
+          -1.100000023841858
+        ],
+        [
+          1.600000023841858,
+          0.23999999463558197,
+          -0.0
+        ]
+      ],
+      "materials": [
+        {
+          "name": "canopy_dark_mounts",
+          "base_color": [
+            0.022173885256052017,
+            0.04373503103852272,
+            0.05612849071621895,
+            1.0
+          ],
+          "metallic": 0.3499999940395355,
+          "roughness": 0.550000011920929,
+          "backface_culling": true,
+          "texture_nodes": []
+        },
+        {
+          "name": "canopy_slate_petrol",
+          "base_color": [
+            0.05126945674419403,
+            0.10461648553609848,
+            0.1384316086769104,
+            1.0
+          ],
+          "metallic": 0.25,
+          "roughness": 0.46000000834465027,
+          "backface_culling": true,
+          "texture_nodes": []
+        },
+        {
+          "name": "canopy_warm_ivory_rim",
+          "base_color": [
+            0.577580451965332,
+            0.5394794940948486,
+            0.41788506507873535,
+            1.0
+          ],
+          "metallic": 0.2199999988079071,
+          "roughness": 0.47999998927116394,
+          "backface_culling": true,
+          "texture_nodes": []
+        }
+      ],
+      "export_settings": {
+        "export_format": "GLB",
+        "use_selection": true,
+        "export_yup": true,
+        "export_apply": true,
+        "export_texcoords": false,
+        "export_normals": true,
+        "export_tangents": false,
+        "export_materials": "EXPORT",
+        "export_cameras": false,
+        "export_lights": false,
+        "export_extras": false,
+        "export_animations": false
+      },
+      "fresh_bytes": 25620,
+      "fresh_sha256": "80fb54cbcf4667f9da4b417b5a2a2ebf5db0cf2641520ab9c78de3ed5a38de69",
+      "review_camera": {
+        "position": [
+          5.759999752044678,
+          -7.449999809265137,
+          5.349999904632568
+        ],
+        "rotation": [
+          1.0665391683578491,
+          3.9517090044682845e-08,
+          0.6240231394767761
+        ],
+        "orthographic_scale": 4.480000019073486,
+        "samples": 16
+      }
+    }
+  ]
+}

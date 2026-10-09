@@ -1,0 +1,25 @@
+{
+  "argv": [
+    "/usr/bin/blender",
+    "-b",
+    "-noaudio",
+    "-t",
+    "2",
+    "/tmp/batch02-review-5e94cc0/snapshot/art/source/models/environment/city_roof_details_01/city_roof_details_01.blend",
+    "--python-exit-code",
+    "1",
+    "--python",
+    "/home/regner/.paseo/worktrees/0u71f39f/asset-register-production/docs/reviews/asset-production/batch_02/initial/source_audit.py",
+    "--",
+    "city_roof_details_01",
+    "/home/regner/.paseo/worktrees/0u71f39f/asset-register-production/docs/reviews/asset-production/batch_02/initial"
+  ],
+  "cwd": "/tmp/batch02-review-5e94cc0/snapshot",
+  "environment_overrides": {
+    "ALSOFT_DRIVERS": "null",
+    "SDL_AUDIODRIVER": "dummy"
+  },
+  "start_utc": "2026-10-09T17:32:58.256215+00:00",
+  "exit": 0,
+  "end_utc": "2026-10-09T17:33:06.611862+00:00"
+}

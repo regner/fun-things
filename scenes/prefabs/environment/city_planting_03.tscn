@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://doayxv4m8blnc"]
+
+[ext_resource type="PackedScene" uid="uid://btx2jfhv1gi0n" path="res://art/models/environment/city_planting_03/city_planting_03.glb" id="1_2w746"]
+
+[node name="city_planting_03" type="Node3D" unique_id=984906004]
+
+[node name="Visuals" type="Node3D" parent="." unique_id=627704328]
+
+[node name="Model" parent="Visuals" unique_id=1878965477 instance=ExtResource("1_2w746")]
