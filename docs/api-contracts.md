@@ -120,12 +120,17 @@ Invalidation precedes releasing a peer/lobby. Correlate callbacks with native re
 handles plus OperationId; callbacks without native correlation require serialized
 operations and a documented drain strategy. A counter alone cannot disambiguate them.
 Late canceled results are closed/left by their adapter, never attached to the new
-attempt. Closing has a bounded local deadline; unresponsive native work is detached
-with a cleanup-only callback and cannot publish state. If an adapter cannot safely
-correlate/drain within that deadline, mark it unavailable until it proves safe reuse
-or the process restarts; Standalone/ENet and any safe provider remain usable. Do not attach a
-new uncorrelated attempt while obsolete native work is pending. Any later provider must
-prove its actual safe cleanup/retirement strategy before registration and reuse.
+attempt. Entering CLOSING starts one five-second monotonic local deadline shared by all
+acquired components; invoking component closes in reverse acquisition order cannot extend
+it. Finish when all close results arrive or when that deadline expires, whichever comes
+first. At expiry, detach each non-reporting component into cleanup-only ownership and
+record a forced `CloseResult {reuse_status: UNAVAILABLE, failure: CLEANUP_TIMEOUT}` for
+it. Then emit the operation's one completion and restore the local menu/IDLE state. A
+late callback can release obsolete native resources but cannot publish state, complete
+the operation again or rewrite its forced result. Standalone/ENet and any safe provider
+remain usable. Do not attach a new uncorrelated attempt while obsolete native work is
+pending. Any later provider must prove its actual safe cleanup/retirement strategy before
+registration and reuse.
 
 An optional SessionDirectory emits `join_requested(ExternalJoinRequest)`. In IDLE it
 enters this same join flow; while connecting/loading the UI offers cancel-and-join, and
@@ -214,12 +219,13 @@ periodic movement-subset revisit rules.
 
 `CloseResult = {reuse_status: SAFE | UNAVAILABLE, failure?}`. SessionService invalidates
 producer access, targets, mappings and the attached peer before close. Old operation IDs
-or ConnectionTokens remain cleanup-only. A five-second local deadline may restore the
-menu, but it does not prove all native callbacks drained; a provider that cannot prove
-safe callback/request retirement reports `UNAVAILABLE` until its own safe-reuse condition
-or process restart. ENet close can report `SAFE` after its local peer resources are
-released. A provider binding is reusable only when its transport and optional directory
-both report `SAFE`; other providers must establish their own correlation/retirement rule.
+or ConnectionTokens remain cleanup-only. The shared five-second local deadline does not
+prove native callbacks drained: each component that has not reported by expiry receives
+the forced `UNAVAILABLE`/`CLEANUP_TIMEOUT` result above. ENet close can report `SAFE`
+after its local peer resources are released. A provider binding is reusable only when its
+transport and optional directory all actually reported `SAFE` before the deadline; a
+forced result or any reported unavailable result keeps it unavailable until its own
+safe-reuse condition or process restart.
 
 `BoundedTransportDiagnostics` may report `route: DIRECT | RELAY | UNKNOWN`, bounded
 provider detail and traffic/queue observations. Diagnostics are local observability,
@@ -243,13 +249,15 @@ calls `Transport.open_client`; directory readiness alone cannot start negotiatio
 input. Wrong-operation, expired or mismatched results are cleanup-only.
 
 Cancellation/failure invalidates the operation and all targets before releasing resources.
-Cleanup reverses acquisition order: a directory-backed client closes/detaches its transport
-first if one was opened, then closes the directory membership/request; a directory-backed
-host closes its published directory binding before its transport endpoint. A late
-`join_ready` after invalidation is left/retired by SessionDirectory and never opens a
-transport. SessionService emits one completion only after every acquired component has
-reported `closed`; aggregate reuse is `SAFE` only when all are safe, otherwise that provider
-binding remains `UNAVAILABLE`. ENet has only the transport close step.
+Cleanup issues close calls in reverse acquisition order: a directory-backed client closes/
+detaches its transport first if one was opened, then closes the directory membership/request;
+a directory-backed host closes its published directory binding before its transport endpoint.
+All calls share the operation's existing five-second deadline. A late `join_ready` after
+invalidation is left/retired by SessionDirectory and never opens a transport. SessionService
+emits one completion after all acquired components report `closed` or at deadline expiry.
+Each non-reporter then gets a forced `UNAVAILABLE`/`CLEANUP_TIMEOUT` result and remains
+cleanup-only. Aggregate reuse is `SAFE` only when every acquired component actually reported
+safe before expiry. ENet has only the transport close step.
 
 ## Admission and replication
 

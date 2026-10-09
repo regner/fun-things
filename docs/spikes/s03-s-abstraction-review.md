@@ -119,8 +119,10 @@ Each stream row is `{channel, delivery, queue_policy, max_logical_payload_bytes}
 These are application ceilings, not newly tested transport maxima. Provider-specific framing must
 fit beneath the adapter's independently verified receive bound. `CloseResult = {reuse_status:
 SAFE | UNAVAILABLE, failure?}` concerns adapter reuse after local cleanup; it does not claim every
-remote/native callback queue was globally drained. A provider binding is reusable only after both
-its transport and optional directory report `SAFE`.
+remote/native callback queue was globally drained. SessionService completes at the shared five-second
+deadline even if a component is silent, assigning it a forced `UNAVAILABLE`/`CLEANUP_TIMEOUT` result.
+A provider binding is reusable only after both its transport and optional directory actually report
+`SAFE` before that deadline.
 
 Boot composes a fixed table of provider bindings before SessionService accepts operations. A binding
 contains one Transport and zero or one matching SessionDirectory. SessionService resolves
@@ -150,12 +152,15 @@ that the result is a `TRANSPORT_READY` target for the same provider and current 
 before opening Transport. Directory readiness alone cannot negotiate or admit gameplay.
 
 Cancel/failure invalidates the operation and targets first. If transport opened, the client detaches
-and closes it before closing the directory request/membership, reversing acquisition order. A late
-`join_ready` is cleanup-only and never opens transport. SessionService completes once only after all
-acquired components close, and marks the binding reusable only if all report `SAFE`. It then maps
-`(operation_id, ConnectionToken, native_peer_id)` only while current. The application handshake,
-compatibility checks, hydration, and handoff allocate ParticipantId and open input. Account identity,
-directory membership and transport connection alone cannot do so.
+and invokes its close before closing the directory request/membership, reversing acquisition order.
+All acquired components share the one five-second operation close deadline. A late `join_ready` is
+cleanup-only and never opens transport. SessionService completes once after all components report or
+the deadline expires. At expiry every non-reporter receives a forced
+`UNAVAILABLE`/`CLEANUP_TIMEOUT` result and retains cleanup-only ownership; aggregate reuse is `SAFE`
+only if every component actually reported safe before expiry. It then maps `(operation_id,
+ConnectionToken, native_peer_id)` only while current. The application handshake, compatibility
+checks, hydration, and handoff allocate ParticipantId and open input. Account identity, directory
+membership and transport connection alone cannot do so.
 
 ### Replication
 
@@ -169,12 +174,14 @@ and periodic subset refresh provide recovery.
 
 ### Close and late callbacks
 
-SessionService invalidates targets, producer access, mappings, and the attached peer before asking
-acquired transport/directory resources to close in reverse acquisition order. Signals with an old
-OperationId or ConnectionToken are cleanup-only. SessionService can return to its local idle/menu
-state after every acquired component's bounded close result, but a provider reporting `UNAVAILABLE`
-cannot start another operation until its own proven safe-reuse condition or process restart. This
-preserves ENet/Standalone availability without inventing a Steam callback-drain timer.
+SessionService invalidates targets, producer access, mappings, and the attached peer before invoking
+acquired transport/directory closes in reverse acquisition order. Signals with an old OperationId or
+ConnectionToken are cleanup-only. It returns to the local idle/menu state after every component
+reports or the shared five-second deadline expires, whichever comes first. Deadline expiry forces an
+`UNAVAILABLE`/`CLEANUP_TIMEOUT` result for each non-reporter, preserves cleanup-only late-callback
+ownership and cannot emit a second completion. That provider cannot start another operation until its
+own proven safe-reuse condition or process restart. This preserves ENet/Standalone availability
+without inventing a Steam callback-drain timer.
 
 ## What is deliberately not added
 
