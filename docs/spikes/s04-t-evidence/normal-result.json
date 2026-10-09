@@ -9,29 +9,53 @@
     "ownership_flips": true,
     "traffic_released": true,
     "disconnect_coasted": true,
-    "adverse_blackout": true,
+    "bounded_input_queue": true,
+    "bounded_actions": true,
+    "one_hydration": true,
+    "control_revision_resets": true,
+    "varying_commands": true,
+    "adverse_profile": true,
+    "malformed_flood_probe": true,
     "draw_receipts": true
   },
   "measurements": {
     "entry_correction_m": {
-      "race_entry": 2.59160351753235,
-      "parked_entry": 0.17599980533123,
-      "traffic_entry": 1.00016105175018
+      "race_entry": 2.61888146400452,
+      "parked_entry": 0.170183911919594,
+      "traffic_entry": 0.667395651340485
     },
     "entry_visual_jump_m": {
-      "race_entry": 2.59160351753235,
-      "parked_entry": 0.17599980533123,
-      "traffic_entry": 1.00016105175018
+      "race_entry": 2.61888146400452,
+      "parked_entry": 0.170183911919594,
+      "traffic_entry": 0.667395651340485
     },
-    "transition_visual_jump_p95_m": 2.59160351753235,
-    "accepted_time_to_control_p95_ms": 18,
-    "action_round_trip_p95_ms": 201,
+    "transition_visual_jump_p95_m": 2.61888146400452,
+    "accepted_time_to_control_p95_ms": 17,
+    "action_round_trip_p95_ms": 217,
     "history_clean": true,
     "ownership_flips": true,
-    "proxy_delay_p95_ms": 102.81459987163544,
-    "proxy_delay_max_ms": 107.12060006335378,
+    "proxy_delay_p95_ms": 103.71100017800927,
+    "proxy_delay_max_ms": 110.68720044568181,
+    "input_revisions": [
+      1,
+      2,
+      3,
+      4
+    ],
+    "minimum_sequence_by_revision": {
+      "1": 1,
+      "2": 1,
+      "3": 1,
+      "4": 2
+    },
+    "varying_input_samples": 43,
+    "post_blackout_samples": 0,
+    "post_stall_samples": 0,
+    "blackout_expiry": false,
+    "blackout_duration_ms": null,
+    "host_stall_ms": null,
     "captures": [
-      "blocked_exit.png",
+      "forced_blocked_exit.png",
       "moving_exit.png",
       "parked_entry.png",
       "race_entry.png",
@@ -40,17 +64,30 @@
     ]
   },
   "host_result": {
+    "action_cache_size": 6,
+    "action_processed_peak": 1,
+    "action_queue_peak": 1,
+    "action_rejections": {},
     "blocked_rejected": true,
-    "disconnect_coast_m": 49.7675399780273,
+    "control_reset_count": 3,
+    "disconnect_coast_m": 49.8033790588379,
     "event": "result",
     "final_speed_mps": 0.0,
+    "hydration_count": 1,
+    "input_expiry_count": 6,
+    "input_queue_peak": 5,
+    "input_rejections": {
+      "INPUT_QUEUE": 6,
+      "STALE_CONTEXT": 33
+    },
+    "input_superseded_count": 5,
     "moving_rejected": true,
     "ok": true,
     "race_complete": true,
     "role": "host",
     "traffic_ai_active": false,
     "traffic_stolen": true,
-    "wall_ms": 1791538157477.0
+    "wall_ms": 1791540166150.0
   },
   "client_result": {
     "event": "result",
@@ -59,47 +96,53 @@
     "ownership_clean": true,
     "role": "client",
     "transition_count": 6,
-    "wall_ms": 1791538152382.0
+    "wall_ms": 1791540161076.0
   },
   "commands": {
     "host": [
+      "C:\\Program Files\\Git\\usr\\bin\\timeout.EXE",
+      "50s",
       "C:\\Users\\regner.blokandersen\\AppData\\Local\\mise\\installs\\github-godotengine-godot-builds\\4.8-dev7\\godot.EXE",
       "--max-fps",
       "60",
       "--path",
-      "C:\\tmp\\ft\\lanes\\s04-t\\selected\\normal\\project",
+      "C:\\tmp\\ft\\lanes\\s04-t\\review1-selected-final\\normal\\project",
       "--resolution",
       "1280x800",
       "--position",
       "0,0",
       "--log-file",
-      "C:\\tmp\\ft\\lanes\\s04-t\\selected\\normal\\host\\engine.log",
+      "C:\\tmp\\ft\\lanes\\s04-t\\review1-selected-final\\normal\\host\\engine.log",
       "res://tests/fixtures/s04_t/boot.tscn",
       "--",
       "--role=host",
-      "--port=25440"
+      "--port=25840",
+      "--profile=normal"
     ],
     "client": [
+      "C:\\Program Files\\Git\\usr\\bin\\timeout.EXE",
+      "50s",
       "C:\\Users\\regner.blokandersen\\AppData\\Local\\mise\\installs\\github-godotengine-godot-builds\\4.8-dev7\\godot.EXE",
       "--max-fps",
       "60",
       "--path",
-      "C:\\tmp\\ft\\lanes\\s04-t\\selected\\normal\\project",
+      "C:\\tmp\\ft\\lanes\\s04-t\\review1-selected-final\\normal\\project",
       "--resolution",
       "1280x800",
       "--position",
       "1280,0",
       "--log-file",
-      "C:\\tmp\\ft\\lanes\\s04-t\\selected\\normal\\client\\engine.log",
+      "C:\\tmp\\ft\\lanes\\s04-t\\review1-selected-final\\normal\\client\\engine.log",
       "res://tests/fixtures/s04_t/boot.tscn",
       "--",
       "--role=client",
-      "--port=25441"
+      "--port=25841",
+      "--profile=normal"
     ]
   },
   "process_ids": [
-    50416,
-    58908
+    23704,
+    50480
   ],
   "exits": [
     0,
