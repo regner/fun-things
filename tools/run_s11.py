@@ -208,8 +208,10 @@ def source_fingerprints(project):
 
 def summarize_network(routes, measurement_start, join_bytes):
     """Compare actual endpoint datagrams, including IP/UDP overhead, with all four budgets."""
-    host_out = sum(worst_window_bytes(route.events, "down") for route in routes)
-    host_in = sum(worst_window_bytes(route.events, "up") for route in routes)
+    aggregate_events = [event for route in routes for event in route.events]
+    aggregate_events.sort(key=lambda event: event["monotonic"])
+    host_out = worst_window_bytes(aggregate_events, "down")
+    host_in = worst_window_bytes(aggregate_events, "up")
     clients = []
     for index, route in enumerate(routes):
         client_in = worst_window_bytes(route.events, "down")

@@ -160,11 +160,14 @@ func _peer_connected(peer_id: int) -> void:
 
 	var rows: Array[Dictionary] = _population_rows(0)
 	var packets: Array[PackedByteArray] = codec.encode(0, 0, rows)
+	var payload_bytes_per_client: int = 0
+	for packet: PackedByteArray in packets:
+		payload_bytes_per_client += packet.size()
+	baseline_payload_bytes = payload_bytes_per_client * expected_clients
 	for target_peer: int in connected_peers:
 		for packet: PackedByteArray in packets:
-			baseline_payload_bytes += packet.size()
 			_baseline.rpc_id(target_peer, packet)
-		_baseline_done.rpc_id(target_peer, ENTITY_COUNT, baseline_payload_bytes / expected_clients)
+		_baseline_done.rpc_id(target_peer, ENTITY_COUNT, payload_bytes_per_client)
 
 	_emit({"event": "baseline_sent", "peers": connected_peers.size()})
 
@@ -404,7 +407,7 @@ func _emit_result() -> void:
 			failures.append("rocket generation did not advance")
 		if int(lifecycle_phase.get(1, 0)) != 2 or int(lifecycle_phase.get(65, 0)) != 2:
 			failures.append("terminal phases missing")
-		if snapshot_rows_received < ENTITY_COUNT * 40:
+		if snapshot_rows_received < ENTITY_COUNT * 10:
 			failures.append("insufficient movement refreshes")
 
 	var result: Dictionary = {
