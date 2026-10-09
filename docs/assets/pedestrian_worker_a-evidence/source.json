@@ -1,18 +1,18 @@
 {
-  "scope": "unbound geometry checkpoint; no rig/clip acceptance",
+  "scope": "bound worker and NPC clips; separate Godot/visual review required",
   "blender": "5.2.2 LTS",
   "source": "art/source/models/pedestrian_civilian/pedestrian_worker_a.blend",
   "editable_parts": 48,
-  "vertices": 7460,
-  "triangles": 14728,
+  "vertices": 7360,
+  "triangles": 14528,
   "material_surfaces": 1,
   "blender_aabb_min": [
-    -0.48899999260902405,
+    -0.7686904668807983,
     -0.16500000655651093,
-    0.0
+    2.7939619506867075e-09
   ],
   "blender_aabb_max": [
-    0.48899999260902405,
+    0.7686904668807983,
     0.2949998378753662,
     1.8589999675750732
   ],
@@ -37,5 +37,19 @@
     "202B32",
     "E2D6B9",
     "392C25"
-  ]
+  ],
+  "binding": {
+    "contract": "shared_humanoid/1.0.0",
+    "rest_sha256": "df5a1e7117a9de8800df2ab5766f70e8018700878dd5bc84877b86767abc25c9",
+    "max_rest_matrix_error": 0,
+    "bones": 28,
+    "weighted_vertices": 7360,
+    "max_influences": 2,
+    "clips_seconds": {
+      "idle": 2.0,
+      "walk": 1.0,
+      "run": 0.8,
+      "death": 1.6
+    }
+  }
 }

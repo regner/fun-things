@@ -1,110 +1,170 @@
-# First civilian pedestrian — scoped concept handoff
+# Off-Shift Worker — first civilian pedestrian
 
-Status: **C — Off-Shift Worker selected by Regner**, 9 October 2026.
-Geometry/material authoring underway; final binding/production clips pending player contract.
-Base: `c030d66d7d0a9db19c0c2aebf1aa2b83eded6275`.
+Status, 9 October 2026: approved concept C implemented as a reusable skinned
+presentation asset. Technical and visual self-checks pass; **independent production
+review pending**. Gameplay, crowd spawning, collision, network and device/performance
+acceptance belong to the external integrator.
 
-Pedestrian lead owns brief, concepts, eventual approved Blender model/materials,
-export/import, presentation wrapper and asset-local preview. Regner selects the
-concept. Player lead owns the versioned `shared_humanoid_rig.md` and shared sources;
-the external gameplay integrator owns AI, population, gameplay wrappers, collision
-policy, spawning, lifecycle and network acceptance. Independent production reviewer
-will be assigned to a clean-context immutable revision after implementation.
+[Production gallery](../concepts/assets-v1/pedestrian/production.html) ·
+[Concept selection and prompts](../concepts/assets-v1/pedestrian/README.md) ·
+[Shared rig contract](shared_humanoid_rig.md)
 
-## Brief and current evidence
+## Ownership, selection and provenance
 
-Purpose: one ordinary unarmed city civilian, readable through chunky head, shoulder,
-garment and shoe masses. Style follows the selected island cyberpunk setting and
-smooth 3D art direction. [Three sheets, recommendation and self-review](../concepts/assets-v1/pedestrian/README.md)
-and [simple gallery](../concepts/assets-v1/pedestrian/review.html) are the deliverables
-at this checkpoint. Exact authored prompts, producer and image hashes are retained
-beside the sheets. The owner selected C with "OK, lets start with that and use option C,
-the shift worker". Production asset acceptance remains pending. No shared catalogue,
-TODO, launch scene, project configuration or spike
-consumer has been changed.
+Regner selected C with “OK, lets start with that and use option C, the shift worker”.
+The unarmed worker has an amber work jacket, cobalt yoke, petrol cap, slate trousers,
+chunky boots and no carried props. There are no real brands. This worker is one
+silhouette; colour variants do not constitute additional character models.
 
-Camera target: vertical-down perspective, north-up, 47 m, FOV42°, 1280×800.
-Near-1.8 m person height remains provisional. Final numerical bounds/tolerances,
-deformation envelope and density rationale must be recorded against the approved
-concept and shared rig before binding. Pivot ground between feet; metre units;
-Blender +Z up/+Y front → Godot +Y up/-Z front; unit roots. Decoration supplies no
-implicit gameplay collision. Pedestrians have no weapons in this assignment.
+The pedestrian lead produced the concept sheets using OpenAI imagegen (exact prompts,
+output hashes and tool receipts beside the gallery), and authored original Blender
+geometry, vertex-region mask, skin weights and NPC clips. No external model, rig,
+texture, motion-capture or animation library was used. Blender primitive/sweep tools
+and the committed authoring scripts are the original modelling/animation recipe.
+The shared armature is original project work by the player lead, appended unchanged.
+Regner approves art direction; one independent reviewer checks the production handoff.
+No main merge, push or gameplay integration is included.
 
-## Compatibility dependency
+Owner model policy: all modelling, skinning and animation work uses Astra. The
+pedestrian agent's effective Paseo runtime reported `gpt-6-astra/high` before those
+mutations, including the binding checkpoint. Non-spatial Godot configuration may use
+Sol 6.1. The immutable dependency `3eccf8f691fe34132ee8504d10dfceda4f7e2bb6`
+was cherry-picked unchanged as local `03b0177`; player-owned files remain untouched.
+The earlier S13 seven-bone technical rig and its clips are not used.
 
-Inspected `docs/assets/s13_humanoid.md`, S13 source/export tooling, imported model
-and fixture consumers. S13 is a 1.8 m seven-bone technical crowd fixture without
-hand sockets, production rest pose or anatomical rig. Its existing palette swap
-wrapper and manual locomotion restart are technical evidence, not production APIs
-to duplicate. Existing S13 files are untouched.
+## Source and runtime mapping
 
-Player's reply at `d53266afb093f55a7944549f7b4f627f1b52050d` confirms no production
-rig/rest/skin contract or reusable clips exist yet. Reserved owner paths are
-`docs/assets/shared_humanoid_rig.md` and `art/source/models/shared_humanoid/`.
-Final binding waits for the player-owned versioned hierarchy, rest/bind transforms,
-skin influence contract and clip/attachment conventions. Do not author a competing
-skeleton. Pedestrian needs in-place `idle`, `walk`, `run` looping and one-shot
-`death` holding its final pose, with no simulation-root displacement or gameplay
-events. Basic relaxed arm swing and believable knee/elbow deformation are needed.
-A's cross-body bag can follow the torso/hip; B may need a hand-bound tote and coat
-weight checks; C needs no extra attachment. Confirm whether shared clips suffice
-or pedestrian-specific compatible clips belong in the selected asset source.
+| Purpose | Owned path |
+| --- | --- |
+| Editable source; 48 source parts, appended canonical Rig, four NPC actions, source studio and preview floor | `art/source/models/pedestrian_civilian/pedestrian_worker_a.blend` |
+| Collection `export_pedestrian_worker_a`: Rig + WorkerMesh | `art/models/pedestrian_civilian/pedestrian_worker_a.glb` + `.import` |
+| Collection `export_pedestrian_worker_stage`: PreviewGround only | `art/models/pedestrian_civilian/pedestrian_worker_stage.glb` + `.import` |
+| Palette shader and shared material | `art/materials/pedestrian_worker_a_palette.gdshader`, `.gdshader.uid`, `.tres` |
+| NPC-only reusable library derived from the imported GLB actions | `art/animations/pedestrian_civilian/npc_locomotion_v1.tres` |
+| Source-linked reusable presentation prefab | `scenes/prefabs/pedestrian_civilian/pedestrian_worker_a.tscn` |
+| Presentation API | `scripts/presentation/pedestrian_civilian/pedestrian_worker_visual.gd` + `.uid` |
+| Saved four-instance preview and bounded playback script | `tests/fixtures/pedestrian_civilian/pedestrian_worker_a_preview.tscn`, `pedestrian_worker_preview.gd` + `.uid` |
+| Source authoring/export/checks and Godot authoring context | `tools/pedestrian_civilian/` |
 
-## Owner routing and animation-library decision
+Source `.gdignore` excludes Blender data from runtime import/export. The preview floor
+is also Blender-authored. There are no runtime-generated visible meshes, gameplay
+colliders, weapon sockets, actor AI or population rules. Wrapper structure is
+`PresentationAnchor/Visuals/Model`, with Model remaining an imported GLB instance.
+No direct imported-child override or embedded duplicate mesh appears in the prefab.
+The four preview instances override wrapper palette/initial clip only; no inherited
+asset variant is commissioned at this checkpoint.
 
-Regner approved one shared underlying skeleton with **separate player and NPC
-animation libraries**, preserving interchangeable player skins. The worker owns its
-civilian clips against the versioned player-owned skeleton; player clips are not
-assumed to be the NPC library. S13 is not a retarget source.
+## Shared rig, skin and clips
 
-Owner model-routing instruction, 9 October 2026: "Any time any of those workspaces
-are doing modeling or animation work they should be using the Astra model. Work in
-Godot that doesn't need spatial awarness, such as configuring animations and rigs
-or importing models, can use Sol 6.1." This overrides the earlier lead-model rule.
-Before spatial mutations, verify actual effective runtime; preserve sources and
-end an old Sol turn if the change cannot take effect safely. Sol remains permitted
-for non-spatial import/configuration/bookkeeping. At the first modelling boundary,
-Paseo `get_agent_status` reported `runtimeInfo.model=gpt-6-astra`, high, for this
-agent/session/worktree. No geometry/keyframes existed before this verification.
+Uses `shared_humanoid/1.0.0`, exact 28-bone A-pose from the canonical source, rest
+fingerprint `df5a1e7117a9de8800df2ab5766f70e8018700878dd5bc84877b86767abc25c9`.
+Append Rig object + armature data; never append BindTemplate as production art.
+All source rest matrices match exactly. Every render vertex has normalized named
+weights; maximum observed influences is 2, below the contract limit of 4. Shoulders,
+elbows, hips, knees and wrists have weighted transitions. Simple mitten-like hands
+follow the hand bones; these civilian clips do not exercise individual finger poses.
 
-## Reserved asset-local production paths
+NPC and player libraries are separate. `npc_locomotion_v1.tres` contains `idle` (2 s),
+`walk` (1 s), `run` (0.8 s), and `death` (1.6 s), authored at 30 fps. The first three
+loop with matching endpoint transforms. Death is a one-shot backward fall, with the
+last 0.3 s held; Godot retains the pose after completion. Locomotion is in-place;
+all clips keep bone `root` and the scene root fixed. Death moves only the presentation
+pelvis. Clip tracks address `Rig/Skeleton3D:<bone>` relative to the imported model;
+another compatible skin must preserve that animation-root/path mapping or explicitly
+remap it. This checkpoint proves reuse by worker instances, not another production
+skin's deformation quality. Player weapon animation reuse is neither needed nor claimed.
 
-Selected stable ID: `pedestrian_worker_a`, unique family `pedestrian_civilian`.
-A and B remain uncommissioned concept alternatives.
+Use `play_clip("walk")`, `play_clip("run")`, `play_clip("idle")`, or
+`play_clip("death")` on the presentation wrapper. The integrator decides when those
+states apply. Replaying idle after death is a presentation request, not a gameplay
+respawn. No animation track dispatches gameplay events or changes collision.
 
-- `art/source/models/pedestrian_civilian/<id>.blend`, collection `export_<id>`.
-- `art/models/pedestrian_civilian/<id>.glb` and Godot-generated `.import`.
-- Asset-local material IDs prefixed `<id>_`; opaque palette first, textures only
-  if the approved appearance requires them, with editable/runtime mappings.
-- `scenes/prefabs/pedestrian_civilian/<id>.tscn`, linked presentation model;
-  integration-compatible `PresentationAnchor/Visuals/Model`, no AI/spawn rules.
-- `tests/fixtures/pedestrian_civilian/<id>_preview.tscn`, saved placement,
-  exact camera and bounded capped/VSync clip playback.
+## Appearance and measured envelope
 
-Paths above are reserved design intent and do not exist yet. Sources must link the
-player-owned rig contract rather than copy its ownership. Actual source/export
-mapping, materials, skin/clip paths, imports, bounds, saved identities, refreshed
-editor/reopen receipts and acceptance checks will be added with production work.
+One shared shader material uses a constant face-region mask in vertex `COLOR.r`:
+index / 8 for skin, jacket, yoke, trousers, cap, shirt, boots, trim, hair. The other
+channels carry no appearance data. `apply_palette(PackedColorArray)` requires those
+nine colours in order and writes per-instance shader uniforms. Instances share the
+same mesh and material without changing each other's colours. No textures or UV
+maps are required for this deliberately flat-colour treatment. Blender's material
+previews the same region mapping; the Godot wrapper applies the runtime shader.
 
-## Tool discovery and checks
+Metres; Blender +Z up/+Y front becomes Godot +Y up/-Z front. Identity object roots;
+origin at ground between the feet. Canonical reference is near 1.8 m; cap raises this
+worker to 1.859 m. Godot A-pose AABB approximately min `(-0.769,0,-0.295)`, max
+`(0.769,1.859,0.165)` m. The extended A-pose width is not an actor collision envelope.
+Standing animated width is about 0.752 m. All sampled source poses stay within
+0.000001 m of the ground tolerance, except the intentional 0.003 m fall clearance.
+Combined death/locomotion source extrema are retained in `motion.json`; max height
+1.864 m and forward/back span about 1.923 m. Gameplay clearance remains unaccepted.
 
-Worktree HEAD matched the supplied baseline and was clean before concept files.
-Reference and all three final images were visually inspected. Blender binary is
-5.2.2 LTS (`d13f752e3b9c`); pinned Godot binary is available at the Mise
-4.8-dev7 install. No private authoring process was needed for raster concepts.
-Blender MCP status and scene-info reads reported no connection. Godot read at the
-configured endpoint `127.0.0.1:6550` reported `ECONNREFUSED`. Therefore no connected
-editor project/unsaved state could be verified and no editor writes were attempted.
-Greybox-owned `16650–16654` and its editor/session were not used. A worktree-private
-process must be established and ownership checked before later authoring writes.
-No 3D direct-file fallback, editor save/reopen, import, rig playback, game-camera,
-gameplay, network or performance checks are claimed at this concept checkpoint.
+7,360 Blender render-mesh vertices, 14,528 triangles, 9,030 exported vertices after
+normal/region splits, one surface, one skin, 28 joints. No arbitrary crowd triangle
+budget is claimed. Imported automatic LOD generation is enabled; actual crowd/device
+cost and a stronger distant-silhouette variant remain measurement tasks.
 
-## Small catalogue / TODO delta for later reconciliation
+The measured game view is native 1280×800, vertically down, north-up, perspective
+47 m/42° (near .1 m, far 250 m). At that scale, hat/shoulder colour and facing dominate;
+facial detail is only apparent in the closer overview. The floor and dusk lighting
+are an asset-local review setup, not integrated city readability acceptance.
 
-Catalogue proposal: first civilian pedestrian → this handoff; concept pending;
-replace the provisional record title with the selected stable asset ID on approval.
-TODO proposal: record Regner's selection; obtain player rig contract; implement and
-validate approved source/export/materials/compatible clips/presentation/preview;
-perform independent production review; pass to gameplay integrator. No existing
-TODO is completed by concept selection or these raster sheets.
+## Verification and editor receipt
+
+Blender 5.2.2 LTS (`d13f752e3b9c`), S01 explicit GLB preset, with named vertex colour
+and animation export enabled for the worker only. Freshly reopening the saved source
+and exporting both declared collections produced byte-identical GLBs. See
+[fingerprints](pedestrian_worker_a-evidence/fingerprints.json),
+[source](pedestrian_worker_a-evidence/source.json), and
+[all-frame motion checks](pedestrian_worker_a-evidence/motion.json).
+
+Godot 4.8-dev7 `c971f93e7`: private editor PID 100062 bound to this worktree, editor
+22650/runtime22651, XDG under `/tmp/brackett-pedestrian-production/`. The configured
+MCP endpoint 6550 and Blender MCP were unavailable; source authoring used private
+Blender CLI. Godot work then used the toolkit's authenticated private WebSocket
+commands, without changing shared connector configuration. Scripts were written and
+compile-checked by editor tools. The editor created resources/scenes, then refreshed,
+saved, closed and reopened both prefab and preview with no discarded unsaved changes.
+Saved resource UIDs and editor node identities are committed. The pinned headless
+editor emits a dummy-renderer thumbnail `texture_2d_get` null-texture diagnostic on
+save; native runtime and clean asset checks do not reproduce it.
+
+[Native runtime check](pedestrian_worker_a-evidence/godot_checks.json) verifies all
+28 names/parents/rest origins (maximum error 0.000000231 m), mesh/material sharing,
+independent recolouring and invalid-palette rejection, clip API/loop policy/root
+invariance, matching loop endpoints and retained death pose. Forward+/Vulkan on
+GTX 1070; previews capped at 60 fps/VSync and bounded. The default preview quits after
+20 s. `-- --worker-overview` selects the closer view. The 20 fps review recording is
+sampled playback, not a frame-rate/performance measurement.
+
+A disposable private asset-only project performs a clean import and repeats the
+resource checks without project addons or a populated import cache. Its scope does
+not certify the full project's unrelated scripts, plugins or packaged game. Initial
+sandbox socket setup and pre-refresh UID warnings were corrected before the retained
+final checks. Source GLTF exporter reports unavailable optional MeshOptimizer; no
+MeshOptimizer compression/extension is used. No remaining runtime error is suppressed. Pinned gdstyle reports no errors; its
+14 warnings are confined to authoring/check tooling (long functions/lines and the
+intentional frame-capture await loop). The runtime presentation/preview scripts
+have no style warnings.
+
+Run `check_source.py` inside pinned Blender with the saved source, and
+`godot --path . --script res://tools/pedestrian_civilian/check_worker.gd` with a private
+runtime port. `export_worker.py -- <scratch-directory>` exports from saved source
+without reconstructing geometry. `author_worker.py` and `author_scenes.gd` are initial
+creation recipes; do not rerun them over edited production sources/scenes merely to
+refresh an export, as that can replace artist edits or node identities.
+
+## Acceptance and integration delta
+
+Accepted: Regner's concept C selection. Technical self-checks: source/export freshness,
+rig/rest/weight rules, palette reuse, imported clips, source linkage and saved preview.
+Pending: clean-context independent production review; owner's judgement of final art;
+integrator's collision, movement-speed/stride matching, clip transitions under actual
+states, crowd variety/readability, lifecycle/network behavior and device performance.
+No gameplay/network gate is closed by this preview.
+
+Catalogue delta for later reconciliation: add `pedestrian_worker_a` → this record,
+family `pedestrian_civilian`, concept C selected, source/prefab/preview paths above.
+TODO delta: concept and first source/import/presentation implementation complete;
+retain production review/final-art acceptance and external integration tasks. Do not
+close S13 or any other foundation item. Shared catalogue/TODO/planning files were
+not edited in this worktree.

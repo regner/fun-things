@@ -1,0 +1,76 @@
+[gd_scene format=3 uid="uid://w1fnte0qa0jr"]
+
+[ext_resource type="Script" uid="uid://daem7fwikjhf6" path="res://tests/fixtures/pedestrian_civilian/pedestrian_worker_preview.gd" id="1_4yqja"]
+[ext_resource type="PackedScene" uid="uid://bq3pm3kfcd8n7" path="res://art/models/pedestrian_civilian/pedestrian_worker_stage.glb" id="2_8e7ne"]
+[ext_resource type="PackedScene" uid="uid://du50jtbo6hvjb" path="res://scenes/prefabs/pedestrian_civilian/pedestrian_worker_a.tscn" id="3_cvjhl"]
+
+[sub_resource type="Environment" id="Environment_7dkes"]
+background_mode = 1
+background_color = Color(0.09019608, 0.14117648, 0.18431373, 1)
+ambient_light_source = 2
+ambient_light_color = Color(0.52156866, 0.61960787, 0.70980394, 1)
+ambient_light_energy = 0.7
+tonemap_mode = 2
+
+[node name="PedestrianWorkerPreview" type="Node3D" unique_id=2123771845]
+script = ExtResource("1_4yqja")
+
+[node name="BlenderStage" parent="." unique_id=1392076866 instance=ExtResource("2_8e7ne")]
+
+[node name="Workers" type="Node3D" parent="." unique_id=557682496]
+
+[node name="Idle" parent="Workers" unique_id=1394870494 instance=ExtResource("3_cvjhl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.3, 0, 0)
+
+[node name="Walk" parent="Workers" unique_id=2019938392 instance=ExtResource("3_cvjhl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.1, 0, 0)
+palette = PackedColorArray(0.7176471, 0.49019608, 0.3254902, 1, 0.3137255, 0.6784314, 0.59607846, 1, 0.19215687, 0.23529412, 0.40392157, 1, 0.28235295, 0.34901962, 0.42352942, 1, 0.8, 0.5647059, 0.38039216, 1, 0.14901961, 0.2, 0.23137255, 1, 0.1254902, 0.16862746, 0.19607843, 1, 0.8862745, 0.8392157, 0.7254902, 1, 0.22352941, 0.17254902, 0.14509805, 1)
+initial_clip = "walk"
+
+[node name="Run" parent="Workers" unique_id=665769158 instance=ExtResource("3_cvjhl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.1, 0, 0)
+palette = PackedColorArray(0.41568628, 0.26666668, 0.2, 1, 0.7921569, 0.38431373, 0.4745098, 1, 0.3019608, 0.21176471, 0.36862746, 1, 0.28235295, 0.34901962, 0.42352942, 1, 0.21568628, 0.24705882, 0.3137255, 1, 0.14901961, 0.2, 0.23137255, 1, 0.1254902, 0.16862746, 0.19607843, 1, 0.8862745, 0.8392157, 0.7254902, 1, 0.22352941, 0.17254902, 0.14509805, 1)
+initial_clip = "run"
+
+[node name="Death" parent="Workers" unique_id=693160881 instance=ExtResource("3_cvjhl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.3, 0, 0)
+initial_clip = "death"
+
+[node name="GameCamera" type="Camera3D" parent="." unique_id=1220951978]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 47, 0)
+current = true
+fov = 42.0
+near = 0.1
+far = 250.0
+
+[node name="OverviewCamera" type="Camera3D" parent="." unique_id=1262887798]
+transform = Transform3D(-0.8574929, -0.17799182, 0.4827264, 0, 0.9382515, 0.34595394, -0.51449573, 0.29665306, -0.80454403, 6, 5, -10)
+fov = 42.0
+
+[node name="CityKey" type="DirectionalLight3D" parent="." unique_id=508183845]
+transform = Transform3D(0.81915206, 0.46984634, -0.32898995, 0, 0.57357645, 0.81915206, 0.57357645, -0.6710101, 0.46984634, 0, 0, 0)
+light_color = Color(0.78431374, 0.8352941, 0.9372549, 1)
+light_energy = 1.15
+shadow_enabled = true
+shadow_bias = 0.015
+shadow_normal_bias = 0.1
+
+[node name="CityDusk" type="WorldEnvironment" parent="." unique_id=204851643]
+environment = SubResource("Environment_7dkes")
+
+[node name="CoralBounce" type="OmniLight3D" parent="." unique_id=1515703039]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4, -4)
+light_color = Color(0.99215686, 0.49803922, 0.5058824, 1)
+light_energy = 2.5
+omni_range = 14.0
+
+[node name="ReviewLabels" type="CanvasLayer" parent="." unique_id=1277063194]
+
+[node name="Context" type="Label" parent="ReviewLabels" unique_id=849155339]
+offset_left = 28.0
+offset_top = 24.0
+offset_right = 28.0
+offset_bottom = 24.0
+text = "OFF-SHIFT WORKER  /  idle · walk · run · death
+Shared skeleton · separate NPC clips · independent instance colours
+47 m · 42° · north-up · 1280×800   |   bounded 20-second preview"

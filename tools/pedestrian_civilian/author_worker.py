@@ -160,9 +160,9 @@ def author_parts(collection, material):
         for loop in face.loop_indices:
             mask.data[loop].color = (code / 8, 0, 0, 1)
     for side in [-1, 1]:
-        suffix = "L" if side == 1 else "R"
-        capsule("Collar" + suffix, (side * .08, .075, 1.40),
-                (side * .124, .128, 1.335), .027, .022, "jacket", collection, material)
+        suffix = "R" if side == 1 else "L"
+        box("Collar" + suffix, (side * .104, .109, 1.359),
+            (.065, .022, .075), .013, "jacket", collection, material)
     ellipsoid("Neck", (0, 0, 1.435), (.087, .081, .105), "skin", collection, material)
     sweep("Head", [(0, .01, 1.437, .085, .077), (0, .018, 1.465, .112, .098),
                    (0, .017, 1.51, .143, .118), (0, .006, 1.565, .158, .137),
@@ -175,7 +175,7 @@ def author_parts(collection, material):
     capsule("Moustache", (-.042, .150, 1.545), (.042, .150, 1.545),
             .013, .014, "hair", collection, material)
     for side in [-1, 1]:
-        suffix = "L" if side == 1 else "R"
+        suffix = "R" if side == 1 else "L"
         ellipsoid("Ear" + suffix, (side * .153, 0, 1.61), (.030, .033, .046),
                   "skin", collection, material, 16, 12)
         ellipsoid("EyeWhite" + suffix, (side * .060, .131, 1.639),
@@ -199,16 +199,16 @@ def author_parts(collection, material):
     for side in [-1, 1]:
         capsule("CapSeam" + str(side), (side * .099, -.094, 1.783),
                 (side * .030, -.050, 1.837), .003, .003, "cap", collection, material)
-    box("TrouserSeat", (0, -.008, .790), (.463, .274, .239), .055,
+    box("TrouserSeat", (0, -.008, .856), (.450, .252, .147), .050,
         "trousers", collection, material)
     for side in [-1, 1]:
-        suffix = "L" if side == 1 else "R"
+        suffix = "R" if side == 1 else "L"
         x = side * .135
         sweep("TrouserLeg" + suffix,
               [(x, 0, .135, .079, .082), (x, 0, .18, .087, .094),
                (x, 0, .29, .086, .098), (x, .003, .44, .096, .108),
                (x, .004, .48, .098, .108), (x, 0, .58, .105, .112),
-               (x, 0, .73, .113, .119), (x, 0, .835, .108, .123)],
+               (x, 0, .73, .113, .119), (x, 0, .895, .108, .123)],
               "trousers", collection, material)
         box("BootSole" + suffix, (x, .047, .041), (.198, .342, .082), .032,
             "trim", collection, material)
@@ -264,8 +264,8 @@ def export_mesh(parts, collection):
     triangles = mesh.modifiers.new("explicit_triangles", "TRIANGULATE")
     bpy.ops.object.modifier_apply(modifier=triangles.name)
     mesh["asset_id"] = ASSET_ID
-    mesh["rig_status"] = "UNBOUND: await player-owned shared_humanoid_rig v1"
-    mesh["pose_scope"] = "neutral modelling pose; not production skeleton rest pose"
+    mesh["rig_status"] = "shared_humanoid/1.0.0; canonical rest unchanged"
+    mesh["pose_scope"] = "canonical A-pose; original NPC animation library"
     for object_ in parts.objects:
         object_.hide_render = True
         object_.hide_set(True)
@@ -326,7 +326,15 @@ def main():
     scene.collection.children.link(collection)
     material = palette_material()
     author_parts(parts, material)
+    import sys
+    sys.path.insert(0, str(Path(__file__).parent))
+    from bind_worker import append_rig, fit_and_weight, bind_mesh, author_clips, validate
+    rig = append_rig(collection)
+    fit_and_weight(parts, rig)
     mesh = export_mesh(parts, collection)
+    bind_mesh(mesh, rig)
+    author_clips(rig)
+    binding_receipt = validate(mesh, rig)
     stage = bpy.data.collections.new("export_pedestrian_worker_stage")
     scene.collection.children.link(stage)
     stage_material = bpy.data.materials.new("worker_preview_ground")
@@ -342,7 +350,7 @@ def main():
     studio(scene)
     scene["authorship"] = "Original Codex pedestrian lead geometry; selected imagegen concept C"
     scene["authoring_model"] = "gpt-6-astra/high; verified Paseo runtime before spatial work"
-    scene["rig_dependency"] = "player-owned shared_humanoid_rig; no S13 binding or skeleton"
+    scene["rig_dependency"] = "shared_humanoid/1.0.0 source 3eccf8f691fe34132ee8504d10dfceda4f7e2bb6"
     SOURCE.parent.mkdir(parents=True, exist_ok=True)
     bpy.ops.wm.save_as_mainfile(filepath=str(SOURCE))
     namespace = {"__file__": str(Path(__file__).with_name("export_worker.py")),
@@ -352,12 +360,13 @@ def main():
     coordinates = [mesh.matrix_world @ Vector(corner) for corner in mesh.bound_box]
     minimum = [min(v[axis] for v in coordinates) for axis in range(3)]
     maximum = [max(v[axis] for v in coordinates) for axis in range(3)]
-    receipt = {"scope": "unbound geometry checkpoint; no rig/clip acceptance",
+    receipt = {"scope": "bound worker and NPC clips; separate Godot/visual review required",
                "blender": bpy.app.version_string, "source": str(SOURCE.relative_to(ROOT)),
                "editable_parts": len(parts.objects), "vertices": len(mesh.data.vertices),
                "triangles": len(mesh.data.polygons), "material_surfaces": 1,
                "blender_aabb_min": minimum, "blender_aabb_max": maximum,
-               "palette_regions": REGIONS, "default_srgb": SWATCHES}
+               "palette_regions": REGIONS, "default_srgb": SWATCHES,
+               "binding": binding_receipt}
     path = ROOT / "docs/assets/pedestrian_worker_a-evidence/source.json"
     path.write_text(json.dumps(receipt, indent=2) + "\n")
     print("WORKER_SOURCE", json.dumps(receipt))

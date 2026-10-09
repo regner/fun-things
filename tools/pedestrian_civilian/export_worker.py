@@ -27,16 +27,17 @@ def export_all(destination=None):
     rows = []
     for asset_id in OUTPUTS:
         collection = bpy.data.collections["export_" + asset_id]
-        expected = {"WorkerMesh"} if asset_id == OUTPUTS[0] else {"PreviewGround"}
+        expected = {"WorkerMesh", "Rig"} if asset_id == OUTPUTS[0] else {"PreviewGround"}
         if {object_.name for object_ in collection.all_objects} != expected:
             raise RuntimeError("Unexpected export members: " + asset_id)
         for object_ in collection.all_objects:
-            if object_.type != "MESH" or any(abs(v - 1) > .00001 for v in object_.scale):
+            if object_.type not in {"MESH", "ARMATURE"} or any(abs(v - 1) > .00001 for v in object_.scale):
                 raise RuntimeError("Invalid export object: " + object_.name)
             if object_.matrix_world.determinant() <= 0:
                 raise RuntimeError("Non-positive transform")
         target = destination / (asset_id + ".glb")
         settings["collection"] = collection.name
+        settings["export_animations"] = asset_id == OUTPUTS[0]
         settings["export_vertex_color"] = "NAME" if asset_id == OUTPUTS[0] else "NONE"
         settings["filepath"] = str(target)
         bpy.ops.export_scene.gltf(**settings)

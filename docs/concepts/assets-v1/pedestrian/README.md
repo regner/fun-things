@@ -1,8 +1,9 @@
 # First civilian pedestrian concepts
 
 9 October 2026. **Regner selected C — Off-Shift Worker** and authorised the reusable
-NPC-colour/shared-rig approach. Geometry/material authoring is underway; final binding
-waits for the player-owned production rig. [Open the review gallery](review.html).
+NPC-colour/shared-rig approach. The source is now bound to shared_humanoid/1.0.0,
+with a separate NPC clip library and imported preview. [Production gallery](production.html).
+[Original concept gallery](review.html).
 [Asset handoff](../../../assets/pedestrian_civilian_first.md).
 
 The assignment is one reusable civilian pedestrian for the smooth, chunky city

@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://du50jtbo6hvjb"]
+
+[ext_resource type="Script" uid="uid://c4rxbqcepqdf3" path="res://scripts/presentation/pedestrian_civilian/pedestrian_worker_visual.gd" id="1_johmq"]
+[ext_resource type="Material" uid="uid://drngc8es0p2xh" path="res://art/materials/pedestrian_worker_a_palette.tres" id="2_6elda"]
+[ext_resource type="AnimationLibrary" uid="uid://vgxr3nxb046a" path="res://art/animations/pedestrian_civilian/npc_locomotion_v1.tres" id="3_3xvpw"]
+[ext_resource type="PackedScene" uid="uid://dn1g7jhrni1a2" path="res://art/models/pedestrian_civilian/pedestrian_worker_a.glb" id="4_hwojk"]
+
+[node name="PedestrianWorkerA" type="Node3D" unique_id=1394870494]
+script = ExtResource("1_johmq")
+palette = PackedColorArray(0.7176471, 0.49019608, 0.3254902, 1, 0.9254902, 0.63529414, 0.24313726, 1, 0.19607843, 0.42745098, 0.7529412, 1, 0.28235295, 0.34901962, 0.42352942, 1, 0.13333334, 0.32156864, 0.3647059, 1, 0.14901961, 0.2, 0.23137255, 1, 0.1254902, 0.16862746, 0.19607843, 1, 0.8862745, 0.8392157, 0.7254902, 1, 0.22352941, 0.17254902, 0.14509805, 1)
+palette_material = ExtResource("2_6elda")
+npc_library = ExtResource("3_3xvpw")
+
+[node name="PresentationAnchor" type="Node3D" parent="." unique_id=229842079]
+
+[node name="Visuals" type="Node3D" parent="PresentationAnchor" unique_id=436723110]
+
+[node name="Model" parent="PresentationAnchor/Visuals" unique_id=1402939222 instance=ExtResource("4_hwojk")]
