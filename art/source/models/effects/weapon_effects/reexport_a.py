@@ -18,7 +18,7 @@ def main():
     output = Path(sys.argv[sys.argv.index("--") + 1]).resolve()
     assert not output.is_relative_to(ROOT / "art/models")
     output.mkdir(parents=True, exist_ok=True)
-    preset = json.loads((ROOT / "tools/s01/export_settings.json").read_text())
+    preset = json.loads((ROOT / "tools/assets/blender/export_settings.json").read_text())
     records = []
     for kind in KINDS:
         name = "weapon_effects_a_" + kind

@@ -202,7 +202,7 @@ for i in range(3):
           (2, 3, 7, 6), (3, 0, 4, 7)], "ivory", .003)
 marker(rocket, "socket_trail", (0, -.23, 0))
 
-settings = json.loads((ROOT / "tools/s01/export_settings.json").read_text())
+settings = json.loads((ROOT / "tools/assets/blender/export_settings.json").read_text())
 settings.update(export_animations=False, export_skins=False)
 record = {"creator": "Codex rocket-launcher lead", "concept": "Regner approved A Dock Thumper",
           "blender": bpy.app.version_string, "build": bpy.app.build_hash.decode(),

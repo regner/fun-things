@@ -124,8 +124,8 @@ are authoritative. `author.gd`/`authoring.tscn` now provide only technical inspe
 and narrowly scoped import UID/index repair, not hierarchy generation.
 
 Pins: Blender 5.2.2 LTS (`d13f752e3b9c`), glTF exporter 5.2.40;
-Godot 4.8.dev7.official.c971f93e7; gdstyle 0.3.0. GLBs use committed
-`prototypes/s01/tools/s01/export_settings.json` plus explicit collection and animations=false.
+Godot 4.8.dev7.official.c971f93e7; gdstyle 0.3.0. GLBs use the production shared
+`tools/assets/blender/export_settings.json` contract plus explicit collection and animations=false.
 Sources contain no linked external libraries/images. Static root transforms are unit.
 
 Evidence is in [production-a](../concepts/assets-v1/weapon-effects/production-a/):

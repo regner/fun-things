@@ -69,11 +69,9 @@ func build_pole(path: String, radius_m: float, height_m: float) -> Dictionary:
 		"height_m": height_m, "collision_layer": body.collision_layer}
 
 
-## Authors linked static props; facade hardware has no independent gameplay collision.
-
-
 # One-shot editor authoring keeps shape construction local; no runtime allocation loop.
 # The collision branches and multiline arguments stay local to this editor-only operation.
+## Authors linked static props; facade hardware has no independent gameplay collision.
 func build_static(  # gdstyle:ignore=quality/max-local-variables
 	path: String, collision_kind: String
 ) -> Dictionary:

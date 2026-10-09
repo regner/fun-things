@@ -125,7 +125,7 @@ def main():
     bpy.ops.object.select_all(action='DESELECT')
     OUTPUT.mkdir(parents=True,exist_ok=True)
     bpy.ops.wm.save_as_mainfile(filepath=str(SOURCE))
-    preset=json.loads((ROOT/'tools/s01/export_settings.json').read_text())
+    preset=json.loads((ROOT/'tools/assets/blender/export_settings.json').read_text())
     records=[]
     for name,target in outputs.items():
         filepath=OUTPUT/f'weapon_effects_a_{name}.glb'

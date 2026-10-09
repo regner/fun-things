@@ -9,9 +9,11 @@ from fixture_paths import assert_reviewed_roundtrips
 ROOT = Path(__file__).resolve().parents[3]
 OUT = ROOT / 'docs/assets/production/batch_01-evidence'
 RAW = OUT / 'transport'
-CURRENT_EXPORT_REFERENCES = {
-    'docs/assets/production/city_lights_01.md',
-    'tools/asset_production/city_lights_01/export.py',
+CURRENT_EXPORT_REFERENCE_SHA256 = {
+    'docs/assets/production/city_lights_01.md':
+        'de2c72d2208f0e3701c8e7df58e6a0d7299406464e5198a198d21ef398fb8f59',
+    'tools/asset_production/city_lights_01/export.py':
+        'e776c202f227df481b7d5e7ffcf81ecb4bc3b681d084430a50472caf532d7883',
 }
 EXPECTED_EXPORT_SETTINGS_SHA256 = (
     '33ded3c83616fba6573848dda1f0ea3fc7ae7f4c98257fc867dca3bbe35ff9ec'
@@ -20,9 +22,10 @@ EXPECTED_EXPORT_SETTINGS_SHA256 = (
 
 def is_intentionally_updated_record(path, payload):
     """Validate current export references changed after the retained review index."""
-    if path not in CURRENT_EXPORT_REFERENCES:
+    if path not in CURRENT_EXPORT_REFERENCE_SHA256:
         return False
 
+    assert hashlib.sha256(payload).hexdigest() == CURRENT_EXPORT_REFERENCE_SHA256[path]
     text = payload.decode('utf-8')
     assert 'tools/assets/blender/export_settings.json' in text
     assert 'tools/s01/export_settings.json' not in text

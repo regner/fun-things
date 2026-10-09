@@ -14,21 +14,29 @@ and Python 3.14 in the `lane/asset-prod-reconcile` worktree.
   targets and fit results match the production integration records. Headless query timing
   is intentionally not compared to historical graphical observations.
 - Batch 02 and Batch 03 each passed in two isolated engine processes; see the process logs.
+  The native Batch 03 visual launcher now caps its owned child at 60 FPS, waits at most 180
+  seconds, and terminates only that child (with a bounded kill fallback) on expiry.
 - All three documented Python receipt verifiers passed; see
   `batch-verifiers-summary.json`. The old verifiers initially failed because they resolved
   retained `tests/fixtures/asset_production/` paths literally; the preserved failure is in
-  `initial-verifier-failures.log`. They now validate unchanged reviewed resources by hash
-  and intentionally migrated fixture scenes by their preserved saved UIDs.
+  `initial-verifier-failures.log`. They now validate unchanged reviewed resources by their
+  retained hashes and intentionally migrated fixture scenes by pinned post-reconciliation
+  content hashes plus preserved saved UIDs.
 - `python tools/production_checks.py --output
-  C:/tmp/ft/lanes/asset-prod-reconcile/production-checks-rebased-final` passed all canonical
+  C:/tmp/ft/lanes/asset-prod-reconcile/production-checks-review-fix-final` passed all canonical
   checks, including owned-script format/style/compilation, Python tests, headless import,
   positive GUT, and the required negative GUT control. See
   `production-checks-summary.json`.
 - The documented `city_lights_01` Blender 5.2.2 reexport loaded the production shared
   contract from `tools/assets/blender/export_settings.json`, exited 0, and reproduced both
   committed GLBs byte-for-byte. See `city-lights-01-reexport.log`.
-- A `tools/**` prototype-reference audit found no production dependency. Its only remaining
-  matches are the deliberate `prototypes/` exclusion in `s08_x/inspect_exports.py` and
+- The saved `weapon_effects_a` source loaded the same production shared contract in Blender
+  5.2.2, exited 0, and reproduced all six committed GLBs byte-for-byte. See
+  `weapon-effects-reexport.log`.
+- An `art/**`, `tools/**`, and `scenes/**` archived-settings audit found no live production
+  dependency. The remaining `tools/s01` matches are the verifier's rejection assertion and
+  the shared contract README's historical archive link. The remaining `prototypes/` matches
+  under `tools/**` are the deliberate exclusion in `s08_x/inspect_exports.py` and
   prototype-path rejection vectors in `test_s08_x.py`.
 
 M1-A2.1 landed after these checks. Migrating the fixtures to its production player is a separate
