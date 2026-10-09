@@ -10,9 +10,10 @@ qualification and enough outcome detail for dispatch.
 and the audit-derived tasks in
 [section 4 of the readiness audit](../reviews/p0-readiness-audit-2026-10-08.md).
 Most quantitative criteria are planning proposals derived from current product budgets and
-remain tunable during M1. Owner decisions 13–19 ratify the desktop frame target, narrow
+remain tunable during M1. Owner decisions 13–20 ratify the desktop frame target, narrow
 P0-GATE to the S17-only quiet result plus the refreshed gate packet, select the first
-hit-registration policy and accept the S03-P M1 input-queue contract.
+hit-registration policy, accept the S03-P M1 input-queue contract and set the initial S11
+remote extrapolation policy.
 
 - **P0-TOOLING:** Completed. The [baseline repair](../spikes/p0-tooling.md) made the
   canonical script check green, established complete Python discovery, selected the
@@ -98,8 +99,10 @@ hit-registration policy and accept the S03-P M1 input-queue contract.
   extra foundation spike is required.
 - **S11:** Completed codec/bandwidth direction. [S11](../spikes/s11.md) keeps 1,196-byte
   movement payloads; worst measured host output is 55.16 KiB/s against 256 KiB/s and join
-  wire bytes are about 3.2 KiB against 1 MiB. Production baseline/input remain unmeasured,
-  and remote drawable smoothness/extrapolation policy is open.
+  wire bytes are about 3.2 KiB against 1 MiB. Decision 20 sets one tunable short remote
+  extrapolation bound around 100–150 ms: continue last velocity, then hold until data arrives,
+  then blend smoothly to authority. Production baseline/input and drawable acceptance remain
+  unmeasured; revisit per-entity-type hybrids after playtests.
 - **S12:** Completed decision prototype. [S12](../spikes/s12.md) retains bounded ≤250 ms
   rewind evidence for a possible later host-only change. Owner decision 18 starts with
   host-authoritative verdicts at host current time: clients send fire intent plus the shooter's
@@ -143,8 +146,9 @@ Completed discovery reconciliation: [P0-DOC14 record](../reviews/p0-doc14.md).
   menu flows must handle cancel, stale/failure/host loss and cleanup. Only host/standalone
   can reset. Steam friend sessions are owner-deferred beyond M1.
 - **M1-A2:** Share rules offline/authority/permitted prediction; implement decision 19's
-  ordered bounded input queue and acknowledgement watermark; handle focus/expiry, respawn and
-  reset rehydration before input while rejecting stale-match commands.
+  ordered bounded input queue and acknowledgement watermark plus decision 20's tunable
+  100–150 ms extrapolate→hold→smooth-authority policy; handle focus/expiry, respawn and reset
+  rehydration before input while rejecting stale-match commands.
 - **M1-A3:** Persist validated audio settings with defaults/recovery and live preview;
   device settings cannot mutate shared gameplay.
 - **M1-A-GATE:** Validate two exported ENet processes, settings and lifecycle/reset/error

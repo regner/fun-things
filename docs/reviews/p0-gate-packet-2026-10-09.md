@@ -30,7 +30,8 @@ adjustable during M1. Accordingly:
   tasks with acceptance checks, not additional foundation gates.
 - All other spike timings remain explicitly **contended**; owner decision 13 defers their quiet
   optimization to implementation rather than treating those upper bounds as gate failures.
-- S11 fits the bandwidth budgets with large margin, but remote smoothness remains production work.
+- S11 fits the bandwidth budgets with large margin; decision 20 sets the initial remote-motion
+  policy, while drawable smoothness acceptance remains production work.
 - S03-L retains a provisional 350 ms p95 contended Windows authoritative-loop allowance.
 - Linux graphical/runtime confirmation remains unperformed; Steam Deck remains later.
 - Physical Alt-Tab, walking/aim feel, vehicle handling, audio listening and visual reviews remain
@@ -81,7 +82,7 @@ All timing values explicitly marked **contended** are upper bounds from a shared
 | S08-C | Complete, bounded | [Stability](../spikes/s08-c-stability.md): current no-cutaway 192/288/384 instantiate; 384 crash not reproduced; safe capped GPU method | Historical cause unknown; owner approval to replace unsafe design wording | short diagnostic only |
 | S09 | Foundation prototype complete | [Traffic](../spikes/s09.md): 24-car p95/p99 1.165/1.690 ms, 18/18 recoveries per aggregate row, zero sampled overlaps/gridlocks; **contended** | Actual bodies, production graph/replenishment and owner intersection policy | Not rerun; contended retained by decision 13 |
 | S10 | Foundation concept complete; first production task | [Pedestrians](../spikes/s10.md): normal graph p95 2.654 ms median, flee 3.658 ms; **contended**; large overlap/stuck counts | Production must improve behavior/budget with acceptance checks; no extra foundation spike | Not rerun; contended retained by decision 13 |
-| S11 | Codec/bandwidth direction complete; smoothness open | [Population replication](../spikes/s11.md): worst host out 55.16 KiB/s vs 256 budget; 3.2 KiB join vs 1 MiB; adverse extrapolation median 15.30% | Drawable interpolation/extrapolation policy, full production baseline/input | Not rerun; contended CPU retained by decision 13 |
+| S11 | Codec/bandwidth direction and initial remote policy complete; smoothness acceptance open | [Population replication](../spikes/s11.md): worst host out 55.16 KiB/s vs 256 budget; 3.2 KiB join vs 1 MiB; adverse extrapolation median 15.30% | Implement 100–150 ms tunable extrapolation→hold→smooth correction; drawable playtest and full production baseline/input | Not rerun; contended CPU retained by decision 13 |
 | S12 | Foundation comparison complete; first hit policy decided | [Combat](../spikes/s12.md) retains bounded ≤250 ms rewind evidence for later; decision 18 starts with host-current-time verdicts and forgiving hit shapes | Review damage/rate starting values; production fire-intent, confirmation, damage/respawn and rocket integration | Not rerun; contended retained by decision 13 |
 | S13 | Technical rig path complete | [Characters](../spikes/s13.md): 68 live + 16 dead; throttling 68→30 mixers; contended headless median proxy 35.9% lower | Production art/readability, blending and target-platform evidence | Not rerun; contended retained by decision 13 |
 | S14 | Automated audio/settings foundation complete; listening open | [Audio](../spikes/s14.md): exact 8 engine / 8 explosion / 6 weapon voice caps and settings roundtrip | Human mix/listening, production assets/licenses, attributable CPU profiling | Not rerun; contended context retained by decision 13 |
@@ -109,9 +110,9 @@ All timing values explicitly marked **contended** are upper bounds from a shared
    weakening host authority or enabling S12 rewind without the playtest need and bounded host-only
    change required by decision 18.
 4. **Remote smoothness (S11).** Bandwidth passes, but adverse delivery extrapolated/froze 15.30%
-   of sampled entity frames. Compare the current 200 ms-then-freeze policy with a modestly longer
-   bound in a drawable production-like route. Recommend bounded freeze rather than long invented
-   travel unless the visual comparison clearly favors the latter.
+   of sampled entity frames. Decision 20 starts with one tunable short bound around 100–150 ms:
+   extrapolate along last velocity, hold until data returns, then blend smoothly to authority.
+   Validate it in a drawable production-like route and revisit per-entity hybrids after playtests.
 5. **Linux and Deck.** Windows is the only passing graphical/runtime platform in the recent
    foundation work. Run S08-X's Linux Vulkan checklist before M1-A-GATE. Deck remains later and
    must stay labelled unverified; desktop evidence cannot become a Deck claim.
@@ -124,7 +125,7 @@ All timing values explicitly marked **contended** are upper bounds from a shared
 
 ## Owner decisions recorded
 
-The owner recorded decisions 13–19 on 9 October 2026:
+The owner recorded decisions 13–20 on 9 October 2026:
 
 - **Decision 13 — measurement scope and principle:** S17 is the only quiet rerun. Other spike
   timings remain labelled contended. Foundation establishes concepts and high-level limits; M1
@@ -156,6 +157,10 @@ The owner recorded decisions 13–19 on 9 October 2026:
   neutralizes after 250 ms, and the acknowledgement watermark is the last consumed or superseded
   frame. This supersedes the earlier newest-valid-frame wording and is marked owner-accepted in
   [`api-contracts.md`](../api-contracts.md).
+- **Decision 20 — S11 remote extrapolation:** use one tunable short bound around 100–150 ms.
+  Remote entities extrapolate along their last velocity, then hold position until data arrives,
+  then blend smoothly to authority. Revisit alternatives such as per-entity-type hybrids after
+  drawable playtests.
 
 ## Owner decisions still open
 
@@ -163,29 +168,26 @@ These remaining choices belong to their named production consumer; they are not 
 or quiet-pass prerequisites under decision 14. An explicit deferral should still name its consumer
 or accepted risk.
 
-1. **S11 extrapolation:** choose how remote actors behave after the interpolation buffer is exhausted.
-   **Recommendation:** retain 200 ms extrapolation then freeze as the safe default, subject to a
-   drawable comparison; never extend through the one-second adverse blackout by default.
-2. **S12 damage/rate defaults:** review the pistol/SMG/rocket/car-impact starting values as
+1. **S12 damage/rate defaults:** review the pistol/SMG/rocket/car-impact starting values as
    balance choices before M1-B2.
-3. **S04 handling:** provide drive-scene feedback and an F12 value set. **Recommendation:** run the
+2. **S04 handling:** provide drive-scene feedback and an F12 value set. **Recommendation:** run the
    saved harness before freezing B1.1 body/tuning; do not promote defaults solely from automated
    route success.
-4. **S17 budget allocation:** ratify or revise traffic 1.5, pedestrians 1.0, replication 0.75,
+3. **S17 budget allocation:** ratify or revise traffic 1.5, pedestrians 1.0, replication 0.75,
    combat 0.25, chains 0.10 and remaining work 0.40 ms p95, all inside 4 ms.
    **Recommendation:** use them as adjustable profiling ceilings, not independent entitlements.
-5. **Traffic/crossing policy:** choose reservation priority/lights and whether cars yield at marked
+4. **Traffic/crossing policy:** choose reservation priority/lights and whether cars yield at marked
    crossings. **Recommendation:** deterministic authored reservations; cars yield at selected marked
    crossings, while uncontrolled player cars remain collision-authoritative.
-6. **VFX degradation:** confirm full→reduced→minimum tiers when many explosions overlap, with one
+5. **VFX degradation:** confirm full→reduced→minimum tiers when many explosions overlap, with one
    visible root and all feedback families retained per event. **Recommendation:** approve; dropping
    an event remains forbidden.
-7. **Audio starting policy:** accept/revise nearest-eight engines, eight blast voices, six weapon
+6. **Audio starting policy:** accept/revise nearest-eight engines, eight blast voices, six weapon
    voices and ambience under Music. **Recommendation:** treat these as first-pass caps and decide only
    after the listening checklist.
-8. **Safe GPU wording:** replace the design's uncapped-headroom instruction with S08-C's capped
+7. **Safe GPU wording:** replace the design's uncapped-headroom instruction with S08-C's capped
    frame/RenderingServer method. **Recommendation:** approve; uncapped runs caused two device removals.
-9. **Production testing:** approve adding pinned test-only GUT under M1-D1.1.
+8. **Production testing:** approve adding pinned test-only GUT under M1-D1.1.
     **Recommendation:** approve, excluded from release exports and runtime autoloads.
 
 ## Human checks still needed

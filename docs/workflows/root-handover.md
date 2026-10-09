@@ -33,11 +33,12 @@ No particular agent platform or delegation tool is required to read it.
 - The [8 October owner decisions](../reviews/owner-decisions-2026-10-08.md) govern controls,
   prediction, vehicles, explosion presentation, UI, environment scaling, initial ENet
   scope, desktop targets, engine pin, profiles and the completeness tasks authorized by
-  instruction 12. Decisions 13–19, recorded in the gate packet, restrict quiet reruns to
+  instruction 12. Decisions 13–20, recorded in the gate packet, restrict quiet reruns to
   S17, make S10/S17 the first production acceptance work, set capped 60 FPS with
   p95 ≤16.7 ms / p99 ≤20 ms, define dead-driver coast-to-abandoned behavior, remove
   GodotSteam in a separate lane, select host-current-time hit verdicts with view-tick-ready
-  fire intents, and accept S03-P's ordered bounded M1 input queue. The
+  fire intents, accept S03-P's ordered bounded M1 input queue, and set S11's initial short
+  extrapolate→hold→smooth-authority policy. The
   [P0 audit](../reviews/p0-readiness-audit-2026-10-08.md) supplies historical gap rationale;
   the packet records the current integrated disposition.
 - World concept work is separately commissioned and stage-gated at Stage 1; use the
@@ -112,7 +113,7 @@ fixture, performance, hardware or graphical claim.
 ## Current lane order — refreshed 9 October 2026
 
 The earlier foundation queue is complete and historical. The S17-only quiet measurement and
-owner decisions 13–19 are reconciled in the packet. Review it and record the P0-GATE
+owner decisions 13–20 are reconciled in the packet. Review it and record the P0-GATE
 disposition; do not begin M1 merely because the executable foundation lanes integrated.
 Under decision 14, the remaining human reviews and open production choices are not additional
 foundation prerequisites. If P0-GATE passes, begin with S10 behavior/budget and S17 production
