@@ -127,7 +127,7 @@ ground (`art/source/models/spikes/s02_kit.blend` provenance in S02), not city pl
   generation or embedded model replacement was introduced.
 - Pinned gdstyle scoped lint passes. Initial independent findings and the review fix are retained below.
 
-Reproduce source/export and clean asset checks with `python3 tools/player_character/verify_delivery.py`.
+Reproduce source/export and clean asset checks with `python tools/player_character/verify_delivery.py`.
 The fresh profile excludes gameplay/addons and is not full-project compilation or Deck
 performance evidence. The original worktree runtime captures include the actual project
 renderer and saved scenes. Source checks, logs, captures and recording are in `evidence/`.

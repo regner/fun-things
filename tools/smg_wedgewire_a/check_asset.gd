@@ -2,8 +2,6 @@ extends SceneTree
 ## Checks the imported weapon's static contract through saved production resources.
 
 const WRAPPER: String = "res://scenes/prefabs/weapons_smg/smg_wedgewire_a.tscn"
-const PREVIEW: String = "res://scenes/previews/weapons_smg/smg_wedgewire_a_preview.tscn"
-const GAME_VIEW: String = "res://scenes/previews/weapons_smg/smg_wedgewire_a_game_camera.tscn"
 const TOLERANCE_M: float = 0.001
 
 var _failures: Array[String] = []
@@ -78,7 +76,7 @@ func _contact_error(weapon: Node3D, target_name: String, normal: Vector3) -> flo
 	return absf(nearest - probe_distance)
 
 
-## Verifies linked resources, bounds, axes, contact markers and the inherited camera.
+## Verifies linked resources, bounds, axes and contact markers through the production wrapper.
 func _check() -> void:
 	var weapon: Node3D = (load(WRAPPER) as PackedScene).instantiate() as Node3D
 	root.add_child(weapon)
@@ -112,7 +110,6 @@ func _check() -> void:
 	for contact: String in contact_errors:
 		_require(float(contact_errors[contact]) < TOLERANCE_M, contact + " surface contact")
 
-	_check_preview()
 	print("SMG_CHECK " + JSON.stringify({
 		"ok": _failures.is_empty(), "failures": _failures, "bounds": _bounds,
 		"mesh_count": _mesh_count, "triangles": _triangles, "sockets": sockets,
@@ -121,20 +118,3 @@ func _check() -> void:
 	}))
 	weapon.free()
 	quit(0 if _failures.is_empty() else 1)
-
-
-## Checks the saved and inherited camera setup without running gameplay.
-func _check_preview() -> void:
-	var preview: Node3D = (load(PREVIEW) as PackedScene).instantiate() as Node3D
-	var game_view: Node3D = (load(GAME_VIEW) as PackedScene).instantiate() as Node3D
-	var camera: Camera3D = game_view.get_node("GameCamera") as Camera3D
-	_require(camera.position.is_equal_approx(Vector3(0, 47, 0)), "47 m camera")
-	_require(is_equal_approx(camera.fov, 42.0), "42 degree camera")
-	_require(camera.rotation_degrees.is_equal_approx(Vector3(-90, 0, 0)), "North-up vertical")
-	_require(camera.current, "Inherited game view selects game camera")
-	_require(not (game_view.get_node("OverviewCamera") as Camera3D).current,
-		"Inherited overview camera inactive")
-	_require((preview.get_node("Weapon") as Node3D).scale.is_equal_approx(Vector3.ONE),
-		"Preview keeps weapon scale")
-	preview.free()
-	game_view.free()

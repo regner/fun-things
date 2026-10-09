@@ -142,12 +142,11 @@ No texture maps/UV baking are required by this palette design; no shared materia
 resource, remap or variant is introduced. Import LODs remain enabled; no independent
 performance budget or device claim is made.
 
-The saved preview places the weapon at Y=1.3 m at unit scale over a source-linked
-petrol/concrete review pad. It supplies a white key, restrained cyan fill and ambient
-light. Captures use Forward+ / Vulkan on NVIDIA GeForce GTX 1070, 1280×800,
-60 FPS cap and VSync. The game camera is (0,47,0), rotation (-90°,0,0), FOV42°,
-near/far0.1/160 m, north-up. Overview and side camera transforms are saved in the
-preview and recorded by the capture logs. These are desktop asset-preview receipts.
+The historical saved preview placed the weapon at Y=1.3 m at unit scale over a
+source-linked petrol/concrete review pad. Its retained captures used Forward+ / Vulkan
+on NVIDIA GeForce GTX 1070 at 1280×800 with a 60 FPS cap and VSync. Production cleanup
+removed that review-only preview, pad and capture entry point; the production wrapper
+and its focused static contract checker remain current.
 
 Visual self-review: the coral silhouette, taper and side-wrapped cyan band match the
 chosen broad-form direction. At native game framing the isolated weapon is roughly
@@ -177,13 +176,13 @@ This final receipt updates documentation only; the reviewed implementation is un
 | --- | --- |
 | Source reexport freshness | Both GLBs reproduce byte-for-byte from saved `.blend`; fingerprints and reexport receipt in evidence |
 | Private process ownership | `editor_ownership.json`: worktree root, pinned engine, editor PID65124, ports20650–20654, private `/tmp/brackett-smg` state |
-| Full asset reimport and scene synchronization | Actual editor full scan/reimport, then close/reopen/save of wrapper, preview and inherited camera; stable saved bytes/IDs |
-| Imported bounds, socket frames/relay and surface contacts | `check-asset-final.log`, zero failures; no collision; imported GLB ancestry, unit roots and inherited camera checked |
+| Historical full asset reimport and scene synchronization | Editor full scan/reimport and wrapper/preview roundtrip receipts remain as production-checkpoint evidence; the review-only preview is no longer current |
+| Imported bounds, socket frames/relay and surface contacts | `check-asset-final.log`, zero failures; no collision; imported GLB ancestry and unit roots checked through the production wrapper |
 | Clean asset import | `clean_import.json`, fresh asset-only copy, exit0/no diagnostics; input bytes preserved |
-| Script compilation | All four owned GDScripts explicitly compiled in the clean copy; logs retained; separate from import |
+| Historical script compilation | All four checkpoint GDScripts compiled in the retained clean-copy receipt; current validation covers the remaining wrapper-only checker |
 | Style | Pinned gdstyle0.3.0 format and lint pass; comments, tabs and two-line function spacing reviewed |
 | Independent review | No P0–P3 static defects; independent byte-identical source reexport, contact/resource/compile/style checks and fresh diagnostic-free import; see `review.md` and retained evidence archive |
-| Pixels | Three real Forward+ screenshots and capture logs, save_error0, native1280×800 |
+| Historical pixels | Three retained Forward+ screenshots and capture logs, save_error0, native1280×800; no current preview scene is claimed |
 
 The default MCP Godot endpoint6550 and Blender endpoint were unavailable. A fresh
 private Blender CLI and a private worktree-bound Godot editor were used; mutations
@@ -196,15 +195,15 @@ Known tool diagnostics are scoped: Blender reports missing optional MeshOptimize
 library; explicit GLBs contain no compression extension. Source authoring reports a
 Blender6.0 deprecation for `Material.use_nodes`. Full-project editor startup reports
 the pre-existing Steam `get_godotsteam_version` API mismatch. Toolkit save/reimport
-calls can log deferred progress-dialog diagnostics. Clean asset-profile import,
-all four script compiles and final runtime checks/captures have no errors/warnings.
+calls can log deferred progress-dialog diagnostics. The retained clean asset-profile import,
+checkpoint script compiles and runtime checks/captures have no errors/warnings.
 The independent reviewer initially hit restricted editor-listener errors; an authorized
 fresh import with listener access passed without errors/warnings and preserved all
 15 inputs, including sidecars/UIDs. Both logs are retained in the review archive.
 These profiles do not certify the full project's plugins or gameplay.
 
-The independent review accepts source/export freshness, measured markers and linked
-wrapper/preview within bounded static technical scope. Gameplay/network acceptance,
+The independent review accepted source/export freshness, measured markers and the
+then-linked wrapper/preview within bounded static technical scope. Gameplay/network acceptance,
 Windows/Steam/Deck, sustained performance, equipped poses and camera readability in
 the city remain pending. No movement/collision behavior changed in this task.
 
@@ -214,12 +213,12 @@ Instance the wrapper at the player-owned grip mount with identity root transform
 Resolve the documented sockets once; use player-fitted bone/hand offsets, not source
 marker bases as hand-bone rotations. Keep imported model ancestry intact. Future source
 changes reexport **both** collections, preserve `.import` UIDs, then full editor
-refresh and close/reopen/save both base/inherited previews. Recheck sockets/bounds and
-relevant equipped gameplay when contact/scale changes.
+refresh and reload the production wrapper. Recheck sockets/bounds and relevant equipped
+gameplay when contact/scale changes.
 
 Shared files were intentionally left to their owner. Suggested catalogue row:
 `smg_wedgewire_a | rigid Wedgewire SMG visual | docs/assets/smg_wedgewire_a.md`.
-Record the linked review-pad output as preview-only under this same source record.
+The deleted review-pad output remains discoverable in the production-checkpoint history.
 Concept selection is complete; static technical work and independent review status
 are recorded here. Keep equipped pose/clip fitting, gameplay/effects integration and
 device/city readability tasks open. No existing TODO was removed; no main scene,

@@ -7,9 +7,6 @@ import bpy
 from mathutils import Vector
 
 ROOT = Path(__file__).resolve().parents[2]
-FAMILY = 'city_cars'
-SOURCES = ROOT / 'art/source/models' / FAMILY
-OUTPUT = ROOT / 'art/models' / FAMILY
 RECORDS = ROOT / 'docs/assets/vehicle_car_evidence'
 SPECS = [
     dict(id='car_latch_a', width=1.88, height=1.54, length=3.40, radius=.31,
@@ -138,9 +135,21 @@ def wheel_mesh(col, parent, name, radius, depth, offset, mat):
     return finish(obj,mat,.018)
 
 
+def source_path(asset):
+    """Return one vehicle's canonical editable source path."""
+    return ROOT / 'art/source/models/vehicles' / asset / (asset + '.blend')
+
+
+def output_path(asset):
+    """Return one vehicle's canonical runtime export path."""
+    return ROOT / 'art/models/vehicles' / asset / (asset + '.glb')
+
+
 def build(spec):
     """Construct one separately identified vehicle with mechanical pivots and sockets."""
-    asset=spec['id']; source=SOURCES/(asset+'.blend')
+    asset=spec['id']; source=source_path(asset); output=output_path(asset)
+    source.parent.mkdir(parents=True,exist_ok=True)
+    output.parent.mkdir(parents=True,exist_ok=True)
     assert not source.exists(), 'Bootstrap refuses to replace saved source: '+str(source)
     bpy.ops.wm.read_factory_settings(use_empty=True)
     scene=bpy.context.scene
@@ -230,11 +239,13 @@ def build(spec):
         'car_latch_a':'01_latch_compact.png','car_crate_a':'02_crate_hatch.png','car_sable_a':'03_sable_sedan.png'}[asset]
     bpy.ops.wm.save_as_mainfile(filepath=str(source))
     settings=json.loads((ROOT/'tools/s01/export_settings.json').read_text())
-    settings.update(export_animations=False,export_skins=False,collection=col.name,filepath=str(OUTPUT/(asset+'.glb')))
+    settings.update(export_animations=False,export_skins=False,collection=col.name,
+        filepath=str(output))
     bpy.ops.export_scene.gltf(**settings)
     points=[o.matrix_world@Vector(c) for o in col.all_objects if o.type=='MESH' for c in o.bound_box]
     mins=[min(p[i] for p in points) for i in range(3)];maxs=[max(p[i] for p in points) for i in range(3)]
-    record={'id':asset,'source':str(source.relative_to(ROOT)),'export':str((OUTPUT/(asset+'.glb')).relative_to(ROOT)),
+    record={'id':asset,'source':str(source.relative_to(ROOT)),
+        'export':str(output.relative_to(ROOT)),
         'collection':col.name,'members':sorted(o.name for o in col.all_objects),'source_spec':spec,
         'godot_aabb_min':[mins[0],mins[2],-maxs[1]],'godot_aabb_max':[maxs[0],maxs[2],-mins[1]],
         'sockets_godot_m':socket_positions,'triangles':sum(len(o.data.polygons) for o in col.all_objects if o.type=='MESH'),
@@ -246,5 +257,5 @@ def build(spec):
 if __name__ == '__main__':
     assert bpy.app.version_string=='5.2.2 LTS'
     assert (ROOT/'art/source/.gdignore').exists()
-    for directory in (SOURCES,OUTPUT,RECORDS):directory.mkdir(parents=True,exist_ok=True)
+    RECORDS.mkdir(parents=True,exist_ok=True)
     for spec in SPECS:build(spec)

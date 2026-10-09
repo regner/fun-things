@@ -9,7 +9,10 @@ import tempfile
 
 ROOT=Path(__file__).resolve().parents[2]
 EVIDENCE=ROOT/'docs/assets/player_character/evidence'
-GODOT='/home/regner/.local/share/mise/installs/github-godotengine-godot-builds/4.8-dev7/godot'
+GODOT=(os.environ.get('GODOT') or shutil.which('godot') or
+       '/home/regner/.local/share/mise/installs/github-godotengine-godot-builds/4.8-dev7/godot')
+BLENDER=(os.environ.get('BLENDER') or shutil.which('blender') or
+         'C:/Program Files/Blender Foundation/Blender 5.2/blender.exe')
 
 
 def run(command,log,env):
@@ -34,22 +37,38 @@ def main():
                    'XDG_CONFIG_HOME':str(state/'config'),'XDG_DATA_HOME':str(state/'data'),
                    'XDG_CACHE_HOME':str(state/'cache')}
     outputs=[]
-    for name,family,collection,animated in [
-        ('coral_courier','player_character','export_coral_courier',False),
-        ('shared_humanoid_player_motion_v1','shared_humanoid','export_shared_humanoid_player_v1',True),
+    for asset in [
+        {
+            'name':'coral_courier',
+            'source':'art/source/models/characters/coral_courier/coral_courier.blend',
+            'export':'art/models/characters/coral_courier/coral_courier.glb',
+            'collection':'export_coral_courier',
+            'animated':False,
+        },
+        {
+            'name':'shared_humanoid_player_motion_v1',
+            'source':('art/source/models/characters/shared_humanoid/'
+                      'shared_humanoid_player_motion_v1.blend'),
+            'export':('art/models/characters/shared_humanoid/'
+                      'shared_humanoid_player_motion_v1.glb'),
+            'collection':'export_shared_humanoid_player_v1',
+            'animated':True,
+        },
     ]:
-        source=f'art/source/models/{family}/{name}.blend';export=f'art/models/{family}/{name}.glb'
-        temporary=state/(name+'.glb')
-        command=['blender','--background','--threads','2','-noaudio',source,'--python-exit-code','1',
-                 '--python','tools/player_character/reexport.py','--',collection,str(temporary)]
-        if animated:command+=['--animations']
-        run(command,EVIDENCE/(name+'_reexport.log'),env)
-        data=(ROOT/export).read_bytes();assert data==temporary.read_bytes(),export
-        outputs.append({'source':source,'export':export,'byte_identical':True,
+        temporary=state/(asset['name']+'.glb')
+        command=[BLENDER,'--background','--threads','2','-noaudio',asset['source'],
+                 '--python-exit-code','1','--python','tools/player_character/reexport.py',
+                 '--',asset['collection'],str(temporary)]
+        if asset['animated']:command+=['--animations']
+        run(command,EVIDENCE/(asset['name']+'_reexport.log'),env)
+        data=(ROOT/asset['export']).read_bytes()
+        assert data==temporary.read_bytes(),asset['export']
+        outputs.append({'source':asset['source'],'export':asset['export'],'byte_identical':True,
                         'sha256':hashlib.sha256(data).hexdigest()})
     (EVIDENCE/'source_freshness.json').write_text(json.dumps(outputs,indent=2)+'\n')
-    run(['blender','--factory-startup','--background','--threads','2','-noaudio','--python-exit-code','1',
-         '--python','tools/player_character/audit_player_source.py'],EVIDENCE/'source_audit.log',env)
+    run([BLENDER,'--factory-startup','--background','--threads','2','-noaudio',
+         '--python-exit-code','1','--python','tools/player_character/audit_player_source.py'],
+        EVIDENCE/'source_audit.log',env)
     profile=state/'profile';profile.mkdir()
     (profile/'project.godot').write_text('config_version=5\n[application]\nconfig/name="Player asset clean profile"\n[rendering]\nrenderer/rendering_method="gl_compatibility"\n')
     for relative in ['art/models/characters/coral_courier','art/models/characters/shared_humanoid',
@@ -61,8 +80,9 @@ def main():
                      'tools/player_character/check_player_asset.gd','tools/player_character/check_player_asset.gd.uid',
                      'art/source/.gdignore']:
         target=profile/relative;target.parent.mkdir(parents=True,exist_ok=True);shutil.copy2(ROOT/relative,target)
-    for family in ['shared_humanoid','player_character']:
-        for source in (ROOT/'art/source/models'/family).glob('*.json'):
+    for relative in ['art/source/models/characters/shared_humanoid',
+                     'art/source/models/characters/coral_courier']:
+        for source in (ROOT/relative).glob('*.json'):
             target=profile/source.relative_to(ROOT);target.parent.mkdir(parents=True,exist_ok=True)
             shutil.copy2(source,target)
     run([GODOT,'--headless','--path',str(profile),'--editor','--import','--quit','--lsp-port','0','--dap-port','0',

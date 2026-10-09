@@ -44,7 +44,7 @@ def reparent_world(obj, parent):
 
 def refine(spec):
     """Cut true side openings and author door panels/windows around front-edge hinges."""
-    asset=spec['id'];source=a.SOURCES/(asset+'.blend')
+    asset=spec['id'];source=a.source_path(asset)
     bpy.ops.wm.open_mainfile(filepath=str(source))
     assert Path(bpy.data.filepath).resolve()==source.resolve()
     assert bpy.data.objects.get('Doors') is None,'Refinement is one-time; edit saved source thereafter'
@@ -102,7 +102,7 @@ def refine(spec):
     bpy.ops.wm.save_as_mainfile(filepath=str(source))
     settings=json.loads((a.ROOT/'tools/s01/export_settings.json').read_text())
     settings.update(export_animations=False,export_skins=False,collection=col.name,
-        filepath=str(a.OUTPUT/(asset+'.glb')))
+        filepath=str(a.output_path(asset)))
     bpy.ops.export_scene.gltf(**settings)
     record_path=a.RECORDS/(asset+'_source.json');record=json.loads(record_path.read_text())
     record.update(members=sorted(o.name for o in col.all_objects),door_hinges=sorted(o.name for o in doors.children),
