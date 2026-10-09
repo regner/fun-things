@@ -30,10 +30,11 @@ def save(path, value):
 
 
 def percentile(values, quantile):
-    """Return one nearest-rank percentile, or None for an empty sample."""
-    if not values:
+    """Return one nearest-rank percentile, ignoring unavailable monitor samples."""
+    available = [value for value in values if value is not None]
+    if not available:
         return None
-    ordered = sorted(values)
+    ordered = sorted(available)
     index = min(len(ordered) - 1, max(0, math.ceil(quantile * len(ordered)) - 1))
     return ordered[index]
 
@@ -197,7 +198,8 @@ def aggregate(cases):
                 repeat_medians = [case["distributions"][field]["median"] for case in measured]
                 repeat_worst = [case["distributions"][field]["worst"] for case in measured]
                 stats[field]["repeat_median"] = percentile(repeat_medians, 0.5)
-                stats[field]["repeat_worst"] = max(repeat_worst) if repeat_worst else None
+                available_worst = [value for value in repeat_worst if value is not None]
+                stats[field]["repeat_worst"] = max(available_worst) if available_worst else None
             result[group][mode] = {
                 "runs": len(selected),
                 "all_ok": bool(selected) and all(case["ok"] for case in selected),
