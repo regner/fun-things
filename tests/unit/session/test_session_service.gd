@@ -84,6 +84,13 @@ func test_close_timeout_forces_unavailable_without_double_completion() -> void:
 	assert_eq(close_result.reuse_status, SessionTransport.REUSE_UNAVAILABLE)
 	assert_eq(close_result.failure.code, &"CLEANUP_TIMEOUT")
 
+	var registration: Dictionary = _service.register_transport(_transport)
+	assert_true(registration.ok, "re-registering the fixed instance is idempotent")
+	var retry_result: Dictionary = _service.retry()
+	assert_false(retry_result.ok)
+	assert_eq(retry_result.failure.code, &"SERVICE_UNAVAILABLE")
+	assert_eq(_transport.opened_operations.size(), 1)
+
 	_transport.emit_closed(leave_result.operation_id)
 	await get_tree().process_frame
 	assert_eq(_completion_count(leave_result.operation_id), 1)
@@ -109,6 +116,48 @@ func test_join_accepts_provider_target_and_rejects_stale_shape() -> void:
 	await get_tree().process_frame
 	assert_eq(_service.view().phase, SessionService.PHASE_ACTIVE)
 	assert_eq(_completion_count(accepted.operation_id), 1)
+
+
+## Rejects directory-owned targets until SessionDirectory resolves them for transport.
+func test_join_rejects_directory_target_without_opening_transport() -> void:
+	var target: Dictionary = {
+		"provider_id": &"fake",
+		"adapter_generation": 1,
+		"kind": &"DIRECTORY",
+		"opaque_lobby": "not-transport-ready",
+	}
+	var result: Dictionary = _service.join(target)
+	assert_false(result.ok)
+	assert_eq(result.failure.code, &"INVALID_REQUEST")
+	assert_true(_transport.opened_operations.is_empty())
+	assert_eq(_service.view().phase, SessionService.PHASE_IDLE)
+
+
+## Publishes capacity and a roster array in idle, standalone, and host views.
+func test_view_shape_retains_capacity_for_current_session_kind() -> void:
+	var idle_view: Dictionary = _service.view()
+	assert_eq(idle_view.capacity, 0)
+	assert_true(idle_view.roster is Array)
+	assert_true(idle_view.roster.is_empty())
+
+	var standalone: Dictionary = _service.start_standalone(&"brackett_island")
+	assert_true(standalone.ok)
+	var standalone_starting: Dictionary = _service.view()
+	assert_eq(standalone_starting.capacity, 1)
+	assert_true(standalone_starting.roster.is_empty())
+	await get_tree().process_frame
+	assert_eq(_service.view().capacity, 1)
+	assert_true(_service.leave().ok)
+	await get_tree().process_frame
+	assert_eq(_service.view().capacity, 0)
+
+	_transport.auto_ready = false
+	var host_result: Dictionary = _service.host(_host_request())
+	assert_true(host_result.ok)
+	var host_view: Dictionary = _service.view()
+	assert_eq(host_view.capacity, 4)
+	assert_true(host_view.roster is Array)
+	assert_true(host_view.roster.is_empty())
 
 
 ## Records terminal signals independently so duplicate emissions stay observable.

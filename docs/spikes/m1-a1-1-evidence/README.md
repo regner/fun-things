@@ -2,7 +2,8 @@
 
 9 October 2026, lane `m1-a1-1`. This record covers the first production Boot,
 menu/status composition and provider-neutral session operation shell. It does not claim real ENet,
-admission, Match loading, Steam support or production GUT execution.
+admission, Match loading or Steam support. GUT and export claims below apply to the explicitly
+identified A1.1+D1.1 scratch stack, not this lane in isolation.
 
 ## Saved composition
 
@@ -20,15 +21,22 @@ import. `.mcp.json` and incidental imports created under documentation evidence 
 
 The production service owns monotonic operation IDs, busy rejection, standalone start, provider
 selection, cancel/leave/retry, stale callback cleanup and one shared five-second close deadline.
-The fake transport emits operation-correlated delayed peer/failure/close callbacks. A focused
-external smoke drove only production public APIs and observed:
+Its view publishes capacity and an empty pre-admission roster. Directory-owned targets remain
+rejected until `SessionDirectory` exists, and a forced-unavailable fixed provider cannot be made
+reusable by registering the same instance again. The fake transport emits operation-correlated
+delayed peer/failure/close callbacks. Focused production API and GUT checks observed:
 
 - accepted host plus synchronous `BUSY` rejection;
 - repeated cancel sharing one operation and one completion;
 - a late peer disposed rather than attached;
 - retry receiving a fresh larger operation ID and reaching `ACTIVE`;
 - a silent close forced to `UNAVAILABLE/CLEANUP_TIMEOUT` and `IDLE`;
-- a late close ignored without another completion.
+- same-instance re-registration preserving that unavailable fence;
+- a rejected `DIRECTORY` target opening no transport;
+- idle, standalone and host view capacity/roster shapes;
+- a late close ignored without another completion;
+- canceled Boot work restoring `MainMenu` and hiding `SessionStatus`; and
+- initial focus moving to the status card's actionable button.
 
 The saved Boot smoke starts with the menu, reaches standalone `ACTIVE`, leaves through cleanup,
 restores `IDLE` and the menu, runs 30 frames at a 60 FPS cap, and exits without engine/script
@@ -40,15 +48,15 @@ warning or error diagnostics. It passed both headless and Windows D3D12 Forward+
 Detailed command/result data is in [results.json](results.json). Outputs remain outside the
 worktree under `C:/tmp/ft/lanes/m1-a1-1/`.
 
-The focused seven-file gdstyle check and five production-script explicit compilation passed. Python
-discovery passed 85 tests. The repository-wide script check was run and failed only for the known
-pre-existing style/format debt in `docs/assets/rocket_launcher_evidence/**` and
-`tools/pedestrian_civilian/**`, plus expected compilation of the new GUT test before the concurrent
-M1-D1.1 framework exists. Every new M1-A1.1 production/test script passes the focused style check;
-every new production script compiles explicitly. The fake stays under `tests/unit/session/`, so the
-concurrent D1.1 export exclusion can keep it out of runtime packages with the GUT tests.
+Final validation used an external detached A1.1+D1.1 scratch stack: this rebased lane plus D1.1
+commits `eb04632`, `f696bed` and `7dcfe58`. The focused session run passed 8/8 GUT tests with 69
+assertions. The full canonical production check passed the exact engine and GUT pins, formatted,
+zero-warning linted and compiled 161/161 owned scripts, passed 92 Python tests, passed 9/9 GUT
+tests with 70 assertions, completed the clean mirror import and detected the intentional negative
+GUT failure.
 
-`tests/unit/session/test_session_service.gd` is authored as requested with `extends GutTest`, but
-M1-D1.1 had not integrated at this lane's final validation checkpoint. Therefore no GUT result is
-claimed. After D1.1 integrates, this lane must rebase and run those tests through its canonical
-entrypoint before final integration review.
+All four A1.1+D1.1 Windows/Linux debug/release exports and package inspections passed. Each package
+contained the production Boot dependency closure and no `tests/` or `addons/gut/` entry. Export
+logs retained only D1.1's documented development-editor MCP compatibility warning; package
+inspection found no MCP leak. The fake stays under `tests/unit/session/`, outside runtime packages.
+Detailed receipts and command lines remain at the external paths recorded in `results.json`.

@@ -150,9 +150,12 @@ without creating a fake peer. `SessionTransport` is the provider seam, while
 
 M1-A1.1 intentionally stops at the transport seam: Boot registers no network provider yet. Raw
 address text remains in the menu until M1-A1.2 adds ENet endpoint parsing, transport capabilities
-and real host/join behavior. Closing first replaces the active peer with an offline peer, then waits
-for the correlated provider close result or the one shared five-second monotonic deadline. A late
-peer is disposed and a late close/failure callback cannot change view state or complete again.
+and real host/join behavior. `DIRECTORY` targets are rejected until a `SessionDirectory` can resolve
+them; only `TRANSPORT_READY` targets reach the seam. Closing first replaces the active peer with an
+offline peer, then waits for the correlated provider close result or the one shared five-second
+monotonic deadline. A late peer is disposed and a late close/failure callback cannot change view
+state or complete again. The shell publishes selected capacity with an empty pre-admission roster,
+and same-instance registration cannot clear a forced-unavailable provider fence.
 
 ## Transport and session-directory adapters
 

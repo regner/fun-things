@@ -61,6 +61,11 @@ func register_transport(transport: SessionTransport) -> Dictionary:
 		return _rejection(&"BUSY", false)
 	if transport == null or transport.provider_id() == &"":
 		return _rejection(&"INVALID_REQUEST", false)
+	if _transport == transport:
+		_provider_reusable = _provider_reusable and transport.is_available()
+		return _acceptance(0)
+	if _next_operation_id > 1:
+		return _rejection(&"SERVICE_UNAVAILABLE", false)
 
 	if _transport != null:
 		_disconnect_transport(_transport)
@@ -184,6 +189,8 @@ func view() -> Dictionary:
 		"operation_kind": _operation_kind,
 		"provider_id": _provider_id,
 		"session_id": _session_id,
+		"capacity": _current_capacity(),
+		"roster": [],
 		"failure": _failure.duplicate(true),
 		"provider_reusable": _provider_reusable,
 	}
@@ -271,6 +278,9 @@ func _finish_close() -> void:
 	_provider_id = &""
 	_operation_id = 0
 	_close_deadline_seconds = 0.0
+	if terminal_failure.get("code", &"") == &"CANCELED":
+		_failure = {}
+
 	_complete(finished_operation, result)
 	_emit_changed()
 
@@ -349,6 +359,16 @@ func _can_use_provider(provider_id: StringName) -> bool:
 	)
 
 
+## Returns capacity for the current accepted session kind.
+func _current_capacity() -> int:
+	if _operation_kind == OPERATION_STANDALONE:
+		return 1
+	if _operation_kind == OPERATION_HOST and _last_request.payload is Dictionary:
+		return _last_request.payload.get("capacity", 0)
+
+	return 0
+
+
 ## Validates the host request fields owned by SessionService.
 func _valid_host_request(request: Dictionary) -> bool:
 	var provider_id: Variant = request.get("provider_id")
@@ -375,7 +395,7 @@ func _valid_join_target(target: Dictionary) -> bool:
 		and target.get("adapter_generation") is int
 		and target.get("adapter_generation", -1) >= 0
 		and target.get("kind") is StringName
-		and target.get("kind", &"") in [&"TRANSPORT_READY", &"DIRECTORY"]
+		and target.get("kind", &"") == &"TRANSPORT_READY"
 	)
 
 

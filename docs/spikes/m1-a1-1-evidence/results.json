@@ -1,53 +1,51 @@
 {
   "engine": "4.8.dev7.official.c971f93e7",
-  "base": "80d0f24f032e19e9c375948ee25f9b76e0883131",
+  "base": "d857a7105dcb46a4f7b1219ff45bd56bef153475",
+  "validation_stack": {
+    "scope": "A1.1+D1.1 detached scratch stack",
+    "lane_head_before_review_fixes": "dc020ff28288a4d78d7052d3c8a7040bb3d75a4c",
+    "d1_commits": [
+      "eb04632",
+      "f696bed",
+      "7dcfe58"
+    ],
+    "worktree": "C:/tmp/ft/a1-stack"
+  },
   "commands": [
     {
-      "command": "gdstyle fmt --check scripts/boot/boot.gd scripts/session/*.gd scripts/ui/*.gd tests/unit/session/*.gd && gdstyle --max-line-length 100 --max-warnings 0 ...",
+      "command": "python tools/production_checks.py --gut-dir tests/unit/session --output C:/tmp/ft/lanes/m1-a1-1/a1-d1-stack-session-review",
       "result": "pass",
-      "summary": "7 files already formatted; 7 files checked with no lint issues",
-      "output": "C:/tmp/ft/lanes/m1-a1-1/focused-style-final/"
+      "summary": "exact pins, 161 owned scripts, 92 Python tests, clean import, 8/8 session GUT tests with 69 assertions, and intentional negative detection passed",
+      "output": "C:/tmp/ft/lanes/m1-a1-1/a1-d1-stack-session-review/"
     },
     {
-      "command": "godot --headless --path . --check-only --script res://<each new production script>",
+      "command": "python tools/production_checks.py --output C:/tmp/ft/lanes/m1-a1-1/a1-d1-stack-full-review",
       "result": "pass",
-      "summary": "5 of 5 production scripts compiled with no warning/error diagnostics",
-      "output": "C:/tmp/ft/lanes/m1-a1-1/focused-compile-final/"
+      "summary": "full canonical A1.1+D1.1 check passed; 9/9 GUT tests with 70 assertions",
+      "output": "C:/tmp/ft/lanes/m1-a1-1/a1-d1-stack-full-review/"
     },
     {
-      "command": "python -m unittest discover -s tools -p *test*.py",
+      "command": "godot --headless --path . --export-{debug|release} <four D1.1 presets>; python tools/s08_x/inspect_exports.py",
       "result": "pass",
-      "summary": "85 tests passed",
-      "output": "C:/tmp/ft/lanes/m1-a1-1/python-tests-final/output.log"
-    },
-    {
-      "command": "godot --headless --path . --script C:/tmp/ft/lanes/m1-a1-1/session_contract_smoke.gd",
-      "result": "pass",
-      "summary": "cancel/busy/retry/late-peer/close-timeout/late-close checks passed",
-      "output": "C:/tmp/ft/lanes/m1-a1-1/session-contract-final/"
+      "summary": "Windows/Linux debug/release packages passed production Boot dependency and test/GUT/MCP exclusion inspection",
+      "output": "C:/tmp/ft/lanes/m1-a1-1/a1-d1-stack-exports/"
     },
     {
       "command": "godot --headless --path . -- --m1-a1-1-smoke",
       "result": "pass",
-      "summary": "30 frames, max_fps 60, standalone ACTIVE then clean IDLE, no diagnostics",
-      "output": "C:/tmp/ft/lanes/m1-a1-1/headless-smoke-final/"
+      "summary": "30 frames, max_fps 60, standalone ACTIVE then clean IDLE, no warning/error diagnostics",
+      "output": "C:/tmp/ft/lanes/m1-a1-1/a1-d1-stack-smoke/headless/"
     },
     {
       "command": "godot --path . --position 40,40 --resolution 1280x800 --max-fps 60 -- --m1-a1-1-smoke",
       "result": "pass",
       "summary": "Windows D3D12 Forward+ capped launch passed and exited cleanly",
-      "output": "C:/tmp/ft/lanes/m1-a1-1/windowed-smoke-final/"
-    },
-    {
-      "command": "python tools/script_checks.py --output C:/tmp/ft/lanes/m1-a1-1/script-checks-final-pre-d1",
-      "result": "expected-fail",
-      "summary": "new production files compiled; repository check blocked by known style debt and absent concurrent GUT framework",
-      "output": "C:/tmp/ft/lanes/m1-a1-1/script-checks-final-pre-d1/"
-    },
-    {
-      "command": "GUT canonical entrypoint",
-      "result": "not-run",
-      "summary": "M1-D1.1 was not integrated; supervisor directed execution after later resume"
+      "output": "C:/tmp/ft/lanes/m1-a1-1/a1-d1-stack-smoke/windowed/"
     }
+  ],
+  "notes": [
+    "All retained final receipts are validated on the A1.1+D1.1 scratch stack.",
+    "Export logs contain only the documented editor-side MCP Godot 4.8 compatibility warning; package inspection found no MCP, tests, or GUT content.",
+    "The detached scratch worktree is removed after receipts are retained."
   ]
 }
