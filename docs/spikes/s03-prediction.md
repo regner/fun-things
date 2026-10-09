@@ -69,18 +69,18 @@ receipt), i.e. when an unpredicted client could respond.
 
 | Profile | Predicted physics p95 | Authority baseline p95 | Predicted drawn p95 | Authority drawn p95 | Correction p95 / max | Replay CPU p95 per frame | Max replay |
 | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
-| Headless loopback | 22 ms | 164 ms | unavailable | unavailable | 0.000 / 1.917 m | 37.67 us | 39 |
-| Headless normal | 20 ms | 390 ms | unavailable | unavailable | 0.000 / 1.924 m | 21.67 us | 47 |
-| Headless adverse | 17 ms | 429 ms | unavailable | unavailable | 0.000 / 3.750 m | 21.86 us | 84 |
-| Windowed loopback | 22 ms | 173 ms | 28 ms | 184 ms | 0.000 / 0.449 m | 37.0 us | 41 |
+| Headless loopback | 28 ms | 155 ms | unavailable | unavailable | 0.000 / 1.917 m | 37.67 us | 39 |
+| Headless normal | 24 ms | 316 ms | unavailable | unavailable | 0.000 / 1.917 m | 19.71 us | 50 |
+| Headless adverse | 23 ms | 446 ms | unavailable | unavailable | 0.000 / 3.750 m | 23.63 us | 82 |
+| Windowed loopback | 25 ms | 191 ms | 35 ms | 205 ms | 0.000 / 1.917 m | 33.8 us | 40 |
 
 All selected runs meet the provisional predicted response target (physics p95 <=50 ms)
 and correction target (p95 <=0.5 m). Maxima are reported rather than hidden; visual
 smoothing does not change authoritative physics. Exact authoritative installation error
 and matching host-source error were 0 m, and no selected run exhausted 120-frame
-history. The largest pending authority queue was 20 frames. The adverse 1 s interruption
-and 250 ms host stall converged in 385.22 ms and 309 ms respectively, both below 1 s.
-The maximum adverse replay was 84 frames and remained bounded.
+history. The largest pending authority queue was 22 frames. The adverse 1 s interruption
+and 250 ms host stall converged in 354.67 ms and 227 ms respectively, both below 1 s.
+The maximum adverse replay was 82 frames and remained bounded.
 
 Selected correction classifiers were `none` and `held_timing_or_delivery`; no
 remote-actor contact was observed in the final routes and no car
@@ -105,7 +105,7 @@ python tools/run_s03_r.py --godot C:/path/to/godot.exe --profiles baseline \
 python tools/run_s03_r.py --godot C:/path/to/godot.exe --profiles normal adverse \
   --output C:/tmp/ft/lanes/s03-p/prediction-impaired
 python tools/run_s03_r.py --godot C:/path/to/godot.exe --profiles baseline --windowed \
-  --output C:/tmp/ft/lanes/s03-p/prediction-windowed
+  --max-fps 60 --output C:/tmp/ft/lanes/s03-p/prediction-windowed
 ```
 
 All output directories must be fresh and outside the checkout. The runner imports a
