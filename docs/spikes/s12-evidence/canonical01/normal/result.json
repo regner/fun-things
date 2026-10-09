@@ -1,57 +1,86 @@
 {
   "ok": true,
   "profile": "normal",
+  "criteria": {
+    "all_attempts_answered": true,
+    "accepted_sample_floor": true,
+    "per_target_sample_floor": true,
+    "history_sample_bound": true,
+    "history_byte_bound": true,
+    "security_probe_outcomes": true,
+    "rocket_sample_floor": true,
+    "adverse_interruption_and_stall": true,
+    "profile_isolated": true,
+    "saved_source_unchanged": true
+  },
   "measurements": {
     "by_target": {
       "pedestrian": {
-        "samples": 24,
+        "samples": 33,
         "speed_mps": 1.5,
-        "current_agreement_rate": 0.625,
-        "rewind_agreement_rate": 0.875,
-        "current_false_positives": 3,
+        "current_agreement_rate": 0.5454545454545454,
+        "rewind_agreement_rate": 0.9393939393939394,
+        "current_false_positives": 8,
         "rewind_false_positives": 2,
-        "current_false_negatives": 6,
-        "rewind_false_negatives": 1,
-        "rewind_clamped": 24
+        "current_false_negatives": 7,
+        "rewind_false_negatives": 0,
+        "rewind_clamped": 31
       },
       "car": {
-        "samples": 24,
+        "samples": 35,
         "speed_mps": 12.0,
-        "current_agreement_rate": 0.4166666666666667,
-        "rewind_agreement_rate": 0.75,
+        "current_agreement_rate": 0.4,
+        "rewind_agreement_rate": 0.5714285714285714,
         "current_false_positives": 1,
-        "rewind_false_positives": 4,
-        "current_false_negatives": 13,
-        "rewind_false_negatives": 2,
-        "rewind_clamped": 23
+        "rewind_false_positives": 8,
+        "current_false_negatives": 20,
+        "rewind_false_negatives": 7,
+        "rewind_clamped": 35
       }
     },
-    "accepted_shots": 48,
-    "attempts": 64,
-    "responses": 64,
+    "accepted_shots": 68,
+    "attempts": 96,
+    "responses": 96,
     "rewind_cpu_usec": {
-      "median": 13,
-      "p95": 29,
-      "worst": 114
+      "median": 24,
+      "p95": 122,
+      "worst": 179
     },
     "history_peak_bytes": 2988,
     "history_samples": 24,
     "host_rejections": {
       "INVALID": 2,
-      "RATE_LIMITED": 5,
-      "RELOADING": 11,
+      "RATE_LIMITED": 3,
+      "RELOADING": 25,
       "STALE_SEQUENCE": 1
     },
+    "security_probes": [
+      {
+        "accepted": false,
+        "reason": "STALE_SEQUENCE",
+        "sequence": 96
+      },
+      {
+        "accepted": false,
+        "reason": "INVALID",
+        "sequence": 97
+      },
+      {
+        "accepted": false,
+        "reason": "INVALID",
+        "sequence": 98
+      }
+    ],
     "rocket_presentation_offset_m": {
-      "samples": 8,
-      "median": 1.422,
-      "p95": 1.926,
-      "worst": 1.926
+      "samples": 12,
+      "median": 1.8,
+      "p95": 2.016,
+      "worst": 2.016
     }
   },
   "load": {
-    "concurrent_godot_processes": 3,
-    "cpu_load_percent": 0.0,
+    "concurrent_godot_processes": 7,
+    "cpu_load_percent": 65.0,
     "timing_label": "contended upper bound"
   },
   "source_sha256": {
@@ -73,14 +102,14 @@
     "tests\\fixtures\\s03\\session.gd.uid": "577312815f85e86aed2fdfb83214a7b08aa71d52fa304b80caccb4b7bef0479b",
     "tests\\fixtures\\s03\\transport.gd": "536dbd62dbbb1bce933c29495b99b5aa68d85a44eb86446fcd62d63d0ae6e60c",
     "tests\\fixtures\\s03\\transport.gd.uid": "13b71af6193f49f136fcfabf98e6aa715dfaf1d30b8a7a7175ddf1aaebc44cb0",
-    "tests\\fixtures\\s12\\boot.tscn": "8bf7d13632bb55cdaf306c7ba5588bf9760f490145df399ea1fc70501a2550db",
-    "tests\\fixtures\\s12\\combat.gd": "7ebdb9b18700d43f3ad9c96cfb1fd0842ce7440681c4e760c6802454420d95a5",
+    "tests\\fixtures\\s12\\boot.tscn": "98b0de098d205fbbcccd0d43bfce5c89c4e5c747f0346e865bc8724111bd9a44",
+    "tests\\fixtures\\s12\\combat.gd": "5b526489e85fe94ee89b201392706b0cf339e49c3ccb6c26763a79dc7bcecfdb",
     "tests\\fixtures\\s12\\combat.gd.uid": "594accf26bd6388cdc6d5baee9fd937ae1a7a92a56d15808b0dcc1b799c8d26e",
-    "tests\\fixtures\\s12\\proof.gd": "dafb053dfe839f89ecd78a5987ecdb7e392f2831ccc030d4b9ca74d65420791d",
+    "tests\\fixtures\\s12\\proof.gd": "3e92797dd1920b1749cd4e0b34df0da0fb57f385118f484ed5f688ff9dbe52a0",
     "tests\\fixtures\\s12\\proof.gd.uid": "13af669e803534b4e0b2f7c9ac25d5e80cc4c0222c1c2a1e02ee20e5f4d000d0",
     "tests\\fixtures\\s12\\target.gd": "80076cc1c6c1bbdef454039c255bf779a02999e49d2a12854caeef751ccbbdb3",
     "tests\\fixtures\\s12\\target.gd.uid": "ced77002d8ba1355a15e7639da091d956e61f978b1bc9220f690c8980c6ddf2e",
-    "tests\\fixtures\\s12\\target.tscn": "90552f53461bb9a4e2f5b2b8cdc593853522e290636077cf6da7d92fa71e3876"
+    "tests\\fixtures\\s12\\target.tscn": "a12be3aff68888ad8b06a21cdf039b10afdcbace4f333c855116a23740fcf535"
   },
   "saved_source_unchanged": true,
   "commands": {
@@ -88,38 +117,40 @@
       "C:\\Users\\regner.blokandersen\\AppData\\Local\\mise\\installs\\github-godotengine-godot-builds\\4.8-dev7\\godot.exe",
       "--headless",
       "--path",
-      "C:\\tmp\\ft\\lanes\\s12-combat\\canonical01\\normal\\project",
+      "C:\\tmp\\ft\\lanes\\s12-combat\\review-canonical01\\normal\\project",
       "--log-file",
-      "C:\\tmp\\ft\\lanes\\s12-combat\\canonical01\\normal\\host\\engine.log",
+      "C:\\tmp\\ft\\lanes\\s12-combat\\review-canonical01\\normal\\host\\engine.log",
       "res://tests/fixtures/s12/boot.tscn",
       "--",
       "--role=host",
-      "--port=25240"
+      "--port=25310",
+      "--profile=normal"
     ],
     "client": [
       "C:\\Users\\regner.blokandersen\\AppData\\Local\\mise\\installs\\github-godotengine-godot-builds\\4.8-dev7\\godot.exe",
       "--headless",
       "--path",
-      "C:\\tmp\\ft\\lanes\\s12-combat\\canonical01\\normal\\project",
+      "C:\\tmp\\ft\\lanes\\s12-combat\\review-canonical01\\normal\\project",
       "--log-file",
-      "C:\\tmp\\ft\\lanes\\s12-combat\\canonical01\\normal\\client\\engine.log",
+      "C:\\tmp\\ft\\lanes\\s12-combat\\review-canonical01\\normal\\client\\engine.log",
       "res://tests/fixtures/s12/boot.tscn",
       "--",
       "--role=client",
-      "--port=25241"
+      "--port=25311",
+      "--profile=normal"
     ]
   },
   "process_ids": [
-    23232,
-    50316
+    57176,
+    67600
   ],
   "exits": [
     0,
     0
   ],
-  "peak_proxy_queue": 10,
+  "peak_proxy_queue": 8,
   "ports": [
-    25240,
-    25241
+    25310,
+    25311
   ]
 }

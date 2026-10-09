@@ -4,69 +4,96 @@
     "normal": {
       "load": [
         {
-          "concurrent_godot_processes": 3,
+          "concurrent_godot_processes": 7,
+          "cpu_load_percent": 65.0,
+          "timing_label": "contended upper bound"
+        },
+        {
+          "concurrent_godot_processes": 4,
           "cpu_load_percent": 0.0,
           "timing_label": "contended upper bound"
         },
         {
-          "concurrent_godot_processes": 7,
-          "cpu_load_percent": 7.0,
-          "timing_label": "contended upper bound"
-        },
-        {
-          "concurrent_godot_processes": 5,
-          "cpu_load_percent": 51.0,
+          "concurrent_godot_processes": 10,
+          "cpu_load_percent": 1.0,
           "timing_label": "contended upper bound"
         }
       ],
       "targets": {
         "pedestrian": {
           "current_agreement_rates": [
-            0.625,
-            0.5217391304347826,
-            0.44
+            0.5454545454545454,
+            0.6071428571428571,
+            0.48484848484848486
           ],
-          "current_agreement_median": 0.5217391304347826,
-          "current_agreement_worst": 0.44,
+          "current_agreement_median": 0.5454545454545454,
+          "current_agreement_worst": 0.48484848484848486,
           "rewind_agreement_rates": [
-            0.875,
-            0.9130434782608695,
-            0.88
+            0.9393939393939394,
+            0.8928571428571429,
+            0.8181818181818182
           ],
-          "rewind_agreement_median": 0.88,
-          "rewind_agreement_worst": 0.875,
-          "current_false_positives_total": 14,
-          "rewind_false_positives_total": 7,
-          "samples_total": 72
+          "rewind_agreement_median": 0.8928571428571429,
+          "rewind_agreement_worst": 0.8181818181818182,
+          "current_false_positives_total": 19,
+          "rewind_false_positives_total": 10,
+          "samples_total": 94
         },
         "car": {
           "current_agreement_rates": [
-            0.4166666666666667,
-            0.32,
-            0.3333333333333333
+            0.4,
+            0.45714285714285713,
+            0.4375
           ],
-          "current_agreement_median": 0.3333333333333333,
-          "current_agreement_worst": 0.32,
+          "current_agreement_median": 0.4375,
+          "current_agreement_worst": 0.4,
           "rewind_agreement_rates": [
-            0.75,
-            0.76,
-            0.7083333333333334
+            0.5714285714285714,
+            0.6285714285714286,
+            0.625
           ],
-          "rewind_agreement_median": 0.75,
-          "rewind_agreement_worst": 0.7083333333333334,
-          "current_false_positives_total": 4,
-          "rewind_false_positives_total": 11,
-          "samples_total": 73
+          "rewind_agreement_median": 0.625,
+          "rewind_agreement_worst": 0.5714285714285714,
+          "current_false_positives_total": 1,
+          "rewind_false_positives_total": 20,
+          "samples_total": 102
         }
       },
+      "accepted_shots": [
+        68,
+        63,
+        65
+      ],
+      "criteria_passed": [
+        true,
+        true,
+        true
+      ],
+      "security_probe_reasons": [
+        [
+          "STALE_SEQUENCE",
+          "INVALID",
+          "INVALID"
+        ],
+        [
+          "STALE_SEQUENCE",
+          "INVALID",
+          "INVALID"
+        ],
+        [
+          "STALE_SEQUENCE",
+          "INVALID",
+          "INVALID"
+        ]
+      ],
       "rewind_cpu_p95_usec": {
         "values": [
-          29,
-          27,
-          26
+          122,
+          89,
+          216
         ],
-        "median": 27,
-        "worst": 29
+        "median": 122,
+        "worst": 216
       },
       "history_peak_bytes": {
         "values": [
@@ -79,80 +106,107 @@
       },
       "rocket_offset_p95_m": {
         "values": [
-          1.926,
-          2.214,
-          2.016
+          2.016,
+          1.89,
+          2.088
         ],
         "median": 2.016,
-        "worst": 2.214
+        "worst": 2.088
       }
     },
     "adverse": {
       "load": [
         {
-          "concurrent_godot_processes": 4,
-          "cpu_load_percent": 30.0,
+          "concurrent_godot_processes": 11,
+          "cpu_load_percent": 74.0,
           "timing_label": "contended upper bound"
         },
         {
-          "concurrent_godot_processes": 7,
-          "cpu_load_percent": 91.0,
+          "concurrent_godot_processes": 9,
+          "cpu_load_percent": 70.0,
           "timing_label": "contended upper bound"
         },
         {
-          "concurrent_godot_processes": 4,
-          "cpu_load_percent": 62.0,
+          "concurrent_godot_processes": 13,
+          "cpu_load_percent": 77.0,
           "timing_label": "contended upper bound"
         }
       ],
       "targets": {
         "pedestrian": {
           "current_agreement_rates": [
-            0.36363636363636365,
-            0.42105263157894735,
-            0.4444444444444444
+            0.3548387096774194,
+            0.36666666666666664,
+            0.3793103448275862
           ],
-          "current_agreement_median": 0.42105263157894735,
-          "current_agreement_worst": 0.36363636363636365,
+          "current_agreement_median": 0.36666666666666664,
+          "current_agreement_worst": 0.3548387096774194,
           "rewind_agreement_rates": [
-            0.5909090909090909,
-            0.6842105263157895,
-            0.6666666666666666
+            0.5806451612903226,
+            0.6,
+            0.6551724137931034
           ],
-          "rewind_agreement_median": 0.6666666666666666,
-          "rewind_agreement_worst": 0.5909090909090909,
-          "current_false_positives_total": 11,
-          "rewind_false_positives_total": 11,
-          "samples_total": 59
+          "rewind_agreement_median": 0.6,
+          "rewind_agreement_worst": 0.5806451612903226,
+          "current_false_positives_total": 18,
+          "rewind_false_positives_total": 18,
+          "samples_total": 90
         },
         "car": {
           "current_agreement_rates": [
-            0.3333333333333333,
-            0.5333333333333333,
-            0.45454545454545453
+            0.3793103448275862,
+            0.4666666666666667,
+            0.43333333333333335
           ],
-          "current_agreement_median": 0.45454545454545453,
-          "current_agreement_worst": 0.3333333333333333,
+          "current_agreement_median": 0.43333333333333335,
+          "current_agreement_worst": 0.3793103448275862,
           "rewind_agreement_rates": [
-            0.38095238095238093,
-            0.4,
-            0.36363636363636365
+            0.4482758620689655,
+            0.23333333333333334,
+            0.5333333333333333
           ],
-          "rewind_agreement_median": 0.38095238095238093,
-          "rewind_agreement_worst": 0.36363636363636365,
-          "current_false_positives_total": 2,
+          "rewind_agreement_median": 0.4482758620689655,
+          "rewind_agreement_worst": 0.23333333333333334,
+          "current_false_positives_total": 3,
           "rewind_false_positives_total": 9,
-          "samples_total": 58
+          "samples_total": 89
         }
       },
+      "accepted_shots": [
+        60,
+        60,
+        59
+      ],
+      "criteria_passed": [
+        true,
+        true,
+        true
+      ],
+      "security_probe_reasons": [
+        [
+          "STALE_SEQUENCE",
+          "INVALID",
+          "INVALID"
+        ],
+        [
+          "STALE_SEQUENCE",
+          "INVALID",
+          "INVALID"
+        ],
+        [
+          "STALE_SEQUENCE",
+          "INVALID",
+          "INVALID"
+        ]
+      ],
       "rewind_cpu_p95_usec": {
         "values": [
-          20,
-          22,
-          21
+          28,
+          36,
+          201
         ],
-        "median": 21,
-        "worst": 22
+        "median": 36,
+        "worst": 201
       },
       "history_peak_bytes": {
         "values": [
@@ -165,13 +219,23 @@
       },
       "rocket_offset_p95_m": {
         "values": [
-          3.402,
-          21.708,
-          3.726
+          30.51,
+          24.192,
+          14.472
         ],
-        "median": 3.726,
-        "worst": 21.708
-      }
+        "median": 24.192,
+        "worst": 30.51
+      },
+      "blackout_drops": [
+        38,
+        35,
+        37
+      ],
+      "host_stall_observed_ms": [
+        265.0,
+        278.0,
+        266.0
+      ]
     }
   }
 }
