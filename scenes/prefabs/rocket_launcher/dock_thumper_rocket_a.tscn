@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://y65o51lxm7kw"]
+
+[ext_resource type="PackedScene" uid="uid://c6rarivmu7kwa" path="res://art/models/rocket_launcher/dock_thumper_rocket_a.glb" id="1_ategx"]
+
+[node name="DockThumperRocketA" type="Node3D" unique_id=796314956]
+
+[node name="Visuals" type="Node3D" parent="." unique_id=1454730171]
+
+[node name="Model" parent="Visuals" unique_id=113266960 instance=ExtResource("1_ategx")]
+
+[node name="Sockets" type="Node3D" parent="." unique_id=1326786497]
+
+[node name="Trail" type="Marker3D" parent="Sockets" unique_id=1799251369]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.23)

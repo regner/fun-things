@@ -1,12 +1,16 @@
 # Rocket launcher — concept selection
 
-9 October 2026. **Awaiting Regner's concept selection.** These are original fictional
+9 October 2026. **Regner selected A — Dock Thumper:** “Lets go with A, it provides a
+nice top down silhouette”. Production is authorized. These are original fictional
 game visuals, not production models or functional weapon designs.
 
 Rocket-launcher lead: Codex / Paseo `29438b4a-4815-4a68-8614-5d0a704809f2`, branch
 `art/brackett-rocket-launcher`, baseline `c030d66d7d0a9db19c0c2aebf1aa2b83eded6275`.
 Regner selects the visual direction directly here. The external integrator owns
-gameplay integration. No source modeling begins before selection.
+gameplay integration. The concept approval gate was satisfied before source modeling.
+
+This document preserves the original concept checkpoint below. Current sources, measured
+contacts, validation and production status are in the [Dock Thumper handoff](../../../assets/rocket_launcher_dock_thumper.md).
 
 Open [the review gallery](gallery.html) or the individual sheets:
 
@@ -38,7 +42,7 @@ The gallery's 32 px top-view crops are approximate illustration reductions;
 they are not camera-calibrated Godot evidence. The enlarged sheets and mannequin
 views are also concept illustrations, not target-camera renders.
 
-## Visual self-review
+## Visual self-review at the concept checkpoint
 
 - All three sheets include an enlarged top view, a useful three-quarter view,
   a distinct matching rocket and a neutral held-pose/silhouette study.
@@ -57,11 +61,12 @@ views are also concept illustrations, not target-camera renders.
   incorporated. The surface wear is presentation detail; it does not mandate
   production textures or fine geometry that disappears at the game camera.
 
-Self-review accepts these as selection references only. No owner approval,
-independent production audit, Blender export, import, saved Godot scene, animation
-playback, gameplay/network acceptance or hardware performance is claimed.
+Self-review accepts these as selection references; owner approval now selects A.
+At that checkpoint no Blender export or saved Godot scene existed. The linked
+production handoff supersedes the proposed paths, measurements and tool status below;
+gameplay/network and hardware performance acceptance remain separate.
 
-## Compatibility and dependencies
+## Concept-stage compatibility and dependencies (historical)
 
 Metres, positive unit roots; Blender +Z up/+Y front converts once to Godot +Y
 up/-Z front. Launcher origin is the dominant-hand grip attachment pivot.
@@ -119,7 +124,7 @@ camera captures, appropriate clips or explicit not-applicable reasons, saved
 Godot scene refresh/reopen, and one clean-context independent production review.
 That review follows explicit concept selection; it is not a concept approval gate.
 
-## Tool receipt and process boundaries
+## Concept tool receipt and process boundaries (historical)
 
 Built-in imagegen generated all three sheets; exact prompts and modes are in
 [prompts.json](prompts.json). Images were copied into this worktree unchanged;
@@ -143,12 +148,12 @@ was unavailable: sandbox denied the private local HTTP listener, and CUA reporte
 the in-app browser unavailable. No service/config changes or infrastructure
 recovery project was attempted. The static gallery remains directly openable.
 
-## Reconciliation delta for coordinator/integrator
+## Concept-stage reconciliation delta (historical)
 
 Shared catalogue/TODO/planning files were not edited. Proposed later catalogue
 entry: selected launcher and rocket IDs → scoped production handoff above, with
 source/export/prefab/material/socket/preview mapping after authoring. No existing
 TODO is complete at concept stage; no removal delta yet. Pending dependency:
-Regner selects A/B/C or requests a revision; player/effects contracts then refine
+Regner selected A; player/effects contracts now refine
 contacts/emission mapping. Main integration, remote push, workspace archival and
 unrelated foundation closure are outside this handoff.

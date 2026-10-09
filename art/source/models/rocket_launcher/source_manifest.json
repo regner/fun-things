@@ -1,0 +1,1114 @@
+{
+  "creator": "Codex rocket-launcher lead",
+  "concept": "Regner approved A Dock Thumper",
+  "blender": "5.2.2 LTS",
+  "build": "d13f752e3b9c",
+  "source": "dock_thumper_a.blend",
+  "collections": {
+    "export_dock_thumper_launcher_a": [
+      {
+        "name": "TubeBody",
+        "type": "MESH",
+        "location_blender": [
+          0.0,
+          0.14000000059604645,
+          0.30000001192092896
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "aabb_godot_min": [
+          -0.15000000596046448,
+          0.1499999761581421,
+          -0.7099999785423279
+        ],
+        "aabb_godot_max": [
+          0.15000000596046448,
+          0.4500000476837158,
+          0.4300000071525574
+        ],
+        "triangles": 508,
+        "material": "dock_thumper_petrol"
+      },
+      {
+        "name": "CoralMuzzleCollar",
+        "type": "MESH",
+        "location_blender": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "aabb_godot_min": [
+          -0.20000000298023224,
+          0.10000000149011612,
+          -0.8999999761581421
+        ],
+        "aabb_godot_max": [
+          0.20000000298023224,
+          0.5,
+          -0.7200000286102295
+        ],
+        "triangles": 1024,
+        "material": "dock_thumper_coral"
+      },
+      {
+        "name": "MuzzleRecess",
+        "type": "MESH",
+        "location_blender": [
+          0.0,
+          0.7350000143051147,
+          0.30000001192092896
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "aabb_godot_min": [
+          -0.1379999965429306,
+          0.16200001537799835,
+          -0.7415000200271606
+        ],
+        "aabb_godot_max": [
+          0.1379999965429306,
+          0.43800002336502075,
+          -0.7285000085830688
+        ],
+        "triangles": 508,
+        "material": "dock_thumper_graphite"
+      },
+      {
+        "name": "RearGraphiteCollar",
+        "type": "MESH",
+        "location_blender": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "aabb_godot_min": [
+          -0.17499999701976776,
+          0.125,
+          0.41999998688697815
+        ],
+        "aabb_godot_max": [
+          0.17499999701976776,
+          0.4749999940395355,
+          0.5299999713897705
+        ],
+        "triangles": 1024,
+        "material": "dock_thumper_graphite"
+      },
+      {
+        "name": "RearRecess",
+        "type": "MESH",
+        "location_blender": [
+          0.0,
+          -0.46000000834465027,
+          0.30000001192092896
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "aabb_godot_min": [
+          -0.13099999725818634,
+          0.16900001466274261,
+          0.45500001311302185
+        ],
+        "aabb_godot_max": [
+          0.13099999725818634,
+          0.4309999942779541,
+          0.4650000035762787
+        ],
+        "triangles": 508,
+        "material": "dock_thumper_graphite"
+      },
+      {
+        "name": "RearIvoryBand",
+        "type": "MESH",
+        "location_blender": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "aabb_godot_min": [
+          -0.16899999976158142,
+          0.13099999725818634,
+          0.36500000953674316
+        ],
+        "aabb_godot_max": [
+          0.16899999976158142,
+          0.4690000116825104,
+          0.4000000059604645
+        ],
+        "triangles": 1024,
+        "material": "dock_thumper_ivory"
+      },
+      {
+        "name": "FrontGraphiteBand",
+        "type": "MESH",
+        "location_blender": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "aabb_godot_min": [
+          -0.1589999943971634,
+          0.14100000262260437,
+          -0.703000009059906
+        ],
+        "aabb_godot_max": [
+          0.1589999943971634,
+          0.45899999141693115,
+          -0.6549999713897705
+        ],
+        "triangles": 1024,
+        "material": "dock_thumper_graphite"
+      },
+      {
+        "name": "IvoryCrown",
+        "type": "MESH",
+        "location_blender": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "aabb_godot_min": [
+          -0.07699999958276749,
+          0.43336790800094604,
+          -0.6349999904632568
+        ],
+        "aabb_godot_max": [
+          0.07699999958276749,
+          0.45399999618530273,
+          0.3100000023841858
+        ],
+        "triangles": 16,
+        "material": "dock_thumper_ivory"
+      },
+      {
+        "name": "UpperRail",
+        "type": "MESH",
+        "location_blender": [
+          0.0,
+          0.03999999910593033,
+          0.4690000116825104
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "aabb_godot_min": [
+          -0.027499999850988388,
+          0.4514999985694885,
+          -0.3799999952316284
+        ],
+        "aabb_godot_max": [
+          0.027499999850988388,
+          0.4865000247955322,
+          0.30000001192092896
+        ],
+        "triangles": 188,
+        "material": "dock_thumper_petrol"
+      },
+      {
+        "name": "SightBlock_-0.3",
+        "type": "MESH",
+        "location_blender": [
+          0.0,
+          -0.30000001192092896,
+          0.47999998927116394
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "aabb_godot_min": [
+          -0.05000000074505806,
+          0.45749998092651367,
+          0.2600000202655792
+        ],
+        "aabb_godot_max": [
+          0.05000000074505806,
+          0.5024999976158142,
+          0.3400000035762787
+        ],
+        "triangles": 188,
+        "material": "dock_thumper_graphite"
+      },
+      {
+        "name": "SightBlock_0.55",
+        "type": "MESH",
+        "location_blender": [
+          0.0,
+          0.550000011920929,
+          0.47999998927116394
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "aabb_godot_min": [
+          -0.05000000074505806,
+          0.45749998092651367,
+          -0.5900000333786011
+        ],
+        "aabb_godot_max": [
+          0.05000000074505806,
+          0.5024999976158142,
+          -0.5099999904632568
+        ],
+        "triangles": 188,
+        "material": "dock_thumper_graphite"
+      },
+      {
+        "name": "CyanStatus",
+        "type": "MESH",
+        "location_blender": [
+          0.0,
+          0.6520000100135803,
+          0.45899999141693115
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "aabb_godot_min": [
+          -0.05000000074505806,
+          0.4529999792575836,
+          -0.6819999814033508
+        ],
+        "aabb_godot_max": [
+          0.05000000074505806,
+          0.4650000035762787,
+          -0.6220000386238098
+        ],
+        "triangles": 188,
+        "material": "dock_thumper_cyan"
+      },
+      {
+        "name": "DominantGrip",
+        "type": "MESH",
+        "location_blender": [
+          0.0,
+          0.0,
+          0.05000000074505806
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "aabb_godot_min": [
+          -0.04500000178813934,
+          -0.07500000298023224,
+          -0.05000000074505806
+        ],
+        "aabb_godot_max": [
+          0.04500000178813934,
+          0.17499999701976776,
+          0.05000000074505806
+        ],
+        "triangles": 188,
+        "material": "dock_thumper_graphite"
+      },
+      {
+        "name": "GripCoralInset",
+        "type": "MESH",
+        "location_blender": [
+          0.0,
+          0.03500000014901161,
+          0.054999999701976776
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "aabb_godot_min": [
+          -0.04699999839067459,
+          -0.030000001192092896,
+          -0.05250000208616257
+        ],
+        "aabb_godot_max": [
+          0.04699999839067459,
+          0.14000000059604645,
+          -0.017500000074505806
+        ],
+        "triangles": 188,
+        "material": "dock_thumper_coral"
+      },
+      {
+        "name": "SupportGrip",
+        "type": "MESH",
+        "location_blender": [
+          0.0,
+          0.4300000071525574,
+          0.04500000178813934
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "aabb_godot_min": [
+          -0.042500000447034836,
+          -0.07499999552965164,
+          -0.48000001907348633
+        ],
+        "aabb_godot_max": [
+          0.042500000447034836,
+          0.16499999165534973,
+          -0.3799999952316284
+        ],
+        "triangles": 188,
+        "material": "dock_thumper_graphite"
+      },
+      {
+        "name": "SupportIvoryBase",
+        "type": "MESH",
+        "location_blender": [
+          0.0,
+          0.4300000071525574,
+          -0.06499999761581421
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "aabb_godot_min": [
+          -0.04500000178813934,
+          -0.08249999582767487,
+          -0.48250001668930054
+        ],
+        "aabb_godot_max": [
+          0.04500000178813934,
+          -0.04749999940395355,
+          -0.3774999976158142
+        ],
+        "triangles": 188,
+        "material": "dock_thumper_ivory"
+      },
+      {
+        "name": "ShoulderPad",
+        "type": "MESH",
+        "location_blender": [
+          0.0,
+          -0.2800000011920929,
+          0.11749999970197678
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "aabb_godot_min": [
+          -0.11749999970197678,
+          0.08500000089406967,
+          0.17000000178813934
+        ],
+        "aabb_godot_max": [
+          0.11749999970197678,
+          0.15000000596046448,
+          0.38999998569488525
+        ],
+        "triangles": 188,
+        "material": "dock_thumper_graphite"
+      },
+      {
+        "name": "ShoulderCoralTrim",
+        "type": "MESH",
+        "location_blender": [
+          0.0,
+          -0.2800000011920929,
+          0.1589999943971634
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "aabb_godot_min": [
+          -0.12150000035762787,
+          0.14299999177455902,
+          0.16249999403953552
+        ],
+        "aabb_godot_max": [
+          0.12150000035762787,
+          0.17499999701976776,
+          0.39750000834465027
+        ],
+        "triangles": 188,
+        "material": "dock_thumper_coral"
+      },
+      {
+        "name": "FrontVent_-1",
+        "type": "MESH",
+        "location_blender": [
+          -0.19699999690055847,
+          0.8100000023841858,
+          0.30000001192092896
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "aabb_godot_min": [
+          -0.2029999941587448,
+          0.26750001311302185,
+          -0.8525000214576721
+        ],
+        "aabb_godot_max": [
+          -0.19099999964237213,
+          0.33250001072883606,
+          -0.7674999833106995
+        ],
+        "triangles": 188,
+        "material": "dock_thumper_graphite"
+      },
+      {
+        "name": "RearSidePanel_-1",
+        "type": "MESH",
+        "location_blender": [
+          -0.15000000596046448,
+          -0.25999999046325684,
+          0.28999999165534973
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "aabb_godot_min": [
+          -0.15850000083446503,
+          0.2449999898672104,
+          0.1550000011920929
+        ],
+        "aabb_godot_max": [
+          -0.14150001108646393,
+          0.3349999785423279,
+          0.3649999797344208
+        ],
+        "triangles": 188,
+        "material": "dock_thumper_petrol"
+      },
+      {
+        "name": "FrontVent_1",
+        "type": "MESH",
+        "location_blender": [
+          0.19699999690055847,
+          0.8100000023841858,
+          0.30000001192092896
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "aabb_godot_min": [
+          0.19099999964237213,
+          0.26750001311302185,
+          -0.8525000214576721
+        ],
+        "aabb_godot_max": [
+          0.2029999941587448,
+          0.33250001072883606,
+          -0.7674999833106995
+        ],
+        "triangles": 188,
+        "material": "dock_thumper_graphite"
+      },
+      {
+        "name": "RearSidePanel_1",
+        "type": "MESH",
+        "location_blender": [
+          0.15000000596046448,
+          -0.25999999046325684,
+          0.28999999165534973
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "aabb_godot_min": [
+          0.14150001108646393,
+          0.2449999898672104,
+          0.1550000011920929
+        ],
+        "aabb_godot_max": [
+          0.15850000083446503,
+          0.3349999785423279,
+          0.3649999797344208
+        ],
+        "triangles": 188,
+        "material": "dock_thumper_petrol"
+      },
+      {
+        "name": "socket_grip",
+        "type": "EMPTY",
+        "location_blender": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "position_godot": [
+          0.0,
+          0.0,
+          -0.0
+        ],
+        "basis_godot": [
+          [
+            1,
+            0,
+            0
+          ],
+          [
+            0,
+            1,
+            0
+          ],
+          [
+            0,
+            0,
+            1
+          ]
+        ]
+      },
+      {
+        "name": "socket_muzzle",
+        "type": "EMPTY",
+        "location_blender": [
+          0.0,
+          0.9049999713897705,
+          0.30000001192092896
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "position_godot": [
+          0.0,
+          0.30000001192092896,
+          -0.9049999713897705
+        ],
+        "basis_godot": [
+          [
+            1,
+            0,
+            0
+          ],
+          [
+            0,
+            1,
+            0
+          ],
+          [
+            0,
+            0,
+            1
+          ]
+        ]
+      },
+      {
+        "name": "socket_support_hand",
+        "type": "EMPTY",
+        "location_blender": [
+          0.0,
+          0.4300000071525574,
+          -0.08250000327825546
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "position_godot": [
+          0.0,
+          -0.08250000327825546,
+          -0.4300000071525574
+        ],
+        "basis_godot": [
+          [
+            1,
+            0,
+            0
+          ],
+          [
+            0,
+            1,
+            0
+          ],
+          [
+            0,
+            0,
+            1
+          ]
+        ],
+        "contact_normal_godot": [
+          0,
+          -1,
+          0
+        ]
+      },
+      {
+        "name": "socket_shoulder",
+        "type": "EMPTY",
+        "location_blender": [
+          0.0,
+          -0.2800000011920929,
+          0.08500000089406967
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "position_godot": [
+          0.0,
+          0.08500000089406967,
+          0.2800000011920929
+        ],
+        "basis_godot": [
+          [
+            1,
+            0,
+            0
+          ],
+          [
+            0,
+            1,
+            0
+          ],
+          [
+            0,
+            0,
+            1
+          ]
+        ],
+        "contact_normal_godot": [
+          0,
+          -1,
+          0
+        ]
+      }
+    ],
+    "export_dock_thumper_rocket_a": [
+      {
+        "name": "RocketBody",
+        "type": "MESH",
+        "location_blender": [
+          0.0,
+          -0.054999999701976776,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "aabb_godot_min": [
+          -0.0560000017285347,
+          -0.056000009179115295,
+          -0.0950000062584877
+        ],
+        "aabb_godot_max": [
+          0.0560000017285347,
+          0.056000009179115295,
+          0.20500001311302185
+        ],
+        "triangles": 508,
+        "material": "dock_thumper_petrol"
+      },
+      {
+        "name": "RocketIvoryBand",
+        "type": "MESH",
+        "location_blender": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "aabb_godot_min": [
+          -0.05900000035762787,
+          -0.05900000035762787,
+          -0.10499999672174454
+        ],
+        "aabb_godot_max": [
+          0.05900000035762787,
+          0.05900000035762787,
+          -0.08399999886751175
+        ],
+        "triangles": 1024,
+        "material": "dock_thumper_ivory"
+      },
+      {
+        "name": "RoundedCoralNose",
+        "type": "MESH",
+        "location_blender": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "aabb_godot_min": [
+          -0.05700000002980232,
+          -0.05700000002980232,
+          -0.22499999403953552
+        ],
+        "aabb_godot_max": [
+          0.05700000002980232,
+          0.05700000002980232,
+          -0.10000000149011612
+        ],
+        "triangles": 214,
+        "material": "dock_thumper_coral"
+      },
+      {
+        "name": "ExhaustRim",
+        "type": "MESH",
+        "location_blender": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "aabb_godot_min": [
+          -0.05999999865889549,
+          -0.05999999865889549,
+          0.19499999284744263
+        ],
+        "aabb_godot_max": [
+          0.05999999865889549,
+          0.05999999865889549,
+          0.22499999403953552
+        ],
+        "triangles": 1024,
+        "material": "dock_thumper_graphite"
+      },
+      {
+        "name": "ExhaustRecess",
+        "type": "MESH",
+        "location_blender": [
+          0.0,
+          -0.19900000095367432,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "aabb_godot_min": [
+          -0.03400000184774399,
+          -0.03400000184774399,
+          0.19449999928474426
+        ],
+        "aabb_godot_max": [
+          0.03400000184774399,
+          0.03400000184774399,
+          0.20350000262260437
+        ],
+        "triangles": 508,
+        "material": "dock_thumper_graphite"
+      },
+      {
+        "name": "IvoryFin_0",
+        "type": "MESH",
+        "location_blender": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "aabb_godot_min": [
+          0.04500000178813934,
+          -0.006000000052154064,
+          0.08109094947576523
+        ],
+        "aabb_godot_max": [
+          0.11999999731779099,
+          0.006000000052154064,
+          0.211526021361351
+        ],
+        "triangles": 188,
+        "material": "dock_thumper_ivory"
+      },
+      {
+        "name": "IvoryFin_1",
+        "type": "MESH",
+        "location_blender": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "aabb_godot_min": [
+          -0.06409462541341782,
+          0.037075188010931015,
+          0.08109094947576523
+        ],
+        "aabb_godot_max": [
+          -0.01840537041425705,
+          0.10581900179386139,
+          0.211526021361351
+        ],
+        "triangles": 188,
+        "material": "dock_thumper_ivory"
+      },
+      {
+        "name": "IvoryFin_2",
+        "type": "MESH",
+        "location_blender": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "aabb_godot_min": [
+          -0.06409462541341782,
+          -0.10581900179386139,
+          0.08109094947576523
+        ],
+        "aabb_godot_max": [
+          -0.01840537041425705,
+          -0.037075188010931015,
+          0.211526021361351
+        ],
+        "triangles": 188,
+        "material": "dock_thumper_ivory"
+      },
+      {
+        "name": "socket_trail",
+        "type": "EMPTY",
+        "location_blender": [
+          0.0,
+          -0.23000000417232513,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "position_godot": [
+          0.0,
+          0.0,
+          0.23000000417232513
+        ],
+        "basis_godot": [
+          [
+            1,
+            0,
+            0
+          ],
+          [
+            0,
+            1,
+            0
+          ],
+          [
+            0,
+            0,
+            1
+          ]
+        ]
+      }
+    ],
+    "export_dock_thumper_preview_stage": [
+      {
+        "name": "AsphaltStage",
+        "type": "MESH",
+        "location_blender": [
+          0.0,
+          0.0,
+          -0.05999999865889549
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "aabb_godot_min": [
+          -32.0,
+          -0.10999999940395355,
+          -24.0
+        ],
+        "aabb_godot_max": [
+          32.0,
+          -0.009999997913837433,
+          24.0
+        ],
+        "triangles": 188,
+        "material": "dock_thumper_asphalt"
+      },
+      {
+        "name": "MetreReference",
+        "type": "MESH",
+        "location_blender": [
+          -2.0,
+          0.0,
+          0.0020000000949949026
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "aabb_godot_min": [
+          -2.5,
+          -0.003999999724328518,
+          -0.019999999552965164
+        ],
+        "aabb_godot_max": [
+          -1.5,
+          0.00800000037997961,
+          0.019999999552965164
+        ],
+        "triangles": 188,
+        "material": "dock_thumper_ivory"
+      },
+      {
+        "name": "MetreTick_-2.5",
+        "type": "MESH",
+        "location_blender": [
+          -2.5,
+          0.0,
+          0.0020000000949949026
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "aabb_godot_min": [
+          -2.5199999809265137,
+          -0.003999999724328518,
+          -0.10000000149011612
+        ],
+        "aabb_godot_max": [
+          -2.4800000190734863,
+          0.00800000037997961,
+          0.10000000149011612
+        ],
+        "triangles": 188,
+        "material": "dock_thumper_coral"
+      },
+      {
+        "name": "MetreTick_-1.5",
+        "type": "MESH",
+        "location_blender": [
+          -1.5,
+          0.0,
+          0.0020000000949949026
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "aabb_godot_min": [
+          -1.5199999809265137,
+          -0.003999999724328518,
+          -0.10000000149011612
+        ],
+        "aabb_godot_max": [
+          -1.4800000190734863,
+          0.00800000037997961,
+          0.10000000149011612
+        ],
+        "triangles": 188,
+        "material": "dock_thumper_coral"
+      }
+    ]
+  },
+  "settings": {
+    "export_format": "GLB",
+    "use_selection": false,
+    "use_visible": false,
+    "export_yup": true,
+    "export_apply": false,
+    "export_texcoords": true,
+    "export_normals": true,
+    "export_tangents": false,
+    "export_materials": "EXPORT",
+    "export_cameras": false,
+    "export_lights": false,
+    "export_extras": false,
+    "export_skins": false,
+    "export_all_influences": false,
+    "export_animation_mode": "ACTIONS",
+    "export_merge_animation": "ACTION",
+    "export_frame_range": false,
+    "export_frame_step": 1,
+    "export_force_sampling": true,
+    "export_optimize_animation_size": false,
+    "export_morph": false,
+    "export_morph_animation": false,
+    "export_animations": false
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "instruction": "Any time any of those workspaces are doing modeling or animation work they should be using the Astra model. Work in Godot that does not need spatial awareness, such as configuring animations and rigs or importing models, can use Sol 6.1.",
+  "received_date": "2026-10-09",
+  "verification": "mcp__paseo__get_agent_status returned activeTurn codex-turn-9 and runtimeInfo.model gpt-6-astra, thinkingOptionId high, modeId auto-review",
+  "agent": "29438b4a-4815-4a68-8614-5d0a704809f2",
+  "applies": "Prospectively to lead and modeling/animation subagents; verify effective runtime before resumed spatial mutations. Nonspatial configuration, bookkeeping and technical review may use Sol6.1.",
+  "preservation": "Existing source/export/editor state preserved; no process kills or new worktree for model transition."
+}
