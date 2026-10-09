@@ -10,7 +10,9 @@ before M1. Changing ratified product policy still requires a recorded product de
 Read this with [scene structure](scene-structure.md), [API contracts](api-contracts.md),
 [development](development.md), [assets](assets.md), and [multiplayer](multiplayer.md).
 The ownership table here is canonical; API shapes and provisional limits live in
-the API contract, and authored paths/placement live in the scene contract.
+the API contract, and authored paths/placement live in the scene contract. The
+[current provider supplement](#owner-decision-provider-supplement--8-october-2026)
+supersedes earlier Steam-as-initial-provider wording while preserving its history.
 
 ## Boundaries and lifetime
 
@@ -312,3 +314,34 @@ actual source-linked effects/eight-slot saturation/live-versus-hydrated receipts
 named hardware/four graphical views/residency/sustained costs. Full spikes, Steam/
 Deck/input/P0/six-block M1/production and user decisions stay open; no maximum,
 renderer/streaming, pin or optimization follows.
+
+## Owner-decision provider supplement — 8 October 2026
+
+This is the current provider architecture and supersedes earlier statements in this
+file that make Steam an initial/M1 provider or gate. Those statements and the accepted
+S03-S source records remain historical evidence; they are not current execution or
+acceptance requirements.
+
+Boot initially composes Standalone and one network provider, `ENetTransport`. A session
+selects ENet before host/join and retains it through closing. SessionService, Match and
+Replication remain provider-neutral as specified in the
+[M1-A1 contract](api-contracts.md#transport-and-session-directory-adapters): opaque
+provider/connection/target identities, four logical streams, one admission flow and
+one authoritative gameplay protocol. The ownership table's SteamTransport and
+SteamPlatform rows describe a possible future boundary only. For the initial game,
+ENetTransport solely owns the native peer/callback facts and no SessionDirectory or
+platform adapter is instantiated or initialized.
+
+S03-S acceptance is now the reviewed
+[abstraction](spikes/s03-s-abstraction-review.md), not a real Steam adapter, callback
+proof, account test, package/export route or private-delivery gate. S08 and M1 initial
+acceptance prove the selected ENet path and target behavior without Steam. References
+above to S03-S proving native Steam or to Steam delivery blocking P0/M1 are historical
+and do not apply to the ENet-only initial game.
+
+A Steam adapter may be considered only in a separately commissioned future task. It
+must fit the existing Transport plus optional SessionDirectory boundary and independently
+prove identity, four-stream delivery, bounds, cancel/late-callback retirement, safe
+reuse, packaging and target behavior before Boot can register it. That future work must
+not change gameplay owners, treat lobby membership as admission, or make Standalone/ENet
+depend on Steam availability.

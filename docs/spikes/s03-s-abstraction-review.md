@@ -32,12 +32,22 @@ session directory, provider registration/composition in Boot, and platform packa
 continues to see only admitted ParticipantIds, stable session/entity identities, and the same RPC
 endpoints. This is an abstraction acceptance, not evidence that a conforming Steam adapter exists.
 
+### Coordinated product-brief reconciliation
+
+This lane adds current owner-decision supplements to `docs/architecture.md` and
+`docs/multiplayer.md` but deliberately does not edit the product brief. The concurrent
+`decisions-docs` lane reconciles the pre-edit `docs/design.md` Steam requirements at lines **47–61**
+(required transports/join flow), **216–222** (V6/real-Steam route), **319–320** (remaining evidence),
+**324–338** (availability does not reduce requirements), **350**, **354–355**, and **362–370**
+(Steam proof owners/gates). Historical AppID/depot/source observations may remain; current scope must
+say that ENet is the only initial provider and a Steam adapter is separately commissioned later.
+
 ## Concept map and gap analysis
 
 | Steam concept | Existing owner and fit | Gap | Smallest M1-A1 adjustment |
 | --- | --- | --- | --- |
 | SteamID account identity | Transport already authenticates native identity; SessionService maps an active native peer to a fresh ParticipantId. Gameplay never trusts an account or lobby identity. | `native_binding` does not express connection generation, and exposing a raw SteamID would couple the session/gameplay boundary to Steam. | Emit an opaque `ConnectionToken` plus native peer ID only after provider authentication. Keep SteamID↔token mapping inside the adapter. Reconnect still receives a fresh ParticipantId. |
-| Lobby create/join | The existing platform/transport ownership split correctly treats a lobby as discovery, not admission or gameplay transport. | The canonical type is Steam-named and the host request has a Steam enum branch. | Use optional `SessionDirectory` beside a transport registered under the same `ProviderId`. It creates opaque `JoinTarget`s and never admits a player. ENet registers no directory. |
+| Lobby create/join | The existing platform/transport ownership split correctly treats a lobby as discovery, not admission or gameplay transport. | The canonical type is Steam-named, the host request has a Steam enum branch, and join resolution/transport opening was not ordered. | Use optional `SessionDirectory` beside a transport registered under the same `ProviderId`. A `DIRECTORY` target resolves through correlated `directory.join`/`join_ready` to a `TRANSPORT_READY` target before transport open. It never admits a player; ENet registers no directory. |
 | Friend invite, rich-presence join, launch arguments | Existing `join_requested(JoinTarget)` enters the common join/cancel/confirm-leave flow and keeps one pending invite. | Source is not represented, and parsing rules are implicit. Raw lobby IDs or command-line text could leak into UI/session code. | Directory parses provider payloads strictly and emits `ExternalJoinRequest {target, source}` where source is invite, rich presence, or launch. Target remains opaque, bounded, provider-tagged, and generation-scoped. |
 | SteamNetworkingMessages | It can address message channels but uses implicit sessions and exposes less explicit connection/open/close state. | The common contract requires a Godot `MultiplayerPeer`, four independent logical streams, host-loss callbacks, operation correlation, and safe close/reuse. The inspected API evidence does not establish that fit. | Do not expose Messages in gameplay or session APIs. A future adapter may use it only if it implements the same transport, lifecycle, bounds, and peer contract. Current evidence makes Sockets the smaller prospective fit, not a selected implementation. |
 | SteamNetworkingSockets | P2P listen/connect, connection handles, callbacks, lanes, diagnostics, and relay routing map naturally to Transport. | No inspected peer currently satisfies all required modes, metadata, ownership, bounds, and cancellation rules. | Keep the native API private. A later adapter must produce the standard `MultiplayerPeer`, `ConnectionToken` callbacks, checked close result, and fixed stream profile. No raw socket handle crosses the boundary. |
@@ -58,7 +68,8 @@ GDScript types may be smaller while preserving the same information and ownershi
 ```text
 ProviderId = stable namespaced identifier; M1 initially registers only &"enet"
 ConnectionToken = opaque, adapter-generated, non-reused across adapter/connection generations
-JoinTarget = opaque {provider_id, adapter_generation, local_handle}
+JoinTarget = opaque {provider_id, adapter_generation,
+                     kind: TRANSPORT_READY | DIRECTORY, local_handle}
 ExternalJoinRequest = {target: JoinTarget,
                        source: INVITE | RICH_PRESENCE | LAUNCH}
 
@@ -85,7 +96,8 @@ SessionDirectory.create_joinable(operation_id, capacity) -> Result<void>
 SessionDirectory.join(operation_id, target: JoinTarget) -> Result<void>
 SessionDirectory.close(operation_id) -> Result<void>
 signals:
-  ready(operation_id, target: JoinTarget)
+  host_ready(operation_id, published_target: JoinTarget)
+  join_ready(operation_id, transport_target: JoinTarget)
   failed(operation_id, failure: Failure)
   closed(operation_id, result: CloseResult)
   join_requested(request: ExternalJoinRequest)
@@ -122,18 +134,28 @@ while a session is active or closing.
 
 For M1, Boot resolves `&"enet"`, SessionService opens ENet, and the ENet adapter applies the pinned
 engine bandwidth workaround before `peer_ready`. There is no directory and no Steam initialization.
-A future directory-backed provider first creates a transport endpoint, then publishes a joinable
-target only when the endpoint is ready; SessionService cleans both resources if either side fails.
-A lobby member never becomes a roster participant from directory state.
+A future directory-backed provider first creates a transport endpoint, then calls
+`create_joinable`; `host_ready` returns a publishable `DIRECTORY` target only when the endpoint is
+ready. SessionService cleans both resources if either side fails. Host cleanup reverses acquisition:
+it closes the published directory binding before the transport endpoint. A lobby member never
+becomes a roster participant from directory state.
 
 ### Join and identity
 
-ENet UI calls its adapter-local endpoint parser and receives an opaque target. A future platform
-callback receives provider data, validates it inside SessionDirectory, and emits one opaque external
-join request. SessionService follows the same cancel/confirm/leave flow, opens the target's matching
-transport, and maps `(operation_id, ConnectionToken, native_peer_id)` only while current. The
-application handshake, compatibility checks, hydration, and handoff allocate ParticipantId and open
-input. Account identity and transport connection alone cannot do so.
+ENet UI calls its adapter-local endpoint parser and receives an opaque `TRANSPORT_READY` target,
+which SessionService opens directly. A future platform callback validates provider data inside
+SessionDirectory and emits one external request containing a `DIRECTORY` target. SessionService
+correlates the current OperationId, calls `directory.join`, and waits for `join_ready`. It verifies
+that the result is a `TRANSPORT_READY` target for the same provider and current adapter generation
+before opening Transport. Directory readiness alone cannot negotiate or admit gameplay.
+
+Cancel/failure invalidates the operation and targets first. If transport opened, the client detaches
+and closes it before closing the directory request/membership, reversing acquisition order. A late
+`join_ready` is cleanup-only and never opens transport. SessionService completes once only after all
+acquired components close, and marks the binding reusable only if all report `SAFE`. It then maps
+`(operation_id, ConnectionToken, native_peer_id)` only while current. The application handshake,
+compatibility checks, hydration, and handoff allocate ParticipantId and open input. Account identity,
+directory membership and transport connection alone cannot do so.
 
 ### Replication
 
@@ -148,11 +170,11 @@ and periodic subset refresh provide recovery.
 ### Close and late callbacks
 
 SessionService invalidates targets, producer access, mappings, and the attached peer before asking
-transport/directory resources to close. Signals with an old OperationId or ConnectionToken are
-cleanup-only. SessionService can return to its local idle/menu state after the bounded close result,
-but a provider reporting `UNAVAILABLE` cannot start another operation until its own proven safe-reuse
-condition or process restart. This preserves ENet/Standalone availability without inventing a Steam
-callback-drain timer.
+acquired transport/directory resources to close in reverse acquisition order. Signals with an old
+OperationId or ConnectionToken are cleanup-only. SessionService can return to its local idle/menu
+state after every acquired component's bounded close result, but a provider reporting `UNAVAILABLE`
+cannot start another operation until its own proven safe-reuse condition or process restart. This
+preserves ENet/Standalone availability without inventing a Steam callback-drain timer.
 
 ## What is deliberately not added
 

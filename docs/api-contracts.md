@@ -22,7 +22,7 @@ changes update these documents and acceptance cases together.
 | `OperationId` | Positive local 64-bit integer, monotonically allocated by SessionService; never reused during the process; not a network identity |
 | `ProviderId` | Stable namespaced identifier for a Boot-composed session provider; M1 initially registers only `&"enet"` |
 | `ConnectionToken` | Opaque adapter-generated local token; never reused across adapter or connection generations and never serialized as gameplay identity |
-| `JoinTarget` | Opaque adapter-owned `{provider_id, adapter_generation, local_handle}`; raw addresses/account/lobby IDs and native objects never leave their adapter |
+| `JoinTarget` | Opaque adapter-owned `{provider_id, adapter_generation, kind: TRANSPORT_READY | DIRECTORY, local_handle}`; raw addresses/account/lobby IDs and native objects never leave their adapter |
 | `SessionId` | Host-created opaque 128-bit random value encoded as 32 lowercase hex characters; fresh for every host/standalone match session |
 | `ParticipantId` | Positive host-allocated 64-bit integer, unique within SessionId; reconnect gets a fresh ID, including the same provider account |
 | `MatchRevision` | Positive integer, initially 1, incremented on reset; reject commands/events/baselines from older revisions |
@@ -81,13 +81,15 @@ provider registration cannot change while a session is active or closing. An unk
 unavailable provider returns `SERVICE_UNAVAILABLE`, without changing gameplay APIs.
 
 The UI boundary calls `ENetTransport.parse_endpoint(address: String, port: int)
--> Result<JoinTarget>` or receives a directory-produced target. Targets expire when their
-adapter is reset/closed; joining an expired target returns `TARGET_EXPIRED`. Port is
-1..65535; address text is bounded to 255 UTF-8 bytes and parsed/normalized by the ENet
-adapter. No public/LAN discovery is promised. Future invite, rich-presence and launch
-payloads are parsed strictly inside their SessionDirectory and become
-`ExternalJoinRequest = {target: JoinTarget, source: INVITE | RICH_PRESENCE | LAUNCH}`;
-raw platform text and IDs do not reach SessionService.
+-> Result<JoinTarget>` or receives a directory-produced target. ENet returns a
+`TRANSPORT_READY` target. Invite, rich-presence and launch payloads are parsed strictly
+inside their future SessionDirectory and become `ExternalJoinRequest = {target:
+JoinTarget, source: INVITE | RICH_PRESENCE | LAUNCH}` with a `DIRECTORY` target. Raw
+platform text and IDs do not reach SessionService.
+
+Targets expire when their adapter is reset/closed; joining an expired target returns
+`TARGET_EXPIRED`. Port is 1..65535; address text is bounded to 255 UTF-8 bytes and
+parsed/normalized by the ENet adapter. No public/LAN discovery is promised.
 
 `SessionView = {phase, operation_id?, provider_id?, session_id?, local_participant_id?,
 capacity, roster, failure?}`. Roster rows are `{participant_id, display_name,
@@ -161,7 +163,8 @@ SessionDirectory.create_joinable(operation_id, capacity) -> Result<void>
 SessionDirectory.join(operation_id, target: JoinTarget) -> Result<void>
 SessionDirectory.close(operation_id) -> Result<void>
 signals:
-  ready(operation_id, JoinTarget)
+  host_ready(operation_id, published_target: JoinTarget)
+  join_ready(operation_id, transport_target: JoinTarget)
   failed(operation_id, Failure)
   closed(operation_id, CloseResult)
   join_requested(ExternalJoinRequest)
@@ -174,10 +177,12 @@ handle. The transport supplies connectivity and authenticates any provider ident
 it cannot allocate ParticipantIds/player entities or admit input. A directory owns
 optional discovery/lobbies/invites/launch parsing; its matching transport owns gameplay
 connectivity. Host creation publishes a joinable target only when the host endpoint is
-ready. A failure cleans up both resources. ENet has no SessionDirectory. Until the
-pinned engine defect is fixed and verified, ENetTransport applies its intended bandwidth
-limits immediately after server creation and before `peer_ready`; that workaround is
-adapter-internal and cannot change the lossy contract of channels 2/3.
+ready. `host_ready` returns the publishable `DIRECTORY` target; `join_ready` returns a
+`TRANSPORT_READY` target for the same provider and current adapter generation. A failure
+cleans up both resources. ENet has no SessionDirectory. Until the pinned engine defect is
+fixed and verified, ENetTransport applies its intended bandwidth limits immediately after
+server creation and before `peer_ready`; that workaround is adapter-internal and cannot
+change the lossy contract of channels 2/3.
 
 `TransportCapabilities = {available, identity_assurance, streams,
 max_receive_packet_bytes, route_diagnostics_available, failure?}`. Identity assurance is
@@ -229,6 +234,22 @@ account IDs or lobby IDs enter common session/gameplay APIs. If later backend ti
 validation is selected, the provider exposes only its resulting identity assurance and
 readiness. Do not add providers for unselected stores. A fake provider exercises this
 boundary in tests and cannot certify native delivery.
+
+A join with a `TRANSPORT_READY` target opens its matching transport directly. A join with
+a `DIRECTORY` target first calls `SessionDirectory.join(operation_id, target)` and waits
+for the same current operation's `join_ready`. SessionService validates that the returned
+target is `TRANSPORT_READY`, names the same provider and current adapter generation, then
+calls `Transport.open_client`; directory readiness alone cannot start negotiation or admit
+input. Wrong-operation, expired or mismatched results are cleanup-only.
+
+Cancellation/failure invalidates the operation and all targets before releasing resources.
+Cleanup reverses acquisition order: a directory-backed client closes/detaches its transport
+first if one was opened, then closes the directory membership/request; a directory-backed
+host closes its published directory binding before its transport endpoint. A late
+`join_ready` after invalidation is left/retired by SessionDirectory and never opens a
+transport. SessionService emits one completion only after every acquired component has
+reported `closed`; aggregate reuse is `SAFE` only when all are safe, otherwise that provider
+binding remains `UNAVAILABLE`. ENet has only the transport close step.
 
 ## Admission and replication
 

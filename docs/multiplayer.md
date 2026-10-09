@@ -15,7 +15,10 @@ decisions. The practices below generalize VCS's host-authoritative approach.
 The P0-02 [architecture](architecture.md), [scene](scene-structure.md), and
 [API](api-contracts.md) drafts own the concrete state map, endpoints, admission
 scheme, signatures and provisional limits. Refine them with spike evidence; the
-general guidance here must not create competing rules or replication writers.
+general guidance here must not create competing rules or replication writers. The
+[current provider supplement](#owner-decision-provider-supplement--8-october-2026)
+supersedes earlier Steam-as-first-milestone/acceptance wording while retaining it as
+historical evidence.
 
 ## Starting choices and boundaries
 
@@ -364,7 +367,7 @@ Steam/Deck/Windows/exports/capacity and P0/M1/production gates remain open.
 
 The [S03-S compatibility record](spikes/s03-s-compatibility.md#lifecycle-limitation-and-exact-stopdecision-boundary)
 and [saved criteria](spikes/s03-s-compatibility-evidence/criteria.md) apply the existing
-[canonical API transport contract](api-contracts.md#transport-and-platform-adapters);
+[canonical API transport contract](api-contracts.md#transport-and-session-directory-adapters);
 they create no second contract. Four independent streams retain reliable0/1 and
 ordered-unreliable2/3 modes, application admission/identity/durable ownership and
 bounded work. The exact inspected singleton API lacks lane-addressed send and
@@ -418,3 +421,34 @@ following final S02/S04 dimensions. M1-B1/B2/B3/B4/D retain full lifecycle, jour
 reset, feedback and sustained acceptance; S07 needs real S06 topology/seams, effects
 and hardware/four views/residency/load. All Steam/native/Deck/input/feel/P0/M1/
 production gates and the normative contracts above remain open.
+
+## Owner-decision provider supplement — 8 October 2026
+
+This is the current multiplayer provider policy. It supersedes earlier passages in
+this guide that call Steam a first-milestone requirement, require two initial providers,
+or make Steam accounts/lobbies/transport/packages/exports a P0/M1 acceptance gate.
+Those passages, AppID/depot observations and stopped S03-S findings remain historical
+research and future-adapter constraints; they are not authorization or current work.
+
+The initial game uses ENet only, plus Standalone with the same authoritative rules.
+M1 connection, adverse-delivery and target acceptance exercise the ENet provider.
+ENet startup and exports initialize no Steam dependency. The pinned-engine bandwidth
+workaround remains inside ENetTransport before peer publication, and channels 2/3
+remain lossy despite that workaround. Initial target acceptance no longer includes
+Steam friend invites, external route/SDR diagnostics, authorized-account delivery or
+Steam package/install/update/launch evidence.
+
+SessionService and Replication retain the provider-neutral
+[M1-A1 boundary](api-contracts.md#transport-and-session-directory-adapters), so a
+future adapter can be added without changing gameplay. The current S03-S result is the
+reviewed [abstraction](spikes/s03-s-abstraction-review.md); it does not accept a peer or
+native lifecycle. Lobby/invite/rich-presence/launch handling, if later commissioned,
+is an optional SessionDirectory that resolves a directory target before Transport
+opens and never grants gameplay admission.
+
+Any Steam adapter is a separate future product/integration decision and task. Before
+registration it must independently prove authenticated identity, the fixed four-stream
+profile, payload/allocation/work bounds, correlated cancel/close/late-callback cleanup,
+safe retry, actual route, packaging and supported targets. Earlier test recipes remain
+the acceptance standard for that possible task, not a current milestone. Failure or
+absence of that future provider must always leave Standalone and ENet usable.
