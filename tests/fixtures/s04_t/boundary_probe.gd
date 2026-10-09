@@ -101,6 +101,14 @@ func _probe_actions() -> void:
 			admitted_tokens += 1
 	_require(admitted_tokens == 32, "action token bucket burst")
 
+	var duplicate_match := _admitted_match()
+	duplicate_match.cache_action_result(1, { "sequence": 1 })
+	for _index: int in range(32):
+		_require(duplicate_match.admit_action_envelope(2, _action(1), 5000) == "CACHED",
+			"cached action deduplication")
+	_require(duplicate_match.admit_action_envelope(2, _action(1), 5000) == "RATE_LIMIT",
+		"duplicate action token bucket")
+
 	for sequence: int in range(1, 81):
 		match_state.cache_action_result(sequence, { "sequence": sequence })
 	_require(match_state.action_results.size() == S04TMatch.ACTION_RESULT_CACHE,
@@ -110,6 +118,7 @@ func _probe_actions() -> void:
 	match_state.free()
 	window_match.free()
 	rate_match.free()
+	duplicate_match.free()
 
 
 ## Proves client-bound snapshots and reliable transitions reject malformed finite data.

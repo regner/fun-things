@@ -530,16 +530,16 @@ func admit_action_envelope(  # gdstyle:ignore=quality/max-returns,quality/max-br
 		return "INVALID"
 	var data: Dictionary = envelope
 	var sequence: int = data.action_sequence
+	if not take_rate_token(
+			"action", now_ms, ACTION_RATE_PER_SECOND, ACTION_RATE_BURST
+	):
+		return "RATE_LIMIT"
 	if action_results.has(sequence):
 		return "CACHED"
 	if _action_queued(sequence):
 		return "DUPLICATE_QUEUED"
 	if data.context.control != control_revision:
 		return "STALE_CONTEXT"
-	if not take_rate_token(
-			"action", now_ms, ACTION_RATE_PER_SECOND, ACTION_RATE_BURST
-	):
-		return "RATE_LIMIT"
 	if sequence <= action_highest_sequence:
 		return "STALE_SEQUENCE"
 	if sequence > action_highest_sequence + ACTION_SEQUENCE_WINDOW:
