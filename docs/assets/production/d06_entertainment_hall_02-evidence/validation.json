@@ -1,0 +1,249 @@
+{
+  "status": "PASS: source and GLB; engine/gameplay gates recorded separately",
+  "blender": "5.2.2 LTS",
+  "build_hash": "d13f752e3b9c",
+  "glTF_exporter": "5.2.40",
+  "source_vertices": 1020,
+  "connected_ring_and_diffuser": true,
+  "shell_source_sha256": "b3787d0141da30063f63199a21a936309c84daa71c9fe379bfd3decabecd37b5",
+  "camera_primary_ray_samples": [
+    {
+      "blender_xy": [
+        0,
+        9.5
+      ],
+      "diffuser_visible": true
+    },
+    {
+      "blender_xy": [
+        0,
+        -9.5
+      ],
+      "diffuser_visible": true
+    },
+    {
+      "blender_xy": [
+        13.5,
+        0
+      ],
+      "diffuser_visible": true
+    },
+    {
+      "blender_xy": [
+        -13.5,
+        0
+      ],
+      "diffuser_visible": true
+    },
+    {
+      "blender_xy": [
+        11.6,
+        7.6
+      ],
+      "diffuser_visible": true
+    },
+    {
+      "blender_xy": [
+        -11.6,
+        7.6
+      ],
+      "diffuser_visible": true
+    },
+    {
+      "blender_xy": [
+        11.6,
+        -7.6
+      ],
+      "diffuser_visible": true
+    },
+    {
+      "blender_xy": [
+        -11.6,
+        -7.6
+      ],
+      "diffuser_visible": true
+    }
+  ],
+  "roof_centre_unobstructed": true,
+  "source_triangles": 2040,
+  "source_degenerate_faces": 0,
+  "source_nonmanifold_edges": 0,
+  "source_max_normal_length_error": 1.1036171909672987e-07,
+  "glb_vertices_including_surface_splits": 1156,
+  "glb_triangles": 2040,
+  "glb_degenerate_triangles": 0,
+  "glb_max_normal_length_error": 9.918584931156715e-08,
+  "mesh_count": 1,
+  "surface_count": 2,
+  "aabb_godot": {
+    "min": [
+      -13.949999809265137,
+      6.75,
+      -9.949999809265137
+    ],
+    "max": [
+      13.949999809265137,
+      7.650000095367432,
+      9.949999809265137
+    ],
+    "size": [
+      27.899999618530273,
+      0.9000000953674316,
+      19.899999618530273
+    ]
+  },
+  "expected_aabb_godot": {
+    "min": [
+      -13.95,
+      6.75,
+      -9.95
+    ],
+    "max": [
+      13.95,
+      7.65,
+      9.95
+    ]
+  },
+  "envelope_tolerance_m": 0.001,
+  "hall_ground_datum_pivot": [
+    0,
+    0,
+    0
+  ],
+  "materials": [
+    {
+      "name": "ring_housing_petrol",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.03500000014901161,
+          0.10499999672174454,
+          0.125,
+          1
+        ],
+        "metallicFactor": 0.25,
+        "roughnessFactor": 0.4300000071525574
+      }
+    },
+    {
+      "emissiveFactor": [
+        0.287999985933304,
+        0.008099999436736116,
+        0.1034999991357326
+      ],
+      "name": "ring_diffuser_magenta",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.6399999856948853,
+          0.017999999225139618,
+          0.23000000417232513,
+          1
+        ],
+        "metallicFactor": 0,
+        "roughnessFactor": 0.3799999952316284
+      }
+    }
+  ],
+  "reexport_byte_identical": true,
+  "glb_sha256": "e1c09dc3af99375356654bbe4deaa5b98b989db139bb702ece14b5b1798317f4",
+  "glb_bytes": 42020,
+  "interfaces_godot": {
+    "ring_datum_y_m": 7.2,
+    "wall_contour_size": [
+      25.7,
+      17.7
+    ],
+    "wall_corner_radius": 5.85
+  },
+  "engine": {
+    "aabb_min": [
+      -13.9499998092651,
+      6.75,
+      -9.94999980926514
+    ],
+    "aabb_size": [
+      27.8999996185303,
+      0.900000095367432,
+      19.8999996185303
+    ],
+    "collision_shape_count": 0,
+    "diffuser_emission": [
+      0.573057353496552,
+      0.0868364721536636,
+      0.355025589466095
+    ],
+    "engine": "4.8-dev7 (official)",
+    "failures": [],
+    "linked_model_identity": true,
+    "materials": [
+      "ring_housing_petrol",
+      "ring_diffuser_magenta"
+    ],
+    "mesh_count": 1,
+    "model_uid": "uid://0ogdhrk2phok",
+    "ok": true,
+    "prefab_uid": "uid://bd644nkpj1nrc",
+    "save_reload_byte_stable": true,
+    "normalization_diagnostics": "Initial editor pass produced no receipt; static-string/thread cleanup errors. Revised resource-only normalization exits 0 with successful two-save stability, but editor shutdown RID/ObjectDB leaks remain. Fresh runtime load is diagnostic-free."
+  },
+  "production_checks": {
+    "results": {
+      "engine": {
+        "ok": true,
+        "version": "4.8.dev7.official.c971f93e7"
+      },
+      "gut_pin": {
+        "ok": true,
+        "version": "9.7.1"
+      },
+      "owned_scripts": {
+        "ok": false,
+        "returncode": 1
+      },
+      "python_tests": {
+        "ok": true,
+        "returncode": 0
+      },
+      "gut_import": {
+        "ok": true,
+        "returncode": 0
+      },
+      "gut_tests": {
+        "ok": true,
+        "returncode": 0
+      },
+      "gut_negative": {
+        "ok": true,
+        "observed_returncode": 1
+      }
+    },
+    "overall_ok": false,
+    "failed_compilation_paths": [
+      "tests/fixtures/asset_production/batch_02_observation.gd",
+      "tests/fixtures/asset_production/batch_02_process_probe.gd",
+      "tests/fixtures/asset_production/batch_03_observation.gd",
+      "tests/fixtures/asset_production/batch_03_process_probe.gd",
+      "tests/fixtures/asset_production/batch_observation.gd"
+    ],
+    "formatting_failures": [
+      "Would reformat: C:\\GameDev\\git\\ft-lanes\\a-d06hall\\tests\\fixtures\\asset_production\\batch_observation.gd",
+      "Would reformat: C:\\GameDev\\git\\ft-lanes\\a-d06hall\\tools\\asset_production\\integration\\batch03_author.gd",
+      "Would reformat: C:\\GameDev\\git\\ft-lanes\\a-d06hall\\tools\\asset_production\\integration\\inspector.gd"
+    ],
+    "owned_gdscript_style_format_compile": "PASS",
+    "python_tests": 9,
+    "gut_tests": 9,
+    "gut_assertions": 70
+  },
+  "visual_review": {
+    "renders_inspected": [
+      "hero.png",
+      "side.png",
+      "ring_detail.png",
+      "overhead_47m_42deg.png"
+    ],
+    "scratch_unlit_comparison_inspected": "C:\\tmp\\ft\\assets\\d06_entertainment_hall_02\\unlit_overhead.png",
+    "observation": "Continuous broad magenta shoulder visible around dome; quiet centre, legible unlit silhouette.",
+    "renderer": "Blender Cycles CPU, 32 samples, AgX, 1280x800; not game lighting acceptance",
+    "camera": "Vertical down, 47 m, 42 degree vertical perspective FOV, north up"
+  }
+}

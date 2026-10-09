@@ -1,0 +1,33 @@
+FINAL RECEIPT — full scratch logs outside checkout
+Blender 5.2.2 LTS / glTF 5.2.40 author and validator: exit 0.
+2040 triangles, 1020 source / 1156 GLB vertices, 1 mesh / 2 surfaces.
+Zero degenerate faces/triangles, zero nonmanifold edges; connected ring/diffuser.
+Bounds, normals, 8 visible diffuser camera rays and byte-identical reexport PASS.
+Author renders inspected including scratch emission-zero overhead.
+Headless import: completed, existing MCP 4.8 compatibility warning only.
+Initial normalize: no receipt, static-string/thread shutdown errors; exit not captured.
+Resource-only normalization simplified; revised command exit 0, stable two-save UIDs.
+Final editor diagnostics retained, not claimed fixed:
+WARNING: [MCP] Godot 4.8 detected - latest tested version is 4.7.0. The plugin will run normally but some features may behave unexpectedly. Please report issues at https://github.com/NPGameDev/godot-mcp-toolkit/issues
+ERROR: 5 RID allocations of type 'N16RendererViewport8ViewportE' were leaked at exit.
+ERROR: 8 RID allocations of type 'PN13RendererDummy14TextureStorage12DummyTextureE' were leaked at exit.
+ERROR: 1 RID allocations of type 'N17RendererSceneCull8ScenarioE' were leaked at exit.
+ERROR: 52 RID allocations of type 'PN18TextServerAdvanced22ShapedTextDataAdvancedE' were leaked at exit.
+ERROR: 1 RID allocations of type 'PN18TextServerAdvanced12FontAdvancedE' were leaked at exit.
+WARNING: 5 RIDs of type "Canvas" were leaked.
+WARNING: 31 RIDs of type "CanvasItem" were leaked.
+WARNING: 168 ObjectDB instances were leaked at exit (run with `--verbose` for details).
+
+Fresh resource load: exit 0, no ERROR/WARNING:
+Godot Engine v4.8.dev7.official.c971f93e7 - https://godotengine.org
+
+[MCPRuntimeServer] port: scanning 6570-6585 (default)
+[MCPRuntimeServer] listening on 127.0.0.1:6570
+[MCPRegistry] runtime port 6570 registered for c:/gamedev/git/ft-lanes/a-d06hall
+RING_CHECK_START editor=false
+{"aabb_min":[-13.9499998092651,6.75,-9.94999980926514],"aabb_size":[27.8999996185303,0.900000095367432,19.8999996185303],"collision_shape_count":0,"diffuser_emission":[0.573057353496552,0.0868364721536636,0.355025589466095],"engine":"4.8-dev7 (official)","failures":[],"linked_model_identity":true,"materials":["ring_housing_petrol","ring_diffuser_magenta"],"mesh_count":1,"model_uid":"uid://0ogdhrk2phok","ok":true,"prefab_uid":"uid://bd644nkpj1nrc"}
+
+Owned gdstyle 0.3.0 lint/format and compilation PASS.
+Production checks exit 1: known unrelated fixture compilation and integration formatting.
+Python 9/9; GUT 9/9 (70 assertions); negative-control detection PASS.
+Independent review, world placement/clearance, actual lighting and device performance pending.
