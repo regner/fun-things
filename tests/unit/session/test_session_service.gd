@@ -97,8 +97,8 @@ func test_close_timeout_forces_unavailable_without_double_completion() -> void:
 	assert_gt(_service.ignored_callback_count(), 0)
 
 
-## Proves an opaque valid join target uses the same accepted-operation lifecycle.
-func test_join_accepts_provider_target_and_rejects_stale_shape() -> void:
+## Proves a valid join waits for admission and a provider failure cleans it once.
+func test_join_accepts_provider_target_and_waits_for_admission() -> void:
 	_transport.auto_ready = false
 	var invalid: Dictionary = _service.join({ "provider_id": &"fake" })
 	assert_false(invalid.ok)
@@ -114,8 +114,14 @@ func test_join_accepts_provider_target_and_rejects_stale_shape() -> void:
 	assert_true(accepted.ok)
 	_transport.emit_peer(accepted.operation_id)
 	await get_tree().process_frame
-	assert_eq(_service.view().phase, SessionService.PHASE_ACTIVE)
+	assert_eq(_service.view().phase, SessionService.PHASE_CONNECTING)
+	assert_eq(_completion_count(accepted.operation_id), 0)
+
+	_transport.emit_failure(accepted.operation_id)
+	await get_tree().create_timer(WAIT_SECONDS).timeout
+	assert_eq(_service.view().phase, SessionService.PHASE_IDLE)
 	assert_eq(_completion_count(accepted.operation_id), 1)
+	assert_eq(_completions[accepted.operation_id][0].failure.code, &"CONNECT_FAILED")
 
 
 ## Rejects directory-owned targets until SessionDirectory resolves them for transport.
@@ -158,6 +164,26 @@ func test_view_shape_retains_capacity_for_current_session_kind() -> void:
 	assert_eq(host_view.capacity, 4)
 	assert_true(host_view.roster is Array)
 	assert_true(host_view.roster.is_empty())
+
+
+## Distinguishes protocol incompatibility from saved-content identity mismatch.
+func test_compatibility_validation_returns_normalized_failures() -> void:
+	var exact: Dictionary = {
+		"protocol_version": 1,
+		"content_id": "development",
+		"district_id": &"brackett_island",
+		"topology_revision": 0,
+		"definition_set_id": "development",
+	}
+	assert_true(_service.validate_compatibility(exact).ok)
+
+	var wrong_protocol: Dictionary = exact.duplicate(true)
+	wrong_protocol.protocol_version = 2
+	assert_eq(_service.validate_compatibility(wrong_protocol).failure.code, &"INCOMPATIBLE")
+
+	var wrong_content: Dictionary = exact.duplicate(true)
+	wrong_content.content_id = "other"
+	assert_eq(_service.validate_compatibility(wrong_content).failure.code, &"CONTENT_INVALID")
 
 
 ## Records terminal signals independently so duplicate emissions stay observable.

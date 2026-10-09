@@ -1,0 +1,60 @@
+{
+  "ok": true,
+  "cases": {
+    "admitted_leave": {
+      "ok": true,
+      "elapsed_seconds": 4.191,
+      "exits": {
+        "client": 0,
+        "host": 0
+      }
+    },
+    "incompatible_protocol": {
+      "ok": true,
+      "elapsed_seconds": 2.502,
+      "exits": {
+        "client": 0,
+        "host": 0
+      }
+    },
+    "invalid_content": {
+      "ok": true,
+      "elapsed_seconds": 2.57,
+      "exits": {
+        "client": 0,
+        "host": 0
+      }
+    },
+    "session_full": {
+      "ok": true,
+      "elapsed_seconds": 3.69,
+      "exits": {
+        "client_two": 0,
+        "client_one": 0,
+        "host": 0
+      }
+    },
+    "host_loss": {
+      "ok": true,
+      "elapsed_seconds": 2.597,
+      "exits": {
+        "client": 0,
+        "host": 0
+      }
+    },
+    "cancel_connect": {
+      "ok": true,
+      "elapsed_seconds": 0.627,
+      "exits": {
+        "client": 0
+      }
+    },
+    "unreachable": {
+      "ok": true,
+      "elapsed_seconds": 1.47,
+      "exits": {
+        "client": 0
+      }
+    }
+  }
+}

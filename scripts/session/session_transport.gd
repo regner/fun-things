@@ -3,6 +3,13 @@ extends Node
 ## Provider-neutral transport boundary owned by one Boot-composed session provider.
 
 signal peer_ready(operation_id: int, peer: MultiplayerPeer)
+signal connected(operation_id: int, connection_token: int, native_peer_id: int)
+signal disconnected(
+	operation_id: int,
+	connection_token: int,
+	native_peer_id: int,
+	failure: Dictionary,
+)
 signal failed(operation_id: int, failure: Dictionary)
 signal closed(operation_id: int, result: Dictionary)
 
@@ -23,6 +30,11 @@ func is_available() -> bool:
 ## Describes the fixed logical stream profile implemented by the transport.
 func capabilities() -> Dictionary:
 	return { "available": false, "streams": [] }
+
+
+## Parses provider-owned endpoint text into an opaque current-generation target.
+func parse_endpoint(_address: String, _port: int) -> Dictionary:
+	return _failure(&"INVALID_ENDPOINT")
 
 
 ## Opens a host endpoint for one correlated session operation.

@@ -9,14 +9,21 @@ const EXPORT_SMOKE_ARGUMENT: String = "--s08-x-export-smoke"
 const EXPORT_SMOKE_FRAMES: int = 30
 
 var _smoke_failures: Array[String] = []
+var _last_join_address: String = ""
+var _last_join_port: int = 0
 
 @onready var _session: SessionService = $Session
+@onready var _enet_transport: ENetTransport = $Session/ENetTransport
 @onready var _main_menu: MainMenu = $View/MainMenu
 @onready var _session_status: SessionStatus = $View/SessionStatus
 
 
 ## Binds authored children and optionally starts a bounded shell smoke.
 func _ready() -> void:
+	var registration: Dictionary = _session.register_transport(_enet_transport)
+	if not registration.get("ok", false):
+		_smoke_failures.append("ENet transport registration failed")
+
 	_session.changed.connect(_on_session_changed)
 	_session.completed.connect(_on_session_completed)
 	_main_menu.standalone_requested.connect(_on_standalone_requested)
@@ -35,11 +42,13 @@ func _ready() -> void:
 
 ## Starts the shared no-network session path from the main menu.
 func _on_standalone_requested() -> void:
+	_clear_join_retry()
 	_handle_acceptance(_session.start_standalone(DISTRICT_ID))
 
 
 ## Sends host intent to the provider-neutral session boundary.
 func _on_host_requested(port: int) -> void:
+	_clear_join_retry()
 	_handle_acceptance(
 		_session.host(
 			{
@@ -52,9 +61,16 @@ func _on_host_requested(port: int) -> void:
 	)
 
 
-## Rejects raw endpoint text until M1-A1.2 supplies ENet target parsing.
-func _on_join_requested(_address: String, _port: int) -> void:
-	_main_menu.show_feedback("Direct ENet joining arrives with the transport in M1-A1.2.")
+## Parses direct endpoint text inside ENet before starting the shared join flow.
+func _on_join_requested(address: String, port: int) -> void:
+	_last_join_address = address
+	_last_join_port = port
+	var parsed: Dictionary = _enet_transport.parse_endpoint(address, port)
+	if not parsed.get("ok", false):
+		_handle_acceptance(parsed)
+		return
+
+	_handle_acceptance(_session.join(parsed.target))
 
 
 ## Routes cancel, leave, or retry according to the service-owned phase.
@@ -64,6 +80,11 @@ func _on_status_primary_requested() -> void:
 	var result: Dictionary
 	if phase == SessionService.PHASE_ACTIVE:
 		result = _session.leave()
+	elif phase == SessionService.PHASE_IDLE and not _last_join_address.is_empty():
+		var parsed: Dictionary = _enet_transport.parse_endpoint(
+			_last_join_address, _last_join_port
+		)
+		result = _session.join(parsed.target) if parsed.get("ok", false) else parsed
 	elif phase == SessionService.PHASE_IDLE:
 		result = _session.retry()
 	else:
@@ -99,6 +120,12 @@ func _on_session_completed(_operation_id: int, result: Dictionary) -> void:
 ## Exits through the Boot lifetime owner rather than from a reusable menu child.
 func _on_quit_requested() -> void:
 	get_tree().quit()
+
+
+## Clears raw endpoint text when the accepted operation is not a direct join.
+func _clear_join_retry() -> void:
+	_last_join_address = ""
+	_last_join_port = 0
 
 
 ## Displays a synchronous rejection that allocated no operation.

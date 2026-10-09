@@ -29,6 +29,19 @@ func test_boot_cancel_restores_main_menu() -> void:
 	assert_false(status.visible)
 
 
+## Proves Boot parses menu endpoint text and starts the real ENet join lifecycle.
+func test_boot_routes_join_form_through_enet_transport() -> void:
+	var boot: Boot = BOOT_SCENE.instantiate()
+	add_child_autofree(boot)
+	var service: SessionService = boot.get_node("Session")
+	var main_menu: MainMenu = boot.get_node("View/MainMenu")
+	main_menu.join_requested.emit("127.0.0.1", 9)
+	assert_eq(service.view().phase, SessionService.PHASE_CONNECTING)
+	assert_true(service.cancel(service.view().operation_id).ok)
+	await get_tree().create_timer(WAIT_SECONDS).timeout
+	assert_eq(service.view().phase, SessionService.PHASE_IDLE)
+
+
 ## Proves the newly shown status card focuses its applicable primary action once.
 func test_status_focuses_initial_action_when_shown() -> void:
 	var status: SessionStatus = STATUS_SCENE.instantiate()

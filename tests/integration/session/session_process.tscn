@@ -1,0 +1,14 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://tests/integration/session/session_process.gd" id="1_harness"]
+[ext_resource type="Script" path="res://scripts/session/session_service.gd" id="2_session"]
+[ext_resource type="Script" path="res://scripts/session/enet_transport.gd" id="3_enet"]
+
+[node name="Boot" type="Node"]
+script = ExtResource("1_harness")
+
+[node name="Session" type="Node" parent="."]
+script = ExtResource("2_session")
+
+[node name="ENetTransport" type="Node" parent="Session"]
+script = ExtResource("3_enet")

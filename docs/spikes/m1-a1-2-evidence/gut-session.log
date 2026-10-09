@@ -1,0 +1,52 @@
+Godot Engine v4.8.dev7.official.c971f93e7 - https://godotengine.org
+
+[MCPRuntimeServer] port: scanning 6570-6585 (default)
+[MCPRuntimeServer] listening on 127.0.0.1:6571
+[MCPRegistry] runtime port 6571 registered for c:/gamedev/git/ft-lanes/m1-a1-2
+---  GUT  ---
+[1m[INFO]:  [0musing [C:/Users/regner.blokandersen/AppData/Roaming/Godot/app_userdata/Fun Things] for temporary output.
+Godot version:  4.8.0
+GUT version:  9.7.1
+
+
+res://tests/unit/session/test_enet_transport.gd
+* test_parse_endpoint_owns_address_validation
+* test_capabilities_match_required_stream_profile
+2/2 passed.
+
+
+res://tests/unit/session/test_session_service.gd
+* test_standalone_reaches_active_and_completes_once
+* test_cancel_late_callback_and_retry_are_correlated
+* test_close_timeout_forces_unavailable_without_double_completion
+* test_join_accepts_provider_target_and_waits_for_admission
+* test_join_rejects_directory_target_without_opening_transport
+* test_view_shape_retains_capacity_for_current_session_kind
+* test_compatibility_validation_returns_normalized_failures
+7/7 passed.
+
+
+res://tests/unit/session/test_session_ui.gd
+* test_boot_cancel_restores_main_menu
+* test_boot_routes_join_form_through_enet_transport
+* test_status_focuses_initial_action_when_shown
+3/3 passed.
+
+
+
+
+==============================================
+= Run Summary
+==============================================
+
+Totals
+------
+Scripts               3
+Tests                12
+Passing Tests        12
+Asserts             100
+Time              1.042s
+
+
+---- All tests passed! ----
+GUT 0.0.0:  https://github.com/bitwes/Gut/releases/tag/v0.0.0 is now available!

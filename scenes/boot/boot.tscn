@@ -4,6 +4,7 @@
 [ext_resource type="Script" path="res://scripts/session/session_service.gd" id="2_session"]
 [ext_resource type="PackedScene" path="res://scenes/ui/main_menu.tscn" id="3_menu"]
 [ext_resource type="PackedScene" path="res://scenes/ui/session_status.tscn" id="4_status"]
+[ext_resource type="Script" path="res://scripts/session/enet_transport.gd" id="5_enet"]
 
 [node name="Boot" type="Node"]
 process_mode = 3
@@ -11,6 +12,9 @@ script = ExtResource("1_boot")
 
 [node name="Session" type="Node" parent="."]
 script = ExtResource("2_session")
+
+[node name="ENetTransport" type="Node" parent="Session"]
+script = ExtResource("5_enet")
 
 [node name="View" type="Control" parent="."]
 layout_mode = 3
