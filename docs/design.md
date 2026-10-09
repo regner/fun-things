@@ -117,7 +117,8 @@ certification remains outside M1.
 | Car seats | One player driver; no passengers or visible NPC occupants. Entry transfers traffic control to the player through the host |
 | Seat conflicts | Host grants one claimant; reject other claims. A blocked exit leaves the player seated rather than placing them inside collision |
 | Car explosion occupant | Kill the seated driver as part of the same authoritative destruction transition; clear the seat and use normal respawn, with no forced ejection |
-| Driver death/disconnect | Release the seat and neutralize controls; the surviving car coasts to a stop without braking |
+| Driver death | Release the seat and neutralize controls; the surviving car remains in the world. S04 still specifies safe stopping behavior |
+| Driver disconnect | Release the seat and neutralize controls; the surviving car coasts to a stop without braking |
 | Abandoned traffic car | Remains parked until bounded cleanup/replenishment; does not immediately resume AI driving |
 | Weapons | Pistol and SMG are hitscan; rocket launcher fires a finite-lifetime projectile with blast damage. Distinct rates/ranges and readable feedback |
 | Ammo/equipment | All three weapons available at spawn; magazines and reload for pistol/SMG, unlimited reserve; rockets use a cooldown. No pickup/inventory progression in M1 |
@@ -167,9 +168,12 @@ The local Ryzen 7 3700X/GTX 1070/approximately 32 GiB/CachyOS desktop can assist
 Linux development. The current Windows development machine supplies desktop evidence;
 neither machine certifies Deck performance.
 
-The numbers below are guidance, not requirements. S03-R/S04/S05 may use relevant
-response and work bounds while S07 reports an environment cost-versus-block envelope.
-Do not silently turn these provisional values into acceptance gates.
+The numbers below remain proposed starting targets pending their existing measurements
+and owner/gate decisions. S07 uses relevant graphical values only as guidance for its
+environment cost-versus-block report; that investigation is not a capacity gate.
+Deck-specific display, frame and shared-memory targets are owner-deferred to later
+handheld delivery; the other applicable targets remain in the Windows/Linux M1
+validation envelope. Do not silently relax or ratify them.
 
 | Measure | Initial target and measurement boundary |
 | --- | --- |

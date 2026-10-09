@@ -22,8 +22,17 @@
   guidance, not a gate; network/AI/population are out of scope. See [spike](docs/spikes/s07.md).
 - [ ] **S08 — Follow up 4.8-dev7 Linux confirmation when a Linux machine is available.**
   This does not block proceeding; keep the ENet workaround and offline upstream review.
+- [ ] **S09 — Prototype and measure host-owned traffic AI.**
+- [ ] **S10 — Prototype and measure host-owned pedestrian AI.**
+- [ ] **S11 — Prove population replication, bandwidth and spawning bounds.**
+- [ ] **S12 — Compare and select authoritative combat hit registration.**
+- [ ] **S13 — Prove the character rig, animation strategy and crowd cost.**
+- [ ] **S14 — Prove bounded, readable audio and settings persistence.**
+- [ ] **S15 — Measure weapon/explosion VFX cost without dropping explosion effects.**
+- [ ] **S16 — Propose the M1 production architecture, test strategy and backlog.**
 - [ ] **P0-GATE — Review remaining foundation evidence against the ratified decisions.**
-  S07 budgets, Linux S08 confirmation and P0-PROFILES are non-blocking guidance/follow-up.
+  After: S09, S10, S11, S12, S13, S14, S15, S16. S07 budgets, Linux S08 confirmation
+  and P0-PROFILES are non-blocking guidance/follow-up.
 
 ## First milestone
 
