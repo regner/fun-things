@@ -14,7 +14,7 @@ No particular agent platform or delegation tool is required to read it.
 
 ## Current repository state — 9 October 2026
 
-- The integration branch is `main` at `b83fee9` (`docs: correct S03 replay ownership`)
+- The integration branch is `main` at `5994496` (`Clarify restored prototype command paths`)
   when this handover was refreshed. Verify actual HEAD rather than assuming it stayed there.
   The old `s08-enet-bandwidth` branch is deleted.
 - The commissioned foundation lanes through S17, including S03-P, S04-P, S04-T,
@@ -22,12 +22,26 @@ No particular agent platform or delegation tool is required to read it.
   [quiet record](../spikes/quiet-remeasure-2026-10-09.md) is integrated, and the refreshed
   [P0-GATE packet](../reviews/p0-gate-packet-2026-10-09.md) records the 9 October 2026 pass under
   owner decision 27. M1 production has started.
-- **M1 work is on hold (owner, 9 October).** The first wave (M1-D1.1 GUT/checks and M1-A1.1
-  Boot/session) was launched and stopped after a few minutes with no commits; the production
-  pedestrian core lane was never started. The owner is integrating work from another computer
-  first. After that lands, verify HEAD and relaunch these lanes fresh rather than reviving the
-  stopped partial worktrees. Decisions 31 (pinned test-only GUT) and 32 (AI traffic yields to
-  marked-crosswalk reservations) are recorded in the task requirements.
+- **M1 has resumed.** The owner's other-computer work landed: the whole-island
+  [Brackett greybox](../assets/brackett_greybox.md) and the delivered player, pedestrian, car,
+  weapon and weapon-effect assets from the [parallel content tracks](parallel-art-production.md).
+  The six-block M1 area is dropped. Wave 1 is integrated: M1-D1.1 pinned test-only GUT and
+  `tools/production_checks.py` (decision 31), M1-A1.1 Boot/session (the game boots into the
+  production menu), the [road-tool spike](../spikes/road-tool.md), and the art and project
+  cleanup (decisions 36–39: production art by family/type, asset tools under `tools/assets/`,
+  asset checks under `tests/assets/`, spike material in the reference-only `prototypes/`
+  archive). Decision 32 (AI traffic yields to marked-crosswalk reservations) is recorded in
+  the task requirements.
+- **Road tool:** decisions 33–34 and 40–44 conditionally adopt TheDuckCow's Road Generator
+  with no bake step (live editor/level-load generation, load-time derived road data, a
+  generated road infrastructure exception recorded in `AGENTS.md` and `docs/assets.md`).
+  RT-01 (0.9.4 vendoring/hardening) is accepted on `lane/rt-01` but held for the owner's
+  hands-on editor trial and is not on `main`.
+- **Replan:** lane `m1-replan` reconciled the [production plan](../plans/m1-production-plan.md)
+  section 5, `TODO.md` and the task requirements for the whole-city scope: four playable
+  checkpoints in the greybox (P1 walk, P2 drive, P3 fight, P4 living city), RT-01–RT-11 rows
+  and six owner questions with recommendations. Decision 35 makes the orchestrator the gameplay
+  integration owner, pending owner confirmation.
 - Development is on Windows 11. Use the Mise-pinned Godot
   `4.8.dev7.official.c971f93e7`; the owner decided to stay on this pin for now.
 - Orchestration uses pi subagents in parent-created Git worktrees under
@@ -118,15 +132,17 @@ inventory, with two later S03 telemetry changes explicitly distinguished. Its fo
 early static-check failures and retrieval errors remain retained. It made no gameplay,
 fixture, performance, hardware or graphical claim.
 
-## Current lane order — refreshed 9 October 2026
+## Current lane order — refreshed 9 October 2026 (whole-city replan)
 
-P0-GATE passed under owner decision 27 and M1 production has started. Begin with S10
-behavior/budget and S17 production host-budget acceptance, then establish M1-D1.1 production
-checks and M1-A1.1 Boot/session composition as recommended by the packet. Continue M1-A1.2 after
-the provider seam stabilizes. M1-C1 still waits for the owner to report the separately run M1-C0
-world concepts integrated and approve their production asset list; M1-C2 follows its starter
-subset. Decision 28 moves LocalSettings/settings UI to M1-D before M1-D4, while production audio
-uses default bus levels independently. Linux S08 confirmation and P0-PROFILES remain non-blocking.
+P0-GATE passed under owner decision 27 and M1 production has resumed. Follow the
+[ordered backlog](../plans/m1-production-plan.md#52-ordered-backlog). Next starts: M1-A1.2 ENet
+host/join and M1-C2.1 Brackett play world, M1-A2.1 ActorMotion, the M1-B1.1 standalone
+drive-rule port and M1-A3.2 audio, all of which depend only on integrated A1.1/D1.1. RT-01
+lands after the owner's editor trial; RT-02 onwards follow with the world integrator. C3
+population waits for RT-06/RT-07 and the owner's population-placement answer. M1-C1.1/C2.2
+district art still waits for the owner to report the separately run M1-C0 work integrated.
+Decision 28 keeps LocalSettings/settings UI in M1-D before M1-D4. Linux S08 confirmation and
+P0-PROFILES remain non-blocking.
 
 ## Historical prior recommendation: S08 diagnostic — superseded
 
@@ -269,9 +285,9 @@ Apply `AGENTS.md` and the relevant owning contracts. For each future commission:
    Remove temporary worktrees only after delivery evidence is durable and all work saved.
 7. Remove completed TODO items with their resolving change; leave partial gates open.
    Reread all tasks/requirements after integration and preserve actionable prerequisites.
-   In particular, district assembly needs approved road/building/prop subsets, not the
-   entire art catalogue; minimap work can follow player simulation with final district
-   alignment later. The P0-GATE dependency is satisfied.
+   In particular, greybox district replacement needs approved building/prop families, not
+   the entire art catalogue; the HUD shell can follow player simulation and the minimap
+   follows RT-09's road data. The P0-GATE dependency is satisfied.
 
 No platform-specific model or agent launch recipe is required. Use reasoning effort
 proportionate to complexity: routine documentation/source planning succeeded at medium;
@@ -280,8 +296,9 @@ merely because a task mentions maps, 3D or review.
 
 ## Current first action
 
-Proceed with the [P0-GATE packet's](../reviews/p0-gate-packet-2026-10-09.md) recommended first
-production work: S10 behavior/budget, S17 host-budget tracking, M1-D1.1 production checks and
-M1-A1.1 Boot/session composition. Do not dispatch M1-C1 until the owner reports M1-C0 integrated
-and approves its production asset list. LocalSettings/settings UI waits for M1-D under decision
-28. Do not revive the historical S08 diagnostic or other superseded foundation work.
+Dispatch the P1 rows named in the current lane order and present the
+[replan owner questions](../plans/m1-production-plan.md#61-owner-questions-from-the-whole-city-replan),
+starting with integration ownership (decision 35) and population placement. Do not dispatch
+M1-C1.1 or concept-dependent art until the owner reports M1-C0 integrated. Do not land RT-01
+before the owner's editor trial. Do not revive the historical S08 diagnostic or other
+superseded foundation work.

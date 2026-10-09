@@ -71,6 +71,16 @@ guides are [development](docs/development.md), [assets](docs/assets.md), and
 - Create visible 3D models in Blender, including blockouts and spike fixtures.
   Keep committed sources and explicit exports linked through imported model
   instances. Do not add generated render meshes; see [assets](docs/assets.md).
+- Generated road infrastructure is the one exception (owner decision 42). The
+  Blender-only rule exists to stop composing scenes from code; procedurally generated
+  road content that is edited and visible in the editor is acceptable. Road, sidewalk,
+  curb, procedural-intersection and crosswalk-marking surfaces may be generated from
+  the saved road network by the pinned road addon and project road scripts, in the
+  editor and at level load, with materials/textures from committed sources. Reusable
+  fixtures (signals, street lights, signs, barriers, prefab intersection pieces) remain
+  Blender-authored linked assets placed by the road tool. Road edits never require
+  Blender. All other visible 3D models keep the Blender-only rule, and runtime code
+  still must not compose authored scene hierarchies.
 - Preserve scene/resource UIDs, dependency UIDs, editor-generated node identities,
   inheritance identifiers, required `.uid` sidecars, and source `.import` files.
   Commit these with the resources they describe. Keep `.godot/` untracked.

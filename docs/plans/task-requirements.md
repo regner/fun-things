@@ -15,7 +15,11 @@ first hit-registration policy and combat starting values, accept the input/remot
 budget policies, choose host-confirmed car entry, assign world concepts separately, record the
 S02/S04 owner sessions and approved handling, pass P0-GATE, move settings to M1-D, approve
 pinned test-only GUT (decision 31) and make AI traffic yield to marked-crosswalk reservations
-(decision 32).
+(decision 32). Decisions 33–44 commission and conditionally adopt the spline road tool with no
+bake step and a generated road infrastructure exception, assign gameplay integration to the
+orchestrator pending confirmation (35) and archive spike fixtures in the reference-only
+`prototypes/` tree (36–39). Archived fixture paths in spike records are historical; see the
+[prototype archive](../../prototypes/README.md).
 
 - **P0-TOOLING:** Completed. The [baseline repair](../spikes/p0-tooling.md) made the
   canonical script check green, established complete Python discovery, selected the
@@ -146,83 +150,130 @@ Completed discovery reconciliation: [P0-DOC14 record](../reviews/p0-doc14.md).
 
 ## First milestone
 
-- **M1-A1:** Deliver standalone/ENet sessions and Steam-adapter-capable boundaries;
-  menu flows must handle cancel, stale/failure/host loss and cleanup and carry S06's whole-UI
-  direction. Only host/standalone can reset. Steam friend sessions are owner-deferred beyond M1.
+M1 scope is the whole Brackett island, built first in the delivered
+[greybox](../assets/brackett_greybox.md); the six-block area and its two loops, alley,
+landmark and stunt-area acceptance are dropped. The
+[production plan](m1-production-plan.md#5-foundation-entry-criteria-and-ordered-m1-backlog)
+owns the ordered rows, the P1–P4 playable checkpoints, the whole-city population/capacity
+analysis, the delivered-asset inputs and the
+[owner questions](m1-production-plan.md#61-owner-questions-from-the-whole-city-replan).
+Under decision 35 the orchestrator owns gameplay integration (pending owner confirmation).
+
+- **M1-A1:** A1.1 is done: saved Boot/menu/status, typed operations, standalone path and a
+  test-only fake provider ([evidence](../spikes/m1-a1-1-evidence/README.md)). A1.2 delivers
+  ENet sessions behind the Steam-adapter-capable boundary; menu flows must handle cancel,
+  stale/failure/host loss and cleanup and carry S06's whole-UI direction. Only host/standalone
+  can reset. Steam friend sessions are owner-deferred beyond M1.
 - **M1-A2:** Share rules offline/authority/permitted prediction; implement decision 19's
   ordered bounded input queue and acknowledgement watermark plus decision 20's tunable
   100–150 ms extrapolate→hold→smooth-authority policy; handle focus/expiry, respawn and reset
-  rehydration before input while rejecting stale-match commands. Acceptance includes S03-R's
-  drawable remote-continuity review.
+  rehydration before input while rejecting stale-match commands. A2.5 presents the delivered
+  Coral Courier (`scenes/prefabs/player_character/coral_courier.tscn`) under the saved
+  47 m / 42° north-up LocalRig camera with stride-matched layered clips; presentation never
+  writes motion. Respawn uses M1-C2.1's authored anchors. Acceptance includes S03-R's drawable
+  remote-continuity review.
 - **M1-A3:** Add production audio buses, category voice policy and state-driven emitters using
   default bus levels. It has no settings dependency; listening waits for real assets.
-- **M1-A-GATE:** Validate two exported ENet processes and lifecycle/reset/error flows with Steam
-  absent, including the S08 Linux desktop launch/graphics checklist. Actual Steam gameplay
-  transport is owner-deferred beyond M1.
-- **M1-B1:** Implement vehicle handling and authoritative driver transitions; resolve
-  claim/exit/death/disconnect/destruction races. Start production handling from decision 30's
-  owner-approved values: acceleration 12.0 m/s², brake 12.0 m/s², coast 9.25 m/s², maximum
-  forward/reverse speed 24.0/6.0 m/s, grip 8.0/s, handbrake side grip 3.0/s, turn rate 1.5 rad/s,
-  full-steer speed 4.0 m/s and handbrake brake 10.0 m/s². These remain playtest-tunable; do not
-  change the S04 fixture defaults to match them. Entry is host-confirmed with a short ~0.3 s
-  presentation; control and camera/HUD ownership transfer only on acceptance, and rejection
-  does not snap or change ownership. Exit remains below 0.5 m/s with the authored 1.5 m offset
-  plus production clearance. A dead driver's car coasts under neutral input, then remains as
-  an abandoned parked car.
+- **M1-A-GATE:** Validate two exported ENet processes walking together in the Brackett greybox
+  and lifecycle/reset/error flows with Steam absent, including the S08 Linux desktop
+  launch/graphics checklist. Vehicle and weapon rows no longer wait for this export gate, but an
+  A-GATE finding blocks D-stage integration. Actual Steam gameplay transport is owner-deferred
+  beyond M1.
+- **M1-B1:** Implement vehicle handling and authoritative driver transitions for the delivered
+  Sable, Latch and Crate cars (`scenes/prefabs/city_cars/`), with per-model body envelopes and
+  wheel/door presentation from their sockets; resolve claim/exit/death/disconnect/destruction
+  races. Start production handling from decision 30's owner-approved values: acceleration
+  12.0 m/s², brake 12.0 m/s², coast 9.25 m/s², maximum forward/reverse speed 24.0/6.0 m/s,
+  grip 8.0/s, handbrake side grip 3.0/s, turn rate 1.5 rad/s, full-steer speed 4.0 m/s and
+  handbrake brake 10.0 m/s². These remain playtest-tunable; do not change the archived S04
+  fixture defaults to match them. Provide a production standalone drive/tuning entry for owner
+  re-tests in place of the archived S04 drive scene. Entry is host-confirmed with a short
+  ~0.3 s presentation; control and camera/HUD ownership transfer only on acceptance, and
+  rejection does not snap or change ownership. Exit remains below 0.5 m/s with the authored
+  1.5 m offset plus production clearance. A dead driver's car coasts under neutral input, then
+  remains as an abandoned parked car. Initial parked cars use M1-C2.1 anchors.
 - **M1-B2:** Implement decision 18's host-current-time hit verdicts and forgiving delay-sized
-  hit shapes. Fire intents carry the shooter's view tick; only muzzle/tracer feedback is immediate,
-  while impact/damage waits for host confirmation. Keep bounded ≤250 ms host-only rewind possible,
-  reject stale fire commands and hydrate late joiners.
+  hit shapes with the delivered pistol, SMG and Dock Thumper wrappers mounted through the
+  Courier's `Sockets/WeaponMount`. Fire intents carry the shooter's view tick; only
+  muzzle/tracer feedback is immediate, while impact/damage waits for host confirmation. Queries
+  use the unsmoothed body pose plus the authored muzzle offset. Keep bounded ≤250 ms host-only
+  rewind possible, reject stale fire commands and hydrate late joiners.
 - **M1-B3:** Bound/deduplicate chains and complete wreck/collision lifecycle; late join
-  and reset restore current state without replaying old effects/work. Acceptance carries S05's
-  remaining wreck, in-flight hydration and lifecycle-race evidence; M1-D3 owns final-body evidence.
+  and reset restore current state without replaying old effects/work. Every committed explosion
+  allocates its own delivered explosion effect instance. Acceptance carries S05's remaining
+  wreck, in-flight hydration and lifecycle-race evidence; M1-D3 owns final-body evidence. Final
+  wreck visuals wait for M1-C1.2 car wreck states.
 - **M1-B4:** Add readable bounded effects and licensed/source-tracked audio; review the
   walk/shoot/drive/chain slice for duplicate feedback, aim/map readability and cost.
 - **M1-C0:** World concepts are in progress under a separate owner-run agent using the
   [world concept handover](../workflows/world-concept-handover.md), outside this orchestration.
   The owner will report when the work is integrated. Its image-provider/concept-method question
   belongs to that owner-run work under decision 24, not to this orchestration.
-- **M1-C1:** After the owner reports M1-C0 integrated and approves its production asset list,
-  produce ratified buildings, roads/props, character rigs, cars/wrecks, weapons and VFX.
-  Preserve Blender-linked sources, catalogue/ancestry and reexport/reload.
-- **M1-C2:** Start with approved M1-C1 road/building/prop subsets; don't wait for unrelated
-  art families. Use S06 topology and S07 environment-envelope guidance to compose saved
-  sectors, routes, play space, spawns and boundaries; preserve placement and prove
-  seams/clearance/readability.
+- **M1-C1:** C1.1 produces district building/prop families after the owner reports M1-C0
+  integrated and approves its per-district asset lists. C1.2 extends the delivered
+  character/vehicle/weapon/effect assets (car wreck states, the scoped car art pass, pedestrian
+  variety, approved VFX tiers); the bus/truck stay out of M1 unless approved. C1.3 produces
+  Blender road fixtures (signals, street lights, common 3/4-way prefab intersection pieces),
+  greybox-grade first. Concept-dependent art waits for M1-C0 under decision 24. Preserve
+  Blender-linked sources, catalogue/ancestry and reexport/reload.
+- **M1-C2:** C2.1 is the sole world integrator's first row: load the saved greybox `city.tscn`
+  as the play world, publish a content identity checked at admission, author provisional
+  player-spawn and parked-car anchors, prove S02/S04 envelope traversal across sector seams,
+  the bridge and building edges, and record the whole-island capacity baseline (load, RAM/VRAM,
+  node/static-collider/draw counts, capped 42° route frame time). C2.2 later replaces greybox
+  districts with accepted production families, keeping placement `world_id`s and rerunning
+  seams, clearance, routes, minimap agreement and capacity per district.
 - **M1-C3:** S10 production behavior/budget is current priority work with explicit acceptance
   checks. Implement bounded host-owned pedestrians/traffic, legal routes, crossing and
   blocked/stuck recovery, NPC transfer, late joins and reset without moving city content.
-  Decision 32: pedestrians reserve marked crosswalks through a finite reservation API and AI
-  traffic yields to active reservations; player-driven cars never auto-yield. Traffic lights
-  may be added later at selected landmark intersections.
-- **M1-C4:** After M1-A2, build the road map from shared city data and local entity marker;
-  settle S06's minimap size/look and carry its whole-UI direction into the HUD. Align with M1-C2
-  when the district is ready; check walking/driving/late-join seams and read HUD values from
-  gameplay owners.
-- **M1-D1:** Build reproducible local/CI checks that catch owned code/resource/gameplay
-  violations, including unused scripts, without broad suppression or copied formulas.
-  Decision 31: use GUT pinned to an exact version, test-only — never in exported builds or
-  runtime autoloads, with S08-X package inspection rejecting it.
+  Traffic consumes RT-06 and pedestrians RT-07 load-time graphs; pedestrians use the delivered
+  Off-Shift Worker with palette variety. Decision 32: pedestrians reserve marked crosswalks
+  through a finite reservation API and AI traffic yields to active reservations; player-driven
+  cars never auto-yield. Traffic signals at selected junctions follow decision 43 (RT-08).
+  Placement of the global 64/32 caps across the island awaits owner question 1 (recommended:
+  relevance-based placement with full replication).
+- **M1-C4:** C4.1 builds the saved HUD shell after M1-A2, reading values from gameplay owners.
+  C4.2 draws a player-centred minimap window from RT-09's whole-island ROAD data and the local
+  entity marker; settle S06's minimap size/look and carry its whole-UI direction into the HUD.
+  Check walking/driving/late-join seams.
+- **M1-RT:** Road tool tasks RT-01–RT-11 follow decisions 40–44 and the no-bake production
+  breakdown that lands with RT-01 in the [road-tool record](../spikes/road-tool.md): live
+  editor and level-load generation, load-time traffic/foot/crossing/spawn/minimap derivation
+  with host/client agreement (`CONTENT_INVALID` otherwise), the addon as a runtime dependency,
+  hybrid prefab/procedural intersections and independently configured signals and street
+  lights. RT-01 is accepted on `lane/rt-01` but held for the owner's hands-on editor trial.
+  RT-05 updates the bake-fingerprint wording in the derived-data contracts. RT-10 replaces the
+  greybox's Blender road/walk strokes with road-tool output through a coordinated ground-source
+  revision while keeping land, coast, the terrain collider, the Blender bridge structure and
+  building `world_id`s. The world integrator owns CityData and every road revision.
+- **M1-D1:** D1.1 is done: GUT 9.7.1 pinned and test-only, `tools/production_checks.py` and the
+  Windows/Linux CI entry ([record](../spikes/m1-d1-1.md)); Linux CI execution is still
+  unobserved. D1.2 builds reproducible local/CI checks that catch owned code/resource/gameplay
+  violations, including unused scripts, without broad suppression or copied formulas. S08-X
+  package inspection keeps rejecting GUT, tests and `prototypes/` while RT-11 requires the
+  runtime road addon.
 - **M1-D2:** Playtest desktop keyboard/mouse multiplayer feel, camera/aim, driving,
-  spectacle, exploration, menus/focus and audio; fix findings or have the user scope
+  spectacle, island exploration, menus/focus and audio; fix findings or have the user scope
   them out. Gamepad/controller playtesting is owner-deferred.
 - **M1-D3:** Continue S17 production host-budget work and carry S05 final-body evidence. Track
   the soft ~4 ms total host-simulation p95 target at full tunable M1 population without
   per-feature gates. Target capped 60 FPS with p95 ≤16.7 ms and p99 ≤20 ms on the RTX 4070
-  Laptop Windows reference and a named Linux desktop when available. Verify capacity and bounded
-  adverse-network lifecycle through real ENet processes/APIs and measure frame/physics, draw,
-  memory, bandwidth, queues and response. Culling cannot stop required simulation and optimization
-  needs evidence. Steam transport testing is owner-deferred.
+  Laptop Windows reference and a named Linux desktop when available, with players together and
+  in four distant areas of the island. Verify capacity and bounded adverse-network lifecycle
+  through real ENet processes/APIs and measure frame/physics, draw, memory, bandwidth, queues
+  and response. Culling cannot stop required simulation and optimization needs evidence. Steam
+  transport testing is owner-deferred.
 - **M1-D5:** Before M1-D4, add LocalSettings and the settings UI. Persist audio volumes/mutes
   first with validated defaults, corrupt-file recovery, live preview and atomic save; device
   settings never mutate shared gameplay.
 - **M1-D4:** After M1-D5, export Windows/Linux targets with exact templates/identity/exclusions
-  and verify launch, keyboard/mouse input, audio and ENet routes. Retain results/rollback.
-  Steam private-branch delivery and Deck/gamepad checks are owner-deferred.
-- **M1-GATE:** User reviews the ratified playable district, gameplay/population/minimap,
-  readable feedback, audio/settings, menu/lifecycle/reset, ENet multiplayer, desktop feel,
-  Windows/Linux targets and delivery. Deferred Steam, Deck and gamepad evidence does not
-  block M1.
+  and verify launch, keyboard/mouse input, audio and ENet routes. Packages include the pinned
+  runtime road addon (RT-11). Retain results/rollback. Steam private-branch delivery and
+  Deck/gamepad checks are owner-deferred.
+- **M1-GATE:** User reviews the playable Brackett game, gameplay/population/minimap, readable
+  feedback, audio/settings, menu/lifecycle/reset, ENet multiplayer, desktop feel,
+  Windows/Linux targets and delivery. Production district art is included as far as M1-C2.2
+  has progressed (owner question 4). Deferred Steam, Deck and gamepad evidence does not block M1.
 
 ### Owner-deferred follow-up after M1
 

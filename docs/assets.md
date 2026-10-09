@@ -272,8 +272,28 @@ units/rationale. Review death poses, wheels, explosions and camera-edge visibili
 Off-camera cosmetic culling must not stop simulation or chains. Shaders/particles
 may animate imported Blender geometry; particle draw meshes and cosmetic mesh debris
 also need committed Blender sources. No primitive/CSG/generated render meshes or
-copied vertex data in owned scenes. Collision shapes, navigation, occluder data,
-debug overlays and 2D UI/minimap drawing are separate concerns.
+copied vertex data in owned scenes, except for the road-infrastructure rule below.
+Collision shapes, navigation, occluder data, debug overlays and 2D UI/minimap drawing
+are separate concerns.
+
+### Generated road infrastructure exception
+
+Owner decision 42 (9 October 2026) records the intent: the Blender-only rule exists to
+stop composing scenes from code. Procedurally generated road infrastructure that is
+edited and visible in the editor is acceptable, because it keeps ordinary road edits in
+Godot instead of a Blender round trip.
+
+Road, sidewalk, curb, procedural-intersection and crosswalk-marking surfaces may be
+generated from the saved road network by the pinned road addon and project road
+scripts, both in the editor and at level load. Their committed materials and textures
+remain source assets. This exception does not permit procedural composition of
+unrelated authored scenes or models.
+
+Reusable visible fixtures remain Blender-authored linked assets: traffic signals,
+street lights, signs, barriers and common prefab intersection pieces. The road tool may
+place those fixtures from saved road metadata, but a road edit must not require a Blender
+round trip. All other visible 3D models keep the Blender-only source/export contract.
+Runtime code still must not compose authored scene hierarchies.
 
 LOD is optional until measured. Record automatic import LOD settings or explicit
 Blender LOD collections/outputs, transition conditions and inspected views. Godot
