@@ -1,7 +1,7 @@
 {
   "ok": true,
   "engine": "4.8.dev7.official.c971f93e7",
-  "revision": "e2178f45c47c99dbfd9ada49ea8bf9884a066a1c",
+  "revision": "00bccd16b409973c31572b06770864d334b5e839",
   "dirty_inputs": "",
   "platform": "Windows-11-10.0.26200-SP0",
   "duration_s": 20.0,
@@ -16,21 +16,21 @@
       "argv": [
         "C:\\Users\\regner.blokandersen\\AppData\\Local\\mise\\installs\\github-godotengine-godot-builds\\4.8-dev7\\godot.EXE",
         "--path",
-        "C:\\tmp\\ft\\lanes\\s15-vfx\\measurement-review1\\project",
+        "C:\\tmp\\ft\\lanes\\s15-vfx\\measurement-review1-postbase\\project",
         "--windowed",
         "--resolution",
         "1280x800",
         "--log-file",
-        "C:\\tmp\\ft\\lanes\\s15-vfx\\measurement-review1\\e12-full-r1\\engine.log",
+        "C:\\tmp\\ft\\lanes\\s15-vfx\\measurement-review1-postbase\\e12-full-r1\\engine.log",
         "res://tests/fixtures/s15/stress.tscn"
       ],
       "exit": 0,
       "timed_out": false,
       "diagnostics": [],
       "contention": {
-        "godot_processes_before": 3,
+        "godot_processes_before": 9,
         "cpu_before": {
-          "percent": 32.75
+          "percent": 46.59
         }
       },
       "particle_capacity": 1408,
@@ -38,37 +38,37 @@
       "adapter": "NVIDIA GeForce RTX 4070 Laptop GPU",
       "api_version": "12_0",
       "frames": {
-        "frames": 1200,
-        "span_s": 19.985187,
+        "frames": 1199,
+        "span_s": 19.969828,
         "frame_interval_ms": {
-          "p50": 16.642,
-          "p95": 17.906,
-          "p99": 18.461,
-          "max": 35.282
+          "p50": 16.683,
+          "p95": 18.002,
+          "p99": 18.787,
+          "max": 37.441
         },
         "render_cpu_ms": {
-          "p50": 0.75,
-          "p95": 1.17200005054474,
-          "p99": 1.32099997997284,
-          "max": 1.54299998283386
+          "p50": 0.765999972820282,
+          "p95": 1.2150000333786,
+          "p99": 1.35899996757507,
+          "max": 1.51999998092651
         },
         "render_gpu_ms": {
-          "p50": 1.45799994468689,
-          "p95": 1.72699999809265,
-          "p99": 1.82099997997284,
-          "max": 1.88199996948242
+          "p50": 1.52400004863739,
+          "p95": 1.75600004196167,
+          "p99": 1.78400003910065,
+          "max": 1.80799996852875
         },
         "process_ms": {
-          "p50": 3.823,
-          "p95": 35.126,
-          "p99": 35.126,
-          "max": 35.126
+          "p50": 4.051,
+          "p95": 35.874,
+          "p99": 35.874,
+          "max": 35.874
         },
         "physics_ms": {
-          "p50": 0.174,
-          "p95": 0.257,
-          "p99": 0.267,
-          "max": 0.267
+          "p50": 0.152,
+          "p95": 0.601,
+          "p99": 0.601,
+          "max": 0.601
         },
         "draw_calls": {
           "p50": 128.0,
@@ -94,10 +94,10 @@
           "p99": 113668096.0,
           "max": 113668096.0
         },
-        "mean_fps": 59.996370219601715,
+        "mean_fps": 59.99155014763225,
         "hitches_over_33ms": 1
       },
-      "capture": "C:\\tmp\\ft\\lanes\\s15-vfx\\measurement-review1\\e12-full-r1\\frame.png",
+      "capture": "C:\\tmp\\ft\\lanes\\s15-vfx\\measurement-review1-postbase\\e12-full-r1\\frame.png",
       "ok": true
     },
     {
@@ -108,21 +108,21 @@
       "argv": [
         "C:\\Users\\regner.blokandersen\\AppData\\Local\\mise\\installs\\github-godotengine-godot-builds\\4.8-dev7\\godot.EXE",
         "--path",
-        "C:\\tmp\\ft\\lanes\\s15-vfx\\measurement-review1\\project",
+        "C:\\tmp\\ft\\lanes\\s15-vfx\\measurement-review1-postbase\\project",
         "--windowed",
         "--resolution",
         "1280x800",
         "--log-file",
-        "C:\\tmp\\ft\\lanes\\s15-vfx\\measurement-review1\\e12-full-r2\\engine.log",
+        "C:\\tmp\\ft\\lanes\\s15-vfx\\measurement-review1-postbase\\e12-full-r2\\engine.log",
         "res://tests/fixtures/s15/stress.tscn"
       ],
       "exit": 0,
       "timed_out": false,
       "diagnostics": [],
       "contention": {
-        "godot_processes_before": 5,
+        "godot_processes_before": 6,
         "cpu_before": {
-          "percent": 27.73
+          "percent": 38.46
         }
       },
       "particle_capacity": 1408,
@@ -130,37 +130,37 @@
       "adapter": "NVIDIA GeForce RTX 4070 Laptop GPU",
       "api_version": "12_0",
       "frames": {
-        "frames": 1193,
-        "span_s": 20.04974,
+        "frames": 1200,
+        "span_s": 19.982783,
         "frame_interval_ms": {
           "p50": 16.664,
-          "p95": 17.901,
-          "p99": 18.856,
-          "max": 230.313
+          "p95": 17.964,
+          "p99": 18.547,
+          "max": 19.817
         },
         "render_cpu_ms": {
-          "p50": 0.40599998831749,
-          "p95": 0.787000000476837,
-          "p99": 1.0110000371933,
-          "max": 1.24300003051758
+          "p50": 0.736999988555908,
+          "p95": 1.20099997520447,
+          "p99": 1.3309999704361,
+          "max": 1.51999998092651
         },
         "render_gpu_ms": {
-          "p50": 0.360000014305115,
-          "p95": 1.65900003910065,
-          "p99": 4.04300022125244,
-          "max": 6.08199977874756
+          "p50": 1.41799998283386,
+          "p95": 1.6690000295639,
+          "p99": 1.70899999141693,
+          "max": 1.7610000371933
         },
         "process_ms": {
-          "p50": 3.905,
-          "p95": 216.929,
-          "p99": 216.929,
-          "max": 216.929
+          "p50": 3.944,
+          "p95": 4.702,
+          "p99": 5.036,
+          "max": 5.036
         },
         "physics_ms": {
-          "p50": 0.204,
-          "p95": 0.252,
-          "p99": 0.466,
-          "max": 0.466
+          "p50": 0.18,
+          "p95": 0.28,
+          "p99": 0.294,
+          "max": 0.294
         },
         "draw_calls": {
           "p50": 128.0,
@@ -186,8 +186,8 @@
           "p99": 113668096.0,
           "max": 113668096.0
         },
-        "mean_fps": 59.45400689357499,
-        "hitches_over_33ms": 1
+        "mean_fps": 60.00391225507904,
+        "hitches_over_33ms": 0
       },
       "capture": null,
       "ok": true
@@ -200,21 +200,21 @@
       "argv": [
         "C:\\Users\\regner.blokandersen\\AppData\\Local\\mise\\installs\\github-godotengine-godot-builds\\4.8-dev7\\godot.EXE",
         "--path",
-        "C:\\tmp\\ft\\lanes\\s15-vfx\\measurement-review1\\project",
+        "C:\\tmp\\ft\\lanes\\s15-vfx\\measurement-review1-postbase\\project",
         "--windowed",
         "--resolution",
         "1280x800",
         "--log-file",
-        "C:\\tmp\\ft\\lanes\\s15-vfx\\measurement-review1\\e12-full-r3\\engine.log",
+        "C:\\tmp\\ft\\lanes\\s15-vfx\\measurement-review1-postbase\\e12-full-r3\\engine.log",
         "res://tests/fixtures/s15/stress.tscn"
       ],
       "exit": 0,
       "timed_out": false,
       "diagnostics": [],
       "contention": {
-        "godot_processes_before": 5,
+        "godot_processes_before": 7,
         "cpu_before": {
-          "percent": 57.66
+          "percent": 33.92
         }
       },
       "particle_capacity": 1408,
@@ -222,37 +222,37 @@
       "adapter": "NVIDIA GeForce RTX 4070 Laptop GPU",
       "api_version": "12_0",
       "frames": {
-        "frames": 1192,
-        "span_s": 20.06207,
+        "frames": 1201,
+        "span_s": 19.998768000000002,
         "frame_interval_ms": {
-          "p50": 16.662,
-          "p95": 18.014,
-          "p99": 18.948,
-          "max": 260.652
+          "p50": 16.655,
+          "p95": 18.284,
+          "p99": 18.916,
+          "max": 20.436
         },
         "render_cpu_ms": {
-          "p50": 0.493999987840652,
-          "p95": 1.08200001716614,
-          "p99": 1.37399995326996,
-          "max": 2.3989999294281
+          "p50": 0.947000026702881,
+          "p95": 1.37600004673004,
+          "p99": 1.44500005245209,
+          "max": 1.52799999713898
         },
         "render_gpu_ms": {
-          "p50": 0.361000001430511,
-          "p95": 1.59700000286102,
-          "p99": 3.06200003623962,
-          "max": 6.63000011444092
+          "p50": 1.5440000295639,
+          "p95": 1.75600004196167,
+          "p99": 1.7849999666214,
+          "max": 1.81299996376038
         },
         "process_ms": {
-          "p50": 3.969,
-          "p95": 247.218,
-          "p99": 247.218,
-          "max": 247.218
+          "p50": 4.507,
+          "p95": 5.359,
+          "p99": 7.145,
+          "max": 7.145
         },
         "physics_ms": {
-          "p50": 0.187,
-          "p95": 0.33,
-          "p99": 0.33,
-          "max": 0.33
+          "p50": 0.158,
+          "p95": 0.259,
+          "p99": 0.397,
+          "max": 0.397
         },
         "draw_calls": {
           "p50": 128.0,
@@ -262,13 +262,13 @@
         },
         "primitives": {
           "p50": 25570.0,
-          "p95": 25822.0,
+          "p95": 25738.0,
           "p99": 25822.0,
           "max": 25822.0
         },
         "objects": {
           "p50": 145.0,
-          "p95": 151.0,
+          "p95": 149.0,
           "p99": 151.0,
           "max": 151.0
         },
@@ -278,8 +278,8 @@
           "p99": 113668096.0,
           "max": 113668096.0
         },
-        "mean_fps": 59.36992964862564,
-        "hitches_over_33ms": 1
+        "mean_fps": 60.00118903272188,
+        "hitches_over_33ms": 0
       },
       "capture": null,
       "ok": true
@@ -292,21 +292,21 @@
       "argv": [
         "C:\\Users\\regner.blokandersen\\AppData\\Local\\mise\\installs\\github-godotengine-godot-builds\\4.8-dev7\\godot.EXE",
         "--path",
-        "C:\\tmp\\ft\\lanes\\s15-vfx\\measurement-review1\\project",
+        "C:\\tmp\\ft\\lanes\\s15-vfx\\measurement-review1-postbase\\project",
         "--windowed",
         "--resolution",
         "1280x800",
         "--log-file",
-        "C:\\tmp\\ft\\lanes\\s15-vfx\\measurement-review1\\e24-full-r1\\engine.log",
+        "C:\\tmp\\ft\\lanes\\s15-vfx\\measurement-review1-postbase\\e24-full-r1\\engine.log",
         "res://tests/fixtures/s15/stress.tscn"
       ],
       "exit": 0,
       "timed_out": false,
       "diagnostics": [],
       "contention": {
-        "godot_processes_before": 5,
+        "godot_processes_before": 9,
         "cpu_before": {
-          "percent": 37.83
+          "percent": 32.39
         }
       },
       "particle_capacity": 2152,
@@ -314,37 +314,37 @@
       "adapter": "NVIDIA GeForce RTX 4070 Laptop GPU",
       "api_version": "12_0",
       "frames": {
-        "frames": 1200,
-        "span_s": 19.990188,
+        "frames": 1199,
+        "span_s": 19.985843,
         "frame_interval_ms": {
-          "p50": 16.666,
-          "p95": 18.412,
-          "p99": 19.561,
-          "max": 41.526
+          "p50": 16.686,
+          "p95": 18.445,
+          "p99": 19.797,
+          "max": 53.752
         },
         "render_cpu_ms": {
-          "p50": 0.810999989509583,
-          "p95": 1.4099999666214,
-          "p99": 1.62399995326996,
-          "max": 1.89600002765656
+          "p50": 0.839999973773956,
+          "p95": 1.42900002002716,
+          "p99": 1.67299997806549,
+          "max": 1.77600002288818
         },
         "render_gpu_ms": {
-          "p50": 1.42700004577637,
-          "p95": 1.82500004768372,
-          "p99": 2.49799990653992,
-          "max": 3.93799996376038
+          "p50": 1.49500000476837,
+          "p95": 1.73500001430511,
+          "p99": 1.78799998760223,
+          "max": 1.875
         },
         "process_ms": {
-          "p50": 5.015,
-          "p95": 6.691,
-          "p99": 40.755,
-          "max": 40.755
+          "p50": 5.593,
+          "p95": 51.975,
+          "p99": 51.975,
+          "max": 51.975
         },
         "physics_ms": {
-          "p50": 0.186,
-          "p95": 1.12,
-          "p99": 1.157,
-          "max": 1.157
+          "p50": 0.203,
+          "p95": 0.277,
+          "p99": 0.277,
+          "max": 0.277
         },
         "draw_calls": {
           "p50": 176.0,
@@ -370,10 +370,10 @@
           "p99": 123105280.0,
           "max": 123105280.0
         },
-        "mean_fps": 59.97911227415052,
+        "mean_fps": 59.94456602508983,
         "hitches_over_33ms": 1
       },
-      "capture": "C:\\tmp\\ft\\lanes\\s15-vfx\\measurement-review1\\e24-full-r1\\frame.png",
+      "capture": "C:\\tmp\\ft\\lanes\\s15-vfx\\measurement-review1-postbase\\e24-full-r1\\frame.png",
       "ok": true
     },
     {
@@ -384,113 +384,21 @@
       "argv": [
         "C:\\Users\\regner.blokandersen\\AppData\\Local\\mise\\installs\\github-godotengine-godot-builds\\4.8-dev7\\godot.EXE",
         "--path",
-        "C:\\tmp\\ft\\lanes\\s15-vfx\\measurement-review1\\project",
+        "C:\\tmp\\ft\\lanes\\s15-vfx\\measurement-review1-postbase\\project",
         "--windowed",
         "--resolution",
         "1280x800",
         "--log-file",
-        "C:\\tmp\\ft\\lanes\\s15-vfx\\measurement-review1\\e24-full-r2\\engine.log",
+        "C:\\tmp\\ft\\lanes\\s15-vfx\\measurement-review1-postbase\\e24-full-r2\\engine.log",
         "res://tests/fixtures/s15/stress.tscn"
       ],
       "exit": 0,
       "timed_out": false,
       "diagnostics": [],
       "contention": {
-        "godot_processes_before": 3,
+        "godot_processes_before": 8,
         "cpu_before": {
-          "percent": 34.12
-        }
-      },
-      "particle_capacity": 2152,
-      "renderer": "forward_plus",
-      "adapter": "NVIDIA GeForce RTX 4070 Laptop GPU",
-      "api_version": "12_0",
-      "frames": {
-        "frames": 1197,
-        "span_s": 19.996092,
-        "frame_interval_ms": {
-          "p50": 16.648,
-          "p95": 18.486,
-          "p99": 19.88,
-          "max": 105.894
-        },
-        "render_cpu_ms": {
-          "p50": 0.797999978065491,
-          "p95": 1.37699997425079,
-          "p99": 1.63900005817413,
-          "max": 1.97500002384186
-        },
-        "render_gpu_ms": {
-          "p50": 0.919000029563904,
-          "p95": 1.51999998092651,
-          "p99": 2.25200009346008,
-          "max": 5.83099985122681
-        },
-        "process_ms": {
-          "p50": 5.124,
-          "p95": 95.896,
-          "p99": 95.896,
-          "max": 95.896
-        },
-        "physics_ms": {
-          "p50": 0.208,
-          "p95": 0.38,
-          "p99": 0.38,
-          "max": 0.38
-        },
-        "draw_calls": {
-          "p50": 176.0,
-          "p95": 177.0,
-          "p99": 177.0,
-          "max": 177.0
-        },
-        "primitives": {
-          "p50": 37186.0,
-          "p95": 37438.0,
-          "p99": 37438.0,
-          "max": 37438.0
-        },
-        "objects": {
-          "p50": 193.0,
-          "p95": 199.0,
-          "p99": 199.0,
-          "max": 199.0
-        },
-        "video_mem_bytes": {
-          "p50": 123891712.0,
-          "p95": 123891712.0,
-          "p99": 123891712.0,
-          "max": 123891712.0
-        },
-        "mean_fps": 59.814275923704564,
-        "hitches_over_33ms": 1
-      },
-      "capture": null,
-      "ok": true
-    },
-    {
-      "name": "e24-full-r3",
-      "explosions": 24,
-      "quality": "full",
-      "repeat": 3,
-      "argv": [
-        "C:\\Users\\regner.blokandersen\\AppData\\Local\\mise\\installs\\github-godotengine-godot-builds\\4.8-dev7\\godot.EXE",
-        "--path",
-        "C:\\tmp\\ft\\lanes\\s15-vfx\\measurement-review1\\project",
-        "--windowed",
-        "--resolution",
-        "1280x800",
-        "--log-file",
-        "C:\\tmp\\ft\\lanes\\s15-vfx\\measurement-review1\\e24-full-r3\\engine.log",
-        "res://tests/fixtures/s15/stress.tscn"
-      ],
-      "exit": 0,
-      "timed_out": false,
-      "diagnostics": [],
-      "contention": {
-        "godot_processes_before": 3,
-        "cpu_before": {
-          "percent": 41.72
+          "percent": 32.01
         }
       },
       "particle_capacity": 2152,
@@ -499,36 +407,36 @@
       "api_version": "12_0",
       "frames": {
         "frames": 1201,
-        "span_s": 19.999996,
+        "span_s": 19.999578,
         "frame_interval_ms": {
-          "p50": 16.661,
-          "p95": 17.9,
-          "p99": 18.477,
-          "max": 19.128
+          "p50": 16.664,
+          "p95": 18.482,
+          "p99": 19.621,
+          "max": 21.386
         },
         "render_cpu_ms": {
-          "p50": 0.842000007629395,
-          "p95": 1.23099994659424,
-          "p99": 1.3289999961853,
-          "max": 1.56500005722046
+          "p50": 0.907999992370605,
+          "p95": 1.32400000095367,
+          "p99": 1.60699999332428,
+          "max": 3.18099999427795
         },
         "render_gpu_ms": {
-          "p50": 1.52699995040894,
-          "p95": 1.79799997806549,
-          "p99": 1.86500000953674,
-          "max": 1.97000002861023
+          "p50": 1.52300000190735,
+          "p95": 1.84300005435944,
+          "p99": 1.92700004577637,
+          "max": 1.9650000333786
         },
         "process_ms": {
-          "p50": 4.185,
-          "p95": 4.623,
-          "p99": 4.733,
-          "max": 4.733
+          "p50": 5.372,
+          "p95": 6.892,
+          "p99": 7.804,
+          "max": 7.804
         },
         "physics_ms": {
-          "p50": 0.163,
-          "p95": 0.209,
-          "p99": 0.278,
-          "max": 0.278
+          "p50": 0.232,
+          "p95": 0.421,
+          "p99": 3.159,
+          "max": 3.159
         },
         "draw_calls": {
           "p50": 176.0,
@@ -554,7 +462,99 @@
           "p99": 123105280.0,
           "max": 123105280.0
         },
-        "mean_fps": 59.99818556694438,
+        "mean_fps": 60.002999650373866,
+        "hitches_over_33ms": 0
+      },
+      "capture": null,
+      "ok": true
+    },
+    {
+      "name": "e24-full-r3",
+      "explosions": 24,
+      "quality": "full",
+      "repeat": 3,
+      "argv": [
+        "C:\\Users\\regner.blokandersen\\AppData\\Local\\mise\\installs\\github-godotengine-godot-builds\\4.8-dev7\\godot.EXE",
+        "--path",
+        "C:\\tmp\\ft\\lanes\\s15-vfx\\measurement-review1-postbase\\project",
+        "--windowed",
+        "--resolution",
+        "1280x800",
+        "--log-file",
+        "C:\\tmp\\ft\\lanes\\s15-vfx\\measurement-review1-postbase\\e24-full-r3\\engine.log",
+        "res://tests/fixtures/s15/stress.tscn"
+      ],
+      "exit": 0,
+      "timed_out": false,
+      "diagnostics": [],
+      "contention": {
+        "godot_processes_before": 4,
+        "cpu_before": {
+          "percent": 53.17
+        }
+      },
+      "particle_capacity": 2152,
+      "renderer": "forward_plus",
+      "adapter": "NVIDIA GeForce RTX 4070 Laptop GPU",
+      "api_version": "12_0",
+      "frames": {
+        "frames": 1200,
+        "span_s": 19.982494000000003,
+        "frame_interval_ms": {
+          "p50": 16.662,
+          "p95": 18.008,
+          "p99": 18.596,
+          "max": 19.634
+        },
+        "render_cpu_ms": {
+          "p50": 0.799000024795532,
+          "p95": 1.26199996471405,
+          "p99": 1.42799997329712,
+          "max": 1.64699995517731
+        },
+        "render_gpu_ms": {
+          "p50": 1.48300004005432,
+          "p95": 1.67700004577637,
+          "p99": 1.74300003051758,
+          "max": 1.76999998092651
+        },
+        "process_ms": {
+          "p50": 4.331,
+          "p95": 5.064,
+          "p99": 5.177,
+          "max": 5.177
+        },
+        "physics_ms": {
+          "p50": 0.235,
+          "p95": 0.435,
+          "p99": 0.479,
+          "max": 0.479
+        },
+        "draw_calls": {
+          "p50": 176.0,
+          "p95": 177.0,
+          "p99": 177.0,
+          "max": 177.0
+        },
+        "primitives": {
+          "p50": 37186.0,
+          "p95": 37438.0,
+          "p99": 37438.0,
+          "max": 37438.0
+        },
+        "objects": {
+          "p50": 193.0,
+          "p95": 199.0,
+          "p99": 199.0,
+          "max": 199.0
+        },
+        "video_mem_bytes": {
+          "p50": 123105280.0,
+          "p95": 123105280.0,
+          "p99": 123105280.0,
+          "max": 123105280.0
+        },
+        "mean_fps": 60.008260137007866,
         "hitches_over_33ms": 0
       },
       "capture": null,
@@ -568,21 +568,21 @@
       "argv": [
         "C:\\Users\\regner.blokandersen\\AppData\\Local\\mise\\installs\\github-godotengine-godot-builds\\4.8-dev7\\godot.EXE",
         "--path",
-        "C:\\tmp\\ft\\lanes\\s15-vfx\\measurement-review1\\project",
+        "C:\\tmp\\ft\\lanes\\s15-vfx\\measurement-review1-postbase\\project",
         "--windowed",
         "--resolution",
         "1280x800",
         "--log-file",
-        "C:\\tmp\\ft\\lanes\\s15-vfx\\measurement-review1\\e24-adaptive-r1\\engine.log",
+        "C:\\tmp\\ft\\lanes\\s15-vfx\\measurement-review1-postbase\\e24-adaptive-r1\\engine.log",
         "res://tests/fixtures/s15/stress.tscn"
       ],
       "exit": 0,
       "timed_out": false,
       "diagnostics": [],
       "contention": {
-        "godot_processes_before": 2,
+        "godot_processes_before": 3,
         "cpu_before": {
-          "percent": 37.72
+          "percent": 23.12
         }
       },
       "particle_capacity": 1408,
@@ -591,36 +591,36 @@
       "api_version": "12_0",
       "frames": {
         "frames": 1201,
-        "span_s": 19.999184,
+        "span_s": 19.999878000000002,
         "frame_interval_ms": {
-          "p50": 16.653,
-          "p95": 18.02,
-          "p99": 18.976,
-          "max": 20.391
+          "p50": 16.671,
+          "p95": 17.797,
+          "p99": 18.533,
+          "max": 27.353
         },
         "render_cpu_ms": {
-          "p50": 0.800000011920929,
-          "p95": 1.24100005626678,
-          "p99": 1.5460000038147,
-          "max": 1.74600005149841
+          "p50": 0.799000024795532,
+          "p95": 1.24199998378754,
+          "p99": 1.35399997234344,
+          "max": 1.9099999666214
         },
         "render_gpu_ms": {
-          "p50": 1.43099999427795,
-          "p95": 1.68799996376038,
-          "p99": 1.72099995613098,
-          "max": 1.75499999523163
+          "p50": 1.48599994182587,
+          "p95": 1.70099997520447,
+          "p99": 1.73099994659424,
+          "max": 1.75800001621246
         },
         "process_ms": {
-          "p50": 4.544,
-          "p95": 5.55,
-          "p99": 5.669,
-          "max": 5.669
+          "p50": 4.267,
+          "p95": 4.649,
+          "p99": 4.749,
+          "max": 4.749
         },
         "physics_ms": {
-          "p50": 0.184,
-          "p95": 0.273,
-          "p99": 0.324,
-          "max": 0.324
+          "p50": 0.213,
+          "p95": 0.418,
+          "p99": 0.663,
+          "max": 0.663
         },
         "draw_calls": {
           "p50": 176.0,
@@ -646,7 +646,7 @@
           "p99": 123105280.0,
           "max": 123105280.0
         },
-        "mean_fps": 60.00199840127898,
+        "mean_fps": 60.00279580054371,
         "hitches_over_33ms": 0
       },
       "capture": null,
@@ -660,21 +660,21 @@
       "argv": [
         "C:\\Users\\regner.blokandersen\\AppData\\Local\\mise\\installs\\github-godotengine-godot-builds\\4.8-dev7\\godot.EXE",
         "--path",
-        "C:\\tmp\\ft\\lanes\\s15-vfx\\measurement-review1\\project",
+        "C:\\tmp\\ft\\lanes\\s15-vfx\\measurement-review1-postbase\\project",
         "--windowed",
         "--resolution",
         "1280x800",
         "--log-file",
-        "C:\\tmp\\ft\\lanes\\s15-vfx\\measurement-review1\\e24-adaptive-r2\\engine.log",
+        "C:\\tmp\\ft\\lanes\\s15-vfx\\measurement-review1-postbase\\e24-adaptive-r2\\engine.log",
         "res://tests/fixtures/s15/stress.tscn"
       ],
       "exit": 0,
       "timed_out": false,
       "diagnostics": [],
       "contention": {
-        "godot_processes_before": 7,
+        "godot_processes_before": 2,
         "cpu_before": {
-          "percent": 35.61
+          "percent": 25.28
         }
       },
       "particle_capacity": 1408,
@@ -683,36 +683,36 @@
       "api_version": "12_0",
       "frames": {
         "frames": 1201,
-        "span_s": 20.000111,
+        "span_s": 20.000501999999997,
         "frame_interval_ms": {
-          "p50": 16.692,
-          "p95": 18.025,
-          "p99": 19.041,
-          "max": 20.087
+          "p50": 16.697,
+          "p95": 17.885,
+          "p99": 18.585,
+          "max": 19.103
         },
         "render_cpu_ms": {
-          "p50": 0.806999981403351,
-          "p95": 1.29200005531311,
-          "p99": 1.58299994468689,
-          "max": 2.2409999370575
+          "p50": 0.802999973297119,
+          "p95": 1.28299999237061,
+          "p99": 1.48000001907349,
+          "max": 1.69200003147125
         },
         "render_gpu_ms": {
-          "p50": 1.5110000371933,
-          "p95": 1.76400005817413,
-          "p99": 1.79499995708466,
-          "max": 1.82799994945526
+          "p50": 1.43799996376038,
+          "p95": 1.67299997806549,
+          "p99": 1.71399998664856,
+          "max": 1.76600003242493
         },
         "process_ms": {
-          "p50": 4.661,
-          "p95": 5.476,
-          "p99": 6.375,
-          "max": 6.375
+          "p50": 4.446,
+          "p95": 5.0,
+          "p99": 5.245,
+          "max": 5.245
         },
         "physics_ms": {
-          "p50": 0.197,
-          "p95": 0.421,
-          "p99": 1.581,
-          "max": 1.581
+          "p50": 0.199,
+          "p95": 0.33,
+          "p99": 0.377,
+          "max": 0.377
         },
         "draw_calls": {
           "p50": 176.0,
@@ -738,7 +738,7 @@
           "p99": 123105280.0,
           "max": 123105280.0
         },
-        "mean_fps": 60.00050558294463,
+        "mean_fps": 60.000517573157424,
         "hitches_over_33ms": 0
       },
       "capture": null,
@@ -752,21 +752,21 @@
       "argv": [
         "C:\\Users\\regner.blokandersen\\AppData\\Local\\mise\\installs\\github-godotengine-godot-builds\\4.8-dev7\\godot.EXE",
         "--path",
-        "C:\\tmp\\ft\\lanes\\s15-vfx\\measurement-review1\\project",
+        "C:\\tmp\\ft\\lanes\\s15-vfx\\measurement-review1-postbase\\project",
         "--windowed",
         "--resolution",
         "1280x800",
         "--log-file",
-        "C:\\tmp\\ft\\lanes\\s15-vfx\\measurement-review1\\e24-adaptive-r3\\engine.log",
+        "C:\\tmp\\ft\\lanes\\s15-vfx\\measurement-review1-postbase\\e24-adaptive-r3\\engine.log",
         "res://tests/fixtures/s15/stress.tscn"
       ],
       "exit": 0,
       "timed_out": false,
       "diagnostics": [],
       "contention": {
-        "godot_processes_before": 8,
+        "godot_processes_before": 6,
         "cpu_before": {
-          "percent": 40.6
+          "percent": 54.76
         }
       },
       "particle_capacity": 1408,
@@ -774,37 +774,37 @@
       "adapter": "NVIDIA GeForce RTX 4070 Laptop GPU",
       "api_version": "12_0",
       "frames": {
-        "frames": 1201,
-        "span_s": 19.997194,
+        "frames": 1200,
+        "span_s": 19.980648000000002,
         "frame_interval_ms": {
-          "p50": 16.706,
-          "p95": 17.98,
-          "p99": 18.771,
-          "max": 26.17
+          "p50": 16.653,
+          "p95": 19.147,
+          "p99": 20.243,
+          "max": 23.616
         },
         "render_cpu_ms": {
-          "p50": 0.787000000476837,
-          "p95": 1.18700003623962,
-          "p99": 1.42900002002716,
-          "max": 2.32800006866455
+          "p50": 1.11699998378754,
+          "p95": 1.90799999237061,
+          "p99": 2.2960000038147,
+          "max": 2.86800003051758
         },
         "render_gpu_ms": {
-          "p50": 1.50800001621246,
-          "p95": 1.69599997997284,
-          "p99": 1.72300004959106,
-          "max": 1.75499999523163
+          "p50": 1.47599995136261,
+          "p95": 1.65900003910065,
+          "p99": 1.69700002670288,
+          "max": 3.22399997711182
         },
         "process_ms": {
-          "p50": 4.309,
-          "p95": 5.491,
-          "p99": 5.56,
-          "max": 5.56
+          "p50": 6.015,
+          "p95": 11.135,
+          "p99": 12.735,
+          "max": 12.735
         },
         "physics_ms": {
-          "p50": 0.598,
-          "p95": 1.162,
-          "p99": 1.211,
-          "max": 1.211
+          "p50": 0.259,
+          "p95": 0.358,
+          "p99": 0.644,
+          "max": 0.644
         },
         "draw_calls": {
           "p50": 176.0,
@@ -814,13 +814,13 @@
         },
         "primitives": {
           "p50": 37186.0,
-          "p95": 37354.0,
+          "p95": 37438.0,
           "p99": 37438.0,
           "max": 37438.0
         },
         "objects": {
           "p50": 193.0,
-          "p95": 197.0,
+          "p95": 199.0,
           "p99": 199.0,
           "max": 199.0
         },
@@ -830,7 +830,7 @@
           "p99": 123105280.0,
           "max": 123105280.0
         },
-        "mean_fps": 60.00164167689051,
+        "mean_fps": 60.01349403413358,
         "hitches_over_33ms": 0
       },
       "capture": null,
@@ -843,7 +843,7 @@
       "--headless",
       "--editor",
       "--path",
-      "C:\\tmp\\ft\\lanes\\s15-vfx\\measurement-review1\\project",
+      "C:\\tmp\\ft\\lanes\\s15-vfx\\measurement-review1-postbase\\project",
       "--import",
       "--quit"
     ],
@@ -855,7 +855,7 @@
       "C:\\Users\\regner.blokandersen\\AppData\\Local\\mise\\installs\\github-godotengine-godot-builds\\4.8-dev7\\godot.EXE",
       "--headless",
       "--path",
-      "C:\\tmp\\ft\\lanes\\s15-vfx\\measurement-review1\\project",
+      "C:\\tmp\\ft\\lanes\\s15-vfx\\measurement-review1-postbase\\project",
       "--script",
       "res://tests/fixtures/s15/check.gd"
     ],
@@ -870,60 +870,60 @@
       ],
       "contention": [
         {
-          "godot_processes_before": 3,
+          "godot_processes_before": 9,
           "cpu_before": {
-            "percent": 32.75
+            "percent": 46.59
           }
         },
         {
-          "godot_processes_before": 5,
+          "godot_processes_before": 6,
           "cpu_before": {
-            "percent": 27.73
+            "percent": 38.46
           }
         },
         {
-          "godot_processes_before": 5,
+          "godot_processes_before": 7,
           "cpu_before": {
-            "percent": 57.66
+            "percent": 33.92
           }
         }
       ],
       "metrics": {
         "frame_interval_ms_p50": {
-          "median": 16.662,
-          "worst": 16.664
+          "median": 16.664,
+          "worst": 16.683
         },
         "frame_interval_ms_p95": {
-          "median": 17.906,
-          "worst": 18.014
+          "median": 18.002,
+          "worst": 18.284
         },
         "frame_interval_ms_p99": {
-          "median": 18.856,
-          "worst": 18.948
+          "median": 18.787,
+          "worst": 18.916
         },
         "render_cpu_ms_p50": {
-          "median": 0.493999987840652,
-          "worst": 0.75
+          "median": 0.765999972820282,
+          "worst": 0.947000026702881
         },
         "render_cpu_ms_p95": {
-          "median": 1.08200001716614,
-          "worst": 1.17200005054474
+          "median": 1.2150000333786,
+          "worst": 1.37600004673004
         },
         "render_cpu_ms_p99": {
-          "median": 1.32099997997284,
-          "worst": 1.37399995326996
+          "median": 1.35899996757507,
+          "worst": 1.44500005245209
         },
         "render_gpu_ms_p50": {
-          "median": 0.361000001430511,
-          "worst": 1.45799994468689
+          "median": 1.52400004863739,
+          "worst": 1.5440000295639
         },
         "render_gpu_ms_p95": {
-          "median": 1.65900003910065,
-          "worst": 1.72699999809265
+          "median": 1.75600004196167,
+          "worst": 1.75600004196167
         },
         "render_gpu_ms_p99": {
-          "median": 3.06200003623962,
-          "worst": 4.04300022125244
+          "median": 1.78400003910065,
+          "worst": 1.7849999666214
         },
         "draw_calls_p50": {
           "median": 128.0,
@@ -946,60 +946,60 @@
       ],
       "contention": [
         {
-          "godot_processes_before": 5,
+          "godot_processes_before": 9,
           "cpu_before": {
-            "percent": 37.83
+            "percent": 32.39
           }
         },
         {
-          "godot_processes_before": 3,
+          "godot_processes_before": 8,
           "cpu_before": {
-            "percent": 34.12
+            "percent": 32.01
           }
         },
         {
-          "godot_processes_before": 3,
+          "godot_processes_before": 4,
           "cpu_before": {
-            "percent": 41.72
+            "percent": 53.17
           }
         }
       ],
       "metrics": {
         "frame_interval_ms_p50": {
-          "median": 16.661,
-          "worst": 16.666
+          "median": 16.664,
+          "worst": 16.686
         },
         "frame_interval_ms_p95": {
-          "median": 18.412,
-          "worst": 18.486
+          "median": 18.445,
+          "worst": 18.482
         },
         "frame_interval_ms_p99": {
-          "median": 19.561,
-          "worst": 19.88
+          "median": 19.621,
+          "worst": 19.797
         },
         "render_cpu_ms_p50": {
-          "median": 0.810999989509583,
-          "worst": 0.842000007629395
+          "median": 0.839999973773956,
+          "worst": 0.907999992370605
         },
         "render_cpu_ms_p95": {
-          "median": 1.37699997425079,
-          "worst": 1.4099999666214
+          "median": 1.32400000095367,
+          "worst": 1.42900002002716
         },
         "render_cpu_ms_p99": {
-          "median": 1.62399995326996,
-          "worst": 1.63900005817413
+          "median": 1.60699999332428,
+          "worst": 1.67299997806549
         },
         "render_gpu_ms_p50": {
-          "median": 1.42700004577637,
-          "worst": 1.52699995040894
+          "median": 1.49500000476837,
+          "worst": 1.52300000190735
         },
         "render_gpu_ms_p95": {
-          "median": 1.79799997806549,
-          "worst": 1.82500004768372
+          "median": 1.73500001430511,
+          "worst": 1.84300005435944
         },
         "render_gpu_ms_p99": {
-          "median": 2.25200009346008,
-          "worst": 2.49799990653992
+          "median": 1.78799998760223,
+          "worst": 1.92700004577637
         },
         "draw_calls_p50": {
           "median": 176.0,
@@ -1022,60 +1022,60 @@
       ],
       "contention": [
         {
+          "godot_processes_before": 3,
+          "cpu_before": {
+            "percent": 23.12
+          }
+        },
+        {
           "godot_processes_before": 2,
           "cpu_before": {
-            "percent": 37.72
+            "percent": 25.28
           }
         },
         {
-          "godot_processes_before": 7,
+          "godot_processes_before": 6,
           "cpu_before": {
-            "percent": 35.61
-          }
-        },
-        {
-          "godot_processes_before": 8,
-          "cpu_before": {
-            "percent": 40.6
+            "percent": 54.76
           }
         }
       ],
       "metrics": {
         "frame_interval_ms_p50": {
-          "median": 16.692,
-          "worst": 16.706
+          "median": 16.671,
+          "worst": 16.697
         },
         "frame_interval_ms_p95": {
-          "median": 18.02,
-          "worst": 18.025
+          "median": 17.885,
+          "worst": 19.147
         },
         "frame_interval_ms_p99": {
-          "median": 18.976,
-          "worst": 19.041
+          "median": 18.585,
+          "worst": 20.243
         },
         "render_cpu_ms_p50": {
-          "median": 0.800000011920929,
-          "worst": 0.806999981403351
+          "median": 0.802999973297119,
+          "worst": 1.11699998378754
         },
         "render_cpu_ms_p95": {
-          "median": 1.24100005626678,
-          "worst": 1.29200005531311
+          "median": 1.28299999237061,
+          "worst": 1.90799999237061
         },
         "render_cpu_ms_p99": {
-          "median": 1.5460000038147,
-          "worst": 1.58299994468689
+          "median": 1.48000001907349,
+          "worst": 2.2960000038147
         },
         "render_gpu_ms_p50": {
-          "median": 1.50800001621246,
-          "worst": 1.5110000371933
+          "median": 1.47599995136261,
+          "worst": 1.48599994182587
         },
         "render_gpu_ms_p95": {
-          "median": 1.69599997997284,
-          "worst": 1.76400005817413
+          "median": 1.67299997806549,
+          "worst": 1.70099997520447
         },
         "render_gpu_ms_p99": {
-          "median": 1.72300004959106,
-          "worst": 1.79499995708466
+          "median": 1.71399998664856,
+          "worst": 1.73099994659424
         },
         "draw_calls_p50": {
           "median": 176.0,
