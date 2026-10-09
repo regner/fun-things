@@ -73,6 +73,30 @@ func test_service_brake_and_reverse() -> void:
 	assert_lte(car.velocity.length(), DEFAULT_TUNING.max_reverse_mps + 0.01)
 
 
+## Treats any fractional brake as full service braking, including with the handbrake.
+func test_fractional_service_brake_uses_full_threshold() -> void:
+	var service_car: VehicleMotion = _add_motion()
+	var handbrake_car: VehicleMotion = _add_motion()
+	await get_tree().physics_frame
+	service_car.velocity = Vector3(0.0, 0.0, -15.0)
+	handbrake_car.velocity = Vector3(9.0, 0.0, -12.0)
+	var service_command := DriveCommand.new(1, 1, 0.0, 0.0, 0.5, false)
+	var handbrake_command := DriveCommand.new(1, 1, 0.0, 0.0, 0.5, true)
+
+	for _tick: int in range(60):
+		assert_true(
+			service_car.step(service_command, FIXED_DELTA, VehicleMotion.StepMode.AUTHORITY)
+		)
+		assert_true(
+			handbrake_car.step(
+				handbrake_command, FIXED_DELTA, VehicleMotion.StepMode.AUTHORITY
+			)
+		)
+
+	assert_almost_eq(service_car.velocity.length(), 3.0, 0.05)
+	assert_almost_eq(handbrake_car.velocity.length(), 3.0, 0.05)
+
+
 ## Applies decision-29 braking and planar-speed steering to a sideways handbrake slide.
 func test_handbrake_brakes_full_planar_velocity_and_keeps_yaw_authority() -> void:
 	var car: VehicleMotion = _add_motion()
@@ -172,8 +196,8 @@ func test_vehicle_scenes_have_envelopes_models_sockets_and_wheel_rigs() -> void:
 		assert_true(presentation.has_complete_wheel_rig())
 
 
-## Drives imported wheel steer and spin from motion telemetry only.
-func test_motion_state_drives_wheel_presentation() -> void:
+## Points wheels with vehicle yaw and rolls them with forward travel direction.
+func test_motion_state_drives_wheels_in_vehicle_travel_direction() -> void:
 	var car: VehicleMotion = VEHICLE_SCENES[0].instantiate() as VehicleMotion
 	add_child_autofree(car)
 	await get_tree().process_frame
@@ -181,8 +205,11 @@ func test_motion_state_drives_wheel_presentation() -> void:
 	assert_true(car.step(command, FIXED_DELTA, VehicleMotion.StepMode.AUTHORITY))
 	var steer: Node3D = car.find_child("SteerFrontLeft", true, false) as Node3D
 	var spin: Node3D = car.find_child("SpinFrontLeft", true, false) as Node3D
-	assert_almost_eq(steer.rotation.y, 0.3375, 0.001)
-	assert_ne(spin.rotation.x, 0.0)
+	var state: Dictionary = car.motion_state()
+	assert_lt(float(state.yaw_rate), 0.0)
+	assert_gt(steer.rotation.y * float(state.yaw_rate), 0.0)
+	assert_gt(float(state.forward_speed_mps), 0.0)
+	assert_lt(spin.rotation.x * float(state.forward_speed_mps), 0.0)
 
 
 ## Adds a source-independent body for shared-rule outcomes.

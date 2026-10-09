@@ -35,9 +35,11 @@ func _ready() -> void:
 func apply_motion(motion_state: Dictionary, delta_seconds: float) -> void:
 	var steer: float = float(motion_state.steer)
 	for wheel: Node3D in _front_steer_nodes:
-		wheel.rotation.y = steer * MAX_STEER_ANGLE_RAD
+		wheel.rotation.y = -steer * MAX_STEER_ANGLE_RAD
 
-	var spin_delta: float = float(motion_state.forward_speed_mps) * delta_seconds / WHEEL_RADIUS_M
+	var spin_delta: float = (
+		-float(motion_state.forward_speed_mps) * delta_seconds / WHEEL_RADIUS_M
+	)
 	for spin: Node3D in _spin_nodes:
 		spin.rotation.x = wrapf(spin.rotation.x + spin_delta, -PI, PI)
 

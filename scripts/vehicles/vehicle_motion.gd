@@ -107,10 +107,9 @@ static func _advance(  # gdstyle:ignore=quality/max-function-length,quality/max-
 		forward_speed = planar_velocity.dot(forward)
 		lateral_speed = planar_velocity.dot(right)
 	elif command.brake > 0.0 or opposing_throttle:
-		var brake_strength: float = active_tuning.brake_mps2
-		if not opposing_throttle:
-			brake_strength *= command.brake
-		forward_speed = move_toward(forward_speed, 0.0, brake_strength * delta_seconds)
+		forward_speed = move_toward(
+			forward_speed, 0.0, active_tuning.brake_mps2 * delta_seconds
+		)
 	elif not is_zero_approx(command.throttle):
 		forward_speed = clampf(
 			forward_speed + command.throttle * active_tuning.acceleration_mps2 * delta_seconds,
@@ -160,10 +159,7 @@ static func _apply_handbrake(
 ) -> Vector3:
 	var deceleration: float = active_tuning.handbrake_brake_mps2
 	if brake > 0.0 or opposing_throttle:
-		var service_brake: float = active_tuning.brake_mps2
-		if not opposing_throttle:
-			service_brake *= brake
-		deceleration = maxf(deceleration, service_brake)
+		deceleration = maxf(deceleration, active_tuning.brake_mps2)
 	var target_speed := move_toward(
 		planar_velocity.length(), 0.0, deceleration * delta_seconds
 	)

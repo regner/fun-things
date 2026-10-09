@@ -3,8 +3,8 @@
 All commands used the Mise-pinned Godot `4.8.dev7.official.c971f93e7` and placed generated logs under
 `C:/tmp/ft/lanes/m1-b1-1/`. `validation.json` records the concise outcomes.
 
-- `production-focused-2/summary.json`: canonical layers with GUT limited to
-  `tests/unit/vehicles`; all layers passed, including 12/12 focused tests and the expected isolated
+- `review-fix-focused/summary.json`: canonical layers with GUT limited to
+  `tests/unit/vehicles`; all layers passed, including 13/13 focused tests and the expected isolated
   diagnostic failure.
 - `vehicle-smoke.log` and `vehicle-smoke.engine.log`: the authored standalone entry loaded the full
   Brackett/flat composition and moved through `VehicleMotion`; distance was 0.700 m in 20 fixed ticks.
