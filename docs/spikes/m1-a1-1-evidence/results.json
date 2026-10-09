@@ -1,0 +1,53 @@
+{
+  "engine": "4.8.dev7.official.c971f93e7",
+  "base": "80d0f24f032e19e9c375948ee25f9b76e0883131",
+  "commands": [
+    {
+      "command": "gdstyle fmt --check scripts/boot/boot.gd scripts/session/*.gd scripts/ui/*.gd tests/unit/session/*.gd && gdstyle --max-line-length 100 --max-warnings 0 ...",
+      "result": "pass",
+      "summary": "7 files already formatted; 7 files checked with no lint issues",
+      "output": "C:/tmp/ft/lanes/m1-a1-1/focused-style-final/"
+    },
+    {
+      "command": "godot --headless --path . --check-only --script res://<each new production script>",
+      "result": "pass",
+      "summary": "6 of 6 production scripts compiled with no warning/error diagnostics",
+      "output": "C:/tmp/ft/lanes/m1-a1-1/focused-compile-final/"
+    },
+    {
+      "command": "python -m unittest discover -s tools -p *test*.py",
+      "result": "pass",
+      "summary": "85 tests passed",
+      "output": "C:/tmp/ft/lanes/m1-a1-1/python-tests-final/output.log"
+    },
+    {
+      "command": "godot --headless --path . --script C:/tmp/ft/lanes/m1-a1-1/session_contract_smoke.gd",
+      "result": "pass",
+      "summary": "cancel/busy/retry/late-peer/close-timeout/late-close checks passed",
+      "output": "C:/tmp/ft/lanes/m1-a1-1/session-contract-final/"
+    },
+    {
+      "command": "godot --headless --path . -- --m1-a1-1-smoke",
+      "result": "pass",
+      "summary": "30 frames, max_fps 60, standalone ACTIVE then clean IDLE, no diagnostics",
+      "output": "C:/tmp/ft/lanes/m1-a1-1/headless-smoke-final/"
+    },
+    {
+      "command": "godot --path . --position 40,40 --resolution 1280x800 --max-fps 60 -- --m1-a1-1-smoke",
+      "result": "pass",
+      "summary": "Windows D3D12 Forward+ capped launch passed and exited cleanly",
+      "output": "C:/tmp/ft/lanes/m1-a1-1/windowed-smoke-final/"
+    },
+    {
+      "command": "python tools/script_checks.py --output C:/tmp/ft/lanes/m1-a1-1/script-checks-final-pre-d1",
+      "result": "expected-fail",
+      "summary": "new production files compiled; repository check blocked by known style debt and absent concurrent GUT framework",
+      "output": "C:/tmp/ft/lanes/m1-a1-1/script-checks-final-pre-d1/"
+    },
+    {
+      "command": "GUT canonical entrypoint",
+      "result": "not-run",
+      "summary": "M1-D1.1 was not integrated; supervisor directed execution after later resume"
+    }
+  ]
+}
