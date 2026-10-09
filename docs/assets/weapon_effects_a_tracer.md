@@ -71,8 +71,8 @@ starts the 45 m span at X=-35 (offscreen) and still draws the intersecting visib
 ## Evidence and measured limits
 
 [Evidence directory](../spikes/m1-c1-2a-evidence/) contains four actual 1280×800 Godot
-renders, `validation.json`, `manifest.json`, byte-identical reexport hashes and concise
-logs. The manifest links the source, GLB, saved scene and reproducible scripts.
+renders, `validation.json`, `manifest.json`, `reexport.json` and `production-checks.json`.
+The manifest links the source, GLB, saved scene, reproducible scripts and retained evidence.
 
 | Render | View / visible result |
 | --- | --- |
@@ -101,8 +101,8 @@ GUT tests cover immediate play, busy retention, completion once/reuse/clear, sto
 semantics, finite/vertical/translated endpoints, invalid input retaining state, independent
 40-event lifetimes, shared resources, no collision/particles, fixed AABB and saved-scene
 roundtrip ancestry. Canonical production checks also clean-import a test mirror and
-explicitly compile all owned scripts. Final full canonical run: **56/56 GUT tests**
-(including six tracer tests), **898 assertions**, **12 Python tests**, all owned
+explicitly compile all owned scripts. Full canonical rerun after rebasing and trimming evidence: **62/62 GUT tests**
+(including six tracer tests), **1,059 assertions**, **14 Python tests**, all owned
 formatting/lint/compilation and clean import passed; the intentional negative GUT
 fixture correctly returned 1. See `production-checks.json` for exact commands/results.
 
@@ -111,15 +111,13 @@ fixture correctly returned 1. See `production-checks.json` for exact commands/re
 No worktree MCP/editor tools were available; saved scenes were authored as text, then
 loaded/packed/saved/reopened by the pinned headless engine with edit-state instance
 preservation. Scene/node IDs and dependency UIDs are retained. Standalone ResourceSaver
-omits dependency UID text, so the normalization pass restored the engine-resolved UIDs;
-the second normalized save was byte-identical. The GUT roundtrip independently checks
-saved instance ancestry and configured endpoint pose. No separate open editor was used.
+omits dependency UID text, so the normalization pass restored the engine-resolved UIDs.
+The retained GUT roundtrip checks saved instance ancestry and configured endpoint pose.
+No separate open editor was used.
 
-Initial native capture correctly failed: a transposed oblique camera matrix aimed away
-from the asset. The saved camera and long-span matrix were corrected; the original
-failure log is retained. A `--editor --script` normalization attempt saved correctly but
-reported editor RID leaks at exit; it is **not** counted as a clean pass. Final standalone
-normalization, capture, GUT and canonical checks have no new engine/script diagnostics.
+Initial capture exposed transposed camera/span matrices; correcting the saved transforms
+produced the retained four-view results. An editor-script normalization attempt reported
+exit RID leaks and was replaced by a clean standalone pass, not counted as a clean editor run.
 The regular headless editor import prints the existing MCP 4.8 compatibility warning;
 canonical mirrors disable that development plugin and require clean logs.
 
@@ -150,8 +148,8 @@ Without `--tracer-capture`, the preview supports SPACE fire, E camera-edge span,
 ## Remaining acceptance
 
 **Regner must review the tracer look from the gameplay camera.** This checkpoint is
-pending, not accepted by worker image inspection. The independent lane review is also
-required. B2.1 consumes the saved asset and owns actual firing/network timing; B4.1 owns
+pending, not accepted by worker image inspection. Independent lane review was accepted
+with no findings; this follow-up trims evidence only. B2.1 consumes the saved asset and owns actual firing/network timing; B4.1 owns
 integrated city contrast and sustained effects/device cost. No Linux/Deck run, host/client
 fire playtest, city-content change or damage rule is claimed. Planning/TODO/requirements
 files are intentionally untouched; suggest marking technical C1.2a delivery ready for
