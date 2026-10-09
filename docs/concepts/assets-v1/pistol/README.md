@@ -72,7 +72,12 @@ support-hand contact and holding clips await Regner's selection and player lead
 sockets and is not a production rest/retarget rig. No competing rig files are authored.
 
 Effects lead `c9207bb9-925b-46e4-bd68-e37aaa66a617` owns visual feedback using
-the muzzle anchor. Exact anchor offset/envelope is pending selected geometry.
+the muzzle anchor. On 9 October the effects lead confirmed that `socket_muzzle`
+→ `Sockets/Muzzle`, local −Z forward/+Y up and grip-origin unit root are sufficient;
+no additional pistol anchor is requested. Effects will author a compact presentation-only
+flash at local origin with forward extent along −Z. Pistol supplies measured aperture
+and offset after Regner's selection; effects owns the resulting flash clearance/visual
+envelope. This creates no physics-query dependency or pistol-owned VFX.
 Dependency messages were sent to both leads asynchronously. Moving parts/clips are
 optional pending a demonstrated presentation need; no automatic weapon rig requirement.
 Collision and authoritative muzzle queries belong to the future gameplay integrator.
