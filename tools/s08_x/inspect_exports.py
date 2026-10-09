@@ -14,7 +14,13 @@ EXPORTS = {
     "linux_debug": ("linux-debug/FunThingsDebug.x86_64", "ELF"),
     "linux_release": ("linux-release/FunThings.x86_64", "ELF"),
 }
-FORBIDDEN = ("addons/godot_mcp_toolkit/", "addons/godotsteam/", ".mcp.json")
+FORBIDDEN_PREFIXES = ("addons/godot_mcp_toolkit/", "addons/godotsteam/")
+FORBIDDEN_NATIVE_NAMES = frozenset({
+    "steam_api.dll",
+    "steam_api64.dll",
+    "libsteam_api.so",
+    "libsteam_api.dylib",
+})
 REQUIRED = ("run/main_scene", "tests/fixtures/s06/intersection")
 
 
@@ -57,6 +63,25 @@ def pck_entries(path: Path) -> list[str]:
     return entries
 
 
+def is_forbidden_export_path(path: str) -> bool:
+    """Identify MCP and all bundled GodotSteam/Steamworks export artifacts."""
+    normalized = path.replace("\\", "/").removeprefix("res://").lower()
+    basename = normalized.rsplit("/", maxsplit=1)[-1]
+    if normalized.startswith(FORBIDDEN_PREFIXES):
+        return True
+    if basename == ".mcp.json" or "godotsteam" in basename:
+        return True
+    return any(basename == name or basename.startswith(name + ".")
+               for name in FORBIDDEN_NATIVE_NAMES)
+
+
+def find_forbidden_output_files(directory: Path) -> list[str]:
+    """List forbidden native/development artifacts beside one exported executable."""
+    files = [path.relative_to(directory).as_posix()
+             for path in directory.rglob("*") if path.is_file()]
+    return [path for path in files if is_forbidden_export_path(path)]
+
+
 def inspect(root: Path) -> dict:
     """Validate all configured exports and return their hashes and package membership."""
     result = {"ok": True, "exports": {}}
@@ -64,13 +89,11 @@ def inspect(root: Path) -> dict:
         executable = root / relative
         package = executable.with_suffix(".pck")
         entries = pck_entries(package)
-        leaks = [entry for entry in entries if entry.startswith(FORBIDDEN)]
+        leaks = [entry for entry in entries if is_forbidden_export_path(entry)]
         missing = [required for required in REQUIRED
                    if not any(required in entry for entry in entries)]
         actual_format = executable_format(executable)
-        output_leaks = [path.relative_to(executable.parent).as_posix()
-                        for path in executable.parent.rglob("*")
-                        if path.is_file() and "godotsteam" in path.name.lower()]
+        output_leaks = find_forbidden_output_files(executable.parent)
         passed = actual_format == expected_format and not leaks and not missing and not output_leaks
         result["exports"][label] = {
             "ok": passed,

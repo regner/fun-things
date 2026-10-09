@@ -1,15 +1,15 @@
 {
-  "ok": true,
+  "ok": false,
   "exports": {
     "windows_debug": {
       "ok": true,
       "executable": {
-        "path": "C:/tmp/ft/lanes/s08-x-review1/windows-debug/FunThingsDebug.exe",
+        "path": "C:/tmp/ft/lanes/s08-x-review1-native-negative/windows-debug/FunThingsDebug.exe",
         "bytes": 105550336,
         "sha256": "b5827a836746ce342a6678347d587584da1387decd99f47cd541438443346cd0"
       },
       "package": {
-        "path": "C:/tmp/ft/lanes/s08-x-review1/windows-debug/FunThingsDebug.pck",
+        "path": "C:/tmp/ft/lanes/s08-x-review1-native-negative/windows-debug/FunThingsDebug.pck",
         "bytes": 2361740,
         "sha256": "afdb381d15736bd27466da21d678d026e1345478d3370d37a76a0ebc450f32e6"
       },
@@ -30,14 +30,14 @@
       "forbidden_output_files": []
     },
     "windows_release": {
-      "ok": true,
+      "ok": false,
       "executable": {
-        "path": "C:/tmp/ft/lanes/s08-x-review1/windows-release/FunThings.exe",
+        "path": "C:/tmp/ft/lanes/s08-x-review1-native-negative/windows-release/FunThings.exe",
         "bytes": 111795200,
         "sha256": "a13b173c265f3759ae67662e655ae2f5d0576b6e24098d838f8e68bde441c35a"
       },
       "package": {
-        "path": "C:/tmp/ft/lanes/s08-x-review1/windows-release/FunThings.pck",
+        "path": "C:/tmp/ft/lanes/s08-x-review1-native-negative/windows-release/FunThings.pck",
         "bytes": 2361740,
         "sha256": "afdb381d15736bd27466da21d678d026e1345478d3370d37a76a0ebc450f32e6"
       },
@@ -55,17 +55,19 @@
         ]
       },
       "forbidden_pck_entries": [],
-      "forbidden_output_files": []
+      "forbidden_output_files": [
+        "steam_api64.dll"
+      ]
     },
     "linux_debug": {
       "ok": true,
       "executable": {
-        "path": "C:/tmp/ft/lanes/s08-x-review1/linux-debug/FunThingsDebug.x86_64",
+        "path": "C:/tmp/ft/lanes/s08-x-review1-native-negative/linux-debug/FunThingsDebug.x86_64",
         "bytes": 78405256,
         "sha256": "8b2871a1e2f8baf482282422f7e64cd7cfcc713eb53d8db671025b041bb23eb9"
       },
       "package": {
-        "path": "C:/tmp/ft/lanes/s08-x-review1/linux-debug/FunThingsDebug.pck",
+        "path": "C:/tmp/ft/lanes/s08-x-review1-native-negative/linux-debug/FunThingsDebug.pck",
         "bytes": 2361740,
         "sha256": "afdb381d15736bd27466da21d678d026e1345478d3370d37a76a0ebc450f32e6"
       },
@@ -88,12 +90,12 @@
     "linux_release": {
       "ok": true,
       "executable": {
-        "path": "C:/tmp/ft/lanes/s08-x-review1/linux-release/FunThings.x86_64",
+        "path": "C:/tmp/ft/lanes/s08-x-review1-native-negative/linux-release/FunThings.x86_64",
         "bytes": 78376584,
         "sha256": "c436b976ff5ac2e5f3197732ba7d9462267573e5a108782f84928d0606885695"
       },
       "package": {
-        "path": "C:/tmp/ft/lanes/s08-x-review1/linux-release/FunThings.pck",
+        "path": "C:/tmp/ft/lanes/s08-x-review1-native-negative/linux-release/FunThings.pck",
         "bytes": 2361740,
         "sha256": "afdb381d15736bd27466da21d678d026e1345478d3370d37a76a0ebc450f32e6"
       },

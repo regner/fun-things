@@ -1,35 +1,46 @@
 {
   "engine": "4.8.dev7.official.c971f93e7",
-  "output_root": "C:/tmp/ft/lanes/s08-x-final",
+  "output_root": "C:/tmp/ft/lanes/s08-x-review1",
   "export_start_godot_process_count": 0,
   "commands": [
     {
-      "command": "godot --headless --path . --export-debug Windows Debug C:/tmp/ft/lanes/s08-x-final/windows-debug/FunThingsDebug.exe",
+      "command": "godot --headless --path . --export-debug Windows Debug C:/tmp/ft/lanes/s08-x-review1/windows-debug/FunThingsDebug.exe",
       "timeout_seconds": 300,
       "exit": 0
     },
     {
-      "command": "godot --headless --path . --export-release Windows Release C:/tmp/ft/lanes/s08-x-final/windows-release/FunThings.exe",
+      "command": "godot --headless --path . --export-release Windows Release C:/tmp/ft/lanes/s08-x-review1/windows-release/FunThings.exe",
       "timeout_seconds": 300,
       "exit": 0
     },
     {
-      "command": "godot --headless --path . --export-debug Linux Debug C:/tmp/ft/lanes/s08-x-final/linux-debug/FunThingsDebug.x86_64",
+      "command": "godot --headless --path . --export-debug Linux Debug C:/tmp/ft/lanes/s08-x-review1/linux-debug/FunThingsDebug.x86_64",
       "timeout_seconds": 300,
       "exit": 0
     },
     {
-      "command": "godot --headless --path . --export-release Linux Release C:/tmp/ft/lanes/s08-x-final/linux-release/FunThings.x86_64",
+      "command": "godot --headless --path . --export-release Linux Release C:/tmp/ft/lanes/s08-x-review1/linux-release/FunThings.x86_64",
       "timeout_seconds": 300,
       "exit": 0
     },
     {
-      "command": "python tools/s08_x/inspect_exports.py --root C:/tmp/ft/lanes/s08-x-final --output C:/tmp/ft/lanes/s08-x-final/package-inspection.json",
+      "command": "python tools/s08_x/inspect_exports.py --root C:/tmp/ft/lanes/s08-x-review1 --output C:/tmp/ft/lanes/s08-x-review1/package-inspection.json",
       "timeout_seconds": 120,
       "exit": 0
     },
     {
-      "command": "FunThings.exe --position 50,50 --resolution 1280x800 --max-fps 60 --log-file C:/tmp/ft/lanes/s08-x-final/logs/windows-smoke.engine.log -- --s08-x-export-smoke",
+      "command": "python tools/s08_x/inspect_exports.py --root C:/tmp/ft/lanes/s08-x-review1-native-negative --output C:/tmp/ft/lanes/s08-x-review1-native-negative/result.json",
+      "timeout_seconds": 120,
+      "expected_exit": 1,
+      "exit": 1
+    },
+    {
+      "command": "python -m unittest discover -s tools -p test_s08_x.py -v",
+      "timeout_seconds": 60,
+      "exit": 0
+    },
+    {
+      "command": "FunThings.exe --position 50,50 --resolution 1280x800 --max-fps 60 --log-file C:/tmp/ft/lanes/s08-x-review1/logs/windows-smoke.engine.log -- --s08-x-export-smoke",
       "timeout_seconds": 60,
       "exit": 0
     }
