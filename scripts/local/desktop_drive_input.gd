@@ -18,8 +18,8 @@ func sample(sequence: int) -> DriveCommand:
 	if not _focused:
 		return DriveCommand.neutral(sequence, sequence)
 
-	var throttle := Input.get_axis(&"s02_back", &"s02_forward")
-	var steer := Input.get_axis(&"s02_left", &"s02_right")
+	var throttle := Input.get_axis(&"drive_reverse", &"drive_throttle")
+	var steer := Input.get_axis(&"drive_steer_left", &"drive_steer_right")
 	var brake := 1.0 if Input.is_action_pressed(&"drive_brake") else 0.0
 	var handbrake := Input.is_action_pressed(&"drive_handbrake")
 	return DriveCommand.new(sequence, sequence, throttle, steer, brake, handbrake)

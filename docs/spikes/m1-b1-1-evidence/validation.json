@@ -6,8 +6,19 @@
     "gut": "13/13 passed"
   },
   "full_production_checks": {
-    "command": "python tools/production_checks.py --output C:/tmp/ft/lanes/m1-b1-1/review-fix-full-post-rebase",
+    "command": "python tools/production_checks.py --output C:/tmp/ft/lanes/m1-b1-1/production-drive-actions-final",
     "result": "pass"
+  },
+  "production_drive_actions": {
+    "result": "pass",
+    "actions": [
+      "drive_throttle: W, Up",
+      "drive_reverse: S, Down",
+      "drive_steer_left: A, Left",
+      "drive_steer_right: D, Right",
+      "drive_brake: Shift",
+      "drive_handbrake: Space"
+    ]
   },
   "standalone_smoke": {
     "scene": "res://scenes/dev/vehicle_drive.tscn",
