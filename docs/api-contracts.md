@@ -431,11 +431,14 @@ Check sender admission, SessionId/MatchRevision, live EntityRef, life/control re
 and controller binding before forwarding. Authority remains with the host even when
 a client drives. Delta is the fixed host physics step, never a client value.
 
-`FootCommand = {sequence, client_tick, move: -1..1, turn: -1..1, fire_held: bool}`.
-Facing owns aim; there is no unratified independent mouse aim/strafe. `DriveCommand =
-{sequence, client_tick, throttle: -1..1, steer: -1..1, brake: 0..1, handbrake: bool}`.
-S04 defines reverse/brake handling. Tick is diagnostic/replay ordering within limits,
-not permission to rewind host time. AI commands use host ticks through the same rules.
+Production foot-command update, 10 October 2026 (owner decisions 3 and 25; M1-A2.1):
+`FootCommand = {sequence: int, client_tick: int, move: Vector2 (world-relative, length <= 1),
+aim_yaw: float (radians, facing), fire_held: bool, alt_held: bool}`. WASD movement is
+world/screen-relative and independent of facing; mouse-derived `aim_yaw` owns facing. This
+supersedes the stale turn-based shape. `DriveCommand = {sequence, client_tick, throttle: -1..1,
+steer: -1..1, brake: 0..1, handbrake: bool}`. S04 defines reverse/brake handling. Tick is
+diagnostic/replay ordering within limits, not permission to rewind host time. AI commands use host
+ticks through the same rules.
 
 Held sequence starts at 1 for each new entity/control-revision binding and never
 resets within that binding. Client tick stays diagnostic; a stalled/out-of-window
