@@ -21,6 +21,18 @@ class ProductionChecksTest(unittest.TestCase):
         self.assertTrue(any(argument.startswith("-gjunit_xml_file=") for argument in command))
         self.assertNotIn("-gconfig=", command)
 
+    def test_subset_gut_command_disables_default_discovery(self):
+        command = gut_command(
+            "godot",
+            Path("project"),
+            Path("results.xml"),
+            test_dirs=["tests/unit/session"],
+        )
+
+        self.assertIn("-gconfig=", command)
+        self.assertIn("-gdir=res://tests/unit/session", command)
+        self.assertIn("-ginclude_subdirs", command)
+
     def test_negative_gut_command_isolated_from_default_suite(self):
         command = gut_command("godot", Path("project"), diagnostic_failure=True)
 

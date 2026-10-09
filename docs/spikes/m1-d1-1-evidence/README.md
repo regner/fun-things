@@ -6,6 +6,7 @@
 | `scratch-export-context.txt` | Source commit and explicit scratch-main substitution note |
 | `scratch-package-inspection.json` | Executable/PCK SHA-256 identities, required main match and zero forbidden entries for four packages |
 | `scratch-export-diagnostics.log` | Concise diagnostics from all four scratch exports |
+| `windows-production-check-summary.json` | Final green canonical result: exact engine, owned scripts, Python, clean import, GUT and negative detection |
 
 The scratch copy and package binaries remain external under
 `C:/tmp/ft/lanes/m1-d1-1/` and are not committed. The receipt is an end-to-end package-membership

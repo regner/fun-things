@@ -258,7 +258,13 @@ formatting, zero-warning lint and explicit compilation, complete Python unittest
 a clean headless test-mirror import, and the test-only GUT suite under `tests/unit/`. It also
 runs the isolated intentional GUT failure under `tests/diagnostic/` and passes that check only
 when GUT exits nonzero with the expected failure marker. Logs, JUnit XML and a JSON summary stay
-in the external output directory.
+in the external output directory. To run one unit-test owner subtree while retaining the other
+canonical layers, select it explicitly:
+
+```sh
+python tools/production_checks.py --gut-dir tests/unit/session \
+  --output /tmp/ft/production-checks-session
+```
 
 GUT is pinned to v9.7.1 under `addons/gut/`; its editor plugin is not enabled. Vendor scripts
 are excluded by exact path from project-owned style and compile discovery, while production and

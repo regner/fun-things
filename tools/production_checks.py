@@ -47,7 +47,7 @@ def run_command(command, log, *, cwd=ROOT, env=None, timeout=180, reject_diagnos
     return passed, result.returncode
 
 
-def gut_command(godot, project, junit_path=None, diagnostic_failure=False):
+def gut_command(godot, project, junit_path=None, diagnostic_failure=False, test_dirs=None):
     """Build the test-only GUT CLI command without enabling its editor plugin."""
     command = [
         godot,
@@ -64,7 +64,11 @@ def gut_command(godot, project, junit_path=None, diagnostic_failure=False):
             "-gexit",
             "-gdisable_colors",
         ])
-    elif junit_path is not None:
+    elif test_dirs:
+        command.append("-gconfig=")
+        command.extend(f"-gdir=res://{test_dir}" for test_dir in test_dirs)
+        command.extend(["-ginclude_subdirs", "-gexit", "-gdisable_colors"])
+    if junit_path is not None and not diagnostic_failure:
         command.append(f"-gjunit_xml_file={junit_path.as_posix()}")
     return command
 
@@ -81,7 +85,18 @@ def main():
     parser.add_argument("--godot", default=shutil.which("godot") or "godot")
     parser.add_argument("--gdstyle", default=shutil.which("gdstyle") or "gdstyle")
     parser.add_argument("--output", type=Path)
+    parser.add_argument(
+        "--gut-dir",
+        action="append",
+        default=[],
+        help="run only a tests/unit subdirectory; may be repeated",
+    )
     args = parser.parse_args()
+    for test_dir in args.gut_dir:
+        normalized = Path(test_dir).as_posix().strip("/")
+        if not normalized.startswith("tests/unit/") or ".." in Path(normalized).parts:
+            parser.error("--gut-dir must name a subdirectory below tests/unit")
+    gut_dirs = [Path(test_dir).as_posix().strip("/") for test_dir in args.gut_dir]
 
     output = (args.output or Path(tempfile.mkdtemp(prefix="production-checks-"))).resolve()
     if output.is_relative_to(ROOT):
@@ -170,7 +185,12 @@ def main():
         )
         results["gut_import"] = {"ok": passed, "returncode": returncode}
 
-        default_command = gut_command(args.godot, project, output / "gut-results.xml")
+        default_command = gut_command(
+            args.godot,
+            project,
+            output / "gut-results.xml",
+            test_dirs=gut_dirs,
+        )
         default_command[1:1] = ["--log-file", os.fspath(output / "gut.engine.log")]
         commands["gut_tests"] = default_command
         passed, returncode = run_command(
