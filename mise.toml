@@ -32,24 +32,8 @@ run = "python tools/script_checks.py --style-only"
 description = "Explicitly compile every owned script, including unused scripts"
 run = "python tools/script_checks.py"
 
-[tasks."resources:check"]
-description = "Check S01 source/resource/identity/animation contracts"
-run = "python tools/check.py resources"
-
-[tasks."s01:clean"]
-description = "Isolated clean import and S01 contract failure probes; retains logs"
-run = "python tools/s01/clean_import.py"
-
-[tasks."s01:reexport"]
-description = "Re-export both committed Blender sources and reject stale GLBs"
-run = "python tools/s01/reexport.py"
-
-[tasks."spike:s03"]
-description = "Run the bounded real-process ENet session-contract proof"
-run = "python tools/run_s03.py"
-
 [tasks."tools:check"]
-description = "Check foundation runner discovery, diagnostics and child ownership"
+description = "Run production repository-tool tests"
 run = "python -m unittest discover -s tools -p '*test*.py'"
 
 [tasks."production:check"]

@@ -31,7 +31,7 @@ unchanged. Gamepad input remains deferred.
 Use the pinned engine from the repository root:
 
 ```sh
-mise exec -- godot --path . res://tests/fixtures/s02/corner.tscn
+mise exec -- godot --path . res://prototypes/s02/tests/fixtures/s02/corner.tscn
 ```
 
 At 1280x800, perform this route with physical controls:

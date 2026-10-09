@@ -19,7 +19,7 @@ def main():
     for obj in bpy.data.collections[collection].all_objects:
         assert all(abs(s-1)<1e-6 for s in obj.scale),(obj.name,list(obj.scale))
         assert obj.matrix_world.determinant()>0,obj.name
-    settings=json.loads((ROOT/'tools/s01/export_settings.json').read_text())
+    settings=json.loads((ROOT/'tools/assets/export_settings.json').read_text())
     settings.update(collection=collection,filepath=str(Path(output).resolve()),
                     export_animations='--animations' in args)
     bpy.ops.export_scene.gltf(**settings)

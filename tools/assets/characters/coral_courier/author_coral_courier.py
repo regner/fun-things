@@ -280,7 +280,7 @@ def main():
     SOURCE.parent.mkdir(parents=True,exist_ok=True);OUTPUT.parent.mkdir(parents=True,exist_ok=True)
     bpy.context.view_layer.objects.active=rig;rig.select_set(True)
     bpy.ops.wm.save_as_mainfile(filepath=str(SOURCE))
-    settings=json.loads((ROOT/'tools/s01/export_settings.json').read_text())
+    settings=json.loads((ROOT/'tools/assets/export_settings.json').read_text())
     settings.update(collection=COLLECTION,export_animations=False,filepath=str(OUTPUT))
     bpy.ops.export_scene.gltf(**settings)
     report={'source':str(SOURCE.relative_to(ROOT)),'export':str(OUTPUT.relative_to(ROOT)),

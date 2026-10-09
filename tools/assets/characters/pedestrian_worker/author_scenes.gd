@@ -4,7 +4,9 @@ extends Node
 ## Editor-only authoring recipe. Saves linked scenes; never builds runtime render meshes.
 
 const FAMILY: String = "res://scenes/prefabs/pedestrian_civilian/"
-const PREVIEW: String = "res://tests/assets/characters/pedestrian_worker/pedestrian_worker_a_preview.tscn"
+const PREVIEW: String = (
+	"res://tests/assets/characters/pedestrian_worker/pedestrian_worker_a_preview.tscn"
+)
 const MODEL: String = "res://art/models/characters/pedestrian_worker/pedestrian_worker_a.glb"
 const LIBRARY: String = "res://art/animations/characters/pedestrian_worker/npc_locomotion_v1.tres"
 const MATERIAL: String = (

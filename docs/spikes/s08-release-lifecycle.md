@@ -37,7 +37,7 @@ The sole independent initial review of `1d5debf0b15cfc9de3e3868a648cc5b5b8488378
 against `30471e6ae4c4ecbe01ce13313cd6d14c3b701bae` found R1/P2: actual supervisors
 at `f178c70efb657ea9fba5951d9440c23c761aea31` and
 `a5756b4b6126a5c9756de981b39fdadc35f3c8fe` poll/forward UDP then sleep10ms, versus
-original `tools/run_s03.POLL_SECONDS`20ms. Independent fake-clock/socket evidence
+original `prototypes/s03/tools/run_s03.POLL_SECONDS`20ms. Independent fake-clock/socket evidence
 shows one packet available at5ms can be forwarded at10ms versus20ms. Preserving
 fault event order is not transport service timing preservation. No causation is inferred.
 
@@ -52,7 +52,7 @@ Exact inverse recovery still establishes preserved saved GDScript statements, no
 that logging/new callbacks or the whole measurement are timing-neutral.
 
 ROOT authorized only a narrow offline source correction: final `lifecycle_diagnostic.py`
-consumes the existing `tools/run_s03.POLL_SECONDS` owner instead of literal0.01.
+consumes the existing `prototypes/s03/tools/run_s03.POLL_SECONDS` owner instead of literal0.01.
 `lifecycle_cadence_test.py` independently requires literal0.020 in that owner and
 rejects the recorded0.01 consumer regression. This is **restored/unexecuted20ms
 source for FUTURE separately commissioned use**, not a gameplay/native fix, measured
@@ -92,7 +92,7 @@ telemetry in saved S03 Proof and Session is proposed: public close-start signal,
 state/completion/held-send/receipt observations, host simulation/expiry observations,
 engine elapsed microseconds/PID/role/phases/deadlines. Existing gameplay statements,
 values, waits, RPC declarations, names, UIDs and node identities remain unchanged.
-`tools/s08/lifecycle_edits.py` declares exact toolkit requests and inverse readback:
+`prototypes/s08/tools/s08/lifecycle_edits.py` declares exact toolkit requests and inverse readback:
 removing only diagnostic additions must recover exact base script bytes.
 
 One private editor session, at most 25min (reused supervisor author window 20min,
@@ -102,7 +102,7 @@ XDG/process/registry/token paths. Before launch, read-only existing seed at
 SHA256 `8b96a837c9de1511c7cb1c516f49543d61b332628fe29f260960ff6073843d57`;
 copy exact bytes only into new private settings scope. No initializer, shared
 settings or main editor operation. Use the unchanged installed MCP SDK through
-accepted `tools/s05_effect/private_author.py`, actual canonical project/PID/token
+accepted `prototypes/s05_effect/tools/s05_effect/private_author.py`, actual canonical project/PID/token
 and live boost=false startup verification. Inspect tool inventory and affected saved
 scene, use `script_edit`, then script checks, save/reopen and saved diff. No hierarchy
 or placement mutation; no historical shutdown experiment. Normal editor exit is
@@ -116,7 +116,7 @@ Pinned DEBUG binary:
 Steam initialization or package export is needed for this diagnostic.
 
 After saved-source checks and a committed candidate, one invocation:
-`python3 tools/s08/lifecycle_diagnostic.py --output /tmp/s08-lifecycle-debug01
+`python3 prototypes/s08/tools/s08/lifecycle_diagnostic.py --output /tmp/s08-lifecycle-debug01
 --revision <exact committed HEAD> --author-project /tmp/s08-lifecycle-author/state/project`.
 Child argv: `stdbuf -oL <pinned DEBUG> --headless --path <private stage>
 --log-file <role engine.log> -- --role=host|client --port=<owned loopback endpoint>`.
@@ -200,7 +200,7 @@ unchanged retry of the old uninstrumented release or credit from the debug resul
 The second set has a stricter 27s aggregate budget, so both stay below 30s combined;
 no third set, extra editor, dependency import, rule/deadline change or suppression.
 
-Release preparation: `python3 tools/s08/lifecycle_release.py --output
+Release preparation: `python3 prototypes/s08/tools/s08/lifecycle_release.py --output
 /tmp/s08-lifecycle-release01 --revision <committed HEAD> --author-project
 /tmp/s08-lifecycle-author/state/project`. One export command, at most120s plus
 bounded owned cleanup, using exact installed dev7 exporter and already-present

@@ -28,7 +28,7 @@ arguments into `OS.get_cmdline_user_args()` (lines1168–1169,2044–2045,2232).
 The bounded read-only installed-editor `--help` exited0 with empty stderr under
 private XDG paths; it confirms LSP/DAP/debug-server flags, not template behavior.
 
-The planned, **UNIMPLEMENTED** `tests/fixtures/s08/release_boot.tscn` would have one
+The planned, **UNIMPLEMENTED** `prototypes/s08/tests/fixtures/s08/release_boot.tscn` would have one
 Node root and attached `release_boot.gd`/engine-generated UID sidecar. Its script
 would perform explicit release-enabled checks and emit one `S08` JSON receipt per
 process. The intended behavior is to instance
@@ -231,7 +231,7 @@ A changed readiness probe alone is not clean authoring evidence. These raw
 diagnostics remain separate from the handler's failed probe response.
 
 Actual poststop hashes show all31 accepted S01/S03 inputs and all277 copied toolkit
-files unchanged. No new `tests/fixtures/s08` directory exists in the mirror. No
+files unchanged. No new `prototypes/s08/tests/fixtures/s08` directory exists in the mirror. No
 script edit/write, scene create/attach/save/reopen, S03 behavior fix or generated
 S08 UID/node identity occurred. Narrow uncommitted runner preparation and observer
 draft were preserved under `/tmp/s08-entrypoint-read`; the runner's working bytes

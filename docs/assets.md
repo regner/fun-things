@@ -70,8 +70,8 @@ under their family: `art/models/weapons/<type_name>/`,
 `art/models/effects/<type_name>/`. Mirror the same family/type path under
 `art/source/models/` and, when asset-specific, under `art/animations/`,
 `art/materials/`, and `art/textures/`. Runtime filenames may retain a versioned asset
-ID inside that type directory. Spike fixtures remain in their existing paths until
-their owner approves migration; do not mix them into production type directories.
+ID inside that type directory. Foundation spike assets live under [`prototypes/<spike_id>/art/`](../prototypes/README.md),
+outside Godot's scan. Do not mix archived spike art into production type directories.
 
 ```text
 art/
@@ -95,7 +95,7 @@ docs/                                 # at the repository root
 
 ### Tracked art inventory — production cleanup, 9 October 2026
 
-This family-level table classifies all **252** tracked files under `art/` after the
+This family-level table classifies all **184** tracked files under `art/` after the
 production cleanup. The cleanup used direct filesystem moves because no editor/MCP
 session was available; import and dependency checks validate the saved result.
 Historical review receipts remain discoverable in Git history rather than under
@@ -109,8 +109,6 @@ Historical review receipts remain discoverable in Git history rather than under
 | Character model/source/animation/material type directories for `pedestrian_worker` and `shared_humanoid` | 18 | Production asset | Pedestrian/player prefabs, shared motion libraries and handoffs |
 | Effect model/source/material files in `effects/weapon_effects` | 30 | Production asset | Saved muzzle, hit, trail and explosion scenes |
 | `models/source models/brackett_greybox` | 105 | Greybox | Saved world/prefab composition and greybox export tooling |
-| `models/source models/spikes`, S01/S13 materials and spike texture | 46 | Spike-fixture dependency | S01–S06 and S13 fixture scenes, resource checks and handoffs |
-| Root `characters/s13_humanoid.*` and `effects/s15_*` | 22 | Spike-fixture dependency | S13/S15 fixtures; intentionally not moved pending owner decision |
 | `source/.gdignore` | 1 | Source-tree configuration | Godot import/export exclusion |
 
 No review/concept-only or unreferenced art remains in the tracked `art/` tree. Pure
@@ -131,18 +129,10 @@ to every GLB/texture, import sidecar, material, prefab/inherited variant and aff
 sector. Shared sources list **all** component outputs and dependents; shared
 materials/textures list consumers. Link shared rig/material records rather than
 copy their details. Check reverse dependencies with repository searches and the
-editor, since the manual list can become stale. Focused S01 tooling now exists:
-`mise run s01:reexport` runs [the reexport tool](../tools/s01/reexport.py) on both
-committed Blender fixture sources, validates scratch outputs and rejects stale GLBs
-by byte comparison. It records source/export SHA256 fingerprints; the accepted
-[committed fingerprints](spikes/s01-evidence/fingerprints.json) and
-[combined acceptance](spikes/s03.md#integration-validation) retain the evidence.
-Its explicit `--install` path replaces both validated GLBs while preserving import
-sidecars; follow the save/reopen workflow below when sources change.
-`resources:check` and `s01:clean` cover the focused source-link/resource/identity
-checks and isolated clean-import failure probes. This is not general catalogue
-or production-asset automation: the catalogue remains manual, and broader checks/CI
-remain M1-D1 work. Gameplay-derived
+editor, since the manual list can become stale. Production asset tools mirror the art layout
+under `tools/assets/<family>/<type_name>/`; each handoff records its safe check and reexport
+entrypoints. Foundation S01 tools and their exact historical contracts are archived under
+`prototypes/s01/` and are not current production automation. Gameplay-derived
 navigation/minimap data requires the scene contract's bake fingerprint from first
 use; that content-handshake requirement is separate from catalogue automation.
 
@@ -402,34 +392,9 @@ prediction/duplicate packets must not replay sounds. Bus/lifecycle behavior belo
 to gameplay/presentation owners. 2D UI/fonts/minimap assets retain provenance and
 runtime/source links without requiring Blender model handoffs.
 
-## Accepted partial S06 source and topology handoff
+## Archived spike assets
 
-The prospective S06 representation/bake method above remains a production workflow
-requirement. [Exact7fb302b partial S06](spikes/s06.md#accepted-exact-final-disposition)
-now supplies bounded technical evidence through ONE
-[source handoff](spikes/s06-source-handoff.md) and [contract](spikes/s06-contracts.md).
-Original `s06_intersection.blend` has explicit west/east export collections,34 named
-members/two linked GLBs/imports → saved west/east sectors → intersection/inherited
-wide. Neutral road9 m/sidewalk4 m geometry and separate island collision are spike
-fixtures, not production street art. No copied/generated render mesh or detached
-import is accepted. [Catalogue](asset-catalogue.md) discovers that handoff;
-[S02](assets/s02_kit.md#accepted-partial-s06-reverse-consumers) actor/pistol and
-[S04](assets/s04_kit.md#accepted-partial-s06-reverse-consumers) car reverse consumers
-extend unchanged source maps without new identities or source edits.
-
-Saved scenes alone own placement/stable IDs; City owns bounded topology/signature/
-revision/map and explicit editor bake. Source/export/collision/anchor changes need
-affected saved/inherited refresh/reopen, rebake and public-body checks, per the
-existing workflow. Actual planar crossing/opposing LEFT-turn seams and source/export/
-UID/supplied roundtrip receipts are partial technical evidence; source/static
-captures do not certify runtime camera/minimap/readability/feel. Analytical larger
-footprints are not changed-body physics. Final S02/S04 choices require actual
-clearance/contact/turn/exit/seam/map reruns. Actual finite stop is distinct from
-specified unimplemented contested recovery and production spawn/exit/lifecycle.
-
-S07's provisional technical topology prerequisite is satisfied; actual source-linked
-effects/eight-slot drawable saturation/live-versus-hydrated, named hardware/four
-graphical views/residency/sustained cost are still missing. Full spikes, Steam/Deck/
-feel/input/P0/six-block M1/production and user choices stay open. No capacity maximum,
-renderer/streaming, tool pin or optimization is selected. No new asset experiment
-ran for this documentation-only discovery.
+Foundation source files, explicit exports, materials and fixtures are retained beside their spike
+under [`prototypes/`](../prototypes/README.md). Historical handoffs and evidence continue to record
+their original paths and results. The archive is reference-only: production scenes, tools and asset
+handoffs must use the type directories under `art/`, `tools/assets/` and `tests/assets/`.

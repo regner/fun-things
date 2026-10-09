@@ -7,11 +7,11 @@ incorporated. These are blockouts, not accepted production people, rigs or build
 
 ## Source and consumers
 
-One committed source: `art/source/models/spikes/s02_kit.blend`, excluded from Godot by
+One committed source: `prototypes/s02/art/source/models/spikes/s02_kit.blend`, excluded from Godot by
 `art/source/.gdignore`. Each row exports its identically named `export_<asset>`
-collection to `art/models/spikes/<asset>.glb` plus engine-saved `.glb.import`.
-Exact members are in `tools/s02/export_members.json`; all nine outputs must accompany
-source changes. `tools/s02/create_sources.py` is historical bootstrap tooling;
+collection to `prototypes/s02/art/models/spikes/<asset>.glb` plus engine-saved `.glb.import`.
+Exact members are in `prototypes/s02/tools/s02/export_members.json`; all nine outputs must accompany
+source changes. `prototypes/s02/tools/s02/create_sources.py` is historical bootstrap tooling;
 subsequent authoring belongs in the saved Blender source.
 
 | Asset | Imported envelope / purpose | Original S02 linked consumers |
@@ -26,7 +26,7 @@ subsequent authoring belongs in the saved Blender source.
 | s02_smg | 0.28×0.24×0.72 m body plus 0.3 m rear stock | weapon_studies/smg |
 | s02_launcher | 0.38×0.36×1.1 m body plus 0.48 m rear bell | weapon_studies/launcher |
 
-All scene paths above are under `tests/fixtures/s02/`. `corner_wide.tscn` inherits
+All scene paths above are under `prototypes/s02/tests/fixtures/s02/`. `corner_wide.tscn` inherits
 corner and changes only the authored camera FOV. `focus_runner.tscn` instances corner.
 The actor's production-style `PresentationAnchor/Visuals/Model` and static wrappers'
 `Visuals/Model` retain GLB ancestry. Study-only assemblies are saved directly in
@@ -39,18 +39,18 @@ unchanged source/export kit. The original table remains the initial S02 handoff;
 the mappings below supplement it at accepted `ae48eb3`. They describe linked
 technical fixtures, not new art, final camera/feel acceptance or production use.
 Each source collection below belongs to `s02_kit.blend` and exports the matching
-GLB plus `.glb.import` under `art/models/spikes/` as above.
+GLB plus `.glb.import` under `prototypes/s02/art/models/spikes/` as above.
 
 | Source collection → export | S02 prefab / inherited ancestry | Accepted S03-R consumer in `boot.tscn` |
 | --- | --- | --- |
-| `export_s02_ground` → `s02_ground.glb` | [ground_prefab.tscn](../../tests/fixtures/s02/ground_prefab.tscn), `Visuals/Model` | `View/Match/CityRoot/Ground` |
-| `export_s02_low` → `s02_low.glb` | [low_prefab.tscn](../../tests/fixtures/s02/low_prefab.tscn), `Visuals/Model` | `View/Match/CityRoot/WestCorner` and `EastCorner` |
-| `export_s02_near` → `s02_near.glb` | [near_prefab.tscn](../../tests/fixtures/s02/near_prefab.tscn), `Visuals/Model` | `View/Match/CityRoot/NearTower` |
-| `export_s02_tall` → `s02_tall.glb` | [tall_prefab.tscn](../../tests/fixtures/s02/tall_prefab.tscn), `Visuals/Model` | `View/Match/CityRoot/TallTower` |
-| `export_s02_actor` → `s02_actor.glb` | [S02 actor.tscn](../../tests/fixtures/s02/actor.tscn), `PresentationAnchor/Visuals/Model` → [inherited S03-R actor.tscn](../../tests/fixtures/s03_r/actor.tscn) | `View/Match/Bodies/Host` and `Client` |
+| `export_s02_ground` → `s02_ground.glb` | [ground_prefab.tscn](../../prototypes/s02/tests/fixtures/s02/ground_prefab.tscn), `Visuals/Model` | `View/Match/CityRoot/Ground` |
+| `export_s02_low` → `s02_low.glb` | [low_prefab.tscn](../../prototypes/s02/tests/fixtures/s02/low_prefab.tscn), `Visuals/Model` | `View/Match/CityRoot/WestCorner` and `EastCorner` |
+| `export_s02_near` → `s02_near.glb` | [near_prefab.tscn](../../prototypes/s02/tests/fixtures/s02/near_prefab.tscn), `Visuals/Model` | `View/Match/CityRoot/NearTower` |
+| `export_s02_tall` → `s02_tall.glb` | [tall_prefab.tscn](../../prototypes/s02/tests/fixtures/s02/tall_prefab.tscn), `Visuals/Model` | `View/Match/CityRoot/TallTower` |
+| `export_s02_actor` → `s02_actor.glb` | [S02 actor.tscn](../../prototypes/s02/tests/fixtures/s02/actor.tscn), `PresentationAnchor/Visuals/Model` → [inherited S03-R actor.tscn](../../prototypes/s03_r/tests/fixtures/s03_r/actor.tscn) | `View/Match/Bodies/Host` and `Client` |
 | `export_s02_pistol` → `s02_pistol.glb` | S02 actor, `PresentationAnchor/WeaponMount/Model` → inherited S03-R actor | Both bodies' linked pistol; source-derived `Sockets/Muzzle` supplies aim observation |
 
-The saved [S03-R boot](../../tests/fixtures/s03_r/boot.tscn) inherits S03's boot
+The saved [S03-R boot](../../prototypes/s03_r/tests/fixtures/s03_r/boot.tscn) inherits S03's boot
 and owns these CityRoot placements and two dynamic body spawn poses. Actor/pistol
 model ancestry, grip/muzzle transforms and collision derive from S02; S03-R adds
 replica pose/presentation behavior without copying movement or imported geometry.
@@ -82,9 +82,9 @@ textures, external libraries, LOD study, mesh VFX or compression extensions.
 
 Blender **5.2.2 LTS d13f752e3b9c**, bundled glTF exporter **5.2.40**; Godot
 **4.8.dev7.official.c971f93e7**, unchanged engine pin. Explicit export uses S01's
-recorded `tools/s01/export_settings.json` with animations disabled and a declared
-collection per output; `tools/s02/export.py` checks members and transforms.
-`tools/s02/reexport.py` rejects non-identical GLBs, embedded images and extensions.
+recorded `prototypes/s01/tools/s01/export_settings.json` with animations disabled and a declared
+collection per output; `prototypes/s02/tools/s02/export.py` checks members and transforms.
+`prototypes/s02/tools/s02/reexport.py` rejects non-identical GLBs, embedded images and extensions.
 Its narrow known diagnostic is the missing optional MeshOptimizer library; actual
 exports contain no compression extension. Full logs and hashes accompany S02.
 
@@ -130,7 +130,7 @@ linked technical consumers of unchanged `s02_kit.blend` outputs:
 
 | Source collection → GLB/import | Preserved prefab-local ancestry | Saved S06 consumer |
 | --- | --- | --- |
-| `export_s02_actor` → `s02_actor.glb` + `.glb.import` | [S02 actor](../../tests/fixtures/s02/actor.tscn), `PresentationAnchor/Visuals/Model` | [intersection](../../tests/fixtures/s06/intersection.tscn)/`Person`, inherited by [intersection_wide](../../tests/fixtures/s06/intersection_wide.tscn) |
+| `export_s02_actor` → `s02_actor.glb` + `.glb.import` | [S02 actor](../../prototypes/s02/tests/fixtures/s02/actor.tscn), `PresentationAnchor/Visuals/Model` | [intersection](../../prototypes/s06/tests/fixtures/s06/intersection.tscn)/`Person`, inherited by [intersection_wide](../../prototypes/s06/tests/fixtures/s06/intersection_wide.tscn) |
 | `export_s02_pistol` → `s02_pistol.glb` + `.glb.import` | Same actor, `PresentationAnchor/WeaponMount/Model`; preserved `Sockets/Muzzle` | Same Person and inherited wide consumer |
 
 S06 introduces no ground/building/target/SMG/launcher consumer from this kit. The

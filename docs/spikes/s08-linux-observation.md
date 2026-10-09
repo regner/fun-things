@@ -54,8 +54,8 @@ Fresh `/tmp/s08-observation-*` staging reads exact accepted Git blobs, never
 copies `.godot`, and records source blob IDs, bytes, SHA256, UIDs and import sidecars.
 The exact31-file staged input set is14 S01 closure files plus all17 S03 files.
 S01: four saved scenes `roundtrip`, `static_prefab`, `static_variant`, `rig_prefab`;
-`fixture_identity.gd` and UID; two `art/models/spikes/s01_{static,rig}.glb` and
-their imports; `art/materials/s01_{petrol,coral}.tres`; palette PNG and import.
+`fixture_identity.gd` and UID; two `prototypes/s01/art/models/spikes/s01_{static,rig}.glb` and
+their imports; `prototypes/s01/art/materials/s01_{petrol,coral}.tres`; palette PNG and import.
 S03: `boot.tscn`, `entity.tscn`, `local_rig.tscn`; `entity`, `fake_transport`,
 `match`, `proof`, `replication`, `session`, `transport` scripts and seven UIDs.
 Source Blender/palette links remain in Git evidence, outside stage/package.
@@ -90,7 +90,7 @@ proof, not full gameplay/lifecycle/production or another transport acceptance.
 
 Required proxy events exactly: armed, hold_subset_A, deliver_B_then_A,
 drop_subset_A, refresh_subset, refresh_subset. Reuse only narrow parsing/proxy/
-result/owned-child cleanup logic from `tools/run_s03.py`; do not execute its runner,
+result/owned-child cleanup logic from `prototypes/s03/tools/run_s03.py`; do not execute its runner,
 editor staging or whole-repository compilation path.
 
 Full folder/PCK negatives: addons, native descriptor/SO/DLL, Steam/MCP caches or
@@ -202,7 +202,7 @@ pass. ENet/proxy/host/client never started. Static membership is distinct from
 runtime resolution; the first asset failure remains the finite **STOP**.
 
 Existing S08 owns the next supported-release-entrypoint question and the separate
-RELEASE proof prerequisite: accepted `tests/fixtures/s03/replication.gd:40` places
+RELEASE proof prerequisite: accepted `prototypes/s03/tests/fixtures/s03/replication.gd:40` places
 state-changing `apply_journal` inside debug `assert`. Future release baseline/
 journal/resync health70 proof requires explicit mutation execution and independent
 outcome assertions. This limitation does not explain the missing-role failure.

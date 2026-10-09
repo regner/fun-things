@@ -13,7 +13,7 @@ with the Mise-pinned `Godot 4.8.dev7.official.c971f93e7`:
 
 ```sh
 export PATH="$(dirname "$(mise -C C:/GameDev/git/fun-things which godot)"):$(dirname "$(mise -C C:/GameDev/git/fun-things which gdstyle)"):$PATH"
-timeout 5000 python tools/s17/run.py --godot "$(command -v godot)" \
+timeout 5000 python prototypes/s17/tools/s17/run.py --godot "$(command -v godot)" \
   --output C:/tmp/ft/lanes/quiet-pass/s17/run
 ```
 

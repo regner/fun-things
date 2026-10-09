@@ -4,8 +4,8 @@ Concept images for completed production assets were removed during production cl
 
 9 October 2026. **Regner selected C — Off-Shift Worker** and authorised the reusable
 NPC-colour/shared-rig approach. The source is now bound to shared_humanoid/1.0.0,
-with a separate NPC clip library and imported preview. [Production gallery](production.html).
-[Original concept gallery](review.html).
+with a separate NPC clip library and imported preview. The removed production and concept
+galleries remain available at commit `80d0f24`.
 [Asset handoff](../../../assets/pedestrian_civilian_first.md).
 
 The assignment is one reusable civilian pedestrian for the smooth, chunky city

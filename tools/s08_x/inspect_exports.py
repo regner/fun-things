@@ -19,6 +19,7 @@ FORBIDDEN_PREFIXES = (
     "addons/godot_mcp_toolkit/",
     "addons/godotsteam/",
     "addons/gut/",
+    "prototypes/",
     "tests/",
 )
 FORBIDDEN_NATIVE_NAMES = frozenset({

@@ -15,7 +15,7 @@ for obj in collection.all_objects:
     assert all(abs(v - 1) < .000001 for v in obj.scale), obj.name
     assert obj.matrix_world.determinant() > 0, obj.name
     assert not obj.modifiers, obj.name
-settings = json.loads((ROOT / 'tools/s01/export_settings.json').read_text())
+settings = json.loads((ROOT / 'tools/assets/export_settings.json').read_text())
 settings['export_animations'] = False
 settings['collection'] = collection.name
 out = Path(sys.argv[sys.argv.index('--') + 1]).resolve()

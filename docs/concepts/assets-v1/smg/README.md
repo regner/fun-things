@@ -5,7 +5,7 @@ Concept images for completed production assets were removed during production cl
 9 October 2026. **Regner selected C — Wedgewire.**
 The [production asset handoff](../../../assets/smg_wedgewire_a.md) records the
 Blender source, imported wrapper and actual Godot camera evidence.
-Open [the review gallery](index.html) or each full sheet:
+The removed review gallery and full sheets remain available at commit `80d0f24`:
 
 | Option | Sheet | Main overhead cue | Tradeoff |
 | --- | --- | --- | --- |

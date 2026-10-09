@@ -109,11 +109,11 @@ single-pulse expiry assumption, the old post-step expiry timestamp artifact and 
 heavily contended headless baseline. No staged scratch project is committed.
 
 ```sh
-python tools/run_s03_r.py --godot C:/path/to/godot.exe --profiles baseline \
+python prototypes/s03_r/tools/run_s03_r.py --godot C:/path/to/godot.exe --profiles baseline \
   --output C:/tmp/ft/lanes/s03-p/prediction-baseline
-python tools/run_s03_r.py --godot C:/path/to/godot.exe --profiles normal adverse \
+python prototypes/s03_r/tools/run_s03_r.py --godot C:/path/to/godot.exe --profiles normal adverse \
   --output C:/tmp/ft/lanes/s03-p/prediction-impaired
-python tools/run_s03_r.py --godot C:/path/to/godot.exe --profiles baseline --windowed \
+python prototypes/s03_r/tools/run_s03_r.py --godot C:/path/to/godot.exe --profiles baseline --windowed \
   --max-fps 60 --output C:/tmp/ft/lanes/s03-p/prediction-windowed
 ```
 
@@ -123,7 +123,7 @@ history probe is:
 
 ```sh
 godot --headless --path . \
-  --script res://tests/fixtures/s03_r/prediction_history_probe.gd
+  --script res://prototypes/s03_r/tests/fixtures/s03_r/prediction_history_probe.gd
 ```
 
 ## Disposition

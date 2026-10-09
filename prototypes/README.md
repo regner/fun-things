@@ -20,3 +20,14 @@ git show 66400c26a01bf917dfe631af4762c2b444d9c48f:<path>
 
 To run a complete old prototype, use a separate worktree or temporary checkout at that commit. Do
 not restore prototype files into production directories merely to make an old receipt runnable.
+
+## Cleanup deletion report
+
+Two obsolete bridges were deleted instead of archived because their only purpose was to call tooling
+that is now reference-only:
+
+- `tests/fixtures/rocket_launcher/editor_harness.tscn` depended on the archived S02 editor probe.
+- `tools/assets/world/brackett_greybox/editor_call.py` depended on the archived S08 editor bridge.
+
+The current Dock Thumper preview and Brackett greybox source/check/reexport paths remain in the
+production asset trees.

@@ -7,10 +7,10 @@ Petrol & Coral flat intersection, not detailed accepted street art.
 
 | Committed source / collection | Explicit output / saved linked consumer |
 | --- | --- |
-| `art/source/models/spikes/s06_intersection.blend`, `export_s06_west` | `art/models/spikes/s06_west.glb` + engine `.import` → `tests/fixtures/s06/west.tscn/Visuals/Model` |
-| Same source, `export_s06_east` | `art/models/spikes/s06_east.glb` + engine `.import` → `tests/fixtures/s06/east.tscn/Visuals/Model` |
+| `prototypes/s06/art/source/models/spikes/s06_intersection.blend`, `export_s06_west` | `prototypes/s06/art/models/spikes/s06_west.glb` + engine `.import` → `prototypes/s06/tests/fixtures/s06/west.tscn/Visuals/Model` |
+| Same source, `export_s06_east` | `prototypes/s06/art/models/spikes/s06_east.glb` + engine `.import` → `prototypes/s06/tests/fixtures/s06/east.tscn/Visuals/Model` |
 
-Exact34 named members are in `tools/s06/export_members.json`; committed source owns
+Exact34 named members are in `prototypes/s06/tools/s06/export_members.json`; committed source owns
 subsequent authoring, bootstrap refuses overwrite. Metres, Blender +Z up/+Y front
 converted once to Godot +Y up/-Z forward. Applied positive unit scale/rotation,
 triangulation, embedded original flat shader colors/roughness0.8, no textures,

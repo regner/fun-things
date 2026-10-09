@@ -24,7 +24,7 @@ failures and unmeasured DRAW/native/performance gates remain explicit there.
 
 Before engine launch, source inspection found the exact missing observation route:
 `S05SavedMatch -> S05Match -> S03Match.bind_local()` loads
-`tests/fixtures/s03/local_rig.tscn`. Host bind and replica baseline bind use this
+`prototypes/s03/tests/fixtures/s03/local_rig.tscn`. Host bind and replica baseline bind use this
 same scene. Its unscripted CameraAnchor/Camera3D have identity transforms, no saved
 overhead placement and no follow binding. The burst's cars lie at X=0/4/8/12,
 Z=0/4/8. Neither S05 ancestry nor track adds an observation camera. This is a
@@ -48,7 +48,7 @@ Pinned executable, unchanged renderer:
 full hash `c971f93e7e76b0ef919bf6009e7b868bea04db7f`, binary SHA256
 `6aea356032435e7af19dbfbf48dd20c5012a7dc1267eb8e92406f44e3584b5fd`.
 
-`tools/s05_draw/private_author.py` follows accepted saved burst/editor-harness
+`prototypes/s05_draw/tools/s05_draw/private_author.py` follows accepted saved burst/editor-harness
 resource and fixture class references, copies their UID/import sidecars and the
 unchanged toolkit, with an **8 MiB source closure cap** into
 `/tmp/s05-draw-8c398027-run01/author-state/project`. Each copied input must equal
@@ -75,7 +75,7 @@ actual context requires editor_hint=true/full engine hash/private boost=false.
 Dedicated project settings and console handlers authenticate readiness. No default
 port guess, Expression global-singleton probe or unrelated process inventory.
 
-Author only `tests/fixtures/s05_draw/`: an observation-only saved overhead camera
+Author only `prototypes/s05_draw/tests/fixtures/s05_draw/`: an observation-only saved overhead camera
 composition, a saved inherited burst entrypoint, and its external observation
 script/UID. Use installed scene/script/property/inheritance handlers. Camera
 choice: perspective, vertical -Y/yaw0, height47m, FOV42 degrees, near0.1/far160,
@@ -151,7 +151,7 @@ auto-directory warnings, plus RID/text/dummy rendering exit leaks. No script
 error or stale-registration error. These are separate from runtime diagnostics.
 Initial observer draft lint's eight warnings and corrected drafts remain retained.
 
-**Group01** uses `tools/s05_draw/observe.py` and fresh
+**Group01** uses `prototypes/s05_draw/tools/s05_draw/observe.py` and fresh
 `/tmp/s05-draw-8c398027-run01/group01/project`. Copy only accepted runtime closure,
 new saved observation resources, three GLB generated imports, generated UID/class
 caches and the unused accepted @tool helper named by the class cache. No toolkit
@@ -161,7 +161,7 @@ dependency imports/class indexing remove the need for another import process.
 
 Actual role argv, saved before each spawn:
 `godot --path <group01/project> --display-driver wayland
---log-file <group01/ROLE/engine.log> res://tests/fixtures/s05_draw/burst.tscn
+--log-file <group01/ROLE/engine.log> res://prototypes/s05_draw/tests/fixtures/s05_draw/burst.tscn
 -- --role=ROLE --port=<OS-assigned loopback UDP port>`.
 Each host/client/late owns four distinct private XDG roots/logs with HOME unchanged.
 WAYLAND_DISPLAY is the existing absolute `/run/user/1000/wayland-0` socket, preserving
@@ -215,7 +215,7 @@ diagnostic gate and cleanup. Fresh group02 project/logs avoid overwriting group0
 
 Exact role argv:
 `godot --audio-driver Dummy --path <group02/project> --display-driver wayland
---log-file <group02/ROLE/engine.log> res://tests/fixtures/s05_draw/burst.tscn
+--log-file <group02/ROLE/engine.log> res://prototypes/s05_draw/tests/fixtures/s05_draw/burst.tscn
 -- --role=ROLE --port=<OS-assigned loopback UDP port>`.
 CLI-only `godot --headless --help` is allowed to verify the actual flag without
 starting a project/editor/window/audio workload. No graphical group03, repeated
@@ -301,7 +301,7 @@ grace by child count. Spawning rechecks cutoff immediately before Popen. Cleanup
 elapsed time and actual deadline compliance are explicit receipts; an unreaped
 handle or overrun cannot receive successful return credit.
 
-`tools/s05_draw/budget_check.py` exercises the actual main path with fake time,
+`prototypes/s05_draw/tools/s05_draw/budget_check.py` exercises the actual main path with fake time,
 fake binary bytes/socket/staging and fake owned Popen handles. No engine or real
 socket executes. Four literal checks cover three stubborn timeout children,
 preparation reaching cutoff, normal completion, and a spawn returning at cutoff

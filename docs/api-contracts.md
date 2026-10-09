@@ -834,7 +834,7 @@ also remain open.
 [Exact7fb302b partial ACCEPT](spikes/s06.md#accepted-exact-final-disposition) refines
 one fixture subset through the [S06 contract](spikes/s06-contracts.md); production
 CityData/Population/spawn/exit/admission signatures, owners and matrix above remain
-normative. [S06City](../tests/fixtures/s06/city.gd) provides `validate_content`,
+normative. [S06City](../prototypes/s06/tests/fixtures/s06/city.gd) provides `validate_content`,
 `signature`, `bake_content`, `route` and `map_data`. FOOT is an undirected sidewalk/
 crossing graph; TRAFFIC uses directed lane curves, refusing reversal. Successful
 route returns `code`, `topology_revision`, `link_ids`, `world_points_m`, `visits`;
@@ -859,7 +859,7 @@ City+1 m needs explicit rebake, then routes/map translate. Connectivity/missing/
 duplicate IDs/corrupt roads and INF/NAN/zero/negative ROAD widths reject. No production
 world-ready/network handshake codec is implemented by these offline boundaries.
 
-[S06Controller](../tests/fixtures/s06/controller.gd) `bind_route(city, kind, from,
+[S06Controller](../prototypes/s06/tests/fixtures/s06/controller.gd) `bind_route(city, kind, from,
 to, host)`, `intent(public_body_state, kind)`, `clear` supplies host commands through
 unchanged S02 `step`/`motion_state`/`neutralize` and S04 `configure`/`step`/
 `motion_state`/`neutralize`. Fixture sets passive state before child entry and stops

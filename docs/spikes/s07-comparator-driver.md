@@ -8,11 +8,11 @@ acceptance. [Retained evidence](s07-comparator-driver-evidence/).
 
 ## Ownership and implementation
 
-[`tests/fixtures/s07_comparator/run.gd`](../../tests/fixtures/s07_comparator/run.gd)
+[`prototypes/s07_comparator/tests/fixtures/s07_comparator/run.gd`](../../prototypes/s07_comparator/tests/fixtures/s07_comparator/run.gd)
 is only an experiment coordinator. It parameterizes trial count, initial delay and
 spacing (bounded by the card's 20 trials, 15-second initial delay and 30-second
 spacing), and defaults to the measured schedule `t = 15 + 30k`. It loads the saved
-[`s05_effect/burst.tscn`](../../tests/fixtures/s05_effect/burst.tscn) afresh for every
+[`s05_effect/burst.tscn`](../../prototypes/s05_effect/tests/fixtures/s05_effect/burst.tscn) afresh for every
 trial, removes the inherited finite-proof coordinator before tree entry, sets the
 new match's standalone authority/session before adding it to the tree, and leaves
 all saved cars passive through their pre-tree role setup. It does not add a gameplay
@@ -50,7 +50,7 @@ the new script, runner and documentation were edited directly. A pinned headless
 editor import generated the script UID sidecar; its known project-plugin diagnostics
 were not treated as validation. Runtime staging removes addon/autoload/plugin sections.
 
-[`tools/s07_comparator/run.py`](../../tools/s07_comparator/run.py) stages a minimal
+[`prototypes/s07_comparator/tools/s07_comparator/run.py`](../../prototypes/s07_comparator/tools/s07_comparator/run.py) stages a minimal
 fresh external project, verifies the pinned engine, imports once, applies one absolute
 run deadline, scans all streams for diagnostics, checks the complete trial receipts,
 verifies staged inputs byte-for-byte, requires clean source inputs, and terminates or
@@ -82,11 +82,11 @@ See [trial 1](s07-comparator-driver-evidence/windowed-3/trial-01-burst.png),
 Reproduction, with fresh external directories:
 
 ```sh
-python tools/s07_comparator/run.py --output C:/tmp/ft/lanes/c0/headless-20 \
+python prototypes/s07_comparator/tools/s07_comparator/run.py --output C:/tmp/ft/lanes/c0/headless-20 \
   --trials 20 --initial-delay 0 --spacing 2
-python tools/s07_comparator/run.py --output C:/tmp/ft/lanes/c0/windowed-3 \
+python prototypes/s07_comparator/tools/s07_comparator/run.py --output C:/tmp/ft/lanes/c0/windowed-3 \
   --trials 3 --initial-delay 0 --spacing 2 --windowed
-python -m unittest tools/s07_comparator/test_offline.py
+python -m unittest prototypes/s07_comparator/tools/s07_comparator/test_offline.py
 ```
 
 ## Limits and disposition

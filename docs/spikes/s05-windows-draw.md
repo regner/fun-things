@@ -2,9 +2,10 @@
 
 8 October 2026, Windows 11 desktop (NVIDIA RTX 4070 Laptop GPU, D3D12 Forward+),
 pinned `4.8.dev7.official.c971f93e7`. The user authorized testing on this machine.
-This executes the previously unexecuted [saved draw observer](
-../../tests/fixtures/s05_draw/observer.gd) through a new Windows runner,
-[`tools/s05_draw/observe_windows.py`](../../tools/s05_draw/observe_windows.py).
+This executes the previously unexecuted
+[saved draw observer](../../prototypes/s05_draw/tests/fixtures/s05_draw/observer.gd) through a new
+Windows runner,
+[`prototypes/s05_draw/tools/s05_draw/observe_windows.py`](../../prototypes/s05_draw/tools/s05_draw/observe_windows.py).
 [Evidence](s05-windows-draw-evidence/).
 
 ## Result
@@ -35,7 +36,7 @@ inputs, and a 12.6 s set duration.
    start. Windowed D3D12 startup took 4.75 s before the host was ready, plus the
    client's own graphical startup, so the first run failed that check after
    drawing the burst ([run 01](s05-windows-draw-evidence/run-01-absolute-allowance/)).
-   [S05Proof](../../tests/fixtures/s05/proof.gd) now applies the same 180-tick bound
+   [S05Proof](../../prototypes/s05/tests/fixtures/s05/proof.gd) now applies the same 180-tick bound
    from the first destroyed root, which keeps the prompt-chain intent without
    counting process startup.
 2. **Queue pacing (headless, pre-existing).** The headless queue-pressure row
@@ -44,7 +45,7 @@ inputs, and a 12.6 s set duration.
    polls let physics catch up several ticks between batches, so early jobs became
    due before all twelve were queued. The batch wait now awaits `physics_frame`,
    still under the fixture deadline. The full headless
-   `tools/run_s05.py` (API, ENet with late joiner, queue) then passed
+   `prototypes/s05/tools/run_s05.py` (API, ENet with late joiner, queue) then passed
    ([result](s05-windows-draw-evidence/headless-runner/result.json)).
 
 ## Limits and concerns

@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://bipia6nkd2b2w"]
 
 [ext_resource type="Environment" uid="uid://w6ovjk6t4lki" path="res://scenes/prefabs/pistol_coral_stub/preview_environment.tres" id="1_lmkod"]
-[ext_resource type="PackedScene" uid="uid://sg8ridp7l3to" path="res://art/models/spikes/s02_ground.glb" id="2_t0oj6"]
-[ext_resource type="PackedScene" uid="uid://bkccqft5jbfk0" path="res://art/models/spikes/s02_actor.glb" id="3_fj6h2"]
+[ext_resource type="PackedScene" uid="uid://c1bjpvhwgl5m3" path="res://art/models/brackett_greybox/ground_00_00.glb" id="2_t0oj6"]
+[ext_resource type="PackedScene" uid="uid://wrydf8221mfm" path="res://scenes/prefabs/player_character/coral_courier.tscn" id="3_fj6h2"]
 [ext_resource type="PackedScene" uid="uid://d074bk5ladf6v" path="res://scenes/prefabs/pistol_coral_stub/pistol_coral_stub.tscn" id="4_rxyle"]
 
 [node name="CoralStubGameCamera" type="Node3D" unique_id=2095508772]
@@ -28,7 +28,7 @@ offset_left = 20.0
 offset_top = 20.0
 offset_right = 21.0
 offset_bottom = 43.0
-text = "CORAL STUB — 47m / 42deg / 1280x800 · S02 technical mannequin · north / east / south"
+text = "CORAL STUB — 47m / 42deg / 1280x800 · Coral Courier · north / east / south"
 
 [node name="Ground" parent="." unique_id=846458591 instance=ExtResource("2_t0oj6")]
 

@@ -210,7 +210,7 @@ prelaunch receipt, no historical paths/ports assumed):
 ```text
 /home/regner/.local/share/mise/installs/github-godotengine-godot-builds/4.8-dev7/godot
   --audio-driver Dummy --disable-vsync --path <P> --display-driver wayland
-  --log-file <R>/engine.log res://tests/fixtures/s05_draw/burst.tscn
+  --log-file <R>/engine.log res://prototypes/s05_draw/tests/fixtures/s05_draw/burst.tscn
   -- --role=<host|client|late> --port=<owned-loopback-port>
 ```
 

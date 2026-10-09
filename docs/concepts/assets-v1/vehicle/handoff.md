@@ -27,7 +27,7 @@ cosmetic preview clips, without requiring a skinned skeleton or gameplay seat lo
 
 Read [S04 source handoff](../../../assets/s04_kit.md),
 [body/seat contract](../../../spikes/s04-contracts.md), saved
-`tests/fixtures/s04/kinematic.tscn` and `dynamic.tscn`, and their listed S05/S06
+`prototypes/s04/tests/fixtures/s04/kinematic.tscn` and `dynamic.tscn`, and their listed S05/S06
 consumers. Original car source/export/wrappers remain untouched.
 
 S04 imported visual bounds: X 1.88 / Y 1.54 / Z 3.4 m, bottom Y 0. Its collider

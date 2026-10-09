@@ -10,7 +10,7 @@ the runtime observations to clean revision
 
 The bounded S05 fixture can produce at most 12 explosion events: one for each of
 its 12 saved cars. Both saved effect fixtures now author 12 instances of the
-existing saved [`explosion.tscn`](../../tests/fixtures/s05_effect/explosion.tscn),
+existing saved [`explosion.tscn`](../../prototypes/s05_effect/tests/fixtures/s05_effect/explosion.tscn),
 and `S05Presentation.MAX_SLOTS` derives from the authoritative fixture's
 `S05Damage.MAX_CARS`. This is the smallest option because it preserves authored
 composition, avoids a runtime allocation path, and exactly covers every event the
@@ -87,10 +87,10 @@ All outputs were fresh directories outside the worktree under
 `C:/tmp/ft/lanes/s05-nocap/`.
 
 ```text
-python tools/run_s05.py --godot <mise 4.8-dev7 godot.exe> --gdstyle <mise 0.3.0 gdstyle.exe> --output C:/tmp/ft/lanes/s05-nocap/s05-headless-final
-python tools/s05_draw/observe_windows.py --godot <mise 4.8-dev7 godot.exe> --output C:/tmp/ft/lanes/s05-nocap/s05-windowed-final
-python tools/s07_comparator/run.py --godot <mise 4.8-dev7 godot.exe> --output C:/tmp/ft/lanes/s05-nocap/comparator-headless-20 --trials 20 --initial-delay 0 --spacing 2
-python tools/s07_comparator/run.py --godot <mise 4.8-dev7 godot.exe> --output C:/tmp/ft/lanes/s05-nocap/comparator-windowed-3 --trials 3 --initial-delay 0 --spacing 2 --windowed
+python prototypes/s05/tools/run_s05.py --godot <mise 4.8-dev7 godot.exe> --gdstyle <mise 0.3.0 gdstyle.exe> --output C:/tmp/ft/lanes/s05-nocap/s05-headless-final
+python prototypes/s05_draw/tools/s05_draw/observe_windows.py --godot <mise 4.8-dev7 godot.exe> --output C:/tmp/ft/lanes/s05-nocap/s05-windowed-final
+python prototypes/s07_comparator/tools/s07_comparator/run.py --godot <mise 4.8-dev7 godot.exe> --output C:/tmp/ft/lanes/s05-nocap/comparator-headless-20 --trials 20 --initial-delay 0 --spacing 2
+python prototypes/s07_comparator/tools/s07_comparator/run.py --godot <mise 4.8-dev7 godot.exe> --output C:/tmp/ft/lanes/s05-nocap/comparator-windowed-3 --trials 3 --initial-delay 0 --spacing 2 --windowed
 python -m unittest discover -s tools -p "test_*.py"
 python tools/script_checks.py
 ```
@@ -109,7 +109,7 @@ diagnostics, and source identities are retained in the
 
 The comparator draw-wait purpose comment now describes all expected accepted saved
 effect slots instead of the historical eight. The S06 Windows capture runner's clean
-input scope now includes `tools/s06/capture_windows.py` and
+input scope now includes `prototypes/s06/tools/s06/capture_windows.py` and
 `tools/script_checks.py`, and every result records both source byte counts and SHA-256
 identities in `runner_sources`. The retained validation receipt records 10,562 bytes /
 `9030b7305a0a706b092dd30fa378afb208a9526a69e9b98150007faf4d0ca644` and 6,705 bytes /

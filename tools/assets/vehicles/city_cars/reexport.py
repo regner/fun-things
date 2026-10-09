@@ -9,7 +9,7 @@ ROOT = Path(__file__).resolve().parents[4]
 OUTPUT = Path(sys.argv[sys.argv.index('--') + 1]).resolve()
 OUTPUT.mkdir(parents=True, exist_ok=True)
 assert bpy.app.version_string == '5.2.2 LTS'
-settings = json.loads((ROOT / 'tools/s01/export_settings.json').read_text())
+settings = json.loads((ROOT / 'tools/assets/export_settings.json').read_text())
 settings.update(export_animations=False, export_skins=False)
 for record_path in sorted((ROOT / 'docs/assets/vehicle_car_evidence').glob('car_*_a_source.json')):
     record = json.loads(record_path.read_text())

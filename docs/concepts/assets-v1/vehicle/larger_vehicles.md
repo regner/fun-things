@@ -4,7 +4,9 @@
 “Can we add a larger bus, and a truck you might see in the docks or workshop area.”
 Producer: vehicle lead Codex. Accepting owner: Regner. D/E art approval pending.
 
-[Gallery](review.html) · [Exact prompts](expansion_prompts.json).
+[Tandem city bus sheet](04_tandem_city_bus.png) ·
+[Keel service truck sheet](05_keel_service_truck.png) ·
+[Exact prompts](expansion_prompts.json).
 
 ## D — Tandem city bus
 

@@ -16,10 +16,10 @@ new license dependency. Source/integration owner is S04; Regner owns product fee
 
 | Source / explicit collection | Linked export and preserved sidecar | Saved consumers |
 | --- | --- | --- |
-| `art/source/models/spikes/s04_kit.blend` / `export_s04_car` | `art/models/spikes/s04_car.glb` + `.glb.import` | `tests/fixtures/s04/kinematic.tscn`, `dynamic.tscn`; their instances in `body_comparison.tscn`, inherited `boot.tscn`; S05 `car.tscn` inherited by S05 boot/burst instances |
-| Same source / `export_s04_track` | `art/models/spikes/s04_track.glb` + `.glb.import` | `tests/fixtures/s04/track.tscn`; comparison/boot instances; S05 boot CityRoot/Track, inherited by S05 burst |
+| `prototypes/s04/art/source/models/spikes/s04_kit.blend` / `export_s04_car` | `prototypes/s04/art/models/spikes/s04_car.glb` + `.glb.import` | `prototypes/s04/tests/fixtures/s04/kinematic.tscn`, `dynamic.tscn`; their instances in `body_comparison.tscn`, inherited `boot.tscn`; S05 `car.tscn` inherited by S05 boot/burst instances |
+| Same source / `export_s04_track` | `prototypes/s04/art/models/spikes/s04_track.glb` + `.glb.import` | `prototypes/s04/tests/fixtures/s04/track.tscn`; comparison/boot instances; S05 boot CityRoot/Track, inherited by S05 burst |
 
-All source members are explicit in `tools/s04/export_members.json`; `export.py`
+All source members are explicit in `prototypes/s04/tools/s04/export_members.json`; `export.py`
 validates those exact members and unit transforms. The committed .blend is the
 editable source; bootstrap `create_sources.py` refuses overwrite. Source and both
 outputs must change together. Reverse consumers verified in saved scenes/editor.
@@ -82,10 +82,10 @@ actual seat/exit and district queries, Steam and hardware proof under their owne
 ## Accepted partial S05 inherited consumers
 
 [Exact754a0b5 S05](../spikes/s05.md#accepted-exact-final-disposition) adds saved
-[car](../../tests/fixtures/s05/car.tscn) -> S04 kinematic -> unchanged s04_car GLB/
-import -> this same s04_kit source. Saved [boot](../../tests/fixtures/s05/boot.tscn)
+[car](../../prototypes/s05/tests/fixtures/s05/car.tscn) -> S04 kinematic -> unchanged s04_car GLB/
+import -> this same s04_kit source. Saved [boot](../../prototypes/s05/tests/fixtures/s05/boot.tscn)
 instances that car and S04 track -> unchanged s04_track GLB/import -> the same source;
-[burst](../../tests/fixtures/s05/burst.tscn) inherits boot with twelve saved cars.
+[burst](../../prototypes/s05/tests/fixtures/s05/burst.tscn) inherits boot with twelve saved cars.
 The source map above now includes these reverse consumers, without new asset identity,
 source/export changes, copied meshes or imported-child overrides. S05's new scene/
 script identities do not change S04 source/import identities or export membership.
@@ -106,7 +106,7 @@ no world-sector/minimap integration describe the S04 handoff, before this consum
 
 | Source collection → export/import | Preserved linked prefab | Saved S06 consumers |
 | --- | --- | --- |
-| `s04_kit.blend` / `export_s04_car` → `s04_car.glb` + `.glb.import` | [S04 kinematic](../../tests/fixtures/s04/kinematic.tscn), `PresentationAnchor/Visuals/Model`, original Collision/Sockets | [intersection](../../tests/fixtures/s06/intersection.tscn)/`CarWest` and `CarEast`, inherited by [intersection_wide](../../tests/fixtures/s06/intersection_wide.tscn) |
+| `s04_kit.blend` / `export_s04_car` → `s04_car.glb` + `.glb.import` | [S04 kinematic](../../prototypes/s04/tests/fixtures/s04/kinematic.tscn), `PresentationAnchor/Visuals/Model`, original Collision/Sockets | [intersection](../../prototypes/s06/tests/fixtures/s06/intersection.tscn)/`CarWest` and `CarEast`, inherited by [intersection_wide](../../prototypes/s06/tests/fixtures/s06/intersection_wide.tscn) |
 
 No S06 dynamic-body or track consumer is added. Separate source-linked road geometry
 belongs to the [S06 handoff](../spikes/s06-source-handoff.md), with ONE

@@ -134,7 +134,7 @@ Blender5.2.2LTS/exporter5.2.40, sockets/materials and source fingerprints. The n
 consumer map lives here to avoid overlap with the concurrent guide/handoff worker.
 No source edits/reexports, new assets, imported-child overrides or generated meshes.
 New inherited resources have their own Godot-saved UIDs/node IDs and script sidecars.
-`tools/s05/check_resources.py` checks every original technical file against the base,
+`prototypes/s05/tools/s05/check_resources.py` checks every original technical file against the base,
 new UID/path agreement, linked dependencies and absence of copied/generated render
 meshes; live save/close/reopen and probe receipts separately check editor synchronization.
 

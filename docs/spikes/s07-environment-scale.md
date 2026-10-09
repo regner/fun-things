@@ -22,12 +22,12 @@ instantiated successfully. That short non-reproduction does not replace this his
 
 ## Authored content and method
 
-[`author_city.gd`](../../tools/s07_env/author_city.gd) is intentional procedural
+[`author_city.gd`](../../prototypes/s07_env/tools/s07_env/author_city.gd) is intentional procedural
 **authoring**, never runtime city generation. It instances existing saved S06 west/east
 road sectors and S02 low/near/tall building prefabs, then saves their unique names and
 transforms. It creates no mesh, material, collision geometry or topology. Its exact grid,
 spacing, density and camera parameters are in the adjacent
-[README](../../tools/s07_env/README.md).
+[README](../../prototypes/s07_env/tools/s07_env/README.md).
 
 Each 48 m-pitch block has both road-sector halves and four buildings at the existing
 16.25 m island centres. Thus every block retains S06's 9 m carriageways and 4 m sidewalks,
@@ -46,7 +46,7 @@ The final row's expanded counts are the exact successful-series relations
 `nodes = 138 × blocks + 6` and `colliders = 8 × blocks`, not observations from the
 crashed process. Scene SHA256s are in the manifest.
 
-[`run.py`](../../tools/s07_env/run.py) stages only required linked fixtures/models and
+[`run.py`](../../prototypes/s07_env/tools/s07_env/run.py) stages only required linked fixtures/models and
 sanitized `project.godot` in a fresh external directory. Its clean-input query includes
 `project.godot`, the runner/authoring directory, generated scenes, source fixtures and
 models. One import warms the import cache; every repeat then starts a fresh process in

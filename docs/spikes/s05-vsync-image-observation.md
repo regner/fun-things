@@ -25,7 +25,7 @@ empty PNG sets, original executed camera-path defect, final source-only correcti
 and independent reviews. Their in-place evidence indexes identify complete original
 streams; no vanished `/tmp` path is recreated as historical evidence.
 
-Reuse `tests/fixtures/s05_draw/burst.tscn`, saved camera at `(6,47,4)`, vertical -Y,
+Reuse `prototypes/s05_draw/tests/fixtures/s05_draw/burst.tscn`, saved camera at `(6,47,4)`, vertical -Y,
 yaw0, perspective42°, near0.1/far160, the Blender-linked eight saved slots and
 unchanged twelve-car burst. All scenes, node IDs/placement, UID sidecars, Blender/
 GLB/import source bytes, gameplay/replication/ENet rules and event schedule remain
@@ -41,7 +41,7 @@ claimed. Initial checkout was clean at exact commissioned base; no unsaved work 
 discarded. The modified observer is refreshed by copying its exact frozen bytes
 into a **new private runtime project**; no separate open editor is involved.
 
-`tests/fixtures/s05_draw/observer.gd` retains its UID/public APIs/resource path.
+`prototypes/s05_draw/tests/fixtures/s05_draw/observer.gd` retains its UID/public APIs/resource path.
 Its existing `uid://dljjuwyn8s77o` sidecar is byte-preserved and copied at the same path.
 Instrumentation reads supported `window_get_vsync_mode`/`window_can_draw`, requested
 project size, actual native window/root viewport and callback-bound image size
@@ -52,7 +52,7 @@ mode changes and each capture; ticks alone no longer produce rows. Captures add
 current cut/session/match/tick/revision and actual PNG SHA256, without advancing an
 owner, injecting effects/expiry/churn, forcing draws or emitting frame signals.
 
-New `tools/s05_vsync_image/run.py` owns one fresh
+New `prototypes/s05_vsync_image/tools/s05_vsync_image/run.py` owns one fresh
 `/tmp/p0-image-01a11bc0-attempt01/` project, four private mode0700 XDG roots per
 import/host/client/late role and exact Popen handles. HOME is unchanged. The
 existing `/run/user/1000/wayland-0` socket is shared **read-only**; type/UID/canonical
@@ -92,7 +92,7 @@ in lifecycle receipts before each spawn):
 ```text
 /home/regner/.local/share/mise/installs/github-godotengine-godot-builds/4.8-dev7/godot
   --audio-driver Dummy --disable-vsync --path <P> --display-driver wayland
-  --log-file <R>/engine.log res://tests/fixtures/s05_draw/burst.tscn
+  --log-file <R>/engine.log res://prototypes/s05_draw/tests/fixtures/s05_draw/burst.tscn
   -- --role=<host|client|late> --port=<owned-loopback-port>
 ```
 

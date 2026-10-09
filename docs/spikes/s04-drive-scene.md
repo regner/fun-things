@@ -10,13 +10,13 @@ perspective camera. It does not add firing, entry/exit, prediction or network be
 From the repository root:
 
 ```sh
-mise exec -- godot --path . res://tests/fixtures/s04_drive/drive.tscn
+mise exec -- godot --path . res://prototypes/s04_drive/tests/fixtures/s04_drive/drive.tscn
 ```
 
 The equivalent direct pinned-binary command on the current Windows workstation is:
 
 ```powershell
-& 'C:\Users\regner.blokandersen\AppData\Local\mise\installs\github-godotengine-godot-builds\4.8-dev7\godot.exe' --path . res://tests/fixtures/s04_drive/drive.tscn
+& 'C:\Users\regner.blokandersen\AppData\Local\mise\installs\github-godotengine-godot-builds\4.8-dev7\godot.exe' --path . res://prototypes/s04_drive/tests/fixtures/s04_drive/drive.tscn
 ```
 
 Confirm `--version` is `4.8.dev7.official.c971f93e7` if resolving the binary on another machine.

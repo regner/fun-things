@@ -4,7 +4,7 @@
 all three car directions. Original geometry/materials; no external vehicle assets.
 The initial source pass preceded the routing change; hinged-door/spatial refinement
 used verified Astra/high. See the [routing receipt](../concepts/assets-v1/vehicle/handoff.md).
-Status: **reviewable source/import/preview checkpoint; final production art pending**.
+Status: **reviewable source/export/prefab checkpoint; final production art pending**.
 
 ## Brief and sources
 
@@ -27,15 +27,18 @@ visual wrapper beneath its own `PresentationAnchor`; the proposed production
 vehicle entity contract is not replaced by this visual wrapper.
 
 Blender 5.2.2 LTS `d13f752e3b9c`, glTF settings inherited explicitly from
-`tools/s01/export_settings.json`, with skins/animations disabled for these rigid
+`prototypes/s01/tools/s01/export_settings.json` at the historical checkpoint, with
+skins/animations disabled for these rigid
 source parts. Export includes only the named collection: applied bevels, normals,
 triangulation and glTF Y-up conversion. The non-export metre reference stays in
 Blender. `tools/assets/vehicles/city_cars/reexport.py` reads the saved sources without rebuilding
-geometry. Four-source byte-identical scratch reexport passes, including preview floor.
+geometry. The three production car sources passed byte-identical scratch reexport;
+the deleted preview-floor result remains historical checkpoint evidence at commit `80d0f24`.
 
 Godot 4.8-dev7 `c971f93e7`, default per-asset import with generated LODs; no global
-project settings changed. Resource UIDs and editor node identities are saved in the
-wrapper/preview/import sidecars. Six scenes pass a stable save/reopen roundtrip.
+project settings changed. Resource UIDs and editor node identities remain saved in wrapper and import sidecars.
+The deleted preview scenes and their six-scene roundtrip are historical checkpoint evidence at
+commit `80d0f24`.
 No inherited variant is introduced, so inherited-override validation is not applicable.
 
 ## Rigid parts, sockets and clips
@@ -49,7 +52,8 @@ Each hinge owns its panel/window/handle and front-door mirror. No skin or armatu
 is required. Simple interior floor/seats/dashboard support the opening-door view;
 no detailed interior, working handles, rear hatch/trunk or passenger animation is claimed.
 
-The saved preview's `AnimationPlayer` has `RESET` and a looping six-second
+At the historical checkpoint, the now-deleted saved preview had an `AnimationPlayer`
+with `RESET` and a looping six-second
 `mechanical_demo`: rigid wheel spin/front steering and side doors opening to50°
 then closing. It changes visual descendants only. This is cosmetic preview playback,
 not a production per-door controller/clip API or entry/exit/network acceptance.
@@ -99,11 +103,12 @@ camera, renderer, actual dimensions,50° hinge checks, fixed root and open/rest 
 
 ## Acceptance and unfinished checks
 
-- Concept: accepted by Regner. Source/export/import/preview: checks above passed;
+- Concept: accepted by Regner. Source/export/import checks above passed; historical
+  preview checks are retained at commit `80d0f24`;
   independent Sol 6.1/high [review](vehicle_car_evidence/independent_review_69219f0.md)
   accepted candidate `69219f0` within the first-checkpoint scope, with no scoped defects.
-- Full-loop rendered playback and intermediate moving-part clearance: pending;
-  current captures sample rest and 2.5-second open poses.
+- Full-loop rendered playback and intermediate moving-part clearance: pending; the
+  historical captures sample rest and 2.5-second open poses.
 - Production art: pending. Current forms are simplified first-pass models; roundness,
   glazing/body joins, door-edge shading, wheels and closer silhouette fidelity need
   further art review/polish against the approved sheets. See the scoped

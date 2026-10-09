@@ -92,7 +92,7 @@ readback retains complete sources/argv/exits/streams/empties and exact expected 
 ## First changed-condition set: handoff positive, runtime STOP
 
 Predeclaration/source commit `68fd232` preceded the engine invocation. Sole set01:
-`python3 tools/s08/exported_handoff.py run /tmp/s08-handoff-8cae02a7/set01`.
+`python3 prototypes/s08/tools/s08/exported_handoff.py run /tmp/s08-handoff-8cae02a7/set01`.
 Complete actual argv, logs, consumer result and failed supervisor traceback are in
 [set01 evidence](s08-exported-enet-handoff-evidence/set01/enet/result.json).
 Host597393 and client597416 each execute the identical cached normal saved main with

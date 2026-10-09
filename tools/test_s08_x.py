@@ -54,8 +54,10 @@ class S08XExportInspectionTest(unittest.TestCase):
         forbidden = [
             "addons/gut/gut.gd",
             "res://addons/gut/LICENSE.md",
+            "prototypes/s04/tests/fixtures/s04/boot.tscn",
+            "res://prototypes/s15/art/models/effects/s15_fireball.glb",
             "tests/unit/tooling/test_gut_smoke.gd",
-            "tests/fixtures/s06/intersection.tscn",
+            "tests/assets/example/check_scene.tscn",
         ]
         for path in forbidden:
             with self.subTest(path=path):

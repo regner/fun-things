@@ -12,7 +12,7 @@ Keep B as an alternate for later review; this selection authorizes A source/scen
 Original generated visual references for muzzle flash, surface hit, rocket trail and
 explosion. This checkpoint contains no production model, texture atlas, shader,
 particle scene, collision, gameplay, networking or performance acceptance.
-Open [the gallery](gallery.html) to compare the sheets at full resolution.
+The removed full-resolution gallery remains available at commit `80d0f24`.
 
 | Option | Visual language | Self-review / recommendation |
 | --- | --- | --- |
@@ -68,8 +68,8 @@ cars and buildings are context only; their designs belong to the other leads.
 
 Inspected consumers: S05 saved source-linked explosion carrier and current
 S05 presentation contract; S15 imported mesh particle scenes and technical
-source/output handoff. Existing `art/models/effects/s15_*` and
-`tests/fixtures/s15/` remain untouched. S15 trail direction is a fixture convention,
+source/output handoff. Existing `prototypes/s15/art/models/effects/s15_*` and
+`prototypes/s15/tests/fixtures/s15/` remain untouched. S15 trail direction is a fixture convention,
 not a production projectile axis to copy. Follow its source linkage pattern,
 not its unaccepted count/tier proposal or runtime mesh-binding workaround by default.
 Every accepted explosion must receive a visible effect. Do not add pool exhaustion

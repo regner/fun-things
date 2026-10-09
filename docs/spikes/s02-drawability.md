@@ -67,7 +67,7 @@ one saved-main restoration. No authoring allocation is granted.
 2. Gracefully quit that saved main via the existing installed `execute.code`
    handler, then establish separate actual HOST Godot absence before launch.
    Never infer HOST exit from missing sandbox PIDs; never manually kill main.
-3. Stage unchanged `res://tests/fixtures/s02/corner.tscn`, UID
+3. Stage unchanged `res://prototypes/s02/tests/fixtures/s02/corner.tscn`, UID
    `uid://dyqxf7wui38q6`, and dependencies from exact accepted base. Use the
    existing S02 runner-equivalent isolated development-autoload/editor-plugin
    exclusion only. Keep Forward+, Jolt, viewport/input settings and all fixture,
@@ -246,8 +246,8 @@ narrower actual result is three automatic callbacks, frames0/1/2 and a nonblank
 exit0 does not close full S02 or physical scanout/input/focus/feel acceptance.
 
 All three accepted auxiliary limitations remain: the source-index builder silently
-skipped nonexistent `tools/s02/capture_s02.gd` (the actual historical helper is
-`tests/fixtures/s02/capture_s02.gd`); its supplemental immutable locator is in the
+skipped nonexistent `prototypes/s02/tools/s02/capture_s02.gd` (the actual historical helper is
+`prototypes/s02/tests/fixtures/s02/capture_s02.gd`); its supplemental immutable locator is in the
 full review, without repairing the original index. The invoked external
 `/tmp/s06-editor-relocation/client.mjs` has only a historical source reference,
 not an execution-time byte snapshot. The empty CUA inventory is an attributed

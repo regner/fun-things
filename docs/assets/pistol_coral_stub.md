@@ -61,7 +61,7 @@ images. Source subtree is covered by committed `art/source/.gdignore`.
 
 Blender **5.2.2 LTS**, build **d13f752e3b9c**, bundled glTF exporter **5.2.40**;
 Godot **4.8.dev7.official.c971f93e7**. Export uses the existing
-`tools/s01/export_settings.json`, `export_animations=false`, named collection only.
+`prototypes/s01/tools/s01/export_settings.json`, `export_animations=false`, named collection only.
 Bevels, weighted normals and triangles are baked in the source; static scales are applied,
 positive unit roots. Export only the declared collection. Cameras/lights are preview-only
 saved Godot nodes. Reexport reads the saved source and never reconstructs geometry:
@@ -81,7 +81,7 @@ create collision. Wrapper imported children remain noneditable. Preserve model i
 scene UIDs, node identities, ancestry and socket paths on compatible reexports.
 
 Preview-only reverse consumers also use unchanged S02 `s02_actor.glb` and `s02_ground.glb`
-from `art/source/models/spikes/s02_kit.blend`; see [S02 handoff](s02_kit.md).
+from `prototypes/s02/art/source/models/spikes/s02_kit.blend`; see [S02 handoff](s02_kit.md).
 These are technical mannequins/ground, not newly produced player art. No S02 source,
 export, import, fixture, S03-R or S06 consumer is modified by this new asset family.
 No world placements, derived topology or runtime IDs are introduced.

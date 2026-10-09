@@ -18,7 +18,7 @@ and compressed byte counts and SHA-256s.
 | Revision | `6efa3c9` (clean staged inputs) |
 | Window/quality | 1280×800 windowed, project defaults; VSync disabled; `Engine.max_fps` 0 (uncapped) or 60 (capped60) |
 | Content/route | Unchanged S06 two-sector intersection via the accepted driver: foot, east→north, west→south in turn; a saved-fixture reload per traversal |
-| Telemetry | [`tests/fixtures/s07_graphical/run.gd`](../../tests/fixtures/s07_graphical/run.gd) subclasses the driver and logs per drawn frame: interval, `viewport_get_measured_render_time_cpu/gpu`, `TIME_PROCESS`/`TIME_PHYSICS_PROCESS`, draw calls, primitives, objects and video memory, held in memory until exit. [`tools/s07_graphical/run.py`](../../tools/s07_graphical/run.py) samples the owned process's working set every second. |
+| Telemetry | [`prototypes/s07_graphical/tests/fixtures/s07_graphical/run.gd`](../../prototypes/s07_graphical/tests/fixtures/s07_graphical/run.gd) subclasses the driver and logs per drawn frame: interval, `viewport_get_measured_render_time_cpu/gpu`, `TIME_PROCESS`/`TIME_PHYSICS_PROCESS`, draw calls, primitives, objects and video memory, held in memory until exit. [`prototypes/s07_graphical/tools/s07_graphical/run.py`](../../prototypes/s07_graphical/tools/s07_graphical/run.py) samples the owned process's working set every second. |
 | Not measured | OS frame-pacing/presentation capture, GPU vendor tool capture, thermal/power state (laptop on its current power plan), cold-start/exported launch |
 
 ## Results — 60-capped (3/3 PASS)

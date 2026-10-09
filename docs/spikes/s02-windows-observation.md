@@ -19,7 +19,7 @@ focus handling passes or fails.
 
 | Observation | Result |
 | --- | --- |
-| Existing headless `tools/s02/run.py` | **PASS**: import/outcomes/unchanged inputs, exit 0, no S02 failures. |
+| Existing headless `prototypes/s02/tools/s02/run.py` | **PASS**: import/outcomes/unchanged inputs, exit 0, no S02 failures. |
 | Automatic Windows draw | **PASS**: callbacks 1–30 map to strictly increasing `Engine.get_frames_drawn()` 0–29; process exit 0; no engine/script diagnostic; empty stderr. |
 | Native/viewport size | **PASS**: Windows backend, mode 0, `can_draw: true`, window 1280×800, viewport 1280×800 on every receipt. |
 | Actual saved camera | **PASS**: current perspective `/root/S02/CameraRig/Camera3D`; vertical -Y/fixed yaw 0; FOV 42°; near 0.1/far 160; world position about `(0,47.001,6)` after normal actor settling. |
@@ -37,7 +37,7 @@ window, not physical scanout or visual-quality ratification.
 The existing command was run first against a fresh external directory:
 
 ```powershell
-python tools/s02/run.py --godot <pinned-godot.exe> `
+python prototypes/s02/tools/s02/run.py --godot <pinned-godot.exe> `
   --output C:\tmp\ft\lanes\s02\headless
 ```
 
@@ -49,17 +49,17 @@ substitute.
 
 ## Automatic Windows rendering
 
-[`tools/s02/observe_windows.py`](../../tools/s02/observe_windows.py) stages only the S02
+[`prototypes/s02/tools/s02/observe_windows.py`](../../prototypes/s02/tools/s02/observe_windows.py) stages only the S02
 runtime closure and linked `s02_*` models into a fresh external project. Development
 autoloads/editor plugins and the icon are removed only from that copy. It performs a clean
 headless import, then launches a graphical observer at `--resolution 1280x800`.
-[`observe_windows.gd`](../../tests/fixtures/s02/observe_windows.gd) instances only the
+[`observe_windows.gd`](../../prototypes/s02/tests/fixtures/s02/observe_windows.gd) instances only the
 saved `corner.tscn`, subscribes to `frame_post_draw`, reads state, and saves callback
 3/10/30 viewport images. It contains no `force_draw`, signal emission, input injection,
 camera override or window resize.
 
 ```powershell
-python tools/s02/observe_windows.py --godot <pinned-godot.exe> `
+python prototypes/s02/tools/s02/observe_windows.py --godot <pinned-godot.exe> `
   --output C:\tmp\ft\lanes\s02\windows
 ```
 

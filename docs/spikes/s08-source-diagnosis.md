@@ -82,7 +82,7 @@ source-supported owner; exact failed comparator/lifetime mechanism remains unkno
 
 | Bound input | Original saved S08 (`52941da4`, reused `0add6257`) | Latest actual minimal S03 (`a5756b4b`, retained at `fd375c03`) |
 | --- | --- | --- |
-| Main | `tests/fixtures/s08/release_boot.tscn`, scene `uid://dn1ownu7vk3h2`, script `uid://cffyguysng6st`, root unique_id911609923. | Scratch main `tests/fixtures/s03/boot.tscn`, `uid://bi4flpwo0wqyr`; no S08 entrypoint or S01 assets. |
+| Main | `prototypes/s08/tests/fixtures/s08/release_boot.tscn`, scene `uid://dn1ownu7vk3h2`, script `uid://cffyguysng6st`, root unique_id911609923. | Scratch main `prototypes/s03/tests/fixtures/s03/boot.tscn`, `uid://bi4flpwo0wqyr`; no S08 entrypoint or S01 assets. |
 | Startup | Deferred S08 observer resolves manifest resources/UID/remaps, instances saved S01 roundtrip, awaits process frames, queues it free, instances/frees dynamic S03 entity/rig off-tree; `_finish` requests saved S03 scene change then prints S08 before S03 enters tree. | S03 boot enters directly. Seven S03 classes,17 saved source/UID/scene inputs; existing private class/UID discovery only. |
 | Package | 185044-byte PCK SHA256 `74f2526b43e0e776410a5ae2ff941ceeb00863593d0c7a2a3b2031b57128c836`;48 members,23 logical maps,22 UID rows;34-file source closure includes S01/S03/new S08. | 122748-byte PCK SHA256 `43cc8236fcb7a06f328c28cf45fed752d6630e1699ebea04e68e34d9aa40e3d7`;23 members,10 maps/UID rows. S03 Session/Proof have additive lifecycle telemetry; their source bytes differ from original. |
 | Runtime/service | Same c971 dev7 release template SHA256 `c436b976ff5ac2e5f3197732ba7d9462267573e5a108782f84928d0606885695`; handoff uses `stdbuf -oL`, original20ms UDP service. | Same release template, `stdbuf -oL`; executed10ms service, new logging/physics observer. Final20ms source is not that measurement. |
@@ -147,7 +147,7 @@ No automatic second set, debug rerun, engine/native build/repair or pin selectio
   observations, exact inverse recovery of original statements/values/await/RPCs,
   unchanged original assets, UIDs, hierarchy, renderer/physics and saved-main transition.
   Derived package is not byte-identical historical PCK and must never be reported so.
-- **Preserved timing:** actual supervisor imports original `tools/run_s03.POLL_SECONDS`
+- **Preserved timing:** actual supervisor imports original `prototypes/s03/tools/run_s03.POLL_SECONDS`
   **0.020s**; poll/forward then sleep20ms,64-datagram poll bound and original stale-held
   deadline2s. No10ms service, independent fast polling thread or rewritten proxy.
   Preserve proof poll10ms, held result wait30ms, cancel retry wait100ms, snapshots120ms,

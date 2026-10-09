@@ -100,7 +100,7 @@ def refine(spec):
             mod=obj.modifiers.new('final_export_triangles','TRIANGULATE')
             bpy.ops.object.modifier_apply(modifier=mod.name)
     bpy.ops.wm.save_as_mainfile(filepath=str(source))
-    settings=json.loads((a.ROOT/'tools/s01/export_settings.json').read_text())
+    settings=json.loads((a.ROOT/'tools/assets/export_settings.json').read_text())
     settings.update(export_animations=False,export_skins=False,collection=col.name,
         filepath=str(a.output_path(asset)))
     bpy.ops.export_scene.gltf(**settings)

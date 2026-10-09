@@ -26,15 +26,15 @@ fixture/model bytes:
 The commands were:
 
 ```text
-python tools/s06/run.py --godot <mise 4.8-dev7 godot.exe> --output C:\tmp\ft\lanes\s06\full
-python tools/s06/run.py --godot <mise 4.8-dev7 godot.exe> --content-only --output C:\tmp\ft\lanes\s06\content-only
+python prototypes/s06/tools/s06/run.py --godot <mise 4.8-dev7 godot.exe> --output C:\tmp\ft\lanes\s06\full
+python prototypes/s06/tools/s06/run.py --godot <mise 4.8-dev7 godot.exe> --content-only --output C:\tmp\ft\lanes\s06\content-only
 ```
 
 No Windows-specific proof harness correction was needed.
 
 ## Automatic drawn captures
 
-`tools/s06/capture_windows.py` imported one fresh external copy, then launched
+`prototypes/s06/tools/s06/capture_windows.py` imported one fresh external copy, then launched
 `intersection.tscn` and inherited `intersection_wide.tscn` windowed at 1280×800.
 Both processes exited 0 with no diagnostic lines. Each produced one static frame
 and three frames during each existing route. All 20 PNG saves passed. Every captured
@@ -44,7 +44,7 @@ The runner is bound to clean tool revision `6b9bfb95d049d45cbe2baeb326779b3deb1d
 see its [complete result](s06-windows-evidence/captures/result.json). The command was:
 
 ```text
-python tools/s06/capture_windows.py --godot <mise 4.8-dev7 godot.exe> --output C:\tmp\ft\lanes\s06\windows-captures
+python prototypes/s06/tools/s06/capture_windows.py --godot <mise 4.8-dev7 godot.exe> --output C:\tmp\ft\lanes\s06\windows-captures
 ```
 
 | Saved camera | Static | Foot crossing | Eastbound → northbound left turn | Westbound → southbound left turn |

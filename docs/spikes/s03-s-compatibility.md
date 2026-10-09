@@ -114,7 +114,7 @@ boundary; a working generic MultiplayerPeer requires more than a freshness funct
 
 ## One finite counterexample/model and registration check
 
-[Probe tool](../../tools/probe_s03_s_compatibility.py) checks source hashes before
+[Probe tool](../../prototypes/s03_s/tools/probe_s03_s_compatibility.py) checks source hashes before
 extracting exact function bodies. Its finite synthetic cases are independent
 expectations from the predeclared criteria, with no Steam timing/loss simulator:
 
@@ -217,7 +217,7 @@ Reproduce static/model results after downloading the four exact public URLs in
 `sources.json` to a fresh source directory (no SDK):
 
 ```sh
-python3 tools/probe_s03_s_compatibility.py --source-dir /tmp/s03-s-compatibility/sources
+python3 prototypes/s03_s/tools/probe_s03_s_compatibility.py --source-dir /tmp/s03-s-compatibility/sources
 python3 docs/spikes/s03-s-compatibility-evidence/run_registration.py \
   /tmp/s03-s-compatibility-registration-new \
   /home/regner/.local/share/mise/installs/github-godotengine-godot-builds/4.8-dev7/godot

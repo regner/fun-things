@@ -40,7 +40,7 @@ the concept checkpoint; current measurements and rig version are in the producti
 
 Inspected canonical assets/scene contracts, parallel-art-production commissioning,
 accepted world reference, S02 source handoff, `weapon_studies.tscn`, actor/muzzle
-consumer and `tools/s02/export_members.json`. Existing `s02_smg` is a technical
+consumer and `prototypes/s02/tools/s02/export_members.json`. Existing `s02_smg` is a technical
 fixture used by the weapon study, not a production family to overwrite. Its recorded
 weak game-scale recognition is an explicit reason for these broader overhead cues.
 No existing source, fixture, consumer or identity was modified.

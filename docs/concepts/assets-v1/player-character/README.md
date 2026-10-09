@@ -8,7 +8,7 @@ and future interchangeable player skins. Production is underway; production mode
 rig, animation and gameplay acceptance remain pending.
 Base: `c030d66d7d0a9db19c0c2aebf1aa2b83eded6275`.
 
-Open [the local gallery](gallery.html) or the three full-resolution sheets:
+The removed local gallery and full-resolution sheets remain available at commit `80d0f24`:
 
 | Direction | Sheet | Main visual idea | Tradeoff |
 | --- | --- | --- | --- |

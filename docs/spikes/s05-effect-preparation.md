@@ -15,9 +15,9 @@ flash and five separated outward lobes, combined into one Blender mesh with thre
 opaque flat material slots. No dense smoke, sparks, debris, texture, rig, animation,
 collision, audio, LOD or new effect family is needed for this preparation.
 
-New source `art/source/models/spikes/s05_explosion_carrier.blend`, collection
+New source `prototypes/s05_effect/art/source/models/spikes/s05_explosion_carrier.blend`, collection
 `export_s05_explosion_carrier`, sole member/export root `ExplosionCarrier`, exports
-to `art/models/spikes/s05_explosion_carrier.glb`. Existing `art/source/.gdignore`
+to `prototypes/s05_effect/art/models/spikes/s05_explosion_carrier.glb`. Existing `art/source/.gdignore`
 excludes the source. Material order: `flash_amber`, `burst_coral`, `flash_ivory`.
 Original geometry and source-owned colors are authored in Blender by this producer;
 no external models, images, libraries, copied meshes or new licensing dependencies.

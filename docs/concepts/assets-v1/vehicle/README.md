@@ -9,9 +9,9 @@ Status: Regner **approved all three cars** on 9 October 2026:
 “I like and want all three.” Approved concept families are `car_latch_a`,
 `car_crate_a` and `car_sable_a`; all three enter the modeling queue. This is art
 direction approval, not measured dimensions, gameplay or production acceptance.
-First production modeling checkpoint is now available in the
-[rendered model gallery](../../../assets/vehicle_car_evidence/index.html), with separate
-sources/imports, movable side doors and saved previews. Final art acceptance is pending.
+Production source, export and prefab checkpoints now exist for all three cars. The deleted
+rendered gallery and saved preview scenes were historical checkpoint evidence and remain available
+at commit `80d0f24`; final art acceptance is pending.
 
 Regner also requested a larger bus and a dock/workshop truck. Their retained
 [Tandem city bus](04_tandem_city_bus.png) and

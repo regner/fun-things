@@ -9,8 +9,8 @@ Baseline: `c030d66d7d0a9db19c0c2aebf1aa2b83eded6275`.
 
 Production source/export/prefab and evidence: [Coral Stub handoff](../../../assets/pistol_coral_stub.md).
 
-Open [review.html](review.html) for the simple gallery. Each original generated
-sheet contains side, top, three-quarter and black silhouette views.
+The removed `review.html` gallery remains available at commit `80d0f24`. Each original
+generated sheet contained side, top, three-quarter and black silhouette views.
 
 | Option | Direction | Self-review / tradeoff |
 | --- | --- | --- |

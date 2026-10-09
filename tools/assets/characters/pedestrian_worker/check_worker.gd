@@ -1,7 +1,9 @@
 extends SceneTree
 ## Read-only asset acceptance probes plus native runtime captures of the saved preview.
 
-const PREVIEW: String = "res://tests/assets/characters/pedestrian_worker/pedestrian_worker_a_preview.tscn"
+const PREVIEW: String = (
+	"res://tests/assets/characters/pedestrian_worker/pedestrian_worker_a_preview.tscn"
+)
 const EVIDENCE: String = "res://docs/assets/pedestrian_worker_a-evidence/"
 
 var _failures: Array[String] = []

@@ -14,7 +14,7 @@ gameplay integration. The concept approval gate was satisfied before source mode
 This document preserves the original concept checkpoint below. Current sources, measured
 contacts, validation and production status are in the [Dock Thumper handoff](../../../assets/rocket_launcher_dock_thumper.md).
 
-Open [the review gallery](gallery.html) or the individual sheets:
+The removed review gallery and individual sheets remain available at commit `80d0f24`:
 
 | Option | Sheet | Direction and tradeoff |
 | --- | --- | --- |
@@ -101,9 +101,9 @@ combat, trail or explosion implementation belongs in this asset.
 ## Existing consumers and scoped future paths
 
 Inspected S02 `s02_launcher` source/export handoff and saved
-`tests/fixtures/s02/weapon_studies.tscn`: a technical visual fixture with a shared
+`prototypes/s02/tests/fixtures/s02/weapon_studies.tscn`: a technical visual fixture with a shared
 source and provisional actor mount, not a production launcher to replace.
-Inspected S15 `tests/fixtures/s15/rocket.tscn`: an effects-study rocket with
+Inspected S15 `prototypes/s15/tests/fixtures/s15/rocket.tscn`: an effects-study rocket with
 different axial/trail placement. These existing resources remain independent.
 Do not duplicate their conventions into a second gameplay implementation.
 

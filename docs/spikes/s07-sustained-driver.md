@@ -14,7 +14,7 @@ Full S07 and P0-GATE remain OPEN.
 
 ## Ownership and executable recipe
 
-The new saved `tests/fixtures/s07_driver/intersection.tscn` inherits the unchanged
+The new saved `prototypes/s07_driver/tests/fixtures/s07_driver/intersection.tscn` inherits the unchanged
 [S06 intersection](s06.md)/[body/topology contract](s06-contracts.md)/[source handoff](s06-source-handoff.md).
 Its only override is root script `S07DriverFixture extends S06Fixture`. No new
 nodes, geometry, transforms, routes, bake or body rules. Original S02/S04/S06,
@@ -43,14 +43,14 @@ the exhausted historical editor/sustained attempt. The public repository tools a
 
 ```sh
 # Exactly pinned executable is byte-checked by the runner; fresh external output.
-python3 tools/s07_driver/run.py /tmp/s07-new-authorized-run import
-python3 tools/s07_driver/run.py /tmp/s07-new-authorized-run development
-python3 tools/s07_driver/analyze.py /tmp/s07-new-authorized-run/development-1 /tmp/s07-dev-analysis.json
-python3 tools/s07_driver/run.py /tmp/s07-new-authorized-run sustained
-python3 tools/s07_driver/analyze.py /tmp/s07-new-authorized-run/sustained-1 /tmp/s07-sustained-analysis.json
+python3 prototypes/s07_driver/tools/s07_driver/run.py /tmp/s07-new-authorized-run import
+python3 prototypes/s07_driver/tools/s07_driver/run.py /tmp/s07-new-authorized-run development
+python3 prototypes/s07_driver/tools/s07_driver/analyze.py /tmp/s07-new-authorized-run/development-1 /tmp/s07-dev-analysis.json
+python3 prototypes/s07_driver/tools/s07_driver/run.py /tmp/s07-new-authorized-run sustained
+python3 prototypes/s07_driver/tools/s07_driver/analyze.py /tmp/s07-new-authorized-run/sustained-1 /tmp/s07-sustained-analysis.json
 # Offline checks only; no engine/editor invocation:
-python3 tools/s07_driver/check_resources.py /tmp/s07-preservation.json
-python3 tools/s07_driver/test_offline.py
+python3 prototypes/s07_driver/tools/s07_driver/check_resources.py /tmp/s07-preservation.json
+python3 prototypes/s07_driver/tools/s07_driver/test_offline.py
 ```
 
 `run.py` retains exact argv/exit/streams, uses no addon/autoload/native initialization,

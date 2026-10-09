@@ -16,12 +16,12 @@ clothing, hair, local-player identification or animation quality.
 
 | Source / output | Declared content | Consumers |
 | --- | --- | --- |
-| `art/source/models/characters/s13_humanoid.blend` | Blender 5.2.2 LTS; collection `export_s13_humanoid`; objects `Rig`, `Skin` | Explicit export below |
-| `art/models/characters/s13_humanoid.glb` and `.import` | One skinned mesh, one seven-bone skin, four actions, no images/extensions/compression | `tests/fixtures/s13/character.tscn` |
-| `tools/s13/author_humanoid.py` | Rebuild authoring script for this original blockout | Creates source and initial export; not runtime code |
-| `tools/s13/export_humanoid.py` | Validated collection export from the committed `.blend` | `tools/s13/reexport.py` |
-| `art/materials/s13_{ivory,coral,cobalt}.tres` | Opaque external palette materials | Wrapper-owned overrides and saved crowd instances |
-| `tests/fixtures/s13/character.tscn` | Linked model under `PresentationAnchor/Visuals/Model`, notifier and presentation API | 84 saved instances in `crowd.tscn` |
+| `prototypes/s13/art/source/models/characters/s13_humanoid.blend` | Blender 5.2.2 LTS; collection `export_s13_humanoid`; objects `Rig`, `Skin` | Explicit export below |
+| `prototypes/s13/art/models/characters/s13_humanoid.glb` and `.import` | One skinned mesh, one seven-bone skin, four actions, no images/extensions/compression | `prototypes/s13/tests/fixtures/s13/character.tscn` |
+| `prototypes/s13/tools/s13/author_humanoid.py` | Rebuild authoring script for this original blockout | Creates source and initial export; not runtime code |
+| `prototypes/s13/tools/s13/export_humanoid.py` | Validated collection export from the committed `.blend` | `prototypes/s13/tools/s13/reexport.py` |
+| `prototypes/s13/art/materials/s13_{ivory,coral,cobalt}.tres` | Opaque external palette materials | Wrapper-owned overrides and saved crowd instances |
+| `prototypes/s13/tests/fixtures/s13/character.tscn` | Linked model under `PresentationAnchor/Visuals/Model`, notifier and presentation API | 84 saved instances in `crowd.tscn` |
 
 The S13 lane worker created every model, rig, animation and material for this project.
 No third-party mesh, rig, animation, texture, image or library is incorporated.

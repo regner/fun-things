@@ -114,7 +114,7 @@ camera: vertically down, north up, height 47 m, FOV 42°, near 0.1 m, far 160 m.
 are native 1280×800, Forward+ Vulkan on GTX 1070. Close camera is at
 (-2.7,2.1,-3.9) m, looking at (0,0.95,0), FOV 32°; this support-side view keeps
 the launcher wearer’s face visible. They use unchanged source-linked S02
-ground (`art/source/models/spikes/s02_kit.blend` provenance in S02), not city placement.
+ground (`prototypes/s02/art/source/models/spikes/s02_kit.blend` provenance in S02), not city placement.
 
 - Saved-source skin and motion reexports are byte-identical to committed candidates.
 - Fresh isolated Godot 4.8.dev7 asset profile imports without errors/warnings.

@@ -23,19 +23,20 @@ catalogue or a whole-project runtime dependency resolver.
 
 Saved external UID/path pairs, node IDs, inherited composition, export membership,
 GLB headers and source signatures are checked without Godot or Blender. The helper
-reuses `tools/check.py:glb`, `tools/s06/check_resources.py:uid` and the saved-effect
-link checks from `tools/s05_effect/check_resources.py`; no old engine check is run.
+reuses `prototypes/shared/tools/check.py:glb`, `prototypes/s06/tools/s06/check_resources.py:uid` and the saved-effect
+link checks from `prototypes/s05_effect/tools/s05_effect/check_resources.py`; no old engine check is run.
 Source-to-export mappings come from the saved handoffs/membership records, not a new
 Blender reopen/reexport. Source geometry and current export equality are not re-proved.
 
 | Committed source → explicit collections/exports | Actual saved consumers |
 | --- | --- |
-| `art/source/models/spikes/s02_kit.blend` → nine `export_s02_*` collections in [membership](../../tools/s02/export_members.json) | `s02` wrappers → corner/corner_wide/weapon_studies; actor/pistol also in S06 intersection. [Source handoff](../assets/s02_kit.md) owns envelopes and downstream consumers. |
-| `art/source/models/spikes/s04_kit.blend` → `export_s04_car`, `export_s04_track` in [membership](../../tools/s04/export_members.json) | `s04/kinematic.tscn`, `dynamic.tscn`, `track.tscn` → S04 boot/body comparison; S05 car inherits kinematic, boot/burst reuse car/track; S06 uses two kinematic cars. [Source handoff](../assets/s04_kit.md) owns provisional geometry. |
-| `art/source/models/spikes/s05_explosion_carrier.blend` → `export_s05_explosion_carrier`, sole `ExplosionCarrier` → carrier GLB | `s05_effect/explosion.tscn/Visuals/Model` → eight saved `Presentation/Slots/Slot0…Slot7` in inherited boot and burst. [Source preparation](s05-effect-preparation.md) and [saved presentation](s05-saved-presentation.md) retain provenance. |
-| `art/source/models/spikes/s06_intersection.blend` → `export_s06_west/east` in [membership](../../tools/s06/export_members.json) | `s06/west.tscn`, `east.tscn/Visuals/Model` → intersection/intersection_wide. [Source handoff](s06-source-handoff.md) and [topology contract](s06-contracts.md) own the two-sector interpretation. |
+| `prototypes/s02/art/source/models/spikes/s02_kit.blend` → nine `export_s02_*` collections in [membership](../../prototypes/s02/tools/s02/export_members.json) | `s02` wrappers → corner/corner_wide/weapon_studies; actor/pistol also in S06 intersection. [Source handoff](../assets/s02_kit.md) owns envelopes and downstream consumers. |
+| `prototypes/s04/art/source/models/spikes/s04_kit.blend` → `export_s04_car`, `export_s04_track` in [membership](../../prototypes/s04/tools/s04/export_members.json) | `s04/kinematic.tscn`, `dynamic.tscn`, `track.tscn` → S04 boot/body comparison; S05 car inherits kinematic, boot/burst reuse car/track; S06 uses two kinematic cars. [Source handoff](../assets/s04_kit.md) owns provisional geometry. |
+| `prototypes/s05_effect/art/source/models/spikes/s05_explosion_carrier.blend` → `export_s05_explosion_carrier`, sole `ExplosionCarrier` → carrier GLB | `s05_effect/explosion.tscn/Visuals/Model` → eight saved `Presentation/Slots/Slot0…Slot7` in inherited boot and burst. [Source preparation](s05-effect-preparation.md) and [saved presentation](s05-saved-presentation.md) retain provenance. |
+| `prototypes/s06/art/source/models/spikes/s06_intersection.blend` → `export_s06_west/east` in [membership](../../prototypes/s06/tools/s06/export_members.json) | `s06/west.tscn`, `east.tscn/Visuals/Model` → intersection/intersection_wide. [Source handoff](s06-source-handoff.md) and [topology contract](s06-contracts.md) own the two-sector interpretation. |
 
-All exports are under `art/models/spikes/`, with the matching `.glb.import` UID.
+All archived exports are under their spike's `prototypes/<spike_id>/art/models/spikes/`
+tree, with the matching `.glb.import` UID.
 All source files are excluded from import by `art/source/.gdignore`. GLB bytes total
 433,824; the four sources are 167,214 / 123,668 / 117,308 / 104,919 bytes respectively.
 These are **disk bytes**, not loaded resource or GPU allocations. Exact fingerprints,
@@ -151,10 +152,10 @@ Question: can the exact small linked topology and actual bodies be observed
 repeatably, with attributable graphical costs and no identity/collision failure?
 Future budget: one focused day; at most12 measured runs total, no growth variants.
 
-- Primary input: [S06 intersection](../../tests/fixtures/s06/intersection.tscn),
+- Primary input: [S06 intersection](../../prototypes/s06/tests/fixtures/s06/intersection.tscn),
   West/East at saved identity, source X/Z[-24,24] and seamX0, four islands, one actor/
   pistol/two cars. Camera downward perspective47 m/42°, near0.1/far160 m; inherited
-  [wide variant](../../tests/fixtures/s06/intersection_wide.tscn) is50° and remains
+  [wide variant](../../prototypes/s06/tests/fixtures/s06/intersection_wide.tscn) is50° and remains
   an unused alternative in this card. No height stress exists in this layout.
 - Run six primary cases: uncapped/60-capped × three repeats, standalone graphical
   authority only. Deterministic route order through existing `start_route`: `foot`
@@ -175,7 +176,7 @@ Future budget: one focused day; at most12 measured runs total, no growth variant
   remains failure. This is neither fast driving, graphical calibration nor production
   AI load; the new driver does not satisfy capacity acceptance.
 - Separate effect comparator, only after its own draw gate: at most six cases on
-  [saved S05 effect burst](../../tests/fixtures/s05_effect/burst.tscn), same cap/repeat
+  [saved S05 effect burst](../../prototypes/s05_effect/tests/fixtures/s05_effect/burst.tscn), same cap/repeat
   split and named graphical host role. Twelve cars at a4 m grid, eight saved slots.
   Use20 single-root trials at measured t=15+30k seconds (k0…19), restoring the same
   accepted baseline between trials. Need an accepted reset/event driver before

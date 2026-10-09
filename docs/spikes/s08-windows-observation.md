@@ -22,7 +22,7 @@ engine/script diagnostics and empty stderr.
 | --- | --- | --- |
 | Exported S08 main, Windows RELEASE, 20 ms | Host `case deadline in ACTIVE`; client stalls at first post-admission held send (seq 1, expected OK) | PASS: 2 host / 4 client cases, exits 0, five proxy datagrams, 173 S08 checks per role, handoff 1.245 s |
 | Exported S08 main, Windows DEBUG, 20 ms | Same stall | PASS, handoff 1.166 s |
-| Editor-run minimal S03 (`tools/run_s03.py`), 20 ms | Stalls at the STALE_SEQUENCE held send | PASS 5/5 runs |
+| Editor-run minimal S03 (`prototypes/s03/tools/run_s03.py`), 20 ms | Stalls at the STALE_SEQUENCE held send | PASS 5/5 runs |
 
 The two pre-fix stalls hit different held sends. That pointed to sender-side loss of
 the unreliable `_held` RPC rather than a deterministic gameplay edge.
@@ -67,13 +67,13 @@ file a duplicate; the owner should review the [pinned-version MRP and comment dr
 
 ## Fix and checks
 
-- [S03Transport](../../tests/fixtures/s03/transport.gd), the native-peer owner, calls
+- [S03Transport](../../prototypes/s03/tests/fixtures/s03/transport.gd), the native-peer owner, calls
   `candidate.host.bandwidth_limit(0, 0)` after `create_server`. That restores the
   intended unlimited bandwidth and stays harmless if upstream fixes the order.
   Channel behaviour is unchanged, because the defect already passed 0 (maximum)
   as the channel limit. Every fixture using S03Transport inherits the fix
   (S03, S03-R, S04, S05, S08).
-- [S03Proof](../../tests/fixtures/s03/proof.gd) asserts that the client's host-peer
+- [S03Proof](../../prototypes/s03/tests/fixtures/s03/proof.gd) asserts that the client's host-peer
   throttle limit equals the engine constant `PACKET_THROTTLE_SCALE` at the end of
   the subset case. The expectation is independent of the fix's formula.
 - Windows runner corrections:
@@ -84,7 +84,7 @@ file a duplicate; the owner should review the [pinned-version MRP and comment dr
     reports an earlier ICMP port-unreachable, such as one to a canceled client's
     closed socket, on the next `recvfrom`; Linux does not.
   - [Offline tests](../../tools/test_foundation_tools.py) cover both behaviours.
-- [Windows observation tool](../../tools/s08/windows_observation.py):
+- [Windows observation tool](../../prototypes/s08/tools/s08/windows_observation.py):
   - Verifies the downloaded TPZ (1436879719 bytes, SHA256 `95c26775…`, the same
     archive as the Linux records) and its Windows members (`windows_release`
     `b538554d…`, `windows_debug` `c3287ae1…`). The Linux release member also

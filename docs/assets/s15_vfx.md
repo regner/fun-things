@@ -16,19 +16,19 @@ UV dependency, socket, or gameplay state in these presentation-only assets.
 
 | Source / collection | Explicit output and import sidecar | Saved consumers |
 | --- | --- | --- |
-| `art/source/models/effects/s15_vfx.blend`; `export_s15_fireball` | `art/models/effects/s15_fireball.glb` and `.import` | `tests/fixtures/s15/explosion.tscn` `Fireball` draw pass |
-| same source; `export_s15_smoke` | `art/models/effects/s15_smoke.glb` and `.import` | `explosion.tscn` `Smoke` draw pass |
-| same source; `export_s15_spark` | `art/models/effects/s15_spark.glb` and `.import` | `explosion.tscn` `Sparks` draw pass |
-| same source; `export_s15_debris` | `art/models/effects/s15_debris.glb` and `.import` | `explosion.tscn` `Debris` draw pass |
-| same source; `export_s15_muzzle_flash` | `art/models/effects/s15_muzzle_flash.glb` and `.import` | `tests/fixtures/s15/muzzle_flash.tscn` |
-| same source; `export_s15_tracer` | `art/models/effects/s15_tracer.glb` and `.import` | `tests/fixtures/s15/tracer.tscn` |
-| same source; `export_s15_impact` | `art/models/effects/s15_impact.glb` and `.import` | `tests/fixtures/s15/impact_puff.tscn` |
-| same source; `export_s15_rocket_trail` | `art/models/effects/s15_rocket_trail.glb` and `.import` | `tests/fixtures/s15/rocket_trail.tscn` |
-| same source; `export_s15_rocket` | `art/models/effects/s15_rocket.glb` and `.import` | `tests/fixtures/s15/rocket.tscn` `Model` |
+| `prototypes/s15/art/source/models/effects/s15_vfx.blend`; `export_s15_fireball` | `prototypes/s15/art/models/effects/s15_fireball.glb` and `.import` | `prototypes/s15/tests/fixtures/s15/explosion.tscn` `Fireball` draw pass |
+| same source; `export_s15_smoke` | `prototypes/s15/art/models/effects/s15_smoke.glb` and `.import` | `explosion.tscn` `Smoke` draw pass |
+| same source; `export_s15_spark` | `prototypes/s15/art/models/effects/s15_spark.glb` and `.import` | `explosion.tscn` `Sparks` draw pass |
+| same source; `export_s15_debris` | `prototypes/s15/art/models/effects/s15_debris.glb` and `.import` | `explosion.tscn` `Debris` draw pass |
+| same source; `export_s15_muzzle_flash` | `prototypes/s15/art/models/effects/s15_muzzle_flash.glb` and `.import` | `prototypes/s15/tests/fixtures/s15/muzzle_flash.tscn` |
+| same source; `export_s15_tracer` | `prototypes/s15/art/models/effects/s15_tracer.glb` and `.import` | `prototypes/s15/tests/fixtures/s15/tracer.tscn` |
+| same source; `export_s15_impact` | `prototypes/s15/art/models/effects/s15_impact.glb` and `.import` | `prototypes/s15/tests/fixtures/s15/impact_puff.tscn` |
+| same source; `export_s15_rocket_trail` | `prototypes/s15/art/models/effects/s15_rocket_trail.glb` and `.import` | `prototypes/s15/tests/fixtures/s15/rocket_trail.tscn` |
+| same source; `export_s15_rocket` | `prototypes/s15/art/models/effects/s15_rocket.glb` and `.import` | `prototypes/s15/tests/fixtures/s15/rocket.tscn` `Model` |
 
-`tools/s15/author_vfx_assets.py` rebuilds the source and all nine explicit exports
+`prototypes/s15/tools/s15/author_vfx_assets.py` rebuilds the source and all nine explicit exports
 with Blender **5.2.2 LTS**. It starts from an empty file and applies
-`tools/s01/export_settings.json`, overriding the selected collection, output path,
+`prototypes/s01/tools/s01/export_settings.json`, overriding the selected collection, output path,
 and animation flag for each output. Godot import uses pinned
 **4.8.dev7.official.c971f93e7**, default scene import, scale 1.0, generated LODs,
 tangents, and shadow meshes. Re-export all outputs together after changing the shared
