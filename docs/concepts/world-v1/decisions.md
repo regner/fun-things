@@ -325,3 +325,262 @@ Owner approval still gates each asset's modelling; assets can advance independen
 District concept/asset breakdown and greybox replacement follow later. Combined
 playable-game integration is outside these assignments. The exact instructions,
 ownership and handoff boundaries are in the [parallel commissioning record](../../workflows/parallel-art-production.md).
+
+## 9 October 2026 — district concepts and briefs, without production
+
+The owner requests concept iteration for each district and briefs for both unique
+district assets and assets shared across the city:
+
+> I don't want to do any 3d modeling or implementation work.
+
+Review ordering selected by the owner:
+
+> Work through one district at a time, starting with Signal Row
+
+Additional layout constraint:
+
+> Make sure for each district you're considering the area we have selected on the map with the district layout.
+
+The [current review](../districts-v1/README.md) starts with Signal Row and separates
+shared kits from district-specific families. Exact owner-exported polygons and the
+current road layout constrain each district's concepts, sizes and arrangements;
+the older island image supplies visual style only. Inventories for the remaining
+districts are preliminary and will be reconciled during their individual reviews.
+Neither the new images nor asset-family breakdowns are approved by this commission.
+No modelling, implementation or greybox replacement is authorized by this phase,
+including automatically after concept selection.
+
+## 9 October 2026 — Signal Row southern building and pedestrian bridge
+
+> The southern bit with three stores should be one long building with multiple stores instead. I would also like a pedestrian bridge that connects the main area with the bottom area, and also connects over to what will be the harbour area on the left.
+
+Replace the three detached southern shops in the concept with one continuous
+multi-store building. Explore one connected pedestrian bridge serving the northern
+main area, the southern strip and Old Quay west of the dividing road. The bridge
+may cross the district boundary; roads and selected district polygons stay fixed.
+The three-arm form and landing locations are Codex proposals, not selected geometry.
+This introduces an elevated pedestrian route at concept level; game support,
+clearances, navigation and implementation remain unvalidated and out of this phase.
+
+> Don't worry about road surfaces. We will eventually build tooling to handle that automatically later.
+
+Remove hand-authored road-surface assets from the active inventory. Retain current
+roads only as layout context for district art; automatic surface tooling is future
+work and is not implemented here. Other environment and graphic briefs remain drafts.
+[Signal Row revision 03](../districts-v1/signal-row.md) and its two new briefs record
+these changes. Owner feedback requests the requirements, not acceptance of the new image.
+
+## 9 October 2026 — Signal Row starting set and central asset tracking
+
+> That sounds like a great spot for us to start. We need a single place where we can track all the assets we are going to need and what district needs them.
+
+Use the Signal Row v03 breakdown as the starting set. Supporting items previously
+identified as uncertain remain to confirm; this is not blanket asset-design or
+production acceptance. The [central tracker](../districts-v1/asset-register.md)
+records one entry per reusable design/member, needed and candidate districts,
+brief, stage and next action. Reuse adds a district to an existing entry rather
+than duplicating the asset. Briefs continue to own technical/design details.
+
+> Once that is done lets do the next district.
+
+Continue individual district concepts after the tracker is ready. Codex selects
+Old Quay next to resolve the new pedestrian bridge's western connection; this is
+review ordering, not acceptance of Old Quay's preliminary assets or new image.
+Modelling, implementation and road-surface tooling remain outside this phase.
+
+## 9 October 2026 — Old Quay docks and yachts
+
+> I like it a lot. I would like to see some docks with yachts though.
+
+Retain the positively received warm harbour direction and add docks with moored
+yachts inside the existing basin. Two small clusters, four motor-yacht placements
+and two sailing-yacht placements are Codex concept proposals, not selected counts.
+Preserve the open harbour entrance, road bridge, waterfront shape, civic hall and
+Signal Row pedestrian connection. The central tracker now includes a dock kit and
+two proposed yacht designs, currently needed by Old Quay only. These are static
+scenery briefs for this phase; modelling, boat gameplay and implementation remain
+outside the assignment. [Current Old Quay review](../districts-v1/old-quay.md).
+
+## 9 October 2026 — Old Quay breakdown and The Crescents review
+
+> Once that is done lets move on to the next district.
+
+Complete the [Old Quay asset breakdown](../districts-v1/old-quay-assets.md) and
+continue district concepts. Codex selects The Crescents, the residential neighbour,
+as the next review. Its [first concept](../districts-v1/the-crescents.md) uses the
+selected polygon, existing roads and numbered footprints. The corner shop at
+footprint 29 is a proposal, not a saved-layout change. Asset selection remains
+open; central tracking retains shared assets once. No modelling or implementation.
+
+## 9 October 2026 — Crescents access, shared boardwalk and Northpoint
+
+The owner requests a cul-de-sac into the large eastern housing group and suggests
+a consistent boardwalk around the island. [Crescents revision 02](../districts-v1/the-crescents.md)
+adds a southern-entry dead end and an outer-coast timber boardwalk. These are
+concept changes only; existing saved roads, plots and coast data remain unchanged.
+
+> Yeah, I like that better. Determine what assets we need for this area and the boardwalk, update the asset registry with them, and then proceed with the next district
+
+Record the [Crescents/boardwalk breakdown](../districts-v1/the-crescents-assets.md)
+and needed district uses in the single central tracker. Four core buildings and
+a five-member shared boardwalk kit cover the primary designs; existing railings,
+lights and other shared props retain one entry. Uncertain small props remain to
+confirm. Other coastal boardwalk uses remain candidates pending route fit.
+
+Codex selects [Northpoint](../districts-v1/northpoint.md) next to continue the coastal
+route, using its selected map area and established campus/sports identity. Its
+first concept remains in review. No asset modelling, scene changes, road-surface
+tooling or implementation is commissioned.
+
+## 9 October 2026 — Restore Northpoint’s university character
+
+> The original concepts had a really nice university looking building. I would like to see that come back. I like the large arena looking building near the field.
+
+Restore the original island concept’s traditional university architecture through
+one main collegiate hall in the central campus plot. Revision 03 explores brick
+and pale stone, connected slate-roofed wings, an open quadrangle and a modest
+clock tower. These form the existing main-hall asset, not separate commissions.
+Retain the liked curved sports pavilion beside the track as a distinct building.
+The requested hall and retained pavilion are needed in the central tracker; the
+new hall rendering remains in review. Streets, district boundary, field and coastal
+boardwalk remain the concept constraints; no model or saved-world edits were made.
+[Current Northpoint review](../districts-v1/northpoint.md).
+
+## 9 October 2026 — Northpoint asset pass and lighthouse
+
+> Once that’s done do a pass and update the asset registry with anything we need for this district. I would also like to include the lighthouse that was in previous concepts.
+
+Add the requested lighthouse in the northwestern coastal strip, landward of the
+continuous boardwalk, preserving the university hall, liked sports pavilion and
+existing roads/shore. [Revision 04](../districts-v1/northpoint.md) remains a concept
+for review. The lighthouse brief covers one complete tower/lantern assembly.
+
+The [Northpoint asset pass](../districts-v1/northpoint-assets.md) records five core
+building designs, sports finishes and reused city assets in the central tracker.
+Boardwalk usage now includes Northpoint and The Crescents without duplicate kit
+entries. Supporting maps, route signs, cycle stands and bins remain to confirm.
+No modelling, saved-layout changes, sports gameplay or beacon implementation.
+
+## 9 October 2026 — Terrace Ward and modular apartments
+
+> Proceed with the next district
+
+Codex selects Terrace Ward, using its exact selected polygon and current streets.
+The concept explores the established stepped apartment/courtyard identity and
+continues the shared northern boardwalk. Revision 02 corrects the neighbouring
+Crescents cul-de-sac without changing the Terrace Ward design.
+
+> That looks good. Lets just make sure we try and find a way to make those buildings out of modular parts so they are not all one off buildings.
+
+The district direction is liked. Require a reusable apartment kit rather than
+separate one-off buildings. The [apartment brief](../../assets/d03_apartment_family.md)
+now records seven proposed module designs and retains the four existing apartment
+IDs as composition references made from that kit. Common dimensions and joins
+remain to refine; a later concept sheet should show at least two assemblies and
+a height transition. The district raster does not prove modular fit. No modelling,
+procedural generator or other implementation is commissioned.
+[Current Terrace Ward review](../districts-v1/terrace-ward.md).
+
+## 9 October 2026 — Terrace Ward asset pass and Glassward
+
+> Put together a detailed list of assets we need for this district and update the asset registry. When you're done, move on to the next district.
+
+Complete the [Terrace Ward asset breakdown](../districts-v1/terrace-ward-assets.md):
+seven proposed apartment module records, four composition references, laundry
+frame/cloth, court graphics, entrance numbers and shared city assets. Confirmed
+district uses are recorded once in the central registry; supporting small props
+remain to confirm. The modular requirement does not commission 3D work.
+
+Codex selects [Glassward](../districts-v1/glassward.md) next, using its selected
+map area and established office-tower identity. The first concept explores three
+unequal crowns around an open forecourt, lower southern offices and the continuous
+boardwalk. Its asset designs remain preliminary. No roads, models, scenes or
+gameplay implementation were changed, and tower/camera fit is unvalidated.
+
+## 9 October 2026 — Glassward direction liked; Broadlot next
+
+> I like it. On to the next district.
+
+Record Glassward's downtown direction as liked, with its [asset set](../districts-v1/glassward-assets.md)
+and shared city uses in the central registry. Exact tower heights, modular details
+and fixed-camera visibility remain to refine. This does not commission production.
+
+Codex selects [Broadlot](../districts-v1/broadlot.md), using its selected southern
+coastal area and established large-retail/open-parking identity. Its first concept
+consolidates the main northern store and smaller middle site, uses compact coastal
+shop pads and continues the shared boardwalk. Broadlot remains in review. Roads,
+coastline, saved placements and models remain unchanged; road surfaces excluded.
+
+## 9 October 2026 — Broadlot asset pass and Ironreach revision
+
+> As usual, update the asset list with a detailed list of assets we need. Then move on to the next district.
+
+Record [Broadlot's detailed asset set](../districts-v1/broadlot-assets.md), including
+retail shells, entrance component, reused small shops, trolley kit, signage,
+parking furniture and shared coastal assets. Supporting props remain to confirm;
+road surfaces stay excluded. This request does not select every individual design.
+Codex selects Ironreach next, using its exact map area and existing roads.
+
+> I would like some of those spots to have chain link fences and the whole area should feel a bit more rundown.
+
+[Ironreach revision 02](../districts-v1/ironreach.md) adds chain-link fencing to
+selected yards and weathered buildings and props. The shared barrier brief now
+covers mesh panels, a post/bracing set and paired vehicle gates, with Ironreach
+recorded as needed in the central registry. Two main-yard exits, a pedestrian
+bypass and the continuing boardwalk must remain clear. Wear uses reusable finishes
+and shared building parts, not a bespoke model for every shed. The revised image
+remains in review; no modelling, implementation or road-surface work is commissioned.
+
+## 9 October 2026 — Ironreach revision liked and asset set recorded
+
+> That looks better. Update the asset registry with required assets.
+
+Record [Ironreach revision 02](../districts-v1/ironreach.md) as liked. The
+[detailed breakdown](../districts-v1/ironreach-assets.md) covers three shed/depot
+designs plus attached office, four repair props, repair graphics, the chain-link
+kit and shared coastal/city assets. Add low weed clumps to the shared planting
+brief. Weathered finishes belong to existing designs; no one-off worn building
+copies are needed. Supporting props remain to confirm, apron graphics remain
+candidates and road surfaces stay excluded. All required records have briefs;
+individual designs, module joins and access clearances still need refinement.
+
+## 9 October 2026 — East Docks first concept
+
+> Next district
+
+Proceed from the liked Ironreach revision and recorded asset set to
+[East Docks](../districts-v1/east-docks.md). Use its exact selected coastal polygon,
+curved streets and inner service spur. The first concept explores longer modular
+warehouses, two unequal amber cranes and an open freight apron, reusing the shared
+boardwalk and neighbouring Ironreach character. The public walk's landward
+passage around the working quay remains unresolved in the overview. District
+asset demand remains preliminary pending review. No road surfaces, models,
+saved placements or implementation changed.
+
+## 9 October 2026 — East Docks liked with boardwalk endpoints
+
+> I think the boardwalk should end at either side of the district
+
+> Other then that I like it.
+
+Record the East Docks direction as liked. Revision 02 removes the boardwalk
+through the freight district. Ironreach's northern approach and Broadlot's
+southwestern approach end at the district boundaries; no landward bypass through
+the crane apron is needed. The shared boardwalk brief and central demand registry
+now exclude district 09 and assign the two terminal details to neighbouring
+07/08 uses of existing trim, rail and access components. Keep warehouses, cranes
+and open yards. Exact terminal connections and working clearances remain to
+refine; this decision does not commission modelling or implementation.
+
+## 9 October 2026 — City asset registry review
+
+> Review the asset registry. Ensure it's complete. See if there is overlap or duplicate items. Just generally give it a good once over.
+
+Complete East Docks' detailed asset pass and reconcile Old Quay's required demand
+with its existing breakdown. Record shared water/garden/paving studies and the
+existing Coral Courier handoff. Add output types and reuse-only references for
+parking signs, shared rails, apartment compositions, nested trolleys and the
+parade interface. Preserve IDs, keep alternatives unselected and defer surface
+records to their future tooling boundary. All nine district breakdowns now feed
+one central inventory with named briefs. Individual design/fit decisions remain
+open. [Registry review receipt](../districts-v1/asset-registry-review.md).

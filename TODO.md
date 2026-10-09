@@ -62,6 +62,9 @@ recommendations and do not block P1.
   agent (decision 24). Stages 1–3 are approved; per-district concepts and asset lists follow
   the [parallel content workflow](docs/workflows/parallel-art-production.md). The owner reports
   when it is integrated.
+  District concepts and family briefs are retained in the [central asset tracker](docs/concepts/districts-v1/asset-register.md).
+  The authorized production commission supersedes the draft concept-only scope;
+  production status is tracked separately in [production progress](docs/assets/production/progress.md).
 - [ ] **M1-C1 — Produce production art families.** C1.1 district building/prop families after
   M1-C0's asset lists; C1.2 follow-ups to the delivered character/vehicle/weapon/effect assets,
   starting with C1.2a, the hitscan tracer effect from the weapon-effects lead, and including

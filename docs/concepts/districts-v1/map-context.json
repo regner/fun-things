@@ -1,0 +1,133 @@
+{
+  "boundary_source": "docs/concepts/world-v1/stage-04-streets/district-editor/brackett-districts.json",
+  "sha256": "1e1685dad7b12c824aa485a8aee9076c415c859d25a7c28759eb9c9df26c8168",
+  "method": "Exact unmodified polygon shoelace area and axis-aligned bounds; gross areas include roads/open space and can include water. Independently drawn district polygons retain gaps/overlaps. These are not net buildable areas.",
+  "districts": [
+    {
+      "id": 1,
+      "name": "Northpoint",
+      "area_m2": 64006.23,
+      "bounds_m": [
+        55,
+        45,
+        342.3,
+        392.2
+      ],
+      "bbox_width_m": 287.3,
+      "bbox_depth_m": 347.2,
+      "greybox_buildings": 65
+    },
+    {
+      "id": 2,
+      "name": "The Crescents",
+      "area_m2": 52586.69,
+      "bounds_m": [
+        69.1,
+        216.4,
+        451.3,
+        547.9
+      ],
+      "bbox_width_m": 382.2,
+      "bbox_depth_m": 331.5,
+      "greybox_buildings": 48
+    },
+    {
+      "id": 3,
+      "name": "Terrace Ward",
+      "area_m2": 48047.32,
+      "bounds_m": [
+        317.1,
+        61.7,
+        580.4,
+        352.3
+      ],
+      "bbox_width_m": 263.3,
+      "bbox_depth_m": 290.6,
+      "greybox_buildings": 30
+    },
+    {
+      "id": 4,
+      "name": "Glassward",
+      "area_m2": 98953.39,
+      "bounds_m": [
+        553.3,
+        107.3,
+        974,
+        455.1
+      ],
+      "bbox_width_m": 420.7,
+      "bbox_depth_m": 347.8,
+      "greybox_buildings": 29
+    },
+    {
+      "id": 5,
+      "name": "Old Quay",
+      "area_m2": 52760.55,
+      "bounds_m": [
+        224.8,
+        345.2,
+        503.5,
+        634.7
+      ],
+      "bbox_width_m": 278.7,
+      "bbox_depth_m": 289.5,
+      "greybox_buildings": 26
+    },
+    {
+      "id": 6,
+      "name": "Signal Row",
+      "area_m2": 21524.81,
+      "bounds_m": [
+        452.6,
+        345.3,
+        657.6,
+        544.3
+      ],
+      "bbox_width_m": 205.0,
+      "bbox_depth_m": 199.0,
+      "greybox_buildings": 15
+    },
+    {
+      "id": 7,
+      "name": "Broadlot",
+      "area_m2": 68360.9,
+      "bounds_m": [
+        457.3,
+        434,
+        931.8,
+        668.8
+      ],
+      "bbox_width_m": 474.5,
+      "bbox_depth_m": 234.8,
+      "greybox_buildings": 20
+    },
+    {
+      "id": 8,
+      "name": "Ironreach",
+      "area_m2": 58130.73,
+      "bounds_m": [
+        768.6,
+        204.7,
+        1114.4,
+        576.6
+      ],
+      "bbox_width_m": 345.8,
+      "bbox_depth_m": 371.9,
+      "greybox_buildings": 36
+    },
+    {
+      "id": 9,
+      "name": "East Docks",
+      "area_m2": 50338.88,
+      "bounds_m": [
+        926.5,
+        286,
+        1210,
+        632.097
+      ],
+      "bbox_width_m": 283.5,
+      "bbox_depth_m": 346.1,
+      "greybox_buildings": 21
+    }
+  ]
+}

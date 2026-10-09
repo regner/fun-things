@@ -19,3 +19,15 @@ The linked record owns source/export/import/prefab/sector mappings, shared
 dependencies, acceptance status and evidence. Keep this index limited to discovery
 so it does not become a second writer of those facts. Mark retired/replaced entries
 and link the coordinated migration if consumers once used the ID.
+
+## City asset planning and district usage
+
+[Open the central city asset tracker](concepts/districts-v1/asset-register.md).
+It owns the required/candidate district relationships and planning progress for all
+new environment assets, with one entry per reusable design, component, appearance study or assembly reference and
+links to the 62 family briefs. Shared assets are tracked once with multiple users.
+
+Existing actors, vehicles, weapons and effects are linked there to their owner
+handoffs. The technical fixture table above remains a source/handoff discovery index,
+not a second environment planning tracker. Road surfaces remain outside the art
+inventory and belong to future automatic tooling.

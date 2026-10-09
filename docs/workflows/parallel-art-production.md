@@ -99,8 +99,12 @@ setup. No unbounded infrastructure repair or automatic model/profile changes.
 ## Subsequent work and plan status
 
 After these tracks, return to each district: approved concept, concrete asset list,
-production, then incremental replacement of grey buildings. That later work has not
-been launched. Overall playable-game integration belongs to another person.
+production, then incremental replacement of grey buildings. The owner has now
+launched [district concept and brief work](../concepts/districts-v1/README.md), one
+district at a time starting with Signal Row, using the exact selected map areas.
+This phase explicitly excludes modelling and implementation, including after
+concept approval. District production and greybox replacement remain uncommissioned.
+Overall playable-game integration belongs to another person.
 
 The existing foundation results remain partial where documented. Content authoring
 is now explicitly authorized in parallel; no six-block concept gate or old P0 ordering
