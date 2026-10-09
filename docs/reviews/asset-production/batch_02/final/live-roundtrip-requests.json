@@ -1,0 +1,97 @@
+[
+  {
+    "method": "scene.open",
+    "params": {
+      "file_path": "res://scenes/prefabs/environment/city_planting_04_compact.tscn"
+    }
+  },
+  {
+    "method": "editor.save_scene",
+    "params": {}
+  },
+  {
+    "method": "scene.close",
+    "params": {
+      "file_path": "res://scenes/prefabs/environment/city_planting_04_compact.tscn"
+    }
+  },
+  {
+    "method": "scene.open",
+    "params": {
+      "file_path": "res://scenes/prefabs/environment/city_planting_04_compact.tscn"
+    }
+  },
+  {
+    "method": "editor.save_scene",
+    "params": {}
+  },
+  {
+    "method": "scene.open",
+    "params": {
+      "file_path": "res://scenes/prefabs/environment/city_planting_04_broad.tscn"
+    }
+  },
+  {
+    "method": "editor.save_scene",
+    "params": {}
+  },
+  {
+    "method": "scene.close",
+    "params": {
+      "file_path": "res://scenes/prefabs/environment/city_planting_04_broad.tscn"
+    }
+  },
+  {
+    "method": "scene.open",
+    "params": {
+      "file_path": "res://scenes/prefabs/environment/city_planting_04_broad.tscn"
+    }
+  },
+  {
+    "method": "editor.save_scene",
+    "params": {}
+  },
+  {
+    "method": "scene.open",
+    "params": {
+      "file_path": "res://tests/fixtures/asset_production/batch_02_camera.tscn"
+    }
+  },
+  {
+    "method": "editor.save_scene",
+    "params": {}
+  },
+  {
+    "method": "scene.close",
+    "params": {
+      "file_path": "res://tests/fixtures/asset_production/batch_02_camera.tscn"
+    }
+  },
+  {
+    "method": "scene.open",
+    "params": {
+      "file_path": "res://tests/fixtures/asset_production/batch_02_camera.tscn"
+    }
+  },
+  {
+    "method": "editor.save_scene",
+    "params": {}
+  },
+  {
+    "method": "scene.open",
+    "params": {
+      "file_path": "res://tools/asset_production/integration/inspector.tscn"
+    }
+  },
+  {
+    "method": "game.stop",
+    "params": {}
+  },
+  {
+    "method": "node.call_method",
+    "params": {
+      "node_path": ".",
+      "method_name": "context"
+    }
+  }
+]

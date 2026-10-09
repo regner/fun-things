@@ -1,0 +1,25 @@
+{
+  "argv": [
+    "/usr/bin/blender",
+    "-b",
+    "-noaudio",
+    "-t",
+    "4",
+    "art/source/models/environment/city_shop_fittings_06/city_shop_fittings_06.blend",
+    "--python-exit-code",
+    "1",
+    "--python",
+    "tools/asset_production/city_shop_fittings_06/f2_triangulation_probe.py"
+  ],
+  "cwd": "/home/regner/.paseo/worktrees/0u71f39f/asset-register-production",
+  "environment_overrides": {
+    "ALSOFT_DRIVERS": "null",
+    "SDL_AUDIODRIVER": "dummy",
+    "ASSET_EVIDENCE_DIR": "/home/regner/.paseo/worktrees/0u71f39f/asset-register-production/docs/assets/production/city_shop_fittings_06-evidence/fix_f2"
+  },
+  "started_utc": "2026-10-09T18:19:03.000266+00:00",
+  "exit_code": 0,
+  "elapsed_seconds": 0.5437428610021016,
+  "stdout": "triangulation_probe.stdout",
+  "stderr": "triangulation_probe.stderr"
+}

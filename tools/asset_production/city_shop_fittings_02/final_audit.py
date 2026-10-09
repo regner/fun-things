@@ -1,7 +1,7 @@
 """Check saved-source exclusion, seating, UV/material scope and source/export agreement."""
-import bpy,json,hashlib
+import bpy,json,hashlib,sys
 from pathlib import Path
-R=Path(__file__).resolve().parents[3];E=R/'docs/assets/production/city_shop_fittings_02-evidence'
+R=Path(__file__).resolve().parents[3];E=Path(sys.argv[sys.argv.index('--')+1]) if '--' in sys.argv else R/'docs/assets/production/city_shop_fittings_02-evidence/f1_culling'
 assert set(c.name for c in bpy.data.collections)=={'export_city_shop_fittings_02','authoring_excluded'}
 assert len(bpy.data.objects)==9 and not bpy.data.cameras and not bpy.data.lights
 assert not bpy.data.libraries
@@ -15,6 +15,7 @@ assert len(front)==1 and abs(front[0].center.y-.128)<1e-6
 assert all(abs(carrier.data.vertices[i].co.y-.128)<1e-6 for i in front[0].vertices)
 back_y=min(v.co.y for v in carrier.data.vertices);tray_front=max(v.co.y for v in tray.data.vertices)
 assert abs(back_y-.070)<1e-6 and abs(tray_front-.073)<1e-6 and tray_front>back_y
+assert all(m.use_backface_culling for m in bpy.data.materials if m.name.startswith('fascia_'))
 for m in bpy.data.materials:
     assert not any(n.type=='TEX_IMAGE' for n in m.node_tree.nodes)
     assert m.node_tree.nodes['Principled BSDF'].inputs['Alpha'].default_value==1

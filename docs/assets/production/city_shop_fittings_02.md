@@ -1,6 +1,6 @@
 # city_shop_fittings.02 — flat shop fascia frame
 
-Source/export candidate, 9 October 2026; produced by the assigned per-asset worker
+Source/export candidate, 9 October 2026; F1 culling correction applied, reviewer disposition pending; produced by the assigned per-asset worker
 for ROOT `fbd92534-e159-432f-aae7-28072c2bf3b2`. Model/source and explicit-export
 checks pass. Independent art acceptance and engine import, linked prefab,
 save/reopen, actual facade attachment, collision/query/runtime/multiplayer,
@@ -94,22 +94,22 @@ linear base colours in Blender. No external `.tres` or texture dependencies.
 
 Triangle counts: frame 392, trim 336, tray 164, reveal 224, insert 164,
 two rails 188 each. No rig, clips, sockets or LODs are needed for this static
-candidate; no measured device budget is implied. Source retains Blender's unused
-startup `Material` plus internal `Render Result`/`Viewer Node` handles; none enters
-the GLB. The sole excluded object is the exact 1 × 1 × 1 m authoring reference.
+candidate; no measured device budget is implied. Source retains internal `Render Result`/`Viewer Node` handles; neither enters
+the GLB. The unused startup `Material` in the original source was automatically
+dropped by Blender's correction save; all five assigned material names/slots remain unchanged. The sole excluded object is the exact 1 × 1 × 1 m authoring reference.
 Measured width/reference ratio is 3.2; `measured_1m_comparison.png` shows both.
 
 ## Validation, limits and reproduction
 
-`source_checks.json`, `glb_checks.json`, `reexport_checks.json` and
-`final_audit.json` pass: exact collection/node membership, applied transforms,
+Current `f1_culling/source_checks.json`, `f1_culling/glb_checks.json`,
+`f1_culling/reexport_checks.json` and `f1_culling/final_audit.json` pass: exact collection/node membership, applied transforms,
 finite positions/unit normals, closed manifold consistently wound solids,
 positive signed volumes, nondegenerate faces/triangles, triangle-vs-normal winding,
 material scope, artwork plane/UV orientation, axis conversion, source/export bounds,
 reference/studio exclusion and **saved-source byte-identical GLB re-export**.
 The standalone GLB decoder does not import the authoring/exporter implementation.
 `manifest.json` is the exact expected relative path/byte/SHA256 inventory, excluding
-only the manifest itself. Initial candidate source/export/checks/previews are
+the manifest itself and importer-owned `.import` sidecars (untouched). Initial candidate source/export/checks/previews are
 retained under `initial/`, explicitly not current delivery files.
 
 `hero.png`, `rear_mounts.png`, `measured_1m_comparison.png` and
@@ -148,7 +148,7 @@ Diagnostics and corrections:
 Reproduce from repository root (use new log labels; runner refuses overwriting logs):
 
 ```sh
-python tools/asset_production/city_shop_fittings_02/run.py verify_again /usr/bin/blender -b -noaudio -t 4 art/source/models/environment/city_shop_fittings_02/city_shop_fittings_02.blend --python-exit-code 1 --python tools/asset_production/city_shop_fittings_02/export.py -- docs/assets/production/city_shop_fittings_02-evidence/reexport_city_shop_fittings_02.glb docs/assets/production/city_shop_fittings_02-evidence/reexport_checks.json
+python tools/asset_production/city_shop_fittings_02/run.py verify_again /usr/bin/blender -b -noaudio -t 4 art/source/models/environment/city_shop_fittings_02/city_shop_fittings_02.blend --python-exit-code 1 --python tools/asset_production/city_shop_fittings_02/export.py -- docs/assets/production/city_shop_fittings_02-evidence/f1_culling/reexport_city_shop_fittings_02.glb docs/assets/production/city_shop_fittings_02-evidence/f1_culling/reexport_checks.json
 python tools/asset_production/city_shop_fittings_02/check_glb.py
 ```
 
@@ -158,3 +158,57 @@ use `-noaudio -t 4`, `ALSOFT_DRIVERS=null SDL_AUDIODRIVER=dummy` and an owned lo
 cache. `manifest.py` creates the final inventory; `manifest.py --verify` checks it.
 All owned authoring/render/export processes are complete at handoff. Available
 for concrete independent review findings; downstream gates stay with ROOT/integrator.
+
+
+## Independent review correction F1 — current authoritative evidence
+
+Batch03 initial review rejected the previous culling behavior at frozen candidate
+`028775618c4493ca672646e6e37fdc3c83e0e313` (parent
+`10ddb64d16e6cb2f137923a31d3ca14991468f7d`, original base
+`66400c26a01bf917dfe631af4762c2b444d9c48f`). Its immutable source/export, tools,
+report and prior manifest remain available at that revision. The review packet
+`docs/reviews/asset-production/batch_03/initial/` was read only. The earlier
+single-sided declaration was incorrect: all five exported materials were actually
+double-sided, and the original material check missed it.
+
+The author helper now explicitly sets `use_backface_culling=True`; the five named
+fascia materials were changed in the existing source, saved and independently
+reopened before export. No mesh was regenerated. Source before/after signatures
+verify unchanged positions, polygon membership, corner normals, UV layer names and
+values, material slots/PBR values, object hierarchy and world transforms. The raw
+GLB JSON differs exclusively by removal of the five `doubleSided:true` fields;
+omitted fields have the glTF default **false**. Its entire binary chunk is
+byte-identical to the rejected export, preserving geometry/UV/index data exactly.
+The exporter now asserts saved source culling; the independent raw checker asserts
+all actual GLB sidedness flags are false/default false. A fresh pinned saved-source
+export is byte-identical. All existing geometry, UV and interface checks pass.
+
+Authoritative current receipts are under `city_shop_fittings_02-evidence/f1_culling/`:
+`correction_checks.json`, `source_checks.json`, `reexport_checks.json`,
+`glb_checks.json`, `raw_delta_checks.json` and `final_audit.json`. Each command has
+literal argv/environment/start/exit and separate raw `.stdout` / `.stderr`, including
+empty streams. All five substantive correction commands exited 0; no retry or new
+failure. The optional unused MeshOptimizer library diagnostic remains in successful
+export stdout. No compression or error suppression was introduced.
+
+`mounted_frontage_fascia_culling_scratch.blend` is an additive, owned refresh of the
+previous shell scratch: only the same five fascia material flags changed. Every
+original scratch mesh and transform is unchanged; all seven fascia mesh/material
+signatures match the current source after save/reopen. Original shell evidence is
+byte-identical and untouched. Other fittings in this owned copy remain their frozen
+versions; this does not certify concurrent F2 door changes. The original previews
+remain historical visual evidence; no fresh camera/device/render acceptance is
+claimed for this material-only correction.
+
+`pre_fix_manifest.json` preserves the previous exact inventory. Every prior
+substantive evidence file (including rejected checks, logs, reexports and initial
+artifacts) remains present and byte-identical, verified by `raw_delta_checks.json`.
+The root `manifest.json` is the current complete owned payload inventory and excludes
+only itself and importer-owned sidecars. `fix_culling.py` documents the one-shot
+migration and deliberately requires the original false flags; do not rerun it on
+an already corrected source. Use `export.py` plus `check_glb.py` for future current
+verification; the latter now defaults to the correction evidence directory.
+
+F1 is corrected for same-reviewer disposition, not self-accepted. Engine culling,
+import/prefab/world/runtime/device gates remain pending. No new IDs, delegation,
+Git/index, shared documentation, reviewer pack, sidecar or live editor changes.

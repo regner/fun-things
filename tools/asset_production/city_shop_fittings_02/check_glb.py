@@ -2,7 +2,7 @@
 import json,struct,math,hashlib,sys
 from pathlib import Path
 ROOT=Path(__file__).resolve().parents[3]
-E=ROOT/'docs/assets/production/city_shop_fittings_02-evidence'
+E=Path(sys.argv[1]) if len(sys.argv)>1 else ROOT/'docs/assets/production/city_shop_fittings_02-evidence/f1_culling'
 p=ROOT/'art/models/environment/city_shop_fittings_02/city_shop_fittings_02.glb'
 b=p.read_bytes();magic,version,length=struct.unpack_from('<4sII',b);assert (magic,version,length)==(b'glTF',2,len(b))
 n,kind=struct.unpack_from('<II',b,12);assert kind==0x4e4f534a
@@ -23,6 +23,7 @@ expected={'city_shop_fittings_02','formed_fascia_frame','continuous_face_trim','
 assert {n['name'] for n in j['nodes']}==expected
 assert len(j['nodes'])==8 and len(j['meshes'])==7
 assert {m['name'] for m in j['materials']}=={'fascia_artwork_face','fascia_mount_metal','fascia_slate_petrol','fascia_recess','fascia_warm_trim'}
+assert all(m.get('doubleSided',False) is False for m in j['materials'])
 assert not any(k in j for k in ['animations','skins','cameras','images','textures'])
 assert 'KHR_lights_punctual' not in j.get('extensions',{})
 assert len(j['scenes'])==1

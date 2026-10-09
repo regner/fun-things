@@ -1,8 +1,9 @@
 """Audit both saved variant collections and export each independently."""
 import bpy,bmesh,json,math,sys,hashlib
 from pathlib import Path
+import os
 import io_scene_gltf2
-R=Path(__file__).resolve().parents[3]; E=R/'docs/assets/production/city_shop_fittings_06-evidence'
+R=Path(__file__).resolve().parents[3]; E=Path(os.environ.get('ASSET_EVIDENCE_DIR',R/'docs/assets/production/city_shop_fittings_06-evidence'))
 assert bpy.app.version[:3]==(5,2,2) and bpy.app.build_hash.decode()=='d13f752e3b9c'
 assert io_scene_gltf2.bl_info['version']==(5,2,40)
 bpy.context.view_layer.update()
@@ -19,6 +20,8 @@ for variant,w in [('single',1.04),('double',1.84)]:
         assert not o.modifiers
         coords.extend(o.matrix_world@v.co for v in o.data.vertices)
         bm=bmesh.new(); bm.from_mesh(o.data); o.data.calc_loop_triangles()
+        corner_dots=[t.normal.dot(o.data.corner_normals[i].vector) for t in o.data.loop_triangles for i in t.loops]
+        assert min(corner_dots)>0,(o.name,min(corner_dots))
         bad=sum(not e.is_manifold or not e.is_contiguous for e in bm.edges)
         assert bad==0,(o.name,bad)
         assert bm.calc_volume(signed=True)>0
@@ -35,7 +38,7 @@ for variant,w in [('single',1.04),('double',1.84)]:
             faces={f for v in group for f in v.link_faces}
             volume=sum(f.calc_area()*f.normal.dot(f.calc_center_median())/3 for f in faces)
             assert volume>0,(o.name,volume); components.append(volume)
-        report['objects'].append({'name':o.name,'vertices':len(o.data.vertices),'triangles':len(o.data.loop_triangles),'nonmanifold_or_inconsistent_edges':bad,'component_signed_volumes_m3':components,'material_slots':[m.name for m in o.data.materials]}); bm.free()
+        report['objects'].append({'name':o.name,'minimum_corner_normal_dot':min(corner_dots),'opposing_corner_normals':0,'vertices':len(o.data.vertices),'triangles':len(o.data.loop_triangles),'nonmanifold_or_inconsistent_edges':bad,'component_signed_volumes_m3':components,'material_slots':[m.name for m in o.data.materials]}); bm.free()
     lo=[min(v[i] for v in coords) for i in range(3)]; hi=[max(v[i] for v in coords) for i in range(3)]
     assert all(abs(a-b)<1e-5 for a,b in zip(lo,[-(w-.016)/2,-.475,.030]))
     assert all(abs(a-b)<1e-5 for a,b in zip(hi,[(w-.016)/2,-.352,2.232]))

@@ -1,7 +1,9 @@
 """Check exported GLB payload bounds, materials, normals and triangle count."""
 import json, struct, math
 from pathlib import Path
+import os
 ROOT=Path(__file__).resolve().parents[3]
+E=Path(os.environ.get('ASSET_EVIDENCE_DIR',ROOT/'docs/assets/production/city_shop_fittings_06-evidence'))
 reports=[]
 for path in sorted((ROOT/'art/models/environment/city_shop_fittings_06').glob('*.glb')):
     variant=path.stem.rsplit('_',1)[1]; w={'single':1.04,'double':1.84}[variant]
@@ -18,7 +20,7 @@ for path in sorted((ROOT/'art/models/environment/city_shop_fittings_06').glob('*
     assert len(doc['meshes'])==(3 if variant=='single' else 6)
     assert len(doc['nodes'])==(4 if variant=='single' else 7)
     assert {n['name'] for n in doc['nodes']}==({'city_shop_fittings_06_'+variant} | {variant+'_leaf_'+str(i)+'_'+n for i in range(1,2 if variant=='single' else 3) for n in ['stiles_rails','glazing','static_pull']})
-    positions=[]; triangles=0
+    positions=[]; triangles=0; corner_dots=[]
     for node in doc['nodes']:
         assert 'camera' not in node and 'skin' not in node
         assert 'matrix' not in node and 'rotation' not in node
@@ -39,6 +41,10 @@ for path in sorted((ROOT/'art/models/environment/city_shop_fittings_06').glob('*
                 u=[b[j]-a[j] for j in range(3)]; v=[c[j]-a[j] for j in range(3)]
                 cross=[u[1]*v[2]-u[2]*v[1],u[2]*v[0]-u[0]*v[2],u[0]*v[1]-u[1]*v[0]]
                 assert sum(x*x for x in cross)>1e-20
+                length=math.sqrt(sum(x*x for x in cross))
+                dots=[sum(cross[j]*normals[ids[k+q]][j] for j in range(3))/length for q in range(3)]
+                assert min(dots)>0,(node['name'],k,dots)
+                corner_dots.extend(dots)
                 mean=[sum(normals[ids[k+q]][j] for q in range(3)) for j in range(3)]
                 assert sum(cross[j]*mean[j] for j in range(3))>0, (node["name"],k,"winding/normal disagreement")
             triangles+=len(ids)//3
@@ -46,12 +52,12 @@ for path in sorted((ROOT/'art/models/environment/city_shop_fittings_06').glob('*
     low=[min(v[i] for v in positions) for i in range(3)]; high=[max(v[i] for v in positions) for i in range(3)]
     assert all(abs(a-b)<.001 for a,b in zip(low,[-(w-.016)/2,.030,.352])),low
     assert all(abs(a-b)<.001 for a,b in zip(high,[(w-.016)/2,2.232,.475])),high
-    assert triangles==next(r['triangles'] for r in json.loads((ROOT/'docs/assets/production/city_shop_fittings_06-evidence/source_export_checks.json').read_text()) if r['variant']==variant)
+    assert triangles==next(r['triangles'] for r in json.loads((E/'source_export_checks.json').read_text()) if r['variant']==variant)
     assert not doc.get('animations') and not doc.get('images') and not doc.get('cameras')
     assert 'KHR_lights_punctual' not in doc.get('extensionsUsed',[])
     assert len(doc['materials'])==3
     assert all(not m.get('doubleSided',False) and m.get('alphaMode','OPAQUE')=='OPAQUE' for m in doc['materials'])
     assert all(not any(m.get('emissiveFactor',[0,0,0])) for m in doc['materials'])
-    reports.append({'file':str(path.relative_to(ROOT)),'godot_axis_aabb':[low,high],'triangles':triangles,'mesh_count':len(doc['meshes']),'materials':doc['materials'],'checks':'PASS: exact dimensions, unit transforms, finite unit normals, nondegenerate triangles, studio exclusion, no lights/animations/textures'})
-(ROOT/'docs/assets/production/city_shop_fittings_06-evidence/glb_checks.json').write_text(json.dumps(reports,indent=2)+'\n')
+    reports.append({'file':str(path.relative_to(ROOT)),'godot_axis_aabb':[low,high],'triangles':triangles,'minimum_corner_normal_dot':min(corner_dots),'opposing_corner_normals':0,'mesh_count':len(doc['meshes']),'materials':doc['materials'],'checks':'PASS: exact dimensions, unit transforms, finite unit normals, nondegenerate triangles, studio exclusion, no lights/animations/textures'})
+(E/'glb_checks.json').write_text(json.dumps(reports,indent=2)+'\n')
 print(json.dumps(reports,indent=2))

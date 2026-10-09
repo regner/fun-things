@@ -1,0 +1,155 @@
+{
+  "material_surfaces": 42,
+  "max_material_linear_rgb_delta": 3.197912240571199e-08,
+  "roughness_max_delta": 4.440892098500626e-16,
+  "metallic_max_delta": 4.996003610813204e-16,
+  "uid_references": 40,
+  "uid_mismatches": [],
+  "imports": [
+    {
+      "path": "art/models/environment/city_planting_03/city_planting_03.glb",
+      "source_file": "res://art/models/environment/city_planting_03/city_planting_03.glb",
+      "uid": "uid://btx2jfhv1gi0n",
+      "root_scale_1": true,
+      "generate_lods": true,
+      "unchanged_after_scratch_import": true
+    },
+    {
+      "path": "art/models/environment/city_planting_04/city_planting_04_compact.glb",
+      "source_file": "res://art/models/environment/city_planting_04/city_planting_04_compact.glb",
+      "uid": "uid://cw8wq4sptjklm",
+      "root_scale_1": true,
+      "generate_lods": true,
+      "unchanged_after_scratch_import": true
+    },
+    {
+      "path": "art/models/environment/city_planting_04/city_planting_04_broad.glb",
+      "source_file": "res://art/models/environment/city_planting_04/city_planting_04_broad.glb",
+      "uid": "uid://bljjx1tl8pskg",
+      "root_scale_1": true,
+      "generate_lods": true,
+      "unchanged_after_scratch_import": true
+    },
+    {
+      "path": "art/models/environment/city_planting_05/city_planting_05_short_tuft.glb",
+      "source_file": "res://art/models/environment/city_planting_05/city_planting_05_short_tuft.glb",
+      "uid": "uid://8j1ufmaxv2oh",
+      "root_scale_1": true,
+      "generate_lods": true,
+      "unchanged_after_scratch_import": true
+    },
+    {
+      "path": "art/models/environment/city_planting_05/city_planting_05_spreading_clump.glb",
+      "source_file": "res://art/models/environment/city_planting_05/city_planting_05_spreading_clump.glb",
+      "uid": "uid://xcd440ijg4oe",
+      "root_scale_1": true,
+      "generate_lods": true,
+      "unchanged_after_scratch_import": true
+    },
+    {
+      "path": "art/models/environment/city_roof_details_01/city_roof_details_01.glb",
+      "source_file": "res://art/models/environment/city_roof_details_01/city_roof_details_01.glb",
+      "uid": "uid://dbysj6l66pwa4",
+      "root_scale_1": true,
+      "generate_lods": true,
+      "unchanged_after_scratch_import": true
+    },
+    {
+      "path": "art/models/environment/city_roof_details_02/city_roof_details_02.glb",
+      "source_file": "res://art/models/environment/city_roof_details_02/city_roof_details_02.glb",
+      "uid": "uid://14h5t8cbds73",
+      "root_scale_1": true,
+      "generate_lods": true,
+      "unchanged_after_scratch_import": true
+    },
+    {
+      "path": "art/models/environment/city_shop_fittings_01/city_shop_fittings_01.glb",
+      "source_file": "res://art/models/environment/city_shop_fittings_01/city_shop_fittings_01.glb",
+      "uid": "uid://buchm8e38cahk",
+      "root_scale_1": true,
+      "generate_lods": true,
+      "unchanged_after_scratch_import": true
+    }
+  ],
+  "cost": [
+    {
+      "scenario": "baseline",
+      "sample_count": 120,
+      "last60_medians": {
+        "draw_calls": 274.0,
+        "physics_s": 0.0011325,
+        "primitives": 65952.0,
+        "process_s": 0.00020600000000000002,
+        "video_bytes": 93696064.0
+      },
+      "process_min_max": [
+        0.00019,
+        0.046769
+      ],
+      "query_usec": 195
+    },
+    {
+      "scenario": "repeat",
+      "sample_count": 120,
+      "last60_medians": {
+        "draw_calls": 444.0,
+        "physics_s": 0.00045149999999999997,
+        "primitives": 170856.0,
+        "process_s": 0.00021500000000000002,
+        "video_bytes": 93696064.0
+      },
+      "process_min_max": [
+        0.000212,
+        0.051932
+      ],
+      "query_usec": 227
+    }
+  ],
+  "images": [
+    {
+      "path": "docs/assets/production/batch_02-evidence/gameplay.png",
+      "dimensions": [
+        1280,
+        800
+      ],
+      "valid_crc": true,
+      "sha256": "68cbb153717fc8e6336aa5d0b6c9ef32fe85f3a7d537b85b1b78e539d1cc88a0"
+    },
+    {
+      "path": "docs/assets/production/batch_02-evidence/mounting-close.png",
+      "dimensions": [
+        1280,
+        800
+      ],
+      "valid_crc": true,
+      "sha256": "a05c7625d3a896c48c991fc1f97de944d65d2eee6086abdd27fa43040c3dd380"
+    },
+    {
+      "path": "docs/assets/production/batch_02-evidence/roof-close.png",
+      "dimensions": [
+        1280,
+        800
+      ],
+      "valid_crc": true,
+      "sha256": "6029b5894af4f000dc71190018eaca9c8895ffd288f02134ca74b17e258d2997"
+    },
+    {
+      "path": "docs/assets/production/batch_02-evidence/repetition.png",
+      "dimensions": [
+        1280,
+        800
+      ],
+      "valid_crc": true,
+      "sha256": "2f03b7a1834d961fdee4d3451d8fd0d9820f68e2a0790dfb77be9f12c4bc7429"
+    },
+    {
+      "path": "docs/assets/production/batch_02-evidence/calibration/tree-roof-metre-front-up-comparison.png",
+      "dimensions": [
+        1600,
+        1000
+      ],
+      "valid_crc": true,
+      "sha256": "de6d3d7b3777e9d142dab2f212ae386f8be0595b59afdf5e9584503b18a2520d"
+    }
+  ]
+}

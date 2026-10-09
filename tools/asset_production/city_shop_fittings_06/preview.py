@@ -1,8 +1,9 @@
 """Retained fitted .03/.06 scratch views and excluded measured metre fixture."""
 import bpy,math,json
 from pathlib import Path
+import os
 from mathutils import Vector
-R=Path(__file__).resolve().parents[3]; E=R/'docs/assets/production/city_shop_fittings_06-evidence'
+R=Path(__file__).resolve().parents[3]; E=Path(os.environ.get('ASSET_EVIDENCE_DIR',R/'docs/assets/production/city_shop_fittings_06-evidence'))
 s=bpy.context.scene; studio=bpy.data.collections['authoring_excluded']
 s.world.use_nodes=True; s.world.node_tree.nodes['Background'].inputs[0].default_value=(.16,.20,.26,1); s.world.node_tree.nodes['Background'].inputs[1].default_value=.6
 for name,loc,energy,size in [('key',(1,4,6),1000,5),('fill',(-4,2,3),650,4),('rim',(0,-3,5),850,3)]:

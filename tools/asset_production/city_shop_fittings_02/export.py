@@ -19,6 +19,9 @@ def perform(output, report_path):
     assert sorted(o.name for o in col.all_objects)==sorted(MEMBERS)
     root=bpy.data.objects['city_shop_fittings_02']; assert root.parent is None
     report=dict(blender=bpy.app.version_string,build_hash=bpy.app.build_hash.decode(),gltf_exporter=io_scene_gltf2.bl_info['version'],members=MEMBERS,export_settings=SETTINGS,objects=[])
+    materials={m.name:m for o in col.all_objects if o.type=='MESH' for m in o.data.materials}
+    assert len(materials)==5 and all(m.use_backface_culling for m in materials.values())
+    report['material_backface_culling']={n:m.use_backface_culling for n,m in materials.items()}
     coords=[]
     for obj in col.all_objects:
         assert all(abs(v)<1e-7 for v in obj.location) and all(abs(v)<1e-7 for v in obj.rotation_euler),obj.name

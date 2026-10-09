@@ -1,0 +1,31 @@
+{
+  "argv": [
+    "magick",
+    "montage",
+    "docs/assets/production/city_shop_fittings_02-evidence/measured_1m_comparison.png",
+    "docs/assets/production/city_shop_fittings_03-evidence/measured_1m_comparison.png",
+    "docs/assets/production/city_shop_fittings_05-evidence/measured_1m_comparison.png",
+    "docs/assets/production/city_shop_fittings_06-evidence/measured_1m_comparison.png",
+    "docs/assets/production/city_shop_fittings_07-evidence/measured_1m_comparison.png",
+    "docs/assets/production/city_shop_fittings_08-evidence/measured_1m_comparison.png",
+    "docs/assets/production/city_small_shop_shells_01-evidence/measured_1m_comparison.png",
+    "-label",
+    "%f",
+    "-geometry",
+    "520x340+8+8",
+    "-tile",
+    "3x3",
+    "-background",
+    "#D4D8DB",
+    "docs/reviews/asset-production/batch_03/initial/original_metre_sheet.png"
+  ],
+  "cwd": "/home/regner/.paseo/worktrees/0u71f39f/asset-register-production",
+  "started_utc": "2026-10-09T18:07:29.961441+00:00",
+  "elapsed_s": 0.7300982929955353,
+  "environment_overrides": {
+    "ALSOFT_DRIVERS": "null",
+    "SDL_AUDIODRIVER": "dummy",
+    "XDG_CACHE_HOME": "/tmp/batch03-independent/cache"
+  },
+  "exit_code": 0
+}

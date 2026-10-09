@@ -1,0 +1,14 @@
+/home/regner/.paseo/worktrees/0u71f39f/asset-register-production/tools/asset_production/city_shop_fittings_06/author.py:14: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  m=bpy.data.materials.new(name); m.use_nodes=True; m.use_backface_culling=True
+Traceback (most recent call last):
+  File "/home/regner/.paseo/worktrees/0u71f39f/asset-register-production/tools/asset_production/city_shop_fittings_06/f2_arc_probe.py", line 7, in <module>
+    exec(compile(code,str(T/'author.py'),'exec'))
+    ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/regner/.paseo/worktrees/0u71f39f/asset-register-production/tools/asset_production/city_shop_fittings_06/author.py", line 50, in <module>
+    # Glazing tucks 6 mm behind the leaf ring, hiding seams without a second fixed frame.
+  File "/home/regner/.paseo/worktrees/0u71f39f/asset-register-production/tools/asset_production/city_shop_fittings_06/author.py", line 29, in mesh
+    bpy.ops.object.modifier_apply(modifier=m.name)
+                                       ^^^^^^^^^^^
+TypeError: bpy_struct: item.attr = val: enum "ARC" not found in ('MITER_SHARP', 'MITER_ARC')
+
+Error: script failed, file: 'tools/asset_production/city_shop_fittings_06/f2_arc_probe.py', exiting.

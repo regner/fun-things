@@ -1,0 +1,734 @@
+{
+  "id": "city_shop_fittings_06",
+  "filepath": "/tmp/batch03-independent/frozen/art/source/models/environment/city_shop_fittings_06/city_shop_fittings_06.blend",
+  "blender": "5.2.2 LTS",
+  "build": "d13f752e3b9c",
+  "gltf": [
+    5,
+    2,
+    40
+  ],
+  "libraries": [],
+  "images": [
+    {
+      "name": "Render Result",
+      "type": "RENDER_RESULT",
+      "path": "",
+      "packed": false
+    },
+    {
+      "name": "Viewer Node",
+      "type": "COMPOSITING",
+      "path": "",
+      "packed": false
+    }
+  ],
+  "variants": [
+    {
+      "name": "city_shop_fittings_06_single",
+      "members": [
+        "city_shop_fittings_06_single",
+        "single_leaf_1_glazing",
+        "single_leaf_1_static_pull",
+        "single_leaf_1_stiles_rails"
+      ],
+      "objects": [
+        {
+          "name": "city_shop_fittings_06_single",
+          "type": "EMPTY",
+          "parent": null,
+          "location": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "modifiers": []
+        },
+        {
+          "name": "single_leaf_1_stiles_rails",
+          "type": "MESH",
+          "parent": "city_shop_fittings_06_single",
+          "location": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "modifiers": [],
+          "vertices": 304,
+          "polygons": 304,
+          "triangles": 608,
+          "bounds_blender": [
+            [
+              -0.5120000243186951,
+              -0.4749999940395355,
+              0.029999999329447746
+            ],
+            [
+              0.5120000243186951,
+              -0.4300000071525574,
+              2.2320001125335693
+            ]
+          ],
+          "materials": [
+            "door_slate_petrol"
+          ],
+          "uv_layers": [],
+          "component_volumes_m3": [
+            0.03080870438731536
+          ],
+          "bad_edges": [],
+          "isolated_vertices": [],
+          "degenerate_triangles": [],
+          "invalid_normals": [],
+          "reversed_normal_triangles": [
+            106,
+            117,
+            130,
+            141,
+            298,
+            309,
+            322,
+            333
+          ],
+          "minimum_winding_dot": -0.2534773680017679,
+          "nonfinite_positions": 0
+        },
+        {
+          "name": "single_leaf_1_glazing",
+          "type": "MESH",
+          "parent": "city_shop_fittings_06_single",
+          "location": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "modifiers": [],
+          "vertices": 152,
+          "polygons": 150,
+          "triangles": 300,
+          "bounds_blender": [
+            [
+              -0.43299999833106995,
+              -0.46700000762939453,
+              0.2639999985694885
+            ],
+            [
+              0.43299999833106995,
+              -0.43799999356269836,
+              2.11299991607666
+            ]
+          ],
+          "materials": [
+            "door_opaque_tinted_glazing"
+          ],
+          "uv_layers": [],
+          "component_volumes_m3": [
+            0.046412651768959624
+          ],
+          "bad_edges": [],
+          "isolated_vertices": [],
+          "degenerate_triangles": [],
+          "invalid_normals": [],
+          "reversed_normal_triangles": [],
+          "minimum_winding_dot": 0.9569089295273443,
+          "nonfinite_positions": 0
+        },
+        {
+          "name": "single_leaf_1_static_pull",
+          "type": "MESH",
+          "parent": "city_shop_fittings_06_single",
+          "location": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "modifiers": [],
+          "vertices": 304,
+          "polygons": 298,
+          "triangles": 604,
+          "bounds_blender": [
+            [
+              0.45100000500679016,
+              -0.4339999854564667,
+              0.9200000166893005
+            ],
+            [
+              0.4869999885559082,
+              -0.35199999809265137,
+              1.3200000524520874
+            ]
+          ],
+          "materials": [
+            "door_satin_handle"
+          ],
+          "uv_layers": [],
+          "component_volumes_m3": [
+            0.000557091946530058
+          ],
+          "bad_edges": [],
+          "isolated_vertices": [],
+          "degenerate_triangles": [],
+          "invalid_normals": [],
+          "reversed_normal_triangles": [],
+          "minimum_winding_dot": 0.5491665963199921,
+          "nonfinite_positions": 0
+        }
+      ],
+      "export_settings": {
+        "export_format": "GLB",
+        "use_selection": true,
+        "export_yup": true,
+        "export_apply": true,
+        "export_texcoords": false,
+        "export_normals": true,
+        "export_tangents": false,
+        "export_materials": "EXPORT",
+        "export_cameras": false,
+        "export_lights": false,
+        "export_extras": false,
+        "export_animations": false
+      },
+      "reexport_path": "/home/regner/.paseo/worktrees/0u71f39f/asset-register-production/docs/reviews/asset-production/batch_03/initial/reexports/city_shop_fittings_06_single.glb",
+      "reexport_bytes": 30288,
+      "reexport_sha256": "55688ad2a64d9084af4c13ba7f960bee3a06816604305f6cf778fa48cddab31b",
+      "candidate_sha256": "55688ad2a64d9084af4c13ba7f960bee3a06816604305f6cf778fa48cddab31b",
+      "byte_identical": true
+    },
+    {
+      "name": "city_shop_fittings_06_double",
+      "members": [
+        "city_shop_fittings_06_double",
+        "double_leaf_1_glazing",
+        "double_leaf_1_static_pull",
+        "double_leaf_1_stiles_rails",
+        "double_leaf_2_glazing",
+        "double_leaf_2_static_pull",
+        "double_leaf_2_stiles_rails"
+      ],
+      "objects": [
+        {
+          "name": "city_shop_fittings_06_double",
+          "type": "EMPTY",
+          "parent": null,
+          "location": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "modifiers": []
+        },
+        {
+          "name": "double_leaf_1_stiles_rails",
+          "type": "MESH",
+          "parent": "city_shop_fittings_06_double",
+          "location": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "modifiers": [],
+          "vertices": 304,
+          "polygons": 304,
+          "triangles": 608,
+          "bounds_blender": [
+            [
+              -0.9120000004768372,
+              -0.4749999940395355,
+              0.029999999329447746
+            ],
+            [
+              -0.004000000189989805,
+              -0.4300000071525574,
+              2.2320001125335693
+            ]
+          ],
+          "materials": [
+            "door_slate_petrol"
+          ],
+          "uv_layers": [],
+          "component_volumes_m3": [
+            0.028907286250754397
+          ],
+          "bad_edges": [],
+          "isolated_vertices": [],
+          "degenerate_triangles": [],
+          "invalid_normals": [],
+          "reversed_normal_triangles": [
+            106,
+            117,
+            130,
+            141,
+            298,
+            309,
+            322,
+            333
+          ],
+          "minimum_winding_dot": -0.2535358888708288,
+          "nonfinite_positions": 0
+        },
+        {
+          "name": "double_leaf_1_glazing",
+          "type": "MESH",
+          "parent": "city_shop_fittings_06_double",
+          "location": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "modifiers": [],
+          "vertices": 152,
+          "polygons": 150,
+          "triangles": 300,
+          "bounds_blender": [
+            [
+              -0.8330000042915344,
+              -0.46700000762939453,
+              0.2639999985694885
+            ],
+            [
+              -0.08299999684095383,
+              -0.43799999356269836,
+              2.11299991607666
+            ]
+          ],
+          "materials": [
+            "door_opaque_tinted_glazing"
+          ],
+          "uv_layers": [],
+          "component_volumes_m3": [
+            0.04019362105758352
+          ],
+          "bad_edges": [],
+          "isolated_vertices": [],
+          "degenerate_triangles": [],
+          "invalid_normals": [],
+          "reversed_normal_triangles": [],
+          "minimum_winding_dot": 0.9568987013026344,
+          "nonfinite_positions": 0
+        },
+        {
+          "name": "double_leaf_1_static_pull",
+          "type": "MESH",
+          "parent": "city_shop_fittings_06_double",
+          "location": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "modifiers": [],
+          "vertices": 304,
+          "polygons": 298,
+          "triangles": 604,
+          "bounds_blender": [
+            [
+              -0.06499999761581421,
+              -0.4339999854564667,
+              0.9200000166893005
+            ],
+            [
+              -0.028999999165534973,
+              -0.35199999809265137,
+              1.3200000524520874
+            ]
+          ],
+          "materials": [
+            "door_satin_handle"
+          ],
+          "uv_layers": [],
+          "component_volumes_m3": [
+            0.0005570903861215493
+          ],
+          "bad_edges": [],
+          "isolated_vertices": [],
+          "degenerate_triangles": [],
+          "invalid_normals": [],
+          "reversed_normal_triangles": [],
+          "minimum_winding_dot": 0.5492221585591324,
+          "nonfinite_positions": 0
+        },
+        {
+          "name": "double_leaf_2_stiles_rails",
+          "type": "MESH",
+          "parent": "city_shop_fittings_06_double",
+          "location": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "modifiers": [],
+          "vertices": 304,
+          "polygons": 304,
+          "triangles": 608,
+          "bounds_blender": [
+            [
+              0.004000000189989805,
+              -0.4749999940395355,
+              0.029999999329447746
+            ],
+            [
+              0.9120000004768372,
+              -0.4300000071525574,
+              2.2320001125335693
+            ]
+          ],
+          "materials": [
+            "door_slate_petrol"
+          ],
+          "uv_layers": [],
+          "component_volumes_m3": [
+            0.028907258152594217
+          ],
+          "bad_edges": [],
+          "isolated_vertices": [],
+          "degenerate_triangles": [],
+          "invalid_normals": [],
+          "reversed_normal_triangles": [
+            106,
+            117,
+            130,
+            141,
+            298,
+            309,
+            322,
+            333
+          ],
+          "minimum_winding_dot": -0.25350870138936443,
+          "nonfinite_positions": 0
+        },
+        {
+          "name": "double_leaf_2_glazing",
+          "type": "MESH",
+          "parent": "city_shop_fittings_06_double",
+          "location": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "modifiers": [],
+          "vertices": 152,
+          "polygons": 150,
+          "triangles": 300,
+          "bounds_blender": [
+            [
+              0.08299999684095383,
+              -0.46700000762939453,
+              0.2639999985694885
+            ],
+            [
+              0.8330000042915344,
+              -0.43799999356269836,
+              2.11299991607666
+            ]
+          ],
+          "materials": [
+            "door_opaque_tinted_glazing"
+          ],
+          "uv_layers": [],
+          "component_volumes_m3": [
+            0.040193615397231715
+          ],
+          "bad_edges": [],
+          "isolated_vertices": [],
+          "degenerate_triangles": [],
+          "invalid_normals": [],
+          "reversed_normal_triangles": [],
+          "minimum_winding_dot": 0.9568928551852878,
+          "nonfinite_positions": 0
+        },
+        {
+          "name": "double_leaf_2_static_pull",
+          "type": "MESH",
+          "parent": "city_shop_fittings_06_double",
+          "location": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "modifiers": [],
+          "vertices": 304,
+          "polygons": 298,
+          "triangles": 604,
+          "bounds_blender": [
+            [
+              0.028999999165534973,
+              -0.4339999854564667,
+              0.9200000166893005
+            ],
+            [
+              0.06499999761581421,
+              -0.35199999809265137,
+              1.3200000524520874
+            ]
+          ],
+          "materials": [
+            "door_satin_handle"
+          ],
+          "uv_layers": [],
+          "component_volumes_m3": [
+            0.0005570903777417334
+          ],
+          "bad_edges": [],
+          "isolated_vertices": [],
+          "degenerate_triangles": [],
+          "invalid_normals": [],
+          "reversed_normal_triangles": [],
+          "minimum_winding_dot": 0.5492229429655708,
+          "nonfinite_positions": 0
+        }
+      ],
+      "export_settings": {
+        "export_format": "GLB",
+        "use_selection": true,
+        "export_yup": true,
+        "export_apply": true,
+        "export_texcoords": false,
+        "export_normals": true,
+        "export_tangents": false,
+        "export_materials": "EXPORT",
+        "export_cameras": false,
+        "export_lights": false,
+        "export_extras": false,
+        "export_animations": false
+      },
+      "reexport_path": "/home/regner/.paseo/worktrees/0u71f39f/asset-register-production/docs/reviews/asset-production/batch_03/initial/reexports/city_shop_fittings_06_double.glb",
+      "reexport_bytes": 50208,
+      "reexport_sha256": "0a37b93ae98e17bdda384e4569b4722397eb307842f3128ae8fab32a5d97bf66",
+      "candidate_sha256": "0a37b93ae98e17bdda384e4569b4722397eb307842f3128ae8fab32a5d97bf66",
+      "byte_identical": true
+    }
+  ],
+  "all_scene_objects": [
+    {
+      "name": "authoring_1m_reference",
+      "type": "MESH",
+      "collections": [
+        "authoring_excluded"
+      ]
+    },
+    {
+      "name": "city_shop_fittings_06_double",
+      "type": "EMPTY",
+      "collections": [
+        "variant_double"
+      ]
+    },
+    {
+      "name": "city_shop_fittings_06_single",
+      "type": "EMPTY",
+      "collections": [
+        "variant_single"
+      ]
+    },
+    {
+      "name": "double_leaf_1_glazing",
+      "type": "MESH",
+      "collections": [
+        "variant_double"
+      ]
+    },
+    {
+      "name": "double_leaf_1_static_pull",
+      "type": "MESH",
+      "collections": [
+        "variant_double"
+      ]
+    },
+    {
+      "name": "double_leaf_1_stiles_rails",
+      "type": "MESH",
+      "collections": [
+        "variant_double"
+      ]
+    },
+    {
+      "name": "double_leaf_2_glazing",
+      "type": "MESH",
+      "collections": [
+        "variant_double"
+      ]
+    },
+    {
+      "name": "double_leaf_2_static_pull",
+      "type": "MESH",
+      "collections": [
+        "variant_double"
+      ]
+    },
+    {
+      "name": "double_leaf_2_stiles_rails",
+      "type": "MESH",
+      "collections": [
+        "variant_double"
+      ]
+    },
+    {
+      "name": "single_leaf_1_glazing",
+      "type": "MESH",
+      "collections": [
+        "variant_single"
+      ]
+    },
+    {
+      "name": "single_leaf_1_static_pull",
+      "type": "MESH",
+      "collections": [
+        "variant_single"
+      ]
+    },
+    {
+      "name": "single_leaf_1_stiles_rails",
+      "type": "MESH",
+      "collections": [
+        "variant_single"
+      ]
+    }
+  ],
+  "metre_reference": {
+    "dimensions": [
+      1.0,
+      1.0,
+      1.0
+    ],
+    "matrix": [
+      [
+        1.0,
+        0.0,
+        0.0,
+        -2.0
+      ],
+      [
+        0.0,
+        1.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0,
+        0.5
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    ]
+  },
+  "issues": [
+    "single_leaf_1_stiles_rails: topology/normals",
+    "double_leaf_1_stiles_rails: topology/normals",
+    "double_leaf_2_stiles_rails: topology/normals"
+  ]
+}

@@ -1,0 +1,42 @@
+{
+  "candidate": "10ddb64d16e6cb2f137923a31d3ca14991468f7d",
+  "source_delta_base": "5e94cc0ea4155219285db49c64b5728e0882b093",
+  "original_base": "66400c26a01bf917dfe631af4762c2b444d9c48f",
+  "observed_HEAD": "028775618c4493ca672646e6e37fdc3c83e0e313",
+  "source_and_initial_unchanged": true,
+  "initial_file_count": 122,
+  "supplied_private_pid": 195352,
+  "supplied_private_pid_visible": false,
+  "private_session_accessed": false,
+  "reviewer_editor_saves": 0,
+  "historical_final_context": {
+    "method": "node.call_method",
+    "result": {
+      "id": 1,
+      "jsonrpc": "2.0",
+      "result": {
+        "method": "context",
+        "path": ".",
+        "result": {
+          "engine": "4.8-dev7 (official)",
+          "open": "PackedStringArray(\"res://scenes/boot/boot.tscn\", \"res://tools/asset_production/integration/inspector.tscn\", \"res://tests/fixtures/asset_production/lights_camera.tscn\", \"res://scenes/prefabs/environment/city_lights_01.tscn\", \"res://scenes/prefabs/environment/city_lights_01_cool.tscn\", \"res://scenes/prefabs/environment/city_lights_02.tscn\", \"res://scenes/prefabs/environment/city_lights_02_cool.tscn\", \"res://scenes/prefabs/environment/city_lights_04.tscn\", \"res://scenes/prefabs/environment/city_lights_04_cool.tscn\", \"res://scenes/prefabs/environment/city_sign_supports_01.tscn\", \"res://scenes/prefabs/environment/city_planting_01.tscn\", \"res://scenes/prefabs/environment/city_planting_02.tscn\", \"res://tests/fixtures/asset_production/batch_01_camera.tscn\", \"res://tests/fixtures/asset_production/batch_01_close.tscn\", \"res://tests/fixtures/asset_production/batch_01_repeat.tscn\", \"res://scenes/prefabs/environment/city_planting_03.tscn\", \"res://scenes/prefabs/environment/city_planting_04_compact.tscn\", \"res://scenes/prefabs/environment/city_planting_04_broad.tscn\", \"res://scenes/prefabs/environment/city_planting_05_short_tuft.tscn\", \"res://scenes/prefabs/environment/city_planting_05_spreading_clump.tscn\", \"res://scenes/prefabs/environment/city_roof_details_01.tscn\", \"res://scenes/prefabs/environment/city_roof_details_02.tscn\", \"res://scenes/prefabs/environment/city_shop_fittings_01.tscn\", \"res://tests/fixtures/asset_production/batch_02_camera.tscn\", \"res://tests/fixtures/asset_production/batch_02_close.tscn\", \"res://tests/fixtures/asset_production/batch_02_roof.tscn\", \"res://tests/fixtures/asset_production/batch_02_repeat.tscn\", \"res://tests/fixtures/asset_production/batch_02_trunks.tscn\")",
+          "pid": 195352,
+          "project": "/home/regner/.paseo/worktrees/0u71f39f/asset-register-production/",
+          "unsaved": "PackedStringArray()"
+        },
+        "success": true
+      }
+    }
+  },
+  "reviewer_processes_running_in_namespace": [],
+  "all_owned_check_commands_completed": true,
+  "editor_lease": "released; supplied PID absent, no live session accessed; no current synchronization claim",
+  "disposition": {
+    "source_export": "accepted production, initial evidence unchanged",
+    "C1": "accepted bounded source-linked comparison",
+    "prefab": "accepted bounded production integration",
+    "fixture_collision": "accepted scoped static movement/query/aim",
+    "native_views": "accepted recorded fixtures only",
+    "world_device_sustained_performance_full_game": "pending existing owners"
+  }
+}

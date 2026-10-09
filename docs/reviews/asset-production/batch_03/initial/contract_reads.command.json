@@ -1,0 +1,16 @@
+{
+  "argv": [
+    "python",
+    "-c",
+    "from pathlib import Path; paths=['AGENTS.md','.agents/skills/art-review/SKILL.md','.agents/skills/paseo-orchestrator/references/reviewer.md','docs/assets/production/commission.md','docs/assets.md','docs/art-direction.md','docs/world-layout.md','docs/scene-structure.md','docs/spikes/s01.md','docs/assets/city_shop_fittings.md','docs/assets/city_small_shop_shells.md','docs/assets/d06_commercial_graphics.md','docs/assets/d06_southern_shopping_parade.md','docs/concepts/districts-v1/brief-contract.md','docs/concepts/districts-v1/the-crescents.md','docs/concepts/districts-v1/old-quay.md','docs/concepts/districts-v1/broadlot.md','docs/concepts/districts-v1/signal-row.md','docs/concepts/districts-v1/signal-row-assets.md','docs/concepts/world-v1/stage-03-district-identities/README.md','mise.toml']; print('\\n'.join('PATH '+p+'\\n'+Path(p).read_text() for p in paths))"
+  ],
+  "cwd": "/home/regner/.paseo/worktrees/0u71f39f/asset-register-production",
+  "started_utc": "2026-10-09T17:59:46.606510+00:00",
+  "elapsed_s": 0.035089727003651205,
+  "environment_overrides": {
+    "ALSOFT_DRIVERS": "null",
+    "SDL_AUDIODRIVER": "dummy",
+    "XDG_CACHE_HOME": "/tmp/batch03-independent/cache"
+  },
+  "exit_code": 0
+}

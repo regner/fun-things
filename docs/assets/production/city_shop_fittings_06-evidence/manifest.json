@@ -1,23 +1,24 @@
 {
   "scope": "city_shop_fittings.06 exact owned inventory",
   "excludes": [
-    "docs/assets/production/city_shop_fittings_06-evidence/manifest.json"
+    "docs/assets/production/city_shop_fittings_06-evidence/manifest.json",
+    "art/models/environment/city_shop_fittings_06/*.import (integrator-owned)"
   ],
   "files": [
     {
       "path": "art/models/environment/city_shop_fittings_06/city_shop_fittings_06_double.glb",
-      "bytes": 50208,
-      "sha256": "0a37b93ae98e17bdda384e4569b4722397eb307842f3128ae8fab32a5d97bf66"
+      "bytes": 64608,
+      "sha256": "b4138a6a2b7ebd96f934448d4617bc6b0d127d48bf814eab8016695e50153cbf"
     },
     {
       "path": "art/models/environment/city_shop_fittings_06/city_shop_fittings_06_single.glb",
-      "bytes": 30288,
-      "sha256": "55688ad2a64d9084af4c13ba7f960bee3a06816604305f6cf778fa48cddab31b"
+      "bytes": 38928,
+      "sha256": "37e9ce1667105cc66120edf4d114b3a4228972000ac89c14ed1a2608e9b309c6"
     },
     {
       "path": "art/source/models/environment/city_shop_fittings_06/city_shop_fittings_06.blend",
-      "bytes": 133704,
-      "sha256": "a815ade7a8674d1184f35aa3544000e4307402675e953e4d668a1ffc1d4f9112"
+      "bytes": 146546,
+      "sha256": "40122b4ab26a6a348fc914e936421e75453a33f77cee88c16bd86df2a87e4fe7"
     },
     {
       "path": "docs/assets/production/city_shop_fittings_06-evidence/assembly.log",
@@ -51,8 +52,8 @@
     },
     {
       "path": "docs/assets/production/city_shop_fittings_06-evidence/fitted_comparison.blend",
-      "bytes": 170279,
-      "sha256": "2ef89c5e0a514a6d91623c5ea611ce91013591ae3812664d526d1adbbf19b2c9"
+      "bytes": 183069,
+      "sha256": "228a4af5148c4147181fa5f728cb24d7530484efaf29a89796b92421fc090f33"
     },
     {
       "path": "docs/assets/production/city_shop_fittings_06-evidence/fitted_front.png",
@@ -68,6 +69,501 @@
       "path": "docs/assets/production/city_shop_fittings_06-evidence/fitted_rear.png",
       "bytes": 1837018,
       "sha256": "b8f00e4f7ca2bef41bdfc3ba4f7eaaac3eb2e1aaabae967cbda30e2c849a916a"
+    },
+    {
+      "path": "docs/assets/production/city_shop_fittings_06-evidence/fix_f2/arc_bounded_spread.command.json",
+      "bytes": 728,
+      "sha256": "30293d8dc5870699063891b907604ec77f6d2eb0fd4d655f6cfd6b56536d22dc"
+    },
+    {
+      "path": "docs/assets/production/city_shop_fittings_06-evidence/fix_f2/arc_bounded_spread.stderr",
+      "bytes": 286,
+      "sha256": "e053c1d56bf4ae54dc9e092c91bd3aa5cb664451efd172e131560bcbab153f79"
+    },
+    {
+      "path": "docs/assets/production/city_shop_fittings_06-evidence/fix_f2/arc_bounded_spread.stdout",
+      "bytes": 1552,
+      "sha256": "31034424d3ca3cfe09df90522ee07592b8310cae8baea5c41483bd4bcb0838c3"
+    },
+    {
+      "path": "docs/assets/production/city_shop_fittings_06-evidence/fix_f2/arc_close.command.json",
+      "bytes": 887,
+      "sha256": "f802373943452be82396709f5fc6b7e16050abcf4885db8d0119d7bb37119b8d"
+    },
+    {
+      "path": "docs/assets/production/city_shop_fittings_06-evidence/fix_f2/arc_close.stderr",
+      "bytes": 281,
+      "sha256": "fdafee6b67ca32e2d83592e496ba9a7f6e4401c9f6e22982c04d1495b686da99"
+    },
+    {
+      "path": "docs/assets/production/city_shop_fittings_06-evidence/fix_f2/arc_close.stdout",
+      "bytes": 599,
+      "sha256": "cd395416e0f94951ebc1ccbace0da7c1ce79172648536b17d4005de4f6de1cb9"
+    },
+    {
+      "path": "docs/assets/production/city_shop_fittings_06-evidence/fix_f2/arc_default_spread.json",
+      "bytes": 1411,
+      "sha256": "3aadc1cdb2c35bce4594ef96b532e271d59641a3f8657a102a20e985418d2af6"
+    },
+    {
+      "path": "docs/assets/production/city_shop_fittings_06-evidence/fix_f2/arc_default_spread_probe.py",
+      "bytes": 981,
+      "sha256": "f5c58b065b437b91f24016925aec335b4cd56a68cce27560cb7c282b7951db45"
+    },
+    {
+      "path": "docs/assets/production/city_shop_fittings_06-evidence/fix_f2/arc_harden_close/door_front_inner_bevel.png",
+      "bytes": 817892,
+      "sha256": "52a1005583a0b4aacc1b43ff2a0f7131dde5a02cc3b921db7a491133b7275088"
+    },
+    {
+      "path": "docs/assets/production/city_shop_fittings_06-evidence/fix_f2/arc_harden_close/door_rear_inner_bevel.png",
+      "bytes": 928256,
+      "sha256": "0a94c267c5880c9f47be177f37af25602f9c3fd6982f35a95800b86634cf4b0e"
+    },
+    {
+      "path": "docs/assets/production/city_shop_fittings_06-evidence/fix_f2/arc_harden_close/render-readback.json",
+      "bytes": 1550,
+      "sha256": "7e5038ad87bcdf5b2a51e68eef88da5c056507b651487b1e59e374c2c7a57b61"
+    },
+    {
+      "path": "docs/assets/production/city_shop_fittings_06-evidence/fix_f2/arc_harden_close.command.json",
+      "bytes": 912,
+      "sha256": "90e0795425e14b413db0363b3345fbea4c3e2bd2a00f1150e16651191253ffab"
+    },
+    {
+      "path": "docs/assets/production/city_shop_fittings_06-evidence/fix_f2/arc_harden_close.stderr",
+      "bytes": 281,
+      "sha256": "fdafee6b67ca32e2d83592e496ba9a7f6e4401c9f6e22982c04d1495b686da99"
+    },
+    {
+      "path": "docs/assets/production/city_shop_fittings_06-evidence/fix_f2/arc_harden_close.stdout",
+      "bytes": 616,
+      "sha256": "29cfc91df934d33bc80550764a29d531eb23758d768a96d2a0d297f6b27dfa27"
+    },
+    {
+      "path": "docs/assets/production/city_shop_fittings_06-evidence/fix_f2/arc_harden_probe.blend",
+      "bytes": 141468,
+      "sha256": "1f3c1ea3fe4e192c3d0a16d8c553ad104cff3b18379d9345f6bced0aa22b77fb"
+    },
+    {
+      "path": "docs/assets/production/city_shop_fittings_06-evidence/fix_f2/arc_harden_probe.command.json",
+      "bytes": 727,
+      "sha256": "4e360fe810e2ef80ace4e8a171d00007102a6a576220e52ca6bc9e8037513d0d"
+    },
+    {
+      "path": "docs/assets/production/city_shop_fittings_06-evidence/fix_f2/arc_harden_probe.json",
+      "bytes": 1415,
+      "sha256": "267cfe412b255bccea6bc35b75eaf82b3eb6f332edac2f60da078a424ad01f99"
+    },
+    {
+      "path": "docs/assets/production/city_shop_fittings_06-evidence/fix_f2/arc_harden_probe.stderr",
+      "bytes": 286,
+      "sha256": "e053c1d56bf4ae54dc9e092c91bd3aa5cb664451efd172e131560bcbab153f79"
+    },
+    {
+      "path": "docs/assets/production/city_shop_fittings_06-evidence/fix_f2/arc_harden_probe.stdout",
+      "bytes": 1557,
+      "sha256": "c377ce689e16aaedfd006d456f61a14b0ca5d5982adba35cccaea41de1ff8961"
+    },
+    {
+      "path": "docs/assets/production/city_shop_fittings_06-evidence/fix_f2/arc_probe.blend",
+      "bytes": 146554,
+      "sha256": "d763260551bc64bd528a7e4557d69fdc18c49e3cf3e5920ef5b702c155f5a883"
+    },
+    {
+      "path": "docs/assets/production/city_shop_fittings_06-evidence/fix_f2/arc_probe.command.json",
+      "bytes": 710,
+      "sha256": "75c20b01fb0954db4df7cf57330db26067f03d168066f48ebe250f2757ec7d3d"
+    },
+    {
+      "path": "docs/assets/production/city_shop_fittings_06-evidence/fix_f2/arc_probe.json",
+      "bytes": 1417,
+      "sha256": "16d32c02539aa292a2cbd8dfaf7113b97dee67456e1c26d035d113f9d7926d2b"
+    },
+    {
+      "path": "docs/assets/production/city_shop_fittings_06-evidence/fix_f2/arc_probe.stderr",
+      "bytes": 1262,
+      "sha256": "21bfa94fb95869b7358d6e4eac4736749cd5b0ce068bb34ee4dc6b048453b5a6"
+    },
+    {
+      "path": "docs/assets/production/city_shop_fittings_06-evidence/fix_f2/arc_probe.stdout",
+      "bytes": 136,
+      "sha256": "bb4afa1a205117241105e47daf06843d3b098ab528ded88b4847a1018fde43b2"
+    },
+    {
+      "path": "docs/assets/production/city_shop_fittings_06-evidence/fix_f2/arc_probe_corrected.command.json",
+      "bytes": 729,
+      "sha256": "5ed63f2f7dcd04416b2613c989e90808b400251da14d43945bd9998e12628ee2"
+    },
+    {
+      "path": "docs/assets/production/city_shop_fittings_06-evidence/fix_f2/arc_probe_corrected.stderr",
+      "bytes": 286,
+      "sha256": "e053c1d56bf4ae54dc9e092c91bd3aa5cb664451efd172e131560bcbab153f79"
+    },
+    {
+      "path": "docs/assets/production/city_shop_fittings_06-evidence/fix_f2/arc_probe_corrected.stdout",
+      "bytes": 1546,
+      "sha256": "0f4dbc8a48c25d36781308f1eb558fe8a55e3e59fe763009ca4d894e18026e54"
+    },
+    {
+      "path": "docs/assets/production/city_shop_fittings_06-evidence/fix_f2/assembly.command.json",
+      "bytes": 921,
+      "sha256": "448396b9aa9766e1c43cbb24771784234e3678d064505c6dbe2b1cc7c4c8beb1"
+    },
+    {
+      "path": "docs/assets/production/city_shop_fittings_06-evidence/fix_f2/assembly.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "docs/assets/production/city_shop_fittings_06-evidence/fix_f2/assembly.stdout",
+      "bytes": 2136,
+      "sha256": "e46bffba01fbbe91ff98955dc3b58dccda76eb639a5e1a1b43c3317f7b912954"
+    },
+    {
+      "path": "docs/assets/production/city_shop_fittings_06-evidence/fix_f2/assembly_checks.json",
+      "bytes": 41312,
+      "sha256": "f59040b25ea9b39a99d3ce8fe1dbb769128c7a87b97e7e2e279667f3f4226661"
+    },
+    {
+      "path": "docs/assets/production/city_shop_fittings_06-evidence/fix_f2/author.command.json",
+      "bytes": 763,
+      "sha256": "ebd2d9406857dfc6a04d9bbb36dbb498e0c200aedc90990405134c67aeceed54"
+    },
+    {
+      "path": "docs/assets/production/city_shop_fittings_06-evidence/fix_f2/author.stderr",
+      "bytes": 286,
+      "sha256": "e053c1d56bf4ae54dc9e092c91bd3aa5cb664451efd172e131560bcbab153f79"
+    },
+    {
+      "path": "docs/assets/production/city_shop_fittings_06-evidence/fix_f2/author.stdout",
+      "bytes": 369,
+      "sha256": "81f9187759ecb8724c1cd7ab230ca7b30bd647a2ca2c3dcc47f222d9ceb53956"
+    },
+    {
+      "path": "docs/assets/production/city_shop_fittings_06-evidence/fix_f2/before/author.py",
+      "bytes": 4805,
+      "sha256": "dc3ce15c41122ea8d54b2637e66da437e5746fffba9381cd75c9558ad4656cce"
+    },
+    {
+      "path": "docs/assets/production/city_shop_fittings_06-evidence/fix_f2/before/fitted_comparison.blend",
+      "bytes": 170279,
+      "sha256": "2ef89c5e0a514a6d91623c5ea611ce91013591ae3812664d526d1adbbf19b2c9"
+    },
+    {
+      "path": "docs/assets/production/city_shop_fittings_06-evidence/fix_f2/before/manifest.json",
+      "bytes": 17279,
+      "sha256": "622da1d53cc57e7c055a4384a6d61d79a822790f45568a334b2de956e5f4ce3b"
+    },
+    {
+      "path": "docs/assets/production/city_shop_fittings_06-evidence/fix_f2/close_renders.command.json",
+      "bytes": 1081,
+      "sha256": "3e8a594403f50c853095e1aea3a188fae993992949d88a9fd37b2dce4313ed1a"
+    },
+    {
+      "path": "docs/assets/production/city_shop_fittings_06-evidence/fix_f2/close_renders.stderr",
+      "bytes": 281,
+      "sha256": "fdafee6b67ca32e2d83592e496ba9a7f6e4401c9f6e22982c04d1495b686da99"
+    },
+    {
+      "path": "docs/assets/production/city_shop_fittings_06-evidence/fix_f2/close_renders.stdout",
+      "bytes": 708,
+      "sha256": "9510f2bc5d14bc3f376f9df27e6ab63ffd94c22b848f8392b2aac8e45a0d007c"
+    },
+    {
+      "path": "docs/assets/production/city_shop_fittings_06-evidence/fix_f2/door_front_inner_bevel.png",
+      "bytes": 821329,
+      "sha256": "2671936f604579a9517abc6b6f30146ff7f0de4264ec2690cb91ab9a9022398b"
+    },
+    {
+      "path": "docs/assets/production/city_shop_fittings_06-evidence/fix_f2/door_rear_inner_bevel.png",
+      "bytes": 928651,
+      "sha256": "d1d35e94fecddbb9e4ad3a36930461d83466d1668f125ca43872ffe0dd9e5c6e"
+    },
+    {
+      "path": "docs/assets/production/city_shop_fittings_06-evidence/fix_f2/export.command.json",
+      "bytes": 915,
+      "sha256": "72dcd52a622eaf82427f708a08de8104ea12ffa0c559a61bcaa7eb5c42062202"
+    },
+    {
+      "path": "docs/assets/production/city_shop_fittings_06-evidence/fix_f2/export.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "docs/assets/production/city_shop_fittings_06-evidence/fix_f2/export.stdout",
+      "bytes": 5896,
+      "sha256": "80147607ec8b453a567f84fabbfd882f7b405a6afb911092958e2ad2542328e9"
+    },
+    {
+      "path": "docs/assets/production/city_shop_fittings_06-evidence/fix_f2/failed_arc_enum.py",
+      "bytes": 975,
+      "sha256": "693348acada7b4fb5059294e7d81a351d5f90554993002b0729f74c7d0a0a7eb"
+    },
+    {
+      "path": "docs/assets/production/city_shop_fittings_06-evidence/fix_f2/final_audit.command.json",
+      "bytes": 607,
+      "sha256": "aef7d4e16c20e4429de2207f0505071131e732aee2e47911f425d3c0cdf0e3e4"
+    },
+    {
+      "path": "docs/assets/production/city_shop_fittings_06-evidence/fix_f2/final_audit.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "docs/assets/production/city_shop_fittings_06-evidence/fix_f2/final_audit.stdout",
+      "bytes": 62,
+      "sha256": "3cbe680236264e26cf4119870fc12fedb658c769161cd821dbbc07ef3691df6a"
+    },
+    {
+      "path": "docs/assets/production/city_shop_fittings_06-evidence/fix_f2/fitted_comparison.blend",
+      "bytes": 183069,
+      "sha256": "228a4af5148c4147181fa5f728cb24d7530484efaf29a89796b92421fc090f33"
+    },
+    {
+      "path": "docs/assets/production/city_shop_fittings_06-evidence/fix_f2/fitted_front.png",
+      "bytes": 1827007,
+      "sha256": "4eebbb8944b1616fb2f35f884d82f111edee8eb4fb67e7b81a12e1a115d4383b"
+    },
+    {
+      "path": "docs/assets/production/city_shop_fittings_06-evidence/fix_f2/fitted_hero.png",
+      "bytes": 1840778,
+      "sha256": "37198ed0fbbba55911dcc6ead6dcd93d97b1deaba320bbaadd68e28f826721f8"
+    },
+    {
+      "path": "docs/assets/production/city_shop_fittings_06-evidence/fix_f2/fitted_rear.png",
+      "bytes": 1837182,
+      "sha256": "6f3125114e03859653b126bcda160ca9396acdc6f61012e8047356d581a14bef"
+    },
+    {
+      "path": "docs/assets/production/city_shop_fittings_06-evidence/fix_f2/glb_checks.json",
+      "bytes": 3381,
+      "sha256": "634df5db697ad18f42244e9bb1dbe6de7a25097e8f844641d725c060097fa115"
+    },
+    {
+      "path": "docs/assets/production/city_shop_fittings_06-evidence/fix_f2/harden_only_probe.py",
+      "bytes": 1373,
+      "sha256": "b9fcd768aa7ebae2c71c414641801a9090bdadaf211b0a925c931e43c43c4202"
+    },
+    {
+      "path": "docs/assets/production/city_shop_fittings_06-evidence/fix_f2/harden_probe.blend",
+      "bytes": 129727,
+      "sha256": "a0913fbc63d7c295a81cc1fda9f02e16ce61f38b648f24d2d72a326d06c7df8e"
+    },
+    {
+      "path": "docs/assets/production/city_shop_fittings_06-evidence/fix_f2/harden_probe.command.json",
+      "bytes": 719,
+      "sha256": "7c31bdda2fdb82bb847cd3a9933416b8737a735a3a0c3655e9ebfa1659615436"
+    },
+    {
+      "path": "docs/assets/production/city_shop_fittings_06-evidence/fix_f2/harden_probe.json",
+      "bytes": 1419,
+      "sha256": "673f417416726b5dc9b17e25f19820198a7626c99d2f9a14071eda5b82b63d6b"
+    },
+    {
+      "path": "docs/assets/production/city_shop_fittings_06-evidence/fix_f2/harden_probe.stderr",
+      "bytes": 286,
+      "sha256": "e053c1d56bf4ae54dc9e092c91bd3aa5cb664451efd172e131560bcbab153f79"
+    },
+    {
+      "path": "docs/assets/production/city_shop_fittings_06-evidence/fix_f2/harden_probe.stdout",
+      "bytes": 1557,
+      "sha256": "3af87f6b2e9083193f03cab8720ef6d1460180a3a0114eebc9902cd3b4f8b431"
+    },
+    {
+      "path": "docs/assets/production/city_shop_fittings_06-evidence/fix_f2/hero.png",
+      "bytes": 1798084,
+      "sha256": "0c732f5bd740e5190de8bf1179aa639405e553b11ec39d883012c2caaf385e42"
+    },
+    {
+      "path": "docs/assets/production/city_shop_fittings_06-evidence/fix_f2/measured_1m_comparison.png",
+      "bytes": 1794164,
+      "sha256": "fb33a444206317494658a5b1755b1dfc23edaefb83156b501ee6fbad4fd4f998"
+    },
+    {
+      "path": "docs/assets/production/city_shop_fittings_06-evidence/fix_f2/normal_probe.command.json",
+      "bytes": 799,
+      "sha256": "ff5d16cbefe715114aa41f92a8613931f0ac32e3601d846edf2034d62faa56f0"
+    },
+    {
+      "path": "docs/assets/production/city_shop_fittings_06-evidence/fix_f2/normal_probe.json",
+      "bytes": 9590,
+      "sha256": "ff45c66669d53c7dd42365f81a8fd404c73614568d01c8688d298c15b9528c85"
+    },
+    {
+      "path": "docs/assets/production/city_shop_fittings_06-evidence/fix_f2/normal_probe.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "docs/assets/production/city_shop_fittings_06-evidence/fix_f2/normal_probe.stdout",
+      "bytes": 5553,
+      "sha256": "9ed2881aa4b58c884ff02b9877c15ce86cea957112c6317a47b1aced51cb5f4e"
+    },
+    {
+      "path": "docs/assets/production/city_shop_fittings_06-evidence/fix_f2/pin.command.json",
+      "bytes": 597,
+      "sha256": "4a12215535a4438931ea9cf6c6420bf8e93cd29d771c15f5cbb48af375050fbc"
+    },
+    {
+      "path": "docs/assets/production/city_shop_fittings_06-evidence/fix_f2/pin.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "docs/assets/production/city_shop_fittings_06-evidence/fix_f2/pin.stdout",
+      "bytes": 2261,
+      "sha256": "87c8a90db41ece4eea5400d0604959f31c2530cbaed5faa45c46f1a48e2e8d7e"
+    },
+    {
+      "path": "docs/assets/production/city_shop_fittings_06-evidence/fix_f2/preservation_after.json",
+      "bytes": 7973,
+      "sha256": "cfd955d91161a4721e50d4d1d817ed07360318733ec895e9c65c73ebf71b9a98"
+    },
+    {
+      "path": "docs/assets/production/city_shop_fittings_06-evidence/fix_f2/preservation_before.json",
+      "bytes": 1174,
+      "sha256": "42c634af39c3cdc5acf6c8db61acc85253f72fd8e563bc96b3cb637a54f62f91"
+    },
+    {
+      "path": "docs/assets/production/city_shop_fittings_06-evidence/fix_f2/preview_checks.json",
+      "bytes": 2057,
+      "sha256": "f3b2c75a4777b2314661b431e635498564f86325702cd3f19f0c611fa8fc634e"
+    },
+    {
+      "path": "docs/assets/production/city_shop_fittings_06-evidence/fix_f2/previews.command.json",
+      "bytes": 924,
+      "sha256": "d0ad9e249a15365c455af94214ba7338024e4165c7b78a06c33230c479c6940c"
+    },
+    {
+      "path": "docs/assets/production/city_shop_fittings_06-evidence/fix_f2/previews.stderr",
+      "bytes": 373,
+      "sha256": "75272e79e739940c5021b2e539c2216b79d75e041e0618c43547d0f7fce09c79"
+    },
+    {
+      "path": "docs/assets/production/city_shop_fittings_06-evidence/fix_f2/previews.stdout",
+      "bytes": 1442,
+      "sha256": "5e891ddefb88611bec89a57004dedd3fc64250390e5d3070cdd9eb91e82f4512"
+    },
+    {
+      "path": "docs/assets/production/city_shop_fittings_06-evidence/fix_f2/probe_close/door_front_inner_bevel.png",
+      "bytes": 821326,
+      "sha256": "21c3a339fe16fbec61ce19b1cb866909bce4255454d789600cc6f2025cc91181"
+    },
+    {
+      "path": "docs/assets/production/city_shop_fittings_06-evidence/fix_f2/probe_close/door_rear_inner_bevel.png",
+      "bytes": 928648,
+      "sha256": "0d9a85b99339261fbf40f2fc7cccf28f6c46e840c4ef86ab9023a2c58529a176"
+    },
+    {
+      "path": "docs/assets/production/city_shop_fittings_06-evidence/fix_f2/probe_close/render-readback.json",
+      "bytes": 1526,
+      "sha256": "8f7620e8575cb58adbd4ac11b8a9cecdfd53a6a0ddaebda36bf1665516898601"
+    },
+    {
+      "path": "docs/assets/production/city_shop_fittings_06-evidence/fix_f2/project_camera.png",
+      "bytes": 1548232,
+      "sha256": "b669e630996fecb42cf10f84711cec676ebc222354f82302f73b80a9c05df7bc"
+    },
+    {
+      "path": "docs/assets/production/city_shop_fittings_06-evidence/fix_f2/raw_glb.command.json",
+      "bytes": 671,
+      "sha256": "a482831f0f0cc4093c1a0fd5642ee9b1bd3f2214f90e21e7c24edd93f88e5b25"
+    },
+    {
+      "path": "docs/assets/production/city_shop_fittings_06-evidence/fix_f2/raw_glb.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "docs/assets/production/city_shop_fittings_06-evidence/fix_f2/raw_glb.stdout",
+      "bytes": 3381,
+      "sha256": "634df5db697ad18f42244e9bb1dbe6de7a25097e8f844641d725c060097fa115"
+    },
+    {
+      "path": "docs/assets/production/city_shop_fittings_06-evidence/fix_f2/reexport.command.json",
+      "bytes": 1071,
+      "sha256": "8ed29a334d6943bfe46862f6a6a6550c23cf6683d0c8eaf9a8c5a1ecb28a4165"
+    },
+    {
+      "path": "docs/assets/production/city_shop_fittings_06-evidence/fix_f2/reexport.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "docs/assets/production/city_shop_fittings_06-evidence/fix_f2/reexport.stdout",
+      "bytes": 5895,
+      "sha256": "28274892985cb5cf470a55e7e0300073685c006cb144de8f5303280b84f4bcc4"
+    },
+    {
+      "path": "docs/assets/production/city_shop_fittings_06-evidence/fix_f2/reexport_checks.json",
+      "bytes": 5701,
+      "sha256": "d0a47566f1b77b08f2b0096a6b516f1eda09f699134d0f9877b95ccb038c111b"
+    },
+    {
+      "path": "docs/assets/production/city_shop_fittings_06-evidence/fix_f2/reexport_comparison.json",
+      "bytes": 329,
+      "sha256": "1ba3583a59c3ca562a8fe6345a37c58d37268621a4f9f1ee9b15f71bf87df638"
+    },
+    {
+      "path": "docs/assets/production/city_shop_fittings_06-evidence/fix_f2/reexports/city_shop_fittings_06_double.glb",
+      "bytes": 64608,
+      "sha256": "b4138a6a2b7ebd96f934448d4617bc6b0d127d48bf814eab8016695e50153cbf"
+    },
+    {
+      "path": "docs/assets/production/city_shop_fittings_06-evidence/fix_f2/reexports/city_shop_fittings_06_single.glb",
+      "bytes": 38928,
+      "sha256": "37e9ce1667105cc66120edf4d114b3a4228972000ac89c14ed1a2608e9b309c6"
+    },
+    {
+      "path": "docs/assets/production/city_shop_fittings_06-evidence/fix_f2/render-readback.json",
+      "bytes": 1638,
+      "sha256": "c6e1bf76c7fb2ca1fe5d324458a90222184ec3978eed3dcdc18c1fa272bb7646"
+    },
+    {
+      "path": "docs/assets/production/city_shop_fittings_06-evidence/fix_f2/scratch_correspondence.command.json",
+      "bytes": 800,
+      "sha256": "e24b8123d49eadce0b4794141216dc2a85e47725a8e0349d4bfcb8a9d3c585c5"
+    },
+    {
+      "path": "docs/assets/production/city_shop_fittings_06-evidence/fix_f2/scratch_correspondence.json",
+      "bytes": 3446,
+      "sha256": "8297c0139262b0754f5f214bbdcdcd99466ee1fb756c58e05a2ea32a987d545c"
+    },
+    {
+      "path": "docs/assets/production/city_shop_fittings_06-evidence/fix_f2/scratch_correspondence.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "docs/assets/production/city_shop_fittings_06-evidence/fix_f2/scratch_correspondence.stdout",
+      "bytes": 784,
+      "sha256": "1189990a5ddd6bdf86c37dcb66ed565dc1631e4a9820f542769d423be446e74f"
+    },
+    {
+      "path": "docs/assets/production/city_shop_fittings_06-evidence/fix_f2/source_export_checks.json",
+      "bytes": 5701,
+      "sha256": "d0a47566f1b77b08f2b0096a6b516f1eda09f699134d0f9877b95ccb038c111b"
+    },
+    {
+      "path": "docs/assets/production/city_shop_fittings_06-evidence/fix_f2/triangulation_probe.command.json",
+      "bytes": 827,
+      "sha256": "1decf08dfd854573970dd2b698ddadf0151fb43f9c9de898eaf5fcc2c81ffbaa"
+    },
+    {
+      "path": "docs/assets/production/city_shop_fittings_06-evidence/fix_f2/triangulation_probe.json",
+      "bytes": 657,
+      "sha256": "97d2afa94f967dcb2db744d990fb85637d5a928c18d6983d53a1c9ccd7f0519f"
+    },
+    {
+      "path": "docs/assets/production/city_shop_fittings_06-evidence/fix_f2/triangulation_probe.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "docs/assets/production/city_shop_fittings_06-evidence/fix_f2/triangulation_probe.stdout",
+      "bytes": 752,
+      "sha256": "42fcbe34e6ccb54b3de2bc81410c8b73693b90236c836a389773f2baef9aa35c"
     },
     {
       "path": "docs/assets/production/city_shop_fittings_06-evidence/glb_checks.json",
@@ -366,38 +862,83 @@
     },
     {
       "path": "docs/assets/production/city_shop_fittings_06.md",
-      "bytes": 11325,
-      "sha256": "dacb6e17a101bf5cdc4120ed4414d71c5f65269a05c6459115b3faff7b359f74"
+      "bytes": 16693,
+      "sha256": "2c5ae1ebb3ab9b86582550fef6a04712f08ff16c0c20fefc046101d1982a7794"
     },
     {
       "path": "tools/asset_production/city_shop_fittings_06/assembly.py",
-      "bytes": 6142,
-      "sha256": "29dcaf6b4dbf5f734d7e5a54a9b584a6e4b1dbd526b30bc4b5b77d6ed28dfb13"
+      "bytes": 6336,
+      "sha256": "dd02ff8ec0c9af9acb52cc3d71298566ac24fe3ee23f5ccff78e1a64be529e38"
     },
     {
       "path": "tools/asset_production/city_shop_fittings_06/author.py",
-      "bytes": 4805,
-      "sha256": "dc3ce15c41122ea8d54b2637e66da437e5746fffba9381cd75c9558ad4656cce"
+      "bytes": 4977,
+      "sha256": "30ce99f071516594845ccaec2576f180662f41e3d1c192b1f1083a256dc27301"
     },
     {
       "path": "tools/asset_production/city_shop_fittings_06/check_glb.py",
-      "bytes": 4111,
-      "sha256": "7e383df37a66ba44c9edd59a663c297d94ad6c9ff048c515afef055cd5539372"
+      "bytes": 4459,
+      "sha256": "62f40ffc98aa6ecea9fc0e641746f1a48570178871ba5f5d5be123e06e3ce6b1"
     },
     {
       "path": "tools/asset_production/city_shop_fittings_06/export.py",
-      "bytes": 4026,
-      "sha256": "fdb9ac3884e8a8ad0390814a6024e783a203f7a34ee36245413ffd4145990b89"
+      "bytes": 4328,
+      "sha256": "baed16be1288b3c4e38ce1eff5bfd5b205b836f9083ede33642aadd46d355285"
+    },
+    {
+      "path": "tools/asset_production/city_shop_fittings_06/f2_arc_probe.py",
+      "bytes": 1003,
+      "sha256": "b915648172bbbaa0eeb769a325751bd019cb5bbc4ff91dddbf055c4b8559629c"
+    },
+    {
+      "path": "tools/asset_production/city_shop_fittings_06/f2_capture.py",
+      "bytes": 959,
+      "sha256": "79c2f55828e640519df4b0779b1a1c027b20a69db399fa9f03efb452a7430001"
+    },
+    {
+      "path": "tools/asset_production/city_shop_fittings_06/f2_close_render.py",
+      "bytes": 2592,
+      "sha256": "1a106977c5e633d873444d07964936d1968e0c18c6b253320233c9b2d49b4921"
+    },
+    {
+      "path": "tools/asset_production/city_shop_fittings_06/f2_finalize.py",
+      "bytes": 3305,
+      "sha256": "df01204ac6b91c164bfe9dd8039eddfc0e1b1bf99ad29dc29f064889136620dd"
+    },
+    {
+      "path": "tools/asset_production/city_shop_fittings_06/f2_harden_probe.py",
+      "bytes": 1430,
+      "sha256": "14ac713a83dd3e77448c198d3fe7459d8bc116604aa01f4f990d42a2bee28bda"
+    },
+    {
+      "path": "tools/asset_production/city_shop_fittings_06/f2_probe.py",
+      "bytes": 882,
+      "sha256": "58df7d7ec0e174539e6c1ac562e701fd152919affeae6f3a09dd14f254d58b6f"
+    },
+    {
+      "path": "tools/asset_production/city_shop_fittings_06/f2_readback.py",
+      "bytes": 1614,
+      "sha256": "058c0221ce298e102371313d65a00fddf244c394f773e2927e9f385cd043ed36"
+    },
+    {
+      "path": "tools/asset_production/city_shop_fittings_06/f2_run.py",
+      "bytes": 1634,
+      "sha256": "99621bc9d8ea537788c0ae72fe90c63063c6ac92b8f9ccc1eb9318928ee4ad2f"
+    },
+    {
+      "path": "tools/asset_production/city_shop_fittings_06/f2_triangulation_probe.py",
+      "bytes": 1299,
+      "sha256": "1f5c969edafc8ecb506aaac62e8bcbe5ecbd3a234708c71841b34926987fe0f9"
     },
     {
       "path": "tools/asset_production/city_shop_fittings_06/manifest.py",
-      "bytes": 1322,
-      "sha256": "e7e82b138b7b6bf880fd17abf2fd18a1db4dfc82e7521f00f91f61b2b214e7c2"
+      "bytes": 1423,
+      "sha256": "33ebfbc01eac7034750ff12475b291b968cafa82b0039c5e9c634f0d2619aedf"
     },
     {
       "path": "tools/asset_production/city_shop_fittings_06/preview.py",
-      "bytes": 3305,
-      "sha256": "4ede9f2f0b5fb32b55a1b15aa3ae3f0157da98e0efdcc303f279c13ae3f29f8b"
+      "bytes": 3358,
+      "sha256": "9bd9431843b38c37efaac2138730b89716a3cc0fcecb004939dffd4507feb391"
     },
     {
       "path": "tools/asset_production/city_shop_fittings_06/run.py",

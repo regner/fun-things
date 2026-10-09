@@ -1,0 +1,26 @@
+{
+  "exact_expected_set": true,
+  "all_indexed_byte_counts_and_hashes_match": true,
+  "indexed_payload_count": 89,
+  "expected_path_count": 91,
+  "index_sha256": "93b85a3866b52e66e96be6a874de948811e5df192c685bbe1eba991cc5ff26d4",
+  "expected_set_sha256": "37586b90cf7cb03b6daa7dfadbb00e54c8acab656f0bb0334a357a18cf08ed8a",
+  "required_empty_streams": [
+    "calibration-datums.stderr",
+    "evidence-audit.stdout",
+    "final-context.stderr",
+    "host-editor-lease-guard.stderr",
+    "independent-process-a.stderr",
+    "independent-process-b.stderr",
+    "live-context.stderr",
+    "live-roundtrip.stderr",
+    "pack.stderr",
+    "prepare-live-roundtrip.stderr",
+    "prepare-scratch.stderr",
+    "remaining-observations.stderr",
+    "resource-query-audit.stderr",
+    "static-audit-adapted.stderr",
+    "static-audit.stdout",
+    "verify-live-roundtrip.stderr"
+  ]
+}

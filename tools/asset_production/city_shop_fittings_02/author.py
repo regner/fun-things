@@ -18,7 +18,7 @@ root['artwork']='fascia_artwork_carrier slot 0 fascia_artwork_face; UV0 left-to-
 def material(name,hexcolor,metal,rough):
     rgb=[int(hexcolor[i:i+2],16)/255 for i in (0,2,4)]
     rgb=[v/12.92 if v<=.04045 else ((v+.055)/1.055)**2.4 for v in rgb]
-    m=bpy.data.materials.new(name);m.use_nodes=True;m.diffuse_color=(*rgb,1)
+    m=bpy.data.materials.new(name);m.use_nodes=True;m.use_backface_culling=True;m.diffuse_color=(*rgb,1)
     p=m.node_tree.nodes.get('Principled BSDF');p.inputs['Base Color'].default_value=(*rgb,1)
     p.inputs['Metallic'].default_value=metal;p.inputs['Roughness'].default_value=rough
     return m
@@ -87,4 +87,4 @@ ref['purpose']='Exact 1 metre comparison only; excluded from all exports'
 bpy.ops.object.select_all(action='DESELECT');bpy.context.view_layer.update()
 source=ROOT/'art/source/models/environment/city_shop_fittings_02/city_shop_fittings_02.blend'
 bpy.ops.wm.save_as_mainfile(filepath=str(source))
-export.perform(ROOT/'art/models/environment/city_shop_fittings_02/city_shop_fittings_02.glb',ROOT/'docs/assets/production/city_shop_fittings_02-evidence/source_checks.json')
+export.perform(ROOT/'art/models/environment/city_shop_fittings_02/city_shop_fittings_02.glb',ROOT/'docs/assets/production/city_shop_fittings_02-evidence/f1_culling/source_checks.json')

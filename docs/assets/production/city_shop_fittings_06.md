@@ -7,6 +7,83 @@ the supplied production authorization supersedes the historical concept-only bri
 Source/export and actual .03 mating checks are candidate evidence, **not READY**.
 Independent acceptance and engine integration remain with ROOT/integrator.
 
+## F2 correction submitted for same-reviewer disposition
+
+This is the existing-ID correction to Batch03 initial F2 (P3), against immutable
+candidate `028775618c4493ca672646e6e37fdc3c83e0e313`, parent
+`10ddb64d16e6cb2f137923a31d3ca14991468f7d`, original base
+`66400c26a01bf917dfe631af4762c2b444d9c48f`. The frozen independent report, callbacks,
+images and rejected source/export bytes remain authoritative historical evidence;
+the reviewer pack was not modified. No new ID or delegation was performed.
+
+The three leaf rings now use the bevel modifier's `MITER_ARC` inner join with
+spread equal to the existing 4 mm bevel radius, replacing sharp inner miter
+patches. Broad-face weighted normals remain. This changes inner-corner surface
+tessellation, without adding decorative detail or changing outer/body/handle
+bounds, slots, datum, materials, glazing, pulls or .03 inputs. Each ring now has
+1,088 triangles (+480); the extra triangles resolve the bounded corner joins.
+
+Both saved-source and raw-GLB tests now assert **every triangle corner normal**
+points into its geometric triangle hemisphere, rather than checking only their
+mean. All opposing corners are eliminated. The worst ring source dot is
++0.612006; the full outputs' minimum is approximately +0.54917 on unchanged pulls.
+The reviewer front/rear 35 mm close-camera views were repeated at the same lights,
+800×800 resolution, 32 samples and AgX. The sharp inverted-normal streak is softened
+into a continuous miter highlight; a soft joining highlight remains in this highly
+magnified crop. This is producer evidence, not independent visual acceptance.
+
+**Current authoritative checks/renders:**
+[`city_shop_fittings_06-evidence/fix_f2/`](city_shop_fittings_06-evidence/fix_f2/).
+The previous root-level checks, renders and `initial/` / preview-fix history are
+retained unchanged as historical payloads. The top-level `fitted_comparison.blend`
+is refreshed from current sources; its prior bytes are retained in
+`fix_f2/before/fitted_comparison.blend`. All 17 current .03/.06 scratch mesh signatures
+(vertices, polygons, normals, smooth flags, slots and material values) match actual
+saved sources in `scratch_correspondence.json`.
+
+`preservation_before.json` verifies all 80 previous expected files before mutation,
+records immutable .03 and importer-sidecar hashes and the frozen Git identities.
+`before/manifest.json` and `before/author.py` preserve exact previous bytes.
+`preservation_after.json` verifies that no previous payload path was removed, only
+the permitted correction paths changed, all .03 inputs/sidecars remain unchanged,
+and actual GLB materials, glazing and pull payloads equal the frozen reviewer
+exports. No Git/index or sidecar mutation was performed. Root `manifest.json` is
+the complete current expected-set/byte/SHA inventory, retaining all previous history
+and additive correction evidence; integrator-owned `.import` files are excluded.
+
+Both actual .03 source/GLB mating assemblies pass again: 8 mm side/head/meeting,
+10 mm sill, 6 mm stop clearance; no leaf/surround surface intersections. Fresh
+saved-source reexports are byte-identical. Final source SHA256 is
+`40122b4ab26a6a348fc914e936421e75453a33f77cee88c16bd86df2a87e4fe7`;
+single GLB (38,928 bytes)
+`37e9ce1667105cc66120edf4d114b3a4228972000ac89c14ed1a2608e9b309c6`;
+double GLB (64,608 bytes)
+`b4138a6a2b7ebd96f934448d4617bc6b0d127d48bf814eab8016695e50153cbf`.
+
+One proportionate correction cycle retained distinct diagnostic probes: clearing
+custom normals and changing eight corner diagonals did not solve the opposing
+normals; hardening alone also failed. An arc probe used an invalid enum `ARC`
+(exit 1); the diagnostic identified `MITER_ARC`, and the corrected probe used it.
+Default arc spread was too large and generated opposing normals; explicitly
+bounding spread to 4 mm solved them. Arc-plus-harden was also inspected, but gave
+no useful visual advantage, so production retains its existing weighted normals.
+Probe exit 0 means the diagnostic completed, **not** that its measured geometry
+passed; their JSON records retain negative dots. The failed enum script, literal
+commands, exits, stdout and stderr are retained. No failed probe was retried unchanged.
+
+Current `f2_run.py` jobs (pin, author, export, raw GLB, fresh reexport, actual assembly,
+scratch correspondence, retained close cameras and refreshed previews) exit 0.
+`*.command.json` records exact argv/cwd/process-local environment and each separate
+raw `.stdout` / `.stderr`, including empty streams. Existing thumbnail-cache denial,
+optional MeshOptimizer absence and use_nodes deprecations remain unsuppressed.
+Reproduction: `python tools/asset_production/city_shop_fittings_06/f2_run.py`, then
+`python tools/asset_production/city_shop_fittings_06/f2_capture.py final_audit python tools/asset_production/city_shop_fittings_06/f2_finalize.py`,
+then `python tools/asset_production/city_shop_fittings_06/manifest.py`.
+
+Same independent reviewer owns final F2 disposition. Engine/prefab/runtime/collision/
+network/device gates remain pending; no READY claim. All owned writers are quiescent
+at callback, and the worker remains available for concrete corrections.
+
 ## Source, outputs and original provenance
 
 - Editable source: `art/source/models/environment/city_shop_fittings_06/city_shop_fittings_06.blend`.
@@ -87,16 +164,18 @@ has one material slot. Linear base colors are converted from these sRGB referenc
 | Pull | `door_satin_handle` / #C8C2AD | .65 / .30 |
 
 No emission, images, textures, UVs, tangents or external material dependencies.
-Separate materials/textures directories are unnecessary. Per leaf: ring 608,
-glazing 300, pull 604 triangles; single **1,512**, complete double **3,024**.
+Separate materials/textures directories are unnecessary. Per leaf: ring 1,088,
+glazing 300, pull 604 triangles; single **1,992**, complete double **3,984**.
 Three / six meshes and primitive surfaces, three materials and one identity root
-per output. Final GLB sizes: single 30,288 bytes; double 50,208 bytes.
+per output. Final GLB sizes: single 38,928 bytes; double 64,608 bytes.
 Density supports broad bevel highlights; no accepted device budget is
 claimed. Rig, clips, sockets and LODs are not applicable to this static scope.
 
 ## Evidence, reproduction and limitations
 
-Authoritative evidence: [`city_shop_fittings_06-evidence/`](city_shop_fittings_06-evidence/).
+Current check evidence: [`city_shop_fittings_06-evidence/fix_f2/`](city_shop_fittings_06-evidence/fix_f2/).
+The root-level names below describe retained original evidence where not refreshed
+in `fix_f2`; use the correction section above for the current reproduction/receipts.
 `source_export_checks.json` checks exact collection membership, pin/build/exporter,
 identity transforms, finite vertices, nondegenerate polygons, manifold consistent
 edge winding, positive signed volume for every connected solid, triangle counts,

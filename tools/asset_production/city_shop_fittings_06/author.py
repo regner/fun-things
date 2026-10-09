@@ -26,6 +26,9 @@ def mesh(name,verts,faces,mat,col,root,bevel):
     bm=bmesh.new(); bm.from_mesh(d); bmesh.ops.recalc_face_normals(bm,faces=list(bm.faces)); bm.to_mesh(d); bm.free()
     bpy.ops.object.select_all(action='DESELECT'); o.select_set(True); bpy.context.view_layer.objects.active=o
     m=o.modifiers.new('soft_manufactured_edges','BEVEL'); m.width=bevel; m.segments=4
+    # A radius-sized inner arc avoids the sharp-miter pinched corner tessellation.
+    if name.endswith('_stiles_rails'):
+        m.miter_inner='MITER_ARC'; m.spread=bevel
     bpy.ops.object.modifier_apply(modifier=m.name)
     for p in d.polygons: p.use_smooth=True
     m=o.modifiers.new('broad_face_normals','WEIGHTED_NORMAL'); m.keep_sharp=True

@@ -1,0 +1,24 @@
+{
+  "argv": [
+    "/usr/bin/blender",
+    "-b",
+    "-noaudio",
+    "-t",
+    "4",
+    "--python-exit-code",
+    "1",
+    "--python",
+    "tools/asset_production/city_shop_fittings_06/f2_arc_probe.py"
+  ],
+  "cwd": "/home/regner/.paseo/worktrees/0u71f39f/asset-register-production",
+  "environment_overrides": {
+    "ALSOFT_DRIVERS": "null",
+    "SDL_AUDIODRIVER": "dummy",
+    "ASSET_EVIDENCE_DIR": "/home/regner/.paseo/worktrees/0u71f39f/asset-register-production/docs/assets/production/city_shop_fittings_06-evidence/fix_f2"
+  },
+  "started_utc": "2026-10-09T18:18:36.472745+00:00",
+  "exit_code": 0,
+  "elapsed_seconds": 0.588223893995746,
+  "stdout": "arc_probe_corrected.stdout",
+  "stderr": "arc_probe_corrected.stderr"
+}

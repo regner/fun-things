@@ -1,0 +1,9 @@
+/home/regner/.paseo/worktrees/0u71f39f/asset-register-production/docs/reviews/asset-production/batch_02/final/calibration_audit.py:14: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  values=dict(color=list(m.diffuse_color),use_nodes=m.use_nodes)
+/home/regner/.paseo/worktrees/0u71f39f/asset-register-production/docs/reviews/asset-production/batch_02/final/calibration_audit.py:15: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  if m.use_nodes:
+Traceback (most recent call last):
+  File "/home/regner/.paseo/worktrees/0u71f39f/asset-register-production/docs/reviews/asset-production/batch_02/final/calibration_audit.py", line 43, in <module>
+    assert instance.rotation_euler.length<1e-6
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'Euler' object has no attribute 'length'

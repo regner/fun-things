@@ -1,0 +1,52 @@
+00:00.294  blend            | Read blend: "/tmp/batch03-independent/frozen/art/source/models/environment/city_shop_fittings_06/city_shop_fittings_06.blend"
+BlenderMCP addon registered
+INFO Draco is available, use library at /usr/lib/blender/5.2/scripts/addons_core/io_scene_gltf2/libbf_intern_draco_bridge.so
+ERROR MeshOptimizer is not available because library could not be found at /usr/lib/blender/5.2/scripts/addons_core/io_scene_gltf2/libbf_intern_meshopt_bridge.so
+18:59:34 | INFO: Starting glTF 2.0 export
+18:59:34 | INFO: Extracting primitive: single_leaf_1_glazing
+18:59:34 | INFO: Primitives created: 1
+18:59:34 | INFO: Extracting primitive: single_leaf_1_static_pull
+18:59:34 | INFO: Primitives created: 1
+18:59:34 | INFO: Extracting primitive: single_leaf_1_stiles_rails
+18:59:34 | INFO: Primitives created: 1
+18:59:34 | INFO: Finished glTF 2.0 export in 0.012265443801879883 s
+
+18:59:34 | INFO: Starting glTF 2.0 export
+18:59:34 | INFO: Extracting primitive: double_leaf_1_glazing
+18:59:34 | INFO: Primitives created: 1
+18:59:34 | INFO: Extracting primitive: double_leaf_1_static_pull
+18:59:34 | INFO: Primitives created: 1
+18:59:34 | INFO: Extracting primitive: double_leaf_1_stiles_rails
+18:59:34 | INFO: Primitives created: 1
+18:59:34 | INFO: Extracting primitive: double_leaf_2_glazing
+18:59:34 | INFO: Primitives created: 1
+18:59:34 | INFO: Extracting primitive: double_leaf_2_static_pull
+18:59:34 | INFO: Primitives created: 1
+18:59:34 | INFO: Extracting primitive: double_leaf_2_stiles_rails
+18:59:34 | INFO: Primitives created: 1
+18:59:34 | INFO: Finished glTF 2.0 export in 0.009507179260253906 s
+
+{
+  "id": "city_shop_fittings_06",
+  "issues": [
+    "single_leaf_1_stiles_rails: topology/normals",
+    "double_leaf_1_stiles_rails: topology/normals",
+    "double_leaf_2_stiles_rails: topology/normals"
+  ],
+  "variants": [
+    {
+      "name": "city_shop_fittings_06_single",
+      "members": 4,
+      "byte_identical": true
+    },
+    {
+      "name": "city_shop_fittings_06_double",
+      "members": 7,
+      "byte_identical": true
+    }
+  ]
+}
+BlenderMCP addon unregistered
+Blender 5.2.2 LTS (hash d13f752e3b9c built 2026-09-22 17:10:25)
+
+Blender quit

@@ -1,0 +1,25 @@
+{
+  "argv": [
+    "/usr/bin/blender",
+    "-b",
+    "-noaudio",
+    "-t",
+    "4",
+    "/tmp/batch03-independent/frozen/art/source/models/environment/city_shop_fittings_05/city_shop_fittings_05.blend",
+    "--python-exit-code",
+    "1",
+    "--python",
+    "/home/regner/.paseo/worktrees/0u71f39f/asset-register-production/docs/reviews/asset-production/batch_03/initial/source_audit.py",
+    "--",
+    "city_shop_fittings_05"
+  ],
+  "cwd": "/home/regner/.paseo/worktrees/0u71f39f/asset-register-production",
+  "started_utc": "2026-10-09T17:59:33.467056+00:00",
+  "elapsed_s": 0.6268723319954006,
+  "environment_overrides": {
+    "ALSOFT_DRIVERS": "null",
+    "SDL_AUDIODRIVER": "dummy",
+    "XDG_CACHE_HOME": "/tmp/batch03-independent/cache"
+  },
+  "exit_code": 0
+}

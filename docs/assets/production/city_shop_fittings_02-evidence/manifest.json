@@ -1,16 +1,16 @@
 {
   "asset_id": "city_shop_fittings.02",
-  "scope": "Exact owned files; initial/ is historical evidence; manifest excludes itself only",
+  "scope": "Exact owned files; initial/ is historical evidence; manifest excludes itself and importer-owned .import sidecars; historical evidence retained",
   "files": [
     {
       "path": "art/models/environment/city_shop_fittings_02/city_shop_fittings_02.glb",
-      "bytes": 45708,
-      "sha256": "db455a724d0392966462ea0a853424b69e3284617f7c1bbc0e77af822e6dc956"
+      "bytes": 45616,
+      "sha256": "4fd2106f09ef4a35edafbcf3a3a68ea94983e721fd84d852a406e2d26de6552f"
     },
     {
       "path": "art/source/models/environment/city_shop_fittings_02/city_shop_fittings_02.blend",
-      "bytes": 119831,
-      "sha256": "5bda2a3d283951d77d7b417f0d36c951cb68c4a417c6fd28883dcd56b53b036a"
+      "bytes": 116378,
+      "sha256": "44b3165d4d6d9cf4b0f3ef577e0c70fc80dae72726b04ebbe53272581e4454db"
     },
     {
       "path": "docs/assets/production/city_shop_fittings_02-evidence/artwork_interface.png",
@@ -46,6 +46,131 @@
       "path": "docs/assets/production/city_shop_fittings_02-evidence/export_fixed_uv_checker.log",
       "bytes": 4433,
       "sha256": "54285a5e009e64e084f744fd833bd70340a3c31794611d85740101027166b4c8"
+    },
+    {
+      "path": "docs/assets/production/city_shop_fittings_02-evidence/f1_culling/correction_checks.json",
+      "bytes": 7485,
+      "sha256": "9b5ded9ac3ec7b7426e8d8b459745d3c2bf6ed74e4513896179a5ecac85ef115"
+    },
+    {
+      "path": "docs/assets/production/city_shop_fittings_02-evidence/f1_culling/final_audit.command.json",
+      "bytes": 854,
+      "sha256": "b1c4ed098c6a999177961076a3db33c97c716958d62eacc28ce411c303f2ad39"
+    },
+    {
+      "path": "docs/assets/production/city_shop_fittings_02-evidence/f1_culling/final_audit.json",
+      "bytes": 744,
+      "sha256": "14af2489562be969ef53157b121cf3503c7ac399a3e239ccb4df8a75856ac2e3"
+    },
+    {
+      "path": "docs/assets/production/city_shop_fittings_02-evidence/f1_culling/final_audit.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "docs/assets/production/city_shop_fittings_02-evidence/f1_culling/final_audit.stdout",
+      "bytes": 1005,
+      "sha256": "e056010bffa719c860d26aabba1b581bbcdad5ca660a785bee2d9411e095556e"
+    },
+    {
+      "path": "docs/assets/production/city_shop_fittings_02-evidence/f1_culling/glb_checks.json",
+      "bytes": 3852,
+      "sha256": "f1a713766592565bcef2a3c0c8696b9f0d6ffc840b9c75b5423b4cd8a1dd86e7"
+    },
+    {
+      "path": "docs/assets/production/city_shop_fittings_02-evidence/f1_culling/mounted_frontage_fascia_culling_scratch.blend",
+      "bytes": 254578,
+      "sha256": "b2e24f87901577d47c56ea695018ef13bf24cc83322378566916fb3fc23ad615"
+    },
+    {
+      "path": "docs/assets/production/city_shop_fittings_02-evidence/f1_culling/pre_fix_glb.json",
+      "bytes": 13591,
+      "sha256": "4c623a8a25e3df1ec2bb02e92c313010b708d74be67aa4e68b207f25e8fc0403"
+    },
+    {
+      "path": "docs/assets/production/city_shop_fittings_02-evidence/f1_culling/pre_fix_manifest.json",
+      "bytes": 11819,
+      "sha256": "1aa4ed55132e4bc448022ef86a23858ffcbed1c8a3347899cd3023c271fd9098"
+    },
+    {
+      "path": "docs/assets/production/city_shop_fittings_02-evidence/f1_culling/raw_delta.command.json",
+      "bytes": 588,
+      "sha256": "c0d3f312b8aa77b11389c11f475a2808636fa8c718b07281e370335579c5bf7e"
+    },
+    {
+      "path": "docs/assets/production/city_shop_fittings_02-evidence/f1_culling/raw_delta.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "docs/assets/production/city_shop_fittings_02-evidence/f1_culling/raw_delta.stdout",
+      "bytes": 4764,
+      "sha256": "b87a42c88946e5eb89e3fe4fd357731ad4b23c51187b5ecca6c5a681888f15c9"
+    },
+    {
+      "path": "docs/assets/production/city_shop_fittings_02-evidence/f1_culling/raw_delta_checks.json",
+      "bytes": 5144,
+      "sha256": "1aab500943e1fbddafe0a4b67a0d2a789533dee0200481a9dfb4d243103cf9b5"
+    },
+    {
+      "path": "docs/assets/production/city_shop_fittings_02-evidence/f1_culling/raw_glb.command.json",
+      "bytes": 650,
+      "sha256": "f19595df0abecffc65a7b4ce7f91c95d5b7dd73d4fa9c83a52903cca8f67e9b8"
+    },
+    {
+      "path": "docs/assets/production/city_shop_fittings_02-evidence/f1_culling/raw_glb.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "docs/assets/production/city_shop_fittings_02-evidence/f1_culling/raw_glb.stdout",
+      "bytes": 2874,
+      "sha256": "e62060f24f9e87ce8b9e2846c3cbd16569b3639454c7b669c174672fe21664df"
+    },
+    {
+      "path": "docs/assets/production/city_shop_fittings_02-evidence/f1_culling/reexport.command.json",
+      "bytes": 977,
+      "sha256": "2ea70cd51e2922ccd53cb4d22c3d793f97060e6e916a642593137fa976151be5"
+    },
+    {
+      "path": "docs/assets/production/city_shop_fittings_02-evidence/f1_culling/reexport.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "docs/assets/production/city_shop_fittings_02-evidence/f1_culling/reexport.stdout",
+      "bytes": 4599,
+      "sha256": "20c026f464ea37774799a3df4d5c14f410d6b74ceed4f6d69105c783ca129ac5"
+    },
+    {
+      "path": "docs/assets/production/city_shop_fittings_02-evidence/f1_culling/reexport_checks.json",
+      "bytes": 3979,
+      "sha256": "a8361c3f98ae750238bd2e7e6af8a0e6f109f31a23b9b33f1c7c29b960a101b0"
+    },
+    {
+      "path": "docs/assets/production/city_shop_fittings_02-evidence/f1_culling/reexport_city_shop_fittings_02.glb",
+      "bytes": 45616,
+      "sha256": "4fd2106f09ef4a35edafbcf3a3a68ea94983e721fd84d852a406e2d26de6552f"
+    },
+    {
+      "path": "docs/assets/production/city_shop_fittings_02-evidence/f1_culling/source_checks.json",
+      "bytes": 3979,
+      "sha256": "a8361c3f98ae750238bd2e7e6af8a0e6f109f31a23b9b33f1c7c29b960a101b0"
+    },
+    {
+      "path": "docs/assets/production/city_shop_fittings_02-evidence/f1_culling/source_fix.command.json",
+      "bytes": 772,
+      "sha256": "f9d0fb570ed55e873c2022999642dcb27e8a512f7f6069aa9e241969eed5a8b3"
+    },
+    {
+      "path": "docs/assets/production/city_shop_fittings_02-evidence/f1_culling/source_fix.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "docs/assets/production/city_shop_fittings_02-evidence/f1_culling/source_fix.stdout",
+      "bytes": 10110,
+      "sha256": "34eca0107387fde21e15924704d07bb1111cc08c3c2775f2731ab089746cf10b"
     },
     {
       "path": "docs/assets/production/city_shop_fittings_02-evidence/final_audit.json",
@@ -239,28 +364,43 @@
     },
     {
       "path": "docs/assets/production/city_shop_fittings_02.md",
-      "bytes": 10746,
-      "sha256": "3562ebdff3cf21271796e7cbca492e22fe190b9a6de636de744731ad112808a8"
+      "bytes": 14658,
+      "sha256": "6d41e10d8b36ee5d9e4a0f21101f045b26dcced87994e7929b7adcb76cde069a"
     },
     {
       "path": "tools/asset_production/city_shop_fittings_02/author.py",
-      "bytes": 5825,
-      "sha256": "515867ad9aabdbf9d436c011a329b653635c9cafd6bcc58998e43484b5e40a66"
+      "bytes": 5864,
+      "sha256": "7721e8978964e8c62174f23a268921f32b1fa0edf1d950044c5c8c55a82f1d0a"
+    },
+    {
+      "path": "tools/asset_production/city_shop_fittings_02/check_culling_delta.py",
+      "bytes": 2121,
+      "sha256": "d17f36895d877399d94dcc74c1cdc3346fd2ec8fad0c7f1e0a04f8135a1fa415"
     },
     {
       "path": "tools/asset_production/city_shop_fittings_02/check_glb.py",
-      "bytes": 5247,
-      "sha256": "19f9b6a866bc9b36b524ed7b3eacb59e454043b226cf4250e297a8c1a5f87677"
+      "bytes": 5372,
+      "sha256": "c546e1947fb6e467641c9bed464319273b36e9065b6292a3be346707a488cc62"
     },
     {
       "path": "tools/asset_production/city_shop_fittings_02/export.py",
-      "bytes": 4644,
-      "sha256": "f6366161667b597ea78486db80db18578334217482176b7b982e6ec0b5895ca2"
+      "bytes": 4923,
+      "sha256": "273a4a775ce87e8bbcaa71b66d4d426a14e0e68f429a50b965a0d85271113d4b"
     },
     {
       "path": "tools/asset_production/city_shop_fittings_02/final_audit.py",
-      "bytes": 2654,
-      "sha256": "65c7bdbaf243ed6875f6246950a07f8e2ff0638480ca26332f82c1f259f4adf3"
+      "bytes": 2828,
+      "sha256": "c789d62179aa75897e3d44a28d70da7ef360cd21471b6dcf00be40a74e8517cc"
+    },
+    {
+      "path": "tools/asset_production/city_shop_fittings_02/fix_culling.py",
+      "bytes": 4228,
+      "sha256": "e31edfbb394fbc2f88d7428b04efd9e34d05f3e63743900d731297b11d90518b"
+    },
+    {
+      "path": "tools/asset_production/city_shop_fittings_02/fix_run.py",
+      "bytes": 1007,
+      "sha256": "15828dd1bf2221d48169bff0168f3fede309768764bc3ff8689bd6fc07071887"
     },
     {
       "path": "tools/asset_production/city_shop_fittings_02/make_uv_diagnostic.py",
@@ -269,8 +409,8 @@
     },
     {
       "path": "tools/asset_production/city_shop_fittings_02/manifest.py",
-      "bytes": 1239,
-      "sha256": "13d9ea1dea447f7a04fb65e2487da38a6e3265a9ae688c047ca8c870e91f6033"
+      "bytes": 1358,
+      "sha256": "52c5e21b7ab609b44550b64524e1d65e9eaaed85abfc986dd035018f1a1b607f"
     },
     {
       "path": "tools/asset_production/city_shop_fittings_02/preview.py",

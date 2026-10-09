@@ -1,0 +1,581 @@
+{
+  "blender": "5.2.2 LTS",
+  "build": "d13f752e3b9c",
+  "units": "METRIC",
+  "scale_length": 1.0,
+  "instances": [
+    {
+      "name": "city_planting_04",
+      "collection": "export_city_planting_04_compact",
+      "matrix": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          -6.75
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "source_bounds": {
+        "min": [
+          -0.908597469329834,
+          -0.8941905498504639,
+          0.0
+        ],
+        "max": [
+          1.0899916887283325,
+          0.9533852338790894,
+          3.596365451812744
+        ]
+      },
+      "object_names": [
+        "city_planting_04_compact",
+        "compact_crown_back",
+        "compact_crown_east",
+        "compact_crown_front",
+        "compact_crown_leader",
+        "compact_crown_west",
+        "compact_sculpted_trunk"
+      ]
+    },
+    {
+      "name": "city_planting_04.001",
+      "collection": "export_city_planting_04_broad",
+      "matrix": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          -2.25
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "source_bounds": {
+        "min": [
+          -1.2882429361343384,
+          -1.203524112701416,
+          0.0
+        ],
+        "max": [
+          1.483805775642395,
+          1.2381691932678223,
+          3.317199468612671
+        ]
+      },
+      "object_names": [
+        "broad_crown_back",
+        "broad_crown_east",
+        "broad_crown_front",
+        "broad_crown_leader",
+        "broad_crown_west",
+        "broad_sculpted_trunk",
+        "city_planting_04_broad"
+      ]
+    },
+    {
+      "name": "city_roof_details_01.001",
+      "collection": "export_city_roof_details_01",
+      "matrix": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          2.25
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "source_bounds": {
+        "min": [
+          -1.2999999523162842,
+          -0.800000011920929,
+          0.0
+        ],
+        "max": [
+          1.2999999523162842,
+          0.800000011920929,
+          0.7599999904632568
+        ]
+      },
+      "object_names": [
+        "city_roof_details_01",
+        "flashing_and_curb",
+        "formed_rain_cowl",
+        "recessed_throat_baffle",
+        "six_broad_curved_louvers",
+        "two_formed_end_cheeks"
+      ]
+    },
+    {
+      "name": "city_roof_details_02.001",
+      "collection": "export_city_roof_details_02",
+      "matrix": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          6.75
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "source_bounds": {
+        "min": [
+          -1.600000023841858,
+          -1.100000023841858,
+          0.0
+        ],
+        "max": [
+          1.600000023841858,
+          1.100000023841858,
+          1.5499999523162842
+        ]
+      },
+      "object_names": [
+        "city_roof_details_02",
+        "flashing_and_curb.001",
+        "formed_enclosure_body",
+        "intake_frames",
+        "intake_shadow_panels",
+        "service_latch",
+        "service_panel",
+        "service_panel_gasket",
+        "six_formed_louvers",
+        "swept_rain_cover"
+      ]
+    }
+  ],
+  "fixtures": [
+    {
+      "name": "city_planting_04_reference_1m",
+      "dimensions": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "matrix": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          -5.050000190734863
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          2.200000047683716
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          0.5
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "minimum": [
+        -5.550000190734863,
+        1.7000000476837158,
+        0.0
+      ],
+      "maximum": [
+        -4.550000190734863,
+        2.700000047683716,
+        1.0
+      ],
+      "vertices": 8,
+      "faces": 6
+    },
+    {
+      "name": "city_planting_04_reference_1m.001",
+      "dimensions": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "matrix": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          -0.550000011920929
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          2.200000047683716
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          0.5
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "minimum": [
+        -1.0499999523162842,
+        1.7000000476837158,
+        0.0
+      ],
+      "maximum": [
+        -0.050000011920928955,
+        2.700000047683716,
+        1.0
+      ],
+      "vertices": 8,
+      "faces": 6
+    },
+    {
+      "name": "city_roof_details_01_reference_1m",
+      "dimensions": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "matrix": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          3.950000047683716
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          2.200000047683716
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          0.5
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "minimum": [
+        3.450000047683716,
+        1.7000000476837158,
+        0.0
+      ],
+      "maximum": [
+        4.449999809265137,
+        2.700000047683716,
+        1.0
+      ],
+      "vertices": 8,
+      "faces": 6
+    },
+    {
+      "name": "city_roof_details_02_reference_1m",
+      "dimensions": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "matrix": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          8.449999809265137
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          2.200000047683716
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          0.5
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "minimum": [
+        7.949999809265137,
+        1.7000000476837158,
+        0.0
+      ],
+      "maximum": [
+        8.949999809265137,
+        2.700000047683716,
+        1.0
+      ],
+      "vertices": 8,
+      "faces": 6
+    }
+  ],
+  "arrows": [
+    {
+      "name": "Cylinder",
+      "label": "FRONT +Y0",
+      "direction": [
+        -1.1399865765455465e-14,
+        1.0,
+        -7.549790126404332e-08
+      ]
+    },
+    {
+      "name": "Cone",
+      "label": "FRONT +Y0",
+      "direction": [
+        -1.1399865765455465e-14,
+        1.0,
+        -7.549790126404332e-08
+      ]
+    },
+    {
+      "name": "Cylinder.001",
+      "label": "UP +Z0",
+      "direction": [
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "name": "Cone.001",
+      "label": "UP +Z0",
+      "direction": [
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "name": "Cylinder.002",
+      "label": "FRONT +Y1",
+      "direction": [
+        -1.1399865765455465e-14,
+        1.0,
+        -7.549790126404332e-08
+      ]
+    },
+    {
+      "name": "Cone.002",
+      "label": "FRONT +Y1",
+      "direction": [
+        -1.1399865765455465e-14,
+        1.0,
+        -7.549790126404332e-08
+      ]
+    },
+    {
+      "name": "Cylinder.003",
+      "label": "UP +Z1",
+      "direction": [
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "name": "Cone.003",
+      "label": "UP +Z1",
+      "direction": [
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "name": "Cylinder.004",
+      "label": "FRONT +Y2",
+      "direction": [
+        -1.1399865765455465e-14,
+        1.0,
+        -7.549790126404332e-08
+      ]
+    },
+    {
+      "name": "Cone.004",
+      "label": "FRONT +Y2",
+      "direction": [
+        -1.1399865765455465e-14,
+        1.0,
+        -7.549790126404332e-08
+      ]
+    },
+    {
+      "name": "Cylinder.005",
+      "label": "UP +Z2",
+      "direction": [
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "name": "Cone.005",
+      "label": "UP +Z2",
+      "direction": [
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "name": "Cylinder.006",
+      "label": "FRONT +Y3",
+      "direction": [
+        -1.1399865765455465e-14,
+        1.0,
+        -7.549790126404332e-08
+      ]
+    },
+    {
+      "name": "Cone.006",
+      "label": "FRONT +Y3",
+      "direction": [
+        -1.1399865765455465e-14,
+        1.0,
+        -7.549790126404332e-08
+      ]
+    },
+    {
+      "name": "Cylinder.007",
+      "label": "UP +Z3",
+      "direction": [
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "name": "Cone.007",
+      "label": "UP +Z3",
+      "direction": [
+        0.0,
+        0.0,
+        1.0
+      ]
+    }
+  ],
+  "render": {
+    "width": 1600,
+    "height": 1000,
+    "percentage": 100,
+    "engine": "CYCLES",
+    "samples": 24
+  },
+  "camera_matrix": [
+    [
+      -0.9520285129547119,
+      -0.13681095838546753,
+      0.2737232446670532,
+      9.0
+    ],
+    [
+      0.3060092628002167,
+      -0.4256339967250824,
+      0.8515832424163818,
+      28.0
+    ],
+    [
+      -3.2390157223005644e-09,
+      0.8944934010505676,
+      0.4470811188220978,
+      17.0
+    ],
+    [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+    ]
+  ],
+  "camera_type": "ORTHO",
+  "camera_ortho_scale": 21.0
+}

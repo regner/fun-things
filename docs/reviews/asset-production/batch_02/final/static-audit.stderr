@@ -1,0 +1,5 @@
+Traceback (most recent call last):
+  File "/home/regner/.paseo/worktrees/0u71f39f/asset-register-production/docs/reviews/asset-production/batch_02/final/static_audit.py", line 22, in <module>
+    assert actual==expected-{indexpath}, (sorted(expected-{indexpath}-actual),sorted(actual-expected))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: ([], ['docs/assets/production/batch_02-evidence/source-readback.json'])

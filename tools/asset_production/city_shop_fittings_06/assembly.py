@@ -1,11 +1,14 @@
 """Read-only .03 source and GLB mating, actual geometry probes and scratch assembly."""
 import bpy,json,hashlib
 from pathlib import Path
+import os
 from mathutils import Vector
 from mathutils.bvhtree import BVHTree
-R=Path(__file__).resolve().parents[3]; E=R/'docs/assets/production/city_shop_fittings_06-evidence'
+R=Path(__file__).resolve().parents[3]; E=Path(os.environ.get('ASSET_EVIDENCE_DIR',R/'docs/assets/production/city_shop_fittings_06-evidence'))
 paths=[R/'art/source/models/environment/city_shop_fittings_03/city_shop_fittings_03.blend']+[R/('art/models/environment/city_shop_fittings_03/city_shop_fittings_03_'+v+'.glb') for v in ('single','double')]
 hashes={str(p.relative_to(R)):hashlib.sha256(p.read_bytes()).hexdigest() for p in paths}
+if (E/'preservation_before.json').exists():
+    assert hashes==json.loads((E/'preservation_before.json').read_text())['immutable_03_inputs']
 def bounds(o):
     vs=[o.matrix_world@v.co for v in o.data.vertices]
     return [[min(v[i] for v in vs) for i in range(3)],[max(v[i] for v in vs) for i in range(3)]]
