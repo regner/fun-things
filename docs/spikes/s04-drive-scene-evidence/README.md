@@ -19,7 +19,55 @@ and an NVIDIA GeForce RTX 4070 Laptop GPU. Runner/user data was isolated below
 | `normalize.log` | Pinned-engine load/pack/resave receipt for the three hand-authored minimal scenes. |
 | `import-initial.log`, `import-uids.log` | Required UID-generating import and final resource-UID registration scan. They exit 0 but retain known editor-plugin/version and shutdown-leak diagnostics, so neither is represented as a clean scene/runtime check. |
 
-## Commands
+## Handbrake follow-up — 9 October 2026
+
+| File | Meaning |
+| --- | --- |
+| `handbrake-smoke-headless.log` | Saved-scene smoke passes the F10 row, valid-save startup load, HUD saved-values status, Backspace reset/removal, wrong-type fallback and existing drive outcomes. |
+| `handbrake-windowed-drive.log` | Direct 1280×800 Forward+ / D3D12 launch capped at 60 FPS and 120 frames; exit 0 with no warning/error/script diagnostics. |
+| `handbrake-s04-checks-result.json` | S04 body/shared-rule, baseline, pose-fence, producer and S04-P prediction checks all pass; staged source unchanged. |
+| `handbrake-s04-p-normal-result.json`, `handbrake-s04-p-adverse-result.json` | Fresh headless two-process prediction profiles pass with all 20 authority/prediction response samples and unchanged non-handbrake verdicts. |
+| `handbrake-s04-p-initial-failure-result.json`, `handbrake-s04-p-contended-failure-result.json` | Retained failed attempts: one normal profile missed a response sample; a later exact-final attempt missed two authority samples and wall-stop timing. Fresh exact-final normal rerun then passed without a source change. |
+| `handbrake-s04-t-result.json` | Capped-window normal/adverse transition profiles and their offline boundary probes pass. Scripted drive inputs continue to use `handbrake=false`. |
+| `handbrake-script-checks.log` | All-owned formatting, zero-warning lint and explicit compilation pass. |
+| `handbrake-tool-tests.log` | All 85 discovered repository Python tests pass. |
+
+The follow-up directly edited the saved HUD text/size because the Godot editor was unavailable, as
+allowed by the lane brief. A required pinned headless import populated the ignored local import/class
+cache before direct scene checks; it exited 0 but retained development-plugin diagnostics and is not
+represented as clean runtime evidence. No new script or UID sidecar was added.
+
+```sh
+# Pinned tool verification and ignored local import/cache setup
+timeout 10s godot --version
+timeout 180s godot --headless --editor --path . --import --quit
+
+# Standalone persistence/drive behavior and focused S04/S04-P public APIs
+timeout 90s godot --headless --path . \
+  --script res://tests/fixtures/s04_drive/smoke.gd
+timeout 300s python tools/s04/run_checks.py --godot "$GODOT_WIN" \
+  --output C:/tmp/ft/lanes/s04-handbrake/s04-checks-final
+
+# Existing prediction and transition callers (fresh external outputs and alternate ports)
+timeout 90s python tools/run_s04.py --godot "$GODOT_WIN" --profiles normal \
+  --port 26490 --proxy-port 26491 \
+  --output C:/tmp/ft/lanes/s04-handbrake/s04-p-normal-final-rerun
+timeout 90s python tools/run_s04.py --godot "$GODOT_WIN" --profiles adverse \
+  --port 26500 --proxy-port 26501 \
+  --output C:/tmp/ft/lanes/s04-handbrake/s04-p-adverse-final
+timeout 180s python tools/s04_t/run.py --godot "$GODOT_WIN" \
+  --profiles normal adverse --windowed --port 26510 --proxy-port 26511 \
+  --output C:/tmp/ft/lanes/s04-handbrake/s04-t-final
+
+# Short standalone graphical load and repository checks
+timeout 30s godot --max-fps 60 --path . --resolution 1280x800 --quit-after 120 \
+  res://tests/fixtures/s04_drive/drive.tscn
+timeout 600s python tools/script_checks.py \
+  --output C:/tmp/ft/lanes/s04-handbrake/script-checks-final
+timeout 300s python -m unittest discover -s tools -p "*test*.py"
+```
+
+## Original drive-scene commands
 
 The executable paths were resolved with `mise -C C:/GameDev/git/fun-things which ...` before use.
 Fresh output directories were removed only when they belonged to this lane.

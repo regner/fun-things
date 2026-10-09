@@ -2,6 +2,7 @@ extends SceneTree
 ## Drives the saved standalone scene through its public API and checks accelerate, turn and stop.
 
 const DRIVE_SCENE: PackedScene = preload("res://tests/fixtures/s04_drive/drive.tscn")
+const TUNING_SAVE_PATH: String = "user://drive_tuning.tres"
 const NEUTRAL: Dictionary = {
 	"throttle": 0.0, "steer": 0.0, "brake": 0.0, "handbrake": false,
 }
@@ -16,12 +17,7 @@ func _initialize() -> void:
 
 ## Exercises the same saved coordinator and body APIs used by interactive driving.
 func _run() -> void:
-	var drive: S04Drive = DRIVE_SCENE.instantiate() as S04Drive
-	root.add_child(drive)
-	await process_frame
-	_check_default_tuning(drive.tuning)
-	await _check_tuning_shortcuts(drive)
-
+	var drive: S04Drive = await _create_checked_drive()
 	drive.set_test_command({
 		"throttle": 1.0, "steer": 0.0, "brake": 0.0, "handbrake": false,
 	})
@@ -59,7 +55,47 @@ func _run() -> void:
 	print("S04_DRIVE_SMOKE ", JSON.stringify(result))
 	drive.queue_free()
 	await process_frame
+	_remove_saved_tuning()
 	quit(0 if _failures.is_empty() else 1)
+
+
+## Creates a drive scene, saves edited tuning, reloads it, then restores defaults.
+func _create_checked_drive() -> S04Drive:
+	_remove_saved_tuning()
+	var drive: S04Drive = DRIVE_SCENE.instantiate() as S04Drive
+	root.add_child(drive)
+	await process_frame
+	_check_default_tuning(drive.tuning)
+	await _check_tuning_shortcuts(drive)
+
+	drive.queue_free()
+	await process_frame
+	drive = DRIVE_SCENE.instantiate() as S04Drive
+	root.add_child(drive)
+	await process_frame
+	_expect(drive.tuning.handbrake_mps2 == S04DriveRules.HANDBRAKE_MPS2 + 0.5,
+		"startup loads the saved tuning resource")
+	_expect(drive.tuning_status().contains("Saved values active"),
+		"HUD status reports that saved values are active")
+	_key(KEY_BACKSPACE)
+	await process_frame
+	_check_default_tuning(drive.tuning)
+	_expect(not FileAccess.file_exists(TUNING_SAVE_PATH),
+		"Backspace removes the saved override")
+
+	drive.queue_free()
+	await process_frame
+	var invalid: Resource = Resource.new()
+	_expect(ResourceSaver.save(invalid, TUNING_SAVE_PATH) == OK,
+		"smoke setup saves a wrong-type tuning resource")
+	drive = DRIVE_SCENE.instantiate() as S04Drive
+	root.add_child(drive)
+	await process_frame
+	_check_default_tuning(drive.tuning)
+	_expect(drive.tuning_status().contains("defaults active"),
+		"wrong-type saved tuning reports the default fallback")
+	_remove_saved_tuning()
+	return drive
 
 
 ## Exercises selection, adjustment and persistence through ordinary keyboard routing.
@@ -70,9 +106,14 @@ func _check_tuning_shortcuts(drive: S04Drive) -> void:
 	_expect(drive.tuning.brake_mps2 == S04DriveRules.BRAKE_MPS2 + 0.5,
 		"keyboard shortcut adjusts selected tuning")
 	_key(KEY_MINUS)
+	_key(KEY_F10)
+	_key(KEY_EQUAL)
+	await process_frame
+	_expect(drive.tuning.handbrake_mps2 == S04DriveRules.HANDBRAKE_MPS2 + 0.5,
+		"F10 selects handbrake braking tuning")
 	_key(KEY_F12)
 	await process_frame
-	_expect(FileAccess.file_exists("user://drive_tuning.tres"),
+	_expect(FileAccess.file_exists(TUNING_SAVE_PATH),
 		"F12 saves the current tuning resource")
 
 
@@ -91,6 +132,8 @@ func _check_default_tuning(tuning: S04DriveTuning) -> void:
 		"default acceleration matches shared rules")
 	_expect(tuning.brake_mps2 == S04DriveRules.BRAKE_MPS2,
 		"default braking matches shared rules")
+	_expect(tuning.handbrake_mps2 == S04DriveRules.HANDBRAKE_MPS2,
+		"default handbrake braking matches shared rules")
 	_expect(tuning.coast_mps2 == S04DriveRules.COAST_MPS2,
 		"default coast matches shared rules")
 	_expect(tuning.max_forward_mps == S04DriveRules.MAX_FORWARD_MPS,
@@ -105,6 +148,15 @@ func _check_default_tuning(tuning: S04DriveTuning) -> void:
 		"default turn rate matches shared rules")
 	_expect(tuning.full_steer_speed_mps == S04DriveRules.FULL_STEER_SPEED_MPS,
 		"default full-steer speed matches shared rules")
+	_expect(tuning.value_count() == 10, "all ten tuning rows are selectable")
+	_expect(tuning.display_name(6) == "Handbrake side grip (/s)",
+		"handbrake lateral grip has an unambiguous display label")
+
+
+## Removes smoke-owned persistence without touching checked-in resources.
+func _remove_saved_tuning() -> void:
+	if FileAccess.file_exists(TUNING_SAVE_PATH):
+		DirAccess.remove_absolute(ProjectSettings.globalize_path(TUNING_SAVE_PATH))
 
 
 ## Waits for a fixed number of ordinary physics callbacks without replacing simulation timing.

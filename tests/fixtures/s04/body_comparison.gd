@@ -25,6 +25,7 @@ func _enter_tree() -> void:
 ## Serializes identical track cases and explicitly checks the untouched passive engine body.
 func _ready() -> void:  # gdstyle:ignore=quality/await-in-loop
 	dynamic.sampled.connect(_on_solver_sample)
+	_check_handbrake_rule()
 	var passive_origin: Vector3 = passive.global_position
 	await _compare(kinematic)
 	kinematic.retire()
@@ -41,6 +42,43 @@ func _ready() -> void:  # gdstyle:ignore=quality/await-in-loop
 		"solver_samples": solver_samples.size(), "passive_unchanged": (
 			passive.global_position == passive_origin)})
 	get_tree().quit(0 if failures.is_empty() else 1)
+
+
+## Checks handbrake deceleration and throttle suppression through the shared public rule API.
+func _check_handbrake_rule() -> void:
+	var command: Dictionary = S04DriveRules.neutral()
+	command.handbrake = true
+	var velocity: Vector3 = Vector3(0.0, 0.0, -20.0)
+	for _tick: int in 60:
+		velocity = S04DriveRules.advance(
+			velocity, 0.0, command, TICK_SECONDS
+		).velocity
+
+	_expect(absf(velocity.length() - 10.0) < 0.05,
+		"default handbrake did not reduce 20 m/s to about 10 m/s after one second")
+	command.throttle = 1.0
+	var throttled: Vector3 = Vector3(0.0, 0.0, -5.0)
+	for _tick: int in 15:
+		throttled = S04DriveRules.advance(
+			throttled, 0.0, command, TICK_SECONDS
+		).velocity
+
+	_expect(throttled.length() <= 5.0,
+		"throttle accelerated while the handbrake was held")
+	command.throttle = 0.0
+	command.brake = 1.0
+	var service_braked: Vector3 = Vector3(0.0, 0.0, -20.0)
+	for _tick: int in 30:
+		service_braked = S04DriveRules.advance(
+			service_braked, 0.0, command, TICK_SECONDS
+		).velocity
+
+	_expect(absf(service_braked.length() - 11.0) < 0.05,
+		"service brake did not override weaker handbrake deceleration")
+	_record({"event": "rule_case", "case": "handbrake",
+		"one_second_speed_mps": velocity.length(),
+		"throttle_held_speed_mps": throttled.length(),
+		"combined_brake_speed_mps": service_braked.length()})
 
 
 ## Uses independent speed/heading/contact expectations for both adapters on one authored track.

@@ -12,6 +12,7 @@ const PROPERTY_NAMES: Array[StringName] = [
 	&"slide_grip_per_second",
 	&"turn_rad_per_second",
 	&"full_steer_speed_mps",
+	&"handbrake_mps2",
 ]
 const DISPLAY_NAMES: Array[String] = [
 	"Acceleration (m/s²)",
@@ -20,13 +21,20 @@ const DISPLAY_NAMES: Array[String] = [
 	"Max forward (m/s)",
 	"Max reverse (m/s)",
 	"Grip (/s)",
-	"Handbrake grip (/s)",
+	"Handbrake side grip (/s)",
 	"Turn rate (rad/s)",
 	"Full-steer speed (m/s)",
+	"Handbrake brake (m/s²)",
 ]
-const INCREMENTS: Array[float] = [0.5, 0.5, 0.25, 0.5, 0.5, 0.25, 0.25, 0.05, 0.25]
-const MINIMUMS: Array[float] = [1.0, 1.0, 0.0, 1.0, 1.0, 0.0, 0.0, 0.1, 0.5]
-const MAXIMUMS: Array[float] = [40.0, 40.0, 20.0, 40.0, 20.0, 20.0, 20.0, 4.0, 20.0]
+const INCREMENTS: Array[float] = [
+	0.5, 0.5, 0.25, 0.5, 0.5, 0.25, 0.25, 0.05, 0.25, 0.5,
+]
+const MINIMUMS: Array[float] = [
+	1.0, 1.0, 0.0, 1.0, 1.0, 0.0, 0.0, 0.1, 0.5, 0.0,
+]
+const MAXIMUMS: Array[float] = [
+	40.0, 40.0, 20.0, 40.0, 20.0, 20.0, 20.0, 4.0, 20.0, 40.0,
+]
 
 @export_range(1.0, 40.0, 0.5) var acceleration_mps2: float = 12.0
 @export_range(1.0, 40.0, 0.5) var brake_mps2: float = 18.0
@@ -37,6 +45,7 @@ const MAXIMUMS: Array[float] = [40.0, 40.0, 20.0, 40.0, 20.0, 20.0, 20.0, 4.0, 2
 @export_range(0.0, 20.0, 0.25) var slide_grip_per_second: float = 1.0
 @export_range(0.1, 4.0, 0.05) var turn_rad_per_second: float = 1.5
 @export_range(0.5, 20.0, 0.25) var full_steer_speed_mps: float = 4.0
+@export_range(0.0, 40.0, 0.5) var handbrake_mps2: float = 10.0
 
 
 ## Returns the number of selectable tuning values.

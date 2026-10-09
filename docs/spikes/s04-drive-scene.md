@@ -25,20 +25,23 @@ Confirm `--version` is `4.8.dev7.official.c971f93e7` if resolving the binary on 
 
 - **W / S**: throttle forward; opposite input brakes, then selects reverse once stopped.
 - **A / D**: steer left / right. Arrow-key aliases also work.
-- **Space**: handbrake. This uses S04DriveRules' existing lower lateral-grip path; it is not a new
-  inert or scene-only handling rule.
+- **Space**: handbrake. The shared `S04DriveRules` applies 10.0 m/s² longitudinal braking while
+  retaining lower sideways grip for a sliding turn.
 - **R**: reset the car to its authored start pose and clear carried speed/input.
 - **Escape**: pause/resume the existing desktop input collector.
-- **F1–F9**: select the value shown by that row in the tuning panel.
+- **F1–F10**: select the value shown by that row in the tuning panel. F10 selects handbrake
+  braking strength; `Handbrake side grip` remains the sideways-slide control.
 - **+ / -** (main keyboard or keypad): adjust the selected value by its displayed category's fixed
   increment.
 - **F12**: print one `S04_DRIVE_TUNING {...}` JSON line to stdout and save a copy to
   `user://drive_tuning.tres`. The checked-in scene resource remains unchanged.
+- **Backspace**: restore all checked-in defaults and remove the saved override.
 
-The saved `S04DriveTuning` resource is used only by this standalone path. Its nine defaults exactly
-match the existing `S04DriveRules` constants, so the established S04 fixture continues to call the
-same rule with its unchanged defaults. The HUD reads state and values; the scene coordinator owns
-shortcut handling and asks the resource to adjust values.
+The saved `S04DriveTuning` resource is used only by this standalone path. Its ten defaults exactly
+match the `S04DriveRules` constants. The scene loads a valid `user://drive_tuning.tres` at startup
+and marks saved values active in the HUD; a missing or wrong-type resource falls back to checked-in
+defaults. The HUD reads state and values; the scene coordinator owns shortcut handling and asks the
+resource to adjust values.
 
 ## Suggested feel pass
 
@@ -47,13 +50,29 @@ shortcut handling and asks the resource to adjust values.
 2. Hold a broad turn, then try short steering taps at low and high speed. Note steering response,
    not just whether the car completes the turn.
 3. Release throttle to compare coasting with pressing the opposite direction to brake.
-4. Enter a turn and hold Space, then release it and recover. Compare `Grip` with `Handbrake grip`.
+4. Enter a turn and hold Space, then release it and recover. Compare `Grip`, `Handbrake side grip`
+   and `Handbrake brake`.
 5. Drive into the north wall, reverse away, and press R after a deliberately bad approach.
 
 Please report the complete F12 JSON line plus concrete observations: what maneuver was attempted,
 what felt wrong or right, and any preferred value set. A useful response names acceleration,
-braking, coast, forward/reverse caps, ordinary/handbrake grip, turn rate and full-steer speed rather
-than only saying “faster” or “more arcade.” These are feel candidates, not production ratification.
+braking, coast, forward/reverse caps, ordinary/handbrake side grip, handbrake braking, turn rate and
+full-steer speed rather than only saying “faster” or “more arcade.” These are feel candidates, not
+production ratification.
+
+The owner's 9 October play test preferred `coast_mps2 = 10.0` and `grip_per_second = 9.0` over the
+checked-in 4.0 and 6.0 defaults. These are owner feel candidates, not ratified production values;
+handbrake braking and side-grip values remain pending re-test.
+
+## Handbrake and persistence follow-up — 9 October 2026
+
+The shared rule now slows the car at 10.0 m/s² while the handbrake is held, suppresses throttle, and
+uses the stronger service-brake deceleration when both brakes apply. Lower lateral grip remains in
+place, so handbrake turns still slide. The standalone panel adds the F10 handbrake-braking row and
+renames the serialized `slide_grip_per_second` property's display label to `Handbrake side grip`.
+F12 still saves and prints; startup loads a valid saved tuning resource, and Backspace restores the
+checked-in values and removes that override. Direct text editing was used because the Godot editor
+was unavailable; the saved HUD scene change only enlarges the existing panel and updates its text.
 
 ## Saved-scene authoring and checks
 

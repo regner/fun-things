@@ -4,7 +4,7 @@ extends Node3D
 
 const SAVE_PATH: String = "user://drive_tuning.tres"
 const TUNING_KEYS: Array[Key] = [
-	KEY_F1, KEY_F2, KEY_F3, KEY_F4, KEY_F5, KEY_F6, KEY_F7, KEY_F8, KEY_F9,
+	KEY_F1, KEY_F2, KEY_F3, KEY_F4, KEY_F5, KEY_F6, KEY_F7, KEY_F8, KEY_F9, KEY_F10,
 ]
 
 @export var tuning: S04DriveTuning
@@ -13,7 +13,8 @@ var _selected_tuning: int = 0
 var _start_transform: Transform3D
 var _test_command: Dictionary = {}
 var _test_command_enabled: bool = false
-var _notice: String = "F1-F9 select • +/- adjust • F12 save + print"
+var _default_tuning: S04DriveTuning
+var _notice: String = "F1-F10 select • +/- adjust • F12 save + print • Backspace defaults"
 
 @onready var _car: S04Kinematic = $Car
 @onready var _input: S04DesktopInput = $Input
@@ -30,6 +31,8 @@ func _enter_tree() -> void:
 ## Binds the saved scene parts and records the authored reset pose.
 func _ready() -> void:
 	assert(tuning != null)
+	_default_tuning = tuning.duplicate(true) as S04DriveTuning
+	_load_saved_tuning()
 	_start_transform = _car.global_transform
 	_camera_rig.bind(_car)
 	_update_hud()
@@ -59,6 +62,8 @@ func _unhandled_input(event: InputEvent) -> void:
 		_adjust_selected(-1.0)
 	elif key == KEY_F12:
 		_save_and_print_tuning()
+	elif key == KEY_BACKSPACE:
+		_reset_tuning_defaults()
 	else:
 		return
 
@@ -92,12 +97,45 @@ func car_state() -> Dictionary:
 	return _car.motion_state()
 
 
+## Exposes the persistence status currently presented by the HUD.
+func tuning_status() -> String:
+	return _notice
+
+
+## Loads a valid saved tuning resource while retaining checked-in defaults as the fallback.
+func _load_saved_tuning() -> void:
+	if not FileAccess.file_exists(SAVE_PATH):
+		tuning = _default_tuning.duplicate(true) as S04DriveTuning
+		return
+
+	var saved: Resource = ResourceLoader.load(SAVE_PATH, "", ResourceLoader.CACHE_MODE_IGNORE)
+	if saved is S04DriveTuning:
+		tuning = saved.duplicate(true) as S04DriveTuning
+		_notice = "Saved values active • Backspace restores checked-in defaults"
+	else:
+		tuning = _default_tuning.duplicate(true) as S04DriveTuning
+		_notice = "Saved values invalid • checked-in defaults active"
+
+
 ## Changes the selected resource value without moving gameplay rules into the HUD.
 func _adjust_selected(direction: float) -> void:
 	tuning.adjust(_selected_tuning, direction)
 	_notice = "%s = %.2f" % [
 		tuning.display_name(_selected_tuning), tuning.value(_selected_tuning),
 	]
+
+
+## Restores checked-in values and removes the saved override used on the next startup.
+func _reset_tuning_defaults() -> void:
+	tuning = _default_tuning.duplicate(true) as S04DriveTuning
+	if FileAccess.file_exists(SAVE_PATH):
+		var absolute_path: String = ProjectSettings.globalize_path(SAVE_PATH)
+		var error: Error = DirAccess.remove_absolute(absolute_path)
+		if error != OK:
+			_notice = "Defaults active; saved override removal failed (%s)" % error_string(error)
+			return
+
+	_notice = "Checked-in defaults active; saved override removed"
 
 
 ## Saves a duplicate so the scene resource keeps its repository identity, then prints values.

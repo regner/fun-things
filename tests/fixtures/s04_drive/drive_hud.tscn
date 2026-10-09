@@ -21,7 +21,7 @@ script = ExtResource("1_hud")
 offset_left = 18.0
 offset_top = 18.0
 offset_right = 480.0
-offset_bottom = 410.0
+offset_bottom = 444.0
 theme_override_styles/panel = SubResource("StyleBox_panel")
 
 [node name="Margin" type="MarginContainer" parent="Panel" unique_id=1952904636]
@@ -51,7 +51,8 @@ text = "SPEED    0.0 m/s"
 layout_mode = 2
 theme_override_colors/font_color = Color(0.84, 0.88, 0.92, 1)
 text = "W/S throttle, brake, reverse  •  A/D steer
-Space handbrake  •  R reset  •  Esc menu/input pause"
+Space handbrake  •  R car reset  •  Backspace tuning defaults
+Esc menu/input pause"
 
 [node name="Values" type="Label" parent="Panel/Margin/Rows" unique_id=418375040]
 layout_mode = 2
@@ -62,4 +63,4 @@ text = "Tuning values"
 [node name="Notice" type="Label" parent="Panel/Margin/Rows" unique_id=2076952344]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.55, 0.86, 1, 1)
-text = "F1-F9 select • +/- adjust • F12 save + print"
+text = "F1-F10 select • +/- adjust • F12 save + print • Backspace defaults"
