@@ -2,10 +2,11 @@ class_name MainMenu
 extends Control
 ## Authored front-end navigation that emits session intent without owning session state.
 
-signal standalone_requested()
+signal standalone_requested
 signal host_requested(port: int)
 signal join_requested(address: String, port: int)
-signal quit_requested()
+signal settings_requested
+signal quit_requested
 
 const DEFAULT_PORT: int = 24_900
 
@@ -81,6 +82,11 @@ func _on_connect_pressed() -> void:
 ## Returns from a secondary form to the primary actions.
 func _on_back_pressed() -> void:
 	show_main()
+
+
+## Asks the enclosing coordinator to open its configured settings view.
+func _on_settings_pressed() -> void:
+	settings_requested.emit()
 
 
 ## Requests orderly process exit from the Boot coordinator.

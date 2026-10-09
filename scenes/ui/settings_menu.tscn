@@ -1,0 +1,266 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://scripts/settings/settings_menu.gd" id="1_settings"]
+
+[sub_resource type="StyleBoxFlat" id="StyleFocus"]
+content_margin_left = 17.0
+content_margin_top = 9.0
+content_margin_right = 17.0
+content_margin_bottom = 9.0
+bg_color = Color(0.12549, 0.313725, 0.309804, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(1, 0.752941, 0.352941, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleButton"]
+content_margin_left = 18.0
+content_margin_top = 10.0
+content_margin_right = 18.0
+content_margin_bottom = 10.0
+bg_color = Color(0.0470588, 0.133333, 0.168627, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.270588, 0.380392, 0.419608, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StylePanel"]
+content_margin_left = 28.0
+content_margin_top = 24.0
+content_margin_right = 28.0
+content_margin_bottom = 24.0
+bg_color = Color(0.0627451, 0.184314, 0.227451, 0.98)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.270588, 0.380392, 0.419608, 1)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+
+[sub_resource type="Theme" id="ThemeSettings"]
+default_font_size = 18
+Button/colors/font_color = Color(0.964706, 0.945098, 0.862745, 1)
+Button/styles/focus = SubResource("StyleFocus")
+Button/styles/hover = SubResource("StyleFocus")
+Button/styles/normal = SubResource("StyleButton")
+CheckButton/colors/font_color = Color(0.964706, 0.945098, 0.862745, 1)
+OptionButton/colors/font_color = Color(0.964706, 0.945098, 0.862745, 1)
+PanelContainer/styles/panel = SubResource("StylePanel")
+
+[node name="SettingsMenu" type="Control" unique_id=318854818]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+theme = SubResource("ThemeSettings")
+script = ExtResource("1_settings")
+
+[node name="Backdrop" type="ColorRect" parent="." unique_id=1721984239]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.0470588, 0.133333, 0.168627, 1)
+
+[node name="Center" type="CenterContainer" parent="." unique_id=174249574]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 32.0
+offset_top = 24.0
+offset_right = -32.0
+offset_bottom = -24.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="PanelContainer" parent="Center" unique_id=873134100]
+custom_minimum_size = Vector2(850, 0)
+layout_mode = 2
+
+[node name="Content" type="VBoxContainer" parent="Center/Panel" unique_id=231569519]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="Eyebrow" type="Label" parent="Center/Panel/Content" unique_id=2003399985]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.447059, 0.364706, 1)
+text = "DEVICE LOCAL"
+
+[node name="Title" type="Label" parent="Center/Panel/Content" unique_id=944209211]
+layout_mode = 2
+theme_override_font_sizes/font_size = 38
+text = "Settings"
+
+[node name="AudioHeading" type="Label" parent="Center/Panel/Content" unique_id=2116125065]
+layout_mode = 2
+theme_override_font_sizes/font_size = 22
+theme_override_colors/font_color = Color(1, 0.752941, 0.352941, 1)
+text = "Audio"
+
+[node name="MasterRow" type="HBoxContainer" parent="Center/Panel/Content" unique_id=549005896]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="Label" type="Label" parent="Center/Panel/Content/MasterRow" unique_id=909440101]
+custom_minimum_size = Vector2(130, 0)
+layout_mode = 2
+text = "Master"
+
+[node name="MasterVolume" type="HSlider" parent="Center/Panel/Content/MasterRow" unique_id=77721213]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(430, 40)
+layout_mode = 2
+size_flags_horizontal = 3
+min_value = 0.001
+max_value = 1.0
+step = 0.01
+value = 1.0
+
+[node name="MasterMute" type="CheckButton" parent="Center/Panel/Content/MasterRow" unique_id=1780685943]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(110, 0)
+layout_mode = 2
+text = "Mute"
+
+[node name="MusicRow" type="HBoxContainer" parent="Center/Panel/Content" unique_id=1900647313]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="Label" type="Label" parent="Center/Panel/Content/MusicRow" unique_id=2108673091]
+custom_minimum_size = Vector2(130, 0)
+layout_mode = 2
+text = "Music"
+
+[node name="MusicVolume" type="HSlider" parent="Center/Panel/Content/MusicRow" unique_id=112943243]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(430, 40)
+layout_mode = 2
+size_flags_horizontal = 3
+min_value = 0.001
+max_value = 1.0
+step = 0.01
+value = 0.801
+
+[node name="MusicMute" type="CheckButton" parent="Center/Panel/Content/MusicRow" unique_id=2115240662]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(110, 0)
+layout_mode = 2
+text = "Mute"
+
+[node name="SFXRow" type="HBoxContainer" parent="Center/Panel/Content" unique_id=1558477439]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="Label" type="Label" parent="Center/Panel/Content/SFXRow" unique_id=1766290957]
+custom_minimum_size = Vector2(130, 0)
+layout_mode = 2
+text = "SFX"
+
+[node name="SFXVolume" type="HSlider" parent="Center/Panel/Content/SFXRow" unique_id=1905533765]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(430, 40)
+layout_mode = 2
+size_flags_horizontal = 3
+min_value = 0.001
+max_value = 1.0
+step = 0.01
+value = 0.801
+
+[node name="SFXMute" type="CheckButton" parent="Center/Panel/Content/SFXRow" unique_id=1246544615]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(110, 0)
+layout_mode = 2
+text = "Mute"
+
+[node name="DisplayHeading" type="Label" parent="Center/Panel/Content" unique_id=307124793]
+layout_mode = 2
+theme_override_font_sizes/font_size = 22
+theme_override_colors/font_color = Color(1, 0.752941, 0.352941, 1)
+text = "Display"
+
+[node name="DisplayRow" type="HBoxContainer" parent="Center/Panel/Content" unique_id=2062906316]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="WindowMode" type="OptionButton" parent="Center/Panel/Content/DisplayRow" unique_id=1437797412]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(230, 46)
+layout_mode = 2
+
+[node name="VSync" type="CheckButton" parent="Center/Panel/Content/DisplayRow" unique_id=334305637]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(180, 46)
+layout_mode = 2
+button_pressed = true
+text = "VSync"
+
+[node name="FPSCap" type="OptionButton" parent="Center/Panel/Content/DisplayRow" unique_id=1642874171]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(180, 46)
+layout_mode = 2
+
+[node name="Hint" type="Label" parent="Center/Panel/Content" unique_id=671471233]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.682353, 0.764706, 0.776471, 1)
+text = "Changes preview immediately. The FPS cap remains active with VSync off."
+
+[node name="Feedback" type="Label" parent="Center/Panel/Content" unique_id=560830365]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 28)
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.752941, 0.352941, 1)
+
+[node name="Actions" type="HBoxContainer" parent="Center/Panel/Content" unique_id=1978491870]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="BackButton" type="Button" parent="Center/Panel/Content/Actions" unique_id=73184133]
+layout_mode = 2
+text = "Back"
+
+[node name="DefaultsButton" type="Button" parent="Center/Panel/Content/Actions" unique_id=1862641953]
+layout_mode = 2
+text = "Preview defaults"
+
+[node name="Spacer" type="Control" parent="Center/Panel/Content/Actions" unique_id=1341722019]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="SaveButton" type="Button" parent="Center/Panel/Content/Actions" unique_id=662806204]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Save & back"
+
+[connection signal="value_changed" from="Center/Panel/Content/MasterRow/MasterVolume" to="." method="_on_master_changed"]
+[connection signal="toggled" from="Center/Panel/Content/MasterRow/MasterMute" to="." method="_on_master_changed"]
+[connection signal="value_changed" from="Center/Panel/Content/MusicRow/MusicVolume" to="." method="_on_music_changed"]
+[connection signal="toggled" from="Center/Panel/Content/MusicRow/MusicMute" to="." method="_on_music_changed"]
+[connection signal="value_changed" from="Center/Panel/Content/SFXRow/SFXVolume" to="." method="_on_sfx_changed"]
+[connection signal="toggled" from="Center/Panel/Content/SFXRow/SFXMute" to="." method="_on_sfx_changed"]
+[connection signal="item_selected" from="Center/Panel/Content/DisplayRow/WindowMode" to="." method="_on_display_changed"]
+[connection signal="toggled" from="Center/Panel/Content/DisplayRow/VSync" to="." method="_on_display_changed"]
+[connection signal="item_selected" from="Center/Panel/Content/DisplayRow/FPSCap" to="." method="_on_display_changed"]
+[connection signal="pressed" from="Center/Panel/Content/Actions/BackButton" to="." method="_on_back_pressed"]
+[connection signal="pressed" from="Center/Panel/Content/Actions/DefaultsButton" to="." method="_on_defaults_pressed"]
+[connection signal="pressed" from="Center/Panel/Content/Actions/SaveButton" to="." method="_on_save_pressed"]

@@ -190,6 +190,12 @@ layout_mode = 2
 text = "Join at an address"
 alignment = 0
 
+[node name="SettingsButton" type="Button" parent="PageMargin/Page/Body/MainActions"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Settings"
+alignment = 0
+
 [node name="QuitButton" type="Button" parent="PageMargin/Page/Body/MainActions"]
 layout_mode = 2
 text = "Quit"
@@ -360,6 +366,7 @@ text = ""
 [connection signal="pressed" from="PageMargin/Page/Body/MainActions/SoloButton" to="." method="_on_solo_pressed"]
 [connection signal="pressed" from="PageMargin/Page/Body/MainActions/HostButton" to="." method="_on_host_pressed"]
 [connection signal="pressed" from="PageMargin/Page/Body/MainActions/JoinButton" to="." method="_on_join_pressed"]
+[connection signal="pressed" from="PageMargin/Page/Body/MainActions/SettingsButton" to="." method="_on_settings_pressed"]
 [connection signal="pressed" from="PageMargin/Page/Body/MainActions/QuitButton" to="." method="_on_quit_pressed"]
 [connection signal="pressed" from="PageMargin/Page/Body/HostPanel/Content/HostActions/HostBackButton" to="." method="_on_back_pressed"]
 [connection signal="pressed" from="PageMargin/Page/Body/HostPanel/Content/HostActions/CreateHostButton" to="." method="_on_create_host_pressed"]
