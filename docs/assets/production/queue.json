@@ -7088,5 +7088,19 @@
     "live_log": "/tmp/asset-register-production-editor/f3/editor-live.log",
     "state_receipt": "docs/reviews/asset-production/batch_03/retention-final/owned-editor-readback.json",
     "resume_rule": "Verify actual process/project/pin/ports/saved state with guarded client before acquiring lease. Freeze logs only after their writers close."
+  },
+  "local_integration": {
+    "old_main": "66400c26a01bf917dfe631af4762c2b444d9c48f",
+    "input_baseline": "2a0fe4f588f86ca1d9b1226f8fb5ede065e6c661",
+    "new_main": "f891bf9a9b8286f09a94ff62b4b09204a8933c6c",
+    "production_candidate": "f891bf9a9b8286f09a94ff62b4b09204a8933c6c",
+    "integration": "two fast-forwards; no new merge commit",
+    "complete_152_original_input_files_preserved": true,
+    "main_worktree_and_index_clean": true,
+    "production_workspace_preserved": true,
+    "push": "not attempted again; user cancelled remote push",
+    "production_dispatch": "paused",
+    "recorded_at": "2026-10-09T19:55:57.765715+00:00",
+    "review_scope": "Prior exact technical/review candidates unchanged; this integration and subsequent commit only reconcile metadata."
   }
 }

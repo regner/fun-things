@@ -33,15 +33,18 @@ On resume verify PID/project/pin/ports/context through the guarded private clien
 and current launch state before acquiring the lease. Preserve the 46 untracked
 review-only importer sidecars; they are outside the immutable producer/review packs.
 
-Production remains on `art/register-production-20261009`; main is untouched at
-`66400c26a01bf917dfe631af4762c2b444d9c48f`. No push, merge, archival or TODO closure.
+The production handoff `f891bf9a9b8286f09a94ff62b4b09204a8933c6c` was fast-forwarded
+into local main at the user's request, preserving the exact original input files.
+[Local integration receipt](local-integration.json) records old main, adopted input
+snapshot and delivered revision. No push, archival or TODO closure; production
+dispatch remains paused. The production worktree is preserved for safe resume.
 The queue records exact IDs, specialists, source/engine/review revisions and remaining
 gates. [Pause retention receipt](pause-readback.json) records complete final-review
 expected-set/hash readback and the idle-agent inventory.
 
 The latest whole-plan watermark remains `2d5457250701ebf93ef6e90f0e82ec9f384fd530`.
-This pause reconciles the affected tracker only: three bounded asset batches remain
-on a production branch, with no main integration or new product/gate decision.
+This pause reconciles the affected tracker only: three bounded asset batches are
+now integrated into local main, with no new product/gate decision.
 Retention repairs and metadata do not count as additional substantive workstreams;
 no new whole-plan audit is dispatched while paused. Reassess the existing 6–8
 workstream cadence and unchanged profile followups on an authorized resume.
