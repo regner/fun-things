@@ -1,10 +1,10 @@
 [gd_scene format=3 uid="uid://b7q4h8x7c4sxy"]
 
 [ext_resource type="Script" uid="uid://bp4rf74ywinkg" path="res://scenes/effects/weapon_effects/effect.gd" id="1_tojdd"]
-[ext_resource type="Material" uid="uid://dl5xst6oc3y4o" path="res://art/materials/weapon_effects/weapon_effects_a_trail.tres" id="2_ln036"]
-[ext_resource type="PackedScene" uid="uid://dumh7hxlvbvkv" path="res://art/models/weapon_effects/weapon_effects_a_trail_puff.glb" id="2_vutda"]
-[ext_resource type="ArrayMesh" uid="uid://cdwov24cd7iei" path="res://art/models/weapon_effects/weapon_effects_a_trail_puff_mesh.res" id="3_lii8t"]
-[ext_resource type="Material" uid="uid://qtwbv886nos4" path="res://art/materials/weapon_effects/weapon_effects_a_smoke.tres" id="5_hbkq6"]
+[ext_resource type="Material" uid="uid://dl5xst6oc3y4o" path="res://art/materials/effects/weapon_effects/weapon_effects_a_trail.tres" id="2_ln036"]
+[ext_resource type="PackedScene" uid="uid://dumh7hxlvbvkv" path="res://art/models/effects/weapon_effects/weapon_effects_a_trail_puff.glb" id="2_vutda"]
+[ext_resource type="ArrayMesh" uid="uid://cdwov24cd7iei" path="res://art/models/effects/weapon_effects/weapon_effects_a_trail_puff_mesh.res" id="3_lii8t"]
+[ext_resource type="Material" uid="uid://qtwbv886nos4" path="res://art/materials/effects/weapon_effects/weapon_effects_a_smoke.tres" id="5_hbkq6"]
 
 [sub_resource type="Curve" id="Curve_ln036"]
 _data = [Vector2(0, 0.1), 0.0, 0.0, 0, 0, Vector2(0.25, 0.9), 0.0, 0.0, 0, 0, Vector2(0.7, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]

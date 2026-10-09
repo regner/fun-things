@@ -3,7 +3,7 @@ class_name VehicleEditorAuthor
 extends Node3D
 ## Editor-only authoring bridge for linked vehicle visuals and saved vehicle wrappers.
 
-const MODEL_DIR: String = "res://art/models/city_cars/"
+const MODEL_DIR: String = "res://art/models/vehicles/"
 const WRAPPER_DIR: String = "res://scenes/prefabs/city_cars/"
 const SOCKET_NAMES: Dictionary = {
 	"socket_driver": "DriverSeat", "socket_entry_left": "EntryLeft",
@@ -47,7 +47,7 @@ func _linked(parent: Node, path: String, label: String) -> Node3D:
 ## Authors a visual-only wrapper and copies source-authored socket transforms.
 func build_wrapper(asset: String) -> Dictionary:
 	var visuals: Node3D = _owned(self, Node3D.new(), "Visuals")
-	var model: Node3D = _linked(visuals, MODEL_DIR + asset + ".glb", "Model")
+	var model: Node3D = _linked(visuals, MODEL_DIR + asset + "/" + asset + ".glb", "Model")
 	var sockets: Node3D = _owned(self, Node3D.new(), "Sockets")
 	var socket_rows: Dictionary = {}
 	for source_name: String in SOCKET_NAMES:

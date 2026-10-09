@@ -49,7 +49,7 @@ Performance/device acceptance is unmeasured. This handoff does not close gamepla
 
 | Source / collection | Explicit output | Saved consumer |
 | --- | --- | --- |
-| `art/source/models/pistol_coral_stub/pistol_coral_stub.blend` / `export_pistol_coral_stub` | `art/models/pistol_coral_stub/pistol_coral_stub.glb` + `.glb.import` | `scenes/prefabs/pistol_coral_stub/pistol_coral_stub.tscn` / `Visuals/Model` |
+| `art/source/models/weapons/pistol_coral_stub/pistol_coral_stub.blend` / `export_pistol_coral_stub` | `art/models/weapons/pistol_coral_stub/pistol_coral_stub.glb` + `.glb.import` | `scenes/prefabs/pistol_coral_stub/pistol_coral_stub.tscn` / `Visuals/Model` |
 | Same imported model, through reusable wrapper | Same GLB, no detached geometry | `scenes/prefabs/pistol_coral_stub/preview.tscn` / `Pistol` |
 | Same wrapper, three held poses | Same GLB | `scenes/prefabs/pistol_coral_stub/preview_game_camera.tscn` / `North`, `East`, `South` weapon mounts |
 
@@ -68,9 +68,9 @@ saved Godot nodes. Reexport reads the saved source and never reconstructs geomet
 
 ```bash
 blender --factory-startup --background --threads 2 -noaudio \
-  art/source/models/pistol_coral_stub/pistol_coral_stub.blend \
+  art/source/models/weapons/pistol_coral_stub/pistol_coral_stub.blend \
   --python tools/pistol_coral_stub/reexport.py -- /tmp/pistol_coral_stub.glb
-cmp art/models/pistol_coral_stub/pistol_coral_stub.glb /tmp/pistol_coral_stub.glb
+cmp art/models/weapons/pistol_coral_stub/pistol_coral_stub.glb /tmp/pistol_coral_stub.glb
 ```
 
 Use private XDG state/process ownership and pinned tool versions. Saved source reexport

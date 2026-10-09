@@ -10,16 +10,16 @@ performance belong to the external integrator and are not accepted here.
 
 [Review gallery and motion recording](gallery.html) ·
 [Shared binding contract](../shared_humanoid_rig.md) ·
-[Approved concept](../../concepts/assets-v1/player-character/01_coral_courier.png)
+[approved concept](../../concepts/assets-v1/player-character/01_coral_courier.png)
 
 ## Deliverables and source linkage
 
 | Source | Explicit output / consumer |
 | --- | --- |
-| `art/source/models/player_character/coral_courier.blend`, collection `export_coral_courier` | `art/models/player_character/coral_courier.glb`; linked by `scenes/prefabs/player_character/coral_courier.tscn` |
-| `art/source/models/shared_humanoid/shared_humanoid_player_motion_v1.blend`, collection `export_shared_humanoid_player_v1` | `art/models/shared_humanoid/shared_humanoid_player_motion_v1.glb`; extracted `art/animations/shared_humanoid/player_v1.tres` |
+| `art/source/models/characters/coral_courier/coral_courier.blend`, collection `export_coral_courier` | `art/models/characters/coral_courier/coral_courier.glb`; linked by `scenes/prefabs/player_character/coral_courier.tscn` |
+| `art/source/models/characters/shared_humanoid/shared_humanoid_player_motion_v1.blend`, collection `export_shared_humanoid_player_v1` | `art/models/characters/shared_humanoid/shared_humanoid_player_motion_v1.glb`; extracted `art/animations/characters/shared_humanoid/player_v1.tres` |
 | The same saved actions, with disjoint track filtering only | `player_upper_v1.tres` and `player_lower_v1.tres` in that animation directory |
-| `art/source/models/player_character/weapon_profiles.json` | Authored hand-to-grip matrices, saved as wrapper metadata and selected at `Sockets/WeaponMount` |
+| `art/source/models/characters/coral_courier/weapon_profiles.json` | Authored hand-to-grip matrices, saved as wrapper metadata and selected at `Sockets/WeaponMount` |
 | Canonical rig checkpoint `3eccf8f691fe34132ee8504d10dfceda4f7e2bb6` | Exact unchanged `shared_humanoid/1.0.0` rest hierarchy; 28 bones |
 
 The model has 5,942 source vertices, 11,600 triangles, twelve opaque PBR material slots,
@@ -59,7 +59,7 @@ No launcher reload is required by its static weapon handoff. Reload clips are pl
 hand gestures; weapon mechanism/magazine changes and event timing are integrator-owned.
 NPC motion is separately owned by the pedestrian track, accepted at
 `211df6e72e80d791521d91fa70cd80425366ec35`; its library is
-`art/animations/pedestrian_civilian/npc_locomotion_v1.tres`. No competing NPC library
+`art/animations/characters/pedestrian_worker/npc_locomotion_v1.tres`. No competing NPC library
 is shipped in this player checkpoint.
 
 `PlayerCharacterVisual.play_clip(name)` selects a full-body clip. `play_layered(lower,

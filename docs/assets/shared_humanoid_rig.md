@@ -1,6 +1,6 @@
 # Shared humanoid rig — v1 binding contract
 
-9 October 2026. Player lead owns this contract and `art/source/models/shared_humanoid/`.
+9 October 2026. Player lead owns this contract and `art/source/models/characters/shared_humanoid/`.
 Regner approved Coral Courier and explicitly selected **one underlying skeleton with
 separate player and NPC animation libraries**, including interchangeable future player
 skins. Spatial authoring uses verified `gpt-6-astra/high`; technical imports/configuration
@@ -11,14 +11,14 @@ may use Sol 6.1. S13 remains an unchanged technical fixture and is not a compati
 Contract ID **`shared_humanoid/1.0.0`**. This first checkpoint freezes the 28-bone rest
 hierarchy for skin authoring; it does not accept production motion or weapon fit.
 The authoritative numeric source/export map and every armature-space rest matrix are in
-[`shared_humanoid_v1.json`](../../art/source/models/shared_humanoid/shared_humanoid_v1.json).
+[`shared_humanoid_v1.json`](../../art/source/models/characters/shared_humanoid/shared_humanoid_v1.json).
 Rest SHA256: `df5a1e7117a9de8800df2ab5766f70e8018700878dd5bc84877b86767abc25c9`.
 
 | File | Role |
 | --- | --- |
-| `art/source/models/shared_humanoid/shared_humanoid_v1.blend` | Canonical `Rig` armature, A-pose; original player-lead authorship |
-| `art/source/models/shared_humanoid/shared_humanoid_v1.json` | Exact ordered names/parents/Blender rest matrices, compatibility fingerprint |
-| `art/models/shared_humanoid/shared_humanoid_bind_v1.glb` | Explicit `export_shared_humanoid_bind_v1` collection; `Rig` plus technical `BindTemplate` |
+| `art/source/models/characters/shared_humanoid/shared_humanoid_v1.blend` | Canonical `Rig` armature, A-pose; original player-lead authorship |
+| `art/source/models/characters/shared_humanoid/shared_humanoid_v1.json` | Exact ordered names/parents/Blender rest matrices, compatibility fingerprint |
+| `art/models/characters/shared_humanoid/shared_humanoid_bind_v1.glb` | Explicit `export_shared_humanoid_bind_v1` collection; `Rig` plus technical `BindTemplate` |
 | `tools/player_character/author_shared_rig.py` | Original bootstrap prompt-as-code; not a runtime or reexport geometry generator |
 | `tools/player_character/reexport.py` | Reexport saved source; does not reconstruct geometry |
 
@@ -70,16 +70,16 @@ must preserve joint locations or be treated as a new rig/retargeting task.
 
 ## Animation libraries and attachments
 
-Player motion: `art/source/models/shared_humanoid/shared_humanoid_player_motion_v1.blend`
-→ `art/models/shared_humanoid/shared_humanoid_player_motion_v1.glb` →
-`art/animations/shared_humanoid/player_v1.tres`. It contains 24 full-body clips with
+Player motion: `art/source/models/characters/shared_humanoid/shared_humanoid_player_motion_v1.blend`
+→ `art/models/characters/shared_humanoid/shared_humanoid_player_motion_v1.glb` →
+`art/animations/characters/shared_humanoid/player_v1.tres`. It contains 24 full-body clips with
 all 84 bone transform channels retained. `player_upper_v1.tres` and `player_lower_v1.tres`
 filter those same keys into disjoint upper-body and locomotion tracks; they do not
 invent motion. [Player handoff](player_character/README.md) lists durations, loops,
 source collections, skin-swap API and the remaining external integration work.
 
 The pedestrian owns its separate NPC idle/walk/run/death library at
-`art/animations/pedestrian_civilian/npc_locomotion_v1.tres`, independently accepted at
+`art/animations/characters/pedestrian_worker/npc_locomotion_v1.tres`, independently accepted at
 `211df6e72e80d791521d91fa70cd80425366ec35`. Player motion does not overwrite NPC actions.
 Both preserve these exact rest transforms. `root` never receives gameplay movement;
 death animates only the presentation skeleton. Clip transitions/event timing and
@@ -88,7 +88,7 @@ combined gameplay movement/aim are integrator-owned.
 Right hand is dominant, left hand supports SMG/launcher, right shoulder receives the
 stock/pad. Source `socket_grip` and `socket_muzzle` remain weapon-owned. Player wrapper
 `Sockets/WeaponMount` selects the authored offsets from
-`art/source/models/player_character/weapon_profiles.json`; the equipped weapon wrapper
+`art/source/models/characters/coral_courier/weapon_profiles.json`; the equipped weapon wrapper
 retains its own `Sockets/Muzzle`. Hand-bone local axes are not the weapon frame. The
 source-to-import checks confirm -Z front / +Y up at the selected grip frame.
 

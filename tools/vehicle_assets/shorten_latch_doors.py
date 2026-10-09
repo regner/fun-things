@@ -55,7 +55,7 @@ def source_bounds(obj):
 
 record = json.loads(RECORD.read_text())
 source = (ROOT / record['source']).resolve()
-assert source.parent == ROOT / 'art/source/models/city_cars'
+assert source.parent == ROOT / 'art/source/models/vehicles/car_latch_a'
 bpy.ops.wm.open_mainfile(filepath=str(source))
 assert Path(bpy.data.filepath).resolve() == source
 assert not bpy.context.scene.get('latch_short_door_revision', False)

@@ -2,7 +2,7 @@
 extends Node
 ## Asset-local inspection bridge; never rebuilds or overwrites the authored scene hierarchy.
 
-const MODELS: String = "res://art/models/weapon_effects/weapon_effects_a_"
+const MODELS: String = "res://art/models/effects/weapon_effects/weapon_effects_a_"
 const KINDS: Array[String] = [
 	"muzzle_drop", "fire_lobe", "smoke_puff", "spark", "chip", "trail_puff",
 ]

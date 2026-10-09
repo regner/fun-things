@@ -1,10 +1,10 @@
 [gd_scene format=3 uid="uid://wrydf8221mfm"]
 
 [ext_resource type="Script" uid="uid://570cew3c4gxx" path="res://scenes/prefabs/player_character/player_character_visual.gd" id="1_8hoqs"]
-[ext_resource type="PackedScene" uid="uid://mora8yn7wvqm" path="res://art/models/player_character/coral_courier.glb" id="1_m7nej"]
-[ext_resource type="AnimationLibrary" uid="uid://b1kv4mv85o77n" path="res://art/animations/shared_humanoid/player_v1.tres" id="2_w1mg2"]
-[ext_resource type="AnimationLibrary" uid="uid://tdqvobmbdvc" path="res://art/animations/shared_humanoid/player_upper_v1.tres" id="4_eipwt"]
-[ext_resource type="AnimationLibrary" uid="uid://bc81d720632pl" path="res://art/animations/shared_humanoid/player_lower_v1.tres" id="5_uc0ms"]
+[ext_resource type="PackedScene" uid="uid://mora8yn7wvqm" path="res://art/models/characters/coral_courier/coral_courier.glb" id="1_m7nej"]
+[ext_resource type="AnimationLibrary" uid="uid://b1kv4mv85o77n" path="res://art/animations/characters/shared_humanoid/player_v1.tres" id="2_w1mg2"]
+[ext_resource type="AnimationLibrary" uid="uid://tdqvobmbdvc" path="res://art/animations/characters/shared_humanoid/player_upper_v1.tres" id="4_eipwt"]
+[ext_resource type="AnimationLibrary" uid="uid://bc81d720632pl" path="res://art/animations/characters/shared_humanoid/player_lower_v1.tres" id="5_uc0ms"]
 
 [node name="coral_courier" type="Node3D" unique_id=1839496001]
 script = ExtResource("1_8hoqs")

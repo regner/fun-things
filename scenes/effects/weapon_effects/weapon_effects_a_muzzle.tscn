@@ -1,11 +1,11 @@
 [gd_scene format=3 uid="uid://d1htdsktia0dq"]
 
 [ext_resource type="Script" uid="uid://bp4rf74ywinkg" path="res://scenes/effects/weapon_effects/effect.gd" id="1_gavnk"]
-[ext_resource type="ArrayMesh" uid="uid://dj3vokl67ytjd" path="res://art/models/weapon_effects/weapon_effects_a_muzzle_drop_mesh.res" id="2_e8mjs"]
-[ext_resource type="PackedScene" uid="uid://dgj4bbp7thfak" path="res://art/models/weapon_effects/weapon_effects_a_muzzle_drop.glb" id="2_v6lky"]
-[ext_resource type="PackedScene" uid="uid://cv17qg1mdkmqf" path="res://art/models/weapon_effects/weapon_effects_a_spark.glb" id="3_bfmxo"]
-[ext_resource type="Material" uid="uid://cm63lhvrr2hf7" path="res://art/materials/weapon_effects/weapon_effects_a_spark.tres" id="4_xuijx"]
-[ext_resource type="ArrayMesh" uid="uid://dja55fsdaa1o4" path="res://art/models/weapon_effects/weapon_effects_a_spark_mesh.res" id="5_6f5xy"]
+[ext_resource type="ArrayMesh" uid="uid://dj3vokl67ytjd" path="res://art/models/effects/weapon_effects/weapon_effects_a_muzzle_drop_mesh.res" id="2_e8mjs"]
+[ext_resource type="PackedScene" uid="uid://dgj4bbp7thfak" path="res://art/models/effects/weapon_effects/weapon_effects_a_muzzle_drop.glb" id="2_v6lky"]
+[ext_resource type="PackedScene" uid="uid://cv17qg1mdkmqf" path="res://art/models/effects/weapon_effects/weapon_effects_a_spark.glb" id="3_bfmxo"]
+[ext_resource type="Material" uid="uid://cm63lhvrr2hf7" path="res://art/materials/effects/weapon_effects/weapon_effects_a_spark.tres" id="4_xuijx"]
+[ext_resource type="ArrayMesh" uid="uid://dja55fsdaa1o4" path="res://art/models/effects/weapon_effects/weapon_effects_a_spark_mesh.res" id="5_6f5xy"]
 
 [sub_resource type="Curve" id="Curve_e8mjs"]
 _data = [Vector2(0, 0.05), 0.0, 0.0, 0, 0, Vector2(0.2, 1), 0.0, 0.0, 0, 0, Vector2(0.65, 0.5), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]

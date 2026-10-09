@@ -6,8 +6,8 @@ extends SceneTree
 ## Check imported joint names and armature-space head locations against source data.
 func _initialize() -> void:
 	var manifest: Dictionary = JSON.parse_string(FileAccess.get_file_as_string(
-		"res://art/source/models/shared_humanoid/shared_humanoid_v1.json"))
-	var packed: PackedScene = load("res://art/models/shared_humanoid/shared_humanoid_bind_v1.glb")
+		"res://art/source/models/characters/shared_humanoid/shared_humanoid_v1.json"))
+	var packed: PackedScene = load("res://art/models/characters/shared_humanoid/shared_humanoid_bind_v1.glb")
 	var model: Node = packed.instantiate()
 	var skeleton: Skeleton3D = model.find_child("Skeleton3D", true, false) as Skeleton3D
 	assert(skeleton != null)

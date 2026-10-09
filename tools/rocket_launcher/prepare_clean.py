@@ -7,7 +7,7 @@ root = Path(__file__).resolve().parents[2]
 target = Path(sys.argv[1]).resolve()
 assert not target.exists(), "Use a fresh directory; this tool never replaces an existing project."
 target.mkdir(parents=True)
-paths = list((root / "art/models/rocket_launcher").glob("*"))
+paths = list((root / "art/models/weapons/dock_thumper").glob("*"))
 paths += list((root / "scenes/prefabs/rocket_launcher").glob("*.tscn"))
 paths += [root / "tests/fixtures/rocket_launcher" / name for name in [
     "preview.tscn", "stage.tscn", "preview.gd", "preview.gd.uid", "studio_environment.tres",

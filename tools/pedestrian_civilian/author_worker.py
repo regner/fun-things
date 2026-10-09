@@ -9,7 +9,7 @@ from mathutils import Vector
 
 ROOT = Path(__file__).resolve().parents[2]
 ASSET_ID = "pedestrian_worker_a"
-SOURCE = ROOT / f"art/source/models/pedestrian_civilian/{ASSET_ID}.blend"
+SOURCE = ROOT / f"art/source/models/characters/pedestrian_worker/{ASSET_ID}.blend"
 PARTS = "worker_editable_parts"
 REGIONS = ["skin", "jacket", "yoke", "trousers", "cap", "shirt", "boots", "trim", "hair"]
 SWATCHES = ["B77D53", "ECA23E", "326DC0", "48596C", "22525D", "26333B",

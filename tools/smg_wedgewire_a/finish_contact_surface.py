@@ -11,7 +11,7 @@ from mathutils import Vector
 import math
 
 ROOT = Path(__file__).resolve().parents[2]
-SOURCE = ROOT / 'art/source/models/weapons_smg/smg_wedgewire_a.blend'
+SOURCE = ROOT / 'art/source/models/weapons/smg_wedgewire/smg_wedgewire_a.blend'
 assert Path(bpy.data.filepath).resolve() == SOURCE
 assert bpy.context.scene.get('astra_visual_refinement_01', False)
 assert not bpy.context.scene.get('support_surface_finished', False)

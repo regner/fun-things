@@ -10,10 +10,10 @@ ROOT=Path(__file__).resolve().parents[2]
 
 def main():
     """Inspect source poses and mesh surfaces; leave the saved source untouched."""
-    bpy.ops.wm.open_mainfile(filepath=str(ROOT/'art/source/models/player_character/coral_courier.blend'))
+    bpy.ops.wm.open_mainfile(filepath=str(ROOT/'art/source/models/characters/coral_courier/coral_courier.blend'))
     rig=bpy.data.objects['Rig'];skin=bpy.data.objects['Skin']
-    source=ROOT/'art/source/models/shared_humanoid/shared_humanoid_player_motion_v1.blend'
-    profiles=json.loads((ROOT/'art/source/models/player_character/weapon_profiles.json').read_text())['profiles']
+    source=ROOT/'art/source/models/characters/shared_humanoid/shared_humanoid_player_motion_v1.blend'
+    profiles=json.loads((ROOT/'art/source/models/characters/coral_courier/weapon_profiles.json').read_text())['profiles']
     with bpy.data.libraries.load(str(source),link=False) as (src,dst):
         dst.actions=['pistol_hold','smg_hold','launcher_hold']
     actions={a.name:a for a in dst.actions};rig.animation_data_create()

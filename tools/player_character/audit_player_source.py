@@ -9,7 +9,7 @@ ROOT=Path(__file__).resolve().parents[2]
 
 def main():
     """Audit actual saved skin and action data without reconstructing or saving source."""
-    bpy.ops.wm.open_mainfile(filepath=str(ROOT/'art/source/models/player_character/coral_courier.blend'))
+    bpy.ops.wm.open_mainfile(filepath=str(ROOT/'art/source/models/characters/coral_courier/coral_courier.blend'))
     rig=bpy.data.objects['Rig'];mesh=bpy.data.objects['Skin']
     rest=[]
     for bone in rig.data.bones:
@@ -17,7 +17,7 @@ def main():
                      'head_blender_m':list(bone.head_local),'tail_blender_m':list(bone.tail_local),
                      'matrix_blender_armature':[list(row) for row in bone.matrix_local]})
     fingerprint=hashlib.sha256(json.dumps(rest,sort_keys=True,separators=(',',':')).encode()).hexdigest()
-    canonical=json.loads((ROOT/'art/source/models/shared_humanoid/shared_humanoid_v1.json').read_text())
+    canonical=json.loads((ROOT/'art/source/models/characters/shared_humanoid/shared_humanoid_v1.json').read_text())
     assert fingerprint==canonical['rest_sha256']
     max_weights=max(len(v.groups) for v in mesh.data.vertices)
     assert max_weights<=4
@@ -27,7 +27,7 @@ def main():
     degenerate=sum(1 for tri in mesh.data.loop_triangles if tri.area<1e-10)
     assert degenerate==0,degenerate
     assert mesh.data.uv_layers.active is not None
-    motion=ROOT/'art/source/models/shared_humanoid/shared_humanoid_player_motion_v1.blend'
+    motion=ROOT/'art/source/models/characters/shared_humanoid/shared_humanoid_player_motion_v1.blend'
     manifest=json.loads(motion.with_suffix('.json').read_text())
     with bpy.data.libraries.load(str(motion),link=False) as (source,target):
         target.actions=[c['name'] for c in manifest['clips']]

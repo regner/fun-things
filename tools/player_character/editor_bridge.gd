@@ -3,7 +3,7 @@ class_name PlayerAssetEditorBridge
 extends Node3D
 ## Editor-only authoring bridge; bounded allocations create saved resources, never runtime meshes.
 
-const MOTION_PATH: String = "res://art/animations/shared_humanoid/player_v1.tres"
+const MOTION_PATH: String = "res://art/animations/characters/shared_humanoid/player_v1.tres"
 
 
 ## Add an authored node and assign only its wrapper ownership.
@@ -19,7 +19,7 @@ func build_actor() -> void:
 	assert(get_child_count() == 0)
 	var anchor: Node3D = add_owned(self, Node3D.new(), "PresentationAnchor") as Node3D
 	var visuals: Node3D = add_owned(anchor, Node3D.new(), "Visuals") as Node3D
-	var packed: PackedScene = load("res://art/models/player_character/coral_courier.glb")
+	var packed: PackedScene = load("res://art/models/characters/coral_courier/coral_courier.glb")
 	add_owned(visuals, packed.instantiate(), "Model")
 	EditorInterface.mark_scene_as_unsaved()
 
@@ -72,15 +72,15 @@ func build_preview() -> void:
 
 ## Extract the explicit player animation library from their source-linked motion GLBs.
 func save_motion_libraries() -> Dictionary:
-	DirAccess.make_dir_recursive_absolute("res://art/animations/shared_humanoid")
+	DirAccess.make_dir_recursive_absolute("res://art/animations/characters/shared_humanoid")
 	var result: Dictionary = {}
 	for family: String in ["player"]:
 		var stem: String = "shared_humanoid_" + family + "_motion_v1"
 		var manifest: Dictionary = JSON.parse_string(FileAccess.get_file_as_string(
-			"res://art/source/models/shared_humanoid/" + stem + ".json"))
+			"res://art/source/models/characters/shared_humanoid/" + stem + ".json"))
 		# Extraction must consume the fresh imported file, not an editor-held older scene.
 		var packed: PackedScene = ResourceLoader.load(
-			"res://art/models/shared_humanoid/" + stem + ".glb",
+			"res://art/models/characters/shared_humanoid/" + stem + ".glb",
 			"PackedScene", ResourceLoader.CACHE_MODE_IGNORE_DEEP
 		)
 		var source: Node = packed.instantiate()
@@ -105,7 +105,7 @@ func save_motion_libraries() -> Dictionary:
 				"first_path": str(animation.track_get_path(0)),
 			})
 		var error: Error = ResourceSaver.save(library,
-			"res://art/animations/shared_humanoid/" + family + "_v1.tres")
+			"res://art/animations/characters/shared_humanoid/" + family + "_v1.tres")
 		assert(error == OK)
 		result[family] = summary
 		source.free()
@@ -144,7 +144,7 @@ func add_game_camera() -> void:
 func configure_motion_imports() -> void:
 	var paths: PackedStringArray = PackedStringArray()
 	for family: String in ["player"]:
-		var path: String = "res://art/models/shared_humanoid/shared_humanoid_"
+		var path: String = "res://art/models/characters/shared_humanoid/shared_humanoid_"
 		path += family + "_motion_v1.glb"
 		var config: ConfigFile = ConfigFile.new()  # gdstyle:ignore=quality/allocation-in-loop
 		assert(config.load(path + ".import") == OK)
@@ -183,9 +183,9 @@ func save_layer_libraries() -> void:
 			upper.add_animation(name, animation)
 		else:
 			lower.add_animation(name, animation)
-	var upper_path: String = "res://art/animations/shared_humanoid/player_upper_v1.tres"
+	var upper_path: String = "res://art/animations/characters/shared_humanoid/player_upper_v1.tres"
 	assert(ResourceSaver.save(upper, upper_path) == OK)
-	var lower_path: String = "res://art/animations/shared_humanoid/player_lower_v1.tres"
+	var lower_path: String = "res://art/animations/characters/shared_humanoid/player_lower_v1.tres"
 	assert(ResourceSaver.save(lower, lower_path) == OK)
 
 
@@ -201,7 +201,7 @@ func install_layers_and_grips() -> void:
 		player.root_node = NodePath("../PresentationAnchor/Visuals/Model")
 		player.add_animation_library(
 			&"",
-			load("res://art/animations/shared_humanoid/player_" + family + "_v1.tres"),
+			load("res://art/animations/characters/shared_humanoid/player_" + family + "_v1.tres"),
 		)
 	var attachment: BoneAttachment3D = add_owned(
 		self,
@@ -218,7 +218,7 @@ func install_layers_and_grips() -> void:
 ## Convert source matrices into Godot bone space and store them on the visual script.
 func store_grip_profiles() -> void:
 	var data: Dictionary = JSON.parse_string(FileAccess.get_file_as_string(
-		"res://art/source/models/player_character/weapon_profiles.json"))
+		"res://art/source/models/characters/coral_courier/weapon_profiles.json"))
 	var conversion: Transform3D = Transform3D(
 		Basis(Vector3.RIGHT, Vector3.FORWARD, Vector3.UP),
 		Vector3.ZERO,
@@ -243,7 +243,7 @@ func build_fit_preview() -> void:
 	add_game_camera()
 	var mount: Node = get_node("Courier/Sockets/WeaponMount")
 	for weapon: String in ["pistol", "smg", "launcher"]:
-		var path: String = "res://art/models/player_character/fit_check/" + weapon + ".glb"
+		var path: String = "res://art/models/characters/coral_courier/fit_check/" + weapon + ".glb"
 		var packed: PackedScene = load(path)
 		var instance: Node3D = add_owned(mount, packed.instantiate(), weapon.capitalize()) as Node3D
 		instance.visible = false

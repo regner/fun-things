@@ -14,10 +14,10 @@ def export_all(destination=None):
     """Validate collection scope and export source-linked GLBs with the pinned preset."""
     if bpy.app.version_string != "5.2.2 LTS":
         raise RuntimeError("Expected Blender 5.2.2 LTS")
-    source = ROOT / "art/source/models/pedestrian_civilian/pedestrian_worker_a.blend"
+    source = ROOT / "art/source/models/characters/pedestrian_worker/pedestrian_worker_a.blend"
     if Path(bpy.data.filepath).resolve() != source:
         raise RuntimeError("Worker source path mismatch")
-    destination = Path(destination or ROOT / "art/models/pedestrian_civilian")
+    destination = Path(destination or ROOT / "art/models/characters/pedestrian_worker")
     destination.mkdir(parents=True, exist_ok=True)
     settings = json.loads((ROOT / "tools/s01/export_settings.json").read_text())
     settings["export_animations"] = False

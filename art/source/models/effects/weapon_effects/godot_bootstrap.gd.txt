@@ -1,0 +1,360 @@
+# Historical editor bootstrap; final saved scenes are authoritative. Do not rerun over them.
+@tool
+extends Node
+## Editor-only authoring bridge for imported draw meshes and saved particle assemblies.
+
+const EXPECTED_PROJECT: String = "/home/regner/.paseo/worktrees/0u71f39f/brackett-weapon-effects"
+const DIRECTORY: String = "res://scenes/effects/weapon_effects/"
+const MODELS: String = "res://art/models/effects/weapon_effects/weapon_effects_a_"
+const MATERIALS: String = "res://art/materials/effects/weapon_effects/"
+const EFFECT_SCRIPT: String = DIRECTORY + "effect.gd"
+
+var _meshes: Dictionary = {}
+var _materials: Dictionary = {}
+
+
+## Report exact context before allowing this helper to write effects-owned resources.
+func context() -> Dictionary:
+	return {
+		"project": ProjectSettings.globalize_path("res://").trim_suffix("/"),
+		"pid": OS.get_process_id(),
+		"editor": Engine.is_editor_hint()
+	}
+
+
+## Build source-linked scenes only inside the verified private effects editor.
+func author() -> Dictionary:
+	assert(Engine.is_editor_hint())
+	assert(context().project == EXPECTED_PROJECT)
+	DirAccess.make_dir_recursive_absolute(MATERIALS)
+	for kind: String in ["muzzle_drop", "fire_lobe", "smoke_puff", "spark", "chip", "trail_puff"]:
+		var imported: Node = load(MODELS + kind + ".glb").instantiate()
+		_meshes[kind] = (imported.get_child(0) as MeshInstance3D).mesh
+		imported.free()
+
+	_make_materials()
+	_muzzle()
+	_impact()
+	_trail()
+	_explosion()
+	_preview()
+	return {"saved": ["muzzle", "hit", "trail", "explosion", "preview"], "context": context()}
+
+
+## Save resources with engine serialization and refuse silently failed writes.
+func _save(resource: Resource, path: String) -> void:
+	assert(ResourceSaver.save(resource, path) == OK, path)
+
+
+## Create local material overrides without mutating imported mesh resources.
+func _make_materials() -> void:
+	for entry: Array in [
+		["fire", Color(1.0, 0.62, 0.13), 1.3],
+		["spark", Color(1.0, 0.75, 0.25), 1.6],
+		["smoke", Color(0.16, 0.20, 0.25), 0.0],
+		["chip", Color(0.045, 0.065, 0.085), 0.0],
+		["trail", Color(1.0, 0.58, 0.15), 0.8]
+	]:
+		var material: StandardMaterial3D = StandardMaterial3D.new()
+		material.resource_name = "weapon_effects_a_" + entry[0]
+		material.albedo_color = entry[1]
+		material.roughness = 0.95
+		material.vertex_color_use_as_albedo = true
+		material.emission_enabled = entry[2] > 0.0
+		material.emission = entry[1]
+		material.emission_energy_multiplier = entry[2]
+		_save(material, MATERIALS + "weapon_effects_a_" + entry[0] + ".tres")
+		_materials[entry[0]] = load(MATERIALS + "weapon_effects_a_" + entry[0] + ".tres")
+
+
+## Author scale-over-lifetime as a saved curve, with every particle ending at zero size.
+func _scale(points: Array) -> CurveTexture:
+	var curve: Curve = Curve.new()
+	for point: Vector2 in points:
+		curve.add_point(point)
+
+	var texture: CurveTexture = CurveTexture.new()
+	texture.curve = curve
+	return texture
+
+
+## Create a saved cosmetic root with an explicit settling time and no collision.
+func _root(title: String, seconds: float, continuous: bool = false) -> Node3D:
+	var root: Node3D = Node3D.new()
+	root.name = title
+	root.set_script(load(EFFECT_SCRIPT))
+	root.set("settle_seconds", seconds)
+	root.set("continuous", continuous)
+	root.visible = false
+	root.set_meta("asset_family", "weapon_effects_a")
+	root.set_meta("selected_concept", "A compact combustion")
+	return root
+
+
+## Build one authored emitter using an imported mesh resource and an explicit visibility box.
+func _emitter(root: Node3D, title: String, kind: String, material: String,
+		count: int, seconds: float, bounds: AABB, continuous: bool = false) -> GPUParticles3D:
+	var emitter: GPUParticles3D = GPUParticles3D.new()
+	emitter.name = title
+	emitter.emitting = false
+	emitter.one_shot = not continuous
+	emitter.explosiveness = 0.0 if continuous else 1.0
+	emitter.amount = count
+	emitter.lifetime = seconds
+	emitter.fixed_fps = 60
+	emitter.local_coords = not continuous
+	emitter.visibility_aabb = bounds
+	emitter.draw_pass_1 = _meshes[kind]
+	if not material.is_empty():
+		emitter.material_override = _materials[material]
+
+	var process: ParticleProcessMaterial = ParticleProcessMaterial.new()
+	process.gravity = Vector3.ZERO
+	process.scale_min = 1.0
+	process.scale_max = 1.0
+	process.scale_curve = _scale([Vector2(0, 0.15), Vector2(0.22, 1), Vector2(0.6, 0.8), Vector2(1, 0)])
+	emitter.process_material = process
+	root.add_child(emitter)
+	emitter.owner = root
+	# Retain a source-linked imported instance for inspection; draw_pass_1 references its mesh.
+	var source: Node3D = load(MODELS + kind + ".glb").instantiate()
+	source.name = "MeshSource"
+	source.visible = false
+	emitter.add_child(source)
+	source.owner = root
+	return emitter
+
+
+## Pack a complete scene in editor context; each scene then receives an editor save/reopen.
+func _pack(root: Node3D, filename: String) -> void:
+	var packed: PackedScene = PackedScene.new()
+	assert(packed.pack(root) == OK)
+	_save(packed, DIRECTORY + filename + ".tscn")
+	root.free()
+
+
+## Author a tiny directional ivory/amber flash and two short forward sparks.
+func _muzzle() -> void:
+	var root: Node3D = _root("MuzzleFlash", 0.17)
+	var bounds: AABB = AABB(Vector3(-0.45, -0.30, -1.05), Vector3(0.9, 0.6, 1.12))
+	var flash: GPUParticles3D = _emitter(root, "Flash", "muzzle_drop", "", 1, 0.11, bounds)
+	var process: ParticleProcessMaterial = flash.process_material
+	process.direction = Vector3(0, 0, -1)
+	process.spread = 0.0
+	process.initial_velocity_min = 0.0
+	process.initial_velocity_max = 0.0
+	process.scale_curve = _scale([Vector2(0, 0.05), Vector2(0.2, 1), Vector2(0.65, 0.5), Vector2(1, 0)])
+	var sparks: GPUParticles3D = _emitter(root, "Sparks", "spark", "spark", 2, 0.14, bounds)
+	process = sparks.process_material
+	process.direction = Vector3(0, 0, -1)
+	process.spread = 22.0
+	process.initial_velocity_min = 2.0
+	process.initial_velocity_max = 3.5
+	process.scale_min = 0.3
+	process.scale_max = 0.6
+	process.particle_flag_align_y = true
+	_pack(root, "weapon_effects_a_muzzle")
+
+
+## Keep surface hits small, with short radial sparks and three slate dust puffs.
+func _impact() -> void:
+	var root: Node3D = _root("SurfaceHit", 0.40)
+	var bounds: AABB = AABB(Vector3(-1, -0.1, -1), Vector3(2, 1.1, 2))
+	var sparks: GPUParticles3D = _emitter(root, "Sparks", "spark", "spark", 7, 0.18, bounds)
+	var process: ParticleProcessMaterial = sparks.process_material
+	process.direction = Vector3.UP
+	process.spread = 90.0
+	process.flatness = 0.9
+	process.initial_velocity_min = 1.3
+	process.initial_velocity_max = 3.0
+	process.particle_flag_align_y = true
+	process.scale_min = 0.4
+	process.scale_max = 0.8
+	var dust: GPUParticles3D = _emitter(root, "Dust", "smoke_puff", "smoke", 3, 0.32, bounds)
+	process = dust.process_material
+	process.direction = Vector3.UP
+	process.spread = 90.0
+	process.flatness = 0.9
+	process.initial_velocity_min = 0.4
+	process.initial_velocity_max = 0.8
+	process.scale_min = 0.13
+	process.scale_max = 0.25
+	_pack(root, "weapon_effects_a_hit")
+
+
+## Emit short porous world-space knots; the integrator owns speed-dependent visibility bounds.
+func _trail() -> void:
+	var root: Node3D = _root("RocketTrail", 0.58, true)
+	root.set_meta("bounds_note", "Provisional +/-12m; integrator must validate residual travel at actual speed")
+	var bounds: AABB = AABB(Vector3(-12, -3, -12), Vector3(24, 6, 24))
+	for entry: Array in [["Hot", "trail", 5, 0.25], ["Cool", "smoke", 6, 0.50]]:
+		var emitter: GPUParticles3D = _emitter(root, entry[0], "trail_puff",
+				entry[1], entry[2], entry[3], bounds, true)
+		var process: ParticleProcessMaterial = emitter.process_material
+		process.emission_shape = ParticleProcessMaterial.EMISSION_SHAPE_SPHERE
+		process.emission_sphere_radius = 0.012
+		process.direction = Vector3(0, 0, 1)
+		process.spread = 10.0
+		process.initial_velocity_min = 2.2
+		process.initial_velocity_max = 3.2
+		process.scale_min = 0.15 if entry[0] == "Hot" else 0.35
+		process.scale_max = 0.65 if entry[0] == "Hot" else 0.9
+		process.scale_curve = _scale([Vector2(0, 0.1), Vector2(0.25, 0.9), Vector2(0.7, 1), Vector2(1, 0)])
+	_pack(root, "weapon_effects_a_trail")
+
+
+## Author separated warm fire lobes, porous slate smoke, sparks and non-colliding chips.
+func _explosion() -> void:
+	var root: Node3D = _root("Explosion", 1.45)
+	var bounds: AABB = AABB(Vector3(-4.5, -0.6, -4.5), Vector3(9, 4.2, 9))
+	for entry: Array in [
+		["Fire", "fire_lobe", "fire", 9, 0.42, 0.45, 1.2, 2.5, 0.7, 1.0],
+		["Smoke", "smoke_puff", "smoke", 7, 1.15, 0.9, 0.5, 1.3, 0.45, 0.85],
+		["Sparks", "spark", "spark", 14, 0.52, 0.3, 2.2, 4.6, 0.5, 1.1],
+		["Chips", "chip", "chip", 5, 0.75, 0.3, 1.6, 3.3, 0.6, 1.0]
+	]:
+		var emitter: GPUParticles3D = _emitter(root, entry[0], entry[1], entry[2],
+				entry[3], entry[4], bounds)
+		var process: ParticleProcessMaterial = emitter.process_material
+		process.emission_shape = ParticleProcessMaterial.EMISSION_SHAPE_SPHERE
+		process.emission_sphere_radius = entry[5]
+		process.direction = Vector3.UP
+		process.spread = 90.0
+		process.flatness = 0.85
+		process.initial_velocity_min = entry[6]
+		process.initial_velocity_max = entry[7]
+		process.scale_min = entry[8]
+		process.scale_max = entry[9]
+		process.gravity = Vector3(0, 0.6, 0) if entry[0] == "Smoke" else Vector3.ZERO
+		process.particle_flag_align_y = entry[0] == "Sparks"
+		if entry[0] == "Smoke":
+			process.scale_curve = _scale([Vector2(0, 0.05), Vector2(0.4, 0.85), Vector2(0.65, 1), Vector2(1, 0)])
+		elif entry[0] == "Fire":
+			var gradient: Gradient = Gradient.new()
+			gradient.offsets = PackedFloat32Array([0, 0.25, 0.7, 1])
+			gradient.colors = PackedColorArray([Color(1, 1, 0.72), Color(1, 0.75, 0.30),
+					Color(1, 0.3, 0.16), Color(0.55, 0.12, 0.08)])
+			var ramp: GradientTexture1D = GradientTexture1D.new()
+			ramp.gradient = gradient
+			process.color_ramp = ramp
+
+	_pack(root, "weapon_effects_a_explosion")
+
+
+## Add a saved child with root ownership; imported children retain their source identity.
+func _add(root: Node, child: Node, title: String) -> void:
+	child.name = title
+	root.add_child(child)
+	child.owner = root
+
+
+## Compose an asset-local camera/lighting/labels stage and independent overlap effects.
+func _preview() -> void:
+	var root: Node3D = Node3D.new()
+	root.name = "WeaponEffectsPreview"
+	root.set_script(load(DIRECTORY + "preview.gd"))
+	var model: Node3D = load(MODELS + "preview_stage.glb").instantiate()
+	_add(root, model, "Stage")
+	var camera: Camera3D = Camera3D.new()
+	camera.position = Vector3(0, 47, 0)
+	camera.rotation_degrees = Vector3(-90, 0, 0)
+	camera.fov = 42
+	camera.near = 0.1
+	camera.far = 160
+	camera.current = true
+	_add(root, camera, "Camera")
+	var light: DirectionalLight3D = DirectionalLight3D.new()
+	light.rotation_degrees = Vector3(-60, -25, 0)
+	light.light_color = Color(0.68, 0.79, 1)
+	light.light_energy = 1.0
+	_add(root, light, "Moon")
+	var environment: WorldEnvironment = WorldEnvironment.new()
+	environment.environment = Environment.new()
+	environment.environment.background_mode = Environment.BG_COLOR
+	environment.environment.background_color = Color(0.015, 0.025, 0.04)
+	environment.environment.ambient_light_source = Environment.AMBIENT_SOURCE_COLOR
+	environment.environment.ambient_light_color = Color(0.45, 0.58, 0.75)
+	environment.environment.ambient_light_energy = 0.7
+	environment.environment.tonemap_mode = Environment.TONE_MAPPER_FILMIC
+	environment.environment.glow_enabled = true
+	environment.environment.glow_intensity = 0.45
+	_add(root, environment, "Environment")
+	for entry: Array in [
+		["Muzzle", "muzzle", Vector3(-17, 1.2, -7)],
+		["Hit", "hit", Vector3(-6, 0.3, -7)],
+		["Explosion", "explosion", Vector3(-12, 0.6, 7)]
+	]:
+		var effect: Node3D = load(DIRECTORY + "weapon_effects_a_" + entry[1] + ".tscn").instantiate()
+		effect.position = entry[2]
+		_add(root, effect, entry[0])
+
+	var anchor: Marker3D = Marker3D.new()
+	anchor.position = Vector3(7, 1.2, -7)
+	anchor.set_meta("source_socket_trail", Vector3(0, 0, 0.230))
+	anchor.set_meta("fixture_note", "Stationary emission marker; no duplicated rocket or speed simulation")
+	_add(root, anchor, "TrailAnchor")
+	var trail: Node3D = load(DIRECTORY + "weapon_effects_a_trail.tscn").instantiate()
+	anchor.add_child(trail)
+	trail.name = "Trail"
+	trail.owner = root
+	var overlap: Node3D = Node3D.new()
+	_add(root, overlap, "Overlap")
+	for index: int in range(4):
+		var effect: Node3D = load(DIRECTORY + "weapon_effects_a_explosion.tscn").instantiate()
+		effect.position = Vector3(7 + (index % 2) * 2.0, 0.6, 6 + (index / 2) * 2.0)
+		overlap.add_child(effect)
+		effect.name = "Explosion" + str(index)
+		effect.owner = root
+
+	var overlay: CanvasLayer = CanvasLayer.new()
+	_add(root, overlay, "Overlay")
+	var label: Label = Label.new()
+	label.position = Vector2(26, 18)
+	label.text = "A / COMPACT COMBUSTION   •   ASSET PLAYBACK ONLY\n47m / 42° / NORTH UP / 1280×800   |   SPACE play/clear   R restart   ESC clear\nAutomatic playback stops after24s; no damage, trajectory, chain or networking logic."
+	overlay.add_child(label)
+	label.owner = root
+	for entry: Array in [
+		["MUZZLE", Vector2(205, 205)], ["HIT", Vector2(448, 205)],
+		["TRAIL / MARKER ONLY", Vector2(704, 205)],
+		["EXPLOSION", Vector2(315, 530)], ["4 INDEPENDENT ROOTS", Vector2(765, 530)],
+		["1m ticks", Vector2(170, 685)], ["4m strip", Vector2(875, 685)]
+	]:
+		label = Label.new()
+		label.position = entry[1]
+		label.text = entry[0]
+		overlay.add_child(label)
+		label.name = "Caption" + str(overlay.get_child_count())
+		label.owner = root
+
+	_pack(root, "weapon_effects_a_preview")
+
+## Configure importer-owned mesh extraction rather than embedding vertex arrays in scenes.
+func configure_imports() -> Dictionary:
+	var paths: PackedStringArray = PackedStringArray()
+	for kind: String in ["muzzle_drop", "fire_lobe", "smoke_puff", "spark", "chip", "trail_puff"]:
+		var path: String = MODELS + kind + ".glb"
+		var packed: PackedScene = load(path)
+		var instance: Node = packed.instantiate()
+		var mesh: Mesh = (instance.get_child(0) as MeshInstance3D).mesh
+		var mesh_id: String = str(mesh.get_meta("import_id", mesh.resource_name))
+		var options: ConfigFile = ConfigFile.new()
+		assert(options.load(path + ".import") == OK)
+		options.set_value("params", "_subresources", {
+			"meshes": {mesh_id: {
+				"save_to_file/enabled": true,
+				"save_to_file/path": MODELS + kind + "_mesh.res"
+			}}
+		})
+		options.set_value("params", "meshes/generate_lods", false)
+		assert(options.save(path + ".import") == OK)
+		instance.free()
+		paths.append(path)
+
+	_reimport.call_deferred(paths)
+	return {"configured_paths": paths}
+
+
+## Run normal editor reimport outside the command-dispatch frame.
+func _reimport(paths: PackedStringArray) -> void:
+	await get_tree().process_frame
+	EditorInterface.get_resource_filesystem().reimport_files(paths)

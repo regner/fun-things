@@ -8,7 +8,7 @@ import bpy
 from mathutils import Matrix, Quaternion, Vector
 
 ROOT = Path(__file__).resolve().parents[2]
-CONTRACT = ROOT / "art/source/models/shared_humanoid/shared_humanoid_v1.json"
+CONTRACT = ROOT / "art/source/models/characters/shared_humanoid/shared_humanoid_v1.json"
 CLIPS = {"idle": 60, "walk": 30, "run": 24, "death": 48}
 
 
@@ -20,7 +20,7 @@ def smooth(low, high, value):
 
 def append_rig(collection):
     """Append only the immutable canonical armature, never the technical skin."""
-    source = ROOT / "art/source/models/shared_humanoid/shared_humanoid_v1.blend"
+    source = ROOT / "art/source/models/characters/shared_humanoid/shared_humanoid_v1.blend"
     with bpy.data.libraries.load(str(source), link=False) as (available, appended):
         assert "Rig" in available.objects
         appended.objects = ["Rig"]

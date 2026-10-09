@@ -42,7 +42,7 @@ func _check_skeleton_contract(skeleton: Skeleton3D) -> float:
 	_expect(skeleton != null and skeleton.get_bone_count() == 28, "28 canonical bones")
 	var contract: Dictionary = JSON.parse_string(
 		FileAccess.get_file_as_string(
-			"res://art/source/models/shared_humanoid/shared_humanoid_v1.json"
+			"res://art/source/models/characters/shared_humanoid/shared_humanoid_v1.json"
 		)
 	)
 	var rest_error: float = 0.0

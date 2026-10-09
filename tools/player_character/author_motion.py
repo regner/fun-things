@@ -10,7 +10,7 @@ import bpy
 from mathutils import Vector, Matrix, Quaternion
 
 ROOT=Path(__file__).resolve().parents[2]
-CANON=ROOT/'art/source/models/shared_humanoid/shared_humanoid_v1.blend'
+CANON=ROOT/'art/source/models/characters/shared_humanoid/shared_humanoid_v1.blend'
 FPS=30
 
 
@@ -202,7 +202,7 @@ def library(kind):
             grip=Vector((.30,.43,1.175)) if weapon=='pistol' else shoulder+Vector((0,.455,-.128)) if weapon=='smg' else shoulder+Vector((.140,.280,-.010))
             offset=matrices['hand_r'].inverted() @ Matrix.Translation(grip)
             profiles[weapon]={'hold_grip_blender':list(grip),'hand_to_grip_blender':[list(row) for row in offset]}
-        (ROOT/'art/source/models/player_character/weapon_profiles.json').write_text(json.dumps({'contract':'shared_humanoid/1.0.0','profiles':profiles},indent=2)+'\n')
+        (ROOT/'art/source/models/characters/coral_courier/weapon_profiles.json').write_text(json.dumps({'contract':'shared_humanoid/1.0.0','profiles':profiles},indent=2)+'\n')
     records=[]
     for name,(duration,loop) in clips.items():
         rig.animation_data.action=None
@@ -218,7 +218,7 @@ def library(kind):
     for pb in rig.pose.bones:pb.matrix_basis=Matrix.Identity(4)
     bpy.context.scene.frame_set(0)
     source=CANON.parent/('shared_humanoid_'+kind+'_motion_v1.blend')
-    output=ROOT/'art/models/shared_humanoid'/('shared_humanoid_'+kind+'_motion_v1.glb')
+    output=ROOT/'art/models/characters/shared_humanoid'/('shared_humanoid_'+kind+'_motion_v1.glb')
     bpy.ops.wm.save_as_mainfile(filepath=str(source))
     settings=json.loads((ROOT/'tools/s01/export_settings.json').read_text())
     settings.update(collection=col.name,filepath=str(output),export_animations=True)

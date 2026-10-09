@@ -25,13 +25,13 @@ The family supplies four collision-free, presentation-only saved scenes under
 independent explosion roots and a marker-only stationary trail. SPACE toggles playback, R restarts, ESC clears. Autoplay stops after 24 s.
 The preview caps its own process at 60 FPS with VSync. Project main/settings unchanged.
 
-One editable source: `art/source/models/weapon_effects/weapon_effects_a.blend`.
+One editable source: `art/source/models/effects/weapon_effects/weapon_effects_a.blend`.
 Original geometry authoring: `author_a.py` in that directory; measurements and triangle
 counts: `geometry.json`; saved-source reexport/check: `reexport_a.py`.
 `art/source/.gdignore` excludes authoring files from engine import/export.
 
 Each row below maps `export_weapon_effects_a_<kind>` in that source to
-`art/models/weapon_effects/weapon_effects_a_<kind>.glb` and its `.glb.import`:
+`art/models/effects/weapon_effects/weapon_effects_a_<kind>.glb` and its `.glb.import`:
 
 | Kind | Triangles | Consumers |
 | --- | ---: | --- |
@@ -48,7 +48,7 @@ fallback path. Each emitter references that external mesh and retains a hidden l
 `MeshSource` GLB instance. No runtime-generated mesh or copied vertex array in a scene.
 There are no physics bodies or collision shapes.
 
-External family materials live in `art/materials/weapon_effects/`: spark, smoke, chip
+External family materials live in `art/materials/effects/weapon_effects/`: spark, smoke, chip
 and trail StandardMaterial3D resources; fire_tint ShaderMaterial and the original
 `weapon_effects_a_fire.gdshader`. The shader carries particle lifetime color into
 albedo and emission, following Godot's [particle COLOR contract](https://docs.godotengine.org/en/latest/tutorials/shaders/shader_reference/particle_shader.html).
@@ -152,8 +152,8 @@ Useful checks (from this worktree; set isolated XDG paths for private processes)
 
 ```sh
 blender --background --factory-startup -noaudio --disable-autoexec --threads 2 \
-  art/source/models/weapon_effects/weapon_effects_a.blend \
-  --python art/source/models/weapon_effects/reexport_a.py -- /tmp/effects-reexport
+  art/source/models/effects/weapon_effects/weapon_effects_a.blend \
+  --python art/source/models/effects/weapon_effects/reexport_a.py -- /tmp/effects-reexport
 
 godot --headless --path <fresh-effects-profile> \
   --script res://scenes/effects/weapon_effects/verify.gd

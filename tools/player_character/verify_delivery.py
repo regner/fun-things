@@ -52,8 +52,8 @@ def main():
          '--python','tools/player_character/audit_player_source.py'],EVIDENCE/'source_audit.log',env)
     profile=state/'profile';profile.mkdir()
     (profile/'project.godot').write_text('config_version=5\n[application]\nconfig/name="Player asset clean profile"\n[rendering]\nrenderer/rendering_method="gl_compatibility"\n')
-    for relative in ['art/models/player_character','art/models/shared_humanoid',
-                     'art/animations/shared_humanoid','scenes/prefabs/player_character']:
+    for relative in ['art/models/characters/coral_courier','art/models/characters/shared_humanoid',
+                     'art/animations/characters/shared_humanoid','scenes/prefabs/player_character']:
         copy_tree(profile,relative)
     for relative in ['art/models/spikes/s02_ground.glb','art/models/spikes/s02_ground.glb.import',
                      'art/models/characters/s13_humanoid.glb','art/models/characters/s13_humanoid.glb.import',

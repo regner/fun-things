@@ -11,7 +11,7 @@ def main():
     """Validate source ownership and export only the requested declared collection."""
     assert bpy.app.version_string=='5.2.2 LTS',bpy.app.version_string
     source=Path(bpy.data.filepath).resolve()
-    allowed=[ROOT/'art/source/models/shared_humanoid',ROOT/'art/source/models/player_character']
+    allowed=[ROOT/'art/source/models/characters/shared_humanoid',ROOT/'art/source/models/characters/coral_courier']
     assert any(source.is_relative_to(p) for p in allowed),source
     args=sys.argv[sys.argv.index('--')+1:]
     collection,output=args[:2]

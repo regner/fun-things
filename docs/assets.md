@@ -64,19 +64,25 @@ Use lowercase `snake_case` filenames and a stable descriptive asset ID, such as
 world object. A compatible reexport keeps it; an incompatible replacement gets a
 new ID unless all consumers migrate together. Routine revisions keep runtime paths.
 
-Create directories as assets arrive. This layout is a contract, not existing content:
+Create directories as assets arrive. Production models use one stable type directory
+under their family: `art/models/weapons/<type_name>/`,
+`art/models/vehicles/<type_name>/`, `art/models/characters/<type_name>/`, or
+`art/models/effects/<type_name>/`. Mirror the same family/type path under
+`art/source/models/` and, when asset-specific, under `art/animations/`,
+`art/materials/`, and `art/textures/`. Runtime filenames may retain a versioned asset
+ID inside that type directory. Spike fixtures remain in their existing paths until
+their owner approves migration; do not mix them into production type directories.
 
 ```text
 art/
   source/
     .gdignore                         # committed, empty; covers this subtree
-    models/<family>/<asset_id>.blend
-    textures/<family>/                 # editable originals/bake sources
-    references/<asset_id>/             # concepts, notices, review captures
-    scratch/                          # unaccepted comparison exports
-  models/<family>/<asset_id>.glb       # explicit runtime model export
-  textures/<family>/                   # runtime PNGs and their .import files
-  materials/<material_id>.tres         # shared Godot material resources
+    models/<family>/<type_name>/<asset_id>.blend
+    textures/<family>/<type_name>/    # editable originals/bake sources
+  models/<family>/<type_name>/<asset_id>.glb
+  animations/<family>/<type_name>/
+  textures/<family>/<type_name>/      # runtime PNGs and their .import files
+  materials/<family>/<type_name>/
 scenes/
   prefabs/<family>/<asset_id>.tscn      # static kit model + components
   entities/<entity_type>.tscn          # dynamic actor/vehicle/projectile wrappers
@@ -86,6 +92,30 @@ docs/                                 # at the repository root
   asset-catalogue.md                   # ID → handoff record index
   assets/<asset_id>.md                 # filled brief/spec/review record
 ```
+
+### Tracked art inventory — production cleanup, 9 October 2026
+
+This family-level table classifies all **252** tracked files under `art/` after the
+production cleanup. The cleanup used direct filesystem moves because no editor/MCP
+session was available; import and dependency checks validate the saved result.
+Historical review receipts remain discoverable in Git history rather than under
+`art/`.
+
+| Files | Count | Classification | Current referrers / reason retained |
+| --- | ---: | --- | --- |
+| `models/source models/vehicles/{car_crate_a,car_latch_a,car_sable_a}` | 9 | Production asset | Vehicle prefabs, definitions, asset tools and car handoffs |
+| `models/source models/weapons/{pistol_coral_stub,smg_wedgewire,dock_thumper}` | 16 | Production asset | Weapon/projectile prefabs, player weapon profiles and handoffs |
+| `models/source models/characters/coral_courier` | 5 | Production asset | Player prefab, rig checks and player handoff |
+| Character model/source/animation/material type directories for `pedestrian_worker` and `shared_humanoid` | 18 | Production asset | Pedestrian/player prefabs, shared motion libraries and handoffs |
+| Effect model/source/material files in `effects/weapon_effects` | 30 | Production asset | Saved muzzle, hit, trail and explosion scenes |
+| `models/source models/brackett_greybox` | 105 | Greybox | Saved world/prefab composition and greybox export tooling |
+| `models/source models/spikes`, S01/S13 materials and spike texture | 46 | Spike-fixture dependency | S01–S06 and S13 fixture scenes, resource checks and handoffs |
+| Root `characters/s13_humanoid.*` and `effects/s15_*` | 22 | Spike-fixture dependency | S13/S15 fixtures; intentionally not moved pending owner decision |
+| `source/.gdignore` | 1 | Source-tree configuration | Godot import/export exclusion |
+
+No review/concept-only or unreferenced art remains in the tracked `art/` tree. Pure
+concept images for completed assets were removed from `docs/concepts/`; concepts for
+unbuilt vehicles, UI, world/district work, and other pending assets remain in `docs/`.
 
 Put all `.blend` and editable texture sources under `art/source/` with its
 `.gdignore` in place before adding sources. Keep runtime GLBs/textures outside it.

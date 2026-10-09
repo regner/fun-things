@@ -7,8 +7,8 @@ import struct
 import sys
 
 ROOT = Path(__file__).resolve().parents[2]
-SOURCE = ROOT / "art/source/models/rocket_launcher"
-MODELS = ROOT / "art/models/rocket_launcher"
+SOURCE = ROOT / "art/source/models/weapons/dock_thumper"
+MODELS = ROOT / "art/models/weapons/dock_thumper"
 manifest = json.loads((SOURCE / "source_manifest.json").read_text())
 assert (ROOT / "art/source/.gdignore").exists()
 assert (SOURCE / manifest["source"]).stat().st_size > 100000

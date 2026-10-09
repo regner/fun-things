@@ -5,9 +5,9 @@ extends Node
 
 const FAMILY: String = "res://scenes/prefabs/pedestrian_civilian/"
 const PREVIEW: String = "res://tests/fixtures/pedestrian_civilian/pedestrian_worker_a_preview.tscn"
-const MODEL: String = "res://art/models/pedestrian_civilian/pedestrian_worker_a.glb"
-const LIBRARY: String = "res://art/animations/pedestrian_civilian/npc_locomotion_v1.tres"
-const MATERIAL: String = "res://art/materials/pedestrian_worker_a_palette.tres"
+const MODEL: String = "res://art/models/characters/pedestrian_worker/pedestrian_worker_a.glb"
+const LIBRARY: String = "res://art/animations/characters/pedestrian_worker/npc_locomotion_v1.tres"
+const MATERIAL: String = "res://art/materials/characters/pedestrian_worker/pedestrian_worker_a_palette.tres"
 
 
 ## Build and save the approved worker resources within this verified private editor.
@@ -54,7 +54,7 @@ func _create_animation_library(model: Node3D) -> AnimationLibrary:
 ## Save the shared palette shader material used by every worker instance.
 func _create_palette_material() -> ShaderMaterial:
 	var material := ShaderMaterial.new()
-	material.shader = load("res://art/materials/pedestrian_worker_a_palette.gdshader")
+	material.shader = load("res://art/materials/characters/pedestrian_worker/pedestrian_worker_a_palette.gdshader")
 	assert(ResourceSaver.save(material, MATERIAL) == OK)
 	material.take_over_path(MATERIAL)
 	return material

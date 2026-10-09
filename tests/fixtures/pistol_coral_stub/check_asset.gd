@@ -2,7 +2,7 @@ extends SceneTree
 ## Checks the reusable visual asset through its saved production-facing scene paths.
 
 const PREFAB_PATH: String = "res://scenes/prefabs/pistol_coral_stub/pistol_coral_stub.tscn"
-const MODEL_PATH: String = "res://art/models/pistol_coral_stub/pistol_coral_stub.glb"
+const MODEL_PATH: String = "res://art/models/weapons/pistol_coral_stub/pistol_coral_stub.glb"
 const CAMERA_PATH: String = "res://scenes/prefabs/pistol_coral_stub/preview_game_camera.tscn"
 const POSITION_TOLERANCE_M: float = 0.001
 const EXPECTED_MUZZLE_M: Vector3 = Vector3(0.0, 0.122, -0.421)

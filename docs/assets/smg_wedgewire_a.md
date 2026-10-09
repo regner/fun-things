@@ -7,8 +7,8 @@ integration belong to their respective owners and remain pending.
 
 ## Files and review
 
-- [Blender source](../../art/source/models/weapons_smg/smg_wedgewire_a.blend)
-- [Explicit weapon GLB](../../art/models/weapons_smg/smg_wedgewire_a.glb)
+- [Blender source](../../art/source/models/weapons/smg_wedgewire/smg_wedgewire_a.blend)
+- [Explicit weapon GLB](../../art/models/weapons/smg_wedgewire/smg_wedgewire_a.glb)
 - [Reusable wrapper](../../scenes/prefabs/weapons_smg/smg_wedgewire_a.tscn)
 - Actual Godot captures: [overview](smg_wedgewire_a_evidence/overview.png),
   [side](smg_wedgewire_a_evidence/side.png),
@@ -44,7 +44,7 @@ Any later spatial work must verify effective runtime again after a model switch.
 
 | Saved source / collection | Explicit output + sidecar | Consumers |
 | --- | --- | --- |
-| `art/source/models/weapons_smg/smg_wedgewire_a.blend`, `export_smg_wedgewire_a` | `art/models/weapons_smg/smg_wedgewire_a.glb` + `.glb.import` | Wrapper `Visuals/Model` |
+| `art/source/models/weapons/smg_wedgewire/smg_wedgewire_a.blend`, `export_smg_wedgewire_a` | `art/models/weapons/smg_wedgewire/smg_wedgewire_a.glb` + `.glb.import` | Wrapper `Visuals/Model` |
 
 `art/source/.gdignore` excludes authoring files from Godot. A one-metre measurement
 fixture lives in nonexported `source_measurement_reference`. There are no exported
@@ -111,7 +111,7 @@ contact surface centres within the 1 mm tolerance. Player has published the bind
 contract **shared_humanoid/1.0.0** at commit
 `3eccf8f691fe34132ee8504d10dfceda4f7e2bb6` on `art/brackett-player-character`:
 `docs/assets/shared_humanoid_rig.md`, with source under
-`art/source/models/shared_humanoid/`. That version freezes the 28-bone rest hierarchy
+`art/source/models/characters/shared_humanoid/`. That version freezes the 28-bone rest hierarchy
 for skin binding; it does not establish weapon fit or production motion. Bone-to-grip
 and contact offsets, hand twist, holding/aim/reload clips and equipped acceptance
 remain pending player-led fitting. The shared source was not copied into this branch.

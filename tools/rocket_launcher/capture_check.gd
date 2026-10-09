@@ -111,7 +111,7 @@ func _check_visual(instance: Node3D) -> void:
 	assert(instance.scale.is_equal_approx(Vector3.ONE))
 	var model: Node3D = instance.get_node("Visuals/Model")
 	assert(model.transform.is_equal_approx(Transform3D.IDENTITY))
-	assert(model.scene_file_path.begins_with("res://art/models/rocket_launcher/"))
+	assert(model.scene_file_path.begins_with("res://art/models/weapons/dock_thumper/"))
 	assert(model.scene_file_path.ends_with(".glb"))
 	for child: Node in instance.find_children("*", "CollisionObject3D", true, false):
 		assert(child == null, "Cosmetic asset unexpectedly owns gameplay collision")

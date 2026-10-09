@@ -1,9 +1,9 @@
 [gd_scene format=3 uid="uid://du50jtbo6hvjb"]
 
 [ext_resource type="Script" uid="uid://c4rxbqcepqdf3" path="res://scripts/presentation/pedestrian_civilian/pedestrian_worker_visual.gd" id="1_johmq"]
-[ext_resource type="Material" uid="uid://drngc8es0p2xh" path="res://art/materials/pedestrian_worker_a_palette.tres" id="2_6elda"]
-[ext_resource type="AnimationLibrary" uid="uid://vgxr3nxb046a" path="res://art/animations/pedestrian_civilian/npc_locomotion_v1.tres" id="3_3xvpw"]
-[ext_resource type="PackedScene" uid="uid://dn1g7jhrni1a2" path="res://art/models/pedestrian_civilian/pedestrian_worker_a.glb" id="4_hwojk"]
+[ext_resource type="Material" uid="uid://drngc8es0p2xh" path="res://art/materials/characters/pedestrian_worker/pedestrian_worker_a_palette.tres" id="2_6elda"]
+[ext_resource type="AnimationLibrary" uid="uid://vgxr3nxb046a" path="res://art/animations/characters/pedestrian_worker/npc_locomotion_v1.tres" id="3_3xvpw"]
+[ext_resource type="PackedScene" uid="uid://dn1g7jhrni1a2" path="res://art/models/characters/pedestrian_worker/pedestrian_worker_a.glb" id="4_hwojk"]
 
 [node name="PedestrianWorkerA" type="Node3D" unique_id=1394870494]
 script = ExtResource("1_johmq")

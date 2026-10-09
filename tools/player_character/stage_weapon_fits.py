@@ -6,11 +6,11 @@ import subprocess
 import sys
 
 ROOT=Path(__file__).resolve().parents[2]
-STAGE=ROOT/'art/models/player_character/fit_check'
+STAGE=ROOT/'art/models/characters/coral_courier/fit_check'
 SPEC={
- 'pistol':('2f1846e9d883bbd15a0bcda4f826170b55ea2b5c','art/models/pistol_coral_stub/pistol_coral_stub.glb'),
- 'smg':('a05f22d','art/models/weapons_smg/smg_wedgewire_a.glb'),
- 'launcher':('d8c7635','art/models/rocket_launcher/dock_thumper_launcher_a.glb'),
+ 'pistol':('2f1846e9d883bbd15a0bcda4f826170b55ea2b5c','art/models/weapons/pistol_coral_stub/pistol_coral_stub.glb'),
+ 'smg':('a05f22d','art/models/weapons/smg_wedgewire/smg_wedgewire_a.glb'),
+ 'launcher':('d8c7635','art/models/weapons/dock_thumper/dock_thumper_launcher_a.glb'),
 }
 
 

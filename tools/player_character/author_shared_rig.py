@@ -11,8 +11,8 @@ import bpy
 from mathutils import Vector
 
 ROOT = Path(__file__).resolve().parents[2]
-SOURCE = ROOT / 'art/source/models/shared_humanoid/shared_humanoid_v1.blend'
-OUTPUT = ROOT / 'art/models/shared_humanoid/shared_humanoid_bind_v1.glb'
+SOURCE = ROOT / 'art/source/models/characters/shared_humanoid/shared_humanoid_v1.blend'
+OUTPUT = ROOT / 'art/models/characters/shared_humanoid/shared_humanoid_bind_v1.glb'
 COLLECTION = 'export_shared_humanoid_bind_v1'
 
 

@@ -36,10 +36,10 @@ The earlier S13 seven-bone technical rig and its clips are not used.
 
 | Purpose | Owned path |
 | --- | --- |
-| Editable source; 48 source parts, appended canonical Rig and four NPC actions | `art/source/models/pedestrian_civilian/pedestrian_worker_a.blend` |
-| Collection `export_pedestrian_worker_a`: Rig + WorkerMesh | `art/models/pedestrian_civilian/pedestrian_worker_a.glb` + `.import` |
-| Palette shader and shared material | `art/materials/pedestrian_worker_a_palette.gdshader`, `.gdshader.uid`, `.tres` |
-| NPC-only reusable library derived from the imported GLB actions | `art/animations/pedestrian_civilian/npc_locomotion_v1.tres` |
+| Editable source; 48 source parts, appended canonical Rig and four NPC actions | `art/source/models/characters/pedestrian_worker/pedestrian_worker_a.blend` |
+| Collection `export_pedestrian_worker_a`: Rig + WorkerMesh | `art/models/characters/pedestrian_worker/pedestrian_worker_a.glb` + `.import` |
+| Palette shader and shared material | `art/materials/characters/pedestrian_worker/pedestrian_worker_a_palette.gdshader`, `.gdshader.uid`, `.tres` |
+| NPC-only reusable library derived from the imported GLB actions | `art/animations/characters/pedestrian_worker/npc_locomotion_v1.tres` |
 | Source-linked reusable presentation prefab | `scenes/prefabs/pedestrian_civilian/pedestrian_worker_a.tscn` |
 | Presentation API | `scripts/presentation/pedestrian_civilian/pedestrian_worker_visual.gd` + `.uid` |
 | Saved four-instance preview and bounded playback script | `tests/fixtures/pedestrian_civilian/pedestrian_worker_a_preview.tscn`, `pedestrian_worker_preview.gd` + `.uid` |

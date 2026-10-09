@@ -12,7 +12,7 @@ from mathutils import Vector
 
 ROOT = Path(__file__).resolve().parents[2]
 ASSET = 'smg_wedgewire_a'
-SOURCE = ROOT / 'art/source/models/weapons_smg' / (ASSET + '.blend')
+SOURCE = ROOT / 'art/source/models/weapons/smg_wedgewire' / (ASSET + '.blend')
 assert bpy.app.version_string == '5.2.2 LTS'
 assert not SOURCE.exists(), 'Do not overwrite an existing authored source'
 assert (ROOT / 'art/source/.gdignore').exists()

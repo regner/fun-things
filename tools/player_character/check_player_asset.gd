@@ -89,14 +89,14 @@ func check() -> void:  # gdstyle:ignore=quality/max-local-variables
 	expect(actor.play_clip(&"run"), "play run")
 	player.pause()
 	player.seek(0.23, true)
-	var template: PackedScene = load("res://art/models/shared_humanoid/shared_humanoid_bind_v1.glb")
+	var template: PackedScene = load("res://art/models/characters/shared_humanoid/shared_humanoid_bind_v1.glb")
 	expect(actor.apply_skin(template), "compatible different mesh skin swap")
 	expect(mesh.mesh != original_mesh, "geometry actually changed")
 	expect(actor.get_skeleton().get_instance_id() == skeleton_id, "skeleton retained")
 	expect(actor.get_animation_player().get_instance_id() == player_id, "animation player retained")
 	expect(absf(player.current_animation_position - 0.23) < EPSILON, "playback time retained")
 	expect(
-		actor.apply_skin(load("res://art/models/player_character/coral_courier.glb")),
+		actor.apply_skin(load("res://art/models/characters/coral_courier/coral_courier.glb")),
 		"restore courier",
 	)
 	expect(mesh.mesh == original_mesh, "courier resource restored")
@@ -112,9 +112,9 @@ func check() -> void:  # gdstyle:ignore=quality/max-local-variables
 	expect(not actor.apply_skin(bad_scene), "transformed hierarchy rejected")
 	bad.free()
 	for family: String in ["player"]:
-		var library_path: String = "res://art/animations/shared_humanoid/" + family + "_v1.tres"
+		var library_path: String = "res://art/animations/characters/shared_humanoid/" + family + "_v1.tres"
 		var library: AnimationLibrary = load(library_path)
-		var source_path: String = "res://art/source/models/shared_humanoid/shared_humanoid_"
+		var source_path: String = "res://art/source/models/characters/shared_humanoid/shared_humanoid_"
 		source_path += family + "_motion_v1.json"
 		var manifest: Dictionary = JSON.parse_string(FileAccess.get_file_as_string(source_path))
 		check_library(library, manifest, player, skeleton, family + "/")
@@ -135,7 +135,7 @@ func check_attachments(
 	skeleton: Skeleton3D,
 ) -> void:
 	var profiles: Dictionary = JSON.parse_string(FileAccess.get_file_as_string(
-		"res://art/source/models/player_character/weapon_profiles.json"))
+		"res://art/source/models/characters/coral_courier/weapon_profiles.json"))
 	for name: String in profiles.profiles:
 		expect(actor.select_grip(StringName(name)), "grip selection " + name)
 		sample(player, skeleton, "player/" + name + "_hold", 0.0)
@@ -177,7 +177,7 @@ func check_layers(
 
 ## Compare every extracted player key with the current imported source to detect stale caches.
 func check_source_tracks(player: AnimationPlayer) -> void:
-	var path: String = "res://art/models/shared_humanoid/shared_humanoid_player_motion_v1.glb"
+	var path: String = "res://art/models/characters/shared_humanoid/shared_humanoid_player_motion_v1.glb"
 	var source: Node = (load(path) as PackedScene).instantiate()
 	var imported: AnimationPlayer = source.find_child("AnimationPlayer", true, false)
 	var library: AnimationLibrary = player.get_animation_library(&"player")

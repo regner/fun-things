@@ -132,7 +132,7 @@ for name, position in {'socket_grip': (0, 0, 0),
     empty.empty_display_type = 'ARROWS'
     empty.empty_display_size = .075
 
-source = ROOT / 'art/source/models/pistol_coral_stub/pistol_coral_stub.blend'
+source = ROOT / 'art/source/models/weapons/pistol_coral_stub/pistol_coral_stub.blend'
 source.parent.mkdir(parents=True, exist_ok=True)
 bpy.ops.wm.save_as_mainfile(filepath=str(source))
 manifest = {

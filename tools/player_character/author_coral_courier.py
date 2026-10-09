@@ -12,8 +12,8 @@ import bmesh
 from mathutils import Vector, Matrix
 
 ROOT=Path(__file__).resolve().parents[2]
-SOURCE=ROOT/'art/source/models/player_character/coral_courier.blend'
-OUTPUT=ROOT/'art/models/player_character/coral_courier.glb'
+SOURCE=ROOT/'art/source/models/characters/coral_courier/coral_courier.blend'
+OUTPUT=ROOT/'art/models/characters/coral_courier/coral_courier.glb'
 COLLECTION='export_coral_courier'
 PARTS=[]
 MATERIALS={}
@@ -243,7 +243,7 @@ def main():
     scene=bpy.context.scene;scene.unit_settings.system='METRIC';scene.unit_settings.scale_length=1
     scene.render.fps=30
     col=bpy.data.collections.new(COLLECTION);scene.collection.children.link(col)
-    with bpy.data.libraries.load(str(ROOT/'art/source/models/shared_humanoid/shared_humanoid_v1.blend'),link=False) as (src,dst):
+    with bpy.data.libraries.load(str(ROOT/'art/source/models/characters/shared_humanoid/shared_humanoid_v1.blend'),link=False) as (src,dst):
         dst.objects=['Rig']
     rig=dst.objects[0];col.objects.link(rig)
     for name,color in [('skin_warm','B57B58'),('coral_shell','F46F5B'),('coral_rib','D84F44'),

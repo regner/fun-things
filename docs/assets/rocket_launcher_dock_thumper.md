@@ -24,7 +24,7 @@ Modeling instruction: realize A's chunky shoulder tube, coral muzzle ring, broad
 ivory crown and restrained cyan accents; simplify concept microdetail for the
 47 m overhead camera; provide a matching coral-nosed, ivory-finned rocket, measured
 contact markers and a Blender-authored neutral stage. The original executable
-recipe is `art/source/models/rocket_launcher/author_dock_thumper.py`. Subsequent
+recipe is `art/source/models/weapons/dock_thumper/author_dock_thumper.py`. Subsequent
 saved-source refinements widened the crown to ±30° and corrected face winding.
 The saved `.blend` is authoritative; reexport does not regenerate geometry.
 
@@ -37,12 +37,12 @@ editor state and processes were preserved. [Runtime receipt](rocket_launcher_evi
 ## Source → export → reusable scene
 
 All paths below are repository-relative. Source:
-`art/source/models/rocket_launcher/dock_thumper_a.blend`, Blender **5.2.2 LTS**
+`art/source/models/weapons/dock_thumper/dock_thumper_a.blend`, Blender **5.2.2 LTS**
 `d13f752e3b9c`, bundled glTF exporter **5.2.40**. `art/source/.gdignore` excludes
 sources from Godot. Exact export settings, membership, materials, source AABBs
-and triangle counts: `art/source/models/rocket_launcher/source_manifest.json`.
+and triangle counts: `art/source/models/weapons/dock_thumper/source_manifest.json`.
 
-| Export collection | Explicit GLB in `art/models/rocket_launcher/` | Saved wrapper | Base triangles |
+| Export collection | Explicit GLB in `art/models/weapons/dock_thumper/` | Saved wrapper | Base triangles |
 | --- | --- | --- | ---: |
 | `export_dock_thumper_launcher_a` | `dock_thumper_launcher_a.glb` | `scenes/prefabs/rocket_launcher/dock_thumper_launcher_a.tscn` | 8,204 |
 | `export_dock_thumper_rocket_a` | `dock_thumper_rocket_a.glb` | `scenes/prefabs/rocket_launcher/dock_thumper_rocket_a.tscn` | 3,650 |
@@ -136,7 +136,7 @@ independent numeric expectations, imported AABBs and camera settings. It instant
 saved content only. `-- --capture` additionally writes the three native PNGs.
 
 ```sh
-blender --background --factory-startup -noaudio art/source/models/rocket_launcher/dock_thumper_a.blend --python art/source/models/rocket_launcher/reexport_dock_thumper.py -- /tmp/dock-thumper-fresh
+blender --background --factory-startup -noaudio art/source/models/weapons/dock_thumper/dock_thumper_a.blend --python art/source/models/weapons/dock_thumper/reexport_dock_thumper.py -- /tmp/dock-thumper-fresh
 python3 tools/rocket_launcher/check_files.py /tmp/dock-thumper-fresh
 gdstyle check tests/fixtures/rocket_launcher/preview.gd tools/rocket_launcher/capture_check.gd --no-color --max-warnings 0
 python3 tools/rocket_launcher/prepare_clean.py /tmp/dock-thumper-clean

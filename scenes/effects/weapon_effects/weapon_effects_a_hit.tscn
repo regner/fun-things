@@ -1,12 +1,12 @@
 [gd_scene format=3 uid="uid://mbhnsfu434ew"]
 
 [ext_resource type="Script" uid="uid://bp4rf74ywinkg" path="res://scenes/effects/weapon_effects/effect.gd" id="1_w8qc2"]
-[ext_resource type="Material" uid="uid://cm63lhvrr2hf7" path="res://art/materials/weapon_effects/weapon_effects_a_spark.tres" id="2_4pmql"]
-[ext_resource type="PackedScene" uid="uid://cv17qg1mdkmqf" path="res://art/models/weapon_effects/weapon_effects_a_spark.glb" id="2_qt3jn"]
-[ext_resource type="ArrayMesh" uid="uid://dja55fsdaa1o4" path="res://art/models/weapon_effects/weapon_effects_a_spark_mesh.res" id="3_cofp1"]
-[ext_resource type="PackedScene" uid="uid://btkytmpgnyqev" path="res://art/models/weapon_effects/weapon_effects_a_smoke_puff.glb" id="3_mgfpe"]
-[ext_resource type="Material" uid="uid://qtwbv886nos4" path="res://art/materials/weapon_effects/weapon_effects_a_smoke.tres" id="5_3pa8n"]
-[ext_resource type="ArrayMesh" uid="uid://cmefbk7q1hscw" path="res://art/models/weapon_effects/weapon_effects_a_smoke_puff_mesh.res" id="6_180ho"]
+[ext_resource type="Material" uid="uid://cm63lhvrr2hf7" path="res://art/materials/effects/weapon_effects/weapon_effects_a_spark.tres" id="2_4pmql"]
+[ext_resource type="PackedScene" uid="uid://cv17qg1mdkmqf" path="res://art/models/effects/weapon_effects/weapon_effects_a_spark.glb" id="2_qt3jn"]
+[ext_resource type="ArrayMesh" uid="uid://dja55fsdaa1o4" path="res://art/models/effects/weapon_effects/weapon_effects_a_spark_mesh.res" id="3_cofp1"]
+[ext_resource type="PackedScene" uid="uid://btkytmpgnyqev" path="res://art/models/effects/weapon_effects/weapon_effects_a_smoke_puff.glb" id="3_mgfpe"]
+[ext_resource type="Material" uid="uid://qtwbv886nos4" path="res://art/materials/effects/weapon_effects/weapon_effects_a_smoke.tres" id="5_3pa8n"]
+[ext_resource type="ArrayMesh" uid="uid://cmefbk7q1hscw" path="res://art/models/effects/weapon_effects/weapon_effects_a_smoke_puff_mesh.res" id="6_180ho"]
 
 [sub_resource type="Curve" id="Curve_0jb7k"]
 _data = [Vector2(0, 0.15), 0.0, 0.0, 0, 0, Vector2(0.22, 1), 0.0, 0.0, 0, 0, Vector2(0.6, 0.8), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
