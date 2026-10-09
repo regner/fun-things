@@ -215,7 +215,7 @@ def main():
                 output / f"seed-{seed}.log",
                 engine_log,
                 env,
-                600,
+                900,
                 observe=True,
             )
             receipt = json.loads(receipt_path.read_text()) if receipt_path.exists() else None
