@@ -45,7 +45,9 @@ func _physics_process(delta: float) -> void:
 		return
 
 	if active_kind == "FOOT":
-		(active_body as S02ActorMotion).step(command.move, command.aim_yaw, delta)
+		(active_body as S02ActorMotion).step({
+			"move": command.move, "aim_yaw": command.aim_yaw, "fire": false,
+		}, delta)
 	else:
 		(active_body as S04Kinematic).step(command.drive, delta)
 

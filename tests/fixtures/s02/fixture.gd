@@ -43,8 +43,9 @@ func _update_status() -> void:
 
 ## Provides one command-shaped simulation entrypoint for standalone and later replay callers.
 func step_command(command: Dictionary, delta: float) -> void:
-	actor.step(command.move, command.aim_yaw, delta)
-	aim.step(actor, command.fire, delta)
+	var next: Dictionary = S02MotionRules.advance(actor.motion_state(), command)
+	actor.step(command, delta)
+	aim.step(actor, next.fire, delta)
 
 
 ## Clears both continuous movement and transient firing before the next physics tick.

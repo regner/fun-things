@@ -46,7 +46,7 @@ func _physics_process(delta: float) -> void:
 				binding.held = { "move": Vector2.ZERO, "aim_yaw": actor.rotation.y }
 
 			var held: Dictionary = binding.held
-			actor.step(held.move, held.aim_yaw, delta)
+			actor.step({ "move": held.move, "aim_yaw": held.aim_yaw, "fire": false }, delta)
 			if binding.pending > binding.sequence:
 				binding.sequence = binding.pending
 				binding.sample = (held.move as Vector2).length()

@@ -60,7 +60,7 @@ func _motion_checks() -> void:
 		"diagonal movement is normalized to five metres per second")
 	_expect(absf(_fixture.actor.rotation.y + PI / 2.0) < 0.001,
 		"facing snaps to command aim yaw")
-	_fixture.actor.step(Vector2.ZERO, PI, STEP_SECONDS)
+	_fixture.actor.step({ "move": Vector2.ZERO, "aim_yaw": PI, "fire": false }, STEP_SECONDS)
 	_expect(_fixture.actor.velocity == Vector3.ZERO, "released movement stops immediately")
 	_expect(absf(absf(_fixture.actor.rotation.y) - PI) < 0.001, "stationary aim still snaps")
 	await _place(Vector3(6, 0.001, 3), 0.0)
@@ -74,12 +74,15 @@ func _motion_checks() -> void:
 	await _advance(36, Vector2(1.0, 0.0), -PI / 2.0)
 	_expect(_fixture.actor.position.x > 2.9, "world-relative movement rounds the north-east corner")
 	_observations["corner_end"] = str(_fixture.actor.position)
-	_fixture.actor.step(Vector2(NAN, 0.0), 0.0, STEP_SECONDS)
+	_fixture.actor.step({
+		"move": Vector2(NAN, 0.0), "aim_yaw": 0.0, "fire": false,
+	}, STEP_SECONDS)
 	_expect(_fixture.actor.velocity == Vector3.ZERO, "nonfinite movement neutralizes motion")
-	var first: Dictionary = S02MotionRules.advance(
-		{ "yaw": 0.4 }, Vector2(1.0, -1.0), -0.7)
-	var second: Dictionary = S02MotionRules.advance(
-		{ "yaw": 0.4 }, Vector2(1.0, -1.0), -0.7)
+	var command: Dictionary = {
+		"move": Vector2(1.0, -1.0), "aim_yaw": -0.7, "fire": true,
+	}
+	var first: Dictionary = S02MotionRules.advance({ "yaw": 0.4 }, command)
+	var second: Dictionary = S02MotionRules.advance({ "yaw": 0.4 }, command)
 	_expect(first == second, "shared movement rule is deterministic for identical state and input")
 
 

@@ -3,13 +3,13 @@ extends CharacterBody3D
 ## Standalone foot-motion owner; consumes commands without reading devices or applying damage.
 
 
-## Advances one physics tick using shared world-relative movement and snap-facing rules.
-func step(move: Vector2, aim_yaw: float, delta_seconds: float) -> void:
+## Advances one physics tick using the complete shared command without device reads.
+func step(command: Dictionary, delta_seconds: float) -> void:
 	if not is_finite(delta_seconds) or delta_seconds <= 0.0:
 		neutralize()
 		return
 
-	var next: Dictionary = S02MotionRules.advance(motion_state(), move, aim_yaw)
+	var next: Dictionary = S02MotionRules.advance(motion_state(), command)
 	velocity = next.velocity
 	if next.valid:
 		rotation.y = next.yaw
