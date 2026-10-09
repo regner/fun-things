@@ -1,0 +1,160 @@
+{
+  "status": "PASS",
+  "file": "art/models/environment/city_shop_fittings_02/city_shop_fittings_02.glb",
+  "bytes": 45708,
+  "sha256": "25f9df0b2102ea0cab3fe534f9410340366e0c09c76459b18d0065711bfe3b78",
+  "decoded_bounds_godot": [
+    [
+      -1.600000023841858,
+      -0.4000000059604645,
+      -0.14000000059604645
+    ],
+    [
+      1.600000023841858,
+      0.4000000059604645,
+      -0.0
+    ]
+  ],
+  "total_triangles": 1656,
+  "objects": [
+    {
+      "name": "artwork_reveal",
+      "triangles": 224,
+      "welded_edges": 336,
+      "nonmanifold_edges": 0,
+      "degenerate_triangles": 0,
+      "outward_winding": true,
+      "signed_volume_m3": 0.0019423169033958927
+    },
+    {
+      "name": "continuous_face_trim",
+      "triangles": 336,
+      "welded_edges": 504,
+      "nonmanifold_edges": 0,
+      "degenerate_triangles": 0,
+      "outward_winding": true,
+      "signed_volume_m3": 0.00739695911533639
+    },
+    {
+      "name": "fascia_artwork_carrier",
+      "triangles": 164,
+      "welded_edges": 246,
+      "nonmanifold_edges": 0,
+      "degenerate_triangles": 0,
+      "outward_winding": true,
+      "signed_volume_m3": 0.01974480484830167
+    },
+    {
+      "name": "folded_back_tray",
+      "triangles": 164,
+      "welded_edges": 246,
+      "nonmanifold_edges": 0,
+      "degenerate_triangles": 0,
+      "outward_winding": true,
+      "signed_volume_m3": 0.10565693593112108
+    },
+    {
+      "name": "formed_fascia_frame",
+      "triangles": 392,
+      "welded_edges": 588,
+      "nonmanifold_edges": 0,
+      "degenerate_triangles": 0,
+      "outward_winding": true,
+      "signed_volume_m3": 0.04545417366143988
+    },
+    {
+      "name": "wall_mount_rail_lower",
+      "triangles": 188,
+      "welded_edges": 282,
+      "nonmanifold_edges": 0,
+      "degenerate_triangles": 0,
+      "outward_winding": true,
+      "signed_volume_m3": 0.010908007809536827
+    },
+    {
+      "name": "wall_mount_rail_upper",
+      "triangles": 188,
+      "welded_edges": 282,
+      "nonmanifold_edges": 0,
+      "degenerate_triangles": 0,
+      "outward_winding": true,
+      "signed_volume_m3": 0.01090800780953683
+    }
+  ],
+  "materials": [
+    {
+      "doubleSided": true,
+      "name": "fascia_recess",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.016807375475764275,
+          0.03310476616024971,
+          0.04373503103852272,
+          1
+        ],
+        "metallicFactor": 0,
+        "roughnessFactor": 0.7200000286102295
+      }
+    },
+    {
+      "doubleSided": true,
+      "name": "fascia_warm_trim",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.577580451965332,
+          0.5394794940948486,
+          0.41788506507873535,
+          1
+        ],
+        "metallicFactor": 0.2199999988079071,
+        "roughnessFactor": 0.47999998927116394
+      }
+    },
+    {
+      "doubleSided": true,
+      "name": "fascia_artwork_face",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.5457244515419006,
+          0.5711248517036438,
+          0.5028864741325378,
+          1
+        ],
+        "metallicFactor": 0,
+        "roughnessFactor": 0.5600000023841858
+      }
+    },
+    {
+      "doubleSided": true,
+      "name": "fascia_mount_metal",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.039546236395835876,
+          0.06480326503515244,
+          0.0802198201417923,
+          1
+        ],
+        "metallicFactor": 0.44999998807907104,
+        "roughnessFactor": 0.5
+      }
+    },
+    {
+      "doubleSided": true,
+      "name": "fascia_slate_petrol",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.05126945674419403,
+          0.10461648553609848,
+          0.1384316086769104,
+          1
+        ],
+        "metallicFactor": 0.25,
+        "roughnessFactor": 0.46000000834465027
+      }
+    }
+  ],
+  "uv_front_samples": 28,
+  "source_reexport_byte_identical": true,
+  "studio_excluded": true,
+  "no_external_dependencies": true
+}

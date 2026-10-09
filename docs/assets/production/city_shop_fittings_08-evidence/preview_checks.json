@@ -1,0 +1,225 @@
+{
+  "scope": "Blender source previews only, not engine or independent art acceptance",
+  "reference_dimensions_m": [
+    1.0,
+    1.0,
+    1.0
+  ],
+  "sign_body_height_to_1m": 1.16,
+  "sign_projection_to_1m": 0.88,
+  "attachment_pivot_m": [
+    0.0,
+    0.0,
+    3.200000047683716
+  ],
+  "lowest_geometry_above_jig_ground_m": 2.62,
+  "wall_plane_y": 0,
+  "wall_size_m": [
+    2.8,
+    0.2,
+    4.4
+  ],
+  "source_saved": false,
+  "diagnostic_chart": "uv_chart.png, scratch material only, not source or GLB",
+  "project_camera": {
+    "height_m": 47,
+    "vertical_fov_degrees": 42.00000169963833,
+    "fixed_yaw_radians": 0
+  },
+  "views": [
+    {
+      "file": "hero.png",
+      "location_blender_m": [
+        2.5,
+        2.8,
+        1.2
+      ],
+      "target_blender_m": [
+        0,
+        0.42,
+        0
+      ],
+      "lens_mm": 58,
+      "orthographic_scale": null,
+      "resolution": [
+        1400,
+        1000
+      ],
+      "rotation_radians": [
+        1.236214518547058,
+        8.536911622059051e-08,
+        2.3316092491149902
+      ]
+    },
+    {
+      "file": "source_elevation.png",
+      "location_blender_m": [
+        3,
+        0.44,
+        0
+      ],
+      "target_blender_m": [
+        0,
+        0.44,
+        0
+      ],
+      "lens_mm": 50,
+      "orthographic_scale": 1.85,
+      "resolution": [
+        1400,
+        1000
+      ],
+      "rotation_radians": [
+        1.5707963705062866,
+        -0.0,
+        1.5707963705062866
+      ]
+    },
+    {
+      "file": "uv_positive_x.png",
+      "location_blender_m": [
+        3,
+        0.44,
+        0
+      ],
+      "target_blender_m": [
+        0,
+        0.44,
+        0
+      ],
+      "lens_mm": 50,
+      "orthographic_scale": 1.5,
+      "resolution": [
+        1000,
+        1000
+      ],
+      "rotation_radians": [
+        1.5707963705062866,
+        -0.0,
+        1.5707963705062866
+      ]
+    },
+    {
+      "file": "uv_negative_x.png",
+      "location_blender_m": [
+        -3,
+        0.44,
+        0
+      ],
+      "target_blender_m": [
+        0,
+        0.44,
+        0
+      ],
+      "lens_mm": 50,
+      "orthographic_scale": 1.5,
+      "resolution": [
+        1000,
+        1000
+      ],
+      "rotation_radians": [
+        1.5707963705062866,
+        -0.0,
+        -1.5707963705062866
+      ]
+    },
+    {
+      "file": "mounting_preview.png",
+      "location_blender_m": [
+        4.5,
+        5.5,
+        4.5
+      ],
+      "target_blender_m": [
+        0,
+        0.25,
+        2.25
+      ],
+      "lens_mm": 52,
+      "orthographic_scale": null,
+      "resolution": [
+        1400,
+        1000
+      ],
+      "rotation_radians": [
+        1.2562066316604614,
+        -1.8463337525531642e-08,
+        2.432966470718384
+      ]
+    },
+    {
+      "file": "project_camera.png",
+      "location_blender_m": [
+        0,
+        10,
+        47
+      ],
+      "target_blender_m": [
+        0,
+        10,
+        0
+      ],
+      "lens_mm": 41.68142503510083,
+      "orthographic_scale": null,
+      "resolution": [
+        1280,
+        800
+      ],
+      "rotation_radians": [
+        0.0,
+        -0.0,
+        0.0
+      ]
+    },
+    {
+      "file": "bracket_detail.png",
+      "location_blender_m": [
+        2,
+        -1.9,
+        1.15
+      ],
+      "target_blender_m": [
+        0,
+        0.24,
+        0
+      ],
+      "lens_mm": 55,
+      "orthographic_scale": null,
+      "resolution": [
+        1400,
+        1000
+      ],
+      "rotation_radians": [
+        1.1966744661331177,
+        2.5466544428809357e-08,
+        0.7515946626663208
+      ]
+    },
+    {
+      "file": "measured_1m_comparison.png",
+      "location_blender_m": [
+        4,
+        1.1,
+        0
+      ],
+      "target_blender_m": [
+        0,
+        1.1,
+        0
+      ],
+      "lens_mm": 60,
+      "orthographic_scale": 2.8,
+      "resolution": [
+        1400,
+        1000
+      ],
+      "rotation_radians": [
+        1.5707963705062866,
+        -0.0,
+        1.5707963705062866
+      ]
+    }
+  ],
+  "renderer": "Cycles CPU / 4 threads / 32 samples / AgX",
+  "evidence_fix": "Bracket camera widened to avoid cropped body; 1m comparison switched to orthographic side elevation."
+}

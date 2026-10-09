@@ -1,0 +1,1401 @@
+{
+  "checks": [
+    {
+      "mode": "saved_source",
+      "variant": "single",
+      "leaves": [
+        {
+          "name": "single_leaf_1",
+          "handle_mount_probes": [
+            {
+              "z": 0.936,
+              "stile_front_y": -0.4300000071525574,
+              "pull_back_y": -0.4339999854564667,
+              "engagement_m": 0.003999978303909302
+            },
+            {
+              "z": 1.304,
+              "stile_front_y": -0.4300000071525574,
+              "pull_back_y": -0.4339999854564667,
+              "engagement_m": 0.003999978303909302
+            }
+          ],
+          "body_bounds_blender_m": [
+            [
+              -0.5120000243186951,
+              -0.4749999940395355,
+              0.029999999329447746
+            ],
+            [
+              0.5120000243186951,
+              -0.4300000071525574,
+              2.2320001125335693
+            ]
+          ],
+          "hardware_bounds_blender_m": [
+            [
+              0.45100000500679016,
+              -0.4339999854564667,
+              0.9200000166893005
+            ],
+            [
+              0.4869999885559082,
+              -0.35199999809265137,
+              1.3200000524520874
+            ]
+          ],
+          "hardware_projection_m": 0.07800000190734863,
+          "side_probes": [
+            {
+              "y": -0.468,
+              "z": 0.1,
+              "door_x": -0.5120000243186951,
+              "frame_x": -0.5199999809265137,
+              "gap_m": 0.007999956607818604
+            },
+            {
+              "y": -0.468,
+              "z": 1.6,
+              "door_x": -0.5120000243186951,
+              "frame_x": -0.5199999809265137,
+              "gap_m": 0.007999956607818604
+            },
+            {
+              "y": -0.468,
+              "z": 2.18,
+              "door_x": -0.5120000243186951,
+              "frame_x": -0.5199999809265137,
+              "gap_m": 0.007999956607818604
+            },
+            {
+              "y": -0.4525,
+              "z": 0.1,
+              "door_x": -0.5120000243186951,
+              "frame_x": -0.5199999809265137,
+              "gap_m": 0.007999956607818604
+            },
+            {
+              "y": -0.4525,
+              "z": 1.6,
+              "door_x": -0.5120000243186951,
+              "frame_x": -0.5199999809265137,
+              "gap_m": 0.007999956607818604
+            },
+            {
+              "y": -0.4525,
+              "z": 2.18,
+              "door_x": -0.5120000243186951,
+              "frame_x": -0.5199999809265137,
+              "gap_m": 0.007999956607818604
+            },
+            {
+              "y": -0.437,
+              "z": 0.1,
+              "door_x": -0.5120000243186951,
+              "frame_x": -0.5199999809265137,
+              "gap_m": 0.007999956607818604
+            },
+            {
+              "y": -0.437,
+              "z": 1.6,
+              "door_x": -0.5120000243186951,
+              "frame_x": -0.5199999809265137,
+              "gap_m": 0.007999956607818604
+            },
+            {
+              "y": -0.437,
+              "z": 2.18,
+              "door_x": -0.5120000243186951,
+              "frame_x": -0.5199999809265137,
+              "gap_m": 0.007999956607818604
+            }
+          ],
+          "head_gap_m": 0.007999897003173828,
+          "bottom_gap_m": 0.009999999776482582,
+          "rear_stop_gap_m": 0.006000012159347534
+        }
+      ],
+      "meeting_gap_probes": [],
+      "frame_surface_intersections": [
+        {
+          "leaf": "single_leaf_1_stiles_rails",
+          "surround": "single_recessed_reveal",
+          "intersecting_triangle_pairs": 0
+        },
+        {
+          "leaf": "single_leaf_1_stiles_rails",
+          "surround": "single_rounded_face_casing",
+          "intersecting_triangle_pairs": 0
+        },
+        {
+          "leaf": "single_leaf_1_stiles_rails",
+          "surround": "single_rear_stop",
+          "intersecting_triangle_pairs": 0
+        },
+        {
+          "leaf": "single_leaf_1_stiles_rails",
+          "surround": "single_sloped_threshold",
+          "intersecting_triangle_pairs": 0
+        },
+        {
+          "leaf": "single_leaf_1_glazing",
+          "surround": "single_recessed_reveal",
+          "intersecting_triangle_pairs": 0
+        },
+        {
+          "leaf": "single_leaf_1_glazing",
+          "surround": "single_rounded_face_casing",
+          "intersecting_triangle_pairs": 0
+        },
+        {
+          "leaf": "single_leaf_1_glazing",
+          "surround": "single_rear_stop",
+          "intersecting_triangle_pairs": 0
+        },
+        {
+          "leaf": "single_leaf_1_glazing",
+          "surround": "single_sloped_threshold",
+          "intersecting_triangle_pairs": 0
+        },
+        {
+          "leaf": "single_leaf_1_static_pull",
+          "surround": "single_recessed_reveal",
+          "intersecting_triangle_pairs": 0
+        },
+        {
+          "leaf": "single_leaf_1_static_pull",
+          "surround": "single_rounded_face_casing",
+          "intersecting_triangle_pairs": 0
+        },
+        {
+          "leaf": "single_leaf_1_static_pull",
+          "surround": "single_rear_stop",
+          "intersecting_triangle_pairs": 0
+        },
+        {
+          "leaf": "single_leaf_1_static_pull",
+          "surround": "single_sloped_threshold",
+          "intersecting_triangle_pairs": 0
+        }
+      ],
+      "frame_bounds": {
+        "single_recessed_reveal": [
+          [
+            -0.699999988079071,
+            -0.5199999809265137,
+            0.014000000432133675
+          ],
+          [
+            0.699999988079071,
+            0.04500000178813934,
+            2.440000057220459
+          ]
+        ],
+        "single_rounded_face_casing": [
+          [
+            -0.7699999809265137,
+            0.009999999776482582,
+            0.0
+          ],
+          [
+            0.7699999809265137,
+            0.08500000089406967,
+            2.4800000190734863
+          ]
+        ],
+        "single_rear_stop": [
+          [
+            -0.5425000190734863,
+            -0.515999972820282,
+            0.024000000208616257
+          ],
+          [
+            0.5425000190734863,
+            -0.48100000619888306,
+            2.2750000953674316
+          ]
+        ],
+        "single_sloped_threshold": [
+          [
+            -0.699999988079071,
+            -0.5199999809265137,
+            0.0
+          ],
+          [
+            0.699999988079071,
+            0.10999999940395355,
+            0.019999999552965164
+          ]
+        ]
+      }
+    },
+    {
+      "mode": "saved_source",
+      "variant": "double",
+      "leaves": [
+        {
+          "name": "double_leaf_1",
+          "handle_mount_probes": [
+            {
+              "z": 0.936,
+              "stile_front_y": -0.4300000071525574,
+              "pull_back_y": -0.4339999854564667,
+              "engagement_m": 0.003999978303909302
+            },
+            {
+              "z": 1.304,
+              "stile_front_y": -0.4300000071525574,
+              "pull_back_y": -0.4339999854564667,
+              "engagement_m": 0.003999978303909302
+            }
+          ],
+          "body_bounds_blender_m": [
+            [
+              -0.9120000004768372,
+              -0.4749999940395355,
+              0.029999999329447746
+            ],
+            [
+              -0.004000000189989805,
+              -0.4300000071525574,
+              2.2320001125335693
+            ]
+          ],
+          "hardware_bounds_blender_m": [
+            [
+              -0.06499999761581421,
+              -0.4339999854564667,
+              0.9200000166893005
+            ],
+            [
+              -0.028999999165534973,
+              -0.35199999809265137,
+              1.3200000524520874
+            ]
+          ],
+          "hardware_projection_m": 0.07800000190734863,
+          "side_probes": [
+            {
+              "y": -0.468,
+              "z": 0.1,
+              "door_x": -0.9120000004768372,
+              "frame_x": -0.9200000166893005,
+              "gap_m": 0.008000016212463379
+            },
+            {
+              "y": -0.468,
+              "z": 1.6,
+              "door_x": -0.9120000004768372,
+              "frame_x": -0.9200000166893005,
+              "gap_m": 0.008000016212463379
+            },
+            {
+              "y": -0.468,
+              "z": 2.18,
+              "door_x": -0.9120000004768372,
+              "frame_x": -0.9200000166893005,
+              "gap_m": 0.008000016212463379
+            },
+            {
+              "y": -0.4525,
+              "z": 0.1,
+              "door_x": -0.9120000004768372,
+              "frame_x": -0.9200000166893005,
+              "gap_m": 0.008000016212463379
+            },
+            {
+              "y": -0.4525,
+              "z": 1.6,
+              "door_x": -0.9120000004768372,
+              "frame_x": -0.9200000166893005,
+              "gap_m": 0.008000016212463379
+            },
+            {
+              "y": -0.4525,
+              "z": 2.18,
+              "door_x": -0.9120000004768372,
+              "frame_x": -0.9200000166893005,
+              "gap_m": 0.008000016212463379
+            },
+            {
+              "y": -0.437,
+              "z": 0.1,
+              "door_x": -0.9120000004768372,
+              "frame_x": -0.9200000166893005,
+              "gap_m": 0.008000016212463379
+            },
+            {
+              "y": -0.437,
+              "z": 1.6,
+              "door_x": -0.9120000004768372,
+              "frame_x": -0.9200000166893005,
+              "gap_m": 0.008000016212463379
+            },
+            {
+              "y": -0.437,
+              "z": 2.18,
+              "door_x": -0.9120000004768372,
+              "frame_x": -0.9200000166893005,
+              "gap_m": 0.008000016212463379
+            }
+          ],
+          "head_gap_m": 0.007999897003173828,
+          "bottom_gap_m": 0.009999999776482582,
+          "rear_stop_gap_m": 0.006000012159347534
+        },
+        {
+          "name": "double_leaf_2",
+          "handle_mount_probes": [
+            {
+              "z": 0.936,
+              "stile_front_y": -0.4300000071525574,
+              "pull_back_y": -0.4339999854564667,
+              "engagement_m": 0.003999978303909302
+            },
+            {
+              "z": 1.304,
+              "stile_front_y": -0.4300000071525574,
+              "pull_back_y": -0.4339999854564667,
+              "engagement_m": 0.003999978303909302
+            }
+          ],
+          "body_bounds_blender_m": [
+            [
+              0.004000000189989805,
+              -0.4749999940395355,
+              0.029999999329447746
+            ],
+            [
+              0.9120000004768372,
+              -0.4300000071525574,
+              2.2320001125335693
+            ]
+          ],
+          "hardware_bounds_blender_m": [
+            [
+              0.028999999165534973,
+              -0.4339999854564667,
+              0.9200000166893005
+            ],
+            [
+              0.06499999761581421,
+              -0.35199999809265137,
+              1.3200000524520874
+            ]
+          ],
+          "hardware_projection_m": 0.07800000190734863,
+          "side_probes": [
+            {
+              "y": -0.468,
+              "z": 0.1,
+              "door_x": 0.9120000004768372,
+              "frame_x": 0.9200000166893005,
+              "gap_m": 0.008000016212463379
+            },
+            {
+              "y": -0.468,
+              "z": 1.6,
+              "door_x": 0.9120000004768372,
+              "frame_x": 0.9200000166893005,
+              "gap_m": 0.008000016212463379
+            },
+            {
+              "y": -0.468,
+              "z": 2.18,
+              "door_x": 0.9120000004768372,
+              "frame_x": 0.9200000166893005,
+              "gap_m": 0.008000016212463379
+            },
+            {
+              "y": -0.4525,
+              "z": 0.1,
+              "door_x": 0.9120000004768372,
+              "frame_x": 0.9200000166893005,
+              "gap_m": 0.008000016212463379
+            },
+            {
+              "y": -0.4525,
+              "z": 1.6,
+              "door_x": 0.9120000004768372,
+              "frame_x": 0.9200000166893005,
+              "gap_m": 0.008000016212463379
+            },
+            {
+              "y": -0.4525,
+              "z": 2.18,
+              "door_x": 0.9120000004768372,
+              "frame_x": 0.9200000166893005,
+              "gap_m": 0.008000016212463379
+            },
+            {
+              "y": -0.437,
+              "z": 0.1,
+              "door_x": 0.9120000004768372,
+              "frame_x": 0.9200000166893005,
+              "gap_m": 0.008000016212463379
+            },
+            {
+              "y": -0.437,
+              "z": 1.6,
+              "door_x": 0.9120000004768372,
+              "frame_x": 0.9200000166893005,
+              "gap_m": 0.008000016212463379
+            },
+            {
+              "y": -0.437,
+              "z": 2.18,
+              "door_x": 0.9120000004768372,
+              "frame_x": 0.9200000166893005,
+              "gap_m": 0.008000016212463379
+            }
+          ],
+          "head_gap_m": 0.007999897003173828,
+          "bottom_gap_m": 0.009999999776482582,
+          "rear_stop_gap_m": 0.006000012159347534
+        }
+      ],
+      "meeting_gap_probes": [
+        {
+          "y": -0.468,
+          "z": 0.1,
+          "left_x": -0.0040000006556510925,
+          "right_x": 0.004000000189989805,
+          "gap_m": 0.008000000845640898
+        },
+        {
+          "y": -0.468,
+          "z": 1.6,
+          "left_x": -0.0040000006556510925,
+          "right_x": 0.0040000006556510925,
+          "gap_m": 0.008000001311302185
+        },
+        {
+          "y": -0.468,
+          "z": 2.18,
+          "left_x": -0.004000000189989805,
+          "right_x": 0.004000000189989805,
+          "gap_m": 0.00800000037997961
+        },
+        {
+          "y": -0.4525,
+          "z": 0.1,
+          "left_x": -0.004000000189989805,
+          "right_x": 0.004000000189989805,
+          "gap_m": 0.00800000037997961
+        },
+        {
+          "y": -0.4525,
+          "z": 1.6,
+          "left_x": -0.004000000189989805,
+          "right_x": 0.004000000189989805,
+          "gap_m": 0.00800000037997961
+        },
+        {
+          "y": -0.4525,
+          "z": 2.18,
+          "left_x": -0.003999999724328518,
+          "right_x": 0.003999999724328518,
+          "gap_m": 0.007999999448657036
+        },
+        {
+          "y": -0.437,
+          "z": 0.1,
+          "left_x": -0.004000000189989805,
+          "right_x": 0.0040000006556510925,
+          "gap_m": 0.008000000845640898
+        },
+        {
+          "y": -0.437,
+          "z": 1.6,
+          "left_x": -0.0040000006556510925,
+          "right_x": 0.0040000006556510925,
+          "gap_m": 0.008000001311302185
+        },
+        {
+          "y": -0.437,
+          "z": 2.18,
+          "left_x": -0.004000000189989805,
+          "right_x": 0.004000000189989805,
+          "gap_m": 0.00800000037997961
+        }
+      ],
+      "frame_surface_intersections": [
+        {
+          "leaf": "double_leaf_1_stiles_rails",
+          "surround": "double_recessed_reveal",
+          "intersecting_triangle_pairs": 0
+        },
+        {
+          "leaf": "double_leaf_1_stiles_rails",
+          "surround": "double_rounded_face_casing",
+          "intersecting_triangle_pairs": 0
+        },
+        {
+          "leaf": "double_leaf_1_stiles_rails",
+          "surround": "double_rear_stop",
+          "intersecting_triangle_pairs": 0
+        },
+        {
+          "leaf": "double_leaf_1_stiles_rails",
+          "surround": "double_sloped_threshold",
+          "intersecting_triangle_pairs": 0
+        },
+        {
+          "leaf": "double_leaf_1_glazing",
+          "surround": "double_recessed_reveal",
+          "intersecting_triangle_pairs": 0
+        },
+        {
+          "leaf": "double_leaf_1_glazing",
+          "surround": "double_rounded_face_casing",
+          "intersecting_triangle_pairs": 0
+        },
+        {
+          "leaf": "double_leaf_1_glazing",
+          "surround": "double_rear_stop",
+          "intersecting_triangle_pairs": 0
+        },
+        {
+          "leaf": "double_leaf_1_glazing",
+          "surround": "double_sloped_threshold",
+          "intersecting_triangle_pairs": 0
+        },
+        {
+          "leaf": "double_leaf_1_static_pull",
+          "surround": "double_recessed_reveal",
+          "intersecting_triangle_pairs": 0
+        },
+        {
+          "leaf": "double_leaf_1_static_pull",
+          "surround": "double_rounded_face_casing",
+          "intersecting_triangle_pairs": 0
+        },
+        {
+          "leaf": "double_leaf_1_static_pull",
+          "surround": "double_rear_stop",
+          "intersecting_triangle_pairs": 0
+        },
+        {
+          "leaf": "double_leaf_1_static_pull",
+          "surround": "double_sloped_threshold",
+          "intersecting_triangle_pairs": 0
+        },
+        {
+          "leaf": "double_leaf_2_stiles_rails",
+          "surround": "double_recessed_reveal",
+          "intersecting_triangle_pairs": 0
+        },
+        {
+          "leaf": "double_leaf_2_stiles_rails",
+          "surround": "double_rounded_face_casing",
+          "intersecting_triangle_pairs": 0
+        },
+        {
+          "leaf": "double_leaf_2_stiles_rails",
+          "surround": "double_rear_stop",
+          "intersecting_triangle_pairs": 0
+        },
+        {
+          "leaf": "double_leaf_2_stiles_rails",
+          "surround": "double_sloped_threshold",
+          "intersecting_triangle_pairs": 0
+        },
+        {
+          "leaf": "double_leaf_2_glazing",
+          "surround": "double_recessed_reveal",
+          "intersecting_triangle_pairs": 0
+        },
+        {
+          "leaf": "double_leaf_2_glazing",
+          "surround": "double_rounded_face_casing",
+          "intersecting_triangle_pairs": 0
+        },
+        {
+          "leaf": "double_leaf_2_glazing",
+          "surround": "double_rear_stop",
+          "intersecting_triangle_pairs": 0
+        },
+        {
+          "leaf": "double_leaf_2_glazing",
+          "surround": "double_sloped_threshold",
+          "intersecting_triangle_pairs": 0
+        },
+        {
+          "leaf": "double_leaf_2_static_pull",
+          "surround": "double_recessed_reveal",
+          "intersecting_triangle_pairs": 0
+        },
+        {
+          "leaf": "double_leaf_2_static_pull",
+          "surround": "double_rounded_face_casing",
+          "intersecting_triangle_pairs": 0
+        },
+        {
+          "leaf": "double_leaf_2_static_pull",
+          "surround": "double_rear_stop",
+          "intersecting_triangle_pairs": 0
+        },
+        {
+          "leaf": "double_leaf_2_static_pull",
+          "surround": "double_sloped_threshold",
+          "intersecting_triangle_pairs": 0
+        }
+      ],
+      "frame_bounds": {
+        "double_recessed_reveal": [
+          [
+            -1.100000023841858,
+            -0.5199999809265137,
+            0.014000000432133675
+          ],
+          [
+            1.100000023841858,
+            0.04500000178813934,
+            2.440000057220459
+          ]
+        ],
+        "double_rounded_face_casing": [
+          [
+            -1.1699999570846558,
+            0.009999999776482582,
+            0.0
+          ],
+          [
+            1.1699999570846558,
+            0.08500000089406967,
+            2.4800000190734863
+          ]
+        ],
+        "double_rear_stop": [
+          [
+            -0.9424999952316284,
+            -0.515999972820282,
+            0.024000000208616257
+          ],
+          [
+            0.9424999952316284,
+            -0.48100000619888306,
+            2.2750000953674316
+          ]
+        ],
+        "double_sloped_threshold": [
+          [
+            -1.100000023841858,
+            -0.5199999809265137,
+            0.0
+          ],
+          [
+            1.100000023841858,
+            0.10999999940395355,
+            0.019999999552965164
+          ]
+        ]
+      }
+    },
+    {
+      "mode": "imported_glb_assembly",
+      "variant": "single",
+      "leaves": [
+        {
+          "name": "single_leaf_1",
+          "handle_mount_probes": [
+            {
+              "z": 0.936,
+              "stile_front_y": -0.4300000071525574,
+              "pull_back_y": -0.4339999854564667,
+              "engagement_m": 0.003999978303909302
+            },
+            {
+              "z": 1.304,
+              "stile_front_y": -0.4300000071525574,
+              "pull_back_y": -0.4339999854564667,
+              "engagement_m": 0.003999978303909302
+            }
+          ],
+          "body_bounds_blender_m": [
+            [
+              -0.5120000243186951,
+              -0.4749999940395355,
+              0.029999999329447746
+            ],
+            [
+              0.5120000243186951,
+              -0.4300000071525574,
+              2.2320001125335693
+            ]
+          ],
+          "hardware_bounds_blender_m": [
+            [
+              0.45100000500679016,
+              -0.4339999854564667,
+              0.9200000166893005
+            ],
+            [
+              0.4869999885559082,
+              -0.35199999809265137,
+              1.3200000524520874
+            ]
+          ],
+          "hardware_projection_m": 0.07800000190734863,
+          "side_probes": [
+            {
+              "y": -0.468,
+              "z": 0.1,
+              "door_x": -0.5120000243186951,
+              "frame_x": -0.5199999809265137,
+              "gap_m": 0.007999956607818604
+            },
+            {
+              "y": -0.468,
+              "z": 1.6,
+              "door_x": -0.5120000243186951,
+              "frame_x": -0.5199999809265137,
+              "gap_m": 0.007999956607818604
+            },
+            {
+              "y": -0.468,
+              "z": 2.18,
+              "door_x": -0.5120000243186951,
+              "frame_x": -0.5199999809265137,
+              "gap_m": 0.007999956607818604
+            },
+            {
+              "y": -0.4525,
+              "z": 0.1,
+              "door_x": -0.5120000243186951,
+              "frame_x": -0.5199999809265137,
+              "gap_m": 0.007999956607818604
+            },
+            {
+              "y": -0.4525,
+              "z": 1.6,
+              "door_x": -0.5120000243186951,
+              "frame_x": -0.5199999809265137,
+              "gap_m": 0.007999956607818604
+            },
+            {
+              "y": -0.4525,
+              "z": 2.18,
+              "door_x": -0.5120000243186951,
+              "frame_x": -0.5199999809265137,
+              "gap_m": 0.007999956607818604
+            },
+            {
+              "y": -0.437,
+              "z": 0.1,
+              "door_x": -0.5120000243186951,
+              "frame_x": -0.5199999809265137,
+              "gap_m": 0.007999956607818604
+            },
+            {
+              "y": -0.437,
+              "z": 1.6,
+              "door_x": -0.5120000243186951,
+              "frame_x": -0.5199999809265137,
+              "gap_m": 0.007999956607818604
+            },
+            {
+              "y": -0.437,
+              "z": 2.18,
+              "door_x": -0.5120000243186951,
+              "frame_x": -0.5199999809265137,
+              "gap_m": 0.007999956607818604
+            }
+          ],
+          "head_gap_m": 0.007999897003173828,
+          "bottom_gap_m": 0.009999999776482582,
+          "rear_stop_gap_m": 0.006000012159347534
+        }
+      ],
+      "meeting_gap_probes": [],
+      "frame_surface_intersections": [
+        {
+          "leaf": "single_leaf_1_stiles_rails",
+          "surround": "single_recessed_reveal",
+          "intersecting_triangle_pairs": 0
+        },
+        {
+          "leaf": "single_leaf_1_stiles_rails",
+          "surround": "single_rounded_face_casing",
+          "intersecting_triangle_pairs": 0
+        },
+        {
+          "leaf": "single_leaf_1_stiles_rails",
+          "surround": "single_rear_stop",
+          "intersecting_triangle_pairs": 0
+        },
+        {
+          "leaf": "single_leaf_1_stiles_rails",
+          "surround": "single_sloped_threshold",
+          "intersecting_triangle_pairs": 0
+        },
+        {
+          "leaf": "single_leaf_1_glazing",
+          "surround": "single_recessed_reveal",
+          "intersecting_triangle_pairs": 0
+        },
+        {
+          "leaf": "single_leaf_1_glazing",
+          "surround": "single_rounded_face_casing",
+          "intersecting_triangle_pairs": 0
+        },
+        {
+          "leaf": "single_leaf_1_glazing",
+          "surround": "single_rear_stop",
+          "intersecting_triangle_pairs": 0
+        },
+        {
+          "leaf": "single_leaf_1_glazing",
+          "surround": "single_sloped_threshold",
+          "intersecting_triangle_pairs": 0
+        },
+        {
+          "leaf": "single_leaf_1_static_pull",
+          "surround": "single_recessed_reveal",
+          "intersecting_triangle_pairs": 0
+        },
+        {
+          "leaf": "single_leaf_1_static_pull",
+          "surround": "single_rounded_face_casing",
+          "intersecting_triangle_pairs": 0
+        },
+        {
+          "leaf": "single_leaf_1_static_pull",
+          "surround": "single_rear_stop",
+          "intersecting_triangle_pairs": 0
+        },
+        {
+          "leaf": "single_leaf_1_static_pull",
+          "surround": "single_sloped_threshold",
+          "intersecting_triangle_pairs": 0
+        }
+      ],
+      "frame_bounds": {
+        "single_recessed_reveal": [
+          [
+            -0.699999988079071,
+            -0.5199999809265137,
+            0.014000000432133675
+          ],
+          [
+            0.699999988079071,
+            0.04500000178813934,
+            2.440000057220459
+          ]
+        ],
+        "single_rounded_face_casing": [
+          [
+            -0.7699999809265137,
+            0.009999999776482582,
+            0.0
+          ],
+          [
+            0.7699999809265137,
+            0.08500000089406967,
+            2.4800000190734863
+          ]
+        ],
+        "single_rear_stop": [
+          [
+            -0.5425000190734863,
+            -0.515999972820282,
+            0.024000000208616257
+          ],
+          [
+            0.5425000190734863,
+            -0.48100000619888306,
+            2.2750000953674316
+          ]
+        ],
+        "single_sloped_threshold": [
+          [
+            -0.699999988079071,
+            -0.5199999809265137,
+            0.0
+          ],
+          [
+            0.699999988079071,
+            0.10999999940395355,
+            0.019999999552965164
+          ]
+        ]
+      }
+    },
+    {
+      "mode": "imported_glb_assembly",
+      "variant": "double",
+      "leaves": [
+        {
+          "name": "double_leaf_1",
+          "handle_mount_probes": [
+            {
+              "z": 0.936,
+              "stile_front_y": -0.4300000071525574,
+              "pull_back_y": -0.4339999854564667,
+              "engagement_m": 0.003999978303909302
+            },
+            {
+              "z": 1.304,
+              "stile_front_y": -0.4300000071525574,
+              "pull_back_y": -0.4339999854564667,
+              "engagement_m": 0.003999978303909302
+            }
+          ],
+          "body_bounds_blender_m": [
+            [
+              -0.9120000004768372,
+              -0.4749999940395355,
+              0.029999999329447746
+            ],
+            [
+              -0.004000000189989805,
+              -0.4300000071525574,
+              2.2320001125335693
+            ]
+          ],
+          "hardware_bounds_blender_m": [
+            [
+              -0.06499999761581421,
+              -0.4339999854564667,
+              0.9200000166893005
+            ],
+            [
+              -0.028999999165534973,
+              -0.35199999809265137,
+              1.3200000524520874
+            ]
+          ],
+          "hardware_projection_m": 0.07800000190734863,
+          "side_probes": [
+            {
+              "y": -0.468,
+              "z": 0.1,
+              "door_x": -0.9120000004768372,
+              "frame_x": -0.9200000166893005,
+              "gap_m": 0.008000016212463379
+            },
+            {
+              "y": -0.468,
+              "z": 1.6,
+              "door_x": -0.9120000004768372,
+              "frame_x": -0.9200000166893005,
+              "gap_m": 0.008000016212463379
+            },
+            {
+              "y": -0.468,
+              "z": 2.18,
+              "door_x": -0.9120000004768372,
+              "frame_x": -0.9200000166893005,
+              "gap_m": 0.008000016212463379
+            },
+            {
+              "y": -0.4525,
+              "z": 0.1,
+              "door_x": -0.9120000004768372,
+              "frame_x": -0.9200000166893005,
+              "gap_m": 0.008000016212463379
+            },
+            {
+              "y": -0.4525,
+              "z": 1.6,
+              "door_x": -0.9120000004768372,
+              "frame_x": -0.9200000166893005,
+              "gap_m": 0.008000016212463379
+            },
+            {
+              "y": -0.4525,
+              "z": 2.18,
+              "door_x": -0.9120000004768372,
+              "frame_x": -0.9200000166893005,
+              "gap_m": 0.008000016212463379
+            },
+            {
+              "y": -0.437,
+              "z": 0.1,
+              "door_x": -0.9120000004768372,
+              "frame_x": -0.9200000166893005,
+              "gap_m": 0.008000016212463379
+            },
+            {
+              "y": -0.437,
+              "z": 1.6,
+              "door_x": -0.9120000004768372,
+              "frame_x": -0.9200000166893005,
+              "gap_m": 0.008000016212463379
+            },
+            {
+              "y": -0.437,
+              "z": 2.18,
+              "door_x": -0.9120000004768372,
+              "frame_x": -0.9200000166893005,
+              "gap_m": 0.008000016212463379
+            }
+          ],
+          "head_gap_m": 0.007999897003173828,
+          "bottom_gap_m": 0.009999999776482582,
+          "rear_stop_gap_m": 0.006000012159347534
+        },
+        {
+          "name": "double_leaf_2",
+          "handle_mount_probes": [
+            {
+              "z": 0.936,
+              "stile_front_y": -0.4300000071525574,
+              "pull_back_y": -0.4339999854564667,
+              "engagement_m": 0.003999978303909302
+            },
+            {
+              "z": 1.304,
+              "stile_front_y": -0.4300000071525574,
+              "pull_back_y": -0.4339999854564667,
+              "engagement_m": 0.003999978303909302
+            }
+          ],
+          "body_bounds_blender_m": [
+            [
+              0.004000000189989805,
+              -0.4749999940395355,
+              0.029999999329447746
+            ],
+            [
+              0.9120000004768372,
+              -0.4300000071525574,
+              2.2320001125335693
+            ]
+          ],
+          "hardware_bounds_blender_m": [
+            [
+              0.028999999165534973,
+              -0.4339999854564667,
+              0.9200000166893005
+            ],
+            [
+              0.06499999761581421,
+              -0.35199999809265137,
+              1.3200000524520874
+            ]
+          ],
+          "hardware_projection_m": 0.07800000190734863,
+          "side_probes": [
+            {
+              "y": -0.468,
+              "z": 0.1,
+              "door_x": 0.9120000004768372,
+              "frame_x": 0.9200000166893005,
+              "gap_m": 0.008000016212463379
+            },
+            {
+              "y": -0.468,
+              "z": 1.6,
+              "door_x": 0.9120000004768372,
+              "frame_x": 0.9200000166893005,
+              "gap_m": 0.008000016212463379
+            },
+            {
+              "y": -0.468,
+              "z": 2.18,
+              "door_x": 0.9120000004768372,
+              "frame_x": 0.9200000166893005,
+              "gap_m": 0.008000016212463379
+            },
+            {
+              "y": -0.4525,
+              "z": 0.1,
+              "door_x": 0.9120000004768372,
+              "frame_x": 0.9200000166893005,
+              "gap_m": 0.008000016212463379
+            },
+            {
+              "y": -0.4525,
+              "z": 1.6,
+              "door_x": 0.9120000004768372,
+              "frame_x": 0.9200000166893005,
+              "gap_m": 0.008000016212463379
+            },
+            {
+              "y": -0.4525,
+              "z": 2.18,
+              "door_x": 0.9120000004768372,
+              "frame_x": 0.9200000166893005,
+              "gap_m": 0.008000016212463379
+            },
+            {
+              "y": -0.437,
+              "z": 0.1,
+              "door_x": 0.9120000004768372,
+              "frame_x": 0.9200000166893005,
+              "gap_m": 0.008000016212463379
+            },
+            {
+              "y": -0.437,
+              "z": 1.6,
+              "door_x": 0.9120000004768372,
+              "frame_x": 0.9200000166893005,
+              "gap_m": 0.008000016212463379
+            },
+            {
+              "y": -0.437,
+              "z": 2.18,
+              "door_x": 0.9120000004768372,
+              "frame_x": 0.9200000166893005,
+              "gap_m": 0.008000016212463379
+            }
+          ],
+          "head_gap_m": 0.007999897003173828,
+          "bottom_gap_m": 0.009999999776482582,
+          "rear_stop_gap_m": 0.006000012159347534
+        }
+      ],
+      "meeting_gap_probes": [
+        {
+          "y": -0.468,
+          "z": 0.1,
+          "left_x": -0.0040000006556510925,
+          "right_x": 0.004000000189989805,
+          "gap_m": 0.008000000845640898
+        },
+        {
+          "y": -0.468,
+          "z": 1.6,
+          "left_x": -0.004000000189989805,
+          "right_x": 0.004000000189989805,
+          "gap_m": 0.00800000037997961
+        },
+        {
+          "y": -0.468,
+          "z": 2.18,
+          "left_x": -0.003999999724328518,
+          "right_x": 0.004000000189989805,
+          "gap_m": 0.007999999914318323
+        },
+        {
+          "y": -0.4525,
+          "z": 0.1,
+          "left_x": -0.004000000189989805,
+          "right_x": 0.004000000189989805,
+          "gap_m": 0.00800000037997961
+        },
+        {
+          "y": -0.4525,
+          "z": 1.6,
+          "left_x": -0.0040000006556510925,
+          "right_x": 0.004000000189989805,
+          "gap_m": 0.008000000845640898
+        },
+        {
+          "y": -0.4525,
+          "z": 2.18,
+          "left_x": -0.003999999724328518,
+          "right_x": 0.004000000189989805,
+          "gap_m": 0.007999999914318323
+        },
+        {
+          "y": -0.437,
+          "z": 0.1,
+          "left_x": -0.0040000006556510925,
+          "right_x": 0.0040000006556510925,
+          "gap_m": 0.008000001311302185
+        },
+        {
+          "y": -0.437,
+          "z": 1.6,
+          "left_x": -0.004000000189989805,
+          "right_x": 0.004000000189989805,
+          "gap_m": 0.00800000037997961
+        },
+        {
+          "y": -0.437,
+          "z": 2.18,
+          "left_x": -0.004000000189989805,
+          "right_x": 0.004000000189989805,
+          "gap_m": 0.00800000037997961
+        }
+      ],
+      "frame_surface_intersections": [
+        {
+          "leaf": "double_leaf_1_stiles_rails",
+          "surround": "double_recessed_reveal",
+          "intersecting_triangle_pairs": 0
+        },
+        {
+          "leaf": "double_leaf_1_stiles_rails",
+          "surround": "double_rounded_face_casing",
+          "intersecting_triangle_pairs": 0
+        },
+        {
+          "leaf": "double_leaf_1_stiles_rails",
+          "surround": "double_rear_stop",
+          "intersecting_triangle_pairs": 0
+        },
+        {
+          "leaf": "double_leaf_1_stiles_rails",
+          "surround": "double_sloped_threshold",
+          "intersecting_triangle_pairs": 0
+        },
+        {
+          "leaf": "double_leaf_1_glazing",
+          "surround": "double_recessed_reveal",
+          "intersecting_triangle_pairs": 0
+        },
+        {
+          "leaf": "double_leaf_1_glazing",
+          "surround": "double_rounded_face_casing",
+          "intersecting_triangle_pairs": 0
+        },
+        {
+          "leaf": "double_leaf_1_glazing",
+          "surround": "double_rear_stop",
+          "intersecting_triangle_pairs": 0
+        },
+        {
+          "leaf": "double_leaf_1_glazing",
+          "surround": "double_sloped_threshold",
+          "intersecting_triangle_pairs": 0
+        },
+        {
+          "leaf": "double_leaf_1_static_pull",
+          "surround": "double_recessed_reveal",
+          "intersecting_triangle_pairs": 0
+        },
+        {
+          "leaf": "double_leaf_1_static_pull",
+          "surround": "double_rounded_face_casing",
+          "intersecting_triangle_pairs": 0
+        },
+        {
+          "leaf": "double_leaf_1_static_pull",
+          "surround": "double_rear_stop",
+          "intersecting_triangle_pairs": 0
+        },
+        {
+          "leaf": "double_leaf_1_static_pull",
+          "surround": "double_sloped_threshold",
+          "intersecting_triangle_pairs": 0
+        },
+        {
+          "leaf": "double_leaf_2_stiles_rails",
+          "surround": "double_recessed_reveal",
+          "intersecting_triangle_pairs": 0
+        },
+        {
+          "leaf": "double_leaf_2_stiles_rails",
+          "surround": "double_rounded_face_casing",
+          "intersecting_triangle_pairs": 0
+        },
+        {
+          "leaf": "double_leaf_2_stiles_rails",
+          "surround": "double_rear_stop",
+          "intersecting_triangle_pairs": 0
+        },
+        {
+          "leaf": "double_leaf_2_stiles_rails",
+          "surround": "double_sloped_threshold",
+          "intersecting_triangle_pairs": 0
+        },
+        {
+          "leaf": "double_leaf_2_glazing",
+          "surround": "double_recessed_reveal",
+          "intersecting_triangle_pairs": 0
+        },
+        {
+          "leaf": "double_leaf_2_glazing",
+          "surround": "double_rounded_face_casing",
+          "intersecting_triangle_pairs": 0
+        },
+        {
+          "leaf": "double_leaf_2_glazing",
+          "surround": "double_rear_stop",
+          "intersecting_triangle_pairs": 0
+        },
+        {
+          "leaf": "double_leaf_2_glazing",
+          "surround": "double_sloped_threshold",
+          "intersecting_triangle_pairs": 0
+        },
+        {
+          "leaf": "double_leaf_2_static_pull",
+          "surround": "double_recessed_reveal",
+          "intersecting_triangle_pairs": 0
+        },
+        {
+          "leaf": "double_leaf_2_static_pull",
+          "surround": "double_rounded_face_casing",
+          "intersecting_triangle_pairs": 0
+        },
+        {
+          "leaf": "double_leaf_2_static_pull",
+          "surround": "double_rear_stop",
+          "intersecting_triangle_pairs": 0
+        },
+        {
+          "leaf": "double_leaf_2_static_pull",
+          "surround": "double_sloped_threshold",
+          "intersecting_triangle_pairs": 0
+        }
+      ],
+      "frame_bounds": {
+        "double_recessed_reveal": [
+          [
+            -1.100000023841858,
+            -0.5199999809265137,
+            0.014000000432133675
+          ],
+          [
+            1.100000023841858,
+            0.04500000178813934,
+            2.440000057220459
+          ]
+        ],
+        "double_rounded_face_casing": [
+          [
+            -1.1699999570846558,
+            0.009999999776482582,
+            0.0
+          ],
+          [
+            1.1699999570846558,
+            0.08500000089406967,
+            2.4800000190734863
+          ]
+        ],
+        "double_rear_stop": [
+          [
+            -0.9424999952316284,
+            -0.515999972820282,
+            0.024000000208616257
+          ],
+          [
+            0.9424999952316284,
+            -0.48100000619888306,
+            2.2750000953674316
+          ]
+        ],
+        "double_sloped_threshold": [
+          [
+            -1.100000023841858,
+            -0.5199999809265137,
+            0.0
+          ],
+          [
+            1.100000023841858,
+            0.10999999940395355,
+            0.019999999552965164
+          ]
+        ]
+      }
+    }
+  ],
+  "reference_hashes_before": {
+    "art/source/models/environment/city_shop_fittings_03/city_shop_fittings_03.blend": "4192fd80abafb270afe64e92b1fbbf897649ca3302aa696e3f45a7e1c4d954d6",
+    "art/models/environment/city_shop_fittings_03/city_shop_fittings_03_single.glb": "29af0c8b3652b7b400598c75f6f99329cb21e510452547e2e28f3c1115d215b9",
+    "art/models/environment/city_shop_fittings_03/city_shop_fittings_03_double.glb": "6cde06a6da83baa5731317349bbd1835e5ebe6f0cee9f1f1c14c3cf1478ee5d9"
+  },
+  "reference_hashes_after": {
+    "art/source/models/environment/city_shop_fittings_03/city_shop_fittings_03.blend": "4192fd80abafb270afe64e92b1fbbf897649ca3302aa696e3f45a7e1c4d954d6",
+    "art/models/environment/city_shop_fittings_03/city_shop_fittings_03_single.glb": "29af0c8b3652b7b400598c75f6f99329cb21e510452547e2e28f3c1115d215b9",
+    "art/models/environment/city_shop_fittings_03/city_shop_fittings_03_double.glb": "6cde06a6da83baa5731317349bbd1835e5ebe6f0cee9f1f1c14c3cf1478ee5d9"
+  },
+  "reference_modified": false,
+  "scratch": "fitted_comparison.blend",
+  "scope": "Saved source and actual GLB fitted surface/ray checks; no engine collision, shell or runtime acceptance."
+}

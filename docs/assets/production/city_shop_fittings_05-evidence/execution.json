@@ -1,0 +1,330 @@
+[
+  {
+    "label": "requested_pin",
+    "argv": [
+      "/usr/bin/blender5.2.2LTS",
+      "--version"
+    ],
+    "cwd": "/home/regner/.paseo/worktrees/0u71f39f/asset-register-production",
+    "pid": null,
+    "environment_overrides": {
+      "ALSOFT_DRIVERS": "null",
+      "SDL_AUDIODRIVER": "dummy",
+      "XDG_CACHE_HOME": "/home/regner/.paseo/worktrees/0u71f39f/asset-register-production/docs/assets/production/city_shop_fittings_05-evidence/process_cache",
+      "PYTHONDONTWRITEBYTECODE": "1"
+    },
+    "exit_status": 127,
+    "seconds": 0.0013785362243652344,
+    "terminated_owned_process": false
+  },
+  {
+    "label": "version",
+    "argv": [
+      "/usr/bin/blender",
+      "-b",
+      "-noaudio",
+      "-t",
+      "4",
+      "--version"
+    ],
+    "cwd": "/home/regner/.paseo/worktrees/0u71f39f/asset-register-production",
+    "pid": 9,
+    "environment_overrides": {
+      "ALSOFT_DRIVERS": "null",
+      "SDL_AUDIODRIVER": "dummy",
+      "XDG_CACHE_HOME": "/home/regner/.paseo/worktrees/0u71f39f/asset-register-production/docs/assets/production/city_shop_fittings_05-evidence/process_cache",
+      "PYTHONDONTWRITEBYTECODE": "1"
+    },
+    "exit_status": 0,
+    "seconds": 0.21414756774902344,
+    "terminated_owned_process": false
+  },
+  {
+    "label": "author",
+    "argv": [
+      "/usr/bin/blender",
+      "-b",
+      "-noaudio",
+      "-t",
+      "4",
+      "--python-exit-code",
+      "1",
+      "--python",
+      "tools/asset_production/city_shop_fittings_05/author.py"
+    ],
+    "cwd": "/home/regner/.paseo/worktrees/0u71f39f/asset-register-production",
+    "pid": 6,
+    "environment_overrides": {
+      "ALSOFT_DRIVERS": "null",
+      "SDL_AUDIODRIVER": "dummy",
+      "XDG_CACHE_HOME": "/home/regner/.paseo/worktrees/0u71f39f/asset-register-production/docs/assets/production/city_shop_fittings_05-evidence/process_cache",
+      "PYTHONDONTWRITEBYTECODE": "1"
+    },
+    "exit_status": 0,
+    "seconds": 0.6147944927215576,
+    "terminated_owned_process": false
+  },
+  {
+    "label": "export",
+    "argv": [
+      "/usr/bin/blender",
+      "-b",
+      "-noaudio",
+      "-t",
+      "4",
+      "art/source/models/environment/city_shop_fittings_05/city_shop_fittings_05.blend",
+      "--python-exit-code",
+      "1",
+      "--python",
+      "tools/asset_production/city_shop_fittings_05/export.py"
+    ],
+    "cwd": "/home/regner/.paseo/worktrees/0u71f39f/asset-register-production",
+    "pid": 33,
+    "environment_overrides": {
+      "ALSOFT_DRIVERS": "null",
+      "SDL_AUDIODRIVER": "dummy",
+      "XDG_CACHE_HOME": "/home/regner/.paseo/worktrees/0u71f39f/asset-register-production/docs/assets/production/city_shop_fittings_05-evidence/process_cache",
+      "PYTHONDONTWRITEBYTECODE": "1"
+    },
+    "exit_status": 0,
+    "seconds": 0.6648421287536621,
+    "terminated_owned_process": false
+  },
+  {
+    "label": "glb_check",
+    "argv": [
+      "python",
+      "tools/asset_production/city_shop_fittings_05/check_glb.py"
+    ],
+    "cwd": "/home/regner/.paseo/worktrees/0u71f39f/asset-register-production",
+    "pid": 56,
+    "environment_overrides": {
+      "ALSOFT_DRIVERS": "null",
+      "SDL_AUDIODRIVER": "dummy",
+      "XDG_CACHE_HOME": "/home/regner/.paseo/worktrees/0u71f39f/asset-register-production/docs/assets/production/city_shop_fittings_05-evidence/process_cache",
+      "PYTHONDONTWRITEBYTECODE": "1"
+    },
+    "exit_status": 0,
+    "seconds": 0.03188967704772949,
+    "terminated_owned_process": false
+  },
+  {
+    "label": "initial_interface",
+    "argv": [
+      "/usr/bin/blender",
+      "-b",
+      "-noaudio",
+      "-t",
+      "4",
+      "art/source/models/environment/city_shop_fittings_05/city_shop_fittings_05.blend",
+      "--python-exit-code",
+      "1",
+      "--python",
+      "tools/asset_production/city_shop_fittings_05/check_interface.py"
+    ],
+    "cwd": "/home/regner/.paseo/worktrees/0u71f39f/asset-register-production",
+    "pid": 4,
+    "environment_overrides": {
+      "ALSOFT_DRIVERS": "null",
+      "SDL_AUDIODRIVER": "dummy",
+      "XDG_CACHE_HOME": "/home/regner/.paseo/worktrees/0u71f39f/asset-register-production/docs/assets/production/city_shop_fittings_05-evidence/process_cache",
+      "PYTHONDONTWRITEBYTECODE": "1"
+    },
+    "exit_status": 1,
+    "seconds": 0.7147302627563477,
+    "terminated_owned_process": false
+  },
+  {
+    "label": "preview",
+    "argv": [
+      "/usr/bin/blender",
+      "-b",
+      "-noaudio",
+      "-t",
+      "4",
+      "art/source/models/environment/city_shop_fittings_05/city_shop_fittings_05.blend",
+      "--python-exit-code",
+      "1",
+      "--python",
+      "tools/asset_production/city_shop_fittings_05/preview.py"
+    ],
+    "cwd": "/home/regner/.paseo/worktrees/0u71f39f/asset-register-production",
+    "pid": 4,
+    "environment_overrides": {
+      "ALSOFT_DRIVERS": "null",
+      "SDL_AUDIODRIVER": "dummy",
+      "XDG_CACHE_HOME": "/home/regner/.paseo/worktrees/0u71f39f/asset-register-production/docs/assets/production/city_shop_fittings_05-evidence/process_cache",
+      "PYTHONDONTWRITEBYTECODE": "1"
+    },
+    "exit_status": 0,
+    "seconds": 74.22177052497864,
+    "terminated_owned_process": false
+  },
+  {
+    "label": "final_author",
+    "argv": [
+      "/usr/bin/blender",
+      "-b",
+      "-noaudio",
+      "-t",
+      "4",
+      "--python-exit-code",
+      "1",
+      "--python",
+      "tools/asset_production/city_shop_fittings_05/author.py"
+    ],
+    "cwd": "/home/regner/.paseo/worktrees/0u71f39f/asset-register-production",
+    "pid": 5,
+    "environment_overrides": {
+      "ALSOFT_DRIVERS": "null",
+      "SDL_AUDIODRIVER": "dummy",
+      "XDG_CACHE_HOME": "/home/regner/.paseo/worktrees/0u71f39f/asset-register-production/docs/assets/production/city_shop_fittings_05-evidence/process_cache",
+      "PYTHONDONTWRITEBYTECODE": "1"
+    },
+    "exit_status": 0,
+    "seconds": 0.6146354675292969,
+    "terminated_owned_process": false
+  },
+  {
+    "label": "final_export",
+    "argv": [
+      "/usr/bin/blender",
+      "-b",
+      "-noaudio",
+      "-t",
+      "4",
+      "art/source/models/environment/city_shop_fittings_05/city_shop_fittings_05.blend",
+      "--python-exit-code",
+      "1",
+      "--python",
+      "tools/asset_production/city_shop_fittings_05/export.py"
+    ],
+    "cwd": "/home/regner/.paseo/worktrees/0u71f39f/asset-register-production",
+    "pid": 32,
+    "environment_overrides": {
+      "ALSOFT_DRIVERS": "null",
+      "SDL_AUDIODRIVER": "dummy",
+      "XDG_CACHE_HOME": "/home/regner/.paseo/worktrees/0u71f39f/asset-register-production/docs/assets/production/city_shop_fittings_05-evidence/process_cache",
+      "PYTHONDONTWRITEBYTECODE": "1"
+    },
+    "exit_status": 0,
+    "seconds": 0.6647908687591553,
+    "terminated_owned_process": false
+  },
+  {
+    "label": "final_interface",
+    "argv": [
+      "/usr/bin/blender",
+      "-b",
+      "-noaudio",
+      "-t",
+      "4",
+      "art/source/models/environment/city_shop_fittings_05/city_shop_fittings_05.blend",
+      "--python-exit-code",
+      "1",
+      "--python",
+      "tools/asset_production/city_shop_fittings_05/check_interface.py"
+    ],
+    "cwd": "/home/regner/.paseo/worktrees/0u71f39f/asset-register-production",
+    "pid": 56,
+    "environment_overrides": {
+      "ALSOFT_DRIVERS": "null",
+      "SDL_AUDIODRIVER": "dummy",
+      "XDG_CACHE_HOME": "/home/regner/.paseo/worktrees/0u71f39f/asset-register-production/docs/assets/production/city_shop_fittings_05-evidence/process_cache",
+      "PYTHONDONTWRITEBYTECODE": "1"
+    },
+    "exit_status": 0,
+    "seconds": 0.5646800994873047,
+    "terminated_owned_process": false
+  },
+  {
+    "label": "final_glb",
+    "argv": [
+      "python",
+      "tools/asset_production/city_shop_fittings_05/check_glb.py"
+    ],
+    "cwd": "/home/regner/.paseo/worktrees/0u71f39f/asset-register-production",
+    "pid": 80,
+    "environment_overrides": {
+      "ALSOFT_DRIVERS": "null",
+      "SDL_AUDIODRIVER": "dummy",
+      "XDG_CACHE_HOME": "/home/regner/.paseo/worktrees/0u71f39f/asset-register-production/docs/assets/production/city_shop_fittings_05-evidence/process_cache",
+      "PYTHONDONTWRITEBYTECODE": "1"
+    },
+    "exit_status": 0,
+    "seconds": 0.06397676467895508,
+    "terminated_owned_process": false
+  },
+  {
+    "label": "reexport",
+    "argv": [
+      "/usr/bin/blender",
+      "-b",
+      "-noaudio",
+      "-t",
+      "4",
+      "art/source/models/environment/city_shop_fittings_05/city_shop_fittings_05.blend",
+      "--python-exit-code",
+      "1",
+      "--python",
+      "tools/asset_production/city_shop_fittings_05/export.py",
+      "--",
+      "docs/assets/production/city_shop_fittings_05-evidence/reexport_city_shop_fittings_05.glb"
+    ],
+    "cwd": "/home/regner/.paseo/worktrees/0u71f39f/asset-register-production",
+    "pid": 82,
+    "environment_overrides": {
+      "ALSOFT_DRIVERS": "null",
+      "SDL_AUDIODRIVER": "dummy",
+      "XDG_CACHE_HOME": "/home/regner/.paseo/worktrees/0u71f39f/asset-register-production/docs/assets/production/city_shop_fittings_05-evidence/process_cache",
+      "PYTHONDONTWRITEBYTECODE": "1"
+    },
+    "exit_status": 0,
+    "seconds": 0.6647515296936035,
+    "terminated_owned_process": false
+  },
+  {
+    "label": "final_audit",
+    "argv": [
+      "python",
+      "tools/asset_production/city_shop_fittings_05/final_audit.py"
+    ],
+    "cwd": "/home/regner/.paseo/worktrees/0u71f39f/asset-register-production",
+    "pid": 106,
+    "environment_overrides": {
+      "ALSOFT_DRIVERS": "null",
+      "SDL_AUDIODRIVER": "dummy",
+      "XDG_CACHE_HOME": "/home/regner/.paseo/worktrees/0u71f39f/asset-register-production/docs/assets/production/city_shop_fittings_05-evidence/process_cache",
+      "PYTHONDONTWRITEBYTECODE": "1"
+    },
+    "exit_status": 0,
+    "seconds": 0.03188729286193848,
+    "terminated_owned_process": false
+  },
+  {
+    "label": "final_preview",
+    "argv": [
+      "/usr/bin/blender",
+      "-b",
+      "-noaudio",
+      "-t",
+      "4",
+      "art/source/models/environment/city_shop_fittings_05/city_shop_fittings_05.blend",
+      "--python-exit-code",
+      "1",
+      "--python",
+      "tools/asset_production/city_shop_fittings_05/preview.py"
+    ],
+    "cwd": "/home/regner/.paseo/worktrees/0u71f39f/asset-register-production",
+    "pid": 107,
+    "environment_overrides": {
+      "ALSOFT_DRIVERS": "null",
+      "SDL_AUDIODRIVER": "dummy",
+      "XDG_CACHE_HOME": "/home/regner/.paseo/worktrees/0u71f39f/asset-register-production/docs/assets/production/city_shop_fittings_05-evidence/process_cache",
+      "PYTHONDONTWRITEBYTECODE": "1"
+    },
+    "exit_status": 0,
+    "seconds": 73.31414651870728,
+    "terminated_owned_process": false
+  }
+]

@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="1000" viewBox="0 0 1440 1000">
+<rect width="1440" height="1000" fill="#f4f1e8"/>
+<style>text{font-family:DejaVu Sans,sans-serif;fill:#223d49;font-size:19px}.small{font-size:16px}.title{font-size:30px;font-weight:bold}.sub{font-size:23px;font-weight:bold}.dim{stroke:#425966;stroke-width:1.5;fill:none}.guide{stroke:#b85845;stroke-width:2;stroke-dasharray:7 5;fill:none}</style>
+<text x="45" y="48" class="title">city_shop_fittings.03 / entrance interface</text>
+<text x="45" y="78" class="small">Metres · source-space elevations + section · dimensions are authored choices, not measured gameplay acceptance</text>
+<text x="110" y="128" class="sub">SINGLE</text>
+<rect x="84.5" y="143.0" width="231.0" height="372.0" fill="#c8c2ad" stroke="none"/>
+<rect x="106.62499999999999" y="161.75" width="186.75000000000003" height="353.25" fill="#405b68" stroke="none"/>
+<rect x="122.0" y="178.99999999999994" width="156.0" height="333.00000000000006" fill="#f4f1e8" stroke="none"/>
+<rect x="95.0" y="512.0" width="210.0" height="3.0" fill="#929d9f" stroke="none"/>
+<path d="M84.5,550 L315.5,550" class="dim"/>
+<path d="M84.5,541 L84.5,559" class="dim"/>
+<path d="M315.5,541 L315.5,559" class="dim"/>
+<text x="128" y="579" class="">1.54 overall</text>
+<path d="M122.0,340 L278.0,340" class="guide"/>
+<text x="128" y="331" class="">1.04 aperture</text>
+<text x="106" y="610" class="">2.48 overall height</text>
+<text x="106" y="637" class="">2.24 aperture head</text>
+<text x="475" y="128" class="sub">DOUBLE</text>
+<rect x="389.5" y="143.0" width="351.0" height="372.0" fill="#c8c2ad" stroke="none"/>
+<rect x="411.625" y="161.75" width="306.75" height="353.25" fill="#405b68" stroke="none"/>
+<rect x="427.0" y="178.99999999999994" width="276.0" height="333.00000000000006" fill="#f4f1e8" stroke="none"/>
+<rect x="400.0" y="512.0" width="330.0" height="3.0" fill="#929d9f" stroke="none"/>
+<path d="M389.5,550 L740.5,550" class="dim"/>
+<path d="M389.5,541 L389.5,559" class="dim"/>
+<path d="M740.5,541 L740.5,559" class="dim"/>
+<text x="493" y="579" class="">2.34 overall</text>
+<path d="M427.0,340 L703.0,340" class="guide"/>
+<text x="493" y="331" class="">1.84 aperture</text>
+<text x="471" y="610" class="">2.48 overall height</text>
+<text x="471" y="637" class="">2.24 aperture head</text>
+<text x="880" y="128" class="sub">CENTRE HEADER / SILL SECTION</text>
+<polygon points="940.4,178.99999999999994 998.0,178.99999999999994 1156.4,161.0 1211.6,161.0 1211.6,149.0 940.4,149.0" fill="#405b68"/>
+<rect x="1194.8" y="143.0" width="36.0" height="18.75" fill="#c8c2ad" stroke="none"/>
+<rect x="942.3199999999999" y="173.75" width="16.8" height="7.6499999999999995" fill="#293b43" stroke="none"/>
+<polygon points="940.4,515 1242.8,515 1242.8,514.4 1211.6,512.0 950.0,512.0 940.4,512.9" fill="#929d9f"/>
+<path d="M1190,135 L1190,545" class="guide"/>
+<text x="1200" y="300" class="small">Wall Y=0</text>
+<path d="M983.6,180.2 L983.6,510.5" class="guide"/>
+<text x="865" y="400" class="small">Leaf front Y=-0.430</text>
+<text x="865" y="425" class="small">Dashed datum only</text>
+<path d="M890,515 L1340,515" class="dim"/>
+<text x="1170" y="540" class="small">Floor Z=0</text>
+<path d="M940.4,570 L1242.8,570" class="dim"/>
+<text x="950" y="597" class="small">0.63 total depth</text>
+<text x="930" y="625" class="small">0.52 back / 0.11 front</text>
+<text x="45" y="699" class="sub">STATIC .06 LEAF ENVELOPE — no leaves supplied</text>
+<text x="45" y="732" class="">Single: X [-0.512, +0.512]; double: [-0.912, -0.004] and [+0.004, +0.912].</text>
+<text x="45" y="761" class="">Both: Y [-0.475, -0.430], Z [0.030, 2.232]. Single leaf 1.024 wide; paired leaves 0.908 each.</text>
+<text x="45" y="790" class="">Gaps: 8 mm sides + head; 10 mm above sill; 6 mm rear stop; 8 mm double meeting seam.</text>
+<text x="45" y="837" class="sub">SHELL + INSTALLATION INTERFACE</text>
+<text x="45" y="869" class="">Shell owns plain opening: 1.42 / 2.22 wide × 2.45 high, floor Z=0; reserve depth to Y=-0.54.</text>
+<text x="45" y="898" class="">10 mm jamb/head installation gap; casing covers rough opening by 60 mm sides / 30 mm head.</text>
+<text x="45" y="927" class="">Bounds ±1 mm; installation translation ±2 mm; unscaled orthogonal fit. Keep other trim 50 mm clear.</text>
+<text x="45" y="961" class="small">Blender +Y street / +Z up → Godot -Z street / +Y up. Source-only interface, later .06 assembly validation required.</text>
+</svg>

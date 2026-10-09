@@ -1,0 +1,123 @@
+{
+  "renderer": "Cycles CPU 32 samples, four threads, AgX",
+  "resolution": [
+    1280,
+    800
+  ],
+  "views": [
+    {
+      "file": "hero.png",
+      "position": [
+        16,
+        23,
+        16
+      ],
+      "rotation_radians": [
+        1.1131318807601929,
+        1.1612274875005824e-07,
+        2.5337905883789062
+      ],
+      "lens_mm": 46.0,
+      "sensor_fit": "AUTO",
+      "assembled": false,
+      "reference_visible": false,
+      "vertical_fov_degrees": null
+    },
+    {
+      "file": "mounted_hero.png",
+      "position": [
+        16,
+        23,
+        16
+      ],
+      "rotation_radians": [
+        1.1131318807601929,
+        1.1612274875005824e-07,
+        2.5337905883789062
+      ],
+      "lens_mm": 46.0,
+      "sensor_fit": "AUTO",
+      "assembled": true,
+      "reference_visible": false,
+      "vertical_fov_degrees": null
+    },
+    {
+      "file": "mounted_frontage.png",
+      "position": [
+        5,
+        21,
+        7
+      ],
+      "rotation_radians": [
+        1.2786089181900024,
+        -8.803316120520321e-08,
+        2.8008170127868652
+      ],
+      "lens_mm": 52.0,
+      "sensor_fit": "AUTO",
+      "assembled": true,
+      "reference_visible": false,
+      "vertical_fov_degrees": null
+    },
+    {
+      "file": "rear_roof.png",
+      "position": [
+        -13,
+        -22,
+        15
+      ],
+      "rotation_radians": [
+        1.0958471298217773,
+        2.16898463634152e-08,
+        -0.5543075799942017
+      ],
+      "lens_mm": 46.0,
+      "sensor_fit": "AUTO",
+      "assembled": false,
+      "reference_visible": false,
+      "vertical_fov_degrees": null
+    },
+    {
+      "file": "measured_1m_comparison.png",
+      "position": [
+        12,
+        24,
+        13
+      ],
+      "rotation_radians": [
+        1.1742953062057495,
+        1.8972851734133656e-08,
+        2.6370818614959717
+      ],
+      "lens_mm": 46.0,
+      "sensor_fit": "AUTO",
+      "assembled": false,
+      "reference_visible": true,
+      "vertical_fov_degrees": null
+    },
+    {
+      "file": "project_camera.png",
+      "position": [
+        0,
+        9,
+        47
+      ],
+      "rotation_radians": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "lens_mm": 31.26106834411621,
+      "sensor_fit": "VERTICAL",
+      "assembled": true,
+      "reference_visible": false,
+      "vertical_fov_degrees": 42
+    }
+  ],
+  "reference_measured_dimensions_m": [
+    1.0,
+    1.0,
+    1.0
+  ],
+  "scope": "Blender calibrated preview only; no native Godot gameplay-camera acceptance"
+}

@@ -1,0 +1,33 @@
+00:00.308  blend            | Read blend: "/home/regner/.paseo/worktrees/0u71f39f/asset-register-production/art/source/models/environment/city_shop_fittings_06/city_shop_fittings_06.blend"
+BlenderMCP addon registered
+INFO Draco is available, use library at /usr/lib/blender/5.2/scripts/addons_core/io_scene_gltf2/libbf_intern_draco_bridge.so
+ERROR MeshOptimizer is not available because library could not be found at /usr/lib/blender/5.2/scripts/addons_core/io_scene_gltf2/libbf_intern_meshopt_bridge.so
+18:20:57 | INFO: Starting glTF 2.0 export
+18:20:57 | INFO: Extracting primitive: single_leaf_1_glazing
+18:20:57 | INFO: Primitives created: 1
+18:20:57 | INFO: Extracting primitive: single_leaf_1_static_pull
+18:20:57 | INFO: Primitives created: 1
+18:20:57 | INFO: Extracting primitive: single_leaf_1_stiles_rails
+18:20:57 | INFO: Primitives created: 1
+18:20:57 | INFO: Finished glTF 2.0 export in 0.012380123138427734 s
+
+18:20:57 | INFO: Starting glTF 2.0 export
+18:20:57 | INFO: Extracting primitive: double_leaf_1_glazing
+18:20:57 | INFO: Primitives created: 1
+18:20:57 | INFO: Extracting primitive: double_leaf_1_static_pull
+18:20:57 | INFO: Primitives created: 1
+18:20:57 | INFO: Extracting primitive: double_leaf_1_stiles_rails
+18:20:57 | INFO: Primitives created: 1
+18:20:57 | INFO: Extracting primitive: double_leaf_2_glazing
+18:20:57 | INFO: Primitives created: 1
+18:20:57 | INFO: Extracting primitive: double_leaf_2_static_pull
+18:20:57 | INFO: Primitives created: 1
+18:20:57 | INFO: Extracting primitive: double_leaf_2_stiles_rails
+18:20:57 | INFO: Primitives created: 1
+18:20:57 | INFO: Finished glTF 2.0 export in 0.00947117805480957 s
+
+SOURCE_EXPORT_CHECKS_PASS [{"blender": "5.2.2 LTS", "build": "d13f752e3b9c", "exporter": [5, 2, 40], "variant": "single", "objects": [{"name": "single_leaf_1_stiles_rails", "vertices": 304, "triangles": 608, "nonmanifold_or_inconsistent_edges": 0, "component_signed_volumes_m3": [0.03080870438731536], "material_slots": ["door_slate_petrol"]}, {"name": "single_leaf_1_glazing", "vertices": 152, "triangles": 300, "nonmanifold_or_inconsistent_edges": 0, "component_signed_volumes_m3": [0.046412651768959624], "material_slots": ["door_opaque_tinted_glazing"]}, {"name": "single_leaf_1_static_pull", "vertices": 304, "triangles": 604, "nonmanifold_or_inconsistent_edges": 0, "component_signed_volumes_m3": [0.000557091946530058], "material_slots": ["door_satin_handle"]}], "blender_bounds": [[-0.5120000243186951, -0.4749999940395355, 0.029999999329447746], [0.5120000243186951, -0.35199999809265137, 2.2320001125335693]], "triangles": 1512, "authoring_reference_dimensions_m": [1.0, 1.0, 1.0], "export_settings": {"export_format": "GLB", "use_selection": true, "export_yup": true, "export_apply": true, "export_texcoords": false, "export_normals": true, "export_tangents": false, "export_materials": "EXPORT", "export_cameras": false, "export_lights": false, "export_extras": false, "export_animations": false}, "sha256": "55688ad2a64d9084af4c13ba7f960bee3a06816604305f6cf778fa48cddab31b", "bytes": 30288}, {"blender": "5.2.2 LTS", "build": "d13f752e3b9c", "exporter": [5, 2, 40], "variant": "double", "objects": [{"name": "double_leaf_1_stiles_rails", "vertices": 304, "triangles": 608, "nonmanifold_or_inconsistent_edges": 0, "component_signed_volumes_m3": [0.028907286250754397], "material_slots": ["door_slate_petrol"]}, {"name": "double_leaf_1_glazing", "vertices": 152, "triangles": 300, "nonmanifold_or_inconsistent_edges": 0, "component_signed_volumes_m3": [0.04019362105758352], "material_slots": ["door_opaque_tinted_glazing"]}, {"name": "double_leaf_1_static_pull", "vertices": 304, "triangles": 604, "nonmanifold_or_inconsistent_edges": 0, "component_signed_volumes_m3": [0.0005570903861215493], "material_slots": ["door_satin_handle"]}, {"name": "double_leaf_2_stiles_rails", "vertices": 304, "triangles": 608, "nonmanifold_or_inconsistent_edges": 0, "component_signed_volumes_m3": [0.028907258152594217], "material_slots": ["door_slate_petrol"]}, {"name": "double_leaf_2_glazing", "vertices": 152, "triangles": 300, "nonmanifold_or_inconsistent_edges": 0, "component_signed_volumes_m3": [0.040193615397231715], "material_slots": ["door_opaque_tinted_glazing"]}, {"name": "double_leaf_2_static_pull", "vertices": 304, "triangles": 604, "nonmanifold_or_inconsistent_edges": 0, "component_signed_volumes_m3": [0.0005570903777417334], "material_slots": ["door_satin_handle"]}], "blender_bounds": [[-0.9120000004768372, -0.4749999940395355, 0.029999999329447746], [0.9120000004768372, -0.35199999809265137, 2.2320001125335693]], "triangles": 3024, "authoring_reference_dimensions_m": [1.0, 1.0, 1.0], "export_settings": {"export_format": "GLB", "use_selection": true, "export_yup": true, "export_apply": true, "export_texcoords": false, "export_normals": true, "export_tangents": false, "export_materials": "EXPORT", "export_cameras": false, "export_lights": false, "export_extras": false, "export_animations": false}, "sha256": "0a37b93ae98e17bdda384e4569b4722397eb307842f3128ae8fab32a5d97bf66", "bytes": 50208}]
+BlenderMCP addon unregistered
+Blender 5.2.2 LTS (hash d13f752e3b9c built 2026-09-22 17:10:25)
+
+Blender quit

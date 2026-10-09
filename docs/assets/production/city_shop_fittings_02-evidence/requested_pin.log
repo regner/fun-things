@@ -1,0 +1,21 @@
+Initial wrapper invocation (before OSError handling was added):
+python tools/asset_production/city_shop_fittings_02/run.py requested_pin /usr/bin/blender5.2.2LTS --version
+Wrapper exit: 1; no Blender process launched; command stdout log was empty.
+Outer execution diagnostic preserved here from tool output:
+Traceback (most recent call last):
+  File "/home/regner/.paseo/worktrees/0u71f39f/asset-register-production/tools/asset_production/city_shop_fittings_02/run.py", line 12, in <module>
+    process = subprocess.Popen(argv, cwd=ROOT, env=env, stdout=stream, stderr=subprocess.STDOUT)
+  File "/usr/lib/python3.14/subprocess.py", line 1039, in __init__
+    self._execute_child(args, executable, preexec_fn, close_fds,
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                        pass_fds, cwd, env,
+                        ^^^^^^^^^^^^^^^^^^
+                        ...<5 lines>...
+                        gid, gids, uid, umask,
+                        ^^^^^^^^^^^^^^^^^^^^^
+                        start_new_session, process_group)
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.14/subprocess.py", line 1990, in _execute_child
+    raise child_exception_type(errno_num, err_msg, err_filename)
+FileNotFoundError: [Errno 2] No such file or directory: '/usr/bin/blender5.2.2LTS'
+The runner was fixed to preserve launch failures; requested_pin_retry.log records the same missing-path condition with status 127. pin.log verifies /usr/bin/blender matches all exact version pins.

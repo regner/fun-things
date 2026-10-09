@@ -1,0 +1,131 @@
+{
+  "triangles": 4516,
+  "meshes": 30,
+  "materials": [
+    {
+      "name": "shell_dark_drain_coping",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.03310476616024971,
+          0.0666259378194809,
+          0.0802198201417923,
+          1
+        ],
+        "metallicFactor": 0.3499999940395355,
+        "roughnessFactor": 0.47999998927116394
+      }
+    },
+    {
+      "name": "shell_quiet_blue_roof",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.05126945674419403,
+          0.10461648553609848,
+          0.1384316086769104,
+          1
+        ],
+        "metallicFactor": 0.11999999731779099,
+        "roughnessFactor": 0.6499999761581421
+      }
+    },
+    {
+      "name": "shell_warm_structural_trim",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.4969329833984375,
+          0.4677838087081909,
+          0.3915724754333496,
+          1
+        ],
+        "metallicFactor": 0,
+        "roughnessFactor": 0.699999988079071
+      }
+    },
+    {
+      "name": "shell_slate_plinth",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.06847816705703735,
+          0.08650045841932297,
+          0.09758734703063965,
+          1
+        ],
+        "metallicFactor": 0,
+        "roughnessFactor": 0.7799999713897705
+      }
+    },
+    {
+      "name": "shell_muted_plum_render",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.21952620148658752,
+          0.18447498977184296,
+          0.2015562504529953,
+          1
+        ],
+        "metallicFactor": 0,
+        "roughnessFactor": 0.7799999713897705
+      }
+    }
+  ],
+  "markers_godot_axes": {
+    "join_party_left": [
+      -3.200000047683716,
+      0,
+      0
+    ],
+    "join_party_right": [
+      3.200000047683716,
+      0,
+      0
+    ],
+    "mount_canopy": [
+      -0.949999988079071,
+      3,
+      -7
+    ],
+    "mount_display_window": [
+      -0.949999988079071,
+      0.47999998927116394,
+      -7
+    ],
+    "mount_door_single": [
+      1.9500000476837158,
+      0,
+      -7
+    ],
+    "mount_entrance_single": [
+      1.9500000476837158,
+      0,
+      -7
+    ],
+    "mount_fascia": [
+      -0.949999988079071,
+      3.799999952316284,
+      -7
+    ],
+    "mount_roof_detail": [
+      0,
+      4.300000190734863,
+      1
+    ],
+    "city_small_shop_shells_01": [
+      0,
+      0,
+      0
+    ]
+  },
+  "bounds_godot": [
+    [
+      -3.200000047683716,
+      0.0,
+      -7.119999885559082
+    ],
+    [
+      3.200000047683716,
+      5.050000190734863,
+      7.21999979019165
+    ]
+  ],
+  "checks": "PASS exact members, transforms, all per-mesh source/export bounds and counts, finite unit normals, winding agreement, no degenerate triangles, opaque materials, studio exclusion"
+}

@@ -1,0 +1,133 @@
+{
+  "scope": "Unsaved Blender calibration only, no engine/gameplay acceptance",
+  "reference_dimensions_m": [
+    1.0,
+    1.0,
+    1.0
+  ],
+  "width_to_reference_ratio": 3.2,
+  "height_to_reference_ratio": 2,
+  "attachment_pivot_m": [
+    0.0,
+    0.0,
+    0.47999998927116394
+  ],
+  "shell_opening_blender": {
+    "x": [
+      -1.52,
+      1.52
+    ],
+    "y": [
+      -0.3,
+      0
+    ],
+    "z": [
+      0.54,
+      2.42
+    ]
+  },
+  "shell": "Original temporary Blender-authored aperture jig; not production shell or export",
+  "project_camera": {
+    "height_m": 47,
+    "vertical_fov_degrees": 42.00000169963833,
+    "rotation": [
+      0.0,
+      -0.0,
+      0.0
+    ]
+  },
+  "views": [
+    {
+      "file": "hero.png",
+      "location_blender_m": [
+        3.4,
+        6.0,
+        3.0
+      ],
+      "target_blender_m": [
+        0,
+        0,
+        1
+      ],
+      "lens_mm": 55,
+      "resolution": [
+        1400,
+        1000
+      ]
+    },
+    {
+      "file": "rear_attachment.png",
+      "location_blender_m": [
+        -3,
+        -5,
+        2.6
+      ],
+      "target_blender_m": [
+        0,
+        0,
+        1
+      ],
+      "lens_mm": 50,
+      "resolution": [
+        1400,
+        1000
+      ]
+    },
+    {
+      "file": "measured_1m_comparison.png",
+      "location_blender_m": [
+        1,
+        8.5,
+        3.5
+      ],
+      "target_blender_m": [
+        -0.7,
+        0,
+        0.9
+      ],
+      "lens_mm": 48,
+      "resolution": [
+        1400,
+        1000
+      ]
+    },
+    {
+      "file": "attachment_opening.png",
+      "location_blender_m": [
+        4.6,
+        6.5,
+        3.7
+      ],
+      "target_blender_m": [
+        0,
+        0,
+        1.5
+      ],
+      "lens_mm": 52,
+      "resolution": [
+        1400,
+        1000
+      ]
+    },
+    {
+      "file": "project_camera.png",
+      "location_blender_m": [
+        0,
+        12,
+        47
+      ],
+      "target_blender_m": [
+        0,
+        12,
+        0
+      ],
+      "lens_mm": 41.68142503510083,
+      "resolution": [
+        1280,
+        800
+      ]
+    }
+  ],
+  "renderer": "Cycles CPU, 4 threads, 32 samples, AgX",
+  "source_saved": false
+}

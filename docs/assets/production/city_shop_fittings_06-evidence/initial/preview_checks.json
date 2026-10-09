@@ -1,0 +1,127 @@
+{
+  "views": [
+    {
+      "file": "fitted_hero.png",
+      "location": [
+        3.2,
+        8,
+        3.2
+      ],
+      "target": [
+        0,
+        -0.2,
+        1.1
+      ],
+      "lens_mm": 52,
+      "ortho_scale": null,
+      "resolution": [
+        1280,
+        900
+      ]
+    },
+    {
+      "file": "fitted_front.png",
+      "location": [
+        0,
+        8,
+        1.24
+      ],
+      "target": [
+        0,
+        0,
+        1.24
+      ],
+      "lens_mm": 50,
+      "ortho_scale": 5.35,
+      "resolution": [
+        1280,
+        900
+      ]
+    },
+    {
+      "file": "fitted_rear.png",
+      "location": [
+        -3,
+        -8,
+        3
+      ],
+      "target": [
+        0,
+        -0.2,
+        1.15
+      ],
+      "lens_mm": 52,
+      "ortho_scale": null,
+      "resolution": [
+        1280,
+        900
+      ]
+    },
+    {
+      "file": "hero.png",
+      "location": [
+        3,
+        8,
+        3
+      ],
+      "target": [
+        0,
+        -0.4,
+        1.12
+      ],
+      "lens_mm": 56,
+      "ortho_scale": null,
+      "resolution": [
+        1280,
+        900
+      ]
+    },
+    {
+      "file": "measured_1m_comparison.png",
+      "location": [
+        4,
+        10,
+        4
+      ],
+      "target": [
+        -0.65,
+        -0.3,
+        1.05
+      ],
+      "lens_mm": 52,
+      "ortho_scale": null,
+      "resolution": [
+        1280,
+        900
+      ]
+    },
+    {
+      "file": "project_camera.png",
+      "location": [
+        0,
+        8,
+        47
+      ],
+      "target": [
+        0,
+        8,
+        0
+      ],
+      "lens_mm": 41.68142503510083,
+      "ortho_scale": null,
+      "resolution": [
+        1280,
+        800
+      ]
+    }
+  ],
+  "metre_reference_dimensions_m": [
+    1.0,
+    1.0,
+    1.0
+  ],
+  "project_camera_height_m": 47,
+  "project_vertical_fov_degrees": 42.00000169963833,
+  "renderer": "Cycles CPU, 4 threads, 32 samples, AgX",
+  "scope": "Actual source fitted comparison in Blender; isolated fittings, no shell/roof or engine; project view is deliberately at true scale."
+}

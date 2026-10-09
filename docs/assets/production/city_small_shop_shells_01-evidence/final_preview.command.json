@@ -1,0 +1,24 @@
+{
+  "argv": [
+    "/usr/bin/blender",
+    "-b",
+    "-noaudio",
+    "-t",
+    "4",
+    "docs/assets/production/city_small_shop_shells_01-evidence/mounted_frontage_scratch.blend",
+    "--python-exit-code",
+    "1",
+    "--python",
+    "tools/asset_production/city_small_shop_shells_01/preview.py"
+  ],
+  "cwd": "/home/regner/.paseo/worktrees/0u71f39f/asset-register-production",
+  "environment_overrides": {
+    "ALSOFT_DRIVERS": "null",
+    "SDL_AUDIODRIVER": "dummy",
+    "XDG_CACHE_HOME": "/home/regner/.paseo/worktrees/0u71f39f/asset-register-production/docs/assets/production/city_small_shop_shells_01-evidence/process_cache"
+  },
+  "start_unix": 1791567992.1818862,
+  "duration_s": 122.36691999435425,
+  "exit": 0,
+  "log": "docs/assets/production/city_small_shop_shells_01-evidence/final_preview.log"
+}

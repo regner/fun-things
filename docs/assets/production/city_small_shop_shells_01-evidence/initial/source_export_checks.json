@@ -1,0 +1,790 @@
+{
+  "pin": [
+    "5.2.2 LTS",
+    "d13f752e3b9c",
+    [
+      5,
+      2,
+      40
+    ]
+  ],
+  "objects": [
+    {
+      "name": "front_structural_wall_with_two_openings",
+      "vertices": 60,
+      "triangles": 120,
+      "bounds": [
+        [
+          -3.200000047683716,
+          6.71999979019165,
+          0.0
+        ],
+        [
+          3.200000047683716,
+          7.0,
+          4.949999809265137
+        ]
+      ],
+      "component_volumes_m3": [
+        6.296027454027357
+      ],
+      "material_slots": [
+        "shell_muted_plum_render"
+      ]
+    },
+    {
+      "name": "party_wall_left",
+      "vertices": 8,
+      "triangles": 12,
+      "bounds": [
+        [
+          -3.200000047683716,
+          -7.0,
+          0.0
+        ],
+        [
+          -2.9200000762939453,
+          6.71999979019165,
+          4.599999904632568
+        ]
+      ],
+      "component_volumes_m3": [
+        17.671358451563563
+      ],
+      "material_slots": [
+        "shell_muted_plum_render"
+      ]
+    },
+    {
+      "name": "party_wall_right",
+      "vertices": 8,
+      "triangles": 12,
+      "bounds": [
+        [
+          2.9200000762939453,
+          -7.0,
+          0.0
+        ],
+        [
+          3.200000047683716,
+          6.71999979019165,
+          4.599999904632568
+        ]
+      ],
+      "component_volumes_m3": [
+        17.671358451563563
+      ],
+      "material_slots": [
+        "shell_muted_plum_render"
+      ]
+    },
+    {
+      "name": "rear_structural_wall",
+      "vertices": 8,
+      "triangles": 12,
+      "bounds": [
+        [
+          -2.9200000762939453,
+          -7.0,
+          0.0
+        ],
+        [
+          2.9200000762939453,
+          -6.71999979019165,
+          4.300000190734863
+        ]
+      ],
+      "component_volumes_m3": [
+        7.03136462031064
+      ],
+      "material_slots": [
+        "shell_muted_plum_render"
+      ]
+    },
+    {
+      "name": "rear_parapet_left",
+      "vertices": 8,
+      "triangles": 12,
+      "bounds": [
+        [
+          -2.9200000762939453,
+          -7.0,
+          4.300000190734863
+        ],
+        [
+          2.630000114440918,
+          -6.71999979019165,
+          4.599999904632568
+        ]
+      ],
+      "component_volumes_m3": [
+        0.46619990607878936
+      ],
+      "material_slots": [
+        "shell_muted_plum_render"
+      ]
+    },
+    {
+      "name": "rear_parapet_right",
+      "vertices": 8,
+      "triangles": 12,
+      "bounds": [
+        [
+          2.869999885559082,
+          -7.0,
+          4.300000190734863
+        ],
+        [
+          2.9200000762939453,
+          -6.71999979019165,
+          4.599999904632568
+        ]
+      ],
+      "component_volumes_m3": [
+        0.004200014956789275
+      ],
+      "material_slots": [
+        "shell_muted_plum_render"
+      ]
+    },
+    {
+      "name": "rear_scupper_header",
+      "vertices": 8,
+      "triangles": 12,
+      "bounds": [
+        [
+          2.630000114440918,
+          -7.0,
+          4.480000019073486
+        ],
+        [
+          2.869999885559082,
+          -6.71999979019165,
+          4.599999904632568
+        ]
+      ],
+      "component_volumes_m3": [
+        0.008063987957001476
+      ],
+      "material_slots": [
+        "shell_muted_plum_render"
+      ]
+    },
+    {
+      "name": "flat_roof_deck",
+      "vertices": 96,
+      "triangles": 188,
+      "bounds": [
+        [
+          -2.9200000762939453,
+          -6.71999979019165,
+          4.139999866485596
+        ],
+        [
+          2.9200000762939453,
+          6.71999979019165,
+          4.300000190734863
+        ]
+      ],
+      "component_volumes_m3": [
+        12.55556968111353
+      ],
+      "material_slots": [
+        "shell_quiet_blue_roof"
+      ]
+    },
+    {
+      "name": "roof_seam_left",
+      "vertices": 96,
+      "triangles": 188,
+      "bounds": [
+        [
+          -0.9980000257492065,
+          -6.599999904632568,
+          4.296000003814697
+        ],
+        [
+          -0.9620000123977661,
+          6.599999904632568,
+          4.322000026702881
+        ]
+      ],
+      "component_volumes_m3": [
+        0.011880856403671897
+      ],
+      "material_slots": [
+        "shell_quiet_blue_roof"
+      ]
+    },
+    {
+      "name": "roof_seam_right",
+      "vertices": 96,
+      "triangles": 188,
+      "bounds": [
+        [
+          0.9620000123977661,
+          -6.599999904632568,
+          4.296000003814697
+        ],
+        [
+          0.9980000257492065,
+          6.599999904632568,
+          4.322000026702881
+        ]
+      ],
+      "component_volumes_m3": [
+        0.011880856403725562
+      ],
+      "material_slots": [
+        "shell_quiet_blue_roof"
+      ]
+    },
+    {
+      "name": "front_parapet_coping",
+      "vertices": 96,
+      "triangles": 188,
+      "bounds": [
+        [
+          -3.200000047683716,
+          6.650000095367432,
+          4.949999809265137
+        ],
+        [
+          3.200000047683716,
+          7.119999885559082,
+          5.050000190734863
+        ]
+      ],
+      "component_volumes_m3": [
+        0.29744558446391534
+      ],
+      "material_slots": [
+        "shell_dark_drain_coping"
+      ]
+    },
+    {
+      "name": "party_coping_left",
+      "vertices": 96,
+      "triangles": 188,
+      "bounds": [
+        [
+          -3.200000047683716,
+          -7.0,
+          4.599999904632568
+        ],
+        [
+          -2.880000114440918,
+          6.659999847412109,
+          4.699999809265137
+        ]
+      ],
+      "component_volumes_m3": [
+        0.43509500867595113
+      ],
+      "material_slots": [
+        "shell_dark_drain_coping"
+      ]
+    },
+    {
+      "name": "party_coping_right",
+      "vertices": 96,
+      "triangles": 188,
+      "bounds": [
+        [
+          2.880000114440918,
+          -7.0,
+          4.599999904632568
+        ],
+        [
+          3.200000047683716,
+          6.659999847412109,
+          4.699999809265137
+        ]
+      ],
+      "component_volumes_m3": [
+        0.43509499942793434
+      ],
+      "material_slots": [
+        "shell_dark_drain_coping"
+      ]
+    },
+    {
+      "name": "rear_coping",
+      "vertices": 96,
+      "triangles": 188,
+      "bounds": [
+        [
+          -3.200000047683716,
+          -7.079999923706055,
+          4.599999904632568
+        ],
+        [
+          3.200000047683716,
+          -6.650000095367432,
+          4.699999809265137
+        ]
+      ],
+      "component_volumes_m3": [
+        0.2736415181025199
+      ],
+      "material_slots": [
+        "shell_dark_drain_coping"
+      ]
+    },
+    {
+      "name": "front_corner_pier_left",
+      "vertices": 96,
+      "triangles": 188,
+      "bounds": [
+        [
+          -3.200000047683716,
+          6.989999771118164,
+          0.0
+        ],
+        [
+          -2.8299999237060547,
+          7.065000057220459,
+          4.550000190734863
+        ]
+      ],
+      "component_volumes_m3": [
+        0.12514461587032322
+      ],
+      "material_slots": [
+        "shell_warm_structural_trim"
+      ]
+    },
+    {
+      "name": "front_corner_pier_right",
+      "vertices": 96,
+      "triangles": 188,
+      "bounds": [
+        [
+          2.8299999237060547,
+          6.989999771118164,
+          0.0
+        ],
+        [
+          3.200000047683716,
+          7.065000057220459,
+          4.550000190734863
+        ]
+      ],
+      "component_volumes_m3": [
+        0.12514459856889507
+      ],
+      "material_slots": [
+        "shell_warm_structural_trim"
+      ]
+    },
+    {
+      "name": "front_head_course",
+      "vertices": 96,
+      "triangles": 188,
+      "bounds": [
+        [
+          -3.200000047683716,
+          7.0,
+          4.480000019073486
+        ],
+        [
+          3.200000047683716,
+          7.059999942779541,
+          4.610000133514404
+        ]
+      ],
+      "component_volumes_m3": [
+        0.04897839390041027
+      ],
+      "material_slots": [
+        "shell_warm_structural_trim"
+      ]
+    },
+    {
+      "name": "front_plinth_left",
+      "vertices": 96,
+      "triangles": 188,
+      "bounds": [
+        [
+          -3.200000047683716,
+          7.000999927520752,
+          0.0
+        ],
+        [
+          1.100000023841858,
+          7.045000076293945,
+          0.30000001192092896
+        ]
+      ],
+      "component_volumes_m3": [
+        0.05629733434365502
+      ],
+      "material_slots": [
+        "shell_slate_plinth"
+      ]
+    },
+    {
+      "name": "front_plinth_right",
+      "vertices": 96,
+      "triangles": 188,
+      "bounds": [
+        [
+          2.799999952316284,
+          7.000999927520752,
+          0.0
+        ],
+        [
+          3.200000047683716,
+          7.045000076293945,
+          0.30000001192092896
+        ]
+      ],
+      "component_volumes_m3": [
+        0.005207594184198351
+      ],
+      "material_slots": [
+        "shell_slate_plinth"
+      ]
+    },
+    {
+      "name": "rear_plinth",
+      "vertices": 96,
+      "triangles": 188,
+      "bounds": [
+        [
+          -3.200000047683716,
+          -7.039999961853027,
+          0.0
+        ],
+        [
+          3.200000047683716,
+          -6.989999771118164,
+          0.30000001192092896
+        ]
+      ],
+      "component_volumes_m3": [
+        0.09532689200353808
+      ],
+      "material_slots": [
+        "shell_slate_plinth"
+      ]
+    },
+    {
+      "name": "scupper_lower_lip",
+      "vertices": 96,
+      "triangles": 188,
+      "bounds": [
+        [
+          2.630000114440918,
+          -7.170000076293945,
+          4.284999847412109
+        ],
+        [
+          2.869999885559082,
+          -6.699999809265137,
+          4.315000057220459
+        ]
+      ],
+      "component_volumes_m3": [
+        0.0033579466127205177
+      ],
+      "material_slots": [
+        "shell_dark_drain_coping"
+      ]
+    },
+    {
+      "name": "rain_hopper_back",
+      "vertices": 96,
+      "triangles": 188,
+      "bounds": [
+        [
+          2.5799999237060547,
+          -7.039999961853027,
+          4.039999961853027
+        ],
+        [
+          2.9200000762939453,
+          -7.005000114440918,
+          4.400000095367432
+        ]
+      ],
+      "component_volumes_m3": [
+        0.004257783110162742
+      ],
+      "material_slots": [
+        "shell_dark_drain_coping"
+      ]
+    },
+    {
+      "name": "rain_hopper_front",
+      "vertices": 96,
+      "triangles": 188,
+      "bounds": [
+        [
+          2.5799999237060547,
+          -7.21999979019165,
+          4.039999961853027
+        ],
+        [
+          2.9200000762939453,
+          -7.184999942779541,
+          4.400000095367432
+        ]
+      ],
+      "component_volumes_m3": [
+        0.004257808956565474
+      ],
+      "material_slots": [
+        "shell_dark_drain_coping"
+      ]
+    },
+    {
+      "name": "rain_hopper_left",
+      "vertices": 96,
+      "triangles": 188,
+      "bounds": [
+        [
+          2.5799999237060547,
+          -7.184999942779541,
+          4.039999961853027
+        ],
+        [
+          2.615000009536743,
+          -7.039999961853027,
+          4.400000095367432
+        ]
+      ],
+      "component_volumes_m3": [
+        0.0018078970053757705
+      ],
+      "material_slots": [
+        "shell_dark_drain_coping"
+      ]
+    },
+    {
+      "name": "rain_hopper_right",
+      "vertices": 96,
+      "triangles": 188,
+      "bounds": [
+        [
+          2.884999990463257,
+          -7.184999942779541,
+          4.039999961853027
+        ],
+        [
+          2.9200000762939453,
+          -7.039999961853027,
+          4.400000095367432
+        ]
+      ],
+      "component_volumes_m3": [
+        0.0018078669495111483
+      ],
+      "material_slots": [
+        "shell_dark_drain_coping"
+      ]
+    },
+    {
+      "name": "rain_hopper_base",
+      "vertices": 96,
+      "triangles": 188,
+      "bounds": [
+        [
+          2.5799999237060547,
+          -7.21999979019165,
+          4.019999980926514
+        ],
+        [
+          2.9200000762939453,
+          -7.005000114440918,
+          4.054999828338623
+        ]
+      ],
+      "component_volumes_m3": [
+        0.002543938240493823
+      ],
+      "material_slots": [
+        "shell_dark_drain_coping"
+      ]
+    },
+    {
+      "name": "rear_downpipe",
+      "vertices": 96,
+      "triangles": 188,
+      "bounds": [
+        [
+          2.690000057220459,
+          -7.159999847412109,
+          0.18000000715255737
+        ],
+        [
+          2.809999942779541,
+          -7.039999961853027,
+          4.054999828338623
+        ]
+      ],
+      "component_volumes_m3": [
+        0.05345291156464868
+      ],
+      "material_slots": [
+        "shell_dark_drain_coping"
+      ]
+    },
+    {
+      "name": "drain_saddle_0.65",
+      "vertices": 96,
+      "triangles": 188,
+      "bounds": [
+        [
+          2.6649999618530273,
+          -7.170000076293945,
+          0.6499999761581421
+        ],
+        [
+          2.8350000381469727,
+          -7.0,
+          0.699999988079071
+        ]
+      ],
+      "component_volumes_m3": [
+        0.0014207690489796796
+      ],
+      "material_slots": [
+        "shell_dark_drain_coping"
+      ]
+    },
+    {
+      "name": "drain_saddle_2.45",
+      "vertices": 96,
+      "triangles": 188,
+      "bounds": [
+        [
+          2.6649999618530273,
+          -7.170000076293945,
+          2.450000047683716
+        ],
+        [
+          2.8350000381469727,
+          -7.0,
+          2.5
+        ]
+      ],
+      "component_volumes_m3": [
+        0.001420775343895914
+      ],
+      "material_slots": [
+        "shell_dark_drain_coping"
+      ]
+    },
+    {
+      "name": "drain_saddle_3.65",
+      "vertices": 96,
+      "triangles": 188,
+      "bounds": [
+        [
+          2.6649999618530273,
+          -7.170000076293945,
+          3.6500000953674316
+        ],
+        [
+          2.8350000381469727,
+          -7.0,
+          3.700000047683716
+        ]
+      ],
+      "component_volumes_m3": [
+        0.0014207632288068977
+      ],
+      "material_slots": [
+        "shell_dark_drain_coping"
+      ]
+    }
+  ],
+  "markers": {
+    "city_small_shop_shells_01": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "mount_entrance_single": [
+      1.9500000476837158,
+      7.0,
+      0.0
+    ],
+    "mount_door_single": [
+      1.9500000476837158,
+      7.0,
+      0.0
+    ],
+    "mount_display_window": [
+      -0.949999988079071,
+      7.0,
+      0.47999998927116394
+    ],
+    "mount_canopy": [
+      -0.949999988079071,
+      7.0,
+      3.0
+    ],
+    "mount_fascia": [
+      -0.949999988079071,
+      7.0,
+      3.799999952316284
+    ],
+    "mount_roof_detail": [
+      0.0,
+      -1.0,
+      4.300000190734863
+    ],
+    "join_party_left": [
+      -3.200000047683716,
+      0.0,
+      0.0
+    ],
+    "join_party_right": [
+      3.200000047683716,
+      0.0,
+      0.0
+    ]
+  },
+  "bounds_blender": [
+    [
+      -3.200000047683716,
+      -7.21999979019165,
+      0.0
+    ],
+    [
+      3.200000047683716,
+      7.119999885559082,
+      5.050000190734863
+    ]
+  ],
+  "triangles": 4516,
+  "reference_dimensions_m": [
+    1.0,
+    1.0,
+    1.0
+  ],
+  "reference_ratios": [
+    6.4,
+    14,
+    5.05
+  ],
+  "checks": "PASS: finite, positive closed consistently wound solids, nondegenerate faces, applied transforms, excluded studio/reference, measured bounds",
+  "export_settings": {
+    "export_format": "GLB",
+    "use_selection": true,
+    "export_yup": true,
+    "export_apply": true,
+    "export_texcoords": false,
+    "export_normals": true,
+    "export_tangents": false,
+    "export_materials": "EXPORT",
+    "export_cameras": false,
+    "export_lights": false,
+    "export_extras": false,
+    "export_animations": false
+  },
+  "bytes": 79788,
+  "sha256": "630451ce1f642a08509471e2e5034856ffcc5832a0e7a0abc36bc79212c0d7d2"
+}

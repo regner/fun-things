@@ -1,0 +1,153 @@
+{
+  "blender": "5.2.2 LTS",
+  "build_hash": "d13f752e3b9c",
+  "gltf_exporter": [
+    5,
+    2,
+    40
+  ],
+  "members": [
+    "city_shop_fittings_02",
+    "formed_fascia_frame",
+    "continuous_face_trim",
+    "folded_back_tray",
+    "artwork_reveal",
+    "fascia_artwork_carrier",
+    "wall_mount_rail_lower",
+    "wall_mount_rail_upper"
+  ],
+  "export_settings": {
+    "export_format": "GLB",
+    "use_selection": true,
+    "export_yup": true,
+    "export_apply": false,
+    "export_texcoords": true,
+    "export_normals": true,
+    "export_tangents": false,
+    "export_materials": "EXPORT",
+    "export_cameras": false,
+    "export_lights": false,
+    "export_extras": false,
+    "export_animations": false,
+    "export_skins": false,
+    "export_morph": false
+  },
+  "objects": [
+    {
+      "name": "formed_fascia_frame",
+      "vertices": 196,
+      "triangles": 392,
+      "volume_m3": 0.045454173661439966,
+      "material_slots": [
+        "fascia_slate_petrol"
+      ],
+      "nonmanifold_edges": 0,
+      "inconsistent_winding_edges": 0,
+      "degenerate_triangles": 0,
+      "applied_transforms": true
+    },
+    {
+      "name": "continuous_face_trim",
+      "vertices": 168,
+      "triangles": 336,
+      "volume_m3": 0.0073969591153363766,
+      "material_slots": [
+        "fascia_warm_trim"
+      ],
+      "nonmanifold_edges": 0,
+      "inconsistent_winding_edges": 0,
+      "degenerate_triangles": 0,
+      "applied_transforms": true
+    },
+    {
+      "name": "folded_back_tray",
+      "vertices": 84,
+      "triangles": 164,
+      "volume_m3": 0.10565693593112108,
+      "material_slots": [
+        "fascia_slate_petrol"
+      ],
+      "nonmanifold_edges": 0,
+      "inconsistent_winding_edges": 0,
+      "degenerate_triangles": 0,
+      "applied_transforms": true
+    },
+    {
+      "name": "artwork_reveal",
+      "vertices": 112,
+      "triangles": 224,
+      "volume_m3": 0.0019423169033959263,
+      "material_slots": [
+        "fascia_recess"
+      ],
+      "nonmanifold_edges": 0,
+      "inconsistent_winding_edges": 0,
+      "degenerate_triangles": 0,
+      "applied_transforms": true
+    },
+    {
+      "name": "fascia_artwork_carrier",
+      "vertices": 84,
+      "triangles": 164,
+      "volume_m3": 0.10383310088116884,
+      "material_slots": [
+        "fascia_artwork_face",
+        "fascia_mount_metal"
+      ],
+      "nonmanifold_edges": 0,
+      "inconsistent_winding_edges": 0,
+      "degenerate_triangles": 0,
+      "applied_transforms": true
+    },
+    {
+      "name": "wall_mount_rail_lower",
+      "vertices": 96,
+      "triangles": 188,
+      "volume_m3": 0.01090800941556869,
+      "material_slots": [
+        "fascia_mount_metal"
+      ],
+      "nonmanifold_edges": 0,
+      "inconsistent_winding_edges": 0,
+      "degenerate_triangles": 0,
+      "applied_transforms": true
+    },
+    {
+      "name": "wall_mount_rail_upper",
+      "vertices": 96,
+      "triangles": 188,
+      "volume_m3": 0.010908009415568692,
+      "material_slots": [
+        "fascia_mount_metal"
+      ],
+      "nonmanifold_edges": 0,
+      "inconsistent_winding_edges": 0,
+      "degenerate_triangles": 0,
+      "applied_transforms": true
+    }
+  ],
+  "bounds_blender": [
+    [
+      -1.600000023841858,
+      0.0,
+      -0.4000000059604645
+    ],
+    [
+      1.600000023841858,
+      0.14000000059604645,
+      0.4000000059604645
+    ]
+  ],
+  "triangles": 1656,
+  "artwork_front_y": 0.128,
+  "artwork_uv_orientation": "U increases toward Blender -X; V toward +Z; glTF V storage flips",
+  "artwork_material": "fascia_artwork_face",
+  "authoring_reference_dimensions_m": [
+    1.0,
+    1.0,
+    1.0
+  ],
+  "width_to_1m_reference_ratio": 3.200000047683716,
+  "output_bytes": 45708,
+  "output_sha256": "db455a724d0392966462ea0a853424b69e3284617f7c1bbc0e77af822e6dc956"
+}

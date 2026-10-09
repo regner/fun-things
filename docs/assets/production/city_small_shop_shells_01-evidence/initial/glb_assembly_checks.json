@@ -1,0 +1,256 @@
+{
+  "mode": "glb",
+  "reference_hashes_before": {
+    "art/source/models/environment/city_shop_fittings_01/city_shop_fittings_01.blend": "db572713536c2e73dd0b4f3dcc8a8275c62d218f1d6515b80061b0c4f0ed73bd",
+    "art/models/environment/city_shop_fittings_01/city_shop_fittings_01.glb": "80fb54cbcf4667f9da4b417b5a2a2ebf5db0cf2641520ab9c78de3ed5a38de69",
+    "docs/assets/production/city_shop_fittings_01.md": "c9c1fe96517f4f7bbad770a941969515025da6707f71c9b7b2cbcea86dbf6058",
+    "art/source/models/environment/city_shop_fittings_02/city_shop_fittings_02.blend": "5bda2a3d283951d77d7b417f0d36c951cb68c4a417c6fd28883dcd56b53b036a",
+    "art/models/environment/city_shop_fittings_02/city_shop_fittings_02.glb": "db455a724d0392966462ea0a853424b69e3284617f7c1bbc0e77af822e6dc956",
+    "docs/assets/production/city_shop_fittings_02.md": "3562ebdff3cf21271796e7cbca492e22fe190b9a6de636de744731ad112808a8",
+    "art/source/models/environment/city_shop_fittings_03/city_shop_fittings_03.blend": "4192fd80abafb270afe64e92b1fbbf897649ca3302aa696e3f45a7e1c4d954d6",
+    "art/models/environment/city_shop_fittings_03/city_shop_fittings_03_single.glb": "29af0c8b3652b7b400598c75f6f99329cb21e510452547e2e28f3c1115d215b9",
+    "docs/assets/production/city_shop_fittings_03.md": "ebf793c498d72a31cb6610d42b6f206de500a01cd09fd324f16dcd9f0d9ca8dc",
+    "art/source/models/environment/city_shop_fittings_05/city_shop_fittings_05.blend": "e9d5aa510aafb55fa4edf69928ff566599c1e0eb4ea6defadc68f58ba55e52fd",
+    "art/models/environment/city_shop_fittings_05/city_shop_fittings_05.glb": "a641d067621301435f5a725803290f74dc7c235bac8bdc5d24c1d2170776faed",
+    "docs/assets/production/city_shop_fittings_05.md": "e35c83330a9703df9a338380b8d878c115efc910cf294916a77933a32bc13923",
+    "art/source/models/environment/city_shop_fittings_06/city_shop_fittings_06.blend": "a815ade7a8674d1184f35aa3544000e4307402675e953e4d668a1ffc1d4f9112",
+    "art/models/environment/city_shop_fittings_06/city_shop_fittings_06_single.glb": "55688ad2a64d9084af4c13ba7f960bee3a06816604305f6cf778fa48cddab31b",
+    "docs/assets/production/city_shop_fittings_06.md": "dacb6e17a101bf5cdc4120ed4414d71c5f65269a05c6459115b3faff7b359f74"
+  },
+  "mount_transforms_blender": {
+    "mount_canopy": [
+      -0.949999988079071,
+      7.0,
+      3.0
+    ],
+    "mount_fascia": [
+      -0.949999988079071,
+      7.0,
+      3.799999952316284
+    ],
+    "mount_entrance_single": [
+      1.9500000476837158,
+      7.0,
+      0.0
+    ],
+    "mount_display_window": [
+      -0.949999988079071,
+      7.0,
+      0.47999998927116394
+    ],
+    "mount_door_single": [
+      1.9500000476837158,
+      7.0,
+      0.0
+    ]
+  },
+  "fitting_bounds_blender": {
+    "01": [
+      [
+        -2.549999952316284,
+        7.0,
+        2.5799999237060547
+      ],
+      [
+        0.6500000357627869,
+        8.100000381469727,
+        3.240000009536743
+      ]
+    ],
+    "02": [
+      [
+        -2.549999952316284,
+        7.0,
+        3.3999998569488525
+      ],
+      [
+        0.6500000357627869,
+        7.139999866485596,
+        4.199999809265137
+      ]
+    ],
+    "03": [
+      [
+        1.1800000667572021,
+        6.480000019073486,
+        0.0
+      ],
+      [
+        2.7200000286102295,
+        7.110000133514404,
+        2.4800000190734863
+      ]
+    ],
+    "05": [
+      [
+        -2.549999952316284,
+        6.820000171661377,
+        0.47999998927116394
+      ],
+      [
+        0.6500000357627869,
+        7.21999979019165,
+        2.4800000190734863
+      ]
+    ],
+    "06": [
+      [
+        1.437999963760376,
+        6.525000095367432,
+        0.029999999329447746
+      ],
+      [
+        2.4620001316070557,
+        6.6479997634887695,
+        2.2320001125335693
+      ]
+    ]
+  },
+  "hole_and_void_probes": [
+    {
+      "opening": "entrance",
+      "ray_count": 225,
+      "x_measured": [
+        1.2400000095367432,
+        2.6600000858306885
+      ],
+      "head_measured": 2.450000286102295,
+      "rear_void_y": 6.46,
+      "width_m": 1.4200000762939453,
+      "height_m": 2.45
+    },
+    {
+      "opening": "window",
+      "ray_count": 225,
+      "x_measured": [
+        -2.4700000286102295,
+        0.5699999928474426
+      ],
+      "head_measured": 2.4200000762939453,
+      "rear_void_y": 6.8,
+      "width_m": 3.040000021457672,
+      "height_m": 1.88
+    }
+  ],
+  "unexpected_shell_triangle_intersections": [],
+  "permitted_wall_contact_pairs": 48,
+  "insertion_03": {
+    "rear_geometry_bounds": [
+      [
+        1.25,
+        6.480000019073486,
+        0.0
+      ],
+      [
+        2.6500000953674316,
+        6.929999828338623,
+        2.440000057220459
+      ]
+    ],
+    "side_gaps": [
+      0.010000000000000009,
+      0.009999904632568501
+    ],
+    "head_gap": 0.009999942779541193,
+    "rear_gap": 0.020000019073486364,
+    "bottom_gap": 0.0
+  },
+  "insertion_05": {
+    "rear_geometry_bounds": [
+      [
+        -2.450000047683716,
+        6.820000171661377,
+        0.5600000023841858
+      ],
+      [
+        0.550000011920929,
+        6.9679999351501465,
+        2.3999998569488525
+      ]
+    ],
+    "side_gaps": [
+      0.019999952316284375,
+      0.019999988079070996
+    ],
+    "head_gap": 0.02000014305114739,
+    "rear_gap": 0.02000017166137713,
+    "bottom_gap": 0.020000002384185755
+  },
+  "door_side_head_gap_m": [
+    0.007999897003173828,
+    0.007999897003173828
+  ],
+  "visible_vertical_gaps_m": {
+    "window_to_canopy": 0.09999990463256836,
+    "canopy_to_fascia": 0.15999984741210938,
+    "fascia_to_head_course": 0.2800001907348637
+  },
+  "canopy_lowest_m": 2.5799999237060547,
+  "flat_bay_width_m": 3.4,
+  "roof_attachment_surface_probes": [
+    [
+      -0.699999988079071,
+      -2.0,
+      4.300000190734863
+    ],
+    [
+      -0.699999988079071,
+      -1.0,
+      4.300000190734863
+    ],
+    [
+      -0.699999988079071,
+      0.0,
+      4.300000190734863
+    ],
+    [
+      0.0,
+      -2.0,
+      4.300000190734863
+    ],
+    [
+      0.0,
+      -1.0,
+      4.300000190734863
+    ],
+    [
+      0.0,
+      0.0,
+      4.300000190734863
+    ],
+    [
+      0.699999988079071,
+      -2.0,
+      4.300000190734863
+    ],
+    [
+      0.699999988079071,
+      -1.0,
+      4.300000190734863
+    ],
+    [
+      0.699999988079071,
+      0.0,
+      4.300000190734863
+    ]
+  ],
+  "party_wall_join_pitch_m": 6.4,
+  "reference_hashes_after": {
+    "art/source/models/environment/city_shop_fittings_01/city_shop_fittings_01.blend": "db572713536c2e73dd0b4f3dcc8a8275c62d218f1d6515b80061b0c4f0ed73bd",
+    "art/models/environment/city_shop_fittings_01/city_shop_fittings_01.glb": "80fb54cbcf4667f9da4b417b5a2a2ebf5db0cf2641520ab9c78de3ed5a38de69",
+    "docs/assets/production/city_shop_fittings_01.md": "c9c1fe96517f4f7bbad770a941969515025da6707f71c9b7b2cbcea86dbf6058",
+    "art/source/models/environment/city_shop_fittings_02/city_shop_fittings_02.blend": "5bda2a3d283951d77d7b417f0d36c951cb68c4a417c6fd28883dcd56b53b036a",
+    "art/models/environment/city_shop_fittings_02/city_shop_fittings_02.glb": "db455a724d0392966462ea0a853424b69e3284617f7c1bbc0e77af822e6dc956",
+    "docs/assets/production/city_shop_fittings_02.md": "3562ebdff3cf21271796e7cbca492e22fe190b9a6de636de744731ad112808a8",
+    "art/source/models/environment/city_shop_fittings_03/city_shop_fittings_03.blend": "4192fd80abafb270afe64e92b1fbbf897649ca3302aa696e3f45a7e1c4d954d6",
+    "art/models/environment/city_shop_fittings_03/city_shop_fittings_03_single.glb": "29af0c8b3652b7b400598c75f6f99329cb21e510452547e2e28f3c1115d215b9",
+    "docs/assets/production/city_shop_fittings_03.md": "ebf793c498d72a31cb6610d42b6f206de500a01cd09fd324f16dcd9f0d9ca8dc",
+    "art/source/models/environment/city_shop_fittings_05/city_shop_fittings_05.blend": "e9d5aa510aafb55fa4edf69928ff566599c1e0eb4ea6defadc68f58ba55e52fd",
+    "art/models/environment/city_shop_fittings_05/city_shop_fittings_05.glb": "a641d067621301435f5a725803290f74dc7c235bac8bdc5d24c1d2170776faed",
+    "docs/assets/production/city_shop_fittings_05.md": "e35c83330a9703df9a338380b8d878c115efc910cf294916a77933a32bc13923",
+    "art/source/models/environment/city_shop_fittings_06/city_shop_fittings_06.blend": "a815ade7a8674d1184f35aa3544000e4307402675e953e4d668a1ffc1d4f9112",
+    "art/models/environment/city_shop_fittings_06/city_shop_fittings_06_single.glb": "55688ad2a64d9084af4c13ba7f960bee3a06816604305f6cf778fa48cddab31b",
+    "docs/assets/production/city_shop_fittings_06.md": "dacb6e17a101bf5cdc4120ed4414d71c5f65269a05c6459115b3faff7b359f74"
+  },
+  "checks": "PASS actual source/GLB scratch fit; not Godot, world, movement, collision, weather-seal or engineering acceptance"
+}

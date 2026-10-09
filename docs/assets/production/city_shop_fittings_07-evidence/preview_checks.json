@@ -1,0 +1,151 @@
+{
+  "scope": "Blender calibration only; no Godot acceptance",
+  "reference_dimensions_m": [
+    1.0,
+    1.0,
+    1.0
+  ],
+  "width_to_reference_ratio": 4.8,
+  "height_to_reference_ratio": 1.6,
+  "attachment_pivot_m": [
+    0.0,
+    0.0,
+    4.650000095367432
+  ],
+  "shell_opening_blender": {
+    "x": [
+      -2.34,
+      2.34
+    ],
+    "y": [
+      -0.3,
+      0
+    ],
+    "z": [
+      4.71,
+      6.19
+    ]
+  },
+  "shell": "Original temporary 6.4 x 7 m aperture wall jig; no roof/room, not an accepted shell",
+  "project_camera": {
+    "height_m": 47,
+    "vertical_fov_degrees": 42.00000169963833,
+    "rotation": [
+      0.0,
+      -0.0,
+      0.0
+    ]
+  },
+  "views": [
+    {
+      "file": "hero.png",
+      "location_blender_m": [
+        3.8,
+        8.0,
+        3.0
+      ],
+      "target_blender_m": [
+        0,
+        0,
+        0.8
+      ],
+      "lens_mm": 55,
+      "resolution": [
+        1400,
+        900
+      ]
+    },
+    {
+      "file": "rear_attachment.png",
+      "location_blender_m": [
+        -3.6,
+        -7.5,
+        2.5
+      ],
+      "target_blender_m": [
+        0,
+        0,
+        0.8
+      ],
+      "lens_mm": 50,
+      "resolution": [
+        1400,
+        900
+      ]
+    },
+    {
+      "file": "measured_1m_comparison.png",
+      "location_blender_m": [
+        1,
+        10,
+        3.7
+      ],
+      "target_blender_m": [
+        -0.7,
+        0,
+        0.8
+      ],
+      "lens_mm": 48,
+      "resolution": [
+        1400,
+        900
+      ]
+    },
+    {
+      "file": "mounting_detail.png",
+      "location_blender_m": [
+        4.5,
+        7.8,
+        7.1
+      ],
+      "target_blender_m": [
+        0,
+        0,
+        5.45
+      ],
+      "lens_mm": 55,
+      "resolution": [
+        1400,
+        900
+      ]
+    },
+    {
+      "file": "upper_floor_scale.png",
+      "location_blender_m": [
+        7,
+        13,
+        9
+      ],
+      "target_blender_m": [
+        0,
+        0,
+        3.5
+      ],
+      "lens_mm": 48,
+      "resolution": [
+        1400,
+        900
+      ]
+    },
+    {
+      "file": "project_camera.png",
+      "location_blender_m": [
+        0,
+        10,
+        47
+      ],
+      "target_blender_m": [
+        0,
+        10,
+        0
+      ],
+      "lens_mm": 41.68142503510083,
+      "resolution": [
+        1280,
+        800
+      ]
+    }
+  ],
+  "renderer": "Cycles CPU, 4 threads, 32 samples, AgX",
+  "source_saved": false
+}
