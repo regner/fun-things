@@ -1,0 +1,776 @@
+{
+  "ok": true,
+  "engine": "4.8.dev7.official.c971f93e7",
+  "revision": "f531cdab794b47d3cfd925e77d0188553841a818",
+  "dirty_inputs": "",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "processor": "Intel64 Family 6 Model 170 Stepping 4, GenuineIntel",
+  "source_manifest": {
+    "tests/fixtures/s14/audio/ambience.wav": "871736164d4867c9d339400da786de9fd3ad78c2da531967c75fb8564b0a052f",
+    "tests/fixtures/s14/audio/engine_loop.wav": "3d8f8267af1c2df900de8e3270996095e670053192a532a2d323561477165d1a",
+    "tests/fixtures/s14/audio/explosion_1.wav": "d76213bf6a4264050552d89610a144b90c64fc4a2b3688d3ec8607a9160b9d71",
+    "tests/fixtures/s14/audio/explosion_2.wav": "3480ae693e9d5ada9e93e2c681eef7d7f7d6729e16c36f4a0b9834cd4bdf1c23",
+    "tests/fixtures/s14/audio/explosion_3.wav": "c048900f4924c5153d5b86c96eb4d0ebf8b10f028763347732f15a38d6451876",
+    "tests/fixtures/s14/audio/LICENSE.md": "40bd4493f8e5533839d80e76346ef1dfed9cd8668836c5998c70ccadce35416b",
+    "tests/fixtures/s14/audio/music.wav": "6bd20bd3a76559315bd5f1a8a70f05e375db6ca89ffbd2c63db1008a072d2b1f",
+    "tests/fixtures/s14/audio/smg_1.wav": "386c5c95e41d68aeb87bf2600f05cfc9e199752f0be4dfcc5d0db116e6f558f6",
+    "tests/fixtures/s14/audio/smg_2.wav": "a40f15c36b40c006d38d322e1017ca93cb07c23432f370010dfaa26f3e4df137",
+    "tests/fixtures/s14/audio_test.tscn": "a2902c4b9463f631a7984b7cb847d6fd6436b0ce29394cd83f3f35d5c0d70258",
+    "tests/fixtures/s14/bus_layout.tres": "0be5508a661ad9bdb95de00be9a9a8fdca7ba5ea39df81b77903c553f25bb7ec",
+    "tests/fixtures/s14/generate_audio.py": "5c967478ad2711a8da9042bfa39a0070265d6e7fcfa3e31f1d7021d8b825efd8",
+    "tests/fixtures/s14/s14_fixture.gd": "9a72f166554b45f2293dd52f23487a24652a509baeb202d426e67439dc099621",
+    "tests/fixtures/s14/s14_fixture.gd.uid": "7b048ed7aea00e7f05e6c64b01c5421c7bd80a3cacabf5b434d2aab12dacf5e4",
+    "tests/fixtures/s14/s14_settings.gd": "2568fe996d089ba52acd91acb349fd9ddd2efaf05f27a31cdce3a1449bf3456a",
+    "tests/fixtures/s14/s14_settings.gd.uid": "d603fd1a292b0d292d183e2ecde756a51fdcfa284bd40c7039dea1bd77a03044",
+    "tests/fixtures/s14/s14_voice_manager.gd": "145cf184b111e6d6413022ab7c4e4d2ed930d6f0eaf624bbf30988697b524fff",
+    "tests/fixtures/s14/s14_voice_manager.gd.uid": "ab7e1b9a777222569dd1b45d250a39f945445e57abb65539b614931d9953c6a5"
+  },
+  "cases": [
+    {
+      "name": "headless-1",
+      "mode": "headless",
+      "repeat": 1,
+      "argv": [
+        "C:\\Users\\regner.blokandersen\\AppData\\Local\\mise\\installs\\github-godotengine-godot-builds\\4.8-dev7\\godot.exe",
+        "--headless",
+        "--path",
+        "C:\\tmp\\ft\\lanes\\s14-audio\\run02\\project",
+        "--log-file",
+        "C:\\tmp\\ft\\lanes\\s14-audio\\run02\\headless-1\\engine.log",
+        "res://tests/fixtures/s14/audio_test.tscn",
+        "--",
+        "--s14-output=C:\\tmp\\ft\\lanes\\s14-audio\\run02\\headless-1\\receipt.json",
+        "--s14-mode=headless"
+      ],
+      "exit": 0,
+      "diagnostics": [],
+      "known_dummy_audio_teardown_diagnostics": [
+        "WARNING: 23 ObjectDB instances were leaked at exit (run with `--verbose` for details).",
+        "ERROR: 7 resources still in use at exit (run with --verbose for details)."
+      ],
+      "semantic_failures": [],
+      "environment_before": {
+        "godot_processes": 5,
+        "cpu_load_percent": 47.867
+      },
+      "timing_label": "contended upper bound",
+      "receipt": {
+        "audio_driver": "Dummy",
+        "engine_version": "4.8-dev7 (official)",
+        "failures": [],
+        "listener": {
+          "anchor": "character_ground_position",
+          "orientation": "fixed_north_up_top_down_camera",
+          "position": "(0.0, 1.0, 0.0)",
+          "rotation_degrees": "(-90.0, 0.0, 0.0)"
+        },
+        "mode": "headless",
+        "peak": {
+          "active": {
+            "engines": 8,
+            "explosions": 8,
+            "weapons": 6
+          },
+          "caps": {
+            "engines": 8,
+            "explosions": 8,
+            "weapons": 6
+          },
+          "ducking_active": true,
+          "requests": {
+            "explosions_accepted": 8,
+            "explosions_dropped": 16,
+            "weapon_accepted": 6,
+            "weapon_dropped": 6
+          }
+        },
+        "performance": {
+          "audio_output_latency_ms_median": 0.0,
+          "audio_output_latency_ms_worst": 0.0,
+          "physics_process_ms_median": 0.0,
+          "physics_process_ms_worst": 3.148,
+          "process_ms_median": 0.0,
+          "process_ms_worst": 3.522,
+          "sample_count": 48
+        },
+        "performance_note": "Godot exposes output latency but no per-bus or audio-mix CPU Performance monitor; process-frame time is context only and does not isolate audio cost.",
+        "renderer": "forward_plus",
+        "requests": {
+          "engine_emitters": 32,
+          "explosions": 24,
+          "smg_shots": 12
+        },
+        "settings_roundtrip": {
+          "actual": {
+            "master_level": 0.73,
+            "master_muted": false,
+            "music_level": 0.61,
+            "music_muted": true,
+            "schema_version": 1,
+            "sfx_level": 0.82,
+            "sfx_muted": false
+          },
+          "applied": true,
+          "expected": {
+            "master_level": 0.73,
+            "master_muted": false,
+            "music_level": 0.61,
+            "music_muted": true,
+            "schema_version": 1,
+            "sfx_level": 0.82,
+            "sfx_muted": false
+          },
+          "load_error": 0,
+          "passed": true,
+          "save_error": 0
+        },
+        "settled": {
+          "active": {
+            "engines": 8,
+            "explosions": 3,
+            "weapons": 0
+          },
+          "caps": {
+            "engines": 8,
+            "explosions": 8,
+            "weapons": 6
+          },
+          "ducking_active": false,
+          "requests": {
+            "explosions_accepted": 8,
+            "explosions_dropped": 16,
+            "weapon_accepted": 6,
+            "weapon_dropped": 6
+          }
+        },
+        "success": true
+      },
+      "ok": true
+    },
+    {
+      "name": "headless-2",
+      "mode": "headless",
+      "repeat": 2,
+      "argv": [
+        "C:\\Users\\regner.blokandersen\\AppData\\Local\\mise\\installs\\github-godotengine-godot-builds\\4.8-dev7\\godot.exe",
+        "--headless",
+        "--path",
+        "C:\\tmp\\ft\\lanes\\s14-audio\\run02\\project",
+        "--log-file",
+        "C:\\tmp\\ft\\lanes\\s14-audio\\run02\\headless-2\\engine.log",
+        "res://tests/fixtures/s14/audio_test.tscn",
+        "--",
+        "--s14-output=C:\\tmp\\ft\\lanes\\s14-audio\\run02\\headless-2\\receipt.json",
+        "--s14-mode=headless"
+      ],
+      "exit": 0,
+      "diagnostics": [],
+      "known_dummy_audio_teardown_diagnostics": [],
+      "semantic_failures": [],
+      "environment_before": {
+        "godot_processes": 5,
+        "cpu_load_percent": 47.158
+      },
+      "timing_label": "contended upper bound",
+      "receipt": {
+        "audio_driver": "Dummy",
+        "engine_version": "4.8-dev7 (official)",
+        "failures": [],
+        "listener": {
+          "anchor": "character_ground_position",
+          "orientation": "fixed_north_up_top_down_camera",
+          "position": "(0.0, 1.0, 0.0)",
+          "rotation_degrees": "(-90.0, 0.0, 0.0)"
+        },
+        "mode": "headless",
+        "peak": {
+          "active": {
+            "engines": 8,
+            "explosions": 8,
+            "weapons": 6
+          },
+          "caps": {
+            "engines": 8,
+            "explosions": 8,
+            "weapons": 6
+          },
+          "ducking_active": true,
+          "requests": {
+            "explosions_accepted": 8,
+            "explosions_dropped": 16,
+            "weapon_accepted": 6,
+            "weapon_dropped": 6
+          }
+        },
+        "performance": {
+          "audio_output_latency_ms_median": 0.0,
+          "audio_output_latency_ms_worst": 0.0,
+          "physics_process_ms_median": 0.0,
+          "physics_process_ms_worst": 0.0,
+          "process_ms_median": 0.0,
+          "process_ms_worst": 0.0,
+          "sample_count": 48
+        },
+        "performance_note": "Godot exposes output latency but no per-bus or audio-mix CPU Performance monitor; process-frame time is context only and does not isolate audio cost.",
+        "renderer": "forward_plus",
+        "requests": {
+          "engine_emitters": 32,
+          "explosions": 24,
+          "smg_shots": 12
+        },
+        "settings_roundtrip": {
+          "actual": {
+            "master_level": 0.73,
+            "master_muted": false,
+            "music_level": 0.61,
+            "music_muted": true,
+            "schema_version": 1,
+            "sfx_level": 0.82,
+            "sfx_muted": false
+          },
+          "applied": true,
+          "expected": {
+            "master_level": 0.73,
+            "master_muted": false,
+            "music_level": 0.61,
+            "music_muted": true,
+            "schema_version": 1,
+            "sfx_level": 0.82,
+            "sfx_muted": false
+          },
+          "load_error": 0,
+          "passed": true,
+          "save_error": 0
+        },
+        "settled": {
+          "active": {
+            "engines": 8,
+            "explosions": 0,
+            "weapons": 0
+          },
+          "caps": {
+            "engines": 8,
+            "explosions": 8,
+            "weapons": 6
+          },
+          "ducking_active": false,
+          "requests": {
+            "explosions_accepted": 8,
+            "explosions_dropped": 16,
+            "weapon_accepted": 6,
+            "weapon_dropped": 6
+          }
+        },
+        "success": true
+      },
+      "ok": true
+    },
+    {
+      "name": "headless-3",
+      "mode": "headless",
+      "repeat": 3,
+      "argv": [
+        "C:\\Users\\regner.blokandersen\\AppData\\Local\\mise\\installs\\github-godotengine-godot-builds\\4.8-dev7\\godot.exe",
+        "--headless",
+        "--path",
+        "C:\\tmp\\ft\\lanes\\s14-audio\\run02\\project",
+        "--log-file",
+        "C:\\tmp\\ft\\lanes\\s14-audio\\run02\\headless-3\\engine.log",
+        "res://tests/fixtures/s14/audio_test.tscn",
+        "--",
+        "--s14-output=C:\\tmp\\ft\\lanes\\s14-audio\\run02\\headless-3\\receipt.json",
+        "--s14-mode=headless"
+      ],
+      "exit": 0,
+      "diagnostics": [],
+      "known_dummy_audio_teardown_diagnostics": [],
+      "semantic_failures": [],
+      "environment_before": {
+        "godot_processes": 5,
+        "cpu_load_percent": 30.912
+      },
+      "timing_label": "contended upper bound",
+      "receipt": {
+        "audio_driver": "Dummy",
+        "engine_version": "4.8-dev7 (official)",
+        "failures": [],
+        "listener": {
+          "anchor": "character_ground_position",
+          "orientation": "fixed_north_up_top_down_camera",
+          "position": "(0.0, 1.0, 0.0)",
+          "rotation_degrees": "(-90.0, 0.0, 0.0)"
+        },
+        "mode": "headless",
+        "peak": {
+          "active": {
+            "engines": 8,
+            "explosions": 8,
+            "weapons": 6
+          },
+          "caps": {
+            "engines": 8,
+            "explosions": 8,
+            "weapons": 6
+          },
+          "ducking_active": true,
+          "requests": {
+            "explosions_accepted": 8,
+            "explosions_dropped": 16,
+            "weapon_accepted": 6,
+            "weapon_dropped": 6
+          }
+        },
+        "performance": {
+          "audio_output_latency_ms_median": 0.0,
+          "audio_output_latency_ms_worst": 0.0,
+          "physics_process_ms_median": 0.0,
+          "physics_process_ms_worst": 0.0,
+          "process_ms_median": 0.0,
+          "process_ms_worst": 0.0,
+          "sample_count": 48
+        },
+        "performance_note": "Godot exposes output latency but no per-bus or audio-mix CPU Performance monitor; process-frame time is context only and does not isolate audio cost.",
+        "renderer": "forward_plus",
+        "requests": {
+          "engine_emitters": 32,
+          "explosions": 24,
+          "smg_shots": 12
+        },
+        "settings_roundtrip": {
+          "actual": {
+            "master_level": 0.73,
+            "master_muted": false,
+            "music_level": 0.61,
+            "music_muted": true,
+            "schema_version": 1,
+            "sfx_level": 0.82,
+            "sfx_muted": false
+          },
+          "applied": true,
+          "expected": {
+            "master_level": 0.73,
+            "master_muted": false,
+            "music_level": 0.61,
+            "music_muted": true,
+            "schema_version": 1,
+            "sfx_level": 0.82,
+            "sfx_muted": false
+          },
+          "load_error": 0,
+          "passed": true,
+          "save_error": 0
+        },
+        "settled": {
+          "active": {
+            "engines": 8,
+            "explosions": 5,
+            "weapons": 0
+          },
+          "caps": {
+            "engines": 8,
+            "explosions": 8,
+            "weapons": 6
+          },
+          "ducking_active": false,
+          "requests": {
+            "explosions_accepted": 8,
+            "explosions_dropped": 16,
+            "weapon_accepted": 6,
+            "weapon_dropped": 6
+          }
+        },
+        "success": true
+      },
+      "ok": true
+    },
+    {
+      "name": "windowed-1",
+      "mode": "windowed",
+      "repeat": 1,
+      "argv": [
+        "C:\\Users\\regner.blokandersen\\AppData\\Local\\mise\\installs\\github-godotengine-godot-builds\\4.8-dev7\\godot.exe",
+        "--windowed",
+        "--resolution",
+        "1280x800",
+        "--path",
+        "C:\\tmp\\ft\\lanes\\s14-audio\\run02\\project",
+        "--log-file",
+        "C:\\tmp\\ft\\lanes\\s14-audio\\run02\\windowed-1\\engine.log",
+        "res://tests/fixtures/s14/audio_test.tscn",
+        "--",
+        "--s14-output=C:\\tmp\\ft\\lanes\\s14-audio\\run02\\windowed-1\\receipt.json",
+        "--s14-mode=windowed"
+      ],
+      "exit": 0,
+      "diagnostics": [],
+      "known_dummy_audio_teardown_diagnostics": [],
+      "semantic_failures": [],
+      "environment_before": {
+        "godot_processes": 5,
+        "cpu_load_percent": 24.218
+      },
+      "timing_label": "contended upper bound",
+      "receipt": {
+        "audio_driver": "WASAPI",
+        "engine_version": "4.8-dev7 (official)",
+        "failures": [],
+        "listener": {
+          "anchor": "character_ground_position",
+          "orientation": "fixed_north_up_top_down_camera",
+          "position": "(0.0, 1.0, 0.0)",
+          "rotation_degrees": "(-90.0, 0.0, 0.0)"
+        },
+        "mode": "windowed",
+        "peak": {
+          "active": {
+            "engines": 8,
+            "explosions": 8,
+            "weapons": 6
+          },
+          "caps": {
+            "engines": 8,
+            "explosions": 8,
+            "weapons": 6
+          },
+          "ducking_active": true,
+          "requests": {
+            "explosions_accepted": 8,
+            "explosions_dropped": 16,
+            "weapon_accepted": 6,
+            "weapon_dropped": 6
+          }
+        },
+        "performance": {
+          "audio_output_latency_ms_median": 9.99999977648258,
+          "audio_output_latency_ms_worst": 9.99999977648258,
+          "physics_process_ms_median": 9.714,
+          "physics_process_ms_worst": 9.714,
+          "process_ms_median": 62.416,
+          "process_ms_worst": 62.416,
+          "sample_count": 48
+        },
+        "performance_note": "Godot exposes output latency but no per-bus or audio-mix CPU Performance monitor; process-frame time is context only and does not isolate audio cost.",
+        "renderer": "forward_plus",
+        "requests": {
+          "engine_emitters": 32,
+          "explosions": 24,
+          "smg_shots": 12
+        },
+        "settings_roundtrip": {
+          "actual": {
+            "master_level": 0.73,
+            "master_muted": false,
+            "music_level": 0.61,
+            "music_muted": true,
+            "schema_version": 1,
+            "sfx_level": 0.82,
+            "sfx_muted": false
+          },
+          "applied": true,
+          "expected": {
+            "master_level": 0.73,
+            "master_muted": false,
+            "music_level": 0.61,
+            "music_muted": true,
+            "schema_version": 1,
+            "sfx_level": 0.82,
+            "sfx_muted": false
+          },
+          "load_error": 0,
+          "passed": true,
+          "save_error": 0
+        },
+        "settled": {
+          "active": {
+            "engines": 8,
+            "explosions": 2,
+            "weapons": 0
+          },
+          "caps": {
+            "engines": 8,
+            "explosions": 8,
+            "weapons": 6
+          },
+          "ducking_active": false,
+          "requests": {
+            "explosions_accepted": 8,
+            "explosions_dropped": 16,
+            "weapon_accepted": 6,
+            "weapon_dropped": 6
+          }
+        },
+        "success": true
+      },
+      "ok": true
+    },
+    {
+      "name": "windowed-2",
+      "mode": "windowed",
+      "repeat": 2,
+      "argv": [
+        "C:\\Users\\regner.blokandersen\\AppData\\Local\\mise\\installs\\github-godotengine-godot-builds\\4.8-dev7\\godot.exe",
+        "--windowed",
+        "--resolution",
+        "1280x800",
+        "--path",
+        "C:\\tmp\\ft\\lanes\\s14-audio\\run02\\project",
+        "--log-file",
+        "C:\\tmp\\ft\\lanes\\s14-audio\\run02\\windowed-2\\engine.log",
+        "res://tests/fixtures/s14/audio_test.tscn",
+        "--",
+        "--s14-output=C:\\tmp\\ft\\lanes\\s14-audio\\run02\\windowed-2\\receipt.json",
+        "--s14-mode=windowed"
+      ],
+      "exit": 0,
+      "diagnostics": [],
+      "known_dummy_audio_teardown_diagnostics": [],
+      "semantic_failures": [],
+      "environment_before": {
+        "godot_processes": 6,
+        "cpu_load_percent": 23.267
+      },
+      "timing_label": "contended upper bound",
+      "receipt": {
+        "audio_driver": "WASAPI",
+        "engine_version": "4.8-dev7 (official)",
+        "failures": [],
+        "listener": {
+          "anchor": "character_ground_position",
+          "orientation": "fixed_north_up_top_down_camera",
+          "position": "(0.0, 1.0, 0.0)",
+          "rotation_degrees": "(-90.0, 0.0, 0.0)"
+        },
+        "mode": "windowed",
+        "peak": {
+          "active": {
+            "engines": 8,
+            "explosions": 8,
+            "weapons": 6
+          },
+          "caps": {
+            "engines": 8,
+            "explosions": 8,
+            "weapons": 6
+          },
+          "ducking_active": true,
+          "requests": {
+            "explosions_accepted": 8,
+            "explosions_dropped": 16,
+            "weapon_accepted": 6,
+            "weapon_dropped": 6
+          }
+        },
+        "performance": {
+          "audio_output_latency_ms_median": 9.99999977648258,
+          "audio_output_latency_ms_worst": 9.99999977648258,
+          "physics_process_ms_median": 3.846,
+          "physics_process_ms_worst": 27.946,
+          "process_ms_median": 8.337,
+          "process_ms_worst": 451.423,
+          "sample_count": 48
+        },
+        "performance_note": "Godot exposes output latency but no per-bus or audio-mix CPU Performance monitor; process-frame time is context only and does not isolate audio cost.",
+        "renderer": "forward_plus",
+        "requests": {
+          "engine_emitters": 32,
+          "explosions": 24,
+          "smg_shots": 12
+        },
+        "settings_roundtrip": {
+          "actual": {
+            "master_level": 0.73,
+            "master_muted": false,
+            "music_level": 0.61,
+            "music_muted": true,
+            "schema_version": 1,
+            "sfx_level": 0.82,
+            "sfx_muted": false
+          },
+          "applied": true,
+          "expected": {
+            "master_level": 0.73,
+            "master_muted": false,
+            "music_level": 0.61,
+            "music_muted": true,
+            "schema_version": 1,
+            "sfx_level": 0.82,
+            "sfx_muted": false
+          },
+          "load_error": 0,
+          "passed": true,
+          "save_error": 0
+        },
+        "settled": {
+          "active": {
+            "engines": 8,
+            "explosions": 0,
+            "weapons": 0
+          },
+          "caps": {
+            "engines": 8,
+            "explosions": 8,
+            "weapons": 6
+          },
+          "ducking_active": false,
+          "requests": {
+            "explosions_accepted": 8,
+            "explosions_dropped": 16,
+            "weapon_accepted": 6,
+            "weapon_dropped": 6
+          }
+        },
+        "success": true
+      },
+      "ok": true
+    },
+    {
+      "name": "windowed-3",
+      "mode": "windowed",
+      "repeat": 3,
+      "argv": [
+        "C:\\Users\\regner.blokandersen\\AppData\\Local\\mise\\installs\\github-godotengine-godot-builds\\4.8-dev7\\godot.exe",
+        "--windowed",
+        "--resolution",
+        "1280x800",
+        "--path",
+        "C:\\tmp\\ft\\lanes\\s14-audio\\run02\\project",
+        "--log-file",
+        "C:\\tmp\\ft\\lanes\\s14-audio\\run02\\windowed-3\\engine.log",
+        "res://tests/fixtures/s14/audio_test.tscn",
+        "--",
+        "--s14-output=C:\\tmp\\ft\\lanes\\s14-audio\\run02\\windowed-3\\receipt.json",
+        "--s14-mode=windowed"
+      ],
+      "exit": 0,
+      "diagnostics": [],
+      "known_dummy_audio_teardown_diagnostics": [],
+      "semantic_failures": [],
+      "environment_before": {
+        "godot_processes": 6,
+        "cpu_load_percent": 39.294
+      },
+      "timing_label": "contended upper bound",
+      "receipt": {
+        "audio_driver": "WASAPI",
+        "engine_version": "4.8-dev7 (official)",
+        "failures": [],
+        "listener": {
+          "anchor": "character_ground_position",
+          "orientation": "fixed_north_up_top_down_camera",
+          "position": "(0.0, 1.0, 0.0)",
+          "rotation_degrees": "(-90.0, 0.0, 0.0)"
+        },
+        "mode": "windowed",
+        "peak": {
+          "active": {
+            "engines": 8,
+            "explosions": 8,
+            "weapons": 6
+          },
+          "caps": {
+            "engines": 8,
+            "explosions": 8,
+            "weapons": 6
+          },
+          "ducking_active": true,
+          "requests": {
+            "explosions_accepted": 8,
+            "explosions_dropped": 16,
+            "weapon_accepted": 6,
+            "weapon_dropped": 6
+          }
+        },
+        "performance": {
+          "audio_output_latency_ms_median": 9.99999977648258,
+          "audio_output_latency_ms_worst": 9.99999977648258,
+          "physics_process_ms_median": 3.401,
+          "physics_process_ms_worst": 20.972,
+          "process_ms_median": 5.444,
+          "process_ms_worst": 508.714,
+          "sample_count": 48
+        },
+        "performance_note": "Godot exposes output latency but no per-bus or audio-mix CPU Performance monitor; process-frame time is context only and does not isolate audio cost.",
+        "renderer": "forward_plus",
+        "requests": {
+          "engine_emitters": 32,
+          "explosions": 24,
+          "smg_shots": 12
+        },
+        "settings_roundtrip": {
+          "actual": {
+            "master_level": 0.73,
+            "master_muted": false,
+            "music_level": 0.61,
+            "music_muted": true,
+            "schema_version": 1,
+            "sfx_level": 0.82,
+            "sfx_muted": false
+          },
+          "applied": true,
+          "expected": {
+            "master_level": 0.73,
+            "master_muted": false,
+            "music_level": 0.61,
+            "music_muted": true,
+            "schema_version": 1,
+            "sfx_level": 0.82,
+            "sfx_muted": false
+          },
+          "load_error": 0,
+          "passed": true,
+          "save_error": 0
+        },
+        "settled": {
+          "active": {
+            "engines": 8,
+            "explosions": 0,
+            "weapons": 0
+          },
+          "caps": {
+            "engines": 8,
+            "explosions": 8,
+            "weapons": 6
+          },
+          "ducking_active": false,
+          "requests": {
+            "explosions_accepted": 8,
+            "explosions_dropped": 16,
+            "weapon_accepted": 6,
+            "weapon_dropped": 6
+          }
+        },
+        "success": true
+      },
+      "ok": true
+    }
+  ],
+  "import": {
+    "argv": [
+      "C:\\Users\\regner.blokandersen\\AppData\\Local\\mise\\installs\\github-godotengine-godot-builds\\4.8-dev7\\godot.exe",
+      "--headless",
+      "--editor",
+      "--path",
+      "C:\\tmp\\ft\\lanes\\s14-audio\\run02\\project",
+      "--import",
+      "--quit"
+    ],
+    "exit": 0,
+    "diagnostics": []
+  },
+  "aggregate": {
+    "headless": {
+      "runs": 3,
+      "process_ms_run_median": 0.0,
+      "process_ms_worst": 3.522,
+      "audio_output_latency_ms_run_median": 0.0,
+      "note": "Process time is not an audio-mix CPU measurement."
+    },
+    "windowed": {
+      "runs": 3,
+      "process_ms_run_median": 8.337,
+      "process_ms_worst": 508.714,
+      "audio_output_latency_ms_run_median": 9.99999977648258,
+      "note": "Process time is not an audio-mix CPU measurement."
+    }
+  }
+}
