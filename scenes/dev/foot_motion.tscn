@@ -1,0 +1,56 @@
+[gd_scene format=3 uid="uid://d0rcf7nb4t4gc"]
+
+[ext_resource type="Script" uid="uid://dieh3y6w1i4f" path="res://scenes/dev/foot_motion_harness.gd" id="1_harness"]
+[ext_resource type="PackedScene" uid="uid://cx23mc2upe71m" path="res://scenes/entities/player.tscn" id="2_player"]
+[ext_resource type="Script" uid="uid://dp6lw4w1mbrj5" path="res://scripts/local/desktop_foot_input.gd" id="3_input"]
+[ext_resource type="PackedScene" uid="uid://brwsb70elot6b" path="res://scenes/world/brackett_greybox/sectors/ground_01_01.tscn" id="4_ground"]
+
+[sub_resource type="Environment" id="Environment_harness"]
+background_mode = 1
+background_color = Color(0.025, 0.045, 0.065, 1)
+ambient_light_source = 3
+ambient_light_color = Color(0.62, 0.7, 0.78, 1)
+ambient_light_energy = 0.65
+
+[node name="FootMotionHarness" type="Node3D"]
+script = ExtResource("1_harness")
+
+[node name="Ground" parent="." instance=ExtResource("4_ground")]
+position = Vector3(140, 0, 0)
+
+[node name="Player" parent="." instance=ExtResource("2_player")]
+
+[node name="DesktopFootInput" type="Node" parent="."]
+script = ExtResource("3_input")
+
+[node name="CameraRig" type="Node3D" parent="."]
+position = Vector3(0, 20, 0)
+
+[node name="Camera3D" type="Camera3D" parent="CameraRig"]
+rotation = Vector3(-1.5707964, 0, 0)
+current = true
+fov = 42.0
+near = 0.1
+far = 160.0
+
+[node name="Sun" type="DirectionalLight3D" parent="."]
+rotation = Vector3(-0.87266463, -0.61086524, 0)
+light_energy = 1.25
+shadow_enabled = true
+
+[node name="Environment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_harness")
+
+[node name="Instructions" type="CanvasLayer" parent="."]
+
+[node name="Label" type="Label" parent="Instructions"]
+offset_left = 20.0
+offset_top = 20.0
+offset_right = 500.0
+offset_bottom = 72.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/shadow_offset_y = 2
+theme_override_font_sizes/font_size = 18
+text = "Foot motion harness
+WASD move • mouse aim • left/right mouse intent"

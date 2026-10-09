@@ -1,0 +1,52 @@
+Godot Engine v4.8.dev7.official.c971f93e7 - https://godotengine.org
+
+---  GUT  ---
+[1m[INFO]:  [0musing [C:/tmp/ft/lanes/m1-a2-1/production-final/gut-user/appdata/Godot/app_userdata/Fun Things] for temporary output.
+Godot version:  4.8.0
+GUT version:  9.7.1
+
+
+res://tests/unit/actors/test_actor_motion.gd
+* test_motion_normalizes_speed_and_stops_immediately
+* test_standalone_authority_and_replay_are_equivalent
+* test_aim_yaw_is_independent_of_movement
+* test_invalid_command_is_rejected_and_neutralized
+* test_character_body_collides_with_static_world
+* test_player_scene_has_required_authored_composition
+* test_motion_state_drives_courier_locomotion
+7/7 passed.
+
+
+res://tests/unit/actors/test_desktop_foot_input.gd
+* test_collects_desktop_command_without_applying_gameplay
+* test_focus_loss_stays_neutral_after_focus_regain
+* test_mouse_right_of_actor_faces_world_positive_x
+3/3 passed.
+
+
+res://tests/unit/actors/test_foot_command.gd
+* test_decode_accepts_complete_command
+* test_decode_rejects_malformed_shapes
+* test_decode_rejects_out_of_range_values
+3/3 passed.
+
+
+
+
+==============================================
+= Run Summary
+==============================================
+
+Totals
+------
+Scripts               3
+Tests                13
+Passing Tests        13
+Asserts             120
+Time              1.263s
+
+
+---- All tests passed! ----
+GUT 0.0.0:  https://github.com/bitwes/Gut/releases/tag/v0.0.0 is now available!
+
+Results saved to C:/tmp/ft/lanes/m1-a2-1/production-final/gut-results.xml

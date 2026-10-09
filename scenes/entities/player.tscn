@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://cx23mc2upe71m"]
+
+[ext_resource type="Script" uid="uid://jthmfio4c27p" path="res://scripts/actors/actor_motion.gd" id="1_motion"]
+[ext_resource type="Script" uid="uid://cdwnfwstmbm4o" path="res://scripts/actors/player_motion_presentation.gd" id="2_presentation"]
+[ext_resource type="PackedScene" uid="uid://wrydf8221mfm" path="res://scenes/prefabs/player_character/coral_courier.tscn" id="3_courier"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_player"]
+radius = 0.35
+height = 1.8
+
+[node name="Player" type="CharacterBody3D"]
+collision_layer = 2
+collision_mask = 1
+motion_mode = 1
+script = ExtResource("1_motion")
+
+[node name="PresentationAnchor" type="Node3D" parent="."]
+script = ExtResource("2_presentation")
+
+[node name="Visuals" type="Node3D" parent="PresentationAnchor"]
+
+[node name="Model" parent="PresentationAnchor/Visuals" instance=ExtResource("3_courier")]
+
+[node name="Collision" type="CollisionShape3D" parent="."]
+position = Vector3(0, 0.9, 0)
+shape = SubResource("CapsuleShape3D_player")

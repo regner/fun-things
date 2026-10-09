@@ -20,6 +20,7 @@ FORBIDDEN_PREFIXES = (
     "addons/godotsteam/",
     "addons/gut/",
     "prototypes/",
+    "scenes/dev/",
     "tests/",
 )
 FORBIDDEN_NATIVE_NAMES = frozenset({
@@ -75,7 +76,7 @@ def pck_entries(path: Path) -> list[str]:
 
 
 def is_forbidden_export_path(path: str) -> bool:
-    """Identify test-only, MCP, and bundled GodotSteam/Steamworks artifacts."""
+    """Identify development-only, test, MCP, and Steam artifacts."""
     normalized = path.replace("\\", "/").removeprefix("res://").lower()
     basename = normalized.rsplit("/", maxsplit=1)[-1]
     if normalized.startswith(FORBIDDEN_PREFIXES):

@@ -56,6 +56,8 @@ class S08XExportInspectionTest(unittest.TestCase):
             "res://addons/gut/LICENSE.md",
             "prototypes/s04/tests/fixtures/s04/boot.tscn",
             "res://prototypes/s15/art/models/effects/s15_fireball.glb",
+            "scenes/dev/foot_motion.tscn",
+            "res://scenes/dev/foot_motion_harness.gd",
             "tests/unit/tooling/test_gut_smoke.gd",
             "tests/assets/example/check_scene.tscn",
         ]
