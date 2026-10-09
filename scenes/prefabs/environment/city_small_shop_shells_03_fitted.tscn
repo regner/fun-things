@@ -1,0 +1,109 @@
+[gd_scene format=3 uid="uid://cb8k8wa7xatpu"]
+
+[ext_resource type="PackedScene" uid="uid://b6ouq4o7sn60b" path="res://scenes/prefabs/environment/city_small_shop_shells_03.tscn" id="1_shell"]
+[ext_resource type="PackedScene" uid="uid://c1d8t0k7tqrw3" path="res://scenes/prefabs/environment/city_shop_fittings_03_single.tscn" id="2_fitting"]
+[ext_resource type="PackedScene" uid="uid://2gvcu7e3yq53" path="res://scenes/prefabs/environment/city_shop_fittings_06_single.tscn" id="3_fitting"]
+[ext_resource type="PackedScene" uid="uid://drtqegqkmfgp2" path="res://scenes/prefabs/environment/city_shop_fittings_05.tscn" id="4_fitting"]
+[ext_resource type="PackedScene" uid="uid://bsh8gy3l470g1" path="res://scenes/prefabs/environment/city_shop_fittings_01.tscn" id="5_fitting"]
+[ext_resource type="PackedScene" uid="uid://fpcm6q4n57qx" path="res://scenes/prefabs/environment/city_shop_fittings_02.tscn" id="6_fitting"]
+
+[node name="city_small_shop_shells_03_fitted" unique_id=592211801 instance=ExtResource("1_shell")]
+
+[node name="Fittings" type="Node3D" parent="." index="2" unique_id=1308235298]
+
+[node name="LeftEntrance" parent="Fittings" index="0" unique_id=1935833470 instance=ExtResource("2_fitting")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.25, 0, -6.4)
+
+[node name="LeftDoor" parent="Fittings" index="1" unique_id=831579990 instance=ExtResource("3_fitting")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.25, 0, -6.4)
+
+[node name="Body" parent="Fittings/LeftDoor/Collision" parent_id_path=PackedInt32Array(831579990, 1204738581) index="0" unique_id=327082226]
+collision_layer = 0
+
+[node name="Shape0" parent="Fittings/LeftDoor/Collision/Body" index="0" unique_id=2064842678]
+disabled = true
+
+[node name="LeftWindow" parent="Fittings" index="2" unique_id=1673381927 instance=ExtResource("4_fitting")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.15, 0.48, -6.4)
+
+[node name="Body" parent="Fittings/LeftWindow/Collision" parent_id_path=PackedInt32Array(1673381927, 1139176319) index="0" unique_id=1620841734]
+collision_layer = 0
+
+[node name="Shape0" parent="Fittings/LeftWindow/Collision/Body" index="0" unique_id=813173883]
+disabled = true
+
+[node name="Shape1" parent="Fittings/LeftWindow/Collision/Body" index="1" unique_id=24745287]
+disabled = true
+
+[node name="LeftCanopy" parent="Fittings" index="3" unique_id=1054314590 instance=ExtResource("5_fitting")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.15, 3, -6.4)
+
+[node name="LeftFascia" parent="Fittings" index="4" unique_id=585901053 instance=ExtResource("6_fitting")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.15, 3.8, -6.4)
+
+[node name="RightEntrance" parent="Fittings" index="5" unique_id=1133600252 instance=ExtResource("2_fitting")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.15, 0, -6.4)
+
+[node name="RightDoor" parent="Fittings" index="6" unique_id=368650245 instance=ExtResource("3_fitting")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.15, 0, -6.4)
+
+[node name="Body" parent="Fittings/RightDoor/Collision" parent_id_path=PackedInt32Array(368650245, 1204738581) index="0" unique_id=327082226]
+collision_layer = 0
+
+[node name="Shape0" parent="Fittings/RightDoor/Collision/Body" index="0" unique_id=2064842678]
+disabled = true
+
+[node name="RightWindow" parent="Fittings" index="7" unique_id=892408854 instance=ExtResource("4_fitting")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.25, 0.48, -6.4)
+
+[node name="Body" parent="Fittings/RightWindow/Collision" parent_id_path=PackedInt32Array(892408854, 1139176319) index="0" unique_id=1620841734]
+collision_layer = 0
+
+[node name="Shape0" parent="Fittings/RightWindow/Collision/Body" index="0" unique_id=813173883]
+disabled = true
+
+[node name="Shape1" parent="Fittings/RightWindow/Collision/Body" index="1" unique_id=24745287]
+disabled = true
+
+[node name="RightCanopy" parent="Fittings" index="8" unique_id=838739309 instance=ExtResource("5_fitting")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.25, 3, -6.4)
+
+[node name="RightFascia" parent="Fittings" index="9" unique_id=702807920 instance=ExtResource("6_fitting")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.25, 3.8, -6.4)
+
+[node name="WestEntrance" parent="Fittings" index="10" unique_id=149494438 instance=ExtResource("2_fitting")]
+transform = Transform3D(0, 0, 1, 0, 1, 0, -1, 0, 0, -6.4, 0, 1.25)
+
+[node name="WestDoor" parent="Fittings" index="11" unique_id=1550996296 instance=ExtResource("3_fitting")]
+transform = Transform3D(0, 0, 1, 0, 1, 0, -1, 0, 0, -6.4, 0, 1.25)
+
+[node name="Body" parent="Fittings/WestDoor/Collision" parent_id_path=PackedInt32Array(1550996296, 1204738581) index="0" unique_id=327082226]
+collision_layer = 0
+
+[node name="Shape0" parent="Fittings/WestDoor/Collision/Body" index="0" unique_id=2064842678]
+disabled = true
+
+[node name="WestWindow" parent="Fittings" index="12" unique_id=1103140708 instance=ExtResource("4_fitting")]
+transform = Transform3D(0, 0, 1, 0, 1, 0, -1, 0, 0, -6.4, 0.48, 4.15)
+
+[node name="Body" parent="Fittings/WestWindow/Collision" parent_id_path=PackedInt32Array(1103140708, 1139176319) index="0" unique_id=1620841734]
+collision_layer = 0
+
+[node name="Shape0" parent="Fittings/WestWindow/Collision/Body" index="0" unique_id=813173883]
+disabled = true
+
+[node name="Shape1" parent="Fittings/WestWindow/Collision/Body" index="1" unique_id=24745287]
+disabled = true
+
+[node name="WestCanopy" parent="Fittings" index="13" unique_id=656672321 instance=ExtResource("5_fitting")]
+transform = Transform3D(0, 0, 1, 0, 1, 0, -1, 0, 0, -6.4, 3, 4.15)
+
+[node name="WestFascia" parent="Fittings" index="14" unique_id=2131847739 instance=ExtResource("6_fitting")]
+transform = Transform3D(0, 0, 1, 0, 1, 0, -1, 0, 0, -6.4, 3.8, 4.15)
+
+[editable path="Fittings/LeftDoor"]
+[editable path="Fittings/LeftWindow"]
+[editable path="Fittings/RightDoor"]
+[editable path="Fittings/RightWindow"]
+[editable path="Fittings/WestDoor"]
+[editable path="Fittings/WestWindow"]

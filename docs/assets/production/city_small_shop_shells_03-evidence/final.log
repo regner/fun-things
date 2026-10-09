@@ -1,0 +1,73 @@
+city_small_shop_shells.03 — concise final production receipt, 9 October 2026
+Scope: provisional 12.8 x 12.8 m L shell; bare/fitted prefabs; no shared/world changes.
+Producer: commissioned implementation worker. Independent acceptance remains pending.
+Exact reproduction commands: ../city_small_shop_shells_03.md
+Raw logs/scratch: C:/tmp/ft/assets/city_small_shop_shells_03/ (not committed)
+
+Pinned tools:
+Blender 5.2.2 LTS, build d13f752e3b9c; glTF 5.2.40.
+Godot 4.8.dev7.official.c971f93e7; mise-pinned gdstyle.
+All Blender calls: isolated --factory-startup --threads 4 --python-exit-code 1,
+-noaudio, ALSOFT_DRIVERS=null SDL_AUDIODRIVER=dummy; timeout <=900 seconds.
+All Godot calls headless, import timeout 300 / checks 180 seconds.
+
+Final commands/results:
+author.py: exit 0; original editable .blend saved, reference excluded.
+export.py: exit 0; explicit named collection using shared export_settings.json.
+export.py -- C:/tmp/ft/assets/city_small_shop_shells_03/reexport.glb: exit 0.
+validate.py -- same scratch export: exit 0; byte-identical GLB.
+render.py: exit 0; four final 1280x800 images self-inspected.
+Godot --headless --editor --import --quit: exit 0; plugin-version warning only.
+Godot check.gd --normalize: exit 0; both saved prefabs byte-stable on resave;
+  known editor/plugin shutdown RID/ObjectDB leaks remain (not clean-exit evidence).
+Godot runtime check.gd: exit 0, no warnings/errors; actual resources/mounts/physics pass.
+Godot --check-only --script check.gd: exit 0, no warnings/errors.
+gdstyle --max-warnings 0 check.gd: exit 0, no issues.
+gdstyle fmt --check check.gd: exit 0.
+production_checks.py via mise exec, timeout 1800: exit 1 (known unrelated failures below).
+
+Final measured geometry:
+6420 triangles; 3284 source vertices; 3600 raw GLB split vertices.
+40 meshes, 40 surfaces, 5 opaque/back-culled materials, 16 markers plus root.
+Zero nonmanifold edges, source degenerate faces or raw GLB degenerate triangles.
+Unit-length normals, finite geometry, positive volumes and consistent winding pass.
+Godot AABB (-6.52,0,-6.52) -> (6.48,5.05,6.48) m; ground/bounds tolerance .001 m.
+114228-byte GLB SHA256 e7996c135f617517e4c075000b7bdf211b30c850d5ba5a606510930378f2f887.
+1350 clear aperture rays +12 wall-edge hits; 5406 actual fitting rear-vertex checks.
+360 source notch vertical-ray exclusions (9 points x40 meshes).
+15 fitting marker transforms pass, including west +90-degree Y yaw.
+One StaticBody3D with 2 touching/non-overlapping footprint boxes; all 9 fitting shapes disabled.
+Actual fitted-prefab physics: 4 solid rays, 4 clear rays, 5 capsule cases pass.
+
+Canonical checks classification:
+48 scripts lint clean. Owned check.gd compilation and formatting pass.
+Known compile failures only:
+- tests/fixtures/asset_production/batch_02_observation.gd
+- tests/fixtures/asset_production/batch_02_process_probe.gd
+- tests/fixtures/asset_production/batch_03_observation.gd
+- tests/fixtures/asset_production/batch_03_process_probe.gd
+- tests/fixtures/asset_production/batch_observation.gd
+Known formatting failures only:
+- tests/fixtures/asset_production/batch_observation.gd
+- tools/asset_production/integration/batch03_author.gd
+- tools/asset_production/integration/inspector.gd
+Python tests 9/9 PASS. GUT 9/9, 70 assertions PASS. Negative-control detection PASS.
+No unrelated file edited and no broad diagnostic suppression.
+
+Corrected iterations:
+- Source marker matrix read occurred before Blender depsgraph synchronization;
+  replaced with explicit location/orientation before first full numeric audit.
+- Small exposed coping corner in first render: widened existing notch coping to close
+  the joint, rebuilt/reexported/revalidated/rerendered all four final images.
+- Text west fitting transform initially reversed yaw through row/column ordering;
+  actual imported-marker test failed 5 west instances. Corrected saved transforms,
+  preserved UIDs, reran normalization and runtime checks successfully.
+- Initial owned lint line/function length and local-variable count warnings resolved
+  with concise status text and named physics helpers; final lint/format clean.
+The standalone Blender version query logged the known one-small-block shutdown warning;
+actual author/export/validate/render process logs finish cleanly.
+Headless plugins auto-initialize; no live-session or connector requests were issued.
+
+Pending, not claimed: independent review; final layout dimensions; production movement,
+aim, network/prediction/transport; gameplay-camera combat visibility; world placement;
+commercial artwork; repeated-instance performance, packaged build, Deck/device acceptance.

@@ -1,0 +1,612 @@
+{
+	"actual_fitting_rear_void_checks": [
+		{
+			"fitting": "entrance",
+			"rear_vertices_checked": 622.0,
+			"sha256": "29af0c8b3652b7b400598c75f6f99329cb21e510452547e2e28f3c1115d215b9",
+			"side": "left"
+		},
+		{
+			"fitting": "door",
+			"rear_vertices_checked": 1000.0,
+			"sha256": "37e9ce1667105cc66120edf4d114b3a4228972000ac89c14ed1a2608e9b309c6",
+			"side": "left"
+		},
+		{
+			"fitting": "window",
+			"rear_vertices_checked": 180.0,
+			"sha256": "a641d067621301435f5a725803290f74dc7c235bac8bdc5d24c1d2170776faed",
+			"side": "left"
+		},
+		{
+			"fitting": "entrance",
+			"rear_vertices_checked": 622.0,
+			"sha256": "29af0c8b3652b7b400598c75f6f99329cb21e510452547e2e28f3c1115d215b9",
+			"side": "right"
+		},
+		{
+			"fitting": "door",
+			"rear_vertices_checked": 1000.0,
+			"sha256": "37e9ce1667105cc66120edf4d114b3a4228972000ac89c14ed1a2608e9b309c6",
+			"side": "right"
+		},
+		{
+			"fitting": "window",
+			"rear_vertices_checked": 180.0,
+			"sha256": "a641d067621301435f5a725803290f74dc7c235bac8bdc5d24c1d2170776faed",
+			"side": "right"
+		},
+		{
+			"fitting": "entrance",
+			"rear_vertices_checked": 622.0,
+			"sha256": "29af0c8b3652b7b400598c75f6f99329cb21e510452547e2e28f3c1115d215b9",
+			"side": "west"
+		},
+		{
+			"fitting": "door",
+			"rear_vertices_checked": 1000.0,
+			"sha256": "37e9ce1667105cc66120edf4d114b3a4228972000ac89c14ed1a2608e9b309c6",
+			"side": "west"
+		},
+		{
+			"fitting": "window",
+			"rear_vertices_checked": 180.0,
+			"sha256": "a641d067621301435f5a725803290f74dc7c235bac8bdc5d24c1d2170776faed",
+			"side": "west"
+		}
+	],
+	"apertures": {
+		"clear_rays": 1350.0,
+		"edge_hits": 12.0,
+		"front_bounds_x_height": [
+			[
+				-5.67,
+				-2.63,
+				0.54,
+				2.42
+			],
+			[
+				-1.96,
+				-0.54,
+				0.0,
+				2.45
+			],
+			[
+				0.73,
+				3.77,
+				0.54,
+				2.42
+			],
+			[
+				4.44,
+				5.86,
+				0.0,
+				2.45
+			]
+		],
+		"west_local_bounds_x_height": [
+			[
+				-2.47,
+				0.57,
+				0.54,
+				2.42
+			],
+			[
+				1.24,
+				2.66,
+				0.0,
+				2.45
+			]
+		]
+	},
+	"applied_mesh_transforms": true,
+	"blender": "5.2.2 LTS",
+	"build_hash": "d13f752e3b9c",
+	"degenerate_faces": 0.0,
+	"excluded_metre_reference": true,
+	"glb": {
+		"byte_identical_reexport": true,
+		"bytes": 114228.0,
+		"degenerate_triangles": 0.0,
+		"materials": [
+			{
+				"name": "shell_quiet_blue_roof",
+				"pbrMetallicRoughness": {
+					"baseColorFactor": [
+						0.051269456744194,
+						0.104616485536098,
+						0.13843160867691,
+						1.0
+					],
+					"metallicFactor": 0.119999997317791,
+					"roughnessFactor": 0.649999976158142
+				}
+			},
+			{
+				"name": "shell_dark_drain_coping",
+				"pbrMetallicRoughness": {
+					"baseColorFactor": [
+						0.0331047661602497,
+						0.0666259378194809,
+						0.0802198201417923,
+						1.0
+					],
+					"metallicFactor": 0.349999994039536,
+					"roughnessFactor": 0.479999989271164
+				}
+			},
+			{
+				"name": "shell_warm_structural_trim",
+				"pbrMetallicRoughness": {
+					"baseColorFactor": [
+						0.496932983398438,
+						0.467783808708191,
+						0.39157247543335,
+						1.0
+					],
+					"metallicFactor": 0.0,
+					"roughnessFactor": 0.699999988079071
+				}
+			},
+			{
+				"name": "shell_slate_plinth",
+				"pbrMetallicRoughness": {
+					"baseColorFactor": [
+						0.0684781670570374,
+						0.086500458419323,
+						0.0975873470306396,
+						1.0
+					],
+					"metallicFactor": 0.0,
+					"roughnessFactor": 0.779999971389771
+				}
+			},
+			{
+				"name": "shell_muted_plum_render",
+				"pbrMetallicRoughness": {
+					"baseColorFactor": [
+						0.219526201486588,
+						0.184474989771843,
+						0.201556250452995,
+						1.0
+					],
+					"metallicFactor": 0.0,
+					"roughnessFactor": 0.779999971389771
+				}
+			}
+		],
+		"sha256": "e7996c135f617517e4c075000b7bdf211b30c850d5ba5a606510930378f2f887",
+		"surfaces": 40.0,
+		"triangles": 6420.0,
+		"unit_normals": true,
+		"vertices": 3600.0
+	},
+	"godot": {
+		"engine": "4.8-dev7 (official)",
+		"fitting_colliders_disabled": true,
+		"fitting_mount_error_m": 0,
+		"linked_fittings": 15,
+		"physics": {
+			"capsule_cases": 5,
+			"clear_rays": 4,
+			"solid_rays": 4
+		},
+		"save_reload_byte_stable": true,
+		"shell_bounds_min": [
+			-6.52000045776367,
+			0.0,
+			-6.51999998092651
+		],
+		"shell_bounds_size": [
+			13.0000019073486,
+			5.05000019073486,
+			13.0
+		],
+		"shell_mesh_count": 40,
+		"status": "PASS: linked resources, mounts, L envelope and open notch"
+	},
+	"godot_aabb": {
+		"max": [
+			6.48000001907349,
+			5.05000019073486,
+			6.48000001907349
+		],
+		"min": [
+			-6.52000045776367,
+			0.0,
+			-6.51999998092651
+		]
+	},
+	"markers_godot": {
+		"mount_left_canopy": [
+			-4.15000009536743,
+			3.0,
+			-6.40000009536743
+		],
+		"mount_left_display_window": [
+			-4.15000009536743,
+			0.479999989271164,
+			-6.40000009536743
+		],
+		"mount_left_door_single": [
+			-1.25,
+			0.0,
+			-6.40000009536743
+		],
+		"mount_left_entrance_single": [
+			-1.25,
+			0.0,
+			-6.40000009536743
+		],
+		"mount_left_fascia": [
+			-4.15000009536743,
+			3.79999995231628,
+			-6.40000009536743
+		],
+		"mount_right_canopy": [
+			2.25,
+			3.0,
+			-6.40000009536743
+		],
+		"mount_right_display_window": [
+			2.25,
+			0.479999989271164,
+			-6.40000009536743
+		],
+		"mount_right_door_single": [
+			5.15000009536743,
+			0.0,
+			-6.40000009536743
+		],
+		"mount_right_entrance_single": [
+			5.15000009536743,
+			0.0,
+			-6.40000009536743
+		],
+		"mount_right_fascia": [
+			2.25,
+			3.79999995231628,
+			-6.40000009536743
+		],
+		"mount_roof_detail": [
+			-3.2,
+			4.3,
+			-3.2
+		],
+		"mount_west_canopy": [
+			-6.40000009536743,
+			3.0,
+			4.15000009536743
+		],
+		"mount_west_display_window": [
+			-6.40000009536743,
+			0.479999989271164,
+			4.15000009536743
+		],
+		"mount_west_door_single": [
+			-6.40000009536743,
+			0.0,
+			1.25
+		],
+		"mount_west_entrance_single": [
+			-6.40000009536743,
+			0.0,
+			1.25
+		],
+		"mount_west_fascia": [
+			-6.40000009536743,
+			3.79999995231628,
+			4.15000009536743
+		]
+	},
+	"mesh_count": 40.0,
+	"meshes": [
+		{
+			"degenerate_faces": 0.0,
+			"name": "front_wall_openings",
+			"nonmanifold_edges": 0.0,
+			"triangles": 204.0,
+			"vertices": 100.0
+		},
+		{
+			"degenerate_faces": 0.0,
+			"name": "front_parapet_coping",
+			"nonmanifold_edges": 0.0,
+			"triangles": 188.0,
+			"vertices": 96.0
+		},
+		{
+			"degenerate_faces": 0.0,
+			"name": "front_head_course",
+			"nonmanifold_edges": 0.0,
+			"triangles": 188.0,
+			"vertices": 96.0
+		},
+		{
+			"degenerate_faces": 0.0,
+			"name": "front_pier_left",
+			"nonmanifold_edges": 0.0,
+			"triangles": 188.0,
+			"vertices": 96.0
+		},
+		{
+			"degenerate_faces": 0.0,
+			"name": "front_pier_right",
+			"nonmanifold_edges": 0.0,
+			"triangles": 188.0,
+			"vertices": 96.0
+		},
+		{
+			"degenerate_faces": 0.0,
+			"name": "plinth_left",
+			"nonmanifold_edges": 0.0,
+			"triangles": 188.0,
+			"vertices": 96.0
+		},
+		{
+			"degenerate_faces": 0.0,
+			"name": "plinth_end_left",
+			"nonmanifold_edges": 0.0,
+			"triangles": 188.0,
+			"vertices": 96.0
+		},
+		{
+			"degenerate_faces": 0.0,
+			"name": "plinth_right",
+			"nonmanifold_edges": 0.0,
+			"triangles": 188.0,
+			"vertices": 96.0
+		},
+		{
+			"degenerate_faces": 0.0,
+			"name": "plinth_end_right",
+			"nonmanifold_edges": 0.0,
+			"triangles": 188.0,
+			"vertices": 96.0
+		},
+		{
+			"degenerate_faces": 0.0,
+			"name": "west_wall_openings",
+			"nonmanifold_edges": 0.0,
+			"triangles": 120.0,
+			"vertices": 60.0
+		},
+		{
+			"degenerate_faces": 0.0,
+			"name": "west_parapet_coping",
+			"nonmanifold_edges": 0.0,
+			"triangles": 188.0,
+			"vertices": 96.0
+		},
+		{
+			"degenerate_faces": 0.0,
+			"name": "west_head_course",
+			"nonmanifold_edges": 0.0,
+			"triangles": 188.0,
+			"vertices": 96.0
+		},
+		{
+			"degenerate_faces": 0.0,
+			"name": "west_pier_left",
+			"nonmanifold_edges": 0.0,
+			"triangles": 188.0,
+			"vertices": 96.0
+		},
+		{
+			"degenerate_faces": 0.0,
+			"name": "west_pier_right",
+			"nonmanifold_edges": 0.0,
+			"triangles": 188.0,
+			"vertices": 96.0
+		},
+		{
+			"degenerate_faces": 0.0,
+			"name": "plinth_west",
+			"nonmanifold_edges": 0.0,
+			"triangles": 188.0,
+			"vertices": 96.0
+		},
+		{
+			"degenerate_faces": 0.0,
+			"name": "plinth_end_west",
+			"nonmanifold_edges": 0.0,
+			"triangles": 188.0,
+			"vertices": 96.0
+		},
+		{
+			"degenerate_faces": 0.0,
+			"name": "west_front_wall",
+			"nonmanifold_edges": 0.0,
+			"triangles": 12.0,
+			"vertices": 8.0
+		},
+		{
+			"degenerate_faces": 0.0,
+			"name": "east_front_wall",
+			"nonmanifold_edges": 0.0,
+			"triangles": 12.0,
+			"vertices": 8.0
+		},
+		{
+			"degenerate_faces": 0.0,
+			"name": "notch_front_wall",
+			"nonmanifold_edges": 0.0,
+			"triangles": 12.0,
+			"vertices": 8.0
+		},
+		{
+			"degenerate_faces": 0.0,
+			"name": "notch_west_wall",
+			"nonmanifold_edges": 0.0,
+			"triangles": 12.0,
+			"vertices": 8.0
+		},
+		{
+			"degenerate_faces": 0.0,
+			"name": "rear_return_wall",
+			"nonmanifold_edges": 0.0,
+			"triangles": 12.0,
+			"vertices": 8.0
+		},
+		{
+			"degenerate_faces": 0.0,
+			"name": "continuous_L_roof_deck",
+			"nonmanifold_edges": 0.0,
+			"triangles": 20.0,
+			"vertices": 12.0
+		},
+		{
+			"degenerate_faces": 0.0,
+			"name": "west_front_coping",
+			"nonmanifold_edges": 0.0,
+			"triangles": 188.0,
+			"vertices": 96.0
+		},
+		{
+			"degenerate_faces": 0.0,
+			"name": "east_front_coping",
+			"nonmanifold_edges": 0.0,
+			"triangles": 188.0,
+			"vertices": 96.0
+		},
+		{
+			"degenerate_faces": 0.0,
+			"name": "notch_front_coping",
+			"nonmanifold_edges": 0.0,
+			"triangles": 188.0,
+			"vertices": 96.0
+		},
+		{
+			"degenerate_faces": 0.0,
+			"name": "notch_west_coping",
+			"nonmanifold_edges": 0.0,
+			"triangles": 188.0,
+			"vertices": 96.0
+		},
+		{
+			"degenerate_faces": 0.0,
+			"name": "rear_return_coping",
+			"nonmanifold_edges": 0.0,
+			"triangles": 188.0,
+			"vertices": 96.0
+		},
+		{
+			"degenerate_faces": 0.0,
+			"name": "west_front_plinth",
+			"nonmanifold_edges": 0.0,
+			"triangles": 188.0,
+			"vertices": 96.0
+		},
+		{
+			"degenerate_faces": 0.0,
+			"name": "west_front_head_course",
+			"nonmanifold_edges": 0.0,
+			"triangles": 188.0,
+			"vertices": 96.0
+		},
+		{
+			"degenerate_faces": 0.0,
+			"name": "east_front_plinth",
+			"nonmanifold_edges": 0.0,
+			"triangles": 188.0,
+			"vertices": 96.0
+		},
+		{
+			"degenerate_faces": 0.0,
+			"name": "east_front_head_course",
+			"nonmanifold_edges": 0.0,
+			"triangles": 188.0,
+			"vertices": 96.0
+		},
+		{
+			"degenerate_faces": 0.0,
+			"name": "notch_front_plinth",
+			"nonmanifold_edges": 0.0,
+			"triangles": 188.0,
+			"vertices": 96.0
+		},
+		{
+			"degenerate_faces": 0.0,
+			"name": "notch_front_head_course",
+			"nonmanifold_edges": 0.0,
+			"triangles": 188.0,
+			"vertices": 96.0
+		},
+		{
+			"degenerate_faces": 0.0,
+			"name": "notch_west_plinth",
+			"nonmanifold_edges": 0.0,
+			"triangles": 188.0,
+			"vertices": 96.0
+		},
+		{
+			"degenerate_faces": 0.0,
+			"name": "notch_west_head_course",
+			"nonmanifold_edges": 0.0,
+			"triangles": 188.0,
+			"vertices": 96.0
+		},
+		{
+			"degenerate_faces": 0.0,
+			"name": "rear_return_plinth",
+			"nonmanifold_edges": 0.0,
+			"triangles": 188.0,
+			"vertices": 96.0
+		},
+		{
+			"degenerate_faces": 0.0,
+			"name": "rear_return_head_course",
+			"nonmanifold_edges": 0.0,
+			"triangles": 188.0,
+			"vertices": 96.0
+		},
+		{
+			"degenerate_faces": 0.0,
+			"name": "roof_fold_front",
+			"nonmanifold_edges": 0.0,
+			"triangles": 188.0,
+			"vertices": 96.0
+		},
+		{
+			"degenerate_faces": 0.0,
+			"name": "roof_fold_middle",
+			"nonmanifold_edges": 0.0,
+			"triangles": 188.0,
+			"vertices": 96.0
+		},
+		{
+			"degenerate_faces": 0.0,
+			"name": "roof_fold_return",
+			"nonmanifold_edges": 0.0,
+			"triangles": 188.0,
+			"vertices": 96.0
+		}
+	],
+	"nonmanifold_edges": 0.0,
+	"open_notch_vertical_rays": 360.0,
+	"pivot": [
+		0.0,
+		0.0,
+		0.0
+	],
+	"source_aabb": {
+		"max": [
+			6.48000001907349,
+			6.51999998092651,
+			5.05000019073486
+		],
+		"min": [
+			-6.52000045776367,
+			-6.48000001907349,
+			0.0
+		]
+	},
+	"status": "PASS: source, raw GLB, interfaces and fresh-process reexport",
+	"structural_bounding_footprint_m": [
+		12.8,
+		12.8
+	],
+	"triangles": 6420.0,
+	"unit_normals": true,
+	"vertices": 3284.0
+}
