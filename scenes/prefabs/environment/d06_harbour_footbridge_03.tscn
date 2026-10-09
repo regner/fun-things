@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://ibkajx12w4hu"]
+
+[ext_resource type="PackedScene" uid="uid://cyd02lmjxtdfg" path="res://art/models/environment/d06_harbour_footbridge_03/d06_harbour_footbridge_03.glb" id="1_model"]
+
+[sub_resource type="BoxShape3D" id="Box_Slab"]
+size = Vector3(3.2, 0.35, 12)
+
+[node name="d06_harbour_footbridge_03" type="Node3D" unique_id=904966266]
+
+[node name="Visuals" type="Node3D" parent="." unique_id=1274666928]
+
+[node name="Model" type="Node3D" parent="Visuals" unique_id=2015139382 instance=ExtResource("1_model")]
+
+[node name="Collision" type="Node3D" parent="." unique_id=2019571263]
+
+[node name="Body" type="StaticBody3D" parent="Collision" unique_id=197177449]
+collision_mask = 0
+
+[node name="Slab" type="CollisionShape3D" parent="Collision/Body" unique_id=1348764115]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.175, -6)
+shape = SubResource("Box_Slab")
+
+[node name="Sockets" type="Node3D" parent="." unique_id=1405143950]
+
+[node name="Incoming" type="Marker3D" parent="Sockets" unique_id=481576815]
+transform = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, -1, 0, 0, 0)
+
+[node name="Outgoing" type="Marker3D" parent="Sockets" unique_id=1958569274]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -12)
