@@ -13,8 +13,9 @@ and an NVIDIA GeForce RTX 4070 Laptop GPU. Runner/user data was isolated below
 | `smoke-headless.log` | Same public-API outcome without rendering. |
 | `direct-window.log` | Direct `drive.tscn` launch for 120 frames; exit 0 and no warning/error/script diagnostics. |
 | `s04-checks-result.json`, `s04-checks.log` | Existing isolated S04 body, baseline, pose-fence and producer cases all true; staged source remained unchanged. |
-| `script-checks.log` | All-owned formatting and explicit compilation true. The command exits 1 only because gdstyle reports the three pre-existing accepted `tests/fixtures/s07_driver/` warnings and applies a zero-warning exit threshold. No changed-file warning appears. |
-| `tool-tests.log` | Fourteen repository Python tool tests pass. |
+| `script-checks.log` | Post-rebase all-owned explicit compilation is true. Lint reports only the three accepted `tests/fixtures/s07_driver/` warnings. Formatting is false solely because current target `s08-enet-bandwidth` adds `tests/fixtures/s07_env/measure.gd` and `tools/s07_env/author_city.gd` with formatter drift; neither is lane-owned or changed here. |
+| `focused-style.log` | All six changed/added GDScripts pass formatter and zero-warning lint checks. |
+| `tool-tests.log` | All seventeen post-rebase repository Python tool tests pass. |
 | `normalize.log` | Pinned-engine load/pack/resave receipt for the three hand-authored minimal scenes. |
 | `import-initial.log`, `import-uids.log` | Required UID-generating import and final resource-UID registration scan. They exit 0 but retain known editor-plugin/version and shutdown-leak diagnostics, so neither is represented as a clean scene/runtime check. |
 
@@ -49,6 +50,10 @@ timeout 60 godot --path . --resolution 1280x800 --quit-after 120 \
 
 # Repository checks
 timeout 600 python tools/script_checks.py
+gdstyle fmt --check tests/fixtures/s04/drive_rules.gd \
+  tests/fixtures/s04/kinematic.gd tests/fixtures/s04_drive/*.gd
+gdstyle --max-line-length 100 --max-warnings 0 tests/fixtures/s04/drive_rules.gd \
+  tests/fixtures/s04/kinematic.gd tests/fixtures/s04_drive/*.gd
 timeout 300 python -m unittest discover -s tools -p "test_*.py"
 ```
 
