@@ -1,0 +1,238 @@
+{
+  "date_utc": "2026-10-09",
+  "scope": "S17 documented three-seed quiet rerun",
+  "engine": "4.8.dev7.official.c971f93e7",
+  "machine": {
+    "cpu_model": "Intel(R) Core(TM) Ultra 7 165H",
+    "logical_cpu_count": 22,
+    "os": "Microsoft Windows 11 Enterprise version 10.0.26200 build 26200",
+    "system": "Windows",
+    "release": "11",
+    "version": "10.0.26200",
+    "machine": "AMD64"
+  },
+  "seeds": [
+    171,
+    272,
+    373
+  ],
+  "warmup_ticks_per_seed": 3600,
+  "measured_ticks_per_seed": 36000,
+  "aggregate": {
+    "timing_ms": {
+      "pedestrians": {
+        "count": 108000,
+        "median": 1.255,
+        "p95": 2.559,
+        "p99": 3.828,
+        "worst": 120.593
+      },
+      "traffic": {
+        "count": 108000,
+        "median": 0.578,
+        "p95": 1.264,
+        "p99": 1.939,
+        "worst": 134.094
+      },
+      "combat": {
+        "count": 108000,
+        "median": 0.043,
+        "p95": 0.119,
+        "p99": 0.232,
+        "worst": 23.347
+      },
+      "explosions": {
+        "count": 108000,
+        "median": 0.006,
+        "p95": 0.015,
+        "p99": 0.047,
+        "worst": 3.247
+      },
+      "snapshot_encode": {
+        "count": 108000,
+        "median": 1.029,
+        "p95": 2.159,
+        "p99": 3.265,
+        "worst": 82.0
+      },
+      "snapshot_encode_production_schedule": {
+        "count": 108000,
+        "median": 0.001,
+        "p95": 0.499,
+        "p99": 0.917,
+        "worst": 39.865
+      },
+      "total": {
+        "count": 108000,
+        "median": 3.027,
+        "p95": 5.658,
+        "p99": 8.321,
+        "worst": 230.301
+      },
+      "total_production_schedule": {
+        "count": 108000,
+        "median": 2.069,
+        "p95": 3.989,
+        "p99": 5.849,
+        "worst": 148.308
+      }
+    },
+    "empty_timer_baseline_ms": {
+      "count": 30000,
+      "median": 0.0,
+      "p95": 0.001,
+      "p99": 0.001,
+      "worst": 0.051
+    },
+    "budget": {
+      "total_p95_limit_ms": 4.0,
+      "total_p99_limit_ms": 8.0,
+      "conservative_total_p95_pass": false,
+      "conservative_total_p99_pass": false,
+      "production_schedule_total_p95_pass": true,
+      "production_schedule_total_p99_pass": true,
+      "traffic_audit_share_ms": 1.5,
+      "traffic_audit_share_pass": true,
+      "traffic_s09_share_ms": 2.0,
+      "traffic_s09_share_pass": true,
+      "pedestrian_share_ms": 1.0,
+      "pedestrian_share_pass": false
+    }
+  },
+  "seed_context": [
+    {
+      "seed": 171,
+      "contention": {
+        "before": {
+          "godot_processes": 2,
+          "cpu_load": {
+            "percent": 26.0,
+            "source": "Win32_Processor"
+          }
+        },
+        "startup_or_warmup": {
+          "godot_processes": 3,
+          "cpu_load": {
+            "percent": 48.0,
+            "source": "Win32_Processor"
+          }
+        },
+        "after": {
+          "godot_processes": 2,
+          "cpu_load": {
+            "percent": 27.0,
+            "source": "Win32_Processor"
+          }
+        }
+      },
+      "runner_timing_label": "contended upper bound",
+      "total_ms": {
+        "count": 36000,
+        "median": 3.243,
+        "p95": 6.561,
+        "p99": 11.286,
+        "worst": 230.301
+      },
+      "total_production_schedule_ms": {
+        "count": 36000,
+        "median": 2.186,
+        "p95": 4.642,
+        "p99": 7.874,
+        "worst": 148.308
+      }
+    },
+    {
+      "seed": 272,
+      "contention": {
+        "before": {
+          "godot_processes": 2,
+          "cpu_load": {
+            "percent": 7.0,
+            "source": "Win32_Processor"
+          }
+        },
+        "startup_or_warmup": {
+          "godot_processes": 3,
+          "cpu_load": {
+            "percent": 7.0,
+            "source": "Win32_Processor"
+          }
+        },
+        "after": {
+          "godot_processes": 2,
+          "cpu_load": {
+            "percent": 54.0,
+            "source": "Win32_Processor"
+          }
+        }
+      },
+      "runner_timing_label": "contended upper bound",
+      "total_ms": {
+        "count": 36000,
+        "median": 2.924,
+        "p95": 4.773,
+        "p99": 6.419,
+        "worst": 23.045
+      },
+      "total_production_schedule_ms": {
+        "count": 36000,
+        "median": 1.979,
+        "p95": 3.388,
+        "p99": 4.667,
+        "worst": 21.662
+      }
+    },
+    {
+      "seed": 373,
+      "contention": {
+        "before": {
+          "godot_processes": 2,
+          "cpu_load": {
+            "percent": 54.0,
+            "source": "Win32_Processor"
+          }
+        },
+        "startup_or_warmup": {
+          "godot_processes": 3,
+          "cpu_load": {
+            "percent": 43.0,
+            "source": "Win32_Processor"
+          }
+        },
+        "after": {
+          "godot_processes": 2,
+          "cpu_load": {
+            "percent": 9.0,
+            "source": "Win32_Processor"
+          }
+        }
+      },
+      "runner_timing_label": "contended upper bound",
+      "total_ms": {
+        "count": 36000,
+        "median": 3.009,
+        "p95": 5.296,
+        "p99": 7.309,
+        "worst": 48.048
+      },
+      "total_production_schedule_ms": {
+        "count": 36000,
+        "median": 2.062,
+        "p95": 3.726,
+        "p99": 5.21,
+        "worst": 45.974
+      }
+    }
+  ],
+  "quiet_interpretation": {
+    "unrelated_godot_exe_before_outer_command": 0,
+    "idle_godot_ai_exe_before_outer_command": 2,
+    "heavy_blender_exe_before_outer_command": 0,
+    "runner_process_count_caveat": "The unchanged runner counts both idle godot-ai.exe bridge servers as Godot-named processes. Its mechanical contended label is retained in raw fields for receipt fidelity, but there were zero unrelated godot.exe engines and no other lane ran Godot; this record classifies the result as the quiet measurement.",
+    "ac_receipt_caveat": "The pre-launch receipt retained Balanced scheme and 96% battery but queried the ambiguous Win32_Battery BatteryStatus field. A post-run root/WMI receipt explicitly records PowerOnline=true; the orchestrator also guaranteed the quiet-machine window.",
+    "measurement_classification": "quiet",
+    "other_lane_godot_runs": 0,
+    "documentation_only_agent_active": true
+  },
+  "failures": []
+}

@@ -1,0 +1,80 @@
+{
+  "repository": {
+    "commit": "13722e0726237311fb044053ca9f92728b33e448",
+    "tree": "d837817757eab52c87f1ef8c5cfb67639eacbcf0",
+    "status_porcelain": []
+  },
+  "measurement_sources": {
+    "tests/fixtures/s17/combat_adapter.gd": {
+      "sha256": "713b5a297c1d4d3af2b83261569eb28dcb58ebbf5145821a54daf951221b42f2",
+      "bytes": 4695
+    },
+    "tests/fixtures/s17/combat_adapter.gd.uid": {
+      "sha256": "4c9215aa5220f1b1acfa386e528be9efb56be45c0c7c8b17bfd4cea8a777bc21",
+      "bytes": 20
+    },
+    "tests/fixtures/s17/host.gd": {
+      "sha256": "5cf5577d129c3fd6c00f485ec9eec24eb016713bfc87d7f6e72145a4a70cf805",
+      "bytes": 17704
+    },
+    "tests/fixtures/s17/host.gd.uid": {
+      "sha256": "c9f1251ddff039c9b5f5f5ebb9e445a819df9e6692601517c81dbebc3ad84fc6",
+      "bytes": 20
+    },
+    "tests/fixtures/s17/host.tscn": {
+      "sha256": "04c4d37c5c6b93d32bf236006eb3e91f9dc1d508e9d385bf59e1b70c563eaf9e",
+      "bytes": 3144
+    },
+    "tests/fixtures/s17/pedestrian_adapter.gd": {
+      "sha256": "a4d716985886a1da0ad55b7fe3c2e26c16b3b87bab76ba5ad177d03d664f083d",
+      "bytes": 7467
+    },
+    "tests/fixtures/s17/pedestrian_adapter.gd.uid": {
+      "sha256": "7c2bddfe12a0bcce023b629b5233f8f46eff952831665e70948fb644a28ca4c2",
+      "bytes": 20
+    },
+    "tests/fixtures/s17/run.gd": {
+      "sha256": "d7161128080eeddeee2320766f9118d843f02d1e1e9595797b6043a960187e56",
+      "bytes": 2035
+    },
+    "tests/fixtures/s17/run.gd.uid": {
+      "sha256": "6e37ce196867d598993ddbe5a23c1fbbeb4237bc3e00f37f59e94fb96de4ab46",
+      "bytes": 20
+    },
+    "tests/fixtures/s17/traffic_adapter.gd": {
+      "sha256": "c6a125c64aff03fc701b08f3c5e12fde1932b5f5c20bbc3328ef9d2d721f5791",
+      "bytes": 3790
+    },
+    "tests/fixtures/s17/traffic_adapter.gd.uid": {
+      "sha256": "2328afa8456e006a733a19d69922ea9f3df603ebb0a7d91df1bbdc168c6d8f53",
+      "bytes": 19
+    },
+    "tools/measurement_identity.py": {
+      "sha256": "09ec9e7387a846b15b8d6105df8132fde63938a973b9798782cc1a67fd0c6d95",
+      "bytes": 3845
+    },
+    "tools/s17/run.py": {
+      "sha256": "8afbc4af3b28e15dcffb95c5e7b6ef21a9b35e91fb5f91fdbeae3d89a0b02e02",
+      "bytes": 14863
+    }
+  },
+  "invocation": {
+    "argv": [
+      "tools/s17/run.py",
+      "--godot",
+      "<mise-pinned-godot>",
+      "--output",
+      "C:/tmp/ft/lanes/quiet-pass/s17/run"
+    ],
+    "cwd": "C:\\GameDev\\git\\ft-lanes\\quiet-pass",
+    "effective_parameters": {
+      "godot": "C:\\Users\\regner.blokandersen\\AppData\\Local\\mise\\installs\\github-godotengine-godot-builds\\4.8-dev7\\godot.exe",
+      "output": "C:/tmp/ft/lanes/quiet-pass/s17/run",
+      "seeds": [
+        171,
+        272,
+        373
+      ]
+    }
+  }
+}
