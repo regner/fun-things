@@ -10,10 +10,6 @@ follow-ups remain in the M1 requirements rather than reopening the spikes.
 
 - [ ] **P0-PROFILES — Review the retained Paseo profiles task later.** Non-blocking;
   configuration remains deferred and outside P0-GATE.
-- [ ] **S04 — Finish the handbrake fix and owner handling re-test.** Decision 26 records
-  the completed drive-scene session and F12 values (`coast_mps2` 10.0,
-  `grip_per_second` 9.0); the handbrake applied no longitudinal braking. The fix lane is in
-  progress, followed by owner re-test before M1-B1 freezes handling.
 
 ## First milestone
 
@@ -32,10 +28,11 @@ follow-ups remain in the M1 requirements rather than reopening the spikes.
 
 ### M1-B — Vehicles, combat and destruction
 
-- [ ] **M1-B1 — Implement vehicles and authoritative driver transitions.** Entry is
-  host-confirmed after a short ~0.3 s presentation; transfer control and camera/HUD ownership
-  only on acceptance, with no rejection snap. Preserve exit below 0.5 m/s at the authored
-  1.5 m offset and add production clearance. After: M1-A-GATE.
+- [ ] **M1-B1 — Implement vehicles and authoritative driver transitions.** Start production
+  handling from decision 30's owner-approved values. Entry is host-confirmed after a short
+  ~0.3 s presentation; transfer control and camera/HUD ownership only on acceptance, with no
+  rejection snap. Preserve exit below 0.5 m/s at the authored 1.5 m offset and add production
+  clearance. After: M1-A-GATE.
 - [ ] **M1-B2 — Implement weapons, host-current-time hit verdicts, health, damage and
   respawn.** Use decision 21's accepted combat values as playtest-tuned M1 starting values;
   fire intents carry the shooter's view tick so bounded host-only rewind remains possible

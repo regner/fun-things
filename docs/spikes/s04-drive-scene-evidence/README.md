@@ -9,6 +9,7 @@ and an NVIDIA GeForce RTX 4070 Laptop GPU. Runner/user data was isolated below
 | File | Meaning |
 | --- | --- |
 | `drive.png` | Actual 1280×800 viewport from the windowed smoke after acceleration/turning; shows the saved track/car, fixed-north camera and tuning HUD. |
+| `owner-drive-tuning-2026-10-09.tres` | Byte-for-byte copy of the owner's decision-30 F12 save; it is retained as evidence, not used as a runtime resource. |
 | `smoke-windowed.log` | Windowed saved-scene smoke: defaults, `+/-`, F12 save, speed rise, steering, braking and reset all passed; no engine/script warning or error diagnostics. |
 | `smoke-headless.log` | Same public-API outcome without rendering. |
 | `direct-window.log` | Direct `drive.tscn` launch for 120 frames; exit 0 and no warning/error/script diagnostics. |
@@ -18,6 +19,9 @@ and an NVIDIA GeForce RTX 4070 Laptop GPU. Runner/user data was isolated below
 | `tool-tests.log` | All seventeen post-rebase repository Python tool tests pass. |
 | `normalize.log` | Pinned-engine load/pack/resave receipt for the three hand-authored minimal scenes. |
 | `import-initial.log`, `import-uids.log` | Required UID-generating import and final resource-UID registration scan. They exit 0 but retain known editor-plugin/version and shutdown-leak diagnostics, so neither is represented as a clean scene/runtime check. |
+
+SHA-256 (`owner-drive-tuning-2026-10-09.tres`):
+`aee19acbc47a805a269f8f41cff08e2396e0b32c0d64beddd29edf24b3ab2fc5`.
 
 ## Handbrake follow-up — 9 October 2026
 

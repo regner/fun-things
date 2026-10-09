@@ -36,7 +36,9 @@ No particular agent platform or delegation tool is required to read it.
   production acceptance work, set capped desktop targets and the soft total host budget,
   define combat, input, remote motion, car entry/death and world-concept ownership, record
   the passing S02 and initial S04 owner sessions, pass P0-GATE and move settings to M1-D.
-  GodotSteam removal is complete in `660b4fd`/`7351f3b`. The
+  Decisions 29–30 close the S04 handbrake re-test and ratify the owner-approved M1-B1 starting
+  handling values while leaving fixture defaults unchanged. GodotSteam removal is complete in
+  `660b4fd`/`7351f3b`. The
   [P0 audit](../reviews/p0-readiness-audit-2026-10-08.md) supplies historical gap rationale;
   the packet records the current integrated disposition.
 - World concept work is in progress outside this orchestration under a separate owner-run agent;
@@ -222,10 +224,11 @@ diversity, final envelopes and budgets require the user's decisions. None was ch
   testing, native integration, external route/accounts and device acceptance are
   deferred. Lobby or ENet proof is not actual Steam gameplay proof.
 - Decision 25 closes the bounded S02 physical controls/readability/native-focus owner checklist.
-  S03-R drawable remote continuity, later production playtests, S04 camera/control/feel/final
-  dimensions and S05 policy choices remain open. Driver death is decided: coast under neutral
-  input, then leave an abandoned parked car. Representative production budgets and Windows/Linux
-  target-device proof are absent.
+  Decision 30 closes the S04 foundation handling re-test with owner-approved M1-B1 starting
+  values. S03-R drawable remote continuity, later production playtests, S04 production
+  camera/control validation and final dimensions, and S05 policy choices remain open. Driver
+  death is decided: coast under neutral input, then leave an abandoned parked car. Representative
+  production budgets and Windows/Linux target-device proof are absent.
 - **P0-GATE passed on 9 October 2026 under owner decision 27; M1 production has started.**
 - Configuration changes and tool setup remain outside this handover's authority.
   No vendor repair, renderer/pin/transport choice, device/account acquisition or

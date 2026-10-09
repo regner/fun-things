@@ -60,9 +60,9 @@ braking, coast, forward/reverse caps, ordinary/handbrake side grip, handbrake br
 full-steer speed rather than only saying “faster” or “more arcade.” These are feel candidates, not
 production ratification.
 
-The owner's 9 October play test preferred `coast_mps2 = 10.0` and `grip_per_second = 9.0` over the
-checked-in 4.0 and 6.0 defaults. These are owner feel candidates, not ratified production values;
-handbrake braking and side-grip values remain pending re-test.
+The owner's initial 9 October play test preferred `coast_mps2 = 10.0` and
+`grip_per_second = 9.0` over the checked-in 4.0 and 6.0 defaults. That session also exposed the
+handbrake behavior corrected below; the later decision-30 values supersede these initial candidates.
 
 ## Handbrake and persistence follow-up — 9 October 2026
 
@@ -98,6 +98,34 @@ absolute-bound failure is retained with the round-2 evidence rather than hidden.
 
 Round 2 directly edited only project-owned scripts and documentation because the Godot editor was
 unavailable; no scene, resource, UID, or saved `user://drive_tuning.tres` data changed.
+
+## Owner-approved starting handling (decision 30) — 9 October 2026
+
+After the fixes and re-tests, the owner ratified these playtest-tunable M1-B1 starting values:
+
+| Tuning value | Fixture default | Owner-approved M1-B1 start |
+| --- | ---: | ---: |
+| Acceleration (m/s²) | 12.0 | 12.0 |
+| Brake (m/s²) | 18.0 | 12.0 |
+| Coast (m/s²) | 4.0 | 9.25 |
+| Maximum forward speed (m/s) | 20.0 | 24.0 |
+| Maximum reverse speed (m/s) | 6.0 | 6.0 |
+| Grip (1/s) | 6.0 | 8.0 |
+| Handbrake side grip (1/s) | 1.0 | 3.0 |
+| Turn rate (rad/s) | 1.5 | 1.5 |
+| Full-steer speed (m/s) | 4.0 | 4.0 |
+| Handbrake brake (m/s²) | 10.0 | 10.0 |
+
+The first owner session (decision 26) found that the handbrake did not slow the car longitudinally.
+Commit `caf4b9b` added handbrake braking while preserving reduced side grip for a slide. The next
+re-test found that a sideways slide lost yaw authority and did not scrub its full planar velocity;
+commits `77e3731` and `2a91594` corrected turning and full-vector deceleration. The owner then
+reported the result was “looking much better” and saved the values above.
+
+The `S04DriveRules` fixture defaults intentionally stay unchanged as stable evidence baselines.
+M1-B1 production handling starts from the owner-approved values above and remains playtest-tunable.
+The exact sparse resource saved by the owner is retained in the
+[evidence directory](s04-drive-scene-evidence/owner-drive-tuning-2026-10-09.tres).
 
 ## Saved-scene authoring and checks
 

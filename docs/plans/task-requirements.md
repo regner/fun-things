@@ -10,10 +10,10 @@ qualification and enough outcome detail for dispatch.
 and the audit-derived tasks in
 [section 4 of the readiness audit](../reviews/p0-readiness-audit-2026-10-08.md).
 Most quantitative criteria are planning proposals derived from current product budgets and
-remain tunable during M1. Owner decisions 13–28 ratify the desktop frame target, select the
+remain tunable during M1. Owner decisions 13–30 ratify the desktop frame target, select the
 first hit-registration policy and combat starting values, accept the input/remote-motion/host
 budget policies, choose host-confirmed car entry, assign world concepts separately, record the
-S02/S04 owner sessions, pass P0-GATE and move settings to M1-D.
+S02/S04 owner sessions and approved handling, pass P0-GATE and move settings to M1-D.
 
 - **P0-TOOLING:** Completed. The [baseline repair](../spikes/p0-tooling.md) made the
   canonical script check green, established complete Python discovery, selected the
@@ -47,12 +47,13 @@ S02/S04 owner sessions, pass P0-GATE and move settings to M1-D.
   consumption, three-tick distance-bounded pending lag, eight queued frames separate from
   the 120-sequence freshness window, supersession without extra simulation, 250 ms held-input
   expiry, and a last-consumed-or-superseded acknowledgement watermark.
-- **S04:** The technical car body and [standalone drive scene](../spikes/s04-drive-scene.md)
-  are complete. Decision 26 records F12 values `coast_mps2` 10.0 and `grip_per_second` 9.0;
-  the handbrake applied no longitudinal braking, so its fix lane and owner re-test remain before
-  M1-B1 freezes handling. Cars cannot fire; exit requires speed below 0.5 m/s; disconnect coasts.
-  Owner decision 16 releases a dead driver's seat, neutralizes controls, coasts the surviving car
-  to a stop and then uses the existing abandoned parked-car cleanup/replenishment policy.
+- **S04:** Completed as a foundation task. The technical car body, [standalone drive
+  scene](../spikes/s04-drive-scene.md), handbrake fixes and owner re-tests are complete. Decision
+  30 ratifies the saved handling values as playtest-tunable M1-B1 starting values while fixture
+  defaults intentionally remain unchanged. Cars cannot fire; exit requires speed below 0.5 m/s;
+  disconnect coasts. Owner decision 16 releases a dead driver's seat, neutralizes controls,
+  coasts the surviving car to a stop and then uses the existing abandoned parked-car
+  cleanup/replenishment policy.
 - **S04-P:** Completed bounded implementation. [Car prediction](../spikes/s04-prediction.md)
   shares drive/body rules and bounds replay/history, stopped exit and disconnect coast.
   Normal passes; the post-rebase adverse correction p95 of 0.576 m misses the 0.5 m target,
@@ -157,7 +158,11 @@ Completed discovery reconciliation: [P0-DOC14 record](../reviews/p0-doc14.md).
   absent, including the S08 Linux desktop launch/graphics checklist. Actual Steam gameplay
   transport is owner-deferred beyond M1.
 - **M1-B1:** Implement vehicle handling and authoritative driver transitions; resolve
-  claim/exit/death/disconnect/destruction races. Entry is host-confirmed with a short ~0.3 s
+  claim/exit/death/disconnect/destruction races. Start production handling from decision 30's
+  owner-approved values: acceleration 12.0 m/s², brake 12.0 m/s², coast 9.25 m/s², maximum
+  forward/reverse speed 24.0/6.0 m/s, grip 8.0/s, handbrake side grip 3.0/s, turn rate 1.5 rad/s,
+  full-steer speed 4.0 m/s and handbrake brake 10.0 m/s². These remain playtest-tunable; do not
+  change the S04 fixture defaults to match them. Entry is host-confirmed with a short ~0.3 s
   presentation; control and camera/HUD ownership transfer only on acceptance, and rejection
   does not snap or change ownership. Exit remains below 0.5 m/s with the authored 1.5 m offset
   plus production clearance. A dead driver's car coasts under neutral input, then remains as

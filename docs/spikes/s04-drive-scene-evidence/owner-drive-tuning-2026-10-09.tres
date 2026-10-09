@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="S04DriveTuning" format=3]
+
+[ext_resource type="Script" path="res://tests/fixtures/s04_drive/drive_tuning.gd" id="1_vtnlk"]
+
+[resource]
+script = ExtResource("1_vtnlk")
+brake_mps2 = 12.0
+coast_mps2 = 9.25
+max_forward_mps = 24.0
+grip_per_second = 8.0
+slide_grip_per_second = 3.0
