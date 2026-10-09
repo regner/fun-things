@@ -1,0 +1,272 @@
+{
+  "status": "PASS: source and GLB; engine/gameplay gates recorded separately",
+  "blender": "5.2.2 LTS",
+  "build_hash": "d13f752e3b9c",
+  "glTF_exporter": "5.2.40",
+  "source_vertices": 5232,
+  "source_triangles": 10288,
+  "source_degenerate_faces": 0,
+  "source_nonmanifold_edges": 0,
+  "source_max_normal_length_error": 1.729120676641216e-07,
+  "glb_vertices_including_surface_splits": 6283,
+  "glb_triangles": 10288,
+  "glb_degenerate_triangles": 0,
+  "glb_max_normal_length_error": 1.355675942615875e-07,
+  "mesh_count": 1,
+  "surface_count": 6,
+  "aabb_godot": {
+    "min": [
+      -13.0,
+      0.0,
+      -9.0
+    ],
+    "max": [
+      13.0,
+      9.600000381469727,
+      9.0
+    ],
+    "size": [
+      26.0,
+      9.600000381469727,
+      18.0
+    ]
+  },
+  "expected_aabb_godot": {
+    "min": [
+      -13,
+      0,
+      -9
+    ],
+    "max": [
+      13,
+      9.6,
+      9
+    ]
+  },
+  "envelope_tolerance_m": 0.001,
+  "ground_contact_pivot": [
+    0,
+    0,
+    0
+  ],
+  "materials": [
+    {
+      "name": "hall_base_slate",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.12999999523162842,
+          0.1899999976158142,
+          0.20999999344348907,
+          1
+        ],
+        "metallicFactor": 0.10000000149011612,
+        "roughnessFactor": 0.6000000238418579
+      }
+    },
+    {
+      "name": "hall_wall_petrol",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.03500000014901161,
+          0.10499999672174454,
+          0.125,
+          1
+        ],
+        "metallicFactor": 0.11999999731779099,
+        "roughnessFactor": 0.5299999713897705
+      }
+    },
+    {
+      "name": "hall_glazing_opaque",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.012000000104308128,
+          0.03799999877810478,
+          0.05700000002980232,
+          1
+        ],
+        "metallicFactor": 0.3499999940395355,
+        "roughnessFactor": 0.27000001072883606
+      }
+    },
+    {
+      "name": "hall_frame_teal",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.09000000357627869,
+          0.20000000298023224,
+          0.2199999988079071,
+          1
+        ],
+        "metallicFactor": 0.5,
+        "roughnessFactor": 0.3799999952316284
+      }
+    },
+    {
+      "name": "hall_roof_emerald",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.027000000700354576,
+          0.10499999672174454,
+          0.09099999815225601,
+          1
+        ],
+        "metallicFactor": 0.20000000298023224,
+        "roughnessFactor": 0.4300000071525574
+      }
+    },
+    {
+      "name": "hall_entry_plum",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.12999999523162842,
+          0.054999999701976776,
+          0.10499999672174454,
+          1
+        ],
+        "metallicFactor": 0.10000000149011612,
+        "roughnessFactor": 0.5
+      }
+    }
+  ],
+  "reexport_byte_identical": true,
+  "glb_sha256": "93a817b58abcf59634cf8471d79c24d5a9d80af7e113cbfb8c8b345a389ad5e8",
+  "glb_bytes": 268708,
+  "interfaces_godot": {
+    "ring_datum_y_m": 7.2,
+    "canopy_wall_datum": [
+      0,
+      3.6,
+      -9
+    ]
+  },
+  "engine": {
+    "aabb_min": [
+      -13.0,
+      0.0,
+      -9.0
+    ],
+    "aabb_size": [
+      26.0,
+      9.60000038146973,
+      18.0
+    ],
+    "collision_shape_count": 6,
+    "engine": "4.8-dev7 (official)",
+    "failures": [],
+    "front_ray_hit": [
+      0.0,
+      1.0,
+      -9.0
+    ],
+    "linked_model_identity": true,
+    "materials": [
+      "hall_base_slate",
+      "hall_wall_petrol",
+      "hall_glazing_opaque",
+      "hall_frame_teal",
+      "hall_roof_emerald",
+      "hall_entry_plum"
+    ],
+    "mesh_count": 1,
+    "model_uid": "uid://dc7mv6ln78t2x",
+    "ok": true,
+    "physics_shape_queries": [
+      {
+        "case": "interior_solid",
+        "solid": true
+      },
+      {
+        "case": "closed_entry_solid",
+        "solid": true
+      },
+      {
+        "case": "front_plaza_clear",
+        "solid": false
+      },
+      {
+        "case": "rounded_corner_solid",
+        "solid": true
+      },
+      {
+        "case": "cut_corner_clear",
+        "solid": false
+      },
+      {
+        "case": "west_passage_clear",
+        "solid": false
+      },
+      {
+        "case": "east_passage_clear",
+        "solid": false
+      },
+      {
+        "case": "dome_visual_only",
+        "solid": false
+      }
+    ],
+    "prefab_uid": "uid://swp7op1xjew2",
+    "save_reload_byte_stable": true,
+    "normalization_diagnostics": "Editor-mode custom SceneTree saves succeed but report shutdown RID/ObjectDB leaks; fresh runtime-mode load/query and --check-only commands exit 0 without diagnostics."
+  },
+  "production_checks": {
+    "results": {
+      "engine": {
+        "ok": true,
+        "version": "4.8.dev7.official.c971f93e7"
+      },
+      "gut_pin": {
+        "ok": true,
+        "version": "9.7.1"
+      },
+      "owned_scripts": {
+        "ok": false,
+        "returncode": 1
+      },
+      "python_tests": {
+        "ok": true,
+        "returncode": 0
+      },
+      "gut_import": {
+        "ok": true,
+        "returncode": 0
+      },
+      "gut_tests": {
+        "ok": true,
+        "returncode": 0
+      },
+      "gut_negative": {
+        "ok": true,
+        "observed_returncode": 1
+      }
+    },
+    "overall_ok": false,
+    "failed_compilation_paths": [
+      "tests/fixtures/asset_production/batch_02_observation.gd",
+      "tests/fixtures/asset_production/batch_02_process_probe.gd",
+      "tests/fixtures/asset_production/batch_03_observation.gd",
+      "tests/fixtures/asset_production/batch_03_process_probe.gd",
+      "tests/fixtures/asset_production/batch_observation.gd"
+    ],
+    "formatting_failures": [
+      "tests/fixtures/asset_production/batch_observation.gd",
+      "tools/asset_production/integration/batch03_author.gd",
+      "tools/asset_production/integration/inspector.gd"
+    ],
+    "owned_script_style_compile_and_format": "PASS",
+    "python_tests": 9,
+    "gut_tests": 9,
+    "gut_assertions": 70
+  },
+  "visual_review": {
+    "renders_inspected": [
+      "hero.png",
+      "side.png",
+      "entry_detail.png",
+      "overhead_47m_42deg.png"
+    ],
+    "observation": "Smooth rounded silhouette reads without the separate luminous ring; quiet roof centre.",
+    "renderer": "Blender Cycles CPU, 32 samples, AgX; not an in-engine visual acceptance",
+    "gameplay_camera": "Vertical down, 47 m, 42 degree vertical perspective FOV, 1280x800"
+  }
+}

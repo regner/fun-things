@@ -1,0 +1,48 @@
+[gd_scene format=3 uid="uid://swp7op1xjew2"]
+
+[ext_resource type="PackedScene" uid="uid://dc7mv6ln78t2x" path="res://art/models/environment/d06_entertainment_hall_01/d06_entertainment_hall_01.glb" id="1_model"]
+
+[sub_resource type="BoxShape3D" id="Box_front_rear"]
+size = Vector3(14, 8, 18)
+
+[sub_resource type="BoxShape3D" id="Box_sides"]
+size = Vector3(26, 8, 6)
+
+[sub_resource type="CylinderShape3D" id="Cylinder_corner"]
+height = 8.0
+radius = 6.0
+
+[node name="d06_entertainment_hall_01" type="Node3D" unique_id=620747838]
+
+[node name="Visuals" type="Node3D" parent="." unique_id=402483412]
+
+[node name="Model" type="Node3D" parent="Visuals" unique_id=443065198 instance=ExtResource("1_model")]
+
+[node name="Collision" type="Node3D" parent="." unique_id=1734116956]
+
+[node name="Body" type="StaticBody3D" parent="Collision" unique_id=1550013551]
+collision_mask = 0
+
+[node name="FrontRearSolid" type="CollisionShape3D" parent="Collision/Body" unique_id=1351643547]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4, 0)
+shape = SubResource("Box_front_rear")
+
+[node name="SideSolid" type="CollisionShape3D" parent="Collision/Body" unique_id=1876149779]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4, 0)
+shape = SubResource("Box_sides")
+
+[node name="CornerNE" type="CollisionShape3D" parent="Collision/Body" unique_id=1404405232]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 4, -3)
+shape = SubResource("Cylinder_corner")
+
+[node name="CornerNW" type="CollisionShape3D" parent="Collision/Body" unique_id=2044479747]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 4, -3)
+shape = SubResource("Cylinder_corner")
+
+[node name="CornerSW" type="CollisionShape3D" parent="Collision/Body" unique_id=1810791318]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 4, 3)
+shape = SubResource("Cylinder_corner")
+
+[node name="CornerSE" type="CollisionShape3D" parent="Collision/Body" unique_id=1929509007]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 4, 3)
+shape = SubResource("Cylinder_corner")
