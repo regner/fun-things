@@ -5,6 +5,7 @@ import json
 from pathlib import Path
 import re
 import struct
+import tempfile
 
 ROOT = Path(__file__).resolve().parents[2]
 SOURCE = ROOT/'art/source/models/brackett_greybox'
@@ -66,8 +67,10 @@ def main():
     result = dict(scene_count=len(scenes), export_count=len(fingerprints), placement_count=len(placed),
                   source_count=len({p['source'] for p in fingerprints}), reference_hashes=plan['reference_hashes'],
                   dependencies=dependencies, resource_uids=identities)
-    (SOURCE/'review/file_checks.json').write_text(json.dumps(result, indent=2)+'\n')
-    print('BRACKETT_FILE_CHECKS', len(scenes), 'scenes;', len(fingerprints), 'exports;', len(placed), 'IDs')
+    output = Path(tempfile.mkdtemp(prefix='brackett-file-checks-'))/'file_checks.json'
+    output.write_text(json.dumps(result, indent=2)+'\n', newline='\n')
+    print('BRACKETT_FILE_CHECKS', len(scenes), 'scenes;', len(fingerprints), 'exports;',
+          len(placed), 'IDs; receipt', output)
 
 
 if __name__ == '__main__':

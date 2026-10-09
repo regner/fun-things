@@ -44,7 +44,8 @@ References inspected: the accepted
 [island setting](../concepts/world-v1/stage-01-setting/15-long-island-cyberpunk.png),
 stage-04 `draw_plan.py`, its saved `01-city-road-block-plan.svg`, and exact
 `district-editor/brackett-districts.json`. Frozen hashes also include the stage-02
-macro geometry dependency; see `authoring_plan.json` and `review/file_checks.json`.
+macro geometry dependency; see `authoring_plan.json`. The historical
+`review/file_checks.json` receipt remains available at commit `80d0f24`.
 Existing S01/S06 source, import, wrapper and sector conventions were inspected.
 No existing spike, shared material, main scene or gameplay system was modified.
 

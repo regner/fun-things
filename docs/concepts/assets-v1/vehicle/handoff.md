@@ -46,14 +46,15 @@ for `scenes/entities/vehicle.tscn` or an implicit choice of production body clas
 Regner selected all three: `car_latch_a`, `car_crate_a`, `car_sable_a`.
 Family directory is `city_cars`; check current consumers before creating paths.
 
-- `art/source/models/vehicles/<asset_id>.blend`, collection `export_<asset_id>`;
-  preserve the existing source `.gdignore`.
-- `art/models/vehicles/<asset_id>.glb` and Godot `.glb.import`.
+- `art/source/models/vehicles/<asset_id>/<asset_id>.blend`, collection
+  `export_<asset_id>`; preserve the existing source `.gdignore`.
+- `art/models/vehicles/<asset_id>/<asset_id>.glb` and Godot `.glb.import`.
 - `scenes/prefabs/city_cars/<asset_id>.tscn`, imported `Visuals/Model`, no driving
   controller or gameplay collision authority. Integrator mounts this visual scene
   under its own `PresentationAnchor`.
-- `scenes/previews/city_cars/<asset_id>_preview.tscn`, asset-local saved presentation,
-  target camera and three-quarter inspection; visible staging geometry also Blender-owned.
+- Historical checkpoint only: `scenes/previews/city_cars/<asset_id>_preview.tscn`
+  supplied asset-local presentation and inspection. Production cleanup removed these
+  review-only scenes and their staging geometry; Git history retains them.
 - `docs/assets/<asset_id>.md`, exact source/export/material/socket/consumer mapping.
   Any asset-owned external materials/textures live in contract paths and are listed.
 

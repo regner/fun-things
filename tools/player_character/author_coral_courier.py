@@ -1,6 +1,6 @@
 """Original Coral Courier mesh authoring against the immutable shared humanoid v1.
 
-Approved direction: docs/concepts/assets-v1/player-character/01_coral_courier.png.
+Approved direction: Coral Courier; completed concept images remain in commit 80d0f24.
 Authored by the player lead under GPT-6-Astra/high; no external geometry/textures.
 Run in private Blender. Saved .blend owns subsequent edits; reexport.py reads it.
 """

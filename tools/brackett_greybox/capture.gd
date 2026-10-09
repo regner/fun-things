@@ -2,7 +2,7 @@ extends SceneTree
 ## Bounded graphical evidence from saved preview cameras; never authors world geometry.
 
 const BASE: String = "res://scenes/world/brackett_greybox/"
-const OUTPUT: String = "res://art/source/models/brackett_greybox/review/"
+const OUTPUT: String = "user://brackett_greybox/review/"
 
 
 ## Defers loading until the root viewport exists.

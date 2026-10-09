@@ -2,8 +2,9 @@
 
 9 October 2026. Regner selected **C — Wedgewire** from the
 [original concepts](../concepts/assets-v1/smg/README.md). This is a reusable rigid
-weapon visual and asset-local review scene. Equipped player poses and gameplay
-integration belong to their respective owners and remain pending.
+weapon visual; its asset-local review scene is historical and was removed during
+production cleanup. Equipped player poses and gameplay integration belong to their
+respective owners and remain pending.
 
 ## Files and review
 

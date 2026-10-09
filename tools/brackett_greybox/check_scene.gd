@@ -2,7 +2,8 @@ extends SceneTree
 ## Checks saved greybox imports, replacement identities and provisional physics queries.
 
 const BASE: String = "res://scenes/world/brackett_greybox/"
-const OUTPUT: String = "res://art/source/models/brackett_greybox/review/scene_checks.json"
+const OUTPUT_DIRECTORY: String = "user://brackett_greybox/review/"
+const OUTPUT: String = OUTPUT_DIRECTORY + "scene_checks.json"
 const BOUNDS_TOLERANCE_M: float = 0.01
 
 
@@ -35,6 +36,7 @@ func _check() -> void:
 	queries.append(_ray(space, "working coast", Vector2(1140, 440), true))
 	queries.append(_ray(space, "southern retail street", Vector2(705, 530), true))
 	queries.append(_ray(space, "north sea is not traversable ground", Vector2(650, 50), false))
+	DirAccess.make_dir_recursive_absolute(OUTPUT_DIRECTORY)
 	var file: FileAccess = FileAccess.open(OUTPUT, FileAccess.WRITE)
 	file.store_string(JSON.stringify({"engine": Engine.get_version_info(),
 		"buildings": count, "distinct_placement_ids": count, "imported_bounds": measurements,

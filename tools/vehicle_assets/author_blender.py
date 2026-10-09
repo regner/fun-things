@@ -235,8 +235,9 @@ def build(spec):
     box(ref,None,'MetreReference',(1,1,1),(4,0,.5),mats['trim'],0)
     ref.hide_render=True;ref.hide_viewport=True
     scene['creator']='Codex vehicle lead; original geometry from approved imagegen concepts'
-    scene['approved_concept']='docs/concepts/assets-v1/vehicle/'+{
-        'car_latch_a':'01_latch_compact.png','car_crate_a':'02_crate_hatch.png','car_sable_a':'03_sable_sedan.png'}[asset]
+    scene['approved_concept']={
+        'car_latch_a':'Latch compact','car_crate_a':'Crate hatch','car_sable_a':'Sable sedan'
+    }[asset]+'; completed concept images remain in commit 80d0f24'
     bpy.ops.wm.save_as_mainfile(filepath=str(source))
     settings=json.loads((ROOT/'tools/s01/export_settings.json').read_text())
     settings.update(export_animations=False,export_skins=False,collection=col.name,

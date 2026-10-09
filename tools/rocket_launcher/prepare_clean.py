@@ -10,7 +10,7 @@ target.mkdir(parents=True)
 paths = list((root / "art/models/weapons/dock_thumper").glob("*"))
 paths += list((root / "scenes/prefabs/rocket_launcher").glob("*.tscn"))
 paths += [root / "tests/fixtures/rocket_launcher" / name for name in [
-    "preview.tscn", "stage.tscn", "preview.gd", "preview.gd.uid", "studio_environment.tres",
+    "preview.tscn", "preview.gd", "preview.gd.uid", "studio_environment.tres",
 ]]
 paths += [root / "tools/rocket_launcher" / name for name in ["capture_check.gd", "capture_check.gd.uid"]]
 for source in paths:
