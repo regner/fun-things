@@ -21,7 +21,7 @@ FORBIDDEN_NATIVE_NAMES = frozenset({
     "libsteam_api.so",
     "libsteam_api.dylib",
 })
-REQUIRED = ("scenes/boot/boot", "scenes/ui/main_menu", "scripts/session/session_service")
+REQUIRED = ("run/main_scene", "tests/fixtures/s06/intersection")
 
 
 def identity(path: Path) -> dict:
