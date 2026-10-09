@@ -210,8 +210,10 @@ are demonstrated.
 
 ## Validation
 
-The [retained evidence](s03-s-abstraction-review-evidence/README.md) records the pinned engine
-version, documentation/link/whitespace checks, repository Python tests and all-owned script checks.
-The only lint diagnostics are the three accepted pre-existing S07-driver warnings; formatting and
-compilation pass. Direct Markdown editing was used because the Godot editor was not running. No
-Steam, network, native, editor, export or gameplay test was run or inferred.
+The [refreshed retained evidence](s03-s-abstraction-review-evidence/README.md) is bound to the
+post-rebase tree and records the pinned engine, six-document link/whitespace checks, 17 Python tests
+and 82-file owned-script checks. All-owned compilation passes, as does gdstyle with the three accepted
+pre-existing S07-driver warnings allowed. Repository-wide formatting does **not** pass: it reports
+two unchanged inherited S07 environment files, while this lane's Markdown diff passes whitespace
+checks. Direct Markdown editing was used because the Godot editor was not running. No Steam, network,
+native, editor, export or gameplay test was run or inferred.

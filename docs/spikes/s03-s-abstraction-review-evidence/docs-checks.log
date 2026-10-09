@@ -1,8 +1,12 @@
-COMMAND: git diff --check 4fa669a..HEAD
+COMMAND: git diff --check s08-enet-bandwidth...HEAD
 OUTPUT: <empty>
 EXIT: 0
 
-COMMAND: git diff --check (unstaged review-fix changes)
+COMMAND: git diff --check (unstaged refreshed-evidence changes)
+OUTPUT: <empty>
+EXIT: 0
+
+COMMAND: git diff --exit-code s08-enet-bandwidth...HEAD -- tests/fixtures/s07_env/measure.gd tools/s07_env/author_city.gd
 OUTPUT: <empty>
 EXIT: 0
 
@@ -14,6 +18,6 @@ CHECKED MARKDOWN FILES:
 - docs/spikes/s03-s-abstraction-review.md
 - docs/spikes/s03-s-abstraction-review-evidence/README.md
 
-COMMAND: local Markdown link existence check
+COMMAND: timeout 30 local Markdown link existence check
 Local Markdown links exist in 6 changed documents.
 EXIT: 0
