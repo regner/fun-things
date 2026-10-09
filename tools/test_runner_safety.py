@@ -2,6 +2,7 @@
 
 from pathlib import Path
 from tempfile import TemporaryDirectory
+import subprocess
 import sys
 import unittest
 from unittest import mock
@@ -62,6 +63,13 @@ class MeasurementIdentityTests(unittest.TestCase):
             (root / "runner.py").write_text("print('runner')\n")
             (root / "fixture").mkdir()
             (root / "fixture/input.gd").write_text("extends Node\n")
+            subprocess.run(["git", "init", "-q"], cwd=root, check=True)
+            subprocess.run(["git", "add", "runner.py", "fixture/input.gd"],
+                           cwd=root, check=True)
+            subprocess.run([
+                "git", "-c", "user.name=Test", "-c", "user.email=test@example.com",
+                "commit", "-qm", "fixture",
+            ], cwd=root, check=True)
             with mock.patch.object(
                 identity_module,
                 "repository_identity",

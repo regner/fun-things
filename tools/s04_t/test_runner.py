@@ -26,7 +26,7 @@ class TransitionMetrics(unittest.TestCase):
             ("race_entry", False, "SEAT_OCCUPIED", "foot"),
             ("parked_entry", True, "", "car"),
             ("moving_exit", False, "EXIT_MOVING", "car"),
-            ("blocked_exit", False, "EXIT_BLOCKED", "car"),
+            ("forced_blocked_exit", False, "EXIT_BLOCKED", "car"),
             ("successful_exit", True, "", "foot"),
             ("traffic_entry", True, "", "car"),
         ]
@@ -40,12 +40,21 @@ class TransitionMetrics(unittest.TestCase):
                 "car_history": 0, "camera_owner": owner, "hud_owner": owner,
             })
         client.append({"event": "result", "ok": True})
-        host = [
-            {"event": "seat_race", "winner": 1, "loser": 2},
-            {"event": "result", "ok": True, "traffic_stolen": True,
-             "traffic_ai_active": False, "disconnect_coast_m": 0.5,
-             "final_speed_mps": 0.0},
-        ]
+        host = [{"event": "seat_race", "winner": 1, "loser": 2}]
+        for revision in range(1, 5):
+            for index in range(2):
+                host.append({
+                    "event": "authority_input", "expired": False,
+                    "revision": revision, "sequence": index + 1,
+                    "sample": [float(revision), float(index), 0.0], "wall_ms": 1000.0,
+                })
+        host.append({
+            "event": "result", "ok": True, "traffic_stolen": True,
+            "traffic_ai_active": False, "disconnect_coast_m": 0.5,
+            "final_speed_mps": 0.0, "input_queue_peak": 8,
+            "action_queue_peak": 16, "action_processed_peak": 4,
+            "action_cache_size": 6, "hydration_count": 1,
+        })
         with tempfile.TemporaryDirectory() as temporary:
             root = Path(temporary)
             for role, rows in [("host", host), ("client", client)]:

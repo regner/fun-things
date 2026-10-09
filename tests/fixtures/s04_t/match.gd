@@ -1,4 +1,4 @@
-class_name S04TMatch  # gdstyle:ignore=quality/max-class-variables
+class_name S04TMatch  # gdstyle:ignore=quality/max-class-variables,quality/max-file-length
 extends Node3D
 ## Exercises authoritative seat transfer between the existing predicted foot and car bodies.
 
@@ -7,8 +7,26 @@ const PARKED_SPEED_MPS: float = 0.01
 const SNAPSHOT_INTERVAL_TICKS: int = 2
 const DRIVE_BEFORE_DISCONNECT_TICKS: int = 30
 const RACE_CLAIMANT_ID: int = 1
+const HELD_EXPIRY_MS: int = 250
+const HELD_MESSAGE_BYTES: int = 1200
+const HELD_RATE_PER_SECOND: float = 60.0
+const HELD_RATE_BURST: float = 8.0
+const ACTION_MESSAGE_BYTES: int = 4096
+const ACTION_RATE_PER_SECOND: float = 16.0
+const ACTION_RATE_BURST: float = 32.0
+const ACTION_QUEUE_LIMIT: int = 16
+const ACTIONS_PER_TICK: int = 4
+const ACTION_RESULT_CACHE: int = 64
+const ACTION_SEQUENCE_WINDOW: int = 64
+const SNAPSHOT_MESSAGE_BYTES: int = 4096
+const MAX_POSITION_M: float = 1000.0
+const MAX_INPUT_TICK: int = 2_147_483_647
+const ADVERSE_STALL_TICK: int = 900
+const ADVERSE_STALL_MS: int = 250
+const ADVERSE_FINISH_TICK: int = 960
 
 var role: String = ""
+var profile: String = "normal"
 var port: int = 0
 var peer_id: int = 0
 var active: bool = false
@@ -21,8 +39,13 @@ var local_vehicle: String = ""
 var host_mode: String = "foot"
 var host_vehicle: String = ""
 var seat_claimant: int = 0
-var latest_input: Dictionary = {}
+var input_queue: S03InputFrameQueue = S03InputFrameQueue.new()
+var processed_input_sequence: int = 0
 var processed_input_tick: int = 0
+var input_receipt_ms: int = 0
+var current_held_command: Dictionary = {}
+var local_input_sequence: int = 0
+var local_recent_frames: Array[Dictionary] = []
 var pending_action: bool = false
 var stage: String = "connecting"
 var stage_tick: int = 0
@@ -43,7 +66,21 @@ var client_transitions: Array[Dictionary] = []
 var foot_history: S03PredictionHistory = S03PredictionHistory.new()
 var car_history: S03PredictionHistory = S03PredictionHistory.new()
 var action_queue: Array[Dictionary] = []
+var action_highest_sequence: int = 0
+var action_results: Dictionary = {}
+var action_result_order: Array[int] = []
+var rate_buckets: Dictionary = {}
+var hydrated_peers: Dictionary = {}
 var latest_snapshot: Dictionary = {}
+var input_rejections: Dictionary = {}
+var action_rejections: Dictionary = {}
+var input_expiry_count: int = 0
+var input_superseded_count: int = 0
+var input_queue_peak: int = 0
+var action_queue_peak: int = 0
+var action_processed_peak: int = 0
+var control_reset_count: int = 0
+var _input_was_expired: bool = false
 var _capture_labels: Dictionary = {}
 
 @onready var foot: S03RActor = $Foot
@@ -60,9 +97,12 @@ func _ready() -> void:
 			role = argument.trim_prefix("--role=")
 		elif argument.begins_with("--port="):
 			port = int(argument.trim_prefix("--port="))
+		elif argument.begins_with("--profile="):
+			profile = argument.trim_prefix("--profile=")
 
-	if role not in ["host", "client"] or port < 1 or port > 65_535:
-		_fail("invalid role or port")
+	if role not in ["host", "client"] or profile not in ["normal", "adverse"] \
+			or port < 1 or port > 65_535:
+		_fail("invalid role, profile, or port")
 		return
 
 	_configure_initial_bodies()
@@ -130,7 +170,7 @@ func _start_client() -> void:
 
 ## Begins sender-bound hydration after the native connection succeeds.
 func _connected() -> void:
-	_hello.rpc_id(1)
+	_hello.rpc_id(1, { "protocol": 1 })
 
 
 ## Fails the client rather than silently waiting after native connection failure.
@@ -138,23 +178,40 @@ func _connection_failed() -> void:
 	_fail("connection failed")
 
 
-## Hydrates only the actual remote sender with the complete initial transition cut.
+## Hydrates one admitted request from the actual sender without response amplification.
 @rpc("any_peer", "call_remote", "reliable", 0)
-func _hello() -> void:
+func _hello(request: Variant) -> void:
 	if role != "host":
 		return
 
-	peer_id = multiplayer.get_remote_sender_id()
+	var sender: int = multiplayer.get_remote_sender_id()
+	if not admit_hydration_request(sender, request):
+		return
+
+	peer_id = sender
 	_baseline.rpc_id(peer_id, _snapshot_state())
 
 
-## Installs the initial authoritative cut before opening local prediction.
+## Admits exactly one bounded, exact hydration request for each native peer.
+func admit_hydration_request(sender: int, request: Variant) -> bool:
+	if sender <= 0 or hydrated_peers.has(sender):
+		return false
+	if not request is Dictionary or request.size() != 1 or request.get("protocol") != 1:
+		return false
+	if not _serialized_within(request, 128):
+		return false
+
+	hydrated_peers[sender] = true
+	return true
+
+
+## Installs one validated initial authoritative cut before opening local prediction.
 @rpc("authority", "call_remote", "reliable", 0)
-func _baseline(snapshot: Dictionary) -> void:
-	if role != "client" or active:
+func _baseline(snapshot: Variant) -> void:
+	if role != "client" or active or not _snapshot_valid(snapshot):
 		return
 
-	latest_snapshot = snapshot.duplicate(true)
+	latest_snapshot = (snapshot as Dictionary).duplicate(true)
 	_install_all_passive(snapshot)
 	_switch_to_foot(snapshot, false, "baseline")
 	active = true
@@ -175,6 +232,14 @@ func _host_step(delta: float) -> void:
 		return
 
 	host_tick += 1
+	if profile == "adverse" and host_tick == ADVERSE_STALL_TICK:
+		_print_event({ "event": "stall_begin", "tick": host_tick,
+			"time_ms": Time.get_ticks_msec() })
+		OS.delay_msec(ADVERSE_STALL_MS)
+		_print_event({ "event": "stall_end", "tick": host_tick,
+			"time_ms": Time.get_ticks_msec() })
+
+	var authority_command: Dictionary = _consume_authority_input()
 	if traffic_ai_active:
 		traffic_car.step(_drive_command(0.35, 0.08, 0.0), delta)
 	elif coasting:
@@ -185,10 +250,9 @@ func _host_step(delta: float) -> void:
 			_finish_host()
 
 	if host_mode == "foot":
-		foot.step(_host_foot_command(), delta)
+		foot.step(authority_command, delta)
 	elif host_mode == "car":
-		_controlled_car().step(_host_drive_command(), delta)
-	processed_input_tick = int(latest_input.get("tick", processed_input_tick))
+		_controlled_car().step(authority_command, delta)
 
 	_process_actions()
 	if peer_id > 0 and host_tick % SNAPSHOT_INTERVAL_TICKS == 0:
@@ -203,51 +267,331 @@ func _client_step(delta: float) -> void:
 		foot.step(command, delta)
 		foot.latest_predicted_tick = input_tick
 		foot_history.push(input_tick, command, delta)
-		_submit_input.rpc_id(1, "foot", control_revision, input_tick, command)
+		_send_local_input("foot", command)
 	elif local_mode == "car":
 		var command: Dictionary = _client_drive_command()
 		_controlled_car().step(command, delta)
 		_controlled_car().latest_input_tick = input_tick
 		car_history.push(input_tick, command, delta)
-		_submit_input.rpc_id(1, local_vehicle, control_revision, input_tick, command)
+		_send_local_input(local_vehicle, command)
 		if first_control_ms == 0:
 			first_control_ms = Time.get_ticks_msec()
 
 	_advance_client_scenario()
 
 
+## Sends one bounded redundant input batch for the current control revision.
+func _send_local_input(mode: String, command: Dictionary) -> void:
+	local_input_sequence += 1
+	var frame: Dictionary
+	if mode == "foot":
+		frame = {
+			"sequence": local_input_sequence,
+			"input_tick": input_tick,
+			"move": command.move,
+			"aim_yaw": command.aim_yaw,
+		}
+	else:
+		frame = {
+			"sequence": local_input_sequence,
+			"input_tick": input_tick,
+			"throttle": command.throttle,
+			"steer": command.steer,
+			"brake": command.brake,
+			"handbrake": command.handbrake,
+		}
+	local_recent_frames.append(frame)
+	if local_recent_frames.size() > 3:
+		local_recent_frames.pop_front()
+	_submit_input.rpc_id(1, {
+		"mode": mode, "revision": control_revision,
+		"frames": local_recent_frames.duplicate(true),
+	})
+
+
 ## Accepts held input only from the connected sender and current host-owned binding.
 @rpc("any_peer", "call_remote", "unreliable_ordered", 1)
-func _submit_input(mode: String, revision: int, tick: int, command: Dictionary) -> void:
-	if role != "host" or multiplayer.get_remote_sender_id() != peer_id:
-		return
-	if revision != control_revision or tick <= int(latest_input.get("tick", 0)):
-		return
-	if mode != (host_vehicle if host_mode == "car" else host_mode):
+func _submit_input(envelope: Variant) -> void:
+	if role != "host":
 		return
 
-	latest_input = {
-		"mode": mode, "revision": revision, "tick": tick, "command": command.duplicate(true),
+	var result: String = admit_input_envelope(
+		multiplayer.get_remote_sender_id(), envelope, Time.get_ticks_msec()
+	)
+	if result != "OK":
+		_record_rejection(input_rejections, result)
+
+
+## Validates and queues one exact bounded input envelope without simulating extra steps.
+func admit_input_envelope(  # gdstyle:ignore=quality/max-returns
+	sender: int, envelope: Variant, now_ms: int
+) -> String:
+	if sender != peer_id or not hydrated_peers.has(sender):
+		return "NOT_ADMITTED"
+	if not _held_envelope_valid(envelope) or not _serialized_within(envelope, HELD_MESSAGE_BYTES):
+		return "INVALID"
+	var data: Dictionary = envelope
+	if data.revision != control_revision:
+		return "STALE_CONTEXT"
+	var expected_mode: String = host_vehicle if host_mode == "car" else host_mode
+	if data.mode != expected_mode:
+		return "STALE_CONTEXT"
+	if not take_rate_token(
+			"held", now_ms, HELD_RATE_PER_SECOND, HELD_RATE_BURST
+	):
+		return "RATE_LIMIT"
+	if not input_queue.offer(data.frames, processed_input_sequence, processed_input_tick):
+		return "INPUT_QUEUE"
+	input_queue_peak = maxi(input_queue_peak, input_queue.size())
+	if input_queue.last_offer_added():
+		input_receipt_ms = now_ms
+		_input_was_expired = false
+	return "OK"
+
+
+## Requires exact envelope/frame fields and finite bounded controls before queue mutation.
+func _held_envelope_valid(envelope: Variant) -> bool:  # gdstyle:ignore=quality/max-returns
+	if not envelope is Dictionary or envelope.size() != 3:
+		return false
+	if not envelope.get("mode") is String or envelope.mode not in ["foot", "parked", "traffic"]:
+		return false
+	if not envelope.get("revision") is int or envelope.revision <= 0:
+		return false
+	if not envelope.get("frames") is Array:
+		return false
+	var frames: Array = envelope.frames
+	if frames.is_empty() or frames.size() > 3:
+		return false
+
+	var previous_sequence: int = -1
+	var previous_tick: int = -1
+	for frame: Variant in frames:
+		if not _input_frame_valid(envelope.mode, frame):
+			return false
+		if previous_sequence >= 0 and (
+				frame.sequence != previous_sequence + 1
+				or frame.input_tick != previous_tick + 1
+		):
+			return false
+		previous_sequence = frame.sequence
+		previous_tick = frame.input_tick
+	return true
+
+
+## Validates one mode-specific input frame with no ignored or non-finite fields.
+func _input_frame_valid(  # gdstyle:ignore=quality/max-returns
+	mode: String, frame: Variant
+) -> bool:
+	if not frame is Dictionary:
+		return false
+	if not frame.get("sequence") is int or not frame.get("input_tick") is int:
+		return false
+	if frame.sequence <= 0 or frame.input_tick <= 0 or frame.input_tick > MAX_INPUT_TICK:
+		return false
+	if mode == "foot":
+		if frame.size() != 4 or not frame.get("move") is Vector2 \
+				or not frame.get("aim_yaw") is float:
+			return false
+		var move: Vector2 = frame.move
+		return move.is_finite() and move.length_squared() <= 1.0 \
+			and is_finite(frame.aim_yaw) and absf(frame.aim_yaw) <= PI
+	if frame.size() != 6 or not frame.get("handbrake") is bool:
+		return false
+	for field: String in ["throttle", "steer", "brake"]:
+		if not frame.get(field) is float or not is_finite(frame[field]):
+			return false
+	return absf(frame.throttle) <= 1.0 and absf(frame.steer) <= 1.0 \
+		and frame.brake >= 0.0 and frame.brake <= 1.0
+
+
+## Consumes or supersedes at most one queued frame and advances only its watermark.
+func _consume_authority_input() -> Dictionary:
+	var now_ms: int = Time.get_ticks_msec()
+	var receipt_age_ms: int = now_ms - input_receipt_ms if input_receipt_ms > 0 else 2_147_483_647
+	var expired: bool = receipt_age_ms > HELD_EXPIRY_MS
+	var frame: Dictionary = (
+		input_queue.supersede_all(processed_input_sequence, processed_input_tick)
+		if expired
+		else input_queue.pop_next(processed_input_sequence, processed_input_tick)
+	)
+	var command: Dictionary = _neutral_for_host_mode()
+	if not frame.is_empty():
+		processed_input_sequence = int(frame.sequence)
+		processed_input_tick = int(frame.input_tick)
+		input_superseded_count += int(frame.superseded_count)
+		if not expired:
+			command = _command_from_frame(frame)
+		_print_authority_input(frame, command, receipt_age_ms, expired)
+	elif expired and not _input_was_expired:
+		input_expiry_count += 1
+		_input_was_expired = true
+		_print_authority_input({}, command, receipt_age_ms, true)
+	current_held_command = command.duplicate(true)
+	return command
+
+
+## Converts one validated queued frame into the shared simulation command shape.
+func _command_from_frame(frame: Dictionary) -> Dictionary:
+	if host_mode == "foot":
+		return { "move": frame.move, "aim_yaw": frame.aim_yaw, "fire": false }
+	return {
+		"throttle": frame.throttle,
+		"steer": frame.steer,
+		"brake": frame.brake,
+		"handbrake": frame.handbrake,
 	}
 
 
-## Queues a reliable action with identity derived from the RPC sender.
+## Returns neutral input for the currently authoritative predicted-body domain.
+func _neutral_for_host_mode() -> Dictionary:
+	if host_mode == "foot":
+		return { "move": Vector2.ZERO, "aim_yaw": foot.rotation.y, "fire": false }
+	return S04DriveRules.neutral()
+
+
+## Emits consumed/superseded watermarks and varying command values for adverse analysis.
+func _print_authority_input(
+	frame: Dictionary, command: Dictionary, receipt_age_ms: int, expired: bool
+) -> void:
+	var sample: Array[float]
+	if host_mode == "foot":
+		var move: Vector2 = command.move
+		sample = [move.x, move.y, command.aim_yaw]
+	else:
+		sample = [command.throttle, command.steer, command.brake]
+	_print_event({
+		"event": "authority_input", "mode": host_mode, "revision": control_revision,
+		"sequence": processed_input_sequence, "input_tick": processed_input_tick,
+		"queue_size": input_queue.size(), "superseded": int(frame.get("superseded_count", 0)),
+		"receipt_age_ms": receipt_age_ms, "expired": expired, "sample": sample,
+		"time_ms": Time.get_ticks_msec(),
+	})
+
+
+## Resets queue and watermarks exactly at a host-owned control-revision fence.
+func _reset_input_binding() -> void:
+	input_queue.clear()
+	processed_input_sequence = 0
+	processed_input_tick = 0
+	input_receipt_ms = 0
+	current_held_command = _neutral_for_host_mode()
+	_input_was_expired = false
+	control_reset_count += 1
+
+
+## Refills and consumes one named monotonic token bucket.
+func take_rate_token(
+	name: String, now_ms: int, rate_per_second: float, burst: float
+) -> bool:
+	var bucket: Dictionary = rate_buckets.get(name, { "tokens": burst, "time_ms": now_ms })
+	var elapsed_ms: int = maxi(0, now_ms - int(bucket.time_ms))
+	bucket.tokens = minf(burst, float(bucket.tokens) + elapsed_ms * rate_per_second / 1000.0)
+	bucket.time_ms = now_ms
+	if float(bucket.tokens) < 1.0:
+		rate_buckets[name] = bucket
+		return false
+	bucket.tokens = float(bucket.tokens) - 1.0
+	rate_buckets[name] = bucket
+	return true
+
+
+## Checks the actual Variant serialization extent before any boundary mutation.
+func _serialized_within(value: Variant, limit: int) -> bool:
+	return limit > 0 and var_to_bytes(value).size() <= limit
+
+
+## Counts one named rejection without retaining unbounded attacker-controlled values.
+func _record_rejection(target: Dictionary, reason: String) -> void:
+	target[reason] = int(target.get(reason, 0)) + 1
+
+
+## Queues one exact bounded reliable action using identity from the RPC sender.
 @rpc("any_peer", "call_remote", "reliable", 0)
-func _request_action(sequence: int, kind: String, vehicle: String) -> void:
-	if role != "host" or multiplayer.get_remote_sender_id() != peer_id:
-		return
-	if sequence <= 0 or kind not in ["enter", "exit"]:
+func _request_action(envelope: Variant) -> void:
+	if role != "host":
 		return
 
-	action_queue.append(
-		{
-			"participant": peer_id,
-			"sequence": sequence,
-			"kind": kind,
-			"vehicle": vehicle,
-			"accepted_tick": host_tick,
-		}
-	)
+	var sender: int = multiplayer.get_remote_sender_id()
+	var result: String = admit_action_envelope(sender, envelope, Time.get_ticks_msec())
+	if result == "CACHED":
+		_action_result.rpc_id(sender, action_results[int(envelope.action_sequence)])
+	elif result not in ["QUEUED", "DUPLICATE_QUEUED"]:
+		_record_rejection(action_rejections, result)
+
+
+## Validates rate, sequence, deduplication, and queue bounds before action admission.
+func admit_action_envelope(  # gdstyle:ignore=quality/max-returns,quality/max-branches
+	sender: int, envelope: Variant, now_ms: int
+) -> String:
+	if sender != peer_id or not hydrated_peers.has(sender):
+		return "NOT_ADMITTED"
+	if not _action_envelope_valid(envelope) \
+			or not _serialized_within(envelope, ACTION_MESSAGE_BYTES):
+		return "INVALID"
+	var data: Dictionary = envelope
+	var sequence: int = data.action_sequence
+	if action_results.has(sequence):
+		return "CACHED"
+	if _action_queued(sequence):
+		return "DUPLICATE_QUEUED"
+	if data.context.control != control_revision:
+		return "STALE_CONTEXT"
+	if not take_rate_token(
+			"action", now_ms, ACTION_RATE_PER_SECOND, ACTION_RATE_BURST
+	):
+		return "RATE_LIMIT"
+	if sequence <= action_highest_sequence:
+		return "STALE_SEQUENCE"
+	if sequence > action_highest_sequence + ACTION_SEQUENCE_WINDOW:
+		return "WINDOW"
+	if action_queue.size() >= ACTION_QUEUE_LIMIT:
+		return "QUEUE_FULL"
+
+	action_highest_sequence = sequence
+	action_queue.append({
+		"participant": sender, "sequence": sequence, "kind": data.kind,
+		"vehicle": str(data.payload.get("vehicle", "")), "accepted_tick": host_tick,
+	})
+	action_queue_peak = maxi(action_queue_peak, action_queue.size())
+	return "QUEUED"
+
+
+## Requires exact context, payload, sequence, and kind fields for reliable actions.
+func _action_envelope_valid(  # gdstyle:ignore=quality/max-returns
+	envelope: Variant
+) -> bool:
+	if not envelope is Dictionary or envelope.size() != 4:
+		return false
+	if not envelope.get("context") is Dictionary or envelope.context.size() != 1 \
+			or not envelope.context.get("control") is int or envelope.context.control <= 0:
+		return false
+	if not envelope.get("action_sequence") is int or envelope.action_sequence <= 0:
+		return false
+	if not envelope.get("kind") is String or envelope.kind not in ["enter", "exit"]:
+		return false
+	if not envelope.get("payload") is Dictionary:
+		return false
+	if envelope.kind == "exit":
+		return envelope.payload.is_empty()
+	return envelope.payload.size() == 1 and envelope.payload.get("vehicle") is String \
+		and envelope.payload.vehicle in ["parked", "traffic"]
+
+
+## Reports whether one admitted sequence already waits in the bounded queue.
+func _action_queued(sequence: int) -> bool:
+	for action: Dictionary in action_queue:
+		if action.sequence == sequence:
+			return true
+	return false
+
+
+## Removes at most the reviewed per-participant action work for one host tick.
+func take_action_batch() -> Array[Dictionary]:
+	var result: Array[Dictionary] = []
+	while not action_queue.is_empty() and result.size() < ACTIONS_PER_TICK:
+		result.append(action_queue.pop_front())
+	action_processed_peak = maxi(action_processed_peak, result.size())
+	return result
 
 
 ## Identifies the first parked-car request that triggers the scripted competing claimant.
@@ -260,8 +604,7 @@ func _process_actions() -> void:
 	if action_queue.is_empty():
 		return
 
-	var actions: Array[Dictionary] = action_queue.duplicate(true)
-	action_queue.clear()
+	var actions: Array[Dictionary] = take_action_batch()
 	if not race_complete and actions.any(_is_parked_enter):
 		var competing_tick: int = int(actions[0].accepted_tick)
 		actions.append(
@@ -326,7 +669,7 @@ func _apply_enter(action: Dictionary) -> void:
 				traffic_stolen = true
 			host_mode = "car"
 			control_revision += 1
-			latest_input.clear()
+			_reset_input_binding()
 			foot.neutralize()
 		else:
 			failure = "SCRIPTED_CLAIM"
@@ -357,24 +700,47 @@ func _apply_exit(action: Dictionary) -> void:
 		host_vehicle = ""
 		seat_claimant = 0
 		control_revision += 1
-		latest_input.clear()
+		_reset_input_binding()
 
 	_send_action_result(action.sequence, failure, host_vehicle)
 
 
-## Returns the verdict plus authoritative transition poses; it never trusts client state.
+## Caches and returns one bounded reliable transition after authoritative processing.
 func _send_action_result(sequence: int, failure: String, vehicle: String) -> void:
-	_action_result.rpc_id(peer_id, sequence, failure, vehicle, control_revision, _snapshot_state())
+	var message: Dictionary = {
+		"sequence": sequence, "failure": failure, "vehicle": vehicle,
+		"revision": control_revision, "snapshot": _snapshot_state(),
+	}
+	cache_action_result(sequence, message)
+	_action_result.rpc_id(peer_id, message)
 
 
-## Applies a host verdict, clears both replay domains, and records transition discontinuity.
+## Retains only the newest reviewed number of idempotent action results.
+func cache_action_result(sequence: int, message: Dictionary) -> void:
+	if action_results.has(sequence):
+		return
+	action_results[sequence] = message.duplicate(true)
+	action_result_order.append(sequence)
+	if action_result_order.size() > ACTION_RESULT_CACHE:
+		action_results.erase(action_result_order.pop_front())
+
+
+## Applies one validated host transition and records its visual discontinuity.
 @rpc("authority", "call_remote", "reliable", 0)
-func _action_result(
-	sequence: int, failure: String, vehicle: String, revision: int, snapshot: Dictionary
+func _action_result(  # gdstyle:ignore=quality/max-function-length,quality/max-local-variables
+	message: Variant
 ) -> void:
-	if role != "client" or not pending_action or sequence != action_sequence:
+	if role != "client" or not pending_action or not _transition_message_valid(message):
 		return
 
+	var transition: Dictionary = message
+	var sequence: int = transition.sequence
+	if sequence != action_sequence:
+		return
+	var failure: String = transition.failure
+	var vehicle: String = transition.vehicle
+	var revision: int = transition.revision
+	var snapshot: Dictionary = transition.snapshot
 	pending_action = false
 	latest_snapshot = snapshot.duplicate(true)
 	var previous_focus: Vector3 = _local_focus_position()
@@ -386,7 +752,7 @@ func _action_result(
 			_switch_to_car(vehicle, snapshot, "accepted_entry")
 		else:
 			_switch_to_foot(snapshot, true, "rejected_entry")
-	elif requested_stage in ["moving_exit", "blocked_exit"]:
+	elif requested_stage in ["moving_exit", "forced_blocked_exit"]:
 		ownership_clean = ownership_clean and local_mode == "car"
 	elif requested_stage == "successful_exit" and accepted:
 		_switch_to_foot(snapshot, true, "accepted_exit")
@@ -415,24 +781,46 @@ func _action_result(
 	_advance_after_result(requested_stage, accepted, failure)
 
 
-## Buffers authority, reconciles only the active prediction domain, and updates passive cars.
+## Validates the exact reliable transition shape before client state installation.
+func _transition_message_valid(message: Variant) -> bool:
+	if not message is Dictionary or message.size() != 5 \
+			or not _serialized_within(message, ACTION_MESSAGE_BYTES):
+		return false
+	if not message.get("sequence") is int or message.sequence <= 0:
+		return false
+	if not message.get("failure") is String or message.failure not in [
+		"", "SEAT_OCCUPIED", "INVALID_VEHICLE", "EXIT_MOVING", "EXIT_BLOCKED",
+		"NOT_SEATED",
+	]:
+		return false
+	if not message.get("vehicle") is String \
+			or message.vehicle not in ["", "parked", "traffic"]:
+		return false
+	if not message.get("revision") is int or message.revision <= 0:
+		return false
+	return _snapshot_valid(message.get("snapshot")) \
+		and message.revision == message.snapshot.control
+
+
+## Buffers one validated authority snapshot and updates only permitted simulation domains.
 @rpc("authority", "call_remote", "unreliable_ordered", 1)
-func _snapshot(snapshot: Dictionary) -> void:
-	if role != "client" or not active:
+func _snapshot(snapshot: Variant) -> void:
+	if role != "client" or not active or not _snapshot_valid(snapshot):
 		return
 
-	latest_snapshot = snapshot.duplicate(true)
+	var state: Dictionary = snapshot
+	latest_snapshot = state.duplicate(true)
 	if not (local_mode == "car" and local_vehicle == "parked"):
-		_install_passive_car(parked_car, snapshot.parked)
+		_install_passive_car(parked_car, state.parked)
 	if not (local_mode == "car" and local_vehicle == "traffic"):
-		_install_passive_car(traffic_car, snapshot.traffic)
-	if pending_action and snapshot.mode != local_mode:
+		_install_passive_car(traffic_car, state.traffic)
+	if pending_action and state.mode != local_mode:
 		return
 
-	if local_mode == "foot" and snapshot.mode == "foot":
-		_reconcile_foot(snapshot)
-	elif local_mode == "car" and snapshot.mode == "car" and snapshot.vehicle == local_vehicle:
-		_reconcile_car(snapshot)
+	if local_mode == "foot" and state.mode == "foot":
+		_reconcile_foot(state)
+	elif local_mode == "car" and state.mode == "car" and state.vehicle == local_vehicle:
+		_reconcile_car(state)
 
 
 ## Restores the host foot pose and replays only unacknowledged foot frames.
@@ -456,12 +844,64 @@ func _reconcile_car(snapshot: Dictionary) -> void:
 		actor.step(frame.command, frame.delta)
 
 
+## Validates an exact bounded snapshot and all finite primitive pose values.
+func _snapshot_valid(snapshot: Variant) -> bool:  # gdstyle:ignore=quality/max-returns
+	if not snapshot is Dictionary or snapshot.size() != 10 \
+			or not _serialized_within(snapshot, SNAPSHOT_MESSAGE_BYTES):
+		return false
+	for field: String in ["tick", "seat_claimant", "control", "ack"]:
+		if not snapshot.get(field) is int or snapshot[field] < 0:
+			return false
+	if snapshot.control <= 0 or not snapshot.get("traffic_ai") is bool:
+		return false
+	if not snapshot.get("mode") is String or snapshot.mode not in ["none", "foot", "car"]:
+		return false
+	if not snapshot.get("vehicle") is String \
+			or snapshot.vehicle not in ["", "parked", "traffic"]:
+		return false
+	if snapshot.mode == "car" and snapshot.vehicle.is_empty():
+		return false
+	if snapshot.mode != "car" and not snapshot.vehicle.is_empty():
+		return false
+	return _wire_pose_valid(snapshot.get("foot"), false) \
+		and _wire_pose_valid(snapshot.get("parked"), true) \
+		and _wire_pose_valid(snapshot.get("traffic"), true)
+
+
+## Validates one exact finite foot or car pose without accepting engine objects.
+func _wire_pose_valid(  # gdstyle:ignore=quality/max-returns
+	pose: Variant, car: bool
+) -> bool:
+	var expected_size: int = 5 if car else 4
+	if not pose is Dictionary or pose.size() != expected_size:
+		return false
+	if not pose.get("sequence") is int or pose.sequence < 0:
+		return false
+	if car and (not pose.get("input_tick") is int or pose.input_tick < 0):
+		return false
+	if not pose.get("yaw") is float or not is_finite(pose.yaw) or absf(pose.yaw) > PI:
+		return false
+	return _wire_vector_valid(pose.get("position")) \
+		and _wire_vector_valid(pose.get("velocity"))
+
+
+## Validates one primitive finite wire vector within the fixture coordinate bound.
+func _wire_vector_valid(values: Variant) -> bool:
+	if not values is Array or values.size() != 3:
+		return false
+	for value: Variant in values:
+		if not (value is int or value is float) or not is_finite(float(value)) \
+				or absf(float(value)) > MAX_POSITION_M:
+			return false
+	return true
+
+
 ## Produces the complete bounded authoritative state used by transitions and snapshots.
 func _snapshot_state() -> Dictionary:
 	return {
 		"tick": host_tick,
 		"mode": host_mode,
-		"vehicle": host_vehicle,
+		"vehicle": host_vehicle if host_mode == "car" else "",
 		"seat_claimant": seat_claimant,
 		"control": control_revision,
 		"ack": processed_input_tick,
@@ -523,7 +963,10 @@ func _predict_enter(vehicle: String, next_stage: String) -> void:
 	transition_request_ms = Time.get_ticks_msec()
 	first_control_ms = 0
 	_switch_to_car(vehicle, latest_snapshot, "predicted_entry")
-	_request_action.rpc_id(1, action_sequence, "enter", vehicle)
+	_request_action.rpc_id(1, {
+		"context": { "control": control_revision }, "action_sequence": action_sequence,
+		"kind": "enter", "payload": { "vehicle": vehicle },
+	})
 
 
 ## Requests exit without pre-empting moving/clearance authority.
@@ -536,13 +979,17 @@ func _request_exit(next_stage: String) -> void:
 	stage = next_stage
 	transition_request_ms = Time.get_ticks_msec()
 	first_control_ms = 0
-	_request_action.rpc_id(1, action_sequence, "exit", "")
+	_request_action.rpc_id(1, {
+		"context": { "control": control_revision }, "action_sequence": action_sequence,
+		"kind": "exit", "payload": {},
+	})
 
 
 ## Switches collision, replay, camera, and HUD ownership to one predicted car.
 func _switch_to_car(vehicle: String, snapshot: Dictionary, reason: String) -> void:
 	foot_history.clear()
 	car_history.clear()
+	_reset_local_input_binding()
 	history_clean = history_clean and foot_history.size() == 0 and car_history.size() == 0
 	foot.neutralize()
 	foot.collision_layer = 0
@@ -567,6 +1014,7 @@ func _switch_to_car(vehicle: String, snapshot: Dictionary, reason: String) -> vo
 func _switch_to_foot(snapshot: Dictionary, install: bool, reason: String) -> void:
 	foot_history.clear()
 	car_history.clear()
+	_reset_local_input_binding()
 	history_clean = history_clean and foot_history.size() == 0 and car_history.size() == 0
 	for actor: S04Kinematic in [parked_car, traffic_car]:
 		actor.configure(false)
@@ -581,6 +1029,12 @@ func _switch_to_foot(snapshot: Dictionary, install: bool, reason: String) -> voi
 	_status_label.set_meta("owner_kind", "foot")
 	_status_label.text = "S04-T foot"
 	ownership_clean = ownership_clean and reason != "" and _ownership_matches()
+
+
+## Clears local packet numbering when host authority creates a control revision.
+func _reset_local_input_binding() -> void:
+	local_input_sequence = 0
+	local_recent_frames.clear()
 
 
 ## Drives the deterministic client sequence from replicated outcomes, never local authority.
@@ -600,12 +1054,15 @@ func _advance_client_scenario() -> void:
 		and not pending_action
 		and (_controlled_car().latest_authoritative_speed_mps < 0.4)
 	):
-		_request_exit("blocked_exit")
+		_request_exit("forced_blocked_exit")
 	elif stage == "wait_successful_exit" and input_tick - stage_tick >= 8:
 		_request_exit("successful_exit")
-	elif stage == "wait_traffic_entry" and input_tick - stage_tick >= 8:
+	elif stage == "wait_traffic_entry" and input_tick - stage_tick >= 20:
 		_predict_enter("traffic", "traffic_entry")
-	elif stage == "drive_traffic" and input_tick - stage_tick >= DRIVE_BEFORE_DISCONNECT_TICKS:
+	elif stage == "drive_traffic" and (
+			input_tick - stage_tick >= DRIVE_BEFORE_DISCONNECT_TICKS
+			and int(latest_snapshot.get("tick", 0)) >= ADVERSE_FINISH_TICK
+	):
 		_finish_client_and_disconnect()
 
 
@@ -618,7 +1075,7 @@ func _advance_after_result(previous_stage: String, accepted: bool, failure: Stri
 		stage = "drive_parked"
 	elif previous_stage == "moving_exit" and failure == "EXIT_MOVING":
 		stage = "brake_parked"
-	elif previous_stage == "blocked_exit" and failure == "EXIT_BLOCKED":
+	elif previous_stage == "forced_blocked_exit" and failure == "EXIT_BLOCKED":
 		stage = "wait_successful_exit"
 	elif previous_stage == "successful_exit" and accepted:
 		stage = "wait_traffic_entry"
@@ -628,30 +1085,22 @@ func _advance_after_result(previous_stage: String, accepted: bool, failure: Stri
 		_fail("unexpected action result at %s: %s" % [previous_stage, failure])
 
 
-## Chooses held foot input for the current scenario without any seated firing path.
+## Chooses varying bounded foot input without any seated firing path.
 func _foot_command() -> Dictionary:
-	return { "move": Vector2(0.15, -0.05), "aim_yaw": 0.0, "fire": false }
+	var phase: float = float(input_tick % 12) / 12.0
+	return {
+		"move": Vector2(0.1 + phase * 0.12, -0.05 - phase * 0.06),
+		"aim_yaw": -0.2 + phase * 0.4,
+		"fire": false,
+	}
 
 
-## Returns the newest admitted foot command or neutral host intent.
-func _host_foot_command() -> Dictionary:
-	if latest_input.get("mode", "") == "foot":
-		return latest_input.command
-	return { "move": Vector2.ZERO, "aim_yaw": 0.0, "fire": false }
-
-
-## Selects acceleration, braking, or coasting for the scripted local car stage.
+## Selects varying acceleration/steering or explicit braking for the local car stage.
 func _client_drive_command() -> Dictionary:
-	if stage in ["brake_parked", "blocked_exit", "wait_successful_exit"]:
+	if stage in ["brake_parked", "forced_blocked_exit", "wait_successful_exit"]:
 		return _drive_command(0.0, 0.0, 1.0)
-	return _drive_command(0.8, 0.08, 0.0)
-
-
-## Returns the newest admitted drive command or neutral host intent.
-func _host_drive_command() -> Dictionary:
-	if latest_input.get("mode", "") == host_vehicle:
-		return latest_input.command
-	return S04DriveRules.neutral()
+	var phase: float = float(input_tick % 30) / 29.0
+	return _drive_command(0.65 + phase * 0.25, -0.15 + phase * 0.3, 0.0)
 
 
 ## Supplies one complete drive command with no weapon action.
@@ -711,7 +1160,7 @@ func _finish_client_and_disconnect() -> void:
 		"race_entry",
 		"parked_entry",
 		"moving_exit",
-		"blocked_exit",
+		"forced_blocked_exit",
 		"successful_exit",
 		"traffic_entry",
 	]
@@ -751,7 +1200,8 @@ func _peer_disconnected(disconnected_peer: int) -> void:
 	coasting = true
 	host_mode = "none"
 	seat_claimant = 0
-	latest_input.clear()
+	input_queue.clear()
+	current_held_command = S04DriveRules.neutral()
 	_print_event({ "event": "disconnect_coast", "speed_mps": traffic_car.velocity.length() })
 
 
@@ -767,6 +1217,11 @@ func _finish_host() -> void:
 		and disconnected_driver
 		and coast_distance > 0.05
 		and traffic_car.velocity.length() < PARKED_SPEED_MPS
+		and input_queue_peak <= S03InputFrameQueue.DEFAULT_CAPACITY
+		and action_queue_peak <= ACTION_QUEUE_LIMIT
+		and action_processed_peak <= ACTIONS_PER_TICK
+		and action_results.size() <= ACTION_RESULT_CACHE
+		and control_reset_count >= 3
 	)
 	_print_event(
 		{
@@ -780,6 +1235,16 @@ func _finish_host() -> void:
 			"traffic_ai_active": traffic_ai_active,
 			"disconnect_coast_m": coast_distance,
 			"final_speed_mps": traffic_car.velocity.length(),
+			"input_queue_peak": input_queue_peak,
+			"input_superseded_count": input_superseded_count,
+			"input_expiry_count": input_expiry_count,
+			"input_rejections": input_rejections,
+			"action_queue_peak": action_queue_peak,
+			"action_processed_peak": action_processed_peak,
+			"action_cache_size": action_results.size(),
+			"action_rejections": action_rejections,
+			"control_reset_count": control_reset_count,
+			"hydration_count": hydrated_peers.size(),
 		}
 	)
 	get_tree().quit(0 if ok else 1)

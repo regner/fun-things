@@ -4,15 +4,12 @@
 from __future__ import annotations
 
 import argparse
-import heapq
 import json
 import math
 from pathlib import Path
 import platform
-import random
 import shutil
 import signal
-import socket
 import subprocess
 import sys
 import tempfile
@@ -24,7 +21,8 @@ if str(TOOLS) not in sys.path:
 
 from measurement_identity import measurement_identity
 from run_s03 import stop_children
-from script_checks import ROOT, DIAGNOSTIC, checked_command, engine_version, environment
+from run_s03_r import BLACKOUT_SECONDS, BLACKOUT_START_SECONDS, FootProxy
+from script_checks import ROOT, DIAGNOSTIC, checked_command, environment
 from window_safety import capped_window_arguments, require_capped_window
 
 PROFILES = {
@@ -32,16 +30,14 @@ PROFILES = {
     "adverse": (125, 50, 0.05),
 }
 POLL_SECONDS = 0.002
-MAX_POLL = 128
-MAX_QUEUE = 1024
-BLACKOUT_START_SECONDS = 2.0
-BLACKOUT_SECONDS = 0.5
+GODOT_COMMAND_TIMEOUT_SECONDS = 50
 MEASUREMENT_SOURCES = [
     "tools/s04_t",
     "tools/measurement_identity.py",
     "tools/window_safety.py",
     "tools/script_checks.py",
     "tools/run_s03.py",
+    "tools/run_s03_r.py",
     "tests/fixtures/s02",
     "tests/fixtures/s03_r",
     "tests/fixtures/s04",
@@ -49,89 +45,24 @@ MEASUREMENT_SOURCES = [
 ]
 
 
-class TransitionProxy:
-    """Impair one loopback ENet route with seeded delay, loss, and an adverse blackout."""
+def bounded_godot_command(command: list[str], seconds: int) -> list[str]:
+    """Wrap every Godot process in the workstation's bounded GNU timeout command."""
+    timeout = shutil.which("timeout")
+    if timeout is None:
+        raise RuntimeError("GNU timeout is required for bounded Godot commands")
+    return [timeout, f"{seconds}s", *command]
 
-    def __init__(self, host_port: int, proxy_port: int, profile: str, log) -> None:
-        self.socket = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
-        try:
-            self.socket.bind(("127.0.0.1", proxy_port))
-        except OSError:
-            self.socket.close()
-            raise
-        self.socket.setblocking(False)
-        self.host = ("127.0.0.1", host_port)
-        self.client = None
-        self.profile = profile
-        self.delay_ms, self.jitter_ms, self.loss = PROFILES[profile]
-        self.random = {"up": random.Random(4041), "down": random.Random(4049)}
-        self.queue = []
-        self.serial = 0
-        self.started = None
-        self.blackout_done = profile != "adverse"
-        self.peak_queue = 0
-        self.events = []
-        self.log = log
 
-    def record(self, event: str, **values) -> None:
-        """Retain one complete proxy event for diagnosis and independent timing checks."""
-        row = {"event": event, "wall_ms": time.time() * 1000,
-               "monotonic": time.monotonic(), **values}
-        self.events.append(row)
-        self.log.write(json.dumps(row) + "\n")
-        self.log.flush()
-
-    def poll(self) -> None:
-        """Receive and deliver bounded datagram work without blocking the process runner."""
-        now = time.monotonic()
-        interrupted = False
-        if self.profile == "adverse" and self.started is not None:
-            age = now - self.started
-            interrupted = BLACKOUT_START_SECONDS <= age < (
-                BLACKOUT_START_SECONDS + BLACKOUT_SECONDS)
-            if age >= BLACKOUT_START_SECONDS + BLACKOUT_SECONDS:
-                self.blackout_done = True
-
-        for _ in range(MAX_POLL):
-            try:
-                data, source = self.socket.recvfrom(65_535)
-            except BlockingIOError:
-                break
-            except ConnectionResetError:
-                continue
-            direction = "down" if source == self.host else "up"
-            if direction == "up":
-                if self.client is not None and source != self.client:
-                    raise RuntimeError("unexpected second proxy client")
-                self.client = source
-            destination = self.client if direction == "down" else self.host
-            if destination is None:
-                raise RuntimeError("host datagram arrived before a client route")
-            self.serial += 1
-            rng = self.random[direction]
-            if interrupted or rng.random() < self.loss:
-                self.record("drop", direction=direction, bytes=len(data),
-                            reason="blackout" if interrupted else "random")
-                continue
-            if len(self.queue) >= MAX_QUEUE:
-                raise RuntimeError("proxy queue bound exceeded")
-            delay = max(0.0, self.delay_ms + rng.uniform(-self.jitter_ms, self.jitter_ms))
-            heapq.heappush(self.queue, (now + delay / 1000, self.serial, now,
-                                      data, destination, direction))
-            self.peak_queue = max(self.peak_queue, len(self.queue))
-
-        for _ in range(MAX_POLL):
-            if not self.queue or self.queue[0][0] > now:
-                break
-            due, serial, received, data, destination, direction = heapq.heappop(self.queue)
-            if interrupted:
-                self.record("drop", direction=direction, bytes=len(data),
-                            reason="blackout_pending", id=serial)
-                continue
-            self.socket.sendto(data, destination)
-            self.record("delivery", direction=direction, bytes=len(data), id=serial,
-                        actual_delay_ms=(now - received) * 1000,
-                        scheduled_delay_ms=(due - received) * 1000)
+def bounded_engine_version(godot: str) -> str:
+    """Read the pinned engine version through the same process timeout boundary."""
+    result = subprocess.run(
+        bounded_godot_command([godot, "--version"], 10),
+        capture_output=True,
+        text=True,
+        timeout=15,
+        check=True,
+    )
+    return result.stdout.strip()
 
 
 def percentile(values: list[float], quantile: float = 0.95) -> float | None:
@@ -167,7 +98,7 @@ def stage_fixture(directory: Path) -> Path:
     return project
 
 
-def analyze(directory: Path, profile: str, proxy: TransitionProxy) -> dict:
+def analyze(directory: Path, profile: str, proxy: FootProxy) -> dict:
     """Independently derive the transition and authority outcomes from raw telemetry."""
     host = records(directory / "host/stdout.log")
     client = records(directory / "client/stdout.log")
@@ -179,7 +110,7 @@ def analyze(directory: Path, profile: str, proxy: TransitionProxy) -> dict:
         "race_entry": (False, "SEAT_OCCUPIED"),
         "parked_entry": (True, ""),
         "moving_exit": (False, "EXIT_MOVING"),
-        "blocked_exit": (False, "EXIT_BLOCKED"),
+        "forced_blocked_exit": (False, "EXIT_BLOCKED"),
         "successful_exit": (True, ""),
         "traffic_entry": (True, ""),
     }
@@ -193,6 +124,31 @@ def analyze(directory: Path, profile: str, proxy: TransitionProxy) -> dict:
     captures = sorted(path.name for path in (directory / "client/captures").glob("*.png"))
     transfer_stages = {"race_entry", "parked_entry", "successful_exit", "traffic_entry"}
     transfer_rows = [row for row in transitions if row["stage"] in transfer_stages]
+    authority_inputs = [row for row in host if row.get("event") == "authority_input"]
+    active_inputs = [row for row in authority_inputs if not row["expired"]]
+    revisions = sorted({row["revision"] for row in active_inputs})
+    minimum_sequence = {
+        str(revision): min(row["sequence"] for row in active_inputs
+                           if row["revision"] == revision)
+        for revision in revisions
+    }
+    blackout_begin = next((row for row in proxy.events
+                            if row["event"] == "blackout_begin"), None)
+    blackout_end = next((row for row in proxy.events
+                          if row["event"] == "blackout_end"), None)
+    stall_begin = next((row for row in host if row.get("event") == "stall_begin"), None)
+    stall_end = next((row for row in host if row.get("event") == "stall_end"), None)
+    post_blackout = [] if blackout_end is None else [
+        row for row in active_inputs
+        if blackout_end["wall_ms"] <= row["wall_ms"] <= blackout_end["wall_ms"] + 1000
+    ]
+    post_stall = [] if stall_end is None else [
+        row for row in active_inputs
+        if stall_end["wall_ms"] <= row["wall_ms"] <= stall_end["wall_ms"] + 1000
+    ]
+    blackout_expiry = False if blackout_begin is None or blackout_end is None else any(
+        row["expired"] and blackout_begin["wall_ms"] <= row["wall_ms"]
+        <= blackout_end["wall_ms"] + 300 for row in authority_inputs)
     measurements = {
         "entry_correction_m": {row["stage"]: row["correction_m"] for row in entries},
         "entry_visual_jump_m": {row["stage"]: row["visual_jump_m"] for row in entries},
@@ -209,6 +165,16 @@ def analyze(directory: Path, profile: str, proxy: TransitionProxy) -> dict:
                                for row in transitions),
         "proxy_delay_p95_ms": percentile(delays),
         "proxy_delay_max_ms": max(delays, default=0.0),
+        "input_revisions": revisions,
+        "minimum_sequence_by_revision": minimum_sequence,
+        "varying_input_samples": len({tuple(row["sample"]) for row in active_inputs}),
+        "post_blackout_samples": len({tuple(row["sample"]) for row in post_blackout}),
+        "post_stall_samples": len({tuple(row["sample"]) for row in post_stall}),
+        "blackout_expiry": blackout_expiry,
+        "blackout_duration_ms": (None if blackout_begin is None or blackout_end is None
+                                  else blackout_end["wall_ms"] - blackout_begin["wall_ms"]),
+        "host_stall_ms": (None if stall_begin is None or stall_end is None
+                           else stall_end["time_ms"] - stall_begin["time_ms"]),
         "captures": captures,
     }
     race = next((row for row in host if row.get("event") == "seat_race"), {})
@@ -223,7 +189,26 @@ def analyze(directory: Path, profile: str, proxy: TransitionProxy) -> dict:
         and host_result.get("traffic_ai_active") is False,
         "disconnect_coasted": host_result.get("disconnect_coast_m", 0) > 0.05
         and host_result.get("final_speed_mps", 1) < 0.01,
-        "adverse_blackout": proxy.blackout_done,
+        "bounded_input_queue": host_result.get("input_queue_peak", 99) <= 8,
+        "bounded_actions": host_result.get("action_queue_peak", 99) <= 16
+        and host_result.get("action_processed_peak", 99) <= 4
+        and host_result.get("action_cache_size", 99) <= 64,
+        "one_hydration": host_result.get("hydration_count") == 1,
+        "control_revision_resets": revisions == [1, 2, 3, 4]
+        and all(value <= 3 for value in minimum_sequence.values()),
+        "varying_commands": measurements["varying_input_samples"] >= 6,
+        "adverse_profile": profile != "adverse" or (
+            proxy.blackout_done
+            and measurements["blackout_duration_ms"] is not None
+            and measurements["blackout_duration_ms"] >= BLACKOUT_SECONDS * 1000 - 20
+            and measurements["host_stall_ms"] is not None
+            and measurements["host_stall_ms"] >= 250
+            and measurements["blackout_expiry"]
+            and measurements["post_blackout_samples"] >= 2
+            and measurements["post_stall_samples"] >= 2
+            and host_result.get("input_superseded_count", 0) > 0
+        ),
+        "malformed_flood_probe": True,
         "draw_receipts": bool(captures),
     }
     return {"profile": profile, "ok": all(criteria.values()),
@@ -235,11 +220,24 @@ def run_case(args, directory: Path, profile: str) -> dict:
     """Run one fresh host/client profile and retain all bounded process evidence."""
     directory.mkdir()
     project = stage_fixture(directory)
-    import_command = [args.godot, "--headless", "--editor", "--path", str(project),
-                      "--import", "--quit", "--log-file", str(directory / "import.engine.log")]
+    import_command = bounded_godot_command(
+        [args.godot, "--headless", "--editor", "--path", str(project),
+         "--import", "--quit", "--log-file", str(directory / "import.engine.log")],
+        GODOT_COMMAND_TIMEOUT_SECONDS,
+    )
     if not checked_command(import_command, directory / "import.log",
                            environment(directory / "import-user")):
         raise RuntimeError("isolated fixture import failed")
+    probe_command = bounded_godot_command(
+        [args.godot, "--headless", "--path", str(project),
+         "--script", "res://tests/fixtures/s04_t/boundary_probe.gd"],
+        GODOT_COMMAND_TIMEOUT_SECONDS,
+    )
+    probe_log = directory / "boundary-probe.log"
+    if not checked_command(probe_command, probe_log, environment(directory / "probe-user")):
+        raise RuntimeError("boundary counterexample probe failed")
+    if "S04-T BOUNDARY PASS" not in probe_log.read_text(errors="replace"):
+        raise RuntimeError("boundary counterexample probe did not complete")
 
     children = []
     logs = {}
@@ -248,7 +246,7 @@ def run_case(args, directory: Path, profile: str) -> dict:
     ready = False
     commands = {}
     proxy_log = (directory / "proxy.jsonl").open("w")
-    proxy = TransitionProxy(args.port, args.proxy_port, profile, proxy_log)
+    proxy = FootProxy(args.port, args.proxy_port, profile, proxy_log)
     deadline = time.monotonic() + args.deadline
     try:
         def start(role: str, port: int) -> None:
@@ -256,18 +254,22 @@ def run_case(args, directory: Path, profile: str) -> dict:
             role_dir.mkdir()
             captures = role_dir / "captures"
             captures.mkdir()
-            command = [args.godot]
+            godot_command = [args.godot]
             if args.windowed:
-                command.extend(capped_window_arguments())
+                godot_command.extend(capped_window_arguments())
             else:
-                command.append("--headless")
-            command.extend(["--path", str(project), "--resolution", "1280x800",
+                godot_command.append("--headless")
+            godot_command.extend(["--path", str(project), "--resolution", "1280x800",
                             "--position", "0,0" if role == "host" else "1280,0",
                             "--log-file", str(role_dir / "engine.log"),
                             "res://tests/fixtures/s04_t/boot.tscn", "--",
-                            "--role=" + role, "--port=" + str(port)])
+                            "--role=" + role, "--port=" + str(port),
+                            "--profile=" + profile])
             if args.windowed:
-                require_capped_window(command)
+                require_capped_window(godot_command)
+            command = bounded_godot_command(
+                godot_command, GODOT_COMMAND_TIMEOUT_SECONDS
+            )
             commands[role] = command
             logs[role] = (role_dir / "stdout.log").open("w")
             env = environment(role_dir / "user")
@@ -295,7 +297,7 @@ def run_case(args, directory: Path, profile: str) -> dict:
                         if role == "host" and row.get("event") == "ready":
                             ready = True
                         if role == "client" and row.get("event") == "start":
-                            proxy.started = time.monotonic()
+                            proxy.start = time.monotonic()
                         if row.get("event") == "result":
                             process_results[role] = row
                             if row.get("ok") is not True:
@@ -363,7 +365,7 @@ def main() -> int:
                                          KeyboardInterrupt()))
     results = []
     try:
-        version = engine_version(args.godot)
+        version = bounded_engine_version(args.godot)
         for index, profile in enumerate(args.profiles):
             args.port += index * 2
             args.proxy_port += index * 2

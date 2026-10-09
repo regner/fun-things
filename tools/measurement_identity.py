@@ -33,26 +33,43 @@ def repository_identity(root: Path) -> dict[str, object]:
     }
 
 
+def _tracked_paths(root: Path, source: Path) -> list[Path]:
+    """List only committed files beneath one repository-relative source path."""
+    relative = source.relative_to(root).as_posix()
+    result = subprocess.run(
+        ["git", "ls-files", "-z", "--", relative],
+        cwd=root,
+        capture_output=True,
+        timeout=10,
+        check=True,
+    )
+    return [root / value.decode("utf-8") for value in result.stdout.split(b"\0") if value]
+
+
 def _source_files(root: Path, sources: Iterable[str | Path]) -> list[Path]:
-    """Expand explicit files and directories into one stable source inventory."""
+    """Expand sources into a stable inventory of committed files only."""
     files: set[Path] = set()
+    resolved_root = root.resolve()
     for source in sources:
-        path = root / source
+        path = (root / source).resolve()
+        if not path.is_relative_to(resolved_root):
+            raise ValueError(f"measurement source is outside repository: {source}")
         if not path.exists():
             raise FileNotFoundError(f"measurement source does not exist: {source}")
-        if path.is_file():
-            files.add(path)
-        else:
-            files.update(candidate for candidate in path.rglob("*") if candidate.is_file())
-    return sorted(files, key=lambda path: path.relative_to(root).as_posix())
+        tracked = _tracked_paths(resolved_root, path)
+        if path.is_file() and path not in tracked:
+            raise ValueError(f"measurement source is not committed: {source}")
+        files.update(candidate for candidate in tracked if candidate.is_file())
+    return sorted(files, key=lambda path: path.relative_to(resolved_root).as_posix())
 
 
 def source_fingerprints(
     root: Path, sources: Iterable[str | Path]
 ) -> dict[str, dict[str, int | str]]:
     """Hash runner, helper, and staged-input source bytes in a stable manifest."""
+    resolved_root = root.resolve()
     return {
-        path.relative_to(root).as_posix(): {
+        path.relative_to(resolved_root).as_posix(): {
             "sha256": hashlib.sha256(path.read_bytes()).hexdigest(),
             "bytes": path.stat().st_size,
         }
