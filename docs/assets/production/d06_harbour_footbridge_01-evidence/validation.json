@@ -1,0 +1,313 @@
+{
+  "asset_id": "d06_harbour_footbridge.01",
+  "status": "PASS",
+  "blender": "5.2.2 LTS",
+  "blender_build": "d13f752e3b9c",
+  "exporter": "5.2.40",
+  "source_vertices": 120,
+  "triangles": 236,
+  "glb_vertices_including_surface_splits": 212,
+  "mesh_count": 1,
+  "surface_count": 3,
+  "degenerate_faces": 0,
+  "degenerate_export_triangles": 0,
+  "nonmanifold_edges": 0,
+  "unit_corner_and_export_normals": true,
+  "source_signed_volume_m3": 8.437926937334453,
+  "aabb_godot": {
+    "min": [
+      -3.0,
+      -0.3499999940395355,
+      -3.0
+    ],
+    "max": [
+      3.2526912689208984,
+      0.0,
+      3.2526912689208984
+    ],
+    "size": [
+      6.252691268920898,
+      0.3499999940395355,
+      6.252691268920898
+    ]
+  },
+  "pivot_godot": [
+    0,
+    0,
+    0
+  ],
+  "datum": "deck surface, not ground",
+  "dimension_tolerance_m": 1e-05,
+  "portals": {
+    "socket_north": {
+      "position_godot": [
+        0,
+        0,
+        -3
+      ],
+      "outward_godot": [
+        0,
+        0,
+        -1
+      ],
+      "measured_width_m": 3.200000047683716,
+      "mating_plane_vertex_count": 16
+    },
+    "socket_south_east": {
+      "position_godot": [
+        2.121320344,
+        0,
+        2.121320344
+      ],
+      "outward_godot": [
+        0.707106781,
+        0,
+        0.707106781
+      ],
+      "measured_width_m": 3.2000001668930054,
+      "mating_plane_vertex_count": 16
+    },
+    "socket_west": {
+      "position_godot": [
+        -3,
+        0,
+        0
+      ],
+      "outward_godot": [
+        -1,
+        0,
+        0
+      ],
+      "measured_width_m": 3.200000047683716,
+      "mating_plane_vertex_count": 16
+    }
+  },
+  "materials": [
+    {
+      "name": "deck_warm_pale",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.7200000286102295,
+          0.7300000190734863,
+          0.6600000262260437,
+          1
+        ],
+        "metallicFactor": 0,
+        "roughnessFactor": 0.7799999713897705
+      }
+    },
+    {
+      "name": "deck_pale_fascia",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.49000000953674316,
+          0.5899999737739563,
+          0.5899999737739563,
+          1
+        ],
+        "metallicFactor": 0,
+        "roughnessFactor": 0.5600000023841858
+      }
+    },
+    {
+      "name": "deck_petrol_underside",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.07500000298023224,
+          0.1599999964237213,
+          0.18000000715255737,
+          1
+        ],
+        "metallicFactor": 0,
+        "roughnessFactor": 0.6499999761581421
+      }
+    }
+  ],
+  "export_nodes": [
+    {
+      "mesh": 0,
+      "name": "D06HarbourFootbridge01_Mesh"
+    },
+    {
+      "name": "socket_north",
+      "translation": [
+        0,
+        0,
+        -3
+      ]
+    },
+    {
+      "name": "socket_south_east",
+      "rotation": [
+        0,
+        -0.9238795638084412,
+        0,
+        0.3826834559440613
+      ],
+      "translation": [
+        2.1213202476501465,
+        0,
+        2.1213202476501465
+      ]
+    },
+    {
+      "name": "socket_west",
+      "rotation": [
+        0,
+        0.7071068286895752,
+        0,
+        0.7071068286895752
+      ],
+      "translation": [
+        -3,
+        0,
+        0
+      ]
+    },
+    {
+      "children": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "name": "D06HarbourFootbridge01"
+    }
+  ],
+  "fresh_reexport_byte_identical": true,
+  "glb_sha256": "e5b976bcc1179bfe39ec6a8cdf5ce31b4dc8723abca2eeb258e1e2cf8bc4c839",
+  "provisional_placed_surface_height_m": 5.5,
+  "slab_depth_m": 0.35,
+  "remaining_acceptance": [
+    "Independent review",
+    "Family assembly and world fit",
+    "Production movement and multiplayer",
+    "Device rendering and performance"
+  ],
+  "engine": {
+    "aabb_min": [
+      -3.0,
+      -0.349999994039536,
+      -3.0
+    ],
+    "aabb_size": [
+      6.2526912689209,
+      0.349999994039536,
+      6.2526912689209
+    ],
+    "collision_shape_count": 4,
+    "engine": "4.8-dev7 (official)",
+    "failures": [],
+    "horizontal_ray_at_5m_clear": true,
+    "linked_model_identity": true,
+    "materials": [
+      "deck_warm_pale",
+      "deck_pale_fascia",
+      "deck_petrol_underside"
+    ],
+    "mesh_count": 1,
+    "model_uid": "uid://clkvj0hhlhg1l",
+    "ok": true,
+    "physics_ray_queries": [
+      {
+        "case": "centre",
+        "solid": true
+      },
+      {
+        "case": "north_portal",
+        "solid": true
+      },
+      {
+        "case": "west_portal",
+        "solid": true
+      },
+      {
+        "case": "south_east_portal",
+        "solid": true
+      },
+      {
+        "case": "north_west_recess",
+        "solid": false
+      },
+      {
+        "case": "south_west_recess",
+        "solid": false
+      },
+      {
+        "case": "east_recess",
+        "solid": false
+      },
+      {
+        "case": "north_beyond_portal",
+        "solid": false
+      }
+    ],
+    "prefab_uid": "uid://b1f8xi50yoddt",
+    "slab_only_underside_height_m": 5.14999961853027,
+    "sockets": [
+      {
+        "socket": "North",
+        "source_mapping_matches": true
+      },
+      {
+        "socket": "SouthEast",
+        "source_mapping_matches": true
+      },
+      {
+        "socket": "West",
+        "source_mapping_matches": true
+      }
+    ],
+    "save_reload_byte_stable": true,
+    "normalization_diagnostics": "Editor-mode custom SceneTree save passes with RID/ObjectDB shutdown leaks; fresh non-editor load/query is diagnostic-free. See final.log."
+  },
+  "production_checks": {
+    "overall_ok": true,
+    "results": {
+      "engine": {
+        "ok": true,
+        "version": "4.8.dev7.official.c971f93e7"
+      },
+      "gut_pin": {
+        "ok": true,
+        "version": "9.7.1"
+      },
+      "owned_scripts": {
+        "ok": true,
+        "returncode": 0
+      },
+      "python_tests": {
+        "ok": true,
+        "returncode": 0
+      },
+      "gut_import": {
+        "ok": true,
+        "returncode": 0
+      },
+      "gut_tests": {
+        "ok": true,
+        "returncode": 0
+      },
+      "gut_negative": {
+        "ok": true,
+        "observed_returncode": 1
+      }
+    },
+    "compiled_scripts": 80,
+    "failed_scripts": [],
+    "python_tests": 11,
+    "gut_tests": 40,
+    "gut_assertions": 458
+  },
+  "visual_self_review": {
+    "renders_inspected": [
+      "hero.png",
+      "side.png",
+      "portal_detail.png",
+      "overhead_47m_42deg.png"
+    ],
+    "observation": "Thin pale Y slab; three mouths read overhead; corrected square portal shading.",
+    "camera": "Vertical down, 47 m above ground, deck at 5.5 m, vertical FOV 42 degrees, 1280x800",
+    "renderer": "Isolated Blender Cycles CPU, 32 samples, AgX; not an engine capture"
+  }
+}

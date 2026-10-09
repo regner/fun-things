@@ -1,0 +1,49 @@
+[gd_scene format=3 uid="uid://b1f8xi50yoddt"]
+
+[ext_resource type="PackedScene" uid="uid://clkvj0hhlhg1l" path="res://art/models/environment/d06_harbour_footbridge_01/d06_harbour_footbridge_01.glb" id="1_model"]
+
+[sub_resource type="ConvexPolygonShape3D" id="Convex_Centre"]
+points = PackedVector3Array(-1.6, -0.35, -1.6, -0.6627417, -0.35, 1.6, 1.6, -0.35, -0.6627417, -1.6, 0, -1.6, -0.6627417, 0, 1.6, 1.6, 0, -0.6627417)
+
+[sub_resource type="ConvexPolygonShape3D" id="Convex_North"]
+points = PackedVector3Array(1.6, -0.35, -3, -1.6, -0.35, -3, -1.6, -0.35, -1.6, 1.6, -0.35, -0.6627417, 1.6, 0, -3, -1.6, 0, -3, -1.6, 0, -1.6, 1.6, 0, -0.6627417)
+
+[sub_resource type="ConvexPolygonShape3D" id="Convex_West"]
+points = PackedVector3Array(-1.6, -0.35, -1.6, -3, -0.35, -1.6, -3, -0.35, 1.6, -0.6627417, -0.35, 1.6, -1.6, 0, -1.6, -3, 0, -1.6, -3, 0, 1.6, -0.6627417, 0, 1.6)
+
+[sub_resource type="ConvexPolygonShape3D" id="Convex_SouthEast"]
+points = PackedVector3Array(-0.6627417, -0.35, 1.6, 0.9899495, -0.35, 3.2526913, 3.2526913, -0.35, 0.9899495, 1.6, -0.35, -0.6627417, -0.6627417, 0, 1.6, 0.9899495, 0, 3.2526913, 3.2526913, 0, 0.9899495, 1.6, 0, -0.6627417)
+
+[node name="d06_harbour_footbridge_01" type="Node3D" unique_id=1821586291]
+
+[node name="Visuals" type="Node3D" parent="." unique_id=149382577]
+
+[node name="Model" type="Node3D" parent="Visuals" unique_id=767779602 instance=ExtResource("1_model")]
+
+[node name="Collision" type="Node3D" parent="." unique_id=897703527]
+
+[node name="Body" type="StaticBody3D" parent="Collision" unique_id=505908974]
+collision_mask = 0
+
+[node name="Centre" type="CollisionShape3D" parent="Collision/Body" unique_id=753939661]
+shape = SubResource("Convex_Centre")
+
+[node name="North" type="CollisionShape3D" parent="Collision/Body" unique_id=254504102]
+shape = SubResource("Convex_North")
+
+[node name="West" type="CollisionShape3D" parent="Collision/Body" unique_id=331615919]
+shape = SubResource("Convex_West")
+
+[node name="SouthEast" type="CollisionShape3D" parent="Collision/Body" unique_id=1199312270]
+shape = SubResource("Convex_SouthEast")
+
+[node name="Sockets" type="Node3D" parent="." unique_id=838373164]
+
+[node name="North" type="Marker3D" parent="Sockets" unique_id=878509537]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -3)
+
+[node name="SouthEast" type="Marker3D" parent="Sockets" unique_id=546498050]
+transform = Transform3D(-0.70710677, 0, -0.70710677, 0, 1, 0, 0.70710677, 0, -0.70710677, 2.1213202, 0, 2.1213202)
+
+[node name="West" type="Marker3D" parent="Sockets" unique_id=2144181739]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -3, 0, 0)
