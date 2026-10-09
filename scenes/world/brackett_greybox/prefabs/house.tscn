@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://cb16o4i5f3b8r"]
+
+[ext_resource type="Script" uid="uid://bogn5hbsdcqdc" path="res://scenes/world/brackett_greybox/placement.gd" id="1_a2kfe"]
+[ext_resource type="PackedScene" uid="uid://behglm1mfvhvt" path="res://art/models/brackett_greybox/house.glb" id="2_cofgb"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_famh2"]
+size = Vector3(10, 6, 12)
+
+[node name="house" type="Node3D" unique_id=1269468511]
+script = ExtResource("1_a2kfe")
+asset_id = &"house"
+
+[node name="Visuals" type="Node3D" parent="." unique_id=582553299]
+
+[node name="Model" parent="Visuals" unique_id=1221179071 instance=ExtResource("2_cofgb")]
+
+[node name="Collision" type="Node3D" parent="." unique_id=1048643200]
+
+[node name="Solid" type="StaticBody3D" parent="Collision" unique_id=351103965]
+collision_mask = 0
+
+[node name="Envelope0" type="CollisionShape3D" parent="Collision/Solid" unique_id=57875611]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 0)
+shape = SubResource("BoxShape3D_famh2")

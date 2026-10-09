@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://b68fr28ggmeiy"]
+
+[ext_resource type="Script" uid="uid://bogn5hbsdcqdc" path="res://scenes/world/brackett_greybox/placement.gd" id="1_yglnj"]
+[ext_resource type="PackedScene" uid="uid://be4aj37fdmaq8" path="res://art/models/brackett_greybox/apartment.glb" id="2_3hwvi"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_aunqy"]
+size = Vector3(24, 16, 15)
+
+[node name="apartment" type="Node3D" unique_id=233381701]
+script = ExtResource("1_yglnj")
+asset_id = &"apartment"
+
+[node name="Visuals" type="Node3D" parent="." unique_id=81980383]
+
+[node name="Model" parent="Visuals" unique_id=1240365193 instance=ExtResource("2_3hwvi")]
+
+[node name="Collision" type="Node3D" parent="." unique_id=1296052128]
+
+[node name="Solid" type="StaticBody3D" parent="Collision" unique_id=585098628]
+collision_mask = 0
+
+[node name="Envelope0" type="CollisionShape3D" parent="Collision/Solid" unique_id=36228232]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 8, 0)
+shape = SubResource("BoxShape3D_aunqy")

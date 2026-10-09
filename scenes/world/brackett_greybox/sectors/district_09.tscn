@@ -1,0 +1,140 @@
+[gd_scene format=3 uid="uid://wqfp6hkxyhw5"]
+
+[ext_resource type="Script" uid="uid://bogn5hbsdcqdc" path="res://scenes/world/brackett_greybox/placement.gd" id="1_jl5t0"]
+[ext_resource type="PackedScene" uid="uid://huh5tp2xcxho" path="res://scenes/world/brackett_greybox/prefabs/dock_shed.tscn" id="2_yhkwy"]
+[ext_resource type="PackedScene" uid="uid://p0ul5bmdenlb" path="res://scenes/world/brackett_greybox/prefabs/warehouse_small.tscn" id="3_hu0h6"]
+
+[node name="District09" type="Node3D" unique_id=133129741]
+script = ExtResource("1_jl5t0")
+world_id = &"brackett/district_09"
+district_id = 9
+district_name = "East Docks"
+metadata/discussion_id = "09"
+
+[node name="Geometry" type="Node3D" parent="." unique_id=689932619]
+
+[node name="building_0001" parent="Geometry" unique_id=313085672 instance=ExtResource("2_yhkwy")]
+transform = Transform3D(-0.89378273, 0, -0.44850022, 0, 1, 0, 0.44850022, 0, -0.89378273, 420.6873, 0, 198.2759)
+world_id = &"brackett/district_09/building_0001"
+district_id = 9
+district_name = "East Docks"
+
+[node name="building_0002" parent="Geometry" unique_id=763266635 instance=ExtResource("2_yhkwy")]
+transform = Transform3D(0.587925, 0, -0.80891544, 0, 1, 0, 0.80891544, 0, 0.587925, 485.6529, 0, -9.5625)
+world_id = &"brackett/district_09/building_0002"
+district_id = 9
+district_name = "East Docks"
+
+[node name="building_0003" parent="Geometry" unique_id=14176465 instance=ExtResource("2_yhkwy")]
+transform = Transform3D(-0.9375458, 0, -0.34786192, 0, 1, 0, 0.34786192, 0, -0.9375458, 357.7606, 0, 225.4714)
+world_id = &"brackett/district_09/building_0003"
+district_id = 9
+district_name = "East Docks"
+
+[node name="building_0004" parent="Geometry" unique_id=83267197 instance=ExtResource("2_yhkwy")]
+transform = Transform3D(-0.6818477, 0, -0.7314942, 0, 1, 0, 0.7314942, 0, -0.6818477, 504.6186, 0, 137.1392)
+world_id = &"brackett/district_09/building_0004"
+district_id = 9
+district_name = "East Docks"
+
+[node name="building_0005" parent="Geometry" unique_id=1112716579 instance=ExtResource("2_yhkwy")]
+transform = Transform3D(0.21644476, 0, -0.9762949, 0, 1, 0, 0.9762949, 0, 0.21644476, 528.5265, 0, 65.8251)
+world_id = &"brackett/district_09/building_0005"
+district_id = 9
+district_name = "East Docks"
+
+[node name="building_0006" parent="Geometry" unique_id=1628528773 instance=ExtResource("2_yhkwy")]
+transform = Transform3D(-0.79730487, 0, -0.6035768, 0, 1, 0, 0.6035768, 0, -0.79730487, 448.3454, 0, 131.1103)
+world_id = &"brackett/district_09/building_0006"
+district_id = 9
+district_name = "East Docks"
+
+[node name="building_0007" parent="Geometry" unique_id=1287092565 instance=ExtResource("2_yhkwy")]
+transform = Transform3D(-0.8523902, 0, -0.5229062, 0, 1, 0, 0.5229062, 0, -0.8523902, 411.7819, 0, 155.9165)
+world_id = &"brackett/district_09/building_0007"
+district_id = 9
+district_name = "East Docks"
+
+[node name="building_0008" parent="Geometry" unique_id=289103989 instance=ExtResource("3_hu0h6")]
+transform = Transform3D(-0.09803976, 0, -0.9951825, 0, 1, 0, 0.9951825, 0, -0.09803976, 434.0881, 0, 54.9139)
+world_id = &"brackett/district_09/building_0008"
+district_id = 9
+district_name = "East Docks"
+
+[node name="building_0009" parent="Geometry" unique_id=859388836 instance=ExtResource("2_yhkwy")]
+transform = Transform3D(0.60698617, 0, 0.7947124, 0, 1, 0, -0.7947124, 0, 0.60698617, 394.1875, 0, 89.1876)
+world_id = &"brackett/district_09/building_0009"
+district_id = 9
+district_name = "East Docks"
+
+[node name="building_0010" parent="Geometry" unique_id=318058632 instance=ExtResource("2_yhkwy")]
+transform = Transform3D(0.48666778, 0, -0.87358713, 0, 1, 0, 0.87358713, 0, 0.48666778, 514.6352, 0, 30.6029)
+world_id = &"brackett/district_09/building_0010"
+district_id = 9
+district_name = "East Docks"
+
+[node name="building_0011" parent="Geometry" unique_id=2670429 instance=ExtResource("2_yhkwy")]
+transform = Transform3D(0.7409078, 0, -0.6716068, 0, 1, 0, 0.6716068, 0, 0.7409078, 340.4906, 0, 154.4366)
+world_id = &"brackett/district_09/building_0011"
+district_id = 9
+district_name = "East Docks"
+
+[node name="building_0012" parent="Geometry" unique_id=534200584 instance=ExtResource("2_yhkwy")]
+transform = Transform3D(0.3435171, 0, -0.9391464, 0, 1, 0, 0.9391464, 0, 0.3435171, 485.751, 0, 73.4725)
+world_id = &"brackett/district_09/building_0012"
+district_id = 9
+district_name = "East Docks"
+
+[node name="building_0013" parent="Geometry" unique_id=223062169 instance=ExtResource("3_hu0h6")]
+transform = Transform3D(-0.8126484, 0, -0.58275425, 0, 1, 0, 0.58275425, 0, -0.8126484, 469.1762, 0, 170.3945)
+world_id = &"brackett/district_09/building_0013"
+district_id = 9
+district_name = "East Docks"
+
+[node name="building_0014" parent="Geometry" unique_id=353646818 instance=ExtResource("2_yhkwy")]
+transform = Transform3D(-0.93946856, 0, -0.34263512, 0, 1, 0, 0.34263512, 0, -0.93946856, 322.2541, 0, 241.7804)
+world_id = &"brackett/district_09/building_0014"
+district_id = 9
+district_name = "East Docks"
+
+[node name="building_0015" parent="Geometry" unique_id=1546744084 instance=ExtResource("2_yhkwy")]
+transform = Transform3D(0.69758165, 0, 0.7165053, 0, 1, 0, -0.7165053, 0, 0.69758165, 364.2943, 0, 130.685)
+world_id = &"brackett/district_09/building_0015"
+district_id = 9
+district_name = "East Docks"
+
+[node name="building_0016" parent="Geometry" unique_id=743414627 instance=ExtResource("2_yhkwy")]
+transform = Transform3D(-0.36536747, 0, -0.9308634, 0, 1, 0, 0.9308634, 0, -0.36536747, 532.4529, 0, 110.4285)
+world_id = &"brackett/district_09/building_0016"
+district_id = 9
+district_name = "East Docks"
+
+[node name="building_0017" parent="Geometry" unique_id=1485058976 instance=ExtResource("2_yhkwy")]
+transform = Transform3D(0.33871984, 0, -0.9408873, 0, 1, 0, 0.9408873, 0, 0.33871984, 428.3158, 0, 102.2713)
+world_id = &"brackett/district_09/building_0017"
+district_id = 9
+district_name = "East Docks"
+
+[node name="building_0018" parent="Geometry" unique_id=1904338840 instance=ExtResource("2_yhkwy")]
+transform = Transform3D(-0.924383, 0, -0.38146573, 0, 1, 0, 0.38146573, 0, -0.924383, 395.7283, 0, 229.9692)
+world_id = &"brackett/district_09/building_0018"
+district_id = 9
+district_name = "East Docks"
+
+[node name="building_0019" parent="Geometry" unique_id=456824420 instance=ExtResource("2_yhkwy")]
+transform = Transform3D(0.58909345, 0, -0.80806494, 0, 1, 0, 0.80806494, 0, 0.58909345, 499.8944, 0, -34.4711)
+world_id = &"brackett/district_09/building_0019"
+district_id = 9
+district_name = "East Docks"
+
+[node name="building_0020" parent="Geometry" unique_id=1152275231 instance=ExtResource("2_yhkwy")]
+transform = Transform3D(0.21644476, 0, -0.9762949, 0, 1, 0, 0.9762949, 0, 0.21644476, 554.1316, 0, 59.1631)
+world_id = &"brackett/district_09/building_0020"
+district_id = 9
+district_name = "East Docks"
+
+[node name="building_0021" parent="Geometry" unique_id=168159724 instance=ExtResource("2_yhkwy")]
+transform = Transform3D(0.507221, 0, -0.86181605, 0, 1, 0, 0.86181605, 0, 0.507221, 536.3536, 0, 14.86)
+world_id = &"brackett/district_09/building_0021"
+district_id = 9
+district_name = "East Docks"

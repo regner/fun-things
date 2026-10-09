@@ -1,0 +1,133 @@
+[gd_scene format=3 uid="uid://cp5lagoq744xx"]
+
+[ext_resource type="Script" uid="uid://bogn5hbsdcqdc" path="res://scenes/world/brackett_greybox/placement.gd" id="1_vnkew"]
+[ext_resource type="PackedScene" uid="uid://b15i2i36rfhdd" path="res://scenes/world/brackett_greybox/prefabs/retail_small.tscn" id="2_cko33"]
+
+[node name="District07" type="Node3D" unique_id=1928662662]
+script = ExtResource("1_vnkew")
+world_id = &"brackett/district_07"
+district_id = 7
+district_name = "Broadlot"
+metadata/discussion_id = "07"
+
+[node name="Geometry" type="Node3D" parent="." unique_id=1309530164]
+
+[node name="building_0001" parent="Geometry" unique_id=845404509 instance=ExtResource("2_cko33")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31.4774, 0, 153.8224)
+world_id = &"brackett/district_07/building_0001"
+district_id = 7
+district_name = "Broadlot"
+
+[node name="building_0002" parent="Geometry" unique_id=1937059729 instance=ExtResource("2_cko33")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 124.2325, 0, 289.1556)
+world_id = &"brackett/district_07/building_0002"
+district_id = 7
+district_name = "Broadlot"
+
+[node name="building_0003" parent="Geometry" unique_id=1895894318 instance=ExtResource("2_cko33")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 35.7479, 0, 281.4422)
+world_id = &"brackett/district_07/building_0003"
+district_id = 7
+district_name = "Broadlot"
+
+[node name="building_0004" parent="Geometry" unique_id=1261230332 instance=ExtResource("2_cko33")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 53.1148, 0, 235.4734)
+world_id = &"brackett/district_07/building_0004"
+district_id = 7
+district_name = "Broadlot"
+
+[node name="building_0005" parent="Geometry" unique_id=515695221 instance=ExtResource("2_cko33")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 73.0607, 0, 286.1218)
+world_id = &"brackett/district_07/building_0005"
+district_id = 7
+district_name = "Broadlot"
+
+[node name="building_0006" parent="Geometry" unique_id=2058602940 instance=ExtResource("2_cko33")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.9297, 0, 229.1685)
+world_id = &"brackett/district_07/building_0006"
+district_id = 7
+district_name = "Broadlot"
+
+[node name="building_0007" parent="Geometry" unique_id=1037609994 instance=ExtResource("2_cko33")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 164.8319, 0, 238.1753)
+world_id = &"brackett/district_07/building_0007"
+district_id = 7
+district_name = "Broadlot"
+
+[node name="building_0008" parent="Geometry" unique_id=993485299 instance=ExtResource("2_cko33")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 114.8798, 0, 154.4888)
+world_id = &"brackett/district_07/building_0008"
+district_id = 7
+district_name = "Broadlot"
+
+[node name="building_0009" parent="Geometry" unique_id=1897773319 instance=ExtResource("2_cko33")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 37.0006, 0, 149.6429)
+world_id = &"brackett/district_07/building_0009"
+district_id = 7
+district_name = "Broadlot"
+
+[node name="building_0010" parent="Geometry" unique_id=1596781882 instance=ExtResource("2_cko33")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -133.8179, 0, 253.0315)
+world_id = &"brackett/district_07/building_0010"
+district_id = 7
+district_name = "Broadlot"
+
+[node name="building_0011" parent="Geometry" unique_id=1822759298 instance=ExtResource("2_cko33")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 212.2191, 0, 278.8036)
+world_id = &"brackett/district_07/building_0011"
+district_id = 7
+district_name = "Broadlot"
+
+[node name="building_0012" parent="Geometry" unique_id=1359788351 instance=ExtResource("2_cko33")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.5957, 0, 274.9478)
+world_id = &"brackett/district_07/building_0012"
+district_id = 7
+district_name = "Broadlot"
+
+[node name="building_0013" parent="Geometry" unique_id=1601532550 instance=ExtResource("2_cko33")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -75.3316, 0, 265.9751)
+world_id = &"brackett/district_07/building_0013"
+district_id = 7
+district_name = "Broadlot"
+
+[node name="building_0014" parent="Geometry" unique_id=1905449491 instance=ExtResource("2_cko33")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.8399, 0, 201.4992)
+world_id = &"brackett/district_07/building_0014"
+district_id = 7
+district_name = "Broadlot"
+
+[node name="building_0015" parent="Geometry" unique_id=1956330736 instance=ExtResource("2_cko33")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 74.0175, 0, 148.6219)
+world_id = &"brackett/district_07/building_0015"
+district_id = 7
+district_name = "Broadlot"
+
+[node name="building_0016" parent="Geometry" unique_id=16663363 instance=ExtResource("2_cko33")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 200.539, 0, 228.0371)
+world_id = &"brackett/district_07/building_0016"
+district_id = 7
+district_name = "Broadlot"
+
+[node name="building_0017" parent="Geometry" unique_id=1599105739 instance=ExtResource("2_cko33")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -36.1215, 0, 106.4491)
+world_id = &"brackett/district_07/building_0017"
+district_id = 7
+district_name = "Broadlot"
+
+[node name="building_0018" parent="Geometry" unique_id=515714439 instance=ExtResource("2_cko33")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 258.3987, 0, 267.7369)
+world_id = &"brackett/district_07/building_0018"
+district_id = 7
+district_name = "Broadlot"
+
+[node name="building_0019" parent="Geometry" unique_id=1831341609 instance=ExtResource("2_cko33")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.9997, 0, 113.7296)
+world_id = &"brackett/district_07/building_0019"
+district_id = 7
+district_name = "Broadlot"
+
+[node name="building_0020" parent="Geometry" unique_id=561714368 instance=ExtResource("2_cko33")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 57.7054, 0, 205.3038)
+world_id = &"brackett/district_07/building_0020"
+district_id = 7
+district_name = "Broadlot"

@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://ged6yhk2scnl"]
+
+[ext_resource type="Script" uid="uid://bogn5hbsdcqdc" path="res://scenes/world/brackett_greybox/placement.gd" id="1_b5uyv"]
+[ext_resource type="PackedScene" uid="uid://4ccihaqq2mbr" path="res://art/models/brackett_greybox/ground_03_01.glb" id="2_7fd37"]
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_xj47g"]
+data = PackedVector3Array(310, 0, 120, 438.233, 0, -100, 514.9998, 0, -55.003, 438.233, 0, -100, 310, 0, 120, 310, 0, -100, 565.263, 0, 120, 310, 0, 120, 514.9998, 0, -55.003, 514.9998, 0, -55.003, 580, 0, 49.9968, 565.263, 0, 120, 310, -2, 120, 514.9998, -2, -55.003, 438.233, -2, -100, 438.233, -2, -100, 310, -2, -100, 310, -2, 120, 565.263, -2, 120, 514.9998, -2, -55.003, 310, -2, 120, 514.9998, -2, -55.003, 565.263, -2, 120, 580, -2, 49.9968, 514.9998, 0, -55.003, 438.233, 0, -100, 438.233, -2, -100, 514.9998, 0, -55.003, 438.233, -2, -100, 514.9998, -2, -55.003, 438.233, 0, -100, 310, 0, -100, 310, -2, -100, 438.233, 0, -100, 310, -2, -100, 438.233, -2, -100, 310, 0, -100, 310, 0, 120, 310, -2, 120, 310, 0, -100, 310, -2, 120, 310, -2, -100, 580, 0, 49.9968, 514.9998, 0, -55.003, 514.9998, -2, -55.003, 580, 0, 49.9968, 514.9998, -2, -55.003, 580, -2, 49.9968, 565.263, 0, 120, 580, 0, 49.9968, 580, -2, 49.9968, 565.263, 0, 120, 580, -2, 49.9968, 565.263, -2, 120, 310, 0, 120, 565.263, 0, 120, 565.263, -2, 120, 310, 0, 120, 565.263, -2, 120, 310, -2, 120)
+
+[node name="ground_03_01" type="Node3D" unique_id=530254992]
+script = ExtResource("1_b5uyv")
+world_id = &"brackett/ground_03_01"
+asset_id = &"ground_03_01"
+
+[node name="Visuals" type="Node3D" parent="." unique_id=648244559]
+
+[node name="Model" parent="Visuals" unique_id=304005268 instance=ExtResource("2_7fd37")]
+
+[node name="Collision" type="Node3D" parent="." unique_id=980971949]
+
+[node name="Ground" type="StaticBody3D" parent="Collision" unique_id=763006332]
+collision_mask = 0
+
+[node name="Surface" type="CollisionShape3D" parent="Collision/Ground" unique_id=680985925]
+shape = SubResource("ConcavePolygonShape3D_xj47g")

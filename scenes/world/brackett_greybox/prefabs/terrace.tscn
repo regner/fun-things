@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://1ys7mm33x6jf"]
+
+[ext_resource type="Script" uid="uid://bogn5hbsdcqdc" path="res://scenes/world/brackett_greybox/placement.gd" id="1_kc6jt"]
+[ext_resource type="PackedScene" uid="uid://k6kc0g3gxt2s" path="res://art/models/brackett_greybox/terrace.glb" id="2_8vww8"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_g2iwc"]
+size = Vector3(20, 8, 11)
+
+[node name="terrace" type="Node3D" unique_id=761983759]
+script = ExtResource("1_kc6jt")
+asset_id = &"terrace"
+
+[node name="Visuals" type="Node3D" parent="." unique_id=861538567]
+
+[node name="Model" parent="Visuals" unique_id=1703481136 instance=ExtResource("2_8vww8")]
+
+[node name="Collision" type="Node3D" parent="." unique_id=958420299]
+
+[node name="Solid" type="StaticBody3D" parent="Collision" unique_id=1378907359]
+collision_mask = 0
+
+[node name="Envelope0" type="CollisionShape3D" parent="Collision/Solid" unique_id=1257593951]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4, 0)
+shape = SubResource("BoxShape3D_g2iwc")

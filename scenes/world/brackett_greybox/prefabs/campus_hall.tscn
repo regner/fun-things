@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://dqotje8gvjlhr"]
+
+[ext_resource type="Script" uid="uid://bogn5hbsdcqdc" path="res://scenes/world/brackett_greybox/placement.gd" id="1_2fa37"]
+[ext_resource type="PackedScene" uid="uid://t2rk7fve0j" path="res://art/models/brackett_greybox/campus_hall.glb" id="2_rrii8"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_26snu"]
+size = Vector3(28, 12, 18)
+
+[node name="campus_hall" type="Node3D" unique_id=567114370]
+script = ExtResource("1_2fa37")
+asset_id = &"campus_hall"
+
+[node name="Visuals" type="Node3D" parent="." unique_id=663107272]
+
+[node name="Model" parent="Visuals" unique_id=1285326853 instance=ExtResource("2_rrii8")]
+
+[node name="Collision" type="Node3D" parent="." unique_id=1050724780]
+
+[node name="Solid" type="StaticBody3D" parent="Collision" unique_id=812281035]
+collision_mask = 0
+
+[node name="Envelope0" type="CollisionShape3D" parent="Collision/Solid" unique_id=1081364882]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6, 0)
+shape = SubResource("BoxShape3D_26snu")

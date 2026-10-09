@@ -1,0 +1,104 @@
+[gd_scene format=3 uid="uid://dv5n3qixkysb3"]
+
+[ext_resource type="Script" uid="uid://bogn5hbsdcqdc" path="res://scenes/world/brackett_greybox/placement.gd" id="1_v1p6d"]
+[ext_resource type="PackedScene" uid="uid://b6rmrciwcv4yx" path="res://scenes/world/brackett_greybox/prefabs/shop.tscn" id="2_sopjq"]
+[ext_resource type="PackedScene" uid="uid://eq8dl1qcu7j2" path="res://scenes/world/brackett_greybox/prefabs/shop_row.tscn" id="3_by8ha"]
+
+[node name="District06" type="Node3D" unique_id=1406731741]
+script = ExtResource("1_v1p6d")
+world_id = &"brackett/district_06"
+district_id = 6
+district_name = "Signal Row"
+metadata/discussion_id = "06"
+
+[node name="Geometry" type="Node3D" parent="." unique_id=1219708576]
+
+[node name="building_0001" parent="Geometry" unique_id=1256354008 instance=ExtResource("2_sopjq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -106.8872, 0, 115.6682)
+world_id = &"brackett/district_06/building_0001"
+district_id = 6
+district_name = "Signal Row"
+
+[node name="building_0002" parent="Geometry" unique_id=1603680876 instance=ExtResource("2_sopjq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.0195, 0, 59.1037)
+world_id = &"brackett/district_06/building_0002"
+district_id = 6
+district_name = "Signal Row"
+
+[node name="building_0003" parent="Geometry" unique_id=639976908 instance=ExtResource("3_by8ha")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.5628, 0, 13.5749)
+world_id = &"brackett/district_06/building_0003"
+district_id = 6
+district_name = "Signal Row"
+
+[node name="building_0004" parent="Geometry" unique_id=1673810790 instance=ExtResource("3_by8ha")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -107.7096, 0, 10.2208)
+world_id = &"brackett/district_06/building_0004"
+district_id = 6
+district_name = "Signal Row"
+
+[node name="building_0005" parent="Geometry" unique_id=1931922227 instance=ExtResource("2_sopjq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -114.2424, 0, 165.7331)
+world_id = &"brackett/district_06/building_0005"
+district_id = 6
+district_name = "Signal Row"
+
+[node name="building_0006" parent="Geometry" unique_id=1035053717 instance=ExtResource("2_sopjq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -47.56, 0, 14.5028)
+world_id = &"brackett/district_06/building_0006"
+district_id = 6
+district_name = "Signal Row"
+
+[node name="building_0007" parent="Geometry" unique_id=1228780119 instance=ExtResource("2_sopjq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.8065, 0, 41.2354)
+world_id = &"brackett/district_06/building_0007"
+district_id = 6
+district_name = "Signal Row"
+
+[node name="building_0008" parent="Geometry" unique_id=175863450 instance=ExtResource("2_sopjq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -107.6816, 0, 142.5462)
+world_id = &"brackett/district_06/building_0008"
+district_id = 6
+district_name = "Signal Row"
+
+[node name="building_0009" parent="Geometry" unique_id=363370460 instance=ExtResource("2_sopjq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -135.302, 0, 9.5322)
+world_id = &"brackett/district_06/building_0009"
+district_id = 6
+district_name = "Signal Row"
+
+[node name="building_0010" parent="Geometry" unique_id=1035258442 instance=ExtResource("2_sopjq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -67.5543, 0, 54.0105)
+world_id = &"brackett/district_06/building_0010"
+district_id = 6
+district_name = "Signal Row"
+
+[node name="building_0011" parent="Geometry" unique_id=1304174293 instance=ExtResource("3_by8ha")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -34.7868, 0, 54.4782)
+world_id = &"brackett/district_06/building_0011"
+district_id = 6
+district_name = "Signal Row"
+
+[node name="building_0012" parent="Geometry" unique_id=101196015 instance=ExtResource("2_sopjq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -90.4304, 0, 38.8404)
+world_id = &"brackett/district_06/building_0012"
+district_id = 6
+district_name = "Signal Row"
+
+[node name="building_0013" parent="Geometry" unique_id=1819402622 instance=ExtResource("2_sopjq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -77.2719, 0, 19.6135)
+world_id = &"brackett/district_06/building_0013"
+district_id = 6
+district_name = "Signal Row"
+
+[node name="building_0014" parent="Geometry" unique_id=332391909 instance=ExtResource("3_by8ha")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21.4458, 0, 30.4165)
+world_id = &"brackett/district_06/building_0014"
+district_id = 6
+district_name = "Signal Row"
+
+[node name="building_0015" parent="Geometry" unique_id=1796726109 instance=ExtResource("3_by8ha")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -50.372, 0, 34.0065)
+world_id = &"brackett/district_06/building_0015"
+district_id = 6
+district_name = "Signal Row"

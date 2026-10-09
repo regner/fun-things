@@ -1,0 +1,405 @@
+[gd_scene format=3 uid="uid://mh0w7imrdl6x"]
+
+[ext_resource type="Script" uid="uid://bogn5hbsdcqdc" path="res://scenes/world/brackett_greybox/placement.gd" id="1_3kqxn"]
+[ext_resource type="PackedScene" uid="uid://b07eq42kqqhp8" path="res://scenes/world/brackett_greybox/prefabs/campus_classroom.tscn" id="2_5y62c"]
+[ext_resource type="PackedScene" uid="uid://ddiqhncurvar8" path="res://scenes/world/brackett_greybox/prefabs/campus_annex.tscn" id="3_kppcj"]
+[ext_resource type="PackedScene" uid="uid://dqotje8gvjlhr" path="res://scenes/world/brackett_greybox/prefabs/campus_hall.tscn" id="4_5emo5"]
+
+[node name="District01" type="Node3D" unique_id=718082495]
+script = ExtResource("1_3kqxn")
+world_id = &"brackett/district_01"
+district_id = 1
+district_name = "Northpoint"
+metadata/discussion_id = "01"
+
+[node name="Geometry" type="Node3D" parent="." unique_id=1795505668]
+
+[node name="building_0001" parent="Geometry" unique_id=264648675 instance=ExtResource("2_5y62c")]
+transform = Transform3D(-0.107978575, 0, -0.9941532, 0, 1, 0, 0.9941532, 0, -0.107978575, -451.047, 0, -70.4212)
+world_id = &"brackett/district_01/building_0001"
+district_id = 1
+district_name = "Northpoint"
+
+[node name="building_0002" parent="Geometry" unique_id=166922118 instance=ExtResource("2_5y62c")]
+transform = Transform3D(-0.5178612, 0, -0.85546464, 0, 1, 0, 0.85546464, 0, -0.5178612, -322.761, 0, -155.3839)
+world_id = &"brackett/district_01/building_0002"
+district_id = 1
+district_name = "Northpoint"
+
+[node name="building_0003" parent="Geometry" unique_id=231652889 instance=ExtResource("3_kppcj")]
+transform = Transform3D(0.7513609, 0, 0.65989155, 0, 1, 0, -0.65989155, 0, 0.7513609, -474.6064, 0, 13.3174)
+world_id = &"brackett/district_01/building_0003"
+district_id = 1
+district_name = "Northpoint"
+
+[node name="building_0004" parent="Geometry" unique_id=1038870964 instance=ExtResource("3_kppcj")]
+transform = Transform3D(0.27245656, 0, -0.9621681, 0, 1, 0, 0.9621681, 0, 0.27245656, -309.1002, 0, -203.3104)
+world_id = &"brackett/district_01/building_0004"
+district_id = 1
+district_name = "Northpoint"
+
+[node name="building_0005" parent="Geometry" unique_id=281078706 instance=ExtResource("3_kppcj")]
+transform = Transform3D(0.99948895, 0, -0.031965494, 0, 1, 0, 0.031965494, 0, 0.99948895, -362.6629, 0, -266.112)
+world_id = &"brackett/district_01/building_0005"
+district_id = 1
+district_name = "Northpoint"
+
+[node name="building_0006" parent="Geometry" unique_id=695015904 instance=ExtResource("3_kppcj")]
+transform = Transform3D(0.338999, 0, 0.9407867, 0, 1, 0, -0.9407867, 0, 0.338999, -531.7873, 0, -146.0889)
+world_id = &"brackett/district_01/building_0006"
+district_id = 1
+district_name = "Northpoint"
+
+[node name="building_0007" parent="Geometry" unique_id=14584415 instance=ExtResource("3_kppcj")]
+transform = Transform3D(0.880412, 0, 0.4742096, 0, 1, 0, -0.4742096, 0, 0.880412, -474.764, 0, -251.6336)
+world_id = &"brackett/district_01/building_0007"
+district_id = 1
+district_name = "Northpoint"
+
+[node name="building_0008" parent="Geometry" unique_id=1169079810 instance=ExtResource("3_kppcj")]
+transform = Transform3D(-0.08288643, 0, 0.996559, 0, 1, 0, -0.996559, 0, -0.08288643, -547.4517, 0, -44.9134)
+world_id = &"brackett/district_01/building_0008"
+district_id = 1
+district_name = "Northpoint"
+
+[node name="building_0009" parent="Geometry" unique_id=1803033813 instance=ExtResource("3_kppcj")]
+transform = Transform3D(0.58352274, 0, -0.8120968, 0, 1, 0, 0.8120968, 0, 0.58352274, -442.72, 0, -157.6371)
+world_id = &"brackett/district_01/building_0009"
+district_id = 1
+district_name = "Northpoint"
+
+[node name="building_0010" parent="Geometry" unique_id=567946993 instance=ExtResource("3_kppcj")]
+transform = Transform3D(0.99376774, 0, 0.11147066, 0, 1, 0, -0.11147066, 0, 0.99376774, -427.5114, 0, -265.1574)
+world_id = &"brackett/district_01/building_0010"
+district_id = 1
+district_name = "Northpoint"
+
+[node name="building_0011" parent="Geometry" unique_id=1526691584 instance=ExtResource("3_kppcj")]
+transform = Transform3D(-0.123327814, 0, 0.99236596, 0, 1, 0, -0.99236596, 0, -0.123327814, -511.3184, 0, -37.8942)
+world_id = &"brackett/district_01/building_0011"
+district_id = 1
+district_name = "Northpoint"
+
+[node name="building_0012" parent="Geometry" unique_id=1298626928 instance=ExtResource("3_kppcj")]
+transform = Transform3D(0.698449, 0, -0.7156598, 0, 1, 0, 0.7156598, 0, 0.698449, -498.4026, 0, 1.1656)
+world_id = &"brackett/district_01/building_0012"
+district_id = 1
+district_name = "Northpoint"
+
+[node name="building_0013" parent="Geometry" unique_id=512539257 instance=ExtResource("3_kppcj")]
+transform = Transform3D(-0.8450193, 0, 0.5347358, 0, 1, 0, -0.5347358, 0, -0.8450193, -461.6843, 0, -10.2)
+world_id = &"brackett/district_01/building_0013"
+district_id = 1
+district_name = "Northpoint"
+
+[node name="building_0014" parent="Geometry" unique_id=1541584149 instance=ExtResource("2_5y62c")]
+transform = Transform3D(0.34020233, 0, 0.94035226, 0, 1, 0, -0.94035226, 0, 0.34020233, -490.8297, 0, -155.2243)
+world_id = &"brackett/district_01/building_0014"
+district_id = 1
+district_name = "Northpoint"
+
+[node name="building_0015" parent="Geometry" unique_id=1549691517 instance=ExtResource("3_kppcj")]
+transform = Transform3D(0.43546525, 0, 0.90020555, 0, 1, 0, -0.90020555, 0, 0.43546525, -519.9768, 0, -180.8036)
+world_id = &"brackett/district_01/building_0015"
+district_id = 1
+district_name = "Northpoint"
+
+[node name="building_0016" parent="Geometry" unique_id=567114370 instance=ExtResource("4_5emo5")]
+transform = Transform3D(-0.8298137, 0, -0.5580405, 0, 1, 0, 0.5580405, 0, -0.8298137, -430.9625, 0, -101.324)
+world_id = &"brackett/district_01/building_0016"
+district_id = 1
+district_name = "Northpoint"
+
+[node name="building_0017" parent="Geometry" unique_id=1714003936 instance=ExtResource("3_kppcj")]
+transform = Transform3D(0.35112268, 0, -0.9363295, 0, 1, 0, 0.9363295, 0, 0.35112268, -423.5773, 0, -132.9871)
+world_id = &"brackett/district_01/building_0017"
+district_id = 1
+district_name = "Northpoint"
+
+[node name="building_0018" parent="Geometry" unique_id=1212800234 instance=ExtResource("3_kppcj")]
+transform = Transform3D(0.101360194, 0, 0.9948498, 0, 1, 0, -0.9948498, 0, 0.101360194, -548.3689, 0, -86.5813)
+world_id = &"brackett/district_01/building_0018"
+district_id = 1
+district_name = "Northpoint"
+
+[node name="building_0019" parent="Geometry" unique_id=211153152 instance=ExtResource("3_kppcj")]
+transform = Transform3D(0.9213144, 0, -0.38881847, 0, 1, 0, 0.38881847, 0, 0.9213144, -391.9241, 0, -161.5052)
+world_id = &"brackett/district_01/building_0019"
+district_id = 1
+district_name = "Northpoint"
+
+[node name="building_0020" parent="Geometry" unique_id=313475388 instance=ExtResource("2_5y62c")]
+transform = Transform3D(0.9679919, 0, 0.2509815, 0, 1, 0, -0.2509815, 0, 0.9679919, -453.7932, 0, -261.2262)
+world_id = &"brackett/district_01/building_0020"
+district_id = 1
+district_name = "Northpoint"
+
+[node name="building_0021" parent="Geometry" unique_id=1652349009 instance=ExtResource("3_kppcj")]
+transform = Transform3D(-0.78783447, 0, 0.61588705, 0, 1, 0, -0.61588705, 0, -0.78783447, -476.986, 0, -66.2787)
+world_id = &"brackett/district_01/building_0021"
+district_id = 1
+district_name = "Northpoint"
+
+[node name="building_0022" parent="Geometry" unique_id=1608459857 instance=ExtResource("3_kppcj")]
+transform = Transform3D(-0.20719118, 0, 0.97830045, 0, 1, 0, -0.97830045, 0, -0.20719118, -507.7662, 0, -21.1772)
+world_id = &"brackett/district_01/building_0022"
+district_id = 1
+district_name = "Northpoint"
+
+[node name="building_0023" parent="Geometry" unique_id=1055503114 instance=ExtResource("2_5y62c")]
+transform = Transform3D(0.39793742, 0, 0.9174126, 0, 1, 0, -0.9174126, 0, 0.39793742, -475.3068, 0, -195.5657)
+world_id = &"brackett/district_01/building_0023"
+district_id = 1
+district_name = "Northpoint"
+
+[node name="building_0024" parent="Geometry" unique_id=1761028710 instance=ExtResource("3_kppcj")]
+transform = Transform3D(0.31970528, 0, 0.94751704, 0, 1, 0, -0.94751704, 0, 0.31970528, -501.847, 0, -122.3694)
+world_id = &"brackett/district_01/building_0024"
+district_id = 1
+district_name = "Northpoint"
+
+[node name="building_0025" parent="Geometry" unique_id=59810982 instance=ExtResource("2_5y62c")]
+transform = Transform3D(-0.25038674, 0, 0.9681459, 0, 1, 0, -0.9681459, 0, -0.25038674, -541.7093, 0, -1.2681)
+world_id = &"brackett/district_01/building_0025"
+district_id = 1
+district_name = "Northpoint"
+
+[node name="building_0026" parent="Geometry" unique_id=602765370 instance=ExtResource("2_5y62c")]
+transform = Transform3D(0.99799037, 0, -0.063365325, 0, 1, 0, 0.063365325, 0, 0.99799037, -342.7176, 0, -267.6016)
+world_id = &"brackett/district_01/building_0026"
+district_id = 1
+district_name = "Northpoint"
+
+[node name="building_0027" parent="Geometry" unique_id=72810382 instance=ExtResource("3_kppcj")]
+transform = Transform3D(0.9770827, 0, -0.21285985, 0, 1, 0, 0.21285985, 0, 0.9770827, -372.0425, 0, -156.6218)
+world_id = &"brackett/district_01/building_0027"
+district_id = 1
+district_name = "Northpoint"
+
+[node name="building_0028" parent="Geometry" unique_id=1234974617 instance=ExtResource("2_5y62c")]
+transform = Transform3D(0.9999874, 0, 0.0050178007, 0, 1, 0, -0.0050178007, 0, 0.9999874, -388.537, 0, -269.2514)
+world_id = &"brackett/district_01/building_0028"
+district_id = 1
+district_name = "Northpoint"
+
+[node name="building_0029" parent="Geometry" unique_id=1194980501 instance=ExtResource("3_kppcj")]
+transform = Transform3D(-0.16479452, 0, 0.98632795, 0, 1, 0, -0.98632795, 0, -0.16479452, -547.7684, 0, -25.3858)
+world_id = &"brackett/district_01/building_0029"
+district_id = 1
+district_name = "Northpoint"
+
+[node name="building_0030" parent="Geometry" unique_id=1429209974 instance=ExtResource("3_kppcj")]
+transform = Transform3D(0.32834572, 0, 0.9445576, 0, 1, 0, -0.9445576, 0, 0.32834572, -516.1339, 0, -197.1208)
+world_id = &"brackett/district_01/building_0030"
+district_id = 1
+district_name = "Northpoint"
+
+[node name="building_0031" parent="Geometry" unique_id=2092561594 instance=ExtResource("3_kppcj")]
+transform = Transform3D(0.998697, 0, 0.051032193, 0, 1, 0, -0.051032193, 0, 0.998697, -410.1515, 0, -268.7854)
+world_id = &"brackett/district_01/building_0031"
+district_id = 1
+district_name = "Northpoint"
+
+[node name="building_0032" parent="Geometry" unique_id=873762029 instance=ExtResource("3_kppcj")]
+transform = Transform3D(0.2982063, 0, 0.95450145, 0, 1, 0, -0.95450145, 0, 0.2982063, -540.4971, 0, -130.6152)
+world_id = &"brackett/district_01/building_0032"
+district_id = 1
+district_name = "Northpoint"
+
+[node name="building_0033" parent="Geometry" unique_id=1518467591 instance=ExtResource("3_kppcj")]
+transform = Transform3D(0.60518, 0, 0.79608864, 0, 1, 0, -0.79608864, 0, 0.60518, -495.1621, 0, -238.8873)
+world_id = &"brackett/district_01/building_0033"
+district_id = 1
+district_name = "Northpoint"
+
+[node name="building_0034" parent="Geometry" unique_id=123853282 instance=ExtResource("2_5y62c")]
+transform = Transform3D(0.21004175, 0, 0.9776924, 0, 1, 0, -0.9776924, 0, 0.21004175, -547.7682, 0, -107.2806)
+world_id = &"brackett/district_01/building_0034"
+district_id = 1
+district_name = "Northpoint"
+
+[node name="building_0035" parent="Geometry" unique_id=450883285 instance=ExtResource("2_5y62c")]
+transform = Transform3D(0.9957896, 0, -0.091668464, 0, 1, 0, 0.091668464, 0, 0.9957896, -319.2957, 0, -267.4193)
+world_id = &"brackett/district_01/building_0035"
+district_id = 1
+district_name = "Northpoint"
+
+[node name="building_0036" parent="Geometry" unique_id=1843655293 instance=ExtResource("3_kppcj")]
+transform = Transform3D(-0.77427554, 0, 0.6328487, 0, 1, 0, -0.6328487, 0, -0.77427554, -501.1452, 0, -89.9795)
+world_id = &"brackett/district_01/building_0036"
+district_id = 1
+district_name = "Northpoint"
+
+[node name="building_0037" parent="Geometry" unique_id=184098211 instance=ExtResource("2_5y62c")]
+transform = Transform3D(0.9862444, 0, -0.16529375, 0, 1, 0, 0.16529375, 0, 0.9862444, -348.1937, 0, -154.9267)
+world_id = &"brackett/district_01/building_0037"
+district_id = 1
+district_name = "Northpoint"
+
+[node name="building_0038" parent="Geometry" unique_id=1074289570 instance=ExtResource("3_kppcj")]
+transform = Transform3D(0.43047327, 0, -0.9026033, 0, 1, 0, 0.9026033, 0, 0.43047327, -460.8928, 0, -178.4422)
+world_id = &"brackett/district_01/building_0038"
+district_id = 1
+district_name = "Northpoint"
+
+[node name="building_0039" parent="Geometry" unique_id=1670275253 instance=ExtResource("3_kppcj")]
+transform = Transform3D(-0.8114628, 0, 0.58440405, 0, 1, 0, -0.58440405, 0, -0.8114628, -483.3892, 0, -18.5154)
+world_id = &"brackett/district_01/building_0039"
+district_id = 1
+district_name = "Northpoint"
+
+[node name="building_0040" parent="Geometry" unique_id=549065618 instance=ExtResource("2_5y62c")]
+transform = Transform3D(-0.0053057857, 0, 0.99998593, 0, 1, 0, -0.99998593, 0, -0.0053057857, -555.1268, 0, -65.4046)
+world_id = &"brackett/district_01/building_0040"
+district_id = 1
+district_name = "Northpoint"
+
+[node name="building_0041" parent="Geometry" unique_id=1312442894 instance=ExtResource("2_5y62c")]
+transform = Transform3D(0.4428192, 0, 0.8966109, 0, 1, 0, -0.8966109, 0, 0.4428192, -511.9997, 0, -220.6411)
+world_id = &"brackett/district_01/building_0041"
+district_id = 1
+district_name = "Northpoint"
+
+[node name="building_0042" parent="Geometry" unique_id=109402926 instance=ExtResource("3_kppcj")]
+transform = Transform3D(0.338999, 0, 0.9407867, 0, 1, 0, -0.9407867, 0, 0.338999, -483.5149, 0, -130.3249)
+world_id = &"brackett/district_01/building_0042"
+district_id = 1
+district_name = "Northpoint"
+
+[node name="building_0043" parent="Geometry" unique_id=1536702683 instance=ExtResource("3_kppcj")]
+transform = Transform3D(0.99376774, 0, 0.11147066, 0, 1, 0, -0.11147066, 0, 0.99376774, -426.3068, 0, -281.7715)
+world_id = &"brackett/district_01/building_0043"
+district_id = 1
+district_name = "Northpoint"
+
+[node name="building_0044" parent="Geometry" unique_id=259344454 instance=ExtResource("3_kppcj")]
+transform = Transform3D(0.34245476, 0, 0.9395343, 0, 1, 0, -0.9395343, 0, 0.34245476, -476.9776, 0, -145.3087)
+world_id = &"brackett/district_01/building_0044"
+district_id = 1
+district_name = "Northpoint"
+
+[node name="building_0045" parent="Geometry" unique_id=90140912 instance=ExtResource("3_kppcj")]
+transform = Transform3D(0.33113033, 0, 0.94358504, 0, 1, 0, -0.94358504, 0, 0.33113033, -549.1578, 0, -149.6153)
+world_id = &"brackett/district_01/building_0045"
+district_id = 1
+district_name = "Northpoint"
+
+[node name="building_0046" parent="Geometry" unique_id=696158254 instance=ExtResource("3_kppcj")]
+transform = Transform3D(0.9807069, 0, 0.19548403, 0, 1, 0, -0.19548403, 0, 0.9807069, -451.3337, 0, -278.4865)
+world_id = &"brackett/district_01/building_0046"
+district_id = 1
+district_name = "Northpoint"
+
+[node name="building_0047" parent="Geometry" unique_id=677763339 instance=ExtResource("3_kppcj")]
+transform = Transform3D(0.998697, 0, 0.051032193, 0, 1, 0, -0.051032193, 0, 0.998697, -405.7395, 0, -283.9588)
+world_id = &"brackett/district_01/building_0047"
+district_id = 1
+district_name = "Northpoint"
+
+[node name="building_0048" parent="Geometry" unique_id=1715863953 instance=ExtResource("3_kppcj")]
+transform = Transform3D(0.2982063, 0, 0.95450145, 0, 1, 0, -0.95450145, 0, 0.2982063, -487.5204, 0, -114.0239)
+world_id = &"brackett/district_01/building_0048"
+district_id = 1
+district_name = "Northpoint"
+
+[node name="building_0049" parent="Geometry" unique_id=309327969 instance=ExtResource("3_kppcj")]
+transform = Transform3D(0.99799037, 0, -0.063365325, 0, 1, 0, 0.063365325, 0, 0.99799037, -347.0709, 0, -283.3611)
+world_id = &"brackett/district_01/building_0049"
+district_id = 1
+district_name = "Northpoint"
+
+[node name="building_0050" parent="Geometry" unique_id=19966636 instance=ExtResource("2_5y62c")]
+transform = Transform3D(0.34020233, 0, 0.94035226, 0, 1, 0, -0.94035226, 0, 0.34020233, -541.9996, 0, -170.714)
+world_id = &"brackett/district_01/building_0050"
+district_id = 1
+district_name = "Northpoint"
+
+[node name="building_0051" parent="Geometry" unique_id=974660991 instance=ExtResource("3_kppcj")]
+transform = Transform3D(0.35112268, 0, -0.9363295, 0, 1, 0, 0.9363295, 0, 0.35112268, -438.7294, 0, -125.5762)
+world_id = &"brackett/district_01/building_0051"
+district_id = 1
+district_name = "Northpoint"
+
+[node name="building_0052" parent="Geometry" unique_id=1122909188 instance=ExtResource("4_5emo5")]
+transform = Transform3D(0.880412, 0, 0.4742096, 0, 1, 0, -0.4742096, 0, 0.880412, -484.4313, 0, -266.869)
+world_id = &"brackett/district_01/building_0052"
+district_id = 1
+district_name = "Northpoint"
+
+[node name="building_0053" parent="Geometry" unique_id=748254459 instance=ExtResource("3_kppcj")]
+transform = Transform3D(0.5419605, 0, -0.840404, 0, 1, 0, 0.840404, 0, 0.5419605, -462.4608, 0, -155.2878)
+world_id = &"brackett/district_01/building_0053"
+district_id = 1
+district_name = "Northpoint"
+
+[node name="building_0054" parent="Geometry" unique_id=1145149175 instance=ExtResource("3_kppcj")]
+transform = Transform3D(-0.30927756, 0, -0.9509718, 0, 1, 0, 0.9509718, 0, -0.30927756, -467.9143, 0, -84.3082)
+world_id = &"brackett/district_01/building_0054"
+district_id = 1
+district_name = "Northpoint"
+
+[node name="building_0055" parent="Geometry" unique_id=23333283 instance=ExtResource("3_kppcj")]
+transform = Transform3D(0.67816097, 0, 0.7349134, 0, 1, 0, -0.7349134, 0, 0.67816097, -506.1129, 0, -250.5292)
+world_id = &"brackett/district_01/building_0055"
+district_id = 1
+district_name = "Northpoint"
+
+[node name="building_0056" parent="Geometry" unique_id=557566797 instance=ExtResource("2_5y62c")]
+transform = Transform3D(0.3162269, 0, 0.94868356, 0, 1, 0, -0.94868356, 0, 0.3162269, -534.4251, 0, -194.6434)
+world_id = &"brackett/district_01/building_0056"
+district_id = 1
+district_name = "Northpoint"
+
+[node name="building_0057" parent="Geometry" unique_id=1682363764 instance=ExtResource("3_kppcj")]
+transform = Transform3D(0.99948895, 0, -0.031965494, 0, 1, 0, 0.031965494, 0, 0.99948895, -364.7811, 0, -285.9394)
+world_id = &"brackett/district_01/building_0057"
+district_id = 1
+district_name = "Northpoint"
+
+[node name="building_0058" parent="Geometry" unique_id=722776409 instance=ExtResource("3_kppcj")]
+transform = Transform3D(-0.65968555, 0, -0.75154173, 0, 1, 0, 0.75154173, 0, -0.65968555, -453.97, 0, -106.6452)
+world_id = &"brackett/district_01/building_0058"
+district_id = 1
+district_name = "Northpoint"
+
+[node name="building_0059" parent="Geometry" unique_id=486568818 instance=ExtResource("2_5y62c")]
+transform = Transform3D(0.9957896, 0, -0.091668464, 0, 1, 0, 0.091668464, 0, 0.9957896, -318.4198, 0, -284.954)
+world_id = &"brackett/district_01/building_0059"
+district_id = 1
+district_name = "Northpoint"
+
+[node name="building_0060" parent="Geometry" unique_id=231524506 instance=ExtResource("3_kppcj")]
+transform = Transform3D(0.68197155, 0, -0.7313787, 0, 1, 0, 0.7313787, 0, 0.68197155, -453.5489, 0, -137.1413)
+world_id = &"brackett/district_01/building_0060"
+district_id = 1
+district_name = "Northpoint"
+
+[node name="building_0061" parent="Geometry" unique_id=1620179294 instance=ExtResource("3_kppcj")]
+transform = Transform3D(0.48661906, 0, 0.87361425, 0, 1, 0, -0.87361425, 0, 0.48661906, -523.1514, 0, -233.8539)
+world_id = &"brackett/district_01/building_0061"
+district_id = 1
+district_name = "Northpoint"
+
+[node name="building_0062" parent="Geometry" unique_id=728281744 instance=ExtResource("3_kppcj")]
+transform = Transform3D(0.9999874, 0, 0.0050178007, 0, 1, 0, -0.0050178007, 0, 0.9999874, -388.8932, 0, -291.1427)
+world_id = &"brackett/district_01/building_0062"
+district_id = 1
+district_name = "Northpoint"
+
+[node name="building_0063" parent="Geometry" unique_id=202240444 instance=ExtResource("3_kppcj")]
+transform = Transform3D(0.338999, 0, 0.9407867, 0, 1, 0, -0.9407867, 0, 0.338999, -468.2109, 0, -125.7513)
+world_id = &"brackett/district_01/building_0063"
+district_id = 1
+district_name = "Northpoint"
+
+[node name="building_0064" parent="Geometry" unique_id=480821362 instance=ExtResource("3_kppcj")]
+transform = Transform3D(0.34020233, 0, 0.94035226, 0, 1, 0, -0.94035226, 0, 0.34020233, -555.1629, 0, -178.7714)
+world_id = &"brackett/district_01/building_0064"
+district_id = 1
+district_name = "Northpoint"
+
+[node name="building_0065" parent="Geometry" unique_id=453218019 instance=ExtResource("3_kppcj")]
+transform = Transform3D(0.3162269, 0, 0.94868356, 0, 1, 0, -0.94868356, 0, 0.3162269, -549.0108, 0, -202.394)
+world_id = &"brackett/district_01/building_0065"
+district_id = 1
+district_name = "Northpoint"

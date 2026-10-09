@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://cb6hpyx5jyccx"]
+
+[ext_resource type="Script" uid="uid://bogn5hbsdcqdc" path="res://scenes/world/brackett_greybox/placement.gd" id="1_pbip7"]
+[ext_resource type="PackedScene" uid="uid://bqtdt0h18ucw" path="res://art/models/brackett_greybox/tower_mid.glb" id="2_25p3t"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ioshl"]
+size = Vector3(28, 6, 26)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ai4ln"]
+size = Vector3(17.08, 24, 15.86)
+
+[node name="tower_mid" type="Node3D" unique_id=1605654312]
+script = ExtResource("1_pbip7")
+asset_id = &"tower_mid"
+
+[node name="Visuals" type="Node3D" parent="." unique_id=1786463188]
+
+[node name="Model" parent="Visuals" unique_id=62971429 instance=ExtResource("2_25p3t")]
+
+[node name="Collision" type="Node3D" parent="." unique_id=1025563348]
+
+[node name="Solid" type="StaticBody3D" parent="Collision" unique_id=179640940]
+collision_mask = 0
+
+[node name="Envelope0" type="CollisionShape3D" parent="Collision/Solid" unique_id=1082245494]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 0)
+shape = SubResource("BoxShape3D_ioshl")
+
+[node name="Envelope1" type="CollisionShape3D" parent="Collision/Solid" unique_id=559055257]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 18, 0)
+shape = SubResource("BoxShape3D_ai4ln")

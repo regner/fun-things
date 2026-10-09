@@ -1,0 +1,117 @@
+[gd_scene format=3 uid="uid://prsqilhdfmit"]
+
+[ext_resource type="Script" uid="uid://w74vgrgnpeyf" path="res://scenes/world/brackett_greybox/preview.gd" id="1_lbgwq"]
+[ext_resource type="PackedScene" uid="uid://c6ogmv4d7i8yn" path="res://scenes/world/brackett_greybox/city.tscn" id="2_spkqy"]
+[ext_resource type="PackedScene" uid="uid://bbrukq86rf50c" path="res://art/models/brackett_greybox/water.glb" id="4_bcdd7"]
+
+[sub_resource type="Environment" id="Environment_ls7gq"]
+background_mode = 1
+background_color = Color(0.08, 0.1, 0.13, 1)
+ambient_light_source = 2
+ambient_light_color = Color(0.72, 0.78, 0.86, 1)
+ambient_light_energy = 0.3
+
+[node name="BrackettGreyboxPreview" type="Node3D" unique_id=211217431]
+script = ExtResource("1_lbgwq")
+
+[node name="City" parent="." unique_id=440420557 instance=ExtResource("2_spkqy")]
+
+[node name="Water" type="Node3D" parent="." unique_id=2053161825]
+
+[node name="Model" parent="Water" unique_id=419922629 instance=ExtResource("4_bcdd7")]
+
+[node name="Environment" type="WorldEnvironment" parent="." unique_id=1275054352]
+environment = SubResource("Environment_ls7gq")
+
+[node name="ReviewSun" type="DirectionalLight3D" parent="." unique_id=1833157885]
+transform = Transform3D(0.88294756, 0.39813447, -0.24878204, 0, 0.52991927, 0.8480481, 0.46947157, -0.748782, 0.46789092, 0, 0, 0)
+light_energy = 0.65
+shadow_enabled = true
+directional_shadow_max_distance = 1800.0
+
+[node name="Cameras" type="Node3D" parent="." unique_id=570709102]
+
+[node name="Overview" type="Camera3D" parent="Cameras" unique_id=633408363]
+transform = Transform3D(1, 0, 0, 0, 0.58766514, 0.80910426, 0, -0.80910426, 0.58766514, 0, 950, 690)
+projection = 1
+current = true
+fov = 42.0
+size = 890.0
+near = 0.1
+far = 2400.0
+
+[node name="Plan" type="Camera3D" parent="Cameras" unique_id=1972550400]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 1000, 0)
+projection = 1
+fov = 42.0
+size = 810.0
+near = 0.1
+far = 2400.0
+
+[node name="District01" type="Camera3D" parent="Cameras" unique_id=104993470]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -410, 47, -150)
+fov = 42.0
+near = 0.1
+far = 2400.0
+
+[node name="District02" type="Camera3D" parent="Cameras" unique_id=693042710]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -350, 47, -88)
+fov = 42.0
+near = 0.1
+far = 2400.0
+
+[node name="District03" type="Camera3D" parent="Cameras" unique_id=2129396167]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -165, 47, -150)
+fov = 42.0
+near = 0.1
+far = 2400.0
+
+[node name="District04" type="Camera3D" parent="Cameras" unique_id=1461205841]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 105, 47, -70)
+fov = 42.0
+near = 0.1
+far = 2400.0
+
+[node name="District05" type="Camera3D" parent="Cameras" unique_id=125843704]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -180, 47, 135)
+fov = 42.0
+near = 0.1
+far = 2400.0
+
+[node name="District06" type="Camera3D" parent="Cameras" unique_id=1724363285]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -100, 47, -5)
+fov = 42.0
+near = 0.1
+far = 2400.0
+
+[node name="District07" type="Camera3D" parent="Cameras" unique_id=688132440]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 75, 47, 175)
+fov = 42.0
+near = 0.1
+far = 2400.0
+
+[node name="District08" type="Camera3D" parent="Cameras" unique_id=157111489]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 265, 47, 50)
+fov = 42.0
+near = 0.1
+far = 2400.0
+
+[node name="District09" type="Camera3D" parent="Cameras" unique_id=364624343]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 460, 47, 69)
+fov = 42.0
+near = 0.1
+far = 2400.0
+
+[node name="ReviewOverlay" type="CanvasLayer" parent="." unique_id=705722504]
+
+[node name="Instructions" type="Label" parent="ReviewOverlay" unique_id=474137512]
+offset_left = 20.0
+offset_top = 16.0
+offset_right = 20.0
+offset_bottom = 16.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 1
+theme_override_constants/shadow_offset_y = 1
+theme_override_font_sizes/font_size = 17
+text = "BRACKETT GREYBOX  |  0 overview · Tab plan · 1–9 districts
+47 m / 42° district cameras · north up · provisional collision"

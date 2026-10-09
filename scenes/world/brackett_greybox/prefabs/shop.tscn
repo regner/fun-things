@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://b6rmrciwcv4yx"]
+
+[ext_resource type="Script" uid="uid://bogn5hbsdcqdc" path="res://scenes/world/brackett_greybox/placement.gd" id="1_p4o6h"]
+[ext_resource type="PackedScene" uid="uid://b3rtcfwavn57c" path="res://art/models/brackett_greybox/shop.glb" id="2_hh2em"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_j1tui"]
+size = Vector3(18, 10, 15)
+
+[node name="shop" type="Node3D" unique_id=1256354008]
+script = ExtResource("1_p4o6h")
+asset_id = &"shop"
+
+[node name="Visuals" type="Node3D" parent="." unique_id=2029450450]
+
+[node name="Model" parent="Visuals" unique_id=2002236726 instance=ExtResource("2_hh2em")]
+
+[node name="Collision" type="Node3D" parent="." unique_id=1907310274]
+
+[node name="Solid" type="StaticBody3D" parent="Collision" unique_id=1163863187]
+collision_mask = 0
+
+[node name="Envelope0" type="CollisionShape3D" parent="Collision/Solid" unique_id=322378512]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5, 0)
+shape = SubResource("BoxShape3D_j1tui")

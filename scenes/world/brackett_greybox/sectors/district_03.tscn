@@ -1,0 +1,195 @@
+[gd_scene format=3 uid="uid://bm4wio6f35tga"]
+
+[ext_resource type="Script" uid="uid://bogn5hbsdcqdc" path="res://scenes/world/brackett_greybox/placement.gd" id="1_7glla"]
+[ext_resource type="PackedScene" uid="uid://b68fr28ggmeiy" path="res://scenes/world/brackett_greybox/prefabs/apartment.tscn" id="2_hagpo"]
+[ext_resource type="PackedScene" uid="uid://bvhnrhgvlr3xg" path="res://scenes/world/brackett_greybox/prefabs/apartment_small.tscn" id="3_iu7je"]
+[ext_resource type="PackedScene" uid="uid://dc5mbtlmw8fg8" path="res://scenes/world/brackett_greybox/prefabs/apartment_slab.tscn" id="4_s22r5"]
+
+[node name="District03" type="Node3D" unique_id=62568330]
+script = ExtResource("1_7glla")
+world_id = &"brackett/district_03"
+district_id = 3
+district_name = "Terrace Ward"
+metadata/discussion_id = "03"
+
+[node name="Geometry" type="Node3D" parent="." unique_id=950626570]
+
+[node name="building_0001" parent="Geometry" unique_id=233381701 instance=ExtResource("2_hagpo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -130.6521, 0, -133.5293)
+world_id = &"brackett/district_03/building_0001"
+district_id = 3
+district_name = "Terrace Ward"
+
+[node name="building_0002" parent="Geometry" unique_id=402143236 instance=ExtResource("3_iu7je")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -245.4002, 0, -188.2902)
+world_id = &"brackett/district_03/building_0002"
+district_id = 3
+district_name = "Terrace Ward"
+
+[node name="building_0003" parent="Geometry" unique_id=269952554 instance=ExtResource("2_hagpo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -138.4142, 0, -91.0674)
+world_id = &"brackett/district_03/building_0003"
+district_id = 3
+district_name = "Terrace Ward"
+
+[node name="building_0004" parent="Geometry" unique_id=1524951525 instance=ExtResource("3_iu7je")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -86.482, 0, -90.5169)
+world_id = &"brackett/district_03/building_0004"
+district_id = 3
+district_name = "Terrace Ward"
+
+[node name="building_0005" parent="Geometry" unique_id=1340964376 instance=ExtResource("3_iu7je")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -220.1102, 0, -129.5468)
+world_id = &"brackett/district_03/building_0005"
+district_id = 3
+district_name = "Terrace Ward"
+
+[node name="building_0006" parent="Geometry" unique_id=267731957 instance=ExtResource("3_iu7je")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -270.4509, 0, -189.101)
+world_id = &"brackett/district_03/building_0006"
+district_id = 3
+district_name = "Terrace Ward"
+
+[node name="building_0007" parent="Geometry" unique_id=2145271125 instance=ExtResource("2_hagpo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -108.248, 0, -180.4574)
+world_id = &"brackett/district_03/building_0007"
+district_id = 3
+district_name = "Terrace Ward"
+
+[node name="building_0008" parent="Geometry" unique_id=46764000 instance=ExtResource("4_s22r5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -82.285, 0, -217.9893)
+world_id = &"brackett/district_03/building_0008"
+district_id = 3
+district_name = "Terrace Ward"
+
+[node name="building_0009" parent="Geometry" unique_id=90859296 instance=ExtResource("3_iu7je")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -108.5797, 0, -90.0505)
+world_id = &"brackett/district_03/building_0009"
+district_id = 3
+district_name = "Terrace Ward"
+
+[node name="building_0010" parent="Geometry" unique_id=1402613862 instance=ExtResource("2_hagpo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -117.6467, 0, -29.9375)
+world_id = &"brackett/district_03/building_0010"
+district_id = 3
+district_name = "Terrace Ward"
+
+[node name="building_0011" parent="Geometry" unique_id=224924361 instance=ExtResource("3_iu7je")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -186.9062, 0, -170.9593)
+world_id = &"brackett/district_03/building_0011"
+district_id = 3
+district_name = "Terrace Ward"
+
+[node name="building_0012" parent="Geometry" unique_id=620210072 instance=ExtResource("3_iu7je")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -162.6256, 0, -41.0597)
+world_id = &"brackett/district_03/building_0012"
+district_id = 3
+district_name = "Terrace Ward"
+
+[node name="building_0013" parent="Geometry" unique_id=685727483 instance=ExtResource("2_hagpo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -90.5112, 0, -28.2714)
+world_id = &"brackett/district_03/building_0013"
+district_id = 3
+district_name = "Terrace Ward"
+
+[node name="building_0014" parent="Geometry" unique_id=721033195 instance=ExtResource("3_iu7je")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -172.4566, 0, -230.7251)
+world_id = &"brackett/district_03/building_0014"
+district_id = 3
+district_name = "Terrace Ward"
+
+[node name="building_0015" parent="Geometry" unique_id=1749417449 instance=ExtResource("3_iu7je")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -132.2464, 0, -181.4293)
+world_id = &"brackett/district_03/building_0015"
+district_id = 3
+district_name = "Terrace Ward"
+
+[node name="building_0016" parent="Geometry" unique_id=780707373 instance=ExtResource("3_iu7je")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -84.288, 0, -68.8849)
+world_id = &"brackett/district_03/building_0016"
+district_id = 3
+district_name = "Terrace Ward"
+
+[node name="building_0017" parent="Geometry" unique_id=1822240136 instance=ExtResource("3_iu7je")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -254.389, 0, -210.3755)
+world_id = &"brackett/district_03/building_0017"
+district_id = 3
+district_name = "Terrace Ward"
+
+[node name="building_0018" parent="Geometry" unique_id=1253180960 instance=ExtResource("3_iu7je")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -100.8792, 0, -131.9994)
+world_id = &"brackett/district_03/building_0018"
+district_id = 3
+district_name = "Terrace Ward"
+
+[node name="building_0019" parent="Geometry" unique_id=2040260815 instance=ExtResource("2_hagpo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -204.1961, 0, -194.6578)
+world_id = &"brackett/district_03/building_0019"
+district_id = 3
+district_name = "Terrace Ward"
+
+[node name="building_0020" parent="Geometry" unique_id=91029847 instance=ExtResource("3_iu7je")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -259.1553, 0, -157.4343)
+world_id = &"brackett/district_03/building_0020"
+district_id = 3
+district_name = "Terrace Ward"
+
+[node name="building_0021" parent="Geometry" unique_id=197954032 instance=ExtResource("3_iu7je")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -279.4629, 0, -154.3142)
+world_id = &"brackett/district_03/building_0021"
+district_id = 3
+district_name = "Terrace Ward"
+
+[node name="building_0022" parent="Geometry" unique_id=359464600 instance=ExtResource("2_hagpo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -266.068, 0, -259.4077)
+world_id = &"brackett/district_03/building_0022"
+district_id = 3
+district_name = "Terrace Ward"
+
+[node name="building_0023" parent="Geometry" unique_id=450316219 instance=ExtResource("3_iu7je")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -149.9877, 0, -228.2384)
+world_id = &"brackett/district_03/building_0023"
+district_id = 3
+district_name = "Terrace Ward"
+
+[node name="building_0024" parent="Geometry" unique_id=531349196 instance=ExtResource("3_iu7je")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -210.4165, 0, -244.0157)
+world_id = &"brackett/district_03/building_0024"
+district_id = 3
+district_name = "Terrace Ward"
+
+[node name="building_0025" parent="Geometry" unique_id=39605955 instance=ExtResource("2_hagpo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -126.6302, 0, -227.0215)
+world_id = &"brackett/district_03/building_0025"
+district_id = 3
+district_name = "Terrace Ward"
+
+[node name="building_0026" parent="Geometry" unique_id=1655482897 instance=ExtResource("3_iu7je")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -236.7104, 0, -253.419)
+world_id = &"brackett/district_03/building_0026"
+district_id = 3
+district_name = "Terrace Ward"
+
+[node name="building_0027" parent="Geometry" unique_id=2021252267 instance=ExtResource("3_iu7je")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -155.7203, 0, -65.6081)
+world_id = &"brackett/district_03/building_0027"
+district_id = 3
+district_name = "Terrace Ward"
+
+[node name="building_0028" parent="Geometry" unique_id=1863377218 instance=ExtResource("3_iu7je")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -92.0744, 0, -46.3821)
+world_id = &"brackett/district_03/building_0028"
+district_id = 3
+district_name = "Terrace Ward"
+
+[node name="building_0029" parent="Geometry" unique_id=862831539 instance=ExtResource("3_iu7je")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -133.2664, 0, -73.2064)
+world_id = &"brackett/district_03/building_0029"
+district_id = 3
+district_name = "Terrace Ward"
+
+[node name="building_0030" parent="Geometry" unique_id=205707881 instance=ExtResource("3_iu7je")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -130.4339, 0, -49.5173)
+world_id = &"brackett/district_03/building_0030"
+district_id = 3
+district_name = "Terrace Ward"

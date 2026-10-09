@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://d4byopsw7fbby"]
+
+[ext_resource type="Script" uid="uid://bogn5hbsdcqdc" path="res://scenes/world/brackett_greybox/placement.gd" id="1_swtny"]
+[ext_resource type="PackedScene" uid="uid://ccwyhtjiucvy4" path="res://art/models/brackett_greybox/entertainment_hall.glb" id="2_fao5j"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_vigf5"]
+size = Vector3(30, 15, 23)
+
+[node name="entertainment_hall" type="Node3D" unique_id=1056154541]
+script = ExtResource("1_swtny")
+asset_id = &"entertainment_hall"
+
+[node name="Visuals" type="Node3D" parent="." unique_id=1642417596]
+
+[node name="Model" parent="Visuals" unique_id=1327733222 instance=ExtResource("2_fao5j")]
+
+[node name="Collision" type="Node3D" parent="." unique_id=879133232]
+
+[node name="Solid" type="StaticBody3D" parent="Collision" unique_id=19573438]
+collision_mask = 0
+
+[node name="Envelope0" type="CollisionShape3D" parent="Collision/Solid" unique_id=1985768105]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7.5, 0)
+shape = SubResource("BoxShape3D_vigf5")

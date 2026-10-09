@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://dgt7ydon3q667"]
+
+[ext_resource type="Script" uid="uid://bogn5hbsdcqdc" path="res://scenes/world/brackett_greybox/placement.gd" id="1_3wmb6"]
+[ext_resource type="PackedScene" uid="uid://dbjyut6jlinvc" path="res://art/models/brackett_greybox/ground_02_01.glb" id="2_nfgev"]
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_yfu20"]
+data = PackedVector3Array(10, 0, -100, 310, 0, 120, 10, 0, 120, 310, 0, 120, 10, 0, -100, 310, 0, -100, 10, -2, -100, 10, -2, 120, 310, -2, 120, 310, -2, 120, 310, -2, -100, 10, -2, -100, 10, 0, -100, 10, 0, 120, 10, -2, 120, 10, 0, -100, 10, -2, 120, 10, -2, -100, 10, 0, 120, 310, 0, 120, 310, -2, 120, 10, 0, 120, 310, -2, 120, 10, -2, 120, 310, 0, 120, 310, 0, -100, 310, -2, -100, 310, 0, 120, 310, -2, -100, 310, -2, 120, 310, 0, -100, 10, 0, -100, 10, -2, -100, 310, 0, -100, 10, -2, -100, 310, -2, -100)
+
+[node name="ground_02_01" type="Node3D" unique_id=1900524490]
+script = ExtResource("1_3wmb6")
+world_id = &"brackett/ground_02_01"
+asset_id = &"ground_02_01"
+
+[node name="Visuals" type="Node3D" parent="." unique_id=1130933256]
+
+[node name="Model" parent="Visuals" unique_id=346940786 instance=ExtResource("2_nfgev")]
+
+[node name="Collision" type="Node3D" parent="." unique_id=150683492]
+
+[node name="Ground" type="StaticBody3D" parent="Collision" unique_id=1977188379]
+collision_mask = 0
+
+[node name="Surface" type="CollisionShape3D" parent="Collision/Ground" unique_id=644218711]
+shape = SubResource("ConcavePolygonShape3D_yfu20")

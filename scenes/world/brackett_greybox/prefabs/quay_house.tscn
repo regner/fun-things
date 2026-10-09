@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://hf2uqbbd4488"]
+
+[ext_resource type="Script" uid="uid://bogn5hbsdcqdc" path="res://scenes/world/brackett_greybox/placement.gd" id="1_48c6t"]
+[ext_resource type="PackedScene" uid="uid://d00cn2eee7y7f" path="res://art/models/brackett_greybox/quay_house.glb" id="2_epq7g"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_1qm5o"]
+size = Vector3(12, 9, 15)
+
+[node name="quay_house" type="Node3D" unique_id=974180028]
+script = ExtResource("1_48c6t")
+asset_id = &"quay_house"
+
+[node name="Visuals" type="Node3D" parent="." unique_id=512109447]
+
+[node name="Model" parent="Visuals" unique_id=1095592375 instance=ExtResource("2_epq7g")]
+
+[node name="Collision" type="Node3D" parent="." unique_id=1952634443]
+
+[node name="Solid" type="StaticBody3D" parent="Collision" unique_id=1167164339]
+collision_mask = 0
+
+[node name="Envelope0" type="CollisionShape3D" parent="Collision/Solid" unique_id=1462997146]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.5, 0)
+shape = SubResource("BoxShape3D_1qm5o")

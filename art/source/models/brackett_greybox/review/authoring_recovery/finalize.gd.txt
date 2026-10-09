@@ -1,0 +1,62 @@
+extends SceneTree
+## Offline resource API fallback after the private editor batch failed; no active editor allowed.
+
+const BASE: String = "res://scenes/world/brackett_greybox/"
+const OUTPUT: String = "res://art/source/models/brackett_greybox/review/"
+
+
+## Defers the bounded save/check job until Godot has initialized.
+func _initialize() -> void:
+	_finalize.call_deferred()
+
+
+## Repairs only the failed new wrapper and roundtrips all saved assets without active-tab state.
+func _finalize() -> void:
+	var helper: Node = Node.new()
+	helper.set_script(load("res://tools/brackett_greybox/author_editor.gd"))
+	var spec: Dictionary = JSON.parse_string(FileAccess.get_file_as_string(
+		"res://tools/brackett_greybox/editor_input.json"))
+	for asset: Dictionary in spec.kit:
+		if asset.asset_id == "quay_row":
+			helper.call("_build_prefab", asset)
+	helper.free()
+	var preview: PackedScene = load(BASE + "preview.tscn")
+	var scene: Node = preview.instantiate()
+	scene.get_node("ReviewSun").light_energy = 0.65
+	scene.get_node("Environment").environment.ambient_light_energy = 0.3
+	scene.get_node("Cameras/District04").position = Vector3(105, 47, -70)
+	var updated: PackedScene = PackedScene.new()
+	assert(updated.pack(scene) == OK)
+	assert(ResourceSaver.save(updated, BASE + "preview.tscn") == OK)
+	scene.free()
+	var records: Array[Dictionary] = []
+	for directory: String in [BASE + "prefabs/", BASE + "sectors/", BASE]:
+		for filename: String in DirAccess.get_files_at(directory):
+			if not filename.ends_with(".tscn"):
+				continue
+			var path: String = directory + filename
+			var packed: PackedScene = ResourceLoader.load(path, "PackedScene",
+				ResourceLoader.CACHE_MODE_REPLACE)
+			assert(packed != null, path)
+			var instance: Node = packed.instantiate()
+			assert(instance != null, path)
+			var repacked: PackedScene = PackedScene.new()
+			assert(repacked.pack(instance) == OK)
+			assert(ResourceSaver.save(repacked, path) == OK)
+			instance.free()
+			var before: String = FileAccess.get_file_as_string(path)
+			packed = ResourceLoader.load(path, "PackedScene", ResourceLoader.CACHE_MODE_REPLACE)
+			instance = packed.instantiate()
+			repacked = PackedScene.new()
+			assert(repacked.pack(instance) == OK)
+			assert(ResourceSaver.save(repacked, path) == OK)
+			instance.free()
+			var after: String = FileAccess.get_file_as_string(path)
+			records.append({"path": path, "stable_resource_roundtrip": before == after,
+				"sha256": after.sha256_text()})
+	var file: FileAccess = FileAccess.open(OUTPUT + "resource_roundtrip.json", FileAccess.WRITE)
+	file.store_string(JSON.stringify({"engine": Engine.get_version_info(),
+		"scope": "standalone resource load/instantiate/pack/save/reload, not editor tabs",
+		"scenes": records}, "\t"))
+	print("BRACKETT_RESOURCE_ROUNDTRIP ", records.size())
+	quit()

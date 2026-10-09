@@ -1,0 +1,171 @@
+[gd_scene format=3 uid="uid://bfh0quome30kv"]
+
+[ext_resource type="Script" uid="uid://bogn5hbsdcqdc" path="res://scenes/world/brackett_greybox/placement.gd" id="1_ryf5y"]
+[ext_resource type="PackedScene" uid="uid://lg0xou3ool18" path="res://scenes/world/brackett_greybox/prefabs/quay_row.tscn" id="2_e1g7j"]
+[ext_resource type="PackedScene" uid="uid://hf2uqbbd4488" path="res://scenes/world/brackett_greybox/prefabs/quay_house.tscn" id="3_ks4cw"]
+[ext_resource type="PackedScene" uid="uid://jjgdjgcnjlpm" path="res://scenes/world/brackett_greybox/prefabs/quay_hall.tscn" id="4_d10ot"]
+
+[node name="District05" type="Node3D" unique_id=1209688011]
+script = ExtResource("1_ryf5y")
+world_id = &"brackett/district_05"
+district_id = 5
+district_name = "Old Quay"
+metadata/discussion_id = "05"
+
+[node name="Geometry" type="Node3D" parent="." unique_id=1814272415]
+
+[node name="building_0001" parent="Geometry" unique_id=121663117 instance=ExtResource("2_e1g7j")]
+transform = Transform3D(0.59500515, 0, -0.8037219, 0, 1, 0, 0.8037219, 0, 0.59500515, -167.1243, 0, 61.4398)
+world_id = &"brackett/district_05/building_0001"
+district_id = 5
+district_name = "Old Quay"
+
+[node name="building_0002" parent="Geometry" unique_id=2124603868 instance=ExtResource("2_e1g7j")]
+transform = Transform3D(-0.14477932, 0, -0.989464, 0, 1, 0, 0.989464, 0, -0.14477932, -141.572, 0, 129.8623)
+world_id = &"brackett/district_05/building_0002"
+district_id = 5
+district_name = "Old Quay"
+
+[node name="building_0003" parent="Geometry" unique_id=51835254 instance=ExtResource("2_e1g7j")]
+transform = Transform3D(0.99342644, 0, -0.114472486, 0, 1, 0, 0.114472486, 0, 0.99342644, -370.5202, 0, 60.7762)
+world_id = &"brackett/district_05/building_0003"
+district_id = 5
+district_name = "Old Quay"
+
+[node name="building_0004" parent="Geometry" unique_id=491111778 instance=ExtResource("2_e1g7j")]
+transform = Transform3D(0.16439866, 0, -0.986394, 0, 1, 0, 0.986394, 0, 0.16439866, -391.2708, 0, 97.0914)
+world_id = &"brackett/district_05/building_0004"
+district_id = 5
+district_name = "Old Quay"
+
+[node name="building_0005" parent="Geometry" unique_id=97795829 instance=ExtResource("2_e1g7j")]
+transform = Transform3D(0.34893677, 0, -0.93714625, 0, 1, 0, 0.93714625, 0, 0.34893677, -182.1398, 0, 33.8829)
+world_id = &"brackett/district_05/building_0005"
+district_id = 5
+district_name = "Old Quay"
+
+[node name="building_0006" parent="Geometry" unique_id=974180028 instance=ExtResource("3_ks4cw")]
+transform = Transform3D(-0.65429616, 0, -0.7562384, 0, 1, 0, 0.7562384, 0, -0.65429616, -163.8141, 0, 185.195)
+world_id = &"brackett/district_05/building_0006"
+district_id = 5
+district_name = "Old Quay"
+
+[node name="building_0007" parent="Geometry" unique_id=604038673 instance=ExtResource("2_e1g7j")]
+transform = Transform3D(-0.93119013, 0, -0.36453384, 0, 1, 0, 0.36453384, 0, -0.93119013, -221.4979, 0, 46.2995)
+world_id = &"brackett/district_05/building_0007"
+district_id = 5
+district_name = "Old Quay"
+
+[node name="building_0008" parent="Geometry" unique_id=1250877767 instance=ExtResource("2_e1g7j")]
+transform = Transform3D(-0.9781378, 0, 0.20795779, 0, 1, 0, -0.20795779, 0, -0.9781378, -306.0993, 0, 53.134)
+world_id = &"brackett/district_05/building_0008"
+district_id = 5
+district_name = "Old Quay"
+
+[node name="building_0009" parent="Geometry" unique_id=850929919 instance=ExtResource("2_e1g7j")]
+transform = Transform3D(-0.92800146, 0, -0.3725765, 0, 1, 0, 0.3725765, 0, -0.92800146, -218.9741, 0, 209.3979)
+world_id = &"brackett/district_05/building_0009"
+district_id = 5
+district_name = "Old Quay"
+
+[node name="building_0010" parent="Geometry" unique_id=1283295454 instance=ExtResource("3_ks4cw")]
+transform = Transform3D(-0.806851, 0, -0.5907549, 0, 1, 0, 0.5907549, 0, -0.806851, -181.8943, 0, 198.7534)
+world_id = &"brackett/district_05/building_0010"
+district_id = 5
+district_name = "Old Quay"
+
+[node name="building_0011" parent="Geometry" unique_id=1096487689 instance=ExtResource("2_e1g7j")]
+transform = Transform3D(-0.9996637, 0, -0.025932655, 0, 1, 0, 0.025932655, 0, -0.9996637, -187.8403, 0, 238.8238)
+world_id = &"brackett/district_05/building_0011"
+district_id = 5
+district_name = "Old Quay"
+
+[node name="building_0012" parent="Geometry" unique_id=471370246 instance=ExtResource("4_d10ot")]
+transform = Transform3D(0.6933855, 0, -0.72056687, 0, 1, 0, 0.72056687, 0, 0.6933855, -151.9567, 0, 84.4745)
+world_id = &"brackett/district_05/building_0012"
+district_id = 5
+district_name = "Old Quay"
+
+[node name="building_0013" parent="Geometry" unique_id=1438023286 instance=ExtResource("3_ks4cw")]
+transform = Transform3D(-0.85290086, 0, -0.5220729, 0, 1, 0, 0.5220729, 0, -0.85290086, -199.7305, 0, 38.1085)
+world_id = &"brackett/district_05/building_0013"
+district_id = 5
+district_name = "Old Quay"
+
+[node name="building_0014" parent="Geometry" unique_id=1475557574 instance=ExtResource("3_ks4cw")]
+transform = Transform3D(-0.36866325, 0, -0.92956305, 0, 1, 0, 0.92956305, 0, -0.36866325, -158.5423, 0, 169.7635)
+world_id = &"brackett/district_05/building_0014"
+district_id = 5
+district_name = "Old Quay"
+
+[node name="building_0015" parent="Geometry" unique_id=200666342 instance=ExtResource("3_ks4cw")]
+transform = Transform3D(0.16439866, 0, -0.986394, 0, 1, 0, 0.986394, 0, 0.16439866, -386.8008, 0, 75.6652)
+world_id = &"brackett/district_05/building_0015"
+district_id = 5
+district_name = "Old Quay"
+
+[node name="building_0016" parent="Geometry" unique_id=1095131053 instance=ExtResource("3_ks4cw")]
+transform = Transform3D(-0.017059734, 0, -0.99985445, 0, 1, 0, 0.99985445, 0, -0.017059734, -149.8267, 0, 110.0965)
+world_id = &"brackett/district_05/building_0016"
+district_id = 5
+district_name = "Old Quay"
+
+[node name="building_0017" parent="Geometry" unique_id=2068299473 instance=ExtResource("3_ks4cw")]
+transform = Transform3D(-0.97994, 0, -0.19929267, 0, 1, 0, 0.19929267, 0, -0.97994, -202.4945, 0, 195.9818)
+world_id = &"brackett/district_05/building_0017"
+district_id = 5
+district_name = "Old Quay"
+
+[node name="building_0018" parent="Geometry" unique_id=1784848626 instance=ExtResource("3_ks4cw")]
+transform = Transform3D(-0.26935354, 0, -0.96304137, 0, 1, 0, 0.96304137, 0, -0.26935354, -158.1844, 0, 148.9718)
+world_id = &"brackett/district_05/building_0018"
+district_id = 5
+district_name = "Old Quay"
+
+[node name="building_0019" parent="Geometry" unique_id=1808918333 instance=ExtResource("3_ks4cw")]
+transform = Transform3D(0.47175533, 0, -0.8817295, 0, 1, 0, 0.8817295, 0, 0.47175533, -187.0926, 0, 60.7993)
+world_id = &"brackett/district_05/building_0019"
+district_id = 5
+district_name = "Old Quay"
+
+[node name="building_0020" parent="Geometry" unique_id=1145628081 instance=ExtResource("3_ks4cw")]
+transform = Transform3D(0.65270954, 0, -0.75760823, 0, 1, 0, 0.75760823, 0, 0.65270954, -179.3997, 0, 74.6873)
+world_id = &"brackett/district_05/building_0020"
+district_id = 5
+district_name = "Old Quay"
+
+[node name="building_0021" parent="Geometry" unique_id=1575481686 instance=ExtResource("3_ks4cw")]
+transform = Transform3D(-0.91452104, 0, -0.4045384, 0, 1, 0, 0.4045384, 0, -0.91452104, -211.9702, 0, 61.3964)
+world_id = &"brackett/district_05/building_0021"
+district_id = 5
+district_name = "Old Quay"
+
+[node name="building_0022" parent="Geometry" unique_id=1885134634 instance=ExtResource("3_ks4cw")]
+transform = Transform3D(-0.14178583, 0, -0.9898974, 0, 1, 0, 0.9898974, 0, -0.14178583, -162.1337, 0, 123.5512)
+world_id = &"brackett/district_05/building_0022"
+district_id = 5
+district_name = "Old Quay"
+
+[node name="building_0023" parent="Geometry" unique_id=398595624 instance=ExtResource("2_e1g7j")]
+transform = Transform3D(-0.99196106, 0, 0.12654348, 0, 1, 0, -0.12654348, 0, -0.99196106, -175.9399, 0, 257.3252)
+world_id = &"brackett/district_05/building_0023"
+district_id = 5
+district_name = "Old Quay"
+
+[node name="building_0024" parent="Geometry" unique_id=719146324 instance=ExtResource("3_ks4cw")]
+transform = Transform3D(0.6956345, 0, -0.7183959, 0, 1, 0, 0.7183959, 0, 0.6956345, -172.0243, 0, 93.9246)
+world_id = &"brackett/district_05/building_0024"
+district_id = 5
+district_name = "Old Quay"
+
+[node name="building_0025" parent="Geometry" unique_id=222556069 instance=ExtResource("3_ks4cw")]
+transform = Transform3D(-0.50418997, 0, -0.86359274, 0, 1, 0, 0.86359274, 0, -0.50418997, -180.9689, 0, 162.7779)
+world_id = &"brackett/district_05/building_0025"
+district_id = 5
+district_name = "Old Quay"
+
+[node name="building_0026" parent="Geometry" unique_id=1873492024 instance=ExtResource("3_ks4cw")]
+transform = Transform3D(-0.22849871, 0, -0.97354424, 0, 1, 0, 0.97354424, 0, -0.22849871, -173.6073, 0, 138.8409)
+world_id = &"brackett/district_05/building_0026"
+district_id = 5
+district_name = "Old Quay"

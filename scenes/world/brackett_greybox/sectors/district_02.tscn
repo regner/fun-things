@@ -1,0 +1,303 @@
+[gd_scene format=3 uid="uid://cl433k48vx7t5"]
+
+[ext_resource type="Script" uid="uid://bogn5hbsdcqdc" path="res://scenes/world/brackett_greybox/placement.gd" id="1_fmm0b"]
+[ext_resource type="PackedScene" uid="uid://1ys7mm33x6jf" path="res://scenes/world/brackett_greybox/prefabs/terrace.tscn" id="2_x0bej"]
+[ext_resource type="PackedScene" uid="uid://bi5megwx3fgqm" path="res://scenes/world/brackett_greybox/prefabs/semi.tscn" id="3_gson8"]
+[ext_resource type="PackedScene" uid="uid://cb16o4i5f3b8r" path="res://scenes/world/brackett_greybox/prefabs/house.tscn" id="4_00b4c"]
+
+[node name="District02" type="Node3D" unique_id=549796930]
+script = ExtResource("1_fmm0b")
+world_id = &"brackett/district_02"
+district_id = 2
+district_name = "The Crescents"
+metadata/discussion_id = "02"
+
+[node name="Geometry" type="Node3D" parent="." unique_id=95606014]
+
+[node name="building_0001" parent="Geometry" unique_id=761983759 instance=ExtResource("2_x0bej")]
+transform = Transform3D(0.86773854, 0, -0.4970209, 0, 1, 0, 0.4970209, 0, 0.86773854, -319.4856, 0, -89.9066)
+world_id = &"brackett/district_02/building_0001"
+district_id = 2
+district_name = "The Crescents"
+
+[node name="building_0002" parent="Geometry" unique_id=686965439 instance=ExtResource("3_gson8")]
+transform = Transform3D(0.98066014, 0, -0.19571851, 0, 1, 0, 0.19571851, 0, 0.98066014, -467.4716, 0, 58.8701)
+world_id = &"brackett/district_02/building_0002"
+district_id = 2
+district_name = "The Crescents"
+
+[node name="building_0003" parent="Geometry" unique_id=354435129 instance=ExtResource("2_x0bej")]
+transform = Transform3D(0.9870636, 0, -0.16032912, 0, 1, 0, 0.16032912, 0, 0.9870636, -447.6755, 0, 62.059)
+world_id = &"brackett/district_02/building_0003"
+district_id = 2
+district_name = "The Crescents"
+
+[node name="building_0004" parent="Geometry" unique_id=1269468511 instance=ExtResource("4_00b4c")]
+transform = Transform3D(0.84928787, 0, -0.52793, 0, 1, 0, 0.52793, 0, 0.84928787, -411.7729, 0, -35.1255)
+world_id = &"brackett/district_02/building_0004"
+district_id = 2
+district_name = "The Crescents"
+
+[node name="building_0005" parent="Geometry" unique_id=1343530144 instance=ExtResource("3_gson8")]
+transform = Transform3D(0.9525452, 0, -0.3043972, 0, 1, 0, 0.3043972, 0, 0.9525452, -371.1918, 0, -81.2877)
+world_id = &"brackett/district_02/building_0005"
+district_id = 2
+district_name = "The Crescents"
+
+[node name="building_0006" parent="Geometry" unique_id=1634575888 instance=ExtResource("2_x0bej")]
+transform = Transform3D(0.9623647, 0, -0.27176127, 0, 1, 0, 0.27176127, 0, 0.9623647, -373.0454, 0, -113.5758)
+world_id = &"brackett/district_02/building_0006"
+district_id = 2
+district_name = "The Crescents"
+
+[node name="building_0007" parent="Geometry" unique_id=1479058091 instance=ExtResource("4_00b4c")]
+transform = Transform3D(0.9356567, 0, -0.35291153, 0, 1, 0, 0.35291153, 0, 0.9356567, -350.0514, 0, -106.4611)
+world_id = &"brackett/district_02/building_0007"
+district_id = 2
+district_name = "The Crescents"
+
+[node name="building_0008" parent="Geometry" unique_id=1433934543 instance=ExtResource("3_gson8")]
+transform = Transform3D(0.9107651, 0, -0.41292483, 0, 1, 0, 0.41292483, 0, 0.9107651, -387.7784, 0, -21.2412)
+world_id = &"brackett/district_02/building_0008"
+district_id = 2
+district_name = "The Crescents"
+
+[node name="building_0009" parent="Geometry" unique_id=1920341029 instance=ExtResource("2_x0bej")]
+transform = Transform3D(0.94364625, 0, -0.33095583, 0, 1, 0, 0.33095583, 0, 0.94364625, -325.9386, 0, 2.2741)
+world_id = &"brackett/district_02/building_0009"
+district_id = 2
+district_name = "The Crescents"
+
+[node name="building_0010" parent="Geometry" unique_id=1075187915 instance=ExtResource("4_00b4c")]
+transform = Transform3D(0.030880384, 0, -0.9995231, 0, 1, 0, 0.9995231, 0, 0.030880384, -292.1919, 0, -44.0669)
+world_id = &"brackett/district_02/building_0010"
+district_id = 2
+district_name = "The Crescents"
+
+[node name="building_0011" parent="Geometry" unique_id=1499262714 instance=ExtResource("3_gson8")]
+transform = Transform3D(0.9399586, 0, -0.34128857, 0, 1, 0, 0.34128857, 0, 0.9399586, -349.4869, 0, -5.8809)
+world_id = &"brackett/district_02/building_0011"
+district_id = 2
+district_name = "The Crescents"
+
+[node name="building_0012" parent="Geometry" unique_id=1533272300 instance=ExtResource("2_x0bej")]
+transform = Transform3D(-0.7159486, 0, -0.69815296, 0, 1, 0, 0.69815296, 0, -0.7159486, -276.7418, 0, -75.5789)
+world_id = &"brackett/district_02/building_0012"
+district_id = 2
+district_name = "The Crescents"
+
+[node name="building_0013" parent="Geometry" unique_id=1367392806 instance=ExtResource("4_00b4c")]
+transform = Transform3D(-0.7073018, 0, -0.7069117, 0, 1, 0, 0.7069117, 0, -0.7073018, -455.9726, 0, 78.0075)
+world_id = &"brackett/district_02/building_0013"
+district_id = 2
+district_name = "The Crescents"
+
+[node name="building_0014" parent="Geometry" unique_id=1398247038 instance=ExtResource("4_00b4c")]
+transform = Transform3D(0.9401693, 0, -0.34070778, 0, 1, 0, 0.34070778, 0, 0.9401693, -334.5619, 0, -34.5813)
+world_id = &"brackett/district_02/building_0014"
+district_id = 2
+district_name = "The Crescents"
+
+[node name="building_0015" parent="Geometry" unique_id=1824672617 instance=ExtResource("2_x0bej")]
+transform = Transform3D(0.16439866, 0, -0.986394, 0, 1, 0, 0.986394, 0, 0.16439866, -423.2684, 0, 100.3204)
+world_id = &"brackett/district_02/building_0015"
+district_id = 2
+district_name = "The Crescents"
+
+[node name="building_0016" parent="Geometry" unique_id=1335204123 instance=ExtResource("4_00b4c")]
+transform = Transform3D(-0.7895632, 0, -0.61366934, 0, 1, 0, 0.61366934, 0, -0.7895632, -399.1438, 0, -81.0409)
+world_id = &"brackett/district_02/building_0016"
+district_id = 2
+district_name = "The Crescents"
+
+[node name="building_0017" parent="Geometry" unique_id=327357764 instance=ExtResource("3_gson8")]
+transform = Transform3D(0.25335953, 0, -0.9673722, 0, 1, 0, 0.9673722, 0, 0.25335953, -287.6495, 0, -22.7515)
+world_id = &"brackett/district_02/building_0017"
+district_id = 2
+district_name = "The Crescents"
+
+[node name="building_0018" parent="Geometry" unique_id=738325854 instance=ExtResource("2_x0bej")]
+transform = Transform3D(0.51629865, 0, -0.8564086, 0, 1, 0, 0.8564086, 0, 0.51629865, -277.036, 0, 2.4364)
+world_id = &"brackett/district_02/building_0018"
+district_id = 2
+district_name = "The Crescents"
+
+[node name="building_0019" parent="Geometry" unique_id=293471860 instance=ExtResource("4_00b4c")]
+transform = Transform3D(0.9830885, 0, -0.18313126, 0, 1, 0, 0.18313126, 0, 0.9830885, -309.3664, 0, -108.2239)
+world_id = &"brackett/district_02/building_0019"
+district_id = 2
+district_name = "The Crescents"
+
+[node name="building_0020" parent="Geometry" unique_id=683129779 instance=ExtResource("3_gson8")]
+transform = Transform3D(-0.17759149, 0, -0.9841043, 0, 1, 0, 0.9841043, 0, -0.17759149, -195.657, 0, -86.9307)
+world_id = &"brackett/district_02/building_0020"
+district_id = 2
+district_name = "The Crescents"
+
+[node name="building_0021" parent="Geometry" unique_id=1967751862 instance=ExtResource("4_00b4c")]
+transform = Transform3D(-0.779432, 0, -0.62648684, 0, 1, 0, 0.62648684, 0, -0.779432, -261.2028, 0, -86.5516)
+world_id = &"brackett/district_02/building_0021"
+district_id = 2
+district_name = "The Crescents"
+
+[node name="building_0022" parent="Geometry" unique_id=1856099485 instance=ExtResource("4_00b4c")]
+transform = Transform3D(-0.9225428, 0, 0.3858947, 0, 1, 0, -0.3858947, 0, -0.9225428, -374.3553, 0, -6.4953)
+world_id = &"brackett/district_02/building_0022"
+district_id = 2
+district_name = "The Crescents"
+
+[node name="building_0023" parent="Geometry" unique_id=1986054544 instance=ExtResource("3_gson8")]
+transform = Transform3D(-0.93119013, 0, -0.36453384, 0, 1, 0, 0.36453384, 0, -0.93119013, -234.7649, 0, 14.0871)
+world_id = &"brackett/district_02/building_0023"
+district_id = 2
+district_name = "The Crescents"
+
+[node name="building_0024" parent="Geometry" unique_id=1495296795 instance=ExtResource("4_00b4c")]
+transform = Transform3D(-0.7246845, 0, 0.6890809, 0, 1, 0, -0.6890809, 0, -0.7246845, -421.4097, 0, 121.5576)
+world_id = &"brackett/district_02/building_0024"
+district_id = 2
+district_name = "The Crescents"
+
+[node name="building_0025" parent="Geometry" unique_id=1639409958 instance=ExtResource("4_00b4c")]
+transform = Transform3D(0.7239624, 0, -0.6898394, 0, 1, 0, 0.6898394, 0, 0.7239624, -236.0625, 0, -69.7853)
+world_id = &"brackett/district_02/building_0025"
+district_id = 2
+district_name = "The Crescents"
+
+[node name="building_0026" parent="Geometry" unique_id=1132046115 instance=ExtResource("3_gson8")]
+transform = Transform3D(0.14243203, 0, -0.98980457, 0, 1, 0, 0.98980457, 0, 0.14243203, -199.8559, 0, -21.0738)
+world_id = &"brackett/district_02/building_0026"
+district_id = 2
+district_name = "The Crescents"
+
+[node name="building_0027" parent="Geometry" unique_id=1494914595 instance=ExtResource("2_x0bej")]
+transform = Transform3D(-0.9823271, 0, -0.18717216, 0, 1, 0, 0.18717216, 0, -0.9823271, -255.6364, 0, 19.9213)
+world_id = &"brackett/district_02/building_0027"
+district_id = 2
+district_name = "The Crescents"
+
+[node name="building_0028" parent="Geometry" unique_id=1943154092 instance=ExtResource("4_00b4c")]
+transform = Transform3D(0.88266313, 0, -0.4700062, 0, 1, 0, 0.4700062, 0, 0.88266313, -379.0041, 0, -54.6547)
+world_id = &"brackett/district_02/building_0028"
+district_id = 2
+district_name = "The Crescents"
+
+[node name="building_0029" parent="Geometry" unique_id=1212908145 instance=ExtResource("3_gson8")]
+transform = Transform3D(0.9870636, 0, -0.16032912, 0, 1, 0, 0.16032912, 0, 0.9870636, -438.4206, 0, 30.0321)
+world_id = &"brackett/district_02/building_0029"
+district_id = 2
+district_name = "The Crescents"
+
+[node name="building_0030" parent="Geometry" unique_id=726331985 instance=ExtResource("2_x0bej")]
+transform = Transform3D(0.65437263, 0, -0.75617224, 0, 1, 0, 0.75617224, 0, 0.65437263, -218.3979, 0, -50.1468)
+world_id = &"brackett/district_02/building_0030"
+district_id = 2
+district_name = "The Crescents"
+
+[node name="building_0031" parent="Geometry" unique_id=504624474 instance=ExtResource("4_00b4c")]
+transform = Transform3D(-0.9204101, 0, 0.39095435, 0, 1, 0, -0.39095435, 0, -0.9204101, -390.2787, 0, 26.3662)
+world_id = &"brackett/district_02/building_0031"
+district_id = 2
+district_name = "The Crescents"
+
+[node name="building_0032" parent="Geometry" unique_id=1931750825 instance=ExtResource("3_gson8")]
+transform = Transform3D(-0.3750645, 0, 0.92699873, 0, 1, 0, -0.92699873, 0, -0.3750645, -532.2713, 0, 27.0559)
+world_id = &"brackett/district_02/building_0032"
+district_id = 2
+district_name = "The Crescents"
+
+[node name="building_0033" parent="Geometry" unique_id=387135648 instance=ExtResource("4_00b4c")]
+transform = Transform3D(0.9876766, 0, -0.1565086, 0, 1, 0, 0.1565086, 0, 0.9876766, -333.67, 0, -109.5357)
+world_id = &"brackett/district_02/building_0033"
+district_id = 2
+district_name = "The Crescents"
+
+[node name="building_0034" parent="Geometry" unique_id=1703023488 instance=ExtResource("4_00b4c")]
+transform = Transform3D(-0.4916183, 0, 0.8708108, 0, 1, 0, -0.8708108, 0, -0.4916183, -515.8184, 0, 61.9902)
+world_id = &"brackett/district_02/building_0034"
+district_id = 2
+district_name = "The Crescents"
+
+[node name="building_0035" parent="Geometry" unique_id=64352217 instance=ExtResource("3_gson8")]
+transform = Transform3D(-0.85290086, 0, -0.5220729, 0, 1, 0, 0.5220729, 0, -0.85290086, -219.3889, 0, 2.9622)
+world_id = &"brackett/district_02/building_0035"
+district_id = 2
+district_name = "The Crescents"
+
+[node name="building_0036" parent="Geometry" unique_id=1896914626 instance=ExtResource("2_x0bej")]
+transform = Transform3D(-0.4391664, 0, 0.89840573, 0, 1, 0, -0.89840573, 0, -0.4391664, -524.9315, 0, 46.3853)
+world_id = &"brackett/district_02/building_0036"
+district_id = 2
+district_name = "The Crescents"
+
+[node name="building_0037" parent="Geometry" unique_id=1606259906 instance=ExtResource("4_00b4c")]
+transform = Transform3D(-0.48307762, 0, -0.8755775, 0, 1, 0, 0.8755775, 0, -0.48307762, -284.6779, 0, -57.2904)
+world_id = &"brackett/district_02/building_0037"
+district_id = 2
+district_name = "The Crescents"
+
+[node name="building_0038" parent="Geometry" unique_id=254136154 instance=ExtResource("4_00b4c")]
+transform = Transform3D(0.7845524, 0, -0.62006253, 0, 1, 0, 0.62006253, 0, 0.7845524, -250.2735, 0, -75.4129)
+world_id = &"brackett/district_02/building_0038"
+district_id = 2
+district_name = "The Crescents"
+
+[node name="building_0039" parent="Geometry" unique_id=1185676235 instance=ExtResource("4_00b4c")]
+transform = Transform3D(0.84928787, 0, -0.52793, 0, 1, 0, 0.52793, 0, 0.84928787, -388.004, 0, -65.6993)
+world_id = &"brackett/district_02/building_0039"
+district_id = 2
+district_name = "The Crescents"
+
+[node name="building_0040" parent="Geometry" unique_id=1724103408 instance=ExtResource("4_00b4c")]
+transform = Transform3D(0.12559994, 0, -0.992081, 0, 1, 0, 0.992081, 0, 0.12559994, -275.9398, 0, -36.7444)
+world_id = &"brackett/district_02/building_0040"
+district_id = 2
+district_name = "The Crescents"
+
+[node name="building_0041" parent="Geometry" unique_id=594937216 instance=ExtResource("3_gson8")]
+transform = Transform3D(0.2971733, 0, -0.95482355, 0, 1, 0, 0.95482355, 0, 0.2971733, -269.8841, 0, -20.3521)
+world_id = &"brackett/district_02/building_0041"
+district_id = 2
+district_name = "The Crescents"
+
+[node name="building_0042" parent="Geometry" unique_id=615730744 instance=ExtResource("2_x0bej")]
+transform = Transform3D(0.65437263, 0, -0.75617224, 0, 1, 0, 0.75617224, 0, 0.65437263, -231.862, 0, -41.5863)
+world_id = &"brackett/district_02/building_0042"
+district_id = 2
+district_name = "The Crescents"
+
+[node name="building_0043" parent="Geometry" unique_id=1588271743 instance=ExtResource("4_00b4c")]
+transform = Transform3D(-0.8961335, 0, -0.44378462, 0, 1, 0, 0.44378462, 0, -0.8961335, -235.7012, 0, -4.7306)
+world_id = &"brackett/district_02/building_0043"
+district_id = 2
+district_name = "The Crescents"
+
+[node name="building_0044" parent="Geometry" unique_id=1882743154 instance=ExtResource("3_gson8")]
+transform = Transform3D(-0.7159486, 0, -0.69815296, 0, 1, 0, 0.69815296, 0, -0.7159486, -263.1428, 0, -61.4556)
+world_id = &"brackett/district_02/building_0044"
+district_id = 2
+district_name = "The Crescents"
+
+[node name="building_0045" parent="Geometry" unique_id=578146084 instance=ExtResource("2_x0bej")]
+transform = Transform3D(0.49001855, 0, -0.871712, 0, 1, 0, 0.871712, 0, 0.49001855, -218.5324, 0, -20.2598)
+world_id = &"brackett/district_02/building_0045"
+district_id = 2
+district_name = "The Crescents"
+
+[node name="building_0046" parent="Geometry" unique_id=225279106 instance=ExtResource("4_00b4c")]
+transform = Transform3D(0.5813436, 0, -0.8136582, 0, 1, 0, 0.8136582, 0, 0.5813436, -258.7632, 0, -6.3756)
+world_id = &"brackett/district_02/building_0046"
+district_id = 2
+district_name = "The Crescents"
+
+[node name="building_0047" parent="Geometry" unique_id=571682484 instance=ExtResource("3_gson8")]
+transform = Transform3D(0.7239624, 0, -0.6898394, 0, 1, 0, 0.6898394, 0, 0.7239624, -250.2747, 0, -50.5073)
+world_id = &"brackett/district_02/building_0047"
+district_id = 2
+district_name = "The Crescents"
+
+[node name="building_0048" parent="Geometry" unique_id=1967637763 instance=ExtResource("4_00b4c")]
+transform = Transform3D(-0.8961335, 0, -0.44378462, 0, 1, 0, 0.44378462, 0, -0.8961335, -244.6626, 0, -17.4068)
+world_id = &"brackett/district_02/building_0048"
+district_id = 2
+district_name = "The Crescents"

@@ -1,0 +1,230 @@
+[gd_scene format=3 uid="uid://d1jatv1nw3o63"]
+
+[ext_resource type="Script" uid="uid://bogn5hbsdcqdc" path="res://scenes/world/brackett_greybox/placement.gd" id="1_n40k3"]
+[ext_resource type="PackedScene" uid="uid://dlcjruersbhlv" path="res://scenes/world/brackett_greybox/prefabs/repair_shed.tscn" id="2_o1wpk"]
+[ext_resource type="PackedScene" uid="uid://b4xg4n6snl0tp" path="res://scenes/world/brackett_greybox/prefabs/workshop.tscn" id="3_frntd"]
+
+[node name="District08" type="Node3D" unique_id=777536774]
+script = ExtResource("1_n40k3")
+world_id = &"brackett/district_08"
+district_id = 8
+district_name = "Ironreach"
+metadata/discussion_id = "08"
+
+[node name="Geometry" type="Node3D" parent="." unique_id=93932752]
+
+[node name="building_0001" parent="Geometry" unique_id=298561372 instance=ExtResource("2_o1wpk")]
+transform = Transform3D(0.92633677, 0, -0.3766964, 0, 1, 0, 0.3766964, 0, 0.92633677, 306.3873, 0, 85.2059)
+world_id = &"brackett/district_08/building_0001"
+district_id = 8
+district_name = "Ironreach"
+
+[node name="building_0002" parent="Geometry" unique_id=1311246262 instance=ExtResource("2_o1wpk")]
+transform = Transform3D(0.333616, 0, -0.9427091, 0, 1, 0, 0.9427091, 0, 0.333616, 264.6253, 0, 93.6125)
+world_id = &"brackett/district_08/building_0002"
+district_id = 8
+district_name = "Ironreach"
+
+[node name="building_0003" parent="Geometry" unique_id=1533352894 instance=ExtResource("2_o1wpk")]
+transform = Transform3D(0.92633677, 0, -0.3766964, 0, 1, 0, 0.3766964, 0, 0.92633677, 314.061, 0, 51.7645)
+world_id = &"brackett/district_08/building_0003"
+district_id = 8
+district_name = "Ironreach"
+
+[node name="building_0004" parent="Geometry" unique_id=2037561997 instance=ExtResource("2_o1wpk")]
+transform = Transform3D(0.63386697, 0, -0.7734421, 0, 1, 0, 0.7734421, 0, 0.63386697, 233.5733, 0, 35.4166)
+world_id = &"brackett/district_08/building_0004"
+district_id = 8
+district_name = "Ironreach"
+
+[node name="building_0005" parent="Geometry" unique_id=974716775 instance=ExtResource("2_o1wpk")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 282.3262, 0, 171.3083)
+world_id = &"brackett/district_08/building_0005"
+district_id = 8
+district_name = "Ironreach"
+
+[node name="building_0006" parent="Geometry" unique_id=137907416 instance=ExtResource("2_o1wpk")]
+transform = Transform3D(0.399018, 0, -0.9169431, 0, 1, 0, 0.9169431, 0, 0.399018, 253.8295, 0, 67.6962)
+world_id = &"brackett/district_08/building_0006"
+district_id = 8
+district_name = "Ironreach"
+
+[node name="building_0007" parent="Geometry" unique_id=1629389692 instance=ExtResource("2_o1wpk")]
+transform = Transform3D(0.930287, 0, -0.36683246, 0, 1, 0, 0.36683246, 0, 0.930287, 354.7299, 0, 28.3554)
+world_id = &"brackett/district_08/building_0007"
+district_id = 8
+district_name = "Ironreach"
+
+[node name="building_0008" parent="Geometry" unique_id=657188094 instance=ExtResource("2_o1wpk")]
+transform = Transform3D(0.9814215, 0, -0.19186425, 0, 1, 0, 0.19186425, 0, 0.9814215, 347.508, 0, 62.6973)
+world_id = &"brackett/district_08/building_0008"
+district_id = 8
+district_name = "Ironreach"
+
+[node name="building_0009" parent="Geometry" unique_id=465893941 instance=ExtResource("2_o1wpk")]
+transform = Transform3D(0.97419703, 0, -0.22569925, 0, 1, 0, 0.22569925, 0, 0.97419703, 197.9351, 0, 177.2725)
+world_id = &"brackett/district_08/building_0009"
+district_id = 8
+district_name = "Ironreach"
+
+[node name="building_0010" parent="Geometry" unique_id=1220869382 instance=ExtResource("2_o1wpk")]
+transform = Transform3D(0.80006176, 0, -0.59991765, 0, 1, 0, 0.59991765, 0, 0.80006176, 416.67, 0, -73.6431)
+world_id = &"brackett/district_08/building_0010"
+district_id = 8
+district_name = "Ironreach"
+
+[node name="building_0011" parent="Geometry" unique_id=2062067601 instance=ExtResource("2_o1wpk")]
+transform = Transform3D(0.9647575, 0, -0.26314065, 0, 1, 0, 0.26314065, 0, 0.9647575, 236.3512, 0, 158.3345)
+world_id = &"brackett/district_08/building_0011"
+district_id = 8
+district_name = "Ironreach"
+
+[node name="building_0012" parent="Geometry" unique_id=317939781 instance=ExtResource("2_o1wpk")]
+transform = Transform3D(0.9614088, 0, -0.27512395, 0, 1, 0, 0.27512395, 0, 0.9614088, 264.91, 0, 194.8175)
+world_id = &"brackett/district_08/building_0012"
+district_id = 8
+district_name = "Ironreach"
+
+[node name="building_0013" parent="Geometry" unique_id=247700592 instance=ExtResource("2_o1wpk")]
+transform = Transform3D(0.8210107, 0, -0.5709128, 0, 1, 0, 0.5709128, 0, 0.8210107, 362.08, 0, -65.7234)
+world_id = &"brackett/district_08/building_0013"
+district_id = 8
+district_name = "Ironreach"
+
+[node name="building_0014" parent="Geometry" unique_id=774989408 instance=ExtResource("2_o1wpk")]
+transform = Transform3D(0.92358536, 0, -0.3833928, 0, 1, 0, 0.3833928, 0, 0.92358536, 329.7614, 0, 19.6252)
+world_id = &"brackett/district_08/building_0014"
+district_id = 8
+district_name = "Ironreach"
+
+[node name="building_0015" parent="Geometry" unique_id=123006425 instance=ExtResource("2_o1wpk")]
+transform = Transform3D(0.93368423, 0, -0.35809746, 0, 1, 0, 0.35809746, 0, 0.93368423, 224.1274, 0, 113.455)
+world_id = &"brackett/district_08/building_0015"
+district_id = 8
+district_name = "Ironreach"
+
+[node name="building_0016" parent="Geometry" unique_id=1913293478 instance=ExtResource("2_o1wpk")]
+transform = Transform3D(0.9767468, 0, -0.2143961, 0, 1, 0, 0.2143961, 0, 0.9767468, 164.4863, 0, 169.2924)
+world_id = &"brackett/district_08/building_0016"
+district_id = 8
+district_name = "Ironreach"
+
+[node name="building_0017" parent="Geometry" unique_id=2021350077 instance=ExtResource("2_o1wpk")]
+transform = Transform3D(0.5866028, 0, -0.8098748, 0, 1, 0, 0.8098748, 0, 0.5866028, 269.9842, 0, 21.1912)
+world_id = &"brackett/district_08/building_0017"
+district_id = 8
+district_name = "Ironreach"
+
+[node name="building_0018" parent="Geometry" unique_id=499806420 instance=ExtResource("2_o1wpk")]
+transform = Transform3D(0.8210107, 0, -0.5709128, 0, 1, 0, 0.5709128, 0, 0.8210107, 385.2967, 0, -97.4439)
+world_id = &"brackett/district_08/building_0018"
+district_id = 8
+district_name = "Ironreach"
+
+[node name="building_0019" parent="Geometry" unique_id=110414807 instance=ExtResource("2_o1wpk")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 339.9741, 0, -35.2069)
+world_id = &"brackett/district_08/building_0019"
+district_id = 8
+district_name = "Ironreach"
+
+[node name="building_0020" parent="Geometry" unique_id=1779426983 instance=ExtResource("2_o1wpk")]
+transform = Transform3D(0.7965078, 0, -0.6046283, 0, 1, 0, 0.6046283, 0, 0.7965078, 404.8883, 0, -33.3539)
+world_id = &"brackett/district_08/building_0020"
+district_id = 8
+district_name = "Ironreach"
+
+[node name="building_0021" parent="Geometry" unique_id=1627206922 instance=ExtResource("2_o1wpk")]
+transform = Transform3D(0.83765006, 0, -0.54620725, 0, 1, 0, 0.54620725, 0, 0.83765006, 361.8002, 0, -113.6357)
+world_id = &"brackett/district_08/building_0021"
+district_id = 8
+district_name = "Ironreach"
+
+[node name="building_0022" parent="Geometry" unique_id=1676787049 instance=ExtResource("2_o1wpk")]
+transform = Transform3D(0.91772205, 0, -0.39722317, 0, 1, 0, 0.39722317, 0, 0.91772205, 193.8014, 0, 100.255)
+world_id = &"brackett/district_08/building_0022"
+district_id = 8
+district_name = "Ironreach"
+
+[node name="building_0023" parent="Geometry" unique_id=475228118 instance=ExtResource("2_o1wpk")]
+transform = Transform3D(0.9389406, 0, -0.34407926, 0, 1, 0, 0.34407926, 0, 0.9389406, 376.9673, 0, -4.6086)
+world_id = &"brackett/district_08/building_0023"
+district_id = 8
+district_name = "Ironreach"
+
+[node name="building_0024" parent="Geometry" unique_id=1548009166 instance=ExtResource("2_o1wpk")]
+transform = Transform3D(0.9264117, 0, -0.37651208, 0, 1, 0, 0.37651208, 0, 0.9264117, 197.7646, 0, 146.3051)
+world_id = &"brackett/district_08/building_0024"
+district_id = 8
+district_name = "Ironreach"
+
+[node name="building_0025" parent="Geometry" unique_id=808420550 instance=ExtResource("2_o1wpk")]
+transform = Transform3D(0.58744067, 0, 0.8092672, 0, 1, 0, -0.8092672, 0, 0.58744067, 373.3838, 0, 44.1691)
+world_id = &"brackett/district_08/building_0025"
+district_id = 8
+district_name = "Ironreach"
+
+[node name="building_0026" parent="Geometry" unique_id=1821928152 instance=ExtResource("2_o1wpk")]
+transform = Transform3D(0.8044482, 0, -0.5940228, 0, 1, 0, 0.5940228, 0, 0.8044482, 451.0647, 0, -50.8439)
+world_id = &"brackett/district_08/building_0026"
+district_id = 8
+district_name = "Ironreach"
+
+[node name="building_0027" parent="Geometry" unique_id=550623734 instance=ExtResource("2_o1wpk")]
+transform = Transform3D(0.9639279, 0, -0.2661635, 0, 1, 0, 0.2661635, 0, 0.9639279, 241.8878, 0, 185.3844)
+world_id = &"brackett/district_08/building_0027"
+district_id = 8
+district_name = "Ironreach"
+
+[node name="building_0028" parent="Geometry" unique_id=1802081895 instance=ExtResource("3_frntd")]
+transform = Transform3D(0.9160872, 0, -0.4009791, 0, 1, 0, 0.4009791, 0, 0.9160872, 163.1914, 0, 133.8516)
+world_id = &"brackett/district_08/building_0028"
+district_id = 8
+district_name = "Ironreach"
+
+[node name="building_0029" parent="Geometry" unique_id=1709556962 instance=ExtResource("2_o1wpk")]
+transform = Transform3D(0.9771455, 0, -0.21257165, 0, 1, 0, 0.21257165, 0, 0.9771455, 261.3469, 0, 121.0494)
+world_id = &"brackett/district_08/building_0029"
+district_id = 8
+district_name = "Ironreach"
+
+[node name="building_0030" parent="Geometry" unique_id=1771230960 instance=ExtResource("2_o1wpk")]
+transform = Transform3D(-0.5574973, 0, -0.83017874, 0, 1, 0, 0.83017874, 0, -0.5574973, 202.8249, 0, 76.7319)
+world_id = &"brackett/district_08/building_0030"
+district_id = 8
+district_name = "Ironreach"
+
+[node name="building_0031" parent="Geometry" unique_id=1084427645 instance=ExtResource("2_o1wpk")]
+transform = Transform3D(0.55108094, 0, 0.8344518, 0, 1, 0, -0.8344518, 0, 0.55108094, 411.8409, 0, -3.0243)
+world_id = &"brackett/district_08/building_0031"
+district_id = 8
+district_name = "Ironreach"
+
+[node name="building_0032" parent="Geometry" unique_id=1853057418 instance=ExtResource("2_o1wpk")]
+transform = Transform3D(0.8037032, 0, -0.5950304, 0, 1, 0, 0.5950304, 0, 0.8037032, 379.9931, 0, -44.1998)
+world_id = &"brackett/district_08/building_0032"
+district_id = 8
+district_name = "Ironreach"
+
+[node name="building_0033" parent="Geometry" unique_id=90464801 instance=ExtResource("2_o1wpk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 296.7158, 0, 22.3297)
+world_id = &"brackett/district_08/building_0033"
+district_id = 8
+district_name = "Ironreach"
+
+[node name="building_0034" parent="Geometry" unique_id=865848513 instance=ExtResource("2_o1wpk")]
+transform = Transform3D(0.8037032, 0, -0.5950304, 0, 1, 0, 0.5950304, 0, 0.8037032, 421.502, 0, -92.565)
+world_id = &"brackett/district_08/building_0034"
+district_id = 8
+district_name = "Ironreach"
+
+[node name="building_0035" parent="Geometry" unique_id=517844244 instance=ExtResource("2_o1wpk")]
+transform = Transform3D(0.399018, 0, -0.9169431, 0, 1, 0, 0.9169431, 0, 0.399018, 233.6108, 0, 74.4843)
+world_id = &"brackett/district_08/building_0035"
+district_id = 8
+district_name = "Ironreach"
+
+[node name="building_0036" parent="Geometry" unique_id=248207729 instance=ExtResource("2_o1wpk")]
+transform = Transform3D(0.7994446, 0, -0.6007398, 0, 1, 0, 0.6007398, 0, 0.7994446, 457.0819, 0, -69.1664)
+world_id = &"brackett/district_08/building_0036"
+district_id = 8
+district_name = "Ironreach"
