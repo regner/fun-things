@@ -65,6 +65,26 @@ func test_decisions_are_staggered_and_threat_reactions_are_bounded() -> void:
 		)
 
 
+## Keeps every emitted command valid when float32 facing reaches the negative-PI boundary.
+func test_long_running_commands_keep_canonical_aim_yaw() -> void:
+	var positions: PackedVector2Array = PackedVector2Array()
+	for slot: int in PedestrianCore.MAX_AGENTS:
+		var start: Vector2 = _navigation.node_position(slot)
+		positions.append(start)
+		assert_true(_core.add_agent(slot + 1, slot, start))
+
+	var commands_valid: bool = true
+	var positions_synced: bool = true
+	for host_tick: int in 400:
+		var commands: Array[FootCommand] = _core.step(host_tick)
+		for slot: int in commands.size():
+			commands_valid = commands[slot].is_valid() and commands_valid
+			positions[slot] += commands[slot].move * ActorMotion.SPEED_MPS / 60.0
+			positions_synced = _core.sync_position(slot + 1, positions[slot]) and positions_synced
+	assert_true(commands_valid)
+	assert_true(positions_synced)
+
+
 ## Accepts only the declared threat kinds and rejects unknown enum values.
 func test_threat_kind_validation() -> void:
 	for kind: PedestrianCore.ThreatKind in [

@@ -186,11 +186,13 @@ func to_foot_command(slot: int, host_tick: int) -> FootCommand:
 		_state.aim_yaws[slot] = 0.0
 	else:
 		_state.aim_yaws[slot] = wrapf(_state.aim_yaws[slot], -PI, PI)
+	# PackedFloat32 storage can round a boundary yaw just beyond FootCommand's range.
+	var command_aim_yaw: float = clampf(_state.aim_yaws[slot], -PI, PI)
 	return FootCommand.new(
 		_state.sequences[slot],
 		host_tick,
 		movement,
-		_state.aim_yaws[slot],
+		command_aim_yaw,
 		false,
 		false,
 	)

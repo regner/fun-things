@@ -1,0 +1,57 @@
+{
+  "engine_pin": "4.8.dev7.official.c971f93e7",
+  "machine": {
+    "system": "Windows",
+    "version": "10.0.26200",
+    "machine": "AMD64",
+    "processor": "Intel64 Family 6 Model 170 Stepping 4, GenuineIntel",
+    "logical_cpu_count": 22
+  },
+  "run": {
+    "headless": true,
+    "frame_cap": 60,
+    "physics_ticks_per_second": 60,
+    "warmup_ticks": 600,
+    "measured_ticks": 3600,
+    "pedestrians": 64,
+    "players": 4
+  },
+  "timing_ms": {
+    "total": {
+      "count": 3600,
+      "median_ms": 1.161,
+      "p95_ms": 2.265,
+      "p99_ms": 3.272
+    },
+    "pedestrian_decisions": {
+      "count": 3600,
+      "median_ms": 0.793,
+      "p95_ms": 1.523,
+      "p99_ms": 2.185
+    },
+    "actor_motion": {
+      "count": 3600,
+      "median_ms": 0.319,
+      "p95_ms": 0.763,
+      "p99_ms": 1.329
+    }
+  },
+  "soft_target": {
+    "total_p95_ms": 4.0,
+    "observed_total_p95_ms": 2.265,
+    "status": "within",
+    "report_only": true
+  },
+  "contention": {
+    "godot_processes_before": 2,
+    "other_godot_processes_during": 1,
+    "godot_processes_after": 2,
+    "label": "contended",
+    "method": "instantaneous process-count samples; not a quiet-machine proof"
+  },
+  "limitations": [
+    "Headless synthetic graph, not the Brackett world or a graphical frame measurement.",
+    "Tracking actors use production CharacterBody3D motion with collision layers disabled.",
+    "No networking, replication, traffic, combat, lifecycle, or presentation sections exist yet."
+  ]
+}
