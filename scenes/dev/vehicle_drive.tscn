@@ -1,0 +1,102 @@
+[gd_scene format=3 uid="uid://cyscofvri6apq"]
+
+[ext_resource type="Script" uid="uid://m56mgcltehp" path="res://scenes/dev/vehicle_drive_harness.gd" id="1_harness"]
+[ext_resource type="Resource" uid="uid://bb4igbrhuuual" path="res://resources/vehicles/default_vehicle_tuning.tres" id="2_tuning"]
+[ext_resource type="PackedScene" uid="uid://ccvmie2f3engk" path="res://scenes/match/match.tscn" id="3_match"]
+[ext_resource type="PackedScene" uid="uid://brwsb70elot6b" path="res://scenes/world/brackett_greybox/sectors/ground_01_01.tscn" id="4_ground"]
+[ext_resource type="PackedScene" uid="uid://byyilprjtfpa7" path="res://scenes/entities/vehicles/vehicle_latch.tscn" id="5_latch"]
+[ext_resource type="Script" uid="uid://bogn5hbsdcqdc" path="res://scenes/world/brackett_greybox/placement.gd" id="5_mqh0f"]
+[ext_resource type="PackedScene" uid="uid://c5bp5ad24wcpn" path="res://scenes/entities/vehicles/vehicle_crate.tscn" id="6_crate"]
+[ext_resource type="Script" uid="uid://dwiccn2rdt5t" path="res://scripts/vehicles/vehicle_motion.gd" id="7_435km"]
+[ext_resource type="PackedScene" uid="uid://dmmabcm0bto6k" path="res://scenes/entities/vehicles/vehicle_sable.tscn" id="7_sable"]
+[ext_resource type="Script" uid="uid://cc2u6yenn2j1t" path="res://scripts/local/desktop_drive_input.gd" id="8_input"]
+
+[sub_resource type="Environment" id="Environment_drive"]
+background_mode = 1
+background_color = Color(0.025, 0.045, 0.065, 1)
+ambient_light_source = 3
+ambient_light_color = Color(0.62, 0.7, 0.78, 1)
+ambient_light_energy = 0.65
+
+[node name="VehicleDrive" type="Node3D" unique_id=1138980615]
+script = ExtResource("1_harness")
+tuning = ExtResource("2_tuning")
+
+[node name="BrackettMatch" type="Node3D" parent="." unique_id=870056152 instance=ExtResource("3_match")]
+metadata/world_scope = "whole Brackett island greybox"
+
+[node name="FlatGround" type="Node3D" parent="." unique_id=1233366373 instance=ExtResource("4_ground")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 500, 0, 0)
+script = ExtResource("5_mqh0f")
+world_id = &"brackett/ground_01_01"
+asset_id = &"ground_01_01"
+
+[node name="Vehicles" type="Node3D" parent="." unique_id=1802320223]
+
+[node name="Latch" type="CharacterBody3D" parent="Vehicles" unique_id=459501663 instance=ExtResource("5_latch")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 450, 0.05, 0)
+collision_layer = 4
+collision_mask = 5
+motion_mode = 1
+script = ExtResource("7_435km")
+tuning = ExtResource("2_tuning")
+metadata/definition_id = &"vehicle/latch_a"
+
+[node name="Crate" type="CharacterBody3D" parent="Vehicles" unique_id=1124721190 instance=ExtResource("6_crate")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 450, 0.05, 0)
+collision_layer = 4
+collision_mask = 5
+motion_mode = 1
+script = ExtResource("7_435km")
+tuning = ExtResource("2_tuning")
+metadata/definition_id = &"vehicle/crate_a"
+
+[node name="Sable" type="CharacterBody3D" parent="Vehicles" unique_id=1002969346 instance=ExtResource("7_sable")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 450, 0.05, 0)
+collision_layer = 4
+collision_mask = 5
+motion_mode = 1
+script = ExtResource("7_435km")
+tuning = ExtResource("2_tuning")
+metadata/definition_id = &"vehicle/sable_a"
+
+[node name="DesktopDriveInput" type="Node" parent="." unique_id=117509225]
+script = ExtResource("8_input")
+
+[node name="CameraRig" type="Node3D" parent="." unique_id=1120888549]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 450, 47, 0)
+
+[node name="Camera3D" type="Camera3D" parent="CameraRig" unique_id=601637863]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0)
+current = true
+fov = 42.0
+near = 0.1
+far = 200.0
+
+[node name="Sun" type="DirectionalLight3D" parent="." unique_id=2037145920]
+transform = Transform3D(0.81915206, 0.43938506, -0.36868784, 0, 0.64278764, 0.76604444, 0.57357645, -0.62750685, 0.5265408, 0, 0, 0)
+light_energy = 1.25
+shadow_enabled = true
+
+[node name="Environment" type="WorldEnvironment" parent="." unique_id=457712293]
+environment = SubResource("Environment_drive")
+
+[node name="Hud" type="CanvasLayer" parent="." unique_id=1477000994]
+
+[node name="Panel" type="PanelContainer" parent="Hud" unique_id=1130944643]
+offset_left = 16.0
+offset_top = 16.0
+offset_right = 530.0
+offset_bottom = 408.0
+
+[node name="Margin" type="MarginContainer" parent="Hud/Panel" unique_id=793061872]
+layout_mode = 2
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 12
+theme_override_constants/margin_bottom = 10
+
+[node name="Label" type="Label" parent="Hud/Panel/Margin" unique_id=627875613]
+layout_mode = 2
+theme_override_font_sizes/font_size = 16
+text = "Vehicle drive/tuning"

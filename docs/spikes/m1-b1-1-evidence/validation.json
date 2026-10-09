@@ -1,0 +1,26 @@
+{
+  "engine": "4.8.dev7.official.c971f93e7",
+  "focused_production_checks": {
+    "command": "python tools/production_checks.py --gut-dir tests/unit/vehicles --output C:/tmp/ft/lanes/m1-b1-1/production-focused-2",
+    "result": "pass",
+    "gut": "12/12 passed"
+  },
+  "full_production_checks": {
+    "command": "python tools/production_checks.py --output C:/tmp/ft/lanes/m1-b1-1/production-full-final",
+    "result": "pass"
+  },
+  "standalone_smoke": {
+    "scene": "res://scenes/dev/vehicle_drive.tscn",
+    "argument": "--vehicle-harness-smoke",
+    "result": "pass",
+    "ticks": 20,
+    "distance_m": 0.7,
+    "engine_diagnostics": 0
+  },
+  "saved_scene_roundtrip": {
+    "result": "pass",
+    "scene_count": 4,
+    "method": "load, instantiate, PackedScene.pack, ResourceSaver.save, reimport"
+  },
+  "visual_review": "not run"
+}

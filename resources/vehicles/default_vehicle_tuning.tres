@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="VehicleTuning" load_steps=2 format=3 uid="uid://bb4igbrhuuual"]
+
+[ext_resource type="Script" uid="uid://iyakkl1etrxm" path="res://scripts/vehicles/vehicle_tuning.gd" id="1_tuning"]
+
+[resource]
+script = ExtResource("1_tuning")
+acceleration_mps2 = 12.0
+brake_mps2 = 12.0
+coast_mps2 = 9.25
+max_forward_mps = 24.0
+max_reverse_mps = 6.0
+grip_per_second = 8.0
+handbrake_side_grip_per_second = 3.0
+turn_rate_rad_per_second = 1.5
+full_steer_speed_mps = 4.0
+handbrake_brake_mps2 = 10.0

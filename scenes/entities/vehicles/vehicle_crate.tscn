@@ -1,0 +1,47 @@
+[gd_scene format=3 uid="uid://c5bp5ad24wcpn"]
+
+[ext_resource type="Script" uid="uid://dwiccn2rdt5t" path="res://scripts/vehicles/vehicle_motion.gd" id="1_motion"]
+[ext_resource type="Resource" uid="uid://bb4igbrhuuual" path="res://resources/vehicles/default_vehicle_tuning.tres" id="2_tuning"]
+[ext_resource type="Script" uid="uid://bgii3drpt2m2u" path="res://scripts/vehicles/vehicle_presentation.gd" id="3_presentation"]
+[ext_resource type="PackedScene" uid="uid://cdek0yeu7ttlc" path="res://scenes/prefabs/city_cars/car_crate_a.tscn" id="4_model"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_crate"]
+size = Vector3(1.82, 1.45, 3.5)
+
+[node name="VehicleCrate" type="CharacterBody3D" unique_id=2030926431]
+collision_layer = 4
+collision_mask = 5
+motion_mode = 1
+script = ExtResource("1_motion")
+tuning = ExtResource("2_tuning")
+metadata/definition_id = &"vehicle/crate_a"
+
+[node name="Collision" type="CollisionShape3D" parent="." unique_id=176433562]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.725, 0)
+shape = SubResource("BoxShape3D_crate")
+
+[node name="PresentationAnchor" type="Node3D" parent="." unique_id=1408182825]
+script = ExtResource("3_presentation")
+
+[node name="Visuals" type="Node3D" parent="PresentationAnchor" unique_id=1220523448]
+
+[node name="Model" type="Node3D" parent="PresentationAnchor/Visuals" unique_id=360069332 instance=ExtResource("4_model")]
+metadata/asset_id = "car_crate_a"
+metadata/visual_only = true
+
+[node name="Sockets" type="Node3D" parent="." unique_id=102303315]
+
+[node name="DriverSeat" type="Marker3D" parent="Sockets" unique_id=1242956975]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.34, 0.86, -0.12)
+
+[node name="EntryLeft" type="Marker3D" parent="Sockets" unique_id=1781457644]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.35, 0, -0.1)
+
+[node name="EntryRight" type="Marker3D" parent="Sockets" unique_id=390559727]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.35, 0, -0.1)
+
+[node name="ExitLeft" type="Marker3D" parent="Sockets" unique_id=2023129228]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.57, 0, -0.1)
+
+[node name="ExitRight" type="Marker3D" parent="Sockets" unique_id=741221975]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.57, 0, -0.1)
