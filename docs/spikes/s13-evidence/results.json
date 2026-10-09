@@ -3,7 +3,7 @@
   "engine": "4.8.dev7.official.c971f93e7",
   "platform": "Windows-11-10.0.26200-SP0",
   "processor": "Intel64 Family 6 Model 170 Stepping 4, GenuineIntel",
-  "revision": "13630629f1665629e95b61c82d3ca1853131e4a7",
+  "revision": "741646aa9a4507046dae5f5646c84e91e605012e",
   "source_status": "",
   "warmup_seconds": 5.0,
   "duration_seconds": 10.0,
@@ -18,11 +18,11 @@
       "--headless",
       "--editor",
       "--path",
-      "C:\\tmp\\ft\\lanes\\s13-characters\\measurement2\\project",
+      "C:\\tmp\\ft\\lanes\\s13-characters\\measurement3\\project",
       "--import",
       "--quit",
       "--log-file",
-      "C:\\tmp\\ft\\lanes\\s13-characters\\measurement2\\import.engine.log"
+      "C:\\tmp\\ft\\lanes\\s13-characters\\measurement3\\import.engine.log"
     ],
     "exit": 0,
     "diagnostics": []
@@ -36,67 +36,67 @@
       "timed_out": false,
       "diagnostics": [],
       "system_load": {
-        "concurrent_godot_processes_before_start": 3,
-        "cpu_load_percent_before_start": 41.0,
+        "concurrent_godot_processes_before_start": 6,
+        "cpu_load_percent_before_start": 53.0,
         "tasklist_error": null,
         "cpu_error": null
       },
       "distributions": {
         "draw_calls": {
-          "samples": 524,
+          "samples": 443,
           "median": 163.0,
           "p95": 163.0,
           "p99": 163.0,
           "worst": 163.0
         },
         "frame_ms": {
-          "samples": 525,
-          "median": 16.667,
-          "p95": 16.815,
-          "p99": 17.307,
-          "worst": 466.226
+          "samples": 443,
+          "median": 16.665,
+          "p95": 17.124,
+          "p99": 461.269,
+          "worst": 514.104
         },
         "objects": {
-          "samples": 524,
+          "samples": 443,
           "median": 163.0,
           "p95": 163.0,
           "p99": 163.0,
           "worst": 163.0
         },
         "physics_ms": {
-          "samples": 525,
-          "median": 0.043,
-          "p95": 0.059,
-          "p99": 0.059,
-          "worst": 0.059
+          "samples": 443,
+          "median": 0.037,
+          "p95": 1.229,
+          "p99": 1.229,
+          "worst": 1.229
         },
         "primitives": {
-          "samples": 524,
+          "samples": 443,
           "median": 64548.0,
           "p95": 64548.0,
           "p99": 64548.0,
           "worst": 64548.0
         },
         "process_ms": {
-          "samples": 525,
-          "median": 3.974,
-          "p95": 466.123,
-          "p99": 466.123,
-          "worst": 466.123
+          "samples": 443,
+          "median": 441.436,
+          "p95": 513.91,
+          "p99": 513.91,
+          "worst": 513.91
         },
         "render_cpu_ms": {
-          "samples": 524,
-          "median": 0.730000019073486,
-          "p95": 1.15299999713898,
-          "p99": 1.33700001239777,
-          "worst": 1.39999997615814
+          "samples": 443,
+          "median": 0.720000028610229,
+          "p95": 1.13800001144409,
+          "p99": 1.78600001335144,
+          "worst": 5.45900011062622
         },
         "render_gpu_ms": {
-          "samples": 524,
-          "median": 0.921999990940094,
-          "p95": 1.13499999046326,
-          "p99": 1.20500004291534,
-          "worst": 4.45599985122681
+          "samples": 443,
+          "median": 1.06200003623962,
+          "p95": 1.58200001716614,
+          "p99": 1.86099994182587,
+          "worst": 2.28399991989136
         }
       },
       "metadata": {
@@ -136,67 +136,67 @@
       "timed_out": false,
       "diagnostics": [],
       "system_load": {
-        "concurrent_godot_processes_before_start": 3,
-        "cpu_load_percent_before_start": 91.0,
+        "concurrent_godot_processes_before_start": 10,
+        "cpu_load_percent_before_start": 31.0,
         "tasklist_error": null,
         "cpu_error": null
       },
       "distributions": {
         "draw_calls": {
-          "samples": 497,
+          "samples": 520,
           "median": 163.0,
           "p95": 163.0,
           "p99": 163.0,
           "worst": 163.0
         },
         "frame_ms": {
-          "samples": 498,
+          "samples": 521,
           "median": 16.666,
-          "p95": 16.827,
-          "p99": 27.571,
-          "worst": 489.009
+          "p95": 16.942,
+          "p99": 18.097,
+          "worst": 504.307
         },
         "objects": {
-          "samples": 497,
+          "samples": 520,
           "median": 163.0,
           "p95": 163.0,
           "p99": 163.0,
           "worst": 163.0
         },
         "physics_ms": {
-          "samples": 498,
-          "median": 0.042,
-          "p95": 0.081,
-          "p99": 0.081,
-          "worst": 0.081
+          "samples": 521,
+          "median": 0.049,
+          "p95": 0.383,
+          "p99": 0.383,
+          "worst": 0.383
         },
         "primitives": {
-          "samples": 497,
+          "samples": 520,
           "median": 64548.0,
           "p95": 64548.0,
           "p99": 64548.0,
           "worst": 64548.0
         },
         "process_ms": {
-          "samples": 498,
-          "median": 4.896,
-          "p95": 488.88,
-          "p99": 488.88,
-          "worst": 488.88
+          "samples": 521,
+          "median": 4.259,
+          "p95": 504.2,
+          "p99": 504.2,
+          "worst": 504.2
         },
         "render_cpu_ms": {
-          "samples": 497,
-          "median": 0.763000011444092,
-          "p95": 1.28299999237061,
-          "p99": 1.41100001335144,
-          "worst": 1.54100000858307
+          "samples": 520,
+          "median": 0.672999978065491,
+          "p95": 1.12100005149841,
+          "p99": 1.34399998188019,
+          "worst": 1.68099999427795
         },
         "render_gpu_ms": {
-          "samples": 497,
-          "median": 0.939999997615814,
-          "p95": 1.19500005245209,
-          "p99": 2.07200002670288,
-          "worst": 2.57999992370605
+          "samples": 520,
+          "median": 0.363000005483627,
+          "p95": 1.63800001144409,
+          "p99": 1.80200004577637,
+          "worst": 2.50999999046326
         }
       },
       "metadata": {
@@ -236,67 +236,67 @@
       "timed_out": false,
       "diagnostics": [],
       "system_load": {
-        "concurrent_godot_processes_before_start": 6,
-        "cpu_load_percent_before_start": 84.0,
+        "concurrent_godot_processes_before_start": 9,
+        "cpu_load_percent_before_start": 77.0,
         "tasklist_error": null,
         "cpu_error": null
       },
       "distributions": {
         "draw_calls": {
-          "samples": 496,
+          "samples": 418,
           "median": 163.0,
           "p95": 163.0,
           "p99": 163.0,
           "worst": 163.0
         },
         "frame_ms": {
-          "samples": 496,
-          "median": 16.667,
-          "p95": 16.907,
-          "p99": 454.283,
-          "worst": 485.64
+          "samples": 419,
+          "median": 16.665,
+          "p95": 17.082,
+          "p99": 462.113,
+          "worst": 502.87
         },
         "objects": {
-          "samples": 496,
+          "samples": 418,
           "median": 163.0,
           "p95": 163.0,
           "p99": 163.0,
           "worst": 163.0
         },
         "physics_ms": {
-          "samples": 496,
-          "median": 0.046,
-          "p95": 0.885,
-          "p99": 0.885,
-          "worst": 0.885
+          "samples": 419,
+          "median": 0.041,
+          "p95": 0.643,
+          "p99": 0.643,
+          "worst": 0.643
         },
         "primitives": {
-          "samples": 496,
+          "samples": 418,
           "median": 64548.0,
           "p95": 64548.0,
           "p99": 64548.0,
           "worst": 64548.0
         },
         "process_ms": {
-          "samples": 496,
-          "median": 4.475,
-          "p95": 468.776,
-          "p99": 468.776,
-          "worst": 468.776
+          "samples": 419,
+          "median": 449.454,
+          "p95": 502.775,
+          "p99": 502.775,
+          "worst": 502.775
         },
         "render_cpu_ms": {
-          "samples": 496,
-          "median": 0.612999975681305,
-          "p95": 1.10599994659424,
-          "p99": 1.38699996471405,
-          "worst": 3.36800003051758
+          "samples": 418,
+          "median": 0.592999994754791,
+          "p95": 1.00999999046326,
+          "p99": 1.12000000476837,
+          "worst": 1.26999998092651
         },
         "render_gpu_ms": {
-          "samples": 496,
-          "median": 0.578999996185303,
-          "p95": 1.30200004577637,
-          "p99": 1.48599994182587,
-          "worst": 3.4909999370575
+          "samples": 418,
+          "median": 0.360000014305115,
+          "p95": 1.67499995231628,
+          "p99": 1.86800003051758,
+          "worst": 2.09699988365173
         }
       },
       "metadata": {
@@ -336,67 +336,67 @@
       "timed_out": false,
       "diagnostics": [],
       "system_load": {
-        "concurrent_godot_processes_before_start": 6,
-        "cpu_load_percent_before_start": 0.0,
+        "concurrent_godot_processes_before_start": 9,
+        "cpu_load_percent_before_start": 1.0,
         "tasklist_error": null,
         "cpu_error": null
       },
       "distributions": {
         "draw_calls": {
-          "samples": 523,
+          "samples": 430,
           "median": 163.0,
           "p95": 163.0,
           "p99": 163.0,
           "worst": 163.0
         },
         "frame_ms": {
-          "samples": 523,
-          "median": 16.667,
-          "p95": 16.911,
-          "p99": 17.578,
-          "worst": 505.985
+          "samples": 431,
+          "median": 16.666,
+          "p95": 16.917,
+          "p99": 462.709,
+          "worst": 477.388
         },
         "objects": {
-          "samples": 523,
+          "samples": 430,
           "median": 163.0,
           "p95": 163.0,
           "p99": 163.0,
           "worst": 163.0
         },
         "physics_ms": {
-          "samples": 523,
-          "median": 0.043,
-          "p95": 0.194,
-          "p99": 0.194,
-          "worst": 0.194
+          "samples": 431,
+          "median": 0.029,
+          "p95": 0.042,
+          "p99": 0.042,
+          "worst": 0.042
         },
         "primitives": {
-          "samples": 523,
+          "samples": 430,
           "median": 64548.0,
           "p95": 64548.0,
           "p99": 64548.0,
           "worst": 64548.0
         },
         "process_ms": {
-          "samples": 523,
-          "median": 4.26,
-          "p95": 505.858,
-          "p99": 505.858,
-          "worst": 505.858
+          "samples": 431,
+          "median": 455.624,
+          "p95": 477.301,
+          "p99": 477.301,
+          "worst": 477.301
         },
         "render_cpu_ms": {
-          "samples": 523,
-          "median": 0.930000007152557,
-          "p95": 1.15600001811981,
-          "p99": 1.44000005722046,
-          "worst": 1.51499998569489
+          "samples": 430,
+          "median": 0.44200000166893,
+          "p95": 0.842000007629395,
+          "p99": 1.0460000038147,
+          "worst": 1.2389999628067
         },
         "render_gpu_ms": {
-          "samples": 523,
-          "median": 0.990000009536743,
-          "p95": 1.19599997997284,
-          "p99": 2.24200010299683,
-          "worst": 2.50699996948242
+          "samples": 430,
+          "median": 0.18299999833107,
+          "p95": 1.53699994087219,
+          "p99": 1.72099995613098,
+          "worst": 2.52800011634827
         }
       },
       "metadata": {
@@ -436,67 +436,67 @@
       "timed_out": false,
       "diagnostics": [],
       "system_load": {
-        "concurrent_godot_processes_before_start": 4,
-        "cpu_load_percent_before_start": 90.0,
+        "concurrent_godot_processes_before_start": 11,
+        "cpu_load_percent_before_start": 33.0,
         "tasklist_error": null,
         "cpu_error": null
       },
       "distributions": {
         "draw_calls": {
-          "samples": 525,
+          "samples": 470,
           "median": 163.0,
           "p95": 163.0,
           "p99": 163.0,
           "worst": 163.0
         },
         "frame_ms": {
-          "samples": 526,
+          "samples": 471,
           "median": 16.666,
-          "p95": 16.829,
-          "p99": 17.719,
-          "worst": 454.515
+          "p95": 16.894,
+          "p99": 448.626,
+          "worst": 480.262
         },
         "objects": {
-          "samples": 525,
+          "samples": 470,
           "median": 163.0,
           "p95": 163.0,
           "p99": 163.0,
           "worst": 163.0
         },
         "physics_ms": {
-          "samples": 526,
-          "median": 0.04,
-          "p95": 1.098,
-          "p99": 1.098,
-          "worst": 1.098
+          "samples": 471,
+          "median": 0.039,
+          "p95": 0.152,
+          "p99": 0.152,
+          "worst": 0.152
         },
         "primitives": {
-          "samples": 525,
+          "samples": 470,
           "median": 64548.0,
           "p95": 64548.0,
           "p99": 64548.0,
           "worst": 64548.0
         },
         "process_ms": {
-          "samples": 526,
-          "median": 4.867,
-          "p95": 454.4,
-          "p99": 454.4,
-          "worst": 454.4
+          "samples": 471,
+          "median": 8.441,
+          "p95": 480.124,
+          "p99": 480.124,
+          "worst": 480.124
         },
         "render_cpu_ms": {
-          "samples": 525,
-          "median": 0.669000029563904,
-          "p95": 1.04999995231628,
-          "p99": 1.19599997997284,
-          "worst": 2.45199990272522
+          "samples": 470,
+          "median": 0.521000027656555,
+          "p95": 1.0900000333786,
+          "p99": 1.33500003814697,
+          "worst": 2.37599992752075
         },
         "render_gpu_ms": {
-          "samples": 525,
-          "median": 0.982999980449677,
-          "p95": 1.14300000667572,
-          "p99": 1.2059999704361,
-          "worst": 2.32299995422363
+          "samples": 470,
+          "median": 0.187999993562698,
+          "p95": 1.42599999904633,
+          "p99": 1.65699994564056,
+          "worst": 2.27699995040894
         }
       },
       "metadata": {
@@ -536,67 +536,67 @@
       "timed_out": false,
       "diagnostics": [],
       "system_load": {
-        "concurrent_godot_processes_before_start": 2,
-        "cpu_load_percent_before_start": 62.0,
+        "concurrent_godot_processes_before_start": 6,
+        "cpu_load_percent_before_start": 66.0,
         "tasklist_error": null,
         "cpu_error": null
       },
       "distributions": {
         "draw_calls": {
-          "samples": 524,
+          "samples": 456,
           "median": 163.0,
           "p95": 163.0,
           "p99": 163.0,
           "worst": 163.0
         },
         "frame_ms": {
-          "samples": 525,
-          "median": 16.665,
-          "p95": 16.766,
-          "p99": 17.297,
-          "worst": 479.782
+          "samples": 456,
+          "median": 16.667,
+          "p95": 16.875,
+          "p99": 452.585,
+          "worst": 501.018
         },
         "objects": {
-          "samples": 524,
+          "samples": 456,
           "median": 163.0,
           "p95": 163.0,
           "p99": 163.0,
           "worst": 163.0
         },
         "physics_ms": {
-          "samples": 525,
-          "median": 0.04,
-          "p95": 0.078,
-          "p99": 0.078,
-          "worst": 0.078
+          "samples": 456,
+          "median": 0.036,
+          "p95": 0.362,
+          "p99": 0.362,
+          "worst": 0.362
         },
         "primitives": {
-          "samples": 524,
+          "samples": 456,
           "median": 64548.0,
           "p95": 64548.0,
           "p99": 64548.0,
           "worst": 64548.0
         },
         "process_ms": {
-          "samples": 525,
-          "median": 4.38,
-          "p95": 479.617,
-          "p99": 479.617,
-          "worst": 479.617
+          "samples": 456,
+          "median": 452.506,
+          "p95": 500.288,
+          "p99": 500.288,
+          "worst": 500.288
         },
         "render_cpu_ms": {
-          "samples": 524,
-          "median": 0.658999979496002,
-          "p95": 1.07299995422363,
-          "p99": 1.26999998092651,
-          "worst": 2.37899994850159
+          "samples": 456,
+          "median": 0.565999984741211,
+          "p95": 1.05599999427795,
+          "p99": 1.14499998092651,
+          "worst": 1.19799995422363
         },
         "render_gpu_ms": {
-          "samples": 524,
-          "median": 0.885999977588654,
-          "p95": 1.08599996566772,
-          "p99": 1.12999999523163,
-          "worst": 1.66199994087219
+          "samples": 456,
+          "median": 0.358000010251999,
+          "p95": 1.61500000953674,
+          "p99": 1.69500005245209,
+          "worst": 1.92799997329712
         }
       },
       "metadata": {
@@ -636,8 +636,8 @@
       "timed_out": false,
       "diagnostics": [],
       "system_load": {
-        "concurrent_godot_processes_before_start": 3,
-        "cpu_load_percent_before_start": 68.0,
+        "concurrent_godot_processes_before_start": 10,
+        "cpu_load_percent_before_start": 60.0,
         "tasklist_error": null,
         "cpu_error": null
       },
@@ -650,11 +650,11 @@
           "worst": null
         },
         "frame_ms": {
-          "samples": 1266,
-          "median": 8.627,
-          "p95": 17.007,
-          "p99": 20.096,
-          "worst": 57.157
+          "samples": 1248,
+          "median": 7.966,
+          "p95": 16.083,
+          "p99": 20.069,
+          "worst": 191.068
         },
         "objects": {
           "samples": 0,
@@ -664,11 +664,11 @@
           "worst": null
         },
         "physics_ms": {
-          "samples": 1266,
-          "median": 0.908,
-          "p95": 5.066,
-          "p99": 5.066,
-          "worst": 5.066
+          "samples": 1248,
+          "median": 0.431,
+          "p95": 0.792,
+          "p99": 0.792,
+          "worst": 0.792
         },
         "primitives": {
           "samples": 0,
@@ -678,11 +678,11 @@
           "worst": null
         },
         "process_ms": {
-          "samples": 1266,
-          "median": 5.33,
-          "p95": 10.569,
-          "p99": 10.569,
-          "worst": 10.569
+          "samples": 1248,
+          "median": 5.14,
+          "p95": 20.648,
+          "p99": 20.648,
+          "worst": 20.648
         },
         "render_cpu_ms": {
           "samples": 0,
@@ -736,8 +736,8 @@
       "timed_out": false,
       "diagnostics": [],
       "system_load": {
-        "concurrent_godot_processes_before_start": 2,
-        "cpu_load_percent_before_start": 69.0,
+        "concurrent_godot_processes_before_start": 9,
+        "cpu_load_percent_before_start": 52.0,
         "tasklist_error": null,
         "cpu_error": null
       },
@@ -750,11 +750,11 @@
           "worst": null
         },
         "frame_ms": {
-          "samples": 1275,
-          "median": 9.242,
-          "p95": 16.418,
-          "p99": 19.706,
-          "worst": 42.746
+          "samples": 1284,
+          "median": 7.438,
+          "p95": 16.318,
+          "p99": 17.871,
+          "worst": 24.395
         },
         "objects": {
           "samples": 0,
@@ -764,11 +764,11 @@
           "worst": null
         },
         "physics_ms": {
-          "samples": 1275,
-          "median": 1.106,
-          "p95": 2.583,
-          "p99": 2.583,
-          "worst": 2.583
+          "samples": 1284,
+          "median": 0.769,
+          "p95": 2.163,
+          "p99": 2.163,
+          "worst": 2.163
         },
         "primitives": {
           "samples": 0,
@@ -778,11 +778,11 @@
           "worst": null
         },
         "process_ms": {
-          "samples": 1275,
-          "median": 2.966,
-          "p95": 5.976,
-          "p99": 5.976,
-          "worst": 5.976
+          "samples": 1284,
+          "median": 2.882,
+          "p95": 5.769,
+          "p99": 5.769,
+          "worst": 5.769
         },
         "render_cpu_ms": {
           "samples": 0,
@@ -836,8 +836,8 @@
       "timed_out": false,
       "diagnostics": [],
       "system_load": {
-        "concurrent_godot_processes_before_start": 4,
-        "cpu_load_percent_before_start": 0.0,
+        "concurrent_godot_processes_before_start": 11,
+        "cpu_load_percent_before_start": 85.0,
         "tasklist_error": null,
         "cpu_error": null
       },
@@ -850,11 +850,11 @@
           "worst": null
         },
         "frame_ms": {
-          "samples": 1264,
-          "median": 8.56,
-          "p95": 16.878,
-          "p99": 19.84,
-          "worst": 34.869
+          "samples": 1210,
+          "median": 8.209,
+          "p95": 16.733,
+          "p99": 22.839,
+          "worst": 180.493
         },
         "objects": {
           "samples": 0,
@@ -864,11 +864,11 @@
           "worst": null
         },
         "physics_ms": {
-          "samples": 1264,
-          "median": 0.258,
-          "p95": 1.024,
-          "p99": 1.024,
-          "worst": 1.024
+          "samples": 1210,
+          "median": 0.158,
+          "p95": 2.515,
+          "p99": 2.515,
+          "worst": 2.515
         },
         "primitives": {
           "samples": 0,
@@ -878,11 +878,11 @@
           "worst": null
         },
         "process_ms": {
-          "samples": 1264,
-          "median": 3.751,
-          "p95": 12.215,
-          "p99": 18.025,
-          "worst": 18.025
+          "samples": 1210,
+          "median": 6.011,
+          "p95": 25.536,
+          "p99": 25.536,
+          "worst": 25.536
         },
         "render_cpu_ms": {
           "samples": 0,
@@ -936,8 +936,8 @@
       "timed_out": false,
       "diagnostics": [],
       "system_load": {
-        "concurrent_godot_processes_before_start": 3,
-        "cpu_load_percent_before_start": 1.0,
+        "concurrent_godot_processes_before_start": 13,
+        "cpu_load_percent_before_start": 87.0,
         "tasklist_error": null,
         "cpu_error": null
       },
@@ -950,11 +950,11 @@
           "worst": null
         },
         "frame_ms": {
-          "samples": 1249,
-          "median": 8.804,
-          "p95": 17.117,
-          "p99": 21.385,
-          "worst": 46.553
+          "samples": 1268,
+          "median": 7.932,
+          "p95": 16.186,
+          "p99": 19.796,
+          "worst": 33.444
         },
         "objects": {
           "samples": 0,
@@ -964,11 +964,11 @@
           "worst": null
         },
         "physics_ms": {
-          "samples": 1249,
-          "median": 0.347,
-          "p95": 1.278,
-          "p99": 1.278,
-          "worst": 1.278
+          "samples": 1268,
+          "median": 0.398,
+          "p95": 1.093,
+          "p99": 1.093,
+          "worst": 1.093
         },
         "primitives": {
           "samples": 0,
@@ -978,11 +978,11 @@
           "worst": null
         },
         "process_ms": {
-          "samples": 1249,
-          "median": 2.907,
-          "p95": 46.141,
-          "p99": 46.141,
-          "worst": 46.141
+          "samples": 1268,
+          "median": 4.391,
+          "p95": 11.26,
+          "p99": 11.26,
+          "worst": 11.26
         },
         "render_cpu_ms": {
           "samples": 0,
@@ -1036,7 +1036,7 @@
       "timed_out": false,
       "diagnostics": [],
       "system_load": {
-        "concurrent_godot_processes_before_start": 6,
+        "concurrent_godot_processes_before_start": 10,
         "cpu_load_percent_before_start": 65.0,
         "tasklist_error": null,
         "cpu_error": null
@@ -1050,11 +1050,11 @@
           "worst": null
         },
         "frame_ms": {
-          "samples": 1281,
-          "median": 8.524,
-          "p95": 16.086,
-          "p99": 17.824,
-          "worst": 26.708
+          "samples": 1239,
+          "median": 8.842,
+          "p95": 16.205,
+          "p99": 19.468,
+          "worst": 225.407
         },
         "objects": {
           "samples": 0,
@@ -1064,11 +1064,11 @@
           "worst": null
         },
         "physics_ms": {
-          "samples": 1281,
-          "median": 0.406,
-          "p95": 1.006,
-          "p99": 1.006,
-          "worst": 1.006
+          "samples": 1239,
+          "median": 0.232,
+          "p95": 1.14,
+          "p99": 1.14,
+          "worst": 1.14
         },
         "primitives": {
           "samples": 0,
@@ -1078,11 +1078,11 @@
           "worst": null
         },
         "process_ms": {
-          "samples": 1281,
-          "median": 3.41,
-          "p95": 14.742,
-          "p99": 14.742,
-          "worst": 14.742
+          "samples": 1239,
+          "median": 5.227,
+          "p95": 225.378,
+          "p99": 225.378,
+          "worst": 225.378
         },
         "render_cpu_ms": {
           "samples": 0,
@@ -1136,8 +1136,8 @@
       "timed_out": false,
       "diagnostics": [],
       "system_load": {
-        "concurrent_godot_processes_before_start": 6,
-        "cpu_load_percent_before_start": 77.0,
+        "concurrent_godot_processes_before_start": 11,
+        "cpu_load_percent_before_start": 85.0,
         "tasklist_error": null,
         "cpu_error": null
       },
@@ -1150,11 +1150,11 @@
           "worst": null
         },
         "frame_ms": {
-          "samples": 1256,
-          "median": 8.25,
-          "p95": 16.884,
-          "p99": 21.824,
-          "worst": 40.807
+          "samples": 1287,
+          "median": 8.743,
+          "p95": 16.042,
+          "p99": 17.546,
+          "worst": 45.666
         },
         "objects": {
           "samples": 0,
@@ -1164,11 +1164,11 @@
           "worst": null
         },
         "physics_ms": {
-          "samples": 1256,
-          "median": 0.168,
-          "p95": 3.104,
-          "p99": 3.104,
-          "worst": 3.104
+          "samples": 1287,
+          "median": 0.464,
+          "p95": 1.38,
+          "p99": 1.38,
+          "worst": 1.38
         },
         "primitives": {
           "samples": 0,
@@ -1178,11 +1178,11 @@
           "worst": null
         },
         "process_ms": {
-          "samples": 1256,
-          "median": 3.984,
-          "p95": 6.338,
-          "p99": 6.338,
-          "worst": 6.338
+          "samples": 1287,
+          "median": 2.829,
+          "p95": 13.036,
+          "p99": 13.036,
+          "worst": 13.036
         },
         "render_cpu_ms": {
           "samples": 0,
@@ -1237,7 +1237,7 @@
         "all_ok": true,
         "telemetry": {
           "draw_calls": {
-            "samples": 1545,
+            "samples": 1331,
             "median": 163.0,
             "p95": 163.0,
             "p99": 163.0,
@@ -1246,16 +1246,16 @@
             "repeat_worst": 163.0
           },
           "frame_ms": {
-            "samples": 1547,
+            "samples": 1333,
             "median": 16.666,
-            "p95": 16.857,
-            "p99": 18.518,
-            "worst": 485.64,
-            "repeat_median": 16.667,
-            "repeat_worst": 485.64
+            "p95": 17.05,
+            "p99": 461.269,
+            "worst": 514.104,
+            "repeat_median": 16.665,
+            "repeat_worst": 514.104
           },
           "objects": {
-            "samples": 1545,
+            "samples": 1331,
             "median": 163.0,
             "p95": 163.0,
             "p99": 163.0,
@@ -1264,16 +1264,16 @@
             "repeat_worst": 163.0
           },
           "physics_ms": {
-            "samples": 1547,
-            "median": 0.045,
-            "p95": 0.885,
-            "p99": 1.098,
-            "worst": 1.098,
-            "repeat_median": 0.043,
-            "repeat_worst": 1.098
+            "samples": 1333,
+            "median": 0.039,
+            "p95": 0.648,
+            "p99": 1.229,
+            "worst": 1.229,
+            "repeat_median": 0.039,
+            "repeat_worst": 1.229
           },
           "primitives": {
-            "samples": 1545,
+            "samples": 1331,
             "median": 64548.0,
             "p95": 64548.0,
             "p99": 64548.0,
@@ -1282,49 +1282,49 @@
             "repeat_worst": 64548.0
           },
           "process_ms": {
-            "samples": 1547,
-            "median": 4.304,
-            "p95": 466.123,
-            "p99": 468.776,
-            "worst": 468.776,
-            "repeat_median": 4.475,
-            "repeat_worst": 468.776
+            "samples": 1333,
+            "median": 448.518,
+            "p95": 504.374,
+            "p99": 513.91,
+            "worst": 513.91,
+            "repeat_median": 441.436,
+            "repeat_worst": 513.91
           },
           "render_cpu_ms": {
-            "samples": 1545,
-            "median": 0.666999995708466,
-            "p95": 1.11500000953674,
-            "p99": 1.33700001239777,
-            "worst": 3.36800003051758,
-            "repeat_median": 0.669000029563904,
-            "repeat_worst": 3.36800003051758
+            "samples": 1331,
+            "median": 0.610000014305115,
+            "p95": 1.07700002193451,
+            "p99": 1.25600004196167,
+            "worst": 5.45900011062622,
+            "repeat_median": 0.592999994754791,
+            "repeat_worst": 5.45900011062622
           },
           "render_gpu_ms": {
-            "samples": 1545,
-            "median": 0.870000004768372,
-            "p95": 1.19099998474121,
-            "p99": 1.43400001525879,
-            "worst": 4.45599985122681,
-            "repeat_median": 0.921999990940094,
-            "repeat_worst": 4.45599985122681
+            "samples": 1331,
+            "median": 0.368999987840652,
+            "p95": 1.57200002670288,
+            "p99": 1.84800004959106,
+            "worst": 2.28399991989136,
+            "repeat_median": 0.360000014305115,
+            "repeat_worst": 2.28399991989136
           }
         },
         "system_load": [
           {
-            "concurrent_godot_processes_before_start": 3,
-            "cpu_load_percent_before_start": 41.0,
-            "tasklist_error": null,
-            "cpu_error": null
-          },
-          {
             "concurrent_godot_processes_before_start": 6,
-            "cpu_load_percent_before_start": 84.0,
+            "cpu_load_percent_before_start": 53.0,
             "tasklist_error": null,
             "cpu_error": null
           },
           {
-            "concurrent_godot_processes_before_start": 4,
-            "cpu_load_percent_before_start": 90.0,
+            "concurrent_godot_processes_before_start": 9,
+            "cpu_load_percent_before_start": 77.0,
+            "tasklist_error": null,
+            "cpu_error": null
+          },
+          {
+            "concurrent_godot_processes_before_start": 11,
+            "cpu_load_percent_before_start": 33.0,
             "tasklist_error": null,
             "cpu_error": null
           }
@@ -1335,7 +1335,7 @@
         "all_ok": true,
         "telemetry": {
           "draw_calls": {
-            "samples": 1544,
+            "samples": 1406,
             "median": 163.0,
             "p95": 163.0,
             "p99": 163.0,
@@ -1344,16 +1344,16 @@
             "repeat_worst": 163.0
           },
           "frame_ms": {
-            "samples": 1546,
+            "samples": 1408,
             "median": 16.666,
-            "p95": 16.833,
-            "p99": 17.661,
-            "worst": 505.985,
+            "p95": 16.906,
+            "p99": 450.507,
+            "worst": 504.307,
             "repeat_median": 16.666,
-            "repeat_worst": 505.985
+            "repeat_worst": 504.307
           },
           "objects": {
-            "samples": 1544,
+            "samples": 1406,
             "median": 163.0,
             "p95": 163.0,
             "p99": 163.0,
@@ -1362,16 +1362,16 @@
             "repeat_worst": 163.0
           },
           "physics_ms": {
-            "samples": 1546,
-            "median": 0.042,
-            "p95": 0.081,
-            "p99": 0.194,
-            "worst": 0.194,
-            "repeat_median": 0.042,
-            "repeat_worst": 0.194
+            "samples": 1408,
+            "median": 0.037,
+            "p95": 0.362,
+            "p99": 0.383,
+            "worst": 0.383,
+            "repeat_median": 0.036,
+            "repeat_worst": 0.383
           },
           "primitives": {
-            "samples": 1544,
+            "samples": 1406,
             "median": 64548.0,
             "p95": 64548.0,
             "p99": 64548.0,
@@ -1380,49 +1380,49 @@
             "repeat_worst": 64548.0
           },
           "process_ms": {
-            "samples": 1546,
-            "median": 4.855,
-            "p95": 488.88,
-            "p99": 505.858,
-            "worst": 505.858,
-            "repeat_median": 4.38,
-            "repeat_worst": 505.858
+            "samples": 1408,
+            "median": 448.632,
+            "p95": 498.289,
+            "p99": 504.2,
+            "worst": 504.2,
+            "repeat_median": 452.506,
+            "repeat_worst": 504.2
           },
           "render_cpu_ms": {
-            "samples": 1544,
-            "median": 0.746999979019165,
-            "p95": 1.24000000953674,
-            "p99": 1.41100001335144,
-            "worst": 2.37899994850159,
-            "repeat_median": 0.763000011444092,
-            "repeat_worst": 2.37899994850159
+            "samples": 1406,
+            "median": 0.578000009059906,
+            "p95": 1.05799996852875,
+            "p99": 1.22899997234344,
+            "worst": 1.68099999427795,
+            "repeat_median": 0.565999984741211,
+            "repeat_worst": 1.68099999427795
           },
           "render_gpu_ms": {
-            "samples": 1544,
-            "median": 0.947000026702881,
-            "p95": 1.18700003623962,
-            "p99": 1.42200005054474,
-            "worst": 2.57999992370605,
-            "repeat_median": 0.939999997615814,
-            "repeat_worst": 2.57999992370605
+            "samples": 1406,
+            "median": 0.303999990224838,
+            "p95": 1.59399998188019,
+            "p99": 1.77499997615814,
+            "worst": 2.52800011634827,
+            "repeat_median": 0.358000010251999,
+            "repeat_worst": 2.52800011634827
           }
         },
         "system_load": [
           {
-            "concurrent_godot_processes_before_start": 3,
-            "cpu_load_percent_before_start": 91.0,
+            "concurrent_godot_processes_before_start": 10,
+            "cpu_load_percent_before_start": 31.0,
+            "tasklist_error": null,
+            "cpu_error": null
+          },
+          {
+            "concurrent_godot_processes_before_start": 9,
+            "cpu_load_percent_before_start": 1.0,
             "tasklist_error": null,
             "cpu_error": null
           },
           {
             "concurrent_godot_processes_before_start": 6,
-            "cpu_load_percent_before_start": 0.0,
-            "tasklist_error": null,
-            "cpu_error": null
-          },
-          {
-            "concurrent_godot_processes_before_start": 2,
-            "cpu_load_percent_before_start": 62.0,
+            "cpu_load_percent_before_start": 66.0,
             "tasklist_error": null,
             "cpu_error": null
           }
@@ -1444,13 +1444,13 @@
             "repeat_worst": null
           },
           "frame_ms": {
-            "samples": 3811,
-            "median": 8.588,
-            "p95": 16.692,
-            "p99": 19.402,
-            "worst": 57.157,
-            "repeat_median": 8.56,
-            "repeat_worst": 57.157
+            "samples": 3697,
+            "median": 8.278,
+            "p95": 16.256,
+            "p99": 21.347,
+            "worst": 225.407,
+            "repeat_median": 8.209,
+            "repeat_worst": 225.407
           },
           "objects": {
             "samples": 0,
@@ -1462,13 +1462,13 @@
             "repeat_worst": null
           },
           "physics_ms": {
-            "samples": 3811,
-            "median": 0.465,
-            "p95": 2.88,
-            "p99": 5.066,
-            "worst": 5.066,
-            "repeat_median": 0.406,
-            "repeat_worst": 5.066
+            "samples": 3697,
+            "median": 0.292,
+            "p95": 1.14,
+            "p99": 2.515,
+            "worst": 2.515,
+            "repeat_median": 0.232,
+            "repeat_worst": 2.515
           },
           "primitives": {
             "samples": 0,
@@ -1480,13 +1480,13 @@
             "repeat_worst": null
           },
           "process_ms": {
-            "samples": 3811,
-            "median": 3.94,
-            "p95": 12.215,
-            "p99": 14.742,
-            "worst": 18.025,
-            "repeat_median": 3.751,
-            "repeat_worst": 18.025
+            "samples": 3697,
+            "median": 5.896,
+            "p95": 25.536,
+            "p99": 225.378,
+            "worst": 225.378,
+            "repeat_median": 5.227,
+            "repeat_worst": 225.378
           },
           "render_cpu_ms": {
             "samples": 0,
@@ -1509,19 +1509,19 @@
         },
         "system_load": [
           {
-            "concurrent_godot_processes_before_start": 3,
-            "cpu_load_percent_before_start": 68.0,
+            "concurrent_godot_processes_before_start": 10,
+            "cpu_load_percent_before_start": 60.0,
             "tasklist_error": null,
             "cpu_error": null
           },
           {
-            "concurrent_godot_processes_before_start": 4,
-            "cpu_load_percent_before_start": 0.0,
+            "concurrent_godot_processes_before_start": 11,
+            "cpu_load_percent_before_start": 85.0,
             "tasklist_error": null,
             "cpu_error": null
           },
           {
-            "concurrent_godot_processes_before_start": 6,
+            "concurrent_godot_processes_before_start": 10,
             "cpu_load_percent_before_start": 65.0,
             "tasklist_error": null,
             "cpu_error": null
@@ -1542,13 +1542,13 @@
             "repeat_worst": null
           },
           "frame_ms": {
-            "samples": 3780,
-            "median": 8.652,
-            "p95": 16.739,
-            "p99": 20.805,
-            "worst": 46.553,
-            "repeat_median": 8.804,
-            "repeat_worst": 46.553
+            "samples": 3839,
+            "median": 8.056,
+            "p95": 16.19,
+            "p99": 18.117,
+            "worst": 45.666,
+            "repeat_median": 7.932,
+            "repeat_worst": 45.666
           },
           "objects": {
             "samples": 0,
@@ -1560,13 +1560,13 @@
             "repeat_worst": null
           },
           "physics_ms": {
-            "samples": 3780,
-            "median": 0.299,
-            "p95": 2.583,
-            "p99": 3.104,
-            "worst": 3.104,
-            "repeat_median": 0.347,
-            "repeat_worst": 3.104
+            "samples": 3839,
+            "median": 0.453,
+            "p95": 2.081,
+            "p99": 2.163,
+            "worst": 2.163,
+            "repeat_median": 0.464,
+            "repeat_worst": 2.163
           },
           "primitives": {
             "samples": 0,
@@ -1578,13 +1578,13 @@
             "repeat_worst": null
           },
           "process_ms": {
-            "samples": 3780,
-            "median": 3.064,
-            "p95": 7.525,
-            "p99": 46.141,
-            "worst": 46.141,
-            "repeat_median": 2.966,
-            "repeat_worst": 46.141
+            "samples": 3839,
+            "median": 3.781,
+            "p95": 11.26,
+            "p99": 13.036,
+            "worst": 13.036,
+            "repeat_median": 2.882,
+            "repeat_worst": 13.036
           },
           "render_cpu_ms": {
             "samples": 0,
@@ -1607,26 +1607,26 @@
         },
         "system_load": [
           {
-            "concurrent_godot_processes_before_start": 2,
-            "cpu_load_percent_before_start": 69.0,
+            "concurrent_godot_processes_before_start": 9,
+            "cpu_load_percent_before_start": 52.0,
             "tasklist_error": null,
             "cpu_error": null
           },
           {
-            "concurrent_godot_processes_before_start": 3,
-            "cpu_load_percent_before_start": 1.0,
+            "concurrent_godot_processes_before_start": 13,
+            "cpu_load_percent_before_start": 87.0,
             "tasklist_error": null,
             "cpu_error": null
           },
           {
-            "concurrent_godot_processes_before_start": 6,
-            "cpu_load_percent_before_start": 77.0,
+            "concurrent_godot_processes_before_start": 11,
+            "cpu_load_percent_before_start": 85.0,
             "tasklist_error": null,
             "cpu_error": null
           }
         ]
       }
     },
-    "headless_process_median_delta_ms": 0.8759999999999999
+    "headless_process_median_delta_ms": 2.1149999999999998
   }
 }
