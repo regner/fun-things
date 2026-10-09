@@ -1,4 +1,4 @@
-city_moored_yachts.02 — final producer validation receipt
+city_moored_yachts.02 â€” final producer validation receipt
 Producer: worker; branch lane/a-yachts; independent review pending.
 Exact reproduction commands: docs/assets/production/city_moored_yachts_02.md
 All Blender/Godot CLI invocations used explicit timeout and pinned executable.
@@ -152,6 +152,9 @@ Diagnostics / corrections:
   Signature matches earlier .01 no-yacht control; not a clean editor log claim.
 - Final runtime prefab log contains no errors or warnings.
 - No known-failure exemptions used for canonical checks.
+- Initial commit CRLF normalization exposed retention-hash differences. Owned text
+  normalized to LF; validator writes explicitly use LF; manifest resealed and
+  checked against working files and committed Git blobs.
 
 Raw scratch logs: C:/tmp/ft/assets/city_moored_yachts_02/ (not deliverables).
 Pending: independent review, actual berth placement/clearance, combat and transport,

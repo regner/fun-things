@@ -41,7 +41,7 @@ def manifest(verify=False):
     else:
         path.write_text(json.dumps({"asset_id": "city_moored_yachts.02",
                         "excludes": ["manifest.json (self-reference)"], "files": rows},
-                        indent=2) + "\n", encoding="utf-8")
+                        indent=2) + "\n", encoding="utf-8", newline="\n")
         print(f"Sealed {len(rows)} produced files")
 
 
@@ -175,7 +175,8 @@ def validate_geometry():
         "pending": ["independent review", "actual dock placement and clearance",
                     "full combat integration and network transport checks", "target-device performance"],
     }
-    (EVIDENCE / "validation.json").write_text(json.dumps(report, indent=2) + "\n")
+    (EVIDENCE / "validation.json").write_text(
+        json.dumps(report, indent=2) + "\n", encoding="utf-8", newline="\n")
     bm.free()
     print(json.dumps(report, indent=2))
     print("PASS: topology, normals, independent bounds, GLB content and byte-identical reexport")

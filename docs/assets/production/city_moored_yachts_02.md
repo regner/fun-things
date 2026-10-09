@@ -160,6 +160,9 @@ headless editor emits plugin version advice plus the same exit-leak signature do
 .01 no-yacht control: 5 viewports, 8 textures, 1 scenario, 52 shaped-text objects, 1 font, 5 canvases,
 31 canvas items and 168 ObjectDB instances. Asset assertions pass; runtime has no errors/warnings.
 Initial gdstyle format check requested reformatting; applying the pinned formatter resolved it.
+The initial commit exposed Windows CRLF normalization in producer text hashes. Owned text was
+normalized to LF, validator writes now request LF explicitly, and manifest hashes were rechecked
+against both working files and actual committed Git blobs.
 No live Blender/Godot editor was used or synchronized. Import is not claimed as all-script validation.
 
 ## Exact reproduction
