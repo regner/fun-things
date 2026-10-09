@@ -1,0 +1,50 @@
+{
+	"add_prefab_intersection_median_ms": 33.189,
+	"add_prefab_intersection_ms": [
+		33.189,
+		32.691,
+		33.189,
+		32.969,
+		33.525
+	],
+	"change_two_to_four_lanes_median_ms": 48.977,
+	"change_two_to_four_lanes_ms": [
+		49.229,
+		41.199,
+		51.476,
+		48.132,
+		48.977
+	],
+	"dirty_plain_mesh_bake_bytes": 348732,
+	"dirty_plain_mesh_bake_has_addon_path": false,
+	"engine": "4.8-dev7 (official)",
+	"full_downtown_rebuild_with_two_frames_ms": 193.656,
+	"limitations": "Programmatic editor-API proxy in a capped window. Timings include two presented frames. Dirty loop moves a point, rebuilds its affected container, directly copies its meshes to an addon-free PackedScene, saves, cache-reloads and instances it, but excludes mesh merging, collision, semantics, manifest/fingerprint validation, connected-junction rewiring, human input, undo and authoring-scene save.",
+	"move_point_reroute_median_ms": 50.735,
+	"move_point_reroute_ms": [
+		50.735,
+		59.158,
+		44.951,
+		64.468,
+		44.648
+	],
+	"move_point_through_dirty_plain_mesh_bake_visible_median_ms": 122.973,
+	"move_point_through_dirty_plain_mesh_bake_visible_ms": [
+		128.444,
+		119.903,
+		134.706,
+		108.615,
+		122.973
+	],
+	"release_tag": "0.9.3",
+	"remove_prefab_intersection_median_ms": 33.316,
+	"remove_prefab_intersection_ms": [
+		33.356,
+		33.359,
+		33.316,
+		33.275,
+		32.982
+	],
+	"repeat_count": 5,
+	"scenario": "downtown"
+}

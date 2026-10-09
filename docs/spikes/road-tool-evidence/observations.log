@@ -1,0 +1,109 @@
+Pinned engine: Godot Engine v4.8.dev7.official.c971f93e7
+Timing environment: contended shared workstation; comparative spike evidence only, not quiet-machine or hardware-certification figures.
+
+COMMAND: timeout 60 godot --headless --path . road_demos/intersections/intersection_demo.tscn --quit-after 10
+REF: 0.9.3 / 980bc04c9f95a5c49b787f0a7a64a458156d5b9b
+EXIT: 0
+OUTPUT:
+Godot Engine v4.8.dev7.official.c971f93e7 - https://godotengine.org
+
+COMMAND: timeout 300 godot --headless --path . road_spike_brackett_benchmark.tscn -- --scenario=downtown
+REF: 0.9.3 scratch on contended shared workstation; committed Brackett authoring plan SHA-256 064ddd567a68d9c0bf12ee641f58272292ee0c733d79be65cd42823909436e56
+EXIT: 0
+OUTPUT SUMMARY:
+20 clipped route strokes; 2,388.230 m; 58 points after 0.5 m simplification; 523.501 ms setup; 177.834 ms explicit rebuild; 17,044 triangles; 38 draw surfaces/static bodies/collision shapes; 84 RoadLane paths; 114 edge curves; 429 nodes.
+
+COMMAND: timeout 600 godot --headless --path . road_spike_brackett_benchmark.tscn -- --scenario=whole_island
+REF: 0.9.3 scratch on contended shared workstation; same committed Brackett source, including 91 m Harbour bridge stroke
+EXIT: 0
+OUTPUT SUMMARY:
+50 route strokes; 10,117.166 m; 381 points after 0.5 m simplification; 2,647.372 ms setup; 799.110 ms explicit rebuild; 66,878 triangles; 331 draw surfaces/static bodies/collision shapes; 717 RoadLane paths; 993 edge curves; 3,466 nodes.
+LIMITATION:
+Route crossings overlap without RoadIntersection topology. No sidewalks, crosswalks, structural bridge, signals, props, semantic extraction, serialization or buildings are timed.
+
+COMMAND: timeout 180 godot --path . --max-fps 60 road_spike_iteration_benchmark.tscn
+REF: retained iteration-benchmark.gd.txt on contended shared workstation; exact raw receipt iteration-run-windowed.log
+EXIT: 0
+OUTPUT SUMMARY (five samples, medians include two presented frames):
+Move/reroute one RoadPoint and rebuild its container: 50.735 ms.
+Change one section between two and four lanes and rebuild: 48.977 ms.
+Instantiate reusable 4-way prefab: 33.189 ms. Remove it: 33.316 ms.
+Move one point through affected-container rebuild, direct plain addon-free mesh PackedScene save, cache-reload, instance and presentation: 122.973 ms; 348,732 bytes; addon-path boolean false.
+Rebuild all downtown containers and present two frames: 193.656 ms.
+LIMITATION:
+Programmatic editor-API proxy, not a human gizmo/undo/save trial. The narrow dirty bake excludes merging, collision, semantic resources and manifest/fingerprint validation. Prefab insertion does not connect approaches.
+
+COMMAND: timeout 180 godot --headless --path . --max-fps 60 road_spike_iteration_benchmark.tscn
+REF: unchanged retained source; headless control receipt iteration-run-headless.log / iteration-headless-result.json
+EXIT: 0
+OUTPUT SUMMARY:
+The emitted result includes dirty_plain_mesh_bake_has_addon_path=false. Report timing comparisons use the capped windowed receipt above, not this control.
+
+COMMAND GROUP: Blender 5.2.2 author_blender.py; reexport.py; pinned-Godot fresh import; author_editor.gd placement
+REF: clean isolated reproduction on contended shared workstation of current committed whole-greybox pipeline
+EXITS: 0
+OUTPUT SUMMARY:
+Author 22 .blend sources: 4.501 s. Export 40 GLBs: 3.480 s. Fresh import: 8.915 s. Author 50 Godot scenes: 5.871 s. Separately timed subprocess total: 22.767 s.
+LIMITATION:
+Current coarse full batch, not an optimized road-only/one-sector Blender export. Human editing, visual inspection and corrections are excluded. Placement printed BRACKETT_EDITOR_AUTHORED 50 and emitted dummy-renderer teardown leakage diagnostics.
+
+COMMAND: timeout 60 godot --path . --resolution 1280x800 --max-fps 60 road_spike_fixture.tscn
+REF: 0.9.3 scratch
+EXIT: 0
+OUTPUT:
+Godot Engine v4.8.dev7.official.c971f93e7 - https://godotengine.org
+Vulkan 1.4.329 - Forward+ - Using Device #0: NVIDIA - NVIDIA GeForce RTX 4070 Laptop GPU
+ROAD_SPIKE_FIXTURE lanes=12 colliders=1 output=res://road_spike_intersection.png
+
+COMMAND: timeout 60 godot --headless --path . road_spike_export_test.tscn
+REF: 0.9.3 scratch
+EXIT: 0
+OUTPUT:
+ROAD_SPIKE_EXPORT append=0 write=0 bytes=53348
+SHA256: 9ef0848f17e8577b5ba2461806f55fb856fde9b66d96ef1ac75a6e73cddaa843
+
+COMMAND: timeout 60 godot --headless --path . road_spike_export_inspect.tscn
+REF: 0.9.3 scratch after editor import
+EXIT: 0
+OUTPUT:
+ROAD_SPIKE_EXPORTED_CONTENT {"collision_shapes":1,"meshes":1,"nodes":23,"road_lanes":0,"scripted_nodes":0,"static_bodies":1}
+
+COMMAND: timeout 120 godot -s addons/gut/gut_cmdln.gd --path . --headless -gconfig=.gut_editor_config.json -gexit
+REF: 0.9.3
+EXIT: 1
+OUTPUT EXCERPT:
+SCRIPT ERROR: Trying to assign value of type 'Nil' to a variable of type 'bool'.
+  at: _static_init (res://addons/gut/gut_loader.gd:35)
+Scripts 7
+Tests 73
+  Passing 67
+  Failing 6
+Asserts 424
+Time 14.721s
+Six reported failures reject GDScript resources passed as GUT assert_is class arguments.
+
+COMMAND: timeout 120 godot -s addons/gut/gut_cmdln.gd --path . --headless -gconfig=.gut_editor_config.json -gexit
+REF: 0.9.4 / 9d144dc4a28dd6bee870895d2b77d69174356281
+EXIT: 1
+OUTPUT EXCERPT:
+Scripts 8
+Tests 83
+  Passing 77
+  Failing 6
+Asserts 473
+Time 15.343s
+The same six GUT class-argument assertion failures remain.
+
+COMMAND: timeout 180 godot --headless --editor --path . --import
+REFS: run separately for 0.9.3 and 0.9.4
+EXIT: 0 for both
+OUTPUT SUMMARY:
+No SCRIPT ERROR. One road_texture.material invalid-UID fallback to its text path.
+Dummy-renderer RID/ObjectDB leakage diagnostics appeared during editor teardown for both refs.
+
+COMMAND: timeout 60 godot --editor --path . --max-fps 60 --quit-after 20
+REFS: run separately for 0.9.3 and 0.9.4
+EXITS: 139 and 3
+OUTPUT SUMMARY:
+Parameter "mem" is null, signal 11/bad_alloc during automatic windowed editor shutdown.
+This was reproduced across releases on a contended workstation and attribution is unresolved.

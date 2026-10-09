@@ -1,0 +1,19 @@
+extends Node
+
+func _ready() -> void:
+	var scene: PackedScene = load("res://road_spike_export.glb")
+	var instance := scene.instantiate()
+	var counts := {"nodes": 0, "meshes": 0, "static_bodies": 0, "collision_shapes": 0, "road_lanes": 0, "scripted_nodes": 0}
+	var pending: Array[Node] = [instance]
+	while not pending.is_empty():
+		var node: Node = pending.pop_back()
+		counts["nodes"] += 1
+		counts["meshes"] += 1 if node is MeshInstance3D else 0
+		counts["static_bodies"] += 1 if node is StaticBody3D else 0
+		counts["collision_shapes"] += 1 if node is CollisionShape3D else 0
+		counts["road_lanes"] += 1 if node is RoadLane else 0
+		counts["scripted_nodes"] += 1 if node.get_script() != null else 0
+		pending.append_array(node.get_children())
+	print("ROAD_SPIKE_EXPORTED_CONTENT ", JSON.stringify(counts))
+	instance.free()
+	get_tree().quit()

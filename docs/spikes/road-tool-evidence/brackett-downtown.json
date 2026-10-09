@@ -1,0 +1,30 @@
+{
+	"counts": {
+		"collision_shapes": 38,
+		"draw_surfaces": 38,
+		"edge_curves": 114,
+		"mesh_instances": 38,
+		"nodes": 429,
+		"road_lanes": 84,
+		"road_segments": 38,
+		"static_bodies": 38,
+		"triangles": 17044
+	},
+	"engine": "4.8-dev7 (official)",
+	"explicit_rebuild_ms": 177.834,
+	"limitations": "Street-plan polylines become native RoadPoint chains, but crossings overlap without RoadIntersection topology; no sidewalks, crosswalks, bridge structure, signals, props, semantic extraction, serialization or buildings are timed.",
+	"release_commit": "980bc04c9f95a5c49b787f0a7a64a458156d5b9b",
+	"release_tag": "0.9.3",
+	"road_length_m": 2388.23018873393,
+	"route_class_counts": {
+		"avenue": 2,
+		"freight": 1,
+		"local": 5,
+		"street": 12
+	},
+	"route_count": 20,
+	"scenario": "downtown",
+	"setup_ms": 523.501,
+	"source_control_points_after_0_5m_simplification": 58,
+	"source_sha256": "064ddd567a68d9c0bf12ee641f58272292ee0c733d79be65cd42823909436e56"
+}

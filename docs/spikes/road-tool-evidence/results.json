@@ -1,0 +1,122 @@
+{
+  "engine": "4.8.dev7.official.c971f93e7",
+  "release_0_9_3": {
+    "commit": "980bc04c9f95a5c49b787f0a7a64a458156d5b9b",
+    "headless_import_exit": 0,
+    "headless_import_script_errors": 0,
+    "runtime_intersection_demo_exit": 0,
+    "runtime_intersection_demo_diagnostics": 0,
+    "upstream_tests": {
+      "exit": 1,
+      "scripts": 7,
+      "tests": 73,
+      "passing": 67,
+      "failing": 6,
+      "asserts": 424,
+      "note": "Bundled GUT 9.4.0 has a pinned-engine static initializer diagnostic; six failures are GUT assert_is type-argument incompatibilities. This is not a green compatibility result."
+    }
+  },
+  "release_0_9_4_observed_after_brief": {
+    "commit": "9d144dc4a28dd6bee870895d2b77d69174356281",
+    "headless_import_exit": 0,
+    "headless_import_script_errors": 0,
+    "runtime_intersection_demo_exit": 0,
+    "runtime_intersection_demo_diagnostics": 0,
+    "upstream_tests": {
+      "exit": 1,
+      "scripts": 8,
+      "tests": 83,
+      "passing": 77,
+      "failing": 6,
+      "asserts": 473,
+      "note": "The same six GUT type-argument assertion failures remain; do not promote this newer release without a focused regression."
+    }
+  },
+  "prototype": {
+    "source_intersection": "addons/road-generator/custom_containers/4way_1x1.tscn",
+    "windowed_exit": 0,
+    "road_lanes": 12,
+    "collision_shapes": 1,
+    "capture": "four-way-prefab-prototype.png",
+    "note": "Scratch-only primitive attachments demonstrate hierarchy/placement, not accepted production art."
+  },
+  "brackett_benchmark": {
+    "source": "art/source/models/brackett_greybox/authoring_plan.json",
+    "source_sha256": "064ddd567a68d9c0bf12ee641f58272292ee0c733d79be65cd42823909436e56",
+    "route_derivation": "Actual named/type-tagged route polylines, clipped for downtown where applicable and simplified to 0.5 m line tolerance before RoadPoint creation.",
+    "measurement_environment": "Contended shared workstation; comparative spike evidence, not quiet-machine or hardware-certification timing.",
+    "downtown": {
+      "route_count": 20,
+      "road_length_m": 2388.23018873393,
+      "setup_ms": 523.501,
+      "explicit_rebuild_ms": 177.834,
+      "triangles": 17044,
+      "draw_surfaces": 38,
+      "collision_shapes": 38,
+      "road_lanes": 84,
+      "edge_curves": 114,
+      "nodes": 429
+    },
+    "whole_island": {
+      "route_count": 50,
+      "road_length_m": 10117.1663643551,
+      "includes_harbour_bridge_stroke": true,
+      "setup_ms": 2647.372,
+      "explicit_rebuild_ms": 799.11,
+      "triangles": 66878,
+      "draw_surfaces": 331,
+      "collision_shapes": 331,
+      "road_lanes": 717,
+      "edge_curves": 993,
+      "nodes": 3466
+    },
+    "limitations": "Road ribbon proxy only: crossings overlap without RoadIntersection topology, and sidewalk/crosswalk output, structural bridge art, lights, semantics, serialization and buildings are excluded."
+  },
+  "iteration_time": {
+    "criterion": "Owner decision 34: reduce the road edit-to-visible-result loop compared with Blender-authored placement.",
+    "measurement_environment": "Contended shared workstation; comparative spike evidence, not quiet-machine or hardware-certification timing.",
+    "retained_windowed_receipt": "iteration-run-windowed.log",
+    "retained_headless_control_receipt": "iteration-run-headless.log",
+    "godot_editor_api_proxy": {
+      "repeat_count": 5,
+      "move_point_reroute_median_ms": 50.735,
+      "change_two_to_four_lanes_median_ms": 48.977,
+      "add_prefab_intersection_median_ms": 33.189,
+      "remove_prefab_intersection_median_ms": 33.316,
+      "move_point_through_dirty_plain_mesh_bake_visible_median_ms": 122.973,
+      "dirty_plain_mesh_bake_bytes": 348732,
+      "dirty_plain_mesh_bake_has_addon_path": false,
+      "full_downtown_rebuild_with_two_frames_ms": 193.656,
+      "limitations": "Capped windowed programmatic mutation with two presented frames. The dirty loop moves a point, rebuilds one affected container, copies its meshes to an addon-free PackedScene, saves, cache-reloads and instances it, but excludes merging, collision, semantics, manifest validation, human gizmo/undo/save and connected-junction rewiring."
+    },
+    "current_coarse_blender_roundtrip": {
+      "author_sources_seconds": 4.501227999571711,
+      "export_40_glbs_seconds": 3.4795455001294613,
+      "fresh_godot_import_40_glbs_seconds": 8.915066000074148,
+      "godot_placement_50_scenes_seconds": 5.871138900052756,
+      "measured_subprocess_total_seconds": 22.766978399828076,
+      "limitations": "Clean isolated current full batch; excludes human work and is not a hypothetical optimized one-sector Blender path."
+    }
+  },
+  "gltf_export_probe": {
+    "append_error": 0,
+    "write_error": 0,
+    "bytes": 53348,
+    "sha256": "9ef0848f17e8577b5ba2461806f55fb856fde9b66d96ef1ac75a6e73cddaa843",
+    "reimported": {
+      "nodes": 23,
+      "meshes": 1,
+      "static_bodies": 1,
+      "collision_shapes": 1,
+      "road_lanes": 0,
+      "scripted_nodes": 0
+    },
+    "conclusion": "The addon's mesh export is not a complete addon-free gameplay bake; lane/topology/semantic data needs a separate extractor."
+  },
+  "editor_shutdown_observation": {
+    "release_0_9_3_exit": 139,
+    "release_0_9_4_exit": 3,
+    "diagnostic": "Parameter mem is null / signal 11 during timed automatic windowed editor shutdown",
+    "interpretation": "Reproduced across both releases under a contended workstation; attribution is unresolved and this does not replace an interactive authoring trial."
+  }
+}

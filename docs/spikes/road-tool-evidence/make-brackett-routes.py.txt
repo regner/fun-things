@@ -1,0 +1,38 @@
+import json, math, sys
+from pathlib import Path
+from shapely.geometry import LineString, box
+src=Path(sys.argv[1])
+output=Path(sys.argv[2])
+data=json.loads(src.read_text())
+classes={
+ 'avenue': {'carriageway_m':14.0,'corridor_m':24.0,'lanes':4,'lane_width_m':3.5,'sidewalk_each_m':5.0},
+ 'street': {'carriageway_m':9.0,'corridor_m':17.0,'lanes':2,'lane_width_m':4.5,'sidewalk_each_m':4.0},
+ 'local': {'carriageway_m':7.0,'corridor_m':12.0,'lanes':2,'lane_width_m':3.5,'sidewalk_each_m':2.5},
+ 'freight': {'carriageway_m':10.0,'corridor_m':14.0,'lanes':2,'lane_width_m':5.0,'sidewalk_each_m':2.0},
+ 'service': {'carriageway_m':4.5,'corridor_m':7.5,'lanes':1,'lane_width_m':4.5,'sidewalk_each_m':1.5},
+}
+def route(name, kind, points, dead, part=0):
+    line=LineString(points).simplify(0.5, preserve_topology=False)
+    pts=list(line.coords)
+    return {'name':name + (f' part {part}' if part else ''),'source_name':name,'kind':kind,'dead':dead,
+            'is_bridge':name=='Harbour bridge','points':[[x-630,y-355] for x,y in pts],
+            'length_m':line.length}
+full=[route(r['name'],r['kind'],r['points'],r['dead']) for r in data['routes']]
+clip=box(540,155,1000,385)
+downtown=[]
+for r in data['routes']:
+    geom=LineString(r['points']).intersection(clip)
+    pieces=[]
+    if geom.geom_type=='LineString': pieces=[geom]
+    elif geom.geom_type=='MultiLineString': pieces=list(geom.geoms)
+    for i,piece in enumerate(pieces,1):
+        if piece.length > 0.01:
+            downtown.append(route(r['name'],r['kind'],list(piece.coords),r['dead'],i if len(pieces)>1 else 0))
+out={'source':'art/source/models/brackett_greybox/authoring_plan.json','source_sha256':__import__('hashlib').sha256(src.read_bytes()).hexdigest(),
+     'map_origin_godot':[-630,0,-355],'downtown_clip_map_xy':[540,155,1000,385],
+     'classes':classes,'scenarios':{'downtown':downtown,'whole_island':full}}
+output.write_bytes((json.dumps(out,indent=2)+'\n').encode())
+for key,rs in out['scenarios'].items():
+ print(key,'routes',len(rs),'points',sum(len(r['points']) for r in rs),'length',sum(r['length_m'] for r in rs))
+ from collections import Counter
+ print(Counter(r['kind'] for r in rs))

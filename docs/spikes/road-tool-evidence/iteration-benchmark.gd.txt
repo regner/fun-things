@@ -1,0 +1,129 @@
+extends "res://road_spike_brackett_benchmark.gd"
+
+const PREFAB := preload("res://addons/road-generator/custom_containers/4way_1x1.tscn")
+const REPEATS := 5
+
+func _ready() -> void:
+	var input: Dictionary = JSON.parse_string(FileAccess.get_file_as_string(INPUT))
+	var classes: Dictionary = input["classes"]
+	var routes: Array = input["scenarios"]["downtown"]
+	var containers: Array[RoadContainer] = []
+	for route_value: Variant in routes:
+		var route: Dictionary = route_value
+		containers.append(_make_route(route, classes[route["kind"]]))
+	await get_tree().process_frame
+	await get_tree().process_frame
+	var edited := containers[0]
+	var edited_points: Array[Node] = edited.get_children().filter(
+		func(child: Node) -> bool: return child is RoadPoint)
+	var point: RoadPoint = edited_points[edited_points.size() / 2]
+	var move_samples: Array[float] = []
+	var type_samples: Array[float] = []
+	var add_samples: Array[float] = []
+	var remove_samples: Array[float] = []
+	var dirty_bake_samples: Array[float] = []
+	for repeat in range(REPEATS):
+		var start_us := Time.get_ticks_usec()
+		point.position.x += 0.5 if repeat % 2 == 0 else -0.5
+		edited.rebuild_segments(true)
+		await get_tree().process_frame
+		await get_tree().process_frame
+		move_samples.append((Time.get_ticks_usec() - start_us) / 1000.0)
+		start_us = Time.get_ticks_usec()
+		for child: Node in edited_points:
+			var road_point := child as RoadPoint
+			if repeat % 2 == 0:
+				road_point.traffic_dir = [RoadPoint.LaneDir.REVERSE, RoadPoint.LaneDir.REVERSE, RoadPoint.LaneDir.FORWARD, RoadPoint.LaneDir.FORWARD]
+				road_point.lane_width = 3.5
+			else:
+				road_point.traffic_dir = [RoadPoint.LaneDir.REVERSE, RoadPoint.LaneDir.FORWARD]
+				road_point.lane_width = 4.5
+		edited.rebuild_segments(true)
+		await get_tree().process_frame
+		await get_tree().process_frame
+		type_samples.append((Time.get_ticks_usec() - start_us) / 1000.0)
+		start_us = Time.get_ticks_usec()
+		var intersection := PREFAB.instantiate()
+		intersection.position = Vector3(0.0, 0.0, float(repeat) * 30.0)
+		add_child(intersection)
+		await get_tree().process_frame
+		await get_tree().process_frame
+		add_samples.append((Time.get_ticks_usec() - start_us) / 1000.0)
+		start_us = Time.get_ticks_usec()
+		intersection.queue_free()
+		await get_tree().process_frame
+		await get_tree().process_frame
+		remove_samples.append((Time.get_ticks_usec() - start_us) / 1000.0)
+		start_us = Time.get_ticks_usec()
+		point.position.z += 0.25 if repeat % 2 == 0 else -0.25
+		edited.rebuild_segments(true)
+		var output := "user://road_spike_dirty_chunk.tscn"
+		_write_plain_mesh_chunk(edited, output)
+		var packed := ResourceLoader.load(output, "PackedScene", ResourceLoader.CACHE_MODE_REPLACE) as PackedScene
+		var baked := packed.instantiate()
+		add_child(baked)
+		await get_tree().process_frame
+		await get_tree().process_frame
+		dirty_bake_samples.append((Time.get_ticks_usec() - start_us) / 1000.0)
+		baked.queue_free()
+		await get_tree().process_frame
+	var full_start := Time.get_ticks_usec()
+	for container in containers:
+		container.rebuild_segments(true)
+	await get_tree().process_frame
+	await get_tree().process_frame
+	var full_rebuild_ms := (Time.get_ticks_usec() - full_start) / 1000.0
+	var payload := {
+		"engine": Engine.get_version_info().get("string", ""),
+		"release_tag": "0.9.3",
+		"scenario": "downtown",
+		"repeat_count": REPEATS,
+		"move_point_reroute_ms": move_samples,
+		"move_point_reroute_median_ms": _median(move_samples),
+		"change_two_to_four_lanes_ms": type_samples,
+		"change_two_to_four_lanes_median_ms": _median(type_samples),
+		"add_prefab_intersection_ms": add_samples,
+		"add_prefab_intersection_median_ms": _median(add_samples),
+		"remove_prefab_intersection_ms": remove_samples,
+		"remove_prefab_intersection_median_ms": _median(remove_samples),
+		"move_point_through_dirty_plain_mesh_bake_visible_ms": dirty_bake_samples,
+		"move_point_through_dirty_plain_mesh_bake_visible_median_ms": _median(dirty_bake_samples),
+		"dirty_plain_mesh_bake_bytes": FileAccess.get_file_as_bytes("user://road_spike_dirty_chunk.tscn").size(),
+		"dirty_plain_mesh_bake_has_addon_path": FileAccess.get_file_as_string("user://road_spike_dirty_chunk.tscn").contains("addons/road-generator"),
+		"full_downtown_rebuild_with_two_frames_ms": full_rebuild_ms,
+		"limitations": "Programmatic editor-API proxy in a capped window. Timings include two presented frames. Dirty loop moves a point, rebuilds its affected container, directly copies its meshes to an addon-free PackedScene, saves, cache-reloads and instances it, but excludes mesh merging, collision, semantics, manifest/fingerprint validation, connected-junction rewiring, human input, undo and authoring-scene save.",
+	}
+	var file := FileAccess.open("res://road_spike_iteration.json", FileAccess.WRITE)
+	file.store_string(JSON.stringify(payload, "\t") + "\n")
+	file.close()
+	print("ROAD_SPIKE_ITERATION ", JSON.stringify(payload))
+	get_tree().quit()
+
+func _write_plain_mesh_chunk(container: RoadContainer, output: String) -> void:
+	var chunk := Node3D.new()
+	chunk.name = "BakedRoadChunk"
+	var pending: Array[Node] = [container]
+	var index := 0
+	while not pending.is_empty():
+		var node: Node = pending.pop_back()
+		if node is MeshInstance3D and node.mesh != null:
+			var source := node as MeshInstance3D
+			var mesh := MeshInstance3D.new()
+			mesh.name = "Surface%03d" % index
+			mesh.mesh = source.mesh.duplicate(true)
+			for surface in range(mesh.mesh.get_surface_count()):
+				mesh.mesh.surface_set_material(surface, StandardMaterial3D.new())
+			mesh.transform = container.global_transform.affine_inverse() * source.global_transform
+			chunk.add_child(mesh)
+			mesh.owner = chunk
+			index += 1
+		pending.append_array(node.get_children())
+	var packed := PackedScene.new()
+	assert(packed.pack(chunk) == OK)
+	assert(ResourceSaver.save(packed, output) == OK)
+	chunk.free()
+
+func _median(values: Array[float]) -> float:
+	var sorted := values.duplicate()
+	sorted.sort()
+	return sorted[sorted.size() / 2]

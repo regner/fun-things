@@ -1,0 +1,12 @@
+extends SceneTree
+
+
+## Runs the existing finite placement helper after isolated fresh GLB import.
+func _initialize() -> void:
+	var author := Node.new()
+	author.set_script(load("res://tools/brackett_greybox/author_editor.gd"))
+	root.add_child(author)
+	author.author()
+	await process_frame
+	await process_frame
+	quit()

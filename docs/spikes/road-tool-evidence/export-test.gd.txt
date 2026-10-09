@@ -1,0 +1,15 @@
+extends Node
+
+const PREFAB := preload("res://addons/road-generator/custom_containers/4way_1x1.tscn")
+
+func _ready() -> void:
+	var container := PREFAB.instantiate()
+	add_child(container)
+	await get_tree().process_frame
+	var document := GLTFDocument.new()
+	var state := GLTFState.new()
+	var append_error := document.append_from_scene(container, state)
+	var output := ProjectSettings.globalize_path("res://road_spike_export.glb")
+	var write_error := document.write_to_filesystem(state, output)
+	print("ROAD_SPIKE_EXPORT append=", append_error, " write=", write_error, " bytes=", FileAccess.get_file_as_bytes(output).size())
+	get_tree().quit(append_error if append_error != OK else write_error)

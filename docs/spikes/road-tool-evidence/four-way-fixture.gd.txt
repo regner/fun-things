@@ -1,0 +1,106 @@
+extends Node3D
+
+const PREFAB := preload("res://addons/road-generator/custom_containers/4way_1x1.tscn")
+const OUTPUT := "res://road_spike_intersection.png"
+
+var sidewalk_material := _material(Color("#c2b8a3"), 0.85)
+var marking_material := _material(Color("#f2eee1"), 0.25)
+var pole_material := _material(Color("#253044"), 0.55)
+var signal_material := _material(Color("#e94b45"), 0.25, Color("#d5292f"))
+var curb_material := _material(Color("#e6d9bd"), 0.75)
+
+func _ready() -> void:
+	var intersection := PREFAB.instantiate()
+	intersection.name = "RoadGenerator_4Way_1x1"
+	intersection.set_meta("road_type", "ordinary_street")
+	intersection.set_meta("speed_limit_mps", 11.1)
+	add_child(intersection)
+	_add_sidewalk_corners()
+	_add_crosswalks()
+	_add_signals_and_anchors()
+	_add_lights_and_camera()
+	await get_tree().process_frame
+	await get_tree().process_frame
+	await get_tree().process_frame
+	var image := get_viewport().get_texture().get_image()
+	image.save_png(OUTPUT)
+	var lanes := find_children("*", "RoadLane", true, false).size()
+	var colliders := find_children("*", "CollisionShape3D", true, false).size()
+	print("ROAD_SPIKE_FIXTURE lanes=", lanes, " colliders=", colliders, " output=", OUTPUT)
+	get_tree().quit()
+
+func _add_sidewalk_corners() -> void:
+	var sidewalks := Node3D.new()
+	sidewalks.name = "SidewalkCorners"
+	add_child(sidewalks)
+	for x in [-11.5, 11.5]:
+		for z in [-11.5, 11.5]:
+			_add_box(sidewalks, "Corner", Vector3(x, 0.3, z), Vector3(7.0, 0.6, 7.0), sidewalk_material)
+			_add_box(sidewalks, "CurbX", Vector3(x, 0.25, z - sign(z) * 3.7), Vector3(7.0, 0.5, 0.35), curb_material)
+			_add_box(sidewalks, "CurbZ", Vector3(x - sign(x) * 3.7, 0.25, z), Vector3(0.35, 0.5, 7.0), curb_material)
+
+func _add_crosswalks() -> void:
+	var crosswalks := Node3D.new()
+	crosswalks.name = "CrosswalkMarkings"
+	add_child(crosswalks)
+	for offset in [-2.5, -1.5, -0.5, 0.5, 1.5, 2.5]:
+		_add_box(crosswalks, "NorthStripe", Vector3(0, 0.13, -8.5 + offset * 0.55), Vector3(8.0, 0.05, 0.32), marking_material)
+		_add_box(crosswalks, "SouthStripe", Vector3(0, 0.13, 8.5 + offset * 0.55), Vector3(8.0, 0.05, 0.32), marking_material)
+		_add_box(crosswalks, "WestStripe", Vector3(-8.5 + offset * 0.55, 0.13, 0), Vector3(0.32, 0.05, 8.0), marking_material)
+		_add_box(crosswalks, "EastStripe", Vector3(8.5 + offset * 0.55, 0.13, 0), Vector3(0.32, 0.05, 8.0), marking_material)
+
+func _add_signals_and_anchors() -> void:
+	var fixtures := Node3D.new()
+	fixtures.name = "IntersectionFixtures"
+	add_child(fixtures)
+	for index in range(4):
+		var x := -7.2 if index < 2 else 7.2
+		var z := -7.2 if index % 2 == 0 else 7.2
+		_add_box(fixtures, "SignalPole", Vector3(x, 1.75, z), Vector3(0.22, 3.5, 0.22), pole_material)
+		_add_box(fixtures, "SignalHead", Vector3(x, 3.4, z), Vector3(0.65, 0.9, 0.45), signal_material)
+		var anchor := Marker3D.new()
+		anchor.name = "CrossingAnchor_%d" % index
+		anchor.position = Vector3(x, 0.65, z)
+		anchor.set_meta("crossing_id", "crossing_%d" % index)
+		fixtures.add_child(anchor)
+
+func _add_lights_and_camera() -> void:
+	var world := WorldEnvironment.new()
+	var environment := Environment.new()
+	environment.background_mode = Environment.BG_COLOR
+	environment.background_color = Color("#9ab0bd")
+	environment.ambient_light_source = Environment.AMBIENT_SOURCE_COLOR
+	environment.ambient_light_color = Color("#e7edf0")
+	environment.ambient_light_energy = 0.65
+	world.environment = environment
+	add_child(world)
+	var sun := DirectionalLight3D.new()
+	sun.rotation_degrees = Vector3(-58, -35, 0)
+	sun.light_energy = 1.3
+	sun.shadow_enabled = true
+	add_child(sun)
+	var camera := Camera3D.new()
+	camera.position = Vector3(27, 29, 27)
+	camera.fov = 48.0
+	add_child(camera)
+	camera.look_at(Vector3.ZERO, Vector3.UP)
+
+func _add_box(parent: Node, name_value: String, position_value: Vector3, size: Vector3, material: Material) -> void:
+	var mesh_instance := MeshInstance3D.new()
+	var mesh := BoxMesh.new()
+	mesh.size = size
+	mesh.material = material
+	mesh_instance.name = name_value
+	mesh_instance.position = position_value
+	mesh_instance.mesh = mesh
+	parent.add_child(mesh_instance)
+
+func _material(color: Color, roughness: float, emission := Color(0, 0, 0, 1)) -> StandardMaterial3D:
+	var material := StandardMaterial3D.new()
+	material.albedo_color = color
+	material.roughness = roughness
+	if emission != Color(0, 0, 0, 1):
+		material.emission_enabled = true
+		material.emission = emission
+		material.emission_energy_multiplier = 1.8
+	return material

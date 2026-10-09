@@ -1,0 +1,160 @@
+extends Node
+
+const INPUT := "res://brackett_routes.json"
+const RoadSegment = preload("res://addons/road-generator/nodes/road_segment.gd")
+
+var _scenario := "downtown"
+
+func _ready() -> void:
+	for argument in OS.get_cmdline_user_args():
+		if argument.begins_with("--scenario="):
+			_scenario = argument.trim_prefix("--scenario=")
+	var input: Dictionary = JSON.parse_string(FileAccess.get_file_as_string(INPUT))
+	var scenarios: Dictionary = input["scenarios"]
+	if not scenarios.has(_scenario):
+		push_error("Unknown scenario: %s" % _scenario)
+		get_tree().quit(2)
+		return
+	var classes: Dictionary = input["classes"]
+	var routes: Array = scenarios[_scenario]
+	var start_us := Time.get_ticks_usec()
+	var containers: Array[RoadContainer] = []
+	for route_value: Variant in routes:
+		var route: Dictionary = route_value
+		var road_class: Dictionary = classes[route["kind"]]
+		containers.append(_make_route(route, road_class))
+	await get_tree().process_frame
+	await get_tree().process_frame
+	var setup_ms := (Time.get_ticks_usec() - start_us) / 1000.0
+	var rebuild_start := Time.get_ticks_usec()
+	for container in containers:
+		container.rebuild_segments(true)
+	var explicit_rebuild_ms := (Time.get_ticks_usec() - rebuild_start) / 1000.0
+	await get_tree().process_frame
+	var counts := _count_tree(self)
+	var length_m := 0.0
+	var source_points := 0
+	var class_counts := {}
+	for route_value: Variant in routes:
+		var route: Dictionary = route_value
+		length_m += float(route["length_m"])
+		source_points += route["points"].size()
+		var kind: String = route["kind"]
+		class_counts[kind] = class_counts.get(kind, 0) + 1
+	var payload := {
+		"engine": Engine.get_version_info().get("string", ""),
+		"release_tag": "0.9.3",
+		"release_commit": "980bc04c9f95a5c49b787f0a7a64a458156d5b9b",
+		"scenario": _scenario,
+		"source_sha256": input["source_sha256"],
+		"route_count": routes.size(),
+		"source_control_points_after_0_5m_simplification": source_points,
+		"road_length_m": length_m,
+		"route_class_counts": class_counts,
+		"setup_ms": setup_ms,
+		"explicit_rebuild_ms": explicit_rebuild_ms,
+		"counts": counts,
+		"limitations": "Street-plan polylines become native RoadPoint chains, but crossings overlap without RoadIntersection topology; no sidewalks, crosswalks, bridge structure, signals, props, semantic extraction, serialization or buildings are timed.",
+	}
+	var output := "res://road_spike_brackett_%s.json" % _scenario
+	var file := FileAccess.open(output, FileAccess.WRITE)
+	file.store_string(JSON.stringify(payload, "\t") + "\n")
+	file.close()
+	print("ROAD_SPIKE_BRACKETT ", JSON.stringify(payload))
+	get_tree().quit()
+
+func _make_route(route: Dictionary, road_class: Dictionary) -> RoadContainer:
+	var container := RoadContainer.new()
+	container.name = _safe_name(route["name"])
+	container.generate_ai_lanes = true
+	container.create_edge_curves = true
+	container.density = 2.0
+	container.set_meta("road_type", route["kind"])
+	container.set_meta("source_name", route["source_name"])
+	container.set_meta("is_bridge", route["is_bridge"])
+	add_child(container)
+	var source_points: Array = route["points"]
+	var points: Array[RoadPoint] = []
+	for index in range(source_points.size()):
+		var map_point: Array = source_points[index]
+		var position_value := Vector3(float(map_point[0]), 0.0, float(map_point[1]))
+		var direction := _point_direction(source_points, index)
+		var point := _make_point("point_%04d" % index, position_value, direction, road_class)
+		container.add_child(point)
+		points.append(point)
+	for index in range(points.size()):
+		if index > 0:
+			points[index].prior_pt_init = points[index].get_path_to(points[index - 1])
+			points[index].prior_mag = points[index].position.distance_to(points[index - 1].position) / 3.0
+		if index + 1 < points.size():
+			points[index].next_pt_init = points[index].get_path_to(points[index + 1])
+			points[index].next_mag = points[index].position.distance_to(points[index + 1].position) / 3.0
+	points[0].terminated = true
+	points[-1].terminated = true
+	return container
+
+func _make_point(name_value: String, position_value: Vector3, direction: Vector3, road_class: Dictionary) -> RoadPoint:
+	var point := RoadPoint.new()
+	point.name = name_value
+	point.position = position_value
+	point.basis = Basis.looking_at(direction, Vector3.UP)
+	var lanes := int(road_class["lanes"])
+	if lanes == 4:
+		point.traffic_dir = [RoadPoint.LaneDir.REVERSE, RoadPoint.LaneDir.REVERSE, RoadPoint.LaneDir.FORWARD, RoadPoint.LaneDir.FORWARD]
+	elif lanes == 2:
+		point.traffic_dir = [RoadPoint.LaneDir.REVERSE, RoadPoint.LaneDir.FORWARD]
+	else:
+		point.traffic_dir = [RoadPoint.LaneDir.FORWARD]
+	point.lane_width = float(road_class["lane_width_m"])
+	point.shoulder_width_l = 0.0
+	point.shoulder_width_r = 0.0
+	point.gutter_profile = Vector2.ZERO
+	return point
+
+func _point_direction(source_points: Array, index: int) -> Vector3:
+	var prior_index := maxi(0, index - 1)
+	var next_index := mini(source_points.size() - 1, index + 1)
+	var prior: Array = source_points[prior_index]
+	var next: Array = source_points[next_index]
+	return Vector3(float(next[0]) - float(prior[0]), 0.0, float(next[1]) - float(prior[1])).normalized()
+
+func _safe_name(value: String) -> String:
+	return value.to_lower().replace(" ", "_").replace("/", "_")
+
+func _count_tree(root: Node) -> Dictionary:
+	var result := {
+		"nodes": 0,
+		"mesh_instances": 0,
+		"draw_surfaces": 0,
+		"triangles": 0,
+		"static_bodies": 0,
+		"collision_shapes": 0,
+		"road_lanes": 0,
+		"edge_curves": 0,
+		"road_segments": 0,
+	}
+	var pending: Array[Node] = [root]
+	while not pending.is_empty():
+		var node: Node = pending.pop_back()
+		result["nodes"] += 1
+		if node is MeshInstance3D and node.mesh != null:
+			var mesh: Mesh = node.mesh
+			result["mesh_instances"] += 1
+			result["draw_surfaces"] += mesh.get_surface_count()
+			for surface in range(mesh.get_surface_count()):
+				var arrays: Array = mesh.surface_get_arrays(surface)
+				var indices: PackedInt32Array = arrays[Mesh.ARRAY_INDEX]
+				var vertices: PackedVector3Array = arrays[Mesh.ARRAY_VERTEX]
+				result["triangles"] += (indices.size() if not indices.is_empty() else vertices.size()) / 3
+		if node is StaticBody3D:
+			result["static_bodies"] += 1
+		if node is CollisionShape3D:
+			result["collision_shapes"] += 1
+		if node is RoadLane:
+			result["road_lanes"] += 1
+		if node is Path3D and str(node.name).begins_with("edge_"):
+			result["edge_curves"] += 1
+		if node is RoadSegment:
+			result["road_segments"] += 1
+		pending.append_array(node.get_children())
+	return result

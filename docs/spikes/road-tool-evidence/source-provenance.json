@@ -1,0 +1,48 @@
+{
+  "upstream": "https://github.com/TheDuckCow/godot-road-generator",
+  "evaluated_release": {
+    "tag": "0.9.3",
+    "tag_spelling": "0.9.3",
+    "commit": "980bc04c9f95a5c49b787f0a7a64a458156d5b9b",
+    "commit_date": "2026-07-15T22:51:15-07:00",
+    "plugin_version": "0.9.3",
+    "archive": "godot-road-generator-0.9.3.tar",
+    "archive_sha256": "b3daf57e9b436dc8ceb56b3f1873fbd0fceb3e49d62270b791fec71e5ef3ef1f",
+    "license": "MIT"
+  },
+  "comparison_refs": {
+    "main": {
+      "commit": "9d144dc4a28dd6bee870895d2b77d69174356281",
+      "describe": "0.9.4",
+      "plugin_version": "0.9.4",
+      "commit_date": "2026-09-30T22:01:42-07:00"
+    },
+    "dev": {
+      "commit": "d2ec61622acd7d3bbfb80518463b46611c5237b3",
+      "plugin_version": "0.9.4",
+      "commit_date": "2026-10-07T19:40:34-07:00"
+    },
+    "feature_decorations": {
+      "commit": "c8c9b514736b508ef8eaf87c8f2185faba7eef38"
+    }
+  },
+  "project_input": {
+    "path": "art/source/models/brackett_greybox/authoring_plan.json",
+    "sha256": "064ddd567a68d9c0bf12ee641f58272292ee0c733d79be65cd42823909436e56",
+    "route_count": 50,
+    "route_classes": [
+      "avenue",
+      "street",
+      "local",
+      "freight",
+      "service"
+    ],
+    "note": "The district-editor JSON contains district polygons only; the committed greybox authoring plan retains the exact derived route names, classes, points and dead-end flags used by the benchmark."
+  },
+  "release_source_inventory": {
+    "addon_gdscript_files": 24,
+    "addon_gdscript_lines": 12969,
+    "repository_test_files": 18
+  },
+  "note": "The owner brief called 0.9.3 latest. Tag 0.9.4 appeared in the observed upstream main by evaluation time and includes a Godot 4.8 hotfix; it was compared but not substituted silently for the requested release."
+}

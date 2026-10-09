@@ -1,0 +1,17 @@
+{
+  "scope": "Isolated clean reproduction of the current coarse whole-greybox scripted path: author_blender.py, reexport.py, fresh Godot import, then author_editor.gd placement. Subprocess startup is included.",
+  "measurement_environment": "Contended shared workstation; comparative spike evidence, not quiet-machine or hardware-certification timing.",
+  "blender": "5.2.2 LTS d13f752e3b9c",
+  "godot": "4.8.dev7.official.c971f93e7",
+  "authored_blend_sources": 22,
+  "exported_glbs": 40,
+  "authored_godot_scenes": 50,
+  "phases_seconds": {
+    "author_sources": 4.501227999571711,
+    "export_40_glbs": 3.4795455001294613,
+    "fresh_godot_import_40_glbs": 8.915066000074148,
+    "godot_placement_50_scenes": 5.871138900052756
+  },
+  "measured_subprocess_total_seconds": 22.766978399828076,
+  "limitations": "This is the current full deterministic batch, not a manually optimized one-ground-sector export. It excludes human editing, editor startup before the commands, source-control review, visual inspection and corrections. Placement exited zero and printed BRACKETT_EDITOR_AUTHORED 50, with dummy-renderer teardown leakage diagnostics."
+}
