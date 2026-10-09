@@ -13,6 +13,7 @@
     "bounded_actions": true,
     "one_hydration": true,
     "control_revision_resets": true,
+    "rejected_entry_sequence_continuity": true,
     "varying_commands": true,
     "adverse_profile": true,
     "malformed_flood_probe": true,
@@ -20,22 +21,22 @@
   },
   "measurements": {
     "entry_correction_m": {
-      "race_entry": 2.61888146400452,
-      "parked_entry": 0.273764222860336,
-      "traffic_entry": 3.66600584983826
+      "race_entry": 2.60391974449158,
+      "parked_entry": 0.170183911919594,
+      "traffic_entry": 1.33364069461823
     },
     "entry_visual_jump_m": {
-      "race_entry": 2.61888146400452,
-      "parked_entry": 0.273764222860336,
-      "traffic_entry": 3.66600584983826
+      "race_entry": 2.60391974449158,
+      "parked_entry": 0.170183911919594,
+      "traffic_entry": 1.33364069461823
     },
-    "transition_visual_jump_p95_m": 3.66600584983826,
+    "transition_visual_jump_p95_m": 2.60391974449158,
     "accepted_time_to_control_p95_ms": 17,
-    "action_round_trip_p95_ms": 518,
+    "action_round_trip_p95_ms": 217,
     "history_clean": true,
     "ownership_flips": true,
-    "proxy_delay_p95_ms": 103.70799992233515,
-    "proxy_delay_max_ms": 127.97870021313429,
+    "proxy_delay_p95_ms": 104.03229994699359,
+    "proxy_delay_max_ms": 113.74110030010343,
     "input_revisions": [
       1,
       2,
@@ -48,6 +49,8 @@
       "3": 1,
       "4": 1
     },
+    "rejected_entry_sequence_continuity": true,
+    "post_rejection_max_sequence": 38,
     "varying_input_samples": 43,
     "post_blackout_samples": 0,
     "post_stall_samples": 0,
@@ -70,24 +73,23 @@
     "action_rejections": {},
     "blocked_rejected": true,
     "control_reset_count": 3,
-    "disconnect_coast_m": 49.9162483215332,
+    "disconnect_coast_m": 49.5991554260254,
     "event": "result",
     "final_speed_mps": 0.0,
     "hydration_count": 1,
-    "input_expiry_count": 6,
+    "input_expiry_count": 5,
     "input_queue_peak": 5,
     "input_rejections": {
-      "INPUT_QUEUE": 5,
-      "STALE_CONTEXT": 31
+      "STALE_CONTEXT": 37
     },
-    "input_superseded_count": 9,
+    "input_superseded_count": 27,
     "moving_rejected": true,
     "ok": true,
     "race_complete": true,
     "role": "host",
     "traffic_ai_active": false,
     "traffic_stolen": true,
-    "wall_ms": 1791540395789.0
+    "wall_ms": 1791541395715.0
   },
   "client_result": {
     "event": "result",
@@ -96,7 +98,7 @@
     "ownership_clean": true,
     "role": "client",
     "transition_count": 6,
-    "wall_ms": 1791540390701.0
+    "wall_ms": 1791541390616.0
   },
   "commands": {
     "host": [
@@ -106,17 +108,17 @@
       "--max-fps",
       "60",
       "--path",
-      "C:\\tmp\\ft\\lanes\\s04-t\\review1-selected-final2\\normal\\project",
+      "C:\\tmp\\ft\\lanes\\s04-t\\review2-selected\\normal\\project",
       "--resolution",
       "1280x800",
       "--position",
       "0,0",
       "--log-file",
-      "C:\\tmp\\ft\\lanes\\s04-t\\review1-selected-final2\\normal\\host\\engine.log",
+      "C:\\tmp\\ft\\lanes\\s04-t\\review2-selected\\normal\\host\\engine.log",
       "res://tests/fixtures/s04_t/boot.tscn",
       "--",
       "--role=host",
-      "--port=25940",
+      "--port=26240",
       "--profile=normal"
     ],
     "client": [
@@ -126,23 +128,23 @@
       "--max-fps",
       "60",
       "--path",
-      "C:\\tmp\\ft\\lanes\\s04-t\\review1-selected-final2\\normal\\project",
+      "C:\\tmp\\ft\\lanes\\s04-t\\review2-selected\\normal\\project",
       "--resolution",
       "1280x800",
       "--position",
       "1280,0",
       "--log-file",
-      "C:\\tmp\\ft\\lanes\\s04-t\\review1-selected-final2\\normal\\client\\engine.log",
+      "C:\\tmp\\ft\\lanes\\s04-t\\review2-selected\\normal\\client\\engine.log",
       "res://tests/fixtures/s04_t/boot.tscn",
       "--",
       "--role=client",
-      "--port=25941",
+      "--port=26241",
       "--profile=normal"
     ]
   },
   "process_ids": [
-    19084,
-    73868
+    45732,
+    62660
   ],
   "exits": [
     0,
