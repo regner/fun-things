@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import importlib.util
 from pathlib import Path
+import tempfile
 import unittest
 import wave
 
@@ -79,6 +80,25 @@ class S14AudioTests(unittest.TestCase):
         self.assertEqual(known, exact)
         self.assertEqual(unexpected, [])
 
+    def test_diagnostic_classifier_rejects_warning_without_error_half(self) -> None:
+        diagnostic = (
+            "WARNING: 23 ObjectDB instances were leaked at exit "
+            "(run with `--verbose` for details)."
+        )
+        known, unexpected = S14_RUN.classify_diagnostics(
+            [diagnostic], self._valid_receipt()
+        )
+        self.assertEqual(known, [])
+        self.assertEqual(unexpected, [diagnostic])
+
+    def test_diagnostic_classifier_rejects_error_without_warning_half(self) -> None:
+        diagnostic = "ERROR: 7 resources still in use at exit (run with --verbose for details)."
+        known, unexpected = S14_RUN.classify_diagnostics(
+            [diagnostic], self._valid_receipt()
+        )
+        self.assertEqual(known, [])
+        self.assertEqual(unexpected, [diagnostic])
+
     def test_diagnostic_classifier_rejects_different_count(self) -> None:
         diagnostic = "WARNING: 24 ObjectDB instances were leaked at exit"
         known, unexpected = S14_RUN.classify_diagnostics(
@@ -94,6 +114,28 @@ class S14AudioTests(unittest.TestCase):
         known, unexpected = S14_RUN.classify_diagnostics([diagnostic], receipt)
         self.assertEqual(known, [])
         self.assertEqual(unexpected, [diagnostic])
+
+    def test_stage_and_manifest_share_committed_inventory(self) -> None:
+        inventory = S14_RUN._fixture_inventory()
+        inventory_names = {path.as_posix() for path in inventory}
+        self.assertTrue(any(path.suffix == ".import" for path in inventory))
+        self.assertFalse(any("__pycache__" in path.parts for path in inventory))
+        self.assertEqual(set(S14_RUN._source_manifest(inventory)), inventory_names)
+
+        with tempfile.TemporaryDirectory(prefix="s14-inventory-") as temporary:
+            project = S14_RUN._stage(Path(temporary), inventory)
+            staged_root = project / "tests" / "fixtures" / "s14"
+            staged_names = {
+                path.relative_to(project).as_posix()
+                for path in staged_root.rglob("*")
+                if path.is_file()
+            }
+            self.assertEqual(staged_names, inventory_names)
+            for relative_path in inventory:
+                self.assertEqual(
+                    (project / relative_path).read_bytes(),
+                    (ROOT / relative_path).read_bytes(),
+                )
 
     def test_saved_resources_have_stable_editor_identities(self) -> None:
         fixture = ROOT / "tests" / "fixtures" / "s14"

@@ -21,7 +21,6 @@ ROOT = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(ROOT / "tools"))
 from script_checks import DIAGNOSTIC, PIN, environment  # noqa: E402
 
-FIXTURE = ROOT / "tests" / "fixtures" / "s14"
 SCENE = "res://tests/fixtures/s14/audio_test.tscn"
 CASE_TIMEOUT_SECONDS = 20
 
@@ -31,10 +30,24 @@ def _save(path: Path, value: object) -> None:
     path.write_text(json.dumps(value, indent=2) + "\n", encoding="utf-8", newline="\n")
 
 
-def _stage(output: Path) -> Path:
-    """Copy only the S14 fixture into an addon-free external Godot project."""
+def _fixture_inventory() -> list[Path]:
+    """Return the one Git-owned file inventory used for staging and source binding."""
+    output = subprocess.check_output(
+        ["git", "ls-files", "-z", "--", "tests/fixtures/s14"], cwd=ROOT
+    )
+    paths = [Path(value.decode("utf-8")) for value in output.split(b"\0") if value]
+    if not paths:
+        raise RuntimeError("Git returned no committed S14 fixture files")
+    return sorted(paths)
+
+
+def _stage(output: Path, inventory: list[Path]) -> Path:
+    """Copy the committed S14 inventory into an addon-free external Godot project."""
     project = output / "project"
-    shutil.copytree(FIXTURE, project / "tests" / "fixtures" / "s14")
+    for relative_path in inventory:
+        target = project / relative_path
+        target.parent.mkdir(parents=True, exist_ok=True)
+        shutil.copy2(ROOT / relative_path, target)
     settings = (ROOT / "project.godot").read_text(encoding="utf-8")
     settings = re.sub(r"(?ms)^\[(?:autoload|editor_plugins)\]\n.*?(?=^\[|\Z)", "", settings)
     settings = settings.replace('config/icon="res://icon.svg"\n', "")
@@ -42,13 +55,12 @@ def _stage(output: Path) -> Path:
     return project
 
 
-def _source_manifest() -> dict[str, str]:
-    """Hash every committed fixture input used by the staged project."""
-    manifest = {}
-    for path in sorted(FIXTURE.rglob("*")):
-        if path.is_file() and path.suffix != ".import":
-            manifest[path.relative_to(ROOT).as_posix()] = hashlib.sha256(path.read_bytes()).hexdigest()
-    return manifest
+def _source_manifest(inventory: list[Path]) -> dict[str, str]:
+    """Hash exactly the committed fixture inventory copied into the staged project."""
+    return {
+        path.as_posix(): hashlib.sha256((ROOT / path).read_bytes()).hexdigest()
+        for path in inventory
+    }
 
 
 def _godot_process_count() -> int | None:
@@ -126,7 +138,11 @@ def classify_diagnostics(diagnostics: list[str], receipt: dict | None) -> tuple[
         "WARNING: 23 ObjectDB instances were leaked at exit (run with `--verbose` for details).",
         "ERROR: 7 resources still in use at exit (run with --verbose for details).",
     }
-    if not receipt or receipt.get("audio_driver") != "Dummy":
+    if (
+        not receipt
+        or receipt.get("audio_driver") != "Dummy"
+        or not exact_known.issubset(diagnostics)
+    ):
         return [], diagnostics
     known = [line for line in diagnostics if line in exact_known]
     unexpected = [line for line in diagnostics if line not in exact_known]
@@ -253,6 +269,7 @@ def main() -> int:
         cwd=ROOT,
         text=True,
     ).strip()
+    inventory = _fixture_inventory()
     summary = {
         "ok": False,
         "engine": version,
@@ -260,13 +277,14 @@ def main() -> int:
         "dirty_inputs": dirty,
         "platform": platform.platform(),
         "processor": platform.processor(),
-        "source_manifest": _source_manifest(),
+        "source_inventory": [path.as_posix() for path in inventory],
+        "source_manifest": _source_manifest(inventory),
         "cases": [],
     }
     if version != PIN:
         summary["failure"] = f"expected {PIN}, got {version}"
     else:
-        project = _stage(output)
+        project = _stage(output, inventory)
         import_argv = [
             args.godot,
             "--headless",
