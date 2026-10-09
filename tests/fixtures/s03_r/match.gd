@@ -43,13 +43,13 @@ func _physics_process(delta: float) -> void:
 				continue
 
 			if Time.get_ticks_msec() - int(binding.receipt_ms) > HELD_EXPIRY_MS:
-				binding.held = Vector2.ZERO
+				binding.held = { "move": Vector2.ZERO, "aim_yaw": actor.rotation.y }
 
-			var held: Vector2 = binding.held
-			actor.step(held.x, held.y, delta)
+			var held: Dictionary = binding.held
+			actor.step(held.move, held.aim_yaw, delta)
 			if binding.pending > binding.sequence:
 				binding.sequence = binding.pending
-				binding.sample = held.x
+				binding.sample = (held.move as Vector2).length()
 				accepted_count += 1
 
 	else:
@@ -71,7 +71,7 @@ func prepare_initial(participant: int) -> int:
 	var entity: int = super.prepare_initial(participant)
 	if not body_for_entity.has(entity):
 		_activate_body(entity, body_for_entity.size())
-		bindings[participant].held = Vector2.ZERO
+		bindings[participant].held = { "move": Vector2.ZERO, "aim_yaw": 0.0 }
 	return entity
 
 
@@ -130,29 +130,52 @@ func apply_baseline(data: Dictionary) -> bool:  # gdstyle:ignore=quality/max-ret
 		baseline_ticks[entity] = int(pose.tick)
 
 	for participant: int in bindings:
-		bindings[participant].held = Vector2.ZERO
+		bindings[participant].held = { "move": Vector2.ZERO, "aim_yaw": 0.0 }
 	return true
 
 
-## Retains S03's sender/context/window checks while accepting facing-relative move and turn.
+## Retains sender/context/window checks while queueing the complete foot command.
+func submit_held(participant: int, envelope: Variant) -> String:
+	if not authoritative or not bindings.has(participant) or not bindings[participant].admitted:
+		return _reject("NOT_ADMITTED")
+	if not _held_shape_valid(envelope):
+		return _reject("INVALID")
+	if not envelope.context is Dictionary or envelope.context != context(participant):
+		return _reject("STALE_CONTEXT")
+
+	var binding: Dictionary = bindings[participant]
+	var floor_sequence: int = maxi(int(binding.sequence), int(binding.pending))
+	if envelope.sequence <= floor_sequence:
+		return _reject("STALE_SEQUENCE")
+	if envelope.sequence > int(binding.sequence) + SEQUENCE_WINDOW:
+		return _reject("WINDOW")
+
+	binding.pending = envelope.sequence
+	binding.held = { "move": envelope.move, "aim_yaw": envelope.aim_yaw }
+	binding.receipt_ms = Time.get_ticks_msec()
+	return "OK"
+
+
+## Accepts normalized world movement and a finite canonical aim yaw.
 func _held_shape_valid(envelope: Variant) -> bool:
-	if not envelope is Dictionary or envelope.size() != 3:
+	if not envelope is Dictionary or envelope.size() != 4:
+		return false
+	if not envelope.has("context") or not envelope.has("sequence") or not (
+		envelope.has("move") and envelope.has("aim_yaw")):
+		return false
+	if not envelope.sequence is int or not envelope.move is Vector2 or not (
+		envelope.aim_yaw is float):
 		return false
 
-	if not envelope.has("context") or not envelope.has("sequence") or not envelope.has("move"):
-		return false
-
-	if not envelope.sequence is int or not envelope.move is Vector2:
-		return false
-
-	var held: Vector2 = envelope.move
-	return held.is_finite() and absf(held.x) <= 1.0 and absf(held.y) <= 1.0
+	var move: Vector2 = envelope.move
+	return move.is_finite() and move.length_squared() <= 1.0 and (
+		is_finite(envelope.aim_yaw) and absf(envelope.aim_yaw) <= PI)
 
 
 ## Begins a fresh control binding neutral without resetting actual pose or durable health.
 func prepare_resync(participant: int) -> void:
 	super.prepare_resync(participant)
-	bindings[participant].held = Vector2.ZERO
+	bindings[participant].held = { "move": Vector2.ZERO, "aim_yaw": 0.0 }
 	body_for_entity[bindings[participant].entity].neutralize()
 
 

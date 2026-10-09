@@ -144,7 +144,7 @@ func _collect_and_send() -> void:
 			return
 		var sampled: Dictionary = input_collector.sample()
 		var envelope: Dictionary = {"context": match_state.context(session.local_participant),
-			"sequence": sequence, "move": Vector2(sampled.move, sampled.turn)}
+			"sequence": sequence, "move": sampled.move, "aim_yaw": _aim_yaw(command)}
 		if role == "host":
 			match_state.submit_held(session.local_participant, envelope)
 		else:
@@ -159,19 +159,20 @@ func _check_boundaries() -> void:
 		key.pressed = true
 		input_collector._unhandled_input(key)
 		input_collector.set_focused(false)
-		if input_collector.sample().move != 0.0:
+		if input_collector.sample().move != Vector2.ZERO:
 			failures.append("focus API did not neutralize held motion")
 		input_collector.set_focused(true)
-		if input_collector.sample().move != 0.0:
+		if input_collector.sample().move != Vector2.ZERO:
 			failures.append("focus regain resumed held input")
-		_record({ "event": "focus_api", "neutral": input_collector.sample().move == 0.0 })
+		_record({ "event": "focus_api",
+			"neutral": input_collector.sample().move == Vector2.ZERO })
 		return
 
 	var participant: int = session.local_participant
 	var binding: Dictionary = match_state.bindings[participant]
 	var before: int = binding.pending
 	var envelope: Dictionary = {"context": match_state.context(participant),
-		"sequence": sequence + 1, "move": Vector2(NAN, 0.0)}
+		"sequence": sequence + 1, "move": Vector2(NAN, 0.0), "aim_yaw": 0.0}
 	var reasons: Array[String] = [match_state.submit_held(participant, envelope)]
 	envelope.move = Vector2.ZERO
 	envelope.context.entity = 2
@@ -191,6 +192,7 @@ func _check_boundaries() -> void:
 func _start() -> void:
 	started_ms = Time.get_ticks_msec()
 	camera_rig.bind(match_state.local_body())
+	input_collector.bind_aim(camera_rig.camera(), match_state.local_body())
 	_record({"event": "start", "pid": OS.get_process_id(), "profile": profile,
 		"window_visible": get_window().visible, "window_mode": get_window().mode,
 		"can_draw": DisplayServer.window_can_draw(), "display": DisplayServer.get_name(),
@@ -212,26 +214,31 @@ func _announce(session_id: String) -> void:
 ## Provides independently timed motion/turn pulses followed by collision and recovery cases.
 func _command(tick: int) -> Vector2:  # gdstyle:ignore=quality/max-returns
 	if role == "host":
-		return Vector2(-1.0, 0.0) if (
+		return Vector2(0.0, 1.0) if (
 			tick >= HOST_REVERSE_START_TICK and tick < HOST_REVERSE_END_TICK) else Vector2.ZERO
 
 	if tick < WALL_START_TICK:
 		var pulse: int = tick / PULSE_TICKS
 		if pulse < PULSE_COUNT and tick % PULSE_TICKS < HOLD_TICKS:
 			if pulse % 2 == 0:
-				return Vector2(1.0, 0.0)
-			return Vector2(0.0, 1.0 if pulse % 4 == 1 else -1.0)
+				return Vector2(0.0, -1.0)
+			return Vector2(1.0 if pulse % 4 == 1 else -1.0, 0.0)
 		return Vector2.ZERO
 
 	if tick < WALL_END_TICK:
-		return Vector2(1.0, 0.0)
+		return Vector2(0.0, -1.0)
 	if tick < REVERSE_END_TICK:
-		return Vector2(-1.0, 0.0)
+		return Vector2(0.0, 1.0)
 	if (tick >= STALL_REVERSE_START_TICK and tick < STALL_REVERSE_END_TICK) or (
 		tick >= EXPIRY_PULSE_START_TICK and tick < PRODUCER_SILENCE_START_TICK):
-		return Vector2(-1.0, 0.0)
+		return Vector2(0.0, 1.0)
 
 	return Vector2.ZERO
+
+
+## Faces synthetic route movement so the envelope exercises independent aim yaw.
+func _aim_yaw(move: Vector2) -> float:
+	return 0.0 if move == Vector2.ZERO else atan2(-move.x, -move.y)
 
 
 ## Routes synthetic physical binding transitions through the accepted S02 input owner.
@@ -245,8 +252,8 @@ func _set_keys(command: Vector2) -> void:
 		var event: InputEventKey = InputEventKey.new()  # gdstyle:ignore=quality/allocation-in-loop
 		event.physical_keycode = key
 		event.pressed = (
-			(key == KEY_W and command.x > 0.0) or (key == KEY_S and command.x < 0.0)
-			or (key == KEY_D and command.y > 0.0) or (key == KEY_A and command.y < 0.0))
+			(key == KEY_W and command.y < 0.0) or (key == KEY_S and command.y > 0.0)
+			or (key == KEY_D and command.x > 0.0) or (key == KEY_A and command.x < 0.0))
 		input_collector._unhandled_input(event)
 
 	last_command = command
@@ -259,11 +266,12 @@ func _set_keys(command: Vector2) -> void:
 		var actor: S03RActor = match_state.local_body()
 		capture_pose = actor.motion_state()
 		_record({"event": "input", "index": event_index, "tick": local_tick,
-			"move": command.x, "turn": command.y, "sequence_floor": sequence + 1,
-			"position": match_state.vector(
+			"move": [command.x, command.y], "aim_yaw": _aim_yaw(command),
+			"sequence_floor": sequence + 1, "position": match_state.vector(
 				actor.global_position), "yaw": actor.rotation.y})
 
-	_record({ "event": "keys", "tick": local_tick, "move": command.x, "turn": command.y })
+	_record({ "event": "keys", "tick": local_tick,
+		"move": [command.x, command.y], "aim_yaw": _aim_yaw(command) })
 
 
 ## Places only a dynamic authoritative test body for the isolated wall-outcome segment.
@@ -292,7 +300,8 @@ func _on_step(tick: int) -> void:
 			var actor: S03RActor = match_state.body_for_entity[entity]
 			_record({"event": "simulation", "local_tick": local_tick,
 				"pose": match_state.pose_for_entity(entity),
-				"held": [binding.held.x, binding.held.y], "receipt_ms": binding.receipt_ms,
+				"held": [binding.held.move.x, binding.held.move.y],
+				"aim_yaw": binding.held.aim_yaw, "receipt_ms": binding.receipt_ms,
 				"muzzle": match_state.vector(actor.muzzle_position()),
 				"aim": match_state.vector(-actor.global_basis.z)})
 

@@ -5,9 +5,7 @@ extends RefCounted
 const LOOKAHEAD_M: float = 2.0
 const ARRIVAL_M: float = 0.3
 const TRAFFIC_SPEED_MPS: float = 3.5
-const FOOT_TURN_GAIN: float = 4.0
 const THROTTLE_GAIN_PER_MPS: float = 2.0
-const FOOT_ALIGN_RAD: float = 0.05
 const NEAREST_WINDOW: int = 32
 
 var points: PackedVector3Array = []
@@ -31,7 +29,7 @@ func bind_route(city: S06City, kind: String, from_id: StringName,
 	return "OK" if enabled else "NO_ROUTE"
 
 
-## Generates facing-relative intent using current public body state and saved route points.
+## Generates route intent using current public body state and saved route points.
 func intent(state: Dictionary, kind: String) -> Dictionary:
 	if not enabled:
 		return { "done": true }
@@ -58,8 +56,8 @@ func intent(state: Dictionary, kind: String) -> Dictionary:
 	var desired: float = atan2(-direction.x, -direction.z)
 	var error: float = wrapf(desired - float(state.yaw), -PI, PI)
 	if kind == "FOOT":
-		return { "done": false, "move": 1.0 if absf(error) < FOOT_ALIGN_RAD else 0.0,
-			"turn": clampf(-error * FOOT_TURN_GAIN, -1.0, 1.0) }
+		var planar: Vector2 = Vector2(direction.x, direction.z).normalized()
+		return { "done": false, "move": planar, "aim_yaw": desired }
 
 	return _car_intent(state, direction, error)
 

@@ -158,7 +158,8 @@ def analyze(directory, proxy_events):
         previous[pose["entity"]] = receipt["position"]
     response = []
     for entry in (r for r in client if r["event"] == "input" and r["index"] <= 20):
-        row = {"index": entry["index"], "move": entry["move"], "turn": entry["turn"]}
+        row = {"index": entry["index"], "move": entry["move"],
+               "aim_yaw": entry["aim_yaw"]}
         for kind, label in [("apply", "physics_ms"), ("render", "rendered_frame_ms")]:
             candidate = None
             for frame in client:
@@ -171,8 +172,7 @@ def analyze(directory, proxy_events):
                 sequence = frame["pose"]["sequence"] if kind == "apply" else frame["sequence"]
                 if sequence < entry["sequence_floor"]:
                     continue
-                changed = (distance(frame["position"], entry["position"]) > 0.005
-                           if entry["move"] else
+                changed = (distance(frame["position"], entry["position"]) > 0.005 or
                            angle(frame["yaw"], entry["yaw"]) > math.radians(0.2))
                 if changed:
                     candidate = frame["time_ms"] - entry["time_ms"]

@@ -1,13 +1,11 @@
 [gd_scene format=3 uid="uid://dra4y060lahdw"]
 
-[ext_resource type="Script" uid="uid://d2oer50d005p4" path="res://tests/fixtures/s02/building_view.gd" id="1_10c2p"]
 [ext_resource type="PackedScene" uid="uid://rg5mixotkaqo" path="res://art/models/spikes/s02_low.glb" id="1_10fu5"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_10c2p"]
 size = Vector3(8, 6, 8)
 
 [node name="low_prefab" type="Node3D" unique_id=1338630014]
-script = ExtResource("1_10c2p")
 
 [node name="Visuals" type="Node3D" parent="." unique_id=460251499]
 

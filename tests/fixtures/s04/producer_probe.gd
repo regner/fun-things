@@ -76,7 +76,8 @@ func _expect_closed(fixture: S04Proof, replication: S04Replication, label: Strin
 		fixture._physics_process(DELTA_SECONDS)
 	_require(not fixture.match_state.rig.get_meta("input_enabled"), label + " gate opened")
 	_require(sent.size() == count and fixture.sequence == sequence, label + " produced intent")
-	_require(fixture.input_collector.sample().move == 0.0, label + " retained closed-gate key")
+	_require(fixture.input_collector.drive_sample().throttle == 0.0,
+		label + " retained closed-gate key")
 
 
 ## Requires new control/sequence and neutral former keys once both dependencies arrive.

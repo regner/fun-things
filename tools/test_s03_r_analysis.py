@@ -17,7 +17,7 @@ class ResponseOwnershipTests(unittest.TestCase):
             (directory / "host/stdout.log").write_text("")
             rows = [
                 {"event": "input", "index": 1, "time_ms": 100, "sequence_floor": 10,
-                 "move": 1, "turn": 0, "position": [0, 0, 0], "yaw": 0},
+                 "move": [0, -1], "aim_yaw": 0, "position": [0, 0, 0], "yaw": 0},
                 {"event": "apply", "time_ms": 110, "entity": 1, "pose": {
                     "entity": 1, "tick": 1, "sequence": 10},
                  "position": [1, 0, 0], "yaw": 0},

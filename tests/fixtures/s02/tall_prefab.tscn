@@ -1,13 +1,11 @@
 [gd_scene format=3 uid="uid://mq0aqvml8y3r"]
 
-[ext_resource type="Script" uid="uid://d2oer50d005p4" path="res://tests/fixtures/s02/building_view.gd" id="1_elovs"]
 [ext_resource type="PackedScene" uid="uid://do3aq8ksrjrx7" path="res://art/models/spikes/s02_tall.glb" id="1_u15u5"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_elovs"]
 size = Vector3(8, 60, 8)
 
 [node name="tall_prefab" type="Node3D" unique_id=1625145547]
-script = ExtResource("1_elovs")
 
 [node name="Visuals" type="Node3D" parent="." unique_id=1381167068]
 

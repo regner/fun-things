@@ -166,12 +166,13 @@ func _check_boundaries() -> void:
 		key.pressed = true
 		input_collector._unhandled_input(key)
 		input_collector.set_focused(false)
-		if input_collector.sample().move != 0.0:
+		if input_collector.drive_sample().throttle != 0.0:
 			failures.append("focus API did not neutralize held motion")
 		input_collector.set_focused(true)
-		if input_collector.sample().move != 0.0:
+		if input_collector.drive_sample().throttle != 0.0:
 			failures.append("focus regain resumed held input")
-		_record({ "event": "focus_api", "neutral": input_collector.sample().move == 0.0 })
+		_record({ "event": "focus_api",
+			"neutral": input_collector.drive_sample().throttle == 0.0 })
 		return
 
 	var participant: int = session.local_participant

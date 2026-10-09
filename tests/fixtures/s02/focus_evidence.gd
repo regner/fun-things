@@ -115,7 +115,7 @@ func _drive_window() -> void:
 func _check_restored() -> void:
 	if not _window.has_focus():
 		_failures.append("restoring window did not regain native focus")
-	if _fixture.input_collector.sample().move != 0.0:
+	if _fixture.input_collector.sample().move != Vector2.ZERO:
 		_failures.append("restoring window resumed stale movement")
 	if _fixture.input_collector.sample().fire:
 		_failures.append("restoring window resumed stale fire")

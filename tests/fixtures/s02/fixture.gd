@@ -10,30 +10,22 @@ extends Node3D
 @onready var rig: S02CameraRig = $CameraRig
 @onready var _overlay: S02ProbeOverlay = get_node("UI/Overlay")
 @onready var _status: Label = get_node("UI/Status")
-@onready var _buildings: Array[S02BuildingView] = [
-	$WestCorner, $EastCorner, $NearTower, $TallTower,
-]
 
 
-## Binds presentation and cancellation after all saved children are ready.
+## Binds presentation, mouse projection and cancellation after saved children are ready.
 func _ready() -> void:
 	rig.bind(actor)
+	input_collector.bind_aim(rig.camera(), actor)
 	_overlay.bind(rig.camera(), actor)
 	aim.fired.connect(_overlay.show_shot)
 	input_collector.suspended.connect(_on_suspended)
-
-
-## Updates only local building materials after the follow camera has advanced.
-func _process(_delta: float) -> void:
-	for building: S02BuildingView in _buildings:
-		building.protect_actor(rig.camera(), actor.global_position)
 
 
 ## Collects intent before the single motion/query step, then updates diagnostic UI.
 func _physics_process(delta: float) -> void:
 	if not manual_mode:
 		var command: Dictionary = input_collector.sample()
-		step_intent(command.move, command.turn, command.fire, delta)
+		step_command(command, delta)
 
 	_update_status()
 
@@ -45,14 +37,14 @@ func _update_status() -> void:
 		rig.camera().position.y, rig.camera().fov, aim.shot_count, hit_name,
 		"INPUT SUSPENDED — release controls, then resume" if (
 			input_collector.menu_open or not input_collector.active
-		) else "W/S or ↑/↓ forward/back • A/D or ←/→ turn • Space fire • Esc suspend",
+		) else "WASD or arrows move • Mouse aims • Left click / Space fires • Esc suspends",
 	]
 
 
-## Provides the shared standalone simulation entrypoint for input and outcome checks.
-func step_intent(move_axis: float, turn_axis: float, firing: bool, delta: float) -> void:
-	actor.step(move_axis, turn_axis, delta)
-	aim.step(actor, firing, delta)
+## Provides one command-shaped simulation entrypoint for standalone and later replay callers.
+func step_command(command: Dictionary, delta: float) -> void:
+	actor.step(command.move, command.aim_yaw, delta)
+	aim.step(actor, command.fire, delta)
 
 
 ## Clears both continuous movement and transient firing before the next physics tick.
