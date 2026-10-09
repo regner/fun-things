@@ -14,8 +14,9 @@ build folders and complete export logs remain outside the repository at
   engine log reports D3D12 Forward+, a 1280x800 window, 30 frames capped at 60,
   successful saved-intersection loading, absent MCP/Steam runtime surfaces, and
   exit 0 without warnings or errors.
-- `export-contention.txt` records 14 other Godot processes before the sequential
-  exports, so export timing is labelled contended and is not a benchmark.
+- `export-contention.txt` records zero other Godot processes before the final
+  post-rebase exports. Timing is labelled quiet, but remains functional evidence,
+  not a performance benchmark.
 - `export-diagnostics.log` retains the known editor/export-process diagnostics:
   the MCP 4.8 compatibility warning and Godot headless editor teardown RID/ObjectDB
   messages. All four export commands exited 0 and package inspection passed. These

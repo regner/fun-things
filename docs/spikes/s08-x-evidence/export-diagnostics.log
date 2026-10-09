@@ -5,13 +5,13 @@ WARNING: [MCP] Godot 4.8 detected - latest tested version is 4.7.0. The plugin w
        [0] _enter_tree (res://addons/godot_mcp_toolkit/plugin.gd:62)
 WARNING: 21 RIDs of type "CanvasItem" were leaked.
    at: _free_rids (servers/rendering/renderer_canvas_cull.cpp:2735)
-WARNING: 185 ObjectDB instances were leaked at exit (run with `--verbose` for details).
+WARNING: 178 ObjectDB instances were leaked at exit (run with `--verbose` for details).
    at: cleanup (core/object/object.cpp:2604)
 ERROR: 3 resources still in use at exit (run with --verbose for details).
    at: clear (core/io/resource.cpp:822)
 === windows-debug stdout diagnostics
 ERROR: 9 RID allocations of type 'PN13RendererDummy14TextureStorage12DummyTextureE' were leaked at exit.
-ERROR: 80 RID allocations of type 'PN18TextServerAdvanced22ShapedTextDataAdvancedE' were leaked at exit.
+ERROR: 79 RID allocations of type 'PN18TextServerAdvanced22ShapedTextDataAdvancedE' were leaked at exit.
 ERROR: 18 RID allocations of type 'PN18TextServerAdvanced12FontAdvancedE' were leaked at exit.
 ERROR: 1 RID allocations of type 'PN18TextServerAdvanced27FontAdvancedLinkedVariationE' were leaked at exit.
 === windows-release stderr
@@ -35,6 +35,8 @@ WARNING: [MCP] Godot 4.8 detected - latest tested version is 4.7.0. The plugin w
    at: push_warning (core/variant/variant_utility.cpp:1034)
    GDScript backtrace (most recent call first):
        [0] _enter_tree (res://addons/godot_mcp_toolkit/plugin.gd:62)
+WARNING: Scan thread aborted...
+   at: _notification (editor/file_system/editor_file_system.cpp:1748)
 WARNING: 21 RIDs of type "CanvasItem" were leaked.
    at: _free_rids (servers/rendering/renderer_canvas_cull.cpp:2735)
 WARNING: 185 ObjectDB instances were leaked at exit (run with `--verbose` for details).
@@ -53,12 +55,12 @@ WARNING: [MCP] Godot 4.8 detected - latest tested version is 4.7.0. The plugin w
        [0] _enter_tree (res://addons/godot_mcp_toolkit/plugin.gd:62)
 WARNING: 21 RIDs of type "CanvasItem" were leaked.
    at: _free_rids (servers/rendering/renderer_canvas_cull.cpp:2735)
-WARNING: 178 ObjectDB instances were leaked at exit (run with `--verbose` for details).
+WARNING: 185 ObjectDB instances were leaked at exit (run with `--verbose` for details).
    at: cleanup (core/object/object.cpp:2604)
 ERROR: 3 resources still in use at exit (run with --verbose for details).
    at: clear (core/io/resource.cpp:822)
 === linux-release stdout diagnostics
 ERROR: 9 RID allocations of type 'PN13RendererDummy14TextureStorage12DummyTextureE' were leaked at exit.
-ERROR: 79 RID allocations of type 'PN18TextServerAdvanced22ShapedTextDataAdvancedE' were leaked at exit.
+ERROR: 80 RID allocations of type 'PN18TextServerAdvanced22ShapedTextDataAdvancedE' were leaked at exit.
 ERROR: 18 RID allocations of type 'PN18TextServerAdvanced12FontAdvancedE' were leaked at exit.
 ERROR: 1 RID allocations of type 'PN18TextServerAdvanced27FontAdvancedLinkedVariationE' were leaked at exit.
