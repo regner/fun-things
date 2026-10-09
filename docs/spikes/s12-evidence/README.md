@@ -1,8 +1,9 @@
 # S12 retained evidence
 
 Canonical measurements were produced on Windows 11 with pinned Godot
-`4.8.dev7.official.c971f93e7` after commit `e1771e7` (fixture cadence fix). The
-three directories are independent complete repetitions with fresh ports/output:
+`4.8.dev7.official.c971f93e7` after the fixture cadence fix (pre-rebase commit
+`e1771e7`; current equivalent `ecc4e34`). The three directories are independent
+complete repetitions with fresh ports/output:
 
 | Repetition | Ports | Top-level receipt |
 | --- | --- | --- |
