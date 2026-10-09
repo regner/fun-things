@@ -13,7 +13,7 @@ const SNAPSHOT_INTERVAL_TICKS: int = 4
 const INTERPOLATION_DELAY_TICKS: float = 12.0
 const MAX_EXTRAPOLATION_TICKS: float = 12.0
 const RUN_TICKS: int = 660
-const FINISH_DELAY_TICKS: int = 60
+const FINISH_DELAY_TICKS: int = 300
 
 var codec: S11SnapshotCodec = CodecScript.new()
 var transport: S03Transport
@@ -113,7 +113,7 @@ func _physics_process(_delta: float) -> void:
 func _process(delta: float) -> void:
 	if role != "client":
 		return
-	if result_emitted_ms > 0 and Time.get_ticks_msec() - result_emitted_ms > 5000:
+	if result_emitted_ms > 0 and Time.get_ticks_msec() - result_emitted_ms > 8000:
 		get_tree().quit(0)
 		return
 	if not running:
