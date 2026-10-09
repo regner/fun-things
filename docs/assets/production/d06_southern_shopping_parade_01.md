@@ -245,8 +245,16 @@ exits zero but emits known scan-thread/RID/ObjectDB shutdown diagnostics and the
 Fresh runtime checks and the independent production-check mirror are clean. No owner's
 live Blender or Godot MCP session was used or touched.
 
-Pending: independent technical/art review; .02 fitted assembly; .03 north treatment;
-owner final proportions/tenant choice; current road-tool and bridge landing fit; world
-identity consolidation/placement; native gameplay-camera/readability; actual movement,
+Pending: independent technical/art review; owner final proportions/tenant choice;
+current road-tool and bridge landing fit; world identity consolidation/placement; native gameplay-camera/readability; actual movement,
 aim and multiplayer implications; packaged builds, sustained profiling and Deck checks.
 No queue, shared progress/brief, project setting, TODO or saved placement was changed.
+
+## Review round 1 — sibling-delivery status
+
+Removed the completed .02 fitted assembly and .03 north treatment from the pending
+list (P3). Independent review and all downstream acceptance gates remain pending.
+This is a documentation-only correction: source, export, prefab and render bytes
+are unchanged, so export/render/import and geometry checks are unaffected. Refreshed
+this document's manifest entry and reran `record.py --verify` for all three members.
+The shared production checks also passed; see [.02's round-1 receipt](d06_southern_shopping_parade_02.md#review-round-1--sibling-delivery-status).
