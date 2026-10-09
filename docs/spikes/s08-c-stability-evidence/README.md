@@ -22,5 +22,7 @@ measurement fixture; no uncapped rendering was used.
 - `files.txt` lists retained file sizes. `SHA256SUMS` binds every other evidence file.
 
 The external staged projects and shader caches are intentionally not retained. The
-committed result files contain the tested revision, engine identity, commands, scene
-results, and source-independent telemetry needed for review.
+committed result files contain the pre-rebase tested revision, engine identity, commands,
+scene results, and source-independent telemetry needed for review. `source-manifest.json`
+maps that experiment revision to the post-rebase equivalent scene/tool commit and verifies
+that every measured source hash is unchanged.
