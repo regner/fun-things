@@ -63,15 +63,15 @@ when an unpredicted client could respond.
 | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
 | Headless loopback | 24 ms | 194 ms | unavailable | unavailable | 0.167 / 1.592 m | 78.0 us | 41 |
 | Headless normal | 18 ms | 260 ms | unavailable | unavailable | 0.250 / 2.399 m | 27.18 us | 49 |
-| Headless adverse | 18 ms | 426 ms | unavailable | unavailable | 0.250 / 3.917 m | 21.58 us | 83 |
+| Headless adverse | 29 ms | 374 ms | unavailable | unavailable | 0.250 / 4.000 m | 22.61 us | 89 |
 | Windowed loopback | 22 ms | 123 ms | 35 ms | 149 ms | 0.250 / 0.527 m | 85.0 us | 42 |
 
 All selected runs meet the provisional predicted response target (physics p95 <=50 ms)
 and correction target (p95 <=0.5 m). Maxima are reported rather than hidden; visual
 smoothing does not change authoritative physics. Exact authoritative installation error
 was 0 m and no selected run exhausted 120-frame history. The adverse 1 s interruption
-and 250 ms host stall converged in 320.47 ms and 564 ms respectively, both below 1 s.
-The maximum adverse replay was 83 frames and remained bounded.
+and 250 ms host stall converged in 405.34 ms and 423 ms respectively, both below 1 s.
+The maximum adverse replay was 89 frames and remained bounded.
 
 Selected correction classifiers were `none`, `held_timing_or_delivery`, and one normal
 `static_collision`; no remote-actor contact was observed in the final routes and no car
