@@ -58,7 +58,7 @@ second repeat.
 
 | Environment | Observed value |
 | --- | --- |
-| Hardware/OS | Intel64 Family 6 Model 170 desktop CPU; NVIDIA RTX 4070 Laptop GPU; Windows 11 10.0.26200 |
+| Hardware/OS | `Intel64 Family 6 Model 170 Stepping 4, GenuineIntel`; NVIDIA RTX 4070 Laptop GPU; Windows 11 10.0.26200 |
 | Renderer/build | D3D12 12_0, Forward+, pinned editor binary `4.8.dev7.official.c971f93e7` |
 | Run identity | Clean per-variant revisions listed in `manifest.json`; external roots were `C:/tmp/ft/lanes/s07-env/` |
 | Scope not measured | Exported build, OS presentation capture, power/thermal state, Deck, textures/production art, actors/effects/network/AI/population |
