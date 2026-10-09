@@ -2,6 +2,9 @@ extends SceneTree
 ## Focused public-API skin, clip, layering and attachment contract checks.
 
 const ACTOR: String = "res://scenes/prefabs/player_character/coral_courier.tscn"
+const SHARED_ANIMATIONS: String = "res://art/animations/characters/shared_humanoid/"
+const SHARED_MODELS: String = "res://art/models/characters/shared_humanoid/"
+const SHARED_SOURCE: String = "res://art/source/models/characters/shared_humanoid/"
 const EPSILON: float = 0.0001
 
 var failures: Array[String] = []
@@ -89,7 +92,7 @@ func check() -> void:  # gdstyle:ignore=quality/max-local-variables
 	expect(actor.play_clip(&"run"), "play run")
 	player.pause()
 	player.seek(0.23, true)
-	var template: PackedScene = load("res://art/models/characters/shared_humanoid/shared_humanoid_bind_v1.glb")
+	var template: PackedScene = load(SHARED_MODELS + "shared_humanoid_bind_v1.glb")
 	expect(actor.apply_skin(template), "compatible different mesh skin swap")
 	expect(mesh.mesh != original_mesh, "geometry actually changed")
 	expect(actor.get_skeleton().get_instance_id() == skeleton_id, "skeleton retained")
@@ -112,9 +115,9 @@ func check() -> void:  # gdstyle:ignore=quality/max-local-variables
 	expect(not actor.apply_skin(bad_scene), "transformed hierarchy rejected")
 	bad.free()
 	for family: String in ["player"]:
-		var library_path: String = "res://art/animations/characters/shared_humanoid/" + family + "_v1.tres"
+		var library_path: String = SHARED_ANIMATIONS + family + "_v1.tres"
 		var library: AnimationLibrary = load(library_path)
-		var source_path: String = "res://art/source/models/characters/shared_humanoid/shared_humanoid_"
+		var source_path: String = SHARED_SOURCE + "shared_humanoid_"
 		source_path += family + "_motion_v1.json"
 		var manifest: Dictionary = JSON.parse_string(FileAccess.get_file_as_string(source_path))
 		check_library(library, manifest, player, skeleton, family + "/")
@@ -177,7 +180,7 @@ func check_layers(
 
 ## Compare every extracted player key with the current imported source to detect stale caches.
 func check_source_tracks(player: AnimationPlayer) -> void:
-	var path: String = "res://art/models/characters/shared_humanoid/shared_humanoid_player_motion_v1.glb"
+	var path: String = SHARED_MODELS + "shared_humanoid_player_motion_v1.glb"
 	var source: Node = (load(path) as PackedScene).instantiate()
 	var imported: AnimationPlayer = source.find_child("AnimationPlayer", true, false)
 	var library: AnimationLibrary = player.get_animation_library(&"player")
