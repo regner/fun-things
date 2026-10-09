@@ -9,7 +9,11 @@ This is a reviewable first source/import/preview checkpoint, not final art accep
 
 Latch now has shorter front doors and fixed rear-quarter body/glass, matching the
 approved concept’s door split. See [revision and checks](latch_door_revision.md).
-Its source, export, hashes, import checks and three captures are updated.
+Its source, export, hashes and three captures are updated. The helper inspection
+in `latch-door-refresh.jsonl` returned cached old mesh data; current live-editor
+synchronization remains unproven. The source/GLB correction and rebase are accepted
+by the [final review](final_rebase_review_307f521.md), which records this nonblocking
+evidence limitation. `import_checks.json` retains earlier cached-import results.
 
 ## Independent review
 

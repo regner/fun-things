@@ -30,11 +30,16 @@ The previous Blender save backup is preserved in worktree-private temporary stat
 - Exact private editor PID72501/project/ports verified; no unsaved scenes before
   refresh. Closed affected tabs, refreshed, reopened, saved and reopened both Latch
   scenes through editor MCP. Wrapper and preview bytes/UIDs remain unchanged;
-  [receipt](latch-door-refresh.jsonl), existing hashes in `roundtrip.json`.
+  [receipt](latch-door-refresh.jsonl), existing hashes in `roundtrip.json`. However,
+  its final mesh inspection returned the old cached panels (1.932 m, no quarter
+  nodes). These operations do **not** prove revised live-editor synchronization.
+  A fresh editor inspection of the 1.245 m panels/four quarter nodes remains pending.
 - Source/GLB collection membership and source re-export passed; output byte-identical
   to the new committed GLB. Updated hashes in `reexport.json`.
-- Godot-imported bounds still match source within 0.002 m; five socket poses agree;
-  all meshes remain linked to the GLB. Updated `import_checks.json`.
+- The cached editor import retains the previous outer bounds/socket/linkage results
+  in `import_checks.json`; it cannot certify the new mesh composition. Independent
+  source/GLB review confirms current bounds, retained sockets and fixed-quarter
+  hierarchy; fresh standalone captures show the corrected import.
 - Independent GLB hierarchy inspection confirms all four rear-quarter parts have
   the fixed car root as parent; front panel/window/handle parts retain their hinges.
   See `latch-door-parent-check.json` and source split bounds in the source record.
@@ -47,3 +52,6 @@ This is a focused correction, not final model acceptance. Rounded concept forms,
 upper door-edge shading, full-loop/intermediate clearances and renderer/gameplay
 acceptance remain open. The earlier independent review applies to immutable
 `69219f0`; it does not certify this later source revision.
+
+The [final rebase review](final_rebase_review_307f521.md) accepts local integration
+and records this nonblocking stale-inspection evidence finding explicitly.
