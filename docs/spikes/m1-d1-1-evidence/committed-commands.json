@@ -1,0 +1,16 @@
+{
+  "engine": "4.8.dev7.official.c971f93e7",
+  "tested_head": "89e146de74269bd8fa1a396fb44c231805f8e0b9",
+  "stacked_base": "d9862137d79eb5a588a7b90170d72c89bcdca6ff",
+  "output": "C:/tmp/ft/lanes/m1-d1-1/committed-export-output",
+  "commands": [
+    "python tools/production_checks.py --output C:/tmp/ft/lanes/m1-d1-1/production-checks-stacked",
+    "godot --headless --path . --export-debug Windows Debug <output>/windows-debug/FunThingsDebug.exe",
+    "godot --headless --path . --export-release Windows Release <output>/windows-release/FunThings.exe",
+    "godot --headless --path . --export-debug Linux Debug <output>/linux-debug/FunThingsDebug.x86_64",
+    "godot --headless --path . --export-release Linux Release <output>/linux-release/FunThings.x86_64",
+    "python tools/s08_x/inspect_exports.py --root <output> --project . --output <output>/package-inspection.json"
+  ],
+  "result": "Canonical checks and all export commands exited 0; inspection passed all four committed-tree packages.",
+  "scope": "The tested committed tree stacks M1-D1.1 directly on reviewed M1-A1.1 and uses res://scenes/boot/boot.tscn without substituting project files."
+}

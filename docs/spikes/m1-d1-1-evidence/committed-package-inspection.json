@@ -1,0 +1,194 @@
+{
+  "ok": true,
+  "exports": {
+    "windows_debug": {
+      "ok": true,
+      "executable": {
+        "path": "C:/tmp/ft/lanes/m1-d1-1/committed-export-output/windows-debug/FunThingsDebug.exe",
+        "bytes": 105550336,
+        "sha256": "b5827a836746ce342a6678347d587584da1387decd99f47cd541438443346cd0"
+      },
+      "package": {
+        "path": "C:/tmp/ft/lanes/m1-d1-1/committed-export-output/windows-debug/FunThingsDebug.pck",
+        "bytes": 19167052,
+        "sha256": "29981136ef41bfd9056a680c2d254370df8a41c896936ed82801ed1b49538e01"
+      },
+      "format": "PE",
+      "pck_entry_count": 596,
+      "required_matches": {
+        "scenes/boot/boot.tscn": [
+          "scenes/boot/boot.tscn.remap"
+        ],
+        "scenes/ui/main_menu.tscn": [
+          "scenes/ui/main_menu.tscn.remap"
+        ],
+        "scenes/ui/session_status.tscn": [
+          "scenes/ui/session_status.tscn.remap"
+        ],
+        "scripts/boot/boot.gd": [
+          "scripts/boot/boot.gd.remap",
+          "scripts/boot/boot.gdc"
+        ],
+        "scripts/session/session_service.gd": [
+          "scripts/session/session_service.gd.remap",
+          "scripts/session/session_service.gdc"
+        ],
+        "scripts/ui/main_menu.gd": [
+          "scripts/ui/main_menu.gd.remap",
+          "scripts/ui/main_menu.gdc"
+        ],
+        "scripts/ui/session_status.gd": [
+          "scripts/ui/session_status.gd.remap",
+          "scripts/ui/session_status.gdc"
+        ]
+      },
+      "missing_required_paths": [],
+      "forbidden_pck_entries": [],
+      "forbidden_output_files": []
+    },
+    "windows_release": {
+      "ok": true,
+      "executable": {
+        "path": "C:/tmp/ft/lanes/m1-d1-1/committed-export-output/windows-release/FunThings.exe",
+        "bytes": 111795200,
+        "sha256": "a13b173c265f3759ae67662e655ae2f5d0576b6e24098d838f8e68bde441c35a"
+      },
+      "package": {
+        "path": "C:/tmp/ft/lanes/m1-d1-1/committed-export-output/windows-release/FunThings.pck",
+        "bytes": 19167052,
+        "sha256": "29981136ef41bfd9056a680c2d254370df8a41c896936ed82801ed1b49538e01"
+      },
+      "format": "PE",
+      "pck_entry_count": 596,
+      "required_matches": {
+        "scenes/boot/boot.tscn": [
+          "scenes/boot/boot.tscn.remap"
+        ],
+        "scenes/ui/main_menu.tscn": [
+          "scenes/ui/main_menu.tscn.remap"
+        ],
+        "scenes/ui/session_status.tscn": [
+          "scenes/ui/session_status.tscn.remap"
+        ],
+        "scripts/boot/boot.gd": [
+          "scripts/boot/boot.gd.remap",
+          "scripts/boot/boot.gdc"
+        ],
+        "scripts/session/session_service.gd": [
+          "scripts/session/session_service.gd.remap",
+          "scripts/session/session_service.gdc"
+        ],
+        "scripts/ui/main_menu.gd": [
+          "scripts/ui/main_menu.gd.remap",
+          "scripts/ui/main_menu.gdc"
+        ],
+        "scripts/ui/session_status.gd": [
+          "scripts/ui/session_status.gd.remap",
+          "scripts/ui/session_status.gdc"
+        ]
+      },
+      "missing_required_paths": [],
+      "forbidden_pck_entries": [],
+      "forbidden_output_files": []
+    },
+    "linux_debug": {
+      "ok": true,
+      "executable": {
+        "path": "C:/tmp/ft/lanes/m1-d1-1/committed-export-output/linux-debug/FunThingsDebug.x86_64",
+        "bytes": 78405256,
+        "sha256": "8b2871a1e2f8baf482282422f7e64cd7cfcc713eb53d8db671025b041bb23eb9"
+      },
+      "package": {
+        "path": "C:/tmp/ft/lanes/m1-d1-1/committed-export-output/linux-debug/FunThingsDebug.pck",
+        "bytes": 19167052,
+        "sha256": "29981136ef41bfd9056a680c2d254370df8a41c896936ed82801ed1b49538e01"
+      },
+      "format": "ELF",
+      "pck_entry_count": 596,
+      "required_matches": {
+        "scenes/boot/boot.tscn": [
+          "scenes/boot/boot.tscn.remap"
+        ],
+        "scenes/ui/main_menu.tscn": [
+          "scenes/ui/main_menu.tscn.remap"
+        ],
+        "scenes/ui/session_status.tscn": [
+          "scenes/ui/session_status.tscn.remap"
+        ],
+        "scripts/boot/boot.gd": [
+          "scripts/boot/boot.gd.remap",
+          "scripts/boot/boot.gdc"
+        ],
+        "scripts/session/session_service.gd": [
+          "scripts/session/session_service.gd.remap",
+          "scripts/session/session_service.gdc"
+        ],
+        "scripts/ui/main_menu.gd": [
+          "scripts/ui/main_menu.gd.remap",
+          "scripts/ui/main_menu.gdc"
+        ],
+        "scripts/ui/session_status.gd": [
+          "scripts/ui/session_status.gd.remap",
+          "scripts/ui/session_status.gdc"
+        ]
+      },
+      "missing_required_paths": [],
+      "forbidden_pck_entries": [],
+      "forbidden_output_files": []
+    },
+    "linux_release": {
+      "ok": true,
+      "executable": {
+        "path": "C:/tmp/ft/lanes/m1-d1-1/committed-export-output/linux-release/FunThings.x86_64",
+        "bytes": 78376584,
+        "sha256": "c436b976ff5ac2e5f3197732ba7d9462267573e5a108782f84928d0606885695"
+      },
+      "package": {
+        "path": "C:/tmp/ft/lanes/m1-d1-1/committed-export-output/linux-release/FunThings.pck",
+        "bytes": 19167052,
+        "sha256": "29981136ef41bfd9056a680c2d254370df8a41c896936ed82801ed1b49538e01"
+      },
+      "format": "ELF",
+      "pck_entry_count": 596,
+      "required_matches": {
+        "scenes/boot/boot.tscn": [
+          "scenes/boot/boot.tscn.remap"
+        ],
+        "scenes/ui/main_menu.tscn": [
+          "scenes/ui/main_menu.tscn.remap"
+        ],
+        "scenes/ui/session_status.tscn": [
+          "scenes/ui/session_status.tscn.remap"
+        ],
+        "scripts/boot/boot.gd": [
+          "scripts/boot/boot.gd.remap",
+          "scripts/boot/boot.gdc"
+        ],
+        "scripts/session/session_service.gd": [
+          "scripts/session/session_service.gd.remap",
+          "scripts/session/session_service.gdc"
+        ],
+        "scripts/ui/main_menu.gd": [
+          "scripts/ui/main_menu.gd.remap",
+          "scripts/ui/main_menu.gdc"
+        ],
+        "scripts/ui/session_status.gd": [
+          "scripts/ui/session_status.gd.remap",
+          "scripts/ui/session_status.gdc"
+        ]
+      },
+      "missing_required_paths": [],
+      "forbidden_pck_entries": [],
+      "forbidden_output_files": []
+    }
+  },
+  "required_source_paths": [
+    "scenes/boot/boot.tscn",
+    "scenes/ui/main_menu.tscn",
+    "scenes/ui/session_status.tscn",
+    "scripts/boot/boot.gd",
+    "scripts/session/session_service.gd",
+    "scripts/ui/main_menu.gd",
+    "scripts/ui/session_status.gd"
+  ]
+}

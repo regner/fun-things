@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites name="GutTests" failures="0" tests="9" >
+  <testsuite name="tests/unit/session/test_session_service.gd" tests="6" failures="0" skipped="0" time="0.217152" >
+      <testcase name="test_standalone_reaches_active_and_completes_once" assertions="9" status="pass" classname="tests/unit/session/test_session_service.gd" time="0.009765" >
+      </testcase>
+      <testcase name="test_cancel_late_callback_and_retry_are_correlated" assertions="14" status="pass" classname="tests/unit/session/test_session_service.gd" time="0.096578" >
+      </testcase>
+      <testcase name="test_close_timeout_forces_unavailable_without_double_completion" assertions="12" status="pass" classname="tests/unit/session/test_session_service.gd" time="0.089787" >
+      </testcase>
+      <testcase name="test_join_accepts_provider_target_and_rejects_stale_shape" assertions="6" status="pass" classname="tests/unit/session/test_session_service.gd" time="0.007052" >
+      </testcase>
+      <testcase name="test_join_rejects_directory_target_without_opening_transport" assertions="5" status="pass" classname="tests/unit/session/test_session_service.gd" time="0.005306" >
+      </testcase>
+      <testcase name="test_view_shape_retains_capacity_for_current_session_kind" assertions="14" status="pass" classname="tests/unit/session/test_session_service.gd" time="0.008664" >
+      </testcase>
+  </testsuite>
+  <testsuite name="tests/unit/session/test_session_ui.gd" tests="2" failures="0" skipped="0" time="0.068163" >
+      <testcase name="test_boot_cancel_restores_main_menu" assertions="7" status="pass" classname="tests/unit/session/test_session_ui.gd" time="0.061143" >
+      </testcase>
+      <testcase name="test_status_focuses_initial_action_when_shown" assertions="2" status="pass" classname="tests/unit/session/test_session_ui.gd" time="0.00702" >
+      </testcase>
+  </testsuite>
+  <testsuite name="tests/unit/tooling/test_gut_smoke.gd" tests="1" failures="0" skipped="0" time="0.002578" >
+      <testcase name="test_gut_smoke_passes" assertions="1" status="pass" classname="tests/unit/tooling/test_gut_smoke.gd" time="0.002578" >
+      </testcase>
+  </testsuite>
+</testsuites>
