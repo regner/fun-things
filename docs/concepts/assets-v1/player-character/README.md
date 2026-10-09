@@ -81,6 +81,16 @@ spike references, not production hand transforms.
 | SMG | Firing-hand grip, support beneath front receiver, short stock shoulder contact; provisional length around 0.8 m | Contact transforms, shoulder clearance, aim/reload/recoil presentation |
 | Launcher | Grip, support hand beneath forward body, shoulder contact behind grip, clear head | Pose/clearance for selected tube/pod, aim and firing recovery |
 
+9 October dependency update from the pistol lead: Regner selected **A — Coral Stub**
+for source-linked static weapon production. Keep its grip pivot/unit root and
+`socket_grip` / `socket_muzzle`; one primary hand, optional support around the same
+grip, no shoulder contact. The weapon lead will initially preserve the S02 0.42 m
+grip-to-muzzle reference and inspect the actual camera before changing apparent
+size. This is a provisional weapon dimension, not a settled player hand/rest offset.
+Player concept selection remains pending. Once the versioned production rig defines
+the hand pose and attachment transform, player lead sends settled grip dimensions
+and pose needs to the pistol lead for a source-linked fit check.
+
 Required coverage includes in-place unarmed idle/walk/run and retained final death
 pose; pistol, two-hand SMG and shoulder-launcher holding/aiming while stationary
 and moving; independent movement/aim directions from the design brief; and pistol/
