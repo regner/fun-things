@@ -102,7 +102,7 @@ def stage_project(project):
     settings = (ROOT / "project.godot").read_text()
     for section in ("autoload", "editor_plugins"):
         settings = re.sub(r"(?ms)^\[" + section + r"\]\n.*?(?=^\[|\Z)", "", settings)
-    settings = re.sub(r"^config/icon=.*\n", "", settings, flags=re.M)
+    settings = re.sub(r"^(?:config/icon|run/main_scene)=.*\n", "", settings, flags=re.M)
     (project / "project.godot").write_text(settings)
 
 
