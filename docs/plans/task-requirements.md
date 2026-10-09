@@ -10,10 +10,10 @@ qualification and enough outcome detail for dispatch.
 and the audit-derived tasks in
 [section 4 of the readiness audit](../reviews/p0-readiness-audit-2026-10-08.md).
 Most quantitative criteria are planning proposals derived from current product budgets and
-remain tunable during M1. Owner decisions 13–21 ratify the desktop frame target, narrow
+remain tunable during M1. Owner decisions 13–22 ratify the desktop frame target, narrow
 P0-GATE to the S17-only quiet result plus the refreshed gate packet, select the first
 hit-registration policy and combat starting values, accept the S03-P M1 input-queue
-contract and set the initial S11 remote extrapolation policy.
+contract, set the initial S11 remote extrapolation policy and make S17 a soft total budget.
 
 - **P0-TOOLING:** Completed. The [baseline repair](../spikes/p0-tooling.md) made the
   canonical script check green, established complete Python discovery, selected the
@@ -94,10 +94,11 @@ contract and set the initial S11 remote extrapolation policy.
   Actual bodies, final routes, replenishment and intersection policy remain M1/owner work.
 - **S10:** Completed foundation comparison, with a negative production-readiness result. The
   [64-pedestrian evidence](../spikes/s10.md) favors graph kinematics, but normal/flee graph
-  p95 medians are 2.654/3.658 ms (**contended**) against the proposed 1 ms share, and
-  overlap/stuck quality is unacceptable. Owner decisions 13–14 retain those contended results
-  and make behavior/budget improvement the first production work with acceptance checks; no
-  extra foundation spike is required.
+  p95 medians are 2.654/3.658 ms (**contended**) and overlap/stuck quality is unacceptable.
+  Decision 22 keeps the former 1 ms pedestrian share as reporting only, not an acceptance gate;
+  pedestrians remain the first optimization target when the soft total host budget is threatened.
+  Owner decisions 13–14 make behavior/total-budget improvement the first production work without
+  an extra foundation spike.
 - **S11:** Completed codec/bandwidth direction. [S11](../spikes/s11.md) keeps 1,196-byte
   movement payloads; worst measured host output is 55.16 KiB/s against 256 KiB/s and join
   wire bytes are about 3.2 KiB against 1 MiB. Decision 20 sets one tunable short remote
@@ -128,10 +129,10 @@ contract and set the initial S11 remote extrapolation policy.
   promotion, tests, ordered work and risks. P0-GATE reviews rather than reopens the plan.
 - **S17:** Completed the only owner-authorized quiet rerun. The
   [quiet production-schedule result](../spikes/quiet-remeasure-2026-10-09.md) is
-  2.069/3.989/5.849 ms median/p95/p99, passing the provisional 4/8 ms fixture targets by
-  only 0.011 ms at p95. Real body physics, prediction and socket work are omitted, so this is
-  not production headroom. Owner decision 14 makes host-budget improvement and acceptance
-  the first production work alongside S10.
+  2.069/3.989/5.849 ms median/p95/p99, meeting decision 22's soft ~4 ms total p95
+  target by only 0.011 ms. Real body physics, prediction and socket work are omitted, so
+  this is not production headroom. Track the total in regular performance checks; subsystem
+  shares are reporting only, and the initial 64-pedestrian/32-car settings remain tunable.
 - **Quiet re-measurement:** Complete. Per owner decision 13, S17 alone was rerun; every other
   spike retains its labelled contended values under “make it work, then make it pretty, then
   make it fast.” CPU-load snapshots are instantaneous and do not prove exclusive use.
@@ -187,9 +188,11 @@ Completed discovery reconciliation: [P0-DOC14 record](../reviews/p0-doc14.md).
 - **M1-D2:** Playtest desktop keyboard/mouse multiplayer feel, camera/aim, driving,
   spectacle, exploration, menus/focus and audio; fix findings or have the user scope
   them out. Gamepad/controller playtesting is owner-deferred.
-- **M1-D3:** Start S17 production host-budget work immediately after P0-GATE. Target capped
-  60 FPS with p95 ≤16.7 ms and p99 ≤20 ms on the RTX 4070 Laptop Windows reference and a
-  named Linux desktop when available. Verify capacity and bounded adverse-network lifecycle
+- **M1-D3:** Start S17 production host-budget work immediately after P0-GATE. Track the soft
+  ~4 ms total host-simulation p95 target at full tunable M1 population without per-feature
+  gates. Target capped 60 FPS with p95 ≤16.7 ms and p99 ≤20 ms on the RTX 4070 Laptop
+  Windows reference and a named Linux desktop when available. Verify capacity and bounded
+  adverse-network lifecycle
   through real ENet processes/APIs and
   measure frame/physics, draw, memory, bandwidth, queues and response. Culling cannot stop
   required simulation and optimization needs evidence. Steam transport testing is owner-deferred.

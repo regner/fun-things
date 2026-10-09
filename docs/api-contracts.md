@@ -666,7 +666,7 @@ to fixed-step deadlines without accepting client elapsed time.
 | Live event dedup | 512 IDs with retired floor; event presentation age at most 2 s | Presentation / S05 event/retirement decision; M1-B4 implementation, M1-D3 dedup/age/saturation acceptance |
 | Entity tombstones | At most 65536 spawned refs per match revision; refuse further dynamic allocation and report limit, never discard live tombstones | Match/Replication / S07 load budgets; M1-A2/B3/C3 lifecycle implementation, M1-D3 allocation/retention-cap acceptance |
 | Spawn | 10 candidates/tick; 0.10 m clearance skin; 5 s retry after due time | PlayerLifecycle/Population / S02/S04/S06 envelopes/query decisions; M1-A2/B2/C3 implementation, M1-D3 clearance/race/deadline acceptance |
-| Population/effects | Brief's global 64 pedestrians, 32 live cars, 16 retained wrecks/16 dead NPCs, 16 active rockets; 8 explosion presentations and 64 transient instances/client | Population/Explosions/Presentation / S05 bounded 12-car feasibility, S07 measured budgets; M1-B2/B3/B4/C3 implementation, M1-D3 sustained capacity |
+| Population/effects | Tunable initial settings of 64 pedestrians and 32 live cars; 16 retained wrecks/16 dead NPCs, 16 active rockets; 8 explosion presentations and 64 transient instances/client | Population/Explosions/Presentation / decision 22 tunable population; S05 bounded 12-car feasibility, S07 measured budgets; M1-B2/B3/B4/C3 implementation, M1-D3 sustained capacity |
 
 Chunk sizes describe logical messages, not safe UDP datagrams. Account for encoding
 and transport overhead in measurements; adapters must verify fragmentation/logical

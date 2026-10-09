@@ -242,9 +242,9 @@ death or disconnect does not resume traffic AI. Pedestrians route on sidewalk an
 crossing data, and their wander/flee controllers emit ordinary foot commands. Render
 visibility never suspends authoritative AI, health, timers or collision.
 
-S09 and S10 establish algorithms and measured host budget shares; S11 establishes
-replication. M1-C3 productionizes accepted results rather than importing a complete
-spike fixture.
+S09 and S10 establish algorithms and measured timing reports; decision 22 makes their
+old subsystem shares reporting only, not acceptance gates. S11 establishes replication.
+M1-C3 productionizes accepted results rather than importing a complete spike fixture.
 
 ### 2.5 Combat, presentation, UI and audio
 
@@ -543,7 +543,7 @@ population by replacing missing S09–S11/S17 evidence with dummy behavior.
 | “Every explosion visible” has no accepted quality-degradation rule | 12/24 effects may violate frame budget or produce unreadable output | S15 measures authored full/cheap variants. **Owner:** confirm reducing particles/lighting while retaining one visible effect per explosion is allowed. |
 | Production art differs greatly from grey-block evidence | Memory, draw and animation costs arrive late | C1 delivers the estimated 10–16-day starter subset early; repeat representative capped tests as each family lands and reforecast the 60–96-day total from actual throughput. |
 | Windows Blender output differs from accepted Linux output | Source/export checks fail after production art starts | S01-W is a hard C1/S13 input; select byte or semantic comparison before asset production. |
-| AI spikes may meet correctness but consume too much of the 4 ms host budget | Integrated host misses simulation target | S17 composes S09–S12 and S11 encode before A2 codec freeze/C3; individual budget shares cannot be accepted in isolation. |
+| AI spikes may meet correctness but threaten the soft ~4 ms total host p95 target | Integrated host misses its tracked simulation target | Decision 22 keeps subsystem timings as reports only; check the total regularly and optimize the largest contributor, pedestrians first. Population counts remain tunable. |
 | Full population codec misses bandwidth/join targets | Late replication rewrite | Accepted S11 baseline/codec evidence is a hard A2.2 dependency, reinforced but never replaced by S17. Retain replaceable motion, per-entity refresh and immutable durable ownership. |
 | Foundation validation remains red or incomplete | Production lanes cannot make honest pass claims | P0-TOOLING must make the canonical check green and discover every Python test before D1.1. |
 | GUT or its editor plugin conflicts with pinned dev engine/addons | CI instability or exported test code | D1.1 pins and proves headless CLI on both OSes, keeps plugin disabled at runtime and verifies export exclusion. No broad warning suppression. |
@@ -584,7 +584,7 @@ Remaining production reviews are assigned to their consumers rather than P0 prer
 ## 7. Historical suggested task-record reconciliation
 
 The bullets below preserve this plan's original 8 October reconciliation proposal. They are
-historical: current `TODO.md`, task requirements and owner decisions 13–21 supersede them.
+historical: current `TODO.md`, task requirements and owner decisions 13–22 supersede them.
 
 - **P0-GATE:** record the owner's answer on restoring S02/prediction and audit-derived
   dependencies; add P0-TOOLING, S03-L, S08-X, S08-C, S01-W, S03-P, S04-P, S04-T and

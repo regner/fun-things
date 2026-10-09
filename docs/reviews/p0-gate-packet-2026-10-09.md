@@ -23,11 +23,12 @@ Foundation results establish concepts and high-level limits; reasonable numeric 
 adjustable during M1. Accordingly:
 
 - S17 is the only quiet rerun. Its production-schedule substituted total is
-  **2.069/3.989/5.849 ms median/p95/p99**, passing the provisional 4/8 ms host fixture targets,
-  but its 0.011 ms p95 margin provides no headroom for omitted real physics, prediction or sockets.
-- S10's 64-pedestrian prototype still misses its proposed share and has unacceptable overlap/stuck
-  counts. Owner decision 14 makes S10 quality/budget and S17 host-budget work the first production
-  tasks with acceptance checks, not additional foundation gates.
+  **2.069/3.989/5.849 ms median/p95/p99**. Decision 22 treats approximately 4 ms p95 for the
+  full M1 host as a soft tracked target, not a per-feature acceptance gate; the 0.011 ms fixture
+  margin provides no headroom for omitted real physics, prediction or sockets.
+- S10's 64-pedestrian prototype has unacceptable overlap/stuck counts and pedestrians are the
+  largest timing contributor. Decision 22 makes old subsystem shares reporting only; behavior and
+  total-host risk still make S10/S17 the first production work under decision 14.
 - All other spike timings remain explicitly **contended**; owner decision 13 defers their quiet
   optimization to implementation rather than treating those upper bounds as gate failures.
 - S11 fits the bandwidth budgets with large margin; decision 20 sets the initial remote-motion
@@ -46,13 +47,13 @@ idle `godot-ai.exe` bridges explain the runner's retained mechanical contended l
 
 | Workload | Existing result | Quiet-pass disposition | Gate/production use |
 | --- | --- | --- | --- |
-| S17 pedestrians | contended p95 2.960 ms | quiet p95 **2.559 ms**; proposed 1.0 ms share fails | Optimize and accept in the first production work. |
-| S17 traffic | contended p95 1.423 ms | quiet p95 **1.264 ms**; 1.5 ms share passes | Preserve as a planning ceiling; remeasure real bodies. |
-| S17 combat/history | contended p95 0.141 ms | quiet p95 **0.119 ms**; 0.25 ms share passes | Fixture result only. |
-| S17 explosions/chains | contended p95 0.018 ms | quiet p95 **0.015 ms**; 0.10 ms share passes | Fixture result only. |
-| S17 subset encode every four ticks | contended p95 0.664 ms | quiet p95 **0.499 ms**; 0.75 ms share passes | Use shared/rate-bucket encoding as the production starting point. |
-| S17 conservative total | contended 3.527/6.519/8.643 ms | quiet **3.027/5.658/8.321 ms** median/p95/p99; fails 4/8 ms | Comparison only; three full encodes/tick is not the intended schedule. |
-| S17 production-schedule total | contended 2.394/4.582/6.286 ms | quiet **2.069/3.989/5.849 ms** median/p95/p99; passes 4/8 ms | No claimed headroom: p95 passes by only 0.011 ms and important work is omitted. |
+| S17 pedestrians | contended p95 2.960 ms | quiet p95 **2.559 ms**; former 1.0 ms share exceeded | Reporting only; optimize pedestrians first when the total is threatened. |
+| S17 traffic | contended p95 1.423 ms | quiet p95 **1.264 ms** | Former 1.5/2.0 ms shares are reporting only; remeasure real bodies. |
+| S17 combat/history | contended p95 0.141 ms | quiet p95 **0.119 ms** | Reporting only; fixture result. |
+| S17 explosions/chains | contended p95 0.018 ms | quiet p95 **0.015 ms** | Reporting only; fixture result. |
+| S17 subset encode every four ticks | contended p95 0.664 ms | quiet p95 **0.499 ms** | Reporting only; use shared/rate-bucket encoding as the production starting point. |
+| S17 conservative total | contended 3.527/6.519/8.643 ms | quiet **3.027/5.658/8.321 ms** median/p95/p99 | Comparison only; three full encodes/tick is not the intended schedule. |
+| S17 production-schedule total | contended 2.394/4.582/6.286 ms | quiet **2.069/3.989/5.849 ms** median/p95/p99 | Meets the soft ~4 ms p95 target by 0.011 ms in the fixture; no production headroom claim. |
 | S03-L, S03-P, S04-P/T, S07, S09–S15 | contended values retained | **Not rerun by owner decision 13** | Make systems work, then improve presentation and optimize during M1. |
 
 ## Foundation status matrix
@@ -88,22 +89,21 @@ All timing values explicitly marked **contended** are upper bounds from a shared
 | S14 | Automated audio/settings foundation complete; listening open | [Audio](../spikes/s14.md): exact 8 engine / 8 explosion / 6 weapon voice caps and settings roundtrip | Human mix/listening, production assets/licenses, attributable CPU profiling | Not rerun; contended context retained by decision 13 |
 | S15 | Technical VFX comparison complete | [VFX](../spikes/s15.md): all 12/24 roots retained; 24-full frame p95 18.445 ms median, **contended** | Owner approval for tiers; adaptive `amount_ratio` did not prove lower cost; readability | Not rerun; contended retained by decision 13 |
 | S16 | Complete proposal | [M1 production plan](../plans/m1-production-plan.md): owner map, promotion plan, testing layers and ordered backlog | Owner ratification of quantitative/product choices in this packet | n/a |
-| S17 | Quiet foundation measurement complete; first production task | [Quiet host tick](../spikes/quiet-remeasure-2026-10-09.md): production schedule 2.069/3.989/5.849 ms median/p95/p99 | Fixture passes 4/8 ms by 0.011 ms p95; omitted work means no production headroom claim | Quiet S17 complete |
+| S17 | Quiet foundation measurement complete; first production task | [Quiet host tick](../spikes/quiet-remeasure-2026-10-09.md): production schedule 2.069/3.989/5.849 ms median/p95/p99 | Fixture meets decision 22's soft ~4 ms total p95 by 0.011 ms; omitted work means no production headroom claim | Quiet S17 complete |
 | P0-TOOLING | Complete | [Baseline repair](../spikes/p0-tooling.md): canonical script checks green; complete Python discovery | Linux tooling execution remains unverified | n/a |
 | P0-TOOLING-2 | Complete | [Runner hardening](../spikes/p0-tooling-2.md): 60 FPS guards, post-case sampling, identity receipts and incremental log reads | Long measurements were not rerun merely for this repair | n/a |
 | P0-PROFILES | Intentionally deferred | [Owner decision 11](owner-decisions-2026-10-08.md): non-blocking Paseo profile review later | Keep outside P0-GATE | n/a |
 
 ## Top production risks and options
 
-1. **Pedestrian behavior and budget (S10).** The prototype misses its planning share and visibly
-   fails crowd separation/flow quality. Per owner decision 14, make compact state, spatial indexing,
-   crossing reservations and selective queries the first production work, with explicit behavior
-   and timing acceptance checks. Do not add another foundation spike or copy fixture internals into
-   production.
-2. **Whole-host tick budget (S17).** The quiet production schedule passes 4/8 ms, but only by
-   0.011 ms at p95 and with real physics, sockets and prediction omitted. Per owner decisions 13–14,
-   retain the target as a tunable planning limit, implement shared packet reuse and indexing in the
-   first production work, and measure the production path before codec/C3 architecture freezes.
+1. **Pedestrian behavior and budget (S10).** The prototype visibly fails crowd separation/flow
+   quality and pedestrians are the largest timing contributor. Per decisions 14 and 22, make compact
+   state, spatial indexing, crossing reservations and selective queries the first production work,
+   with behavior acceptance and total-host timing checks. The old 1.0 ms share is reporting only.
+2. **Whole-host tick budget (S17).** The quiet production schedule meets the soft ~4 ms total p95
+   target by only 0.011 ms and omits real physics, sockets and prediction. Implement shared packet
+   reuse and indexing, check the total regularly, and optimize the largest contributor first when
+   threatened. Do not turn subsystem shares into acceptance gates.
 3. **Windows authoritative latency floor (S03-L).** A provisional contended 350 ms p95 allowance
    is much larger than desirable. Keep local prediction mandatory and size history for the tail.
    Replace this allowance with production Windows and later Linux evidence; do not compensate by
@@ -125,7 +125,7 @@ All timing values explicitly marked **contended** are upper bounds from a shared
 
 ## Owner decisions recorded
 
-The owner recorded decisions 13–21 on 9 October 2026:
+The owner recorded decisions 13–22 on 9 October 2026:
 
 - **Decision 13 — measurement scope and principle:** S17 is the only quiet rerun. Other spike
   timings remain labelled contended. Foundation establishes concepts and high-level limits; M1
@@ -167,6 +167,11 @@ The owner recorded decisions 13–21 on 9 October 2026:
   1.0 s cooldown / 18 m/s / 2.5 s lifetime / 4.1 m radius. Car-pedestrian impact uses host
   contact/velocity only: none below 6 m/s, 25 at 6 m/s linearly to 100 at 14 m/s, with a
   0.5 s per-car/target cooldown. These are M1 starting values, tuned in playtests.
+- **Decision 22 — S17 host budget:** track a soft **~4 ms p95 total host simulation target** at
+  full M1 population in regular performance checks; it is not a per-feature acceptance gate.
+  Pedestrian 1.0 ms and traffic 1.5/2.0 ms shares are reporting only. When the total is
+  threatened, optimize the largest contributor—pedestrians first. Population counts remain
+  tunable settings, starting from 64 pedestrians and 32 cars.
 
 ## Owner decisions still open
 
@@ -177,21 +182,18 @@ or accepted risk.
 1. **S04 handling:** provide drive-scene feedback and an F12 value set. **Recommendation:** run the
    saved harness before freezing B1.1 body/tuning; do not promote defaults solely from automated
    route success.
-2. **S17 budget allocation:** ratify or revise traffic 1.5, pedestrians 1.0, replication 0.75,
-   combat 0.25, chains 0.10 and remaining work 0.40 ms p95, all inside 4 ms.
-   **Recommendation:** use them as adjustable profiling ceilings, not independent entitlements.
-3. **Traffic/crossing policy:** choose reservation priority/lights and whether cars yield at marked
+2. **Traffic/crossing policy:** choose reservation priority/lights and whether cars yield at marked
    crossings. **Recommendation:** deterministic authored reservations; cars yield at selected marked
    crossings, while uncontrolled player cars remain collision-authoritative.
-4. **VFX degradation:** confirm full→reduced→minimum tiers when many explosions overlap, with one
+3. **VFX degradation:** confirm full→reduced→minimum tiers when many explosions overlap, with one
    visible root and all feedback families retained per event. **Recommendation:** approve; dropping
    an event remains forbidden.
-5. **Audio starting policy:** accept/revise nearest-eight engines, eight blast voices, six weapon
+4. **Audio starting policy:** accept/revise nearest-eight engines, eight blast voices, six weapon
    voices and ambience under Music. **Recommendation:** treat these as first-pass caps and decide only
    after the listening checklist.
-6. **Safe GPU wording:** replace the design's uncapped-headroom instruction with S08-C's capped
+5. **Safe GPU wording:** replace the design's uncapped-headroom instruction with S08-C's capped
    frame/RenderingServer method. **Recommendation:** approve; uncapped runs caused two device removals.
-7. **Production testing:** approve adding pinned test-only GUT under M1-D1.1.
+6. **Production testing:** approve adding pinned test-only GUT under M1-D1.1.
     **Recommendation:** approve, excluded from release exports and runtime autoloads.
 
 ## Human checks still needed
@@ -255,9 +257,10 @@ they do not require more foundation reruns.
 
 1. **S10 production behavior/budget:** establish the production pedestrian owner and compact state,
    add spatial/crossing policy work, and define behavior plus timing acceptance checks before scaling.
-2. **S17 production host budget:** add the real simulation/networking costs incrementally, preserve
-   the production encode schedule, and measure against tunable 4/8 ms planning limits before the
-   population and codec architectures freeze.
+2. **S17 production host budget:** add real simulation/networking costs incrementally, preserve
+   the production encode schedule, and track the soft ~4 ms total p95 target regularly. Keep
+   subsystem timings as reports, optimize the largest contributor first when threatened, and tune
+   the initial 64-pedestrian/32-car settings as production evidence requires.
 3. **M1-D1.1 — production checks:** pin test-only GUT, add CI/check entrypoints and prove export
    exclusion, consuming P0-TOOLING and P0-TOOLING-2.
 4. **M1-A1.1 — Boot/session composition:** saved Boot/menu/status scenes and typed ENet-first
