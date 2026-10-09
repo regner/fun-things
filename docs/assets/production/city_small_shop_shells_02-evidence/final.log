@@ -1,0 +1,58 @@
+city_small_shop_shells.02 — final production evidence, 2026-10-09
+Exact reproduction commands are in ../city_small_shop_shells_02.md.
+Raw logs and intermediate files: C:/tmp/ft/assets/city_small_shop_shells_02/ (not committed).
+
+TOOLS
+Blender 5.2.2 LTS, d13f752e3b9c; glTF exporter 5.2.40.
+Godot CLI 4.8.dev7.official.c971f93e7; API string "4.8-dev7 (official)".
+gdstyle 0.3.0. All Blender calls timeout <=900s; Godot import <=300s/check <=180s.
+
+SOURCE/EXPORT/RENDER
+PASS exit 0: author.py, export.py, fresh-process export.py to scratch, validate.py.
+PASS: source and committed GLB 4,188 triangles; source 2,140 vertices; GLB 2,320 split vertices.
+PASS: 25 meshes/surfaces, 5 opaque back-culled materials, 11 mounts plus root, 73,616 GLB bytes.
+PASS: zero nonmanifold edges, degenerate source faces and raw GLB triangles; unit normals.
+PASS: actual binary position/index/normal accessors, winding, AABB, membership and marker checks.
+PASS: 900 aperture rays, 8 adjacent wall hits, 3,604 actual shared fitting rear vertices.
+PASS: byte-identical fresh-process GLB reexport; excluded saved 1m reference.
+PASS exit 0: render.py; four 1280x800 Cycles CPU 32-sample views, self-inspected.
+Author/render emit Blender 6.0 use_nodes deprecation notices only; no source/export error.
+Standalone version query had a single tiny allocation shutdown notice; not a model validation failure.
+
+GODOT
+PASS exit 0: headless import; existing MCP plugin untested-4.8 warning only.
+PASS: saved bare/fitted scene UID normalization and double save/reload byte stability.
+LIMITATION: editor --script normalization exit 0 logs shutdown renderer/text RID and ObjectDB leaks.
+This is not recorded as clean editor shutdown. Plugin untested-4.8 warning also remains.
+PASS exit 0, no warnings/errors: fresh headless runtime check.gd after normalization.
+PASS: recursive dependency UID/path resolution, identity linked Visuals/Model, 25 imported meshes.
+PASS: imported bounds min [-6.480000019,0,-4.619999886], size [12.960000038,5.050000191,9.199999809].
+PASS: 10 unchanged fitting prefab instances at exact source markers; inherited fitting shapes disabled.
+PASS: 3 solid footprint ray hits, 1 clear side bypass, 2 native capsule overlap cases.
+Initial owned version-string assumptions timed out after assertions; corrected to version fields/hash.
+Initial editor UID-registration timing finding resolved; final runtime dependency audit is clean.
+Checker retains helper failures to avoid false success after a per-function assertion return.
+
+CODE/REPOSITORY CHECKS
+PASS: own check.gd gdstyle --max-warnings 0, format --check; zero issues.
+PASS: check.gd explicitly compiled by tools/script_checks.py in canonical suite.
+PASS: final canonical lint, 46 files, zero issues.
+PASS: Python unittest 9/9; GUT 9/9, 70 asserts; negative-control detection.
+EXPECTED BASELINE FAIL exit 1: canonical production_checks.py, checks-reviewed output.
+Remaining failed compilation paths (pre-existing, unchanged):
+  tests/fixtures/asset_production/batch_02_observation.gd
+  tests/fixtures/asset_production/batch_02_process_probe.gd
+  tests/fixtures/asset_production/batch_03_observation.gd
+  tests/fixtures/asset_production/batch_03_process_probe.gd
+  tests/fixtures/asset_production/batch_observation.gd
+Remaining formatting paths (pre-existing, unchanged):
+  tests/fixtures/asset_production/batch_observation.gd
+  tools/asset_production/integration/batch03_author.gd
+  tools/asset_production/integration/inspector.gd
+Initial owned style findings were corrected; the final reviewed suite has none.
+No shared code, asset, register, project setting or live editor session was modified.
+
+PENDING
+Independent acceptance; native gameplay camera/combat; production motion/aim and collision movement;
+transport/prediction; district placement, derived data and shared artwork; device/build/performance.
+Static physics queries do not establish those gates. Bare facade holes are not traversable interiors.

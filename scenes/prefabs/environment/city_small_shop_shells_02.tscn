@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://d10ji3uhx8p1a"]
+
+[ext_resource type="PackedScene" uid="uid://duwpl4i45tf82" path="res://art/models/environment/city_small_shop_shells_02/city_small_shop_shells_02.glb" id="1_model"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_shell"]
+size = Vector3(12.8, 4.3, 9)
+
+[node name="city_small_shop_shells_02" type="Node3D" unique_id=1147699021]
+
+[node name="Visuals" type="Node3D" parent="." unique_id=97732918]
+
+[node name="Model" parent="Visuals" unique_id=1250129779 instance=ExtResource("1_model")]
+
+[node name="Collision" type="Node3D" parent="." unique_id=434724994]
+
+[node name="Body" type="StaticBody3D" parent="Collision" unique_id=554533346]
+collision_mask = 0
+
+[node name="Footprint" type="CollisionShape3D" parent="Collision/Body" unique_id=1186686443]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.15, 0)
+shape = SubResource("BoxShape3D_shell")
