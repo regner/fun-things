@@ -1,0 +1,64 @@
+city_small_shop_shells.04 — concise producer validation receipt, 9 October 2026
+Exact commands: ../city_small_shop_shells_04.md (repository-root reproduction section).
+Scratch/raw logs: C:/tmp/ft/assets/city_small_shop_shells_04/ (not committed).
+
+Pinned tools:
+Blender 5.2.2 LTS / d13f752e3b9c; glTF 5.2.40; Godot 4.8.dev7.official.c971f93e7.
+All Blender calls used audio-disabled environment, factory background, threads 4,
+python-exit-code 1 and timeout <=900s. Godot calls were pinned and timeout-bounded.
+No live owner editor/connector session used; no world/shared asset paths edited.
+
+Observed command results:
+PASS author.py: exit 0; original editable compact shell saved.
+PASS export.py: exit 0; explicit shared export contract, named collection only.
+PASS export.py -- C:/tmp/ft/assets/city_small_shop_shells_04/reexport.glb: exit 0.
+PASS validate.py -- scratch reexport: exit 0, final strengthened root/membership checks.
+  3540 triangles; 1812 source / 1940 exported vertices; 22 meshes / 22 surfaces.
+  Five materials; six markers and root; 62392 bytes GLB.
+  Zero degenerate faces/triangles and nonmanifold edges; unit normals.
+  Source bounds (-3.28,-3.28,0)..(3.28,3.32,5.05); ground pivot (0,0,0).
+  450 clear aperture rays / four adjacent wall hits; 1802 real fitting rear vertices fit.
+  Fresh-process reexport byte-identical.
+PASS render.py: exit 0, four final 1280x800 PNGs, all self-inspected.
+  Initial hero/side framing was too tight; widened orthographic inspection views.
+  Final overhead stays unchanged vertical 47m / 42deg vertical FOV, north-up.
+PASS headless Godot import: exit 0; only known untested-4.8 plugin warning.
+PASS headless check.gd --normalize: exit 0; two stable saved-scene roundtrips.
+  Linked shell resources/materials, recursive dependencies/UIDs, five exact fitting
+  mounts, disabled fitting collision, expected bounds and physics queries passed.
+  Editor shutdown emits RID/ObjectDB leaks (see diagnostics below), not a clean exit claim.
+PASS separate runtime check.gd: exit 0; no WARNING/ERROR diagnostics.
+  Three solid rays, one clear bypass ray, two capsule overlap/clear cases.
+PASS explicit Godot --check-only --script check.gd: exit 0; no diagnostics.
+PASS final scoped gdstyle --max-warnings 0: 1 file checked, no issues found.
+PASS final scoped gdstyle fmt --check: 1 file already formatted.
+  Initial format-check drift corrected before final validation.
+
+Canonical checks command:
+timeout 1800 mise exec -- python tools/production_checks.py --output C:/tmp/ft/assets/city_small_shop_shells_04/checks
+Observed exit 1: known unrelated failures only.
+  Lint: all 47 scripts pass. Asset check.gd compilation: pass.
+  Python: 9/9 tests. GUT: 9/9 tests / 70 assertions. Negative control: expected exit 1 detected.
+  Compile failures (missing S02ActorMotion/S02AimProbe) in:
+    tests/fixtures/asset_production/batch_02_observation.gd
+    tests/fixtures/asset_production/batch_02_process_probe.gd
+    tests/fixtures/asset_production/batch_03_observation.gd
+    tests/fixtures/asset_production/batch_03_process_probe.gd
+    tests/fixtures/asset_production/batch_observation.gd
+  Formatting failures named by formatter:
+    tests/fixtures/asset_production/batch_observation.gd
+    tools/asset_production/integration/batch03_author.gd
+    tools/asset_production/integration/inspector.gd
+  These files were not edited; known failures were not rerun unchanged.
+
+Diagnostics retained without blanket suppression:
+Blender --version only: Not freed memory blocks: 1, total 0.000023 MB; exit 0.
+Godot editor plugin: Godot 4.8 detected; latest tested version 4.7.0.
+Final normalization shutdown: 5 Viewport, 8 DummyTexture, 1 Scenario, 52 ShapedTextData,
+1 FontAdvanced RID allocation leaks; 5 Canvas / 31 CanvasItem RIDs;
+168 ObjectDB instances leaked. This matches the sibling's editor-only tooling limitation.
+The final separate runtime and compilation logs contain no warning/error diagnostics.
+
+Pending: independent review, final layout dimensions/placement, actor motion/aim,
+multiplayer/prediction/transport, actual gameplay camera, artwork, packaged/Deck/performance.
+No READY claim. No commit/push/merge of shared paths or unrelated editor mutation.

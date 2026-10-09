@@ -1,0 +1,45 @@
+[gd_scene format=3 uid="uid://cyp6d2gcl54ni"]
+
+[ext_resource type="PackedScene" uid="uid://dhxh6ay02s1e7" path="res://scenes/prefabs/environment/city_small_shop_shells_04.tscn" id="1_shell"]
+[ext_resource type="PackedScene" uid="uid://c1d8t0k7tqrw3" path="res://scenes/prefabs/environment/city_shop_fittings_03_single.tscn" id="2_fitting"]
+[ext_resource type="PackedScene" uid="uid://2gvcu7e3yq53" path="res://scenes/prefabs/environment/city_shop_fittings_06_single.tscn" id="3_fitting"]
+[ext_resource type="PackedScene" uid="uid://drtqegqkmfgp2" path="res://scenes/prefabs/environment/city_shop_fittings_05.tscn" id="4_fitting"]
+[ext_resource type="PackedScene" uid="uid://bsh8gy3l470g1" path="res://scenes/prefabs/environment/city_shop_fittings_01.tscn" id="5_fitting"]
+[ext_resource type="PackedScene" uid="uid://fpcm6q4n57qx" path="res://scenes/prefabs/environment/city_shop_fittings_02.tscn" id="6_fitting"]
+
+[node name="city_small_shop_shells_04_fitted" unique_id=182823054 instance=ExtResource("1_shell")]
+
+[node name="Fittings" type="Node3D" parent="." index="2" unique_id=16925486]
+
+[node name="FrontEntrance" parent="Fittings" index="0" unique_id=448180061 instance=ExtResource("2_fitting")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.95, 0, -3.2)
+
+[node name="FrontDoor" parent="Fittings" index="1" unique_id=193921006 instance=ExtResource("3_fitting")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.95, 0, -3.2)
+
+[node name="Body" parent="Fittings/FrontDoor/Collision" parent_id_path=PackedInt32Array(193921006, 1204738581) index="0" unique_id=327082226]
+collision_layer = 0
+
+[node name="Shape0" parent="Fittings/FrontDoor/Collision/Body" index="0" unique_id=2064842678]
+disabled = true
+
+[node name="FrontWindow" parent="Fittings" index="2" unique_id=706929320 instance=ExtResource("4_fitting")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.95, 0.48, -3.2)
+
+[node name="Body" parent="Fittings/FrontWindow/Collision" parent_id_path=PackedInt32Array(706929320, 1139176319) index="0" unique_id=1620841734]
+collision_layer = 0
+
+[node name="Shape0" parent="Fittings/FrontWindow/Collision/Body" index="0" unique_id=813173883]
+disabled = true
+
+[node name="Shape1" parent="Fittings/FrontWindow/Collision/Body" index="1" unique_id=24745287]
+disabled = true
+
+[node name="FrontCanopy" parent="Fittings" index="3" unique_id=1187426835 instance=ExtResource("5_fitting")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.95, 3, -3.2)
+
+[node name="FrontFascia" parent="Fittings" index="4" unique_id=2014891673 instance=ExtResource("6_fitting")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.95, 3.8, -3.2)
+
+[editable path="Fittings/FrontDoor"]
+[editable path="Fittings/FrontWindow"]

@@ -1,0 +1,373 @@
+{
+	"actual_fitting_rear_void_checks": [
+		{
+			"fitting": "entrance",
+			"rear_vertices_checked": 622.0,
+			"sha256": "29af0c8b3652b7b400598c75f6f99329cb21e510452547e2e28f3c1115d215b9",
+			"side": "front"
+		},
+		{
+			"fitting": "door",
+			"rear_vertices_checked": 1000.0,
+			"sha256": "37e9ce1667105cc66120edf4d114b3a4228972000ac89c14ed1a2608e9b309c6",
+			"side": "front"
+		},
+		{
+			"fitting": "window",
+			"rear_vertices_checked": 180.0,
+			"sha256": "a641d067621301435f5a725803290f74dc7c235bac8bdc5d24c1d2170776faed",
+			"side": "front"
+		}
+	],
+	"apertures": {
+		"bounds_x_height": [
+			[
+				-2.47,
+				0.57,
+				0.54,
+				2.42
+			],
+			[
+				1.24,
+				2.66,
+				0.0,
+				2.45
+			]
+		],
+		"clear_rays": 450.0,
+		"edge_hits": 4.0
+	},
+	"applied_mesh_transforms": true,
+	"blender": "5.2.2 LTS",
+	"build_hash": "d13f752e3b9c",
+	"degenerate_faces": 0.0,
+	"excluded_metre_reference": true,
+	"glb": {
+		"byte_identical_reexport": true,
+		"bytes": 62392.0,
+		"degenerate_triangles": 0.0,
+		"materials": [
+			{
+				"name": "shell_quiet_blue_roof",
+				"pbrMetallicRoughness": {
+					"baseColorFactor": [
+						0.051269456744194,
+						0.104616485536098,
+						0.13843160867691,
+						1.0
+					],
+					"metallicFactor": 0.119999997317791,
+					"roughnessFactor": 0.649999976158142
+				}
+			},
+			{
+				"name": "shell_warm_structural_trim",
+				"pbrMetallicRoughness": {
+					"baseColorFactor": [
+						0.496932983398438,
+						0.467783808708191,
+						0.39157247543335,
+						1.0
+					],
+					"metallicFactor": 0.0,
+					"roughnessFactor": 0.699999988079071
+				}
+			},
+			{
+				"name": "shell_dark_drain_coping",
+				"pbrMetallicRoughness": {
+					"baseColorFactor": [
+						0.0331047661602497,
+						0.0666259378194809,
+						0.0802198201417923,
+						1.0
+					],
+					"metallicFactor": 0.349999994039536,
+					"roughnessFactor": 0.479999989271164
+				}
+			},
+			{
+				"name": "shell_slate_plinth",
+				"pbrMetallicRoughness": {
+					"baseColorFactor": [
+						0.0684781670570374,
+						0.086500458419323,
+						0.0975873470306396,
+						1.0
+					],
+					"metallicFactor": 0.0,
+					"roughnessFactor": 0.779999971389771
+				}
+			},
+			{
+				"name": "shell_muted_plum_render",
+				"pbrMetallicRoughness": {
+					"baseColorFactor": [
+						0.219526201486588,
+						0.184474989771843,
+						0.201556250452995,
+						1.0
+					],
+					"metallicFactor": 0.0,
+					"roughnessFactor": 0.779999971389771
+				}
+			}
+		],
+		"sha256": "88058a9d3ecd5c086f9b1f1cae3e25fdf8754bb394641c69a0e0bb0fe59513dc",
+		"surfaces": 22.0,
+		"triangles": 3540.0,
+		"unit_normals": true,
+		"vertices": 1940.0
+	},
+	"godot": {
+		"engine": "4.8-dev7 (official)",
+		"fitting_colliders_disabled": true,
+		"fitting_mount_error_m": 0,
+		"linked_fittings": 5,
+		"physics": {
+			"capsule_cases": 2,
+			"clear_bypass_ray": 1,
+			"solid_rays": 3
+		},
+		"save_reload_byte_stable": true,
+		"shell_bounds_min": [
+			-3.27999997138977,
+			0.0,
+			-3.3199999332428
+		],
+		"shell_bounds_size": [
+			6.55999994277954,
+			5.05000019073486,
+			6.59999990463257
+		],
+		"shell_mesh_count": 22,
+		"status": "PASS: linked resources, bounds, mounts, single solid exterior envelope"
+	},
+	"godot_aabb": {
+		"max": [
+			3.27999997138977,
+			5.05000019073486,
+			3.27999997138977
+		],
+		"min": [
+			-3.27999997138977,
+			0.0,
+			-3.3199999332428
+		]
+	},
+	"markers_godot": {
+		"mount_front_canopy": [
+			-0.95,
+			3.0,
+			-3.2
+		],
+		"mount_front_display_window": [
+			-0.95,
+			0.48,
+			-3.2
+		],
+		"mount_front_door_single": [
+			1.95,
+			0.0,
+			-3.2
+		],
+		"mount_front_entrance_single": [
+			1.95,
+			0.0,
+			-3.2
+		],
+		"mount_front_fascia": [
+			-0.95,
+			3.8,
+			-3.2
+		],
+		"mount_roof_detail": [
+			0.0,
+			4.3,
+			0.0
+		]
+	},
+	"mesh_count": 22.0,
+	"meshes": [
+		{
+			"degenerate_faces": 0.0,
+			"name": "front_wall_two_openings",
+			"nonmanifold_edges": 0.0,
+			"triangles": 120.0,
+			"vertices": 60.0
+		},
+		{
+			"degenerate_faces": 0.0,
+			"name": "side_wall_left",
+			"nonmanifold_edges": 0.0,
+			"triangles": 12.0,
+			"vertices": 8.0
+		},
+		{
+			"degenerate_faces": 0.0,
+			"name": "side_wall_right",
+			"nonmanifold_edges": 0.0,
+			"triangles": 12.0,
+			"vertices": 8.0
+		},
+		{
+			"degenerate_faces": 0.0,
+			"name": "rear_wall",
+			"nonmanifold_edges": 0.0,
+			"triangles": 12.0,
+			"vertices": 8.0
+		},
+		{
+			"degenerate_faces": 0.0,
+			"name": "flat_roof_deck",
+			"nonmanifold_edges": 0.0,
+			"triangles": 188.0,
+			"vertices": 96.0
+		},
+		{
+			"degenerate_faces": 0.0,
+			"name": "roof_fold_front",
+			"nonmanifold_edges": 0.0,
+			"triangles": 188.0,
+			"vertices": 96.0
+		},
+		{
+			"degenerate_faces": 0.0,
+			"name": "roof_fold_rear",
+			"nonmanifold_edges": 0.0,
+			"triangles": 188.0,
+			"vertices": 96.0
+		},
+		{
+			"degenerate_faces": 0.0,
+			"name": "front_parapet_coping",
+			"nonmanifold_edges": 0.0,
+			"triangles": 188.0,
+			"vertices": 96.0
+		},
+		{
+			"degenerate_faces": 0.0,
+			"name": "rear_coping",
+			"nonmanifold_edges": 0.0,
+			"triangles": 188.0,
+			"vertices": 96.0
+		},
+		{
+			"degenerate_faces": 0.0,
+			"name": "side_coping_left",
+			"nonmanifold_edges": 0.0,
+			"triangles": 188.0,
+			"vertices": 96.0
+		},
+		{
+			"degenerate_faces": 0.0,
+			"name": "side_coping_right",
+			"nonmanifold_edges": 0.0,
+			"triangles": 188.0,
+			"vertices": 96.0
+		},
+		{
+			"degenerate_faces": 0.0,
+			"name": "plinth_left",
+			"nonmanifold_edges": 0.0,
+			"triangles": 188.0,
+			"vertices": 96.0
+		},
+		{
+			"degenerate_faces": 0.0,
+			"name": "plinth_right",
+			"nonmanifold_edges": 0.0,
+			"triangles": 188.0,
+			"vertices": 96.0
+		},
+		{
+			"degenerate_faces": 0.0,
+			"name": "plinth_rear",
+			"nonmanifold_edges": 0.0,
+			"triangles": 188.0,
+			"vertices": 96.0
+		},
+		{
+			"degenerate_faces": 0.0,
+			"name": "side_head_course_left",
+			"nonmanifold_edges": 0.0,
+			"triangles": 188.0,
+			"vertices": 96.0
+		},
+		{
+			"degenerate_faces": 0.0,
+			"name": "side_head_course_right",
+			"nonmanifold_edges": 0.0,
+			"triangles": 188.0,
+			"vertices": 96.0
+		},
+		{
+			"degenerate_faces": 0.0,
+			"name": "rear_head_course",
+			"nonmanifold_edges": 0.0,
+			"triangles": 188.0,
+			"vertices": 96.0
+		},
+		{
+			"degenerate_faces": 0.0,
+			"name": "front_head_course",
+			"nonmanifold_edges": 0.0,
+			"triangles": 188.0,
+			"vertices": 96.0
+		},
+		{
+			"degenerate_faces": 0.0,
+			"name": "front_pier_left",
+			"nonmanifold_edges": 0.0,
+			"triangles": 188.0,
+			"vertices": 96.0
+		},
+		{
+			"degenerate_faces": 0.0,
+			"name": "front_pier_right",
+			"nonmanifold_edges": 0.0,
+			"triangles": 188.0,
+			"vertices": 96.0
+		},
+		{
+			"degenerate_faces": 0.0,
+			"name": "front_plinth_front",
+			"nonmanifold_edges": 0.0,
+			"triangles": 188.0,
+			"vertices": 96.0
+		},
+		{
+			"degenerate_faces": 0.0,
+			"name": "front_plinth_end_front",
+			"nonmanifold_edges": 0.0,
+			"triangles": 188.0,
+			"vertices": 96.0
+		}
+	],
+	"nonmanifold_edges": 0.0,
+	"pivot": [
+		0.0,
+		0.0,
+		0.0
+	],
+	"source_aabb": {
+		"max": [
+			3.27999997138977,
+			3.3199999332428,
+			5.05000019073486
+		],
+		"min": [
+			-3.27999997138977,
+			-3.27999997138977,
+			0.0
+		]
+	},
+	"status": "PASS: source, raw GLB, interfaces and fresh-process reexport",
+	"structural_footprint_m": [
+		6.4,
+		6.4
+	],
+	"triangles": 3540.0,
+	"unit_normals": true,
+	"vertices": 1812.0
+}
