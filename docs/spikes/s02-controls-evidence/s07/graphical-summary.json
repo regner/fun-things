@@ -1,0 +1,148 @@
+{
+  "ok": true,
+  "engine": "4.8.dev7.official.c971f93e7",
+  "revision": "8e56506ee26faa430f19cd4d98673c6ae4153e3d",
+  "dirty_inputs": "",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "processor": "Intel64 Family 6 Model 170 Stepping 4, GenuineIntel",
+  "duration_s": 30.0,
+  "warmup_s": 0.0,
+  "cases": [
+    {
+      "name": "capped60-1",
+      "ok": true,
+      "exit": 0,
+      "frames": {
+        "warmup": {
+          "frames": 0,
+          "frame_interval_ms": {
+            "p50": null,
+            "p95": null,
+            "p99": null,
+            "max": null
+          },
+          "render_cpu_ms": {
+            "p50": null,
+            "p95": null,
+            "p99": null,
+            "max": null
+          },
+          "render_gpu_ms": {
+            "p50": null,
+            "p95": null,
+            "p99": null,
+            "max": null
+          },
+          "process_ms": {
+            "p50": null,
+            "p95": null,
+            "p99": null,
+            "max": null
+          },
+          "physics_ms": {
+            "p50": null,
+            "p95": null,
+            "p99": null,
+            "max": null
+          },
+          "draw_calls": {
+            "p50": null,
+            "p95": null,
+            "p99": null,
+            "max": null
+          },
+          "primitives": {
+            "p50": null,
+            "p95": null,
+            "p99": null,
+            "max": null
+          },
+          "objects": {
+            "p50": null,
+            "p95": null,
+            "p99": null,
+            "max": null
+          },
+          "video_mem_bytes": {
+            "p50": null,
+            "p95": null,
+            "p99": null,
+            "max": null
+          },
+          "hitches_over_33ms": 0,
+          "mean_fps": null
+        },
+        "measured": {
+          "frames": 3514,
+          "span_s": 80.43590499999999,
+          "frame_interval_ms": {
+            "p50": 16.662,
+            "p95": 18.006,
+            "p99": 466.809,
+            "max": 536.404
+          },
+          "render_cpu_ms": {
+            "p50": 0.28200000524520874,
+            "p95": 0.4189999997615814,
+            "p99": 0.5379999876022339,
+            "max": 1.774999976158142
+          },
+          "render_gpu_ms": {
+            "p50": 1.6950000524520874,
+            "p95": 2.0450000762939453,
+            "p99": 3.0929999351501465,
+            "max": 3.864000082015991
+          },
+          "process_ms": {
+            "p50": 449.998,
+            "p95": 504.71600000000007,
+            "p99": 508.942,
+            "max": 521.36
+          },
+          "physics_ms": {
+            "p50": 10.446,
+            "p95": 12.421,
+            "p99": 21.163999999999998,
+            "max": 233.717
+          },
+          "draw_calls": {
+            "p50": 63.0,
+            "p95": 63.0,
+            "p99": 63.0,
+            "max": 63.0
+          },
+          "primitives": {
+            "p50": 4256.0,
+            "p95": 4256.0,
+            "p99": 4256.0,
+            "max": 4256.0
+          },
+          "objects": {
+            "p50": 65.0,
+            "p95": 65.0,
+            "p99": 65.0,
+            "max": 65.0
+          },
+          "video_mem_bytes": {
+            "p50": 81715200.0,
+            "p95": 81715200.0,
+            "p99": 84467712.0,
+            "max": 84467712.0
+          },
+          "hitches_over_33ms": 53,
+          "mean_fps": 43.67910628720088
+        }
+      },
+      "resident_bytes": {
+        "samples": 85,
+        "p50": 382226432,
+        "max": 382816256,
+        "peak_working_set": 411451392
+      }
+    }
+  ],
+  "import": {
+    "exit": 0,
+    "diagnostics": []
+  }
+}
