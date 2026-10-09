@@ -1,0 +1,48 @@
+{
+  "rebase": {
+    "command": "timeout 180 git rebase s08-enet-bandwidth",
+    "result": "passed",
+    "conflicts": false,
+    "base": "ffb7ede2a90900bd073e256c95969205da08b28e",
+    "checked_commit": "b350197145955fe94210d4409f85c00bd58afb23"
+  },
+  "commands": [
+    {
+      "command": "timeout 60 python docs/spikes/ui-v1-evidence/validate.py.txt --output C:/tmp/ft/lanes/ui-mockups/revision-01-post-rebase/static-validation.json",
+      "result": "passed",
+      "screens": 21,
+      "links_checked": 191,
+      "scope_review": {
+        "current_enet_sheets": [
+          "10-host",
+          "12-join-direct",
+          "13-lobby",
+          "18-join-loading"
+        ],
+        "future_only_steam_sheets": [
+          "11-join-steam",
+          "19-host-steam-future",
+          "20-lobby-steam-future",
+          "21-loading-steam-future"
+        ],
+        "steam_not_selectable_in_current_flow": true
+      }
+    },
+    {
+      "command": "timeout 60 python -m unittest discover -s tools -p 'test_*.py'",
+      "result": "passed",
+      "tests": 17,
+      "log": "post-rebase-unittest.log"
+    },
+    {
+      "command": "git diff s08-enet-bandwidth...HEAD --check",
+      "result": "passed"
+    }
+  ],
+  "notes": [
+    "The base now contains 17 tool tests, compared with 10 before rebase.",
+    "All 21 SVG/PNG/source hashes still match retained render manifests after the conflict-free rebase.",
+    "Only evidence/index files change after this checked commit; no runtime, SVG or PNG content changes.",
+    "Godot/Blender/Steam tests were not run for this documentation-only revision."
+  ]
+}

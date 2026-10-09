@@ -55,7 +55,7 @@ Text-file authoring remains appropriate; no editor/MCP tools were available or u
   The updated [validator](../validate.py.txt) overlays this revision's eight rows onto the
   original manifest, verifying all 21 current outputs without claiming the old hashes bind
   revised files. Initial static/browser/compiler receipts likewise remain historical.
-- Pre-rebase Python tool tests: 10 passed. The post-rebase receipt below supersedes that
+- Pre-rebase Python tool tests: 10 passed. The [post-rebase receipt](post-rebase.json) supersedes that
   quick check for the rebased tree. No Godot, Blender or Steam test ran in this revision;
   there is no runtime code change. Initial engine/style results are historical, not rerun.
 
@@ -89,10 +89,12 @@ runtime tools. See the main concept README for a standalone render recipe.
 
 ## Integration and remaining limits
 
-The follow-up requests `git rebase s08-enet-bandwidth`, quick checks on the rebased tree,
-and `.pi/review/lane.patch` from `git diff s08-enet-bandwidth...HEAD`. The post-rebase
-receipt records the resulting base and checks. Rebase replaces the earlier patch bases;
-no merge or push is requested.
+Completed `git rebase s08-enet-bandwidth` without conflicts onto `ffb7ede`.
+[Post-rebase checks](post-rebase.json) passed: all 21 SVG/PNG pairs and scope assertions,
+**17 Python tool tests** ([raw log](post-rebase-unittest.log)), and diff whitespace.
+The increased test count comes from the new base, not tests added by this lane.
+The final `.pi/review/lane.patch` uses `git diff s08-enet-bandwidth...HEAD`, superseding
+the earlier patch bases. No merge or push occurred.
 
 This addresses review P1 in the artifacts; independent re-review remains required.
 Owner visual selection, optional marker scope, real input/navigation, runtime UI and
