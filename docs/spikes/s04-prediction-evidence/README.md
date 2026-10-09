@@ -5,13 +5,16 @@ outputs remain external under `C:/tmp/ft/lanes/s04-p/`; the committed files are 
 commands, source hashes, outcomes and the material pass/failure boundaries.
 
 - `focused-result.json`: review-corrected all-five isolated saved-fixture/API pass, including bounded
-  history, input-tick fences, correction replay, rate-bounded `EXIT_MOVING`, stopped exit and
-  binding-independent disconnect coasting.
+  history, input-tick fences, correction replay, rate-bounded `EXIT_MOVING`, matching rate-limit
+  recovery, stopped exit and binding-independent disconnect coasting.
 - `review1-normal-*`: exact review-corrected normal pass. Matching-tick installation compares the
   body state observed immediately after restore, before replay, rather than copying the wire pose.
-- `review1-lifecycle-result.json`: two separate ENet host/client scenarios. Successful stopped exit
-  makes the predicted client passive; abrupt process exit leaves a diagnostic-free host that emits
-  59 binding-independent coast snapshots and reaches rest.
+- `review2-lifecycle-result.json`: two separate ENet host/client scenarios. Successful stopped exit
+  exhausts the request bucket, receives `RATE_LIMIT`, then makes the predicted client passive on a
+  later stopped exit; abrupt process exit leaves a diagnostic-free host that emits binding-independent
+  coast snapshots and reaches rest.
+- `review1-lifecycle-result.json`: the earlier lifecycle correction before integrated rate-limit
+  recovery was added; retained for review history rather than current acceptance.
 - `post-rebase-baseline-*`: exact-source baseline measurement; prediction completed 20/20 while the
   historical authority gate missed 6/20, so the runner result is retained as failed.
 - `post-rebase-normal-*`: exact-source normal profile pass.

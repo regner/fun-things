@@ -2,11 +2,124 @@
   "ok": true,
   "version": "4.8.dev7.official.c971f93e7",
   "results": {
-    "body": true,
-    "baseline": true,
-    "fence": true,
-    "producer": true,
-    "prediction": true
+    "stopped-exit": {
+      "ok": true,
+      "diagnostic_free": true,
+      "outcomes": {
+        "host": {
+          "coasting_snapshots": 0,
+          "event": "scenario_result",
+          "failures": [],
+          "ok": true,
+          "rate_limit_observed": false,
+          "role": "host",
+          "scenario": "stopped-exit",
+          "time_ms": 2494,
+          "wall_ms": 1791533151380.0
+        },
+        "client": {
+          "coasting_snapshots": 0,
+          "event": "scenario_result",
+          "failures": [],
+          "ok": true,
+          "rate_limit_observed": true,
+          "role": "client",
+          "scenario": "stopped-exit",
+          "time_ms": 2038,
+          "wall_ms": 1791533151368.0
+        }
+      },
+      "commands": {
+        "host": [
+          "C:\\Users\\regner.blokandersen\\AppData\\Local\\mise\\installs\\github-godotengine-godot-builds\\4.8-dev7\\godot.exe",
+          "--headless",
+          "--path",
+          "C:\\tmp\\ft\\lanes\\s04-p\\review2-lifecycle\\project",
+          "--log-file",
+          "C:\\tmp\\ft\\lanes\\s04-p\\review2-lifecycle\\stopped-exit\\host\\engine.log",
+          "res://tests/fixtures/s04/boot.tscn",
+          "--",
+          "--role=host",
+          "--port=25380",
+          "--scenario=stopped-exit"
+        ],
+        "client": [
+          "C:\\Users\\regner.blokandersen\\AppData\\Local\\mise\\installs\\github-godotengine-godot-builds\\4.8-dev7\\godot.exe",
+          "--headless",
+          "--path",
+          "C:\\tmp\\ft\\lanes\\s04-p\\review2-lifecycle\\project",
+          "--log-file",
+          "C:\\tmp\\ft\\lanes\\s04-p\\review2-lifecycle\\stopped-exit\\client\\engine.log",
+          "res://tests/fixtures/s04/boot.tscn",
+          "--",
+          "--role=client",
+          "--port=25380",
+          "--scenario=stopped-exit"
+        ]
+      },
+      "exits": {
+        "host": 0,
+        "client": 0
+      }
+    },
+    "abrupt-disconnect": {
+      "ok": true,
+      "diagnostic_free": true,
+      "outcomes": {
+        "host": {
+          "coasting_snapshots": 59,
+          "event": "scenario_result",
+          "failures": [],
+          "ok": true,
+          "rate_limit_observed": false,
+          "role": "host",
+          "scenario": "abrupt-disconnect",
+          "time_ms": 4894,
+          "wall_ms": 1791533156470.0
+        },
+        "client": {
+          "event": "scenario_result",
+          "ok": true,
+          "role": "client",
+          "scenario": "abrupt-disconnect",
+          "speed_mps": 7.99941968917847,
+          "time_ms": 1432,
+          "wall_ms": 1791533153492.0
+        }
+      },
+      "commands": {
+        "host": [
+          "C:\\Users\\regner.blokandersen\\AppData\\Local\\mise\\installs\\github-godotengine-godot-builds\\4.8-dev7\\godot.exe",
+          "--headless",
+          "--path",
+          "C:\\tmp\\ft\\lanes\\s04-p\\review2-lifecycle\\project",
+          "--log-file",
+          "C:\\tmp\\ft\\lanes\\s04-p\\review2-lifecycle\\abrupt-disconnect\\host\\engine.log",
+          "res://tests/fixtures/s04/boot.tscn",
+          "--",
+          "--role=host",
+          "--port=25381",
+          "--scenario=abrupt-disconnect"
+        ],
+        "client": [
+          "C:\\Users\\regner.blokandersen\\AppData\\Local\\mise\\installs\\github-godotengine-godot-builds\\4.8-dev7\\godot.exe",
+          "--headless",
+          "--path",
+          "C:\\tmp\\ft\\lanes\\s04-p\\review2-lifecycle\\project",
+          "--log-file",
+          "C:\\tmp\\ft\\lanes\\s04-p\\review2-lifecycle\\abrupt-disconnect\\client\\engine.log",
+          "res://tests/fixtures/s04/boot.tscn",
+          "--",
+          "--role=client",
+          "--port=25381",
+          "--scenario=abrupt-disconnect"
+        ]
+      },
+      "exits": {
+        "host": 0,
+        "client": 0
+      }
+    }
   },
   "source_unchanged": true,
   "source_sha256": {
@@ -117,55 +230,5 @@
     "art\\models\\spikes\\s04_car.glb.import": "e5ad798ce3d7840eede5d43ea677c8e203d3900fb4aef373ad95bd117ddae3c5",
     "art\\models\\spikes\\s04_track.glb": "07fe72674bfe63981886bf2e2f021f6a45a277812804f83a29de46c293b2d497",
     "art\\models\\spikes\\s04_track.glb.import": "57b2f321d958832de1e6ef062cf1fc1b19b038e99433a84a0602fc15bcab3460"
-  },
-  "commands": [
-    [
-      "C:\\Users\\regner.blokandersen\\AppData\\Local\\mise\\installs\\github-godotengine-godot-builds\\4.8-dev7\\godot.exe",
-      "--headless",
-      "--editor",
-      "--path",
-      "C:\\tmp\\ft\\lanes\\s04-p\\review2-focused\\project",
-      "--import",
-      "--quit"
-    ],
-    [
-      "C:\\Users\\regner.blokandersen\\AppData\\Local\\mise\\installs\\github-godotengine-godot-builds\\4.8-dev7\\godot.exe",
-      "--headless",
-      "--path",
-      "C:\\tmp\\ft\\lanes\\s04-p\\review2-focused\\project",
-      "res://tests/fixtures/s04/body_comparison.tscn"
-    ],
-    [
-      "C:\\Users\\regner.blokandersen\\AppData\\Local\\mise\\installs\\github-godotengine-godot-builds\\4.8-dev7\\godot.exe",
-      "--headless",
-      "--path",
-      "C:\\tmp\\ft\\lanes\\s04-p\\review2-focused\\project",
-      "--script",
-      "res://tests/fixtures/s04/baseline_probe.gd"
-    ],
-    [
-      "C:\\Users\\regner.blokandersen\\AppData\\Local\\mise\\installs\\github-godotengine-godot-builds\\4.8-dev7\\godot.exe",
-      "--headless",
-      "--path",
-      "C:\\tmp\\ft\\lanes\\s04-p\\review2-focused\\project",
-      "--script",
-      "res://tests/fixtures/s04/pose_fence_probe.gd"
-    ],
-    [
-      "C:\\Users\\regner.blokandersen\\AppData\\Local\\mise\\installs\\github-godotengine-godot-builds\\4.8-dev7\\godot.exe",
-      "--headless",
-      "--path",
-      "C:\\tmp\\ft\\lanes\\s04-p\\review2-focused\\project",
-      "--script",
-      "res://tests/fixtures/s04/producer_probe.gd"
-    ],
-    [
-      "C:\\Users\\regner.blokandersen\\AppData\\Local\\mise\\installs\\github-godotengine-godot-builds\\4.8-dev7\\godot.exe",
-      "--headless",
-      "--path",
-      "C:\\tmp\\ft\\lanes\\s04-p\\review2-focused\\project",
-      "--script",
-      "res://tests/fixtures/s04/prediction_lifecycle_probe.gd"
-    ]
-  ]
+  }
 }

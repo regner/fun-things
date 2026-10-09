@@ -25,8 +25,10 @@ replacement, resync, teardown and retirement clear prediction state.
 
 The host rejects exit while planar speed is **at least 0.5 m/s** with `EXIT_MOVING`. The predicted
 client permits one outstanding reliable request; the host applies a small per-peer token bucket and
-clears it on disconnect. Rejection does not change seat or prediction ownership. A successful stopped
-verdict disables local input and prediction, clears history, releases the replicated seat and returns
+clears it on disconnect. A matching reliable `RATE_LIMIT` verdict clears the pending client guard,
+allowing a later request after refill. Rejection does not change seat or prediction ownership. A
+successful stopped verdict disables local input and prediction, clears history, releases the replicated
+seat and returns
 the car to passive host-pose installation. On remote-driver disconnect, the host releases the seat and
 input owner immediately, retains binding-independent replication metadata, substitutes neutral
 controls, and replicates the surviving car under the shared coast rule until stopped. Driver death
@@ -81,7 +83,8 @@ historical response/pacing records; their tautological zero-error field is not a
 
 The focused final-source check passed all five cases. Its prediction case independently forces the
 120-frame overflow policy and correction snap; its lifecycle case proves strictly monotonic bounded
-input ticks, request burst/outstanding bounds, exactly-0.5 m/s rejection, 0.49 m/s acceptance,
+input ticks, request burst/outstanding bounds and rate-limit recovery, exactly-0.5 m/s rejection,
+0.49 m/s acceptance,
 immediate authority release on disconnect, coast pose inclusion, continued displacement under
 neutral coast, and eventual stop. Two separate-process lifecycle cases additionally prove a stopped
 exit makes the predicted client passive and an abrupt client process exit leaves a diagnostic-free

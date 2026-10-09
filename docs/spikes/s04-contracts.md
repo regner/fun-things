@@ -35,8 +35,9 @@ The fixed fixture inherits S03 session/admission/RPC sender validation. One held
 message has context/sequence, a bounded input tick that must increase strictly per
 control revision, and four primitive finite bounded drive values; inherited
 120-sequence window, byte/rate limits and no unadmitted mutation apply. Snapshots
-carry12 fields: player marker entity, tick, control/durable dependencies, position,
-yaw, velocity, sequence, explicit vehicle ID, generation/life and collision revision.
+carry 13 fields: player marker `entity`, `tick`, `control`, `durable`, `position`, `yaw`,
+`velocity`, consumed `sequence`, acknowledged `input_tick`, explicit `vehicle`,
+`generation`, `life` and `collision` revision.
 Vehicle IDs1001/1002 are distinct from preserved player marker IDs1/2. This is a
 **fixture compatibility adapter**: inherited S03 context uses the player marker ID;
 production drive context must address the controlled vehicle EntityRef, as the
@@ -54,8 +55,10 @@ clears queued poses and floors. There is no general future-state/reset framework
 A moving exit rejection preserves seat, input and prediction state. A successful
 stopped result makes the client body passive, closes input, clears replay history and
 removes its local seat. Exit requests permit one client outstanding request and use a
-small host per-peer token bucket. Disconnect captures binding-independent pose metadata
-before removing the driver binding, so normal telemetry and movement envelopes retain
+small host per-peer token bucket. A matching reliable `RATE_LIMIT` verdict clears only
+that pending request so a later stopped exit can proceed. Disconnect captures
+binding-independent pose metadata before removing the driver binding, so normal telemetry
+and movement envelopes retain
 the neutral coasting car through rest.
 
 Seated resync retains the injured player, vehicle/driver seat and equipment sentinel
