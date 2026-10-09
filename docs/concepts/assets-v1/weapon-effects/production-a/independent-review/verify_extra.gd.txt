@@ -1,0 +1,38 @@
+extends SceneTree
+var completed: int = 0
+func _initialize() -> void:
+	_run.call_deferred()
+func _done() -> void:
+	completed += 1
+func _inspect(node: Node) -> void:
+	assert(not node is CollisionObject3D and not node is CollisionShape3D)
+	for child: Node in node.get_children():
+		_inspect(child)
+func _run() -> void:
+	var inspector: Node = load("res://scenes/effects/weapon_effects/author.gd").new()
+	var rows: Array[Dictionary] = inspector.inspect_sources()
+	assert(rows.size() == 6)
+	for row: Dictionary in rows:
+		assert(row.same_resource and row.actual_uid == row.import_uid)
+		print("ANCESTRY ", row)
+	inspector.free()
+	for kind: String in ["muzzle", "hit", "trail", "explosion", "preview"]:
+		var packed: PackedScene = load("res://scenes/effects/weapon_effects/weapon_effects_a_" + kind + ".tscn")
+		var instance: Node = packed.instantiate()
+		_inspect(instance)
+		instance.free()
+	var trail: Node3D = load("res://scenes/effects/weapon_effects/weapon_effects_a_trail.tscn").instantiate()
+	root.add_child(trail)
+	trail.finished.connect(_done)
+	assert(trail.play())
+	await create_timer(0.1).timeout
+	trail.clear()
+	await create_timer(0.7).timeout
+	assert(completed == 0)
+	assert(trail.play())
+	trail.stop_emission()
+	await create_timer(0.7).timeout
+	assert(completed == 1 and not trail.is_active())
+	trail.queue_free()
+	print("INDEPENDENT_ANCESTRY_COLLISION_SIGNAL_PASS")
+	quit()

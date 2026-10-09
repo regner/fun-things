@@ -1,12 +1,12 @@
 # weapon_effects_a — Compact combustion
 
-9 October 2026. **First reusable asset revision; independent review pending.**
+9 October 2026. **First reusable asset revision; independent technical handoff accepted.**
 Regner selected A: “I really like both A and B. Lets start with A and we can review
 again later.” B remains in the [concept gallery](../concepts/assets-v1/weapon-effects/gallery.html).
 [Actual Godot camera sequence](../concepts/assets-v1/weapon-effects/production-a/index.html).
 
 Producer: persistent weapon-effects lead. Concept/art selection: Regner. Technical
-asset review: independent reviewer, pending below. Equipped/world/gameplay/network
+asset review: clean-context GPT-6.1-Sol high, accepted below. Equipped/world/gameplay/network
 integration: external integrator. No foundation task or gameplay acceptance is closed.
 
 ## Delivery and ancestry
@@ -184,7 +184,10 @@ active `codex-turn-13`. Reverify after any later model change. No duplicate lead
 ## Review status and integration delta
 
 Concept: accepted A by Regner. Source/export, saved prefab and asset-local technical
-checks: completed producer checks above. Independent scoped review: pending. Final
+checks: completed producer checks above. Independent scoped review: accepted at `d015ae6cc5ad070a86c5025383f39f0f8cc79d08`;
+[report and actual checks](../concepts/assets-v1/weapon-effects/production-a/independent-review/review.md).
+The sole P3 formatting note is fixed; final delta changes one blank line plus documentation/evidence.
+Final
 owner art revision, equipped/world readability, moving trail/camera-edge checks,
 12/24-burst overdraw/load, hardware/device and gameplay/network acceptance: pending
 with Regner/external integrator. No system-wide performance claim.
@@ -194,3 +197,12 @@ record and the four scenes. Mark approved-A source/GLB/saved preview delivered a
 independent review; retain tasks for weapon/rocket attachment, every-event allocation,
 residual trail lifetime/bounds, city readability and measured burst/device cost.
 Shared catalogue/TODO/planning files are intentionally not edited by this track.
+
+Dependency receipt update: direct peer handoff reads/messages for pistol/SMG later
+reported missing worktree paths. Their immutable owner/peer measurements above remain
+the reference; no worktree restoration or dependency-copy action was taken. Rocket
+reported source cleanup after its review and is refreshing its own saved scenes.
+Effects art does not depend on those models being copied into this workspace.
+
+The completed embedded preview was ended through Godot’s normal `game.stop`; the private
+editor remains open on the saved asset preview. Bounded capture processes exited normally.

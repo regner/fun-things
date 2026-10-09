@@ -17,6 +17,7 @@ var _paused: bool = false
 @onready var explosion: Node3D = $Explosion
 @onready var overlap: Node3D = $Overlap
 
+
 ## Play the saved assembly at a capped rate; command-line evidence capture remains optional.
 func _ready() -> void:
 	Engine.max_fps = PREVIEW_FPS
