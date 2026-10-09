@@ -106,3 +106,12 @@ Do not apply concurrently to shared files:
   fit, safe entry/grounded exits, district turns/contacts/spawn queries, gameplay
   root/lifecycle/networking, target performance and playable acceptance remain with
   integrator/relevant owners. No foundation TODO closure is claimed.
+
+## Owner-approved local integration — 9 October 2026
+
+Regner approved the current vehicle delivery after the Latch door correction and
+requested: “Merge this into local main, rebase fastforward.” This supersedes the
+launch's no-main-integration boundary for this local Git operation. No remote push,
+workspace archive or gameplay integration is requested. Bus/truck D/E remain
+concept-only; the recorded renderer, performance and gameplay checks are not waived.
+Current delivery approval is distinct from those unperformed technical checks.
