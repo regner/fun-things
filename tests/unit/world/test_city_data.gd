@@ -6,6 +6,45 @@ const PROBE_SCENE: PackedScene = preload(
 	"res://tests/unit/world/fixtures/traversal_probes.tscn"
 )
 const CITY_PATH: String = "res://scenes/world/brackett_greybox/city.tscn"
+const DIGEST_FIXTURE_DIRECTORY: String = "user://c21_content_digest"
+const DIGEST_FIXTURE_WORLD_PATH: String = DIGEST_FIXTURE_DIRECTORY + "/world.tscn"
+const DIGEST_FIXTURE_SECTOR_PATH: String = DIGEST_FIXTURE_DIRECTORY + "/sector.tscn"
+const DIGEST_FIXTURE_MANIFEST_PATH: String = DIGEST_FIXTURE_DIRECTORY + "/manifest.json"
+const DIGEST_FIXTURE_WORLD_SOURCE: String = """[gd_scene load_steps=3 format=3]
+
+[ext_resource type="Script" path="res://scenes/world/brackett_greybox/placement.gd" id="1"]
+[ext_resource type="PackedScene" path="user://c21_content_digest/sector.tscn" id="2"]
+
+[node name="FixtureWorld" type="Node3D"]
+script = ExtResource("1")
+world_id = &"brackett"
+
+[node name="Sector" parent="." instance=ExtResource("2")]
+"""
+const DIGEST_FIXTURE_SECTOR_V1: String = """[gd_scene load_steps=2 format=3]
+
+[sub_resource type="BoxShape3D" id="1"]
+size = Vector3(2, 1, 2)
+
+[node name="Sector" type="Node3D"]
+
+[node name="Body" type="StaticBody3D" parent="."]
+
+[node name="Collision" type="CollisionShape3D" parent="Body"]
+shape = SubResource("1")
+"""
+const DIGEST_FIXTURE_SECTOR_V2: String = """[gd_scene load_steps=2 format=3]
+
+[sub_resource type="BoxShape3D" id="1"]
+size = Vector3(3, 1, 2)
+
+[node name="Sector" type="Node3D"]
+
+[node name="Body" type="StaticBody3D" parent="."]
+
+[node name="Collision" type="CollisionShape3D" parent="Body"]
+shape = SubResource("1")
+"""
 const FOOT_SPEED_MPS: float = 5.0
 const CAR_SPEED_MPS: float = 24.0
 const ROUTE_TOLERANCE_M: float = 0.6
@@ -22,7 +61,7 @@ func test_match_publishes_saved_world_identity_and_anchors() -> void:
 
 	assert_eq(world.scene_file_path, CITY_PATH)
 	assert_false(world.scene_file_path.ends_with("preview.tscn"))
-	assert_eq(city_data.content_signature, FileAccess.get_sha256(CITY_PATH))
+	assert_eq(city_data.content_signature, city_data.calculate_content_signature())
 	var composition: Dictionary = city_data.validate_composition()
 	assert_true(composition.ok)
 	assert_eq(composition.anchor_count, 7)
@@ -45,6 +84,42 @@ func test_match_publishes_saved_world_identity_and_anchors() -> void:
 	assert_false(rejected.ok)
 	assert_eq(rejected.failure.code, CityData.FAILURE_CONTENT_INVALID)
 	assert_eq(city_data.admission_identity(), identity, "rejection does not mutate identity")
+
+
+## Proves an anchor transform edit invalidates both composition and peer admission.
+func test_changed_anchor_is_rejected_as_content_invalid() -> void:
+	var match: Node3D = MATCH_SCENE.instantiate() as Node3D
+	add_child_autofree(match)
+	var city_data: CityData = match.get_node("CityData") as CityData
+	var anchor: WorldAnchor = match.get_node("Anchors/PlayerSpawns/Spawn01") as WorldAnchor
+	assert_true(city_data.validate_composition().ok)
+
+	anchor.position.x += 1.0
+	var rejected: Dictionary = city_data.validate_admission(city_data.admission_identity())
+	assert_false(rejected.ok)
+	assert_eq(rejected.failure.code, CityData.FAILURE_CONTENT_INVALID)
+
+
+## Proves a transitive sector collision edit invalidates the composed content identity.
+func test_changed_dependent_sector_is_rejected_as_content_invalid() -> void:
+	_remove_digest_fixture()
+	_write_fixture_file(DIGEST_FIXTURE_SECTOR_PATH, DIGEST_FIXTURE_SECTOR_V1)
+	_write_fixture_file(DIGEST_FIXTURE_WORLD_PATH, DIGEST_FIXTURE_WORLD_SOURCE)
+	var fixture_match: Node3D = _create_digest_fixture_match()
+	add_child_autofree(fixture_match)
+	var city_data: CityData = fixture_match.get_node("CityData") as CityData
+	_write_fixture_file(
+		DIGEST_FIXTURE_MANIFEST_PATH,
+		JSON.stringify(city_data.build_content_manifest(), "\t") + "\n",
+	)
+	city_data.content_signature = city_data.calculate_content_signature()
+	assert_true(city_data.validate_composition().ok)
+
+	_write_fixture_file(DIGEST_FIXTURE_SECTOR_PATH, DIGEST_FIXTURE_SECTOR_V2)
+	var rejected: Dictionary = city_data.validate_admission(city_data.admission_identity())
+	assert_false(rejected.ok)
+	assert_eq(rejected.failure.code, CityData.FAILURE_CONTENT_INVALID)
+	_remove_digest_fixture()
 
 
 ## Proves local stale content cannot advertise or admit a matching stale peer identity.
@@ -132,6 +207,73 @@ func test_actor_and_car_slide_along_building_edge_without_snagging() -> void:
 	assert_true(result.car_reached, "car clears the building corner")
 	assert_true(result.foot_wall_contact, "foot route exercises a building edge")
 	assert_true(result.car_wall_contact, "car route exercises a building edge")
+
+
+## Builds a small saved world whose collision sector is a transitive dependency.
+func _create_digest_fixture_match() -> Node3D:
+	var fixture_match := Node3D.new()
+	fixture_match.name = "FixtureMatch"
+	var world_scene: PackedScene = ResourceLoader.load(
+		DIGEST_FIXTURE_WORLD_PATH, "PackedScene", ResourceLoader.CACHE_MODE_IGNORE
+	) as PackedScene
+	var world: Node3D = world_scene.instantiate() as Node3D
+	world.name = "World"
+	fixture_match.add_child(world)
+
+	var anchors := Node3D.new()
+	anchors.name = "Anchors"
+	fixture_match.add_child(anchors)
+	_add_fixture_anchor_container(anchors, "PlayerSpawns", WorldAnchor.KIND_PLAYER_SPAWN)
+	_add_fixture_anchor_container(anchors, "ParkedCars", WorldAnchor.KIND_PARKED_CAR)
+
+	var city_data := CityData.new()
+	city_data.name = "CityData"
+	fixture_match.add_child(city_data)
+	city_data.district_id = &"brackett"
+	city_data.content_manifest_path = DIGEST_FIXTURE_MANIFEST_PATH
+	city_data.world_path = NodePath("../World")
+	city_data.player_spawns_path = NodePath("../Anchors/PlayerSpawns")
+	city_data.parked_cars_path = NodePath("../Anchors/ParkedCars")
+	return fixture_match
+
+
+## Adds one minimum valid saved-anchor group to a content-digest fixture.
+func _add_fixture_anchor_container(
+	parent: Node3D, label: String, kind: StringName
+) -> void:
+	var container := Node3D.new()
+	container.name = label
+	parent.add_child(container)
+	var anchor := WorldAnchor.new()
+	anchor.name = "Anchor"
+	anchor.world_id = StringName("brackett/fixture/" + label.to_snake_case())
+	anchor.anchor_kind = kind
+	container.add_child(anchor)
+
+
+## Writes one deterministic test resource without mutating the checkout.
+func _write_fixture_file(path: String, content: String) -> void:
+	DirAccess.make_dir_recursive_absolute(
+		ProjectSettings.globalize_path(DIGEST_FIXTURE_DIRECTORY)
+	)
+	var file: FileAccess = FileAccess.open(path, FileAccess.WRITE)
+	assert_not_null(file, "fixture resource opens for writing")
+	file.store_string(content)
+	file.close()
+
+
+## Removes generated digest fixtures from the isolated GUT user directory.
+func _remove_digest_fixture() -> void:
+	for path: String in [
+		DIGEST_FIXTURE_WORLD_PATH,
+		DIGEST_FIXTURE_SECTOR_PATH,
+		DIGEST_FIXTURE_MANIFEST_PATH,
+	]:
+		if FileAccess.file_exists(path):
+			DirAccess.remove_absolute(ProjectSettings.globalize_path(path))
+	var directory_path: String = ProjectSettings.globalize_path(DIGEST_FIXTURE_DIRECTORY)
+	if DirAccess.dir_exists_absolute(directory_path):
+		DirAccess.remove_absolute(directory_path)
 
 
 ## Runs one route for both probe classes and asserts grounded progress to each endpoint.
