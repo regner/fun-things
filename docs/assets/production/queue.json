@@ -1037,14 +1037,14 @@
       "input_next_action": "Define asset shape / variants",
       "brief": "[Brief](../../assets/d06_entertainment_hall.md)",
       "priority": 0,
-      "status": "queued",
-      "agent_id": null,
-      "source_revision": null,
-      "review_status": "pending",
-      "integration_status": "pending",
+      "status": "production_prefab_accepted",
+      "agent_id": "db8a373d-79ef-46a3-aec0-0500ad6004e4",
+      "source_revision": "ecef7bb",
+      "review_status": "accepted source/export/prefab scope (independent Sol review)",
+      "integration_status": "accepted",
       "placement_status": "pending",
       "blocker": null,
-      "attempts": 0,
+      "attempts": 1,
       "initial_time_cap_minutes": 120,
       "owned_paths": [
         "art/source/models/environment/d06_entertainment_hall_01/",
@@ -1052,8 +1052,20 @@
         "art/textures/environment/d06_entertainment_hall_01/",
         "art/materials/environment/d06_entertainment_hall_01/",
         "docs/assets/production/d06_entertainment_hall_01.md",
-        "docs/assets/production/d06_entertainment_hall_01-evidence/"
-      ]
+        "docs/assets/production/d06_entertainment_hall_01-evidence/",
+        "tools/asset_production/d06_entertainment_hall_01/",
+        "scenes/prefabs/environment/d06_entertainment_hall_01.tscn"
+      ],
+      "launch": {
+        "provider": "portkey/gpt-6-astra",
+        "configured_effort": "medium",
+        "mode": "orchestrator asset lane",
+        "lane": "a-d06hall"
+      },
+      "producer_manifest": "docs/assets/production/d06_entertainment_hall_01-evidence/manifest.json",
+      "report": "docs/assets/production/d06_entertainment_hall_01.md",
+      "reviewer_id": "7115a935-1438-4565-a4d4-695d26344591",
+      "integrated_revision": "e2c8ee7"
     },
     {
       "id": "d06_entertainment_hall.02",
@@ -1066,14 +1078,14 @@
       "input_next_action": "Define asset shape / variants",
       "brief": "[Brief](../../assets/d06_entertainment_hall.md)",
       "priority": 0,
-      "status": "queued",
-      "agent_id": null,
-      "source_revision": null,
-      "review_status": "pending",
-      "integration_status": "pending",
+      "status": "production_prefab_accepted",
+      "agent_id": "afab6209-be92-4ff5-9ab3-379130734f3c",
+      "source_revision": "30e7364",
+      "review_status": "accepted source/export/prefab scope (independent Sol review)",
+      "integration_status": "accepted",
       "placement_status": "pending",
       "blocker": null,
-      "attempts": 0,
+      "attempts": 1,
       "initial_time_cap_minutes": 120,
       "owned_paths": [
         "art/source/models/environment/d06_entertainment_hall_02/",
@@ -1081,8 +1093,20 @@
         "art/textures/environment/d06_entertainment_hall_02/",
         "art/materials/environment/d06_entertainment_hall_02/",
         "docs/assets/production/d06_entertainment_hall_02.md",
-        "docs/assets/production/d06_entertainment_hall_02-evidence/"
-      ]
+        "docs/assets/production/d06_entertainment_hall_02-evidence/",
+        "tools/asset_production/d06_entertainment_hall_02/",
+        "scenes/prefabs/environment/d06_entertainment_hall_02.tscn"
+      ],
+      "launch": {
+        "provider": "portkey/gpt-6-astra",
+        "configured_effort": "medium",
+        "mode": "orchestrator asset lane",
+        "lane": "a-d06hall"
+      },
+      "producer_manifest": "docs/assets/production/d06_entertainment_hall_02-evidence/manifest.json",
+      "report": "docs/assets/production/d06_entertainment_hall_02.md",
+      "reviewer_id": "7115a935-1438-4565-a4d4-695d26344591",
+      "integrated_revision": "e2c8ee7"
     },
     {
       "id": "d06_entertainment_hall.03",
@@ -1095,14 +1119,14 @@
       "input_next_action": "Define asset shape / variants",
       "brief": "[Brief](../../assets/d06_entertainment_hall.md)",
       "priority": 0,
-      "status": "queued",
-      "agent_id": null,
-      "source_revision": null,
-      "review_status": "pending",
-      "integration_status": "pending",
+      "status": "production_prefab_accepted",
+      "agent_id": "316f5463-e785-42a4-bfe1-80e08cc7a1d5",
+      "source_revision": "e2c8ee7",
+      "review_status": "accepted source/export/prefab scope (independent Sol review)",
+      "integration_status": "accepted",
       "placement_status": "pending",
       "blocker": null,
-      "attempts": 0,
+      "attempts": 1,
       "initial_time_cap_minutes": 120,
       "owned_paths": [
         "art/source/models/environment/d06_entertainment_hall_03/",
@@ -1110,8 +1134,20 @@
         "art/textures/environment/d06_entertainment_hall_03/",
         "art/materials/environment/d06_entertainment_hall_03/",
         "docs/assets/production/d06_entertainment_hall_03.md",
-        "docs/assets/production/d06_entertainment_hall_03-evidence/"
-      ]
+        "docs/assets/production/d06_entertainment_hall_03-evidence/",
+        "tools/asset_production/d06_entertainment_hall_03/",
+        "scenes/prefabs/environment/d06_entertainment_hall_03.tscn"
+      ],
+      "launch": {
+        "provider": "portkey/gpt-6-astra",
+        "configured_effort": "medium",
+        "mode": "orchestrator asset lane",
+        "lane": "a-d06hall"
+      },
+      "producer_manifest": "docs/assets/production/d06_entertainment_hall_03-evidence/manifest.json",
+      "report": "docs/assets/production/d06_entertainment_hall_03.md",
+      "reviewer_id": "7115a935-1438-4565-a4d4-695d26344591",
+      "integrated_revision": "e2c8ee7"
     },
     {
       "id": "d06_poster_drum.01",
