@@ -1091,5 +1091,9 @@
         }
       }
     }
-  }
+  },
+  "post_rebase_revision": "f6accfd77d79f5574d83afb4fdaa222370514419",
+  "post_rebase_base": "187042d0024cfe7b9077578dfd3e59c9e4a27288",
+  "scoped_source_equivalent": true,
+  "scoped_comparison_command": "git diff --quiet 00bccd16b409973c31572b06770864d334b5e839 HEAD -- tests/fixtures/s02 tests/fixtures/s03 tests/fixtures/s04 tests/fixtures/s06 tests/fixtures/s15 art/models/spikes art/models/effects project.godot tools/s15/run.py"
 }
