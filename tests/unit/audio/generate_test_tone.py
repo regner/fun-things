@@ -7,7 +7,7 @@ import struct
 import wave
 
 SAMPLE_RATE = 22_050
-DURATION_SECONDS = 2
+DURATION_FRAMES = SAMPLE_RATE // 5
 FREQUENCY_HZ = 440.0
 AMPLITUDE = 0.05
 OUTPUT = Path(__file__).with_name("audio") / "policy_test_tone.wav"
@@ -21,7 +21,7 @@ def main():
         output.setsampwidth(2)
         output.setframerate(SAMPLE_RATE)
         frames = bytearray()
-        for sample_index in range(SAMPLE_RATE * DURATION_SECONDS):
+        for sample_index in range(DURATION_FRAMES):
             phase = 2.0 * math.pi * FREQUENCY_HZ * sample_index / SAMPLE_RATE
             value = round(math.sin(phase) * AMPLITUDE * 32767)
             frames.extend(struct.pack("<h", value))

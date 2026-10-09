@@ -8,13 +8,30 @@ const CATEGORY_EXPLOSIONS: StringName = &"Explosions"
 const ENGINE_VOICE_LIMIT := 8
 const WEAPON_VOICE_LIMIT := 6
 const EXPLOSION_VOICE_LIMIT := 8
+const EXPLOSION_DUCK_DURATION_SECONDS := 0.28
+const ENGINE_DUCK_DB := -8.0
+const WEAPON_DUCK_DB := -4.0
+const DUCK_EFFECT_NAME := &"Explosion Duck Gain"
 
 var _listener_position := Vector3.ZERO
 var _requests: Dictionary = {}
 var _next_sequence := 1
 var _dropped_requests := 0
 var _stolen_voices := 0
+var _duck_remaining_seconds := 0.0
 var _shutting_down := false
+
+
+## Keeps duck recovery dormant until a granted explosion starts it.
+func _ready() -> void:
+	set_process(false)
+
+
+## Restores category gain after the bounded explosion readability window.
+func _process(delta: float) -> void:
+	_duck_remaining_seconds = maxf(_duck_remaining_seconds - delta, 0.0)
+	if is_zero_approx(_duck_remaining_seconds):
+		_restore_explosion_duck()
 
 
 ## Stops managed audio before this presentation owner leaves the tree.
@@ -122,6 +139,11 @@ func waiting_voice_count(category: StringName) -> int:
 	return count
 
 
+## Reports whether the bounded explosion readability duck is active.
+func is_ducking_active() -> bool:
+	return _duck_remaining_seconds > 0.0
+
+
 ## Returns bounded-policy telemetry without affecting gameplay or visual events.
 func telemetry() -> Dictionary:
 	return {
@@ -142,6 +164,7 @@ func stop_all() -> void:
 		if emitter != null:
 			emitter.set_voice_granted(false)
 	_requests.clear()
+	_restore_explosion_duck()
 
 
 ## Reconciles every managed category after listener movement.
@@ -175,8 +198,38 @@ func _reconcile_category(category: StringName) -> void:
 		request["granted"] = should_grant
 		_requests[emitter.get_instance_id()] = request
 		emitter.set_voice_granted(should_grant)
+		if should_grant and category == CATEGORY_EXPLOSIONS:
+			_begin_explosion_duck()
 		if not should_grant and not _category_retains_waiting(category):
 			_requests.erase(emitter.get_instance_id())
+
+
+## Starts or extends category gain ducking without changing D5-owned bus levels.
+func _begin_explosion_duck() -> void:
+	_set_duck_effect(CATEGORY_ENGINES, ENGINE_DUCK_DB)
+	_set_duck_effect(CATEGORY_WEAPONS, WEAPON_DUCK_DB)
+	_duck_remaining_seconds = EXPLOSION_DUCK_DURATION_SECONDS
+	set_process(true)
+
+
+## Restores only service-owned gain effects on expiry or teardown.
+func _restore_explosion_duck() -> void:
+	_set_duck_effect(CATEGORY_ENGINES, 0.0)
+	_set_duck_effect(CATEGORY_WEAPONS, 0.0)
+	_duck_remaining_seconds = 0.0
+	set_process(false)
+
+
+## Changes the authored duck effect while leaving the bus's persisted base level intact.
+func _set_duck_effect(bus_name: StringName, duck_db: float) -> void:
+	var bus_index := AudioServer.get_bus_index(bus_name)
+	if bus_index < 0:
+		return
+	for effect_index in AudioServer.get_bus_effect_count(bus_index):
+		var effect := AudioServer.get_bus_effect(bus_index, effect_index)
+		if effect is AudioEffectAmplify and effect.resource_name == DUCK_EFFECT_NAME:
+			(effect as AudioEffectAmplify).volume_db = duck_db
+			return
 
 
 ## Returns whether displaced continuous voices may wait for later promotion.

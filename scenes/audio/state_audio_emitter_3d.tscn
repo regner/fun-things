@@ -11,3 +11,5 @@ max_polyphony = 1
 unit_size = 8.0
 max_distance = 65.0
 bus = &"SFX"
+
+[connection signal="finished" from="Player" to="." method="_on_player_finished"]

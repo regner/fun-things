@@ -101,6 +101,21 @@ func set_voice_granted(granted: bool) -> void:
 		_player.stop()
 
 
+## Releases completed one-shots while keeping desired engine loops continuous.
+func _on_player_finished() -> void:
+	if category == AudioVoiceService.CATEGORY_ENGINES:
+		set_voice_granted(_voice_granted)
+		return
+
+	_desired_active = false
+	_request_submitted = false
+	_voice_granted = false
+	if _voice_service != null and is_instance_valid(_voice_service):
+		_voice_service.release_voice(self)
+	else:
+		set_voice_granted(false)
+
+
 ## Mirrors desired state into the injected voice policy when ready.
 func _sync_voice_request() -> void:
 	if not is_node_ready() or _voice_service == null or not is_instance_valid(_voice_service):

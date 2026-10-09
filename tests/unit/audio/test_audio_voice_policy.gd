@@ -22,6 +22,21 @@ func before_each() -> void:
 	assert_true(_service.set_listener_position(Vector3.ZERO))
 
 
+## Restores shared audio-server state after each isolated policy test.
+func after_each() -> void:
+	if is_instance_valid(_service):
+		_service.stop_all()
+	for bus_name: StringName in [
+		AudioVoiceService.CATEGORY_ENGINES,
+		AudioVoiceService.CATEGORY_WEAPONS,
+	]:
+		var bus_index := AudioServer.get_bus_index(bus_name)
+		AudioServer.set_bus_volume_db(bus_index, 0.0)
+		var effect := _duck_effect(bus_name)
+		if effect != null:
+			effect.volume_db = 0.0
+
+
 ## Keeps S14's accepted engine, weapon, and explosion categories at fixed limits.
 func test_category_limits_are_explicit_and_enforced() -> void:
 	assert_eq(_service.voice_limit(AudioVoiceService.CATEGORY_ENGINES), 8)
@@ -86,6 +101,38 @@ func test_rejected_one_shot_does_not_wait_for_late_playback() -> void:
 	assert_eq(_service.active_voice_count(AudioVoiceService.CATEGORY_WEAPONS), 5)
 
 
+## Releases a naturally completed one-shot so a farther event can use the slot.
+func test_finished_one_shot_releases_voice_for_farther_event() -> void:
+	assert_true(
+		_activate_emitter(_emitters[0], AudioVoiceService.CATEGORY_WEAPONS, 0)
+	)
+	assert_eq(_service.active_voice_count(AudioVoiceService.CATEGORY_WEAPONS), 1)
+
+	await get_tree().create_timer(0.4).timeout
+
+	assert_false(_emitters[0].is_voice_granted())
+	assert_eq(_service.active_voice_count(AudioVoiceService.CATEGORY_WEAPONS), 0)
+	assert_true(
+		_activate_emitter(_emitters[9], AudioVoiceService.CATEGORY_WEAPONS, 0)
+	)
+	assert_true(_emitters[9].is_voice_granted())
+	assert_true(_emitters[9].is_audio_playing())
+	assert_eq(_service.active_voice_count(AudioVoiceService.CATEGORY_WEAPONS), 1)
+
+
+## Restarts a desired continuous engine voice when its technical test stream ends.
+func test_finished_engine_voice_remains_active_and_restarts() -> void:
+	assert_true(
+		_activate_emitter(_emitters[0], AudioVoiceService.CATEGORY_ENGINES, 0)
+	)
+
+	await get_tree().create_timer(0.3).timeout
+
+	assert_true(_emitters[0].is_voice_granted())
+	assert_true(_emitters[0].is_audio_playing())
+	assert_eq(_service.active_voice_count(AudioVoiceService.CATEGORY_ENGINES), 1)
+
+
 ## Promotes the next preferred waiting source when an emitter despawns.
 func test_emitter_teardown_releases_and_promotes_waiting_voice() -> void:
 	_activate_emitters(_emitters, AudioVoiceService.CATEGORY_ENGINES)
@@ -113,6 +160,63 @@ func test_service_teardown_stops_all_managed_emitters() -> void:
 		assert_false(emitter.is_audio_playing())
 
 
+## Extends explosion ducking, then restores effects without changing D5 base levels.
+func test_explosion_duck_extends_and_recovers_relative_to_base_levels() -> void:
+	var engine_index := AudioServer.get_bus_index(AudioVoiceService.CATEGORY_ENGINES)
+	var weapon_index := AudioServer.get_bus_index(AudioVoiceService.CATEGORY_WEAPONS)
+	AudioServer.set_bus_volume_db(engine_index, -3.0)
+	AudioServer.set_bus_volume_db(weapon_index, -2.0)
+	assert_true(
+		_activate_emitter(_emitters[0], AudioVoiceService.CATEGORY_EXPLOSIONS, 0)
+	)
+	assert_true(_service.is_ducking_active())
+	var engine_duck := _duck_effect(AudioVoiceService.CATEGORY_ENGINES)
+	var weapon_duck := _duck_effect(AudioVoiceService.CATEGORY_WEAPONS)
+	assert_true(is_equal_approx(engine_duck.volume_db, -8.0))
+	assert_true(is_equal_approx(weapon_duck.volume_db, -4.0))
+	assert_true(is_equal_approx(AudioServer.get_bus_volume_db(engine_index), -3.0))
+	assert_true(is_equal_approx(AudioServer.get_bus_volume_db(weapon_index), -2.0))
+
+	# A settings update remains the base while the service-owned effect stays relative.
+	AudioServer.set_bus_volume_db(engine_index, -6.0)
+	AudioServer.set_bus_volume_db(weapon_index, -3.0)
+	await get_tree().create_timer(0.18).timeout
+	assert_true(
+		_activate_emitter(_emitters[1], AudioVoiceService.CATEGORY_EXPLOSIONS, 0)
+	)
+	await get_tree().create_timer(0.15).timeout
+	assert_true(_service.is_ducking_active())
+
+	await get_tree().create_timer(0.2).timeout
+	assert_false(_service.is_ducking_active())
+	assert_true(is_zero_approx(engine_duck.volume_db))
+	assert_true(is_zero_approx(weapon_duck.volume_db))
+	assert_true(is_equal_approx(AudioServer.get_bus_volume_db(engine_index), -6.0))
+	assert_true(is_equal_approx(AudioServer.get_bus_volume_db(weapon_index), -3.0))
+
+
+## Restores service-owned duck effects when teardown happens during a blast.
+func test_service_teardown_restores_active_duck_without_overwriting_base() -> void:
+	var engine_index := AudioServer.get_bus_index(AudioVoiceService.CATEGORY_ENGINES)
+	var weapon_index := AudioServer.get_bus_index(AudioVoiceService.CATEGORY_WEAPONS)
+	AudioServer.set_bus_volume_db(engine_index, -5.0)
+	AudioServer.set_bus_volume_db(weapon_index, -1.0)
+	assert_true(
+		_activate_emitter(_emitters[0], AudioVoiceService.CATEGORY_EXPLOSIONS, 0)
+	)
+	assert_true(_service.is_ducking_active())
+
+	var engine_duck := _duck_effect(AudioVoiceService.CATEGORY_ENGINES)
+	var weapon_duck := _duck_effect(AudioVoiceService.CATEGORY_WEAPONS)
+	_service.queue_free()
+	await get_tree().process_frame
+
+	assert_true(is_zero_approx(engine_duck.volume_db))
+	assert_true(is_zero_approx(weapon_duck.volume_db))
+	assert_true(is_equal_approx(AudioServer.get_bus_volume_db(engine_index), -5.0))
+	assert_true(is_equal_approx(AudioServer.get_bus_volume_db(weapon_index), -1.0))
+
+
 ## Confirms default production routing exists at neutral levels before settings land.
 func test_default_bus_layout_has_expected_routes_and_levels() -> void:
 	var expected_routes: Dictionary[StringName, StringName] = {
@@ -136,6 +240,20 @@ func test_default_bus_layout_has_expected_routes_and_levels() -> void:
 		assert_gte(bus_index, 0)
 		assert_true(is_zero_approx(AudioServer.get_bus_volume_db(bus_index)))
 		assert_eq(AudioServer.get_bus_send(bus_index), expected_routes[bus_name])
+	assert_not_null(_duck_effect(AudioVoiceService.CATEGORY_ENGINES))
+	assert_not_null(_duck_effect(AudioVoiceService.CATEGORY_WEAPONS))
+
+
+## Finds the authored gain effect owned only by explosion ducking.
+func _duck_effect(bus_name: StringName) -> AudioEffectAmplify:
+	var bus_index := AudioServer.get_bus_index(bus_name)
+	if bus_index < 0:
+		return null
+	for effect_index in AudioServer.get_bus_effect_count(bus_index):
+		var effect := AudioServer.get_bus_effect(bus_index, effect_index)
+		if effect is AudioEffectAmplify and effect.resource_name == &"Explosion Duck Gain":
+			return effect as AudioEffectAmplify
+	return null
 
 
 ## Activates a list through only the emitter's presentation-state API.

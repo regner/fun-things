@@ -1,9 +1,15 @@
-[gd_resource type="AudioBusLayout" format=3 uid="uid://ci51l634tyqjj"]
+[gd_resource type="AudioBusLayout" load_steps=4 format=3 uid="uid://ci51l634tyqjj"]
 
 [sub_resource type="AudioEffectLimiter" id="AudioEffectLimiter_master"]
 resource_name = "Master Safety Limiter"
 ceiling_db = -1.0
 threshold_db = -3.0
+
+[sub_resource type="AudioEffectAmplify" id="AudioEffectAmplify_engines_duck"]
+resource_name = "Explosion Duck Gain"
+
+[sub_resource type="AudioEffectAmplify" id="AudioEffectAmplify_weapons_duck"]
+resource_name = "Explosion Duck Gain"
 
 [resource]
 bus/0/effect/0/effect = SubResource("AudioEffectLimiter_master")
@@ -26,12 +32,16 @@ bus/3/mute = false
 bus/3/bypass_fx = false
 bus/3/volume_db = 0.0
 bus/3/send = &"SFX"
+bus/3/effect/0/effect = SubResource("AudioEffectAmplify_engines_duck")
+bus/3/effect/0/enabled = true
 bus/4/name = &"Weapons"
 bus/4/solo = false
 bus/4/mute = false
 bus/4/bypass_fx = false
 bus/4/volume_db = 0.0
 bus/4/send = &"SFX"
+bus/4/effect/0/effect = SubResource("AudioEffectAmplify_weapons_duck")
+bus/4/effect/0/enabled = true
 bus/5/name = &"Explosions"
 bus/5/solo = false
 bus/5/mute = false
