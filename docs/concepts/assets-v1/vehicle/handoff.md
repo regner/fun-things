@@ -1,0 +1,84 @@
+# Vehicle concept checkpoint handoff
+
+9 October 2026. Producer: dedicated vehicle lead. Art selector: Regner.
+Receiving gameplay integrator: another person, not yet named.
+Stage: concept selection pending; not a finished production vehicle.
+
+## Existing evidence and boundary
+
+Read [S04 source handoff](../../../assets/s04_kit.md),
+[body/seat contract](../../../spikes/s04-contracts.md), saved
+`tests/fixtures/s04/kinematic.tscn` and `dynamic.tscn`, and their listed S05/S06
+consumers. Original car source/export/wrappers remain untouched.
+
+S04 imported visual bounds: X 1.88 / Y 1.54 / Z 3.4 m, bottom Y 0. Its collider
+is 1.8 × 1.5 × 3.4 m centred at (0, 0.75, 0). Driver candidate is (0, 0.8, 0.1),
+entry candidates (±1.3, 0, 0.1), exit candidates (±1.5, 0, 0.1). These are
+spike facts, not approved production sizing/grounded seat/exit clearance.
+Planar body/handling/authority and collider masks belong to gameplay owners.
+
+No controller, seat transaction, network, physics/body redesign, main launch,
+city placement, shared plan/TODO/catalogue edits, merge or push is included.
+The proposed selected-family wrapper is a reusable visual asset, not a replacement
+for `scenes/entities/vehicle.tscn` or an implicit choice of production body class.
+
+## Proposed selected-family output map
+
+Use one of `car_latch_a`, `car_crate_a`, `car_sable_a` only after owner selection.
+Family directory is `city_cars`; check current consumers before creating paths.
+
+- `art/source/models/city_cars/<asset_id>.blend`, collection `export_<asset_id>`;
+  preserve the existing source `.gdignore`.
+- `art/models/city_cars/<asset_id>.glb` and Godot `.glb.import`.
+- `scenes/prefabs/city_cars/<asset_id>.tscn`, imported `Visuals/Model`, no driving
+  controller or gameplay collision authority. Integrator mounts this visual scene
+  under its own `PresentationAnchor`.
+- `scenes/previews/city_cars/<asset_id>_preview.tscn`, asset-local saved presentation,
+  target camera and three-quarter inspection; visible staging geometry also Blender-owned.
+- `docs/assets/<asset_id>.md`, exact source/export/material/socket/consumer mapping.
+  Any asset-owned external materials/textures live in contract paths and are listed.
+
+Ground-centred visual origin, metres, Blender +Y forward/+Z up → Godot -Z forward/+Y
+up, unit transforms. Four separate wheels with axle-centred pivots and named source
+markers. Determine simple steering/spin pivots after selection; no humanoid rig or
+animation dependency is required for a rigid car. Source empties for `socket_driver`,
+`socket_entry_left/right`, `socket_exit_left/right` map to wrapper
+`Sockets/DriverSeat`, `EntryLeft/Right`, `ExitLeft/Right`. Preserve source transforms,
+document proposed poses, and leave authoritative clearance decisions with gameplay.
+Driver fit waits for the player's versioned production dimensions/rest/seat contract;
+do not reuse S13's technical seven-bone rig as a production occupant.
+
+Embedded opaque source-owned flat materials are the simplest starting point.
+No textures/rig/clips/LOD promised before the selected brief establishes a need.
+Any wheel preview playback will demonstrate cosmetic pivots only, not driving,
+suspension, seat transitions or network acceptance.
+
+## Tool and ownership receipt
+
+- Worktree HEAD initially `c030d66d7d0a9db19c0c2aebf1aa2b83eded6275`, clean status.
+- `/usr/bin/blender --version`: 5.2.2 LTS, hash `d13f752e3b9c`.
+- Pinned installed Godot binary: 4.8.dev7.official.c971f93e7.
+- Blender MCP addon/scene read probes: could not connect. Godot MCP read probe:
+  `CONNECT_FAILED`, refused `127.0.0.1:6550`. No connected editor project identity
+  could be established, and no editor mutation or direct-file scene fallback occurred.
+- Greybox owns 16650–16654, PID 49308 and `/tmp/brackett-greybox` state; these are
+  excluded from vehicle use. No shared configuration or service changed.
+- Before production writes, launch/verify private worktree-bound processes and
+  isolated state/endpoint ownership. Use suitable editor MCP; if insufficient,
+  explain the fallback first and retain save/refresh/reopen evidence. Capped bounded
+  previews only. This initial concept work requires no live editor.
+
+## Reconciliation delta for planning owner
+
+Do not apply concurrently to shared files:
+
+- Catalogue: first production vehicle concept checkpoint exists at
+  `docs/concepts/assets-v1/vehicle/README.md`; three original directions, Regner
+  selection pending, provisional dimensions explicit. Production asset ID pending.
+- TODO: vehicle concept generation done; owner selection/iteration pending;
+  selected source/model/materials/wheels/markers, GLB import/metadata, saved wrapper
+  and preview, source/export checks and clean-context independent review still pending.
+- Integration dependencies: final visual/collider envelope reconciliation, driver
+  fit, safe entry/grounded exits, district turns/contacts/spawn queries, gameplay
+  root/lifecycle/networking, target performance and playable acceptance remain with
+  integrator/relevant owners. No foundation TODO closure is claimed.
