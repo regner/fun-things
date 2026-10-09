@@ -112,7 +112,7 @@ intersections. The world integrator owns CityData and road revisions.
   full-population settings as each simulation row lands and at every checkpoint, with subsystem
   timings as reports only. Final D3 is the integrated acceptance. Include S05 final-body
   chain evidence. Target capped 60 FPS with p95 ≤16.7 ms and p99 ≤20 ms on named desktop hardware
-  across the whole island. Final gate after: M1-D1, M1-B4, M1-C3, M1-C4.
+  across the whole island. Final gate after: M1-D1, M1-D2, M1-B4, M1-C3, M1-C4.
 - [ ] **M1-D5 — Add the settings screen and settings persistence.** Audio volumes/mutes first;
   validate defaults, corrupt-file recovery and live preview. Device settings never mutate shared
   gameplay. Before: M1-D4.
