@@ -52,17 +52,17 @@ active held input without relying on one datagram. The failed run is retained.
 The selected runs used two real ENet processes, the existing seeded bounded UDP proxy and
 Godot `4.8.dev7.official.c971f93e7`. Other lane processes were active on the workstation,
 so timings are labelled contended upper bounds. Each response row has 20/20 samples.
-The headless loopback/adverse runs bind the final fixture source. The selected normal and
-windowed runs precede only the telemetry-only held-decision-age field used by the final
+The headless loopback/normal/adverse runs bind the final fixture source. The selected
+windowed run precedes only the telemetry-only held-decision-age field used by the final
 expiry analyzer; motion, prediction, proxy and presentation behavior are unchanged, and
-their result files retain exact source hashes. “Authority baseline” is the first matching
+its result file retains exact source hashes. “Authority baseline” is the first matching
 host-confirmed pose/sequence (and, windowed, the first subsequent drawn receipt), i.e.
 when an unpredicted client could respond.
 
 | Profile | Predicted physics p95 | Authority baseline p95 | Predicted drawn p95 | Authority drawn p95 | Correction p95 / max | Replay CPU p95 per frame | Max replay |
 | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
 | Headless loopback | 24 ms | 194 ms | unavailable | unavailable | 0.167 / 1.592 m | 78.0 us | 41 |
-| Headless normal | 21 ms | 268 ms | unavailable | unavailable | 0.250 / 1.750 m | 30.0 us | 47 |
+| Headless normal | 18 ms | 260 ms | unavailable | unavailable | 0.250 / 2.399 m | 27.18 us | 49 |
 | Headless adverse | 18 ms | 426 ms | unavailable | unavailable | 0.250 / 3.917 m | 21.58 us | 83 |
 | Windowed loopback | 22 ms | 123 ms | 35 ms | 149 ms | 0.250 / 0.527 m | 85.0 us | 42 |
 
@@ -73,11 +73,11 @@ was 0 m and no selected run exhausted 120-frame history. The adverse 1 s interru
 and 250 ms host stall converged in 320.47 ms and 564 ms respectively, both below 1 s.
 The maximum adverse replay was 83 frames and remained bounded.
 
-Selected correction classifiers were `none` or `held_timing_or_delivery`; no remote-actor
-contact was observed in the final routes and no car exists in S03-R. The authoritative
-wall case passed, but this run does not establish replay against other moving actors or
-cars. That remains a production/S04-transition risk, not evidence of deterministic
-whole-world rollback.
+Selected correction classifiers were `none`, `held_timing_or_delivery`, and one normal
+`static_collision`; no remote-actor contact was observed in the final routes and no car
+exists in S03-R. The authoritative wall case passed, but this run does not establish
+replay against other moving actors or cars. That remains a production/S04-transition
+risk, not evidence of deterministic whole-world rollback.
 
 The windowed run drew both 1280x800 Windows views with no missing response samples. Its
 retained before/after PNG pair is a technical receipt, not camera continuity or human
