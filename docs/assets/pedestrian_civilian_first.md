@@ -36,9 +36,8 @@ The earlier S13 seven-bone technical rig and its clips are not used.
 
 | Purpose | Owned path |
 | --- | --- |
-| Editable source; 48 source parts, appended canonical Rig, four NPC actions, source studio and preview floor | `art/source/models/pedestrian_civilian/pedestrian_worker_a.blend` |
+| Editable source; 48 source parts, appended canonical Rig and four NPC actions | `art/source/models/pedestrian_civilian/pedestrian_worker_a.blend` |
 | Collection `export_pedestrian_worker_a`: Rig + WorkerMesh | `art/models/pedestrian_civilian/pedestrian_worker_a.glb` + `.import` |
-| Collection `export_pedestrian_worker_stage`: PreviewGround only | `art/models/pedestrian_civilian/pedestrian_worker_stage.glb` + `.import` |
 | Palette shader and shared material | `art/materials/pedestrian_worker_a_palette.gdshader`, `.gdshader.uid`, `.tres` |
 | NPC-only reusable library derived from the imported GLB actions | `art/animations/pedestrian_civilian/npc_locomotion_v1.tres` |
 | Source-linked reusable presentation prefab | `scenes/prefabs/pedestrian_civilian/pedestrian_worker_a.tscn` |
@@ -46,8 +45,7 @@ The earlier S13 seven-bone technical rig and its clips are not used.
 | Saved four-instance preview and bounded playback script | `tests/fixtures/pedestrian_civilian/pedestrian_worker_a_preview.tscn`, `pedestrian_worker_preview.gd` + `.uid` |
 | Source authoring/export/checks and Godot authoring context | `tools/pedestrian_civilian/` |
 
-Source `.gdignore` excludes Blender data from runtime import/export. The preview floor
-is also Blender-authored. There are no runtime-generated visible meshes, gameplay
+Source `.gdignore` excludes Blender data from runtime import/export. There are no runtime-generated visible meshes, gameplay
 colliders, weapon sockets, actor AI or population rules. Wrapper structure is
 `PresentationAnchor/Visuals/Model`, with Model remaining an imported GLB instance.
 No direct imported-child override or embedded duplicate mesh appears in the prefab.

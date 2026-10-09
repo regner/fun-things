@@ -48,14 +48,13 @@ MATS = {
 
 
 def collection(name):
-    """Separate explicit model, preview geometry and nonexported measurement scope."""
+    """Create one explicit model or nonexported measurement scope."""
     c = bpy.data.collections.new(name)
     scene.collection.children.link(c)
     return c
 
 
 MODEL = collection('export_' + ASSET)
-PAD = collection('export_smg_wedgewire_review_pad')
 REFERENCE = collection('source_measurement_reference')
 
 
@@ -186,10 +185,6 @@ marker('socket_grip_contact', (0.032, 0, 0), (1, 0, 0))
 marker('socket_support_hand', (0, 0.31, 0.055), (0, 0, -1))
 marker('socket_shoulder', (0, -0.28, 0.128), (0, -1, 0))
 
-box('Review_PetrolPad', (65, 45, 0.10), (0, 0, -0.075), 'pad_petrol',
-    bevel=0.0, group=PAD)
-box('Review_ConcreteStrip', (65, 8, 0.018), (0, 8, -0.016), 'pad_concrete',
-    bevel=0.0, group=PAD)
 box('Reference_OneMetre', (1, 0.02, 0.02), (1, 0, 0), 'cyan_band',
     bevel=0.0, group=REFERENCE)
 REFERENCE.hide_render = True

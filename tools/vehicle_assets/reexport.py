@@ -11,7 +11,7 @@ OUTPUT.mkdir(parents=True, exist_ok=True)
 assert bpy.app.version_string == '5.2.2 LTS'
 settings = json.loads((ROOT / 'tools/s01/export_settings.json').read_text())
 settings.update(export_animations=False, export_skins=False)
-for record_path in sorted((ROOT / 'docs/assets/vehicle_car_evidence').glob('*_source.json')):
+for record_path in sorted((ROOT / 'docs/assets/vehicle_car_evidence').glob('car_*_a_source.json')):
     record = json.loads(record_path.read_text())
     bpy.ops.wm.open_mainfile(filepath=str(ROOT / record['source']))
     collection = bpy.data.collections[record['collection']]

@@ -117,21 +117,3 @@ def refine(spec):
 
 
 for spec in a.SPECS:refine(spec)
-bpy.ops.wm.read_factory_settings(use_empty=True)
-scene=bpy.context.scene;scene.unit_settings.system='METRIC';scene.unit_settings.scale_length=1
-asset='car_preview_stage';col=bpy.data.collections.new('export_'+asset);scene.collection.children.link(col)
-root=a.empty(col,asset)
-road=a.material('preview_road',(34,53,63),.93)
-line=a.material('preview_line',(150,170,167),.9)
-a.box(col,root,'Ground',(64,44,.10),(0,0,-.05),road,.01)
-for x in (-6,0,6):
-    for y in (-4,4):a.box(col,root,'BayMark',(.065,1,.015),(x,y,.01),line,.003)
-source=a.SOURCES/(asset+'.blend');assert not source.exists()
-bpy.ops.wm.save_as_mainfile(filepath=str(source))
-settings=json.loads((a.ROOT/'tools/s01/export_settings.json').read_text())
-settings.update(export_animations=False,export_skins=False,collection=col.name,filepath=str(a.OUTPUT/(asset+'.glb')))
-bpy.ops.export_scene.gltf(**settings)
-(a.RECORDS/(asset+'_source.json')).write_text(json.dumps({'id':asset,'source':str(source.relative_to(a.ROOT)),
-    'export':str((a.OUTPUT/(asset+'.glb')).relative_to(a.ROOT)),'collection':col.name,
-    'members':sorted(o.name for o in col.all_objects),'purpose':'Blender-authored cosmetic preview floor, no collision'},indent=2)+'\n')
-print('VEHICLE_REFINEMENT_COMPLETE',flush=True)

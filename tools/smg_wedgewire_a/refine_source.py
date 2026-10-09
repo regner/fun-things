@@ -108,8 +108,6 @@ def set_source_normals(obj, flat=False):
 for obj in bpy.data.collections['export_smg_wedgewire_a'].all_objects:
     if obj.type == 'MESH':
         set_source_normals(obj)
-for obj in bpy.data.collections['export_smg_wedgewire_review_pad'].all_objects:
-    set_source_normals(obj, flat=True)
 bpy.context.scene['astra_visual_refinement_01'] = True
 bpy.context.scene['refinement_authorship'] = (
     'Codex gpt-6-astra/high, verified active runtime codex-turn-9 on 9 October 2026; '

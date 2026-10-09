@@ -1,9 +1,0 @@
-[gd_scene format=3 uid="uid://2atrkeso52o7"]
-
-[ext_resource type="PackedScene" uid="uid://b3tet4fm8eokx" path="res://art/models/rocket_launcher/dock_thumper_preview_stage.glb" id="1_344vb"]
-
-[node name="DockThumperPreviewStage" type="Node3D" unique_id=1438242981]
-
-[node name="Visuals" type="Node3D" parent="." unique_id=407220572]
-
-[node name="Model" parent="Visuals" unique_id=323554173 instance=ExtResource("1_344vb")]

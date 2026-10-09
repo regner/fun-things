@@ -202,18 +202,12 @@ for i in range(3):
           (2, 3, 7, 6), (3, 0, 4, 7)], "ivory", .003)
 marker(rocket, "socket_trail", (0, -.23, 0))
 
-stage = collection("dock_thumper_preview_stage")
-box(stage, "AsphaltStage", (64, 48, .10), (0, 0, -.06), "asphalt", .005)
-box(stage, "MetreReference", (1, .04, .012), (-2.0, 0, .002), "ivory", .002)
-for x in [-2.5, -1.5]:
-    box(stage, "MetreTick_" + str(x), (.04, .20, .012), (x, 0, .002), "coral", .002)
-
 settings = json.loads((ROOT / "tools/s01/export_settings.json").read_text())
 settings.update(export_animations=False, export_skins=False)
 record = {"creator": "Codex rocket-launcher lead", "concept": "Regner approved A Dock Thumper",
           "blender": bpy.app.version_string, "build": bpy.app.build_hash.decode(),
           "source": "dock_thumper_a.blend", "collections": {}, "settings": settings}
-for col in [launcher, rocket, stage]:
+for col in [launcher, rocket]:
     members = []
     for obj in col.objects:
         assert all(abs(v-1) < 1e-6 for v in obj.scale), obj.name
@@ -234,7 +228,7 @@ for col in [launcher, rocket, stage]:
         members.append(row)
     record["collections"][col.name] = members
 bpy.ops.wm.save_as_mainfile(filepath=str(SOURCE / "dock_thumper_a.blend"))
-for col in [launcher, rocket, stage]:
+for col in [launcher, rocket]:
     target = OUTPUT / (col.name.removeprefix("export_") + ".glb")
     bpy.ops.export_scene.gltf(**settings, collection=col.name, filepath=str(target))
 (SOURCE / "source_manifest.json").write_text(json.dumps(record, indent=2) + "\n")

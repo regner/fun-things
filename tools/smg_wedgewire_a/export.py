@@ -15,7 +15,7 @@ assert bpy.context.scene.unit_settings.scale_length == 1
 settings = json.loads((ROOT / 'tools/s01/export_settings.json').read_text())
 settings.update(export_animations=False, export_skins=False)
 rows = {}
-for name in ['smg_wedgewire_a', 'smg_wedgewire_review_pad']:
+for name in ['smg_wedgewire_a']:
     col = bpy.data.collections['export_' + name]
     members = sorted(col.all_objects, key=lambda x: x.name)
     points = []

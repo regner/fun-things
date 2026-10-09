@@ -8,7 +8,7 @@ import bpy
 
 ROOT = Path(__file__).resolve().parents[4]
 SOURCE = Path(__file__).with_name("weapon_effects_a.blend")
-KINDS = ("muzzle_drop", "fire_lobe", "smoke_puff", "spark", "chip", "trail_puff", "preview_stage")
+KINDS = ("muzzle_drop", "fire_lobe", "smoke_puff", "spark", "chip", "trail_puff")
 
 
 def main():

@@ -22,8 +22,7 @@ The family supplies four collision-free, presentation-only saved scenes under
 | `weapon_effects_a_explosion.tscn` | 9 fire + 7 smoke + 14 sparks + 5 chips | 0.50/1.15/0.52/0.75 s; settles at 1.45 s |
 
 `weapon_effects_a_preview.tscn` composes those saved scenes, including four overlapping
-independent explosion roots, a marker-only stationary trail and a linked Blender
-stage. SPACE toggles playback, R restarts, ESC clears. Autoplay stops after 24 s.
+independent explosion roots and a marker-only stationary trail. SPACE toggles playback, R restarts, ESC clears. Autoplay stops after 24 s.
 The preview caps its own process at 60 FPS with VSync. Project main/settings unchanged.
 
 One editable source: `art/source/models/weapon_effects/weapon_effects_a.blend`.
@@ -42,13 +41,12 @@ Each row below maps `export_weapon_effects_a_<kind>` in that source to
 | `spark` | 168 | Muzzle/Sparks; Hit/Sparks; Explosion/Sparks |
 | `chip` | 108 | Explosion/Chips |
 | `trail_puff` | 168 | Trail/Hot and Cool |
-| `preview_stage` | 528 | Preview/Stage only |
 
 Six particle GLBs use Godot's importer-owned external mesh extraction to adjacent
 `weapon_effects_a_<kind>_mesh.res`. Their import settings retain the matching UID and
 fallback path. Each emitter references that external mesh and retains a hidden linked
 `MeshSource` GLB instance. No runtime-generated mesh or copied vertex array in a scene.
-Preview stage is an ordinary linked GLB. There are no physics bodies or collision shapes.
+There are no physics bodies or collision shapes.
 
 External family materials live in `art/materials/weapon_effects/`: spark, smoke, chip
 and trail StandardMaterial3D resources; fire_tint ShaderMaterial and the original

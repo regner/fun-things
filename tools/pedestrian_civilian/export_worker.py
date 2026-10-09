@@ -7,7 +7,7 @@ from pathlib import Path
 import bpy
 
 ROOT = Path(__file__).resolve().parents[2]
-OUTPUTS = ["pedestrian_worker_a", "pedestrian_worker_stage"]
+OUTPUTS = ["pedestrian_worker_a"]
 
 
 def export_all(destination=None):
@@ -27,7 +27,7 @@ def export_all(destination=None):
     rows = []
     for asset_id in OUTPUTS:
         collection = bpy.data.collections["export_" + asset_id]
-        expected = {"WorkerMesh", "Rig"} if asset_id == OUTPUTS[0] else {"PreviewGround"}
+        expected = {"WorkerMesh", "Rig"}
         if {object_.name for object_ in collection.all_objects} != expected:
             raise RuntimeError("Unexpected export members: " + asset_id)
         for object_ in collection.all_objects:
@@ -37,8 +37,8 @@ def export_all(destination=None):
                 raise RuntimeError("Non-positive transform")
         target = destination / (asset_id + ".glb")
         settings["collection"] = collection.name
-        settings["export_animations"] = asset_id == OUTPUTS[0]
-        settings["export_vertex_color"] = "NAME" if asset_id == OUTPUTS[0] else "NONE"
+        settings["export_animations"] = True
+        settings["export_vertex_color"] = "NAME"
         settings["filepath"] = str(target)
         bpy.ops.export_scene.gltf(**settings)
         rows.append({"collection": collection.name, "members": sorted(expected),

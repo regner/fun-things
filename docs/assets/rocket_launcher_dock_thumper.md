@@ -46,17 +46,15 @@ and triangle counts: `art/source/models/rocket_launcher/source_manifest.json`.
 | --- | --- | --- | ---: |
 | `export_dock_thumper_launcher_a` | `dock_thumper_launcher_a.glb` | `scenes/prefabs/rocket_launcher/dock_thumper_launcher_a.tscn` | 8,204 |
 | `export_dock_thumper_rocket_a` | `dock_thumper_rocket_a.glb` | `scenes/prefabs/rocket_launcher/dock_thumper_rocket_a.tscn` | 3,650 |
-| `export_dock_thumper_preview_stage` | `dock_thumper_preview_stage.glb` | `tests/fixtures/rocket_launcher/stage.tscn` | 752 |
 
 Wrappers retain linked `Visuals/Model` imports, unit roots and positive scales.
-All visible stage geometry also comes from Blender. No embedded/generated visible
+No embedded/generated visible
 Godot meshes, collision, simulation, damage, effects or gameplay scripts are added.
 S02 launcher and S15 rocket technical fixtures remain untouched.
 
 Flat PBR materials are embedded in GLBs with one named material per mesh:
 `dock_thumper_petrol`, `dock_thumper_coral`, `dock_thumper_ivory`,
-`dock_thumper_graphite`, `dock_thumper_cyan` (subtle emission), and stage-only
-`dock_thumper_asphalt`. No texture maps are required for these broad colors;
+`dock_thumper_graphite`, `dock_thumper_cyan` (subtle emission). No texture maps are required for these broad colors;
 UV texture painting, normal maps and external material remaps are not applicable.
 Imported `.glb.import` metadata is committed, including default generated LODs and
 shadow meshes. No source LOD variants or ratified triangle/performance budget.

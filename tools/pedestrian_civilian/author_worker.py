@@ -335,18 +335,6 @@ def main():
     bind_mesh(mesh, rig)
     author_clips(rig)
     binding_receipt = validate(mesh, rig)
-    stage = bpy.data.collections.new("export_pedestrian_worker_stage")
-    scene.collection.children.link(stage)
-    stage_material = bpy.data.materials.new("worker_preview_ground")
-    stage_material.use_nodes = True
-    shader = next(n for n in stage_material.node_tree.nodes if n.type == "BSDF_PRINCIPLED")
-    shader.inputs["Base Color"].default_value = linear("455563")
-    shader.inputs["Roughness"].default_value = .9
-    box("PreviewGround", (0, 0, -.065), (66, 44, .13), .01,
-        "shirt", stage, stage_material)
-    # Ground has no palette mask; its plain material is a separate preview-only output.
-    ground = bpy.data.objects["PreviewGround"]
-    ground.data.color_attributes.remove(ground.data.color_attributes["worker_region"])
     studio(scene)
     scene["authorship"] = "Original Codex pedestrian lead geometry; selected imagegen concept C"
     scene["authoring_model"] = "gpt-6-astra/high; verified Paseo runtime before spatial work"

@@ -6,10 +6,8 @@ import bpy
 from mathutils import Vector
 
 ROOT=Path(__file__).resolve().parents[2]
-for record_path in sorted((ROOT/'docs/assets/vehicle_car_evidence').glob('car_*_source.json')):
+for record_path in sorted((ROOT/'docs/assets/vehicle_car_evidence').glob('car_*_a_source.json')):
     record=json.loads(record_path.read_text())
-    if record['id']=='car_preview_stage':
-        continue
     bpy.ops.wm.open_mainfile(filepath=str(ROOT/record['source']))
     scene=bpy.context.scene
     assert not scene.get('panel_depth_revision',False),'One-time source refinement already applied'

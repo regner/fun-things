@@ -89,12 +89,6 @@ func _create_preview(packed: PackedScene) -> Node3D:
 	preview.set_script(
 		load("res://tests/fixtures/pedestrian_civilian/pedestrian_worker_preview.gd")
 	)
-	var stage: PackedScene = load(
-		"res://art/models/pedestrian_civilian/pedestrian_worker_stage.glb"
-	)
-	var ground: Node3D = stage.instantiate(PackedScene.GEN_EDIT_STATE_INSTANCE)
-	ground.name = "BlenderStage"
-	own(preview, ground, preview)
 	_add_workers(preview, packed)
 	_add_cameras(preview)
 	_add_lighting(preview)

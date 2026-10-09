@@ -10,9 +10,6 @@ integration belong to their respective owners and remain pending.
 - [Blender source](../../art/source/models/weapons_smg/smg_wedgewire_a.blend)
 - [Explicit weapon GLB](../../art/models/weapons_smg/smg_wedgewire_a.glb)
 - [Reusable wrapper](../../scenes/prefabs/weapons_smg/smg_wedgewire_a.tscn)
-- [Interactive local preview](../../scenes/previews/weapons_smg/smg_wedgewire_a_preview.tscn)
-  — O overview, G game camera, S side; 60 FPS/VSync.
-- [Inherited game-camera view](../../scenes/previews/weapons_smg/smg_wedgewire_a_game_camera.tscn)
 - Actual Godot captures: [overview](smg_wedgewire_a_evidence/overview.png),
   [side](smg_wedgewire_a_evidence/side.png),
   [native 1280×800 game camera](smg_wedgewire_a_evidence/game_camera.png).
@@ -47,15 +44,13 @@ Any later spatial work must verify effective runtime again after a model switch.
 
 | Saved source / collection | Explicit output + sidecar | Consumers |
 | --- | --- | --- |
-| `art/source/models/weapons_smg/smg_wedgewire_a.blend`, `export_smg_wedgewire_a` | `art/models/weapons_smg/smg_wedgewire_a.glb` + `.glb.import` | Wrapper `Visuals/Model` → preview `Weapon` → inherited game-camera preview |
-| Same source, `export_smg_wedgewire_review_pad` | `art/models/weapons_smg/smg_wedgewire_review_pad.glb` + `.glb.import` | Preview `ReviewPad/Model` → inherited preview; review decoration only |
+| `art/source/models/weapons_smg/smg_wedgewire_a.blend`, `export_smg_wedgewire_a` | `art/models/weapons_smg/smg_wedgewire_a.glb` + `.glb.import` | Wrapper `Visuals/Model` |
 
 `art/source/.gdignore` excludes authoring files from Godot. A one-metre measurement
 fixture lives in nonexported `source_measurement_reference`. There are no exported
 cameras/lights, textures, animation tracks, armature, skin or collision hints.
 The weapon export contains 16 mesh objects and five empties; 3,748 source triangles.
-The review pad has two flat-shaded mesh objects, 24 triangles. The pad has no collision
-and is not city content. Source membership, settings and AABBs are in
+Source membership, settings and AABBs are in
 [export_receipt.json](smg_wedgewire_a_evidence/export_receipt.json).
 
 Blender **5.2.2 LTS d13f752e3b9c**, bundled glTF exporter **5.2.40**;

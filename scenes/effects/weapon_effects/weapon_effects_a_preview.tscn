@@ -1,7 +1,6 @@
 [gd_scene format=3 uid="uid://df1r04psp5co"]
 
 [ext_resource type="Script" uid="uid://dqakcscldnx77" path="res://scenes/effects/weapon_effects/preview.gd" id="1_wbpte"]
-[ext_resource type="PackedScene" uid="uid://cmrxf3f1lkc6c" path="res://art/models/weapon_effects/weapon_effects_a_preview_stage.glb" id="2_qcuu8"]
 [ext_resource type="PackedScene" uid="uid://d1htdsktia0dq" path="res://scenes/effects/weapon_effects/weapon_effects_a_muzzle.tscn" id="3_8jdfn"]
 [ext_resource type="PackedScene" uid="uid://mbhnsfu434ew" path="res://scenes/effects/weapon_effects/weapon_effects_a_hit.tscn" id="5_1dg65"]
 [ext_resource type="PackedScene" uid="uid://b6weoqrdqie13" path="res://scenes/effects/weapon_effects/weapon_effects_a_explosion.tscn" id="6_bls1l"]
@@ -20,8 +19,6 @@ glow_intensity = 0.45
 
 [node name="WeaponEffectsPreview" type="Node3D" unique_id=2089126507]
 script = ExtResource("1_wbpte")
-
-[node name="Stage" parent="." unique_id=532659736 instance=ExtResource("2_qcuu8")]
 
 [node name="Camera" type="Camera3D" parent="." unique_id=1015380917]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 47, 0)

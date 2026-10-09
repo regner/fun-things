@@ -105,7 +105,7 @@ def main():
     amber=material('weapon_effects_a_flash_amber',(1,0.33,0.018,1),1.5)
     ivory=material('weapon_effects_a_flash_ivory',(1,0.9,0.58,1),2)
     outputs={name:collection(name) for name in
-             ['muzzle_drop','fire_lobe','smoke_puff','spark','chip','trail_puff','preview_stage']}
+             ['muzzle_drop','fire_lobe','smoke_puff','spark','chip','trail_puff']}
     outer=drop(outputs['muzzle_drop'],'FlashOuter',0.66,0.27,0.16,amber)
     core=drop(outputs['muzzle_drop'],'FlashCore',0.43,0.12,0.075,ivory)
     core.location.z=0.075
@@ -122,25 +122,6 @@ def main():
     puff(outputs['spark'],'Shape',(0.025,0.025,0.16),neutral)
     box(outputs['chip'],'Shape',(0.11,0.14,0.08),(0,0,0),neutral,0.016)
     puff(outputs['trail_puff'],'Shape',(0.20,0.20,0.16),neutral,0.05)
-    stage=outputs['preview_stage']
-    asphalt=material('weapon_effects_preview_asphalt',(0.018,0.038,0.065,1))
-    sidewalk=material('weapon_effects_preview_sidewalk',(0.047,0.075,0.10,1))
-    paint=material('weapon_effects_preview_paint',(0.35,0.40,0.41,1))
-    coral=material('weapon_effects_preview_coral',(0.60,0.13,0.12,1),0.3)
-    cyan=material('weapon_effects_preview_cyan',(0.04,0.32,0.40,1),0.3)
-    box(stage,'Asphalt',(62,42,0.12),(0,0,-0.06),asphalt)
-    for side in [-1,1]:
-        box(stage,f'Curb{side}',(62,1.5,0.20),(0,side*15,0),sidewalk,0.05)
-    for x in range(-28,29,4):
-        box(stage,f'LaneDash{x}',(1.5,0.09,0.01),(x,0,0.008),paint)
-    # Independent metre spacing and a4m reference strip; no duplicate actors/rocket.
-    for x in range(-20,-14):
-        box(stage,f'MetreTick{x}',(0.07,1,0.015),(x,-13,0.015),paint)
-    box(stage,'FourMetreReference',(4,0.4,0.02),(13,-13,0.02),paint)
-    box(stage,'CoralEdge',(7,0.09,0.04),(-19,15,0.16),coral)
-    box(stage,'CyanEdge',(7,0.09,0.04),(19,15,0.16),cyan)
-    # Exact1m vertical fixture for scale/source-axis inspection only.
-    box(stage,'MetreColumn',(0.08,0.08,1),(-25,-12,0.5),paint)
     bpy.ops.object.select_all(action='DESELECT')
     OUTPUT.mkdir(parents=True,exist_ok=True)
     bpy.ops.wm.save_as_mainfile(filepath=str(SOURCE))

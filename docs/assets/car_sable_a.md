@@ -18,7 +18,7 @@ is checked within 0.002 m; approved concept proportions were illustrative, not m
 
 | Source / collection | Export and import | Saved consumers |
 | --- | --- | --- |
-| `art/source/models/city_cars/car_sable_a.blend` / `export_car_sable_a` | `art/models/city_cars/car_sable_a.glb` + `.glb.import` | `scenes/prefabs/city_cars/car_sable_a.tscn`; `scenes/previews/city_cars/car_sable_a_preview.tscn` |
+| `art/source/models/city_cars/car_sable_a.blend` / `export_car_sable_a` | `art/models/city_cars/car_sable_a.glb` + `.glb.import` | `scenes/prefabs/city_cars/car_sable_a.tscn` |
 
 The wrapper has `Visuals/Model` as a linked GLB instance, with the imported named
 asset root below it; no editable imported-child overrides or embedded draw meshes.

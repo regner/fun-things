@@ -9,7 +9,7 @@ the district cameras. Instantiate [city.tscn](../../scenes/world/brackett_greybo
 for the reusable city without review lighting, cameras, UI or water. The separate
 `water.glb` is a decorative preview surface without collision.
 
-![Full-island Godot overview](../../art/source/models/brackett_greybox/review/overview.png)
+Historical review captures were removed from `art/` during production cleanup; they remain at commit `80d0f24`.
 
 ## Brief, authorization and authorship
 
@@ -197,7 +197,7 @@ derived topology/collision compatibility and real traversal acceptance.
   pass kept all **50/50 files byte-identical**, including their saved identities.
 
 Evidence is under
-[review/](../../art/source/models/brackett_greybox/review/): `file_checks.json`,
+the historical review directory (available at commit `80d0f24`): `file_checks.json`,
 `scene_checks.json`, `reexport_check.json`, `editor_roundtrip.json`,
 `editor_stability.json`, `capture.json`,
 the raw final logs and PNGs. These receipts cover this asset only.
@@ -304,7 +304,7 @@ images: `review/scene_checks.json`, `review/capture.json` and the review PNGs. O
 `review/independent/`, re-export and editor receipts describe the original checkpoint,
 not this revision. Renewed independent review is recorded below when complete.
 
-![Taller Glassward at the unchanged 47 m / 42° game camera](../../art/source/models/brackett_greybox/review/district_04.png)
+The historical taller-Glassward capture remains available at commit `80d0f24`.
 
 The overview now shows a substantially taller downtown skyline. At the fixed 47 m
 camera, office roofs are only 5 m below the lens and the placed tower roofs are 21 m
@@ -344,7 +344,7 @@ inspected, with six current scene hashes matching the stability receipt.
 
 Complete report, check sources, raw Blender log, command/exit receipt, three fresh
 outputs and verified evidence-file hashes are under
-[height_revision/independent/](../../art/source/models/brackett_greybox/review/height_revision/independent/).
+the historical `height_revision/independent/` directory at commit `80d0f24`.
 All 11 declared evidence files were copied verbatim and read back successfully.
 This metadata-only review recording does not modify the reviewed asset bytes.
 

@@ -1,7 +1,6 @@
 [gd_scene format=3 uid="uid://w1fnte0qa0jr"]
 
 [ext_resource type="Script" uid="uid://daem7fwikjhf6" path="res://tests/fixtures/pedestrian_civilian/pedestrian_worker_preview.gd" id="1_4yqja"]
-[ext_resource type="PackedScene" uid="uid://bq3pm3kfcd8n7" path="res://art/models/pedestrian_civilian/pedestrian_worker_stage.glb" id="2_8e7ne"]
 [ext_resource type="PackedScene" uid="uid://du50jtbo6hvjb" path="res://scenes/prefabs/pedestrian_civilian/pedestrian_worker_a.tscn" id="3_cvjhl"]
 
 [sub_resource type="Environment" id="Environment_7dkes"]
@@ -14,8 +13,6 @@ tonemap_mode = 2
 
 [node name="PedestrianWorkerPreview" type="Node3D" unique_id=2123771845]
 script = ExtResource("1_4yqja")
-
-[node name="BlenderStage" parent="." unique_id=1392076866 instance=ExtResource("2_8e7ne")]
 
 [node name="Workers" type="Node3D" parent="." unique_id=557682496]
 
