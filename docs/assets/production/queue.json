@@ -1124,14 +1124,14 @@
       "input_next_action": "Define asset shape / variants",
       "brief": "[Brief](../../assets/d06_poster_drum.md)",
       "priority": 0,
-      "status": "queued",
-      "agent_id": null,
-      "source_revision": null,
-      "review_status": "pending",
-      "integration_status": "pending",
+      "status": "production_prefab_accepted",
+      "agent_id": "a93a65d5-845e-44a0-9573-98aebf91cbb4",
+      "source_revision": "07b8901",
+      "review_status": "accepted source/export/prefab scope (independent Sol review)",
+      "integration_status": "accepted",
       "placement_status": "pending",
       "blocker": null,
-      "attempts": 0,
+      "attempts": 1,
       "initial_time_cap_minutes": 90,
       "owned_paths": [
         "art/source/models/environment/d06_poster_drum_01/",
@@ -1139,8 +1139,20 @@
         "art/textures/environment/d06_poster_drum_01/",
         "art/materials/environment/d06_poster_drum_01/",
         "docs/assets/production/d06_poster_drum_01.md",
-        "docs/assets/production/d06_poster_drum_01-evidence/"
-      ]
+        "docs/assets/production/d06_poster_drum_01-evidence/",
+        "tools/asset_production/d06_poster_drum_01/",
+        "scenes/prefabs/environment/d06_poster_drum_01.tscn"
+      ],
+      "launch": {
+        "provider": "portkey/gpt-6-astra",
+        "configured_effort": "medium",
+        "mode": "orchestrator asset lane",
+        "lane": "a-d06drum"
+      },
+      "producer_manifest": "docs/assets/production/d06_poster_drum_01-evidence/manifest.json",
+      "report": "docs/assets/production/d06_poster_drum_01.md",
+      "reviewer_id": "dbec4985-efa3-43d9-98f2-e041bca4387f",
+      "integrated_revision": "0e7ef04"
     },
     {
       "id": "d06_poster_drum.02",
@@ -1153,14 +1165,14 @@
       "input_next_action": "Define asset shape / variants",
       "brief": "[Brief](../../assets/d06_poster_drum.md)",
       "priority": 0,
-      "status": "queued",
-      "agent_id": null,
-      "source_revision": null,
-      "review_status": "pending",
-      "integration_status": "pending",
+      "status": "production_prefab_accepted",
+      "agent_id": "7f83b350-18e0-477b-ad41-0e6cbd3b29f4",
+      "source_revision": "0e7ef04",
+      "review_status": "accepted source/export/prefab scope (independent Sol review)",
+      "integration_status": "accepted",
       "placement_status": "pending",
       "blocker": null,
-      "attempts": 0,
+      "attempts": 1,
       "initial_time_cap_minutes": 90,
       "owned_paths": [
         "art/source/models/environment/d06_poster_drum_02/",
@@ -1168,8 +1180,20 @@
         "art/textures/environment/d06_poster_drum_02/",
         "art/materials/environment/d06_poster_drum_02/",
         "docs/assets/production/d06_poster_drum_02.md",
-        "docs/assets/production/d06_poster_drum_02-evidence/"
-      ]
+        "docs/assets/production/d06_poster_drum_02-evidence/",
+        "tools/asset_production/d06_poster_drum_02/",
+        "scenes/prefabs/environment/d06_poster_drum_02.tscn"
+      ],
+      "launch": {
+        "provider": "portkey/gpt-6-astra",
+        "configured_effort": "medium",
+        "mode": "orchestrator asset lane",
+        "lane": "a-d06drum"
+      },
+      "producer_manifest": "docs/assets/production/d06_poster_drum_02-evidence/manifest.json",
+      "report": "docs/assets/production/d06_poster_drum_02.md",
+      "reviewer_id": "dbec4985-efa3-43d9-98f2-e041bca4387f",
+      "integrated_revision": "0e7ef04"
     },
     {
       "id": "d06_commercial_graphics.01",
