@@ -6,8 +6,23 @@ qualification and enough outcome detail for dispatch.
 
 ## Foundations
 
+[Owner instruction 12](../reviews/owner-decisions-2026-10-08.md) authorizes S09–S16
+and the audit-derived tasks in
+[section 4 of the readiness audit](../reviews/p0-readiness-audit-2026-10-08.md).
+Their quantitative criteria are orchestrator proposals derived from the current product
+budgets, not ratified values; the owner reviews them at P0-GATE.
+
+- **P0-TOOLING:** Repair the validation baseline before production: make the canonical
+  script check green, provide one command that discovers every Python test, use a
+  cross-platform Mise interpreter, ignore GodotSteam temporary import libraries and
+  strip the MCP autoload from compile mirrors. Proposed acceptance is clean execution
+  of the complete documented script and Python checks on current main.
 - **P0-PROFILES:** Keep this as a Paseo profiles task for later review. It is
   non-blocking and outside P0-GATE; do not configure or install profiles now.
+- **S01-W:** Run the S01 reexport pipeline with the installed Windows Blender 5.2,
+  recording its exact version and comparing outputs with the Linux-authored GLBs.
+  Proposed acceptance is byte identity, or a documented platform pin/semantic check
+  when byte identity is impossible, before Windows-authored S13/M1-C1 assets proceed.
 - **S02:** Implement the ratified 47 m, north-up 42° camera and replace tank turning
   with normalized screen/world-relative WASD movement at 5 m/s, instant start/stop,
   mouse-ground facing each physics tick and left-click fire. Remove building cutaway;
@@ -17,14 +32,30 @@ qualification and enough outcome detail for dispatch.
   a later Steam adapter covering friend joins, lobby identity mapping, reliable and
   unreliable lanes, and connection lifecycle. Steam-specific implementation and tests
   are deferred.
-- **S03-R:** Implement required local-character prediction with shared movement rules,
+- **S03-R:** Close drawn owned/remote response and desktop feel. Historical response
+  p95s measured under the S08 ENet defect remain history, not acceptance. The post-fix
+  Windows adverse drawn run reached 379 ms but failed its expiry criterion because one
+  receipt read 253 ms against the 250 ms boundary; apply or reject the pending
+  measurement-boundary analyzer fix and rerun before acceptance.
+- **S03-L:** Diagnose the unexplained post-fix Windows authority latency end to end,
+  comparing proxy/direct loopback, timer resolution, headless/windowed pacing and engine
+  settings. Proposed acceptance is a per-stage latency budget, an artifact fix or explicit
+  platform finding, and a disposition of the S03-R adverse expiry-boundary analyzer.
+- **S03-P:** Implement required local-character prediction with shared movement rules,
   replay limited to permitted local simulation, no replay side effects and authoritative
-  corrections winning. Then close drawn owned/remote response and desktop feel. Historical
-  response p95s measured under the S08 ENet defect remain history, not acceptance.
-- **S04:** Add a standalone drive scene for handling review. Cars cannot fire; exit
-  succeeds only below 0.5 m/s and otherwise returns `EXIT_MOVING`; a disconnected
-  driver's car coasts without braking. Local-driver prediction is required under the
-  same replay/correction rules as S03-R. Rerun affected cases after S02 choices.
+  corrections winning. Proposed acceptance covers collision replay, matching-tick
+  reconciliation and correction behavior under normal/adverse ENet profiles.
+- **S04:** Use the standalone drive scene for owner handling review. Cars cannot fire;
+  exit succeeds only below 0.5 m/s and otherwise returns `EXIT_MOVING`; a disconnected
+  driver's car coasts without braking. Rerun affected handling/rule cases after S02.
+- **S04-P:** Implement required local-driver prediction using shared drive rules,
+  side-effect-free replay and authoritative corrections. Proposed acceptance covers
+  replay against moving cars and matching-tick correction under normal/adverse profiles.
+- **S04-T:** After S03-P/S04-P, prove foot-to-car transitions across predicted bodies
+  with host-granted and racing claims, `EXIT_MOVING`, blocked exits, traffic-car theft
+  and disconnect coasting.
+  Proposed acceptance includes replay-history/camera/HUD ownership transfer plus measured
+  discontinuity and corrections for accepted/rejected transitions under both profiles.
 - **S05:** Remove the on-screen explosion cap: every explosion receives its effect.
   Start from 100 car HP, 100 blast damage, 4.1 m radius, no falloff or obstruction,
   0.1 s chain delay, 5 s wreck duration and friendly fire/self-damage always on.
@@ -47,46 +78,64 @@ qualification and enough outcome detail for dispatch.
   issue yet. Windows is the current development platform. Linux original-main and
   Linux-only release-diagnostic confirmation remain follow-up for a Linux machine and
   do not block proceeding. M1 targets Windows/Linux desktop; Deck is later.
+- **S08-X:** Prove real-project export configuration rather than another stripped scratch
+  export. Add a minimal boot/main scene and Windows/Linux presets, decide GodotSteam's
+  M1 exclusion, verify MCP export inactivity and bind template versions/hashes. Proposed
+  acceptance includes Windows launch with Steam absent and a later Linux Vulkan launch
+  checklist at 1280×800 on the available Linux machine.
+- **S08-C:** Diagnose the 384-block `0xC0000005` with one quiet rerun, crash/backtrace
+  capture, a bounded block-count bisection and cutaway on/off comparison. Proposed
+  acceptance records the first-fail boundary/cause limits and replaces unsafe uncapped
+  GPU-headroom runs with a documented capped RenderingServer timing method.
 - **S09:** Decide host-owned traffic path following, car following, intersection,
   blockage recovery and out-of-view replenishment while using the shared S04 drive
-  rules. Accept with saved loop/intersection/wreck scenarios at 24 and 32 moving cars,
-  three seeded 10-minute runs, tick-cost/collision/deadlock/recovery/lane-error results
-  and a proposed share of the host physics budget.
+  rules. Proposed acceptance uses saved loop/intersection/wreck scenarios at 24 and
+  32 moving cars, three seeded 10-minute runs, cost/collision/deadlock/recovery/lane-error
+  results and a proposed share of the host physics budget.
 - **S10:** Decide host-owned pedestrian wandering, crossing, avoidance, flee, car-hit
-  and bounded replenishment rules on S06 topology. Accept after comparing at least two
-  motion options with 64 pedestrians, flee and traffic interactions, three seeded
+  and bounded replenishment rules on S06 topology. Proposed acceptance compares at least
+  two motion options with 64 pedestrians, flee and traffic interactions, three seeded
   10-minute runs, behavior/cost metrics and a proposed host-tick budget share.
 - **S11:** Decide population snapshot/lifecycle replication, interpolation, interest
-  and spawn policy for the full global caps. Accept with separate ENet processes under
-  normal/adverse profiles, reliable lifecycle isolation, measured worst-window host/client
+  and spawn policy for the full global caps. Proposed acceptance uses separate ENet
+  processes under normal/adverse profiles, reliable lifecycle isolation and measured
+  worst-window host/client
   bandwidth and join bytes against the existing budgets, smoothness/codec CPU results,
   and bounded out-of-view safe replenishment/reset rules.
 - **S12:** Decide authoritative hit registration for predicted shooters and interpolated
-  targets by comparing host-time validation with bounded host rewind. Accept with separate
-  normal/adverse ENet processes, hitscan agreement/false-positive results, rewind CPU and
+  targets by comparing host-time validation with bounded host rewind. Proposed acceptance
+  uses separate normal/adverse ENet processes, hitscan agreement/false-positive results,
+  rewind CPU and
   history memory, rocket presentation offset, and recommended M1 combat bounds/defaults.
 - **S13:** Decide the shared player/pedestrian rig, animation update and palette-variant
-  strategy. Accept with a source-linked Blender/GLB technical blockout and saved crowd
-  of 68 live plus 16 dead characters, capped windowed and headless measurements, and
+  strategy. Proposed acceptance uses a source-linked Blender/GLB technical blockout and
+  saved crowd of 68 live plus 16 dead characters, capped windowed/headless measurements,
+  and
   with/without off-screen throttling frame/CPU/GPU/draw/skinning results.
 - **S14:** Decide listener placement, buses, voice priority/caps, 3D attenuation,
-  variation and settings persistence for the required audio families. Accept with
-  generated licence-tracked placeholders, a saved 32-engine/24-explosion/SMG stress
+  variation and settings persistence for the required audio families. Proposed acceptance
+  uses generated licence-tracked placeholders and a saved 32-engine/24-explosion/SMG stress
   scene, bounded voice/mix results, settings roundtrip and an owner listening checklist.
 - **S15:** Decide cost-effective saved muzzle, impact, tracer, rocket-trail and explosion
-  effects while preserving an effect for every explosion. Accept with capped Forward+
-  stress at 12/24 explosions, four SMG shooters and 16 rockets, retained frame/CPU/GPU/
+  effects while preserving an effect for every explosion. Proposed acceptance uses capped
+  Forward+ stress at 12/24 explosions, four SMG shooters and 16 rockets, retained frame/CPU/GPU/
   particle/draw evidence, per-effect budgets and a non-dropping quality fallback.
 - **S16:** Propose production architecture, fixture promotion, test/CI strategy and an
-  ordered M1 backlog. Accept for owner review when the plan maps single rule owners and
+  ordered M1 backlog. Proposed acceptance for owner review maps single rule owners and
   standalone/authority/prediction/replication boundaries, disposes S02-S15 fixtures,
   selects a Godot test approach, identifies dependencies/sizes/parallel lanes and first
   five tasks, and records risks and owner questions.
+- **S17:** After S09–S12, compose one full-cap headless host from their fixtures: 64
+  pedestrians, 24 moving plus 8 parked cars, four firing players, a 12-car chain and
+  S11 encoding for three clients. Proposed acceptance measures subsystem and total tick
+  median/p95/p99 in quiet and contended runs, compares proposed p95 ≤4 ms/p99 ≤8 ms,
+  and reconciles oversubscribed subsystem shares before production architecture freezes.
 - **P0-GATE:** Review foundation evidence against the 8 October owner decisions after
-  S09, S10, S11, S12, S13, S14, S15 and S16. Do not reopen the ratified camera/control,
-  vehicle, explosion, layout, ENet or target choices without a new owner decision.
-  S07 graphical budgets are guidance, Linux S08 confirmation is follow-up, and
-  P0-PROFILES is not a prerequisite. Record other unresolved items.
+  unfinished blocking S02–S08 work; S03-P, S04-P, S04-T, S09–S17, P0-TOOLING, S01-W,
+  S03-L, S08-X and S08-C. Do not reopen ratified camera/control, vehicle, explosion,
+  layout, ENet or target choices without a new owner decision. Quantitative criteria for
+  the newly authorized tasks are orchestrator proposals pending this owner review.
+  S07 environment guidance, Linux-only S08 confirmation and P0-PROFILES are non-blocking.
 
 ## Checkpoint follow-up
 

@@ -1,8 +1,9 @@
 # Owner decisions — 8 October 2026
 
-Regner made the following decisions in a walkthrough with the orchestrator. This
-record transcribes those decisions and the explicitly labelled orchestrator defaults
-to which Regner did not object. It does not add new product choices.
+Regner made decisions 1–11 in a walkthrough with the orchestrator and gave instruction
+12 in chat later that evening. This record transcribes those decisions, the explicitly
+labelled orchestrator defaults to which Regner did not object, and the scope authorized
+by that later instruction. It does not ratify the orchestrator's proposed measurements.
 
 1. **Integration:** fast-forward main after clean review (done at `29ee423`). Do not
    push. No further task is created by this completed integration decision.
@@ -57,6 +58,17 @@ to which Regner did not object. It does not add new product choices.
     are M1 targets, with Steam Deck later.
 11. **Profiles (P0-PROFILES):** keep this as a Paseo profiles task and review it later;
     it must not block progress. P0-GATE therefore treats it as non-blocking.
+12. **Foundation completeness instruction (8 October, evening):** Regner instructed,
+    “Review all of the work ... and whats left leading up to P0-Gate. Is there anything
+    else ... researched, planned, tested ... before we move onto production? Have we
+    researched and tested AI for pedestrians and vehicles? ... If anything is lacking
+    create a foundation task for it and get it done. Run as much in parallel as you can.”
+    This authorizes orchestrator-created S09–S16 and the audit-derived P0-TOOLING,
+    S03-L, S08-X, S08-C, S01-W, S03-P, S04-P, S04-T and S17 tasks listed in
+    [section 4 of the P0 readiness audit](p0-readiness-audit-2026-10-08.md).
+    Their quantitative criteria are orchestrator proposals derived from the product
+    budgets and remain pending owner review at P0-GATE. P0-GATE depends on unfinished
+    blocking S02–S08 work, S03-P, S04-P, S09–S17 and the audit-derived gap tasks.
 
 These decisions supersede contradictory earlier planning text. Historical evidence
 and stopped experiments remain historical rather than being rewritten as if they used

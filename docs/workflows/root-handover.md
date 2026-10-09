@@ -14,18 +14,20 @@ No particular agent platform or delegation tool is required to read it.
 
 ## Current repository state — 8 October 2026
 
-- Main and `s08-enet-bandwidth` are at lane base `4fa669a` (`fix: detect
-  restored-window focus steals`). Verify actual HEAD rather than assuming it stayed there.
+- Main and `s08-enet-bandwidth` are at `846b1b9` (`docs: record P0 readiness
+  audit`). Verify actual HEAD rather than assuming it stayed there.
 - Development is on Windows 11. Use the Mise-pinned Godot
   `4.8.dev7.official.c971f93e7`; the owner decided to stay on this pin for now.
 - Orchestration uses pi subagents in parent-created Git worktrees under
   `C:\GameDev\git\ft-lanes`. Managed subagent worktrees fail on this machine.
-- The [owner decisions](../reviews/owner-decisions-2026-10-08.md) govern current
-  controls, prediction, vehicles, explosion presentation, UI, environment scaling,
-  initial ENet scope, desktop targets, engine pin and non-blocking profile work.
-- Active or queued lanes, in order: S02 fix round; S07 environment scale; UI mockups
-  with GPT-6-Astra; S04 drive scene; S05 explosion uncap; S03-S abstraction review;
-  S02 controls change; then foot and car prediction.
+- The [owner decisions](../reviews/owner-decisions-2026-10-08.md) govern controls,
+  prediction, vehicles, explosion presentation, UI, environment scaling, initial ENet
+  scope, desktop targets, engine pin, profiles and the completeness tasks authorized by
+  instruction 12. The [P0 audit](../reviews/p0-readiness-audit-2026-10-08.md) defines
+  the audit-derived task proposals.
+- Active worktrees: P0-TOOLING, S01-W, S02 controls, S03-L, S03-S abstraction,
+  S04-P, S08-X, S08-C and S09–S16. S03-P, S04-T and S17 are queued. S04 drive,
+  S05 uncapped effects, S07 environment scale, UI mockups and the audit are integrated.
 - Do not push. Parent orchestration owns lane review, integration and cleanup.
 
 On adoption, inspect Git status, HEAD, worktrees and operation markers. Preserve any

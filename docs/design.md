@@ -7,7 +7,8 @@ first playable milestone (M1), not implemented behavior. The required experience
 transport paths come from [the plan](../TODO.md). M1 now targets Windows and Linux
 desktop with ENet; Steam gameplay and Steam Deck delivery are later work. The 60 FPS
 Deck envelope and Steam identifiers remain future-target constraints, not M1 gates.
-Budgets are guidance for later implementation, not requirements or measured results.
+Only S07's graphical environment-scale budget use is guidance; other validation values
+remain proposed starting targets pending measurement and owner/gate decisions.
 
 Task owner: Codex prepares the brief and evidence; Regner owns product approval,
 remaining hardware details and existing Steam-app access. Effort cap for this pass:

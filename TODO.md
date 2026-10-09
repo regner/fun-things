@@ -10,10 +10,13 @@
   See [spike](docs/spikes/s02.md).
 - [ ] **S03-S — Review ENet session APIs for a later Steam adapter.** Steam implementation
   and testing are deferred. See [spike](docs/spikes/s03-s.md).
-- [ ] **S03-R — Implement and validate required local on-foot prediction.** See
+- [ ] **S03-R — Close on-foot response, adverse expiry and feel evidence.** See
   [spike](docs/spikes/s03-r.md).
-- [ ] **S04 — Add the drive scene and required local-car prediction; validate car rules.**
-  See [spike](docs/spikes/s04.md).
+- [ ] **S03-P — Implement and validate required local on-foot prediction.**
+- [ ] **S04 — Validate car handling and rules through the drive scene.** See
+  [spike](docs/spikes/s04.md).
+- [ ] **S04-P — Implement and validate required local-car prediction.**
+- [ ] **S04-T — Prove predicted foot-to-car control transitions and seat races.**
 - [ ] **S05 — Remove the explosion-effect cap and remeasure chains.** See
   [spike](docs/spikes/s05.md).
 - [ ] **S06 — Iterate whole-UI mockups and settle minimap size/look.** Layout scale and
@@ -22,6 +25,11 @@
   guidance, not a gate; network/AI/population are out of scope. See [spike](docs/spikes/s07.md).
 - [ ] **S08 — Follow up 4.8-dev7 Linux confirmation when a Linux machine is available.**
   This does not block proceeding; keep the ENet workaround and offline upstream review.
+- [ ] **P0-TOOLING — Repair the validation baseline and complete test discovery.**
+- [ ] **S01-W — Verify the S01 art reexport pipeline with Windows Blender.**
+- [ ] **S03-L — Diagnose Windows ENet authority latency and adverse expiry timing.**
+- [ ] **S08-X — Prove real-project Windows/Linux export configuration and launch.**
+- [ ] **S08-C — Triage the 384-block crash and define safe GPU measurement.**
 - [ ] **S09 — Prototype and measure host-owned traffic AI.**
 - [ ] **S10 — Prototype and measure host-owned pedestrian AI.**
 - [ ] **S11 — Prove population replication, bandwidth and spawning bounds.**
@@ -30,9 +38,11 @@
 - [ ] **S14 — Prove bounded, readable audio and settings persistence.**
 - [ ] **S15 — Measure weapon/explosion VFX cost without dropping explosion effects.**
 - [ ] **S16 — Propose the M1 production architecture, test strategy and backlog.**
+- [ ] **S17 — Measure the integrated full-cap host physics-tick composition.**
 - [ ] **P0-GATE — Review remaining foundation evidence against the ratified decisions.**
-  After: S09, S10, S11, S12, S13, S14, S15, S16. S07 budgets, Linux S08 confirmation
-  and P0-PROFILES are non-blocking guidance/follow-up.
+  After: unfinished blocking S02–S08 work; S03-P, S04-P, S04-T, S09–S17,
+  P0-TOOLING, S01-W, S03-L, S08-X and S08-C. S07 environment guidance, Linux-only
+  S08 confirmation and P0-PROFILES remain non-blocking.
 
 ## First milestone
 
