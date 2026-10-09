@@ -1,0 +1,44 @@
+Passage wayfinding face — final bounded producer checks
+Blender 5.2.2 LTS d13f752e3b9c / exporter 5.2.40; Godot 4.8.dev7.official.c971f93e7.
+Python 3.14.2 / Pillow 12.3.0 / gdstyle 0.3.0.
+
+COMMANDS/OUTCOMES (exact reproduction flags in asset handoff):
+author.py: exit 0; 1220x820 RGB PNG.
+unittest owned test_artwork.py: exit 0; 4 tests pass.
+Blender validate.py (initial/final, timeout 180): exit 0; source + independent GLB audits PASS.
+Shared 75768-byte GLB byte-identical; 1380 source vertices / 1792 GLB vertices / 2720 triangles.
+12 meshes / 13 surfaces; zero degenerate faces/triangles and non-manifold edges; unit normals.
+Blender preview.py (timeout 900): exit 0; all four 1280x800 renders inspected.
+Godot imports 1/2/3 (timeout 300): exit 0; addon-version warning retained below.
+Godot normalization 1/2 (timeout 180): exit 0; checks PASS, shutdown diagnostics retained below.
+Two in-process scene resaves + separate invocation preserve exact scene/material bytes.
+Godot non-editor prefab checks (initial/final, timeout 180): exit 0, no ERROR/WARNING/SCRIPT ERROR.
+gdstyle check + fmt --check: exit 0; no issues, 1 file already formatted.
+production_checks.py (timeout 1800): exit 0, all required layers pass.
+9 Python tests; 23 GUT tests / 196 assertions; negative diagnostic expected exit 1 verified.
+Earlier graphics .01/.02/.03 manifests pass: 18/26/22 payload hashes unchanged.
+
+INITIAL OWNED CORRECTIONS:
+103-character GDScript constant wrapped; lint rerun passes.
+Default texture import configured with mipmaps before normalization; real imported mipmaps pass.
+
+RETAINED DIAGNOSTICS (not a claim of clean editor shutdown):
+[render.log]
+C:\GameDev\git\ft-lanes\a-d06gfx\tools\asset_production\d06_commercial_graphics_04\preview.py:21: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+C:\GameDev\git\ft-lanes\a-d06gfx\tools\asset_production\d06_commercial_graphics_04\preview.py:33: DeprecationWarning: 'World.use_nodes' is expected to be removed in Blender 6.0
+[normalize.log]
+WARNING: [MCP] Godot 4.8 detected - latest tested version is 4.7.0. The plugin will run normally but some features may behave unexpectedly. Please report issues at https://github.com/NPGameDev/godot-mcp-toolkit/issues
+WARNING: Scan thread aborted...
+ERROR: 5 RID allocations of type 'N16RendererViewport8ViewportE' were leaked at exit.
+ERROR: 8 RID allocations of type 'PN13RendererDummy14TextureStorage12DummyTextureE' were leaked at exit.
+ERROR: 1 RID allocations of type 'N17RendererSceneCull8ScenarioE' were leaked at exit.
+ERROR: 52 RID allocations of type 'PN18TextServerAdvanced22ShapedTextDataAdvancedE' were leaked at exit.
+ERROR: 1 RID allocations of type 'PN18TextServerAdvanced12FontAdvancedE' were leaked at exit.
+WARNING: 5 RIDs of type "Canvas" were leaked.
+WARNING: 31 RIDs of type "CanvasItem" were leaked.
+WARNING: 168 ObjectDB instances were leaked at exit (run with `--verbose` for details).
+
+OPEN: Independent review; final copy; world placement + separate architectural route cue;
+actual populated renderer/camera/occlusion; future shared-hardware identities; packaged/Deck costs.
+Overhead panel ~31x6px: arrow/door/copy not reliably identifiable; no gameplay navigation claim.
+Raw logs and scratch reexport remain outside Git at C:/tmp/ft/assets/d06_commercial_graphics_04/.
