@@ -5,6 +5,7 @@ Visible geometry is authored here, never constructed by Godot runtime code.
 """
 import json
 import math
+import sys
 from pathlib import Path
 
 import bpy
@@ -90,6 +91,77 @@ def box(target, name, size, position, mat, bevel=0):
     return finish(obj,target,name,mat,smooth=bool(bevel))
 
 
+def tracer():
+    """Author a unit-length, two-tone hitscan streak along Blender +Y / Godot -Z."""
+    target = collection('tracer')
+    amber = material('weapon_effects_a_tracer_amber', (1, 0.24, 0.012, 1), 1.5)
+    ivory = material('weapon_effects_a_tracer_ivory', (1, 0.89, 0.52, 1), 2.5)
+    parts = []
+    # Closed octagonal rings keep the span visible from top-down and grazing views.
+    for name, radius, start, end, mat in [
+        ('TracerShell', 0.06, 0.0, 1.0, amber),
+        ('TracerCore', 0.034, 0.015, 0.985, ivory),
+    ]:
+        vertices = [(0, start, 0), (0, end, 0)]
+        for along, width in [(0.12, 1.0), (0.82, 0.65)]:
+            for index in range(8):
+                angle = index * math.tau / 8
+                vertices.append((math.cos(angle) * radius * width,
+                                 start + along * (end - start),
+                                 math.sin(angle) * radius * width))
+        faces = []
+        for index in range(8):
+            next_index = (index + 1) % 8
+            faces.extend([(0, 2 + next_index, 2 + index),
+                          (2 + index, 2 + next_index, 10 + next_index, 10 + index),
+                          (1, 10 + index, 10 + next_index)])
+        mesh = bpy.data.meshes.new(name)
+        mesh.from_pydata(vertices, [], [tuple(reversed(face)) for face in faces])
+        mesh.update()
+        obj = bpy.data.objects.new(name, mesh)
+        bpy.context.scene.collection.objects.link(obj)
+        # Offset the core toward the camera-facing top, keeping a warm rim underneath.
+        if name == 'TracerCore':
+            for vertex in mesh.vertices:
+                vertex.co.z += 0.045
+        parts.append(finish(obj, target, name, mat, smooth=False))
+    bpy.ops.object.select_all(action='DESELECT')
+    for obj in parts:
+        obj.select_set(True)
+    bpy.context.view_layer.objects.active = parts[0]
+    bpy.ops.object.join()
+    parts[0].name = 'Tracer'
+    parts[0].select_set(False)
+    return target
+
+
+def export_record(name, target, preset):
+    """Export one collection and measure its converted bounds from source geometry."""
+    filepath = OUTPUT / f'weapon_effects_a_{name}.glb'
+    settings = dict(preset, collection=target.name, export_animations=False, filepath=str(filepath))
+    bpy.ops.export_scene.gltf(**settings)
+    points = [obj.matrix_world @ Vector(v) for obj in target.objects for v in obj.bound_box]
+    points = [(v.x, v.z, -v.y) for v in points]
+    return {'id': f'weapon_effects_a_{name}', 'collection': target.name,
+            'members': [o.name for o in target.objects],
+            'minimum': [min(v[axis] for v in points) for axis in range(3)],
+            'maximum': [max(v[axis] for v in points) for axis in range(3)],
+            'triangles': sum(len(o.data.polygons) for o in target.objects)}
+
+
+def add_tracer():
+    """Extend the accepted saved family without rebuilding or exporting its six older meshes."""
+    assert bpy.app.version_string == '5.2.2 LTS', bpy.app.version_string
+    bpy.ops.wm.open_mainfile(filepath=str(SOURCE))
+    assert 'export_weapon_effects_a_tracer' not in bpy.data.collections
+    target = tracer()
+    bpy.ops.wm.save_as_mainfile(filepath=str(SOURCE))
+    preset = json.loads((ROOT / 'tools/assets/blender/export_settings.json').read_text())
+    records = json.loads((SOURCE.parent / 'geometry.json').read_text())
+    records.append(export_record('tracer', target, preset))
+    (SOURCE.parent / 'geometry.json').write_text(json.dumps(records, indent=2) + '\n')
+
+
 def main():
     """Save editable Blender sources and explicit collection exports with measured bounds."""
     assert bpy.app.version_string == '5.2.2 LTS', bpy.app.version_string
@@ -122,6 +194,7 @@ def main():
     puff(outputs['spark'],'Shape',(0.025,0.025,0.16),neutral)
     box(outputs['chip'],'Shape',(0.11,0.14,0.08),(0,0,0),neutral,0.016)
     puff(outputs['trail_puff'],'Shape',(0.20,0.20,0.16),neutral,0.05)
+    outputs['tracer'] = tracer()
     bpy.ops.object.select_all(action='DESELECT')
     OUTPUT.mkdir(parents=True,exist_ok=True)
     bpy.ops.wm.save_as_mainfile(filepath=str(SOURCE))
@@ -145,4 +218,7 @@ def main():
 
 
 if __name__=='__main__':
-    main()
+    if '--add-tracer' in sys.argv:
+        add_tracer()
+    else:
+        main()

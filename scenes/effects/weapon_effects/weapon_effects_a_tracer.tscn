@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://ba6i33muc61k3"]
+
+[ext_resource type="Script" uid="uid://bkrcgr88sp2xu" path="res://scenes/effects/weapon_effects/tracer.gd" id="1_tracer"]
+[ext_resource type="PackedScene" uid="uid://estchky2uct3" path="res://art/models/effects/weapon_effects/weapon_effects_a_tracer.glb" id="2_model"]
+
+[node name="HitscanTracer" type="Node3D" unique_id=703185141]
+visible = false
+script = ExtResource("1_tracer")
+settle_seconds = 0.075
+metadata/asset_family = "weapon_effects_a"
+metadata/presentation_only = true
+
+[node name="Model" parent="." unique_id=859563609 instance=ExtResource("2_model")]

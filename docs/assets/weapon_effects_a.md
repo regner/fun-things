@@ -9,6 +9,17 @@ Producer: persistent weapon-effects lead. Concept/art selection: Regner. Technic
 asset review: clean-context GPT-6.1-Sol high, accepted below. Equipped/world/gameplay/network
 integration: external integrator. No foundation task or gameplay acceptance is closed.
 
+## Current tracer addition (M1-C1.2a)
+
+The family now also supplies `weapon_effects_a_tracer.tscn`: a presentation-only
+0.075 s hitscan span with Blender-sourced geometry and the inherited family API.
+The [tracer handoff](weapon_effects_a_tracer.md) owns endpoint configuration, culling
+bounds, every-event allocation measurements and four native renders. Its owner
+art-review checkpoint remains pending. The shared `.blend` and reproducible author/
+reexport scripts now include the seventh mesh collection; the six older GLBs and
+four original scenes are unchanged. The delivery history below describes those
+original effects, not the tracer's current acceptance.
+
 ## Delivery and ancestry
 
 The family supplies four collision-free, presentation-only saved scenes under

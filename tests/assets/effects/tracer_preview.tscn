@@ -1,0 +1,66 @@
+[gd_scene format=3 uid="uid://wo0xslmcj8vw"]
+
+[ext_resource type="Script" uid="uid://ct1bn8ssh0cvi" path="res://tests/assets/effects/tracer_preview.gd" id="1_preview"]
+[ext_resource type="PackedScene" uid="uid://ba6i33muc61k3" path="res://scenes/effects/weapon_effects/weapon_effects_a_tracer.tscn" id="2_tracer"]
+[ext_resource type="PackedScene" uid="uid://wrydf8221mfm" path="res://scenes/prefabs/player_character/coral_courier.tscn" id="3_player"]
+[ext_resource type="PackedScene" uid="uid://kb8srk8ghgmy" path="res://scenes/prefabs/city_cars/car_sable_a.tscn" id="4_car"]
+
+[sub_resource type="Environment" id="Environment_preview"]
+background_mode = 1
+background_color = Color(0.055, 0.07, 0.08, 1)
+ambient_light_source = 2
+ambient_light_color = Color(0.7, 0.75, 0.8, 1)
+ambient_light_energy = 0.7
+tonemap_mode = 2
+glow_enabled = true
+
+[node name="TracerPreview" type="Node3D" unique_id=925866223]
+script = ExtResource("1_preview")
+
+[node name="GameCamera" type="Camera3D" parent="." unique_id=576494550]
+transform = Transform3D(1, 0, 0, 0, 0, 1, 0, -1, 0, 0, 47, 0)
+current = true
+fov = 42.0
+near = 0.1
+far = 160.0
+
+[node name="DetailCamera" type="Camera3D" parent="." unique_id=1005791564]
+transform = Transform3D(1, 0, 0, 0, 0, 1, 0, -1, 0, 0, 18, 0)
+fov = 42.0
+near = 0.1
+far = 160.0
+
+[node name="ObliqueCamera" type="Camera3D" parent="." unique_id=1433793058]
+transform = Transform3D(1, 0, 0, 0, 0.83205, 0.5547, 0, -0.5547, 0.83205, 0, 11, 15)
+fov = 42.0
+near = 0.1
+far = 160.0
+
+[node name="Environment" type="WorldEnvironment" parent="." unique_id=989289567]
+environment = SubResource("Environment_preview")
+
+[node name="Sun" type="DirectionalLight3D" parent="." unique_id=1619606537]
+transform = Transform3D(0.90630776, 0.34618863, -0.24240388, 0, 0.57357645, 0.81915206, 0.42261827, -0.74240386, 0.5198368, 0, 0, 0)
+
+[node name="CourierScaleReference" parent="." unique_id=6962726 instance=ExtResource("3_player")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 6)
+
+[node name="SableScaleReference" parent="." unique_id=1968925559 instance=ExtResource("4_car")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, 1)
+
+[node name="Tracer" parent="." unique_id=653490380 instance=ExtResource("2_tracer")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 10, 0, 1.2, 5)
+
+[node name="EdgeTracer" parent="." unique_id=572542712 instance=ExtResource("2_tracer")]
+transform = Transform3D(0, 0, -45, 0, 1, 0, 1, 0, 0, -35, 1.2, -3)
+
+[node name="Overlay" type="CanvasLayer" parent="." unique_id=1914878491]
+
+[node name="Header" type="Label" parent="Overlay" unique_id=2146247534]
+offset_left = 24.0
+offset_top = 20.0
+offset_right = 1240.0
+offset_bottom = 90.0
+text = "COMPACT COMBUSTION / HITSCAN TRACER — owner art review pending
+47 m / 42° / north up · cosmetic span only · Courier + Sable scale references
+SPACE: fire   1/2/3: camera   E: offscreen-origin span   ESC: quit (60 s auto exit)"

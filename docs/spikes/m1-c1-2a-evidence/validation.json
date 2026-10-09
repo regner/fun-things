@@ -1,0 +1,48 @@
+{
+	"allocation": {
+		"accepted": 40,
+		"allocation_max_usec": 87,
+		"allocation_median_usec": 13,
+		"events": 40,
+		"nodes_added": 120,
+		"nodes_after_free_minus_before": 0,
+		"objects_added": 120,
+		"passed": true,
+		"settled": 40,
+		"static_memory_delta_bytes": 187784
+	},
+	"device": "NVIDIA GeForce RTX 4070 Laptop GPU",
+	"engine": "4.8-dev7 (official)",
+	"fps_cap": 60,
+	"game_camera_fov_degrees": 42.0,
+	"game_camera_height_m": 47.0,
+	"owner_art_review": "pending",
+	"renderer": "forward_plus",
+	"renders": [
+		{
+			"age_ms": 8.524,
+			"changed_pixels": 390,
+			"file": "tracer_gameplay.png"
+		},
+		{
+			"age_ms": 7.294,
+			"changed_pixels": 4738,
+			"file": "tracer_detail.png"
+		},
+		{
+			"age_ms": 9.709,
+			"changed_pixels": 3749,
+			"file": "tracer_oblique.png"
+		},
+		{
+			"age_ms": 6.663,
+			"changed_pixels": 1677,
+			"file": "tracer_camera_edge.png"
+		}
+	],
+	"resolution": [
+		1280,
+		800
+	],
+	"timing_context": "contended desktop; not a quiet or GPU performance acceptance"
+}
