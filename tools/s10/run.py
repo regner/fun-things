@@ -166,7 +166,7 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--godot", required=True)
     parser.add_argument("--output", required=True, type=Path)
-    parser.add_argument("--seeds", nargs=3, type=int, default=DEFAULT_SEEDS)
+    parser.add_argument("--seeds", nargs="+", type=int, default=DEFAULT_SEEDS)
     args = parser.parse_args()
     output = args.output.resolve()
     if output.is_relative_to(ROOT):

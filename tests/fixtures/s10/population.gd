@@ -29,6 +29,7 @@ const CROSSING_CAR_CLEARANCE_M: float = 5.0
 const CAR_HALF_WIDTH_M: float = 0.9
 const CAR_HALF_LENGTH_M: float = 1.7
 const GRID_CELL_M: float = 1.5
+const FOOT_METRIC_TOLERANCE_M: float = 0.001
 const MOTION_GRAPH: String = "graph_kinematic"
 const MOTION_CHARACTER: String = "character_body"
 
@@ -368,8 +369,10 @@ func _car_overlaps(position: Vector3, car_z: float) -> bool:
 ## Counts any illegal foot-corridor or road-outside-crossing occupancy.
 func _measure_position(agent: Dictionary) -> void:
 	var position: Vector3 = (agent.body as S10Pedestrian).global_position
-	if position.x < ROUTE_MIN_X_M or position.x > ROUTE_MAX_X_M or (
-		position.z < SIDEWALK_MIN_Z_M or position.z > SIDEWALK_MAX_Z_M):
+	if position.x < ROUTE_MIN_X_M - FOOT_METRIC_TOLERANCE_M or (
+		position.x > ROUTE_MAX_X_M + FOOT_METRIC_TOLERANCE_M) or (
+		position.z < SIDEWALK_MIN_Z_M - FOOT_METRIC_TOLERANCE_M) or (
+		position.z > SIDEWALK_MAX_Z_M + FOOT_METRIC_TOLERANCE_M):
 		_metrics.off_sidewalk_ticks += 1
 	var in_road: bool = position.z > -4.5 and position.z < 4.5
 	if in_road and absf(position.x) > CROSSING_EDGE_X_M:
