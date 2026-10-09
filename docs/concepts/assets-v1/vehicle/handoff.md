@@ -98,7 +98,9 @@ Do not apply concurrently to shared files:
 - TODO: car concepts/owner selection done; bus/truck concept approval pending;
   car sources/materials/wheels/hinged side doors/markers, GLB import/metadata and saved
   wrappers/previews now exist. Reexport, imported bounds/sockets, saved roundtrip and
-  actual camera/door-pose checks pass. First checkpoint independent review is next;
+  actual camera/door-pose checks pass. Independent Sol 6.1/high review accepted
+  candidate `69219f0` as a first checkpoint with no scoped defects; see
+  `docs/assets/vehicle_car_evidence/independent_review_69219f0.md`. Full-loop playback,
   final art polish/owner model acceptance and integration checks remain pending.
 - Integration dependencies: final visual/collider envelope reconciliation, driver
   fit, safe entry/grounded exits, district turns/contacts/spawn queries, gameplay

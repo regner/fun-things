@@ -5,6 +5,16 @@
 Base before production: `9ff045f9c9ed14075a855bc9e0dc0266fc6936a8`.
 This is a reviewable first source/import/preview checkpoint, not final art acceptance.
 
+## Independent review
+
+Clean-context Sol 6.1/high reviewer `f3ed8f5c-4bc4-4725-853f-156fbea3ff7f`
+accepted immutable candidate `69219f0655f0233a2a8de6d738029a3b7fcdef2a` against
+the base above, with no scoped checkpoint defects. Read the
+[full report](independent_review_69219f0.md) for independent checks and their limits.
+No model changes followed this review; the closing commit adds documentation only.
+The [next art pass](next_art_pass.md) records unfinished spatial work. Full-loop
+rendered playback remains pending; current captures sample rest/open poses.
+
 ## Actual checks
 
 - Four pinned Blender sources → explicit GLBs, repeated from saved sources into

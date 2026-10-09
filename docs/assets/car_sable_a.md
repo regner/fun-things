@@ -100,10 +100,14 @@ camera, renderer, actual dimensions,50° hinge checks, fixed root and open/rest 
 ## Acceptance and unfinished checks
 
 - Concept: accepted by Regner. Source/export/import/preview: checks above passed;
-  independent checkpoint review follows the frozen candidate commit.
+  independent Sol 6.1/high [review](vehicle_car_evidence/independent_review_69219f0.md)
+  accepted candidate `69219f0` within the first-checkpoint scope, with no scoped defects.
+- Full-loop rendered playback and intermediate moving-part clearance: pending;
+  current captures sample rest and 2.5-second open poses.
 - Production art: pending. Current forms are simplified first-pass models; roundness,
   glazing/body joins, door-edge shading, wheels and closer silhouette fidelity need
-  further art review/polish against the approved sheets. No final owner model approval.
+  further art review/polish against the approved sheets. See the scoped
+  [next art pass](vehicle_car_evidence/next_art_pass.md). No final owner model approval.
 - Collision, driver fit, grounded exits, turns, spawn queries, gameplay/networking,
   damage/wreck states and world placement: external integrator, not performed here.
 - Forward+/target-device appearance and sustained Deck performance: pending. These
