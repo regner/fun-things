@@ -974,5 +974,13 @@
       },
       "capture": null
     }
-  ]
+  ],
+  "post_rebase_binding": {
+    "base_revision": "788f0cff0bfbb38f9f703b3786fd2109eddc41d8",
+    "comparison_head": "3ccffee",
+    "measured_revision": "f29bb725abfebbcd88644f59eb2d8a80f3e02edf",
+    "scoped_inputs_unchanged": true,
+    "verification": "git diff --quiet f29bb725abfebbcd88644f59eb2d8a80f3e02edf..3ccffee -- tests/fixtures/s02 tests/fixtures/s03 tests/fixtures/s04 tests/fixtures/s06 tests/fixtures/s15 art/models/spikes project.godot tools/s15/run.py",
+    "note": "The final base advance added S12/S13 outside the runner staging closure; measured bytes and runner remained identical."
+  }
 }
