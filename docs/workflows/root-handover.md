@@ -14,15 +14,14 @@ No particular agent platform or delegation tool is required to read it.
 
 ## Current repository state — 9 October 2026
 
-- The integration branch is `main` at `7351f3b` (`fix: remove remaining GodotSteam
-  exclusions`) when this handover was refreshed. Verify actual HEAD rather than assuming it
-  stayed there. The old `s08-enet-bandwidth` branch is deleted.
+- The integration branch is `main` at `b83fee9` (`docs: correct S03 replay ownership`)
+  when this handover was refreshed. Verify actual HEAD rather than assuming it stayed there.
+  The old `s08-enet-bandwidth` branch is deleted.
 - The commissioned foundation lanes through S17, including S03-P, S04-P, S04-T,
   P0-TOOLING/P0-TOOLING-2 and the audit gap tasks, are integrated. The S17-only
   [quiet record](../spikes/quiet-remeasure-2026-10-09.md) is integrated, and the refreshed
-  [P0-GATE packet](../reviews/p0-gate-packet-2026-10-09.md) reconciles its result, all
-  deliberately retained contended measurements, residual risks, owner decisions and human
-  checks.
+  [P0-GATE packet](../reviews/p0-gate-packet-2026-10-09.md) records the 9 October 2026 pass under
+  owner decision 27. M1 production has started.
 - Development is on Windows 11. Use the Mise-pinned Godot
   `4.8.dev7.official.c971f93e7`; the owner decided to stay on this pin for now.
 - Orchestration uses pi subagents in parent-created Git worktrees under
@@ -33,16 +32,11 @@ No particular agent platform or delegation tool is required to read it.
 - The [8 October owner decisions](../reviews/owner-decisions-2026-10-08.md) govern controls,
   prediction, vehicles, explosion presentation, UI, environment scaling, initial ENet
   scope, desktop targets, engine pin, profiles and the completeness tasks authorized by
-  instruction 12. Decisions 13–25, recorded in the gate packet, restrict quiet reruns to
-  S17, make S10/S17 the first production acceptance work, set capped 60 FPS with
-  p95 ≤16.7 ms / p99 ≤20 ms, define dead-driver coast-to-abandoned behavior, remove
-  GodotSteam (executed by `660b4fd`/`7351f3b`), select host-current-time hit verdicts with
-  view-tick-ready fire intents, accept S12's M1 combat starting values, accept S03-P's
-  ordered bounded M1 input queue, set S11's initial short extrapolate→hold→smooth-authority
-  policy, make S17's ~4 ms total host p95 a soft tracked target with no subsystem gates,
-  choose host-confirmed M1 car entry with acceptance-only ownership transfer, assign M1-C0
-  world concepts to a separate owner-run agent, and close the bounded S02 physical
-  controls/readability/native-focus owner checklist. The
+  instruction 12. Decisions 13–28 restrict quiet reruns to S17, make S10/S17 the first
+  production acceptance work, set capped desktop targets and the soft total host budget,
+  define combat, input, remote motion, car entry/death and world-concept ownership, record
+  the passing S02 and initial S04 owner sessions, pass P0-GATE and move settings to M1-D.
+  GodotSteam removal is complete in `660b4fd`/`7351f3b`. The
   [P0 audit](../reviews/p0-readiness-audit-2026-10-08.md) supplies historical gap rationale;
   the packet records the current integrated disposition.
 - World concept work is in progress outside this orchestration under a separate owner-run agent;
@@ -118,14 +112,13 @@ fixture, performance, hardware or graphical claim.
 
 ## Current lane order — refreshed 9 October 2026
 
-The earlier foundation queue is complete and historical. The S17-only quiet measurement and
-owner decisions 13–25 are reconciled in the packet. Review it and record the P0-GATE
-disposition; do not begin M1 merely because the executable foundation lanes integrated.
-Under decision 14, the remaining human reviews and open production choices are not additional
-foundation prerequisites. If P0-GATE passes, begin with S10 behavior/budget and S17 production
-host-budget acceptance, then use the packet's other recommended starts and the ordered
-[M1 production plan](../plans/m1-production-plan.md). Linux S08 confirmation and P0-PROFILES
-remain non-blocking.
+P0-GATE passed under owner decision 27 and M1 production has started. Begin with S10
+behavior/budget and S17 production host-budget acceptance, then establish M1-D1.1 production
+checks and M1-A1.1 Boot/session composition as recommended by the packet. Continue M1-A1.2 after
+the provider seam stabilizes. M1-C1 still waits for the owner to report the separately run M1-C0
+world concepts integrated and approve their production asset list; M1-C2 follows its starter
+subset. Decision 28 moves LocalSettings/settings UI to M1-D before M1-D4, while production audio
+uses default bus levels independently. Linux S08 confirmation and P0-PROFILES remain non-blocking.
 
 ## Historical prior recommendation: S08 diagnostic — superseded
 
@@ -233,7 +226,7 @@ diversity, final envelopes and budgets require the user's decisions. None was ch
   dimensions and S05 policy choices remain open. Driver death is decided: coast under neutral
   input, then leave an abandoned parked car. Representative production budgets and Windows/Linux
   target-device proof are absent.
-- **P0-GATE remains OPEN. M1 is not authorized to start.**
+- **P0-GATE passed on 9 October 2026 under owner decision 27; M1 production has started.**
 - Configuration changes and tool setup remain outside this handover's authority.
   No vendor repair, renderer/pin/transport choice, device/account acquisition or
   remote push is implied.
@@ -269,7 +262,7 @@ Apply `AGENTS.md` and the relevant owning contracts. For each future commission:
    Reread all tasks/requirements after integration and preserve actionable prerequisites.
    In particular, district assembly needs approved road/building/prop subsets, not the
    entire art catalogue; minimap work can follow player simulation with final district
-   alignment later. All M1 tasks still follow P0-GATE.
+   alignment later. The P0-GATE dependency is satisfied.
 
 No platform-specific model or agent launch recipe is required. Use reasoning effort
 proportionate to complexity: routine documentation/source planning succeeded at medium;
@@ -278,8 +271,8 @@ merely because a task mentions maps, 3D or review.
 
 ## Current first action
 
-Review the refreshed [P0-GATE packet](../reviews/p0-gate-packet-2026-10-09.md) and record
-the gate disposition. Decision 14 makes the integrated S17 quiet record and packet the only
-remaining P0 inputs; human reviews and unresolved subsystem choices are assigned M1 production
-work, not additional foundation blockers. Do not start M1 until that disposition is recorded,
-and do not revive the historical S08 diagnostic or other superseded foundation work.
+Proceed with the [P0-GATE packet's](../reviews/p0-gate-packet-2026-10-09.md) recommended first
+production work: S10 behavior/budget, S17 host-budget tracking, M1-D1.1 production checks and
+M1-A1.1 Boot/session composition. Do not dispatch M1-C1 until the owner reports M1-C0 integrated
+and approves its production asset list. LocalSettings/settings UI waits for M1-D under decision
+28. Do not revive the historical S08 diagnostic or other superseded foundation work.

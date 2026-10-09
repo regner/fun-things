@@ -10,12 +10,10 @@ qualification and enough outcome detail for dispatch.
 and the audit-derived tasks in
 [section 4 of the readiness audit](../reviews/p0-readiness-audit-2026-10-08.md).
 Most quantitative criteria are planning proposals derived from current product budgets and
-remain tunable during M1. Owner decisions 13–25 ratify the desktop frame target, narrow
-P0-GATE to the S17-only quiet result plus the refreshed gate packet, select the first
-hit-registration policy and combat starting values, accept the S03-P M1 input-queue
-contract, set the initial S11 remote extrapolation policy and S17 soft total budget, choose
-host-confirmed M1 car entry, assign world concepts to a separate owner-run agent and close the
-bounded S02 physical controls/readability/native-focus owner checklist.
+remain tunable during M1. Owner decisions 13–28 ratify the desktop frame target, select the
+first hit-registration policy and combat starting values, accept the input/remote-motion/host
+budget policies, choose host-confirmed car entry, assign world concepts separately, record the
+S02/S04 owner sessions, pass P0-GATE and move settings to M1-D.
 
 - **P0-TOOLING:** Completed. The [baseline repair](../spikes/p0-tooling.md) made the
   canonical script check green, established complete Python discovery, selected the
@@ -36,9 +34,8 @@ bounded S02 physical controls/readability/native-focus owner checklist.
   [ENet-first result](../spikes/s03-s-abstraction-review.md) specifies provider IDs,
   optional directories, opaque connection generations, four logical streams and safe
   close/reuse. Actual Steam implementation/testing remains deferred beyond M1.
-- **S03-R:** Technical response and expiry work is complete. [S03-L](../spikes/s03-l.md)
-  applies exact decision-age telemetry and a fresh adverse run passes the unchanged 250 ms
-  rule. Drawable remote continuity and later production playtests remain open.
+- **S03-R:** Done as a foundation task (decision 27); remaining drawable remote-continuity
+  review and production playtests are owned by M1-A2.
 - **S03-L:** Completed diagnosis. Corrected passing evidence still shows a contended
   direct-loopback p95 of 317 ms, so prediction/S12 carry a provisional 350 ms p95 Windows
   authoritative-loop allowance until production Windows and later Linux evidence replace it.
@@ -51,10 +48,11 @@ bounded S02 physical controls/readability/native-focus owner checklist.
   the 120-sequence freshness window, supersession without extra simulation, 250 ms held-input
   expiry, and a last-consumed-or-superseded acknowledgement watermark.
 - **S04:** The technical car body and [standalone drive scene](../spikes/s04-drive-scene.md)
-  are complete. Owner handling feedback/F12 tuning remains open. Cars cannot fire; exit
-  requires speed below 0.5 m/s; disconnect coasts. Owner decision 16 releases a dead
-  driver's seat, neutralizes controls, coasts the surviving car to a stop and then uses the
-  existing abandoned parked-car cleanup/replenishment policy.
+  are complete. Decision 26 records F12 values `coast_mps2` 10.0 and `grip_per_second` 9.0;
+  the handbrake applied no longitudinal braking, so its fix lane and owner re-test remain before
+  M1-B1 freezes handling. Cars cannot fire; exit requires speed below 0.5 m/s; disconnect coasts.
+  Owner decision 16 releases a dead driver's seat, neutralizes controls, coasts the surviving car
+  to a stop and then uses the existing abandoned parked-car cleanup/replenishment policy.
 - **S04-P:** Completed bounded implementation. [Car prediction](../spikes/s04-prediction.md)
   shares drive/body rules and bounds replay/history, stopped exit and disconnect coast.
   Normal passes; the post-rebase adverse correction p95 of 0.576 m misses the 0.5 m target,
@@ -66,21 +64,16 @@ bounded S02 physical controls/readability/native-focus owner checklist.
   camera/HUD ownership only on host acceptance; rejection causes no ownership change or snap.
   Keep predicted-entry machinery documented for a later upgrade. Exit remains below 0.5 m/s
   with the authored 1.5 m offset; production still needs real clearance and full lifecycle races.
-- **S05:** Bounded chain logic and uncapped fixture presentation are complete. The
-  [chain record](../spikes/s05.md) completes 12 explosions/144 visits; the
-  [presentation supplement](../spikes/s05-uncapped-effects.md) draws 12 and drops zero.
-  Production M1-B3/B4 retains in-flight hydration, real occupants, wreck/contact/reset,
-  final-body and lifetime-owned pool work.
-- **S06:** The accepted prototype scale/top-right map position and
-  [two-sector topology](../spikes/s06.md) are complete foundation inputs. Whole-UI and
-  minimap size/look review, final-body reruns and production contested recovery remain open.
+- **S05:** Done as a foundation task (decision 27); remaining wreck, in-flight hydration,
+  lifecycle-race and final-body evidence is owned by M1-B3/M1-D3.
+- **S06:** Done as a foundation task (decision 27); remaining whole-UI direction and minimap
+  size/look work is owned by M1-A1/M1-C4.
 - **S07:** Completed planning guidance. The
   [environment envelope](../spikes/s07-environment-scale.md) passed 6/24/96 shared
   grey-blocks and historically crashed at 384. S08-C later loaded current no-cutaway 384
   content. Neither result is a product ceiling, production-art proof or Deck measurement.
-- **S08:** Stay on Godot 4.8-dev7 and retain the ENet bandwidth workaround/offline upstream
-  review. Windows original-main DEBUG/RELEASE passed. Linux original-main and Linux-only
-  diagnostics remain a non-blocking follow-up; M1 still targets Windows/Linux desktop.
+- **S08:** Done as a foundation task (decision 27); the remaining Linux desktop launch/graphics
+  checklist is owned by M1-A-GATE. Stay on Godot 4.8-dev7 and retain the ENet workaround.
 - **S08-X:** Completed configuration and Windows smoke. [S08-X](../spikes/s08-x.md) adds
   the real main scene and four desktop presets, verifies addon-free packages and launches
   Windows release with Steam absent. Linux packages were built on Windows; the recorded
@@ -130,7 +123,7 @@ bounded S02 physical controls/readability/native-focus owner checklist.
   explosion roots; contended 24-full frame p95 is 18.445 ms median. `amount_ratio` did not
   prove a cost reduction. Owner must approve full/reduced/minimum non-dropping tiers.
 - **S16:** Completed. The [M1 production plan](m1-production-plan.md) maps owners, fixture
-  promotion, tests, ordered work and risks. P0-GATE reviews rather than reopens the plan.
+  promotion, tests, ordered work and risks; owner decision 27 passed P0-GATE.
 - **S17:** Completed the only owner-authorized quiet rerun. The
   [quiet production-schedule result](../spikes/quiet-remeasure-2026-10-09.md) is
   2.069/3.989/5.849 ms median/p95/p99, meeting decision 22's soft ~4 ms total p95
@@ -140,11 +133,9 @@ bounded S02 physical controls/readability/native-focus owner checklist.
 - **Quiet re-measurement:** Complete. Per owner decision 13, S17 alone was rerun; every other
   spike retains its labelled contended values under “make it work, then make it pretty, then
   make it fast.” CPU-load snapshots are instantaneous and do not prove exclusive use.
-- **P0-GATE:** Review the integrated S17 quiet record and refreshed
-  [gate packet](../reviews/p0-gate-packet-2026-10-09.md#owner-decisions-recorded), then record
-  the gate disposition. Under decision 14, remaining human checks and open production choices
-  are not additional foundation prerequisites. Linux-only S08 confirmation and P0-PROFILES
-  remain non-blocking.
+- **P0-GATE:** Done. The owner passed the gate on 9 October 2026 under decision 27; M1
+  production has started. The [gate packet](../reviews/p0-gate-packet-2026-10-09.md#disposition)
+  records the disposition.
 
 ## Checkpoint follow-up
 
@@ -153,16 +144,18 @@ Completed discovery reconciliation: [P0-DOC14 record](../reviews/p0-doc14.md).
 ## First milestone
 
 - **M1-A1:** Deliver standalone/ENet sessions and Steam-adapter-capable boundaries;
-  menu flows must handle cancel, stale/failure/host loss and cleanup. Only host/standalone
-  can reset. Steam friend sessions are owner-deferred beyond M1.
+  menu flows must handle cancel, stale/failure/host loss and cleanup and carry S06's whole-UI
+  direction. Only host/standalone can reset. Steam friend sessions are owner-deferred beyond M1.
 - **M1-A2:** Share rules offline/authority/permitted prediction; implement decision 19's
   ordered bounded input queue and acknowledgement watermark plus decision 20's tunable
   100–150 ms extrapolate→hold→smooth-authority policy; handle focus/expiry, respawn and reset
-  rehydration before input while rejecting stale-match commands.
-- **M1-A3:** Persist validated audio settings with defaults/recovery and live preview;
-  device settings cannot mutate shared gameplay.
-- **M1-A-GATE:** Validate two exported ENet processes, settings and lifecycle/reset/error
-  flows with Steam absent. Actual Steam gameplay transport is owner-deferred beyond M1.
+  rehydration before input while rejecting stale-match commands. Acceptance includes S03-R's
+  drawable remote-continuity review.
+- **M1-A3:** Add production audio buses, category voice policy and state-driven emitters using
+  default bus levels. It has no settings dependency; listening waits for real assets.
+- **M1-A-GATE:** Validate two exported ENet processes and lifecycle/reset/error flows with Steam
+  absent, including the S08 Linux desktop launch/graphics checklist. Actual Steam gameplay
+  transport is owner-deferred beyond M1.
 - **M1-B1:** Implement vehicle handling and authoritative driver transitions; resolve
   claim/exit/death/disconnect/destruction races. Entry is host-confirmed with a short ~0.3 s
   presentation; control and camera/HUD ownership transfer only on acceptance, and rejection
@@ -174,7 +167,8 @@ Completed discovery reconciliation: [P0-DOC14 record](../reviews/p0-doc14.md).
   while impact/damage waits for host confirmation. Keep bounded ≤250 ms host-only rewind possible,
   reject stale fire commands and hydrate late joiners.
 - **M1-B3:** Bound/deduplicate chains and complete wreck/collision lifecycle; late join
-  and reset restore current state without replaying old effects/work.
+  and reset restore current state without replaying old effects/work. Acceptance carries S05's
+  remaining wreck, in-flight hydration and lifecycle-race evidence; M1-D3 owns final-body evidence.
 - **M1-B4:** Add readable bounded effects and licensed/source-tracked audio; review the
   walk/shoot/drive/chain slice for duplicate feedback, aim/map readability and cost.
 - **M1-C0:** World concepts are in progress under a separate owner-run agent using the
@@ -188,28 +182,30 @@ Completed discovery reconciliation: [P0-DOC14 record](../reviews/p0-doc14.md).
   art families. Use S06 topology and S07 environment-envelope guidance to compose saved
   sectors, routes, play space, spawns and boundaries; preserve placement and prove
   seams/clearance/readability.
-- **M1-C3:** Start S10 production behavior/budget work immediately after P0-GATE, with
-  explicit acceptance checks. Implement bounded host-owned pedestrians/traffic, legal routes,
-  crossing and blocked/stuck recovery, NPC transfer, late joins and reset without moving city
-  content.
-- **M1-C4:** After M1-A2 and the S06 contract (covered by P0-GATE), build the road map
-  from shared city data and local entity marker; align with M1-C2 when the district is ready.
-  Check walking/driving/late-join seams and read HUD values from gameplay owners.
+- **M1-C3:** S10 production behavior/budget is current priority work with explicit acceptance
+  checks. Implement bounded host-owned pedestrians/traffic, legal routes, crossing and
+  blocked/stuck recovery, NPC transfer, late joins and reset without moving city content.
+- **M1-C4:** After M1-A2, build the road map from shared city data and local entity marker;
+  settle S06's minimap size/look and carry its whole-UI direction into the HUD. Align with M1-C2
+  when the district is ready; check walking/driving/late-join seams and read HUD values from
+  gameplay owners.
 - **M1-D1:** Build reproducible local/CI checks that catch owned code/resource/gameplay
   violations, including unused scripts, without broad suppression or copied formulas.
 - **M1-D2:** Playtest desktop keyboard/mouse multiplayer feel, camera/aim, driving,
   spectacle, exploration, menus/focus and audio; fix findings or have the user scope
   them out. Gamepad/controller playtesting is owner-deferred.
-- **M1-D3:** Start S17 production host-budget work immediately after P0-GATE. Track the soft
-  ~4 ms total host-simulation p95 target at full tunable M1 population without per-feature
-  gates. Target capped 60 FPS with p95 ≤16.7 ms and p99 ≤20 ms on the RTX 4070 Laptop
-  Windows reference and a named Linux desktop when available. Verify capacity and bounded
-  adverse-network lifecycle
-  through real ENet processes/APIs and
-  measure frame/physics, draw, memory, bandwidth, queues and response. Culling cannot stop
-  required simulation and optimization needs evidence. Steam transport testing is owner-deferred.
-- **M1-D4:** Export Windows/Linux targets with exact templates/identity/exclusions and
-  verify launch, keyboard/mouse input, audio and ENet routes. Retain results/rollback.
+- **M1-D3:** Continue S17 production host-budget work and carry S05 final-body evidence. Track
+  the soft ~4 ms total host-simulation p95 target at full tunable M1 population without
+  per-feature gates. Target capped 60 FPS with p95 ≤16.7 ms and p99 ≤20 ms on the RTX 4070
+  Laptop Windows reference and a named Linux desktop when available. Verify capacity and bounded
+  adverse-network lifecycle through real ENet processes/APIs and measure frame/physics, draw,
+  memory, bandwidth, queues and response. Culling cannot stop required simulation and optimization
+  needs evidence. Steam transport testing is owner-deferred.
+- **M1-D5:** Before M1-D4, add LocalSettings and the settings UI. Persist audio volumes/mutes
+  first with validated defaults, corrupt-file recovery, live preview and atomic save; device
+  settings never mutate shared gameplay.
+- **M1-D4:** After M1-D5, export Windows/Linux targets with exact templates/identity/exclusions
+  and verify launch, keyboard/mouse input, audio and ENet routes. Retain results/rollback.
   Steam private-branch delivery and Deck/gamepad checks are owner-deferred.
 - **M1-GATE:** User reviews the ratified playable district, gameplay/population/minimap,
   readable feedback, audio/settings, menu/lifecycle/reset, ENet multiplayer, desktop feel,

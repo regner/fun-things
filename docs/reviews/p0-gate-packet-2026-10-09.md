@@ -1,10 +1,19 @@
 # P0-GATE owner review packet — 9 October 2026
 
+**Status: PASSED on 9 October 2026 under owner decision 27.**
+
 This packet reconciles the integrated foundation work through local `main` revision `7351f3b`.
-It is a decision aid, not an assertion that P0-GATE has passed. The
-[8 October owner decisions](owner-decisions-2026-10-08.md) remain authoritative; the
+The [8 October owner decisions](owner-decisions-2026-10-08.md) remain authoritative; the
 [P0 readiness audit](p0-readiness-audit-2026-10-08.md) explains why the additional
 foundation tasks were commissioned.
+
+## Disposition
+
+The owner accepted the packet and S17 quiet result, passed P0-GATE and started M1 production.
+S03-R, S05, S06 and S08 are done as foundation tasks; their remaining work is assigned to their
+M1 consumers. P0-PROFILES remains non-blocking, and the S04 handling fix and owner re-test must
+finish before M1-B1 freezes handling. This disposition records owner decision 27 without changing
+the reviewed foundation evidence below.
 
 ## Executive summary
 
@@ -73,7 +82,7 @@ All timing values explicitly marked **contended** are upper bounds from a shared
 | S03-L | Diagnostic complete | Corrected passing direct loopback 317 ms p95; provisional **350 ms p95 allowance**, all contended | Linux comparison and production tuning | Not rerun; contended retained by decision 13 |
 | S03-P | Complete, bounded; M1 queue contract accepted | [Foot prediction](../spikes/s03-prediction.md): predicted p95 19–29 ms physics, 39 ms drawn; correction p95 ≤0.25 m in selected runs, contended | Production moving-body contacts, lifecycle and queue acceptance tests | Not rerun; contended retained by decision 13 |
 | S03-S | Documentation review complete | [Abstraction review](../spikes/s03-s-abstraction-review.md): ENet-first provider/stream/lifecycle seam | Future Steam adapter has no runtime evidence by design | n/a |
-| S04 | Technical body complete; handling review open | [Car spike](../spikes/s04.md), [drive scene](../spikes/s04-drive-scene.md): CharacterBody candidate and live tuning harness | Owner tuning and final dimensions; death now coasts then becomes abandoned/parked | n/a |
+| S04 | Technical body complete; handling fix/re-test open | [Car spike](../spikes/s04.md), [drive scene](../spikes/s04-drive-scene.md): decision 26 saved coast 10.0 / grip 9.0 and found no handbrake braking | Finish the handbrake fix and owner re-test before B1; final dimensions remain open | n/a |
 | S04-P | Complete, bounded with mixed adverse results | [Car prediction](../spikes/s04-prediction.md): normal passes; post-rebase adverse correction p95 0.576 m fails 0.5 m target; drawn p95 85 ms; **contended** | Clean adverse production proof, moving-car contacts, subjective feel | Not rerun; contended retained by decision 13 |
 | S04-T | Complete, bounded; M1 entry policy decided | [Transition fixture](../spikes/s04-t.md): seat race, moving/blocked exit, AI release and disconnect coast pass; predicted-entry machinery remains a later option; timings **contended** | Implement ~0.3 s confirmed-entry presentation, acceptance-only control/camera/HUD transfer, rejection without snap, real exit clearance and lifecycle races | Not rerun; contended retained by decision 13 |
 | S05 | Foundation logic/presentation complete | [Chain](../spikes/s05.md), [uncapped presentation](../spikes/s05-uncapped-effects.md): 12 explosions, 144 visits, 12 drawn/0 dropped | Production pool, in-flight join/reset, wreck art/contact and final dimensions | S15 owns cost |
@@ -191,15 +200,15 @@ The owner recorded decisions 13–25 on 9 October 2026:
 
 ## Owner decisions still open
 
-These remaining choices belong to their named production consumer; they are not extra foundation
-or quiet-pass prerequisites under decision 14. An explicit deferral should still name its consumer
-or accepted risk. M1-C0 is not an open decision: it is in progress outside this orchestration. Its
+These six choices are presented when their consuming M1 task is reached under decision 27; they are
+not extra foundation prerequisites. An explicit deferral should still name its consumer or accepted
+risk. M1-C0 is not an open decision: it is in progress outside this orchestration. Its
 image-provider/concept-method question belongs to the owner-run work under decision 24 and is not an
 orchestrator decision.
 
-1. **S04 handling (entry policy settled):** provide drive-scene feedback and an F12 value set.
-   **Recommendation:** run the saved harness before freezing B1.1 body/tuning; do not promote
-   defaults solely from automated route success.
+1. **S04 handling (entry policy settled):** decision 26 records the owner's drive-scene session and
+   F12 values (`coast_mps2` 10.0, `grip_per_second` 9.0). The handbrake had no longitudinal braking;
+   its fix lane is in progress, followed by an owner re-test before B1.1 freezes handling.
 2. **Traffic/crossing policy:** choose reservation priority/lights and whether cars yield at marked
    crossings. **Recommendation:** deterministic authored reservations; cars yield at selected marked
    crossings, while uncontrolled player cars remain collision-authoritative.
@@ -216,29 +225,22 @@ orchestrator decision.
 
 ## Human checks still needed
 
-Use the pinned Godot `4.8.dev7.official.c971f93e7`. These are future owner/reviewer runs;
-none was performed while drafting this packet.
+Use the pinned Godot `4.8.dev7.official.c971f93e7`. These were future owner/reviewer runs when
+this packet was drafted; the vehicle status below now includes owner decision 26.
 
 ### Vehicle handling
 
-```sh
-mise exec -- godot --path . res://tests/fixtures/s04_drive/drive.tscn
-```
-
-Test acceleration, broad and tapped steering at low/high speed, coast versus opposite-input brake,
-handbrake recovery, wall contact/reverse and reset. Press F12 and retain the complete
-`S04_DRIVE_TUNING` JSON plus maneuver-specific notes.
+Decision 26 records the completed owner session and saved F12 values: `coast_mps2` 10.0 and
+`grip_per_second` 9.0. The session found that the handbrake only reduced lateral grip and applied no
+longitudinal braking. The handbrake fix lane is in progress; after it lands, rerun the saved drive
+scene for owner confirmation before M1-B1 freezes handling.
 
 ### Audio listening
 
-```sh
-mise exec -- godot --path . res://tests/fixtures/s14/audio_test.tscn
-```
-
-Start at safe volume. Check blast/SMG distinction, limiter pumping, 280 ms duck/recovery,
-north-up panning, near/far engines, dense-action voice caps, music/ambience masking and persistence
-of Master/Music/SFX after restart. Record hardware, output mode and volume context. Stop if the
-synthetic noise is uncomfortable.
+The old `audio_test.tscn` command is not a listening check. That automated stress fixture requires
+`--s14-output=<path>`, emits synthetic placeholder tones for a fraction of a second and quits.
+Listening moves to M1-A3 after real audio assets exist, following
+[S14 production requirement 10](../spikes/s14.md#m1-production-requirements).
 
 ### Visual review
 
@@ -258,9 +260,10 @@ synthetic noise is uncomfortable.
 
 ## Recommended first production work
 
-After the owner records the P0-GATE disposition from this refreshed packet, start with the work
-assigned by decision 14. Open production choices above should be resolved by their named consumers;
-they do not require more foundation reruns.
+P0-GATE passed under decision 27, so start with the work assigned by decision 14. Open production
+choices above should be resolved by their named consumers; they do not require more foundation
+reruns. Decision 28 moves LocalSettings and the settings UI to M1-D before private review builds;
+production audio remains independent and uses default bus levels until settings land.
 
 1. **S10 production behavior/budget:** establish the production pedestrian owner and compact state,
    add spatial/crossing policy work, and define behavior plus timing acceptance checks before scaling.
@@ -272,14 +275,12 @@ they do not require more foundation reruns.
    exclusion, consuming P0-TOOLING and P0-TOOLING-2.
 4. **M1-A1.1 — Boot/session composition:** saved Boot/menu/status scenes and typed ENet-first
    operation lifecycle, consuming S08-X and S03-S.
-5. **M1-A3.1 — LocalSettings/settings UI:** start after D1.1's test seam, based on S14's schema
-   boundary but not its placeholder sounds.
-6. **M1-C1.1 — starter road/building/prop subset:** do not dispatch it yet. Start only after the
+5. **M1-C1.1 — starter road/building/prop subset:** do not dispatch it yet. Start only after the
    owner reports M1-C0 integrated and its production asset list is approved, using
    the byte-identical S01/S01-W pipeline.
-7. **M1-C2.1 — CityData and first production sector:** begin when the approved starter subset
+6. **M1-C2.1 — CityData and first production sector:** begin when the approved starter subset
    exists; preserve one topology/minimap representation from S06.
-8. Continue **M1-A1.2** after the provider seam stabilizes. Do not freeze M1-A2.2's production
+7. Continue **M1-A1.2** after the provider seam stabilizes. Do not freeze M1-A2.2's production
    codec until its S11/S17 acceptance checks are defined, and do not copy S09/S10 fixture internals
    into production.
 
