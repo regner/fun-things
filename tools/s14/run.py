@@ -98,11 +98,11 @@ def validate_receipt(receipt: dict) -> list[str]:
     peak = receipt.get("peak", {})
     caps = peak.get("caps", {})
     active = peak.get("active", {})
-    for category in ("engines", "explosions", "weapons"):
-        if category not in caps or category not in active:
-            failures.append(f"missing {category} cap/active result")
-        elif active[category] > caps[category]:
-            failures.append(f"{category} exceeded cap")
+    expected_peak = {"engines": 8, "explosions": 8, "weapons": 6}
+    if caps != expected_peak:
+        failures.append("category caps differ from independent expectations")
+    if active != expected_peak:
+        failures.append("instantaneous peak voices differ from independent expectations")
     requests = peak.get("requests", {})
     expected = {
         "explosions_accepted": 8,
@@ -112,9 +112,25 @@ def validate_receipt(receipt: dict) -> list[str]:
     }
     if any(requests.get(key) != value for key, value in expected.items()):
         failures.append("storm request accounting differs from independent expectations")
-    if not receipt.get("settings_roundtrip", {}).get("passed"):
+    settings = receipt.get("settings_roundtrip", {})
+    if not settings.get("passed"):
         failures.append("settings roundtrip did not pass")
+    if not settings.get("malformed_defaults", {}).get("passed"):
+        failures.append("malformed settings did not retain safe defaults")
     return failures
+
+
+def classify_diagnostics(diagnostics: list[str], receipt: dict | None) -> tuple[list[str], list[str]]:
+    """Separate only the exact retained pinned-Dummy teardown observation."""
+    exact_known = {
+        "WARNING: 23 ObjectDB instances were leaked at exit (run with `--verbose` for details).",
+        "ERROR: 7 resources still in use at exit (run with --verbose for details).",
+    }
+    if not receipt or receipt.get("audio_driver") != "Dummy":
+        return [], diagnostics
+    known = [line for line in diagnostics if line in exact_known]
+    unexpected = [line for line in diagnostics if line not in exact_known]
+    return known, unexpected
 
 
 def _run_case(godot: str, project: Path, output: Path, mode: str, repeat: int) -> dict:
@@ -162,23 +178,7 @@ def _run_case(godot: str, project: Path, output: Path, mode: str, repeat: int) -
     all_diagnostics = [line for line in logs.splitlines() if DIAGNOSTIC.search(line)]
     receipt = json.loads(receipt_path.read_text(encoding="utf-8")) if receipt_path.exists() else None
     semantic_failures = validate_receipt(receipt) if receipt else ["missing receipt"]
-    # The pinned engine's Dummy driver retains playback wrappers until audio-server teardown.
-    # Keep those exact diagnostics visible rather than broadly suppressing warnings/errors.
-    known_dummy_fragments = (
-        "ObjectDB instances were leaked at exit",
-        "resources still in use at exit",
-    )
-    known_diagnostics = []
-    diagnostics = []
-    for line in all_diagnostics:
-        if (
-            receipt
-            and receipt.get("audio_driver") == "Dummy"
-            and any(fragment in line for fragment in known_dummy_fragments)
-        ):
-            known_diagnostics.append(line)
-        else:
-            diagnostics.append(line)
+    known_diagnostics, diagnostics = classify_diagnostics(all_diagnostics, receipt)
     contended = environment_before["godot_processes"] not in (None, 0)
     record = {
         "name": case_name,
@@ -187,7 +187,7 @@ def _run_case(godot: str, project: Path, output: Path, mode: str, repeat: int) -
         "argv": argv,
         "exit": completed.returncode,
         "diagnostics": diagnostics,
-        "known_dummy_audio_teardown_diagnostics": known_diagnostics,
+        "known_pinned_dummy_teardown_diagnostics": known_diagnostics,
         "semantic_failures": semantic_failures,
         "environment_before": environment_before,
         "timing_label": "contended upper bound" if contended else "uncontended desktop sample",

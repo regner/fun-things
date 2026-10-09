@@ -1,15 +1,15 @@
-[gd_scene format=3]
+[gd_scene format=3 uid="uid://ch78713te5c8g"]
 
-[ext_resource type="Script" path="res://tests/fixtures/s14/s14_fixture.gd" id="1_fixture"]
-[ext_resource type="Script" path="res://tests/fixtures/s14/s14_voice_manager.gd" id="2_manager"]
-[ext_resource type="AudioStream" path="res://tests/fixtures/s14/audio/engine_loop.wav" id="3_engine"]
-[ext_resource type="AudioStream" path="res://tests/fixtures/s14/audio/explosion_1.wav" id="4_exp1"]
-[ext_resource type="AudioStream" path="res://tests/fixtures/s14/audio/explosion_2.wav" id="5_exp2"]
-[ext_resource type="AudioStream" path="res://tests/fixtures/s14/audio/explosion_3.wav" id="6_exp3"]
-[ext_resource type="AudioStream" path="res://tests/fixtures/s14/audio/smg_1.wav" id="7_smg1"]
-[ext_resource type="AudioStream" path="res://tests/fixtures/s14/audio/smg_2.wav" id="8_smg2"]
-[ext_resource type="AudioStream" path="res://tests/fixtures/s14/audio/music.wav" id="9_music"]
-[ext_resource type="AudioStream" path="res://tests/fixtures/s14/audio/ambience.wav" id="10_ambience"]
+[ext_resource type="Script" uid="uid://c4vp0g1mdh77d" path="res://tests/fixtures/s14/s14_fixture.gd" id="1_fixture"]
+[ext_resource type="Script" uid="uid://qli04e5xr1l6" path="res://tests/fixtures/s14/s14_voice_manager.gd" id="2_manager"]
+[ext_resource type="AudioStream" uid="uid://bjbf8q42juq6b" path="res://tests/fixtures/s14/audio/engine_loop.wav" id="3_engine"]
+[ext_resource type="AudioStream" uid="uid://bbnfbma568wrf" path="res://tests/fixtures/s14/audio/explosion_1.wav" id="4_exp1"]
+[ext_resource type="AudioStream" uid="uid://7c2mq43bovyu" path="res://tests/fixtures/s14/audio/explosion_2.wav" id="5_exp2"]
+[ext_resource type="AudioStream" uid="uid://jbii5w2h2gcn" path="res://tests/fixtures/s14/audio/explosion_3.wav" id="6_exp3"]
+[ext_resource type="AudioStream" uid="uid://uioe0joa6scu" path="res://tests/fixtures/s14/audio/smg_1.wav" id="7_smg1"]
+[ext_resource type="AudioStream" uid="uid://dxj1m84hgkktv" path="res://tests/fixtures/s14/audio/smg_2.wav" id="8_smg2"]
+[ext_resource type="AudioStream" uid="uid://dgslcus22a1cm" path="res://tests/fixtures/s14/audio/music.wav" id="9_music"]
+[ext_resource type="AudioStream" uid="uid://b8ex3ytaonn5" path="res://tests/fixtures/s14/audio/ambience.wav" id="10_ambience"]
 
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_explosion"]
 resource_name = "S14 Explosion Variations"
@@ -28,411 +28,361 @@ streams_count = 2
 stream_0/stream = ExtResource("7_smg1")
 stream_1/stream = ExtResource("8_smg2")
 
-[node name="S14AudioTest" type="Node3D"]
+[node name="S14AudioTest" type="Node3D" unique_id=80217224]
 script = ExtResource("1_fixture")
 
-[node name="ListenerRig" type="Node3D" parent="."]
-position = Vector3(0, 1, 0)
-rotation = Vector3(-1.5707964, 0, 0)
+[node name="ListenerRig" type="Node3D" parent="." unique_id=1930376692]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 1, 0)
 
-[node name="AudioListener" type="AudioListener3D" parent="ListenerRig"]
+[node name="AudioListener" type="AudioListener3D" parent="ListenerRig" unique_id=998579957]
 unique_name_in_owner = true
 current = true
 
-[node name="CameraRig" type="Node3D" parent="."]
-position = Vector3(0, 47, 0)
-rotation = Vector3(-1.5707964, 0, 0)
+[node name="CameraRig" type="Node3D" parent="." unique_id=2108150137]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 47, 0)
 
-[node name="Camera3D" type="Camera3D" parent="CameraRig"]
+[node name="Camera3D" type="Camera3D" parent="CameraRig" unique_id=799727767]
 current = true
 fov = 42.0
 
-[node name="VoiceManager" type="Node3D" parent="."]
+[node name="VoiceManager" type="Node3D" parent="." unique_id=1614558296]
 unique_name_in_owner = true
 script = ExtResource("2_manager")
 
-[node name="EngineVoices" type="Node3D" parent="VoiceManager"]
+[node name="EngineVoices" type="Node3D" parent="VoiceManager" unique_id=23719319]
 unique_name_in_owner = true
 
-[node name="Engine01" type="AudioStreamPlayer3D" parent="VoiceManager/EngineVoices"]
-position = Vector3(-21, 0.6, -12)
+[node name="Engine01" type="AudioStreamPlayer3D" parent="VoiceManager/EngineVoices" unique_id=666228812]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21, 0.6, -12)
 stream = ExtResource("3_engine")
-bus = &"Engines"
 unit_size = 8.0
 max_distance = 60.0
-max_polyphony = 1
-
-[node name="Engine02" type="AudioStreamPlayer3D" parent="VoiceManager/EngineVoices"]
-position = Vector3(-15, 0.6, -12)
-stream = ExtResource("3_engine")
 bus = &"Engines"
+
+[node name="Engine02" type="AudioStreamPlayer3D" parent="VoiceManager/EngineVoices" unique_id=219851953]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15, 0.6, -12)
+stream = ExtResource("3_engine")
 unit_size = 8.0
 max_distance = 60.0
-max_polyphony = 1
-
-[node name="Engine03" type="AudioStreamPlayer3D" parent="VoiceManager/EngineVoices"]
-position = Vector3(-9, 0.6, -12)
-stream = ExtResource("3_engine")
 bus = &"Engines"
+
+[node name="Engine03" type="AudioStreamPlayer3D" parent="VoiceManager/EngineVoices" unique_id=1360605208]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9, 0.6, -12)
+stream = ExtResource("3_engine")
 unit_size = 8.0
 max_distance = 60.0
-max_polyphony = 1
-
-[node name="Engine04" type="AudioStreamPlayer3D" parent="VoiceManager/EngineVoices"]
-position = Vector3(-3, 0.6, -12)
-stream = ExtResource("3_engine")
 bus = &"Engines"
+
+[node name="Engine04" type="AudioStreamPlayer3D" parent="VoiceManager/EngineVoices" unique_id=1428314685]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0.6, -12)
+stream = ExtResource("3_engine")
 unit_size = 8.0
 max_distance = 60.0
-max_polyphony = 1
-
-[node name="Engine05" type="AudioStreamPlayer3D" parent="VoiceManager/EngineVoices"]
-position = Vector3(3, 0.6, -12)
-stream = ExtResource("3_engine")
 bus = &"Engines"
+
+[node name="Engine05" type="AudioStreamPlayer3D" parent="VoiceManager/EngineVoices" unique_id=112189665]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0.6, -12)
+stream = ExtResource("3_engine")
 unit_size = 8.0
 max_distance = 60.0
-max_polyphony = 1
-
-[node name="Engine06" type="AudioStreamPlayer3D" parent="VoiceManager/EngineVoices"]
-position = Vector3(9, 0.6, -12)
-stream = ExtResource("3_engine")
 bus = &"Engines"
+
+[node name="Engine06" type="AudioStreamPlayer3D" parent="VoiceManager/EngineVoices" unique_id=1066471538]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 0.6, -12)
+stream = ExtResource("3_engine")
 unit_size = 8.0
 max_distance = 60.0
-max_polyphony = 1
-
-[node name="Engine07" type="AudioStreamPlayer3D" parent="VoiceManager/EngineVoices"]
-position = Vector3(15, 0.6, -12)
-stream = ExtResource("3_engine")
 bus = &"Engines"
+
+[node name="Engine07" type="AudioStreamPlayer3D" parent="VoiceManager/EngineVoices" unique_id=1257047723]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15, 0.6, -12)
+stream = ExtResource("3_engine")
 unit_size = 8.0
 max_distance = 60.0
-max_polyphony = 1
-
-[node name="Engine08" type="AudioStreamPlayer3D" parent="VoiceManager/EngineVoices"]
-position = Vector3(21, 0.6, -12)
-stream = ExtResource("3_engine")
 bus = &"Engines"
+
+[node name="Engine08" type="AudioStreamPlayer3D" parent="VoiceManager/EngineVoices" unique_id=1950018851]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21, 0.6, -12)
+stream = ExtResource("3_engine")
 unit_size = 8.0
 max_distance = 60.0
-max_polyphony = 1
-
-[node name="Engine09" type="AudioStreamPlayer3D" parent="VoiceManager/EngineVoices"]
-position = Vector3(-21, 0.6, -4)
-stream = ExtResource("3_engine")
 bus = &"Engines"
+
+[node name="Engine09" type="AudioStreamPlayer3D" parent="VoiceManager/EngineVoices" unique_id=460231195]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21, 0.6, -4)
+stream = ExtResource("3_engine")
 unit_size = 8.0
 max_distance = 60.0
-max_polyphony = 1
-
-[node name="Engine10" type="AudioStreamPlayer3D" parent="VoiceManager/EngineVoices"]
-position = Vector3(-15, 0.6, -4)
-stream = ExtResource("3_engine")
 bus = &"Engines"
+
+[node name="Engine10" type="AudioStreamPlayer3D" parent="VoiceManager/EngineVoices" unique_id=699551495]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15, 0.6, -4)
+stream = ExtResource("3_engine")
 unit_size = 8.0
 max_distance = 60.0
-max_polyphony = 1
-
-[node name="Engine11" type="AudioStreamPlayer3D" parent="VoiceManager/EngineVoices"]
-position = Vector3(-9, 0.6, -4)
-stream = ExtResource("3_engine")
 bus = &"Engines"
+
+[node name="Engine11" type="AudioStreamPlayer3D" parent="VoiceManager/EngineVoices" unique_id=262086898]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9, 0.6, -4)
+stream = ExtResource("3_engine")
 unit_size = 8.0
 max_distance = 60.0
-max_polyphony = 1
-
-[node name="Engine12" type="AudioStreamPlayer3D" parent="VoiceManager/EngineVoices"]
-position = Vector3(-3, 0.6, -4)
-stream = ExtResource("3_engine")
 bus = &"Engines"
+
+[node name="Engine12" type="AudioStreamPlayer3D" parent="VoiceManager/EngineVoices" unique_id=965162866]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0.6, -4)
+stream = ExtResource("3_engine")
 unit_size = 8.0
 max_distance = 60.0
-max_polyphony = 1
-
-[node name="Engine13" type="AudioStreamPlayer3D" parent="VoiceManager/EngineVoices"]
-position = Vector3(3, 0.6, -4)
-stream = ExtResource("3_engine")
 bus = &"Engines"
+
+[node name="Engine13" type="AudioStreamPlayer3D" parent="VoiceManager/EngineVoices" unique_id=1506374158]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0.6, -4)
+stream = ExtResource("3_engine")
 unit_size = 8.0
 max_distance = 60.0
-max_polyphony = 1
-
-[node name="Engine14" type="AudioStreamPlayer3D" parent="VoiceManager/EngineVoices"]
-position = Vector3(9, 0.6, -4)
-stream = ExtResource("3_engine")
 bus = &"Engines"
+
+[node name="Engine14" type="AudioStreamPlayer3D" parent="VoiceManager/EngineVoices" unique_id=1516876629]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 0.6, -4)
+stream = ExtResource("3_engine")
 unit_size = 8.0
 max_distance = 60.0
-max_polyphony = 1
-
-[node name="Engine15" type="AudioStreamPlayer3D" parent="VoiceManager/EngineVoices"]
-position = Vector3(15, 0.6, -4)
-stream = ExtResource("3_engine")
 bus = &"Engines"
+
+[node name="Engine15" type="AudioStreamPlayer3D" parent="VoiceManager/EngineVoices" unique_id=121474192]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15, 0.6, -4)
+stream = ExtResource("3_engine")
 unit_size = 8.0
 max_distance = 60.0
-max_polyphony = 1
-
-[node name="Engine16" type="AudioStreamPlayer3D" parent="VoiceManager/EngineVoices"]
-position = Vector3(21, 0.6, -4)
-stream = ExtResource("3_engine")
 bus = &"Engines"
+
+[node name="Engine16" type="AudioStreamPlayer3D" parent="VoiceManager/EngineVoices" unique_id=1113300535]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21, 0.6, -4)
+stream = ExtResource("3_engine")
 unit_size = 8.0
 max_distance = 60.0
-max_polyphony = 1
-
-[node name="Engine17" type="AudioStreamPlayer3D" parent="VoiceManager/EngineVoices"]
-position = Vector3(-21, 0.6, 4)
-stream = ExtResource("3_engine")
 bus = &"Engines"
+
+[node name="Engine17" type="AudioStreamPlayer3D" parent="VoiceManager/EngineVoices" unique_id=1688574573]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21, 0.6, 4)
+stream = ExtResource("3_engine")
 unit_size = 8.0
 max_distance = 60.0
-max_polyphony = 1
-
-[node name="Engine18" type="AudioStreamPlayer3D" parent="VoiceManager/EngineVoices"]
-position = Vector3(-15, 0.6, 4)
-stream = ExtResource("3_engine")
 bus = &"Engines"
+
+[node name="Engine18" type="AudioStreamPlayer3D" parent="VoiceManager/EngineVoices" unique_id=1096179207]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15, 0.6, 4)
+stream = ExtResource("3_engine")
 unit_size = 8.0
 max_distance = 60.0
-max_polyphony = 1
-
-[node name="Engine19" type="AudioStreamPlayer3D" parent="VoiceManager/EngineVoices"]
-position = Vector3(-9, 0.6, 4)
-stream = ExtResource("3_engine")
 bus = &"Engines"
+
+[node name="Engine19" type="AudioStreamPlayer3D" parent="VoiceManager/EngineVoices" unique_id=1792556268]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9, 0.6, 4)
+stream = ExtResource("3_engine")
 unit_size = 8.0
 max_distance = 60.0
-max_polyphony = 1
-
-[node name="Engine20" type="AudioStreamPlayer3D" parent="VoiceManager/EngineVoices"]
-position = Vector3(-3, 0.6, 4)
-stream = ExtResource("3_engine")
 bus = &"Engines"
+
+[node name="Engine20" type="AudioStreamPlayer3D" parent="VoiceManager/EngineVoices" unique_id=2907865]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0.6, 4)
+stream = ExtResource("3_engine")
 unit_size = 8.0
 max_distance = 60.0
-max_polyphony = 1
-
-[node name="Engine21" type="AudioStreamPlayer3D" parent="VoiceManager/EngineVoices"]
-position = Vector3(3, 0.6, 4)
-stream = ExtResource("3_engine")
 bus = &"Engines"
+
+[node name="Engine21" type="AudioStreamPlayer3D" parent="VoiceManager/EngineVoices" unique_id=55301836]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0.6, 4)
+stream = ExtResource("3_engine")
 unit_size = 8.0
 max_distance = 60.0
-max_polyphony = 1
-
-[node name="Engine22" type="AudioStreamPlayer3D" parent="VoiceManager/EngineVoices"]
-position = Vector3(9, 0.6, 4)
-stream = ExtResource("3_engine")
 bus = &"Engines"
+
+[node name="Engine22" type="AudioStreamPlayer3D" parent="VoiceManager/EngineVoices" unique_id=423464877]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 0.6, 4)
+stream = ExtResource("3_engine")
 unit_size = 8.0
 max_distance = 60.0
-max_polyphony = 1
-
-[node name="Engine23" type="AudioStreamPlayer3D" parent="VoiceManager/EngineVoices"]
-position = Vector3(15, 0.6, 4)
-stream = ExtResource("3_engine")
 bus = &"Engines"
+
+[node name="Engine23" type="AudioStreamPlayer3D" parent="VoiceManager/EngineVoices" unique_id=1127474897]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15, 0.6, 4)
+stream = ExtResource("3_engine")
 unit_size = 8.0
 max_distance = 60.0
-max_polyphony = 1
-
-[node name="Engine24" type="AudioStreamPlayer3D" parent="VoiceManager/EngineVoices"]
-position = Vector3(21, 0.6, 4)
-stream = ExtResource("3_engine")
 bus = &"Engines"
+
+[node name="Engine24" type="AudioStreamPlayer3D" parent="VoiceManager/EngineVoices" unique_id=1148216451]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21, 0.6, 4)
+stream = ExtResource("3_engine")
 unit_size = 8.0
 max_distance = 60.0
-max_polyphony = 1
-
-[node name="Engine25" type="AudioStreamPlayer3D" parent="VoiceManager/EngineVoices"]
-position = Vector3(-21, 0.6, 12)
-stream = ExtResource("3_engine")
 bus = &"Engines"
+
+[node name="Engine25" type="AudioStreamPlayer3D" parent="VoiceManager/EngineVoices" unique_id=1192010218]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21, 0.6, 12)
+stream = ExtResource("3_engine")
 unit_size = 8.0
 max_distance = 60.0
-max_polyphony = 1
-
-[node name="Engine26" type="AudioStreamPlayer3D" parent="VoiceManager/EngineVoices"]
-position = Vector3(-15, 0.6, 12)
-stream = ExtResource("3_engine")
 bus = &"Engines"
+
+[node name="Engine26" type="AudioStreamPlayer3D" parent="VoiceManager/EngineVoices" unique_id=1865591195]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15, 0.6, 12)
+stream = ExtResource("3_engine")
 unit_size = 8.0
 max_distance = 60.0
-max_polyphony = 1
-
-[node name="Engine27" type="AudioStreamPlayer3D" parent="VoiceManager/EngineVoices"]
-position = Vector3(-9, 0.6, 12)
-stream = ExtResource("3_engine")
 bus = &"Engines"
+
+[node name="Engine27" type="AudioStreamPlayer3D" parent="VoiceManager/EngineVoices" unique_id=483801994]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9, 0.6, 12)
+stream = ExtResource("3_engine")
 unit_size = 8.0
 max_distance = 60.0
-max_polyphony = 1
-
-[node name="Engine28" type="AudioStreamPlayer3D" parent="VoiceManager/EngineVoices"]
-position = Vector3(-3, 0.6, 12)
-stream = ExtResource("3_engine")
 bus = &"Engines"
+
+[node name="Engine28" type="AudioStreamPlayer3D" parent="VoiceManager/EngineVoices" unique_id=1888002266]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0.6, 12)
+stream = ExtResource("3_engine")
 unit_size = 8.0
 max_distance = 60.0
-max_polyphony = 1
-
-[node name="Engine29" type="AudioStreamPlayer3D" parent="VoiceManager/EngineVoices"]
-position = Vector3(3, 0.6, 12)
-stream = ExtResource("3_engine")
 bus = &"Engines"
+
+[node name="Engine29" type="AudioStreamPlayer3D" parent="VoiceManager/EngineVoices" unique_id=1998281870]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0.6, 12)
+stream = ExtResource("3_engine")
 unit_size = 8.0
 max_distance = 60.0
-max_polyphony = 1
-
-[node name="Engine30" type="AudioStreamPlayer3D" parent="VoiceManager/EngineVoices"]
-position = Vector3(9, 0.6, 12)
-stream = ExtResource("3_engine")
 bus = &"Engines"
+
+[node name="Engine30" type="AudioStreamPlayer3D" parent="VoiceManager/EngineVoices" unique_id=511703016]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 0.6, 12)
+stream = ExtResource("3_engine")
 unit_size = 8.0
 max_distance = 60.0
-max_polyphony = 1
-
-[node name="Engine31" type="AudioStreamPlayer3D" parent="VoiceManager/EngineVoices"]
-position = Vector3(15, 0.6, 12)
-stream = ExtResource("3_engine")
 bus = &"Engines"
+
+[node name="Engine31" type="AudioStreamPlayer3D" parent="VoiceManager/EngineVoices" unique_id=1442616494]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15, 0.6, 12)
+stream = ExtResource("3_engine")
 unit_size = 8.0
 max_distance = 60.0
-max_polyphony = 1
-
-[node name="Engine32" type="AudioStreamPlayer3D" parent="VoiceManager/EngineVoices"]
-position = Vector3(21, 0.6, 12)
-stream = ExtResource("3_engine")
 bus = &"Engines"
+
+[node name="Engine32" type="AudioStreamPlayer3D" parent="VoiceManager/EngineVoices" unique_id=1096465719]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21, 0.6, 12)
+stream = ExtResource("3_engine")
 unit_size = 8.0
 max_distance = 60.0
-max_polyphony = 1
+bus = &"Engines"
 
-[node name="ExplosionVoices" type="Node3D" parent="VoiceManager"]
+[node name="ExplosionVoices" type="Node3D" parent="VoiceManager" unique_id=680064332]
 unique_name_in_owner = true
 
-[node name="Explosion01" type="AudioStreamPlayer3D" parent="VoiceManager/ExplosionVoices"]
+[node name="Explosion01" type="AudioStreamPlayer3D" parent="VoiceManager/ExplosionVoices" unique_id=1326852689]
 stream = SubResource("AudioStreamRandomizer_explosion")
-bus = &"Explosions"
 unit_size = 7.0
 max_distance = 65.0
-max_polyphony = 1
-
-[node name="Explosion02" type="AudioStreamPlayer3D" parent="VoiceManager/ExplosionVoices"]
-stream = SubResource("AudioStreamRandomizer_explosion")
 bus = &"Explosions"
+
+[node name="Explosion02" type="AudioStreamPlayer3D" parent="VoiceManager/ExplosionVoices" unique_id=87162601]
+stream = SubResource("AudioStreamRandomizer_explosion")
 unit_size = 7.0
 max_distance = 65.0
-max_polyphony = 1
-
-[node name="Explosion03" type="AudioStreamPlayer3D" parent="VoiceManager/ExplosionVoices"]
-stream = SubResource("AudioStreamRandomizer_explosion")
 bus = &"Explosions"
+
+[node name="Explosion03" type="AudioStreamPlayer3D" parent="VoiceManager/ExplosionVoices" unique_id=474271310]
+stream = SubResource("AudioStreamRandomizer_explosion")
 unit_size = 7.0
 max_distance = 65.0
-max_polyphony = 1
-
-[node name="Explosion04" type="AudioStreamPlayer3D" parent="VoiceManager/ExplosionVoices"]
-stream = SubResource("AudioStreamRandomizer_explosion")
 bus = &"Explosions"
+
+[node name="Explosion04" type="AudioStreamPlayer3D" parent="VoiceManager/ExplosionVoices" unique_id=1405159529]
+stream = SubResource("AudioStreamRandomizer_explosion")
 unit_size = 7.0
 max_distance = 65.0
-max_polyphony = 1
-
-[node name="Explosion05" type="AudioStreamPlayer3D" parent="VoiceManager/ExplosionVoices"]
-stream = SubResource("AudioStreamRandomizer_explosion")
 bus = &"Explosions"
+
+[node name="Explosion05" type="AudioStreamPlayer3D" parent="VoiceManager/ExplosionVoices" unique_id=1151664807]
+stream = SubResource("AudioStreamRandomizer_explosion")
 unit_size = 7.0
 max_distance = 65.0
-max_polyphony = 1
-
-[node name="Explosion06" type="AudioStreamPlayer3D" parent="VoiceManager/ExplosionVoices"]
-stream = SubResource("AudioStreamRandomizer_explosion")
 bus = &"Explosions"
+
+[node name="Explosion06" type="AudioStreamPlayer3D" parent="VoiceManager/ExplosionVoices" unique_id=928434402]
+stream = SubResource("AudioStreamRandomizer_explosion")
 unit_size = 7.0
 max_distance = 65.0
-max_polyphony = 1
-
-[node name="Explosion07" type="AudioStreamPlayer3D" parent="VoiceManager/ExplosionVoices"]
-stream = SubResource("AudioStreamRandomizer_explosion")
 bus = &"Explosions"
+
+[node name="Explosion07" type="AudioStreamPlayer3D" parent="VoiceManager/ExplosionVoices" unique_id=1950985606]
+stream = SubResource("AudioStreamRandomizer_explosion")
 unit_size = 7.0
 max_distance = 65.0
-max_polyphony = 1
-
-[node name="Explosion08" type="AudioStreamPlayer3D" parent="VoiceManager/ExplosionVoices"]
-stream = SubResource("AudioStreamRandomizer_explosion")
 bus = &"Explosions"
+
+[node name="Explosion08" type="AudioStreamPlayer3D" parent="VoiceManager/ExplosionVoices" unique_id=1323427731]
+stream = SubResource("AudioStreamRandomizer_explosion")
 unit_size = 7.0
 max_distance = 65.0
-max_polyphony = 1
+bus = &"Explosions"
 
-[node name="WeaponVoices" type="Node3D" parent="VoiceManager"]
+[node name="WeaponVoices" type="Node3D" parent="VoiceManager" unique_id=177299773]
 unique_name_in_owner = true
 
-[node name="Weapon01" type="AudioStreamPlayer3D" parent="VoiceManager/WeaponVoices"]
+[node name="Weapon01" type="AudioStreamPlayer3D" parent="VoiceManager/WeaponVoices" unique_id=1727073425]
 stream = SubResource("AudioStreamRandomizer_smg")
-bus = &"Weapons"
 unit_size = 5.0
 max_distance = 50.0
-max_polyphony = 1
-
-[node name="Weapon02" type="AudioStreamPlayer3D" parent="VoiceManager/WeaponVoices"]
-stream = SubResource("AudioStreamRandomizer_smg")
 bus = &"Weapons"
+
+[node name="Weapon02" type="AudioStreamPlayer3D" parent="VoiceManager/WeaponVoices" unique_id=1612453136]
+stream = SubResource("AudioStreamRandomizer_smg")
 unit_size = 5.0
 max_distance = 50.0
-max_polyphony = 1
-
-[node name="Weapon03" type="AudioStreamPlayer3D" parent="VoiceManager/WeaponVoices"]
-stream = SubResource("AudioStreamRandomizer_smg")
 bus = &"Weapons"
+
+[node name="Weapon03" type="AudioStreamPlayer3D" parent="VoiceManager/WeaponVoices" unique_id=599562524]
+stream = SubResource("AudioStreamRandomizer_smg")
 unit_size = 5.0
 max_distance = 50.0
-max_polyphony = 1
-
-[node name="Weapon04" type="AudioStreamPlayer3D" parent="VoiceManager/WeaponVoices"]
-stream = SubResource("AudioStreamRandomizer_smg")
 bus = &"Weapons"
+
+[node name="Weapon04" type="AudioStreamPlayer3D" parent="VoiceManager/WeaponVoices" unique_id=423740519]
+stream = SubResource("AudioStreamRandomizer_smg")
 unit_size = 5.0
 max_distance = 50.0
-max_polyphony = 1
-
-[node name="Weapon05" type="AudioStreamPlayer3D" parent="VoiceManager/WeaponVoices"]
-stream = SubResource("AudioStreamRandomizer_smg")
 bus = &"Weapons"
+
+[node name="Weapon05" type="AudioStreamPlayer3D" parent="VoiceManager/WeaponVoices" unique_id=492357408]
+stream = SubResource("AudioStreamRandomizer_smg")
 unit_size = 5.0
 max_distance = 50.0
-max_polyphony = 1
-
-[node name="Weapon06" type="AudioStreamPlayer3D" parent="VoiceManager/WeaponVoices"]
-stream = SubResource("AudioStreamRandomizer_smg")
 bus = &"Weapons"
+
+[node name="Weapon06" type="AudioStreamPlayer3D" parent="VoiceManager/WeaponVoices" unique_id=770693565]
+stream = SubResource("AudioStreamRandomizer_smg")
 unit_size = 5.0
 max_distance = 50.0
-max_polyphony = 1
+bus = &"Weapons"
 
-[node name="Music" type="AudioStreamPlayer" parent="."]
+[node name="Music" type="AudioStreamPlayer" parent="." unique_id=449787025]
 unique_name_in_owner = true
 stream = ExtResource("9_music")
 volume_db = -12.0
 autoplay = true
 bus = &"Music"
-max_polyphony = 1
 
-[node name="Ambience" type="AudioStreamPlayer" parent="."]
+[node name="Ambience" type="AudioStreamPlayer" parent="." unique_id=234813344]
 unique_name_in_owner = true
 stream = ExtResource("10_ambience")
 volume_db = -15.0
 autoplay = true
 bus = &"Ambience"
-max_polyphony = 1
 
-[node name="Overlay" type="CanvasLayer" parent="."]
+[node name="Overlay" type="CanvasLayer" parent="." unique_id=702959155]
 
-[node name="Instructions" type="Label" parent="Overlay"]
+[node name="Instructions" type="Label" parent="Overlay" unique_id=1843496124]
 offset_left = 24.0
 offset_top = 24.0
 offset_right = 650.0

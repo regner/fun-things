@@ -38,9 +38,9 @@ func load_settings(path: String) -> Error:
 	master_level = _read_level(config, "master_level", master_level)
 	music_level = _read_level(config, "music_level", music_level)
 	sfx_level = _read_level(config, "sfx_level", sfx_level)
-	master_muted = bool(config.get_value("audio", "master_muted", master_muted))
-	music_muted = bool(config.get_value("audio", "music_muted", music_muted))
-	sfx_muted = bool(config.get_value("audio", "sfx_muted", sfx_muted))
+	master_muted = _read_bool(config, "master_muted", master_muted)
+	music_muted = _read_bool(config, "music_muted", music_muted)
+	sfx_muted = _read_bool(config, "sfx_muted", sfx_muted)
 	return OK
 
 
@@ -80,3 +80,11 @@ func _read_level(config: ConfigFile, key: String, fallback: float) -> float:
 	if not (value is float or value is int):
 		return fallback
 	return clampf(float(value), 0.001, 1.0)
+
+
+## Reads one mute only when its persisted value is actually boolean.
+func _read_bool(config: ConfigFile, key: String, fallback: bool) -> bool:
+	var value: Variant = config.get_value("audio", key, fallback)
+	if not value is bool:
+		return fallback
+	return value

@@ -4,6 +4,7 @@ extends Node3D
 const BUS_LAYOUT := preload("res://tests/fixtures/s14/bus_layout.tres")
 const SAMPLE_FRAMES := 48
 const SETTINGS_PATH := "user://s14_audio_settings.cfg"
+const MALFORMED_SETTINGS_PATH := "user://s14_audio_settings_malformed.cfg"
 
 @onready var _listener: AudioListener3D = %AudioListener
 @onready var _voice_manager: S14VoiceManager = %VoiceManager
@@ -29,10 +30,17 @@ func _ready() -> void:
 	await _stop_audio_and_settle()
 	if write_error != OK:
 		push_error("S14 could not write result: %s" % error_string(write_error))
-		get_tree().quit(3)
+		_quit_after_scene_cleanup(3)
 		return
 
-	get_tree().quit(0 if result["success"] else 1)
+	_quit_after_scene_cleanup(0 if result["success"] else 1)
+
+
+## Frees the fixture scene before a tree-owned timer exits the process.
+func _quit_after_scene_cleanup(exit_code: int) -> void:
+	var tree := get_tree()
+	tree.create_timer(0.1).timeout.connect(tree.quit.bind(exit_code))
+	queue_free()
 
 
 ## Runs the public settings, request, cap, and monitor checks.
@@ -150,13 +158,42 @@ func _check_settings_roundtrip() -> Dictionary:
 	var expected := written.snapshot()
 	var actual := loaded.snapshot()
 	var applied := load_error == OK and loaded.apply()
+	var malformed_defaults := _check_malformed_settings_defaults()
 	return {
-		"passed": save_error == OK and load_error == OK and expected == actual and applied,
+		"passed": (
+			save_error == OK
+			and load_error == OK
+			and expected == actual
+			and applied
+			and malformed_defaults["passed"]
+		),
 		"save_error": save_error,
 		"load_error": load_error,
 		"expected": expected,
 		"actual": actual,
 		"applied": applied,
+		"malformed_defaults": malformed_defaults,
+	}
+
+
+## Proves malformed persisted types leave the settings object's safe defaults intact.
+func _check_malformed_settings_defaults() -> Dictionary:
+	var config := ConfigFile.new()
+	config.set_value("audio", "master_level", "loud")
+	config.set_value("audio", "master_muted", 1)
+	config.set_value("audio", "music_muted", "true")
+	config.set_value("audio", "sfx_muted", 0.0)
+	var save_error := config.save(MALFORMED_SETTINGS_PATH)
+	var loaded := S14Settings.new()
+	var load_error := loaded.load_settings(MALFORMED_SETTINGS_PATH)
+	var actual := loaded.snapshot()
+	var expected := S14Settings.new().snapshot()
+	return {
+		"passed": save_error == OK and load_error == OK and actual == expected,
+		"save_error": save_error,
+		"load_error": load_error,
+		"expected": expected,
+		"actual": actual,
 	}
 
 
@@ -165,9 +202,15 @@ func _validate_peak_report(report: Dictionary, failures: Array[String]) -> void:
 	var caps: Dictionary = report["caps"]
 	var active: Dictionary = report["active"]
 	var requests: Dictionary = report["requests"]
-	for category: String in caps:
-		if int(active[category]) > int(caps[category]):
-			failures.append("%s active voices exceeded cap" % category)
+	var expected_peak := {
+		"engines": 8,
+		"explosions": 8,
+		"weapons": 6,
+	}
+	if caps != expected_peak:
+		failures.append("category caps differ from independent expectations")
+	if active != expected_peak:
+		failures.append("instantaneous peak voices differ from independent expectations")
 	if requests["explosions_accepted"] != 8 or requests["explosions_dropped"] != 16:
 		failures.append("24-blast storm did not resolve as 8 accepted and 16 audio drops")
 	if requests["weapon_accepted"] != 6 or requests["weapon_dropped"] != 6:
