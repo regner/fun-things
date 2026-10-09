@@ -70,7 +70,7 @@ must preserve joint locations or be treated as a new rig/retargeting task.
 
 ## Animation libraries and attachments
 
-Player motion candidate: `art/source/models/shared_humanoid/shared_humanoid_player_motion_v1.blend`
+Player motion: `art/source/models/shared_humanoid/shared_humanoid_player_motion_v1.blend`
 → `art/models/shared_humanoid/shared_humanoid_player_motion_v1.glb` →
 `art/animations/shared_humanoid/player_v1.tres`. It contains 24 full-body clips with
 all 84 bone transform channels retained. `player_upper_v1.tres` and `player_lower_v1.tres`
@@ -109,7 +109,9 @@ found exactly 28 exported joints, one skin, no animation, images or GLB extensio
 Fresh saved-source reexport was byte-identical. Godot imported all 28 joint names,
 parents and global rest origins within 0.00001 m; see
 [player evidence](player_character/evidence/rig_checkpoint.json). Motion and skin-swapping checks now pass in the player candidate; see its evidence.
-The independent player production audit remains pending. Import does not establish gameplay.
+The initial player audit and its fixed P2 are retained in the player handoff. Regner
+approved local-main integration with no further review gate absent rebase conflicts.
+Import does not establish gameplay.
 
 Consumers: player Coral Courier and pedestrian Off-Shift Worker (pedestrian-owned
 mesh). No existing S13 consumer is migrated. The original source is project-owned,

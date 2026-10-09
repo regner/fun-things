@@ -1,10 +1,10 @@
-# Coral Courier — production checkpoint
+# Coral Courier — approved production asset
 
 Regner selected concept A on 9 October 2026 and explicitly chose **one shared skeleton,
 separate player and NPC animation libraries**. Future player skins replace the mesh and
 inverse-bind resource while retaining the existing skeleton and animation players.
 
-**Status: production candidate; clean-context independent audit pending.** Source,
+**Status: owner approved for local-main integration on 9 October 2026.** Source,
 import, skin swapping, motion playback and stationary weapon contact checks are complete. Gameplay, networking, full-city readability and device
 performance belong to the external integrator and are not accepted here.
 
@@ -125,7 +125,7 @@ ground (`art/source/models/spikes/s02_kit.blend` provenance in S02), not city pl
   the source ground plane; no sampled pose goes below the plane.
 - Editor wrapper/preview save and reopen completed. No detached runtime visible mesh
   generation or embedded model replacement was introduced.
-- Pinned gdstyle scoped lint passes; independent review remains pending.
+- Pinned gdstyle scoped lint passes. Initial independent findings and the review fix are retained below.
 
 Reproduce source/export and clean asset checks with `python3 tools/player_character/verify_delivery.py`.
 The fresh profile excludes gameplay/addons and is not full-project compilation or Deck
@@ -148,7 +148,11 @@ The capture logs record ordered clips, frame offsets and durations; all are samp
 at 30 FPS from saved animation resources, using the same immutable weapon dependencies.
 The source/rest/keyframes did not change in this review follow-up. These recordings
 cover asset deformation and hand/recovery paths, not gameplay event timing or blends.
-Final independent delta review remains pending.
+The owner subsequently approved local-main integration and explicitly waived further
+review unless rebase file conflicts occur. Rebase onto `43e593c81d009151794eee8b90491b4cf996e83a`
+completed without conflicts; player asset content remained byte-identical to the
+review-fix candidate `93e815136a0fae43268b5ea008919e81c9776b0e`. No new review gate is imposed.
+The already-running delta review is advisory to this owner-authorized integration.
 
 ## Runtime routing checkpoint — 9 October 2026
 
@@ -161,14 +165,16 @@ At the next planned spatial fit pass, runtime verification unexpectedly returned
 `gpt-6-luna/high` despite the configured Astra lead. No further geometry, rest, pose or
 keyframe mutation proceeded after that receipt. Sources/editor state and bounded capture results were preserved. A subsequent active-turn
 receipt confirmed `gpt-6-astra/high`; the spatial contact correction then proceeded under
-Astra. The complete candidate now awaits its independent audit.
+Astra. The initial independent audit and technical follow-up are recorded above.
 
 ## Catalogue / TODO reconciliation delta for the integrator
 
-- Add `coral_courier` → this handoff, selected concept A, production candidate pending independent review.
+- Add `coral_courier` → this handoff, selected concept A, owner-approved production asset.
 - Add shared rig `shared_humanoid/1.0.0` → `docs/assets/shared_humanoid_rig.md`; canonical
   skeleton shared with pedestrian, separate libraries.
-- Remaining player acceptance: independent production audit, then external
-  gameplay/network/city/device integration.
+- Remaining external acceptance: gameplay/network/city/device integration.
 
-Shared catalogue, TODO, planning, main launch scene and main branch were not edited.
+Shared catalogue, TODO, planning and main launch scene were not edited. The owner
+explicitly authorized a rebase and fast-forward into local main; no remote push or
+workspace archival is authorized. Unrelated main-worktree changes and the private
+editor/temporary fit scene are preserved.
