@@ -15,13 +15,14 @@ command and fixed delta; drops acknowledged frames; and reports exhaustion rathe
 replaying across a missing prefix. A control revision, baseline, rollback or teardown
 clears it.
 
-Each authoritative movement row now carries `last_input_tick`, advanced only after the
-host simulates that held input. On receipt, the client restores authoritative pose,
-velocity and yaw, removes acknowledged frames, and replays the bounded remainder. The
-fixture has no prediction-time damage, inventory, firing or effect call: replay invokes
-only foot motion/collision, while fire remains host-authoritative for S12. Exact authority
-installation is measured before replay. Resets and large production corrections still
-need a production snap policy.
+Each authoritative movement row carries `last_input_tick`, advanced to the exact client
+physics frame consumed by that host step. On receipt, the client restores authoritative
+pose, velocity and yaw, removes acknowledged frames, and replays the bounded remainder.
+The fixture has no prediction-time damage, inventory, firing or effect call: replay
+invokes only foot motion/collision, while fire remains host-authoritative for S12. The
+local restore diagnostic is separate from the accepted matching-tick comparison between
+the received pose and the matching host source pose. Resets and large production
+corrections still need a production snap policy.
 
 Remote actors retain the existing 100 ms receipt-time interpolation. The predicted local
 physics body receives static-world collision, while the presentation anchor decays each
@@ -29,23 +30,33 @@ correction over 100 ms independently of simulation. Remote dynamic bodies remain
 non-colliding on the client, so contact with remote actors/cars is intentionally an
 approximation rather than client authority.
 
-The ring owns no foot-specific state and accepts complete command dictionaries. S04-P can
-reuse it for drive frames, but its restore/replay adapter must own car velocity/steering
-state and car collision; this lane does not edit S04.
+The ring and `S03InputFrameQueue` own no foot-specific state and accept complete frame
+or command dictionaries. S04-P can reuse those cores for drive frames, but its
+restore/replay adapter must own car velocity/steering state and car collision; this lane
+does not edit S04.
 
 ## Protocol and analyzer corrections
 
-The fixture's held envelope gained bounded `input_tick`; sequence remains the admission
-and consumed/superseded acknowledgement, while `last_input_tick` identifies replay work.
-The host records the held age sampled at the start of its physics callback. The analyzer
-uses that decision age for the existing `<=250 ms` then `>250 ms` expiry boundary instead
-of a later telemetry timestamp from the same callback. This resolves the previously
-recorded Windows measurement artifact without extending gameplay expiry.
+Each nominal 30 Hz unreliable envelope now redundantly carries at most four consecutive
+per-physics-tick frames. The bounded host queue deduplicates them, consumes at most one
+oldest frame for each participant on each normal host physics step, and advances the
+published watermark only to that frame. A gap before the next available frame is
+explicitly counted as superseded. Missing input produces neutral motion; the host never
+repeats an already acknowledged frame and never runs extra simulation steps to drain a
+stall backlog. The standalone deterministic probe executes all 120 matching numbered
+frames with isolated packet losses and a 15-tick host stall and observes zero source-tick
+correction.
 
-An initial two-tick producer-silence pulse could be lost on the intentionally unreliable
-stream, making the independent expiry case observe no active command. The pulse now starts
-12 ticks earlier but silence still begins at tick 1002; several replaceable frames establish
-active held input without relying on one datagram. The failed run is retained.
+The analyzer computes accepted matching-tick error from received pose versus host source
+pose; the immediate local restore remains a separate diagnostic. A regression with a
+zero local diagnostic and a one-metre source mismatch fails that criterion. Windowed
+acceptance additionally requires two drawable visible process states, all 20 authority
+and predicted drawn samples, and predicted drawn p95 at or below 50 ms.
+
+Producer silence still begins at tick 1002. The analyzer now accepts neutralization no
+later than 250 ms plus one tick, rather than requiring the authority to reuse stale held
+input until that deadline. This keeps the safety bound while preserving one numbered
+client frame per authoritative movement step.
 
 ## Measurements
 
@@ -58,20 +69,21 @@ receipt), i.e. when an unpredicted client could respond.
 
 | Profile | Predicted physics p95 | Authority baseline p95 | Predicted drawn p95 | Authority drawn p95 | Correction p95 / max | Replay CPU p95 per frame | Max replay |
 | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
-| Headless loopback | 27 ms | 147 ms | unavailable | unavailable | 0.083 / 1.502 m | 100.0 us | 40 |
-| Headless normal | 18 ms | 260 ms | unavailable | unavailable | 0.250 / 2.399 m | 27.18 us | 49 |
-| Headless adverse | 29 ms | 374 ms | unavailable | unavailable | 0.250 / 4.000 m | 22.61 us | 89 |
-| Windowed loopback | 31 ms | 126 ms | 39 ms | 140 ms | 0.167 / 1.603 m | 85.0 us | 41 |
+| Headless loopback | 22 ms | 164 ms | unavailable | unavailable | 0.000 / 1.917 m | 37.67 us | 39 |
+| Headless normal | 20 ms | 390 ms | unavailable | unavailable | 0.000 / 1.924 m | 21.67 us | 47 |
+| Headless adverse | 17 ms | 429 ms | unavailable | unavailable | 0.000 / 3.750 m | 21.86 us | 84 |
+| Windowed loopback | 22 ms | 173 ms | 28 ms | 184 ms | 0.000 / 0.449 m | 37.0 us | 41 |
 
 All selected runs meet the provisional predicted response target (physics p95 <=50 ms)
 and correction target (p95 <=0.5 m). Maxima are reported rather than hidden; visual
 smoothing does not change authoritative physics. Exact authoritative installation error
-was 0 m and no selected run exhausted 120-frame history. The adverse 1 s interruption
-and 250 ms host stall converged in 405.34 ms and 423 ms respectively, both below 1 s.
-The maximum adverse replay was 89 frames and remained bounded.
+and matching host-source error were 0 m, and no selected run exhausted 120-frame
+history. The largest pending authority queue was 20 frames. The adverse 1 s interruption
+and 250 ms host stall converged in 385.22 ms and 309 ms respectively, both below 1 s.
+The maximum adverse replay was 84 frames and remained bounded.
 
-Selected correction classifiers were `none`, `held_timing_or_delivery`, and one normal
-`static_collision`; no remote-actor contact was observed in the final routes and no car
+Selected correction classifiers were `none` and `held_timing_or_delivery`; no
+remote-actor contact was observed in the final routes and no car
 exists in S03-R. The authoritative wall case passed, but this run does not establish
 replay against other moving actors or cars. That remains a production/S04-transition
 risk, not evidence of deterministic whole-world rollback.
