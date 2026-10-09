@@ -40,12 +40,13 @@ warning or error diagnostics. It passed both headless and Windows D3D12 Forward+
 Detailed command/result data is in [results.json](results.json). Outputs remain outside the
 worktree under `C:/tmp/ft/lanes/m1-a1-1/`.
 
-The focused seven-file gdstyle check and six production-script explicit compilation passed. Python
+The focused seven-file gdstyle check and five production-script explicit compilation passed. Python
 discovery passed 85 tests. The repository-wide script check was run and failed only for the known
 pre-existing style/format debt in `docs/assets/rocket_launcher_evidence/**` and
 `tools/pedestrian_civilian/**`, plus expected compilation of the new GUT test before the concurrent
 M1-D1.1 framework exists. Every new M1-A1.1 production/test script passes the focused style check;
-every new production script compiles explicitly.
+every new production script compiles explicitly. The fake stays under `tests/unit/session/`, so the
+concurrent D1.1 export exclusion can keep it out of runtime packages with the GUT tests.
 
 `tests/unit/session/test_session_service.gd` is authored as requested with `extends GutTest`, but
 M1-D1.1 had not integrated at this lane's final validation checkpoint. Therefore no GUT result is
