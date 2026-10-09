@@ -1,0 +1,6 @@
+timeout 120 godot --headless --path . --log-file C:/tmp/ft/lanes/s08-c/author/city-192.log --script tools/s07_env/author_city.gd -- --blocks 192
+timeout 120 godot --headless --path . --log-file C:/tmp/ft/lanes/s08-c/author/city-288.log --script tools/s07_env/author_city.gd -- --blocks 288
+timeout 300 python tools/s07_env/run.py --godot <mise-pin> --output C:/tmp/ft/lanes/s08-c/bisect-192 --variants 192 --warmup 0 --duration 1
+timeout 300 python tools/s07_env/run.py --godot <mise-pin> --output C:/tmp/ft/lanes/s08-c/bisect-288 --variants 288 --warmup 0 --duration 1
+# HKCU LocalDumps/godot.exe had DumpType=1 and DumpCount=2 for this one bounded rerun:
+timeout 300 python tools/s07_env/run.py --godot <mise-pin> --output C:/tmp/ft/lanes/s08-c/quiet-384 --variants 384 --warmup 1 --duration 1

@@ -782,6 +782,40 @@ copies.
 | [S07 graphical T](../tools/s07_graphical/run.py) | Accepted sustained driver plus per-frame telemetry, uncapped/60-capped × repeats, windowed. [Record](spikes/s07-graphical-t.md). |
 | `run_s03_r.py`/`run_s04.py --windowed` | Existing runners; real drawn receipts on Windows. |
 
+### Safe capped GPU measurement
+
+Do not run uncapped rendering on a workstation where an uncapped attempt has caused GPU
+reset or device removal. In particular, the current RTX 4070 Laptop GPU workstation has
+two retained uncapped S07 device removals; an uncapped maximum-FPS or headroom run is not
+an acceptable validation method there.
+
+For a bounded graphical measurement:
+
+1. Set the intended FPS cap before loading measured content. For the 60 FPS fixtures,
+   disable VSync explicitly and set `Engine.max_fps = 60`; record both effective settings.
+2. Enable viewport timing with
+   `RenderingServer.viewport_set_measure_render_time(viewport_rid, true)`. After each
+   `RenderingServer.frame_post_draw`, sample
+   `viewport_get_measured_render_time_cpu(viewport_rid)` and
+   `viewport_get_measured_render_time_gpu(viewport_rid)`. Also sample monotonic wall-clock
+   frame intervals; renderer timings do not include every presentation or pacing delay.
+3. Warm shaders and content before selecting samples. Retain raw samples and report
+   p50/p95/p99 rather than only an average. Keep the run deadline and resource stop limits
+   bounded.
+4. Record the exact engine, renderer/API, adapter, window and render resolution, quality
+   settings, cap/VSync state, content case, process exits, and diagnostics. Count concurrent
+   Godot processes immediately around the run and label timings contended when any unrelated
+   processes remain.
+5. Treat GPU time below the capped frame budget as renderer-work headroom for that exact
+   content and quality only. It is not an uncapped throughput, end-to-end presentation,
+   power, thermal, or other-device result. Use named capped quality/content sweeps when a
+   comparative headroom curve is required.
+
+The [S08-C record](spikes/s08-c-stability.md) applies this method to the current
+no-cutaway S07 environment and preserves the non-reproduced 384-block crash diagnosis.
+Changing the product frame-time instruction from uncapped to this method remains an owner
+question; do not silently reinterpret `docs/design.md`.
+
 ## Versions and releases
 
 When release builds exist, make version and source revision visible in startup

@@ -1,0 +1,149 @@
+{
+  "ok": true,
+  "engine": "4.8.dev7.official.c971f93e7",
+  "revision": "aa5e72a11f7b1cecfe24d4d5d857a5b988c6c1c4",
+  "dirty_inputs": "",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "processor": "Intel64 Family 6 Model 170 Stepping 4, GenuineIntel",
+  "duration_s": 1.0,
+  "warmup_s": 0.0,
+  "repeats": 2,
+  "variants_requested": [
+    288
+  ],
+  "cases": [
+    {
+      "variant": 288,
+      "repeat": 1,
+      "argv": [
+        "C:\\Users\\regner.blokandersen\\AppData\\Local\\mise\\installs\\github-godotengine-godot-builds\\4.8-dev7\\godot.exe",
+        "--path",
+        "C:\\tmp\\ft\\lanes\\s08-c\\bisect-288\\project",
+        "--windowed",
+        "--resolution",
+        "1280x800",
+        "--log-file",
+        "C:\\tmp\\ft\\lanes\\s08-c\\bisect-288\\city-288-repeat-1\\engine.log",
+        "--script",
+        "res://tests/fixtures/s07_env/measure.gd",
+        "--",
+        "res://tests/fixtures/s07_env/city_288.tscn"
+      ],
+      "exit": 0,
+      "timed_out": false,
+      "diagnostics": [],
+      "result": {
+        "adapter": "NVIDIA GeForce RTX 4070 Laptop GPU",
+        "adapter_vendor": "NVIDIA",
+        "api_version": "12_0",
+        "authored_instance_count": 1728,
+        "block_count": 288,
+        "camera_speed_mps": 15.0,
+        "cold_first_load_ms": 637.995,
+        "cold_resource_load_ms": 464.341,
+        "display": "Windows",
+        "duration_seconds": 1.0,
+        "fields": [
+          "elapsed_s",
+          "frame_interval_ms",
+          "render_cpu_ms",
+          "render_gpu_ms",
+          "physics_ms",
+          "draw_calls",
+          "objects",
+          "primitives",
+          "video_mem_bytes",
+          "node_count"
+        ],
+        "max_fps": 60,
+        "route_length_m": 13776.0,
+        "scene": "res://tests/fixtures/s07_env/city_288.tscn",
+        "scene_node_count": 39750,
+        "static_collider_count": 2304,
+        "vsync_mode": 0,
+        "warm_reload_ms": 740.387,
+        "warmup_seconds": 0.0,
+        "window_size": [
+          1280,
+          800
+        ]
+      },
+      "frames": {
+        "frames": 40,
+        "span_s": 1.069027,
+        "frame_interval_ms": {
+          "p50": 16.58,
+          "p95": 17.221,
+          "p99": 471.283,
+          "max": 471.283
+        },
+        "render_cpu_ms": {
+          "p50": 0.42100000381469727,
+          "p95": 0.4860000014305115,
+          "p99": 0.550000011920929,
+          "max": 0.550000011920929
+        },
+        "render_gpu_ms": {
+          "p50": 0.23499999940395355,
+          "p95": 0.23800000548362732,
+          "p99": 0.23999999463558197,
+          "max": 0.23999999463558197
+        },
+        "physics_ms": {
+          "p50": 0.632,
+          "p95": 0.632,
+          "p99": 0.632,
+          "max": 0.632
+        },
+        "draw_calls": {
+          "p50": 55.0,
+          "p95": 57.0,
+          "p99": 57.0,
+          "max": 57.0
+        },
+        "objects": {
+          "p50": 67.0,
+          "p95": 68.0,
+          "p99": 69.0,
+          "max": 69.0
+        },
+        "primitives": {
+          "p50": 4922.0,
+          "p95": 5286.0,
+          "p99": 5298.0,
+          "max": 5298.0
+        },
+        "video_mem_bytes": {
+          "p50": 92065792.0,
+          "p95": 92065792.0,
+          "p99": 92065792.0,
+          "max": 92065792.0
+        },
+        "node_count": {
+          "p50": 39751.0,
+          "p95": 39751.0,
+          "p99": 39751.0,
+          "max": 39751.0
+        },
+        "mean_fps": 37.229388879581535,
+        "hitches_over_33ms": 1
+      },
+      "resident_bytes": {
+        "samples": 10,
+        "p50": 272453632,
+        "p95": 522854400,
+        "max": 522854400,
+        "peak_working_set": 523304960
+      },
+      "ok": true,
+      "stop_reasons": [
+        "measured frame interval p99 exceeded 20 ms"
+      ]
+    }
+  ],
+  "import": {
+    "exit": 0,
+    "diagnostics": []
+  },
+  "stopped_at_variant": 288
+}

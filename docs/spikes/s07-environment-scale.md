@@ -15,6 +15,11 @@ instances and clean run revision. The initially incomplete staged shader depende
 failure remain under `initial-missing-shader/`; the runner was corrected narrowly before
 accepted measurements.
 
+The later [S08-C stability triage](s08-c-stability.md) is a separate current-content
+follow-up. After cutaway removal, saved 192/288 variants and two fresh 384-block processes
+instantiated successfully. That short non-reproduction does not replace this historical
+30-second envelope or prove the original crash cause.
+
 ## Authored content and method
 
 [`author_city.gd`](../../tools/s07_env/author_city.gd) is intentional procedural
