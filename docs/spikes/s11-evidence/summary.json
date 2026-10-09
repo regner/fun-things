@@ -1,125 +1,309 @@
 {
-  "source": "C:\\tmp\\ft\\lanes\\s11-population-net\\full-09\\result.json",
+  "source": "C:\\tmp\\ft\\lanes\\s11-population-net\\full-11\\result.json",
   "engine": "4.8.dev7.official.c971f93e7",
+  "repository": {
+    "commit": "43ed816642a83ae7d230569eb4d1f77bd3409de1",
+    "tree": "5adbc14ce6447b52e5d035bd2d9cc6a408776afd",
+    "status_porcelain": []
+  },
+  "measurement_source_sha256": {
+    "tools/run_s11.py": {
+      "sha256": "81a3491cc30205cf38b42ded2f9ff8f68f603e3e46822d940715bc5741e242ff",
+      "bytes": 27800
+    },
+    "tools/run_s03.py": {
+      "sha256": "16a4c6eb78713beaf907421d5c63b3536efbc9a985e60c4364df4638979cb129",
+      "bytes": 12586
+    },
+    "tools/script_checks.py": {
+      "sha256": "20852a1506f1f47e3e4356f05a14acf763c65689ef145fdff846c01241e602d9",
+      "bytes": 6950
+    }
+  },
+  "fixture_source_sha256": {
+    "tests/fixtures/s03/boot.tscn": "73d0a58b6450cbd26b6ccbce53d852b5b737ee3e76de3ecfb71f7aca1f71bec9",
+    "tests/fixtures/s03/entity.gd": "c886014a90fc4258ee964c5ba6cd1610ca6740d6f03ef993d20a874356755ba5",
+    "tests/fixtures/s03/entity.gd.uid": "81edf93e5288f82ace33bd2357c48536e69aaa5af588174179a2b189b86235b6",
+    "tests/fixtures/s03/entity.tscn": "e77ce114f1647862a5fa00bffc0f055aa4c64ac4e751ae74794493ea9276308b",
+    "tests/fixtures/s03/fake_transport.gd": "96f37b5ac9b0689c12105764ee826c4d7f18155b7ebd471cc427f66e3c499657",
+    "tests/fixtures/s03/fake_transport.gd.uid": "109e8258fb5a3834e9a08025d1660faad62a3fb71e096cadf34b4460577eb101",
+    "tests/fixtures/s03/local_rig.tscn": "5aa73ff396f149b5fde6f9e5e658271d8bbc1c4ad37728370992294a0865857d",
+    "tests/fixtures/s03/match.gd": "6aa3ca867e40248ba7695be3e87498f5005b5524df51028f8bc47d0849f67553",
+    "tests/fixtures/s03/match.gd.uid": "4f62dd8bee5d9449e5e3985fb819823c07d6f1321c29a2e6d101798ab4899226",
+    "tests/fixtures/s03/proof.gd": "84942690818fe5bc00e4ad0b51d48edf9fb89e0fb52e206a8c2c5844fab080a7",
+    "tests/fixtures/s03/proof.gd.uid": "274ac1732eb697e7798dcdc080b2f74acf187025d9f13af7d4f85b2067b36c11",
+    "tests/fixtures/s03/replication.gd": "57f4a1312a50b7ad5706423f2491be151803f5438f484b21b3c9b80dc47db7ae",
+    "tests/fixtures/s03/replication.gd.uid": "84934d1bc91d62e44bfd68f90fd011b22a7c79c75dccafb69b509c4267bc7212",
+    "tests/fixtures/s03/session.gd": "bb77d7a0dd65ffd6d0e29da8489678cd3e24aa58470b026ea4f1570fd9ea84d7",
+    "tests/fixtures/s03/session.gd.uid": "577312815f85e86aed2fdfb83214a7b08aa71d52fa304b80caccb4b7bef0479b",
+    "tests/fixtures/s03/transport.gd": "536dbd62dbbb1bce933c29495b99b5aa68d85a44eb86446fcd62d63d0ae6e60c",
+    "tests/fixtures/s03/transport.gd.uid": "13b71af6193f49f136fcfabf98e6aa715dfaf1d30b8a7a7175ddf1aaebc44cb0",
+    "tests/fixtures/s11/api_probe.gd": "2d663bd649376008c7a5a0e6585e8cbade0ed1d9b50de81c60cac5ad187d4de5",
+    "tests/fixtures/s11/api_probe.gd.uid": "b25113a0c5b74caa63748c00cd798ae9f58d15b704c1968b8f0634c7d0d13b1a",
+    "tests/fixtures/s11/boot.tscn": "70fe89d171a066e10da3fa9e54c8e1595d3dc06608c558ca274e0f70f62eb025",
+    "tests/fixtures/s11/population_policy.gd": "244e2bec85a85e5708e563a95532e6e626c2928284ee9b3b49d01abb342e5ecf",
+    "tests/fixtures/s11/population_policy.gd.uid": "4c00964ef98b122521588378dd4d0ae749f24f342d93e55b3eb11a778eb04bc0",
+    "tests/fixtures/s11/proof.gd": "c77f7121c6437d4154e76d6fee6fbda936bf2a4888db0dfeb74e57fb2ac3f101",
+    "tests/fixtures/s11/proof.gd.uid": "6171daa883f6a3defb4f3b9bfa7008af7e6d2f89697c0b4115bde727048d06b2",
+    "tests/fixtures/s11/snapshot_codec.gd": "2deb7eaf9f57425a61b0db9db86eb940b5aa96c4fd794c172890a1a637d6ef9e",
+    "tests/fixtures/s11/snapshot_codec.gd.uid": "906eafe9f2bf901cbdf3b78efae5e466cb9115591c7b35ee3ff1acd5d6fdea2c"
+  },
   "case_count": 6,
   "profiles": {
     "normal": {
       "host_out": {
         "values_kib_s": [
-          50.6890625,
-          58.20185546875,
-          53.57509765625
+          54.30830078125,
+          52.5626953125,
+          56.096484375
         ],
-        "median_kib_s": 53.57509765625,
-        "worst_kib_s": 58.20185546875
+        "median_kib_s": 54.30830078125,
+        "worst_kib_s": 56.096484375
       },
       "host_in": {
         "values_kib_s": [
-          0.576953125,
-          0.49775390625,
-          0.56953125
+          0.563671875,
+          0.5392578125,
+          0.5796875
         ],
-        "median_kib_s": 0.56953125,
-        "worst_kib_s": 0.576953125
+        "median_kib_s": 0.563671875,
+        "worst_kib_s": 0.5796875
       },
       "client_in": {
         "values_kib_s": [
-          17.45205078125,
-          19.52763671875,
-          17.990234375
+          19.514453125,
+          18.4125,
+          19.0650390625
         ],
-        "median_kib_s": 17.990234375,
-        "worst_kib_s": 19.52763671875
+        "median_kib_s": 19.0650390625,
+        "worst_kib_s": 19.514453125
       },
       "client_out": {
         "values_kib_s": [
-          0.19765625,
-          0.18642578125,
-          0.1935546875
+          0.195703125,
+          0.1876953125,
+          0.2015625
         ],
-        "median_kib_s": 0.1935546875,
-        "worst_kib_s": 0.19765625
+        "median_kib_s": 0.195703125,
+        "worst_kib_s": 0.2015625
       },
       "encode_usec_per_snapshot": {
         "p95_values_usec": [
-          797,
-          617,
-          870
+          589,
+          946,
+          1029
         ],
-        "median_p95_usec": 797,
-        "worst_usec": 4468
+        "median_p95_usec": 946,
+        "worst_usec": 4412
       },
       "decode_usec_per_packet": {
         "p95_values_usec": [
-          1040,
-          1323,
-          1298
+          1029,
+          1122,
+          1187
         ],
-        "median_p95_usec": 1298,
-        "worst_usec": 14710
+        "median_p95_usec": 1122,
+        "worst_usec": 3689
       },
       "jitter_p95_m": {
         "values": [
-          0.0795755000578033,
-          0.0750919279611508,
-          0.0751667936642965,
-          0.102130452460713,
-          0.0925509907185634,
-          0.0990000148614248,
           0.0828009029229482,
-          0.0892395653863748,
-          0.081450500090917
+          0.100350417693456,
+          0.0790829472409222,
+          0.0782589299002224,
+          0.0837002178033193,
+          0.0688505550225576,
+          0.0786167105038961,
+          0.081450500090917,
+          0.0841493984063466
         ],
-        "median": 0.0828009029229482,
-        "worst": 0.102130452460713
+        "median": 0.081450500090917,
+        "worst": 0.100350417693456
       },
       "extrapolated_entity_frame_percent": {
         "values": [
-          21.74974483462525,
-          10.930576070901035,
-          19.888245033112582,
-          3.3173830311170804,
-          16.38332044494676,
-          5.6065482020428155,
-          14.332926429868701,
-          11.687209717756343,
-          10.892265644727656
+          16.517989889979184,
+          2.4001184578936035,
+          7.679879362343817,
+          18.77782274382841,
+          4.590366960127076,
+          9.270328486806676,
+          5.842354961778328,
+          7.659393595919524,
+          5.6590703460755485
         ],
-        "median": 11.687209717756343,
-        "worst": 21.74974483462525
+        "median": 7.659393595919524,
+        "worst": 18.77782274382841
       },
-      "join_wire_bytes_worst": 3149,
+      "join_wire_bytes_worst": 3111,
+      "delivered_profile_cases": [
+        {
+          "repetition": 1,
+          "route": "IPv4 UDP loopback through one independent proxy socket per client",
+          "host_stall_duration_ms": 0,
+          "interruption": {
+            "observed": false,
+            "duration_ms": 0
+          },
+          "up": {
+            "ingress_datagrams": 260,
+            "random_drop_datagrams": 4,
+            "random_drop_percent": 1.5384615384615385,
+            "blackout_drop_datagrams": 0,
+            "delivered_datagrams": 256,
+            "actual_delay_ms": {
+              "min": 46.77410004660487,
+              "median": 75.9133999235928,
+              "p95": 104.4319998472929,
+              "max": 112.3759001493454
+            },
+            "actual_delay_variation_ms": {
+              "median_absolute_deviation": 13.95499985665083,
+              "p95_absolute_deviation": 28.66869978606701,
+              "max_absolute_deviation": 36.46250022575259
+            }
+          },
+          "down": {
+            "ingress_datagrams": 713,
+            "random_drop_datagrams": 14,
+            "random_drop_percent": 1.9635343618513323,
+            "blackout_drop_datagrams": 0,
+            "delivered_datagrams": 699,
+            "actual_delay_ms": {
+              "min": 45.664400327950716,
+              "median": 78.02839996293187,
+              "p95": 105.50389997661114,
+              "max": 2695.5167003907263
+            },
+            "actual_delay_variation_ms": {
+              "median_absolute_deviation": 15.439699869602919,
+              "p95_absolute_deviation": 30.13950027525425,
+              "max_absolute_deviation": 2617.4883004277945
+            }
+          }
+        },
+        {
+          "repetition": 2,
+          "route": "IPv4 UDP loopback through one independent proxy socket per client",
+          "host_stall_duration_ms": 0,
+          "interruption": {
+            "observed": false,
+            "duration_ms": 0
+          },
+          "up": {
+            "ingress_datagrams": 246,
+            "random_drop_datagrams": 3,
+            "random_drop_percent": 1.2195121951219512,
+            "blackout_drop_datagrams": 0,
+            "delivered_datagrams": 243,
+            "actual_delay_ms": {
+              "min": 45.51990004256368,
+              "median": 78.84279964491725,
+              "p95": 104.47829961776733,
+              "max": 107.4676001444459
+            },
+            "actual_delay_variation_ms": {
+              "median_absolute_deviation": 14.577700290828943,
+              "p95_absolute_deviation": 28.368199709802866,
+              "max_absolute_deviation": 33.32289960235357
+            }
+          },
+          "down": {
+            "ingress_datagrams": 685,
+            "random_drop_datagrams": 16,
+            "random_drop_percent": 2.335766423357664,
+            "blackout_drop_datagrams": 0,
+            "delivered_datagrams": 669,
+            "actual_delay_ms": {
+              "min": 45.61659973114729,
+              "median": 75.79699996858835,
+              "p95": 104.97790016233921,
+              "max": 2699.0455999039114
+            },
+            "actual_delay_variation_ms": {
+              "median_absolute_deviation": 15.19309962168336,
+              "p95_absolute_deviation": 29.308899771422148,
+              "max_absolute_deviation": 2623.248599935323
+            }
+          }
+        },
+        {
+          "repetition": 3,
+          "route": "IPv4 UDP loopback through one independent proxy socket per client",
+          "host_stall_duration_ms": 0,
+          "interruption": {
+            "observed": false,
+            "duration_ms": 0
+          },
+          "up": {
+            "ingress_datagrams": 245,
+            "random_drop_datagrams": 5,
+            "random_drop_percent": 2.0408163265306123,
+            "blackout_drop_datagrams": 0,
+            "delivered_datagrams": 240,
+            "actual_delay_ms": {
+              "min": 46.00969981402159,
+              "median": 77.97900028526783,
+              "p95": 104.81079993769526,
+              "max": 3142.7470999769866
+            },
+            "actual_delay_variation_ms": {
+              "median_absolute_deviation": 14.56840056926012,
+              "p95_absolute_deviation": 29.637199826538563,
+              "max_absolute_deviation": 3064.768099691719
+            }
+          },
+          "down": {
+            "ingress_datagrams": 709,
+            "random_drop_datagrams": 18,
+            "random_drop_percent": 2.538787023977433,
+            "blackout_drop_datagrams": 0,
+            "delivered_datagrams": 691,
+            "actual_delay_ms": {
+              "min": 46.15840036422014,
+              "median": 79.08120006322861,
+              "p95": 105.22500006482005,
+              "max": 3080.848400015384
+            },
+            "actual_delay_variation_ms": {
+              "median_absolute_deviation": 15.976599883288145,
+              "p95_absolute_deviation": 29.677999671548605,
+              "max_absolute_deviation": 3001.7671999521554
+            }
+          }
+        }
+      ],
       "environment": [
         {
           "before": {
-            "godot_processes": 9,
-            "cpu_load_percent": 0.0
-          },
-          "measurement": {
-            "godot_processes": 13,
-            "cpu_load_percent": 54.0
-          },
-          "label": "contended upper bound"
-        },
-        {
-          "before": {
-            "godot_processes": 8,
-            "cpu_load_percent": 82.0
-          },
-          "measurement": {
-            "godot_processes": 10,
+            "godot_processes": 4,
             "cpu_load_percent": 85.0
           },
+          "measurement": {
+            "godot_processes": 8,
+            "cpu_load_percent": 48.0
+          },
           "label": "contended upper bound"
         },
         {
           "before": {
-            "godot_processes": 8,
-            "cpu_load_percent": 68.0
+            "godot_processes": 3,
+            "cpu_load_percent": 2.0
           },
           "measurement": {
-            "godot_processes": 12,
-            "cpu_load_percent": 80.0
+            "godot_processes": 7,
+            "cpu_load_percent": 6.0
+          },
+          "label": "contended upper bound"
+        },
+        {
+          "before": {
+            "godot_processes": 6,
+            "cpu_load_percent": 87.0
+          },
+          "measurement": {
+            "godot_processes": 11,
+            "cpu_load_percent": 99.0
           },
           "label": "contended upper bound"
         }
@@ -128,120 +312,257 @@
     "adverse": {
       "host_out": {
         "values_kib_s": [
-          58.49599609375,
-          56.77646484375,
-          58.337890625
+          52.3220703125,
+          55.20341796875,
+          44.16767578125
         ],
-        "median_kib_s": 58.337890625,
-        "worst_kib_s": 58.49599609375
+        "median_kib_s": 52.3220703125,
+        "worst_kib_s": 55.20341796875
       },
       "host_in": {
         "values_kib_s": [
-          0.3380859375,
-          0.3236328125,
-          0.32421875
+          0.312109375,
+          0.3138671875,
+          0.38203125
         ],
-        "median_kib_s": 0.32421875,
-        "worst_kib_s": 0.3380859375
+        "median_kib_s": 0.3138671875,
+        "worst_kib_s": 0.38203125
       },
       "client_in": {
         "values_kib_s": [
-          19.82919921875,
-          20.06494140625,
-          20.06240234375
+          18.85771484375,
+          19.2091796875,
+          15.37333984375
         ],
-        "median_kib_s": 20.06240234375,
-        "worst_kib_s": 20.06494140625
+        "median_kib_s": 18.85771484375,
+        "worst_kib_s": 19.2091796875
       },
       "client_out": {
         "values_kib_s": [
-          0.1169921875,
-          0.133203125,
-          0.11796875
+          0.1060546875,
+          0.12578125,
+          0.12890625
         ],
-        "median_kib_s": 0.11796875,
-        "worst_kib_s": 0.133203125
+        "median_kib_s": 0.12578125,
+        "worst_kib_s": 0.12890625
       },
       "encode_usec_per_snapshot": {
         "p95_values_usec": [
-          1324,
-          1384,
-          846
+          853,
+          1025,
+          1053
         ],
-        "median_p95_usec": 1324,
-        "worst_usec": 55158
+        "median_p95_usec": 1025,
+        "worst_usec": 120005
       },
       "decode_usec_per_packet": {
         "p95_values_usec": [
-          1570,
-          1227,
-          1599
+          1253,
+          1213,
+          2879
         ],
-        "median_p95_usec": 1570,
-        "worst_usec": 6752
+        "median_p95_usec": 1253,
+        "worst_usec": 116490
       },
       "jitter_p95_m": {
         "values": [
-          0.0841499944527944,
-          0.0756171663602193,
-          0.0585348241859012,
-          0.0911473155888584,
-          0.0583730653088888,
-          0.0539952295291026,
-          0.0739668329556783,
           0.0400000015894572,
-          0.0595151268184052
+          0.0433333350552453,
+          0.0400000015894572,
+          0.0400000015894572,
+          0.0585003276666005,
+          0.0531968021138509,
+          0.0400000015894572,
+          0.0400000015894572,
+          0.0391469348888927
         ],
-        "median": 0.0595151268184052,
-        "worst": 0.0911473155888584
+        "median": 0.0400000015894572,
+        "worst": 0.0585003276666005
       },
       "extrapolated_entity_frame_percent": {
         "values": [
-          18.777119737305032,
-          18.984972906541532,
-          19.52825093780561,
-          18.224453101588253,
-          25.795672500599377,
-          25.866013071895427,
-          16.394212831815608,
-          39.46203469886416,
-          19.824136259779824
+          65.47362348105146,
+          25.225106898413674,
+          26.401927512597883,
+          28.632388947184328,
+          23.134610272410562,
+          22.298545047565753,
+          35.81160893332967,
+          28.551369061549263,
+          37.25538971807629
         ],
-        "median": 19.52825093780561,
-        "worst": 39.46203469886416
+        "median": 28.551369061549263,
+        "worst": 65.47362348105146
       },
-      "join_wire_bytes_worst": 3269,
+      "join_wire_bytes_worst": 3187,
+      "delivered_profile_cases": [
+        {
+          "repetition": 1,
+          "route": "IPv4 UDP loopback through one independent proxy socket per client",
+          "host_stall_duration_ms": 266,
+          "interruption": {
+            "observed": true,
+            "duration_ms": 999.2385003715754
+          },
+          "up": {
+            "ingress_datagrams": 163,
+            "random_drop_datagrams": 11,
+            "random_drop_percent": 6.748466257668712,
+            "blackout_drop_datagrams": 3,
+            "delivered_datagrams": 149,
+            "actual_delay_ms": {
+              "min": 77.30090012773871,
+              "median": 126.03729963302612,
+              "p95": 171.8152998946607,
+              "max": 3534.8916999064386
+            },
+            "actual_delay_variation_ms": {
+              "median_absolute_deviation": 19.423499237746,
+              "p95_absolute_deviation": 47.049100045114756,
+              "max_absolute_deviation": 3408.8544002734125
+            }
+          },
+          "down": {
+            "ingress_datagrams": 610,
+            "random_drop_datagrams": 21,
+            "random_drop_percent": 3.4426229508196724,
+            "blackout_drop_datagrams": 43,
+            "delivered_datagrams": 546,
+            "actual_delay_ms": {
+              "min": 76.85190020129085,
+              "median": 127.67360033467412,
+              "p95": 171.9463001936674,
+              "max": 3450.671599712223
+            },
+            "actual_delay_variation_ms": {
+              "median_absolute_deviation": 25.1526003703475,
+              "p95_absolute_deviation": 47.93930007144809,
+              "max_absolute_deviation": 3322.9979993775487
+            }
+          }
+        },
+        {
+          "repetition": 2,
+          "route": "IPv4 UDP loopback through one independent proxy socket per client",
+          "host_stall_duration_ms": 261,
+          "interruption": {
+            "observed": true,
+            "duration_ms": 1002.3727999068797
+          },
+          "up": {
+            "ingress_datagrams": 164,
+            "random_drop_datagrams": 8,
+            "random_drop_percent": 4.878048780487805,
+            "blackout_drop_datagrams": 2,
+            "delivered_datagrams": 154,
+            "actual_delay_ms": {
+              "min": 76.68079994618893,
+              "median": 131.850800011307,
+              "p95": 172.5874999538064,
+              "max": 212.18439983204007
+            },
+            "actual_delay_variation_ms": {
+              "median_absolute_deviation": 25.60809999704361,
+              "p95_absolute_deviation": 51.0130999609828,
+              "max_absolute_deviation": 80.33359982073307
+            }
+          },
+          "down": {
+            "ingress_datagrams": 636,
+            "random_drop_datagrams": 35,
+            "random_drop_percent": 5.50314465408805,
+            "blackout_drop_datagrams": 50,
+            "delivered_datagrams": 551,
+            "actual_delay_ms": {
+              "min": 77.09919987246394,
+              "median": 126.20460009202361,
+              "p95": 173.745300155133,
+              "max": 207.44549995288253
+            },
+            "actual_delay_variation_ms": {
+              "median_absolute_deviation": 25.410700123757124,
+              "p95_absolute_deviation": 47.94330010190606,
+              "max_absolute_deviation": 81.24089986085892
+            }
+          }
+        },
+        {
+          "repetition": 3,
+          "route": "IPv4 UDP loopback through one independent proxy socket per client",
+          "host_stall_duration_ms": 277,
+          "interruption": {
+            "observed": true,
+            "duration_ms": 1002.645599655807
+          },
+          "up": {
+            "ingress_datagrams": 162,
+            "random_drop_datagrams": 11,
+            "random_drop_percent": 6.790123456790123,
+            "blackout_drop_datagrams": 3,
+            "delivered_datagrams": 148,
+            "actual_delay_ms": {
+              "min": 77.6496003381908,
+              "median": 127.07389984279871,
+              "p95": 169.6879998780787,
+              "max": 242.54829995334148
+            },
+            "actual_delay_variation_ms": {
+              "median_absolute_deviation": 24.06139997765422,
+              "p95_absolute_deviation": 47.35520016402006,
+              "max_absolute_deviation": 115.47440011054277
+            }
+          },
+          "down": {
+            "ingress_datagrams": 529,
+            "random_drop_datagrams": 30,
+            "random_drop_percent": 5.671077504725898,
+            "blackout_drop_datagrams": 34,
+            "delivered_datagrams": 465,
+            "actual_delay_ms": {
+              "min": 76.29670016467571,
+              "median": 127.12650001049042,
+              "p95": 175.71370024234056,
+              "max": 2987.1590002439916
+            },
+            "actual_delay_variation_ms": {
+              "median_absolute_deviation": 25.557299610227346,
+              "p95_absolute_deviation": 49.58359990268946,
+              "max_absolute_deviation": 2860.032500233501
+            }
+          }
+        }
+      ],
       "environment": [
         {
           "before": {
+            "godot_processes": 6,
+            "cpu_load_percent": 84.0
+          },
+          "measurement": {
+            "godot_processes": 10,
+            "cpu_load_percent": 79.0
+          },
+          "label": "contended upper bound"
+        },
+        {
+          "before": {
+            "godot_processes": 4,
+            "cpu_load_percent": 37.0
+          },
+          "measurement": {
+            "godot_processes": 8,
+            "cpu_load_percent": 63.0
+          },
+          "label": "contended upper bound"
+        },
+        {
+          "before": {
+            "godot_processes": 2,
+            "cpu_load_percent": 88.0
+          },
+          "measurement": {
             "godot_processes": 7,
-            "cpu_load_percent": 0.0
-          },
-          "measurement": {
-            "godot_processes": 13,
-            "cpu_load_percent": 0.0
-          },
-          "label": "contended upper bound"
-        },
-        {
-          "before": {
-            "godot_processes": 11,
-            "cpu_load_percent": 66.0
-          },
-          "measurement": {
-            "godot_processes": 15,
-            "cpu_load_percent": 94.0
-          },
-          "label": "contended upper bound"
-        },
-        {
-          "before": {
-            "godot_processes": 9,
-            "cpu_load_percent": 85.0
-          },
-          "measurement": {
-            "godot_processes": 13,
-            "cpu_load_percent": 54.0
+            "cpu_load_percent": 82.0
           },
           "label": "contended upper bound"
         }
