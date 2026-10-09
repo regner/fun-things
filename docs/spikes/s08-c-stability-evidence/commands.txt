@@ -1,6 +1,22 @@
-timeout 120 godot --headless --path . --log-file C:/tmp/ft/lanes/s08-c/author/city-192.log --script tools/s07_env/author_city.gd -- --blocks 192
-timeout 120 godot --headless --path . --log-file C:/tmp/ft/lanes/s08-c/author/city-288.log --script tools/s07_env/author_city.gd -- --blocks 288
-timeout 300 python tools/s07_env/run.py --godot <mise-pin> --output C:/tmp/ft/lanes/s08-c/bisect-192 --variants 192 --warmup 0 --duration 1
-timeout 300 python tools/s07_env/run.py --godot <mise-pin> --output C:/tmp/ft/lanes/s08-c/bisect-288 --variants 288 --warmup 0 --duration 1
-# HKCU LocalDumps/godot.exe had DumpType=1 and DumpCount=2 for this one bounded rerun:
-timeout 300 python tools/s07_env/run.py --godot <mise-pin> --output C:/tmp/ft/lanes/s08-c/quiet-384 --variants 384 --warmup 1 --duration 1
+# Run from the repository root in Git Bash. Every engine or engine-launching command is bounded.
+GODOT="$(mise -C C:/GameDev/git/fun-things which godot)"
+timeout 120 "$GODOT" --headless --path . --log-file C:/tmp/ft/lanes/s08-c/author/city-192.log --script tools/s07_env/author_city.gd -- --blocks 192
+timeout 120 "$GODOT" --headless --path . --log-file C:/tmp/ft/lanes/s08-c/author/city-288.log --script tools/s07_env/author_city.gd -- --blocks 288
+timeout 300 python tools/s07_env/run.py --godot "$GODOT" --output C:/tmp/ft/lanes/s08-c/bisect-192 --variants 192 --warmup 0 --duration 1
+timeout 300 python tools/s07_env/run.py --godot "$GODOT" --output C:/tmp/ft/lanes/s08-c/bisect-288 --variants 288 --warmup 0 --duration 1
+
+# Reproduce the bounded 384 run with WER setup, configured-value query, and trap cleanup.
+# All three output directories must be absent or empty. The script refuses to overwrite an
+# existing HKCU per-executable dump key and verifies that its created key is absent afterward.
+timeout 360 bash tools/s07_env/run_with_wer_dumps.sh \
+  C:/tmp/ft/lanes/s08-c/quiet-384-reproduction \
+  C:/tmp/ft/lanes/s08-c/quiet-384-reproduction-dumps \
+  C:/tmp/ft/lanes/s08-c/quiet-384-reproduction-wer-receipt
+
+# Validate only the reversible registry transaction without launching Godot.
+timeout 60 bash tools/s07_env/run_with_wer_dumps.sh \
+  C:/tmp/ft/lanes/s08-c/not-run \
+  C:/tmp/ft/lanes/s08-c/wer-procedure-dumps \
+  C:/tmp/ft/lanes/s08-c/wer-procedure-check \
+  --registry-only
+python -m json.tool docs/spikes/s08-c-stability-evidence/wer-localdumps.json > /dev/null

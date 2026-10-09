@@ -54,6 +54,14 @@ so there was no exception from which Windows could produce a dump or backtrace. 
 registry key was removed afterward. The absence of a dump is a non-reproduction result,
 not missing crash evidence.
 
+The retained [`run_with_wer_dumps.sh`](../../tools/s07_env/run_with_wer_dumps.sh) now
+makes that transaction reproducible. It refuses to replace an existing per-executable
+key, applies and queries `DumpFolder`/`DumpType`/`DumpCount`, bounds the runner, and uses
+EXIT/INT/TERM cleanup to delete only its created key and query for absence. A registry-only
+replay retained [pre/configured/post receipts](s08-c-stability-evidence/wer-procedure-check/)
+and left the key absent. Exact commands are in the evidence `commands.txt`; the valid JSON
+receipt records the same apply and revert operations.
+
 ## Disposition
 
 The access violation is **not reproducible with the current no-cutaway 384-block saved

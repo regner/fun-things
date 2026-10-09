@@ -1,11 +1,41 @@
 {
-  "scope": "HKCU\Software\Microsoft\Windows\Windows Error Reporting\LocalDumps\godot.exe",
-  "configured_before_run": {
-    "DumpFolder": "C:\tmp\ft\lanes\s08-c\quiet-384-dumps",
-    "DumpType": 1,
-    "DumpCount": 2
+  "schema_version": 1,
+  "registry_key": "HKCU\\Software\\Microsoft\\Windows\\Windows Error Reporting\\LocalDumps\\godot.exe",
+  "original_run": {
+    "configured_before_run": {
+      "DumpFolder": "C:\\tmp\\ft\\lanes\\s08-c\\quiet-384-dumps",
+      "DumpType": 1,
+      "DumpCount": 2
+    },
+    "run_result": "Both 384-block repeats exited 0; no crash dump or backtrace was produced.",
+    "dump_files": [],
+    "cleanup_observation": "The per-executable key was deleted; a post-run reg query returned exit 1 (key absent)."
   },
-  "run_result": "Both 384-block repeats exited 0; no crash dump or backtrace was produced.",
-  "dump_files": [],
-  "cleanup": "The per-executable LocalDumps key was removed after the bounded run."
+  "reproducible_procedure": {
+    "script": "tools/s07_env/run_with_wer_dumps.sh",
+    "precondition": "The script refuses to replace an existing per-executable key and requires fresh dump and receipt directories.",
+    "preflight_command": "reg.exe query \"$WER_KEY\"",
+    "apply_commands": [
+      "reg.exe add \"$WER_KEY\" //v DumpFolder //t REG_EXPAND_SZ //d \"$DUMP_FOLDER_WINDOWS\" //f",
+      "reg.exe add \"$WER_KEY\" //v DumpType //t REG_DWORD //d 1 //f",
+      "reg.exe add \"$WER_KEY\" //v DumpCount //t REG_DWORD //d 2 //f",
+      "reg.exe query \"$WER_KEY\""
+    ],
+    "bounded_run_command": "timeout 300 python tools/s07_env/run.py --godot \"$GODOT\" --output \"$RUNNER_OUTPUT\" --variants 384 --warmup 1 --duration 1",
+    "revert_commands": [
+      "reg.exe delete \"$WER_KEY\" //f",
+      "reg.exe query \"$WER_KEY\""
+    ],
+    "cleanup_guarantee": "EXIT, INT, and TERM traps delete only the key created by the script and fail if its post-cleanup query still finds the key.",
+    "script_sha256": "d30fdc59e13472963fb8aba6990cdafb67e6aa177a12ad9d8f5ad0af5d62c504"
+  },
+  "registry_only_verification": {
+    "command": "timeout 60 bash tools/s07_env/run_with_wer_dumps.sh C:/tmp/ft/lanes/s08-c/not-run C:/tmp/ft/lanes/s08-c/wer-procedure-dumps C:/tmp/ft/lanes/s08-c/wer-procedure-check --registry-only",
+    "result": "exit 0",
+    "pre_query_exit": 1,
+    "configured_query_exit": 0,
+    "post_query_exit": 1,
+    "persistent_system_change": false,
+    "receipts": "docs/spikes/s08-c-stability-evidence/wer-procedure-check/"
+  }
 }

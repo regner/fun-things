@@ -17,8 +17,12 @@ measurement fixture; no uncapped rendering was used.
 - `bisect-process-counts.txt` and `quiet-384-process-count.txt` label the measurements as
   contended. Other lanes were running on the workstation.
 - `wer-localdumps.json` records the temporary per-executable Windows Error Reporting
-  minidump configuration. The crash did not recur, so no dump or backtrace was produced;
-  the registry key was removed after the run.
+  minidump configuration and the exact apply/query/revert commands. The crash did not
+  recur, so no dump or backtrace was produced; the registry key was removed after the run.
+- `wer-procedure-check/` proves a later registry-only replay: the key was absent before,
+  held the requested folder/type/count, and was absent after trap cleanup. The reusable
+  `tools/s07_env/run_with_wer_dumps.sh` refuses to overwrite an existing key and retains
+  these query receipts for a full rerun as well.
 - `files.txt` lists retained file sizes. `SHA256SUMS` binds every other evidence file.
 
 The external staged projects and shader caches are intentionally not retained. The
