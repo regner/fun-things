@@ -1,0 +1,30 @@
+[
+  {
+    "path": "scenes/prefabs/environment/city_lights_01.tscn",
+    "sha256": "d6d66f7c53d21b9fe1cb73e161c28ba35e542406ce6e994e5681adb982fe4d5a",
+    "has_linked_glb": true,
+    "has_embedded_render_mesh": false,
+    "saved_content": "[gd_scene format=3 uid=\"uid://ut0gchfm6vov\"]\n\n[ext_resource type=\"PackedScene\" uid=\"uid://dycoyplqtq8oa\" path=\"res://art/models/environment/city_lights_01/city_lights_01_warm.glb\" id=\"1_27c34\"]\n\n[sub_resource type=\"CylinderShape3D\" id=\"CylinderShape3D_oibcy\"]\nheight = 5.45\nradius = 0.21\n\n[node name=\"city_lights_01\" type=\"Node3D\" unique_id=1251605537]\n\n[node name=\"Visuals\" type=\"Node3D\" parent=\".\" unique_id=1861360059]\n\n[node name=\"Model\" parent=\"Visuals\" unique_id=1141812034 instance=ExtResource(\"1_27c34\")]\n\n[node name=\"Collision\" type=\"Node3D\" parent=\".\" unique_id=139512966]\n\n[node name=\"PoleBody\" type=\"StaticBody3D\" parent=\"Collision\" unique_id=924205906]\ncollision_mask = 0\n\n[node name=\"Shape\" type=\"CollisionShape3D\" parent=\"Collision/PoleBody\" unique_id=1901738257]\ntransform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.725, 0)\nshape = SubResource(\"CylinderShape3D_oibcy\")\n"
+  },
+  {
+    "path": "scenes/prefabs/environment/city_lights_01_cool.tscn",
+    "sha256": "59e125a494c145efe167b5ea9a24e5af1e401d4c1c26fde345f3a8a6a6d9da4c",
+    "has_linked_glb": true,
+    "has_embedded_render_mesh": false,
+    "saved_content": "[gd_scene format=3 uid=\"uid://c6bw5k07j3uo3\"]\n\n[ext_resource type=\"PackedScene\" uid=\"uid://hehkaly6ec6e\" path=\"res://art/models/environment/city_lights_01/city_lights_01_cool.glb\" id=\"1_kclti\"]\n\n[sub_resource type=\"CylinderShape3D\" id=\"CylinderShape3D_bm8g7\"]\nheight = 5.45\nradius = 0.21\n\n[node name=\"city_lights_01_cool\" type=\"Node3D\" unique_id=1717012341]\n\n[node name=\"Visuals\" type=\"Node3D\" parent=\".\" unique_id=1780338841]\n\n[node name=\"Model\" parent=\"Visuals\" unique_id=697477458 instance=ExtResource(\"1_kclti\")]\n\n[node name=\"Collision\" type=\"Node3D\" parent=\".\" unique_id=111630816]\n\n[node name=\"PoleBody\" type=\"StaticBody3D\" parent=\"Collision\" unique_id=1749757381]\ncollision_mask = 0\n\n[node name=\"Shape\" type=\"CollisionShape3D\" parent=\"Collision/PoleBody\" unique_id=1055802312]\ntransform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.725, 0)\nshape = SubResource(\"CylinderShape3D_bm8g7\")\n"
+  },
+  {
+    "path": "scenes/prefabs/environment/city_lights_02.tscn",
+    "sha256": "0b4010603528d8bda007ed6c03fa5e6da3f8e5192ceb52c98dc1d72cdf97529f",
+    "has_linked_glb": true,
+    "has_embedded_render_mesh": false,
+    "saved_content": "[gd_scene format=3 uid=\"uid://t4cmo7iwh7ja\"]\n\n[ext_resource type=\"PackedScene\" uid=\"uid://ckytu70vc12dm\" path=\"res://art/models/environment/city_lights_02/city_lights_02.glb\" id=\"1_142sr\"]\n\n[sub_resource type=\"CylinderShape3D\" id=\"CylinderShape3D_btk2n\"]\nheight = 2.63\nradius = 0.135\n\n[node name=\"city_lights_02\" type=\"Node3D\" unique_id=991736401]\n\n[node name=\"Visuals\" type=\"Node3D\" parent=\".\" unique_id=991016392]\n\n[node name=\"Model\" type=\"Node3D\" parent=\"Visuals\" unique_id=1623099096 instance=ExtResource(\"1_142sr\")]\n\n[node name=\"Collision\" type=\"Node3D\" parent=\".\" unique_id=1838924008]\n\n[node name=\"PoleBody\" type=\"StaticBody3D\" parent=\"Collision\" unique_id=1945239099]\ncollision_mask = 0\n\n[node name=\"Shape\" type=\"CollisionShape3D\" parent=\"Collision/PoleBody\" unique_id=1222960231]\ntransform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.315, 0)\nshape = SubResource(\"CylinderShape3D_btk2n\")\n"
+  },
+  {
+    "path": "scenes/prefabs/environment/city_lights_02_cool.tscn",
+    "sha256": "f85818c44ed8d119dc2d9ba001cdf0499a7f74cd78f7de39d5b3fdd9ff581dc0",
+    "has_linked_glb": true,
+    "has_embedded_render_mesh": false,
+    "saved_content": "[gd_scene format=3 uid=\"uid://dc1kamixdnvca\"]\n\n[ext_resource type=\"PackedScene\" uid=\"uid://bq8l6g4sd5bag\" path=\"res://art/models/environment/city_lights_02/city_lights_02_cool.glb\" id=\"1_ouagq\"]\n\n[sub_resource type=\"CylinderShape3D\" id=\"CylinderShape3D_2bskb\"]\nheight = 2.63\nradius = 0.135\n\n[node name=\"city_lights_02_cool\" type=\"Node3D\" unique_id=1877841748]\n\n[node name=\"Visuals\" type=\"Node3D\" parent=\".\" unique_id=1073604606]\n\n[node name=\"Model\" type=\"Node3D\" parent=\"Visuals\" unique_id=1364271936 instance=ExtResource(\"1_ouagq\")]\n\n[node name=\"Collision\" type=\"Node3D\" parent=\".\" unique_id=964044753]\n\n[node name=\"PoleBody\" type=\"StaticBody3D\" parent=\"Collision\" unique_id=110667534]\ncollision_mask = 0\n\n[node name=\"Shape\" type=\"CollisionShape3D\" parent=\"Collision/PoleBody\" unique_id=1982615099]\ntransform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.315, 0)\nshape = SubResource(\"CylinderShape3D_2bskb\")\n"
+  }
+]

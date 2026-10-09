@@ -1,0 +1,307 @@
+[
+  {
+    "label": "blender-version",
+    "argv": [
+      "/usr/bin/blender",
+      "--version"
+    ],
+    "cwd": "/tmp/six-asset-review-390377d",
+    "environment_overrides": {
+      "ALSOFT_DRIVERS": "null",
+      "SDL_AUDIODRIVER": "dummy",
+      "XDG_CACHE_HOME": "/tmp/six-review-cache"
+    },
+    "exit": 0,
+    "elapsed_seconds": 0.2141273021697998
+  },
+  {
+    "label": "independent-source-inspection",
+    "argv": [
+      "/usr/bin/blender",
+      "-b",
+      "--factory-startup",
+      "-noaudio",
+      "--threads",
+      "2",
+      "--python-exit-code",
+      "1",
+      "--python",
+      "/home/regner/.paseo/worktrees/0u71f39f/asset-register-production/docs/reviews/asset-production/batch_01/inspect_sources.py"
+    ],
+    "cwd": "/tmp/six-asset-review-390377d",
+    "environment_overrides": {
+      "ALSOFT_DRIVERS": "null",
+      "SDL_AUDIODRIVER": "dummy",
+      "XDG_CACHE_HOME": "/tmp/six-review-cache"
+    },
+    "exit": 0,
+    "elapsed_seconds": 0.8149347305297852
+  },
+  {
+    "label": "city_lights_01-reexport",
+    "argv": [
+      "/usr/bin/blender",
+      "-b",
+      "--factory-startup",
+      "-noaudio",
+      "--threads",
+      "2",
+      "/tmp/six-review-jobs/city_lights_01/art/source/models/environment/city_lights_01/city_lights_01.blend",
+      "--python-exit-code",
+      "1",
+      "--python",
+      "/tmp/six-review-jobs/city_lights_01/tools/asset_production/city_lights_01/export.py",
+      "--",
+      "/tmp/six-review-jobs/city_lights_01/art/models/environment/city_lights_01"
+    ],
+    "cwd": "/tmp/six-review-jobs/city_lights_01",
+    "environment_overrides": {
+      "ALSOFT_DRIVERS": "null",
+      "SDL_AUDIODRIVER": "dummy",
+      "XDG_CACHE_HOME": "/tmp/six-review-cache"
+    },
+    "exit": 0,
+    "elapsed_seconds": 0.7149150371551514
+  },
+  {
+    "label": "city_lights_02-reexport",
+    "argv": [
+      "/usr/bin/blender",
+      "-b",
+      "--factory-startup",
+      "-noaudio",
+      "--threads",
+      "2",
+      "/tmp/six-review-jobs/city_lights_02/art/source/models/environment/city_lights_02/city_lights_02.blend",
+      "--python-exit-code",
+      "1",
+      "--python",
+      "/tmp/six-review-jobs/city_lights_02/tools/asset_production/city_lights_02/export.py"
+    ],
+    "cwd": "/tmp/six-review-jobs/city_lights_02",
+    "environment_overrides": {
+      "ALSOFT_DRIVERS": "null",
+      "SDL_AUDIODRIVER": "dummy",
+      "XDG_CACHE_HOME": "/tmp/six-review-cache"
+    },
+    "exit": 0,
+    "elapsed_seconds": 0.6648614406585693
+  },
+  {
+    "label": "city_lights_04-reexport",
+    "argv": [
+      "/usr/bin/blender",
+      "-b",
+      "--factory-startup",
+      "-noaudio",
+      "--threads",
+      "2",
+      "/tmp/six-review-jobs/city_lights_04/art/source/models/environment/city_lights_04/city_lights_04.blend",
+      "--python-exit-code",
+      "1",
+      "--python",
+      "/tmp/six-review-jobs/city_lights_04/tools/asset_production/city_lights_04/export.py",
+      "--",
+      "/tmp/six-review-jobs/city_lights_04/art/models/environment/city_lights_04"
+    ],
+    "cwd": "/tmp/six-review-jobs/city_lights_04",
+    "environment_overrides": {
+      "ALSOFT_DRIVERS": "null",
+      "SDL_AUDIODRIVER": "dummy",
+      "XDG_CACHE_HOME": "/tmp/six-review-cache"
+    },
+    "exit": 0,
+    "elapsed_seconds": 0.7151589393615723
+  },
+  {
+    "label": "city_sign_supports_01-reexport",
+    "argv": [
+      "/usr/bin/blender",
+      "-b",
+      "--factory-startup",
+      "-noaudio",
+      "--threads",
+      "2",
+      "/tmp/six-review-jobs/city_sign_supports_01/art/source/models/environment/city_sign_supports_01/city_sign_supports_01.blend",
+      "--python-exit-code",
+      "1",
+      "--python",
+      "/tmp/six-review-jobs/city_sign_supports_01/tools/asset_production/city_sign_supports_01/export.py",
+      "--",
+      "/tmp/six-review-jobs/city_sign_supports_01/art/models/environment/city_sign_supports_01/city_sign_supports_01.glb",
+      "/tmp/six-review-jobs/city_sign_supports_01/docs/assets/production/city_sign_supports_01-evidence/review-reexport.json"
+    ],
+    "cwd": "/tmp/six-review-jobs/city_sign_supports_01",
+    "environment_overrides": {
+      "ALSOFT_DRIVERS": "null",
+      "SDL_AUDIODRIVER": "dummy",
+      "XDG_CACHE_HOME": "/tmp/six-review-cache"
+    },
+    "exit": 0,
+    "elapsed_seconds": 0.6647474765777588
+  },
+  {
+    "label": "city_planting_01-reexport",
+    "argv": [
+      "/usr/bin/blender",
+      "-b",
+      "--factory-startup",
+      "-noaudio",
+      "--threads",
+      "2",
+      "/tmp/six-review-jobs/city_planting_01/art/source/models/environment/city_planting_01/city_planting_01.blend",
+      "--python-exit-code",
+      "1",
+      "--python",
+      "/tmp/six-review-jobs/city_planting_01/tools/asset_production/city_planting_01/export.py"
+    ],
+    "cwd": "/tmp/six-review-jobs/city_planting_01",
+    "environment_overrides": {
+      "ALSOFT_DRIVERS": "null",
+      "SDL_AUDIODRIVER": "dummy",
+      "XDG_CACHE_HOME": "/tmp/six-review-cache"
+    },
+    "exit": 0,
+    "elapsed_seconds": 0.6647951602935791
+  },
+  {
+    "label": "city_planting_02-reexport",
+    "argv": [
+      "/usr/bin/blender",
+      "-b",
+      "--factory-startup",
+      "-noaudio",
+      "--threads",
+      "2",
+      "/tmp/six-review-jobs/city_planting_02/art/source/models/environment/city_planting_02/city_planting_02.blend",
+      "--python-exit-code",
+      "1",
+      "--python",
+      "/tmp/six-review-jobs/city_planting_02/tools/asset_production/city_planting_02/export.py"
+    ],
+    "cwd": "/tmp/six-review-jobs/city_planting_02",
+    "environment_overrides": {
+      "ALSOFT_DRIVERS": "null",
+      "SDL_AUDIODRIVER": "dummy",
+      "XDG_CACHE_HOME": "/tmp/six-review-cache"
+    },
+    "exit": 0,
+    "elapsed_seconds": 0.6648309230804443
+  },
+  {
+    "label": "independent-manifest-and-glb",
+    "argv": [
+      "python3",
+      "/home/regner/.paseo/worktrees/0u71f39f/asset-register-production/docs/reviews/asset-production/batch_01/inspect_payload.py"
+    ],
+    "cwd": "/tmp/six-asset-review-390377d",
+    "environment_overrides": {
+      "ALSOFT_DRIVERS": "null",
+      "SDL_AUDIODRIVER": "dummy",
+      "XDG_CACHE_HOME": "/tmp/six-review-cache"
+    },
+    "exit": 2,
+    "elapsed_seconds": 0.01596522331237793
+  },
+  {
+    "label": "independent-manifest-and-glb-adapted",
+    "argv": [
+      "python3",
+      "/home/regner/.paseo/worktrees/0u71f39f/asset-register-production/docs/reviews/asset-production/batch_01/inspect_payload.py"
+    ],
+    "cwd": "/home/regner/.paseo/worktrees/0u71f39f/asset-register-production",
+    "exit": 1,
+    "elapsed_seconds": 0.03873872756958008,
+    "adaptation": "Initial runner reached payload job before inspection script was saved; one completed-script rerun, original exit 2 and diagnostics retained."
+  },
+  {
+    "label": "independent-payload-schema-adaptation",
+    "argv": [
+      "python3",
+      "/home/regner/.paseo/worktrees/0u71f39f/asset-register-production/docs/reviews/asset-production/batch_01/inspect_payload.py"
+    ],
+    "cwd": "/home/regner/.paseo/worktrees/0u71f39f/asset-register-production",
+    "exit": 0,
+    "elapsed_seconds": 0.26696300506591797,
+    "adaptation": "One bounded code adaptation accepts actual list, path-keyed dict and wrapped producer manifest schemas; original AttributeError retained. Earlier exit 2 was a launch sequencing error before script existed."
+  },
+  {
+    "label": "independent-interface-check",
+    "argv": [
+      "/usr/bin/blender",
+      "-b",
+      "--factory-startup",
+      "-noaudio",
+      "--threads",
+      "2",
+      "--python-exit-code",
+      "1",
+      "--python",
+      "/home/regner/.paseo/worktrees/0u71f39f/asset-register-production/docs/reviews/asset-production/batch_01/inspect_interfaces.py"
+    ],
+    "cwd": "/home/regner/.paseo/worktrees/0u71f39f/asset-register-production",
+    "exit": 0,
+    "elapsed_seconds": 0.564690113067627,
+    "environment_overrides": {
+      "ALSOFT_DRIVERS": "null",
+      "SDL_AUDIODRIVER": "dummy",
+      "XDG_CACHE_HOME": "/tmp/six-review-cache"
+    }
+  },
+  {
+    "label": "fresh-source-previews",
+    "argv": [
+      "/usr/bin/blender",
+      "-b",
+      "--factory-startup",
+      "-noaudio",
+      "--threads",
+      "4",
+      "--python-exit-code",
+      "1",
+      "--python",
+      "/home/regner/.paseo/worktrees/0u71f39f/asset-register-production/docs/reviews/asset-production/batch_01/render_sources.py"
+    ],
+    "cwd": "/home/regner/.paseo/worktrees/0u71f39f/asset-register-production",
+    "exit": 0,
+    "elapsed_seconds": 36.26713967323303,
+    "environment_overrides": {
+      "ALSOFT_DRIVERS": "null",
+      "SDL_AUDIODRIVER": "dummy",
+      "XDG_CACHE_HOME": "/tmp/six-review-cache"
+    }
+  },
+  {
+    "label": "independent-model-bounds",
+    "argv": [
+      "python3",
+      "/home/regner/.paseo/worktrees/0u71f39f/asset-register-production/docs/reviews/asset-production/batch_01/inspect_world_bounds.py"
+    ],
+    "cwd": "/home/regner/.paseo/worktrees/0u71f39f/asset-register-production",
+    "exit": 0,
+    "elapsed_seconds": 0.03912925720214844
+  },
+  {
+    "label": "preflight",
+    "argv": [
+      "python3",
+      "/home/regner/.paseo/worktrees/0u71f39f/asset-register-production/docs/reviews/asset-production/batch_01/preflight.py"
+    ],
+    "cwd": "/home/regner/.paseo/worktrees/0u71f39f/asset-register-production",
+    "environment_overrides": {
+      "GIT_OPTIONAL_LOCKS": "0"
+    },
+    "exit": 0,
+    "elapsed_seconds": null
+  },
+  {
+    "label": "record-consistency",
+    "argv": [
+      "python3",
+      "/home/regner/.paseo/worktrees/0u71f39f/asset-register-production/docs/reviews/asset-production/batch_01/verify_review_record.py"
+    ],
+    "cwd": "/home/regner/.paseo/worktrees/0u71f39f/asset-register-production",
+    "exit": 0,
+    "elapsed_seconds": 0.021680831909179688
+  }
+]

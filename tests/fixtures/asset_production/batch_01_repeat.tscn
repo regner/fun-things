@@ -1,0 +1,155 @@
+[gd_scene format=3 uid="uid://bff0wc268obb"]
+
+[ext_resource type="PackedScene" uid="uid://ckn4gl5tx6oqi" path="res://tests/fixtures/asset_production/batch_01_camera.tscn" id="1"]
+[ext_resource type="PackedScene" uid="uid://ut0gchfm6vov" path="res://scenes/prefabs/environment/city_lights_01.tscn" id="2_x6k8m"]
+[ext_resource type="PackedScene" uid="uid://t4cmo7iwh7ja" path="res://scenes/prefabs/environment/city_lights_02.tscn" id="3_gp8ad"]
+[ext_resource type="PackedScene" uid="uid://r533sxfqspli" path="res://scenes/prefabs/environment/city_lights_04.tscn" id="4_0t17c"]
+[ext_resource type="PackedScene" uid="uid://byqodl735ss1a" path="res://scenes/prefabs/environment/city_sign_supports_01.tscn" id="5_c6xo0"]
+[ext_resource type="PackedScene" uid="uid://diinbdkhlyjwf" path="res://scenes/prefabs/environment/city_planting_01.tscn" id="6_36jib"]
+[ext_resource type="PackedScene" uid="uid://cs6vjjktp7na8" path="res://scenes/prefabs/environment/city_planting_02.tscn" id="7_nuatv"]
+
+[node name="preview" unique_id=392826267 instance=ExtResource("1")]
+
+[node name="Repeat_city_lights_01_0" parent="." index="19" unique_id=1251605537 instance=ExtResource("2_x6k8m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16, 0, 8)
+
+[node name="Repeat_city_lights_01_1" parent="." index="20" unique_id=1912307466 instance=ExtResource("2_x6k8m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.6, 0, 8)
+
+[node name="Repeat_city_lights_01_2" parent="." index="21" unique_id=1702924137 instance=ExtResource("2_x6k8m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.2, 0, 8)
+
+[node name="Repeat_city_lights_01_3" parent="." index="22" unique_id=1342801457 instance=ExtResource("2_x6k8m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.8, 0, 8)
+
+[node name="Repeat_city_lights_01_4" parent="." index="23" unique_id=566846717 instance=ExtResource("2_x6k8m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.6, 0, 8)
+
+[node name="Repeat_city_lights_01_5" parent="." index="24" unique_id=1034394574 instance=ExtResource("2_x6k8m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, 8)
+
+[node name="Repeat_city_lights_01_6" parent="." index="25" unique_id=1762464281 instance=ExtResource("2_x6k8m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.4, 0, 8)
+
+[node name="Repeat_city_lights_01_7" parent="." index="26" unique_id=1966829020 instance=ExtResource("2_x6k8m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.8, 0, 8)
+
+[node name="Repeat_city_lights_02_0" parent="." index="27" unique_id=991736401 instance=ExtResource("3_gp8ad")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16, 0, 9.6)
+
+[node name="Repeat_city_lights_02_1" parent="." index="28" unique_id=1228828203 instance=ExtResource("3_gp8ad")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.6, 0, 9.6)
+
+[node name="Repeat_city_lights_02_2" parent="." index="29" unique_id=1680862714 instance=ExtResource("3_gp8ad")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.2, 0, 9.6)
+
+[node name="Repeat_city_lights_02_3" parent="." index="30" unique_id=6469525 instance=ExtResource("3_gp8ad")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.8, 0, 9.6)
+
+[node name="Repeat_city_lights_02_4" parent="." index="31" unique_id=33515833 instance=ExtResource("3_gp8ad")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.6, 0, 9.6)
+
+[node name="Repeat_city_lights_02_5" parent="." index="32" unique_id=1228477656 instance=ExtResource("3_gp8ad")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, 9.6)
+
+[node name="Repeat_city_lights_02_6" parent="." index="33" unique_id=1532273648 instance=ExtResource("3_gp8ad")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.4, 0, 9.6)
+
+[node name="Repeat_city_lights_02_7" parent="." index="34" unique_id=251541040 instance=ExtResource("3_gp8ad")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.8, 0, 9.6)
+
+[node name="Repeat_city_lights_04_0" parent="." index="35" unique_id=1933073889 instance=ExtResource("4_0t17c")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16, 2.8, 11.2)
+
+[node name="Repeat_city_lights_04_1" parent="." index="36" unique_id=337451685 instance=ExtResource("4_0t17c")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.6, 2.8, 11.2)
+
+[node name="Repeat_city_lights_04_2" parent="." index="37" unique_id=1463310263 instance=ExtResource("4_0t17c")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.2, 2.8, 11.2)
+
+[node name="Repeat_city_lights_04_3" parent="." index="38" unique_id=540900816 instance=ExtResource("4_0t17c")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.8, 2.8, 11.2)
+
+[node name="Repeat_city_lights_04_4" parent="." index="39" unique_id=1969605604 instance=ExtResource("4_0t17c")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.6, 2.8, 11.2)
+
+[node name="Repeat_city_lights_04_5" parent="." index="40" unique_id=274931498 instance=ExtResource("4_0t17c")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 2.8, 11.2)
+
+[node name="Repeat_city_lights_04_6" parent="." index="41" unique_id=219549663 instance=ExtResource("4_0t17c")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.4, 2.8, 11.2)
+
+[node name="Repeat_city_lights_04_7" parent="." index="42" unique_id=899707966 instance=ExtResource("4_0t17c")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.8, 2.8, 11.2)
+
+[node name="Repeat_city_sign_supports_01_0" parent="." index="43" unique_id=1337827831 instance=ExtResource("5_c6xo0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16, 1.6, 12.8)
+
+[node name="Repeat_city_sign_supports_01_1" parent="." index="44" unique_id=1440361850 instance=ExtResource("5_c6xo0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.6, 1.6, 12.8)
+
+[node name="Repeat_city_sign_supports_01_2" parent="." index="45" unique_id=700181239 instance=ExtResource("5_c6xo0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.2, 1.6, 12.8)
+
+[node name="Repeat_city_sign_supports_01_3" parent="." index="46" unique_id=1802065670 instance=ExtResource("5_c6xo0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.8, 1.6, 12.8)
+
+[node name="Repeat_city_sign_supports_01_4" parent="." index="47" unique_id=690971700 instance=ExtResource("5_c6xo0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.6, 1.6, 12.8)
+
+[node name="Repeat_city_sign_supports_01_5" parent="." index="48" unique_id=1115518330 instance=ExtResource("5_c6xo0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 1.6, 12.8)
+
+[node name="Repeat_city_sign_supports_01_6" parent="." index="49" unique_id=749399488 instance=ExtResource("5_c6xo0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.4, 1.6, 12.8)
+
+[node name="Repeat_city_sign_supports_01_7" parent="." index="50" unique_id=551507667 instance=ExtResource("5_c6xo0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.8, 1.6, 12.8)
+
+[node name="Repeat_city_planting_01_0" parent="." index="51" unique_id=2037252806 instance=ExtResource("6_36jib")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16, 0, 14.4)
+
+[node name="Repeat_city_planting_01_1" parent="." index="52" unique_id=1031612208 instance=ExtResource("6_36jib")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.6, 0, 14.4)
+
+[node name="Repeat_city_planting_01_2" parent="." index="53" unique_id=941930580 instance=ExtResource("6_36jib")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.2, 0, 14.4)
+
+[node name="Repeat_city_planting_01_3" parent="." index="54" unique_id=1456050907 instance=ExtResource("6_36jib")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.8, 0, 14.4)
+
+[node name="Repeat_city_planting_01_4" parent="." index="55" unique_id=992046501 instance=ExtResource("6_36jib")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.6, 0, 14.4)
+
+[node name="Repeat_city_planting_01_5" parent="." index="56" unique_id=22103235 instance=ExtResource("6_36jib")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, 14.4)
+
+[node name="Repeat_city_planting_01_6" parent="." index="57" unique_id=1818038245 instance=ExtResource("6_36jib")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.4, 0, 14.4)
+
+[node name="Repeat_city_planting_01_7" parent="." index="58" unique_id=1589357967 instance=ExtResource("6_36jib")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.8, 0, 14.4)
+
+[node name="Repeat_city_planting_02_0" parent="." index="59" unique_id=649196182 instance=ExtResource("7_nuatv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16, 0, 16)
+
+[node name="Repeat_city_planting_02_1" parent="." index="60" unique_id=1544441461 instance=ExtResource("7_nuatv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.6, 0, 16)
+
+[node name="Repeat_city_planting_02_2" parent="." index="61" unique_id=658996639 instance=ExtResource("7_nuatv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.2, 0, 16)
+
+[node name="Repeat_city_planting_02_3" parent="." index="62" unique_id=853652094 instance=ExtResource("7_nuatv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.8, 0, 16)
+
+[node name="Repeat_city_planting_02_4" parent="." index="63" unique_id=1308046595 instance=ExtResource("7_nuatv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.6, 0, 16)
+
+[node name="Repeat_city_planting_02_5" parent="." index="64" unique_id=255409360 instance=ExtResource("7_nuatv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, 16)
+
+[node name="Repeat_city_planting_02_6" parent="." index="65" unique_id=1090595271 instance=ExtResource("7_nuatv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.4, 0, 16)
+
+[node name="Repeat_city_planting_02_7" parent="." index="66" unique_id=2027003031 instance=ExtResource("7_nuatv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.8, 0, 16)

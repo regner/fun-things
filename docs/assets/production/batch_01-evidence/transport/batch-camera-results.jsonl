@@ -1,0 +1,16 @@
+{"method":"script.write","result":{"id":1,"jsonrpc":"2.0","result":{"bytes":3139,"diagnostics":[],"indexed":false,"success":true,"undoable":true,"valid":true}}}
+{"method":"scene.create_inherited","result":{"id":2,"jsonrpc":"2.0","result":{"base_scene":"res://tests/fixtures/asset_production/lights_camera.tscn","file_path":"res://tests/fixtures/asset_production/batch_01_camera.tscn","root_name":"preview","success":true}}}
+{"method":"scene.open","result":{"id":3,"jsonrpc":"2.0","result":{"path":"res://tests/fixtures/asset_production/batch_01_camera.tscn","success":true}}}
+{"method":"node.set_script","result":{"id":4,"jsonrpc":"2.0","result":{"path":".","properties":[],"script":"res://tests/fixtures/asset_production/batch_observation.gd","success":true}}}
+{"method":"scene.instantiate","result":{"id":5,"jsonrpc":"2.0","result":{"class_name":"Node3D","path":"city_planting_01","status":"created","success":true}}}
+{"method":"scene.instantiate","result":{"id":6,"jsonrpc":"2.0","result":{"class_name":"Node3D","path":"city_planting_02","status":"created","success":true}}}
+{"method":"scene.instantiate","result":{"id":7,"jsonrpc":"2.0","result":{"class_name":"Node3D","path":"MountingFacade","status":"created","success":true}}}
+{"method":"scene.instantiate","result":{"id":8,"jsonrpc":"2.0","result":{"class_name":"Node3D","path":"WallLampWarm","status":"created","success":true}}}
+{"method":"scene.instantiate","result":{"id":9,"jsonrpc":"2.0","result":{"class_name":"Node3D","path":"WallLampCool","status":"created","success":true}}}
+{"method":"scene.instantiate","result":{"id":10,"jsonrpc":"2.0","result":{"class_name":"Node3D","path":"Panel","status":"created","success":true}}}
+{"method":"scene.instantiate","result":{"id":11,"jsonrpc":"2.0","result":{"class_name":"CharacterBody3D","path":"ProbeActor","status":"created","success":true}}}
+{"method":"node.set_property","result":{"id":12,"jsonrpc":"2.0","result":{"success":true}}}
+{"method":"editor.save_scene","result":{"id":13,"jsonrpc":"2.0","result":{"path":"res://tests/fixtures/asset_production/batch_01_camera.tscn","success":true}}}
+{"method":"scene.close","result":{"id":14,"jsonrpc":"2.0","result":{"path":"res://tests/fixtures/asset_production/batch_01_camera.tscn","success":true,"unsaved_changes_discarded":false}}}
+{"method":"scene.open","result":{"id":15,"jsonrpc":"2.0","result":{"path":"res://tests/fixtures/asset_production/batch_01_camera.tscn","success":true}}}
+{"method":"editor.save_scene","result":{"id":16,"jsonrpc":"2.0","result":{"path":"res://tests/fixtures/asset_production/batch_01_camera.tscn","success":true}}}

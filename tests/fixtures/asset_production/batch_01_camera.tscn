@@ -1,0 +1,36 @@
+[gd_scene format=3 uid="uid://ckn4gl5tx6oqi"]
+
+[ext_resource type="PackedScene" uid="uid://cu4s5g5yrmgod" path="res://tests/fixtures/asset_production/lights_camera.tscn" id="1"]
+[ext_resource type="Script" uid="uid://bqevn5ishh28m" path="res://tests/fixtures/asset_production/batch_observation.gd" id="2_ntjqb"]
+[ext_resource type="PackedScene" uid="uid://diinbdkhlyjwf" path="res://scenes/prefabs/environment/city_planting_01.tscn" id="3_f0ec4"]
+[ext_resource type="PackedScene" uid="uid://cs6vjjktp7na8" path="res://scenes/prefabs/environment/city_planting_02.tscn" id="4_fekp4"]
+[ext_resource type="PackedScene" uid="uid://dra4y060lahdw" path="res://tests/fixtures/s02/low_prefab.tscn" id="5_dry53"]
+[ext_resource type="PackedScene" uid="uid://r533sxfqspli" path="res://scenes/prefabs/environment/city_lights_04.tscn" id="6_gqsxy"]
+[ext_resource type="PackedScene" uid="uid://dn76s0erjcmk8" path="res://scenes/prefabs/environment/city_lights_04_cool.tscn" id="7_kdr0q"]
+[ext_resource type="PackedScene" uid="uid://byqodl735ss1a" path="res://scenes/prefabs/environment/city_sign_supports_01.tscn" id="8_c1tkh"]
+[ext_resource type="PackedScene" uid="uid://dl05tre3pd6e0" path="res://tests/fixtures/s02/actor.tscn" id="9_gt3c3"]
+
+[node name="preview" unique_id=1579819967 instance=ExtResource("1")]
+script = ExtResource("2_ntjqb")
+
+[node name="city_planting_01" parent="." index="12" unique_id=2037252806 instance=ExtResource("3_f0ec4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3)
+
+[node name="city_planting_02" parent="." index="13" unique_id=649196182 instance=ExtResource("4_fekp4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, 3)
+
+[node name="MountingFacade" parent="." index="14" unique_id=1338630014 instance=ExtResource("5_dry53")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, -10)
+
+[node name="WallLampWarm" parent="." index="15" unique_id=1933073889 instance=ExtResource("6_gqsxy")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -2, 2.8, -6)
+
+[node name="WallLampCool" parent="." index="16" unique_id=743537630 instance=ExtResource("7_kdr0q")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 2, 2.8, -6)
+
+[node name="Panel" parent="." index="17" unique_id=1337827831 instance=ExtResource("8_c1tkh")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -2, 1.6, -6)
+
+[node name="ProbeActor" parent="." index="18" unique_id=987036009 instance=ExtResource("9_gt3c3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 6)
+visible = false

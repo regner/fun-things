@@ -1,0 +1,38 @@
+tests/fixtures/asset_production/batch_observation.gd
+  31:1 warning node lookup in '_physics_process()'; cache the node in '_ready' or use '@onready' [quality/process-get-node]
+      	var actor: S02ActorMotion = $ProbeActor
+      ^
+  32:13 warning add space after '{' in single-line dictionary literal [format/brace-spacing]
+      	actor.step({"move": Vector2(0, -1), "aim_yaw": 0.0, "fire": false}, delta)
+      	           ^
+  32:67 warning add space before '}' in single-line dictionary literal [format/brace-spacing]
+      	actor.step({"move": Vector2(0, -1), "aim_yaw": 0.0, "fire": false}, delta)
+      	                                                                 ^
+  52:1 warning function 'probe_queries' has 12 local variables (max 10) [quality/max-local-variables]
+      func probe_queries() -> Dictionary:
+      ^
+  79:21 warning add space after '{' in single-line dictionary literal [format/brace-spacing]
+      		outcomes[label] = {"hit": hit, "expected": expected[label]}
+      		                  ^
+  79:61 warning add space before '}' in single-line dictionary literal [format/brace-spacing]
+      		outcomes[label] = {"hit": hit, "expected": expected[label]}
+      		                                                          ^
+  99:101 warning line is 127 characters long (max 100) [format/max-line-length]
+      		"render_samples": frame_samples, "motion_outcomes": motion_outcomes, "scope": "S02 actor envelope/public physics APIs"}
+      		                                                                                                  ^
+
+tools/asset_production/integration/inspector.gd
+  73:1 warning function 'build_static' has 13 local variables (max 10) [quality/max-local-variables]
+      func build_static(path: String, collision_kind: String) -> Dictionary:
+      ^
+  106:1 warning function 'build_static' has nesting depth 6 (max 4) [quality/max-nesting-depth]
+      							points.append(Vector3(cos(angle) * radius, height, sin(angle) * radius))
+      ^
+  108:1 warning object allocation '.new()' inside a loop [quality/allocation-in-loop]
+      				var convex: ConvexPolygonShape3D = ConvexPolygonShape3D.new()
+      ^
+  111:1 warning object allocation '.new()' inside a loop [quality/allocation-in-loop]
+      					body, CollisionShape3D.new(), "Segment" + str(index), root
+      ^
+
+2 files checked, 11 warnings found.

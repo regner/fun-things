@@ -1,0 +1,16 @@
+ERROR: The process 178546 does not exist or is not a child of the calling process.
+   at: _check_pid_is_running (drivers/unix/os_unix.cpp:823)
+   GDScript backtrace (most recent call first):
+       [0] register (res://addons/godot_mcp_toolkit/registry/registry_client.gd:139)
+       [1] _register_in_registry (res://addons/godot_mcp_toolkit/core/plugin_composer.gd:129)
+       [2] <anonymous lambda> (res://addons/godot_mcp_toolkit/core/plugin_composer.gd:90)
+       [3] _on_transport_bound (res://addons/godot_mcp_toolkit/transport/mcp_server.gd:381)
+       [4] _pin_listen (res://addons/godot_mcp_toolkit/transport/ws_transport.gd:309)
+       [5] ensure_listening (res://addons/godot_mcp_toolkit/transport/ws_transport.gd:252)
+       [6] start (res://addons/godot_mcp_toolkit/transport/mcp_server.gd:322)
+       [7] compose (res://addons/godot_mcp_toolkit/core/plugin_composer.gd:91)
+       [8] _enter_tree (res://addons/godot_mcp_toolkit/plugin.gd:47)
+WARNING: [MCP] Godot 4.8 detected - latest tested version is 4.7.0. The plugin will run normally but some features may behave unexpectedly. Please report issues at https://github.com/NPGameDev/godot-mcp-toolkit/issues
+     at: push_warning (core/variant/variant_utility.cpp:1034)
+     GDScript backtrace (most recent call first):
+         [0] _enter_tree (res://addons/godot_mcp_toolkit/plugin.gd:62)

@@ -1,0 +1,2485 @@
+{
+  "blender": "5.2.2 LTS",
+  "build": "d13f752e3b9c",
+  "exporter": [
+    5,
+    2,
+    40
+  ],
+  "assets": [
+    {
+      "asset": "city_lights_01",
+      "source_sha256": "05bcb55be1b12a232b176bca2810df971d46d4a33710743c2762e08492f2e796",
+      "units": "METRIC",
+      "unit_scale": 1.0,
+      "libraries": [],
+      "images": [
+        {
+          "name": "Render Result",
+          "filepath": "",
+          "packed": false,
+          "source": "VIEWER"
+        },
+        {
+          "name": "Viewer Node",
+          "filepath": "",
+          "packed": false,
+          "source": "VIEWER"
+        }
+      ],
+      "members": [
+        {
+          "name": "CityLights01_Mesh",
+          "type": "MESH",
+          "parent": "CityLights01",
+          "location": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "modifiers": [],
+          "vertices": 1232,
+          "triangles": 2424,
+          "nonmanifold_edges": 0,
+          "inconsistent_edges": 0,
+          "loose_vertices": 0,
+          "loose_edges": 0,
+          "signed_volume": 0.47949071429844925,
+          "zero_area_faces": 0,
+          "zero_area_triangles": 0,
+          "nonfinite_coordinates": 0,
+          "bad_corner_normals": 0,
+          "materials": [
+            "pole_petrol",
+            "fixture_rim",
+            "service_recess",
+            "lens_warm"
+          ],
+          "material_face_counts": {
+            "0": 706,
+            "1": 224,
+            "2": 164,
+            "3": 82
+          },
+          "uv_layers": [
+            "UVMap"
+          ],
+          "bounds_blender": [
+            [
+              -0.36000001430511475,
+              -0.20999999344348907,
+              0.0
+            ],
+            [
+              0.36000001430511475,
+              1.4000000953674316,
+              6.199999809265137
+            ]
+          ]
+        },
+        {
+          "name": "CityLights01",
+          "type": "EMPTY",
+          "parent": null,
+          "location": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "modifiers": []
+        }
+      ],
+      "excluded_objects": [
+        {
+          "name": "STUDIO_camera",
+          "type": "CAMERA"
+        },
+        {
+          "name": "STUDIO_fill",
+          "type": "LIGHT"
+        },
+        {
+          "name": "STUDIO_ground",
+          "type": "MESH"
+        },
+        {
+          "name": "STUDIO_key",
+          "type": "LIGHT"
+        },
+        {
+          "name": "STUDIO_rim",
+          "type": "LIGHT"
+        }
+      ],
+      "cameras": [
+        {
+          "name": "STUDIO_camera",
+          "type": "ORTHO",
+          "position": [
+            9.0,
+            12.0,
+            8.0
+          ],
+          "rotation": [
+            1.2472399473190308,
+            -3.965313766229883e-08,
+            2.4858970642089844
+          ],
+          "angle_y": 0.4710899591445923,
+          "resolution": [
+            720,
+            900
+          ],
+          "clip": [
+            0.10000000149011612,
+            1000.0
+          ]
+        }
+      ],
+      "bounds_blender": [
+        [
+          -0.36000001430511475,
+          -0.20999999344348907,
+          0.0
+        ],
+        [
+          0.36000001430511475,
+          1.4000000953674316,
+          6.199999809265137
+        ]
+      ],
+      "meter_reference_objects": []
+    },
+    {
+      "asset": "city_lights_02",
+      "source_sha256": "40dff89ccd992c4e072e60d0120f403ebd5e42f648c54a2b7239ec1797e32e11",
+      "units": "METRIC",
+      "unit_scale": 1.0,
+      "libraries": [],
+      "images": [
+        {
+          "name": "Render Result",
+          "filepath": "",
+          "packed": false,
+          "source": "VIEWER"
+        },
+        {
+          "name": "Viewer Node",
+          "filepath": "",
+          "packed": false,
+          "source": "VIEWER"
+        }
+      ],
+      "members": [
+        {
+          "name": "city_lights_02",
+          "type": "EMPTY",
+          "parent": null,
+          "location": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "modifiers": []
+        },
+        {
+          "name": "foot_splayed_casting",
+          "type": "MESH",
+          "parent": "city_lights_02",
+          "location": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "modifiers": [],
+          "vertices": 256,
+          "triangles": 508,
+          "nonmanifold_edges": 0,
+          "inconsistent_edges": 0,
+          "loose_vertices": 0,
+          "loose_edges": 0,
+          "signed_volume": 0.009914714955689212,
+          "zero_area_faces": 0,
+          "zero_area_triangles": 0,
+          "nonfinite_coordinates": 0,
+          "bad_corner_normals": 0,
+          "materials": [
+            "city_lights_02_petrol_metal"
+          ],
+          "material_face_counts": {
+            "0": 226
+          },
+          "uv_layers": [],
+          "bounds_blender": [
+            [
+              -0.13500000536441803,
+              -0.13500000536441803,
+              0.0
+            ],
+            [
+              0.13500000536441803,
+              0.13500000536441803,
+              0.3400000035762787
+            ]
+          ]
+        },
+        {
+          "name": "quiet_tapered_pole",
+          "type": "MESH",
+          "parent": "city_lights_02",
+          "location": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "modifiers": [],
+          "vertices": 128,
+          "triangles": 252,
+          "nonmanifold_edges": 0,
+          "inconsistent_edges": 0,
+          "loose_vertices": 0,
+          "loose_edges": 0,
+          "signed_volume": 0.021866503600965148,
+          "zero_area_faces": 0,
+          "zero_area_triangles": 0,
+          "nonfinite_coordinates": 0,
+          "bad_corner_normals": 0,
+          "materials": [
+            "city_lights_02_petrol_metal"
+          ],
+          "material_face_counts": {
+            "0": 98
+          },
+          "uv_layers": [],
+          "bounds_blender": [
+            [
+              -0.06199999898672104,
+              -0.06199999898672104,
+              0.3100000023841858
+            ],
+            [
+              0.06199999898672104,
+              0.06199999898672104,
+              2.6600000858306885
+            ]
+          ]
+        },
+        {
+          "name": "lantern_neck",
+          "type": "MESH",
+          "parent": "city_lights_02",
+          "location": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "modifiers": [],
+          "vertices": 240,
+          "triangles": 476,
+          "nonmanifold_edges": 0,
+          "inconsistent_edges": 0,
+          "loose_vertices": 0,
+          "loose_edges": 0,
+          "signed_volume": 0.0034741090614071324,
+          "zero_area_faces": 0,
+          "zero_area_triangles": 0,
+          "nonfinite_coordinates": 0,
+          "bad_corner_normals": 0,
+          "materials": [
+            "city_lights_02_petrol_metal"
+          ],
+          "material_face_counts": {
+            "0": 194
+          },
+          "uv_layers": [],
+          "bounds_blender": [
+            [
+              -0.12999999523162842,
+              -0.12999999523162842,
+              2.5399999618530273
+            ],
+            [
+              0.12999999523162842,
+              0.12999999523162842,
+              2.6700000762939453
+            ]
+          ]
+        },
+        {
+          "name": "lower_shield",
+          "type": "MESH",
+          "parent": "city_lights_02",
+          "location": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "modifiers": [],
+          "vertices": 288,
+          "triangles": 572,
+          "nonmanifold_edges": 0,
+          "inconsistent_edges": 0,
+          "loose_vertices": 0,
+          "loose_edges": 0,
+          "signed_volume": 0.026096153428533914,
+          "zero_area_faces": 0,
+          "zero_area_triangles": 0,
+          "nonfinite_coordinates": 0,
+          "bad_corner_normals": 0,
+          "materials": [
+            "city_lights_02_petrol_metal"
+          ],
+          "material_face_counts": {
+            "0": 242
+          },
+          "uv_layers": [],
+          "bounds_blender": [
+            [
+              -0.31200000643730164,
+              -0.31200000643730164,
+              2.630000114440918
+            ],
+            [
+              0.31200000643730164,
+              0.31200000643730164,
+              2.749000072479248
+            ]
+          ]
+        },
+        {
+          "name": "broad_recessed_diffuser",
+          "type": "MESH",
+          "parent": "city_lights_02",
+          "location": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "modifiers": [],
+          "vertices": 192,
+          "triangles": 380,
+          "nonmanifold_edges": 0,
+          "inconsistent_edges": 0,
+          "loose_vertices": 0,
+          "loose_edges": 0,
+          "signed_volume": 0.03735520180365731,
+          "zero_area_faces": 0,
+          "zero_area_triangles": 0,
+          "nonfinite_coordinates": 0,
+          "bad_corner_normals": 0,
+          "materials": [
+            "city_lights_02_lens_warm"
+          ],
+          "material_face_counts": {
+            "0": 146
+          },
+          "uv_layers": [],
+          "bounds_blender": [
+            [
+              -0.3190000057220459,
+              -0.3190000057220459,
+              2.73799991607666
+            ],
+            [
+              0.3190000057220459,
+              0.3190000057220459,
+              2.8610000610351562
+            ]
+          ]
+        },
+        {
+          "name": "crown_seal",
+          "type": "MESH",
+          "parent": "city_lights_02",
+          "location": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "modifiers": [],
+          "vertices": 192,
+          "triangles": 380,
+          "nonmanifold_edges": 0,
+          "inconsistent_edges": 0,
+          "loose_vertices": 0,
+          "loose_edges": 0,
+          "signed_volume": 0.013635963077334612,
+          "zero_area_faces": 0,
+          "zero_area_triangles": 0,
+          "nonfinite_coordinates": 0,
+          "bad_corner_normals": 0,
+          "materials": [
+            "city_lights_02_recess_dark"
+          ],
+          "material_face_counts": {
+            "0": 146
+          },
+          "uv_layers": [],
+          "bounds_blender": [
+            [
+              -0.33799999952316284,
+              -0.33799999952316284,
+              2.8510000705718994
+            ],
+            [
+              0.33799999952316284,
+              0.33799999952316284,
+              2.890000104904175
+            ]
+          ]
+        },
+        {
+          "name": "broad_rounded_canopy",
+          "type": "MESH",
+          "parent": "city_lights_02",
+          "location": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "modifiers": [],
+          "vertices": 432,
+          "triangles": 860,
+          "nonmanifold_edges": 0,
+          "inconsistent_edges": 0,
+          "loose_vertices": 0,
+          "loose_edges": 0,
+          "signed_volume": 0.03568550879095622,
+          "zero_area_faces": 0,
+          "zero_area_triangles": 0,
+          "nonfinite_coordinates": 0,
+          "bad_corner_normals": 0,
+          "materials": [
+            "city_lights_02_petrol_metal"
+          ],
+          "material_face_counts": {
+            "0": 386
+          },
+          "uv_layers": [],
+          "bounds_blender": [
+            [
+              -0.36000001430511475,
+              -0.36000001430511475,
+              2.871000051498413
+            ],
+            [
+              0.36000001430511475,
+              0.36000001430511475,
+              3.0
+            ]
+          ]
+        },
+        {
+          "name": "front_service_panel",
+          "type": "MESH",
+          "parent": "city_lights_02",
+          "location": [
+            0.0,
+            0.05999999865889549,
+            0.5699999928474426
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "modifiers": [],
+          "vertices": 96,
+          "triangles": 188,
+          "nonmanifold_edges": 0,
+          "inconsistent_edges": 0,
+          "loose_vertices": 0,
+          "loose_edges": 0,
+          "signed_volume": 0.00012839197402807534,
+          "zero_area_faces": 0,
+          "zero_area_triangles": 0,
+          "nonfinite_coordinates": 0,
+          "bad_corner_normals": 0,
+          "materials": [
+            "city_lights_02_recess_dark"
+          ],
+          "material_face_counts": {
+            "0": 98
+          },
+          "uv_layers": [
+            "UVMap"
+          ],
+          "bounds_blender": [
+            [
+              -0.03200000151991844,
+              0.053999997675418854,
+              0.48499998450279236
+            ],
+            [
+              0.03200000151991844,
+              0.06599999964237213,
+              0.6549999713897705
+            ]
+          ]
+        }
+      ],
+      "excluded_objects": [
+        {
+          "name": "camera_three_quarter",
+          "type": "CAMERA"
+        },
+        {
+          "name": "studio_fill",
+          "type": "LIGHT"
+        },
+        {
+          "name": "studio_floor",
+          "type": "MESH"
+        },
+        {
+          "name": "studio_key",
+          "type": "LIGHT"
+        },
+        {
+          "name": "studio_rim",
+          "type": "LIGHT"
+        }
+      ],
+      "cameras": [
+        {
+          "name": "camera_three_quarter",
+          "type": "ORTHO",
+          "position": [
+            4.5,
+            6.5,
+            4.199999809265137
+          ],
+          "rotation": [
+            1.2439579963684082,
+            2.9173314430863684e-08,
+            2.53604793548584
+          ],
+          "angle_y": 0.4710899591445923,
+          "resolution": [
+            720,
+            960
+          ],
+          "clip": [
+            0.10000000149011612,
+            1000.0
+          ]
+        }
+      ],
+      "bounds_blender": [
+        [
+          -0.36000001430511475,
+          -0.36000001430511475,
+          0.0
+        ],
+        [
+          0.36000001430511475,
+          0.36000001430511475,
+          3.0
+        ]
+      ],
+      "meter_reference_objects": []
+    },
+    {
+      "asset": "city_lights_04",
+      "source_sha256": "c7c11ec3af027a54686ba2143a9fb54230773ec29013769ef2d93a1864836dde",
+      "units": "METRIC",
+      "unit_scale": 1.0,
+      "libraries": [],
+      "images": [
+        {
+          "name": "Render Result",
+          "filepath": "",
+          "packed": false,
+          "source": "VIEWER"
+        },
+        {
+          "name": "Viewer Node",
+          "filepath": "",
+          "packed": false,
+          "source": "VIEWER"
+        }
+      ],
+      "members": [
+        {
+          "name": "CityLights04",
+          "type": "EMPTY",
+          "parent": null,
+          "location": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "modifiers": []
+        },
+        {
+          "name": "mounting_backplate",
+          "type": "MESH",
+          "parent": "CityLights04",
+          "location": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "modifiers": [],
+          "vertices": 152,
+          "triangles": 300,
+          "nonmanifold_edges": 0,
+          "inconsistent_edges": 0,
+          "loose_vertices": 0,
+          "loose_edges": 0,
+          "signed_volume": 0.004843151806228924,
+          "zero_area_faces": 0,
+          "zero_area_triangles": 0,
+          "nonfinite_coordinates": 0,
+          "bad_corner_normals": 0,
+          "materials": [
+            "city_lights_04_petrol_metal"
+          ],
+          "material_face_counts": {
+            "0": 150
+          },
+          "uv_layers": [
+            "UVMap"
+          ],
+          "bounds_blender": [
+            [
+              -0.10000000149011612,
+              0.0,
+              -0.23000000417232513
+            ],
+            [
+              0.10000000149011612,
+              0.0560000017285347,
+              0.23000000417232513
+            ]
+          ]
+        },
+        {
+          "name": "mounting_gasket",
+          "type": "MESH",
+          "parent": "CityLights04",
+          "location": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "modifiers": [],
+          "vertices": 152,
+          "triangles": 300,
+          "nonmanifold_edges": 0,
+          "inconsistent_edges": 0,
+          "loose_vertices": 0,
+          "loose_edges": 0,
+          "signed_volume": 0.0009186713591277471,
+          "zero_area_faces": 0,
+          "zero_area_triangles": 0,
+          "nonfinite_coordinates": 0,
+          "bad_corner_normals": 0,
+          "materials": [
+            "city_lights_04_recess_dark"
+          ],
+          "material_face_counts": {
+            "0": 150
+          },
+          "uv_layers": [
+            "UVMap"
+          ],
+          "bounds_blender": [
+            [
+              -0.09000000357627869,
+              0.0,
+              -0.2160000056028366
+            ],
+            [
+              0.09000000357627869,
+              0.012000000104308128,
+              0.2160000056028366
+            ]
+          ]
+        },
+        {
+          "name": "mount_fastener_lower",
+          "type": "MESH",
+          "parent": "CityLights04",
+          "location": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "modifiers": [],
+          "vertices": 114,
+          "triangles": 224,
+          "nonmanifold_edges": 0,
+          "inconsistent_edges": 0,
+          "loose_vertices": 0,
+          "loose_edges": 0,
+          "signed_volume": 6.808719157683171e-06,
+          "zero_area_faces": 0,
+          "zero_area_triangles": 0,
+          "nonfinite_coordinates": 0,
+          "bad_corner_normals": 0,
+          "materials": [
+            "city_lights_04_recess_dark"
+          ],
+          "material_face_counts": {
+            "0": 128
+          },
+          "uv_layers": [
+            "UVMap"
+          ],
+          "bounds_blender": [
+            [
+              -0.016999999061226845,
+              0.050999999046325684,
+              -0.18800000846385956
+            ],
+            [
+              0.017000000923871994,
+              0.06300000101327896,
+              -0.15399999916553497
+            ]
+          ]
+        },
+        {
+          "name": "mount_fastener_upper",
+          "type": "MESH",
+          "parent": "CityLights04",
+          "location": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "modifiers": [],
+          "vertices": 114,
+          "triangles": 224,
+          "nonmanifold_edges": 0,
+          "inconsistent_edges": 0,
+          "loose_vertices": 0,
+          "loose_edges": 0,
+          "signed_volume": 6.808719157683171e-06,
+          "zero_area_faces": 0,
+          "zero_area_triangles": 0,
+          "nonfinite_coordinates": 0,
+          "bad_corner_normals": 0,
+          "materials": [
+            "city_lights_04_recess_dark"
+          ],
+          "material_face_counts": {
+            "0": 128
+          },
+          "uv_layers": [
+            "UVMap"
+          ],
+          "bounds_blender": [
+            [
+              -0.016999999061226845,
+              0.050999999046325684,
+              0.15399999916553497
+            ],
+            [
+              0.017000000923871994,
+              0.06300000101327896,
+              0.18800000846385956
+            ]
+          ]
+        },
+        {
+          "name": "curved_cast_arm",
+          "type": "MESH",
+          "parent": "CityLights04",
+          "location": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "modifiers": [],
+          "vertices": 336,
+          "triangles": 668,
+          "nonmanifold_edges": 0,
+          "inconsistent_edges": 0,
+          "loose_vertices": 0,
+          "loose_edges": 0,
+          "signed_volume": 0.0016441806061255168,
+          "zero_area_faces": 0,
+          "zero_area_triangles": 0,
+          "nonfinite_coordinates": 0,
+          "bad_corner_normals": 0,
+          "materials": [
+            "city_lights_04_petrol_metal"
+          ],
+          "material_face_counts": {
+            "0": 322
+          },
+          "uv_layers": [],
+          "bounds_blender": [
+            [
+              -0.035999998450279236,
+              0.04068770259618759,
+              -0.13092565536499023
+            ],
+            [
+              0.035999998450279236,
+              0.4638478755950928,
+              0.155760258436203
+            ]
+          ]
+        },
+        {
+          "name": "lower_shield",
+          "type": "MESH",
+          "parent": "CityLights04",
+          "location": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "modifiers": [],
+          "vertices": 384,
+          "triangles": 764,
+          "nonmanifold_edges": 0,
+          "inconsistent_edges": 0,
+          "loose_vertices": 0,
+          "loose_edges": 0,
+          "signed_volume": 0.00888309018860025,
+          "zero_area_faces": 0,
+          "zero_area_triangles": 0,
+          "nonfinite_coordinates": 0,
+          "bad_corner_normals": 0,
+          "materials": [
+            "city_lights_04_petrol_metal"
+          ],
+          "material_face_counts": {
+            "0": 322
+          },
+          "uv_layers": [],
+          "bounds_blender": [
+            [
+              -0.29100000858306885,
+              0.23265625536441803,
+              0.0729999989271164
+            ],
+            [
+              0.29100000858306885,
+              0.6873437762260437,
+              0.14499999582767487
+            ]
+          ]
+        },
+        {
+          "name": "broad_recessed_diffuser",
+          "type": "MESH",
+          "parent": "CityLights04",
+          "location": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "modifiers": [],
+          "vertices": 256,
+          "triangles": 508,
+          "nonmanifold_edges": 0,
+          "inconsistent_edges": 0,
+          "loose_vertices": 0,
+          "loose_edges": 0,
+          "signed_volume": 0.016380087099246883,
+          "zero_area_faces": 0,
+          "zero_area_triangles": 0,
+          "nonfinite_coordinates": 0,
+          "bad_corner_normals": 0,
+          "materials": [
+            "city_lights_04_lens_warm"
+          ],
+          "material_face_counts": {
+            "0": 194
+          },
+          "uv_layers": [],
+          "bounds_blender": [
+            [
+              -0.28600001335144043,
+              0.23656250536441803,
+              0.14000000059604645
+            ],
+            [
+              0.28600001335144043,
+              0.6834375262260437,
+              0.2240000069141388
+            ]
+          ]
+        },
+        {
+          "name": "canopy_seal",
+          "type": "MESH",
+          "parent": "CityLights04",
+          "location": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "modifiers": [],
+          "vertices": 256,
+          "triangles": 508,
+          "nonmanifold_edges": 0,
+          "inconsistent_edges": 0,
+          "loose_vertices": 0,
+          "loose_edges": 0,
+          "signed_volume": 0.004122995441414354,
+          "zero_area_faces": 0,
+          "zero_area_triangles": 0,
+          "nonfinite_coordinates": 0,
+          "bad_corner_normals": 0,
+          "materials": [
+            "city_lights_04_recess_dark"
+          ],
+          "material_face_counts": {
+            "0": 194
+          },
+          "uv_layers": [],
+          "bounds_blender": [
+            [
+              -0.30300000309944153,
+              0.22328124940395355,
+              0.21899999678134918
+            ],
+            [
+              0.30300000309944153,
+              0.6967187523841858,
+              0.23800000548362732
+            ]
+          ]
+        },
+        {
+          "name": "broad_oval_canopy",
+          "type": "MESH",
+          "parent": "CityLights04",
+          "location": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "modifiers": [],
+          "vertices": 448,
+          "triangles": 892,
+          "nonmanifold_edges": 0,
+          "inconsistent_edges": 0,
+          "loose_vertices": 0,
+          "loose_edges": 0,
+          "signed_volume": 0.014534026097867617,
+          "zero_area_faces": 0,
+          "zero_area_triangles": 0,
+          "nonfinite_coordinates": 0,
+          "bad_corner_normals": 0,
+          "materials": [
+            "city_lights_04_petrol_metal"
+          ],
+          "material_face_counts": {
+            "0": 386
+          },
+          "uv_layers": [],
+          "bounds_blender": [
+            [
+              -0.3199999928474426,
+              0.20999999344348907,
+              0.23100000619888306
+            ],
+            [
+              0.3199999928474426,
+              0.7099999785423279,
+              0.3050000071525574
+            ]
+          ]
+        }
+      ],
+      "excluded_objects": [
+        {
+          "name": "fill",
+          "type": "LIGHT"
+        },
+        {
+          "name": "key",
+          "type": "LIGHT"
+        },
+        {
+          "name": "reference_one_metre",
+          "type": "EMPTY"
+        },
+        {
+          "name": "rim",
+          "type": "LIGHT"
+        },
+        {
+          "name": "studio_camera",
+          "type": "CAMERA"
+        },
+        {
+          "name": "studio_wall",
+          "type": "MESH"
+        }
+      ],
+      "cameras": [
+        {
+          "name": "studio_camera",
+          "type": "PERSP",
+          "position": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "angle_y": 0.4710899591445923,
+          "resolution": [
+            1920,
+            1080
+          ],
+          "clip": [
+            0.10000000149011612,
+            1000.0
+          ]
+        }
+      ],
+      "bounds_blender": [
+        [
+          -0.3199999928474426,
+          0.0,
+          -0.23000000417232513
+        ],
+        [
+          0.3199999928474426,
+          0.7099999785423279,
+          0.3050000071525574
+        ]
+      ],
+      "meter_reference_objects": [
+        {
+          "name": "reference_one_metre",
+          "dimensions": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "type": "EMPTY"
+        }
+      ]
+    },
+    {
+      "asset": "city_sign_supports_01",
+      "source_sha256": "5f990b38400cb88c695c9b91b1964d166540c153c5d21519b657e94e49e06247",
+      "units": "METRIC",
+      "unit_scale": 1.0,
+      "libraries": [],
+      "images": [
+        {
+          "name": "Render Result",
+          "filepath": "",
+          "packed": false,
+          "source": "VIEWER"
+        },
+        {
+          "name": "Viewer Node",
+          "filepath": "",
+          "packed": false,
+          "source": "VIEWER"
+        }
+      ],
+      "members": [
+        {
+          "name": "CitySignSupports01",
+          "type": "EMPTY",
+          "parent": null,
+          "location": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "modifiers": []
+        },
+        {
+          "name": "rounded_frame",
+          "type": "MESH",
+          "parent": "CitySignSupports01",
+          "location": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "modifiers": [],
+          "vertices": 252,
+          "triangles": 504,
+          "nonmanifold_edges": 0,
+          "inconsistent_edges": 0,
+          "loose_vertices": 0,
+          "loose_edges": 0,
+          "signed_volume": 0.023093607986843893,
+          "zero_area_faces": 0,
+          "zero_area_triangles": 0,
+          "nonfinite_coordinates": 0,
+          "bad_corner_normals": 0,
+          "materials": [
+            "support_petrol"
+          ],
+          "material_face_counts": {
+            "0": 252
+          },
+          "uv_layers": [],
+          "bounds_blender": [
+            [
+              -0.699999988079071,
+              0.029999999329447746,
+              -0.5
+            ],
+            [
+              0.699999988079071,
+              0.10000000149011612,
+              0.5
+            ]
+          ]
+        },
+        {
+          "name": "rear_shell",
+          "type": "MESH",
+          "parent": "CitySignSupports01",
+          "location": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "modifiers": [],
+          "vertices": 108,
+          "triangles": 212,
+          "nonmanifold_edges": 0,
+          "inconsistent_edges": 0,
+          "loose_vertices": 0,
+          "loose_edges": 0,
+          "signed_volume": 0.050051261183935075,
+          "zero_area_faces": 0,
+          "zero_area_triangles": 0,
+          "nonfinite_coordinates": 0,
+          "bad_corner_normals": 0,
+          "materials": [
+            "support_petrol"
+          ],
+          "material_face_counts": {
+            "0": 74
+          },
+          "uv_layers": [],
+          "bounds_blender": [
+            [
+              -0.6769999861717224,
+              0.02500000037252903,
+              -0.47699999809265137
+            ],
+            [
+              0.6769999861717224,
+              0.06400000303983688,
+              0.47699999809265137
+            ]
+          ]
+        },
+        {
+          "name": "face_gasket",
+          "type": "MESH",
+          "parent": "CitySignSupports01",
+          "location": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "modifiers": [],
+          "vertices": 144,
+          "triangles": 288,
+          "nonmanifold_edges": 0,
+          "inconsistent_edges": 0,
+          "loose_vertices": 0,
+          "loose_edges": 0,
+          "signed_volume": 0.0008759191961627455,
+          "zero_area_faces": 0,
+          "zero_area_triangles": 0,
+          "nonfinite_coordinates": 0,
+          "bad_corner_normals": 0,
+          "materials": [
+            "recess_gasket"
+          ],
+          "material_face_counts": {
+            "0": 144
+          },
+          "uv_layers": [],
+          "bounds_blender": [
+            [
+              -0.6265000104904175,
+              0.07199999690055847,
+              -0.42649999260902405
+            ],
+            [
+              0.6265000104904175,
+              0.08299999684095383,
+              0.42649999260902405
+            ]
+          ]
+        },
+        {
+          "name": "artwork_carrier",
+          "type": "MESH",
+          "parent": "CitySignSupports01",
+          "location": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "modifiers": [],
+          "vertices": 108,
+          "triangles": 212,
+          "nonmanifold_edges": 0,
+          "inconsistent_edges": 0,
+          "loose_vertices": 0,
+          "loose_edges": 0,
+          "signed_volume": 0.009959915123312412,
+          "zero_area_faces": 0,
+          "zero_area_triangles": 0,
+          "nonfinite_coordinates": 0,
+          "bad_corner_normals": 0,
+          "materials": [
+            "sign_face",
+            "mount_metal"
+          ],
+          "material_face_counts": {
+            "0": 1,
+            "1": 73
+          },
+          "uv_layers": [
+            "UVMap"
+          ],
+          "bounds_blender": [
+            [
+              -0.6100000143051147,
+              0.07800000160932541,
+              -0.4099999964237213
+            ],
+            [
+              0.6100000143051147,
+              0.08799999952316284,
+              0.4099999964237213
+            ]
+          ]
+        },
+        {
+          "name": "mount_rail_lower",
+          "type": "MESH",
+          "parent": "CitySignSupports01",
+          "location": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "modifiers": [],
+          "vertices": 96,
+          "triangles": 188,
+          "nonmanifold_edges": 0,
+          "inconsistent_edges": 0,
+          "loose_vertices": 0,
+          "loose_edges": 0,
+          "signed_volume": 0.002360706282386076,
+          "zero_area_faces": 0,
+          "zero_area_triangles": 0,
+          "nonfinite_coordinates": 0,
+          "bad_corner_normals": 0,
+          "materials": [
+            "mount_metal"
+          ],
+          "material_face_counts": {
+            "0": 98
+          },
+          "uv_layers": [
+            "UVMap"
+          ],
+          "bounds_blender": [
+            [
+              -0.550000011920929,
+              0.008999999612569809,
+              -0.33000001311302185
+            ],
+            [
+              0.550000011920929,
+              0.03099999949336052,
+              -0.23000000417232513
+            ]
+          ]
+        },
+        {
+          "name": "wall_pad_lower_left",
+          "type": "MESH",
+          "parent": "CitySignSupports01",
+          "location": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "modifiers": [],
+          "vertices": 96,
+          "triangles": 188,
+          "nonmanifold_edges": 0,
+          "inconsistent_edges": 0,
+          "loose_vertices": 0,
+          "loose_edges": 0,
+          "signed_volume": 0.00012713776813619434,
+          "zero_area_faces": 0,
+          "zero_area_triangles": 0,
+          "nonfinite_coordinates": 0,
+          "bad_corner_normals": 0,
+          "materials": [
+            "recess_gasket"
+          ],
+          "material_face_counts": {
+            "0": 98
+          },
+          "uv_layers": [
+            "UVMap"
+          ],
+          "bounds_blender": [
+            [
+              -0.5249999761581421,
+              0.0,
+              -0.32249999046325684
+            ],
+            [
+              -0.39500001072883606,
+              0.012000000104308128,
+              -0.23749999701976776
+            ]
+          ]
+        },
+        {
+          "name": "wall_pad_lower_right",
+          "type": "MESH",
+          "parent": "CitySignSupports01",
+          "location": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "modifiers": [],
+          "vertices": 96,
+          "triangles": 188,
+          "nonmanifold_edges": 0,
+          "inconsistent_edges": 0,
+          "loose_vertices": 0,
+          "loose_edges": 0,
+          "signed_volume": 0.00012713776813619434,
+          "zero_area_faces": 0,
+          "zero_area_triangles": 0,
+          "nonfinite_coordinates": 0,
+          "bad_corner_normals": 0,
+          "materials": [
+            "recess_gasket"
+          ],
+          "material_face_counts": {
+            "0": 98
+          },
+          "uv_layers": [
+            "UVMap"
+          ],
+          "bounds_blender": [
+            [
+              0.39500001072883606,
+              0.0,
+              -0.32249999046325684
+            ],
+            [
+              0.5249999761581421,
+              0.012000000104308128,
+              -0.23749999701976776
+            ]
+          ]
+        },
+        {
+          "name": "mount_rail_upper",
+          "type": "MESH",
+          "parent": "CitySignSupports01",
+          "location": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "modifiers": [],
+          "vertices": 96,
+          "triangles": 188,
+          "nonmanifold_edges": 0,
+          "inconsistent_edges": 0,
+          "loose_vertices": 0,
+          "loose_edges": 0,
+          "signed_volume": 0.002360706282386076,
+          "zero_area_faces": 0,
+          "zero_area_triangles": 0,
+          "nonfinite_coordinates": 0,
+          "bad_corner_normals": 0,
+          "materials": [
+            "mount_metal"
+          ],
+          "material_face_counts": {
+            "0": 98
+          },
+          "uv_layers": [
+            "UVMap"
+          ],
+          "bounds_blender": [
+            [
+              -0.550000011920929,
+              0.008999999612569809,
+              0.23000000417232513
+            ],
+            [
+              0.550000011920929,
+              0.03099999949336052,
+              0.33000001311302185
+            ]
+          ]
+        },
+        {
+          "name": "wall_pad_upper_left",
+          "type": "MESH",
+          "parent": "CitySignSupports01",
+          "location": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "modifiers": [],
+          "vertices": 96,
+          "triangles": 188,
+          "nonmanifold_edges": 0,
+          "inconsistent_edges": 0,
+          "loose_vertices": 0,
+          "loose_edges": 0,
+          "signed_volume": 0.00012713776813619429,
+          "zero_area_faces": 0,
+          "zero_area_triangles": 0,
+          "nonfinite_coordinates": 0,
+          "bad_corner_normals": 0,
+          "materials": [
+            "recess_gasket"
+          ],
+          "material_face_counts": {
+            "0": 98
+          },
+          "uv_layers": [
+            "UVMap"
+          ],
+          "bounds_blender": [
+            [
+              -0.5249999761581421,
+              0.0,
+              0.23749999701976776
+            ],
+            [
+              -0.39500001072883606,
+              0.012000000104308128,
+              0.32249999046325684
+            ]
+          ]
+        },
+        {
+          "name": "wall_pad_upper_right",
+          "type": "MESH",
+          "parent": "CitySignSupports01",
+          "location": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "modifiers": [],
+          "vertices": 96,
+          "triangles": 188,
+          "nonmanifold_edges": 0,
+          "inconsistent_edges": 0,
+          "loose_vertices": 0,
+          "loose_edges": 0,
+          "signed_volume": 0.0001271377681361944,
+          "zero_area_faces": 0,
+          "zero_area_triangles": 0,
+          "nonfinite_coordinates": 0,
+          "bad_corner_normals": 0,
+          "materials": [
+            "recess_gasket"
+          ],
+          "material_face_counts": {
+            "0": 98
+          },
+          "uv_layers": [
+            "UVMap"
+          ],
+          "bounds_blender": [
+            [
+              0.39500001072883606,
+              0.0,
+              0.23749999701976776
+            ],
+            [
+              0.5249999761581421,
+              0.012000000104308128,
+              0.32249999046325684
+            ]
+          ]
+        },
+        {
+          "name": "release_tab_left",
+          "type": "MESH",
+          "parent": "CitySignSupports01",
+          "location": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "modifiers": [],
+          "vertices": 96,
+          "triangles": 188,
+          "nonmanifold_edges": 0,
+          "inconsistent_edges": 0,
+          "loose_vertices": 0,
+          "loose_edges": 0,
+          "signed_volume": 1.1277961845209017e-05,
+          "zero_area_faces": 0,
+          "zero_area_triangles": 0,
+          "nonfinite_coordinates": 0,
+          "bad_corner_normals": 0,
+          "materials": [
+            "mount_metal"
+          ],
+          "material_face_counts": {
+            "0": 98
+          },
+          "uv_layers": [
+            "UVMap"
+          ],
+          "bounds_blender": [
+            [
+              -0.41749998927116394,
+              0.05400000140070915,
+              -0.4984999895095825
+            ],
+            [
+              -0.3425000011920929,
+              0.07199999690055847,
+              -0.4894999861717224
+            ]
+          ]
+        },
+        {
+          "name": "release_tab_right",
+          "type": "MESH",
+          "parent": "CitySignSupports01",
+          "location": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "modifiers": [],
+          "vertices": 96,
+          "triangles": 188,
+          "nonmanifold_edges": 0,
+          "inconsistent_edges": 0,
+          "loose_vertices": 0,
+          "loose_edges": 0,
+          "signed_volume": 1.1277961845208983e-05,
+          "zero_area_faces": 0,
+          "zero_area_triangles": 0,
+          "nonfinite_coordinates": 0,
+          "bad_corner_normals": 0,
+          "materials": [
+            "mount_metal"
+          ],
+          "material_face_counts": {
+            "0": 98
+          },
+          "uv_layers": [
+            "UVMap"
+          ],
+          "bounds_blender": [
+            [
+              0.3425000011920929,
+              0.05400000140070915,
+              -0.4984999895095825
+            ],
+            [
+              0.41749998927116394,
+              0.07199999690055847,
+              -0.4894999861717224
+            ]
+          ]
+        }
+      ],
+      "excluded_objects": [],
+      "cameras": [],
+      "bounds_blender": [
+        [
+          -0.699999988079071,
+          0.0,
+          -0.5
+        ],
+        [
+          0.699999988079071,
+          0.10000000149011612,
+          0.5
+        ]
+      ],
+      "meter_reference_objects": []
+    },
+    {
+      "asset": "city_planting_01",
+      "source_sha256": "6098c8ed96ec816acffbd9117e8dd205ae4a0088abb6608a214f23c1c983fe99",
+      "units": "METRIC",
+      "unit_scale": 1.0,
+      "libraries": [],
+      "images": [
+        {
+          "name": "Render Result",
+          "filepath": "",
+          "packed": false,
+          "source": "VIEWER"
+        },
+        {
+          "name": "Viewer Node",
+          "filepath": "",
+          "packed": false,
+          "source": "VIEWER"
+        }
+      ],
+      "members": [
+        {
+          "name": "city_planting_01",
+          "type": "EMPTY",
+          "parent": null,
+          "location": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "modifiers": []
+        },
+        {
+          "name": "recessed_ground_foot",
+          "type": "MESH",
+          "parent": "city_planting_01",
+          "location": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "modifiers": [],
+          "vertices": 144,
+          "triangles": 284,
+          "nonmanifold_edges": 0,
+          "inconsistent_edges": 0,
+          "loose_vertices": 0,
+          "loose_edges": 0,
+          "signed_volume": 0.13940989562949166,
+          "zero_area_faces": 0,
+          "zero_area_triangles": 0,
+          "nonfinite_coordinates": 0,
+          "bad_corner_normals": 0,
+          "materials": [
+            "planter_recess_petrol"
+          ],
+          "material_face_counts": {
+            "0": 110
+          },
+          "uv_layers": [],
+          "bounds_blender": [
+            [
+              -1.100000023841858,
+              -0.36000001430511475,
+              0.0
+            ],
+            [
+              1.100000023841858,
+              0.36000001430511475,
+              0.09000000357627869
+            ]
+          ]
+        },
+        {
+          "name": "rounded_cast_trough",
+          "type": "MESH",
+          "parent": "city_planting_01",
+          "location": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "modifiers": [],
+          "vertices": 468,
+          "triangles": 932,
+          "nonmanifold_edges": 0,
+          "inconsistent_edges": 0,
+          "loose_vertices": 0,
+          "loose_edges": 0,
+          "signed_volume": 0.5940000797275443,
+          "zero_area_faces": 0,
+          "zero_area_triangles": 0,
+          "nonfinite_coordinates": 0,
+          "bad_corner_normals": 0,
+          "materials": [
+            "planter_sage_cast_stone",
+            "planter_pale_stone_rim"
+          ],
+          "material_face_counts": {
+            "0": 218,
+            "1": 216
+          },
+          "uv_layers": [],
+          "bounds_blender": [
+            [
+              -1.2000000476837158,
+              -0.44999998807907104,
+              0.05000000074505806
+            ],
+            [
+              1.2000000476837158,
+              0.44999998807907104,
+              0.6000000238418579
+            ]
+          ]
+        },
+        {
+          "name": "separate_recessed_soil_insert",
+          "type": "MESH",
+          "parent": "city_planting_01",
+          "location": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "modifiers": [],
+          "vertices": 108,
+          "triangles": 212,
+          "nonmanifold_edges": 0,
+          "inconsistent_edges": 0,
+          "loose_vertices": 0,
+          "loose_edges": 0,
+          "signed_volume": 0.060221927589742874,
+          "zero_area_faces": 0,
+          "zero_area_triangles": 0,
+          "nonfinite_coordinates": 0,
+          "bad_corner_normals": 0,
+          "materials": [
+            "planter_quiet_earth"
+          ],
+          "material_face_counts": {
+            "0": 74
+          },
+          "uv_layers": [],
+          "bounds_blender": [
+            [
+              -1.0075000524520874,
+              -0.2574999928474426,
+              0.3400000035762787
+            ],
+            [
+              1.0075000524520874,
+              0.2574999928474426,
+              0.4000000059604645
+            ]
+          ]
+        }
+      ],
+      "excluded_objects": [
+        {
+          "name": "fill",
+          "type": "LIGHT"
+        },
+        {
+          "name": "hero_camera",
+          "type": "CAMERA"
+        },
+        {
+          "name": "key",
+          "type": "LIGHT"
+        },
+        {
+          "name": "project_vertical_47m_42deg",
+          "type": "CAMERA"
+        },
+        {
+          "name": "rim",
+          "type": "LIGHT"
+        },
+        {
+          "name": "studio_floor",
+          "type": "MESH"
+        }
+      ],
+      "cameras": [
+        {
+          "name": "hero_camera",
+          "type": "ORTHO",
+          "position": [
+            3.299999952316284,
+            4.0,
+            2.799999952316284
+          ],
+          "rotation": [
+            1.1168807744979858,
+            -1.2641415914060872e-08,
+            2.4517929553985596
+          ],
+          "angle_y": 0.4710899591445923,
+          "resolution": [
+            1100,
+            800
+          ],
+          "clip": [
+            0.10000000149011612,
+            1000.0
+          ]
+        },
+        {
+          "name": "project_vertical_47m_42deg",
+          "type": "PERSP",
+          "position": [
+            0.0,
+            0.0,
+            47.0
+          ],
+          "rotation": [
+            0.0,
+            -0.0,
+            0.0
+          ],
+          "angle_y": 0.7330383062362671,
+          "resolution": [
+            1100,
+            800
+          ],
+          "clip": [
+            0.10000000149011612,
+            1000.0
+          ]
+        }
+      ],
+      "bounds_blender": [
+        [
+          -1.2000000476837158,
+          -0.44999998807907104,
+          0.0
+        ],
+        [
+          1.2000000476837158,
+          0.44999998807907104,
+          0.6000000238418579
+        ]
+      ],
+      "meter_reference_objects": []
+    },
+    {
+      "asset": "city_planting_02",
+      "source_sha256": "69a449a899fe41e1c0856a40a637885b4a7f423c0c6dc80f86ca1364f3445690",
+      "units": "METRIC",
+      "unit_scale": 1.0,
+      "libraries": [],
+      "images": [
+        {
+          "name": "Render Result",
+          "filepath": "",
+          "packed": false,
+          "source": "VIEWER"
+        },
+        {
+          "name": "Viewer Node",
+          "filepath": "",
+          "packed": false,
+          "source": "VIEWER"
+        }
+      ],
+      "members": [
+        {
+          "name": "city_planting_02",
+          "type": "EMPTY",
+          "parent": null,
+          "location": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "modifiers": []
+        },
+        {
+          "name": "recessed_annular_foot",
+          "type": "MESH",
+          "parent": "city_planting_02",
+          "location": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "modifiers": [],
+          "vertices": 576,
+          "triangles": 1152,
+          "nonmanifold_edges": 0,
+          "inconsistent_edges": 0,
+          "loose_vertices": 0,
+          "loose_edges": 0,
+          "signed_volume": 0.06792877968168871,
+          "zero_area_faces": 0,
+          "zero_area_triangles": 0,
+          "nonfinite_coordinates": 0,
+          "bad_corner_normals": 0,
+          "materials": [
+            "planter_recess_petrol"
+          ],
+          "material_face_counts": {
+            "0": 576
+          },
+          "uv_layers": [],
+          "bounds_blender": [
+            [
+              -0.8199999928474426,
+              -0.8199999928474426,
+              0.0
+            ],
+            [
+              0.8199999928474426,
+              0.8199999928474426,
+              0.07999999821186066
+            ]
+          ]
+        },
+        {
+          "name": "cast_stone_open_surround",
+          "type": "MESH",
+          "parent": "city_planting_02",
+          "location": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "modifiers": [],
+          "vertices": 1152,
+          "triangles": 2304,
+          "nonmanifold_edges": 0,
+          "inconsistent_edges": 0,
+          "loose_vertices": 0,
+          "loose_edges": 0,
+          "signed_volume": 0.4196269531008771,
+          "zero_area_faces": 0,
+          "zero_area_triangles": 0,
+          "nonfinite_coordinates": 0,
+          "bad_corner_normals": 0,
+          "materials": [
+            "planter_sage_cast_stone",
+            "planter_pale_stone_rim"
+          ],
+          "material_face_counts": {
+            "0": 512,
+            "1": 640
+          },
+          "uv_layers": [],
+          "bounds_blender": [
+            [
+              -0.8999999761581421,
+              -0.8999999761581421,
+              0.04500000178813934
+            ],
+            [
+              0.8999999761581421,
+              0.8999999761581421,
+              0.47999998927116394
+            ]
+          ]
+        }
+      ],
+      "excluded_objects": [
+        {
+          "name": "fill",
+          "type": "LIGHT"
+        },
+        {
+          "name": "hero_camera",
+          "type": "CAMERA"
+        },
+        {
+          "name": "key",
+          "type": "LIGHT"
+        },
+        {
+          "name": "project_vertical_47m_42deg",
+          "type": "CAMERA"
+        },
+        {
+          "name": "rim",
+          "type": "LIGHT"
+        },
+        {
+          "name": "studio_floor",
+          "type": "MESH"
+        }
+      ],
+      "cameras": [
+        {
+          "name": "hero_camera",
+          "type": "ORTHO",
+          "position": [
+            2.799999952316284,
+            3.4000000953674316,
+            2.5999999046325684
+          ],
+          "rotation": [
+            1.0771502256393433,
+            7.637086696377082e-08,
+            2.4526684284210205
+          ],
+          "angle_y": 0.4710899591445923,
+          "resolution": [
+            1100,
+            800
+          ],
+          "clip": [
+            0.10000000149011612,
+            1000.0
+          ]
+        },
+        {
+          "name": "project_vertical_47m_42deg",
+          "type": "PERSP",
+          "position": [
+            0.0,
+            0.0,
+            47.0
+          ],
+          "rotation": [
+            0.0,
+            -0.0,
+            0.0
+          ],
+          "angle_y": 0.7330383062362671,
+          "resolution": [
+            1100,
+            800
+          ],
+          "clip": [
+            0.10000000149011612,
+            1000.0
+          ]
+        }
+      ],
+      "bounds_blender": [
+        [
+          -0.8999999761581421,
+          -0.8999999761581421,
+          0.0
+        ],
+        [
+          0.8999999761581421,
+          0.8999999761581421,
+          0.47999998927116394
+        ]
+      ],
+      "meter_reference_objects": []
+    }
+  ]
+}

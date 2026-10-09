@@ -1,0 +1,172 @@
+{
+  "passed": true,
+  "source_scope_readback_count": 180,
+  "review_artifact_readback_count": 67,
+  "source_candidate": "390377dc6530e101eddcbf38b2946a1b235137c7",
+  "prefab_bounds": [
+    {
+      "id": "city_lights_01",
+      "min": [
+        -0.360000014305115,
+        0,
+        -1.40000009536743
+      ],
+      "max": [
+        0.360000014305114,
+        6.19999980926514,
+        0.21000003814697
+      ],
+      "linked_model": "res://art/models/environment/city_lights_01/city_lights_01_warm.glb"
+    },
+    {
+      "id": "city_lights_01_cool",
+      "min": [
+        -0.360000014305115,
+        0,
+        -1.40000009536743
+      ],
+      "max": [
+        0.360000014305114,
+        6.19999980926514,
+        0.21000003814697
+      ],
+      "linked_model": "res://art/models/environment/city_lights_01/city_lights_01_cool.glb"
+    },
+    {
+      "id": "city_lights_02",
+      "min": [
+        -0.360000014305115,
+        0,
+        -0.360000014305115
+      ],
+      "max": [
+        0.360000014305114,
+        2.999999999999997,
+        0.360000014305114
+      ],
+      "linked_model": "res://art/models/environment/city_lights_02/city_lights_02.glb"
+    },
+    {
+      "id": "city_lights_02_cool",
+      "min": [
+        -0.360000014305115,
+        0,
+        -0.360000014305115
+      ],
+      "max": [
+        0.360000014305114,
+        2.999999999999997,
+        0.360000014305114
+      ],
+      "linked_model": "res://art/models/environment/city_lights_02/city_lights_02_cool.glb"
+    },
+    {
+      "id": "city_lights_04",
+      "min": [
+        -0.319999992847443,
+        -0.230000004172325,
+        -0.709999978542328
+      ],
+      "max": [
+        0.319999992847442,
+        0.3050000071525573,
+        0.0
+      ],
+      "linked_model": "res://art/models/environment/city_lights_04/city_lights_04_warm.glb"
+    },
+    {
+      "id": "city_lights_04_cool",
+      "min": [
+        -0.319999992847443,
+        -0.230000004172325,
+        -0.709999978542328
+      ],
+      "max": [
+        0.319999992847442,
+        0.3050000071525573,
+        0.0
+      ],
+      "linked_model": "res://art/models/environment/city_lights_04/city_lights_04_cool.glb"
+    },
+    {
+      "id": "city_sign_supports_01",
+      "min": [
+        -0.699999988079071,
+        -0.5,
+        -0.100000001490116
+      ],
+      "max": [
+        0.699999988079069,
+        0.5,
+        0.0
+      ],
+      "linked_model": "res://art/models/environment/city_sign_supports_01/city_sign_supports_01.glb"
+    },
+    {
+      "id": "city_planting_01",
+      "min": [
+        -1.20000004768372,
+        0,
+        -0.449999988079071
+      ],
+      "max": [
+        1.2000000476837098,
+        0.600000012665987,
+        0.449999988079071
+      ],
+      "linked_model": "res://art/models/environment/city_planting_01/city_planting_01.glb"
+    },
+    {
+      "id": "city_planting_02",
+      "min": [
+        -0.899999976158142,
+        0,
+        -0.899999976158142
+      ],
+      "max": [
+        0.899999976158138,
+        0.4800000041723253,
+        0.899999976158138
+      ],
+      "linked_model": "res://art/models/environment/city_planting_02/city_planting_02.glb"
+    }
+  ],
+  "stable_roundtrip_count": 12,
+  "observations": [
+    {
+      "receipt": "batch-final-styled-probe-results.jsonl",
+      "query_batch_usec": 118,
+      "motion": {
+        "bypass_crossed": true,
+        "bypass_end_z_m": -4.00000095367432,
+        "planter_stop_z_m": 3.83007478713989,
+        "planter_stopped": true
+      },
+      "medians_last_60": {
+        "draw_calls": 256.0,
+        "frame_s": 0.000189,
+        "physics_s": 0.000434,
+        "primitives": 35916.0,
+        "video_bytes": 92321488.0
+      }
+    },
+    {
+      "receipt": "batch-repeat-probe-results.jsonl",
+      "query_batch_usec": 126,
+      "motion": {
+        "bypass_crossed": true,
+        "bypass_end_z_m": -4.00000095367432,
+        "planter_stop_z_m": 3.83007478713989,
+        "planter_stopped": true
+      },
+      "medians_last_60": {
+        "draw_calls": 439.0,
+        "frame_s": 0.000168,
+        "physics_s": 0.000645,
+        "primitives": 153096.0,
+        "video_bytes": 92321488.0
+      }
+    }
+  ],
+  "scope": "Saved engine/desktop standalone observation; no device/network/world acceptance"
+}

@@ -10,7 +10,7 @@ radius = 0.135
 
 [node name="Visuals" type="Node3D" parent="." unique_id=991016392]
 
-[node name="Model" type="Node3D" parent="Visuals" unique_id=1623099096 instance=ExtResource("1_142sr")]
+[node name="Model" parent="Visuals" unique_id=1623099096 instance=ExtResource("1_142sr")]
 
 [node name="Collision" type="Node3D" parent="." unique_id=1838924008]
 

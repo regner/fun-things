@@ -38,6 +38,12 @@ for (const request of requests) {
     ws.send(JSON.stringify({jsonrpc:'2.0', id, method:request.method, params:request.params ?? {}}));
   });
   console.log(JSON.stringify({method:request.method,result}));
-  if (result.error || result.result?.success === false) throw new Error('MCP command failed');
+  if (result.error || result.result?.success === false || result.result?.valid === false)
+    throw new Error('MCP command failed');
+  // Editor calls can report protocol success after an assertion; require substantive receipts.
+  if (request.method === 'node.call_method' &&
+      ['context', 'inspect_prefab', 'build_static', 'build_pole'].includes(request.params?.method_name) &&
+      Object.keys(result.result?.result ?? {}).length === 0)
+    throw new Error('Editor method returned an empty validation receipt');
 }
 ws.close();

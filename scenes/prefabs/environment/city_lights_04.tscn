@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://r533sxfqspli"]
+
+[ext_resource type="PackedScene" uid="uid://csqi2ca1ty17v" path="res://art/models/environment/city_lights_04/city_lights_04_warm.glb" id="1_adk4g"]
+
+[node name="city_lights_04" type="Node3D" unique_id=1933073889]
+
+[node name="Visuals" type="Node3D" parent="." unique_id=990830526]
+
+[node name="Model" parent="Visuals" unique_id=437946436 instance=ExtResource("1_adk4g")]

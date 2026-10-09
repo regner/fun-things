@@ -1,0 +1,100 @@
+[
+  {
+    "asset": "city_lights_01",
+    "producer_manifest_supplied": true,
+    "manifest": "docs/assets/production/city_lights_01-evidence/manifest.json",
+    "declared_count": 32,
+    "actual_count": 32,
+    "hash_byte_mismatches": [],
+    "uncovered_candidate_paths": [],
+    "declared_missing_paths": [],
+    "readback_manifest_hash_matches": true,
+    "readback_count_matches": true,
+    "manifest_metadata": {}
+  },
+  {
+    "asset": "city_lights_02",
+    "producer_manifest_supplied": true,
+    "manifest": "docs/assets/production/city_lights_02-evidence/manifest.json",
+    "declared_count": 20,
+    "actual_count": 22,
+    "hash_byte_mismatches": [],
+    "uncovered_candidate_paths": [
+      "art/models/environment/city_lights_02/city_lights_02.glb.import",
+      "art/models/environment/city_lights_02/city_lights_02_cool.glb.import"
+    ],
+    "declared_missing_paths": [],
+    "readback_manifest_hash_matches": true,
+    "readback_count_matches": true,
+    "manifest_metadata": {}
+  },
+  {
+    "asset": "city_lights_04",
+    "producer_manifest_supplied": true,
+    "manifest": "docs/assets/production/city_lights_04-evidence/manifest.json",
+    "declared_count": 36,
+    "actual_count": 36,
+    "hash_byte_mismatches": [],
+    "uncovered_candidate_paths": [],
+    "declared_missing_paths": [],
+    "readback_manifest_hash_matches": true,
+    "readback_count_matches": true,
+    "manifest_metadata": {
+      "producer": "city_lights.04 original Blender specialist",
+      "workspace": "/home/regner/.paseo/worktrees/0u71f39f/asset-register-production",
+      "exclusions": [
+        "manifest self-hash",
+        "integrator-owned .import sidecars",
+        "Python bytecode",
+        "Blender backup already retained in initial_visual_failure.zip"
+      ]
+    }
+  },
+  {
+    "asset": "city_sign_supports_01",
+    "producer_manifest_supplied": true,
+    "manifest": "docs/assets/production/city_sign_supports_01-evidence/manifest.json",
+    "declared_count": 40,
+    "actual_count": 40,
+    "hash_byte_mismatches": [],
+    "uncovered_candidate_paths": [],
+    "declared_missing_paths": [],
+    "readback_manifest_hash_matches": true,
+    "readback_count_matches": true,
+    "manifest_metadata": {
+      "asset_id": "city_sign_supports.01",
+      "scope": "complete producer file set at handoff; no runtime .import sidecars produced",
+      "self_exclusion": "docs/assets/production/city_sign_supports_01-evidence/manifest.json (self-hashing exclusion; receipt hash supplied with handoff)"
+    }
+  },
+  {
+    "asset": "city_planting_01",
+    "producer_manifest_supplied": false,
+    "manifest": "docs/assets/production/batch_01-evidence/city_planting_01-retention-manifest.json",
+    "declared_count": 23,
+    "actual_count": 23,
+    "hash_byte_mismatches": [],
+    "uncovered_candidate_paths": [],
+    "declared_missing_paths": [],
+    "readback_manifest_hash_matches": true,
+    "readback_count_matches": true,
+    "manifest_metadata": {
+      "scope": "Integrator readback of exact report-declared producer set; producer manifest absent at handoff"
+    }
+  },
+  {
+    "asset": "city_planting_02",
+    "producer_manifest_supplied": true,
+    "manifest": "docs/assets/production/city_planting_02-evidence/manifest.json",
+    "declared_count": 20,
+    "actual_count": 20,
+    "hash_byte_mismatches": [],
+    "uncovered_candidate_paths": [],
+    "declared_missing_paths": [],
+    "readback_manifest_hash_matches": true,
+    "readback_count_matches": true,
+    "manifest_metadata": {
+      "expected_file_count": 20
+    }
+  }
+]

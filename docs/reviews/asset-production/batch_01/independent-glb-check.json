@@ -1,0 +1,2357 @@
+[
+  {
+    "path": "art/models/environment/city_lights_01/city_lights_01_cool.glb",
+    "bytes": 61664,
+    "sha256": "7b8caef20cdcb7aa29e00389e314364803fd12474a7414a02de7d33526d89966",
+    "bounds_raw_godot": [
+      [
+        -0.36000001430511475,
+        0.0,
+        -1.4000000953674316
+      ],
+      [
+        0.36000001430511475,
+        6.199999809265137,
+        0.20999999344348907
+      ]
+    ],
+    "nodes": [
+      {
+        "mesh": 0,
+        "name": "CityLights01_Mesh"
+      },
+      {
+        "children": [
+          0
+        ],
+        "name": "CityLights01"
+      }
+    ],
+    "meshes": [
+      {
+        "name": "Tapered pole",
+        "primitives": [
+          {
+            "material": "pole_petrol",
+            "vertices": 789,
+            "triangles": 1484,
+            "degenerate_triangles": 0,
+            "nonfinite_positions": 0,
+            "bad_normals": 0,
+            "normal_winding_negative_corners": 0,
+            "min_normal_face_dot": 0.4495261489199706,
+            "signed_volume": 0.30274549082684815,
+            "attributes": [
+              "POSITION",
+              "NORMAL",
+              "TEXCOORD_0"
+            ],
+            "uv_count": 789,
+            "sign_face_uv_max_error": null
+          },
+          {
+            "material": "fixture_rim",
+            "vertices": 258,
+            "triangles": 472,
+            "degenerate_triangles": 0,
+            "nonfinite_positions": 0,
+            "bad_normals": 0,
+            "normal_winding_negative_corners": 0,
+            "min_normal_face_dot": 0.9333951725267068,
+            "signed_volume": 0.1398566859910253,
+            "attributes": [
+              "POSITION",
+              "NORMAL",
+              "TEXCOORD_0"
+            ],
+            "uv_count": 258,
+            "sign_face_uv_max_error": null
+          },
+          {
+            "material": "service_recess",
+            "vertices": 196,
+            "triangles": 312,
+            "degenerate_triangles": 0,
+            "nonfinite_positions": 0,
+            "bad_normals": 0,
+            "normal_winding_negative_corners": 0,
+            "min_normal_face_dot": 0.9320175778473322,
+            "signed_volume": 0.01927373380846531,
+            "attributes": [
+              "POSITION",
+              "NORMAL",
+              "TEXCOORD_0"
+            ],
+            "uv_count": 196,
+            "sign_face_uv_max_error": null
+          },
+          {
+            "material": "lens_cool",
+            "vertices": 98,
+            "triangles": 156,
+            "degenerate_triangles": 0,
+            "nonfinite_positions": 0,
+            "bad_normals": 0,
+            "normal_winding_negative_corners": 0,
+            "min_normal_face_dot": 0.9321888850912337,
+            "signed_volume": 0.017607734783090745,
+            "attributes": [
+              "POSITION",
+              "NORMAL",
+              "TEXCOORD_0"
+            ],
+            "uv_count": 98,
+            "sign_face_uv_max_error": null
+          }
+        ]
+      }
+    ],
+    "materials": [
+      {
+        "doubleSided": true,
+        "name": "pole_petrol",
+        "pbrMetallicRoughness": {
+          "baseColorFactor": [
+            0.02500000037252903,
+            0.07500000298023224,
+            0.09000000357627869,
+            1
+          ],
+          "metallicFactor": 0.44999998807907104,
+          "roughnessFactor": 0.46000000834465027
+        }
+      },
+      {
+        "doubleSided": true,
+        "name": "fixture_rim",
+        "pbrMetallicRoughness": {
+          "baseColorFactor": [
+            0.07000000029802322,
+            0.12999999523162842,
+            0.15000000596046448,
+            1
+          ],
+          "metallicFactor": 0.5,
+          "roughnessFactor": 0.41999998688697815
+        }
+      },
+      {
+        "doubleSided": true,
+        "name": "service_recess",
+        "pbrMetallicRoughness": {
+          "baseColorFactor": [
+            0.012000000104308128,
+            0.02500000037252903,
+            0.029999999329447746,
+            1
+          ],
+          "metallicFactor": 0.25,
+          "roughnessFactor": 0.5
+        }
+      },
+      {
+        "doubleSided": true,
+        "emissiveFactor": [
+          0.2069999982714652,
+          0.3509999778270725,
+          0.4139999965429304
+        ],
+        "name": "lens_cool",
+        "pbrMetallicRoughness": {
+          "baseColorFactor": [
+            0.46000000834465027,
+            0.7799999713897705,
+            0.9200000166893005,
+            1
+          ],
+          "metallicFactor": 0,
+          "roughnessFactor": 0.3199999928474426
+        }
+      }
+    ],
+    "unexpected_features": {},
+    "extensions_used": [],
+    "generator": "Khronos glTF Blender I/O v5.2.40"
+  },
+  {
+    "path": "art/models/environment/city_lights_01/city_lights_01_warm.glb",
+    "bytes": 61664,
+    "sha256": "6b5a0e8939ec6098737fe634a5782e03aca510e6182279479070ec07f67f3cdd",
+    "bounds_raw_godot": [
+      [
+        -0.36000001430511475,
+        0.0,
+        -1.4000000953674316
+      ],
+      [
+        0.36000001430511475,
+        6.199999809265137,
+        0.20999999344348907
+      ]
+    ],
+    "nodes": [
+      {
+        "mesh": 0,
+        "name": "CityLights01_Mesh"
+      },
+      {
+        "children": [
+          0
+        ],
+        "name": "CityLights01"
+      }
+    ],
+    "meshes": [
+      {
+        "name": "Tapered pole",
+        "primitives": [
+          {
+            "material": "pole_petrol",
+            "vertices": 789,
+            "triangles": 1484,
+            "degenerate_triangles": 0,
+            "nonfinite_positions": 0,
+            "bad_normals": 0,
+            "normal_winding_negative_corners": 0,
+            "min_normal_face_dot": 0.4495261489199706,
+            "signed_volume": 0.30274549082684815,
+            "attributes": [
+              "POSITION",
+              "NORMAL",
+              "TEXCOORD_0"
+            ],
+            "uv_count": 789,
+            "sign_face_uv_max_error": null
+          },
+          {
+            "material": "fixture_rim",
+            "vertices": 258,
+            "triangles": 472,
+            "degenerate_triangles": 0,
+            "nonfinite_positions": 0,
+            "bad_normals": 0,
+            "normal_winding_negative_corners": 0,
+            "min_normal_face_dot": 0.9333951725267068,
+            "signed_volume": 0.1398566859910253,
+            "attributes": [
+              "POSITION",
+              "NORMAL",
+              "TEXCOORD_0"
+            ],
+            "uv_count": 258,
+            "sign_face_uv_max_error": null
+          },
+          {
+            "material": "service_recess",
+            "vertices": 196,
+            "triangles": 312,
+            "degenerate_triangles": 0,
+            "nonfinite_positions": 0,
+            "bad_normals": 0,
+            "normal_winding_negative_corners": 0,
+            "min_normal_face_dot": 0.9320175778473322,
+            "signed_volume": 0.01927373380846531,
+            "attributes": [
+              "POSITION",
+              "NORMAL",
+              "TEXCOORD_0"
+            ],
+            "uv_count": 196,
+            "sign_face_uv_max_error": null
+          },
+          {
+            "material": "lens_warm",
+            "vertices": 98,
+            "triangles": 156,
+            "degenerate_triangles": 0,
+            "nonfinite_positions": 0,
+            "bad_normals": 0,
+            "normal_winding_negative_corners": 0,
+            "min_normal_face_dot": 0.9321888850912337,
+            "signed_volume": 0.017607734783090745,
+            "attributes": [
+              "POSITION",
+              "NORMAL",
+              "TEXCOORD_0"
+            ],
+            "uv_count": 98,
+            "sign_face_uv_max_error": null
+          }
+        ]
+      }
+    ],
+    "materials": [
+      {
+        "doubleSided": true,
+        "name": "pole_petrol",
+        "pbrMetallicRoughness": {
+          "baseColorFactor": [
+            0.02500000037252903,
+            0.07500000298023224,
+            0.09000000357627869,
+            1
+          ],
+          "metallicFactor": 0.44999998807907104,
+          "roughnessFactor": 0.46000000834465027
+        }
+      },
+      {
+        "doubleSided": true,
+        "name": "fixture_rim",
+        "pbrMetallicRoughness": {
+          "baseColorFactor": [
+            0.07000000029802322,
+            0.12999999523162842,
+            0.15000000596046448,
+            1
+          ],
+          "metallicFactor": 0.5,
+          "roughnessFactor": 0.41999998688697815
+        }
+      },
+      {
+        "doubleSided": true,
+        "name": "service_recess",
+        "pbrMetallicRoughness": {
+          "baseColorFactor": [
+            0.012000000104308128,
+            0.02500000037252903,
+            0.029999999329447746,
+            1
+          ],
+          "metallicFactor": 0.25,
+          "roughnessFactor": 0.5
+        }
+      },
+      {
+        "doubleSided": true,
+        "emissiveFactor": [
+          0.4274999833106996,
+          0.31049999070167544,
+          0.143999992966652
+        ],
+        "name": "lens_warm",
+        "pbrMetallicRoughness": {
+          "baseColorFactor": [
+            0.949999988079071,
+            0.6899999976158142,
+            0.3199999928474426,
+            1
+          ],
+          "metallicFactor": 0,
+          "roughnessFactor": 0.3199999928474426
+        }
+      }
+    ],
+    "unexpected_features": {},
+    "extensions_used": [],
+    "generator": "Khronos glTF Blender I/O v5.2.40"
+  },
+  {
+    "path": "art/models/environment/city_lights_02/city_lights_02.glb",
+    "bytes": 69564,
+    "sha256": "2bbcd84482dd4305d632f3321377854e0080fdda8bab621479a10d29c070fae6",
+    "bounds_raw_godot": [
+      [
+        -0.36000001430511475,
+        -0.08500000089406967,
+        -0.36000001430511475
+      ],
+      [
+        0.36000001430511475,
+        3.0,
+        0.36000001430511475
+      ]
+    ],
+    "nodes": [
+      {
+        "mesh": 0,
+        "name": "broad_recessed_diffuser"
+      },
+      {
+        "mesh": 1,
+        "name": "broad_rounded_canopy"
+      },
+      {
+        "mesh": 2,
+        "name": "crown_seal"
+      },
+      {
+        "mesh": 3,
+        "name": "foot_splayed_casting"
+      },
+      {
+        "mesh": 4,
+        "name": "front_service_panel",
+        "translation": [
+          0,
+          0.5699999928474426,
+          -0.05999999865889549
+        ]
+      },
+      {
+        "mesh": 5,
+        "name": "lantern_neck"
+      },
+      {
+        "mesh": 6,
+        "name": "lower_shield"
+      },
+      {
+        "mesh": 7,
+        "name": "quiet_tapered_pole"
+      },
+      {
+        "children": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        "name": "city_lights_02"
+      }
+    ],
+    "meshes": [
+      {
+        "name": "broad_recessed_diffuser_mesh",
+        "primitives": [
+          {
+            "material": "city_lights_02_lens_warm",
+            "vertices": 192,
+            "triangles": 380,
+            "degenerate_triangles": 0,
+            "nonfinite_positions": 0,
+            "bad_normals": 0,
+            "normal_winding_negative_corners": 0,
+            "min_normal_face_dot": 0.19951892025629742,
+            "signed_volume": 0.03735520180365688,
+            "attributes": [
+              "POSITION",
+              "NORMAL"
+            ],
+            "uv_count": 0,
+            "sign_face_uv_max_error": null
+          }
+        ]
+      },
+      {
+        "name": "broad_rounded_canopy_mesh",
+        "primitives": [
+          {
+            "material": "city_lights_02_petrol_metal",
+            "vertices": 432,
+            "triangles": 860,
+            "degenerate_triangles": 0,
+            "nonfinite_positions": 0,
+            "bad_normals": 0,
+            "normal_winding_negative_corners": 0,
+            "min_normal_face_dot": 0.8717981023569439,
+            "signed_volume": 0.03568550879095637,
+            "attributes": [
+              "POSITION",
+              "NORMAL"
+            ],
+            "uv_count": 0,
+            "sign_face_uv_max_error": null
+          }
+        ]
+      },
+      {
+        "name": "crown_seal_mesh",
+        "primitives": [
+          {
+            "material": "city_lights_02_recess_dark",
+            "vertices": 192,
+            "triangles": 380,
+            "degenerate_triangles": 0,
+            "nonfinite_positions": 0,
+            "bad_normals": 0,
+            "normal_winding_negative_corners": 0,
+            "min_normal_face_dot": 0.7691769434089041,
+            "signed_volume": 0.013635963077335084,
+            "attributes": [
+              "POSITION",
+              "NORMAL"
+            ],
+            "uv_count": 0,
+            "sign_face_uv_max_error": null
+          }
+        ]
+      },
+      {
+        "name": "foot_splayed_casting_mesh",
+        "primitives": [
+          {
+            "material": "city_lights_02_petrol_metal",
+            "vertices": 256,
+            "triangles": 508,
+            "degenerate_triangles": 0,
+            "nonfinite_positions": 0,
+            "bad_normals": 0,
+            "normal_winding_negative_corners": 0,
+            "min_normal_face_dot": 0.36903172857742045,
+            "signed_volume": 0.009914714955689177,
+            "attributes": [
+              "POSITION",
+              "NORMAL"
+            ],
+            "uv_count": 0,
+            "sign_face_uv_max_error": null
+          }
+        ]
+      },
+      {
+        "name": "Cube.001",
+        "primitives": [
+          {
+            "material": "city_lights_02_recess_dark",
+            "vertices": 96,
+            "triangles": 188,
+            "degenerate_triangles": 0,
+            "nonfinite_positions": 0,
+            "bad_normals": 0,
+            "normal_winding_negative_corners": 0,
+            "min_normal_face_dot": 0.9320892875853959,
+            "signed_volume": 0.00012839177253904836,
+            "attributes": [
+              "POSITION",
+              "NORMAL"
+            ],
+            "uv_count": 0,
+            "sign_face_uv_max_error": null
+          }
+        ]
+      },
+      {
+        "name": "lantern_neck_mesh",
+        "primitives": [
+          {
+            "material": "city_lights_02_petrol_metal",
+            "vertices": 240,
+            "triangles": 476,
+            "degenerate_triangles": 0,
+            "nonfinite_positions": 0,
+            "bad_normals": 0,
+            "normal_winding_negative_corners": 144,
+            "min_normal_face_dot": -0.7737540753310314,
+            "signed_volume": 0.0034741090614072052,
+            "attributes": [
+              "POSITION",
+              "NORMAL"
+            ],
+            "uv_count": 0,
+            "sign_face_uv_max_error": null
+          }
+        ]
+      },
+      {
+        "name": "lower_shield_mesh",
+        "primitives": [
+          {
+            "material": "city_lights_02_petrol_metal",
+            "vertices": 288,
+            "triangles": 572,
+            "degenerate_triangles": 0,
+            "nonfinite_positions": 0,
+            "bad_normals": 0,
+            "normal_winding_negative_corners": 0,
+            "min_normal_face_dot": 0.6774015104231825,
+            "signed_volume": 0.026096153428534247,
+            "attributes": [
+              "POSITION",
+              "NORMAL"
+            ],
+            "uv_count": 0,
+            "sign_face_uv_max_error": null
+          }
+        ]
+      },
+      {
+        "name": "quiet_tapered_pole_mesh",
+        "primitives": [
+          {
+            "material": "city_lights_02_petrol_metal",
+            "vertices": 128,
+            "triangles": 252,
+            "degenerate_triangles": 0,
+            "nonfinite_positions": 0,
+            "bad_normals": 0,
+            "normal_winding_negative_corners": 0,
+            "min_normal_face_dot": 0.11939420467815418,
+            "signed_volume": 0.02186650360096509,
+            "attributes": [
+              "POSITION",
+              "NORMAL"
+            ],
+            "uv_count": 0,
+            "sign_face_uv_max_error": null
+          }
+        ]
+      }
+    ],
+    "materials": [
+      {
+        "doubleSided": true,
+        "emissiveFactor": [
+          0.44999998807907104,
+          0.32206205468543203,
+          0.16481366614994286
+        ],
+        "name": "city_lights_02_lens_warm",
+        "pbrMetallicRoughness": {
+          "baseColorFactor": [
+            1,
+            0.715693473815918,
+            0.366252601146698,
+            1
+          ],
+          "metallicFactor": 0,
+          "roughnessFactor": 0.550000011920929
+        }
+      },
+      {
+        "doubleSided": true,
+        "name": "city_lights_02_petrol_metal",
+        "pbrMetallicRoughness": {
+          "baseColorFactor": [
+            0.009721217676997185,
+            0.04970656707882881,
+            0.061246052384376526,
+            1
+          ],
+          "metallicFactor": 0.550000011920929,
+          "roughnessFactor": 0.3799999952316284
+        }
+      },
+      {
+        "doubleSided": true,
+        "name": "city_lights_02_recess_dark",
+        "pbrMetallicRoughness": {
+          "baseColorFactor": [
+            0.004024717025458813,
+            0.012286487966775894,
+            0.01599629409611225,
+            1
+          ],
+          "metallicFactor": 0.30000001192092896,
+          "roughnessFactor": 0.3799999952316284
+        }
+      }
+    ],
+    "unexpected_features": {},
+    "extensions_used": [],
+    "generator": "Khronos glTF Blender I/O v5.2.40"
+  },
+  {
+    "path": "art/models/environment/city_lights_02/city_lights_02_cool.glb",
+    "bytes": 69580,
+    "sha256": "88b51c17ce8b68f05bb90334ea7171deb14f4da53c35f7f691b545ee13599c2a",
+    "bounds_raw_godot": [
+      [
+        -0.36000001430511475,
+        -0.08500000089406967,
+        -0.36000001430511475
+      ],
+      [
+        0.36000001430511475,
+        3.0,
+        0.36000001430511475
+      ]
+    ],
+    "nodes": [
+      {
+        "mesh": 0,
+        "name": "broad_recessed_diffuser"
+      },
+      {
+        "mesh": 1,
+        "name": "broad_rounded_canopy"
+      },
+      {
+        "mesh": 2,
+        "name": "crown_seal"
+      },
+      {
+        "mesh": 3,
+        "name": "foot_splayed_casting"
+      },
+      {
+        "mesh": 4,
+        "name": "front_service_panel",
+        "translation": [
+          0,
+          0.5699999928474426,
+          -0.05999999865889549
+        ]
+      },
+      {
+        "mesh": 5,
+        "name": "lantern_neck"
+      },
+      {
+        "mesh": 6,
+        "name": "lower_shield"
+      },
+      {
+        "mesh": 7,
+        "name": "quiet_tapered_pole"
+      },
+      {
+        "children": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        "name": "city_lights_02"
+      }
+    ],
+    "meshes": [
+      {
+        "name": "broad_recessed_diffuser_mesh",
+        "primitives": [
+          {
+            "material": "city_lights_02_lens_cool",
+            "vertices": 192,
+            "triangles": 380,
+            "degenerate_triangles": 0,
+            "nonfinite_positions": 0,
+            "bad_normals": 0,
+            "normal_winding_negative_corners": 0,
+            "min_normal_face_dot": 0.19951892025629742,
+            "signed_volume": 0.03735520180365688,
+            "attributes": [
+              "POSITION",
+              "NORMAL"
+            ],
+            "uv_count": 0,
+            "sign_face_uv_max_error": null
+          }
+        ]
+      },
+      {
+        "name": "broad_rounded_canopy_mesh",
+        "primitives": [
+          {
+            "material": "city_lights_02_petrol_metal",
+            "vertices": 432,
+            "triangles": 860,
+            "degenerate_triangles": 0,
+            "nonfinite_positions": 0,
+            "bad_normals": 0,
+            "normal_winding_negative_corners": 0,
+            "min_normal_face_dot": 0.8717981023569439,
+            "signed_volume": 0.03568550879095637,
+            "attributes": [
+              "POSITION",
+              "NORMAL"
+            ],
+            "uv_count": 0,
+            "sign_face_uv_max_error": null
+          }
+        ]
+      },
+      {
+        "name": "crown_seal_mesh",
+        "primitives": [
+          {
+            "material": "city_lights_02_recess_dark",
+            "vertices": 192,
+            "triangles": 380,
+            "degenerate_triangles": 0,
+            "nonfinite_positions": 0,
+            "bad_normals": 0,
+            "normal_winding_negative_corners": 0,
+            "min_normal_face_dot": 0.7691769434089041,
+            "signed_volume": 0.013635963077335084,
+            "attributes": [
+              "POSITION",
+              "NORMAL"
+            ],
+            "uv_count": 0,
+            "sign_face_uv_max_error": null
+          }
+        ]
+      },
+      {
+        "name": "foot_splayed_casting_mesh",
+        "primitives": [
+          {
+            "material": "city_lights_02_petrol_metal",
+            "vertices": 256,
+            "triangles": 508,
+            "degenerate_triangles": 0,
+            "nonfinite_positions": 0,
+            "bad_normals": 0,
+            "normal_winding_negative_corners": 0,
+            "min_normal_face_dot": 0.36903172857742045,
+            "signed_volume": 0.009914714955689177,
+            "attributes": [
+              "POSITION",
+              "NORMAL"
+            ],
+            "uv_count": 0,
+            "sign_face_uv_max_error": null
+          }
+        ]
+      },
+      {
+        "name": "Cube.001",
+        "primitives": [
+          {
+            "material": "city_lights_02_recess_dark",
+            "vertices": 96,
+            "triangles": 188,
+            "degenerate_triangles": 0,
+            "nonfinite_positions": 0,
+            "bad_normals": 0,
+            "normal_winding_negative_corners": 0,
+            "min_normal_face_dot": 0.9320892875853959,
+            "signed_volume": 0.00012839177253904836,
+            "attributes": [
+              "POSITION",
+              "NORMAL"
+            ],
+            "uv_count": 0,
+            "sign_face_uv_max_error": null
+          }
+        ]
+      },
+      {
+        "name": "lantern_neck_mesh",
+        "primitives": [
+          {
+            "material": "city_lights_02_petrol_metal",
+            "vertices": 240,
+            "triangles": 476,
+            "degenerate_triangles": 0,
+            "nonfinite_positions": 0,
+            "bad_normals": 0,
+            "normal_winding_negative_corners": 144,
+            "min_normal_face_dot": -0.7737540753310314,
+            "signed_volume": 0.0034741090614072052,
+            "attributes": [
+              "POSITION",
+              "NORMAL"
+            ],
+            "uv_count": 0,
+            "sign_face_uv_max_error": null
+          }
+        ]
+      },
+      {
+        "name": "lower_shield_mesh",
+        "primitives": [
+          {
+            "material": "city_lights_02_petrol_metal",
+            "vertices": 288,
+            "triangles": 572,
+            "degenerate_triangles": 0,
+            "nonfinite_positions": 0,
+            "bad_normals": 0,
+            "normal_winding_negative_corners": 0,
+            "min_normal_face_dot": 0.6774015104231825,
+            "signed_volume": 0.026096153428534247,
+            "attributes": [
+              "POSITION",
+              "NORMAL"
+            ],
+            "uv_count": 0,
+            "sign_face_uv_max_error": null
+          }
+        ]
+      },
+      {
+        "name": "quiet_tapered_pole_mesh",
+        "primitives": [
+          {
+            "material": "city_lights_02_petrol_metal",
+            "vertices": 128,
+            "triangles": 252,
+            "degenerate_triangles": 0,
+            "nonfinite_positions": 0,
+            "bad_normals": 0,
+            "normal_winding_negative_corners": 0,
+            "min_normal_face_dot": 0.11939420467815418,
+            "signed_volume": 0.02186650360096509,
+            "attributes": [
+              "POSITION",
+              "NORMAL"
+            ],
+            "uv_count": 0,
+            "sign_face_uv_max_error": null
+          }
+        ]
+      }
+    ],
+    "materials": [
+      {
+        "doubleSided": true,
+        "emissiveFactor": [
+          0.1856441701943563,
+          0.3287073346321492,
+          0.3884207354407643
+        ],
+        "name": "city_lights_02_lens_cool",
+        "pbrMetallicRoughness": {
+          "baseColorFactor": [
+            0.4125426113605499,
+            0.7304607629776001,
+            0.8631572127342224,
+            1
+          ],
+          "metallicFactor": 0,
+          "roughnessFactor": 0.550000011920929
+        }
+      },
+      {
+        "doubleSided": true,
+        "name": "city_lights_02_petrol_metal",
+        "pbrMetallicRoughness": {
+          "baseColorFactor": [
+            0.009721217676997185,
+            0.04970656707882881,
+            0.061246052384376526,
+            1
+          ],
+          "metallicFactor": 0.550000011920929,
+          "roughnessFactor": 0.3799999952316284
+        }
+      },
+      {
+        "doubleSided": true,
+        "name": "city_lights_02_recess_dark",
+        "pbrMetallicRoughness": {
+          "baseColorFactor": [
+            0.004024717025458813,
+            0.012286487966775894,
+            0.01599629409611225,
+            1
+          ],
+          "metallicFactor": 0.30000001192092896,
+          "roughnessFactor": 0.3799999952316284
+        }
+      }
+    ],
+    "unexpected_features": {},
+    "extensions_used": [],
+    "generator": "Khronos glTF Blender I/O v5.2.40"
+  },
+  {
+    "path": "art/models/environment/city_lights_04/city_lights_04_cool.glb",
+    "bytes": 79932,
+    "sha256": "18951e4d15351c5cc746c6dfc251c2443f21d3fa3aadba8ebb46f01777365bf6",
+    "bounds_raw_godot": [
+      [
+        -0.3199999928474426,
+        -0.23000000417232513,
+        -0.7099999785423279
+      ],
+      [
+        0.3199999928474426,
+        0.3050000071525574,
+        -0.0
+      ]
+    ],
+    "nodes": [
+      {
+        "mesh": 0,
+        "name": "broad_oval_canopy"
+      },
+      {
+        "mesh": 1,
+        "name": "broad_recessed_diffuser"
+      },
+      {
+        "mesh": 2,
+        "name": "canopy_seal"
+      },
+      {
+        "mesh": 3,
+        "name": "curved_cast_arm"
+      },
+      {
+        "mesh": 4,
+        "name": "lower_shield"
+      },
+      {
+        "mesh": 5,
+        "name": "mount_fastener_lower"
+      },
+      {
+        "mesh": 6,
+        "name": "mount_fastener_upper"
+      },
+      {
+        "mesh": 7,
+        "name": "mounting_backplate"
+      },
+      {
+        "mesh": 8,
+        "name": "mounting_gasket"
+      },
+      {
+        "children": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8
+        ],
+        "name": "CityLights04"
+      }
+    ],
+    "meshes": [
+      {
+        "name": "broad_oval_canopy",
+        "primitives": [
+          {
+            "material": "city_lights_04_petrol_metal",
+            "vertices": 448,
+            "triangles": 892,
+            "degenerate_triangles": 0,
+            "nonfinite_positions": 0,
+            "bad_normals": 0,
+            "normal_winding_negative_corners": 0,
+            "min_normal_face_dot": 0.9067733387687622,
+            "signed_volume": 0.014534026097867603,
+            "attributes": [
+              "POSITION",
+              "NORMAL"
+            ],
+            "uv_count": 0,
+            "sign_face_uv_max_error": null
+          }
+        ]
+      },
+      {
+        "name": "broad_recessed_diffuser",
+        "primitives": [
+          {
+            "material": "city_lights_04_lens_cool",
+            "vertices": 256,
+            "triangles": 508,
+            "degenerate_triangles": 0,
+            "nonfinite_positions": 0,
+            "bad_normals": 0,
+            "normal_winding_negative_corners": 0,
+            "min_normal_face_dot": 0.8023935556411743,
+            "signed_volume": 0.016380087099246883,
+            "attributes": [
+              "POSITION",
+              "NORMAL"
+            ],
+            "uv_count": 0,
+            "sign_face_uv_max_error": null
+          }
+        ]
+      },
+      {
+        "name": "canopy_seal",
+        "primitives": [
+          {
+            "material": "city_lights_04_recess_dark",
+            "vertices": 256,
+            "triangles": 508,
+            "degenerate_triangles": 0,
+            "nonfinite_positions": 0,
+            "bad_normals": 0,
+            "normal_winding_negative_corners": 0,
+            "min_normal_face_dot": 0.7468130446697505,
+            "signed_volume": 0.004122995441414335,
+            "attributes": [
+              "POSITION",
+              "NORMAL"
+            ],
+            "uv_count": 0,
+            "sign_face_uv_max_error": null
+          }
+        ]
+      },
+      {
+        "name": "curved_arm",
+        "primitives": [
+          {
+            "material": "city_lights_04_petrol_metal",
+            "vertices": 336,
+            "triangles": 668,
+            "degenerate_triangles": 0,
+            "nonfinite_positions": 0,
+            "bad_normals": 0,
+            "normal_winding_negative_corners": 0,
+            "min_normal_face_dot": 0.6599097050952711,
+            "signed_volume": 0.0016441806061255168,
+            "attributes": [
+              "POSITION",
+              "NORMAL"
+            ],
+            "uv_count": 0,
+            "sign_face_uv_max_error": null
+          }
+        ]
+      },
+      {
+        "name": "lower_shield",
+        "primitives": [
+          {
+            "material": "city_lights_04_petrol_metal",
+            "vertices": 384,
+            "triangles": 764,
+            "degenerate_triangles": 0,
+            "nonfinite_positions": 0,
+            "bad_normals": 0,
+            "normal_winding_negative_corners": 0,
+            "min_normal_face_dot": 0.8084745278841314,
+            "signed_volume": 0.00888309018860025,
+            "attributes": [
+              "POSITION",
+              "NORMAL"
+            ],
+            "uv_count": 0,
+            "sign_face_uv_max_error": null
+          }
+        ]
+      },
+      {
+        "name": "Sphere",
+        "primitives": [
+          {
+            "material": "city_lights_04_recess_dark",
+            "vertices": 114,
+            "triangles": 224,
+            "degenerate_triangles": 0,
+            "nonfinite_positions": 0,
+            "bad_normals": 0,
+            "normal_winding_negative_corners": 0,
+            "min_normal_face_dot": 0.8583781655472353,
+            "signed_volume": 6.8087191560752624e-06,
+            "attributes": [
+              "POSITION",
+              "NORMAL"
+            ],
+            "uv_count": 0,
+            "sign_face_uv_max_error": null
+          }
+        ]
+      },
+      {
+        "name": "Sphere.001",
+        "primitives": [
+          {
+            "material": "city_lights_04_recess_dark",
+            "vertices": 114,
+            "triangles": 224,
+            "degenerate_triangles": 0,
+            "nonfinite_positions": 0,
+            "bad_normals": 0,
+            "normal_winding_negative_corners": 0,
+            "min_normal_face_dot": 0.8583781655472353,
+            "signed_volume": 6.8087191560752624e-06,
+            "attributes": [
+              "POSITION",
+              "NORMAL"
+            ],
+            "uv_count": 0,
+            "sign_face_uv_max_error": null
+          }
+        ]
+      },
+      {
+        "name": "Cube.001",
+        "primitives": [
+          {
+            "material": "city_lights_04_petrol_metal",
+            "vertices": 152,
+            "triangles": 300,
+            "degenerate_triangles": 0,
+            "nonfinite_positions": 0,
+            "bad_normals": 0,
+            "normal_winding_negative_corners": 0,
+            "min_normal_face_dot": 0.9577434423529079,
+            "signed_volume": 0.004843072264152431,
+            "attributes": [
+              "POSITION",
+              "NORMAL"
+            ],
+            "uv_count": 0,
+            "sign_face_uv_max_error": null
+          }
+        ]
+      },
+      {
+        "name": "Cube.002",
+        "primitives": [
+          {
+            "material": "city_lights_04_recess_dark",
+            "vertices": 152,
+            "triangles": 300,
+            "degenerate_triangles": 0,
+            "nonfinite_positions": 0,
+            "bad_normals": 0,
+            "normal_winding_negative_corners": 0,
+            "min_normal_face_dot": 0.9570746392336987,
+            "signed_volume": 0.0009186704205844269,
+            "attributes": [
+              "POSITION",
+              "NORMAL"
+            ],
+            "uv_count": 0,
+            "sign_face_uv_max_error": null
+          }
+        ]
+      }
+    ],
+    "materials": [
+      {
+        "doubleSided": true,
+        "name": "city_lights_04_petrol_metal",
+        "pbrMetallicRoughness": {
+          "baseColorFactor": [
+            0.009721217676997185,
+            0.04970656707882881,
+            0.061246052384376526,
+            1
+          ],
+          "metallicFactor": 0.550000011920929,
+          "roughnessFactor": 0.3799999952316284
+        }
+      },
+      {
+        "doubleSided": true,
+        "emissiveFactor": [
+          0.1856441701943563,
+          0.3287073346321492,
+          0.3884207354407643
+        ],
+        "name": "city_lights_04_lens_cool",
+        "pbrMetallicRoughness": {
+          "baseColorFactor": [
+            0.4125426113605499,
+            0.7304607629776001,
+            0.8631572127342224,
+            1
+          ],
+          "metallicFactor": 0,
+          "roughnessFactor": 0.550000011920929
+        }
+      },
+      {
+        "doubleSided": true,
+        "name": "city_lights_04_recess_dark",
+        "pbrMetallicRoughness": {
+          "baseColorFactor": [
+            0.004024717025458813,
+            0.012286487966775894,
+            0.01599629409611225,
+            1
+          ],
+          "metallicFactor": 0.30000001192092896,
+          "roughnessFactor": 0.41999998688697815
+        }
+      }
+    ],
+    "unexpected_features": {},
+    "extensions_used": [],
+    "generator": "Khronos glTF Blender I/O v5.2.40"
+  },
+  {
+    "path": "art/models/environment/city_lights_04/city_lights_04_warm.glb",
+    "bytes": 79916,
+    "sha256": "af3d16bc5a31e27dbd7a278b0340c13ac11c7781c794cbd782ecaf9b34f87fb8",
+    "bounds_raw_godot": [
+      [
+        -0.3199999928474426,
+        -0.23000000417232513,
+        -0.7099999785423279
+      ],
+      [
+        0.3199999928474426,
+        0.3050000071525574,
+        -0.0
+      ]
+    ],
+    "nodes": [
+      {
+        "mesh": 0,
+        "name": "broad_oval_canopy"
+      },
+      {
+        "mesh": 1,
+        "name": "broad_recessed_diffuser"
+      },
+      {
+        "mesh": 2,
+        "name": "canopy_seal"
+      },
+      {
+        "mesh": 3,
+        "name": "curved_cast_arm"
+      },
+      {
+        "mesh": 4,
+        "name": "lower_shield"
+      },
+      {
+        "mesh": 5,
+        "name": "mount_fastener_lower"
+      },
+      {
+        "mesh": 6,
+        "name": "mount_fastener_upper"
+      },
+      {
+        "mesh": 7,
+        "name": "mounting_backplate"
+      },
+      {
+        "mesh": 8,
+        "name": "mounting_gasket"
+      },
+      {
+        "children": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8
+        ],
+        "name": "CityLights04"
+      }
+    ],
+    "meshes": [
+      {
+        "name": "broad_oval_canopy",
+        "primitives": [
+          {
+            "material": "city_lights_04_petrol_metal",
+            "vertices": 448,
+            "triangles": 892,
+            "degenerate_triangles": 0,
+            "nonfinite_positions": 0,
+            "bad_normals": 0,
+            "normal_winding_negative_corners": 0,
+            "min_normal_face_dot": 0.9067733387687622,
+            "signed_volume": 0.014534026097867603,
+            "attributes": [
+              "POSITION",
+              "NORMAL"
+            ],
+            "uv_count": 0,
+            "sign_face_uv_max_error": null
+          }
+        ]
+      },
+      {
+        "name": "broad_recessed_diffuser",
+        "primitives": [
+          {
+            "material": "city_lights_04_lens_warm",
+            "vertices": 256,
+            "triangles": 508,
+            "degenerate_triangles": 0,
+            "nonfinite_positions": 0,
+            "bad_normals": 0,
+            "normal_winding_negative_corners": 0,
+            "min_normal_face_dot": 0.8023935556411743,
+            "signed_volume": 0.016380087099246883,
+            "attributes": [
+              "POSITION",
+              "NORMAL"
+            ],
+            "uv_count": 0,
+            "sign_face_uv_max_error": null
+          }
+        ]
+      },
+      {
+        "name": "canopy_seal",
+        "primitives": [
+          {
+            "material": "city_lights_04_recess_dark",
+            "vertices": 256,
+            "triangles": 508,
+            "degenerate_triangles": 0,
+            "nonfinite_positions": 0,
+            "bad_normals": 0,
+            "normal_winding_negative_corners": 0,
+            "min_normal_face_dot": 0.7468130446697505,
+            "signed_volume": 0.004122995441414335,
+            "attributes": [
+              "POSITION",
+              "NORMAL"
+            ],
+            "uv_count": 0,
+            "sign_face_uv_max_error": null
+          }
+        ]
+      },
+      {
+        "name": "curved_arm",
+        "primitives": [
+          {
+            "material": "city_lights_04_petrol_metal",
+            "vertices": 336,
+            "triangles": 668,
+            "degenerate_triangles": 0,
+            "nonfinite_positions": 0,
+            "bad_normals": 0,
+            "normal_winding_negative_corners": 0,
+            "min_normal_face_dot": 0.6599097050952711,
+            "signed_volume": 0.0016441806061255168,
+            "attributes": [
+              "POSITION",
+              "NORMAL"
+            ],
+            "uv_count": 0,
+            "sign_face_uv_max_error": null
+          }
+        ]
+      },
+      {
+        "name": "lower_shield",
+        "primitives": [
+          {
+            "material": "city_lights_04_petrol_metal",
+            "vertices": 384,
+            "triangles": 764,
+            "degenerate_triangles": 0,
+            "nonfinite_positions": 0,
+            "bad_normals": 0,
+            "normal_winding_negative_corners": 0,
+            "min_normal_face_dot": 0.8084745278841314,
+            "signed_volume": 0.00888309018860025,
+            "attributes": [
+              "POSITION",
+              "NORMAL"
+            ],
+            "uv_count": 0,
+            "sign_face_uv_max_error": null
+          }
+        ]
+      },
+      {
+        "name": "Sphere",
+        "primitives": [
+          {
+            "material": "city_lights_04_recess_dark",
+            "vertices": 114,
+            "triangles": 224,
+            "degenerate_triangles": 0,
+            "nonfinite_positions": 0,
+            "bad_normals": 0,
+            "normal_winding_negative_corners": 0,
+            "min_normal_face_dot": 0.8583781655472353,
+            "signed_volume": 6.8087191560752624e-06,
+            "attributes": [
+              "POSITION",
+              "NORMAL"
+            ],
+            "uv_count": 0,
+            "sign_face_uv_max_error": null
+          }
+        ]
+      },
+      {
+        "name": "Sphere.001",
+        "primitives": [
+          {
+            "material": "city_lights_04_recess_dark",
+            "vertices": 114,
+            "triangles": 224,
+            "degenerate_triangles": 0,
+            "nonfinite_positions": 0,
+            "bad_normals": 0,
+            "normal_winding_negative_corners": 0,
+            "min_normal_face_dot": 0.8583781655472353,
+            "signed_volume": 6.8087191560752624e-06,
+            "attributes": [
+              "POSITION",
+              "NORMAL"
+            ],
+            "uv_count": 0,
+            "sign_face_uv_max_error": null
+          }
+        ]
+      },
+      {
+        "name": "Cube.001",
+        "primitives": [
+          {
+            "material": "city_lights_04_petrol_metal",
+            "vertices": 152,
+            "triangles": 300,
+            "degenerate_triangles": 0,
+            "nonfinite_positions": 0,
+            "bad_normals": 0,
+            "normal_winding_negative_corners": 0,
+            "min_normal_face_dot": 0.9577434423529079,
+            "signed_volume": 0.004843072264152431,
+            "attributes": [
+              "POSITION",
+              "NORMAL"
+            ],
+            "uv_count": 0,
+            "sign_face_uv_max_error": null
+          }
+        ]
+      },
+      {
+        "name": "Cube.002",
+        "primitives": [
+          {
+            "material": "city_lights_04_recess_dark",
+            "vertices": 152,
+            "triangles": 300,
+            "degenerate_triangles": 0,
+            "nonfinite_positions": 0,
+            "bad_normals": 0,
+            "normal_winding_negative_corners": 0,
+            "min_normal_face_dot": 0.9570746392336987,
+            "signed_volume": 0.0009186704205844269,
+            "attributes": [
+              "POSITION",
+              "NORMAL"
+            ],
+            "uv_count": 0,
+            "sign_face_uv_max_error": null
+          }
+        ]
+      }
+    ],
+    "materials": [
+      {
+        "doubleSided": true,
+        "name": "city_lights_04_petrol_metal",
+        "pbrMetallicRoughness": {
+          "baseColorFactor": [
+            0.009721217676997185,
+            0.04970656707882881,
+            0.061246052384376526,
+            1
+          ],
+          "metallicFactor": 0.550000011920929,
+          "roughnessFactor": 0.3799999952316284
+        }
+      },
+      {
+        "doubleSided": true,
+        "emissiveFactor": [
+          0.44999998807907104,
+          0.32206205468543203,
+          0.16481366614994286
+        ],
+        "name": "city_lights_04_lens_warm",
+        "pbrMetallicRoughness": {
+          "baseColorFactor": [
+            1,
+            0.715693473815918,
+            0.366252601146698,
+            1
+          ],
+          "metallicFactor": 0,
+          "roughnessFactor": 0.550000011920929
+        }
+      },
+      {
+        "doubleSided": true,
+        "name": "city_lights_04_recess_dark",
+        "pbrMetallicRoughness": {
+          "baseColorFactor": [
+            0.004024717025458813,
+            0.012286487966775894,
+            0.01599629409611225,
+            1
+          ],
+          "metallicFactor": 0.30000001192092896,
+          "roughnessFactor": 0.41999998688697815
+        }
+      }
+    ],
+    "unexpected_features": {},
+    "extensions_used": [],
+    "generator": "Khronos glTF Blender I/O v5.2.40"
+  },
+  {
+    "path": "art/models/environment/city_sign_supports_01/city_sign_supports_01.glb",
+    "bytes": 75768,
+    "sha256": "5f54105825e00bb73c038bed252910abec548ad1beb81603b2713c2c69796e0b",
+    "bounds_raw_godot": [
+      [
+        -0.699999988079071,
+        -0.5,
+        -0.10000000149011612
+      ],
+      [
+        0.699999988079071,
+        0.5,
+        -0.0
+      ]
+    ],
+    "nodes": [
+      {
+        "mesh": 0,
+        "name": "artwork_carrier"
+      },
+      {
+        "mesh": 1,
+        "name": "face_gasket"
+      },
+      {
+        "mesh": 2,
+        "name": "mount_rail_lower"
+      },
+      {
+        "mesh": 3,
+        "name": "mount_rail_upper"
+      },
+      {
+        "mesh": 4,
+        "name": "rear_shell"
+      },
+      {
+        "mesh": 5,
+        "name": "release_tab_left"
+      },
+      {
+        "mesh": 6,
+        "name": "release_tab_right"
+      },
+      {
+        "mesh": 7,
+        "name": "rounded_frame"
+      },
+      {
+        "mesh": 8,
+        "name": "wall_pad_lower_left"
+      },
+      {
+        "mesh": 9,
+        "name": "wall_pad_lower_right"
+      },
+      {
+        "mesh": 10,
+        "name": "wall_pad_upper_left"
+      },
+      {
+        "mesh": 11,
+        "name": "wall_pad_upper_right"
+      },
+      {
+        "children": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11
+        ],
+        "name": "CitySignSupports01"
+      }
+    ],
+    "meshes": [
+      {
+        "name": "artwork_carrier_mesh",
+        "primitives": [
+          {
+            "material": "sign_face",
+            "vertices": 36,
+            "triangles": 34,
+            "degenerate_triangles": 0,
+            "nonfinite_positions": 0,
+            "bad_normals": 0,
+            "normal_winding_negative_corners": 0,
+            "min_normal_face_dot": 1,
+            "signed_volume": 0.029303833375354745,
+            "attributes": [
+              "POSITION",
+              "NORMAL",
+              "TEXCOORD_0"
+            ],
+            "uv_count": 36,
+            "sign_face_uv_max_error": 2.9075436502878915e-08
+          },
+          {
+            "material": "mount_metal",
+            "vertices": 324,
+            "triangles": 178,
+            "degenerate_triangles": 0,
+            "nonfinite_positions": 0,
+            "bad_normals": 0,
+            "normal_winding_negative_corners": 0,
+            "min_normal_face_dot": 0.9999999907172729,
+            "signed_volume": -0.01934391825204234,
+            "attributes": [
+              "POSITION",
+              "NORMAL",
+              "TEXCOORD_0"
+            ],
+            "uv_count": 324,
+            "sign_face_uv_max_error": null
+          }
+        ]
+      },
+      {
+        "name": "face_gasket_mesh",
+        "primitives": [
+          {
+            "material": "recess_gasket",
+            "vertices": 144,
+            "triangles": 288,
+            "degenerate_triangles": 0,
+            "nonfinite_positions": 0,
+            "bad_normals": 0,
+            "normal_winding_negative_corners": 0,
+            "min_normal_face_dot": 0.3827982855169491,
+            "signed_volume": 0.0008759191961627403,
+            "attributes": [
+              "POSITION",
+              "NORMAL"
+            ],
+            "uv_count": 0,
+            "sign_face_uv_max_error": null
+          }
+        ]
+      },
+      {
+        "name": "Cube.001",
+        "primitives": [
+          {
+            "material": "mount_metal",
+            "vertices": 116,
+            "triangles": 188,
+            "degenerate_triangles": 0,
+            "nonfinite_positions": 0,
+            "bad_normals": 0,
+            "normal_winding_negative_corners": 0,
+            "min_normal_face_dot": 0.9316990770765805,
+            "signed_volume": 0.0023607037234333753,
+            "attributes": [
+              "POSITION",
+              "NORMAL",
+              "TEXCOORD_0"
+            ],
+            "uv_count": 116,
+            "sign_face_uv_max_error": null
+          }
+        ]
+      },
+      {
+        "name": "Cube.004",
+        "primitives": [
+          {
+            "material": "mount_metal",
+            "vertices": 116,
+            "triangles": 188,
+            "degenerate_triangles": 0,
+            "nonfinite_positions": 0,
+            "bad_normals": 0,
+            "normal_winding_negative_corners": 0,
+            "min_normal_face_dot": 0.9316990770765805,
+            "signed_volume": 0.0023607037234333757,
+            "attributes": [
+              "POSITION",
+              "NORMAL",
+              "TEXCOORD_0"
+            ],
+            "uv_count": 116,
+            "sign_face_uv_max_error": null
+          }
+        ]
+      },
+      {
+        "name": "rear_shell_mesh",
+        "primitives": [
+          {
+            "material": "support_petrol",
+            "vertices": 108,
+            "triangles": 212,
+            "degenerate_triangles": 0,
+            "nonfinite_positions": 0,
+            "bad_normals": 0,
+            "normal_winding_negative_corners": 0,
+            "min_normal_face_dot": 0.0006031926380457249,
+            "signed_volume": 0.050051261183935075,
+            "attributes": [
+              "POSITION",
+              "NORMAL"
+            ],
+            "uv_count": 0,
+            "sign_face_uv_max_error": null
+          }
+        ]
+      },
+      {
+        "name": "Cube.007",
+        "primitives": [
+          {
+            "material": "mount_metal",
+            "vertices": 116,
+            "triangles": 188,
+            "degenerate_triangles": 0,
+            "nonfinite_positions": 0,
+            "bad_normals": 0,
+            "normal_winding_negative_corners": 0,
+            "min_normal_face_dot": 0.9328482231546033,
+            "signed_volume": 1.1277760595517165e-05,
+            "attributes": [
+              "POSITION",
+              "NORMAL",
+              "TEXCOORD_0"
+            ],
+            "uv_count": 116,
+            "sign_face_uv_max_error": null
+          }
+        ]
+      },
+      {
+        "name": "Cube.008",
+        "primitives": [
+          {
+            "material": "mount_metal",
+            "vertices": 116,
+            "triangles": 188,
+            "degenerate_triangles": 0,
+            "nonfinite_positions": 0,
+            "bad_normals": 0,
+            "normal_winding_negative_corners": 0,
+            "min_normal_face_dot": 0.9328482231546033,
+            "signed_volume": 1.127776059551716e-05,
+            "attributes": [
+              "POSITION",
+              "NORMAL",
+              "TEXCOORD_0"
+            ],
+            "uv_count": 116,
+            "sign_face_uv_max_error": null
+          }
+        ]
+      },
+      {
+        "name": "rounded_frame_mesh",
+        "primitives": [
+          {
+            "material": "support_petrol",
+            "vertices": 252,
+            "triangles": 504,
+            "degenerate_triangles": 0,
+            "nonfinite_positions": 0,
+            "bad_normals": 0,
+            "normal_winding_negative_corners": 0,
+            "min_normal_face_dot": 0.45178510041827785,
+            "signed_volume": 0.023093607986843956,
+            "attributes": [
+              "POSITION",
+              "NORMAL"
+            ],
+            "uv_count": 0,
+            "sign_face_uv_max_error": null
+          }
+        ]
+      },
+      {
+        "name": "Cube.002",
+        "primitives": [
+          {
+            "material": "recess_gasket",
+            "vertices": 116,
+            "triangles": 188,
+            "degenerate_triangles": 0,
+            "nonfinite_positions": 0,
+            "bad_normals": 0,
+            "normal_winding_negative_corners": 0,
+            "min_normal_face_dot": 0.9328205492798903,
+            "signed_volume": 0.0001271368354545554,
+            "attributes": [
+              "POSITION",
+              "NORMAL",
+              "TEXCOORD_0"
+            ],
+            "uv_count": 116,
+            "sign_face_uv_max_error": null
+          }
+        ]
+      },
+      {
+        "name": "Cube.003",
+        "primitives": [
+          {
+            "material": "recess_gasket",
+            "vertices": 116,
+            "triangles": 188,
+            "degenerate_triangles": 0,
+            "nonfinite_positions": 0,
+            "bad_normals": 0,
+            "normal_winding_negative_corners": 0,
+            "min_normal_face_dot": 0.9328205492798903,
+            "signed_volume": 0.00012713683545455533,
+            "attributes": [
+              "POSITION",
+              "NORMAL",
+              "TEXCOORD_0"
+            ],
+            "uv_count": 116,
+            "sign_face_uv_max_error": null
+          }
+        ]
+      },
+      {
+        "name": "Cube.005",
+        "primitives": [
+          {
+            "material": "recess_gasket",
+            "vertices": 116,
+            "triangles": 188,
+            "degenerate_triangles": 0,
+            "nonfinite_positions": 0,
+            "bad_normals": 0,
+            "normal_winding_negative_corners": 0,
+            "min_normal_face_dot": 0.9328205492798903,
+            "signed_volume": 0.0001271368354545554,
+            "attributes": [
+              "POSITION",
+              "NORMAL",
+              "TEXCOORD_0"
+            ],
+            "uv_count": 116,
+            "sign_face_uv_max_error": null
+          }
+        ]
+      },
+      {
+        "name": "Cube.006",
+        "primitives": [
+          {
+            "material": "recess_gasket",
+            "vertices": 116,
+            "triangles": 188,
+            "degenerate_triangles": 0,
+            "nonfinite_positions": 0,
+            "bad_normals": 0,
+            "normal_winding_negative_corners": 0,
+            "min_normal_face_dot": 0.9328205492798903,
+            "signed_volume": 0.00012713683545455544,
+            "attributes": [
+              "POSITION",
+              "NORMAL",
+              "TEXCOORD_0"
+            ],
+            "uv_count": 116,
+            "sign_face_uv_max_error": null
+          }
+        ]
+      }
+    ],
+    "materials": [
+      {
+        "doubleSided": true,
+        "name": "sign_face",
+        "pbrMetallicRoughness": {
+          "baseColorFactor": [
+            0.3931231200695038,
+            0.4479884207248688,
+            0.4064483046531677,
+            1
+          ],
+          "metallicFactor": 0,
+          "roughnessFactor": 0.5600000023841858
+        }
+      },
+      {
+        "doubleSided": true,
+        "name": "mount_metal",
+        "pbrMetallicRoughness": {
+          "baseColorFactor": [
+            0.07828831672668457,
+            0.1259673833847046,
+            0.1399848908185959,
+            1
+          ],
+          "metallicFactor": 0.6499999761581421,
+          "roughnessFactor": 0.3799999952316284
+        }
+      },
+      {
+        "doubleSided": true,
+        "name": "recess_gasket",
+        "pbrMetallicRoughness": {
+          "baseColorFactor": [
+            0.0033353136386722326,
+            0.006571403704583645,
+            0.008122432976961136,
+            1
+          ],
+          "metallicFactor": 0,
+          "roughnessFactor": 0.7200000286102295
+        }
+      },
+      {
+        "doubleSided": true,
+        "name": "support_petrol",
+        "pbrMetallicRoughness": {
+          "baseColorFactor": [
+            0.010816383175551891,
+            0.03468407690525055,
+            0.04396536201238632,
+            1
+          ],
+          "metallicFactor": 0.18000000715255737,
+          "roughnessFactor": 0.3199999928474426
+        }
+      }
+    ],
+    "unexpected_features": {},
+    "extensions_used": [],
+    "generator": "Khronos glTF Blender I/O v5.2.40"
+  },
+  {
+    "path": "art/models/environment/city_planting_01/city_planting_01.glb",
+    "bytes": 36544,
+    "sha256": "4a46f752ecba59975a4d01c088477eb25c372714f022d9a59f21ba60a3c12bd7",
+    "bounds_raw_godot": [
+      [
+        -1.2000000476837158,
+        0.0,
+        -0.44999998807907104
+      ],
+      [
+        1.2000000476837158,
+        0.6000000238418579,
+        0.44999998807907104
+      ]
+    ],
+    "nodes": [
+      {
+        "mesh": 0,
+        "name": "recessed_ground_foot"
+      },
+      {
+        "mesh": 1,
+        "name": "rounded_cast_trough"
+      },
+      {
+        "mesh": 2,
+        "name": "separate_recessed_soil_insert"
+      },
+      {
+        "children": [
+          0,
+          1,
+          2
+        ],
+        "name": "city_planting_01"
+      }
+    ],
+    "meshes": [
+      {
+        "name": "recessed_ground_foot_mesh",
+        "primitives": [
+          {
+            "material": "planter_recess_petrol",
+            "vertices": 216,
+            "triangles": 284,
+            "degenerate_triangles": 0,
+            "nonfinite_positions": 0,
+            "bad_normals": 0,
+            "normal_winding_negative_corners": 0,
+            "min_normal_face_dot": 0.8327062981492904,
+            "signed_volume": 0.13940989562949177,
+            "attributes": [
+              "POSITION",
+              "NORMAL"
+            ],
+            "uv_count": 0,
+            "sign_face_uv_max_error": null
+          }
+        ]
+      },
+      {
+        "name": "rounded_cast_trough_mesh",
+        "primitives": [
+          {
+            "material": "planter_sage_cast_stone",
+            "vertices": 360,
+            "triangles": 500,
+            "degenerate_triangles": 0,
+            "nonfinite_positions": 0,
+            "bad_normals": 0,
+            "normal_winding_negative_corners": 0,
+            "min_normal_face_dot": 0.9214607201421009,
+            "signed_volume": 0.3447961395265642,
+            "attributes": [
+              "POSITION",
+              "NORMAL"
+            ],
+            "uv_count": 0,
+            "sign_face_uv_max_error": null
+          },
+          {
+            "material": "planter_pale_stone_rim",
+            "vertices": 252,
+            "triangles": 432,
+            "degenerate_triangles": 0,
+            "nonfinite_positions": 0,
+            "bad_normals": 0,
+            "normal_winding_negative_corners": 0,
+            "min_normal_face_dot": 0.6973657099624149,
+            "signed_volume": 0.24920394020098038,
+            "attributes": [
+              "POSITION",
+              "NORMAL"
+            ],
+            "uv_count": 0,
+            "sign_face_uv_max_error": null
+          }
+        ]
+      },
+      {
+        "name": "separate_recessed_soil_insert_mesh",
+        "primitives": [
+          {
+            "material": "planter_quiet_earth",
+            "vertices": 180,
+            "triangles": 212,
+            "degenerate_triangles": 0,
+            "nonfinite_positions": 0,
+            "bad_normals": 0,
+            "normal_winding_negative_corners": 0,
+            "min_normal_face_dot": 0.8561867243242616,
+            "signed_volume": 0.060221927589742735,
+            "attributes": [
+              "POSITION",
+              "NORMAL"
+            ],
+            "uv_count": 0,
+            "sign_face_uv_max_error": null
+          }
+        ]
+      }
+    ],
+    "materials": [
+      {
+        "doubleSided": true,
+        "name": "planter_recess_petrol",
+        "pbrMetallicRoughness": {
+          "baseColorFactor": [
+            0.02955683507025242,
+            0.0666259378194809,
+            0.06480326503515244,
+            1
+          ],
+          "metallicFactor": 0,
+          "roughnessFactor": 0.800000011920929
+        }
+      },
+      {
+        "doubleSided": true,
+        "name": "planter_sage_cast_stone",
+        "pbrMetallicRoughness": {
+          "baseColorFactor": [
+            0.30946892499923706,
+            0.37123769521713257,
+            0.30946892499923706,
+            1
+          ],
+          "metallicFactor": 0,
+          "roughnessFactor": 0.7599999904632568
+        }
+      },
+      {
+        "doubleSided": true,
+        "name": "planter_pale_stone_rim",
+        "pbrMetallicRoughness": {
+          "baseColorFactor": [
+            0.4969329833984375,
+            0.5394794940948486,
+            0.4125426113605499,
+            1
+          ],
+          "metallicFactor": 0,
+          "roughnessFactor": 0.699999988079071
+        }
+      },
+      {
+        "doubleSided": true,
+        "name": "planter_quiet_earth",
+        "pbrMetallicRoughness": {
+          "baseColorFactor": [
+            0.04970656707882881,
+            0.040915198624134064,
+            0.02518685907125473,
+            1
+          ],
+          "metallicFactor": 0,
+          "roughnessFactor": 0.949999988079071
+        }
+      }
+    ],
+    "unexpected_features": {},
+    "extensions_used": [],
+    "generator": "Khronos glTF Blender I/O v5.2.40"
+  },
+  {
+    "path": "art/models/environment/city_planting_02/city_planting_02.glb",
+    "bytes": 68156,
+    "sha256": "20eb2d5e44bd57ea6b01c15c177d9e561f775ab808170379da52b926258baa34",
+    "bounds_raw_godot": [
+      [
+        -0.8999999761581421,
+        0.0,
+        -0.8999999761581421
+      ],
+      [
+        0.8999999761581421,
+        0.47999998927116394,
+        0.8999999761581421
+      ]
+    ],
+    "nodes": [
+      {
+        "mesh": 0,
+        "name": "cast_stone_open_surround"
+      },
+      {
+        "mesh": 1,
+        "name": "recessed_annular_foot"
+      },
+      {
+        "children": [
+          0,
+          1
+        ],
+        "name": "city_planting_02"
+      }
+    ],
+    "meshes": [
+      {
+        "name": "cast_stone_open_surround_mesh",
+        "primitives": [
+          {
+            "material": "planter_sage_cast_stone",
+            "vertices": 576,
+            "triangles": 1024,
+            "degenerate_triangles": 0,
+            "nonfinite_positions": 0,
+            "bad_normals": 0,
+            "normal_winding_negative_corners": 0,
+            "min_normal_face_dot": 0.6948533088931905,
+            "signed_volume": 0.18943571554762917,
+            "attributes": [
+              "POSITION",
+              "NORMAL"
+            ],
+            "uv_count": 0,
+            "sign_face_uv_max_error": null
+          },
+          {
+            "material": "planter_pale_stone_rim",
+            "vertices": 704,
+            "triangles": 1280,
+            "degenerate_triangles": 0,
+            "nonfinite_positions": 0,
+            "bad_normals": 0,
+            "normal_winding_negative_corners": 0,
+            "min_normal_face_dot": 0.9197278210808225,
+            "signed_volume": 0.23019123755324908,
+            "attributes": [
+              "POSITION",
+              "NORMAL"
+            ],
+            "uv_count": 0,
+            "sign_face_uv_max_error": null
+          }
+        ]
+      },
+      {
+        "name": "recessed_annular_foot_mesh",
+        "primitives": [
+          {
+            "material": "planter_recess_petrol",
+            "vertices": 576,
+            "triangles": 1152,
+            "degenerate_triangles": 0,
+            "nonfinite_positions": 0,
+            "bad_normals": 0,
+            "normal_winding_negative_corners": 0,
+            "min_normal_face_dot": 0.8626645694045919,
+            "signed_volume": 0.06792877968168902,
+            "attributes": [
+              "POSITION",
+              "NORMAL"
+            ],
+            "uv_count": 0,
+            "sign_face_uv_max_error": null
+          }
+        ]
+      }
+    ],
+    "materials": [
+      {
+        "doubleSided": true,
+        "name": "planter_sage_cast_stone",
+        "pbrMetallicRoughness": {
+          "baseColorFactor": [
+            0.30946892499923706,
+            0.37123769521713257,
+            0.30946892499923706,
+            1
+          ],
+          "metallicFactor": 0,
+          "roughnessFactor": 0.7599999904632568
+        }
+      },
+      {
+        "doubleSided": true,
+        "name": "planter_pale_stone_rim",
+        "pbrMetallicRoughness": {
+          "baseColorFactor": [
+            0.4969329833984375,
+            0.5394794940948486,
+            0.4125426113605499,
+            1
+          ],
+          "metallicFactor": 0,
+          "roughnessFactor": 0.699999988079071
+        }
+      },
+      {
+        "doubleSided": true,
+        "name": "planter_recess_petrol",
+        "pbrMetallicRoughness": {
+          "baseColorFactor": [
+            0.02955683507025242,
+            0.0666259378194809,
+            0.06480326503515244,
+            1
+          ],
+          "metallicFactor": 0,
+          "roughnessFactor": 0.800000011920929
+        }
+      }
+    ],
+    "unexpected_features": {},
+    "extensions_used": [],
+    "generator": "Khronos glTF Blender I/O v5.2.40"
+  }
+]

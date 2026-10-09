@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://v0d5akcqmv4r"]
+
+[ext_resource type="PackedScene" uid="uid://ckn4gl5tx6oqi" path="res://tests/fixtures/asset_production/batch_01_camera.tscn" id="1"]
+
+[node name="preview" unique_id=1572300170 instance=ExtResource("1")]
+
+[node name="Camera" parent="." index="2" unique_id=373494851]
+transform = Transform3D(0.8479982, 0.12553649, -0.5149169, 0, 0.9715434, 0.2368618, 0.52999884, -0.2008584, 0.82386714, -5, 4, 2)
+fov = 52.0
+
+[node name="GameCamera" parent="." index="6" unique_id=1677099671]
+current = false

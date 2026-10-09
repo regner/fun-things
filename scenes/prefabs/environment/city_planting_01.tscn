@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://diinbdkhlyjwf"]
+
+[ext_resource type="PackedScene" uid="uid://ubco1yjrgfpq" path="res://art/models/environment/city_planting_01/city_planting_01.glb" id="1_p5i62"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_2tgob"]
+size = Vector3(2.4, 0.6, 0.9)
+
+[node name="city_planting_01" type="Node3D" unique_id=2037252806]
+
+[node name="Visuals" type="Node3D" parent="." unique_id=1033006627]
+
+[node name="Model" parent="Visuals" unique_id=910466254 instance=ExtResource("1_p5i62")]
+
+[node name="Collision" type="Node3D" parent="." unique_id=1754260476]
+
+[node name="Body" type="StaticBody3D" parent="Collision" unique_id=578778486]
+collision_mask = 0
+
+[node name="Shape" type="CollisionShape3D" parent="Collision/Body" unique_id=1337176045]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3, 0)
+shape = SubResource("BoxShape3D_2tgob")

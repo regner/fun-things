@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://byqodl735ss1a"]
+
+[ext_resource type="PackedScene" uid="uid://bdlt6f8x0t868" path="res://art/models/environment/city_sign_supports_01/city_sign_supports_01.glb" id="1_vlpna"]
+
+[node name="city_sign_supports_01" type="Node3D" unique_id=1337827831]
+
+[node name="Visuals" type="Node3D" parent="." unique_id=942568605]
+
+[node name="Model" parent="Visuals" unique_id=728591687 instance=ExtResource("1_vlpna")]

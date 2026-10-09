@@ -1,0 +1,14 @@
+00:00.301  blend            | Read blend: "/tmp/six-review-jobs/city_planting_02/art/source/models/environment/city_planting_02/city_planting_02.blend"
+INFO Draco is available, use library at /usr/lib/blender/5.2/scripts/addons_core/io_scene_gltf2/libbf_intern_draco_bridge.so
+ERROR MeshOptimizer is not available because library could not be found at /usr/lib/blender/5.2/scripts/addons_core/io_scene_gltf2/libbf_intern_meshopt_bridge.so
+17:32:59 | INFO: Starting glTF 2.0 export
+17:32:59 | INFO: Extracting primitive: cast_stone_open_surround_mesh
+17:32:59 | INFO: Primitives created: 2
+17:32:59 | INFO: Extracting primitive: recessed_annular_foot_mesh
+17:32:59 | INFO: Primitives created: 1
+17:32:59 | INFO: Finished glTF 2.0 export in 0.01331639289855957 s
+
+SOURCE_EXPORT_CHECKS_PASS {"blender": "5.2.2 LTS", "build_hash": "d13f752e3b9c", "exporter": [5, 2, 40], "objects": [{"name": "recessed_annular_foot", "vertices": 576, "triangles": 1152, "nonmanifold_or_inconsistent_edges": 0, "signed_volume_m3": 0.06792877968168871, "material_slots": ["planter_recess_petrol"]}, {"name": "cast_stone_open_surround", "vertices": 1152, "triangles": 2304, "nonmanifold_or_inconsistent_edges": 0, "signed_volume_m3": 0.4196269531008771, "material_slots": ["planter_sage_cast_stone", "planter_pale_stone_rim"]}], "blender_bounds": [[-0.8999999761581421, -0.8999999761581421, 0.0], [0.8999999761581421, 0.8999999761581421, 0.47999998927116394]], "triangles": 3456, "export_settings": {"export_format": "GLB", "use_selection": true, "export_yup": true, "export_apply": true, "export_texcoords": false, "export_normals": true, "export_tangents": false, "export_materials": "EXPORT", "export_cameras": false, "export_lights": false, "export_extras": false, "export_animations": false}, "sha256": "20eb2d5e44bd57ea6b01c15c177d9e561f775ab808170379da52b926258baa34", "bytes": 68156}
+Blender 5.2.2 LTS (hash d13f752e3b9c built 2026-09-22 17:10:25)
+
+Blender quit
