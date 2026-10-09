@@ -1,7 +1,9 @@
 # Player character — first concept selection
 
-9 October 2026. **Awaiting Regner's direction selection.** Concept preparation and
-visual self-review only; no production model, rig, animation or gameplay acceptance.
+9 October 2026. **Regner approved A — Coral Courier for production.** Regner also
+confirmed a shared underlying skeleton with separate player/NPC animation libraries,
+and future interchangeable player skins. Production is underway; production model,
+rig, animation and gameplay acceptance remain pending.
 Base: `c030d66d7d0a9db19c0c2aebf1aa2b83eded6275`.
 
 Open [the local gallery](gallery.html) or the three full-resolution sheets:
@@ -12,11 +14,11 @@ Open [the local gallery](gallery.html) or the three full-resolution sheets:
 | B — Night Shift | [image](02_lime_utility.png) | Sturdy square mass, yellow shoulder blocks, silver head, ordinary municipal workwear | Very bright; could read as a service NPC without other player presentation |
 | C — After Hours | [image](03_violet_hustler.png) | Slim fashion silhouette, angular shoulders, pale back triangle, platform shoes | Dark violet may merge into night streets; shoes and narrow legs need motion checks |
 
-**Recommendation: A.** Its broad ivory shoulder marker and pale forelock are visible
+**Selected: A.** Its broad ivory shoulder marker and pale forelock are visible
 above the body, and the short bomber leaves arms and hips available for weapon and
 locomotion poses. B is strongest for immediate color contrast; C is strongest for
 eccentric fashion. Identity, hairstyle, colors and clothing can be iterated directly
-with Regner; this recommendation does not authorize modeling.
+with Regner; the later explicit selection authorizes modeling.
 
 ## Brief and ownership
 
@@ -138,7 +140,30 @@ does not by itself require seat/entry animation production.
 After approval, player-specific paths use `player_character/` under source/runtime
 art and asset-local preview areas. Shared ownership is
 `docs/assets/shared_humanoid_rig.md` and `art/source/models/shared_humanoid/`.
-These production files are not created or frozen at this concept checkpoint.
+These production files are owned by player lead; immutable compatibility checkpoints
+will be sent to consumers as they become available.
+
+## Production model routing and editor checkpoint
+
+Owner instruction received 9 October 2026: all modeling/animation work uses Astra,
+including geometry, UV/skin deformation, spatial rest/bone design and authored poses/
+keyframes/motion. Non-spatial Godot import/configuration/wiring may use Sol 6.1.
+Verify the actual runtime model before any resumed spatial mutation; preserve
+in-flight state at a transition and end a Sol turn if settings cannot take effect.
+This supersedes the cohort's earlier Sol lead policy. No optional feature override.
+
+Before the first modeling mutation, Paseo `get_agent_status` reported active runtime
+session `01a12094-20e5-7611-a755-76f746e02d3c`, model `gpt-6-astra`, reasoning `high`.
+No geometry/bones/keyframes had been authored by this lead before that verification.
+Pinned Godot `4.8.dev7.official.c971f93e7` was found through Mise. Private editor
+PID 78374 runs this worktree, capped at 60 FPS, using `/tmp/brackett-player-editor`
+XDG state and editor/runtime/LSP/debug/DAP ports 17650/17651/17652/17653/17654.
+The default connector remains bound to an unavailable endpoint; owned
+`tools/player_character/private_editor.mjs` calls the same toolkit commands through
+the explicitly verified private endpoint, checking registry/project/PID before each
+connection. It does not scan or switch other editors. Initial scene query found the
+baseline `run/main_scene.tscn`; no scene mutation or replacement occurred.
+Local generated `.mcp.json` is preserved as untracked configuration, not a deliverable.
 
 ## Tool receipt, provenance and pending handoff
 
