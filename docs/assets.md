@@ -18,6 +18,9 @@ city/asset dimensions. Use those inputs in asset briefs; do not choose competing
 paths, gameplay rules or visual directions here. Spikes refine the drafts before
 production. [S01](spikes/s01.md) selects Blender 5.2.2 LTS / glTF exporter 5.2.40
 and records exact export/import settings on the existing Godot 4.8-dev7 pin.
+The [S01-W supplement](spikes/s01-w.md) reproduces both S01 GLBs byte-for-byte with
+the Windows Blender 5.2.2 LTS build, so the existing strict byte comparison remains
+the cross-platform check; future Blender or exporter changes require fresh evidence.
 That asset-profile proof does not certify full-project plugin or Deck compatibility.
 
 ## Owners and handoffs
