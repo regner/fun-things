@@ -46,10 +46,12 @@ class ResponseOwnershipTests(unittest.TestCase):
             simulation = [
                 {"event": "simulation", "time_ms": 1253, "wall_ms": 1253,
                  "local_tick": 1000, "receipt_ms": 1000, "held_age_ms": 249,
+                 "decision_age_ms": 249,
                  "held": [0, -1], "pose": {"entity": 2, "tick": 1,
                     "position": [0, 0, 0], "velocity": [0, 0, -5]}},
                 {"event": "simulation", "time_ms": 1270, "wall_ms": 1270,
                  "local_tick": 1001, "receipt_ms": 1000, "held_age_ms": 266,
+                 "decision_age_ms": 266,
                  "held": [0, 0], "pose": {"entity": 2, "tick": 2,
                     "position": [0, 0, 0], "velocity": [0, 0, 0]}},
             ]

@@ -182,12 +182,21 @@ func _collect_and_send(delta: float) -> void:
 		match_state.submit_held(session.local_participant, envelope)
 	else:
 		replication.send_held(envelope)
-	if role == "client" and event_index <= PULSE_COUNT and sampled.move != Vector2.ZERO:
-		_record({"event": "input_send", "index": event_index, "sequence": sequence,
-			"move": [sampled.move.x, sampled.move.y], "aim_yaw": motion_command.aim_yaw,
-			"sample_ticks_ms": sample_ticks_ms, "sample_wall_ms": sample_wall_ms,
-			"send_ticks_ms": Time.get_ticks_msec(),
-			"send_wall_ms": Time.get_unix_time_from_system() * 1000.0})
+	_record_input_send(sampled, motion_command, sample_ticks_ms, sample_wall_ms)
+
+
+## Records S03-L's correlated network-stage timing for active client pulse packets.
+func _record_input_send(
+	sampled: Dictionary, motion_command: Dictionary, sample_ticks_ms: int, sample_wall_ms: float
+) -> void:
+	if role != "client" or event_index > PULSE_COUNT or sampled.move == Vector2.ZERO:
+		return
+
+	_record({"event": "input_send", "index": event_index, "sequence": sequence,
+		"move": [sampled.move.x, sampled.move.y], "aim_yaw": motion_command.aim_yaw,
+		"sample_ticks_ms": sample_ticks_ms, "sample_wall_ms": sample_wall_ms,
+		"send_ticks_ms": Time.get_ticks_msec(),
+		"send_wall_ms": Time.get_unix_time_from_system() * 1000.0})
 
 
 ## Checks admission/identity/value fences and local focus cancellation through existing owners.

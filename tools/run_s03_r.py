@@ -336,7 +336,8 @@ def analyze(directory, proxy_events):
             705 <= r["local_tick"] <= 715]
     collision = bool(wall) and all(0.37 <= r["pose"]["position"][2] <= 0.41 and
                                   abs(r["pose"]["position"][0] - 6) < 0.01 for r in wall)
-    stale = [r for r in simulation if r["time_ms"] - r["receipt_ms"] > 267]
+    stale = [r for r in simulation if r["pose"]["entity"] == 2 and
+             1002 <= r["local_tick"] < 1040 and r["decision_age_ms"] > 267]
     expiry_transitions = []
     last_active = {}
     previous_tick = {}
@@ -455,6 +456,8 @@ def stage(directory):
     for section in ["autoload", "editor_plugins"]:
         settings = re.sub(r"(?ms)^\[" + section + r"\]\n.*?(?=^\[|\Z)", "", settings)
     settings = settings.replace('config/icon="res://icon.svg"', '')
+    settings = re.sub(r'(?m)^run/main_scene=.*$',
+                      'run/main_scene="res://tests/fixtures/s03_r/boot.tscn"', settings)
     settings += '\n'
     (project / "project.godot").write_text(settings)
     return project
