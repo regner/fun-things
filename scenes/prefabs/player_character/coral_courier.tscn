@@ -1,0 +1,42 @@
+[gd_scene format=3 uid="uid://wrydf8221mfm"]
+
+[ext_resource type="Script" uid="uid://570cew3c4gxx" path="res://scenes/prefabs/player_character/player_character_visual.gd" id="1_8hoqs"]
+[ext_resource type="PackedScene" uid="uid://mora8yn7wvqm" path="res://art/models/player_character/coral_courier.glb" id="1_m7nej"]
+[ext_resource type="AnimationLibrary" uid="uid://b1kv4mv85o77n" path="res://art/animations/shared_humanoid/player_v1.tres" id="2_w1mg2"]
+[ext_resource type="AnimationLibrary" uid="uid://tdqvobmbdvc" path="res://art/animations/shared_humanoid/player_upper_v1.tres" id="4_eipwt"]
+[ext_resource type="AnimationLibrary" uid="uid://bc81d720632pl" path="res://art/animations/shared_humanoid/player_lower_v1.tres" id="5_uc0ms"]
+
+[node name="coral_courier" type="Node3D" unique_id=1839496001]
+script = ExtResource("1_8hoqs")
+metadata/authored_grip_profiles = Dictionary[StringName, Transform3D]({
+&"launcher": Transform3D(0.7259526, 0.081941485, -0.68284535, 1.1175863e-07, -0.99287665, -0.11914519, -0.68774444, 0.086493805, -0.7207815, -0.03099282, 0.057586752, 0.05452705),
+&"pistol": Transform3D(0.7259526, 0.081941485, -0.68284535, 1.1175863e-07, -0.99287665, -0.11914519, -0.68774444, 0.086493805, -0.7207815, -0.042608, 0.05758668, 0.06553096),
+&"smg": Transform3D(0.7259526, 0.081941485, -0.68284535, 1.1175863e-07, -0.99287665, -0.11914519, -0.68774444, 0.086493805, -0.7207815, -0.021555424, 0.057586703, 0.045586377)
+})
+
+[node name="PresentationAnchor" type="Node3D" parent="." unique_id=1652272944]
+
+[node name="Visuals" type="Node3D" parent="PresentationAnchor" unique_id=110140574]
+
+[node name="Model" parent="PresentationAnchor/Visuals" unique_id=1687024452 instance=ExtResource("1_m7nej")]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=11327278]
+root_node = NodePath("../PresentationAnchor/Visuals/Model")
+libraries/player = ExtResource("2_w1mg2")
+autoplay = &"player/idle"
+
+[node name="UpperBodyPlayer" type="AnimationPlayer" parent="." unique_id=1525375469]
+root_node = NodePath("../PresentationAnchor/Visuals/Model")
+libraries/ = ExtResource("4_eipwt")
+
+[node name="LowerBodyPlayer" type="AnimationPlayer" parent="." unique_id=574309562]
+root_node = NodePath("../PresentationAnchor/Visuals/Model")
+libraries/ = ExtResource("5_uc0ms")
+
+[node name="Sockets" type="BoneAttachment3D" parent="." unique_id=66427296]
+bone_name = "hand_r"
+bone_idx = 14
+use_external_skeleton = true
+external_skeleton = NodePath("../PresentationAnchor/Visuals/Model/Rig/Skeleton3D")
+
+[node name="WeaponMount" type="Marker3D" parent="Sockets" unique_id=2044086042]

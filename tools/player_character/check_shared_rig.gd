@@ -24,6 +24,9 @@ func _initialize() -> void:
 			assert(parent == -1)
 		else:
 			assert(skeleton.get_bone_name(parent) == row.parent)
-	print("PLAYER_BIND_CHECK PASS: 28 exact named rest origins/parents; path=", model.get_path_to(skeleton))
+	print(
+		"PLAYER_BIND_CHECK PASS: 28 exact named rest origins/parents; path=",
+		model.get_path_to(skeleton),
+	)
 	model.free()
 	quit()

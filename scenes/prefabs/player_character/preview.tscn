@@ -1,0 +1,61 @@
+[gd_scene format=3 uid="uid://bsyw5afxrhg20"]
+
+[ext_resource type="Script" uid="uid://vfcub10v2caa" path="res://scenes/prefabs/player_character/player_preview.gd" id="1_6im67"]
+[ext_resource type="PackedScene" uid="uid://wrydf8221mfm" path="res://scenes/prefabs/player_character/coral_courier.tscn" id="1_pyax5"]
+[ext_resource type="PackedScene" uid="uid://sg8ridp7l3to" path="res://art/models/spikes/s02_ground.glb" id="2_6im67"]
+
+[sub_resource type="Environment" id="Environment_v2kk8"]
+background_mode = 1
+background_color = Color(0.028, 0.065, 0.09, 1)
+ambient_light_source = 2
+ambient_light_color = Color(0.55, 0.65, 0.72, 1)
+ambient_light_energy = 0.65
+
+[node name="preview" type="Node3D" unique_id=551520384]
+script = ExtResource("1_6im67")
+
+[node name="Courier" parent="." unique_id=1839496001 instance=ExtResource("1_pyax5")]
+
+[node name="Ground" parent="." unique_id=412093926 instance=ExtResource("2_6im67")]
+
+[node name="Camera" type="Camera3D" parent="." unique_id=373494851]
+transform = Transform3D(-0.82219213, -0.13411479, 0.5531846, 0, 0.97184634, 0.23561566, -0.56921, 0.19372134, -0.79904443, 2.7, 2.1, -3.9)
+current = true
+fov = 32.0
+near = 0.01
+far = 120.0
+
+[node name="Key" type="DirectionalLight3D" parent="." unique_id=1334570804]
+transform = Transform3D(0.81915206, 0.4055798, -0.4055798, 0, 0.70710677, 0.70710677, 0.57357645, -0.579228, 0.579228, 0, 0, 0)
+light_color = Color(1, 0.88, 0.75, 1)
+light_energy = 1.6
+shadow_enabled = true
+
+[node name="Fill" type="DirectionalLight3D" parent="." unique_id=1831539282]
+transform = Transform3D(-0.76604444, -0.36868784, 0.5265408, 0, 0.81915206, 0.57357645, -0.64278764, 0.43938506, -0.62750685, 0, 0, 0)
+light_color = Color(0.48, 0.7, 1, 1)
+light_energy = 0.65
+
+[node name="Environment" type="WorldEnvironment" parent="." unique_id=1315609806]
+environment = SubResource("Environment_v2kk8")
+
+[node name="GameCamera" type="Camera3D" parent="." unique_id=1677099671]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 47, 0)
+fov = 42.0
+near = 0.1
+far = 160.0
+
+[node name="ReviewOverlay" type="CanvasLayer" parent="." unique_id=2095233087]
+
+[node name="Caption" type="Label" parent="ReviewOverlay" unique_id=1133095252]
+offset_left = 20.0
+offset_top = 20.0
+offset_right = 21.0
+offset_bottom = 43.0
+theme_override_colors/font_shadow_color = Color(0.015, 0.025, 0.04, 1)
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/shadow_offset_y = 2
+theme_override_font_sizes/font_size = 18
+text = "Coral Courier • idle
+← / → clip    Tab camera
+Close review"

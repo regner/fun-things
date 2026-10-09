@@ -1,0 +1,251 @@
+{
+  "contract": "shared_humanoid/1.0.0",
+  "library": "player",
+  "source": "art/source/models/shared_humanoid/shared_humanoid_player_motion_v1.blend",
+  "export": "art/models/shared_humanoid/shared_humanoid_player_motion_v1.glb",
+  "collection": "export_shared_humanoid_player_v1",
+  "clips": [
+    {
+      "name": "idle",
+      "frames": [
+        0,
+        60
+      ],
+      "fps": 30,
+      "duration_s": 2.0,
+      "loop": true
+    },
+    {
+      "name": "walk",
+      "frames": [
+        0,
+        30
+      ],
+      "fps": 30,
+      "duration_s": 1.0,
+      "loop": true
+    },
+    {
+      "name": "run",
+      "frames": [
+        0,
+        24
+      ],
+      "fps": 30,
+      "duration_s": 0.8,
+      "loop": true
+    },
+    {
+      "name": "death",
+      "frames": [
+        0,
+        36
+      ],
+      "fps": 30,
+      "duration_s": 1.2,
+      "loop": false
+    },
+    {
+      "name": "walk_back",
+      "frames": [
+        0,
+        30
+      ],
+      "fps": 30,
+      "duration_s": 1.0,
+      "loop": true
+    },
+    {
+      "name": "walk_left",
+      "frames": [
+        0,
+        30
+      ],
+      "fps": 30,
+      "duration_s": 1.0,
+      "loop": true
+    },
+    {
+      "name": "walk_right",
+      "frames": [
+        0,
+        30
+      ],
+      "fps": 30,
+      "duration_s": 1.0,
+      "loop": true
+    },
+    {
+      "name": "run_back",
+      "frames": [
+        0,
+        24
+      ],
+      "fps": 30,
+      "duration_s": 0.8,
+      "loop": true
+    },
+    {
+      "name": "run_left",
+      "frames": [
+        0,
+        24
+      ],
+      "fps": 30,
+      "duration_s": 0.8,
+      "loop": true
+    },
+    {
+      "name": "run_right",
+      "frames": [
+        0,
+        24
+      ],
+      "fps": 30,
+      "duration_s": 0.8,
+      "loop": true
+    },
+    {
+      "name": "pistol_hold",
+      "frames": [
+        0,
+        60
+      ],
+      "fps": 30,
+      "duration_s": 2.0,
+      "loop": true
+    },
+    {
+      "name": "pistol_walk",
+      "frames": [
+        0,
+        30
+      ],
+      "fps": 30,
+      "duration_s": 1.0,
+      "loop": true
+    },
+    {
+      "name": "pistol_run",
+      "frames": [
+        0,
+        24
+      ],
+      "fps": 30,
+      "duration_s": 0.8,
+      "loop": true
+    },
+    {
+      "name": "pistol_fire",
+      "frames": [
+        0,
+        12
+      ],
+      "fps": 30,
+      "duration_s": 0.4,
+      "loop": false
+    },
+    {
+      "name": "smg_hold",
+      "frames": [
+        0,
+        60
+      ],
+      "fps": 30,
+      "duration_s": 2.0,
+      "loop": true
+    },
+    {
+      "name": "smg_walk",
+      "frames": [
+        0,
+        30
+      ],
+      "fps": 30,
+      "duration_s": 1.0,
+      "loop": true
+    },
+    {
+      "name": "smg_run",
+      "frames": [
+        0,
+        24
+      ],
+      "fps": 30,
+      "duration_s": 0.8,
+      "loop": true
+    },
+    {
+      "name": "smg_fire",
+      "frames": [
+        0,
+        12
+      ],
+      "fps": 30,
+      "duration_s": 0.4,
+      "loop": false
+    },
+    {
+      "name": "launcher_hold",
+      "frames": [
+        0,
+        60
+      ],
+      "fps": 30,
+      "duration_s": 2.0,
+      "loop": true
+    },
+    {
+      "name": "launcher_walk",
+      "frames": [
+        0,
+        30
+      ],
+      "fps": 30,
+      "duration_s": 1.0,
+      "loop": true
+    },
+    {
+      "name": "launcher_run",
+      "frames": [
+        0,
+        24
+      ],
+      "fps": 30,
+      "duration_s": 0.8,
+      "loop": true
+    },
+    {
+      "name": "launcher_fire",
+      "frames": [
+        0,
+        21
+      ],
+      "fps": 30,
+      "duration_s": 0.7,
+      "loop": false
+    },
+    {
+      "name": "pistol_reload",
+      "frames": [
+        0,
+        42
+      ],
+      "fps": 30,
+      "duration_s": 1.4,
+      "loop": false
+    },
+    {
+      "name": "smg_reload",
+      "frames": [
+        0,
+        51
+      ],
+      "fps": 30,
+      "duration_s": 1.7,
+      "loop": false
+    }
+  ],
+  "rest_sha256": "df5a1e7117a9de8800df2ab5766f70e8018700878dd5bc84877b86767abc25c9",
+  "status": "candidate; imported playback/fit checks pending"
+}

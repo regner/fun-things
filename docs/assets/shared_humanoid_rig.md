@@ -70,7 +70,14 @@ must preserve joint locations or be treated as a new rig/retargeting task.
 
 ## Animation libraries and attachments
 
-**No production clips are ready for reuse at this first binding checkpoint.**
+**Binding checkpoint remains unchanged; separate motion deliveries now exist.**
+Player candidate sources, 24 clips, skin-swap API, disjoint move/aim libraries and
+source-derived grip profiles are documented in [the player checkpoint](player_character/README.md).
+They pass source/export and asset-profile API checks but await final spatial review and
+independent production audit. The pedestrian's separately owned NPC library is accepted
+at `211df6e72e80d791521d91fa70cd80425366ec35`; it preserves these same 28 rest transforms.
+
+Historical binding-checkpoint status:
 The source/export contains no animations. Subsequent motion sources and libraries
 will be separate for `npc` and `player`, on these same rest transforms.
 NPC coverage: in-place looping idle/walk/run with elbow/knee motion; one-shot death
@@ -98,8 +105,10 @@ Measured candidate inputs:
   both contact normals (0,-1,0); muzzle (0,0.300,-0.905) m. Full visual AABB minimum
   (-0.203,-0.0825,-0.900), size (0.406,0.585,1.430) m. Hold/aim/fire recovery only;
   no launcher reload animation required.
-- Wedgewire selected: grip/support/stock shoulder contact; exact exported contact
-  measurements still awaited.
+- Wedgewire static final `a05f22d`: grip root zero; GripContact (0.032,0,0),
+  support (0,0.055,-0.310), shoulder (0,0.128,0.280) m; identity marker bases.
+  These are mesh contact surfaces, not wrist/bone origins. Current player fit is pending
+  final shoulder/support clearance review.
 
 ## Checks and consumers
 
