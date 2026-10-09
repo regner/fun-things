@@ -3,7 +3,8 @@
 9 October 2026. Regner approved **A — Dock Thumper** for its top-down silhouette.
 This handoff covers the static launcher, visible rocket and asset-local preview.
 Independent technical review of `0be3af33d6c9cab30cffca1aed748875b9a36373`
-returned no P1/P2 findings and two P3 corrections, both still open. Equipped poses remain pending
+returned no P1/P2 findings and two P3 corrections. F1 is corrected in this candidate;
+F2 is normalized and awaits same-reviewer roundtrip disposition. Equipped poses remain pending
 on the player-owned production rig; gameplay, networking and effect integration
 belong to the external integrator. No shared planning files were changed.
 
@@ -43,8 +44,8 @@ and triangle counts: `art/source/models/rocket_launcher/source_manifest.json`.
 
 | Export collection | Explicit GLB in `art/models/rocket_launcher/` | Saved wrapper | Base triangles |
 | --- | --- | --- | ---: |
-| `export_dock_thumper_launcher_a` | `dock_thumper_launcher_a.glb` | `scenes/prefabs/rocket_launcher/dock_thumper_launcher_a.tscn` | 8,268 |
-| `export_dock_thumper_rocket_a` | `dock_thumper_rocket_a.glb` | `scenes/prefabs/rocket_launcher/dock_thumper_rocket_a.tscn` | 3,842 |
+| `export_dock_thumper_launcher_a` | `dock_thumper_launcher_a.glb` | `scenes/prefabs/rocket_launcher/dock_thumper_launcher_a.tscn` | 8,204 |
+| `export_dock_thumper_rocket_a` | `dock_thumper_rocket_a.glb` | `scenes/prefabs/rocket_launcher/dock_thumper_rocket_a.tscn` | 3,650 |
 | `export_dock_thumper_preview_stage` | `dock_thumper_preview_stage.glb` | `tests/fixtures/rocket_launcher/stage.tscn` | 752 |
 
 Wrappers retain linked `Visuals/Model` imports, unit roots and positive scales.
@@ -93,9 +94,15 @@ Rocket imported AABB: min (-.064095,-.105819,-.225), size (.184095,.211638,.450)
 Rocket three-fin asymmetry accounts for its asymmetric X bounds.
 Rocket trail marker is 5 mm behind the rim at Z=.225; opening radius .033 m
 (diameter .066 m), outer rim radius .060 m. Effects owner
-`c9207bb9-925b-46e4-bd68-e37aaa66a617` owns emission/trail/explosion presentation;
-world-space residual puffs and speed-dependent bounds need integrator acceptance.
-The marker is visual linkage only; it defines no projectile speed or lifetime.
+`c9207bb9-925b-46e4-bd68-e37aaa66a617` owns emission/trail/explosion presentation.
+Selected-effects candidate `d015ae6cc5ad070a86c5025383f39f0f8cc79d08` attaches
+`scenes/effects/weapon_effects/weapon_effects_a_trail.tscn` at `Sockets/Trail`
+identity. It emits along +Z; puffs fade at .25/.50 s. Integrator retains/detaches
+the trail when removing the rocket, calls `stop_emission()`, then waits for `finished`
+after .58 s so residual puffs survive. Its ±12 m XZ / ±3 m Y visibility box is
+provisional until speed and turn displacement are known. Preview uses the marker only;
+it contains no duplicate rocket. Effects review is underway. The source marker is visual
+linkage only; it defines no projectile speed or lifetime.
 
 ## Saved preview and actual camera evidence
 
@@ -173,13 +180,16 @@ marker contracts and isolated visual evidence: produced and locally checked.
 Independent review: [complete report](rocket_launcher_evidence/review_0be3af3/REPORT.md),
 reviewer `554a3fc2-a56a-43f2-979c-579a28de1978`, Sol 6.1 high, base
 `504486494f5ce21e9ffa5e58eed4373f8ba7d286`, candidate `0be3af33d6c9cab30cffca1aed748875b9a36373`.
-Open F1: remove source/export degenerate faces on RearRecess, ExhaustRecess and
-RocketIvoryBand, then verify imported triangle areas. Open F2: save normalized stage
-through the private editor and refresh the roundtrip evidence; the original stage
-byte-identical claim is superseded by the reviewer reproduction. Same reviewer must
-dispose of the exact corrected candidate. Runtime check before these geometry fixes
-returned Luna high; no geometry mutation proceeded. Astra high was requested for
-the next art turn; saved source/editor state remains preserved. Equipped rig/hold/aim/fire recovery:
+F1: removed collapsed faces from RearRecess, ExhaustRecess and RocketIvoryBand;
+independent Blender and imported Godot mesh checks now report zero-area triangles 0,
+and fresh source reexport matches both changed GLBs byte-for-byte. F2: the exact
+redundant instance type found in the reviewer’s Godot roundtrip was removed from the
+saved stage; resource UID and node identity are preserved. The reviewer must confirm
+byte-stable roundtrip at the corrected candidate. Runtime was Astra high before the
+geometry correction. Godot toolkit saves later stalled without rewriting the stage,
+so this one serialization line used the documented direct-file fallback. The reviewer
+repeats save/reopen on the new exact candidate. No other workspace process was used
+or stopped. Equipped rig/hold/aim/fire recovery:
 pending player contract and actual fit checks. Projectile simulation, damage,
 networking, collision, effect integration and game launch: external integrator.
 
