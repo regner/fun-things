@@ -47,8 +47,10 @@ recommendations and do not block P1.
   clearance. After: M1-A2.3, M1-A2.4.
 - [ ] **M1-B2 — Implement weapons, host-current-time hit verdicts, health, damage and
   respawn (P3).** Use the delivered pistol, SMG, launcher and weapon effects with decision 21's
-  playtest-tuned starting values; fire intents carry the shooter's view tick so bounded
-  host-only rewind remains possible later. After: M1-A2.3, M1-A2.4.
+  playtest-tuned starting values; the shooter sees an immediate cosmetic muzzle flash and
+  hitscan tracer (decision 18; tracer scene from C1.2a), with impact/damage on host
+  confirmation. Fire intents carry the shooter's view tick so bounded host-only rewind remains
+  possible later. After: M1-A2.3, M1-A2.4, M1-C1.2a.
 - [ ] **M1-B3 — Implement car explosions, wrecks and chains.** Carry S05 wreck, in-flight
   hydration, lifecycle-race and final-body evidence into acceptance. After: M1-B1, M1-B2.
 - [ ] **M1-B4 — Add combat feedback and review the vertical slice (P3).** After: M1-B3.
@@ -62,16 +64,19 @@ recommendations and do not block P1.
   when it is integrated.
 - [ ] **M1-C1 — Produce production art families.** C1.1 district building/prop families after
   M1-C0's asset lists; C1.2 follow-ups to the delivered character/vehicle/weapon/effect assets,
-  including car wreck states; C1.3 Blender road fixtures (signals, street lights, prefab
-  intersection pieces).
+  starting with C1.2a, the hitscan tracer effect from the weapon-effects lead, and including
+  car wreck states; C1.3 Blender road fixtures (signals, street lights, prefab intersection
+  pieces).
 - [ ] **M1-C2 — Integrate the Brackett world.** C2.1 makes the greybox the play world with
   content identity, spawn/parked-car anchors, traversal checks and a whole-island capacity
   baseline; C2.2 later replaces greybox districts with production art, keeping `world_id`s.
-- [ ] **M1-C3 — Implement host-owned pedestrians and traffic (P4).** S10 production behavior is
-  current priority work; report subsystem timings without treating the old pedestrian/traffic
-  shares as gates. AI traffic yields to marked-crosswalk reservations; player cars do not
-  (decision 32). Consume RT-06/RT-07 load-time graphs. After: M1-B1, M1-B2 and the owner's
-  population-placement answer.
+- [ ] **M1-C3 — Implement host-owned pedestrians and traffic (P4).** Decision 14 makes S10
+  pedestrian behavior/budget first production work: **C3.0 starts now** with compact state, a
+  spatial grid, crossing reservations (decision 32), recorded behavior thresholds and
+  reporting-only timings (decision 22), against an injected navigation interface and synthetic
+  graphs. C3.1 traffic and C3.2 pedestrian world integration consume RT-06/RT-07 load-time
+  graphs. AI traffic yields to marked-crosswalk reservations; player cars do not. C3.1/C3.2
+  after: M1-B1, M1-B2, C3.0 and the owner's population-placement answer.
 - [ ] **M1-C4 — Implement the HUD and road minimap.** C4.1 HUD shell after M1-A2; C4.2 minimap
   from RT-09 ROAD data (P4). Settle S06's minimap size/look and carry the whole-UI direction
   into the HUD.
@@ -89,7 +94,7 @@ intersections. The world integrator owns CityData and road revisions.
 - [ ] **RT-04 — Build hybrid prefab/procedural intersections.** After: RT-03, M1-C1.3.
 - [ ] **RT-05 — Derive road data at load with host/client consistency.** After: RT-04.
 - [ ] **RT-06 — Derive the traffic graph and spawns.** After: RT-05.
-- [ ] **RT-07 — Derive the foot graph, crossings and reservations.** After: RT-06.
+- [ ] **RT-07 — Derive the foot graph, crossings and reservations.** After: RT-06, M1-C3.0.
 - [ ] **RT-08 — Place traffic signals and street lights.** After: RT-07, M1-C1.3.
 - [ ] **RT-09 — Derive minimap ROAD data.** After: RT-05.
 - [ ] **RT-10 — Pilot the connected island and replace greybox roads.** After: RT-08, RT-09.
@@ -99,11 +104,13 @@ intersections. The world integrator owns CityData and road revisions.
 
 - [ ] **M1-D1 — Complete production validation tooling and CI.** D1.1 pinned test-only GUT and
   `tools/production_checks.py` are done (decision 31); D1.2 grows alongside implementation.
-- [ ] **M1-D2 — Run integrated playtests, reviews and feel tuning.** After: M1-B4, M1-C3,
-  M1-C4, RT-10.
-- [ ] **M1-D3 — Verify capacity, adverse-network behavior and performance.** S17 production
-  host-budget work is current priority work; regularly track the soft ~4 ms total host p95 at
-  tunable full-population settings, with subsystem timings as reports only. Include S05 final-body
+- [ ] **M1-D2 — Run integrated playtests, reviews and feel tuning.** After: M1-A-GATE, M1-B4,
+  M1-C3, M1-C4, RT-10.
+- [ ] **M1-D3 — Verify capacity, adverse-network behavior and performance.** Decision 14 makes
+  S17 host-budget work first production work: **D3.0 starts now**, instrumenting the host tick
+  from the first simulation rows and tracking the soft ~4 ms total host p95 at tunable
+  full-population settings as each simulation row lands and at every checkpoint, with subsystem
+  timings as reports only. Final D3 is the integrated acceptance. Include S05 final-body
   chain evidence. Target capped 60 FPS with p95 ≤16.7 ms and p99 ≤20 ms on named desktop hardware
   across the whole island. Final gate after: M1-D1, M1-B4, M1-C3, M1-C4.
 - [ ] **M1-D5 — Add the settings screen and settings persistence.** Audio volumes/mutes first;

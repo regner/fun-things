@@ -13,9 +13,11 @@ the whole Brackett island and parallel asset tracks
 playable game as fast as possible”. The [Brackett greybox](../assets/brackett_greybox.md) and
 the first player, pedestrian, car, weapon and weapon-effect assets are delivered (section 5.5).
 M1-D1.1 production checks and M1-A1.1 Boot/session are integrated. Owner decisions 33–44 adopt
-the [Road Generator](../spikes/road-tool.md) as a conditional pilot with no bake step: roads
-generate live in the editor and at level load, and gameplay road data derives at load
-(decisions 40–41). Decision 35 records the orchestrator as the current gameplay integration
+TheDuckCow's Road Generator as a conditional pilot with no bake step: roads generate live in
+the editor and at level load, and gameplay road data derives at load (decisions 40–41). See
+the [road-tool evaluation record](../spikes/road-tool.md); its explicit-bake production
+breakdown is superseded on `main` by decisions 40–44 and this plan's RT rows, and RT-01 lands
+the rewritten record. Decision 35 records the orchestrator as the current gameplay integration
 owner, pending owner confirmation. Decision 39 moved spike fixtures into the reference-only
 [`prototypes/`](../../prototypes/README.md) archive. Section 5 is the current ordered
 backlog; it replaces the 8 October ordering and every six-block acceptance.
@@ -512,21 +514,24 @@ is reviewable by playing it; none waits for production district art.
 | --- | --- | --- |
 | **P1 — walk together** | Boot → menu → host/join over ENet → the Coral Courier walks the whole Brackett greybox with the 47 m / 42° north-up camera, local prediction, smooth remote players, respawn/reset and a HUD shell; exported Windows/Linux processes | 1–9 |
 | **P2 — drive together** | The three delivered cars park at authored anchors and drive with decision 30 handling; host-confirmed entry (decision 23), stopped exit, coast on disconnect/driver death | 11–12 |
-| **P3 — fight together** | Pistol, SMG and Dock Thumper with decision 18 host-current-time verdicts and decision 21 values; delivered muzzle/hit/trail/explosion effects; Health, death, chains and wrecks | 13–14, 18–19 |
-| **P4 — living city** | Road-tool roads replace the greybox road strokes; traffic and pedestrians use load-time graphs; road minimap from the same data | 20–34 |
+| **P3 — fight together** | Pistol, SMG and Dock Thumper with decision 18 host-current-time verdicts and decision 21 values; delivered muzzle/hit/trail/explosion effects; Health, death, chains and wrecks | 12a–14, 18–19 |
+| **P4 — living city** | Road-tool roads replace the greybox road strokes; traffic and pedestrians use load-time graphs; road minimap from the same data | 3a, 20–34 |
 
-The road tool (rows 20–30) and content tracks (rows 15–17, 35) run in parallel with P1–P3
-from the start. P1–P3 do not depend on the road tool: the greybox already provides a flat
-ground collider under its road and walk strokes, so walking and driving need no road-tool
-output; C2.1 must still prove that traversal, which the greybox handoff did not test. Only traffic, pedestrians and the minimap need road-derived data, and they
-must not invent a second interim road layout (decision 33).
+Decision 14's first production work runs from the start beside P1: M1-C3.0 builds the pedestrian
+behavior/budget core against synthetic navigation graphs, and M1-D3.0 instruments and tracks the
+host budget as each simulation row lands. The road tool (rows 20–30) and content tracks (rows
+12a, 15–17, 35) also run in parallel with P1–P3 from the start. P1–P3 do not depend on the road
+tool: the greybox already provides a flat ground collider under its road and walk strokes, so
+walking and driving need no road-tool output; C2.1 must still prove that traversal, which the
+greybox handoff did not test. Only traffic, pedestrians and the minimap need road-derived data,
+and they must not invent a second interim road layout (decision 33).
 
-Two dependency changes from the 8 October ordering are deliberate. First, vehicles and
-weapons now depend on the shell's production rows (A2.3/A2.4) rather than on the exported
-M1-A-GATE, so P2/P3 work can overlap the export and Linux checks; an A-GATE finding still
-blocks D-stage integration and must be fixed in the owning row. Second, the six-block
-C1.1 → C2.1 art-first chain is replaced: C2.1 now integrates the delivered greybox for play
-and C2.2 replaces greybox districts with production art later.
+Two dependency changes from the 8 October ordering are deliberate. First, vehicles and weapons
+now depend on the shell's production rows (A2.3/A2.4) rather than on the exported M1-A-GATE, so
+P2/P3 work can overlap the export and Linux checks. D2 depends on M1-A-GATE, so D3, D4 and
+M1-GATE cannot pass without it; an A-GATE finding is fixed in the owning row. Second, the
+six-block C1.1 → C2.1 art-first chain is replaced: C2.1 now integrates the delivered greybox for
+play and C2.2 replaces greybox districts with production art later.
 
 ### 5.2 Ordered backlog
 
@@ -547,6 +552,8 @@ checkpoint/track column shows what can run in parallel.
 | 1. **M1-A1.2 — ENet transport and menu host/join flow** | M | A1.1 | P1, session lane. Workaround before peer publication; standalone and ENet without Steam; bounded full/incompatible/unreachable/host-loss cleanup in real processes. |
 | 2. **M1-C2.1 — Brackett greybox play world** | M | A1.1, D1.1, accepted S08-C | P1, sole world integrator. Match loads the saved [`city.tscn`](../../scenes/world/brackett_greybox/city.tscn) (never the review preview); CityData publishes a world/content identity that admission checks (`CONTENT_INVALID` on mismatch); provisional player-spawn and parked-car anchors are saved markers (owner question 5); S02 foot and S04 car envelopes cross ground-sector seams, bridge and building edges without snags; record the whole-island capacity baseline (section 5.3). No road topology: RT-05 owns it. |
 | 3. **M1-A2.1 — production foot command and ActorMotion** | M | D1.1, accepted S02 control update | P1, actor lane. Standalone/authority/replay equivalence, `client_tick`, collision/aim, focus neutral and malformed command tests. |
+| 3a. **M1-C3.0 — pedestrian core behavior and budget** | M | D1.1, accepted S10, accepted S17, decisions 14, 22 and 32 | Decision 14 first production work, population lane. Host-only pedestrian core with compact typed state, a reusable spatial grid, staggered 10 Hz decisions over 60 Hz motion, wander/cross/flee states and a finite crossing reservation API (decision 32) with capped wait, queue length and overlap duration. It consumes an **injected navigation interface** (nodes, sidewalk links, crossings, conflict sets): synthetic test graphs now, RT-07/CityData graphs later through C3.2. The S06 topology fixtures are archived in `prototypes/` and not loadable, so tests build their own graphs. Before scaling, the lane records numeric behavior acceptance thresholds on S10's metric definitions (sampled overlap pairs and continuous overlap duration, stuck identities below 0.25 m displacement, crossing wait and queue age, flee reaction) and passes them on seeded 64-agent normal/flee runs. Timings are reported through D3.0 as reporting only (decision 22), never as a gate. It emits the standard foot command; binding to ActorMotion bodies happens in C3.2. |
+| 3b. **M1-D3.0 — host-budget instrumentation and tracking** | S, ongoing | D1.1, accepted S17 | Decision 14 first production work, performance lane. Add production host-tick timing (S17's section brackets: total plus per-subsystem reports) and a repeatable capped tracking run reporting median/p95/p99 against decision 22's soft ~4 ms total p95 at the current tunable population settings. It starts with the first simulation rows (A2.1, C3.0); every later simulation row (A2.2, B1.1, B2.x, B3.1, C3.x) adds its section and reports the tracked total when it lands, and the trend is checked at least at each checkpoint P1–P4. Subsystem timings are reports only; when the total is threatened, optimize the largest contributor, pedestrians first. D3 keeps final integrated acceptance. |
 | 4. **M1-A2.5 — player presentation and local camera** | M | A2.1, C2.1 | P1, actor/local lane. LocalRig's saved 47 m / 42° north-up camera follows the controlled body; [`coral_courier.tscn`](../../scenes/prefabs/player_character/coral_courier.tscn) mounts under `PresentationAnchor`; lower-body clips follow velocity relative to facing through `play_layered`, with idle/death; stride matches 5 m/s; presentation never writes motion. **First playable: standalone walking across Brackett from Boot.** |
 | 5. **M1-A2.2 — identity, measured codec, baseline and durable replication core** | L | A1.2, A2.1, accepted S11 codec/baseline evidence, accepted S17 composition | P1, replication lane, split codec/admission/state-apply commits. Freeze only the measured codec; current state before input, bounded transfer/journal, stale revisions and subset recovery pass. |
 | 6. **M1-A2.3 — local foot prediction and remote interpolation** | M | A2.1, A2.2, A2.5, accepted S03-L, accepted S03-P | P1, local/replication lane. Decision 19 queue and watermark; decision 20 tunable ~100–150 ms extrapolate→hold→blend; normal/adverse correction, history bounds, life/control/collision invalidation and replay side-effect exclusion; S03-R drawable continuity reviewed with remote Coral Courier players. |
@@ -556,32 +563,33 @@ checkpoint/track column shows what can run in parallel.
 | 10. **M1-A3.2 — production audio buses and voice policy** | M | D1.1, accepted S14 evidence | Parallel audio lane. Default bus levels, category limits, state-driven emitters and clean teardown; listening waits for real assets and settings land in D5. |
 | 11. **M1-B1.1 — production vehicle motion, prediction and tuning** | M | A2.3, C2.1, accepted S03-L, accepted S04-P, decision 30 values | P2, vehicle lane. The standalone drive-rule port may start after D1.1. One VehicleMotion step for standalone/host/replay/AI from a decision 30 tuning resource; body envelopes for the three [delivered cars](#55-delivered-asset-inputs) under `PresentationAnchor`; wheel spin/steer presentation from motion state; local car prediction with bounded corrections, including the clean adverse and moving-contact acceptance S04-P left open (0.576 m adverse p95 against 0.5 m); wall/brake/reverse/handbrake cases; a production standalone drive/tuning entry replaces the archived S04 drive scene (decision 5). |
 | 12. **M1-B1.2 — VehicleInteraction transaction matrix** | M | B1.1, A2.4, accepted S04-T | **P2 complete**, Match/vehicle lane. Decision 23 host-confirmed entry with ~0.3 s presentation (door hinges, entry sockets), acceptance-only control/camera/HUD transfer and snap-free rejection; <0.5 m/s exit at the authored 1.5 m offset plus clearance; same-tick claims, decision 16 driver death, disconnect coast, reset/resync/destruction and revision fences; parked cars at C2.1 anchors. |
-| 13. **M1-B2.1 — WeaponState and hitscan** | M | A2.3, A2.4, A2.5, accepted S03-L, accepted S12 decisions | P3, combat lane. Pistol/SMG wrappers at `Sockets/WeaponMount` via `select_grip`; held/walk/run/fire/reload clips; queries from the unsmoothed body pose plus authored muzzle offset; immediate cosmetic muzzle effect and host-confirmed hit effect; decision 21 rate/ammo/reload/equip/no-seated-fire, ShotId duplicates and decision 18 verdicts pass normal/adverse tests. |
+| 12a. **M1-C1.2a — hitscan tracer effect** | S + art | Delivered weapon effects A family, decision 18, owner art review | Content track; the first C1.2 item, owned by the weapon-effects lead. The delivered family has muzzle, hit, rocket-trail and explosion scenes but no hitscan tracer, and reusing the continuous rocket trail is not approved. Add a presentation-only saved tracer scene under `scenes/effects/weapon_effects/` on the family's `effect.gd` API, with Blender-sourced draw meshes, documented lifetime and culling bounds, and every-event allocation. |
+| 13. **M1-B2.1 — WeaponState and hitscan** | M | A2.3, A2.4, A2.5, C1.2a, accepted S03-L, accepted S12 decisions | P3, combat lane. Pistol/SMG wrappers at `Sockets/WeaponMount` via `select_grip`; held/walk/run/fire/reload clips; queries from the unsmoothed body pose plus authored muzzle offset; decision 18 immediate cosmetic muzzle flash **and hitscan tracer** on the shooter (C1.2a tracer scene), with impact/hit effect and damage only on host confirmation; decision 21 rate/ammo/reload/equip/no-seated-fire, ShotId duplicates and decision 18 verdicts pass normal/adverse tests. |
 | 14. **M1-B2.2 — rockets, Health and player death** | M | B2.1, A2.4 | P3, combat/lifecycle lane. Dock Thumper launcher and visible rocket; trail retained after impact through `stop_emission()`/`finished`; decision 21 health/rocket values, capacity/cooldown, impact/expiry, friendly/self damage, death clip, full-loadout respawn and hydration. Pedestrian death joins in C3.2. |
 | 15. **M1-C1.1 — district asset lists and first building/prop families** | M | Owner-reported integrated M1-C0 and its per-district asset lists, accepted S01-W | Content track. Do not dispatch from this orchestration before decision 24's owner-run world concept work integrates. Source-linked Blender/GLB families with provenance, collision and reexport/reload identities, replacing greybox types without changing `world_id`s. |
-| 16. **M1-C1.2 — character, vehicle, weapon and effect follow-up assets** | L | Delivered handoffs (section 5.5), owner art review | Content track, parallel lanes by family. Car wreck states (consumed by B3.1, owner question 6), the scoped car art pass, more pedestrian silhouettes/palettes, approved VFX tiers. The bus/truck stay out of M1 unless their concepts and envelopes are approved. |
+| 16. **M1-C1.2 — character, vehicle, weapon and effect follow-up assets** | L | Delivered handoffs (section 5.5), C1.2a, owner art review | Content track, parallel lanes by family. The hitscan tracer is split out as C1.2a. Car wreck states (consumed by B3.1, owner question 6), the scoped car art pass, more pedestrian silhouettes/palettes, approved VFX tiers. The bus/truck stay out of M1 unless their concepts and envelopes are approved. |
 | 17. **M1-C1.3 — road fixture art** | M | Decisions 42–44, greybox road classes in the [greybox handoff](../assets/brackett_greybox.md), accepted S01-W | Content track. Blender-authored signal, street light and common 3/4-way prefab intersection pieces with connectors and sockets; greybox-grade first, production look after M1-C0. |
 | 18. **M1-B3.1 — explosions, wrecks and chains** | M | B1.2, B2.2; C1.2 wreck art for final visuals | P3, combat lane. Every committed explosion allocates its own `weapon_effects_a_explosion.tscn` instance; three/12-car outcomes, bounded work, occupied destruction, collision fence, retention, in-flight late join and reset pass off-camera. |
 | 19. **M1-B4.1 — combat VFX/audio/HUD feedback** | M | B3.1, C4.1, accepted S14/S15 evidence | **P3 complete**, presentation lane. Every explosion visible, duplicates suppressed by EventId, measured trail bounds at rocket speed, cheaper quality fallback measured, readable weapon/rocket feedback and bounded audio. |
-| 20. **RT-01 — Road Generator release hardening and vendor** | M | Decision 40 | Road track. Implemented on `lane/rt-01` (0.9.4, unmodified vendor) and accepted, but **held for the owner's hands-on editor trial**; not on `main`. Its no-bake production breakdown lands in the [road-tool record](../spikes/road-tool.md) with it. |
+| 20. **RT-01 — Road Generator release hardening and vendor** | M | Decision 40 | Road track. Implemented on `lane/rt-01` (0.9.4, unmodified vendor) and accepted, but **held for the owner's hands-on editor trial**; not on `main`. Its no-bake production breakdown lands with it; until then the [road-tool evaluation record](../spikes/road-tool.md) (its explicit-bake production breakdown is superseded on `main` by decisions 40–44 and this plan's RT rows; RT-01 lands the rewritten record) still shows the superseded proposal. |
 | 21. **RT-02 — road preset, identity and revision adapter** | M | RT-01, C2.1 | Road track, world integrator. Five Brackett presets seeded from the greybox's 50 routes, stable road/section/point/junction IDs, source revision ownership, drift rejection and connection validation without a duplicate spline. |
 | 22. **RT-03 — live infrastructure generation** | L | RT-02, decision 42, accepted materials | Road track. Addon roads plus project-script sidewalks, curbs and crosswalk markings generate from the saved network in the editor and at level load; collision ownership, seams and bounded edit-to-visible time. |
 | 23. **RT-04 — hybrid intersection system** | L + art | RT-02, RT-03, C1.3, decision 44 | Road track. Blender prefab 3/4-way pieces with crosswalk/fixture anchors; procedural fallback for odd angles/widths; turns, clearance and save/reload regression. |
 | 24. **RT-05 — load-time derivation and consistency core** | L | RT-02–RT-04, C2.1 | Road track, world integrator. One bounded pass on host and clients publishes traffic, foot, crossing, spawn and minimap datasets with one source/schema revision before admission; disagreement fails `CONTENT_INVALID`. Update the bake-fingerprint wording in the derived-data contracts ([assets](../assets.md), [scene contracts](../scene-structure.md), [API contracts](../api-contracts.md)) to decision 41's load-time derivation. |
 | 25. **RT-06 — traffic graph and spawn derivation** | L | RT-05, accepted S09 | Road track. Directed lanes/turns, stable maneuvers, work caps, legal spawn candidates, signal/crossing conflicts, blocked/stuck integration tests. |
-| 26. **RT-07 — foot graph, crossings and reservations** | L | RT-05, RT-06, decision 32, accepted S10 | Road track. Continuous sidewalk links, marked crossing IDs, finite reservation API that AI traffic yields to, illegal-road negatives. |
+| 26. **RT-07 — foot graph, crossings and reservations** | L | RT-05, RT-06, C3.0, decision 32, accepted S10 | Road track. Continuous sidewalk links, marked crossing IDs and conflict sets derived at load and exposed through C3.0's injected navigation interface and finite reservation API, which AI traffic yields to; illegal-road negatives. |
 | 27. **RT-08 — traffic signals and street lights** | M + art | RT-04, RT-06, RT-07, C1.3, decision 43 | Road track. Independently configured signalized junctions (a few landmarks first) and road-type light spacing; authoritative signal groups; fixtures placed without Blender in the edit loop. |
 | 28. **RT-09 — minimap derivation** | M | RT-05 | Road track. ROAD centre/area data, widths, bounds and seams from the same revision; 3 px/m consumption plus stale, corrupt and cross-dataset negatives. |
 | 29. **RT-10 — connected whole-Brackett pilot and greybox road replacement** | L | RT-03–RT-09, C2.1 | Road track, world integrator. All 50 routes/69 junctions and the bridge. Replace the greybox's Blender road/walk strokes: a coordinated `ground_*.blend` revision stops exporting road/walk surfaces while land, coast, fields and the sole flat terrain collider stay; the bridge structure stays Blender-authored. Building `world_id`s unchanged. Edit-time p50/p95, generation/load cost and the C2.1 capacity baseline rerun with road nodes and colliders. |
 | 30. **RT-11 — runtime packaging and upgrade gate** | M | RT-10, accepted S08-X export tooling | Road track. Windows/Linux clean import and Boot; packages contain the runtime addon and road dependencies but no GUT/test/development content; re-pin repeats the regressions. |
-| 31. **M1-C3.1 — traffic controller and car population** | M | B1.2, RT-06, accepted S09, accepted S17, owner question 1 | P4, population lane. 24 traffic/32 total cap placed per the population decision; lanes/turns, decision 32 crosswalk yielding, obstacle/wreck recovery, abandoned cars parked and bounded unseen replenishment pass seeded runs. |
-| 32. **M1-C3.2 — pedestrian controller and population** | M | B2.2, RT-07, accepted S10, accepted S17, owner question 1 | P4, population lane. 64 cap of [Off-Shift Workers](../assets/pedestrian_civilian_first.md) with palette variety, stride-matched clips, sidewalk/crossing reservations, flee, damage/death/16 retention and bounded unseen replenishment; S10 behavior and total-host timing checks. |
+| 31. **M1-C3.1 — traffic controller and car population** | M | B1.2, RT-06, C3.0, accepted S09, accepted S17, owner question 1 | P4, population lane. 24 traffic/32 total cap placed per the population decision; lanes/turns, decision 32 yielding to C3.0's crossing reservations, obstacle/wreck recovery, abandoned cars parked and bounded unseen replenishment pass seeded runs. |
+| 32. **M1-C3.2 — pedestrian world integration and population** | M | C3.0, B2.2, RT-07, accepted S17, owner question 1 | P4, population lane. Bind C3.0's core to RT-07's load-time foot/crossing graphs, ActorMotion bodies and the [Off-Shift Worker](../assets/pedestrian_civilian_first.md) presentation with palette variety and stride-matched clips; 64 cap placed per the population decision, flee from real threats, damage/death/16 retention and bounded unseen replenishment; C3.0's behavior thresholds still pass in the island and the total is tracked through D3.0. |
 | 33. **M1-C3.3 — population replication and capacity profile** | L | C3.1, C3.2, accepted S11, accepted S17 | P4, replication integrator. Full current join, lifecycle reliability incl. spawn/despawn churn, smoothing, baseline and all four-player bandwidth budgets pass. |
 | 34. **M1-C4.2 — road minimap** | M | C4.1, RT-09 | **P4 complete**, UI lane. Player-centred minimap window over the whole-island ROAD data with the controlled marker, rebind and late join; settle S06 size/look through the UI iteration. |
 | 35. **M1-C2.2 — replace greybox districts with production art** | L | C2.1, C1.1, RT-10 | Content track, sole world integrator. District by district, swap greybox types for accepted families keeping placement `world_id`s; seams, clearance, routes, minimap agreement and capacity rerun per district. |
 | 36. **M1-D1.2 — complete production validation/CI** | M | D1.1, B4.1, C3.3, C4.2, RT-11 | Tooling lane. Contract/resource/export discovery includes every production path and catches unused/broken scripts without broad suppression. |
-| 37. **M1-D2 — integrated playtest and tuning** | L | B4.1, C3.3, C4.2, A3.2, RT-10, accepted S04-T | Integration/owner review. Walk/aim/shoot/drive/transition/chain/explore across the island, menus/focus, audio and readability findings are fixed or explicitly scoped out. |
-| 38. **M1-D3 — integrated capacity and adverse delivery** | L | D1.2, D2, accepted S08-C, accepted S08-X, accepted S17 | Performance/network lane. Named Windows/Linux hardware, host+3 clients together and in four distant areas of the island at full caps/bursts/lifecycle; decision 15 frame targets, decision 22 soft total, memory/bandwidth/recovery and S05 final-body evidence with raw data. |
+| 37. **M1-D2 — integrated playtest and tuning** | L | M1-A-GATE, B4.1, C3.3, C4.2, A3.2, RT-10, accepted S04-T | Integration/owner review. Walk/aim/shoot/drive/transition/chain/explore across the island, menus/focus, audio and readability findings are fixed or explicitly scoped out. |
+| 38. **M1-D3 — integrated capacity and adverse delivery** | L | D1.2, D2, D3.0, accepted S08-C, accepted S08-X, accepted S17 | Performance/network lane. Final integrated acceptance after D3.0's ongoing tracking. Named Windows/Linux hardware, host+3 clients together and in four distant areas of the island at full caps/bursts/lifecycle; decision 15 frame targets, decision 22 soft total, memory/bandwidth/recovery and S05 final-body evidence with raw data. |
 | 39. **M1-D5 — LocalSettings and settings UI** | S | D1.1; before D4 | Settings/UI lane. Audio volumes/mutes first; defaults, validation, corrupt recovery, live preview, atomic-save failure and restart pass without mutating shared gameplay. |
 | 40. **M1-D4 — private review builds** | M | D2, D3, D5, RT-11, accepted S08-X | Release lane. Exact Windows/Linux exports, identity/exclusions, clean launch/input/audio/ENet, retained hashes/results/rollback and VCS delivery; no Steam upload. |
 | 41. **M1-GATE — owner review** | — | D4 | Owner accepts the playable Brackett game or records bounded follow-ups/scope changes; district art scope per owner question 4. |
@@ -594,7 +602,10 @@ population with dummy road data or a second road layout.
 ### 5.3 Whole-city scope: population, budgets, world capacity, minimap and spawns
 
 **Scale.** The greybox coast is 1,155 × 620 m with 10.117 km of road centreline across
-50 routes ([road-tool benchmark](../spikes/road-tool.md)). The fixed 47 m / 42° camera sees
+50 routes, measured by the whole-island benchmark in the
+[road-tool evaluation record](../spikes/road-tool.md) (its explicit-bake production breakdown
+is superseded on `main` by decisions 40–44 and this plan's RT rows; RT-01 lands the rewritten
+record). The fixed 47 m / 42° camera sees
 about 58 × 36 m of ground (~2,100 m²) at 1280×800, roughly 0.3% of the island's bounding
 rectangle. The arithmetic below is planning inference, not measurement.
 
@@ -659,15 +670,18 @@ copies of road data.
 
 ### 5.4 Road tool tasks and ownership
 
-The RT rows above follow the decisions 40–44 no-bake production breakdown recorded with
-RT-01: no bake command; roads, sidewalks, curbs and crosswalks generate live in the editor
-and at level load under the decision 42 exception; gameplay data derives at load on host
-and clients; the addon ships as a runtime dependency. The critical path is RT-01 → RT-02 →
-RT-03/RT-04 → RT-05 → RT-06/RT-07/RT-09 → RT-10. The world integrator owns CityData and is
-the sole publisher of road revisions and derived datasets throughout. Traffic (C3.1),
-pedestrians (C3.2) and the minimap (C4.2) consume RT-06, RT-07 and RT-09 respectively once
-their schemas settle; final signal and light art does not block that schema work. RT-01 is
-pending the owner's editor trial; everything after it waits for that trial.
+The RT rows above follow the decisions 40–44 no-bake production breakdown that RT-01 lands
+in the road-tool evaluation record; until then the record on `main` still shows the superseded
+explicit-bake proposal, and these rows are the current plan. There is no bake command; roads,
+sidewalks, curbs and crosswalks generate live in the editor and at level load under the
+decision 42 exception; gameplay data derives at load on host and clients; the addon ships as
+a runtime dependency. The critical path is RT-01 → RT-02 → RT-03/RT-04 → RT-05 →
+RT-06/RT-07/RT-09 → RT-10. The world integrator owns CityData and is the sole publisher of
+road revisions and derived datasets throughout. Traffic (C3.1), pedestrians (C3.2) and the
+minimap (C4.2) consume RT-06, RT-07 and RT-09 respectively once their schemas settle; RT-07
+exposes its crossings through C3.0's navigation interface and reservation API. Final signal
+and light art does not block that schema work. RT-01 is pending the owner's editor trial;
+everything after it waits for that trial.
 
 ### 5.5 Delivered asset inputs
 
@@ -692,10 +706,13 @@ greybox's road accommodation for them is unverified. They are not M1 inputs.
 
 ### Current starts
 
-1. **Now:** M1-A1.2 and M1-C2.1 (P1 shell and play world), M1-A2.1 and the B1.1 standalone
-   drive-rule port, and M1-A3.2 audio; all depend only on integrated A1.1/D1.1.
+1. **Now:** decision 14's first production work — M1-C3.0 pedestrian core behavior/budget and
+   M1-D3.0 host-budget instrumentation — plus M1-A1.2 and M1-C2.1 (P1 shell and play world),
+   M1-A2.1 and the B1.1 standalone drive-rule port, M1-A3.2 audio and the C1.2a tracer effect.
+   All depend only on integrated A1.1/D1.1, accepted foundations or delivered handoffs.
 2. **After the owner's RT-01 editor trial:** land RT-01, then RT-02 with the world integrator.
-3. **After owner question 1:** dispatch C3.1/C3.2 once RT-06/RT-07 schemas exist.
+3. **After owner question 1:** dispatch C3.1/C3.2 once RT-06/RT-07 schemas exist; C3.0 does
+   not wait for either.
 4. **After the owner reports M1-C0 integrated:** C1.1 and later C2.2. Under decision 24,
    concept-dependent art waits for that report; C1.2 items that extend already-approved
    asset concepts (such as car wreck states) and greybox-grade C1.3 fixtures do not.
@@ -719,7 +736,7 @@ default bus levels until settings land.
 | Downtown towers rise above the fixed 47 m camera | Roofs at or above the lens hide players near Glassward | Owner question 3; first spawns stay outside Glassward until it is decided. |
 | Pre-1.0 road addon is a runtime dependency (decision 41) | Upgrade breakage or load-time cost in shipped builds | RT-01 pins an exact release; RT-05 owns one bounded load-time derivation with host/client agreement; RT-11 gates packaging and re-pins. |
 | Windows Blender output differs from accepted Linux output | Source/export checks fail after production art starts | S01-W is a hard C1/S13 input; select byte or semantic comparison before asset production. |
-| AI spikes may meet correctness but threaten the soft ~4 ms total host p95 target | Integrated host misses its tracked simulation target | Decision 22 keeps subsystem timings as reports only; check the total regularly and optimize the largest contributor, pedestrians first. Population counts remain tunable. |
+| AI spikes may meet correctness but threaten the soft ~4 ms total host p95 target | Integrated host misses its tracked simulation target | Decision 14 starts C3.0 (pedestrian behavior/budget) and D3.0 (host-budget tracking) first; decision 22 keeps subsystem timings as reports only; D3.0 checks the total as each simulation row lands and at every checkpoint, optimizing the largest contributor, pedestrians first. Population counts remain tunable. |
 | Full population codec misses bandwidth/join targets | Late replication rewrite | Accepted S11 baseline/codec evidence is a hard A2.2 dependency, reinforced but never replaced by S17. Retain replaceable motion, per-entity refresh and immutable durable ownership. |
 | Foundation validation remains red or incomplete | Production lanes cannot make honest pass claims | P0-TOOLING must make the canonical check green and discover every Python test before D1.1. |
 | GUT or its editor plugin conflicts with pinned dev engine/addons | CI instability or exported test code | D1.1 pins and proves headless CLI on both OSes, keeps plugin disabled at runtime and verifies export exclusion. No broad warning suppression. |

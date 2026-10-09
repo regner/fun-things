@@ -195,7 +195,10 @@ Under decision 35 the orchestrator owns gameplay integration (pending owner conf
 - **M1-B2:** Implement decision 18's host-current-time hit verdicts and forgiving delay-sized
   hit shapes with the delivered pistol, SMG and Dock Thumper wrappers mounted through the
   Courier's `Sockets/WeaponMount`. Fire intents carry the shooter's view tick; only
-  muzzle/tracer feedback is immediate, while impact/damage waits for host confirmation. Queries
+  muzzle/tracer feedback is immediate, while impact/damage waits for host confirmation. B2.1
+  must show the immediate hitscan tracer; the delivered effects family has no tracer and the
+  rocket trail is not an approved reuse, so the tracer scene is the explicit C1.2a
+  weapon-effects follow-up that B2.1 depends on. Queries
   use the unsmoothed body pose plus the authored muzzle offset. Keep bounded ≤250 ms host-only
   rewind possible, reject stale fire commands and hydrate late joiners.
 - **M1-B3:** Bound/deduplicate chains and complete wreck/collision lifecycle; late join
@@ -210,7 +213,9 @@ Under decision 35 the orchestrator owns gameplay integration (pending owner conf
   The owner will report when the work is integrated. Its image-provider/concept-method question
   belongs to that owner-run work under decision 24, not to this orchestration.
 - **M1-C1:** C1.1 produces district building/prop families after the owner reports M1-C0
-  integrated and approves its per-district asset lists. C1.2 extends the delivered
+  integrated and approves its per-district asset lists. C1.2a, the first C1.2 item, adds a
+  presentation-only hitscan tracer scene to the weapon effects A family (weapon-effects lead,
+  Blender-sourced draw meshes, `effect.gd` API, every-event allocation). C1.2 extends the delivered
   character/vehicle/weapon/effect assets (car wreck states, the scoped car art pass, pedestrian
   variety, approved VFX tiers); the bus/truck stay out of M1 unless approved. C1.3 produces
   Blender road fixtures (signals, street lights, common 3/4-way prefab intersection pieces),
@@ -223,8 +228,16 @@ Under decision 35 the orchestrator owns gameplay integration (pending owner conf
   node/static-collider/draw counts, capped 42° route frame time). C2.2 later replaces greybox
   districts with accepted production families, keeping placement `world_id`s and rerunning
   seams, clearance, routes, minimap agreement and capacity per district.
-- **M1-C3:** S10 production behavior/budget is current priority work with explicit acceptance
-  checks. Implement bounded host-owned pedestrians/traffic, legal routes, crossing and
+- **M1-C3:** Decision 14 makes S10 production behavior/budget first production work with
+  explicit acceptance checks. **C3.0** starts now: host-only pedestrian core with compact typed
+  state, a reusable spatial grid, staggered decisions, wander/cross/flee and the finite
+  crossing reservation API, consuming an injected navigation interface. Its tests build
+  synthetic graphs because the S06 topology fixtures are archived in `prototypes/` and are not
+  loadable; RT-07/CityData graphs bind later in C3.2. Before scaling, C3.0 records numeric
+  behavior thresholds on S10's metrics (overlap pairs and duration, stuck identities, crossing
+  wait/queue age, flee reaction) and passes them on seeded 64-agent runs; timings are
+  reporting only (decision 22). C3.1/C3.2 then implement bounded host-owned pedestrians/traffic
+  in the island, legal routes, crossing and
   blocked/stuck recovery, NPC transfer, late joins and reset without moving city content.
   Traffic consumes RT-06 and pedestrians RT-07 load-time graphs; pedestrians use the delivered
   Off-Shift Worker with palette variety. Decision 32: pedestrians reserve marked crosswalks
@@ -237,15 +250,17 @@ Under decision 35 the orchestrator owns gameplay integration (pending owner conf
   entity marker; settle S06's minimap size/look and carry its whole-UI direction into the HUD.
   Check walking/driving/late-join seams.
 - **M1-RT:** Road tool tasks RT-01–RT-11 follow decisions 40–44 and the no-bake production
-  breakdown that lands with RT-01 in the [road-tool record](../spikes/road-tool.md): live
-  editor and level-load generation, load-time traffic/foot/crossing/spawn/minimap derivation
-  with host/client agreement (`CONTENT_INVALID` otherwise), the addon as a runtime dependency,
-  hybrid prefab/procedural intersections and independently configured signals and street
-  lights. RT-01 is accepted on `lane/rt-01` but held for the owner's hands-on editor trial.
-  RT-05 updates the bake-fingerprint wording in the derived-data contracts. RT-10 replaces the
-  greybox's Blender road/walk strokes with road-tool output through a coordinated ground-source
-  revision while keeping land, coast, the terrain collider, the Blender bridge structure and
-  building `world_id`s. The world integrator owns CityData and every road revision.
+  breakdown that lands with RT-01 in the [road-tool evaluation record](../spikes/road-tool.md)
+  (its explicit-bake production breakdown is superseded on `main` by decisions 40–44 and the
+  plan's RT rows; RT-01 lands the rewritten record): live editor and level-load generation,
+  load-time traffic/foot/crossing/spawn/minimap derivation with host/client agreement
+  (`CONTENT_INVALID` otherwise), the addon as a runtime dependency, hybrid prefab/procedural
+  intersections and independently configured signals and street lights. RT-01 is accepted on
+  `lane/rt-01` but held for the owner's hands-on editor trial. RT-05 updates the
+  bake-fingerprint wording in the derived-data contracts. RT-10 replaces the greybox's Blender
+  road/walk strokes with road-tool output through a coordinated ground-source revision while
+  keeping land, coast, the terrain collider, the Blender bridge structure and building
+  `world_id`s. The world integrator owns CityData and every road revision.
 - **M1-D1:** D1.1 is done: GUT 9.7.1 pinned and test-only, `tools/production_checks.py` and the
   Windows/Linux CI entry ([record](../spikes/m1-d1-1.md)); Linux CI execution is still
   unobserved. D1.2 builds reproducible local/CI checks that catch owned code/resource/gameplay
@@ -254,15 +269,20 @@ Under decision 35 the orchestrator owns gameplay integration (pending owner conf
   runtime road addon.
 - **M1-D2:** Playtest desktop keyboard/mouse multiplayer feel, camera/aim, driving,
   spectacle, island exploration, menus/focus and audio; fix findings or have the user scope
-  them out. Gamepad/controller playtesting is owner-deferred.
-- **M1-D3:** Continue S17 production host-budget work and carry S05 final-body evidence. Track
-  the soft ~4 ms total host-simulation p95 target at full tunable M1 population without
-  per-feature gates. Target capped 60 FPS with p95 ≤16.7 ms and p99 ≤20 ms on the RTX 4070
-  Laptop Windows reference and a named Linux desktop when available, with players together and
-  in four distant areas of the island. Verify capacity and bounded adverse-network lifecycle
-  through real ENet processes/APIs and measure frame/physics, draw, memory, bandwidth, queues
-  and response. Culling cannot stop required simulation and optimization needs evidence. Steam
-  transport testing is owner-deferred.
+  them out. D2 depends on M1-A-GATE, so D3, D4 and M1-GATE require the exported shell to pass.
+  Gamepad/controller playtesting is owner-deferred.
+- **M1-D3:** Decision 14 makes S17 production host-budget work first production work. **D3.0**
+  starts now: production host-tick timing (total plus per-subsystem reports) and a repeatable
+  capped tracking run, beginning with the first simulation rows (A2.1, C3.0); every later
+  simulation row adds its section and reports the tracked total when it lands, and the trend is
+  checked at each checkpoint P1–P4. Final D3 carries S05 final-body evidence and the integrated
+  acceptance. Track the soft ~4 ms total host-simulation p95 target at full tunable M1
+  population without per-feature gates. Target capped 60 FPS with p95 ≤16.7 ms and p99 ≤20 ms on
+  the RTX 4070 Laptop Windows reference and a named Linux desktop when available, with players
+  together and in four distant areas of the island. Verify capacity and bounded adverse-network
+  lifecycle through real ENet processes/APIs and measure frame/physics, draw, memory, bandwidth,
+  queues and response. Culling cannot stop required simulation and optimization needs evidence.
+  Steam transport testing is owner-deferred.
 - **M1-D5:** Before M1-D4, add LocalSettings and the settings UI. Persist audio volumes/mutes
   first with validated defaults, corrupt-file recovery, live preview and atomic save; device
   settings never mutate shared gameplay.

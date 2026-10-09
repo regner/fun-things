@@ -27,7 +27,9 @@ No particular agent platform or delegation tool is required to read it.
   weapon and weapon-effect assets from the [parallel content tracks](parallel-art-production.md).
   The six-block M1 area is dropped. Wave 1 is integrated: M1-D1.1 pinned test-only GUT and
   `tools/production_checks.py` (decision 31), M1-A1.1 Boot/session (the game boots into the
-  production menu), the [road-tool spike](../spikes/road-tool.md), and the art and project
+  production menu), the [road-tool evaluation record](../spikes/road-tool.md) (its explicit-bake
+  production breakdown is superseded on `main` by decisions 40–44 and the plan's RT rows; RT-01
+  lands the rewritten record), and the art and project
   cleanup (decisions 36–39: production art by family/type, asset tools under `tools/assets/`,
   asset checks under `tests/assets/`, spike material in the reference-only `prototypes/`
   archive). Decision 32 (AI traffic yields to marked-crosswalk reservations) is recorded in
@@ -135,11 +137,13 @@ fixture, performance, hardware or graphical claim.
 ## Current lane order — refreshed 9 October 2026 (whole-city replan)
 
 P0-GATE passed under owner decision 27 and M1 production has resumed. Follow the
-[ordered backlog](../plans/m1-production-plan.md#52-ordered-backlog). Next starts: M1-A1.2 ENet
-host/join and M1-C2.1 Brackett play world, M1-A2.1 ActorMotion, the M1-B1.1 standalone
-drive-rule port and M1-A3.2 audio, all of which depend only on integrated A1.1/D1.1. RT-01
-lands after the owner's editor trial; RT-02 onwards follow with the world integrator. C3
-population waits for RT-06/RT-07 and the owner's population-placement answer. M1-C1.1/C2.2
+[ordered backlog](../plans/m1-production-plan.md#52-ordered-backlog). Next starts follow decision
+14 first: M1-C3.0 pedestrian core behavior/budget (synthetic navigation graphs) and M1-D3.0
+host-budget instrumentation/tracking; then M1-A1.2 ENet host/join and M1-C2.1 Brackett play
+world, M1-A2.1 ActorMotion, the M1-B1.1 standalone drive-rule port, M1-A3.2 audio and the
+M1-C1.2a hitscan tracer effect. RT-01 lands after the owner's editor trial; RT-02 onwards follow
+with the world integrator. C3.1/C3.2 world population waits for RT-06/RT-07 and the owner's
+population-placement answer. M1-C1.1/C2.2
 district art still waits for the owner to report the separately run M1-C0 work integrated.
 Decision 28 keeps LocalSettings/settings UI in M1-D before M1-D4. Linux S08 confirmation and
 P0-PROFILES remain non-blocking.
@@ -296,7 +300,7 @@ merely because a task mentions maps, 3D or review.
 
 ## Current first action
 
-Dispatch the P1 rows named in the current lane order and present the
+Dispatch decision 14's C3.0/D3.0 and the P1 rows named in the current lane order and present the
 [replan owner questions](../plans/m1-production-plan.md#61-owner-questions-from-the-whole-city-replan),
 starting with integration ownership (decision 35) and population placement. Do not dispatch
 M1-C1.1 or concept-dependent art until the owner reports M1-C0 integrated. Do not land RT-01
