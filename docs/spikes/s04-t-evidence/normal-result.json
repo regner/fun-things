@@ -1,0 +1,109 @@
+{
+  "profile": "normal",
+  "ok": true,
+  "criteria": {
+    "two_process_results": true,
+    "host_granted_race": true,
+    "all_verdicts": true,
+    "history_clean": true,
+    "ownership_flips": true,
+    "traffic_released": true,
+    "disconnect_coasted": true,
+    "adverse_blackout": true,
+    "draw_receipts": true
+  },
+  "measurements": {
+    "entry_correction_m": {
+      "race_entry": 2.59160351753235,
+      "parked_entry": 0.17599980533123,
+      "traffic_entry": 1.00016105175018
+    },
+    "entry_visual_jump_m": {
+      "race_entry": 2.59160351753235,
+      "parked_entry": 0.17599980533123,
+      "traffic_entry": 1.00016105175018
+    },
+    "transition_visual_jump_p95_m": 2.59160351753235,
+    "accepted_time_to_control_p95_ms": 18,
+    "action_round_trip_p95_ms": 201,
+    "history_clean": true,
+    "ownership_flips": true,
+    "proxy_delay_p95_ms": 102.81459987163544,
+    "proxy_delay_max_ms": 107.12060006335378,
+    "captures": [
+      "blocked_exit.png",
+      "moving_exit.png",
+      "parked_entry.png",
+      "race_entry.png",
+      "successful_exit.png",
+      "traffic_entry.png"
+    ]
+  },
+  "host_result": {
+    "blocked_rejected": true,
+    "disconnect_coast_m": 49.7675399780273,
+    "event": "result",
+    "final_speed_mps": 0.0,
+    "moving_rejected": true,
+    "ok": true,
+    "race_complete": true,
+    "role": "host",
+    "traffic_ai_active": false,
+    "traffic_stolen": true,
+    "wall_ms": 1791538157477.0
+  },
+  "client_result": {
+    "event": "result",
+    "history_clean": true,
+    "ok": true,
+    "ownership_clean": true,
+    "role": "client",
+    "transition_count": 6,
+    "wall_ms": 1791538152382.0
+  },
+  "commands": {
+    "host": [
+      "C:\\Users\\regner.blokandersen\\AppData\\Local\\mise\\installs\\github-godotengine-godot-builds\\4.8-dev7\\godot.EXE",
+      "--max-fps",
+      "60",
+      "--path",
+      "C:\\tmp\\ft\\lanes\\s04-t\\selected\\normal\\project",
+      "--resolution",
+      "1280x800",
+      "--position",
+      "0,0",
+      "--log-file",
+      "C:\\tmp\\ft\\lanes\\s04-t\\selected\\normal\\host\\engine.log",
+      "res://tests/fixtures/s04_t/boot.tscn",
+      "--",
+      "--role=host",
+      "--port=25440"
+    ],
+    "client": [
+      "C:\\Users\\regner.blokandersen\\AppData\\Local\\mise\\installs\\github-godotengine-godot-builds\\4.8-dev7\\godot.EXE",
+      "--max-fps",
+      "60",
+      "--path",
+      "C:\\tmp\\ft\\lanes\\s04-t\\selected\\normal\\project",
+      "--resolution",
+      "1280x800",
+      "--position",
+      "1280,0",
+      "--log-file",
+      "C:\\tmp\\ft\\lanes\\s04-t\\selected\\normal\\client\\engine.log",
+      "res://tests/fixtures/s04_t/boot.tscn",
+      "--",
+      "--role=client",
+      "--port=25441"
+    ]
+  },
+  "process_ids": [
+    50416,
+    58908
+  ],
+  "exits": [
+    0,
+    0
+  ],
+  "peak_proxy_queue": 12
+}
