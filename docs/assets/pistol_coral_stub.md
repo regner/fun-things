@@ -21,6 +21,20 @@ effects lead owns the flash/VFX. An external integrator owns gameplay/world use,
 authoritative muzzle queries, firing/damage/ammo, networking and production-player fit.
 Shared planning/catalogue/TODO files remain untouched. Independent review receipt follows.
 
+Owner routing update, 9 October 2026, applies prospectively: modeling/animation,
+geometry, UV/skin deformation, spatial rig/rest/bone design, keyframes/poses/motion
+and spatial VFX animation require **GPT-6-Astra**. Non-spatial Godot imports,
+resource/rig/animation configuration, technical wiring and bookkeeping may use
+**GPT-6.1-Sol medium/high**. The same boundary applies to subagents. Preserve
+in-flight/unsaved work and verify the actual runtime before resuming spatial work;
+end a Sol turn at its safe saved checkpoint if new settings cannot take effect yet.
+No new worktree, duplicate lead, discarded work or process termination is authorized
+by the routing update. Before any post-instruction spatial mutation, Paseo
+`get_agent_status` verified this lead's `runtimeInfo.model=gpt-6-astra`,
+`runtimeInfo.thinkingOptionId=high`, active turn `codex-turn-6`, session
+`01a12094-4754-73a1-b9c5-6da017a10989`. The already-saved asset checkpoint
+`117316a1ab182bcc13f59dfaa3f24c2fd72271ec` predates this instruction.
+
 The asset is a static visual prop: no rig, clips or moving parts are needed for the selected
 minimum presentation requirement. Textures are not applicable: six opaque flat PBR
 materials meet the selected style. No collision, scripts, VFX or gameplay in the wrapper.
