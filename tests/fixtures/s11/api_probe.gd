@@ -9,7 +9,7 @@ func _initialize() -> void:
 	var failures: Array[String] = []
 	_check_codec(failures)
 	_check_population_policy(failures)
-	print("S11_PROBE " + JSON.stringify({"ok": failures.is_empty(), "failures": failures}))
+	print("S11_PROBE " + JSON.stringify({ "ok": failures.is_empty(), "failures": failures }))
 	quit(0 if failures.is_empty() else 1)
 
 
@@ -57,7 +57,9 @@ func _check_codec(failures: Array[String]) -> void:
 	var malformed: PackedByteArray = packets[0].slice(0, packets[0].size() - 1)
 	if not codec.decode(malformed).is_empty():
 		failures.append("truncated snapshot was accepted")
-	var lifecycle: Dictionary = codec.decode_lifecycle(codec.encode_lifecycle(4, 65, 1, 2, 7, 90))
+	var lifecycle: Dictionary = codec.decode_lifecycle(codec.encode_lifecycle(
+		{ "event_kind": 4, "id": 65, "generation": 1, "phase": 2, "revision": 7, "tick": 90 }
+	))
 	if lifecycle.get("id") != 65 or lifecycle.get("revision") != 7 or lifecycle.get("phase") != 2:
 		failures.append("lifecycle transaction roundtrip failed")
 
@@ -67,9 +69,9 @@ func _check_population_policy(failures: Array[String]) -> void:
 	var policy: S11PopulationPolicy = PolicyScript.new()
 	policy.reset()
 	var candidates: Array[Dictionary] = [
-		{"position": Vector2(5.0, 0.0)},
-		{"position": Vector2(50.0, 0.0)},
-		{"position": Vector2(80.0, 0.0)},
+		{ "position": Vector2(5.0, 0.0) },
+		{ "position": Vector2(50.0, 0.0) },
+		{ "position": Vector2(80.0, 0.0) },
 	]
 	var players: Array[Vector2] = [Vector2.ZERO, Vector2(100.0, 0.0)]
 	var first: Dictionary = policy.reserve_replenishment("pedestrian", candidates, players, 1.0)
@@ -77,7 +79,7 @@ func _check_population_policy(failures: Array[String]) -> void:
 		failures.append("replenishment did not choose an out-of-view candidate")
 		return
 
-	var blocked: Array[Dictionary] = [{"position": Vector2(51.0, 0.0)}]
+	var blocked: Array[Dictionary] = [{ "position": Vector2(51.0, 0.0) }]
 	if not policy.reserve_replenishment("car", blocked, players, 1.5).is_empty():
 		failures.append("clearance allowed overlapping reservations")
 	if not policy.commit(first) or int(policy.counts.pedestrian) != 1:

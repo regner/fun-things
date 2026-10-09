@@ -13,7 +13,7 @@ var reservations: Array[Dictionary] = []
 
 ## Restore empty runtime counts and release every pending spawn reservation.
 func reset() -> void:
-	counts = {"pedestrian": 0, "car": 0, "wreck": 0, "dead_pedestrian": 0}
+	counts = { "pedestrian": 0, "car": 0, "wreck": 0, "dead_pedestrian": 0 }
 	reservations.clear()
 
 

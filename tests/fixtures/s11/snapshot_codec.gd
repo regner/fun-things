@@ -18,6 +18,8 @@ func encode(sequence: int, tick: int, rows: Array[Dictionary]) -> Array[PackedBy
 	for chunk_index: int in range(chunk_count):
 		var first: int = chunk_index * MAX_ROWS_PER_PACKET
 		var count: int = mini(MAX_ROWS_PER_PACKET, rows.size() - first)
+		# Each returned chunk owns its bytes; sharing one mutable stream would alias output.
+		# gdstyle:ignore=quality/allocation-in-loop
 		var stream: StreamPeerBuffer = StreamPeerBuffer.new()
 		stream.big_endian = true
 		stream.put_u16(MAGIC)
@@ -71,19 +73,17 @@ func decode(packet: PackedByteArray) -> Dictionary:
 
 
 ## Encode one reliable lifecycle transaction on the dedicated state stream.
-func encode_lifecycle(
-	event_kind: int, entity_id: int, generation: int, phase: int, revision: int, tick: int
-) -> PackedByteArray:
+func encode_lifecycle(event: Dictionary) -> PackedByteArray:
 	var stream: StreamPeerBuffer = StreamPeerBuffer.new()
 	stream.big_endian = true
 	stream.put_u16(MAGIC)
-	stream.put_u8(event_kind)
-	stream.put_u8(phase)
-	stream.put_u16(entity_id)
-	stream.put_u8(generation)
+	stream.put_u8(int(event.event_kind))
+	stream.put_u8(int(event.phase))
+	stream.put_u16(int(event.id))
+	stream.put_u8(int(event.generation))
 	stream.put_u8(0)
-	stream.put_u32(revision)
-	stream.put_u32(tick)
+	stream.put_u32(int(event.revision))
+	stream.put_u32(int(event.tick))
 	return stream.data_array
 
 

@@ -1,4 +1,4 @@
-extends Node
+extends Node  # gdstyle:ignore=quality/max-class-variables
 
 const TransportScript: Script = preload("res://tests/fixtures/s03/transport.gd")
 const CodecScript: Script = preload("res://tests/fixtures/s11/snapshot_codec.gd")
@@ -73,7 +73,7 @@ func _ready() -> void:
 			return
 
 		multiplayer.multiplayer_peer = transport.peer
-		_emit({"event": "ready", "entities": ENTITY_COUNT})
+		_emit({ "event": "ready", "entities": ENTITY_COUNT })
 	else:
 		multiplayer.server_disconnected.connect(_host_closed)
 		var target: Dictionary = transport.parse_endpoint("127.0.0.1", port)
@@ -104,14 +104,14 @@ func _physics_process(_delta: float) -> void:
 		_publish_snapshot()
 
 	if run_tick == RUN_TICKS:
-		_complete_run.rpc({"run_ticks": run_tick, "host_entities": ENTITY_COUNT})
+		_complete_run.rpc({ "run_ticks": run_tick, "host_entities": ENTITY_COUNT })
 		finish_tick = run_tick + FINISH_DELAY_TICKS
 	elif finish_tick > 0 and run_tick >= finish_tick:
 		_emit_result()
 
 
 ## Interpolate remote rows behind estimated server time and bound extrapolation.
-func _process(delta: float) -> void:
+func _process(delta: float) -> void:  # gdstyle:ignore=quality/max-local-variables
 	if role != "client":
 		return
 	if result_emitted_ms > 0 and Time.get_ticks_msec() - result_emitted_ms > 8000:
@@ -181,7 +181,7 @@ func _peer_connected(peer_id: int) -> void:
 			_baseline.rpc_id(target_peer, packet)
 		_baseline_done.rpc_id(target_peer, ENTITY_COUNT, payload_bytes_per_client)
 
-	_emit({"event": "baseline_sent", "peers": connected_peers.size()})
+	_emit({ "event": "baseline_sent", "peers": connected_peers.size() })
 
 
 ## Install a reliable baseline chunk before live movement begins.
@@ -225,7 +225,7 @@ func _baseline_ack(entity_count: int) -> void:
 	if baseline_acks.size() == expected_clients:
 		running = true
 		started_ms = Time.get_ticks_msec()
-		_emit({"event": "snapshots_started", "baseline_payload_bytes": baseline_payload_bytes})
+		_emit({ "event": "snapshots_started", "baseline_payload_bytes": baseline_payload_bytes })
 		_start_client.rpc()
 
 
@@ -235,7 +235,7 @@ func _start_client() -> void:
 	if role == "client" and multiplayer.get_remote_sender_id() == 1:
 		running = true
 		started_ms = Time.get_ticks_msec()
-		_emit({"event": "started", "baseline_entities": lifecycle_generation.size()})
+		_emit({ "event": "started", "baseline_entities": lifecycle_generation.size() })
 
 
 ## Decode one movement chunk from the authoritative host and update per-entity history.
@@ -310,9 +310,14 @@ func _publish_lifecycle(
 	lifecycle_revision += 1
 	lifecycle_generation[entity_id] = generation
 	lifecycle_phase[entity_id] = phase
-	var packet: PackedByteArray = codec.encode_lifecycle(
-		event_kind, entity_id, generation, phase, lifecycle_revision, run_tick
-	)
+	var packet: PackedByteArray = codec.encode_lifecycle({
+		"event_kind": event_kind,
+		"id": entity_id,
+		"generation": generation,
+		"phase": phase,
+		"revision": lifecycle_revision,
+		"tick": run_tick,
+	})
 	_lifecycle.rpc(packet, label)
 
 
@@ -408,7 +413,7 @@ func _host_closed() -> void:
 
 
 ## Emit one machine-readable result and optionally close this owned process.
-func _emit_result(quit_process: bool = true) -> void:
+func _emit_result(quit_process: bool = true) -> void:  # gdstyle:ignore=quality/max-branches
 	running = false
 	var failures: Array[String] = []
 	if role == "host":
@@ -458,7 +463,7 @@ func _emit_result(quit_process: bool = true) -> void:
 
 ## Report an early process failure in the same result envelope.
 func _fail(message: String) -> void:
-	_emit({"event": "result", "ok": false, "failures": [message], "role": role})
+	_emit({ "event": "result", "ok": false, "failures": [message], "role": role })
 	get_tree().quit(1)
 
 
