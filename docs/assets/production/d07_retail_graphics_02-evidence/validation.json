@@ -1,0 +1,312 @@
+{
+  "asset": "d07_retail_graphics.02",
+  "blender": "5.2.2 LTS",
+  "blender_build": "d13f752e3b9c",
+  "exporter": "5.2.40",
+  "provisional_dimensions_m": [
+    4.4,
+    2.6,
+    0.8
+  ],
+  "bounds_tolerance_m": 0.001,
+  "godot_bounds_min_m": [
+    -2.200000047683716,
+    0.0,
+    -0.4000000059604645
+  ],
+  "godot_bounds_max_m": [
+    2.200000047683716,
+    2.5999999046325684,
+    0.4000000059604645
+  ],
+  "pivot_m": [
+    0,
+    0,
+    0
+  ],
+  "source_vertices": 328,
+  "source_faces": 332,
+  "triangles": 640,
+  "export_vertices": 380,
+  "mesh_count": 1,
+  "surface_count": 4,
+  "degenerate_faces": 0,
+  "degenerate_triangles": 0,
+  "nonmanifold_edges": 0,
+  "source_normal_max_length_error": 1.5052499979795186e-07,
+  "export_normal_max_length_error": 1.372682070233111e-07,
+  "closed_volume_m3": 6.478212376514244,
+  "materials": [
+    {
+      "name": "sign_island_artwork_face",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.02800000086426735,
+          0.06700000166893005,
+          0.09200000017881393,
+          1
+        ],
+        "metallicFactor": 0.10000000149011612,
+        "roughnessFactor": 0.6000000238418579
+      }
+    },
+    {
+      "name": "island_body_slate",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.23999999463558197,
+          0.3199999928474426,
+          0.36000001430511475,
+          1
+        ],
+        "metallicFactor": 0.05000000074505806,
+        "roughnessFactor": 0.6499999761581421
+      }
+    },
+    {
+      "name": "island_deck_petrol",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.02800000086426735,
+          0.06700000166893005,
+          0.09200000017881393,
+          1
+        ],
+        "metallicFactor": 0.10000000149011612,
+        "roughnessFactor": 0.6000000238418579
+      }
+    },
+    {
+      "name": "island_wayfinding_lime",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.47999998927116394,
+          0.7200000286102295,
+          0.1599999964237213,
+          1
+        ],
+        "metallicFactor": 0,
+        "roughnessFactor": 0.5
+      }
+    }
+  ],
+  "glb_bytes": 19936,
+  "glb_sha256": "919350aa89fdb7056f324bc8938f90909c81315df2918c2a3a81f558da69d231",
+  "fresh_export_byte_identical": true,
+  "source_export_status": "passed",
+  "artwork_face": {
+    "slot": 0,
+    "source_quads": 1,
+    "export_triangles": 2,
+    "dimensions_m": [
+      3.84,
+      1.84
+    ],
+    "godot_z_m": -0.29,
+    "source_uv_corners": "viewed from front: bottom-left(0,0), top-right(1,1)",
+    "glb_uv_corners": "viewed from front: bottom-left(0,1), top-right(1,0)",
+    "uv_orientation_checked": true
+  },
+  "base_fit": {
+    "mount_y_m": 0.28,
+    "foot_corner_radius_m": 2.23606797749979,
+    "clear_deck_radius_m": 2.58,
+    "fits": true
+  },
+  "output_type": "Artwork set; unchanged support prefab with one face override",
+  "new_geometry": false,
+  "shared_glb": "art/models/environment/d07_sign_island_02/d07_sign_island_02.glb",
+  "shared_glb_sha256": "919350aa89fdb7056f324bc8938f90909c81315df2918c2a3a81f558da69d231",
+  "shared_glb_bytes": 19936,
+  "shared_dependency_sha256": {
+    "art/source/models/environment/d07_sign_island_02/d07_sign_island_02.blend": "cffd69ac7244cfaaafef896ef32bd78dcae063e0462219b234bb895d398b917c",
+    "art/models/environment/d07_sign_island_02/d07_sign_island_02.glb": "919350aa89fdb7056f324bc8938f90909c81315df2918c2a3a81f558da69d231",
+    "art/models/environment/d07_sign_island_02/d07_sign_island_02.glb.import": "ca769956385ebe5ec65e7df8897f13ca41707ad49b7f9f9316ad4ead26c5d0da",
+    "scenes/prefabs/environment/d07_sign_island_02.tscn": "a1b5fa697444381e3a1ce05faeb3325dca1c6f70cbb109fb291534523318a02f",
+    "tools/asset_production/d07_sign_island_02/validate.py": "4e2ed2a5e291e56d62a8fa6866333869a2804d05108c0a6947bda1b6e1d0eecb",
+    "tools/asset_production/d07_sign_island_02/export.py": "ed5d77a8d88fa8edf1d75cfeaccaebbe8e7fbffa542dc1614f498efbb23170bd",
+    "tools/assets/blender/export_settings.json": "33ded3c83616fba6573848dda1f0ea3fc7ae7f4c98257fc867dca3bbe35ff9ec",
+    "tools/asset_production/d07_retail_graphics_01/author.py": "4c71a58ed95b76dfd9cf35b5d187ccd03f75a1c1cd2a4a2bf491d3f49f0076b6"
+  },
+  "shared_dependencies_unchanged": true,
+  "engine_normalization": {
+    "aabb_max": [
+      2.2,
+      2.6,
+      0.4
+    ],
+    "aabb_min": [
+      -2.2,
+      0.0,
+      -0.4
+    ],
+    "collision_bodies": 1,
+    "collision_boxes": 2,
+    "collision_inherited_unchanged": true,
+    "engine": "4.8-dev7 (official)",
+    "face_only_overrides": 1,
+    "filter": "linear_mipmap",
+    "front_uv_vertices": 4,
+    "identity_model_transform": true,
+    "imported_mesh_resources_unchanged": true,
+    "inherited_support": "res://scenes/prefabs/environment/d07_sign_island_02.tscn",
+    "linked_model": "res://art/models/environment/d07_sign_island_02/d07_sign_island_02.glb",
+    "meshes": 1,
+    "prefab": "res://scenes/prefabs/environment/d07_retail_graphics_02.tscn",
+    "prefab_sha256": "8b984d9f9373db2fe247b0766b1c5a6e1997d4b38dbfa9d357786b8b64c8752d",
+    "prefab_uid": "uid://cln7r64887ab5",
+    "repeat": false,
+    "status": "PASS",
+    "surfaces": 4,
+    "texture_size": [
+      1920,
+      920
+    ],
+    "two_roundtrips_byte_identical": true
+  },
+  "engine_fresh_load": {
+    "aabb_max": [
+      2.2,
+      2.6,
+      0.4
+    ],
+    "aabb_min": [
+      -2.2,
+      0.0,
+      -0.4
+    ],
+    "collision_bodies": 1,
+    "collision_boxes": 2,
+    "collision_inherited_unchanged": true,
+    "engine": "4.8-dev7 (official)",
+    "face_only_overrides": 1,
+    "filter": "linear_mipmap",
+    "front_uv_vertices": 4,
+    "identity_model_transform": true,
+    "imported_mesh_resources_unchanged": true,
+    "inherited_support": "res://scenes/prefabs/environment/d07_sign_island_02.tscn",
+    "linked_model": "res://art/models/environment/d07_sign_island_02/d07_sign_island_02.glb",
+    "meshes": 1,
+    "prefab": "res://scenes/prefabs/environment/d07_retail_graphics_02.tscn",
+    "repeat": false,
+    "status": "PASS",
+    "surfaces": 4,
+    "texture_size": [
+      1920,
+      920
+    ]
+  },
+  "commands": {
+    "author": {
+      "exit_code": 0,
+      "diagnostics": []
+    },
+    "artwork-tests": {
+      "exit_code": 0,
+      "diagnostics": []
+    },
+    "validate": {
+      "exit_code": 0,
+      "diagnostics": []
+    },
+    "preview": {
+      "exit_code": 0,
+      "diagnostics": [
+        "C:\\GameDev\\git\\ft-lanes\\a-d07\\tools\\asset_production\\d07_retail_graphics_02\\preview.py:21: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0",
+        "C:\\GameDev\\git\\ft-lanes\\a-d07\\tools\\asset_production\\d07_retail_graphics_02\\preview.py:33: DeprecationWarning: 'World.use_nodes' is expected to be removed in Blender 6.0"
+      ]
+    },
+    "import": {
+      "exit_code": 0,
+      "diagnostics": [
+        "WARNING: [MCP] Godot 4.8 detected - latest tested version is 4.7.0. The plugin will run normally but some features may behave unexpectedly. Please report issues at https://github.com/NPGameDev/godot-mcp-toolkit/issues"
+      ]
+    },
+    "normalize": {
+      "exit_code": 0,
+      "diagnostics": [
+        "WARNING: [MCP] Godot 4.8 detected - latest tested version is 4.7.0. The plugin will run normally but some features may behave unexpectedly. Please report issues at https://github.com/NPGameDev/godot-mcp-toolkit/issues",
+        "WARNING: Scan thread aborted...",
+        "ERROR: 5 RID allocations of type 'N16RendererViewport8ViewportE' were leaked at exit.",
+        "ERROR: 8 RID allocations of type 'PN13RendererDummy14TextureStorage12DummyTextureE' were leaked at exit.",
+        "ERROR: 1 RID allocations of type 'N17RendererSceneCull8ScenarioE' were leaked at exit.",
+        "ERROR: 52 RID allocations of type 'PN18TextServerAdvanced22ShapedTextDataAdvancedE' were leaked at exit.",
+        "ERROR: 1 RID allocations of type 'PN18TextServerAdvanced12FontAdvancedE' were leaked at exit.",
+        "WARNING: 5 RIDs of type \"Canvas\" were leaked.",
+        "WARNING: 31 RIDs of type \"CanvasItem\" were leaked.",
+        "WARNING: 168 ObjectDB instances were leaked at exit (run with `--verbose` for details)."
+      ]
+    },
+    "import-final": {
+      "exit_code": 0,
+      "diagnostics": [
+        "WARNING: [MCP] Godot 4.8 detected - latest tested version is 4.7.0. The plugin will run normally but some features may behave unexpectedly. Please report issues at https://github.com/NPGameDev/godot-mcp-toolkit/issues"
+      ]
+    },
+    "fresh": {
+      "exit_code": 0,
+      "diagnostics": []
+    },
+    "compile": {
+      "exit_code": 0,
+      "diagnostics": []
+    },
+    "format": {
+      "exit_code": 0,
+      "diagnostics": []
+    },
+    "lint": {
+      "exit_code": 0,
+      "diagnostics": []
+    }
+  },
+  "artwork_tests": {
+    "tests": 3,
+    "status": "PASS",
+    "fresh_png_byte_identical": true
+  },
+  "renders": {
+    "hero": {
+      "bytes": 244916,
+      "sha256": "2db0e406c8f5f9ddf783cf84269e4ede4d7f3e3f6fdce75c3e21f9a037487c52",
+      "resolution": [
+        1280,
+        720
+      ]
+    },
+    "side": {
+      "bytes": 213431,
+      "sha256": "0436e6134a022e036194e0618b5c524b650778ebb8492d1341b8e339beef99d7",
+      "resolution": [
+        1280,
+        720
+      ]
+    },
+    "detail": {
+      "bytes": 239303,
+      "sha256": "61d540136575cc318263b580643fcc25913b0c222715e0d5eb984984a5870954",
+      "resolution": [
+        1280,
+        720
+      ]
+    },
+    "overhead_47m_42deg": {
+      "bytes": 11253,
+      "sha256": "d7b0304a7b1d8c97f927bb6f76da4fdadaefce851719f2a93e251d0fe7e2200c",
+      "resolution": [
+        1280,
+        720
+      ]
+    }
+  },
+  "artwork_texture": {
+    "path": "art/textures/environment/d07_retail_graphics_02/sign_island_face_albedo.png",
+    "resolution": [
+      1920,
+      920
+    ],
+    "mode": "RGB",
+    "bytes": 70857,
+    "sha256": "90d574eb12889fee0a70b18ef1b8e9b400694679f32e2c347e81c44bfc4cfa82"
+  }
+}

@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://cln7r64887ab5"]
+
+[ext_resource type="PackedScene" uid="uid://c6ixrjw2dg7x1" path="res://scenes/prefabs/environment/d07_sign_island_02.tscn" id="1_support"]
+[ext_resource type="Material" uid="uid://bq8w3kf5mj2hc" path="res://art/materials/environment/d07_retail_graphics_02/sign_island_face.tres" id="2_artwork"]
+
+[node name="d07_retail_graphics_02" unique_id=1229663889 instance=ExtResource("1_support")]
+
+[node name="D07SignIsland02_Mesh" parent="Visuals/Model/D07SignIsland02" parent_id_path=PackedInt32Array(755538876, 1952337276) index="0" unique_id=937517737]
+surface_material_override/0 = ExtResource("2_artwork")
+
+[editable path="Visuals/Model"]
