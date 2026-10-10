@@ -1,0 +1,229 @@
+{
+  "asset_id": "d01_sports_surface.02",
+  "blender": "5.2.2 LTS",
+  "blender_build": "d13f752e3b9c",
+  "gltf_exporter": "5.2.40",
+  "source_vertices": 4,
+  "glb_vertices": 4,
+  "triangles": 2,
+  "mesh_count": 1,
+  "surface_count": 1,
+  "degenerate_faces": 0,
+  "degenerate_triangles": 0,
+  "unit_normals": true,
+  "upward_winding": true,
+  "non_manifold_edges": 4,
+  "boundary_loop_sizes": [
+    4
+  ],
+  "non_boundary_non_manifold_edges": 0,
+  "boundary_justification": "One intentional open perimeter on a flush, single-sided decal; no sidewalls or deck. World terrain owns all walk/drive collision.",
+  "aabb_min_godot": [
+    -26.0,
+    0.014999999664723873,
+    -13.0
+  ],
+  "aabb_max_godot": [
+    26.0,
+    0.014999999664723873,
+    13.0
+  ],
+  "dimensions_godot_metres": [
+    52,
+    0,
+    26
+  ],
+  "pivot": [
+    0,
+    0,
+    0
+  ],
+  "visual_surface_y": 0.015,
+  "ground_datum_y": 0,
+  "track_infield_carrier_clearance_metres": 0.36777543299093374,
+  "uv_axis": "U east/+X, image V south/+Z",
+  "embedded_images": 0,
+  "source_texture_relative_and_unpacked": true,
+  "material": {
+    "name": "field_lines",
+    "roughness": 0.94,
+    "metallic": 0,
+    "alpha_scissor_threshold_godot": 0.5
+  },
+  "texture_sha256": "0f91f255a53deea59f0b31e965e80f0dc8605001bc721adfb00b723d3dc012b2",
+  "glb_bytes": 1380,
+  "glb_sha256": "49a1d57ddfe85a098a8a21c868b2ab7afaaf4a401dc633d872a293ea3bc2f1bd",
+  "fresh_reexport_byte_identical": true,
+  "source_status": "PASS",
+  "artwork": {
+    "ok": true,
+    "byte_identical_reproduction": true,
+    "png_bytes": 25756,
+    "png_sha256": "0f91f255a53deea59f0b31e965e80f0dc8605001bc721adfb00b723d3dc012b2",
+    "size": [
+      2048,
+      1024
+    ],
+    "mode": "RGBA",
+    "opaque_fraction_at_half_alpha": 0.03475475311279297,
+    "independent_paint_landmarks": 16,
+    "independent_clear_landmarks": 11,
+    "transverse_boundary_runs": 2,
+    "transparent_border": true,
+    "uniform_ivory_rgb": true,
+    "pillow": "12.3.0"
+  },
+  "engine": {
+    "aabb_min": [
+      -26.0,
+      0.0149999996647239,
+      -13.0
+    ],
+    "aabb_size": [
+      52.0,
+      9.99999974737875e-06,
+      26.0
+    ],
+    "alpha_coverage_preserved": true,
+    "alpha_threshold": 0.5,
+    "collision_objects": 0,
+    "d01_sports_surface_02.glb_uid": "uid://bnt8h5q804aw2",
+    "d01_sports_surface_02.tscn_uid": "uid://s57fhgnjeywm",
+    "engine": "4.8-dev7 (official)",
+    "engine_hash": "c971f93e7e76b0ef919bf6009e7b868bea04db7f",
+    "external_material": "res://art/materials/environment/d01_sports_surface_02/field_lines.tres",
+    "failures": [],
+    "field_lines.tres_uid": "uid://b2diob5kpmrig",
+    "linked_identity_model": true,
+    "material_overrides": 0,
+    "mesh_count": 1,
+    "mipmaps": true,
+    "ok": true,
+    "surface_count": 1,
+    "texture_image_bytes_including_mips": 11184812,
+    "texture_image_format": 5,
+    "texture_size": [
+      2048,
+      1024
+    ]
+  },
+  "roundtrip": {
+    "aabb_min": [
+      -26.0,
+      0.0149999996647239,
+      -13.0
+    ],
+    "aabb_size": [
+      52.0,
+      9.99999974737875e-06,
+      26.0
+    ],
+    "alpha_coverage_preserved": true,
+    "alpha_threshold": 0.5,
+    "collision_objects": 0,
+    "d01_sports_surface_02.glb_uid": "uid://bnt8h5q804aw2",
+    "d01_sports_surface_02.tscn_uid": "uid://s57fhgnjeywm",
+    "engine": "4.8-dev7 (official)",
+    "engine_hash": "c971f93e7e76b0ef919bf6009e7b868bea04db7f",
+    "external_material": "res://art/materials/environment/d01_sports_surface_02/field_lines.tres",
+    "failures": [],
+    "field_lines.tres_uid": "uid://b2diob5kpmrig",
+    "linked_identity_model": true,
+    "material_overrides": 0,
+    "mesh_count": 1,
+    "mipmaps": true,
+    "ok": true,
+    "roundtrip_1_byte_stable": true,
+    "roundtrip_2_byte_stable": true,
+    "surface_count": 1,
+    "texture_image_bytes_including_mips": 11184812,
+    "texture_image_format": 5,
+    "texture_size": [
+      2048,
+      1024
+    ]
+  },
+  "second_runtime_process_exact_match": true,
+  "checks": {
+    "final_import_error_lines": [],
+    "runtime_error_lines": [],
+    "gdstyle_format": "PASS",
+    "gdstyle_lint": "PASS: zero warnings",
+    "python_compile": "PASS",
+    "production_checks_run": false,
+    "normalization_diagnostics": [
+      "WARNING: [MCP] Godot 4.8 detected - latest tested version is 4.7.0. The plugin will run normally but some features may behave unexpectedly. Please report issues at https://github.com/NPGameDev/godot-mcp-toolkit/issues",
+      "WARNING: Scan thread aborted...",
+      "ERROR: 5 RID allocations of type 'N16RendererViewport8ViewportE' were leaked at exit.",
+      "ERROR: 8 RID allocations of type 'PN13RendererDummy14TextureStorage12DummyTextureE' were leaked at exit.",
+      "ERROR: 1 RID allocations of type 'N17RendererSceneCull8ScenarioE' were leaked at exit.",
+      "ERROR: 52 RID allocations of type 'PN18TextServerAdvanced22ShapedTextDataAdvancedE' were leaked at exit.",
+      "ERROR: 1 RID allocations of type 'PN18TextServerAdvanced12FontAdvancedE' were leaked at exit.",
+      "WARNING: 5 RIDs of type \"Canvas\" were leaked.",
+      "WARNING: 31 RIDs of type \"CanvasItem\" were leaked.",
+      "WARNING: 168 ObjectDB instances were leaked at exit (run with `--verbose` for details)."
+    ],
+    "normalization_disposition": "Two byte-stable passes; known editor shutdown leaks and plugin warning retained, not a clean-log claim."
+  },
+  "visual_review": {
+    "renders_inspected": [
+      {
+        "file": "hero.png",
+        "size": [
+          1280,
+          720
+        ],
+        "bytes": 329865
+      },
+      {
+        "file": "side.png",
+        "size": [
+          1280,
+          720
+        ],
+        "bytes": 241189
+      },
+      {
+        "file": "line_detail.png",
+        "size": [
+          1280,
+          720
+        ],
+        "bytes": 279583
+      },
+      {
+        "file": "overhead_47m_42deg.png",
+        "size": [
+          1280,
+          720
+        ],
+        "bytes": 126253
+      }
+    ],
+    "renderer": "Isolated Blender Cycles CPU, 24 samples, AgX, RGB8 PNG compression 95",
+    "camera": {
+      "blender_position": [
+        0,
+        0,
+        47
+      ],
+      "rotation_radians": [
+        0,
+        0,
+        0
+      ],
+      "vertical_fov_degrees": 42,
+      "projection": "perspective",
+      "framing": "Entire field, north-up"
+    },
+    "observation": "Clean boundary, circle and nested end boxes remain distinct; large transparent spaces preserve the quiet shared grass beneath.",
+    "studio_ground": "Read-only existing short_grass PNG on unexported studio plane",
+    "godot_visual_acceptance": false
+  },
+  "remaining_acceptance": [
+    "Independent review and owner acceptance of provisional proportions/plot fit",
+    "World placement, continuous supporting grass/terrain, foot and car contacts",
+    "Godot lighting, actor contrast, moving alpha/mip/depth review",
+    "LOD, packaged builds, world multiplayer and sustained Deck/performance checks"
+  ]
+}

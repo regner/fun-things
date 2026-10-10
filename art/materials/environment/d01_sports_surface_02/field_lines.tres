@@ -1,0 +1,12 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://b2diob5kpmrig"]
+
+[ext_resource type="Texture2D" uid="uid://3m7c8y66k64j" path="res://art/textures/environment/d01_sports_surface_02/field_lines_albedo.png" id="1_albedo"]
+
+[resource]
+resource_name = "field_lines"
+transparency = 2
+alpha_scissor_threshold = 0.5
+alpha_antialiasing_mode = 0
+albedo_texture = ExtResource("1_albedo")
+roughness = 0.94
+texture_repeat = false
