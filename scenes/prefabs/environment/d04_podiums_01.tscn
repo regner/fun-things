@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://bkhuwxmu5nr5m"]
+
+[ext_resource type="PackedScene" path="res://art/models/environment/d04_podiums_01/d04_podiums_01.glb" id="1_model"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_core"]
+size = Vector3(26, 14.1, 14.5)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_wing"]
+size = Vector3(10.5, 14.1, 1.5)
+
+[node name="D04Podiums01" type="Node3D" unique_id=455134614]
+
+[node name="Visuals" type="Node3D" parent="." unique_id=1450203075]
+
+[node name="Model" parent="Visuals" unique_id=1171945439 instance=ExtResource("1_model")]
+
+[node name="Collision" type="Node3D" parent="." unique_id=517107600]
+
+[node name="Body" type="StaticBody3D" parent="Collision" unique_id=1037569430]
+collision_mask = 0
+
+[node name="Core" type="CollisionShape3D" parent="Collision/Body" unique_id=1972916633]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7.05, 0.75)
+shape = SubResource("BoxShape3D_core")
+
+[node name="LeftWing" type="CollisionShape3D" parent="Collision/Body" unique_id=2073248240]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.75, 7.05, -7.25)
+shape = SubResource("BoxShape3D_wing")
+
+[node name="RightWing" type="CollisionShape3D" parent="Collision/Body" unique_id=1779838845]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.75, 7.05, -7.25)
+shape = SubResource("BoxShape3D_wing")
