@@ -41,6 +41,26 @@ func test_layered_clip_selection_uses_relative_velocity() -> void:
 	assert_eq(lower.current_animation, &"idle")
 
 
+## Switches from run to authored-speed idle for a nonzero sub-threshold solved velocity.
+func test_subthreshold_motion_selects_finite_authored_idle_playback() -> void:
+	var actor: ActorMotion = PLAYER_SCENE.instantiate() as ActorMotion
+	add_child_autofree(actor)
+	await get_tree().process_frame
+	var presentation: PlayerMotionPresentation = actor.get_node(
+		"PresentationAnchor"
+	) as PlayerMotionPresentation
+	var lower: AnimationPlayer = actor.get_node(
+		"PresentationAnchor/Visuals/Model/LowerBodyPlayer"
+	) as AnimationPlayer
+
+	presentation.apply_motion(Vector3.RIGHT * 5.0, 0.0)
+	assert_eq(lower.current_animation, &"run_right")
+	presentation.apply_motion(Vector3.RIGHT * 0.02, 0.0)
+	assert_eq(lower.current_animation, &"idle")
+	assert_true(is_finite(lower.speed_scale))
+	assert_true(is_equal_approx(lower.speed_scale, 1.0))
+
+
 ## Retains the full-body death pose until presentation is explicitly returned alive.
 func test_idle_and_death_states_use_delivered_clips() -> void:
 	var actor: ActorMotion = PLAYER_SCENE.instantiate() as ActorMotion

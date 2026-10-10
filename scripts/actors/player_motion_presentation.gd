@@ -4,6 +4,7 @@ extends Node3D
 
 const MOVING_SPEED_EPSILON_MPS: float = 0.05
 const FULL_STRIDE_SPEED_MPS: float = 5.0
+const IDLE_CLIP: StringName = &"idle"
 const DEFAULT_UPPER_BODY_CLIP: StringName = &"pistol_hold"
 
 var _dead: bool = false
@@ -22,7 +23,8 @@ func apply_motion(world_velocity: Vector3, facing_yaw: float) -> void:
 
 	var planar_speed: float = Vector2(world_velocity.x, world_velocity.z).length()
 	var clip: StringName = _locomotion_clip(world_velocity, facing_yaw)
-	_visual.play_layered(clip, DEFAULT_UPPER_BODY_CLIP, planar_speed)
+	var playback_speed: float = 0.0 if clip == IDLE_CLIP else planar_speed
+	_visual.play_layered(clip, DEFAULT_UPPER_BODY_CLIP, playback_speed)
 
 
 ## Selects or clears the retained full-body death pose without changing motion state.
@@ -41,7 +43,7 @@ func set_dead(dead: bool) -> void:
 func _locomotion_clip(world_velocity: Vector3, facing_yaw: float) -> StringName:
 	var planar := Vector3(world_velocity.x, 0.0, world_velocity.z)
 	if planar.length() <= MOVING_SPEED_EPSILON_MPS:
-		return &"idle"
+		return IDLE_CLIP
 
 	var gait: String = (
 		"run"
