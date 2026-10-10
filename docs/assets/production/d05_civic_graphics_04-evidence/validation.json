@@ -1,0 +1,559 @@
+{
+  "blender": "5.2.2 LTS",
+  "build_hash": "d13f752e3b9c",
+  "gltf_exporter": [
+    5,
+    2,
+    40
+  ],
+  "members": [
+    "city_shop_fittings_02",
+    "formed_fascia_frame",
+    "continuous_face_trim",
+    "folded_back_tray",
+    "artwork_reveal",
+    "fascia_artwork_carrier",
+    "wall_mount_rail_lower",
+    "wall_mount_rail_upper"
+  ],
+  "export_settings": {
+    "export_format": "GLB",
+    "use_selection": true,
+    "export_yup": true,
+    "export_apply": false,
+    "export_texcoords": true,
+    "export_normals": true,
+    "export_tangents": false,
+    "export_materials": "EXPORT",
+    "export_cameras": false,
+    "export_lights": false,
+    "export_extras": false,
+    "export_animations": false,
+    "export_skins": false,
+    "export_morph": false
+  },
+  "objects": [
+    {
+      "name": "formed_fascia_frame",
+      "vertices": 196,
+      "triangles": 392,
+      "volume_m3": 0.045454173661439966,
+      "material_slots": [
+        "fascia_slate_petrol"
+      ],
+      "nonmanifold_edges": 0,
+      "inconsistent_winding_edges": 0,
+      "degenerate_triangles": 0,
+      "applied_transforms": true
+    },
+    {
+      "name": "continuous_face_trim",
+      "vertices": 168,
+      "triangles": 336,
+      "volume_m3": 0.0073969591153363766,
+      "material_slots": [
+        "fascia_warm_trim"
+      ],
+      "nonmanifold_edges": 0,
+      "inconsistent_winding_edges": 0,
+      "degenerate_triangles": 0,
+      "applied_transforms": true
+    },
+    {
+      "name": "folded_back_tray",
+      "vertices": 84,
+      "triangles": 164,
+      "volume_m3": 0.10565693593112108,
+      "material_slots": [
+        "fascia_slate_petrol"
+      ],
+      "nonmanifold_edges": 0,
+      "inconsistent_winding_edges": 0,
+      "degenerate_triangles": 0,
+      "applied_transforms": true
+    },
+    {
+      "name": "artwork_reveal",
+      "vertices": 112,
+      "triangles": 224,
+      "volume_m3": 0.0019423169033959263,
+      "material_slots": [
+        "fascia_recess"
+      ],
+      "nonmanifold_edges": 0,
+      "inconsistent_winding_edges": 0,
+      "degenerate_triangles": 0,
+      "applied_transforms": true
+    },
+    {
+      "name": "fascia_artwork_carrier",
+      "vertices": 84,
+      "triangles": 164,
+      "volume_m3": 0.10383310088116884,
+      "material_slots": [
+        "fascia_artwork_face",
+        "fascia_mount_metal"
+      ],
+      "nonmanifold_edges": 0,
+      "inconsistent_winding_edges": 0,
+      "degenerate_triangles": 0,
+      "applied_transforms": true
+    },
+    {
+      "name": "wall_mount_rail_lower",
+      "vertices": 96,
+      "triangles": 188,
+      "volume_m3": 0.01090800941556869,
+      "material_slots": [
+        "fascia_mount_metal"
+      ],
+      "nonmanifold_edges": 0,
+      "inconsistent_winding_edges": 0,
+      "degenerate_triangles": 0,
+      "applied_transforms": true
+    },
+    {
+      "name": "wall_mount_rail_upper",
+      "vertices": 96,
+      "triangles": 188,
+      "volume_m3": 0.010908009415568692,
+      "material_slots": [
+        "fascia_mount_metal"
+      ],
+      "nonmanifold_edges": 0,
+      "inconsistent_winding_edges": 0,
+      "degenerate_triangles": 0,
+      "applied_transforms": true
+    }
+  ],
+  "material_backface_culling": {
+    "fascia_slate_petrol": true,
+    "fascia_warm_trim": true,
+    "fascia_recess": true,
+    "fascia_artwork_face": true,
+    "fascia_mount_metal": true
+  },
+  "bounds_blender": [
+    [
+      -1.600000023841858,
+      0.0,
+      -0.4000000059604645
+    ],
+    [
+      1.600000023841858,
+      0.14000000059604645,
+      0.4000000059604645
+    ]
+  ],
+  "triangles": 1656,
+  "artwork_front_y": 0.128,
+  "artwork_uv_orientation": "U increases toward Blender -X; V toward +Z; glTF V storage flips",
+  "artwork_material": "fascia_artwork_face",
+  "authoring_reference_dimensions_m": [
+    1.0,
+    1.0,
+    1.0
+  ],
+  "width_to_1m_reference_ratio": 3.200000047683716,
+  "asset_id": "d05_civic_graphics.04",
+  "output_type": "Three artwork variants reusing unchanged fascia geometry",
+  "new_geometry": false,
+  "shared_glb_bytes": 45616,
+  "decoded_glb_checks": {
+    "status": "PASS",
+    "file": "art\\models\\environment\\city_shop_fittings_02\\city_shop_fittings_02.glb",
+    "bytes": 45616,
+    "sha256": "4fd2106f09ef4a35edafbcf3a3a68ea94983e721fd84d852a406e2d26de6552f",
+    "decoded_bounds_godot": [
+      [
+        -1.600000023841858,
+        -0.4000000059604645,
+        -0.14000000059604645
+      ],
+      [
+        1.600000023841858,
+        0.4000000059604645,
+        -0.0
+      ]
+    ],
+    "total_triangles": 1656,
+    "objects": [
+      {
+        "name": "artwork_reveal",
+        "triangles": 224,
+        "welded_edges": 336,
+        "nonmanifold_edges": 0,
+        "degenerate_triangles": 0,
+        "outward_winding": true,
+        "signed_volume_m3": 0.0019423169033958927
+      },
+      {
+        "name": "continuous_face_trim",
+        "triangles": 336,
+        "welded_edges": 504,
+        "nonmanifold_edges": 0,
+        "degenerate_triangles": 0,
+        "outward_winding": true,
+        "signed_volume_m3": 0.00739695911533639
+      },
+      {
+        "name": "fascia_artwork_carrier",
+        "triangles": 164,
+        "welded_edges": 246,
+        "nonmanifold_edges": 0,
+        "degenerate_triangles": 0,
+        "outward_winding": true,
+        "signed_volume_m3": 0.10383310088116884
+      },
+      {
+        "name": "folded_back_tray",
+        "triangles": 164,
+        "welded_edges": 246,
+        "nonmanifold_edges": 0,
+        "degenerate_triangles": 0,
+        "outward_winding": true,
+        "signed_volume_m3": 0.10565693593112108
+      },
+      {
+        "name": "formed_fascia_frame",
+        "triangles": 392,
+        "welded_edges": 588,
+        "nonmanifold_edges": 0,
+        "degenerate_triangles": 0,
+        "outward_winding": true,
+        "signed_volume_m3": 0.04545417366143988
+      },
+      {
+        "name": "wall_mount_rail_lower",
+        "triangles": 188,
+        "welded_edges": 282,
+        "nonmanifold_edges": 0,
+        "degenerate_triangles": 0,
+        "outward_winding": true,
+        "signed_volume_m3": 0.010908007809536827
+      },
+      {
+        "name": "wall_mount_rail_upper",
+        "triangles": 188,
+        "welded_edges": 282,
+        "nonmanifold_edges": 0,
+        "degenerate_triangles": 0,
+        "outward_winding": true,
+        "signed_volume_m3": 0.01090800780953683
+      }
+    ],
+    "materials": [
+      {
+        "name": "fascia_recess",
+        "pbrMetallicRoughness": {
+          "baseColorFactor": [
+            0.016807375475764275,
+            0.03310476616024971,
+            0.04373503103852272,
+            1
+          ],
+          "metallicFactor": 0,
+          "roughnessFactor": 0.7200000286102295
+        }
+      },
+      {
+        "name": "fascia_warm_trim",
+        "pbrMetallicRoughness": {
+          "baseColorFactor": [
+            0.577580451965332,
+            0.5394794940948486,
+            0.41788506507873535,
+            1
+          ],
+          "metallicFactor": 0.2199999988079071,
+          "roughnessFactor": 0.47999998927116394
+        }
+      },
+      {
+        "name": "fascia_artwork_face",
+        "pbrMetallicRoughness": {
+          "baseColorFactor": [
+            0.5457244515419006,
+            0.5711248517036438,
+            0.5028864741325378,
+            1
+          ],
+          "metallicFactor": 0,
+          "roughnessFactor": 0.5600000023841858
+        }
+      },
+      {
+        "name": "fascia_mount_metal",
+        "pbrMetallicRoughness": {
+          "baseColorFactor": [
+            0.039546236395835876,
+            0.06480326503515244,
+            0.0802198201417923,
+            1
+          ],
+          "metallicFactor": 0.44999998807907104,
+          "roughnessFactor": 0.5
+        }
+      },
+      {
+        "name": "fascia_slate_petrol",
+        "pbrMetallicRoughness": {
+          "baseColorFactor": [
+            0.05126945674419403,
+            0.10461648553609848,
+            0.1384316086769104,
+            1
+          ],
+          "metallicFactor": 0.25,
+          "roughnessFactor": 0.46000000834465027
+        }
+      }
+    ],
+    "uv_front_samples": 28,
+    "source_reexport_byte_identical": true,
+    "studio_excluded": true,
+    "no_external_dependencies": true
+  },
+  "shared_source": "art\\source\\models\\environment\\city_shop_fittings_02\\city_shop_fittings_02.blend",
+  "shared_glb": "art\\models\\environment\\city_shop_fittings_02\\city_shop_fittings_02.glb",
+  "shared_dependency_sha256": {
+    "art\\source\\models\\environment\\city_shop_fittings_02\\city_shop_fittings_02.blend": "44b3165d4d6d9cf4b0f3ef577e0c70fc80dae72726b04ebbe53272581e4454db",
+    "art\\models\\environment\\city_shop_fittings_02\\city_shop_fittings_02.glb": "4fd2106f09ef4a35edafbcf3a3a68ea94983e721fd84d852a406e2d26de6552f",
+    "tools/assets/blender/export_settings.json": "33ded3c83616fba6573848dda1f0ea3fc7ae7f4c98257fc867dca3bbe35ff9ec",
+    "art/models/environment/city_shop_fittings_02/city_shop_fittings_02.glb.import": "7f9b932ce569523280a8a300efc1b5948ab508d686f15beec209669122357ef3",
+    "scenes/prefabs/environment/city_shop_fittings_02.tscn": "926b2695667c997f9fc22223be80e7a342bf8633e28b0f21aa36496beef6a599",
+    "tools/asset_production/city_shop_fittings_02/export.py": "273a4a775ce87e8bbcaa71b66d4d426a14e0e68f429a50b965a0d85271113d4b",
+    "tools/asset_production/city_shop_fittings_02/check_glb.py": "c546e1947fb6e467641c9bed464319273b36e9065b6292a3be346707a488cc62",
+    "tools/asset_production/d05_civic_graphics_01/author.py": "b57ed9f830d139f7aea71ec0b06804797798eaf49f0bca3d0a8cc2bea8e612b6",
+    "tools/asset_production/d05_civic_graphics_01/validate.py": "bfa3623bf9ce05e6ed9a0b1ec446119b951038cf5db3da596a232eacaec8db2f",
+    "tools/asset_production/d05_civic_graphics_01/check_prefab.gd": "63a8ef5d8220926011ce38e20d54bd98f3dad93509c00925ff1b5e8dfb308483",
+    "tools/asset_production/d05_civic_graphics_01/manifest.py": "08ca7e66364c817504a665e54e8736e4ff05f8263aebfdd5e13850d4ef7af184",
+    "tools/asset_production/d05_civic_graphics_02/author.py": "cd0fbfa775be88edf1ba6748bc01109fb2a459609c214d6f86f45c0f993b4a8e",
+    "tools/asset_production/d05_civic_graphics_03/author.py": "b665cbc472a92fb8d3034f88669da99948b50de43da8c1f53a1d34a41a26a14d"
+  },
+  "shared_dependencies_unchanged": true,
+  "fresh_reexport_byte_identical": true,
+  "source_vertices": 836,
+  "glb_vertices": 1072,
+  "glb_triangles": 1656,
+  "mesh_count": 7,
+  "surface_count": 8,
+  "degenerate_faces": 0,
+  "degenerate_triangles": 0,
+  "nonmanifold_edges": 0,
+  "unit_length_corner_normals": true,
+  "godot_aabb_min": [
+    -1.6,
+    -0.4,
+    -0.14
+  ],
+  "godot_aabb_max": [
+    1.6,
+    0.4,
+    0
+  ],
+  "pivot": "Wall contact centre (0,0,0), not ground-mounted",
+  "artwork_plane_godot_z": -0.128,
+  "artwork_dimensions_m": [
+    3.0,
+    0.6
+  ],
+  "artwork_safe_dimensions_m": [
+    2.94,
+    0.54
+  ],
+  "status": "PASS; bounded producer source/export checks, independent review pending",
+  "engine": {
+    "engine": "4.8-dev7 (official)",
+    "status": "PASS",
+    "variants": {
+      "hem_repairs": {
+        "aabb_max": [
+          1.6,
+          0.4,
+          0.0
+        ],
+        "aabb_min": [
+          -1.6,
+          -0.4,
+          -0.14
+        ],
+        "emission": false,
+        "face_only_overrides": 1,
+        "filter": "linear_mipmap",
+        "imported_uv": {
+          "face_vertices": 28,
+          "maximum_uv_error": 2.16559074033285e-05
+        },
+        "meshes": 7,
+        "no_collision": true,
+        "prefab": "res://scenes/prefabs/environment/d05_civic_graphics_04_hem_repairs.tscn",
+        "prefab_sha256": "7c98f9f17132129c1c25b6e0ff9beccc2ce1b659343981d813530ef72cca0754",
+        "repeat": false,
+        "resource_uids": {
+          "res://art/materials/environment/d05_civic_graphics_04/hem_repairs.tres": "uid://qkyksbltic8x",
+          "res://art/models/environment/city_shop_fittings_02/city_shop_fittings_02.glb": "uid://cdtnvrp3u64wi",
+          "res://art/textures/environment/d05_civic_graphics_04/hem_repairs_albedo.png": "uid://c8l7loq2qt0bg",
+          "res://scenes/prefabs/environment/city_shop_fittings_02.tscn": "uid://fpcm6q4n57qx",
+          "res://scenes/prefabs/environment/d05_civic_graphics_04_hem_repairs.tscn": "uid://beou55dftdl40"
+        },
+        "surfaces": 8,
+        "texture_size": [
+          2000,
+          400
+        ]
+      },
+      "quay_pantry": {
+        "aabb_max": [
+          1.6,
+          0.4,
+          0.0
+        ],
+        "aabb_min": [
+          -1.6,
+          -0.4,
+          -0.14
+        ],
+        "emission": false,
+        "face_only_overrides": 1,
+        "filter": "linear_mipmap",
+        "imported_uv": {
+          "face_vertices": 28,
+          "maximum_uv_error": 2.16559074033285e-05
+        },
+        "meshes": 7,
+        "no_collision": true,
+        "prefab": "res://scenes/prefabs/environment/d05_civic_graphics_04_quay_pantry.tscn",
+        "prefab_sha256": "5a16892f5b84dddcf01ccc0e690c056cbd9dc4df5fe68d5f39a535cd3f947dba",
+        "repeat": false,
+        "resource_uids": {
+          "res://art/materials/environment/d05_civic_graphics_04/quay_pantry.tres": "uid://qgt6hib2pqlq",
+          "res://art/models/environment/city_shop_fittings_02/city_shop_fittings_02.glb": "uid://cdtnvrp3u64wi",
+          "res://art/textures/environment/d05_civic_graphics_04/quay_pantry_albedo.png": "uid://w3boxv8ar55w",
+          "res://scenes/prefabs/environment/city_shop_fittings_02.tscn": "uid://fpcm6q4n57qx",
+          "res://scenes/prefabs/environment/d05_civic_graphics_04_quay_pantry.tscn": "uid://dd5c2rbjd8ep8"
+        },
+        "surfaces": 8,
+        "texture_size": [
+          2000,
+          400
+        ]
+      },
+      "tide_tea": {
+        "aabb_max": [
+          1.6,
+          0.4,
+          0.0
+        ],
+        "aabb_min": [
+          -1.6,
+          -0.4,
+          -0.14
+        ],
+        "emission": false,
+        "face_only_overrides": 1,
+        "filter": "linear_mipmap",
+        "imported_uv": {
+          "face_vertices": 28,
+          "maximum_uv_error": 2.16559074033285e-05
+        },
+        "meshes": 7,
+        "no_collision": true,
+        "prefab": "res://scenes/prefabs/environment/d05_civic_graphics_04_tide_tea.tscn",
+        "prefab_sha256": "dae52fd9d614f6ee463e29573ea39b2dfc4be3abbd396c3a9309860c1a109529",
+        "repeat": false,
+        "resource_uids": {
+          "res://art/materials/environment/d05_civic_graphics_04/tide_tea.tres": "uid://d25lhoeghwtpb",
+          "res://art/models/environment/city_shop_fittings_02/city_shop_fittings_02.glb": "uid://cdtnvrp3u64wi",
+          "res://art/textures/environment/d05_civic_graphics_04/tide_tea_albedo.png": "uid://be1cuq56tpol7",
+          "res://scenes/prefabs/environment/city_shop_fittings_02.tscn": "uid://fpcm6q4n57qx",
+          "res://scenes/prefabs/environment/d05_civic_graphics_04_tide_tea.tscn": "uid://dvj8qshbu33wq"
+        },
+        "surfaces": 8,
+        "texture_size": [
+          2000,
+          400
+        ]
+      }
+    }
+  },
+  "two_roundtrips_sha256": {
+    "hem_repairs": [
+      "7c98f9f17132129c1c25b6e0ff9beccc2ce1b659343981d813530ef72cca0754",
+      "7c98f9f17132129c1c25b6e0ff9beccc2ce1b659343981d813530ef72cca0754",
+      "7c98f9f17132129c1c25b6e0ff9beccc2ce1b659343981d813530ef72cca0754"
+    ],
+    "quay_pantry": [
+      "5a16892f5b84dddcf01ccc0e690c056cbd9dc4df5fe68d5f39a535cd3f947dba",
+      "5a16892f5b84dddcf01ccc0e690c056cbd9dc4df5fe68d5f39a535cd3f947dba",
+      "5a16892f5b84dddcf01ccc0e690c056cbd9dc4df5fe68d5f39a535cd3f947dba"
+    ],
+    "tide_tea": [
+      "dae52fd9d614f6ee463e29573ea39b2dfc4be3abbd396c3a9309860c1a109529",
+      "dae52fd9d614f6ee463e29573ea39b2dfc4be3abbd396c3a9309860c1a109529",
+      "dae52fd9d614f6ee463e29573ea39b2dfc4be3abbd396c3a9309860c1a109529"
+    ]
+  },
+  "two_fresh_runtime_processes_identical": true,
+  "artwork": {
+    "tide_tea": {
+      "path": "art/textures/environment/d05_civic_graphics_04/tide_tea_albedo.png",
+      "bytes": 39129,
+      "sha256": "b4d075ceb31d439a42d0a9a6035a79de1d32246e758f2ba163e8c04cc2cbf4c1",
+      "size_px": [
+        2000,
+        400
+      ],
+      "mode": "RGB"
+    },
+    "quay_pantry": {
+      "path": "art/textures/environment/d05_civic_graphics_04/quay_pantry_albedo.png",
+      "bytes": 46393,
+      "sha256": "a9abe2ce9e298680afcbcf7cd0719eadff6dface4b191fce40b3b20b7395c4a0",
+      "size_px": [
+        2000,
+        400
+      ],
+      "mode": "RGB"
+    },
+    "hem_repairs": {
+      "path": "art/textures/environment/d05_civic_graphics_04/hem_repairs_albedo.png",
+      "bytes": 49687,
+      "sha256": "c427fb527d2452a7d05164d6e3c595bd13f951e6129ec2f93620b62025d8122f",
+      "size_px": [
+        2000,
+        400
+      ],
+      "mode": "RGB"
+    }
+  },
+  "artwork_tests_passed": 4,
+  "renders": [
+    {
+      "path": "docs/assets/production/d05_civic_graphics_04-evidence/hero.png",
+      "bytes": 243372,
+      "sha256": "8defb6b1e0d322c511c8e687e83281b3ab2e50936d2edaca674d10c1b30a9570"
+    },
+    {
+      "path": "docs/assets/production/d05_civic_graphics_04-evidence/side.png",
+      "bytes": 217731,
+      "sha256": "95ba47ab9a437b9b09475964ae2f0c9e7e1672f7fd42abd71b28a840f0501de0"
+    },
+    {
+      "path": "docs/assets/production/d05_civic_graphics_04-evidence/detail.png",
+      "bytes": 140097,
+      "sha256": "d6a1b5bef137e5e4ce631eb8689fdb4cf163cc18aa255db43df9f9f4fd4644be"
+    },
+    {
+      "path": "docs/assets/production/d05_civic_graphics_04-evidence/overhead_47m_42deg.png",
+      "bytes": 8365,
+      "sha256": "fd47ddc163ae689d60566c697cc36ff807ea074005a07ead2fe7eea4b67e9267"
+    }
+  ],
+  "diagnostics": {
+    "import": "No ERROR/SCRIPT ERROR; existing plugin compatibility warning",
+    "runtime": "Two fresh processes pass without ERROR/WARNING/SCRIPT ERROR",
+    "normalization": "Pass; existing editor shutdown RID/ObjectDB leaks, not a clean log",
+    "production_checks": "Not run: owner decision 52"
+  }
+}

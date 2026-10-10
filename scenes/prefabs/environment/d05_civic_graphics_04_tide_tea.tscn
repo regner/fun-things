@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://dvj8qshbu33wq"]
+
+[ext_resource type="PackedScene" uid="uid://fpcm6q4n57qx" path="res://scenes/prefabs/environment/city_shop_fittings_02.tscn" id="1_base"]
+[ext_resource type="Material" uid="uid://d25lhoeghwtpb" path="res://art/materials/environment/d05_civic_graphics_04/tide_tea.tres" id="2_artwork"]
+
+[node name="d05_civic_graphics_04_tide_tea" unique_id=2144939660 instance=ExtResource("1_base")]
+
+[node name="fascia_artwork_carrier" parent="Visuals/Model/city_shop_fittings_02" parent_id_path=PackedInt32Array(1650053803, 1675353995) index="2" unique_id=566628672]
+surface_material_override/0 = ExtResource("2_artwork")
+
+[editable path="Visuals/Model"]

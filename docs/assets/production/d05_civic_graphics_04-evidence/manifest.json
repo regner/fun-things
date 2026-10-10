@@ -1,0 +1,207 @@
+{
+  "asset_id": "d05_civic_graphics.04",
+  "algorithm": "SHA-256",
+  "exclusions": [
+    "manifest.json (self-hash)",
+    "__pycache__ (uncommitted cache)"
+  ],
+  "shared_dependencies_not_produced": [
+    {
+      "path": "art/source/models/environment/city_shop_fittings_02/city_shop_fittings_02.blend",
+      "bytes": 116378,
+      "sha256": "44b3165d4d6d9cf4b0f3ef577e0c70fc80dae72726b04ebbe53272581e4454db"
+    },
+    {
+      "path": "art/models/environment/city_shop_fittings_02/city_shop_fittings_02.glb",
+      "bytes": 45616,
+      "sha256": "4fd2106f09ef4a35edafbcf3a3a68ea94983e721fd84d852a406e2d26de6552f"
+    },
+    {
+      "path": "tools/assets/blender/export_settings.json",
+      "bytes": 646,
+      "sha256": "33ded3c83616fba6573848dda1f0ea3fc7ae7f4c98257fc867dca3bbe35ff9ec"
+    },
+    {
+      "path": "art/models/environment/city_shop_fittings_02/city_shop_fittings_02.glb.import",
+      "bytes": 1275,
+      "sha256": "7f9b932ce569523280a8a300efc1b5948ab508d686f15beec209669122357ef3"
+    },
+    {
+      "path": "scenes/prefabs/environment/city_shop_fittings_02.tscn",
+      "bytes": 433,
+      "sha256": "926b2695667c997f9fc22223be80e7a342bf8633e28b0f21aa36496beef6a599"
+    },
+    {
+      "path": "tools/asset_production/city_shop_fittings_02/export.py",
+      "bytes": 4923,
+      "sha256": "273a4a775ce87e8bbcaa71b66d4d426a14e0e68f429a50b965a0d85271113d4b"
+    },
+    {
+      "path": "tools/asset_production/city_shop_fittings_02/check_glb.py",
+      "bytes": 5372,
+      "sha256": "c546e1947fb6e467641c9bed464319273b36e9065b6292a3be346707a488cc62"
+    },
+    {
+      "path": "tools/asset_production/d05_civic_graphics_01/author.py",
+      "bytes": 3767,
+      "sha256": "b57ed9f830d139f7aea71ec0b06804797798eaf49f0bca3d0a8cc2bea8e612b6"
+    },
+    {
+      "path": "tools/asset_production/d05_civic_graphics_01/validate.py",
+      "bytes": 4142,
+      "sha256": "bfa3623bf9ce05e6ed9a0b1ec446119b951038cf5db3da596a232eacaec8db2f"
+    },
+    {
+      "path": "tools/asset_production/d05_civic_graphics_01/check_prefab.gd",
+      "bytes": 7841,
+      "sha256": "63a8ef5d8220926011ce38e20d54bd98f3dad93509c00925ff1b5e8dfb308483"
+    },
+    {
+      "path": "tools/asset_production/d05_civic_graphics_01/manifest.py",
+      "bytes": 2408,
+      "sha256": "08ca7e66364c817504a665e54e8736e4ff05f8263aebfdd5e13850d4ef7af184"
+    },
+    {
+      "path": "tools/asset_production/d05_civic_graphics_02/author.py",
+      "bytes": 4921,
+      "sha256": "cd0fbfa775be88edf1ba6748bc01109fb2a459609c214d6f86f45c0f993b4a8e"
+    },
+    {
+      "path": "tools/asset_production/d05_civic_graphics_03/author.py",
+      "bytes": 3358,
+      "sha256": "b665cbc472a92fb8d3034f88669da99948b50de43da8c1f53a1d34a41a26a14d"
+    }
+  ],
+  "files": [
+    {
+      "path": "art/materials/environment/d05_civic_graphics_04/hem_repairs.tres",
+      "bytes": 364,
+      "sha256": "948e6cb076be9c99a7779feeb320e868a722a279b94fc8da6e5154dbe3c10321"
+    },
+    {
+      "path": "art/materials/environment/d05_civic_graphics_04/quay_pantry.tres",
+      "bytes": 363,
+      "sha256": "fba486408b1310e6c45b0ff6e802551144b99f9db349af05d2e2e9a24fa85bb3"
+    },
+    {
+      "path": "art/materials/environment/d05_civic_graphics_04/tide_tea.tres",
+      "bytes": 359,
+      "sha256": "fc0986a473b66e089c9673f1c7bed2f54253f0b8bb315c96e7d515d7278180cd"
+    },
+    {
+      "path": "art/textures/environment/d05_civic_graphics_04/hem_repairs_albedo.png",
+      "bytes": 49687,
+      "sha256": "c427fb527d2452a7d05164d6e3c595bd13f951e6129ec2f93620b62025d8122f"
+    },
+    {
+      "path": "art/textures/environment/d05_civic_graphics_04/hem_repairs_albedo.png.import",
+      "bytes": 1109,
+      "sha256": "8467a6f88843ccf0042ad95c54f91bcf1a2167e06845effa0e3e62f91b9e3b14"
+    },
+    {
+      "path": "art/textures/environment/d05_civic_graphics_04/quay_pantry_albedo.png",
+      "bytes": 46393,
+      "sha256": "a9abe2ce9e298680afcbcf7cd0719eadff6dface4b191fce40b3b20b7395c4a0"
+    },
+    {
+      "path": "art/textures/environment/d05_civic_graphics_04/quay_pantry_albedo.png.import",
+      "bytes": 1108,
+      "sha256": "782f00a290fd93db4af08f1416098ba15455ab00278d3006388c845733c05ebe"
+    },
+    {
+      "path": "art/textures/environment/d05_civic_graphics_04/tide_tea_albedo.png",
+      "bytes": 39129,
+      "sha256": "b4d075ceb31d439a42d0a9a6035a79de1d32246e758f2ba163e8c04cc2cbf4c1"
+    },
+    {
+      "path": "art/textures/environment/d05_civic_graphics_04/tide_tea_albedo.png.import",
+      "bytes": 1100,
+      "sha256": "ecd13d8e9763298a86b3940ab4bb20b74648888bb47a5e566fe91644217bdbe2"
+    },
+    {
+      "path": "docs/assets/production/d05_civic_graphics_04-evidence/detail.png",
+      "bytes": 140097,
+      "sha256": "d6a1b5bef137e5e4ce631eb8689fdb4cf163cc18aa255db43df9f9f4fd4644be"
+    },
+    {
+      "path": "docs/assets/production/d05_civic_graphics_04-evidence/final.log",
+      "bytes": 1841,
+      "sha256": "b03a179e985116af26b6604ab59f8723b67b3b937293dc931f34f4a01d0085fc"
+    },
+    {
+      "path": "docs/assets/production/d05_civic_graphics_04-evidence/hero.png",
+      "bytes": 243372,
+      "sha256": "8defb6b1e0d322c511c8e687e83281b3ab2e50936d2edaca674d10c1b30a9570"
+    },
+    {
+      "path": "docs/assets/production/d05_civic_graphics_04-evidence/overhead_47m_42deg.png",
+      "bytes": 8365,
+      "sha256": "fd47ddc163ae689d60566c697cc36ff807ea074005a07ead2fe7eea4b67e9267"
+    },
+    {
+      "path": "docs/assets/production/d05_civic_graphics_04-evidence/side.png",
+      "bytes": 217731,
+      "sha256": "95ba47ab9a437b9b09475964ae2f0c9e7e1672f7fd42abd71b28a840f0501de0"
+    },
+    {
+      "path": "docs/assets/production/d05_civic_graphics_04-evidence/validation.json",
+      "bytes": 17911,
+      "sha256": "67f96e7a36d6c5b5db9a32b98820c5d5835d26f81a03eec6d5feaa43e14e31a9"
+    },
+    {
+      "path": "docs/assets/production/d05_civic_graphics_04.md",
+      "bytes": 14578,
+      "sha256": "c52e1f6ccf97ec1f1740d54888e4a055bc946c1d7afe58385b41f178525f354d"
+    },
+    {
+      "path": "scenes/prefabs/environment/d05_civic_graphics_04_hem_repairs.tscn",
+      "bytes": 691,
+      "sha256": "7c98f9f17132129c1c25b6e0ff9beccc2ce1b659343981d813530ef72cca0754"
+    },
+    {
+      "path": "scenes/prefabs/environment/d05_civic_graphics_04_quay_pantry.tscn",
+      "bytes": 691,
+      "sha256": "5a16892f5b84dddcf01ccc0e690c056cbd9dc4df5fe68d5f39a535cd3f947dba"
+    },
+    {
+      "path": "scenes/prefabs/environment/d05_civic_graphics_04_tide_tea.tscn",
+      "bytes": 687,
+      "sha256": "dae52fd9d614f6ee463e29573ea39b2dfc4be3abbd396c3a9309860c1a109529"
+    },
+    {
+      "path": "tools/asset_production/d05_civic_graphics_04/author.py",
+      "bytes": 4120,
+      "sha256": "260d37c69862f729108468004fd74069612d7c8852ff06e839e35e0991afe7a0"
+    },
+    {
+      "path": "tools/asset_production/d05_civic_graphics_04/check_prefab.gd",
+      "bytes": 5360,
+      "sha256": "666de99bde5746bfd9e0210e559499beab8b4687e4417343e5821f9c7408cedf"
+    },
+    {
+      "path": "tools/asset_production/d05_civic_graphics_04/check_prefab.gd.uid",
+      "bytes": 20,
+      "sha256": "dc159f9afa4971e7f03c01dad12367db86fd72e20c612b44e28427584e7862f3"
+    },
+    {
+      "path": "tools/asset_production/d05_civic_graphics_04/preview.py",
+      "bytes": 4750,
+      "sha256": "a02824a9ce7e5dbd196562b77ad9223fbdf852dc3ba558c6dfee2633022170cb"
+    },
+    {
+      "path": "tools/asset_production/d05_civic_graphics_04/record.py",
+      "bytes": 6106,
+      "sha256": "e2fd973ff72c9770fc7e4cd7143b02484e43038b73bdda3724ac1a0142436a45"
+    },
+    {
+      "path": "tools/asset_production/d05_civic_graphics_04/test_artwork.py",
+      "bytes": 3668,
+      "sha256": "190c63f568aacf541a5e847ae10f95405a7e04fae5e71403f84bbc88090af389"
+    },
+    {
+      "path": "tools/asset_production/d05_civic_graphics_04/validate.py",
+      "bytes": 1858,
+      "sha256": "0879c12c4e135e834db82bf99d363688e649d791f6047333fcf5b94232ceccb6"
+    }
+  ]
+}
