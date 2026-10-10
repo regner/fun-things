@@ -1,0 +1,35 @@
+city_parking_furniture.04 — final bounded producer checks, 10 October 2026
+
+PASS artwork: four independent tests; Python 3.14.2 / Pillow 12.3.0.
+PASS shared-source audit: Blender 5.2.2 LTS d13f752e3b9c / glTF 5.2.40.
+  732 source vertices / 800 exported vertices / 1,428 triangles / one mesh / three surfaces.
+  Zero degenerate faces/triangles and non-manifold edges; unit-length normals.
+  Ground pivot (0,0,0); Godot dimensions 0.700 x 3.250 x 0.280 m.
+  Fresh re-export byte-identical, 37,340 bytes; shared dependency hashes unchanged.
+PASS four Blender Cycles renders, 1280x720 / 32 samples, producer visually inspected.
+  Overhead vertical-down 47 m / 42-degree vertical FOV: bus symbol NOT readable.
+PASS headless editor normalization: two saves byte-identical, face-only override retained.
+  Editor process exits 0 but reports RID/ObjectDB shutdown leak diagnostics (not a clean log).
+PASS final pinned import: exit 0; only existing MCP Godot-4.8/latest-tested-4.7 warning.
+PASS final non-editor headless load: exit 0; no ERROR/WARNING/SCRIPT ERROR diagnostics.
+  Actual imported mesh unchanged; one surface override; dependency UIDs and inline headers pass.
+  Imported texture has mipmaps; clamped opaque material; no emission.
+  Inherited radius .140 m / height 2.500 m cylinder unchanged, layer 1 / mask 0.
+  Low ray blocked, overhead ray clear; .35 m / 1.8 m capsule overlaps post and clears X=.8 m.
+PASS final production_checks.py: engine/GUT pins, owned formatting/style/explicit compilation,
+  17 Python tool tests, 149 GUT tests / 6,768 assertions; intentional failure sentinel detected.
+  No pre-existing failure waiver used. Full raw output: C:/tmp/ft/assets/city_parking_furniture_04/checks-final/.
+
+Corrected during production:
+- Initial previews lacked artwork because the source UVMap was not active for rendering.
+  Preview shader now explicitly binds existing UVMap; no shared source mutation.
+- Initial new-resource UID registration and non-editor UID stripping were caught.
+  Normalization now requires headless editor, waits for scan, registers newly saved UIDs,
+  and verifies inline headers; separate final import/runtime check passes.
+- Blender preview emits the pinned use_nodes future-deprecation notice; renders exit 0.
+- Initial editor runs also reported aborted scan and shutdown diagnostics. Final normalization
+  no longer aborts the scan, but retains editor RID/ObjectDB shutdown leaks. Not suppressed.
+
+No live Blender/Godot MCP session accessed. No duplicate carrier source/GLB or new collider.
+Independent review, district placement, engine visual/camera/vehicle/transport checks,
+packaged builds and sustained target-device performance remain pending.

@@ -1,0 +1,211 @@
+{
+  "artwork_interface": {
+    "face_dimensions_m": [
+      0.68,
+      0.68
+    ],
+    "face_only_material": true,
+    "front_godot_z_m": -0.135,
+    "gltf_v_zero": "top",
+    "material": "road_sign_face",
+    "surface_index": 2.0,
+    "uv_landmarks_passed": true,
+    "uv_screen_right": "Godot -X"
+  },
+  "asset": "city_parking_furniture.04",
+  "blender": "5.2.2 LTS",
+  "blender_build": "d13f752e3b9c",
+  "bounds_tolerance_m": 0.001,
+  "degenerate_faces": 0.0,
+  "degenerate_triangles": 0.0,
+  "export_normal_max_length_error": 1.08033412882236e-07,
+  "export_vertices": 800.0,
+  "exporter": "5.2.40",
+  "fresh_export_byte_identical": true,
+  "glb_bytes": 37340.0,
+  "glb_sha256": "bc40bd426b79d6515b37e37738adfbc189ac75114135aee7116be65360f5958f",
+  "godot": {
+    "engine": "4.8-dev7 (official)",
+    "godot_aabb_min_m": [
+      -0.35,
+      0,
+      -0.14
+    ],
+    "godot_aabb_size_m": [
+      0.7,
+      3.25,
+      0.28
+    ],
+    "inherited_collision_unchanged": true,
+    "linked_model_identity": true,
+    "material": "512x512 opaque RGB, clamped linear mipmaps, no emission",
+    "physics_queries": {
+      "actor_movement_vehicle_network": "not tested; unchanged inherited collider",
+      "capsule_height_m": 1.8,
+      "capsule_post_overlap": true,
+      "capsule_radius_m": 0.35,
+      "capsule_x_0_8_bypass_clear": true,
+      "low_ray_blocked": true,
+      "overhead_ray_clear": true
+    },
+    "save_reload_byte_stable": true,
+    "unchanged_mesh_one_face_override": true
+  },
+  "godot_bounds_max_m": [
+    0.349999994039536,
+    3.25,
+    0.140000000596046
+  ],
+  "godot_bounds_min_m": [
+    -0.349999994039536,
+    0.0,
+    -0.140000000596046
+  ],
+  "materials": [
+    {
+      "name": "traffic_dark_metal",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.025000000372529,
+          0.0750000029802322,
+          0.0900000035762787,
+          1.0
+        ],
+        "metallicFactor": 0.449999988079071,
+        "roughnessFactor": 0.46000000834465
+      }
+    },
+    {
+      "name": "traffic_fixture_rim",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.0700000002980232,
+          0.129999995231628,
+          0.150000005960464,
+          1.0
+        ],
+        "metallicFactor": 0.5,
+        "roughnessFactor": 0.419999986886978
+      }
+    },
+    {
+      "name": "road_sign_face",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.620000004768372,
+          0.660000026226044,
+          0.639999985694885,
+          1.0
+        ],
+        "metallicFactor": 0.0,
+        "roughnessFactor": 0.519999980926514
+      }
+    }
+  ],
+  "mesh_count": 1.0,
+  "new_geometry": false,
+  "nonmanifold_edges": 0.0,
+  "pivot_m": [
+    0.0,
+    0.0,
+    0.0
+  ],
+  "provisional_dimensions_m": [
+    0.7,
+    3.25,
+    0.28
+  ],
+  "reused_hardware": "city_traffic_fixtures_03",
+  "shared_dependencies_unchanged": true,
+  "shared_dependency_sha256": {
+    "art/models/environment/city_traffic_fixtures_03/city_traffic_fixtures_03.glb": "bc40bd426b79d6515b37e37738adfbc189ac75114135aee7116be65360f5958f",
+    "art/models/environment/city_traffic_fixtures_03/city_traffic_fixtures_03.glb.import": "3e700480695255f2c7a617e39237289116379e99bf6522fff8fe81d32c9ed2e5",
+    "art/source/models/environment/city_traffic_fixtures_03/city_traffic_fixtures_03.blend": "fdffb454dda2f04480194ffe7b6ab51106cb26d5725823efbb3189bf0a77ac3a",
+    "scenes/prefabs/environment/city_traffic_fixtures_03.tscn": "2e539b82310f825b275d6e37952e70a765c0be81301bb5349b14348e97c80d6e"
+  },
+  "source_export_status": "passed",
+  "source_faces": 578.0,
+  "source_normal_max_length_error": 1.68729471283768e-07,
+  "source_vertices": 732.0,
+  "summed_closed_component_volume_m3": 0.0832379779441037,
+  "surface_count": 3.0,
+  "triangles": 1428.0,
+  "artwork": {
+    "tests_passed": 4,
+    "dimensions_px": [
+      512,
+      512
+    ],
+    "format": "opaque RGB albedo",
+    "fresh_png_byte_identical": true,
+    "srgb_palette": [
+      "#123646",
+      "#F6F1DC",
+      "#FFC05A"
+    ],
+    "new_geometry": false
+  },
+  "renders": {
+    "hero.png": {
+      "dimensions_px": [
+        1280,
+        720
+      ],
+      "bytes": 381827
+    },
+    "side.png": {
+      "dimensions_px": [
+        1280,
+        720
+      ],
+      "bytes": 370683
+    },
+    "detail.png": {
+      "dimensions_px": [
+        1280,
+        720
+      ],
+      "bytes": 262785
+    },
+    "overhead_47m_42deg.png": {
+      "dimensions_px": [
+        1280,
+        720
+      ],
+      "bytes": 365357
+    }
+  },
+  "production_checks": {
+    "engine": {
+      "ok": true,
+      "version": "4.8.dev7.official.c971f93e7"
+    },
+    "gut_pin": {
+      "ok": true,
+      "version": "9.7.1"
+    },
+    "owned_scripts": {
+      "ok": true,
+      "returncode": 0
+    },
+    "python_tests": {
+      "ok": true,
+      "returncode": 0
+    },
+    "gut_import": {
+      "ok": true,
+      "returncode": 0
+    },
+    "gut_tests": {
+      "ok": true,
+      "returncode": 0
+    },
+    "gut_negative": {
+      "ok": true,
+      "observed_returncode": 1
+    },
+    "python_tests_passed": 17,
+    "gut_tests_passed": 149,
+    "gut_assertions": 6768
+  }
+}
