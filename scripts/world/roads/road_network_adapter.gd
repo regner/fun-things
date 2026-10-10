@@ -175,6 +175,9 @@ func _validate_point_connection(
 ) -> void:
 	var spec: RoadSectionSpec = _section_for_point(point)
 	var point_id := StringName(point.get_meta(META_POINT_ID, &""))
+	if point.get_parent() != target.get_parent():
+		errors.append("point %s directly connects across RoadContainers" % point_id)
+		return
 	if not _points_are_reciprocal(point, target):
 		errors.append("point %s connection is not reciprocal" % point_id)
 	var target_spec: RoadSectionSpec = _section_for_point(target)
@@ -216,6 +219,12 @@ func _validate_junction(
 	for point: RoadPoint in intersection.edge_points:
 		if point == null or point.get_parent() != intersection.get_parent():
 			errors.append("junction %s has a branch outside its RoadContainer" % junction_id)
+			continue
+		if (
+			point.get_node_or_null(point.prior_pt_init) != intersection
+			and point.get_node_or_null(point.next_pt_init) != intersection
+		):
+			errors.append("junction %s has a stale nonreciprocal branch" % junction_id)
 
 
 ## Validates parallel edge arrays, addon reciprocity, and explicit interface-point seams.

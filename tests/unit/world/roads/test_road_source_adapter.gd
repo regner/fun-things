@@ -72,6 +72,31 @@ func test_json_bootstrap_requires_explicit_service_direction_and_bridge_profile(
 	assert_eq(result.routes[0].points_world[0], Vector3(-505.0, 0.0, -170.0))
 
 
+## Proves corrupt enum values fail resource validation before bootstrap can publish them.
+func test_invalid_spec_enums_are_rejected_before_bootstrap() -> void:
+	var catalog: RoadSourceCatalog = _single_section_catalog()
+	var section: RoadSectionSpec = catalog.sections[0]
+	section.set(&"travel_direction", 99)
+	assert_false(section.is_valid())
+	assert_false(catalog.validate_source().ok)
+	var result: Dictionary = RoadJsonBootstrap.load_plan(
+		GREYBOX_PLAN_PATH, catalog, {}, &"harbour_bridge"
+	)
+	assert_false(result.ok)
+	assert_false(result.has("routes"))
+
+	section.travel_direction = RoadSectionSpec.TravelDirection.TWO_WAY
+	section.set(&"endpoint_policy", 99)
+	assert_false(section.is_valid())
+	var junction := RoadJunctionSpec.new()
+	junction.junction_id = &"brackett/junctions/invalid"
+	junction.set(&"mode", 99)
+	assert_false(junction.is_valid())
+	junction.mode = RoadJunctionSpec.Mode.PROCEDURAL
+	junction.set(&"traffic_control", 99)
+	assert_false(junction.is_valid())
+
+
 ## Proves applying a preset changes addon fields but never the authored spline transform.
 func test_adapter_applies_preset_and_rejects_drift() -> void:
 	var fixture: Dictionary = _two_point_fixture(_single_section_catalog())
@@ -156,53 +181,60 @@ func test_procedural_junction_requires_stable_identity_and_same_container() -> v
 	assert_true(_errors_contain(rejected.errors, "branch outside its RoadContainer"))
 
 
+## Proves a same-container junction rejects an edge entry whose point path became stale.
+func test_procedural_junction_rejects_stale_branch_entry() -> void:
+	var catalog: RoadSourceCatalog = _single_section_catalog()
+	var junction_spec := RoadJunctionSpec.new()
+	junction_spec.junction_id = &"brackett/junctions/stale"
+	catalog.junctions.append(junction_spec)
+	var fixture: Dictionary = _two_point_fixture(catalog)
+	var container: RoadContainer = fixture.first.get_parent()
+	var intersection := RoadIntersection.new()
+	intersection.set_meta(RoadNetworkAdapter.META_JUNCTION_ID, junction_spec.junction_id)
+	container.add_child(intersection)
+	intersection.container = container
+	intersection.edge_points.append(fixture.first)
+	assert_true(fixture.adapter.apply_section_to_point(fixture.first).ok)
+	assert_true(fixture.adapter.apply_section_to_point(fixture.second).ok)
+
+	var rejected: Dictionary = fixture.adapter.validate_network(fixture.root)
+	assert_false(rejected.ok)
+	assert_true(_errors_contain(rejected.errors, "stale nonreciprocal branch"))
+
+
+## Proves direct reciprocal paths cannot bypass the cross-container interface arrays.
+func test_direct_cross_container_point_paths_are_rejected() -> void:
+	var fixture: Dictionary = _cross_container_fixture()
+	var points: Array[RoadPoint] = fixture.points
+	points[2].position = points[1].position + Vector3(0.0, 0.0, 20.0)
+	points[1].next_pt_init = points[1].get_path_to(points[2])
+	points[2].prior_pt_init = points[2].get_path_to(points[1])
+
+	var rejected: Dictionary = fixture.adapter.validate_network(fixture.root)
+	assert_false(rejected.ok)
+	assert_true(_errors_contain(rejected.errors, "directly connects across RoadContainers"))
+
+
 ## Proves reciprocal addon edges also require explicit interface-point metadata.
 func test_cross_container_edge_requires_two_marked_interface_points() -> void:
-	var preset := _preset(&"street", 4.5)
-	var first_spec := _section(
-		&"brackett/roads/first", &"brackett/roads/first/section_01", preset
-	)
-	var second_spec := _section(
-		&"brackett/roads/second", &"brackett/roads/second/section_01", preset
-	)
-	var catalog: RoadSourceCatalog = _catalog([preset], [first_spec, second_spec])
-	var root := Node.new()
-	add_child_autofree(root)
-	var adapter := RoadNetworkAdapter.new()
-	adapter.source_catalog = catalog
-	root.add_child(adapter)
-	var first_container := _container(&"brackett/containers/first")
-	var second_container := _container(&"brackett/containers/second")
-	root.add_child(first_container)
-	root.add_child(second_container)
-	var points: Array[RoadPoint] = _cross_container_points(first_spec, second_spec)
-	for point: RoadPoint in points.slice(0, 2):
-		first_container.add_child(point)
-		point.container = first_container
-	for point: RoadPoint in points.slice(2):
-		second_container.add_child(point)
-		point.container = second_container
-	points[0].next_pt_init = points[0].get_path_to(points[1])
-	points[1].prior_pt_init = points[1].get_path_to(points[0])
-	points[2].next_pt_init = points[2].get_path_to(points[3])
-	points[3].prior_pt_init = points[3].get_path_to(points[2])
-	_mark_dead_end(points[0])
-	_mark_dead_end(points[3])
+	var fixture: Dictionary = _cross_container_fixture()
+	var adapter: RoadNetworkAdapter = fixture.adapter
+	var first_container: RoadContainer = fixture.first_container
+	var second_container: RoadContainer = fixture.second_container
+	var points: Array[RoadPoint] = fixture.points
 	_connect_container_edges(first_container, points[1], second_container, points[2])
 	_connect_container_edges(second_container, points[2], first_container, points[1])
 	first_container.edge_rp_local_dirs[0] = RoadPoint.PointInit.NEXT
 	first_container.edge_rp_target_dirs[0] = RoadPoint.PointInit.PRIOR
 	second_container.edge_rp_local_dirs[0] = RoadPoint.PointInit.PRIOR
 	second_container.edge_rp_target_dirs[0] = RoadPoint.PointInit.NEXT
-	for point: RoadPoint in points:
-		assert_true(adapter.apply_section_to_point(point).ok)
 
-	var unmarked: Dictionary = adapter.validate_network(root)
+	var unmarked: Dictionary = adapter.validate_network(fixture.root)
 	assert_false(unmarked.ok)
 	assert_true(_errors_contain(unmarked.errors, "interface RoadPoint"))
 	points[1].set_meta(RoadNetworkAdapter.META_INTERFACE, true)
 	points[2].set_meta(RoadNetworkAdapter.META_INTERFACE, true)
-	assert_true(adapter.validate_network(root).ok)
+	assert_true(adapter.validate_network(fixture.root).ok)
 
 
 ## Returns whether any normalized validation message contains the expected fragment.
@@ -294,6 +326,51 @@ func _two_point_fixture(catalog: RoadSourceCatalog) -> Dictionary:
 		"first": first,
 		"second": second,
 	}
+
+
+## Builds two complete sections in separate containers with open interface directions.
+func _cross_container_fixture() -> Dictionary:
+	var preset := _preset(&"street", 4.5)
+	var first_spec := _section(
+		&"brackett/roads/first", &"brackett/roads/first/section_01", preset
+	)
+	var second_spec := _section(
+		&"brackett/roads/second", &"brackett/roads/second/section_01", preset
+	)
+	var root := Node.new()
+	add_child_autofree(root)
+	var adapter := RoadNetworkAdapter.new()
+	adapter.source_catalog = _catalog([preset], [first_spec, second_spec])
+	root.add_child(adapter)
+	var first_container := _container(&"brackett/containers/first")
+	var second_container := _container(&"brackett/containers/second")
+	root.add_child(first_container)
+	root.add_child(second_container)
+	var points: Array[RoadPoint] = _cross_container_points(first_spec, second_spec)
+	_add_points_to_container(first_container, points.slice(0, 2))
+	_add_points_to_container(second_container, points.slice(2))
+	points[0].next_pt_init = points[0].get_path_to(points[1])
+	points[1].prior_pt_init = points[1].get_path_to(points[0])
+	points[2].next_pt_init = points[2].get_path_to(points[3])
+	points[3].prior_pt_init = points[3].get_path_to(points[2])
+	_mark_dead_end(points[0])
+	_mark_dead_end(points[3])
+	for point: RoadPoint in points:
+		assert_true(adapter.apply_section_to_point(point).ok)
+	return {
+		"root": root,
+		"adapter": adapter,
+		"first_container": first_container,
+		"second_container": second_container,
+		"points": points,
+	}
+
+
+## Parents addon points and assigns the container reference expected by its setters.
+func _add_points_to_container(container: RoadContainer, points: Array) -> void:
+	for point: RoadPoint in points:
+		container.add_child(point)
+		point.container = container
 
 
 ## Builds two section pairs with colocated interface endpoints.

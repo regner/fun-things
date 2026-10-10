@@ -58,7 +58,7 @@ static func _route_record(
 		errors.append("bootstrap route has invalid name, kind, or points fields")
 		return {}
 	var spec: RoadSectionSpec = catalog.section_for_source_route(name_value)
-	if spec == null or String(spec.preset.preset_id) != kind_value:
+	if spec == null or not spec.is_valid() or String(spec.preset.preset_id) != kind_value:
 		errors.append("bootstrap route %s does not match a catalog section" % name_value)
 		return {}
 	if points_value.size() < 2 or points_value.size() > MAX_POINTS_PER_ROUTE:

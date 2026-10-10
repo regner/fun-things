@@ -24,6 +24,8 @@ enum TrafficControl {
 func is_valid() -> bool:
 	if junction_id == &"" or crossing_policy_id == &"":
 		return false
+	if mode not in Mode.values() or traffic_control not in TrafficControl.values():
+		return false
 	if mode == Mode.PREFAB and prefab_id == &"":
 		return false
 	if mode == Mode.PROCEDURAL and prefab_id != &"":

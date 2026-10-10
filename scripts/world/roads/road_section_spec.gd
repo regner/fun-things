@@ -78,6 +78,10 @@ func is_valid() -> bool:
 		return false
 	if preset == null or not preset.is_valid() or profile_id == &"":
 		return false
+	if travel_direction not in TravelDirection.values():
+		return false
+	if endpoint_policy not in EndpointPolicy.values():
+		return false
 	if travel_direction == TravelDirection.UNSET and preset.preset_id != &"service":
 		return false
 	return _override_values_are_finite()
