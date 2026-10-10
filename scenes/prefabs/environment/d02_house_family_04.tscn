@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://ci7ti66gkvhcs"]
+
+[ext_resource type="PackedScene" uid="uid://dr5fr05u5ecr2" path="res://art/models/environment/d02_house_family_04/d02_house_family_04.glb" id="1_model"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_main"]
+size = Vector3(4.8, 5.3, 8.4)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_wing"]
+size = Vector3(3.6, 5.3, 4.8)
+
+[node name="D02HouseFamily04" type="Node3D" unique_id=508061627]
+
+[node name="Visuals" type="Node3D" parent="." unique_id=109340701]
+
+[node name="Model" type="Node3D" parent="Visuals" unique_id=1938597452 instance=ExtResource("1_model")]
+
+[node name="Collision" type="Node3D" parent="." unique_id=726715306]
+
+[node name="Body" type="StaticBody3D" parent="Collision" unique_id=1167199689]
+collision_mask = 0
+
+[node name="MainHome" type="CollisionShape3D" parent="Collision/Body" unique_id=1183333991]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.8, 2.65, 0)
+shape = SubResource("BoxShape3D_main")
+
+[node name="EastWing" type="CollisionShape3D" parent="Collision/Body" unique_id=1704107241]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.4, 2.65, 1.8)
+shape = SubResource("BoxShape3D_wing")

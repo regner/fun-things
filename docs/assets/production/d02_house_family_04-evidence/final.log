@@ -1,0 +1,24 @@
+D02 COMPACT CORNER HOME — concise final receipt; raw scratch logs: C:/tmp/ft/assets/d02_house_family_04
+Blender source/raw buffers/reexport PASS; GLB byte-identical; topology/normals PASS.
+Pinned headless import PASS. Editor-only save/reload byte-stable. Known editor diagnostics:
+WARNING: [MCP] Godot 4.8 detected - latest tested version is 4.7.0. The plugin will run normally but some features may behave unexpectedly. Please report issues at https://github.com/NPGameDev/godot-mcp-toolkit/issues
+WARNING: Scan thread aborted...
+ERROR: 5 RID allocations of type 'N16RendererViewport8ViewportE' were leaked at exit.
+ERROR: 8 RID allocations of type 'PN13RendererDummy14TextureStorage12DummyTextureE' were leaked at exit.
+ERROR: 1 RID allocations of type 'N17RendererSceneCull8ScenarioE' were leaked at exit.
+ERROR: 52 RID allocations of type 'PN18TextServerAdvanced22ShapedTextDataAdvancedE' were leaked at exit.
+ERROR: 1 RID allocations of type 'PN18TextServerAdvanced12FontAdvancedE' were leaked at exit.
+WARNING: 5 RIDs of type "Canvas" were leaked.
+WARNING: 31 RIDs of type "CanvasItem" were leaked.
+WARNING: 168 ObjectDB instances were leaked at exit (run with `--verbose` for details).
+
+Fresh headless prefab/production ActorMotion checks (exit 0):
+Godot Engine v4.8.dev7.official.c971f93e7 - https://godotengine.org
+
+[MCPRuntimeServer] port: scanning 6570-6585 (default)
+[MCPRuntimeServer] listening on 127.0.0.1:6570
+[MCPRegistry] runtime port 6570 registered for c:/gamedev/git/ft-lanes/a-house
+{"aabb_min":[-4.55000019073486,0.0,-4.55000019073486],"aabb_size":[9.10000038146973,7.55000019073486,9.10000038146973],"capsule_queries":[{"case":"main_solid","solid":true},{"case":"wing_solid","solid":true},{"case":"front_closed_glass","solid":true},{"case":"corner_closed_door","solid":true},{"case":"east_closed_glass","solid":true},{"case":"corner_setback_clear","solid":false},{"case":"east_bypass_clear","solid":false},{"case":"west_bypass_clear","solid":false},{"case":"rear_route_clear","solid":false}],"car_box_sweep":{"east_bypass_blocked":false,"front_blocked":true,"size_m":[1.9,1.5,4.3]},"collision_shape_count":2,"engine":"4.8-dev7 (official)","failures":[],"front_ray_z":-4.19999980926514,"linked_model_identity":true,"materials":["crescents_warm_render","crescents_blue_slate_roof","crescents_ivory_trim","crescents_muted_plum_roof","crescents_slate_plinth","crescents_petrol_closed_glass","crescents_warm_entrance"],"model_uid":"uid://dr5fr05u5ecr2","ok":true,"prefab_uid":"uid://ci7ti66gkvhcs","production_actor_motion":[{"case":"main_closed_front","end":[-1.79999995231628,0.000877899117767811,-4.55077457427979],"mode":0},{"case":"corner_recessed_entry","end":[2.59999990463257,0.00000757264206185937,-0.950080394744873],"mode":0},{"case":"east_side","end":[4.55077457427979,0.000877899117767811,1.79999995231628],"mode":0},{"case":"corner_return_wall","end":[0.950521051883698,0.000877922982908785,-2.59999990463257],"mode":0},{"case":"east_bypass","end":[5.30000019073486,0.000877899117767811,-2.99999356269836],"mode":0},{"case":"main_closed_front","end":[-1.79999995231628,0.000877899117767811,-4.55077457427979],"mode":1},{"case":"corner_recessed_entry","end":[2.59999990463257,0.00000757264206185937,-0.950080394744873],"mode":1},{"case":"east_side","end":[4.55077457427979,0.000877899117767811,1.79999995231628],"mode":1},{"case":"corner_return_wall","end":[0.950521051883698,0.000877922982908785,-2.59999990463257],"mode":1},{"case":"east_bypass","end":[5.30000019073486,0.000877899117767811,-2.99999356269836],"mode":1}]}
+
+Production checks: {"engine": {"ok": true, "version": "4.8.dev7.official.c971f93e7"}, "gut_import": {"ok": true, "returncode": 0}, "gut_negative": {"observed_returncode": 1, "ok": true}, "gut_pin": {"ok": true, "version": "9.7.1"}, "gut_tests": {"ok": true, "returncode": 0}, "owned_scripts": {"ok": true, "returncode": 0}, "python_tests": {"ok": true, "returncode": 0}}
+Four compressed images visually self-reviewed. No world placement, real-process networking, native visual or target-device performance acceptance claimed.
