@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://cfe45q85cp4s4"]
+
+[ext_resource type="PackedScene" uid="uid://b02omuwgnuq14" path="res://art/models/environment/city_water_look_01/city_water_look_01.glb" id="1_model"]
+
+[node name="CityWaterLook01" type="Node3D" unique_id=520133833]
+
+[node name="Visuals" type="Node3D" parent="." unique_id=196610347]
+
+[node name="Model" parent="Visuals" unique_id=913328785 instance=ExtResource("1_model")]

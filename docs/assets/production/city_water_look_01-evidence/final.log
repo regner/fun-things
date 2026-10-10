@@ -1,0 +1,106 @@
+city_water_look.01 final producer receipt — 10 October 2026
+Commands and exact environments are recorded in ../city_water_look_01.md.
+No external assets; source/export/material/prefab study only; independent review pending.
+
+SOURCE / EXPORT / TEXTURES
+Blender 5.2.2 LTS d13f752e3b9c; glTF exporter 5.2.40; shared export_settings.json.
+author_textures.py: two original 512x512 RGB repeat maps, 16m physical tile.
+author.py: original single quad in export_city_water_look_01; 4 vertices / 2 triangles.
+validate.py: PASS; source topology, actual GLB accessors, UV/winding/normals, no embedded images.
+Fresh saved-source export: byte-identical, 1328 bytes, SHA256 12b90c7a4d33d8b88ce2c6ec87ada33f9890433485c4afaba6b3bf223aa680db.
+Zero degenerate faces; four intentional open perimeter edges; surface area 256m2.
+Only Blender diagnostic: use_nodes deprecation warning for a future Blender major version.
+
+test_positive_unit_normal_map (__main__.OpenSeaTextureTests.test_positive_unit_normal_map)
+Normals point out of the swatch and retain small quantization error only. ... ok
+test_quiet_dark_blue_teal_albedo (__main__.OpenSeaTextureTests.test_quiet_dark_blue_teal_albedo)
+Keep the body colour quiet: no foam, alpha or baked bright reflections. ... ok
+test_recipe_reproduces_png_bytes (__main__.OpenSeaTextureTests.test_recipe_reproduces_png_bytes)
+Run the production author in scratch and compare full encoded PNG bytes. ... WATER_TEXTURES_PASS: two original periodic 512x512 RGB textures; 16m tile
+ok
+test_repeat_edges_have_no_extra_jump (__main__.OpenSeaTextureTests.test_repeat_edges_have_no_extra_jump)
+A wrap transition must be no larger than ordinary adjacent texels. ... ok
+
+----------------------------------------------------------------------
+Ran 4 tests in 0.751s
+
+OK
+
+RENDERS
+preview.py: four inspected Cycles CPU/AgX 1280x720 renders; 48 samples; PNG compression95, dither0.
+detail.png: 262189 bytes
+hero.png: 190065 bytes
+overhead_47m_42deg.png: 318263 bytes
+side.png: 137787 bytes
+
+GODOT
+Pinned 4.8.dev7.official.c971f93e7; headless import completed.
+Saved import remaps open_sea to the external .tres; mipmaps and normal import enabled.
+normalize-final.log: contract checks PASS; second editor pack/save byte-identical.
+Editor normalization is NOT a diagnostic-free run. Exit0 with the following shutdown diagnostics:
+WARNING: [MCP] Godot 4.8 detected - latest tested version is 4.7.0. The plugin will run normally but some features may behave unexpectedly. Please report issues at https://github.com/NPGameDev/godot-mcp-toolkit/issues
+ERROR: 5 RID allocations of type 'N16RendererViewport8ViewportE' were leaked at exit.
+ERROR: 8 RID allocations of type 'PN13RendererDummy14TextureStorage12DummyTextureE' were leaked at exit.
+ERROR: 1 RID allocations of type 'N17RendererSceneCull8ScenarioE' were leaked at exit.
+ERROR: 52 RID allocations of type 'PN18TextServerAdvanced22ShapedTextDataAdvancedE' were leaked at exit.
+ERROR: 1 RID allocations of type 'PN18TextServerAdvanced12FontAdvancedE' were leaked at exit.
+WARNING: 5 RIDs of type "Canvas" were leaked.
+WARNING: 31 RIDs of type "CanvasItem" were leaked.
+WARNING: 168 ObjectDB instances were leaked at exit (run with `--verbose` for details).
+
+Separate final runtime load (no editor; no ERROR or WARNING):
+Godot Engine v4.8.dev7.official.c971f93e7 - https://godotengine.org
+
+[MCPRuntimeServer] port: scanning 6570-6585 (default)
+[MCPRuntimeServer] listening on 127.0.0.1:6570
+[MCPRegistry] runtime port 6570 registered for c:/gamedev/git/ft-lanes/a-water
+WATER_PREFAB_PASS: linked geometry, external material, bounds, normals, UV tangents
+
+CANONICAL FINAL PRODUCTION CHECKS
+Command: timeout 1800 env PYTHONUTF8=1 python tools/production_checks.py --godot "$(mise which godot)" --gdstyle "$(mise which gdstyle)" --output C:/tmp/ft/assets/city_water_look_01/checks-final
+{
+  "engine": {
+    "ok": true,
+    "version": "4.8.dev7.official.c971f93e7"
+  },
+  "gut_pin": {
+    "ok": true,
+    "version": "9.7.1"
+  },
+  "owned_scripts": {
+    "ok": true,
+    "returncode": 0
+  },
+  "python_tests": {
+    "ok": true,
+    "returncode": 0
+  },
+  "gut_import": {
+    "ok": true,
+    "returncode": 0
+  },
+  "gut_tests": {
+    "ok": true,
+    "returncode": 0
+  },
+  "gut_negative": {
+    "ok": true,
+    "observed_returncode": 1
+  }
+}
+Explicit compilation: 171 scripts; 171 passed.
+Repository Python suite: 16 tests passed (asset texture tests above are additional).
+GUT: 28 scripts, 142 tests passed, 6705 assertions; negative diagnostic fixture rejected as intended.
+Pinned gdstyle fmt --check and lint --max-warnings0: PASS for the owned GDScript.
+
+CORRECTED INITIAL TOOLING FINDINGS
+Version comparison changed from CLI string to engine dictionary fields/hash.
+Godot planar AABB includes 10-micrometre padding: applied documented 1mm tolerance.
+Corrected Blender Vector.length property call; geometry/source unchanged.
+Initial early editor quit aborted scanning; checker now waits for startup/scan.
+Helper check failures now suppress PASS receipts and return nonzero.
+Full scratch logs remain outside Git; no broad diagnostic suppression or shared code changes.
+
+OPEN GATES
+Independent review; Godot raster lighting and actor/street comparison; coastline/UV/basin placement;
+moving-camera mip aliasing; packaged/Deck appearance and performance. No water physics or containment.

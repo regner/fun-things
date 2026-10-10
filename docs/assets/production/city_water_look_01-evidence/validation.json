@@ -1,0 +1,94 @@
+{
+  "asset_id": "city_water_look.01",
+  "status": "PASS",
+  "blender": "5.2.2 LTS",
+  "build_hash": "d13f752e3b9c",
+  "gltf_exporter": "Khronos glTF Blender I/O v5.2.40",
+  "vertices": 4,
+  "triangles": 2,
+  "mesh_objects": 1,
+  "surfaces": 1,
+  "degenerate_faces": 0,
+  "nonmanifold_edges": 4,
+  "boundary_edges": 4,
+  "boundary_justification": "Exactly four intentional perimeter edges on a single-sided planar material-study swatch; not a solid or walkable water mesh.",
+  "unit_source_and_glb_normals": true,
+  "surface_area_m2": 256,
+  "godot_axis_aabb": {
+    "min": [
+      -8,
+      0,
+      -8
+    ],
+    "max": [
+      8,
+      0,
+      8
+    ],
+    "size": [
+      16,
+      0,
+      16
+    ]
+  },
+  "pivot": [
+    0,
+    0,
+    0
+  ],
+  "datum": "Surface centre, not ground contact",
+  "dimension_tolerance_m": 0.001,
+  "uv0_range": [
+    0,
+    1
+  ],
+  "tile_metres": 16,
+  "glb_bytes": 1328,
+  "glb_sha256": "12b90c7a4d33d8b88ce2c6ec87ada33f9890433485c4afaba6b3bf223aa680db",
+  "fresh_reexport_byte_identical": true,
+  "embedded_images": 0,
+  "external_textures": {
+    "count": 2,
+    "size": [
+      512,
+      512
+    ],
+    "normal_convention": "+Y/OpenGL"
+  },
+  "engine": {
+    "aabb_max": [
+      8.0,
+      9.99999974737875e-06,
+      8.0
+    ],
+    "aabb_min": [
+      -8.0,
+      0.0,
+      -8.0
+    ],
+    "engine": "4.8-dev7 (official)",
+    "external_material": "res://art/materials/environment/city_water_look_01/open_sea.tres",
+    "filter": "linear_mipmap_repeat",
+    "identity_model_transform": true,
+    "linked_model": "res://art/models/environment/city_water_look_01/city_water_look_01.glb",
+    "meshes": 1,
+    "no_collision_or_material_overrides": true,
+    "normal_map": "OpenGL +Y, no inversion",
+    "normalized_second_roundtrip_byte_identical": true,
+    "status": "PASS",
+    "surfaces": 1,
+    "texture_size": [
+      512,
+      512
+    ],
+    "triangles": 2,
+    "unit_up_normals_and_tangents": true,
+    "vertices": 4
+  },
+  "pending": [
+    "Independent review",
+    "Godot rendered camera/lighting review",
+    "District placement and coastline interfaces",
+    "Moving-camera aliasing and target-device profiling"
+  ]
+}

@@ -1,0 +1,131 @@
+{
+  "asset_id": "city_water_look.01",
+  "producer": "Codex asset-production specialist",
+  "algorithm": "SHA-256",
+  "exclusions": [
+    "manifest.json (self-hash)",
+    "uncommitted scratch/cache and post-commit .pi/review artifacts"
+  ],
+  "files": [
+    {
+      "path": "art/materials/environment/city_water_look_01/open_sea.tres",
+      "bytes": 559,
+      "sha256": "1b5ff7fd6f650c8df79112eb6f67cc8c5497785fca38b817425d7eba7b0b7574"
+    },
+    {
+      "path": "art/models/environment/city_water_look_01/city_water_look_01.glb",
+      "bytes": 1328,
+      "sha256": "12b90c7a4d33d8b88ce2c6ec87ada33f9890433485c4afaba6b3bf223aa680db"
+    },
+    {
+      "path": "art/models/environment/city_water_look_01/city_water_look_01.glb.import",
+      "bytes": 1468,
+      "sha256": "75b33539d3dd0badb762369a1ef334fd8d2014287e09e0fe44e09f19615a0c2f"
+    },
+    {
+      "path": "art/source/models/environment/city_water_look_01/city_water_look_01.blend",
+      "bytes": 96997,
+      "sha256": "739a91cb208d02f4831920aa58ffd0c91ac7b6e3306900c407af053f0ea8396b"
+    },
+    {
+      "path": "art/textures/environment/city_water_look_01/open_sea_albedo.png",
+      "bytes": 23779,
+      "sha256": "c2333fa4d416f5bc8485f018b74904a05cd9d1827de2f782037e502285c05332"
+    },
+    {
+      "path": "art/textures/environment/city_water_look_01/open_sea_albedo.png.import",
+      "bytes": 1097,
+      "sha256": "c012f45f1b72b0a54d1943953c806a828de4d58e72ad833cb57e39d6eb7b9d9f"
+    },
+    {
+      "path": "art/textures/environment/city_water_look_01/open_sea_normal.png",
+      "bytes": 113086,
+      "sha256": "4504a351ef0769e25703776ac3e40144e35dcbcc912803380c07039375b857b2"
+    },
+    {
+      "path": "art/textures/environment/city_water_look_01/open_sea_normal.png.import",
+      "bytes": 1097,
+      "sha256": "af106948b98d9c521de0eb2f1826e2643e40be45865cb310c3185d50add4b01d"
+    },
+    {
+      "path": "docs/assets/production/city_water_look_01-evidence/detail.png",
+      "bytes": 262189,
+      "sha256": "1e0224b0d315e9bafcef66dface2fc17b0d88a6db810fea3931c6f3661a2ed2e"
+    },
+    {
+      "path": "docs/assets/production/city_water_look_01-evidence/final.log",
+      "bytes": 5337,
+      "sha256": "293fcfd4e89f1403129f5233e2b4c5f782dd7eb9e224f2e6437c61771f593b5b"
+    },
+    {
+      "path": "docs/assets/production/city_water_look_01-evidence/hero.png",
+      "bytes": 190065,
+      "sha256": "9445db8f6d5203ab2d075891fc320e619412664f2ba70aebd5ae2c2139748c47"
+    },
+    {
+      "path": "docs/assets/production/city_water_look_01-evidence/overhead_47m_42deg.png",
+      "bytes": 318263,
+      "sha256": "0ffdd68250c7d56cf4e78c809e4db1fd4013dfe8e94ac2f4aa29f8ddd3f32f8c"
+    },
+    {
+      "path": "docs/assets/production/city_water_look_01-evidence/side.png",
+      "bytes": 137787,
+      "sha256": "ebabb35a257edab056dd471a5453e0a81663b3806c1d63db2ce8dc69ebaeaf2d"
+    },
+    {
+      "path": "docs/assets/production/city_water_look_01-evidence/validation.json",
+      "bytes": 2170,
+      "sha256": "62a07646b5562595455968b52e15ce402e55f2cc185ad1f65f91393e0c8b1f15"
+    },
+    {
+      "path": "docs/assets/production/city_water_look_01.md",
+      "bytes": 13150,
+      "sha256": "4886ade2c8f914a07d2d9b57e508a3650c3d3d478b8069aaf1b28ca814576748"
+    },
+    {
+      "path": "scenes/prefabs/environment/city_water_look_01.tscn",
+      "bytes": 421,
+      "sha256": "081acf77e5bd27aaf2dcfb117702abbc8d3847cc51d309ae43d3ec81a2b68a0f"
+    },
+    {
+      "path": "tools/asset_production/city_water_look_01/author.py",
+      "bytes": 3278,
+      "sha256": "a846427b9d7a13923fa0c017251fc8f2e2cea33b9e2f8b36cdb423f66e70a58f"
+    },
+    {
+      "path": "tools/asset_production/city_water_look_01/author_textures.py",
+      "bytes": 2197,
+      "sha256": "493c23737d697d3d24fa1b8eb4bcee0de8c4a0f12ef7af8d7e441ae0120ed394"
+    },
+    {
+      "path": "tools/asset_production/city_water_look_01/check_prefab.gd",
+      "bytes": 7897,
+      "sha256": "c036fdde2ed8ff3e9d836e37301877b0ef11973d090e78ef1749f1a18a241abc"
+    },
+    {
+      "path": "tools/asset_production/city_water_look_01/check_prefab.gd.uid",
+      "bytes": 20,
+      "sha256": "1a9afa9769cbe83eb72bef95e72079e73e0749419963cbe7901f38a7555564fb"
+    },
+    {
+      "path": "tools/asset_production/city_water_look_01/export.py",
+      "bytes": 1370,
+      "sha256": "5d6456d84192d1cfb1d1f3d6d07a56e4457eb3581ce6443730f243b3cc8fa893"
+    },
+    {
+      "path": "tools/asset_production/city_water_look_01/preview.py",
+      "bytes": 3183,
+      "sha256": "490154d39dd2c2cb58e1d6743d6a10a2fdce70d77661e589d3d4f03a1797fc41"
+    },
+    {
+      "path": "tools/asset_production/city_water_look_01/test_textures.py",
+      "bytes": 2964,
+      "sha256": "7df984a77149ada1262d00210ab01c906fa49a5f45a2cb77a9e0ef3e4e8fc4fa"
+    },
+    {
+      "path": "tools/asset_production/city_water_look_01/validate.py",
+      "bytes": 5618,
+      "sha256": "09f6f2734a8f15c0c3ee7621a3191640f8a425519e85c2625973cdadaed3cdf6"
+    }
+  ]
+}
