@@ -1,0 +1,23 @@
+d01_campus_graphics.03 - final bounded validation
+Blender 5.2.2 LTS / d13f752e3b9c / glTF 5.2.40; Godot 4.8.dev7.official.c971f93e7.
+All final commands exited 0 without timeout. Exact reproduction commands: ../d01_campus_graphics_03.md.
+PASS source validator: 1244 source vertices, 1596 GLB vertices, 2448 triangles,
+  2 meshes / 5 surfaces; zero degenerate faces/triangles and nonmanifold edges;
+  unit normals, outward winding, 1.60 x 1.35 x 0.40 m bounds, UV and pivot checks.
+PASS fresh carrier reexport: byte-identical 70712-byte GLB; shared source/base unchanged.
+PASS four isolated 1280x720 renders; all personally inspected; each below 400000 bytes.
+PASS three route PNGs: byte-identical regeneration, 1440x390 opaque sRGB.
+PASS 7 Python tests (test_artwork.py); final rerun retained in scratch.
+PASS gdstyle fmt --check and lint --max-line-length 100 --max-warnings 0: no issues.
+PASS editor normalization: three scenes plus three materials, two reload/save cycles each,
+  all bytes/identities/UIDs unchanged. Editor exited 0 but shutdown logged the known
+  scan-abort and RID/ObjectDB leak pattern (168 objects); not clean-shutdown evidence.
+PASS final pinned headless import: no ERROR / SCRIPT ERROR.
+PASS final runtime checks: all three variants, linked unchanged mesh resources,
+  one face-only override each, registered UIDs, identity transforms, inherited collider;
+  no warnings/errors.
+Known startup warning: MCP tested on 4.7, running 4.8; Blender use_nodes deprecation.
+Initial owned lint and arrow shoulder sample failures corrected, then final checks passed.
+Scope: artwork and reusable prefabs only. Edge-on overhead faces unreadable.
+Pending: independent review, copy/use approval, placement, actual gameplay/device/performance.
+No production_checks.py, windowed editor, live MCP tools, world or sibling writes.

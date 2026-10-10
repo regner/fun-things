@@ -1,0 +1,402 @@
+{
+  "asset_id": "d01_campus_graphics.03",
+  "status": "PASS",
+  "blender": "5.2.2 LTS",
+  "build": "d13f752e3b9c",
+  "new_geometry": false,
+  "dependencies": [
+    {
+      "path": "art/source/models/environment/city_sign_supports_02/city_sign_supports_02.blend",
+      "bytes": 140599,
+      "sha256": "d1b9a29d684951ea1ef40f88aedb2180297b9be6c7cee58c31d467be07708e6c"
+    },
+    {
+      "path": "art/models/environment/city_sign_supports_02/city_sign_supports_02.glb",
+      "bytes": 70712,
+      "sha256": "022dd559334d79c482182083be775c692ab4adf2a5277d3fb7ca7ec266ec76b7"
+    },
+    {
+      "path": "scenes/prefabs/environment/city_sign_supports_02.tscn",
+      "bytes": 898,
+      "sha256": "dd95c4cbf0d0ff3d816290024e1723864817176753628384222f51084a804939"
+    }
+  ],
+  "dependencies_unchanged": true,
+  "fresh_reexport_byte_identical": true,
+  "glb_bytes": 70712,
+  "glb_sha256": "022dd559334d79c482182083be775c692ab4adf2a5277d3fb7ca7ec266ec76b7",
+  "source_vertices": 1244,
+  "glb_vertices": 1596,
+  "triangles": 2448,
+  "meshes": 2,
+  "surfaces": 5,
+  "degenerate_source_faces": 0,
+  "degenerate_glb_triangles": 0,
+  "nonmanifold_edges": 0,
+  "unit_source_and_export_normals": true,
+  "outward_winding": true,
+  "godot_aabb": {
+    "min": [
+      -0.800000011920929,
+      0.0,
+      -0.20000000298023224
+    ],
+    "max": [
+      0.800000011920929,
+      1.350000023841858,
+      0.20000000298023224
+    ]
+  },
+  "dimensions_m": [
+    1.6,
+    1.35,
+    0.4
+  ],
+  "pivot": [
+    0,
+    0,
+    0
+  ],
+  "ground_datum_m": 0,
+  "tolerance_m": 0.001,
+  "artwork": {
+    "face_size_m": [
+      1.44,
+      0.39
+    ],
+    "safe_size_m": [
+      1.38,
+      0.33
+    ],
+    "plane_godot_z": -0.071,
+    "uv_verified_upright_unmirrored": true,
+    "override_slot": 0,
+    "texture_size": [
+      1440,
+      390
+    ],
+    "variants": [
+      "left",
+      "ahead",
+      "right"
+    ],
+    "textures": [
+      {
+        "path": "art/textures/environment/d01_campus_graphics_03/route_left_albedo.png",
+        "bytes": 46473,
+        "sha256": "ef5007a92729dd114ac60011ca4cf3dfe9cf3213586852f4fb694249726ea4ef"
+      },
+      {
+        "path": "art/textures/environment/d01_campus_graphics_03/route_ahead_albedo.png",
+        "bytes": 45663,
+        "sha256": "26f0205117ff74256bfd6116d9b5e9abcf2a27cb963039716ed48f52713a9727"
+      },
+      {
+        "path": "art/textures/environment/d01_campus_graphics_03/route_right_albedo.png",
+        "bytes": 46222,
+        "sha256": "41f52f747d7aa426dd22e04839d8d928d82dd73e5fd096ce79cfe929ecc72311"
+      }
+    ],
+    "fresh_pngs_byte_identical": true,
+    "python": "3.14.2",
+    "pillow": "12.3.0",
+    "source_inputs": [
+      {
+        "path": "tools/asset_production/d01_campus_graphics_02/author.py",
+        "bytes": 2179,
+        "sha256": "1b3d210cbdd69bb32b9984e376fe9b91beed4cb6d712fb7077496ed4abca761f"
+      },
+      {
+        "path": "tools/asset_production/d01_campus_graphics_01/author.py",
+        "bytes": 7360,
+        "sha256": "971c6d6d83ecee7c5f09fdb3a457d854bb86e4ddc671a34ff0d50333b9fbc989"
+      },
+      {
+        "path": "tools/asset_production/d06_commercial_graphics_02/author.py",
+        "bytes": 5473,
+        "sha256": "6e1492bc8bbb5afec4b371e1f2f28e875d3c3be8c9fe3b629d20efea473eab50"
+      },
+      {
+        "path": "tools/asset_production/d06_commercial_graphics_01/author.py",
+        "bytes": 4356,
+        "sha256": "84c12c9bffd3a60a6470f37a8d3d7bb38588c31d208ae593193ece81c20316bb"
+      }
+    ]
+  },
+  "geometry_counts_scope": "per unchanged reused carrier; three alternative prefabs",
+  "engine": {
+    "normalization": {
+      "engine": "4.8-dev7 (official)",
+      "stable_roundtrips": 2,
+      "status": "PASS",
+      "variants": [
+        {
+          "aabb_max": [
+            0.8,
+            1.35,
+            0.2
+          ],
+          "aabb_min": [
+            -0.8,
+            0,
+            -0.2
+          ],
+          "face_only_overrides": 1,
+          "hierarchy_and_imported_meshes_unchanged": true,
+          "identity_transforms": true,
+          "inherited_collision_unchanged": true,
+          "material": "res://art/materials/environment/d01_campus_graphics_03/route_left.tres",
+          "material_roundtrip_sha256": [
+            "0e0fa452ea3ffef88a841557d49e2eed5d9fca983a0c96bd10bae1eaad8c7faf",
+            "0e0fa452ea3ffef88a841557d49e2eed5d9fca983a0c96bd10bae1eaad8c7faf",
+            "0e0fa452ea3ffef88a841557d49e2eed5d9fca983a0c96bd10bae1eaad8c7faf"
+          ],
+          "material_uid": "uid://cds7tm11e50j7",
+          "meshes": 2,
+          "prefab": "res://scenes/prefabs/environment/d01_campus_graphics_03_left.tscn",
+          "prefab_uid": "uid://dmogd4vaghn0c",
+          "roundtrip_sha256": [
+            "f013743f6153786f15b20045f0fcca0aea479f43e3e97ce357fa0af0c8ff8e54",
+            "f013743f6153786f15b20045f0fcca0aea479f43e3e97ce357fa0af0c8ff8e54",
+            "f013743f6153786f15b20045f0fcca0aea479f43e3e97ce357fa0af0c8ff8e54"
+          ],
+          "surfaces": 5,
+          "texture_size": [
+            1440,
+            390
+          ],
+          "variant": "left"
+        },
+        {
+          "aabb_max": [
+            0.8,
+            1.35,
+            0.2
+          ],
+          "aabb_min": [
+            -0.8,
+            0,
+            -0.2
+          ],
+          "face_only_overrides": 1,
+          "hierarchy_and_imported_meshes_unchanged": true,
+          "identity_transforms": true,
+          "inherited_collision_unchanged": true,
+          "material": "res://art/materials/environment/d01_campus_graphics_03/route_ahead.tres",
+          "material_roundtrip_sha256": [
+            "a33a2b4151d06471203a37a61d9abad61268b1668c3a9a4a33be6f3ed5e03da3",
+            "a33a2b4151d06471203a37a61d9abad61268b1668c3a9a4a33be6f3ed5e03da3",
+            "a33a2b4151d06471203a37a61d9abad61268b1668c3a9a4a33be6f3ed5e03da3"
+          ],
+          "material_uid": "uid://qx1o34wu5t2b",
+          "meshes": 2,
+          "prefab": "res://scenes/prefabs/environment/d01_campus_graphics_03.tscn",
+          "prefab_uid": "uid://bxd0fk6sf45tt",
+          "roundtrip_sha256": [
+            "86a15ee556721bf9a52ff7cc4c76b6b6cdb8f26d8c928cc8547f3424b933d148",
+            "86a15ee556721bf9a52ff7cc4c76b6b6cdb8f26d8c928cc8547f3424b933d148",
+            "86a15ee556721bf9a52ff7cc4c76b6b6cdb8f26d8c928cc8547f3424b933d148"
+          ],
+          "surfaces": 5,
+          "texture_size": [
+            1440,
+            390
+          ],
+          "variant": "ahead"
+        },
+        {
+          "aabb_max": [
+            0.8,
+            1.35,
+            0.2
+          ],
+          "aabb_min": [
+            -0.8,
+            0,
+            -0.2
+          ],
+          "face_only_overrides": 1,
+          "hierarchy_and_imported_meshes_unchanged": true,
+          "identity_transforms": true,
+          "inherited_collision_unchanged": true,
+          "material": "res://art/materials/environment/d01_campus_graphics_03/route_right.tres",
+          "material_roundtrip_sha256": [
+            "ede3237b3c5ff983e23c8e10eadf65734e6acd8882d7a2ee9c1644f8b4084a6b",
+            "ede3237b3c5ff983e23c8e10eadf65734e6acd8882d7a2ee9c1644f8b4084a6b",
+            "ede3237b3c5ff983e23c8e10eadf65734e6acd8882d7a2ee9c1644f8b4084a6b"
+          ],
+          "material_uid": "uid://dxfyuvb1kv468",
+          "meshes": 2,
+          "prefab": "res://scenes/prefabs/environment/d01_campus_graphics_03_right.tscn",
+          "prefab_uid": "uid://cffgq2llp5l0",
+          "roundtrip_sha256": [
+            "dff7ae068d405dc6965a7239bf3927edb03fe312b8c9fea5cefd6a9b37032cf5",
+            "dff7ae068d405dc6965a7239bf3927edb03fe312b8c9fea5cefd6a9b37032cf5",
+            "dff7ae068d405dc6965a7239bf3927edb03fe312b8c9fea5cefd6a9b37032cf5"
+          ],
+          "surfaces": 5,
+          "texture_size": [
+            1440,
+            390
+          ],
+          "variant": "right"
+        }
+      ]
+    },
+    "runtime": {
+      "engine": "4.8-dev7 (official)",
+      "stable_roundtrips": 0,
+      "status": "PASS",
+      "variants": [
+        {
+          "aabb_max": [
+            0.8,
+            1.35,
+            0.2
+          ],
+          "aabb_min": [
+            -0.8,
+            0,
+            -0.2
+          ],
+          "face_only_overrides": 1,
+          "hierarchy_and_imported_meshes_unchanged": true,
+          "identity_transforms": true,
+          "inherited_collision_unchanged": true,
+          "material": "res://art/materials/environment/d01_campus_graphics_03/route_left.tres",
+          "material_uid": "uid://cds7tm11e50j7",
+          "meshes": 2,
+          "prefab": "res://scenes/prefabs/environment/d01_campus_graphics_03_left.tscn",
+          "prefab_uid": "uid://dmogd4vaghn0c",
+          "surfaces": 5,
+          "texture_size": [
+            1440,
+            390
+          ],
+          "variant": "left"
+        },
+        {
+          "aabb_max": [
+            0.8,
+            1.35,
+            0.2
+          ],
+          "aabb_min": [
+            -0.8,
+            0,
+            -0.2
+          ],
+          "face_only_overrides": 1,
+          "hierarchy_and_imported_meshes_unchanged": true,
+          "identity_transforms": true,
+          "inherited_collision_unchanged": true,
+          "material": "res://art/materials/environment/d01_campus_graphics_03/route_ahead.tres",
+          "material_uid": "uid://qx1o34wu5t2b",
+          "meshes": 2,
+          "prefab": "res://scenes/prefabs/environment/d01_campus_graphics_03.tscn",
+          "prefab_uid": "uid://bxd0fk6sf45tt",
+          "surfaces": 5,
+          "texture_size": [
+            1440,
+            390
+          ],
+          "variant": "ahead"
+        },
+        {
+          "aabb_max": [
+            0.8,
+            1.35,
+            0.2
+          ],
+          "aabb_min": [
+            -0.8,
+            0,
+            -0.2
+          ],
+          "face_only_overrides": 1,
+          "hierarchy_and_imported_meshes_unchanged": true,
+          "identity_transforms": true,
+          "inherited_collision_unchanged": true,
+          "material": "res://art/materials/environment/d01_campus_graphics_03/route_right.tres",
+          "material_uid": "uid://dxfyuvb1kv468",
+          "meshes": 2,
+          "prefab": "res://scenes/prefabs/environment/d01_campus_graphics_03_right.tscn",
+          "prefab_uid": "uid://cffgq2llp5l0",
+          "surfaces": 5,
+          "texture_size": [
+            1440,
+            390
+          ],
+          "variant": "right"
+        }
+      ]
+    },
+    "final_import_no_errors": true,
+    "runtime_no_diagnostics": true,
+    "pin": "4.8.dev7.official.c971f93e7"
+  },
+  "shared_validation_tools": [
+    {
+      "path": "tools/asset_production/d01_campus_graphics_02/validate.py",
+      "bytes": 6169,
+      "sha256": "b96144eec1f7c51189d8efa932754255e144174af8c51f79e38494f5c39b5115"
+    },
+    {
+      "path": "tools/asset_production/d01_campus_graphics_01/validate.py",
+      "bytes": 6827,
+      "sha256": "e139774ab082da47863ff807a125d73f8ffadd3dbc2d62f35fe021ca2e6cea83"
+    },
+    {
+      "path": "tools/asset_production/d01_campus_graphics_02/export.py",
+      "bytes": 1033,
+      "sha256": "edcfa3bd70e39c2e99d93e4ef4858bb70274bc82ccf536af66f00c7782a8ffb8"
+    },
+    {
+      "path": "tools/asset_production/city_sign_supports_02/export.py",
+      "bytes": 938,
+      "sha256": "77f022778898442006f67ca397036e523a95095afb337ec03427e78923aebfb1"
+    },
+    {
+      "path": "tools/assets/blender/export_settings.json",
+      "bytes": 646,
+      "sha256": "33ded3c83616fba6573848dda1f0ea3fc7ae7f4c98257fc867dca3bbe35ff9ec"
+    },
+    {
+      "path": "tools/asset_production/d01_campus_graphics_02/check_prefab.gd",
+      "bytes": 7190,
+      "sha256": "fbc1a255ad792e73f620ef0dd02f5b91c37d2899ce04324cdb8fffe2c8d72476"
+    },
+    {
+      "path": "tools/asset_production/d06_commercial_graphics_03/check_prefab.gd",
+      "bytes": 6930,
+      "sha256": "08d99fe7bbb6ae3d38b07b313b91c95cc11904a494238c9fa4e72192e066d985"
+    },
+    {
+      "path": "tools/asset_production/d01_campus_graphics_02/audit.py",
+      "bytes": 4866,
+      "sha256": "aaedae8f9aefbd6fefe58ff271e4c377eaa850d2ed0588097207a736df0e47df"
+    }
+  ],
+  "renders": [
+    {
+      "path": "docs/assets/production/d01_campus_graphics_03-evidence/hero.png",
+      "bytes": 307329,
+      "sha256": "6092295b2e4d9ba6a2e5049a59e4f3f7f6956f0a5e4d86977572e90b5a477557"
+    },
+    {
+      "path": "docs/assets/production/d01_campus_graphics_03-evidence/side.png",
+      "bytes": 207382,
+      "sha256": "a092752b5bda630d6b3d60502676fae94eb47bd8760b171eaa18c84d773f8c46"
+    },
+    {
+      "path": "docs/assets/production/d01_campus_graphics_03-evidence/detail.png",
+      "bytes": 206828,
+      "sha256": "d14d66dac900ffb505914ac25fab0d657b3e77db32bf30d12debca86e9e98a39"
+    },
+    {
+      "path": "docs/assets/production/d01_campus_graphics_03-evidence/overhead_47m_42deg.png",
+      "bytes": 136731,
+      "sha256": "d8d85c55637839f6d9e21eca169462e9b3e6f4282b4a2011440c3c50af454e3a"
+    }
+  ]
+}
