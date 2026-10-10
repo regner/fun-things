@@ -643,12 +643,14 @@ this review is production work rather than a P0 prerequisite.
 
 `ActionResult = {action_sequence, status: APPLIED | REJECTED, failure?,
 durable_revision?}` is emitted after processing, not mere queue admission. A
-per-participant action sequence spans life/control changes. The host retains a monotonic
-highest-admitted watermark per participant. An exact pending or cached duplicate is idempotent and
-returns the existing outcome without another mutation; every other sequence at or below the watermark,
-including an older evicted sequence, returns `STALE_SEQUENCE`. Syntactically valid rejected requests
-consume their sequence too. Reject sequence jumps outside the bound. Results never install gameplay
-state; the reliable transition is the sole state application.
+per-participant action sequence spans life/control and match-reset changes within the admitted session.
+The local sequence advances only when an eligible action is submitted, with at most one local vehicle
+action pending. The host retains its monotonic highest-admitted watermark across match reset. An exact
+pending or cached duplicate is idempotent and returns the existing outcome without another mutation;
+every other sequence at or below the watermark, including an older evicted sequence, returns
+`STALE_SEQUENCE`. Syntactically valid rejected requests consume their sequence too. Reject sequence
+jumps outside the bound. Results never install gameplay state; the reliable transition is the sole state
+application.
 
 Host acceptance order is `(accepted_tick, participant_id, action_sequence)` for
 same-tick actions. The first valid seat claim wins; others get `SEAT_OCCUPIED`.

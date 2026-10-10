@@ -89,7 +89,11 @@ func test_local_interaction_selects_nearest_car_then_exits_confirmed_binding() -
 	interaction.pressed = true
 
 	rig._unhandled_input(interaction)
+	rig._unhandled_input(interaction)
+	assert_eq(replication._local_vehicle_action_sequence, 1)
+	assert_eq(replication._pending_local_vehicle_action_sequence, 1)
 	replication._vehicle_interaction.process_actions(100)
+	assert_eq(replication._pending_local_vehicle_action_sequence, 0)
 	assert_eq(
 		int(replication._vehicle_replicator.binding_for_participant(1).id),
 		int(target.id),
@@ -97,6 +101,62 @@ func test_local_interaction_selects_nearest_car_then_exits_confirmed_binding() -
 	rig._unhandled_input(interaction)
 	replication._vehicle_interaction.process_actions(200)
 	assert_true(replication._vehicle_replicator.binding_for_participant(1).is_empty())
+
+
+## Leaves the retained sequence untouched until an in-range E press submits entry.
+func test_out_of_range_interactions_do_not_consume_action_sequence() -> void:
+	var replication: MatchReplication = _add_match_replication()
+	assert_true(replication.configure_standalone())
+	var target: Dictionary = replica_rows(replication)[1]
+	var vehicle: VehicleMotion = replication.vehicle_for_entity(int(target.id))
+	var actor: ActorMotion = replication.actor_for_participant(1)
+	actor.global_position = Vector3(10_000.0, 0.0, 10_000.0)
+	var rig: LocalRig = replication.get_parent().get_node("LocalRig") as LocalRig
+	var interaction := InputEventKey.new()
+	interaction.physical_keycode = KEY_E
+	interaction.pressed = true
+
+	for _press: int in range(65):
+		rig._unhandled_input(interaction)
+	assert_eq(replication._local_vehicle_action_sequence, 0)
+	assert_eq(replication._pending_local_vehicle_action_sequence, 0)
+
+	actor.global_position = (vehicle.get_node("Sockets/EntryLeft") as Marker3D).global_position
+	rig._unhandled_input(interaction)
+	assert_eq(replication._local_vehicle_action_sequence, 1)
+	replication._vehicle_interaction.process_actions(100)
+	assert_eq(
+		int(replication._vehicle_replicator.binding_for_participant(1).id),
+		int(target.id),
+	)
+
+
+## Continues synchronized local and host sequence fences above 64 after match reset.
+func test_post_reset_interaction_continues_session_action_sequence() -> void:
+	var replication: MatchReplication = _add_match_replication()
+	assert_true(replication.configure_standalone())
+	replication._local_vehicle_action_sequence = 65
+	replication._vehicle_interaction._highest_admitted_sequence[1] = 65
+
+	assert_true(replication.request_match_reset(1))
+	assert_eq(replication._local_vehicle_action_sequence, 65)
+	assert_eq(int(replication._vehicle_interaction._highest_admitted_sequence[1]), 65)
+	var target: Dictionary = replica_rows(replication)[1]
+	var vehicle: VehicleMotion = replication.vehicle_for_entity(int(target.id))
+	var actor: ActorMotion = replication.actor_for_participant(1)
+	actor.global_position = (vehicle.get_node("Sockets/EntryLeft") as Marker3D).global_position
+	var interaction := InputEventKey.new()
+	interaction.physical_keycode = KEY_E
+	interaction.pressed = true
+
+	var rig: LocalRig = replication.get_parent().get_node("LocalRig") as LocalRig
+	rig._unhandled_input(interaction)
+	assert_eq(replication._local_vehicle_action_sequence, 66)
+	replication._vehicle_interaction.process_actions(100)
+	assert_eq(
+		int(replication._vehicle_replicator.binding_for_participant(1).id),
+		int(target.id),
+	)
 
 
 ## Routes listen-server intent through codec validation and the held authority queue.

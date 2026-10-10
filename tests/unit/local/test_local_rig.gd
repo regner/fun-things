@@ -94,8 +94,8 @@ func test_vehicle_binding_gates_physical_drive_collector() -> void:
 	assert_true(is_zero_approx(rig.sample_vehicle_command().throttle))
 
 
-## Retains one monotonic E interaction sequence across confirmed body transfers.
-func test_interaction_emits_retained_sequence_for_actor_and_vehicle() -> void:
+## Emits raw E interaction presses across confirmed body transfers.
+func test_interaction_emits_for_actor_and_vehicle() -> void:
 	var actor: ActorMotion = PLAYER_SCENE.instantiate() as ActorMotion
 	var vehicle: VehicleMotion = VEHICLE_SCENE.instantiate() as VehicleMotion
 	var rig: LocalRig = LOCAL_RIG_SCENE.instantiate() as LocalRig
@@ -110,10 +110,10 @@ func test_interaction_emits_retained_sequence_for_actor_and_vehicle() -> void:
 	event.pressed = true
 
 	rig._unhandled_input(event)
-	assert_signal_emitted_with_parameters(rig, "interaction_requested", [1])
+	assert_signal_emitted(rig, "interaction_requested")
 	assert_true(rig.bind_vehicle(vehicle))
 	rig._unhandled_input(event)
-	assert_signal_emitted_with_parameters(rig, "interaction_requested", [2])
+	assert_signal_emit_count(rig, "interaction_requested", 2)
 	rig.set_interaction_input_enabled(false)
 	rig._unhandled_input(event)
 	assert_signal_emit_count(rig, "interaction_requested", 2)

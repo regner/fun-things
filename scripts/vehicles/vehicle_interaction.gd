@@ -276,7 +276,7 @@ func rebind_commands(participant_id: int) -> Dictionary:
 	return rebound
 
 
-## Clears pending old-revision actions before Match restores authored vehicle state.
+## Clears old-match work while retaining the session-wide admitted-sequence watermark.
 func reset(match_revision: int) -> bool:
 	if match_revision <= _match_revision:
 		return false
@@ -286,7 +286,6 @@ func reset(match_revision: int) -> bool:
 	_result_cache.clear()
 	_result_order.clear()
 	_last_action_sequence.clear()
-	_highest_admitted_sequence.clear()
 	_match_revision = match_revision
 	_replicator.reset_authority()
 	_transaction_revision += 1

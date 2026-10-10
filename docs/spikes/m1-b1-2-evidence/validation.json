@@ -1,13 +1,15 @@
 {
   "engine": "4.8.dev7.official.c971f93e7",
   "production_checks": {
-    "output": "C:/tmp/ft/lanes/m1-b12/production-checks-r3-final4",
+    "output": "C:/tmp/ft/lanes/m1-b12/production-checks-r4-final2",
     "ok": true,
     "python_tests": 62,
-    "gut_tests": 250,
-    "gut_assertions": 9280,
+    "gut_tests": 253,
+    "gut_assertions": 9432,
     "expected_negative_observed": true,
-    "delayed_sequence_64_then_1_covered": true
+    "delayed_sequence_64_then_1_covered": true,
+    "out_of_range_interactions_do_not_consume_sequence": true,
+    "post_reset_sequence_above_64_covered": true
   },
   "enet_profiles": [
     {
@@ -68,25 +70,30 @@
       "outcomes_complete": true
     }
   ],
+  "exports": {
+    "output": "C:/tmp/ft/exports/b12-r4",
+    "ok": true,
+    "windows_debug": "C:/tmp/ft/exports/b12-r4/windows-debug/FunThingsDebug.exe"
+  },
   "exported_acceptance": {
-    "executable": "C:/tmp/ft/exports/b12-r3/ft-lanes.exe",
-    "output": "C:/tmp/ft/exports/b12-r3-acceptance-final",
+    "executable": "C:/tmp/ft/exports/b12-r4/windows-debug/FunThingsDebug.exe",
+    "output": "C:/tmp/ft/exports/b12-r4-acceptance",
     "ok": true,
     "vehicle": {
-      "host_entry_latency_msec": 284,
-      "client_entry_latency_msec": 302,
+      "host_entry_latency_msec": 285,
+      "client_entry_latency_msec": 319,
       "interaction_presses_per_participant": 2,
       "sample_ticks_per_participant": 600,
       "drive_duration_seconds": 10.0,
       "host_distance_metres": 128.034042358398,
-      "client_distance_metres": 133.416595458984,
+      "client_distance_metres": 133.415786743164,
       "host_acknowledgement": 607,
-      "client_acknowledgement": 599,
+      "client_acknowledgement": 598,
       "host_exit_speed_mps": 0.333793103694916,
-      "client_exit_speed_mps": 0.382630705833435,
+      "client_exit_speed_mps": 0.454530149698257,
       "stale_foot_drift_metres": 0.0,
       "host_walk_distance_metres": 14.9167671203613,
-      "client_walk_distance_metres": 12.71142578125,
+      "client_walk_distance_metres": 12.7081727981567,
       "exits_zero": true
     },
     "broken_vehicle_interaction_seam": {

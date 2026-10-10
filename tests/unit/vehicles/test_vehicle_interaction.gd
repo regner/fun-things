@@ -267,6 +267,31 @@ func test_reset_and_destruction_clear_control_without_stale_replay() -> void:
 	assert_eq(stale.failure, &"STALE_ACTION_CONTEXT")
 
 
+## Preserves a sequence above the initial window so fresh post-reset intent remains admissible.
+func test_reset_preserves_highest_admitted_action_sequence() -> void:
+	await _configure([1])
+	var descriptor: Dictionary = _descriptor(0)
+	var vehicle: VehicleMotion = _replicator.vehicle_for_entity(int(descriptor.id))
+	_actors[1].global_position = _entry_position(vehicle)
+	for action_sequence: int in range(1, 66):
+		var accepted_tick: int = action_sequence * 60
+		var queued: Dictionary = _interaction.enqueue_action(
+			_entry_request(1, descriptor, action_sequence, accepted_tick)
+		)
+		assert_true(queued.ok)
+		assert_eq(_interaction.process_actions(accepted_tick).size(), 1)
+	assert_eq(int(_interaction._highest_admitted_sequence[1]), 65)
+
+	assert_true(_interaction.reset(2))
+	var post_reset: Dictionary = _entry_request(1, descriptor, 66, 4_000)
+	post_reset.match_revision = 2
+	assert_true(_interaction.enqueue_action(post_reset).ok)
+	var resolved: Array[Dictionary] = _interaction.process_actions(4_000)
+	assert_eq(resolved.size(), 1)
+	assert_eq(resolved[0].result.action_sequence, 66)
+	assert_eq(resolved[0].result.status, VehicleInteraction.STATUS_APPLIED)
+
+
 ## Builds production vehicle instances and injected lifecycle collaborators for one case.
 func _configure(participant_ids: Array[int]) -> void:
 	_runtime = Node3D.new()

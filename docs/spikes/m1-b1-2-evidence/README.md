@@ -4,10 +4,11 @@ All commands used the Mise-pinned Godot `4.8.dev7.official.c971f93e7`. Generated
 the checkout. [`validation.json`](validation.json) records the concise machine-readable outcomes.
 
 - `mise exec -- python tools/production_checks.py --output
-  C:/tmp/ft/lanes/m1-b12/production-checks-r3-final4`: every canonical layer passed. Saved-identity,
+  C:/tmp/ft/lanes/m1-b12/production-checks-r4-final2`: every canonical layer passed. Saved-identity,
   owned-script format, zero-warning style and explicit compilation passed; Python passed **62/62**;
-  GUT passed **250/250 tests** with **9,280 assertions**; the isolated diagnostic failure was observed
-  as required.
+  GUT passed **253/253 tests** with **9,432 assertions**; the isolated diagnostic failure was observed
+  as required. The focused regressions prove 65 out-of-range E presses consume no sequence and a
+  sequence above 64 continues after match reset.
 - `mise exec -- python tools/vehicles/run_vehicle_replication.py --output
   C:/tmp/ft/lanes/m1-b12/enet-r3-final2`: every separately bounded host/client ENet process exited
   zero. Each profile first resolved a same-tick claim to the lower participant, rejected the remote
@@ -25,15 +26,18 @@ the checkout. [`validation.json`](validation.json) records the concise machine-r
   correction p95 **0.407036 m**.
 - Adverse (125 ms one-way, ±50 ms jitter, 5% loss): **456** receipts, **142** reconciliations, raw
   correction p95 **0.791865 m**.
+- `mise exec -- python tools/export_builds.py --output C:/tmp/ft/exports/b12-r4` produced and
+  inspected all four standard desktop builds, including
+  `C:/tmp/ft/exports/b12-r4/windows-debug/FunThingsDebug.exe`.
 - `python tools/m1_a_gate/run_exported_acceptance.py --executable
-  C:/tmp/ft/exports/b12-r3/ft-lanes.exe --output
-  C:/tmp/ft/exports/b12-r3-acceptance-final`: the complete exported Windows matrix passed, including
+  C:/tmp/ft/exports/b12-r4/windows-debug/FunThingsDebug.exe --output
+  C:/tmp/ft/exports/b12-r4-acceptance`: the complete exported Windows matrix passed, including
   gameplay death/respawn/reset, direct and delayed sustained input, incompatible protocol, admission
   timeout, host loss, and the vehicle scenario. Both host and client walked into range through saved
   foot input, used physical E viewport presses for entry and exit, produced **600** saved-collector
   drive samples over **10.0 s**, exceeded **128 m** authoritative displacement, exited below 0.5 m/s,
   had zero stale-foot drift, and resumed walking more than **12.7 m**. Host entry confirmation was
-  **284 ms**; client confirmation was **302 ms**.
+  **285 ms**; client confirmation was **319 ms**.
 - The exported E-seam mutation disabled LocalRig interaction collection. It failed with
   `VEHICLE_INTERACTION_SEAM_NOT_OBSERVED`, exactly one attempted E press and a nonzero client exit,
   which the runner accepted only as the required expected failure.

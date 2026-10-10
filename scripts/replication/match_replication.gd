@@ -44,6 +44,8 @@ var _context: Dictionary = {
 	"command_rejections": {},
 }
 var _configured: bool = false
+var _local_vehicle_action_sequence: int = 0
+var _pending_local_vehicle_action_sequence: int = 0
 var _client: Dictionary = {
 	"baseline_installed": false,
 	"grant_received": false,
@@ -302,19 +304,28 @@ func set_local_input_enabled(enabled: bool) -> void:
 	_local_rig().set_interaction_input_enabled(enabled)
 
 
-## Routes one physical interaction intent according to confirmed local occupancy.
-func _on_local_interaction_requested(action_sequence: int) -> void:
-	if not _configured or not bool(_client.local_input_enabled) or action_sequence <= 0:
+## Submits one physical interaction only after selecting an eligible confirmed action.
+func _on_local_interaction_requested() -> void:
+	if (
+		not _configured
+		or not bool(_client.local_input_enabled)
+		or _pending_local_vehicle_action_sequence > 0
+	):
 		return
 	var participant_id: int = int(_context.local_participant_id)
 	if not _lifecycle.is_alive(participant_id):
 		return
+	var action_sequence: int = _local_vehicle_action_sequence + 1
+	var submitted: bool = false
 	if not _vehicle_replicator.binding_for_participant(participant_id).is_empty():
-		request_local_vehicle_exit(action_sequence)
-		return
-	var entity_id: int = _nearest_eligible_vehicle_for_local_player(participant_id)
-	if entity_id > 0:
-		request_local_vehicle_entry(entity_id, action_sequence)
+		submitted = request_local_vehicle_exit(action_sequence)
+	else:
+		var entity_id: int = _nearest_eligible_vehicle_for_local_player(participant_id)
+		if entity_id > 0:
+			submitted = request_local_vehicle_entry(entity_id, action_sequence)
+	if submitted:
+		_local_vehicle_action_sequence = action_sequence
+		_pending_local_vehicle_action_sequence = action_sequence
 
 
 ## Chooses the nearest vacant stopped car with an authored entry socket in range.
@@ -669,6 +680,7 @@ func request_match_reset(requester_participant_id: int) -> bool:
 	var reset_attempts: Array[Dictionary] = _take_reset_attempts(now_msec)
 	_sequence.match_revision = _match_revision() + 1
 	_sequence.durable_revision = 0
+	_pending_local_vehicle_action_sequence = 0
 	_input_authority.clear()
 	_vehicle_interaction.reset(_match_revision())
 	_input_state_by_participant.clear()
@@ -1049,6 +1061,13 @@ func _receive_vehicle_action_result(envelope: Dictionary) -> void:
 		]
 	):
 		return
+	_complete_local_vehicle_action(result)
+
+
+## Clears the matching press gate before publishing its diagnostic action result.
+func _complete_local_vehicle_action(result: Dictionary) -> void:
+	if int(result.get("action_sequence", 0)) == _pending_local_vehicle_action_sequence:
+		_pending_local_vehicle_action_sequence = 0
 	vehicle_action_resolved.emit(result.duplicate(true))
 
 
@@ -1313,6 +1332,7 @@ func _receive_reset_begin(session_id: String, match_revision: int) -> void:
 		return
 
 	_sequence.match_revision = match_revision
+	_pending_local_vehicle_action_sequence = 0
 	_client.baseline_installed = false
 	_client.grant_received = false
 	_client.input_open = false
@@ -2224,7 +2244,7 @@ func _on_vehicle_transaction_committed(
 ## Routes one processed action result back to its sender without installing gameplay state.
 func _on_vehicle_action_resolved(participant_id: int, result: Dictionary) -> void:
 	if participant_id == int(_context.local_participant_id):
-		vehicle_action_resolved.emit(result.duplicate(true))
+		_complete_local_vehicle_action(result)
 		return
 	var native_peer_id: int = int(_peer_by_participant.get(participant_id, 0))
 	if native_peer_id > 0:

@@ -3,7 +3,7 @@ extends Node
 ## Owns local desktop intent, retained player HUD context, and accepted-body camera follow.
 
 signal leave_requested
-signal interaction_requested(action_sequence: int)
+signal interaction_requested
 
 var _client_tick: int = 0
 var _vehicle_tick: int = 0
@@ -11,7 +11,6 @@ var _controlled_actor: ActorMotion
 var _controlled_vehicle: VehicleMotion
 var _actor_control_enabled: bool = false
 var _interaction_input_enabled: bool = true
-var _interaction_action_sequence: int = 0
 
 @onready var _input: DesktopFootInput = $Input as DesktopFootInput
 @onready var _drive_input: DesktopDriveInput = $DriveInput as DesktopDriveInput
@@ -32,7 +31,7 @@ func _exit_tree() -> void:
 	unbind_actor()
 
 
-## Emits one retained interaction sequence after UI has had first opportunity to consume E.
+## Emits one raw interaction press after UI has had first opportunity to consume E.
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed(&"ui_cancel"):
 		get_viewport().set_input_as_handled()
@@ -48,8 +47,7 @@ func _unhandled_input(event: InputEvent) -> void:
 		)
 	):
 		get_viewport().set_input_as_handled()
-		_interaction_action_sequence += 1
-		interaction_requested.emit(_interaction_action_sequence)
+		interaction_requested.emit()
 
 
 ## Samples and applies exactly one standalone authority command per fixed physics tick.
@@ -134,7 +132,7 @@ func set_vehicle_input_enabled(enabled: bool) -> void:
 	)
 
 
-## Enables or disables the physical interaction seam without resetting its sequence fence.
+## Enables or disables the physical interaction seam without owning action sequencing.
 func set_interaction_input_enabled(enabled: bool) -> void:
 	_interaction_input_enabled = enabled
 
