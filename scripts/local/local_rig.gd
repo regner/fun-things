@@ -10,6 +10,7 @@ var _controlled_actor: ActorMotion
 @onready var _input: DesktopFootInput = $Input as DesktopFootInput
 @onready var _camera_anchor: Node3D = $CameraAnchor as Node3D
 @onready var _camera: Camera3D = $CameraAnchor/Camera3D as Camera3D
+@onready var _hud: Hud = get_node("UI/HUD") as Hud
 
 
 ## Starts disabled until the enclosing match coordinator supplies a controlled actor.
@@ -56,6 +57,7 @@ func bind_actor(actor: ActorMotion) -> bool:
 	_client_tick = 0
 	_input.bind_aim(_camera, actor)
 	_input.set_focused(get_window().has_focus())
+	_hud.bind_player(actor)
 	_follow_controlled_actor()
 	set_physics_process(true)
 	return true
@@ -65,9 +67,20 @@ func bind_actor(actor: ActorMotion) -> bool:
 func unbind_actor() -> void:
 	set_physics_process(false)
 	_input.set_focused(false)
+	_hud.unbind_player()
 	if is_instance_valid(_controlled_actor):
 		_controlled_actor.neutralize()
 	_controlled_actor = null
+
+
+## Injects the process session owner into the HUD's read-only presentation seam.
+func bind_session(source: Node) -> bool:
+	return _hud.bind_session(source)
+
+
+## Injects the player lifecycle owner without making LocalRig a lifecycle writer.
+func bind_lifecycle(source: Node) -> bool:
+	return _hud.bind_lifecycle(source)
 
 
 ## Returns the current binding for enclosing coordinators and contract tests.

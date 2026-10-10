@@ -1,0 +1,228 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://scripts/ui/hud.gd" id="1_hud"]
+
+[sub_resource type="StyleBoxFlat" id="StyleHudPanel"]
+content_margin_left = 18.0
+content_margin_top = 12.0
+content_margin_right = 18.0
+content_margin_bottom = 12.0
+bg_color = Color(0.0470588, 0.133333, 0.168627, 0.9)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.270588, 0.380392, 0.419608, 0.9)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="Theme" id="ThemeHud"]
+default_font_size = 18
+Label/colors/font_color = Color(0.964706, 0.945098, 0.862745, 1)
+PanelContainer/styles/panel = SubResource("StyleHudPanel")
+
+[sub_resource type="StyleBoxFlat" id="StyleRespawnPanel"]
+content_margin_left = 26.0
+content_margin_top = 18.0
+content_margin_right = 26.0
+content_margin_bottom = 18.0
+bg_color = Color(0.0627451, 0.184314, 0.227451, 0.96)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(1, 0.447059, 0.364706, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[node name="HUD" type="Control" unique_id=1662778792]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme = SubResource("ThemeHud")
+script = ExtResource("1_hud")
+
+[node name="SessionCard" type="PanelContainer" parent="." unique_id=1713583439]
+unique_name_in_owner = true
+visible = false
+custom_minimum_size = Vector2(270, 0)
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -294.0
+offset_top = 24.0
+offset_right = -24.0
+offset_bottom = 112.0
+grow_horizontal = 0
+mouse_filter = 2
+
+[node name="Content" type="VBoxContainer" parent="SessionCard" unique_id=1420133595]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/separation = 2
+
+[node name="SessionMode" type="Label" parent="SessionCard/Content" unique_id=1001116933]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.447059, 0.364706, 1)
+theme_override_font_sizes/font_size = 14
+text = "SOLO"
+horizontal_alignment = 2
+
+[node name="SessionDetail" type="Label" parent="SessionCard/Content" unique_id=1951443794]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "1 PLAYER"
+horizontal_alignment = 2
+
+[node name="ConnectionQuality" type="Label" parent="SessionCard/Content" unique_id=1072800773]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.752941, 0.352941, 1)
+theme_override_font_sizes/font_size = 13
+text = "GOOD"
+horizontal_alignment = 2
+
+[node name="PlayerCard" type="PanelContainer" parent="." unique_id=1493266164]
+unique_name_in_owner = true
+visible = false
+custom_minimum_size = Vector2(290, 0)
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 24.0
+offset_top = -108.0
+offset_right = 314.0
+offset_bottom = -24.0
+grow_vertical = 0
+mouse_filter = 2
+
+[node name="Content" type="VBoxContainer" parent="PlayerCard" unique_id=694169212]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/separation = 3
+
+[node name="Heading" type="Label" parent="PlayerCard/Content" unique_id=1231228448]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.682353, 0.764706, 0.776471, 1)
+theme_override_font_sizes/font_size = 13
+text = "PLAYER"
+
+[node name="PlayerState" type="Label" parent="PlayerCard/Content" unique_id=1079677011]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "ACTIVE"
+
+[node name="HealthSlot" type="Control" parent="PlayerCard/Content" unique_id=1488167005]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+mouse_filter = 2
+metadata/contract = "M1-B2 health owner supplies this slot; C4.1 displays no placeholder value."
+
+[node name="AmmoSlot" type="Control" parent="PlayerCard/Content" unique_id=496751919]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+mouse_filter = 2
+metadata/contract = "M1-B2 WeaponState supplies this slot; C4.1 displays no placeholder value."
+
+[node name="VehicleSlot" type="Control" parent="PlayerCard/Content" unique_id=34416218]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+mouse_filter = 2
+metadata/contract = "M1-B1 VehicleInteraction supplies this slot after accepted control transfer."
+
+[node name="RespawnSlot" type="PanelContainer" parent="." unique_id=1165839100]
+unique_name_in_owner = true
+visible = false
+custom_minimum_size = Vector2(320, 0)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -160.0
+offset_top = -55.0
+offset_right = 160.0
+offset_bottom = 55.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleRespawnPanel")
+metadata/contract = "PlayerLifecycle supplies respawn_seconds; hidden until a bound owner publishes it."
+
+[node name="Content" type="VBoxContainer" parent="RespawnSlot" unique_id=1873589649]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="Heading" type="Label" parent="RespawnSlot/Content" unique_id=325539494]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.447059, 0.364706, 1)
+theme_override_font_sizes/font_size = 14
+text = "BACK ON YOUR FEET IN"
+horizontal_alignment = 1
+
+[node name="RespawnValue" type="Label" parent="RespawnSlot/Content" unique_id=780522920]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 34
+text = "3.0"
+horizontal_alignment = 1
+
+[node name="ControlsCard" type="PanelContainer" parent="." unique_id=589844941]
+custom_minimum_size = Vector2(540, 0)
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -564.0
+offset_top = -84.0
+offset_right = -24.0
+offset_bottom = -24.0
+grow_horizontal = 0
+grow_vertical = 0
+mouse_filter = 2
+
+[node name="Controls" type="Label" parent="ControlsCard" unique_id=1141489845]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.682353, 0.764706, 0.776471, 1)
+theme_override_font_sizes/font_size = 16
+text = "WASD move  •  Mouse aim  •  Esc return to menu"
+horizontal_alignment = 1
+
+[node name="MinimapSlot" type="Control" parent="." unique_id=1724531016]
+unique_name_in_owner = true
+visible = false
+custom_minimum_size = Vector2(240, 240)
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -264.0
+offset_top = -348.0
+offset_right = -24.0
+offset_bottom = -108.0
+grow_horizontal = 0
+grow_vertical = 0
+mouse_filter = 2
+metadata/contract = "M1-C4.2 mounts the ROAD-derived minimap here; C4.1 draws no map data."

@@ -53,9 +53,12 @@ func test_controls_overlay_ignores_gameplay_mouse_dispatch() -> void:
 	assert_true(rig.bind_actor(actor))
 	rig.set_physics_process(false)
 	var foot_input: DesktopFootInput = rig.get_node("Input") as DesktopFootInput
-	var controls: Label = rig.get_node("UI/Controls") as Label
+	var controls: Label = rig.get_node("UI/HUD/ControlsCard/Controls") as Label
 	foot_input.set_focused(true)
 	assert_eq(controls.mouse_filter, Control.MOUSE_FILTER_IGNORE)
+	assert_eq((rig.get_node("UI/HUD") as Control).mouse_filter, Control.MOUSE_FILTER_IGNORE)
+	for node: Node in rig.get_node("UI/HUD").find_children("*", "Control", true, false):
+		assert_eq((node as Control).mouse_filter, Control.MOUSE_FILTER_IGNORE)
 	var pointer_position: Vector2 = controls.global_position + controls.size * 0.5
 	var initial_yaw: float = foot_input.sample(1).aim_yaw
 	var motion := InputEventMouseMotion.new()
