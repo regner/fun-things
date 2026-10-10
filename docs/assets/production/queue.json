@@ -3377,14 +3377,14 @@
       "input_next_action": "Refine shared design for recorded districts",
       "brief": "[Brief](../../assets/city_harbour_bridge.md)",
       "priority": 0,
-      "status": "queued",
-      "agent_id": null,
-      "source_revision": null,
-      "review_status": "pending",
-      "integration_status": "pending",
+      "status": "production_prefab_accepted",
+      "agent_id": "e94018a9-de66-494a-b162-2394592456dd",
+      "source_revision": "30c65ebb",
+      "review_status": "accepted source/export/prefab scope (independent Sol review)",
+      "integration_status": "accepted",
       "placement_status": "pending",
       "blocker": null,
-      "attempts": 0,
+      "attempts": 1,
       "initial_time_cap_minutes": 120,
       "owned_paths": [
         "art/source/models/environment/city_harbour_bridge_01/",
@@ -3392,8 +3392,20 @@
         "art/textures/environment/city_harbour_bridge_01/",
         "art/materials/environment/city_harbour_bridge_01/",
         "docs/assets/production/city_harbour_bridge_01.md",
-        "docs/assets/production/city_harbour_bridge_01-evidence/"
-      ]
+        "docs/assets/production/city_harbour_bridge_01-evidence/",
+        "tools/asset_production/city_harbour_bridge_01/",
+        "scenes/prefabs/environment/city_harbour_bridge_01.tscn"
+      ],
+      "launch": {
+        "provider": "portkey/gpt-6-astra",
+        "configured_effort": "medium",
+        "mode": "orchestrator asset lane",
+        "lane": "a-hbridge"
+      },
+      "producer_manifest": "docs/assets/production/city_harbour_bridge_01-evidence/manifest.json",
+      "report": "docs/assets/production/city_harbour_bridge_01.md",
+      "reviewer_id": "c7428c1a-9269-4642-a513-8f6d6335a5b0",
+      "integrated_revision": "1dafb375"
     },
     {
       "id": "city_harbour_bridge.02",
@@ -3406,14 +3418,14 @@
       "input_next_action": "Refine shared design for recorded districts",
       "brief": "[Brief](../../assets/city_harbour_bridge.md)",
       "priority": 0,
-      "status": "queued",
-      "agent_id": null,
-      "source_revision": null,
-      "review_status": "pending",
-      "integration_status": "pending",
+      "status": "production_prefab_accepted",
+      "agent_id": "5e476469-c7f9-4290-8f70-d25072f7fd8b",
+      "source_revision": "63d4a3bc",
+      "review_status": "accepted source/export/prefab scope (independent Sol review)",
+      "integration_status": "accepted",
       "placement_status": "pending",
       "blocker": null,
-      "attempts": 0,
+      "attempts": 1,
       "initial_time_cap_minutes": 120,
       "owned_paths": [
         "art/source/models/environment/city_harbour_bridge_02/",
@@ -3421,8 +3433,20 @@
         "art/textures/environment/city_harbour_bridge_02/",
         "art/materials/environment/city_harbour_bridge_02/",
         "docs/assets/production/city_harbour_bridge_02.md",
-        "docs/assets/production/city_harbour_bridge_02-evidence/"
-      ]
+        "docs/assets/production/city_harbour_bridge_02-evidence/",
+        "tools/asset_production/city_harbour_bridge_02/",
+        "scenes/prefabs/environment/city_harbour_bridge_02.tscn"
+      ],
+      "launch": {
+        "provider": "portkey/gpt-6-astra",
+        "configured_effort": "medium",
+        "mode": "orchestrator asset lane",
+        "lane": "a-hbridge"
+      },
+      "producer_manifest": "docs/assets/production/city_harbour_bridge_02-evidence/manifest.json",
+      "report": "docs/assets/production/city_harbour_bridge_02.md",
+      "reviewer_id": "c7428c1a-9269-4642-a513-8f6d6335a5b0",
+      "integrated_revision": "1dafb375"
     },
     {
       "id": "city_harbour_bridge.03",
@@ -3435,14 +3459,14 @@
       "input_next_action": "Refine shared design for recorded districts",
       "brief": "[Brief](../../assets/city_harbour_bridge.md)",
       "priority": 0,
-      "status": "queued",
-      "agent_id": null,
-      "source_revision": null,
-      "review_status": "pending",
-      "integration_status": "pending",
+      "status": "production_prefab_accepted",
+      "agent_id": "acce4c1c-a347-4a6a-9017-9e99c11c621d",
+      "source_revision": "1dafb375",
+      "review_status": "accepted source/export/prefab scope (independent Sol review)",
+      "integration_status": "accepted",
       "placement_status": "pending",
       "blocker": null,
-      "attempts": 0,
+      "attempts": 1,
       "initial_time_cap_minutes": 120,
       "owned_paths": [
         "art/source/models/environment/city_harbour_bridge_03/",
@@ -3450,8 +3474,20 @@
         "art/textures/environment/city_harbour_bridge_03/",
         "art/materials/environment/city_harbour_bridge_03/",
         "docs/assets/production/city_harbour_bridge_03.md",
-        "docs/assets/production/city_harbour_bridge_03-evidence/"
-      ]
+        "docs/assets/production/city_harbour_bridge_03-evidence/",
+        "tools/asset_production/city_harbour_bridge_03/",
+        "scenes/prefabs/environment/city_harbour_bridge_03.tscn"
+      ],
+      "launch": {
+        "provider": "portkey/gpt-6-astra",
+        "configured_effort": "medium",
+        "mode": "orchestrator asset lane",
+        "lane": "a-hbridge"
+      },
+      "producer_manifest": "docs/assets/production/city_harbour_bridge_03-evidence/manifest.json",
+      "report": "docs/assets/production/city_harbour_bridge_03.md",
+      "reviewer_id": "c7428c1a-9269-4642-a513-8f6d6335a5b0",
+      "integrated_revision": "1dafb375"
     },
     {
       "id": "city_lights.03",
