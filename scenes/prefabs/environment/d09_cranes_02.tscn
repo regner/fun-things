@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://b7cw62lvxe8vw"]
+
+[ext_resource type="PackedScene" path="res://art/models/environment/d09_cranes_02/d09_cranes_02.glb" id="1_model"]
+
+[sub_resource type="BoxShape3D" id="Box_plinth"]
+size = Vector3(4.4, 0.65, 4.4)
+
+[sub_resource type="BoxShape3D" id="Box_pedestal"]
+size = Vector3(2.7, 5, 2.7)
+
+[node name="D09Cranes02" type="Node3D" unique_id=136181837]
+
+[node name="Visuals" type="Node3D" parent="." unique_id=1076409506]
+
+[node name="Model" parent="Visuals" unique_id=1930801016 instance=ExtResource("1_model")]
+
+[node name="Collision" type="Node3D" parent="." unique_id=1561909903]
+
+[node name="PedestalBody" type="StaticBody3D" parent="Collision" unique_id=254162042]
+collision_mask = 0
+
+[node name="Plinth" type="CollisionShape3D" parent="Collision/PedestalBody" unique_id=1551190109]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.325, 0)
+shape = SubResource("Box_plinth")
+
+[node name="Pedestal" type="CollisionShape3D" parent="Collision/PedestalBody" unique_id=311296231]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.15, 0)
+shape = SubResource("Box_pedestal")

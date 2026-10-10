@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://ebj1qsyblocp"]
+
+[ext_resource type="PackedScene" path="res://scenes/prefabs/environment/d09_cranes_02.tscn" id="1_crane"]
+[ext_resource type="Script" path="res://scripts/actors/actor_motion.gd" id="2_motion"]
+
+[sub_resource type="BoxShape3D" id="Box_floor"]
+size = Vector3(30, 0.2, 45)
+
+[sub_resource type="CapsuleShape3D" id="Capsule_actor"]
+radius = 0.35
+height = 1.8
+
+[node name="CraneCheck" type="Node3D" unique_id=738642949]
+
+[node name="Crane" parent="." unique_id=53810780 instance=ExtResource("1_crane")]
+
+[node name="Floor" type="StaticBody3D" parent="." unique_id=1901718323]
+collision_mask = 0
+
+[node name="Shape" type="CollisionShape3D" parent="Floor" unique_id=1536591651]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.1, 0)
+shape = SubResource("Box_floor")
+
+[node name="Actor" type="CharacterBody3D" parent="." unique_id=1740382889]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.001, -6)
+collision_layer = 2
+script = ExtResource("2_motion")
+
+[node name="Capsule" type="CollisionShape3D" parent="Actor" unique_id=345643921]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0)
+shape = SubResource("Capsule_actor")

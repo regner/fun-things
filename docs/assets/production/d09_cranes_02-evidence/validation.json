@@ -1,0 +1,282 @@
+{
+  "asset": "d09_cranes.02",
+  "blender": "5.2.2 LTS",
+  "blender_build": "d13f752e3b9c",
+  "bounds_tolerance_m": 0.001,
+  "degenerate_faces": 0.0,
+  "degenerate_triangles": 0.0,
+  "export_normal_max_length_error": 1.29395621772943e-07,
+  "export_vertices": 5882.0,
+  "exporter": "5.2.40",
+  "fresh_export_byte_identical": true,
+  "glb_bytes": 244456.0,
+  "glb_sha256": "386c3dae850b6d6c1d1fee5c13c5720c74951d75ac5631afd2c1125c2ba19573",
+  "godot": {
+    "bounds_min_m": [
+      -2.20000004768372,
+      0.0,
+      -11.8138628005981
+    ],
+    "bounds_size_m": [
+      4.40000009536743,
+      13.5177135467529,
+      15.82386302948
+    ],
+    "engine": "4.8-dev7 (official)",
+    "linked_model_identity": true,
+    "physics": {
+      "actor_capsule_height_m": 1.8,
+      "actor_capsule_radius_m": 0.35,
+      "authority_replay_equal": true,
+      "base_and_tower_rays_blocked": true,
+      "bypass_end_m": [
+        3.0,
+        0.00100000004749745,
+        4.00000095367432
+      ],
+      "contact_stop_m": [
+        0.0,
+        0.00100000004749745,
+        -2.55077910423279
+      ],
+      "overhead_ray_clear": true,
+      "ticks_per_case_per_mode": 120,
+      "vehicle_network_transport_and_placement": "not tested"
+    },
+    "resource_uids": {
+      "res://art/models/environment/d09_cranes_02/d09_cranes_02.glb": "uid://ircwqtm6e6cf",
+      "res://scenes/prefabs/environment/d09_cranes_02.tscn": "uid://b7cw62lvxe8vw",
+      "res://scripts/actors/actor_motion.gd": "uid://jthmfio4c27p",
+      "res://tools/asset_production/d09_cranes_02/check_scene.tscn": "uid://ebj1qsyblocp"
+    },
+    "save_reload_byte_stable": true,
+    "static_collision": {
+      "bodies": 1,
+      "boxes": 2,
+      "layer": 1,
+      "mask": 0
+    }
+  },
+  "godot_bounds_max_m": [
+    2.20000004768372,
+    13.5177135467529,
+    4.00999975204468
+  ],
+  "godot_bounds_min_m": [
+    -2.20000004768372,
+    0.0,
+    -11.8138628005981
+  ],
+  "godot_dimensions_m": [
+    4.40000009536743,
+    13.5177135467529,
+    15.8238625526428
+  ],
+  "materials": [
+    {
+      "name": "crane_support_petrol",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.025000000372529,
+          0.0750000029802322,
+          0.0900000035762787,
+          1.0
+        ],
+        "metallicFactor": 0.449999988079071,
+        "roughnessFactor": 0.46000000834465
+      }
+    },
+    {
+      "name": "crane_joint_slate",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.115000002086163,
+          0.165000006556511,
+          0.185000002384186,
+          1.0
+        ],
+        "metallicFactor": 0.550000011920929,
+        "roughnessFactor": 0.400000005960464
+      }
+    },
+    {
+      "name": "crane_working_amber",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          1.0,
+          0.52700001001358,
+          0.101999998092651,
+          1.0
+        ],
+        "metallicFactor": 0.119999997317791,
+        "roughnessFactor": 0.419999986886978
+      }
+    },
+    {
+      "name": "crane_cab_glazing",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.0260000005364418,
+          0.129999995231628,
+          0.170000001788139,
+          1.0
+        ],
+        "metallicFactor": 0.25,
+        "roughnessFactor": 0.230000004172325
+      }
+    },
+    {
+      "name": "crane_safety_ivory",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.9200000166893,
+          0.879999995231628,
+          0.709999978542328,
+          1.0
+        ],
+        "metallicFactor": 0.0500000007450581,
+        "roughnessFactor": 0.479999989271164
+      }
+    }
+  ],
+  "mesh_count": 1.0,
+  "nonmanifold_edges": 0.0,
+  "pivot_m": [
+    0.0,
+    0.0,
+    0.0
+  ],
+  "shell_intersections": "Deliberately seated closed hardware shells, not a watertight Boolean union",
+  "source_export_status": "passed",
+  "source_faces": 4098.0,
+  "source_normal_max_length_error": 1.56047475163845e-07,
+  "source_vertices": 4408.0,
+  "summed_closed_shell_volume_m3": 113.381241759689,
+  "surface_count": 5.0,
+  "triangles": 8528.0,
+  "production_checks": {
+    "ok": true,
+    "results": {
+      "engine": {
+        "ok": true,
+        "version": "4.8.dev7.official.c971f93e7"
+      },
+      "gut_pin": {
+        "ok": true,
+        "version": "9.7.1"
+      },
+      "owned_scripts": {
+        "ok": true,
+        "returncode": 0
+      },
+      "python_tests": {
+        "ok": true,
+        "returncode": 0
+      },
+      "gut_import": {
+        "ok": true,
+        "returncode": 0
+      },
+      "gut_tests": {
+        "ok": true,
+        "returncode": 0
+      },
+      "gut_negative": {
+        "ok": true,
+        "observed_returncode": 1
+      }
+    },
+    "python_tests": 17,
+    "gut_tests": 149,
+    "gut_assertions": 6768
+  },
+  "renders": [
+    {
+      "path": "hero.png",
+      "pixels": [
+        1280,
+        720
+      ],
+      "bytes": 281071
+    },
+    {
+      "path": "side.png",
+      "pixels": [
+        1280,
+        720
+      ],
+      "bytes": 243756
+    },
+    {
+      "path": "detail.png",
+      "pixels": [
+        1280,
+        720
+      ],
+      "bytes": 333257
+    },
+    {
+      "path": "overhead_47m_42deg.png",
+      "pixels": [
+        1280,
+        720
+      ],
+      "bytes": 309313
+    }
+  ],
+  "render_encoding": "RGB, 6 significant bits/channel; PNG compression 9",
+  "overhead_camera": {
+    "renderer": "Blender Cycles CPU, 32 samples, AgX; isolated studio",
+    "blender_position_m": [
+      0,
+      6.7,
+      47
+    ],
+    "rotation_radians": [
+      0,
+      0,
+      0
+    ],
+    "vertical_fov_degrees": 42,
+    "north_up": true,
+    "pair_comparison": {
+      "larger_blender_translation_m": [
+        -12,
+        0,
+        0
+      ],
+      "smaller_blender_translation_m": [
+        12,
+        0,
+        0
+      ],
+      "rotation_radians_both": [
+        0,
+        0,
+        0
+      ],
+      "scale_both": [
+        1,
+        1,
+        1
+      ],
+      "base_centres_separation_m": 24,
+      "clear_ground_apron_between_plinths_m": 19,
+      "status": "Isolated illustrative pair; not measured district placement acceptance"
+    }
+  },
+  "diagnostics": [
+    "Blender 5.2.2 emits forward-looking Material/World.use_nodes deprecation notices.",
+    "Headless import emits the existing MCP toolkit 4.8-vs-tested-4.7 warning.",
+    "Production checks use explicit mise-pinned Godot/gdstyle paths and UTF-8, following the larger sibling's recorded Windows shim workaround; all layers pass.",
+    "The four final renders were visually inspected. Overhead was changed from the single crane to an equal-camera pair comparison using the unchanged larger source."
+  ],
+  "pending": [
+    "Independent art/technical acceptance",
+    "Actual engine-camera appearance and occlusion",
+    "Whole-city pair readability and actor-centred boom occlusion",
+    "Land-only base placement, over-water boom orientation and generous apron spacing",
+    "Vehicle driving/turning; multiplayer transport/admission/prediction",
+    "Packaged-platform, Deck and repeated-placement GPU/frame-time performance"
+  ]
+}
