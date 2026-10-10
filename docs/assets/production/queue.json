@@ -7600,14 +7600,14 @@
       "input_next_action": "Refine design from district asset breakdown",
       "brief": "[Brief](../../assets/d09_warehouses.md)",
       "priority": 0,
-      "status": "queued",
-      "agent_id": null,
-      "source_revision": null,
-      "review_status": "pending",
-      "integration_status": "pending",
+      "status": "production_prefab_accepted",
+      "agent_id": "ddb2b141-d26b-4f91-ab35-737bcc13d9d4",
+      "source_revision": "4b8785d9",
+      "review_status": "accepted source/export/prefab scope (independent Sol review)",
+      "integration_status": "accepted",
       "placement_status": "pending",
       "blocker": null,
-      "attempts": 0,
+      "attempts": 1,
       "initial_time_cap_minutes": 120,
       "owned_paths": [
         "art/source/models/environment/d09_warehouses_01/",
@@ -7615,8 +7615,20 @@
         "art/textures/environment/d09_warehouses_01/",
         "art/materials/environment/d09_warehouses_01/",
         "docs/assets/production/d09_warehouses_01.md",
-        "docs/assets/production/d09_warehouses_01-evidence/"
-      ]
+        "docs/assets/production/d09_warehouses_01-evidence/",
+        "tools/asset_production/d09_warehouses_01/",
+        "scenes/prefabs/environment/d09_warehouses_01.tscn"
+      ],
+      "launch": {
+        "provider": "portkey/gpt-6-astra",
+        "configured_effort": "medium",
+        "mode": "orchestrator asset lane",
+        "lane": "a-whouse"
+      },
+      "producer_manifest": "docs/assets/production/d09_warehouses_01-evidence/manifest.json",
+      "report": "docs/assets/production/d09_warehouses_01.md",
+      "reviewer_id": "c96188ff-dccc-4f9d-9d54-2d275e03a898",
+      "integrated_revision": "4b8785d9"
     },
     {
       "id": "d09_warehouses.02",
@@ -7629,14 +7641,14 @@
       "input_next_action": "Refine design from district asset breakdown",
       "brief": "[Brief](../../assets/d09_warehouses.md)",
       "priority": 0,
-      "status": "queued",
-      "agent_id": null,
-      "source_revision": null,
-      "review_status": "pending",
-      "integration_status": "pending",
+      "status": "production_prefab_accepted",
+      "agent_id": "16e8b3a9-f7da-4b36-86bc-823e50051378",
+      "source_revision": "045ad47a",
+      "review_status": "accepted source/export/prefab scope (independent Sol review)",
+      "integration_status": "accepted",
       "placement_status": "pending",
       "blocker": null,
-      "attempts": 0,
+      "attempts": 1,
       "initial_time_cap_minutes": 120,
       "owned_paths": [
         "art/source/models/environment/d09_warehouses_02/",
@@ -7644,8 +7656,20 @@
         "art/textures/environment/d09_warehouses_02/",
         "art/materials/environment/d09_warehouses_02/",
         "docs/assets/production/d09_warehouses_02.md",
-        "docs/assets/production/d09_warehouses_02-evidence/"
-      ]
+        "docs/assets/production/d09_warehouses_02-evidence/",
+        "tools/asset_production/d09_warehouses_02/",
+        "scenes/prefabs/environment/d09_warehouses_02.tscn"
+      ],
+      "launch": {
+        "provider": "portkey/gpt-6-astra",
+        "configured_effort": "medium",
+        "mode": "orchestrator asset lane",
+        "lane": "a-whouse"
+      },
+      "producer_manifest": "docs/assets/production/d09_warehouses_02-evidence/manifest.json",
+      "report": "docs/assets/production/d09_warehouses_02.md",
+      "reviewer_id": "c96188ff-dccc-4f9d-9d54-2d275e03a898",
+      "integrated_revision": "4b8785d9"
     },
     {
       "id": "d09_warehouses.03",
@@ -7658,14 +7682,14 @@
       "input_next_action": "Refine design from district asset breakdown",
       "brief": "[Brief](../../assets/d09_warehouses.md)",
       "priority": 0,
-      "status": "queued",
-      "agent_id": null,
-      "source_revision": null,
-      "review_status": "pending",
-      "integration_status": "pending",
+      "status": "production_prefab_accepted",
+      "agent_id": "82cbfbc4-1212-422d-ad80-6ff1747be896",
+      "source_revision": "50bf6ac7",
+      "review_status": "accepted source/export/prefab scope (independent Sol review)",
+      "integration_status": "accepted",
       "placement_status": "pending",
       "blocker": null,
-      "attempts": 0,
+      "attempts": 1,
       "initial_time_cap_minutes": 120,
       "owned_paths": [
         "art/source/models/environment/d09_warehouses_03/",
@@ -7673,8 +7697,20 @@
         "art/textures/environment/d09_warehouses_03/",
         "art/materials/environment/d09_warehouses_03/",
         "docs/assets/production/d09_warehouses_03.md",
-        "docs/assets/production/d09_warehouses_03-evidence/"
-      ]
+        "docs/assets/production/d09_warehouses_03-evidence/",
+        "tools/asset_production/d09_warehouses_03/",
+        "scenes/prefabs/environment/d09_warehouses_03.tscn"
+      ],
+      "launch": {
+        "provider": "portkey/gpt-6-astra",
+        "configured_effort": "medium",
+        "mode": "orchestrator asset lane",
+        "lane": "a-whouse"
+      },
+      "producer_manifest": "docs/assets/production/d09_warehouses_03-evidence/manifest.json",
+      "report": "docs/assets/production/d09_warehouses_03.md",
+      "reviewer_id": "c96188ff-dccc-4f9d-9d54-2d275e03a898",
+      "integrated_revision": "4b8785d9"
     },
     {
       "id": "d09_cranes.01",
