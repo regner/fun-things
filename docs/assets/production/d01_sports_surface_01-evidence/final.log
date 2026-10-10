@@ -1,0 +1,38 @@
+FINAL ASSET RECEIPT: d01_sports_surface.01
+Original Blender geometry + Pillow 12.3.0 artwork. No external fonts/models/images.
+Blender author and validator: exit 0, 5.2.2 LTS / exporter 5.2.40.
+516 source/export vertices, 516 triangles, one mesh, one surface.
+Zero degenerate faces/triangles; unit upward normals; identity transforms and UVs pass.
+516 justified boundary edges in two closed 258-edge loops; zero other non-manifold edges.
+Fresh saved-source GLB and original PIL PNG reproduction: byte-identical.
+Seven boundary pixel runs, six numeral regions, south-only finish, quiet fill: PASS.
+Four 1280x720 evidence renders inspected, all below 400 KiB.
+Python syntax compilation and final owned GDScript format/zero-warning lint: exit 0.
+Initial lint annotation syntax corrected to the pinned gdstyle ignore directive.
+Initial Pillow getdata deprecation removed before final artwork check.
+Initial checker compared CLI version text with Engine display string; corrected to
+check display version and c971f93e7 commit separately. No asset defect concealed.
+Headless editor normalization: exit 0; two byte-stable prefab/material roundtrips.
+Registered scene/material/model UIDs match both fresh runtime checks.
+Final headless import: exit 0, no ERROR/SCRIPT ERROR lines.
+Two fresh runtime checks: exit 0, no ERROR/SCRIPT ERROR lines, identical receipts.
+Prefab retains identity Visuals/Model, external material, no copied mesh or collision.
+No production_checks.py; no live owner session, world placement or gameplay modification.
+Editor shutdown diagnostics retained below; not a clean editor-log claim.
+
+WARNING: [MCP] Godot 4.8 detected - latest tested version is 4.7.0. The plugin will run normally but some features may behave unexpectedly. Please report issues at https://github.com/NPGameDev/godot-mcp-toolkit/issues
+WARNING: 'res://art/models/environment/d01_sports_surface_01/d01_sports_surface_01.glb': In external resource #0, invalid UID: 'uid://c0kcm442j3tw1' - using text path instead: 'res://art/materials/environment/d01_sports_surface_01/oval_track.tres'.
+WARNING: 'res://art/models/environment/d01_sports_surface_01/d01_sports_surface_01.glb': In external resource #0, invalid UID: 'uid://c0kcm442j3tw1' - using text path instead: 'res://art/materials/environment/d01_sports_surface_01/oval_track.tres'.
+WARNING: Scan thread aborted...
+ERROR: 5 RID allocations of type 'N16RendererViewport8ViewportE' were leaked at exit.
+ERROR: 8 RID allocations of type 'PN13RendererDummy14TextureStorage12DummyTextureE' were leaked at exit.
+ERROR: 1 RID allocations of type 'N17RendererSceneCull8ScenarioE' were leaked at exit.
+ERROR: 52 RID allocations of type 'PN18TextServerAdvanced22ShapedTextDataAdvancedE' were leaked at exit.
+ERROR: 1 RID allocations of type 'PN18TextServerAdvanced12FontAdvancedE' were leaked at exit.
+WARNING: 5 RIDs of type "Canvas" were leaked.
+WARNING: 31 RIDs of type "CanvasItem" were leaked.
+WARNING: 168 ObjectDB instances were leaked at exit (run with `--verbose` for details).
+
+1 file already formatted.
+
+✓ 1 file checked, no issues found.

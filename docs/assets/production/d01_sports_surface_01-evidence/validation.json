@@ -1,0 +1,270 @@
+{
+  "asset_id": "d01_sports_surface.01",
+  "blender": "5.2.2 LTS",
+  "blender_build": "d13f752e3b9c",
+  "gltf_exporter": "5.2.40",
+  "source_vertices": 516,
+  "glb_vertices": 516,
+  "triangles": 516,
+  "mesh_count": 1,
+  "surface_count": 1,
+  "degenerate_faces": 0,
+  "degenerate_triangles": 0,
+  "unit_normals": true,
+  "upward_winding": true,
+  "non_manifold_edges": 516,
+  "boundary_loop_sizes": [
+    258,
+    258
+  ],
+  "non_boundary_non_manifold_edges": 0,
+  "boundary_justification": "Two intentional open perimeters on a flush, single-sided decal; no sidewalls or deck. World terrain owns all walk/drive collision.",
+  "aabb_min_godot": [
+    -40.0,
+    0.014999999664723873,
+    -22.5
+  ],
+  "aabb_max_godot": [
+    40.0,
+    0.014999999664723873,
+    22.5
+  ],
+  "dimensions_godot_metres": [
+    80,
+    0,
+    45
+  ],
+  "pivot": [
+    0,
+    0,
+    0
+  ],
+  "visual_surface_y": 0.015,
+  "ground_datum_y": 0,
+  "infield_opening_metres": [
+    66.8,
+    31.8
+  ],
+  "uv_axis": "U east/+X, image V south/+Z",
+  "embedded_images": 0,
+  "source_texture_relative_and_unpacked": true,
+  "material": {
+    "name": "oval_track",
+    "roughness": 0.94,
+    "metallic": 0,
+    "opaque": true
+  },
+  "texture_sha256": "9dd59aa09d557ccae25adcb194ef9fd4a50d080a8fdf31e6ed6be05b710b18f9",
+  "glb_bytes": 20880,
+  "glb_sha256": "6b05673596b4af2f4591a3cac8c1371dd4e4d3c67149d1e6e3ed0903a7f856e8",
+  "fresh_reexport_byte_identical": true,
+  "source_status": "PASS",
+  "artwork": {
+    "ok": true,
+    "dimensions": [
+      4096,
+      2304
+    ],
+    "mode": "RGB",
+    "seven_lane_boundaries": [
+      [
+        1969,
+        1975
+      ],
+      [
+        2023,
+        2029
+      ],
+      [
+        2078,
+        2083
+      ],
+      [
+        2132,
+        2138
+      ],
+      [
+        2186,
+        2192
+      ],
+      [
+        2241,
+        2246
+      ],
+      [
+        2295,
+        2300
+      ]
+    ],
+    "boundary_spacing_pixels": [
+      54.0,
+      54.5,
+      54.5,
+      54.0,
+      54.5,
+      54.0
+    ],
+    "six_numeral_regions_have_paint": true,
+    "south_only_finish": true,
+    "quiet_fill_rgb": [
+      171,
+      115,
+      95
+    ],
+    "byte_identical_reproduction": true,
+    "png_bytes": 724108,
+    "png_sha256": "9dd59aa09d557ccae25adcb194ef9fd4a50d080a8fdf31e6ed6be05b710b18f9"
+  },
+  "engine": {
+    "aabb_min": [
+      -40.0,
+      0.0149999996647239,
+      -22.5
+    ],
+    "aabb_size": [
+      80.0,
+      9.99999974737875e-06,
+      45.0
+    ],
+    "collision_objects": 0,
+    "d01_sports_surface_01.glb_uid": "uid://dsk7xsmmjmmgj",
+    "d01_sports_surface_01.tscn_uid": "uid://ssn87yoyp155",
+    "engine": "4.8-dev7 (official)",
+    "engine_hash": "c971f93e7e76b0ef919bf6009e7b868bea04db7f",
+    "external_material": "res://art/materials/environment/d01_sports_surface_01/oval_track.tres",
+    "failures": [],
+    "linked_identity_model": true,
+    "material_overrides": 0,
+    "mesh_count": 1,
+    "mipmaps": true,
+    "ok": true,
+    "oval_track.tres_uid": "uid://c0kcm442j3tw1",
+    "surface_count": 1,
+    "texture_image_bytes_including_mips": 37748721,
+    "texture_image_format": 4,
+    "texture_size": [
+      4096,
+      2304
+    ]
+  },
+  "roundtrip": {
+    "aabb_min": [
+      -40.0,
+      0.0149999996647239,
+      -22.5
+    ],
+    "aabb_size": [
+      80.0,
+      9.99999974737875e-06,
+      45.0
+    ],
+    "collision_objects": 0,
+    "d01_sports_surface_01.glb_uid": "uid://dsk7xsmmjmmgj",
+    "d01_sports_surface_01.tscn_uid": "uid://ssn87yoyp155",
+    "engine": "4.8-dev7 (official)",
+    "engine_hash": "c971f93e7e76b0ef919bf6009e7b868bea04db7f",
+    "external_material": "res://art/materials/environment/d01_sports_surface_01/oval_track.tres",
+    "failures": [],
+    "linked_identity_model": true,
+    "material_overrides": 0,
+    "mesh_count": 1,
+    "mipmaps": true,
+    "ok": true,
+    "oval_track.tres_uid": "uid://c0kcm442j3tw1",
+    "roundtrip_1_byte_stable": true,
+    "roundtrip_2_byte_stable": true,
+    "surface_count": 1,
+    "texture_image_bytes_including_mips": 37748721,
+    "texture_image_format": 4,
+    "texture_size": [
+      4096,
+      2304
+    ]
+  },
+  "second_runtime_process_exact_match": true,
+  "checks": {
+    "final_import_error_lines": [],
+    "runtime_error_lines": [],
+    "gdstyle_format": "PASS",
+    "gdstyle_lint": "PASS: zero warnings",
+    "python_compile": "PASS",
+    "production_checks_run": false,
+    "headless_editor_normalization_exit": 0,
+    "headless_editor_normalization_diagnostics": [
+      "WARNING: [MCP] Godot 4.8 detected - latest tested version is 4.7.0. The plugin will run normally but some features may behave unexpectedly. Please report issues at https://github.com/NPGameDev/godot-mcp-toolkit/issues",
+      "WARNING: 'res://art/models/environment/d01_sports_surface_01/d01_sports_surface_01.glb': In external resource #0, invalid UID: 'uid://c0kcm442j3tw1' - using text path instead: 'res://art/materials/environment/d01_sports_surface_01/oval_track.tres'.",
+      "WARNING: 'res://art/models/environment/d01_sports_surface_01/d01_sports_surface_01.glb': In external resource #0, invalid UID: 'uid://c0kcm442j3tw1' - using text path instead: 'res://art/materials/environment/d01_sports_surface_01/oval_track.tres'.",
+      "WARNING: Scan thread aborted...",
+      "ERROR: 5 RID allocations of type 'N16RendererViewport8ViewportE' were leaked at exit.",
+      "ERROR: 8 RID allocations of type 'PN13RendererDummy14TextureStorage12DummyTextureE' were leaked at exit.",
+      "ERROR: 1 RID allocations of type 'N17RendererSceneCull8ScenarioE' were leaked at exit.",
+      "ERROR: 52 RID allocations of type 'PN18TextServerAdvanced22ShapedTextDataAdvancedE' were leaked at exit.",
+      "ERROR: 1 RID allocations of type 'PN18TextServerAdvanced12FontAdvancedE' were leaked at exit.",
+      "WARNING: 5 RIDs of type \"Canvas\" were leaked.",
+      "WARNING: 31 RIDs of type \"CanvasItem\" were leaked.",
+      "WARNING: 168 ObjectDB instances were leaked at exit (run with `--verbose` for details)."
+    ],
+    "normalization_disposition": "Byte-stable scene/material passes and matching UIDs; plugin version warning, scan abort and RID/ObjectDB shutdown leaks remain. Not a clean editor-log claim."
+  },
+  "visual_review": {
+    "renders_inspected": [
+      {
+        "file": "hero.png",
+        "size": [
+          1280,
+          720
+        ],
+        "bytes": 254706
+      },
+      {
+        "file": "side.png",
+        "size": [
+          1280,
+          720
+        ],
+        "bytes": 167897
+      },
+      {
+        "file": "finish_detail.png",
+        "size": [
+          1280,
+          720
+        ],
+        "bytes": 327645
+      },
+      {
+        "file": "overhead_47m_42deg.png",
+        "size": [
+          1280,
+          720
+        ],
+        "bytes": 202481
+      }
+    ],
+    "observation": "Quiet warm oval, six continuous lanes, one south finish and six readable numbers. Smooth curves and large open infield; no extra equipment or field geometry.",
+    "renderer": "Isolated Blender Cycles CPU, 24 samples, AgX, RGB8 PNG compression 95",
+    "camera": {
+      "blender_position": [
+        9,
+        -18,
+        47
+      ],
+      "rotation_radians": [
+        0,
+        0,
+        0
+      ],
+      "vertical_fov_degrees": 42,
+      "projection": "perspective",
+      "framing": "South finish/curve crop, not the entire 80 x 45 m oval"
+    },
+    "studio_ground": "Unexported plain quiet-green context only, not a delivered field",
+    "godot_visual_acceptance": false
+  },
+  "remaining_acceptance": [
+    "Independent technical/art review and provisional dimensions/lane-count acceptance",
+    "Saved world plot/terrain/perimeter placement and actual foot/car contacts",
+    "Populated Godot lighting, moving-camera mip/depth/actor-contrast review",
+    "LOD, packaging, world multiplayer integration and sustained Deck/performance checks"
+  ]
+}
