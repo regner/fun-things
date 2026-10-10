@@ -1,0 +1,23 @@
+city_waste.02 — final bounded production receipt
+Blender 5.2.2 LTS / d13f752e3b9c / glTF exporter 5.2.40.
+All Blender calls: isolated factory-startup CLI, four threads, audio environment disabled, timeout <=600s.
+Author/export, four-view render, fresh-process export and binary/source validation: exit 0.
+Source: 1552 vertices, 3052 triangles, 1 mesh, 4 surfaces.
+GLB: 1908 vertices, 83440 bytes; fresh export byte-identical.
+SHA256: 642848a43fbea37a1d5cefda46886e255c25185a1097b7c8d4ca4dd4b904d1c7
+Zero degenerate faces and nonmanifold edges; unit normals and winding pass.
+Godot AABB: (-.315,0,-.330) to (.315,1.100,.410) metres; ground pivot identity.
+Godot 4.8.dev7.official.c971f93e7; pinned headless import: exit 0.
+Prefab/fixture normalization: exit 0; two saves byte-stable, dependency/UID/bounds/material checks pass.
+Runtime load/physics: exit 0; no ERROR/WARNING/SCRIPT ERROR diagnostics.
+ActorMotion authority/replay match: rear Z .760065019, side X .670064986,
+front Z -.680064976, bypass Z -2.999999762. Body ray blocked; above-lid ray clear.
+gdstyle: 1 file checked, no issues found.
+Production suite: all layers pass, 14 Python tests, 86 GUT tests, 2178 assertions.
+Expected-failure diagnostic fixture detected correctly; no waivers used.
+Four final isolated 1280x720 renders visually inspected; quiet overhead silhouette.
+Known diagnostics: Blender use_nodes deprecation; editor plugin 4.7 compatibility warning;
+normalization editor shutdown reports renderer/text RID and ObjectDB leaks.
+Production readiness is bounded: independent review, world placement, car contact,
+real-process network checks, packaged/Deck evidence and repeat-placement performance remain pending.
+Full scratch command logs: C:/tmp/ft/assets/city_waste_02/ (not committed).
