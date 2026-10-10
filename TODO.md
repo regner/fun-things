@@ -29,7 +29,10 @@ recommendations and do not block P1.
   host/join (pre-RPC SceneMultiplayer authentication, bounded cleanup, real-process matrix) are
   done. Remaining: carry the S06 whole-UI direction into the authored menus.
 - [ ] **M1-A2 — Implement player simulation, presentation and replication.** A2.1 (the shared
-  `FootCommand` and production `ActorMotion` on the Coral Courier player) is done. Use decision 19's
+  `FootCommand` and production `ActorMotion` on the Coral Courier player) is done. A2.2's replication
+  core (`scripts/replication/`: identity, the measured 16-byte codec with decision 51's 2 cm island
+  range, baseline/journal admission, durable/subset state apply, real-process ENet proof) is done;
+  its Match/Boot wiring follows A2.5. Use decision 19's
   ordered, distance-bounded held-input queue and decision 20's tunable short
   extrapolate→hold→smooth remote-motion policy; present the delivered Coral Courier under the
   47 m / 42° camera in the Brackett greybox; include drawable remote-continuity acceptance from
