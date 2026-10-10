@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://b4a0j385hgex5"]
+
+[ext_resource type="PackedScene" uid="uid://dldr2v0kyb1j8" path="res://art/models/environment/d08_workshop_buildings_01/d08_workshop_buildings_01.glb" id="1_model"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_shed"]
+size = Vector3(10, 4, 12)
+
+[node name="D08WorkshopBuildings01" type="Node3D" unique_id=1516045846]
+
+[node name="Visuals" type="Node3D" parent="." unique_id=1205430131]
+
+[node name="Model" type="Node3D" parent="Visuals" unique_id=942293881 instance=ExtResource("1_model")]
+
+[node name="Collision" type="Node3D" parent="." unique_id=354935639]
+
+[node name="Body" type="StaticBody3D" parent="Collision" unique_id=1916354685]
+collision_mask = 0
+
+[node name="ShedSolid" type="CollisionShape3D" parent="Collision/Body" unique_id=365493374]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+shape = SubResource("BoxShape3D_shed")

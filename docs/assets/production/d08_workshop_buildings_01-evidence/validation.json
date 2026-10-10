@@ -1,0 +1,384 @@
+{
+  "asset_id": "d08_workshop_buildings.01",
+  "blender": "5.2.2 LTS",
+  "build_hash": "d13f752e3b9c",
+  "exporter": "5.2.40",
+  "source_vertices": 7918,
+  "export_vertices": 9678,
+  "triangles": 14932,
+  "mesh_count": 1,
+  "surface_count": 8,
+  "nonmanifold_edges": 0,
+  "degenerate_source_faces": 0,
+  "degenerate_export_triangles": 0,
+  "unit_source_and_export_normals": true,
+  "positive_triangle_normal_alignment": true,
+  "source_bounds": {
+    "min": [
+      -5.349999904632568,
+      -6.349999904632568,
+      0.0
+    ],
+    "max": [
+      5.349999904632568,
+      6.349999904632568,
+      5.880000114440918
+    ]
+  },
+  "godot_bounds": {
+    "min": [
+      -5.349999904632568,
+      0.0,
+      -6.349999904632568
+    ],
+    "max": [
+      5.349999904632568,
+      5.880000114440918,
+      6.349999904632568
+    ]
+  },
+  "godot_dimensions_m": [
+    10.699999809265137,
+    5.880000114440918,
+    12.699999809265137
+  ],
+  "provisional_structural_footprint_m": [
+    10,
+    12
+  ],
+  "ground_pivot": [
+    0,
+    0,
+    0
+  ],
+  "dimension_tolerance_m": 0.001,
+  "axis_mapping_tolerance_m": 1e-05,
+  "base_rear_wall_and_closed_shutter_material_rays": true,
+  "materials": [
+    {
+      "name": "ironreach_worn_brick",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.22322796285152435,
+          0.11697066575288773,
+          0.07618538290262222,
+          1
+        ],
+        "metallicFactor": 0,
+        "roughnessFactor": 0.8799999952316284
+      }
+    },
+    {
+      "name": "ironreach_faded_petrol",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.12213877588510513,
+          0.20507873594760895,
+          0.19806931912899017,
+          1
+        ],
+        "metallicFactor": 0.05000000074505806,
+        "roughnessFactor": 0.7599999904632568
+      }
+    },
+    {
+      "name": "ironreach_pale_band",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.5647115111351013,
+          0.5394794940948486,
+          0.4125426113605499,
+          1
+        ],
+        "metallicFactor": 0,
+        "roughnessFactor": 0.7200000286102295
+      }
+    },
+    {
+      "name": "ironreach_local_rust",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.38642942905426025,
+          0.13013647496700287,
+          0.04817182570695877,
+          1
+        ],
+        "metallicFactor": 0,
+        "roughnessFactor": 0.8999999761581421
+      }
+    },
+    {
+      "name": "ironreach_dark_recess",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.014443843625485897,
+          0.03688944876194,
+          0.04970656707882881,
+          1
+        ],
+        "metallicFactor": 0.18000000715255737,
+        "roughnessFactor": 0.4300000071525574
+      }
+    },
+    {
+      "name": "ironreach_roof_petrol",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.022173885256052017,
+          0.07618538290262222,
+          0.09758734703063965,
+          1
+        ],
+        "metallicFactor": 0.2199999988079071,
+        "roughnessFactor": 0.6600000262260437
+      }
+    },
+    {
+      "name": "ironreach_replacement_sheet",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.20507873594760895,
+          0.28314873576164246,
+          0.2788942754268646,
+          1
+        ],
+        "metallicFactor": 0.18000000715255737,
+        "roughnessFactor": 0.699999988079071
+      }
+    },
+    {
+      "emissiveFactor": [
+        0.2739296008717851,
+        0.14730626333976815,
+        0.027252514253159887
+      ],
+      "name": "ironreach_working_amber",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.9130986332893372,
+          0.4910208582878113,
+          0.09084171056747437,
+          1
+        ],
+        "metallicFactor": 0,
+        "roughnessFactor": 0.47999998927116394
+      }
+    }
+  ],
+  "reexport_byte_identical": true,
+  "glb_bytes": 328616,
+  "glb_sha256": "611e6c469fd04020254efe9f009080cc994f67d3661244dec57ba7414b46c035",
+  "status": "PASS source/raw GLB/reexport; engine checks and downstream gates recorded separately",
+  "engine": {
+    "aabb_min": [
+      -5.34999990463257,
+      0.0,
+      -6.34999990463257
+    ],
+    "aabb_size": [
+      10.6999998092651,
+      5.88000011444092,
+      12.6999998092651
+    ],
+    "capsule_queries": [
+      {
+        "case": "interior_solid",
+        "solid": true
+      },
+      {
+        "case": "closed_shutter",
+        "solid": true
+      },
+      {
+        "case": "closed_service_door",
+        "solid": true
+      },
+      {
+        "case": "east_bypass_clear",
+        "solid": false
+      },
+      {
+        "case": "west_bypass_clear",
+        "solid": false
+      },
+      {
+        "case": "rear_route_clear",
+        "solid": false
+      },
+      {
+        "case": "front_route_clear",
+        "solid": false
+      },
+      {
+        "case": "north_east_corner_solid",
+        "solid": true
+      },
+      {
+        "case": "south_west_corner_solid",
+        "solid": true
+      }
+    ],
+    "car_box_sweep": {
+      "east_bypass_blocked": false,
+      "front_blocked": true,
+      "size_m": [
+        1.9,
+        1.5,
+        4.3
+      ]
+    },
+    "collision_shape_count": 1,
+    "engine": "4.8-dev7 (official)",
+    "failures": [],
+    "front_ray_z": -6.0,
+    "linked_model_identity": true,
+    "materials": [
+      "ironreach_worn_brick",
+      "ironreach_faded_petrol",
+      "ironreach_pale_band",
+      "ironreach_local_rust",
+      "ironreach_dark_recess",
+      "ironreach_roof_petrol",
+      "ironreach_replacement_sheet",
+      "ironreach_working_amber"
+    ],
+    "model_uid": "uid://dldr2v0kyb1j8",
+    "ok": true,
+    "prefab_uid": "uid://b4a0j385hgex5",
+    "production_actor_motion": [
+      {
+        "case": "closed_shutter",
+        "end": [
+          -1.5,
+          7.62037234380841e-06,
+          -6.35026121139526
+        ],
+        "mode": 0
+      },
+      {
+        "case": "closed_service_door",
+        "end": [
+          3.29999995231628,
+          7.5727584771812e-06,
+          -6.35026121139526
+        ],
+        "mode": 0
+      },
+      {
+        "case": "east_wall",
+        "end": [
+          5.35025548934937,
+          7.5490097515285e-06,
+          0.0
+        ],
+        "mode": 0
+      },
+      {
+        "case": "east_bypass",
+        "end": [
+          6.0,
+          0.000877899175975472,
+          -3.99999642372131
+        ],
+        "mode": 0
+      },
+      {
+        "case": "closed_shutter",
+        "end": [
+          -1.5,
+          7.62037234380841e-06,
+          -6.35026121139526
+        ],
+        "mode": 1
+      },
+      {
+        "case": "closed_service_door",
+        "end": [
+          3.29999995231628,
+          7.5727584771812e-06,
+          -6.35026121139526
+        ],
+        "mode": 1
+      },
+      {
+        "case": "east_wall",
+        "end": [
+          5.35025548934937,
+          7.5490097515285e-06,
+          0.0
+        ],
+        "mode": 1
+      },
+      {
+        "case": "east_bypass",
+        "end": [
+          6.0,
+          0.000877899175975472,
+          -3.99999642372131
+        ],
+        "mode": 1
+      }
+    ],
+    "save_reload_byte_stable": true
+  },
+  "production_checks": {
+    "overall_ok": true,
+    "results": {
+      "engine": {
+        "ok": true,
+        "version": "4.8.dev7.official.c971f93e7"
+      },
+      "gut_pin": {
+        "ok": true,
+        "version": "9.7.1"
+      },
+      "owned_scripts": {
+        "ok": true,
+        "returncode": 0
+      },
+      "python_tests": {
+        "ok": true,
+        "returncode": 0
+      },
+      "gut_import": {
+        "ok": true,
+        "returncode": 0
+      },
+      "gut_tests": {
+        "ok": true,
+        "returncode": 0
+      },
+      "gut_negative": {
+        "ok": true,
+        "observed_returncode": 1
+      }
+    },
+    "python_tests": 17,
+    "gut_tests": 165,
+    "gut_asserts": 6918,
+    "ignored_failures": []
+  },
+  "visual_self_review": {
+    "images": [
+      "hero.png",
+      "side.png",
+      "shutter_detail.png",
+      "overhead_47m_42deg.png"
+    ],
+    "size_px": [
+      1280,
+      720
+    ],
+    "renderer": "Blender Cycles CPU, 32 samples, AgX; RGB PNG, 6-bit channels (overhead 7-bit)",
+    "gameplay_camera": "Vertical down (0,0,47)m; north/+Y up; perspective vertical FOV42 degrees",
+    "observed": "Compact pitched silhouette, raised replacement roof sheets and amber front band remain distinct overhead. Masonry base, pale bays and subtly dented closed shutter read in oblique/detail views. Replaced overlapping base faces; closed the eave seam.",
+    "limits": "Isolated Blender self-review only; native visuals and populated placement pending"
+  },
+  "diagnostics": {
+    "source": "Passed; Blender 6.0 material-API deprecation notices only",
+    "normalization": "Byte-stable; toolkit compatibility warning and editor shutdown RID/ObjectDB leaks retained in final.log; fresh non-editor runtime clean",
+    "import": "Passed; existing toolkit Godot 4.8 compatibility warning, no ERROR lines",
+    "initial_corrections": "Removed overlapping wall/base faces; sealed gable/eave seam; raised ridge cap over amber band after literal height assertion; moved brick face ray off newly authored mortar joint. Final validation passes.",
+    "production_checks": "All canonical layers passed; no failures ignored"
+  }
+}
