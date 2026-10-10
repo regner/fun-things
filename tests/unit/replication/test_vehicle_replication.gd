@@ -95,6 +95,60 @@ func test_assignment_input_epoch_saturates_without_wrapping() -> void:
 	assert_false(replication.assign_vehicle_driver_for_testing(1, entity_id).ok)
 
 
+## Keeps the caller's vehicle and queue when an unoccupied target epoch is exhausted.
+func test_exhausted_unoccupied_target_does_not_release_caller() -> void:
+	var replication: MatchReplication = _add_match_replication()
+	assert_true(replication.configure_standalone())
+	var rows: Array[Dictionary] = replica_rows(replication)
+	var caller_vehicle_id: int = int(rows[0].id)
+	var target_vehicle_id: int = int(rows[1].id)
+	var assignment: Dictionary = replication.assign_vehicle_driver_for_testing(
+		1, caller_vehicle_id
+	)
+	assert_true(assignment.ok)
+	var caller_queue: VehicleInputQueue = (
+		replication._vehicle_replicator._queues_by_participant[1]
+	)
+	_set_control_revision(replication, target_vehicle_id, DriveCommandCodec.MAX_INPUT_EPOCH)
+	var descriptors_before: Array[Dictionary] = replica_rows(replication)
+	var binding_before: Dictionary = replication._vehicle_replicator.binding_for_participant(1)
+
+	assert_false(replication.assign_vehicle_driver_for_testing(1, target_vehicle_id).ok)
+	assert_eq(replica_rows(replication), descriptors_before)
+	assert_eq(replication._vehicle_replicator.binding_for_participant(1), binding_before)
+	assert_same(replication._vehicle_replicator._queues_by_participant[1], caller_queue)
+
+
+## Keeps both drivers and queues when an occupied target lacks two epoch revisions.
+func test_exhausted_occupied_target_does_not_release_either_driver() -> void:
+	var replication: MatchReplication = _add_match_replication()
+	assert_true(replication.configure_standalone())
+	var rows: Array[Dictionary] = replica_rows(replication)
+	var caller_vehicle_id: int = int(rows[0].id)
+	var target_vehicle_id: int = int(rows[1].id)
+	assert_true(replication.assign_vehicle_driver_for_testing(1, caller_vehicle_id).ok)
+	assert_true(replication.assign_vehicle_driver_for_testing(7, target_vehicle_id).ok)
+	var caller_queue: VehicleInputQueue = (
+		replication._vehicle_replicator._queues_by_participant[1]
+	)
+	var target_queue: VehicleInputQueue = (
+		replication._vehicle_replicator._queues_by_participant[7]
+	)
+	_set_control_revision(
+		replication, target_vehicle_id, DriveCommandCodec.MAX_INPUT_EPOCH - 1
+	)
+	var descriptors_before: Array[Dictionary] = replica_rows(replication)
+	var caller_before: Dictionary = replication._vehicle_replicator.binding_for_participant(1)
+	var target_before: Dictionary = replication._vehicle_replicator.binding_for_participant(7)
+
+	assert_false(replication.assign_vehicle_driver_for_testing(1, target_vehicle_id).ok)
+	assert_eq(replica_rows(replication), descriptors_before)
+	assert_eq(replication._vehicle_replicator.binding_for_participant(1), caller_before)
+	assert_eq(replication._vehicle_replicator.binding_for_participant(7), target_before)
+	assert_same(replication._vehicle_replicator._queues_by_participant[1], caller_queue)
+	assert_same(replication._vehicle_replicator._queues_by_participant[7], target_queue)
+
+
 ## Re-enables the same replica body after release, remote state, and reassignment.
 func test_reassignment_rebinds_same_vehicle_after_remote_snapshot() -> void:
 	var authority: MatchReplication = _add_match_replication()
@@ -165,6 +219,15 @@ func test_vehicle_rpcs_use_existing_match_replication_streams() -> void:
 ## Returns the authority's immutable descriptor table with static typing for tests.
 func replica_rows(authority: MatchReplication) -> Array[Dictionary]:
 	return authority._vehicle_replicator.descriptor_rows()
+
+
+## Sets one authority descriptor revision to a boundary value for exhaustion tests.
+func _set_control_revision(
+	authority: MatchReplication, entity_id: int, revision: int
+) -> void:
+	var record: Dictionary = authority._vehicle_replicator._records_by_id[entity_id]
+	var descriptor: Dictionary = record.descriptor
+	descriptor.control_revision = revision
 
 
 ## Finds one current measured vehicle row for replica application.

@@ -176,14 +176,19 @@ func assign_driver_for_testing(participant_id: int, entity_id: int = 0) -> Dicti
 	if not _records_by_id.has(entity_id):
 		return { "ok": false }
 
-	release_driver(participant_id)
 	var record: Dictionary = _records_by_id[entity_id]
 	var descriptor: Dictionary = record.descriptor
 	var previous_driver: int = int(descriptor.driver_participant_id)
-	if previous_driver > 0:
-		release_driver(previous_driver)
-	if int(descriptor.control_revision) >= DriveCommandCodec.MAX_INPUT_EPOCH:
+	var required_revisions: int = 2 if previous_driver > 0 else 1
+	if (
+		int(descriptor.control_revision) + required_revisions
+		> DriveCommandCodec.MAX_INPUT_EPOCH
+	):
 		return { "ok": false }
+
+	release_driver(participant_id)
+	if previous_driver > 0 and previous_driver != participant_id:
+		release_driver(previous_driver)
 	descriptor.driver_participant_id = participant_id
 	descriptor.control_revision = int(descriptor.control_revision) + 1
 	_entity_id_by_driver[participant_id] = entity_id

@@ -1,11 +1,93 @@
 {
   "engine": "4.8.dev7.official.c971f93e7",
+  "current_production_checks": {
+    "command": "python tools/production_checks.py --output C:/tmp/ft/lanes/m1-b11b/review2-production",
+    "result": "pass",
+    "gut": {
+      "tests": 207,
+      "passed": 207,
+      "assertions": 8815
+    },
+    "layers": {
+      "engine_pin": "pass",
+      "gut_pin": "pass",
+      "owned_scripts": "pass",
+      "python_tests": "pass",
+      "gut_import": "pass",
+      "gut_tests": "pass",
+      "gut_negative": "expected failure detected"
+    }
+  },
+  "review1_production_checks": {
+    "command": "python tools/production_checks.py --output C:/tmp/ft/lanes/m1-b11b/review-fix-production",
+    "result": "pass",
+    "gut": {
+      "tests": 205,
+      "passed": 205,
+      "assertions": 8800
+    }
+  },
+  "vehicle_enet_profiles": {
+    "command": "python tools/vehicles/run_vehicle_replication.py --output C:/tmp/ft/lanes/m1-b11b/review-fix-enet-final",
+    "result": "pass",
+    "correction_target_m": 0.5,
+    "profiles": {
+      "direct": {
+        "one_way_delay_ms": 0,
+        "jitter_ms": 0,
+        "loss": 0.0,
+        "movement_receipts": 368,
+        "acknowledgement": 460,
+        "reconciliation_count": 184,
+        "correction_p95_m": 0.0185261610895395,
+        "target_met": true
+      },
+      "normal": {
+        "one_way_delay_ms": 75,
+        "jitter_ms": 30,
+        "loss": 0.02,
+        "movement_receipts": 356,
+        "acknowledgement": 460,
+        "reconciliation_count": 178,
+        "correction_p95_m": 0.30513009428978,
+        "target_met": true
+      },
+      "adverse": {
+        "one_way_delay_ms": 125,
+        "jitter_ms": 50,
+        "loss": 0.05,
+        "movement_receipts": 328,
+        "acknowledgement": 460,
+        "reconciliation_count": 164,
+        "correction_p95_m": 0.822337329387665,
+        "target_met": false,
+        "analysis": "The run ends converged with acknowledgement 460, empty replay history and zero last correction. The rolling raw p95 exceeds target during active control-phase changes under delayed/lost input and the required three-tick authority backlog.",
+        "candidate_tuning_levers": [
+          "host/client tick alignment",
+          "replay selection at control-phase boundaries",
+          "measured snapshot cadence",
+          "command-transition pacing"
+        ]
+      }
+    },
+    "required_outcomes": {
+      "authoritative_movement_receipts": "pass",
+      "advanced_acknowledgement_and_reconciliation": "pass",
+      "straight": "pass",
+      "turn": "pass",
+      "brake": "pass",
+      "reverse": "pass",
+      "handbrake": "pass",
+      "wall_contact": "pass",
+      "moving_vehicle_contact": "pass"
+    }
+  },
   "focused_production_checks": {
     "command": "python tools/production_checks.py --gut-dir tests/unit/vehicles --output C:/tmp/ft/lanes/m1-b1-1/review-fix-focused",
     "result": "pass",
     "gut": "13/13 passed"
   },
-  "full_production_checks": {
+  "original_full_production_checks": {
     "command": "python tools/production_checks.py --output C:/tmp/ft/lanes/m1-b1-1/production-drive-actions-final",
     "result": "pass"
   },
