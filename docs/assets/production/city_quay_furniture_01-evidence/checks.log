@@ -1,0 +1,80 @@
+Final mooring-bollard receipts; full scratch logs remain outside the repository.
+
+Blender source/export validation: exit 0; zero degenerate/nonmanifold geometry; fresh GLB identical.
+
+Pinned headless import: exit 0; existing MCP toolkit compatibility warning only.
+
+Pinned gdstyle: exit 0
+
+✓ 1 file checked, no issues found.
+
+
+Fresh-process asset load/physics check: exit 0
+Godot Engine v4.8.dev7.official.c971f93e7 - https://godotengine.org
+
+[MCPRuntimeServer] port: scanning 6570-6585 (default)
+[MCPRuntimeServer] listening on 127.0.0.1:6574
+[MCPRegistry] runtime port 6574 registered for c:/gamedev/git/ft-lanes/a-quay
+PHYSICS_OBSERVATIONS contact=[(0.0, 0.001, -0.666666), (0.0, 0.001, -0.666666)] bypass=[(0.95, 0.001, 2.000001), (0.95, 0.001, 2.000001)]
+CITY_QUAY_FURNITURE_01_CHECK_PASS {"bounds_min_m":[-0.449999988079071,0.0,-0.300000011920929],"bounds_size_m":[0.899999976158142,0.779999971389771,0.600000023841858],"engine":"4.8-dev7 (official)","linked_model_identity":true,"physics":{"above_cap_ray_clear":true,"actor_capsule_height_m":1.8,"actor_capsule_radius_m":0.35,"allowed_precontact_gap_m":0.03,"authority_replay_equal":true,"bypass_end_m":[0.949999988079071,0.00100000004749745,2.00000071525574],"contact_plane_z_m":-0.65,"contact_stop_m":[0.0,0.00100000004749745,-0.666666328907013],"low_ray_blocked":true,"ticks_per_case_per_mode":48,"vehicle_network_transport_and_placement":"not tested"},"resource_uids":{"res://art/models/environment/city_quay_furniture_01/city_quay_furniture_01.glb":"uid://byepr3ufgrt5","res://scenes/prefabs/environment/city_quay_furniture_01.tscn":"uid://clvn18lngq2qd","res://scripts/actors/actor_motion.gd":"uid://jthmfio4c27p","res://tools/asset_production/city_quay_furniture_01/check_scene.tscn":"uid://cur5olr4klenb"},"save_reload_byte_stable":true,"static_box":{"layer":1,"mask":0,"size_m":[0.9,0.78,0.6]}}
+
+
+Repository production checks: exit 0
+Production check evidence: C:\tmp\ft\assets\city_quay_furniture_01\checks-final
+{
+  "engine": {
+    "ok": true,
+    "version": "4.8.dev7.official.c971f93e7"
+  },
+  "gut_pin": {
+    "ok": true,
+    "version": "9.7.1"
+  },
+  "owned_scripts": {
+    "ok": true,
+    "returncode": 0
+  },
+  "python_tests": {
+    "ok": true,
+    "returncode": 0
+  },
+  "gut_import": {
+    "ok": true,
+    "returncode": 0
+  },
+  "gut_tests": {
+    "ok": true,
+    "returncode": 0
+  },
+  "gut_negative": {
+    "ok": true,
+    "observed_returncode": 1
+  }
+}
+
+
+Python suite
+................
+----------------------------------------------------------------------
+Ran 16 tests in 0.689s
+
+OK
+
+
+GUT summary
+
+==============================================
+
+Totals
+------
+Scripts              30
+Tests               149
+Passing Tests       149
+Asserts            6768
+Time              94.36s
+
+
+---- All tests passed! ----
+GUT 0.0.0:  https://github.com/bitwes/Gut/releases/tag/v0.0.0 is now available!
+
+Results saved to C:/tmp/ft/assets/city_quay_furniture_01/checks-final/gut-results.xml
