@@ -1,11 +1,12 @@
 class_name LocalRig
 extends Node
-## Owns local desktop intent and the fixed north-up camera for one controlled foot actor.
+## Owns local desktop intent, retained player HUD context, and accepted-body camera follow.
 
 signal leave_requested
 
 var _client_tick: int = 0
 var _controlled_actor: ActorMotion
+var _controlled_vehicle: VehicleMotion
 var _actor_control_enabled: bool = false
 
 @onready var _input: DesktopFootInput = $Input as DesktopFootInput
@@ -52,7 +53,7 @@ func _physics_process(delta: float) -> void:
 func bind_actor(actor: ActorMotion) -> bool:
 	if actor == null or not is_instance_valid(actor) or not actor.is_inside_tree():
 		return false
-	if _controlled_actor == actor:
+	if _controlled_actor == actor and _controlled_vehicle == null:
 		_follow_controlled_actor()
 		return true
 
@@ -72,7 +73,7 @@ func bind_actor(actor: ActorMotion) -> bool:
 func bind_replica_actor(actor: ActorMotion) -> bool:
 	if actor == null or not is_instance_valid(actor) or not actor.is_inside_tree():
 		return false
-	if _controlled_actor != actor:
+	if _controlled_actor != actor or _controlled_vehicle != null:
 		unbind_actor()
 		_controlled_actor = actor
 		_client_tick = 0
@@ -82,6 +83,24 @@ func bind_replica_actor(actor: ActorMotion) -> bool:
 	set_physics_process(false)
 	_input.set_focused(get_window().has_focus())
 	_follow_controlled_actor()
+	return true
+
+
+## Transfers camera/input ownership to a confirmed vehicle while retaining player HUD data.
+func bind_vehicle(vehicle: VehicleMotion) -> bool:
+	if vehicle == null or not is_instance_valid(vehicle) or not vehicle.is_inside_tree():
+		return false
+	if _controlled_vehicle == vehicle:
+		follow_vehicle_display(vehicle)
+		return true
+
+	set_physics_process(false)
+	_actor_control_enabled = false
+	_input.set_focused(false)
+	if is_instance_valid(_controlled_actor):
+		_controlled_actor.neutralize()
+	_controlled_vehicle = vehicle
+	follow_vehicle_display(vehicle)
 	return true
 
 
@@ -113,6 +132,7 @@ func unbind_actor() -> void:
 	if is_instance_valid(_controlled_actor):
 		_controlled_actor.neutralize()
 	_controlled_actor = null
+	_controlled_vehicle = null
 
 
 ## Injects the process session owner into the HUD's read-only presentation seam.
@@ -140,9 +160,24 @@ func follow_actor_display(actor: ActorMotion) -> void:
 	)
 
 
-## Returns the current binding for enclosing coordinators and contract tests.
+## Centres the camera on a vehicle presentation without granting seat authority.
+func follow_vehicle_display(vehicle: VehicleMotion) -> void:
+	if vehicle == null:
+		return
+	var presentation: Node3D = vehicle.get_node_or_null("PresentationAnchor") as Node3D
+	_camera_anchor.global_position = (
+		presentation.global_position if presentation != null else vehicle.global_position
+	)
+
+
+## Returns the current foot binding retained for HUD and exit restoration.
 func controlled_actor() -> ActorMotion:
 	return _controlled_actor
+
+
+## Returns the acceptance-only vehicle camera/control binding.
+func controlled_vehicle() -> VehicleMotion:
+	return _controlled_vehicle
 
 
 ## Keeps the authored 47-metre camera offset centred on the controlled body.

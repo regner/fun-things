@@ -217,7 +217,7 @@ func test_view_shape_retains_capacity_for_current_session_kind() -> void:
 ## Distinguishes protocol incompatibility from saved-content identity mismatch.
 func test_compatibility_validation_returns_normalized_failures() -> void:
 	var exact: Dictionary = {
-		"protocol_version": 3,
+		"protocol_version": 4,
 		"content_id": "development",
 		"district_id": &"brackett_island",
 		"topology_revision": 0,

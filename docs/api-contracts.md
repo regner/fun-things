@@ -46,9 +46,10 @@ Gameplay uses +Y up, local
 -Z forward and radians. Minimap maps world XZ to 2D; S02 chooses its display orientation.
 
 Handshake: `{protocol_version: int, content_id: string, district_id: WorldId,
-topology_revision: int, definition_set_id: string}`. Protocol version 3 covers the
-A2.4 command envelope, A2.3 movement-version-2 rows and recovery epoch, plus B1.1
-vehicle descriptors and fixed drive input; require exact equality for M1, with no
+topology_revision: int, definition_set_id: string}`. Protocol version 4 covers the
+A2.4 command envelope, A2.3 movement-version-2 rows and recovery epoch, B1.1 vehicle
+descriptors/fixed drive input, and B1.2 reliable vehicle actions; require exact equality
+for M1, with no
 backward-compatible negotiation. Content/definition
 IDs are build-time fingerprints of required gameplay resources/bakes, bounded to
 128 bytes each; their generation is S06/M1 work. ENet admission uses `SceneMultiplayer`
@@ -488,10 +489,10 @@ M1-B1.1 vehicle movement reuses the version-2 measured movement row with entity 
 so the same two-centimetre Brackett position range, complete-row packet ceiling and
 per-EntityRef freshness rules apply. Reliable baseline/handoff state sends a bounded
 vehicle descriptor before movement: `{EntityRef, definition_id, origin_world_id,
-driver_participant_id, control_revision}`. The driver fields are a temporary host-side
-test seam until M1-B1.2 replaces them with durable VehicleInteraction transactions.
-Vehicle definitions resolve only to the three delivered saved scenes; replicas configure
-passive collision before tree entry.
+driver_participant_id, control_revision}`. M1-B1.2 makes the driver fields the durable output of
+host-owned `VehicleInteraction` transactions; callers can no longer assign drivers through a
+Match test seam. Vehicle definitions resolve only to the three delivered saved scenes; replicas
+configure passive collision before tree entry.
 
 M1-B1.1 drive intent is one fixed 16-byte big-endian packet: unsigned 32-bit command
 sequence and client tick, signed 16-bit normalized throttle/steer/brake, one handbrake
@@ -666,12 +667,12 @@ clear affected prediction and commit both player/car rows. Traffic ownership sto
 before player controls begin. Death/disconnect releases the seat and neutralizes
 controls; surviving car stopping is S04-owned and never resumes AI immediately.
 
-The [bounded S04 body/seat record](spikes/s04-contracts.md) specifies the complete
-future race/exit/disconnect/death/destruction/reset matrix for M1-B1. Its executable
-two-seat ENet adapter tests retained injured player/vehicle/seat/equipment with fresh
-control, physics-phase poses and baseline floors; it is not the production vehicle
-EntityRef codec or full transition implementation. Interaction/stopping values,
-no-seated-fire/reload policy and prediction/feel selection remain open.
+The [bounded S04 body/seat record](spikes/s04-contracts.md) supplied the transition rules ported by
+M1-B1.2. Production `VehicleInteraction` now owns deterministic same-tick claims, stopped clear
+exit, death/disconnect coast, reset invalidation, seated resync rebind and destruction release under
+MatchRevision plus player/vehicle EntityRef fences. Its reliable action result is diagnostic; the
+reliable descriptor transition remains the gameplay-state writer. Weapon behavior while seated and
+integrated prediction/feel remain owned by their later rows.
 
 ## Spawning and lifecycle
 

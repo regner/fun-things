@@ -215,6 +215,8 @@ func test_vehicle_scenes_have_envelopes_models_sockets_and_wheel_rigs() -> void:
 			"PresentationAnchor"
 		) as VehiclePresentation
 		assert_true(presentation.has_complete_wheel_rig())
+		assert_true(presentation.has_complete_entry_rig())
+		assert_true(car.play_entry_presentation(car.global_position))
 
 
 ## Points wheels with vehicle yaw and rolls them with forward travel direction.

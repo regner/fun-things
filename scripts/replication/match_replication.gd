@@ -5,6 +5,7 @@ extends Node
 signal input_granted(participant_id: int)
 signal input_recovered(participant_id: int)
 signal movement_applied(participant_id: int)
+signal vehicle_action_resolved(result: Dictionary)
 
 const PLAYER_SCENE: PackedScene = preload("res://scenes/entities/player.tscn")
 const INITIAL_MATCH_REVISION: int = 1
@@ -32,6 +33,7 @@ var _assembler := BaselineAssembler.new()
 var _store: ReplicaStateStore
 var _input_authority := FootInputAuthority.new()
 var _vehicle_replicator: VehicleReplicator
+var _vehicle_interaction: VehicleInteraction
 var _context: Dictionary = {
 	"session_id": "",
 	"local_participant_id": 0,
@@ -95,6 +97,7 @@ func _physics_process(delta: float) -> void:
 		_admission.expire_attempts(now_msec)
 		_expire_waiting_mapped_peers(now_msec)
 		_lifecycle.step(_sequence.physics_tick)
+		_vehicle_interaction.process_actions(_sequence.physics_tick)
 		_step_remote_players(delta)
 		_vehicle_replicator.step_authority(delta, now_msec, _sequence.physics_tick)
 		if _sequence.physics_tick % MOVEMENT_INTERVAL_TICKS == 0:
@@ -102,7 +105,7 @@ func _physics_process(delta: float) -> void:
 	else:
 		_lifecycle.step(_sequence.physics_tick)
 		_update_client_presentation(delta)
-		_local_rig().follow_actor_display(actor_for_participant(_context.local_participant_id))
+		_follow_local_control_display()
 		if _client.input_open and _client.local_input_enabled:
 			_sample_predict_and_submit_local_input(delta)
 
@@ -205,6 +208,17 @@ func _configure_authority(local_participant_id: int, clock: Callable) -> bool:
 		tracker,
 	):
 		return false
+	_vehicle_interaction = VehicleInteraction.new()
+	if not _vehicle_interaction.configure(
+		_vehicle_replicator,
+		actor_for_participant,
+		lifecycle_view_for,
+		_is_exit_blocked,
+		_match_revision(),
+	):
+		return false
+	_vehicle_interaction.action_resolved.connect(_on_vehicle_action_resolved)
+	_vehicle_interaction.transaction_committed.connect(_on_vehicle_transaction_committed)
 	_bind_hud_sources()
 	return true
 
@@ -245,7 +259,8 @@ func remove_peer(native_peer_id: int, participant_id: int) -> void:
 	_peer_by_participant.erase(participant_id)
 	_waiting_admission_deadline_by_peer.erase(native_peer_id)
 	_input_authority.remove(participant_id)
-	_vehicle_replicator.release_driver(participant_id)
+	if _vehicle_interaction != null:
+		_vehicle_interaction.release_for_lifecycle(participant_id, &"DISCONNECT")
 	_input_state_by_participant.erase(participant_id)
 	_player_identity.spawn_slot_by_participant.erase(participant_id)
 	_admission.remove_peer(native_peer_id)
@@ -326,17 +341,115 @@ func predict_and_submit_local_vehicle_command(
 	return true
 
 
-## Assigns a host-side driver only for replication tests until B1.2 owns transactions.
-func assign_vehicle_driver_for_testing(participant_id: int, entity_id: int = 0) -> Dictionary:
-	if not _configured or not _context.is_host:
-		return { "ok": false }
-	var assigned: Dictionary = _vehicle_replicator.assign_driver_for_testing(
-		participant_id, entity_id
+## Queues one authoritative entry request for deterministic accepted-tick resolution.
+func request_vehicle_entry(
+	participant_id: int,
+	entity_id: int,
+	action_sequence: int,
+	accepted_tick: int = -1,
+) -> Dictionary:
+	if not _configured or not _context.is_host or _vehicle_interaction == null:
+		return { "ok": false, "failure": &"NOT_AUTHORITY" }
+	var player_ref: Dictionary = _lifecycle.entity_ref_for(participant_id)
+	var descriptor: Dictionary = _vehicle_replicator.descriptor_for_entity(entity_id)
+	if player_ref.is_empty() or descriptor.is_empty():
+		return { "ok": false, "failure": &"STALE_ACTION_CONTEXT" }
+	return _vehicle_interaction.enqueue_action(
+		{
+			"participant_id": participant_id,
+			"player_ref": player_ref,
+			"vehicle_ref": {
+				"id": entity_id,
+				"generation": int(descriptor.generation),
+			},
+			"match_revision": _match_revision(),
+			"accepted_tick": (
+				_sequence.physics_tick + 1 if accepted_tick < 0 else accepted_tick
+			),
+			"action_sequence": action_sequence,
+			"kind": VehicleInteraction.ACTION_ENTER,
+		}
 	)
-	if not assigned.get("ok", false):
-		return assigned
-	_broadcast_vehicle_descriptors()
-	return assigned
+
+
+## Queues one authoritative exit request through the same reliable action sequence.
+func request_vehicle_exit(
+	participant_id: int,
+	action_sequence: int,
+	accepted_tick: int = -1,
+) -> Dictionary:
+	if not _configured or not _context.is_host or _vehicle_interaction == null:
+		return { "ok": false, "failure": &"NOT_AUTHORITY" }
+	var player_ref: Dictionary = _lifecycle.entity_ref_for(participant_id)
+	if player_ref.is_empty():
+		return { "ok": false, "failure": &"STALE_ACTION_CONTEXT" }
+	return _vehicle_interaction.enqueue_action(
+		{
+			"participant_id": participant_id,
+			"player_ref": player_ref,
+			"match_revision": _match_revision(),
+			"accepted_tick": (
+				_sequence.physics_tick + 1 if accepted_tick < 0 else accepted_tick
+			),
+			"action_sequence": action_sequence,
+			"kind": VehicleInteraction.ACTION_EXIT,
+		}
+	)
+
+
+## Sends one local host-confirmed entry intent and starts only its door presentation.
+func request_local_vehicle_entry(entity_id: int, action_sequence: int) -> bool:
+	if not _configured or action_sequence <= 0:
+		return false
+	var vehicle: VehicleMotion = _vehicle_replicator.vehicle_for_entity(entity_id)
+	var actor: ActorMotion = actor_for_participant(_context.local_participant_id)
+	if vehicle == null or actor == null:
+		return false
+	vehicle.play_entry_presentation(actor.global_position)
+	if _context.is_host:
+		return request_vehicle_entry(
+			_context.local_participant_id, entity_id, action_sequence
+		).get("ok", false)
+	var player_ref: Dictionary = _lifecycle.entity_ref_for(_context.local_participant_id)
+	var descriptor: Dictionary = _vehicle_replicator.descriptor_for_entity(entity_id)
+	if player_ref.is_empty() or descriptor.is_empty():
+		return false
+	_request_vehicle_action.rpc_id(
+		1,
+		_build_vehicle_action_envelope(
+			VehicleInteraction.ACTION_ENTER,
+			action_sequence,
+			player_ref,
+			{
+				"id": entity_id,
+				"generation": int(descriptor.generation),
+			},
+		),
+	)
+	return true
+
+
+## Sends one local exit intent without changing camera or control before acceptance.
+func request_local_vehicle_exit(action_sequence: int) -> bool:
+	if not _configured or action_sequence <= 0:
+		return false
+	if _context.is_host:
+		return request_vehicle_exit(
+			_context.local_participant_id, action_sequence
+		).get("ok", false)
+	var player_ref: Dictionary = _lifecycle.entity_ref_for(_context.local_participant_id)
+	if player_ref.is_empty():
+		return false
+	_request_vehicle_action.rpc_id(
+		1,
+		_build_vehicle_action_envelope(
+			VehicleInteraction.ACTION_EXIT,
+			action_sequence,
+			player_ref,
+			{},
+		),
+	)
+	return true
 
 
 ## Returns one current replicated vehicle body for focused acceptance drivers.
@@ -472,7 +585,7 @@ func request_match_reset(requester_participant_id: int) -> bool:
 	_sequence.match_revision = _match_revision() + 1
 	_sequence.durable_revision = 0
 	_input_authority.clear()
-	_vehicle_replicator.reset_authority()
+	_vehicle_interaction.reset(_match_revision())
 	_input_state_by_participant.clear()
 	_admitted_peers.clear()
 	var failed_peers: Array[int] = []
@@ -570,7 +683,7 @@ func _ready_for_baseline(session_id: String, match_revision: int) -> void:
 
 
 ## Starts one sender-derived admission after Session has installed its mapping.
-func begin_admission_for_peer(
+func begin_admission_for_peer(  # gdstyle:ignore=quality/max-branches
 	native_peer_id: int,
 	preserved_attempt_deadline_msec: int = -1,
 ) -> Dictionary:
@@ -587,7 +700,8 @@ func begin_admission_for_peer(
 	if attempt_deadline_msec >= 0 and attempt_deadline_msec <= _now_msec():
 		abort_peer(native_peer_id, &"SYNC_TIMEOUT")
 		return { "ok": false, "failure": { "code": &"SYNC_TIMEOUT" } }
-	if not _actors_by_participant.has(participant_id):
+	var retained_player: bool = _actors_by_participant.has(participant_id)
+	if not retained_player:
 		if _spawn_authoritative_player(participant_id, false) == null:
 			abort_peer(native_peer_id, &"SPAWN_FAILED")
 			return { "ok": false }
@@ -597,6 +711,11 @@ func begin_admission_for_peer(
 			_durable_event(1, PHASE_LIVE, participant_id, _sequence.durable_revision)
 		)
 		_publish_lifecycle_state()
+	elif not _vehicle_replicator.binding_for_participant(participant_id).is_empty():
+		var rebound: Dictionary = _vehicle_interaction.rebind_commands(participant_id)
+		if not rebound.get("ok", false):
+			abort_peer(native_peer_id, &"CONTROL_REVISION_EXHAUSTED")
+			return rebound
 
 	_sequence.baseline_id += 1
 	var options: Dictionary = { "lifecycle_revision": _lifecycle.revision() }
@@ -760,6 +879,90 @@ func _submit_command(envelope: Dictionary) -> void:
 		_record_command_rejection(offered.failure)
 
 
+## Accepts one exact sender-derived vehicle action onto the reliable control stream.
+@rpc("any_peer", "call_remote", "reliable", 0)
+# Exact boundary validation intentionally rejects before each kind-specific field use.
+# gdstyle:ignore=quality/max-function-length,quality/max-returns,quality/max-branches
+func _request_vehicle_action(envelope: Dictionary) -> void:
+	if not _context.is_host or envelope.size() not in [6, 7]:
+		return
+	if (
+		envelope.get("session_id") is not String
+		or envelope.get("match_revision") is not int
+		or envelope.get("player_id") is not int
+		or envelope.get("player_generation") is not int
+		or envelope.get("action_sequence") is not int
+		or (envelope.get("kind") is not String and envelope.get("kind") is not StringName)
+		or envelope.session_id != _context.session_id
+		or int(envelope.match_revision) != _match_revision()
+	):
+		return
+	var sender: int = multiplayer.get_remote_sender_id()
+	var participant_id: int = _admission.input_participant(sender)
+	var player_ref: Dictionary = _lifecycle.entity_ref_for(participant_id)
+	if (
+		participant_id == 0
+		or int(player_ref.get("id", 0)) != int(envelope.player_id)
+		or int(player_ref.get("generation", 0)) != int(envelope.player_generation)
+	):
+		return
+	var kind := StringName(envelope.kind)
+	var queued: Dictionary
+	if kind == VehicleInteraction.ACTION_ENTER and envelope.size() == 7:
+		if envelope.get("vehicle_ref") is not Dictionary:
+			return
+		var vehicle_ref: Dictionary = envelope.vehicle_ref
+		if not ReplicationIdentity.is_valid_entity_ref(vehicle_ref):
+			return
+		var descriptor: Dictionary = _vehicle_replicator.descriptor_for_entity(
+			int(vehicle_ref.id)
+		)
+		if int(descriptor.get("generation", 0)) != int(vehicle_ref.generation):
+			return
+		queued = request_vehicle_entry(
+			participant_id,
+			int(vehicle_ref.id),
+			int(envelope.action_sequence),
+		)
+	elif kind == VehicleInteraction.ACTION_EXIT and envelope.size() == 6:
+		queued = request_vehicle_exit(participant_id, int(envelope.action_sequence))
+	else:
+		return
+	if queued.get("cached_result") is Dictionary:
+		_send_vehicle_action_result(sender, participant_id, queued.cached_result)
+		return
+	if not queued.get("ok", false):
+		_send_vehicle_action_result(sender, participant_id, {
+			"action_sequence": int(envelope.action_sequence),
+			"status": VehicleInteraction.STATUS_REJECTED,
+			"failure": queued.get("failure", &"ACTION_REJECTED"),
+		})
+
+
+## Installs one bounded action result without deriving control from the result itself.
+@rpc("authority", "call_remote", "reliable", 0)
+func _receive_vehicle_action_result(envelope: Dictionary) -> void:
+	if (
+		_context.is_host
+		or envelope.size() != 4
+		or envelope.get("session_id") != _context.session_id
+		or envelope.get("match_revision") != _match_revision()
+		or envelope.get("participant_id") != _context.local_participant_id
+		or envelope.get("result") is not Dictionary
+	):
+		return
+	var result: Dictionary = envelope.result
+	if (
+		result.get("action_sequence") is not int
+		or result.get("status") not in [
+			VehicleInteraction.STATUS_APPLIED,
+			VehicleInteraction.STATUS_REJECTED,
+		]
+	):
+		return
+	vehicle_action_resolved.emit(result.duplicate(true))
+
+
 ## Validates and queues one sender-owned vehicle packet on the held-input stream.
 @rpc("any_peer", "call_remote", "unreliable_ordered", 2)
 func _submit_vehicle_command(envelope: Dictionary) -> void:
@@ -857,7 +1060,10 @@ func _receive_vehicle_descriptors(
 		or match_revision != _match_revision()
 	):
 		return
-	_vehicle_replicator.install_descriptors(descriptors, _context.local_participant_id)
+	if _vehicle_replicator.install_descriptors(
+		descriptors, _context.local_participant_id
+	):
+		_sync_vehicle_occupancy_presentation()
 
 
 ## Installs Session-to-entity bindings before baseline or lifecycle rows reference them.
@@ -1406,6 +1612,40 @@ func _is_spawn_blocked(candidate: Dictionary, participant_id: int) -> bool:
 	)
 
 
+## Queries the shared actor envelope at one authored exit while excluding its current bodies.
+func _is_exit_blocked(
+	candidate: Transform3D,
+	participant_id: int,
+	actor: ActorMotion,
+	vehicle: VehicleMotion,
+) -> bool:
+	if _spawn_reservations.conflicts(
+		candidate.origin, PLAYER_CLEARANCE_RADIUS_M, participant_id
+	):
+		return true
+	if not is_inside_tree() or _runtime_entities().get_world_3d() == null:
+		return false
+	var shape := CapsuleShape3D.new()
+	shape.radius = PLAYER_CLEARANCE_RADIUS_M
+	shape.height = PLAYER_CLEARANCE_HEIGHT_M
+	var query := PhysicsShapeQueryParameters3D.new()
+	query.shape = shape
+	query.transform = candidate.translated_local(
+		Vector3.UP * PLAYER_CLEARANCE_HEIGHT_M * 0.5
+	)
+	query.collision_mask = SPAWN_COLLISION_MASK
+	query.collide_with_areas = false
+	query.collide_with_bodies = true
+	query.exclude = [actor.get_rid(), vehicle.get_rid()]
+	return not (
+		_runtime_entities()
+		.get_world_3d()
+		.direct_space_state
+		.intersect_shape(query, 1)
+		.is_empty()
+	)
+
+
 ## Instantiates all baseline player rows before local input can be granted.
 func _materialize_baseline(rows: Array[Dictionary]) -> void:
 	for row: Dictionary in rows:
@@ -1479,12 +1719,13 @@ func _apply_local_replica_state(
 	motion: Dictionary,
 	acknowledged_sequence: int,
 ) -> void:
-	if bool(motion.alive) and _client.grant_received:
-		_client.input_open = true
-		_bind_client_input()
 	var driving: bool = not _vehicle_replicator.binding_for_participant(
 		participant_id
 	).is_empty()
+	if bool(motion.alive) and _client.grant_received:
+		_client.input_open = true
+		if not driving:
+			_bind_client_input()
 	if _client.input_open and not driving:
 		var reconciliation: Dictionary = _prediction_owner().reconcile_motion(
 			motion.position,
@@ -1608,7 +1849,10 @@ func _step_remote_players(delta: float) -> void:
 		if participant_id == _context.local_participant_id:
 			continue
 		var actor: ActorMotion = _actors_by_participant[participant_id]
-		if not _lifecycle.is_alive(participant_id):
+		if (
+			not _lifecycle.is_alive(participant_id)
+			or not _vehicle_replicator.binding_for_participant(participant_id).is_empty()
+		):
 			actor.neutralize()
 			continue
 		var queue: FootInputQueue = _input_authority.queue(participant_id)
@@ -1758,7 +2002,7 @@ func _broadcast_bindings() -> void:
 		)
 
 
-## Publishes current test driver bindings reliably before their movement acknowledgement.
+## Publishes committed seat/control transactions before dependent movement acknowledgement.
 func _broadcast_vehicle_descriptors() -> void:
 	var rows: Array[Dictionary] = _vehicle_replicator.descriptor_rows()
 	for native_peer_id: int in _admitted_peers:
@@ -1768,6 +2012,87 @@ func _broadcast_vehicle_descriptors() -> void:
 			_match_revision(),
 			rows,
 		)
+
+
+## Publishes an accepted transaction and applies local camera/HUD ownership afterward.
+func _on_vehicle_transaction_committed(
+	_participant_id: int,
+	_result: Dictionary,
+) -> void:
+	_broadcast_vehicle_descriptors()
+	_sync_vehicle_occupancy_presentation()
+
+
+## Routes one processed action result back to its sender without installing gameplay state.
+func _on_vehicle_action_resolved(participant_id: int, result: Dictionary) -> void:
+	if participant_id == int(_context.local_participant_id):
+		vehicle_action_resolved.emit(result.duplicate(true))
+		return
+	var native_peer_id: int = int(_peer_by_participant.get(participant_id, 0))
+	if native_peer_id > 0:
+		_send_vehicle_action_result(native_peer_id, participant_id, result)
+
+
+## Sends one bounded result on control stream zero; descriptors remain the state writer.
+func _send_vehicle_action_result(
+	native_peer_id: int,
+	participant_id: int,
+	result: Dictionary,
+) -> void:
+	if not _can_send_to_peer(native_peer_id):
+		return
+	_receive_vehicle_action_result.rpc_id(
+		native_peer_id,
+		{
+			"session_id": _context.session_id,
+			"match_revision": _match_revision(),
+			"participant_id": participant_id,
+			"result": result.duplicate(true),
+		},
+	)
+
+
+## Builds one exact action envelope without accepting participant identity from the client.
+func _build_vehicle_action_envelope(
+	kind: StringName,
+	action_sequence: int,
+	player_ref: Dictionary,
+	vehicle_ref: Dictionary,
+) -> Dictionary:
+	var envelope: Dictionary = {
+		"session_id": _context.session_id,
+		"match_revision": _match_revision(),
+		"player_id": int(player_ref.id),
+		"player_generation": int(player_ref.generation),
+		"action_sequence": action_sequence,
+		"kind": kind,
+	}
+	if kind == VehicleInteraction.ACTION_ENTER:
+		envelope.vehicle_ref = vehicle_ref.duplicate()
+	return envelope
+
+
+## Applies seat visibility and acceptance-only local camera/input ownership together.
+func _sync_vehicle_occupancy_presentation() -> void:
+	for participant_id: int in _actors_by_participant:
+		var actor: ActorMotion = _actors_by_participant[participant_id]
+		var binding: Dictionary = _vehicle_replicator.binding_for_participant(participant_id)
+		var seated: bool = not binding.is_empty()
+		actor.collision_layer = 0 if seated else (2 if _lifecycle.is_alive(participant_id) else 0)
+		actor.collision_mask = 0 if seated else (1 if _lifecycle.is_alive(participant_id) else 0)
+		var presentation: Node3D = actor.get_node_or_null("PresentationAnchor") as Node3D
+		if presentation != null:
+			presentation.visible = not seated and _lifecycle.is_alive(participant_id)
+		if participant_id != int(_context.local_participant_id):
+			continue
+		if seated:
+			var vehicle: VehicleMotion = _vehicle_replicator.vehicle_for_entity(int(binding.id))
+			_local_rig().bind_vehicle(vehicle)
+		elif _context.is_host:
+			_local_rig().bind_actor(actor)
+			_local_rig().set_actor_control_enabled(_lifecycle.is_alive(participant_id))
+		else:
+			_bind_client_input()
 
 
 ## Clears old-life input before publishing one complete lifecycle transition.
@@ -1804,6 +2129,12 @@ func _commit_player_death(participant_id: int) -> bool:
 
 	_input_authority.remove(participant_id)
 	_input_state_by_participant.erase(participant_id)
+	if _vehicle_interaction != null:
+		var released: Dictionary = _vehicle_interaction.release_for_lifecycle(
+			participant_id, &"DEATH"
+		)
+		if not released.get("ok", false):
+			return false
 	actor.neutralize()
 	_set_actor_alive(participant_id, false)
 	_sequence.durable_revision += 1
@@ -1854,11 +2185,15 @@ func _set_actor_alive(participant_id: int, alive: bool) -> void:
 		presentation.visible = alive
 	if participant_id != int(_context.local_participant_id):
 		return
+	var seated: bool = (
+		_vehicle_replicator != null
+		and not _vehicle_replicator.binding_for_participant(participant_id).is_empty()
+	)
 	if _context.is_host:
-		_local_rig().set_actor_control_enabled(alive)
+		_local_rig().set_actor_control_enabled(alive and not seated)
 	else:
 		_client.input_open = alive and bool(_client.grant_received)
-		_local_rig().set_replica_input_enabled(_client.input_open)
+		_local_rig().set_replica_input_enabled(_client.input_open and not seated)
 
 
 ## Binds PlayerLifecycle as both the life owner and joined-client roster authority.
@@ -1896,8 +2231,24 @@ func _spawn_for_slot(spawn_slot: int) -> Marker3D:
 	return _player_spawns().get_child(spawn_slot - 1) as Marker3D
 
 
+## Follows the accepted control body without deriving ownership from movement state.
+func _follow_local_control_display() -> void:
+	var participant_id: int = int(_context.local_participant_id)
+	var binding: Dictionary = _vehicle_replicator.binding_for_participant(participant_id)
+	if not binding.is_empty():
+		_local_rig().follow_vehicle_display(
+			_vehicle_replicator.vehicle_for_entity(int(binding.id))
+		)
+		return
+	_local_rig().follow_actor_display(actor_for_participant(participant_id))
+
+
 ## Samples, predicts, and submits exactly one local frame per fixed physics tick.
 func _sample_predict_and_submit_local_input(delta_seconds: float) -> void:
+	if not _vehicle_replicator.binding_for_participant(
+		_context.local_participant_id
+	).is_empty():
+		return
 	var input: DesktopFootInput = _local_input()
 	if input == null:
 		return

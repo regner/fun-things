@@ -226,7 +226,7 @@ func _build_handshake_payload(content_id: String) -> PackedByteArray:
 	return SessionAuthCodec.encode_handshake(
 		1,
 		{
-			"protocol_version": 3,
+			"protocol_version": 4,
 			"content_id": content_id,
 			"district_id": &"brackett_island",
 			"topology_revision": 0,

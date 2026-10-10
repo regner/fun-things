@@ -23,10 +23,10 @@ func test_standalone_registers_authored_vehicle_rows_with_player_state() -> void
 
 
 ## Drives one assigned host car only through its bounded queue and shared motion step.
-func test_test_driver_seam_steps_one_authoritative_vehicle() -> void:
+func test_interaction_approved_binding_steps_one_authoritative_vehicle() -> void:
 	var replication: MatchReplication = _add_match_replication()
 	assert_true(replication.configure_standalone())
-	var assignment: Dictionary = replication.assign_vehicle_driver_for_testing(1)
+	var assignment: Dictionary = _assign_driver(replication, 1)
 	assert_true(assignment.ok)
 	var entity_id: int = int(assignment.entity_ref.id)
 	var input_epoch: int = int(assignment.input_epoch)
@@ -53,7 +53,7 @@ func test_test_driver_seam_steps_one_authoritative_vehicle() -> void:
 func test_reassignment_rejects_old_input_epoch() -> void:
 	var replication: MatchReplication = _add_match_replication()
 	assert_true(replication.configure_standalone())
-	var first: Dictionary = replication.assign_vehicle_driver_for_testing(1)
+	var first: Dictionary = _assign_driver(replication, 1)
 	assert_true(first.ok)
 	var entity_id: int = int(first.entity_ref.id)
 	var stale: Dictionary = DriveCommandCodec.decode(
@@ -63,8 +63,8 @@ func test_reassignment_rejects_old_input_epoch() -> void:
 		).packet
 	)
 
-	replication._vehicle_replicator.release_driver(1)
-	var second: Dictionary = replication.assign_vehicle_driver_for_testing(1, entity_id)
+	replication._vehicle_replicator.commit_driver_release(1, false)
+	var second: Dictionary = _assign_driver(replication, 1, entity_id)
 	assert_true(second.ok)
 	assert_gt(int(second.input_epoch), int(first.input_epoch))
 	var refused: Dictionary = replication._vehicle_replicator.offer_command(1, stale, 10)
@@ -84,15 +84,15 @@ func test_assignment_input_epoch_saturates_without_wrapping() -> void:
 	assert_true(replication.configure_standalone())
 	var entity_id: int = 0
 	for _index: int in range(127):
-		var assignment: Dictionary = replication.assign_vehicle_driver_for_testing(1, entity_id)
+		var assignment: Dictionary = _assign_driver(replication, 1, entity_id)
 		assert_true(assignment.ok)
 		entity_id = int(assignment.entity_ref.id)
-		replication._vehicle_replicator.release_driver(1)
+		replication._vehicle_replicator.commit_driver_release(1, false)
 	assert_eq(
 		int(replication._vehicle_replicator.descriptor_rows()[0].control_revision),
 		DriveCommandCodec.MAX_INPUT_EPOCH,
 	)
-	assert_false(replication.assign_vehicle_driver_for_testing(1, entity_id).ok)
+	assert_false(_assign_driver(replication, 1, entity_id).ok)
 
 
 ## Keeps the caller's vehicle and queue when an unoccupied target epoch is exhausted.
@@ -102,8 +102,8 @@ func test_exhausted_unoccupied_target_does_not_release_caller() -> void:
 	var rows: Array[Dictionary] = replica_rows(replication)
 	var caller_vehicle_id: int = int(rows[0].id)
 	var target_vehicle_id: int = int(rows[1].id)
-	var assignment: Dictionary = replication.assign_vehicle_driver_for_testing(
-		1, caller_vehicle_id
+	var assignment: Dictionary = _assign_driver(
+		replication, 1, caller_vehicle_id
 	)
 	assert_true(assignment.ok)
 	var caller_queue: VehicleInputQueue = (
@@ -113,7 +113,7 @@ func test_exhausted_unoccupied_target_does_not_release_caller() -> void:
 	var descriptors_before: Array[Dictionary] = replica_rows(replication)
 	var binding_before: Dictionary = replication._vehicle_replicator.binding_for_participant(1)
 
-	assert_false(replication.assign_vehicle_driver_for_testing(1, target_vehicle_id).ok)
+	assert_false(_assign_driver(replication, 1, target_vehicle_id).ok)
 	assert_eq(replica_rows(replication), descriptors_before)
 	assert_eq(replication._vehicle_replicator.binding_for_participant(1), binding_before)
 	assert_same(replication._vehicle_replicator._queues_by_participant[1], caller_queue)
@@ -126,8 +126,8 @@ func test_exhausted_occupied_target_does_not_release_either_driver() -> void:
 	var rows: Array[Dictionary] = replica_rows(replication)
 	var caller_vehicle_id: int = int(rows[0].id)
 	var target_vehicle_id: int = int(rows[1].id)
-	assert_true(replication.assign_vehicle_driver_for_testing(1, caller_vehicle_id).ok)
-	assert_true(replication.assign_vehicle_driver_for_testing(7, target_vehicle_id).ok)
+	assert_true(_assign_driver(replication, 1, caller_vehicle_id).ok)
+	assert_true(_assign_driver(replication, 7, target_vehicle_id).ok)
 	var caller_queue: VehicleInputQueue = (
 		replication._vehicle_replicator._queues_by_participant[1]
 	)
@@ -141,7 +141,7 @@ func test_exhausted_occupied_target_does_not_release_either_driver() -> void:
 	var caller_before: Dictionary = replication._vehicle_replicator.binding_for_participant(1)
 	var target_before: Dictionary = replication._vehicle_replicator.binding_for_participant(7)
 
-	assert_false(replication.assign_vehicle_driver_for_testing(1, target_vehicle_id).ok)
+	assert_false(_assign_driver(replication, 1, target_vehicle_id).ok)
 	assert_eq(replica_rows(replication), descriptors_before)
 	assert_eq(replication._vehicle_replicator.binding_for_participant(1), caller_before)
 	assert_eq(replication._vehicle_replicator.binding_for_participant(7), target_before)
@@ -153,7 +153,7 @@ func test_exhausted_occupied_target_does_not_release_either_driver() -> void:
 func test_reassignment_rebinds_same_vehicle_after_remote_snapshot() -> void:
 	var authority: MatchReplication = _add_match_replication()
 	assert_true(authority.configure_standalone())
-	var first: Dictionary = authority.assign_vehicle_driver_for_testing(7)
+	var first: Dictionary = _assign_driver(authority, 7)
 	assert_true(first.ok)
 	var entity_id: int = int(first.entity_ref.id)
 	var replica_root := Node3D.new()
@@ -164,14 +164,14 @@ func test_reassignment_rebinds_same_vehicle_after_remote_snapshot() -> void:
 	var vehicle: VehicleMotion = replica.vehicle_for_entity(entity_id)
 	assert_true(vehicle.simulation_enabled)
 
-	authority._vehicle_replicator.release_driver(7)
+	authority._vehicle_replicator.commit_driver_release(7, false)
 	assert_true(replica.install_descriptors(replica_rows(authority), 7))
 	assert_false(vehicle.simulation_enabled)
 	var remote_state: Dictionary = _vehicle_state(authority, entity_id)
 	assert_true(replica.apply_replica_state(remote_state, 7, 0, 10))
 	assert_false(vehicle.simulation_enabled)
 
-	assert_true(authority.assign_vehicle_driver_for_testing(7, entity_id).ok)
+	assert_true(_assign_driver(authority, 7, entity_id).ok)
 	assert_true(replica.install_descriptors(replica_rows(authority), 7))
 	assert_same(replica.vehicle_for_entity(entity_id), vehicle)
 	assert_true(vehicle.simulation_enabled)
@@ -194,7 +194,7 @@ func test_late_join_baseline_contains_every_current_vehicle() -> void:
 		)
 	)
 	assert_true(replication.admit_peer(22, 2))
-	assert_true(replication.assign_vehicle_driver_for_testing(2).ok)
+	assert_true(_assign_driver(replication, 2).ok)
 	assert_true(replication.begin_admission_for_peer(22).ok)
 	var baseline_event: Dictionary = transport.events[0]
 	assert_eq(baseline_event.kind, &"baseline")
@@ -208,12 +208,28 @@ func test_late_join_baseline_contains_every_current_vehicle() -> void:
 	assert_eq(vehicle_rows, 3)
 
 
-## Keeps drive intent on channel two and descriptors on ordered reliable state.
+## Keeps actions/results on control, descriptors on state, and drive intent on input streams.
 func test_vehicle_rpcs_use_existing_match_replication_streams() -> void:
 	var replication: MatchReplication = _add_match_replication()
 	var config: Dictionary = replication.get_script().get_rpc_config()
+	assert_eq(int(config[&"_request_vehicle_action"].channel), 0)
+	assert_eq(int(config[&"_receive_vehicle_action_result"].channel), 0)
 	assert_eq(int(config[&"_submit_vehicle_command"].channel), 2)
 	assert_eq(int(config[&"_receive_vehicle_descriptors"].channel), 1)
+
+
+## Applies an interaction-approved low-level binding for replication-focused tests.
+func _assign_driver(
+	authority: MatchReplication,
+	participant_id: int,
+	entity_id: int = 0,
+) -> Dictionary:
+	if entity_id == 0:
+		var rows: Array[Dictionary] = replica_rows(authority)
+		entity_id = int(rows[0].id)
+	return authority._vehicle_replicator.commit_driver_assignment(
+		participant_id, entity_id
+	)
 
 
 ## Returns the authority's immutable descriptor table with static typing for tests.

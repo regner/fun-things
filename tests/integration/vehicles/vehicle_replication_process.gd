@@ -14,6 +14,8 @@ var _deadline_msec: int = 0
 var _match: Node3D
 var _replication: MatchReplication
 var _granted: bool = false
+var _entry_requested: bool = false
+var _entry_confirmed: bool = false
 var _vehicle_id: int = 0
 var _sequence: int = 0
 var _test_ticks: int = 0
@@ -82,7 +84,17 @@ func _physics_process(delta_seconds: float) -> void:
 	if Time.get_ticks_msec() >= _deadline_msec:
 		_finish(false, "deadline")
 		return
-	if not is_instance_valid(_replication) or _vehicle_id == 0:
+	if not is_instance_valid(_replication):
+		return
+	if _vehicle_id == 0 and _role == "host":
+		_prepare_host_entry()
+	elif _vehicle_id == 0 and _role == "client":
+		_try_client_entry()
+		var binding: Dictionary = _replication._vehicle_replicator.binding_for_participant(
+			REMOTE_PARTICIPANT_ID
+		)
+		_vehicle_id = int(binding.get("id", 0))
+	if _vehicle_id == 0:
 		return
 
 	var vehicle: VehicleMotion = _replication.vehicle_for_entity(_vehicle_id)
@@ -118,6 +130,7 @@ func _physics_process(delta_seconds: float) -> void:
 	else:
 		ok = (
 			ok
+			and _entry_confirmed
 			and _prediction_before_authority
 			and phases_complete
 			and _movement_receipts > 1
@@ -130,6 +143,7 @@ func _physics_process(delta_seconds: float) -> void:
 		"complete",
 		{
 			"displacement_metres": displacement,
+			"entry_confirmed": _entry_confirmed,
 			"phase_evidence": _phase_evidence,
 			"phase_outcomes": _phase_outcomes,
 			"moving_contact_observed": _moving_contact_observed,
@@ -157,6 +171,7 @@ func _on_session_changed(view: Dictionary) -> void:
 	_replication.set_local_input_enabled(false)
 	_replication.input_granted.connect(_on_input_granted)
 	_replication.movement_applied.connect(_on_movement_applied)
+	_replication.vehicle_action_resolved.connect(_on_vehicle_action_resolved)
 	if not _replication.configure_network(
 		view.session_id,
 		view.local_participant_id,
@@ -165,7 +180,7 @@ func _on_session_changed(view: Dictionary) -> void:
 		_finish(false, "match configuration")
 
 
-## Mirrors Session mapping and assigns the remote test driver before baseline capture.
+## Mirrors Session mapping before the client requests a production seat transaction.
 func _on_participant_admitted(native_peer_id: int, participant_id: int) -> void:
 	if not is_instance_valid(_replication):
 		_finish(false, "host match missing")
@@ -173,19 +188,56 @@ func _on_participant_admitted(native_peer_id: int, participant_id: int) -> void:
 	if not _replication.admit_peer(native_peer_id, participant_id):
 		_finish(false, "participant handoff")
 		return
-	var assigned: Dictionary = _replication.assign_vehicle_driver_for_testing(participant_id)
-	if not assigned.get("ok", false):
-		_finish(false, "vehicle assignment")
-		return
-	_vehicle_id = int(assigned.entity_ref.id)
-	_configure_contact_vehicle()
-	_print_event({ "event": "driver_assigned", "vehicle_id": _vehicle_id })
+	_prepare_host_entry()
 
 
-## Applies production disconnect cleanup to the temporary driver assignment.
+## Applies production disconnect cleanup to the confirmed seat transaction.
 func _on_participant_disconnected(native_peer_id: int, participant_id: int) -> void:
 	if is_instance_valid(_replication):
 		_replication.remove_peer(native_peer_id, participant_id)
+
+
+## Places the authoritative remote actor at an authored entry before client intent arrives.
+func _prepare_host_entry() -> void:
+	if _role != "host" or _vehicle_id != 0:
+		return
+	var actor: ActorMotion = _replication.actor_for_participant(REMOTE_PARTICIPANT_ID)
+	if actor == null:
+		return
+	var descriptors: Array[Dictionary] = _replication._vehicle_replicator.descriptor_rows()
+	if descriptors.is_empty():
+		return
+	_vehicle_id = int(descriptors[0].id)
+	var vehicle: VehicleMotion = _replication.vehicle_for_entity(_vehicle_id)
+	var entry: Marker3D = vehicle.get_node("Sockets/EntryLeft") as Marker3D
+	actor.global_position = entry.global_position
+	_configure_contact_vehicle()
+	_print_event({ "event": "entry_ready", "vehicle_id": _vehicle_id })
+
+
+## Sends the production reliable entry intent only after client admission is granted.
+func _try_client_entry() -> void:
+	if _role != "client" or not _granted or _entry_requested:
+		return
+	var descriptors: Array[Dictionary] = _replication._vehicle_replicator.descriptor_rows()
+	if descriptors.is_empty():
+		return
+	_entry_requested = _replication.request_local_vehicle_entry(int(descriptors[0].id), 1)
+	if not _entry_requested:
+		_finish(false, "vehicle entry request")
+		return
+	_print_event({ "event": "entry_requested", "vehicle_id": int(descriptors[0].id) })
+
+
+## Records the processed reliable result while descriptor state remains the control writer.
+func _on_vehicle_action_resolved(result: Dictionary) -> void:
+	if int(result.get("action_sequence", 0)) != 1:
+		return
+	if result.get("status") != VehicleInteraction.STATUS_APPLIED:
+		_finish(false, "vehicle entry rejected")
+		return
+	_entry_confirmed = true
+	_print_event({ "event": "entry_confirmed" })
 
 
 ## Opens deterministic drive input only after baseline and handoff grant.

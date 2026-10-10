@@ -52,7 +52,7 @@ var _completed_operations: Dictionary[int, bool] = {}
 var _provider_reusable: bool = true
 var _ignored_callback_count: int = 0
 var _compatibility: Dictionary = {
-	"protocol_version": 3,
+	"protocol_version": 4,
 	"content_id": "development",
 	"district_id": &"brackett_island",
 	"topology_revision": 0,

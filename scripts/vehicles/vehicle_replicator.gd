@@ -1,4 +1,4 @@
-class_name VehicleReplicator
+class_name VehicleReplicator  # gdstyle:ignore=quality/max-public-methods
 extends RefCounted
 ## Owns Match vehicle entities, drive admission, snapshots, prediction, and presentation.
 
@@ -19,6 +19,7 @@ var _authority: bool = false
 var _records_by_id: Dictionary[int, Dictionary] = {}
 var _entity_id_by_driver: Dictionary[int, int] = {}
 var _queues_by_participant: Dictionary[int, VehicleInputQueue] = {}
+var _coasting_entity_ids: Dictionary[int, bool] = {}
 var _prediction := VehiclePrediction.new()
 var _remote_smoothers: Dictionary[int, RemoteMotionSmoother] = {}
 
@@ -165,34 +166,32 @@ func capture_rows() -> Array[Dictionary]:
 	return rows
 
 
-## Assigns one host-side test driver until B1.2 replaces this seam with transactions.
-func assign_driver_for_testing(participant_id: int, entity_id: int = 0) -> Dictionary:
-	if not _authority or participant_id <= 0 or _records_by_id.is_empty():
-		return { "ok": false }
-	if entity_id == 0:
-		var sorted_ids: Array[int] = _records_by_id.keys()
-		sorted_ids.sort()
-		entity_id = sorted_ids[0]
-	if not _records_by_id.has(entity_id):
-		return { "ok": false }
-
-	var record: Dictionary = _records_by_id[entity_id]
-	var descriptor: Dictionary = record.descriptor
-	var previous_driver: int = int(descriptor.driver_participant_id)
-	var required_revisions: int = 2 if previous_driver > 0 else 1
+## Reports whether one unoccupied seat can safely advance its input epoch on entry.
+func can_assign_driver(participant_id: int, entity_id: int) -> bool:
 	if (
-		int(descriptor.control_revision) + required_revisions
-		> DriveCommandCodec.MAX_INPUT_EPOCH
+		not _authority
+		or participant_id <= 0
+		or not _records_by_id.has(entity_id)
+		or _entity_id_by_driver.has(participant_id)
 	):
-		return { "ok": false }
+		return false
+	var descriptor: Dictionary = _records_by_id[entity_id].descriptor
+	return (
+		int(descriptor.driver_participant_id) == 0
+		and int(descriptor.control_revision) < DriveCommandCodec.MAX_INPUT_EPOCH
+	)
 
-	release_driver(participant_id)
-	if previous_driver > 0 and previous_driver != participant_id:
-		release_driver(previous_driver)
+
+## Applies a VehicleInteraction-approved seat assignment and fresh command queue.
+func commit_driver_assignment(participant_id: int, entity_id: int) -> Dictionary:
+	if not can_assign_driver(participant_id, entity_id):
+		return { "ok": false }
+	var descriptor: Dictionary = _records_by_id[entity_id].descriptor
 	descriptor.driver_participant_id = participant_id
 	descriptor.control_revision = int(descriptor.control_revision) + 1
 	_entity_id_by_driver[participant_id] = entity_id
 	_queues_by_participant[participant_id] = VehicleInputQueue.new()
+	_coasting_entity_ids.erase(entity_id)
 	return {
 		"ok": true,
 		"entity_ref": { "id": entity_id, "generation": descriptor.generation },
@@ -200,16 +199,64 @@ func assign_driver_for_testing(participant_id: int, entity_id: int = 0) -> Dicti
 	}
 
 
-## Releases one test binding and clears stale drive commands without transferring seats.
-func release_driver(participant_id: int) -> void:
+## Reports whether one current seat can release even after its final usable input epoch.
+func can_release_driver(participant_id: int) -> bool:
 	var entity_id: int = int(_entity_id_by_driver.get(participant_id, 0))
+	return _authority and _records_by_id.has(entity_id)
+
+
+## Applies a VehicleInteraction-approved release and optional neutral coast controller.
+func commit_driver_release(participant_id: int, coast: bool) -> Dictionary:
+	if not can_release_driver(participant_id):
+		return { "ok": false }
+	var entity_id: int = int(_entity_id_by_driver[participant_id])
+	var descriptor: Dictionary = _records_by_id[entity_id].descriptor
 	_entity_id_by_driver.erase(participant_id)
 	_queues_by_participant.erase(participant_id)
-	if not _records_by_id.has(entity_id):
-		return
-	var descriptor: Dictionary = _records_by_id[entity_id].descriptor
 	descriptor.driver_participant_id = 0
+	descriptor.control_revision = mini(
+		int(descriptor.control_revision) + 1, DriveCommandCodec.MAX_INPUT_EPOCH
+	)
+	if coast:
+		_coasting_entity_ids[entity_id] = true
+	else:
+		_coasting_entity_ids.erase(entity_id)
+	return {
+		"ok": true,
+		"changed": true,
+		"entity_ref": { "id": entity_id, "generation": descriptor.generation },
+		"input_epoch": descriptor.control_revision,
+	}
+
+
+## Advances a retained seat epoch and clears old held commands for resynchronization.
+func commit_driver_rebind(participant_id: int) -> Dictionary:
+	if not can_release_driver(participant_id):
+		return { "ok": false }
+	var entity_id: int = int(_entity_id_by_driver[participant_id])
+	var descriptor: Dictionary = _records_by_id[entity_id].descriptor
+	if int(descriptor.control_revision) >= DriveCommandCodec.MAX_INPUT_EPOCH:
+		return { "ok": false }
 	descriptor.control_revision = int(descriptor.control_revision) + 1
+	_queues_by_participant[participant_id] = VehicleInputQueue.new()
+	return {
+		"ok": true,
+		"changed": true,
+		"entity_ref": { "id": entity_id, "generation": descriptor.generation },
+		"input_epoch": descriptor.control_revision,
+	}
+
+
+## Returns an immutable descriptor for interaction validation and lifecycle coordination.
+func descriptor_for_entity(entity_id: int) -> Dictionary:
+	var record: Dictionary = _records_by_id.get(entity_id, {})
+	return {} if record.is_empty() else (record.descriptor as Dictionary).duplicate(true)
+
+
+## Returns the current occupant without exposing the participant-to-vehicle index.
+func driver_for_entity(entity_id: int) -> int:
+	var descriptor: Dictionary = descriptor_for_entity(entity_id)
+	return int(descriptor.get("driver_participant_id", 0))
 
 
 ## Returns the current controlled vehicle fence for one sender-derived participant.
@@ -242,7 +289,7 @@ func offer_command(participant_id: int, decoded: Dictionary, receipt_msec: int) 
 	return { "accepted": queue.offer(command, receipt_msec) }
 
 
-## Steps each assigned host car once using the same VehicleMotion authority path.
+## Steps assigned and coasting host cars once through the shared VehicleMotion rule.
 func step_authority(delta_seconds: float, now_msec: int, physics_tick: int) -> void:
 	if not _authority:
 		return
@@ -259,6 +306,20 @@ func step_authority(delta_seconds: float, now_msec: int, physics_tick: int) -> v
 		(record.vehicle as VehicleMotion).step(
 			command, delta_seconds, VehicleMotion.StepMode.AUTHORITY
 		)
+	for entity_id: int in _coasting_entity_ids.keys():
+		var record: Dictionary = _records_by_id.get(entity_id, {})
+		if record.is_empty():
+			_coasting_entity_ids.erase(entity_id)
+			continue
+		var vehicle: VehicleMotion = record.vehicle
+		vehicle.step(
+			DriveCommand.neutral(maxi(1, physics_tick), physics_tick),
+			delta_seconds,
+			VehicleMotion.StepMode.AUTHORITY,
+		)
+		if vehicle.velocity.length() < 0.01:
+			vehicle.neutralize()
+			_coasting_entity_ids.erase(entity_id)
 
 
 ## Predicts one local command immediately through the same VehicleMotion step.
@@ -364,6 +425,7 @@ func reset_authority() -> void:
 		return
 	_entity_id_by_driver.clear()
 	_queues_by_participant.clear()
+	_coasting_entity_ids.clear()
 	for record: Dictionary in _records_by_id.values():
 		var descriptor: Dictionary = record.descriptor
 		descriptor.driver_participant_id = 0
@@ -381,6 +443,7 @@ func clear() -> void:
 	_remote_smoothers.clear()
 	_entity_id_by_driver.clear()
 	_queues_by_participant.clear()
+	_coasting_entity_ids.clear()
 	for record: Dictionary in _records_by_id.values():
 		var vehicle: VehicleMotion = record.vehicle
 		if is_instance_valid(vehicle):

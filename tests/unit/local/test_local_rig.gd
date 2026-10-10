@@ -3,6 +3,7 @@ extends GutTest
 
 const LOCAL_RIG_SCENE: PackedScene = preload("res://scenes/local/local_rig.tscn")
 const PLAYER_SCENE: PackedScene = preload("res://scenes/entities/player.tscn")
+const VEHICLE_SCENE: PackedScene = preload("res://scenes/entities/vehicles/vehicle_latch.tscn")
 
 
 ## Preserves the ratified vertical 47-metre, 42-degree, north-up camera framing.
@@ -28,6 +29,38 @@ func test_saved_camera_framing_and_follow_contract() -> void:
 	await get_tree().process_frame
 	assert_true(camera_anchor.global_position.is_equal_approx(actor.global_position))
 	assert_true(camera.global_position.is_equal_approx(actor.global_position + Vector3.UP * 47.0))
+
+
+## Follows only an accepted vehicle and restores the retained foot actor on exit.
+func test_vehicle_binding_retains_hud_actor_and_restores_foot_follow() -> void:
+	var actor: ActorMotion = PLAYER_SCENE.instantiate() as ActorMotion
+	var vehicle: VehicleMotion = VEHICLE_SCENE.instantiate() as VehicleMotion
+	var rig: LocalRig = LOCAL_RIG_SCENE.instantiate() as LocalRig
+	add_child_autofree(actor)
+	add_child_autofree(vehicle)
+	add_child_autofree(rig)
+	await get_tree().process_frame
+	assert_true(rig.bind_actor(actor))
+	vehicle.global_position = Vector3(30.0, 0.0, -12.0)
+
+	assert_true(rig.bind_vehicle(vehicle))
+	assert_same(rig.controlled_actor(), actor)
+	assert_same(rig.controlled_vehicle(), vehicle)
+	assert_true(
+		(rig.get_node("CameraAnchor") as Node3D).global_position.is_equal_approx(
+			vehicle.get_node("PresentationAnchor").global_position
+		)
+	)
+
+	actor.global_position = Vector3(-4.0, 0.0, 9.0)
+	assert_true(rig.bind_actor(actor))
+	assert_null(rig.controlled_vehicle())
+	assert_same(rig.controlled_actor(), actor)
+	assert_true(
+		(rig.get_node("CameraAnchor") as Node3D).global_position.is_equal_approx(
+			actor.global_position
+		)
+	)
 
 
 ## Emits one leave request for Escape without deciding session or scene teardown.

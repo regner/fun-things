@@ -1,0 +1,68 @@
+{
+  "engine": "4.8.dev7.official.c971f93e7",
+  "production_checks": {
+    "output": "C:/tmp/ft/lanes/m1-b12/production-checks-final-rpc",
+    "ok": true,
+    "python_tests": 22,
+    "gut_tests": 214,
+    "gut_assertions": 8894,
+    "expected_negative_observed": true
+  },
+  "focused_gut": {
+    "vehicles": {
+      "tests": 29,
+      "assertions": 1416,
+      "ok": true
+    },
+    "replication": {
+      "tests": 63,
+      "assertions": 4161,
+      "ok": true
+    },
+    "local": {
+      "tests": 12,
+      "assertions": 212,
+      "ok": true
+    }
+  },
+  "enet_profiles": [
+    {
+      "profile": "direct",
+      "movement_receipts": 368,
+      "acknowledgement": 460,
+      "reconciliations": 183,
+      "correction_p95_metres": 0.0171549264341593,
+      "entry_confirmed": true,
+      "exits_zero": true,
+      "outcomes_complete": true
+    },
+    {
+      "profile": "normal",
+      "delay_msec": 75,
+      "jitter_msec": 30,
+      "loss": 0.02,
+      "movement_receipts": 350,
+      "acknowledgement": 460,
+      "reconciliations": 172,
+      "correction_p95_metres": 0.685501754283905,
+      "entry_confirmed": true,
+      "exits_zero": true,
+      "outcomes_complete": true
+    },
+    {
+      "profile": "adverse",
+      "delay_msec": 125,
+      "jitter_msec": 50,
+      "loss": 0.05,
+      "movement_receipts": 324,
+      "acknowledgement": 460,
+      "reconciliations": 159,
+      "correction_p95_metres": 0.996231734752655,
+      "entry_confirmed": true,
+      "exits_zero": true,
+      "outcomes_complete": true
+    }
+  ],
+  "correction_target_metres": 0.5,
+  "visual_review": false
+}

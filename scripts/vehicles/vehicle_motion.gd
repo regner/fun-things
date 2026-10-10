@@ -77,6 +77,23 @@ func restore_motion_state(state: Dictionary) -> bool:
 	return true
 
 
+## Plays the nearest authored entry door as presentation without changing seat state.
+func play_entry_presentation(from_position: Vector3) -> bool:
+	if _presentation == null or not from_position.is_finite():
+		return false
+	var left: Marker3D = get_node_or_null("Sockets/EntryLeft") as Marker3D
+	var right: Marker3D = get_node_or_null("Sockets/EntryRight") as Marker3D
+	if left == null or right == null:
+		return false
+	var side: StringName = (
+		&"Left"
+		if from_position.distance_squared_to(left.global_position)
+		<= from_position.distance_squared_to(right.global_position)
+		else &"Right"
+	)
+	return _presentation.play_entry(side)
+
+
 ## Exposes complete motion-owned state for snapshots, replay, AI, and presentation.
 func motion_state() -> Dictionary:
 	var forward := Vector3(-sin(rotation.y), 0.0, -cos(rotation.y))
