@@ -574,8 +574,11 @@ this, but it is impractical for about 1,000 files. Use one reviewed scripted mov
    - Check that every ext_resource UID resolves (`ResourceUID`) to its new path.
    - The import log must contain no "file not found", UID-fallback or SCRIPT ERROR lines.
 6. **Prove nothing changed visually.** Reimport hashes of every moved GLB and texture equal the
-   old ones. Prefab captures before and after are identical. `git diff -M` shows 100%-similar
-   renames.
+   old ones. Prefab captures before and after are identical. Unchanged payload files (GLBs,
+   textures, `.blend` sources) appear in `git diff -M` as 100%-similar renames with matching
+   hashes. Rewritten text resources (`.import`, `.tscn`, `.tres`) must still be detected as
+   renames, at Git's default threshold or an explicit `-M50%`, and an audit of their diffs must
+   show only the expected path or serialization changes.
 7. **Content identity.** No moved environment asset is in the world closure, so run the
    regeneration tool only as a check. The manifest diff must be empty and the tool must print
    `BRACKETT_CONTENT_SAVED_SIGNATURE_MATCHES true`. If either fails, a world-placed file was
