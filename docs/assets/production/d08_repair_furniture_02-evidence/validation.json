@@ -1,0 +1,382 @@
+{
+  "asset": "d08_repair_furniture.02",
+  "blender": "5.2.2 LTS",
+  "build_hash": "d13f752e3b9c",
+  "vertices": 10040,
+  "triangles": 19944,
+  "mesh_count": 1,
+  "surfaces": 6,
+  "glb_vertices": 10731,
+  "degenerate_faces": 0,
+  "nonmanifold_edges": 0,
+  "unit_normals": true,
+  "consistent_winding": true,
+  "applied_transforms": true,
+  "integral_tyre_count": 10,
+  "tyre_centres_blender_m": [
+    [
+      -0.72,
+      0.0,
+      0.5
+    ],
+    [
+      -0.72,
+      0.0,
+      1.34
+    ],
+    [
+      -0.36,
+      0.0,
+      0.5
+    ],
+    [
+      -0.36,
+      0.0,
+      1.34
+    ],
+    [
+      0.0,
+      0.0,
+      0.5
+    ],
+    [
+      0.0,
+      0.0,
+      1.34
+    ],
+    [
+      0.36,
+      0.0,
+      0.5
+    ],
+    [
+      0.36,
+      0.0,
+      1.34
+    ],
+    [
+      0.72,
+      0.0,
+      0.5
+    ],
+    [
+      0.72,
+      0.0,
+      1.34
+    ]
+  ],
+  "source_aabb": {
+    "min": [
+      -1.100000023841858,
+      -0.4099999964237213,
+      0.0
+    ],
+    "max": [
+      1.0999999046325684,
+      0.4099999964237213,
+      1.8399999141693115
+    ]
+  },
+  "godot_aabb": {
+    "min": [
+      -1.100000023841858,
+      0.0,
+      -0.4099999964237213
+    ],
+    "max": [
+      1.0999999046325684,
+      1.8399999141693115,
+      0.4099999964237213
+    ]
+  },
+  "dimensions_godot_m": [
+    2.2,
+    1.84,
+    0.82
+  ],
+  "dimension_tolerance_m": 0.001,
+  "pivot": [
+    0,
+    0,
+    0
+  ],
+  "datum": "two ground-contact runners",
+  "fresh_reexport_byte_identical": true,
+  "glb_sha256": "0734a510f949a3ad7e6d050e6596629c75b5f283c9e157d0b1f6bbe9af4eb622",
+  "glb_bytes": 469100,
+  "materials": [
+    {
+      "name": "ironreach_roof_petrol",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.022173885256052017,
+          0.07618538290262222,
+          0.09758734703063965,
+          1
+        ],
+        "metallicFactor": 0.30000001192092896,
+        "roughnessFactor": 0.6000000238418579
+      }
+    },
+    {
+      "name": "ironreach_faded_petrol",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.12213877588510513,
+          0.20507873594760895,
+          0.19806931912899017,
+          1
+        ],
+        "metallicFactor": 0.25,
+        "roughnessFactor": 0.6399999856948853
+      }
+    },
+    {
+      "name": "ironreach_replacement_sheet",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.20507873594760895,
+          0.28314873576164246,
+          0.2788942754268646,
+          1
+        ],
+        "metallicFactor": 0.550000011920929,
+        "roughnessFactor": 0.5199999809265137
+      }
+    },
+    {
+      "name": "ironreach_working_amber",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.9130986332893372,
+          0.4910208582878113,
+          0.09084171056747437,
+          1
+        ],
+        "metallicFactor": 0.10000000149011612,
+        "roughnessFactor": 0.6499999761581421
+      }
+    },
+    {
+      "name": "ironreach_tyre_rubber",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.022173885256052017,
+          0.03433980792760849,
+          0.0382043719291687,
+          1
+        ],
+        "metallicFactor": 0,
+        "roughnessFactor": 0.8600000143051147
+      }
+    },
+    {
+      "name": "ironreach_local_rust",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.38642942905426025,
+          0.13013647496700287,
+          0.04817182570695877,
+          1
+        ],
+        "metallicFactor": 0,
+        "roughnessFactor": 0.8999999761581421
+      }
+    }
+  ],
+  "status": "PASS source and export",
+  "godot": {
+    "aabb_min": [
+      -1.10000002384186,
+      0.0,
+      -0.409999996423721
+    ],
+    "aabb_size": [
+      2.19999980926514,
+      1.83999991416931,
+      0.819999992847443
+    ],
+    "capsule_queries": [
+      {
+        "case": "body_solid",
+        "solid": true
+      },
+      {
+        "case": "east_bypass_clear",
+        "solid": false
+      },
+      {
+        "case": "west_bypass_clear",
+        "solid": false
+      },
+      {
+        "case": "rear_route_clear",
+        "solid": false
+      },
+      {
+        "case": "front_route_clear",
+        "solid": false
+      },
+      {
+        "case": "north_east_corner",
+        "solid": true
+      },
+      {
+        "case": "south_west_corner",
+        "solid": true
+      },
+      {
+        "case": "above_rack_clear",
+        "solid": false
+      }
+    ],
+    "car_box_sweep": {
+      "east_bypass_blocked": false,
+      "front_blocked": true,
+      "size_m": [
+        1.9,
+        1.5,
+        4.3
+      ]
+    },
+    "collision_shape_count": 1,
+    "engine": "4.8-dev7 (official)",
+    "failures": [],
+    "front_ray_z": -0.409999966621399,
+    "linked_model_identity": true,
+    "materials": [
+      "ironreach_roof_petrol",
+      "ironreach_faded_petrol",
+      "ironreach_replacement_sheet",
+      "ironreach_working_amber",
+      "ironreach_tyre_rubber",
+      "ironreach_local_rust"
+    ],
+    "model_uid": "uid://yxupe8mmhn12",
+    "ok": true,
+    "prefab_uid": "uid://b1xkmimjh2ynm",
+    "production_actor_motion": [
+      {
+        "case": "front_stop",
+        "end": [
+          0.0,
+          0.000877899117767811,
+          -0.761067450046539
+        ],
+        "mode": 0
+      },
+      {
+        "case": "rear_stop",
+        "end": [
+          0.0,
+          0.000877899117767811,
+          0.761067450046539
+        ],
+        "mode": 0
+      },
+      {
+        "case": "east_stop",
+        "end": [
+          1.45052134990692,
+          0.000877922924701124,
+          0.0
+        ],
+        "mode": 0
+      },
+      {
+        "case": "east_bypass",
+        "end": [
+          1.54999995231628,
+          0.000878042250405997,
+          2.99999976158142
+        ],
+        "mode": 0
+      },
+      {
+        "case": "front_stop",
+        "end": [
+          0.0,
+          0.000877899117767811,
+          -0.761067450046539
+        ],
+        "mode": 1
+      },
+      {
+        "case": "rear_stop",
+        "end": [
+          0.0,
+          0.000877899117767811,
+          0.761067450046539
+        ],
+        "mode": 1
+      },
+      {
+        "case": "east_stop",
+        "end": [
+          1.45052134990692,
+          0.000877922924701124,
+          0.0
+        ],
+        "mode": 1
+      },
+      {
+        "case": "east_bypass",
+        "end": [
+          1.54999995231628,
+          0.000878042250405997,
+          2.99999976158142
+        ],
+        "mode": 1
+      }
+    ],
+    "save_reload_byte_stable": true
+  },
+  "renders": [
+    {
+      "file": "hero.png",
+      "size_px": [
+        1280,
+        720
+      ],
+      "bytes": 309362
+    },
+    {
+      "file": "side.png",
+      "size_px": [
+        1280,
+        720
+      ],
+      "bytes": 254789
+    },
+    {
+      "file": "detail.png",
+      "size_px": [
+        1280,
+        720
+      ],
+      "bytes": 316529
+    },
+    {
+      "file": "overhead_47m_42deg.png",
+      "size_px": [
+        1280,
+        720
+      ],
+      "bytes": 380580
+    }
+  ],
+  "visual_self_review": {
+    "renderer": "Isolated Blender Cycles CPU, 32 samples, AgX",
+    "encoding": "RGB with 6 significant bits per channel (overhead 7); PNG compression 9",
+    "camera": "Vertical down (0,0,47)m, Blender +Y north-up, perspective vertical FOV42 degrees",
+    "observed": "Two rows of five tyres, hollow sidewalls, broad tread channels and sparse frame abrasion read in close views. Five dark top arcs separated by gaps, end frames and a restrained warm rail identify the small overhead footprint. Lower tyres and rust are not claimed readable from the gameplay camera.",
+    "scope": "Self-review of Blender evidence, not native engine/world/device visual acceptance"
+  },
+  "diagnostics": {
+    "source": "Pinned Blender passes; material API deprecation notices only",
+    "editor": "Known toolkit compatibility warning, aborted scan and shutdown RID/ObjectDB leaks; successful normalization assertions, diagnostics retained in final.log",
+    "import": "Exit 0; no ERROR/SCRIPT ERROR lines; existing toolkit compatibility warning",
+    "runtime": "Exit 0; no ERROR/WARNING lines; all resource and physics assertions pass",
+    "production_checks": "Not run, per owner decision 52"
+  }
+}

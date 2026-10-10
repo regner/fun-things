@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://b1xkmimjh2ynm"]
+
+[ext_resource type="PackedScene" uid="uid://yxupe8mmhn12" path="res://art/models/environment/d08_repair_furniture_02/d08_repair_furniture_02.glb" id="1_model"]
+
+[sub_resource type="BoxShape3D" id="Box_rack"]
+size = Vector3(2.2, 1.84, 0.82)
+
+[node name="D08RepairFurniture02" type="Node3D" unique_id=196398956]
+
+[node name="Visuals" type="Node3D" parent="." unique_id=1079660004]
+
+[node name="Model" type="Node3D" parent="Visuals" unique_id=566744618 instance=ExtResource("1_model")]
+
+[node name="Collision" type="Node3D" parent="." unique_id=2107036183]
+
+[node name="Body" type="StaticBody3D" parent="Collision" unique_id=2096010596]
+collision_mask = 0
+
+[node name="RackSolid" type="CollisionShape3D" parent="Collision/Body" unique_id=1787962083]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.92, 0)
+shape = SubResource("Box_rack")
