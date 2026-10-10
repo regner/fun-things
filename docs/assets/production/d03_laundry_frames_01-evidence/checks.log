@@ -45,3 +45,12 @@ Historical diagnostics, not final failures:
 
 Not run: production_checks.py (decision 52); live editors; Godot graphical captures;
 world placement, actual cars, multiplayer transport, packaged build or Deck/performance.
+
+REVIEW ROUND 1:
+Saved dependency UIDs restored from existing import identities.
+Serialized header/dependency/node checks and two roundtrips pass.
+Missing and mismatched UID negative tests exit 1 as expected.
+Fresh source/re-export, final import and two runtime checks pass.
+Python compile, gdstyle format and zero-warning lint pass.
+No visual changes: original reviewed renders retained, not rerendered.
+Round-1 import attempts: MCP advisory; initial scan-thread shutdown warning.

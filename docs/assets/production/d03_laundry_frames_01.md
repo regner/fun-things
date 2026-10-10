@@ -196,6 +196,29 @@ timeout 180 "$BLENDER" -noaudio --background --factory-startup --threads 4 \
 After any final modifications, repeat import/checks, update the handoff from the final
 validation receipt and run `python "$TOOLS/record.py"` last to refresh payload hashes.
 
+## Review round 1 — saved dependency identities
+
+Addressed the P2 finding by serializing existing UIDs for the model dependency in the frame prefab (and both fixture dependencies).
+No identity was reallocated. Header UIDs, node `unique_id` values, ancestry, transforms,
+material settings and collision are unchanged. The checker follows the delivered
+entrance-number asset's headless fallback: after Godot saves, restore dependency UID
+fields from the warm import cache, then inspect the actual serialized text. Every owned
+prefab/material (and owned fixture, where present) must have a header UID, a resolving
+`uid=` on each `[ext_resource]`, and `unique_id=` on every node. Runtime checking is read-only
+and rejects absent or mismatched dependency UIDs before other checks.
+
+The strengthened checker rejected the original missing fields and a deliberately mismatched
+registered UID (exit 1); restored files pass normalization, two byte-stable supplemented
+save/reload cycles, pinned import and two fresh runtime checks with identical receipts.
+Source validation and fresh re-export were rerun; existing source, GLB, artwork and render
+bytes remain unchanged. Renders were not regenerated because no visual input changed;
+the reviewed four images remain the visual evidence. Artwork reproduction checks, where
+applicable, Python compilation and pinned GDScript format/zero-warning lint pass.
+`validation.json` records the serialized dependency map and negative-test observations;
+`manifest.json` was regenerated last. The exact reproduction commands below/above remain
+valid. No live editor was accessed or synchronized. Full world/gameplay/device acceptance
+remains pending; independent review must confirm this P2 repair.
+
 ## Remaining acceptance
 
 - Independent technical/art review at the committed candidate.

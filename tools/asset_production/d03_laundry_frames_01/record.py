@@ -14,6 +14,7 @@ def main():
     assert validation["status"] == "PASS"
     assert validation["fresh_reexport_byte_identical"]
     assert validation["godot"]["ok"]
+    assert validation["godot"]["serialized_dependency_uids"]
     handoff = ROOT / f"docs/assets/production/{NID}.md"
     text = handoff.read_text(encoding="utf-8")
     for key in ("source", "export"):
@@ -26,6 +27,17 @@ def main():
         if path.startswith("res://"):
             assert entry["byte_stable"] and entry["stable_reload_count"] == 2
             assert hashlib.sha256((ROOT / path[6:]).read_bytes()).hexdigest() == entry["sha256"]
+    log_path = EVIDENCE / "checks.log"
+    historical = log_path.read_text(encoding="utf-8").split("\nREVIEW ROUND 1:")[0]
+    log_path.write_text(historical.rstrip() + "\n\nREVIEW ROUND 1:\n"
+                        "Saved dependency UIDs restored from existing import identities.\n"
+                        "Serialized header/dependency/node checks and two roundtrips pass.\n"
+                        "Missing and mismatched UID negative tests exit 1 as expected.\n"
+                        "Fresh source/re-export, final import and two runtime checks pass.\n"
+                        "Python compile, gdstyle format and zero-warning lint pass.\n"
+                        "No visual changes: original reviewed renders retained, not rerendered.\n"
+                        "Round-1 import attempts: MCP advisory; initial scan-thread shutdown warning.\n",
+                        encoding="utf-8", newline="\n")
     files = [handoff, ROOT / f"scenes/prefabs/environment/{NID}.tscn"]
     for directory in (ROOT / f"art/source/models/environment/{NID}",
                       ROOT / f"art/models/environment/{NID}",

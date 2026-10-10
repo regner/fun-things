@@ -143,13 +143,31 @@
       "ok": true,
       "res://scenes/prefabs/environment/d03_laundry_frames_01.tscn": {
         "byte_stable": true,
-        "sha256": "fb7d4616d884c15cd426d8af99d5b929114cf4f383c2413a26845004b067bc0a",
+        "sha256": "a0aac8ed5d314815bb7e2f6accbac3d3a429c8787522c69e5941651c4141125b",
         "stable_reload_count": 2.0
       },
       "res://tools/asset_production/d03_laundry_frames_01/check_scene.tscn": {
         "byte_stable": true,
-        "sha256": "eea037df6a790e785d9413f59d0c4d5cfe4f6452ce4ebdd8af7a6fd7a090ed45",
+        "sha256": "e49a8b963ae48473fd4dc8ab4f4af63a2f999651911e3747c5f9d1d776eb2783",
         "stable_reload_count": 2.0
+      },
+      "serialized_dependency_uids": {
+        "res://scenes/prefabs/environment/d03_laundry_frames_01.tscn": {
+          "res://art/models/environment/d03_laundry_frames_01/d03_laundry_frames_01.glb": "uid://c3gkc6c76m28d"
+        },
+        "res://tools/asset_production/d03_laundry_frames_01/check_scene.tscn": {
+          "res://scenes/prefabs/environment/d03_laundry_frames_01.tscn": "uid://blxebt67ss4g5",
+          "res://scripts/actors/actor_motion.gd": "uid://jthmfio4c27p"
+        }
+      }
+    },
+    "serialized_dependency_uids": {
+      "res://scenes/prefabs/environment/d03_laundry_frames_01.tscn": {
+        "res://art/models/environment/d03_laundry_frames_01/d03_laundry_frames_01.glb": "uid://c3gkc6c76m28d"
+      },
+      "res://tools/asset_production/d03_laundry_frames_01/check_scene.tscn": {
+        "res://scenes/prefabs/environment/d03_laundry_frames_01.tscn": "uid://blxebt67ss4g5",
+        "res://scripts/actors/actor_motion.gd": "uid://jthmfio4c27p"
       }
     }
   },
@@ -165,5 +183,23 @@
     "vertical_fov_degrees": 42,
     "direction": "vertical-down north-up",
     "dither_intensity": 0
+  },
+  "review_round_1": {
+    "finding": "P2: missing serialized dependency UIDs",
+    "missing_uid_regression": {
+      "exit_code": 1,
+      "rejected_dependencies": [
+        "res://art/models/environment/d03_laundry_frames_01/d03_laundry_frames_01.glb",
+        "res://scenes/prefabs/environment/d03_laundry_frames_01.tscn",
+        "res://scripts/actors/actor_motion.gd"
+      ]
+    },
+    "mismatched_uid_regression": {
+      "exit_code": 1,
+      "mutated_resource": "scenes/prefabs/environment/d03_laundry_frames_01.tscn",
+      "rejected_uid": "uid://blxebt67ss4g5"
+    },
+    "scope": "Identity metadata only; source, exported geometry, artwork and render bytes unchanged.",
+    "renders_rerun": false
   }
 }
