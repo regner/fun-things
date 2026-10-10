@@ -6377,14 +6377,14 @@
       "input_next_action": "Refine design from district asset breakdown",
       "brief": "[Brief](../../assets/d05_quay_frontages.md)",
       "priority": 0,
-      "status": "queued",
-      "agent_id": null,
-      "source_revision": null,
-      "review_status": "pending",
-      "integration_status": "pending",
+      "status": "production_prefab_accepted",
+      "agent_id": "2161c755-4d2f-411b-ba43-4cf16beea435",
+      "source_revision": "60de2e0a",
+      "review_status": "accepted source/export/prefab scope (independent Sol review)",
+      "integration_status": "accepted",
       "placement_status": "pending",
       "blocker": null,
-      "attempts": 0,
+      "attempts": 1,
       "initial_time_cap_minutes": 90,
       "owned_paths": [
         "art/source/models/environment/d05_quay_frontages_01/",
@@ -6392,8 +6392,20 @@
         "art/textures/environment/d05_quay_frontages_01/",
         "art/materials/environment/d05_quay_frontages_01/",
         "docs/assets/production/d05_quay_frontages_01.md",
-        "docs/assets/production/d05_quay_frontages_01-evidence/"
-      ]
+        "docs/assets/production/d05_quay_frontages_01-evidence/",
+        "tools/asset_production/d05_quay_frontages_01/",
+        "scenes/prefabs/environment/d05_quay_frontages_01.tscn"
+      ],
+      "launch": {
+        "provider": "portkey/gpt-6-astra",
+        "configured_effort": "medium",
+        "mode": "orchestrator asset lane",
+        "lane": "a-qfront"
+      },
+      "producer_manifest": "docs/assets/production/d05_quay_frontages_01-evidence/manifest.json",
+      "report": "docs/assets/production/d05_quay_frontages_01.md",
+      "reviewer_id": "5aa34990-794e-43f0-bcc4-8977fa869284",
+      "integrated_revision": "782fe84d"
     },
     {
       "id": "d05_quay_frontages.02",
@@ -6406,14 +6418,14 @@
       "input_next_action": "Refine design from district asset breakdown",
       "brief": "[Brief](../../assets/d05_quay_frontages.md)",
       "priority": 0,
-      "status": "queued",
-      "agent_id": null,
-      "source_revision": null,
-      "review_status": "pending",
-      "integration_status": "pending",
+      "status": "production_prefab_accepted",
+      "agent_id": "c512cc50-11eb-4206-bcd5-7ae0b2b73532",
+      "source_revision": "dd758449",
+      "review_status": "accepted source/export/prefab scope (independent Sol review)",
+      "integration_status": "accepted",
       "placement_status": "pending",
       "blocker": null,
-      "attempts": 0,
+      "attempts": 1,
       "initial_time_cap_minutes": 90,
       "owned_paths": [
         "art/source/models/environment/d05_quay_frontages_02/",
@@ -6421,8 +6433,20 @@
         "art/textures/environment/d05_quay_frontages_02/",
         "art/materials/environment/d05_quay_frontages_02/",
         "docs/assets/production/d05_quay_frontages_02.md",
-        "docs/assets/production/d05_quay_frontages_02-evidence/"
-      ]
+        "docs/assets/production/d05_quay_frontages_02-evidence/",
+        "tools/asset_production/d05_quay_frontages_02/",
+        "scenes/prefabs/environment/d05_quay_frontages_02.tscn"
+      ],
+      "launch": {
+        "provider": "portkey/gpt-6-astra",
+        "configured_effort": "medium",
+        "mode": "orchestrator asset lane",
+        "lane": "a-qfront"
+      },
+      "producer_manifest": "docs/assets/production/d05_quay_frontages_02-evidence/manifest.json",
+      "report": "docs/assets/production/d05_quay_frontages_02.md",
+      "reviewer_id": "5aa34990-794e-43f0-bcc4-8977fa869284",
+      "integrated_revision": "782fe84d"
     },
     {
       "id": "d05_quay_frontages.03",
@@ -6435,14 +6459,14 @@
       "input_next_action": "Refine design from district asset breakdown",
       "brief": "[Brief](../../assets/d05_quay_frontages.md)",
       "priority": 0,
-      "status": "queued",
-      "agent_id": null,
-      "source_revision": null,
-      "review_status": "pending",
-      "integration_status": "pending",
+      "status": "production_prefab_accepted",
+      "agent_id": "70c3075d-9d3f-4f30-9786-6cff82084d14",
+      "source_revision": "edbd44c9",
+      "review_status": "accepted source/export/prefab scope (independent Sol review)",
+      "integration_status": "accepted",
       "placement_status": "pending",
       "blocker": null,
-      "attempts": 0,
+      "attempts": 1,
       "initial_time_cap_minutes": 90,
       "owned_paths": [
         "art/source/models/environment/d05_quay_frontages_03/",
@@ -6450,8 +6474,20 @@
         "art/textures/environment/d05_quay_frontages_03/",
         "art/materials/environment/d05_quay_frontages_03/",
         "docs/assets/production/d05_quay_frontages_03.md",
-        "docs/assets/production/d05_quay_frontages_03-evidence/"
-      ]
+        "docs/assets/production/d05_quay_frontages_03-evidence/",
+        "tools/asset_production/d05_quay_frontages_03/",
+        "scenes/prefabs/environment/d05_quay_frontages_03.tscn"
+      ],
+      "launch": {
+        "provider": "portkey/gpt-6-astra",
+        "configured_effort": "medium",
+        "mode": "orchestrator asset lane",
+        "lane": "a-qfront"
+      },
+      "producer_manifest": "docs/assets/production/d05_quay_frontages_03-evidence/manifest.json",
+      "report": "docs/assets/production/d05_quay_frontages_03.md",
+      "reviewer_id": "5aa34990-794e-43f0-bcc4-8977fa869284",
+      "integrated_revision": "782fe84d"
     },
     {
       "id": "d05_quay_frontages.04",
@@ -6464,14 +6500,14 @@
       "input_next_action": "Review Old Quay asset set",
       "brief": "[Brief](../../assets/d05_quay_frontages.md)",
       "priority": 0,
-      "status": "queued",
-      "agent_id": null,
-      "source_revision": null,
-      "review_status": "pending",
-      "integration_status": "pending",
+      "status": "production_prefab_accepted",
+      "agent_id": "239f17ff-c181-47d4-81a4-19cc0134c431",
+      "source_revision": "782fe84d",
+      "review_status": "accepted source/export/prefab scope (independent Sol review)",
+      "integration_status": "accepted",
       "placement_status": "pending",
       "blocker": null,
-      "attempts": 0,
+      "attempts": 1,
       "initial_time_cap_minutes": 90,
       "owned_paths": [
         "art/source/models/environment/d05_quay_frontages_04/",
@@ -6479,8 +6515,20 @@
         "art/textures/environment/d05_quay_frontages_04/",
         "art/materials/environment/d05_quay_frontages_04/",
         "docs/assets/production/d05_quay_frontages_04.md",
-        "docs/assets/production/d05_quay_frontages_04-evidence/"
-      ]
+        "docs/assets/production/d05_quay_frontages_04-evidence/",
+        "tools/asset_production/d05_quay_frontages_04/",
+        "scenes/prefabs/environment/d05_quay_frontages_04.tscn"
+      ],
+      "launch": {
+        "provider": "portkey/gpt-6-astra",
+        "configured_effort": "medium",
+        "mode": "orchestrator asset lane",
+        "lane": "a-qfront"
+      },
+      "producer_manifest": "docs/assets/production/d05_quay_frontages_04-evidence/manifest.json",
+      "report": "docs/assets/production/d05_quay_frontages_04.md",
+      "reviewer_id": "5aa34990-794e-43f0-bcc4-8977fa869284",
+      "integrated_revision": "782fe84d"
     },
     {
       "id": "d05_harbour_hall.01",
