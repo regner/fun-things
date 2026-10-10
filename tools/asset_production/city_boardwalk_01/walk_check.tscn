@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://b1lkq3m7f4hkg"]
+
+[ext_resource type="PackedScene" uid="uid://btsnym45lcgwn" path="res://scenes/prefabs/environment/city_boardwalk_01.tscn" id="1_deck"]
+[ext_resource type="Script" uid="uid://jthmfio4c27p" path="res://scripts/actors/actor_motion.gd" id="2_motion"]
+
+[sub_resource type="CapsuleShape3D" id="Capsule_actor"]
+radius = 0.35
+height = 1.8
+
+[node name="BoardwalkWalkCheck" type="Node3D" unique_id=564282991]
+
+[node name="DeckA" parent="." unique_id=500463397 instance=ExtResource("1_deck")]
+
+[node name="DeckB" parent="." unique_id=320552728 instance=ExtResource("1_deck")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 6)
+
+[node name="Actor" type="CharacterBody3D" parent="." unique_id=396184598]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.001, 1)
+collision_layer = 2
+script = ExtResource("2_motion")
+
+[node name="Capsule" type="CollisionShape3D" parent="Actor" unique_id=1915285395]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0)
+shape = SubResource("Capsule_actor")

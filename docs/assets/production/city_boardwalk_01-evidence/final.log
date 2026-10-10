@@ -1,0 +1,59 @@
+city_boardwalk.01 final production receipt — 2026-10-10
+Workspace: C:/GameDev/git/ft-lanes/a-boardwalk; branch lane/a-boardwalk.
+Original model, bounded source/import/physics delivery; independent review pending.
+Exact reproducible commands and remaining gates: ../city_boardwalk_01.md.
+Raw scratch logs: C:/tmp/ft/assets/city_boardwalk_01/ (not committed).
+
+PASS Blender pin: 5.2.2 LTS / d13f752e3b9c; glTF exporter 5.2.40.
+PASS timeout 180 author.py: exit 0, editable named export collection saved.
+PASS timeout 180 export.py: exit 0, linked GLB 66032 bytes.
+PASS timeout 180 export.py -- C:/tmp/ft/assets/city_boardwalk_01/reexport.glb: exit 0.
+PASS timeout 180 validate.py -- C:/tmp/ft/assets/city_boardwalk_01/reexport.glb: exit 0.
+  2268 triangles / 1176 source vertices / 1512 exported vertices / 1 mesh / 4 surfaces.
+  Zero non-manifold edges and degenerate faces; finite coordinates, unit normals.
+  Godot bounds (-1.8,-.24,-3) to (1.8,0,3), tolerance .001 m; surface datum at origin.
+  Fresh-process reexport is byte-identical to production output.
+PASS timeout 900 render.py: exit 0, four isolated 1280x720 PNGs visually inspected.
+  Calm timber rhythm remains visible at 47 m / 42-degree vertical-down perspective.
+PASS timeout 300 pinned Godot --headless --editor --path . --import --quit: exit 0.
+BOUNDED PASS headless editor --script owned check.gd -- --normalize:
+  saved scene/dependency UIDs and roundtrip hashes pass; exit 0 with shutdown diagnostics.
+PASS timeout 180 pinned Godot --headless --path . --script owned check.gd: exit 0.
+  Final check-uid.log: no warnings/errors; requires saved UIDs and correct dependency mapping.
+  18 floor support rays / 2 clear outside rays.
+  4 seam cases x 2 ActorMotion modes x 48 ticks; authority/replay positions equal.
+  Forward Z 5.000000477; reverse Z .999999821; lateral positions retained; Y .001 margin.
+PASS negative normalization guard: non-editor --normalize exits 1 as intended;
+  before/after SHA-256 confirms both saved scenes unchanged.
+PASS all five owned Python scripts compile without writing cache files.
+PASS targeted pinned gdstyle 0.3.0 check and fmt --check: exit 0, no issues/already formatted.
+INITIAL PASS timeout 1800 mise exec -- python tools/production_checks.py
+  --output C:/tmp/ft/assets/city_boardwalk_01/checks: exit 0.
+  14 Python tests; 137 GUT tests / 6523 assertions passed; all script checks passed.
+FINAL FAIL same canonical command, --output C:/tmp/ft/assets/city_boardwalk_01/checks-final:
+  exit 1; engine/GUT pins, owned GDScript compile/style, 14 Python tests, GUT import,
+  and intentional-failure detection all pass. 136/137 GUT tests pass, 6520/6523 assertions.
+  Unchanged tests/unit/session/test_session_service.gd:
+    test_join_connection_deadline_reports_connect_timeout
+    line 170: CLOSING expected IDLE.
+    line 171: zero disconnects expected one.
+    line 172: invalid Dictionary[int, Array] key 1 access.
+  No session code was changed; final failure remains open, not ignored as a baseline.
+  The unchanged failing full command was not repeated.
+
+Diagnostics/correction retained without suppression:
+- Blender version-only probe: one 23-byte shutdown allocation notice.
+- Blender author/render: pinned Material.use_nodes deprecation notice.
+- Headless editor import: third-party MCP addon 4.8 compatibility warning.
+- Editor-mode normalization: 5 viewport, 8 dummy texture, 1 scenario,
+  52 shaped-text and 1 font RID leaks; 5 Canvas / 31 CanvasItem / 168 ObjectDB
+  shutdown warnings. The final runtime loads/movement do not emit these diagnostics.
+- Non-editor ResourceSaver normalization stripped scene/dependency UIDs on this pin.
+  Self-review found it before commit. Helper now rejects non-editor saves, asserts UIDs,
+  and headless editor normalization restores them while preserving node identities.
+- gdstyle is not on ambient Bash PATH; actual checks used the mise-pinned binary.
+No live MCP requests, unrelated scene saves, shared settings edits or broad suppression.
+
+Not established: independent acceptance, coastline fit/placement, sibling/rail mating,
+vehicle contact, water-edge gameplay, network transport, native gameplay-camera or Deck cost.
+Final suite session-timeout failure and editor shutdown diagnostics remain review limitations.
