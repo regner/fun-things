@@ -1,0 +1,22 @@
+d09_freight_graphics.02 final bounded producer checks
+Blender 5.2.2 LTS d13f752e3b9c / exporter 5.2.40 source audit: PASS, exit 0.
+Both existing storage sources and GLBs unchanged; fresh exports byte-identical.
+Long: 10168 source / 11074 GLB vertices; 20100 triangles; one mesh/four surfaces.
+Short: 6856 source / 7762 GLB vertices; 13476 triangles; one mesh/four surfaces.
+Zero degenerates/nonmanifold edges; unit normals and literal bounds pass.
+Both ID faces per carrier: surface 3 only, outward winding, upright outside-readable UVs.
+Four Python artwork tests: PASS, exit 0; both PNG byte streams reproduce exactly.
+Four isolated Blender renders: PASS, exit 0; 1280x720; producer inspected each.
+Godot 4.8.dev7.official.c971f93e7 final import: PASS, exit 0; no ERROR/SCRIPT ERROR.
+Import retains installed MCP toolkit warning: Godot 4.8 versus tested 4.7.
+Two save/reload cycles per scene/material plus fresh-process initial-byte check: PASS.
+Fresh prefab/dependency/material/unchanged inherited collision checks: PASS, exit 0.
+Final normalization and fresh check logs have no errors or warnings.
+gdstyle 0.3.0 format check and zero-warning lint: PASS, exit 0.
+Corrected initial owned validator assumptions: GLB U axis sign and weighted corner
+normals. Actual face winding is exactly outward; source normals remain unchanged.
+Corrected initial lint local-variable limit by extracting per-variant checking.
+Initial temporary-instance teardown emitted dummy-renderer null-material diagnostics;
+retaining material references through instance teardown fixes final checks, no suppression.
+Preview emits Blender use_nodes forward-looking deprecation warnings.
+No production_checks, live editor, gameplay, network, device or world placement test run.

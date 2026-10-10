@@ -1,0 +1,178 @@
+{
+  "asset_id": "d09_freight_graphics.02",
+  "algorithm": "SHA-256",
+  "exclusions": [
+    "manifest self-hash",
+    "uncommitted __pycache__"
+  ],
+  "unchanged_shared_dependencies": {
+    "tools/assets/blender/export_settings.json": {
+      "bytes": 646,
+      "sha256": "33ded3c83616fba6573848dda1f0ea3fc7ae7f4c98257fc867dca3bbe35ff9ec"
+    },
+    "tools/asset_production/d09_freight_graphics_01/author.py": {
+      "bytes": 3943,
+      "sha256": "3afaa0ec8f999e1676467af59b2b3c1d8bab496335e0c835b41aff64e485b663"
+    },
+    "art/source/models/environment/d09_storage_01/d09_storage_01.blend": {
+      "bytes": 354549,
+      "sha256": "2056d86d050d08bd28775942b5f17a5d7491d5d726b31149e408c5e3aaf2b073"
+    },
+    "art/models/environment/d09_storage_01/d09_storage_01.glb": {
+      "bytes": 479048,
+      "sha256": "f3140a621c96f5ab2ecc17ec91dafa53b589d5e9ad5a9a151eba242c5d091876"
+    },
+    "art/models/environment/d09_storage_01/d09_storage_01.glb.import": {
+      "bytes": 1247,
+      "sha256": "cdce64ae91c240412fc4f2e156ea41c9e6420de67dfba736cc2247ccbbcd7f7e"
+    },
+    "scenes/prefabs/environment/d09_storage_01.tscn": {
+      "bytes": 827,
+      "sha256": "907a3f21e8944071eed6348dfa27eb164f3f9d9058a8da94f15c30c0992d9273"
+    },
+    "tools/asset_production/d09_storage_01/validate.py": {
+      "bytes": 7505,
+      "sha256": "f7d3c32f8f2d4e4ebbc9e6733bb3bfca71323b9cb9165c19e5bbd2c0aa70887e"
+    },
+    "tools/asset_production/d09_storage_01/export.py": {
+      "bytes": 770,
+      "sha256": "b4d2ce65ce04c9244a2654ecbc4aa6b9277ff3ad52d22174717f1e775adb19b1"
+    },
+    "art/source/models/environment/d09_storage_02/d09_storage_02.blend": {
+      "bytes": 273202,
+      "sha256": "44108adfbe388c462305d0f1ba5169ece9702c7bffd8c971bcb4861debd8a300"
+    },
+    "art/models/environment/d09_storage_02/d09_storage_02.glb": {
+      "bytes": 333324,
+      "sha256": "590469bcc6db39bda4cf46c131edca349d0f2d357aebe1e26a9c568b242e5be0"
+    },
+    "art/models/environment/d09_storage_02/d09_storage_02.glb.import": {
+      "bytes": 1247,
+      "sha256": "70e580ce5903c40ad709672f1e344de9da8ce2e8687552dfb1007ac6e35d0d6f"
+    },
+    "scenes/prefabs/environment/d09_storage_02.tscn": {
+      "bytes": 824,
+      "sha256": "c33e340fc396308af84ea170981fa237a9f4c48c89355a440828446ab3c79814"
+    },
+    "tools/asset_production/d09_storage_02/validate.py": {
+      "bytes": 8233,
+      "sha256": "66874aee52eaab64887a20b439a6b48d7a6acdecd8106e157e69f4e38074949a"
+    },
+    "tools/asset_production/d09_storage_02/export.py": {
+      "bytes": 771,
+      "sha256": "1dc74253d6dea88a1a3b359a5457daf3dbf48a8a541334c3847a30b293deef9a"
+    }
+  },
+  "files": [
+    {
+      "path": "art/materials/environment/d09_freight_graphics_02/container_id_long.tres",
+      "bytes": 343,
+      "sha256": "8258b654a4934e69b5911ff9183cce2db6b25167ca899d4e438963a7118eedaa"
+    },
+    {
+      "path": "art/materials/environment/d09_freight_graphics_02/container_id_short.tres",
+      "bytes": 346,
+      "sha256": "b88320b227efa6fcc00af046c6cf842756163bfc90d3126b8d6b47801babcbc1"
+    },
+    {
+      "path": "art/textures/environment/d09_freight_graphics_02/container_id_long_albedo.png",
+      "bytes": 34288,
+      "sha256": "9607c88dec4f308aa4e962db54fcfee84c5ee19f96e0a63961263861692aa820"
+    },
+    {
+      "path": "art/textures/environment/d09_freight_graphics_02/container_id_long_albedo.png.import",
+      "bytes": 1129,
+      "sha256": "8f2bc3cc244ba059210090d5900a7c7b40b7e854a83534ac7805697290d545d9"
+    },
+    {
+      "path": "art/textures/environment/d09_freight_graphics_02/container_id_short_albedo.png",
+      "bytes": 35685,
+      "sha256": "872053d43ca1bdceadf27000117a1771e5ca461860fa30df80062f1331b9816a"
+    },
+    {
+      "path": "art/textures/environment/d09_freight_graphics_02/container_id_short_albedo.png.import",
+      "bytes": 1131,
+      "sha256": "6f754dc4de436ef1d7010b205b3259109e1c76f5a485869225488b973b571aed"
+    },
+    {
+      "path": "docs/assets/production/d09_freight_graphics_02-evidence/detail.png",
+      "bytes": 400558,
+      "sha256": "685499feeef71747047597e0bd8a713afb4571ad23b9faaa1f8672049de07ba4"
+    },
+    {
+      "path": "docs/assets/production/d09_freight_graphics_02-evidence/final.log",
+      "bytes": 1748,
+      "sha256": "5edc66fbbf8403447b27ed04f0bf47b4bcfb248fb4447fb1c289495372db1b4b"
+    },
+    {
+      "path": "docs/assets/production/d09_freight_graphics_02-evidence/hero.png",
+      "bytes": 296835,
+      "sha256": "7ce997341f94daed502675f03582a129666bddb1a362df2419f7ce2450a1559b"
+    },
+    {
+      "path": "docs/assets/production/d09_freight_graphics_02-evidence/overhead_47m_42deg.png",
+      "bytes": 85634,
+      "sha256": "32cfffc79cbe591bf807489010facf6977ee2cc541235f65551bf4fb47d63d20"
+    },
+    {
+      "path": "docs/assets/production/d09_freight_graphics_02-evidence/side.png",
+      "bytes": 313741,
+      "sha256": "e671a38f97aa81b90431fe21385086ead1c29d317a2914cc4826d662ebfbb896"
+    },
+    {
+      "path": "docs/assets/production/d09_freight_graphics_02-evidence/validation.json",
+      "bytes": 13838,
+      "sha256": "cb202c0797b5ffde4545a358c3a06abe3eeca7ceca764f05f4b40fa1b3493452"
+    },
+    {
+      "path": "docs/assets/production/d09_freight_graphics_02.md",
+      "bytes": 16415,
+      "sha256": "ad1765500108c566a3e0cf909f3d58e38fa382ca41d393be2d3ac6d5000fcd91"
+    },
+    {
+      "path": "scenes/prefabs/environment/d09_freight_graphics_02.tscn",
+      "bytes": 630,
+      "sha256": "e09ff5f5991db14e5a49b219e1b8e18884d5ba14d09c2ada11e8f5f354484c5d"
+    },
+    {
+      "path": "scenes/prefabs/environment/d09_freight_graphics_02_short.tscn",
+      "bytes": 633,
+      "sha256": "2c7e24155442340aa182b3adf059dddffa6b2f9d5fa8f559aac44fc772b1d001"
+    },
+    {
+      "path": "tools/asset_production/d09_freight_graphics_02/author.py",
+      "bytes": 3587,
+      "sha256": "26ce66bcd7dc50e142a0b3643cd5e634f82bf52f55fd1d5d4e95e71d3369d992"
+    },
+    {
+      "path": "tools/asset_production/d09_freight_graphics_02/check_prefab.gd",
+      "bytes": 9763,
+      "sha256": "5452e804f1f34db163009291b5d986c6a3b0b7f61ef57e7d2810de3fd26f0af6"
+    },
+    {
+      "path": "tools/asset_production/d09_freight_graphics_02/check_prefab.gd.uid",
+      "bytes": 19,
+      "sha256": "008d7670f53528f1763070b09519baffd7d583b6d9abb406010202f382c93ddb"
+    },
+    {
+      "path": "tools/asset_production/d09_freight_graphics_02/preview.py",
+      "bytes": 4433,
+      "sha256": "e649977f08695ebe72a3f0b16f3d06d6f1c3225c380a92e4e8009fa8bc2713c7"
+    },
+    {
+      "path": "tools/asset_production/d09_freight_graphics_02/record.py",
+      "bytes": 8175,
+      "sha256": "d362880ad112aef196a98b282c46b1289ac783bb4dd3685faf8a8e4d94cca5f4"
+    },
+    {
+      "path": "tools/asset_production/d09_freight_graphics_02/test_artwork.py",
+      "bytes": 2792,
+      "sha256": "09b85c7becfa20704065b961014feadd3111a00c74f526d45b2fb4d68b2af9a0"
+    },
+    {
+      "path": "tools/asset_production/d09_freight_graphics_02/validate.py",
+      "bytes": 4627,
+      "sha256": "ab103d60e21bdd4c8546d10f8d6514c0c15e0967625b69779b95f8350740fb63"
+    }
+  ]
+}

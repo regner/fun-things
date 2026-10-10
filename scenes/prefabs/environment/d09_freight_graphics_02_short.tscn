@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://cjc4pdgd0ef24"]
+
+[ext_resource type="PackedScene" path="res://scenes/prefabs/environment/d09_storage_02.tscn" id="1_container"]
+[ext_resource type="Material" path="res://art/materials/environment/d09_freight_graphics_02/container_id_short.tres" id="2_artwork"]
+
+[node name="D09FreightGraphics02Short" unique_id=1360954615 instance=ExtResource("1_container")]
+
+[node name="D09Storage02_Mesh" parent="Visuals/Model/D09Storage02" parent_id_path=PackedInt32Array(1953576496, 1005688012) index="0" unique_id=1714115514]
+surface_material_override/3 = ExtResource("2_artwork")
+
+[editable path="Visuals/Model"]

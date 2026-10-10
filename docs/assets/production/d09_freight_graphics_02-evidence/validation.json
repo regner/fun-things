@@ -1,0 +1,447 @@
+{
+  "asset_id": "d09_freight_graphics.02",
+  "status": "PASS",
+  "new_geometry": false,
+  "shared_dependencies_unchanged": true,
+  "dependencies": {
+    "tools/assets/blender/export_settings.json": {
+      "bytes": 646,
+      "sha256": "33ded3c83616fba6573848dda1f0ea3fc7ae7f4c98257fc867dca3bbe35ff9ec"
+    },
+    "tools/asset_production/d09_freight_graphics_01/author.py": {
+      "bytes": 3943,
+      "sha256": "3afaa0ec8f999e1676467af59b2b3c1d8bab496335e0c835b41aff64e485b663"
+    },
+    "art/source/models/environment/d09_storage_01/d09_storage_01.blend": {
+      "bytes": 354549,
+      "sha256": "2056d86d050d08bd28775942b5f17a5d7491d5d726b31149e408c5e3aaf2b073"
+    },
+    "art/models/environment/d09_storage_01/d09_storage_01.glb": {
+      "bytes": 479048,
+      "sha256": "f3140a621c96f5ab2ecc17ec91dafa53b589d5e9ad5a9a151eba242c5d091876"
+    },
+    "art/models/environment/d09_storage_01/d09_storage_01.glb.import": {
+      "bytes": 1247,
+      "sha256": "cdce64ae91c240412fc4f2e156ea41c9e6420de67dfba736cc2247ccbbcd7f7e"
+    },
+    "scenes/prefabs/environment/d09_storage_01.tscn": {
+      "bytes": 827,
+      "sha256": "907a3f21e8944071eed6348dfa27eb164f3f9d9058a8da94f15c30c0992d9273"
+    },
+    "tools/asset_production/d09_storage_01/validate.py": {
+      "bytes": 7505,
+      "sha256": "f7d3c32f8f2d4e4ebbc9e6733bb3bfca71323b9cb9165c19e5bbd2c0aa70887e"
+    },
+    "tools/asset_production/d09_storage_01/export.py": {
+      "bytes": 770,
+      "sha256": "b4d2ce65ce04c9244a2654ecbc4aa6b9277ff3ad52d22174717f1e775adb19b1"
+    },
+    "art/source/models/environment/d09_storage_02/d09_storage_02.blend": {
+      "bytes": 273202,
+      "sha256": "44108adfbe388c462305d0f1ba5169ece9702c7bffd8c971bcb4861debd8a300"
+    },
+    "art/models/environment/d09_storage_02/d09_storage_02.glb": {
+      "bytes": 333324,
+      "sha256": "590469bcc6db39bda4cf46c131edca349d0f2d357aebe1e26a9c568b242e5be0"
+    },
+    "art/models/environment/d09_storage_02/d09_storage_02.glb.import": {
+      "bytes": 1247,
+      "sha256": "70e580ce5903c40ad709672f1e344de9da8ce2e8687552dfb1007ac6e35d0d6f"
+    },
+    "scenes/prefabs/environment/d09_storage_02.tscn": {
+      "bytes": 824,
+      "sha256": "c33e340fc396308af84ea170981fa237a9f4c48c89355a440828446ab3c79814"
+    },
+    "tools/asset_production/d09_storage_02/validate.py": {
+      "bytes": 8233,
+      "sha256": "66874aee52eaab64887a20b439a6b48d7a6acdecd8106e157e69f4e38074949a"
+    },
+    "tools/asset_production/d09_storage_02/export.py": {
+      "bytes": 771,
+      "sha256": "1dc74253d6dea88a1a3b359a5457daf3dbf48a8a541334c3847a30b293deef9a"
+    }
+  },
+  "carriers": {
+    "long": {
+      "asset": "d09_storage.01",
+      "blender": "5.2.2 LTS",
+      "blender_build": "d13f752e3b9c",
+      "exporter": "5.2.40",
+      "bounds_tolerance_m": 0.001,
+      "godot_bounds_min_m": [
+        -1.25,
+        0.0,
+        -6.0
+      ],
+      "godot_bounds_max_m": [
+        1.25,
+        2.5999999046325684,
+        6.0
+      ],
+      "godot_dimensions_m": [
+        2.5,
+        2.5999999046325684,
+        12.0
+      ],
+      "pivot_m": [
+        0,
+        0,
+        0
+      ],
+      "source_vertices": 10168,
+      "source_faces": 10018,
+      "triangles": 20100,
+      "export_vertices": 11074,
+      "mesh_count": 1,
+      "surface_count": 4,
+      "degenerate_faces": 0,
+      "degenerate_triangles": 0,
+      "nonmanifold_edges": 0,
+      "source_normal_max_length_error": 1.6391275980964792e-07,
+      "export_normal_max_length_error": 1.1552321454999515e-07,
+      "summed_closed_shell_volume_m3": 70.92798701542293,
+      "shell_intersections": "Deliberately seated closed hardware shells, not a watertight Boolean union",
+      "materials": [
+        {
+          "name": "storage_body_blue",
+          "pbrMetallicRoughness": {
+            "baseColorFactor": [
+              0.054999999701976776,
+              0.13500000536441803,
+              0.23499999940395355,
+              1
+            ],
+            "metallicFactor": 0.25,
+            "roughnessFactor": 0.47999998927116394
+          }
+        },
+        {
+          "name": "storage_frame_slate",
+          "pbrMetallicRoughness": {
+            "baseColorFactor": [
+              0.054999999701976776,
+              0.08500000089406967,
+              0.11999999731779099,
+              1
+            ],
+            "metallicFactor": 0.44999998807907104,
+            "roughnessFactor": 0.4300000071525574
+          }
+        },
+        {
+          "name": "storage_hardware_steel",
+          "pbrMetallicRoughness": {
+            "baseColorFactor": [
+              0.23999999463558197,
+              0.30000001192092896,
+              0.3400000035762787,
+              1
+            ],
+            "metallicFactor": 0.6499999761581421,
+            "roughnessFactor": 0.3700000047683716
+          }
+        },
+        {
+          "name": "storage_id_face",
+          "pbrMetallicRoughness": {
+            "baseColorFactor": [
+              0.949999988079071,
+              0.5199999809265137,
+              0.15000000596046448,
+              1
+            ],
+            "metallicFactor": 0.05000000074505806,
+            "roughnessFactor": 0.5299999713897705
+          }
+        }
+      ],
+      "glb_bytes": 479048,
+      "glb_sha256": "f3140a621c96f5ab2ecc17ec91dafa53b589d5e9ad5a9a151eba242c5d091876",
+      "fresh_export_byte_identical": true,
+      "source_export_status": "passed",
+      "artwork_interface": {
+        "surface_index": 3,
+        "face_count": 2,
+        "uv0_unit_square": true
+      },
+      "artwork_face_audit": {
+        "dimensions_m": [
+          1.4,
+          0.46
+        ],
+        "centres_godot_m": [
+          [
+            -1.23,
+            1.96,
+            -4.65
+          ],
+          [
+            1.23,
+            1.96,
+            -4.65
+          ]
+        ],
+        "outward_normals": [
+          "-X",
+          "+X"
+        ],
+        "upright_outside_left_to_right_uv": true,
+        "face_surface": 3,
+        "face_triangles": 4
+      }
+    },
+    "short": {
+      "asset": "d09_storage.02",
+      "blender": "5.2.2 LTS",
+      "blender_build": "d13f752e3b9c",
+      "exporter": "5.2.40",
+      "bounds_tolerance_m": 0.001,
+      "godot_bounds_min_m": [
+        -1.25,
+        0.0,
+        -3.0
+      ],
+      "godot_bounds_max_m": [
+        1.25,
+        2.5999999046325684,
+        3.0
+      ],
+      "godot_dimensions_m": [
+        2.5,
+        2.5999999046325684,
+        6.0
+      ],
+      "pivot_m": [
+        0,
+        0,
+        0
+      ],
+      "source_vertices": 6856,
+      "source_faces": 6706,
+      "triangles": 13476,
+      "export_vertices": 7762,
+      "mesh_count": 1,
+      "surface_count": 4,
+      "degenerate_faces": 0,
+      "degenerate_triangles": 0,
+      "nonmanifold_edges": 0,
+      "source_normal_max_length_error": 1.5568592659498393e-07,
+      "export_normal_max_length_error": 1.2743446720087093e-07,
+      "summed_closed_shell_volume_m3": 35.48268561754112,
+      "shell_intersections": "Deliberately seated closed hardware shells, not a watertight Boolean union",
+      "materials": [
+        {
+          "name": "storage_body_blue",
+          "pbrMetallicRoughness": {
+            "baseColorFactor": [
+              0.054999999701976776,
+              0.13500000536441803,
+              0.23499999940395355,
+              1
+            ],
+            "metallicFactor": 0.25,
+            "roughnessFactor": 0.47999998927116394
+          }
+        },
+        {
+          "name": "storage_frame_slate",
+          "pbrMetallicRoughness": {
+            "baseColorFactor": [
+              0.054999999701976776,
+              0.08500000089406967,
+              0.11999999731779099,
+              1
+            ],
+            "metallicFactor": 0.44999998807907104,
+            "roughnessFactor": 0.4300000071525574
+          }
+        },
+        {
+          "name": "storage_hardware_steel",
+          "pbrMetallicRoughness": {
+            "baseColorFactor": [
+              0.23999999463558197,
+              0.30000001192092896,
+              0.3400000035762787,
+              1
+            ],
+            "metallicFactor": 0.6499999761581421,
+            "roughnessFactor": 0.3700000047683716
+          }
+        },
+        {
+          "name": "storage_id_face",
+          "pbrMetallicRoughness": {
+            "baseColorFactor": [
+              0.949999988079071,
+              0.5199999809265137,
+              0.15000000596046448,
+              1
+            ],
+            "metallicFactor": 0.05000000074505806,
+            "roughnessFactor": 0.5299999713897705
+          }
+        }
+      ],
+      "glb_bytes": 333324,
+      "glb_sha256": "590469bcc6db39bda4cf46c131edca349d0f2d357aebe1e26a9c568b242e5be0",
+      "fresh_export_byte_identical": true,
+      "source_export_status": "passed",
+      "artwork_interface": {
+        "surface_index": 3,
+        "face_count": 2,
+        "uv0_unit_square": true,
+        "centres_godot_m": [
+          [
+            -1.23,
+            1.96,
+            -1.65
+          ],
+          [
+            1.23,
+            1.96,
+            -1.65
+          ]
+        ],
+        "face_width_height_m": [
+          1.4,
+          0.46
+        ],
+        "outward_normals": true
+      },
+      "artwork_face_audit": {
+        "dimensions_m": [
+          1.4,
+          0.46
+        ],
+        "centres_godot_m": [
+          [
+            -1.23,
+            1.96,
+            -1.65
+          ],
+          [
+            1.23,
+            1.96,
+            -1.65
+          ]
+        ],
+        "outward_normals": [
+          "-X",
+          "+X"
+        ],
+        "upright_outside_left_to_right_uv": true,
+        "face_surface": 3,
+        "face_triangles": 4
+      }
+    }
+  },
+  "blender": "5.2.2 LTS",
+  "exporter": "5.2.40",
+  "engine": {
+    "engine": "4.8-dev7 (official)",
+    "failures": [],
+    "long": {
+      "face_overrides": 1,
+      "inherited_colliders": 1,
+      "meshes": 1,
+      "res://art/materials/environment/d09_freight_graphics_02/container_id_long.tres": "uid://xm4maj7v4uht",
+      "res://art/textures/environment/d09_freight_graphics_02/container_id_long_albedo.png": "uid://bngji74f54nea",
+      "res://scenes/prefabs/environment/d09_freight_graphics_02.tscn": "uid://djq3g6bhpao2t",
+      "res://scenes/prefabs/environment/d09_storage_01.tscn": "uid://bqm0xefctop4r",
+      "surfaces": 4
+    },
+    "short": {
+      "face_overrides": 1,
+      "inherited_colliders": 1,
+      "meshes": 1,
+      "res://art/materials/environment/d09_freight_graphics_02/container_id_short.tres": "uid://ct5m3lmub8dtw",
+      "res://art/textures/environment/d09_freight_graphics_02/container_id_short_albedo.png": "uid://578e3osufmpa",
+      "res://scenes/prefabs/environment/d09_freight_graphics_02_short.tscn": "uid://cjc4pdgd0ef24",
+      "res://scenes/prefabs/environment/d09_storage_02.tscn": "uid://dxo4oar28nrqj",
+      "surfaces": 4
+    },
+    "status": "PASS"
+  },
+  "save_reload": {
+    "engine": "4.8-dev7 (official)",
+    "failures": [],
+    "long": {
+      "face_overrides": 1,
+      "inherited_colliders": 1,
+      "material_sha256": "8258b654a4934e69b5911ff9183cce2db6b25167ca899d4e438963a7118eedaa",
+      "meshes": 1,
+      "res://art/materials/environment/d09_freight_graphics_02/container_id_long.tres": "uid://xm4maj7v4uht",
+      "res://art/textures/environment/d09_freight_graphics_02/container_id_long_albedo.png": "uid://bngji74f54nea",
+      "res://scenes/prefabs/environment/d09_freight_graphics_02.tscn": "uid://djq3g6bhpao2t",
+      "res://scenes/prefabs/environment/d09_storage_01.tscn": "uid://bqm0xefctop4r",
+      "scene_sha256": "e09ff5f5991db14e5a49b219e1b8e18884d5ba14d09c2ada11e8f5f354484c5d",
+      "stable_roundtrip_count": 2,
+      "surfaces": 4
+    },
+    "short": {
+      "face_overrides": 1,
+      "inherited_colliders": 1,
+      "material_sha256": "b88320b227efa6fcc00af046c6cf842756163bfc90d3126b8d6b47801babcbc1",
+      "meshes": 1,
+      "res://art/materials/environment/d09_freight_graphics_02/container_id_short.tres": "uid://ct5m3lmub8dtw",
+      "res://art/textures/environment/d09_freight_graphics_02/container_id_short_albedo.png": "uid://578e3osufmpa",
+      "res://scenes/prefabs/environment/d09_freight_graphics_02_short.tscn": "uid://cjc4pdgd0ef24",
+      "res://scenes/prefabs/environment/d09_storage_02.tscn": "uid://dxo4oar28nrqj",
+      "scene_sha256": "2c7e24155442340aa182b3adf059dddffa6b2f9d5fa8f559aac44fc772b1d001",
+      "stable_roundtrip_count": 2,
+      "surfaces": 4
+    },
+    "status": "PASS"
+  },
+  "artwork": {
+    "size_px": [
+      1400,
+      460
+    ],
+    "mode": "RGB",
+    "tests_passed": 4,
+    "safe_margin_px": 30,
+    "filter": "linear_mipmap",
+    "repeat": false,
+    "emission": false,
+    "variants": {
+      "long": {
+        "copy": "UE 240",
+        "bytes": 34288,
+        "sha256": "9607c88dec4f308aa4e962db54fcfee84c5ee19f96e0a63961263861692aa820"
+      },
+      "short": {
+        "copy": "UE 481",
+        "bytes": 35685,
+        "sha256": "872053d43ca1bdceadf27000117a1771e5ca461860fa30df80062f1331b9816a"
+      }
+    }
+  },
+  "renders": {
+    "detail.png": {
+      "bytes": 400558,
+      "sha256": "685499feeef71747047597e0bd8a713afb4571ad23b9faaa1f8672049de07ba4"
+    },
+    "hero.png": {
+      "bytes": 296835,
+      "sha256": "7ce997341f94daed502675f03582a129666bddb1a362df2419f7ce2450a1559b"
+    },
+    "overhead_47m_42deg.png": {
+      "bytes": 85634,
+      "sha256": "32cfffc79cbe591bf807489010facf6977ee2cc541235f65551bf4fb47d63d20"
+    },
+    "side.png": {
+      "bytes": 313741,
+      "sha256": "e671a38f97aa81b90431fe21385086ead1c29d317a2914cc4826d662ebfbb896"
+    }
+  },
+  "checks": {
+    "pinned_import_no_errors": true,
+    "gdstyle_format": "PASS",
+    "gdstyle_lint": "PASS",
+    "new_collision": false,
+    "independent_review": "pending",
+    "world_gameplay_device": "pending"
+  }
+}
