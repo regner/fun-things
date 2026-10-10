@@ -1,0 +1,33 @@
+D08 TOOL CABINET — final bounded validation
+Raw logs/scratch: C:/tmp/ft/assets/d08_repair_furniture_01/ (not committed).
+Pinned Blender author, reexport, validator and four-view renderer: exit 0.
+Saved source/raw GLB topology, dimensions, normals and byte-identity checks pass.
+Pinned import: exit 0, no ERROR/SCRIPT ERROR lines.
+Headless editor load/pack/save/reload/save: exit 0, byte-stable normalized wrapper.
+Initial runtime-only UID omission fixed by editor roundtrip, not by hand-authored UID.
+Known headless editor shutdown diagnostics (not suppressed):
+WARNING: [MCP] Godot 4.8 detected - latest tested version is 4.7.0. The plugin will run normally but some features may behave unexpectedly. Please report issues at https://github.com/NPGameDev/godot-mcp-toolkit/issues
+WARNING: Scan thread aborted...
+ERROR: 5 RID allocations of type 'N16RendererViewport8ViewportE' were leaked at exit.
+ERROR: 8 RID allocations of type 'PN13RendererDummy14TextureStorage12DummyTextureE' were leaked at exit.
+ERROR: 1 RID allocations of type 'N17RendererSceneCull8ScenarioE' were leaked at exit.
+ERROR: 52 RID allocations of type 'PN18TextServerAdvanced22ShapedTextDataAdvancedE' were leaked at exit.
+ERROR: 1 RID allocations of type 'PN18TextServerAdvanced12FontAdvancedE' were leaked at exit.
+WARNING: 5 RIDs of type "Canvas" were leaked.
+WARNING: 31 RIDs of type "CanvasItem" were leaked.
+WARNING: 168 ObjectDB instances were leaked at exit (run with `--verbose` for details).
+
+Fresh headless runtime load/resource/physics: exit 0, no ERROR/WARNING lines.
+Godot Engine v4.8.dev7.official.c971f93e7 - https://godotengine.org
+
+[MCPRuntimeServer] port: scanning 6570-6585 (default)
+[MCPRuntimeServer] listening on 127.0.0.1:6570
+[MCPRegistry] runtime port 6570 registered for c:/gamedev/git/ft-lanes/a-d08
+{"aabb_min":[-0.720000028610229,0.0,-0.400000005960464],"aabb_size":[1.44000005722046,1.5,0.800000011920929],"capsule_queries":[{"case":"body_solid","solid":true},{"case":"east_bypass_clear","solid":false},{"case":"west_bypass_clear","solid":false},{"case":"rear_route_clear","solid":false},{"case":"front_route_clear","solid":false},{"case":"north_east_corner","solid":true},{"case":"south_west_corner","solid":true},{"case":"above_cabinet_clear","solid":false}],"car_box_sweep":{"east_bypass_blocked":false,"front_blocked":true,"size_m":[1.9,1.5,4.3]},"collision_shape_count":1,"engine":"4.8-dev7 (official)","failures":[],"front_ray_z":-0.399999976158142,"linked_model_identity":true,"materials":["ironreach_roof_petrol","ironreach_faded_petrol","ironreach_dark_recess","ironreach_working_amber","ironreach_replacement_sheet","ironreach_local_rust"],"model_uid":"uid://ctbf6l0cd3k1e","ok":true,"prefab_uid":"uid://cmwhakquxvu81","production_actor_motion":[{"case":"front_stop","end":[0.0,0.00000759662361815572,-0.750081121921539],"mode":0},{"case":"rear_stop","end":[0.0,0.00000759662361815572,0.750081121921539],"mode":0},{"case":"east_stop","end":[1.08333361148834,0.000877922924701124,0.0],"mode":0},{"case":"east_bypass","end":[1.20000004768372,0.000877923041116446,2.99999976158142],"mode":0},{"case":"front_stop","end":[0.0,0.00000759662361815572,-0.750081121921539],"mode":1},{"case":"rear_stop","end":[0.0,0.00000759662361815572,0.750081121921539],"mode":1},{"case":"east_stop","end":[1.08333361148834,0.000877922924701124,0.0],"mode":1},{"case":"east_bypass","end":[1.20000004768372,0.000877923041116446,2.99999976158142],"mode":1}]}
+
+Owned GDScript checks:
+1 file already formatted.
+
+✓ 1 file checked, no issues found.
+
+Four 1280x720 renders inspected. Whole-world placement, native visuals, network transport and target-device performance remain pending. No production_checks.py run (decision 52).
