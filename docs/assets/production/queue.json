@@ -3541,14 +3541,14 @@
       "input_next_action": "Confirm district use; not in Signal Row starting set",
       "brief": "[Brief](../../assets/city_traffic_fixtures.md)",
       "priority": 0,
-      "status": "queued",
-      "agent_id": null,
-      "source_revision": null,
-      "review_status": "pending",
-      "integration_status": "pending",
+      "status": "production_prefab_accepted",
+      "agent_id": "43655e85-c922-4599-ad92-ca21283ce4d6",
+      "source_revision": "9550fbce",
+      "review_status": "accepted source/export/prefab scope (independent Sol review)",
+      "integration_status": "accepted",
       "placement_status": "pending",
       "blocker": null,
-      "attempts": 0,
+      "attempts": 1,
       "initial_time_cap_minutes": 90,
       "owned_paths": [
         "art/source/models/environment/city_traffic_fixtures_01/",
@@ -3556,8 +3556,20 @@
         "art/textures/environment/city_traffic_fixtures_01/",
         "art/materials/environment/city_traffic_fixtures_01/",
         "docs/assets/production/city_traffic_fixtures_01.md",
-        "docs/assets/production/city_traffic_fixtures_01-evidence/"
-      ]
+        "docs/assets/production/city_traffic_fixtures_01-evidence/",
+        "tools/asset_production/city_traffic_fixtures_01/",
+        "scenes/prefabs/environment/city_traffic_fixtures_01.tscn"
+      ],
+      "launch": {
+        "provider": "portkey/gpt-6-astra",
+        "configured_effort": "medium",
+        "mode": "orchestrator asset lane",
+        "lane": "a-traffic"
+      },
+      "producer_manifest": "docs/assets/production/city_traffic_fixtures_01-evidence/manifest.json",
+      "report": "docs/assets/production/city_traffic_fixtures_01.md",
+      "reviewer_id": "8573eeae-8564-4768-a1de-6f982216e701",
+      "integrated_revision": "79e0eb23"
     },
     {
       "id": "city_traffic_fixtures.02",
@@ -3570,14 +3582,14 @@
       "input_next_action": "Confirm district use; not in Signal Row starting set",
       "brief": "[Brief](../../assets/city_traffic_fixtures.md)",
       "priority": 0,
-      "status": "queued",
-      "agent_id": null,
-      "source_revision": null,
-      "review_status": "pending",
-      "integration_status": "pending",
+      "status": "production_prefab_accepted",
+      "agent_id": "2cc898b0-49ca-484a-b7bb-68a3c5d99675",
+      "source_revision": "1143eff5",
+      "review_status": "accepted source/export/prefab scope (independent Sol review)",
+      "integration_status": "accepted",
       "placement_status": "pending",
       "blocker": null,
-      "attempts": 0,
+      "attempts": 1,
       "initial_time_cap_minutes": 90,
       "owned_paths": [
         "art/source/models/environment/city_traffic_fixtures_02/",
@@ -3585,8 +3597,20 @@
         "art/textures/environment/city_traffic_fixtures_02/",
         "art/materials/environment/city_traffic_fixtures_02/",
         "docs/assets/production/city_traffic_fixtures_02.md",
-        "docs/assets/production/city_traffic_fixtures_02-evidence/"
-      ]
+        "docs/assets/production/city_traffic_fixtures_02-evidence/",
+        "tools/asset_production/city_traffic_fixtures_02/",
+        "scenes/prefabs/environment/city_traffic_fixtures_02.tscn"
+      ],
+      "launch": {
+        "provider": "portkey/gpt-6-astra",
+        "configured_effort": "medium",
+        "mode": "orchestrator asset lane",
+        "lane": "a-traffic"
+      },
+      "producer_manifest": "docs/assets/production/city_traffic_fixtures_02-evidence/manifest.json",
+      "report": "docs/assets/production/city_traffic_fixtures_02.md",
+      "reviewer_id": "8573eeae-8564-4768-a1de-6f982216e701",
+      "integrated_revision": "79e0eb23"
     },
     {
       "id": "city_traffic_fixtures.03",
@@ -3599,14 +3623,14 @@
       "input_next_action": "Confirm district use; not in Signal Row starting set",
       "brief": "[Brief](../../assets/city_traffic_fixtures.md)",
       "priority": 0,
-      "status": "queued",
-      "agent_id": null,
-      "source_revision": null,
-      "review_status": "pending",
-      "integration_status": "pending",
+      "status": "production_prefab_accepted",
+      "agent_id": "3ab80cf5-5022-4614-880b-b52dbcff4acb",
+      "source_revision": "79e0eb23",
+      "review_status": "accepted source/export/prefab scope (independent Sol review)",
+      "integration_status": "accepted",
       "placement_status": "pending",
       "blocker": null,
-      "attempts": 0,
+      "attempts": 1,
       "initial_time_cap_minutes": 90,
       "owned_paths": [
         "art/source/models/environment/city_traffic_fixtures_03/",
@@ -3614,8 +3638,20 @@
         "art/textures/environment/city_traffic_fixtures_03/",
         "art/materials/environment/city_traffic_fixtures_03/",
         "docs/assets/production/city_traffic_fixtures_03.md",
-        "docs/assets/production/city_traffic_fixtures_03-evidence/"
-      ]
+        "docs/assets/production/city_traffic_fixtures_03-evidence/",
+        "tools/asset_production/city_traffic_fixtures_03/",
+        "scenes/prefabs/environment/city_traffic_fixtures_03.tscn"
+      ],
+      "launch": {
+        "provider": "portkey/gpt-6-astra",
+        "configured_effort": "medium",
+        "mode": "orchestrator asset lane",
+        "lane": "a-traffic"
+      },
+      "producer_manifest": "docs/assets/production/city_traffic_fixtures_03-evidence/manifest.json",
+      "report": "docs/assets/production/city_traffic_fixtures_03.md",
+      "reviewer_id": "8573eeae-8564-4768-a1de-6f982216e701",
+      "integrated_revision": "79e0eb23"
     },
     {
       "id": "city_sign_supports.03",
