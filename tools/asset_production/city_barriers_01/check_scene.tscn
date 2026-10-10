@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://dynl71igc3yip"]
+
+[ext_resource type="PackedScene" path="res://scenes/prefabs/environment/city_barriers_01.tscn" id="1_bollard"]
+[ext_resource type="Script" path="res://scripts/actors/actor_motion.gd" id="2_motion"]
+
+[sub_resource type="BoxShape3D" id="Box_floor"]
+size = Vector3(8, 0.2, 8)
+
+[sub_resource type="CapsuleShape3D" id="Capsule_actor"]
+radius = 0.35
+height = 1.8
+
+[node name="ShortBollardCheck" type="Node3D" unique_id=1162396565]
+
+[node name="Bollard" parent="." unique_id=1434098576 instance=ExtResource("1_bollard")]
+
+[node name="Floor" type="StaticBody3D" parent="." unique_id=1051162999]
+collision_mask = 0
+
+[node name="Shape" type="CollisionShape3D" parent="Floor" unique_id=284570685]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.1, 0)
+shape = SubResource("Box_floor")
+
+[node name="Actor" type="CharacterBody3D" parent="." unique_id=892878048]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.001, -2)
+collision_layer = 2
+script = ExtResource("2_motion")
+
+[node name="Capsule" type="CollisionShape3D" parent="Actor" unique_id=1544695124]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0)
+shape = SubResource("Capsule_actor")

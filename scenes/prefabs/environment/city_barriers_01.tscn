@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://ctqpd7a13v35p"]
+
+[ext_resource type="PackedScene" path="res://art/models/environment/city_barriers_01/city_barriers_01.glb" id="1_model"]
+
+[sub_resource type="CylinderShape3D" id="Cylinder_bollard"]
+height = 0.9
+radius = 0.18
+
+[node name="city_barriers_01" type="Node3D" unique_id=1887648881]
+
+[node name="Visuals" type="Node3D" parent="." unique_id=1363321739]
+
+[node name="Model" parent="Visuals" unique_id=1359284242 instance=ExtResource("1_model")]
+
+[node name="Collision" type="Node3D" parent="." unique_id=22030376]
+
+[node name="BollardBody" type="StaticBody3D" parent="Collision" unique_id=1161458178]
+collision_mask = 0
+
+[node name="Shape" type="CollisionShape3D" parent="Collision/BollardBody" unique_id=1632511617]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.45, 0)
+shape = SubResource("Cylinder_bollard")

@@ -1,0 +1,63 @@
+city_barriers.01 — concise production receipt, 10 October 2026
+Repository commands and exact timeout/environment flags: ../city_barriers_01.md
+Raw scratch logs: C:/tmp/ft/assets/city_barriers_01/ (not committed)
+
+Pins
+Blender 5.2.2 LTS / d13f752e3b9c; glTF exporter 5.2.40.
+Godot 4.8.dev7.official.c971f93e7; gdstyle 0.3.0 through mise.
+The Blender --version probe emitted a 23-byte shutdown allocation diagnostic.
+Actual author/validate/reexport invocations exited 0 without that diagnostic.
+
+Final commands
+PASS exit 0: timeout 900 audio-disabled pinned Blender author.py.
+PASS exit 0: timeout 180 audio-disabled pinned Blender validate.py.
+PASS exit 0: timeout 180 pinned Blender opening saved .blend with export.py,
+  separate scratch destination reexport-independent; cmp against production GLB exit 0.
+PASS exit 0 with existing MCP-version warning: timeout 300 pinned Godot
+  --headless --editor --path . --import --quit.
+PASS exit 0, no diagnostics: timeout 180 pinned Godot standalone check.gd -- --normalize.
+PASS exit 0, no diagnostics: timeout 180 pinned Godot standalone check.gd in fresh process.
+PASS exit 0, no diagnostics: timeout 180 pinned Godot --check-only for final check.gd.
+PASS exit 0: timeout 30 pinned gdstyle fmt --check and zero-warning lint of check.gd.
+FAIL exit 1: timeout 1800 mise exec -- python tools/production_checks.py
+  --output C:/tmp/ft/assets/city_barriers_01/checks.
+  Engine/GUT pins PASS; all owned formatting, lint and explicit compilation PASS.
+  GUT: 119/119 tests PASS, 6362 assertions; expected negative failure detected PASS.
+  Python: 13/14 PASS; unchanged test_run_tracking_accepts_existing_empty_output_directory
+  in tools/test_host_budget_tracking.py errors on Windows. Its mocked Popen lacks
+  __exit__ when platform.system() invokes subprocess.check_output. Not suppressed;
+  no shared tooling edited. Final owned script revision rechecked separately above.
+
+Geometry and physics
+448 Blender vertices / 418 faces / 892 triangles / 576 exported vertices.
+One mesh, two opaque back-culled material surfaces. Zero degenerate faces/triangles;
+zero non-manifold edges. Normal length error < 1e-7. Bounds 0.36 x 0.90 x 0.36 m.
+Ground-centred origin. Explicit export scope only root and mesh. Fresh export identical.
+GLB 21124 bytes, SHA256 215091e84d88fc1aea36c629b0b8f933327499672785c60d24890e6c846eb6ce.
+Actual Godot AABB min [-.18,0,-.18], size [.36,.9,.36] within 0.001 m.
+Four dependency resource UIDs resolve to their exact paths; scene save/reload byte stable.
+Static cylinder radius .18 m / height .9 m at Y=.45 m, layer 1 / mask 0.
+Low ray blocked, above-cap ray clear. 48 ActorMotion ticks per case/mode.
+Authority/replay contact Z=-.531249702 m and clear X=.8 bypass Z=2.000000715 m match.
+
+Earlier attempts, corrected or replaced (not passing evidence)
+- gdstyle was absent from bare shell PATH; resolved pinned executable through mise.
+- Validator asserted a return value from bmesh.recalc_face_normals; removed the
+  invalid assertion and validated original signed volume without mutating the mesh.
+- Initial local-variable/spacing lint findings corrected in owned check.gd.
+- Editor-script normalization completed assertions but leaked editor RIDs at shutdown;
+  --recovery-mode disabled script execution and exited 1. Replaced with standalone
+  headless ResourceSaver pack/save/set_uid plus dependency and stability assertions.
+- No repeated unchanged failing production suite; unrelated Python failure stays open.
+
+Visual review
+Inspected hero, side, shoulder detail and vertical 47 m / 42-degree overhead renders.
+Compact dark post / single amber shoulder, no textured noise or large actor occluder.
+At gameplay camera scale the cap is a small amber-rimmed dot, not standalone wayfinding.
+Final images 1280x720, seven significant RGB bits/channel, PNG compression 9.
+No live editor/MCP session contacted, no world placement or shared-file edits.
+
+Pending
+Independent review; final dimensions/spacing; vehicle interactions, world movement
+and target visibility, real network transport/prediction, packaged/Deck and sustained
+performance checks. Local authority/replay parity is not multiplayer acceptance.

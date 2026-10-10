@@ -1,0 +1,186 @@
+{
+  "asset": "city_barriers.01",
+  "blender": "5.2.2 LTS",
+  "blender_build": "d13f752e3b9c",
+  "bounds_tolerance_m": 0.001,
+  "closed_volume_m3": 0.0649481998841262,
+  "degenerate_faces": 0.0,
+  "degenerate_triangles": 0.0,
+  "export_normal_max_length_error": 9.685754309e-08,
+  "export_vertices": 576.0,
+  "exporter": "5.2.40",
+  "fresh_export_byte_identical": true,
+  "glb_bytes": 21124.0,
+  "glb_sha256": "215091e84d88fc1aea36c629b0b8f933327499672785c60d24890e6c846eb6ce",
+  "godot": {
+    "bounds_min_m": [
+      -0.180000007152557,
+      0.0,
+      -0.180000007152557
+    ],
+    "bounds_size_m": [
+      0.360000014305115,
+      0.899999976158142,
+      0.360000014305115
+    ],
+    "engine": "4.8-dev7 (official)",
+    "linked_model_identity": true,
+    "physics": {
+      "above_cap_ray_clear": true,
+      "actor_capsule_height_m": 1.8,
+      "actor_capsule_radius_m": 0.35,
+      "authority_replay_equal": true,
+      "bypass_end_m": [
+        0.800000011920929,
+        0.00100000004749745,
+        2.00000071525574
+      ],
+      "contact_stop_m": [
+        0.0,
+        0.00100000004749745,
+        -0.531249701976776
+      ],
+      "low_ray_blocked": true,
+      "ticks_per_case_per_mode": 48,
+      "vehicle_network_transport_and_placement": "not tested"
+    },
+    "resource_uids": {
+      "res://art/models/environment/city_barriers_01/city_barriers_01.glb": "uid://c6avlcbkejtq",
+      "res://scenes/prefabs/environment/city_barriers_01.tscn": "uid://ctqpd7a13v35p",
+      "res://scripts/actors/actor_motion.gd": "uid://jthmfio4c27p",
+      "res://tools/asset_production/city_barriers_01/check_scene.tscn": "uid://dynl71igc3yip"
+    },
+    "save_reload_byte_stable": true,
+    "static_cylinder": {
+      "height_m": 0.9,
+      "layer": 1,
+      "mask": 0,
+      "radius_m": 0.18
+    }
+  },
+  "godot_bounds_max_m": [
+    0.180000007152557,
+    0.899999976158142,
+    0.180000007152557
+  ],
+  "godot_bounds_min_m": [
+    -0.180000007152557,
+    0.0,
+    -0.180000007152557
+  ],
+  "materials": [
+    {
+      "name": "barrier_dark_metal",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.025000000372529,
+          0.0750000029802322,
+          0.0900000035762787,
+          1.0
+        ],
+        "metallicFactor": 0.449999988079071,
+        "roughnessFactor": 0.46000000834465
+      }
+    },
+    {
+      "name": "barrier_safety_amber",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          1.0,
+          0.52700001001358,
+          0.101999998092651,
+          1.0
+        ],
+        "metallicFactor": 0.0,
+        "roughnessFactor": 0.419999986886978
+      }
+    }
+  ],
+  "mesh_count": 1.0,
+  "nonmanifold_edges": 0.0,
+  "pivot_m": [
+    0.0,
+    0.0,
+    0.0
+  ],
+  "provisional_dimensions_m": [
+    0.36,
+    0.9,
+    0.36
+  ],
+  "source_export_status": "passed",
+  "source_faces": 418.0,
+  "source_normal_max_length_error": 9.313226179e-08,
+  "source_vertices": 448.0,
+  "surface_count": 2.0,
+  "triangles": 892.0,
+  "production_checks": {
+    "ok": false,
+    "results": {
+      "engine": {
+        "ok": true,
+        "version": "4.8.dev7.official.c971f93e7"
+      },
+      "gut_pin": {
+        "ok": true,
+        "version": "9.7.1"
+      },
+      "owned_scripts": {
+        "ok": true,
+        "returncode": 0
+      },
+      "python_tests": {
+        "ok": false,
+        "returncode": 1
+      },
+      "gut_import": {
+        "ok": true,
+        "returncode": 0
+      },
+      "gut_tests": {
+        "ok": true,
+        "returncode": 0
+      },
+      "gut_negative": {
+        "ok": true,
+        "observed_returncode": 1
+      }
+    }
+  },
+  "production_check_limitation": "Unchanged test_host_budget_tracking mock intercepts platform.system()'s Windows subprocess: _CompletedTrackingProcess lacks context-manager support. 13/14 Python tests pass; no shared tooling was edited or failure suppressed.",
+  "renders": [
+    {
+      "path": "hero.png",
+      "pixels": [
+        1280,
+        720
+      ],
+      "bytes": 377984
+    },
+    {
+      "path": "side.png",
+      "pixels": [
+        1280,
+        720
+      ],
+      "bytes": 329453
+    },
+    {
+      "path": "detail.png",
+      "pixels": [
+        1280,
+        720
+      ],
+      "bytes": 377836
+    },
+    {
+      "path": "overhead_47m_42deg.png",
+      "pixels": [
+        1280,
+        720
+      ],
+      "bytes": 407841
+    }
+  ],
+  "render_encoding": "RGB 7 significant bits per channel; PNG compression 9"
+}
