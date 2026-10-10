@@ -150,7 +150,7 @@ Measured source / GLB / imported prefab:
 - Source, actual GLB accessors and Godot AABBs match the literal expected envelope
   within 0.001 m; ground datum is zero.
 - Fresh export from the saved source is **byte-identical**, GLB **695,480 bytes**,
-  SHA-256 `3b22cdb94438715619722fad5a8caeb619053ad207d7788d019111eaddab4f7f`.
+  SHA-256 `ec883db6d672a51b6653036cd95c25bed8cd796d388e6b4df83ce942062f87f1`.
 - Eight independent solid/clear physics shape queries passed, including closed
   loading face, rear wall, solid interior, both clear side passages and visual-only roof.
 - Six motion casts passed: actor capsule **r=0.35, h=1.8**, front/rear/end blocked
