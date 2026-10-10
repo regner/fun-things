@@ -5952,14 +5952,14 @@
       "input_next_action": "Refine design from Glassward breakdown",
       "brief": "[Brief](../../assets/d04_towers.md)",
       "priority": 0,
-      "status": "queued",
-      "agent_id": null,
-      "source_revision": null,
-      "review_status": "pending",
-      "integration_status": "pending",
+      "status": "production_prefab_accepted",
+      "agent_id": "f8da7abe-cf34-4940-a542-f293a2e87f99",
+      "source_revision": "885a10d7",
+      "review_status": "accepted source/export/prefab scope (independent Sol review)",
+      "integration_status": "accepted",
       "placement_status": "pending",
       "blocker": null,
-      "attempts": 0,
+      "attempts": 1,
       "initial_time_cap_minutes": 120,
       "owned_paths": [
         "art/source/models/environment/d04_towers_01/",
@@ -5967,8 +5967,20 @@
         "art/textures/environment/d04_towers_01/",
         "art/materials/environment/d04_towers_01/",
         "docs/assets/production/d04_towers_01.md",
-        "docs/assets/production/d04_towers_01-evidence/"
-      ]
+        "docs/assets/production/d04_towers_01-evidence/",
+        "tools/asset_production/d04_towers_01/",
+        "scenes/prefabs/environment/d04_towers_01.tscn"
+      ],
+      "launch": {
+        "provider": "portkey/gpt-6-astra",
+        "configured_effort": "medium",
+        "mode": "orchestrator asset lane",
+        "lane": "a-towers"
+      },
+      "producer_manifest": "docs/assets/production/d04_towers_01-evidence/manifest.json",
+      "report": "docs/assets/production/d04_towers_01.md",
+      "reviewer_id": "89aa9394-0eeb-4ad0-a31b-a02a1851d281",
+      "integrated_revision": "66f0a981"
     },
     {
       "id": "d04_towers.02",
@@ -5981,14 +5993,14 @@
       "input_next_action": "Refine design from Glassward breakdown",
       "brief": "[Brief](../../assets/d04_towers.md)",
       "priority": 0,
-      "status": "queued",
-      "agent_id": null,
-      "source_revision": null,
-      "review_status": "pending",
-      "integration_status": "pending",
+      "status": "production_prefab_accepted",
+      "agent_id": "454958d9-e90f-4710-891b-5425805bc26e",
+      "source_revision": "efdaba05",
+      "review_status": "accepted source/export/prefab scope (independent Sol review)",
+      "integration_status": "accepted",
       "placement_status": "pending",
       "blocker": null,
-      "attempts": 0,
+      "attempts": 1,
       "initial_time_cap_minutes": 120,
       "owned_paths": [
         "art/source/models/environment/d04_towers_02/",
@@ -5996,8 +6008,20 @@
         "art/textures/environment/d04_towers_02/",
         "art/materials/environment/d04_towers_02/",
         "docs/assets/production/d04_towers_02.md",
-        "docs/assets/production/d04_towers_02-evidence/"
-      ]
+        "docs/assets/production/d04_towers_02-evidence/",
+        "tools/asset_production/d04_towers_02/",
+        "scenes/prefabs/environment/d04_towers_02.tscn"
+      ],
+      "launch": {
+        "provider": "portkey/gpt-6-astra",
+        "configured_effort": "medium",
+        "mode": "orchestrator asset lane",
+        "lane": "a-towers"
+      },
+      "producer_manifest": "docs/assets/production/d04_towers_02-evidence/manifest.json",
+      "report": "docs/assets/production/d04_towers_02.md",
+      "reviewer_id": "89aa9394-0eeb-4ad0-a31b-a02a1851d281",
+      "integrated_revision": "66f0a981"
     },
     {
       "id": "d04_towers.03",
@@ -6010,14 +6034,14 @@
       "input_next_action": "Refine design from Glassward breakdown",
       "brief": "[Brief](../../assets/d04_towers.md)",
       "priority": 0,
-      "status": "queued",
-      "agent_id": null,
-      "source_revision": null,
-      "review_status": "pending",
-      "integration_status": "pending",
+      "status": "production_prefab_accepted",
+      "agent_id": "54636d5a-e8ee-4d49-b269-34f8d3afc4c8",
+      "source_revision": "d5739799",
+      "review_status": "accepted source/export/prefab scope (independent Sol review)",
+      "integration_status": "accepted",
       "placement_status": "pending",
       "blocker": null,
-      "attempts": 0,
+      "attempts": 1,
       "initial_time_cap_minutes": 120,
       "owned_paths": [
         "art/source/models/environment/d04_towers_03/",
@@ -6025,8 +6049,20 @@
         "art/textures/environment/d04_towers_03/",
         "art/materials/environment/d04_towers_03/",
         "docs/assets/production/d04_towers_03.md",
-        "docs/assets/production/d04_towers_03-evidence/"
-      ]
+        "docs/assets/production/d04_towers_03-evidence/",
+        "tools/asset_production/d04_towers_03/",
+        "scenes/prefabs/environment/d04_towers_03.tscn"
+      ],
+      "launch": {
+        "provider": "portkey/gpt-6-astra",
+        "configured_effort": "medium",
+        "mode": "orchestrator asset lane",
+        "lane": "a-towers"
+      },
+      "producer_manifest": "docs/assets/production/d04_towers_03-evidence/manifest.json",
+      "report": "docs/assets/production/d04_towers_03.md",
+      "reviewer_id": "89aa9394-0eeb-4ad0-a31b-a02a1851d281",
+      "integrated_revision": "66f0a981"
     },
     {
       "id": "d04_towers.04",
@@ -6039,14 +6075,14 @@
       "input_next_action": "Refine design from Glassward breakdown",
       "brief": "[Brief](../../assets/d04_towers.md)",
       "priority": 0,
-      "status": "queued",
-      "agent_id": null,
-      "source_revision": null,
-      "review_status": "pending",
-      "integration_status": "pending",
+      "status": "production_prefab_accepted",
+      "agent_id": "c0a23c99-3ee1-4e76-b2c4-d0eb87993e98",
+      "source_revision": "66f0a981",
+      "review_status": "accepted source/export/prefab scope (independent Sol review)",
+      "integration_status": "accepted",
       "placement_status": "pending",
       "blocker": null,
-      "attempts": 0,
+      "attempts": 1,
       "initial_time_cap_minutes": 120,
       "owned_paths": [
         "art/source/models/environment/d04_towers_04/",
@@ -6054,8 +6090,20 @@
         "art/textures/environment/d04_towers_04/",
         "art/materials/environment/d04_towers_04/",
         "docs/assets/production/d04_towers_04.md",
-        "docs/assets/production/d04_towers_04-evidence/"
-      ]
+        "docs/assets/production/d04_towers_04-evidence/",
+        "tools/asset_production/d04_towers_04/",
+        "scenes/prefabs/environment/d04_towers_04.tscn"
+      ],
+      "launch": {
+        "provider": "portkey/gpt-6-astra",
+        "configured_effort": "medium",
+        "mode": "orchestrator asset lane",
+        "lane": "a-towers"
+      },
+      "producer_manifest": "docs/assets/production/d04_towers_04-evidence/manifest.json",
+      "report": "docs/assets/production/d04_towers_04.md",
+      "reviewer_id": "89aa9394-0eeb-4ad0-a31b-a02a1851d281",
+      "integrated_revision": "66f0a981"
     },
     {
       "id": "d04_podiums.01",
