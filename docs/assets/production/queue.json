@@ -7202,14 +7202,14 @@
       "input_next_action": "Refine design from district asset breakdown",
       "brief": "[Brief](../../assets/d07_sign_island.md)",
       "priority": 0,
-      "status": "queued",
-      "agent_id": null,
-      "source_revision": null,
-      "review_status": "pending",
-      "integration_status": "pending",
+      "status": "production_prefab_accepted",
+      "agent_id": "fca7b83e-ea64-4dc9-8d38-5f7417f9440b",
+      "source_revision": "b52d817d",
+      "review_status": "accepted source/export/prefab scope (independent Sol review)",
+      "integration_status": "accepted",
       "placement_status": "pending",
       "blocker": null,
-      "attempts": 0,
+      "attempts": 1,
       "initial_time_cap_minutes": 90,
       "owned_paths": [
         "art/source/models/environment/d07_sign_island_01/",
@@ -7217,8 +7217,20 @@
         "art/textures/environment/d07_sign_island_01/",
         "art/materials/environment/d07_sign_island_01/",
         "docs/assets/production/d07_sign_island_01.md",
-        "docs/assets/production/d07_sign_island_01-evidence/"
-      ]
+        "docs/assets/production/d07_sign_island_01-evidence/",
+        "tools/asset_production/d07_sign_island_01/",
+        "scenes/prefabs/environment/d07_sign_island_01.tscn"
+      ],
+      "launch": {
+        "provider": "portkey/gpt-6-astra",
+        "configured_effort": "medium",
+        "mode": "orchestrator asset lane",
+        "lane": "a-d07"
+      },
+      "producer_manifest": "docs/assets/production/d07_sign_island_01-evidence/manifest.json",
+      "report": "docs/assets/production/d07_sign_island_01.md",
+      "reviewer_id": "a960422e-a21e-4fae-b327-ab5b2b8611b1",
+      "integrated_revision": "0e61dc50"
     },
     {
       "id": "d07_sign_island.02",
@@ -7231,14 +7243,14 @@
       "input_next_action": "Refine design from district asset breakdown",
       "brief": "[Brief](../../assets/d07_sign_island.md)",
       "priority": 0,
-      "status": "queued",
-      "agent_id": null,
-      "source_revision": null,
-      "review_status": "pending",
-      "integration_status": "pending",
+      "status": "production_prefab_accepted",
+      "agent_id": "ab81efd6-f0cf-4950-b3c8-c11c484cb4e7",
+      "source_revision": "0e61dc50",
+      "review_status": "accepted source/export/prefab scope (independent Sol review)",
+      "integration_status": "accepted",
       "placement_status": "pending",
       "blocker": null,
-      "attempts": 0,
+      "attempts": 1,
       "initial_time_cap_minutes": 90,
       "owned_paths": [
         "art/source/models/environment/d07_sign_island_02/",
@@ -7246,8 +7258,20 @@
         "art/textures/environment/d07_sign_island_02/",
         "art/materials/environment/d07_sign_island_02/",
         "docs/assets/production/d07_sign_island_02.md",
-        "docs/assets/production/d07_sign_island_02-evidence/"
-      ]
+        "docs/assets/production/d07_sign_island_02-evidence/",
+        "tools/asset_production/d07_sign_island_02/",
+        "scenes/prefabs/environment/d07_sign_island_02.tscn"
+      ],
+      "launch": {
+        "provider": "portkey/gpt-6-astra",
+        "configured_effort": "medium",
+        "mode": "orchestrator asset lane",
+        "lane": "a-d07"
+      },
+      "producer_manifest": "docs/assets/production/d07_sign_island_02-evidence/manifest.json",
+      "report": "docs/assets/production/d07_sign_island_02.md",
+      "reviewer_id": "a960422e-a21e-4fae-b327-ab5b2b8611b1",
+      "integrated_revision": "0e61dc50"
     },
     {
       "id": "d07_trolley_shelter.01",
@@ -7383,14 +7407,14 @@
       "input_next_action": "Refine design from district asset breakdown",
       "brief": "[Brief](../../assets/d07_retail_graphics.md)",
       "priority": 1,
-      "status": "queued",
-      "agent_id": null,
-      "source_revision": null,
-      "review_status": "pending",
-      "integration_status": "pending",
+      "status": "production_prefab_accepted",
+      "agent_id": "2ca06ba6-64e6-4337-bd1f-ac4af3fb05d1",
+      "source_revision": "adbf5f55",
+      "review_status": "accepted source/export/prefab scope (independent Sol review)",
+      "integration_status": "accepted",
       "placement_status": "pending",
       "blocker": null,
-      "attempts": 0,
+      "attempts": 1,
       "initial_time_cap_minutes": 90,
       "owned_paths": [
         "art/source/models/environment/d07_retail_graphics_01/",
@@ -7398,8 +7422,20 @@
         "art/textures/environment/d07_retail_graphics_01/",
         "art/materials/environment/d07_retail_graphics_01/",
         "docs/assets/production/d07_retail_graphics_01.md",
-        "docs/assets/production/d07_retail_graphics_01-evidence/"
-      ]
+        "docs/assets/production/d07_retail_graphics_01-evidence/",
+        "tools/asset_production/d07_retail_graphics_01/",
+        "scenes/prefabs/environment/d07_retail_graphics_01.tscn"
+      ],
+      "launch": {
+        "provider": "portkey/gpt-6-astra",
+        "configured_effort": "medium",
+        "mode": "orchestrator asset lane",
+        "lane": "a-d07"
+      },
+      "producer_manifest": "docs/assets/production/d07_retail_graphics_01-evidence/manifest.json",
+      "report": "docs/assets/production/d07_retail_graphics_01.md",
+      "reviewer_id": "a960422e-a21e-4fae-b327-ab5b2b8611b1",
+      "integrated_revision": "0e61dc50"
     },
     {
       "id": "d07_retail_graphics.02",
@@ -7412,14 +7448,14 @@
       "input_next_action": "Refine design from district asset breakdown",
       "brief": "[Brief](../../assets/d07_retail_graphics.md)",
       "priority": 1,
-      "status": "queued",
-      "agent_id": null,
-      "source_revision": null,
-      "review_status": "pending",
-      "integration_status": "pending",
+      "status": "production_prefab_accepted",
+      "agent_id": "f1e9b70b-b4a7-4b1e-98ec-1000eab43c9a",
+      "source_revision": "ab62add0",
+      "review_status": "accepted source/export/prefab scope (independent Sol review)",
+      "integration_status": "accepted",
       "placement_status": "pending",
       "blocker": null,
-      "attempts": 0,
+      "attempts": 1,
       "initial_time_cap_minutes": 90,
       "owned_paths": [
         "art/source/models/environment/d07_retail_graphics_02/",
@@ -7427,8 +7463,20 @@
         "art/textures/environment/d07_retail_graphics_02/",
         "art/materials/environment/d07_retail_graphics_02/",
         "docs/assets/production/d07_retail_graphics_02.md",
-        "docs/assets/production/d07_retail_graphics_02-evidence/"
-      ]
+        "docs/assets/production/d07_retail_graphics_02-evidence/",
+        "tools/asset_production/d07_retail_graphics_02/",
+        "scenes/prefabs/environment/d07_retail_graphics_02.tscn"
+      ],
+      "launch": {
+        "provider": "portkey/gpt-6-astra",
+        "configured_effort": "medium",
+        "mode": "orchestrator asset lane",
+        "lane": "a-d07"
+      },
+      "producer_manifest": "docs/assets/production/d07_retail_graphics_02-evidence/manifest.json",
+      "report": "docs/assets/production/d07_retail_graphics_02.md",
+      "reviewer_id": "a960422e-a21e-4fae-b327-ab5b2b8611b1",
+      "integrated_revision": "0e61dc50"
     },
     {
       "id": "d07_retail_graphics.03",
@@ -7441,14 +7489,14 @@
       "input_next_action": "Refine design from district asset breakdown",
       "brief": "[Brief](../../assets/d07_retail_graphics.md)",
       "priority": 1,
-      "status": "queued",
-      "agent_id": null,
-      "source_revision": null,
-      "review_status": "pending",
-      "integration_status": "pending",
+      "status": "production_prefab_accepted",
+      "agent_id": "b666ecf6-d0d4-4529-a0e0-5e2cd1d72a63",
+      "source_revision": "b9e5f82b",
+      "review_status": "accepted source/export/prefab scope (independent Sol review)",
+      "integration_status": "accepted",
       "placement_status": "pending",
       "blocker": null,
-      "attempts": 0,
+      "attempts": 1,
       "initial_time_cap_minutes": 90,
       "owned_paths": [
         "art/source/models/environment/d07_retail_graphics_03/",
@@ -7456,8 +7504,20 @@
         "art/textures/environment/d07_retail_graphics_03/",
         "art/materials/environment/d07_retail_graphics_03/",
         "docs/assets/production/d07_retail_graphics_03.md",
-        "docs/assets/production/d07_retail_graphics_03-evidence/"
-      ]
+        "docs/assets/production/d07_retail_graphics_03-evidence/",
+        "tools/asset_production/d07_retail_graphics_03/",
+        "scenes/prefabs/environment/d07_retail_graphics_03.tscn"
+      ],
+      "launch": {
+        "provider": "portkey/gpt-6-astra",
+        "configured_effort": "medium",
+        "mode": "orchestrator asset lane",
+        "lane": "a-d07"
+      },
+      "producer_manifest": "docs/assets/production/d07_retail_graphics_03-evidence/manifest.json",
+      "report": "docs/assets/production/d07_retail_graphics_03.md",
+      "reviewer_id": "a960422e-a21e-4fae-b327-ab5b2b8611b1",
+      "integrated_revision": "0e61dc50"
     },
     {
       "id": "d08_workshop_buildings.01",
