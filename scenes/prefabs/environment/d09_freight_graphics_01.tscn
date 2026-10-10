@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://dfxuc0tbk5dfi"]
+
+[ext_resource type="PackedScene" path="res://art/models/environment/city_shop_fittings_02/city_shop_fittings_02.glb" id="1_model"]
+[ext_resource type="Material" path="res://art/materials/environment/d09_freight_graphics_01/warehouse_fascia.tres" id="2_artwork"]
+
+[node name="d09_freight_graphics_01" type="Node3D" unique_id=71133852]
+
+[node name="Visuals" type="Node3D" parent="." unique_id=1657272747]
+
+[node name="Model" parent="Visuals" unique_id=364377053 instance=ExtResource("1_model")]
+
+[node name="fascia_artwork_carrier" parent="Visuals/Model/city_shop_fittings_02" parent_id_path=PackedInt32Array(364377053, 2084060699) index="2" unique_id=1343862081]
+surface_material_override/0 = ExtResource("2_artwork")
+
+[editable path="Visuals/Model"]

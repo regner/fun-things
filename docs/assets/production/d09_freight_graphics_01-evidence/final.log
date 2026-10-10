@@ -1,0 +1,16 @@
+d09_freight_graphics.01 final bounded producer checks
+Blender 5.2.2 LTS d13f752e3b9c / exporter 5.2.40: source audit and reexport PASS, exit 0.
+Shared fascia unchanged; 1656 triangles, 836 source / 1072 GLB vertices, 7 meshes, 8 surfaces.
+Zero degenerates/nonmanifold edges; unit normals; exact fresh GLB bytes.
+Four isolated Blender renders: PASS, exit 0; 1280x720, compression 100.
+Four Python artwork tests: PASS, exit 0; fresh PNG byte-identical.
+Godot 4.8.dev7.official.c971f93e7 import: PASS, exit 0; no ERROR/SCRIPT ERROR.
+Import warning: installed MCP toolkit tested through Godot 4.7, running on 4.8.
+Runtime resource normalization: PASS, exit 0; two byte-stable save/reload cycles.
+Fresh-process linked prefab/dependency/face-slot audit: PASS, exit 0; no warnings/errors.
+gdstyle 0.3.0 format and zero-warning lint: PASS, exit 0.
+Earlier own 101-character constant lint finding corrected by wrapping the constant.
+Receipt packaging corrected to explicit LF; staged-byte manifest verification passes.
+Blender --version alone printed one 23-byte shutdown allocation diagnostic; actual source
+audit and render runs did not. Preview API emits a use_nodes deprecation warning.
+No production_checks, live-editor, gameplay, network, world-placement or device test run.
