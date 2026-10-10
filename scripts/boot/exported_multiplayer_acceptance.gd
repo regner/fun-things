@@ -10,6 +10,7 @@ const SCENARIO_INCOMPATIBLE: String = "incompatible"
 const SCENARIO_ADMISSION_TIMEOUT: String = "admission_timeout"
 const SCENARIO_HOST_LOSS: String = "host_loss"
 const SCENARIO_PLAYTEST: String = "playtest"
+const SCENARIO_SUSTAINED: String = "sustained"
 const PROCESS_TIMEOUT_MSEC: int = 120_000
 const HANDSHAKE_TIMEOUT_SECONDS: float = 0.75
 const REQUIRED_MOVEMENT_METRES: float = 0.5
@@ -19,6 +20,15 @@ const PRESENTATION_MOVEMENT_EPSILON_METRES: float = 0.001
 const MAX_REMOTE_FRAME_JUMP_METRES: float = 0.5
 const REMOTE_PARTICIPANT_ID: int = 2
 const HOST_PARTICIPANT_ID: int = 1
+const SUSTAINED_MOVEMENT_TICKS: int = 600
+const SUSTAINED_SETTLE_TICKS: int = 45
+const SUSTAINED_CLOSE_GRACE_TICKS: int = 120
+const CONTINUITY_WINDOW_TICKS: int = 15
+const MINIMUM_WINDOW_DISTANCE_METRES: float = 0.2
+const MINIMUM_CLIENT_HOST_DISTANCE_RATIO: float = 0.3
+const HOST_FINAL_AIM_YAW: float = 1.0
+const CLIENT_FINAL_AIM_YAW: float = -1.0
+const FACING_TOLERANCE_RADIANS: float = 0.15
 
 var _tree: SceneTree
 var _session: SessionService
@@ -65,6 +75,15 @@ var _remote_display_start_position: Vector3 = Vector3.INF
 var _remote_display_max_jump_metres: float = 0.0
 var _remote_stationary_root_frames: int = 0
 var _remote_stationary_display_displacement_metres: float = 0.0
+var _sustained_tick: int = 0
+var _sustained_previous_positions: Dictionary[int, Vector3] = {}
+var _sustained_distances: Dictionary[int, float] = {}
+var _sustained_window_previous: Vector3 = Vector3.INF
+var _sustained_window_distance: float = 0.0
+var _sustained_window_failures: int = 0
+var _sustained_minimum_window_metres: float = INF
+var _sustained_local_yaw_min: float = INF
+var _sustained_local_yaw_max: float = -INF
 
 
 ## Parses the explicit acceptance arguments without changing ordinary launches.
@@ -108,6 +127,7 @@ func configure(
 			SCENARIO_ADMISSION_TIMEOUT,
 			SCENARIO_HOST_LOSS,
 			SCENARIO_PLAYTEST,
+			SCENARIO_SUSTAINED,
 		]
 		or _port <= 0
 	):
@@ -137,13 +157,16 @@ func physics_process(delta_seconds: float) -> void:
 	if Time.get_ticks_msec() >= _deadline_msec and _scenario != SCENARIO_PLAYTEST:
 		_finish(false, "PROCESS_TIMEOUT")
 		return
-	if _scenario not in [SCENARIO_GAMEPLAY, SCENARIO_PLAYTEST]:
+	if _scenario not in [SCENARIO_GAMEPLAY, SCENARIO_PLAYTEST, SCENARIO_SUSTAINED]:
 		return
 
 	_bind_match()
 	if _scenario == SCENARIO_PLAYTEST:
 		return
 	if not is_instance_valid(_replication) or _replication.player_count() != 2:
+		return
+	if _scenario == SCENARIO_SUSTAINED:
+		_step_sustained(delta_seconds)
 		return
 	_step_gameplay(delta_seconds)
 	_observe_lifecycle()
@@ -276,6 +299,12 @@ func _on_session_changed(view: Dictionary) -> void:
 	if _scenario == SCENARIO_HOST_LOSS:
 		var host_loss: bool = failure_code == &"HOST_LOST"
 		_finish(host_loss, "HOST_LOST" if host_loss else "WRONG_FAILURE")
+	elif _scenario == SCENARIO_SUSTAINED:
+		var host_closed_after_success: bool = failure_code == &"HOST_LOST" and _success_ready
+		_finish(
+			host_closed_after_success,
+			"" if host_closed_after_success else "SUSTAINED_HOST_LOST_EARLY",
+		)
 
 
 ## Observes admitted identities and requests host-loss exit only after real admission.
@@ -320,8 +349,9 @@ func _bind_match() -> void:
 		_finish(false, "MATCH_REPLICATION_MISSING")
 		return
 	_replication.input_granted.connect(_on_input_granted)
+	_replication.input_recovered.connect(_on_input_recovered)
 	_replication.movement_applied.connect(_on_movement_applied)
-	if _scenario == SCENARIO_GAMEPLAY:
+	if _scenario in [SCENARIO_GAMEPLAY, SCENARIO_SUSTAINED]:
 		_replication.set_local_input_enabled(false)
 		var rig: LocalRig = match.get_node_or_null("LocalRig") as LocalRig
 		if rig != null and _role == ROLE_HOST:
@@ -340,6 +370,12 @@ func _bind_match() -> void:
 func _on_input_granted(participant_id: int) -> void:
 	if participant_id == REMOTE_PARTICIPANT_ID:
 		_input_granted = true
+		_sequence = 0
+
+
+## Keeps deterministic acceptance numbering aligned with production input recovery.
+func _on_input_recovered(participant_id: int) -> void:
+	if participant_id == REMOTE_PARTICIPANT_ID:
 		_sequence = 0
 
 
@@ -464,6 +500,149 @@ func _track_remote_presentation(actor: ActorMotion) -> void:
 	)
 
 
+## Holds real client intent for ten seconds and measures continuity and replicated facing.
+func _step_sustained(delta_seconds: float) -> void:
+	var host_actor: ActorMotion = _replication.actor_for_participant(HOST_PARTICIPANT_ID)
+	var client_actor: ActorMotion = _replication.actor_for_participant(REMOTE_PARTICIPANT_ID)
+	if host_actor == null or client_actor == null:
+		return
+	if _role == ROLE_CLIENT and not _input_granted:
+		return
+	if _sustained_previous_positions.is_empty():
+		_sustained_previous_positions = {
+			HOST_PARTICIPANT_ID: host_actor.global_position,
+			REMOTE_PARTICIPANT_ID: client_actor.global_position,
+		}
+		_sustained_distances = { HOST_PARTICIPANT_ID: 0.0, REMOTE_PARTICIPANT_ID: 0.0 }
+		_sustained_window_previous = _display_position(client_actor)
+
+	_sustained_tick += 1
+	var movement_active: bool = _sustained_tick <= SUSTAINED_MOVEMENT_TICKS
+	var movement_phase: int = floori(float(_sustained_tick - 1) / 60.0)
+	var direction: Vector2 = Vector2.RIGHT if movement_phase % 2 == 0 else Vector2.LEFT
+	if not movement_active:
+		direction = Vector2.ZERO
+	_drive_sustained_local(direction, movement_active, host_actor, delta_seconds)
+	_measure_sustained_motion(host_actor, client_actor, movement_active)
+	var local_actor: ActorMotion = host_actor if _role == ROLE_HOST else client_actor
+	_sustained_local_yaw_min = minf(_sustained_local_yaw_min, local_actor.rotation.y)
+	_sustained_local_yaw_max = maxf(_sustained_local_yaw_max, local_actor.rotation.y)
+	if _sustained_tick < SUSTAINED_MOVEMENT_TICKS + SUSTAINED_SETTLE_TICKS:
+		return
+
+	_complete_sustained()
+
+
+## Applies one deterministic held command through the role's production movement path.
+func _drive_sustained_local(
+	direction: Vector2,
+	movement_active: bool,
+	host_actor: ActorMotion,
+	delta_seconds: float,
+) -> void:
+	if _role == ROLE_HOST:
+		_host_sequence += 1
+		var host_yaw: float = (
+			sin(float(_sustained_tick) * 0.03) * 1.2
+			if movement_active
+			else HOST_FINAL_AIM_YAW
+		)
+		host_actor.step(
+			FootCommand.new(
+				_host_sequence, _host_sequence, direction, host_yaw, false, false
+			),
+			delta_seconds,
+			ActorMotion.StepMode.AUTHORITY,
+		)
+		return
+
+	_sequence += 1
+	var client_yaw: float = (
+		cos(float(_sustained_tick) * 0.03) * 1.2
+		if movement_active
+		else CLIENT_FINAL_AIM_YAW
+	)
+	_replication.predict_and_submit_local_command(
+		FootCommand.new(_sequence, _sequence, direction, client_yaw, false, false),
+		delta_seconds,
+	)
+
+
+## Completes sustained acceptance only after distance, continuity, and facing all pass.
+func _complete_sustained() -> void:
+	var host_distance: float = float(_sustained_distances[HOST_PARTICIPANT_ID])
+	var client_distance: float = float(_sustained_distances[REMOTE_PARTICIPANT_ID])
+	_success_ready = (
+		(_role == ROLE_HOST or _sustained_window_failures == 0)
+		and host_distance > 1.0
+		and client_distance >= host_distance * MINIMUM_CLIENT_HOST_DISTANCE_RATIO
+		and _sustained_local_yaw_max - _sustained_local_yaw_min >= 1.5
+		and _sustained_facing_converged()
+	)
+	if (
+		_success_ready
+		and _role == ROLE_HOST
+		and _sustained_tick
+		>= SUSTAINED_MOVEMENT_TICKS + SUSTAINED_SETTLE_TICKS + SUSTAINED_CLOSE_GRACE_TICKS
+	):
+		_begin_clean_close()
+
+
+## Accumulates both paths and rejects any stationary quarter-second client display window.
+func _measure_sustained_motion(
+	host_actor: ActorMotion,
+	client_actor: ActorMotion,
+	movement_active: bool,
+) -> void:
+	for participant_id: int in [HOST_PARTICIPANT_ID, REMOTE_PARTICIPANT_ID]:
+		var actor: ActorMotion = (
+			host_actor if participant_id == HOST_PARTICIPANT_ID else client_actor
+		)
+		var previous: Vector3 = _sustained_previous_positions[participant_id]
+		_sustained_distances[participant_id] = (
+			float(_sustained_distances[participant_id])
+			+ actor.global_position.distance_to(previous)
+		)
+		_sustained_previous_positions[participant_id] = actor.global_position
+	if _role != ROLE_CLIENT or not movement_active:
+		return
+
+	var display_position: Vector3 = _display_position(client_actor)
+	_sustained_window_distance += display_position.distance_to(_sustained_window_previous)
+	_sustained_window_previous = display_position
+	if _sustained_tick % CONTINUITY_WINDOW_TICKS != 0:
+		return
+
+	_sustained_minimum_window_metres = minf(
+		_sustained_minimum_window_metres, _sustained_window_distance
+	)
+	if _sustained_window_distance < MINIMUM_WINDOW_DISTANCE_METRES:
+		_sustained_window_failures += 1
+	_sustained_window_distance = 0.0
+
+
+## Reads the authored presentation pose used by the local camera and player.
+func _display_position(actor: ActorMotion) -> Vector3:
+	var presentation: Node3D = actor.get_node_or_null("PresentationAnchor") as Node3D
+	return presentation.global_position if presentation != null else actor.global_position
+
+
+## Checks both simulated facings after the moving aim targets settle.
+func _sustained_facing_converged() -> bool:
+	if not is_instance_valid(_replication):
+		return false
+	var host_actor: ActorMotion = _replication.actor_for_participant(HOST_PARTICIPANT_ID)
+	var client_actor: ActorMotion = _replication.actor_for_participant(REMOTE_PARTICIPANT_ID)
+	if host_actor == null or client_actor == null:
+		return false
+	return (
+		absf(angle_difference(host_actor.rotation.y, HOST_FINAL_AIM_YAW))
+		<= FACING_TOLERANCE_RADIANS
+		and absf(angle_difference(client_actor.rotation.y, CLIENT_FINAL_AIM_YAW))
+		<= FACING_TOLERANCE_RADIANS
+	)
+
+
 ## Drives death, respawn, reset, and post-reset input through their production owners.
 func _observe_lifecycle() -> void:
 	var view: Dictionary = _replication.lifecycle_view_for(REMOTE_PARTICIPANT_ID)
@@ -542,6 +721,8 @@ func _begin_clean_close() -> void:
 	if _closing:
 		return
 	_closing = true
+	if _scenario == SCENARIO_SUSTAINED and _role == ROLE_HOST:
+		_replication.set_physics_process(false)
 	if not _session.leave().get("ok", false):
 		_finish(false, "LEAVE_REJECTED")
 
@@ -626,4 +807,31 @@ func _result_receipt(ok: bool, detail: String) -> Dictionary:
 		"scenario": _scenario,
 		"steam_class_absent": not ClassDB.class_exists("Steam"),
 		"steam_singleton_absent": not Engine.has_singleton("Steam"),
+	}.merged(_sustained_receipt())
+
+
+## Builds sustained fields separately so every terminal scenario shares one receipt shape.
+func _sustained_receipt() -> Dictionary:
+	return {
+		"sustained_client_distance_metres": float(
+			_sustained_distances.get(REMOTE_PARTICIPANT_ID, 0.0)
+		),
+		"sustained_continuity_window_failures": _sustained_window_failures,
+		"sustained_duration_seconds": (
+			float(mini(_sustained_tick, SUSTAINED_MOVEMENT_TICKS)) / 60.0
+		),
+		"sustained_facing_converged": _scenario == SCENARIO_SUSTAINED and _success_ready,
+		"sustained_facing_span_radians": (
+			0.0
+			if is_inf(_sustained_local_yaw_min)
+			else _sustained_local_yaw_max - _sustained_local_yaw_min
+		),
+		"sustained_host_distance_metres": float(
+			_sustained_distances.get(HOST_PARTICIPANT_ID, 0.0)
+		),
+		"sustained_minimum_window_metres": (
+			0.0
+			if is_inf(_sustained_minimum_window_metres)
+			else _sustained_minimum_window_metres
+		),
 	}

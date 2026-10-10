@@ -62,6 +62,9 @@ func _notification(what: int) -> void:
 
 ## Supplies the authored camera and controlled actor used only to derive aim yaw.
 func bind_aim(camera: Camera3D, actor: ActorMotion) -> void:
+	if _aim_camera == camera and _aim_actor == actor:
+		return
+
 	_aim_camera = camera
 	_aim_actor = actor
 	_mouse_position = get_viewport().get_visible_rect().size * 0.5
@@ -90,6 +93,9 @@ func sample(client_tick: int) -> FootCommand:
 
 ## Exposes focus control for enclosing lifecycle owners and deterministic tests.
 func set_focused(focused: bool) -> void:
+	if active == focused:
+		return
+
 	active = focused
 	clear()
 

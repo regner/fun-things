@@ -587,6 +587,19 @@ steer: -1..1, brake: 0..1, handbrake: bool}`. S04 defines reverse/brake handling
 diagnostic/replay ordering within limits, not permission to rewind host time. AI commands use host
 ticks through the same rules.
 
+P1 owner-playtest correction, 11 October 2026: client movement snapshots were idempotently
+reopening the already-open LocalRig input gate, but `DesktopFootInput.set_focused(true)` cleared
+all held aliases every time. Thus the first command moved and subsequent snapshots turned a held
+key into neutral intent until a new key-down event. Focus changes now clear only on an actual
+state transition. Reapplying the same replica aim binding also preserves the latest mouse position
+instead of resetting it to viewport centre on every movement snapshot. Aim still uses the same
+camera-to-actor-plane projection and shared `aim_yaw` simulation field. The exported
+acceptance now holds client intent for ten seconds over direct ENet and the normal 75 ms ±30 ms,
+2% loss profile, activated after admission so the measured interval is unambiguous. It checks
+accumulated presentation travel in every 250 ms window, requires client authority travel to remain
+at least 30% of the host path under ENet's normal-profile throttle, and requires local plus remote
+moving-target facing convergence.
+
 Held sequence starts at 1 for each new entity/control-revision binding and never
 resets within that binding. Client tick stays diagnostic; a stalled/out-of-window
 sender needs the bounded resynchronization path rather than forcing extra host steps.

@@ -44,6 +44,18 @@ func test_focus_loss_stays_neutral_after_focus_regain() -> void:
 	assert_lt(collector.sample(4).move.y, 0.0)
 
 
+## Keeps held input when replication idempotently reapplies the already-open input gate.
+func test_repeated_enabled_focus_state_does_not_clear_held_input() -> void:
+	var collector: DesktopFootInput = _add_collector()
+	collector.set_focused(true)
+	collector._unhandled_input(_key(KEY_W, true))
+	assert_lt(collector.sample(1).move.y, 0.0)
+
+	for _snapshot: int in range(30):
+		collector.set_focused(true)
+		assert_lt(collector.sample(_snapshot + 2).move.y, 0.0)
+
+
 ## Restarts sequence one only through the host-authorized rebind seam.
 func test_reset_sequence_restarts_numbering_and_clears_held_input() -> void:
 	var collector: DesktopFootInput = _add_collector()
@@ -72,8 +84,16 @@ func test_mouse_right_of_actor_faces_world_positive_x() -> void:
 	collector.bind_aim(camera, actor)
 	var centre: Vector2 = get_viewport().get_visible_rect().size * 0.5
 
-	var yaw: float = collector.aim_yaw_for_screen(centre + Vector2(100.0, 0.0))
+	var right_position: Vector2 = centre + Vector2(100.0, 0.0)
+	var yaw: float = collector.aim_yaw_for_screen(right_position)
 	assert_true(is_equal_approx(yaw, -PI * 0.5))
+
+	var motion := InputEventMouseMotion.new()
+	motion.position = right_position
+	collector._unhandled_input(motion)
+	assert_true(is_equal_approx(collector.sample(1).aim_yaw, -PI * 0.5))
+	collector.bind_aim(camera, actor)
+	assert_true(is_equal_approx(collector.sample(2).aim_yaw, -PI * 0.5))
 
 
 ## Adds a collector to the active test viewport so InputMap actions resolve normally.
