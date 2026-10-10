@@ -1,0 +1,20 @@
+validate.log: final exit 0 observed; required marker/diagnostics verified.
+preview-final.log: final exit 0 observed; required marker/diagnostics verified.
+tests-final.log: final exit 0 observed; required marker/diagnostics verified.
+fmt-final.log: final exit 0 observed; required marker/diagnostics verified.
+lint-final.log: final exit 0 observed; required marker/diagnostics verified.
+import-final.log: final exit 0 observed; required marker/diagnostics verified.
+WARNING: [MCP] Godot 4.8 detected - latest tested version is 4.7.0. The plugin will run normally but some features may behave unexpectedly. Please report issues at https://github.com/NPGameDev/godot-mcp-toolkit/issues
+normalize-final.log: final exit 0 observed; required marker/diagnostics verified.
+WARNING: [MCP] Godot 4.8 detected - latest tested version is 4.7.0. The plugin will run normally but some features may behave unexpectedly. Please report issues at https://github.com/NPGameDev/godot-mcp-toolkit/issues
+WARNING: Scan thread aborted...
+ERROR: 5 RID allocations of type 'N16RendererViewport8ViewportE' were leaked at exit.
+ERROR: 8 RID allocations of type 'PN13RendererDummy14TextureStorage12DummyTextureE' were leaked at exit.
+ERROR: 1 RID allocations of type 'N17RendererSceneCull8ScenarioE' were leaked at exit.
+ERROR: 52 RID allocations of type 'PN18TextServerAdvanced22ShapedTextDataAdvancedE' were leaked at exit.
+ERROR: 1 RID allocations of type 'PN18TextServerAdvanced12FontAdvancedE' were leaked at exit.
+WARNING: 5 RIDs of type "Canvas" were leaked.
+WARNING: 31 RIDs of type "CanvasItem" were leaked.
+WARNING: 168 ObjectDB instances were leaked at exit (run with `--verbose` for details).
+load-final.log: final exit 0 observed; required marker/diagnostics verified.
+load-second.log: final exit 0 observed; required marker/diagnostics verified.

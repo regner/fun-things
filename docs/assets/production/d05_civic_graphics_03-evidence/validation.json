@@ -1,0 +1,253 @@
+{
+  "status": "PASS: bounded producer audit; independent review pending",
+  "blender": "5.2.2 LTS",
+  "blender_build": "d13f752e3b9c",
+  "gltf_exporter": "5.2.40",
+  "source_meshes": [
+    {
+      "name": "CitySignSupports02_Hardware",
+      "vertices": 1160,
+      "triangles": 2284,
+      "nonmanifold_edges": 0,
+      "degenerate_faces": 0,
+      "unit_corner_normals": true,
+      "materials": [
+        "support_petrol",
+        "recess_gasket",
+        "mount_metal"
+      ]
+    },
+    {
+      "name": "CitySignSupports02_ArtworkCarrier",
+      "vertices": 84,
+      "triangles": 164,
+      "nonmanifold_edges": 0,
+      "degenerate_faces": 0,
+      "unit_corner_normals": true,
+      "materials": [
+        "sign_face",
+        "mount_metal"
+      ]
+    }
+  ],
+  "source_vertices": 1244,
+  "triangles": 2448,
+  "glb_vertices": 1596,
+  "meshes": 2,
+  "surfaces": 5,
+  "nonmanifold_edges": 0,
+  "degenerate_faces": 0,
+  "degenerate_glb_triangles": 0,
+  "unit_source_and_export_normals": true,
+  "glb_winding_agrees_with_normals": true,
+  "godot_aabb": {
+    "min": [
+      -0.800000011920929,
+      0.0,
+      -0.20000000298023224
+    ],
+    "max": [
+      0.800000011920929,
+      1.350000023841858,
+      0.20000000298023224
+    ]
+  },
+  "dimensions_m": [
+    1.6,
+    1.35,
+    0.4
+  ],
+  "pivot": [
+    0,
+    0,
+    0
+  ],
+  "ground_datum_m": 0,
+  "dimension_tolerance_m": 0.001,
+  "coordinate_tolerance_m": 1e-05,
+  "artwork_interface": {
+    "mesh": "CitySignSupports02_ArtworkCarrier",
+    "slot": "sign_face",
+    "slot_index": 0,
+    "width_m": 1.44,
+    "height_m": 0.39,
+    "aspect_ratio": "48:13",
+    "safe_copy_rectangle_m": [
+      1.38,
+      0.33
+    ],
+    "front_godot_z_m": -0.071,
+    "bottom_m": 0.88,
+    "top_m": 1.27,
+    "uv_min": [
+      0,
+      0
+    ],
+    "uv_max": [
+      1,
+      1
+    ],
+    "glb_v_direction": "0 top / 1 bottom",
+    "u_direction": "front-view left to right (-X)"
+  },
+  "glb_bytes": 70712,
+  "glb_sha256": "022dd559334d79c482182083be775c692ab4adf2a5277d3fb7ca7ec266ec76b7",
+  "fresh_reexport_byte_identical": true,
+  "materials": [
+    {
+      "name": "sign_face",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.3931231200695038,
+          0.4479884207248688,
+          0.4064483046531677,
+          1
+        ],
+        "metallicFactor": 0,
+        "roughnessFactor": 0.5600000023841858
+      }
+    },
+    {
+      "name": "mount_metal",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.07828831672668457,
+          0.1259673833847046,
+          0.1399848908185959,
+          1
+        ],
+        "metallicFactor": 0.6499999761581421,
+        "roughnessFactor": 0.3799999952316284
+      }
+    },
+    {
+      "name": "support_petrol",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.010816383175551891,
+          0.03468407690525055,
+          0.04396536201238632,
+          1
+        ],
+        "metallicFactor": 0.18000000715255737,
+        "roughnessFactor": 0.3199999928474426
+      }
+    },
+    {
+      "name": "recess_gasket",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.0033353136386722326,
+          0.006571403704583645,
+          0.008122432976961136,
+          1
+        ],
+        "metallicFactor": 0,
+        "roughnessFactor": 0.7200000286102295
+      }
+    }
+  ],
+  "asset_id": "d05_civic_graphics.03",
+  "new_geometry": false,
+  "shared_dependencies_unchanged": true,
+  "shared_dependency_sha256": {
+    "art/source/models/environment/city_sign_supports_02/city_sign_supports_02.blend": "d1b9a29d684951ea1ef40f88aedb2180297b9be6c7cee58c31d467be07708e6c",
+    "art/models/environment/city_sign_supports_02/city_sign_supports_02.glb": "022dd559334d79c482182083be775c692ab4adf2a5277d3fb7ca7ec266ec76b7",
+    "art/models/environment/city_sign_supports_02/city_sign_supports_02.glb.import": "6c237258815d1ee6a0a8644af1af29d18af74fa84fb40960cba05da96a354fe2",
+    "scenes/prefabs/environment/city_sign_supports_02.tscn": "dd95c4cbf0d0ff3d816290024e1723864817176753628384222f51084a804939",
+    "tools/asset_production/city_sign_supports_02/validate.py": "ee64a3fabf71d6a2afd58a839691c626c28f5e306d44b0f28aeeb793d0c9376e",
+    "tools/asset_production/city_sign_supports_02/export.py": "77f022778898442006f67ca397036e523a95095afb337ec03427e78923aebfb1",
+    "tools/assets/blender/export_settings.json": "33ded3c83616fba6573848dda1f0ea3fc7ae7f4c98257fc867dca3bbe35ff9ec",
+    "tools/asset_production/d05_civic_graphics_01/author.py": "b57ed9f830d139f7aea71ec0b06804797798eaf49f0bca3d0a8cc2bea8e612b6",
+    "tools/asset_production/d05_civic_graphics_02/author.py": "cd0fbfa775be88edf1ba6748bc01109fb2a459609c214d6f86f45c0f993b4a8e",
+    "tools/asset_production/d05_civic_graphics_01/manifest.py": "08ca7e66364c817504a665e54e8736e4ff05f8263aebfdd5e13850d4ef7af184",
+    "tools/asset_production/d06_commercial_graphics_03/check_prefab.gd": "08d99fe7bbb6ae3d38b07b313b91c95cc11904a494238c9fa4e72192e066d985"
+  },
+  "source_audit": "All owner assertions unchanged; only output paths redirected",
+  "shared_source": "art/source/models/environment/city_sign_supports_02/city_sign_supports_02.blend",
+  "shared_glb": "art/models/environment/city_sign_supports_02/city_sign_supports_02.glb",
+  "engine": {
+    "aabb_max": [
+      0.8,
+      1.35,
+      0.2
+    ],
+    "aabb_min": [
+      -0.8,
+      0,
+      -0.2
+    ],
+    "base_prefab": "res://scenes/prefabs/environment/city_sign_supports_02.tscn",
+    "engine": "4.8-dev7 (official)",
+    "face_only_overrides": 1,
+    "hierarchy_meshes_and_collision_unchanged": true,
+    "imported_mipmaps": true,
+    "imported_uv_max_error": 3.06765238444473e-05,
+    "linked_model": "res://art/models/environment/city_sign_supports_02/city_sign_supports_02.glb",
+    "meshes": 2,
+    "prefab": "res://scenes/prefabs/environment/d05_civic_graphics_03.tscn",
+    "prefab_sha256": "87c9e94b57933a5acada03333bcb77310b6ce122d95eabeaaff04c203af74287",
+    "ray_center_blocked_side_and_above_clear": true,
+    "resource_uids": {
+      "res://art/materials/environment/d05_civic_graphics_03/direction_panel.tres": "uid://cl2q7y1vc6d3x",
+      "res://art/models/environment/city_sign_supports_02/city_sign_supports_02.glb": "uid://bcgx64ss75j2s",
+      "res://art/textures/environment/d05_civic_graphics_03/direction_panel_albedo.png": "uid://bhiwbserl2jno",
+      "res://scenes/prefabs/environment/city_sign_supports_02.tscn": "uid://bi65yynmg6q4t",
+      "res://scenes/prefabs/environment/d05_civic_graphics_03.tscn": "uid://bmquyr57xaguh"
+    },
+    "roundtrip_sha256": [],
+    "status": "PASS",
+    "surfaces": 5,
+    "texture_size": [
+      1440,
+      390
+    ]
+  },
+  "two_roundtrips_sha256": [
+    "87c9e94b57933a5acada03333bcb77310b6ce122d95eabeaaff04c203af74287",
+    "87c9e94b57933a5acada03333bcb77310b6ce122d95eabeaaff04c203af74287",
+    "87c9e94b57933a5acada03333bcb77310b6ce122d95eabeaaff04c203af74287"
+  ],
+  "two_fresh_runtime_processes_identical": true,
+  "artwork": {
+    "path": "art/textures/environment/d05_civic_graphics_03/direction_panel_albedo.png",
+    "bytes": 43768,
+    "sha256": "88d2875e68b7ff129d94f16977fa1965bb076ef26b4a311680b71595198e3d2a",
+    "size_px": [
+      1440,
+      390
+    ],
+    "mode": "RGB",
+    "tests_passed": 4,
+    "original_vector_lettering": true,
+    "emission": false
+  },
+  "renders": [
+    {
+      "path": "docs/assets/production/d05_civic_graphics_03-evidence/hero.png",
+      "bytes": 132192,
+      "sha256": "38b1d90948bfde3d4cbafbee6373e85699c4497ed40e76b4a81e362db0aadc9d"
+    },
+    {
+      "path": "docs/assets/production/d05_civic_graphics_03-evidence/side.png",
+      "bytes": 120236,
+      "sha256": "932c7236d8da08f46555c5d767ca6fa4c6eb6460474e3812b69223f6731c2761"
+    },
+    {
+      "path": "docs/assets/production/d05_civic_graphics_03-evidence/detail.png",
+      "bytes": 180144,
+      "sha256": "98aa7ff8dd54a2cb79a85d2de18d03531f3bfd5557624cf6e24d16f6390c025e"
+    },
+    {
+      "path": "docs/assets/production/d05_civic_graphics_03-evidence/overhead_47m_42deg.png",
+      "bytes": 6024,
+      "sha256": "8260d0d592a85b43347288c1b8b176f1e3b1ecbd8bf5bd381e523547bca52717"
+    }
+  ],
+  "diagnostics": {
+    "import": "No ERROR/SCRIPT ERROR; existing plugin compatibility warning",
+    "runtime": "Two fresh processes pass without ERROR/WARNING/SCRIPT ERROR",
+    "normalization": "Pass; known editor shutdown RID/ObjectDB leaks, not a clean log",
+    "production_checks": "Not run: owner decision 52"
+  }
+}

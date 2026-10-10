@@ -1,0 +1,157 @@
+{
+  "asset_id": "d05_civic_graphics.03",
+  "algorithm": "SHA-256",
+  "exclusions": [
+    "manifest.json (self-hash)",
+    "__pycache__ (uncommitted cache)"
+  ],
+  "shared_dependencies_not_produced": [
+    {
+      "path": "art/source/models/environment/city_sign_supports_02/city_sign_supports_02.blend",
+      "bytes": 140599,
+      "sha256": "d1b9a29d684951ea1ef40f88aedb2180297b9be6c7cee58c31d467be07708e6c"
+    },
+    {
+      "path": "art/models/environment/city_sign_supports_02/city_sign_supports_02.glb",
+      "bytes": 70712,
+      "sha256": "022dd559334d79c482182083be775c692ab4adf2a5277d3fb7ca7ec266ec76b7"
+    },
+    {
+      "path": "art/models/environment/city_sign_supports_02/city_sign_supports_02.glb.import",
+      "bytes": 1275,
+      "sha256": "6c237258815d1ee6a0a8644af1af29d18af74fa84fb40960cba05da96a354fe2"
+    },
+    {
+      "path": "scenes/prefabs/environment/city_sign_supports_02.tscn",
+      "bytes": 898,
+      "sha256": "dd95c4cbf0d0ff3d816290024e1723864817176753628384222f51084a804939"
+    },
+    {
+      "path": "tools/asset_production/city_sign_supports_02/validate.py",
+      "bytes": 8384,
+      "sha256": "ee64a3fabf71d6a2afd58a839691c626c28f5e306d44b0f28aeeb793d0c9376e"
+    },
+    {
+      "path": "tools/asset_production/city_sign_supports_02/export.py",
+      "bytes": 938,
+      "sha256": "77f022778898442006f67ca397036e523a95095afb337ec03427e78923aebfb1"
+    },
+    {
+      "path": "tools/assets/blender/export_settings.json",
+      "bytes": 646,
+      "sha256": "33ded3c83616fba6573848dda1f0ea3fc7ae7f4c98257fc867dca3bbe35ff9ec"
+    },
+    {
+      "path": "tools/asset_production/d05_civic_graphics_01/author.py",
+      "bytes": 3767,
+      "sha256": "b57ed9f830d139f7aea71ec0b06804797798eaf49f0bca3d0a8cc2bea8e612b6"
+    },
+    {
+      "path": "tools/asset_production/d05_civic_graphics_02/author.py",
+      "bytes": 4921,
+      "sha256": "cd0fbfa775be88edf1ba6748bc01109fb2a459609c214d6f86f45c0f993b4a8e"
+    },
+    {
+      "path": "tools/asset_production/d05_civic_graphics_01/manifest.py",
+      "bytes": 2408,
+      "sha256": "08ca7e66364c817504a665e54e8736e4ff05f8263aebfdd5e13850d4ef7af184"
+    },
+    {
+      "path": "tools/asset_production/d06_commercial_graphics_03/check_prefab.gd",
+      "bytes": 6930,
+      "sha256": "08d99fe7bbb6ae3d38b07b313b91c95cc11904a494238c9fa4e72192e066d985"
+    }
+  ],
+  "files": [
+    {
+      "path": "art/materials/environment/d05_civic_graphics_03/direction_panel.tres",
+      "bytes": 373,
+      "sha256": "02e24fc50512c6710ded7aa8270b94630064409683bc034b3db280a4a186e4e5"
+    },
+    {
+      "path": "art/textures/environment/d05_civic_graphics_03/direction_panel_albedo.png",
+      "bytes": 43768,
+      "sha256": "88d2875e68b7ff129d94f16977fa1965bb076ef26b4a311680b71595198e3d2a"
+    },
+    {
+      "path": "art/textures/environment/d05_civic_graphics_03/direction_panel_albedo.png.import",
+      "bytes": 1121,
+      "sha256": "7492dad6299379a5afa8fec2d00b5e2112a789ce9c30d3f84b5968258d3f855f"
+    },
+    {
+      "path": "docs/assets/production/d05_civic_graphics_03-evidence/detail.png",
+      "bytes": 180144,
+      "sha256": "98aa7ff8dd54a2cb79a85d2de18d03531f3bfd5557624cf6e24d16f6390c025e"
+    },
+    {
+      "path": "docs/assets/production/d05_civic_graphics_03-evidence/final.log",
+      "bytes": 1832,
+      "sha256": "8c41522bdb4347ceb505be9b176c102e37f82d451bf73ac99610b17b31c0656e"
+    },
+    {
+      "path": "docs/assets/production/d05_civic_graphics_03-evidence/hero.png",
+      "bytes": 132192,
+      "sha256": "38b1d90948bfde3d4cbafbee6373e85699c4497ed40e76b4a81e362db0aadc9d"
+    },
+    {
+      "path": "docs/assets/production/d05_civic_graphics_03-evidence/overhead_47m_42deg.png",
+      "bytes": 6024,
+      "sha256": "8260d0d592a85b43347288c1b8b176f1e3b1ecbd8bf5bd381e523547bca52717"
+    },
+    {
+      "path": "docs/assets/production/d05_civic_graphics_03-evidence/side.png",
+      "bytes": 120236,
+      "sha256": "932c7236d8da08f46555c5d767ca6fa4c6eb6460474e3812b69223f6731c2761"
+    },
+    {
+      "path": "docs/assets/production/d05_civic_graphics_03-evidence/validation.json",
+      "bytes": 8477,
+      "sha256": "33687e1e00aae971ab305a33b0b72d2017153f59972df0735a6eaff33fbe8559"
+    },
+    {
+      "path": "docs/assets/production/d05_civic_graphics_03.md",
+      "bytes": 13919,
+      "sha256": "f1db8daa724e896fab16c5eae878002613ec80777bc52a5bd800903b50bc083d"
+    },
+    {
+      "path": "scenes/prefabs/environment/d05_civic_graphics_03.tscn",
+      "bytes": 694,
+      "sha256": "87c9e94b57933a5acada03333bcb77310b6ce122d95eabeaaff04c203af74287"
+    },
+    {
+      "path": "tools/asset_production/d05_civic_graphics_03/author.py",
+      "bytes": 3358,
+      "sha256": "b665cbc472a92fb8d3034f88669da99948b50de43da8c1f53a1d34a41a26a14d"
+    },
+    {
+      "path": "tools/asset_production/d05_civic_graphics_03/check_prefab.gd",
+      "bytes": 8408,
+      "sha256": "520f882fdd56a13155b0a67a454e5c92c6d1ddbdff355df8ba2bae673e932920"
+    },
+    {
+      "path": "tools/asset_production/d05_civic_graphics_03/check_prefab.gd.uid",
+      "bytes": 19,
+      "sha256": "af207d74981e11b0416cfb03608882e03f67f7f7b60fad81a0b67012bc62e954"
+    },
+    {
+      "path": "tools/asset_production/d05_civic_graphics_03/preview.py",
+      "bytes": 3852,
+      "sha256": "ddaf6dcf4922c7a1dadcb9cb364e712600e66c88c6fe37f012e3b8f4bd572a84"
+    },
+    {
+      "path": "tools/asset_production/d05_civic_graphics_03/record.py",
+      "bytes": 5530,
+      "sha256": "06f414be1d7ed8113406f1bbd623120c7a7593f3393e5cf8b6746e64e54193b5"
+    },
+    {
+      "path": "tools/asset_production/d05_civic_graphics_03/test_artwork.py",
+      "bytes": 2459,
+      "sha256": "a4e58dd13d9edc5f0ff885f3873463b0afb9348f53ffb08d9d0680cc9739dc89"
+    },
+    {
+      "path": "tools/asset_production/d05_civic_graphics_03/validate.py",
+      "bytes": 2950,
+      "sha256": "67a5acdf7fb78b86a0fb5eeac89848bbee005f85d84bed24af03874107f7bc68"
+    }
+  ]
+}

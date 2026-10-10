@@ -184,9 +184,11 @@ checks afterwards to restore engine results. Refresh manifest hashes after any a
 
 ## Remaining acceptance
 
-Independent art/technical review; final placement, actor/target visibility and vehicle
-movement/query checks; actual separate-process multiplayer collision behavior; district
-artwork/material readability; actual engine gameplay-camera/lighting captures; repeated
-placement profiling, packaged builds and Deck performance remain **pending**. The
+Old Quay direction artwork/material and its linked low-panel variant are delivered in
+[d05_civic_graphics.03](d05_civic_graphics_03.md); final copy/bearings and placed readability
+remain downstream. Independent art/technical review; final placement, actor/target visibility
+and vehicle movement/query checks; actual separate-process multiplayer collision behavior;
+actual engine gameplay-camera/lighting captures; repeated placement profiling, packaged
+builds and Deck performance remain **pending**. The
 source/prefab is ready for those downstream checks, not a claim that the whole asset
 register or all production acceptance gates are complete. No TODO was closed.
