@@ -6152,14 +6152,14 @@
       "input_next_action": "Refine design from Glassward breakdown",
       "brief": "[Brief](../../assets/d04_podiums.md)",
       "priority": 0,
-      "status": "queued",
-      "agent_id": null,
-      "source_revision": null,
-      "review_status": "pending",
-      "integration_status": "pending",
+      "status": "production_prefab_accepted",
+      "agent_id": "4bef13ad-aa85-4756-ba85-1da5c9ea8cee",
+      "source_revision": "fa760b40",
+      "review_status": "accepted source/export/prefab scope (independent Sol review)",
+      "integration_status": "accepted",
       "placement_status": "pending",
       "blocker": null,
-      "attempts": 0,
+      "attempts": 1,
       "initial_time_cap_minutes": 90,
       "owned_paths": [
         "art/source/models/environment/d04_podiums_01/",
@@ -6167,8 +6167,20 @@
         "art/textures/environment/d04_podiums_01/",
         "art/materials/environment/d04_podiums_01/",
         "docs/assets/production/d04_podiums_01.md",
-        "docs/assets/production/d04_podiums_01-evidence/"
-      ]
+        "docs/assets/production/d04_podiums_01-evidence/",
+        "tools/asset_production/d04_podiums_01/",
+        "scenes/prefabs/environment/d04_podiums_01.tscn"
+      ],
+      "launch": {
+        "provider": "portkey/gpt-6-astra",
+        "configured_effort": "medium",
+        "mode": "orchestrator asset lane",
+        "lane": "a-podium"
+      },
+      "producer_manifest": "docs/assets/production/d04_podiums_01-evidence/manifest.json",
+      "report": "docs/assets/production/d04_podiums_01.md",
+      "reviewer_id": "63d0134f-2b68-4f33-9afd-da8d46fe21e1",
+      "integrated_revision": "7423720b"
     },
     {
       "id": "d04_podiums.02",
@@ -6181,14 +6193,14 @@
       "input_next_action": "Refine design from Glassward breakdown",
       "brief": "[Brief](../../assets/d04_podiums.md)",
       "priority": 0,
-      "status": "queued",
-      "agent_id": null,
-      "source_revision": null,
-      "review_status": "pending",
-      "integration_status": "pending",
+      "status": "production_prefab_accepted",
+      "agent_id": "a5836e4b-41dc-4595-b280-e473726f56d6",
+      "source_revision": "c4fb4f00",
+      "review_status": "accepted source/export/prefab scope (independent Sol review)",
+      "integration_status": "accepted",
       "placement_status": "pending",
       "blocker": null,
-      "attempts": 0,
+      "attempts": 1,
       "initial_time_cap_minutes": 90,
       "owned_paths": [
         "art/source/models/environment/d04_podiums_02/",
@@ -6196,8 +6208,20 @@
         "art/textures/environment/d04_podiums_02/",
         "art/materials/environment/d04_podiums_02/",
         "docs/assets/production/d04_podiums_02.md",
-        "docs/assets/production/d04_podiums_02-evidence/"
-      ]
+        "docs/assets/production/d04_podiums_02-evidence/",
+        "tools/asset_production/d04_podiums_02/",
+        "scenes/prefabs/environment/d04_podiums_02.tscn"
+      ],
+      "launch": {
+        "provider": "portkey/gpt-6-astra",
+        "configured_effort": "medium",
+        "mode": "orchestrator asset lane",
+        "lane": "a-podium"
+      },
+      "producer_manifest": "docs/assets/production/d04_podiums_02-evidence/manifest.json",
+      "report": "docs/assets/production/d04_podiums_02.md",
+      "reviewer_id": "63d0134f-2b68-4f33-9afd-da8d46fe21e1",
+      "integrated_revision": "7423720b"
     },
     {
       "id": "d04_podiums.03",
@@ -6210,14 +6234,14 @@
       "input_next_action": "Review tower/forecourt direction and map fit",
       "brief": "[Brief](../../assets/d04_podiums.md)",
       "priority": 0,
-      "status": "queued",
-      "agent_id": null,
-      "source_revision": null,
-      "review_status": "pending",
-      "integration_status": "pending",
+      "status": "production_prefab_accepted",
+      "agent_id": "5267aca5-2e57-4551-8f27-1df185bc5f0c",
+      "source_revision": "7423720b",
+      "review_status": "accepted source/export/prefab scope (independent Sol review)",
+      "integration_status": "accepted",
       "placement_status": "pending",
       "blocker": null,
-      "attempts": 0,
+      "attempts": 1,
       "initial_time_cap_minutes": 90,
       "owned_paths": [
         "art/source/models/environment/d04_podiums_03/",
@@ -6225,8 +6249,20 @@
         "art/textures/environment/d04_podiums_03/",
         "art/materials/environment/d04_podiums_03/",
         "docs/assets/production/d04_podiums_03.md",
-        "docs/assets/production/d04_podiums_03-evidence/"
-      ]
+        "docs/assets/production/d04_podiums_03-evidence/",
+        "tools/asset_production/d04_podiums_03/",
+        "scenes/prefabs/environment/d04_podiums_03.tscn"
+      ],
+      "launch": {
+        "provider": "portkey/gpt-6-astra",
+        "configured_effort": "medium",
+        "mode": "orchestrator asset lane",
+        "lane": "a-podium"
+      },
+      "producer_manifest": "docs/assets/production/d04_podiums_03-evidence/manifest.json",
+      "report": "docs/assets/production/d04_podiums_03.md",
+      "reviewer_id": "63d0134f-2b68-4f33-9afd-da8d46fe21e1",
+      "integrated_revision": "7423720b"
     },
     {
       "id": "d04_forecourt_graphics.01",
