@@ -1,0 +1,63 @@
+[gd_scene format=3 uid="uid://bl0t03e20kb7t"]
+
+[ext_resource type="PackedScene" path="res://scenes/prefabs/environment/city_barriers_07.tscn" id="1_open"]
+[ext_resource type="PackedScene" path="res://scenes/prefabs/environment/city_barriers_07_closed.tscn" id="2_closed"]
+[ext_resource type="PackedScene" path="res://scenes/prefabs/environment/city_barriers_05.tscn" id="3_panel"]
+[ext_resource type="PackedScene" path="res://scenes/prefabs/environment/city_barriers_06.tscn" id="4_line"]
+[ext_resource type="PackedScene" path="res://scenes/prefabs/environment/city_barriers_06_corner.tscn" id="5_corner"]
+[ext_resource type="PackedScene" path="res://scenes/prefabs/environment/city_barriers_06_terminal.tscn" id="6_terminal"]
+[ext_resource type="Script" path="res://scripts/actors/actor_motion.gd" id="7_motion"]
+
+[sub_resource type="BoxShape3D" id="Box_floor"]
+size = Vector3(40, 0.2, 40)
+
+[sub_resource type="CapsuleShape3D" id="Capsule_actor"]
+radius = 0.35
+height = 1.8
+
+[node name="ChainLinkGateCheck" type="Node3D" unique_id=1005489868]
+
+[node name="Open" parent="." unique_id=1260385358 instance=ExtResource("1_open")]
+
+[node name="Closed" parent="." unique_id=1635858147 instance=ExtResource("2_closed")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 8)
+
+[node name="PanelLeft" parent="." unique_id=1923882684 instance=ExtResource("3_panel")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.815, 0, 0)
+
+[node name="PanelRight" parent="." unique_id=1776746118 instance=ExtResource("3_panel")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.815, 0, 0)
+
+[node name="Line" parent="." unique_id=290677473 instance=ExtResource("4_line")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.365, 0, 0)
+
+[node name="StraightExtension" parent="." unique_id=246500385 instance=ExtResource("3_panel")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.915, 0, 0)
+
+[node name="End" parent="." unique_id=1463440115 instance=ExtResource("6_terminal")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 9.465, 0, 0)
+
+[node name="Corner" parent="." unique_id=1640448369 instance=ExtResource("5_corner")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.365, 0, 0)
+
+[node name="Return" parent="." unique_id=1681728701 instance=ExtResource("3_panel")]
+transform = Transform3D(0, 0, 1, 0, 1, 0, -1, 0, 0, -6.365, 0, -1.55)
+
+[node name="ReturnEnd" parent="." unique_id=1529313055 instance=ExtResource("6_terminal")]
+transform = Transform3D(0, 0, -1, 0, 1, 0, 1, 0, 0, -6.365, 0, -3.1)
+
+[node name="Floor" type="StaticBody3D" parent="." unique_id=514864064]
+collision_mask = 0
+
+[node name="Shape" type="CollisionShape3D" parent="Floor" unique_id=887751366]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.1, 0)
+shape = SubResource("Box_floor")
+
+[node name="Actor" type="CharacterBody3D" parent="." unique_id=798045347]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.001, 2)
+collision_layer = 2
+script = ExtResource("7_motion")
+
+[node name="Capsule" type="CollisionShape3D" parent="Actor" unique_id=2022846009]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0)
+shape = SubResource("Capsule_actor")

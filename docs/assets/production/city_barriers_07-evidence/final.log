@@ -1,0 +1,32 @@
+city_barriers.07 final producer receipt — 10 October 2026
+Source/export/geometry: PASS — Blender 5.2.2 LTS d13f752e3b9c, glTF 5.2.40.
+Author: timeout 900, null/dummy audio, background factory startup, threads 4,
+python-exit-code 1; final exit 0. Four CPU Cycles 1280x720 renders inspected.
+Validate: timeout 180, same isolated Blender flags; final exit 0.
+All three saved-source reexports byte-identical; zero degenerate/nonmanifold faces/edges.
+Initial validator caught hinge strap intrusion into pin bore. Shortened strap,
+rebuilt source/exports/renders; final mating tests pass at 0/45/90 degrees.
+Godot import: timeout 300, mise-pinned 4.8.dev7.official.c971f93e7, headless; exit 0.
+Normalize/load/physics: timeout 180 per call; final exit 0, all dependencies resolve.
+Initial directional test caught reversed Godot open-angle signs; corrected saved
+leaf transforms and return-end fitting orientation. No source-axis workaround.
+Six scene SHA256 values unchanged across two fresh normalization processes.
+Production ActorMotion authority/replay, open/closed rays and car-sized sweep PASS.
+Final extra measured-width assertion: 6.16600012779236 m; targeted check exit 0.
+gdstyle fmt --check: PASS. gdstyle --max-line-length 100 --max-warnings 0: PASS.
+Initial max-local-variables warning resolved by separating collision validation.
+Godot --check-only for final owned script: PASS, exit 0.
+Canonical command: timeout 1800 mise exec -- python tools/production_checks.py
+--output C:/tmp/ft/assets/city_barriers_07/checks
+Aggregate EXIT 1, not suppressed. Formatting/style and owned compilation PASS.
+11 unrelated tools/assets scripts skipped after shared cumulative compiler deadline;
+each corresponding log contains only CHECK DEADLINE EXCEEDED. Paths retained in
+validation.json. Python 14/14; GUT 119/119, 6362 assertions; negative control PASS
+(observed expected exit 1). No unchanged aggregate retry.
+Known diagnostics: Blender use_nodes future-6.0 deprecation; existing Godot MCP
+addon engine-version warning. No live owner editor/MCP session was contacted.
+Final standalone compilation/physics logs contain no new errors or warnings.
+Raw logs, initial diagnostics, scene hash comparisons and scratch GLBs remain at
+C:/tmp/ft/assets/city_barriers_07/, outside the committed delivery.
+Pending: independent review, world placement, actual car gameplay/network transport,
+engine camera/actor visibility, packaged targets and sustained device performance.

@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://bu0kklhi8in2u"]
+
+[ext_resource type="PackedScene" path="res://scenes/prefabs/environment/city_barriers_07_left.tscn" id="1_left"]
+[ext_resource type="PackedScene" path="res://scenes/prefabs/environment/city_barriers_07_right.tscn" id="2_right"]
+[ext_resource type="PackedScene" path="res://scenes/prefabs/environment/city_barriers_07_mount.tscn" id="3_mount"]
+[ext_resource type="PackedScene" path="res://scenes/prefabs/environment/city_barriers_06_terminal.tscn" id="4_post"]
+
+[node name="city_barriers_07_closed" type="Node3D" unique_id=2091565306]
+
+[node name="LeftLeaf" parent="." unique_id=2012268737 instance=ExtResource("1_left")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.15, 0, 0)
+
+[node name="RightLeaf" parent="." unique_id=99613864 instance=ExtResource("2_right")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.15, 0, 0)
+
+[node name="LeftMount" parent="." unique_id=1409405305 instance=ExtResource("3_mount")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.15, 0, 0)
+
+[node name="RightMount" parent="." unique_id=2006856613 instance=ExtResource("3_mount")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 3.15, 0, 0)
+
+[node name="LeftPost" parent="." unique_id=529183480 instance=ExtResource("4_post")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -3.265, 0, 0)
+
+[node name="RightPost" parent="." unique_id=1037655135 instance=ExtResource("4_post")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.265, 0, 0)
