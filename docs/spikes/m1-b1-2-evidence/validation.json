@@ -1,38 +1,26 @@
 {
   "engine": "4.8.dev7.official.c971f93e7",
   "production_checks": {
-    "output": "C:/tmp/ft/lanes/m1-b12/production-checks-final-rpc",
+    "output": "C:/tmp/ft/lanes/m1-b12/production-checks-r2-final",
     "ok": true,
-    "python_tests": 22,
-    "gut_tests": 214,
-    "gut_assertions": 8894,
+    "python_tests": 34,
+    "gut_tests": 247,
+    "gut_assertions": 9261,
     "expected_negative_observed": true
-  },
-  "focused_gut": {
-    "vehicles": {
-      "tests": 29,
-      "assertions": 1416,
-      "ok": true
-    },
-    "replication": {
-      "tests": 63,
-      "assertions": 4161,
-      "ok": true
-    },
-    "local": {
-      "tests": 12,
-      "assertions": 212,
-      "ok": true
-    }
   },
   "enet_profiles": [
     {
       "profile": "direct",
-      "movement_receipts": 368,
+      "movement_receipts": 505,
       "acknowledgement": 460,
-      "reconciliations": 183,
-      "correction_p95_metres": 0.0171549264341593,
+      "reconciliations": 155,
+      "correction_p95_metres": 0.0176037382334471,
+      "same_tick_claim_observed": true,
+      "entry_rejection_observed": true,
+      "driver_death_release_observed": true,
       "entry_confirmed": true,
+      "blocked_exit_observed": true,
+      "clear_exit_confirmed": true,
       "exits_zero": true,
       "outcomes_complete": true
     },
@@ -41,11 +29,16 @@
       "delay_msec": 75,
       "jitter_msec": 30,
       "loss": 0.02,
-      "movement_receipts": 350,
+      "movement_receipts": 507,
       "acknowledgement": 460,
-      "reconciliations": 172,
-      "correction_p95_metres": 0.685501754283905,
+      "reconciliations": 153,
+      "correction_p95_metres": 0.729657232761383,
+      "same_tick_claim_observed": true,
+      "entry_rejection_observed": true,
+      "driver_death_release_observed": true,
       "entry_confirmed": true,
+      "blocked_exit_observed": true,
+      "clear_exit_confirmed": true,
       "exits_zero": true,
       "outcomes_complete": true
     },
@@ -54,15 +47,46 @@
       "delay_msec": 125,
       "jitter_msec": 50,
       "loss": 0.05,
-      "movement_receipts": 324,
+      "movement_receipts": 443,
       "acknowledgement": 460,
-      "reconciliations": 159,
-      "correction_p95_metres": 0.996231734752655,
+      "reconciliations": 134,
+      "correction_p95_metres": 0.806490540504456,
+      "same_tick_claim_observed": true,
+      "entry_rejection_observed": true,
+      "driver_death_release_observed": true,
       "entry_confirmed": true,
+      "blocked_exit_observed": true,
+      "clear_exit_confirmed": true,
       "exits_zero": true,
       "outcomes_complete": true
     }
   ],
+  "exported_acceptance": {
+    "output": "C:/tmp/ft/exports/b12-r2-acceptance-final",
+    "ok": true,
+    "vehicle": {
+      "host_entry_latency_msec": 284,
+      "client_entry_latency_msec": 318,
+      "sample_ticks_per_participant": 600,
+      "drive_duration_seconds": 10.0,
+      "host_distance_metres": 128.034042358398,
+      "client_distance_metres": 133.483505249023,
+      "host_acknowledgement": 607,
+      "client_acknowledgement": 596,
+      "host_exit_speed_mps": 0.333793103694916,
+      "client_exit_speed_mps": 0.435047119855881,
+      "stale_foot_drift_metres": 0.0,
+      "host_walk_distance_metres": 14.9167671203613,
+      "client_walk_distance_metres": 12.6951284408569,
+      "exits_zero": true
+    },
+    "broken_vehicle_input_seam": {
+      "expected_failure_observed": true,
+      "detail": "VEHICLE_DRIVE_SEAM_NOT_OBSERVED",
+      "vehicle_distance_metres": 0.0,
+      "client_exit": 1
+    }
+  },
   "correction_target_metres": 0.5,
   "visual_review": false
 }

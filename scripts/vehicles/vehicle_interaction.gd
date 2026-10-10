@@ -8,7 +8,11 @@ signal transaction_committed(participant_id: int, result: Dictionary)
 const ENTRY_RANGE_M: float = 2.25
 const ENTRY_MAX_SPEED_MPS: float = 0.5
 const EXIT_MAX_SPEED_MPS: float = 0.5
-const MAX_PENDING_ACTIONS: int = 16
+const MAX_PENDING_ACTIONS_PER_PARTICIPANT: int = 16
+const MAX_ACTIONS_PER_PARTICIPANT_TICK: int = 4
+const ACTION_RATE_PER_SECOND: float = 16.0
+const ACTION_BURST: float = 32.0
+const PHYSICS_TICKS_PER_SECOND: float = 60.0
 const ACTION_SEQUENCE_WINDOW: int = 64
 const RESULT_CACHE_CAPACITY: int = 64
 const ACTION_ENTER: StringName = &"ENTER"
@@ -27,10 +31,13 @@ const ENTRY_SOCKET_PATHS: Array[NodePath] = [
 var _replicator: VehicleReplicator
 var _player_lookup: Callable
 var _player_state_lookup: Callable
-var _exit_blocked_query: Callable
+var _clearance_blocked_query: Callable
+var _foot_rebind_preflight: Callable
+var _foot_rebind_commit: Callable
 var _match_revision: int = 0
 var _transaction_revision: int = 0
-var _pending_actions: Array[Dictionary] = []
+var _pending_actions_by_participant: Dictionary[int, Array] = { }
+var _action_rate_by_participant: Dictionary[int, Dictionary] = { }
 var _pending_keys: Dictionary[String, bool] = { }
 var _result_cache: Dictionary[String, Dictionary] = { }
 var _result_order: Array[String] = []
@@ -38,19 +45,21 @@ var _last_action_sequence: Dictionary[int, int] = { }
 
 
 ## Injects Match-owned participants and clearance while retaining sole seat-rule ownership.
-func configure(
+func configure(  # gdstyle:ignore=quality/max-parameters
 	replicator: VehicleReplicator,
 	player_lookup: Callable,
 	player_state_lookup: Callable,
-	exit_blocked_query: Callable,
+	clearance_blocked_query: Callable,
 	match_revision: int,
+	foot_rebind_preflight: Callable = Callable(),
+	foot_rebind_commit: Callable = Callable(),
 ) -> bool:
 	if (
 		_replicator != null
 		or replicator == null
 		or not player_lookup.is_valid()
 		or not player_state_lookup.is_valid()
-		or not exit_blocked_query.is_valid()
+		or not clearance_blocked_query.is_valid()
 		or match_revision <= 0
 	):
 		return false
@@ -58,7 +67,9 @@ func configure(
 	_replicator = replicator
 	_player_lookup = player_lookup
 	_player_state_lookup = player_state_lookup
-	_exit_blocked_query = exit_blocked_query
+	_clearance_blocked_query = clearance_blocked_query
+	_foot_rebind_preflight = foot_rebind_preflight
+	_foot_rebind_commit = foot_rebind_commit
 	_match_revision = match_revision
 	return true
 
@@ -73,40 +84,54 @@ func enqueue_action(request: Dictionary) -> Dictionary:
 		return { "ok": true, "cached_result": _result_cache[key].duplicate(true) }
 	if _pending_keys.has(key):
 		return { "ok": true, "pending": true }
-	if _pending_actions.size() >= MAX_PENDING_ACTIONS:
+	var participant_id: int = int(request.participant_id)
+	var queue: Array = _pending_actions_by_participant.get(participant_id, [])
+	if queue.size() >= MAX_PENDING_ACTIONS_PER_PARTICIPANT:
 		return { "ok": false, "failure": &"STATE_LIMIT" }
+	if not _consume_action_rate(participant_id, int(request.accepted_tick)):
+		return { "ok": false, "failure": &"RATE_LIMIT" }
 
-	_pending_actions.append(request.duplicate(true))
+	queue.append(request.duplicate(true))
+	_pending_actions_by_participant[participant_id] = queue
 	_pending_keys[key] = true
 	return { "ok": true, "pending": true }
 
 
 ## Resolves due actions by tick, participant, then action sequence so one seat claim wins.
 func process_actions(through_tick: int) -> Array[Dictionary]:
-	_pending_actions.sort_custom(_action_precedes)
-	var retained: Array[Dictionary] = []
+	var due: Array[Dictionary] = []
+	for participant_id: int in _pending_actions_by_participant:
+		var retained: Array = []
+		var accepted_count: int = 0
+		var queue: Array = _pending_actions_by_participant[participant_id]
+		queue.sort_custom(_action_precedes)
+		for request: Dictionary in queue:
+			if (
+				int(request.accepted_tick) > through_tick
+				or accepted_count >= MAX_ACTIONS_PER_PARTICIPANT_TICK
+			):
+				retained.append(request)
+				continue
+			due.append(request)
+			accepted_count += 1
+		_pending_actions_by_participant[participant_id] = retained
+
+	due.sort_custom(_action_precedes)
 	var resolved: Array[Dictionary] = []
-	for request: Dictionary in _pending_actions:
-		if int(request.accepted_tick) > through_tick:
-			retained.append(request)
-			continue
+	for request: Dictionary in due:
 		var result: Dictionary = _resolve_action(request)
 		var participant_id: int = int(request.participant_id)
 		var key: String = _action_key(participant_id, int(request.action_sequence))
 		_pending_keys.erase(key)
 		_cache_result(key, result)
 		_last_action_sequence[participant_id] = int(request.action_sequence)
-		(
-			resolved
-			. append(
-				{
-					"participant_id": participant_id,
-					"result": result.duplicate(true),
-				}
-			)
+		resolved.append(
+			{
+				"participant_id": participant_id,
+				"result": result.duplicate(true),
+			}
 		)
 		action_resolved.emit(participant_id, result.duplicate(true))
-	_pending_actions = retained
 	return resolved
 
 
@@ -128,6 +153,10 @@ func try_enter(
 	var assigned: Dictionary = _replicator.commit_driver_assignment(participant_id, entity_id)
 	if not assigned.get("ok", false):
 		return _rejected(action_sequence, &"CONTROL_REVISION_EXHAUSTED")
+	var foot_input_epoch: int = _commit_foot_rebind(participant_id)
+	if _foot_rebind_commit.is_valid() and foot_input_epoch <= 0:
+		return _rejected(action_sequence, &"STALE_COMMAND_CONTEXT")
+	assigned.foot_input_epoch = foot_input_epoch
 
 	actor.neutralize()
 	actor.collision_layer = 0
@@ -144,7 +173,7 @@ func try_enter(
 
 
 ## Commits one stopped exit at the first clear authored candidate, otherwise changes nothing.
-func try_exit(
+func try_exit(  # gdstyle:ignore=quality/max-branches
 	participant_id: int,
 	player_ref: Dictionary,
 	context: Dictionary,
@@ -166,19 +195,23 @@ func try_exit(
 		if socket == null:
 			continue
 		if not bool(
-			_exit_blocked_query.call(socket.global_transform, participant_id, actor, vehicle)
+			_clearance_blocked_query.call(socket.global_transform, participant_id, actor, vehicle)
 		):
 			exit_transform = socket.global_transform
 			found_clear = true
 			break
 	if not found_clear:
 		return _rejected(action_sequence, &"EXIT_BLOCKED")
-	if not _replicator.can_release_driver(participant_id):
+	if not _replicator.can_release_driver(participant_id) or not _can_rebind_foot(participant_id):
 		return _rejected(action_sequence, &"CONTROL_REVISION_EXHAUSTED")
 
 	var released: Dictionary = _replicator.commit_driver_release(participant_id, false)
 	if not released.get("ok", false):
 		return _rejected(action_sequence, &"STALE_COMMAND_CONTEXT")
+	var foot_input_epoch: int = _commit_foot_rebind(participant_id)
+	if _foot_rebind_commit.is_valid() and foot_input_epoch <= 0:
+		return _rejected(action_sequence, &"STALE_COMMAND_CONTEXT")
+	released.foot_input_epoch = foot_input_epoch
 	actor.global_transform = exit_transform
 	actor.neutralize()
 	actor.collision_layer = 2
@@ -239,7 +272,8 @@ func rebind_commands(participant_id: int) -> Dictionary:
 func reset(match_revision: int) -> bool:
 	if match_revision <= _match_revision:
 		return false
-	_pending_actions.clear()
+	_pending_actions_by_participant.clear()
+	_action_rate_by_participant.clear()
 	_pending_keys.clear()
 	_result_cache.clear()
 	_result_order.clear()
@@ -253,6 +287,45 @@ func reset(match_revision: int) -> bool:
 ## Returns the durable transaction revision for hydration and acceptance diagnostics.
 func transaction_revision() -> int:
 	return _transaction_revision
+
+
+## Checks the Match-owned foot epoch before any seat-side state mutates.
+func _can_rebind_foot(participant_id: int) -> bool:
+	return (
+		not _foot_rebind_preflight.is_valid()
+		or bool(_foot_rebind_preflight.call(participant_id))
+	)
+
+
+## Advances and clears Match-owned foot intent at the committed seat-transfer fence.
+func _commit_foot_rebind(participant_id: int) -> int:
+	if not _foot_rebind_commit.is_valid():
+		return 0
+	return int(_foot_rebind_commit.call(participant_id))
+
+
+## Consumes one participant-scoped token using the host-accepted simulation tick.
+func _consume_action_rate(participant_id: int, accepted_tick: int) -> bool:
+	var state: Dictionary = _action_rate_by_participant.get(
+		participant_id,
+		{
+			"tokens": ACTION_BURST,
+			"updated_tick": accepted_tick,
+		},
+	)
+	var elapsed_ticks: int = maxi(0, accepted_tick - int(state.updated_tick))
+	state.tokens = minf(
+		ACTION_BURST,
+		float(state.tokens)
+		+ float(elapsed_ticks) * ACTION_RATE_PER_SECOND / PHYSICS_TICKS_PER_SECOND,
+	)
+	state.updated_tick = maxi(int(state.updated_tick), accepted_tick)
+	if float(state.tokens) < 1.0:
+		_action_rate_by_participant[participant_id] = state
+		return false
+	state.tokens = float(state.tokens) - 1.0
+	_action_rate_by_participant[participant_id] = state
+	return true
 
 
 ## Returns one request's deterministic cache key without exposing mutable cache state.
@@ -357,7 +430,7 @@ func _validate_action_sequence(participant_id: int, action_sequence: int) -> Dic
 
 
 ## Checks every entry dependency without changing seat, body, or command state.
-func _entry_failure(  # gdstyle:ignore=quality/max-returns
+func _entry_failure(  # gdstyle:ignore=quality/max-returns,quality/max-branches
 	participant_id: int,
 	player_ref: Dictionary,
 	vehicle_ref: Dictionary,
@@ -373,23 +446,30 @@ func _entry_failure(  # gdstyle:ignore=quality/max-returns
 		return &"STALE_VEHICLE"
 	if int(descriptor.driver_participant_id) > 0:
 		return &"SEAT_OCCUPIED"
-	if not _replicator.can_assign_driver(participant_id, entity_id):
+	if not _replicator.can_assign_driver(participant_id, entity_id) or not _can_rebind_foot(
+		participant_id
+	):
 		return &"CONTROL_REVISION_EXHAUSTED"
 	var actor: ActorMotion = _player_lookup.call(participant_id) as ActorMotion
 	var vehicle: VehicleMotion = _replicator.vehicle_for_entity(entity_id)
 	if actor == null or vehicle == null or vehicle.velocity.length() >= ENTRY_MAX_SPEED_MPS:
 		return &"ENTRY_MOVING"
 	var nearest_distance: float = INF
+	var nearest_transform := Transform3D.IDENTITY
 	for socket_path: NodePath in ENTRY_SOCKET_PATHS:
 		var socket: Marker3D = vehicle.get_node_or_null(socket_path) as Marker3D
-		if socket != null:
-			nearest_distance = minf(
-				nearest_distance, actor.global_position.distance_to(socket.global_position)
-			)
+		if socket == null:
+			continue
+		var distance: float = actor.global_position.distance_to(socket.global_position)
+		if distance < nearest_distance:
+			nearest_distance = distance
+			nearest_transform = socket.global_transform
 	if not is_finite(nearest_distance):
 		return &"SOCKET_MISSING"
 	if nearest_distance > ENTRY_RANGE_M:
 		return &"ENTRY_OUT_OF_RANGE"
+	if bool(_clearance_blocked_query.call(nearest_transform, participant_id, actor, vehicle)):
+		return &"ENTRY_BLOCKED"
 	return &""
 
 

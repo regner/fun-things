@@ -49,6 +49,56 @@ func test_interaction_approved_binding_steps_one_authoritative_vehicle() -> void
 	assert_eq(replication._vehicle_replicator.acknowledgement(1), 30)
 
 
+## Commits entry with a fresh foot epoch and clears pre-seat held intent atomically.
+func test_entry_transaction_fences_host_foot_queue() -> void:
+	var replication: MatchReplication = _add_match_replication()
+	assert_true(replication.configure_standalone())
+	var participant_id: int = 1
+	var descriptor: Dictionary = replica_rows(replication)[0]
+	var vehicle: VehicleMotion = replication.vehicle_for_entity(int(descriptor.id))
+	var actor: ActorMotion = replication.actor_for_participant(participant_id)
+	actor.global_position = (vehicle.get_node("Sockets/EntryLeft") as Marker3D).global_position
+	var stale: Dictionary = FootCommandCodec.decode(
+		FootCommandCodec.encode(
+			FootCommand.new(1, 1, Vector2.RIGHT, 0.0, false, false),
+			1,
+		).packet
+	)
+	assert_true(replication._input_authority.offer(participant_id, stale, 0).accepted)
+	assert_true(replication.request_vehicle_entry(participant_id, int(descriptor.id), 1, 1).ok)
+	replication._vehicle_interaction.process_actions(1)
+
+	assert_eq(replication._input_authority.input_epoch(participant_id), 2)
+	assert_eq(replication._input_authority.queue(participant_id).size(), 0)
+	assert_false(replication._input_authority.offer(participant_id, stale, 1).accepted)
+	assert_false(replication._vehicle_replicator.binding_for_participant(participant_id).is_empty())
+
+
+## Routes listen-server intent through codec validation and the held authority queue.
+func test_listen_server_vehicle_input_uses_validated_host_queue() -> void:
+	var replication: MatchReplication = _add_match_replication()
+	assert_true(replication.configure_standalone())
+	var assignment: Dictionary = _assign_driver(replication, 1)
+	assert_true(assignment.ok)
+	replication._sync_vehicle_occupancy_presentation()
+	var vehicle: VehicleMotion = replication.vehicle_for_entity(int(assignment.entity_ref.id))
+	var start: Vector3 = vehicle.global_position
+
+	assert_true(
+		replication.submit_host_local_vehicle_command(
+			DriveCommand.new(1, 1, 1.0, 0.0, 0.0, false)
+		)
+	)
+	assert_false(
+		replication.submit_host_local_vehicle_command(
+			DriveCommand.new(1, 2, 1.0, 0.0, 0.0, false)
+		)
+	)
+	replication._vehicle_replicator.step_authority(FIXED_DELTA, 1, 1)
+	assert_gt(vehicle.global_position.distance_to(start), 0.0)
+	assert_eq(replication._vehicle_replicator.acknowledgement(1), 1)
+
+
 ## Rejects an old assignment packet after the same participant reacquires the EntityRef.
 func test_reassignment_rejects_old_input_epoch() -> void:
 	var replication: MatchReplication = _add_match_replication()
@@ -176,6 +226,46 @@ func test_reassignment_rebinds_same_vehicle_after_remote_snapshot() -> void:
 	assert_same(replica.vehicle_for_entity(entity_id), vehicle)
 	assert_true(vehicle.simulation_enabled)
 	assert_true(replica.predict_local(DriveCommand.new(1, 1, 1.0, 0.0, 0.0, false), FIXED_DELTA))
+
+
+## Installs a reliable exit pose and fresh foot fence before old prediction can replay.
+func test_reliable_transfer_clears_foot_prediction_and_applies_exact_exit_pose() -> void:
+	var replication: MatchReplication = _add_match_replication()
+	assert_true(replication.configure_standalone())
+	var actor: ActorMotion = replication.actor_for_participant(1)
+	var prediction: FootPrediction = replication._prediction_owner()
+	assert_true(prediction.bind_actor(actor))
+	assert_true(
+		prediction.predict(
+			FootCommand.new(1, 1, Vector2.RIGHT, 0.0, false, false),
+			FIXED_DELTA,
+		)
+	)
+	assert_eq(prediction._history.size(), 1)
+	var player_ref: Dictionary = replication._lifecycle.entity_ref_for(1)
+
+	assert_true(
+		replication._install_vehicle_transfer_rows(
+			[
+				{
+					"participant_id": 1,
+					"player_id": int(player_ref.id),
+					"generation": int(player_ref.generation),
+					"seated": false,
+					"foot_input_epoch": 2,
+					"x": 24.0,
+					"y": 0.5,
+					"z": -17.0,
+					"yaw": 1.25,
+					"transaction_revision": 1,
+				},
+			]
+		)
+	)
+	assert_eq(prediction._history.size(), 0)
+	assert_eq(int(replication._client.input_epoch), 2)
+	assert_true(actor.global_position.is_equal_approx(Vector3(24.0, 0.5, -17.0)))
+	assert_true(is_equal_approx(actor.rotation.y, 1.25))
 
 
 ## Includes current vehicle rows in the immutable late-join baseline transaction.

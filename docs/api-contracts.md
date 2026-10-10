@@ -662,16 +662,23 @@ tuning still settles entry range/eligible speed. Exit remains below 0.5 m/s with
 clearance query. All blocked returns `EXIT_BLOCKED` and
 leaves the entire seat/control state unchanged.
 
-Successful transfers increment control revisions, neutralize previous controllers,
-clear affected prediction and commit both player/car rows. Traffic ownership stops
-before player controls begin. Death/disconnect releases the seat and neutralizes
-controls; surviving car stopping is S04-owned and never resumes AI immediately.
+Successful transfers increment both the vehicle command epoch and the participant's foot-input
+epoch, clear both authority queues and local prediction, neutralize previous controllers, and commit
+vehicle occupancy plus the exact player transfer pose on the ordered reliable state stream. The saved
+`DesktopDriveInput` collector is active only under a confirmed LocalRig vehicle binding. Clients use
+vehicle prediction and the fixed drive packet RPC; a listen-server samples the same collector into the
+validated authoritative vehicle queue rather than stepping the car directly. Exit applies the reliable
+player pose before presentation or fresh-epoch foot input reopens. Traffic ownership stops before player
+controls begin. Death/disconnect releases the seat and neutralizes controls; surviving car stopping is
+S04-owned and never resumes AI immediately.
 
 The [bounded S04 body/seat record](spikes/s04-contracts.md) supplied the transition rules ported by
-M1-B1.2. Production `VehicleInteraction` now owns deterministic same-tick claims, stopped clear
-exit, death/disconnect coast, reset invalidation, seated resync rebind and destruction release under
-MatchRevision plus player/vehicle EntityRef fences. Its reliable action result is diagnostic; the
-reliable descriptor transition remains the gameplay-state writer. Weapon behavior while seated and
+M1-B1.2. Production `VehicleInteraction` now owns deterministic same-tick claims, entry and exit clearance,
+stopped exit, death/disconnect coast, reset invalidation, seated resync rebind and destruction release
+under MatchRevision plus player/vehicle EntityRef fences. Its reliable request boundary enforces the
+ratified 4096-byte envelope, 16 requests/s with burst 32, 16 queued requests per participant and four
+processed requests per participant per tick. Its reliable action result is diagnostic; the reliable
+descriptor/transfer transition remains the gameplay-state writer. Weapon behavior while seated and
 integrated prediction/feel remain owned by their later rows.
 
 ## Spawning and lifecycle

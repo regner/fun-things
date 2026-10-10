@@ -63,6 +63,37 @@ func test_vehicle_binding_retains_hud_actor_and_restores_foot_follow() -> void:
 	)
 
 
+## Samples saved physical drive actions only after a confirmed vehicle binding.
+func test_vehicle_binding_gates_physical_drive_collector() -> void:
+	var actor: ActorMotion = PLAYER_SCENE.instantiate() as ActorMotion
+	var vehicle: VehicleMotion = VEHICLE_SCENE.instantiate() as VehicleMotion
+	var rig: LocalRig = LOCAL_RIG_SCENE.instantiate() as LocalRig
+	add_child_autofree(actor)
+	add_child_autofree(vehicle)
+	add_child_autofree(rig)
+	await get_tree().process_frame
+	assert_true(rig.bind_actor(actor))
+	assert_null(rig.sample_vehicle_command())
+
+	assert_true(rig.bind_vehicle(vehicle))
+	rig.set_vehicle_input_enabled(true)
+	var press := InputEventKey.new()
+	press.physical_keycode = KEY_W
+	press.pressed = true
+	Input.parse_input_event(press)
+	await get_tree().process_frame
+	var command: DriveCommand = rig.sample_vehicle_command()
+	assert_not_null(command)
+	assert_eq(command.sequence, 1)
+	assert_true(is_equal_approx(command.throttle, 1.0))
+
+	press.pressed = false
+	Input.parse_input_event(press)
+	await get_tree().process_frame
+	rig.set_vehicle_input_enabled(false)
+	assert_true(is_zero_approx(rig.sample_vehicle_command().throttle))
+
+
 ## Emits one leave request for Escape without deciding session or scene teardown.
 func test_escape_emits_leave_request() -> void:
 	var rig: LocalRig = LOCAL_RIG_SCENE.instantiate() as LocalRig

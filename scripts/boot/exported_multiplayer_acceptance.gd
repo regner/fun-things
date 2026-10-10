@@ -1,4 +1,4 @@
-class_name ExportedMultiplayerAcceptance  # gdstyle:ignore=quality/max-class-variables
+class_name ExportedMultiplayerAcceptance  # gdstyle:ignore=quality/max-class-variables,quality/max-file-length,format/max-line-length
 extends RefCounted
 ## Drives opt-in exported-build acceptance through production Session and Match APIs.
 
@@ -11,6 +11,7 @@ const SCENARIO_ADMISSION_TIMEOUT: String = "admission_timeout"
 const SCENARIO_HOST_LOSS: String = "host_loss"
 const SCENARIO_PLAYTEST: String = "playtest"
 const SCENARIO_SUSTAINED: String = "sustained"
+const SCENARIO_VEHICLE: String = "vehicle"
 const PROCESS_TIMEOUT_MSEC: int = 120_000
 const HANDSHAKE_TIMEOUT_SECONDS: float = 0.75
 const REQUIRED_MOVEMENT_METRES: float = 0.5
@@ -30,6 +31,10 @@ const MINIMUM_CLIENT_HOST_DISTANCE_RATIO: float = 0.8
 const HOST_FINAL_AIM_YAW: float = 1.0
 const CLIENT_FINAL_AIM_YAW: float = -1.0
 const FACING_TOLERANCE_RADIANS: float = 0.15
+const VEHICLE_DRIVE_TICKS: int = 600
+const VEHICLE_STALE_FOOT_TICKS: int = 30
+const VEHICLE_WALK_TICKS: int = 180
+const VEHICLE_EXIT_SPEED_MPS: float = 0.5
 
 var _tree: SceneTree
 var _session: SessionService
@@ -92,6 +97,33 @@ var _sustained_mouse_event_count: int = 0
 var _sustained_expected_mouse_position: Vector2 = Vector2.INF
 var _sustained_last_mouse_event_tick: int = 0
 var _sustained_aim_rebind_retained: bool = true
+var _vehicle_break_input: bool = false
+var _vehicle_authority_prepared: bool = false
+var _vehicle_target_id: int = 0
+var _vehicle_action_sequence: int = 0
+var _vehicle_entry_requested_msec: int = 0
+var _vehicle_entry_latency_msec: int = 0
+var _vehicle_entry_confirmed: bool = false
+var _vehicle_exit_requested: bool = false
+var _vehicle_exit_confirmed: bool = false
+var _vehicle_drive_tick: int = 0
+var _vehicle_stale_tick: int = 0
+var _vehicle_walk_tick: int = 0
+var _vehicle_drive_started_msec: int = 0
+var _vehicle_drive_duration_seconds: float = 0.0
+var _vehicle_drive_start: Vector3 = Vector3.INF
+var _vehicle_stale_start: Vector3 = Vector3.INF
+var _vehicle_walk_start: Vector3 = Vector3.INF
+var _vehicle_distance_metres: float = 0.0
+var _vehicle_exit_speed_mps: float = INF
+var _vehicle_stale_foot_drift_metres: float = 0.0
+var _vehicle_walk_distance_metres: float = 0.0
+var _vehicle_throttle_released: bool = false
+var _vehicle_brake_pressed: bool = false
+var _vehicle_pre_entry_foot_pressed: bool = false
+var _vehicle_acknowledgement: int = 0
+var _vehicle_walk_key: Key = KEY_NONE
+var _vehicle_success_wait_tick: int = 0
 
 
 ## Parses the explicit acceptance arguments without changing ordinary launches.
@@ -104,6 +136,8 @@ static func options_from_arguments(arguments: PackedStringArray) -> Dictionary:
 			options.scenario = argument.trim_prefix("--m1-a-gate-scenario=")
 		elif argument.begins_with("--m1-a-gate-port="):
 			options.port = argument.trim_prefix("--m1-a-gate-port=").to_int()
+		elif argument == "--m1-a-gate-break-vehicle-input":
+			options.break_vehicle_input = true
 	return options
 
 
@@ -127,6 +161,7 @@ func configure(
 	_role = options.get("role", "")
 	_scenario = options.get("scenario", "")
 	_port = int(options.get("port", 0))
+	_vehicle_break_input = bool(options.get("break_vehicle_input", false))
 	if (
 		_role not in [ROLE_HOST, ROLE_CLIENT]
 		or _scenario not in [
@@ -136,6 +171,7 @@ func configure(
 			SCENARIO_HOST_LOSS,
 			SCENARIO_PLAYTEST,
 			SCENARIO_SUSTAINED,
+			SCENARIO_VEHICLE,
 		]
 		or _port <= 0
 	):
@@ -159,13 +195,18 @@ func configure(
 
 
 ## Advances only acceptance orchestration; gameplay remains owned by production components.
-func physics_process(delta_seconds: float) -> void:
+func physics_process(delta_seconds: float) -> void:  # gdstyle:ignore=quality/max-returns
 	if _finished:
 		return
 	if Time.get_ticks_msec() >= _deadline_msec and _scenario != SCENARIO_PLAYTEST:
 		_finish(false, "PROCESS_TIMEOUT")
 		return
-	if _scenario not in [SCENARIO_GAMEPLAY, SCENARIO_PLAYTEST, SCENARIO_SUSTAINED]:
+	if _scenario not in [
+		SCENARIO_GAMEPLAY,
+		SCENARIO_PLAYTEST,
+		SCENARIO_SUSTAINED,
+		SCENARIO_VEHICLE,
+	]:
 		return
 
 	_bind_match()
@@ -175,6 +216,9 @@ func physics_process(delta_seconds: float) -> void:
 		return
 	if _scenario == SCENARIO_SUSTAINED:
 		_step_sustained(delta_seconds)
+		return
+	if _scenario == SCENARIO_VEHICLE:
+		_step_vehicle_acceptance()
 		return
 	_step_gameplay(delta_seconds)
 	_observe_lifecycle()
@@ -307,11 +351,11 @@ func _on_session_changed(view: Dictionary) -> void:
 	if _scenario == SCENARIO_HOST_LOSS:
 		var host_loss: bool = failure_code == &"HOST_LOST"
 		_finish(host_loss, "HOST_LOST" if host_loss else "WRONG_FAILURE")
-	elif _scenario == SCENARIO_SUSTAINED:
+	elif _scenario in [SCENARIO_SUSTAINED, SCENARIO_VEHICLE]:
 		var host_closed_after_success: bool = failure_code == &"HOST_LOST" and _success_ready
 		_finish(
 			host_closed_after_success,
-			"" if host_closed_after_success else "SUSTAINED_HOST_LOST_EARLY",
+			"" if host_closed_after_success else "ACCEPTANCE_HOST_LOST_EARLY",
 		)
 
 
@@ -359,6 +403,7 @@ func _bind_match() -> void:
 	_replication.input_granted.connect(_on_input_granted)
 	_replication.input_recovered.connect(_on_input_recovered)
 	_replication.movement_applied.connect(_on_movement_applied)
+	_replication.vehicle_action_resolved.connect(_on_vehicle_action_resolved)
 	if _scenario == SCENARIO_GAMEPLAY:
 		_replication.set_local_input_enabled(false)
 		var rig: LocalRig = match.get_node_or_null("LocalRig") as LocalRig
@@ -693,6 +738,217 @@ func _sustained_facing_converged() -> bool:
 	)
 
 
+## Exercises host and client vehicle control through saved viewport input collectors.
+func _step_vehicle_acceptance() -> void:  # gdstyle:ignore=quality/max-returns
+	_prepare_vehicle_authority()
+	var participant_id: int = (
+		HOST_PARTICIPANT_ID if _role == ROLE_HOST else REMOTE_PARTICIPANT_ID
+	)
+	var actor: ActorMotion = _replication.actor_for_participant(participant_id)
+	if actor == null:
+		return
+	if _vehicle_target_id == 0:
+		var descriptors: Array[Dictionary] = _replication._vehicle_replicator.descriptor_rows()
+		var descriptor_index: int = 0 if _role == ROLE_HOST else 1
+		if descriptors.size() <= descriptor_index:
+			return
+		_vehicle_target_id = int(descriptors[descriptor_index].id)
+	var vehicle: VehicleMotion = _replication.vehicle_for_entity(_vehicle_target_id)
+	if vehicle == null:
+		return
+	var binding: Dictionary = _replication._vehicle_replicator.binding_for_participant(
+		participant_id
+	)
+	if not _vehicle_entry_confirmed:
+		_request_vehicle_entry_from_production(actor, vehicle)
+		return
+	if not _vehicle_exit_requested:
+		_drive_and_stop_vehicle(vehicle, binding)
+		return
+	if not _vehicle_exit_confirmed or not binding.is_empty():
+		return
+	_verify_post_exit_foot_control(actor)
+
+
+## Places both authoritative players at distinct authored entry sockets once.
+func _prepare_vehicle_authority() -> void:
+	if _role != ROLE_HOST or _vehicle_authority_prepared:
+		return
+	var descriptors: Array[Dictionary] = _replication._vehicle_replicator.descriptor_rows()
+	if descriptors.size() < 2:
+		return
+	for index: int in range(2):
+		var participant_id: int = index + 1
+		var actor: ActorMotion = _replication.actor_for_participant(participant_id)
+		var vehicle: VehicleMotion = _replication.vehicle_for_entity(int(descriptors[index].id))
+		if actor == null or vehicle == null:
+			return
+		actor.global_position = (
+			vehicle.get_node("Sockets/EntryLeft") as Marker3D
+		).global_position
+		actor.neutralize()
+	_vehicle_authority_prepared = true
+
+
+## Seeds pre-seat foot intent, then requests entry only through the public transaction API.
+func _request_vehicle_entry_from_production(
+	actor: ActorMotion,
+	vehicle: VehicleMotion,
+) -> void:
+	if _vehicle_entry_requested_msec > 0:
+		return
+	var entry: Marker3D = vehicle.get_node("Sockets/EntryLeft") as Marker3D
+	if actor.global_position.distance_to(entry.global_position) > VehicleInteraction.ENTRY_RANGE_M:
+		return
+	if not _vehicle_pre_entry_foot_pressed:
+		_push_vehicle_key(KEY_D, true)
+		_vehicle_pre_entry_foot_pressed = true
+		return
+	_vehicle_action_sequence = 1
+	_vehicle_entry_requested_msec = Time.get_ticks_msec()
+	if not _replication.request_local_vehicle_entry(_vehicle_target_id, _vehicle_action_sequence):
+		_finish(false, "VEHICLE_ENTRY_REQUEST_REJECTED")
+
+
+## Holds one real key for ten seconds, then brakes and exits only below the speed limit.
+func _drive_and_stop_vehicle(  # gdstyle:ignore=quality/max-function-length,quality/max-branches
+	vehicle: VehicleMotion,
+	binding: Dictionary,
+) -> void:
+	if binding.is_empty():
+		return
+	if _vehicle_drive_tick == 0:
+		_push_vehicle_key(KEY_D, false)
+		_push_vehicle_key(KEY_W, true)
+		_vehicle_drive_start = vehicle.global_position
+		_vehicle_drive_started_msec = Time.get_ticks_msec()
+		if _vehicle_break_input:
+			var rig: LocalRig = _replication.get_parent().get_node("LocalRig") as LocalRig
+			rig.set_vehicle_input_enabled(false)
+	_vehicle_drive_tick += 1
+	_vehicle_distance_metres = maxf(
+		_vehicle_distance_metres,
+		vehicle.global_position.distance_to(_vehicle_drive_start),
+	)
+	var participant_id: int = (
+		HOST_PARTICIPANT_ID if _role == ROLE_HOST else REMOTE_PARTICIPANT_ID
+	)
+	var acknowledgement: int = _replication._vehicle_replicator.acknowledgement(
+		participant_id
+	)
+	if _role == ROLE_CLIENT:
+		acknowledgement = int(
+			_replication.vehicle_prediction_diagnostics().get("acknowledgement", 0)
+		)
+	_vehicle_acknowledgement = maxi(_vehicle_acknowledgement, acknowledgement)
+	if _vehicle_drive_tick <= VEHICLE_DRIVE_TICKS:
+		return
+	if not _vehicle_throttle_released:
+		_push_vehicle_key(KEY_W, false)
+		_push_vehicle_key(KEY_DOWN, true)
+		_vehicle_throttle_released = true
+		_vehicle_brake_pressed = true
+		_vehicle_drive_duration_seconds = float(VEHICLE_DRIVE_TICKS) / 60.0
+	if _vehicle_break_input and _vehicle_distance_metres <= REQUIRED_MOVEMENT_METRES:
+		_finish(false, "VEHICLE_DRIVE_SEAM_NOT_OBSERVED")
+		return
+	if vehicle.velocity.length() >= VEHICLE_EXIT_SPEED_MPS:
+		return
+	_vehicle_exit_speed_mps = vehicle.velocity.length()
+	if _vehicle_brake_pressed:
+		_push_vehicle_key(KEY_DOWN, false)
+		_vehicle_brake_pressed = false
+	_vehicle_action_sequence = 2
+	_vehicle_exit_requested = _replication.request_local_vehicle_exit(
+		_vehicle_action_sequence
+	)
+	if not _vehicle_exit_requested:
+		_finish(false, "VEHICLE_EXIT_REQUEST_REJECTED")
+
+
+## Requires a neutral stale-input window before one fresh viewport foot key can walk.
+func _verify_post_exit_foot_control(  # gdstyle:ignore=quality/max-branches
+	actor: ActorMotion,
+) -> void:
+	if _success_ready:
+		_vehicle_success_wait_tick += 1
+		if _role == ROLE_CLIENT and _vehicle_success_wait_tick >= 180:
+			_begin_clean_close()
+		return
+	if _vehicle_stale_start == Vector3.INF:
+		_vehicle_stale_start = actor.global_position
+	if _vehicle_stale_tick < VEHICLE_STALE_FOOT_TICKS:
+		_vehicle_stale_tick += 1
+		_vehicle_stale_foot_drift_metres = _planar_distance(
+			actor.global_position, _vehicle_stale_start
+		)
+		if _vehicle_stale_tick < VEHICLE_STALE_FOOT_TICKS:
+			return
+		if _vehicle_stale_foot_drift_metres > 0.2:
+			_finish(false, "STALE_FOOT_INPUT_REPLAYED")
+			return
+	if _vehicle_walk_start == Vector3.INF:
+		_vehicle_walk_start = actor.global_position
+		_vehicle_walk_key = _walk_key_away_from_vehicle(actor.global_position)
+		_push_vehicle_key(_vehicle_walk_key, true)
+	_vehicle_walk_tick += 1
+	_vehicle_walk_distance_metres = _planar_distance(
+		actor.global_position, _vehicle_walk_start
+	)
+	if _vehicle_walk_tick < VEHICLE_WALK_TICKS:
+		return
+	_push_vehicle_key(_vehicle_walk_key, false)
+	var accepted: bool = (
+		_vehicle_entry_latency_msec > 0
+		and _vehicle_entry_latency_msec <= 1_000
+		and _vehicle_drive_duration_seconds >= 10.0
+		and _vehicle_distance_metres > REQUIRED_MOVEMENT_METRES
+		and _vehicle_exit_speed_mps < VEHICLE_EXIT_SPEED_MPS
+		and _vehicle_walk_distance_metres > REQUIRED_MOVEMENT_METRES
+	)
+	if not accepted:
+		_finish(false, "VEHICLE_ACCEPTANCE_METRICS")
+		return
+	_success_ready = true
+
+
+## Chooses a cardinal foot key that moves away from the exited vehicle body.
+func _walk_key_away_from_vehicle(actor_position: Vector3) -> Key:
+	var vehicle: VehicleMotion = _replication.vehicle_for_entity(_vehicle_target_id)
+	if vehicle == null:
+		return KEY_D
+	var away: Vector3 = actor_position - vehicle.global_position
+	if absf(away.x) >= absf(away.z):
+		return KEY_D if away.x >= 0.0 else KEY_A
+	return KEY_S if away.z >= 0.0 else KEY_W
+
+
+## Measures horizontal gameplay travel without treating floor settling as stale intent.
+func _planar_distance(left: Vector3, right: Vector3) -> float:
+	return Vector2(left.x, left.z).distance_to(Vector2(right.x, right.z))
+
+
+## Records reliable entry and exit processing without deriving occupancy from the result.
+func _on_vehicle_action_resolved(result: Dictionary) -> void:
+	var sequence: int = int(result.get("action_sequence", 0))
+	if result.get("status") != VehicleInteraction.STATUS_APPLIED:
+		_finish(false, "VEHICLE_ACTION_REJECTED_%d" % sequence)
+		return
+	if sequence == 1:
+		_vehicle_entry_confirmed = true
+		_vehicle_entry_latency_msec = Time.get_ticks_msec() - _vehicle_entry_requested_msec
+	elif sequence == 2:
+		_vehicle_exit_confirmed = true
+
+
+## Dispatches one physical key through the root viewport and normal InputMap state.
+func _push_vehicle_key(physical_keycode: Key, pressed: bool) -> void:
+	var event := InputEventKey.new()
+	event.physical_keycode = physical_keycode
+	event.pressed = pressed
+	_tree.root.push_input(event, true)
+
+
 ## Drives death, respawn, reset, and post-reset input through their production owners.
 func _observe_lifecycle() -> void:
 	var view: Dictionary = _replication.lifecycle_view_for(REMOTE_PARTICIPANT_ID)
@@ -771,6 +1027,8 @@ func _begin_clean_close() -> void:
 	if _closing:
 		return
 	_closing = true
+	if is_instance_valid(_replication):
+		_replication.set_local_input_enabled(false)
 	if _scenario == SCENARIO_SUSTAINED and _role == ROLE_HOST:
 		_replication.set_physics_process(false)
 	if not _session.leave().get("ok", false):
@@ -857,7 +1115,24 @@ func _result_receipt(ok: bool, detail: String) -> Dictionary:
 		"scenario": _scenario,
 		"steam_class_absent": not ClassDB.class_exists("Steam"),
 		"steam_singleton_absent": not Engine.has_singleton("Steam"),
-	}.merged(_sustained_receipt())
+	}.merged(_sustained_receipt()).merged(_vehicle_receipt())
+
+
+## Builds vehicle fields separately for host/client and negative seam review.
+func _vehicle_receipt() -> Dictionary:
+	return {
+		"vehicle_acknowledgement": _vehicle_acknowledgement,
+		"vehicle_break_input": _vehicle_break_input,
+		"vehicle_distance_metres": _vehicle_distance_metres,
+		"vehicle_drive_duration_seconds": _vehicle_drive_duration_seconds,
+		"vehicle_drive_sample_ticks": mini(_vehicle_drive_tick, VEHICLE_DRIVE_TICKS),
+		"vehicle_entry_latency_msec": _vehicle_entry_latency_msec,
+		"vehicle_exit_speed_mps": (
+			0.0 if is_inf(_vehicle_exit_speed_mps) else _vehicle_exit_speed_mps
+		),
+		"vehicle_stale_foot_drift_metres": _vehicle_stale_foot_drift_metres,
+		"vehicle_walk_distance_metres": _vehicle_walk_distance_metres,
+	}
 
 
 ## Builds sustained fields separately so every terminal scenario shares one receipt shape.

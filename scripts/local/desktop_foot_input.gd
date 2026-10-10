@@ -39,7 +39,7 @@ func _input(event: InputEvent) -> void:
 
 ## Tracks only unconsumed gameplay bindings so UI can handle its input first.
 func _unhandled_input(event: InputEvent) -> void:
-	if not (event is InputEventKey or event is InputEventMouseButton):
+	if not active or not (event is InputEventKey or event is InputEventMouseButton):
 		return
 
 	for action: StringName in ACTIONS:
@@ -49,7 +49,7 @@ func _unhandled_input(event: InputEvent) -> void:
 		var identity: String = _binding_id(event)
 		if not event.is_pressed():
 			bindings.erase(identity)
-		elif active and not event.is_echo():
+		elif not event.is_echo():
 			bindings[identity] = true
 		_held[action] = bindings
 		get_viewport().set_input_as_handled()

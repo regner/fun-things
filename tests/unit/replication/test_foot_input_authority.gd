@@ -17,6 +17,20 @@ func test_epoch_advance_clears_queue_and_rejects_delayed_input() -> void:
 	assert_eq(authority.queue(2).consume(3).acknowledgement, 1)
 
 
+## Advances seat-transfer control and rejects every delayed pre-transfer foot packet.
+func test_seat_transfer_rebind_clears_held_input_and_advances_epoch() -> void:
+	var authority := FootInputAuthority.new()
+	authority.grant(2)
+	var stale: Dictionary = _decoded(1, 1)
+	assert_true(authority.offer(2, stale, 0).accepted)
+	assert_true(authority.can_rebind(2))
+	assert_eq(authority.rebind(2), 2)
+	assert_eq(authority.input_epoch(2), 2)
+	assert_eq(authority.queue(2).size(), 0)
+	assert_false(authority.offer(2, stale, 1).accepted)
+	assert_true(authority.offer(2, _decoded(1, 2), 2).accepted)
+
+
 ## Refuses recovery without host evidence and rate-limits an authorized request burst.
 func test_recovery_requires_window_evidence_and_rate_limits_burst() -> void:
 	var authority := FootInputAuthority.new()

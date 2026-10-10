@@ -164,6 +164,7 @@ def exported_process_command(
     role: str,
     scenario: str,
     port: int,
+    acceptance_arguments: list[str] | None = None,
 ) -> list[str]:
     """Build one exported invocation bounded by the Python-owned process watchdog."""
     return [
@@ -175,6 +176,7 @@ def exported_process_command(
         f"--m1-a-gate-role={role}",
         f"--m1-a-gate-scenario={scenario}",
         f"--m1-a-gate-port={port}",
+        *(acceptance_arguments or []),
     ]
 
 
@@ -295,7 +297,14 @@ class ExportedAcceptanceRunner:
             probe.bind(("127.0.0.1", 0))
             return probe.getsockname()[1]
 
-    def launch(self, case: str, role: str, scenario: str, port: int) -> ManagedProcess:
+    def launch(
+        self,
+        case: str,
+        role: str,
+        scenario: str,
+        port: int,
+        acceptance_arguments: list[str] | None = None,
+    ) -> ManagedProcess:
         """Launch one capped windowed export under the hard process timeout."""
         process_output = self.output / case / role
         process_output.mkdir(parents=True, exist_ok=True)
@@ -327,6 +336,7 @@ class ExportedAcceptanceRunner:
             role,
             scenario,
             port,
+            acceptance_arguments,
         )
         process = subprocess.Popen(
             command,
@@ -370,6 +380,7 @@ class ExportedAcceptanceRunner:
         case: str,
         scenario: str,
         profile: str = "direct",
+        client_arguments: list[str] | None = None,
     ) -> tuple[ManagedProcess, ManagedProcess]:
         """Start a ready host, then connect its client directly or through normal profile."""
         host_port = self.allocate_port()
@@ -383,7 +394,9 @@ class ExportedAcceptanceRunner:
             client_port = proxy.port
         elif profile != "direct":
             raise ValueError(f"unknown network profile: {profile}")
-        client = self.launch(case, "client", scenario, client_port)
+        client = self.launch(
+            case, "client", scenario, client_port, client_arguments
+        )
         return host, client
 
     def case_gameplay(self) -> dict:
@@ -489,6 +502,61 @@ class ExportedAcceptanceRunner:
             "receipts": {"host": host_result, "client": client_result},
         }
 
+    def case_vehicle(self) -> dict:
+        """Require host and client saved drive collectors, stopped exit, then fresh walking."""
+        host, client = self.pair("vehicle", "vehicle")
+        client.wait_event(self.event("match_ready"), READINESS_TIMEOUT_SECONDS)
+        client_result = client.wait_event(self.event("finished"), CASE_TIMEOUT_SECONDS)
+        host_result = host.wait_event(self.event("finished"), READINESS_TIMEOUT_SECONDS)
+        for role, receipt in (("host", host_result), ("client", client_result)):
+            if not receipt.get("ok"):
+                raise RuntimeError(f"vehicle {role} failed: {receipt}")
+            if not 0 < receipt.get("vehicle_entry_latency_msec", 0) <= 1000:
+                raise RuntimeError(f"vehicle {role} entry latency failed: {receipt}")
+            if (
+                receipt.get("vehicle_drive_duration_seconds", 0.0) < 10.0
+                or receipt.get("vehicle_drive_sample_ticks", 0) < 600
+            ):
+                raise RuntimeError(f"vehicle {role} drive interval failed: {receipt}")
+            if receipt.get("vehicle_distance_metres", 0.0) <= 0.5:
+                raise RuntimeError(f"vehicle {role} did not move: {receipt}")
+            if receipt.get("vehicle_exit_speed_mps", 1.0) >= 0.5:
+                raise RuntimeError(f"vehicle {role} exited while moving: {receipt}")
+            if receipt.get("vehicle_stale_foot_drift_metres", 1.0) > 0.2:
+                raise RuntimeError(f"vehicle {role} replayed stale foot input: {receipt}")
+            if receipt.get("vehicle_walk_distance_metres", 0.0) <= 0.5:
+                raise RuntimeError(f"vehicle {role} did not resume walking: {receipt}")
+            if receipt.get("vehicle_acknowledgement", 0) < 500:
+                raise RuntimeError(f"vehicle {role} command queue was bypassed: {receipt}")
+        return {
+            "exits": self.settle([client, host]),
+            "receipts": {"host": host_result, "client": client_result},
+        }
+
+    def case_vehicle_broken_seam(self) -> dict:
+        """Prove disabling the client saved collector makes vehicle acceptance fail."""
+        host, client = self.pair(
+            "vehicle_broken_seam",
+            "vehicle",
+            client_arguments=["--m1-a-gate-break-vehicle-input"],
+        )
+        client.wait_event(self.event("match_ready"), READINESS_TIMEOUT_SECONDS)
+        result = client.wait_event(self.event("finished"), CASE_TIMEOUT_SECONDS)
+        client_exit = client.finish()
+        host_exit = host.finish(timeout=0.2)
+        if result.get("ok") or result.get("detail") != "VEHICLE_DRIVE_SEAM_NOT_OBSERVED":
+            raise RuntimeError(f"broken vehicle seam did not fail acceptance: {result}")
+        if client_exit == 0:
+            raise RuntimeError("broken vehicle seam unexpectedly exited successfully")
+        diagnostics = client.diagnostics()
+        if diagnostics:
+            raise RuntimeError(f"broken vehicle seam emitted diagnostics: {diagnostics}")
+        return {
+            "expected_failure_observed": True,
+            "exits": {"client": client_exit, "host": host_exit},
+            "receipts": {"client": result},
+        }
+
     def case_expected_failure(self, case: str, scenario: str, detail: str) -> dict:
         """Require one normalized exported admission failure and clean host cleanup."""
         host, client = self.pair(case, scenario)
@@ -564,6 +632,8 @@ def main() -> int:
         ("gameplay", runner.case_gameplay),
         ("sustained_direct", lambda: runner.case_sustained("direct")),
         ("sustained_normal", lambda: runner.case_sustained("normal")),
+        ("vehicle", runner.case_vehicle),
+        ("vehicle_broken_seam", runner.case_vehicle_broken_seam),
         (
             "incompatible",
             lambda: runner.case_expected_failure(

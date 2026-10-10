@@ -14,7 +14,6 @@ EXCLUDED_PREFIXES = ("addons/", "prototypes/", "docs/")
 ALLOWLIST = frozenset(
     {
         "scenes/entities/player.tscn",
-        "scenes/local/local_rig.tscn",
         "scenes/match/match.tscn",
         "scenes/ui/hud.tscn",
         "scenes/ui/main_menu.tscn",

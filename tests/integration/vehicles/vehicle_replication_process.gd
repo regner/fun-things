@@ -3,10 +3,13 @@ extends Node  # gdstyle:ignore=quality/max-class-variables
 
 const PREFIX: String = "M1-B1.1 "
 const MATCH_SCENE: PackedScene = preload("res://scenes/match/match.tscn")
+const HOST_PARTICIPANT_ID: int = 1
 const REMOTE_PARTICIPANT_ID: int = 2
 const PROCESS_TIMEOUT_MSEC: int = 45_000
 const COMMAND_TICKS: int = 460
 const RESULT_GRACE_TICKS: int = 90
+const LEFT_EXIT_RESERVATION_ID: int = 10_001
+const RIGHT_EXIT_RESERVATION_ID: int = 10_002
 
 var _role: String = ""
 var _port: int = 0
@@ -15,12 +18,22 @@ var _match: Node3D
 var _replication: MatchReplication
 var _granted: bool = false
 var _entry_requested: bool = false
+var _entry_rejection_observed: bool = false
+var _same_tick_claim_observed: bool = false
+var _driver_death_release_observed: bool = false
+var _host_claim_queued: bool = false
 var _entry_confirmed: bool = false
+var _exit_blockers_positioned: bool = false
+var _exit_blocked_observed: bool = false
+var _exit_requested: bool = false
+var _exit_confirmed: bool = false
 var _vehicle_id: int = 0
 var _sequence: int = 0
 var _test_ticks: int = 0
 var _movement_receipts: int = 0
 var _prediction_before_authority: bool = false
+var _prediction_before_exit: Dictionary = {}
+var _last_authority_acknowledgement: int = 0
 var _start_position: Vector3 = Vector3.INF
 var _contact_vehicle: VehicleMotion
 var _wall_contact_observed: bool = false
@@ -103,34 +116,70 @@ func _physics_process(delta_seconds: float) -> void:
 	if _start_position == Vector3.INF:
 		_start_position = vehicle.global_position
 	_observe_contacts(vehicle)
+	if _role == "host" and not _entry_rejection_observed:
+		_coordinate_same_tick_claim()
 	if _role == "client" and not _granted:
 		return
 	if _role == "client" and _test_ticks < COMMAND_TICKS:
 		_submit_profile_command(vehicle, delta_seconds)
 		return
+	if _role == "client" and _prediction_before_exit.is_empty():
+		var current_prediction: Dictionary = _replication.vehicle_prediction_diagnostics()
+		if (
+			int(current_prediction.get("acknowledgement", 0)) >= COMMAND_TICKS
+			and int(current_prediction.get("history_size", 0)) == 0
+		):
+			_prediction_before_exit = current_prediction
 	var authority_acknowledgement: int = (
 		_replication._vehicle_replicator.acknowledgement(REMOTE_PARTICIPANT_ID)
 	)
 	if _role == "host" and authority_acknowledgement == 0:
-		return
+		if not _exit_confirmed:
+			return
+		authority_acknowledgement = _last_authority_acknowledgement
+	elif _role == "host":
+		_last_authority_acknowledgement = authority_acknowledgement
 	if _role == "host":
 		_measure_authority_phase(vehicle, authority_acknowledgement)
+		_prepare_exit_blockers(vehicle, authority_acknowledgement)
 	if _role == "host" and _test_ticks < 120:
 		_step_contact_vehicle(delta_seconds)
 
 	_test_ticks += 1
-	if _test_ticks < COMMAND_TICKS + RESULT_GRACE_TICKS:
+	if _role == "client" and not _exit_confirmed:
+		_try_client_exit(vehicle)
+		return
+	var completion_grace_ticks: int = RESULT_GRACE_TICKS * 6
+	if _role == "client":
+		completion_grace_ticks = RESULT_GRACE_TICKS * 3
+	if _test_ticks < COMMAND_TICKS + completion_grace_ticks:
 		return
 	var displacement: float = vehicle.global_position.distance_to(_start_position)
 	var prediction: Dictionary = _replication.vehicle_prediction_diagnostics()
+	if _role == "client" and not _prediction_before_exit.is_empty():
+		prediction = _prediction_before_exit
 	var phases_complete: bool = not false in _phase_outcomes.values()
 	var ok: bool = displacement > 0.5
 	if _role == "host":
-		ok = ok and phases_complete and _wall_contact_observed and _moving_contact_observed
+		ok = (
+			ok
+			and phases_complete
+			and _wall_contact_observed
+			and _moving_contact_observed
+			and _entry_rejection_observed
+			and _same_tick_claim_observed
+			and _driver_death_release_observed
+			and _exit_blocked_observed
+			and _exit_confirmed
+		)
 	else:
 		ok = (
 			ok
+			and _entry_rejection_observed
+			and _same_tick_claim_observed
 			and _entry_confirmed
+			and _exit_blocked_observed
+			and _exit_confirmed
 			and _prediction_before_authority
 			and phases_complete
 			and _movement_receipts > 1
@@ -143,7 +192,12 @@ func _physics_process(delta_seconds: float) -> void:
 		"complete",
 		{
 			"displacement_metres": displacement,
+			"entry_rejection_observed": _entry_rejection_observed,
+			"same_tick_claim_observed": _same_tick_claim_observed,
+			"driver_death_release_observed": _driver_death_release_observed,
 			"entry_confirmed": _entry_confirmed,
+			"blocked_exit_observed": _exit_blocked_observed,
+			"clear_exit_confirmed": _exit_confirmed,
 			"phase_evidence": _phase_evidence,
 			"phase_outcomes": _phase_outcomes,
 			"moving_contact_observed": _moving_contact_observed,
@@ -178,6 +232,11 @@ func _on_session_changed(view: Dictionary) -> void:
 		view.operation_kind == SessionService.OPERATION_HOST,
 	):
 		_finish(false, "match configuration")
+		return
+	if _role == "host":
+		_replication._vehicle_interaction.action_resolved.connect(
+			_on_authority_vehicle_action_resolved
+		)
 
 
 ## Mirrors Session mapping before the client requests a production seat transaction.
@@ -209,8 +268,12 @@ func _prepare_host_entry() -> void:
 		return
 	_vehicle_id = int(descriptors[0].id)
 	var vehicle: VehicleMotion = _replication.vehicle_for_entity(_vehicle_id)
-	var entry: Marker3D = vehicle.get_node("Sockets/EntryLeft") as Marker3D
-	actor.global_position = entry.global_position
+	var left_entry: Marker3D = vehicle.get_node("Sockets/EntryLeft") as Marker3D
+	var right_entry: Marker3D = vehicle.get_node("Sockets/EntryRight") as Marker3D
+	actor.global_position = right_entry.global_position
+	var host_actor: ActorMotion = _replication.actor_for_participant(HOST_PARTICIPANT_ID)
+	if host_actor != null:
+		host_actor.global_position = left_entry.global_position
 	_configure_contact_vehicle()
 	_print_event({ "event": "entry_ready", "vehicle_id": _vehicle_id })
 
@@ -222,22 +285,167 @@ func _try_client_entry() -> void:
 	var descriptors: Array[Dictionary] = _replication._vehicle_replicator.descriptor_rows()
 	if descriptors.is_empty():
 		return
-	_entry_requested = _replication.request_local_vehicle_entry(int(descriptors[0].id), 1)
+	var action_sequence: int = 2 if _entry_rejection_observed else 1
+	_entry_requested = _replication.request_local_vehicle_entry(
+		int(descriptors[0].id), action_sequence
+	)
 	if not _entry_requested:
 		_finish(false, "vehicle entry request")
 		return
 	_print_event({ "event": "entry_requested", "vehicle_id": int(descriptors[0].id) })
 
 
-## Records the processed reliable result while descriptor state remains the control writer.
-func _on_vehicle_action_resolved(result: Dictionary) -> void:
-	if int(result.get("action_sequence", 0)) != 1:
+## Mirrors the remote accepted tick so the lower participant wins one real-process claim.
+func _coordinate_same_tick_claim() -> void:
+	if _host_claim_queued:
 		return
-	if result.get("status") != VehicleInteraction.STATUS_APPLIED:
-		_finish(false, "vehicle entry rejected")
+	var queue: Array = _replication._vehicle_interaction._pending_actions_by_participant.get(
+		REMOTE_PARTICIPANT_ID,
+		[],
+	)
+	for request: Dictionary in queue:
+		if int(request.get("action_sequence", 0)) != 1:
+			continue
+		var queued: Dictionary = _replication.request_vehicle_entry(
+			HOST_PARTICIPANT_ID,
+			_vehicle_id,
+			1,
+			int(request.accepted_tick),
+		)
+		if not queued.get("ok", false):
+			_finish(false, "host same-tick claim")
+			return
+		_host_claim_queued = true
 		return
-	_entry_confirmed = true
-	_print_event({ "event": "entry_confirmed" })
+
+
+## Records reliable receipts while descriptor state remains the transaction writer.
+func _on_vehicle_action_resolved(  # gdstyle:ignore=quality/max-branches
+	result: Dictionary,
+) -> void:
+	if _role != "client":
+		return
+	var action_sequence: int = int(result.get("action_sequence", 0))
+	if action_sequence == 1:
+		if (
+			result.get("status") != VehicleInteraction.STATUS_REJECTED
+			or result.get("failure") != &"SEAT_OCCUPIED"
+		):
+			_finish(false, "entry rejection missing")
+			return
+		if not _replication._vehicle_replicator.binding_for_participant(
+			REMOTE_PARTICIPANT_ID
+		).is_empty():
+			_finish(false, "rejected entry changed binding")
+			return
+		_entry_rejection_observed = true
+		_same_tick_claim_observed = true
+		_entry_requested = false
+		_print_event({ "event": "entry_rejected" })
+	elif action_sequence == 2:
+		if result.get("status") != VehicleInteraction.STATUS_APPLIED:
+			_finish(false, "vehicle entry rejected")
+			return
+		_entry_confirmed = true
+		_print_event({ "event": "entry_confirmed" })
+	elif action_sequence == 3:
+		if (
+			result.get("status") != VehicleInteraction.STATUS_REJECTED
+			or result.get("failure") != &"EXIT_BLOCKED"
+		):
+			_finish(false, "blocked exit missing")
+			return
+		_exit_blocked_observed = true
+		_exit_requested = false
+		_print_event({ "event": "exit_blocked" })
+	elif action_sequence == 4:
+		if result.get("status") != VehicleInteraction.STATUS_APPLIED:
+			_finish(false, "clear exit rejected")
+			return
+		_exit_confirmed = true
+		_print_event({ "event": "exit_confirmed" })
+
+
+## Repositions authority fixtures after each remote rejection has committed atomically.
+func _on_authority_vehicle_action_resolved(
+	participant_id: int,
+	result: Dictionary,
+) -> void:
+	var action_sequence: int = int(result.get("action_sequence", 0))
+	if participant_id == HOST_PARTICIPANT_ID:
+		if action_sequence == 1 and result.get("status") == VehicleInteraction.STATUS_APPLIED:
+			_same_tick_claim_observed = true
+		return
+	if participant_id != REMOTE_PARTICIPANT_ID:
+		return
+	if action_sequence == 1 and result.get("status") == VehicleInteraction.STATUS_REJECTED:
+		_entry_rejection_observed = true
+		_same_tick_claim_observed = true
+		if not _replication.trigger_test_death(HOST_PARTICIPANT_ID):
+			_finish(false, "winner death release")
+			return
+		_driver_death_release_observed = _replication._vehicle_replicator.binding_for_participant(
+			HOST_PARTICIPANT_ID
+		).is_empty()
+	elif action_sequence == 3 and result.get("status") == VehicleInteraction.STATUS_REJECTED:
+		_exit_blocked_observed = true
+		_clear_exit_blockers()
+	elif action_sequence == 4 and result.get("status") == VehicleInteraction.STATUS_APPLIED:
+		_exit_confirmed = true
+
+
+## Places one fixture at each exit after authority has stopped the occupied vehicle.
+func _prepare_exit_blockers(vehicle: VehicleMotion, acknowledgement: int) -> void:
+	if _exit_blocked_observed or acknowledgement < COMMAND_TICKS:
+		return
+	var left_exit: Marker3D = vehicle.get_node("Sockets/ExitLeft") as Marker3D
+	var right_exit: Marker3D = vehicle.get_node("Sockets/ExitRight") as Marker3D
+	_replication._spawn_reservations.release(LEFT_EXIT_RESERVATION_ID)
+	_replication._spawn_reservations.release(RIGHT_EXIT_RESERVATION_ID)
+	if not _replication._spawn_reservations.reserve(
+		LEFT_EXIT_RESERVATION_ID,
+		&"vehicle_test",
+		left_exit.global_position,
+		MatchReplication.PLAYER_CLEARANCE_RADIUS_M,
+	):
+		_finish(false, "left exit reservation")
+		return
+	if not _replication._spawn_reservations.reserve(
+		RIGHT_EXIT_RESERVATION_ID,
+		&"vehicle_test",
+		right_exit.global_position,
+		MatchReplication.PLAYER_CLEARANCE_RADIUS_M,
+	):
+		_finish(false, "right exit reservation")
+		return
+	_exit_blockers_positioned = true
+
+
+## Removes both blockers only after the authority observed the atomic blocked result.
+func _clear_exit_blockers() -> void:
+	_replication._spawn_reservations.release(LEFT_EXIT_RESERVATION_ID)
+	_replication._spawn_reservations.release(RIGHT_EXIT_RESERVATION_ID)
+	var host_actor: ActorMotion = _replication.actor_for_participant(HOST_PARTICIPANT_ID)
+	if host_actor != null:
+		host_actor.global_position += Vector3(100.0, 0.0, 100.0)
+	if is_instance_valid(_contact_vehicle):
+		_contact_vehicle.global_position += Vector3(100.0, 0.0, 100.0)
+
+
+## Requests blocked then clear production exits after the replicated car is stopped.
+func _try_client_exit(vehicle: VehicleMotion) -> void:
+	if (
+		_exit_requested
+		or _test_ticks < COMMAND_TICKS + RESULT_GRACE_TICKS * 3
+		or vehicle.velocity.length() >= VehicleInteraction.EXIT_MAX_SPEED_MPS
+	):
+		return
+	var action_sequence: int = 4 if _exit_blocked_observed else 3
+	if _prediction_before_exit.is_empty():
+		_prediction_before_exit = _replication.vehicle_prediction_diagnostics()
+	_exit_requested = _replication.request_local_vehicle_exit(action_sequence)
+	if not _exit_requested:
+		_finish(false, "vehicle exit request")
 
 
 ## Opens deterministic drive input only after baseline and handoff grant.

@@ -15,6 +15,8 @@ const PLAYER_CLEARANCE_RADIUS_M: float = 0.45
 const PLAYER_CLEARANCE_HEIGHT_M: float = 2.0
 const INPUT_RATE_PER_SECOND: float = 60.0
 const INPUT_BURST: float = 8.0
+const MAX_VEHICLE_ACTION_ENVELOPE_BYTES: int = 4_096
+const VEHICLE_ENTRY_PRESENTATION_TICKS: int = 18
 const RESET_ADMISSION_TIMEOUT_MSEC: int = 15_000
 const PHASE_MAPPED: StringName = &"mapped"
 const ENTITY_KIND_PLAYER: int = 1
@@ -53,6 +55,7 @@ var _client: Dictionary = {
 	"last_command_packet": PackedByteArray(),
 	"prediction": FootPrediction.new(),
 	"remote_smoothers": {},
+	"vehicle_transfer_revision_by_participant": {},
 }
 var _sequence: Dictionary = {
 	"physics_tick": 0,
@@ -98,6 +101,8 @@ func _physics_process(delta: float) -> void:
 		_expire_waiting_mapped_peers(now_msec)
 		_lifecycle.step(_sequence.physics_tick)
 		_vehicle_interaction.process_actions(_sequence.physics_tick)
+		if _client.local_input_enabled:
+			_sample_and_submit_local_vehicle_input(delta)
 		_step_remote_players(delta)
 		_vehicle_replicator.step_authority(delta, now_msec, _sequence.physics_tick)
 		if _sequence.physics_tick % MOVEMENT_INTERVAL_TICKS == 0:
@@ -213,10 +218,13 @@ func _configure_authority(local_participant_id: int, clock: Callable) -> bool:
 		_vehicle_replicator,
 		actor_for_participant,
 		lifecycle_view_for,
-		_is_exit_blocked,
+		_is_clearance_blocked,
 		_match_revision(),
+		_input_authority.can_rebind,
+		_input_authority.rebind,
 	):
 		return false
+	_input_authority.grant(local_participant_id)
 	_vehicle_interaction.action_resolved.connect(_on_vehicle_action_resolved)
 	_vehicle_interaction.transaction_committed.connect(_on_vehicle_transaction_committed)
 	_bind_hud_sources()
@@ -288,6 +296,7 @@ func set_local_input_enabled(enabled: bool) -> void:
 		var input: DesktopFootInput = _local_input()
 		if input != null:
 			input.set_focused(false)
+	_local_rig().set_vehicle_input_enabled(enabled)
 
 
 ## Encodes and sends one envelope-fenced local intent without applying prediction.
@@ -341,6 +350,25 @@ func predict_and_submit_local_vehicle_command(
 	return true
 
 
+## Validates and queues one listen-server drive command through the authoritative queue.
+func submit_host_local_vehicle_command(command: DriveCommand) -> bool:
+	if not _configured or not _context.is_host:
+		return false
+	var participant_id: int = int(_context.local_participant_id)
+	var binding: Dictionary = _vehicle_replicator.binding_for_participant(participant_id)
+	if binding.is_empty() or not _lifecycle.is_alive(participant_id):
+		return false
+	var encoded: Dictionary = DriveCommandCodec.encode(command, int(binding.input_epoch))
+	if not encoded.get("ok", false):
+		return false
+	var decoded: Dictionary = DriveCommandCodec.decode(encoded.packet)
+	if not decoded.get("ok", false):
+		return false
+	return _vehicle_replicator.offer_command(
+		participant_id, decoded, _now_msec()
+	).get("accepted", false)
+
+
 ## Queues one authoritative entry request for deterministic accepted-tick resolution.
 func request_vehicle_entry(
 	participant_id: int,
@@ -364,7 +392,9 @@ func request_vehicle_entry(
 			},
 			"match_revision": _match_revision(),
 			"accepted_tick": (
-				_sequence.physics_tick + 1 if accepted_tick < 0 else accepted_tick
+				_sequence.physics_tick + VEHICLE_ENTRY_PRESENTATION_TICKS
+				if accepted_tick < 0
+				else accepted_tick
 			),
 			"action_sequence": action_sequence,
 			"kind": VehicleInteraction.ACTION_ENTER,
@@ -479,7 +509,14 @@ func _encode_local_command(command: FootCommand) -> Dictionary:
 
 ## Checks local state before prediction can mutate movement.
 func _can_submit_local_packet(packet: PackedByteArray) -> bool:
-	if _context.is_host or not _client.input_open or _client.input_recovery_pending:
+	if (
+		_context.is_host
+		or not _client.input_open
+		or _client.input_recovery_pending
+		or not _vehicle_replicator.binding_for_participant(
+			_context.local_participant_id
+		).is_empty()
+	):
 		return false
 	if not packet.is_empty() and packet.size() != FootCommandCodec.PACKET_BYTES:
 		return false
@@ -884,7 +921,11 @@ func _submit_command(envelope: Dictionary) -> void:
 # Exact boundary validation intentionally rejects before each kind-specific field use.
 # gdstyle:ignore=quality/max-function-length,quality/max-returns,quality/max-branches
 func _request_vehicle_action(envelope: Dictionary) -> void:
-	if not _context.is_host or envelope.size() not in [6, 7]:
+	if (
+		not _context.is_host
+		or envelope.size() not in [6, 7]
+		or var_to_bytes(envelope).size() > MAX_VEHICLE_ACTION_ENVELOPE_BYTES
+	):
 		return
 	if (
 		envelope.get("session_id") is not String
@@ -1034,6 +1075,7 @@ func _admit_input(envelope: Dictionary) -> Dictionary:  # gdstyle:ignore=quality
 	if (
 		participant_id == 0
 		or not _lifecycle.is_alive(participant_id)
+		or not _vehicle_replicator.binding_for_participant(participant_id).is_empty()
 		or binding.is_empty()
 		or int(envelope.entity_id) != int(binding.id)
 		or int(envelope.generation) != int(binding.generation)
@@ -1053,6 +1095,7 @@ func _receive_vehicle_descriptors(
 	session_id: String,
 	match_revision: int,
 	descriptors: Array,
+	transfers: Array,
 ) -> void:
 	if (
 		_context.is_host
@@ -1060,10 +1103,80 @@ func _receive_vehicle_descriptors(
 		or match_revision != _match_revision()
 	):
 		return
+	if not _install_vehicle_transfer_rows(transfers):
+		return
+	var previous_binding: Dictionary = _vehicle_replicator.binding_for_participant(
+		_context.local_participant_id
+	)
 	if _vehicle_replicator.install_descriptors(
 		descriptors, _context.local_participant_id
 	):
+		var current_binding: Dictionary = _vehicle_replicator.binding_for_participant(
+			_context.local_participant_id
+		)
+		if int(current_binding.get("control_revision", 0)) != int(
+			previous_binding.get("control_revision", 0)
+		):
+			_local_rig().reset_vehicle_command_sequence()
 		_sync_vehicle_occupancy_presentation()
+
+
+## Installs exact transfer poses and fresh foot epochs before occupancy can reopen input.
+
+
+# gdstyle:ignore=quality/max-returns,quality/max-function-length
+func _install_vehicle_transfer_rows(
+	transfers: Array,
+) -> bool:
+	if transfers.size() > PeerIdentityRegistry.MAX_PARTICIPANTS:
+		return false
+	for value: Variant in transfers:
+		if value is not Dictionary:
+			return false
+		var row: Dictionary = value
+		if (
+			row.size() != 10
+			or row.get("participant_id") is not int
+			or row.get("player_id") is not int
+			or row.get("generation") is not int
+			or row.get("seated") is not bool
+			or row.get("foot_input_epoch") is not int
+			or row.get("x") is not float
+			or row.get("y") is not float
+			or row.get("z") is not float
+			or row.get("yaw") is not float
+			or row.get("transaction_revision") is not int
+		):
+			return false
+		var participant_id: int = int(row.participant_id)
+		var revision: int = int(row.transaction_revision)
+		var revisions: Dictionary = _client.vehicle_transfer_revision_by_participant
+		if participant_id <= 0 or revision < int(revisions.get(participant_id, -1)):
+			continue
+		revisions[participant_id] = revision
+		var actor: ActorMotion = _actors_by_participant.get(participant_id)
+		if actor != null:
+			var ref: Dictionary = _lifecycle.entity_ref_for(participant_id)
+			if (
+				int(ref.get("id", 0)) == int(row.player_id)
+				and int(ref.get("generation", 0)) == int(row.generation)
+			):
+				actor.global_position = Vector3(row.x, row.y, row.z)
+				actor.rotation.y = float(row.yaw)
+				actor.neutralize()
+		if participant_id != int(_context.local_participant_id):
+			continue
+		var foot_input_epoch: int = int(row.foot_input_epoch)
+		if (
+			foot_input_epoch <= 0
+			or foot_input_epoch > FootCommandCodec.MAX_INPUT_EPOCH
+			or foot_input_epoch == int(_client.input_epoch)
+		):
+			continue
+		_client.input_epoch = foot_input_epoch
+		invalidate_client_motion()
+		_reset_local_command_sequence()
+	return true
 
 
 ## Installs Session-to-entity bindings before baseline or lifecycle rows reference them.
@@ -1159,6 +1272,7 @@ func _receive_reset_begin(session_id: String, match_revision: int) -> void:
 	invalidate_client_motion()
 	_reset_local_command_sequence()
 	_input_state_by_participant.clear()
+	(_client.vehicle_transfer_revision_by_participant as Dictionary).clear()
 	_player_identity.binding_by_participant.clear()
 	_player_identity.participant_by_entity.clear()
 	_replica_pose_generation_by_participant.clear()
@@ -1334,6 +1448,7 @@ func send_baseline_to_peer(
 		_context.session_id,
 		_match_revision(),
 		_vehicle_replicator.descriptor_rows(),
+		_vehicle_transfer_rows(),
 	)
 	_receive_player_bindings.rpc_id(
 		native_peer_id,
@@ -1376,6 +1491,7 @@ func send_lifecycle_to_peer(native_peer_id: int, lifecycle_revision: int) -> boo
 		_context.session_id,
 		_match_revision(),
 		_vehicle_replicator.descriptor_rows(),
+		_vehicle_transfer_rows(),
 	)
 	_receive_player_bindings.rpc_id(
 		native_peer_id,
@@ -1612,8 +1728,8 @@ func _is_spawn_blocked(candidate: Dictionary, participant_id: int) -> bool:
 	)
 
 
-## Queries the shared actor envelope at one authored exit while excluding its current bodies.
-func _is_exit_blocked(
+## Queries the shared actor envelope at one authored entry or exit transfer point.
+func _is_clearance_blocked(
 	candidate: Transform3D,
 	participant_id: int,
 	actor: ActorMotion,
@@ -1661,6 +1777,7 @@ func _materialize_baseline(rows: Array[Dictionary]) -> void:
 		if actor == null:
 			actor = _instantiate_replica(participant_id)
 		_apply_replica_state(int(row.id), 0)
+	_sync_vehicle_occupancy_presentation()
 
 
 ## Reconciles local prediction or feeds one passive remote presentation sample.
@@ -1990,6 +2107,35 @@ func _binding_rows() -> Array[Dictionary]:
 	return rows
 
 
+## Captures exact player pose and foot epoch in the reliable seat-transfer transaction.
+func _vehicle_transfer_rows() -> Array[Dictionary]:
+	var rows: Array[Dictionary] = []
+	var participant_ids: Array[int] = _actors_by_participant.keys()
+	participant_ids.sort()
+	for participant_id: int in participant_ids:
+		var actor: ActorMotion = _actors_by_participant[participant_id]
+		var player_ref: Dictionary = _lifecycle.entity_ref_for(participant_id)
+		if actor == null or player_ref.is_empty():
+			continue
+		rows.append(
+			{
+				"participant_id": participant_id,
+				"player_id": int(player_ref.id),
+				"generation": int(player_ref.generation),
+				"seated": not _vehicle_replicator.binding_for_participant(
+					participant_id
+				).is_empty(),
+				"foot_input_epoch": _input_authority.input_epoch(participant_id),
+				"x": actor.global_position.x,
+				"y": actor.global_position.y,
+				"z": actor.global_position.z,
+				"yaw": actor.rotation.y,
+				"transaction_revision": _vehicle_interaction.transaction_revision(),
+			}
+		)
+	return rows
+
+
 ## Publishes new binding dependencies before their reliable spawn event.
 func _broadcast_bindings() -> void:
 	var rows: Array[Dictionary] = _binding_rows()
@@ -2005,20 +2151,24 @@ func _broadcast_bindings() -> void:
 ## Publishes committed seat/control transactions before dependent movement acknowledgement.
 func _broadcast_vehicle_descriptors() -> void:
 	var rows: Array[Dictionary] = _vehicle_replicator.descriptor_rows()
+	var transfers: Array[Dictionary] = _vehicle_transfer_rows()
 	for native_peer_id: int in _admitted_peers:
 		_receive_vehicle_descriptors.rpc_id(
 			native_peer_id,
 			_context.session_id,
 			_match_revision(),
 			rows,
+			transfers,
 		)
 
 
 ## Publishes an accepted transaction and applies local camera/HUD ownership afterward.
 func _on_vehicle_transaction_committed(
-	_participant_id: int,
+	participant_id: int,
 	_result: Dictionary,
 ) -> void:
+	if participant_id == int(_context.local_participant_id):
+		_local_rig().reset_vehicle_command_sequence()
 	_broadcast_vehicle_descriptors()
 	_sync_vehicle_occupancy_presentation()
 
@@ -2088,6 +2238,9 @@ func _sync_vehicle_occupancy_presentation() -> void:
 		if seated:
 			var vehicle: VehicleMotion = _vehicle_replicator.vehicle_for_entity(int(binding.id))
 			_local_rig().bind_vehicle(vehicle)
+			_local_rig().set_vehicle_input_enabled(
+				_client.local_input_enabled and _lifecycle.is_alive(participant_id)
+			)
 		elif _context.is_host:
 			_local_rig().bind_actor(actor)
 			_local_rig().set_actor_control_enabled(_lifecycle.is_alive(participant_id))
@@ -2193,7 +2346,7 @@ func _set_actor_alive(participant_id: int, alive: bool) -> void:
 		_local_rig().set_actor_control_enabled(alive and not seated)
 	else:
 		_client.input_open = alive and bool(_client.grant_received)
-		_local_rig().set_replica_input_enabled(_client.input_open and not seated)
+		_local_rig().set_replica_input_enabled(_client.input_open)
 
 
 ## Binds PlayerLifecycle as both the life owner and joined-client roster authority.
@@ -2245,15 +2398,28 @@ func _follow_local_control_display() -> void:
 
 ## Samples, predicts, and submits exactly one local frame per fixed physics tick.
 func _sample_predict_and_submit_local_input(delta_seconds: float) -> void:
-	if not _vehicle_replicator.binding_for_participant(
-		_context.local_participant_id
-	).is_empty():
+	if _sample_and_submit_local_vehicle_input(delta_seconds):
 		return
 	var input: DesktopFootInput = _local_input()
 	if input == null:
 		return
 	var command: FootCommand = input.sample(_sequence.physics_tick)
 	predict_and_submit_local_command(command, delta_seconds)
+
+
+## Routes saved desktop drive intent through client prediction or the host-local queue.
+func _sample_and_submit_local_vehicle_input(delta_seconds: float) -> bool:
+	var participant_id: int = int(_context.local_participant_id)
+	if _vehicle_replicator.binding_for_participant(participant_id).is_empty():
+		return false
+	var command: DriveCommand = _local_rig().sample_vehicle_command()
+	if command == null:
+		return true
+	if _context.is_host:
+		submit_host_local_vehicle_command(command)
+	else:
+		predict_and_submit_local_vehicle_command(command, delta_seconds)
+	return true
 
 
 ## Updates local correction decay and each passive remote presentation.

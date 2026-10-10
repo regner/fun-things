@@ -42,6 +42,32 @@ func test_host_confirmed_entry_accepts_without_mutating_rejection() -> void:
 	assert_eq(actor.global_transform, driver_seat.global_transform)
 
 
+## Rejects a blocked chosen entry without changing body, presentation, or occupancy.
+func test_blocked_entry_is_atomic() -> void:
+	await _configure([1])
+	var descriptor: Dictionary = _descriptor(0)
+	var vehicle: VehicleMotion = _replicator.vehicle_for_entity(int(descriptor.id))
+	var actor: ActorMotion = _actors[1]
+	actor.global_position = _entry_position(vehicle)
+	var before_transform: Transform3D = actor.global_transform
+	var before_layer: int = actor.collision_layer
+	var before_mask: int = actor.collision_mask
+	var presentation: Node3D = actor.get_node("PresentationAnchor") as Node3D
+	_exit_blocked = true
+
+	var rejected: Dictionary = _interaction.try_enter(
+		1, _player_ref(1), _vehicle_ref(descriptor), _context(), 1
+	)
+	assert_eq(rejected.failure, &"ENTRY_BLOCKED")
+	assert_eq(actor.global_transform, before_transform)
+	assert_eq(actor.collision_layer, before_layer)
+	assert_eq(actor.collision_mask, before_mask)
+	assert_true(presentation.visible)
+	assert_true(_replicator.binding_for_participant(1).is_empty())
+	assert_eq(_replicator.driver_for_entity(int(descriptor.id)), 0)
+	_exit_blocked = false
+
+
 ## Sorts reversed same-tick requests by participant so exactly one claimant wins.
 func test_same_tick_claim_has_one_deterministic_winner() -> void:
 	await _configure([1, 2])
@@ -62,6 +88,44 @@ func test_same_tick_claim_has_one_deterministic_winner() -> void:
 	var duplicate: Dictionary = _interaction.enqueue_action(_entry_request(1, descriptor, 1, 20))
 	assert_eq(duplicate.cached_result, resolved[0].result)
 	assert_eq(_replicator.driver_for_entity(int(descriptor.id)), 1)
+
+
+## Gives each participant an independent queue and resolves at most four each tick.
+func test_action_queue_is_participant_scoped_rate_limited_and_fair() -> void:
+	await _configure([1, 2])
+	var descriptor: Dictionary = _descriptor(0)
+	var vehicle: VehicleMotion = _replicator.vehicle_for_entity(int(descriptor.id))
+	_actors[1].global_position = _entry_position(vehicle)
+	_actors[2].global_position = _entry_position(vehicle)
+	for sequence: int in range(1, 9):
+		assert_true(_interaction.enqueue_action(_entry_request(1, descriptor, sequence, 20)).ok)
+		assert_true(_interaction.enqueue_action(_entry_request(2, descriptor, sequence, 20)).ok)
+
+	var first_tick: Array[Dictionary] = _interaction.process_actions(20)
+	assert_eq(first_tick.size(), 8)
+	assert_eq(
+		first_tick.filter(func(row: Dictionary) -> bool: return row.participant_id == 1).size(),
+		4,
+	)
+	assert_eq(
+		first_tick.filter(func(row: Dictionary) -> bool: return row.participant_id == 2).size(),
+		4,
+	)
+	assert_eq(_interaction.process_actions(20).size(), 8)
+
+	var next_sequence: int = 9
+	while next_sequence <= 32:
+		var queued: Dictionary = _interaction.enqueue_action(
+			_entry_request(1, descriptor, next_sequence, 20)
+		)
+		if queued.ok:
+			_interaction.process_actions(20)
+		next_sequence += 1
+	assert_eq(
+		_interaction.enqueue_action(_entry_request(1, descriptor, 33, 20)).failure,
+		&"RATE_LIMIT",
+	)
+	assert_true(_interaction.enqueue_action(_entry_request(1, descriptor, 33, 80)).ok)
 
 
 ## Retains the full seat transaction for moving and blocked exits, then uses left first.

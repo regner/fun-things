@@ -5,11 +5,13 @@ extends Node
 signal leave_requested
 
 var _client_tick: int = 0
+var _vehicle_tick: int = 0
 var _controlled_actor: ActorMotion
 var _controlled_vehicle: VehicleMotion
 var _actor_control_enabled: bool = false
 
 @onready var _input: DesktopFootInput = $Input as DesktopFootInput
+@onready var _drive_input: DesktopDriveInput = $DriveInput as DesktopDriveInput
 @onready var _camera_anchor: Node3D = $CameraAnchor as Node3D
 @onready var _camera: Camera3D = $CameraAnchor/Camera3D as Camera3D
 @onready var _hud: Hud = get_node("UI/HUD") as Hud
@@ -19,6 +21,7 @@ var _actor_control_enabled: bool = false
 func _ready() -> void:
 	set_physics_process(false)
 	_input.set_focused(false)
+	_drive_input.set_focused(false)
 
 
 ## Releases held intent before this local process-owned rig leaves the match tree.
@@ -63,6 +66,7 @@ func bind_actor(actor: ActorMotion) -> bool:
 	_actor_control_enabled = true
 	_input.bind_aim(_camera, actor)
 	_input.set_focused(get_window().has_focus())
+	_drive_input.set_focused(false)
 	_hud.bind_player(actor)
 	_follow_controlled_actor()
 	set_physics_process(true)
@@ -82,6 +86,7 @@ func bind_replica_actor(actor: ActorMotion) -> bool:
 	_actor_control_enabled = false
 	set_physics_process(false)
 	_input.set_focused(get_window().has_focus())
+	_drive_input.set_focused(false)
 	_follow_controlled_actor()
 	return true
 
@@ -100,14 +105,24 @@ func bind_vehicle(vehicle: VehicleMotion) -> bool:
 	if is_instance_valid(_controlled_actor):
 		_controlled_actor.neutralize()
 	_controlled_vehicle = vehicle
+	reset_vehicle_command_sequence()
+	_drive_input.set_focused(get_window().has_focus())
 	follow_vehicle_display(vehicle)
 	return true
+
+
+## Gates the saved drive collector without changing confirmed vehicle ownership.
+func set_vehicle_input_enabled(enabled: bool) -> void:
+	_drive_input.set_focused(
+		enabled and is_instance_valid(_controlled_vehicle) and get_window().has_focus()
+	)
 
 
 ## Enables or neutralizes standalone authority while retaining dead-state HUD presence.
 func set_actor_control_enabled(enabled: bool) -> void:
 	_actor_control_enabled = enabled and is_instance_valid(_controlled_actor)
 	_input.set_focused(_actor_control_enabled and get_window().has_focus())
+	_drive_input.set_focused(false)
 	if is_instance_valid(_controlled_actor) and not _actor_control_enabled:
 		_controlled_actor.neutralize()
 
@@ -116,9 +131,11 @@ func set_actor_control_enabled(enabled: bool) -> void:
 func set_replica_input_enabled(enabled: bool) -> void:
 	_actor_control_enabled = false
 	set_physics_process(false)
+	var focused: bool = enabled and get_window().has_focus()
 	_input.set_focused(
-		enabled and is_instance_valid(_controlled_actor) and get_window().has_focus()
+		focused and is_instance_valid(_controlled_actor) and _controlled_vehicle == null
 	)
+	_drive_input.set_focused(focused and is_instance_valid(_controlled_vehicle))
 	if is_instance_valid(_controlled_actor) and not enabled:
 		_controlled_actor.neutralize()
 
@@ -128,11 +145,27 @@ func unbind_actor() -> void:
 	set_physics_process(false)
 	_actor_control_enabled = false
 	_input.set_focused(false)
+	_drive_input.set_focused(false)
 	_hud.unbind_player()
 	if is_instance_valid(_controlled_actor):
 		_controlled_actor.neutralize()
 	_controlled_actor = null
 	_controlled_vehicle = null
+	reset_vehicle_command_sequence()
+
+
+## Samples vehicle intent only while an authoritative descriptor confirms local control.
+func sample_vehicle_command() -> DriveCommand:
+	if not is_instance_valid(_controlled_vehicle):
+		return null
+	_vehicle_tick += 1
+	return _drive_input.sample(_vehicle_tick)
+
+
+## Restarts command numbering after a reliable vehicle control-revision transition.
+func reset_vehicle_command_sequence() -> void:
+	_vehicle_tick = 0
+	_drive_input.reset_sequence()
 
 
 ## Injects the process session owner into the HUD's read-only presentation seam.

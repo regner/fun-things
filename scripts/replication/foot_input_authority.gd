@@ -23,6 +23,32 @@ func grant(participant_id: int) -> void:
 	_last_recovery_attempt_msec[participant_id] = -RECOVERY_COOLDOWN_MSEC
 
 
+## Reports whether a seat transfer can advance one admitted participant without wrapping.
+func can_rebind(participant_id: int) -> bool:
+	return (
+		_queues.has(participant_id)
+		and int(_epoch_by_participant.get(participant_id, 0))
+		< FootCommandCodec.MAX_INPUT_EPOCH
+	)
+
+
+## Advances one seat-transfer epoch and clears all pre-transfer held foot intent.
+func rebind(participant_id: int) -> int:
+	if not can_rebind(participant_id):
+		return 0
+	var epoch: int = int(_epoch_by_participant[participant_id]) + 1
+	_epoch_by_participant[participant_id] = epoch
+	_recovery_authorized[participant_id] = false
+	var queue: FootInputQueue = _queues[participant_id]
+	queue.clear()
+	return epoch
+
+
+## Returns the current command epoch for reliable control-transfer hydration.
+func input_epoch(participant_id: int) -> int:
+	return int(_epoch_by_participant.get(participant_id, 0))
+
+
 ## Removes all retained input state for one departing participant.
 func remove(participant_id: int) -> void:
 	_queues.erase(participant_id)
