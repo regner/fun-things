@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://c0hft1mylgteu"]
+
+[ext_resource type="PackedScene" uid="uid://n0ff4sbev2v0" path="res://art/models/environment/d03_community_graphics_02/d03_community_graphics_02.glb" id="1_model"]
+[ext_resource type="Material" uid="uid://dvivfomn1m76m" path="res://art/materials/environment/d03_community_graphics_02/entrance_01.tres" id="2_artwork"]
+
+[node name="D03CommunityGraphics02" type="Node3D" unique_id=259885101]
+
+[node name="Visuals" type="Node3D" parent="." unique_id=562292114]
+
+[node name="Model" parent="Visuals" unique_id=472855517 instance=ExtResource("1_model")]
+
+[node name="D03CommunityGraphics02_Mesh" parent="Visuals/Model/D03CommunityGraphics02" parent_id_path=PackedInt32Array(472855517, 939878040) index="0" unique_id=2003069360]
+surface_material_override/0 = ExtResource("2_artwork")
+
+[editable path="Visuals/Model"]

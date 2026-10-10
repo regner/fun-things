@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://dg4uhkyaumenh"]
+
+[ext_resource type="PackedScene" uid="uid://c2c862t4dwn35" path="res://scenes/prefabs/environment/d03_apartment_family_08.tscn" id="1_bay"]
+[ext_resource type="PackedScene" uid="uid://c0hft1mylgteu" path="res://scenes/prefabs/environment/d03_community_graphics_02.tscn" id="2_plaque"]
+
+[node name="EntranceMountCheck" type="Node3D" unique_id=256600555]
+
+[node name="Bay" parent="." unique_id=1856526233 instance=ExtResource("1_bay")]
+
+[node name="Plaque" parent="." unique_id=813649909 instance=ExtResource("2_plaque")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.785, 1.85, -6)

@@ -1,0 +1,21 @@
+FINAL CHECKS: d03_community_graphics.02
+Original four-number Pillow artwork: three independent tests pass; PNGs byte-identical.
+Pinned Blender source/export validator and four-view preview exited 0.
+156 triangles, 80 source / 280 GLB vertices, 1 mesh / 2 surfaces.
+Zero degenerates/nonmanifold edges; unit normals, literal AABB and upright UVs pass.
+Fresh saved-source GLB re-export is byte-identical; all shared payloads unchanged.
+Four 1280x720 RGB evidence renders inspected; every render below 400 KiB.
+Final pinned import and two fresh resource checks exited 0, no ERROR/SCRIPT ERROR lines.
+Two complete byte-stable scene/material roundtrips; fresh-process initial bytes stable.
+Header/dependency UIDs and node identities resolve; one identity-transform linked model.
+Four actual material options affect face slot 0 only; all imported RGB8 mip chains pass.
+Mounted plaque has 55 mm pier-side clearances; zero added collision, one existing wall box.
+Python syntax, gdstyle format and 100-column zero-warning lint pass.
+Initial test reproduction omitted PNG format on a BytesIO stream; fixed explicitly.
+Initial lint flagged two allocations in loops; extracted scene repack and reused config.
+Initial authoring shell payload was truncated; completed the test file before running it.
+No failed attempt is treated as passing, and no diagnostics were suppressed.
+Blender emits its pinned use_nodes future-removal warning.
+No production_checks.py, live-editor access, sibling edits or gameplay changes.
+Final engine warnings:
+WARNING: [MCP] Godot 4.8 detected - latest tested version is 4.7.0. The plugin will run normally but some features may behave unexpectedly. Please report issues at https://github.com/NPGameDev/godot-mcp-toolkit/issues

@@ -1,0 +1,216 @@
+{
+  "asset_id": "d03_community_graphics.02",
+  "status": "PASS",
+  "blender": "5.2.2 LTS",
+  "build": "d13f752e3b9c",
+  "exporter": "5.2.40",
+  "source": {
+    "bytes": 100488,
+    "sha256": "f3a6145195ec3d2f845ddb96df890662755ac71355e5680af95a881e4b3e2a44"
+  },
+  "glb": {
+    "bytes": 12148,
+    "sha256": "7a1fe35d2ec318d4b07b09689b02b92e57e5d0f4dda46f3ac8c10d07ff753e4a"
+  },
+  "dependencies": {
+    "tools/asset_production/d03_court_graphics_02/validate.py": {
+      "bytes": 10371,
+      "sha256": "fefb089ba6ef853c5af005ab7eeb5bd72edb97279794a39d1cae2124b0573413"
+    },
+    "tools/asset_production/d03_court_graphics_02/author.py": {
+      "bytes": 7844,
+      "sha256": "3e0c367b3c8fdcafdb382ce6c878765c986a9d028954d893fa0d9c8bb02487f8"
+    },
+    "tools/asset_production/d03_court_graphics_02/artwork.py": {
+      "bytes": 3745,
+      "sha256": "e295299e897bc2630c8d1d342d8d9cc37338b04a4e24408e30f2329a914fffd1"
+    },
+    "tools/assets/blender/export_settings.json": {
+      "bytes": 646,
+      "sha256": "33ded3c83616fba6573848dda1f0ea3fc7ae7f4c98257fc867dca3bbe35ff9ec"
+    },
+    "art/source/models/environment/d03_apartment_family_08/d03_apartment_family_08.blend": {
+      "bytes": 153445,
+      "sha256": "8b135aa7ad453005868d37e513d4f7db2d684d63ef47c54ab7f0dfd057cf3d51"
+    },
+    "art/models/environment/d03_apartment_family_08/d03_apartment_family_08.glb": {
+      "bytes": 82996,
+      "sha256": "dd57a82732fba60234593432922760640dc8e52632fdcad19f0dacb020bb5c0b"
+    },
+    "scenes/prefabs/environment/d03_apartment_family_08.tscn": {
+      "bytes": 875,
+      "sha256": "5be01f3621ad5caf3a3d26c7d432296f3bad77c742cfae74c5266dbe67ad8207"
+    }
+  },
+  "source_vertices": 80,
+  "glb_vertices": 280,
+  "triangles": 156,
+  "meshes": 1,
+  "surfaces": 2,
+  "degenerate_faces": 0,
+  "degenerate_glb_triangles": 0,
+  "nonmanifold_edges": 0,
+  "unit_source_export_normals": true,
+  "aabb": {
+    "min": [
+      -0.2800000011920929,
+      -0.20000000298023224,
+      -0.03200000151991844
+    ],
+    "max": [
+      0.2800000011920929,
+      0.20000000298023224,
+      -0.0
+    ]
+  },
+  "dimensions_m": [
+    0.56,
+    0.4,
+    0.032
+  ],
+  "pivot": [
+    0,
+    0,
+    0
+  ],
+  "pivot_type": "wall-back centre",
+  "face_slot": 0,
+  "upright_unmirrored_uv": true,
+  "fresh_reexport_byte_identical": true,
+  "shared_dependencies_unchanged": true,
+  "artwork": {
+    "ok": true,
+    "tests": 3,
+    "byte_identical_reproduction": true,
+    "textures": {
+      "01": {
+        "bytes": 6055,
+        "sha256": "90e17c22aca4b281bf8547a06a8a7744cbd346747887b101f7f6bd601e705ae1"
+      },
+      "02": {
+        "bytes": 8547,
+        "sha256": "f9d9e0ecb86a15dadda3cf1f2e0d3c7f7bbc461e0f773a9513584cd5476b6882"
+      },
+      "03": {
+        "bytes": 9776,
+        "sha256": "408a875b8ad55446e2edbe30d94d9cdc554f913ff326f94154f97819d8ec1906"
+      },
+      "04": {
+        "bytes": 7002,
+        "sha256": "75f6422ce1b0daf595645ce58da59466f036a502de65362fb755758392d22eb7"
+      }
+    }
+  },
+  "engine": {
+    "engine": "4.8-dev7 (official)",
+    "face_material_options_checked": 4,
+    "failures": [],
+    "four_textures_cpu_bytes_with_mips": 895704,
+    "mounted_aabb": {
+      "max": "(1.065, 2.05, -6.0)",
+      "min": "(0.505, 1.65, -6.032)"
+    },
+    "ok": true,
+    "pier_edge_clearance_m": [
+      0.0549999952316284,
+      0.0549999427795411
+    ]
+  },
+  "roundtrip": {
+    "engine": "4.8-dev7 (official)",
+    "face_material_options_checked": 4,
+    "failures": [],
+    "four_textures_cpu_bytes_with_mips": 895704,
+    "fresh_process_initial_byte_stable": true,
+    "mounted_aabb": {
+      "max": "(1.065, 2.05, -6.0)",
+      "min": "(0.505, 1.65, -6.032)"
+    },
+    "ok": true,
+    "pier_edge_clearance_m": [
+      0.0549999952316284,
+      0.0549999427795411
+    ],
+    "resource_hashes": {
+      "res://art/materials/environment/d03_community_graphics_02/entrance_01.tres": "265e5fefcad2594fc56e854ae3841f2421c397abb1361a6f03a9f096925cf4cf",
+      "res://art/materials/environment/d03_community_graphics_02/entrance_02.tres": "aa0c2a46114f8159309607254b92eeb2264ce5844e5e8fe51162d7152f083754",
+      "res://art/materials/environment/d03_community_graphics_02/entrance_03.tres": "408f709f57b3dd91a6b9c01a27db966948bee89d14658cd33b88ed868b2257a3",
+      "res://art/materials/environment/d03_community_graphics_02/entrance_04.tres": "3422a173838063ec92c50b13201764fdcb35ba3ea071179eb96f85fe01624986",
+      "res://scenes/prefabs/environment/d03_community_graphics_02.tscn": "cd58fb673bfeeeef7e72659b6b8ed3a7e78812451aa52b4bb3cc36cdacd1aee8",
+      "res://tools/asset_production/d03_community_graphics_02/check_scene.tscn": "f0b1e1187ec6fdfceb03a41ac53a97871204ee107522a3cdb7d10570ab580478"
+    },
+    "roundtrip_1_byte_stable": true,
+    "roundtrip_2_byte_stable": true
+  },
+  "second_fresh_process_receipt_identical": true,
+  "checks": {
+    "final_import_error_lines": [],
+    "runtime_error_lines": [],
+    "warnings": [
+      "WARNING: [MCP] Godot 4.8 detected - latest tested version is 4.7.0. The plugin will run normally but some features may behave unexpectedly. Please report issues at https://github.com/NPGameDev/godot-mcp-toolkit/issues"
+    ],
+    "python_compile": "PASS",
+    "gdstyle_format": "PASS",
+    "gdstyle_lint": "PASS: zero warnings",
+    "production_checks_run": false
+  },
+  "visual_self_review": {
+    "renders_inspected": [
+      {
+        "file": "hero.png",
+        "dimensions": [
+          1280,
+          720
+        ],
+        "bytes": 285476,
+        "sha256": "7bd100a10941f6daefb92b20f6b385fde9b5b87925dbeb76369f8e1ede3b53f4"
+      },
+      {
+        "file": "side.png",
+        "dimensions": [
+          1280,
+          720
+        ],
+        "bytes": 227352,
+        "sha256": "7ae8c405041effd78c844ec56c9f199a35eca55bbc7641e921c79dd009153bb7"
+      },
+      {
+        "file": "detail.png",
+        "dimensions": [
+          1280,
+          720
+        ],
+        "bytes": 102438,
+        "sha256": "e944423ded7827a75c5e72b691c014bc76c4384888e6e0ffabecb18c3981c9a9"
+      },
+      {
+        "file": "overhead_47m_42deg.png",
+        "dimensions": [
+          1280,
+          720
+        ],
+        "bytes": 198550,
+        "sha256": "9606650fa3889e2688e6b5036f8ab273c038f52f9f7a907016eedc5c25925487"
+      }
+    ],
+    "renderer": "Blender Cycles CPU, 32 samples, AgX",
+    "encoding": "RGB8 PNG compression 95; no dithering or post-quantization",
+    "overhead": {
+      "position_blender_m": [
+        0,
+        0,
+        47
+      ],
+      "vertical_fov_degrees": 42,
+      "north_up": true,
+      "projection": "perspective"
+    },
+    "observation": "Four upright, distinct numbers use quiet teal/ivory and one coral accent. Hero and side show the plaque fitting the pier with no overlap. The isolated four-option detail is a swatch review, not world placement. Overhead the building top occludes the vertical plaque; no essential navigation or overhead-readable number is claimed.",
+    "godot_gameplay_visual_acceptance": false
+  },
+  "remaining_acceptance": [
+    "Independent technical/art review and provisional four-number set",
+    "World placement, actual Godot views and moving-camera mip review",
+    "Packaged dependencies, repeat cost and target-device performance"
+  ]
+}
