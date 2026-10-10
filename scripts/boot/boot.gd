@@ -17,8 +17,10 @@ var _match: Node3D
 
 @onready var _session: SessionService = $Session
 @onready var _enet_transport: ENetTransport = $Session/ENetTransport
+@onready var _local_settings: LocalSettings = $LocalSettings
 @onready var _main_menu: MainMenu = $View/MainMenu
 @onready var _session_status: SessionStatus = $View/SessionStatus
+@onready var _settings_menu: SettingsMenu = $View/SettingsMenu
 
 
 ## Binds authored children and optionally starts a bounded shell smoke.
@@ -27,16 +29,24 @@ func _ready() -> void:
 	if not registration.get("ok", false):
 		_smoke_failures.append("ENet transport registration failed")
 
+	var settings_error: Error = _local_settings.load_settings()
+	if not _settings_menu.configure(_local_settings):
+		_smoke_failures.append("Settings owner injection failed")
+
 	_session.changed.connect(_on_session_changed)
 	_session.completed.connect(_on_session_completed)
 	_session.standalone_started.connect(_on_standalone_started)
 	_main_menu.standalone_requested.connect(_on_standalone_requested)
 	_main_menu.host_requested.connect(_on_host_requested)
 	_main_menu.join_requested.connect(_on_join_requested)
+	_main_menu.settings_requested.connect(_on_settings_requested)
 	_main_menu.quit_requested.connect(_on_quit_requested)
 	_session_status.primary_requested.connect(_on_status_primary_requested)
 	_session_status.back_requested.connect(_on_status_back_requested)
+	_settings_menu.closed.connect(_on_settings_closed)
 	_main_menu.show_main()
+	if settings_error != OK:
+		_main_menu.show_feedback("Could not load settings. Safe defaults are active.")
 	_session_status.present(_session.view())
 	_print_export_boot()
 	var arguments: PackedStringArray = OS.get_cmdline_user_args()
@@ -178,6 +188,20 @@ func _on_session_completed(_operation_id: int, result: Dictionary) -> void:
 	if failure.get("code", &"") == &"CANCELED":
 		_session_status.visible = false
 		_main_menu.show_main()
+
+
+## Opens the injected settings view while Boot remains the only sibling coordinator.
+func _on_settings_requested() -> void:
+	_main_menu.visible = false
+	_session_status.visible = false
+	if not _settings_menu.open():
+		_main_menu.show_main()
+		_main_menu.show_feedback("Settings are unavailable.")
+
+
+## Restores the main menu after save or cancellation closes settings.
+func _on_settings_closed() -> void:
+	_main_menu.show_main()
 
 
 ## Exits through the Boot lifetime owner rather than from a reusable menu child.

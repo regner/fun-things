@@ -5,6 +5,8 @@
 [ext_resource type="PackedScene" path="res://scenes/ui/main_menu.tscn" id="3_menu"]
 [ext_resource type="PackedScene" path="res://scenes/ui/session_status.tscn" id="4_status"]
 [ext_resource type="Script" path="res://scripts/session/enet_transport.gd" id="5_enet"]
+[ext_resource type="Script" path="res://scripts/settings/local_settings.gd" id="6_settings"]
+[ext_resource type="PackedScene" path="res://scenes/ui/settings_menu.tscn" id="7_settings_ui"]
 
 [node name="Boot" type="Node"]
 process_mode = 3
@@ -15,6 +17,9 @@ script = ExtResource("2_session")
 
 [node name="ENetTransport" type="Node" parent="Session"]
 script = ExtResource("5_enet")
+
+[node name="LocalSettings" type="Node" parent="."]
+script = ExtResource("6_settings")
 
 [node name="View" type="Control" parent="."]
 layout_mode = 3
@@ -27,3 +32,5 @@ grow_vertical = 2
 [node name="MainMenu" parent="View" instance=ExtResource("3_menu")]
 
 [node name="SessionStatus" parent="View" instance=ExtResource("4_status")]
+
+[node name="SettingsMenu" parent="View" instance=ExtResource("7_settings_ui")]
