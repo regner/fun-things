@@ -1,0 +1,139 @@
+{
+  "asset_id": "d04_corporate_graphics.01",
+  "blender": "5.2.2 LTS",
+  "build_hash": "d13f752e3b9c",
+  "exporter": "5.2.40",
+  "source_objects": [
+    {
+      "name": "D04CorporateGraphics01_Hardware",
+      "vertices": 752,
+      "triangles": 1472,
+      "nonmanifold_edges": 0,
+      "degenerate_faces": 0,
+      "unit_normals": true,
+      "slots": [
+        "glassward_frame",
+        "recess_gasket",
+        "mount_metal"
+      ]
+    },
+    {
+      "name": "D04CorporateGraphics01_ArtworkCarrier",
+      "vertices": 96,
+      "triangles": 188,
+      "nonmanifold_edges": 0,
+      "degenerate_faces": 0,
+      "unit_normals": true,
+      "slots": [
+        "sign_face",
+        "mount_metal"
+      ]
+    }
+  ],
+  "source_vertices": 848,
+  "source_triangles": 1660,
+  "degenerate_faces": 0,
+  "nonmanifold_edges": 0,
+  "unit_normals": true,
+  "glb": {
+    "vertices": 1007,
+    "triangles": 1660,
+    "meshes": 2,
+    "surfaces": 5,
+    "bytes": 47136,
+    "sha256": "d3fff40c9b3e1c9c17db86cd96fcf85302cebdedf7f7800537f16f107753209b",
+    "degenerate_triangles": 0,
+    "unit_normals": true,
+    "outward_winding": true,
+    "front_uv_vertices_checked": 4,
+    "front_uv_upright_unmirrored": true
+  },
+  "fresh_reexport_byte_identical": true,
+  "face_visibility_rays": 15,
+  "aabb_min_godot": [
+    -2.8,
+    -2,
+    -0.14
+  ],
+  "aabb_max_godot": [
+    2.8,
+    2,
+    0
+  ],
+  "dimensions_m": [
+    5.6,
+    4,
+    0.14
+  ],
+  "pivot": "Wall-contact centre; Blender +Y / Godot -Z front",
+  "face_dimensions_m": [
+    5.36,
+    3.76
+  ],
+  "status": "PASS",
+  "engine": {
+    "artwork_surfaces": 1,
+    "engine": "4.8-dev7 (official)",
+    "identity_model_transform": true,
+    "material_uid": "uid://b0vr1lylht20n",
+    "meshes": 2,
+    "model_uid": "uid://isn6kv2bi63t",
+    "no_collision": true,
+    "prefab_uid": "uid://dqdhvxlyyv7gf",
+    "stable_roundtrips": 0,
+    "status": "PASS",
+    "surfaces": 5
+  },
+  "normalization": {
+    "artwork_surfaces": 1,
+    "engine": "4.8-dev7 (official)",
+    "identity_model_transform": true,
+    "material_uid": "uid://b0vr1lylht20n",
+    "meshes": 2,
+    "model_uid": "uid://isn6kv2bi63t",
+    "no_collision": true,
+    "prefab_uid": "uid://dqdhvxlyyv7gf",
+    "stable_roundtrips": 2,
+    "status": "PASS",
+    "surfaces": 5
+  },
+  "artwork_tests_passed": 4,
+  "render_evidence": [
+    {
+      "name": "hero.png",
+      "size": [
+        1280,
+        720
+      ],
+      "bytes": 168404
+    },
+    {
+      "name": "side.png",
+      "size": [
+        1280,
+        720
+      ],
+      "bytes": 170905
+    },
+    {
+      "name": "detail.png",
+      "size": [
+        1280,
+        720
+      ],
+      "bytes": 198510
+    },
+    {
+      "name": "overhead_47m_42deg.png",
+      "size": [
+        1280,
+        720
+      ],
+      "bytes": 16134
+    }
+  ],
+  "final_import_no_errors": true,
+  "engine_load_no_errors": true,
+  "new_gameplay_or_collision": false,
+  "validation_policy": "Owner decision 52: asset-scoped checks only"
+}

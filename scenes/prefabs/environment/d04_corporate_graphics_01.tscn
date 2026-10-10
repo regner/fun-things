@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://dqdhvxlyyv7gf"]
+
+[ext_resource type="PackedScene" uid="uid://isn6kv2bi63t" path="res://art/models/environment/d04_corporate_graphics_01/d04_corporate_graphics_01.glb" id="1_model"]
+
+[node name="D04CorporateGraphics01" type="Node3D" unique_id=1803533872]
+
+[node name="Visuals" type="Node3D" parent="." unique_id=848934935]
+
+[node name="Model" parent="Visuals" unique_id=786790177 instance=ExtResource("1_model")]
