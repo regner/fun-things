@@ -10,9 +10,10 @@ geometry, generated-image textures or paid sources.
 
 ## Design and dimensions
 
-Quiet, matte, low-chroma brown loam with three unequal, broad earthen washes. Base sRGB
-reference **(105,91,78), #695B4E**; actual albedo ranges R **101–108**, G **87–94**, B **75–81**.
-No channel varies by more than seven code values. No gritty soil grains, cracks, mulch specks,
+Quiet, matte, low-chroma brown loam with three heavily flattened, unequal earthen washes. Base sRGB
+reference **(105,91,78), #695B4E**; actual albedo ranges R **104–106**, G **90–92**, B **77–78**.
+No channel varies by more than two code values after review retuning. No gritty soil grains,
+cracks, mulch specks,
 raked rows, wet highlights, bump/displacement or hazard-like dark puddles. This is a visual
 soil finish, not a terrain, friction, planting or weather system.
 
@@ -23,7 +24,8 @@ not inferred measurements, new plots or district boundaries. Existing flat groun
 The dark warm soil complements the muted emerald [short grass](city_ground_finishes_04.md),
 cool slate [plaza paving](city_ground_finishes_01.md) and grey-green
 [service concrete](city_ground_finishes_02.md). All three sibling records and overhead outputs
-were read and inspected; none was changed. The shared **4 m repeat / 512 px** interface is retained.
+were read and inspected during initial production; none was changed in that initial pass. The
+shared **4 m repeat / 512 px** interface is retained.
 
 The portable swatch is a review sample, **not a garden floor module for world placement**:
 
@@ -63,7 +65,7 @@ Existing family sample/check conventions are adapted; shared export settings and
 production checks are reused. No shared material-study harness exists; none was added.
 
 Material: opaque/backface-culled, nonmetallic, roughness **0.98**, white albedo multiplier.
-Texture: **512 × 512 RGB sRGB albedo**, **8,234 bytes**, lossless import, mipmaps, repeat and
+Texture: **512 × 512 RGB sRGB albedo**, **2,257 bytes**, lossless import, mipmaps, repeat and
 linear mipmap filtering; automatic 3D compression conversion disabled. No normal, ORM or
 emission texture is needed, so no tangent-normal orientation conversion applies.
 
@@ -108,13 +110,14 @@ sample on an existing floor or add duplicate swatch colliders. No world collisio
   vertical-down perspective, north up. The current 720-pixel cap supersedes the historical
   800-pixel height without changing camera height or vertical FOV.
 - Isolated Blender Cycles CPU, 24 samples, AgX, PNG compression 100, no dithering;
-  **28–73 KB per render**. These are **not Godot screenshots**.
+  **12–61 KB per render**. These are **not Godot screenshots**.
 - Overhead uses 48 temporary linked sample repetitions over 32 × 24 m. Unchanged Coral Courier
   and Latch GLBs are read-only, original-source-backed scale references, never saved or
-  re-exported here. All four final images were visually inspected: broad, very restrained warm
-  variation without hard tile seams or speckles; coral car and ivory/coral person separate
-  from the soil field. A faint broad repeat rhythm remains visible. The tiny true-overhead
-  actor footprint, dark actor/car palettes and moving/shadowed readability need engine review.
+  re-exported here. The revised overhead and a contact sheet of the three other views were
+  visually inspected: a near-uniform warm field replaces the faint broad patch rhythm,
+  without hard tile seams or speckles; the coral car and ivory/coral person remain distinct.
+  Tiny true-overhead actor footprints, other palettes and moving/shadowed readability
+  still need engine review; no authored garden boundary is relied on to mask this change.
 
 [validation.json](city_ground_finishes_05-evidence/validation.json) records **zero degenerate
 faces / zero non-manifold edges**, unit normals, outward winding, exact envelope/UV checks and
@@ -124,8 +127,9 @@ material and passes standalone load/physics checks. Explicit owned-script compil
 plugin-free compiler-mirror load/physics checks also pass without warnings/errors.
 
 Five independent texture tests pass: exact recipe equality, seamless borders, bounded muted
-earth colour, no abrupt grit/crack edges and restrained minified loam variation. Pinned gdstyle
-passes. Canonical production checks **exit 0**: formatting/lint, **all 166 script compilations**,
+earth colour, no abrupt grit/crack edges and a two-code contrast cap at four texture/minified
+scales. Pinned gdstyle
+passes. The **initial production run** exited 0: formatting/lint, **all 166 script compilations**,
 **14 repository Python tests**, GUT import, **all 137 GUT tests / 6,523 assertions**, and the
 negative-test harness. There are **zero aggregate compiler deadline failures** in this run.
 The sibling runs' historical full-suite failures are not attributed to this successful run.
@@ -138,6 +142,41 @@ Pinned Blender material/world APIs emit deprecation warnings; the standalone ver
 reports one tiny unfreed allocation. Source/render/validation processes exit 0 normally.
 The [producer manifest](city_ground_finishes_05-evidence/manifest.json) hashes every delivered
 file except itself. Scratch logs/reexports/mirrors stay outside the repository.
+
+## Review round 1 — P3 repeat suppression
+
+Finding: faint broad soil-repeat rhythm. The original recipe's unequal shapes were still
+recognizable landmarks when repeated; seamless edges alone did not prevent a grid.
+`texture.py` now scales the combined broad variation to **18% of the original amplitude**
+before RGB quantization. Base colour, smooth patch placement, 512 px resolution, 4 m UV0
+interface, material properties and all geometry/collision remain unchanged. No random noise,
+shader, larger tile, scene placement or new surface system was introduced.
+
+The previous minimum-five-code minification expectation was counterproductive for this
+review direction. Tests now cap every channel at **two sRGB codes** at 512, 64, 16 and 8 px
+while preserving exact recipe, border, palette and adjacent-pixel checks. The original
+committed texture fails that cap at all four scales; the replacement passes all five tests.
+This is a regression guard, not a substitute for the revised camera evidence above.
+
+Regenerated the PNG and all four evidence views; reran headless import, two normalization
+roundtrips, standalone and plugin-free-mirror prefab/physics checks, explicit compilation,
+gdstyle, canonical checks and Blender validation/fresh export. Source `.blend`, production
+GLB, material, prefab and import/UID bytes are unchanged: the source already links the
+unpacked external PNG, and fresh GLB export is byte-identical. No source rebuild was needed.
+`validation.json` now also records the exact tested texture SHA-256.
+
+This asset's canonical run exited 0: **166/166 scripts**, **14 Python tests**,
+**137 GUT tests / 6,523 assertions**, GUT import and the negative harness all pass.
+The earlier concrete-associated run exhausted the aggregate compiler deadline (109/166);
+its failure is retained in the concrete record, not hidden by this cumulative pass.
+
+Exact rerun: the commands below from `texture.py` onward, **excluding `author.py`**; the
+existing scratch `checks/` was moved to `review-round-1/checks-before-review/` first.
+One full-project import covered all three changed textures. Raw round-1 logs are in
+`C:/tmp/ft/assets/city_ground_finishes_05/review-round-1/`; the import log is in the concrete directory.
+The final log linked above retains prior results as history and records this pass separately.
+Same-reviewer visual disposition remains pending. Residual periodicity under different
+lighting, camera motion and eventual world placement still needs engine review.
 
 ## Exact reproduction
 
@@ -179,5 +218,5 @@ python "$T/manifest.py"
 Independent technical/art review; actual generated-surface UV integration; saved district
 placement/edging; engine camera motion, shadows and all actor/car palette separation;
 production movement and multiplayer checks if site collision changes; packaged builds,
-sustained GPU/frame pacing and Deck validation. No queue, shared progress/brief, sibling asset,
+sustained GPU/frame pacing and Deck validation. No queue, shared progress/brief,
 project setting, gameplay code, world placement or TODO was changed. No whole-game READY claim.

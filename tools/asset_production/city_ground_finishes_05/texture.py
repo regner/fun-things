@@ -10,6 +10,8 @@ NID = "city_ground_finishes_05"
 OUTPUT = ROOT / f"art/textures/environment/{NID}/quiet_garden_soil_albedo.png"
 SIZE = 512
 TILE_METRES = 4.0
+# Suppress recognizable 4 m landmarks at gameplay height, not the seamless UV interface.
+PATCH_CONTRAST = 0.18
 BASE_SRGB = (105, 91, 78)
 # Metre-scale soft loam variation, not damp hazards, raked rows or individual soil grains.
 # Centre U/V, spread U/V, tone. Periodic distances preserve both repeat boundaries.
@@ -33,6 +35,7 @@ def create_texture():
                 dx = math.sin(math.pi * (u - cx)) / (math.pi * sx)
                 dy = math.sin(math.pi * (v - cy)) / (math.pi * sy)
                 shift += tone * math.exp(-2.0 * (dx * dx + dy * dy))
+            shift *= PATCH_CONTRAST
             pixels.append((round(BASE_SRGB[0] + shift),
                            round(BASE_SRGB[1] + shift),
                            round(BASE_SRGB[2] + shift * 0.8)))

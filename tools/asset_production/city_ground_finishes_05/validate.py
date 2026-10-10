@@ -131,7 +131,9 @@ def main():
         "top_uv_orientation": "U east/+X, V south/+Z; UV0 unit = 4 metres",
         "material": {"roughness": 0.98, "metallic": 0, "opaque": True},
         "texture": {"size": [512, 512], "tile_metres": [4, 4],
-                    "channels": "RGB sRGB albedo", "embedded_images": 0},
+                    "channels": "RGB sRGB albedo", "embedded_images": 0,
+                    "png_sha256": hashlib.sha256(
+                        Path(bpy.path.abspath(image.filepath)).read_bytes()).hexdigest()},
         "fresh_reexport_byte_identical": True,
         "glb_sha256": hashlib.sha256(raw).hexdigest(),
         "source_status": "PASS",
