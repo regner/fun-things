@@ -8129,14 +8129,14 @@
       "input_next_action": "Refine design from district asset breakdown",
       "brief": "[Brief](../../assets/d09_storage.md)",
       "priority": 0,
-      "status": "queued",
-      "agent_id": null,
-      "source_revision": null,
-      "review_status": "pending",
-      "integration_status": "pending",
+      "status": "production_prefab_accepted",
+      "agent_id": "9f25f9b6-7cb7-48f3-9900-1e1ae43b304c",
+      "source_revision": "14b02733",
+      "review_status": "accepted source/export/prefab scope (independent Sol review)",
+      "integration_status": "accepted",
       "placement_status": "pending",
       "blocker": null,
-      "attempts": 0,
+      "attempts": 1,
       "initial_time_cap_minutes": 90,
       "owned_paths": [
         "art/source/models/environment/d09_storage_01/",
@@ -8144,8 +8144,20 @@
         "art/textures/environment/d09_storage_01/",
         "art/materials/environment/d09_storage_01/",
         "docs/assets/production/d09_storage_01.md",
-        "docs/assets/production/d09_storage_01-evidence/"
-      ]
+        "docs/assets/production/d09_storage_01-evidence/",
+        "tools/asset_production/d09_storage_01/",
+        "scenes/prefabs/environment/d09_storage_01.tscn"
+      ],
+      "launch": {
+        "provider": "portkey/gpt-6-astra",
+        "configured_effort": "medium",
+        "mode": "orchestrator asset lane",
+        "lane": "a-storage"
+      },
+      "producer_manifest": "docs/assets/production/d09_storage_01-evidence/manifest.json",
+      "report": "docs/assets/production/d09_storage_01.md",
+      "reviewer_id": "c02635ee-e6dd-4aac-92a8-0500dbc94f0f",
+      "integrated_revision": "484b222c"
     },
     {
       "id": "d09_storage.02",
@@ -8158,14 +8170,14 @@
       "input_next_action": "Refine design from district asset breakdown",
       "brief": "[Brief](../../assets/d09_storage.md)",
       "priority": 0,
-      "status": "queued",
-      "agent_id": null,
-      "source_revision": null,
-      "review_status": "pending",
-      "integration_status": "pending",
+      "status": "production_prefab_accepted",
+      "agent_id": "f05946e5-8fff-433a-8020-83040ebcd9e3",
+      "source_revision": "7a8ee32e",
+      "review_status": "accepted source/export/prefab scope (independent Sol review)",
+      "integration_status": "accepted",
       "placement_status": "pending",
       "blocker": null,
-      "attempts": 0,
+      "attempts": 1,
       "initial_time_cap_minutes": 90,
       "owned_paths": [
         "art/source/models/environment/d09_storage_02/",
@@ -8173,8 +8185,20 @@
         "art/textures/environment/d09_storage_02/",
         "art/materials/environment/d09_storage_02/",
         "docs/assets/production/d09_storage_02.md",
-        "docs/assets/production/d09_storage_02-evidence/"
-      ]
+        "docs/assets/production/d09_storage_02-evidence/",
+        "tools/asset_production/d09_storage_02/",
+        "scenes/prefabs/environment/d09_storage_02.tscn"
+      ],
+      "launch": {
+        "provider": "portkey/gpt-6-astra",
+        "configured_effort": "medium",
+        "mode": "orchestrator asset lane",
+        "lane": "a-storage"
+      },
+      "producer_manifest": "docs/assets/production/d09_storage_02-evidence/manifest.json",
+      "report": "docs/assets/production/d09_storage_02.md",
+      "reviewer_id": "c02635ee-e6dd-4aac-92a8-0500dbc94f0f",
+      "integrated_revision": "484b222c"
     },
     {
       "id": "d09_storage.03",
@@ -8187,14 +8211,14 @@
       "input_next_action": "Refine design from district asset breakdown",
       "brief": "[Brief](../../assets/d09_storage.md)",
       "priority": 0,
-      "status": "queued",
-      "agent_id": null,
-      "source_revision": null,
-      "review_status": "pending",
-      "integration_status": "pending",
+      "status": "production_prefab_accepted",
+      "agent_id": "3d619934-334c-455e-a825-6c91bdae7d65",
+      "source_revision": "84b24414",
+      "review_status": "accepted source/export/prefab scope (independent Sol review)",
+      "integration_status": "accepted",
       "placement_status": "pending",
       "blocker": null,
-      "attempts": 0,
+      "attempts": 1,
       "initial_time_cap_minutes": 90,
       "owned_paths": [
         "art/source/models/environment/d09_storage_03/",
@@ -8202,8 +8226,20 @@
         "art/textures/environment/d09_storage_03/",
         "art/materials/environment/d09_storage_03/",
         "docs/assets/production/d09_storage_03.md",
-        "docs/assets/production/d09_storage_03-evidence/"
-      ]
+        "docs/assets/production/d09_storage_03-evidence/",
+        "tools/asset_production/d09_storage_03/",
+        "scenes/prefabs/environment/d09_storage_03.tscn"
+      ],
+      "launch": {
+        "provider": "portkey/gpt-6-astra",
+        "configured_effort": "medium",
+        "mode": "orchestrator asset lane",
+        "lane": "a-storage"
+      },
+      "producer_manifest": "docs/assets/production/d09_storage_03-evidence/manifest.json",
+      "report": "docs/assets/production/d09_storage_03.md",
+      "reviewer_id": "c02635ee-e6dd-4aac-92a8-0500dbc94f0f",
+      "integrated_revision": "484b222c"
     },
     {
       "id": "d09_storage.04",
@@ -8216,14 +8252,14 @@
       "input_next_action": "Refine design from district asset breakdown",
       "brief": "[Brief](../../assets/d09_storage.md)",
       "priority": 0,
-      "status": "queued",
-      "agent_id": null,
-      "source_revision": null,
-      "review_status": "pending",
-      "integration_status": "pending",
+      "status": "production_prefab_accepted",
+      "agent_id": "d1258f20-1fc3-4d4c-866d-a2b602854858",
+      "source_revision": "484b222c",
+      "review_status": "accepted source/export/prefab scope (independent Sol review)",
+      "integration_status": "accepted",
       "placement_status": "pending",
       "blocker": null,
-      "attempts": 0,
+      "attempts": 1,
       "initial_time_cap_minutes": 90,
       "owned_paths": [
         "art/source/models/environment/d09_storage_04/",
@@ -8231,8 +8267,20 @@
         "art/textures/environment/d09_storage_04/",
         "art/materials/environment/d09_storage_04/",
         "docs/assets/production/d09_storage_04.md",
-        "docs/assets/production/d09_storage_04-evidence/"
-      ]
+        "docs/assets/production/d09_storage_04-evidence/",
+        "tools/asset_production/d09_storage_04/",
+        "scenes/prefabs/environment/d09_storage_04.tscn"
+      ],
+      "launch": {
+        "provider": "portkey/gpt-6-astra",
+        "configured_effort": "medium",
+        "mode": "orchestrator asset lane",
+        "lane": "a-storage"
+      },
+      "producer_manifest": "docs/assets/production/d09_storage_04-evidence/manifest.json",
+      "report": "docs/assets/production/d09_storage_04.md",
+      "reviewer_id": "c02635ee-e6dd-4aac-92a8-0500dbc94f0f",
+      "integrated_revision": "484b222c"
     },
     {
       "id": "d09_freight_graphics.01",
