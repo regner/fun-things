@@ -1,0 +1,612 @@
+{
+  "status": "PASS",
+  "blender": "5.2.2 LTS",
+  "blender_build": "d13f752e3b9c",
+  "gltf_exporter": "5.2.40",
+  "source": {
+    "path": "art/source/models/environment/d03_apartment_family_10/d03_apartment_family_10.blend",
+    "bytes": 106813,
+    "sha256": "b77104997ec797bd92db06c6809a8157ca92ff9f9949dc7c879add4a20b9dc16"
+  },
+  "dimension_tolerance_m": 0.001,
+  "axis_mapping_tolerance_m": 1e-05,
+  "variants": {
+    "straight": {
+      "source_vertices": 32,
+      "triangles": 48,
+      "export_vertices": 96,
+      "mesh_count": 1,
+      "surface_count": 3,
+      "source_degenerate_faces": 0,
+      "nonmanifold_edges": 0,
+      "glb_degenerate_triangles": 0,
+      "maximum_source_normal_error": 5.960464655174746e-08,
+      "glb_unit_normals": true,
+      "godot_aabb_min": [
+        -3.0,
+        3.200000047683716,
+        -6.0
+      ],
+      "godot_aabb_max": [
+        3.0,
+        3.5199999809265137,
+        6.0
+      ],
+      "dimensions_m": [
+        6.0,
+        0.31999993324279785,
+        12.0
+      ],
+      "pivot": [
+        0,
+        0,
+        0
+      ],
+      "structural_footprint_xz": [
+        [
+          -3,
+          -6
+        ],
+        [
+          3,
+          -6
+        ],
+        [
+          3,
+          6
+        ],
+        [
+          -3,
+          6
+        ]
+      ],
+      "core_volume_m3": 14.400001525878903,
+      "connector_corners_exact": true,
+      "top_coverage_area_m2": 72.0,
+      "export": {
+        "path": "art/models/environment/d03_apartment_family_10/d03_apartment_family_10_straight.glb",
+        "bytes": 4956,
+        "sha256": "14fe74d3ecc526f9340d9002a3f4c3eda4017ab4b6a5fd23cd08b3dd69b10989"
+      },
+      "fresh_reexport_byte_identical": true,
+      "materials": [
+        {
+          "name": "terrace_bluegrey_render",
+          "pbrMetallicRoughness": {
+            "baseColorFactor": [
+              0.22322796285152435,
+              0.2917706370353699,
+              0.31398871541023254,
+              1
+            ],
+            "metallicFactor": 0,
+            "roughnessFactor": 0.7599999904632568
+          }
+        },
+        {
+          "name": "terrace_pale_frame",
+          "pbrMetallicRoughness": {
+            "baseColorFactor": [
+              0.5583403706550598,
+              0.5906188488006592,
+              0.520995557308197,
+              1
+            ],
+            "metallicFactor": 0,
+            "roughnessFactor": 0.5299999713897705
+          }
+        },
+        {
+          "name": "terrace_bluegrey_roof",
+          "pbrMetallicRoughness": {
+            "baseColorFactor": [
+              0.08437620848417282,
+              0.14702726900577545,
+              0.19806931912899017,
+              1
+            ],
+            "metallicFactor": 0,
+            "roughnessFactor": 0.800000011920929
+          }
+        }
+      ]
+    },
+    "end": {
+      "source_vertices": 16,
+      "triangles": 24,
+      "export_vertices": 48,
+      "mesh_count": 1,
+      "surface_count": 2,
+      "source_degenerate_faces": 0,
+      "nonmanifold_edges": 0,
+      "glb_degenerate_triangles": 0,
+      "maximum_source_normal_error": 5.960464655174746e-08,
+      "glb_unit_normals": true,
+      "godot_aabb_min": [
+        -0.11999999731779099,
+        3.200000047683716,
+        -6.0
+      ],
+      "godot_aabb_max": [
+        0.11999999731779099,
+        3.5199999809265137,
+        6.0
+      ],
+      "dimensions_m": [
+        0.23999999463558197,
+        0.31999993324279785,
+        12.0
+      ],
+      "pivot": [
+        0,
+        0,
+        0
+      ],
+      "structural_footprint_xz": [
+        [
+          -0.12,
+          -6
+        ],
+        [
+          0.12,
+          -6
+        ],
+        [
+          0.12,
+          6
+        ],
+        [
+          -0.12,
+          6
+        ]
+      ],
+      "core_volume_m3": 0.5759999950726825,
+      "connector_corners_exact": true,
+      "top_coverage_area_m2": 2.879999876022339,
+      "export": {
+        "path": "art/models/environment/d03_apartment_family_10/d03_apartment_family_10_end.glb",
+        "bytes": 2984,
+        "sha256": "d1937b9acc1ef65826dd36467700350904af89ef2b6763ae810ee51f44e74af1"
+      },
+      "fresh_reexport_byte_identical": true,
+      "materials": [
+        {
+          "name": "terrace_bluegrey_render",
+          "pbrMetallicRoughness": {
+            "baseColorFactor": [
+              0.22322796285152435,
+              0.2917706370353699,
+              0.31398871541023254,
+              1
+            ],
+            "metallicFactor": 0,
+            "roughnessFactor": 0.7599999904632568
+          }
+        },
+        {
+          "name": "terrace_pale_frame",
+          "pbrMetallicRoughness": {
+            "baseColorFactor": [
+              0.5583403706550598,
+              0.5906188488006592,
+              0.520995557308197,
+              1
+            ],
+            "metallicFactor": 0,
+            "roughnessFactor": 0.5299999713897705
+          }
+        }
+      ]
+    },
+    "outside": {
+      "source_vertices": 40,
+      "triangles": 64,
+      "export_vertices": 120,
+      "mesh_count": 1,
+      "surface_count": 3,
+      "source_degenerate_faces": 0,
+      "nonmanifold_edges": 0,
+      "glb_degenerate_triangles": 0,
+      "maximum_source_normal_error": 5.960464655174746e-08,
+      "glb_unit_normals": true,
+      "godot_aabb_min": [
+        -6.0,
+        3.200000047683716,
+        -6.0
+      ],
+      "godot_aabb_max": [
+        6.0,
+        3.5199999809265137,
+        6.0
+      ],
+      "dimensions_m": [
+        12.0,
+        0.31999993324279785,
+        12.0
+      ],
+      "pivot": [
+        0,
+        0,
+        0
+      ],
+      "structural_footprint_xz": [
+        [
+          -6,
+          -6
+        ],
+        [
+          6,
+          -6
+        ],
+        [
+          6,
+          6
+        ],
+        [
+          -6,
+          6
+        ]
+      ],
+      "core_volume_m3": 28.800003051757805,
+      "connector_corners_exact": true,
+      "top_coverage_area_m2": 143.99999653175473,
+      "export": {
+        "path": "art/models/environment/d03_apartment_family_10/d03_apartment_family_10_outside.glb",
+        "bytes": 5828,
+        "sha256": "bab39ed0174193b2eb1d7d13959f4331c9320da57cae6c09d3e01c38e457ccad"
+      },
+      "fresh_reexport_byte_identical": true,
+      "materials": [
+        {
+          "name": "terrace_bluegrey_render",
+          "pbrMetallicRoughness": {
+            "baseColorFactor": [
+              0.22322796285152435,
+              0.2917706370353699,
+              0.31398871541023254,
+              1
+            ],
+            "metallicFactor": 0,
+            "roughnessFactor": 0.7599999904632568
+          }
+        },
+        {
+          "name": "terrace_pale_frame",
+          "pbrMetallicRoughness": {
+            "baseColorFactor": [
+              0.5583403706550598,
+              0.5906188488006592,
+              0.520995557308197,
+              1
+            ],
+            "metallicFactor": 0,
+            "roughnessFactor": 0.5299999713897705
+          }
+        },
+        {
+          "name": "terrace_bluegrey_roof",
+          "pbrMetallicRoughness": {
+            "baseColorFactor": [
+              0.08437620848417282,
+              0.14702726900577545,
+              0.19806931912899017,
+              1
+            ],
+            "metallicFactor": 0,
+            "roughnessFactor": 0.800000011920929
+          }
+        }
+      ]
+    },
+    "inside": {
+      "source_vertices": 48,
+      "triangles": 80,
+      "export_vertices": 144,
+      "mesh_count": 1,
+      "surface_count": 3,
+      "source_degenerate_faces": 0,
+      "nonmanifold_edges": 0,
+      "glb_degenerate_triangles": 0,
+      "maximum_source_normal_error": 5.960464655174746e-08,
+      "glb_unit_normals": true,
+      "godot_aabb_min": [
+        -9.0,
+        3.200000047683716,
+        -9.0
+      ],
+      "godot_aabb_max": [
+        9.0,
+        3.5199999809265137,
+        9.0
+      ],
+      "dimensions_m": [
+        18.0,
+        0.31999993324279785,
+        18.0
+      ],
+      "pivot": [
+        0,
+        0,
+        0
+      ],
+      "structural_footprint_xz": [
+        [
+          -9,
+          -9
+        ],
+        [
+          9,
+          -9
+        ],
+        [
+          9,
+          3
+        ],
+        [
+          3,
+          3
+        ],
+        [
+          3,
+          9
+        ],
+        [
+          -9,
+          9
+        ]
+      ],
+      "core_volume_m3": 57.599981307983406,
+      "connector_corners_exact": true,
+      "top_coverage_area_m2": 288.00001043081284,
+      "export": {
+        "path": "art/models/environment/d03_apartment_family_10/d03_apartment_family_10_inside.glb",
+        "bytes": 6252,
+        "sha256": "4f905df6c994489cc08fbb980f43896644a856a75a192bcbff46d2d996929508"
+      },
+      "fresh_reexport_byte_identical": true,
+      "materials": [
+        {
+          "name": "terrace_bluegrey_render",
+          "pbrMetallicRoughness": {
+            "baseColorFactor": [
+              0.22322796285152435,
+              0.2917706370353699,
+              0.31398871541023254,
+              1
+            ],
+            "metallicFactor": 0,
+            "roughnessFactor": 0.7599999904632568
+          }
+        },
+        {
+          "name": "terrace_pale_frame",
+          "pbrMetallicRoughness": {
+            "baseColorFactor": [
+              0.5583403706550598,
+              0.5906188488006592,
+              0.520995557308197,
+              1
+            ],
+            "metallicFactor": 0,
+            "roughnessFactor": 0.5299999713897705
+          }
+        },
+        {
+          "name": "terrace_bluegrey_roof",
+          "pbrMetallicRoughness": {
+            "baseColorFactor": [
+              0.08437620848417282,
+              0.14702726900577545,
+              0.19806931912899017,
+              1
+            ],
+            "metallicFactor": 0,
+            "roughnessFactor": 0.800000011920929
+          }
+        }
+      ]
+    }
+  },
+  "renders": {
+    "resolution": [
+      1280,
+      720
+    ],
+    "compression": 95,
+    "renderer": "Blender Cycles CPU",
+    "samples": 32,
+    "dither_intensity": 0,
+    "overhead_height_m": 47,
+    "vertical_fov_degrees": 42,
+    "presentation_only_x_offsets_m": [
+      -18,
+      -14.88,
+      -5,
+      13
+    ]
+  },
+  "connector_checks": {
+    "actual_glb_profiles": [
+      {
+        "corner": "outside",
+        "cross_section_m": -5.94,
+        "east_top_m": 3.5199999809265137,
+        "south_top_m": 3.5199999809265137,
+        "straight_top_m": 3.5199999809265137
+      },
+      {
+        "corner": "outside",
+        "cross_section_m": -5.5,
+        "east_top_m": 3.4200000762939453,
+        "south_top_m": 3.4200000762939453,
+        "straight_top_m": 3.4200000762939453
+      },
+      {
+        "corner": "outside",
+        "cross_section_m": 0,
+        "east_top_m": 3.4200000762939453,
+        "south_top_m": 3.4200000762939453,
+        "straight_top_m": 3.4200000762939453
+      },
+      {
+        "corner": "outside",
+        "cross_section_m": 5.5,
+        "east_top_m": 3.4200000762939453,
+        "south_top_m": 3.4200000762939453,
+        "straight_top_m": 3.4200000762939453
+      },
+      {
+        "corner": "outside",
+        "cross_section_m": 5.94,
+        "east_top_m": 3.5199999809265137,
+        "south_top_m": 3.5199999809265137,
+        "straight_top_m": 3.5199999809265137
+      },
+      {
+        "corner": "inside",
+        "cross_section_m": -5.94,
+        "east_top_m": 3.5199999809265137,
+        "south_top_m": 3.5199999809265137,
+        "straight_top_m": 3.5199999809265137
+      },
+      {
+        "corner": "inside",
+        "cross_section_m": -5.5,
+        "east_top_m": 3.4200000762939453,
+        "south_top_m": 3.4200003147125244,
+        "straight_top_m": 3.4200000762939453
+      },
+      {
+        "corner": "inside",
+        "cross_section_m": 0,
+        "east_top_m": 3.4200000762939453,
+        "south_top_m": 3.4200003147125244,
+        "straight_top_m": 3.4200000762939453
+      },
+      {
+        "corner": "inside",
+        "cross_section_m": 5.5,
+        "east_top_m": 3.4200000762939453,
+        "south_top_m": 3.4200003147125244,
+        "straight_top_m": 3.4200000762939453
+      },
+      {
+        "corner": "inside",
+        "cross_section_m": 5.94,
+        "east_top_m": 3.5199999809265137,
+        "south_top_m": 3.5199999809265137,
+        "straight_top_m": 3.5199999809265137
+      }
+    ],
+    "straight_repeat_profiles": 3,
+    "end_coping_profiles": 3,
+    "end_thickness_m": 0.24,
+    "inside_notch_preserved": true
+  },
+  "godot": {
+    "end": {
+      "aabb_min": [
+        -0.119999997317791,
+        3.20000004768372,
+        -6.0
+      ],
+      "aabb_size": [
+        0.239999994635582,
+        0.319999933242798,
+        12.0
+      ],
+      "actual_host_footprint_and_roof_seat_match": true,
+      "collision_shape_count": 0,
+      "family_materials_match": true,
+      "linked_model_identity": true,
+      "minimum_underside_m": 3.20000004768372,
+      "model_uid": "uid://dj2owaeyqn0pf",
+      "prefab_uid": "uid://c0xonfdukvxao"
+    },
+    "engine": "4.8-dev7 (official)",
+    "failures": [],
+    "inside": {
+      "aabb_min": [
+        -9.0,
+        3.20000004768372,
+        -9.0
+      ],
+      "aabb_size": [
+        18.0,
+        0.319999933242798,
+        18.0
+      ],
+      "actual_host_footprint_and_roof_seat_match": true,
+      "collision_shape_count": 0,
+      "family_materials_match": true,
+      "linked_model_identity": true,
+      "minimum_underside_m": 3.20000004768372,
+      "model_uid": "uid://bab7pey72nnmx",
+      "prefab_uid": "uid://bgkp4sxegqafx"
+    },
+    "ok": true,
+    "outside": {
+      "aabb_min": [
+        -6.0,
+        3.20000004768372,
+        -6.0
+      ],
+      "aabb_size": [
+        12.0,
+        0.319999933242798,
+        12.0
+      ],
+      "actual_host_footprint_and_roof_seat_match": true,
+      "collision_shape_count": 0,
+      "family_materials_match": true,
+      "linked_model_identity": true,
+      "minimum_underside_m": 3.20000004768372,
+      "model_uid": "uid://bohclkjg2bjx2",
+      "prefab_uid": "uid://bx8s8sulgnaeg"
+    },
+    "roundtrip": {
+      "end": {
+        "byte_stable": true,
+        "normalized_sha256": "77198b2ffdf7359733effe17c6e68da6877dba9c3b956102cfd4c72fb25cd906",
+        "stable_reload_count": 2.0
+      },
+      "engine": "4.8-dev7 (official)",
+      "failures": [],
+      "inside": {
+        "byte_stable": true,
+        "normalized_sha256": "2e65b851cd95c7ea92fb63b01b287846314d1b0258b987c8b954ecbb33995b5e",
+        "stable_reload_count": 2.0
+      },
+      "ok": true,
+      "outside": {
+        "byte_stable": true,
+        "normalized_sha256": "fda39d316ab1d5467f8aa06bbf85cbab573d6a5a5c9f73fed342a429d1b61c3e",
+        "stable_reload_count": 2.0
+      },
+      "straight": {
+        "byte_stable": true,
+        "normalized_sha256": "1e59d39d1f2507c0c78126fe0e9d172bccf9a055af21a9fd64ce57c00f5f967a",
+        "stable_reload_count": 2.0
+      }
+    },
+    "straight": {
+      "aabb_min": [
+        -3.0,
+        3.20000004768372,
+        -6.0
+      ],
+      "aabb_size": [
+        6.0,
+        0.319999933242798,
+        12.0
+      ],
+      "actual_host_footprint_and_roof_seat_match": true,
+      "collision_shape_count": 0,
+      "family_materials_match": true,
+      "linked_model_identity": true,
+      "minimum_underside_m": 3.20000004768372,
+      "model_uid": "uid://cwhnuxssrpg8v",
+      "prefab_uid": "uid://ca2apk3kx5an1"
+    }
+  }
+}

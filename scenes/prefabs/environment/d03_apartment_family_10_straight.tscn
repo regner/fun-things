@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://ca2apk3kx5an1"]
+
+[ext_resource type="PackedScene" uid="uid://cwhnuxssrpg8v" path="res://art/models/environment/d03_apartment_family_10/d03_apartment_family_10_straight.glb" id="1_model"]
+
+[node name="D03ApartmentFamily10Straight" type="Node3D" unique_id=848510905]
+
+[node name="Visuals" type="Node3D" parent="." unique_id=461213252]
+
+[node name="Model" type="Node3D" parent="Visuals" unique_id=1207815420 instance=ExtResource("1_model")]

@@ -1,0 +1,58 @@
+d03_apartment_family.10 — bounded production checks, 10 October 2026
+Working directory: C:/GameDev/git/ft-lanes/a-apart
+NID=d03_apartment_family_10
+TOOLS=tools/asset_production/$NID
+BLENDER=C:/Program Files/Blender Foundation/Blender 5.2/blender.exe
+GODOT=$(mise which godot)
+Scratch logs/exports: C:/tmp/ft/assets/d03_apartment_family_10/
+
+PASS exit 0: ALSOFT_DRIVERS=null SDL_AUDIODRIVER=dummy timeout 900 "$BLENDER" -noaudio --background --factory-startup --threads 4 --python-exit-code 1 --python "$TOOLS/author.py"
+Pin: Blender 5.2.2 LTS d13f752e3b9c, glTF exporter 5.2.40.
+Saved original .blend, four explicit GLBs, four 1280x720 PNGs. All renders inspected.
+Blender emits use_nodes deprecation notices for Blender 6, not failures on this pin.
+
+PASS exit 0: timeout 180 "$GODOT" --headless --editor --path . --script "$TOOLS/check_prefab.gd" -- --normalize
+Each of four wrappers: normalized then two byte-identical reload/pack/save cycles.
+All assertions passed; UIDs and serialized identities preserved.
+Known headless editor shutdown diagnostics (not suppressed):
+ERROR: 5 RID allocations of type 'N16RendererViewport8ViewportE' were leaked at exit.
+ERROR: 8 RID allocations of type 'PN13RendererDummy14TextureStorage12DummyTextureE' were leaked at exit.
+ERROR: 1 RID allocations of type 'N17RendererSceneCull8ScenarioE' were leaked at exit.
+ERROR: 52 RID allocations of type 'PN18TextServerAdvanced22ShapedTextDataAdvancedE' were leaked at exit.
+ERROR: 1 RID allocations of type 'PN18TextServerAdvanced12FontAdvancedE' were leaked at exit.
+WARNING: 5 Canvas RIDs, 31 CanvasItem RIDs and 168 ObjectDB instances leaked at exit.
+The addon warns that this pinned engine version is untested. These diagnostics were
+also recorded by the earlier sibling normalizers; they are not clean-import evidence.
+
+PASS exit 0: timeout 180 "$GODOT" --headless --path . --script "$TOOLS/check_prefab.gd"
+Godot Engine v4.8.dev7.official.c971f93e7.
+Four linked imported models at identity; AABB/material/UID/host mounting checks pass.
+All four minimum undersides 3.20000004768372 m; no body/shape colliders.
+Actual host collider bounds match all four roof footprints and mounting heights.
+Receipt: validation.json.godot; failures=[]; ok=true.
+No ERROR/SCRIPT ERROR lines in final runtime log; no missing dependencies.
+
+PASS exit 0: ALSOFT_DRIVERS=null SDL_AUDIODRIVER=dummy timeout 180 "$BLENDER" -noaudio --background --factory-startup --threads 4 --python-exit-code 1 --python "$TOOLS/validate.py"
+Saved-source reexports of all four GLBs byte-identical.
+Straight/end/outside/inside: 48/24/64/80 triangles; 32/16/40/48 source vertices;
+96/48/120/144 exported vertices; one mesh each; 3/2/3/3 surfaces.
+Zero non-manifold edges, degenerate source faces and degenerate GLB triangles.
+Finite source vertices, unit source/exported normals, identity transforms, exact
+axis bounds, literal connector corners, closed slab volumes and top coverage pass.
+Binary triangle rays: five samples on each east/south connector of both corners
+match straight roof profiles; straight-repeat and end-coping samples pass.
+
+PASS exit 0: timeout 300 "$GODOT" --headless --path . --import
+Final import run after code/prefab completion. No ERROR/SCRIPT ERROR lines.
+Only this asset's own .import/.uid files appeared; sibling sidecars unchanged.
+
+PASS exit 0: mise exec -- gdstyle fmt --check "$TOOLS/check_prefab.gd"
+1 file already formatted.
+PASS exit 0: mise exec -- gdstyle --max-line-length 100 --max-warnings 0 "$TOOLS/check_prefab.gd"
+1 file checked, no issues found.
+Initial lint found one 102-character line; split before the final passing checks.
+
+No production_checks.py, live editor sessions, city placement, graphical Godot
+capture, gameplay/network execution, packaged build or device performance test.
+The roof caps are inaccessible overhead-only decoration; host collision is unchanged.
+Final manifest verification entrypoint: python "$TOOLS/record.py" --check.

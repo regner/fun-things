@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://bgkp4sxegqafx"]
+
+[ext_resource type="PackedScene" uid="uid://bab7pey72nnmx" path="res://art/models/environment/d03_apartment_family_10/d03_apartment_family_10_inside.glb" id="1_model"]
+
+[node name="D03ApartmentFamily10Inside" type="Node3D" unique_id=1120978105]
+
+[node name="Visuals" type="Node3D" parent="." unique_id=1906090731]
+
+[node name="Model" type="Node3D" parent="Visuals" unique_id=1400280642 instance=ExtResource("1_model")]
