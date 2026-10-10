@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://e4ilfnx7pn56" path="res://scripts/world/world_anchor.gd" id="2_anchor"]
 [ext_resource type="PackedScene" uid="uid://c6ogmv4d7i8yn" path="res://scenes/world/brackett_greybox/city.tscn" id="3_city"]
 [ext_resource type="PackedScene" uid="uid://bk8hhplahsqnk" path="res://scenes/local/local_rig.tscn" id="4_local_rig"]
+[ext_resource type="Script" path="res://scripts/replication/match_replication.gd" id="5_replication"]
 
 [node name="Match" type="Node3D"]
 metadata/world_scope = "whole Brackett island greybox"
@@ -25,6 +26,7 @@ metadata/provisional = "pending owner answer to production-plan question 5"
 metadata/area = "Signal Row"
 
 [node name="PlayerSpawns" type="Node3D" parent="Anchors"]
+unique_name_in_owner = true
 
 [node name="Spawn01" type="Marker3D" parent="Anchors/PlayerSpawns"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -84, 0.05, -5)
@@ -71,7 +73,12 @@ world_id = &"brackett/district_06/parked_car_crate_01"
 anchor_kind = &"PARKED_CAR"
 
 [node name="RuntimeEntities" type="Node3D" parent="."]
+unique_name_in_owner = true
 
 [node name="RuntimeEffects" type="Node3D" parent="."]
 
+[node name="Replication" type="Node" parent="."]
+script = ExtResource("5_replication")
+
 [node name="LocalRig" parent="." instance=ExtResource("4_local_rig")]
+unique_name_in_owner = true

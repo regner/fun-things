@@ -36,6 +36,8 @@ func _ready() -> void:
 	_session.changed.connect(_on_session_changed)
 	_session.completed.connect(_on_session_completed)
 	_session.standalone_started.connect(_on_standalone_started)
+	_session.participant_admitted.connect(_on_participant_admitted)
+	_session.participant_disconnected.connect(_on_participant_disconnected)
 	_main_menu.standalone_requested.connect(_on_standalone_requested)
 	_main_menu.host_requested.connect(_on_host_requested)
 	_main_menu.join_requested.connect(_on_join_requested)
@@ -142,7 +144,56 @@ func _on_standalone_started(_operation_id: int, district_id: StringName) -> void
 	_session_status.visible = false
 
 
-## Closes local input and asks the process session owner to leave standalone play.
+## Creates the saved Match and hands one admitted ENet identity to its replication root.
+func _start_network_match(current: Dictionary) -> void:
+	if is_instance_valid(_match):
+		return
+	if current.provider_id != ENET_PROVIDER_ID or current.operation_kind not in [
+		SessionService.OPERATION_HOST,
+		SessionService.OPERATION_JOIN,
+	]:
+		return
+
+	var match: Node3D = MATCH_SCENE.instantiate() as Node3D
+	$View.add_child(match)
+	_match = match
+	var replication: MatchReplication = match.get_node("Replication") as MatchReplication
+	replication.name = "Replication"
+	var configured: bool = replication.configure_network(
+		current.session_id,
+		current.local_participant_id,
+		current.operation_kind == SessionService.OPERATION_HOST,
+	)
+	if not configured:
+		push_error("Network Match replication could not accept Session identity")
+		_teardown_match()
+		_session.leave()
+		return
+
+	var rig: LocalRig = match.get_node("LocalRig") as LocalRig
+	rig.leave_requested.connect(_on_local_match_leave_requested)
+	_main_menu.visible = false
+	_session_status.visible = false
+
+
+## Hands a Session-owned sender mapping down to the current host Match.
+func _on_participant_admitted(native_peer_id: int, participant_id: int) -> void:
+	if not is_instance_valid(_match):
+		return
+	var replication: MatchReplication = _match.get_node("Replication") as MatchReplication
+	if not replication.admit_peer(native_peer_id, participant_id):
+		push_error("Match replication rejected current Session participant mapping")
+
+
+## Retires one disconnected sender and its authoritative player from Match.
+func _on_participant_disconnected(native_peer_id: int, participant_id: int) -> void:
+	if not is_instance_valid(_match):
+		return
+	var replication: MatchReplication = _match.get_node("Replication") as MatchReplication
+	replication.remove_peer(native_peer_id, participant_id)
+
+
+## Closes local input and asks the process session owner to leave active play.
 func _on_local_match_leave_requested() -> void:
 	if _session.view().phase != SessionService.PHASE_ACTIVE:
 		return
@@ -170,6 +221,8 @@ func _on_session_changed(current: Dictionary) -> void:
 	var phase: StringName = current.phase
 	if phase != SessionService.PHASE_ACTIVE:
 		_teardown_match()
+	else:
+		_start_network_match(current)
 
 	var playing_standalone: bool = phase == SessionService.PHASE_ACTIVE and (
 		is_instance_valid(_match)

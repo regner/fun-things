@@ -5,6 +5,8 @@ extends Node
 signal changed(view: Dictionary)
 signal completed(operation_id: int, result: Dictionary)
 signal standalone_started(operation_id: int, district_id: StringName)
+signal participant_admitted(native_peer_id: int, participant_id: int)
+signal participant_disconnected(native_peer_id: int, participant_id: int)
 
 const CLOSE_TIMEOUT_SECONDS: float = 5.0
 const CONNECTION_TIMEOUT_SECONDS: float = 15.0
@@ -458,6 +460,8 @@ func _on_transport_disconnected(
 		var participant_id: int = _host_state.participant_by_peer.get(native_peer_id, 0)
 		_host_state.participant_by_peer.erase(native_peer_id)
 		_host_state.roster_by_participant.erase(participant_id)
+		if participant_id > 0:
+			participant_disconnected.emit(native_peer_id, participant_id)
 		_emit_changed()
 		return
 	if _operation.phase in [PHASE_IDLE, PHASE_CLOSING]:
@@ -597,6 +601,7 @@ func _evaluate_admission(
 	_host_state.roster_by_participant[participant_id] = _roster_row(
 		participant_id, "Player %d" % participant_id
 	)
+	participant_admitted.emit(sender_peer_id, participant_id)
 	_send_admission(sender_peer_id, client_operation_id, &"", participant_id)
 	_emit_changed()
 
