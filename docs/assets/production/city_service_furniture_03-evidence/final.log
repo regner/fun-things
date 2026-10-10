@@ -1,0 +1,20 @@
+city_service_furniture.03 — retained final validation receipt, 2026-10-10
+Source/tool reproduction commands: ../city_service_furniture_03.md
+Raw command logs: C:/tmp/ft/assets/city_service_furniture_03/
+
+PASS Blender author.py (timeout 180; exit 0): 5.2.2 LTS / d13f752e3b9c; explicit named collection exported.
+PASS Blender render.py (timeout 900; exit 0): hero, side, detail, overhead_47m_42deg; isolated 1280x720.
+PASS Blender export.py (timeout 180; exit 0): fresh separate-process re-export.
+PASS Blender validate.py (timeout 180; exit 0): 3068 triangles, 1568 source vertices, 1900 GLB vertices, 1 mesh, 4 surfaces.
+PASS zero degenerate faces/non-manifold edges; unit normals, consistent winding, identity transforms, metre units.
+PASS dimensions 1.36 x 2.44 x 0.30 m; ground-centred surround pivot; 83356-byte GLB byte-identical.
+PASS Godot headless import (timeout 300; exit 0): 4.8.dev7.official.c971f93e7.
+PASS check.gd --normalize (timeout 180; exit 0): linked prefab and fixture packed, saved/reloaded twice, bytes stable; dependencies/UIDs resolve.
+PASS check.gd standalone (timeout 180; exit 0): bounds/materials/collision assertions, 3 rays and 6 production ActorMotion movement cases.
+PASS front/rear stops -0.470051765/+0.470051765; clear isolated bypass Z=2.999999762; AUTHORITY/REPLAY equal.
+PASS pinned gdstyle fmt --check and lint --max-line-length 100 --max-warnings 0 (timeout 40 each; exit 0).
+PASS canonical production_checks.py (timeout 1800; exit 0): engine pin, GUT pin, owned scripts, Python tests, GUT import/tests, intentional negative-diagnostic test. No exemptions.
+VISUAL REVIEW all four views inspected against sibling cabinet: quiet broad panel, shallow frame, restrained amber; overhead intentionally shows the narrow lintel rather than readable door-face detail.
+
+Diagnostics: Blender Material/World.use_nodes deprecation notices. Headless import reports existing MCP 4.8 compatibility warning. Editor normalization assertions pass but shutdown reports RID/ObjectDB leaks; not a diagnostic-clean engine run. Standalone asset check has no errors/warnings. Raw logs retain these messages.
+Pending: independent review, compatible facade opening, saved placement/route clearance, car contacts, populated engine camera, multiplayer transport/prediction, packaged/device/performance acceptance.
