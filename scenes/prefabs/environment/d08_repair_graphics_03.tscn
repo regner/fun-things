@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://buwtiahgbdrxf"]
+
+[ext_resource type="PackedScene" uid="uid://byqodl735ss1a" path="res://scenes/prefabs/environment/city_sign_supports_01.tscn" id="1_panel"]
+[ext_resource type="Material" uid="uid://dmb8ccf8bsi4i" path="res://art/materials/environment/d08_repair_graphics_03/service_warning.tres" id="2_artwork"]
+
+[node name="d08_repair_graphics_03" unique_id=1047623409 instance=ExtResource("1_panel")]
+
+[node name="artwork_carrier" parent="Visuals/Model/CitySignSupports01" parent_id_path=PackedInt32Array(728591687, 445233079) index="0" unique_id=1052439744]
+surface_material_override/0 = ExtResource("2_artwork")
+
+[editable path="Visuals/Model"]

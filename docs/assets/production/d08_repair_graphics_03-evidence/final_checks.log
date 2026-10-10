@@ -1,0 +1,87 @@
+d08_repair_graphics.03 final producer checks, 10 October 2026
+Concise UTF-8 receipt; raw logs/exports remain in C:/tmp/ft/assets/d08_repair_graphics_03/.
+All listed commands exited 0 without timeout. PYTHONIOENCODING=utf-8.
+The initial and mip-configured imports also exited 0 without ERROR/SCRIPT ERROR.
+No production_checks.py, windowed editor, live MCP, gameplay or device checks run.
+
+Artwork reproduction/tests
+python -m unittest discover -s tools/asset_production/d08_repair_graphics_03 -p 'test_*.py' -v
+exit: 0
+test_committed_pngs_reproduce (test_artwork.ServiceWarningArtworkTests.test_committed_pngs_reproduce)
+Both committed opaque textures must reproduce without external fonts or images. ... ok
+test_family_palette_and_border (test_artwork.ServiceWarningArtworkTests.test_family_palette_and_border)
+Keep the dark clipping border, sun-faded amber field and restrained cyan signature. ... ok
+test_front_facing_mip_proxy_preserves_warning_contrast (test_artwork.ServiceWarningArtworkTests.test_front_facing_mip_proxy_preserves_warning_contrast)
+At 61x41 front-facing, the triangle field contrasts; this is not an overhead test. ... ok
+test_patch_leaves_warning_and_primary_copy_identical (test_artwork.ServiceWarningArtworkTests.test_patch_leaves_warning_and_primary_copy_identical)
+Weathering variants may change only the lower repaint, not the service warning. ... ok
+test_repaint_preserves_lower_wording (test_artwork.ServiceWarningArtworkTests.test_repaint_preserves_lower_wording)
+The lower text silhouette stays unchanged when its light/dark paint is inverted. ... ok
+test_unknown_variant_rejected (test_artwork.ServiceWarningArtworkTests.test_unknown_variant_rejected)
+Misspelled variant names must fail rather than silently selecting another finish. ... ok
+test_warning_symbol_has_separated_exclamation (test_artwork.ServiceWarningArtworkTests.test_warning_symbol_has_separated_exclamation)
+Independent interior samples require a dark bar and dot with a light separating gap. ... ok
+
+----------------------------------------------------------------------
+Ran 7 tests in 0.495s
+
+OK
+
+Blender source/export
+timeout 180 env ALSOFT_DRIVERS=null SDL_AUDIODRIVER=dummy 'C:/Program Files/Blender Foundation/Blender 5.2/blender.exe' -noaudio --background --factory-startup --threads 4 --python-exit-code 1 --python tools/asset_production/d08_repair_graphics_03/validate.py
+exit: 0
+PASSAGE_SOURCE_PASS {'source_vertices': 1380, 'glb_vertices': 1792, 'glb_triangles': 2720, 'mesh_count': 12, 'surface_count': 13}
+WARNING_SOURCE_PASS: source, independent binary audit, byte-identical fresh export
+Blender 5.2.2 LTS (hash d13f752e3b9c built 2026-09-15 01:37:04)
+
+Blender previews
+timeout 900 env ALSOFT_DRIVERS=null SDL_AUDIODRIVER=dummy 'C:/Program Files/Blender Foundation/Blender 5.2/blender.exe' -noaudio --background --factory-startup --threads 4 --python-exit-code 1 --python tools/asset_production/d08_repair_graphics_03/preview.py
+exit: 0
+C:\GameDev\git\ft-lanes\a-d08g\tools\asset_production\d08_repair_graphics_03\preview.py:29: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+C:\GameDev\git\ft-lanes\a-d08g\tools\asset_production\d08_repair_graphics_03\preview.py:42: DeprecationWarning: 'World.use_nodes' is expected to be removed in Blender 6.0
+00:14.063  render           | Saved: 'C:\GameDev\git\ft-lanes\a-d08g\docs\assets\production\d08_repair_graphics_03-evidence\hero.png'
+00:23.344  render           | Saved: 'C:\GameDev\git\ft-lanes\a-d08g\docs\assets\production\d08_repair_graphics_03-evidence\side.png'
+00:37.953  render           | Saved: 'C:\GameDev\git\ft-lanes\a-d08g\docs\assets\production\d08_repair_graphics_03-evidence\detail.png'
+00:44.766  render           | Saved: 'C:\GameDev\git\ft-lanes\a-d08g\docs\assets\production\d08_repair_graphics_03-evidence\overhead_47m_42deg.png'
+WARNING_PREVIEWS_PASS: four 1280x720 images, source not saved
+Blender 5.2.2 LTS (hash d13f752e3b9c built 2026-09-15 01:37:04)
+
+Godot normalization
+timeout 180 "$(mise which godot)" --headless --editor --path . --script res://tools/asset_production/d08_repair_graphics_03/check_prefab.gd -- --normalize
+exit: 0
+Godot Engine v4.8.dev7.official.c971f93e7 - https://godotengine.org
+WARNING_PREFABS_PASS: unchanged carrier, front-only overrides, mipmaps, stable UIDs
+WARNING: [MCP] Godot 4.8 detected - latest tested version is 4.7.0. The plugin will run normally but some features may behave unexpectedly. Please report issues at https://github.com/NPGameDev/godot-mcp-toolkit/issues
+WARNING: Scan thread aborted...
+ERROR: 5 RID allocations of type 'N16RendererViewport8ViewportE' were leaked at exit.
+ERROR: 8 RID allocations of type 'PN13RendererDummy14TextureStorage12DummyTextureE' were leaked at exit.
+ERROR: 1 RID allocations of type 'N17RendererSceneCull8ScenarioE' were leaked at exit.
+ERROR: 52 RID allocations of type 'PN18TextServerAdvanced22ShapedTextDataAdvancedE' were leaked at exit.
+ERROR: 1 RID allocations of type 'PN18TextServerAdvanced12FontAdvancedE' were leaked at exit.
+WARNING: 5 RIDs of type "Canvas" were leaked.
+WARNING: 31 RIDs of type "CanvasItem" were leaked.
+WARNING: 168 ObjectDB instances were leaked at exit (run with `--verbose` for details).
+
+Final full pinned import
+timeout 300 "$(mise which godot)" --headless --path . --import
+exit: 0
+Godot Engine v4.8.dev7.official.c971f93e7 - https://godotengine.org
+WARNING: [MCP] Godot 4.8 detected - latest tested version is 4.7.0. The plugin will run normally but some features may behave unexpectedly. Please report issues at https://github.com/NPGameDev/godot-mcp-toolkit/issues
+
+Independent runtime load
+timeout 180 "$(mise which godot)" --headless --path . --script res://tools/asset_production/d08_repair_graphics_03/check_prefab.gd
+exit: 0
+Godot Engine v4.8.dev7.official.c971f93e7 - https://godotengine.org
+WARNING_PREFABS_PASS: unchanged carrier, front-only overrides, mipmaps, stable UIDs
+
+gdstyle 0.3.0
+"$(mise which gdstyle)" fmt --check tools/asset_production/d08_repair_graphics_03/check_prefab.gd
+exit: 0; 1 file already formatted.
+"$(mise which gdstyle)" --max-line-length 100 --max-warnings 0 tools/asset_production/d08_repair_graphics_03/check_prefab.gd
+exit: 0; 1 file checked, no issues found.
+
+Interpretation: source/export, texture contracts and saved prefab assertions pass.
+Normalization shutdown diagnostics are existing editor scan/RID/ObjectDB leaks, not hidden.
+Final full import has the known addon-version warning only; runtime load has no diagnostics.
+Four 1280x720 Blender renders self-inspected. Warning and copy are NOT overhead-readable.
+No shared hardware or sibling resources changed. Final manifest covers all produced payloads.
