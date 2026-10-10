@@ -1,0 +1,239 @@
+{
+  "applied_transforms": true,
+  "asset": "city_waste.03",
+  "blender": "5.2.2 LTS",
+  "build_hash": "d13f752e3b9c",
+  "consistent_winding": true,
+  "datum": "ground",
+  "degenerate_faces": 0.0,
+  "dimension_tolerance_m": 0.001,
+  "dimensions_godot_m": [
+    2.32,
+    1.55,
+    1.42
+  ],
+  "dimensions_status": "provisional",
+  "fresh_reexport_byte_identical": true,
+  "glb_bytes": 161224.0,
+  "glb_sha256": "45dcd053988e0cbf56381808d0afa7d04bc3fd8f2189eb5b3cdae3b81795e2ce",
+  "glb_vertices": 3744.0,
+  "godot": {
+    "bounds_min": [
+      -1.16000008583069,
+      0.0,
+      -0.709999978542328
+    ],
+    "bounds_size": [
+      2.32000017166138,
+      1.54999995231628,
+      1.41999995708466
+    ],
+    "engine": "4.8-dev7 (official)",
+    "linked_model_identity": true,
+    "physics": {
+      "above_lid_ray_clear": true,
+      "actor_capsule_height_m": 1.8,
+      "actor_capsule_radius_m": 0.35,
+      "authority_replay_equal": true,
+      "body_ray_hit": true,
+      "bypass_end": [
+        1.60000002384186,
+        0.0,
+        -2.99999976158142
+      ],
+      "car_and_network_transport": "pending downstream; not exercised by these actor checks",
+      "front_stop": [
+        0.0,
+        0.0,
+        -1.06006503105164
+      ],
+      "movement_ticks_per_case_per_mode": 60,
+      "rear_stop": [
+        0.0,
+        0.0,
+        1.06006503105164
+      ],
+      "side_stop": [
+        1.51006507873535,
+        0.0,
+        0.0
+      ]
+    },
+    "save_reload_byte_stable": true
+  },
+  "godot_aabb": {
+    "max": [
+      1.16000008583069,
+      1.54999995231628,
+      0.709999978542328
+    ],
+    "min": [
+      -1.16000008583069,
+      0.0,
+      -0.709999978542328
+    ]
+  },
+  "materials": [
+    {
+      "name": "waste_body_petrol",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.0599999986588955,
+          0.115000002086163,
+          0.115000002086163,
+          1.0
+        ],
+        "metallicFactor": 0.25,
+        "roughnessFactor": 0.639999985694885
+      }
+    },
+    {
+      "name": "waste_recess_charcoal",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.0160000007599592,
+          0.025000000372529,
+          0.028999999165535,
+          1.0
+        ],
+        "metallicFactor": 0.150000005960464,
+        "roughnessFactor": 0.680000007152557
+      }
+    },
+    {
+      "name": "waste_hardware_slate",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.170000001788139,
+          0.215000003576279,
+          0.224999994039536,
+          1.0
+        ],
+        "metallicFactor": 0.5,
+        "roughnessFactor": 0.419999986886978
+      }
+    },
+    {
+      "name": "waste_lid_sage",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.100000001490116,
+          0.165000006556511,
+          0.155000001192093,
+          1.0
+        ],
+        "metallicFactor": 0.200000002980232,
+        "roughnessFactor": 0.569999992847443
+      }
+    },
+    {
+      "name": "waste_localized_rust",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.115000002086163,
+          0.0579999983310699,
+          0.034000001847744,
+          1.0
+        ],
+        "metallicFactor": 0.0,
+        "roughnessFactor": 0.860000014305115
+      }
+    }
+  ],
+  "mesh_count": 1.0,
+  "nonmanifold_edges": 0.0,
+  "pivot": [
+    0.0,
+    0.0,
+    0.0
+  ],
+  "source_aabb": {
+    "max": [
+      1.16000008583069,
+      0.709999978542328,
+      1.54999995231628
+    ],
+    "min": [
+      -1.16000008583069,
+      -0.709999978542328,
+      0.0
+    ]
+  },
+  "status": "PASS source and export",
+  "surfaces": 5.0,
+  "triangles": 6056.0,
+  "unit_normals": true,
+  "vertices": 3096.0,
+  "production_checks": {
+    "engine": {
+      "ok": true,
+      "version": "4.8.dev7.official.c971f93e7"
+    },
+    "gut_pin": {
+      "ok": true,
+      "version": "9.7.1"
+    },
+    "owned_scripts": {
+      "ok": true,
+      "returncode": 0
+    },
+    "python_tests": {
+      "ok": true,
+      "returncode": 0
+    },
+    "gut_import": {
+      "ok": true,
+      "returncode": 0
+    },
+    "gut_tests": {
+      "ok": true,
+      "returncode": 0
+    },
+    "gut_negative": {
+      "ok": true,
+      "observed_returncode": 1
+    }
+  },
+  "renders": [
+    {
+      "file": "hero.png",
+      "size_px": [
+        1280,
+        720
+      ],
+      "bytes": 480780
+    },
+    {
+      "file": "side.png",
+      "size_px": [
+        1280,
+        720
+      ],
+      "bytes": 389864
+    },
+    {
+      "file": "detail.png",
+      "size_px": [
+        1280,
+        720
+      ],
+      "bytes": 507208
+    },
+    {
+      "file": "overhead_47m_42deg.png",
+      "size_px": [
+        1280,
+        720
+      ],
+      "bytes": 376922
+    }
+  ],
+  "render_encoding": "RGB 7 significant bits per channel; PNG compression 9",
+  "diagnostics": {
+    "blender": "Principled use_nodes deprecation warning for Blender 6.0; pinned 5.2.2 succeeds",
+    "godot_import": "Exit 0; existing MCP plugin warns its latest tested engine is 4.7",
+    "godot_normalize": "Assertions pass, exit 0; editor shutdown reports leaked renderer/text RIDs",
+    "godot_runtime": "Exit 0; no ERROR, WARNING or SCRIPT ERROR diagnostics",
+    "production_checks": "All layers pass; no failure waivers used"
+  }
+}

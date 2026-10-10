@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://foqcc34iheix"]
+
+[ext_resource type="PackedScene" uid="uid://7ec2mbg74hkn" path="res://scenes/prefabs/environment/city_waste_03.tscn" id="1_bin"]
+[ext_resource type="Script" uid="uid://jthmfio4c27p" path="res://scripts/actors/actor_motion.gd" id="2_motion"]
+
+[sub_resource type="CapsuleShape3D" id="Capsule_actor"]
+radius = 0.35
+height = 1.8
+
+[node name="ServiceDumpsterCollisionCheck" type="Node3D" unique_id=1711055798]
+
+[node name="Bin" parent="." unique_id=591643568 instance=ExtResource("1_bin")]
+
+[node name="Actor" type="CharacterBody3D" parent="." unique_id=1455642782]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2)
+collision_layer = 2
+script = ExtResource("2_motion")
+
+[node name="Capsule" type="CollisionShape3D" parent="Actor" unique_id=1751625867]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0)
+shape = SubResource("Capsule_actor")

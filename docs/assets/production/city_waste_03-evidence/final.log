@@ -1,0 +1,33 @@
+city_waste.03 — Service dumpster — final producer receipt
+Scope: original Blender source, explicit GLB, linked prefab, bounded checks; independent acceptance pending.
+Exact reproduction commands: docs/assets/production/city_waste_03.md.
+Scratch logs: C:/tmp/ft/assets/city_waste_03/ (not committed).
+
+Blender 5.2.2 LTS / d13f752e3b9c; glTF exporter 5.2.40.
+Final author.py: exit 0; named export_city_waste_03 collection saved and exported.
+Final render.py: exit 0; four 1280x720 Cycles CPU views visually inspected.
+Fresh-process export.py: exit 0.
+Final validate.py: exit 0; fresh export byte-identical.
+Triangles 6056; source vertices 3096; GLB vertices 3744; meshes 1; surfaces 5.
+Degenerate faces 0; non-manifold edges 0; unit normals and consistent winding pass.
+Godot AABB (-1.160, 0, -.710) to (1.160, 1.550, .710) m; ground-centered identity pivot.
+GLB bytes 161224; SHA256 45dcd053988e0cbf56381808d0afa7d04bc3fd8f2189eb5b3cdae3b81795e2ce.
+Initial validation rejected smoothed thin rust-edge normals; flat island normals fixed the cause.
+Source, GLB and all renders regenerated after that correction; no winding criterion waived.
+
+Godot 4.8.dev7.official.c971f93e7.
+Final headless import: exit 0; no missing dependencies.
+check.gd --normalize: exit 0; prefab/fixture second-save bytes stable; linked identity model and five surfaces pass.
+check.gd runtime: exit 0; no ERROR/WARNING/SCRIPT ERROR diagnostics.
+Single static box 2.320 x 1.550 x 1.420 m, center (0, .775, 0), layer 1 / mask 0.
+ActorMotion authority/replay agree across 60 ticks per case per mode, capsule r .35 / h 1.8 m.
+Rear Z 1.060065031; front Z -1.060065031; side X 1.510065079; bypass Z -2.999999762 at X 1.600.
+Body ray hits dumpster; ray above lid at Y 1.650 stays clear.
+
+production_checks.py: exit 0; all seven summary layers pass, no waivers.
+Owned scripts: formatting/lint/compilation pass.
+Python: 14 tests pass. GUT: 86 tests / 2178 assertions pass. Expected-failure detection passes.
+Known diagnostics: Blender use_nodes future deprecation; editor MCP plugin 4.7-tested warning;
+normalization editor shutdown emits renderer/text RID and ObjectDB leaks despite successful assertions.
+Pending: independent review, final placement/dimensions, car contact, real network processes,
+engine-camera character contrast, packaged builds, Deck readability and repeated-prop performance.

@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://7ec2mbg74hkn"]
+
+[ext_resource type="PackedScene" uid="uid://4dgox8qghe4b" path="res://art/models/environment/city_waste_03/city_waste_03.glb" id="1_model"]
+
+[sub_resource type="BoxShape3D" id="Box_bin"]
+size = Vector3(2.32, 1.55, 1.42)
+
+[node name="city_waste_03" type="Node3D" unique_id=1792048462]
+
+[node name="Visuals" type="Node3D" parent="." unique_id=778839119]
+
+[node name="Model" parent="Visuals" unique_id=58319294 instance=ExtResource("1_model")]
+
+[node name="Collision" type="Node3D" parent="." unique_id=2093897016]
+
+[node name="Body" type="StaticBody3D" parent="Collision" unique_id=2077528334]
+collision_mask = 0
+
+[node name="Shape" type="CollisionShape3D" parent="Collision/Body" unique_id=1772578034]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.775, 0)
+shape = SubResource("Box_bin")
