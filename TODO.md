@@ -34,7 +34,7 @@ recommendations and do not block P1.
   range, baseline/journal admission, durable/subset state apply, real-process ENet proof) is done;
   its Match/Boot wiring follows A2.5. A2.5 (LocalRig 47 m / 42° camera, Coral Courier presentation with
   data-driven stride playback, grounded ActorMotion with gravity/floor snap, standalone Boot -> Match
-  walking) is done; the Coral Courier run/strafe clips need re-authoring for a 5 m/s stride. Use decision 19's
+  walking) is done, with Coral Courier run/strafe clips re-authored for a natural 5 m/s stride (~1x). Use decision 19's
   ordered, distance-bounded held-input queue and decision 20's tunable short
   extrapolate→hold→smooth remote-motion policy; present the delivered Coral Courier under the
   47 m / 42° camera in the Brackett greybox; include drawable remote-continuity acceptance from
