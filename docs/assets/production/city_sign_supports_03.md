@@ -180,6 +180,7 @@ the parametric recipe, not a promise of byte-identical `.blend` file serializati
 ## Remaining acceptance
 
 Old Quay noticeboard artwork is delivered in [d05_civic_graphics.02](d05_civic_graphics_02.md);
+Terrace Ward community artwork is delivered in [d03_community_graphics.01](d03_community_graphics_01.md);
 final copy and placement acceptance remain separate.
 
 Independent technical/art review; actual engine gameplay-camera/lighting captures;

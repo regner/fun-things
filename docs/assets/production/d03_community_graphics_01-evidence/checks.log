@@ -1,0 +1,22 @@
+FINAL CHECKS: d03_community_graphics.01
+Original Pillow artwork: five tests pass; byte-identical PNG reproduction.
+Pinned Blender validator and previews exited 0; reused carrier never saved.
+Reused geometry: 2636 triangles, 1340 source / 1711 GLB vertices, 2 meshes / 5 surfaces.
+Zero degenerates/nonmanifold edges; unit normals, literal AABB and upright face UVs pass.
+Fresh carrier export via its original export contract is byte-identical.
+Four 1280x720 isolated renders inspected, each under 400 KiB.
+Two byte-stable scene/material roundtrips and fresh-process initial stability pass.
+Final pinned import and two fresh runtime checks exited 0 with no ERROR lines.
+Exactly one face override, unchanged inherited meshes/collider, full RGB8 mip chain.
+Python compile, gdstyle format and zero-warning lint pass.
+Initial checks caught default no-mip import and automatic compression policy; owned
+texture sidecar was corrected and reimported. No suppression or carrier import edit.
+Initial lint found one overlong texture constant; wrapped before final checks.
+Initial exact-color glyph occupancy missed antialiased thin ink; occupancy now counts
+near-ink pixels within 12 RGB levels, retaining the >400-pixel independent threshold.
+Initial side crop clipped the cap; widened framing and rerendered before final evidence.
+Finalizer caught Windows-default CRLF in generated evidence; writers now force LF.
+Blender emits its pinned use_nodes future-removal warning; final artwork tests are clean.
+No production_checks.py, live editor access, new geometry or gameplay changes.
+Final engine warnings:
+WARNING: [MCP] Godot 4.8 detected - latest tested version is 4.7.0. The plugin will run normally but some features may behave unexpectedly. Please report issues at https://github.com/NPGameDev/godot-mcp-toolkit/issues

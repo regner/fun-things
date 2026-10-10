@@ -1,0 +1,220 @@
+{
+  "asset_id": "d03_community_graphics.01",
+  "status": "PASS",
+  "new_geometry": false,
+  "blender": "5.2.2 LTS",
+  "blender_build": "d13f752e3b9c",
+  "exporter": "5.2.40",
+  "dependencies": {
+    "art/source/models/environment/city_sign_supports_03/city_sign_supports_03.blend": {
+      "bytes": 145272,
+      "sha256": "4154bee7ae7ba2f8e3c8fb266b1e16d5ff56e28e64508d8d074e57204c9638cf"
+    },
+    "art/models/environment/city_sign_supports_03/city_sign_supports_03.glb": {
+      "bytes": 75520,
+      "sha256": "f6ed9b4bd732c2e46104cf52453641e6c6e212483dd27d26d33a683dfefbdd8c"
+    },
+    "art/models/environment/city_sign_supports_03/city_sign_supports_03.glb.import": {
+      "bytes": 1275,
+      "sha256": "930053eda31b1faf67500c80155b2a701be529c6ece54278a64a649670a66070"
+    },
+    "scenes/prefabs/environment/city_sign_supports_03.tscn": {
+      "bytes": 897,
+      "sha256": "e81317e7743bc11e43f3ce1dca25987a3bfdb6c797f2394db1ef2ce32d4eb2b3"
+    },
+    "tools/asset_production/city_sign_supports_03/export.py": {
+      "bytes": 941,
+      "sha256": "9c6a9419fa7d1763e162f7355e81e81b1e6c0645162aca49e6615bb7df8e0c6c"
+    },
+    "tools/assets/blender/export_settings.json": {
+      "bytes": 646,
+      "sha256": "33ded3c83616fba6573848dda1f0ea3fc7ae7f4c98257fc867dca3bbe35ff9ec"
+    },
+    "tools/asset_production/d03_court_graphics_02/validate.py": {
+      "bytes": 10371,
+      "sha256": "fefb089ba6ef853c5af005ab7eeb5bd72edb97279794a39d1cae2124b0573413"
+    }
+  },
+  "shared_dependencies_unchanged": true,
+  "source_vertices": 1340,
+  "triangles": 2636,
+  "glb_vertices": 1711,
+  "meshes": 2,
+  "surfaces": 5,
+  "nonmanifold_edges": 0,
+  "degenerate_faces": 0,
+  "degenerate_glb_triangles": 0,
+  "unit_source_export_normals": true,
+  "godot_aabb": {
+    "min": [
+      -0.949999988079071,
+      0.0,
+      -0.2199999988079071
+    ],
+    "max": [
+      0.949999988079071,
+      2.0999999046325684,
+      0.2199999988079071
+    ]
+  },
+  "dimensions_m": [
+    1.9,
+    2.1,
+    0.44
+  ],
+  "pivot": [
+    0,
+    0,
+    0
+  ],
+  "ground_datum_m": 0,
+  "fresh_reexport_byte_identical": true,
+  "face": {
+    "slot": 0,
+    "material": "sign_face",
+    "size_m": [
+      1.64,
+      1.04
+    ],
+    "safe_copy_m": [
+      1.58,
+      0.98
+    ],
+    "front_z_m": -0.071,
+    "upright_unmirrored_uv": true
+  },
+  "artwork": {
+    "ok": true,
+    "tests": 5,
+    "size": [
+      1640,
+      1040
+    ],
+    "mode": "RGB8 sRGB",
+    "byte_identical_reproduction": true,
+    "png_bytes": 112772,
+    "png_sha256": "e1dd1270d600a593e0768b706305954c70beae3d3de7745726c2ee5a5f74b782",
+    "independent_region_samples": 20,
+    "safe_copy_inset_pixels": 30,
+    "original_copy": [
+      "SHARED SPACE.",
+      "INDIVIDUAL OPINIONS.",
+      "COURT CHAT",
+      "ALL WELCOME",
+      "LAUNDRY",
+      "SHARE THE LINE.",
+      "NOT THE SOCKS.",
+      "TAKE A SEAT",
+      "LEAVE ROOM."
+    ]
+  },
+  "engine": {
+    "engine": "4.8-dev7 (official)",
+    "face_overrides": 1,
+    "failures": [],
+    "inherited_colliders": 1,
+    "meshes": 2,
+    "ok": true,
+    "res://art/materials/environment/d03_community_graphics_01/community_board.tres": "uid://b33v5wamus5cd",
+    "res://art/models/environment/city_sign_supports_03/city_sign_supports_03.glb": "uid://bubc8cpo6gkqt",
+    "res://art/textures/environment/d03_community_graphics_01/community_board_albedo.png": "uid://cf7fjom46bmws",
+    "res://scenes/prefabs/environment/city_sign_supports_03.tscn": "uid://p0xsrjdmsw2s",
+    "res://scenes/prefabs/environment/d03_community_graphics_01.tscn": "uid://mws6iuj22dkq",
+    "surfaces": 5,
+    "texture_cpu_bytes_including_mips": 6822117,
+    "texture_mipmap_count": 10
+  },
+  "roundtrip": {
+    "engine": "4.8-dev7 (official)",
+    "face_overrides": 1,
+    "failures": [],
+    "fresh_process_initial_byte_stable": true,
+    "inherited_colliders": 1,
+    "material_sha256": "2771c4d80c740775284c976c5db7c067fcc187c234ec34fb088bc4953b097926",
+    "meshes": 2,
+    "ok": true,
+    "prefab_sha256": "ae60d2cc2cb30cee1b6165d04188d58356afecea22c436a22832b1af0d64f5c1",
+    "res://art/materials/environment/d03_community_graphics_01/community_board.tres": "uid://b33v5wamus5cd",
+    "res://art/models/environment/city_sign_supports_03/city_sign_supports_03.glb": "uid://bubc8cpo6gkqt",
+    "res://art/textures/environment/d03_community_graphics_01/community_board_albedo.png": "uid://cf7fjom46bmws",
+    "res://scenes/prefabs/environment/city_sign_supports_03.tscn": "uid://p0xsrjdmsw2s",
+    "res://scenes/prefabs/environment/d03_community_graphics_01.tscn": "uid://mws6iuj22dkq",
+    "roundtrip_1_byte_stable": true,
+    "roundtrip_2_byte_stable": true,
+    "surfaces": 5,
+    "texture_cpu_bytes_including_mips": 6822117,
+    "texture_mipmap_count": 10
+  },
+  "second_fresh_runtime_receipt_identical": true,
+  "checks": {
+    "final_import_error_lines": [],
+    "runtime_error_lines": [],
+    "warnings": [
+      "WARNING: [MCP] Godot 4.8 detected - latest tested version is 4.7.0. The plugin will run normally but some features may behave unexpectedly. Please report issues at https://github.com/NPGameDev/godot-mcp-toolkit/issues"
+    ],
+    "gdstyle_format": "PASS",
+    "gdstyle_lint": "PASS: zero warnings",
+    "python_compile": "PASS",
+    "production_checks_run": false
+  },
+  "visual_self_review": {
+    "renders_inspected": [
+      {
+        "file": "hero.png",
+        "dimensions": [
+          1280,
+          720
+        ],
+        "bytes": 293821,
+        "sha256": "97adcfad2ca5adde2872dc0ec3e7b79821249c124dce5b9e876a6513b7302b75"
+      },
+      {
+        "file": "side.png",
+        "dimensions": [
+          1280,
+          720
+        ],
+        "bytes": 233785,
+        "sha256": "b4d1a6a1924bdc74097d6f387354d9f4207b130495545cf5f83d72dc49095909"
+      },
+      {
+        "file": "detail.png",
+        "dimensions": [
+          1280,
+          720
+        ],
+        "bytes": 315319,
+        "sha256": "43be912964300f6b284202519910661774160d52353923dffa12c0ae9dabd48b"
+      },
+      {
+        "file": "overhead_47m_42deg.png",
+        "dimensions": [
+          1280,
+          720
+        ],
+        "bytes": 133751,
+        "sha256": "03aa6a8b63263473add9d45121e72fa7ad2a21bbb67ee20a63b1c3d742e3ae3c"
+      }
+    ],
+    "renderer": "Blender Cycles CPU, 32 samples, AgX",
+    "encoding": "RGB8 PNG compression 95, no dithering or post-quantization",
+    "overhead": {
+      "position_blender_m": [
+        0,
+        0,
+        47
+      ],
+      "vertical_fov_degrees": 42,
+      "projection": "perspective",
+      "north_up": true
+    },
+    "observation": "Header, three separated notice fields and community/laundry icons read upright in hero/detail; subdued teal, ivory and coral stay civic rather than commercial. Side framing was widened to retain cap and feet. Overhead shows only the approximately 40-pixel cap strip: the vertical face is edge-on, so copy must not carry essential navigation.",
+    "godot_gameplay_visual_acceptance": false
+  },
+  "remaining_acceptance": [
+    "Independent technical/art review and copy approval",
+    "Saved court-edge placement, populated visibility and movement",
+    "Godot lighting, moving-camera mips and actual camera views",
+    "Packaged builds, repeated-placement cost and device performance"
+  ]
+}
