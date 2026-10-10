@@ -1,3 +1,4 @@
+Historical initial delivery (superseded identity evidence; round-1 results below):
 vehicle_wrecks.02 - final production checks, 10 October 2026
 Commands are reproduced exactly in ../vehicle_wrecks_02.md.
 Only isolated Blender CLI and pinned headless Godot processes were used.
@@ -37,3 +38,35 @@ Bounded repair history:
 
 No production_checks.py run (decision 52). No world, gameplay lifecycle, renderer/device
 performance or independent art acceptance is claimed. Raw retries remain in scratch only.
+
+REVIEW ROUND 1 - final serialized dependency identity repair, 10 October 2026
+P2 reproduced: new saved-identity assertions reject original prefab with exit 1 for
+missing serialized GLB UID and mismatch against the imported model UID.
+Applied accepted Latch harness pattern: --editor -- --normalize is the only saver;
+normal runtime checks are read-only. Runtime --normalize guard rejected with exit 1.
+Pinned editor save serializes the correct GLB UID; existing scene UID, all six node IDs,
+transforms and collider data preserved. Redundant Model type removed by engine serializer.
+Two byte-stable save/reload cycles pass. Fresh runtime process exits 0 without
+ERROR/SCRIPT ERROR lines; serialized identity, imported bounds and five capsule probes pass.
+Pinned Blender validator and fresh saved-source scratch re-export: exit 0, byte-identical.
+Source, GLB and render geometry unchanged; no reauthor/render rerun for UID-only repair.
+Finalizer revalidates all four 1280x720 PNGs and source/export/prefab hashes, then manifest.
+Pinned initial and final imports exit 0 without ERROR/SCRIPT ERROR lines; no sidecar changes.
+Pinned gdstyle fmt --check and lint --max-line-length 100 --max-warnings 0 pass.
+Initial local edit had a malformed continuation; format/lint caught it before engine tests.
+Corrected to the exact existing Latch block; final checks pass without warnings.
+Normalization exits 0 and all assertions pass, but editor shutdown is NOT diagnostic-clean.
+Actual editor-harness diagnostics retained (same limitation as accepted Latch):
+WARNING: [MCP] Godot 4.8 detected - latest tested version is 4.7.0. The plugin will run normally but some features may behave unexpectedly. Please report issues at https://github.com/NPGameDev/godot-mcp-toolkit/issues
+ERROR: 5 RID allocations of type 'N16RendererViewport8ViewportE' were leaked at exit.
+ERROR: 8 RID allocations of type 'PN13RendererDummy14TextureStorage12DummyTextureE' were leaked at exit.
+ERROR: 1 RID allocations of type 'N17RendererSceneCull8ScenarioE' were leaked at exit.
+ERROR: 52 RID allocations of type 'PN18TextServerAdvanced22ShapedTextDataAdvancedE' were leaked at exit.
+ERROR: 1 RID allocations of type 'PN18TextServerAdvanced12FontAdvancedE' were leaked at exit.
+WARNING: 5 RIDs of type "Canvas" were leaked.
+WARNING: 31 RIDs of type "CanvasItem" were leaked.
+WARNING: 168 ObjectDB instances were leaked at exit (run with `--verbose` for details).
+No diagnostics suppressed. Raw per-command logs stay in C:/tmp/ft/assets/vehicle_wrecks_02/review-round-1/.
+Exact reproduction commands are in the handoff. No live MCP/editor process was touched.
+Independent technical re-review, gameplay lifecycle/movement/network, placement, populated
+engine readability, generated LOD, packaged/Deck and performance acceptance remain pending.

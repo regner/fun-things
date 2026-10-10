@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://ckrjwghik6kgh"]
 
-[ext_resource type="PackedScene" path="res://art/models/vehicles/vehicle_wrecks_02/vehicle_wrecks_02.glb" id="1_model"]
+[ext_resource type="PackedScene" uid="uid://dlrc24mcxldex" path="res://art/models/vehicles/vehicle_wrecks_02/vehicle_wrecks_02.glb" id="1_model"]
 
 [sub_resource type="BoxShape3D" id="Box_wreck"]
 size = Vector3(1.76, 1.48, 3.65)
@@ -10,7 +10,7 @@ metadata/asset_id = "vehicle_wrecks.02"
 
 [node name="Visuals" type="Node3D" parent="." unique_id=2114949500]
 
-[node name="Model" type="Node3D" parent="Visuals" unique_id=1768945832 instance=ExtResource("1_model")]
+[node name="Model" parent="Visuals" unique_id=1768945832 instance=ExtResource("1_model")]
 
 [node name="Collision" type="Node3D" parent="." unique_id=1224055842]
 
