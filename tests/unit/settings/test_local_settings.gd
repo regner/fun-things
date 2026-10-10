@@ -3,6 +3,9 @@ extends GutTest
 
 const SETTINGS_SCENE: PackedScene = preload("res://scenes/ui/settings_menu.tscn")
 const MAIN_MENU_SCENE: PackedScene = preload("res://scenes/ui/main_menu.tscn")
+const FAILING_ROLLBACK_SETTINGS: GDScript = preload(
+	"res://tests/unit/settings/fixtures/failing_rollback_settings.gd"
+)
 
 var _paths_to_remove: Array[String] = []
 
@@ -26,8 +29,9 @@ func test_missing_file_uses_defaults_and_applies_them() -> void:
 
 	assert_eq(settings.load_settings(path), OK)
 	assert_eq(settings.snapshot().master_volume, 1.0)
-	assert_eq(settings.snapshot().music_volume, 0.8)
-	assert_eq(settings.snapshot().sfx_volume, 0.8)
+	assert_eq(settings.snapshot().music_volume, 1.0)
+	assert_eq(settings.snapshot().sfx_volume, 1.0)
+	assert_eq(LocalSettings.DEFAULT_PATH, "user://settings.cfg")
 	assert_eq(settings.snapshot().window_mode, LocalSettings.WINDOW_MODE_WINDOWED)
 	assert_true(settings.snapshot().vsync_enabled)
 	assert_eq(Engine.max_fps, LocalSettings.FPS_CAP_60)
@@ -54,7 +58,7 @@ func test_load_validates_and_clamps_persisted_values() -> void:
 	assert_eq(settings.load_settings(path), OK)
 	var loaded: Dictionary = settings.snapshot()
 	assert_eq(loaded.master_volume, 1.0)
-	assert_eq(loaded.music_volume, LocalSettings.MIN_LINEAR_VOLUME)
+	assert_eq(loaded.music_volume, 0.0)
 	assert_eq(loaded.sfx_volume, 0.35)
 	assert_true(loaded.master_muted)
 	assert_true(loaded.sfx_muted)
@@ -78,6 +82,14 @@ func test_corrupt_file_is_backed_up_before_default_recovery() -> void:
 	assert_true(FileAccess.file_exists(settings.last_backup_path))
 	assert_false(FileAccess.file_exists(path))
 	assert_eq(settings.snapshot().music_volume, LocalSettings.DEFAULT_MUSIC_VOLUME)
+	assert_eq(settings.last_recovery_warning, LocalSettings.CORRUPT_RECOVERY_WARNING)
+
+	var menu: SettingsMenu = SETTINGS_SCENE.instantiate()
+	assert_true(menu.configure(settings))
+	add_child_autofree(menu)
+	await get_tree().process_frame
+	assert_true(menu.open())
+	assert_eq(menu.get_node("%Feedback").text, LocalSettings.CORRUPT_RECOVERY_WARNING)
 
 
 ## Treats wrong known-value types as one corrupt transaction rather than partial state.
@@ -121,6 +133,108 @@ func test_atomic_save_replaces_existing_file_and_restarts_cleanly() -> void:
 	assert_eq(restarted.snapshot(), settings.snapshot())
 	assert_false(FileAccess.file_exists(path + ".tmp"))
 	assert_false(FileAccess.file_exists(path + ".previous"))
+
+
+## Restores a preserved last-good file when promotion never established a destination.
+func test_restart_restores_previous_when_destination_is_absent() -> void:
+	var path: String = _test_path("previous_only")
+	_write_settings(path + ".previous", 0.31)
+	var settings := _new_settings()
+
+	assert_eq(settings.load_settings(path), OK)
+	assert_eq(settings.snapshot().music_volume, 0.31)
+	assert_true(FileAccess.file_exists(path))
+	assert_false(FileAccess.file_exists(path + ".previous"))
+	assert_eq(settings.last_recovery_warning, LocalSettings.TRANSACTION_RECOVERY_WARNING)
+	_assert_restart_value(path, 0.31)
+
+
+## Rejects an uncommitted temporary candidate while restoring the preserved destination.
+func test_restart_prefers_previous_over_temporary_when_destination_is_absent() -> void:
+	var path: String = _test_path("previous_and_tmp")
+	_write_settings(path + ".previous", 0.32)
+	_write_settings(path + ".tmp", 0.82)
+	var settings := _new_settings()
+
+	assert_eq(settings.load_settings(path), OK)
+	assert_eq(settings.snapshot().music_volume, 0.32)
+	assert_false(FileAccess.file_exists(path + ".previous"))
+	assert_false(FileAccess.file_exists(path + ".tmp"))
+	_assert_restart_value(path, 0.32)
+
+
+## Keeps the committed destination when a crash leaves an unpromoted temporary file.
+func test_restart_discards_temporary_when_valid_destination_exists() -> void:
+	var path: String = _test_path("destination_and_tmp")
+	_write_settings(path, 0.33)
+	_write_settings(path + ".tmp", 0.83)
+	var settings := _new_settings()
+
+	assert_eq(settings.load_settings(path), OK)
+	assert_eq(settings.snapshot().music_volume, 0.33)
+	assert_false(FileAccess.file_exists(path + ".tmp"))
+	_assert_restart_value(path, 0.33)
+
+
+## Validates the promoted destination before deleting the preserved prior generation.
+func test_restart_keeps_valid_promoted_destination_and_removes_previous() -> void:
+	var path: String = _test_path("destination_and_previous")
+	_write_settings(path, 0.84)
+	_write_settings(path + ".previous", 0.34)
+	var settings := _new_settings()
+
+	assert_eq(settings.load_settings(path), OK)
+	assert_eq(settings.snapshot().music_volume, 0.84)
+	assert_false(FileAccess.file_exists(path + ".previous"))
+	_assert_restart_value(path, 0.84)
+
+
+## Restores the prior generation when an invalid destination survived promotion.
+func test_restart_replaces_invalid_destination_with_valid_previous() -> void:
+	var path: String = _test_path("invalid_destination")
+	var invalid_file := FileAccess.open(path, FileAccess.WRITE)
+	assert_not_null(invalid_file)
+	invalid_file.store_string("invalid promoted settings")
+	invalid_file.close()
+	_write_settings(path + ".previous", 0.35)
+	var settings := _new_settings()
+
+	assert_eq(settings.load_settings(path), OK)
+	_paths_to_remove.append(settings.last_backup_path)
+	assert_eq(settings.snapshot().music_volume, 0.35)
+	assert_true(FileAccess.file_exists(settings.last_backup_path))
+	assert_eq(settings.last_recovery_warning, LocalSettings.CORRUPT_RECOVERY_WARNING)
+	assert_false(FileAccess.file_exists(path + ".previous"))
+	_assert_restart_value(path, 0.35)
+
+
+## Discards a temporary-only first-save artifact because it was never committed.
+func test_restart_discards_temporary_when_no_committed_file_exists() -> void:
+	var path: String = _test_path("tmp_only")
+	_write_settings(path + ".tmp", 0.86)
+	var settings := _new_settings()
+
+	assert_eq(settings.load_settings(path), OK)
+	assert_eq(settings.snapshot().music_volume, 1.0)
+	assert_false(FileAccess.file_exists(path))
+	assert_false(FileAccess.file_exists(path + ".tmp"))
+	assert_eq(settings.last_recovery_warning, LocalSettings.TRANSACTION_RECOVERY_WARNING)
+
+
+## Propagates a rollback rename failure and leaves the prior generation recoverable.
+func test_save_reports_rollback_failure_without_losing_previous() -> void:
+	var path: String = _test_path("rollback_failure")
+	_write_settings(path, 0.36)
+	var settings: LocalSettings = FAILING_ROLLBACK_SETTINGS.new()
+	add_child_autofree(settings)
+	assert_eq(settings.load_settings(path), OK)
+	assert_true(settings.preview_audio(LocalSettings.BUS_MUSIC, 0.87, false))
+
+	assert_eq(settings.save_settings(), ERR_CANT_OPEN)
+	assert_eq(settings.last_save_error, ERR_CANT_OPEN)
+	assert_false(FileAccess.file_exists(path))
+	assert_true(FileAccess.file_exists(path + ".previous"))
+	_assert_restart_value(path, 0.36)
 
 
 ## Reports an unwritable temporary path without creating a partial destination.
@@ -227,6 +341,30 @@ func _test_path(label: String) -> String:
 	_paths_to_remove.append(path + ".tmp")
 	_paths_to_remove.append(path + ".previous")
 	return path
+
+
+## Writes one complete production schema to construct a specific transaction generation.
+func _write_settings(path: String, music_volume: float) -> void:
+	var config := ConfigFile.new()
+	config.set_value("meta", "schema_version", LocalSettings.SCHEMA_VERSION)
+	config.set_value("audio", "master_volume", 1.0)
+	config.set_value("audio", "music_volume", music_volume)
+	config.set_value("audio", "sfx_volume", 1.0)
+	config.set_value("audio", "master_muted", false)
+	config.set_value("audio", "music_muted", true)
+	config.set_value("audio", "sfx_muted", false)
+	config.set_value("display", "window_mode", LocalSettings.WINDOW_MODE_WINDOWED)
+	config.set_value("display", "vsync_enabled", true)
+	config.set_value("display", "fps_cap", LocalSettings.FPS_CAP_60)
+	assert_eq(config.save(path), OK)
+
+
+## Proves a second process-local owner sees the recovered committed generation.
+func _assert_restart_value(path: String, expected_music_volume: float) -> void:
+	var restarted := _new_settings()
+	assert_eq(restarted.load_settings(path), OK)
+	assert_eq(restarted.snapshot().music_volume, expected_music_volume)
+	assert_true(restarted.snapshot().music_muted)
 
 
 ## Removes one user file when it exists.

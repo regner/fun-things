@@ -6,7 +6,11 @@ signal changed(snapshot: Dictionary)
 signal save_completed(error: Error)
 
 const SCHEMA_VERSION: int = 1
-const DEFAULT_PATH: String = "user://local_settings.cfg"
+const DEFAULT_PATH: String = "user://settings.cfg"
+const CORRUPT_RECOVERY_WARNING: String = (
+	"SETTINGS_INVALID: Settings were invalid. Safe defaults or the last good file were recovered."
+)
+const TRANSACTION_RECOVERY_WARNING: String = "An interrupted settings save was recovered."
 const BUS_MASTER: StringName = &"Master"
 const BUS_MUSIC: StringName = &"Music"
 const BUS_SFX: StringName = &"SFX"
@@ -16,13 +20,14 @@ const WINDOW_MODE_FULLSCREEN: StringName = &"fullscreen"
 const FPS_CAP_30: int = 30
 const FPS_CAP_60: int = 60
 const FPS_CAPS: Array[int] = [FPS_CAP_30, FPS_CAP_60]
-const MIN_LINEAR_VOLUME: float = 0.001
+const MIN_LINEAR_VOLUME: float = 0.0
 const DEFAULT_MASTER_VOLUME: float = 1.0
-const DEFAULT_MUSIC_VOLUME: float = 0.8
-const DEFAULT_SFX_VOLUME: float = 0.8
+const DEFAULT_MUSIC_VOLUME: float = 1.0
+const DEFAULT_SFX_VOLUME: float = 1.0
 
 var last_backup_path: String = ""
 var last_load_recovered: bool = false
+var last_recovery_warning: String = ""
 var last_save_error: Error = OK
 var _storage_path: String = DEFAULT_PATH
 var _master_volume: float = DEFAULT_MASTER_VOLUME
@@ -36,45 +41,55 @@ var _vsync_enabled: bool = true
 var _fps_cap: int = FPS_CAP_60
 
 
-## Loads validated settings, recovering a corrupt file to a backup before using defaults.
+## Loads validated settings after resolving every interrupted transaction state.
 func load_settings(path: String = "") -> Error:
 	_storage_path = _resolved_path(path)
 	last_backup_path = ""
 	last_load_recovered = false
+	last_recovery_warning = ""
 	_set_defaults()
-	var config := ConfigFile.new()
-	var load_error: Error = config.load(_storage_path)
-	if load_error == ERR_FILE_NOT_FOUND:
-		apply()
-		changed.emit(snapshot())
-		return OK
-	if load_error != OK:
-		return _recover_corrupt()
+	var previous_path: String = _storage_path + ".previous"
+	var temporary_path: String = _storage_path + ".tmp"
 
-	var values: Dictionary = _validated_values(config)
-	if values.is_empty():
-		return _recover_corrupt()
+	if not FileAccess.file_exists(_storage_path) and FileAccess.file_exists(previous_path):
+		var restore_error: Error = _rename(previous_path, _storage_path)
+		if restore_error != OK:
+			return _finish_default_load(restore_error)
+		_set_recovery_warning(TRANSACTION_RECOVERY_WARNING)
 
-	_assign_values(values)
-	apply()
-	changed.emit(snapshot())
-	return OK
+	var read_result: Dictionary = _read_values(_storage_path)
+	if read_result.missing:
+		var had_temporary: bool = FileAccess.file_exists(temporary_path)
+		var temporary_error: Error = _remove_if_present(temporary_path)
+		if temporary_error != OK:
+			return _finish_default_load(temporary_error)
+		if had_temporary:
+			_set_recovery_warning(TRANSACTION_RECOVERY_WARNING)
+		return _finish_default_load(OK)
+	if read_result.ok:
+		if FileAccess.file_exists(previous_path) or FileAccess.file_exists(temporary_path):
+			_set_recovery_warning(TRANSACTION_RECOVERY_WARNING)
+		return _finish_valid_load(read_result.values, previous_path, temporary_path)
+
+	return _recover_invalid_destination(previous_path, temporary_path)
 
 
 ## Atomically replaces the settings file after a complete temporary write.
 func save_settings(path: String = "") -> Error:
 	_storage_path = _resolved_path(path)
 	var temporary_path: String = _storage_path + ".tmp"
-	_remove_if_present(temporary_path)
+	var cleanup_error: Error = _remove_if_present(temporary_path)
+	if cleanup_error != OK:
+		return _report_save(cleanup_error)
+
 	var save_error: Error = _build_config().save(temporary_path)
 	if save_error == OK:
 		save_error = _replace_from_temporary(temporary_path)
 	if save_error != OK:
-		_remove_if_present(temporary_path)
-
-	last_save_error = save_error
-	save_completed.emit(save_error)
-	return save_error
+		var temporary_error: Error = _remove_if_present(temporary_path)
+		if temporary_error != OK:
+			save_error = temporary_error
+	return _report_save(save_error)
 
 
 ## Applies a live audio preview for one owned top-level preference bus.
@@ -183,17 +198,33 @@ func _validated_values(config: ConfigFile) -> Dictionary:
 	if not schema is int or schema != SCHEMA_VERSION:
 		return {}
 
+	var required_keys: Dictionary = {
+		"audio": [
+			"master_volume",
+			"music_volume",
+			"sfx_volume",
+			"master_muted",
+			"music_muted",
+			"sfx_muted",
+		],
+		"display": ["window_mode", "vsync_enabled", "fps_cap"],
+	}
+	for section: String in required_keys:
+		for key: String in required_keys[section]:
+			if not config.has_section_key(section, key):
+				return {}
+
 	var values: Dictionary = {
 		"schema_version": SCHEMA_VERSION,
-		"master_volume": config.get_value("audio", "master_volume", DEFAULT_MASTER_VOLUME),
-		"music_volume": config.get_value("audio", "music_volume", DEFAULT_MUSIC_VOLUME),
-		"sfx_volume": config.get_value("audio", "sfx_volume", DEFAULT_SFX_VOLUME),
-		"master_muted": config.get_value("audio", "master_muted", false),
-		"music_muted": config.get_value("audio", "music_muted", false),
-		"sfx_muted": config.get_value("audio", "sfx_muted", false),
-		"window_mode": config.get_value("display", "window_mode", WINDOW_MODE_WINDOWED),
-		"vsync_enabled": config.get_value("display", "vsync_enabled", true),
-		"fps_cap": config.get_value("display", "fps_cap", FPS_CAP_60),
+		"master_volume": config.get_value("audio", "master_volume"),
+		"music_volume": config.get_value("audio", "music_volume"),
+		"sfx_volume": config.get_value("audio", "sfx_volume"),
+		"master_muted": config.get_value("audio", "master_muted"),
+		"music_muted": config.get_value("audio", "music_muted"),
+		"sfx_muted": config.get_value("audio", "sfx_muted"),
+		"window_mode": config.get_value("display", "window_mode"),
+		"vsync_enabled": config.get_value("display", "vsync_enabled"),
+		"fps_cap": config.get_value("display", "fps_cap"),
 	}
 	if not _snapshot_is_valid(values, false):
 		return {}
@@ -282,27 +313,94 @@ func _apply_display() -> void:
 	DisplayServer.window_set_mode(mode)
 
 
-## Moves a corrupt file aside before applying defaults as the recovered state.
-func _recover_corrupt() -> Error:
-	last_load_recovered = true
+## Reads one complete settings file without mutating live state.
+func _read_values(path: String) -> Dictionary:
+	var config := ConfigFile.new()
+	var load_error: Error = config.load(path)
+	if load_error == ERR_FILE_NOT_FOUND:
+		return { "ok": false, "missing": true, "values": {} }
+	if load_error != OK:
+		return { "ok": false, "missing": false, "values": {} }
+	var values: Dictionary = _validated_values(config)
+	return { "ok": not values.is_empty(), "missing": false, "values": values }
+
+
+## Applies validated settings before transaction artifacts become eligible for deletion.
+func _finish_valid_load(
+	values: Dictionary,
+	previous_path: String,
+	temporary_path: String,
+) -> Error:
+	_assign_values(values)
+	apply()
+	changed.emit(snapshot())
+	var previous_error: Error = _remove_if_present(previous_path)
+	if previous_error != OK:
+		return previous_error
+	return _remove_if_present(temporary_path)
+
+
+## Applies safe defaults while preserving any storage failure for the caller.
+func _finish_default_load(error: Error) -> Error:
+	apply()
+	changed.emit(snapshot())
+	return error
+
+
+## Restores the last committed file or defaults after an invalid destination.
+func _recover_invalid_destination(previous_path: String, temporary_path: String) -> Error:
+	var backup_error: Error = _backup_invalid_destination()
+	if backup_error != OK:
+		return _finish_default_load(backup_error)
+
+	if FileAccess.file_exists(previous_path):
+		var restore_error: Error = _rename(previous_path, _storage_path)
+		if restore_error != OK:
+			return _finish_default_load(restore_error)
+		var restored_result: Dictionary = _read_values(_storage_path)
+		if restored_result.ok:
+			_set_recovery_warning(CORRUPT_RECOVERY_WARNING)
+			return _finish_valid_load(restored_result.values, previous_path, temporary_path)
+
+	var restored_backup_error: Error = OK
+	if FileAccess.file_exists(_storage_path):
+		restored_backup_error = _backup_invalid_destination()
+	if restored_backup_error != OK:
+		return _finish_default_load(restored_backup_error)
+	var temporary_error: Error = _remove_if_present(temporary_path)
+	_set_recovery_warning(CORRUPT_RECOVERY_WARNING)
+	return _finish_default_load(temporary_error)
+
+
+## Moves the invalid canonical file aside without deleting a possible last-good file.
+func _backup_invalid_destination() -> Error:
 	var backup_suffix := "%d-%d" % [
 		int(Time.get_unix_time_from_system() * 1000.0),
 		Time.get_ticks_usec(),
 	]
 	last_backup_path = _storage_path + ".corrupt-" + backup_suffix
 	var backup_error: Error = _rename(_storage_path, last_backup_path)
-	apply()
-	changed.emit(snapshot())
 	if backup_error != OK:
 		last_backup_path = ""
-		return backup_error
-	return OK
+	return backup_error
+
+
+## Records a nonfatal warning that the settings screen can present visibly.
+func _set_recovery_warning(warning: String) -> void:
+	last_load_recovered = true
+	last_recovery_warning = warning
 
 
 ## Commits the complete temporary file while retaining the prior file for rollback.
 func _replace_from_temporary(temporary_path: String) -> Error:
 	var previous_path: String = _storage_path + ".previous"
-	_remove_if_present(previous_path)
+	if FileAccess.file_exists(previous_path):
+		var current_result: Dictionary = _read_values(_storage_path)
+		if not current_result.ok:
+			return ERR_INVALID_DATA
+		var stale_error: Error = _remove_if_present(previous_path)
+		if stale_error != OK:
+			return stale_error
 	var had_previous: bool = FileAccess.file_exists(_storage_path)
 	if had_previous:
 		var preserve_error: Error = _rename(_storage_path, previous_path)
@@ -312,11 +410,19 @@ func _replace_from_temporary(temporary_path: String) -> Error:
 	var replace_error: Error = _rename(temporary_path, _storage_path)
 	if replace_error != OK:
 		if had_previous:
-			_rename(previous_path, _storage_path)
+			var rollback_error: Error = _rename(previous_path, _storage_path)
+			if rollback_error != OK:
+				return rollback_error
 		return replace_error
 
-	_remove_if_present(previous_path)
-	return OK
+	return _remove_if_present(previous_path)
+
+
+## Reports the exact final save or cleanup result once.
+func _report_save(error: Error) -> Error:
+	last_save_error = error
+	save_completed.emit(error)
+	return error
 
 
 ## Renames through absolute paths so user and injected paths share one transaction path.
@@ -331,6 +437,7 @@ func _rename(source_path: String, destination_path: String) -> Error:
 
 
 ## Removes stale transaction files without treating absence as an error.
-func _remove_if_present(path: String) -> void:
-	if FileAccess.file_exists(path):
-		DirAccess.remove_absolute(ProjectSettings.globalize_path(path))
+func _remove_if_present(path: String) -> Error:
+	if not FileAccess.file_exists(path):
+		return OK
+	return DirAccess.remove_absolute(ProjectSettings.globalize_path(path))

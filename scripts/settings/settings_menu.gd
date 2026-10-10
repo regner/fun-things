@@ -55,7 +55,7 @@ func open() -> bool:
 
 	_opening_snapshot = _settings.snapshot()
 	_sync_controls(_opening_snapshot)
-	_feedback.text = ""
+	_feedback.text = _settings.last_recovery_warning
 	visible = true
 	_master_volume.grab_focus()
 	return true
