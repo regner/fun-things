@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://chce5wqf3tluc"]
+
+[ext_resource type="PackedScene" uid="uid://mwj75ktxjny1" path="res://scenes/prefabs/environment/d05_harbour_hall_01.tscn" id="1_hall"]
+[ext_resource type="PackedScene" uid="uid://b2fihoe3wget1" path="res://scenes/prefabs/environment/d05_harbour_hall_02.tscn" id="2_canopy"]
+[ext_resource type="PackedScene" uid="uid://d1j30u2fqfdpg" path="res://scenes/prefabs/environment/d05_civic_graphics_01.tscn" id="3_fascia"]
+
+[node name="d05_civic_graphics_01_hall_preview" type="Node3D" unique_id=1798923070]
+
+[node name="Hall" parent="." unique_id=538848366 instance=ExtResource("1_hall")]
+
+[node name="Canopy" parent="." unique_id=440375553 instance=ExtResource("2_canopy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.85, -9)
+
+[node name="Fascia" parent="." unique_id=643018104 instance=ExtResource("3_fascia")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.95, -9)

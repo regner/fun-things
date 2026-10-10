@@ -1,0 +1,122 @@
+{
+  "asset_id": "d05_civic_graphics.01",
+  "algorithm": "SHA-256",
+  "exclusions": [
+    "manifest.json (self-hash)",
+    "__pycache__ (uncommitted cache)"
+  ],
+  "shared_dependencies_not_produced": [
+    {
+      "path": "art/source/models/environment/city_shop_fittings_02/city_shop_fittings_02.blend",
+      "bytes": 116378,
+      "sha256": "44b3165d4d6d9cf4b0f3ef577e0c70fc80dae72726b04ebbe53272581e4454db"
+    },
+    {
+      "path": "art/models/environment/city_shop_fittings_02/city_shop_fittings_02.glb",
+      "bytes": 45616,
+      "sha256": "4fd2106f09ef4a35edafbcf3a3a68ea94983e721fd84d852a406e2d26de6552f"
+    }
+  ],
+  "files": [
+    {
+      "path": "art/materials/environment/d05_civic_graphics_01/hall_fascia.tres",
+      "bytes": 364,
+      "sha256": "1178d2cf85fec031447e001d73d1f682224ba6a6ae7780963c8d6c60c6564f99"
+    },
+    {
+      "path": "art/textures/environment/d05_civic_graphics_01/hall_fascia_albedo.png",
+      "bytes": 46874,
+      "sha256": "d532dc4e9ada028f3c349493a58671db3da2b2d27eaaf6774678764945f8e805"
+    },
+    {
+      "path": "art/textures/environment/d05_civic_graphics_01/hall_fascia_albedo.png.import",
+      "bytes": 1108,
+      "sha256": "6f5ad132a58c81a840a3caf70ea0299ea4e632c9d4563b1383d6385e9b6449d7"
+    },
+    {
+      "path": "docs/assets/production/d05_civic_graphics_01-evidence/final.log",
+      "bytes": 1868,
+      "sha256": "7f3689a9478b1f7892d7fbeaae34162ec87f32e54c6dd5afc5b88e4555179bc2"
+    },
+    {
+      "path": "docs/assets/production/d05_civic_graphics_01-evidence/hero.png",
+      "bytes": 171912,
+      "sha256": "21cc5558e637abb42d554a4a93d18be80bd8963863941c927f2b50c7af8ff0cb"
+    },
+    {
+      "path": "docs/assets/production/d05_civic_graphics_01-evidence/mount_detail.png",
+      "bytes": 306441,
+      "sha256": "667045d2d5a1a8590a501ac3bfd29eb00d476e6138fb49fabb31005ff960b307"
+    },
+    {
+      "path": "docs/assets/production/d05_civic_graphics_01-evidence/overhead_47m_42deg.png",
+      "bytes": 89400,
+      "sha256": "49de860fde17e6c7cc00f87be4ff9414c4a1270b4429a742ce1b037e0c7974ef"
+    },
+    {
+      "path": "docs/assets/production/d05_civic_graphics_01-evidence/side.png",
+      "bytes": 184882,
+      "sha256": "5cc5991f2a9d85a06730a8ddadad63160e93423fdcd2af8f1693dbc3203ef93c"
+    },
+    {
+      "path": "docs/assets/production/d05_civic_graphics_01-evidence/validation.json",
+      "bytes": 14335,
+      "sha256": "0ea4f895f625ed55c33fcd4ba32b16ead2966d088df810736ede6dd517063083"
+    },
+    {
+      "path": "docs/assets/production/d05_civic_graphics_01.md",
+      "bytes": 12794,
+      "sha256": "01ac2bf65f119c52a0f9aec99ed8b9830ff551f1d498402c0494ae1d1678624e"
+    },
+    {
+      "path": "scenes/prefabs/environment/d05_civic_graphics_01.tscn",
+      "bytes": 840,
+      "sha256": "14b7fac1be4b5283c6fc1ff6e5ec7de73bd73a276ee77925708b95525730e46e"
+    },
+    {
+      "path": "scenes/prefabs/environment/d05_civic_graphics_01_hall_preview.tscn",
+      "bytes": 930,
+      "sha256": "ded03d2b0cd802da9d1870ef77c1f06a9a047088da29abf5ed7225125e546c79"
+    },
+    {
+      "path": "tools/asset_production/d05_civic_graphics_01/author.py",
+      "bytes": 3767,
+      "sha256": "b57ed9f830d139f7aea71ec0b06804797798eaf49f0bca3d0a8cc2bea8e612b6"
+    },
+    {
+      "path": "tools/asset_production/d05_civic_graphics_01/check_prefab.gd",
+      "bytes": 7841,
+      "sha256": "63a8ef5d8220926011ce38e20d54bd98f3dad93509c00925ff1b5e8dfb308483"
+    },
+    {
+      "path": "tools/asset_production/d05_civic_graphics_01/check_prefab.gd.uid",
+      "bytes": 20,
+      "sha256": "bd294b47f28b12c8456eb3cafc7d9220f864e742c6bbd5b22c7a1932a97fbb04"
+    },
+    {
+      "path": "tools/asset_production/d05_civic_graphics_01/manifest.py",
+      "bytes": 2408,
+      "sha256": "08ca7e66364c817504a665e54e8736e4ff05f8263aebfdd5e13850d4ef7af184"
+    },
+    {
+      "path": "tools/asset_production/d05_civic_graphics_01/preview.py",
+      "bytes": 4846,
+      "sha256": "c34380334dd11df621f87a30241473801d86f502ac5693a2b71c190666b04823"
+    },
+    {
+      "path": "tools/asset_production/d05_civic_graphics_01/record.py",
+      "bytes": 4282,
+      "sha256": "a37521869b28e47143a4611f71fa8fe2a9d35f1684a8c221cc975f2db003b8b2"
+    },
+    {
+      "path": "tools/asset_production/d05_civic_graphics_01/test_artwork.py",
+      "bytes": 2011,
+      "sha256": "019fbd891129a43ff01424d782d34f9941fa4e5ddede2f0f57d47c1da6c4f8ed"
+    },
+    {
+      "path": "tools/asset_production/d05_civic_graphics_01/validate.py",
+      "bytes": 4142,
+      "sha256": "bfa3623bf9ce05e6ed9a0b1ec446119b951038cf5db3da596a232eacaec8db2f"
+    }
+  ]
+}

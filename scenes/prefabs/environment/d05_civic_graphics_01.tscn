@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://d1j30u2fqfdpg"]
+
+[ext_resource type="PackedScene" uid="uid://cdtnvrp3u64wi" path="res://art/models/environment/city_shop_fittings_02/city_shop_fittings_02.glb" id="1_model"]
+[ext_resource type="Material" uid="uid://cvd0iodqut437" path="res://art/materials/environment/d05_civic_graphics_01/hall_fascia.tres" id="2_artwork"]
+
+[node name="d05_civic_graphics_01" type="Node3D" unique_id=141439220]
+
+[node name="Visuals" type="Node3D" parent="." unique_id=1555223959]
+
+[node name="Model" parent="Visuals" unique_id=697037157 instance=ExtResource("1_model")]
+
+[node name="fascia_artwork_carrier" parent="Visuals/Model/city_shop_fittings_02" parent_id_path=PackedInt32Array(697037157, 1675353995) index="2" unique_id=566628672]
+surface_material_override/0 = ExtResource("2_artwork")
+
+[editable path="Visuals/Model"]

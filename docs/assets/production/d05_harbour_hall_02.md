@@ -190,7 +190,9 @@ export settings rather than adding a new abstraction or changing shared tooling.
    especially actors directly under the canopy and edge-of-camera roof occlusion.
 3. Populated-world movement/vehicle routes, multiplayer transport/admission/prediction,
    packaged build, Godot lighting/LOD and sustained GPU/Deck performance.
-4. Separate civic graphics/support production; no duplicated carrier or placeholder copy.
+4. Hall fascia artwork/shared support delivered by
+   [d05_civic_graphics.01](d05_civic_graphics_01.md), including a mounted reference;
+   final copy selection and district placement remain with that handoff.
 5. Pinned headless-editor shutdown leaks remain an integration/tooling limitation.
 
 No shared brief, queue/progress/TODO, world scene, road data, gameplay rule or sibling
