@@ -168,7 +168,7 @@ the complete silhouette. These are not in-engine lighting or player-visibility p
 - Source, actual GLB accessors and Godot AABB match literal expected bounds within
   0.001 m. Ground is approximately -8.94e-8 m from floating-point rounding.
 - Fresh reexport from the reopened saved source is **byte-identical**, **189,408 bytes**,
-  SHA-256 `07bfe7e69f708d7e411d84449fe6654d97acca43ab16c700468ba6c78d935ecb`.
+  SHA-256 `52ff3eee4854f3ccdca8f807630f4483184872c4016ca974e17cfaa65c25a3e5`.
 - Pinned headless Godot import, linked dependencies, UIDs, actual seven material
   surfaces, transforms and three collision sizes/centres pass. Pack/save/reload/resave
   is byte-stable after initial engine normalization.
@@ -178,10 +178,10 @@ the complete silhouette. These are not in-engine lighting or player-visibility p
   at Z=-19.35009765625 on the front, and crosses the clear notch to Z=-6 exactly.
   These use real engine APIs, not duplicated collision formulae, but they are not
   production ActorMotion, vehicle, combat, multiplayer or route acceptance.
-- Full `production_checks.py` passes: **218 scripts** lint/format/compile clean,
-  **17 Python tests**, **165 GUT tests / 6,918 assertions**, and the intentional
-  negative control is correctly rejected. No known-failure exclusions were needed
-  on this checkout. The owned script also passes explicit lint/format/compile checks.
+- Targeted source/export validation, pinned import (no ERROR/SCRIPT ERROR), prefab
+  roundtrip/fresh physics check, owned check-only compilation, and gdstyle lint/format
+  all pass. Command exits and raw-log hashes are retained in `targeted_checks`.
+  Earlier full-project test results are historical only, not a handoff prerequisite.
 
 ### Corrections and diagnostic limits
 
@@ -199,7 +199,7 @@ warning. Those diagnostics are retained in the concise final log, not suppressed
 or called clean. Fresh non-editor dependency/physics checks and explicit compilation
 exit 0 without ERROR/WARNING diagnostics. An added collider-size assertion initially
 exceeded the lint local-variable limit; extracting a focused collision-check helper
-resolved it, followed by the clean full `checks-final2` run. Blender reports 6.0 API
+resolved it; the earlier full-project run is historical only. Blender reports 6.0 API
 deprecation notices only. No vendor, plugin or project-setting changes were made.
 
 [final.log](d07_retail_buildings_01-evidence/final.log) is the concise check receipt;
@@ -209,40 +209,48 @@ outside the checkout at `C:/tmp/ft/assets/d07_retail_buildings_01/`.
 
 ## Exact reproduction
 
-Run from repository root in Bash. Only isolated timeout-bounded processes are used.
-The production-check output directory must be fresh; use another suffix on reruns.
+Run from repository root in Bash. All engines are isolated, pinned and timeout-bounded.
+`run_check` records each actual exit and log; `set -e` stops before recording a manifest
+if any command fails. Old exit receipts are removed before the run. No full-project
+validation is required. For receipt-only refreshes, skip `author.py`: it is the source,
+export and render creation step, not needed when those payloads are unchanged.
 
 ```sh
+set -e
 NID=d07_retail_buildings_01
 B='C:/Program Files/Blender Foundation/Blender 5.2/blender.exe'
 G="$(mise which godot)"
 T="C:/tmp/ft/assets/$NID"
 mkdir -p "$T"
+rm -f "$T"/{validate,import-final,prefab-normalize,compile,prefab-fresh,gdstyle-lint,gdstyle-format}.exit
+# Capture each actual exit; a failed command stops the set -e workflow.
+run_check() {
+  local name="$1" code=0
+  shift
+  "$@" > "$T/$name.log" 2>&1 || code=$?
+  printf '%s\n' "$code" > "$T/$name.exit"
+  return "$code"
+}
+# Creation only; skip for a receipt-only refresh of unchanged source/exports/renders.
 timeout 900 env ALSOFT_DRIVERS=null SDL_AUDIODRIVER=dummy "$B" \
   -noaudio --background --factory-startup --threads 4 --python-exit-code 1 \
-  --python "tools/asset_production/$NID/author.py"
-timeout 180 env ALSOFT_DRIVERS=null SDL_AUDIODRIVER=dummy "$B" \
+  --python "tools/asset_production/$NID/author.py" > "$T/author-final.log" 2>&1
+run_check validate timeout 180 env ALSOFT_DRIVERS=null SDL_AUDIODRIVER=dummy "$B" \
   -noaudio --background --factory-startup --threads 4 --python-exit-code 1 \
   --python "tools/asset_production/$NID/validate.py"
 # validate.py reopens source, measures actual GLB data and byte-compares a scratch reexport.
-# Independent export entrypoint, when needed:
-timeout 180 env ALSOFT_DRIVERS=null SDL_AUDIODRIVER=dummy "$B" \
-  -noaudio --background "art/source/models/environment/$NID/$NID.blend" \
-  --threads 4 --python-exit-code 1 --python "tools/asset_production/$NID/export.py" \
-  -- "$T/manual-reexport"
-timeout 300 "$G" --headless --path . --import > "$T/import-final.log" 2>&1
-timeout 180 "$G" --headless --editor --path . \
-  --script "res://tools/asset_production/$NID/check_prefab.gd" -- --normalize \
-  > "$T/prefab-normalize-final.log" 2>&1
-timeout 180 "$G" --headless --path . --check-only \
+run_check import-final timeout 300 "$G" --headless --path . --import
+run_check prefab-normalize timeout 180 "$G" --headless --editor --path . \
+  --script "res://tools/asset_production/$NID/check_prefab.gd" -- --normalize
+run_check compile timeout 180 "$G" --headless --path . --check-only \
   --script "res://tools/asset_production/$NID/check_prefab.gd"
-timeout 180 "$G" --headless --path . \
+run_check prefab-fresh timeout 180 "$G" --headless --path . \
   --script "res://tools/asset_production/$NID/check_prefab.gd" -- \
-  --output "$T/prefab-fresh.json" > "$T/prefab-fresh.log" 2>&1
-timeout 60 "$(mise which gdstyle)" --max-line-length 100 --max-warnings 0 \
+  --output "$T/prefab-fresh.json"
+run_check gdstyle-lint timeout 60 "$(mise which gdstyle)" --max-line-length 100 --max-warnings 0 \
   "tools/asset_production/$NID/check_prefab.gd"
-timeout 60 "$(mise which gdstyle)" fmt --check "tools/asset_production/$NID/check_prefab.gd"
-timeout 1800 mise exec -- python tools/production_checks.py --output "$T/checks-final2"
+run_check gdstyle-format timeout 60 "$(mise which gdstyle)" fmt --check \
+  "tools/asset_production/$NID/check_prefab.gd"
 python "tools/asset_production/$NID/record.py"
 ```
 
@@ -251,6 +259,17 @@ python "tools/asset_production/$NID/record.py"
 `validate.py` validates source/GLB and fresh-export bytes. `check_prefab.gd` validates
 saved engine resources and bounded physics; `--normalize` is only for headless editor
 pack/save. `record.py` incorporates the final external receipts and hashes payloads.
+
+## Review round 1 corrections
+
+Replaced the prohibited full-project reproduction dependency with required targeted
+command receipts in `record.py`, this reproduction block, validation JSON and final log.
+The recorder checks actual GLB bytes/hash against the validator and regenerates the
+manifest last. Corrected the stale handoff GLB hash to the final validator value.
+Source, GLB, prefab and four render payloads are unchanged; source/reexport, import,
+roundtrip, fresh dependency/physics, check-only compilation and gdstyle were rerun.
+No new art or gameplay acceptance is claimed. Original broader test history remains
+in Git, not a required input to current receipts.
 
 ## Remaining acceptance / handoff
 

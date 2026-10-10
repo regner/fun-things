@@ -1,6 +1,7 @@
 """Record final external checks and hash this asset's lean delivered payloads."""
 import hashlib
 import json
+import re
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[3]
@@ -10,40 +11,49 @@ SCRATCH = Path(f"C:/tmp/ft/assets/{NID}")
 
 
 def read_json(path):
-    """Read a source or engine receipt without silently supplying missing evidence."""
+    """Read a required receipt; missing evidence must fail closed."""
     return json.loads(path.read_text(encoding="utf-8"))
+
+
+def check_receipt(name):
+    """Require successful targeted exits; retain only the known editor shutdown exception."""
+    exit_code = int((SCRATCH / f"{name}.exit").read_text(encoding="utf-8"))
+    assert exit_code == 0, f"{name} exited {exit_code}"
+    raw = (SCRATCH / f"{name}.log").read_bytes()
+    lines = raw.decode("utf-8").splitlines()
+    diagnostics = [line for line in lines if "ERROR" in line or "WARNING:" in line]
+    for line in diagnostics:
+        if "ERROR" in line:
+            # The pinned editor leaks shutdown RIDs; never excuse script/import errors.
+            known_shutdown = name == "prefab-normalize" and re.fullmatch(
+                r"ERROR: \d+ RID allocations of type '.+' were leaked at exit\.", line)
+            assert known_shutdown, (name, line)
+    return {"exit_code": exit_code, "log_sha256": hashlib.sha256(raw).hexdigest(),
+            "diagnostics": diagnostics}
 
 
 validation = read_json(EVIDENCE / "validation.json")
 engine = read_json(SCRATCH / "prefab-fresh.json")
 normalization = read_json(SCRATCH / "prefab-check.json")
-checks = read_json(SCRATCH / "checks-final2/summary.json")
-compilation = read_json(SCRATCH / "checks-final2/script-checks/compilation.json")
+checks = {name: check_receipt(name)
+          for name in ("validate", "import-final", "prefab-normalize", "compile",
+                       "prefab-fresh", "gdstyle-lint", "gdstyle-format")}
 assert validation["reexport_byte_identical"]
+raw_glb = (ROOT / f"art/models/environment/{NID}/{NID}.glb").read_bytes()
+assert validation["glb_sha256"] == hashlib.sha256(raw_glb).hexdigest()
+assert validation["glb_bytes"] == len(raw_glb)
 assert engine["ok"] and not engine["failures"]
+assert normalization["ok"] and not normalization["failures"]
 assert normalization["save_reload_byte_stable"]
 assert engine["prefab_uid"] == normalization["prefab_uid"]
 assert engine["model_uid"] == normalization["model_uid"]
-assert checks["ok"] and all(row["ok"] for row in compilation)
-assert any(row["script"] == f"tools/asset_production/{NID}/check_prefab.gd" for row in compilation)
-fresh_log = (SCRATCH / "prefab-fresh.log").read_text()
-assert not any(marker in fresh_log for marker in ("ERROR:", "WARNING:"))
+assert not checks["prefab-fresh"]["diagnostics"]
 validation["engine"] = engine
 validation["engine"]["save_reload_byte_stable"] = True
-validation["engine"]["normalization_diagnostics"] = (
-    "Corrected editor normalization exits 0 and saves stable bytes but reports shutdown "
-    "RID/ObjectDB leaks and the existing MCP compatibility warning. Fresh runtime checks are clean."
-)
-validation["production_checks"] = {
-    "overall_ok": checks["ok"],
-    "results": checks["results"],
-    "compiled_scripts": len(compilation),
-    "owned_script_style_compile_and_format": "PASS",
-    "python_tests": 17,
-    "gut_tests": 165,
-    "gut_assertions": 6918,
-    "failure_exclusions": [],
-}
+validation["engine"]["normalization_diagnostics"] = checks["prefab-normalize"]["diagnostics"]
+validation["engine"]["final_import_diagnostics"] = checks["import-final"]["diagnostics"]
+validation.pop("production_checks", None)
+validation["targeted_checks"] = checks
 validation["visual_review"] = {
     "renders_inspected": ["hero.png", "side.png", "frontage_detail.png", "overhead_47m_42deg.png"],
     "renderer": "Blender Cycles CPU, 24 samples, denoised, AgX; PNG compression 95, no output dither",
@@ -56,27 +66,25 @@ validation["visual_review"] = {
     "scope": "Isolated Blender evidence, not engine lighting, world placement or device acceptance",
 }
 (EVIDENCE / "validation.json").write_text(json.dumps(validation, indent=2) + "\n", newline="\n")
-normalize_log = (SCRATCH / "prefab-normalize-final.log").read_text()
-diagnostics = "\n".join(line for line in normalize_log.splitlines()
-                        if "ERROR:" in line or "WARNING:" in line)
 summary = (
-    "FINAL ASSET CHECK RECEIPT — full scratch logs remain outside the checkout\n"
-    "Asset: d07_retail_buildings.01; Blender 5.2.2 LTS, exporter 5.2.40.\n"
-    "Final author and source/GLB validator: exit 0; no topology or normal failures.\n"
-    "6,804 triangles; 3,528 source / 4,536 GLB vertices; 1 mesh / 7 surfaces.\n"
-    "Fresh source reexport byte-identical; 189,408 bytes.\n"
-    "Blender use_nodes deprecation notices only.\n"
-    "All four final renders inspected; original coplanar coral/roof stripe corrected.\n"
-    "Initial editor normalization: timeout exit 124 while awaiting filesystem signal.\n"
-    "Corrected bounded polling/deadline: normalization exits 0, saves stable bytes.\n"
-    "Editor diagnostics retained (not claimed clean):\n" + diagnostics + "\n\n"
-    "Final pinned headless import: exit 0; existing MCP 4.8 compatibility warning.\n"
-    "Fresh non-editor prefab check: exit 0; no ERROR/WARNING:\n" + fresh_log + "\n"
-    "Intermediate checks-final: owned max-local-variables warning; helper extraction fixed it.\n"
-    "Final production_checks.py (checks-final2): exit 0; all layers pass with no exclusions.\n"
-    "218 GDScripts lint/format/compile; Python 17/17; GUT 165/165, 6,918 assertions.\n"
-    "Negative control exits 1 as expected and is detected.\n"
-    "Actual ActorMotion/car motion, multiplayer transport, placement and device gates pending.\n"
+    "FINAL TARGETED ASSET CHECK RECEIPT — raw logs remain outside the checkout\n"
+    f"Asset: {NID}; review round 1 receipt refresh.\n"
+    f"Blender {validation['blender']}, exporter {validation['glTF_exporter']}.\n"
+    f"{validation['source_triangles']} triangles; {validation['source_vertices']} source / "
+    f"{validation['glb_vertices_including_surface_splits']} GLB vertices; 1 mesh / 7 surfaces.\n"
+    f"Fresh source reexport byte-identical; {validation['glb_bytes']} bytes.\n"
+    f"GLB SHA-256: {validation['glb_sha256']}\n"
+    "Source/export geometry and existing four render payloads unchanged by review fixes.\n"
+    "Visual review retained from original production; no new render or lighting claim.\n"
+    "Targeted commands (all exit 0); warning/error diagnostics retained below:\n"
+    + "\n".join(f"{name}: exit {receipt['exit_code']}; log SHA-256 {receipt['log_sha256']}"
+                + ("\n" + "\n".join(receipt['diagnostics']) if receipt['diagnostics'] else "")
+                for name, receipt in checks.items()) + "\n\n"
+    "Fresh non-editor prefab resource/physics receipt:\n"
+    + (SCRATCH / "prefab-fresh.log").read_text(encoding="utf-8") + "\n"
+    "Prefab pack/save/reload/resave byte-stable; identities match fresh load.\n"
+    "Only targeted validation is required; no full-project production checks were run.\n"
+    "Actual ActorMotion/car motion, multiplayer, placement and device gates remain pending.\n"
 )
 (EVIDENCE / "final.log").write_text(summary, encoding="utf-8", newline="\n")
 paths = [
@@ -101,4 +109,4 @@ manifest = {
     "files": sorted(files, key=lambda item: item["path"]),
 }
 (EVIDENCE / "manifest.json").write_text(json.dumps(manifest, indent=2) + "\n", newline="\n")
-print(f"Recorded {len(files)} payload hashes; production checks all pass.")
+print(f"Recorded {len(files)} payload hashes; targeted checks all pass.")

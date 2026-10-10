@@ -1,13 +1,16 @@
-FINAL ASSET CHECK RECEIPT — full scratch logs remain outside the checkout
-Asset: d07_retail_buildings.01; Blender 5.2.2 LTS, exporter 5.2.40.
-Final author and source/GLB validator: exit 0; no topology or normal failures.
-6,804 triangles; 3,528 source / 4,536 GLB vertices; 1 mesh / 7 surfaces.
-Fresh source reexport byte-identical; 189,408 bytes.
-Blender use_nodes deprecation notices only.
-All four final renders inspected; original coplanar coral/roof stripe corrected.
-Initial editor normalization: timeout exit 124 while awaiting filesystem signal.
-Corrected bounded polling/deadline: normalization exits 0, saves stable bytes.
-Editor diagnostics retained (not claimed clean):
+FINAL TARGETED ASSET CHECK RECEIPT — raw logs remain outside the checkout
+Asset: d07_retail_buildings_01; review round 1 receipt refresh.
+Blender 5.2.2 LTS, exporter 5.2.40.
+6804 triangles; 3528 source / 4536 GLB vertices; 1 mesh / 7 surfaces.
+Fresh source reexport byte-identical; 189408 bytes.
+GLB SHA-256: 52ff3eee4854f3ccdca8f807630f4483184872c4016ca974e17cfaa65c25a3e5
+Source/export geometry and existing four render payloads unchanged by review fixes.
+Visual review retained from original production; no new render or lighting claim.
+Targeted commands (all exit 0); warning/error diagnostics retained below:
+validate: exit 0; log SHA-256 d3a246fe0dffa04496d1aacafe1cadd873a0e647ebe3d38debb8a3477de2a76e
+import-final: exit 0; log SHA-256 38fb0a98340ad72075aa126234232f3729868245813ac4fa803652b761c62927
+WARNING: [MCP] Godot 4.8 detected - latest tested version is 4.7.0. The plugin will run normally but some features may behave unexpectedly. Please report issues at https://github.com/NPGameDev/godot-mcp-toolkit/issues
+prefab-normalize: exit 0; log SHA-256 eee85e5f0c2e10919f74b643b5380da107a1a3205f81111c0735ddc9c909a6b7
 WARNING: [MCP] Godot 4.8 detected - latest tested version is 4.7.0. The plugin will run normally but some features may behave unexpectedly. Please report issues at https://github.com/NPGameDev/godot-mcp-toolkit/issues
 ERROR: 5 RID allocations of type 'N16RendererViewport8ViewportE' were leaked at exit.
 ERROR: 8 RID allocations of type 'PN13RendererDummy14TextureStorage12DummyTextureE' were leaked at exit.
@@ -17,9 +20,12 @@ ERROR: 1 RID allocations of type 'PN18TextServerAdvanced12FontAdvancedE' were le
 WARNING: 5 RIDs of type "Canvas" were leaked.
 WARNING: 31 RIDs of type "CanvasItem" were leaked.
 WARNING: 168 ObjectDB instances were leaked at exit (run with `--verbose` for details).
+compile: exit 0; log SHA-256 34aec1291ba8c90e646a6c00307155fcf87a7f172542ca52e787c389358ca3e1
+prefab-fresh: exit 0; log SHA-256 b5d168bae5cc566808a9baf8159a358c693d093bd4099fb8abdb7ee49a21ad8a
+gdstyle-lint: exit 0; log SHA-256 b606ad683566c88181a33e8f4e5fd23352ed9fbdf98e24b5429753d300ad34d7
+gdstyle-format: exit 0; log SHA-256 990e1e4e20224faf0ae02a391ee415e84c3913a80b2da78c7ddbf96b3a10df13
 
-Final pinned headless import: exit 0; existing MCP 4.8 compatibility warning.
-Fresh non-editor prefab check: exit 0; no ERROR/WARNING:
+Fresh non-editor prefab resource/physics receipt:
 Godot Engine v4.8.dev7.official.c971f93e7 - https://godotengine.org
 
 [MCPRuntimeServer] port: scanning 6570-6585 (default)
@@ -27,8 +33,6 @@ Godot Engine v4.8.dev7.official.c971f93e7 - https://godotengine.org
 [MCPRegistry] runtime port 6570 registered for c:/gamedev/git/ft-lanes/a-retail
 {"aabb_min":[-32.0,-0.0000000894069671630859,-19.0],"aabb_size":[64.0,9.59999942779541,38.0],"capsule_front_stop_z":-19.35009765625,"capsule_notch_end_z":-6.0,"collision_shape_count":3,"engine":"4.8-dev7 (official)","failures":[],"front_ray_hit":[0.0,1.0,-19.0],"linked_model_identity":true,"materials":["retail_trim_petrol","retail_wall_slate","retail_roof_blue","retail_wall_plum","retail_frame_slate","retail_glazing_opaque","retail_band_coral"],"mesh_count":1,"model_uid":"uid://dastl8r660i3u","ok":true,"physics_shape_queries":[{"case":"interior_solid","solid":true},{"case":"closed_annex_backing","solid":true},{"case":"front_forecourt_clear","solid":false},{"case":"stepped_notch_clear","solid":false},{"case":"side_wing_solid","solid":true},{"case":"west_outside_clear","solid":false},{"case":"east_outside_clear","solid":false},{"case":"above_front_clear","solid":false},{"case":"above_side_clear","solid":false},{"case":"high_hall_solid","solid":true},{"case":"rear_solid","solid":true},{"case":"rear_outside_clear","solid":false}],"prefab_uid":"uid://d2cm3erl8jfjg"}
 
-Intermediate checks-final: owned max-local-variables warning; helper extraction fixed it.
-Final production_checks.py (checks-final2): exit 0; all layers pass with no exclusions.
-218 GDScripts lint/format/compile; Python 17/17; GUT 165/165, 6,918 assertions.
-Negative control exits 1 as expected and is detected.
-Actual ActorMotion/car motion, multiplayer transport, placement and device gates pending.
+Prefab pack/save/reload/resave byte-stable; identities match fresh load.
+Only targeted validation is required; no full-project production checks were run.
+Actual ActorMotion/car motion, multiplayer, placement and device gates remain pending.
