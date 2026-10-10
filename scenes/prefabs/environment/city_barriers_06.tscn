@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://d0pw6qm0w13pi"]
+
+[ext_resource type="PackedScene" path="res://art/models/environment/city_barriers_06/city_barriers_06_line.glb" id="1_model"]
+
+[sub_resource type="BoxShape3D" id="Box_Post"]
+size = Vector3(0.21, 2.16, 0.21)
+
+[node name="city_barriers_06" type="Node3D" unique_id=302037044]
+
+[node name="Visuals" type="Node3D" parent="." unique_id=1382781960]
+
+[node name="Model" parent="Visuals" unique_id=2116571091 instance=ExtResource("1_model")]
+
+[node name="Collision" type="Node3D" parent="." unique_id=1641815441]
+
+[node name="PostBody" type="StaticBody3D" parent="Collision" unique_id=2090970253]
+collision_mask = 0
+
+[node name="Post" type="CollisionShape3D" parent="Collision/PostBody" unique_id=414845278]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.08, 0)
+shape = SubResource("Box_Post")

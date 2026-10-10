@@ -1,0 +1,59 @@
+city_barriers.06 — final bounded production receipt — 10 October 2026
+Start revision: 31cc666d; lane/a-barriers. Owned paths only; no live editor sessions.
+Exact reproducible commands and scope limitations: ../city_barriers_06.md.
+
+SOURCE / EXPORT
+PASS: timeout 900 env ALSOFT_DRIVERS=null SDL_AUDIODRIVER=dummy [pinned Blender]
+      -noaudio --background --factory-startup --threads 4 --python-exit-code 1
+      --python tools/asset_production/city_barriers_06/author.py
+PASS: same isolated Blender invocation, timeout 180, validate.py.
+Blender 5.2.2 LTS d13f752e3b9c; exporter 5.2.40; shared export_settings.json.
+Line: 976 source vertices / 922 faces / 1924 triangles / 1968 GLB vertices / 16 shells.
+Terminal: 832 / 752 / 1632 / 1648 / 14 shells.
+Corner: 1264 / 1122 / 2468 / 2576 / 24 shells.
+Each: one mesh, three surfaces, no degenerate faces/triangles or non-manifold edges;
+unit normals and literal independent bounds pass. Clamp bore and post rays pass.
+Corner brace surfaces do not intersect. All materials equal actual .05 GLB materials.
+All three fresh exports from saved source are byte-identical.
+
+ENGINE / PHYSICS
+PASS: timeout 300 [mise-pinned Godot] --headless --editor --path . --import --quit.
+PASS: timeout 180 [Godot] --headless --path . --script
+      res://tools/asset_production/city_barriers_06/check.gd -- --normalize.
+PASS: timeout 180 [Godot] --headless --path . --check-only --script [same script].
+PASS: gdstyle fmt --check and gdstyle --max-line-length 100 --max-warnings 0.
+Engine 4.8.dev7.official.c971f93e7; three linked identity models and all dependencies load.
+Four authored scenes pack/save/reload. sha256sum --check after import and two FRESH
+normalization processes: all four unchanged, including resource and node IDs.
+One static body each, with 1/2/3 simple boxes, layer1/mask0. Three post low rays hit;
+above-cap rays clear; brace rays hit; inside corner is not filled by a broad box.
+Actual .05 panel clamp alignment and straight/right-angle seam rays pass.
+ActorMotion r=.35 h=1.8; 48 ticks per contact/bypass per authority/replay mode:
+all contact stops Z=.455728829 m; clear bypass Z=-2.000000715 m. Both modes agree.
+These are local physics checks, not vehicle/network/world acceptance.
+
+CANONICAL CHECKS
+Ran timeout 1800 mise exec -- python tools/production_checks.py --output
+C:/tmp/ft/assets/city_barriers_06/checks. Earlier complete run: PASS, exit0.
+Final rerun after UID saver correction: exit1, aggregate NOT PASS.
+Owned format/lint and city_barriers_06/check.gd compilation PASS.
+14/14 Python tests PASS; 119/119 GUT tests / 6362 assertions PASS.
+Required diagnostic negative test returns1 as expected.
+Shared script_checks.py cumulative 120-second deadline expires before compilation
+indices137-148: 12 unrelated tools/assets scripts. Each log is only
+CHECK DEADLINE EXCEEDED, no script diagnostic. Paths retained in validation.json.
+No failure suppressed; unchanged aggregate failure not repeated; shared tools unedited.
+Initial full run is retained at C:/tmp/ft/assets/city_barriers_06/checks-initial.
+Final canonical logs/compilation records remain at the checks path above.
+
+CORRECTIONS / DIAGNOSTICS
+Initial visual self-inspection: staggered corner brace attachments to eliminate a
+crossing, flattened annular clamp end shading; rebuilt source/exports/four renders.
+Initial same-process roundtrip did not expose between-process UID-cache drift.
+Final saver preserves saved scene-header UID; reimport + two-process hash check passes.
+No accepted sibling files/IDs changed. Blender use_nodes notices concern future6.0.
+Import warns existing MCP addon was tested through4.7, not4.8. No new final
+source/resource/physics diagnostics; no live Blender/Godot MCP session contacted.
+Four isolated 1280x720 PNG views self-inspected; true 47m/42deg overhead is intentionally
+tiny/quiet. Full gate fit, engine populated-camera, placement, vehicle clearance,
+transport/prediction, packaged/Deck and sustained render/LOD performance remain pending.

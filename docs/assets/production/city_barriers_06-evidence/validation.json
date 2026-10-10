@@ -1,0 +1,483 @@
+{
+  "asset": "city_barriers.06",
+  "blender": "5.2.2 LTS",
+  "blender_build": "d13f752e3b9c",
+  "bounds_tolerance_m": 0.001,
+  "dimensions_status": "provisional",
+  "exporter": "5.2.40",
+  "godot": {
+    "engine": "4.8-dev7 (official)",
+    "physics": {
+      "above_cap_rays_clear": true,
+      "authority_replay_equal": true,
+      "brace_rays_blocked": true,
+      "capsule_height_m": 1.8,
+      "capsule_radius_m": 0.35,
+      "corner_interior_clear": true,
+      "outcomes": {
+        "corner": {
+          "bypass_end_m": [
+            5.19999980926514,
+            0.00100000004749745,
+            -2.00000071525574
+          ],
+          "contact_stop_m": [
+            6.0,
+            2.34375474974513e-05,
+            0.455728828907013
+          ]
+        },
+        "line": {
+          "bypass_end_m": [
+            -0.800000011920929,
+            0.00100000004749745,
+            -2.00000071525574
+          ],
+          "contact_stop_m": [
+            0.0,
+            2.34375474974513e-05,
+            0.455728828907013
+          ]
+        },
+        "terminal": {
+          "bypass_end_m": [
+            2.20000004768372,
+            0.00100000004749745,
+            -2.00000071525574
+          ],
+          "contact_stop_m": [
+            3.0,
+            2.34375474974513e-05,
+            0.455728828907013
+          ]
+        }
+      },
+      "panel_frame_clamp_alignment": true,
+      "panel_seams_blocked": true,
+      "post_rays_blocked": true,
+      "ticks_per_case_per_mode": 48,
+      "vehicle_network_transport_and_placement": "not tested"
+    },
+    "resource_uids": {
+      "res://art/models/environment/city_barriers_05/city_barriers_05.glb": "uid://byloy6losneuk",
+      "res://art/models/environment/city_barriers_06/city_barriers_06_corner.glb": "uid://dlwltujqdjt84",
+      "res://art/models/environment/city_barriers_06/city_barriers_06_line.glb": "uid://b3lxqm7b8ku0v",
+      "res://art/models/environment/city_barriers_06/city_barriers_06_terminal.glb": "uid://g0faayq13w8q",
+      "res://scenes/prefabs/environment/city_barriers_05.tscn": "uid://do0kyi5smmipf",
+      "res://scenes/prefabs/environment/city_barriers_06.tscn": "uid://d0pw6qm0w13pi",
+      "res://scenes/prefabs/environment/city_barriers_06_corner.tscn": "uid://bd7hewksepxje",
+      "res://scenes/prefabs/environment/city_barriers_06_terminal.tscn": "uid://dav2qiky7duwa",
+      "res://scripts/actors/actor_motion.gd": "uid://jthmfio4c27p",
+      "res://tools/asset_production/city_barriers_06/check_scene.tscn": "uid://b21cbew6gqyla"
+    },
+    "save_reload_byte_stable": true,
+    "variants": {
+      "corner": {
+        "bounds_min_m": [
+          -0.0480000004172325,
+          0.0,
+          -0.949999988079071
+        ],
+        "bounds_size_m": [
+          0.997999966144562,
+          2.16000008583069,
+          0.997999966144562
+        ],
+        "linked_model_identity": true,
+        "simple_box_count": 3,
+        "static_body_count": 1
+      },
+      "line": {
+        "bounds_min_m": [
+          -0.104999996721745,
+          0.0,
+          -0.0480000004172325
+        ],
+        "bounds_size_m": [
+          0.209999993443489,
+          2.16000008583069,
+          0.096000000834465
+        ],
+        "linked_model_identity": true,
+        "simple_box_count": 1,
+        "static_body_count": 1
+      },
+      "terminal": {
+        "bounds_min_m": [
+          -0.0480000004172325,
+          0.0,
+          -0.109999999403954
+        ],
+        "bounds_size_m": [
+          0.997999966144562,
+          2.16000008583069,
+          0.158000007271767
+        ],
+        "linked_model_identity": true,
+        "simple_box_count": 2,
+        "static_body_count": 1
+      }
+    },
+    "fresh_process_scene_hash_comparison": {
+      "scene_count": 4,
+      "normalization_processes": 2,
+      "result": "All four saved scene SHA-256 values unchanged across two fresh processes"
+    }
+  },
+  "source_export_status": "passed",
+  "source_export_tolerance_m": 1e-05,
+  "variants": {
+    "corner": {
+      "clamp_bore_ray_clear": true,
+      "closed_components": 24.0,
+      "closed_volume_m3": 0.0141070486256932,
+      "corner_braces_surface_intersections": 0.0,
+      "degenerate_faces": 0.0,
+      "degenerate_triangles": 0.0,
+      "dimensions_m": [
+        0.997999988496304,
+        2.16000008583069,
+        0.997999988496304
+      ],
+      "export_normal_max_length_error": 8.940696316e-08,
+      "export_vertices": 2576.0,
+      "finish_matches_panel_glb": true,
+      "fresh_export_byte_identical": true,
+      "glb_bytes": 79432.0,
+      "glb_sha256": "e0c00a24449370c8f3ff09028aa9f16e2c7bf7ca03d828823e4d15861023461c",
+      "godot_bounds_max_m": [
+        0.949999988079071,
+        2.16000008583069,
+        0.0480000004172325
+      ],
+      "godot_bounds_min_m": [
+        -0.0480000004172325,
+        0.0,
+        -0.949999988079071
+      ],
+      "ground_datum_m": 0.0,
+      "materials": [
+        {
+          "name": "fence_galvanised_frame",
+          "pbrMetallicRoughness": {
+            "baseColorFactor": [
+              0.319999992847443,
+              0.379999995231628,
+              0.389999985694885,
+              1.0
+            ],
+            "metallicFactor": 0.699999988079071,
+            "roughnessFactor": 0.479999989271164
+          }
+        },
+        {
+          "name": "fence_galvanised_wire",
+          "pbrMetallicRoughness": {
+            "baseColorFactor": [
+              0.189999997615814,
+              0.25,
+              0.259999990463257,
+              1.0
+            ],
+            "metallicFactor": 0.600000023841858,
+            "roughnessFactor": 0.550000011920929
+          }
+        },
+        {
+          "name": "fence_joint_oxide",
+          "pbrMetallicRoughness": {
+            "baseColorFactor": [
+              0.159999996423721,
+              0.0649999976158142,
+              0.0260000005364418,
+              1.0
+            ],
+            "metallicFactor": 0.0500000007450581,
+            "roughnessFactor": 0.839999973773956
+          }
+        }
+      ],
+      "mesh_count": 1.0,
+      "nonmanifold_edges": 0.0,
+      "pivot_m": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "post_visual_ray_blocked": true,
+      "source_faces": 1122.0,
+      "source_normal_max_length_error": 1.0512303005e-07,
+      "source_vertices": 1264.0,
+      "surface_count": 3.0,
+      "triangles": 2468.0
+    },
+    "line": {
+      "clamp_bore_ray_clear": true,
+      "closed_components": 16.0,
+      "closed_volume_m3": 0.0112823984433284,
+      "corner_braces_surface_intersections": null,
+      "degenerate_faces": 0.0,
+      "degenerate_triangles": 0.0,
+      "dimensions_m": [
+        0.209999993443489,
+        2.16000008583069,
+        0.096000000834465
+      ],
+      "export_normal_max_length_error": 8.940696316e-08,
+      "export_vertices": 1968.0,
+      "finish_matches_panel_glb": true,
+      "fresh_export_byte_identical": true,
+      "glb_bytes": 61568.0,
+      "glb_sha256": "96c34dff71f2a5d81e8ed8811dba01d64cb8d848fb30d409d8f0dc92be15eb34",
+      "godot_bounds_max_m": [
+        0.104999996721745,
+        2.16000008583069,
+        0.0480000004172325
+      ],
+      "godot_bounds_min_m": [
+        -0.104999996721745,
+        0.0,
+        -0.0480000004172325
+      ],
+      "ground_datum_m": 0.0,
+      "materials": [
+        {
+          "name": "fence_galvanised_frame",
+          "pbrMetallicRoughness": {
+            "baseColorFactor": [
+              0.319999992847443,
+              0.379999995231628,
+              0.389999985694885,
+              1.0
+            ],
+            "metallicFactor": 0.699999988079071,
+            "roughnessFactor": 0.479999989271164
+          }
+        },
+        {
+          "name": "fence_galvanised_wire",
+          "pbrMetallicRoughness": {
+            "baseColorFactor": [
+              0.189999997615814,
+              0.25,
+              0.259999990463257,
+              1.0
+            ],
+            "metallicFactor": 0.600000023841858,
+            "roughnessFactor": 0.550000011920929
+          }
+        },
+        {
+          "name": "fence_joint_oxide",
+          "pbrMetallicRoughness": {
+            "baseColorFactor": [
+              0.159999996423721,
+              0.0649999976158142,
+              0.0260000005364418,
+              1.0
+            ],
+            "metallicFactor": 0.0500000007450581,
+            "roughnessFactor": 0.839999973773956
+          }
+        }
+      ],
+      "mesh_count": 1.0,
+      "nonmanifold_edges": 0.0,
+      "pivot_m": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "post_visual_ray_blocked": true,
+      "source_faces": 922.0,
+      "source_normal_max_length_error": 9.313226179e-08,
+      "source_vertices": 976.0,
+      "surface_count": 3.0,
+      "triangles": 1924.0
+    },
+    "terminal": {
+      "clamp_bore_ray_clear": true,
+      "closed_components": 14.0,
+      "closed_volume_m3": 0.0125799390775023,
+      "corner_braces_surface_intersections": null,
+      "degenerate_faces": 0.0,
+      "degenerate_triangles": 0.0,
+      "dimensions_m": [
+        0.997999988496304,
+        2.16000008583069,
+        0.157999999821186
+      ],
+      "export_normal_max_length_error": 8.940696316e-08,
+      "export_vertices": 1648.0,
+      "finish_matches_panel_glb": true,
+      "fresh_export_byte_identical": true,
+      "glb_bytes": 52148.0,
+      "glb_sha256": "dafe97c5a92adff0d6d0da9a277c1ee1948e461a722dc151b8f4ac829409d1a2",
+      "godot_bounds_max_m": [
+        0.949999988079071,
+        2.16000008583069,
+        0.0480000004172325
+      ],
+      "godot_bounds_min_m": [
+        -0.0480000004172325,
+        0.0,
+        -0.109999999403954
+      ],
+      "ground_datum_m": 0.0,
+      "materials": [
+        {
+          "name": "fence_galvanised_frame",
+          "pbrMetallicRoughness": {
+            "baseColorFactor": [
+              0.319999992847443,
+              0.379999995231628,
+              0.389999985694885,
+              1.0
+            ],
+            "metallicFactor": 0.699999988079071,
+            "roughnessFactor": 0.479999989271164
+          }
+        },
+        {
+          "name": "fence_galvanised_wire",
+          "pbrMetallicRoughness": {
+            "baseColorFactor": [
+              0.189999997615814,
+              0.25,
+              0.259999990463257,
+              1.0
+            ],
+            "metallicFactor": 0.600000023841858,
+            "roughnessFactor": 0.550000011920929
+          }
+        },
+        {
+          "name": "fence_joint_oxide",
+          "pbrMetallicRoughness": {
+            "baseColorFactor": [
+              0.159999996423721,
+              0.0649999976158142,
+              0.0260000005364418,
+              1.0
+            ],
+            "metallicFactor": 0.0500000007450581,
+            "roughnessFactor": 0.839999973773956
+          }
+        }
+      ],
+      "mesh_count": 1.0,
+      "nonmanifold_edges": 0.0,
+      "pivot_m": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "post_visual_ray_blocked": true,
+      "source_faces": 752.0,
+      "source_normal_max_length_error": 9.313226179e-08,
+      "source_vertices": 832.0,
+      "surface_count": 3.0,
+      "triangles": 1632.0
+    }
+  },
+  "production_checks": {
+    "ok": false,
+    "results": {
+      "engine": {
+        "ok": true,
+        "version": "4.8.dev7.official.c971f93e7"
+      },
+      "gut_pin": {
+        "ok": true,
+        "version": "9.7.1"
+      },
+      "owned_scripts": {
+        "ok": false,
+        "returncode": 1
+      },
+      "python_tests": {
+        "ok": true,
+        "returncode": 0
+      },
+      "gut_import": {
+        "ok": true,
+        "returncode": 0
+      },
+      "gut_tests": {
+        "ok": true,
+        "returncode": 0
+      },
+      "gut_negative": {
+        "ok": true,
+        "observed_returncode": 1
+      }
+    },
+    "external_compile_deadlines": [
+      "tools/assets/characters/pedestrian_worker/author_scenes.gd",
+      "tools/assets/characters/pedestrian_worker/capture_motion.gd",
+      "tools/assets/characters/pedestrian_worker/check_imported_contact.gd",
+      "tools/assets/characters/pedestrian_worker/check_worker.gd",
+      "tools/assets/vehicles/city_cars/editor_author.gd",
+      "tools/assets/weapons/dock_thumper/capture_check.gd",
+      "tools/assets/weapons/pistol_coral_stub/editor_bridge.gd",
+      "tools/assets/weapons/smg_wedgewire/check_asset.gd",
+      "tools/assets/weapons/smg_wedgewire/editor_author.gd",
+      "tools/assets/world/brackett_greybox/author_editor.gd",
+      "tools/assets/world/brackett_greybox/capture.gd",
+      "tools/assets/world/brackett_greybox/check_scene.gd"
+    ]
+  },
+  "production_check_limitation": "Final canonical run exits 1: cumulative compiler deadline prevented 12 unrelated tools/assets scripts from running. Owned format/lint/compile and all Python/GUT checks pass. Earlier full run passed; final aggregate failure remains reported, not suppressed.",
+  "visual_review": {
+    "reviewer": "producer self-inspection; independent review pending",
+    "views_inspected": [
+      "hero",
+      "side",
+      "detail",
+      "overhead_47m_42deg"
+    ],
+    "observation": "Quiet galvanised line/terminal/corner supports with local base oxide; hollow panel clamps and staggered corner brace attachments read in detail. At 47 m the posts are tiny dots and braces faint short lines; these supports alone do not communicate a complete fence boundary.",
+    "camera": {
+      "height_m": 47,
+      "vertical_fov_degrees": 42,
+      "projection": "perspective",
+      "direction": "vertical-down, north-up"
+    },
+    "engine_camera_placement_and_target_occlusion": "not tested"
+  },
+  "renders": [
+    {
+      "path": "hero.png",
+      "pixels": [
+        1280,
+        720
+      ],
+      "bytes": 251008
+    },
+    {
+      "path": "side.png",
+      "pixels": [
+        1280,
+        720
+      ],
+      "bytes": 109459
+    },
+    {
+      "path": "detail.png",
+      "pixels": [
+        1280,
+        720
+      ],
+      "bytes": 215329
+    },
+    {
+      "path": "overhead_47m_42deg.png",
+      "pixels": [
+        1280,
+        720
+      ],
+      "bytes": 196360
+    }
+  ],
+  "render_encoding": "RGB six significant bits per channel; PNG compression 9"
+}
