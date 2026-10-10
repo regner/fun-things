@@ -1,0 +1,65 @@
+city_shore_edges.02 — final producer receipt, 10 October 2026
+Working branch: lane/a-shore; immediate parent asset: 065a889a (city_shore_edges.01).
+Scope: city_shore_edges_02 owned source/export/prefab/tools/documentation/evidence only.
+
+Tools:
+Blender 5.2.2 LTS, build d13f752e3b9c; glTF exporter 5.2.40.
+All Blender calls: ALSOFT_DRIVERS=null SDL_AUDIODRIVER=dummy,
+-noaudio --background --factory-startup --threads 4 --python-exit-code 1,
+GNU timeout 900 seconds, isolated CLI. No live editor sessions used.
+Godot: mise pin 4.8.dev7.official.c971f93e7, headless;
+import bounded 300 seconds, normalization/checks bounded 180 seconds.
+
+Commands (exact reproduction recipe in city_shore_edges_02.md):
+1. Blender author.py: exit 0, saved original editable source with named collection.
+2. Blender export.py: exit 0, explicit 9,480-byte GLB, no embedded images.
+3. Fresh-process export.py -- C:/tmp/ft/assets/city_shore_edges_02/reexport.glb: exit 0.
+4. Blender validate.py -- same reexport: exit 0; byte equality and topology pass.
+5. Blender render.py: exit 0, four isolated 1280x720 views.
+   Initial hero toe touched frame edge; final ortho framing enlarged 6.5 -> 7.4.
+   Final render.py rerun exit 0; all final views inspected.
+6. Godot --headless --editor --path . --import: exit 0; import retained.
+7. Godot --headless --editor --path . --script tools/asset_production/city_shore_edges_02/check.gd -- --normalize:
+   exit 0; wrapper/fixture twice saved/reloaded, byte-stable UIDs/node identities.
+8. Two standalone Godot --headless --path . --script tools/asset_production/city_shore_edges_02/check.gd:
+   exits 0/0; same physics outcomes, dependencies resolve, no script/error/warning diagnostics.
+9. timeout 60 "$(mise which gdstyle)" --max-warnings 0 tools/asset_production/city_shore_edges_02/check.gd:
+   final exit 0; one file, no issues. Initial function-length/spacing warnings fixed
+   by extracting named ray/outcome helpers; no lint suppression added for those findings.
+10. timeout 1800 mise exec -- python tools/production_checks.py --output C:/tmp/ft/assets/city_shore_edges_02/checks:
+    EXIT 1, canonical failure retained. Global 120s compiler budget exhausted:
+    92/164 compile rows passed; remaining 72 deadline-limited, including owned check.
+    All 72 failed logs contain CHECK DEADLINE EXCEEDED, no script/error/warning diagnostic.
+    Formatting: 164 files already formatted. Style: 164 checked, no issues.
+    Python: 14 tests, OK. GUT: 137/137 passed, 6,523 assertions, 27 test scripts.
+    Engine/GUT pins, GUT import and intentional failing-test negative control passed.
+11. Each of the 72 deadline-limited scripts compiled separately in the same isolated mirror:
+    timeout 180 <mise-godot> --headless --path C:/tmp/ft/assets/city_shore_edges_02/checks/script-checks/compiler-project
+    --check-only --script res://<path from canonical compilation.json>:
+    ALL 72 EXIT 0, no diagnostics; paths, hashes and individual outcomes in validation.json.
+    This supplements, does not relabel, command 10. No shared tooling changed.
+    Initial Python subprocess launcher accidentally resolved Windows TIMEOUT rather
+    than GNU timeout: wrapper syntax errors, no engine ran. Corrected launcher explicitly
+    used C:/Program Files/Git/usr/bin/timeout.exe for all successful individual checks.
+
+Measurements:
+128 triangles; 72 source vertices; 234 exported split vertices; one mesh/four surfaces.
+Zero source non-manifold edges, zero degenerate source faces/export triangles,
+unit normals, consistent winding, applied identity transforms, matching planar end profiles.
+Godot bounds (-2,-2.4,-.6) -> (2,0,.6); 4 x 2.4 x 1.2 m; land/coping datum Y=0.
+GLB SHA-256 febca14da27ee17d39e509351dcc90064daf52a6282a7db6067f53438eacff37.
+Single 4 x 2.4 x 1.2 box at (0,-1.2,0); world layer 1, mask 0.
+16 ray cases; 12 production ActorMotion cases across AUTHORITY/REPLAY.
+Face Z=-0.950520396; seam Z=-0.949218333; bypass Z=2.999999762.
+Coping forward X=3.999817848, reverse X=-0.999817789; flush land-to-cap succeeds.
+Mode max position difference 0.000846863 m < explicit 0.001 m tolerance.
+
+Diagnostics/limits:
+Blender Material.use_nodes deprecation notices; operations exit normally.
+Headless editor addon reports 4.8 newer than its tested 4.7 version.
+Normalization shutdown reports RID/ObjectDB leaks after passing asset assertions.
+Standalone runtime and explicit compiler checks have no script/error/warning diagnostics.
+No actual engine render, world placement, water/land fit, vehicle driving, network transport,
+packaged/Deck/GPU or repetition/LOD acceptance is claimed. Independent review pending.
+Raw logs and intermediate files: C:/tmp/ft/assets/city_shore_edges_02/ (not committed).
+Manifest excludes itself and hashes every delivered payload after final PNG compaction.

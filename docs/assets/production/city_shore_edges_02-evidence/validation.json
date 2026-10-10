@@ -1,0 +1,1073 @@
+{
+  "applied_transforms": true,
+  "asset": "city_shore_edges.02",
+  "blender": "5.2.2 LTS",
+  "bottom_height_m": -2.4,
+  "build_hash": "d13f752e3b9c",
+  "consistent_winding": true,
+  "datum": "land surface / coping top",
+  "degenerate_faces": 0.0,
+  "dimension_tolerance_m": 0.001,
+  "dimensions_godot_m": [
+    4.0,
+    2.4,
+    1.2
+  ],
+  "end_joins_godot": [
+    [
+      -2.0,
+      0.0,
+      0.0
+    ],
+    [
+      2.0,
+      0.0,
+      0.0
+    ]
+  ],
+  "end_profile_blender_yz": [
+    [
+      -0.6,
+      -0.24
+    ],
+    [
+      -0.6,
+      -0.035
+    ],
+    [
+      -0.565,
+      0.0
+    ],
+    [
+      -0.56,
+      -0.28
+    ],
+    [
+      -0.55,
+      -2.4
+    ],
+    [
+      -0.55,
+      -2.14
+    ],
+    [
+      -0.51,
+      -2.1
+    ],
+    [
+      -0.51,
+      -2.1
+    ],
+    [
+      -0.51,
+      -0.31
+    ],
+    [
+      -0.51,
+      -0.28
+    ],
+    [
+      -0.5,
+      -0.34
+    ],
+    [
+      -0.48,
+      -0.31
+    ],
+    [
+      0.48,
+      -0.31
+    ],
+    [
+      0.5,
+      -0.34
+    ],
+    [
+      0.51,
+      -2.1
+    ],
+    [
+      0.51,
+      -2.1
+    ],
+    [
+      0.51,
+      -0.31
+    ],
+    [
+      0.51,
+      -0.28
+    ],
+    [
+      0.55,
+      -2.4
+    ],
+    [
+      0.55,
+      -2.14
+    ],
+    [
+      0.56,
+      -0.28
+    ],
+    [
+      0.565,
+      0.0
+    ],
+    [
+      0.6,
+      -0.24
+    ],
+    [
+      0.6,
+      -0.035
+    ]
+  ],
+  "end_profiles_identical": true,
+  "fresh_reexport_byte_identical": true,
+  "glb_bytes": 9480.0,
+  "glb_sha256": "febca14da27ee17d39e509351dcc90064daf52a6282a7db6067f53438eacff37",
+  "glb_vertices": 234.0,
+  "godot": {
+    "bounds_min": [
+      -2.0,
+      -2.40000009536743,
+      -0.600000023841858
+    ],
+    "bounds_size": [
+      4.0,
+      2.40000009536743,
+      1.20000004768372
+    ],
+    "box_shape_count": 1,
+    "engine": "4.8-dev7 (official)",
+    "linked_model_identity": true,
+    "physics": {
+      "actor_height_m": 1.8,
+      "actor_radius_m": 0.35,
+      "authority_replay_within_tolerance": true,
+      "bypass_end_z_m": 2.99999976158142,
+      "cap_forward_end_m": [
+        3.99981784820557,
+        3.33846546709538e-05,
+        0.0
+      ],
+      "cap_reverse_end_m": [
+        -0.999817788600922,
+        3.16710211336613e-05,
+        0.0
+      ],
+      "face_stop_z_m": -0.950520396232605,
+      "land_to_cap_end_m": [
+        0.0,
+        0.00100000004749745,
+        -3.72529029846191e-07
+      ],
+      "max_authority_replay_error_m": 0.00084686279296875,
+      "movement_cases": 12,
+      "network_transport_and_world_placement": "not tested",
+      "position_tolerance_m": 0.001,
+      "ray_cases": 16,
+      "seam_stop_z_m": -0.949218332767487,
+      "ticks_land_to_cap": 24,
+      "ticks_standard": 60
+    },
+    "save_reload_byte_stable": true,
+    "static_body_count": 1
+  },
+  "godot_aabb": {
+    "max": [
+      2.0,
+      0.0,
+      0.600000023841858
+    ],
+    "min": [
+      -2.0,
+      -2.40000009536743,
+      -0.600000023841858
+    ]
+  },
+  "materials": [
+    {
+      "name": "shore_body_slate",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.200000002980232,
+          0.264999985694885,
+          0.28999999165535,
+          1.0
+        ],
+        "metallicFactor": 0.0,
+        "roughnessFactor": 0.720000028610229
+      }
+    },
+    {
+      "name": "shore_foot_dark_slate",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.0949999988079071,
+          0.144999995827675,
+          0.159999996423721,
+          1.0
+        ],
+        "metallicFactor": 0.0,
+        "roughnessFactor": 0.779999971389771
+      }
+    },
+    {
+      "name": "shore_joint_recess",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.0450000017881393,
+          0.0750000029802322,
+          0.0850000008940697,
+          1.0
+        ],
+        "metallicFactor": 0.0,
+        "roughnessFactor": 0.819999992847443
+      }
+    },
+    {
+      "name": "shore_coping_pale_slate",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.46000000834465,
+          0.519999980926514,
+          0.529999971389771,
+          1.0
+        ],
+        "metallicFactor": 0.0,
+        "roughnessFactor": 0.620000004768372
+      }
+    }
+  ],
+  "mesh_count": 1.0,
+  "nonmanifold_edges": 0.0,
+  "pivot": [
+    0.0,
+    0.0,
+    0.0
+  ],
+  "source_aabb": {
+    "max": [
+      2.0,
+      0.600000023841858,
+      0.0
+    ],
+    "min": [
+      -2.0,
+      -0.600000023841858,
+      -2.40000009536743
+    ]
+  },
+  "status": "PASS source and export",
+  "surfaces": 4.0,
+  "top_height_m": 0.0,
+  "triangles": 128.0,
+  "unit_normals": true,
+  "vertices": 72.0,
+  "production_checks": {
+    "ok": false,
+    "results": {
+      "engine": {
+        "ok": true,
+        "version": "4.8.dev7.official.c971f93e7"
+      },
+      "gut_pin": {
+        "ok": true,
+        "version": "9.7.1"
+      },
+      "owned_scripts": {
+        "ok": false,
+        "returncode": 1
+      },
+      "python_tests": {
+        "ok": true,
+        "returncode": 0
+      },
+      "gut_import": {
+        "ok": true,
+        "returncode": 0
+      },
+      "gut_tests": {
+        "ok": true,
+        "returncode": 0
+      },
+      "gut_negative": {
+        "ok": true,
+        "observed_returncode": 1
+      }
+    },
+    "owned_script": {
+      "script": "tools/asset_production/city_shore_edges_02/check.gd",
+      "ok": false
+    },
+    "compilation_failures": [
+      {
+        "script": "tests/unit/session/test_session_service.gd",
+        "ok": false
+      },
+      {
+        "script": "tests/unit/session/test_session_ui.gd",
+        "ok": false
+      },
+      {
+        "script": "tests/unit/settings/fixtures/failing_rollback_settings.gd",
+        "ok": false
+      },
+      {
+        "script": "tests/unit/settings/test_boot_settings.gd",
+        "ok": false
+      },
+      {
+        "script": "tests/unit/settings/test_local_settings.gd",
+        "ok": false
+      },
+      {
+        "script": "tests/unit/tooling/test_gut_smoke.gd",
+        "ok": false
+      },
+      {
+        "script": "tests/unit/vehicles/test_drive_command.gd",
+        "ok": false
+      },
+      {
+        "script": "tests/unit/vehicles/test_vehicle_motion.gd",
+        "ok": false
+      },
+      {
+        "script": "tests/unit/world/test_city_data.gd",
+        "ok": false
+      },
+      {
+        "script": "tools/asset_production/city_marina_docks_01/check.gd",
+        "ok": false
+      },
+      {
+        "script": "tools/asset_production/city_marina_docks_02/check.gd",
+        "ok": false
+      },
+      {
+        "script": "tools/asset_production/city_marina_docks_03/check.gd",
+        "ok": false
+      },
+      {
+        "script": "tools/asset_production/city_marina_docks_04/check.gd",
+        "ok": false
+      },
+      {
+        "script": "tools/asset_production/city_marina_docks_05/check.gd",
+        "ok": false
+      },
+      {
+        "script": "tools/asset_production/city_moored_yachts_01/check_prefab.gd",
+        "ok": false
+      },
+      {
+        "script": "tools/asset_production/city_moored_yachts_02/check_prefab.gd",
+        "ok": false
+      },
+      {
+        "script": "tools/asset_production/city_seating_01/check.gd",
+        "ok": false
+      },
+      {
+        "script": "tools/asset_production/city_seating_02/check.gd",
+        "ok": false
+      },
+      {
+        "script": "tools/asset_production/city_seating_03/check.gd",
+        "ok": false
+      },
+      {
+        "script": "tools/asset_production/city_service_furniture_01/check.gd",
+        "ok": false
+      },
+      {
+        "script": "tools/asset_production/city_service_furniture_02/check.gd",
+        "ok": false
+      },
+      {
+        "script": "tools/asset_production/city_service_furniture_03/check.gd",
+        "ok": false
+      },
+      {
+        "script": "tools/asset_production/city_shop_fittings_04/check.gd",
+        "ok": false
+      },
+      {
+        "script": "tools/asset_production/city_shore_edges_01/check.gd",
+        "ok": false
+      },
+      {
+        "script": "tools/asset_production/city_shore_edges_02/check.gd",
+        "ok": false
+      },
+      {
+        "script": "tools/asset_production/city_sign_supports_02/check_prefab.gd",
+        "ok": false
+      },
+      {
+        "script": "tools/asset_production/city_sign_supports_03/check_prefab.gd",
+        "ok": false
+      },
+      {
+        "script": "tools/asset_production/city_sign_supports_04/check_prefab.gd",
+        "ok": false
+      },
+      {
+        "script": "tools/asset_production/city_small_shop_shells_02/check.gd",
+        "ok": false
+      },
+      {
+        "script": "tools/asset_production/city_small_shop_shells_03/check.gd",
+        "ok": false
+      },
+      {
+        "script": "tools/asset_production/city_small_shop_shells_04/check.gd",
+        "ok": false
+      },
+      {
+        "script": "tools/asset_production/city_waste_01/check.gd",
+        "ok": false
+      },
+      {
+        "script": "tools/asset_production/city_waste_02/check.gd",
+        "ok": false
+      },
+      {
+        "script": "tools/asset_production/city_waste_03/check.gd",
+        "ok": false
+      },
+      {
+        "script": "tools/asset_production/d06_commercial_graphics_01/check_prefab.gd",
+        "ok": false
+      },
+      {
+        "script": "tools/asset_production/d06_commercial_graphics_02/check_prefab.gd",
+        "ok": false
+      },
+      {
+        "script": "tools/asset_production/d06_commercial_graphics_03/check_prefab.gd",
+        "ok": false
+      },
+      {
+        "script": "tools/asset_production/d06_commercial_graphics_04/check_prefab.gd",
+        "ok": false
+      },
+      {
+        "script": "tools/asset_production/d06_entertainment_hall_01/check_prefab.gd",
+        "ok": false
+      },
+      {
+        "script": "tools/asset_production/d06_entertainment_hall_02/check_prefab.gd",
+        "ok": false
+      },
+      {
+        "script": "tools/asset_production/d06_entertainment_hall_03/check_prefab.gd",
+        "ok": false
+      },
+      {
+        "script": "tools/asset_production/d06_harbour_footbridge_01/check_prefab.gd",
+        "ok": false
+      },
+      {
+        "script": "tools/asset_production/d06_harbour_footbridge_02/check_prefab.gd",
+        "ok": false
+      },
+      {
+        "script": "tools/asset_production/d06_harbour_footbridge_03/check_prefab.gd",
+        "ok": false
+      },
+      {
+        "script": "tools/asset_production/d06_harbour_footbridge_04/check_prefab.gd",
+        "ok": false
+      },
+      {
+        "script": "tools/asset_production/d06_harbour_footbridge_05/check_prefab.gd",
+        "ok": false
+      },
+      {
+        "script": "tools/asset_production/d06_harbour_footbridge_06/check_prefab.gd",
+        "ok": false
+      },
+      {
+        "script": "tools/asset_production/d06_poster_drum_01/check_prefab.gd",
+        "ok": false
+      },
+      {
+        "script": "tools/asset_production/d06_poster_drum_02/check_prefab.gd",
+        "ok": false
+      },
+      {
+        "script": "tools/asset_production/d06_southern_shopping_parade_01/check_prefab.gd",
+        "ok": false
+      },
+      {
+        "script": "tools/asset_production/d06_southern_shopping_parade_02/check_prefab.gd",
+        "ok": false
+      },
+      {
+        "script": "tools/asset_production/d06_southern_shopping_parade_03/check_prefab.gd",
+        "ok": false
+      },
+      {
+        "script": "tools/asset_production/integration/batch03_author.gd",
+        "ok": false
+      },
+      {
+        "script": "tools/asset_production/integration/inspector.gd",
+        "ok": false
+      },
+      {
+        "script": "tools/assets/characters/coral_courier/capture_preview.gd",
+        "ok": false
+      },
+      {
+        "script": "tools/assets/characters/coral_courier/check_player_asset.gd",
+        "ok": false
+      },
+      {
+        "script": "tools/assets/characters/coral_courier/check_shared_rig.gd",
+        "ok": false
+      },
+      {
+        "script": "tools/assets/characters/coral_courier/editor_bridge.gd",
+        "ok": false
+      },
+      {
+        "script": "tools/assets/characters/coral_courier/extract_motion.gd",
+        "ok": false
+      },
+      {
+        "script": "tools/assets/characters/coral_courier/measure_run.gd",
+        "ok": false
+      },
+      {
+        "script": "tools/assets/characters/pedestrian_worker/author_scenes.gd",
+        "ok": false
+      },
+      {
+        "script": "tools/assets/characters/pedestrian_worker/capture_motion.gd",
+        "ok": false
+      },
+      {
+        "script": "tools/assets/characters/pedestrian_worker/check_imported_contact.gd",
+        "ok": false
+      },
+      {
+        "script": "tools/assets/characters/pedestrian_worker/check_worker.gd",
+        "ok": false
+      },
+      {
+        "script": "tools/assets/vehicles/city_cars/editor_author.gd",
+        "ok": false
+      },
+      {
+        "script": "tools/assets/weapons/dock_thumper/capture_check.gd",
+        "ok": false
+      },
+      {
+        "script": "tools/assets/weapons/pistol_coral_stub/editor_bridge.gd",
+        "ok": false
+      },
+      {
+        "script": "tools/assets/weapons/smg_wedgewire/check_asset.gd",
+        "ok": false
+      },
+      {
+        "script": "tools/assets/weapons/smg_wedgewire/editor_author.gd",
+        "ok": false
+      },
+      {
+        "script": "tools/assets/world/brackett_greybox/author_editor.gd",
+        "ok": false
+      },
+      {
+        "script": "tools/assets/world/brackett_greybox/capture.gd",
+        "ok": false
+      },
+      {
+        "script": "tools/assets/world/brackett_greybox/check_scene.gd",
+        "ok": false
+      }
+    ],
+    "individual_compilation_followup": [
+      {
+        "script": "tests/unit/session/test_session_service.gd",
+        "ok": true,
+        "returncode": 0,
+        "sha256": "5afd3e8feee5c4b825bb9bae833ffd63b5fc9830504a287cc5b8d334772fc28a"
+      },
+      {
+        "script": "tests/unit/session/test_session_ui.gd",
+        "ok": true,
+        "returncode": 0,
+        "sha256": "a9f3da0b809a2aee3c9a3a0e72cf739bc26753f7c3142fc8af4be8d5a7ad1a03"
+      },
+      {
+        "script": "tests/unit/settings/fixtures/failing_rollback_settings.gd",
+        "ok": true,
+        "returncode": 0,
+        "sha256": "04cdd786085f483ea0c78b24eff2058866f4cbbebe3a37d8969427be1da7acfe"
+      },
+      {
+        "script": "tests/unit/settings/test_boot_settings.gd",
+        "ok": true,
+        "returncode": 0,
+        "sha256": "16c74b939b943052dcc2711cd84b2ad66bc74417e43ae5c5d05b1a23bcbbc1d8"
+      },
+      {
+        "script": "tests/unit/settings/test_local_settings.gd",
+        "ok": true,
+        "returncode": 0,
+        "sha256": "484aac1836758c5aab5c2b96f7b57c4c849bb6dfe0f01a55cab0d533719aa8fc"
+      },
+      {
+        "script": "tests/unit/tooling/test_gut_smoke.gd",
+        "ok": true,
+        "returncode": 0,
+        "sha256": "b842af3a46fd6fb200353562c9e7204708e92768d06cfa437145a0c1d5eae253"
+      },
+      {
+        "script": "tests/unit/vehicles/test_drive_command.gd",
+        "ok": true,
+        "returncode": 0,
+        "sha256": "0b6871e13652a0c1ddbc15f96e25b03cc9f33b0ce81895a4d27948a4cba84636"
+      },
+      {
+        "script": "tests/unit/vehicles/test_vehicle_motion.gd",
+        "ok": true,
+        "returncode": 0,
+        "sha256": "ae8fb1948d76277df591f854312baa28b6cb034fb75fe92d15a3b358a8dc0477"
+      },
+      {
+        "script": "tests/unit/world/test_city_data.gd",
+        "ok": true,
+        "returncode": 0,
+        "sha256": "cde5d408c30a365605011a55902adc706b8b9b008e7a2c012b99f6e6ef9c377c"
+      },
+      {
+        "script": "tools/asset_production/city_marina_docks_01/check.gd",
+        "ok": true,
+        "returncode": 0,
+        "sha256": "4dec407d9f79255f3f780f0afb777f61b114109e6ccad4b9f4af64097254a700"
+      },
+      {
+        "script": "tools/asset_production/city_marina_docks_02/check.gd",
+        "ok": true,
+        "returncode": 0,
+        "sha256": "efdfbf926f927448ef4722c75a88e94efae03d93c1e38238734e0a08d805833e"
+      },
+      {
+        "script": "tools/asset_production/city_marina_docks_03/check.gd",
+        "ok": true,
+        "returncode": 0,
+        "sha256": "56f9aebff9545785ec1026b8fe513ae1864b3c6b6158d4cb29e042fcf32e3c11"
+      },
+      {
+        "script": "tools/asset_production/city_marina_docks_04/check.gd",
+        "ok": true,
+        "returncode": 0,
+        "sha256": "0324951d1a4fb16c419261ab6eff9d6df0ce0eac71795ec3f1bf09a16e2f36c9"
+      },
+      {
+        "script": "tools/asset_production/city_marina_docks_05/check.gd",
+        "ok": true,
+        "returncode": 0,
+        "sha256": "6d67df11de4cca68bbc46d1d0f8bb4239105f57d4efaf26b90083a2fe13706cf"
+      },
+      {
+        "script": "tools/asset_production/city_moored_yachts_01/check_prefab.gd",
+        "ok": true,
+        "returncode": 0,
+        "sha256": "197845ff4466d64e9350f5e19a8e6664c8b70e6c37c8e9dd89d1994094e9607c"
+      },
+      {
+        "script": "tools/asset_production/city_moored_yachts_02/check_prefab.gd",
+        "ok": true,
+        "returncode": 0,
+        "sha256": "0c6382b7d3e932487fa12b89cf282d12687162298e5836d55cc7edc551557cdb"
+      },
+      {
+        "script": "tools/asset_production/city_seating_01/check.gd",
+        "ok": true,
+        "returncode": 0,
+        "sha256": "6d17fd338f92900fe48e0448298e2ae2d2fb989219222efdebcb6b79044b0388"
+      },
+      {
+        "script": "tools/asset_production/city_seating_02/check.gd",
+        "ok": true,
+        "returncode": 0,
+        "sha256": "285fb4b501d666ab06babeda6b68a9cce743fa01026f0843f4c1b55e45f18f20"
+      },
+      {
+        "script": "tools/asset_production/city_seating_03/check.gd",
+        "ok": true,
+        "returncode": 0,
+        "sha256": "449793f21f08823cf5b995cf3f81df280cf8f2bc69dbb90e810ad066e383dfef"
+      },
+      {
+        "script": "tools/asset_production/city_service_furniture_01/check.gd",
+        "ok": true,
+        "returncode": 0,
+        "sha256": "7140064e27c60635d47b1bc3e2da58f90820a9e9373275193d87707898ce129e"
+      },
+      {
+        "script": "tools/asset_production/city_service_furniture_02/check.gd",
+        "ok": true,
+        "returncode": 0,
+        "sha256": "750273794c286118a107bbc10cbc25a25b2c0b186b743b3e79d1b9878cd30cc3"
+      },
+      {
+        "script": "tools/asset_production/city_service_furniture_03/check.gd",
+        "ok": true,
+        "returncode": 0,
+        "sha256": "6f953571594c78104a37d08ffa096de80e2b1c2418bac596a7950b13f336dac6"
+      },
+      {
+        "script": "tools/asset_production/city_shop_fittings_04/check.gd",
+        "ok": true,
+        "returncode": 0,
+        "sha256": "68a8ff069cdafdeb017601bdd3b8b8439f80a710cf7b10bbbe52048f28106d08"
+      },
+      {
+        "script": "tools/asset_production/city_shore_edges_01/check.gd",
+        "ok": true,
+        "returncode": 0,
+        "sha256": "2e2e4e673dfb6730cb21e3a2ec76f2f188d78546da7a22301794161cb6e0cb28"
+      },
+      {
+        "script": "tools/asset_production/city_shore_edges_02/check.gd",
+        "ok": true,
+        "returncode": 0,
+        "sha256": "c3d9e6db85edcc427544e79f5b947b7e163b7237343f4e1712079fb4aed5253b"
+      },
+      {
+        "script": "tools/asset_production/city_sign_supports_02/check_prefab.gd",
+        "ok": true,
+        "returncode": 0,
+        "sha256": "8037f130740fc53d5a8a2530182f0ac2e5e7ccc1ad414a19b65b7e624758fa33"
+      },
+      {
+        "script": "tools/asset_production/city_sign_supports_03/check_prefab.gd",
+        "ok": true,
+        "returncode": 0,
+        "sha256": "746d5d16aadad68991be004cce13c39d8ed3aa636f73b7c389134b97402e6920"
+      },
+      {
+        "script": "tools/asset_production/city_sign_supports_04/check_prefab.gd",
+        "ok": true,
+        "returncode": 0,
+        "sha256": "cdaaee81825ad29d98f9d96bef6d6ec5a5ca567abd5621e1aed00ce3aa0791d3"
+      },
+      {
+        "script": "tools/asset_production/city_small_shop_shells_02/check.gd",
+        "ok": true,
+        "returncode": 0,
+        "sha256": "e50c0b81e659caa58dffbdd19b4a69a8defb312b8b07864ff73805facdccf643"
+      },
+      {
+        "script": "tools/asset_production/city_small_shop_shells_03/check.gd",
+        "ok": true,
+        "returncode": 0,
+        "sha256": "ce6925f08cb3b37ea0cd50c4d022729463ede0cb204115a428c862ef78e4567d"
+      },
+      {
+        "script": "tools/asset_production/city_small_shop_shells_04/check.gd",
+        "ok": true,
+        "returncode": 0,
+        "sha256": "08f5405054b0fdfff9157e57a7da98f4424e985a437030a8e11a484b6bf02eb0"
+      },
+      {
+        "script": "tools/asset_production/city_waste_01/check.gd",
+        "ok": true,
+        "returncode": 0,
+        "sha256": "5ed344567e5d1995eac0a937f5a112baf56d02a7acff8bdd841a21d792c790e6"
+      },
+      {
+        "script": "tools/asset_production/city_waste_02/check.gd",
+        "ok": true,
+        "returncode": 0,
+        "sha256": "44c6eece4b757592455cd6fcbec8f030eef2d89b3b0557879f9acd1a837c1e06"
+      },
+      {
+        "script": "tools/asset_production/city_waste_03/check.gd",
+        "ok": true,
+        "returncode": 0,
+        "sha256": "c6b3e6a4fdae2a90d5e39a514e790d8b55a78383475479c91009c39b1fd53c8c"
+      },
+      {
+        "script": "tools/asset_production/d06_commercial_graphics_01/check_prefab.gd",
+        "ok": true,
+        "returncode": 0,
+        "sha256": "4a803675c7e0cf5448369415203e4391234dabf26756f962e9eb3fdf1f316a78"
+      },
+      {
+        "script": "tools/asset_production/d06_commercial_graphics_02/check_prefab.gd",
+        "ok": true,
+        "returncode": 0,
+        "sha256": "dd3ed5ebec4ae7bf63637cea295d90ee66758a2dfb5c118ddec45c037de8bf74"
+      },
+      {
+        "script": "tools/asset_production/d06_commercial_graphics_03/check_prefab.gd",
+        "ok": true,
+        "returncode": 0,
+        "sha256": "08d99fe7bbb6ae3d38b07b313b91c95cc11904a494238c9fa4e72192e066d985"
+      },
+      {
+        "script": "tools/asset_production/d06_commercial_graphics_04/check_prefab.gd",
+        "ok": true,
+        "returncode": 0,
+        "sha256": "45f6b870542525efe17dabbc0ca6e79803849679dd812a91420be2e4a6e63324"
+      },
+      {
+        "script": "tools/asset_production/d06_entertainment_hall_01/check_prefab.gd",
+        "ok": true,
+        "returncode": 0,
+        "sha256": "5ac2c493031afb2ac17211449a7cbebde1ffd4f7d3df24deb5e513c127c88ae0"
+      },
+      {
+        "script": "tools/asset_production/d06_entertainment_hall_02/check_prefab.gd",
+        "ok": true,
+        "returncode": 0,
+        "sha256": "d906cfa1acdbce19ff0a708c90a5455a3f50878302abfffe3dd4643468db968c"
+      },
+      {
+        "script": "tools/asset_production/d06_entertainment_hall_03/check_prefab.gd",
+        "ok": true,
+        "returncode": 0,
+        "sha256": "1317674d0cf046c7d853a0c3d29c78ad268f36f59845bbd0619ecf89c667e3ef"
+      },
+      {
+        "script": "tools/asset_production/d06_harbour_footbridge_01/check_prefab.gd",
+        "ok": true,
+        "returncode": 0,
+        "sha256": "47ea9bb223c63b33d6d9d84b3fd1e0cf341e8e9d3828bf966fac04e1cc686626"
+      },
+      {
+        "script": "tools/asset_production/d06_harbour_footbridge_02/check_prefab.gd",
+        "ok": true,
+        "returncode": 0,
+        "sha256": "83a10e0909f43027b662a2f9e8cd34c47a01829033611f3574db8b73805866df"
+      },
+      {
+        "script": "tools/asset_production/d06_harbour_footbridge_03/check_prefab.gd",
+        "ok": true,
+        "returncode": 0,
+        "sha256": "6b3fe7f786bb3ac03b81bbff84fc8b4546269e647362781eaa61be0b6fa15150"
+      },
+      {
+        "script": "tools/asset_production/d06_harbour_footbridge_04/check_prefab.gd",
+        "ok": true,
+        "returncode": 0,
+        "sha256": "159aefaa96b8021049323c783bf76a4d72c77d1175759e0a83c5a04fe0f8977e"
+      },
+      {
+        "script": "tools/asset_production/d06_harbour_footbridge_05/check_prefab.gd",
+        "ok": true,
+        "returncode": 0,
+        "sha256": "bec3c23d0e148ede19111aa9a43d6ad3419d032f0f82c0e49684e92acc095bff"
+      },
+      {
+        "script": "tools/asset_production/d06_harbour_footbridge_06/check_prefab.gd",
+        "ok": true,
+        "returncode": 0,
+        "sha256": "53c29498dcb1539b3046b0647c630c9c0f8e92baff08e4af36546b69586dcfc0"
+      },
+      {
+        "script": "tools/asset_production/d06_poster_drum_01/check_prefab.gd",
+        "ok": true,
+        "returncode": 0,
+        "sha256": "71ef76904e4686bbf466aef6a3c4c922f3b57989837f4652b518f1f821df4eb7"
+      },
+      {
+        "script": "tools/asset_production/d06_poster_drum_02/check_prefab.gd",
+        "ok": true,
+        "returncode": 0,
+        "sha256": "c17361bec8e89831891012d23c00e2ae82fa97d6469ee55d37e462dbe508529d"
+      },
+      {
+        "script": "tools/asset_production/d06_southern_shopping_parade_01/check_prefab.gd",
+        "ok": true,
+        "returncode": 0,
+        "sha256": "1e58e893a81be0248a0cfd19579bd04f4c671b26afdf93aad61b993ee251cb27"
+      },
+      {
+        "script": "tools/asset_production/d06_southern_shopping_parade_02/check_prefab.gd",
+        "ok": true,
+        "returncode": 0,
+        "sha256": "29569f0a9953a5a09f40e6c1c261af0958603e0b7ddb18c21be902813cb77ef7"
+      },
+      {
+        "script": "tools/asset_production/d06_southern_shopping_parade_03/check_prefab.gd",
+        "ok": true,
+        "returncode": 0,
+        "sha256": "98a019ee43b60072542d874a5431602936910d2576af7509a3ec9729b6923c23"
+      },
+      {
+        "script": "tools/asset_production/integration/batch03_author.gd",
+        "ok": true,
+        "returncode": 0,
+        "sha256": "b75afc5612c1514469be5fa4e9cbbd46c6e1a473687a26cf3fcc947facef213e"
+      },
+      {
+        "script": "tools/asset_production/integration/inspector.gd",
+        "ok": true,
+        "returncode": 0,
+        "sha256": "3f27dda7f5aaf9c949577df5302dd37b5de97d8707334b34a7d32ec6572f0e41"
+      },
+      {
+        "script": "tools/assets/characters/coral_courier/capture_preview.gd",
+        "ok": true,
+        "returncode": 0,
+        "sha256": "c8d2ce378df7ad55e8481e4862ccb0dc586c8cc6db5d74a2b8e6b24c35bb6af3"
+      },
+      {
+        "script": "tools/assets/characters/coral_courier/check_player_asset.gd",
+        "ok": true,
+        "returncode": 0,
+        "sha256": "0774a1584bc472e5a556114a0b06b2bf47e4d54a8c0e267bad7d3536db1e64ef"
+      },
+      {
+        "script": "tools/assets/characters/coral_courier/check_shared_rig.gd",
+        "ok": true,
+        "returncode": 0,
+        "sha256": "d6ad429b1a69f92416af092dc3d996a25b22f1d62f5751baf0d3802a7e3201e6"
+      },
+      {
+        "script": "tools/assets/characters/coral_courier/editor_bridge.gd",
+        "ok": true,
+        "returncode": 0,
+        "sha256": "f71c9e22f854a78826aac1a816d7b6d6d7f4c3af3efa7f6a58c329807c5b903f"
+      },
+      {
+        "script": "tools/assets/characters/coral_courier/extract_motion.gd",
+        "ok": true,
+        "returncode": 0,
+        "sha256": "b7eb010dcaf06264542614218728e9d3cc7fd38a339e8569767e409df59fab61"
+      },
+      {
+        "script": "tools/assets/characters/coral_courier/measure_run.gd",
+        "ok": true,
+        "returncode": 0,
+        "sha256": "5f4a5a01a5e42e9ef643307ce71b36fe154654cb03a7804aec70f7dc8fc38f40"
+      },
+      {
+        "script": "tools/assets/characters/pedestrian_worker/author_scenes.gd",
+        "ok": true,
+        "returncode": 0,
+        "sha256": "753c19c2aa5b27fb22ffbf582e818a065be95a51859908d75c21e1ceaf772a28"
+      },
+      {
+        "script": "tools/assets/characters/pedestrian_worker/capture_motion.gd",
+        "ok": true,
+        "returncode": 0,
+        "sha256": "d1775cae1b8bb87c05aa07878eaac56f85165ab0a907daf5f5324eb6059014cb"
+      },
+      {
+        "script": "tools/assets/characters/pedestrian_worker/check_imported_contact.gd",
+        "ok": true,
+        "returncode": 0,
+        "sha256": "bb99c42e58deba2b994aaebd4e090f784e7b97f23748f9761928c38bbc795c1d"
+      },
+      {
+        "script": "tools/assets/characters/pedestrian_worker/check_worker.gd",
+        "ok": true,
+        "returncode": 0,
+        "sha256": "7c76f6b90a1396b34a56f2bc5520a8d1c4e662c6ef1e085294275784d4888a2c"
+      },
+      {
+        "script": "tools/assets/vehicles/city_cars/editor_author.gd",
+        "ok": true,
+        "returncode": 0,
+        "sha256": "a52bcea304c38347fcd6c40a2b5b07d260e4d699e01f71a739a4f5136976dc64"
+      },
+      {
+        "script": "tools/assets/weapons/dock_thumper/capture_check.gd",
+        "ok": true,
+        "returncode": 0,
+        "sha256": "0c8bf575b9c8782b8b4f17c62f881ce8b825376327f8675107bea05056b82ee6"
+      },
+      {
+        "script": "tools/assets/weapons/pistol_coral_stub/editor_bridge.gd",
+        "ok": true,
+        "returncode": 0,
+        "sha256": "021b95551edc1ce5db602523d6295e9fb1cad698d1f6bbbe45c9399c0527ef63"
+      },
+      {
+        "script": "tools/assets/weapons/smg_wedgewire/check_asset.gd",
+        "ok": true,
+        "returncode": 0,
+        "sha256": "e6f8bbd388bce53c04c10e364745539fc7238c94957cbbd92d0241d1ce073e2b"
+      },
+      {
+        "script": "tools/assets/weapons/smg_wedgewire/editor_author.gd",
+        "ok": true,
+        "returncode": 0,
+        "sha256": "6db1d90846aa114130a5f8480bfb64b47d4b42066e997fb068b84e8ed32cea30"
+      },
+      {
+        "script": "tools/assets/world/brackett_greybox/author_editor.gd",
+        "ok": true,
+        "returncode": 0,
+        "sha256": "56d80d80266bf6f41cfa3627e8ace76d8534693cf1558da88b080854a4d10591"
+      },
+      {
+        "script": "tools/assets/world/brackett_greybox/capture.gd",
+        "ok": true,
+        "returncode": 0,
+        "sha256": "4751efe03264ada8c74c67378e848e068c1a965b409f64d2a25d93187a5324ac"
+      },
+      {
+        "script": "tools/assets/world/brackett_greybox/check_scene.gd",
+        "ok": true,
+        "returncode": 0,
+        "sha256": "590c588248b366818f0bdb9ad7ed138230baa2efaa8907084d912110c26493f6"
+      }
+    ],
+    "note": "Canonical result preserved; per-script 180s follow-ups are separate evidence"
+  },
+  "renders": [
+    {
+      "file": "hero.png",
+      "size_px": [
+        1280,
+        720
+      ],
+      "bytes": 400076
+    },
+    {
+      "file": "side.png",
+      "size_px": [
+        1280,
+        720
+      ],
+      "bytes": 278265
+    },
+    {
+      "file": "detail.png",
+      "size_px": [
+        1280,
+        720
+      ],
+      "bytes": 324210
+    },
+    {
+      "file": "overhead_47m_42deg.png",
+      "size_px": [
+        1280,
+        720
+      ],
+      "bytes": 379550
+    }
+  ],
+  "render_encoding": "RGB 7 significant bits per channel, PNG compression 9",
+  "overhead_camera": {
+    "projection": "perspective",
+    "height_m": 47,
+    "vertical_fov_deg": 42,
+    "direction": "vertical down, Blender +Y at image top",
+    "engine_capture": false
+  }
+}
