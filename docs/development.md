@@ -156,8 +156,12 @@ When normalizing a resource, first warm the UID cache with the pinned engine, th
 through an editor-mode process and repeat the save to prove stable bytes:
 
 ```sh
-timeout 300s godot --headless --editor --path . --import --quit
-timeout 180s godot --headless --editor --path . --script <reviewed-save-tool>
+GODOT="$(mise which godot)"
+timeout 300s "$GODOT" --headless --editor --path . --import --quit
+timeout 180s "$GODOT" --headless --editor --path . --script <reviewed-save-tool>
+sha256sum <normalized-files...> > /tmp/normalized-first.sha256
+timeout 180s "$GODOT" --headless --editor --path . --script <reviewed-save-tool>
+sha256sum --check /tmp/normalized-first.sha256
 ```
 
 Inspect the resulting header, dependencies, node IDs, and diff. A cold-cache

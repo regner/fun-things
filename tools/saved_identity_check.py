@@ -117,8 +117,10 @@ def target_uid(root: Path, relative_path: str, tracked: set[str]) -> str | None:
         )
 
     if source.suffix in {".tscn", ".tres"} and source.is_file():
-        first_line = source.read_text(encoding="utf-8").splitlines()[0]
-        match = HEADER_PATTERN.match(first_line)
+        lines = source.read_text(encoding="utf-8").splitlines()
+        if not lines:
+            return None
+        match = HEADER_PATTERN.match(lines[0])
         return match.group(1) if match else None
     if source.suffix == ".res" and source.is_file():
         return _binary_resource_uid(source)

@@ -95,6 +95,42 @@ class SavedIdentityCheckTest(unittest.TestCase):
         )
         self.assertIn("scripts/wrong.gd.uid:1: missing or invalid GDScript UID", rendered)
 
+    def test_empty_referenced_resource_reports_both_exact_locations(self):
+        with tempfile.TemporaryDirectory() as temporary:
+            root = Path(temporary)
+            self._write(root, "resources/empty.tres", "")
+            self._write(
+                root,
+                "scene.tscn",
+                "\n".join(
+                    [
+                        '[gd_scene format=3 uid="uid://scene1"]',
+                        '[ext_resource type="Resource" uid="uid://missing1" '
+                        'path="res://resources/empty.tres" id="1"]',
+                        '[node name="Root" type="Node" unique_id=1]',
+                        "",
+                    ]
+                ),
+            )
+
+            rendered = [
+                finding.format()
+                for finding in collect_findings(
+                    root,
+                    ["resources/empty.tres", "scene.tscn"],
+                )
+            ]
+
+        self.assertIn(
+            "resources/empty.tres:1: missing or invalid saved resource header UID",
+            rendered,
+        )
+        self.assertIn(
+            "scene.tscn:2: dependency has no tracked UID metadata: "
+            "res://resources/empty.tres",
+            rendered,
+        )
+
     def test_matches_binary_resource_header_uid(self):
         with tempfile.TemporaryDirectory() as temporary:
             root = Path(temporary)
