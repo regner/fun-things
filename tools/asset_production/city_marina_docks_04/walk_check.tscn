@@ -1,0 +1,36 @@
+[gd_scene format=3 uid="uid://st8xa43uvx8c"]
+
+[ext_resource type="PackedScene" uid="uid://b77ur6wbgrjg1" path="res://scenes/prefabs/environment/city_marina_docks_01.tscn" id="1_main"]
+[ext_resource type="PackedScene" uid="uid://c41qmee26t5fq" path="res://scenes/prefabs/environment/city_marina_docks_04.tscn" id="2_corner"]
+[ext_resource type="Script" uid="uid://jthmfio4c27p" path="res://scripts/actors/actor_motion.gd" id="3_motion"]
+[ext_resource type="PackedScene" uid="uid://s501geck42rm" path="res://scenes/prefabs/environment/city_marina_docks_04_bumper.tscn" id="4_bumper"]
+[ext_resource type="PackedScene" uid="uid://d3tbrryl0w1ed" path="res://scenes/prefabs/environment/city_marina_docks_02.tscn" id="5_finger"]
+
+[sub_resource type="CapsuleShape3D" id="Capsule_actor"]
+radius = 0.35
+height = 1.8
+
+[node name="CornerPontoonWalkCheck" type="Node3D" unique_id=221590117]
+
+[node name="MainNorth" parent="." unique_id=214692918 instance=ExtResource("1_main")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -5.5)
+
+[node name="Corner" parent="." unique_id=1360465763 instance=ExtResource("2_corner")]
+
+[node name="MainEast" parent="." unique_id=154926775 instance=ExtResource("1_main")]
+transform = Transform3D(0, 0, -1, 0, 1, 0, 1, 0, 0, 5.5, 0, 0)
+
+[node name="FingerEndSample" parent="." unique_id=1893709767 instance=ExtResource("5_finger")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 6)
+
+[node name="FingerEndBumper" parent="." unique_id=906936350 instance=ExtResource("4_bumper")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 9)
+
+[node name="Actor" type="CharacterBody3D" parent="." unique_id=223794533]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.501, -3)
+collision_layer = 2
+script = ExtResource("3_motion")
+
+[node name="Capsule" type="CollisionShape3D" parent="Actor" unique_id=65800764]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0)
+shape = SubResource("Capsule_actor")

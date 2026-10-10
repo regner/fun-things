@@ -1,0 +1,332 @@
+{
+  "asset": "city_marina_docks.04",
+  "exports": {
+    "city_marina_docks_04": {
+      "applied_transforms": true,
+      "asset": "city_marina_docks.04",
+      "blender": "5.2.2 LTS",
+      "build_hash": "d13f752e3b9c",
+      "consistent_winding": true,
+      "datum": "waterline",
+      "deck_height_m": 0.5,
+      "degenerate_faces": 0.0,
+      "dimension_tolerance_m": 0.001,
+      "dimensions_godot_m": [
+        3.12000000476837,
+        0.820000052452087,
+        3.12000000476837
+      ],
+      "fresh_reexport_byte_identical": true,
+      "glb_bytes": 103960.0,
+      "glb_sha256": "3dfc10b9553b848ec98444a432611a43d27c8740043a3be53f3133d7bbd99ca2",
+      "glb_vertices": 2340.0,
+      "godot_aabb": {
+        "max": [
+          1.5,
+          0.520000040531158,
+          1.62000000476837
+        ],
+        "min": [
+          -1.62000000476837,
+          -0.300000011920929,
+          -1.5
+        ]
+      },
+      "materials": [
+        {
+          "name": "dock_float_petrol",
+          "pbrMetallicRoughness": {
+            "baseColorFactor": [
+              0.0179999992251396,
+              0.0450000017881393,
+              0.0509999990463257,
+              1.0
+            ],
+            "metallicFactor": 0.0,
+            "roughnessFactor": 0.540000021457672
+          }
+        },
+        {
+          "name": "dock_frame_metal",
+          "pbrMetallicRoughness": {
+            "baseColorFactor": [
+              0.0549999997019768,
+              0.0750000029802322,
+              0.0790000036358833,
+              1.0
+            ],
+            "metallicFactor": 0.550000011920929,
+            "roughnessFactor": 0.439999997615814
+          }
+        },
+        {
+          "name": "dock_deck_dark_composite",
+          "pbrMetallicRoughness": {
+            "baseColorFactor": [
+              0.0750000029802322,
+              0.0900000035762787,
+              0.0850000008940697,
+              1.0
+            ],
+            "metallicFactor": 0.0,
+            "roughnessFactor": 0.600000023841858
+          }
+        },
+        {
+          "name": "dock_deck_soft_variation",
+          "pbrMetallicRoughness": {
+            "baseColorFactor": [
+              0.0820000022649765,
+              0.0979999974370003,
+              0.0920000001788139,
+              1.0
+            ],
+            "metallicFactor": 0.0,
+            "roughnessFactor": 0.600000023841858
+          }
+        },
+        {
+          "name": "dock_edge_warm_pale",
+          "pbrMetallicRoughness": {
+            "baseColorFactor": [
+              0.569999992847443,
+              0.589999973773956,
+              0.509999990463257,
+              1.0
+            ],
+            "metallicFactor": 0.119999997317791,
+            "roughnessFactor": 0.479999989271164
+          }
+        },
+        {
+          "name": "dock_bumper_petrol_rubber",
+          "pbrMetallicRoughness": {
+            "baseColorFactor": [
+              0.0179999992251396,
+              0.0450000017881393,
+              0.0509999990463257,
+              1.0
+            ],
+            "metallicFactor": 0.0,
+            "roughnessFactor": 0.800000011920929
+          }
+        }
+      ],
+      "mesh_count": 1.0,
+      "nonmanifold_edges": 0.0,
+      "open_joins_godot": [
+        [
+          0.0,
+          0.5,
+          -1.5
+        ],
+        [
+          1.5,
+          0.5,
+          0.0
+        ]
+      ],
+      "pivot": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "source_aabb": {
+        "max": [
+          1.5,
+          1.5,
+          0.520000040531158
+        ],
+        "min": [
+          -1.62000000476837,
+          -1.62000000476837,
+          -0.300000011920929
+        ]
+      },
+      "status": "PASS source and export",
+      "surfaces": 6.0,
+      "triangles": 3856.0,
+      "unit_normals": true,
+      "vertices": 1968.0
+    },
+    "city_marina_docks_04_bumper": {
+      "applied_transforms": true,
+      "asset": "city_marina_docks.04",
+      "blender": "5.2.2 LTS",
+      "build_hash": "d13f752e3b9c",
+      "consistent_winding": true,
+      "datum": "waterline",
+      "deck_height_m": null,
+      "degenerate_faces": 0.0,
+      "dimension_tolerance_m": 0.001,
+      "dimensions_godot_m": [
+        1.5,
+        0.259999990463257,
+        0.140000004321337
+      ],
+      "fresh_reexport_byte_identical": true,
+      "glb_bytes": 6124.0,
+      "glb_sha256": "42aac1dcdf9d73140effe2cdfd0f3496cfd8da53db19d068b75e00ef8f207ca6",
+      "glb_vertices": 115.0,
+      "godot_aabb": {
+        "max": [
+          0.75,
+          0.46000000834465,
+          0.120000004768372
+        ],
+        "min": [
+          -0.75,
+          0.200000017881393,
+          -0.0199999995529652
+        ]
+      },
+      "materials": [
+        {
+          "name": "dock_bumper_petrol_rubber",
+          "pbrMetallicRoughness": {
+            "baseColorFactor": [
+              0.0179999992251396,
+              0.0450000017881393,
+              0.0509999990463257,
+              1.0
+            ],
+            "metallicFactor": 0.0,
+            "roughnessFactor": 0.800000011920929
+          }
+        }
+      ],
+      "mesh_count": 1.0,
+      "nonmanifold_edges": 0.0,
+      "open_joins_godot": [],
+      "pivot": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "source_aabb": {
+        "max": [
+          0.75,
+          0.0199999995529652,
+          0.46000000834465
+        ],
+        "min": [
+          -0.75,
+          -0.120000004768372,
+          0.200000017881393
+        ]
+      },
+      "status": "PASS source and export",
+      "surfaces": 1.0,
+      "triangles": 188.0,
+      "unit_normals": true,
+      "vertices": 96.0
+    }
+  },
+  "godot": {
+    "bounds_min": [
+      -1.62000000476837,
+      -0.300000011920929,
+      -1.5
+    ],
+    "bounds_size": [
+      3.11999988555908,
+      0.820000052452087,
+      3.11999988555908
+    ],
+    "bumper_linked_visual_only": true,
+    "engine": "4.8-dev7 (official)",
+    "linked_model_identity": true,
+    "physics": {
+      "actor_motion_ticks_per_direction_mode": 72,
+      "authority_replay_equal": true,
+      "bumper_clear_rays": 3,
+      "deck_support_rays": 11,
+      "traversals": [
+        {
+          "end_position": [
+            2.99999928474426,
+            0.500999987125397,
+            -5.51342964172363e-07
+          ],
+          "reverse": false
+        },
+        {
+          "end_position": [
+            5.51342964172363e-07,
+            0.500999987125397,
+            -2.99999928474426
+          ],
+          "reverse": true
+        }
+      ],
+      "water_falloff_and_network_transport": "not tested; outside component scope"
+    },
+    "save_reload_byte_stable": true
+  },
+  "status": "PASS source and binary exports",
+  "production_checks": {
+    "engine": {
+      "ok": true,
+      "version": "4.8.dev7.official.c971f93e7"
+    },
+    "gut_pin": {
+      "ok": true,
+      "version": "9.7.1"
+    },
+    "owned_scripts": {
+      "ok": true,
+      "returncode": 0
+    },
+    "python_tests": {
+      "ok": true,
+      "returncode": 0
+    },
+    "gut_import": {
+      "ok": true,
+      "returncode": 0
+    },
+    "gut_tests": {
+      "ok": true,
+      "returncode": 0
+    },
+    "gut_negative": {
+      "ok": true,
+      "observed_returncode": 1
+    }
+  },
+  "renders": [
+    {
+      "file": "hero.png",
+      "size_px": [
+        1280,
+        720
+      ],
+      "bytes": 406968
+    },
+    {
+      "file": "side.png",
+      "size_px": [
+        1280,
+        720
+      ],
+      "bytes": 371136
+    },
+    {
+      "file": "detail.png",
+      "size_px": [
+        1280,
+        720
+      ],
+      "bytes": 402705
+    },
+    {
+      "file": "overhead_47m_42deg.png",
+      "size_px": [
+        1280,
+        720
+      ],
+      "bytes": 377816
+    }
+  ],
+  "render_encoding": "RGB 7 significant bits per channel, PNG compression 9"
+}

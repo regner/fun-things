@@ -1,0 +1,39 @@
+city_marina_docks.04 final production receipt — 10 October 2026
+CWD: C:/GameDev/git/ft-lanes/a-marina (lane/a-marina)
+Raw logs/scratch: C:/tmp/ft/assets/city_marina_docks_04/
+
+Blender pin: 5.2.2 LTS, d13f752e3b9c; glTF exporter 5.2.40.
+All asset Blender invocations: ALSOFT_DRIVERS=null SDL_AUDIODRIVER=dummy,
+timeout 900, -noaudio --background --factory-startup --threads 4 --python-exit-code 1.
+Owned author.py / export.py / render.py: PASS, exits 0.
+export.py -- C:/tmp/ft/assets/city_marina_docks_04/reexport: PASS, exit 0.
+validate.py -- C:/tmp/ft/assets/city_marina_docks_04/reexport: PASS, exit 0.
+Both fresh GLBs byte-identical. Connector 3856 triangles / 1968 source vertices;
+bumper 188 / 96. Zero nonmanifold source edges and degenerate source/export faces.
+Four 1280x720 final studio renders visually inspected, including vertical 47m/42deg.
+
+Godot pin: 4.8.dev7.official.c971f93e7, resolved using mise which godot.
+timeout 300 godot --headless --editor --path . --import: PASS, exit 0.
+timeout 180 godot --headless --editor --path . --script
+  tools/asset_production/city_marina_docks_04/check.gd -- --normalize: PASS, exit 0.
+Two wrappers + owned fixture saved/reloaded twice, byte-stable identities.
+timeout 180 godot --headless --path . --script
+  tools/asset_production/city_marina_docks_04/check.gd: PASS, clean repeated runs.
+11 support rays, 3 clear bumper rays, 72 movement ticks/direction/mode;
+AUTHORITY/REPLAY agree. Complete forward/reverse expected destinations pass.
+Final runtime logs: no SCRIPT ERROR, ERROR or WARNING entries.
+
+mise-pinned gdstyle --max-warnings 0 tools/asset_production/city_marina_docks_04/check.gd:
+PASS, one file, no issues.
+timeout 1800 mise exec -- python tools/production_checks.py
+  --output C:/tmp/ft/assets/city_marina_docks_04/checks: PASS, exit 0, summary ok=true.
+Engine/GUT pin, script formatting/lint/explicit compilation, 14 Python tests,
+75/75 GUT tests and 2041 asserts pass. Intentional failing GUT negative exits 1 as expected.
+
+Resolved self-check faults: validator string literal, runtime typed-array conditional
+(which initially returned exit 0 with script errors), helper complexity warnings.
+Rejected runs are not acceptance evidence; independent completion/destination checks added.
+Known diagnostics: Blender use_nodes deprecation; headless editor addon version warning
+and shutdown RID/ObjectDB leaks. Standalone physics and production checks are clean.
+No live editor sessions or other asset paths changed. Placement, engine visual review,
+water/falloff, real-process multiplayer, packaged/device/performance acceptance pending.
