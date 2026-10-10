@@ -38,7 +38,7 @@ func _initialize() -> void:
 
 ## Validates arguments and views, renders every view, and writes the capture record.
 func _run() -> void:
-	var arguments: Dictionary = _parse_arguments(OS.get_cmdline_user_args())
+	var arguments: Dictionary = parse_arguments(OS.get_cmdline_user_args())
 	if arguments.has("error"):
 		_fail(arguments.error)
 		return
@@ -64,37 +64,76 @@ func _run() -> void:
 		return
 	_template_saved_position = template.position
 
+	var records: Array[Dictionary] = await _capture_views(cameras, template, views)
+	if records.size() != views.size():
+		return
+
+	var record_path: String = _output.path_join("capture.json")
+	if not write_capture_record(record_path, _capture_record(arguments, records)):
+		_fail("BRACKETT_CAPTURE_RECORD_WRITE_FAILED " + record_path)
+		return
+	print("BRACKETT_CAPTURE_COMPLETE ", records.size())
+	quit()
+
+
+## Renders each view in order; stops at the first failure, which has already called _fail().
+func _capture_views(cameras: Node, template: Camera3D, views: Array) -> Array[Dictionary]:
 	var records: Array[Dictionary] = []
 	for view: Dictionary in views:
 		var camera: Camera3D = _view_camera(cameras, template, view)
 		if camera == null:
 			_fail("BRACKETT_CAPTURE_UNKNOWN_CAMERA " + str(view.get("camera")))
-			return
+			break
 		# Views render one at a time; the loop is bounded by MAX_VIEWS.
 		var row: Dictionary = await _capture(camera, view)  # gdstyle:ignore=quality/await-in-loop
 		if row.is_empty():
-			return
+			break
 		records.append(row)
-
-	_write_record(arguments, records)
-	print("BRACKETT_CAPTURE_COMPLETE ", records.size())
-	quit()
+	return records
 
 
-## Reads `--views <path> --output <directory>` and rejects output inside the checkout.
-func _parse_arguments(user_args: PackedStringArray) -> Dictionary:
+## Reads `--views <path> --output <directory>`; returns an `error` entry when invalid.
+static func parse_arguments(user_args: PackedStringArray) -> Dictionary:
 	var parsed: Dictionary = {}
 	for index: int in range(0, user_args.size() - 1, 2):
 		parsed[user_args[index].trim_prefix("--")] = user_args[index + 1]
 	if user_args.size() != 4 or not parsed.has("views") or not parsed.has("output"):
 		return { "error": "usage: -- --views <views.json> --output <directory>" }
 
-	var output: String = String(parsed.output).replace("\\", "/").simplify_path()
-	var project: String = ProjectSettings.globalize_path("res://").simplify_path()
-	if output.is_relative_path() or output.to_lower().begins_with(project.to_lower()):
-		return { "error": "BRACKETT_CAPTURE_OUTPUT_MUST_BE_ABSOLUTE_OUTSIDE_CHECKOUT " + output }
+	var output: String = checked_output_directory(parsed.output)
+	if output.is_empty():
+		return {
+			"error": "BRACKETT_CAPTURE_OUTPUT_MUST_BE_NATIVE_OUTSIDE_CHECKOUT " + parsed.output,
+		}
 	parsed.output = output
 	return parsed
+
+
+## Returns a normalized native output directory outside the checkout, or "" to reject it.
+##
+## Resource schemes (res://, user://) and relative paths are rejected before the
+## directory-aware containment check, which runs after `..` segments are resolved.
+static func checked_output_directory(raw: String) -> String:
+	var output: String = raw.replace("\\", "/")
+	if output.contains("://") or not output.is_absolute_path():
+		return ""
+	output = output.simplify_path().trim_suffix("/")
+	var project: String = ProjectSettings.globalize_path("res://").replace("\\", "/")
+	project = project.simplify_path().trim_suffix("/").to_lower()
+	var lowered: String = output.to_lower()
+	if lowered == project or lowered.begins_with(project + "/"):
+		return ""
+	return output
+
+
+## Writes one capture record as tab-indented JSON; returns false when it cannot be stored.
+static func write_capture_record(path: String, record: Dictionary) -> bool:
+	var file: FileAccess = FileAccess.open(path, FileAccess.WRITE)
+	if file == null:
+		return false
+	var stored: bool = file.store_string(JSON.stringify(record, "\t") + "\n")
+	file.close()
+	return stored
 
 
 ## Loads and validates the bounded views file; reports the first problem and fails.
@@ -190,28 +229,19 @@ func _capture(camera: Camera3D, view: Dictionary) -> Dictionary:
 	}
 
 
-## Writes the self-describing capture record beside the PNGs.
-func _write_record(arguments: Dictionary, records: Array[Dictionary]) -> void:
-	var file: FileAccess = FileAccess.open(
-		_output.path_join("capture.json"), FileAccess.WRITE
-	)
-	file.store_string(
-		JSON.stringify(
-			{
-				"engine": Engine.get_version_info().string,
-				"renderer": RenderingServer.get_current_rendering_method(),
-				"adapter": RenderingServer.get_video_adapter_name(),
-				"viewport": [VIEWPORT_SIZE.x, VIEWPORT_SIZE.y],
-				"max_fps": Engine.max_fps,
-				"preview_scene": PREVIEW_SCENE_PATH,
-				"views_file": arguments.views,
-				"overlay_hidden": true,
-				"views": records,
-			},
-			"\t",
-		) + "\n"
-	)
-	file.close()
+## Builds the self-describing capture record written beside the PNGs.
+func _capture_record(arguments: Dictionary, records: Array[Dictionary]) -> Dictionary:
+	return {
+		"engine": Engine.get_version_info().string,
+		"renderer": RenderingServer.get_current_rendering_method(),
+		"adapter": RenderingServer.get_video_adapter_name(),
+		"viewport": [VIEWPORT_SIZE.x, VIEWPORT_SIZE.y],
+		"max_fps": Engine.max_fps,
+		"preview_scene": PREVIEW_SCENE_PATH,
+		"views_file": arguments.views,
+		"overlay_hidden": true,
+		"views": records,
+	}
 
 
 ## Reports a failure and exits non-zero instead of waiting for the caller's deadline.

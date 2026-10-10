@@ -40,9 +40,11 @@ func _run() -> void:
 		)
 		return
 
-	if not _write_manifest(city_data.content_manifest_path, manifest):
+	# Freeing the Match frees CityData, so keep the path for the failure message.
+	var manifest_path: String = city_data.content_manifest_path
+	if not _write_manifest(manifest_path, manifest):
 		match_root.free()
-		_fail("BRACKETT_CONTENT_MANIFEST_WRITE_FAILED " + city_data.content_manifest_path)
+		_fail("BRACKETT_CONTENT_MANIFEST_WRITE_FAILED " + manifest_path)
 		return
 
 	var signature: String = city_data.calculate_content_signature()

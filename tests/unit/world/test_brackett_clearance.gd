@@ -19,8 +19,12 @@ const WALK_MATERIAL: String = "grey_walk"
 const MAX_SURFACE_OVERLAP_M2: float = 0.01
 const MAX_DISTRICT_SPILL_M2: float = 0.01
 const MIN_PLACEMENT_GAP_M: float = 1.0
-## Collision entirely above this soffit may span corridors (footbridge decks over carriageways).
+## Minimum soffit for allowlisted corridor-spanning collision (footbridge decks over roads).
 const COLLISION_SOFFIT_CLEARANCE_M: float = 5.5
+## Reviewed corridor spans: a placement `world_id`, or `world_id:node_path` for one collision
+## node. Only listed collision whose bottom clears COLLISION_SOFFIT_CLEARANCE_M may cross road or
+## walk; all other collision is checked unconditionally. No span is approved yet.
+const CORRIDOR_SPAN_ALLOWLIST: Array[String] = []
 ## Visual parts reaching below these heights must stay off the matching corridor surface.
 const ROAD_VISUAL_CLEARANCE_M: float = 4.5
 const WALK_VISUAL_CLEARANCE_M: float = 2.5
@@ -181,6 +185,48 @@ func test_checks_reject_constructed_violations() -> void:
 	assert_false(_district_failures([outside]).is_empty(), "footprint outside its district fails")
 
 
+## Proves overhead collision needs a reviewed allowlist entry and the full soffit.
+func test_corridor_spans_need_allowlist_and_soffit() -> void:
+	var on_road: Vector2 = Footprints.polygon_centroid(_road.polygons[0])
+	var deck: Footprints.Footprint = _square_footprint(on_road, 1.0)
+	deck.bottom_m = COLLISION_SOFFIT_CLEARANCE_M + 0.5
+	var listed: Array[String] = [deck.owner_id]
+	var listed_node: Array[String] = ["%s:%s" % [deck.owner_id, deck.source]]
+	assert_false(_corridor_failures([deck]).is_empty(), "unlisted overhead collider fails")
+	assert_true(_corridor_failures([deck], listed).is_empty(), "listed high deck passes")
+	assert_true(_corridor_failures([deck], listed_node).is_empty(), "listed deck node passes")
+
+	var support: Footprints.Footprint = _square_footprint(on_road, 1.0)
+	assert_false(_corridor_failures([support], listed).is_empty(), "low bridge support fails")
+	var low_deck: Footprints.Footprint = _square_footprint(on_road, 1.0)
+	low_deck.bottom_m = COLLISION_SOFFIT_CLEARANCE_M - 0.5
+	assert_false(_corridor_failures([low_deck], listed).is_empty(), "deck below soffit fails")
+
+
+## Proves a supplied identity base is validated before added/retired sets are reported.
+func test_identity_base_is_validated_before_comparison() -> void:
+	for malformed: String in [
+		"{not json",
+		"{}",
+		"[\"brackett\"]",
+		"{\"schema\": 1}",
+		"{\"schema\": 1, \"world_ids\": []}",
+		"{\"schema\": 1, \"world_ids\": [\"a\", 3]}",
+		"{\"schema\": 2, \"world_ids\": [\"a\"]}",
+	]:
+		assert_true(_parse_identity_base(malformed, "constructed").has("error"), malformed)
+
+	var base: Dictionary = _parse_identity_base(
+		"{\"schema\": 1, \"world_ids\": [\"a\", \"b\"]}", "constructed"
+	)
+	assert_false(base.has("error"), str(base.get("error", "")))
+	var current: Array[String] = ["b", "c"]
+	var diff: Dictionary = _identity_diff(current, base.ids)
+	assert_eq(diff.added, ["c"])
+	assert_eq(diff.retired, ["a"])
+	assert_eq(diff.base_count, 2)
+
+
 ## Builds the per-site clearance report and writes it when report mode is requested.
 func test_clearance_report_covers_every_site() -> void:
 	var candidates: Dictionary = _load_fit_candidates()
@@ -188,6 +234,7 @@ func test_clearance_report_covers_every_site() -> void:
 	assert_eq((report.sites as Array).size(), _sites.size(), "every site is reported")
 	assert_eq((report.world_ids as Array).size(), _sites.size())
 	assert_false(report.has("candidate_error"), str(report.get("candidate_error", "")))
+	assert_false(report.identity.has("error"), str(report.identity.get("error", "")))
 
 	var report_path: String = OS.get_environment(REPORT_PATH_ENV)
 	if not report_path.is_empty():
@@ -277,20 +324,32 @@ func _assign_owner(
 		footprint.district_id = district_id
 
 
-## Lists corridor violations: low collision on road or walk, low visuals by height band.
-func _corridor_failures(footprints: Array) -> PackedStringArray:
+## Lists corridor violations: any collision except reviewed high spans, low visuals by band.
+func _corridor_failures(
+	footprints: Array, span_allowlist: Array[String] = CORRIDOR_SPAN_ALLOWLIST
+) -> PackedStringArray:
 	var failures := PackedStringArray()
 	for footprint: Footprints.Footprint in footprints:
-		var road_limit: float = COLLISION_SOFFIT_CLEARANCE_M
-		var walk_limit: float = COLLISION_SOFFIT_CLEARANCE_M
-		if not footprint.is_collision:
-			road_limit = ROAD_VISUAL_CLEARANCE_M
-			walk_limit = WALK_VISUAL_CLEARANCE_M
-		if footprint.bottom_m < road_limit:
+		if footprint.is_collision:
+			if _is_reviewed_span(footprint, span_allowlist):
+				continue
 			_append_overlap(failures, footprint, _road, "road")
-		if footprint.bottom_m < walk_limit:
+			_append_overlap(failures, footprint, _walk, "walk")
+			continue
+		if footprint.bottom_m < ROAD_VISUAL_CLEARANCE_M:
+			_append_overlap(failures, footprint, _road, "road")
+		if footprint.bottom_m < WALK_VISUAL_CLEARANCE_M:
 			_append_overlap(failures, footprint, _walk, "walk")
 	return failures
+
+
+## Reports whether allowlisted collision clears the soffit; listed low supports stay checked.
+func _is_reviewed_span(footprint: Footprints.Footprint, span_allowlist: Array[String]) -> bool:
+	var listed: bool = (
+		span_allowlist.has(footprint.owner_id)
+		or span_allowlist.has("%s:%s" % [footprint.owner_id, footprint.source])
+	)
+	return listed and footprint.bottom_m >= COLLISION_SOFFIT_CLEARANCE_M
 
 
 ## Appends one failure when a footprint covers more than the allowed surface area.
@@ -432,9 +491,38 @@ func _identity_report(world_ids: Array[String]) -> Dictionary:
 		for placement: Dictionary in _authoring.placements:
 			base_ids.append(String(placement.world_id))
 	else:
-		var parsed: Variant = JSON.parse_string(FileAccess.get_file_as_string(base_source))
-		base_ids = parsed.get("world_ids", []) if parsed is Dictionary else []
+		var text: String = ""
+		if FileAccess.file_exists(base_source):
+			text = FileAccess.get_file_as_string(base_source)
+		var base: Dictionary = _parse_identity_base(text, base_source)
+		if base.has("error"):
+			return { "base": base_source, "error": base.error }
+		base_ids = base.ids
 
+	var diff: Dictionary = _identity_diff(world_ids, base_ids)
+	diff.base = base_source
+	return diff
+
+
+## Validates an explicitly supplied base report; returns its `ids` or an `error`.
+func _parse_identity_base(text: String, source: String) -> Dictionary:
+	var json := JSON.new()
+	if json.parse(text) != OK or not json.data is Dictionary:
+		return { "error": "identity base %s is not a JSON report object" % source }
+	var parsed: Dictionary = json.data
+	if parsed.get("schema") != float(REPORT_SCHEMA):
+		return { "error": "identity base %s needs schema %d" % [source, REPORT_SCHEMA] }
+	var ids: Variant = parsed.get("world_ids")
+	if not ids is Array or (ids as Array).is_empty():
+		return { "error": "identity base %s needs a non-empty world_ids array" % source }
+	for world_id: Variant in ids:
+		if not world_id is String or (world_id as String).is_empty():
+			return { "error": "identity base %s has a non-string world_id" % source }
+	return { "ids": ids }
+
+
+## Returns the added and retired world_ids of the current set against a base set.
+func _identity_diff(world_ids: Array[String], base_ids: Array) -> Dictionary:
 	var current: Dictionary[String, bool] = {}
 	for world_id: String in world_ids:
 		current[world_id] = true
@@ -445,7 +533,6 @@ func _identity_report(world_ids: Array[String]) -> Dictionary:
 	var retired: Array = base.keys().filter(func(id: String) -> bool: return not current.has(id))
 	retired.sort()
 	return {
-		"base": base_source,
 		"count": world_ids.size(),
 		"base_count": base.size(),
 		"added": added,
