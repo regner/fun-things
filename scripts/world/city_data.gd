@@ -4,7 +4,9 @@ extends Node
 
 const FAILURE_CONTENT_INVALID: StringName = &"CONTENT_INVALID"
 const MAX_IDENTITY_BYTES: int = 128
-const MAX_MANIFEST_RESOURCES: int = 512
+## Bounds local manifest work, not a network value; every accepted environment prefab closes
+## over about 730 rows.
+const MAX_MANIFEST_RESOURCES: int = 2048
 const CONTENT_MANIFEST_SCHEMA: int = 1
 const CONTENT_DIGEST_DOMAIN: String = "brackett-composed-world-v1"
 

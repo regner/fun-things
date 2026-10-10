@@ -138,6 +138,14 @@ func test_stale_saved_world_signature_is_rejected() -> void:
 	assert_false(stale_admission.ok)
 
 
+## Proves the manifest row bound admits 2048 canonical rows and rejects one more.
+func test_content_manifest_accepts_2048_rows_and_rejects_more() -> void:
+	var city_data: CityData = autofree(CityData.new()) as CityData
+
+	assert_true(city_data._valid_manifest_resources(_canonical_manifest_rows(2048)))
+	assert_false(city_data._valid_manifest_resources(_canonical_manifest_rows(2049)))
+
+
 ## Moves S02 and S04-class probe bodies across sector seams and the saved harbour bridge.
 func test_saved_ground_supports_actor_and_car_traversal() -> void:
 	var match: Node3D = MATCH_SCENE.instantiate() as Node3D
@@ -207,6 +215,14 @@ func test_actor_and_car_slide_along_building_edge_without_snagging() -> void:
 	assert_true(result.car_reached, "car clears the building corner")
 	assert_true(result.foot_wall_contact, "foot route exercises a building edge")
 	assert_true(result.car_wall_contact, "car route exercises a building edge")
+
+
+## Builds strictly sorted, well-formed manifest rows without touching the filesystem.
+func _canonical_manifest_rows(count: int) -> Array:
+	var rows: Array = []
+	for index: int in count:
+		rows.append({ "path": "res://bound/%05d.tres" % index, "sha256": "0".repeat(64) })
+	return rows
 
 
 ## Builds a small saved world whose collision sector is a transitive dependency.
