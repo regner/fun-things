@@ -72,7 +72,7 @@ def main():
     diagnostics = "\n".join(line for line in normalize_log.splitlines()
                             if "ERROR:" in line or "WARNING:" in line)
     summary = (
-        "FINAL COMPONENT VALIDATION â€” verbose logs/retries remain in external scratch\n"
+        "FINAL COMPONENT VALIDATION — verbose logs/retries remain in external scratch\n"
         "Blender 5.2.2 LTS d13f752e3b9c, exporter 5.2.40. Author and validator exit 0.\n"
         "Author emits use_nodes future-version deprecation warnings; pinned execution succeeds.\n"
         "60 triangles, 32 source vertices, 72 exported vertices, 1 mesh, 3 surfaces.\n"

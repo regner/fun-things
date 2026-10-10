@@ -225,6 +225,29 @@ timeout 1800 mise exec -- python tools/production_checks.py --output "$C"
 python "tools/asset_production/$NID/record.py" --checks "$C"
 ```
 
+## Review round 2 — P3 validation-log encoding
+
+Corrected the malformed dash in `record.py`'s validation-log heading to a UTF-8 em dash (`—`).
+Reran the recorder against the retained round-1 receipts, regenerating `final.log` and this asset's
+manifest. Verified the exact UTF-8 heading, every manifest payload size/SHA-256, and unchanged
+source, GLB, import metadata, prefab, validation measurements and four renders. No asset or gameplay
+behavior changed, so Blender author/export/render and asset-specific engine checks were not repeated.
+The round-1 source/export and engine evidence remains applicable, not claimed as a new run.
+
+A fresh canonical production check run passed all layers (85 script checks, 11 Python tests,
+40 GUT tests / 458 assertions and the expected diagnostic negative control). Exact replay:
+
+```sh
+timeout 1800 mise exec -- python tools/production_checks.py \
+  --output C:/tmp/ft/assets/d06_harbour_footbridge_04/checks-review-r2
+python tools/asset_production/d06_harbour_footbridge_04/record.py \
+  --checks C:/tmp/ft/assets/d06_harbour_footbridge_01/checks-review-r1
+```
+
+The recorder deliberately retains the round-1 receipt path in `final.log`'s round-1 history;
+the fresh round-2 suite is recorded separately above. The supplied review accepted this component
+with only this non-functional nit; assembled-route and device gates below remain pending.
+
 ## Remaining acceptance
 
 Independent technical/art review is pending. World integration owns exact span lengths, supports on
