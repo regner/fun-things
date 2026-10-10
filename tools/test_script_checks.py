@@ -4,10 +4,27 @@ import json
 from pathlib import Path
 import subprocess
 import tempfile
+import time
 import unittest
 from unittest import mock
 
 import script_checks
+
+OLD_SHARED_DEADLINE_SECONDS = 120
+SIMULATED_LAUNCH_SECONDS = 1.0
+
+
+class _AdvancingClock:
+    """Advance only when a mocked engine launch consumes simulated wall time."""
+
+    def __init__(self):
+        self.current = 0.0
+
+    def monotonic(self):
+        return self.current
+
+    def advance_launch(self):
+        self.current += SIMULATED_LAUNCH_SECONDS
 
 
 class ScriptChecksTest(unittest.TestCase):
@@ -21,13 +38,16 @@ class ScriptChecksTest(unittest.TestCase):
             (root / "project.godot").write_text("[application]\n", encoding="utf-8")
             scripts = [root / f"script_{index:03}.gd" for index in range(200)]
             compile_timeouts = []
+            clock = _AdvancingClock()
 
             def run_engine(command, **kwargs):
                 if "--check-only" in command:
                     compile_timeouts.append(kwargs["timeout"])
+                clock.advance_launch()
                 return subprocess.CompletedProcess(command, 0)
 
             with (
+                mock.patch.object(time, "monotonic", side_effect=clock.monotonic),
                 mock.patch.object(script_checks, "ROOT", root),
                 mock.patch.object(script_checks, "owned_scripts", return_value=scripts),
                 mock.patch.object(script_checks.subprocess, "run", side_effect=run_engine),
@@ -37,6 +57,7 @@ class ScriptChecksTest(unittest.TestCase):
             results = json.loads((output / "compilation.json").read_text(encoding="utf-8"))
 
         self.assertTrue(compiled)
+        self.assertGreater(clock.current, OLD_SHARED_DEADLINE_SECONDS)
         self.assertEqual(len(results), 200)
         self.assertTrue(all(row["ok"] for row in results))
         self.assertEqual(
@@ -52,17 +73,21 @@ class ScriptChecksTest(unittest.TestCase):
             root.mkdir()
             output.mkdir()
             (root / "project.godot").write_text("[application]\n", encoding="utf-8")
-            scripts = [root / "good.gd", root / "hung.gd"]
+            scripts = [root / f"good_{index:03}.gd" for index in range(130)]
+            scripts.append(root / "hung.gd")
             hung_timeout = None
+            clock = _AdvancingClock()
 
             def run_engine(command, **kwargs):
                 nonlocal hung_timeout
+                clock.advance_launch()
                 if command[-1] == "res://hung.gd":
                     hung_timeout = kwargs["timeout"]
                     raise subprocess.TimeoutExpired(command, hung_timeout)
                 return subprocess.CompletedProcess(command, 0)
 
             with (
+                mock.patch.object(time, "monotonic", side_effect=clock.monotonic),
                 mock.patch.object(script_checks, "ROOT", root),
                 mock.patch.object(script_checks, "owned_scripts", return_value=scripts),
                 mock.patch.object(script_checks.subprocess, "run", side_effect=run_engine),
@@ -70,16 +95,12 @@ class ScriptChecksTest(unittest.TestCase):
                 compiled = script_checks.compile_all("godot", output)
 
             results = json.loads((output / "compilation.json").read_text(encoding="utf-8"))
-            timeout_log = (output / "compile-1.log").read_text(encoding="utf-8")
+            timeout_log = (output / "compile-130.log").read_text(encoding="utf-8")
 
         self.assertFalse(compiled)
-        self.assertEqual(
-            results,
-            [
-                {"script": "good.gd", "ok": True},
-                {"script": "hung.gd", "ok": False},
-            ],
-        )
+        self.assertGreater(clock.current, OLD_SHARED_DEADLINE_SECONDS)
+        self.assertTrue(all(row["ok"] for row in results[:-1]))
+        self.assertEqual(results[-1], {"script": "hung.gd", "ok": False})
         self.assertEqual(hung_timeout, script_checks.SCRIPT_COMPILE_TIMEOUT_SECONDS)
         self.assertIn("CHECK DEADLINE EXCEEDED", timeout_log)
 
