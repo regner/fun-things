@@ -1,0 +1,169 @@
+{
+  "status": "PASS",
+  "blender": "5.2.2 LTS",
+  "blender_build": "d13f752e3b9c",
+  "gltf_exporter": "5.2.40",
+  "source": {
+    "path": "art/source/models/environment/d03_laundry_frames_01/d03_laundry_frames_01.blend",
+    "bytes": 139959,
+    "sha256": "eb35c17111db8dad7ff77a2ffd9391eaeb158b42a7eabefa24eb77cad2e967db"
+  },
+  "export": {
+    "path": "art/models/environment/d03_laundry_frames_01/d03_laundry_frames_01.glb",
+    "bytes": 77804,
+    "sha256": "50f472e2f589631f7561df009d89aca5efd183807fd0943710a7754a22989bc9"
+  },
+  "source_vertices": 1368,
+  "export_vertices": 1834,
+  "triangles": 2652,
+  "mesh_count": 1,
+  "surface_count": 3,
+  "source_degenerate_faces": 0,
+  "nonmanifold_edges": 0,
+  "glb_degenerate_triangles": 0,
+  "maximum_source_normal_error": 1.6869306307398801e-07,
+  "glb_unit_normals": true,
+  "godot_aabb_min": [
+    -1.9499999284744263,
+    0.0,
+    -0.6599999666213989
+  ],
+  "godot_aabb_max": [
+    1.9500000476837158,
+    2.240000009536743,
+    0.6599999666213989
+  ],
+  "dimensions_m": [
+    3.899999976158142,
+    2.240000009536743,
+    1.3199999332427979
+  ],
+  "pivot": [
+    0,
+    0,
+    0
+  ],
+  "dimension_tolerance_m": 0.001,
+  "axis_mapping_tolerance_m": 1e-05,
+  "fresh_reexport_byte_identical": true,
+  "materials": [
+    {
+      "name": "laundry_muted_teal_metal",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.06301001459360123,
+          0.15292614698410034,
+          0.16202937066555023,
+          1
+        ],
+        "metallicFactor": 0.3499999940395355,
+        "roughnessFactor": 0.5
+      }
+    },
+    {
+      "name": "laundry_dark_fittings",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.022173885256052017,
+          0.06301001459360123,
+          0.07227185368537903,
+          1
+        ],
+        "metallicFactor": 0.4000000059604645,
+        "roughnessFactor": 0.47999998927116394
+      }
+    },
+    {
+      "name": "laundry_pale_line",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.4969329833984375,
+          0.5520114302635193,
+          0.4677838087081909,
+          1
+        ],
+        "metallicFactor": 0.10000000149011612,
+        "roughnessFactor": 0.6800000071525574
+      }
+    }
+  ],
+  "cloth_interface": {
+    "line_y_m": 2.18,
+    "line_z_m": [
+      -0.48,
+      0,
+      0.48
+    ],
+    "line_radius_m": 0.014,
+    "usable_x_m": [
+      -1.6,
+      1.6
+    ],
+    "source_line_vertices_checked": 72
+  },
+  "godot": {
+    "bounds_min_m": [
+      -1.94999992847443,
+      0.0,
+      -0.659999966621399
+    ],
+    "bounds_size_m": [
+      3.90000009536743,
+      2.24000000953674,
+      1.3199999332428
+    ],
+    "collision": {
+      "body_count": 1,
+      "box_count": 3,
+      "headroom_m": 2.08,
+      "layer": 1,
+      "mask": 0,
+      "post_clear_span_m": 3.3
+    },
+    "engine": "4.8-dev7 (official)",
+    "failures": [],
+    "linked_model_identity": true,
+    "model_uid": "uid://c3gkc6c76m28d",
+    "ok": true,
+    "physics": {
+      "actor_height_m": 1.8,
+      "actor_radius_m": 0.35,
+      "authority_replay_equal": true,
+      "east_contact": "Vector3(1.8, 2.3437547e-05, -0.49999973)",
+      "outside_bypass": "Vector3(2.5, 0.001, 2.0000007)",
+      "post_top_headroom_rays_pass": true,
+      "ticks_per_case": 48,
+      "under_frame": "Vector3(0, 0.001, 2.0000007)",
+      "west_contact": "Vector3(-1.8, 2.3437547e-05, -0.49999973)"
+    },
+    "prefab_uid": "uid://blxebt67ss4g5",
+    "roundtrip": {
+      "engine": "4.8-dev7 (official)",
+      "failures": [],
+      "ok": true,
+      "res://scenes/prefabs/environment/d03_laundry_frames_01.tscn": {
+        "byte_stable": true,
+        "sha256": "fb7d4616d884c15cd426d8af99d5b929114cf4f383c2413a26845004b067bc0a",
+        "stable_reload_count": 2.0
+      },
+      "res://tools/asset_production/d03_laundry_frames_01/check_scene.tscn": {
+        "byte_stable": true,
+        "sha256": "eea037df6a790e785d9413f59d0c4d5cfe4f6452ce4ebdd8af7a6fd7a090ed45",
+        "stable_reload_count": 2.0
+      }
+    }
+  },
+  "renders": {
+    "resolution": [
+      1280,
+      720
+    ],
+    "compression": 95,
+    "renderer": "Blender Cycles CPU",
+    "samples": 32,
+    "overhead_height_m": 47,
+    "vertical_fov_degrees": 42,
+    "direction": "vertical-down north-up",
+    "dither_intensity": 0
+  }
+}

@@ -1,0 +1,47 @@
+d03_laundry_frames.01 - final bounded production checks, 10 October 2026
+Producer: commissioned implementation specialist; independent review pending.
+Full reproduction commands: ../d03_laundry_frames_01.md (repository-root Git Bash).
+Scratch logs/reexports: C:/tmp/ft/assets/d03_laundry_frames_01/ (not committed).
+
+PASS (exit 0): isolated Blender author.py; all four final renders reviewed.
+  Blender 5.2.2 LTS, build d13f752e3b9c; glTF exporter 5.2.40.
+  Audio-disabled, factory-startup, threads 4, python-exit-code 1; timeout 900.
+PASS (exit 0): timeout 300 pinned Godot --headless --path . --import.
+  Godot 4.8.dev7.official.c971f93e7; no ERROR or SCRIPT ERROR lines.
+  Final import made no changes outside this asset's owned paths.
+PASS (exit 0): timeout 180 pinned Godot --headless --path .
+  --script tools/asset_production/d03_laundry_frames_01/check_prefab.gd -- --normalize
+  UID-preserving normalization; prefab and saved collision-only fixture each passed
+  two subsequent byte-identical load/pack/save cycles. Final log clean.
+PASS (exit 0): timeout 180 pinned Godot --headless --path .
+  --script tools/asset_production/d03_laundry_frames_01/check_prefab.gd
+  Linked resources, UID resolution, identity model, AABB, three opaque surfaces,
+  one static body with three simple boxes. No ERROR or SCRIPT ERROR lines.
+  Five post/top/headroom rays pass.
+  ActorMotion r=0.35m / h=1.8m: four 48-tick cases in AUTHORITY and REPLAY.
+  Both posts: contact Z=-0.49999973m; centre/bypass: final Z=2.0000007m.
+  Authority/replay results equal. Not a multiplayer transport or car test.
+PASS (exit 0): isolated Blender validate.py, timeout 180, threads 4.
+  1368 source vertices; 1834 exported vertices; 2652 triangles; one mesh; three surfaces.
+  Zero degenerate source faces, zero nonmanifold edges, zero degenerate GLB triangles.
+  Unit source/export normals; identity transforms, metre units, ground-centred pivot.
+  Godot dimensions 3.900 x 2.240 x 1.320m; tolerance 0.001m.
+  Actual 72 line vertices satisfy documented line axes/radius and usable cloth spans.
+  Fresh saved-source export byte-identical to committed GLB (77804 bytes).
+PASS (exit 0): gdstyle fmt --check tools/asset_production/d03_laundry_frames_01/check_prefab.gd
+PASS (exit 0): gdstyle --max-line-length 100 --max-warnings 0
+  tools/asset_production/d03_laundry_frames_01/check_prefab.gd
+PASS: all four Python tool sources compile; no pycache generated.
+PASS: all seven final scratch logs inspected; no ERROR/SCRIPT ERROR/Traceback lines.
+
+Historical diagnostics, not final failures:
+- Initial lint found one 102-character line; split into a named local value.
+- Initial editor-mode normalization completed its assertions but emitted shutdown
+  renderer/text RID and ObjectDB leak diagnostics. No asset runtime errors observed.
+  Replaced that tooling route with the existing ResourceSaver.set_uid-preserving
+  headless-runtime normalization pattern. Final normalization/runtime/import clean.
+- Visual self-review fixed side-camera clipping and coplanar end-cap artifacts.
+  Final source, GLB and four renders supersede all scratch iterations.
+
+Not run: production_checks.py (decision 52); live editors; Godot graphical captures;
+world placement, actual cars, multiplayer transport, packaged build or Deck/performance.

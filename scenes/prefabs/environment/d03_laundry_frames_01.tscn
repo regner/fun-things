@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://blxebt67ss4g5"]
+
+[ext_resource type="PackedScene" path="res://art/models/environment/d03_laundry_frames_01/d03_laundry_frames_01.glb" id="1_model"]
+
+[sub_resource type="BoxShape3D" id="Box_post"]
+size = Vector3(0.3, 2.08, 0.3)
+
+[sub_resource type="BoxShape3D" id="Box_top"]
+size = Vector3(3.784, 0.16, 1.32)
+
+[node name="D03LaundryFrames01" type="Node3D" unique_id=847519638]
+
+[node name="Visuals" type="Node3D" parent="." unique_id=1980978308]
+
+[node name="Model" type="Node3D" parent="Visuals" unique_id=1372421493 instance=ExtResource("1_model")]
+
+[node name="Collision" type="Node3D" parent="." unique_id=138077012]
+
+[node name="FrameBody" type="StaticBody3D" parent="Collision" unique_id=1144152315]
+collision_mask = 0
+
+[node name="WestPost" type="CollisionShape3D" parent="Collision/FrameBody" unique_id=2052811806]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.8, 1.04, 0)
+shape = SubResource("Box_post")
+
+[node name="EastPost" type="CollisionShape3D" parent="Collision/FrameBody" unique_id=239022901]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.8, 1.04, 0)
+shape = SubResource("Box_post")
+
+[node name="TopEnvelope" type="CollisionShape3D" parent="Collision/FrameBody" unique_id=375583691]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.16, 0)
+shape = SubResource("Box_top")
