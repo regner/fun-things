@@ -37,7 +37,7 @@ class ShortGrassTests(unittest.TestCase):
             low, high = self.image.getextrema()[channel]
             self.assertGreaterEqual(low, floor)
             self.assertLessEqual(high, ceiling)
-            self.assertLessEqual(high - low, 10)
+            self.assertLessEqual(high - low, 2)
         for red, green, blue in self.image.get_flattened_data():
             self.assertGreaterEqual(green - red, 30)
             self.assertGreaterEqual(green - blue, 22)
@@ -53,13 +53,13 @@ class ShortGrassTests(unittest.TestCase):
                     self.assertLessEqual(abs(value - pixels[(x + 1) % 512, y][channel]), 1)
                     self.assertLessEqual(abs(value - pixels[x, (y + 1) % 512][channel]), 1)
 
-    def test_soft_growth_survives_minification(self):
-        """Large forms remain low contrast at roughly gameplay-camera texel density."""
-        small = self.image.resize((16, 16), Image.Resampling.BOX)
-        for channel in (0, 1):
-            low, high = small.getextrema()[channel]
-            self.assertGreaterEqual(high - low, 5)
-            self.assertLessEqual(high - low, 9)
+    def test_patch_contrast_at_texture_and_gameplay_scales(self):
+        """Limit repeated landmarks to two sRGB codes, including minified overhead samples."""
+        for size in (512, 64, 16, 8):
+            with self.subTest(size=size):
+                small = self.image.resize((size, size), Image.Resampling.BOX)
+                for low, high in small.getextrema():
+                    self.assertLessEqual(high - low, 2)
 
 
 if __name__ == "__main__":

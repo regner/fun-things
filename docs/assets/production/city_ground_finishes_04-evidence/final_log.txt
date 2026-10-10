@@ -1,3 +1,4 @@
+INITIAL PRODUCTION RECEIPT (historical; review-round rerun follows below)
 city_ground_finishes.04 — final producer command/log disposition, 10 October 2026
 Working directory: C:/GameDev/git/ft-lanes/a-ground; branch lane/a-ground.
 Exact reproduction commands are in ../city_ground_finishes_04.md.
@@ -65,3 +66,42 @@ engine/shadow/all-palette review; Blender renders do not establish those gates.
 No world layout, road generation, gameplay/friction or district collision changes.
 Independent review, live road UV integration, placement, production movement/
 multiplayer and packaged/device/performance acceptance remain pending.
+
+REVIEW ROUND 1 — P2: regular growth-pooling checker/lattice at gameplay height
+- Combined patch amplitude reduced to 18%; unchanged base colour and 4 m UV contract.
+- texture.py exit 0: 2347 bytes, RGB extrema ((80, 82), (116, 118), (91, 92)).
+- Five texture tests pass. Multi-scale contrast cap <=2 codes replaces the old
+  minimum contrast: 512/64/16/8 px all pass; original HEAD texture fails all four.
+- preview.py exit 0, all four images regenerated. Inspected native overhead and
+  non-overhead contact sheet (plus native grass detail for .04); quiet fields,
+  materially suppressed repeat landmarks, coral car and ivory/coral actor distinct.
+  grass_detail.png: 150880 bytes
+  hero.png: 40187 bytes
+  overhead_47m_42deg.png: 49439 bytes
+  side.png: 17035 bytes
+- Source blend retains unpacked external image; unchanged source/GLB/material/
+  prefab/import bytes. No author.py rebuild or world placement was performed.
+- Full-project headless import exit 0, all revised textures refreshed; log at
+  C:/tmp/ft/assets/city_ground_finishes_02/review-round-1/import.log.
+- check_prefab normalization exit 0: two byte-identical saved roundtrips.
+  Same existing MCP version warning and shutdown RID/ObjectDB leaks as above;
+  this is a stability receipt, NOT a clean-log pass.
+- Standalone prefab/physics and --check-only exit 0 with no warnings/errors.
+  Both plugin-free mirror checks exit 0 with no warnings/errors.
+- Pinned gdstyle fmt/check and zero-warning lint pass.
+- validate.py exit 0, no warnings/errors: 8/24 vertices, 12 triangles, one mesh/
+  surface; zero degenerate/non-manifold faces/edges, unit/outward normals,
+  unchanged 4x0.08x4 m envelope/pivot/UV; fresh re-export byte-identical.
+  validation.json also records the tested external PNG SHA-256.
+- Canonical production checks: exit 0; 166/166 compiled, zero deadline logs.
+  All other stages pass: formatting/lint, 14 Python tests, GUT import,
+  137 GUT tests / 6523 assertions and expected negative-harness exit 1.
+  Later .04 and .05 cumulative runs both pass with all revised textures present.
+- Blender preview retains only pinned World.use_nodes deprecation warning.
+  One inspection requested nonexistent script-checks/summary.json; corrected to
+  checks/summary.json, script-checks.log and compiler-setup.json. No test rerun hidden.
+- Exact rerun commands: production doc review-round section and reproduction block.
+  Full logs: C:/tmp/ft/assets/city_ground_finishes_04/review-round-1/; checks in ../checks/.
+  Initial raw checks preserved at review-round-1/checks-before-review/.
+- Same-reviewer acceptance, engine motion/shadows/palettes, surface-tool integration,
+  world placement, gameplay/network and device/performance checks remain pending.
