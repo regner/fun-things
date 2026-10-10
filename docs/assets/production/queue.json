@@ -2209,14 +2209,14 @@
       "input_next_action": "Confirm supporting uses in district detail concepts",
       "brief": "[Brief](../../assets/city_waste.md)",
       "priority": 0,
-      "status": "queued",
-      "agent_id": null,
-      "source_revision": null,
-      "review_status": "pending",
-      "integration_status": "pending",
+      "status": "production_prefab_accepted",
+      "agent_id": "b7b70c16-b5bd-4acd-b6b0-21c0908917ae",
+      "source_revision": "2dfe2ae",
+      "review_status": "accepted source/export/prefab scope (independent Sol review)",
+      "integration_status": "accepted",
       "placement_status": "pending",
       "blocker": null,
-      "attempts": 0,
+      "attempts": 1,
       "initial_time_cap_minutes": 90,
       "owned_paths": [
         "art/source/models/environment/city_waste_01/",
@@ -2224,8 +2224,20 @@
         "art/textures/environment/city_waste_01/",
         "art/materials/environment/city_waste_01/",
         "docs/assets/production/city_waste_01.md",
-        "docs/assets/production/city_waste_01-evidence/"
-      ]
+        "docs/assets/production/city_waste_01-evidence/",
+        "tools/asset_production/city_waste_01/",
+        "scenes/prefabs/environment/city_waste_01.tscn"
+      ],
+      "launch": {
+        "provider": "portkey/gpt-6-astra",
+        "configured_effort": "medium",
+        "mode": "orchestrator asset lane",
+        "lane": "a-waste"
+      },
+      "producer_manifest": "docs/assets/production/city_waste_01-evidence/manifest.json",
+      "report": "docs/assets/production/city_waste_01.md",
+      "reviewer_id": "6e1242cc-d6e7-42d0-b846-b339fd6be0d8",
+      "integrated_revision": "d7919d5"
     },
     {
       "id": "city_barriers.01",
@@ -3463,14 +3475,14 @@
       "input_next_action": "Confirm supporting uses in district detail concepts",
       "brief": "[Brief](../../assets/city_waste.md)",
       "priority": 0,
-      "status": "queued",
-      "agent_id": null,
-      "source_revision": null,
-      "review_status": "pending",
-      "integration_status": "pending",
+      "status": "production_prefab_accepted",
+      "agent_id": "bd883557-5c8e-4f2d-a2e9-696b7bb97370",
+      "source_revision": "7b3d63a",
+      "review_status": "accepted source/export/prefab scope (independent Sol review)",
+      "integration_status": "accepted",
       "placement_status": "pending",
       "blocker": null,
-      "attempts": 0,
+      "attempts": 1,
       "initial_time_cap_minutes": 90,
       "owned_paths": [
         "art/source/models/environment/city_waste_02/",
@@ -3478,8 +3490,20 @@
         "art/textures/environment/city_waste_02/",
         "art/materials/environment/city_waste_02/",
         "docs/assets/production/city_waste_02.md",
-        "docs/assets/production/city_waste_02-evidence/"
-      ]
+        "docs/assets/production/city_waste_02-evidence/",
+        "tools/asset_production/city_waste_02/",
+        "scenes/prefabs/environment/city_waste_02.tscn"
+      ],
+      "launch": {
+        "provider": "portkey/gpt-6-astra",
+        "configured_effort": "medium",
+        "mode": "orchestrator asset lane",
+        "lane": "a-waste"
+      },
+      "producer_manifest": "docs/assets/production/city_waste_02-evidence/manifest.json",
+      "report": "docs/assets/production/city_waste_02.md",
+      "reviewer_id": "6e1242cc-d6e7-42d0-b846-b339fd6be0d8",
+      "integrated_revision": "d7919d5"
     },
     {
       "id": "city_waste.03",
@@ -3492,14 +3516,14 @@
       "input_next_action": "Confirm supporting uses in district detail concepts",
       "brief": "[Brief](../../assets/city_waste.md)",
       "priority": 0,
-      "status": "queued",
-      "agent_id": null,
-      "source_revision": null,
-      "review_status": "pending",
-      "integration_status": "pending",
+      "status": "production_prefab_accepted",
+      "agent_id": "468a4f95-15f1-4481-a509-fded12b4e3dc",
+      "source_revision": "d7919d5",
+      "review_status": "accepted source/export/prefab scope (independent Sol review)",
+      "integration_status": "accepted",
       "placement_status": "pending",
       "blocker": null,
-      "attempts": 0,
+      "attempts": 1,
       "initial_time_cap_minutes": 90,
       "owned_paths": [
         "art/source/models/environment/city_waste_03/",
@@ -3507,8 +3531,20 @@
         "art/textures/environment/city_waste_03/",
         "art/materials/environment/city_waste_03/",
         "docs/assets/production/city_waste_03.md",
-        "docs/assets/production/city_waste_03-evidence/"
-      ]
+        "docs/assets/production/city_waste_03-evidence/",
+        "tools/asset_production/city_waste_03/",
+        "scenes/prefabs/environment/city_waste_03.tscn"
+      ],
+      "launch": {
+        "provider": "portkey/gpt-6-astra",
+        "configured_effort": "medium",
+        "mode": "orchestrator asset lane",
+        "lane": "a-waste"
+      },
+      "producer_manifest": "docs/assets/production/city_waste_03-evidence/manifest.json",
+      "report": "docs/assets/production/city_waste_03.md",
+      "reviewer_id": "6e1242cc-d6e7-42d0-b846-b339fd6be0d8",
+      "integrated_revision": "d7919d5"
     },
     {
       "id": "city_barriers.02",
