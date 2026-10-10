@@ -104,7 +104,7 @@ def main():
 
         for role, child, _stdout_path in children:
             try:
-                returncode = child.wait(timeout=25)
+                returncode = child.wait(timeout=40)
             except subprocess.TimeoutExpired:
                 child.terminate()
                 returncode = child.wait(timeout=3)
@@ -142,6 +142,16 @@ def main():
             receipts[role] = {}
         if not receipts[role].get("ok") or not receipts[role].get("boundary_proved"):
             failed.append(f"{role} missing bounded-command proof")
+        for field in (
+            "dead_observed",
+            "respawn_observed",
+            "reset_observed",
+            "input_reopened",
+        ):
+            if not receipts[role].get(field):
+                failed.append(f"{role} missing lifecycle proof: {field}")
+        if receipts[role].get("match_revision") != 2:
+            failed.append(f"{role} missing reset match revision")
         if role == "host":
             rejections = receipts[role].get("command_rejections", {})
             if rejections.get("PACKET_SIZE", 0) < 1:
@@ -173,7 +183,7 @@ def main():
     if not ok:
         print("; ".join(failed + diagnostics))
         return 1
-    print(f"M1-A2.2 ENet integration passed on UDP {port}; evidence: {output}")
+    print(f"M1-A2.4 ENet lifecycle integration passed on UDP {port}; evidence: {output}")
     return 0
 
 

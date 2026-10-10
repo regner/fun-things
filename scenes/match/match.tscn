@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://c6ogmv4d7i8yn" path="res://scenes/world/brackett_greybox/city.tscn" id="3_city"]
 [ext_resource type="PackedScene" uid="uid://bk8hhplahsqnk" path="res://scenes/local/local_rig.tscn" id="4_local_rig"]
 [ext_resource type="Script" path="res://scripts/replication/match_replication.gd" id="5_replication"]
+[ext_resource type="Script" path="res://scripts/match/player_lifecycle.gd" id="6_lifecycle"]
 
 [node name="Match" type="Node3D"]
 metadata/world_scope = "whole Brackett island greybox"
@@ -74,6 +75,9 @@ anchor_kind = &"PARKED_CAR"
 [node name="RuntimeEntities" type="Node3D" parent="."]
 
 [node name="RuntimeEffects" type="Node3D" parent="."]
+
+[node name="PlayerLifecycle" type="Node" parent="."]
+script = ExtResource("6_lifecycle")
 
 [node name="Replication" type="Node" parent="."]
 script = ExtResource("5_replication")

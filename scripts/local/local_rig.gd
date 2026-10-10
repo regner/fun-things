@@ -6,6 +6,7 @@ signal leave_requested
 
 var _client_tick: int = 0
 var _controlled_actor: ActorMotion
+var _actor_control_enabled: bool = false
 
 @onready var _input: DesktopFootInput = $Input as DesktopFootInput
 @onready var _camera_anchor: Node3D = $CameraAnchor as Node3D
@@ -36,6 +37,9 @@ func _physics_process(delta: float) -> void:
 	if not is_instance_valid(_controlled_actor):
 		unbind_actor()
 		return
+	if not _actor_control_enabled:
+		_controlled_actor.neutralize()
+		return
 
 	_follow_controlled_actor()
 	_client_tick += 1
@@ -55,6 +59,7 @@ func bind_actor(actor: ActorMotion) -> bool:
 	unbind_actor()
 	_controlled_actor = actor
 	_client_tick = 0
+	_actor_control_enabled = true
 	_input.bind_aim(_camera, actor)
 	_input.set_focused(get_window().has_focus())
 	_hud.bind_player(actor)
@@ -63,9 +68,46 @@ func bind_actor(actor: ActorMotion) -> bool:
 	return true
 
 
+## Binds a client replica for aim/HUD while MatchReplication owns command submission.
+func bind_replica_actor(actor: ActorMotion) -> bool:
+	if actor == null or not is_instance_valid(actor) or not actor.is_inside_tree():
+		return false
+	if _controlled_actor != actor:
+		unbind_actor()
+		_controlled_actor = actor
+		_client_tick = 0
+		_input.bind_aim(_camera, actor)
+		_hud.bind_player(actor)
+	_actor_control_enabled = false
+	set_physics_process(false)
+	_input.set_focused(get_window().has_focus())
+	_follow_controlled_actor()
+	return true
+
+
+## Enables or neutralizes standalone authority while retaining dead-state HUD presence.
+func set_actor_control_enabled(enabled: bool) -> void:
+	_actor_control_enabled = enabled and is_instance_valid(_controlled_actor)
+	_input.set_focused(_actor_control_enabled and get_window().has_focus())
+	if is_instance_valid(_controlled_actor) and not _actor_control_enabled:
+		_controlled_actor.neutralize()
+
+
+## Opens or closes client collection without granting simulation authority.
+func set_replica_input_enabled(enabled: bool) -> void:
+	_actor_control_enabled = false
+	set_physics_process(false)
+	_input.set_focused(
+		enabled and is_instance_valid(_controlled_actor) and get_window().has_focus()
+	)
+	if is_instance_valid(_controlled_actor) and not enabled:
+		_controlled_actor.neutralize()
+
+
 ## Neutralizes and forgets the current actor without owning its lifetime.
 func unbind_actor() -> void:
 	set_physics_process(false)
+	_actor_control_enabled = false
 	_input.set_focused(false)
 	_hud.unbind_player()
 	if is_instance_valid(_controlled_actor):

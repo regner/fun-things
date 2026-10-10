@@ -32,6 +32,47 @@ func test_saved_replication_root_configures_host_player_and_local_rig() -> void:
 	assert_not_null(actor.get_node_or_null("PresentationAnchor/Visuals/Model"))
 
 
+## Dev death, timed respawn, and reset each advance the entity generation fence.
+func test_lifecycle_respawn_and_reset_retain_local_player_with_fresh_generations() -> void:
+	var match: Node3D = MATCH_SCENE.instantiate() as Node3D
+	add_child_autofree(match)
+	var replication: MatchReplication = match.get_node("Replication") as MatchReplication
+	assert_true(replication.configure_standalone())
+	var first_ref: Dictionary = replication.lifecycle_view().entity_ref
+
+	assert_true(replication.trigger_test_death(1))
+	assert_false(replication.lifecycle_view().alive)
+	for _tick: int in PlayerLifecycle.RESPAWN_DELAY_TICKS:
+		replication._physics_process(1.0 / 60.0)
+	var respawn_ref: Dictionary = replication.lifecycle_view().entity_ref
+	assert_true(replication.lifecycle_view().alive)
+	assert_eq(respawn_ref.id, first_ref.id)
+	assert_eq(respawn_ref.generation, first_ref.generation + 1)
+
+	assert_true(replication.request_match_reset(1))
+	var reset_ref: Dictionary = replication.lifecycle_view().entity_ref
+	assert_eq(replication.match_revision(), 2)
+	assert_true(replication.lifecycle_view().alive)
+	assert_eq(reset_ref.id, first_ref.id)
+	assert_eq(reset_ref.generation, respawn_ref.generation + 1)
+	assert_eq(replication.lifecycle_view().roster.size(), 1)
+
+
+## Saved Match binds PlayerLifecycle into both HUD lifecycle and roster seams.
+func test_match_lifecycle_binding_drives_dead_hud_countdown() -> void:
+	var match: Node3D = MATCH_SCENE.instantiate() as Node3D
+	add_child_autofree(match)
+	var replication: MatchReplication = match.get_node("Replication") as MatchReplication
+	var hud: Hud = match.get_node("LocalRig/UI/HUD") as Hud
+	assert_true(replication.configure_standalone())
+	assert_true(replication.trigger_test_death(1))
+
+	assert_eq((hud.get_node("PlayerCard/Content/PlayerState") as Label).text, "DOWN")
+	assert_true(hud.get_node("RespawnSlot").visible)
+	assert_eq((hud.get_node("RespawnSlot/Content/RespawnValue") as Label).text, "3.0")
+	assert_eq((hud.get_node("SessionCard/Content/SessionDetail") as Label).text, "")
+
+
 ## Mirrors a Session-owned remote sender without allocating another participant identity.
 func test_host_accepts_current_session_peer_mapping_once() -> void:
 	var match: Node3D = MATCH_SCENE.instantiate() as Node3D
@@ -84,6 +125,8 @@ func test_rpc_channels_match_control_state_input_and_movement_streams() -> void:
 	assert_eq(int(config[&"_acknowledge_handoff"].channel), 0)
 	for method: StringName in [
 		&"_receive_player_bindings",
+		&"_receive_lifecycle_hydration",
+		&"_receive_reset_begin",
 		&"_receive_baseline_metadata",
 		&"_receive_baseline_chunk",
 		&"_receive_durable",

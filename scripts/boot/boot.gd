@@ -8,7 +8,6 @@ const SMOKE_ARGUMENT: String = "--m1-a1-1-smoke"
 const EXPORT_SMOKE_ARGUMENT: String = "--s08-x-export-smoke"
 const EXPORT_SMOKE_FRAMES: int = 30
 const MATCH_SCENE: PackedScene = preload("res://scenes/match/match.tscn")
-const PLAYER_SCENE: PackedScene = preload("res://scenes/entities/player.tscn")
 
 var _smoke_failures: Array[String] = []
 var _last_join_address: String = ""
@@ -117,28 +116,24 @@ func _on_status_back_requested() -> void:
 		_main_menu.show_main()
 
 
-## Creates the saved standalone match, local actor, and one process-local rig binding.
+## Creates standalone through the same Match lifecycle, spawn, and reset coordinator.
 func _on_standalone_started(_operation_id: int, district_id: StringName) -> void:
 	if district_id != DISTRICT_ID or is_instance_valid(_match):
 		return
 
 	var match: Node3D = MATCH_SCENE.instantiate() as Node3D
-	var actor: ActorMotion = PLAYER_SCENE.instantiate() as ActorMotion
-	var runtime_entities: Node3D = match.get_node("RuntimeEntities") as Node3D
-	var spawn: Marker3D = match.get_node("Anchors/PlayerSpawns/Spawn01") as Marker3D
-	var rig: LocalRig = match.get_node("LocalRig") as LocalRig
-	actor.name = "LocalPlayer"
-	# Both saved containers are identity transforms under Match; retain the authored spawn pose.
-	actor.transform = spawn.transform
-	runtime_entities.add_child(actor)
 	$View.add_child(match)
 	_match = match
+	var replication: MatchReplication = match.get_node("Replication") as MatchReplication
+	var rig: LocalRig = match.get_node("LocalRig") as LocalRig
 	rig.leave_requested.connect(_on_local_match_leave_requested)
-	if not rig.bind_actor(actor):
-		push_error("Standalone LocalRig could not bind its saved local player")
+	if not replication.configure_standalone():
+		push_error("Standalone Match could not create its lifecycle-owned player")
 		_teardown_match()
 		_session.leave()
 		return
+	if not rig.bind_session(_session):
+		push_error("Standalone HUD could not bind SessionService")
 
 	_main_menu.visible = false
 	_session_status.visible = false
@@ -172,6 +167,8 @@ func _start_network_match(current: Dictionary) -> void:
 
 	var rig: LocalRig = match.get_node("LocalRig") as LocalRig
 	rig.leave_requested.connect(_on_local_match_leave_requested)
+	if not rig.bind_session(_session):
+		push_error("Network HUD could not bind SessionService")
 	_main_menu.visible = false
 	_session_status.visible = false
 

@@ -1,8 +1,8 @@
-extends Node
+extends Node  # gdstyle:ignore=quality/max-class-variables
 ## Drives two real SessionService processes through saved Match replication and remote walking.
 
 const MATCH_SCENE: PackedScene = preload("res://scenes/match/match.tscn")
-const SESSION_IDENTITY_TIMEOUT_MSEC: int = 15_000
+const SESSION_IDENTITY_TIMEOUT_MSEC: int = 25_000
 const HOST_RESULT_GRACE_MSEC: int = 750
 const REMOTE_PARTICIPANT_ID: int = 2
 const REMOTE_START_X: float = -80.0
@@ -23,6 +23,16 @@ var _boundary_attack_ticks: int = 0
 var _boundary_start_x: float = 0.0
 var _boundary_proved: bool = false
 var _rejections: Dictionary[StringName, int] = {}
+var _initial_generation: int = 0
+var _respawn_generation: int = 0
+var _death_triggered: bool = false
+var _dead_observed: bool = false
+var _respawn_observed: bool = false
+var _reset_requested: bool = false
+var _reset_observed: bool = false
+var _respawn_observed_tick: int = 0
+var _post_reset_input_open: bool = false
+var _reset_position_x: float = NAN
 
 @onready var _session: SessionService = $Session
 @onready var _transport: ENetTransport = $Session/ENetTransport
@@ -77,6 +87,7 @@ func _physics_process(_delta: float) -> void:
 			)
 	if _role == "host":
 		_check_host_boundary()
+	_drive_lifecycle_case()
 	_check_replication_result()
 
 
@@ -144,13 +155,22 @@ func _exercise_command_boundary() -> void:
 		_boundary_start_x = actor.global_position.x
 		var oversize := PackedByteArray()
 		oversize.resize(MeasuredReplicationCodec.MAX_PACKET_BYTES + 1)
-		_replication._submit_command.rpc_id(1, oversize)
+		var entity_ref: Dictionary = _replication.lifecycle_view().entity_ref
+		var envelope: Dictionary = {
+			"session_id": _session.view().session_id,
+			"match_revision": _replication.match_revision(),
+			"entity_id": int(entity_ref.id),
+			"generation": int(entity_ref.generation),
+			"packet": oversize,
+		}
+		_replication._submit_command.rpc_id(1, envelope)
 		var malformed: Dictionary = FootCommandCodec.encode(
 			FootCommand.new(1, 1, Vector2.RIGHT, 0.0, false, false)
 		)
 		var malformed_packet: PackedByteArray = malformed.packet
 		malformed_packet[FootCommandCodec.PACKET_BYTES - 1] = 1
-		_replication._submit_command.rpc_id(1, malformed_packet)
+		envelope.packet = malformed_packet
+		_replication._submit_command.rpc_id(1, envelope)
 	_boundary_attack_ticks += 1
 	if absf(actor.global_position.x - _boundary_start_x) > POSITION_EPSILON:
 		_finish(false, "malformed command mutated state")
@@ -177,8 +197,58 @@ func _check_host_boundary() -> void:
 		_finish(false, "rejected command mutated host state")
 
 
-## Requires bounded-boundary proof, both courier bodies, and visible authority movement.
-func _check_replication_result() -> void:
+## Drives host death, three-second respawn, and retained-peer reset through production APIs.
+func _drive_lifecycle_case() -> void:  # gdstyle:ignore=quality/max-branches
+	if not _boundary_proved or _replication.player_count() != 2:
+		return
+	var view: Dictionary = _replication.lifecycle_view_for(REMOTE_PARTICIPANT_ID)
+	if not view.has("entity_ref"):
+		return
+	var generation: int = int(view.entity_ref.generation)
+	if _initial_generation == 0:
+		_initial_generation = generation
+	if not bool(view.get("alive", true)):
+		_dead_observed = true
+	if (
+		_dead_observed
+		and not _respawn_observed
+		and bool(view.get("alive", false))
+		and generation > _initial_generation
+	):
+		_respawn_observed = true
+		_respawn_generation = generation
+		_respawn_observed_tick = Engine.get_physics_frames()
+	if (
+		not _reset_observed
+		and _replication.match_revision() > 1
+		and bool(view.get("alive", false))
+	):
+		_reset_observed = generation > _respawn_generation
+
+	var remote_actor: ActorMotion = _replication.actor_for_participant(REMOTE_PARTICIPANT_ID)
+	if _reset_observed and remote_actor != null:
+		if is_nan(_reset_position_x):
+			_reset_position_x = remote_actor.global_position.x
+		elif remote_actor.global_position.x >= _reset_position_x + REQUIRED_MOVEMENT_METRES:
+			_post_reset_input_open = true
+	if _role != "host":
+		return
+	if (
+		not _death_triggered
+		and remote_actor != null
+		and remote_actor.global_position.x >= REMOTE_START_X + REQUIRED_MOVEMENT_METRES
+	):
+		_death_triggered = _replication.trigger_test_death(REMOTE_PARTICIPANT_ID)
+	if (
+		_respawn_observed
+		and not _reset_requested
+		and Engine.get_physics_frames() >= _respawn_observed_tick + 30
+	):
+		_reset_requested = _replication.request_match_reset(1)
+
+
+## Requires bounded authority, death/respawn, and reset receipts on both processes.
+func _check_replication_result() -> void:  # gdstyle:ignore=quality/max-function-length
 	if (
 		_receipt_printed
 		and _role == "host"
@@ -186,13 +256,20 @@ func _check_replication_result() -> void:
 	):
 		get_tree().quit(0)
 		return
-	if not _boundary_proved or _replication.player_count() != 2:
-		return
-	var remote_actor: ActorMotion = _replication.actor_for_participant(REMOTE_PARTICIPANT_ID)
-	if remote_actor == null or remote_actor.global_position.x < (
-		REMOTE_START_X + REQUIRED_MOVEMENT_METRES
+	if (
+		not _boundary_proved
+		or _replication.player_count() != 2
+		or not _dead_observed
+		or not _respawn_observed
+		or not _reset_observed
+		or not _post_reset_input_open
 	):
 		return
+	var remote_actor: ActorMotion = _replication.actor_for_participant(REMOTE_PARTICIPANT_ID)
+	if remote_actor == null:
+		return
+	var final_lifecycle: Dictionary = _replication.lifecycle_view_for(REMOTE_PARTICIPANT_ID)
+	var final_generation: int = int(final_lifecycle.entity_ref.generation)
 
 	if not _receipt_printed:
 		_receipt_printed = true
@@ -208,6 +285,12 @@ func _check_replication_result() -> void:
 					"command_rejections": _rejections,
 					"players": _replication.player_count(),
 					"remote_x": remote_actor.global_position.x,
+					"dead_observed": _dead_observed,
+					"respawn_observed": _respawn_observed,
+					"reset_observed": _reset_observed,
+					"input_reopened": _post_reset_input_open,
+					"match_revision": _replication.match_revision(),
+					"generation": final_generation,
 				}
 			)
 		)
