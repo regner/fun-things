@@ -97,10 +97,8 @@ Decisions 40–44: conditional Road Generator pilot, no bake, live generation an
 derivation, generated road infrastructure exception, signals plus street lights, hybrid
 intersections. The world integrator owns CityData and road revisions.
 
-- [ ] **RT-02 — Add road presets, identities and revisions.** RT-01 landed after the owner's
-  editor trial passed. Plan containers so procedural intersections sit inside one
-  `RoadContainer`; the addon cannot connect them across containers without an interface point.
-- [ ] **RT-03 — Generate road infrastructure live in the editor and at load.** After: RT-02.
+- [ ] **RT-03 — Generate road infrastructure live in the editor and at load.** RT-02 landed
+  (presets, stable IDs, revisions, same-container junction validation).
 - [ ] **RT-04 — Build hybrid prefab/procedural intersections.** After: RT-03, M1-C1.3.
 - [ ] **RT-05 — Derive road data at load with host/client consistency.** After: RT-04.
 - [ ] **RT-06 — Derive the traffic graph and spawns.** After: RT-05.
