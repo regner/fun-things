@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://bqgwo7xmiiseb"]
+
+[ext_resource type="PackedScene" uid="uid://d2cm3erl8jfjg" path="res://scenes/prefabs/environment/d07_retail_buildings_01.tscn" id="1_parent"]
+[ext_resource type="PackedScene" uid="uid://du2ujtjwiw5vb" path="res://scenes/prefabs/environment/d07_retail_buildings_03.tscn" id="2_annex"]
+
+[node name="d07_retail_buildings_03_attached" type="Node3D" unique_id=1636379253]
+
+[node name="GiantStore" type="Node3D" parent="." unique_id=392711807 instance=ExtResource("1_parent")]
+
+[node name="Annex" type="Node3D" parent="." unique_id=780492455 instance=ExtResource("2_annex")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -19)

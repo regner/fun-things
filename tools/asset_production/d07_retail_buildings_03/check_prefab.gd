@@ -1,0 +1,274 @@
+extends SceneTree
+
+const PREFAB_PATH: String = "res://scenes/prefabs/environment/d07_retail_buildings_03.tscn"
+const MODEL_PATH: String = (
+	"res://art/models/environment/d07_retail_buildings_03/d07_retail_buildings_03.glb"
+)
+const ATTACHMENT_PATH: String = (
+	"res://scenes/prefabs/environment/d07_retail_buildings_03_attached.tscn"
+)
+const DEFAULT_OUTPUT: String = "C:/tmp/ft/assets/d07_retail_buildings_03/prefab-check.json"
+const EXPECTED_BOUNDS: AABB = AABB(Vector3(-5.4, 0, -4.8), Vector3(10.8, 4.08, 4.92))
+const TOLERANCE_M: float = 0.001
+const WORLD_LAYER: int = 1
+const EDITOR_STARTUP_SECONDS: float = 3.0
+const CHECK_DEADLINE_SECONDS: float = 60.0
+
+var _failures: Array[String] = []
+var _result: Dictionary = {}
+
+
+## Defer until the headless scene tree can register physics objects.
+func _initialize() -> void:
+	create_timer(CHECK_DEADLINE_SECONDS).timeout.connect(_deadline)
+	_run.call_deferred()
+
+
+## Fail closed when an asynchronous engine operation does not complete.
+func _deadline() -> void:
+	push_error("Retail prefab check did not finish within 60 seconds")
+	quit(1)
+
+
+## Record a failed assertion and return a nonzero final exit rather than silently continuing.
+func _expect(condition: bool, message: String) -> void:
+	if not condition:
+		_failures.append(message)
+		push_error(message)
+
+
+## Normalize both owned scenes and prove a second pack/save preserves bytes and identities.
+func _roundtrip() -> void:
+	_result["save_reload_byte_stable"] = _roundtrip_path(PREFAB_PATH)
+	_result["attachment_save_reload_byte_stable"] = _roundtrip_path(ATTACHMENT_PATH)
+
+
+## Pack, reload and save one owned linked scene without editing imported children.
+func _roundtrip_path(path: String) -> bool:
+	var original: PackedScene = load(path) as PackedScene
+	_expect(original != null, "Scene must load before normalization: " + path)
+	if original == null:
+		return false
+
+	var instance: Node = original.instantiate()
+	var packed: PackedScene = PackedScene.new()
+	_expect(packed.pack(instance) == OK, "Scene pack failed")
+	_expect(ResourceSaver.save(packed, path) == OK, "Scene save failed")
+	instance.free()
+	var first: String = FileAccess.get_sha256(path)
+	var reloaded: PackedScene = ResourceLoader.load(
+		path, "PackedScene", ResourceLoader.CACHE_MODE_IGNORE
+	) as PackedScene
+	instance = reloaded.instantiate()
+	packed = PackedScene.new()
+	_expect(packed.pack(instance) == OK, "Reloaded scene pack failed")
+	_expect(ResourceSaver.save(packed, path) == OK, "Reloaded scene save failed")
+	instance.free()
+	var stable: bool = first == FileAccess.get_sha256(path)
+	_expect(stable, "Second scene save changed bytes: " + path)
+	return stable
+
+
+## Inspect the linked import, its actual bounds/materials, and authored collision shapes.
+func _inspect(instance: Node3D) -> void:
+	var model: Node3D = instance.get_node("Visuals/Model") as Node3D
+	_expect(model.scene_file_path == MODEL_PATH, "Model lost linked GLB ancestry")
+	_expect(model.transform == Transform3D.IDENTITY, "Model transform is not identity")
+	var meshes: Array[Node] = model.find_children("*", "MeshInstance3D", true, false)
+	_expect(meshes.size() == 1, "Expected one imported mesh")
+	var mesh_instance: MeshInstance3D = meshes[0] as MeshInstance3D
+	var bounds: AABB = mesh_instance.global_transform * mesh_instance.get_aabb()
+	_expect(bounds.position.distance_to(EXPECTED_BOUNDS.position) < TOLERANCE_M, "Bounds min")
+	_expect(bounds.size.distance_to(EXPECTED_BOUNDS.size) < TOLERANCE_M, "Bounds size")
+	_expect(mesh_instance.mesh.resource_path.begins_with(MODEL_PATH), "Mesh is not imported")
+	_expect(mesh_instance.mesh.get_surface_count() == 7, "Expected seven material surfaces")
+	var materials: Array[String] = []
+	for index: int in range(mesh_instance.mesh.get_surface_count()):
+		var material: BaseMaterial3D = (
+			mesh_instance.mesh.surface_get_material(index) as BaseMaterial3D
+		)
+		_expect(material != null, "Missing imported material")
+		_expect(material.transparency == BaseMaterial3D.TRANSPARENCY_DISABLED, "Opaque material")
+		_expect(material.cull_mode == BaseMaterial3D.CULL_BACK, "Back-culling material")
+		materials.append(material.resource_name)
+
+	var body: StaticBody3D = instance.get_node("Collision/Body") as StaticBody3D
+	_expect(body.collision_layer == WORLD_LAYER and body.collision_mask == 0, "Static world layers")
+	_expect(body.get_child_count() == 1, "Expected one simple collision shape")
+	_inspect_collision(body)
+
+	_result["aabb_min"] = [bounds.position.x, bounds.position.y, bounds.position.z]
+	_result["aabb_size"] = [bounds.size.x, bounds.size.y, bounds.size.z]
+	_result["materials"] = materials
+	_result["mesh_count"] = meshes.size()
+	_result["collision_shape_count"] = body.get_child_count()
+	_result["linked_model_identity"] = model.transform == Transform3D.IDENTITY
+	var prefab_uid: int = ResourceLoader.get_resource_uid(PREFAB_PATH)
+	var model_uid: int = ResourceLoader.get_resource_uid(MODEL_PATH)
+	_expect(prefab_uid != ResourceUID.INVALID_ID, "Prefab UID must be generated by editor save")
+	_expect(model_uid != ResourceUID.INVALID_ID, "Model UID must resolve from import sidecar")
+	_result["prefab_uid"] = ResourceUID.id_to_text(prefab_uid)
+	_result["model_uid"] = ResourceUID.id_to_text(model_uid)
+
+
+## Verify the single authored box against independent literal dimensions and centre.
+func _inspect_collision(body: StaticBody3D) -> void:
+	var shape_node: CollisionShape3D = body.get_child(0) as CollisionShape3D
+	var box: BoxShape3D = shape_node.shape as BoxShape3D
+	_expect(box != null and box.size.is_equal_approx(Vector3(10.8, 4, 4.8)), "Collider dimensions")
+	_expect(shape_node.position.is_equal_approx(Vector3(0, 2, -2.4)), "Collider position")
+	_expect(not shape_node.disabled, "Collider must be enabled")
+
+
+## Query literal wall, roof and corner coordinates independently of the source recipe.
+func _physics_checks(instance: Node3D) -> void:
+	var space: PhysicsDirectSpaceState3D = instance.get_world_3d().direct_space_state
+	var sphere: SphereShape3D = SphereShape3D.new()
+	sphere.radius = 0.1
+	var cases: Array[Dictionary] = [
+		{ "name": "interior_solid", "point": Vector3(0, 1, -2), "solid": true },
+		{ "name": "closed_entrance", "point": Vector3(0, 1, -4.75), "solid": true },
+		{ "name": "front_forecourt_clear", "point": Vector3(0, 1, -5.1), "solid": false },
+		{ "name": "front_west_corner", "point": Vector3(-5.35, 1, -4.75), "solid": true },
+		{ "name": "front_east_corner", "point": Vector3(5.35, 1, -4.75), "solid": true },
+		{ "name": "west_outside_clear", "point": Vector3(-5.7, 1, -2), "solid": false },
+		{ "name": "east_outside_clear", "point": Vector3(5.7, 1, -2), "solid": false },
+		{ "name": "above_roof_clear", "point": Vector3(0, 4.3, -2), "solid": false },
+		{ "name": "near_roof_solid", "point": Vector3(0, 3.8, -2), "solid": true },
+		{ "name": "rear_west_corner", "point": Vector3(-5.35, 1, -0.05), "solid": true },
+		{ "name": "rear_east_corner", "point": Vector3(5.35, 1, -0.05), "solid": true },
+		{ "name": "rear_outside_clear", "point": Vector3(0, 1, 0.3), "solid": false },
+	]
+	var observations: Array[Dictionary] = []
+	var query: PhysicsShapeQueryParameters3D = PhysicsShapeQueryParameters3D.new()
+	query.shape = sphere
+	query.collision_mask = WORLD_LAYER
+	for test: Dictionary in cases:
+		query.transform.origin = test["point"]
+		var solid: bool = not space.intersect_shape(query).is_empty()
+		_expect(solid == test["solid"], "Shape query failed: " + str(test["name"]))
+		observations.append({ "case": test["name"], "solid": solid })
+
+	var ray: PhysicsRayQueryParameters3D = PhysicsRayQueryParameters3D.create(
+		Vector3(0, 1, -10), Vector3(0, 1, 0), WORLD_LAYER
+	)
+	var hit: Dictionary = space.intersect_ray(ray)
+	_expect(not hit.is_empty(), "Front ray should hit the closed shell")
+	if not hit.is_empty():
+		var hit_position: Vector3 = hit["position"]
+		_expect(absf(hit_position.z + 4.8) < TOLERANCE_M, "Front ray datum must be -4.8 m")
+		_result["front_ray_hit"] = [hit_position.x, hit_position.y, hit_position.z]
+
+	_result["physics_shape_queries"] = observations
+
+
+## Sweep an actual actor-sized capsule against the shell without simulating gameplay ownership.
+func _capsule_checks(instance: Node3D) -> void:
+	var capsule: CapsuleShape3D = CapsuleShape3D.new()
+	capsule.radius = 0.35
+	capsule.height = 1.8
+	var probe: CharacterBody3D = CharacterBody3D.new()
+	probe.collision_layer = 0
+	probe.collision_mask = WORLD_LAYER
+	var shape: CollisionShape3D = CollisionShape3D.new()
+	shape.shape = capsule
+	probe.add_child(shape)
+	instance.add_child(probe)
+	probe.position = Vector3(0, 0.9, -10)
+	var hit: KinematicCollision3D = probe.move_and_collide(Vector3(0, 0, 12))
+	_expect(hit != null, "Capsule must stop at the closed front")
+	_expect(absf(probe.position.z + 5.15) < 0.01, "Capsule stop must follow front wall")
+	_result["capsule_front_stop_z"] = probe.position.z
+	probe.position = Vector3(5.9, 0.9, -10)
+	hit = probe.move_and_collide(Vector3(0, 0, 12))
+	_expect(hit == null, "Side bypass must remain clear for a capsule")
+	_expect(absf(probe.position.z - 2.0) < TOLERANCE_M, "Capsule must cross the clear side bypass")
+	_result["capsule_bypass_end_z"] = probe.position.z
+	probe.queue_free()
+
+
+## Verify the saved parent/annex assembly and query both sides of the physical mating seam.
+func _attachment_checks() -> void:
+	var packed: PackedScene = load(ATTACHMENT_PATH) as PackedScene
+	_expect(packed != null, "Saved attachment dependencies must resolve")
+	if packed == null:
+		return
+
+	var assembly: Node3D = packed.instantiate() as Node3D
+	root.add_child(assembly)
+	var annex: Node3D = assembly.get_node("Annex") as Node3D
+	var parent: Node3D = assembly.get_node("GiantStore") as Node3D
+	_expect(parent.transform == Transform3D.IDENTITY, "Parent attachment must remain identity")
+	_expect(annex.position == Vector3(0, 0, -19), "Attachment must match .01 reserved datum")
+	_expect(annex.basis == Basis.IDENTITY, "Attachment orientation/scale must remain identity")
+	await physics_frame
+	await physics_frame
+	var space: PhysicsDirectSpaceState3D = assembly.get_world_3d().direct_space_state
+	var cases: Array[Dictionary] = [
+		{ "point": Vector3(0, 1, -19.05), "solid": true },
+		{ "point": Vector3(0, 1, -18.95), "solid": true },
+		{ "point": Vector3(-5.35, 1, -19), "solid": true },
+		{ "point": Vector3(5.35, 1, -19), "solid": true },
+		{ "point": Vector3(-5.7, 1, -19.3), "solid": false },
+		{ "point": Vector3(5.7, 1, -19.3), "solid": false },
+	]
+	var sphere: SphereShape3D = SphereShape3D.new()
+	sphere.radius = 0.02
+	var query: PhysicsShapeQueryParameters3D = PhysicsShapeQueryParameters3D.new()
+	query.shape = sphere
+	query.collision_mask = WORLD_LAYER
+	for test: Dictionary in cases:
+		query.transform.origin = test["point"]
+		var solid: bool = not space.intersect_shape(query).is_empty()
+		_expect(solid == test["solid"], "Attachment seam or outside-corner query failed")
+
+	_result["attachment_seam_queries_passed"] = cases.size()
+	_result["attachment_position"] = [annex.position.x, annex.position.y, annex.position.z]
+	_result["attachment_uid"] = ResourceUID.id_to_text(
+		ResourceLoader.get_resource_uid(ATTACHMENT_PATH)
+	)
+	assembly.queue_free()
+	await process_frame
+
+
+## Run bounded resource and physics checks without starting the game or touching live editors.
+func _run() -> void:
+	if Engine.is_editor_hint():
+		# Let editor startup and its filesystem thread finish before save or shutdown.
+		await create_timer(EDITOR_STARTUP_SECONDS).timeout
+		while EditorInterface.get_resource_filesystem().is_scanning():
+			await process_frame  # gdstyle:ignore=quality/await-in-loop
+
+	var arguments: PackedStringArray = OS.get_cmdline_user_args()
+	if arguments.has("--normalize"):
+		_roundtrip()
+
+	var packed: PackedScene = ResourceLoader.load(
+		PREFAB_PATH, "PackedScene", ResourceLoader.CACHE_MODE_IGNORE
+	) as PackedScene
+	_expect(packed != null, "Prefab dependencies must resolve")
+	if packed != null:
+		var instance: Node3D = packed.instantiate() as Node3D
+		root.add_child(instance)
+		_inspect(instance)
+		await physics_frame
+		await physics_frame
+		_physics_checks(instance)
+		_capsule_checks(instance)
+		instance.queue_free()
+		await process_frame
+
+	await _attachment_checks()
+	_result["engine"] = Engine.get_version_info()["string"]
+	_result["failures"] = _failures
+	_result["ok"] = _failures.is_empty()
+	var output: String = DEFAULT_OUTPUT
+	var output_index: int = arguments.find("--output")
+	if output_index >= 0 and output_index + 1 < arguments.size():
+		output = arguments[output_index + 1]
+
+	var file: FileAccess = FileAccess.open(output, FileAccess.WRITE)
+	file.store_string(JSON.stringify(_result, "\t") + "\n")
+	file.close()
+	print(JSON.stringify(_result))
+	quit(0 if _failures.is_empty() else 1)

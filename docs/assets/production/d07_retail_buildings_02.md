@@ -219,8 +219,10 @@ editor pack/save; `record.py` consolidates final external receipts and hashes pa
 ## Remaining acceptance / handoff
 
 1. Independent art/technical review of this exact candidate; no self-acceptance.
-2. **d07_retail_buildings.03** entrance annex remains pending, using **.01's** reserved
-   bay and rear-closure allowance. Neither sibling geometry nor that interface changed.
+2. **d07_retail_buildings.03** entrance annex is [delivered](d07_retail_buildings_03.md),
+   including a linked assembly using **.01's** reserved bay and rear-closure allowance.
+   Independent review and world/gameplay acceptance remain pending; neither sibling
+   geometry nor that interface changed.
 3. Retail graphics and detached sign island remain separate deliveries.
 4. Saved world placement, parking/road/forecourt preservation, actual player/car
    movement/turning, weapon queries and authoritative/predicted/multiplayer checks.
