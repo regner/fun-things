@@ -6586,14 +6586,14 @@
       "input_next_action": "Refine design from Glassward breakdown",
       "brief": "[Brief](../../assets/d04_forecourt_graphics.md)",
       "priority": 1,
-      "status": "queued",
-      "agent_id": null,
-      "source_revision": null,
-      "review_status": "pending",
-      "integration_status": "pending",
+      "status": "production_prefab_accepted",
+      "agent_id": "4503a3df-2cdb-4c92-b8eb-ae66aaadafcc",
+      "source_revision": "3c296dd8",
+      "review_status": "accepted source/export/prefab scope (independent Sol review)",
+      "integration_status": "accepted",
       "placement_status": "pending",
       "blocker": null,
-      "attempts": 0,
+      "attempts": 1,
       "initial_time_cap_minutes": 90,
       "owned_paths": [
         "art/source/models/environment/d04_forecourt_graphics_01/",
@@ -6601,8 +6601,20 @@
         "art/textures/environment/d04_forecourt_graphics_01/",
         "art/materials/environment/d04_forecourt_graphics_01/",
         "docs/assets/production/d04_forecourt_graphics_01.md",
-        "docs/assets/production/d04_forecourt_graphics_01-evidence/"
-      ]
+        "docs/assets/production/d04_forecourt_graphics_01-evidence/",
+        "tools/asset_production/d04_forecourt_graphics_01/",
+        "scenes/prefabs/environment/d04_forecourt_graphics_01.tscn"
+      ],
+      "launch": {
+        "provider": "portkey/gpt-6-astra",
+        "configured_effort": "medium",
+        "mode": "orchestrator asset lane",
+        "lane": "a-d04g"
+      },
+      "producer_manifest": "docs/assets/production/d04_forecourt_graphics_01-evidence/manifest.json",
+      "report": "docs/assets/production/d04_forecourt_graphics_01.md",
+      "reviewer_id": "77d76e44-d69c-411a-a96e-0252888f8a0b",
+      "integrated_revision": "a743f81b"
     },
     {
       "id": "d04_forecourt_graphics.02",
@@ -6615,14 +6627,14 @@
       "input_next_action": "Refine design from Glassward breakdown",
       "brief": "[Brief](../../assets/d04_forecourt_graphics.md)",
       "priority": 1,
-      "status": "queued",
-      "agent_id": null,
-      "source_revision": null,
-      "review_status": "pending",
-      "integration_status": "pending",
+      "status": "production_prefab_accepted",
+      "agent_id": "7c636041-bce0-440e-bee6-3a2105a4ea60",
+      "source_revision": "f520289b",
+      "review_status": "accepted source/export/prefab scope (independent Sol review)",
+      "integration_status": "accepted",
       "placement_status": "pending",
       "blocker": null,
-      "attempts": 0,
+      "attempts": 1,
       "initial_time_cap_minutes": 90,
       "owned_paths": [
         "art/source/models/environment/d04_forecourt_graphics_02/",
@@ -6630,8 +6642,20 @@
         "art/textures/environment/d04_forecourt_graphics_02/",
         "art/materials/environment/d04_forecourt_graphics_02/",
         "docs/assets/production/d04_forecourt_graphics_02.md",
-        "docs/assets/production/d04_forecourt_graphics_02-evidence/"
-      ]
+        "docs/assets/production/d04_forecourt_graphics_02-evidence/",
+        "tools/asset_production/d04_forecourt_graphics_02/",
+        "scenes/prefabs/environment/d04_forecourt_graphics_02.tscn"
+      ],
+      "launch": {
+        "provider": "portkey/gpt-6-astra",
+        "configured_effort": "medium",
+        "mode": "orchestrator asset lane",
+        "lane": "a-d04g"
+      },
+      "producer_manifest": "docs/assets/production/d04_forecourt_graphics_02-evidence/manifest.json",
+      "report": "docs/assets/production/d04_forecourt_graphics_02.md",
+      "reviewer_id": "77d76e44-d69c-411a-a96e-0252888f8a0b",
+      "integrated_revision": "a743f81b"
     },
     {
       "id": "d04_forecourt_graphics.03",
@@ -6644,14 +6668,14 @@
       "input_next_action": "Review tower/forecourt direction and map fit",
       "brief": "[Brief](../../assets/d04_forecourt_graphics.md)",
       "priority": 1,
-      "status": "queued",
-      "agent_id": null,
-      "source_revision": null,
-      "review_status": "pending",
-      "integration_status": "pending",
+      "status": "production_prefab_accepted",
+      "agent_id": "f7efc1fb-c13f-4a66-9700-a21702cdfb96",
+      "source_revision": "a743f81b",
+      "review_status": "accepted source/export/prefab scope (independent Sol review)",
+      "integration_status": "accepted",
       "placement_status": "pending",
       "blocker": null,
-      "attempts": 0,
+      "attempts": 1,
       "initial_time_cap_minutes": 90,
       "owned_paths": [
         "art/source/models/environment/d04_forecourt_graphics_03/",
@@ -6659,8 +6683,20 @@
         "art/textures/environment/d04_forecourt_graphics_03/",
         "art/materials/environment/d04_forecourt_graphics_03/",
         "docs/assets/production/d04_forecourt_graphics_03.md",
-        "docs/assets/production/d04_forecourt_graphics_03-evidence/"
-      ]
+        "docs/assets/production/d04_forecourt_graphics_03-evidence/",
+        "tools/asset_production/d04_forecourt_graphics_03/",
+        "scenes/prefabs/environment/d04_forecourt_graphics_03.tscn"
+      ],
+      "launch": {
+        "provider": "portkey/gpt-6-astra",
+        "configured_effort": "medium",
+        "mode": "orchestrator asset lane",
+        "lane": "a-d04g"
+      },
+      "producer_manifest": "docs/assets/production/d04_forecourt_graphics_03-evidence/manifest.json",
+      "report": "docs/assets/production/d04_forecourt_graphics_03.md",
+      "reviewer_id": "77d76e44-d69c-411a-a96e-0252888f8a0b",
+      "integrated_revision": "a743f81b"
     },
     {
       "id": "d04_corporate_graphics.01",
@@ -6673,14 +6709,14 @@
       "input_next_action": "Refine design from Glassward breakdown",
       "brief": "[Brief](../../assets/d04_corporate_graphics.md)",
       "priority": 1,
-      "status": "queued",
-      "agent_id": null,
-      "source_revision": null,
-      "review_status": "pending",
-      "integration_status": "pending",
+      "status": "production_prefab_accepted",
+      "agent_id": "98b34857-fad8-4939-a840-a6cf3591b218",
+      "source_revision": "e79648ff",
+      "review_status": "accepted source/export/prefab scope (independent Sol review)",
+      "integration_status": "accepted",
       "placement_status": "pending",
       "blocker": null,
-      "attempts": 0,
+      "attempts": 1,
       "initial_time_cap_minutes": 90,
       "owned_paths": [
         "art/source/models/environment/d04_corporate_graphics_01/",
@@ -6688,8 +6724,20 @@
         "art/textures/environment/d04_corporate_graphics_01/",
         "art/materials/environment/d04_corporate_graphics_01/",
         "docs/assets/production/d04_corporate_graphics_01.md",
-        "docs/assets/production/d04_corporate_graphics_01-evidence/"
-      ]
+        "docs/assets/production/d04_corporate_graphics_01-evidence/",
+        "tools/asset_production/d04_corporate_graphics_01/",
+        "scenes/prefabs/environment/d04_corporate_graphics_01.tscn"
+      ],
+      "launch": {
+        "provider": "portkey/gpt-6-astra",
+        "configured_effort": "medium",
+        "mode": "orchestrator asset lane",
+        "lane": "a-d04g"
+      },
+      "producer_manifest": "docs/assets/production/d04_corporate_graphics_01-evidence/manifest.json",
+      "report": "docs/assets/production/d04_corporate_graphics_01.md",
+      "reviewer_id": "77d76e44-d69c-411a-a96e-0252888f8a0b",
+      "integrated_revision": "a743f81b"
     },
     {
       "id": "d04_corporate_graphics.02",
@@ -6702,14 +6750,14 @@
       "input_next_action": "Refine design from Glassward breakdown",
       "brief": "[Brief](../../assets/d04_corporate_graphics.md)",
       "priority": 1,
-      "status": "queued",
-      "agent_id": null,
-      "source_revision": null,
-      "review_status": "pending",
-      "integration_status": "pending",
+      "status": "production_prefab_accepted",
+      "agent_id": "8fae9b95-c129-4f2a-9a9f-b5bfc55f5924",
+      "source_revision": "9e03c19f",
+      "review_status": "accepted source/export/prefab scope (independent Sol review)",
+      "integration_status": "accepted",
       "placement_status": "pending",
       "blocker": null,
-      "attempts": 0,
+      "attempts": 1,
       "initial_time_cap_minutes": 90,
       "owned_paths": [
         "art/source/models/environment/d04_corporate_graphics_02/",
@@ -6717,8 +6765,20 @@
         "art/textures/environment/d04_corporate_graphics_02/",
         "art/materials/environment/d04_corporate_graphics_02/",
         "docs/assets/production/d04_corporate_graphics_02.md",
-        "docs/assets/production/d04_corporate_graphics_02-evidence/"
-      ]
+        "docs/assets/production/d04_corporate_graphics_02-evidence/",
+        "tools/asset_production/d04_corporate_graphics_02/",
+        "scenes/prefabs/environment/d04_corporate_graphics_02.tscn"
+      ],
+      "launch": {
+        "provider": "portkey/gpt-6-astra",
+        "configured_effort": "medium",
+        "mode": "orchestrator asset lane",
+        "lane": "a-d04g"
+      },
+      "producer_manifest": "docs/assets/production/d04_corporate_graphics_02-evidence/manifest.json",
+      "report": "docs/assets/production/d04_corporate_graphics_02.md",
+      "reviewer_id": "77d76e44-d69c-411a-a96e-0252888f8a0b",
+      "integrated_revision": "a743f81b"
     },
     {
       "id": "d04_corporate_graphics.03",
@@ -6731,14 +6791,14 @@
       "input_next_action": "Refine design from Glassward breakdown",
       "brief": "[Brief](../../assets/d04_corporate_graphics.md)",
       "priority": 1,
-      "status": "queued",
-      "agent_id": null,
-      "source_revision": null,
-      "review_status": "pending",
-      "integration_status": "pending",
+      "status": "production_prefab_accepted",
+      "agent_id": "c6dbe568-b2f4-4df6-b8da-b14ca472505c",
+      "source_revision": "76969feb",
+      "review_status": "accepted source/export/prefab scope (independent Sol review)",
+      "integration_status": "accepted",
       "placement_status": "pending",
       "blocker": null,
-      "attempts": 0,
+      "attempts": 1,
       "initial_time_cap_minutes": 90,
       "owned_paths": [
         "art/source/models/environment/d04_corporate_graphics_03/",
@@ -6746,8 +6806,20 @@
         "art/textures/environment/d04_corporate_graphics_03/",
         "art/materials/environment/d04_corporate_graphics_03/",
         "docs/assets/production/d04_corporate_graphics_03.md",
-        "docs/assets/production/d04_corporate_graphics_03-evidence/"
-      ]
+        "docs/assets/production/d04_corporate_graphics_03-evidence/",
+        "tools/asset_production/d04_corporate_graphics_03/",
+        "scenes/prefabs/environment/d04_corporate_graphics_03.tscn"
+      ],
+      "launch": {
+        "provider": "portkey/gpt-6-astra",
+        "configured_effort": "medium",
+        "mode": "orchestrator asset lane",
+        "lane": "a-d04g"
+      },
+      "producer_manifest": "docs/assets/production/d04_corporate_graphics_03-evidence/manifest.json",
+      "report": "docs/assets/production/d04_corporate_graphics_03.md",
+      "reviewer_id": "77d76e44-d69c-411a-a96e-0252888f8a0b",
+      "integrated_revision": "a743f81b"
     },
     {
       "id": "d05_quay_frontages.01",
