@@ -1,0 +1,120 @@
+[gd_scene format=3 uid="uid://bukpxrtruus3b"]
+
+[ext_resource type="PackedScene" uid="uid://wb60cgl5cnnd" path="res://scenes/prefabs/environment/city_boardwalk_02.tscn" id="bend_0"]
+[ext_resource type="PackedScene" uid="uid://cws6ebxn7y8iu" path="res://scenes/prefabs/environment/city_boardwalk_02_45.tscn" id="bend_1"]
+[ext_resource type="PackedScene" uid="uid://cue2ekfy1nqbv" path="res://scenes/prefabs/environment/city_boardwalk_02_22p5.tscn" id="bend_2"]
+[ext_resource type="PackedScene" uid="uid://ejg1agxqo84v" path="res://scenes/prefabs/environment/city_boardwalk_03.tscn" id="edge_0"]
+[ext_resource type="PackedScene" uid="uid://cgjil17lysv5p" path="res://scenes/prefabs/environment/city_boardwalk_03_terminal.tscn" id="edge_1"]
+[ext_resource type="PackedScene" uid="uid://xegw7hrgjecb" path="res://scenes/prefabs/environment/city_boardwalk_03_outer_90.tscn" id="edge_2"]
+[ext_resource type="PackedScene" uid="uid://hkhjkfcs6w4x" path="res://scenes/prefabs/environment/city_boardwalk_03_inner_90.tscn" id="edge_3"]
+[ext_resource type="PackedScene" uid="uid://bs1gyftkncg18" path="res://scenes/prefabs/environment/city_boardwalk_03_outer_45.tscn" id="edge_4"]
+[ext_resource type="PackedScene" uid="uid://ef7fdgxuvtss" path="res://scenes/prefabs/environment/city_boardwalk_03_inner_45.tscn" id="edge_5"]
+[ext_resource type="PackedScene" uid="uid://d0w5o6duxfe2o" path="res://scenes/prefabs/environment/city_boardwalk_03_outer_22p5.tscn" id="edge_6"]
+[ext_resource type="PackedScene" uid="uid://bxu2qn7gq0op6" path="res://scenes/prefabs/environment/city_boardwalk_03_inner_22p5.tscn" id="edge_7"]
+[ext_resource type="Script" uid="uid://jthmfio4c27p" path="res://scripts/actors/actor_motion.gd" id="motion"]
+[ext_resource type="PackedScene" uid="uid://btsnym45lcgwn" path="res://scenes/prefabs/environment/city_boardwalk_01.tscn" id="straight"]
+
+[sub_resource type="CapsuleShape3D" id="Actor_capsule"]
+radius = 0.35
+height = 1.8
+
+[node name="EdgeMatingCheck" type="Node3D" unique_id=1225818895]
+
+[node name="Bend0" parent="." unique_id=2085190567 instance=ExtResource("bend_0")]
+
+[node name="Outer0" parent="." unique_id=1567559440 instance=ExtResource("edge_2")]
+
+[node name="Inner0" parent="." unique_id=1698876672 instance=ExtResource("edge_3")]
+
+[node name="Entry0" parent="." unique_id=443556072 instance=ExtResource("straight")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3)
+
+[node name="Entry0Left" parent="." unique_id=944180940 instance=ExtResource("edge_0")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -1.8, 0, 3)
+
+[node name="Entry0Right" parent="." unique_id=926388604 instance=ExtResource("edge_0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.8, 0, 3)
+
+[node name="Exit0" parent="." unique_id=1184593763 instance=ExtResource("straight")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 9, 0, -6)
+
+[node name="Exit0Left" parent="." unique_id=1592095680 instance=ExtResource("edge_0")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 9, 0, -7.8)
+
+[node name="Exit0Right" parent="." unique_id=1614372680 instance=ExtResource("edge_0")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 9, 0, -4.2)
+
+[node name="Bend1" parent="." unique_id=646590863 instance=ExtResource("bend_1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20, 0, 0)
+
+[node name="Outer1" parent="." unique_id=156484890 instance=ExtResource("edge_4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20, 0, 0)
+
+[node name="Inner1" parent="." unique_id=1205114097 instance=ExtResource("edge_5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20, 0, 0)
+
+[node name="Entry1" parent="." unique_id=669967798 instance=ExtResource("straight")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20, 0, 3)
+
+[node name="Entry1Left" parent="." unique_id=1658294801 instance=ExtResource("edge_0")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 18.2, 0, 3)
+
+[node name="Entry1Right" parent="." unique_id=1552678335 instance=ExtResource("edge_0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.8, 0, 3)
+
+[node name="Exit1" parent="." unique_id=1853776239 instance=ExtResource("straight")]
+transform = Transform3D(0.70710677, 0, -0.70710677, 0, 1, 0, 0.70710677, 0, 0.70710677, 23.87868, 0, -6.363961)
+
+[node name="Exit1Left" parent="." unique_id=1750946691 instance=ExtResource("edge_0")]
+transform = Transform3D(-0.70710677, 0, 0.70710677, 0, 1, 0, -0.70710677, 0, -0.70710677, 22.605888, 0, -7.636753)
+
+[node name="Exit1Right" parent="." unique_id=1914247266 instance=ExtResource("edge_0")]
+transform = Transform3D(0.70710677, 0, -0.70710677, 0, 1, 0, 0.70710677, 0, 0.70710677, 25.151472, 0, -5.091169)
+
+[node name="Bend2" parent="." unique_id=1025489038 instance=ExtResource("bend_2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 40, 0, 0)
+
+[node name="Outer2" parent="." unique_id=1022046487 instance=ExtResource("edge_6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 40, 0, 0)
+
+[node name="Inner2" parent="." unique_id=583800394 instance=ExtResource("edge_7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 40, 0, 0)
+
+[node name="Entry2" parent="." unique_id=1982820175 instance=ExtResource("straight")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 40, 0, 3)
+
+[node name="Entry2Left" parent="." unique_id=979851785 instance=ExtResource("edge_0")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 38.2, 0, 3)
+
+[node name="Entry2Right" parent="." unique_id=785023258 instance=ExtResource("edge_0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 41.8, 0, 3)
+
+[node name="Exit2" parent="." unique_id=426552221 instance=ExtResource("straight")]
+transform = Transform3D(0.9238795, 0, -0.38268346, 0, 1, 0, 0.38268346, 0, 0.9238795, 41.604774, 0, -5.067739)
+
+[node name="Exit2Left" parent="." unique_id=2017794503 instance=ExtResource("edge_0")]
+transform = Transform3D(-0.9238795, 0, 0.3826835, 0, 1, 0, -0.3826835, 0, -0.9238795, 39.94179, 0, -5.7565694)
+
+[node name="Exit2Right" parent="." unique_id=2117295170 instance=ExtResource("edge_0")]
+transform = Transform3D(0.9238795, 0, -0.38268346, 0, 1, 0, 0.38268346, 0, 0.9238795, 43.267757, 0, -4.378909)
+
+[node name="TerminalDeck" parent="." unique_id=1786743650 instance=ExtResource("straight")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 60, 0, 0)
+
+[node name="TerminalDeckLeft" parent="." unique_id=441517637 instance=ExtResource("edge_0")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 58.2, 0, 0)
+
+[node name="TerminalDeckRight" parent="." unique_id=1741274705 instance=ExtResource("edge_0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 61.8, 0, 0)
+
+[node name="TerminalCap" parent="." unique_id=1145341897 instance=ExtResource("edge_1")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 60, 0, -3)
+
+[node name="Actor" type="CharacterBody3D" parent="." unique_id=1180624712]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.001, 2)
+collision_layer = 2
+script = ExtResource("motion")
+
+[node name="Capsule" type="CollisionShape3D" parent="Actor" unique_id=429685944]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0)
+shape = SubResource("Actor_capsule")

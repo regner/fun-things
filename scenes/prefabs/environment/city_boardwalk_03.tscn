@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://ejg1agxqo84v"]
+
+[ext_resource type="PackedScene" uid="uid://blhm75vkuco88" path="res://art/models/environment/city_boardwalk_03/city_boardwalk_03.glb" id="1_model"]
+
+[sub_resource type="BoxShape3D" id="Edge_profile"]
+size = Vector3(0.1, 0.24, 6)
+
+[node name="city_boardwalk_03" type="Node3D" unique_id=615712610]
+
+[node name="Visuals" type="Node3D" parent="." unique_id=1629911776]
+
+[node name="Model" parent="Visuals" unique_id=327502245 instance=ExtResource("1_model")]
+
+[node name="Collision" type="Node3D" parent="." unique_id=2057996800]
+
+[node name="Body" type="StaticBody3D" parent="Collision" unique_id=2053704009]
+collision_mask = 0
+
+[node name="Edge" type="CollisionShape3D" parent="Collision/Body" unique_id=1364459478]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.05, -0.12, 0)
+shape = SubResource("Edge_profile")

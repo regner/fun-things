@@ -1,0 +1,64 @@
+city_boardwalk.03 — final production receipt — 10 October 2026
+Tools: Blender 5.2.2 LTS d13f752e3b9c / glTF 5.2.40;
+Godot 4.8.dev7.official.c971f93e7 from mise; gdstyle 0.3.0 from mise.
+All Blender calls: timeout <=900, ALSOFT_DRIVERS=null SDL_AUDIODRIVER=dummy,
+-noaudio --background --factory-startup --threads 4 --python-exit-code 1.
+All direct Godot calls: headless, pinned binary, timeout <=300 (checks <=180).
+No owner live Blender/Godot session or MCP endpoint contacted.
+Exact reproduction argv are retained in docs/assets/production/city_boardwalk_03.md.
+
+PASS author.py (timeout 180): original eight-profile source saved, no studio export geometry.
+PASS export.py (timeout 180): eight GLBs, shared export_settings.json.
+PASS author_prefabs.py: initial eight linked wrappers and saved sibling mating fixture.
+PASS fresh export.py -- C:/tmp/ft/assets/city_boardwalk_03/reexport (timeout 180).
+PASS validate.py -- same reexport directory (timeout 180): all byte-identical;
+     source and actual binary buffers, closed topology, normals, dimensions and transforms.
+PASS render.py (timeout 900): four Cycles/CPU views, all visually inspected.
+PASS Godot --headless --editor --path . --import --quit (timeout 300).
+PASS final source/binary and normalized saved-collision audit (validate-final.log).
+PASS editor check.gd -- --normalize (timeout 180): nine scenes, two saves each,
+     stable bytes, scene/dependency UIDs resolve, eight linked models/two surfaces each.
+PASS runtime check.gd (timeout 180): 222 nominal support rays, 10 outside rays,
+     2 fascia-height rays; 42 traversals / 4572 fixed ticks using ActorMotion.
+     Two exact shared-edge rays miss in Jolt; four surrounding 0.0001m witnesses each pass.
+     Missing exact-edge hits retained in validation.json, not suppressed.
+     AUTHORITY/REPLAY endpoints agree; capsule r=.35m h=1.8m, Y=.001m contact margin.
+PASS targeted gdstyle check and fmt --check; Python recipe compileall.
+
+CANONICAL COMMAND: timeout 1800 mise exec -- python tools/production_checks.py
+  --output C:/tmp/ft/assets/city_boardwalk_03/checks
+RESULT: EXIT 1; not fully green. Do not treat as a pass or ignore as fixture baseline.
+  PASS engine/GUT pins, style and formatting on all 161 owned repository scripts.
+  PASS 157/161 compilation checks including city_boardwalk_03/check.gd.
+  INCOMPLETE four final unrelated scripts: global compiler 120-second deadline exhausted:
+    tools/assets/weapons/smg_wedgewire/editor_author.gd
+    tools/assets/world/brackett_greybox/author_editor.gd
+    tools/assets/world/brackett_greybox/capture.gd
+    tools/assets/world/brackett_greybox/check_scene.gd
+  Each final log reads CHECK DEADLINE EXCEEDED; no script error observed in these logs.
+  PASS 14 Python tests; GUT import; 137/137 GUT tests, 6523 assertions; negative detection.
+  No unchanged failing aggregate command repeated; shared checks were not modified.
+
+GEOMETRY TOTALS: 5128 triangles / 2580 source vertices / 2984 GLB vertices;
+8 separate meshes, two surfaces each, total 118188 GLB bytes.
+Zero degenerate source/export faces, zero source nonmanifold edges, zero binary
+nonmanifold edges after exact-position seam welding. Curved saved collision is watertight.
+All eight fresh-process exports byte-identical; per-variant values in validation.json.
+
+DIAGNOSTICS: Blender version-only probe prints a 23-byte shutdown allocation notice.
+Author/render print Material.use_nodes deprecation; actual jobs exit 0 without allocation errors.
+Godot editor import/normalization prints addon 4.8 compatibility warning; normalization also
+prints RID/ObjectDB shutdown leaks after completed saves. Final non-editor check has no
+warnings/errors/leaks. Initial targeted style had two warnings, fixed before canonical run.
+No broad diagnostic suppression or addon changes.
+
+Renders: hero 1152x648, side 1280x720, detail 1024x576, overhead 1280x720.
+Overhead: vertical down 47m / 42deg vertical FOV. All eight variants shown on unchanged
+sibling meshes; no sibling files changed. 96 Cycles samples, denoising, AgX;
+PNG compression 95 then 7-bit/channel review-image encoding + PNG compression 9.
+Studio placements/background never saved into source/exports. Not native gameplay evidence.
+
+Remaining: independent review; full aggregate compile sweep; actual coast/terminal/support/
+access/rail fit; vehicle/falloff/navigation/combat/real transport; populated native camera;
+packaged-platform and sustained Deck/performance validation. No world placement acceptance.
+Raw scratch logs/reexports: C:/tmp/ft/assets/city_boardwalk_03/ (not committed).
