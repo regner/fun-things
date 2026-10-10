@@ -1,0 +1,53 @@
+d01_campus_graphics.01 - final producer validation summary (UTF-8)
+Working tree: C:/GameDev/git/ft-lanes/a-campus
+Tools: Python 3.14.2 / Pillow 12.3.0; Blender 5.2.2 LTS d13f752e3b9c;
+glTF exporter 5.2.40; Godot 4.8.dev7.official.c971f93e7; gdstyle 0.3.0.
+Blender executable: C:/Program Files/Blender Foundation/Blender 5.2/blender.exe.
+Godot and gdstyle were resolved with mise which, not unpinned PATH tools.
+Exact reproduction argv is in ../d01_campus_graphics_01.md.
+
+PASS author.py: original 1640x1040 RGB campus_map_albedo.png; initial absent Q glyph fixed.
+PASS preview.py: timeout 900, isolated audio-disabled factory-startup Blender, four threads.
+  Four 1280x720 RGB PNGs; all personally inspected; each below 400000 bytes.
+  Source opened read-only, face material changed only in memory, no .blend save.
+  Hero/map/legend/crest hierarchy reads; vertical face is unreadable at centred overhead.
+PASS validate.py: timeout 180, same isolated Blender contract, exit 0.
+  Reopened shared noticeboard source; delegated to existing pinned exporter into scratch.
+  1340 source vertices; 1711 split export vertices; 2636 triangles; two meshes; five surfaces.
+  Zero nonmanifold edges, degenerate source faces or export triangles.
+  Unit source/export normals, outward winding, identity transforms, metre units, exact UV slot.
+  Godot bounds (-0.95,0,-0.22) to (0.95,2.10,0.22), ground-centred pivot.
+  Reexport byte-identical to unchanged 75520-byte shared GLB.
+  Shared source/GLB/base prefab hashes unchanged.
+PASS test_artwork.py: five tests, 0 failures/errors; deterministic PNG bytes, opaque size,
+  independent margin/color samples, no duplicate carrier. Pillow output is byte-identical.
+PASS gdstyle fmt --check: one file already formatted.
+PASS gdstyle --max-line-length 100 --max-warnings 0: one file, no issues.
+  Initial one-character line excess and function-length limit corrected before final check.
+PASS bounded prefab normalization assertions (timeout 180), exit 0; shutdown NOT clean.
+  Inherited noticeboard hierarchy/geometry/collider unchanged; only sign_face slot 0 override.
+  Two post-normalization save/reload cycles of both prefab and material are byte-stable.
+  Three identical hashes for each resource retained in validation.json.
+  Editor shutdown emits scan-abort plus existing RID leak pattern: 5 viewport, 8 texture,
+  1 scenario, 52 shaped-text, 1 font; 5 canvas, 31 canvas-item and 168 ObjectDB instances.
+  This matches the carrier's documented shutdown limitation; no new empty-project baseline
+  was run and no error was suppressed. The editor check is not claimed as a clean exit.
+PASS final import (timeout 300): exit 0; no ERROR or SCRIPT ERROR lines.
+  Existing development plugin WARNING: Godot 4.8 detected; latest tested 4.7.0.
+  No foreign tracked changes/untracked sidecars; own texture import and script UID retained.
+PASS runtime check_prefab.gd (timeout 180): exit 0; no warnings/errors.
+  CAMPUS_PREFAB_PASS: face-only override, linked meshes, inherited collision
+  Registered scene/material/texture/GLB UIDs, texture mips/filter/clamp/opaque settings,
+  imported mesh identity and inherited static box all asserted.
+  Initial post-save material UID fallback resolved by required import; final assertions
+  require UID registration, not text-path fallback.
+PASS audit.py --collect: current resource hashes match both stable-roundtrip receipts;
+  fresh PNG bytes, final import/runtime log diagnostics and evidence sizes checked.
+
+Blender preview emits existing future use_nodes deprecation notice, not a geometry failure.
+No live owner editor/MCP session used. Development plugins started only in isolated CLI
+processes as part of the pinned project's normal headless startup and were not contacted.
+No tools/production_checks.py run (decision 52). No gameplay/physics/network/device checks
+claimed: graphics inherits existing collider and does not change authoritative behavior.
+Raw retry/process logs and reexports: C:/tmp/ft/assets/d01_campus_graphics_01/ (uncommitted).
+Independent review, provisional copy/map use, placement, engine visuals and device/perf pending.

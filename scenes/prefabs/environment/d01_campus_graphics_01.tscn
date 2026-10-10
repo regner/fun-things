@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://deuwcyvy7lkbv"]
+
+[ext_resource type="PackedScene" uid="uid://p0xsrjdmsw2s" path="res://scenes/prefabs/environment/city_sign_supports_03.tscn" id="1_board"]
+[ext_resource type="Material" uid="uid://d154r2tsfhp48" path="res://art/materials/environment/d01_campus_graphics_01/campus_map.tres" id="2_artwork"]
+
+[node name="d01_campus_graphics_01" unique_id=15470050 instance=ExtResource("1_board")]
+
+[node name="CitySignSupports03_ArtworkCarrier" parent="Visuals/Model/CitySignSupports03" parent_id_path=PackedInt32Array(126480854, 76521442) index="0" unique_id=299387185]
+surface_material_override/0 = ExtResource("2_artwork")
+
+[editable path="Visuals/Model"]

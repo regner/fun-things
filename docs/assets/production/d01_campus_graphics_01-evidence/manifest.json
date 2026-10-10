@@ -1,0 +1,137 @@
+{
+  "asset_id": "d01_campus_graphics.01",
+  "algorithm": "SHA-256",
+  "exclusions": [
+    "manifest.json (self-hash)",
+    "__pycache__ (uncommitted)"
+  ],
+  "unchanged_dependencies": [
+    {
+      "path": "art/source/models/environment/city_sign_supports_03/city_sign_supports_03.blend",
+      "bytes": 145272,
+      "sha256": "4154bee7ae7ba2f8e3c8fb266b1e16d5ff56e28e64508d8d074e57204c9638cf"
+    },
+    {
+      "path": "art/models/environment/city_sign_supports_03/city_sign_supports_03.glb",
+      "bytes": 75520,
+      "sha256": "f6ed9b4bd732c2e46104cf52453641e6c6e212483dd27d26d33a683dfefbdd8c"
+    },
+    {
+      "path": "scenes/prefabs/environment/city_sign_supports_03.tscn",
+      "bytes": 897,
+      "sha256": "e81317e7743bc11e43f3ce1dca25987a3bfdb6c797f2394db1ef2ce32d4eb2b3"
+    },
+    {
+      "path": "docs/concepts/world-v1/stage-04-streets/district-editor/brackett-districts.json",
+      "bytes": 8788,
+      "sha256": "1e1685dad7b12c824aa485a8aee9076c415c859d25a7c28759eb9c9df26c8168"
+    },
+    {
+      "path": "tools/asset_production/d06_commercial_graphics_02/author.py",
+      "bytes": 5473,
+      "sha256": "6e1492bc8bbb5afec4b371e1f2f28e875d3c3be8c9fe3b629d20efea473eab50"
+    },
+    {
+      "path": "tools/asset_production/d06_commercial_graphics_01/author.py",
+      "bytes": 4356,
+      "sha256": "84c12c9bffd3a60a6470f37a8d3d7bb38588c31d208ae593193ece81c20316bb"
+    }
+  ],
+  "files": [
+    {
+      "path": "art/materials/environment/d01_campus_graphics_01/campus_map.tres",
+      "bytes": 355,
+      "sha256": "688f4f7b48e71c81e78cf2019b2d4a8aab9053bd4f7322edc4e50fa5fd0c96d1"
+    },
+    {
+      "path": "art/textures/environment/d01_campus_graphics_01/campus_map_albedo.png",
+      "bytes": 191954,
+      "sha256": "cd0355d3e57813f3d0ebe450f2ad0c7b7be4b0977120be2942ad84999c92871f"
+    },
+    {
+      "path": "art/textures/environment/d01_campus_graphics_01/campus_map_albedo.png.import",
+      "bytes": 1107,
+      "sha256": "9f9d7d821ee2627ecdc853930085f7dcbd29cdd3af797276116dd98e9203b83c"
+    },
+    {
+      "path": "docs/assets/production/d01_campus_graphics_01-evidence/detail.png",
+      "bytes": 361921,
+      "sha256": "16f9a12cbbf26c646dab2b2000fb6a7eb189bcdd2a891fba901cc60ee2b95bb6"
+    },
+    {
+      "path": "docs/assets/production/d01_campus_graphics_01-evidence/final.log",
+      "bytes": 4121,
+      "sha256": "dc69e71e440c0b9c27153cadca526e79980f5407d89fe8232ff49d139daf4232"
+    },
+    {
+      "path": "docs/assets/production/d01_campus_graphics_01-evidence/hero.png",
+      "bytes": 306404,
+      "sha256": "dc5756cd8155b9a665635dd7742d7768254445b11e24aa6e27a927fec1d4f892"
+    },
+    {
+      "path": "docs/assets/production/d01_campus_graphics_01-evidence/overhead_47m_42deg.png",
+      "bytes": 133585,
+      "sha256": "bf3e2690a442b725ffc1e6bd6e62933317baf357e5b351a41d3439fc1823ac0f"
+    },
+    {
+      "path": "docs/assets/production/d01_campus_graphics_01-evidence/side.png",
+      "bytes": 201860,
+      "sha256": "14e7c7fc370213b412b0365cdd78a559a078f6643fe9d810c6f75ffc87ea89eb"
+    },
+    {
+      "path": "docs/assets/production/d01_campus_graphics_01-evidence/validation.json",
+      "bytes": 6222,
+      "sha256": "492115f9cbb23fa118b4e9f4fa2b09a447b0e1bb929f31528c722932f8f42aa3"
+    },
+    {
+      "path": "docs/assets/production/d01_campus_graphics_01.md",
+      "bytes": 14199,
+      "sha256": "cb451cbb6aa2d11ffb3457ae7898ecb54343b9e380230562a48d255e82e4180f"
+    },
+    {
+      "path": "scenes/prefabs/environment/d01_campus_graphics_01.tscn",
+      "bytes": 687,
+      "sha256": "2685b87bb1d989dd8983b451dba45243c426213fb01217abeaa860d18e28c83b"
+    },
+    {
+      "path": "tools/asset_production/d01_campus_graphics_01/audit.py",
+      "bytes": 4888,
+      "sha256": "f32da494f36235049e58e7d8a2406c0082cff1f0f435839320adc6f119542021"
+    },
+    {
+      "path": "tools/asset_production/d01_campus_graphics_01/author.py",
+      "bytes": 7360,
+      "sha256": "971c6d6d83ecee7c5f09fdb3a457d854bb86e4ddc671a34ff0d50333b9fbc989"
+    },
+    {
+      "path": "tools/asset_production/d01_campus_graphics_01/check_prefab.gd",
+      "bytes": 6803,
+      "sha256": "71ab10f07e2273e6b3b37240a870350d756570774b597f51c189ea5183dd25ba"
+    },
+    {
+      "path": "tools/asset_production/d01_campus_graphics_01/check_prefab.gd.uid",
+      "bytes": 20,
+      "sha256": "09fecc3a96fc6d6bc5ad5c5c5049c04f41b8c09595588a3235b1bf8034c71c20"
+    },
+    {
+      "path": "tools/asset_production/d01_campus_graphics_01/export.py",
+      "bytes": 1035,
+      "sha256": "e22953c99b30c038a54145a4ee4cf944658f97776234c09070adfae0a95cae74"
+    },
+    {
+      "path": "tools/asset_production/d01_campus_graphics_01/preview.py",
+      "bytes": 2594,
+      "sha256": "33121e7f2f9980fe7c59abb1435d59bd4975da97dafaf26f27550954a5805777"
+    },
+    {
+      "path": "tools/asset_production/d01_campus_graphics_01/test_artwork.py",
+      "bytes": 2636,
+      "sha256": "ee82a293964273b348e125e0978f081c393e71b24b6385cd7be6cdceb990cbcb"
+    },
+    {
+      "path": "tools/asset_production/d01_campus_graphics_01/validate.py",
+      "bytes": 6827,
+      "sha256": "e139774ab082da47863ff807a125d73f8ffadd3dbc2d62f35fe021ca2e6cea83"
+    }
+  ]
+}

@@ -1,0 +1,208 @@
+{
+  "asset_id": "d01_campus_graphics.01",
+  "status": "PASS",
+  "blender": "5.2.2 LTS",
+  "build": "d13f752e3b9c",
+  "new_geometry": false,
+  "dependencies": [
+    {
+      "path": "art/source/models/environment/city_sign_supports_03/city_sign_supports_03.blend",
+      "bytes": 145272,
+      "sha256": "4154bee7ae7ba2f8e3c8fb266b1e16d5ff56e28e64508d8d074e57204c9638cf"
+    },
+    {
+      "path": "art/models/environment/city_sign_supports_03/city_sign_supports_03.glb",
+      "bytes": 75520,
+      "sha256": "f6ed9b4bd732c2e46104cf52453641e6c6e212483dd27d26d33a683dfefbdd8c"
+    },
+    {
+      "path": "scenes/prefabs/environment/city_sign_supports_03.tscn",
+      "bytes": 897,
+      "sha256": "e81317e7743bc11e43f3ce1dca25987a3bfdb6c797f2394db1ef2ce32d4eb2b3"
+    }
+  ],
+  "dependencies_unchanged": true,
+  "fresh_reexport_byte_identical": true,
+  "glb_bytes": 75520,
+  "glb_sha256": "f6ed9b4bd732c2e46104cf52453641e6c6e212483dd27d26d33a683dfefbdd8c",
+  "source_vertices": 1340,
+  "glb_vertices": 1711,
+  "triangles": 2636,
+  "meshes": 2,
+  "surfaces": 5,
+  "degenerate_source_faces": 0,
+  "degenerate_glb_triangles": 0,
+  "nonmanifold_edges": 0,
+  "unit_source_and_export_normals": true,
+  "outward_winding": true,
+  "godot_aabb": {
+    "min": [
+      -0.949999988079071,
+      0.0,
+      -0.2199999988079071
+    ],
+    "max": [
+      0.949999988079071,
+      2.0999999046325684,
+      0.2199999988079071
+    ]
+  },
+  "dimensions_m": [
+    1.9,
+    2.1,
+    0.44
+  ],
+  "pivot": [
+    0,
+    0,
+    0
+  ],
+  "ground_datum_m": 0,
+  "tolerance_m": 0.001,
+  "artwork": {
+    "face_size_m": [
+      1.64,
+      1.04
+    ],
+    "safe_size_m": [
+      1.58,
+      0.98
+    ],
+    "plane_godot_z": -0.071,
+    "uv_verified_upright_unmirrored": true,
+    "override_slot": 0,
+    "texture_size": [
+      1640,
+      1040
+    ],
+    "texture": {
+      "path": "art/textures/environment/d01_campus_graphics_01/campus_map_albedo.png",
+      "bytes": 191954,
+      "sha256": "cd0355d3e57813f3d0ebe450f2ad0c7b7be4b0977120be2942ad84999c92871f"
+    },
+    "fresh_png_byte_identical": true,
+    "python": "3.14.2",
+    "pillow": "12.3.0",
+    "source_inputs": [
+      {
+        "path": "docs/concepts/world-v1/stage-04-streets/district-editor/brackett-districts.json",
+        "bytes": 8788,
+        "sha256": "1e1685dad7b12c824aa485a8aee9076c415c859d25a7c28759eb9c9df26c8168"
+      },
+      {
+        "path": "tools/asset_production/d06_commercial_graphics_02/author.py",
+        "bytes": 5473,
+        "sha256": "6e1492bc8bbb5afec4b371e1f2f28e875d3c3be8c9fe3b629d20efea473eab50"
+      },
+      {
+        "path": "tools/asset_production/d06_commercial_graphics_01/author.py",
+        "bytes": 4356,
+        "sha256": "84c12c9bffd3a60a6470f37a8d3d7bb38588c31d208ae593193ece81c20316bb"
+      }
+    ]
+  },
+  "engine": {
+    "normalization": {
+      "aabb_max": [
+        0.95,
+        2.1,
+        0.22
+      ],
+      "aabb_min": [
+        -0.95,
+        0,
+        -0.22
+      ],
+      "base_prefab": "res://scenes/prefabs/environment/city_sign_supports_03.tscn",
+      "engine": "4.8-dev7 (official)",
+      "face_only_overrides": 1,
+      "filter": "linear_mipmap",
+      "hierarchy_and_imported_meshes_unchanged": true,
+      "identity_transforms": true,
+      "inherited_collision_unchanged": true,
+      "material_roundtrip_sha256": [
+        "688f4f7b48e71c81e78cf2019b2d4a8aab9053bd4f7322edc4e50fa5fd0c96d1",
+        "688f4f7b48e71c81e78cf2019b2d4a8aab9053bd4f7322edc4e50fa5fd0c96d1",
+        "688f4f7b48e71c81e78cf2019b2d4a8aab9053bd4f7322edc4e50fa5fd0c96d1"
+      ],
+      "material_uid": "uid://d154r2tsfhp48",
+      "meshes": 2,
+      "mipmaps": true,
+      "model": "res://art/models/environment/city_sign_supports_03/city_sign_supports_03.glb",
+      "prefab": "res://scenes/prefabs/environment/d01_campus_graphics_01.tscn",
+      "prefab_uid": "uid://deuwcyvy7lkbv",
+      "repeat": false,
+      "roundtrip_sha256": [
+        "2685b87bb1d989dd8983b451dba45243c426213fb01217abeaa860d18e28c83b",
+        "2685b87bb1d989dd8983b451dba45243c426213fb01217abeaa860d18e28c83b",
+        "2685b87bb1d989dd8983b451dba45243c426213fb01217abeaa860d18e28c83b"
+      ],
+      "stable_roundtrips": 2,
+      "status": "PASS",
+      "surfaces": 5,
+      "texture_size": [
+        1640,
+        1040
+      ]
+    },
+    "runtime": {
+      "aabb_max": [
+        0.95,
+        2.1,
+        0.22
+      ],
+      "aabb_min": [
+        -0.95,
+        0,
+        -0.22
+      ],
+      "base_prefab": "res://scenes/prefabs/environment/city_sign_supports_03.tscn",
+      "engine": "4.8-dev7 (official)",
+      "face_only_overrides": 1,
+      "filter": "linear_mipmap",
+      "hierarchy_and_imported_meshes_unchanged": true,
+      "identity_transforms": true,
+      "inherited_collision_unchanged": true,
+      "material_roundtrip_sha256": [],
+      "material_uid": "uid://d154r2tsfhp48",
+      "meshes": 2,
+      "mipmaps": true,
+      "model": "res://art/models/environment/city_sign_supports_03/city_sign_supports_03.glb",
+      "prefab": "res://scenes/prefabs/environment/d01_campus_graphics_01.tscn",
+      "prefab_uid": "uid://deuwcyvy7lkbv",
+      "repeat": false,
+      "roundtrip_sha256": [],
+      "stable_roundtrips": 0,
+      "status": "PASS",
+      "surfaces": 5,
+      "texture_size": [
+        1640,
+        1040
+      ]
+    },
+    "final_import_no_errors": true,
+    "runtime_no_diagnostics": true
+  },
+  "renders": [
+    {
+      "path": "docs/assets/production/d01_campus_graphics_01-evidence/hero.png",
+      "bytes": 306404,
+      "sha256": "dc5756cd8155b9a665635dd7742d7768254445b11e24aa6e27a927fec1d4f892"
+    },
+    {
+      "path": "docs/assets/production/d01_campus_graphics_01-evidence/side.png",
+      "bytes": 201860,
+      "sha256": "14e7c7fc370213b412b0365cdd78a559a078f6643fe9d810c6f75ffc87ea89eb"
+    },
+    {
+      "path": "docs/assets/production/d01_campus_graphics_01-evidence/detail.png",
+      "bytes": 361921,
+      "sha256": "16f9a12cbbf26c646dab2b2000fb6a7eb189bcdd2a891fba901cc60ee2b95bb6"
+    },
+    {
+      "path": "docs/assets/production/d01_campus_graphics_01-evidence/overhead_47m_42deg.png",
+      "bytes": 133585,
+      "sha256": "bf3e2690a442b725ffc1e6bd6e62933317baf357e5b351a41d3439fc1823ac0f"
+    }
+  ]
+}
