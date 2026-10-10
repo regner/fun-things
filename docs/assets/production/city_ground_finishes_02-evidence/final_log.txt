@@ -1,0 +1,81 @@
+city_ground_finishes.02 — final bounded production receipt, 10 October 2026
+Commands and paths: ../city_ground_finishes_02.md, Exact reproduction.
+Raw scratch logs: C:/tmp/ft/assets/city_ground_finishes_02/ (not committed).
+
+TOOLS
+Blender 5.2.2 LTS / d13f752e3b9c; glTF exporter 5.2.40.
+Godot 4.8.dev7.official.c971f93e7; gdstyle 0.3.0; Pillow 12.3.0.
+All Blender invocations used audio-disabled environment, background/factory-startup,
+threads 4, python-exit-code 1 and timeout <=300 seconds. Godot calls were headless.
+No connections to existing Blender/Godot MCP sessions.
+
+SOURCE / EXPORT / IMAGES
+texture.py exit 0; scratch PNG re-creation byte-identical (cmp exit 0).
+author.py exit 0. Pinned Blender Material.use_nodes emits a deprecation warning;
+this is not a failed export. No source backup files or packed runtime images.
+preview.py exit 0; four renders inspected against the plaza sibling and district concepts.
+960x640 hero 57,942 bytes; side 21,964; detail 55,861.
+1280x720 overhead 86,756 bytes: 47 m height / 42 degree vertical FOV.
+Final validate.py exit 0: 8 source vertices / 24 exported vertices / 12 triangles;
+one mesh and surface; zero non-manifold edges or degenerate faces; unit normals;
+outward winding; correct top UV orientation; source and Godot-axis bounds pass.
+Fresh saved-source re-export byte-identical, SHA-256:
+3273c907737c9d0f19787e52f4efb70b6e051bce05816f9491423a36d253adc3
+
+HEADLESS RESOURCE CHECKS
+Import exit 0; only existing MCP unsupported-version warning.
+Normalization exit 0 with CONCRETE_PREFAB_PASS. Two load/pack/resave passes retain
+exact wrapper bytes/IDs, but editor shutdown is NOT diagnostic-free (see below).
+Standalone load/physics exit 0, no warnings/errors:
+CONCRETE_PREFAB_PASS: linked mesh, external material, stable scene, floor datum
+Five floor rays hit Y=0 with +Y normals; the outside ray misses.
+Explicit worktree check-only compilation exit 0, no warnings/errors.
+Plugin-free initialized compiler mirror: owned-script compilation and standalone
+load/physics each exit 0 with no warnings/errors.
+
+OWNED TESTS
+Five ServiceConcreteTests pass (final run: 0.526 seconds).
+Committed pixels; matching tile borders; quiet desaturated midtone; no abrupt
+microdetail; broad washes survive 16x16 minification.
+gdstyle fmt --check: 1 file already formatted.
+gdstyle --max-line-length 100 --max-warnings 0: 1 file checked, no issues found.
+Initial max-function-length warning was fixed by extracting the normalization helper.
+Initial Pillow getdata deprecation was fixed using get_flattened_data and retested.
+
+CANONICAL PRODUCTION CHECKS — EXIT 1, NOT A FULL PASS
+Engine and GUT pin pass. Repository formatting/lint pass.
+14 repository Python tests pass. GUT import passes.
+137/137 GUT tests, 6,523 assertions pass (98.657 seconds).
+Negative-test harness passes by observing expected exit 1.
+Compiler setup hit its 30-second deadline, even after imports reached completion.
+The 120-second aggregate compilation deadline expired after 93/164 scripts passed.
+71 compile logs contain CHECK DEADLINE EXCEEDED (including the owned script).
+No source compiler error is reported in those deadline-only logs.
+The owned script passes separately in both projects, as recorded above.
+This timeout is not ignored as a historical fixture exception. Shared runner code
+and limits were not changed; the full unchanged failing command was not repeated.
+Full summary booleans and measured counts are retained in validation.json.
+
+EDITOR DIAGNOSTIC DISPOSITION
+Normalization completed resource assertions and saved IDs, then emitted:
+ERROR: 5 RID allocations of type 'N16RendererViewport8ViewportE' were leaked at exit.
+ERROR: 8 RID allocations of type 'PN13RendererDummy14TextureStorage12DummyTextureE' were leaked at exit.
+ERROR: 1 RID allocations of type 'N17RendererSceneCull8ScenarioE' were leaked at exit.
+ERROR: 52 RID allocations of type 'PN18TextServerAdvanced22ShapedTextDataAdvancedE' were leaked at exit.
+ERROR: 1 RID allocations of type 'PN18TextServerAdvanced12FontAdvancedE' were leaked at exit.
+WARNING: 5 RIDs of type "Canvas" were leaked.
+WARNING: 31 RIDs of type "CanvasItem" were leaked.
+WARNING: 168 ObjectDB instances were leaked at exit.
+The full-project editor also prints the existing Godot-4.8 MCP-version warning.
+These match the sibling's documented editor-only failure class, including its empty
+SceneTree reproduction. They are not suppressed or claimed fixed here. Standalone
+asset validation is clean; normalization proves saved byte stability only.
+Blender --version prints its existing one-block shutdown memory diagnostic; actual
+source/export/render/validate commands exit normally without that diagnostic.
+
+SCOPE LIMITS
+No Godot visual capture, road-tool adapter, world placement, production ActorMotion
+or car handling, multiplayer, packaged build, Deck or sustained GPU/frame test.
+The concrete texture is the deliverable for site geometry. The collider belongs
+only to the portable review swatch; never overlay it on existing floor collision.
+Independent acceptance remains pending. See manifest.json for the full payload set.
