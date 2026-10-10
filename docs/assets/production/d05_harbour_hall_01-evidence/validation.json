@@ -1,0 +1,355 @@
+{
+  "status": "PASS: source and GLB; engine/gameplay gates recorded separately",
+  "blender": "5.2.2 LTS",
+  "build_hash": "d13f752e3b9c",
+  "glTF_exporter": "5.2.40",
+  "source_vertices": 9064,
+  "source_triangles": 17736,
+  "source_degenerate_faces": 0,
+  "source_nonmanifold_edges": 0,
+  "source_max_normal_length_error": 1.6750506381946195e-07,
+  "glb_vertices_including_surface_splits": 10881,
+  "glb_triangles": 17736,
+  "glb_degenerate_triangles": 0,
+  "glb_max_normal_length_error": 1.4128453496020654e-07,
+  "mesh_count": 1,
+  "surface_count": 7,
+  "aabb_godot": {
+    "min": [
+      -13.800000190734863,
+      0.0,
+      -10.800000190734863
+    ],
+    "max": [
+      13.800000190734863,
+      9.199999809265137,
+      9.800000190734863
+    ],
+    "size": [
+      27.600000381469727,
+      9.199999809265137,
+      20.600000381469727
+    ]
+  },
+  "expected_aabb_godot": {
+    "min": [
+      -13.8,
+      0,
+      -10.8
+    ],
+    "max": [
+      13.8,
+      9.2,
+      9.8
+    ]
+  },
+  "envelope_tolerance_m": 0.001,
+  "ground_contact_pivot": [
+    0,
+    0,
+    0
+  ],
+  "materials": [
+    {
+      "name": "harbour_hall_base_stone",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.3199999928474426,
+          0.3100000023841858,
+          0.25999999046325684,
+          1
+        ],
+        "metallicFactor": 0,
+        "roughnessFactor": 0.6600000262260437
+      }
+    },
+    {
+      "name": "harbour_hall_warm_render",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.6200000047683716,
+          0.4300000071525574,
+          0.25,
+          1
+        ],
+        "metallicFactor": 0,
+        "roughnessFactor": 0.6499999761581421
+      }
+    },
+    {
+      "name": "harbour_hall_limestone_trim",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.7799999713897705,
+          0.699999988079071,
+          0.5299999713897705,
+          1
+        ],
+        "metallicFactor": 0,
+        "roughnessFactor": 0.5600000023841858
+      }
+    },
+    {
+      "name": "harbour_hall_teal_metal",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.03500000014901161,
+          0.15000000596046448,
+          0.15000000596046448,
+          1
+        ],
+        "metallicFactor": 0.3499999940395355,
+        "roughnessFactor": 0.41999998688697815
+      }
+    },
+    {
+      "name": "harbour_hall_slate_roof",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.04500000178813934,
+          0.08500000089406967,
+          0.11500000208616257,
+          1
+        ],
+        "metallicFactor": 0.18000000715255737,
+        "roughnessFactor": 0.49000000953674316
+      }
+    },
+    {
+      "name": "harbour_hall_opaque_glazing",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.02199999988079071,
+          0.06499999761581421,
+          0.09000000357627869,
+          1
+        ],
+        "metallicFactor": 0.20000000298023224,
+        "roughnessFactor": 0.2800000011920929
+      }
+    },
+    {
+      "name": "harbour_hall_entry_amber",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.7300000190734863,
+          0.3700000047683716,
+          0.10499999672174454,
+          1
+        ],
+        "metallicFactor": 0.10000000149011612,
+        "roughnessFactor": 0.4300000071525574
+      }
+    }
+  ],
+  "reexport_byte_identical": true,
+  "glb_sha256": "77a0f79013f4624707939b9297b1f05ec064211c3b295d42dab06e14dd214401",
+  "glb_bytes": 461524,
+  "interfaces_godot": {
+    "canopy_wall_datum": [
+      0,
+      3.85,
+      -9
+    ],
+    "canopy_minimum_underside_y_m": 3.3,
+    "entry_landing_y_m": 0.3
+  },
+  "engine": {
+    "aabb_min": [
+      -13.8000001907349,
+      0.0,
+      -10.8000001907349
+    ],
+    "aabb_size": [
+      27.6000003814697,
+      9.19999980926514,
+      20.6000003814697
+    ],
+    "collision_shape_count": 3,
+    "engine": "4.8-dev7 (official)",
+    "failures": [],
+    "front_ray_hit": [
+      0.0,
+      1.0,
+      -9.19999980926514
+    ],
+    "linked_model_identity": true,
+    "materials": [
+      "harbour_hall_base_stone",
+      "harbour_hall_warm_render",
+      "harbour_hall_limestone_trim",
+      "harbour_hall_teal_metal",
+      "harbour_hall_slate_roof",
+      "harbour_hall_opaque_glazing",
+      "harbour_hall_entry_amber"
+    ],
+    "mesh_count": 1,
+    "model_uid": "uid://crp443cckseei",
+    "ok": true,
+    "physics_shape_queries": [
+      {
+        "case": "interior_solid",
+        "solid": true
+      },
+      {
+        "case": "closed_entry_solid",
+        "solid": true
+      },
+      {
+        "case": "square_clear",
+        "solid": false
+      },
+      {
+        "case": "landing_solid",
+        "solid": true
+      },
+      {
+        "case": "ramp_solid",
+        "solid": true
+      },
+      {
+        "case": "step_side_clear",
+        "solid": false
+      },
+      {
+        "case": "west_passage_clear",
+        "solid": false
+      },
+      {
+        "case": "east_passage_clear",
+        "solid": false
+      },
+      {
+        "case": "roof_visual_only",
+        "solid": false
+      }
+    ],
+    "prefab_uid": "uid://mwj75ktxjny1",
+    "production_actor_motion": [
+      {
+        "bypass_end": [
+          14.0,
+          0.000877922924701124,
+          -9.13441181182861e-06
+        ],
+        "entry_end": [
+          0.0,
+          0.300055772066116,
+          -9.55011653900146
+        ],
+        "mode": 0,
+        "wall_end": [
+          13.5507869720459,
+          0.000877899001352489,
+          0.0
+        ]
+      },
+      {
+        "bypass_end": [
+          14.0,
+          0.000877922924701124,
+          -9.13441181182861e-06
+        ],
+        "entry_end": [
+          0.0,
+          0.300055772066116,
+          -9.55011653900146
+        ],
+        "mode": 1,
+        "wall_end": [
+          13.5507869720459,
+          0.000877899001352489,
+          0.0
+        ]
+      }
+    ],
+    "save_reload_byte_stable": true,
+    "second_fresh_process_exact_match": true,
+    "normalization_diagnostics": [
+      "WARNING: [MCP] Godot 4.8 detected - latest tested version is 4.7.0. The plugin will run normally but some features may behave unexpectedly. Please report issues at https://github.com/NPGameDev/godot-mcp-toolkit/issues",
+      "ERROR: 5 RID allocations of type 'N16RendererViewport8ViewportE' were leaked at exit.",
+      "ERROR: 8 RID allocations of type 'PN13RendererDummy14TextureStorage12DummyTextureE' were leaked at exit.",
+      "ERROR: 1 RID allocations of type 'N17RendererSceneCull8ScenarioE' were leaked at exit.",
+      "ERROR: 52 RID allocations of type 'PN18TextServerAdvanced22ShapedTextDataAdvancedE' were leaked at exit.",
+      "ERROR: 1 RID allocations of type 'PN18TextServerAdvanced12FontAdvancedE' were leaked at exit.",
+      "WARNING: 5 RIDs of type \"Canvas\" were leaked.",
+      "WARNING: 31 RIDs of type \"CanvasItem\" were leaked.",
+      "WARNING: 168 ObjectDB instances were leaked at exit (run with `--verbose` for details)."
+    ],
+    "final_import_diagnostics": [
+      "WARNING: [MCP] Godot 4.8 detected - latest tested version is 4.7.0. The plugin will run normally but some features may behave unexpectedly. Please report issues at https://github.com/NPGameDev/godot-mcp-toolkit/issues"
+    ]
+  },
+  "production_checks": {
+    "overall_ok": true,
+    "results": {
+      "engine": {
+        "ok": true,
+        "version": "4.8.dev7.official.c971f93e7"
+      },
+      "gut_pin": {
+        "ok": true,
+        "version": "9.7.1"
+      },
+      "owned_scripts": {
+        "ok": true,
+        "returncode": 0
+      },
+      "python_tests": {
+        "ok": true,
+        "returncode": 0
+      },
+      "gut_import": {
+        "ok": true,
+        "returncode": 0
+      },
+      "gut_tests": {
+        "ok": true,
+        "returncode": 0
+      },
+      "gut_negative": {
+        "ok": true,
+        "observed_returncode": 1
+      }
+    },
+    "compiled_script_count": 208,
+    "failed_compilation_paths": [],
+    "owned_script_style_compile_and_format": "PASS",
+    "python_tests": 17,
+    "gut_tests": 149,
+    "gut_assertions": 6768,
+    "known_failure_exemptions": []
+  },
+  "visual_review": {
+    "renders_inspected": [
+      {
+        "file": "hero.png",
+        "width": 1280,
+        "height": 720,
+        "bytes": 374260
+      },
+      {
+        "file": "side.png",
+        "width": 1280,
+        "height": 720,
+        "bytes": 260703
+      },
+      {
+        "file": "entry_detail.png",
+        "width": 1280,
+        "height": 720,
+        "bytes": 368519
+      },
+      {
+        "file": "overhead_47m_42deg.png",
+        "width": 1280,
+        "height": 720,
+        "bytes": 224710
+      }
+    ],
+    "observation": "Broad hipped roof remains quiet; warm civic entry and shallow steps read in detail. Side framing corrected to retain ground contact; canopy and square are separate.",
+    "renderer": "Blender Cycles CPU, 32 samples, AgX; isolated evidence, not engine visual acceptance",
+    "gameplay_camera": "Vertical down, 47 m, 42 degree vertical perspective FOV, 1280x720",
+    "png": "RGB8, compression 95, dither disabled; no image post-processing"
+  }
+}
