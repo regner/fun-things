@@ -1,0 +1,39 @@
+d03_apartment_family.03 - short infill assembly reference
+Producer: commissioned implementation worker; independent acceptance pending.
+Commands executed from lane/a-apart; exact reproduction commands are in the handoff.
+Raw logs and fresh exports: C:/tmp/ft/assets/d03_apartment_family_03/ (not committed).
+
+PASS exit 0: python tools/asset_production/d03_apartment_family_03/author.py
+  One-time saved composition: 16 existing prefab instances; zero new meshes.
+PASS exit 0: pinned Godot --headless --path . --import (initial and final; timeout 300)
+  Godot 4.8.dev7.official.c971f93e7; no ERROR/SCRIPT ERROR lines in either import log.
+PASS exit 0: pinned headless --editor check_prefab.gd -- --normalize (timeout 180)
+  Initial normalize plus two byte-stable reload/save cycles; all UIDs/identities retained.
+  Known headless editor shutdown diagnostics: viewport/texture/scenario/text/font RID
+  leaks and Canvas/CanvasItem/ObjectDB warnings, also observed in sibling checks.
+  These diagnostics are not suppressed or counted as clean import/runtime logs.
+PASS exit 0: pinned headless check_prefab.gd (timeout 180)
+  Runtime log: no ERROR/SCRIPT ERROR lines; no missing dependencies; failures [].
+  16 linked meshes, 57 surfaces, 10 inherited static boxes; all imported model roots identity.
+  13 capsule queries, 11 seam rays, 50 clear side-link vertical rays.
+  Car-sized box sweeps 20 m down east bypass unobstructed.
+  8 production ActorMotion runs: 4 cases x AUTHORITY/REPLAY x 60 ticks; mode endpoints equal.
+PASS exit 0: pinned Blender render.py (timeout 900, isolated factory startup, 4 threads)
+  Blender 5.2.2 LTS d13f752e3b9c; four final PNGs inspected by producer.
+  1280x720 hero/side/overhead; 1024x576 detail; RGB compression 100.
+  Maximum image size 366538 bytes; overhead vertical-down 47 m / 42 degree vertical FOV.
+PASS exit 0: pinned Blender validate.py (initial and final; timeout 300, 4 threads)
+  Original sibling export.py scripts use shared export_settings.json, glTF exporter 5.2.40.
+  All six consumed GLBs re-export byte-identically from five unchanged saved sources.
+  23296 triangles; 12168 source / 16362 exported vertices; 16 meshes; 57 surfaces.
+  Zero nonmanifold edges, degenerate source faces or binary GLB triangles; unit normals.
+  Actual vertex AABB matches Godot within 0.001 m; 221.76 m2 structural ground union.
+  13 roof first-hit samples; 126 unroofed visual-link samples; expected component inventory.
+PASS exit 0: mise exec -- gdstyle fmt --check tools/asset_production/d03_apartment_family_03/check_prefab.gd
+PASS exit 0: mise exec -- gdstyle --max-line-length 100 --max-warnings 0 tools/asset_production/d03_apartment_family_03/check_prefab.gd
+  One file checked; no issues/warnings.
+
+Known non-failing notices: addon untested-engine-version warning; Blender use_nodes
+ deprecation notice for Blender 6. No live sessions or production_checks.py used.
+Remaining: independent review, actual world placement/visual gameplay-camera review,
+vehicle driving, authoritative transport, packaged dependencies and Deck/performance.
