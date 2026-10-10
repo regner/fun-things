@@ -293,11 +293,26 @@
         "observed_returncode": 1
       }
     },
-    "compiled_scripts": 80,
+    "compiled_scripts": 85,
     "failed_scripts": [],
     "python_tests": 11,
     "gut_tests": 40,
     "gut_assertions": 458
+  },
+  "evidence_render_settings": {
+    "resolution": [
+      1280,
+      720
+    ],
+    "png_compression": 95,
+    "dither_intensity": 0,
+    "render_bytes": {
+      "hero.png": 190587,
+      "side.png": 195459,
+      "portal_detail.png": 158741,
+      "overhead_47m_42deg.png": 184058
+    },
+    "maximum_bytes_per_render": 400000
   },
   "visual_self_review": {
     "renders_inspected": [
@@ -307,7 +322,7 @@
       "overhead_47m_42deg.png"
     ],
     "observation": "Thin pale Y slab; three mouths read overhead; corrected square portal shading.",
-    "camera": "Vertical down, 47 m above ground, deck at 5.5 m, vertical FOV 42 degrees, 1280x800",
+    "camera": "Vertical down, 47 m above ground, deck at 5.5 m, vertical FOV 42 degrees, 1280x720",
     "renderer": "Isolated Blender Cycles CPU, 32 samples, AgX; not an engine capture"
   }
 }

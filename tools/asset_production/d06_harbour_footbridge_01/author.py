@@ -156,9 +156,12 @@ def main():
     scene.cycles.device = "CPU"
     scene.cycles.samples = 32
     scene.cycles.use_denoising = True
-    scene.render.resolution_x, scene.render.resolution_y = 1280, 800
+    scene.render.resolution_x, scene.render.resolution_y = 1280, 720
     scene.render.resolution_percentage = 100
     scene.render.image_settings.file_format = "PNG"
+    scene.render.image_settings.compression = 95
+    # Disable film dithering so quiet gradients compress without lossy palette conversion.
+    scene.render.dither_intensity = 0
     scene.view_settings.view_transform = "AgX"
     camera.location = (9, -12, 12)
     aim(camera, (0, 0, -0.1))
