@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://dcckdjer5lxso"]
+
+[ext_resource type="PackedScene" uid="uid://d4joub12omf7s" path="res://art/models/environment/city_shore_edges_04/city_shore_edges_04_rock_corner.glb" id="1_model"]
+
+[sub_resource type="BoxShape3D" id="Box_0"]
+size = Vector3(2.8, 1.25, 1.6)
+
+[sub_resource type="BoxShape3D" id="Box_1"]
+size = Vector3(1.6, 1.25, 1.202)
+
+[node name="city_shore_edges_04_rock_corner" type="Node3D" unique_id=717631082]
+
+[node name="Visuals" type="Node3D" parent="." unique_id=1361381978]
+
+[node name="Model" parent="Visuals" unique_id=304182406 instance=ExtResource("1_model")]
+
+[node name="Collision" type="Node3D" parent="." unique_id=66113417]
+
+[node name="Body" type="StaticBody3D" parent="Collision" unique_id=1053110393]
+collision_mask = 0
+
+[node name="Solid0" type="CollisionShape3D" parent="Collision/Body" unique_id=614486021]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.6, 0.025, 0)
+shape = SubResource("Box_0")
+
+[node name="Solid1" type="CollisionShape3D" parent="Collision/Body" unique_id=1925628082]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.025, -1.4)
+shape = SubResource("Box_1")

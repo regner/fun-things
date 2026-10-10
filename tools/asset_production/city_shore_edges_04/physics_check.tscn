@@ -1,0 +1,78 @@
+[gd_scene format=3 uid="uid://cu12p2hn0kfmv"]
+
+[ext_resource type="Script" uid="uid://jthmfio4c27p" path="res://scripts/actors/actor_motion.gd" id="actor"]
+[ext_resource type="PackedScene" uid="uid://2b0ygphndbob" path="res://scenes/prefabs/environment/city_shore_edges_04_quay_corner.tscn" id="quay_corner"]
+[ext_resource type="PackedScene" uid="uid://g235s1ps0wqm" path="res://scenes/prefabs/environment/city_shore_edges_04_quay_end.tscn" id="quay_end"]
+[ext_resource type="PackedScene" uid="uid://dqmrx6xoaibcb" path="res://scenes/prefabs/environment/city_shore_edges_02.tscn" id="quay_straight"]
+[ext_resource type="PackedScene" uid="uid://dcckdjer5lxso" path="res://scenes/prefabs/environment/city_shore_edges_04_rock_corner.tscn" id="rock_corner"]
+[ext_resource type="PackedScene" uid="uid://b3h3ui6xqbtkv" path="res://scenes/prefabs/environment/city_shore_edges_04_rock_end.tscn" id="rock_end"]
+[ext_resource type="PackedScene" uid="uid://n3wjwos766bf" path="res://scenes/prefabs/environment/city_shore_edges_03.tscn" id="rock_straight"]
+[ext_resource type="PackedScene" uid="uid://ccuo6vkogrcgm" path="res://scenes/prefabs/environment/city_shore_edges_04_wall_corner.tscn" id="wall_corner"]
+[ext_resource type="PackedScene" uid="uid://qcm5ag5abvea" path="res://scenes/prefabs/environment/city_shore_edges_04_wall_end.tscn" id="wall_end"]
+[ext_resource type="PackedScene" uid="uid://d37bl666in874" path="res://scenes/prefabs/environment/city_shore_edges_01.tscn" id="wall_straight"]
+
+[sub_resource type="BoxShape3D" id="floor"]
+size = Vector3(14, 0.2, 20)
+
+[sub_resource type="CapsuleShape3D" id="capsule"]
+radius = 0.35
+height = 1.8
+
+[node name="ShoreCornerPhysicsCheck" type="Node3D" unique_id=781696776]
+
+[node name="wallCorner" parent="." unique_id=811729598 instance=ExtResource("wall_corner")]
+
+[node name="wallIncoming" parent="." unique_id=1757326543 instance=ExtResource("wall_straight")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, 0)
+
+[node name="wallOutgoing" parent="." unique_id=895485908 instance=ExtResource("wall_straight")]
+transform = Transform3D(0, 0, -1, 0, 1, 0, 1, 0, 0, 0, 0, -4)
+
+[node name="wallTerminal" parent="." unique_id=979003227 instance=ExtResource("wall_end")]
+transform = Transform3D(0, 0, -1, 0, 1, 0, 1, 0, 0, 0, 0, -6.5)
+
+[node name="wallFloor" type="StaticBody3D" parent="." unique_id=1963464371]
+collision_mask = 0
+
+[node name="Shape" type="CollisionShape3D" parent="wallFloor" unique_id=1055102762]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.1, -2)
+shape = SubResource("floor")
+
+[node name="quayCorner" parent="." unique_id=534351567 instance=ExtResource("quay_corner")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 0, 0)
+
+[node name="quayIncoming" parent="." unique_id=748478986 instance=ExtResource("quay_straight")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, 0)
+
+[node name="quayOutgoing" parent="." unique_id=1682478994 instance=ExtResource("quay_straight")]
+transform = Transform3D(0, 0, -1, 0, 1, 0, 1, 0, 0, 12, 0, -4)
+
+[node name="quayTerminal" parent="." unique_id=1775428258 instance=ExtResource("quay_end")]
+transform = Transform3D(0, 0, -1, 0, 1, 0, 1, 0, 0, 12, 0, -6.5)
+
+[node name="rockCorner" parent="." unique_id=1746287563 instance=ExtResource("rock_corner")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24, 0, 0)
+
+[node name="rockIncoming" parent="." unique_id=281360769 instance=ExtResource("rock_straight")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20, 0, 0)
+
+[node name="rockOutgoing" parent="." unique_id=946312007 instance=ExtResource("rock_straight")]
+transform = Transform3D(0, 0, -1, 0, 1, 0, 1, 0, 0, 24, 0, -4)
+
+[node name="rockTerminal" parent="." unique_id=1503291205 instance=ExtResource("rock_end")]
+transform = Transform3D(0, 0, -1, 0, 1, 0, 1, 0, 0, 24, 0, -6.5)
+
+[node name="rockFloor" type="StaticBody3D" parent="." unique_id=399578336]
+collision_mask = 0
+
+[node name="Shape" type="CollisionShape3D" parent="rockFloor" unique_id=42887343]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24, -0.1, -2)
+shape = SubResource("floor")
+
+[node name="Actor" type="CharacterBody3D" parent="." unique_id=425762908]
+collision_layer = 2
+script = ExtResource("actor")
+
+[node name="Capsule" type="CollisionShape3D" parent="Actor" unique_id=115004167]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0)
+shape = SubResource("capsule")

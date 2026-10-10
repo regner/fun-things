@@ -1,0 +1,59 @@
+city_shore_edges.04 — final bounded production receipt, 10 October 2026
+Producer: commissioned implementation specialist; independent review pending.
+Scope approval: six same-profile corner/end components; mixed-profile transitions deferred.
+
+Pins: Blender 5.2.2 LTS / d13f752e3b9c / glTF 5.2.40;
+Godot 4.8.dev7.official.c971f93e7; gdstyle 0.3.0.
+All modelling/export/render/validation calls used isolated Blender background/factory-startup,
+threads 4, noaudio, ALSOFT_DRIVERS=null, SDL_AUDIODRIVER=dummy, python-exit-code 1,
+GNU timeout 900. No live Blender/Godot session was accessed.
+
+Commands from repo root (full reproduction in ../city_shore_edges_04.md):
+  Blender --python tools/asset_production/city_shore_edges_04/author.py: exit 0
+  Blender --python tools/asset_production/city_shore_edges_04/export.py: exit 0
+  Blender --python tools/asset_production/city_shore_edges_04/render.py: exit 0
+  Blender --python tools/asset_production/city_shore_edges_04/export.py -- C:/tmp/ft/assets/city_shore_edges_04/reexport: exit 0
+  Blender --python tools/asset_production/city_shore_edges_04/validate.py -- C:/tmp/ft/assets/city_shore_edges_04/reexport: exit 0
+  timeout 300 pinned-Godot --headless --editor --path . --import: exit 0
+  timeout 180 pinned-Godot --headless --editor --path . --script tools/asset_production/city_shore_edges_04/check.gd -- --normalize: exit 0
+  timeout 180 pinned-Godot --headless --path . --script tools/asset_production/city_shore_edges_04/check.gd: exit 0 (two separate processes)
+  timeout 60 pinned-gdstyle fmt --check tools/asset_production/city_shore_edges_04/check.gd: exit 0
+  timeout 60 pinned-gdstyle --max-warnings 0 tools/asset_production/city_shore_edges_04/check.gd: exit 0, no warnings
+
+Six variants: 1,274 triangles; 677 source vertices; six meshes; 20 surfaces.
+Zero degenerate faces/triangles, zero non-manifold edges, consistent winding,
+unit-length normals and identity transforms. Actual binary export positions match source.
+All nine mating sections match saved sibling end vertices with maximum error 0 m.
+Every fresh GLB is byte-identical; six GLBs total 64,676 bytes.
+Six prefabs and saved sibling assembly have stable normalized save/reload bytes and UIDs.
+37 physics rays and 16 production ActorMotion authority/replay cases pass.
+Maximum authority/replay position error .000847106 m, under .001 m.
+No vehicle, real network, world-placement, engine-camera or device-performance acceptance.
+
+Canonical command:
+  timeout 1800 mise exec -- python tools/production_checks.py --output C:/tmp/ft/assets/city_shore_edges_04/checks-final
+Result: EXIT 1, NOT WAIVED. Global 120-second script compilation deadline expired;
+75/166 scripts are deadline-limited, including the owned check. All failed compile logs
+contain the deadline marker and no script/error/warning diagnostics. Repository formatting
+and style passed. Engine/GUT pins, 14 Python tests, 137 GUT tests / 6,523 assertions,
+isolated import and expected-failure negative control passed.
+Follow-up: all 75 deadline-limited scripts were individually checked in the canonical
+isolated compiler-project using GNU timeout 180, pinned Godot --headless --check-only.
+Every command exited 0 with no diagnostics. Source hashes and results are retained in
+validation.json:production_checks.individual_compilation_followup. These individual
+results do not relabel the failed canonical suite. No unchanged full-suite retry was made.
+Earlier checks/ run compiled all 166 but failed owned formatting; final formatting is fixed.
+
+Visual review: four final Cycles/AgX images, 1280x720. Wall/quay retain pale coping;
+rock uses applied weighted mineral normals after inspecting flat/unweighted alternatives.
+Hero/side/detail are toe-aligned studio displays, not world datums; overhead restores
+common land datum, vertical-down 47 m / 42-degree camera. No runtime mesh generation.
+Output dither was disabled to remove studio-background noise; final PNGs retain all
+8-bit RGB values with lossless compression, each below 400 KiB (no posterization).
+
+Corrections retained in scratch logs: initial fixture bypass outside its test floor;
+exact wall/quay outgoing collider seam floating-point ray cracks fixed with 1 mm overlap;
+owned GDScript local-count/spacing/line-length warnings fixed. Pinned Blender emits
+Material.use_nodes deprecation notices. Editor normalization emits known addon pin warning
+and shutdown RID/ObjectDB leaks after successful checks. Final standalone checks have no
+script/error/warning diagnostics. Raw logs, retries and mirrors stay in C:/tmp/ft/assets/city_shore_edges_04/.
