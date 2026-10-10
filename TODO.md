@@ -35,7 +35,7 @@ recommendations and do not block P1.
   desktop launch checklist on Linux; packaging on Windows does not close that gate. The owner's
   first P1 playtest found client stalls under held input and no mouse facing. M1-P1-FIX fixed
   both and added sustained real-input acceptance (86% normal-profile travel) plus a PowerShell
-  launcher. Remaining: the owner's P1 re-test.
+  launcher. The owner's P1 re-test passed on 10 Oct. Remaining: the Linux checklist.
 
 ### M1-B — Vehicles, combat and destruction
 
