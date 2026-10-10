@@ -28,24 +28,8 @@ recommendations and do not block P1.
 - [ ] **M1-A1 — Build the session service and menu flow.** A1.1 Boot/session and A1.2 ENet
   host/join (pre-RPC SceneMultiplayer authentication, bounded cleanup, real-process matrix) are
   done. Remaining: carry the S06 whole-UI direction into the authored menus.
-- [ ] **M1-A2 — Implement player simulation, presentation and replication.** A2.1 (the shared
-  `FootCommand` and production `ActorMotion` on the Coral Courier player) is done. A2.2's replication
-  core (`scripts/replication/`: identity, the measured 16-byte codec with decision 51's 2 cm island
-  range, baseline/journal admission, durable/subset state apply, real-process ENet proof) is done;
-  its Match/Boot wiring is done (admitted ENet players spawn in Match with host-authoritative foot
-  movement, a bounded 16-byte input codec, runtime admission deadlines and contract channels). A2.5 (LocalRig 47 m / 42° camera, Coral Courier presentation with
-  data-driven stride playback, grounded ActorMotion with gravity/floor snap, standalone Boot -> Match
-  walking) is done, with Coral Courier run/strafe clips re-authored for a natural 5 m/s stride (~1x).
-  A2.4 is done: the saved `Match/PlayerLifecycle` owner (`scripts/match/`) runs host-authoritative
-  death, 180-tick respawn with generation advance, spawn reservations and match reset; admission
-  carries lifecycle revisions, resets restart in-flight joins, and disconnects republish the roster
-  (real-process ENet lifecycle proof in `docs/spikes/m1-a2-4.md`). Remaining: A2.3. Use decision 19's
-  ordered, distance-bounded held-input queue and decision 20's tunable short
-  extrapolate→hold→smooth remote-motion policy; present the delivered Coral Courier under the
-  47 m / 42° camera in the Brackett greybox; include drawable remote-continuity acceptance from
-  S03-R. After: M1-A1, M1-C2.1.
-- [ ] **M1-A-GATE — Verify the multiplayer shell in exported builds (P1).** After: M1-A2,
-  M1-C4.1. Validate two exported ENet processes walking together in Brackett,
+- [ ] **M1-A-GATE — Verify the multiplayer shell in exported builds (P1).** M1-A2 is done
+  (A2.1–A2.5: foot simulation, replication, prediction/smoothing, lifecycle, first playable). Validate two exported ENet processes walking together in Brackett,
   lifecycle/reset/error flows and the S08 Linux desktop checklist with Steam absent.
 
 ### M1-B — Vehicles, combat and destruction
@@ -53,16 +37,16 @@ recommendations and do not block P1.
 - [ ] **M1-B1 — Implement vehicles and authoritative driver transitions (P2).** B1.1's standalone
   drive-rule port is done: one `VehicleMotion` step with decision 30 tuning, the three delivered
   car entity scenes, wheel presentation and the `scenes/dev/vehicle_drive.tscn` tuning harness.
-  B1.1's local prediction and corrections follow A2.3. Entry is host-confirmed after a
+  B1.1's local car prediction and corrections can now build on A2.3's foot prediction seams. Entry is host-confirmed after a
   short ~0.3 s presentation; transfer control and camera/HUD ownership only on acceptance, with
   no rejection snap. Preserve exit below 0.5 m/s at the authored 1.5 m offset and add production
-  clearance. After: M1-A2.3, M1-A2.4.
+  clearance.
 - [ ] **M1-B2 — Implement weapons, host-current-time hit verdicts, health, damage and
   respawn (P3).** Use the delivered pistol, SMG, launcher and weapon effects with decision 21's
   playtest-tuned starting values; the shooter sees an immediate cosmetic muzzle flash and
   hitscan tracer (decision 18; tracer scene from C1.2a), with impact/damage on host
   confirmation. Fire intents carry the shooter's view tick so bounded host-only rewind remains
-  possible later. After: M1-A2.3, M1-A2.4, M1-C1.2a.
+  possible later.
 - [ ] **M1-B3 — Implement car explosions, wrecks and chains.** Carry S05 wreck, in-flight
   hydration, lifecycle-race and final-body evidence into acceptance. After: M1-B1, M1-B2.
 - [ ] **M1-B4 — Add combat feedback and review the vertical slice (P3).** After: M1-B3.
