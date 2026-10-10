@@ -4125,14 +4125,14 @@
       "input_next_action": "Refine shared design for recorded districts",
       "brief": "[Brief](../../assets/city_quay_furniture.md)",
       "priority": 0,
-      "status": "queued",
-      "agent_id": null,
-      "source_revision": null,
-      "review_status": "pending",
-      "integration_status": "pending",
+      "status": "production_prefab_accepted",
+      "agent_id": "8fd09bb5-6779-4164-8809-3b5c38d68907",
+      "source_revision": "04b8e097",
+      "review_status": "accepted source/export/prefab scope (independent Sol review)",
+      "integration_status": "accepted",
       "placement_status": "pending",
       "blocker": null,
-      "attempts": 0,
+      "attempts": 1,
       "initial_time_cap_minutes": 90,
       "owned_paths": [
         "art/source/models/environment/city_quay_furniture_01/",
@@ -4140,8 +4140,20 @@
         "art/textures/environment/city_quay_furniture_01/",
         "art/materials/environment/city_quay_furniture_01/",
         "docs/assets/production/city_quay_furniture_01.md",
-        "docs/assets/production/city_quay_furniture_01-evidence/"
-      ]
+        "docs/assets/production/city_quay_furniture_01-evidence/",
+        "tools/asset_production/city_quay_furniture_01/",
+        "scenes/prefabs/environment/city_quay_furniture_01.tscn"
+      ],
+      "launch": {
+        "provider": "portkey/gpt-6-astra",
+        "configured_effort": "medium",
+        "mode": "orchestrator asset lane",
+        "lane": "a-quay"
+      },
+      "producer_manifest": "docs/assets/production/city_quay_furniture_01-evidence/manifest.json",
+      "report": "docs/assets/production/city_quay_furniture_01.md",
+      "reviewer_id": "2b7124c3-2a2b-4ac2-9aa0-8cdb1c67ce42",
+      "integrated_revision": "b647172c"
     },
     {
       "id": "city_quay_furniture.02",
@@ -4154,14 +4166,14 @@
       "input_next_action": "Confirm supporting uses in district detail concepts",
       "brief": "[Brief](../../assets/city_quay_furniture.md)",
       "priority": 0,
-      "status": "queued",
-      "agent_id": null,
-      "source_revision": null,
-      "review_status": "pending",
-      "integration_status": "pending",
+      "status": "production_prefab_accepted",
+      "agent_id": "4f75609d-b58d-41d4-8e91-dcc099e175c6",
+      "source_revision": "27a7d1fa",
+      "review_status": "accepted source/export/prefab scope (independent Sol review)",
+      "integration_status": "accepted",
       "placement_status": "pending",
       "blocker": null,
-      "attempts": 0,
+      "attempts": 1,
       "initial_time_cap_minutes": 90,
       "owned_paths": [
         "art/source/models/environment/city_quay_furniture_02/",
@@ -4169,8 +4181,20 @@
         "art/textures/environment/city_quay_furniture_02/",
         "art/materials/environment/city_quay_furniture_02/",
         "docs/assets/production/city_quay_furniture_02.md",
-        "docs/assets/production/city_quay_furniture_02-evidence/"
-      ]
+        "docs/assets/production/city_quay_furniture_02-evidence/",
+        "tools/asset_production/city_quay_furniture_02/",
+        "scenes/prefabs/environment/city_quay_furniture_02.tscn"
+      ],
+      "launch": {
+        "provider": "portkey/gpt-6-astra",
+        "configured_effort": "medium",
+        "mode": "orchestrator asset lane",
+        "lane": "a-quay"
+      },
+      "producer_manifest": "docs/assets/production/city_quay_furniture_02-evidence/manifest.json",
+      "report": "docs/assets/production/city_quay_furniture_02.md",
+      "reviewer_id": "2b7124c3-2a2b-4ac2-9aa0-8cdb1c67ce42",
+      "integrated_revision": "b647172c"
     },
     {
       "id": "city_quay_furniture.03",
@@ -4183,14 +4207,14 @@
       "input_next_action": "Confirm supporting uses in district detail concepts",
       "brief": "[Brief](../../assets/city_quay_furniture.md)",
       "priority": 0,
-      "status": "queued",
-      "agent_id": null,
-      "source_revision": null,
-      "review_status": "pending",
-      "integration_status": "pending",
+      "status": "production_prefab_accepted",
+      "agent_id": "542e6aea-bc62-4779-9b11-5542428720e7",
+      "source_revision": "b647172c",
+      "review_status": "accepted source/export/prefab scope (independent Sol review)",
+      "integration_status": "accepted",
       "placement_status": "pending",
       "blocker": null,
-      "attempts": 0,
+      "attempts": 1,
       "initial_time_cap_minutes": 90,
       "owned_paths": [
         "art/source/models/environment/city_quay_furniture_03/",
@@ -4198,8 +4222,20 @@
         "art/textures/environment/city_quay_furniture_03/",
         "art/materials/environment/city_quay_furniture_03/",
         "docs/assets/production/city_quay_furniture_03.md",
-        "docs/assets/production/city_quay_furniture_03-evidence/"
-      ]
+        "docs/assets/production/city_quay_furniture_03-evidence/",
+        "tools/asset_production/city_quay_furniture_03/",
+        "scenes/prefabs/environment/city_quay_furniture_03.tscn"
+      ],
+      "launch": {
+        "provider": "portkey/gpt-6-astra",
+        "configured_effort": "medium",
+        "mode": "orchestrator asset lane",
+        "lane": "a-quay"
+      },
+      "producer_manifest": "docs/assets/production/city_quay_furniture_03-evidence/manifest.json",
+      "report": "docs/assets/production/city_quay_furniture_03.md",
+      "reviewer_id": "2b7124c3-2a2b-4ac2-9aa0-8cdb1c67ce42",
+      "integrated_revision": "b647172c"
     },
     {
       "id": "city_parking_furniture.01",
