@@ -6970,14 +6970,14 @@
       "input_next_action": "Refine design from district asset breakdown",
       "brief": "[Brief](../../assets/d05_civic_graphics.md)",
       "priority": 1,
-      "status": "queued",
-      "agent_id": null,
-      "source_revision": null,
-      "review_status": "pending",
-      "integration_status": "pending",
+      "status": "production_prefab_accepted",
+      "agent_id": "0d4146f5-6cd4-42c5-9e0b-8316a7b9f965",
+      "source_revision": "cc6d979a",
+      "review_status": "accepted source/export/prefab scope (independent Sol review)",
+      "integration_status": "accepted",
       "placement_status": "pending",
       "blocker": null,
-      "attempts": 0,
+      "attempts": 1,
       "initial_time_cap_minutes": 90,
       "owned_paths": [
         "art/source/models/environment/d05_civic_graphics_01/",
@@ -6985,8 +6985,20 @@
         "art/textures/environment/d05_civic_graphics_01/",
         "art/materials/environment/d05_civic_graphics_01/",
         "docs/assets/production/d05_civic_graphics_01.md",
-        "docs/assets/production/d05_civic_graphics_01-evidence/"
-      ]
+        "docs/assets/production/d05_civic_graphics_01-evidence/",
+        "tools/asset_production/d05_civic_graphics_01/",
+        "scenes/prefabs/environment/d05_civic_graphics_01.tscn"
+      ],
+      "launch": {
+        "provider": "portkey/gpt-6-astra",
+        "configured_effort": "medium",
+        "mode": "orchestrator asset lane",
+        "lane": "a-d05"
+      },
+      "producer_manifest": "docs/assets/production/d05_civic_graphics_01-evidence/manifest.json",
+      "report": "docs/assets/production/d05_civic_graphics_01.md",
+      "reviewer_id": "00d17776-1045-4dbd-b489-08cf9b58d652",
+      "integrated_revision": "34704a08"
     },
     {
       "id": "d05_civic_graphics.02",
@@ -6999,14 +7011,14 @@
       "input_next_action": "Confirm supporting uses in district detail concepts",
       "brief": "[Brief](../../assets/d05_civic_graphics.md)",
       "priority": 1,
-      "status": "queued",
-      "agent_id": null,
-      "source_revision": null,
-      "review_status": "pending",
-      "integration_status": "pending",
+      "status": "production_prefab_accepted",
+      "agent_id": "bfeff7a3-3614-4839-90e3-6f016262d2c0",
+      "source_revision": "588fcc54",
+      "review_status": "accepted source/export/prefab scope (independent Sol review)",
+      "integration_status": "accepted",
       "placement_status": "pending",
       "blocker": null,
-      "attempts": 0,
+      "attempts": 1,
       "initial_time_cap_minutes": 90,
       "owned_paths": [
         "art/source/models/environment/d05_civic_graphics_02/",
@@ -7014,8 +7026,20 @@
         "art/textures/environment/d05_civic_graphics_02/",
         "art/materials/environment/d05_civic_graphics_02/",
         "docs/assets/production/d05_civic_graphics_02.md",
-        "docs/assets/production/d05_civic_graphics_02-evidence/"
-      ]
+        "docs/assets/production/d05_civic_graphics_02-evidence/",
+        "tools/asset_production/d05_civic_graphics_02/",
+        "scenes/prefabs/environment/d05_civic_graphics_02.tscn"
+      ],
+      "launch": {
+        "provider": "portkey/gpt-6-astra",
+        "configured_effort": "medium",
+        "mode": "orchestrator asset lane",
+        "lane": "a-d05"
+      },
+      "producer_manifest": "docs/assets/production/d05_civic_graphics_02-evidence/manifest.json",
+      "report": "docs/assets/production/d05_civic_graphics_02.md",
+      "reviewer_id": "00d17776-1045-4dbd-b489-08cf9b58d652",
+      "integrated_revision": "34704a08"
     },
     {
       "id": "d05_civic_graphics.03",
@@ -7028,14 +7052,14 @@
       "input_next_action": "Refine design from district asset breakdown",
       "brief": "[Brief](../../assets/d05_civic_graphics.md)",
       "priority": 1,
-      "status": "queued",
-      "agent_id": null,
-      "source_revision": null,
-      "review_status": "pending",
-      "integration_status": "pending",
+      "status": "production_prefab_accepted",
+      "agent_id": "b27d0e94-424d-4ce1-99e9-e4c7ae39c247",
+      "source_revision": "007451ae",
+      "review_status": "accepted source/export/prefab scope (independent Sol review)",
+      "integration_status": "accepted",
       "placement_status": "pending",
       "blocker": null,
-      "attempts": 0,
+      "attempts": 1,
       "initial_time_cap_minutes": 90,
       "owned_paths": [
         "art/source/models/environment/d05_civic_graphics_03/",
@@ -7043,8 +7067,20 @@
         "art/textures/environment/d05_civic_graphics_03/",
         "art/materials/environment/d05_civic_graphics_03/",
         "docs/assets/production/d05_civic_graphics_03.md",
-        "docs/assets/production/d05_civic_graphics_03-evidence/"
-      ]
+        "docs/assets/production/d05_civic_graphics_03-evidence/",
+        "tools/asset_production/d05_civic_graphics_03/",
+        "scenes/prefabs/environment/d05_civic_graphics_03.tscn"
+      ],
+      "launch": {
+        "provider": "portkey/gpt-6-astra",
+        "configured_effort": "medium",
+        "mode": "orchestrator asset lane",
+        "lane": "a-d05"
+      },
+      "producer_manifest": "docs/assets/production/d05_civic_graphics_03-evidence/manifest.json",
+      "report": "docs/assets/production/d05_civic_graphics_03.md",
+      "reviewer_id": "00d17776-1045-4dbd-b489-08cf9b58d652",
+      "integrated_revision": "34704a08"
     },
     {
       "id": "d05_quay_paving.01",
@@ -7057,14 +7093,14 @@
       "input_next_action": "Refine design from district asset breakdown",
       "brief": "[Brief](../../assets/d05_quay_paving.md)",
       "priority": 1,
-      "status": "queued",
-      "agent_id": null,
-      "source_revision": null,
-      "review_status": "pending",
-      "integration_status": "pending",
+      "status": "production_prefab_accepted",
+      "agent_id": "47ef2c96-fda3-4121-a2f4-f2da244a98c6",
+      "source_revision": "7fc3925d",
+      "review_status": "accepted source/export/prefab scope (independent Sol review)",
+      "integration_status": "accepted",
       "placement_status": "pending",
       "blocker": null,
-      "attempts": 0,
+      "attempts": 1,
       "initial_time_cap_minutes": 90,
       "owned_paths": [
         "art/source/models/environment/d05_quay_paving_01/",
@@ -7072,8 +7108,20 @@
         "art/textures/environment/d05_quay_paving_01/",
         "art/materials/environment/d05_quay_paving_01/",
         "docs/assets/production/d05_quay_paving_01.md",
-        "docs/assets/production/d05_quay_paving_01-evidence/"
-      ]
+        "docs/assets/production/d05_quay_paving_01-evidence/",
+        "tools/asset_production/d05_quay_paving_01/",
+        "scenes/prefabs/environment/d05_quay_paving_01.tscn"
+      ],
+      "launch": {
+        "provider": "portkey/gpt-6-astra",
+        "configured_effort": "medium",
+        "mode": "orchestrator asset lane",
+        "lane": "a-d05"
+      },
+      "producer_manifest": "docs/assets/production/d05_quay_paving_01-evidence/manifest.json",
+      "report": "docs/assets/production/d05_quay_paving_01.md",
+      "reviewer_id": "00d17776-1045-4dbd-b489-08cf9b58d652",
+      "integrated_revision": "34704a08"
     },
     {
       "id": "d05_quay_paving.02",
@@ -7086,14 +7134,14 @@
       "input_next_action": "Refine design from district asset breakdown",
       "brief": "[Brief](../../assets/d05_quay_paving.md)",
       "priority": 1,
-      "status": "queued",
-      "agent_id": null,
-      "source_revision": null,
-      "review_status": "pending",
-      "integration_status": "pending",
+      "status": "production_prefab_accepted",
+      "agent_id": "fbd11980-084f-46fb-a88a-a96d9abe9fd6",
+      "source_revision": "8e9a25a7",
+      "review_status": "accepted source/export/prefab scope (independent Sol review)",
+      "integration_status": "accepted",
       "placement_status": "pending",
       "blocker": null,
-      "attempts": 0,
+      "attempts": 1,
       "initial_time_cap_minutes": 90,
       "owned_paths": [
         "art/source/models/environment/d05_quay_paving_02/",
@@ -7101,8 +7149,20 @@
         "art/textures/environment/d05_quay_paving_02/",
         "art/materials/environment/d05_quay_paving_02/",
         "docs/assets/production/d05_quay_paving_02.md",
-        "docs/assets/production/d05_quay_paving_02-evidence/"
-      ]
+        "docs/assets/production/d05_quay_paving_02-evidence/",
+        "tools/asset_production/d05_quay_paving_02/",
+        "scenes/prefabs/environment/d05_quay_paving_02.tscn"
+      ],
+      "launch": {
+        "provider": "portkey/gpt-6-astra",
+        "configured_effort": "medium",
+        "mode": "orchestrator asset lane",
+        "lane": "a-d05"
+      },
+      "producer_manifest": "docs/assets/production/d05_quay_paving_02-evidence/manifest.json",
+      "report": "docs/assets/production/d05_quay_paving_02.md",
+      "reviewer_id": "00d17776-1045-4dbd-b489-08cf9b58d652",
+      "integrated_revision": "34704a08"
     },
     {
       "id": "d05_civic_graphics.04",
@@ -7115,14 +7175,14 @@
       "input_next_action": "Refine design from district asset breakdown",
       "brief": "[Brief](../../assets/d05_civic_graphics.md)",
       "priority": 1,
-      "status": "queued",
-      "agent_id": null,
-      "source_revision": null,
-      "review_status": "pending",
-      "integration_status": "pending",
+      "status": "production_prefab_accepted",
+      "agent_id": "0516f8d8-b7f8-40d7-81ae-d92d4abf3991",
+      "source_revision": "eea078e8",
+      "review_status": "accepted source/export/prefab scope (independent Sol review)",
+      "integration_status": "accepted",
       "placement_status": "pending",
       "blocker": null,
-      "attempts": 0,
+      "attempts": 1,
       "initial_time_cap_minutes": 90,
       "owned_paths": [
         "art/source/models/environment/d05_civic_graphics_04/",
@@ -7130,8 +7190,20 @@
         "art/textures/environment/d05_civic_graphics_04/",
         "art/materials/environment/d05_civic_graphics_04/",
         "docs/assets/production/d05_civic_graphics_04.md",
-        "docs/assets/production/d05_civic_graphics_04-evidence/"
-      ]
+        "docs/assets/production/d05_civic_graphics_04-evidence/",
+        "tools/asset_production/d05_civic_graphics_04/",
+        "scenes/prefabs/environment/d05_civic_graphics_04.tscn"
+      ],
+      "launch": {
+        "provider": "portkey/gpt-6-astra",
+        "configured_effort": "medium",
+        "mode": "orchestrator asset lane",
+        "lane": "a-d05"
+      },
+      "producer_manifest": "docs/assets/production/d05_civic_graphics_04-evidence/manifest.json",
+      "report": "docs/assets/production/d05_civic_graphics_04.md",
+      "reviewer_id": "00d17776-1045-4dbd-b489-08cf9b58d652",
+      "integrated_revision": "34704a08"
     },
     {
       "id": "d06_shopfront_blocks.01",
