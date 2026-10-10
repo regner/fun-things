@@ -1,0 +1,38 @@
+d03_apartment_family.09 final checks — 10 October 2026
+All commands were run in lane/a-apart; raw logs and scratch exports remain at
+C:/tmp/ft/assets/d03_apartment_family_09/ (not committed).
+Exact reproduction arguments are in ../d03_apartment_family_09.md.
+
+Blender 5.2.2 LTS d13f752e3b9c, glTF exporter 5.2.40:
+- author.py: exit 0, four final 1280x720 Cycles CPU renders.
+- validate.py: exit 0, 1944 triangles / 1008 source vertices / 1296 GLB vertices,
+  one mesh / three surfaces / 18 closed solid islands.
+- Zero non-manifold edges, degenerate source faces and actual GLB triangles.
+- Finite vertices, unit source/GLB normals, identity transforms and literal bounds PASS.
+- Fresh saved-source re-export byte-identical to committed GLB PASS.
+- Source/GLB/Godot minimum underside 3.20000005 m > 2.5 m PASS.
+- Four PNG headers/sizes PASS: 1280x720, all below 300 KiB; inspected by producer.
+
+Pinned Godot 4.8.dev7.official.c971f93e7:
+- Final --headless --path . --import: exit 0; no ERROR/SCRIPT ERROR lines.
+- --headless --editor normalization: exit 0; second load/pack/save byte-stable.
+- Runtime check_prefab.gd: exit 0; no ERROR/SCRIPT ERROR lines, no missing dependencies.
+- Linked identity model, registered UIDs, AABB and actual sibling palette matching PASS.
+- No balcony collision objects/shapes: approved unreachable upper-storey visual-only asset.
+- Three ground capsule queries clear; car-sized box under overhang clear.
+- Host upper facade remains closed: aim ray hits Z=0 at unchanged host wall.
+- Production ActorMotion under-balcony traversal: AUTHORITY and REPLAY endpoints identical.
+
+GDScript:
+- gdstyle fmt --check: 1 file already formatted.
+- gdstyle --max-line-length 100 --max-warnings 0: 1 file checked, no issues found.
+
+Observed diagnostics and corrected findings (not suppressed):
+- First visual pass found coplanar deck/nosing faces and cropped context roof.
+  Recessed deck front 0.02 m, widened hero, then rebuilt/exported and rechecked all views.
+- Editor-mode normalization emits known headless shutdown RID/ObjectDB leak diagnostics;
+  exit status and byte-stability checks pass. Final import/runtime are clean.
+- Addon warns this pinned engine version is untested. Blender use_nodes deprecation
+  warnings concern Blender 6, not failures on the required 5.2.2 pin.
+- No windowed editor, live MCP session, production_checks.py, world placement,
+  multiplayer transport, packaged build or target-device/performance check was run.
