@@ -1,0 +1,224 @@
+{
+  "asset": "city_traffic_fixtures.02",
+  "blender": "5.2.2 LTS",
+  "blender_build": "d13f752e3b9c",
+  "bounds_tolerance_m": 0.001,
+  "compatible_carrier_socket_godot_m": [
+    0.0,
+    4.2,
+    -1.4
+  ],
+  "degenerate_faces": 0.0,
+  "degenerate_triangles": 0.0,
+  "export_normal_max_length_error": 1.144124943675e-07,
+  "export_vertices": 3651.0,
+  "exporter": "5.2.40",
+  "flat_top_contact_radius_m": 0.113970957858825,
+  "fresh_export_byte_identical": true,
+  "glb_bytes": 154008.0,
+  "glb_sha256": "4a0911819e2f1b98bcaff39461fdc1c45a53c7a67cc9a6c34b7d16b7f6070ea4",
+  "godot": {
+    "bounds_min_m": [
+      -0.25,
+      -1.3199999332428,
+      -0.379999995231628
+    ],
+    "bounds_size_m": [
+      0.5,
+      1.3199999332428,
+      0.540000021457672
+    ],
+    "engine": "4.8-dev7 (official)",
+    "head_collision_free_carrier_collision_retained": true,
+    "linked_model_identity": true,
+    "mount_matches_source_and_adapter": true,
+    "mounted_clearance_m": 2.87999987602234,
+    "resource_uids": {
+      "res://art/models/environment/city_traffic_fixtures_01/city_traffic_fixtures_01.glb": "uid://wimwflb7q52",
+      "res://art/models/environment/city_traffic_fixtures_02/city_traffic_fixtures_02.glb": "uid://118klht7rylb",
+      "res://scenes/prefabs/environment/city_traffic_fixtures_01.tscn": "uid://bn1wdv4hmw4ro",
+      "res://scenes/prefabs/environment/city_traffic_fixtures_02.tscn": "uid://bfa4yb53vywda",
+      "res://scenes/prefabs/environment/city_traffic_fixtures_02_mounted.tscn": "uid://by5i3gkmljvt0"
+    },
+    "save_reload_byte_stable": true,
+    "static_unlit_materials": true
+  },
+  "godot_bounds_max_m": [
+    0.25,
+    0.0,
+    0.159999996423721
+  ],
+  "godot_bounds_min_m": [
+    -0.25,
+    -1.3199999332428,
+    -0.379999995231628
+  ],
+  "materials": [
+    {
+      "name": "traffic_dark_metal",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.025000000372529,
+          0.0750000029802322,
+          0.0900000035762787,
+          1.0
+        ],
+        "metallicFactor": 0.449999988079071,
+        "roughnessFactor": 0.46000000834465
+      }
+    },
+    {
+      "name": "traffic_fixture_rim",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.0700000002980232,
+          0.129999995231628,
+          0.150000005960464,
+          1.0
+        ],
+        "metallicFactor": 0.5,
+        "roughnessFactor": 0.419999986886978
+      }
+    },
+    {
+      "name": "traffic_service_recess",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.0120000001043081,
+          0.025000000372529,
+          0.0299999993294477,
+          1.0
+        ],
+        "metallicFactor": 0.25,
+        "roughnessFactor": 0.5
+      }
+    },
+    {
+      "name": "signal_red_unlit",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.25,
+          0.0219999998807907,
+          0.0179999992251396,
+          1.0
+        ],
+        "metallicFactor": 0.0500000007450581,
+        "roughnessFactor": 0.300000011920929
+      }
+    },
+    {
+      "name": "signal_amber_unlit",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.340000003576279,
+          0.170000001788139,
+          0.0179999992251396,
+          1.0
+        ],
+        "metallicFactor": 0.0500000007450581,
+        "roughnessFactor": 0.300000011920929
+      }
+    },
+    {
+      "name": "signal_green_unlit",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.0179999992251396,
+          0.200000002980232,
+          0.0649999976158142,
+          1.0
+        ],
+        "metallicFactor": 0.0500000007450581,
+        "roughnessFactor": 0.300000011920929
+      }
+    }
+  ],
+  "mesh_count": 1.0,
+  "nonmanifold_edges": 0.0,
+  "pivot_contract": "Top-centred mount; all geometry descends",
+  "pivot_m": [
+    0.0,
+    0.0,
+    0.0
+  ],
+  "provisional_dimensions_m": [
+    0.5,
+    1.32,
+    0.54
+  ],
+  "source_export_status": "passed",
+  "source_faces": 2892.0,
+  "source_normal_max_length_error": 1.59002085942106e-07,
+  "source_vertices": 3088.0,
+  "summed_closed_component_volume_m3": 0.227272176004393,
+  "surface_count": 6.0,
+  "triangles": 6120.0,
+  "production_checks": {
+    "ok": true,
+    "results": {
+      "engine": {
+        "ok": true,
+        "version": "4.8.dev7.official.c971f93e7"
+      },
+      "gut_pin": {
+        "ok": true,
+        "version": "9.7.1"
+      },
+      "owned_scripts": {
+        "ok": true,
+        "returncode": 0
+      },
+      "python_tests": {
+        "ok": true,
+        "returncode": 0
+      },
+      "gut_import": {
+        "ok": true,
+        "returncode": 0
+      },
+      "gut_tests": {
+        "ok": true,
+        "returncode": 0
+      },
+      "gut_negative": {
+        "ok": true,
+        "observed_returncode": 1
+      }
+    }
+  },
+  "renders": [
+    {
+      "path": "hero.png",
+      "pixels": [
+        1280,
+        720
+      ],
+      "bytes": 409574
+    },
+    {
+      "path": "side.png",
+      "pixels": [
+        1280,
+        720
+      ],
+      "bytes": 382281
+    },
+    {
+      "path": "detail.png",
+      "pixels": [
+        1280,
+        720
+      ],
+      "bytes": 440511
+    },
+    {
+      "path": "overhead_47m_42deg.png",
+      "pixels": [
+        1280,
+        720
+      ],
+      "bytes": 397465
+    }
+  ],
+  "render_encoding": "RGB 7 significant bits per channel; PNG compression 9"
+}

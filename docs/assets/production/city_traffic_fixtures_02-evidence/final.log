@@ -1,0 +1,11 @@
+city_traffic_fixtures.02 - final bounded validation receipt
+Blender 5.2.2 LTS / d13f752e3b9c; glTF exporter 5.2.40
+Source/export: 6120 triangles, 3088 source vertices; 1 mesh / 6 surfaces.
+Zero degenerate faces/triangles or non-manifold edges; normals and bounds pass.
+Fresh saved-source re-export byte-identical.
+Godot 4.8.dev7 c971f93e7: linked resources/UIDs, materials, mount and queries pass.
+Both wrappers preserve bytes/UIDs across save/reload and a fresh import.
+Pinned gdstyle formatting and lint pass.
+Production checks pass: 17 Python tests; 149 GUT tests; 6768 assertions; negative sentinel fails as expected.
+Import: existing MCP 4.8-versus-tested-4.7 warning only; no missing resources.
+Independent review, engine visual review, placement/car/network/device checks pending.

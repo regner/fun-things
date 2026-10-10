@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://by5i3gkmljvt0"]
+
+[ext_resource type="PackedScene" path="res://scenes/prefabs/environment/city_traffic_fixtures_01.tscn" id="1_pole"]
+[ext_resource type="PackedScene" path="res://scenes/prefabs/environment/city_traffic_fixtures_02.tscn" id="2_head"]
+
+[node name="CityTrafficFixtures02Mounted" type="Node3D" unique_id=570426006]
+
+[node name="Pole" parent="." unique_id=19841185 instance=ExtResource("1_pole")]
+
+[node name="Head" parent="." unique_id=1970431083 instance=ExtResource("2_head")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.2, -1.4)
