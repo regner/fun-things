@@ -6701,14 +6701,14 @@
       "input_next_action": "Reuse city_small_shop_shells.02 and city_shop_fittings",
       "brief": "[Brief](../../assets/d06_shopfront_blocks.md)",
       "priority": 2,
-      "status": "queued",
-      "agent_id": null,
-      "source_revision": null,
-      "review_status": "pending",
-      "integration_status": "pending",
+      "status": "production_prefab_accepted",
+      "agent_id": "27839821-6d2d-48b7-97c3-552d674b31e1",
+      "source_revision": "f9064c68",
+      "review_status": "accepted source/export/prefab scope (independent Sol review)",
+      "integration_status": "accepted",
       "placement_status": "pending",
       "blocker": null,
-      "attempts": 0,
+      "attempts": 1,
       "initial_time_cap_minutes": 90,
       "owned_paths": [
         "art/source/models/environment/d06_shopfront_blocks_01/",
@@ -6716,8 +6716,20 @@
         "art/textures/environment/d06_shopfront_blocks_01/",
         "art/materials/environment/d06_shopfront_blocks_01/",
         "docs/assets/production/d06_shopfront_blocks_01.md",
-        "docs/assets/production/d06_shopfront_blocks_01-evidence/"
-      ]
+        "docs/assets/production/d06_shopfront_blocks_01-evidence/",
+        "tools/asset_production/d06_shopfront_blocks_01/",
+        "scenes/prefabs/environment/d06_shopfront_blocks_01.tscn"
+      ],
+      "launch": {
+        "provider": "portkey/gpt-6-astra",
+        "configured_effort": "medium",
+        "mode": "orchestrator asset lane",
+        "lane": "a-sfront"
+      },
+      "producer_manifest": "docs/assets/production/d06_shopfront_blocks_01-evidence/manifest.json",
+      "report": "docs/assets/production/d06_shopfront_blocks_01.md",
+      "reviewer_id": "b1ecbe97-689c-4b20-a7c7-910dccce2b75",
+      "integrated_revision": "b453e650"
     },
     {
       "id": "d06_shopfront_blocks.02",
@@ -6730,14 +6742,14 @@
       "input_next_action": "Revisit only if current shared-shell set cannot cover selected massing",
       "brief": "[Brief](../../assets/d06_shopfront_blocks.md)",
       "priority": 0,
-      "status": "queued",
-      "agent_id": null,
-      "source_revision": null,
-      "review_status": "pending",
-      "integration_status": "pending",
+      "status": "production_prefab_accepted",
+      "agent_id": "cee86f04-7532-4ddc-be0f-bf6230099852",
+      "source_revision": "fe3c3afc",
+      "review_status": "accepted source/export/prefab scope (independent Sol review)",
+      "integration_status": "accepted",
       "placement_status": "pending",
       "blocker": null,
-      "attempts": 0,
+      "attempts": 1,
       "initial_time_cap_minutes": 90,
       "owned_paths": [
         "art/source/models/environment/d06_shopfront_blocks_02/",
@@ -6745,8 +6757,20 @@
         "art/textures/environment/d06_shopfront_blocks_02/",
         "art/materials/environment/d06_shopfront_blocks_02/",
         "docs/assets/production/d06_shopfront_blocks_02.md",
-        "docs/assets/production/d06_shopfront_blocks_02-evidence/"
-      ]
+        "docs/assets/production/d06_shopfront_blocks_02-evidence/",
+        "tools/asset_production/d06_shopfront_blocks_02/",
+        "scenes/prefabs/environment/d06_shopfront_blocks_02.tscn"
+      ],
+      "launch": {
+        "provider": "portkey/gpt-6-astra",
+        "configured_effort": "medium",
+        "mode": "orchestrator asset lane",
+        "lane": "a-sfront"
+      },
+      "producer_manifest": "docs/assets/production/d06_shopfront_blocks_02-evidence/manifest.json",
+      "report": "docs/assets/production/d06_shopfront_blocks_02.md",
+      "reviewer_id": "b1ecbe97-689c-4b20-a7c7-910dccce2b75",
+      "integrated_revision": "b453e650"
     },
     {
       "id": "d06_shopfront_blocks.03",
@@ -6759,14 +6783,14 @@
       "input_next_action": "Revisit only if current shared-shell set cannot cover selected massing",
       "brief": "[Brief](../../assets/d06_shopfront_blocks.md)",
       "priority": 0,
-      "status": "queued",
-      "agent_id": null,
-      "source_revision": null,
-      "review_status": "pending",
-      "integration_status": "pending",
+      "status": "production_prefab_accepted",
+      "agent_id": "89f7a3a5-936a-450d-9b74-1217d4e60997",
+      "source_revision": "b453e650",
+      "review_status": "accepted source/export/prefab scope (independent Sol review)",
+      "integration_status": "accepted",
       "placement_status": "pending",
       "blocker": null,
-      "attempts": 0,
+      "attempts": 1,
       "initial_time_cap_minutes": 90,
       "owned_paths": [
         "art/source/models/environment/d06_shopfront_blocks_03/",
@@ -6774,8 +6798,20 @@
         "art/textures/environment/d06_shopfront_blocks_03/",
         "art/materials/environment/d06_shopfront_blocks_03/",
         "docs/assets/production/d06_shopfront_blocks_03.md",
-        "docs/assets/production/d06_shopfront_blocks_03-evidence/"
-      ]
+        "docs/assets/production/d06_shopfront_blocks_03-evidence/",
+        "tools/asset_production/d06_shopfront_blocks_03/",
+        "scenes/prefabs/environment/d06_shopfront_blocks_03.tscn"
+      ],
+      "launch": {
+        "provider": "portkey/gpt-6-astra",
+        "configured_effort": "medium",
+        "mode": "orchestrator asset lane",
+        "lane": "a-sfront"
+      },
+      "producer_manifest": "docs/assets/production/d06_shopfront_blocks_03-evidence/manifest.json",
+      "report": "docs/assets/production/d06_shopfront_blocks_03.md",
+      "reviewer_id": "b1ecbe97-689c-4b20-a7c7-910dccce2b75",
+      "integrated_revision": "b453e650"
     },
     {
       "id": "d06_mixed_use_infill.01",
