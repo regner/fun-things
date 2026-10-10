@@ -2337,14 +2337,14 @@
       "input_next_action": "Confirm against Signal Row detail concept",
       "brief": "[Brief](../../assets/city_shop_fittings.md)",
       "priority": 0,
-      "status": "queued",
-      "agent_id": null,
-      "source_revision": null,
-      "review_status": "pending",
-      "integration_status": "pending",
+      "status": "production_prefab_accepted",
+      "agent_id": "4d919736-e183-4420-9677-ba3b0fa3f600",
+      "source_revision": "d0d74595",
+      "review_status": "accepted source/export/prefab scope (independent Sol review)",
+      "integration_status": "accepted",
       "placement_status": "pending",
       "blocker": null,
-      "attempts": 0,
+      "attempts": 1,
       "initial_time_cap_minutes": 90,
       "owned_paths": [
         "art/source/models/environment/city_shop_fittings_04/",
@@ -2352,8 +2352,20 @@
         "art/textures/environment/city_shop_fittings_04/",
         "art/materials/environment/city_shop_fittings_04/",
         "docs/assets/production/city_shop_fittings_04.md",
-        "docs/assets/production/city_shop_fittings_04-evidence/"
-      ]
+        "docs/assets/production/city_shop_fittings_04-evidence/",
+        "tools/asset_production/city_shop_fittings_04/",
+        "scenes/prefabs/environment/city_shop_fittings_04.tscn"
+      ],
+      "launch": {
+        "provider": "portkey/gpt-6-astra",
+        "configured_effort": "medium",
+        "mode": "orchestrator asset lane",
+        "lane": "a-fittings"
+      },
+      "producer_manifest": "docs/assets/production/city_shop_fittings_04-evidence/manifest.json",
+      "report": "docs/assets/production/city_shop_fittings_04.md",
+      "reviewer_id": "ab52f30e-4a54-43fe-9a07-de5cc649d2f0",
+      "integrated_revision": "d0d74595"
     },
     {
       "id": "city_boardwalk.01",
@@ -3563,8 +3575,8 @@
       "review_status": "pending",
       "integration_status": "pending",
       "placement_status": "pending",
-      "blocker": null,
-      "attempts": 0,
+      "blocker": "deferred: assembly reference reuses city_quay_furniture.02, not yet produced; re-queue after it is accepted",
+      "attempts": 1,
       "initial_time_cap_minutes": 90,
       "owned_paths": [
         "art/source/models/environment/city_barriers_02/",
@@ -3621,8 +3633,8 @@
       "review_status": "pending",
       "integration_status": "pending",
       "placement_status": "pending",
-      "blocker": null,
-      "attempts": 0,
+      "blocker": "deferred: assembly reference reuses city_quay_furniture.02, not yet produced; re-queue after it is accepted",
+      "attempts": 1,
       "initial_time_cap_minutes": 90,
       "owned_paths": [
         "art/source/models/environment/city_barriers_04/",
