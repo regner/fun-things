@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://beobu2lftgnjj"]
+
+[ext_resource type="PackedScene" uid="uid://g373bsb27q02" path="res://art/models/environment/d01_academic_buildings_03/d01_academic_buildings_03.glb" id="1_model"]
+
+[sub_resource type="BoxShape3D" id="Box_annex"]
+size = Vector3(14.4, 5.3, 12.5)
+
+[node name="D01AcademicBuildings03" type="Node3D" unique_id=1513984877]
+
+[node name="Visuals" type="Node3D" parent="." unique_id=900038282]
+
+[node name="Model" type="Node3D" parent="Visuals" unique_id=1235866745 instance=ExtResource("1_model")]
+
+[node name="Collision" type="Node3D" parent="." unique_id=822368468]
+
+[node name="Body" type="StaticBody3D" parent="Collision" unique_id=848668030]
+collision_mask = 0
+
+[node name="AnnexSolid" type="CollisionShape3D" parent="Collision/Body" unique_id=655966580]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.65, -0.05)
+shape = SubResource("Box_annex")
