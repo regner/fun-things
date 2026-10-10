@@ -1,0 +1,554 @@
+{
+  "status": "PASS: source and GLB; engine/gameplay gates recorded separately",
+  "blender": "5.2.2 LTS",
+  "build_hash": "d13f752e3b9c",
+  "glTF_exporter": "5.2.40",
+  "source_vertices": 4499,
+  "source_triangles": 8718,
+  "source_degenerate_faces": 0,
+  "source_nonmanifold_edges": 0,
+  "source_max_normal_length_error": 1.9419528984876422e-07,
+  "glb_vertices_including_surface_splits": 5395,
+  "glb_triangles": 8718,
+  "glb_degenerate_triangles": 0,
+  "glb_max_normal_length_error": 1.341104418628447e-07,
+  "mesh_count": 1,
+  "surface_count": 7,
+  "aabb_godot": {
+    "min": [
+      -22.960832595825195,
+      0.0,
+      -8.568231582641602
+    ],
+    "max": [
+      22.960832595825195,
+      6.554999828338623,
+      8.581024169921875
+    ],
+    "size": [
+      45.92166519165039,
+      6.554999828338623,
+      17.149255752563477
+    ]
+  },
+  "expected_aabb_godot": {
+    "min": [
+      -22.9608318,
+      0,
+      -8.5682317
+    ],
+    "max": [
+      22.9608318,
+      6.555,
+      8.5810239
+    ]
+  },
+  "envelope_tolerance_m": 0.001,
+  "ground_contact_pivot": [
+    0,
+    0,
+    0
+  ],
+  "collision": {
+    "source": "Two dimension-authored quadrilateral service wedges, not a render-mesh hull",
+    "footprints_xz_m": [
+      [
+        [
+          -19.917156,
+          -2.736498
+        ],
+        [
+          0,
+          6.551024
+        ],
+        [
+          0,
+          4.551024
+        ],
+        [
+          -18.385067,
+          -4.022074
+        ]
+      ],
+      [
+        [
+          0,
+          6.551024
+        ],
+        [
+          19.917156,
+          -2.736498
+        ],
+        [
+          18.385067,
+          -4.022074
+        ],
+        [
+          0,
+          4.551024
+        ]
+      ]
+    ],
+    "extruded_y_m": [
+      0,
+      5.65
+    ],
+    "points_per_shape": 8,
+    "source_to_prefab_max_corner_error_m": 4.76837158203125e-07,
+    "overhead_canopy_collision": false
+  },
+  "materials": [
+    {
+      "name": "pavilion_pale_stone",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.699999988079071,
+          0.6399999856948853,
+          0.49000000953674316,
+          1
+        ],
+        "metallicFactor": 0,
+        "roughnessFactor": 0.6499999761581421
+      }
+    },
+    {
+      "name": "pavilion_base_stone",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.25,
+          0.27000001072883606,
+          0.25,
+          1
+        ],
+        "metallicFactor": 0,
+        "roughnessFactor": 0.699999988079071
+      }
+    },
+    {
+      "name": "pavilion_field_green",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.02800000086426735,
+          0.11500000208616257,
+          0.0949999988079071,
+          1
+        ],
+        "metallicFactor": 0.11999999731779099,
+        "roughnessFactor": 0.46000000834465027
+      }
+    },
+    {
+      "name": "pavilion_opaque_glass",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.023000000044703484,
+          0.07100000232458115,
+          0.08500000089406967,
+          1
+        ],
+        "metallicFactor": 0.20000000298023224,
+        "roughnessFactor": 0.30000001192092896
+      }
+    },
+    {
+      "name": "pavilion_wayfinding_mint",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.23000000417232513,
+          0.699999988079071,
+          0.5199999809265137,
+          1
+        ],
+        "metallicFactor": 0.05000000074505806,
+        "roughnessFactor": 0.41999998688697815
+      }
+    },
+    {
+      "name": "pavilion_occupied_amber",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.8500000238418579,
+          0.4300000071525574,
+          0.10999999940395355,
+          1
+        ],
+        "metallicFactor": 0.05999999865889549,
+        "roughnessFactor": 0.41999998688697815
+      }
+    },
+    {
+      "name": "pavilion_slate_roof",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.06499999761581421,
+          0.10499999672174454,
+          0.1550000011920929,
+          1
+        ],
+        "metallicFactor": 0.18000000715255737,
+        "roughnessFactor": 0.4399999976158142
+      }
+    }
+  ],
+  "reexport_byte_identical": true,
+  "glb_sha256": "df954b2962ef909ed392b1cde02d982854cc8114d63f21849a091314fa833c9e",
+  "glb_bytes": 229164,
+  "engine": {
+    "aabb_min": [
+      -22.9608325958252,
+      0.0,
+      -8.5682315826416
+    ],
+    "aabb_size": [
+      45.9216651916504,
+      6.55499982833862,
+      17.1492557525635
+    ],
+    "collision_shape_count": 2,
+    "engine": "4.8-dev7 (official)",
+    "failures": [],
+    "footprint_face_ray_hits": [
+      {
+        "x": 0.0,
+        "y": 0.200000002980232,
+        "z": 4.551025390625
+      },
+      {
+        "x": 0.0,
+        "y": 0.200000002980232,
+        "z": 6.55102491378784
+      },
+      {
+        "x": 0.0,
+        "y": 4.80000019073486,
+        "z": 4.551025390625
+      },
+      {
+        "x": 0.0,
+        "y": 4.80000019073486,
+        "z": 6.55102491378784
+      },
+      {
+        "x": 0.0,
+        "y": 0.200000002980232,
+        "z": 4.551025390625
+      },
+      {
+        "x": 0.0,
+        "y": 0.200000002980232,
+        "z": 6.55102491378784
+      },
+      {
+        "x": 0.0,
+        "y": 4.80000019073486,
+        "z": 4.551025390625
+      },
+      {
+        "x": 0.0,
+        "y": 4.80000019073486,
+        "z": 6.55102491378784
+      },
+      {
+        "x": -5.0,
+        "y": 0.200000002980232,
+        "z": 2.21948623657227
+      },
+      {
+        "x": -5.0,
+        "y": 0.200000002980232,
+        "z": 4.21948528289795
+      },
+      {
+        "x": -5.0,
+        "y": 4.80000019073486,
+        "z": 2.21948623657227
+      },
+      {
+        "x": -5.0,
+        "y": 4.80000019073486,
+        "z": 4.21948528289795
+      },
+      {
+        "x": 5.0,
+        "y": 0.200000002980232,
+        "z": 2.21948623657227
+      },
+      {
+        "x": 5.0,
+        "y": 0.200000002980232,
+        "z": 4.21948623657227
+      },
+      {
+        "x": 5.0,
+        "y": 4.80000019073486,
+        "z": 2.21948623657227
+      },
+      {
+        "x": 5.0,
+        "y": 4.80000019073486,
+        "z": 4.21948623657227
+      },
+      {
+        "x": -10.0,
+        "y": 0.200000002980232,
+        "z": -0.112052917480469
+      },
+      {
+        "x": -10.0,
+        "y": 0.200000002980232,
+        "z": 1.88794803619385
+      },
+      {
+        "x": -10.0,
+        "y": 4.80000019073486,
+        "z": -0.112052917480469
+      },
+      {
+        "x": -10.0,
+        "y": 4.80000019073486,
+        "z": 1.88794803619385
+      },
+      {
+        "x": 10.0,
+        "y": 0.200000002980232,
+        "z": -0.112052917480469
+      },
+      {
+        "x": 10.0,
+        "y": 0.200000002980232,
+        "z": 1.88794803619385
+      },
+      {
+        "x": 10.0,
+        "y": 4.80000019073486,
+        "z": -0.112052917480469
+      },
+      {
+        "x": 10.0,
+        "y": 4.80000019073486,
+        "z": 1.88794803619385
+      },
+      {
+        "x": -17.0,
+        "y": 0.200000002980232,
+        "z": -3.37620639801025
+      },
+      {
+        "x": -17.0,
+        "y": 0.200000002980232,
+        "z": -1.37620544433594
+      },
+      {
+        "x": -17.0,
+        "y": 4.80000019073486,
+        "z": -3.37620639801025
+      },
+      {
+        "x": -17.0,
+        "y": 4.80000019073486,
+        "z": -1.37620544433594
+      },
+      {
+        "x": 17.0,
+        "y": 0.200000002980232,
+        "z": -3.37620735168457
+      },
+      {
+        "x": 17.0,
+        "y": 0.200000002980232,
+        "z": -1.37620544433594
+      },
+      {
+        "x": 17.0,
+        "y": 4.80000019073486,
+        "z": -3.37620735168457
+      },
+      {
+        "x": 17.0,
+        "y": 4.80000019073486,
+        "z": -1.37620544433594
+      }
+    ],
+    "linked_model_identity": true,
+    "materials": [
+      "pavilion_pale_stone",
+      "pavilion_base_stone",
+      "pavilion_field_green",
+      "pavilion_opaque_glass",
+      "pavilion_wayfinding_mint",
+      "pavilion_occupied_amber",
+      "pavilion_slate_roof"
+    ],
+    "mesh_count": 1,
+    "model_uid": "uid://c2vr0gb4uw4im",
+    "ok": true,
+    "physics_shape_queries": [
+      {
+        "case": "centre_joint_solid",
+        "solid": true
+      },
+      {
+        "case": "west_wall_solid",
+        "solid": true
+      },
+      {
+        "case": "east_wall_solid",
+        "solid": true
+      },
+      {
+        "case": "west_front_corner",
+        "solid": true
+      },
+      {
+        "case": "east_front_corner",
+        "solid": true
+      },
+      {
+        "case": "west_rear_corner",
+        "solid": true
+      },
+      {
+        "case": "east_rear_corner",
+        "solid": true
+      },
+      {
+        "case": "front_seam_clear",
+        "solid": false
+      },
+      {
+        "case": "rear_seam_clear",
+        "solid": false
+      },
+      {
+        "case": "apron_centre_clear",
+        "solid": false
+      },
+      {
+        "case": "west_apron_clear",
+        "solid": false
+      },
+      {
+        "case": "east_apron_clear",
+        "solid": false
+      },
+      {
+        "case": "west_end_clear",
+        "solid": false
+      },
+      {
+        "case": "east_end_clear",
+        "solid": false
+      },
+      {
+        "case": "roof_visual_only",
+        "solid": false
+      }
+    ],
+    "prefab_uid": "uid://lwio18pjx6kw",
+    "production_actor_motion": [
+      {
+        "bypass_end": [
+          6.00000476837158,
+          0.000877851329278201,
+          -6.0
+        ],
+        "mode": 0,
+        "seam_end": [
+          0.000844479654915631,
+          0.000871222058776766,
+          4.16416501998901
+        ],
+        "wall_end": [
+          11.4492826461792,
+          0.000999980722554028,
+          -1.18098545074463
+        ]
+      },
+      {
+        "bypass_end": [
+          6.00000476837158,
+          0.000877851329278201,
+          -6.0
+        ],
+        "mode": 1,
+        "seam_end": [
+          0.000844479654915631,
+          0.000871222058776766,
+          4.16416501998901
+        ],
+        "wall_end": [
+          11.4492826461792,
+          0.000999980722554028,
+          -1.18098545074463
+        ]
+      }
+    ],
+    "second_fresh_process_exact_match": true,
+    "save_reload_byte_stable": true
+  },
+  "checks": {
+    "pinned_engine": "4.8.dev7.official.c971f93e7",
+    "final_headless_import_error_lines": [],
+    "owned_gdscript_format": "PASS",
+    "owned_gdscript_lint": "PASS: zero warnings",
+    "editor_normalization_diagnostics": [
+      "WARNING: [MCP] Godot 4.8 detected - latest tested version is 4.7.0. The plugin will run normally but some features may behave unexpectedly. Please report issues at https://github.com/NPGameDev/godot-mcp-toolkit/issues",
+      "WARNING: Scan thread aborted...",
+      "ERROR: 5 RID allocations of type 'N16RendererViewport8ViewportE' were leaked at exit.",
+      "ERROR: 8 RID allocations of type 'PN13RendererDummy14TextureStorage12DummyTextureE' were leaked at exit.",
+      "ERROR: 1 RID allocations of type 'N17RendererSceneCull8ScenarioE' were leaked at exit.",
+      "ERROR: 52 RID allocations of type 'PN18TextServerAdvanced22ShapedTextDataAdvancedE' were leaked at exit.",
+      "ERROR: 1 RID allocations of type 'PN18TextServerAdvanced12FontAdvancedE' were leaked at exit.",
+      "WARNING: 5 RIDs of type \"Canvas\" were leaked.",
+      "WARNING: 31 RIDs of type \"CanvasItem\" were leaked.",
+      "WARNING: 168 ObjectDB instances were leaked at exit (run with `--verbose` for details)."
+    ],
+    "editor_normalization": "Exit 0, byte-stable save/reload and matching UIDs; shutdown RID/ObjectDB leaks and scan-abort warning remain. Not a clean editor-log claim.",
+    "production_checks_run": false
+  },
+  "visual_review": {
+    "renders_inspected": [
+      {
+        "file": "hero.png",
+        "width": 1280,
+        "height": 720,
+        "bytes": 264089
+      },
+      {
+        "file": "side.png",
+        "width": 1280,
+        "height": 720,
+        "bytes": 285153
+      },
+      {
+        "file": "entry_detail.png",
+        "width": 1280,
+        "height": 720,
+        "bytes": 304908
+      },
+      {
+        "file": "overhead_47m_42deg.png",
+        "width": 1280,
+        "height": 720,
+        "bytes": 242937
+      }
+    ],
+    "observation": "Whole crescent fits the calibrated overhead; quiet slate roof, four broad seams, open field-side negative space and no tower. Hero/side show two rear service wedges supporting a column-free canopy; detail shows closed amber/mint service entrance. Coplanar fascia and wall-band flicker corrected before final renders.",
+    "renderer": "Isolated Blender Cycles CPU, 32 samples, AgX; not Godot visual acceptance",
+    "gameplay_camera": {
+      "blender_position_m": [
+        0,
+        0,
+        47
+      ],
+      "rotation_radians": [
+        0,
+        0,
+        0
+      ],
+      "vertical_fov_degrees": 42,
+      "projection": "perspective"
+    },
+    "png": "RGB8, compression 95, dither disabled; no post-processing"
+  }
+}

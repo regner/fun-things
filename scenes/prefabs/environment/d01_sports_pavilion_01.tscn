@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://lwio18pjx6kw"]
+
+[ext_resource type="PackedScene" uid="uid://c2vr0gb4uw4im" path="res://art/models/environment/d01_sports_pavilion_01/d01_sports_pavilion_01.glb" id="1_model"]
+
+[sub_resource type="ConvexPolygonShape3D" id="Convex_west"]
+points = PackedVector3Array(-19.917156, 0, -2.736498, 0, 0, 6.551024, 0, 0, 4.551024, -18.385067, 0, -4.022074, -19.917156, 5.65, -2.736498, 0, 5.65, 6.551024, 0, 5.65, 4.551024, -18.385067, 5.65, -4.022074)
+
+[sub_resource type="ConvexPolygonShape3D" id="Convex_east"]
+points = PackedVector3Array(0, 0, 6.551024, 19.917156, 0, -2.736498, 18.385067, 0, -4.022074, 0, 0, 4.551024, 0, 5.65, 6.551024, 19.917156, 5.65, -2.736498, 18.385067, 5.65, -4.022074, 0, 5.65, 4.551024)
+
+[node name="D01SportsPavilion01" type="Node3D" unique_id=71545654]
+
+[node name="Visuals" type="Node3D" parent="." unique_id=1254584748]
+
+[node name="Model" type="Node3D" parent="Visuals" unique_id=1911498806 instance=ExtResource("1_model")]
+
+[node name="Collision" type="Node3D" parent="." unique_id=116922433]
+
+[node name="Body" type="StaticBody3D" parent="Collision" unique_id=96906842]
+collision_mask = 0
+
+[node name="WestServiceSolid" type="CollisionShape3D" parent="Collision/Body" unique_id=1981732893]
+shape = SubResource("Convex_west")
+
+[node name="EastServiceSolid" type="CollisionShape3D" parent="Collision/Body" unique_id=1288084869]
+shape = SubResource("Convex_east")
