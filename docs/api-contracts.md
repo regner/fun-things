@@ -46,9 +46,10 @@ Gameplay uses +Y up, local
 -Z forward and radians. Minimap maps world XZ to 2D; S02 chooses its display orientation.
 
 Handshake: `{protocol_version: int, content_id: string, district_id: WorldId,
-topology_revision: int, definition_set_id: string}`. Protocol version 2 covers the
-A2.4 command envelope plus A2.3 movement-version-2 rows and recovery epoch; require
-exact equality for M1, with no backward-compatible negotiation. Content/definition
+topology_revision: int, definition_set_id: string}`. Protocol version 3 covers the
+A2.4 command envelope, A2.3 movement-version-2 rows and recovery epoch, plus B1.1
+vehicle descriptors and fixed drive input; require exact equality for M1, with no
+backward-compatible negotiation. Content/definition
 IDs are build-time fingerprints of required gameplay resources/bakes, bounded to
 128 bytes each; their generation is S06/M1 work. ENet admission uses `SceneMultiplayer`
 authentication, not an RPC: `auth_callback` receives a fixed raw `PackedByteArray`, `send_auth`
@@ -429,6 +430,24 @@ It adds signed 16-bit Y in two-centimetre units around zero and signed 16-bit ve
 velocity in centimetres per second. The same 1,200-byte packet ceiling now admits 59
 complete rows per chunk. Authoritative X/Y/Z position, velocity, grounded state, and yaw
 are installed before permitted replay or remote presentation smoothing.
+
+M1-B1.1 vehicle movement reuses the version-2 measured movement row with entity kind 2,
+so the same two-centimetre Brackett position range, complete-row packet ceiling and
+per-EntityRef freshness rules apply. Reliable baseline/handoff state sends a bounded
+vehicle descriptor before movement: `{EntityRef, definition_id, origin_world_id,
+driver_participant_id, control_revision}`. The driver fields are a temporary host-side
+test seam until M1-B1.2 replaces them with durable VehicleInteraction transactions.
+Vehicle definitions resolve only to the three delivered saved scenes; replicas configure
+passive collision before tree entry.
+
+M1-B1.1 drive intent is one fixed 16-byte big-endian packet: unsigned 32-bit command
+sequence and client tick, signed 16-bit normalized throttle/steer/brake, one handbrake
+bitfield byte, and an eight-bit control epoch. Size and reserved bits are rejected before
+field use. Sender-derived admission plus the outer session/match/controlled-vehicle
+EntityRef fence precede the bounded 120-sequence window and eight-frame host queue. The
+host consumes at most one frame per physics tick using the same three-tick supersession
+and 250 ms expiry rules as foot input. Movement acknowledgement names consumed or
+explicitly superseded work, never receipt.
 
 M1-A2.3 foot intent retains one fixed 16-byte big-endian packet. It carries unsigned
 32-bit command sequence and client tick, signed 16-bit normalized move X/Y, signed 16-bit

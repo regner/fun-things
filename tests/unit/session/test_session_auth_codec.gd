@@ -54,7 +54,7 @@ func test_admission_verdicts_round_trip() -> void:
 ## Returns one canonical compatibility record for codec expectations.
 func _compatibility() -> Dictionary:
 	return {
-		"protocol_version": 2,
+		"protocol_version": 3,
 		"content_id": "development",
 		"district_id": &"brackett_island",
 		"topology_revision": 0,

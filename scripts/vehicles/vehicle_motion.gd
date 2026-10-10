@@ -61,6 +61,22 @@ func configure_simulation(enabled: bool) -> void:
 		neutralize()
 
 
+## Restores complete authoritative motion before replay without deriving gameplay state.
+func restore_motion_state(state: Dictionary) -> bool:
+	if not _valid_restored_state(state):
+		return false
+
+	global_position = state.position
+	rotation.y = wrapf(float(state.yaw), -PI, PI)
+	velocity = state.velocity
+	velocity.y = 0.0
+	_last_steer = float(state.steer)
+	_last_handbrake = bool(state.handbrake)
+	_yaw_rate = float(state.yaw_rate)
+	_update_presentation(0.0)
+	return true
+
+
 ## Exposes complete motion-owned state for snapshots, replay, AI, and presentation.
 func motion_state() -> Dictionary:
 	var forward := Vector3(-sin(rotation.y), 0.0, -cos(rotation.y))
@@ -73,6 +89,25 @@ func motion_state() -> Dictionary:
 		"handbrake": _last_handbrake,
 		"yaw_rate": _yaw_rate,
 	}
+
+
+## Rejects partial, nonfinite, or out-of-range authoritative restore state.
+func _valid_restored_state(state: Dictionary) -> bool:
+	if not state.has_all(["position", "yaw", "velocity", "steer", "handbrake", "yaw_rate"]):
+		return false
+	if (
+		state.position is not Vector3
+		or not (state.position as Vector3).is_finite()
+		or state.velocity is not Vector3
+		or not (state.velocity as Vector3).is_finite()
+		or state.handbrake is not bool
+	):
+		return false
+	for field: String in ["yaw", "steer", "yaw_rate"]:
+		var value: Variant = state[field]
+		if (value is not float and value is not int) or not is_finite(float(value)):
+			return false
+	return absf(float(state.steer)) <= 1.0
 
 
 ## Validates fixed-step and tuning boundaries before any simulation state can change.

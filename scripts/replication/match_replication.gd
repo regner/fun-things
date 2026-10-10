@@ -31,6 +31,7 @@ var _admission: ReplicationAdmission
 var _assembler := BaselineAssembler.new()
 var _store: ReplicaStateStore
 var _input_authority := FootInputAuthority.new()
+var _vehicle_replicator: VehicleReplicator
 var _context: Dictionary = {
 	"session_id": "",
 	"local_participant_id": 0,
@@ -95,6 +96,7 @@ func _physics_process(delta: float) -> void:
 		_expire_waiting_mapped_peers(now_msec)
 		_lifecycle.step(_sequence.physics_tick)
 		_step_remote_players(delta)
+		_vehicle_replicator.step_authority(delta, now_msec, _sequence.physics_tick)
 		if _sequence.physics_tick % MOVEMENT_INTERVAL_TICKS == 0:
 			_publish_movement()
 	else:
@@ -119,6 +121,8 @@ func configure_network(
 	if not _context.is_host:
 		_store = ReplicaStateStore.new(_codec, _context.session_id, _match_revision())
 		if not _lifecycle.configure_replica(local_participant_id):
+			return false
+		if not _vehicle_replicator.configure_replica(_runtime_entities()):
 			return false
 		_bind_hud_sources()
 		_send_ready.call_deferred()
@@ -164,6 +168,16 @@ func _configure_context(
 	_context.clock = clock
 	_configured = true
 	_transport = transport if transport != null else SceneReplicationTransport.new(self)
+	if _vehicle_replicator == null:
+		_vehicle_replicator = VehicleReplicator.new()
+	return true
+
+
+## Registers the one vehicle replication owner before Match network configuration.
+func register_vehicle_replicator(replicator: VehicleReplicator) -> bool:
+	if _configured or replicator == null or _vehicle_replicator != null:
+		return false
+	_vehicle_replicator = replicator
 	return true
 
 
@@ -183,6 +197,13 @@ func _configure_authority(local_participant_id: int, clock: Callable) -> bool:
 	_lifecycle.transition.connect(_on_lifecycle_transition)
 	var actor: ActorMotion = _spawn_authoritative_player(local_participant_id, true)
 	if actor == null or not _local_rig().bind_actor(actor):
+		return false
+	var tracker: EntityGenerationTracker = _player_identity.tracker
+	if not _vehicle_replicator.configure_authority(
+		_runtime_entities(),
+		_city_data().anchor_descriptors(WorldAnchor.KIND_PARKED_CAR),
+		tracker,
+	):
 		return false
 	_bind_hud_sources()
 	return true
@@ -224,6 +245,7 @@ func remove_peer(native_peer_id: int, participant_id: int) -> void:
 	_peer_by_participant.erase(participant_id)
 	_waiting_admission_deadline_by_peer.erase(native_peer_id)
 	_input_authority.remove(participant_id)
+	_vehicle_replicator.release_driver(participant_id)
 	_input_state_by_participant.erase(participant_id)
 	_player_identity.spawn_slot_by_participant.erase(participant_id)
 	_admission.remove_peer(native_peer_id)
@@ -272,6 +294,59 @@ func predict_and_submit_local_command(command: FootCommand, delta_seconds: float
 
 	_send_local_command_packet(encoded.packet)
 	return true
+
+
+## Predicts and submits one local drive command through the current vehicle EntityRef fence.
+func predict_and_submit_local_vehicle_command(
+	command: DriveCommand,
+	delta_seconds: float,
+) -> bool:
+	if _context.is_host or not _client.input_open:
+		return false
+	var binding: Dictionary = _vehicle_replicator.binding_for_participant(
+		_context.local_participant_id
+	)
+	if binding.is_empty():
+		return false
+	var encoded: Dictionary = DriveCommandCodec.encode(command, VehicleReplicator.INPUT_EPOCH)
+	if not encoded.get("ok", false):
+		return false
+	if not _vehicle_replicator.predict_local(command, delta_seconds):
+		return false
+	_submit_vehicle_command.rpc_id(
+		1,
+		{
+			"session_id": _context.session_id,
+			"match_revision": _match_revision(),
+			"entity_id": binding.id,
+			"generation": binding.generation,
+			"packet": encoded.packet,
+		},
+	)
+	return true
+
+
+## Assigns a host-side driver only for replication tests until B1.2 owns transactions.
+func assign_vehicle_driver_for_testing(participant_id: int, entity_id: int = 0) -> Dictionary:
+	if not _configured or not _context.is_host:
+		return { "ok": false }
+	var assigned: Dictionary = _vehicle_replicator.assign_driver_for_testing(
+		participant_id, entity_id
+	)
+	if not assigned.get("ok", false):
+		return assigned
+	_broadcast_vehicle_descriptors()
+	return assigned
+
+
+## Returns one current replicated vehicle body for focused acceptance drivers.
+func vehicle_for_entity(entity_id: int) -> VehicleMotion:
+	return _vehicle_replicator.vehicle_for_entity(entity_id)
+
+
+## Returns bounded local car replay and correction diagnostics.
+func vehicle_prediction_diagnostics() -> Dictionary:
+	return _vehicle_replicator.prediction_diagnostics()
 
 
 ## Sends one exact pre-encoded command packet for alternate bounded input collectors.
@@ -336,6 +411,7 @@ func update_client_prediction_context(
 ## Clears prediction, smoothing, and pending recovery at a non-incremental fence.
 func invalidate_client_motion() -> void:
 	_prediction_owner().invalidate()
+	_vehicle_replicator.invalidate_motion()
 	_client.input_recovery_pending = false
 	_client.last_command_packet = PackedByteArray()
 	for smoother: RemoteMotionSmoother in _remote_smoothers().values():
@@ -396,6 +472,7 @@ func request_match_reset(requester_participant_id: int) -> bool:
 	_sequence.match_revision = _match_revision() + 1
 	_sequence.durable_revision = 0
 	_input_authority.clear()
+	_vehicle_replicator.reset_authority()
 	_input_state_by_participant.clear()
 	_admitted_peers.clear()
 	var failed_peers: Array[int] = []
@@ -683,6 +760,50 @@ func _submit_command(envelope: Dictionary) -> void:
 		_record_command_rejection(offered.failure)
 
 
+## Validates and queues one sender-owned vehicle packet on the held-input stream.
+@rpc("any_peer", "call_remote", "unreliable_ordered", 2)
+func _submit_vehicle_command(envelope: Dictionary) -> void:
+	if (
+		envelope.size() != 5
+		or envelope.get("session_id") is not String
+		or envelope.get("match_revision") is not int
+		or envelope.get("entity_id") is not int
+		or envelope.get("generation") is not int
+		or envelope.get("packet") is not PackedByteArray
+	):
+		return
+	if (
+		not _context.is_host
+		or envelope.session_id != _context.session_id
+		or int(envelope.match_revision) != _match_revision()
+	):
+		return
+	var packet: PackedByteArray = envelope.packet
+	if packet.size() != DriveCommandCodec.PACKET_BYTES:
+		_record_command_rejection(&"PACKET_SIZE")
+		return
+	var sender: int = multiplayer.get_remote_sender_id()
+	var participant_id: int = _admission.input_participant(sender)
+	var binding: Dictionary = _vehicle_replicator.binding_for_participant(participant_id)
+	if (
+		participant_id == 0
+		or binding.is_empty()
+		or int(envelope.entity_id) != int(binding.id)
+		or int(envelope.generation) != int(binding.generation)
+		or not _consume_input_rate(participant_id)
+	):
+		return
+	var decoded: Dictionary = DriveCommandCodec.decode(packet)
+	if not decoded.get("ok", false):
+		_record_command_rejection(decoded.failure.code)
+		return
+	var offered: Dictionary = _vehicle_replicator.offer_command(
+		participant_id, decoded, _now_msec()
+	)
+	if offered.has("failure"):
+		_record_command_rejection(offered.failure)
+
+
 ## Resolves one exact current command envelope without decoding its bounded packet.
 func _admit_input(envelope: Dictionary) -> Dictionary:  # gdstyle:ignore=quality/max-returns
 	if (
@@ -721,6 +842,22 @@ func _admit_input(envelope: Dictionary) -> Dictionary:  # gdstyle:ignore=quality
 		"participant_id": participant_id,
 		"sender": sender,
 	}
+
+
+## Installs reliable vehicle definitions and test control bindings before movement.
+@rpc("authority", "call_remote", "reliable", 1)
+func _receive_vehicle_descriptors(
+	session_id: String,
+	match_revision: int,
+	descriptors: Array,
+) -> void:
+	if (
+		_context.is_host
+		or session_id != _context.session_id
+		or match_revision != _match_revision()
+	):
+		return
+	_vehicle_replicator.install_descriptors(descriptors, _context.local_participant_id)
 
 
 ## Installs Session-to-entity bindings before baseline or lifecycle rows reference them.
@@ -986,6 +1123,12 @@ func send_baseline_to_peer(
 ) -> bool:
 	if not _can_send_to_peer(native_peer_id):
 		return false
+	_receive_vehicle_descriptors.rpc_id(
+		native_peer_id,
+		_context.session_id,
+		_match_revision(),
+		_vehicle_replicator.descriptor_rows(),
+	)
 	_receive_player_bindings.rpc_id(
 		native_peer_id,
 		_context.session_id,
@@ -1022,6 +1165,12 @@ func send_durable_to_peer(native_peer_id: int, packet: PackedByteArray) -> bool:
 func send_lifecycle_to_peer(native_peer_id: int, lifecycle_revision: int) -> bool:
 	if not _can_send_to_peer(native_peer_id) or lifecycle_revision != _lifecycle.revision():
 		return false
+	_receive_vehicle_descriptors.rpc_id(
+		native_peer_id,
+		_context.session_id,
+		_match_revision(),
+		_vehicle_replicator.descriptor_rows(),
+	)
 	_receive_player_bindings.rpc_id(
 		native_peer_id,
 		_context.session_id,
@@ -1260,6 +1409,9 @@ func _is_spawn_blocked(candidate: Dictionary, participant_id: int) -> bool:
 ## Instantiates all baseline player rows before local input can be granted.
 func _materialize_baseline(rows: Array[Dictionary]) -> void:
 	for row: Dictionary in rows:
+		if int(row.kind) == VehicleReplicator.ENTITY_KIND_VEHICLE:
+			_apply_replica_state(int(row.id), 0)
+			continue
 		var participant_id: int = int(
 			_player_identity.participant_by_entity.get(int(row.id), 0)
 		)
@@ -1273,11 +1425,24 @@ func _materialize_baseline(rows: Array[Dictionary]) -> void:
 
 ## Reconciles local prediction or feeds one passive remote presentation sample.
 func _apply_replica_state(entity_id: int, acknowledged_sequence: int) -> void:
-	var participant_id: int = int(_player_identity.participant_by_entity.get(entity_id, 0))
-	if participant_id == 0:
-		return
 	var state: Dictionary = _store.entity_state(entity_id)
 	if state.is_empty() or int(state.phase) == PHASE_REMOVED:
+		return
+	if int(state.kind) == VehicleReplicator.ENTITY_KIND_VEHICLE:
+		var applied: bool = _vehicle_replicator.apply_replica_state(
+			state,
+			_context.local_participant_id,
+			acknowledged_sequence,
+			_now_msec(),
+		)
+		var binding: Dictionary = _vehicle_replicator.binding_for_participant(
+			_context.local_participant_id
+		)
+		if applied and int(binding.get("id", 0)) == entity_id:
+			movement_applied.emit(_context.local_participant_id)
+		return
+	var participant_id: int = int(_player_identity.participant_by_entity.get(entity_id, 0))
+	if participant_id == 0:
 		return
 	var life_ref: Dictionary = _lifecycle.entity_ref_for(participant_id)
 	if (
@@ -1317,7 +1482,10 @@ func _apply_local_replica_state(
 	if bool(motion.alive) and _client.grant_received:
 		_client.input_open = true
 		_bind_client_input()
-	if _client.input_open:
+	var driving: bool = not _vehicle_replicator.binding_for_participant(
+		participant_id
+	).is_empty()
+	if _client.input_open and not driving:
 		var reconciliation: Dictionary = _prediction_owner().reconcile_motion(
 			motion.position,
 			motion.velocity,
@@ -1468,6 +1636,8 @@ func _publish_movement() -> void:
 	for native_peer_id: int in _admitted_peers.keys():
 		var participant_id: int = _identities.resolve_sender(native_peer_id)
 		var acknowledgement: int = _input_authority.acknowledgement(participant_id)
+		if not _vehicle_replicator.binding_for_participant(participant_id).is_empty():
+			acknowledgement = _vehicle_replicator.acknowledgement(participant_id)
 		for packet: PackedByteArray in encoded.packets:
 			_receive_movement.rpc_id(
 				native_peer_id,
@@ -1511,6 +1681,7 @@ func _capture_rows() -> Array[Dictionary]:
 				"yaw": actor.rotation.y,
 			}
 		)
+	rows.append_array(_vehicle_replicator.capture_rows())
 	return rows
 
 
@@ -1580,6 +1751,18 @@ func _broadcast_bindings() -> void:
 	var rows: Array[Dictionary] = _binding_rows()
 	for native_peer_id: int in _admitted_peers:
 		_receive_player_bindings.rpc_id(
+			native_peer_id,
+			_context.session_id,
+			_match_revision(),
+			rows,
+		)
+
+
+## Publishes current test driver bindings reliably before their movement acknowledgement.
+func _broadcast_vehicle_descriptors() -> void:
+	var rows: Array[Dictionary] = _vehicle_replicator.descriptor_rows()
+	for native_peer_id: int in _admitted_peers:
+		_receive_vehicle_descriptors.rpc_id(
 			native_peer_id,
 			_context.session_id,
 			_match_revision(),
@@ -1726,6 +1909,7 @@ func _sample_predict_and_submit_local_input(delta_seconds: float) -> void:
 func _update_client_presentation(delta_seconds: float) -> void:
 	_prediction_owner().tick_visual(delta_seconds)
 	var now_msec: int = _now_msec()
+	_vehicle_replicator.tick_presentation(delta_seconds, now_msec)
 	for participant_id: int in _remote_smoothers():
 		var actor: ActorMotion = _actors_by_participant.get(participant_id)
 		var smoother: RemoteMotionSmoother = _remote_smoothers()[participant_id]

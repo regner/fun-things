@@ -47,7 +47,7 @@ func _ready() -> void:
 	_session.completed.connect(_on_session_completed)
 
 	var compatibility: Dictionary = {
-		"protocol_version": int(options.get("protocol", 2)),
+		"protocol_version": int(options.get("protocol", 3)),
 		"content_id": String(options.get("content", "development")),
 		"district_id": StringName(options.get("district", "brackett_island")),
 		"topology_revision": int(options.get("topology", 0)),
@@ -226,7 +226,7 @@ func _build_handshake_payload(content_id: String) -> PackedByteArray:
 	return SessionAuthCodec.encode_handshake(
 		1,
 		{
-			"protocol_version": 2,
+			"protocol_version": 3,
 			"content_id": content_id,
 			"district_id": &"brackett_island",
 			"topology_revision": 0,

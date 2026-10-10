@@ -1,0 +1,315 @@
+extends Node  # gdstyle:ignore=quality/max-class-variables
+## Drives production vehicle replication and prediction through two real ENet processes.
+
+const PREFIX: String = "M1-B1.1 "
+const MATCH_SCENE: PackedScene = preload("res://scenes/match/match.tscn")
+const REMOTE_PARTICIPANT_ID: int = 2
+const PROCESS_TIMEOUT_MSEC: int = 45_000
+const COMMAND_TICKS: int = 460
+const RESULT_GRACE_TICKS: int = 90
+
+var _role: String = ""
+var _port: int = 0
+var _deadline_msec: int = 0
+var _match: Node3D
+var _replication: MatchReplication
+var _granted: bool = false
+var _vehicle_id: int = 0
+var _sequence: int = 0
+var _test_ticks: int = 0
+var _movement_receipts: int = 0
+var _prediction_before_authority: bool = false
+var _start_position: Vector3 = Vector3.INF
+var _contact_vehicle: VehicleMotion
+var _wall_contact_observed: bool = false
+var _moving_contact_observed: bool = false
+var _mode_observed: Dictionary[StringName, bool] = {
+	&"straight": false,
+	&"turn": false,
+	&"brake": false,
+	&"reverse": false,
+	&"handbrake": false,
+}
+var _finished: bool = false
+
+@onready var _session: SessionService = $Session
+@onready var _transport: ENetTransport = $Session/ENetTransport
+
+
+## Starts one bounded host or client through the production SessionService path.
+func _ready() -> void:
+	Engine.max_fps = 60
+	_parse_arguments()
+	if _role not in ["host", "client"] or _port <= 0:
+		_finish(false, "arguments")
+		return
+	_session.changed.connect(_on_session_changed)
+	_transport.peer_ready.connect(_on_transport_peer_ready)
+	_session.participant_admitted.connect(_on_participant_admitted)
+	_session.participant_disconnected.connect(_on_participant_disconnected)
+	if not _session.register_transport(_transport).get("ok", false):
+		_finish(false, "transport registration")
+		return
+
+	_deadline_msec = Time.get_ticks_msec() + PROCESS_TIMEOUT_MSEC
+	if _role == "host":
+		_session.host(
+			{
+				"provider_id": &"enet",
+				"district_id": &"brackett_island",
+				"capacity": 2,
+				"provider_options": { "port": _port, "bind_address": "127.0.0.1" },
+			}
+		)
+	else:
+		var parsed: Dictionary = _transport.parse_endpoint("127.0.0.1", _port)
+		_session.join(parsed.target)
+
+
+## Samples one numbered drive frame per client physics tick and checks bounded completion.
+
+
+# gdstyle:ignore=quality/max-returns,quality/max-branches,quality/max-function-length
+func _physics_process(delta_seconds: float) -> void:
+	if _finished:
+		return
+	if Time.get_ticks_msec() >= _deadline_msec:
+		_finish(false, "deadline")
+		return
+	if not is_instance_valid(_replication) or _vehicle_id == 0:
+		return
+
+	var vehicle: VehicleMotion = _replication.vehicle_for_entity(_vehicle_id)
+	if vehicle == null:
+		return
+	if _start_position == Vector3.INF:
+		_start_position = vehicle.global_position
+	_observe_contacts(vehicle)
+	if _role == "client" and not _granted:
+		return
+	if _role == "client" and _test_ticks < COMMAND_TICKS:
+		_submit_profile_command(vehicle, delta_seconds)
+		return
+	if _role == "host" and _replication._vehicle_replicator.acknowledgement(
+		REMOTE_PARTICIPANT_ID
+	) == 0:
+		return
+	if _role == "host" and _test_ticks < 120:
+		_step_contact_vehicle(delta_seconds)
+
+	_test_ticks += 1
+	if _test_ticks < COMMAND_TICKS + RESULT_GRACE_TICKS:
+		return
+	var displacement: float = vehicle.global_position.distance_to(_start_position)
+	var prediction: Dictionary = _replication.vehicle_prediction_diagnostics()
+	var modes_complete: bool = not false in _mode_observed.values()
+	var ok: bool = displacement > 0.5
+	if _role == "host":
+		ok = ok and _wall_contact_observed and _moving_contact_observed
+	else:
+		ok = (
+			ok
+			and _prediction_before_authority
+			and modes_complete
+			and _wall_contact_observed
+			and int(prediction.get("history_size", 0)) <= VehiclePrediction.HISTORY_CAPACITY
+		)
+	_finish(
+		ok,
+		"complete",
+		{
+			"displacement_metres": displacement,
+			"modes": _mode_observed,
+			"moving_contact_observed": _moving_contact_observed,
+			"wall_contact_observed": _wall_contact_observed,
+			"movement_receipts": _movement_receipts,
+			"prediction": prediction,
+			"prediction_before_authority": _prediction_before_authority,
+		},
+	)
+
+
+## Emits readiness only after ENet published the bound host endpoint.
+func _on_transport_peer_ready(operation_id: int, _peer: MultiplayerPeer) -> void:
+	if _role == "host":
+		_print_event({ "event": "host_ready", "operation_id": operation_id })
+
+
+## Instantiates the saved production Match after Session reaches ACTIVE.
+func _on_session_changed(view: Dictionary) -> void:
+	if view.phase != SessionService.PHASE_ACTIVE or is_instance_valid(_match):
+		return
+	_match = MATCH_SCENE.instantiate() as Node3D
+	add_child(_match)
+	_replication = _match.get_node("Replication") as MatchReplication
+	_replication.set_local_input_enabled(false)
+	_replication.input_granted.connect(_on_input_granted)
+	_replication.movement_applied.connect(_on_movement_applied)
+	if not _replication.configure_network(
+		view.session_id,
+		view.local_participant_id,
+		view.operation_kind == SessionService.OPERATION_HOST,
+	):
+		_finish(false, "match configuration")
+
+
+## Mirrors Session mapping and assigns the remote test driver before baseline capture.
+func _on_participant_admitted(native_peer_id: int, participant_id: int) -> void:
+	if not is_instance_valid(_replication):
+		_finish(false, "host match missing")
+		return
+	if not _replication.admit_peer(native_peer_id, participant_id):
+		_finish(false, "participant handoff")
+		return
+	var assigned: Dictionary = _replication.assign_vehicle_driver_for_testing(participant_id)
+	if not assigned.get("ok", false):
+		_finish(false, "vehicle assignment")
+		return
+	_vehicle_id = int(assigned.entity_ref.id)
+	_configure_contact_vehicle()
+	_print_event({ "event": "driver_assigned", "vehicle_id": _vehicle_id })
+
+
+## Applies production disconnect cleanup to the temporary driver assignment.
+func _on_participant_disconnected(native_peer_id: int, participant_id: int) -> void:
+	if is_instance_valid(_replication):
+		_replication.remove_peer(native_peer_id, participant_id)
+
+
+## Opens deterministic drive input only after baseline and handoff grant.
+func _on_input_granted(participant_id: int) -> void:
+	if participant_id != REMOTE_PARTICIPANT_ID:
+		return
+	_granted = true
+	var binding: Dictionary = _replication._vehicle_replicator.binding_for_participant(
+		participant_id
+	)
+	_vehicle_id = int(binding.get("id", 0))
+	_print_event({ "event": "input_granted", "vehicle_id": _vehicle_id })
+
+
+## Counts authoritative movement receipts separately from immediate prediction.
+func _on_movement_applied(participant_id: int) -> void:
+	if participant_id == REMOTE_PARTICIPANT_ID:
+		_movement_receipts += 1
+
+
+## Places one authority-only crossing car for real moving-contact replication proof.
+func _configure_contact_vehicle() -> void:
+	for descriptor: Dictionary in _replication._vehicle_replicator.descriptor_rows():
+		var entity_id: int = int(descriptor.id)
+		if entity_id == _vehicle_id:
+			continue
+		_contact_vehicle = _replication.vehicle_for_entity(entity_id)
+		_contact_vehicle.global_position = Vector3(-109.0, 0.05, -3.0)
+		_contact_vehicle.rotation.y = 0.0
+		return
+
+
+## Advances the crossing car through the same production authority motion step.
+func _step_contact_vehicle(delta_seconds: float) -> void:
+	if not is_instance_valid(_contact_vehicle):
+		return
+	var command := DriveCommand.new(
+		maxi(1, _test_ticks + 1),
+		maxi(1, _test_ticks + 1),
+		1.0,
+		0.0,
+		0.0,
+		false,
+	)
+	_contact_vehicle.step(command, delta_seconds, VehicleMotion.StepMode.AUTHORITY)
+	_observe_contacts(_contact_vehicle)
+
+
+## Records actual CharacterBody contacts with the authored wall and crossing car.
+func _observe_contacts(vehicle: VehicleMotion) -> void:
+	for index: int in range(vehicle.get_slide_collision_count()):
+		var collision: KinematicCollision3D = vehicle.get_slide_collision(index)
+		var collider: Object = collision.get_collider()
+		if collider is VehicleMotion:
+			_moving_contact_observed = true
+		elif collider is StaticBody3D and (collider as Node).name == &"ContactWall":
+			_wall_contact_observed = true
+
+
+## Submits straight, turn, brake, reverse, and handbrake frames in one bounded run.
+func _submit_profile_command(vehicle: VehicleMotion, delta_seconds: float) -> void:
+	_sequence += 1
+	_test_ticks += 1
+	var controls: Dictionary = _controls_for_tick(_test_ticks)
+	_mode_observed[StringName(controls.mode)] = true
+	var before_position: Vector3 = vehicle.global_position
+	var receipts_before: int = _movement_receipts
+	var command := DriveCommand.new(
+		_sequence,
+		_sequence,
+		float(controls.throttle),
+		float(controls.steer),
+		float(controls.brake),
+		bool(controls.handbrake),
+	)
+	if not _replication.predict_and_submit_local_vehicle_command(command, delta_seconds):
+		_finish(false, "command rejected")
+		return
+	if (
+		_movement_receipts == receipts_before
+		and vehicle.global_position.distance_to(before_position) > 0.0001
+	):
+		_prediction_before_authority = true
+
+
+## Returns one complete phase command without changing the shared handling rule.
+func _controls_for_tick(tick: int) -> Dictionary:
+	if tick <= 90:
+		return _controls(&"straight", 1.0, 0.0, 0.0, false)
+	if tick <= 170:
+		return _controls(&"turn", 0.7, 0.25, 0.0, false)
+	if tick <= 270:
+		return _controls(&"brake", 0.0, 0.0, 1.0, false)
+	if tick <= 370:
+		return _controls(&"reverse", -0.5, -0.2, 0.0, false)
+	return _controls(&"handbrake", 0.5, 0.2, 0.0, true)
+
+
+## Builds one concise deterministic phase row for the integration driver.
+func _controls(
+	mode: StringName,
+	throttle: float,
+	steer: float,
+	brake: float,
+	handbrake: bool,
+) -> Dictionary:
+	return {
+		"mode": mode,
+		"throttle": throttle,
+		"steer": steer,
+		"brake": brake,
+		"handbrake": handbrake,
+	}
+
+
+## Reads only bounded role and port arguments after the Godot separator.
+func _parse_arguments() -> void:
+	for argument: String in OS.get_cmdline_user_args():
+		if argument.begins_with("--role="):
+			_role = argument.trim_prefix("--role=")
+		elif argument.begins_with("--port="):
+			_port = argument.trim_prefix("--port=").to_int()
+
+
+## Emits one terminal result and exits with a truthful status.
+func _finish(ok: bool, detail: String, evidence: Dictionary = {}) -> void:
+	if _finished:
+		return
+	_finished = true
+	var event: Dictionary = { "event": "finished", "ok": ok, "detail": detail }
+	event.merge(evidence)
+	_print_event(event)
+	get_tree().quit(0 if ok else 1)
+
+
+## Prints one machine-readable readiness or result receipt.
+func _print_event(event: Dictionary) -> void:
+	event["role"] = _role
+	print(PREFIX + JSON.stringify(event))

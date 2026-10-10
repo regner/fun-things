@@ -160,6 +160,27 @@ func test_wall_contact_and_reverse_recovery() -> void:
 	assert_gt(car.global_position.z, contact_z + 1.0)
 
 
+## Resolves two moving vehicle bodies without either passing through the other.
+func test_moving_vehicle_contact_remains_solid() -> void:
+	var first: VehicleMotion = _add_motion()
+	var second: VehicleMotion = _add_motion()
+	first.configure_simulation(true)
+	second.configure_simulation(true)
+	first.global_position = Vector3(0.0, 0.0, 0.0)
+	second.global_position = Vector3(0.0, 0.0, -6.0)
+	second.rotation.y = PI
+	await get_tree().physics_frame
+	var command := DriveCommand.new(1, 1, 1.0, 0.0, 0.0, false)
+	for _tick: int in range(90):
+		assert_true(first.step(command, FIXED_DELTA, VehicleMotion.StepMode.AUTHORITY))
+		assert_true(second.step(command, FIXED_DELTA, VehicleMotion.StepMode.AUTHORITY))
+		await get_tree().physics_frame  # gdstyle:ignore=quality/await-in-loop
+
+	assert_lt(first.global_position.z, 0.0)
+	assert_gt(second.global_position.z, -6.0)
+	assert_gte(first.global_position.distance_to(second.global_position), 3.0)
+
+
 ## Rejects malformed commands and mismatched deltas without retaining motion.
 func test_invalid_step_neutralizes_motion() -> void:
 	var car: VehicleMotion = _add_motion()
