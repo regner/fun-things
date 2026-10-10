@@ -1,0 +1,30 @@
+city_waste.01 / Public bin — final bounded production receipt
+Blender 5.2.2 LTS d13f752e3b9c; glTF exporter 5.2.40.
+Godot 4.8.dev7.official.c971f93e7; gdstyle 0.3.0.
+Original Blender construction; no external meshes, textures, fonts or artwork.
+Final author, render, fresh export and source/binary validator: exit 0.
+Source: 856 vertices; GLB: 1002 vertices; 1676 triangles; 1 mesh; 4 surfaces.
+Degenerate faces: 0. Non-manifold edges: 0. Unit normals and winding: PASS.
+Visual dimensions X/Y/Z: .660 / 1.050 / .593 m; ground Y=0, tolerance .001 m.
+GLB: 46212 bytes; fresh saved-source re-export byte-identical.
+SHA256: 45af020b665fa992f3722867cc9ea825ee92b32cc3cb6db47ee8f42ab3984017
+Four final 1280x720 Blender renders visually inspected; gameplay camera vertical 47m/FOV42.
+Initial cropped framing widened; final crown arc increased to 16 steps.
+Headless import: exit 0; existing plugin engine-version warning retained.
+Headless scene normalization: checks pass, exit 0; editor shutdown leak diagnostics retained.
+Two scenes second-save byte-identical; imported ancestry/UID/dependency/bounds checks PASS.
+Runtime resource and physics check: exit 0; no ERROR/WARNING/SCRIPT ERROR diagnostics.
+ActorMotion front stop Z=.650064945; side stop X=.680065036; clear bypass Z=-2.999999762.
+60 ticks per case per mode; authority/replay equal. Solid and above-lid ray checks PASS.
+Owned GDScript formatting/lint: PASS after local findings corrected.
+Complete production_checks.py: PASS, no failure exemptions.
+Owned-script formatting/style/all-script compilation PASS.
+Python: 14 tests PASS. GUT: 86 tests, 2178 assertions PASS.
+GUT negative diagnostic fixture intentionally returns 1; detection PASS.
+Raw commands/logs: C:/tmp/ft/assets/city_waste_01/ (not committed).
+Known diagnostics: Blender use_nodes deprecation; editor MCP engine warning;
+normalization shutdown reports 5 viewport, 8 texture, 1 scenario, 52 shaped-text,
+1 font RID allocations, 5 Canvas / 31 CanvasItem RIDs and 168 ObjectDB instances leaked.
+These editor shutdown messages are not claimed resolved by passing runtime checks.
+No live editor session, shared file, world placement or gameplay behavior edited.
+Pending: independent review, placed-world camera/clearance, car/network, build/Deck/performance.
