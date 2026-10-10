@@ -20,6 +20,11 @@ DIAGNOSTIC = re.compile(r"(?:SCRIPT ERROR:|ERROR:|WARNING:)")
 PROCESS_TIMEOUT_SECONDS = 180
 READINESS_TIMEOUT_SECONDS = 30
 CASE_TIMEOUT_SECONDS = 150
+EXPECTED_AUTH_TIMEOUT_MSEC = 750
+PREDICTION_HISTORY_CAPACITY = 120
+PREDICTED_DISPLACEMENT_MINIMUM_METRES = 0.01
+SMOOTHING_DISPLACEMENT_MINIMUM_METRES = 0.001
+MAX_REMOTE_FRAME_JUMP_METRES = 0.5
 
 
 @dataclass
@@ -231,6 +236,33 @@ class ExportedAcceptanceRunner:
                 missing = [field for field in missing if field != "host_moved"]
             if missing:
                 raise RuntimeError(f"gameplay {role} missing receipts: {missing}")
+        prediction_fields = (
+            "prediction_succeeded",
+            "prediction_before_authority_receipt",
+        )
+        if any(not client_result.get(field) for field in prediction_fields):
+            raise RuntimeError(f"gameplay prediction was not observed: {client_result}")
+        peak_history = client_result.get("prediction_peak_history", 0)
+        predicted_displacement = client_result.get(
+            "prediction_unacknowledged_displacement_metres", 0.0
+        )
+        if (
+            not 0 < peak_history <= PREDICTION_HISTORY_CAPACITY
+            or predicted_displacement <= PREDICTED_DISPLACEMENT_MINIMUM_METRES
+        ):
+            raise RuntimeError(f"gameplay prediction measurements invalid: {client_result}")
+        stationary_frames = client_result.get("remote_stationary_root_frames", 0)
+        stationary_displacement = client_result.get(
+            "remote_stationary_display_displacement_metres", 0.0
+        )
+        maximum_jump = client_result.get("remote_display_max_jump_metres", 1.0)
+        if (
+            stationary_frames < 1
+            or stationary_displacement <= SMOOTHING_DISPLACEMENT_MINIMUM_METRES
+        ):
+            raise RuntimeError(f"gameplay smoothing was not independently observed: {client_result}")
+        if not 0.0 < maximum_jump <= MAX_REMOTE_FRAME_JUMP_METRES:
+            raise RuntimeError(f"gameplay smoothing jump was not bounded: {client_result}")
         return {
             "exits": self.settle([client, host]),
             "receipts": {"host": host_result, "client": client_result},
@@ -239,15 +271,35 @@ class ExportedAcceptanceRunner:
     def case_expected_failure(self, case: str, scenario: str, detail: str) -> dict:
         """Require one normalized exported admission failure and clean host cleanup."""
         host, client = self.pair(case, scenario)
+        auth_waiting = None
+        if scenario == "admission_timeout":
+            auth_waiting = client.wait_event(
+                self.event("auth_waiting"), READINESS_TIMEOUT_SECONDS
+            )
+            if (
+                not auth_waiting.get("ok")
+                or auth_waiting.get("started_msec", 0) <= 0
+                or auth_waiting.get("timeout_msec") != EXPECTED_AUTH_TIMEOUT_MSEC
+            ):
+                raise RuntimeError(f"{case}: invalid auth readiness: {auth_waiting}")
         client_result = client.wait_event(self.event("finished"), CASE_TIMEOUT_SECONDS)
         host_result = host.wait_event(self.event("finished"), READINESS_TIMEOUT_SECONDS)
         if not client_result.get("ok") or client_result.get("detail") != detail:
             raise RuntimeError(f"{case}: wrong client result: {client_result}")
         if not host_result.get("ok") or not host_result.get("peer_seen"):
             raise RuntimeError(f"{case}: host did not observe peer cleanup: {host_result}")
+        if scenario == "admission_timeout" and (
+            not client_result.get("auth_waiting")
+            or client_result.get("auth_failure_elapsed_msec", 0)
+            < client_result.get("auth_timeout_msec", 1)
+        ):
+            raise RuntimeError(f"{case}: timeout deadline was not proved: {client_result}")
+        receipts = {"host": host_result, "client": client_result}
+        if auth_waiting is not None:
+            receipts["auth_waiting"] = auth_waiting
         return {
             "exits": self.settle([client, host]),
-            "receipts": {"host": host_result, "client": client_result},
+            "receipts": receipts,
         }
 
     def case_host_loss(self) -> dict:

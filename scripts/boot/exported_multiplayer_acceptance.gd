@@ -13,6 +13,10 @@ const SCENARIO_PLAYTEST: String = "playtest"
 const PROCESS_TIMEOUT_MSEC: int = 120_000
 const HANDSHAKE_TIMEOUT_SECONDS: float = 0.75
 const REQUIRED_MOVEMENT_METRES: float = 0.5
+const PREDICTED_DISPLACEMENT_EPSILON_METRES: float = 0.01
+const STATIONARY_ROOT_EPSILON_METRES: float = 0.0001
+const PRESENTATION_MOVEMENT_EPSILON_METRES: float = 0.001
+const MAX_REMOTE_FRAME_JUMP_METRES: float = 0.5
 const REMOTE_PARTICIPANT_ID: int = 2
 const HOST_PARTICIPANT_ID: int = 1
 
@@ -45,6 +49,22 @@ var _closing: bool = false
 var _finished: bool = false
 var _host_ready: bool = false
 var _peer_seen: bool = false
+var _auth_waiting: bool = false
+var _auth_wait_started_msec: int = 0
+var _auth_failure_elapsed_msec: int = 0
+var _local_authority_receipts: int = 0
+var _prediction_receipts_before_submit: int = 0
+var _prediction_waiting_for_authority: bool = false
+var _prediction_succeeded: bool = false
+var _prediction_before_authority_receipt: bool = false
+var _prediction_peak_history: int = 0
+var _prediction_unacknowledged_displacement_metres: float = 0.0
+var _remote_previous_root_position: Vector3 = Vector3.INF
+var _remote_previous_display_position: Vector3 = Vector3.INF
+var _remote_display_start_position: Vector3 = Vector3.INF
+var _remote_display_max_jump_metres: float = 0.0
+var _remote_stationary_root_frames: int = 0
+var _remote_stationary_display_displacement_metres: float = 0.0
 
 
 ## Parses the explicit acceptance arguments without changing ordinary launches.
@@ -181,19 +201,44 @@ func _ignore_auth_payload(_peer_id: int, _payload: PackedByteArray) -> void:
 	pass
 
 
-## Emits readiness only after the raw client has reached authentication.
+## Records the monotonic start of the raw client's authentication deadline.
 func _on_raw_peer_authenticating(_peer_id: int) -> void:
-	_print_event({ "event": "auth_waiting", "ok": true, "role": _role })
+	if _auth_waiting:
+		return
+	_auth_waiting = true
+	_auth_wait_started_msec = Time.get_ticks_msec()
+	_print_event(
+		{
+			"event": "auth_waiting",
+			"ok": true,
+			"role": _role,
+			"started_msec": _auth_wait_started_msec,
+			"timeout_msec": roundi(HANDSHAKE_TIMEOUT_SECONDS * 1000.0),
+		}
+	)
 
 
-## Accepts only SceneMultiplayer's bounded authentication failure in this scenario.
+## Accepts only an authentication failure delivered after the configured deadline.
 func _on_raw_authentication_failed(_peer_id: int) -> void:
+	if not _auth_waiting:
+		_finish(false, "AUTH_FAILED_BEFORE_WAITING")
+		return
+	_auth_failure_elapsed_msec = Time.get_ticks_msec() - _auth_wait_started_msec
+	var timeout_msec: int = roundi(HANDSHAKE_TIMEOUT_SECONDS * 1000.0)
+	if _auth_failure_elapsed_msec < timeout_msec:
+		_finish(false, "AUTH_FAILED_BEFORE_DEADLINE")
+		return
 	_finish(true, "HANDSHAKE_TIMEOUT")
 
 
-## Treats host removal as timeout only after the silent client reached the auth phase.
+## Rejects server loss because only peer_authentication_failed proves the deadline.
 func _on_raw_server_disconnected() -> void:
-	_finish(true, "HANDSHAKE_TIMEOUT")
+	var detail: String = (
+		"SERVER_DISCONNECTED_DURING_AUTH"
+		if _auth_waiting
+		else "SERVER_DISCONNECTED_BEFORE_AUTH"
+	)
+	_finish(false, detail)
 
 
 ## Emits host endpoint readiness without a startup sleep.
@@ -275,6 +320,12 @@ func _bind_match() -> void:
 		_finish(false, "MATCH_REPLICATION_MISSING")
 		return
 	_replication.input_granted.connect(_on_input_granted)
+	_replication.movement_applied.connect(_on_movement_applied)
+	if _scenario == SCENARIO_GAMEPLAY:
+		_replication.set_local_input_enabled(false)
+		var rig: LocalRig = match.get_node_or_null("LocalRig") as LocalRig
+		if rig != null and _role == ROLE_HOST:
+			rig.set_actor_control_enabled(false)
 	_print_event(
 		{
 			"event": "match_ready",
@@ -292,7 +343,20 @@ func _on_input_granted(participant_id: int) -> void:
 		_sequence = 0
 
 
-## Moves both real players and reads the remote presentation anchor for smoothing proof.
+## Confirms a retained prediction existed before the next local authority receipt.
+func _on_movement_applied(participant_id: int) -> void:
+	if _role != ROLE_CLIENT or participant_id != REMOTE_PARTICIPANT_ID:
+		return
+	_local_authority_receipts += 1
+	if (
+		_prediction_waiting_for_authority
+		and _local_authority_receipts > _prediction_receipts_before_submit
+	):
+		_prediction_before_authority_receipt = true
+		_prediction_waiting_for_authority = false
+
+
+## Moves both real players and records prediction and remote smoothing measurements.
 func _step_gameplay(delta_seconds: float) -> void:
 	var host_actor: ActorMotion = _replication.actor_for_participant(HOST_PARTICIPANT_ID)
 	var client_actor: ActorMotion = _replication.actor_for_participant(REMOTE_PARTICIPANT_ID)
@@ -303,6 +367,9 @@ func _step_gameplay(delta_seconds: float) -> void:
 		_initial_positions[REMOTE_PARTICIPANT_ID] = client_actor.global_position.x
 
 	if _role == ROLE_HOST:
+		var rig: LocalRig = _replication.get_parent().get_node_or_null("LocalRig") as LocalRig
+		if rig != null:
+			rig.set_actor_control_enabled(false)
 		_host_sequence += 1
 		host_actor.step(
 			FootCommand.new(
@@ -321,23 +388,80 @@ func _step_gameplay(delta_seconds: float) -> void:
 		)
 	else:
 		if _input_granted:
-			_sequence += 1
-			_replication.predict_and_submit_local_command(
-				FootCommand.new(
-					_sequence, _sequence, Vector2.RIGHT, 0.0, false, false
-				),
-				delta_seconds,
-			)
+			_submit_and_measure_prediction(client_actor, delta_seconds)
 		_client_moved = _client_moved or (
 			client_actor.global_position.x
 			>= _initial_positions[REMOTE_PARTICIPANT_ID] + REQUIRED_MOVEMENT_METRES
 		)
-		var presentation: Node3D = host_actor.get_node_or_null("PresentationAnchor") as Node3D
-		if presentation != null:
-			_remote_smoothed = _remote_smoothed or (
-				presentation.global_position.x
-				>= _initial_positions[HOST_PARTICIPANT_ID] + REQUIRED_MOVEMENT_METRES
-			)
+		_track_remote_presentation(host_actor)
+
+
+## Submits one command and proves local replay moved before its authority receipt.
+func _submit_and_measure_prediction(actor: ActorMotion, delta_seconds: float) -> void:
+	_sequence += 1
+	var before_position: Vector3 = actor.global_position
+	var receipts_before: int = _local_authority_receipts
+	var prediction: FootPrediction = _replication._prediction_owner()
+	var acknowledgement_before: int = prediction.acknowledgement()
+	var predicted: bool = _replication.predict_and_submit_local_command(
+		FootCommand.new(_sequence, _sequence, Vector2.RIGHT, 0.0, false, false),
+		delta_seconds,
+	)
+	var displacement: float = actor.global_position.distance_to(before_position)
+	var history_size: int = prediction.history_size()
+	_prediction_peak_history = maxi(_prediction_peak_history, history_size)
+	if (
+		predicted
+		and receipts_before == _local_authority_receipts
+		and _sequence > acknowledgement_before
+		and history_size > 0
+		and displacement > PREDICTED_DISPLACEMENT_EPSILON_METRES
+	):
+		_prediction_succeeded = true
+		_prediction_waiting_for_authority = true
+		_prediction_receipts_before_submit = receipts_before
+		_prediction_unacknowledged_displacement_metres = maxf(
+			_prediction_unacknowledged_displacement_metres,
+			displacement,
+		)
+
+
+## Proves presentation advances on stationary-root frames with bounded frame jumps.
+func _track_remote_presentation(actor: ActorMotion) -> void:
+	if _remote_smoothed or _dead_observed:
+		return
+	var presentation: Node3D = actor.get_node_or_null("PresentationAnchor") as Node3D
+	if presentation == null:
+		return
+	var root_position: Vector3 = actor.global_position
+	var display_position: Vector3 = presentation.global_position
+	if _remote_display_start_position == Vector3.INF:
+		_remote_display_start_position = display_position
+		_remote_previous_root_position = root_position
+		_remote_previous_display_position = display_position
+		return
+
+	var root_delta: float = root_position.distance_to(_remote_previous_root_position)
+	var display_delta: float = display_position.distance_to(_remote_previous_display_position)
+	_remote_display_max_jump_metres = maxf(_remote_display_max_jump_metres, display_delta)
+	if _remote_display_max_jump_metres > MAX_REMOTE_FRAME_JUMP_METRES:
+		_finish(false, "REMOTE_PRESENTATION_JUMP")
+		return
+	if (
+		root_delta <= STATIONARY_ROOT_EPSILON_METRES
+		and display_delta > PRESENTATION_MOVEMENT_EPSILON_METRES
+	):
+		_remote_stationary_root_frames += 1
+		_remote_stationary_display_displacement_metres += display_delta
+	_remote_previous_root_position = root_position
+	_remote_previous_display_position = display_position
+	_remote_smoothed = (
+		display_position.distance_to(_remote_display_start_position)
+		>= REQUIRED_MOVEMENT_METRES
+		and _remote_stationary_root_frames > 0
+		and _remote_stationary_display_displacement_metres
+		> PRESENTATION_MOVEMENT_EPSILON_METRES
+	)
 
 
 ## Drives death, respawn, reset, and post-reset input through their production owners.
@@ -402,6 +526,11 @@ func _check_client_success() -> void:
 	if (
 		actor.global_position.x >= _post_reset_start_x + REQUIRED_MOVEMENT_METRES
 		and _client_moved
+		and _prediction_succeeded
+		and _prediction_before_authority_receipt
+		and _prediction_peak_history > 0
+		and _prediction_unacknowledged_displacement_metres
+		> PREDICTED_DISPLACEMENT_EPSILON_METRES
 		and _remote_smoothed
 	):
 		_success_ready = true
@@ -445,35 +574,56 @@ func _finish(ok: bool, detail: String) -> void:
 	if _finished:
 		return
 	_finished = true
-	_print_event(
-		{
-			"brackett_loaded": (
-				is_instance_valid(_replication)
-				and _replication.get_parent().get_node_or_null("World") != null
-			),
-			"client_moved": _client_moved,
-			"dead_observed": _dead_observed,
-			"detail": detail,
-			"event": "finished",
-			"host_moved": _host_moved,
-			"match_revision": (
-				_replication.match_revision() if is_instance_valid(_replication) else 0
-			),
-			"ok": ok,
-			"peer_seen": _peer_seen,
-			"prediction_bounded": (
-				_role == ROLE_HOST
-				or not is_instance_valid(_replication)
-				or int(_replication._prediction_owner().diagnostics().history_size)
-				<= FootPrediction.HISTORY_CAPACITY
-			),
-			"remote_smoothed": _remote_smoothed,
-			"reset_observed": _reset_observed,
-			"respawn_observed": _respawn_observed,
-			"role": _role,
-			"scenario": _scenario,
-			"steam_class_absent": not ClassDB.class_exists("Steam"),
-			"steam_singleton_absent": not Engine.has_singleton("Steam"),
-		}
-	)
+	_print_event(_result_receipt(ok, detail))
 	_tree.quit(0 if ok else 1)
+
+
+## Builds the complete review receipt without changing acceptance state.
+func _result_receipt(ok: bool, detail: String) -> Dictionary:
+	var prediction_history_bounded: bool = (
+		_role == ROLE_HOST
+		or not is_instance_valid(_replication)
+		or (
+			_prediction_peak_history <= FootPrediction.HISTORY_CAPACITY
+			and int(_replication._prediction_owner().diagnostics().history_size)
+			<= FootPrediction.HISTORY_CAPACITY
+		)
+	)
+	return {
+		"auth_failure_elapsed_msec": _auth_failure_elapsed_msec,
+		"auth_timeout_msec": roundi(HANDSHAKE_TIMEOUT_SECONDS * 1000.0),
+		"auth_waiting": _auth_waiting,
+		"brackett_loaded": (
+			is_instance_valid(_replication)
+			and _replication.get_parent().get_node_or_null("World") != null
+		),
+		"client_moved": _client_moved,
+		"dead_observed": _dead_observed,
+		"detail": detail,
+		"event": "finished",
+		"host_moved": _host_moved,
+		"match_revision": (
+			_replication.match_revision() if is_instance_valid(_replication) else 0
+		),
+		"ok": ok,
+		"peer_seen": _peer_seen,
+		"prediction_before_authority_receipt": _prediction_before_authority_receipt,
+		"prediction_bounded": prediction_history_bounded,
+		"prediction_peak_history": _prediction_peak_history,
+		"prediction_succeeded": _prediction_succeeded,
+		"prediction_unacknowledged_displacement_metres": (
+			_prediction_unacknowledged_displacement_metres
+		),
+		"remote_display_max_jump_metres": _remote_display_max_jump_metres,
+		"remote_smoothed": _remote_smoothed,
+		"remote_stationary_display_displacement_metres": (
+			_remote_stationary_display_displacement_metres
+		),
+		"remote_stationary_root_frames": _remote_stationary_root_frames,
+		"reset_observed": _reset_observed,
+		"respawn_observed": _respawn_observed,
+		"role": _role,
+		"scenario": _scenario,
+		"steam_class_absent": not ClassDB.class_exists("Steam"),
+		"steam_singleton_absent": not Engine.has_singleton("Steam"),
+	}

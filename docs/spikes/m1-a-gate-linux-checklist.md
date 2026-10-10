@@ -54,10 +54,14 @@ and GNU `timeout 180s`. It starts each client only after the host emits a struct
 `host_ready` receipt; no startup sleep is permitted. Require:
 
 - `gameplay`: host and client exit zero; both load Brackett and move; client reports
-  bounded prediction and remote smoothing; both observe death, respawn, revision-2
-  reset, and post-reset input/motion.
+  successful prediction with nonzero displacement and peak retained history before the
+  next authority receipt. Require remote presentation displacement on at least one frame
+  where its authority root did not move and a maximum presentation jump no greater than
+  0.5 m. Both observe death, respawn, revision-2 reset, and post-reset input/motion.
 - `incompatible`: client reports `INCOMPATIBLE`; both processes exit zero.
-- `admission_timeout`: silent-auth client reports `HANDSHAKE_TIMEOUT`; both exit zero.
+- `admission_timeout`: silent-auth client first reports `auth_waiting`, then reports
+  `HANDSHAKE_TIMEOUT` from `peer_authentication_failed` no earlier than the configured
+  750 ms monotonic deadline; a preceding `server_disconnected` is a failure. Both exit zero.
 - `host_loss`: admitted host exits zero and client reports `HOST_LOST`, returns to
   idle, and exits zero.
 - Every terminal receipt reports both Steam class and singleton absent.

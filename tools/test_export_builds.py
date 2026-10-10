@@ -4,10 +4,12 @@ import hashlib
 from pathlib import Path
 import tempfile
 import unittest
+from unittest import mock
 
 from export_builds import (
     MISSING_DEPENDENCY_MARKERS,
     TEMPLATE_HASHES,
+    build_exports,
     missing_dependency_lines,
     timeout_command,
     verify_templates,
@@ -19,6 +21,31 @@ class ExportBuildsTest(unittest.TestCase):
         command = timeout_command("timeout", 600, ["godot", "--headless"])
 
         self.assertEqual(command, ["timeout", "600s", "godot", "--headless"])
+
+    def test_engine_mismatch_stops_before_any_export_invocation(self):
+        with tempfile.TemporaryDirectory() as temporary:
+            output = Path(temporary)
+            calls = []
+
+            def fake_run_logged(command, log_path, _cwd, _timeout_seconds):
+                calls.append(command)
+                log_path.write_text("4.8.dev6.wrong\n", encoding="utf-8")
+                return {
+                    "command": command,
+                    "duration_seconds": 0.01,
+                    "exit_code": 0,
+                    "log": log_path.as_posix(),
+                    "missing_dependency_diagnostics": [],
+                    "ok": True,
+                }
+
+            with mock.patch("export_builds.run_logged", side_effect=fake_run_logged):
+                result = build_exports("wrong-godot", output, Path.cwd(), "timeout")
+
+        self.assertFalse(result["ok"])
+        self.assertEqual(result["exports"], [])
+        self.assertEqual(len(calls), 1)
+        self.assertFalse(any("--export-" in argument for argument in calls[0]))
 
     def test_dependency_scan_reports_only_missing_resource_diagnostics(self):
         text = "\n".join([

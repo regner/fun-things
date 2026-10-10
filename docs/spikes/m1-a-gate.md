@@ -41,7 +41,7 @@ The exact official template member SHA-256 values are:
 | `windows_debug_x86_64.exe` | `c3287ae1c7fad6f6f2e0e09b0ebbb1321b49ec2423b74d513f12649e4c03bff6` |
 | `windows_release_x86_64.exe` | `b538554df997ea699122d5b31f2ea8929301bcf3017e12dba664d85d351f60cd` |
 
-The final package inspection found 1,206 members in each PCK after excluding repository tools. Every recursively
+The final package inspection found 1,246 members in each PCK after excluding repository tools. Every recursively
 source-addressable Boot/Match/Brackett dependency was present. No package had a missing
 required path, forbidden PCK entry, forbidden sidecar file, or missing-dependency log
 diagnostic. The guard rejects GUT, tests, prototypes, repository tools, development
@@ -53,22 +53,26 @@ both Steam class and singleton absent.
 Command (from the repository root):
 
 ```sh
-python tools/export_builds.py --output C:/tmp/ft/exports/m1-agate-final
+python tools/export_builds.py --output C:/tmp/ft/exports/m1-agate-review-fixes-final-rebased
 python tools/m1_a_gate/run_exported_acceptance.py \
-  --executable C:/tmp/ft/exports/m1-agate-final/windows-debug/FunThingsDebug.exe \
-  --output C:/tmp/ft/lanes/m1-agate/exported-acceptance-final
+  --executable C:/tmp/ft/exports/m1-agate-review-fixes-final-rebased/windows-debug/FunThingsDebug.exe \
+  --output C:/tmp/ft/lanes/m1-agate/exported-acceptance-review-fixes-final-rebased
 ```
 
 All eight exported child processes exited zero with no `SCRIPT ERROR:`, `ERROR:`, or
 `WARNING:` in stdout/engine logs. Structured outcomes:
 
-- gameplay host/client loaded the whole Brackett saved world; both authority-owned
-  actors moved by at least 0.5 m; the client reported bounded local prediction and
-  continuous remote presentation; both observed death, three-second respawn and reset
-  to MatchRevision 2, while the client independently proved reopened post-reset input/motion;
+- gameplay host/client loaded the whole Brackett saved world with automatic desktop
+  input disabled; both authority-owned actors moved by at least 0.5 m; before the next
+  authority receipt, the client proved a successful 0.102 m predicted step and retained
+  history (peak 5, bounded by 120); remote presentation advanced 0.080 m on a
+  stationary-authority-root frame with a maximum 0.420 m frame jump; both observed
+  death, three-second respawn and reset to MatchRevision 2, while the client independently
+  proved reopened post-reset input/motion;
 - protocol mismatch returned `INCOMPATIBLE` and both peers cleaned up;
-- a silent authenticated peer reached the bounded deadline and returned
-  `HANDSHAKE_TIMEOUT`, with clean host cleanup;
+- a silent authenticated peer emitted `auth_waiting`, then only accepted
+  `peer_authentication_failed` at 750 ms against the configured 750 ms monotonic
+  deadline and returned `HANDSHAKE_TIMEOUT`, with clean host cleanup;
 - an admitted host exited and the client returned `HOST_LOST` through SessionService;
 - every process was externally hard-bounded and all accepted terminal paths exited 0.
 
@@ -82,7 +86,7 @@ After exporting, launch a bounded side-by-side pair:
 
 ```sh
 python tools/m1_a_gate/launch_exported_pair.py \
-  --executable C:/tmp/ft/exports/m1-agate-final/windows-debug/FunThingsDebug.exe \
+  --executable C:/tmp/ft/exports/m1-agate-review-fixes-final-rebased/windows-debug/FunThingsDebug.exe \
   --output C:/tmp/ft/lanes/m1-agate/owner-pair
 ```
 

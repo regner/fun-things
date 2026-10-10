@@ -133,6 +133,16 @@ def build_exports(
     version_text = (output / "godot-version.log").read_text(encoding="utf-8").strip()
     version_receipt["version"] = version_text
     version_receipt["ok"] = version_receipt["ok"] and version_text == ENGINE_VERSION
+    if not version_receipt["ok"]:
+        return {
+            "ok": False,
+            "engine": version_receipt,
+            "exports": [],
+            "package_inspection": {
+                "ok": False,
+                "skipped": "pinned engine identity failed",
+            },
+        }
 
     export_receipts = []
     for preset, mode, relative_output in EXPORTS:

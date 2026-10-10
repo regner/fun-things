@@ -1,6 +1,6 @@
 {
   "ok": true,
-  "executable": "C:/tmp/ft/exports/m1-agate-final/windows-debug/FunThingsDebug.exe",
+  "executable": "C:/tmp/ft/exports/m1-agate-review-fixes-final-rebased/windows-debug/FunThingsDebug.exe",
   "cases": {
     "gameplay": {
       "ok": true,
@@ -10,6 +10,9 @@
       },
       "receipts": {
         "host": {
+          "auth_failure_elapsed_msec": 0,
+          "auth_timeout_msec": 750,
+          "auth_waiting": false,
           "brackett_loaded": true,
           "client_moved": true,
           "dead_observed": true,
@@ -19,8 +22,15 @@
           "match_revision": 2,
           "ok": true,
           "peer_seen": true,
+          "prediction_before_authority_receipt": false,
           "prediction_bounded": true,
+          "prediction_peak_history": 0,
+          "prediction_succeeded": false,
+          "prediction_unacknowledged_displacement_metres": 0.0,
+          "remote_display_max_jump_metres": 0.0,
           "remote_smoothed": false,
+          "remote_stationary_display_displacement_metres": 0.0,
+          "remote_stationary_root_frames": 0,
           "reset_observed": true,
           "respawn_observed": true,
           "role": "host",
@@ -29,6 +39,9 @@
           "steam_singleton_absent": true
         },
         "client": {
+          "auth_failure_elapsed_msec": 0,
+          "auth_timeout_msec": 750,
+          "auth_waiting": false,
           "brackett_loaded": true,
           "client_moved": true,
           "dead_observed": true,
@@ -38,8 +51,15 @@
           "match_revision": 2,
           "ok": true,
           "peer_seen": false,
+          "prediction_before_authority_receipt": true,
           "prediction_bounded": true,
+          "prediction_peak_history": 5,
+          "prediction_succeeded": true,
+          "prediction_unacknowledged_displacement_metres": 0.102437742054462,
+          "remote_display_max_jump_metres": 0.420474082231522,
           "remote_smoothed": true,
+          "remote_stationary_display_displacement_metres": 0.0800427794456482,
+          "remote_stationary_root_frames": 1,
           "reset_observed": true,
           "respawn_observed": true,
           "role": "client",
@@ -48,7 +68,7 @@
           "steam_singleton_absent": true
         }
       },
-      "elapsed_seconds": 12.737
+      "elapsed_seconds": 11.994
     },
     "incompatible": {
       "ok": true,
@@ -58,6 +78,9 @@
       },
       "receipts": {
         "host": {
+          "auth_failure_elapsed_msec": 0,
+          "auth_timeout_msec": 750,
+          "auth_waiting": false,
           "brackett_loaded": false,
           "client_moved": false,
           "dead_observed": false,
@@ -67,8 +90,15 @@
           "match_revision": 0,
           "ok": true,
           "peer_seen": true,
+          "prediction_before_authority_receipt": false,
           "prediction_bounded": true,
+          "prediction_peak_history": 0,
+          "prediction_succeeded": false,
+          "prediction_unacknowledged_displacement_metres": 0.0,
+          "remote_display_max_jump_metres": 0.0,
           "remote_smoothed": false,
+          "remote_stationary_display_displacement_metres": 0.0,
+          "remote_stationary_root_frames": 0,
           "reset_observed": false,
           "respawn_observed": false,
           "role": "host",
@@ -77,6 +107,9 @@
           "steam_singleton_absent": true
         },
         "client": {
+          "auth_failure_elapsed_msec": 0,
+          "auth_timeout_msec": 750,
+          "auth_waiting": false,
           "brackett_loaded": false,
           "client_moved": false,
           "dead_observed": false,
@@ -86,8 +119,15 @@
           "match_revision": 0,
           "ok": true,
           "peer_seen": false,
+          "prediction_before_authority_receipt": false,
           "prediction_bounded": true,
+          "prediction_peak_history": 0,
+          "prediction_succeeded": false,
+          "prediction_unacknowledged_displacement_metres": 0.0,
+          "remote_display_max_jump_metres": 0.0,
           "remote_smoothed": false,
+          "remote_stationary_display_displacement_metres": 0.0,
+          "remote_stationary_root_frames": 0,
           "reset_observed": false,
           "respawn_observed": false,
           "role": "client",
@@ -96,7 +136,7 @@
           "steam_singleton_absent": true
         }
       },
-      "elapsed_seconds": 8.063
+      "elapsed_seconds": 7.124
     },
     "admission_timeout": {
       "ok": true,
@@ -106,6 +146,9 @@
       },
       "receipts": {
         "host": {
+          "auth_failure_elapsed_msec": 0,
+          "auth_timeout_msec": 750,
+          "auth_waiting": false,
           "brackett_loaded": false,
           "client_moved": false,
           "dead_observed": false,
@@ -115,8 +158,15 @@
           "match_revision": 0,
           "ok": true,
           "peer_seen": true,
+          "prediction_before_authority_receipt": false,
           "prediction_bounded": true,
+          "prediction_peak_history": 0,
+          "prediction_succeeded": false,
+          "prediction_unacknowledged_displacement_metres": 0.0,
+          "remote_display_max_jump_metres": 0.0,
           "remote_smoothed": false,
+          "remote_stationary_display_displacement_metres": 0.0,
+          "remote_stationary_root_frames": 0,
           "reset_observed": false,
           "respawn_observed": false,
           "role": "host",
@@ -125,6 +175,9 @@
           "steam_singleton_absent": true
         },
         "client": {
+          "auth_failure_elapsed_msec": 750,
+          "auth_timeout_msec": 750,
+          "auth_waiting": true,
           "brackett_loaded": false,
           "client_moved": false,
           "dead_observed": false,
@@ -134,17 +187,31 @@
           "match_revision": 0,
           "ok": true,
           "peer_seen": false,
+          "prediction_before_authority_receipt": false,
           "prediction_bounded": true,
+          "prediction_peak_history": 0,
+          "prediction_succeeded": false,
+          "prediction_unacknowledged_displacement_metres": 0.0,
+          "remote_display_max_jump_metres": 0.0,
           "remote_smoothed": false,
+          "remote_stationary_display_displacement_metres": 0.0,
+          "remote_stationary_root_frames": 0,
           "reset_observed": false,
           "respawn_observed": false,
           "role": "client",
           "scenario": "admission_timeout",
           "steam_class_absent": true,
           "steam_singleton_absent": true
+        },
+        "auth_waiting": {
+          "event": "auth_waiting",
+          "ok": true,
+          "role": "client",
+          "started_msec": 3032,
+          "timeout_msec": 750
         }
       },
-      "elapsed_seconds": 7.955
+      "elapsed_seconds": 7.986
     },
     "host_loss": {
       "ok": true,
@@ -154,6 +221,9 @@
       },
       "receipts": {
         "client": {
+          "auth_failure_elapsed_msec": 0,
+          "auth_timeout_msec": 750,
+          "auth_waiting": false,
           "brackett_loaded": false,
           "client_moved": false,
           "dead_observed": false,
@@ -163,8 +233,15 @@
           "match_revision": 0,
           "ok": true,
           "peer_seen": true,
+          "prediction_before_authority_receipt": false,
           "prediction_bounded": true,
+          "prediction_peak_history": 0,
+          "prediction_succeeded": false,
+          "prediction_unacknowledged_displacement_metres": 0.0,
+          "remote_display_max_jump_metres": 0.0,
           "remote_smoothed": false,
+          "remote_stationary_display_displacement_metres": 0.0,
+          "remote_stationary_root_frames": 0,
           "reset_observed": false,
           "respawn_observed": false,
           "role": "client",
@@ -173,7 +250,7 @@
           "steam_singleton_absent": true
         }
       },
-      "elapsed_seconds": 7.267
+      "elapsed_seconds": 7.167
     }
   },
   "timing_context": "contended functional run; not performance evidence"
