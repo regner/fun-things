@@ -1,0 +1,47 @@
+d03_apartment_family.01 final bounded checks - 10 October 2026
+Producer: commissioned implementation worker. Independent review pending.
+All processes isolated; no owner's live Blender/Godot session used.
+Scratch logs: C:/tmp/ft/assets/d03_apartment_family_01/
+
+PASS python tools/asset_production/d03_apartment_family_01/author.py
+  One-time saved-scene seed; 30 existing prefab instances, no generated render meshes.
+  Subsequent owned fixes preserve engine-issued node IDs and prefab UID.
+PASS pinned Godot --headless --path . --import (timeout 300)
+  Final exit 0; final-import.log has no ERROR or SCRIPT ERROR lines.
+PASS pinned Godot --headless --editor --path . --script
+  tools/asset_production/d03_apartment_family_01/check_prefab.gd -- --normalize (timeout 180)
+  Exit 0; normalization plus two reload/save cycles byte-stable.
+  Known limitation: editor shutdown reports five RID allocation types leaked,
+  Canvas/CanvasItem RID warnings and ObjectDB instances leaked, as earlier siblings do.
+  These diagnostics are not suppressed or described as a clean editor exit log.
+PASS pinned Godot --headless --path . --script
+  tools/asset_production/d03_apartment_family_01/check_prefab.gd (timeout 180)
+  Final exit 0; runtime.log has no ERROR or SCRIPT ERROR lines.
+  34 linked meshes, 119 surfaces, 19 inherited boxes, matching dimensions and valid UID.
+  11 capsule queries; 8 seam/step rays; 48 clear-link vertical rays; one clear car sweep.
+  8 production ActorMotion runs; four authority/replay endpoint pairs identical.
+PASS isolated Blender render.py (timeout 900, threads 4, exit 0)
+  Four final images inspected: coherent L, completed roof/ends, open southeast court.
+  RGB PNG compression 100, 32 samples; 1280x720 except 1024x576 detail.
+PASS isolated Blender validate.py (timeout 300, threads 4, exit 0)
+  Blender 5.2.2 LTS / d13f752e3b9c; sibling exporters enforce glTF exporter 5.2.40.
+  9 dependency GLBs byte-identical from 7 original saved sources.
+  53364 triangles; 27860 source vertices; 37464 export vertices; 34 meshes/119 surfaces.
+  Zero degenerate faces/triangles and non-manifold edges; source/export normals unit.
+  11 roof first-hit samples; 78 clear visual-link samples; source/GLB/engine bounds match.
+PASS mise exec -- gdstyle fmt --check tools/asset_production/d03_apartment_family_01/check_prefab.gd
+PASS mise exec -- gdstyle --max-line-length 100 --max-warnings 0
+  tools/asset_production/d03_apartment_family_01/check_prefab.gd (zero warnings)
+PASS Python AST parse of all five owned Python scripts.
+PASS git diff --check; only owned asset paths changed before commit.
+
+Historical corrected attempts: initial text Transform3D yaw signs were transposed;
+checker initially assumed one fewer imported-root level; exact rotated terminal-edge
+ray was numerically grazing and now has two +/-1 mm bracketing samples. Final saved
+scene, measured bounds, inherited geometry and motion checks pass. Initial RGBA PNGs
+were replaced with final lean RGB renders. An early link scan ran before manifest/log
+creation; final link/manifest check is required after producing those records.
+
+No production_checks.py, world placement, live graphical editor, network transport,
+production vehicle driving, packaged build or Deck profiling was run.
+Full reproduction commands and remaining acceptance are in the handoff.
