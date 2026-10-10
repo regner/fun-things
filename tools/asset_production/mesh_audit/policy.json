@@ -1,0 +1,32 @@
+{
+  "keep_undersides": [
+    {
+      "glob": "art/models/environment/city_marina_docks_*/*.glb",
+      "reason": "keep, exception: marina decks and fixtures over water, including reflections"
+    },
+    {
+      "glob": "art/models/environment/city_moored_yachts_*/*.glb",
+      "reason": "keep, exception: hull undersides and reflected over-water geometry"
+    },
+    {
+      "glob": "art/models/environment/city_boardwalk_*/*.glb",
+      "reason": "keep, exception: boardwalk over-water reflections; confirm actual placement before removing any underside"
+    },
+    {
+      "glob": "art/models/environment/city_harbour_bridge_*/*.glb",
+      "reason": "keep, exception: bridge soffit/deck, over-water reflections and below-walk cameras"
+    },
+    {
+      "glob": "art/models/environment/d06_harbour_footbridge_*/*.glb",
+      "reason": "keep, exception: footbridge soffit/deck, over-water reflections and below-walk cameras"
+    },
+    {
+      "glob": "art/models/environment/city_quay_furniture_*/*.glb",
+      "reason": "keep, exception: conservative over-water placement hold for quay fixtures"
+    },
+    {
+      "glob": "art/models/environment/city_shore_edges_*/*.glb",
+      "reason": "keep, exception: shoreline geometry may be reflected from water"
+    }
+  ]
+}
