@@ -88,7 +88,9 @@ focus guard made sustained direct fail at 0.28 m client / 0.42 m host travel. Re
 the aim guard made `sustained_aim_rebind_retained=false` and failed facing acceptance.
 Both guards were restored for the final matrix.
 
-Final matrix evidence is `C:/tmp/ft/p1fix-r2-matrix-final/summary.json`. Exact authored
+Final matrix evidence is retained as
+[windows-acceptance-summary.json](m1-a-gate-evidence/windows-acceptance-summary.json)
+(copied from `C:/tmp/ft/p1fix-r2-matrix-final/summary.json`). Exact authored
 two-menu host/join screenshots and logs, with no acceptance flags, are under
 `C:/tmp/ft/p1fix-r2-menu-flow/`. Concise retained baseline receipts are under
 [`m1-a-gate-evidence/`](m1-a-gate-evidence/). Full logs and binaries stay outside the
