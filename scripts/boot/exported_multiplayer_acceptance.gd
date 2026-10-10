@@ -31,6 +31,7 @@ const MINIMUM_CLIENT_HOST_DISTANCE_RATIO: float = 0.8
 const HOST_FINAL_AIM_YAW: float = 1.0
 const CLIENT_FINAL_AIM_YAW: float = -1.0
 const FACING_TOLERANCE_RADIANS: float = 0.15
+const VEHICLE_APPROACH_DELAY_TICKS: int = 30
 const VEHICLE_DRIVE_TICKS: int = 600
 const VEHICLE_STALE_FOOT_TICKS: int = 30
 const VEHICLE_WALK_TICKS: int = 180
@@ -98,6 +99,8 @@ var _sustained_expected_mouse_position: Vector2 = Vector2.INF
 var _sustained_last_mouse_event_tick: int = 0
 var _sustained_aim_rebind_retained: bool = true
 var _vehicle_break_input: bool = false
+var _vehicle_break_interaction: bool = false
+var _vehicle_interaction_press_count: int = 0
 var _vehicle_authority_prepared: bool = false
 var _vehicle_target_id: int = 0
 var _vehicle_action_sequence: int = 0
@@ -122,8 +125,10 @@ var _vehicle_throttle_released: bool = false
 var _vehicle_brake_pressed: bool = false
 var _vehicle_pre_entry_foot_pressed: bool = false
 var _vehicle_acknowledgement: int = 0
+var _vehicle_approach_key: Key = KEY_NONE
 var _vehicle_walk_key: Key = KEY_NONE
 var _vehicle_success_wait_tick: int = 0
+var _vehicle_step_tick: int = 0
 
 
 ## Parses the explicit acceptance arguments without changing ordinary launches.
@@ -138,6 +143,8 @@ static func options_from_arguments(arguments: PackedStringArray) -> Dictionary:
 			options.port = argument.trim_prefix("--m1-a-gate-port=").to_int()
 		elif argument == "--m1-a-gate-break-vehicle-input":
 			options.break_vehicle_input = true
+		elif argument == "--m1-a-gate-break-vehicle-interaction":
+			options.break_vehicle_interaction = true
 	return options
 
 
@@ -162,6 +169,7 @@ func configure(
 	_scenario = options.get("scenario", "")
 	_port = int(options.get("port", 0))
 	_vehicle_break_input = bool(options.get("break_vehicle_input", false))
+	_vehicle_break_interaction = bool(options.get("break_vehicle_interaction", false))
 	if (
 		_role not in [ROLE_HOST, ROLE_CLIENT]
 		or _scenario not in [
@@ -404,6 +412,10 @@ func _bind_match() -> void:
 	_replication.input_recovered.connect(_on_input_recovered)
 	_replication.movement_applied.connect(_on_movement_applied)
 	_replication.vehicle_action_resolved.connect(_on_vehicle_action_resolved)
+	if _scenario == SCENARIO_VEHICLE and _vehicle_break_interaction:
+		var vehicle_rig: LocalRig = match.get_node_or_null("LocalRig") as LocalRig
+		if vehicle_rig != null:
+			vehicle_rig.set_interaction_input_enabled(false)
 	if _scenario == SCENARIO_GAMEPLAY:
 		_replication.set_local_input_enabled(false)
 		var rig: LocalRig = match.get_node_or_null("LocalRig") as LocalRig
@@ -740,6 +752,7 @@ func _sustained_facing_converged() -> bool:
 
 ## Exercises host and client vehicle control through saved viewport input collectors.
 func _step_vehicle_acceptance() -> void:  # gdstyle:ignore=quality/max-returns
+	_vehicle_step_tick += 1
 	_prepare_vehicle_authority()
 	var participant_id: int = (
 		HOST_PARTICIPANT_ID if _role == ROLE_HOST else REMOTE_PARTICIPANT_ID
@@ -783,31 +796,41 @@ func _prepare_vehicle_authority() -> void:
 		var vehicle: VehicleMotion = _replication.vehicle_for_entity(int(descriptors[index].id))
 		if actor == null or vehicle == null:
 			return
-		actor.global_position = (
-			vehicle.get_node("Sockets/EntryLeft") as Marker3D
-		).global_position
+		var entry: Marker3D = vehicle.get_node("Sockets/EntryLeft") as Marker3D
+		var outward: Vector3 = (entry.global_position - vehicle.global_position).normalized()
+		actor.global_position = entry.global_position + outward * 3.0
 		actor.neutralize()
 	_vehicle_authority_prepared = true
 
 
-## Seeds pre-seat foot intent, then requests entry only through the public transaction API.
+## Walks into range, then submits entry only through one physical E viewport event.
 func _request_vehicle_entry_from_production(
 	actor: ActorMotion,
 	vehicle: VehicleMotion,
 ) -> void:
 	if _vehicle_entry_requested_msec > 0:
+		if (
+			_vehicle_break_interaction
+			and Time.get_ticks_msec() - _vehicle_entry_requested_msec > 2_000
+		):
+			_finish(false, "VEHICLE_INTERACTION_SEAM_NOT_OBSERVED")
 		return
 	var entry: Marker3D = vehicle.get_node("Sockets/EntryLeft") as Marker3D
-	if actor.global_position.distance_to(entry.global_position) > VehicleInteraction.ENTRY_RANGE_M:
+	if _vehicle_step_tick < VEHICLE_APPROACH_DELAY_TICKS:
 		return
 	if not _vehicle_pre_entry_foot_pressed:
-		_push_vehicle_key(KEY_D, true)
+		_vehicle_approach_key = _walk_key_toward(
+			actor.global_position,
+			entry.global_position,
+		)
+		_push_vehicle_key(_vehicle_approach_key, true)
 		_vehicle_pre_entry_foot_pressed = true
+		return
+	if actor.global_position.distance_to(entry.global_position) > VehicleInteraction.ENTRY_RANGE_M:
 		return
 	_vehicle_action_sequence = 1
 	_vehicle_entry_requested_msec = Time.get_ticks_msec()
-	if not _replication.request_local_vehicle_entry(_vehicle_target_id, _vehicle_action_sequence):
-		_finish(false, "VEHICLE_ENTRY_REQUEST_REJECTED")
+	_push_vehicle_interaction()
 
 
 ## Holds one real key for ten seconds, then brakes and exits only below the speed limit.
@@ -818,7 +841,7 @@ func _drive_and_stop_vehicle(  # gdstyle:ignore=quality/max-function-length,qual
 	if binding.is_empty():
 		return
 	if _vehicle_drive_tick == 0:
-		_push_vehicle_key(KEY_D, false)
+		_push_vehicle_key(_vehicle_approach_key, false)
 		_push_vehicle_key(KEY_W, true)
 		_vehicle_drive_start = vehicle.global_position
 		_vehicle_drive_started_msec = Time.get_ticks_msec()
@@ -859,11 +882,8 @@ func _drive_and_stop_vehicle(  # gdstyle:ignore=quality/max-function-length,qual
 		_push_vehicle_key(KEY_DOWN, false)
 		_vehicle_brake_pressed = false
 	_vehicle_action_sequence = 2
-	_vehicle_exit_requested = _replication.request_local_vehicle_exit(
-		_vehicle_action_sequence
-	)
-	if not _vehicle_exit_requested:
-		_finish(false, "VEHICLE_EXIT_REQUEST_REJECTED")
+	_vehicle_exit_requested = true
+	_push_vehicle_interaction()
 
 
 ## Requires a neutral stale-input window before one fresh viewport foot key can walk.
@@ -912,6 +932,14 @@ func _verify_post_exit_foot_control(  # gdstyle:ignore=quality/max-branches
 	_success_ready = true
 
 
+## Chooses a cardinal foot key that approaches an authored interaction point.
+func _walk_key_toward(actor_position: Vector3, target_position: Vector3) -> Key:
+	var toward: Vector3 = target_position - actor_position
+	if absf(toward.x) >= absf(toward.z):
+		return KEY_D if toward.x >= 0.0 else KEY_A
+	return KEY_S if toward.z >= 0.0 else KEY_W
+
+
 ## Chooses a cardinal foot key that moves away from the exited vehicle body.
 func _walk_key_away_from_vehicle(actor_position: Vector3) -> Key:
 	var vehicle: VehicleMotion = _replication.vehicle_for_entity(_vehicle_target_id)
@@ -939,6 +967,13 @@ func _on_vehicle_action_resolved(result: Dictionary) -> void:
 		_vehicle_entry_latency_msec = Time.get_ticks_msec() - _vehicle_entry_requested_msec
 	elif sequence == 2:
 		_vehicle_exit_confirmed = true
+
+
+## Presses and releases E through the viewport so LocalRig owns both seat intents.
+func _push_vehicle_interaction() -> void:
+	_vehicle_interaction_press_count += 1
+	_push_vehicle_key(KEY_E, true)
+	_push_vehicle_key(KEY_E, false)
 
 
 ## Dispatches one physical key through the root viewport and normal InputMap state.
@@ -1123,6 +1158,8 @@ func _vehicle_receipt() -> Dictionary:
 	return {
 		"vehicle_acknowledgement": _vehicle_acknowledgement,
 		"vehicle_break_input": _vehicle_break_input,
+		"vehicle_break_interaction": _vehicle_break_interaction,
+		"vehicle_interaction_press_count": _vehicle_interaction_press_count,
 		"vehicle_distance_metres": _vehicle_distance_metres,
 		"vehicle_drive_duration_seconds": _vehicle_drive_duration_seconds,
 		"vehicle_drive_sample_ticks": mini(_vehicle_drive_tick, VEHICLE_DRIVE_TICKS),

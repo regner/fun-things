@@ -178,6 +178,8 @@ func _configure_context(
 	_transport = transport if transport != null else SceneReplicationTransport.new(self)
 	if _vehicle_replicator == null:
 		_vehicle_replicator = VehicleReplicator.new()
+	if not _local_rig().interaction_requested.is_connected(_on_local_interaction_requested):
+		_local_rig().interaction_requested.connect(_on_local_interaction_requested)
 	return true
 
 
@@ -297,6 +299,52 @@ func set_local_input_enabled(enabled: bool) -> void:
 		if input != null:
 			input.set_focused(false)
 	_local_rig().set_vehicle_input_enabled(enabled)
+	_local_rig().set_interaction_input_enabled(enabled)
+
+
+## Routes one physical interaction intent according to confirmed local occupancy.
+func _on_local_interaction_requested(action_sequence: int) -> void:
+	if not _configured or not bool(_client.local_input_enabled) or action_sequence <= 0:
+		return
+	var participant_id: int = int(_context.local_participant_id)
+	if not _lifecycle.is_alive(participant_id):
+		return
+	if not _vehicle_replicator.binding_for_participant(participant_id).is_empty():
+		request_local_vehicle_exit(action_sequence)
+		return
+	var entity_id: int = _nearest_eligible_vehicle_for_local_player(participant_id)
+	if entity_id > 0:
+		request_local_vehicle_entry(entity_id, action_sequence)
+
+
+## Chooses the nearest vacant stopped car with an authored entry socket in range.
+func _nearest_eligible_vehicle_for_local_player(participant_id: int) -> int:
+	var actor: ActorMotion = actor_for_participant(participant_id)
+	if actor == null:
+		return 0
+	var nearest_entity_id: int = 0
+	var nearest_distance: float = INF
+	for descriptor: Dictionary in _vehicle_replicator.descriptor_rows():
+		if int(descriptor.get("driver_participant_id", 0)) != 0:
+			continue
+		var entity_id: int = int(descriptor.get("id", 0))
+		var vehicle: VehicleMotion = _vehicle_replicator.vehicle_for_entity(entity_id)
+		if vehicle == null or vehicle.velocity.length() >= VehicleInteraction.ENTRY_MAX_SPEED_MPS:
+			continue
+		for socket_path: NodePath in VehicleInteraction.ENTRY_SOCKET_PATHS:
+			var socket: Marker3D = vehicle.get_node_or_null(socket_path) as Marker3D
+			if socket == null:
+				continue
+			var distance: float = actor.global_position.distance_to(socket.global_position)
+			if distance > VehicleInteraction.ENTRY_RANGE_M:
+				continue
+			if (
+				distance < nearest_distance
+				or (is_equal_approx(distance, nearest_distance) and entity_id < nearest_entity_id)
+			):
+				nearest_distance = distance
+				nearest_entity_id = entity_id
+	return nearest_entity_id
 
 
 ## Encodes and sends one envelope-fenced local intent without applying prediction.

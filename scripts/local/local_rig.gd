@@ -3,12 +3,15 @@ extends Node
 ## Owns local desktop intent, retained player HUD context, and accepted-body camera follow.
 
 signal leave_requested
+signal interaction_requested(action_sequence: int)
 
 var _client_tick: int = 0
 var _vehicle_tick: int = 0
 var _controlled_actor: ActorMotion
 var _controlled_vehicle: VehicleMotion
 var _actor_control_enabled: bool = false
+var _interaction_input_enabled: bool = true
+var _interaction_action_sequence: int = 0
 
 @onready var _input: DesktopFootInput = $Input as DesktopFootInput
 @onready var _drive_input: DesktopDriveInput = $DriveInput as DesktopDriveInput
@@ -29,11 +32,24 @@ func _exit_tree() -> void:
 	unbind_actor()
 
 
-## Handles the standard menu action after UI has had the first opportunity to consume it.
+## Emits one retained interaction sequence after UI has had first opportunity to consume E.
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed(&"ui_cancel"):
 		get_viewport().set_input_as_handled()
 		leave_requested.emit()
+		return
+	if (
+		_interaction_input_enabled
+		and not event.is_echo()
+		and event.is_action_pressed(&"interact")
+		and (
+			is_instance_valid(_controlled_actor)
+			or is_instance_valid(_controlled_vehicle)
+		)
+	):
+		get_viewport().set_input_as_handled()
+		_interaction_action_sequence += 1
+		interaction_requested.emit(_interaction_action_sequence)
 
 
 ## Samples and applies exactly one standalone authority command per fixed physics tick.
@@ -116,6 +132,11 @@ func set_vehicle_input_enabled(enabled: bool) -> void:
 	_drive_input.set_focused(
 		enabled and is_instance_valid(_controlled_vehicle) and get_window().has_focus()
 	)
+
+
+## Enables or disables the physical interaction seam without resetting its sequence fence.
+func set_interaction_input_enabled(enabled: bool) -> void:
+	_interaction_input_enabled = enabled
 
 
 ## Enables or neutralizes standalone authority while retaining dead-state HUD presence.

@@ -74,6 +74,31 @@ func test_entry_transaction_fences_host_foot_queue() -> void:
 	assert_false(replication._vehicle_replicator.binding_for_participant(participant_id).is_empty())
 
 
+## Routes retained E intents through nearest-car entry and confirmed-occupancy exit.
+func test_local_interaction_selects_nearest_car_then_exits_confirmed_binding() -> void:
+	var replication: MatchReplication = _add_match_replication()
+	assert_true(replication.configure_standalone())
+	var rows: Array[Dictionary] = replica_rows(replication)
+	var target: Dictionary = rows[1]
+	var vehicle: VehicleMotion = replication.vehicle_for_entity(int(target.id))
+	var actor: ActorMotion = replication.actor_for_participant(1)
+	actor.global_position = (vehicle.get_node("Sockets/EntryLeft") as Marker3D).global_position
+	var rig: LocalRig = replication.get_parent().get_node("LocalRig") as LocalRig
+	var interaction := InputEventKey.new()
+	interaction.physical_keycode = KEY_E
+	interaction.pressed = true
+
+	rig._unhandled_input(interaction)
+	replication._vehicle_interaction.process_actions(100)
+	assert_eq(
+		int(replication._vehicle_replicator.binding_for_participant(1).id),
+		int(target.id),
+	)
+	rig._unhandled_input(interaction)
+	replication._vehicle_interaction.process_actions(200)
+	assert_true(replication._vehicle_replicator.binding_for_participant(1).is_empty())
+
+
 ## Routes listen-server intent through codec validation and the held authority queue.
 func test_listen_server_vehicle_input_uses_validated_host_queue() -> void:
 	var replication: MatchReplication = _add_match_replication()

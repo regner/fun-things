@@ -10,8 +10,12 @@ const COMMAND_TICKS: int = 460
 const RESULT_GRACE_TICKS: int = 90
 const LEFT_EXIT_RESERVATION_ID: int = 10_001
 const RIGHT_EXIT_RESERVATION_ID: int = 10_002
+const SCENARIO_GAMEPLAY: String = "gameplay"
+const SCENARIO_RESET_RACE: String = "reset_race"
+const SCENARIO_DISCONNECT_RACE: String = "disconnect_race"
 
 var _role: String = ""
+var _scenario: String = SCENARIO_GAMEPLAY
 var _port: int = 0
 var _deadline_msec: int = 0
 var _match: Node3D
@@ -52,6 +56,16 @@ var _phase_start_speed: float = 0.0
 var _phase_min_speed: float = INF
 var _authority_mode: StringName = &""
 var _finished: bool = false
+var _race_ticks: int = 0
+var _race_entry_requested: bool = false
+var _reset_race_requested: bool = false
+var _reset_race_observed: bool = false
+var _disconnect_entry_confirmed: bool = false
+var _disconnect_drive_ticks: int = 0
+var _disconnect_observed: bool = false
+var _disconnect_coast_ticks: int = 0
+var _disconnect_start_speed_mps: float = 0.0
+var _disconnect_vehicle: VehicleMotion
 
 @onready var _session: SessionService = $Session
 @onready var _transport: ENetTransport = $Session/ENetTransport
@@ -61,7 +75,11 @@ var _finished: bool = false
 func _ready() -> void:
 	Engine.max_fps = 60
 	_parse_arguments()
-	if _role not in ["host", "client"] or _port <= 0:
+	if (
+		_role not in ["host", "client"]
+		or _scenario not in [SCENARIO_GAMEPLAY, SCENARIO_RESET_RACE, SCENARIO_DISCONNECT_RACE]
+		or _port <= 0
+	):
 		_finish(false, "arguments")
 		return
 	_session.changed.connect(_on_session_changed)
@@ -98,6 +116,12 @@ func _physics_process(delta_seconds: float) -> void:
 		_finish(false, "deadline")
 		return
 	if not is_instance_valid(_replication):
+		return
+	if _scenario == SCENARIO_RESET_RACE:
+		_step_reset_race()
+		return
+	if _scenario == SCENARIO_DISCONNECT_RACE:
+		_step_disconnect_race(delta_seconds)
 		return
 	if _vehicle_id == 0 and _role == "host":
 		_prepare_host_entry()
@@ -209,6 +233,138 @@ func _physics_process(delta_seconds: float) -> void:
 	)
 
 
+## Resets after remote admission but before the delayed entry accepted tick.
+
+
+# gdstyle:ignore=quality/max-function-length,quality/max-branches
+func _step_reset_race() -> void:
+	if _vehicle_id == 0 and _role == "host":
+		_prepare_host_entry()
+		if _vehicle_id == 0:
+			return
+	if _vehicle_id == 0:
+		var rows: Array[Dictionary] = _replication._vehicle_replicator.descriptor_rows()
+		if rows.is_empty():
+			return
+		_vehicle_id = int(rows[0].id)
+	if _role == "client" and _granted and not _race_entry_requested:
+		_race_entry_requested = _replication.request_local_vehicle_entry(_vehicle_id, 1)
+		if not _race_entry_requested:
+			_finish(false, "reset race entry request")
+		return
+	if _role == "host" and not _reset_race_requested:
+		var pending: Array = _replication._vehicle_interaction._pending_actions_by_participant.get(
+			REMOTE_PARTICIPANT_ID,
+			[],
+		)
+		if not pending.is_empty():
+			_reset_race_requested = _replication.request_match_reset(HOST_PARTICIPANT_ID)
+			if not _reset_race_requested:
+				_finish(false, "reset race request")
+			return
+	if _replication.match_revision() <= 1:
+		return
+	_race_ticks += 1
+	if _race_ticks < 120:
+		return
+	var binding: Dictionary = _replication._vehicle_replicator.binding_for_participant(
+		REMOTE_PARTICIPANT_ID
+	)
+	var pending_count: int = 0
+	if _role == "host":
+		pending_count = _replication._vehicle_interaction._pending_actions_by_participant.get(
+			REMOTE_PARTICIPANT_ID,
+			[],
+		).size()
+	_reset_race_observed = binding.is_empty() and pending_count == 0
+	_finish(
+		_reset_race_observed and not _disconnect_entry_confirmed,
+		"reset_race_complete",
+		{
+			"match_revision": _replication.match_revision(),
+			"old_action_survived": _disconnect_entry_confirmed,
+			"pending_actions": pending_count,
+			"reset_during_entry_observed": _reset_race_observed,
+		},
+	)
+
+
+## Seats and moves the remote client before it terminates without a normal exit.
+
+
+# gdstyle:ignore=quality/max-function-length,quality/max-returns,quality/max-branches
+func _step_disconnect_race(delta_seconds: float) -> void:
+	if _vehicle_id == 0 and _role == "host":
+		_prepare_host_entry()
+		if _vehicle_id == 0:
+			return
+	if _vehicle_id == 0:
+		var rows: Array[Dictionary] = _replication._vehicle_replicator.descriptor_rows()
+		if rows.is_empty():
+			return
+		_vehicle_id = int(rows[0].id)
+	if _role == "client":
+		if not _granted:
+			return
+		if not _race_entry_requested:
+			_race_entry_requested = _replication.request_local_vehicle_entry(_vehicle_id, 1)
+			if not _race_entry_requested:
+				_finish(false, "disconnect race entry request")
+			return
+		if not _disconnect_entry_confirmed:
+			return
+		var binding: Dictionary = _replication._vehicle_replicator.binding_for_participant(
+			REMOTE_PARTICIPANT_ID
+		)
+		if binding.is_empty():
+			return
+		_disconnect_drive_ticks += 1
+		var command := DriveCommand.new(
+			_disconnect_drive_ticks,
+			_disconnect_drive_ticks,
+			1.0,
+			0.0,
+			0.0,
+			false,
+		)
+		if not _replication.predict_and_submit_local_vehicle_command(command, delta_seconds):
+			_finish(false, "disconnect race command")
+			return
+		var vehicle: VehicleMotion = _replication.vehicle_for_entity(_vehicle_id)
+		if _disconnect_drive_ticks >= 120 and vehicle.velocity.length() > 2.0:
+			_print_event(
+				{
+					"event": "disconnect_source_ready",
+					"ok": true,
+					"seated": true,
+					"speed_mps": vehicle.velocity.length(),
+				}
+			)
+			get_tree().quit(0)
+		return
+	if not _disconnect_observed:
+		return
+	_disconnect_coast_ticks += 1
+	if _disconnect_coast_ticks < 90:
+		return
+	var final_speed: float = _disconnect_vehicle.velocity.length()
+	var binding: Dictionary = _replication._vehicle_replicator.binding_for_participant(
+		REMOTE_PARTICIPANT_ID
+	)
+	_finish(
+		binding.is_empty()
+		and _disconnect_start_speed_mps > 2.0
+		and final_speed < _disconnect_start_speed_mps,
+		"disconnect_race_complete",
+		{
+			"disconnect_coast_observed": true,
+			"driver_cleared": binding.is_empty(),
+			"initial_speed_mps": _disconnect_start_speed_mps,
+			"final_speed_mps": final_speed,
+		},
+	)
+
+
 ## Emits readiness only after ENet published the bound host endpoint.
 func _on_transport_peer_ready(operation_id: int, _peer: MultiplayerPeer) -> void:
 	if _role == "host":
@@ -250,10 +406,20 @@ func _on_participant_admitted(native_peer_id: int, participant_id: int) -> void:
 	_prepare_host_entry()
 
 
-## Applies production disconnect cleanup to the confirmed seat transaction.
+## Applies disconnect cleanup and retains the released car for coast observation.
 func _on_participant_disconnected(native_peer_id: int, participant_id: int) -> void:
-	if is_instance_valid(_replication):
-		_replication.remove_peer(native_peer_id, participant_id)
+	if not is_instance_valid(_replication):
+		return
+	if _scenario == SCENARIO_DISCONNECT_RACE and participant_id == REMOTE_PARTICIPANT_ID:
+		var binding: Dictionary = _replication._vehicle_replicator.binding_for_participant(
+			participant_id
+		)
+		if not binding.is_empty():
+			_disconnect_vehicle = _replication.vehicle_for_entity(int(binding.id))
+			_disconnect_start_speed_mps = _disconnect_vehicle.velocity.length()
+	_replication.remove_peer(native_peer_id, participant_id)
+	if _scenario == SCENARIO_DISCONNECT_RACE and participant_id == REMOTE_PARTICIPANT_ID:
+		_disconnect_observed = is_instance_valid(_disconnect_vehicle)
 
 
 ## Places the authoritative remote actor at an authored entry before client intent arrives.
@@ -320,12 +486,24 @@ func _coordinate_same_tick_claim() -> void:
 
 
 ## Records reliable receipts while descriptor state remains the transaction writer.
-func _on_vehicle_action_resolved(  # gdstyle:ignore=quality/max-branches
+
+
+# gdstyle:ignore=quality/max-function-length,quality/max-branches,quality/max-returns
+func _on_vehicle_action_resolved(
 	result: Dictionary,
 ) -> void:
 	if _role != "client":
 		return
 	var action_sequence: int = int(result.get("action_sequence", 0))
+	if _scenario in [SCENARIO_RESET_RACE, SCENARIO_DISCONNECT_RACE]:
+		if action_sequence == 1 and result.get("status") == VehicleInteraction.STATUS_APPLIED:
+			_disconnect_entry_confirmed = true
+		elif _scenario == SCENARIO_DISCONNECT_RACE:
+			_finish(
+				false,
+				"disconnect race entry rejected %s" % result.get("failure", &"UNKNOWN"),
+			)
+		return
 	if action_sequence == 1:
 		if (
 			result.get("status") != VehicleInteraction.STATUS_REJECTED
@@ -660,6 +838,8 @@ func _parse_arguments() -> void:
 			_role = argument.trim_prefix("--role=")
 		elif argument.begins_with("--port="):
 			_port = argument.trim_prefix("--port=").to_int()
+		elif argument.begins_with("--scenario="):
+			_scenario = argument.trim_prefix("--scenario=")
 
 
 ## Emits one terminal result and exits with a truthful status.

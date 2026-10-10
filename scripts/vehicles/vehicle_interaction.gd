@@ -42,6 +42,7 @@ var _pending_keys: Dictionary[String, bool] = { }
 var _result_cache: Dictionary[String, Dictionary] = { }
 var _result_order: Array[String] = []
 var _last_action_sequence: Dictionary[int, int] = { }
+var _highest_admitted_sequence: Dictionary[int, int] = { }
 
 
 ## Injects Match-owned participants and clearance while retaining sole seat-rule ownership.
@@ -93,6 +94,10 @@ func enqueue_action(request: Dictionary) -> Dictionary:
 
 	queue.append(request.duplicate(true))
 	_pending_actions_by_participant[participant_id] = queue
+	_highest_admitted_sequence[participant_id] = maxi(
+		int(_highest_admitted_sequence.get(participant_id, 0)),
+		int(request.action_sequence),
+	)
 	_pending_keys[key] = true
 	return { "ok": true, "pending": true }
 
@@ -124,7 +129,10 @@ func process_actions(through_tick: int) -> Array[Dictionary]:
 		var key: String = _action_key(participant_id, int(request.action_sequence))
 		_pending_keys.erase(key)
 		_cache_result(key, result)
-		_last_action_sequence[participant_id] = int(request.action_sequence)
+		_last_action_sequence[participant_id] = maxi(
+			int(_last_action_sequence.get(participant_id, 0)),
+			int(request.action_sequence),
+		)
 		resolved.append(
 			{
 				"participant_id": participant_id,
@@ -278,6 +286,7 @@ func reset(match_revision: int) -> bool:
 	_result_cache.clear()
 	_result_order.clear()
 	_last_action_sequence.clear()
+	_highest_admitted_sequence.clear()
 	_match_revision = match_revision
 	_replicator.reset_authority()
 	_transaction_revision += 1
@@ -416,15 +425,15 @@ func _validate_action_request(  # gdstyle:ignore=quality/max-returns,quality/max
 	)
 
 
-## Accepts cached idempotent replay while rejecting old or unbounded action sequences.
+## Accepts exact idempotent replay while fencing every newly admitted sequence monotonically.
 func _validate_action_sequence(participant_id: int, action_sequence: int) -> Dictionary:
-	var last_sequence: int = int(_last_action_sequence.get(participant_id, 0))
-	if action_sequence <= last_sequence:
-		var key: String = _action_key(participant_id, action_sequence)
-		if _result_cache.has(key):
-			return { "ok": true }
+	var key: String = _action_key(participant_id, action_sequence)
+	if _result_cache.has(key) or _pending_keys.has(key):
+		return { "ok": true }
+	var highest_admitted: int = int(_highest_admitted_sequence.get(participant_id, 0))
+	if action_sequence <= highest_admitted:
 		return { "ok": false, "failure": &"STALE_SEQUENCE" }
-	if action_sequence > last_sequence + ACTION_SEQUENCE_WINDOW:
+	if action_sequence > highest_admitted + ACTION_SEQUENCE_WINDOW:
 		return { "ok": false, "failure": &"SEQUENCE_WINDOW" }
 	return { "ok": true }
 

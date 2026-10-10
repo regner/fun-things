@@ -643,18 +643,21 @@ this review is production work rather than a P0 prerequisite.
 
 `ActionResult = {action_sequence, status: APPLIED | REJECTED, failure?,
 durable_revision?}` is emitted after processing, not mere queue admission. A
-per-participant action sequence spans life/control changes. Cache recent results;
-duplicates return the cached result without another mutation; an older evicted
-sequence returns `STALE_SEQUENCE`. Syntactically valid rejected requests consume
-their sequence too. Reject sequence jumps outside the bound. Results never install
-gameplay state; the reliable transition is the sole state application.
+per-participant action sequence spans life/control changes. The host retains a monotonic
+highest-admitted watermark per participant. An exact pending or cached duplicate is idempotent and
+returns the existing outcome without another mutation; every other sequence at or below the watermark,
+including an older evicted sequence, returns `STALE_SEQUENCE`. Syntactically valid rejected requests
+consume their sequence too. Reject sequence jumps outside the bound. Results never install gameplay
+state; the reliable transition is the sole state application.
 
 Host acceptance order is `(accepted_tick, participant_id, action_sequence)` for
 same-tick actions. The first valid seat claim wins; others get `SEAT_OCCUPIED`.
 Owner decision 23 makes M1 entry host-confirmed, not predicted: the client sends intent
 and plays a short ~0.3 s get-in presentation, but control and camera/HUD ownership
 change only on the accepted host transition. Rejection causes no ownership change or
-snap. S04-T's predicted-entry machinery remains documented for a later upgrade.
+snap. Physical E reaches this API through LocalRig; MatchReplication exits the confirmed
+occupied vehicle or chooses the nearest vacant, stopped, in-range vehicle with an authored
+entry socket. S04-T's predicted-entry machinery remains documented for a later upgrade.
 Entry checks alive/unseated player, available/nonterminal car, range, eligible
 speed, authored sockets and clearance before disabling foot-body gameplay; VehicleInteraction
 tuning still settles entry range/eligible speed. Exit remains below 0.5 m/s with the authored

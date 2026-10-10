@@ -513,6 +513,8 @@ class ExportedAcceptanceRunner:
                 raise RuntimeError(f"vehicle {role} failed: {receipt}")
             if not 0 < receipt.get("vehicle_entry_latency_msec", 0) <= 1000:
                 raise RuntimeError(f"vehicle {role} entry latency failed: {receipt}")
+            if receipt.get("vehicle_interaction_press_count") != 2:
+                raise RuntimeError(f"vehicle {role} did not use E for both transfers: {receipt}")
             if (
                 receipt.get("vehicle_drive_duration_seconds", 0.0) < 10.0
                 or receipt.get("vehicle_drive_sample_ticks", 0) < 600
@@ -531,6 +533,34 @@ class ExportedAcceptanceRunner:
         return {
             "exits": self.settle([client, host]),
             "receipts": {"host": host_result, "client": client_result},
+        }
+
+    def case_vehicle_broken_interaction(self) -> dict:
+        """Prove disabling LocalRig's E seam prevents the exported entry transaction."""
+        host, client = self.pair(
+            "vehicle_broken_interaction",
+            "vehicle",
+            client_arguments=["--m1-a-gate-break-vehicle-interaction"],
+        )
+        client.wait_event(self.event("match_ready"), READINESS_TIMEOUT_SECONDS)
+        result = client.wait_event(self.event("finished"), CASE_TIMEOUT_SECONDS)
+        client_exit = client.finish()
+        host_exit = host.finish(timeout=0.2)
+        if (
+            result.get("ok")
+            or result.get("detail") != "VEHICLE_INTERACTION_SEAM_NOT_OBSERVED"
+            or result.get("vehicle_interaction_press_count") != 1
+        ):
+            raise RuntimeError(f"broken E seam did not fail acceptance: {result}")
+        if client_exit == 0:
+            raise RuntimeError("broken E seam unexpectedly exited successfully")
+        diagnostics = client.diagnostics()
+        if diagnostics:
+            raise RuntimeError(f"broken E seam emitted diagnostics: {diagnostics}")
+        return {
+            "expected_failure_observed": True,
+            "exits": {"client": client_exit, "host": host_exit},
+            "receipts": {"client": result},
         }
 
     def case_vehicle_broken_seam(self) -> dict:
@@ -633,6 +663,7 @@ def main() -> int:
         ("sustained_direct", lambda: runner.case_sustained("direct")),
         ("sustained_normal", lambda: runner.case_sustained("normal")),
         ("vehicle", runner.case_vehicle),
+        ("vehicle_broken_interaction", runner.case_vehicle_broken_interaction),
         ("vehicle_broken_seam", runner.case_vehicle_broken_seam),
         (
             "incompatible",

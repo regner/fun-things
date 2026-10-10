@@ -190,9 +190,11 @@ class VehicleProfileRunner:
             probe.bind(("127.0.0.1", 0))
             return probe.getsockname()[1]
 
-    def launch(self, profile: str, role: str, port: int) -> ManagedProcess:
+    def launch(
+        self, profile: str, scenario: str, role: str, port: int
+    ) -> ManagedProcess:
         """Start one headless production-process harness under the hard timeout."""
-        process_output = self.output / profile / role
+        process_output = self.output / profile / scenario / role
         process_output.mkdir(parents=True, exist_ok=True)
         user_root = process_output / "user"
         user_root.mkdir()
@@ -219,6 +221,7 @@ class VehicleProfileRunner:
             "--",
             f"--role={role}",
             f"--port={port}",
+            f"--scenario={scenario}",
         ]
         process = subprocess.Popen(
             command,
@@ -248,9 +251,9 @@ class VehicleProfileRunner:
             client_port = self.allocate_port()
             proxy = DatagramProxy(client_port, host_port, delay, jitter, loss, 731)
             proxy.start()
-        host = self.launch(profile, "host", host_port)
+        host = self.launch(profile, "gameplay", "host", host_port)
         host.wait_event("host_ready", READINESS_TIMEOUT_SECONDS)
-        client = self.launch(profile, "client", client_port)
+        client = self.launch(profile, "gameplay", "client", client_port)
         try:
             client_result = client.wait_event("finished", RESULT_TIMEOUT_SECONDS)
             host_result = host.wait_event("finished", RESULT_TIMEOUT_SECONDS)
@@ -281,6 +284,10 @@ class VehicleProfileRunner:
         correction = float(
             client_result.get("prediction", {}).get("p95_correction_metres", 0.0)
         )
+        lifecycle_races = {
+            "reset_during_entry": self.run_lifecycle_race(profile, "reset_race"),
+            "seated_disconnect": self.run_lifecycle_race(profile, "disconnect_race"),
+        }
         result = {
             "profile": profile,
             "delay_msec": delay,
@@ -300,10 +307,71 @@ class VehicleProfileRunner:
             "host": host_result,
             "client": client_result,
             "exits": exits,
+            "lifecycle_races": lifecycle_races,
         }
         profile_path = self.output / profile / "result.json"
         profile_path.write_text(json.dumps(result, indent=2) + "\n", encoding="utf-8")
         return result
+
+    def run_lifecycle_race(self, profile: str, scenario: str) -> dict:
+        """Run one reset or disconnect race through another real profiled ENet pair."""
+        delay, jitter, loss = PROFILES[profile]
+        host_port = self.allocate_port()
+        client_port = host_port
+        proxy = None
+        if profile != "direct":
+            client_port = self.allocate_port()
+            proxy = DatagramProxy(client_port, host_port, delay, jitter, loss, 731)
+            proxy.start()
+        host = self.launch(profile, scenario, "host", host_port)
+        host.wait_event("host_ready", READINESS_TIMEOUT_SECONDS)
+        client = self.launch(profile, scenario, "client", client_port)
+        try:
+            if scenario == "disconnect_race":
+                client_source = client.wait_event(
+                    "disconnect_source_ready", RESULT_TIMEOUT_SECONDS
+                )
+                client_exit = client.finish()
+                host_result = host.wait_event("finished", RESULT_TIMEOUT_SECONDS)
+                client_result = client_source
+            else:
+                client_result = client.wait_event("finished", RESULT_TIMEOUT_SECONDS)
+                host_result = host.wait_event("finished", RESULT_TIMEOUT_SECONDS)
+                client_exit = client.finish()
+        finally:
+            if proxy is not None:
+                proxy.close()
+        host_exit = host.finish()
+        exits = {"host": host_exit, "client": client_exit}
+        if exits != {"host": 0, "client": 0}:
+            raise RuntimeError(f"{profile}/{scenario}: nonzero exits {exits}")
+        if not host_result.get("ok") or not client_result.get("ok"):
+            raise RuntimeError(
+                f"{profile}/{scenario}: failed receipt {host_result} {client_result}"
+            )
+        if scenario == "reset_race":
+            for receipt in (host_result, client_result):
+                if (
+                    not receipt.get("reset_during_entry_observed")
+                    or receipt.get("old_action_survived")
+                    or receipt.get("pending_actions") != 0
+                ):
+                    raise RuntimeError(
+                        f"{profile}/{scenario}: stale entry survived {receipt}"
+                    )
+        elif (
+            not client_result.get("seated")
+            or not host_result.get("disconnect_coast_observed")
+            or not host_result.get("driver_cleared")
+            or host_result.get("final_speed_mps", 1e9)
+            >= host_result.get("initial_speed_mps", 0.0)
+        ):
+            raise RuntimeError(f"{profile}/{scenario}: coast proof failed")
+        return {
+            "host": host_result,
+            "client": client_result,
+            "exits": exits,
+        }
 
 
 def parse_args() -> argparse.Namespace:

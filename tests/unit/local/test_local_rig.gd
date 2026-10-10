@@ -94,6 +94,31 @@ func test_vehicle_binding_gates_physical_drive_collector() -> void:
 	assert_true(is_zero_approx(rig.sample_vehicle_command().throttle))
 
 
+## Retains one monotonic E interaction sequence across confirmed body transfers.
+func test_interaction_emits_retained_sequence_for_actor_and_vehicle() -> void:
+	var actor: ActorMotion = PLAYER_SCENE.instantiate() as ActorMotion
+	var vehicle: VehicleMotion = VEHICLE_SCENE.instantiate() as VehicleMotion
+	var rig: LocalRig = LOCAL_RIG_SCENE.instantiate() as LocalRig
+	add_child_autofree(actor)
+	add_child_autofree(vehicle)
+	add_child_autofree(rig)
+	await get_tree().process_frame
+	assert_true(rig.bind_actor(actor))
+	watch_signals(rig)
+	var event := InputEventKey.new()
+	event.physical_keycode = KEY_E
+	event.pressed = true
+
+	rig._unhandled_input(event)
+	assert_signal_emitted_with_parameters(rig, "interaction_requested", [1])
+	assert_true(rig.bind_vehicle(vehicle))
+	rig._unhandled_input(event)
+	assert_signal_emitted_with_parameters(rig, "interaction_requested", [2])
+	rig.set_interaction_input_enabled(false)
+	rig._unhandled_input(event)
+	assert_signal_emit_count(rig, "interaction_requested", 2)
+
+
 ## Emits one leave request for Escape without deciding session or scene teardown.
 func test_escape_emits_leave_request() -> void:
 	var rig: LocalRig = LOCAL_RIG_SCENE.instantiate() as LocalRig

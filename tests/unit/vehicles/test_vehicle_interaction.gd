@@ -90,6 +90,29 @@ func test_same_tick_claim_has_one_deterministic_winner() -> void:
 	assert_eq(_replicator.driver_for_entity(int(descriptor.id)), 1)
 
 
+## Keeps the highest admitted sequence while a delayed entry remains pending.
+func test_delayed_entry_sequence_64_rejects_later_sequence_1() -> void:
+	await _configure([1])
+	var descriptor: Dictionary = _descriptor(0)
+	var vehicle: VehicleMotion = _replicator.vehicle_for_entity(int(descriptor.id))
+	_actors[1].global_position = _entry_position(vehicle)
+	var high_request: Dictionary = _entry_request(1, descriptor, 64, 20)
+	assert_true(_interaction.enqueue_action(high_request).ok)
+	assert_true(_interaction.enqueue_action(high_request).pending)
+	var stale: Dictionary = _interaction.enqueue_action(_entry_request(1, descriptor, 1, 21))
+	assert_false(stale.ok)
+	assert_eq(stale.failure, &"STALE_SEQUENCE")
+	assert_eq(_interaction.process_actions(19).size(), 0)
+	var resolved: Array[Dictionary] = _interaction.process_actions(20)
+	assert_eq(resolved.size(), 1)
+	assert_eq(resolved[0].result.action_sequence, 64)
+	assert_eq(resolved[0].result.status, VehicleInteraction.STATUS_APPLIED)
+	var stale_after_resolution: Dictionary = _interaction.enqueue_action(
+		_entry_request(1, descriptor, 1, 22)
+	)
+	assert_eq(stale_after_resolution.failure, &"STALE_SEQUENCE")
+
+
 ## Gives each participant an independent queue and resolves at most four each tick.
 func test_action_queue_is_participant_scoped_rate_limited_and_fair() -> void:
 	await _configure([1, 2])
