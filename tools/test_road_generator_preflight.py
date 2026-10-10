@@ -8,9 +8,9 @@ from road_generator_preflight import (
     IMPORT_KNOWN_DIAGNOSTICS,
     classify_diagnostics,
     preflight_command,
+    require_capped_window,
     stage_project,
 )
-from window_safety import require_capped_window
 
 
 class RoadGeneratorPreflightTest(unittest.TestCase):

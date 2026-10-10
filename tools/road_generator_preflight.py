@@ -11,9 +11,8 @@ import subprocess
 import tempfile
 
 from script_checks import PIN, engine_version, environment
-from window_safety import capped_window_arguments, require_capped_window
-
 ROOT = Path(__file__).resolve().parents[1]
+SAFE_WINDOW_FPS = 60
 DIAGNOSTIC = re.compile(r"(?:SCRIPT ERROR:|ERROR:|WARNING:)")
 SCENE = "res://tests/integration/road_generator/preflight.tscn"
 IMPORT_KNOWN_DIAGNOSTICS = {
@@ -32,6 +31,19 @@ IMPORT_KNOWN_DIAGNOSTICS = {
     "WARNING: 4 ObjectDB instances were leaked at exit (run with `--verbose` for details).",
 }
 
+
+
+def capped_window_arguments() -> list[str]:
+    """Return the explicit Godot arguments required for a 60 FPS window cap."""
+    return ["--max-fps", str(SAFE_WINDOW_FPS)]
+
+
+def require_capped_window(command: list[str]) -> None:
+    """Reject a windowed command unless it contains exactly the approved FPS cap."""
+    values = [command[index + 1] for index, value in enumerate(command[:-1])
+              if value == "--max-fps"]
+    if values != [str(SAFE_WINDOW_FPS)]:
+        raise ValueError(f"windowed Godot requires exactly --max-fps {SAFE_WINDOW_FPS}")
 
 def classify_diagnostics(text, known_diagnostics=()):
     """Split diagnostics into explicitly recorded known lines and all other failures."""
