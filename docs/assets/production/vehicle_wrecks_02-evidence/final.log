@@ -1,0 +1,39 @@
+vehicle_wrecks.02 - final production checks, 10 October 2026
+Commands are reproduced exactly in ../vehicle_wrecks_02.md.
+Only isolated Blender CLI and pinned headless Godot processes were used.
+
+Blender 5.2.2 LTS d13f752e3b9c / glTF exporter 5.2.40.
+Author: timeout 900, audio disabled, background factory startup, four threads; exit 0.
+Four Cycles CPU 32-sample AgX 1280x720 renders inspected by producer.
+Saved-source validator and fresh scratch export: timeout 180; exit 0.
+4742 source vertices; 7009 exported vertices; 9292 triangles <= live 11256.
+One mesh, eight surfaces, zero degenerate faces/triangles, zero non-manifold edges.
+Source/export bounds within 0.00001 m; live horizontal footprint within 0.002 m.
+Source/export normal length errors below 0.00001; fresh GLB byte-identical.
+No live source or GLB changed; exact identities retained in validation.json.
+
+Pinned Godot 4.8.dev7.official.c971f93e7 import: timeout 300; exit 0.
+No ERROR or SCRIPT ERROR lines in final import or prefab-check logs.
+Linked prefab check: timeout 180; exit 0; actual one-mesh/eight-surface imported bounds.
+Two byte-stable pack/save/reload cycles; fresh-process file hash and UID retained.
+Five real capsule queries: body, front/rear corners block; side/rear bypasses clear.
+Radius 0.35 m / height 1.8 m; no movement/driving/multiplayer acceptance claimed.
+gdstyle 0.3.0 fmt --check: one file already formatted.
+gdstyle --max-line-length 100 --max-warnings 0: one file, no issues.
+Finalizer: all source/export/live-input/prefab receipts match; lean PNGs and manifest.
+Final pinned import repeated after scene normalization; only owned sidecars retained.
+
+Bounded repair history:
+- Scratch source-inspection helper initially assumed every material slot was non-null.
+  Corrected that scratch helper and inspected successfully; production validator passes.
+- Initial prefab harness inherited a stale-cache UID fallback. Within-process roundtrips
+  passed, but a fresh-process check replaced the newly created UID. The asset-local harness
+  now reads an existing saved header UID first and registers only missing IDs (an
+  unconditional add_id initially emitted a duplicate-ID error after import). Corrected
+  separate-process runs preserve the same final UID/hash without errors; pre-fix runs
+  are not final identity evidence.
+- Blender emits use_nodes deprecation notices for the next major release; current pinned
+  author/export/validation all exit 0. No audio errors or broad diagnostic suppression.
+
+No production_checks.py run (decision 52). No world, gameplay lifecycle, renderer/device
+performance or independent art acceptance is claimed. Raw retries remain in scratch only.

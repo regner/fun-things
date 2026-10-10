@@ -1,0 +1,250 @@
+{
+  "asset": "vehicle_wrecks.02",
+  "blender": "5.2.2 LTS",
+  "blender_build": "d13f752e3b9c",
+  "bounds_tolerance_m": 0.002,
+  "degenerate_faces": 0.0,
+  "degenerate_triangles": 0.0,
+  "dimensions_xyz_m": [
+    1.91270393133163,
+    1.50880002975464,
+    3.6806902885437
+  ],
+  "engine": {
+    "aabb_max": [
+      0.956513464450836,
+      1.50880002975464,
+      1.83569037914276
+    ],
+    "aabb_min": [
+      -0.956190526485443,
+      0.0,
+      -1.84499990940094
+    ],
+    "capsule_queries": [
+      {
+        "case": "body blocks",
+        "expected": true,
+        "hit": true
+      },
+      {
+        "case": "rear corner blocks",
+        "expected": true,
+        "hit": true
+      },
+      {
+        "case": "front corner blocks",
+        "expected": true,
+        "hit": true
+      },
+      {
+        "case": "side bypass clear",
+        "expected": false,
+        "hit": false
+      },
+      {
+        "case": "rear bypass clear",
+        "expected": false,
+        "hit": false
+      }
+    ],
+    "failures": [],
+    "identity_linked_model": true,
+    "mesh_count": 1,
+    "prefab_sha256": "b8bfb150b0845071aea693330cc40e0cd930d2cf3f1252a2a88719f6d1efbd49",
+    "prefab_uid": "uid://ckrjwghik6kgh",
+    "stable_roundtrips": 2,
+    "status": "PASS",
+    "surface_count": 8,
+    "version": "4.8-dev7 (official)"
+  },
+  "export": {
+    "bytes": 287912.0,
+    "path": "art/models/vehicles/vehicle_wrecks_02/vehicle_wrecks_02.glb",
+    "sha256": "dd7fc194de277f4ff08f5bc482571d95f228101672edf7cccf582e05d1752240"
+  },
+  "export_normal_max_error": 1.3036696211e-07,
+  "export_vertices": 7009.0,
+  "exporter": "5.2.40",
+  "fresh_reexport_byte_identical": true,
+  "godot_aabb": {
+    "max": [
+      0.956513404846191,
+      1.50880002975464,
+      1.83569037914276
+    ],
+    "min": [
+      -0.956190526485443,
+      0.0,
+      -1.84499990940094
+    ]
+  },
+  "ground_pivot_m": [
+    0.0,
+    0.0,
+    0.0
+  ],
+  "live_export": {
+    "bytes": 329632.0,
+    "path": "art/models/vehicles/car_crate_a/car_crate_a.glb",
+    "sha256": "08324af907a2e4bc1701c47d5115961fb056cc523bcbb07f8fe84958cb2a37eb"
+  },
+  "live_source": {
+    "bytes": 260633.0,
+    "path": "art/source/models/vehicles/car_crate_a/car_crate_a.blend",
+    "sha256": "4b81688a70aec7ed7dd98337b4166267728cf196ce2ee5ae8ab425318b85eb48"
+  },
+  "live_triangle_budget": 11256.0,
+  "materials": [
+    {
+      "name": "wreck_crate_ivory",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.319999992847443,
+          0.28999999165535,
+          0.204999998211861,
+          1.0
+        ],
+        "metallicFactor": 0.140000000596046,
+        "roughnessFactor": 0.790000021457672
+      }
+    },
+    {
+      "name": "wreck_charcoal",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.0160000007599592,
+          0.0219999998807907,
+          0.0260000005364418,
+          1.0
+        ],
+        "metallicFactor": 0.180000007152557,
+        "roughnessFactor": 0.870000004768372
+      }
+    },
+    {
+      "name": "wreck_crate_petrol",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.00800000037997961,
+          0.0649999976158142,
+          0.0769999995827675,
+          1.0
+        ],
+        "metallicFactor": 0.180000007152557,
+        "roughnessFactor": 0.769999980926514
+      }
+    },
+    {
+      "name": "wreck_dead_lamp",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.170000001788139,
+          0.125,
+          0.0659999996423721,
+          1.0
+        ],
+        "metallicFactor": 0.0,
+        "roughnessFactor": 0.800000011920929
+      }
+    },
+    {
+      "name": "wreck_scorched_rubber",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.00800000037997961,
+          0.00999999977648258,
+          0.0130000002682209,
+          1.0
+        ],
+        "metallicFactor": 0.0,
+        "roughnessFactor": 0.959999978542328
+      }
+    },
+    {
+      "name": "wreck_exposed_metal",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.104999996721745,
+          0.125,
+          0.140000000596046,
+          1.0
+        ],
+        "metallicFactor": 0.550000011920929,
+        "roughnessFactor": 0.699999988079071
+      }
+    },
+    {
+      "name": "wreck_glass_void",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.0040000001899898,
+          0.00800000037997961,
+          0.00999999977648258,
+          1.0
+        ],
+        "metallicFactor": 0.0
+      }
+    },
+    {
+      "name": "wreck_glass_remnant",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.0450000017881393,
+          0.115000002086163,
+          0.140000000596046,
+          1.0
+        ],
+        "metallicFactor": 0.150000005960464,
+        "roughnessFactor": 0.379999995231628
+      }
+    }
+  ],
+  "mesh_count": 1.0,
+  "nonmanifold_edges": 0.0,
+  "render_notes": "Isolated Cycles CPU, 32 samples, AgX; review PNGs RGB6/deflate9 only",
+  "renders": [
+    {
+      "path": "hero.png",
+      "pixels": [
+        1280,
+        720
+      ],
+      "bytes": 296075
+    },
+    {
+      "path": "side.png",
+      "pixels": [
+        1280,
+        720
+      ],
+      "bytes": 271534
+    },
+    {
+      "path": "detail.png",
+      "pixels": [
+        1280,
+        720
+      ],
+      "bytes": 318337
+    },
+    {
+      "path": "overhead_47m_42deg.png",
+      "pixels": [
+        1280,
+        720
+      ],
+      "bytes": 242743
+    }
+  ],
+  "source": {
+    "bytes": 390941.0,
+    "path": "art/source/models/vehicles/vehicle_wrecks_02/vehicle_wrecks_02.blend",
+    "sha256": "a9e1afd43e283dcaa80b7f2b9972d17a920e3167ddfd943e24198c448ada5230"
+  },
+  "source_normal_max_error": 2.298038717e-07,
+  "status": "PASS: saved source, actual GLB and fresh byte-identical export",
+  "surface_count": 8.0,
+  "triangles": 9292.0,
+  "vertices": 4742.0
+}
