@@ -1,0 +1,213 @@
+{
+  "artwork_interface": {
+    "face_dimensions_m": [
+      0.68,
+      0.68
+    ],
+    "face_only_material": true,
+    "front_godot_z_m": -0.135,
+    "gltf_v_zero": "top",
+    "material": "road_sign_face",
+    "surface_index": 2.0,
+    "uv_landmarks_passed": true,
+    "uv_screen_right": "Godot -X"
+  },
+  "asset": "city_traffic_fixtures.03",
+  "blender": "5.2.2 LTS",
+  "blender_build": "d13f752e3b9c",
+  "bounds_tolerance_m": 0.001,
+  "degenerate_faces": 0.0,
+  "degenerate_triangles": 0.0,
+  "export_normal_max_length_error": 1.0803341288e-07,
+  "export_vertices": 800.0,
+  "exporter": "5.2.40",
+  "fresh_export_byte_identical": true,
+  "glb_bytes": 37340.0,
+  "glb_sha256": "bc40bd426b79d6515b37e37738adfbc189ac75114135aee7116be65360f5958f",
+  "godot": {
+    "bounds_min_m": [
+      -0.349999994039536,
+      0.0,
+      -0.140000000596046
+    ],
+    "bounds_size_m": [
+      0.699999988079071,
+      3.25,
+      0.280000001192093
+    ],
+    "engine": "4.8-dev7 (official)",
+    "face_only_artwork_surface": true,
+    "import_uv_tolerance": 3.05180437933928e-05,
+    "linked_model_identity": true,
+    "physics": {
+      "actor_capsule_height_m": 1.8,
+      "actor_capsule_radius_m": 0.35,
+      "authority_replay_equal": true,
+      "bypass_end_m": [
+        0.800000011920929,
+        0.00100000004749745,
+        2.00000071525574
+      ],
+      "contact_stop_m": [
+        0.0,
+        0.00100000004749745,
+        -0.499999672174454
+      ],
+      "low_ray_blocked": true,
+      "overhead_panel_ray_clear": true,
+      "ticks_per_case_per_mode": 48,
+      "vehicle_network_transport_and_placement": "not tested"
+    },
+    "resource_uids": {
+      "res://art/models/environment/city_traffic_fixtures_03/city_traffic_fixtures_03.glb": "uid://bqidwacvam6br",
+      "res://scenes/prefabs/environment/city_traffic_fixtures_03.tscn": "uid://dbpptuysxt1r3",
+      "res://scripts/actors/actor_motion.gd": "uid://jthmfio4c27p",
+      "res://tools/asset_production/city_traffic_fixtures_03/check_scene.tscn": "uid://l1uvyghq8pqo"
+    },
+    "save_reload_byte_stable": true,
+    "static_cylinder": {
+      "height_m": 2.5,
+      "layer": 1,
+      "mask": 0,
+      "radius_m": 0.14
+    }
+  },
+  "godot_bounds_max_m": [
+    0.349999994039536,
+    3.25,
+    0.140000000596046
+  ],
+  "godot_bounds_min_m": [
+    -0.349999994039536,
+    0.0,
+    -0.140000000596046
+  ],
+  "materials": [
+    {
+      "name": "traffic_dark_metal",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.025000000372529,
+          0.0750000029802322,
+          0.0900000035762787,
+          1.0
+        ],
+        "metallicFactor": 0.449999988079071,
+        "roughnessFactor": 0.46000000834465
+      }
+    },
+    {
+      "name": "traffic_fixture_rim",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.0700000002980232,
+          0.129999995231628,
+          0.150000005960464,
+          1.0
+        ],
+        "metallicFactor": 0.5,
+        "roughnessFactor": 0.419999986886978
+      }
+    },
+    {
+      "name": "road_sign_face",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.620000004768372,
+          0.660000026226044,
+          0.639999985694885,
+          1.0
+        ],
+        "metallicFactor": 0.0,
+        "roughnessFactor": 0.519999980926514
+      }
+    }
+  ],
+  "mesh_count": 1.0,
+  "nonmanifold_edges": 0.0,
+  "pivot_m": [
+    0.0,
+    0.0,
+    0.0
+  ],
+  "production_checks": {
+    "ok": true,
+    "results": {
+      "engine": {
+        "ok": true,
+        "version": "4.8.dev7.official.c971f93e7"
+      },
+      "gut_pin": {
+        "ok": true,
+        "version": "9.7.1"
+      },
+      "owned_scripts": {
+        "ok": true,
+        "returncode": 0
+      },
+      "python_tests": {
+        "ok": true,
+        "returncode": 0
+      },
+      "gut_import": {
+        "ok": true,
+        "returncode": 0
+      },
+      "gut_tests": {
+        "ok": true,
+        "returncode": 0
+      },
+      "gut_negative": {
+        "ok": true,
+        "observed_returncode": 1
+      }
+    }
+  },
+  "provisional_dimensions_m": [
+    0.7,
+    3.25,
+    0.28
+  ],
+  "render_encoding": "RGB 7 significant bits per channel; PNG compression 9",
+  "renders": [
+    {
+      "path": "hero.png",
+      "pixels": [
+        1280,
+        720
+      ],
+      "bytes": 373276
+    },
+    {
+      "path": "side.png",
+      "pixels": [
+        1280,
+        720
+      ],
+      "bytes": 379251
+    },
+    {
+      "path": "detail.png",
+      "pixels": [
+        1280,
+        720
+      ],
+      "bytes": 365132
+    },
+    {
+      "path": "overhead_47m_42deg.png",
+      "pixels": [
+        1280,
+        720
+      ],
+      "bytes": 408484
+    }
+  ],
+  "source_export_status": "passed",
+  "source_faces": 578.0,
+  "source_normal_max_length_error": 1.6872947128e-07,
+  "source_vertices": 732.0,
+  "summed_closed_component_volume_m3": 0.0832379779441037,
+  "surface_count": 3.0,
+  "triangles": 1428.0
+}

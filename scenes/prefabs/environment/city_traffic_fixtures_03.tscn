@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://dbpptuysxt1r3"]
+
+[ext_resource type="PackedScene" path="res://art/models/environment/city_traffic_fixtures_03/city_traffic_fixtures_03.glb" id="1_model"]
+
+[sub_resource type="CylinderShape3D" id="Cylinder_pole"]
+height = 2.5
+radius = 0.14
+
+[node name="CityTrafficFixtures03" type="Node3D" unique_id=2089108636]
+
+[node name="Visuals" type="Node3D" parent="." unique_id=609477982]
+
+[node name="Model" parent="Visuals" unique_id=1411766445 instance=ExtResource("1_model")]
+
+[node name="Collision" type="Node3D" parent="." unique_id=1328776375]
+
+[node name="PoleBody" type="StaticBody3D" parent="Collision" unique_id=398283145]
+collision_mask = 0
+
+[node name="Shape" type="CollisionShape3D" parent="Collision/PoleBody" unique_id=279747038]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.25, 0)
+shape = SubResource("Cylinder_pole")
