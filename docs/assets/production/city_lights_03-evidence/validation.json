@@ -1,0 +1,389 @@
+{
+  "applied_transforms": true,
+  "asset_id": "city_lights.03",
+  "blender": "5.2.2 LTS",
+  "build_hash": "d13f752e3b9c",
+  "camera": {
+    "type": "Blender perspective, vertical-down north-up",
+    "height_m": 47,
+    "vertical_fov_degrees": 42,
+    "viewport_px": [
+      1280,
+      720
+    ],
+    "engine_capture": false
+  },
+  "degenerate_faces": 0.0,
+  "degenerate_triangles": 0.0,
+  "dimension_tolerance_m": 0.001,
+  "exports": {
+    "cool": {
+      "bounds_max_m": [
+        1.45000004768372,
+        8.40000057220459,
+        0.280000001192093
+      ],
+      "bounds_min_m": [
+        -1.45000004768372,
+        0.0,
+        -1.1599999666214
+      ],
+      "bytes": 92924.0,
+      "degenerate_triangles": 0.0,
+      "fresh_export_byte_identical": true,
+      "materials": [
+        {
+          "name": "pole_petrol",
+          "pbrMetallicRoughness": {
+            "baseColorFactor": [
+              0.025000000372529,
+              0.0750000029802322,
+              0.0900000035762787,
+              1.0
+            ],
+            "metallicFactor": 0.449999988079071,
+            "roughnessFactor": 0.46000000834465
+          }
+        },
+        {
+          "name": "fixture_rim",
+          "pbrMetallicRoughness": {
+            "baseColorFactor": [
+              0.0700000002980232,
+              0.129999995231628,
+              0.150000005960464,
+              1.0
+            ],
+            "metallicFactor": 0.5,
+            "roughnessFactor": 0.419999986886978
+          }
+        },
+        {
+          "name": "service_recess",
+          "pbrMetallicRoughness": {
+            "baseColorFactor": [
+              0.0120000001043081,
+              0.025000000372529,
+              0.0299999993294477,
+              1.0
+            ],
+            "metallicFactor": 0.25,
+            "roughnessFactor": 0.5
+          }
+        },
+        {
+          "emissiveFactor": [
+            0.206999998271465,
+            0.350999977827072,
+            0.41399999654293
+          ],
+          "name": "lens_cool",
+          "pbrMetallicRoughness": {
+            "baseColorFactor": [
+              0.46000000834465,
+              0.779999971389771,
+              0.9200000166893,
+              1.0
+            ],
+            "metallicFactor": 0.0,
+            "roughnessFactor": 0.319999992847443
+          }
+        }
+      ],
+      "path": "art/models/environment/city_lights_03/city_lights_03_cool.glb",
+      "sha256": "5c5140b4b28d259caa1ba746820e4f16f51d89b4109468b9825ceff3e781dca3",
+      "surfaces": 4.0,
+      "triangles": 3640.0,
+      "unit_length_normals": true,
+      "vertices": 2092.0
+    },
+    "warm": {
+      "bounds_max_m": [
+        1.45000004768372,
+        8.40000057220459,
+        0.280000001192093
+      ],
+      "bounds_min_m": [
+        -1.45000004768372,
+        0.0,
+        -1.1599999666214
+      ],
+      "bytes": 92920.0,
+      "degenerate_triangles": 0.0,
+      "fresh_export_byte_identical": true,
+      "materials": [
+        {
+          "name": "pole_petrol",
+          "pbrMetallicRoughness": {
+            "baseColorFactor": [
+              0.025000000372529,
+              0.0750000029802322,
+              0.0900000035762787,
+              1.0
+            ],
+            "metallicFactor": 0.449999988079071,
+            "roughnessFactor": 0.46000000834465
+          }
+        },
+        {
+          "name": "fixture_rim",
+          "pbrMetallicRoughness": {
+            "baseColorFactor": [
+              0.0700000002980232,
+              0.129999995231628,
+              0.150000005960464,
+              1.0
+            ],
+            "metallicFactor": 0.5,
+            "roughnessFactor": 0.419999986886978
+          }
+        },
+        {
+          "name": "service_recess",
+          "pbrMetallicRoughness": {
+            "baseColorFactor": [
+              0.0120000001043081,
+              0.025000000372529,
+              0.0299999993294477,
+              1.0
+            ],
+            "metallicFactor": 0.25,
+            "roughnessFactor": 0.5
+          }
+        },
+        {
+          "emissiveFactor": [
+            0.4274999833107,
+            0.310499990701675,
+            0.143999992966652
+          ],
+          "name": "lens_warm",
+          "pbrMetallicRoughness": {
+            "baseColorFactor": [
+              0.949999988079071,
+              0.689999997615814,
+              0.319999992847443,
+              1.0
+            ],
+            "metallicFactor": 0.0,
+            "roughnessFactor": 0.319999992847443
+          }
+        }
+      ],
+      "path": "art/models/environment/city_lights_03/city_lights_03_warm.glb",
+      "sha256": "8083c30d102c36c84863fad344af0022bfc59c979c6fe59f8decbc7f41db0e41",
+      "surfaces": 4.0,
+      "triangles": 3640.0,
+      "unit_length_normals": true,
+      "vertices": 2092.0
+    }
+  },
+  "fresh_export_byte_identical": true,
+  "godot": {
+    "bounds_min_m": [
+      -1.45000004768372,
+      0.0,
+      -1.1599999666214
+    ],
+    "bounds_size_m": [
+      2.90000009536743,
+      8.40000057220459,
+      1.43999993801117
+    ],
+    "engine": "4.8-dev7 (official)",
+    "linked_model_identity": true,
+    "physics": {
+      "above_mast_ray_clear": true,
+      "actor_capsule_height_m": 1.8,
+      "actor_capsule_radius_m": 0.35,
+      "authority_replay_equal": true,
+      "bypass_end_m": [
+        0.949999988079071,
+        0.00100000004749745,
+        2.00000071525574
+      ],
+      "contact_stop_m": [
+        0.0,
+        2.34375474974513e-05,
+        -0.630208015441895
+      ],
+      "low_ray_blocked": true,
+      "ticks_per_case_per_mode": 48,
+      "vehicle_network_transport_and_placement": "not tested"
+    },
+    "resource_uids": {
+      "res://art/models/environment/city_lights_03/city_lights_03_cool.glb": "uid://bnof4te0y65xg",
+      "res://art/models/environment/city_lights_03/city_lights_03_warm.glb": "uid://cmh7l4w4y25s0",
+      "res://scenes/prefabs/environment/city_lights_03.tscn": "uid://dfnsseqfaf1tm",
+      "res://scenes/prefabs/environment/city_lights_03_cool.tscn": "uid://d32r6ttlmt56e",
+      "res://scripts/actors/actor_motion.gd": "uid://jthmfio4c27p",
+      "res://tools/asset_production/city_lights_03/check_scene.tscn": "uid://by5cy8koip266"
+    },
+    "save_reload_byte_stable": true,
+    "static_cylinder": {
+      "height_m": 7.95,
+      "layer": 1,
+      "mask": 0,
+      "radius_m": 0.28
+    },
+    "variants": {
+      "cool": {
+        "identity_transform": true,
+        "linked_glb": "res://art/models/environment/city_lights_03/city_lights_03_cool.glb",
+        "materials": [
+          "pole_petrol",
+          "fixture_rim",
+          "service_recess",
+          "lens_cool"
+        ]
+      },
+      "warm": {
+        "identity_transform": true,
+        "linked_glb": "res://art/models/environment/city_lights_03/city_lights_03_warm.glb",
+        "materials": [
+          "pole_petrol",
+          "fixture_rim",
+          "service_recess",
+          "lens_warm"
+        ]
+      }
+    },
+    "separate_process_scene_bytes_stable": {
+      "scenes\\prefabs\\environment\\city_lights_03.tscn": "7b84570831bea71e9ea84a513135ca536e033a2fd350092d98f3e80dcec55807",
+      "scenes\\prefabs\\environment\\city_lights_03_cool.tscn": "d5c9f9f3b515c355e281bf35f45d1e17e4521e33dec0dcc238e05f722714dd10",
+      "tools\\asset_production\\city_lights_03\\check_scene.tscn": "0ebe9100eb7e78e3093cf01208295c321923b082cccd117a31815be6c4947152"
+    }
+  },
+  "godot_axis_bounds_m": {
+    "max": [
+      1.45000004768372,
+      8.40000057220459,
+      0.280000001192093
+    ],
+    "min": [
+      -1.45000004768372,
+      0.0,
+      -1.1599999666214
+    ],
+    "size": [
+      2.90000009536743,
+      8.40000057220459,
+      1.43999996781349
+    ]
+  },
+  "max_corner_normal_length_error": 1.651144863e-07,
+  "mesh_objects": 1.0,
+  "nonmanifold_edges": 0.0,
+  "pivot_m": [
+    0.0,
+    0.0,
+    0.0
+  ],
+  "production_checks": {
+    "ok": false,
+    "results": {
+      "engine": {
+        "ok": true,
+        "version": "4.8.dev7.official.c971f93e7"
+      },
+      "gut_pin": {
+        "ok": true,
+        "version": "9.7.1"
+      },
+      "owned_scripts": {
+        "ok": false,
+        "returncode": 1
+      },
+      "python_tests": {
+        "ok": true,
+        "returncode": 0
+      },
+      "gut_import": {
+        "ok": true,
+        "returncode": 0
+      },
+      "gut_tests": {
+        "ok": true,
+        "returncode": 0
+      },
+      "gut_negative": {
+        "ok": true,
+        "observed_returncode": 1
+      }
+    },
+    "scripts_compiled": 180,
+    "scripts_failed": [],
+    "formatting": true,
+    "lint": true,
+    "python_tests_passed": 16,
+    "gut_tests_passed": 149,
+    "gut_assertions_passed": 6768,
+    "limitation": "Overall exit 1: cold compiler-mirror import exceeded the shared tool's 30-second deadline. All per-script compiles and style checks passed; subsequent GUT import, Python and GUT tests passed. No failure suppressed."
+  },
+  "remaining_acceptance": [
+    "Independent asset review",
+    "World placement and populated-camera occlusion",
+    "Vehicle driving contacts",
+    "Real multiplayer transport/prediction",
+    "Deck/exported-build and repeated-placement performance",
+    "Real lighting budgets"
+  ],
+  "render_encoding": "RGB, 7 significant bits/channel, PNG compression 9",
+  "renders": [
+    {
+      "path": "hero.png",
+      "pixels": [
+        1280,
+        720
+      ],
+      "bytes": 384828
+    },
+    {
+      "path": "side.png",
+      "pixels": [
+        1280,
+        720
+      ],
+      "bytes": 307977
+    },
+    {
+      "path": "detail.png",
+      "pixels": [
+        1280,
+        720
+      ],
+      "bytes": 363012
+    },
+    {
+      "path": "overhead_47m_42deg.png",
+      "pixels": [
+        1280,
+        720
+      ],
+      "bytes": 384079
+    }
+  ],
+  "source_bounds_blender": {
+    "max": [
+      1.45000004768372,
+      1.1599999666214,
+      8.40000057220459
+    ],
+    "min": [
+      -1.45000004768372,
+      -0.280000001192093,
+      0.0
+    ]
+  },
+  "source_glb_tolerance_m": 1e-05,
+  "source_material_slots": [
+    "pole_petrol",
+    "fixture_rim",
+    "service_recess",
+    "lens_warm"
+  ],
+  "status": "PASS: source topology, normals, transforms, bounds and both deterministic GLBs",
+  "surfaces": 4.0,
+  "triangles": 3640.0,
+  "vertices": 1852.0
+}

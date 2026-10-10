@@ -1,0 +1,63 @@
+city_lights.03 final execution receipt — 2026-10-10
+Working tree: C:/GameDev/git/ft-lanes/a-lights; branch lane/a-lights.
+Raw scratch logs: C:/tmp/ft/assets/city_lights_03/ (not committed).
+Exact reproduction commands and owning references: ../city_lights_03.md.
+
+PIN CHECKS
+Blender CLI: 5.2.2 LTS / d13f752e3b9c; glTF exporter 5.2.40.
+Godot: mise-pinned 4.8.dev7.official.c971f93e7.
+gdstyle: mise-pinned 0.3.0.
+All Blender runs used ALSOFT_DRIVERS=null SDL_AUDIODRIVER=dummy,
+-noaudio --background --factory-startup --threads 4 --python-exit-code 1;
+author timeout 900 seconds, validation/export timeout 180 seconds.
+All Godot runs headless, import timeout 300 seconds, check timeout 180 seconds.
+No owner live Blender/Godot MCP session used; no shared settings edited.
+
+SOURCE / EXPORT
+Author final: exit 0; four 1280x720 PNG renders saved.
+Initial visual correction: shortened rear-entry arms to stop before lens faces.
+validate.py: exit 0. 1852 source vertices, 3640 triangles, 1 mesh, 4 surfaces.
+Zero degenerate faces/triangles, zero non-manifold edges; unit-length normals.
+Metres/ground pivot/identity transforms and both actual GLB bounds pass.
+Each export: 2092 vertices after splits, 3640 triangles, 4 surfaces.
+Warm bytes 92920; cool bytes 92924. Both fresh exports byte-identical.
+Independent saved-source export command: exit 0; both byte comparisons pass.
+Only upstream Blender Material/World.use_nodes deprecation notices observed.
+
+PREFAB / PHYSICS
+Final pinned headless import: exit 0. Known MCP version-support warning only.
+Asset check.gd: exit 0, CITY_LIGHTS_03_CHECK_PASS.
+Both appearances: linked GLB, identity transform, four expected opaque/back-culled
+materials, expected bounds, no light nodes, one static mast cylinder r0.28 h7.95.
+Dependency UIDs resolve. Warm/cool wrappers plus check scene pass pack/save/reload.
+Separate-process check after import preserves exact bytes of all three scenes.
+Normalizer explicitly preserves existing header UIDs without relying on fresh cache.
+ActorMotion AUTHORITY and REPLAY: 48 ticks/case, r0.35/h1.8 production capsule.
+Contact Z=-0.6302080154 m; clear bypass X=0.95, Z=2.0000007153 m.
+Low ray hits pole body; above-mast ray Y=8.2 is clear. Modes agree.
+These are local physics checks, not real network transport or vehicle driving.
+Initial gdstyle line-length warning fixed. Final owned script format/lint clean.
+
+CANONICAL CHECKS
+First invocation: exit 1 at pin discovery because PATH selected .gdvm wrapper;
+no version stdout, non-cp1252 stderr. Rerun passed explicit mise executable paths.
+python tools/production_checks.py --godot <mise godot> --gdstyle <mise gdstyle>
+  --output C:/tmp/ft/assets/city_lights_03/checks (timeout 1800): exit 1.
+Failure: cold compiler-mirror import hit shared internal 30-second deadline.
+No per-script compile failed: 180/180; formatting/lint passed on all 180 scripts.
+16/16 Python tests passed. Subsequent GUT import passed.
+149/149 GUT tests passed, 6768 assertions; intentional negative test detected.
+Overall failure is retained, not suppressed, and shared tooling was not changed.
+Python syntax checks on all four owned Python tools passed.
+
+VISUAL / RETENTION
+Producer inspected final hero, side, underside detail and calibrated overhead.
+Quiet twin-head overhead silhouette; lenses unobstructed; no fixture light pools claimed.
+RGB 7-bit-channel posterization, PNG compression 9, all 1280x720:
+hero 384828 bytes; side 307977; detail 363012; overhead 384079.
+Manifest indexes complete owned payload with SHA-256, excluding itself.
+
+OPEN GATES
+Independent reviewer disposition; populated engine-camera/placement checks;
+car driving contacts; real transport/prediction; packaged/Deck/performance;
+real-light/shadow/emission budgets. No register/TODO readiness claims.
