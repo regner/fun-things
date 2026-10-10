@@ -1,0 +1,206 @@
+{
+  "applied_transforms": true,
+  "asset": "city_seating.03",
+  "blender": "5.2.2 LTS",
+  "build_hash": "d13f752e3b9c",
+  "consistent_winding": true,
+  "datum": "ground plane beneath bounding-footprint centre; L plinth bottom zero",
+  "degenerate_faces": 0.0,
+  "dimension_tolerance_m": 0.001,
+  "dimensions_godot_m": [
+    2.1,
+    0.46,
+    2.1
+  ],
+  "fresh_reexport_byte_identical": true,
+  "glb_bytes": 14524.0,
+  "glb_sha256": "781fde877b3b673960f23c8e53ce0547f3f59fc1f8ea90888685b9dbfc2460a9",
+  "glb_vertices": 432.0,
+  "godot": {
+    "bounds_min": [
+      -1.04999995231628,
+      0.0,
+      -1.04999995231628
+    ],
+    "bounds_size": [
+      2.09999990463257,
+      0.46000000834465,
+      2.09999990463257
+    ],
+    "box_shape_count": 2,
+    "engine": "4.8-dev7 (official)",
+    "linked_model_identity": true,
+    "physics": {
+      "actor_height_m": 1.8,
+      "actor_radius_m": 0.35,
+      "authority_replay_equal": true,
+      "bypass_end_z_m": 2.99999976158142,
+      "inside_left_stop_x_m": -0.0499350093305111,
+      "inside_rear_stop_z_m": 0.0499350242316723,
+      "movement_cases": 10,
+      "network_transport_and_world_placement": "not tested",
+      "open_corner_exit_z_m": -5.40000104904175,
+      "outside_rear_stop_z_m": 1.40006506443024,
+      "ray_cases": 5,
+      "walk_ticks_per_case": 60
+    },
+    "save_reload_byte_stable": true,
+    "static_body_count": 1
+  },
+  "godot_aabb": {
+    "max": [
+      1.04999995231628,
+      0.46000000834465,
+      1.04999995231628
+    ],
+    "min": [
+      -1.04999995231628,
+      0.0,
+      -1.04999995231628
+    ]
+  },
+  "materials": [
+    {
+      "name": "seating_ivory",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.819999992847443,
+          0.800000011920929,
+          0.670000016689301,
+          1.0
+        ],
+        "metallicFactor": 0.0,
+        "roughnessFactor": 0.479999989271164
+      }
+    },
+    {
+      "name": "seating_petrol_trim",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.0450000017881393,
+          0.100000001490116,
+          0.115000002086163,
+          1.0
+        ],
+        "metallicFactor": 0.349999994039536,
+        "roughnessFactor": 0.400000005960464
+      }
+    },
+    {
+      "name": "seating_slate",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.230000004172325,
+          0.300000011920929,
+          0.340000003576279,
+          1.0
+        ],
+        "metallicFactor": 0.150000005960464,
+        "roughnessFactor": 0.479999989271164
+      }
+    }
+  ],
+  "mesh_count": 1.0,
+  "nonmanifold_edges": 0.0,
+  "pivot": [
+    0.0,
+    0.0,
+    0.0
+  ],
+  "seat_top_height_m": 0.46,
+  "source_aabb": {
+    "max": [
+      1.04999995231628,
+      1.04999995231628,
+      0.46000000834465
+    ],
+    "min": [
+      -1.04999995231628,
+      -1.04999995231628,
+      0.0
+    ]
+  },
+  "status": "PASS source and export",
+  "surfaces": 3.0,
+  "triangles": 852.0,
+  "unit_normals": true,
+  "vertices": 432.0,
+  "production_checks": {
+    "engine": {
+      "ok": true,
+      "version": "4.8.dev7.official.c971f93e7"
+    },
+    "gut_pin": {
+      "ok": true,
+      "version": "9.7.1"
+    },
+    "owned_scripts": {
+      "ok": true,
+      "returncode": 0
+    },
+    "python_tests": {
+      "ok": true,
+      "returncode": 0
+    },
+    "gut_import": {
+      "ok": true,
+      "returncode": 0
+    },
+    "gut_tests": {
+      "ok": true,
+      "returncode": 0
+    },
+    "gut_negative": {
+      "ok": true,
+      "observed_returncode": 1
+    }
+  },
+  "renders": [
+    {
+      "file": "hero.png",
+      "size_px": [
+        1280,
+        720
+      ],
+      "bytes": 402875
+    },
+    {
+      "file": "side.png",
+      "size_px": [
+        1280,
+        720
+      ],
+      "bytes": 379039
+    },
+    {
+      "file": "detail.png",
+      "size_px": [
+        1280,
+        720
+      ],
+      "bytes": 351234
+    },
+    {
+      "file": "overhead_47m_42deg.png",
+      "size_px": [
+        1280,
+        720
+      ],
+      "bytes": 377358
+    }
+  ],
+  "render_encoding": "RGB 7 significant bits per channel, PNG compression 9",
+  "overhead_camera": {
+    "projection": "perspective",
+    "height_m": 47,
+    "vertical_fov_deg": 42,
+    "direction": "vertical down, Blender +Y at image top",
+    "engine_capture": false
+  },
+  "diagnostics": {
+    "blender": "Material/World.use_nodes deprecation notices under pinned 5.2.2 LTS",
+    "headless_editor": "Assertions passed; MCP 4.8 warning and shutdown RID/ObjectDB leaks",
+    "standalone_asset_check": "Passed, no error/warning diagnostics",
+    "canonical_production_checks": "All passed; no exemptions"
+  }
+}

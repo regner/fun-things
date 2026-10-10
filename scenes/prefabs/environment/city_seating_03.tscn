@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://dq82gdbg6jfwn"]
+
+[ext_resource type="PackedScene" uid="uid://cn6g88dqtdf6t" path="res://art/models/environment/city_seating_03/city_seating_03.glb" id="1_model"]
+
+[sub_resource type="BoxShape3D" id="Box_rear_arm"]
+size = Vector3(2.1, 0.46, 0.65)
+
+[sub_resource type="BoxShape3D" id="Box_left_arm"]
+size = Vector3(0.65, 0.46, 1.45)
+
+[node name="city_seating_03" type="Node3D" unique_id=281517791]
+
+[node name="Visuals" type="Node3D" parent="." unique_id=1541506483]
+
+[node name="Model" parent="Visuals" unique_id=567723440 instance=ExtResource("1_model")]
+
+[node name="Collision" type="Node3D" parent="." unique_id=1302860160]
+
+[node name="Body" type="StaticBody3D" parent="Collision" unique_id=252812561]
+collision_mask = 0
+
+[node name="RearArm" type="CollisionShape3D" parent="Collision/Body" unique_id=682454254]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.23, 0.725)
+shape = SubResource("Box_rear_arm")
+
+[node name="LeftArm" type="CollisionShape3D" parent="Collision/Body" unique_id=1391002716]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.725, 0.23, -0.325)
+shape = SubResource("Box_left_arm")
