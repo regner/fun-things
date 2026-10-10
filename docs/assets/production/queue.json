@@ -4714,14 +4714,14 @@
       "input_next_action": "Preserve curved field-side design; refine asset details",
       "brief": "[Brief](../../assets/d01_sports_pavilion.md)",
       "priority": 0,
-      "status": "queued",
-      "agent_id": null,
-      "source_revision": null,
-      "review_status": "pending",
-      "integration_status": "pending",
+      "status": "production_prefab_accepted",
+      "agent_id": "675991d6-af99-4c3f-bbad-e8eb49f3205a",
+      "source_revision": "a622e487",
+      "review_status": "accepted source/export/prefab scope (independent Sol review)",
+      "integration_status": "accepted",
       "placement_status": "pending",
       "blocker": null,
-      "attempts": 0,
+      "attempts": 1,
       "initial_time_cap_minutes": 90,
       "owned_paths": [
         "art/source/models/environment/d01_sports_pavilion_01/",
@@ -4729,8 +4729,20 @@
         "art/textures/environment/d01_sports_pavilion_01/",
         "art/materials/environment/d01_sports_pavilion_01/",
         "docs/assets/production/d01_sports_pavilion_01.md",
-        "docs/assets/production/d01_sports_pavilion_01-evidence/"
-      ]
+        "docs/assets/production/d01_sports_pavilion_01-evidence/",
+        "tools/asset_production/d01_sports_pavilion_01/",
+        "scenes/prefabs/environment/d01_sports_pavilion_01.tscn"
+      ],
+      "launch": {
+        "provider": "portkey/gpt-6-astra",
+        "configured_effort": "medium",
+        "mode": "orchestrator asset lane",
+        "lane": "a-d01"
+      },
+      "producer_manifest": "docs/assets/production/d01_sports_pavilion_01-evidence/manifest.json",
+      "report": "docs/assets/production/d01_sports_pavilion_01.md",
+      "reviewer_id": "9a0c7860-6af1-41b9-8783-a9266f94fd24",
+      "integrated_revision": "794cd2d5"
     },
     {
       "id": "d01_sports_pavilion.02",
@@ -4772,14 +4784,14 @@
       "input_next_action": "Refine design from Northpoint breakdown",
       "brief": "[Brief](../../assets/d01_sports_surface.md)",
       "priority": 1,
-      "status": "queued",
-      "agent_id": null,
-      "source_revision": null,
-      "review_status": "pending",
-      "integration_status": "pending",
+      "status": "production_prefab_accepted",
+      "agent_id": "7c164f90-24a3-4543-b451-97e432e01d90",
+      "source_revision": "01c5d049",
+      "review_status": "accepted source/export/prefab scope (independent Sol review)",
+      "integration_status": "accepted",
       "placement_status": "pending",
       "blocker": null,
-      "attempts": 0,
+      "attempts": 1,
       "initial_time_cap_minutes": 90,
       "owned_paths": [
         "art/source/models/environment/d01_sports_surface_01/",
@@ -4787,8 +4799,20 @@
         "art/textures/environment/d01_sports_surface_01/",
         "art/materials/environment/d01_sports_surface_01/",
         "docs/assets/production/d01_sports_surface_01.md",
-        "docs/assets/production/d01_sports_surface_01-evidence/"
-      ]
+        "docs/assets/production/d01_sports_surface_01-evidence/",
+        "tools/asset_production/d01_sports_surface_01/",
+        "scenes/prefabs/environment/d01_sports_surface_01.tscn"
+      ],
+      "launch": {
+        "provider": "portkey/gpt-6-astra",
+        "configured_effort": "medium",
+        "mode": "orchestrator asset lane",
+        "lane": "a-d01"
+      },
+      "producer_manifest": "docs/assets/production/d01_sports_surface_01-evidence/manifest.json",
+      "report": "docs/assets/production/d01_sports_surface_01.md",
+      "reviewer_id": "9a0c7860-6af1-41b9-8783-a9266f94fd24",
+      "integrated_revision": "794cd2d5"
     },
     {
       "id": "d01_sports_surface.02",
@@ -4801,14 +4825,14 @@
       "input_next_action": "Refine design from Northpoint breakdown",
       "brief": "[Brief](../../assets/d01_sports_surface.md)",
       "priority": 1,
-      "status": "queued",
-      "agent_id": null,
-      "source_revision": null,
-      "review_status": "pending",
-      "integration_status": "pending",
+      "status": "production_prefab_accepted",
+      "agent_id": "13dd6d3a-5742-436b-b782-c7177c7352cd",
+      "source_revision": "f3af45f3",
+      "review_status": "accepted source/export/prefab scope (independent Sol review)",
+      "integration_status": "accepted",
       "placement_status": "pending",
       "blocker": null,
-      "attempts": 0,
+      "attempts": 1,
       "initial_time_cap_minutes": 90,
       "owned_paths": [
         "art/source/models/environment/d01_sports_surface_02/",
@@ -4816,8 +4840,20 @@
         "art/textures/environment/d01_sports_surface_02/",
         "art/materials/environment/d01_sports_surface_02/",
         "docs/assets/production/d01_sports_surface_02.md",
-        "docs/assets/production/d01_sports_surface_02-evidence/"
-      ]
+        "docs/assets/production/d01_sports_surface_02-evidence/",
+        "tools/asset_production/d01_sports_surface_02/",
+        "scenes/prefabs/environment/d01_sports_surface_02.tscn"
+      ],
+      "launch": {
+        "provider": "portkey/gpt-6-astra",
+        "configured_effort": "medium",
+        "mode": "orchestrator asset lane",
+        "lane": "a-d01"
+      },
+      "producer_manifest": "docs/assets/production/d01_sports_surface_02-evidence/manifest.json",
+      "report": "docs/assets/production/d01_sports_surface_02.md",
+      "reviewer_id": "9a0c7860-6af1-41b9-8783-a9266f94fd24",
+      "integrated_revision": "794cd2d5"
     },
     {
       "id": "d01_sports_surface.03",
@@ -4830,14 +4866,14 @@
       "input_next_action": "Review campus direction and plot fit",
       "brief": "[Brief](../../assets/d01_sports_surface.md)",
       "priority": 1,
-      "status": "queued",
-      "agent_id": null,
-      "source_revision": null,
-      "review_status": "pending",
-      "integration_status": "pending",
+      "status": "production_prefab_accepted",
+      "agent_id": "94b47028-3111-4b7a-acb1-c48736ef7406",
+      "source_revision": "305c1789",
+      "review_status": "accepted source/export/prefab scope (independent Sol review)",
+      "integration_status": "accepted",
       "placement_status": "pending",
       "blocker": null,
-      "attempts": 0,
+      "attempts": 1,
       "initial_time_cap_minutes": 90,
       "owned_paths": [
         "art/source/models/environment/d01_sports_surface_03/",
@@ -4845,8 +4881,20 @@
         "art/textures/environment/d01_sports_surface_03/",
         "art/materials/environment/d01_sports_surface_03/",
         "docs/assets/production/d01_sports_surface_03.md",
-        "docs/assets/production/d01_sports_surface_03-evidence/"
-      ]
+        "docs/assets/production/d01_sports_surface_03-evidence/",
+        "tools/asset_production/d01_sports_surface_03/",
+        "scenes/prefabs/environment/d01_sports_surface_03.tscn"
+      ],
+      "launch": {
+        "provider": "portkey/gpt-6-astra",
+        "configured_effort": "medium",
+        "mode": "orchestrator asset lane",
+        "lane": "a-d01"
+      },
+      "producer_manifest": "docs/assets/production/d01_sports_surface_03-evidence/manifest.json",
+      "report": "docs/assets/production/d01_sports_surface_03.md",
+      "reviewer_id": "9a0c7860-6af1-41b9-8783-a9266f94fd24",
+      "integrated_revision": "794cd2d5"
     },
     {
       "id": "d01_campus_graphics.01",
