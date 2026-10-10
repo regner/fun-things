@@ -1,0 +1,66 @@
+d03_apartment_family.07 — final bounded production checks, 10 October 2026
+
+Pinned tools
+  Blender 5.2.2 LTS, build d13f752e3b9c; glTF exporter 5.2.40.
+  Godot 4.8.dev7.official.c971f93e7, resolved by mise which godot.
+  Blender calls: ALSOFT_DRIVERS=null SDL_AUDIODRIVER=dummy timeout <=900,
+    -noaudio --background --factory-startup --threads 4 --python-exit-code 1.
+  Godot calls: --headless, timeout 300 for import / 180 for checks.
+  Exact commands and reproduction order are in ../d03_apartment_family_07.md.
+
+PASS author.py — exit 0
+  Original editable source and explicit GLB export produced; four Cycles CPU renders.
+  Producer inspected hero, reverse side, closure detail and vertical 47m/42deg overhead.
+  PNG sizes: hero 272875; side 220296; detail 271294; overhead 225627 bytes.
+  Every render 1280x720, compression 95, 32 samples, no dithering.
+
+PASS final pinned headless --path . --import — exit 0
+  No ERROR / SCRIPT ERROR lines. Only owned .import / .gd.uid metadata produced.
+  The addon's untested-engine-version warning is retained as a tooling warning.
+
+PASS check_prefab.gd --normalize, with --editor — exit 0, with diagnostics below
+  Loaded, packed, saved, reloaded and resaved only the owned wrapper.
+  Second save byte-stable; normalized SHA-256:
+  654f9fc799be18dfc7a3c42a60a3be1914c99a8597fcddf93c0d010a8794966a
+  Known headless editor shutdown diagnostics (also in sibling deliveries):
+  ERROR: 5 RID allocations of type 'N16RendererViewport8ViewportE' were leaked at exit.
+  ERROR: 8 RID allocations of type 'PN13RendererDummy14TextureStorage12DummyTextureE' were leaked at exit.
+  ERROR: 1 RID allocations of type 'N17RendererSceneCull8ScenarioE' were leaked at exit.
+  ERROR: 52 RID allocations of type 'PN18TextServerAdvanced22ShapedTextDataAdvancedE' were leaked at exit.
+  ERROR: 1 RID allocations of type 'PN18TextServerAdvanced12FontAdvancedE' were leaked at exit.
+  WARNING: 5 Canvas RIDs / 31 CanvasItem RIDs / 168 ObjectDB instances leaked at exit.
+  These are not a clean-log claim for normalization. No suppression or vendor edits.
+
+PASS check_prefab.gd runtime — exit 0, no ERROR / SCRIPT ERROR lines
+  Identity Visuals/Model linked to the imported GLB; mesh remains import-owned.
+  One mesh / four opaque back-culled materials; source AABB matches actual engine AABB.
+  All four actual color/roughness/metallic values match the delivered corner palette.
+  One exact 0.24 x 3.2 x 12m static box, layer 1 / mask 0, centre (0,1.6,0).
+  Seven capsule queries, one aim ray, nine actual straight/corner/stack seam rays.
+  Eight production ActorMotion authority/replay runs: identical contact/bypass results.
+  Two car-sized sweeps: end blocked, south bypass clear.
+  Complete observations retained in validation.json, godot section.
+
+PASS validate.py — exit 0
+  1444 triangles; 752 source / 1008 exported vertices; one mesh / four surfaces.
+  Zero nonmanifold edges, degenerate source faces or binary GLB triangles.
+  Finite coordinates, unit normals, literal connector corners, ground datum and bounds pass.
+  Fresh re-export from final saved source is byte-identical to committed export.
+  Final source/export hashes and full measurements retained in validation.json.
+
+PASS gdstyle fmt --check — 1 file already formatted, exit 0.
+PASS gdstyle --max-line-length 100 --max-warnings 0 — 1 file checked, no issues, exit 0.
+PASS git diff --check — no whitespace errors.
+
+Superseded invocation diagnostic
+  An initial multi-command shell attempt returned timeout 124, runtime-style output and
+  "ERROR: BUG: Unreferenced static string to 0: servers". No requested import log or
+  import metadata was produced. It is not counted as a successful import. Explicitly
+  resolving GODOT into a shell variable and invoking the bounded import separately
+  succeeded; subsequent final import and runtime checks are clean.
+
+Acceptance boundaries
+  No live Blender/Godot session used; no production_checks.py run (decision 52).
+  Independent review, saved world placement, in-engine visual acceptance, production
+  vehicle driving, multiplayer transport, packaged/Deck and performance checks remain open.
+  record.py creates/checks manifest.json last, including this concise final log.
