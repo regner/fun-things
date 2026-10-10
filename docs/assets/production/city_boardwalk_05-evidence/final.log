@@ -1,0 +1,46 @@
+city_boardwalk.05 — final bounded production receipt, 10 October 2026
+Baseline: 3ac84ba5 (city_boardwalk.04); branch lane/a-boardwalk.
+Raw logs and reexport: C:/tmp/ft/assets/city_boardwalk_05/
+Exact reproduction argv: ../city_boardwalk_05.md and committed per-ID recipes.
+All Blender jobs used pinned 5.2.2 LTS d13f752e3b9c, factory-startup/background,
+-noaudio, threads 4, python-exit-code 1, ALSOFT_DRIVERS=null, SDL_AUDIODRIVER=dummy,
+and timeout <=900s. All Godot jobs used mise pin 4.8.dev7.official.c971f93e7,
+headless and timeout <=300s (resource checks <=180s). No live sessions contacted.
+
+PASS Blender pin probe (exit 0); known 23-byte version-only shutdown allocation notice.
+PASS Godot pin probe (exit 0).
+PASS author.py (180s cap, exit 0): original source with metre units, identity root/mesh.
+PASS export.py (180s cap, exit 0): shared glTF exporter 5.2.40 settings.
+PASS fresh export.py (180s cap, exit 0): external scratch GLB.
+PASS validate.py (180s cap, exit 0): byte-identical fresh GLB, 20,252 bytes;
+  1,092 triangles, 568 source/export vertices, one mesh/five surfaces;
+  zero degenerate faces, zero nonmanifold source/export edges, consistent winding,
+  unit normals, actual bounds (-2.399216,-.24,-3) to (2.399216,0,0).
+PASS initial-only author_prefabs.py: saved linked wrapper + two-connection fixture.
+CORRECTED initial targeted gdstyle warnings: 11 locals and one 101-character comment.
+PASS final pinned gdstyle check + fmt --check (30s caps, exits 0).
+PASS headless import (300s cap, exit 0); addon Godot-4.8 compatibility warning retained.
+PASS editor check.gd --normalize (180s cap, exit 0): two repeated scene roundtrips,
+  scene/node/dependency UIDs retained. Editor shutdown RID/ObjectDB leaks retained;
+  this is not a clean-diagnostic editor run. No live editor synchronization claimed.
+PASS non-editor check.gd (180s cap, exit 0): clean diagnostics;
+  linked model + exact eight-point convex collider; 58 support rays, 8 outside rays;
+  12 paths x AUTHORITY/REPLAY = 24 traversals, 1,152 fixed physics ticks;
+  floor support retained; independent endpoint tolerance .002m; both modes agree.
+PASS render.py (900s cap, exit 0): four isolated Cycles CPU/AgX, 96-sample views.
+  All inspected: hero, side, threshold detail, vertical 47m/42deg overhead.
+  Hero/overhead include unchanged city_boardwalk.01 context, never exported here.
+  Review images only use family 7-bit RGB encoding + PNG level 9 compression.
+  Author/render Material.use_nodes deprecations retained, no allocation errors.
+PASS Python recipe byte compilation.
+PASS timeout 1800 mise exec -- python tools/production_checks.py
+  --output C:/tmp/ft/assets/city_boardwalk_05/checks (exit 0):
+  engine/GUT pins; 163/163 scripts compiled; style/format clean; 14 Python tests;
+  GUT import; 137/137 GUT tests, 6,523 assertions; intended-negative detection.
+  Rendering was complete before canonical checks; no ignored/retried test failure.
+
+No source/export/prefab blocker observed by producer self-check. Independent review required.
+Pending: final dimensions/shore fit, rail and partial-fascia openings, support/bend mating,
+non-level sites, populated engine-camera checks, vehicle/falloff/combat/navigation,
+real network transport/admission, packaging and sustained Deck/performance.
+Mode equivalence is not multiplayer transport evidence. No world/queue/TODO acceptance.

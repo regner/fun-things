@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://dvhm63ix2cgkp"]
+
+[ext_resource type="PackedScene" uid="uid://ccerxybjw3vim" path="res://art/models/environment/city_boardwalk_05/city_boardwalk_05.glb" id="1_model"]
+
+[sub_resource type="ConvexPolygonShape3D" id="Convex_access"]
+points = PackedVector3Array(-1.8, -0.24, 0, 1.8, -0.24, 0, 2.4, -0.24, -3, -2.4, -0.24, -3, -1.8, 0, 0, 1.8, 0, 0, 2.4, 0, -3, -2.4, 0, -3)
+
+[node name="CityBoardwalk05" type="Node3D" unique_id=259822532]
+
+[node name="Visuals" type="Node3D" parent="." unique_id=1743031090]
+
+[node name="Model" parent="Visuals" unique_id=46486666 instance=ExtResource("1_model")]
+
+[node name="Collision" type="Node3D" parent="." unique_id=1725609086]
+
+[node name="Body" type="StaticBody3D" parent="Collision" unique_id=1400085323]
+collision_mask = 0
+
+[node name="Access" type="CollisionShape3D" parent="Collision/Body" unique_id=497485900]
+shape = SubResource("Convex_access")

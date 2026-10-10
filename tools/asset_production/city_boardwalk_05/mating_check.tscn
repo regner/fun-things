@@ -1,0 +1,50 @@
+[gd_scene format=3 uid="uid://crgc3y4dsmnrl"]
+
+[ext_resource type="PackedScene" uid="uid://dvhm63ix2cgkp" path="res://scenes/prefabs/environment/city_boardwalk_05.tscn" id="1_access"]
+[ext_resource type="PackedScene" uid="uid://btsnym45lcgwn" path="res://scenes/prefabs/environment/city_boardwalk_01.tscn" id="2_deck"]
+[ext_resource type="Script" uid="uid://jthmfio4c27p" path="res://scripts/actors/actor_motion.gd" id="3_motion"]
+
+[sub_resource type="BoxShape3D" id="Box_test_prom"]
+size = Vector3(4.8, 0.24, 3)
+
+[sub_resource type="BoxShape3D" id="Box_test_side_prom"]
+size = Vector3(3, 0.24, 4.8)
+
+[sub_resource type="CapsuleShape3D" id="Capsule_actor"]
+radius = 0.35
+height = 1.8
+
+[node name="BoardwalkAccessCheck" type="Node3D" unique_id=865681166]
+
+[node name="Deck" parent="." unique_id=1265668588 instance=ExtResource("2_deck")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3)
+
+[node name="Access" parent="." unique_id=107520473 instance=ExtResource("1_access")]
+
+[node name="PromenadeEnvelope" type="StaticBody3D" parent="." unique_id=1284468577]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.12, -4.5)
+collision_mask = 0
+
+[node name="Floor" type="CollisionShape3D" parent="PromenadeEnvelope" unique_id=983525876]
+shape = SubResource("Box_test_prom")
+
+[node name="SideDeck" parent="." unique_id=592849125 instance=ExtResource("2_deck")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 0, 0)
+
+[node name="SideAccess" parent="." unique_id=1107999529 instance=ExtResource("1_access")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 13.8, 0, 0)
+
+[node name="SidePromenadeEnvelope" type="StaticBody3D" parent="." unique_id=1627504986]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.3, -0.12, 0)
+collision_mask = 0
+
+[node name="Floor" type="CollisionShape3D" parent="SidePromenadeEnvelope" unique_id=426929789]
+shape = SubResource("Box_test_side_prom")
+
+[node name="Actor" type="CharacterBody3D" parent="." unique_id=1088982383]
+collision_layer = 2
+script = ExtResource("3_motion")
+
+[node name="Capsule" type="CollisionShape3D" parent="Actor" unique_id=1333350573]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0)
+shape = SubResource("Capsule_actor")

@@ -1,0 +1,532 @@
+{
+  "asset": "city_boardwalk.05",
+  "blender": "5.2.2 LTS",
+  "build_hash": "d13f752e3b9c",
+  "exports": {
+    "city_boardwalk_05": {
+      "actual_glb_aabb": [
+        [
+          -2.39921569824219,
+          -0.239999994635582,
+          -3.0
+        ],
+        [
+          2.39921569824219,
+          0.0,
+          0.0
+        ]
+      ],
+      "applied_transforms": true,
+      "consistent_winding": true,
+      "degenerate_export_triangles": 0.0,
+      "degenerate_faces": 0.0,
+      "dimensions_xyz_m": [
+        4.79843139648438,
+        0.239999994635582,
+        3.0
+      ],
+      "fresh_reexport_byte_identical": true,
+      "glb_bytes": 20252.0,
+      "glb_sha256": "6466a36f18859669e8bd764127e052919ccb12fbbf85cf350f5d01aa5e2ab1eb",
+      "glb_vertices": 568.0,
+      "materials": [
+        {
+          "name": "boardwalk_underdeck_slate",
+          "pbrMetallicRoughness": {
+            "baseColorFactor": [
+              0.0480000004172325,
+              0.0689999982714653,
+              0.0780000016093254,
+              1.0
+            ],
+            "metallicFactor": 0.150000005960464,
+            "roughnessFactor": 0.579999983310699
+          }
+        },
+        {
+          "name": "boardwalk_timber_warm",
+          "pbrMetallicRoughness": {
+            "baseColorFactor": [
+              0.234999999403954,
+              0.144999995827675,
+              0.0850000008940697,
+              1.0
+            ],
+            "metallicFactor": 0.0,
+            "roughnessFactor": 0.680000007152557
+          }
+        },
+        {
+          "name": "boardwalk_timber_light",
+          "pbrMetallicRoughness": {
+            "baseColorFactor": [
+              0.259999990463257,
+              0.165999993681908,
+              0.101000003516674,
+              1.0
+            ],
+            "metallicFactor": 0.0,
+            "roughnessFactor": 0.680000007152557
+          }
+        },
+        {
+          "name": "boardwalk_timber_muted",
+          "pbrMetallicRoughness": {
+            "baseColorFactor": [
+              0.215000003576279,
+              0.136000007390976,
+              0.0850000008940697,
+              1.0
+            ],
+            "metallicFactor": 0.0,
+            "roughnessFactor": 0.680000007152557
+          }
+        },
+        {
+          "name": "boardwalk_access_threshold",
+          "pbrMetallicRoughness": {
+            "baseColorFactor": [
+              0.0900000035762787,
+              0.126000002026558,
+              0.136999994516373,
+              1.0
+            ],
+            "metallicFactor": 0.200000002980232,
+            "roughnessFactor": 0.5
+          }
+        }
+      ],
+      "mesh_count": 1.0,
+      "nominal_bound_tolerance_m": 0.006,
+      "nominal_godot_aabb": [
+        [
+          -2.4,
+          -0.24,
+          -3.0
+        ],
+        [
+          2.4,
+          0.0,
+          0.0
+        ]
+      ],
+      "nonmanifold_edges": 0.0,
+      "nonmanifold_export_edges_after_exact_position_weld": 0.0,
+      "pivot_kind": "entry centre on level walking surface",
+      "pivot_m": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "source_glb_tolerance_m": 1e-05,
+      "source_godot_aabb": [
+        [
+          -2.39921569824219,
+          -0.239999994635582,
+          -3.0
+        ],
+        [
+          2.39921569824219,
+          0.0,
+          0.0
+        ]
+      ],
+      "source_vertices": 568.0,
+      "surfaces": 5.0,
+      "triangles": 1092.0,
+      "underside_datum_m": -0.24,
+      "unit_normals": true,
+      "walk_datum_m": 0.0
+    }
+  },
+  "godot": {
+    "eight_point_convex_slab_verified": true,
+    "engine": "4.8-dev7 (official)",
+    "floor_rays": 58,
+    "imported_aabb": [
+      "(-2.399216, -0.24, -3.0)",
+      "(2.399216, 0.0, 0.0)"
+    ],
+    "linked_models_checked": 1,
+    "outside_rays": 8,
+    "physics": {
+      "actor_capsule_height_m": 1.8,
+      "actor_capsule_radius_m": 0.35,
+      "authority_replay_equal": true,
+      "network_transport_vehicle_water_falloff": "not tested",
+      "trajectories": [
+        {
+          "authority_end": [
+            -1.35000002384186,
+            0.00100000004749745,
+            -3.4999988079071
+          ],
+          "goal": [
+            -1.35000002384186,
+            0.00100000004749745,
+            -3.5
+          ],
+          "replay_end": [
+            -1.35000002384186,
+            0.00100000004749745,
+            -3.4999988079071
+          ],
+          "reverse": false,
+          "side_access": false,
+          "start": [
+            -1.35000002384186,
+            0.00100000004749745,
+            0.5
+          ],
+          "ticks_per_mode": 48
+        },
+        {
+          "authority_end": [
+            -1.35000002384186,
+            0.00100000004749745,
+            0.499999016523361
+          ],
+          "goal": [
+            -1.35000002384186,
+            0.00100000004749745,
+            0.5
+          ],
+          "replay_end": [
+            -1.35000002384186,
+            0.00100000004749745,
+            0.499999016523361
+          ],
+          "reverse": true,
+          "side_access": false,
+          "start": [
+            -1.35000002384186,
+            0.00100000004749745,
+            -3.5
+          ],
+          "ticks_per_mode": 48
+        },
+        {
+          "authority_end": [
+            0.0,
+            0.00100000004749745,
+            -3.4999988079071
+          ],
+          "goal": [
+            0.0,
+            0.00100000004749745,
+            -3.5
+          ],
+          "replay_end": [
+            0.0,
+            0.00100000004749745,
+            -3.4999988079071
+          ],
+          "reverse": false,
+          "side_access": false,
+          "start": [
+            0.0,
+            0.00100000004749745,
+            0.5
+          ],
+          "ticks_per_mode": 48
+        },
+        {
+          "authority_end": [
+            0.0,
+            0.00100000004749745,
+            0.499999016523361
+          ],
+          "goal": [
+            0.0,
+            0.00100000004749745,
+            0.5
+          ],
+          "replay_end": [
+            0.0,
+            0.00100000004749745,
+            0.499999016523361
+          ],
+          "reverse": true,
+          "side_access": false,
+          "start": [
+            0.0,
+            0.00100000004749745,
+            -3.5
+          ],
+          "ticks_per_mode": 48
+        },
+        {
+          "authority_end": [
+            1.35000002384186,
+            0.00100000004749745,
+            -3.4999988079071
+          ],
+          "goal": [
+            1.35000002384186,
+            0.00100000004749745,
+            -3.5
+          ],
+          "replay_end": [
+            1.35000002384186,
+            0.00100000004749745,
+            -3.4999988079071
+          ],
+          "reverse": false,
+          "side_access": false,
+          "start": [
+            1.35000002384186,
+            0.00100000004749745,
+            0.5
+          ],
+          "ticks_per_mode": 48
+        },
+        {
+          "authority_end": [
+            1.35000002384186,
+            0.00100000004749745,
+            0.499999016523361
+          ],
+          "goal": [
+            1.35000002384186,
+            0.00100000004749745,
+            0.5
+          ],
+          "replay_end": [
+            1.35000002384186,
+            0.00100000004749745,
+            0.499999016523361
+          ],
+          "reverse": true,
+          "side_access": false,
+          "start": [
+            1.35000002384186,
+            0.00100000004749745,
+            -3.5
+          ],
+          "ticks_per_mode": 48
+        },
+        {
+          "authority_end": [
+            17.2999992370605,
+            0.00100000004749745,
+            -1.35000002384186
+          ],
+          "goal": [
+            17.2999992370605,
+            0.00100000004749745,
+            -1.34999990463257
+          ],
+          "replay_end": [
+            17.2999992370605,
+            0.00100000004749745,
+            -1.35000002384186
+          ],
+          "reverse": false,
+          "side_access": true,
+          "start": [
+            13.3000001907349,
+            0.00100000004749745,
+            -1.35000002384186
+          ],
+          "ticks_per_mode": 48
+        },
+        {
+          "authority_end": [
+            13.3000001907349,
+            0.00100000004749745,
+            -1.34999990463257
+          ],
+          "goal": [
+            13.3000001907349,
+            0.00100000004749745,
+            -1.35000002384186
+          ],
+          "replay_end": [
+            13.3000001907349,
+            0.00100000004749745,
+            -1.34999990463257
+          ],
+          "reverse": true,
+          "side_access": true,
+          "start": [
+            17.2999992370605,
+            0.00100000004749745,
+            -1.34999990463257
+          ],
+          "ticks_per_mode": 48
+        },
+        {
+          "authority_end": [
+            17.2999992370605,
+            0.00100000004749745,
+            1.52989883872579e-07
+          ],
+          "goal": [
+            17.2999992370605,
+            0.00100000004749745,
+            1.52989855450869e-07
+          ],
+          "replay_end": [
+            17.2999992370605,
+            0.00100000004749745,
+            1.52989883872579e-07
+          ],
+          "reverse": false,
+          "side_access": true,
+          "start": [
+            13.3000001907349,
+            0.00100000004749745,
+            -2.1855694143369e-08
+          ],
+          "ticks_per_mode": 48
+        },
+        {
+          "authority_end": [
+            13.3000001907349,
+            0.00100000004749745,
+            -2.18557190123647e-08
+          ],
+          "goal": [
+            13.3000001907349,
+            0.00100000004749745,
+            -2.1855694143369e-08
+          ],
+          "replay_end": [
+            13.3000001907349,
+            0.00100000004749745,
+            -2.18557190123647e-08
+          ],
+          "reverse": true,
+          "side_access": true,
+          "start": [
+            17.2999992370605,
+            0.00100000004749745,
+            1.52989855450869e-07
+          ],
+          "ticks_per_mode": 48
+        },
+        {
+          "authority_end": [
+            17.2999992370605,
+            0.00100000004749745,
+            1.35000002384186
+          ],
+          "goal": [
+            17.2999992370605,
+            0.00100000004749745,
+            1.35000014305115
+          ],
+          "replay_end": [
+            17.2999992370605,
+            0.00100000004749745,
+            1.35000002384186
+          ],
+          "reverse": false,
+          "side_access": true,
+          "start": [
+            13.3000001907349,
+            0.00100000004749745,
+            1.35000002384186
+          ],
+          "ticks_per_mode": 48
+        },
+        {
+          "authority_end": [
+            13.3000001907349,
+            0.00100000004749745,
+            1.35000014305115
+          ],
+          "goal": [
+            13.3000001907349,
+            0.00100000004749745,
+            1.35000002384186
+          ],
+          "replay_end": [
+            13.3000001907349,
+            0.00100000004749745,
+            1.35000014305115
+          ],
+          "reverse": true,
+          "side_access": true,
+          "start": [
+            17.2999992370605,
+            0.00100000004749745,
+            1.35000014305115
+          ],
+          "ticks_per_mode": 48
+        }
+      ]
+    },
+    "save_reload_byte_stable": true,
+    "saved_scene_and_dependency_uids_present": true
+  },
+  "status": "PASS source and binary exports; Godot checked separately",
+  "production_checks": {
+    "engine": {
+      "ok": true,
+      "version": "4.8.dev7.official.c971f93e7"
+    },
+    "gut_pin": {
+      "ok": true,
+      "version": "9.7.1"
+    },
+    "owned_scripts": {
+      "ok": true,
+      "returncode": 0
+    },
+    "python_tests": {
+      "ok": true,
+      "returncode": 0
+    },
+    "gut_import": {
+      "ok": true,
+      "returncode": 0
+    },
+    "gut_tests": {
+      "ok": true,
+      "returncode": 0
+    },
+    "gut_negative": {
+      "ok": true,
+      "observed_returncode": 1
+    }
+  },
+  "production_checks_overall_passed": true,
+  "aggregate_compilation_pass_count": 163,
+  "aggregate_compilation_failures": [],
+  "renders": [
+    {
+      "file": "hero.png",
+      "size_px": [
+        1152,
+        648
+      ],
+      "bytes": 351489
+    },
+    {
+      "file": "side.png",
+      "size_px": [
+        1280,
+        720
+      ],
+      "bytes": 447553
+    },
+    {
+      "file": "detail.png",
+      "size_px": [
+        1024,
+        576
+      ],
+      "bytes": 286165
+    },
+    {
+      "file": "overhead_47m_42deg.png",
+      "size_px": [
+        1280,
+        720
+      ],
+      "bytes": 384060
+    }
+  ],
+  "render_encoding": "RGB 7 significant bits per channel, PNG compression 9"
+}
