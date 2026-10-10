@@ -1,0 +1,33 @@
+d07_trolley_shelter.01 — final production receipt
+Tools: Blender 5.2.2 LTS d13f752e3b9c / glTF 5.2.40; Godot 4.8.dev7.official.c971f93e7.
+Full reproduction commands are in ../d07_trolley_shelter_01.md.
+
+PASS timeout 900 Blender author.py: original source + GLB + four Cycles renders; exit 0.
+PASS timeout 180 Blender validate.py: geometry, source/GLB bounds and byte-identical fresh export; exit 0.
+PASS timeout 300 pinned Godot --headless --path . --import; exit 0.
+PASS timeout 180 pinned Godot check.gd -- --normalize; exit 0.
+PASS timeout 30 pinned gdstyle fmt/check owned check.gd: no formatting changes, no lint issues.
+PASS PYTHONUTF8=1 timeout 1800 python tools/production_checks.py with explicit mise Godot/gdstyle paths:
+  owned script formatting, style and compilation pass;
+  17 Python tests pass;
+  GUT import passes;
+  149 GUT tests and 6768 assertions pass;
+  intentional negative GUT failure detected correctly.
+Source topology: 3592 triangles, 1836 source / 2159 exported vertices, 1 mesh, 3 surfaces.
+Zero degenerate faces/triangles or non-manifold source edges; unit-length normals pass.
+Bounds: minimum (-1.45, 0, -1.8), size (2.9, 3.11, 3.6) m.
+GLB 93848 bytes; SHA256 6f4951bc04b0aa457f6bb21b29216f40a9acff1c0712e3186577ed5d1413a459.
+Godot: all dependencies and UIDs resolve; identity linked model; save/reload stable;
+  side/rear barrier rays and actor-sized capsule queries pass; entry and roof queries clear.
+Visual inspection: four isolated Blender images; broad pale roof and open corral read cleanly.
+  Roof conceals contents directly below; parking/trolley context and engine views remain pending.
+
+Resolved diagnostics:
+- Initial production command: cp1252 UnicodeDecodeError during tool discovery; failed before suite.
+  Retry used PYTHONUTF8=1 and explicit pinned binary paths; full suite passed.
+- Initial local gdstyle warning: 11 local variables; removed unnecessary packed-scene temporary.
+Known import diagnostic: MCP plugin warns Godot 4.8 is newer than its tested 4.7 version.
+No asset error diagnostics. No live Blender/Godot editor or MCP session touched.
+Raw command logs: C:/tmp/ft/assets/d07_trolley_shelter_01/ (not committed).
+Full suite results: C:/tmp/ft/assets/d07_trolley_shelter_01/checks-utf8/summary.json.
+Pending: independent review; world placement; actual movement/vehicle/network/weapon/Deck checks.

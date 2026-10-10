@@ -1,0 +1,185 @@
+{
+  "asset": "d07_trolley_shelter.01",
+  "blender": "5.2.2 LTS",
+  "blender_build": "d13f752e3b9c",
+  "bounds_tolerance_m": 0.001,
+  "closed_volume_m3": 1.81087053671455,
+  "degenerate_faces": 0.0,
+  "degenerate_triangles": 0.0,
+  "export_normal_max_length_error": 1.37268207023311e-07,
+  "export_vertices": 2159.0,
+  "exporter": "5.2.40",
+  "fresh_export_byte_identical": true,
+  "glb_bytes": 93848.0,
+  "glb_sha256": "bb2b0df6979203e036abc4ac3303267746f68e43b7cf9ee703c22816fc11051a",
+  "godot": {
+    "bounds_min_m": [
+      -1.45000004768372,
+      0.0,
+      -1.79999995231628
+    ],
+    "bounds_size_m": [
+      2.90000009536743,
+      3.10999989509583,
+      3.59999990463257
+    ],
+    "engine": "4.8-dev7 (official)",
+    "linked_model_identity": true,
+    "physics": {
+      "actor_capsule_height_m": 1.8,
+      "actor_capsule_radius_m": 0.35,
+      "both_side_rays_blocked": true,
+      "capsule_all_barriers_blocked": true,
+      "capsule_inside_and_entry_clear": true,
+      "entry_ray_clear": true,
+      "movement_vehicle_network_and_placement": "not tested",
+      "rear_ray_blocked": true,
+      "roof_visual_only": true
+    },
+    "resource_uids": {
+      "res://art/models/environment/d07_trolley_shelter_01/d07_trolley_shelter_01.glb": "uid://bsppu5gjmwdog",
+      "res://scenes/prefabs/environment/d07_trolley_shelter_01.tscn": "uid://ciugh4okmjd8p"
+    },
+    "save_reload_byte_stable": true,
+    "static_compound": {
+      "box_count": 3,
+      "entry_clear_width_m": 2.26,
+      "layer": 1,
+      "mask": 0,
+      "roof_collision": false
+    }
+  },
+  "godot_bounds_max_m": [
+    1.45000004768372,
+    3.10999989509583,
+    1.79999995231628
+  ],
+  "godot_bounds_min_m": [
+    -1.45000004768372,
+    0.0,
+    -1.79999995231628
+  ],
+  "materials": [
+    {
+      "name": "shelter_frame_petrol",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.025000000372529,
+          0.0750000029802322,
+          0.0900000035762787,
+          1.0
+        ],
+        "metallicFactor": 0.449999988079071,
+        "roughnessFactor": 0.46000000834465
+      }
+    },
+    {
+      "name": "shelter_entry_coral",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          1.0,
+          0.167999997735024,
+          0.109999999403954,
+          1.0
+        ],
+        "metallicFactor": 0.100000001490116,
+        "roughnessFactor": 0.479999989271164
+      }
+    },
+    {
+      "name": "shelter_roof_ivory",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.759999990463257,
+          0.819999992847443,
+          0.779999971389771,
+          1.0
+        ],
+        "metallicFactor": 0.119999997317791,
+        "roughnessFactor": 0.519999980926514
+      }
+    }
+  ],
+  "mesh_count": 1.0,
+  "nonmanifold_edges": 0.0,
+  "pivot_m": [
+    0.0,
+    0.0,
+    0.0
+  ],
+  "provisional_dimensions_m": [
+    2.9,
+    3.11,
+    3.6
+  ],
+  "source_export_status": "passed",
+  "source_faces": 1774.0,
+  "source_normal_max_length_error": 1.75205074670615e-07,
+  "source_vertices": 1836.0,
+  "surface_count": 3.0,
+  "triangles": 3592.0,
+  "production_checks": {
+    "engine": {
+      "ok": true,
+      "version": "4.8.dev7.official.c971f93e7"
+    },
+    "gut_pin": {
+      "ok": true,
+      "version": "9.7.1"
+    },
+    "owned_scripts": {
+      "ok": true,
+      "returncode": 0
+    },
+    "python_tests": {
+      "ok": true,
+      "returncode": 0
+    },
+    "gut_import": {
+      "ok": true,
+      "returncode": 0
+    },
+    "gut_tests": {
+      "ok": true,
+      "returncode": 0
+    },
+    "gut_negative": {
+      "ok": true,
+      "observed_returncode": 1
+    }
+  },
+  "evidence_renders": {
+    "hero": {
+      "size_px": [
+        1280,
+        720
+      ],
+      "bytes": 324444,
+      "source": "isolated Blender Cycles render, 6-bit/channel precision review-only PNG"
+    },
+    "side": {
+      "size_px": [
+        1280,
+        720
+      ],
+      "bytes": 241166,
+      "source": "isolated Blender Cycles render, 6-bit/channel precision review-only PNG"
+    },
+    "detail": {
+      "size_px": [
+        1280,
+        720
+      ],
+      "bytes": 283325,
+      "source": "isolated Blender Cycles render, 6-bit/channel precision review-only PNG"
+    },
+    "overhead_47m_42deg": {
+      "size_px": [
+        1280,
+        720
+      ],
+      "bytes": 228322,
+      "source": "isolated Blender Cycles render, 6-bit/channel precision review-only PNG"
+    }
+  }
+}
