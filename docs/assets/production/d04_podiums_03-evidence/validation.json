@@ -1,0 +1,392 @@
+{
+  "status": "PASS: source and GLB; engine/gameplay gates recorded separately",
+  "blender": "5.2.2 LTS",
+  "build_hash": "d13f752e3b9c",
+  "glTF_exporter": "5.2.40",
+  "sections": {
+    "D04Podiums03_Mesh": {
+      "vertices": 2820,
+      "triangles": 5424,
+      "degenerate_faces": 0,
+      "nonmanifold_edges": 0,
+      "normal_length_max_error": 1.5580976298057436e-07,
+      "aabb_godot": {
+        "min": [
+          -10.0,
+          0.0,
+          -5.0
+        ],
+        "max": [
+          10.0,
+          6.899999618530273,
+          5.0
+        ],
+        "size": [
+          20.0,
+          6.899999618530273,
+          10.0
+        ]
+      },
+      "materials": [
+        "glassward_office_slate",
+        "glassward_lobby_stone",
+        "glassward_frame",
+        "glassward_glazing_opaque",
+        "glassward_glazing_highlight",
+        "glassward_accent_magenta",
+        "glassward_indigo"
+      ]
+    }
+  },
+  "source_vertices": 2820,
+  "source_triangles": 5424,
+  "source_degenerate_faces": 0,
+  "source_nonmanifold_edges": 0,
+  "glb_vertices_including_surface_splits": 3668,
+  "glb_triangles": 5424,
+  "glb_degenerate_triangles": 0,
+  "glb_max_normal_length_error": 1.2638348945159805e-07,
+  "mesh_count": 1,
+  "surface_count": 7,
+  "material_count": 7,
+  "aabb_godot": {
+    "min": [
+      -10.0,
+      0.0,
+      -5.0
+    ],
+    "max": [
+      10.0,
+      6.899999618530273,
+      5.0
+    ],
+    "size": [
+      20.0,
+      6.899999618530273,
+      10.0
+    ]
+  },
+  "envelope_tolerance_m": 0.001,
+  "entry_notch_above_canopy_clear": true,
+  "ground_contact_pivot": [
+    0,
+    0,
+    0
+  ],
+  "materials": [
+    {
+      "name": "glassward_office_slate",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.18000000715255737,
+          0.25,
+          0.3199999928474426,
+          1
+        ],
+        "metallicFactor": 0.05000000074505806,
+        "roughnessFactor": 0.5799999833106995
+      }
+    },
+    {
+      "name": "glassward_lobby_stone",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.3199999928474426,
+          0.38999998569488525,
+          0.46000000834465027,
+          1
+        ],
+        "metallicFactor": 0,
+        "roughnessFactor": 0.6000000238418579
+      }
+    },
+    {
+      "name": "glassward_frame",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.11999999731779099,
+          0.18000000715255737,
+          0.2800000011920929,
+          1
+        ],
+        "metallicFactor": 0.3199999928474426,
+        "roughnessFactor": 0.41999998688697815
+      }
+    },
+    {
+      "name": "glassward_glazing_opaque",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.054999999701976776,
+          0.14499999582767487,
+          0.23999999463558197,
+          1
+        ],
+        "metallicFactor": 0.41999998688697815,
+        "roughnessFactor": 0.30000001192092896
+      }
+    },
+    {
+      "name": "glassward_glazing_highlight",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.09000000357627869,
+          0.2199999988079071,
+          0.3199999928474426,
+          1
+        ],
+        "metallicFactor": 0.3799999952316284,
+        "roughnessFactor": 0.30000001192092896
+      }
+    },
+    {
+      "emissiveFactor": [
+        0.07439999890923499,
+        0.0041999999240040775,
+        0.029999999329447746
+      ],
+      "name": "glassward_accent_magenta",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.6200000047683716,
+          0.03500000014901161,
+          0.25,
+          1
+        ],
+        "metallicFactor": 0.10000000149011612,
+        "roughnessFactor": 0.4000000059604645
+      }
+    },
+    {
+      "name": "glassward_indigo",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.032999999821186066,
+          0.052000001072883606,
+          0.15000000596046448,
+          1
+        ],
+        "metallicFactor": 0.2199999988079071,
+        "roughnessFactor": 0.46000000834465027
+      }
+    }
+  ],
+  "reexport_byte_identical": true,
+  "glb_sha256": "3001a7bd82a993b57592d59d1143335610a0371bae469beef961eef1d3cf11ba",
+  "glb_bytes": 156744,
+  "interfaces_godot": {
+    "roof_datum_m": 6,
+    "roof_cap_top_m": 6.04,
+    "height_m": 6.9,
+    "entry_centre_x_m": 5,
+    "entry_width_m": 4,
+    "entry_depth_m": 1.6,
+    "canopy_min_clearance_m": 3.54
+  },
+  "engine": {
+    "aabb_min": [
+      -10.0,
+      0.0,
+      -5.0
+    ],
+    "aabb_size": [
+      20.0,
+      6.89999961853027,
+      10.0
+    ],
+    "collision_shape_count": 3,
+    "engine": "4.8-dev7 (official)",
+    "failures": [],
+    "front_ray_hit": [
+      5.0,
+      1.0,
+      -3.40000057220459
+    ],
+    "linked_model_identity": true,
+    "materials": [
+      "glassward_office_slate",
+      "glassward_lobby_stone",
+      "glassward_frame",
+      "glassward_glazing_opaque",
+      "glassward_glazing_highlight",
+      "glassward_accent_magenta",
+      "glassward_indigo"
+    ],
+    "mesh_count": 1,
+    "model_uid": "uid://ju1tn06pijum",
+    "ok": true,
+    "physics_motion_casts": [
+      {
+        "blocked": true,
+        "case": "actor_entry",
+        "safe_fraction": 0.656005859375
+      },
+      {
+        "blocked": true,
+        "case": "actor_shutter",
+        "safe_fraction": 0.4560546875
+      },
+      {
+        "blocked": true,
+        "case": "actor_rear",
+        "safe_fraction": 0.4560546875
+      },
+      {
+        "blocked": true,
+        "case": "actor_side",
+        "safe_fraction": 0.4560546875
+      },
+      {
+        "blocked": false,
+        "case": "actor_bypass",
+        "safe_fraction": 1.0
+      },
+      {
+        "blocked": false,
+        "case": "canopy_bypass",
+        "safe_fraction": 1.0
+      },
+      {
+        "blocked": true,
+        "case": "car_front",
+        "safe_fraction": 0.233154296875
+      },
+      {
+        "blocked": false,
+        "case": "car_bypass",
+        "safe_fraction": 1.0
+      }
+    ],
+    "physics_shape_queries": [
+      {
+        "case": "core_solid",
+        "solid": true
+      },
+      {
+        "case": "closed_door",
+        "solid": true
+      },
+      {
+        "case": "closed_shutter",
+        "solid": true
+      },
+      {
+        "case": "entry_clear",
+        "solid": false
+      },
+      {
+        "case": "under_canopy_clear",
+        "solid": false
+      },
+      {
+        "case": "front_left_corner",
+        "solid": true
+      },
+      {
+        "case": "front_right_corner",
+        "solid": true
+      },
+      {
+        "case": "rear_left_corner",
+        "solid": true
+      },
+      {
+        "case": "rear_right_corner",
+        "solid": true
+      },
+      {
+        "case": "left_join_solid",
+        "solid": true
+      },
+      {
+        "case": "right_join_solid",
+        "solid": true
+      },
+      {
+        "case": "left_reveal_solid",
+        "solid": true
+      },
+      {
+        "case": "right_reveal_solid",
+        "solid": true
+      },
+      {
+        "case": "left_notch_clear",
+        "solid": false
+      },
+      {
+        "case": "right_notch_clear",
+        "solid": false
+      },
+      {
+        "case": "west_bypass_clear",
+        "solid": false
+      },
+      {
+        "case": "east_bypass_clear",
+        "solid": false
+      }
+    ],
+    "prefab_uid": "uid://cyj5s623fq85f",
+    "surface_count": 7,
+    "save_reload_byte_stable": true,
+    "stable_roundtrip_count": 2
+  },
+  "visual_review": {
+    "renders_inspected": [
+      "hero.png",
+      "side.png",
+      "entry_detail.png",
+      "overhead_47m_42deg.png"
+    ],
+    "renders": [
+      {
+        "file": "hero.png",
+        "pixels": [
+          1152,
+          648
+        ],
+        "bytes": 364660
+      },
+      {
+        "file": "side.png",
+        "pixels": [
+          1152,
+          648
+        ],
+        "bytes": 293861
+      },
+      {
+        "file": "entry_detail.png",
+        "pixels": [
+          1152,
+          648
+        ],
+        "bytes": 357033
+      },
+      {
+        "file": "overhead_47m_42deg.png",
+        "pixels": [
+          1280,
+          720
+        ],
+        "bytes": 385278
+      }
+    ],
+    "renderer": "Blender Cycles CPU, 32 samples, AgX",
+    "gameplay_camera_godot_position_m": [
+      0,
+      47,
+      0
+    ],
+    "gameplay_camera": "Vertical down, north-up, 42 degree vertical FOV, 1280x720",
+    "lean_packaging": "7-bit/channel RGB, PNG optimize=True, compression level 9",
+    "observation": "A short slate service wing with high grouped glazing, a broad closed shutter and an asymmetric recessed doorway. The quiet indigo roof and off-centre notch read in the calibrated overhead; door hardware, ventilation and magenta lintel are supporting-view details, not overhead wayfinding. Initial coplanar fascia corners and a roof-cap gap were corrected before final renders. No engine visual or populated-street acceptance claimed."
+  },
+  "pending": [
+    "Independent art/technical review and layout confirmation of provisional dimensions",
+    "World placement preserving grid corners, inter-site gaps and open forecourts",
+    "Actual engine camera/material/normal/LOD review and actor/target visibility",
+    "Production controller, multiplayer, packaged build and Deck performance checks"
+  ]
+}
