@@ -1,0 +1,355 @@
+{
+  "asset_id": "d02_house_family.01",
+  "blender": "5.2.2 LTS",
+  "build_hash": "d13f752e3b9c",
+  "exporter": "5.2.40",
+  "source_vertices": 4318,
+  "export_vertices": 4318,
+  "triangles": 8312,
+  "mesh_count": 1,
+  "surface_count": 7,
+  "nonmanifold_edges": 0,
+  "degenerate_source_faces": 0,
+  "degenerate_export_triangles": 0,
+  "unit_source_and_export_normals": true,
+  "positive_triangle_normal_alignment": true,
+  "source_bounds": {
+    "min": [
+      -5.400000095367432,
+      -5.699999809265137,
+      0.0
+    ],
+    "max": [
+      5.400000095367432,
+      5.699999809265137,
+      8.199999809265137
+    ]
+  },
+  "godot_bounds": {
+    "min": [
+      -5.400000095367432,
+      0.0,
+      -5.699999809265137
+    ],
+    "max": [
+      5.400000095367432,
+      8.199999809265137,
+      5.699999809265137
+    ]
+  },
+  "godot_dimensions_m": [
+    10.800000190734863,
+    8.199999809265137,
+    11.399999618530273
+  ],
+  "provisional_structural_footprint_m": [
+    10,
+    10.6
+  ],
+  "ground_pivot": [
+    0,
+    0,
+    0
+  ],
+  "dimension_tolerance_m": 0.001,
+  "axis_mapping_tolerance_m": 1e-05,
+  "upper_wing_window_sill_clearance_regression": true,
+  "front_side_setback_source_ray_clear": true,
+  "materials": [
+    {
+      "name": "crescents_warm_render",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.4125426113605499,
+          0.38132601976394653,
+          0.34191441535949707,
+          1
+        ],
+        "metallicFactor": 0,
+        "roughnessFactor": 0.6499999761581421
+      }
+    },
+    {
+      "name": "crescents_slate_plinth",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.09758734703063965,
+          0.12477181851863861,
+          0.14702726900577545,
+          1
+        ],
+        "metallicFactor": 0,
+        "roughnessFactor": 0.75
+      }
+    },
+    {
+      "name": "crescents_ivory_trim",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.6583748459815979,
+          0.6172065734863281,
+          0.4969329833984375,
+          1
+        ],
+        "metallicFactor": 0,
+        "roughnessFactor": 0.550000011920929
+      }
+    },
+    {
+      "name": "crescents_blue_slate_roof",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.04817182570695877,
+          0.08437620848417282,
+          0.14995978772640228,
+          1
+        ],
+        "metallicFactor": 0.07999999821186066,
+        "roughnessFactor": 0.5799999833106995
+      }
+    },
+    {
+      "name": "crescents_muted_plum_roof",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.1384316086769104,
+          0.09305896610021591,
+          0.14702726900577545,
+          1
+        ],
+        "metallicFactor": 0.05000000074505806,
+        "roughnessFactor": 0.6200000047683716
+      }
+    },
+    {
+      "name": "crescents_petrol_closed_glass",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.019382361322641373,
+          0.04970656707882881,
+          0.07421357184648514,
+          1
+        ],
+        "metallicFactor": 0.11999999731779099,
+        "roughnessFactor": 0.30000001192092896
+      }
+    },
+    {
+      "name": "crescents_warm_entrance",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.6583748459815979,
+          0.35640013217926025,
+          0.14702726900577545,
+          1
+        ],
+        "metallicFactor": 0,
+        "roughnessFactor": 0.550000011920929
+      }
+    }
+  ],
+  "reexport_byte_identical": true,
+  "glb_bytes": 157956,
+  "glb_sha256": "77ece7b85ff5d9dce824506aa8b8ef3d9ba68421c0acf349574baf2a18e6c993",
+  "status": "PASS source/raw GLB/reexport; engine checks and downstream gates recorded separately",
+  "engine": {
+    "aabb_min": [
+      -5.40000009536743,
+      0.0,
+      -5.69999980926514
+    ],
+    "aabb_size": [
+      10.8000001907349,
+      8.19999980926514,
+      11.3999996185303
+    ],
+    "capsule_queries": [
+      {
+        "case": "main_solid",
+        "solid": true
+      },
+      {
+        "case": "wing_solid",
+        "solid": true
+      },
+      {
+        "case": "closed_door",
+        "solid": true
+      },
+      {
+        "case": "front_setback_clear",
+        "solid": false
+      },
+      {
+        "case": "east_bypass_clear",
+        "solid": false
+      },
+      {
+        "case": "west_bypass_clear",
+        "solid": false
+      },
+      {
+        "case": "rear_route_clear",
+        "solid": false
+      }
+    ],
+    "car_box_sweep": {
+      "east_bypass_blocked": false,
+      "front_blocked": true,
+      "size_m": [
+        1.9,
+        1.5,
+        4.3
+      ]
+    },
+    "collision_shape_count": 2,
+    "engine": "4.8-dev7 (official)",
+    "failures": [],
+    "front_ray_z": -5.30000019073486,
+    "linked_model_identity": true,
+    "materials": [
+      "crescents_warm_render",
+      "crescents_slate_plinth",
+      "crescents_ivory_trim",
+      "crescents_blue_slate_roof",
+      "crescents_muted_plum_roof",
+      "crescents_petrol_closed_glass",
+      "crescents_warm_entrance"
+    ],
+    "model_uid": "uid://48f4xwopelbr",
+    "ok": true,
+    "prefab_uid": "uid://b2ibgbmqgrngb",
+    "production_actor_motion": [
+      {
+        "case": "closed_front",
+        "end": [
+          1.12000000476837,
+          0.000877899117767811,
+          -5.66666221618652
+        ],
+        "mode": 0
+      },
+      {
+        "case": "wing_from_setback",
+        "end": [
+          4.0,
+          0.000877875136211514,
+          -1.0507824420929
+        ],
+        "mode": 0
+      },
+      {
+        "case": "wing_side",
+        "end": [
+          5.35025548934937,
+          7.54883512854576e-06,
+          2.0
+        ],
+        "mode": 0
+      },
+      {
+        "case": "east_bypass",
+        "end": [
+          6.0,
+          0.00087789905956015,
+          -2.99999356269836
+        ],
+        "mode": 0
+      },
+      {
+        "case": "closed_front",
+        "end": [
+          1.12000000476837,
+          0.000877899117767811,
+          -5.66666221618652
+        ],
+        "mode": 1
+      },
+      {
+        "case": "wing_from_setback",
+        "end": [
+          4.0,
+          0.000877875136211514,
+          -1.0507824420929
+        ],
+        "mode": 1
+      },
+      {
+        "case": "wing_side",
+        "end": [
+          5.35025548934937,
+          7.54883512854576e-06,
+          2.0
+        ],
+        "mode": 1
+      },
+      {
+        "case": "east_bypass",
+        "end": [
+          6.0,
+          0.00087789905956015,
+          -2.99999356269836
+        ],
+        "mode": 1
+      }
+    ],
+    "save_reload_byte_stable": true
+  },
+  "production_checks": {
+    "overall_ok": true,
+    "results": {
+      "engine": {
+        "ok": true,
+        "version": "4.8.dev7.official.c971f93e7"
+      },
+      "gut_pin": {
+        "ok": true,
+        "version": "9.7.1"
+      },
+      "owned_scripts": {
+        "ok": true,
+        "returncode": 0
+      },
+      "python_tests": {
+        "ok": true,
+        "returncode": 0
+      },
+      "gut_import": {
+        "ok": true,
+        "returncode": 0
+      },
+      "gut_tests": {
+        "ok": true,
+        "returncode": 0
+      },
+      "gut_negative": {
+        "ok": true,
+        "observed_returncode": 1
+      }
+    },
+    "ignored_failures": []
+  },
+  "visual_self_review": {
+    "images": [
+      "hero.png",
+      "side.png",
+      "entrance_detail.png",
+      "overhead_47m_42deg.png"
+    ],
+    "size_px": [
+      1280,
+      720
+    ],
+    "renderer": "Blender Cycles CPU, 32 samples, AgX; RGB PNG, 6-bit channels (overhead 7-bit)",
+    "gameplay_camera": "Vertical down (0,0,47)m; north/+Y up; perspective vertical FOV42 degrees",
+    "observed": "Deep compact hip and lower rear-aligned wing remain distinct overhead. Warm entrance and two-pane rhythms read in oblique/detail views. Raised rear east upper sill clears wing roof; course ends meet corner trim cleanly.",
+    "limits": "Isolated Blender self-review only; native visuals and city placement remain pending"
+  },
+  "diagnostics": {
+    "source": "Passed; Blender 6.0 API deprecation notices only",
+    "normalization": "Passed stable save/reload; existing toolkit compatibility warning plus scan-aborted/RID/ObjectDB shutdown diagnostics retained in final.log",
+    "fresh_runtime": "Passed without ERROR/WARNING",
+    "initial_corrections": "Cleared wing-roof/window overlap and trim junction; lint warnings fixed; initial 3mm actor endpoint tolerance was tighter than solver separation. Final 25mm contact tolerance retains literal wall/capsule expectations.",
+    "production_checks": "All layers passed, no failures ignored"
+  }
+}
