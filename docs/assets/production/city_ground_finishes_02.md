@@ -11,10 +11,10 @@ No downloaded imagery, brands, external geometry or generated-image textures.
 
 Quiet, matte, desaturated grey-green concrete for **Ironreach service yards and East Docks
 working aprons**. Signal Row and Broadlot remain candidate uses, not new placements. Two
-broad, soft curing washes provide slight tonal variation without cracks, gritty aggregate,
+broad curing washes are flattened to near-uniform tonal variation without cracks, gritty aggregate,
 normal-map sparkle, raised seams, stains that resemble hazards, or a dense repeating grid.
 The base sRGB reference is **(139,146,144), #8B9290**. Actual albedo ranges are only
-R **134–141**, G **141–148**, B **139–146**: seven code values per channel.
+R **138–139**, G **145–146**, B **143–144**: one code value per channel after review retuning.
 
 The warmer, joint-free field contrasts with the cooler, regular slate slabs of
 [plain plaza paving](city_ground_finishes_01.md), while retaining its **4 m repeat / 512 px**
@@ -50,7 +50,8 @@ The portable Blender-sourced swatch is a review sample, **not a yard floor modul
 `author.py` constructs the original Blender swatch. Collection `export_city_ground_finishes_02`
 contains root `CityGroundFinishes02` and mesh `CityGroundFinishes02_Mesh` (mesh data
 `ServiceConcreteSwatch`). `texture.py` is the original deterministic texture source: two
-periodic smooth patches plus a very faint broad finishing sweep, with no random micro-noise.
+periodic smooth patches plus a broad finishing sweep, attenuated to 18% of their original
+amplitude to suppress repeat landmarks, with no random micro-noise.
 The saved Principled material links the committed PNG by a relative, unpacked path.
 
 `export.py` uses the shared `tools/assets/blender/export_settings.json`, explicit collection
@@ -109,13 +110,13 @@ own collision: never overlay this sample on a floor or add duplicate swatch coll
   vertical-down perspective, north up. The current 720-pixel evidence cap supersedes the
   historical 800-pixel height; height and vertical FOV remain unchanged.
 - Isolated Blender Cycles CPU, 24 samples, AgX, PNG compression 100, no dithering;
-  **22–87 KB per render**. These are **not Godot screenshots**.
+  **10–53 KB per render**. These are **not Godot screenshots**.
 - Overhead contains 48 temporary linked swatch repetitions over 32 × 24 m, with unchanged
   Coral Courier and Latch GLBs as read-only source-backed scale references. They are not
-  saved or exported as part of this asset. All four final images and the sibling overhead
-  were visually inspected: soft broad variation, no hard repeat seams or distracting fine
-  texture, quieter than the coral car and ivory/coral figure. The figure's small overhead
-  footprint, repeat rhythm and moving/shadowed readability still require engine review.
+  saved or exported as part of this asset. The revised overhead and a contact sheet of the
+  three other views were visually inspected: the former stain matrix is substantially
+  reduced to a near-uniform field, with no hard seams or fine texture. The coral car and
+  ivory/coral figure remain distinct. Engine motion, shadows and other palettes remain pending.
 
 [validation.json](city_ground_finishes_02-evidence/validation.json): **zero degenerate faces,
 zero non-manifold edges, unit-length normals, outward winding**, exact envelope/UV checks
@@ -125,14 +126,13 @@ material and passes standalone load/physics checks. Explicit owned-script compil
 plugin-free mirror load/physics/compilation also pass with no warnings/errors.
 
 Five independent texture tests pass: recipe equality, matching borders, desaturated bounded
-midtone, no abrupt grit/grout edges and restrained minified forms. Pinned gdstyle passes.
-Canonical production checks pass formatting/lint, **14 repository Python tests, all 137 GUT
-tests (6,523 assertions)**, GUT import and the negative-test harness. **The full command exits
-1:** compiler setup exceeds its 30-second limit, then its 120-second aggregate compilation
-deadline expires after **93/164** scripts pass; 71 rows contain `CHECK DEADLINE EXCEEDED`.
-This is not a source compile-error claim or the historical fixture exception. The owned script
-passes separately in both the worktree and initialized compiler mirror. Shared deadlines were
-not modified and the unchanged full failing step was not repeated.
+midtone, no abrupt grit/grout edges and a two-code contrast cap at four texture/minified scales.
+Pinned gdstyle passes.
+The **initial production run** passed formatting/lint, 14 repository Python tests,
+137 GUT tests / 6,523 assertions, GUT import and the negative harness, but exited 1:
+compiler setup exceeded 30 seconds and the aggregate deadline expired after 93/164 scripts.
+The original 71 deadline logs and independent owned-script passes remain historical evidence.
+The review-round results below are separate executions; shared deadlines were not changed.
 
 [final_log.txt](city_ground_finishes_02-evidence/final_log.txt) distinguishes these outcomes.
 Full-project import emits the existing MCP-version warning. Headless editor normalization
@@ -142,6 +142,43 @@ Blender uses a pinned API that emits a `Material.use_nodes` deprecation warning.
 GDScript function-length and Pillow deprecation warnings were corrected and rechecked.
 The [producer manifest](city_ground_finishes_02-evidence/manifest.json) hashes every delivered
 file except itself. Scratch logs, mirrored projects and re-exports remain outside the repository.
+
+## Review round 1 — P2 repeat suppression
+
+Finding: regular 4 m stain matrix on the service apron. The original recipe's unequal shapes
+were still
+recognizable landmarks when repeated; seamless edges alone did not prevent a grid.
+`texture.py` now scales the combined broad variation to **18% of the original amplitude**
+before RGB quantization. Base colour, smooth patch placement, 512 px resolution, 4 m UV0
+interface, material properties and all geometry/collision remain unchanged. No random noise,
+shader, larger tile, scene placement or new surface system was introduced.
+
+The previous minimum-five-code minification expectation was counterproductive for this
+review direction. Tests now cap every channel at **two sRGB codes** at 512, 64, 16 and 8 px
+while preserving exact recipe, border, palette and adjacent-pixel checks. The original
+committed texture fails that cap at all four scales; the replacement passes all five tests.
+This is a regression guard, not a substitute for the revised camera evidence above.
+
+Regenerated the PNG and all four evidence views; reran headless import, two normalization
+roundtrips, standalone and plugin-free-mirror prefab/physics checks, explicit compilation,
+gdstyle, canonical checks and Blender validation/fresh export. Source `.blend`, production
+GLB, material, prefab and import/UID bytes are unchanged: the source already links the
+unpacked external PNG, and fresh GLB export is byte-identical. No source rebuild was needed.
+`validation.json` now also records the exact tested texture SHA-256.
+
+The concrete-associated canonical run exited 1: compiler setup passed, but the 120-second
+aggregate deadline left **109/166** scripts passed and **57 deadline logs**. All other stages
+passed. The later cumulative grass and soil runs, with all three revised textures present,
+each exited 0 with **166/166 scripts**, **14 Python tests**, **137 GUT tests / 6,523 assertions**,
+and the negative harness passing. The concrete failure is retained, not relabelled a pass.
+
+Exact rerun: the commands below from `texture.py` onward, **excluding `author.py`**; the
+existing scratch `checks/` was moved to `review-round-1/checks-before-review/` first.
+One full-project import covered all three changed textures. Raw round-1 logs are in
+`C:/tmp/ft/assets/city_ground_finishes_02/review-round-1/`; the import log is in the concrete directory.
+The final log linked above retains prior results as history and records this pass separately.
+Same-reviewer visual disposition remains pending. Residual periodicity under different
+lighting, camera motion and eventual world placement still needs engine review.
 
 ## Exact reproduction
 
@@ -184,6 +221,6 @@ python "$T/manifest.py"
 Independent technical/art review; actual generated-surface UV integration; saved district
 placement and apron-graphic composition; actual engine camera motion, shadows and actor/car
 separation; production movement and multiplayer checks if site collision changes; packaged
-builds, sustained GPU/frame pacing and Deck checks. Whole-project compiler acceptance remains
-incomplete due to the recorded tool deadlines. No queue, shared progress/brief, sibling asset,
+builds, sustained GPU/frame pacing and Deck checks. Compiler results are recorded per run above;
+the later cumulative grass/soil runs pass all scripts. No queue, shared progress/brief,
 project setting, world placement, gameplay code or TODO was changed. No whole-game READY claim.

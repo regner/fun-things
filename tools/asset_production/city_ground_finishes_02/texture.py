@@ -10,6 +10,8 @@ NID = "city_ground_finishes_02"
 OUTPUT = ROOT / f"art/textures/environment/{NID}/service_concrete_albedo.png"
 SIZE = 512
 TILE_METRES = 4.0
+# Suppress recognizable 4 m landmarks at gameplay height, not the seamless UV interface.
+PATCH_CONTRAST = 0.18
 BASE_SRGB = (139, 146, 144)
 # Centre U/V, spread U/V and tone: two broad, low-contrast curing patches per repeat.
 CURING_PATCHES = ((0.29, 0.35, 0.21, 0.28, -4.5), (0.73, 0.79, 0.29, 0.18, 3.0))
@@ -29,6 +31,7 @@ def create_texture():
                 dx = math.sin(math.pi * (u - cx)) / (math.pi * sx)
                 dy = math.sin(math.pi * (v - cy)) / (math.pi * sy)
                 shift += tone * math.exp(-2.0 * (dx * dx + dy * dy))
+            shift *= PATCH_CONTRAST
             pixels.append(tuple(round(channel + shift) for channel in BASE_SRGB))
     image.putdata(pixels)
     return image

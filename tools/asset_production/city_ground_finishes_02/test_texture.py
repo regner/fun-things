@@ -36,8 +36,7 @@ class ServiceConcreteTests(unittest.TestCase):
         for low, high in self.image.getextrema():
             self.assertGreaterEqual(low, 130)
             self.assertLessEqual(high, 151)
-            self.assertLessEqual(high - low, 9)
-            self.assertGreaterEqual(high - low, 5)
+            self.assertLessEqual(high - low, 2)
         for red, green, blue in self.image.get_flattened_data():
             self.assertGreater(green, blue)
             self.assertLessEqual(max(red, green, blue) - min(red, green, blue), 8)
@@ -50,12 +49,13 @@ class ServiceConcreteTests(unittest.TestCase):
                 self.assertLessEqual(abs(pixels[x, y][0] - pixels[(x + 1) % 512, y][0]), 1)
                 self.assertLessEqual(abs(pixels[x, y][0] - pixels[x, (y + 1) % 512][0]), 1)
 
-    def test_broad_washes_survive_minification(self):
-        """The overhead field retains restrained large forms, never sparkling microdetail."""
-        small = self.image.resize((16, 16), Image.Resampling.BOX)
-        for low, high in small.getextrema():
-            self.assertGreaterEqual(high - low, 5)
-            self.assertLessEqual(high - low, 8)
+    def test_patch_contrast_at_texture_and_gameplay_scales(self):
+        """Limit repeated landmarks to two sRGB codes, including minified overhead samples."""
+        for size in (512, 64, 16, 8):
+            with self.subTest(size=size):
+                small = self.image.resize((size, size), Image.Resampling.BOX)
+                for low, high in small.getextrema():
+                    self.assertLessEqual(high - low, 2)
 
 
 if __name__ == "__main__":
