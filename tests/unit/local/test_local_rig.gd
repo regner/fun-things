@@ -13,6 +13,7 @@ func test_saved_camera_framing_and_follow_contract() -> void:
 	add_child_autofree(rig)
 	await get_tree().process_frame
 	assert_true(rig.bind_actor(actor))
+	assert_false(rig.get_node("UI/HUD/PlayerCard").visible)
 	var camera_anchor: Node3D = rig.get_node("CameraAnchor") as Node3D
 	var camera: Camera3D = rig.get_node("CameraAnchor/Camera3D") as Camera3D
 

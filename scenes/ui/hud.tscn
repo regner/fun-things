@@ -75,15 +75,14 @@ unique_name_in_owner = true
 layout_mode = 2
 theme_override_colors/font_color = Color(1, 0.447059, 0.364706, 1)
 theme_override_font_sizes/font_size = 14
-text = "SOLO"
 horizontal_alignment = 2
 
 [node name="SessionDetail" type="Label" parent="SessionCard/Content" unique_id=1951443794]
 unique_name_in_owner = true
 layout_mode = 2
 theme_override_font_sizes/font_size = 20
-text = "1 PLAYER"
 horizontal_alignment = 2
+metadata/contract = "Host/solo use SessionService roster; joined clients require A2.2/A2.4 replicated roster binding."
 
 [node name="ConnectionQuality" type="Label" parent="SessionCard/Content" unique_id=1072800773]
 unique_name_in_owner = true
@@ -91,7 +90,6 @@ visible = false
 layout_mode = 2
 theme_override_colors/font_color = Color(1, 0.752941, 0.352941, 1)
 theme_override_font_sizes/font_size = 13
-text = "GOOD"
 horizontal_alignment = 2
 
 [node name="PlayerCard" type="PanelContainer" parent="." unique_id=1493266164]
@@ -108,6 +106,7 @@ offset_right = 314.0
 offset_bottom = -24.0
 grow_vertical = 0
 mouse_filter = 2
+metadata/contract = "PlayerLifecycle is the sole life-state owner; actor binding supplies presence only."
 
 [node name="Content" type="VBoxContainer" parent="PlayerCard" unique_id=694169212]
 layout_mode = 2
@@ -124,7 +123,6 @@ text = "PLAYER"
 unique_name_in_owner = true
 layout_mode = 2
 theme_override_font_sizes/font_size = 24
-text = "ACTIVE"
 
 [node name="HealthSlot" type="Control" parent="PlayerCard/Content" unique_id=1488167005]
 unique_name_in_owner = true
@@ -182,7 +180,6 @@ horizontal_alignment = 1
 unique_name_in_owner = true
 layout_mode = 2
 theme_override_font_sizes/font_size = 34
-text = "3.0"
 horizontal_alignment = 1
 
 [node name="ControlsCard" type="PanelContainer" parent="." unique_id=589844941]

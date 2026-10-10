@@ -78,6 +78,11 @@ func bind_session(source: Node) -> bool:
 	return _hud.bind_session(source)
 
 
+## Injects the authoritative replicated roster used for joined-client peer counts.
+func bind_authoritative_roster(source: Node) -> bool:
+	return _hud.bind_authoritative_roster(source)
+
+
 ## Injects the player lifecycle owner without making LocalRig a lifecycle writer.
 func bind_lifecycle(source: Node) -> bool:
 	return _hud.bind_lifecycle(source)

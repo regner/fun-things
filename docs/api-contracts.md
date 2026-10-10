@@ -104,7 +104,11 @@ display data only. Pending connections reserve capacity from handshake onward an
 are bounded with the same four-player total, including the host. Provider setup limits
 pending native peers accordingly; excess connections fail without entering Match.
 SessionService alone writes connection/roster state;
-Match owns player entity/control bindings. A canceled reservation is released.
+Match owns player entity/control bindings. A canceled reservation is released. The HUD may count
+the host/standalone `SessionView.roster`, but a joined client's current view contains only its local
+row. Joined-client counts therefore remain hidden until A2.2/A2.4 supplies its authoritative
+replicated admitted roster through `LocalRig.bind_authoritative_roster(source)`; presentation never
+pads or infers membership.
 
 ```text
 IDLE -> STARTING (host/standalone) or CONNECTING (join)
@@ -677,7 +681,9 @@ the live window may be dropped cosmetically; durable state still applies. Predic
 replay cannot emit live events. HUD health/ammo/seat/cooldown comes from owner state,
 and camera follows the committed controlled entity. LocalRig rebind is idempotent,
 not another rig instance. Effect/audio limits fall back by merging/dropping lower
-priority cosmetics; gameplay still runs off-camera and when effects are saturated.
+priority cosmetics; gameplay still runs off-camera and when effects are saturated. Actor binding
+establishes only controlled-entity presence; HUD alive/dead and respawn presentation stays hidden
+until the sole `PlayerLifecycle` source is bound.
 
 `AudioSettings = {schema_version: 1, master/music/sfx: {linear_gain: 0..1, muted: bool}}`.
 Defaults are gain 1 and unmuted. Load validates each field; missing/corrupt fields
