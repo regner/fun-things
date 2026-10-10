@@ -1,0 +1,39 @@
+d07_trolley_shelter.02 — final bounded production receipt
+Producer: commissioned implementation specialist; independent review pending.
+Scratch logs: C:/tmp/ft/assets/d07_trolley_shelter_02/
+Exact reproducible commands: ../d07_trolley_shelter_02.md (Evidence and reproduction).
+
+PASS Blender 5.2.2 LTS d13f752e3b9c / glTF 5.2.40 isolated author.py.
+  All Blender runs audio-disabled, --background --factory-startup --threads 4,
+  --python-exit-code 1, timeout <=900 seconds. No live sessions used.
+  Cap bevel correction and rear cantilever-support refinement rerendered successfully.
+PASS validate.py: saved-source topology/transforms/normals, actual binary GLB accessors.
+  4296 triangles, 2240 source vertices, 3550 GLB vertices, 1 mesh / 4 surfaces.
+  Zero degenerate faces/triangles and zero non-manifold source edges.
+  0.680 x 1.080 x 1.050 m; centred ground datum; source/GLB bounds match.
+  Fresh GLB byte-identical: 143548 bytes.
+  SHA256 ce51d11d469a69b0ab9f04ebcda2e10332f8bc4ce24e6872933d796a12434b25
+PASS pinned Godot 4.8.dev7.official.c971f93e7 headless import, timeout 300 seconds.
+PASS check.gd --normalize, timeout 180 seconds.
+  Identity Visuals/Model import, dependency UIDs, dimensions, 4 opaque surfaces.
+  One static world box, 4 ray contacts, above-prop clear ray,
+  3 capsule bypasses and 3 blocked capsule overlaps.
+  Byte-stable save/reload, repeated after final geometry export with unchanged UIDs.
+PASS pinned gdstyle check: 1 file checked, no issues.
+PASS production_checks.py with PYTHONUTF8=1 and mise-resolved Godot/gdstyle, timeout 1800.
+  Final logs: scratch/checks-final/. All seven summary categories pass.
+  Owned scripts: formatting/lint/compilation.
+  Python: 17 tests pass.
+  GUT: 149 tests, 6768 assertions pass; deliberate negative suite detected.
+PASS final hero, side, detail and 47 m / 42-degree overhead personally inspected.
+  All 1280x720; compacted review PNGs ~223–324 KiB. Runtime assets have no textures.
+
+Diagnostic classification: existing MCP plugin warns Godot 4.8 is newer than tested 4.7.
+No new asset errors, missing dependencies or ignored suite failures.
+Import autoload/plugin startup in isolated processes was not a live MCP session call.
+No project, shared source, shared brief, queue, progress or world-scene edits.
+Temporary Python bytecode created by sibling helper imports was removed; owned scripts
+now disable bytecode writing before loading read-only sibling helpers.
+
+Pending: independent review, .03 nested assembly fit/collision, world placement,
+actual-camera retail recognition, ActorMotion/car/weapon checks, multiplayer and Deck/perf.

@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://b3dny6t6y50nm"]
+
+[ext_resource type="PackedScene" path="res://art/models/environment/d07_trolley_shelter_02/d07_trolley_shelter_02.glb" id="1_model"]
+
+[sub_resource type="BoxShape3D" id="Box_trolley"]
+size = Vector3(0.68, 1.08, 1.05)
+
+[node name="d07_trolley_shelter_02" type="Node3D" unique_id=378793698]
+
+[node name="Visuals" type="Node3D" parent="." unique_id=401932302]
+
+[node name="Model" parent="Visuals" unique_id=873028402 instance=ExtResource("1_model")]
+
+[node name="Collision" type="Node3D" parent="." unique_id=1352492117]
+
+[node name="TrolleyBody" type="StaticBody3D" parent="Collision" unique_id=1605325588]
+collision_mask = 0
+
+[node name="Envelope" type="CollisionShape3D" parent="Collision/TrolleyBody" unique_id=1872132182]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.54, 0)
+shape = SubResource("Box_trolley")

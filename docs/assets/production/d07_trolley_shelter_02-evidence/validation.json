@@ -1,0 +1,194 @@
+{
+  "asset": "d07_trolley_shelter.02",
+  "blender": "5.2.2 LTS",
+  "blender_build": "d13f752e3b9c",
+  "bounds_tolerance_m": 0.001,
+  "closed_volume_m3": 0.0333033098473237,
+  "degenerate_faces": 0.0,
+  "degenerate_triangles": 0.0,
+  "export_normal_max_length_error": 1.24331555939605e-07,
+  "export_vertices": 3550.0,
+  "exporter": "5.2.40",
+  "fresh_export_byte_identical": true,
+  "glb_bytes": 143548.0,
+  "glb_sha256": "ce51d11d469a69b0ab9f04ebcda2e10332f8bc4ce24e6872933d796a12434b25",
+  "godot": {
+    "bounds_min_m": [
+      -0.340000003576279,
+      0.0,
+      -0.524999976158142
+    ],
+    "bounds_size_m": [
+      0.680000066757202,
+      1.07999992370605,
+      1.04999995231628
+    ],
+    "engine": "4.8-dev7 (official)",
+    "linked_model_identity": true,
+    "physics": {
+      "above_trolley_clear": true,
+      "actor_capsule_height_m": 1.8,
+      "actor_capsule_radius_m": 0.35,
+      "four_contact_planes_pass": true,
+      "movement_vehicle_network_and_placement": "not tested",
+      "three_capsule_bypasses_clear": true,
+      "three_capsule_overlaps_blocked": true
+    },
+    "resource_uids": {
+      "res://art/models/environment/d07_trolley_shelter_02/d07_trolley_shelter_02.glb": "uid://bsypnvgpga8ce",
+      "res://scenes/prefabs/environment/d07_trolley_shelter_02.tscn": "uid://b3dny6t6y50nm"
+    },
+    "save_reload_byte_stable": true,
+    "static_collision": {
+      "box_count": 1,
+      "layer": 1,
+      "mask": 0
+    }
+  },
+  "godot_bounds_max_m": [
+    0.340000033378601,
+    1.07999992370605,
+    0.525000035762787
+  ],
+  "godot_bounds_min_m": [
+    -0.340000003576279,
+    0.0,
+    -0.524999976158142
+  ],
+  "materials": [
+    {
+      "name": "trolley_frame_petrol",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.025000000372529,
+          0.0750000029802322,
+          0.0900000035762787,
+          1.0
+        ],
+        "metallicFactor": 0.449999988079071,
+        "roughnessFactor": 0.46000000834465
+      }
+    },
+    {
+      "name": "trolley_basket_metal",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.550000011920929,
+          0.639999985694885,
+          0.649999976158142,
+          1.0
+        ],
+        "metallicFactor": 0.649999976158142,
+        "roughnessFactor": 0.379999995231628
+      }
+    },
+    {
+      "name": "trolley_wheel_rubber",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.0179999992251396,
+          0.0280000008642673,
+          0.0320000015199184,
+          1.0
+        ],
+        "metallicFactor": 0.0,
+        "roughnessFactor": 0.720000028610229
+      }
+    },
+    {
+      "name": "trolley_handle_coral",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          1.0,
+          0.167999997735024,
+          0.109999999403954,
+          1.0
+        ],
+        "metallicFactor": 0.100000001490116,
+        "roughnessFactor": 0.479999989271164
+      }
+    }
+  ],
+  "mesh_count": 1.0,
+  "nonmanifold_edges": 0.0,
+  "pivot_m": [
+    0.0,
+    0.0,
+    0.0
+  ],
+  "provisional_dimensions_m": [
+    0.68,
+    1.08,
+    1.05
+  ],
+  "source_export_status": "passed",
+  "source_faces": 1788.0,
+  "source_normal_max_length_error": 1.89291331165187e-07,
+  "source_vertices": 2240.0,
+  "surface_count": 4.0,
+  "triangles": 4296.0,
+  "production_checks": {
+    "engine": {
+      "ok": true,
+      "version": "4.8.dev7.official.c971f93e7"
+    },
+    "gut_pin": {
+      "ok": true,
+      "version": "9.7.1"
+    },
+    "owned_scripts": {
+      "ok": true,
+      "returncode": 0
+    },
+    "python_tests": {
+      "ok": true,
+      "returncode": 0
+    },
+    "gut_import": {
+      "ok": true,
+      "returncode": 0
+    },
+    "gut_tests": {
+      "ok": true,
+      "returncode": 0
+    },
+    "gut_negative": {
+      "ok": true,
+      "observed_returncode": 1
+    }
+  },
+  "evidence_renders": {
+    "hero": {
+      "size_px": [
+        1280,
+        720
+      ],
+      "bytes": 271209,
+      "source": "isolated Blender Cycles; 6-bit/channel review PNG, no runtime textures"
+    },
+    "side": {
+      "size_px": [
+        1280,
+        720
+      ],
+      "bytes": 259256,
+      "source": "isolated Blender Cycles; 6-bit/channel review PNG, no runtime textures"
+    },
+    "detail": {
+      "size_px": [
+        1280,
+        720
+      ],
+      "bytes": 331490,
+      "source": "isolated Blender Cycles; 6-bit/channel review PNG, no runtime textures"
+    },
+    "overhead_47m_42deg": {
+      "size_px": [
+        1280,
+        720
+      ],
+      "bytes": 227982,
+      "source": "isolated Blender Cycles; 6-bit/channel review PNG, no runtime textures"
+    }
+  }
+}
