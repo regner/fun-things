@@ -32,7 +32,10 @@ recommendations and do not block P1.
   host/client acceptance now passes Brackett walking, prediction/smoothing, lifecycle/reset,
   incompatible protocol, admission timeout, host loss, clean teardown and Steam-absent checks.
   Exact Windows/Linux exports and PCK inspection pass. Remaining: execute the committed Linux
-  desktop launch checklist on Linux; packaging on Windows does not close that gate.
+  desktop launch checklist on Linux; packaging on Windows does not close that gate. The owner's
+  first P1 playtest found client stalls under held input and no mouse facing. M1-P1-FIX fixed
+  both and added sustained real-input acceptance (86% normal-profile travel) plus a PowerShell
+  launcher. Remaining: the owner's P1 re-test.
 
 ### M1-B — Vehicles, combat and destruction
 
