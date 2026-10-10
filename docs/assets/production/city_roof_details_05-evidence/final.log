@@ -1,0 +1,35 @@
+city_roof_details.05 final production receipt
+Pinned Blender 5.2.2 LTS d13f752e3b9c / glTF 5.2.40; Godot 4.8.dev7 c971f93e7.
+Full reproducible argv and bounded calls: ../city_roof_details_05.md.
+Scratch/raw logs: C:/tmp/ft/assets/city_roof_details_05/ (not committed).
+
+PASS author.py: original editable source and explicit collection GLB; exit 0.
+PASS export.py in a fresh Blender process: saved source reexport; exit 0.
+PASS validate.py: 1368 source vertices / 2696 triangles / 1467 GLB vertices,
+     one mesh / five surfaces / zero degenerate faces and triangles / zero nonmanifold edges;
+     unit normals, winding, transforms, dimensions, apron/window/cap rays; exit 0.
+PASS saved-source GLB reexport byte equality: 68200 bytes,
+     SHA256 a0082ec1a278e78612e996dcb1d63fe568a83488f60dbf4f3fa95ee4bdfda12f.
+PASS render.py: four 1280x720 isolated Blender views; exit 0; all visually inspected.
+PASS pinned import: linked GLB and own import/UID metadata; exit 0.
+PASS check.gd --normalize: two byte-stable save/load rounds; exit 0.
+PASS check.gd standalone: transitive dependencies/UIDs, identity instance, bounds,
+     five opaque back-culled surfaces, no roof-decoration collision; exit 0.
+PASS gdstyle check: one file, no issues.
+PASS canonical production_checks.py with PYTHONUTF8=1 and explicit mise tool paths:
+     script format/lint/compilation, 17 Python tests, 149 GUT tests / 6768 assertions;
+     expected intentional negative-test exit 1 detected; overall exit 0, no exemptions.
+PASS final pinned import after evidence compression; owned sidecars included in manifest.
+
+Correction: first engine size assertion failed because two 2 mm bevels cumulatively
+shortened height by 1.37 mm. Reduced prism bevels to 1 mm, regenerated and reran checks.
+Final size error .687 mm. No tolerance widening. Before rendering, sealed gable raised
+inside cap to avoid an eave gap; no further visual-model correction needed.
+Diagnostics retained: Blender Material/World.use_nodes deprecations; version-only probe
+0.000023 MB unfreed allocation. Existing MCP Godot compatibility warning on editor import.
+Headless editor normalization emits renderer/text RID and ObjectDB shutdown leaks after
+passing assertions. Standalone asset check has no ERROR/WARNING diagnostics.
+
+Scope: roof-only above-head visual decoration, all points above 2.5 m world height.
+Independent review, building attachment/roof dominance, world/gameplay camera, packaged
+build, repeated-placement performance and Deck evidence remain pending; no READY claim.

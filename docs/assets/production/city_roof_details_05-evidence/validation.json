@@ -1,0 +1,249 @@
+{
+  "applied_transforms": true,
+  "apron_ray_heights_m": [
+    0.843290567398071,
+    -0.773290395736694
+  ],
+  "asset": "city_roof_details.05",
+  "blender": "5.2.2 LTS",
+  "build_hash": "d13f752e3b9c",
+  "consistent_winding": true,
+  "datum": "30-degree roof plane centre; Godot -Z front/downhill; not lowest point",
+  "degenerate_faces": 0.0,
+  "dimension_tolerance_m": 0.001,
+  "dimensions_godot_m": [
+    2.8,
+    2.791025404,
+    3.0
+  ],
+  "fresh_reexport_byte_identical": true,
+  "glb_bytes": 68200.0,
+  "glb_sha256": "a0082ec1a278e78612e996dcb1d63fe568a83488f60dbf4f3fa95ee4bdfda12f",
+  "glb_vertices": 1467.0,
+  "godot": {
+    "bounds_min": [
+      -1.39999997615814,
+      -0.865683853626251,
+      -1.5
+    ],
+    "bounds_size": [
+      2.79999995231628,
+      2.79033851623535,
+      3.0
+    ],
+    "engine": "4.8-dev7 (official)",
+    "linked_model_identity": true,
+    "placement_contract": "Roof-only; all geometry above 2.5m; no rooftop traversal",
+    "save_reload_byte_stable": true,
+    "static_body_count": 0
+  },
+  "godot_aabb": {
+    "max": [
+      1.39999997615814,
+      1.92465472221375,
+      1.5
+    ],
+    "min": [
+      -1.39999997615814,
+      -0.865683853626251,
+      -1.5
+    ]
+  },
+  "materials": [
+    {
+      "name": "dormer_folded_metal",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.0307134445756674,
+          0.0742135718464851,
+          0.0802198201417923,
+          1.0
+        ],
+        "metallicFactor": 0.300000011920929,
+        "roughnessFactor": 0.550000011920929
+      }
+    },
+    {
+      "name": "dormer_shadow",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.00856812577694654,
+          0.0241576321423054,
+          0.0295568350702524,
+          1.0
+        ],
+        "metallicFactor": 0.0500000007450581,
+        "roughnessFactor": 0.779999971389771
+      }
+    },
+    {
+      "name": "dormer_dark_petrol",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.0202885624021292,
+          0.0497065670788288,
+          0.0561284907162189,
+          1.0
+        ],
+        "metallicFactor": 0.280000001192093,
+        "roughnessFactor": 0.519999980926514
+      }
+    },
+    {
+      "name": "dormer_warm_bead",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.577580451965332,
+          0.539479494094849,
+          0.417885065078735,
+          1.0
+        ],
+        "metallicFactor": 0.219999998807907,
+        "roughnessFactor": 0.479999989271164
+      }
+    },
+    {
+      "name": "dormer_opaque_tint",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.0343398079276085,
+          0.109461709856987,
+          0.127437680959702,
+          1.0
+        ],
+        "metallicFactor": 0.180000007152557,
+        "roughnessFactor": 0.280000001192093
+      }
+    }
+  ],
+  "mesh_count": 1.0,
+  "nonmanifold_edges": 0.0,
+  "pivot": [
+    0.0,
+    0.0,
+    0.0
+  ],
+  "roof_pitch_deg": 30.0,
+  "source_aabb": {
+    "max": [
+      1.39999997615814,
+      1.5,
+      1.92465472221375
+    ],
+    "min": [
+      -1.39999997615814,
+      -1.5,
+      -0.865683853626251
+    ]
+  },
+  "status": "PASS source and export",
+  "surfaces": 5.0,
+  "triangles": 2696.0,
+  "unit_normals": true,
+  "vertices": 1368.0,
+  "window_front_rays_m": [
+    1.21050000190735,
+    1.25400006771088,
+    1.21050000190735
+  ],
+  "window_pane_recess_m": 0.0435,
+  "overhead_camera": {
+    "projection": "perspective",
+    "world_height_m": 47,
+    "roof_height_m": 8,
+    "vertical_fov_deg": 42.00000169963833,
+    "rotation_blender_rad": [
+      0,
+      0,
+      0
+    ],
+    "resolution_px": [
+      1280,
+      720
+    ],
+    "engine_capture": false,
+    "studio_slope_deg": -30,
+    "component_translation_blender_m": [
+      0,
+      0,
+      8
+    ],
+    "no_building_or_world_placement_claim": true,
+    "scope": "Temporary Blender comparison; not saved district placement"
+  },
+  "production_checks": {
+    "engine": {
+      "ok": true,
+      "version": "4.8.dev7.official.c971f93e7"
+    },
+    "gut_pin": {
+      "ok": true,
+      "version": "9.7.1"
+    },
+    "owned_scripts": {
+      "ok": true,
+      "returncode": 0
+    },
+    "python_tests": {
+      "ok": true,
+      "returncode": 0
+    },
+    "gut_import": {
+      "ok": true,
+      "returncode": 0
+    },
+    "gut_tests": {
+      "ok": true,
+      "returncode": 0
+    },
+    "gut_negative": {
+      "ok": true,
+      "observed_returncode": 1
+    }
+  },
+  "renders": [
+    {
+      "file": "hero.png",
+      "resolution_px": [
+        1280,
+        720
+      ],
+      "bytes": 265698
+    },
+    {
+      "file": "side.png",
+      "resolution_px": [
+        1280,
+        720
+      ],
+      "bytes": 256664
+    },
+    {
+      "file": "detail.png",
+      "resolution_px": [
+        1280,
+        720
+      ],
+      "bytes": 281527
+    },
+    {
+      "file": "overhead_47m_42deg.png",
+      "resolution_px": [
+        1280,
+        720
+      ],
+      "bytes": 208308
+    }
+  ],
+  "render_encoding": "RGB six significant bits per channel; PNG compression 9",
+  "diagnostics": {
+    "blender": "Material/World.use_nodes deprecation notices; all final jobs exit 0",
+    "version_probe": "One 0.000023 MB unfreed allocation from Blender --version",
+    "initial_engine_check": "Combined bevel shrink exceeded 1 mm size tolerance; reduced prism bevels from 2 mm to 1 mm, regenerated and passed",
+    "visual_iteration": "Raised sealed gable into cap before first render to prevent an eave gap; inspected all four final views",
+    "headless_import": "Pass; existing MCP plugin compatibility warning for Godot 4.8",
+    "headless_editor_normalization": "Assertions pass; renderer/text RID and ObjectDB shutdown leaks",
+    "standalone_asset_check": "Pass with no error/warning diagnostics",
+    "final_canonical_checks": "All pass without exemptions, including intentional failing-test detection"
+  }
+}
