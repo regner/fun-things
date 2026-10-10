@@ -2086,14 +2086,14 @@
       "input_next_action": "Refine shared design for recorded districts",
       "brief": "[Brief](../../assets/city_sign_supports.md)",
       "priority": 0,
-      "status": "queued",
-      "agent_id": null,
-      "source_revision": null,
-      "review_status": "pending",
-      "integration_status": "pending",
+      "status": "production_prefab_accepted",
+      "agent_id": "a133ba37-4b67-4dc7-9bf1-d47a4267ec48",
+      "source_revision": "9adc157",
+      "review_status": "accepted source/export/prefab scope (independent Sol review)",
+      "integration_status": "accepted",
       "placement_status": "pending",
       "blocker": null,
-      "attempts": 0,
+      "attempts": 1,
       "initial_time_cap_minutes": 90,
       "owned_paths": [
         "art/source/models/environment/city_sign_supports_02/",
@@ -2101,8 +2101,20 @@
         "art/textures/environment/city_sign_supports_02/",
         "art/materials/environment/city_sign_supports_02/",
         "docs/assets/production/city_sign_supports_02.md",
-        "docs/assets/production/city_sign_supports_02-evidence/"
-      ]
+        "docs/assets/production/city_sign_supports_02-evidence/",
+        "tools/asset_production/city_sign_supports_02/",
+        "scenes/prefabs/environment/city_sign_supports_02.tscn"
+      ],
+      "launch": {
+        "provider": "portkey/gpt-6-astra",
+        "configured_effort": "medium",
+        "mode": "orchestrator asset lane",
+        "lane": "a-signs"
+      },
+      "producer_manifest": "docs/assets/production/city_sign_supports_02-evidence/manifest.json",
+      "report": "docs/assets/production/city_sign_supports_02.md",
+      "reviewer_id": "b334ac39-8f7c-4e39-83a5-9282450d98f0",
+      "integrated_revision": "0b52857"
     },
     {
       "id": "city_seating.01",
@@ -3304,14 +3316,14 @@
       "input_next_action": "Confirm supporting uses in district detail concepts",
       "brief": "[Brief](../../assets/city_sign_supports.md)",
       "priority": 0,
-      "status": "queued",
-      "agent_id": null,
-      "source_revision": null,
-      "review_status": "pending",
-      "integration_status": "pending",
+      "status": "production_prefab_accepted",
+      "agent_id": "484a7437-d982-424e-88bf-99b6d1981d88",
+      "source_revision": "6e8cf38",
+      "review_status": "accepted source/export/prefab scope (independent Sol review)",
+      "integration_status": "accepted",
       "placement_status": "pending",
       "blocker": null,
-      "attempts": 0,
+      "attempts": 1,
       "initial_time_cap_minutes": 90,
       "owned_paths": [
         "art/source/models/environment/city_sign_supports_03/",
@@ -3319,8 +3331,20 @@
         "art/textures/environment/city_sign_supports_03/",
         "art/materials/environment/city_sign_supports_03/",
         "docs/assets/production/city_sign_supports_03.md",
-        "docs/assets/production/city_sign_supports_03-evidence/"
-      ]
+        "docs/assets/production/city_sign_supports_03-evidence/",
+        "tools/asset_production/city_sign_supports_03/",
+        "scenes/prefabs/environment/city_sign_supports_03.tscn"
+      ],
+      "launch": {
+        "provider": "portkey/gpt-6-astra",
+        "configured_effort": "medium",
+        "mode": "orchestrator asset lane",
+        "lane": "a-signs"
+      },
+      "producer_manifest": "docs/assets/production/city_sign_supports_03-evidence/manifest.json",
+      "report": "docs/assets/production/city_sign_supports_03.md",
+      "reviewer_id": "b334ac39-8f7c-4e39-83a5-9282450d98f0",
+      "integrated_revision": "0b52857"
     },
     {
       "id": "city_sign_supports.04",
@@ -3333,14 +3357,14 @@
       "input_next_action": "Confirm supporting uses in district detail concepts",
       "brief": "[Brief](../../assets/city_sign_supports.md)",
       "priority": 0,
-      "status": "queued",
-      "agent_id": null,
-      "source_revision": null,
-      "review_status": "pending",
-      "integration_status": "pending",
+      "status": "production_prefab_accepted",
+      "agent_id": "ae4e65ee-1588-4348-92f4-644ea16b06e9",
+      "source_revision": "0b52857",
+      "review_status": "accepted source/export/prefab scope (independent Sol review)",
+      "integration_status": "accepted",
       "placement_status": "pending",
       "blocker": null,
-      "attempts": 0,
+      "attempts": 1,
       "initial_time_cap_minutes": 90,
       "owned_paths": [
         "art/source/models/environment/city_sign_supports_04/",
@@ -3348,8 +3372,20 @@
         "art/textures/environment/city_sign_supports_04/",
         "art/materials/environment/city_sign_supports_04/",
         "docs/assets/production/city_sign_supports_04.md",
-        "docs/assets/production/city_sign_supports_04-evidence/"
-      ]
+        "docs/assets/production/city_sign_supports_04-evidence/",
+        "tools/asset_production/city_sign_supports_04/",
+        "scenes/prefabs/environment/city_sign_supports_04.tscn"
+      ],
+      "launch": {
+        "provider": "portkey/gpt-6-astra",
+        "configured_effort": "medium",
+        "mode": "orchestrator asset lane",
+        "lane": "a-signs"
+      },
+      "producer_manifest": "docs/assets/production/city_sign_supports_04-evidence/manifest.json",
+      "report": "docs/assets/production/city_sign_supports_04.md",
+      "reviewer_id": "b334ac39-8f7c-4e39-83a5-9282450d98f0",
+      "integrated_revision": "0b52857"
     },
     {
       "id": "city_seating.03",
