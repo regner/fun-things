@@ -104,7 +104,7 @@ synchronization of a separately open editor scene. No live owner session was acc
 [Hero](d06_harbour_footbridge_03-evidence/hero.png),
 [side](d06_harbour_footbridge_03-evidence/side.png),
 [incoming portal detail](d06_harbour_footbridge_03-evidence/portal_detail.png), and
-[47 m overhead](d06_harbour_footbridge_03-evidence/overhead_47m_42deg.png) are **1280×800 isolated
+[47 m overhead](d06_harbour_footbridge_03-evidence/overhead_47m_42deg.png) are **1280×720 isolated
 Blender Cycles CPU / 32 samples / AgX** renders inspected by the producer against the earlier family.
 The pale thin slab, square ends and quiet surface are consistent. The overhead is vertical-down,
 north-up, **47 m above ground / 42° vertical FOV**, with the span rendered at **5.5 m height and
@@ -136,7 +136,7 @@ receipt and classified diagnostics; verbose logs/retries stay in external scratc
   **Six independent literal world-space top rays** straddle the diagonal junction seam by 1 cm on
   both sides at lateral offsets -1.5/0/+1.5 m; each hits its expected component at Y=5.5. These are
   geometry/API queries, **not production actor seam traversal or vehicle movement**.
-- `production_checks.py` passes all layers: **82 GDScripts** formatted/linted/compiled,
+- `production_checks.py` passes all layers: **85 GDScripts** formatted/linted/compiled,
   **11 Python tests**, **40 GUT tests / 458 assertions**, diagnostic negative control detected.
   No pre-existing failures required exemptions; owned GDScript also passes targeted gdstyle checks.
 - Author, validator, import, normalization and fresh query process exit 0. Import retains the existing
@@ -176,6 +176,50 @@ python "tools/asset_production/$NID/record.py"
 
 `record.py` refuses failed source/engine/check receipts before consolidating and hashing payloads.
 Reauthoring may change .blend bytes; deterministic saved-source GLB reexport is the gate.
+
+## Review round 1 — P3 evidence cleanliness
+
+Addressed the sole finding for this component: regenerated all four evidence renders at
+**1280×720**, PNG compression **95**, with film dithering disabled (the existing .05/.06 convention).
+No palette quantization or post-render resizing was used. Saved-source studio settings and authoring
+scripts agree; source geometry, materials, sockets, GLB bytes, importer settings and prefab bytes
+remain unchanged from the reviewed candidate. No gameplay or placement changes were made.
+
+| Render | Bytes |
+| --- | ---: |
+| `hero.png` | 253,299 |
+| `overhead_47m_42deg.png` | 198,366 |
+| `portal_detail.png` | 187,607 |
+| `side.png` | 198,548 |
+
+Combined PNG size fell from **3,951,134** to **837,820 bytes** (78.8% reduction).
+All four views were visually inspected: full hero/side silhouettes and square portal detail remain
+legible, and the 47 m / 42° overhead retains the intended route direction. The studio background
+remains evidence-only, not a placed or engine-rendered environment. `validate.py` now checks saved
+render settings; `record.py` rejects wrong-size PNGs and images above 400,000 bytes and records sizes.
+Scratch-only negative controls for invalid PNG signature, 1280×800 dimensions and excess file size
+were each rejected. All delivered PNGs also passed full Pillow decode and dimension/size checks.
+
+Pinned author/render, source validation with byte-identical reexport, headless import, two-save
+prefab normalization and fresh non-editor dependency/physics checks all passed again. The single
+current lane-wide canonical run shared by .01–.04 passed **85 script checks, 11 Python tests,
+40 GUT tests / 458 assertions**, including its diagnostic negative control. Fresh prefab logs remain
+free of ERROR/WARNING; import retains the known MCP pin warning, normalization retains the existing
+RID/ObjectDB shutdown diagnostics, and Blender retains `use_nodes` deprecation warnings.
+These checks do not close downstream traversal, placement, rendering or device gates.
+
+Review replay used the commands above for author/validate/import/normalize/fresh checks. Author and
+validator logs are `$T/review-r1-author.log` and `$T/review-r1-validate.log`; current import/normalize/
+fresh logs use the filenames above. Original engine receipts remain in `$T/pre-review-r1/`.
+The canonical suite was run once for the identical final lane candidate, then reused explicitly:
+
+```sh
+C="C:/tmp/ft/assets/d06_harbour_footbridge_01/checks-review-r1"
+# Run once for the lane; choose a fresh C directory for a subsequent replay:
+timeout 1800 mise exec -- python tools/production_checks.py --output "$C"
+# For this asset, with NID and T as defined above:
+python "tools/asset_production/$NID/record.py" --checks "$C"
+```
 
 ## Remaining acceptance
 
