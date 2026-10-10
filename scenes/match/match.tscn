@@ -26,7 +26,6 @@ metadata/provisional = "pending owner answer to production-plan question 5"
 metadata/area = "Signal Row"
 
 [node name="PlayerSpawns" type="Node3D" parent="Anchors"]
-unique_name_in_owner = true
 
 [node name="Spawn01" type="Marker3D" parent="Anchors/PlayerSpawns"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -84, 0.05, -5)
@@ -73,7 +72,6 @@ world_id = &"brackett/district_06/parked_car_crate_01"
 anchor_kind = &"PARKED_CAR"
 
 [node name="RuntimeEntities" type="Node3D" parent="."]
-unique_name_in_owner = true
 
 [node name="RuntimeEffects" type="Node3D" parent="."]
 
@@ -81,4 +79,3 @@ unique_name_in_owner = true
 script = ExtResource("5_replication")
 
 [node name="LocalRig" parent="." instance=ExtResource("4_local_rig")]
-unique_name_in_owner = true
