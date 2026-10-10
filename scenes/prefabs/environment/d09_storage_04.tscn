@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://dx7b31suvgbl0"]
+
+[ext_resource type="PackedScene" path="res://scenes/prefabs/environment/d09_storage_04_crate.tscn" id="1_crate"]
+
+[node name="D09Storage04" type="Node3D" unique_id=1411736043]
+
+[node name="Crate1" parent="." unique_id=370842939 instance=ExtResource("1_crate")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.74, 0, 0)
+
+[node name="Crate2" parent="." unique_id=650358000 instance=ExtResource("1_crate")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.74, 0, 0)
+
+[node name="Crate3" parent="." unique_id=616692971 instance=ExtResource("1_crate")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.74, 1.05, 0)

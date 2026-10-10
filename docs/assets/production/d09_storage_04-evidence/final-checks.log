@@ -1,0 +1,44 @@
+d09_storage.04 — final bounded production checks, 10 October 2026
+Worktree C:/GameDev/git/ft-lanes/a-storage; branch lane/a-storage.
+Exact executable variables and commands: ../d09_storage_04.md, Exact reproduction.
+All Blender commands: isolated factory-startup, -noaudio, --threads 4,
+--python-exit-code 1; ALSOFT_DRIVERS=null SDL_AUDIODRIVER=dummy; timeout <=900 s.
+All Godot commands: mise-pinned executable, --headless --path .;
+import timeout 300 s; asset check timeout 180 s. No live editor session used.
+
+PASS author.py: exit 0; Blender 5.2.2 LTS, build d13f752e3b9c, exporter 5.2.40.
+PASS validate.py: exit 0; final source opened and freshly reexported to scratch.
+  1288 source vertices, 2484 triangles, 1656 GLB vertices, 1 mesh, 4 surfaces.
+  Zero degenerate source faces/triangles, GLB triangles and non-manifold source edges.
+  Unit source/GLB normals; actual positions, bounds, pivot and applied transforms pass.
+  GLB 71212 bytes, SHA256 32f14cb00a9f3c2e32bd940bbc80e168c47add3d02448dd06bf1546be5686e25.
+  Fresh reexport byte-identical to committed export candidate.
+PASS finalize.py --compress-renders: four 1280x720 PNGs, max compression.
+  hero 311753 bytes; side 278044; detail 320380; overhead 244905.
+  Producer visually inspected all four final compressed renders and sibling heroes.
+PASS pinned import before final roundtrip: exit 0, no ERROR/SCRIPT ERROR lines.
+PASS check.gd --normalize --verify-stable: exit 0.
+  Three prefabs and saved fixture: two stable save/reload cycles each, plus unchanged
+  bytes and scene UIDs in a fresh-process roundtrip.
+PASS final pinned import: exit 0, no ERROR/SCRIPT ERROR lines.
+PASS fresh-process check.gd: exit 0, D09_STORAGE_04_CHECK_PASS.
+  Source-linked single, pair and trio bounds/colliders/materials/visible meshes pass.
+  Nine front/corner rays blocked at Z=-0.7; upper crate blocked; upper notch,
+  0.08 m seams and above-variant rays clear. No outer invisible box around the trio.
+  Production ActorMotion r=.35/h=1.8, 192 ticks per case per mode, three variants:
+  authority/replay contact stops Z=-1.05077517032623; bypass ends Z=8.00001239776611.
+  Authority seam capsule stops Z=-1.04296267032623 rather than passing the seam.
+  Provisional 1.8x1.5x4.4 car-box cast: all front fractions .35498046875;
+  all bypass fractions 1.0. Not actual vehicle driving or network acceptance.
+PASS gdstyle fmt --check tools/asset_production/d09_storage_04/check.gd:
+  1 file already formatted.
+PASS gdstyle --max-line-length 100 --max-warnings 0:
+  1 file checked, no issues found.
+
+Self-review corrections before final validation: hero crop, brace/tab overlap,
+brace 0.0025 m out-of-bounds extension, coplanar timber/shoe faces. No relaxed bound test.
+Final Blender logs have no errors. Import has the existing MCP 4.8-versus-tested-4.7
+warning only; no addon changes, broad suppression or production_checks.py run.
+Raw iteration/command logs and scratch reexports: C:/tmp/ft/assets/d09_storage_04/.
+Independent review, world placement, engine-camera/LOD, actual driving/network and
+packaged-platform/Deck/repeated-placement performance remain pending.

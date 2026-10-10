@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://bg3h73iyp2x12"]
+
+[ext_resource type="PackedScene" path="res://art/models/environment/d09_storage_04/d09_storage_04.glb" id="1_model"]
+
+[sub_resource type="BoxShape3D" id="Box_crate"]
+size = Vector3(1.4, 1.05, 1.4)
+
+[node name="D09Storage04Crate" type="Node3D" unique_id=575840993]
+
+[node name="Visuals" type="Node3D" parent="." unique_id=2108802407]
+
+[node name="Model" parent="Visuals" unique_id=322116420 instance=ExtResource("1_model")]
+
+[node name="Collision" type="Node3D" parent="." unique_id=1311189923]
+
+[node name="Body" type="StaticBody3D" parent="Collision" unique_id=1008698081]
+collision_mask = 0
+
+[node name="Shell" type="CollisionShape3D" parent="Collision/Body" unique_id=644241081]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.525, 0)
+shape = SubResource("Box_crate")

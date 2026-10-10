@@ -1,0 +1,39 @@
+[gd_scene format=3 uid="uid://dt1xxec06brsq"]
+
+[ext_resource type="PackedScene" path="res://scenes/prefabs/environment/d09_storage_04.tscn" id="1_stack"]
+[ext_resource type="Script" path="res://scripts/actors/actor_motion.gd" id="2_motion"]
+[ext_resource type="PackedScene" path="res://scenes/prefabs/environment/d09_storage_04_pair.tscn" id="3_pair"]
+[ext_resource type="PackedScene" path="res://scenes/prefabs/environment/d09_storage_04_crate.tscn" id="4_crate"]
+
+[sub_resource type="BoxShape3D" id="Box_floor"]
+size = Vector3(40, 0.2, 45)
+
+[sub_resource type="CapsuleShape3D" id="Capsule_actor"]
+radius = 0.35
+height = 1.8
+
+[node name="CrateCheck" type="Node3D" unique_id=801924066]
+
+[node name="Trio" parent="." unique_id=801436420 instance=ExtResource("1_stack")]
+
+[node name="Pair" parent="." unique_id=1644803240 instance=ExtResource("3_pair")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, 0)
+
+[node name="Crate" parent="." unique_id=1368152703 instance=ExtResource("4_crate")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 0, 0)
+
+[node name="Floor" type="StaticBody3D" parent="." unique_id=720124973]
+collision_mask = 0
+
+[node name="Shape" type="CollisionShape3D" parent="Floor" unique_id=1895229977]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.1, 0)
+shape = SubResource("Box_floor")
+
+[node name="Actor" type="CharacterBody3D" parent="." unique_id=1690400005]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.001, -8)
+collision_layer = 2
+script = ExtResource("2_motion")
+
+[node name="Capsule" type="CollisionShape3D" parent="Actor" unique_id=536953597]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0)
+shape = SubResource("Capsule_actor")

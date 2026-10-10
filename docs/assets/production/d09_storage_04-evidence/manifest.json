@@ -1,0 +1,130 @@
+{
+  "asset": "d09_storage.04",
+  "producer": "commissioned implementation specialist",
+  "hash_algorithm": "SHA-256",
+  "self_excluded": true,
+  "files": [
+    {
+      "path": "art/models/environment/d09_storage_04/d09_storage_04.glb",
+      "bytes": 71212,
+      "sha256": "32f14cb00a9f3c2e32bd940bbc80e168c47add3d02448dd06bf1546be5686e25"
+    },
+    {
+      "path": "art/models/environment/d09_storage_04/d09_storage_04.glb.import",
+      "bytes": 1247,
+      "sha256": "7a3f485162bcc6f176bde40f19c3114db65a20771db088431f045ca19cabb3bf"
+    },
+    {
+      "path": "art/source/models/environment/d09_storage_04/d09_storage_04.blend",
+      "bytes": 136860,
+      "sha256": "1514dd0a15d0c6c8955c9c1aa0fcb44963cc304219271c6889dbb3f497962f6e"
+    },
+    {
+      "path": "docs/assets/production/d09_storage_04-evidence/detail.png",
+      "bytes": 320380,
+      "sha256": "8c33e54f26dd9b0463a7a17af62f78cd8d7e2ffc440985713d1227d0817332ae"
+    },
+    {
+      "path": "docs/assets/production/d09_storage_04-evidence/final-checks.log",
+      "bytes": 3118,
+      "sha256": "11df59646735ad8f1e5fd02205100fbc4adc1bf58060b87d7f72e8561b79eb92"
+    },
+    {
+      "path": "docs/assets/production/d09_storage_04-evidence/hero.png",
+      "bytes": 311753,
+      "sha256": "a538535af2af7e1305a7122a68185c1f85c08e0ead089a3fd2923b6e31efd7d5"
+    },
+    {
+      "path": "docs/assets/production/d09_storage_04-evidence/overhead_47m_42deg.png",
+      "bytes": 244905,
+      "sha256": "7ad4e4d18d6d789345cb9f0533995a99bc7a99048bce33428238785688e8f844"
+    },
+    {
+      "path": "docs/assets/production/d09_storage_04-evidence/side.png",
+      "bytes": 278044,
+      "sha256": "d9a4db058c18984f0024ccebf18b31d951da0690a3b7ed990d9edb3f4050cab6"
+    },
+    {
+      "path": "docs/assets/production/d09_storage_04-evidence/validation.json",
+      "bytes": 6746,
+      "sha256": "a136a288df46bb26dbc0009e2725d1e48e7ab1993774e55bef8e77cacfce5342"
+    },
+    {
+      "path": "docs/assets/production/d09_storage_04.md",
+      "bytes": 15002,
+      "sha256": "405b79d000f4cff6a9e3588f18dd70120307d36f33da4055444bf2b53d73c441"
+    },
+    {
+      "path": "scenes/prefabs/environment/d09_storage_04.tscn",
+      "bytes": 672,
+      "sha256": "3a6a788a36b154edcb2957c1ae3590601561cfc86bcae006a6fd3f9f1c58aac6"
+    },
+    {
+      "path": "scenes/prefabs/environment/d09_storage_04_crate.tscn",
+      "bytes": 826,
+      "sha256": "82bc163b6c001f3715d4d9db069c8c4107037b5a4037efd383aa3eb262256eca"
+    },
+    {
+      "path": "scenes/prefabs/environment/d09_storage_04_pair.tscn",
+      "bytes": 524,
+      "sha256": "41983f32ce78c627d8d7cb57953a57dc241d85ef1de2cd141d011a7827745e93"
+    },
+    {
+      "path": "tools/asset_production/d09_storage_04/author.py",
+      "bytes": 6536,
+      "sha256": "8c3249f8cd8366e6b4acc5fe998666e31b6aaffa31e9e7719e54a786a8d63d4d"
+    },
+    {
+      "path": "tools/asset_production/d09_storage_04/check.gd",
+      "bytes": 10424,
+      "sha256": "fb275c097d711dd170638337a56477585095c9769eb9b832d41e4dd71f290bef"
+    },
+    {
+      "path": "tools/asset_production/d09_storage_04/check.gd.uid",
+      "bytes": 20,
+      "sha256": "578fbab041feb8f3b14aea6ea400c021db03ccb1ee0df3dca302e4e8816fe31b"
+    },
+    {
+      "path": "tools/asset_production/d09_storage_04/check_scene.tscn",
+      "bytes": 1701,
+      "sha256": "06e22f32ea44bf106792f994af7df12794c1958464475cc7fc1aacfbc8d61e07"
+    },
+    {
+      "path": "tools/asset_production/d09_storage_04/export.py",
+      "bytes": 770,
+      "sha256": "13582bacd40729f638fa231b5c5302941a6fea14ddac00b8ddd4ee4df3173c87"
+    },
+    {
+      "path": "tools/asset_production/d09_storage_04/finalize.py",
+      "bytes": 4503,
+      "sha256": "0575432d0c70e32c61f538b5cbdab0db3b552f326e1825be1f170e47d02233a7"
+    },
+    {
+      "path": "tools/asset_production/d09_storage_04/validate.py",
+      "bytes": 6688,
+      "sha256": "46bfe3a2084e3fc21f3576aa2691e4a7d8f17ddcfeb7178e2dce62c6a83192a5"
+    }
+  ],
+  "read_only_reproduction_dependencies": [
+    {
+      "path": "tools/assets/blender/export_settings.json",
+      "bytes": 646,
+      "sha256": "33ded3c83616fba6573848dda1f0ea3fc7ae7f4c98257fc867dca3bbe35ff9ec"
+    },
+    {
+      "path": "tools/asset_production/d09_storage_01/author.py",
+      "bytes": 11856,
+      "sha256": "f8a5e2f49e1f324d09d0b53788a47ca268ef6f90d333aa968caa251a88f37cd9"
+    },
+    {
+      "path": "tools/asset_production/d09_storage_03/validate.py",
+      "bytes": 6855,
+      "sha256": "9be7b9385d9cbf917b4799d2347de4a22d7e524498fe3e61a9bb3c25e49197a4"
+    },
+    {
+      "path": "tools/asset_production/d09_storage_03/check.gd",
+      "bytes": 10685,
+      "sha256": "25d940d2719e0f34a72f35ff61f946562d0c8c1b2c9192f70b3e5e6f690bb9c4"
+    }
+  ]
+}

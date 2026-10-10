@@ -1,0 +1,280 @@
+{
+  "asset": "d09_storage.04",
+  "blender": "5.2.2 LTS",
+  "blender_build": "d13f752e3b9c",
+  "bounds_tolerance_m": 0.001,
+  "degenerate_faces": 0.0,
+  "degenerate_triangles": 0.0,
+  "export_normal_max_length_error": 9.46456522e-08,
+  "export_vertices": 1656.0,
+  "exporter": "5.2.40",
+  "fresh_export_byte_identical": true,
+  "glb_bytes": 71212.0,
+  "glb_sha256": "32f14cb00a9f3c2e32bd940bbc80e168c47add3d02448dd06bf1546be5686e25",
+  "godot": {
+    "engine": "4.8-dev7 (official)",
+    "fresh_process_roundtrip_byte_stable": true,
+    "physics": {
+      "actor_capsule_height_m": 1.8,
+      "actor_capsule_radius_m": 0.35,
+      "authority_replay_equal": true,
+      "car_box_dimensions_m": [
+        1.8,
+        1.5,
+        4.4
+      ],
+      "car_bypass_safe_fractions": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "car_front_cast_safe_fractions": [
+        0.35498046875,
+        0.35498046875,
+        0.35498046875
+      ],
+      "nine_front_corner_rays_blocked": true,
+      "seam_actor_stop_m": [
+        0.0,
+        0.00100000004749745,
+        -1.04296267032623
+      ],
+      "seam_rays_clear": true,
+      "stepped_notch_and_overhead_clear": true,
+      "ticks_per_case_per_mode": 192,
+      "upper_crate_blocked": true,
+      "variants": [
+        {
+          "bypass_end_m": [
+            1.94000005722046,
+            0.00100000004749745,
+            8.00001239776611
+          ],
+          "contact_stop_m": [
+            -0.740000009536743,
+            2.34375474974513e-05,
+            -1.05077517032623
+          ]
+        },
+        {
+          "bypass_end_m": [
+            7.94000005722046,
+            0.00100000004749745,
+            8.00001239776611
+          ],
+          "contact_stop_m": [
+            5.26000022888184,
+            0.00100000004749745,
+            -1.05077517032623
+          ]
+        },
+        {
+          "bypass_end_m": [
+            13.1999998092651,
+            0.00100000004749745,
+            8.00001239776611
+          ],
+          "contact_stop_m": [
+            12.0,
+            0.00100000004749745,
+            -1.05077517032623
+          ]
+        }
+      ],
+      "vehicle_driving_network_transport_and_placement": "not tested"
+    },
+    "resource_uids": {
+      "res://art/models/environment/d09_storage_04/d09_storage_04.glb": "uid://bllyi70mspi13",
+      "res://scenes/prefabs/environment/d09_storage_04.tscn": "uid://dx7b31suvgbl0",
+      "res://scenes/prefabs/environment/d09_storage_04_crate.tscn": "uid://bg3h73iyp2x12",
+      "res://scenes/prefabs/environment/d09_storage_04_pair.tscn": "uid://dwxyov60ys8lr",
+      "res://scripts/actors/actor_motion.gd": "uid://jthmfio4c27p",
+      "res://tools/asset_production/d09_storage_04/check_scene.tscn": "uid://dt1xxec06brsq"
+    },
+    "save_reload_byte_stable": true,
+    "stable_roundtrips": 2.0,
+    "variants": {
+      "crate": {
+        "boxes": 1,
+        "meshes": 1,
+        "size_m": [
+          1.4,
+          1.05,
+          1.4
+        ],
+        "surfaces": 4
+      },
+      "pair": {
+        "boxes": 2,
+        "meshes": 2,
+        "size_m": [
+          2.88,
+          1.05,
+          1.4
+        ],
+        "surfaces": 8
+      },
+      "trio": {
+        "boxes": 3,
+        "meshes": 3,
+        "size_m": [
+          2.88,
+          2.1,
+          1.4
+        ],
+        "surfaces": 12
+      }
+    }
+  },
+  "godot_bounds_max_m": [
+    0.699999928474426,
+    1.05000007152557,
+    0.699999988079071
+  ],
+  "godot_bounds_min_m": [
+    -0.699999988079071,
+    0.0,
+    -0.699999988079071
+  ],
+  "godot_dimensions_m": [
+    1.3999999165535,
+    1.05000007152557,
+    1.39999997615814
+  ],
+  "materials": [
+    {
+      "name": "storage_support_timber",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.230000004172325,
+          0.170000001788139,
+          0.104999996721745,
+          1.0
+        ],
+        "metallicFactor": 0.0,
+        "roughnessFactor": 0.720000028610229
+      }
+    },
+    {
+      "name": "storage_crate_blue",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.0549999997019768,
+          0.135000005364418,
+          0.234999999403954,
+          1.0
+        ],
+        "metallicFactor": 0.0500000007450581,
+        "roughnessFactor": 0.649999976158142
+      }
+    },
+    {
+      "name": "storage_frame_slate",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.0549999997019768,
+          0.0850000008940697,
+          0.119999997317791,
+          1.0
+        ],
+        "metallicFactor": 0.449999988079071,
+        "roughnessFactor": 0.430000007152557
+      }
+    },
+    {
+      "name": "storage_crate_tab",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.949999988079071,
+          0.519999980926514,
+          0.150000005960464,
+          1.0
+        ],
+        "metallicFactor": 0.0500000007450581,
+        "roughnessFactor": 0.529999971389771
+      }
+    }
+  ],
+  "mesh_count": 1.0,
+  "nonmanifold_edges": 0.0,
+  "pivot_m": [
+    0.0,
+    0.0,
+    0.0
+  ],
+  "shell_intersections": "Deliberately seated closed hardware shells, not a watertight Boolean union",
+  "source_export_status": "passed",
+  "source_faces": 1242.0,
+  "source_normal_max_length_error": 1.6455304385e-07,
+  "source_vertices": 1288.0,
+  "summed_closed_shell_volume_m3": 1.61831303923988,
+  "surface_count": 4.0,
+  "triangles": 2484.0,
+  "renders": [
+    {
+      "path": "hero.png",
+      "pixels": [
+        1280,
+        720
+      ],
+      "bytes": 311753
+    },
+    {
+      "path": "side.png",
+      "pixels": [
+        1280,
+        720
+      ],
+      "bytes": 278044
+    },
+    {
+      "path": "detail.png",
+      "pixels": [
+        1280,
+        720
+      ],
+      "bytes": 320380
+    },
+    {
+      "path": "overhead_47m_42deg.png",
+      "pixels": [
+        1280,
+        720
+      ],
+      "bytes": 244905
+    }
+  ],
+  "render_encoding": "Evidence only: RGB 6 significant bits/channel, PNG compression 9",
+  "overhead_camera": {
+    "renderer": "Isolated Blender Cycles CPU, 32 samples, AgX",
+    "blender_position_m": [
+      0,
+      0,
+      47
+    ],
+    "rotation_radians": [
+      0,
+      0,
+      0
+    ],
+    "vertical_fov_degrees": 42,
+    "north_up": true,
+    "trio_center_blender_m": [
+      -3,
+      0,
+      0
+    ],
+    "pair_center_blender_m": [
+      3,
+      0,
+      0
+    ],
+    "scope": "Isolated asset arrangements only, not approved district placement"
+  },
+  "pending": [
+    "Independent art/technical review",
+    "World placement, actual engine-camera and actor/target occlusion checks",
+    "Actual vehicle driving, network transport/admission/prediction and collision lifecycle",
+    "LOD transitions, repeat-placement profiling, packaged-platform and Deck checks"
+  ]
+}
