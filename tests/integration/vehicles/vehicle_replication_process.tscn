@@ -5,13 +5,13 @@
 [ext_resource type="Script" path="res://scripts/session/enet_transport.gd" id="3_enet"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_wall"]
-size = Vector3(1, 4, 30)
+size = Vector3(30, 4, 1)
 
 [node name="VehicleReplicationProcess" type="Node"]
 script = ExtResource("1_process")
 
 [node name="ContactWall" type="StaticBody3D" parent="."]
-position = Vector3(-120, 2.05, -10)
+position = Vector3(-109, 2.05, -14)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="ContactWall"]
 shape = SubResource("BoxShape3D_wall")

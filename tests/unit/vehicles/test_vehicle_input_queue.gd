@@ -9,15 +9,15 @@ func test_queue_supersedes_old_lag_without_extra_simulation_steps() -> void:
 		assert_true(queue.offer(_command(sequence), 100))
 
 	var decision: Dictionary = queue.consume(100)
-	assert_eq(decision.command.sequence, 6)
+	assert_eq(decision.command.sequence, 3)
 	assert_true(decision.superseded)
-	assert_eq(queue.acknowledgement(), 6)
-	assert_eq(queue.size(), 0)
+	assert_eq(queue.acknowledgement(), 3)
+	assert_eq(queue.size(), 3)
 
 	decision = queue.consume(101)
-	assert_eq(decision.command.sequence, 6)
+	assert_eq(decision.command.sequence, 4)
 	assert_false(decision.superseded)
-	assert_eq(queue.acknowledgement(), 6)
+	assert_eq(queue.acknowledgement(), 4)
 
 
 ## Reuses the newest consumed held intent between lossy packet arrivals.

@@ -16,6 +16,7 @@ var _acknowledgement: int = 0
 var _context: Dictionary = {}
 var _last_correction_metres: float = 0.0
 var _correction_samples: Array[float] = []
+var _reconciliation_count: int = 0
 
 
 ## Binds one locally controlled car and clears state from any earlier binding.
@@ -23,12 +24,22 @@ func bind_vehicle(vehicle: VehicleMotion) -> bool:
 	if vehicle == null or not is_instance_valid(vehicle) or not vehicle.is_inside_tree():
 		return false
 	if _vehicle == vehicle:
+		_vehicle.configure_simulation(true)
 		return true
 
-	invalidate()
+	unbind_vehicle()
 	_vehicle = vehicle
 	_vehicle.configure_simulation(true)
 	return true
+
+
+## Drops local control, clears replay, and makes the former body passive.
+func unbind_vehicle() -> void:
+	var previous: VehicleMotion = _vehicle
+	invalidate()
+	if is_instance_valid(previous):
+		previous.configure_simulation(false)
+	_vehicle = null
 
 
 ## Applies one numbered input immediately through the shared replay step.
@@ -132,6 +143,7 @@ func invalidate() -> void:
 	_acknowledgement = 0
 	_last_correction_metres = 0.0
 	_correction_samples.clear()
+	_reconciliation_count = 0
 	_context.clear()
 	_snap_presentation()
 
@@ -143,6 +155,7 @@ func diagnostics() -> Dictionary:
 		"history_size": _history.size(),
 		"last_correction_metres": _last_correction_metres,
 		"p95_correction_metres": correction_p95_metres(),
+		"reconciliation_count": _reconciliation_count,
 	}
 
 
@@ -224,6 +237,7 @@ func _apply_correction(
 
 ## Retains only the bounded recent correction sample window.
 func _record_correction(correction_metres: float) -> void:
+	_reconciliation_count += 1
 	_last_correction_metres = correction_metres
 	_correction_samples.append(correction_metres)
 	if _correction_samples.size() > HISTORY_CAPACITY:

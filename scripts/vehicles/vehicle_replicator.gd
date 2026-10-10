@@ -4,7 +4,6 @@ extends RefCounted
 
 const ENTITY_KIND_VEHICLE: int = 2
 const PHASE_LIVE: int = 1
-const INPUT_EPOCH: int = 1
 const MAX_VEHICLES: int = 64
 const MAX_IDENTITY_BYTES: int = 128
 const REMOTE_EXTRAPOLATION_MSEC: int = 125
@@ -183,11 +182,17 @@ func assign_driver_for_testing(participant_id: int, entity_id: int = 0) -> Dicti
 	var previous_driver: int = int(descriptor.driver_participant_id)
 	if previous_driver > 0:
 		release_driver(previous_driver)
+	if int(descriptor.control_revision) >= DriveCommandCodec.MAX_INPUT_EPOCH:
+		return { "ok": false }
 	descriptor.driver_participant_id = participant_id
 	descriptor.control_revision = int(descriptor.control_revision) + 1
 	_entity_id_by_driver[participant_id] = entity_id
 	_queues_by_participant[participant_id] = VehicleInputQueue.new()
-	return { "ok": true, "entity_ref": { "id": entity_id, "generation": descriptor.generation } }
+	return {
+		"ok": true,
+		"entity_ref": { "id": entity_id, "generation": descriptor.generation },
+		"input_epoch": descriptor.control_revision,
+	}
 
 
 ## Releases one test binding and clears stale drive commands without transferring seats.
@@ -212,13 +217,19 @@ func binding_for_participant(participant_id: int) -> Dictionary:
 		"id": descriptor.id,
 		"generation": descriptor.generation,
 		"control_revision": descriptor.control_revision,
+		"input_epoch": descriptor.control_revision,
 	}
 
 
 ## Offers one already-decoded command to the participant's bounded host queue.
 func offer_command(participant_id: int, decoded: Dictionary, receipt_msec: int) -> Dictionary:
 	var queue: VehicleInputQueue = _queues_by_participant.get(participant_id)
-	if queue == null or int(decoded.get("input_epoch", 0)) != INPUT_EPOCH:
+	var binding: Dictionary = binding_for_participant(participant_id)
+	if (
+		queue == null
+		or binding.is_empty()
+		or int(decoded.get("input_epoch", 0)) != int(binding.input_epoch)
+	):
 		return { "accepted": false, "failure": &"STALE_COMMAND_CONTEXT" }
 	var command: DriveCommand = decoded.get("command")
 	if queue.sequence_exceeds_freshness_window(command.sequence):
@@ -359,7 +370,7 @@ func reset_authority() -> void:
 
 ## Clears bounded prediction, queues, smoothers, and dynamic vehicle instances.
 func clear() -> void:
-	_prediction.invalidate()
+	_prediction.unbind_vehicle()
 	for smoother: RemoteMotionSmoother in _remote_smoothers.values():
 		smoother.clear()
 	_remote_smoothers.clear()
@@ -395,7 +406,7 @@ func _instantiate_vehicle(
 func _update_local_control(local_participant_id: int) -> void:
 	var entity_id: int = int(_entity_id_by_driver.get(local_participant_id, 0))
 	if entity_id == 0:
-		_prediction.invalidate()
+		_prediction.unbind_vehicle()
 		return
 	var record: Dictionary = _records_by_id[entity_id]
 	var vehicle: VehicleMotion = record.vehicle
@@ -468,6 +479,10 @@ func _valid_descriptor(value: Variant) -> bool:
 		and int(descriptor.driver_participant_id) >= 0
 		and descriptor.control_revision is int
 		and int(descriptor.control_revision) > 0
+		and (
+			int(descriptor.driver_participant_id) == 0
+			or int(descriptor.control_revision) <= DriveCommandCodec.MAX_INPUT_EPOCH
+		)
 	)
 
 

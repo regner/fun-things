@@ -442,12 +442,14 @@ passive collision before tree entry.
 
 M1-B1.1 drive intent is one fixed 16-byte big-endian packet: unsigned 32-bit command
 sequence and client tick, signed 16-bit normalized throttle/steer/brake, one handbrake
-bitfield byte, and an eight-bit control epoch. Size and reserved bits are rejected before
-field use. Sender-derived admission plus the outer session/match/controlled-vehicle
-EntityRef fence precede the bounded 120-sequence window and eight-frame host queue. The
-host consumes at most one frame per physics tick using the same three-tick supersession
-and 250 ms expiry rules as foot input. Movement acknowledgement names consumed or
-explicitly superseded work, never receipt.
+bitfield byte, and an eight-bit control epoch. The epoch is the exact monotonically
+advanced `control_revision` for that assignment; assignment refuses epoch exhaustion
+rather than wrapping, and delayed packets from an earlier assignment fail closed. Size and
+reserved bits are rejected before field use. Sender-derived admission plus the outer
+session/match/controlled-vehicle EntityRef fence precede the bounded 120-sequence window
+and eight-frame host queue. The host consumes at most one frame per physics tick using the
+same three-tick supersession and 250 ms expiry rules as foot input. Movement
+acknowledgement names consumed or explicitly superseded work, never receipt.
 
 M1-A2.3 foot intent retains one fixed 16-byte big-endian packet. It carries unsigned
 32-bit command sequence and client tick, signed 16-bit normalized move X/Y, signed 16-bit

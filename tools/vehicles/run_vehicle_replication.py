@@ -262,6 +262,22 @@ class VehicleProfileRunner:
             raise RuntimeError(f"{profile}: nonzero exits {exits}")
         if not host_result.get("ok") or not client_result.get("ok"):
             raise RuntimeError(f"{profile}: failed receipt {host_result} {client_result}")
+        prediction = client_result.get("prediction", {})
+        client_phases = client_result.get("phase_outcomes", {})
+        host_phases = host_result.get("phase_outcomes", {})
+        expected_phases = {"straight", "turn", "brake", "reverse", "handbrake"}
+        if (
+            int(client_result.get("movement_receipts", 0)) <= 1
+            or int(prediction.get("acknowledgement", 0)) <= 1
+            or int(prediction.get("reconciliation_count", 0)) <= 1
+            or set(client_phases) != expected_phases
+            or set(host_phases) != expected_phases
+            or not all(client_phases.values())
+            or not all(host_phases.values())
+            or not host_result.get("wall_contact_observed")
+            or not host_result.get("moving_contact_observed")
+        ):
+            raise RuntimeError(f"{profile}: incomplete authority/outcome proof")
         correction = float(
             client_result.get("prediction", {}).get("p95_correction_metres", 0.0)
         )

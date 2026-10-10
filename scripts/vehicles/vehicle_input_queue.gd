@@ -4,6 +4,7 @@ extends RefCounted
 
 const MAX_QUEUED_FRAMES: int = 8
 const SEQUENCE_FRESHNESS_WINDOW: int = 120
+const MAX_PENDING_LAG_TICKS: int = 3
 const HELD_EXPIRY_MSEC: int = 250
 
 var _frames: Array[DriveCommand] = []
@@ -62,9 +63,21 @@ func consume(now_msec: int) -> Dictionary:
 		held.command = _held_command
 		return held
 
-	var selected: DriveCommand = _frames[-1]
-	var superseded: bool = _frames.size() > 1
-	_frames.clear()
+	var newest: DriveCommand = _frames[-1]
+	var selected_index: int = _frames.size() - 1
+	for index: int in range(_frames.size()):
+		var candidate: DriveCommand = _frames[index]
+		if (
+			newest.sequence - candidate.sequence <= MAX_PENDING_LAG_TICKS
+			and newest.client_tick - candidate.client_tick <= MAX_PENDING_LAG_TICKS
+		):
+			selected_index = index
+			break
+
+	var selected: DriveCommand = _frames[selected_index]
+	var superseded: bool = selected_index > 0
+	for _index: int in range(selected_index + 1):
+		_frames.pop_front()
 	_acknowledgement = selected.sequence
 	_held_command = selected
 	return {

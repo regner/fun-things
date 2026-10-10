@@ -308,7 +308,7 @@ func predict_and_submit_local_vehicle_command(
 	)
 	if binding.is_empty():
 		return false
-	var encoded: Dictionary = DriveCommandCodec.encode(command, VehicleReplicator.INPUT_EPOCH)
+	var encoded: Dictionary = DriveCommandCodec.encode(command, int(binding.input_epoch))
 	if not encoded.get("ok", false):
 		return false
 	if not _vehicle_replicator.predict_local(command, delta_seconds):

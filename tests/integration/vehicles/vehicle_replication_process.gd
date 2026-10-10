@@ -23,13 +23,19 @@ var _start_position: Vector3 = Vector3.INF
 var _contact_vehicle: VehicleMotion
 var _wall_contact_observed: bool = false
 var _moving_contact_observed: bool = false
-var _mode_observed: Dictionary[StringName, bool] = {
+var _phase_outcomes: Dictionary[StringName, bool] = {
 	&"straight": false,
 	&"turn": false,
 	&"brake": false,
 	&"reverse": false,
 	&"handbrake": false,
 }
+var _phase_evidence: Dictionary[StringName, Dictionary] = {}
+var _phase_start_position: Vector3 = Vector3.ZERO
+var _phase_start_yaw: float = 0.0
+var _phase_start_speed: float = 0.0
+var _phase_min_speed: float = INF
+var _authority_mode: StringName = &""
 var _finished: bool = false
 
 @onready var _session: SessionService = $Session
@@ -90,10 +96,13 @@ func _physics_process(delta_seconds: float) -> void:
 	if _role == "client" and _test_ticks < COMMAND_TICKS:
 		_submit_profile_command(vehicle, delta_seconds)
 		return
-	if _role == "host" and _replication._vehicle_replicator.acknowledgement(
-		REMOTE_PARTICIPANT_ID
-	) == 0:
+	var authority_acknowledgement: int = (
+		_replication._vehicle_replicator.acknowledgement(REMOTE_PARTICIPANT_ID)
+	)
+	if _role == "host" and authority_acknowledgement == 0:
 		return
+	if _role == "host":
+		_measure_authority_phase(vehicle, authority_acknowledgement)
 	if _role == "host" and _test_ticks < 120:
 		_step_contact_vehicle(delta_seconds)
 
@@ -102,16 +111,18 @@ func _physics_process(delta_seconds: float) -> void:
 		return
 	var displacement: float = vehicle.global_position.distance_to(_start_position)
 	var prediction: Dictionary = _replication.vehicle_prediction_diagnostics()
-	var modes_complete: bool = not false in _mode_observed.values()
+	var phases_complete: bool = not false in _phase_outcomes.values()
 	var ok: bool = displacement > 0.5
 	if _role == "host":
-		ok = ok and _wall_contact_observed and _moving_contact_observed
+		ok = ok and phases_complete and _wall_contact_observed and _moving_contact_observed
 	else:
 		ok = (
 			ok
 			and _prediction_before_authority
-			and modes_complete
-			and _wall_contact_observed
+			and phases_complete
+			and _movement_receipts > 1
+			and int(prediction.get("acknowledgement", 0)) > 1
+			and int(prediction.get("reconciliation_count", 0)) > 1
 			and int(prediction.get("history_size", 0)) <= VehiclePrediction.HISTORY_CAPACITY
 		)
 	_finish(
@@ -119,7 +130,8 @@ func _physics_process(delta_seconds: float) -> void:
 		"complete",
 		{
 			"displacement_metres": displacement,
-			"modes": _mode_observed,
+			"phase_evidence": _phase_evidence,
+			"phase_outcomes": _phase_outcomes,
 			"moving_contact_observed": _moving_contact_observed,
 			"wall_contact_observed": _wall_contact_observed,
 			"movement_receipts": _movement_receipts,
@@ -238,7 +250,8 @@ func _submit_profile_command(vehicle: VehicleMotion, delta_seconds: float) -> vo
 	_sequence += 1
 	_test_ticks += 1
 	var controls: Dictionary = _controls_for_tick(_test_ticks)
-	_mode_observed[StringName(controls.mode)] = true
+	if _test_ticks in [1, 91, 171, 271, 371]:
+		_begin_phase(vehicle)
 	var before_position: Vector3 = vehicle.global_position
 	var receipts_before: int = _movement_receipts
 	var command := DriveCommand.new(
@@ -257,6 +270,97 @@ func _submit_profile_command(vehicle: VehicleMotion, delta_seconds: float) -> vo
 		and vehicle.global_position.distance_to(before_position) > 0.0001
 	):
 		_prediction_before_authority = true
+	_measure_phase_outcome(vehicle, StringName(controls.mode), _test_ticks)
+
+
+## Captures body state at the start of one behavioral acceptance phase.
+func _begin_phase(vehicle: VehicleMotion) -> void:
+	_phase_start_position = vehicle.global_position
+	_phase_start_yaw = vehicle.rotation.y
+	_phase_start_speed = vehicle.velocity.length()
+	_phase_min_speed = _phase_start_speed
+
+
+## Proves each control phase changed motion rather than merely submitting input.
+func _measure_phase_outcome(vehicle: VehicleMotion, mode: StringName, tick: int) -> void:
+	var speed: float = vehicle.velocity.length()
+	_phase_min_speed = minf(_phase_min_speed, speed)
+	if mode == &"straight" and tick == 90:
+		var distance: float = vehicle.global_position.distance_to(_phase_start_position)
+		_phase_outcomes[mode] = distance > 1.0
+		_phase_evidence[mode] = { "distance_metres": distance }
+	elif mode == &"turn" and tick == 170:
+		var heading_change: float = absf(angle_difference(_phase_start_yaw, vehicle.rotation.y))
+		_phase_outcomes[mode] = heading_change > 0.05
+		_phase_evidence[mode] = { "heading_change_radians": heading_change }
+	elif mode == &"brake" and tick == 270:
+		var deceleration: float = _phase_start_speed - _phase_min_speed
+		_phase_outcomes[mode] = deceleration > 0.5
+		_phase_evidence[mode] = {
+			"deceleration_mps": deceleration,
+			"start_speed_mps": _phase_start_speed,
+			"minimum_speed_mps": _phase_min_speed,
+		}
+	elif mode == &"reverse":
+		var forward_speed: float = float(vehicle.motion_state().forward_speed_mps)
+		if forward_speed < -0.25:
+			_phase_outcomes[mode] = true
+			_phase_evidence[mode] = { "forward_speed_mps": forward_speed }
+	elif mode == &"handbrake" and tick == COMMAND_TICKS:
+		var speed_reduction: float = _phase_start_speed - _phase_min_speed
+		var handbrake_yaw: float = absf(angle_difference(_phase_start_yaw, vehicle.rotation.y))
+		_phase_outcomes[mode] = speed_reduction > 0.25 and handbrake_yaw > 0.02
+		_phase_evidence[mode] = {
+			"heading_change_radians": handbrake_yaw,
+			"speed_reduction_mps": speed_reduction,
+		}
+
+
+## Measures the same behavioral outcomes from the host's consumed acknowledgement phases.
+func _measure_authority_phase(vehicle: VehicleMotion, acknowledgement: int) -> void:
+	var mode: StringName = StringName(_controls_for_tick(acknowledgement).mode)
+	if mode != _authority_mode:
+		if _authority_mode != &"":
+			_finalize_authority_phase(vehicle, _authority_mode)
+		_authority_mode = mode
+		_begin_phase(vehicle)
+
+	_phase_min_speed = minf(_phase_min_speed, vehicle.velocity.length())
+	if mode == &"reverse":
+		var forward_speed: float = float(vehicle.motion_state().forward_speed_mps)
+		if forward_speed < -0.25:
+			_phase_outcomes[mode] = true
+			_phase_evidence[mode] = { "forward_speed_mps": forward_speed }
+	elif mode == &"handbrake" and acknowledgement >= COMMAND_TICKS:
+		_finalize_authority_phase(vehicle, mode)
+
+
+## Finalizes one authoritative phase using observed body motion, not submitted intent.
+func _finalize_authority_phase(vehicle: VehicleMotion, mode: StringName) -> void:
+	if mode == &"straight":
+		var distance: float = vehicle.global_position.distance_to(_phase_start_position)
+		_phase_outcomes[mode] = distance > 1.0
+		_phase_evidence[mode] = { "distance_metres": distance }
+	elif mode == &"turn":
+		var heading_change: float = absf(angle_difference(_phase_start_yaw, vehicle.rotation.y))
+		_phase_outcomes[mode] = heading_change > 0.05
+		_phase_evidence[mode] = { "heading_change_radians": heading_change }
+	elif mode == &"brake":
+		var deceleration: float = _phase_start_speed - _phase_min_speed
+		_phase_outcomes[mode] = deceleration > 0.5
+		_phase_evidence[mode] = {
+			"deceleration_mps": deceleration,
+			"start_speed_mps": _phase_start_speed,
+			"minimum_speed_mps": _phase_min_speed,
+		}
+	elif mode == &"handbrake":
+		var speed_reduction: float = _phase_start_speed - _phase_min_speed
+		var heading_change: float = absf(angle_difference(_phase_start_yaw, vehicle.rotation.y))
+		_phase_outcomes[mode] = speed_reduction > 0.25 and heading_change > 0.02
+		_phase_evidence[mode] = {
+			"heading_change_radians": heading_change,
+			"speed_reduction_mps": speed_reduction,
+		}
 
 
 ## Returns one complete phase command without changing the shared handling rule.
