@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://lrslwd60q5gs"]
+
+[ext_resource type="PackedScene" path="res://art/models/environment/d04_towers_01/d04_towers_01.glb" id="1_model"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_lobby"]
+size = Vector3(24, 6, 18)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_shaft"]
+size = Vector3(22, 48, 16)
+
+[node name="D04Towers01" type="Node3D" unique_id=2069517158]
+
+[node name="Visuals" type="Node3D" parent="." unique_id=910147643]
+
+[node name="Model" parent="Visuals" unique_id=1940899863 instance=ExtResource("1_model")]
+
+[node name="Collision" type="Node3D" parent="." unique_id=58028553]
+
+[node name="Body" type="StaticBody3D" parent="Collision" unique_id=975400900]
+collision_mask = 0
+
+[node name="Lobby" type="CollisionShape3D" parent="Collision/Body" unique_id=1010136195]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 0)
+shape = SubResource("BoxShape3D_lobby")
+
+[node name="Shaft" type="CollisionShape3D" parent="Collision/Body" unique_id=1310663359]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 30, 0)
+shape = SubResource("BoxShape3D_shaft")
