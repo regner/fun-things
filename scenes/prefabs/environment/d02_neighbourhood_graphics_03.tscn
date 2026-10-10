@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://dlqfgxgatyw7x"]
+
+[ext_resource type="PackedScene" uid="uid://fpcm6q4n57qx" path="res://scenes/prefabs/environment/city_shop_fittings_02.tscn" id="1_fascia"]
+[ext_resource type="Material" uid="uid://bq834c3owae4b" path="res://art/materials/environment/d02_neighbourhood_graphics_03/corner_cupboard.tres" id="2_art"]
+
+[node name="d02_neighbourhood_graphics_03" unique_id=378621676 instance=ExtResource("1_fascia")]
+
+[node name="fascia_artwork_carrier" parent="Visuals/Model/city_shop_fittings_02" parent_id_path=PackedInt32Array(1650053803, 643402131) index="2" unique_id=821284309]
+surface_material_override/0 = ExtResource("2_art")
+
+[editable path="Visuals/Model"]

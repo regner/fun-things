@@ -1,0 +1,49 @@
+d02_neighbourhood_graphics.03 - final bounded producer checks
+Worktree: C:/GameDev/git/ft-lanes/a-d02g; branch lane/a-d02g
+Full exact commands: ../d02_neighbourhood_graphics_03.md, Exact reproduction.
+Scratch-only full logs: C:/tmp/ft/assets/d02_neighbourhood_graphics_03/
+
+python tools/asset_production/d02_neighbourhood_graphics_03/author.py
+EXIT 0: original RGB 2000x400 PNG, 59790 bytes.
+python -m unittest discover -s tools/asset_production/d02_neighbourhood_graphics_03 -p 'test_*.py' -v
+EXIT 0: Ran 4 tests; OK. Reproduction, safe margin/quiet field, grocery pixels, contrast proxy.
+
+Pinned Blender CLI, timeout 180, --background --factory-startup --threads 4:
+validate.py EXIT 0. Blender 5.2.2 LTS d13f752e3b9c; exporter 5.2.40.
+CORNER_SOURCE_PASS: shared carrier untouched; source and binary assertions pass.
+836 source vertices; 1072 exported vertices; 1656 triangles; 7 meshes; 8 surfaces.
+Zero degenerate faces/triangles and non-manifold edges; unit normals; 28 front UV samples.
+Fresh shared reexport byte-identical: 45616 bytes.
+Pinned Blender CLI, timeout 900, identical isolation/audio options:
+preview.py EXIT 0. Four 1280x720 Cycles CPU renders, 24 samples, PNG compression 100.
+Self-inspected all four and texture. Upright quiet copy/grocery motif at close range;
+overhead 47m / 42deg is only a tiny ivory strip, not readable text or essential wayfinding.
+Blender source/render logs contain existing node-API deprecation warnings, no errors.
+
+Pinned Godot 4.8.dev7.official.c971f93e7, timeout 300 --headless --path . --import:
+initial and final import EXIT 0; no ERROR or SCRIPT ERROR lines.
+Pinned headless --editor check_prefab.gd -- --normalize, timeout 60:
+EXIT 0; CORNER_PREFAB_PASS; initial normalization plus TWO byte-stable load/pack/save cycles.
+Known editor shutdown diagnostics retained as a limitation: addon 4.8/4.7 warning,
+scan-thread aborted warning, viewport/dummy texture/scenario/text/font RID leaks,
+Canvas/CanvasItem and ObjectDB leaks. Not a diagnostic-free editor exit.
+Pinned non-editor --headless check_prefab.gd, timeout 60:
+EXIT 0; CORNER_PREFAB_PASS; no ERROR/SCRIPT ERROR/WARNING lines.
+Exact inherited hierarchy and linked mesh resources; one face override; actual mipmaps;
+identity transforms and measured bounds; no collider. No live MCP requests.
+
+gdstyle 0.3.0 fmt --check tools/asset_production/d02_neighbourhood_graphics_03/check_prefab.gd
+EXIT 0: 1 file already formatted.
+gdstyle 0.3.0 --max-line-length 100 --max-warnings 0 on the same file
+EXIT 0: 1 file checked, no issues found.
+python tools/asset_production/d02_neighbourhood_graphics_03/finalize.py
+EXIT 0: CORNER_FINAL_RECEIPT_PASS; source, 4 tests, runtime, 2 roundtrips and 4 renders.
+python tools/asset_production/d02_neighbourhood_graphics_03/manifest.py [--write then verify]
+EXIT 0: complete producer payload inventory; dependencies separately hashed in validation.
+
+Earlier corrected attempts: missing K skeleton (author exit 1); one filtered divider
+pixel differed by 5 levels (1/4 tests failed); one 102-character GDScript line (lint exit 1).
+Added original K; bounded thin-rule sample tolerance to 6 levels while retaining exact
+broad-colour samples; split line. Final independent test expectations and lint pass.
+No production_checks.py run per decision 52. Placement, final copy selection, independent
+review, populated renderer/gameplay camera, packaging and Deck/performance remain pending.
