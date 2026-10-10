@@ -5,6 +5,7 @@ const TRACER: PackedScene = preload(
 	"res://scenes/effects/weapon_effects/weapon_effects_a_tracer.tscn"
 )
 const BURST_SIZE: int = 40
+const ASYNC_TIMEOUT_SECONDS: float = 5.0
 
 
 ## Require immediate visibility, occupied-root retention, one completion, and safe reuse.
@@ -26,7 +27,14 @@ func test_immediate_play_busy_completion_and_reuse() -> void:
 	assert_false(tracer.play(), "A second event cannot reset an occupied root")
 	assert_false(tracer.configure_segment(Vector3.ONE, Vector3(1, 1, -2)))
 	assert_eq(tracer.position, Vector3.ZERO)
-	await wait_seconds(0.15)
+	assert_true(
+		await wait_for_signal(
+			Signal(tracer, &"finished"),
+			ASYNC_TIMEOUT_SECONDS,
+			"tracer completion",
+		),
+		"tracer did not finish within %.1f seconds" % ASYNC_TIMEOUT_SECONDS,
+	)
 	assert_false(tracer.is_active())
 	assert_false(tracer.visible)
 	assert_signal_emit_count(tracer, "finished", 1)
@@ -34,7 +42,17 @@ func test_immediate_play_busy_completion_and_reuse() -> void:
 	tracer.clear()
 	assert_false(tracer.is_active())
 	assert_false(tracer.visible)
-	await wait_seconds(0.15)
+	var witness: Node3D = TRACER.instantiate()
+	add_child_autofree(witness)
+	assert_true(witness.play())
+	assert_true(
+		await wait_for_signal(
+			Signal(witness, &"finished"),
+			ASYNC_TIMEOUT_SECONDS,
+			"post-clear witness completion",
+		),
+		"post-clear witness did not finish within %.1f seconds" % ASYNC_TIMEOUT_SECONDS,
+	)
 	assert_signal_emit_count(tracer, "finished", 1, "Clear cancels completion, not gameplay")
 
 
@@ -92,10 +110,26 @@ func test_every_event_has_shared_geometry_and_independent_lifetime() -> void:
 
 	tracers[0].clear()
 	assert_true(tracers[1].is_active(), "Clearing one event cannot erase another")
-	await wait_seconds(0.15)
+	assert_true(
+		await wait_until(
+			_all_tracers_inactive.bind(tracers),
+			ASYNC_TIMEOUT_SECONDS,
+			"burst tracer completion",
+		),
+		"burst tracers did not finish within %.1f seconds" % ASYNC_TIMEOUT_SECONDS,
+	)
 	for tracer: Node3D in tracers:
 		assert_false(tracer.is_active())
 		assert_false(tracer.visible)
+
+
+## Reports when every retained tracer has completed its independent lifetime.
+func _all_tracers_inactive(tracers: Array[Node3D]) -> bool:
+	for tracer: Node3D in tracers:
+		if tracer.is_active() or tracer.visible:
+			return false
+
+	return true
 
 
 ## The importer's static AABB encloses all draw vertices; no particle travel bound is needed.

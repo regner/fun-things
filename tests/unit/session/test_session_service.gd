@@ -1,7 +1,7 @@
 extends GutTest
 ## Verifies the production session operation and cleanup contracts through public APIs.
 
-const WAIT_SECONDS: float = 0.08
+const ASYNC_TIMEOUT_SECONDS: float = 5.0
 
 var _service: SessionService
 var _transport: FakeSessionTransport
@@ -47,7 +47,7 @@ func test_cancel_late_callback_and_retry_are_correlated() -> void:
 	assert_eq(_service.host(_host_request()).failure.code, &"BUSY")
 	assert_true(_service.cancel(first.operation_id).ok)
 	assert_true(_service.cancel(first.operation_id).ok)
-	await get_tree().create_timer(WAIT_SECONDS).timeout
+	await _assert_phase(SessionService.PHASE_IDLE, "canceled host cleanup")
 	assert_eq(_service.view().phase, SessionService.PHASE_IDLE)
 	assert_eq(_completion_count(first.operation_id), 1)
 	assert_eq(_completions[first.operation_id][0].failure.code, &"CANCELED")
@@ -69,14 +69,14 @@ func test_cancel_late_callback_and_retry_are_correlated() -> void:
 ## Rejects host-A callbacks and stale tokens after host B becomes active.
 func test_host_callbacks_require_current_operation_and_token_generation() -> void:
 	var host_a: Dictionary = _service.host(_host_request())
-	await get_tree().create_timer(WAIT_SECONDS).timeout
+	await _assert_phase(SessionService.PHASE_ACTIVE, "first host startup")
 	assert_eq(_service.view().phase, SessionService.PHASE_ACTIVE)
 	var host_a_token: int = _transport.connection_token_for(7)
 	assert_true(_service.leave().ok)
-	await get_tree().create_timer(WAIT_SECONDS).timeout
+	await _assert_phase(SessionService.PHASE_IDLE, "first host cleanup")
 
 	var host_b: Dictionary = _service.host(_host_request())
-	await get_tree().create_timer(WAIT_SECONDS).timeout
+	await _assert_phase(SessionService.PHASE_ACTIVE, "second host startup")
 	assert_eq(_service.view().phase, SessionService.PHASE_ACTIVE)
 	var host_b_token: int = _transport.connection_token_for(7)
 	_transport.emit_connected(host_b.operation_id, host_b_token, 7)
@@ -107,7 +107,7 @@ func test_close_timeout_forces_unavailable_without_double_completion() -> void:
 	assert_eq(_service.view().phase, SessionService.PHASE_ACTIVE)
 
 	var leave_result: Dictionary = _service.leave()
-	await get_tree().create_timer(WAIT_SECONDS).timeout
+	await _assert_phase(SessionService.PHASE_IDLE, "silent-provider close deadline")
 	assert_eq(_service.view().phase, SessionService.PHASE_IDLE)
 	assert_eq(_completion_count(leave_result.operation_id), 1)
 	var close_result: Dictionary = _completions[leave_result.operation_id][0].close
@@ -148,7 +148,7 @@ func test_join_accepts_provider_target_and_waits_for_admission() -> void:
 	assert_eq(_completion_count(accepted.operation_id), 0)
 
 	_transport.emit_failure(accepted.operation_id, &"NATIVE_PROVIDER_DETAIL")
-	await get_tree().create_timer(WAIT_SECONDS).timeout
+	await _assert_phase(SessionService.PHASE_IDLE, "provider-failure cleanup")
 	assert_eq(_service.view().phase, SessionService.PHASE_IDLE)
 	assert_eq(_completion_count(accepted.operation_id), 1)
 	assert_eq(_completions[accepted.operation_id][0].failure.code, &"CONNECT_FAILED")
@@ -166,7 +166,7 @@ func test_join_connection_deadline_reports_connect_timeout() -> void:
 		}
 	)
 	assert_true(accepted.ok)
-	await get_tree().create_timer(WAIT_SECONDS).timeout
+	await _assert_phase(SessionService.PHASE_IDLE, "join connection deadline")
 	assert_eq(_service.view().phase, SessionService.PHASE_IDLE)
 	assert_eq(_completion_count(accepted.operation_id), 1)
 	assert_eq(_completions[accepted.operation_id][0].failure.code, &"CONNECT_TIMEOUT")
@@ -232,6 +232,20 @@ func test_compatibility_validation_returns_normalized_failures() -> void:
 	var wrong_content: Dictionary = exact.duplicate(true)
 	wrong_content.content_id = "other"
 	assert_eq(_service.validate_compatibility(wrong_content).failure.code, &"CONTENT_INVALID")
+
+
+## Polls an observable session phase with a generous bound and a contextual failure.
+func _assert_phase(expected_phase: StringName, context: String) -> void:
+	var reached_phase: bool = await wait_until(
+		func() -> bool: return _service.view().phase == expected_phase,
+		ASYNC_TIMEOUT_SECONDS,
+		context,
+	)
+	assert_true(
+		reached_phase,
+		"%s did not reach %s within %.1f seconds; current phase is %s"
+		% [context, expected_phase, ASYNC_TIMEOUT_SECONDS, _service.view().phase],
+	)
 
 
 ## Records terminal signals independently so duplicate emissions stay observable.

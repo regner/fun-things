@@ -6,8 +6,6 @@ const PROVIDER_ID: StringName = &"fake"
 
 var auto_ready: bool = true
 var auto_close: bool = true
-var ready_delay_seconds: float = 0.01
-var close_delay_seconds: float = 0.01
 var opened_operations: Array[int] = []
 var closed_operations: Array[int] = []
 var disposed_operations: Array[int] = []
@@ -132,16 +130,14 @@ func _open(operation_id: int) -> Dictionary:
 	return _success()
 
 
-## Delivers a peer after the configured fake delay.
+## Delivers a peer on the next event-loop turn without depending on wall-clock timing.
 func _deliver_peer(operation_id: int) -> void:
-	await get_tree().create_timer(ready_delay_seconds).timeout
-	emit_peer(operation_id)
+	emit_peer.call_deferred(operation_id)
 
 
-## Delivers a close result after the configured fake delay.
+## Delivers close on the next event-loop turn without depending on wall-clock timing.
 func _deliver_closed(operation_id: int) -> void:
-	await get_tree().create_timer(close_delay_seconds).timeout
-	emit_closed(operation_id)
+	emit_closed.call_deferred(operation_id)
 
 
 ## Builds one capability row without duplicating stream policy literals.

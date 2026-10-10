@@ -2,6 +2,7 @@ extends GutTest
 ## Verifies production audio limits, deterministic stealing, and clean teardown.
 
 const FIXTURE_SCENE: PackedScene = preload("res://tests/unit/audio/audio_voice_test.tscn")
+const ASYNC_TIMEOUT_SECONDS: float = 5.0
 
 var _fixture: Node3D
 var _service: AudioVoiceService
@@ -107,8 +108,15 @@ func test_finished_one_shot_releases_voice_for_farther_event() -> void:
 		_activate_emitter(_emitters[0], AudioVoiceService.CATEGORY_WEAPONS, 0)
 	)
 	assert_eq(_service.active_voice_count(AudioVoiceService.CATEGORY_WEAPONS), 1)
-
-	await get_tree().create_timer(0.4).timeout
+	var one_shot_player: AudioStreamPlayer3D = _emitters[0].get_node("%Player")
+	assert_true(
+		await wait_for_signal(
+			one_shot_player.finished,
+			ASYNC_TIMEOUT_SECONDS,
+			"weapon one-shot completion",
+		),
+		"weapon one-shot did not finish within %.1f seconds" % ASYNC_TIMEOUT_SECONDS,
+	)
 
 	assert_false(_emitters[0].is_voice_granted())
 	assert_eq(_service.active_voice_count(AudioVoiceService.CATEGORY_WEAPONS), 0)
@@ -125,8 +133,15 @@ func test_finished_engine_voice_remains_active_and_restarts() -> void:
 	assert_true(
 		_activate_emitter(_emitters[0], AudioVoiceService.CATEGORY_ENGINES, 0)
 	)
-
-	await get_tree().create_timer(0.3).timeout
+	var engine_player: AudioStreamPlayer3D = _emitters[0].get_node("%Player")
+	assert_true(
+		await wait_for_signal(
+			engine_player.finished,
+			ASYNC_TIMEOUT_SECONDS,
+			"engine stream restart",
+		),
+		"engine stream did not finish once within %.1f seconds" % ASYNC_TIMEOUT_SECONDS,
+	)
 
 	assert_true(_emitters[0].is_voice_granted())
 	assert_true(_emitters[0].is_audio_playing())
@@ -177,17 +192,19 @@ func test_explosion_duck_extends_and_recovers_relative_to_base_levels() -> void:
 	assert_true(is_equal_approx(AudioServer.get_bus_volume_db(engine_index), -3.0))
 	assert_true(is_equal_approx(AudioServer.get_bus_volume_db(weapon_index), -2.0))
 
-	# A settings update remains the base while the service-owned effect stays relative.
+	# Drive the engine callback directly so duration behavior is independent of wall-clock load.
 	AudioServer.set_bus_volume_db(engine_index, -6.0)
 	AudioServer.set_bus_volume_db(weapon_index, -3.0)
-	await get_tree().create_timer(0.18).timeout
+	_service.set_process(false)
+	_service._process(0.18)
 	assert_true(
 		_activate_emitter(_emitters[1], AudioVoiceService.CATEGORY_EXPLOSIONS, 0)
 	)
-	await get_tree().create_timer(0.15).timeout
+	_service.set_process(false)
+	_service._process(0.15)
 	assert_true(_service.is_ducking_active())
 
-	await get_tree().create_timer(0.2).timeout
+	_service._process(0.2)
 	assert_false(_service.is_ducking_active())
 	assert_true(is_zero_approx(engine_duck.volume_db))
 	assert_true(is_zero_approx(weapon_duck.volume_db))
