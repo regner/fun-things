@@ -320,7 +320,11 @@ saved identities through reexport. Direct imported-child overrides changed a sav
 child `unique_id` in S01 and remain rejected for identity-sensitive variants.
 Keep imported children noneditable for the accepted route; presentation may apply
 the authored material parameter to the linked mesh, without copying geometry or
-changing placement. Production consumers still review their own appearance API.
+changing placement. Narrow exception (artwork on reused carrier hardware): a static,
+non-identity-sensitive prop may save one editable-child `surface_material_override`
+on the artwork face slot only, when the linked GLB is unchanged, no geometry is
+copied, and two save/reload roundtrips prove byte-stable files and unchanged
+identities/UIDs. Each handoff cites this exception and its roundtrip evidence. Production consumers still review their own appearance API.
 Save/reopen wrappers
 and inherited variants after reexport; compare paths, ancestry, material/component overrides and
 identities. Unexpected embedded mesh data rejects review.
