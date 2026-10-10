@@ -1,0 +1,33 @@
+d04_forecourt_graphics.03 - Quiet inset emblem
+Producer checks; independent review and world/gameplay/device acceptance pending.
+Exact reproduction commands: ../d04_forecourt_graphics_03.md
+Scratch-only raw logs: C:/tmp/ft/assets/d04_forecourt_graphics_03/
+
+PASS Python/Pillow artwork.py: original 512x512 RGB PNG, 1960 bytes.
+PASS python -m unittest discover -s tools/asset_production/d04_forecourt_graphics_03 -p test_*.py -v: 5 tests.
+PASS pinned Blender author.py: original 8x8m quad at 15mm datum; saved relative PNG dependency.
+PASS pinned Blender validate.py: 4 vertices, 2 triangles, 1 mesh/surface; zero degenerates;
+     4 justified perimeter edges, zero other nonmanifold edges; unit upward normals.
+PASS fresh saved-source GLB re-export: byte-identical, 1400 bytes, no embedded images.
+PASS pinned Blender preview.py: hero/side/detail/47m42deg overhead, 1280x720 RGB PNG.
+     All four final renders and runtime PNG personally inspected; no visual repair needed.
+     All Blender calls used timeout 900, -noaudio --background --factory-startup --threads 4
+     --python-exit-code 1, ALSOFT_DRIVERS=null SDL_AUDIODRIVER=dummy. Exits 0.
+PASS python -m py_compile on all seven owned Python files.
+PASS pinned gdstyle 0.3.0 fmt --check: 1 file already formatted.
+PASS pinned gdstyle --max-line-length 100 --max-warnings 0: 1 file, no issues found.
+PASS pinned Godot initial/configured/final imports (timeout 300): exits 0, no ERROR/SCRIPT ERROR.
+PASS pinned Godot headless editor normalization (timeout 180): exit 0; two byte-stable
+     scene/material load-pack-save rounds, retaining UIDs and node identities.
+LIMITATION normalization shutdown: scan-aborted, 168 ObjectDB and RID leaks; no clean-shutdown
+     claim. Same diagnostic class as earlier siblings, not a newly measured empty baseline.
+PASS final non-editor dependency load (timeout 180): exit 0, no ERROR/SCRIPT ERROR; bounds,
+     linked identity GLB, external material, mipmaps/filtering, no collision, registered UIDs.
+PASS five earlier sibling record.py manifest checks: unchanged payloads and dependencies.
+PASS producer manifest exact-payload/hash verification; all produced files except manifest itself.
+
+Pinned Blender 5.2.2 LTS d13f752e3b9c / glTF exporter 5.2.40.
+Pinned Godot 4.8.dev7.official.c971f93e7. Python/Pillow 12.3.0.
+Known diagnostics: addon 4.8-versus-tested-4.7 warning; Blender future use_nodes deprecation.
+No assertion/format/artwork failure, live owner editor access, world placement, production_checks.py,
+actor/car traversal, multiplayer transport, engine visual capture or device/performance claim.
