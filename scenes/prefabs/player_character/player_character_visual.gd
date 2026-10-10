@@ -167,7 +167,7 @@ func locomotion_playback_scale(locomotion: StringName, movement_speed_mps: float
 	return movement_speed_mps * profile.y / profile.x
 
 
-## Measure one foot's maximum grounded travel and the lower of its two cycle arcs.
+## Measure the authored stance window, or infer grounded travel for legacy walk clips.
 func _authored_contact_profile(locomotion: StringName) -> Vector2:
 	if _contact_profiles.has(locomotion):
 		return _contact_profiles[locomotion]
@@ -177,6 +177,14 @@ func _authored_contact_profile(locomotion: StringName) -> Vector2:
 	var foot_index: int = _skeleton.find_bone(CONTACT_FOOT_BONE)
 	if animation == null or animation.length <= 0.0 or foot_index < 0:
 		return Vector2.ZERO
+
+	if animation.has_meta(&"stance_right_seconds"):
+		var stance: Vector2 = animation.get_meta(&"stance_right_seconds")
+		var authored_profile: Vector2 = _measure_stance_profile(
+			lower, locomotion, stance, foot_index
+		)
+		_contact_profiles[locomotion] = authored_profile
+		return authored_profile
 
 	lower.play(locomotion)
 	lower.speed_scale = 1.0
@@ -189,6 +197,30 @@ func _authored_contact_profile(locomotion: StringName) -> Vector2:
 	var profile: Vector2 = _contact_profile_from_samples(positions, animation.length)
 	_contact_profiles[locomotion] = profile
 	return profile
+
+
+## Read source-authored contact times without assuming a grounded half-cycle during flight.
+func _measure_stance_profile(
+	lower: AnimationPlayer,
+	locomotion: StringName,
+	stance: Vector2,
+	foot_index: int,
+) -> Vector2:
+	var animation: Animation = lower.get_animation(locomotion)
+	if not stance.is_finite() or stance.x < 0.0 or stance.y <= stance.x:
+		return Vector2.ZERO
+	if stance.y > animation.length:
+		return Vector2.ZERO
+
+	lower.play(locomotion)
+	lower.speed_scale = 1.0
+	lower.seek(stance.x, true)
+	var start: Vector3 = _skeleton.get_bone_global_pose(foot_index).origin
+	lower.seek(stance.y, true)
+	var end: Vector3 = _skeleton.get_bone_global_pose(foot_index).origin
+	lower.stop()
+	var travel: Vector2 = Vector2(end.x - start.x, end.z - start.z)
+	return Vector2(travel.length(), stance.y - stance.x)
 
 
 ## Find contact travel and duration among the grounded quarter of the vertical range.

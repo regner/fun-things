@@ -53,6 +53,10 @@ func check_library(
 		var clip: Animation = library.get_animation(name)
 		expect(absf(clip.length - float(spec.duration_s)) < EPSILON, name + " duration")
 		expect(clip.get_track_count() == 84, name + " complete bone channel reset")
+		if spec.has("stance_right_seconds"):
+			var stance: Vector2 = clip.get_meta(&"stance_right_seconds", Vector2.ZERO)
+			var source_stance := Vector2(spec.stance_right_seconds[0], spec.stance_right_seconds[1])
+			expect(stance.is_equal_approx(source_stance), name + " source stance window")
 		expect(
 			clip.loop_mode == (Animation.LOOP_LINEAR if spec.loop else Animation.LOOP_NONE),
 			name + " loop mode",

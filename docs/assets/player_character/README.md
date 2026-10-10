@@ -46,7 +46,7 @@ movement tracks. The full library resets all 28 bones with 84 transform channels
 | --- | --- | --- |
 | `idle` | 2 s | yes |
 | `walk`, `walk_back`, `walk_left`, `walk_right` | 1 s | yes |
-| `run`, `run_back`, `run_left`, `run_right` | 0.8 s | yes |
+| `run`, `run_back`, `run_left`, `run_right` | 20/30 s (0.666667 s) | yes |
 | `death` | 1.2 s | no, final pose retained |
 | `pistol_hold`, `smg_hold`, `launcher_hold` | 2 s | yes |
 | `pistol_walk`, `smg_walk`, `launcher_walk` | 1 s | yes |
@@ -72,6 +72,103 @@ movement_speed_mps)` exposes the same presentation calibration. For example,
 integrator owns heading, blend timing, movement speed and authoritative state. These are
 animation assets and presentation APIs, not a player controller or a gameplay
 AnimationTree.
+
+## M1-C1.2 follow-up — natural 5 m/s run
+
+**Checked; awaiting orchestrator review.** The four directional lower-body runs now use
+20-frame cycles (30 FPS), giving three steps/second and **1.667 m of body travel per
+step** at the production 5 m/s speed. This is not 1.667 m of grounded foot sweep:
+canonical leg lengths cannot reach that far without stretching. Each foot instead
+sweeps **0.666667 m in a 0.133333 s stance**, followed by recovery/flight. The right
+contact window is frames 6–10; the left is half a cycle later. A linear support sweep,
+Hermite recovery, bent-knee lift and pelvis compression replace the old sinusoidal
+half-cycle stance. Lateral steps are staggered fore/aft for crossing clearance.
+
+The source manifest owns `stance_right_seconds`. Extraction copies it to the full
+and lower `Animation` metadata; presentation measures actual foot displacement between
+those times. Legacy walk clips retain sampled contact inference. No gameplay speed,
+root motion, skeleton/rest, socket, layer ownership or `play_layered` API changed.
+Weapon clips retain their original durations and authored gestures (including their
+legacy 0.8 s full-body run previews); production uses the new directional lower runs
+with independent weapon upper holds. All 20 untouched source actions compare within
+2.39e-7 saved-key units against baseline `e6bde00` (floating-point regeneration noise).
+The skin, canonical rig, grip profiles, prefab and pedestrian files are byte-identical.
+
+| Direction | Derived playback at 5 m/s | Max baked stance world velocity |
+| --- | ---: | ---: |
+| `run` | 1.0000013× | 0.0000192 m/s |
+| `run_back` | 1.0000013× | 0.0000197 m/s |
+| `run_left` | 0.99999994× | 0.0000242 m/s |
+| `run_right` | 0.99999994× | 0.0000247 m/s |
+
+The presentation regression reads contact times from the animation, checks four
+support intervals (not just calibration endpoints), and requires **0.85–1.2×** cadence
+and **<0.05 m/s** residual foot world velocity in every direction, including rotated
+facing. Godot's default animation optimizer discarded important mid-stance keys;
+it is disabled on this player motion import's AnimationPlayer. That engine setting
+is player-library-wide, so extracted weapon/walk tracks also retain denser samples;
+this is not a re-authoring of those poses. Extraction preserves library UIDs and
+animation subresource IDs. No pedestrian import setting was changed.
+
+[Four contact sheets, validation and SHA-256 manifest](evidence/run_5mps/manifest.json)
+are the lean evidence for this follow-up. Each 1280×720 sheet shows touchdown/support/
+lift-off/flight plus a **native-pixel-scale crop** of a 47 m vertical, 42° camera render.
+These were inspected for grounded support, flight, silhouette and lateral leg clearance.
+They use disposable Blender review lighting, not a gameplay capture. Earlier gallery
+images/recordings above document the pre-follow-up asset, not these new run clips.
+
+Validation: source reexport byte-identical; all 24 imported clips, fixed roots, loop
+seams, source keys, skin swapping, grips and disjoint layers pass. All 21 frames of
+each new run retain leg lengths within 0.00000077 m and keep the skin at least 2.5 mm
+above the ground. Mesh topology remains 5,942 vertices / 11,600 triangles / 12 material
+surfaces, zero degenerate triangles; the 22 existing boundary edges are the intentionally
+open bomber/collar fronts, not new damage. Full production checks pass: 119/119 GUT
+tests (6,386 assertions), 14 Python tests, owned-script lint/compilation and negative
+GUT failure detection. The four presentation tests pass all 49 assertions.
+
+### Reproduce the run follow-up (Git Bash, isolated CLI processes)
+
+No live Blender/Godot editor sessions were accessed. Headless import does not refresh
+an owner's open scene: reload affected resources before any subsequent editor save.
+Pillow is required only to package the contact sheets. All scratch outputs stay outside
+the checkout; only the four sheets, `validation.json` and `manifest.json` are delivered.
+
+```bash
+S=C:/tmp/ft/assets/coral_courier_run
+B='C:/Program Files/Blender Foundation/Blender 5.2/blender.exe'
+G="$(mise which godot)"
+export ALSOFT_DRIVERS=null SDL_AUDIODRIVER=dummy
+mkdir -p "$S"
+# Only when intentionally regenerating the saved motion source:
+timeout 900 "$B" -noaudio --background --factory-startup --threads 4 \
+  --python-exit-code 1 --python tools/assets/characters/coral_courier/author_motion.py
+# Fresh export from the SAVED source, using the shared export settings:
+timeout 900 "$B" -noaudio --background --factory-startup --threads 4 \
+  art/source/models/characters/shared_humanoid/shared_humanoid_player_motion_v1.blend \
+  --python-exit-code 1 --python tools/assets/characters/coral_courier/reexport.py -- \
+  export_shared_humanoid_player_v1 "$S/reexport.glb" --animations
+cmp "$S/reexport.glb" art/models/characters/shared_humanoid/shared_humanoid_player_motion_v1.glb
+timeout 300 "$G" --headless --editor --path . --import --quit
+timeout 180 "$G" --headless --path . --script res://tools/assets/characters/coral_courier/extract_motion.gd
+timeout 180 "$G" --headless --path . --script res://tools/assets/characters/coral_courier/check_player_asset.gd > "$S/asset_check.log"
+timeout 180 "$G" --headless --path . --script res://tools/assets/characters/coral_courier/measure_run.gd > "$S/measure_run.log"
+timeout 180 "$G" --headless --path . --script res://addons/gut/gut_cmdln.gd \
+  -gconfig= -gtest=res://tests/unit/actors/test_player_motion_presentation.gd -gexit -gdisable_colors
+git show e6bde00:art/source/models/characters/shared_humanoid/shared_humanoid_player_motion_v1.blend > "$S/baseline_motion.blend"
+timeout 900 "$B" -noaudio --background --factory-startup --threads 4 \
+  --python-exit-code 1 --python tools/assets/characters/coral_courier/review_run.py -- \
+  --output "$S/review" --baseline-motion "$S/baseline_motion.blend"
+# Output directory must be fresh; choose a new suffix when repeating checks.
+timeout 1800 python tools/production_checks.py --godot "$G" \
+  --gdstyle "$(mise which gdstyle)" --output "$S/checks"
+python tools/assets/characters/coral_courier/package_run_evidence.py \
+  --scratch "$S" --checks "$S/checks" --baseline e6bde00
+```
+
+The full-worktree import logs the existing MCP addon's 4.8 compatibility warning;
+the isolated production-check import/compile/test profile is diagnostic-clean. Device
+performance, full-city play and live-editor synchronization remain outside this art
+follow-up. No simulation or collision behavior was changed.
 
 ## Skins and attachments
 

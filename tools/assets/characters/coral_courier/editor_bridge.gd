@@ -98,15 +98,17 @@ func save_motion_libraries() -> Dictionary:
 			assert(imported.has_animation(clip.name), "Missing imported clip " + str(clip.name))
 			var animation: Animation = imported.get_animation(clip.name).duplicate(true)
 			animation.loop_mode = Animation.LOOP_LINEAR if clip.loop else Animation.LOOP_NONE
+			if clip.has("stance_right_seconds"):
+				var stance: Array = clip.stance_right_seconds
+				animation.set_meta(&"stance_right_seconds", Vector2(stance[0], stance[1]))
 			library.add_animation(clip.name, animation)
 			summary.append({
 				"name": clip.name, "duration": animation.length,
 				"tracks": animation.get_track_count(),
 				"first_path": str(animation.track_get_path(0)),
 			})
-		var error: Error = ResourceSaver.save(library,
+		_save_library(library,
 			"res://art/animations/characters/shared_humanoid/" + family + "_v1.tres")
-		assert(error == OK)
 		result[family] = summary
 		source.free()
 	return result
@@ -184,9 +186,29 @@ func save_layer_libraries() -> void:
 		else:
 			lower.add_animation(name, animation)
 	var upper_path: String = "res://art/animations/characters/shared_humanoid/player_upper_v1.tres"
-	assert(ResourceSaver.save(upper, upper_path) == OK)
+	_save_library(upper, upper_path)
 	var lower_path: String = "res://art/animations/characters/shared_humanoid/player_lower_v1.tres"
-	assert(ResourceSaver.save(lower, lower_path) == OK)
+	_save_library(lower, lower_path)
+
+
+## Preserve saved library UIDs and animation identities across headless extraction.
+func _save_library(library: AnimationLibrary, path: String) -> void:
+	var uid: int = ResourceUID.INVALID_ID
+	if ResourceLoader.exists(path):
+		uid = ResourceLoader.get_resource_uid(path)
+		var previous: AnimationLibrary = ResourceLoader.load(
+			path, "AnimationLibrary", ResourceLoader.CACHE_MODE_IGNORE_DEEP
+		)
+		for name: StringName in library.get_animation_list():
+			if previous.has_animation(name):
+				library.get_animation(name).resource_scene_unique_id = (
+					previous.get_animation(name).resource_scene_unique_id
+				)
+	var error: Error = ResourceSaver.save(library, path)
+	assert(error == OK)
+	if uid != ResourceUID.INVALID_ID:
+		error = ResourceSaver.set_uid(path, uid)
+		assert(error == OK)
 
 
 ## Install saved layer players and source-authored grip offsets on the existing actor.

@@ -1,8 +1,8 @@
 {
   "contract": "shared_humanoid/1.0.0",
   "library": "player",
-  "source": "art/source/models/characters/shared_humanoid/shared_humanoid_player_motion_v1.blend",
-  "export": "art/models/characters/shared_humanoid/shared_humanoid_player_motion_v1.glb",
+  "source": "art\\source\\models\\characters\\shared_humanoid\\shared_humanoid_player_motion_v1.blend",
+  "export": "art\\models\\characters\\shared_humanoid\\shared_humanoid_player_motion_v1.glb",
   "collection": "export_shared_humanoid_player_v1",
   "clips": [
     {
@@ -29,11 +29,15 @@
       "name": "run",
       "frames": [
         0,
-        24
+        20
       ],
       "fps": 30,
-      "duration_s": 0.8,
-      "loop": true
+      "duration_s": 0.6666666666666666,
+      "loop": true,
+      "stance_right_seconds": [
+        0.2,
+        0.3333333333333333
+      ]
     },
     {
       "name": "death",
@@ -79,31 +83,43 @@
       "name": "run_back",
       "frames": [
         0,
-        24
+        20
       ],
       "fps": 30,
-      "duration_s": 0.8,
-      "loop": true
+      "duration_s": 0.6666666666666666,
+      "loop": true,
+      "stance_right_seconds": [
+        0.2,
+        0.3333333333333333
+      ]
     },
     {
       "name": "run_left",
       "frames": [
         0,
-        24
+        20
       ],
       "fps": 30,
-      "duration_s": 0.8,
-      "loop": true
+      "duration_s": 0.6666666666666666,
+      "loop": true,
+      "stance_right_seconds": [
+        0.2,
+        0.3333333333333333
+      ]
     },
     {
       "name": "run_right",
       "frames": [
         0,
-        24
+        20
       ],
       "fps": 30,
-      "duration_s": 0.8,
-      "loop": true
+      "duration_s": 0.6666666666666666,
+      "loop": true,
+      "stance_right_seconds": [
+        0.2,
+        0.3333333333333333
+      ]
     },
     {
       "name": "pistol_hold",

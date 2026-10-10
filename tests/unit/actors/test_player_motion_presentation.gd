@@ -120,13 +120,24 @@ func _assert_stance_world_velocity(
 		"PresentationAnchor/Visuals/Model/PresentationAnchor/Visuals/Model/Rig/Skeleton3D"
 	) as Skeleton3D
 	var foot_index: int = skeleton.find_bone(&"foot_r")
-	lower.seek(animation.length * 0.25, true)
+	assert_between(lower.speed_scale, 0.85, 1.2, "natural five-metre run cadence")
+	assert_true(animation.has_meta(&"stance_right_seconds"), "source-authored contact window")
+	var stance: Vector2 = animation.get_meta(&"stance_right_seconds", Vector2.ZERO)
+	assert_gt(stance.y, stance.x)
+	if stance.y <= stance.x:
+		return
+
+	# Check each baked interval, not only the overall delta used for calibration.
+	var contact_intervals: int = 4
+	lower.seek(stance.x, true)
 	var contact_start: Vector3 = skeleton.get_bone_global_pose(foot_index).origin
-	lower.seek(animation.length * 0.75, true)
-	var contact_end: Vector3 = skeleton.get_bone_global_pose(foot_index).origin
-	var world_contact_seconds: float = animation.length * 0.5 / lower.speed_scale
-	var local_contact_delta: Vector3 = contact_end - contact_start
-	var world_contact_delta: Vector3 = (
-		world_velocity * world_contact_seconds + actor.global_basis * local_contact_delta
-	)
-	assert_lt(world_contact_delta.length() / world_contact_seconds, 0.05)
+	var world_contact_seconds: float = (stance.y - stance.x) / contact_intervals / lower.speed_scale
+	for interval: int in range(1, contact_intervals + 1):
+		lower.seek(lerpf(stance.x, stance.y, float(interval) / contact_intervals), true)
+		var contact_end: Vector3 = skeleton.get_bone_global_pose(foot_index).origin
+		var world_contact_delta: Vector3 = (
+			world_velocity * world_contact_seconds
+			+ actor.global_basis * (contact_end - contact_start)
+		)
+		assert_lt(world_contact_delta.length() / world_contact_seconds, 0.05)
+		contact_start = contact_end

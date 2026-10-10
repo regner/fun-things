@@ -12,6 +12,12 @@ from mathutils import Vector, Matrix, Quaternion
 ROOT=Path(__file__).resolve().parents[4]
 CANON=ROOT/'art/source/models/characters/shared_humanoid/shared_humanoid_v1.blend'
 FPS=30
+RUN_CLIPS={'run','run_back','run_left','run_right'}
+RUN_DURATION=20/FPS
+RUN_STANCE_START=6/FPS
+RUN_STANCE_END=10/FPS
+RUN_SPEED_MPS=5.0
+RUN_FOOT_LIFT_M=.40
 
 
 def rotation(axis, angle):
@@ -53,6 +59,22 @@ def base_matrices(rig, body):
             for b in rig.data.bones}
 
 
+def run_foot(t, duration):
+    """Sweep at body speed in stance, then recover with a bent-knee flight phase."""
+    stance=RUN_STANCE_END-RUN_STANCE_START
+    half_travel=RUN_SPEED_MPS*stance*.5
+    contact_time=(t-RUN_STANCE_START)%duration
+    if contact_time<=stance:
+        return half_travel-RUN_SPEED_MPS*contact_time,0.0
+    # Hermite recovery preserves the rearward foot velocity at lift-off/touchdown.
+    swing=duration-stance
+    u=(contact_time-stance)/swing
+    travel=(-half_travel*(2*u**3-3*u**2+1)
+            +half_travel*(-2*u**3+3*u**2)
+            -RUN_SPEED_MPS*swing*(2*u**3-3*u**2+u))
+    return travel,RUN_FOOT_LIFT_M*math.sin(math.pi*u)
+
+
 def pose(rig, clip, t, duration, kind):
     """Author one full pose from gait phase, measured hold contacts and clip intent."""
     phase=2*math.pi*t/duration
@@ -61,6 +83,10 @@ def pose(rig, clip, t, duration, kind):
     stride=.26 if running else .17
     lift=.125 if running else .065
     bob=(-.052+(.014 if running else .008)*math.cos(phase*2)) if moving else -.025+.003*math.sin(phase)
+    if clip in RUN_CLIPS:
+        # Compress through support, rise during flight; never move the ground root.
+        contact_mid=(RUN_STANCE_START+RUN_STANCE_END)*.5
+        bob=-.08-.07*math.cos(4*math.pi*(t-contact_mid)/duration)
     pelvis=Matrix.Translation((0,0,bob))
     desired=base_matrices(rig,pelvis)
     if clip=='death':
@@ -94,6 +120,12 @@ def pose(rig, clip, t, duration, kind):
         if direction.x:travel*=.60
         ankle=Vector((sign*.14,0,.12))+direction*travel
         ankle.z+=(max(0,math.cos(a))*lift) if moving else 0
+        if clip in RUN_CLIPS:
+            travel,height=run_foot(t+(duration*.5 if side=='l' else 0),duration)
+            ankle=Vector((sign*.14,0,.12+height))+direction*travel
+            if direction.x:
+                # Stagger crossing steps fore/aft so lateral recovery clears support.
+                ankle.y=sign*.13
         knee,ankle=two_bone(hip,ankle,rig.data.bones['thigh_'+side].length,
                            rig.data.bones['shin_'+side].length,(0,1,0))
         desired['thigh_'+side]=orient(rig,'thigh_'+side,hip,knee-hip)
@@ -185,10 +217,10 @@ def library(kind):
     bpy.ops.wm.open_mainfile(filepath=str(CANON))
     rig=bpy.data.objects['Rig'];rig.animation_data_create()
     col=bpy.data.collections['export_shared_humanoid_bind_v1'];col.name='export_shared_humanoid_'+kind+'_v1'
-    clips={'idle':(2,True),'walk':(1,True),'run':(.8,True),'death':(1.2,False)}
+    clips={'idle':(2,True),'walk':(1,True),'run':(RUN_DURATION,True),'death':(1.2,False)}
     if kind=='player':
         for gait in ['walk','run']:
-            for direction in ['back','left','right']:clips[gait+'_'+direction]=(.8 if gait=='run' else 1,True)
+            for direction in ['back','left','right']:clips[gait+'_'+direction]=(RUN_DURATION if gait=='run' else 1,True)
         for weapon in ['pistol','smg','launcher']:
             clips[weapon+'_hold']=(2,True)
             clips[weapon+'_walk']=(1,True);clips[weapon+'_run']=(.8,True)
@@ -202,7 +234,7 @@ def library(kind):
             grip=Vector((.30,.43,1.175)) if weapon=='pistol' else shoulder+Vector((0,.455,-.128)) if weapon=='smg' else shoulder+Vector((.140,.280,-.010))
             offset=matrices['hand_r'].inverted() @ Matrix.Translation(grip)
             profiles[weapon]={'hold_grip_blender':list(grip),'hand_to_grip_blender':[list(row) for row in offset]}
-        (ROOT/'art/source/models/characters/coral_courier/weapon_profiles.json').write_text(json.dumps({'contract':'shared_humanoid/1.0.0','profiles':profiles},indent=2)+'\n')
+        (ROOT/'art/source/models/characters/coral_courier/weapon_profiles.json').write_text(json.dumps({'contract':'shared_humanoid/1.0.0','profiles':profiles},indent=2)+'\n',newline='\n')
     records=[]
     for name,(duration,loop) in clips.items():
         rig.animation_data.action=None
@@ -213,12 +245,16 @@ def library(kind):
         action=rig.animation_data.action;action.name=name;action.use_fake_user=True
         track=rig.animation_data.nla_tracks.new();track.name=name
         strip=track.strips.new(name,0,action);strip.action_slot=rig.animation_data.action_slot;track.mute=True
-        records.append({'name':name,'frames':[0,count],'fps':FPS,'duration_s':count/FPS,'loop':loop})
+        record={'name':name,'frames':[0,count],'fps':FPS,'duration_s':count/FPS,'loop':loop}
+        if name in RUN_CLIPS:
+            record['stance_right_seconds']=[RUN_STANCE_START,RUN_STANCE_END]
+        records.append(record)
     rig.animation_data.action=None
     for pb in rig.pose.bones:pb.matrix_basis=Matrix.Identity(4)
     bpy.context.scene.frame_set(0)
     source=CANON.parent/('shared_humanoid_'+kind+'_motion_v1.blend')
     output=ROOT/'art/models/characters/shared_humanoid'/('shared_humanoid_'+kind+'_motion_v1.glb')
+    bpy.context.preferences.filepaths.save_version=0
     bpy.ops.wm.save_as_mainfile(filepath=str(source))
     settings=json.loads((ROOT/'tools/assets/blender/export_settings.json').read_text())
     settings.update(collection=col.name,filepath=str(output),export_animations=True)
@@ -226,7 +262,7 @@ def library(kind):
     manifest={'contract':'shared_humanoid/1.0.0','library':kind,'source':str(source.relative_to(ROOT)),
               'export':str(output.relative_to(ROOT)),'collection':col.name,'clips':records,
               'rest_sha256':rig['rest_sha256'],'status':'source export; acceptance tracked in docs/assets/player_character/README.md'}
-    (CANON.parent/('shared_humanoid_'+kind+'_motion_v1.json')).write_text(json.dumps(manifest,indent=2)+'\n')
+    (CANON.parent/('shared_humanoid_'+kind+'_motion_v1.json')).write_text(json.dumps(manifest,indent=2)+'\n',newline='\n')
     print('MOTION_AUTHORED',kind,len(records))
 
 

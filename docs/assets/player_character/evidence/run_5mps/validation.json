@@ -1,0 +1,270 @@
+{
+  "rest_sha256": "df5a1e7117a9de8800df2ab5766f70e8018700878dd5bc84877b86767abc25c9",
+  "bones": 28,
+  "vertices": 5942,
+  "triangles": 11600,
+  "meshes": 1,
+  "material_surfaces": 12,
+  "degenerate_triangles": 0,
+  "non_manifold_edges": 22,
+  "boundary_edges": 22,
+  "topology_note": "Unchanged approved mesh; open bomber/collar fronts expose the shirt.",
+  "maximum_normal_length_error": 1.2479721722691295e-07,
+  "pivot": "ground between rest feet; root unchanged",
+  "clips": {
+    "run": {
+      "aabb_blender_m": [
+        [
+          -0.5393174290657043,
+          -0.6042173504829407,
+          0.0025000106543302536
+        ],
+        [
+          0.5393174290657043,
+          0.8022162914276123,
+          1.8466508388519287
+        ]
+      ],
+      "dimensions_blender_m": [
+        1.0786348581314087,
+        1.406433641910553,
+        1.8441508281975985
+      ],
+      "minimum_ground_clearance_m": 0.0025000106543302536,
+      "maximum_leg_length_error_m": 6.168801771067045e-07,
+      "frames_sampled": 21
+    },
+    "run_back": {
+      "aabb_blender_m": [
+        [
+          -0.5393174290657043,
+          -0.6042173504829407,
+          0.0025000106543302536
+        ],
+        [
+          0.5393174290657043,
+          0.8022162914276123,
+          1.8466508388519287
+        ]
+      ],
+      "dimensions_blender_m": [
+        1.0786348581314087,
+        1.406433641910553,
+        1.8441508281975985
+      ],
+      "minimum_ground_clearance_m": 0.0025000106543302536,
+      "maximum_leg_length_error_m": 6.168801771067045e-07,
+      "frames_sampled": 21
+    },
+    "run_left": {
+      "aabb_blender_m": [
+        [
+          -0.7642163038253784,
+          -0.23546835780143738,
+          0.0025000975001603365
+        ],
+        [
+          0.7642163038253784,
+          0.46667230129241943,
+          1.8466508388519287
+        ]
+      ],
+      "dimensions_blender_m": [
+        1.5284326076507568,
+        0.7021406590938568,
+        1.8441507413517684
+      ],
+      "minimum_ground_clearance_m": 0.0025000975001603365,
+      "maximum_leg_length_error_m": 7.620096290072986e-07,
+      "frames_sampled": 21
+    },
+    "run_right": {
+      "aabb_blender_m": [
+        [
+          -0.7642163038253784,
+          -0.23546835780143738,
+          0.0025000975001603365
+        ],
+        [
+          0.7642163038253784,
+          0.46667230129241943,
+          1.8466508388519287
+        ]
+      ],
+      "dimensions_blender_m": [
+        1.5284326076507568,
+        0.7021406590938568,
+        1.8441507413517684
+      ],
+      "minimum_ground_clearance_m": 0.0025000975001603365,
+      "maximum_leg_length_error_m": 7.620096290072986e-07,
+      "frames_sampled": 21
+    }
+  },
+  "unchanged_actions": {
+    "idle": {
+      "maximum_saved_key_difference": 1.7881393432617188e-07
+    },
+    "walk": {
+      "maximum_saved_key_difference": 1.1920928955078125e-07
+    },
+    "death": {
+      "maximum_saved_key_difference": 1.7881393432617188e-07
+    },
+    "walk_back": {
+      "maximum_saved_key_difference": 1.1920928955078125e-07
+    },
+    "walk_left": {
+      "maximum_saved_key_difference": 1.1920928955078125e-07
+    },
+    "walk_right": {
+      "maximum_saved_key_difference": 1.1920928955078125e-07
+    },
+    "pistol_hold": {
+      "maximum_saved_key_difference": 1.1920928955078125e-07
+    },
+    "pistol_walk": {
+      "maximum_saved_key_difference": 1.1920928955078125e-07
+    },
+    "pistol_run": {
+      "maximum_saved_key_difference": 5.960464477539063e-08
+    },
+    "pistol_fire": {
+      "maximum_saved_key_difference": 1.1920928955078125e-07
+    },
+    "smg_hold": {
+      "maximum_saved_key_difference": 1.1175870895385742e-08
+    },
+    "smg_walk": {
+      "maximum_saved_key_difference": 5.960464477539063e-08
+    },
+    "smg_run": {
+      "maximum_saved_key_difference": 5.960464477539063e-08
+    },
+    "smg_fire": {
+      "maximum_saved_key_difference": 0.0
+    },
+    "launcher_hold": {
+      "maximum_saved_key_difference": 1.1175870895385742e-08
+    },
+    "launcher_walk": {
+      "maximum_saved_key_difference": 5.960464477539063e-08
+    },
+    "launcher_run": {
+      "maximum_saved_key_difference": 5.960464477539063e-08
+    },
+    "launcher_fire": {
+      "maximum_saved_key_difference": 0.0
+    },
+    "pistol_reload": {
+      "maximum_saved_key_difference": 2.384185791015625e-07
+    },
+    "smg_reload": {
+      "maximum_saved_key_difference": 2.384185791015625e-07
+    }
+  },
+  "presentation": {
+    "run": {
+      "contact_travel_m": 0.66666579246521,
+      "cycle_seconds": 0.6666667,
+      "derived_playback_rate_at_5_mps": 1.00000131130219,
+      "maximum_baked_stance_world_velocity_mps": 1.91414674191037e-05,
+      "stance_seconds": 0.133333340287209
+    },
+    "run_back": {
+      "contact_travel_m": 0.66666579246521,
+      "cycle_seconds": 0.6666667,
+      "derived_playback_rate_at_5_mps": 1.00000131130219,
+      "maximum_baked_stance_world_velocity_mps": 1.96166529349284e-05,
+      "stance_seconds": 0.133333340287209
+    },
+    "run_left": {
+      "contact_travel_m": 0.666666746139526,
+      "cycle_seconds": 0.6666667,
+      "derived_playback_rate_at_5_mps": 0.999999940395355,
+      "maximum_baked_stance_world_velocity_mps": 2.4127457436407e-05,
+      "stance_seconds": 0.133333340287209
+    },
+    "run_right": {
+      "contact_travel_m": 0.666666746139526,
+      "cycle_seconds": 0.6666667,
+      "derived_playback_rate_at_5_mps": 0.999999940395355,
+      "maximum_baked_stance_world_velocity_mps": 2.4685406970093e-05,
+      "stance_seconds": 0.133333340287209
+    }
+  },
+  "asset_contract_checks": {
+    "bones": 28,
+    "failures": [],
+    "player_clips": 24,
+    "skin_swap": "different geometry; stable skeleton/time"
+  },
+  "production_checks": {
+    "engine": {
+      "ok": true,
+      "version": "4.8.dev7.official.c971f93e7"
+    },
+    "gut_pin": {
+      "ok": true,
+      "version": "9.7.1"
+    },
+    "owned_scripts": {
+      "ok": true,
+      "returncode": 0
+    },
+    "python_tests": {
+      "ok": true,
+      "returncode": 0
+    },
+    "gut_import": {
+      "ok": true,
+      "returncode": 0
+    },
+    "gut_tests": {
+      "ok": true,
+      "returncode": 0
+    },
+    "gut_negative": {
+      "ok": true,
+      "observed_returncode": 1
+    }
+  },
+  "saved_source_reexport": {
+    "byte_identical": true,
+    "sha256": "a1d1569b1f4debfac9f5891e5b250b42243076b17a9a81a836055e1945af69b3",
+    "export_settings_sha256": "33ded3c83616fba6573848dda1f0ea3fc7ae7f4c98257fc867dca3bbe35ff9ec"
+  },
+  "unchanged_dependencies": {
+    "art/animations/characters/pedestrian_worker/npc_locomotion_v1.tres": "634150556679d4787b18c20d4a0d4e10b73db2fcb8066c65b44eb36b955f5764",
+    "art/materials/characters/pedestrian_worker/pedestrian_worker_a_palette.gdshader": "18d5c978ba1d53c81d9810d2097e31a014199a8927cfac45e65d9aa0edcd42b6",
+    "art/materials/characters/pedestrian_worker/pedestrian_worker_a_palette.gdshader.uid": "a6f80d9e47977bd5d5c23c00a88fe7c06cf45d78b52117593118ca57df2de244",
+    "art/materials/characters/pedestrian_worker/pedestrian_worker_a_palette.tres": "7de953f91a1622b058816526414372c7a06c5df778f6a78b4c771235e1c72893",
+    "art/models/characters/coral_courier/coral_courier.glb": "35e6c6a6eb1cda01e6409ec1834f8aed544f71b3308ababade3b06f91afb5ae8",
+    "art/models/characters/coral_courier/coral_courier.glb.import": "a4f10529efeb7ab282264f1637cacc62b008bf2f2049e5d8bf254c1a936e4f13",
+    "art/models/characters/pedestrian_worker/pedestrian_worker_a.glb": "067a3bc21bf34992e75f4123acdf58a098a48fcbc2e3528b3ee95baab0c247c0",
+    "art/models/characters/pedestrian_worker/pedestrian_worker_a.glb.import": "52150f63d2eceb287d518051143893eca09c6835d39fb33b23bb754948174637",
+    "art/models/characters/shared_humanoid/shared_humanoid_bind_v1.glb": "fb1c56ad2dcd22bdd5deb5d4c9f86c4ff5d27693ab6c4c13d8ba0c712e3151c9",
+    "art/source/models/characters/coral_courier/coral_courier.blend": "f3d8cda6d180ebe66eef12b47f631e74976ac492a13c4bd3b339110b16633b4d",
+    "art/source/models/characters/coral_courier/coral_courier.json": "1e7944ef21c4aa8757c8e7299743fb552c1fde021c64acc107303fbb7b774376",
+    "art/source/models/characters/coral_courier/weapon_profiles.json": "40a5fa47187a43a0cfedb2e4d76b5a5b7d1f08919d506f54c6ee324dbc0ff06e",
+    "art/source/models/characters/pedestrian_worker/pedestrian_worker_a.blend": "50f2aac0eebc753496663b2e0299be675b7fb013ed3771d33f4c294d0fda714d",
+    "art/source/models/characters/shared_humanoid/shared_humanoid_v1.blend": "7f450353ec049207f2e198fa5ab87ccf83502c9f60b33d0f440a1225cb4ba20b",
+    "art/source/models/characters/shared_humanoid/shared_humanoid_v1.json": "b262161bbaed42ff99fddc75cd4823cfb41ea103cab615f36c1fb54e97b90731",
+    "scenes/prefabs/player_character/coral_courier.tscn": "60268e8b1b0e9fbc3b79dc4de9409c3741dc15a350952f179e71a7bf5686e797"
+  },
+  "tools": {
+    "blender": "5.2.2 LTS",
+    "godot": "4.8.dev7.official.c971f93e7",
+    "render": "Cycles CPU / 16 samples / PNG compression 95",
+    "sheet_size": [
+      1280,
+      720
+    ],
+    "sheet_rgb_precision_bits": 7
+  },
+  "limits": [
+    "Asset-only Blender review lighting; not a gameplay/device acceptance capture.",
+    "Stance velocity measured at four baked intervals; no claim of analytic sub-frame IK.",
+    "Live editors untouched; consumers must reload changed resources before saving."
+  ]
+}
