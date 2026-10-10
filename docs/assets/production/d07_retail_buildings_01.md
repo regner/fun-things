@@ -255,9 +255,10 @@ pack/save. `record.py` incorporates the final external receipts and hashes paylo
 ## Remaining acceptance / handoff
 
 1. Independent art/technical review of this exact candidate; no self-acceptance.
-2. **d07_retail_buildings.02** secondary low box remains pending; use the family
-   section and material contract above. **d07_retail_buildings.03** entrance annex
-   remains pending; attach using the reserved bay and rear-closure allowance above.
+2. **d07_retail_buildings.02** secondary low box is [delivered](d07_retail_buildings_02.md)
+   with the family section/material contract; independent review and world/gameplay
+   acceptance remain pending. **d07_retail_buildings.03** entrance annex remains pending;
+   attach using the reserved bay and rear-closure allowance above.
 3. Separate retail graphics and sign-island owners provide their own deliveries.
 4. Saved world placement, road/parking/forecourt preservation, actual player/car
    movement/turning, weapon queries and authoritative/predicted/multiplayer checks.

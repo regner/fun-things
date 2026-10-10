@@ -1,0 +1,317 @@
+{
+  "status": "PASS: source and GLB; engine/gameplay gates recorded separately",
+  "blender": "5.2.2 LTS",
+  "build_hash": "d13f752e3b9c",
+  "glTF_exporter": "5.2.40",
+  "source_vertices": 2352,
+  "source_triangles": 4536,
+  "source_degenerate_faces": 0,
+  "source_nonmanifold_edges": 0,
+  "source_max_normal_length_error": 1.5832485023015153e-07,
+  "glb_vertices_including_surface_splits": 3024,
+  "glb_triangles": 4536,
+  "glb_degenerate_triangles": 0,
+  "glb_max_normal_length_error": 1.0604093758637134e-07,
+  "mesh_count": 1,
+  "surface_count": 7,
+  "aabb_godot": {
+    "min": [
+      -21.0,
+      -8.940696716308594e-08,
+      -14.0
+    ],
+    "max": [
+      21.0,
+      6.679999828338623,
+      14.0
+    ],
+    "size": [
+      42.0,
+      6.67999991774559,
+      28.0
+    ]
+  },
+  "expected_aabb_godot": {
+    "min": [
+      -21,
+      0,
+      -14
+    ],
+    "max": [
+      21,
+      6.68,
+      14
+    ]
+  },
+  "envelope_tolerance_m": 0.001,
+  "ground_contact_pivot": [
+    0,
+    0,
+    0
+  ],
+  "materials": [
+    {
+      "name": "retail_trim_petrol",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.02800000086426735,
+          0.06700000166893005,
+          0.09200000017881393,
+          1
+        ],
+        "metallicFactor": 0.25,
+        "roughnessFactor": 0.4699999988079071
+      }
+    },
+    {
+      "name": "retail_wall_slate",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.12999999523162842,
+          0.1899999976158142,
+          0.23499999940395355,
+          1
+        ],
+        "metallicFactor": 0.10000000149011612,
+        "roughnessFactor": 0.5
+      }
+    },
+    {
+      "name": "retail_roof_blue",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.03500000014901161,
+          0.11999999731779099,
+          0.30000001192092896,
+          1
+        ],
+        "metallicFactor": 0.18000000715255737,
+        "roughnessFactor": 0.46000000834465027
+      }
+    },
+    {
+      "name": "retail_wall_plum",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.14000000059604645,
+          0.07999999821186066,
+          0.14000000059604645,
+          1
+        ],
+        "metallicFactor": 0.10000000149011612,
+        "roughnessFactor": 0.5
+      }
+    },
+    {
+      "name": "retail_frame_slate",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.23999999463558197,
+          0.3199999928474426,
+          0.36000001430511475,
+          1
+        ],
+        "metallicFactor": 0.30000001192092896,
+        "roughnessFactor": 0.41999998688697815
+      }
+    },
+    {
+      "name": "retail_glazing_opaque",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.02199999988079071,
+          0.06499999761581421,
+          0.09000000357627869,
+          1
+        ],
+        "metallicFactor": 0.3199999928474426,
+        "roughnessFactor": 0.25
+      }
+    },
+    {
+      "name": "retail_band_coral",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.8799999952316284,
+          0.20000000298023224,
+          0.11999999731779099,
+          1
+        ],
+        "metallicFactor": 0.05000000074505806,
+        "roughnessFactor": 0.47999998927116394
+      }
+    }
+  ],
+  "reexport_byte_identical": true,
+  "glb_sha256": "20b470ccb685fe717fa110a17b389b69de3b329bb41ee6b00def38ef985edb1b",
+  "glb_bytes": 127392,
+  "interfaces_godot": {
+    "front": "-Z",
+    "closed_entrance_center_x": 8
+  },
+  "engine": {
+    "aabb_min": [
+      -21.0,
+      -8.94069671630859e-08,
+      -14.0
+    ],
+    "aabb_size": [
+      42.0,
+      6.67999982833862,
+      28.0
+    ],
+    "capsule_bypass_end_z": -8.0,
+    "capsule_front_stop_z": -14.35009765625,
+    "collision_shape_count": 1,
+    "engine": "4.8-dev7 (official)",
+    "failures": [],
+    "front_ray_hit": [
+      8.0,
+      1.0,
+      -14.0
+    ],
+    "linked_model_identity": true,
+    "materials": [
+      "retail_trim_petrol",
+      "retail_wall_slate",
+      "retail_roof_blue",
+      "retail_wall_plum",
+      "retail_frame_slate",
+      "retail_glazing_opaque",
+      "retail_band_coral"
+    ],
+    "mesh_count": 1,
+    "model_uid": "uid://ck0gbao60mbw2",
+    "ok": true,
+    "physics_shape_queries": [
+      {
+        "case": "interior_solid",
+        "solid": true
+      },
+      {
+        "case": "closed_entrance",
+        "solid": true
+      },
+      {
+        "case": "front_forecourt_clear",
+        "solid": false
+      },
+      {
+        "case": "front_west_corner",
+        "solid": true
+      },
+      {
+        "case": "front_east_corner",
+        "solid": true
+      },
+      {
+        "case": "west_outside_clear",
+        "solid": false
+      },
+      {
+        "case": "east_outside_clear",
+        "solid": false
+      },
+      {
+        "case": "above_roof_clear",
+        "solid": false
+      },
+      {
+        "case": "hall_near_roof_solid",
+        "solid": true
+      },
+      {
+        "case": "rear_west_corner",
+        "solid": true
+      },
+      {
+        "case": "rear_east_corner",
+        "solid": true
+      },
+      {
+        "case": "rear_outside_clear",
+        "solid": false
+      }
+    ],
+    "prefab_uid": "uid://p052akskcswu",
+    "save_reload_byte_stable": true,
+    "normalization_diagnostics": [
+      "WARNING: [MCP] Godot 4.8 detected - latest tested version is 4.7.0. The plugin will run normally but some features may behave unexpectedly. Please report issues at https://github.com/NPGameDev/godot-mcp-toolkit/issues",
+      "ERROR: 5 RID allocations of type 'N16RendererViewport8ViewportE' were leaked at exit.",
+      "ERROR: 8 RID allocations of type 'PN13RendererDummy14TextureStorage12DummyTextureE' were leaked at exit.",
+      "ERROR: 1 RID allocations of type 'N17RendererSceneCull8ScenarioE' were leaked at exit.",
+      "ERROR: 52 RID allocations of type 'PN18TextServerAdvanced22ShapedTextDataAdvancedE' were leaked at exit.",
+      "ERROR: 1 RID allocations of type 'PN18TextServerAdvanced12FontAdvancedE' were leaked at exit.",
+      "WARNING: 5 RIDs of type \"Canvas\" were leaked.",
+      "WARNING: 31 RIDs of type \"CanvasItem\" were leaked.",
+      "WARNING: 168 ObjectDB instances were leaked at exit (run with `--verbose` for details)."
+    ],
+    "final_import_diagnostics": [
+      "WARNING: [MCP] Godot 4.8 detected - latest tested version is 4.7.0. The plugin will run normally but some features may behave unexpectedly. Please report issues at https://github.com/NPGameDev/godot-mcp-toolkit/issues"
+    ]
+  },
+  "production_checks": {
+    "overall_ok": true,
+    "results": {
+      "engine": {
+        "ok": true,
+        "version": "4.8.dev7.official.c971f93e7"
+      },
+      "gut_pin": {
+        "ok": true,
+        "version": "9.7.1"
+      },
+      "owned_scripts": {
+        "ok": true,
+        "returncode": 0
+      },
+      "python_tests": {
+        "ok": true,
+        "returncode": 0
+      },
+      "gut_import": {
+        "ok": true,
+        "returncode": 0
+      },
+      "gut_tests": {
+        "ok": true,
+        "returncode": 0
+      },
+      "gut_negative": {
+        "ok": true,
+        "observed_returncode": 1
+      }
+    },
+    "compiled_scripts": 219,
+    "owned_script_style_compile_and_format": "PASS",
+    "python_tests": 17,
+    "gut_tests": 165,
+    "gut_assertions": 6918,
+    "failure_exclusions": []
+  },
+  "visual_review": {
+    "renders_inspected": [
+      "hero.png",
+      "side.png",
+      "frontage_detail.png",
+      "overhead_47m_42deg.png"
+    ],
+    "renderer": "Blender Cycles CPU, 24 samples, denoised, AgX; PNG compression 95, no output dither",
+    "viewport": [
+      1280,
+      720
+    ],
+    "gameplay_camera": {
+      "position_godot_m": [
+        0,
+        47,
+        0
+      ],
+      "vertical_fov_deg": 42,
+      "vertical_down": true,
+      "note": "Complete single-roof store at actual scale; front/north at image top"
+    },
+    "findings": "Blue roof and offset coral cue read; buried plum skin corrected before final export.",
+    "scope": "Isolated Blender evidence, not engine lighting, world placement or device acceptance"
+  }
+}
