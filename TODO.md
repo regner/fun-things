@@ -90,7 +90,9 @@ recommendations and do not block P1.
   C3.1 traffic and C3.2 pedestrian world integration consume RT-06/RT-07 load-time
   graphs. AI traffic yields to marked-crosswalk reservations; player cars do not. C3.1/C3.2
   after: M1-B1, M1-B2, C3.0 and the owner's population-placement answer.
-- [ ] **M1-C4 — Implement the HUD and road minimap.** C4.1 HUD shell after M1-A2; C4.2 minimap
+- [ ] **M1-C4 — Implement the HUD and road minimap.** C4.1's read-only HUD shell is done (`scenes/ui/hud.tscn`;
+  life state and client peer count stay hidden until A2.4's PlayerLifecycle and an authoritative
+  roster are bound); C4.2 minimap
   from RT-09 ROAD data (P4). Settle S06's minimap size/look and carry the whole-UI direction
   into the HUD.
 
