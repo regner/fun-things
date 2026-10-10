@@ -1,0 +1,45 @@
+[gd_scene format=3 uid="uid://y8lgclaqffyf"]
+
+[ext_resource type="PackedScene" uid="uid://dltifcevojr46" path="res://scenes/prefabs/environment/city_harbour_bridge_01.tscn" id="1_deck"]
+[ext_resource type="PackedScene" uid="uid://dguytr5yvt7v7" path="res://scenes/prefabs/environment/city_harbour_bridge_02.tscn" id="2_guards"]
+[ext_resource type="PackedScene" uid="uid://nvyn0memok72" path="res://scenes/prefabs/environment/city_harbour_bridge_03.tscn" id="3_trim"]
+[ext_resource type="Script" uid="uid://jthmfio4c27p" path="res://scripts/actors/actor_motion.gd" id="4_motion"]
+
+[sub_resource type="BoxShape3D" id="Box_bank"]
+size = Vector3(6, 0.55, 17)
+
+[sub_resource type="CapsuleShape3D" id="Capsule_actor"]
+radius = 0.35
+height = 1.8
+
+[node name="BridgeBankCheck" type="Node3D" unique_id=842663761]
+
+[node name="Deck" parent="." unique_id=1385825386 instance=ExtResource("1_deck")]
+
+[node name="Parapets" parent="." unique_id=2050899330 instance=ExtResource("2_guards")]
+
+[node name="EastTrim" parent="." unique_id=828539772 instance=ExtResource("3_trim")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 45.5, 0, 0)
+
+[node name="WestTrim" parent="." unique_id=1018164678 instance=ExtResource("3_trim")]
+transform = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, -1, -45.5, 0, 0)
+
+[node name="TestOnlyBankSupport" type="StaticBody3D" parent="." unique_id=512643890]
+collision_mask = 0
+
+[node name="East" type="CollisionShape3D" parent="TestOnlyBankSupport" unique_id=1926134206]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 48.62, -0.275, 0)
+shape = SubResource("Box_bank")
+
+[node name="West" type="CollisionShape3D" parent="TestOnlyBankSupport" unique_id=1223132378]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -48.62, -0.275, 0)
+shape = SubResource("Box_bank")
+
+[node name="Actor" type="CharacterBody3D" parent="." unique_id=1890494855]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 43, 0.001, 0)
+collision_layer = 2
+script = ExtResource("4_motion")
+
+[node name="Capsule" type="CollisionShape3D" parent="Actor" unique_id=1870841797]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0)
+shape = SubResource("Capsule_actor")

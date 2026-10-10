@@ -1,0 +1,37 @@
+city_harbour_bridge.03 — final producer receipt
+Producer: commissioned implementation specialist, lane/a-hbridge
+Source: original Blender construction; .01 finish helpers reused read-only.
+Versions: Blender 5.2.2 LTS / d13f752e3b9c / glTF 5.2.40; Godot 4.8.dev7.official.c971f93e7.
+All Blender production calls: isolated background factory startup, threads=4, audio env disabled,
+python-exit-code=1, timeout <=900s. Godot import/check timeouts <=300s / <=180s.
+Exact repeat commands and provisional dimensions: ../city_harbour_bridge_03.md.
+
+PASS author.py: source saved and named collection exported, exit 0.
+PASS export.py: fresh-process GLB byte-identical, exit 0.
+PASS validate.py: 2080 triangles, 1064 source / 1294 GLB vertices, 1 mesh / 4 surfaces.
+Zero degenerate faces, zero non-manifold edges; unit normals; consistent winding.
+Bounds Godot: (0,-0.55,-8.5) to (0.60,1.10,8.5), tolerance 0.001 m.
+PASS render.py: four 1280x720 Blender PNGs; producer inspected all four.
+PASS pinned headless import: dependencies resolved, exit 0.
+PASS headless normalization: owned prefab and fixture byte-stable after save/reload, exit 0.
+PASS runtime check.gd: imported linkage/UID/bounds/materials/collision checks, exit 0.
+30 floor rays, 16 guard rays, 5 clear rays. ActorMotion authority/replay equal across 2304 ticks.
+West walk X=-48.9999084; lateral terminal contact Z=-7.7994804; west nose X=-46.4505272.
+PASS pinned gdstyle: 1 file, no issues.
+PASS canonical production_checks.py: exit 0, summary ok=true.
+Owned scripts format/style/compile passed; 16 Python tests; 142 GUT tests / 6705 assertions.
+Expected-negative GUT diagnostic returned 1, accepted by the runner.
+
+Historical producer corrections: initial fascia validation selected nonexistent interior vertices;
+changed to independently assert the 2.04 m2 full-width face/top plane. No geometry relaxation.
+Initial GDScript function/line length warnings corrected before final checks.
+Reviewed diagnostics: Blender render use_nodes deprecations; third-party MCP 4.8 compatibility
+warning during import; editor-mode shutdown RID/ObjectDB leaks after successful normalization.
+Subsequent runtime/physics check and clean compiler mirror have no errors/warnings.
+Blender version-only inspection printed a one-block shutdown memory diagnostic; author/export/
+validation/render processes exited successfully. No live owner session was used or touched.
+Raw/scratch logs: C:/tmp/ft/assets/city_harbour_bridge_03/ (not committed).
+
+Pending: independent art/technical review, final bank/road-tool/world integration, car driving,
+full approach traversal, final Godot camera, real-process multiplayer, packaged/Deck/performance.
+No world placement or ready register status claimed.
