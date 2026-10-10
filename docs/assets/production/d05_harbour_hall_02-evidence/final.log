@@ -1,0 +1,38 @@
+FINAL BOUNDED VALIDATION — d05_harbour_hall.02 / Entry canopy
+Blender 5.2.2 LTS / exporter 5.2.40: author-final and validate-final exit 0.
+792 source vertices; 1,556 triangles; 871 split GLB vertices; one mesh/three surfaces.
+Zero degenerate faces/triangles and non-manifold source edges; unit normals PASS.
+GLB 40,368 bytes; fresh saved-source export byte-identical.
+Initial relative Blender script argument resolved only as tools/ and exited 1.
+Absolute worktree script path corrected invocation; no unchanged retry.
+Initial gdstyle local-variable warning fixed by named UID inspection helper.
+Detail reduced to 1152x648; side floor horizon removed; final four PNGs inspected.
+Headless normalization exit 0; two owned scenes stable on second save.
+Normalization retains pinned editor shutdown diagnostics (not a clean-log claim):
+WARNING: [MCP] Godot 4.8 detected - latest tested version is 4.7.0. The plugin will run normally but some features may behave unexpectedly. Please report issues at https://github.com/NPGameDev/godot-mcp-toolkit/issues
+ERROR: 5 RID allocations of type 'N16RendererViewport8ViewportE' were leaked at exit.
+ERROR: 8 RID allocations of type 'PN13RendererDummy14TextureStorage12DummyTextureE' were leaked at exit.
+ERROR: 1 RID allocations of type 'N17RendererSceneCull8ScenarioE' were leaked at exit.
+ERROR: 52 RID allocations of type 'PN18TextServerAdvanced22ShapedTextDataAdvancedE' were leaked at exit.
+ERROR: 1 RID allocations of type 'PN18TextServerAdvanced12FontAdvancedE' were leaked at exit.
+WARNING: 5 RIDs of type "Canvas" were leaked.
+WARNING: 31 RIDs of type "CanvasItem" were leaked.
+WARNING: 168 ObjectDB instances were leaked at exit (run with `--verbose` for details).
+
+Final pinned worktree import exit 0; diagnostic:
+WARNING: [MCP] Godot 4.8 detected - latest tested version is 4.7.0. The plugin will run normally but some features may behave unexpectedly. Please report issues at https://github.com/NPGameDev/godot-mcp-toolkit/issues
+
+Two fresh runtime processes exit 0, diagnostic-free, exact JSON agreement.
+Checks: imported bounds/identity/materials, linked hall/canopy, 0.06 m lintel gap,
+3.5 m landing clearance, two standing-capsule queries and unchanged front wall ray.
+Godot Engine v4.8.dev7.official.c971f93e7 - https://godotengine.org
+
+[MCPRuntimeServer] port: scanning 6570-6585 (default)
+[MCPRuntimeServer] listening on 127.0.0.1:6570
+[MCPRegistry] runtime port 6570 registered for c:/gamedev/git/ft-lanes/a-hhall
+{"aabb_min":[-4.0,-0.0499999970197678,-2.40000009536743],"aabb_size":[8.0,0.449999988079071,2.40000009536743],"collision_object_count":0,"engine":"4.8-dev7 (official)","failures":[],"front_ray_hit":[0.0,1.0,-9.19999980926514],"landing_clearance_m":3.49999995231628,"linked_model_identity":true,"lintel_gap_m":0.059999952316284,"materials":["harbour_hall_teal_metal","harbour_hall_limestone_trim","harbour_hall_canopy_soffit"],"mesh_count":1,"mount_godot":[0.0,3.84999990463257,-9.0],"mounted_max":[4.0,4.25,-9.0],"mounted_min":[-4.0,3.79999995231628,-11.3999996185303],"ok":true,"resource_uids":{"res://art/models/environment/d05_harbour_hall_02/d05_harbour_hall_02.glb":"uid://cvksxy51ix22c","res://scenes/prefabs/environment/d05_harbour_hall_01.tscn":"uid://mwj75ktxjny1","res://scenes/prefabs/environment/d05_harbour_hall_02.tscn":"uid://b2fihoe3wget1","res://scenes/prefabs/environment/d05_harbour_hall_02_hall_preview.tscn":"uid://npy2sm1wl6m7"},"standing_capsule_queries":[{"clear":true,"point":[0.0,1.21000003814697,-9.80000019073486]},{"clear":true,"point":[3.0,1.21000003814697,-10.5]}]}
+
+Canonical production checks exit 0: 209 scripts compile; style/format PASS; Python 17/17; GUT 149/149, 6768 assertions.
+Negative control correctly detects intentional exit 1. No exemptions.
+Pending: independent review, gameplay camera/occlusion, placement, car/multiplayer,
+packaged build, Godot lighting/LOD, sustained target-device performance.

@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://npy2sm1wl6m7"]
+
+[ext_resource type="PackedScene" uid="uid://mwj75ktxjny1" path="res://scenes/prefabs/environment/d05_harbour_hall_01.tscn" id="1_hall"]
+[ext_resource type="PackedScene" uid="uid://b2fihoe3wget1" path="res://scenes/prefabs/environment/d05_harbour_hall_02.tscn" id="2_canopy"]
+
+[node name="HarbourHallCanopyMountPreview" type="Node3D" unique_id=6110399]
+
+[node name="Hall" type="Node3D" parent="." unique_id=1791462108 instance=ExtResource("1_hall")]
+
+[node name="Canopy" type="Node3D" parent="." unique_id=1461511741 instance=ExtResource("2_canopy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.85, -9)

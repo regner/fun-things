@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://b2fihoe3wget1"]
+
+[ext_resource type="PackedScene" uid="uid://cvksxy51ix22c" path="res://art/models/environment/d05_harbour_hall_02/d05_harbour_hall_02.glb" id="1_model"]
+
+[node name="D05HarbourHall02" type="Node3D" unique_id=425751078]
+
+[node name="Visuals" type="Node3D" parent="." unique_id=2022956870]
+
+[node name="Model" type="Node3D" parent="Visuals" unique_id=1896112470 instance=ExtResource("1_model")]

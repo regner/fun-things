@@ -1,0 +1,265 @@
+{
+  "status": "PASS: source and GLB; engine/gameplay gates recorded separately",
+  "blender": "5.2.2 LTS",
+  "build_hash": "d13f752e3b9c",
+  "glTF_exporter": "5.2.40",
+  "source_vertices": 792,
+  "source_triangles": 1556,
+  "source_degenerate_faces": 0,
+  "source_nonmanifold_edges": 0,
+  "source_max_normal_length_error": 1.7054092871227056e-07,
+  "glb_vertices_including_surface_splits": 871,
+  "glb_triangles": 1556,
+  "glb_degenerate_triangles": 0,
+  "glb_max_normal_length_error": 1.108691600748557e-07,
+  "mesh_count": 1,
+  "surface_count": 3,
+  "aabb_godot": {
+    "min": [
+      -4.0,
+      -0.04999999701976776,
+      -2.4000000953674316
+    ],
+    "max": [
+      4.0,
+      0.3999999761581421,
+      -0.0
+    ],
+    "size": [
+      8.0,
+      0.44999997317790985,
+      2.4000000953674316
+    ]
+  },
+  "expected_aabb_godot": {
+    "min": [
+      -4,
+      -0.05,
+      -2.4
+    ],
+    "max": [
+      4,
+      0.4,
+      0
+    ]
+  },
+  "envelope_tolerance_m": 0.001,
+  "wall_contact_pivot": [
+    0,
+    0,
+    0
+  ],
+  "materials": [
+    {
+      "name": "harbour_hall_teal_metal",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.03500000014901161,
+          0.15000000596046448,
+          0.15000000596046448,
+          1
+        ],
+        "metallicFactor": 0.3499999940395355,
+        "roughnessFactor": 0.41999998688697815
+      }
+    },
+    {
+      "name": "harbour_hall_limestone_trim",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.7799999713897705,
+          0.699999988079071,
+          0.5299999713897705,
+          1
+        ],
+        "metallicFactor": 0,
+        "roughnessFactor": 0.5600000023841858
+      }
+    },
+    {
+      "name": "harbour_hall_canopy_soffit",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.02199999988079071,
+          0.06499999761581421,
+          0.09000000357627869,
+          1
+        ],
+        "metallicFactor": 0.20000000298023224,
+        "roughnessFactor": 0.47999998927116394
+      }
+    }
+  ],
+  "reexport_byte_identical": true,
+  "glb_sha256": "d227675ab2e8129f8a2a00a45b05743c1be9552013f377f80a26a84fb6bee0a4",
+  "glb_bytes": 40368,
+  "interfaces_godot": {
+    "canopy_wall_datum": [
+      0,
+      3.85,
+      -9
+    ],
+    "mounted_lowest_y_m": 3.8,
+    "landing_clearance_m": 3.5,
+    "lintel_gap_m": 0.06,
+    "projection_m": 2.4
+  },
+  "engine": {
+    "aabb_min": [
+      -4.0,
+      -0.0499999970197678,
+      -2.40000009536743
+    ],
+    "aabb_size": [
+      8.0,
+      0.449999988079071,
+      2.40000009536743
+    ],
+    "collision_object_count": 0,
+    "engine": "4.8-dev7 (official)",
+    "failures": [],
+    "front_ray_hit": [
+      0.0,
+      1.0,
+      -9.19999980926514
+    ],
+    "landing_clearance_m": 3.49999995231628,
+    "linked_model_identity": true,
+    "lintel_gap_m": 0.059999952316284,
+    "materials": [
+      "harbour_hall_teal_metal",
+      "harbour_hall_limestone_trim",
+      "harbour_hall_canopy_soffit"
+    ],
+    "mesh_count": 1,
+    "mount_godot": [
+      0.0,
+      3.84999990463257,
+      -9.0
+    ],
+    "mounted_max": [
+      4.0,
+      4.25,
+      -9.0
+    ],
+    "mounted_min": [
+      -4.0,
+      3.79999995231628,
+      -11.3999996185303
+    ],
+    "ok": true,
+    "resource_uids": {
+      "res://art/models/environment/d05_harbour_hall_02/d05_harbour_hall_02.glb": "uid://cvksxy51ix22c",
+      "res://scenes/prefabs/environment/d05_harbour_hall_01.tscn": "uid://mwj75ktxjny1",
+      "res://scenes/prefabs/environment/d05_harbour_hall_02.tscn": "uid://b2fihoe3wget1",
+      "res://scenes/prefabs/environment/d05_harbour_hall_02_hall_preview.tscn": "uid://npy2sm1wl6m7"
+    },
+    "standing_capsule_queries": [
+      {
+        "clear": true,
+        "point": [
+          0.0,
+          1.21000003814697,
+          -9.80000019073486
+        ]
+      },
+      {
+        "clear": true,
+        "point": [
+          3.0,
+          1.21000003814697,
+          -10.5
+        ]
+      }
+    ],
+    "two_scene_save_reload_byte_stable": true,
+    "second_fresh_process_exact_match": true,
+    "normalization_diagnostics": [
+      "WARNING: [MCP] Godot 4.8 detected - latest tested version is 4.7.0. The plugin will run normally but some features may behave unexpectedly. Please report issues at https://github.com/NPGameDev/godot-mcp-toolkit/issues",
+      "ERROR: 5 RID allocations of type 'N16RendererViewport8ViewportE' were leaked at exit.",
+      "ERROR: 8 RID allocations of type 'PN13RendererDummy14TextureStorage12DummyTextureE' were leaked at exit.",
+      "ERROR: 1 RID allocations of type 'N17RendererSceneCull8ScenarioE' were leaked at exit.",
+      "ERROR: 52 RID allocations of type 'PN18TextServerAdvanced22ShapedTextDataAdvancedE' were leaked at exit.",
+      "ERROR: 1 RID allocations of type 'PN18TextServerAdvanced12FontAdvancedE' were leaked at exit.",
+      "WARNING: 5 RIDs of type \"Canvas\" were leaked.",
+      "WARNING: 31 RIDs of type \"CanvasItem\" were leaked.",
+      "WARNING: 168 ObjectDB instances were leaked at exit (run with `--verbose` for details)."
+    ],
+    "final_import_diagnostics": [
+      "WARNING: [MCP] Godot 4.8 detected - latest tested version is 4.7.0. The plugin will run normally but some features may behave unexpectedly. Please report issues at https://github.com/NPGameDev/godot-mcp-toolkit/issues"
+    ]
+  },
+  "production_checks": {
+    "overall_ok": true,
+    "results": {
+      "engine": {
+        "ok": true,
+        "version": "4.8.dev7.official.c971f93e7"
+      },
+      "gut_pin": {
+        "ok": true,
+        "version": "9.7.1"
+      },
+      "owned_scripts": {
+        "ok": true,
+        "returncode": 0
+      },
+      "python_tests": {
+        "ok": true,
+        "returncode": 0
+      },
+      "gut_import": {
+        "ok": true,
+        "returncode": 0
+      },
+      "gut_tests": {
+        "ok": true,
+        "returncode": 0
+      },
+      "gut_negative": {
+        "ok": true,
+        "observed_returncode": 1
+      }
+    },
+    "compiled_script_count": 209,
+    "failed_compilation_paths": [],
+    "owned_script_style_compile_and_format": "PASS",
+    "python_tests": 17,
+    "gut_tests": 149,
+    "gut_assertions": 6768,
+    "known_failure_exemptions": []
+  },
+  "visual_review": {
+    "renders_inspected": [
+      {
+        "file": "hero.png",
+        "width": 1280,
+        "height": 720,
+        "bytes": 195545
+      },
+      {
+        "file": "side.png",
+        "width": 1280,
+        "height": 720,
+        "bytes": 65031
+      },
+      {
+        "file": "mount_detail.png",
+        "width": 1152,
+        "height": 648,
+        "bytes": 354831
+      },
+      {
+        "file": "overhead_47m_42deg.png",
+        "width": 1280,
+        "height": 720,
+        "bytes": 214479
+      }
+    ],
+    "observation": "Quiet chamfered teal hood and warm edge fit the hall. Mounted detail shows the central entrance with no posts; overhead reveals a restrained entrance tab beyond the roof. Side render floor horizon removed; detail resolution reduced to keep lean evidence. Occlusion of directly-under-canopy actors is untested.",
+    "renderer": "Blender Cycles CPU, 32 samples, AgX; not Godot visual acceptance",
+    "gameplay_camera": "Vertical down, 47 m above ground, 42 degree vertical FOV, 1280x720",
+    "png": "RGB8, compression 95, dither disabled; no image post-processing",
+    "sibling_dependency": "d05_harbour_hall_01 source read-only in mounted evidence; not re-exported"
+  }
+}
