@@ -1,0 +1,62 @@
+[gd_scene format=3 uid="uid://biefs7rhxjf00"]
+
+[ext_resource type="PackedScene" path="res://scenes/prefabs/environment/city_shop_fittings_01.tscn" id="canopy"]
+[ext_resource type="PackedScene" path="res://art/models/environment/city_shop_fittings_05/city_shop_fittings_05.glb" id="display"]
+[ext_resource type="PackedScene" path="res://art/models/environment/city_shop_fittings_06/city_shop_fittings_06_single.glb" id="door"]
+[ext_resource type="PackedScene" path="res://scenes/prefabs/environment/city_shop_fittings_02.tscn" id="fascia"]
+[ext_resource type="PackedScene" path="res://art/models/environment/d05_quay_frontages_04/d05_quay_frontages_04.glb" id="shell"]
+[ext_resource type="PackedScene" path="res://scenes/prefabs/environment/city_shop_fittings_03_single.tscn" id="surround"]
+[ext_resource type="PackedScene" path="res://scenes/prefabs/environment/city_shop_fittings_07.tscn" id="upper"]
+
+[sub_resource type="BoxShape3D" id="Box_shell"]
+size = Vector3(8.8, 6.85, 12)
+
+[node name="D05QuayFrontages04" type="Node3D" unique_id=1896541656]
+
+[node name="Visuals" type="Node3D" parent="." unique_id=670560424]
+
+[node name="Model" parent="Visuals" unique_id=746223289 instance=ExtResource("shell")]
+
+[node name="Fittings" type="Node3D" parent="." unique_id=1290860685]
+
+[node name="Canopy" parent="Fittings" unique_id=107490461 instance=ExtResource("canopy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.95, 3, -6)
+
+[node name="Fascia" parent="Fittings" unique_id=2055254576 instance=ExtResource("fascia")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.95, 3.8, -6)
+
+[node name="Surround" parent="Fittings" unique_id=1695783013 instance=ExtResource("surround")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.95, 0, -6)
+
+[node name="Display" parent="Fittings" unique_id=1440328943 instance=ExtResource("display")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.95, 0.48, -6)
+
+[node name="ClosedDoor" parent="Fittings" unique_id=634545193 instance=ExtResource("door")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.95, 0, -6)
+
+[node name="UpperFront" parent="Fittings" unique_id=727949334 instance=ExtResource("upper")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.65, -6)
+
+[node name="UpperRear" parent="Fittings" unique_id=1329788002 instance=ExtResource("upper")]
+transform = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, -1, 0, 4.65, 6)
+
+[node name="ReturnDisplay" parent="Fittings" unique_id=855222254 instance=ExtResource("display")]
+transform = Transform3D(0, 0, -1, 0, 1, 0, 1, 0, 0, 4.4, 0.48, -2)
+
+[node name="ReturnCanopy" parent="Fittings" unique_id=823419220 instance=ExtResource("canopy")]
+transform = Transform3D(0, 0, -1, 0, 1, 0, 1, 0, 0, 4.4, 3, -2)
+
+[node name="ReturnFascia" parent="Fittings" unique_id=2117936003 instance=ExtResource("fascia")]
+transform = Transform3D(0, 0, -1, 0, 1, 0, 1, 0, 0, 4.4, 3.8, -2)
+
+[node name="ReturnUpper" parent="Fittings" unique_id=1595586320 instance=ExtResource("upper")]
+transform = Transform3D(0, 0, -1, 0, 1, 0, 1, 0, 0, 4.4, 4.65, -2)
+
+[node name="Collision" type="Node3D" parent="." unique_id=729112070]
+
+[node name="Body" type="StaticBody3D" parent="Collision" unique_id=410340544]
+collision_mask = 0
+
+[node name="Shell" type="CollisionShape3D" parent="Collision/Body" unique_id=1678362139]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.425, 0)
+shape = SubResource("Box_shell")

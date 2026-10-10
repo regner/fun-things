@@ -1,0 +1,35 @@
+d05_quay_frontages.04 — final bounded production validation, 10 October 2026
+Branch: lane/a-qfront. Exact reproduction commands are in ../d05_quay_frontages_04.md.
+All Blender calls: pinned 5.2.2 LTS, -noaudio --background --factory-startup --threads 4
+--python-exit-code 1, ALSOFT_DRIVERS=null SDL_AUDIODRIVER=dummy, timeout <=600 seconds.
+All Godot calls: mise-pinned 4.8.dev7.official.c971f93e7, headless, timeout <=300 seconds.
+
+PASS author.py: original saved source plus explicit collection GLB, exit 0.
+PASS export.py: fresh process from saved .blend to external scratch GLB, exit 0.
+PASS validate.py: source topology, binary GLB bounds/normals/winding and byte comparison, exit 0.
+  3736 triangles; 1892 Blender vertices; 2289 GLB vertices; 1 mesh; 5 surfaces.
+  Zero degenerate faces/export triangles and zero non-manifold source edges.
+  Six blind-recess and two intact-wall rays; seven shared fitting mounts have zero shell intersections.
+  GLB: 100676 bytes; sha256 62beb42d570b72cb455bd3e30d1a5ea21225b557d73d3b050dd7d53ea67edae9.
+PASS render.py: hero, side, detail, vertical 47 m / 42-degree overhead; exit 0.
+  Four 1280x720 Cycles CPU/AgX renders; all final images visually inspected.
+  Final PNG bytes: hero 321612; side 283727; detail 304382; overhead 242642.
+PASS mise-pinned gdstyle fmt --check: 1 file already formatted.
+PASS mise-pinned gdstyle --max-line-length 100 --max-warnings 0: 1 file, no issues.
+PASS pinned headless import and final import: exit 0, no ERROR/SCRIPT ERROR lines.
+PASS check.gd --normalize: exit 0, no ERROR/SCRIPT ERROR lines.
+  Identity linked model; 11 exact saved mounts; 79 fitted mesh instances; 1 box collider.
+  Dependency UIDs resolve; full shell/fitted AABBs match within 1 mm.
+  Six ActorMotion/FootCommand cases x 60 ticks x AUTHORITY/REPLAY; contacts within 3 mm.
+  Mode agreement within 2 mm; measured maximum difference 0.000007525 m.
+  Wall rays hit; roof ray and under-return-canopy side bypass stay clear.
+PASS fresh-process scene roundtrip after final import: both complete scene SHA256 values unchanged.
+PASS Python AST parsing of all five owned Python scripts.
+
+Corrections before final receipt: restored -1.124 mm bevel vertex to ground datum;
+fixed text-authored return-fitting matrix signs; closed amber course corner gap.
+Initial failed diagnostics and scratch exports/renders remain outside Git at
+C:/tmp/ft/assets/d05_quay_frontages_04/. Unchanged addon registration/version and
+Blender Principled deprecation notices were not broadly suppressed.
+No live owner Blender/Godot sessions used; no production_checks.py execution.
+Independent review, world/car/network/device/packaging/performance acceptance remains pending.
