@@ -1,0 +1,173 @@
+{
+  "asset_id": "d05_quay_paving.02",
+  "blender": "5.2.2 LTS",
+  "blender_build": "d13f752e3b9c",
+  "gltf_exporter": "5.2.40",
+  "source_vertices": 4,
+  "glb_vertices": 4,
+  "triangles": 2,
+  "mesh_count": 1,
+  "surface_count": 1,
+  "degenerate_faces": 0,
+  "degenerate_triangles": 0,
+  "unit_normals": true,
+  "upward_winding": true,
+  "non_manifold_edges": 4,
+  "boundary_loop_sizes": [
+    4
+  ],
+  "non_boundary_non_manifold_edges": 0,
+  "boundary_justification": "One intentional open perimeter on a flush, single-sided decal; no sidewalls or deck. World terrain owns all walk/drive collision.",
+  "source_aabb_blender": {
+    "min": [
+      -3.0,
+      -3.0,
+      0.014999999664723873
+    ],
+    "max": [
+      3.0,
+      3.0,
+      0.014999999664723873
+    ]
+  },
+  "aabb_min_godot": [
+    -3.0,
+    0.014999999664723873,
+    -3.0
+  ],
+  "aabb_max_godot": [
+    3.0,
+    0.014999999664723873,
+    3.0
+  ],
+  "dimensions_godot_metres": [
+    6,
+    0,
+    6
+  ],
+  "pivot": [
+    0,
+    0,
+    0
+  ],
+  "visual_surface_y": 0.015,
+  "ground_datum_y": 0,
+  "uv_axis": "U east/+X, image V south/+Z",
+  "embedded_images": 0,
+  "source_texture_relative_and_unpacked": true,
+  "material": {
+    "name": "civic_inset",
+    "roughness": 0.94,
+    "metallic": 0,
+    "opaque": true
+  },
+  "texture_sha256": "3dc04296923c8ff67281cc9ff3e41f78719114a34f822fd619e310f3678e87f9",
+  "glb_bytes": 1368,
+  "glb_sha256": "0f20c8105c5533221ed14540f0d49ec830831900172bf8928de1048fb98e14c8",
+  "fresh_reexport_byte_identical": true,
+  "source_status": "PASS",
+  "artwork": {
+    "path": "art/textures/environment/d05_quay_paving_02/civic_inset_albedo.png",
+    "bytes": 11905,
+    "sha256": "3dc04296923c8ff67281cc9ff3e41f78719114a34f822fd619e310f3678e87f9",
+    "size_px": [
+      960,
+      960
+    ],
+    "mode": "RGB",
+    "exact_quiet_field_fraction": 0.9377126736111111,
+    "tests_passed": 4,
+    "reproduction_byte_identical": true
+  },
+  "engine": {
+    "aabb_min": [
+      -3.0,
+      0.0149999996647239,
+      -3.0
+    ],
+    "aabb_size": [
+      6.0,
+      9.99999974737875e-06,
+      6.0
+    ],
+    "civic_inset.tres_uid": "uid://i1gp03f0rili",
+    "civic_inset_albedo.png_uid": "uid://jt7jis47pxps",
+    "collision_objects": 0,
+    "d05_quay_paving_02.glb_uid": "uid://c7k7usg6v5k0i",
+    "d05_quay_paving_02.tscn_uid": "uid://bwq3dcb4k6n18",
+    "engine": "4.8-dev7 (official)",
+    "engine_hash": "c971f93e7e76b0ef919bf6009e7b868bea04db7f",
+    "external_material": "res://art/materials/environment/d05_quay_paving_02/civic_inset.tres",
+    "failures": [],
+    "import_normals_uvs_valid": true,
+    "import_triangles": 2,
+    "import_vertices": 4,
+    "linked_identity_model": true,
+    "material_overrides": 0,
+    "material_sha256": "7c06ca13d429ca1ee3111c1698ecb4b7b4d853d28f1a0b6f3c4fc8740c353559",
+    "mesh_count": 1,
+    "mipmaps": true,
+    "ok": true,
+    "prefab_sha256": "c53741b62444b8817dc6c436850f5969d38b538cc3b22438115b542d27c3142e",
+    "surface_count": 1,
+    "texture_image_bytes_including_mips": 3686352,
+    "texture_image_format": 4,
+    "texture_size": [
+      960,
+      960
+    ]
+  },
+  "two_byte_stable_scene_material_roundtrips": true,
+  "two_fresh_runtime_processes_identical": true,
+  "renders": [
+    {
+      "path": "docs/assets/production/d05_quay_paving_02-evidence/hero.png",
+      "bytes": 216097,
+      "sha256": "4adbe943a4a7a15e99a1b297d328d4e1cfe5d49e58746c14887ca316afe67b9c"
+    },
+    {
+      "path": "docs/assets/production/d05_quay_paving_02-evidence/side.png",
+      "bytes": 181149,
+      "sha256": "38608e8b93c1b1385755003d086d05e5007abaa03858dea3130c1ac6ff25caa5"
+    },
+    {
+      "path": "docs/assets/production/d05_quay_paving_02-evidence/detail.png",
+      "bytes": 72273,
+      "sha256": "3e1eb73ea95d781923930ed2f5a061d48e80a30c64558f6385702d00060955ba"
+    },
+    {
+      "path": "docs/assets/production/d05_quay_paving_02-evidence/overhead_47m_42deg.png",
+      "bytes": 218612,
+      "sha256": "ae227b59a67e441bbfc1d9d2224f4cf2241809789ddfdc30ea0faf1eaa02cc05"
+    }
+  ],
+  "diagnostics": {
+    "final_import": "No ERROR/SCRIPT ERROR; existing plugin version warning",
+    "runtime": "Two processes; no ERROR/WARNING/SCRIPT ERROR",
+    "normalization": "Stable bytes/UIDs; known scan-abort and RID/ObjectDB shutdown leaks",
+    "blender": "Pinned node API deprecation warning; no errors",
+    "production_checks": "Not run (owner decision 52)"
+  },
+  "visual_review": {
+    "inspected": [
+      "hero",
+      "side",
+      "detail",
+      "overhead_47m_42deg"
+    ],
+    "observation": "Four restrained teal corner brackets on warm grey. The centre and cardinal gaps are quiet; the inset is legible overhead while actor/car remain distinct.",
+    "camera": {
+      "height_m": 47,
+      "vertical_fov_degrees": 42,
+      "rotation_radians": [
+        0,
+        0,
+        0
+      ],
+      "projection": "perspective"
+    },
+    "renderer": "Blender Cycles CPU, 24 samples, AgX, PNG RGB8 compression 95",
+    "context": "One real-scale 6 m inset. Shared paving, Courier and Latch are read-only studio references, not saved placements.",
+    "godot_visual_acceptance": false
+  }
+}

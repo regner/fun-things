@@ -1,0 +1,167 @@
+{
+  "asset_id": "d05_quay_paving.02",
+  "algorithm": "SHA-256",
+  "exclusions": [
+    "manifest.json (self-hash)",
+    "__pycache__ (uncommitted cache)"
+  ],
+  "shared_dependencies_not_produced": [
+    {
+      "path": "tools/assets/blender/export_settings.json",
+      "bytes": 646,
+      "sha256": "33ded3c83616fba6573848dda1f0ea3fc7ae7f4c98257fc867dca3bbe35ff9ec"
+    },
+    {
+      "path": "tools/asset_production/d05_quay_paving_01/artwork.py",
+      "bytes": 1631,
+      "sha256": "b8b44235deedde55afc7a22e2bd40961a72b86e0d4ac2783f6271ea1b401b771"
+    },
+    {
+      "path": "tools/asset_production/d01_sports_surface_01/author.py",
+      "bytes": 6785,
+      "sha256": "65297db2a3bbdb1a8b5264156f159888ac6695a3085afaedb68391f564f88415"
+    },
+    {
+      "path": "tools/asset_production/d01_sports_surface_02/validate.py",
+      "bytes": 7591,
+      "sha256": "94fbeb770a28993194e0e8f5d14eec8bcc58bfce249837aa0c661f4ffeb6acd9"
+    },
+    {
+      "path": "tools/asset_production/d05_civic_graphics_01/manifest.py",
+      "bytes": 2408,
+      "sha256": "08ca7e66364c817504a665e54e8736e4ff05f8263aebfdd5e13850d4ef7af184"
+    },
+    {
+      "path": "art/textures/environment/city_ground_finishes_01/plain_plaza_paving_albedo.png",
+      "bytes": 4447,
+      "sha256": "fb09ece65dae0db245493796133b0fe669ec482a8f833232d707450b29726c9d"
+    },
+    {
+      "path": "art/models/characters/coral_courier/coral_courier.glb",
+      "bytes": 468860,
+      "sha256": "35e6c6a6eb1cda01e6409ec1834f8aed544f71b3308ababade3b06f91afb5ae8"
+    },
+    {
+      "path": "art/models/vehicles/car_latch_a/car_latch_a.glb",
+      "bytes": 302368,
+      "sha256": "264cd46c027cce85738f3818ee426aa75346c1024d958351ee67b4c90e7c71f7"
+    }
+  ],
+  "files": [
+    {
+      "path": "art/materials/environment/d05_quay_paving_02/civic_inset.tres",
+      "bytes": 349,
+      "sha256": "7c06ca13d429ca1ee3111c1698ecb4b7b4d853d28f1a0b6f3c4fc8740c353559"
+    },
+    {
+      "path": "art/models/environment/d05_quay_paving_02/d05_quay_paving_02.glb",
+      "bytes": 1368,
+      "sha256": "0f20c8105c5533221ed14540f0d49ec830831900172bf8928de1048fb98e14c8"
+    },
+    {
+      "path": "art/models/environment/d05_quay_paving_02/d05_quay_paving_02.glb.import",
+      "bytes": 1523,
+      "sha256": "a4fcbf588b0657f0cbc73a5171ad0b17decef6a6d57c1166462a6c32aa8cfb71"
+    },
+    {
+      "path": "art/source/models/environment/d05_quay_paving_02/d05_quay_paving_02.blend",
+      "bytes": 96656,
+      "sha256": "56b75237beb53a4046ecb138baac26da4b0e2bfdd2945539f5bf07f79e97c5a5"
+    },
+    {
+      "path": "art/textures/environment/d05_quay_paving_02/civic_inset_albedo.png",
+      "bytes": 11905,
+      "sha256": "3dc04296923c8ff67281cc9ff3e41f78719114a34f822fd619e310f3678e87f9"
+    },
+    {
+      "path": "art/textures/environment/d05_quay_paving_02/civic_inset_albedo.png.import",
+      "bytes": 1105,
+      "sha256": "d811bc0396b7a83ff2db1c297cb891a3310901d713e9513a658b83ed6179fc00"
+    },
+    {
+      "path": "docs/assets/production/d05_quay_paving_02-evidence/detail.png",
+      "bytes": 72273,
+      "sha256": "3e1eb73ea95d781923930ed2f5a061d48e80a30c64558f6385702d00060955ba"
+    },
+    {
+      "path": "docs/assets/production/d05_quay_paving_02-evidence/final.log",
+      "bytes": 2059,
+      "sha256": "27e62b58c0ec153d1f79d65c2f684cc73595400928d4051a0b8e313312775a1d"
+    },
+    {
+      "path": "docs/assets/production/d05_quay_paving_02-evidence/hero.png",
+      "bytes": 216097,
+      "sha256": "4adbe943a4a7a15e99a1b297d328d4e1cfe5d49e58746c14887ca316afe67b9c"
+    },
+    {
+      "path": "docs/assets/production/d05_quay_paving_02-evidence/overhead_47m_42deg.png",
+      "bytes": 218612,
+      "sha256": "ae227b59a67e441bbfc1d9d2224f4cf2241809789ddfdc30ea0faf1eaa02cc05"
+    },
+    {
+      "path": "docs/assets/production/d05_quay_paving_02-evidence/side.png",
+      "bytes": 181149,
+      "sha256": "38608e8b93c1b1385755003d086d05e5007abaa03858dea3130c1ac6ff25caa5"
+    },
+    {
+      "path": "docs/assets/production/d05_quay_paving_02-evidence/validation.json",
+      "bytes": 5141,
+      "sha256": "7ef96dced7d0cfb7a2bd02397f8a35430933023884a3f019da82a001f8dae2d1"
+    },
+    {
+      "path": "docs/assets/production/d05_quay_paving_02.md",
+      "bytes": 14447,
+      "sha256": "a570c7695fe7dacd79490e7a73650fdbb7defa2b76247149fcfc213923aa1136"
+    },
+    {
+      "path": "scenes/prefabs/environment/d05_quay_paving_02.tscn",
+      "bytes": 436,
+      "sha256": "c53741b62444b8817dc6c436850f5969d38b538cc3b22438115b542d27c3142e"
+    },
+    {
+      "path": "tools/asset_production/d05_quay_paving_02/artwork.py",
+      "bytes": 1663,
+      "sha256": "13cf1c3a0f51e9ae72d89e2fb1d797b04066afc597557aa0f8edfbc67b8948f9"
+    },
+    {
+      "path": "tools/asset_production/d05_quay_paving_02/author.py",
+      "bytes": 2823,
+      "sha256": "23453056b7b3373bef7fbf65551e7e02502438d0206090c7d1fe4b13ca0767bf"
+    },
+    {
+      "path": "tools/asset_production/d05_quay_paving_02/check_prefab.gd",
+      "bytes": 8779,
+      "sha256": "0b2826860eec2a55319f95beb21140d7427f93dd33c00ba9474eb6397106fac2"
+    },
+    {
+      "path": "tools/asset_production/d05_quay_paving_02/check_prefab.gd.uid",
+      "bytes": 20,
+      "sha256": "0ed5f268d98684771ba7efb9f91587b6982dcf45fcaef05833c0b2e25c30bf93"
+    },
+    {
+      "path": "tools/asset_production/d05_quay_paving_02/export.py",
+      "bytes": 1302,
+      "sha256": "46c8eed80563e4cbd51750a93e84a88d5dbb95168414297c2215da452f1eecc1"
+    },
+    {
+      "path": "tools/asset_production/d05_quay_paving_02/preview.py",
+      "bytes": 2823,
+      "sha256": "f86790c4155fc0205a12df509e69dc8a8d11378064a207bc81871ee30f46a362"
+    },
+    {
+      "path": "tools/asset_production/d05_quay_paving_02/record.py",
+      "bytes": 8012,
+      "sha256": "172b1bacb966d7dba33c9eb73f1874c6eccc925dce28df9d5cd0c1036ea9c469"
+    },
+    {
+      "path": "tools/asset_production/d05_quay_paving_02/test_artwork.py",
+      "bytes": 2886,
+      "sha256": "7d90ae65eb85eee3446d16c8c9bbab1aba962c5646f79b53e986d0ff64432a9b"
+    },
+    {
+      "path": "tools/asset_production/d05_quay_paving_02/validate.py",
+      "bytes": 7604,
+      "sha256": "e4500133a47d23561dfc4833f385f592c49a33b92f7b325bf6590a11fca9952e"
+    }
+  ]
+}
