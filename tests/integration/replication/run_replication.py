@@ -12,6 +12,8 @@ import time
 
 ROOT = Path(__file__).resolve().parents[3]
 SUCCESS = "M1-A2.2 "
+HOST_READY = "M1-A2.2 host_ready "
+HOST_READY_TIMEOUT_SECONDS = 30.0
 
 
 def available_port():
@@ -28,7 +30,7 @@ def command(godot, role, port, log_path):
         raise RuntimeError("GNU timeout is required for every Godot invocation")
     return [
         timeout,
-        "20",
+        "60",
         godot,
         "--headless",
         "--path",
@@ -40,6 +42,27 @@ def command(godot, role, port, log_path):
         f"--role={role}",
         f"--port={port}",
     ]
+
+
+def await_host_ready(child, stdout_path):
+    """Wait for the post-create_server receipt without assuming startup speed."""
+    deadline = time.monotonic() + HOST_READY_TIMEOUT_SECONDS
+    while time.monotonic() < deadline:
+        text = stdout_path.read_text(encoding="utf-8", errors="replace")
+        for line in text.splitlines():
+            if not line.startswith(HOST_READY):
+                continue
+            try:
+                receipt = json.loads(line.removeprefix(HOST_READY))
+            except json.JSONDecodeError:
+                return None
+            if receipt.get("ok") and receipt.get("event") == "host_ready":
+                return receipt
+            return None
+        if child.poll() is not None:
+            return None
+        time.sleep(0.05)
+    return None
 
 
 def main():
@@ -59,6 +82,8 @@ def main():
     children = []
     streams = []
     exit_codes = {}
+    failed = []
+    host_ready = None
     try:
         for role in ("host", "client"):
             stdout_path = output / f"{role}.stdout.log"
@@ -72,9 +97,11 @@ def main():
             )
             children.append((role, child, stdout_path))
             if role == "host":
-                time.sleep(0.35)
+                host_ready = await_host_ready(child, stdout_path)
+                if host_ready is None:
+                    failed.append("host readiness timeout")
+                    break
 
-        failed = []
         for role, child, _stdout_path in children:
             try:
                 returncode = child.wait(timeout=25)
@@ -104,7 +131,10 @@ def main():
         engine_text = (output / f"{role}.engine.log").read_text(
             encoding="utf-8", errors="replace"
         )
-        receipt_lines = [line for line in text.splitlines() if line.startswith(SUCCESS)]
+        receipt_prefix = f"{SUCCESS}{role} "
+        receipt_lines = [
+            line for line in text.splitlines() if line.startswith(receipt_prefix)
+        ]
         try:
             receipts[role] = json.loads(receipt_lines[-1].split(" ", 2)[2])
         except (IndexError, json.JSONDecodeError):
@@ -129,6 +159,7 @@ def main():
                 "diagnostics": diagnostics,
                 "exit_codes": exit_codes,
                 "failures": failed,
+                "host_ready": host_ready,
                 "ok": ok,
                 "port": port,
                 "receipts": receipts,

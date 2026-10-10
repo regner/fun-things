@@ -37,6 +37,7 @@ func _ready() -> void:
 		return
 
 	_session.changed.connect(_on_session_changed)
+	_transport.peer_ready.connect(_on_transport_peer_ready)
 	_session.participant_admitted.connect(_on_participant_admitted)
 	_session.participant_disconnected.connect(_on_participant_disconnected)
 	if not _session.register_transport(_transport).get("ok", false):
@@ -77,6 +78,23 @@ func _physics_process(_delta: float) -> void:
 	if _role == "host":
 		_check_host_boundary()
 	_check_replication_result()
+
+
+## Emits readiness only after ENet has successfully created and published the host peer.
+func _on_transport_peer_ready(operation_id: int, _peer: MultiplayerPeer) -> void:
+	if _role != "host":
+		return
+	print(
+		"M1-A2.2 host_ready "
+		+ JSON.stringify(
+			{
+				"event": "host_ready",
+				"ok": true,
+				"operation_id": operation_id,
+				"port": _port,
+			}
+		)
+	)
 
 
 ## Loads the same saved Match on both sides only after Session admission is active.
