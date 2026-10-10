@@ -1,0 +1,34 @@
+city_shore_edges.03 — final bounded production receipt
+Pins: Blender 5.2.2 LTS / d13f752e3b9c; glTF 5.2.40; Godot 4.8.dev7.official.c971f93e7.
+All Blender runs: ALSOFT_DRIVERS=null SDL_AUDIODRIVER=dummy, timeout 900,
+-noaudio --background --factory-startup --threads 4 --python-exit-code 1.
+Owned author.py, export.py, render.py: exit 0. Four 1280x720 views inspected.
+Separate export.py -- C:/tmp/ft/assets/city_shore_edges_03/reexport.glb: exit 0.
+validate.py -- same scratch GLB: exit 0; production GLB byte-identical (25,256 bytes).
+Source: 491 vertices, 966 triangles, 1 mesh, 3 surfaces; export: 699 split vertices.
+Zero non-manifold source edges or degenerate source faces/export triangles;
+unit normals, consistent winding, identity transforms and 4x1.25x1.6m bounds pass.
+Godot import: timeout 300 --headless --editor --path . --import: exit 0.
+Godot normalization: timeout 180 --headless --editor --path . --script
+ tools/asset_production/city_shore_edges_03/check.gd -- --normalize: exit 0;
+ two saves each of wrapper/fixture are byte-stable with retained resource/node IDs.
+Standalone checks (same script, no --editor), two final separate processes: exit 0;
+12 rays, 8 production ActorMotion cases, authority/replay difference .000129433m.
+Front/seam stop Z=-1.166666269; rear +1.166666269; bypass Z=2.999999762.
+Standalone final logs: no SCRIPT ERROR, ERROR or WARNING diagnostics.
+timeout 60 pinned gdstyle --max-warnings 0 owned check.gd: exit 0, no issues.
+Final compilation: 165/165 scripts passed.
+timeout 1800 mise exec -- python tools/production_checks.py
+ --output C:/tmp/ft/assets/city_shore_edges_03/checks-complete: exit 0.
+All seven canonical gates passed: engine/GUT pins, owned scripts, Python tests,
+GUT import, GUT tests, expected-failure negative control. Python 14/14;
+GUT 137/137 tests / 6523 assertions.
+Historical corrections: initial uniform rock silhouette replaced; unrestricted bevel
+spikes fixed by overlap clamping/edge filtering. An intermediate owned helper length
+and spacing cleanup failed style; extracted ray helper and corrected spacing. Final
+complete canonical run passed. No known failures were waived.
+Expected diagnostics: Blender Material.use_nodes deprecation notices; headless editor
+addon version warning and shutdown RID/ObjectDB leak warnings after successful checks.
+Pending: independent review, engine visuals, coast/corner fitting, vehicle/route fidelity,
+network transport, packaged builds and Deck/performance/LOD acceptance.
+Raw logs and check mirrors: C:/tmp/ft/assets/city_shore_edges_03/ (not committed).

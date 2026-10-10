@@ -1,0 +1,350 @@
+{
+  "applied_transforms": true,
+  "asset": "city_shore_edges.03",
+  "blender": "5.2.2 LTS",
+  "bottom_height_m": -0.6,
+  "build_hash": "d13f752e3b9c",
+  "consistent_winding": true,
+  "datum": "land contact through rock body",
+  "degenerate_faces": 0.0,
+  "dimension_tolerance_m": 0.001,
+  "dimensions_godot_m": [
+    4.0,
+    1.25,
+    1.6
+  ],
+  "end_joins_godot": [
+    [
+      -2.0,
+      0.0,
+      0.0
+    ],
+    [
+      2.0,
+      0.0,
+      0.0
+    ]
+  ],
+  "end_profile_blender_yz": [
+    [
+      -0.8,
+      -0.48
+    ],
+    [
+      -0.771341,
+      -0.083047
+    ],
+    [
+      -0.76,
+      -0.3
+    ],
+    [
+      -0.739402,
+      -0.260628
+    ],
+    [
+      -0.73523,
+      0.061524
+    ],
+    [
+      -0.72,
+      -0.6
+    ],
+    [
+      -0.715812,
+      -0.260537
+    ],
+    [
+      -0.704761,
+      0.157562
+    ],
+    [
+      -0.696159,
+      -0.276846
+    ],
+    [
+      -0.691956,
+      -0.3
+    ],
+    [
+      -0.610283,
+      0.282202
+    ],
+    [
+      -0.542183,
+      0.355747
+    ],
+    [
+      -0.361698,
+      0.44287
+    ],
+    [
+      -0.245199,
+      0.48933
+    ],
+    [
+      0.171825,
+      0.488672
+    ],
+    [
+      0.2726,
+      0.453987
+    ],
+    [
+      0.459182,
+      0.376117
+    ],
+    [
+      0.536645,
+      0.304203
+    ],
+    [
+      0.666895,
+      0.157777
+    ],
+    [
+      0.682282,
+      -0.3
+    ],
+    [
+      0.686511,
+      -0.276813
+    ],
+    [
+      0.704334,
+      0.076209
+    ],
+    [
+      0.706218,
+      -0.260479
+    ],
+    [
+      0.72,
+      -0.6
+    ],
+    [
+      0.729861,
+      -0.260567
+    ],
+    [
+      0.743978,
+      -0.07022
+    ],
+    [
+      0.746838,
+      -0.101819
+    ],
+    [
+      0.748231,
+      -0.046705
+    ],
+    [
+      0.755225,
+      -0.123859
+    ],
+    [
+      0.76,
+      -0.3
+    ],
+    [
+      0.8,
+      -0.48
+    ]
+  ],
+  "end_profiles_identical": true,
+  "fresh_reexport_byte_identical": true,
+  "glb_bytes": 25256.0,
+  "glb_sha256": "edb84e6eab99537538210b3016a575d7511ecb9cd45ee34fe1a443f8772d3f0b",
+  "glb_vertices": 699.0,
+  "godot": {
+    "bounds_min": [
+      -2.0,
+      -0.600000023841858,
+      -0.800000011920929
+    ],
+    "bounds_size": [
+      4.0,
+      1.25,
+      1.60000002384186
+    ],
+    "box_shape_count": 1,
+    "engine": "4.8-dev7 (official)",
+    "linked_model_identity": true,
+    "physics": {
+      "actor_height_m": 1.8,
+      "actor_radius_m": 0.35,
+      "authority_replay_within_tolerance": true,
+      "bypass_end_z_m": 2.99999976158142,
+      "front_stop_z_m": -1.16666626930237,
+      "max_authority_replay_error_m": 0.000129433057736605,
+      "movement_cases": 8,
+      "network_transport_and_world_placement": "not tested",
+      "position_tolerance_m": 0.001,
+      "ray_cases": 12,
+      "rear_stop_z_m": 1.16666626930237,
+      "seam_stop_z_m": -1.16666626930237,
+      "walk_ticks_per_case": 60
+    },
+    "save_reload_byte_stable": true,
+    "static_body_count": 1
+  },
+  "godot_aabb": {
+    "max": [
+      2.0,
+      0.649999976158142,
+      0.800000011920929
+    ],
+    "min": [
+      -2.0,
+      -0.600000023841858,
+      -0.800000011920929
+    ]
+  },
+  "materials": [
+    {
+      "name": "shore_foot_dark_slate",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.0949999988079071,
+          0.144999995827675,
+          0.159999996423721,
+          1.0
+        ],
+        "metallicFactor": 0.0,
+        "roughnessFactor": 0.779999971389771
+      }
+    },
+    {
+      "name": "shore_body_slate",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.200000002980232,
+          0.264999985694885,
+          0.28999999165535,
+          1.0
+        ],
+        "metallicFactor": 0.0,
+        "roughnessFactor": 0.720000028610229
+      }
+    },
+    {
+      "name": "shore_rock_weathered_slate",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.319999992847443,
+          0.389999985694885,
+          0.409999996423721,
+          1.0
+        ],
+        "metallicFactor": 0.0,
+        "roughnessFactor": 0.759999990463257
+      }
+    }
+  ],
+  "mesh_count": 1.0,
+  "nonmanifold_edges": 0.0,
+  "pivot": [
+    0.0,
+    0.0,
+    0.0
+  ],
+  "source_aabb": {
+    "max": [
+      2.0,
+      0.800000011920929,
+      0.649999976158142
+    ],
+    "min": [
+      -2.0,
+      -0.800000011920929,
+      -0.600000023841858
+    ]
+  },
+  "status": "PASS source and export",
+  "surfaces": 3.0,
+  "top_height_m": 0.65,
+  "triangles": 966.0,
+  "unit_normals": true,
+  "vertices": 491.0,
+  "production_checks": {
+    "ok": true,
+    "results": {
+      "engine": {
+        "ok": true,
+        "version": "4.8.dev7.official.c971f93e7"
+      },
+      "gut_pin": {
+        "ok": true,
+        "version": "9.7.1"
+      },
+      "owned_scripts": {
+        "ok": true,
+        "returncode": 0
+      },
+      "python_tests": {
+        "ok": true,
+        "returncode": 0
+      },
+      "gut_import": {
+        "ok": true,
+        "returncode": 0
+      },
+      "gut_tests": {
+        "ok": true,
+        "returncode": 0
+      },
+      "gut_negative": {
+        "ok": true,
+        "observed_returncode": 1
+      }
+    },
+    "owned_script": {
+      "script": "tools/asset_production/city_shore_edges_03/check.gd",
+      "ok": true
+    },
+    "compilation_failures": [],
+    "compiled_scripts": 165
+  },
+  "renders": [
+    {
+      "file": "hero.png",
+      "size_px": [
+        1280,
+        720
+      ],
+      "bytes": 397177
+    },
+    {
+      "file": "side.png",
+      "size_px": [
+        1280,
+        720
+      ],
+      "bytes": 366887
+    },
+    {
+      "file": "detail.png",
+      "size_px": [
+        1280,
+        720
+      ],
+      "bytes": 377397
+    },
+    {
+      "file": "overhead_47m_42deg.png",
+      "size_px": [
+        1280,
+        720
+      ],
+      "bytes": 381935
+    }
+  ],
+  "render_encoding": "RGB 7 significant bits per channel, PNG compression 9",
+  "overhead_camera": {
+    "projection": "perspective",
+    "height_m": 47,
+    "vertical_fov_deg": 42,
+    "direction": "vertical down, Blender +Y at image top",
+    "engine_capture": false
+  }
+}
