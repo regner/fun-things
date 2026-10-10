@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://fjiqog7vq6w6"]
+
+[ext_resource type="PackedScene" path="res://scenes/prefabs/environment/d09_storage_03.tscn" id="1_stack"]
+[ext_resource type="Script" path="res://scripts/actors/actor_motion.gd" id="2_motion"]
+
+[sub_resource type="BoxShape3D" id="Box_floor"]
+size = Vector3(30, 0.2, 45)
+
+[sub_resource type="CapsuleShape3D" id="Capsule_actor"]
+radius = 0.35
+height = 1.8
+
+[node name="StackCheck" type="Node3D" unique_id=1023765659]
+
+[node name="Stack" parent="." unique_id=1966256911 instance=ExtResource("1_stack")]
+
+[node name="Floor" type="StaticBody3D" parent="." unique_id=1585296835]
+collision_mask = 0
+
+[node name="Shape" type="CollisionShape3D" parent="Floor" unique_id=1750245493]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.1, 0)
+shape = SubResource("Box_floor")
+
+[node name="Actor" type="CharacterBody3D" parent="." unique_id=1943346828]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.001, -8)
+collision_layer = 2
+script = ExtResource("2_motion")
+
+[node name="Capsule" type="CollisionShape3D" parent="Actor" unique_id=199024558]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0)
+shape = SubResource("Capsule_actor")

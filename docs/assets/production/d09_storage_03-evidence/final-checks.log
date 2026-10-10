@@ -1,0 +1,42 @@
+d09_storage.03 — final bounded validation receipt
+Producer: commissioned implementation specialist; lane/a-storage.
+Exact reproduction commands: docs/assets/production/d09_storage_03.md.
+All commands below completed with observed exit 0; no timeout.
+Environment for Blender: ALSOFT_DRIVERS=null SDL_AUDIODRIVER=dummy.
+
+timeout 900 "C:/Program Files/Blender Foundation/Blender 5.2/blender.exe" -noaudio --background --factory-startup --threads 4 --python-exit-code 1 --python tools/asset_production/d09_storage_03/author.py
+PASS: standalone source, explicit GLB, four 1280x720 renders.
+Self-review refinement: seated webbing and slightly relaxed skirt centres before final export.
+timeout 180 "C:/Program Files/Blender Foundation/Blender 5.2/blender.exe" -noaudio --background --factory-startup --threads 4 --python-exit-code 1 --python tools/asset_production/d09_storage_03/validate.py
+PASS: geometry/scope/normals/bounds and fresh-export byte comparison.
+Source vertices 2240; triangles 4356; exported vertices 2688; 1 mesh / 5 surfaces.
+Zero degenerate faces/triangles and zero non-manifold edges.
+GLB bytes 117188; SHA-256 59ef8f579a9b76fb1d66ed2bfc98af87441dda2cba2dadaa2481294c233df683
+python tools/asset_production/d09_storage_03/finalize.py --compress-renders
+PASS: RGB six significant bits/channel, PNG compression 9; four images each <300 KB.
+
+GODOT="$(mise which godot)": 4.8.dev7.official.c971f93e7
+timeout 300 "$GODOT" --headless --path . --import (initial, post-normalization, final)
+PASS: each import exited 0; no ERROR or SCRIPT ERROR lines.
+Known diagnostic retained: MCP toolkit reports Godot 4.8 versus tested 4.7.0.
+timeout 180 "$GODOT" --headless --path . --script tools/asset_production/d09_storage_03/check.gd -- --normalize
+timeout 180 "$GODOT" --headless --path . --script tools/asset_production/d09_storage_03/check.gd -- --normalize --verify-stable
+timeout 180 "$GODOT" --headless --path . --script tools/asset_production/d09_storage_03/check.gd
+PASS: dependency UIDs, linked model, engine bounds, one box and two stable roundtrips plus fresh-process stability.
+Godot Engine v4.8.dev7.official.c971f93e7 - https://godotengine.org
+
+[MCPRuntimeServer] port: scanning 6570-6585 (default)
+[MCPRuntimeServer] listening on 127.0.0.1:6570
+[MCPRegistry] runtime port 6570 registered for c:/gamedev/git/ft-lanes/a-storage
+PHYSICS_OBSERVATIONS contact=[(0.0, 0.001, -2.666661), (0.0, 0.001, -2.666661)] bypass=[(2.1, 0.001, 8.000012), (2.1, 0.001, 8.000012)]
+D09_STORAGE_03_CHECK_PASS {"bounds_min_m":[-1.60000002384186,0.0,-2.30000019073486],"bounds_size_m":[3.20000004768372,1.65000009536743,4.60000038146973],"engine":"4.8-dev7 (official)","fresh_process_roundtrip_byte_stable":true,"linked_model_identity":true,"physics":{"above_roof_ray_clear":true,"actor_capsule_height_m":1.8,"actor_capsule_radius_m":0.35,"authority_replay_equal":true,"bypass_end_m":[2.09999990463257,0.00100000004749745,8.00001239776611],"car_box_dimensions_m":[1.8,1.5,4.4],"car_bypass_safe_fraction":1.0,"car_front_cast_safe_fraction":0.27496337890625,"contact_stop_m":[0.0,0.00100000004749745,-2.66666054725647],"three_front_rays_blocked":true,"ticks_per_case_per_mode":192,"vehicle_driving_network_transport_and_placement":"not tested"},"resource_uids":{"res://art/models/environment/d09_storage_03/d09_storage_03.glb":"uid://b87uqbo7xj1i4","res://scenes/prefabs/environment/d09_storage_03.tscn":"uid://d2xdwgvw7mina","res://scripts/actors/actor_motion.gd":"uid://jthmfio4c27p","res://tools/asset_production/d09_storage_03/check_scene.tscn":"uid://fjiqog7vq6w6"},"save_reload_byte_stable":true,"stable_roundtrips":2.0,"static_collision":{"bodies":1,"boxes":1,"layer":1,"mask":0}}
+
+"$(mise which gdstyle)" fmt --check tools/asset_production/d09_storage_03/check.gd
+1 file already formatted.
+"$(mise which gdstyle)" --max-line-length 100 --max-warnings 0 tools/asset_production/d09_storage_03/check.gd
+âœ“ 1 file checked, no issues found.
+Python ast.parse passed for all four owned Python scripts.
+Final author/import/check/validator logs reviewed: no errors or tracebacks.
+
+No production_checks.py, live-editor, world placement, actual vehicle driving, network transport or device/GPU tests run.
+Independent review and integrated world/camera/gameplay/device acceptance remain pending.
