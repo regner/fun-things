@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://cdelyp2csl0ql"]
+
+[ext_resource type="PackedScene" path="res://scenes/prefabs/environment/city_traffic_fixtures_01.tscn" id="1_pole"]
+[ext_resource type="Script" path="res://scripts/actors/actor_motion.gd" id="2_motion"]
+
+[sub_resource type="BoxShape3D" id="Box_floor"]
+size = Vector3(8, 0.2, 8)
+
+[sub_resource type="CapsuleShape3D" id="Capsule_actor"]
+radius = 0.35
+height = 1.8
+
+[node name="SignalPoleCheck" type="Node3D" unique_id=1627324552]
+
+[node name="Pole" parent="." unique_id=116760617 instance=ExtResource("1_pole")]
+
+[node name="Floor" type="StaticBody3D" parent="." unique_id=34804919]
+collision_mask = 0
+
+[node name="Shape" type="CollisionShape3D" parent="Floor" unique_id=764867490]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.1, 0)
+shape = SubResource("Box_floor")
+
+[node name="Actor" type="CharacterBody3D" parent="." unique_id=111975962]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.001, -2)
+collision_layer = 2
+script = ExtResource("2_motion")
+
+[node name="Capsule" type="CollisionShape3D" parent="Actor" unique_id=1644390624]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0)
+shape = SubResource("Capsule_actor")

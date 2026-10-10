@@ -1,0 +1,18 @@
+city_traffic_fixtures.01 final bounded validation receipt - 2026-10-10
+Blender 5.2.2 LTS d13f752e3b9c; glTF exporter 5.2.40.
+Author command: timeout 900, audio disabled, background/factory-startup, threads 4: exit 0.
+validate.py: timeout 180, same pinned Blender flags: exit 0.
+Fresh re-export byte identical. Separate source-file export.py invocation + cmp: exit 0.
+Final pinned Godot headless import: timeout 300, exit 0.
+Final check.gd --normalize: timeout 180, exit 0.
+Cross-process post-import wrapper and fixture SHA-256 before/after normalize: both OK.
+gdstyle 0.3.0 fmt --check + lint --max-line-length 100 --max-warnings 0: pass.
+Full production_checks.py: timeout 1800 via mise exec, exit 0; no waived failures.
+Python: 17/17 passed. GUT: 149/149 passed, 6768 asserts, 30 scripts.
+Production layers: {"engine": {"ok": true, "version": "4.8.dev7.official.c971f93e7"}, "gut_import": {"ok": true, "returncode": 0}, "gut_negative": {"observed_returncode": 1, "ok": true}, "gut_pin": {"ok": true, "version": "9.7.1"}, "gut_tests": {"ok": true, "returncode": 0}, "owned_scripts": {"ok": true, "returncode": 0}, "python_tests": {"ok": true, "returncode": 0}}
+Final engine receipt:
+CITY_TRAFFIC_FIXTURES_01_CHECK_PASS {"bounds_min_m":[-0.219999998807907,0.0,-1.52999997138977],"bounds_size_m":[0.439999997615814,4.53999996185303,1.75],"engine":"4.8-dev7 (official)","linked_model_identity":true,"physics":{"above_cap_ray_clear":true,"actor_capsule_height_m":1.8,"actor_capsule_radius_m":0.35,"authority_replay_equal":true,"bypass_end_m":[0.800000011920929,0.00100000004749745,2.00000071525574],"contact_stop_m":[0.0,0.00100000004749745,-0.583333015441895],"low_ray_blocked":true,"ticks_per_case_per_mode":48,"vehicle_network_transport_and_placement":"not tested"},"resource_uids":{"res://art/models/environment/city_traffic_fixtures_01/city_traffic_fixtures_01.glb":"uid://wimwflb7q52","res://scenes/prefabs/environment/city_traffic_fixtures_01.tscn":"uid://bn1wdv4hmw4ro","res://scripts/actors/actor_motion.gd":"uid://jthmfio4c27p","res://tools/asset_production/city_traffic_fixtures_01/check_scene.tscn":"uid://cdelyp2csl0ql"},"save_reload_byte_stable":true,"socket_source_matches_wrapper":true,"static_cylinder":{"height_m":4.13,"layer":1,"mask":0,"radius_m":0.22}}
+Diagnostics: Blender pinned use_nodes deprecations; existing MCP editor plugin compatibility warning only.
+Initial check-only path mistake was corrected to Model/CityTrafficFixtures01/socket_signal_head; final checks clean.
+Four Blender-only renders inspected; 1280x720; RGB 7-bit significant channels, PNG compression 9.
+Pending: independent review, composed head fit, placement, vehicle clearance, real-process networking, populated camera and device/performance.
