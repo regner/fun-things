@@ -2704,14 +2704,14 @@
       "input_next_action": "Refine shared design for recorded districts",
       "brief": "[Brief](../../assets/city_ground_finishes.md)",
       "priority": 1,
-      "status": "queued",
-      "agent_id": null,
-      "source_revision": null,
-      "review_status": "pending",
-      "integration_status": "pending",
+      "status": "production_prefab_accepted",
+      "agent_id": "d3f490e4-3d29-4831-a12d-aa327c0e0858",
+      "source_revision": "ac9dd71d",
+      "review_status": "accepted source/export/prefab scope (independent Sol review)",
+      "integration_status": "accepted",
       "placement_status": "pending",
       "blocker": null,
-      "attempts": 0,
+      "attempts": 1,
       "initial_time_cap_minutes": 90,
       "owned_paths": [
         "art/source/models/environment/city_ground_finishes_01/",
@@ -2719,8 +2719,20 @@
         "art/textures/environment/city_ground_finishes_01/",
         "art/materials/environment/city_ground_finishes_01/",
         "docs/assets/production/city_ground_finishes_01.md",
-        "docs/assets/production/city_ground_finishes_01-evidence/"
-      ]
+        "docs/assets/production/city_ground_finishes_01-evidence/",
+        "tools/asset_production/city_ground_finishes_01/",
+        "scenes/prefabs/environment/city_ground_finishes_01.tscn"
+      ],
+      "launch": {
+        "provider": "portkey/gpt-6-astra",
+        "configured_effort": "medium",
+        "mode": "orchestrator asset lane",
+        "lane": "a-ground"
+      },
+      "producer_manifest": "docs/assets/production/city_ground_finishes_01-evidence/manifest.json",
+      "report": "docs/assets/production/city_ground_finishes_01.md",
+      "reviewer_id": "dd8f1a19-c627-46b0-b144-d565afa0f6db",
+      "integrated_revision": "f44cdd8e"
     },
     {
       "id": "city_ground_finishes.02",
@@ -2733,14 +2745,14 @@
       "input_next_action": "Refine shared design for recorded districts",
       "brief": "[Brief](../../assets/city_ground_finishes.md)",
       "priority": 1,
-      "status": "queued",
-      "agent_id": null,
-      "source_revision": null,
-      "review_status": "pending",
-      "integration_status": "pending",
+      "status": "production_prefab_accepted",
+      "agent_id": "cf01ccaa-1c34-4c3f-a51c-afaf978b4cc7",
+      "source_revision": "100dc391",
+      "review_status": "accepted source/export/prefab scope (independent Sol review)",
+      "integration_status": "accepted",
       "placement_status": "pending",
       "blocker": null,
-      "attempts": 0,
+      "attempts": 1,
       "initial_time_cap_minutes": 90,
       "owned_paths": [
         "art/source/models/environment/city_ground_finishes_02/",
@@ -2748,8 +2760,20 @@
         "art/textures/environment/city_ground_finishes_02/",
         "art/materials/environment/city_ground_finishes_02/",
         "docs/assets/production/city_ground_finishes_02.md",
-        "docs/assets/production/city_ground_finishes_02-evidence/"
-      ]
+        "docs/assets/production/city_ground_finishes_02-evidence/",
+        "tools/asset_production/city_ground_finishes_02/",
+        "scenes/prefabs/environment/city_ground_finishes_02.tscn"
+      ],
+      "launch": {
+        "provider": "portkey/gpt-6-astra",
+        "configured_effort": "medium",
+        "mode": "orchestrator asset lane",
+        "lane": "a-ground"
+      },
+      "producer_manifest": "docs/assets/production/city_ground_finishes_02-evidence/manifest.json",
+      "report": "docs/assets/production/city_ground_finishes_02.md",
+      "reviewer_id": "dd8f1a19-c627-46b0-b144-d565afa0f6db",
+      "integrated_revision": "f44cdd8e"
     },
     {
       "id": "city_ground_finishes.03",
@@ -2791,14 +2815,14 @@
       "input_next_action": "Refine shared design for recorded districts",
       "brief": "[Brief](../../assets/city_ground_finishes.md)",
       "priority": 1,
-      "status": "queued",
-      "agent_id": null,
-      "source_revision": null,
-      "review_status": "pending",
-      "integration_status": "pending",
+      "status": "production_prefab_accepted",
+      "agent_id": "939ec08e-bc72-4ec2-9f4c-b23377f27fd3",
+      "source_revision": "2c3fe4b0",
+      "review_status": "accepted source/export/prefab scope (independent Sol review)",
+      "integration_status": "accepted",
       "placement_status": "pending",
       "blocker": null,
-      "attempts": 0,
+      "attempts": 1,
       "initial_time_cap_minutes": 90,
       "owned_paths": [
         "art/source/models/environment/city_ground_finishes_04/",
@@ -2806,8 +2830,20 @@
         "art/textures/environment/city_ground_finishes_04/",
         "art/materials/environment/city_ground_finishes_04/",
         "docs/assets/production/city_ground_finishes_04.md",
-        "docs/assets/production/city_ground_finishes_04-evidence/"
-      ]
+        "docs/assets/production/city_ground_finishes_04-evidence/",
+        "tools/asset_production/city_ground_finishes_04/",
+        "scenes/prefabs/environment/city_ground_finishes_04.tscn"
+      ],
+      "launch": {
+        "provider": "portkey/gpt-6-astra",
+        "configured_effort": "medium",
+        "mode": "orchestrator asset lane",
+        "lane": "a-ground"
+      },
+      "producer_manifest": "docs/assets/production/city_ground_finishes_04-evidence/manifest.json",
+      "report": "docs/assets/production/city_ground_finishes_04.md",
+      "reviewer_id": "dd8f1a19-c627-46b0-b144-d565afa0f6db",
+      "integrated_revision": "f44cdd8e"
     },
     {
       "id": "city_ground_finishes.05",
@@ -2820,14 +2856,14 @@
       "input_next_action": "Refine shared design for recorded districts",
       "brief": "[Brief](../../assets/city_ground_finishes.md)",
       "priority": 1,
-      "status": "queued",
-      "agent_id": null,
-      "source_revision": null,
-      "review_status": "pending",
-      "integration_status": "pending",
+      "status": "production_prefab_accepted",
+      "agent_id": "fe2d94b4-9c8a-402b-be2b-3a5f293b0313",
+      "source_revision": "fdad467c",
+      "review_status": "accepted source/export/prefab scope (independent Sol review)",
+      "integration_status": "accepted",
       "placement_status": "pending",
       "blocker": null,
-      "attempts": 0,
+      "attempts": 1,
       "initial_time_cap_minutes": 90,
       "owned_paths": [
         "art/source/models/environment/city_ground_finishes_05/",
@@ -2835,8 +2871,20 @@
         "art/textures/environment/city_ground_finishes_05/",
         "art/materials/environment/city_ground_finishes_05/",
         "docs/assets/production/city_ground_finishes_05.md",
-        "docs/assets/production/city_ground_finishes_05-evidence/"
-      ]
+        "docs/assets/production/city_ground_finishes_05-evidence/",
+        "tools/asset_production/city_ground_finishes_05/",
+        "scenes/prefabs/environment/city_ground_finishes_05.tscn"
+      ],
+      "launch": {
+        "provider": "portkey/gpt-6-astra",
+        "configured_effort": "medium",
+        "mode": "orchestrator asset lane",
+        "lane": "a-ground"
+      },
+      "producer_manifest": "docs/assets/production/city_ground_finishes_05-evidence/manifest.json",
+      "report": "docs/assets/production/city_ground_finishes_05.md",
+      "reviewer_id": "dd8f1a19-c627-46b0-b144-d565afa0f6db",
+      "integrated_revision": "f44cdd8e"
     },
     {
       "id": "city_road_markings.01",
