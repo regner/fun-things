@@ -23,9 +23,10 @@ const HOST_PARTICIPANT_ID: int = 1
 const SUSTAINED_MOVEMENT_TICKS: int = 600
 const SUSTAINED_SETTLE_TICKS: int = 45
 const SUSTAINED_CLOSE_GRACE_TICKS: int = 120
+const SUSTAINED_MOUSE_INTERVAL_TICKS: int = 30
 const CONTINUITY_WINDOW_TICKS: int = 15
 const MINIMUM_WINDOW_DISTANCE_METRES: float = 0.2
-const MINIMUM_CLIENT_HOST_DISTANCE_RATIO: float = 0.3
+const MINIMUM_CLIENT_HOST_DISTANCE_RATIO: float = 0.8
 const HOST_FINAL_AIM_YAW: float = 1.0
 const CLIENT_FINAL_AIM_YAW: float = -1.0
 const FACING_TOLERANCE_RADIANS: float = 0.15
@@ -84,6 +85,13 @@ var _sustained_window_failures: int = 0
 var _sustained_minimum_window_metres: float = INF
 var _sustained_local_yaw_min: float = INF
 var _sustained_local_yaw_max: float = -INF
+var _sustained_input_started: bool = false
+var _sustained_input_cleared: bool = false
+var _sustained_input_press_count: int = 0
+var _sustained_mouse_event_count: int = 0
+var _sustained_expected_mouse_position: Vector2 = Vector2.INF
+var _sustained_last_mouse_event_tick: int = 0
+var _sustained_aim_rebind_retained: bool = true
 
 
 ## Parses the explicit acceptance arguments without changing ordinary launches.
@@ -351,7 +359,7 @@ func _bind_match() -> void:
 	_replication.input_granted.connect(_on_input_granted)
 	_replication.input_recovered.connect(_on_input_recovered)
 	_replication.movement_applied.connect(_on_movement_applied)
-	if _scenario in [SCENARIO_GAMEPLAY, SCENARIO_SUSTAINED]:
+	if _scenario == SCENARIO_GAMEPLAY:
 		_replication.set_local_input_enabled(false)
 		var rig: LocalRig = match.get_node_or_null("LocalRig") as LocalRig
 		if rig != null and _role == ROLE_HOST:
@@ -501,7 +509,7 @@ func _track_remote_presentation(actor: ActorMotion) -> void:
 
 
 ## Holds real client intent for ten seconds and measures continuity and replicated facing.
-func _step_sustained(delta_seconds: float) -> void:
+func _step_sustained(_delta_seconds: float) -> void:
 	var host_actor: ActorMotion = _replication.actor_for_participant(HOST_PARTICIPANT_ID)
 	var client_actor: ActorMotion = _replication.actor_for_participant(REMOTE_PARTICIPANT_ID)
 	if host_actor == null or client_actor == null:
@@ -518,11 +526,7 @@ func _step_sustained(delta_seconds: float) -> void:
 
 	_sustained_tick += 1
 	var movement_active: bool = _sustained_tick <= SUSTAINED_MOVEMENT_TICKS
-	var movement_phase: int = floori(float(_sustained_tick - 1) / 60.0)
-	var direction: Vector2 = Vector2.RIGHT if movement_phase % 2 == 0 else Vector2.LEFT
-	if not movement_active:
-		direction = Vector2.ZERO
-	_drive_sustained_local(direction, movement_active, host_actor, delta_seconds)
+	_drive_sustained_local(movement_active, host_actor, client_actor)
 	_measure_sustained_motion(host_actor, client_actor, movement_active)
 	var local_actor: ActorMotion = host_actor if _role == ROLE_HOST else client_actor
 	_sustained_local_yaw_min = minf(_sustained_local_yaw_min, local_actor.rotation.y)
@@ -533,39 +537,81 @@ func _step_sustained(delta_seconds: float) -> void:
 	_complete_sustained()
 
 
-## Applies one deterministic held command through the role's production movement path.
+## Injects one held key and moving pointer through the production viewport input path.
 func _drive_sustained_local(
-	direction: Vector2,
 	movement_active: bool,
 	host_actor: ActorMotion,
-	delta_seconds: float,
+	client_actor: ActorMotion,
 ) -> void:
-	if _role == ROLE_HOST:
-		_host_sequence += 1
-		var host_yaw: float = (
-			sin(float(_sustained_tick) * 0.03) * 1.2
-			if movement_active
-			else HOST_FINAL_AIM_YAW
+	var rig: LocalRig = _replication.get_parent().get_node_or_null("LocalRig") as LocalRig
+	if rig == null:
+		_finish(false, "SUSTAINED_LOCAL_RIG_MISSING")
+		return
+	var input: DesktopFootInput = rig.get_node_or_null("Input") as DesktopFootInput
+	var camera: Camera3D = rig.get_node_or_null("CameraAnchor/Camera3D") as Camera3D
+	if input == null or camera == null:
+		_finish(false, "SUSTAINED_INPUT_MISSING")
+		return
+	if (
+		_sustained_expected_mouse_position != Vector2.INF
+		and _sustained_tick > _sustained_last_mouse_event_tick
+		and not input.aim_screen_position().is_equal_approx(
+			_sustained_expected_mouse_position
 		)
-		host_actor.step(
-			FootCommand.new(
-				_host_sequence, _host_sequence, direction, host_yaw, false, false
-			),
-			delta_seconds,
-			ActorMotion.StepMode.AUTHORITY,
+	):
+		_sustained_aim_rebind_retained = false
+	var move_mouse: bool = (
+		_sustained_tick == SUSTAINED_MOVEMENT_TICKS + 1
+		or (
+			movement_active
+			and (
+				_sustained_tick == 1
+				or _sustained_tick % SUSTAINED_MOUSE_INTERVAL_TICKS == 0
+			)
 		)
+	)
+	if not _sustained_input_started:
+		input.set_focused(true)
+		_push_sustained_key()
+		_sustained_input_started = true
+		_sustained_input_press_count += 1
+	elif (
+		_sustained_tick == SUSTAINED_MOVEMENT_TICKS + 2
+		and not _sustained_input_cleared
+	):
+		input.set_focused(false)
+		_sustained_input_cleared = true
+	if not move_mouse:
 		return
 
-	_sequence += 1
-	var client_yaw: float = (
-		cos(float(_sustained_tick) * 0.03) * 1.2
-		if movement_active
-		else CLIENT_FINAL_AIM_YAW
-	)
-	_replication.predict_and_submit_local_command(
-		FootCommand.new(_sequence, _sequence, direction, client_yaw, false, false),
-		delta_seconds,
-	)
+	var local_actor: ActorMotion = host_actor if _role == ROLE_HOST else client_actor
+	var aim_yaw: float = sin(float(_sustained_tick) * 0.03) * 1.2
+	if _role == ROLE_CLIENT:
+		aim_yaw = cos(float(_sustained_tick) * 0.03) * 1.2
+	if not movement_active:
+		aim_yaw = HOST_FINAL_AIM_YAW if _role == ROLE_HOST else CLIENT_FINAL_AIM_YAW
+	_push_sustained_mouse(camera, local_actor, aim_yaw)
+
+
+## Dispatches the sole sustained key-down through normal viewport propagation.
+func _push_sustained_key() -> void:
+	var event := InputEventKey.new()
+	event.physical_keycode = KEY_D
+	event.pressed = true
+	_tree.root.push_input(event, true)
+
+
+## Projects one desired world yaw to a viewport mouse event for DesktopFootInput.
+func _push_sustained_mouse(camera: Camera3D, actor: ActorMotion, aim_yaw: float) -> void:
+	var planar := Vector3(-sin(aim_yaw), 0.0, -cos(aim_yaw))
+	var screen_position: Vector2 = camera.unproject_position(actor.global_position + planar * 10.0)
+	var event := InputEventMouseMotion.new()
+	event.position = screen_position
+	event.global_position = screen_position
+	_tree.root.push_input(event, true)
+	_sustained_expected_mouse_position = screen_position
+	_sustained_last_mouse_event_tick = _sustained_tick
+	_sustained_mouse_event_count += 1
 
 
 ## Completes sustained acceptance only after distance, continuity, and facing all pass.
@@ -576,6 +622,10 @@ func _complete_sustained() -> void:
 		(_role == ROLE_HOST or _sustained_window_failures == 0)
 		and host_distance > 1.0
 		and client_distance >= host_distance * MINIMUM_CLIENT_HOST_DISTANCE_RATIO
+		and _sustained_input_press_count == 1
+		and _sustained_aim_rebind_retained
+		and _sustained_mouse_event_count
+		>= SUSTAINED_MOVEMENT_TICKS / SUSTAINED_MOUSE_INTERVAL_TICKS + 1
 		and _sustained_local_yaw_max - _sustained_local_yaw_min >= 1.5
 		and _sustained_facing_converged()
 	)
@@ -829,6 +879,9 @@ func _sustained_receipt() -> Dictionary:
 		"sustained_host_distance_metres": float(
 			_sustained_distances.get(HOST_PARTICIPANT_ID, 0.0)
 		),
+		"sustained_aim_rebind_retained": _sustained_aim_rebind_retained,
+		"sustained_input_press_count": _sustained_input_press_count,
+		"sustained_mouse_event_count": _sustained_mouse_event_count,
 		"sustained_minimum_window_metres": (
 			0.0
 			if is_inf(_sustained_minimum_window_metres)

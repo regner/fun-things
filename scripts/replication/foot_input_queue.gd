@@ -13,6 +13,7 @@ var _latest_client_tick: int = 0
 var _sequence_tick_offset: int = 0
 var _offset_set: bool = false
 var _last_receipt_msec: int = -1
+var _held_command: FootCommand
 var _acknowledgement: int = 0
 var _acknowledged_client_tick: int = 0
 
@@ -42,21 +43,28 @@ func offer(command: FootCommand, receipt_msec: int) -> bool:
 	return true
 
 
-## Consumes or supersedes at most one watermark on this authoritative simulation step.
+## Consumes one watermark, retaining its held state across bounded packet gaps.
 func consume(now_msec: int) -> Dictionary:
 	if now_msec < 0:
 		return _neutral_result()
-	if _frames.is_empty():
-		return _neutral_result()
 	if _last_receipt_msec >= 0 and now_msec - _last_receipt_msec > HELD_EXPIRY_MSEC:
-		var expired: FootCommand = _frames[-1]
+		var superseded: bool = not _frames.is_empty()
+		if superseded:
+			_advance_acknowledgement(_frames[-1])
 		_frames.clear()
-		_advance_acknowledgement(expired)
+		_held_command = null
 		return {
 			"command": null,
 			"acknowledgement": _acknowledgement,
 			"expired": true,
-			"superseded": true,
+			"superseded": superseded,
+		}
+	if _frames.is_empty():
+		return {
+			"command": _held_command,
+			"acknowledgement": _acknowledgement,
+			"expired": false,
+			"superseded": false,
 		}
 
 	var newest: FootCommand = _frames[-1]
@@ -74,6 +82,7 @@ func consume(now_msec: int) -> Dictionary:
 	var superseded: bool = selected_index > 0
 	for _index: int in range(selected_index + 1):
 		_frames.pop_front()
+	_held_command = selected
 	_advance_acknowledgement(selected)
 	return {
 		"command": selected,
@@ -91,6 +100,7 @@ func clear() -> void:
 	_sequence_tick_offset = 0
 	_offset_set = false
 	_last_receipt_msec = -1
+	_held_command = null
 	_acknowledgement = 0
 	_acknowledged_client_tick = 0
 

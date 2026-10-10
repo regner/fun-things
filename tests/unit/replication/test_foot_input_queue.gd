@@ -27,6 +27,24 @@ func test_distance_bound_selects_oldest_frame_within_three_ticks_of_newest() -> 
 	assert_eq(queue.size(), 3)
 
 
+## Retains consumed held intent across short packet gaps without advancing its watermark.
+func test_consumed_held_input_repeats_until_expiry() -> void:
+	var queue := FootInputQueue.new()
+	assert_true(queue.offer(_command(1, 1, Vector2.RIGHT), 10))
+	assert_eq((queue.consume(10).command as FootCommand).sequence, 1)
+
+	var repeated: Dictionary = queue.consume(10 + FootInputQueue.HELD_EXPIRY_MSEC)
+	assert_eq((repeated.command as FootCommand).sequence, 1)
+	assert_eq(repeated.acknowledgement, 1)
+	assert_false(repeated.expired)
+	assert_eq(queue.size(), 0)
+
+	var expired: Dictionary = queue.consume(11 + FootInputQueue.HELD_EXPIRY_MSEC)
+	assert_null(expired.command)
+	assert_true(expired.expired)
+	assert_eq(expired.acknowledgement, 1)
+
+
 ## Retains at most eight pending frames independently from the freshness window.
 func test_queue_capacity_rejects_ninth_frame_without_acknowledging_it() -> void:
 	var queue := FootInputQueue.new()

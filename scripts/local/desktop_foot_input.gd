@@ -94,6 +94,11 @@ func sample(client_tick: int) -> FootCommand:
 	)
 
 
+## Exposes the retained pointer used by production sampling and acceptance checks.
+func aim_screen_position() -> Vector2:
+	return _mouse_position
+
+
 ## Exposes focus control for enclosing lifecycle owners and deterministic tests.
 func set_focused(focused: bool) -> void:
 	if active == focused:

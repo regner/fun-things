@@ -27,7 +27,8 @@ PREDICTED_DISPLACEMENT_MINIMUM_METRES = 0.01
 SMOOTHING_DISPLACEMENT_MINIMUM_METRES = 0.001
 MAX_REMOTE_FRAME_JUMP_METRES = 0.5
 MINIMUM_WINDOW_DISTANCE_METRES = 0.2
-MINIMUM_CLIENT_HOST_DISTANCE_RATIO = 0.3
+MINIMUM_CLIENT_HOST_DISTANCE_RATIO = 0.8
+MINIMUM_SUSTAINED_MOUSE_EVENTS = 21
 NORMAL_DELAY_MSEC = 75.0
 NORMAL_JITTER_MSEC = 30.0
 NORMAL_LOSS = 0.02
@@ -466,6 +467,12 @@ class ExportedAcceptanceRunner:
                 or client_distance < host_distance * MINIMUM_CLIENT_HOST_DISTANCE_RATIO
             ):
                 raise RuntimeError(f"{case} {role} distance ratio failed: {receipt}")
+            if receipt.get("sustained_input_press_count") != 1:
+                raise RuntimeError(f"{case} {role} did not retain one held key: {receipt}")
+            if not receipt.get("sustained_aim_rebind_retained"):
+                raise RuntimeError(f"{case} {role} aim binding reset the pointer: {receipt}")
+            if receipt.get("sustained_mouse_event_count", 0) < MINIMUM_SUSTAINED_MOUSE_EVENTS:
+                raise RuntimeError(f"{case} {role} did not route viewport mouse input: {receipt}")
             if not receipt.get("sustained_facing_converged"):
                 raise RuntimeError(f"{case} {role} remote facing did not converge: {receipt}")
             if receipt.get("sustained_facing_span_radians", 0.0) < 1.5:

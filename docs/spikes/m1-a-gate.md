@@ -52,46 +52,60 @@ both Steam class and singleton absent.
 
 Command (from the repository root):
 
-```sh
-python tools/export_builds.py --output C:/tmp/ft/exports/m1-agate-review-fixes-final-rebased
-python tools/m1_a_gate/run_exported_acceptance.py \
-  --executable C:/tmp/ft/exports/m1-agate-review-fixes-final-rebased/windows-debug/FunThingsDebug.exe \
-  --output C:/tmp/ft/lanes/m1-agate/exported-acceptance-review-fixes-final-rebased
+```powershell
+python tools/m1_a_gate/run_exported_acceptance.py `
+  --executable C:/tmp/ft/exports/p1-fix-r2/windows-debug/FunThingsDebug.exe `
+  --output C:/tmp/ft/p1fix-r2-matrix-final
 ```
 
-All eight exported child processes exited zero with no `SCRIPT ERROR:`, `ERROR:`, or
-`WARNING:` in stdout/engine logs. Structured outcomes:
+The six-case matrix launched twelve separate exported processes: gameplay, sustained
+direct, sustained normal, incompatible admission, admission timeout and host loss. All
+processes exited cleanly under Python-owned watchdogs. Structured outcomes:
 
-- gameplay host/client loaded the whole Brackett saved world with automatic desktop
-  input disabled; both authority-owned actors moved by at least 0.5 m; before the next
-  authority receipt, the client proved a successful 0.102 m predicted step and retained
-  history (peak 5, bounded by 120); remote presentation advanced 0.080 m on a
-  stationary-authority-root frame with a maximum 0.420 m frame jump; both observed
-  death, three-second respawn and reset to MatchRevision 2, while the client independently
-  proved reopened post-reset input/motion;
-- protocol mismatch returned `INCOMPATIBLE` and both peers cleaned up;
-- a silent authenticated peer emitted `auth_waiting`, then only accepted
-  `peer_authentication_failed` at 750 ms against the configured 750 ms monotonic
-  deadline and returned `HANDSHAKE_TIMEOUT`, with clean host cleanup;
-- an admitted host exited and the client returned `HOST_LOST` through SessionService;
-- every process was externally hard-bounded and all accepted terminal paths exited 0.
+- gameplay host/client loaded the whole Brackett saved world; both authority-owned
+  actors moved; client prediction retained bounded history; both observed death,
+  three-second respawn and reset to MatchRevision 2;
+- sustained input sent one viewport key-down and used normal `DesktopFootInput` /
+  `LocalRig` sampling for ten seconds, plus 22 viewport mouse-motion events. Direct
+  client authority travel was 50.08 m versus 50.08 m host travel. Under the normal
+  profile it was 43.08 m versus 50.08 m (86.0%, above the 80% requirement). Both
+  profiles had zero 250 ms presentation-continuity failures, retained mouse position
+  across snapshot rebinds, and converged local and remote facing;
+- normal impairment was deterministic 75 ms latency, ±30 ms jitter and 2% loss in each
+  direction, with seeds 731 and 947, and was activated after admission;
+- protocol mismatch returned `INCOMPATIBLE`; silent authentication returned
+  `HANDSHAKE_TIMEOUT` at the configured 750 ms deadline; admitted host exit returned
+  `HOST_LOST` through SessionService;
+- Steam class and singleton absence passed in every process.
 
-Concise retained receipts are under
+Before the queue fix, this normal profile produced about 18.33 m client authority
+travel against 50.00 m host travel (36.7%). The host consumed one newest frame and
+returned neutral on the next empty tick, so latency, jitter and loss repeatedly
+interrupted unchanged held intent. The queue now retains only the last consumed held
+command through empty ticks and expires it at the existing 250 ms deadline. Queue size,
+rate, sequence, per-step work and freshness bounds remain unchanged. Reverting the
+focus guard made sustained direct fail at 0.28 m client / 0.42 m host travel. Reverting
+the aim guard made `sustained_aim_rebind_retained=false` and failed facing acceptance.
+Both guards were restored for the final matrix.
+
+Final matrix evidence is `C:/tmp/ft/p1fix-r2-matrix-final/summary.json`. Exact authored
+two-menu host/join screenshots and logs, with no acceptance flags, are under
+`C:/tmp/ft/p1fix-r2-menu-flow/`. Concise retained baseline receipts are under
 [`m1-a-gate-evidence/`](m1-a-gate-evidence/). Full logs and binaries stay outside the
 checkout under `C:/tmp/ft/`.
 
 ## Owner playtest kit
 
-After exporting, launch a bounded side-by-side pair:
+After exporting, paste this directly into PowerShell:
 
-```sh
-python tools/m1_a_gate/launch_exported_pair.py \
-  --executable C:/tmp/ft/exports/m1-agate-review-fixes-final-rebased/windows-debug/FunThingsDebug.exe \
-  --output C:/tmp/ft/lanes/m1-agate/owner-pair
+```powershell
+python .\tools\m1_a_gate\launch_exported_pair.py --executable 'C:\tmp\ft\exports\p1-fix-r2\windows-debug\FunThingsDebug.exe'
 ```
 
-The script waits for both real Match receipts, places host/client windows side by side,
-caps each at 60 FPS and hard-bounds each to 180 seconds. Focus either window; WASD
+The script needs neither GNU `timeout` nor `--output`; omission creates a fresh
+timestamped directory under `C:/tmp/ft/m1-a-gate-owner-pair/`. Python watchdogs bound
+each process to 180 seconds. The script waits for both real Match receipts, places
+host/client windows side by side and caps each at 60 FPS. Focus either window; WASD
 walks and the mouse aims. Close both windows when finished. This is a manual owner kit,
 not automated feel acceptance.
 

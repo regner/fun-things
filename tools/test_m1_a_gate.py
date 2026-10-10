@@ -1,6 +1,10 @@
+from contextlib import redirect_stdout
+import io
 from pathlib import Path
 import sys
+import tempfile
 import unittest
+from unittest import mock
 
 
 ROOT = Path(__file__).resolve().parent
@@ -20,12 +24,57 @@ class M1AGateLauncherTest(unittest.TestCase):
         self.assertTrue(first.as_posix().startswith("C:/tmp/ft/"))
         self.assertIn("m1-a-gate-owner-pair", first.parts)
 
-    def test_powershell_example_quotes_apostrophes(self):
-        example = launch_exported_pair._powershell_example(
-            Path("C:/tmp/owner's build/FunThingsDebug.exe")
-        )
+    def test_main_prints_pasteable_powershell_example(self):
+        class FakeChild:
+            def __init__(self, events=None):
+                self.events = events or []
+                self.hard_timed_out = False
 
-        self.assertIn("PowerShell", "PowerShell example")
+            def wait_event(self, _predicate, _timeout):
+                return {"brackett_loaded": True}
+
+            def finish(self, timeout=5.0):
+                return 0
+
+        class FakeRunner:
+            def __init__(self, _executable, _output):
+                self.host = FakeChild([{"event": "host_ready", "port": 24567}])
+                self.client = FakeChild()
+
+            def pair(self, _case, _scenario):
+                return self.host, self.client
+
+            @staticmethod
+            def event(name):
+                return lambda event: event.get("event") == name
+
+            def cleanup(self):
+                pass
+
+        with tempfile.TemporaryDirectory() as temporary:
+            root = Path(temporary)
+            executable = root / "owner's build" / "FunThingsDebug.exe"
+            executable.parent.mkdir()
+            executable.touch()
+            output = root / "owner-output"
+            stdout = io.StringIO()
+            arguments = [
+                "launch_exported_pair.py",
+                "--executable",
+                str(executable),
+                "--output",
+                str(output),
+            ]
+            with (
+                mock.patch.object(launch_exported_pair, "ExportedAcceptanceRunner", FakeRunner),
+                mock.patch.object(sys, "argv", arguments),
+                redirect_stdout(stdout),
+            ):
+                result = launch_exported_pair.main()
+
+        printed = stdout.getvalue()
+        example = next(line for line in printed.splitlines() if line.startswith("PowerShell example:"))
+        self.assertEqual(result, 0)
         self.assertIn("owner''s build", example)
         self.assertNotIn("--output", example)
 

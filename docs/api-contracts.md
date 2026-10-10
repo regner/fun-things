@@ -595,11 +595,16 @@ state transition. Reapplying the same replica aim binding also preserves the lat
 instead of resetting it to viewport centre on every movement snapshot. Pointer position is collected
 before GUI dispatch so a full-window passive overlay cannot prevent mouse-facing. Aim still uses the
 same camera-to-actor-plane projection and shared `aim_yaw` simulation field. The exported
-acceptance now holds client intent for ten seconds over direct ENet and the normal 75 ms ±30 ms,
-2% loss profile, activated after admission so the measured interval is unambiguous. It checks
+acceptance now sends one key-down through the viewport, lets normal `LocalRig` sampling hold it for
+ten seconds, and sends periodic viewport mouse motion over direct ENet and the normal 75 ms ±30 ms,
+2% loss profile. Impairment activates after admission so the measured interval is unambiguous. It
+also verifies that snapshot-time aim rebinding retains the last injected pointer. The case checks
 accumulated presentation travel in every 250 ms window, requires client authority travel to remain
-at least 30% of the host path under ENet's normal-profile throttle, and requires local plus remote
-moving-target facing convergence.
+at least 80% of the host path under the normal profile, and requires local plus remote moving-target
+facing convergence. The host retains the latest consumed held command through packet gaps for at
+most 250 ms; acknowledgement advances only for newly consumed or explicitly superseded input.
+This preserves bounded queue, freshness, expiry and rate protections while avoiding neutral host
+steps whenever unreliable-ordered delivery loses or reorders one otherwise unchanged held frame.
 
 Held sequence starts at 1 for each new entity/control-revision binding and never
 resets within that binding. Client tick stays diagnostic; a stalled/out-of-window
