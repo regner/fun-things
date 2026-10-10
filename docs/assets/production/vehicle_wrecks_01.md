@@ -88,9 +88,12 @@ per side, and the roof is about 0.039 m above it. It has no separate wheel/door 
 colliders. This is a blocking wreck, not a walkable platform or dynamic rigid body.
 
 Prefab UID: `uid://cirqey8gkmtan`; model import UID: `uid://de5l6y2f12pee`.
-Two headless load/pack/save/reload cycles are byte-identical after normalization, retaining
-scene/node identities. A second fresh process reproduced the same prefab hash. Five
-actual PhysicsDirectSpaceState3D capsule queries (r=0.35 m, h=1.8 m) passed: body and
+The saved scene header, external GLB dependency and all six authored nodes have explicit
+UIDs/unique IDs, verified against the import UID and saved declarations. Two headless
+editor-mode load/pack/save/reload cycles are byte-identical after normalization, retaining
+all existing scene/node identities. A separate read-only runtime process reproduced the
+same prefab hash and checked the serialized identities. Five actual
+PhysicsDirectSpaceState3D capsule queries (r=0.35 m, h=1.8 m) passed: body and
 front/rear diagonal corners block, side/rear bypasses clear. These are bounded envelope
 queries, **not** ActorMotion movement, driving, live-to-wreck swap or multiplayer tests.
 
@@ -126,7 +129,7 @@ remain visible. Engine lighting/populated-city readability still requires art re
 | Maximum source / export normal length error | **3.092e-7 / 1.290e-7** |
 | Source-to-GLB AABB agreement | Within **0.00001 m** |
 | Fresh saved-source re-export | **Byte-identical** |
-| Pinned headless import | Exit 0; **no ERROR/SCRIPT ERROR lines** |
+| Pinned headless import / runtime load | Exit 0; **no ERROR/SCRIPT ERROR lines** |
 | Prefab roundtrip / capsule probes | **2 stable cycles / 5 passing expectations** |
 | Added GDScript format/lint | gdstyle 0.3.0: **passes, zero warnings** |
 
@@ -135,12 +138,35 @@ Final source: **410,116 bytes**, SHA-256
 Final GLB: **298,748 bytes**, SHA-256
 `43581a31648290374cd81e8b6bb5325ef0fc8ba8367e3a8735bed13d399997a3`.
 Final prefab SHA-256:
-`cdc71fc56014cd86a03b3096ca2a10c12db5743605996371a32e96d075017229`.
+`38b34405d400286171f18cf30f9c0240d7b5ed655efb06d52b4f19cf1fe75fac`.
 These are copied from the final validation receipt. The
 [producer manifest](vehicle_wrecks_01-evidence/manifest.json) hashes all produced payloads
 except itself. [Final log](vehicle_wrecks_01-evidence/final.log) records concise check and
 repair history. Live input/source export fingerprints are retained in validation.json;
 neither live file was changed.
+
+### Review round 1 - serialized dependency identity repair
+
+The P2 finding was confirmed: the original runtime-mode saver omitted the GLB dependency
+UID despite a valid import/cache identity. The new serialized-identity assertion rejected
+the original prefab in a negative regression run (exit 1), specifically for the missing
+external UID and imported-UID mismatch. The harness now follows the accepted Latch pattern:
+only `--editor -- --normalize` may save, and runtime checks do not rewrite the scene.
+Godot normalized the dependency UID and removed the redundant `type="Node3D"` from the
+linked Model declaration; scene UID, all six node IDs, transforms and collision are unchanged.
+
+The saved-source Blender validator and byte-identical scratch export were rerun; source,
+GLB and all four reviewed PNGs are unchanged. No authoring or rendering rerun was needed
+for this serialization-only fix. Finalization rechecked 1280x720 lean render payloads and
+refreshed the receipt/manifest. Two stable save cycles, separate-process runtime checks,
+five capsule expectations and pinned gdstyle checks pass. Independent re-review is pending.
+
+Editor-mode normalization exits 0 and passes assertions, but the same editor-harness
+shutdown limitation documented for Latch remains: RID/ObjectDB leak diagnostics, plus a
+scan-aborted warning in the Sable run. This is **not** a clean editor exit claim. The
+standalone imports and separate read-only runtime checks exit 0 with no ERROR/SCRIPT ERROR
+lines. The addon also warns that 4.8 is newer than its tested engine. No diagnostics were
+suppressed, no live editor was touched, and gameplay/device acceptance remains pending.
 
 ## Exact reproduction
 
@@ -161,9 +187,14 @@ timeout 180 "$BLENDER" -noaudio --background --factory-startup "$SOURCE" --threa
   --python-exit-code 1 --python "$TOOLS/export.py" -- C:/tmp/ft/assets/vehicle_wrecks_01/reexport
 
 timeout 300 "$(mise which godot)" --headless --path . --import
+timeout 180 "$(mise which godot)" --headless --editor --path . \
+  --script "$TOOLS/check_prefab.gd" -- --normalize
 timeout 180 "$(mise which godot)" --headless --path . --script "$TOOLS/check_prefab.gd"
 "$(mise which gdstyle)" fmt --check "$TOOLS/check_prefab.gd"
 "$(mise which gdstyle)" --max-line-length 100 --max-warnings 0 "$TOOLS/check_prefab.gd"
+python "$TOOLS/finalize.py"
+# Final import registers normalized scene identities and verifies import sidecars:
+timeout 300 "$(mise which godot)" --headless --path . --import
 python "$TOOLS/finalize.py"
 ```
 
@@ -179,7 +210,8 @@ not run, per owner decision 52.
 
 ## Remaining acceptance
 
-- Independent art/technical review of this source/export/prefab candidate.
+- Independent technical re-review of the round-1 serialized-identity repair; the initial
+  review accepted the bounded visual/source/export observations.
 - M1-B3.1 integration: actual same-pose body swap, collision teardown/installation,
   authoritative retention, chain behavior, and late-join/lifecycle ordering.
 - Production ActorMotion and car movement/query checks against the installed wreck;
@@ -189,5 +221,5 @@ not run, per owner decision 52.
 - Generated LOD, repeated-wreck draw cost, packaged-platform and sustained Deck evidence.
 
 No unproduced family member is a pending item of this delivery; the registry owns family
-progress. No shared tracker, catalogue, TODO, live car source/export or historical receipt
-was changed.
+progress. No shared tracker, catalogue, TODO, live car source/export or unrelated historical
+receipt was changed.
