@@ -1,0 +1,45 @@
+d03_apartment_family.06 final producer check summary, 10 October 2026
+Worktree: C:/GameDev/git/ft-lanes/a-apart; no live editor sessions used.
+All Blender calls use isolated background/factory-startup, four threads, python-exit-code 1,
+ALSOFT_DRIVERS=null, SDL_AUDIODRIVER=dummy and bounded timeout.
+Pinned Blender: 5.2.2 LTS / d13f752e3b9c; glTF exporter: 5.2.40.
+Pinned Godot: 4.8.dev7.official.c971f93e7; headless calls only.
+Exact reproduction arguments are retained in ../d03_apartment_family_06.md.
+
+PASS author.py: original source, two explicit exports, four 1280x720 PNG renders produced.
+PASS validate.py (timeout 180): exit 0; both final saved-source GLBs byte-identical to fresh export.
+  Outside: 5,044 triangles; 2,624 source / 3,464 export vertices; one mesh / five surfaces.
+  Inside: 10,084 triangles; 5,244 source / 6,946 export vertices; one mesh / five surfaces.
+  Both: zero non-manifold edges, degenerate source faces or GLB triangles.
+  Unit normals, finite coordinates, literal footprint/connector corners, core volumes,
+  ground pivots, Godot-axis bounds, material slots and identity transforms pass.
+PASS final Godot --headless --path . --import (timeout 300): exit 0, no ERROR/SCRIPT ERROR lines.
+PASS check_prefab.gd --normalize under --headless --editor (timeout 180): assertions pass.
+  Two load/pack/save operations per wrapper; second save byte-stable; saved UIDs retained.
+  Tool limitation: editor shutdown reports leaked RID/ObjectDB allocations (see below).
+PASS final runtime check_prefab.gd (timeout 180): exit 0; no ERROR/SCRIPT ERROR lines.
+  Both linked model/resource UIDs, bounds, collision boxes and family materials pass.
+  17 capsule queries, seven straight/stacked/compound seam rays, four car-box sweeps pass.
+  14 production ActorMotion runs, 60 ticks each; authority/replay positions exactly equal.
+  Inside diagonal court stop: X/Z = 3.35064911842346 m, no invisible court blocker.
+PASS gdstyle fmt --check: one file already formatted.
+PASS gdstyle --max-line-length 100 --max-warnings 0: one file, no issues.
+PASS Python AST syntax checks: all four owned Python scripts parse.
+PASS producer visual inspection: hero, reverse side, corner detail, calibrated overhead.
+  Quiet top mating surfaces and inside notch read clearly; no finished roof claim.
+
+Known diagnostics, NOT suppressed:
+- Blender use_nodes deprecation warning refers to Blender 6, not a failure on the pin.
+- Godot addon warns the pinned engine version is untested.
+- Custom headless editor normalization shutdown reports leaked Viewport (5),
+  DummyTexture (8), Scenario (1), ShapedTextData (52), Font (1), Canvas (5),
+  CanvasItem (31), and ObjectDB instances (168). Same tool class as sibling .05.
+  Normalization byte-stability assertions pass; final import/runtime logs are clean.
+- Initial gdstyle pass: four helper length/local-count warnings; split helpers;
+  final zero-warning pass above supersedes that result.
+
+Not run/claimed: production_checks.py (owner decision 52), windowed/live editor,
+placed-world/court visibility, production vehicle handling, multiplayer transport,
+packaged build, GPU/repetition or Steam Deck checks. Independent review remains pending.
+Raw execution logs and temporary reexports are outside Git in C:/tmp/ft/assets/d03_apartment_family_06/.
+Final source/export bytes and hashes are authoritative in validation.json and manifest.json.
