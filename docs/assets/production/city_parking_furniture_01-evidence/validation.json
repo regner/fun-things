@@ -1,0 +1,186 @@
+{
+  "asset": "city_parking_furniture.01",
+  "blender": "5.2.2 LTS",
+  "blender_build": "d13f752e3b9c",
+  "bounds_tolerance_m": 0.001,
+  "closed_volume_m3": 0.0704447885982566,
+  "degenerate_faces": 0.0,
+  "degenerate_triangles": 0.0,
+  "export_normal_max_length_error": 1.1861265392e-07,
+  "export_vertices": 292.0,
+  "exporter": "5.2.40",
+  "fresh_export_byte_identical": true,
+  "glb_bytes": 11820.0,
+  "glb_sha256": "ae2a0e968c2f0d6747f89517a99322333bfcd3ca78cbca6a3f5e99e543618196",
+  "godot": {
+    "bounds_min_m": [
+      -0.899999976158142,
+      0.0,
+      -0.150000005960464
+    ],
+    "bounds_size_m": [
+      1.79999995231628,
+      0.159999996423721,
+      0.300000011920929
+    ],
+    "engine": "4.8-dev7 (official)",
+    "linked_model_identity": true,
+    "physics": {
+      "above_prop_ray_clear": true,
+      "actor_capsule_height_m": 1.8,
+      "actor_capsule_radius_m": 0.35,
+      "capsule_bottom_clear_at_y_m": 0.2,
+      "capsule_bypass_clear_at_x_m": 1.3,
+      "capsule_overlap": true,
+      "low_ray_blocked": true,
+      "movement_vehicle_network_and_placement": "not tested"
+    },
+    "resource_uids": {
+      "res://art/models/environment/city_parking_furniture_01/city_parking_furniture_01.glb": "uid://brlcxssbwdjk3",
+      "res://scenes/prefabs/environment/city_parking_furniture_01.tscn": "uid://bll6tii8s6nsp"
+    },
+    "save_reload_byte_stable": true,
+    "static_box": {
+      "layer": 1,
+      "mask": 0,
+      "size_m": [
+        1.8,
+        0.16,
+        0.3
+      ]
+    }
+  },
+  "godot_bounds_max_m": [
+    0.899999976158142,
+    0.159999996423721,
+    0.150000005960464
+  ],
+  "godot_bounds_min_m": [
+    -0.899999976158142,
+    0.0,
+    -0.150000005960464
+  ],
+  "materials": [
+    {
+      "name": "parking_rubber_petrol",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.025000000372529,
+          0.0750000029802322,
+          0.0900000035762787,
+          1.0
+        ],
+        "metallicFactor": 0.0,
+        "roughnessFactor": 0.779999971389771
+      }
+    },
+    {
+      "name": "parking_safety_amber",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          1.0,
+          0.52700001001358,
+          0.101999998092651,
+          1.0
+        ],
+        "metallicFactor": 0.0,
+        "roughnessFactor": 0.579999983310699
+      }
+    }
+  ],
+  "mesh_count": 1.0,
+  "nonmanifold_edges": 0.0,
+  "pivot_m": [
+    0.0,
+    0.0,
+    0.0
+  ],
+  "provisional_dimensions_m": [
+    1.8,
+    0.16,
+    0.3
+  ],
+  "source_export_status": "passed",
+  "source_faces": 242.0,
+  "source_normal_max_length_error": 1.1661358478e-07,
+  "source_vertices": 240.0,
+  "surface_count": 2.0,
+  "triangles": 476.0,
+  "production_checks": {
+    "ok": true,
+    "results": {
+      "engine": {
+        "ok": true,
+        "version": "4.8.dev7.official.c971f93e7"
+      },
+      "gut_pin": {
+        "ok": true,
+        "version": "9.7.1"
+      },
+      "owned_scripts": {
+        "ok": true,
+        "returncode": 0
+      },
+      "python_tests": {
+        "ok": true,
+        "returncode": 0
+      },
+      "gut_import": {
+        "ok": true,
+        "returncode": 0
+      },
+      "gut_tests": {
+        "ok": true,
+        "returncode": 0
+      },
+      "gut_negative": {
+        "ok": true,
+        "observed_returncode": 1
+      }
+    },
+    "scripts_compiled": 195,
+    "owned_check_explicitly_compiled": true
+  },
+  "renders": [
+    {
+      "file": "hero.png",
+      "pixels": [
+        1280,
+        720
+      ],
+      "bytes": 381015
+    },
+    {
+      "file": "side.png",
+      "pixels": [
+        1280,
+        720
+      ],
+      "bytes": 381945
+    },
+    {
+      "file": "detail.png",
+      "pixels": [
+        1280,
+        720
+      ],
+      "bytes": 385367
+    },
+    {
+      "file": "overhead_47m_42deg.png",
+      "pixels": [
+        1280,
+        720
+      ],
+      "bytes": 400427
+    }
+  ],
+  "render_encoding": "RGB, 7 significant bits per channel; PNG compression 9",
+  "render_camera": {
+    "projection": "perspective",
+    "height_m": 47,
+    "vertical_fov_degrees": 42,
+    "orientation": "vertical down, Blender +Y at image top",
+    "engine": "Blender Cycles CPU"
+  }
+}

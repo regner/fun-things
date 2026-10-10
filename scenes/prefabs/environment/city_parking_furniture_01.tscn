@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://bll6tii8s6nsp"]
+
+[ext_resource type="PackedScene" path="res://art/models/environment/city_parking_furniture_01/city_parking_furniture_01.glb" id="1_model"]
+
+[sub_resource type="BoxShape3D" id="Box_stop"]
+size = Vector3(1.8, 0.16, 0.3)
+
+[node name="city_parking_furniture_01" type="Node3D" unique_id=986235925]
+
+[node name="Visuals" type="Node3D" parent="." unique_id=280121822]
+
+[node name="Model" parent="Visuals" unique_id=980679960 instance=ExtResource("1_model")]
+
+[node name="Collision" type="Node3D" parent="." unique_id=2023115354]
+
+[node name="WheelStopBody" type="StaticBody3D" parent="Collision" unique_id=65197847]
+collision_mask = 0
+
+[node name="Shape" type="CollisionShape3D" parent="Collision/WheelStopBody" unique_id=1636883406]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.08, 0)
+shape = SubResource("Box_stop")
