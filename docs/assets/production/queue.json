@@ -8460,14 +8460,14 @@
       "input_next_action": "Refine design from district asset breakdown",
       "brief": "[Brief](../../assets/d09_freight_graphics.md)",
       "priority": 1,
-      "status": "queued",
-      "agent_id": null,
-      "source_revision": null,
-      "review_status": "pending",
-      "integration_status": "pending",
+      "status": "production_prefab_accepted",
+      "agent_id": "17cc7ca3-2ff1-4379-9ee6-e9b114ef5fde",
+      "source_revision": "36a9abd4",
+      "review_status": "accepted source/export/prefab scope (independent Sol review)",
+      "integration_status": "accepted",
       "placement_status": "pending",
       "blocker": null,
-      "attempts": 0,
+      "attempts": 1,
       "initial_time_cap_minutes": 90,
       "owned_paths": [
         "art/source/models/environment/d09_freight_graphics_01/",
@@ -8475,8 +8475,20 @@
         "art/textures/environment/d09_freight_graphics_01/",
         "art/materials/environment/d09_freight_graphics_01/",
         "docs/assets/production/d09_freight_graphics_01.md",
-        "docs/assets/production/d09_freight_graphics_01-evidence/"
-      ]
+        "docs/assets/production/d09_freight_graphics_01-evidence/",
+        "tools/asset_production/d09_freight_graphics_01/",
+        "scenes/prefabs/environment/d09_freight_graphics_01.tscn"
+      ],
+      "launch": {
+        "provider": "portkey/gpt-6-astra",
+        "configured_effort": "medium",
+        "mode": "orchestrator asset lane",
+        "lane": "a-freight"
+      },
+      "producer_manifest": "docs/assets/production/d09_freight_graphics_01-evidence/manifest.json",
+      "report": "docs/assets/production/d09_freight_graphics_01.md",
+      "reviewer_id": "fb69ed5a-f6eb-435f-9c40-890c63a3024b",
+      "integrated_revision": "41bb3a60"
     },
     {
       "id": "d09_freight_graphics.02",
@@ -8489,14 +8501,14 @@
       "input_next_action": "Refine design from district asset breakdown",
       "brief": "[Brief](../../assets/d09_freight_graphics.md)",
       "priority": 1,
-      "status": "queued",
-      "agent_id": null,
-      "source_revision": null,
-      "review_status": "pending",
-      "integration_status": "pending",
+      "status": "production_prefab_accepted",
+      "agent_id": "238c1de3-5030-4ea7-8331-a15771573e6d",
+      "source_revision": "8ec02c6b",
+      "review_status": "accepted source/export/prefab scope (independent Sol review)",
+      "integration_status": "accepted",
       "placement_status": "pending",
       "blocker": null,
-      "attempts": 0,
+      "attempts": 1,
       "initial_time_cap_minutes": 90,
       "owned_paths": [
         "art/source/models/environment/d09_freight_graphics_02/",
@@ -8504,8 +8516,20 @@
         "art/textures/environment/d09_freight_graphics_02/",
         "art/materials/environment/d09_freight_graphics_02/",
         "docs/assets/production/d09_freight_graphics_02.md",
-        "docs/assets/production/d09_freight_graphics_02-evidence/"
-      ]
+        "docs/assets/production/d09_freight_graphics_02-evidence/",
+        "tools/asset_production/d09_freight_graphics_02/",
+        "scenes/prefabs/environment/d09_freight_graphics_02.tscn"
+      ],
+      "launch": {
+        "provider": "portkey/gpt-6-astra",
+        "configured_effort": "medium",
+        "mode": "orchestrator asset lane",
+        "lane": "a-freight"
+      },
+      "producer_manifest": "docs/assets/production/d09_freight_graphics_02-evidence/manifest.json",
+      "report": "docs/assets/production/d09_freight_graphics_02.md",
+      "reviewer_id": "fb69ed5a-f6eb-435f-9c40-890c63a3024b",
+      "integrated_revision": "41bb3a60"
     },
     {
       "id": "d09_freight_graphics.03",
@@ -8518,14 +8542,14 @@
       "input_next_action": "Refine design from district asset breakdown",
       "brief": "[Brief](../../assets/d09_freight_graphics.md)",
       "priority": 1,
-      "status": "queued",
-      "agent_id": null,
-      "source_revision": null,
-      "review_status": "pending",
-      "integration_status": "pending",
+      "status": "production_prefab_accepted",
+      "agent_id": "c2efa1b3-8d6d-45c0-aa7b-8307893fc76e",
+      "source_revision": "41bb3a60",
+      "review_status": "accepted source/export/prefab scope (independent Sol review)",
+      "integration_status": "accepted",
       "placement_status": "pending",
       "blocker": null,
-      "attempts": 0,
+      "attempts": 1,
       "initial_time_cap_minutes": 90,
       "owned_paths": [
         "art/source/models/environment/d09_freight_graphics_03/",
@@ -8533,8 +8557,20 @@
         "art/textures/environment/d09_freight_graphics_03/",
         "art/materials/environment/d09_freight_graphics_03/",
         "docs/assets/production/d09_freight_graphics_03.md",
-        "docs/assets/production/d09_freight_graphics_03-evidence/"
-      ]
+        "docs/assets/production/d09_freight_graphics_03-evidence/",
+        "tools/asset_production/d09_freight_graphics_03/",
+        "scenes/prefabs/environment/d09_freight_graphics_03.tscn"
+      ],
+      "launch": {
+        "provider": "portkey/gpt-6-astra",
+        "configured_effort": "medium",
+        "mode": "orchestrator asset lane",
+        "lane": "a-freight"
+      },
+      "producer_manifest": "docs/assets/production/d09_freight_graphics_03-evidence/manifest.json",
+      "report": "docs/assets/production/d09_freight_graphics_03.md",
+      "reviewer_id": "fb69ed5a-f6eb-435f-9c40-890c63a3024b",
+      "integrated_revision": "41bb3a60"
     }
   ],
   "trailing_tracks": [
