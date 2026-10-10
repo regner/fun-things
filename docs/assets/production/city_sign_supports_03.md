@@ -179,8 +179,11 @@ the parametric recipe, not a promise of byte-identical `.blend` file serializati
 
 ## Remaining acceptance
 
-Independent technical/art review; actual engine gameplay-camera/lighting captures; district
-artwork; approved placements and populated actor/target visibility; car movement/query
+Old Quay noticeboard artwork is delivered in [d05_civic_graphics.02](d05_civic_graphics_02.md);
+final copy and placement acceptance remain separate.
+
+Independent technical/art review; actual engine gameplay-camera/lighting captures;
+approved placements and populated actor/target visibility; car movement/query
 checks; separate-process multiplayer behavior; repeated-placement profiling, packaged
 builds and Deck performance remain **pending**. This source/prefab is ready for those
 checks, not a whole-register or full production acceptance claim. No TODO was closed.
