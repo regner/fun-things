@@ -5,7 +5,7 @@ extends GutTest
 ## Round-trips every FootCommand field within the frozen quantization error.
 func test_round_trip_uses_exact_fixed_packet() -> void:
 	var command := FootCommand.new(71, 990, Vector2(0.25, -0.75), 1.2, true, false)
-	var encoded: Dictionary = FootCommandCodec.encode(command, 7, 3)
+	var encoded: Dictionary = FootCommandCodec.encode(command, 3)
 	var decoded: Dictionary = FootCommandCodec.decode(encoded.packet)
 
 	assert_true(encoded.ok)
@@ -13,7 +13,6 @@ func test_round_trip_uses_exact_fixed_packet() -> void:
 	assert_true(decoded.ok)
 	assert_eq(decoded.command.sequence, command.sequence)
 	assert_eq(decoded.command.client_tick, command.client_tick)
-	assert_eq(decoded.generation, 7)
 	assert_eq(decoded.input_epoch, 3)
 	assert_almost_eq(decoded.command.move.x, command.move.x, 0.0001)
 	assert_almost_eq(decoded.command.move.y, command.move.y, 0.0001)
@@ -23,7 +22,7 @@ func test_round_trip_uses_exact_fixed_packet() -> void:
 
 	var diagonal: Dictionary = FootCommandCodec.decode(
 		FootCommandCodec.encode(
-			FootCommand.new(72, 991, Vector2.ONE.normalized(), -PI, false, true), 7, 3
+			FootCommand.new(72, 991, Vector2.ONE.normalized(), -PI, false, true), 3
 		).packet
 	)
 	assert_true(diagonal.ok)
@@ -41,10 +40,10 @@ func test_decode_rejects_every_non_fixed_size() -> void:
 	assert_eq(FootCommandCodec.decode(oversize).failure.code, &"PACKET_SIZE")
 
 
-## Rejects action-flag mutations and missing generation without exposing a command.
+## Rejects action-flag mutations and a missing epoch without exposing a command.
 func test_decode_rejects_malformed_fixed_packet() -> void:
 	var encoded: Dictionary = FootCommandCodec.encode(
-		FootCommand.new(1, 2, Vector2.ZERO, 0.0, false, false), 1, 1
+		FootCommand.new(1, 2, Vector2.ZERO, 0.0, false, false), 1
 	)
 	var reserved_packet: PackedByteArray = encoded.packet.duplicate()
 	reserved_packet[FootCommandCodec.PACKET_BYTES - 1] = 0

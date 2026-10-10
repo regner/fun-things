@@ -430,12 +430,14 @@ complete rows per chunk. Authoritative X/Y/Z position, velocity, grounded state,
 are installed before permitted replay or remote presentation smoothing.
 
 M1-A2.3 foot intent retains one fixed 16-byte big-endian packet. It carries unsigned
-32-bit command sequence, a packed eight-bit host-authorized input epoch plus 24-bit client
-tick, signed 16-bit normalized move X/Y, signed 16-bit yaw over `[-PI, PI]`, one
-fire/alternate-held bitfield byte, and the controlled EntityRef's eight-bit generation.
-Receivers reject any size other than 16 before field decoding, reject unknown flag bits,
-then apply sender-derived admission, entity-generation/input-epoch, per-participant rate,
-and sequence checks. Bounded client replay exhaustion requests one reliable, idempotent,
+32-bit command sequence and client tick, signed 16-bit normalized move X/Y, signed 16-bit
+yaw over `[-PI, PI]`, one fire/alternate-held bitfield byte, and an eight-bit
+host-authorized input epoch. The lifecycle-owned outer command envelope carries the
+session, match revision, and controlled EntityRef fence rather than duplicating generation
+inside the movement packet. Receivers reject any packet size other than 16 before field
+decoding, reject unknown flag bits, then apply sender-derived admission, command-envelope
+lifecycle/input-epoch, per-participant rate, and sequence checks. Bounded client replay
+exhaustion requests one reliable, idempotent,
 participant-local input-epoch advance; host queue, client collector sequence, and prediction
 history reset together, so
 sequence one resumes without accepting delayed input from the prior epoch. The larger 1,200-byte
