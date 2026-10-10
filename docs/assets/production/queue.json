@@ -3839,7 +3839,6 @@
       "review_status": "pending",
       "integration_status": "pending",
       "placement_status": "pending",
-      "blocker": "deferred: assembly reference reuses city_quay_furniture.02, not yet produced; re-queue after it is accepted",
       "attempts": 1,
       "initial_time_cap_minutes": 90,
       "owned_paths": [
@@ -3909,7 +3908,6 @@
       "review_status": "pending",
       "integration_status": "pending",
       "placement_status": "pending",
-      "blocker": "deferred: assembly reference reuses city_quay_furniture.02, not yet produced; re-queue after it is accepted",
       "attempts": 1,
       "initial_time_cap_minutes": 90,
       "owned_paths": [
@@ -4295,7 +4293,7 @@
       "review_status": "pending",
       "integration_status": "pending",
       "placement_status": "pending",
-      "blocker": null,
+      "blocker": "depends on d07_retail_graphics.03 (parking-zone artwork) not yet produced",
       "attempts": 0,
       "initial_time_cap_minutes": 90,
       "owned_paths": [
@@ -4365,7 +4363,7 @@
       "review_status": "pending",
       "integration_status": "pending",
       "placement_status": "pending",
-      "blocker": null,
+      "blocker": "depends on city_traffic_fixtures.03 (small road-sign support) not yet produced",
       "attempts": 0,
       "initial_time_cap_minutes": 90,
       "owned_paths": [
