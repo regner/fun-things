@@ -1,0 +1,219 @@
+{
+  "assembly": {
+    "bounds_max_m": [
+      1.65999999642372,
+      1.05999994277954,
+      0.159999996423721
+    ],
+    "bounds_min_m": [
+      -1.65999999642372,
+      0.0,
+      -0.159999996423721
+    ],
+    "export_vertices": 1312.0,
+    "ground_pivot_m": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "meshes": 3.0,
+    "size_m": [
+      3.31999999284744,
+      1.05999994277954,
+      0.319999992847443
+    ],
+    "source_vertices": 1248.0,
+    "surfaces": 7.0,
+    "triangles": 2416.0
+  },
+  "asset": "city_barriers.02",
+  "blender": "5.2.2 LTS",
+  "components": {
+    "post_landward": {
+      "degenerate_faces": 0.0,
+      "degenerate_triangles": 0.0,
+      "export_vertices": 592.0,
+      "fresh_export_byte_identical": true,
+      "instances": 2.0,
+      "meshes": 1.0,
+      "nonmanifold_edges": 0.0,
+      "normal_length_max_error": 1.4630494504e-07,
+      "path": "art/models/environment/city_quay_furniture_02/city_quay_furniture_02_post_landward.glb",
+      "sha256": "a1e5578caa904f7880b3c021f0b4b9f5798ce70e09c6878e652548269814ac09",
+      "source_faces": 554.0,
+      "source_vertices": 592.0,
+      "surfaces": 3.0,
+      "triangles": 1148.0
+    },
+    "straight": {
+      "degenerate_faces": 0.0,
+      "degenerate_triangles": 0.0,
+      "export_vertices": 128.0,
+      "fresh_export_byte_identical": true,
+      "instances": 1.0,
+      "meshes": 1.0,
+      "nonmanifold_edges": 0.0,
+      "normal_length_max_error": 5.960464655e-08,
+      "path": "art/models/environment/city_quay_furniture_02/city_quay_furniture_02_straight.glb",
+      "sha256": "9d3939706eb850f8323cb889a4524740d321374a3682cd3500b7308e57e790a6",
+      "source_faces": 36.0,
+      "source_vertices": 64.0,
+      "surfaces": 1.0,
+      "triangles": 120.0
+    }
+  },
+  "exporter": [
+    5.0,
+    2.0,
+    40.0
+  ],
+  "godot": {
+    "engine": "4.8-dev7 (official)",
+    "existing_prefab_identity_instance": true,
+    "prefabs": {
+      "res://scenes/prefabs/environment/city_barriers_02.tscn": {
+        "bounds_min_m": [
+          -1.6599999666214,
+          0.0,
+          -0.159999996423721
+        ],
+        "bounds_size_m": [
+          3.3199999332428,
+          1.05999994277954,
+          0.319999992847443
+        ],
+        "linked_model_identity": true,
+        "mesh_count": 3,
+        "physics": {
+          "above_rail_ray_clear": true,
+          "actor_capsule_height_m": 1.8,
+          "actor_capsule_radius_m": 0.35,
+          "allowed_precontact_gap_m": 0.03,
+          "authority_replay_equal": true,
+          "bypass_end_m": [
+            2.5,
+            0.00100000004749745,
+            2.00000071525574
+          ],
+          "contact_numeric_tolerance_m": 1e-05,
+          "contact_plane_z_m": -0.509999996423721,
+          "contact_stop_m": [
+            0.0,
+            0.00100000004749745,
+            -0.511067390441895
+          ],
+          "corner_interior_clear": false,
+          "low_ray_blocked": true,
+          "ticks_per_case_per_mode": 48
+        },
+        "surface_count": 7
+      }
+    },
+    "resource_uids": {
+      "res://art/models/environment/city_quay_furniture_02/city_quay_furniture_02_post_landward.glb": "uid://cevurnf20065n",
+      "res://art/models/environment/city_quay_furniture_02/city_quay_furniture_02_straight.glb": "uid://cttx735rcn5rw",
+      "res://scenes/prefabs/environment/city_barriers_02.tscn": "uid://cyp2vnacbf2pa",
+      "res://scenes/prefabs/environment/city_quay_furniture_02_straight_landward.tscn": "uid://bjyl1stj6r7ce",
+      "res://scripts/actors/actor_motion.gd": "uid://jthmfio4c27p",
+      "res://tools/asset_production/city_barriers_02/check_scene.tscn": "uid://bry3wi6axhfwr",
+      "res://tools/asset_production/city_quay_furniture_02/check_scene.tscn": "uid://bup76jwv1e50d"
+    },
+    "save_reload_byte_stable": true
+  },
+  "new_meshes": 0.0,
+  "output_type": "Assembly reference",
+  "source": "art/source/models/environment/city_quay_furniture_02/city_quay_furniture_02.blend",
+  "source_sha256": "c382d0c0b4ee311f4d9bdc91e6d011488c6bf8cf8e0139f6914d760a5b4282ae",
+  "source_unchanged": true,
+  "production_checks": {
+    "ok": true,
+    "results": {
+      "engine": {
+        "ok": true,
+        "version": "4.8.dev7.official.c971f93e7"
+      },
+      "gut_pin": {
+        "ok": true,
+        "version": "9.7.1"
+      },
+      "owned_scripts": {
+        "ok": true,
+        "returncode": 0
+      },
+      "python_tests": {
+        "ok": true,
+        "returncode": 0
+      },
+      "gut_import": {
+        "ok": true,
+        "returncode": 0
+      },
+      "gut_tests": {
+        "ok": true,
+        "returncode": 0
+      },
+      "gut_negative": {
+        "ok": true,
+        "observed_returncode": 1
+      }
+    },
+    "python_tests": 17,
+    "gut_tests": 149,
+    "gut_assertions": 6768
+  },
+  "renders": [
+    {
+      "path": "docs/assets/production/city_barriers_02-evidence/detail.png",
+      "pixels": [
+        1280,
+        720
+      ],
+      "bytes": 399383
+    },
+    {
+      "path": "docs/assets/production/city_barriers_02-evidence/hero.png",
+      "pixels": [
+        1280,
+        720
+      ],
+      "bytes": 396586
+    },
+    {
+      "path": "docs/assets/production/city_barriers_02-evidence/overhead_47m_42deg.png",
+      "pixels": [
+        1280,
+        720
+      ],
+      "bytes": 378476
+    },
+    {
+      "path": "docs/assets/production/city_barriers_02-evidence/side.png",
+      "pixels": [
+        1280,
+        720
+      ],
+      "bytes": 375561
+    }
+  ],
+  "render_settings": {
+    "renderer": "Blender Cycles CPU",
+    "samples": 32,
+    "view_transform": "AgX",
+    "encoding": "RGB, 7 significant bits/channel, PNG compression 9",
+    "overhead_height_m": 47,
+    "vertical_fov_degrees": 42,
+    "projection": "perspective, vertical-down, Blender +Y image-up",
+    "visual_review": "Hero, side, flange detail and overhead inspected; thin quiet boundary at camera scale. Engine visibility pending."
+  },
+  "diagnostics": [
+    "Only existing MCP toolkit 4.8-versus-tested-4.7 warning in import logs; no new asset errors/warnings.",
+    "All first asset-specific checks passed; no known-failure exemption required."
+  ],
+  "pending": [
+    "Independent technical/art review",
+    "Provisional dimension/mount approval and world placement",
+    "Populated-engine camera visibility",
+    "Actual vehicle handling and separate-process multiplayer checks",
+    "Packaged builds, repeated-placement profiling and Deck performance"
+  ]
+}

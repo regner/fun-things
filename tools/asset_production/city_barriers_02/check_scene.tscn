@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://bry3wi6axhfwr"]
+
+[ext_resource type="PackedScene" path="res://tools/asset_production/city_quay_furniture_02/check_scene.tscn" id="1_fixture"]
+[ext_resource type="PackedScene" path="res://scenes/prefabs/environment/city_barriers_02.tscn" id="2_reference"]
+
+[node name="LandwardRailCheck" unique_id=504769632 instance=ExtResource("1_fixture")]
+
+[node name="Reference" parent="." index="2" unique_id=1888672587 instance=ExtResource("2_reference")]

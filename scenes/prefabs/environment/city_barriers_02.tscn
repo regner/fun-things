@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://cyp2vnacbf2pa"]
+
+[ext_resource type="PackedScene" path="res://scenes/prefabs/environment/city_quay_furniture_02_straight_landward.tscn" id="1_rail"]
+
+[node name="CityBarriers02" type="Node3D" unique_id=1193678185]
+
+[node name="LandwardRail" parent="." unique_id=1471619119 instance=ExtResource("1_rail")]
