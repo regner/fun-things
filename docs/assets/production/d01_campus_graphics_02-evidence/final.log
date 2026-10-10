@@ -1,0 +1,46 @@
+d01_campus_graphics.02 - Entry panel face - final bounded validation
+
+Environment: Python 3.14.2, Pillow 12.3.0; Blender 5.2.2 LTS d13f752e3b9c,
+glTF exporter 5.2.40; Godot 4.8.dev7.official.c971f93e7; gdstyle 0.3.0.
+Exact reproduction commands are in ../d01_campus_graphics_02.md.
+Every Blender/Godot invocation used the required isolated, bounded CLI flags.
+
+PASS author.py: original opaque 1440x390 PNG; linked campus family glyphs/crest/palette.
+PASS validate.py (Blender, exit 0): 1244 source vertices, 1596 GLB vertices,
+2448 triangles, 2 meshes, 5 surfaces; no degenerate faces/triangles or nonmanifold
+edges; unit source/export normals; outward winding; bounds, ground pivot and UVs.
+PASS fresh shared-contract export: 70712 bytes, byte-identical to existing GLB.
+PASS source/GLB/base-prefab dependency hashes unchanged.
+PASS preview.py (Blender, exit 0): hero, side/rear, detail, overhead; all 1280x720 RGB.
+All four images and runtime PNG inspected. Overhead vertical face copy is unreadable;
+this entry panel must not be an essential navigation cue. No source save performed.
+PASS test_artwork.py: 6 tests; deterministic PNG, dimensions/opacity, safe margins,
+independent crest/title hierarchy, family reuse, absence of duplicate carrier geometry.
+PASS gdstyle fmt --check: 1 file already formatted.
+PASS gdstyle --max-line-length 100 --max-warnings 0: 1 file, no issues.
+PASS pinned headless import (exit 0): no ERROR or SCRIPT ERROR lines.
+PASS editor normalization (exit 0): face-only override, same linked resources/hierarchy,
+unchanged collider; 2 byte-stable reload/save cycles for both prefab and material.
+PASS runtime check (exit 0): registered resource UIDs, identity imports, 1 face override,
+2 meshes/5 surfaces, clamped opaque mipmapped material, inherited 1.60x1.35x0.40 box.
+No runtime warning/error diagnostics.
+PASS audit.py --collect: final saved hashes match the roundtrip receipts; PNG reproduces;
+all four renders are below 400000 bytes. validation.json retains raw measured results.
+
+Diagnostics retained/classified, not suppressed:
+- Blender preview: existing Material.use_nodes future-deprecation warning.
+- Import/editor startup: existing MCP 4.8 versus tested 4.7 plugin warning.
+- Editor SceneTree shutdown: scan aborted; 5 viewport, 8 texture, 1 scenario,
+  52 shaped-text and 1 font RID leak errors; 5 Canvas/31 CanvasItem leaks;
+  168 ObjectDB instances leaked. Same pattern documented by carrier and prior sibling.
+  Successful assertions/exit 0 do not establish clean editor shutdown.
+- Initial owned title-ink test failed its arbitrary exact-color count on antialiased
+  lettering; changed to independently fixed regions with >10% near-color ink. No art edit.
+- One owned max-function-length lint finding after adding actual material reloads:
+  fixed by a named reload/save helper; final formatting/lint passed.
+
+No production_checks.py, owner live sessions, windowed editor, world placement,
+new gameplay/collision behavior or network/device/performance acceptance was attempted.
+The earlier campus-map doc had no stale entry-panel pending item; it remains unchanged.
+Scratch process logs and reexport are in C:/tmp/ft/assets/d01_campus_graphics_02/.
+Producer manifest is regenerated last and independently verified before commit.
