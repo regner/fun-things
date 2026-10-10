@@ -2279,14 +2279,14 @@
       "input_next_action": "Confirm supporting uses in district detail concepts",
       "brief": "[Brief](../../assets/city_service_furniture.md)",
       "priority": 0,
-      "status": "queued",
-      "agent_id": null,
-      "source_revision": null,
-      "review_status": "pending",
-      "integration_status": "pending",
+      "status": "production_prefab_accepted",
+      "agent_id": "705a7338-337b-487e-ae7b-5c4ba1fffd6a",
+      "source_revision": "f218ba02",
+      "review_status": "accepted source/export/prefab scope (independent Sol review)",
+      "integration_status": "accepted",
       "placement_status": "pending",
       "blocker": null,
-      "attempts": 0,
+      "attempts": 1,
       "initial_time_cap_minutes": 90,
       "owned_paths": [
         "art/source/models/environment/city_service_furniture_01/",
@@ -2294,8 +2294,20 @@
         "art/textures/environment/city_service_furniture_01/",
         "art/materials/environment/city_service_furniture_01/",
         "docs/assets/production/city_service_furniture_01.md",
-        "docs/assets/production/city_service_furniture_01-evidence/"
-      ]
+        "docs/assets/production/city_service_furniture_01-evidence/",
+        "tools/asset_production/city_service_furniture_01/",
+        "scenes/prefabs/environment/city_service_furniture_01.tscn"
+      ],
+      "launch": {
+        "provider": "portkey/gpt-6-astra",
+        "configured_effort": "medium",
+        "mode": "orchestrator asset lane",
+        "lane": "a-service"
+      },
+      "producer_manifest": "docs/assets/production/city_service_furniture_01-evidence/manifest.json",
+      "report": "docs/assets/production/city_service_furniture_01.md",
+      "reviewer_id": "8153176e-b599-494c-a909-0b5d6ce1d99d",
+      "integrated_revision": "9440e4ec"
     },
     {
       "id": "city_service_furniture.03",
@@ -2308,14 +2320,14 @@
       "input_next_action": "Confirm supporting uses in district detail concepts",
       "brief": "[Brief](../../assets/city_service_furniture.md)",
       "priority": 0,
-      "status": "queued",
-      "agent_id": null,
-      "source_revision": null,
-      "review_status": "pending",
-      "integration_status": "pending",
+      "status": "production_prefab_accepted",
+      "agent_id": "7e7494a1-ef94-46b1-aecc-82222866d5bf",
+      "source_revision": "87b64241",
+      "review_status": "accepted source/export/prefab scope (independent Sol review)",
+      "integration_status": "accepted",
       "placement_status": "pending",
       "blocker": null,
-      "attempts": 0,
+      "attempts": 1,
       "initial_time_cap_minutes": 90,
       "owned_paths": [
         "art/source/models/environment/city_service_furniture_03/",
@@ -2323,8 +2335,20 @@
         "art/textures/environment/city_service_furniture_03/",
         "art/materials/environment/city_service_furniture_03/",
         "docs/assets/production/city_service_furniture_03.md",
-        "docs/assets/production/city_service_furniture_03-evidence/"
-      ]
+        "docs/assets/production/city_service_furniture_03-evidence/",
+        "tools/asset_production/city_service_furniture_03/",
+        "scenes/prefabs/environment/city_service_furniture_03.tscn"
+      ],
+      "launch": {
+        "provider": "portkey/gpt-6-astra",
+        "configured_effort": "medium",
+        "mode": "orchestrator asset lane",
+        "lane": "a-service"
+      },
+      "producer_manifest": "docs/assets/production/city_service_furniture_03-evidence/manifest.json",
+      "report": "docs/assets/production/city_service_furniture_03.md",
+      "reviewer_id": "8153176e-b599-494c-a909-0b5d6ce1d99d",
+      "integrated_revision": "9440e4ec"
     },
     {
       "id": "city_shop_fittings.04",
@@ -3772,14 +3796,14 @@
       "input_next_action": "Confirm supporting uses in district detail concepts",
       "brief": "[Brief](../../assets/city_service_furniture.md)",
       "priority": 0,
-      "status": "queued",
-      "agent_id": null,
-      "source_revision": null,
-      "review_status": "pending",
-      "integration_status": "pending",
+      "status": "production_prefab_accepted",
+      "agent_id": "73f44e34-abd2-4ba4-9bff-9bcbfa372b3d",
+      "source_revision": "9440e4ec",
+      "review_status": "accepted source/export/prefab scope (independent Sol review)",
+      "integration_status": "accepted",
       "placement_status": "pending",
       "blocker": null,
-      "attempts": 0,
+      "attempts": 1,
       "initial_time_cap_minutes": 90,
       "owned_paths": [
         "art/source/models/environment/city_service_furniture_02/",
@@ -3787,8 +3811,20 @@
         "art/textures/environment/city_service_furniture_02/",
         "art/materials/environment/city_service_furniture_02/",
         "docs/assets/production/city_service_furniture_02.md",
-        "docs/assets/production/city_service_furniture_02-evidence/"
-      ]
+        "docs/assets/production/city_service_furniture_02-evidence/",
+        "tools/asset_production/city_service_furniture_02/",
+        "scenes/prefabs/environment/city_service_furniture_02.tscn"
+      ],
+      "launch": {
+        "provider": "portkey/gpt-6-astra",
+        "configured_effort": "medium",
+        "mode": "orchestrator asset lane",
+        "lane": "a-service"
+      },
+      "producer_manifest": "docs/assets/production/city_service_furniture_02-evidence/manifest.json",
+      "report": "docs/assets/production/city_service_furniture_02.md",
+      "reviewer_id": "8153176e-b599-494c-a909-0b5d6ce1d99d",
+      "integrated_revision": "9440e4ec"
     },
     {
       "id": "city_quay_furniture.01",
