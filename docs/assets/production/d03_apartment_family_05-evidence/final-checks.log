@@ -1,0 +1,41 @@
+d03_apartment_family.05 — final producer check summary (not a raw combined log)
+
+Blender 5.2.2 LTS d13f752e3b9c / glTF exporter 5.2.40.
+Final author.py: exit 0; original source/export plus four inspected 1280x720 PNGs.
+PNG sizes: hero 277589, side 197577, window_detail 303583, overhead 226902 bytes.
+Dithering disabled after the first evidence pass exceeded the approximate 400 KB target.
+Final validate.py: exit 0; 2532 triangles, 1320 source / 1744 export vertices,
+1 mesh / 4 surfaces; 0 nonmanifold edges, degenerate faces or GLB triangles.
+Finite vertices, unit normals, exact literal connector corners, bounds/axis tests PASS.
+Fresh export from the final saved source: byte-identical PASS.
+
+Godot 4.8.dev7.official.c971f93e7.
+Final --headless --path . --import: exit 0; no ERROR or SCRIPT ERROR lines.
+Editor-mode load/pack/save/reload: exit 0; second save byte-stable PASS.
+Final prefab UID uid://drp1fape6c6vs; GLB UID uid://dl64ir7x7pg8v.
+Normalization-only limitation: editor shutdown reports RID/ObjectDB leaks.
+Waiting for scans removed the initial aborted-scan warning, but not those leaks.
+Runtime-only normalization was clean but stripped serialized UIDs; superseded by
+editor-mode normalization. The checker now disallows runtime-only normalization.
+These diagnostics are not counted as clean editor shutdown acceptance.
+
+Final check_prefab.gd runtime: exit 0; no ERROR or SCRIPT ERROR lines.
+Identity linked model and exact AABB/material count/opaque culling PASS.
+One core box collider, layer 1 / mask 0, size (6,3.2,12), centre (0,1.6,0) PASS.
+7 capsule solid/clear cases PASS; front ray at Z=-6 PASS.
+Adjacent/stacked real prefab seam rays at X=3 and Y=3.2 hit Z=-6 PASS.
+ActorMotion 4 cases in AUTHORITY and REPLAY: all 8 pass; mode outcomes identical.
+Car-sized box facade block / east bypass: PASS (not production driving evidence).
+Full observations are retained in validation.json.
+JSON writers explicitly use LF so Git normalization cannot invalidate manifest hashes.
+Committed-blob hash/byte readback covers all 17 manifest payloads.
+
+gdstyle 0.3.0 fmt --check: 1 file already formatted.
+gdstyle --max-line-length 100 --max-warnings 0: 1 file checked, no issues found.
+An earlier intentional polling-loop lint warning was resolved with a local rationale.
+Blender use_nodes deprecation notices and addon untested-engine-version warning
+remain visible; neither changes the pinned asset results.
+
+Not run: production_checks.py (decision 52); windowed editor/live MCP sessions;
+actual world placement, multiplayer transport, production car handling, packaged
+build and Deck/performance tests. No gameplay or source-generation runtime added.
