@@ -1,0 +1,27 @@
+D02 porch canopy: final evidence receipt
+Source, binary GLB topology/normals/bounds and fresh byte-identical reexport: PASS (exit 0).
+Pinned headless import: PASS (exit 0), no ERROR/SCRIPT ERROR lines. Diagnostics:
+WARNING: [MCP] Godot 4.8 detected - latest tested version is 4.7.0. The plugin will run normally but some features may behave unexpectedly. Please report issues at https://github.com/NPGameDev/godot-mcp-toolkit/issues
+Headless editor normalize/load/save: PASS (exit 0); stable second save, registered UIDs.
+Editor-only shutdown diagnostics (not hidden; absent from fresh runtime):
+WARNING: [MCP] Godot 4.8 detected - latest tested version is 4.7.0. The plugin will run normally but some features may behave unexpectedly. Please report issues at https://github.com/NPGameDev/godot-mcp-toolkit/issues
+WARNING: Scan thread aborted...
+ERROR: 5 RID allocations of type 'N16RendererViewport8ViewportE' were leaked at exit.
+ERROR: 8 RID allocations of type 'PN13RendererDummy14TextureStorage12DummyTextureE' were leaked at exit.
+ERROR: 1 RID allocations of type 'N17RendererSceneCull8ScenarioE' were leaked at exit.
+ERROR: 52 RID allocations of type 'PN18TextServerAdvanced22ShapedTextDataAdvancedE' were leaked at exit.
+ERROR: 1 RID allocations of type 'PN18TextServerAdvanced12FontAdvancedE' were leaked at exit.
+WARNING: 5 RIDs of type "Canvas" were leaked.
+WARNING: 31 RIDs of type "CanvasItem" were leaked.
+WARNING: 168 ObjectDB instances were leaked at exit (run with `--verbose` for details).
+Fresh runtime prefab/ActorMotion/car clear-passage checks: PASS (exit 0):
+Godot Engine v4.8.dev7.official.c971f93e7 - https://godotengine.org
+
+[MCPRuntimeServer] port: scanning 6570-6585 (default)
+[MCPRuntimeServer] listening on 127.0.0.1:6570
+[MCPRegistry] runtime port 6570 registered for c:/gamedev/git/ft-lanes/a-d02
+{"aabb_min":[-1.0,2.60000014305115,-0.574999988079071],"aabb_size":[2.0,0.649999856948853,1.15000009536743],"capsule_queries":[{"clear":true,"x":-0.72},{"clear":true,"x":0.0},{"clear":true,"x":0.72}],"car_box_sweep":{"east_bypass_blocked":false,"front_blocked":false,"size_m":[1.9,1.5,4.3]},"collision_shape_count":0,"engine":"4.8-dev7 (official)","failures":[],"linked_model_identity":true,"materials":["crescents_sage_enamel","crescents_ivory_trim","crescents_slate_plinth"],"minimum_ground_clearance_m":2.60000014305115,"model_uid":"uid://12vok3h7brcg","ok":true,"overhead_ray_clear":true,"prefab_uid":"uid://cgtjynslya47g","production_actor_motion":[{"case":"centre_passage","end":[0.0,0.000877899117767811,2.99999976158142],"mode":0},{"case":"left_brace_passage","end":[-0.720000028610229,0.000877923041116446,2.99999976158142],"mode":0},{"case":"right_brace_passage","end":[0.720000028610229,0.000877923041116446,2.99999976158142],"mode":0},{"case":"centre_passage","end":[0.0,0.000877899117767811,2.99999976158142],"mode":1},{"case":"left_brace_passage","end":[-0.720000028610229,0.000877923041116446,2.99999976158142],"mode":1},{"case":"right_brace_passage","end":[0.720000028610229,0.000877923041116446,2.99999976158142],"mode":1}]}
+
+Pinned gdstyle fmt --check: 1 file already formatted; strict lint: 1 file, no issues.
+Four renders manually inspected after correction/compression. No production_checks.py run.
+No world placement, real network transport, native visuals or device/performance acceptance.

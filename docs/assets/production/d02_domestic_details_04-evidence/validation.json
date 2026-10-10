@@ -1,0 +1,230 @@
+{
+  "asset": "d02_domestic_details.04",
+  "blender": "5.2.2 LTS",
+  "build_hash": "d13f752e3b9c",
+  "vertices": 864,
+  "triangles": 1692,
+  "mesh_count": 1,
+  "surfaces": 3,
+  "glb_vertices": 982,
+  "degenerate_faces": 0,
+  "nonmanifold_edges": 0,
+  "unit_normals": true,
+  "consistent_winding": true,
+  "applied_transforms": true,
+  "source_aabb": {
+    "min": [
+      -1.0,
+      -0.5750000476837158,
+      2.6000001430511475
+    ],
+    "max": [
+      1.0,
+      0.574999988079071,
+      3.25
+    ]
+  },
+  "godot_aabb": {
+    "min": [
+      -1.0,
+      2.6000001430511475,
+      -0.574999988079071
+    ],
+    "max": [
+      1.0,
+      3.25,
+      0.5750000476837158
+    ]
+  },
+  "dimensions_godot_m": [
+    2,
+    0.65,
+    1.15
+  ],
+  "dimension_tolerance_m": 0.001,
+  "pivot": [
+    0,
+    0,
+    0
+  ],
+  "datum": "ground-projected footprint centre; wall Z=+.575; mesh minimum Y=2.6",
+  "dimensions_status": "provisional",
+  "fresh_reexport_byte_identical": true,
+  "glb_sha256": "51e2bc0bce7f2d0ad32c538caa69239e8b3e7d527ecc5bfb6b92645dd927bf72",
+  "glb_bytes": 44696,
+  "materials": [
+    {
+      "name": "crescents_sage_enamel",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.08437620848417282,
+          0.14702726900577545,
+          0.13013647496700287,
+          1
+        ],
+        "metallicFactor": 0.25,
+        "roughnessFactor": 0.41999998688697815
+      }
+    },
+    {
+      "name": "crescents_ivory_trim",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.6583748459815979,
+          0.6172065734863281,
+          0.4969329833984375,
+          1
+        ],
+        "metallicFactor": 0,
+        "roughnessFactor": 0.550000011920929
+      }
+    },
+    {
+      "name": "crescents_slate_plinth",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.09758734703063965,
+          0.12477181851863861,
+          0.14702726900577545,
+          1
+        ],
+        "metallicFactor": 0,
+        "roughnessFactor": 0.75
+      }
+    }
+  ],
+  "materials_match_mailbox_sibling": true,
+  "collision_boxes": [],
+  "overhead_only": true,
+  "minimum_ground_clearance_m": 2.6,
+  "status": "PASS source and export",
+  "engine": {
+    "aabb_min": [
+      -1.0,
+      2.60000014305115,
+      -0.574999988079071
+    ],
+    "aabb_size": [
+      2.0,
+      0.649999856948853,
+      1.15000009536743
+    ],
+    "capsule_queries": [
+      {
+        "clear": true,
+        "x": -0.72
+      },
+      {
+        "clear": true,
+        "x": 0.0
+      },
+      {
+        "clear": true,
+        "x": 0.72
+      }
+    ],
+    "car_box_sweep": {
+      "east_bypass_blocked": false,
+      "front_blocked": false,
+      "size_m": [
+        1.9,
+        1.5,
+        4.3
+      ]
+    },
+    "collision_shape_count": 0,
+    "engine": "4.8-dev7 (official)",
+    "failures": [],
+    "linked_model_identity": true,
+    "materials": [
+      "crescents_sage_enamel",
+      "crescents_ivory_trim",
+      "crescents_slate_plinth"
+    ],
+    "minimum_ground_clearance_m": 2.60000014305115,
+    "model_uid": "uid://12vok3h7brcg",
+    "ok": true,
+    "overhead_ray_clear": true,
+    "prefab_uid": "uid://cgtjynslya47g",
+    "production_actor_motion": [
+      {
+        "case": "centre_passage",
+        "end": [
+          0.0,
+          0.000877899117767811,
+          2.99999976158142
+        ],
+        "mode": 0
+      },
+      {
+        "case": "left_brace_passage",
+        "end": [
+          -0.720000028610229,
+          0.000877923041116446,
+          2.99999976158142
+        ],
+        "mode": 0
+      },
+      {
+        "case": "right_brace_passage",
+        "end": [
+          0.720000028610229,
+          0.000877923041116446,
+          2.99999976158142
+        ],
+        "mode": 0
+      },
+      {
+        "case": "centre_passage",
+        "end": [
+          0.0,
+          0.000877899117767811,
+          2.99999976158142
+        ],
+        "mode": 1
+      },
+      {
+        "case": "left_brace_passage",
+        "end": [
+          -0.720000028610229,
+          0.000877923041116446,
+          2.99999976158142
+        ],
+        "mode": 1
+      },
+      {
+        "case": "right_brace_passage",
+        "end": [
+          0.720000028610229,
+          0.000877923041116446,
+          2.99999976158142
+        ],
+        "mode": 1
+      }
+    ],
+    "save_reload_byte_stable": true
+  },
+  "visual_self_review": {
+    "images": [
+      "hero.png",
+      "side.png",
+      "detail.png",
+      "overhead_47m_42deg.png"
+    ],
+    "size_px": [
+      1280,
+      720
+    ],
+    "renderer": "Blender Cycles CPU, 32 samples, AgX, six-bit RGB PNG",
+    "gameplay_camera": "Vertical down (0,0,47)m; Blender +Y north/up; vertical FOV42 degrees",
+    "observations": "Quiet sloped sage roof, ivory fascia and two slate wall brackets read as a small domestic canopy in close views. The roof is approximately 43 pixels wide overhead; brackets are not visible or used as gameplay information. Final fascia corners and flashing are attached and free of black overlap artifacts.",
+    "limits": "Isolated Blender self-review, not native gameplay or placed route acceptance"
+  },
+  "diagnostics": {
+    "source": "Passed; Blender 6.0 use_nodes deprecation notices only",
+    "import": "Passed without ERROR/SCRIPT ERROR; existing MCP 4.8 compatibility warning only",
+    "normalization": "Passed stable save/reload with UIDs. Headless editor shutdown emitted existing scan-aborted/RID/ObjectDB diagnostics; exact lines retained in final.log.",
+    "fresh_runtime": "Passed with no ERROR/WARNING lines",
+    "initial_corrections": "Coplanar roof/fascia and fascia corner faces showed black render artifacts. Insets remove coplanarity; the flashing is deepened into the roof and mounting plates extended to its underside. Final views were rerendered and inspected after these source corrections."
+  }
+}
