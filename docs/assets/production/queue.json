@@ -2414,14 +2414,14 @@
       "input_next_action": "Refine shared design for recorded districts",
       "brief": "[Brief](../../assets/city_boardwalk.md)",
       "priority": 0,
-      "status": "queued",
-      "agent_id": null,
-      "source_revision": null,
-      "review_status": "pending",
-      "integration_status": "pending",
+      "status": "production_prefab_accepted",
+      "agent_id": "3d9a8b2e-8e1a-4c5c-bd7c-94719490a1a8",
+      "source_revision": "825f551a",
+      "review_status": "accepted source/export/prefab scope (independent Sol review)",
+      "integration_status": "accepted",
       "placement_status": "pending",
       "blocker": null,
-      "attempts": 0,
+      "attempts": 1,
       "initial_time_cap_minutes": 90,
       "owned_paths": [
         "art/source/models/environment/city_boardwalk_01/",
@@ -2429,8 +2429,20 @@
         "art/textures/environment/city_boardwalk_01/",
         "art/materials/environment/city_boardwalk_01/",
         "docs/assets/production/city_boardwalk_01.md",
-        "docs/assets/production/city_boardwalk_01-evidence/"
-      ]
+        "docs/assets/production/city_boardwalk_01-evidence/",
+        "tools/asset_production/city_boardwalk_01/",
+        "scenes/prefabs/environment/city_boardwalk_01.tscn"
+      ],
+      "launch": {
+        "provider": "portkey/gpt-6-astra",
+        "configured_effort": "medium",
+        "mode": "orchestrator asset lane",
+        "lane": "a-boardwalk"
+      },
+      "producer_manifest": "docs/assets/production/city_boardwalk_01-evidence/manifest.json",
+      "report": "docs/assets/production/city_boardwalk_01.md",
+      "reviewer_id": "9e372428-8194-4809-90dc-ff6c5a0773b8",
+      "integrated_revision": "6ecf8a9a"
     },
     {
       "id": "city_boardwalk.02",
@@ -2443,14 +2455,14 @@
       "input_next_action": "Refine shared design for recorded districts",
       "brief": "[Brief](../../assets/city_boardwalk.md)",
       "priority": 0,
-      "status": "queued",
-      "agent_id": null,
-      "source_revision": null,
-      "review_status": "pending",
-      "integration_status": "pending",
+      "status": "production_prefab_accepted",
+      "agent_id": "a2e0475d-c24e-429b-acc9-90e1abc7b8fb",
+      "source_revision": "89bd05e8",
+      "review_status": "accepted source/export/prefab scope (independent Sol review)",
+      "integration_status": "accepted",
       "placement_status": "pending",
       "blocker": null,
-      "attempts": 0,
+      "attempts": 1,
       "initial_time_cap_minutes": 90,
       "owned_paths": [
         "art/source/models/environment/city_boardwalk_02/",
@@ -2458,8 +2470,20 @@
         "art/textures/environment/city_boardwalk_02/",
         "art/materials/environment/city_boardwalk_02/",
         "docs/assets/production/city_boardwalk_02.md",
-        "docs/assets/production/city_boardwalk_02-evidence/"
-      ]
+        "docs/assets/production/city_boardwalk_02-evidence/",
+        "tools/asset_production/city_boardwalk_02/",
+        "scenes/prefabs/environment/city_boardwalk_02.tscn"
+      ],
+      "launch": {
+        "provider": "portkey/gpt-6-astra",
+        "configured_effort": "medium",
+        "mode": "orchestrator asset lane",
+        "lane": "a-boardwalk"
+      },
+      "producer_manifest": "docs/assets/production/city_boardwalk_02-evidence/manifest.json",
+      "report": "docs/assets/production/city_boardwalk_02.md",
+      "reviewer_id": "9e372428-8194-4809-90dc-ff6c5a0773b8",
+      "integrated_revision": "6ecf8a9a"
     },
     {
       "id": "city_boardwalk.03",
@@ -2472,14 +2496,14 @@
       "input_next_action": "Refine shared design for recorded districts",
       "brief": "[Brief](../../assets/city_boardwalk.md)",
       "priority": 0,
-      "status": "queued",
-      "agent_id": null,
-      "source_revision": null,
-      "review_status": "pending",
-      "integration_status": "pending",
+      "status": "production_prefab_accepted",
+      "agent_id": "c9afd756-9872-4da1-b535-57ce7f67b4fc",
+      "source_revision": "4eef3f00",
+      "review_status": "accepted source/export/prefab scope (independent Sol review)",
+      "integration_status": "accepted",
       "placement_status": "pending",
       "blocker": null,
-      "attempts": 0,
+      "attempts": 1,
       "initial_time_cap_minutes": 90,
       "owned_paths": [
         "art/source/models/environment/city_boardwalk_03/",
@@ -2487,8 +2511,20 @@
         "art/textures/environment/city_boardwalk_03/",
         "art/materials/environment/city_boardwalk_03/",
         "docs/assets/production/city_boardwalk_03.md",
-        "docs/assets/production/city_boardwalk_03-evidence/"
-      ]
+        "docs/assets/production/city_boardwalk_03-evidence/",
+        "tools/asset_production/city_boardwalk_03/",
+        "scenes/prefabs/environment/city_boardwalk_03.tscn"
+      ],
+      "launch": {
+        "provider": "portkey/gpt-6-astra",
+        "configured_effort": "medium",
+        "mode": "orchestrator asset lane",
+        "lane": "a-boardwalk"
+      },
+      "producer_manifest": "docs/assets/production/city_boardwalk_03-evidence/manifest.json",
+      "report": "docs/assets/production/city_boardwalk_03.md",
+      "reviewer_id": "9e372428-8194-4809-90dc-ff6c5a0773b8",
+      "integrated_revision": "6ecf8a9a"
     },
     {
       "id": "city_boardwalk.04",
@@ -2501,14 +2537,14 @@
       "input_next_action": "Refine shared design for recorded districts",
       "brief": "[Brief](../../assets/city_boardwalk.md)",
       "priority": 0,
-      "status": "queued",
-      "agent_id": null,
-      "source_revision": null,
-      "review_status": "pending",
-      "integration_status": "pending",
+      "status": "production_prefab_accepted",
+      "agent_id": "10cca083-474e-495c-af94-79116c0f16a4",
+      "source_revision": "63ab5836",
+      "review_status": "accepted source/export/prefab scope (independent Sol review)",
+      "integration_status": "accepted",
       "placement_status": "pending",
       "blocker": null,
-      "attempts": 0,
+      "attempts": 1,
       "initial_time_cap_minutes": 90,
       "owned_paths": [
         "art/source/models/environment/city_boardwalk_04/",
@@ -2516,8 +2552,20 @@
         "art/textures/environment/city_boardwalk_04/",
         "art/materials/environment/city_boardwalk_04/",
         "docs/assets/production/city_boardwalk_04.md",
-        "docs/assets/production/city_boardwalk_04-evidence/"
-      ]
+        "docs/assets/production/city_boardwalk_04-evidence/",
+        "tools/asset_production/city_boardwalk_04/",
+        "scenes/prefabs/environment/city_boardwalk_04.tscn"
+      ],
+      "launch": {
+        "provider": "portkey/gpt-6-astra",
+        "configured_effort": "medium",
+        "mode": "orchestrator asset lane",
+        "lane": "a-boardwalk"
+      },
+      "producer_manifest": "docs/assets/production/city_boardwalk_04-evidence/manifest.json",
+      "report": "docs/assets/production/city_boardwalk_04.md",
+      "reviewer_id": "9e372428-8194-4809-90dc-ff6c5a0773b8",
+      "integrated_revision": "6ecf8a9a"
     },
     {
       "id": "city_boardwalk.05",
@@ -2530,14 +2578,14 @@
       "input_next_action": "Refine shared design for recorded districts",
       "brief": "[Brief](../../assets/city_boardwalk.md)",
       "priority": 0,
-      "status": "queued",
-      "agent_id": null,
-      "source_revision": null,
-      "review_status": "pending",
-      "integration_status": "pending",
+      "status": "production_prefab_accepted",
+      "agent_id": "47bd93c3-0aa9-432f-8629-af350e2414a5",
+      "source_revision": "0c3b936c",
+      "review_status": "accepted source/export/prefab scope (independent Sol review)",
+      "integration_status": "accepted",
       "placement_status": "pending",
       "blocker": null,
-      "attempts": 0,
+      "attempts": 1,
       "initial_time_cap_minutes": 90,
       "owned_paths": [
         "art/source/models/environment/city_boardwalk_05/",
@@ -2545,8 +2593,20 @@
         "art/textures/environment/city_boardwalk_05/",
         "art/materials/environment/city_boardwalk_05/",
         "docs/assets/production/city_boardwalk_05.md",
-        "docs/assets/production/city_boardwalk_05-evidence/"
-      ]
+        "docs/assets/production/city_boardwalk_05-evidence/",
+        "tools/asset_production/city_boardwalk_05/",
+        "scenes/prefabs/environment/city_boardwalk_05.tscn"
+      ],
+      "launch": {
+        "provider": "portkey/gpt-6-astra",
+        "configured_effort": "medium",
+        "mode": "orchestrator asset lane",
+        "lane": "a-boardwalk"
+      },
+      "producer_manifest": "docs/assets/production/city_boardwalk_05-evidence/manifest.json",
+      "report": "docs/assets/production/city_boardwalk_05.md",
+      "reviewer_id": "9e372428-8194-4809-90dc-ff6c5a0773b8",
+      "integrated_revision": "6ecf8a9a"
     },
     {
       "id": "city_walkways.01",
