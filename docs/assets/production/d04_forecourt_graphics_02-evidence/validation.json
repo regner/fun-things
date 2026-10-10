@@ -1,0 +1,194 @@
+{
+  "asset_id": "d04_forecourt_graphics.02",
+  "blender": "5.2.2 LTS",
+  "blender_build": "d13f752e3b9c",
+  "gltf_exporter": "5.2.40",
+  "source_vertices": 4,
+  "glb_vertices": 4,
+  "triangles": 2,
+  "mesh_count": 1,
+  "surface_count": 1,
+  "degenerate_faces": 0,
+  "degenerate_triangles": 0,
+  "unit_normals": true,
+  "upward_winding": true,
+  "non_manifold_edges": 4,
+  "boundary_loop_sizes": [
+    4
+  ],
+  "non_boundary_non_manifold_edges": 0,
+  "boundary_justification": "One intentional open perimeter on a flush, single-sided decal; no sidewalls or deck. World terrain owns all walk/drive collision.",
+  "aabb_min_godot": [
+    -4.0,
+    0.014999999664723873,
+    -8.0
+  ],
+  "aabb_max_godot": [
+    4.0,
+    0.014999999664723873,
+    8.0
+  ],
+  "dimensions_godot_metres": [
+    8,
+    0,
+    16
+  ],
+  "pivot": [
+    0,
+    0,
+    0
+  ],
+  "visual_surface_y": 0.015,
+  "ground_datum_y": 0,
+  "uv_axis": "U east/+X, image V south/+Z",
+  "embedded_images": 0,
+  "source_texture_relative_and_unpacked": true,
+  "material": {
+    "name": "entry_axis_motif",
+    "roughness": 0.94,
+    "metallic": 0,
+    "opaque": true
+  },
+  "texture_sha256": "922dad9ae7ac84174b841918db8a19a4d5568a941df29922e22e02d366948129",
+  "glb_bytes": 1396,
+  "glb_sha256": "cf87e23cb8c0d5c13395c99e30fa0437851c74a57fe33ff93b64a6645ba48d6e",
+  "fresh_reexport_byte_identical": true,
+  "source_status": "PASS",
+  "engine": {
+    "aabb_min": [
+      -4.0,
+      0.0149999996647239,
+      -8.0
+    ],
+    "aabb_size": [
+      8.0,
+      9.99999974737875e-06,
+      16.0
+    ],
+    "collision_objects": 0,
+    "d04_forecourt_graphics_02.glb_uid": "uid://2t554rcqv1f5",
+    "d04_forecourt_graphics_02.tscn_uid": "uid://dydb3ac3wt5wm",
+    "engine": "4.8-dev7 (official)",
+    "engine_hash": "c971f93e7e76b0ef919bf6009e7b868bea04db7f",
+    "entry_axis_motif.tres_uid": "uid://cw0jfy88nhf3d",
+    "external_material": "res://art/materials/environment/d04_forecourt_graphics_02/entry_axis_motif.tres",
+    "failures": [],
+    "linked_identity_model": true,
+    "material_overrides": 0,
+    "material_sha256": "828449fedbd1728dccc77e2f9f9fb5067e9027c02d31311d50264baa095d5673",
+    "mesh_count": 1,
+    "mipmaps": true,
+    "ok": true,
+    "prefab_sha256": "e1f54fdccdbcfac04fab0d53de5ba36aff0a16f0a7305a1d4f50592c81016d43",
+    "surface_count": 1,
+    "texture_image_bytes_including_mips": 2097153,
+    "texture_image_format": 4,
+    "texture_size": [
+      512,
+      1024
+    ]
+  },
+  "normalization": {
+    "aabb_min": [
+      -4.0,
+      0.0149999996647239,
+      -8.0
+    ],
+    "aabb_size": [
+      8.0,
+      9.99999974737875e-06,
+      16.0
+    ],
+    "collision_objects": 0,
+    "d04_forecourt_graphics_02.glb_uid": "uid://2t554rcqv1f5",
+    "d04_forecourt_graphics_02.tscn_uid": "uid://dydb3ac3wt5wm",
+    "engine": "4.8-dev7 (official)",
+    "engine_hash": "c971f93e7e76b0ef919bf6009e7b868bea04db7f",
+    "entry_axis_motif.tres_uid": "uid://cw0jfy88nhf3d",
+    "external_material": "res://art/materials/environment/d04_forecourt_graphics_02/entry_axis_motif.tres",
+    "failures": [],
+    "linked_identity_model": true,
+    "material_overrides": 0,
+    "material_sha256": "828449fedbd1728dccc77e2f9f9fb5067e9027c02d31311d50264baa095d5673",
+    "mesh_count": 1,
+    "mipmaps": true,
+    "ok": true,
+    "prefab_sha256": "e1f54fdccdbcfac04fab0d53de5ba36aff0a16f0a7305a1d4f50592c81016d43",
+    "roundtrip_1_byte_stable": true,
+    "roundtrip_2_byte_stable": true,
+    "surface_count": 1,
+    "texture_image_bytes_including_mips": 2097153,
+    "texture_image_format": 4,
+    "texture_size": [
+      512,
+      1024
+    ]
+  },
+  "artwork_tests_passed": 5,
+  "gdstyle_zero_warnings": true,
+  "final_import_no_errors": true,
+  "runtime_load_no_errors": true,
+  "texture": {
+    "size": [
+      512,
+      1024
+    ],
+    "channels": "RGB8 sRGB",
+    "bytes": 3274,
+    "texels_per_metre": 64,
+    "pale_fraction": 0.8800506591796875,
+    "cyan_fraction": 0.00140380859375
+  },
+  "renders": [
+    {
+      "file": "hero.png",
+      "size": [
+        1280,
+        720
+      ],
+      "bytes": 208216
+    },
+    {
+      "file": "side.png",
+      "size": [
+        1280,
+        720
+      ],
+      "bytes": 230842
+    },
+    {
+      "file": "detail.png",
+      "size": [
+        1280,
+        720
+      ],
+      "bytes": 138060
+    },
+    {
+      "file": "overhead_47m_42deg.png",
+      "size": [
+        1280,
+        720
+      ],
+      "bytes": 89413
+    }
+  ],
+  "editor_shutdown_limitation": "Exit 0 and assertions pass; scan-abort and RID/ObjectDB leaks",
+  "limitations": [
+    "No saved world placement, actor/car traversal, network or device acceptance",
+    "Isolated Blender visual evidence is not a Godot renderer/camera-motion test"
+  ],
+  "dependency_sha256": {
+    "tools/asset_production/d04_forecourt_graphics_01/artwork.py": "3dd879c4d248f62ada0fbd451f653b03612046fe382a655c3b84c4a948ee1052",
+    "tools/assets/blender/export_settings.json": "33ded3c83616fba6573848dda1f0ea3fc7ae7f4c98257fc867dca3bbe35ff9ec",
+    "tools/asset_production/d06_commercial_graphics_01/manifest.py": "d7e58675faec2dddb75ae049d7bd4c9d7858a07b6627aa064f0fe811891a6df2",
+    "tools/asset_production/d01_sports_surface_03/validate.py": "81917dbe41e5d984f70f6ea981f174dadea15479c91bd1c90664853e658bd084",
+    "tools/asset_production/city_ground_finishes_01/preview.py": "6c77cba3f68eb337cd10a277d83394287948bed3320d15cad0ccad85f2efcc97",
+    "art/source/models/environment/city_ground_finishes_01/city_ground_finishes_01.blend": "740e22c6624adc788a53c5d79fd701a806c2ec721744c14d0d4b3e139fd40cd0",
+    "art/textures/environment/city_ground_finishes_01/plain_plaza_paving_albedo.png": "fb09ece65dae0db245493796133b0fe669ec482a8f833232d707450b29726c9d",
+    "art/source/models/characters/coral_courier/coral_courier.blend": "f3d8cda6d180ebe66eef12b47f631e74976ac492a13c4bd3b339110b16633b4d",
+    "art/models/characters/coral_courier/coral_courier.glb": "35e6c6a6eb1cda01e6409ec1834f8aed544f71b3308ababade3b06f91afb5ae8",
+    "art/source/models/vehicles/car_latch_a/car_latch_a.blend": "15f1acc54486c57e71de40899adc0d25efb1d4c60029d3f922f49479ee931502",
+    "art/models/vehicles/car_latch_a/car_latch_a.glb": "264cd46c027cce85738f3818ee426aa75346c1024d958351ee67b4c90e7c71f7"
+  }
+}

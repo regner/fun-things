@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://dydb3ac3wt5wm"]
+
+[ext_resource type="PackedScene" uid="uid://2t554rcqv1f5" path="res://art/models/environment/d04_forecourt_graphics_02/d04_forecourt_graphics_02.glb" id="1_model"]
+
+[node name="D04ForecourtGraphics02" type="Node3D" unique_id=1665506142]
+
+[node name="Visuals" type="Node3D" parent="." unique_id=1757092653]
+
+[node name="Model" type="Node3D" parent="Visuals" unique_id=1175394336 instance=ExtResource("1_model")]

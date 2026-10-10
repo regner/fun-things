@@ -1,0 +1,40 @@
+d04_forecourt_graphics.02 - final bounded producer validation
+All commands run from C:/GameDev/git/ft-lanes/a-d04g. Full scratch logs:
+C:/tmp/ft/assets/d04_forecourt_graphics_02/ (not committed).
+Exact reproducible commands and limitations: ../d04_forecourt_graphics_02.md.
+
+PASS python tools/asset_production/d04_forecourt_graphics_02/artwork.py
+PASS python -m unittest discover -s tools/asset_production/d04_forecourt_graphics_02 -p test_*.py -v
+  Five tests: opaque aspect; open axis and margins; sparse palette/north accent;
+  gameplay minification; exact scripted PNG reproduction.
+PASS pinned Blender author.py, validate.py, preview.py (three isolated exit-0 processes)
+  Every call: timeout 900, ALSOFT_DRIVERS=null SDL_AUDIODRIVER=dummy,
+  C:/Program Files/Blender Foundation/Blender 5.2/blender.exe,
+  -noaudio --background --factory-startup --threads 4 --python-exit-code 1.
+  Blender 5.2.2 LTS d13f752e3b9c; glTF exporter 5.2.40.
+  Four vertices, two triangles, one mesh, one surface; no degenerates;
+  unit upward normals; four intentional boundary edges, no other nonmanifold edges.
+  AABB (-4,.015,-8) to (4,.015,8); ground-centred pivot.
+  Fresh GLB export byte-identical, 1396 bytes. No embedded images.
+  Four 1280x720 renders personally inspected; 89-231 KB each.
+PASS python -m py_compile tools/asset_production/d04_forecourt_graphics_02/*.py
+PASS mise-pinned gdstyle fmt --check on owned check_prefab.gd
+PASS mise-pinned gdstyle --max-line-length 100 --max-warnings 0 on owned check_prefab.gd
+PASS timeout 300 mise-pinned Godot --headless --path . --import
+  Final import after UID material-remap normalization: exit 0, no ERROR/SCRIPT ERROR lines.
+PASS timeout 180 mise-pinned Godot --headless --editor --path . --script
+  res://tools/asset_production/d04_forecourt_graphics_02/check_prefab.gd -- --normalize
+  Assertions pass; two byte-stable prefab/material roundtrips retain saved IDs and UIDs.
+  Exit 0 WITH scan-abort and RID/ObjectDB shutdown leaks (168 objects): not a clean shutdown.
+PASS timeout 180 mise-pinned Godot --headless --path . --script
+  res://tools/asset_production/d04_forecourt_graphics_02/check_prefab.gd
+  Final fresh runtime load: exit 0, no ERROR/SCRIPT ERROR lines, failures=[].
+  Godot 4.8.dev7.official.c971f93e7. Identity linked model, external material,
+  512x1024 lossless RGB8 mipmapped/clamped texture; no collision or material overrides.
+PASS four earlier sibling record.py manifest/dependency checks; unchanged payloads.
+PASS final receipt/manifest generation and readback via owned record.py.
+
+Known diagnostics: addon 4.8 versus tested-4.7 warning; Blender future use_nodes notice;
+headless editor shutdown leaks noted above. No failures suppressed or live owner sessions used.
+No global production_checks.py, gameplay/movement/network/device/world-placement checks run.
+Independent art/technical review and downstream placement/visibility/performance remain pending.
