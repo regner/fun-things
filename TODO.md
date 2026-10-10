@@ -39,7 +39,11 @@ recommendations and do not block P1.
 - [ ] **M1-B1 — Implement vehicles and authoritative driver transitions (P2).** B1.1's standalone
   drive-rule port is done: one `VehicleMotion` step with decision 30 tuning, the three delivered
   car entity scenes, wheel presentation and the `scenes/dev/vehicle_drive.tscn` tuning harness.
-  B1.1's local car prediction and corrections can now build on A2.3's foot prediction seams. Entry is host-confirmed after a
+  B1.1b is done: host-authoritative vehicle replication (protocol v3), per-assignment input epochs,
+  local car prediction with replay and bounded corrections, and remote smoothing; real-process ENet
+  correction p95 is 0.019 m direct and 0.305 m normal, but 0.822 m adverse against the 0.5 m target
+  (see `docs/spikes/m1-b1-1.md` for analysis and tuning levers). Its test-only driver assignment is
+  replaced by B1.2. Entry is host-confirmed after a
   short ~0.3 s presentation; transfer control and camera/HUD ownership only on acceptance, with
   no rejection snap. Preserve exit below 0.5 m/s at the authored 1.5 m offset and add production
   clearance.
