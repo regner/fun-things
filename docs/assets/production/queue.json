@@ -1799,14 +1799,14 @@
       "input_next_action": "Refine dock fit and yacht silhouettes",
       "brief": "[Brief](../../assets/city_marina_docks.md)",
       "priority": 0,
-      "status": "queued",
-      "agent_id": null,
-      "source_revision": null,
-      "review_status": "pending",
-      "integration_status": "pending",
+      "status": "production_prefab_accepted",
+      "agent_id": "609b97ea-c429-456e-9653-9ed732a92d0d",
+      "source_revision": "78d13f5",
+      "review_status": "accepted source/export/prefab scope (independent Sol review)",
+      "integration_status": "accepted",
       "placement_status": "pending",
       "blocker": null,
-      "attempts": 0,
+      "attempts": 1,
       "initial_time_cap_minutes": 90,
       "owned_paths": [
         "art/source/models/environment/city_marina_docks_01/",
@@ -1814,8 +1814,20 @@
         "art/textures/environment/city_marina_docks_01/",
         "art/materials/environment/city_marina_docks_01/",
         "docs/assets/production/city_marina_docks_01.md",
-        "docs/assets/production/city_marina_docks_01-evidence/"
-      ]
+        "docs/assets/production/city_marina_docks_01-evidence/",
+        "tools/asset_production/city_marina_docks_01/",
+        "scenes/prefabs/environment/city_marina_docks_01.tscn"
+      ],
+      "launch": {
+        "provider": "portkey/gpt-6-astra",
+        "configured_effort": "medium",
+        "mode": "orchestrator asset lane",
+        "lane": "a-marina"
+      },
+      "producer_manifest": "docs/assets/production/city_marina_docks_01-evidence/manifest.json",
+      "report": "docs/assets/production/city_marina_docks_01.md",
+      "reviewer_id": "03d6ec9f-266e-4900-bcf6-9d0a4b245fd5",
+      "integrated_revision": "f5d5c78"
     },
     {
       "id": "city_marina_docks.02",
@@ -1828,14 +1840,14 @@
       "input_next_action": "Refine dock fit and yacht silhouettes",
       "brief": "[Brief](../../assets/city_marina_docks.md)",
       "priority": 0,
-      "status": "queued",
-      "agent_id": null,
-      "source_revision": null,
-      "review_status": "pending",
-      "integration_status": "pending",
+      "status": "production_prefab_accepted",
+      "agent_id": "dc22d55f-ccde-4f8a-9727-752d6f074445",
+      "source_revision": "02b96a4",
+      "review_status": "accepted source/export/prefab scope (independent Sol review)",
+      "integration_status": "accepted",
       "placement_status": "pending",
       "blocker": null,
-      "attempts": 0,
+      "attempts": 1,
       "initial_time_cap_minutes": 90,
       "owned_paths": [
         "art/source/models/environment/city_marina_docks_02/",
@@ -1843,8 +1855,20 @@
         "art/textures/environment/city_marina_docks_02/",
         "art/materials/environment/city_marina_docks_02/",
         "docs/assets/production/city_marina_docks_02.md",
-        "docs/assets/production/city_marina_docks_02-evidence/"
-      ]
+        "docs/assets/production/city_marina_docks_02-evidence/",
+        "tools/asset_production/city_marina_docks_02/",
+        "scenes/prefabs/environment/city_marina_docks_02.tscn"
+      ],
+      "launch": {
+        "provider": "portkey/gpt-6-astra",
+        "configured_effort": "medium",
+        "mode": "orchestrator asset lane",
+        "lane": "a-marina"
+      },
+      "producer_manifest": "docs/assets/production/city_marina_docks_02-evidence/manifest.json",
+      "report": "docs/assets/production/city_marina_docks_02.md",
+      "reviewer_id": "03d6ec9f-266e-4900-bcf6-9d0a4b245fd5",
+      "integrated_revision": "f5d5c78"
     },
     {
       "id": "city_marina_docks.03",
@@ -1857,14 +1881,14 @@
       "input_next_action": "Refine dock fit and yacht silhouettes",
       "brief": "[Brief](../../assets/city_marina_docks.md)",
       "priority": 0,
-      "status": "queued",
-      "agent_id": null,
-      "source_revision": null,
-      "review_status": "pending",
-      "integration_status": "pending",
+      "status": "production_prefab_accepted",
+      "agent_id": "7272ecc0-9e91-4733-ad66-6f3fa6bad44a",
+      "source_revision": "8bfba8df",
+      "review_status": "accepted source/export/prefab scope (independent Sol review)",
+      "integration_status": "accepted",
       "placement_status": "pending",
       "blocker": null,
-      "attempts": 0,
+      "attempts": 1,
       "initial_time_cap_minutes": 90,
       "owned_paths": [
         "art/source/models/environment/city_marina_docks_03/",
@@ -1872,8 +1896,20 @@
         "art/textures/environment/city_marina_docks_03/",
         "art/materials/environment/city_marina_docks_03/",
         "docs/assets/production/city_marina_docks_03.md",
-        "docs/assets/production/city_marina_docks_03-evidence/"
-      ]
+        "docs/assets/production/city_marina_docks_03-evidence/",
+        "tools/asset_production/city_marina_docks_03/",
+        "scenes/prefabs/environment/city_marina_docks_03.tscn"
+      ],
+      "launch": {
+        "provider": "portkey/gpt-6-astra",
+        "configured_effort": "medium",
+        "mode": "orchestrator asset lane",
+        "lane": "a-marina"
+      },
+      "producer_manifest": "docs/assets/production/city_marina_docks_03-evidence/manifest.json",
+      "report": "docs/assets/production/city_marina_docks_03.md",
+      "reviewer_id": "03d6ec9f-266e-4900-bcf6-9d0a4b245fd5",
+      "integrated_revision": "f5d5c78"
     },
     {
       "id": "city_marina_docks.04",
@@ -1886,14 +1922,14 @@
       "input_next_action": "Refine dock fit and yacht silhouettes",
       "brief": "[Brief](../../assets/city_marina_docks.md)",
       "priority": 0,
-      "status": "queued",
-      "agent_id": null,
-      "source_revision": null,
-      "review_status": "pending",
-      "integration_status": "pending",
+      "status": "production_prefab_accepted",
+      "agent_id": "2e0f1d9c-c4b6-4d70-bb67-5c257b9664d5",
+      "source_revision": "b4a0236",
+      "review_status": "accepted source/export/prefab scope (independent Sol review)",
+      "integration_status": "accepted",
       "placement_status": "pending",
       "blocker": null,
-      "attempts": 0,
+      "attempts": 1,
       "initial_time_cap_minutes": 90,
       "owned_paths": [
         "art/source/models/environment/city_marina_docks_04/",
@@ -1901,8 +1937,20 @@
         "art/textures/environment/city_marina_docks_04/",
         "art/materials/environment/city_marina_docks_04/",
         "docs/assets/production/city_marina_docks_04.md",
-        "docs/assets/production/city_marina_docks_04-evidence/"
-      ]
+        "docs/assets/production/city_marina_docks_04-evidence/",
+        "tools/asset_production/city_marina_docks_04/",
+        "scenes/prefabs/environment/city_marina_docks_04.tscn"
+      ],
+      "launch": {
+        "provider": "portkey/gpt-6-astra",
+        "configured_effort": "medium",
+        "mode": "orchestrator asset lane",
+        "lane": "a-marina"
+      },
+      "producer_manifest": "docs/assets/production/city_marina_docks_04-evidence/manifest.json",
+      "report": "docs/assets/production/city_marina_docks_04.md",
+      "reviewer_id": "03d6ec9f-266e-4900-bcf6-9d0a4b245fd5",
+      "integrated_revision": "f5d5c78"
     },
     {
       "id": "city_marina_docks.05",
@@ -1915,14 +1963,14 @@
       "input_next_action": "Refine dock fit and yacht silhouettes",
       "brief": "[Brief](../../assets/city_marina_docks.md)",
       "priority": 0,
-      "status": "queued",
-      "agent_id": null,
-      "source_revision": null,
-      "review_status": "pending",
-      "integration_status": "pending",
+      "status": "production_prefab_accepted",
+      "agent_id": "9c0bf9ab-31ab-4a4e-ab18-e0bef44cae56",
+      "source_revision": "f5d5c78",
+      "review_status": "accepted source/export/prefab scope (independent Sol review)",
+      "integration_status": "accepted",
       "placement_status": "pending",
       "blocker": null,
-      "attempts": 0,
+      "attempts": 1,
       "initial_time_cap_minutes": 90,
       "owned_paths": [
         "art/source/models/environment/city_marina_docks_05/",
@@ -1930,8 +1978,20 @@
         "art/textures/environment/city_marina_docks_05/",
         "art/materials/environment/city_marina_docks_05/",
         "docs/assets/production/city_marina_docks_05.md",
-        "docs/assets/production/city_marina_docks_05-evidence/"
-      ]
+        "docs/assets/production/city_marina_docks_05-evidence/",
+        "tools/asset_production/city_marina_docks_05/",
+        "scenes/prefabs/environment/city_marina_docks_05.tscn"
+      ],
+      "launch": {
+        "provider": "portkey/gpt-6-astra",
+        "configured_effort": "medium",
+        "mode": "orchestrator asset lane",
+        "lane": "a-marina"
+      },
+      "producer_manifest": "docs/assets/production/city_marina_docks_05-evidence/manifest.json",
+      "report": "docs/assets/production/city_marina_docks_05.md",
+      "reviewer_id": "03d6ec9f-266e-4900-bcf6-9d0a4b245fd5",
+      "integrated_revision": "f5d5c78"
     },
     {
       "id": "city_moored_yachts.01",
