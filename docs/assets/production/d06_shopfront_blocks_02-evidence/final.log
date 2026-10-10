@@ -1,0 +1,33 @@
+d06_shopfront_blocks.02 — final bounded production checks, 10 October 2026
+Producer: commissioned implementation worker; branch lane/a-sfront.
+Reproduction argv are retained in ../d06_shopfront_blocks_02.md.
+Scratch/raw command logs: C:/tmp/ft/assets/d06_shopfront_blocks_02/ (not committed).
+
+PASS Blender 5.2.2 LTS d13f752e3b9c; exporter 5.2.40.
+PASS isolated author.py and export.py: exit 0; source/export saved.
+PASS final isolated export.py to scratch and validate.py: exit 0; byte-identical GLB.
+PASS source: 4436 vertices, 8668 triangles, 54 meshes/surfaces, five materials.
+PASS raw GLB: 4764 split vertices; unit normals; zero degenerate triangles.
+PASS source: zero non-manifold edges/degenerate faces, consistent winding and applied transforms.
+PASS dimensions, root datum, export membership, 1m excluded reference and 15 fitting mounts.
+PASS six apertures: 1350 clear rays, 12 edge hits; nine actual fitting rear insertion tests.
+PASS Godot 4.8.dev7.official.c971f93e7 headless import: exit 0; no ERROR/SCRIPT ERROR lines.
+PASS both owned scenes: normalize then two byte-stable load/pack/save cycles each, exit 0.
+PASS separate runtime check: exit 0; no ERROR/SCRIPT ERROR lines; all dependency UIDs resolve.
+PASS exactly one StaticBody3D collision owner with three enabled footprint boxes.
+PASS 12 clear bidirectional capsule sweeps; five solid/seam overlaps; three blocking sweeps.
+PASS fitted raw-GLB totals agree with Godot: 132 meshes, 135 surfaces, 34288 triangles.
+PASS gdstyle 0.3.0 fmt --check; lint --max-line-length 100 --max-warnings 0: exit 0.
+PASS four final Blender Cycles renders: 1280x720, compression 95; self-inspected.
+
+Corrected before final delivery: overlapping coping corners (butt joints), discontinuous
+outer side plinths (continued), one 101-character GDScript line (split).
+Final Blender authoring has Material.use_nodes deprecation warning only.
+Headless editor normalization exits 0 but reports known editor/plugin shutdown RID/ObjectDB
+leaks; separate runtime and import checks have no error lines. Import retains toolkit engine-
+version warning. No errors were filtered or suppressed. No live editor/MCP sessions touched.
+No production_checks.py, native gameplay, traffic, multiplayer, packaging or device profile ran.
+Independent review and world/gameplay/device acceptance remain pending.
+
+Staged-byte audit caught Windows CRLF receipt normalization before commit. Owned text
+files and validator output now use LF; final staged payload hashes match the manifest.

@@ -1,0 +1,43 @@
+[gd_scene format=3 uid="uid://bxcquriie0tf0"]
+
+[ext_resource type="PackedScene" uid="uid://cqe18d3jlafkh" path="res://art/models/environment/d06_shopfront_blocks_02/d06_shopfront_blocks_02.glb" id="1_model"]
+
+[sub_resource type="BoxShape3D" id="FrontBar"]
+size = Vector3(19.2, 4.3, 6.4)
+
+[sub_resource type="BoxShape3D" id="WestWing"]
+size = Vector3(6.4, 4.3, 11.6)
+
+[sub_resource type="BoxShape3D" id="EastWing"]
+size = Vector3(6.4, 3.85, 8.4)
+
+[node name="d06_shopfront_blocks_02" type="Node3D" unique_id=1434515200]
+
+[node name="Visuals" type="Node3D" parent="." unique_id=122093602]
+
+[node name="Model" parent="Visuals" unique_id=1380649398 instance=ExtResource("1_model")]
+
+[node name="Collision" type="Node3D" parent="." unique_id=1821843818]
+
+[node name="Body" type="StaticBody3D" parent="Collision" unique_id=993580560]
+collision_mask = 0
+
+[node name="FrontBar" type="CollisionShape3D" parent="Collision/Body" unique_id=508741171]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.15, -5.8)
+shape = SubResource("FrontBar")
+
+[node name="WestWing" type="CollisionShape3D" parent="Collision/Body" unique_id=1259626106]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.4, 2.15, 3.2)
+shape = SubResource("WestWing")
+
+[node name="EastWing" type="CollisionShape3D" parent="Collision/Body" unique_id=1130452533]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.4, 1.925, 1.6)
+shape = SubResource("EastWing")
+
+[node name="Interfaces" type="Node3D" parent="." unique_id=1211461828]
+
+[node name="CourtRear" type="Marker3D" parent="Interfaces" unique_id=1834090422]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 10)
+
+[node name="CourtEast" type="Marker3D" parent="Interfaces" unique_id=107803474]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.6, 0, 7.4)
