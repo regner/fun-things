@@ -1,0 +1,39 @@
+city_marina_docks.05 final producer receipt — 10 October 2026
+All commands run from C:/GameDev/git/ft-lanes/a-marina.
+Raw logs/scratch: C:/tmp/ft/assets/city_marina_docks_05/ (not committed).
+
+Blender command prefix used for every call:
+ALSOFT_DRIVERS=null SDL_AUDIODRIVER=dummy timeout 900 "C:/Program Files/Blender Foundation/Blender 5.2/blender.exe" -noaudio --background --factory-startup --threads 4 --python-exit-code 1 --python
+Owned script prefix: tools/asset_production/city_marina_docks_05/
+- author.py: exit 0; source saved, Blender 5.2.2 LTS / d13f752e3b9c.
+- export.py: exit 0; shared export contract, exporter 5.2.40; GLB 59,552 bytes.
+- render.py: exit 0; four isolated 1280x720 PNGs. Final rerun raises side camera to remove studio-floor underside strip; no source geometry changes.
+- export.py -- C:/tmp/ft/assets/city_marina_docks_05/reexport.glb: exit 0, fresh separate process.
+- validate.py -- C:/tmp/ft/assets/city_marina_docks_05/reexport.glb: exit 0.
+  2,144 triangles; 1,088 source vertices; 1,388 split export vertices; 1 mesh / 2 surfaces.
+  Zero degenerate source faces/export triangles; zero nonmanifold source edges.
+  Unit normals, consistent winding, metre units, identity transforms.
+  Godot AABB (-.24,0,-.08)..(.24,.15,.08), .001 m tolerance, deck-contact pivot.
+  Fresh export byte-identical. No images, cameras, animation or skins in GLB.
+  Blender use_nodes deprecation warning only; no timeout/shutdown failures.
+
+Godot executable: $(mise which godot), verified 4.8.dev7.official.c971f93e7.
+- timeout 300 "$G" --headless --editor --path . --import: exit 0.
+- timeout 180 "$G" --headless --editor --path . --script tools/asset_production/city_marina_docks_05/check.gd -- --normalize: exit 0 and CHECK_PASS.
+  Wrapper and mounting fixture normalized twice with byte-stable saved UIDs/node identities.
+  Imported bounds, opaque/back-culled surfaces, identity imported model, every dependency UID and three mounting examples pass.
+  Known addon version warning and editor-shutdown RID/ObjectDB leak diagnostics retained in scratch normalize.log; not suppressed or called clean.
+- timeout 180 "$G" --headless --path . --script tools/asset_production/city_marina_docks_05/check.gd: two separate runs, exit 0 and CHECK_PASS each.
+  Both runtime logs checked: no ERROR, SCRIPT ERROR or WARNING.
+  Four support rays hit existing deck Y=.50; visual-only cleats add no collider.
+  48 ActorMotion ticks per AUTHORITY/REPLAY: (0,.501,-2) -> (0,.500999987,2.000000715).
+  Every tick retains native support; both modes and process repeats agree.
+- "$(mise which gdstyle)" --max-warnings 0 tools/asset_production/city_marina_docks_05/check.gd: exit 0, one file, no issues.
+- timeout 1800 mise exec -- python tools/production_checks.py --output C:/tmp/ft/assets/city_marina_docks_05/checks: exit 0, all seven result groups true.
+  Pinned engine/GUT, owned formatting/lint/explicit compilation (including new check.gd), 14 Python tests, 75/75 GUT tests / 2,041 assertions, intentional failing-GUT negative control.
+  No known failures ignored.
+
+All four compressed final images visually inspected. Overhead is a tiny quiet metal dash at honest 47m/42-degree scale, not a gameplay interaction cue.
+PNG compaction: Pillow RGB seven significant bits/channel, optimize=True, compress_level=9; 370,500..408,145 bytes each.
+Manifest command: python tools/asset_production/city_marina_docks_05/manifest.py C:/tmp/ft/assets/city_marina_docks_05/checks.
+Independent review, actual engine-camera/blue-hour appearance, world mounting/clearance, water/fall-off, GPU/Deck/LOD cost, packaged builds and network transport remain pending.

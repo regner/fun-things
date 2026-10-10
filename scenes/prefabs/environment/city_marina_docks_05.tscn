@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://45of4bwkmgv7"]
+
+[ext_resource type="PackedScene" uid="uid://imjvicgfl5v3" path="res://art/models/environment/city_marina_docks_05/city_marina_docks_05.glb" id="1_model"]
+
+[node name="city_marina_docks_05" type="Node3D" unique_id=1795556012]
+
+[node name="Visuals" type="Node3D" parent="." unique_id=27027618]
+
+[node name="Model" parent="Visuals" unique_id=820873752 instance=ExtResource("1_model")]

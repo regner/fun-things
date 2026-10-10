@@ -1,0 +1,183 @@
+{
+  "applied_transforms": true,
+  "asset": "city_marina_docks.05",
+  "blender": "5.2.2 LTS",
+  "build_hash": "d13f752e3b9c",
+  "consistent_winding": true,
+  "datum": "deck-contact mounting plane",
+  "degenerate_faces": 0.0,
+  "dimension_tolerance_m": 0.001,
+  "dimensions_godot_m": [
+    0.48,
+    0.15,
+    0.16
+  ],
+  "fresh_reexport_byte_identical": true,
+  "glb_bytes": 59552.0,
+  "glb_sha256": "746beaa9a24bdd15e99f772b8fa0a3eea575ae6a0a2fbe0d05d9ce5375f1d028",
+  "glb_vertices": 1388.0,
+  "godot": {
+    "bounds_min": [
+      -0.239999994635582,
+      0.0,
+      -0.0799999982118607
+    ],
+    "bounds_size": [
+      0.479999989271164,
+      0.150000005960464,
+      0.159999996423721
+    ],
+    "engine": "4.8-dev7 (official)",
+    "linked_model_identity": true,
+    "mounting": {
+      "base_height_m": 0.5,
+      "examples": 3,
+      "finger_clear_space_between_base_plates_m": 0.9,
+      "main_and_finger_composite_inset_margin_m": 0.02,
+      "top_height_m": 0.65,
+      "visual_only": true
+    },
+    "physics": {
+      "actor_motion_ticks_per_mode": 48,
+      "authority_replay_equal": true,
+      "deck_support_rays": 4,
+      "end_position": [
+        0.0,
+        0.500999987125397,
+        2.00000071525574
+      ],
+      "network_transport_and_world_placement": "not tested"
+    },
+    "save_reload_byte_stable": true
+  },
+  "godot_aabb": {
+    "max": [
+      0.239999994635582,
+      0.150000005960464,
+      0.0799999982118607
+    ],
+    "min": [
+      -0.239999994635582,
+      0.0,
+      -0.0799999982118607
+    ]
+  },
+  "materials": [
+    {
+      "name": "dock_frame_metal",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.0549999997019768,
+          0.0750000029802322,
+          0.0790000036358833,
+          1.0
+        ],
+        "metallicFactor": 0.550000011920929,
+        "roughnessFactor": 0.439999997615814
+      }
+    },
+    {
+      "name": "dock_cleat_satin_metal",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.319999992847443,
+          0.370000004768372,
+          0.360000014305115,
+          1.0
+        ],
+        "metallicFactor": 0.649999976158142,
+        "roughnessFactor": 0.360000014305115
+      }
+    }
+  ],
+  "mesh_count": 1.0,
+  "mounting_height_on_family_deck_m": 0.5,
+  "nonmanifold_edges": 0.0,
+  "pivot": [
+    0.0,
+    0.0,
+    0.0
+  ],
+  "source_aabb": {
+    "max": [
+      0.239999994635582,
+      0.0799999982118607,
+      0.150000005960464
+    ],
+    "min": [
+      -0.239999994635582,
+      -0.0799999982118607,
+      0.0
+    ]
+  },
+  "status": "PASS source and export",
+  "surfaces": 2.0,
+  "triangles": 2144.0,
+  "unit_normals": true,
+  "vertices": 1088.0,
+  "production_checks": {
+    "engine": {
+      "ok": true,
+      "version": "4.8.dev7.official.c971f93e7"
+    },
+    "gut_pin": {
+      "ok": true,
+      "version": "9.7.1"
+    },
+    "owned_scripts": {
+      "ok": true,
+      "returncode": 0
+    },
+    "python_tests": {
+      "ok": true,
+      "returncode": 0
+    },
+    "gut_import": {
+      "ok": true,
+      "returncode": 0
+    },
+    "gut_tests": {
+      "ok": true,
+      "returncode": 0
+    },
+    "gut_negative": {
+      "ok": true,
+      "observed_returncode": 1
+    }
+  },
+  "renders": [
+    {
+      "file": "hero.png",
+      "size_px": [
+        1280,
+        720
+      ],
+      "bytes": 408145
+    },
+    {
+      "file": "side.png",
+      "size_px": [
+        1280,
+        720
+      ],
+      "bytes": 404928
+    },
+    {
+      "file": "detail.png",
+      "size_px": [
+        1280,
+        720
+      ],
+      "bytes": 370500
+    },
+    {
+      "file": "overhead_47m_42deg.png",
+      "size_px": [
+        1280,
+        720
+      ],
+      "bytes": 375139
+    }
+  ],
+  "render_encoding": "RGB 7 significant bits per channel, PNG compression 9"
+}

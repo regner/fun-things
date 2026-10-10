@@ -1,0 +1,35 @@
+[gd_scene format=3 uid="uid://bs1dn610ytc2k"]
+
+[ext_resource type="PackedScene" uid="uid://b77ur6wbgrjg1" path="res://scenes/prefabs/environment/city_marina_docks_01.tscn" id="1_main"]
+[ext_resource type="PackedScene" uid="uid://d3tbrryl0w1ed" path="res://scenes/prefabs/environment/city_marina_docks_02.tscn" id="2_finger"]
+[ext_resource type="PackedScene" uid="uid://45of4bwkmgv7" path="res://scenes/prefabs/environment/city_marina_docks_05.tscn" id="3_cleat"]
+[ext_resource type="Script" uid="uid://jthmfio4c27p" path="res://scripts/actors/actor_motion.gd" id="4_actor"]
+
+[sub_resource type="CapsuleShape3D" id="Capsule_actor"]
+radius = 0.35
+height = 1.8
+
+[node name="CleatMountCheck" type="Node3D" unique_id=266307795]
+
+[node name="Main" parent="." unique_id=261582679 instance=ExtResource("1_main")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, 0)
+
+[node name="MainCleat" parent="." unique_id=79000214 instance=ExtResource("3_cleat")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -3.72, 0.5, 0)
+
+[node name="Finger" parent="." unique_id=645737385 instance=ExtResource("2_finger")]
+
+[node name="FingerCleatLeft" parent="." unique_id=2032320438 instance=ExtResource("3_cleat")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -0.53, 0.5, 0)
+
+[node name="FingerCleatRight" parent="." unique_id=1092546564 instance=ExtResource("3_cleat")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0.53, 0.5, 0)
+
+[node name="Actor" type="CharacterBody3D" parent="." unique_id=234598186]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.501, -2)
+collision_layer = 2
+script = ExtResource("4_actor")
+
+[node name="Capsule" type="CollisionShape3D" parent="Actor" unique_id=141711734]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0)
+shape = SubResource("Capsule_actor")
