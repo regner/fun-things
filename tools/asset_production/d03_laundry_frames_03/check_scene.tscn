@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://hr3adj6khdah"]
+
+[ext_resource type="PackedScene" path="res://scenes/prefabs/environment/d03_laundry_frames_01.tscn" id="1_frame"]
+[ext_resource type="PackedScene" path="res://scenes/prefabs/environment/d03_laundry_frames_03_sheet.tscn" id="2_sheet"]
+[ext_resource type="PackedScene" path="res://scenes/prefabs/environment/d03_laundry_frames_03_towel.tscn" id="3_towel"]
+
+[node name="MountedClothsCheck" type="Node3D" unique_id=2130941484]
+
+[node name="Frame" type="Node3D" parent="." unique_id=17142199 instance=ExtResource("1_frame")]
+
+[node name="Sheet" type="Node3D" parent="." unique_id=1116418550 instance=ExtResource("2_sheet")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.62, 2.18, -0.48)
+
+[node name="Towel" type="Node3D" parent="." unique_id=769672443 instance=ExtResource("3_towel")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.78, 2.18, -0.48)

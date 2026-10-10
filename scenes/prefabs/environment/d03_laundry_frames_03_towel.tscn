@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://bmbwcbxkbq1op"]
+
+[ext_resource type="PackedScene" path="res://art/models/environment/d03_laundry_frames_03/d03_laundry_frames_03_towel.glb" id="1_model"]
+
+[node name="D03LaundryFrames03Towel" type="Node3D" unique_id=305585845]
+
+[node name="Visuals" type="Node3D" parent="." unique_id=1387654850]
+
+[node name="Model" type="Node3D" parent="Visuals" unique_id=206351092 instance=ExtResource("1_model")]

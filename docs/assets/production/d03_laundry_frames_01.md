@@ -200,7 +200,8 @@ validation receipt and run `python "$TOOLS/record.py"` last to refresh payload h
 
 - Independent technical/art review at the committed candidate.
 - World integrator: saved court-edge placement, movement-mouth and sightline clearance,
-  final cloth dressing/occlusion review and actual gameplay-camera capture.
+  placement/occlusion review of the delivered [cloth set](d03_laundry_frames_03.md) and
+  actual gameplay-camera capture.
 - Gameplay/network owners: actual car contact/turning, aim implications of the simplified
   upper envelope, and real separate-process multiplayer/transport/prediction checks.
   The bounded authority/replay fixture does not prove those systems.

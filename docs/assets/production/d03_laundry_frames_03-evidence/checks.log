@@ -1,0 +1,58 @@
+d03_laundry_frames.03 - final bounded production checks, 10 October 2026
+Producer: commissioned worker specialist. Independent review remains pending.
+Working directory: C:/GameDev/git/ft-lanes/a-d03g
+
+Tools:
+Blender: C:/Program Files/Blender Foundation/Blender 5.2/blender.exe
+5.2.2 LTS, build d13f752e3b9c; glTF exporter 5.2.40.
+Godot: mise which godot; 4.8.dev7.official.c971f93e7.
+gdstyle: mise which gdstyle; pinned 0.3.0.
+Environment: ALSOFT_DRIVERS=null SDL_AUDIODRIVER=dummy PYTHONIOENCODING=utf-8.
+All Blender calls use -noaudio --background --factory-startup --threads 4
+--python-exit-code 1. All Godot calls use --headless --path .
+All raw command output and temporary exports remain outside Git in
+C:/tmp/ft/assets/d03_laundry_frames_03/.
+
+PASS exit 0: timeout 900 Blender --python tools/asset_production/d03_laundry_frames_03/author.py
+Original source, two GLBs and four final isolated studio renders produced.
+All four renders manually inspected: broad restrained cloth, linked existing frame,
+clear fold/hem profiles, and quiet calibrated overhead footprint.
+
+Final sequence (all exit 0):
+PASS timeout 300 Godot --import
+PASS timeout 180 Godot --script tools/asset_production/d03_laundry_frames_03/check_prefab.gd -- --normalize
+PASS timeout 180 Godot --script tools/asset_production/d03_laundry_frames_03/check_prefab.gd
+PASS timeout 180 Blender --python tools/asset_production/d03_laundry_frames_03/validate.py
+PASS gdstyle fmt --check tools/asset_production/d03_laundry_frames_03/check_prefab.gd
+PASS gdstyle --max-line-length 100 --max-warnings 0 tools/asset_production/d03_laundry_frames_03/check_prefab.gd
+PASS Python compile() of all owned Python scripts, without creating cache files.
+PASS image inspection: all four 1280x720, each below 262000 bytes.
+PASS final import/roundtrip/prefab/validator logs contain no ERROR or Traceback.
+PASS git diff --check.
+
+Geometry: sheet 2900 triangles / 1452 source vertices / 1584 exported vertices;
+towel 2196 triangles / 1100 source vertices / 1200 exported vertices.
+Each: one mesh, two surfaces, zero source degenerate faces/non-manifold edges,
+zero GLB degenerate triangles, unit source/export normals, identity transforms.
+Both fresh saved-source exports byte-identical to committed payloads.
+Three saved scenes pass two byte-stable reload/pack/save cycles.
+Actual imported bounds/materials/dependencies/UIDs and line mounting pass.
+Mounted cloth gap 0.309848 m; lowest cloth height 1.139586 m.
+Existing frame retains one static body and three boxes; zero added cloth collision.
+Final numbers and payload hashes are in validation.json; manifest.json covers outputs.
+
+Historical diagnostics, not passes:
+- Initial gdstyle lint found a 102-character receipt-loading line. Split before final checks.
+- Initial prefab load after first normalization loaded visuals but failed new scene UID
+  registration. Pinned import after normalization populated the cache; final checks pass.
+  Reproduction instructions explicitly include that import.
+- Initial source validator compared a Windows-normalized library path separator literally.
+  Validator now normalizes separators and still asserts the exact relative sibling path.
+- Pinned Blender emits use_nodes future-removal DeprecationWarning on authoring. No final
+  export/import error. No live editor, plugin, global config or shared code was modified.
+
+Not run / not claimed:
+production_checks.py (owner decision 52), graphical Godot gameplay captures,
+world placement, actor/car movement, multiplayer transport, packaged builds,
+repeat-placement GPU/LOD measurements or Deck validation.
+Cloths are visual-only soft hanging decoration; existing frame collision is unchanged.

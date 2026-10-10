@@ -1,0 +1,264 @@
+{
+  "status": "PASS",
+  "blender": "5.2.2 LTS",
+  "blender_build": "d13f752e3b9c",
+  "gltf_exporter": "5.2.40",
+  "source": {
+    "path": "art/source/models/environment/d03_laundry_frames_03/d03_laundry_frames_03.blend",
+    "bytes": 164991,
+    "sha256": "7d07eda7a8012974219a8d97adc737fc65ba7710a0c0dd544aafed0512e7d413"
+  },
+  "variants": {
+    "sheet": {
+      "export": {
+        "path": "art/models/environment/d03_laundry_frames_03/d03_laundry_frames_03_sheet.glb",
+        "bytes": 57416,
+        "sha256": "965eb1f767c051c14efa6a2e4e3009e1d82f3fa7d8f018673d00988bf05cd4f7"
+      },
+      "source_vertices": 1452,
+      "export_vertices": 1584,
+      "triangles": 2900,
+      "mesh_count": 1,
+      "surface_count": 2,
+      "source_degenerate_faces": 0,
+      "nonmanifold_edges": 0,
+      "glb_degenerate_triangles": 0,
+      "maximum_source_normal_error": 1.2526289416836534e-07,
+      "maximum_glb_normal_error": 1.2340023358703434e-07,
+      "godot_aabb_min": [
+        -0.7100849151611328,
+        -1.0404140949249268,
+        -0.17192970216274261
+      ],
+      "godot_aabb_max": [
+        0.7100898623466492,
+        0.0240783654153347,
+        0.17140071094036102
+      ],
+      "dimensions_m": [
+        1.420174777507782,
+        1.0644924603402615,
+        0.34333041310310364
+      ],
+      "pivot": [
+        0,
+        0,
+        0
+      ],
+      "pivot_contract": "top-centre mounting line axis, not ground",
+      "minimum_shell_edge_radius_from_line_m": 0.01561480392978231,
+      "carrier_line_radius_m": 0.014,
+      "dimension_tolerance_m": 0.001,
+      "axis_mapping_tolerance_m": 1e-05,
+      "fresh_reexport_byte_identical": true,
+      "materials": [
+        {
+          "name": "laundry_sheet_body",
+          "pbrMetallicRoughness": {
+            "baseColorFactor": [
+              0.6038273572921753,
+              0.5840784311294556,
+              0.46207699179649353,
+              1
+            ],
+            "metallicFactor": 0,
+            "roughnessFactor": 0.8799999952316284
+          }
+        },
+        {
+          "name": "laundry_sheet_hem",
+          "pbrMetallicRoughness": {
+            "baseColorFactor": [
+              0.423267662525177,
+              0.43965718150138855,
+              0.366252601146698,
+              1
+            ],
+            "metallicFactor": 0,
+            "roughnessFactor": 0.8799999952316284
+          }
+        }
+      ]
+    },
+    "towel": {
+      "export": {
+        "path": "art/models/environment/d03_laundry_frames_03/d03_laundry_frames_03_towel.glb",
+        "bytes": 43976,
+        "sha256": "af7edf7b6bada7db6dcdb7629b6edf0fb645ebaf91040fe3a57578b3b30cb03b"
+      },
+      "source_vertices": 1100,
+      "export_vertices": 1200,
+      "triangles": 2196,
+      "mesh_count": 1,
+      "surface_count": 2,
+      "source_degenerate_faces": 0,
+      "nonmanifold_edges": 0,
+      "glb_degenerate_triangles": 0,
+      "maximum_source_normal_error": 1.1641531494355206e-07,
+      "maximum_glb_normal_error": 1.229345722997266e-07,
+      "godot_aabb_min": [
+        -0.3800618648529053,
+        -0.8005366325378418,
+        -0.15582333505153656
+      ],
+      "godot_aabb_max": [
+        0.380050927400589,
+        0.0240783654153347,
+        0.15537971258163452
+      ],
+      "dimensions_m": [
+        0.7601127922534943,
+        0.8246149979531765,
+        0.3112030476331711
+      ],
+      "pivot": [
+        0,
+        0,
+        0
+      ],
+      "pivot_contract": "top-centre mounting line axis, not ground",
+      "minimum_shell_edge_radius_from_line_m": 0.015615330607362326,
+      "carrier_line_radius_m": 0.014,
+      "dimension_tolerance_m": 0.001,
+      "axis_mapping_tolerance_m": 1e-05,
+      "fresh_reexport_byte_identical": true,
+      "materials": [
+        {
+          "name": "laundry_towel_body",
+          "pbrMetallicRoughness": {
+            "baseColorFactor": [
+              0.48514994978904724,
+              0.22696587443351746,
+              0.18447498977184296,
+              1
+            ],
+            "metallicFactor": 0,
+            "roughnessFactor": 0.8799999952316284
+          }
+        },
+        {
+          "name": "laundry_towel_hem",
+          "pbrMetallicRoughness": {
+            "baseColorFactor": [
+              0.3324515223503113,
+              0.17464740574359894,
+              0.14702726900577545,
+              1
+            ],
+            "metallicFactor": 0,
+            "roughnessFactor": 0.8799999952316284
+          }
+        }
+      ]
+    }
+  },
+  "godot": {
+    "engine": "4.8-dev7 (official)",
+    "failures": [],
+    "mounting": {
+      "cloth_gap_m": 0.309848189353943,
+      "existing_frame_bodies": 1,
+      "existing_frame_shapes": 3,
+      "lowest_cloth_height_m": 1.13958597183228,
+      "new_collision_objects": 0,
+      "sheet_position_m": [
+        -0.62,
+        2.18,
+        -0.48
+      ],
+      "towel_position_m": [
+        0.78,
+        2.18,
+        -0.48
+      ]
+    },
+    "ok": true,
+    "roundtrip": {
+      "engine": "4.8-dev7 (official)",
+      "failures": [],
+      "ok": true,
+      "res://scenes/prefabs/environment/d03_laundry_frames_03_sheet.tscn": {
+        "byte_stable": true,
+        "sha256": "7755a32fadd1fe50bb2c90e64a807e1613bc279905861d7e95ab89abb37d745c",
+        "stable_reload_count": 2.0
+      },
+      "res://scenes/prefabs/environment/d03_laundry_frames_03_towel.tscn": {
+        "byte_stable": true,
+        "sha256": "575fde4a120341c8b0836436596b869bf1872a9e6288648945547f9eee58f52a",
+        "stable_reload_count": 2.0
+      },
+      "res://tools/asset_production/d03_laundry_frames_03/check_scene.tscn": {
+        "byte_stable": true,
+        "sha256": "a00ae9ce5807ffb854905253775e04db305c6ae784ffcf3afc300c60a0a97b79",
+        "stable_reload_count": 2.0
+      }
+    },
+    "sheet": {
+      "bounds_min_m": [
+        -0.710084915161133,
+        -1.04041409492493,
+        -0.171929702162743
+      ],
+      "bounds_size_m": [
+        1.42017483711243,
+        1.06449246406555,
+        0.343330413103104
+      ],
+      "collision_objects": 0,
+      "linked_model_identity": true,
+      "mesh_count": 1,
+      "model_uid": "uid://c7lgu2jybfh32",
+      "prefab_uid": "uid://crmp2jelil4wx",
+      "surfaces": 2
+    },
+    "towel": {
+      "bounds_min_m": [
+        -0.380061864852905,
+        -0.800536632537842,
+        -0.155823335051537
+      ],
+      "bounds_size_m": [
+        0.760112762451172,
+        0.824615001678467,
+        0.311203062534332
+      ],
+      "collision_objects": 0,
+      "linked_model_identity": true,
+      "mesh_count": 1,
+      "model_uid": "uid://t8fv2r141q6y",
+      "prefab_uid": "uid://bmbwcbxkbq1op",
+      "surfaces": 2
+    }
+  },
+  "existing_dependencies_not_produced": [
+    {
+      "path": "art/source/models/environment/d03_laundry_frames_01/d03_laundry_frames_01.blend",
+      "bytes": 139959,
+      "sha256": "eb35c17111db8dad7ff77a2ffd9391eaeb158b42a7eabefa24eb77cad2e967db"
+    },
+    {
+      "path": "art/models/environment/d03_laundry_frames_01/d03_laundry_frames_01.glb",
+      "bytes": 77804,
+      "sha256": "50f472e2f589631f7561df009d89aca5efd183807fd0943710a7754a22989bc9"
+    },
+    {
+      "path": "scenes/prefabs/environment/d03_laundry_frames_01.tscn",
+      "bytes": 1338,
+      "sha256": "fb7d4616d884c15cd426d8af99d5b929114cf4f383c2413a26845004b067bc0a"
+    }
+  ],
+  "renders": {
+    "resolution": [
+      1280,
+      720
+    ],
+    "compression": 95,
+    "renderer": "Blender Cycles CPU",
+    "samples": 32,
+    "overhead_height_m": 47,
+    "vertical_fov_degrees": 42,
+    "direction": "vertical-down north-up",
+    "dither_intensity": 0,
+    "studio": "Mounted source collection instances on linked existing frame"
+  }
+}
