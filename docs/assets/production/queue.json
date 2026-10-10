@@ -3464,14 +3464,14 @@
       "input_next_action": "Refine shared design for recorded districts",
       "brief": "[Brief](../../assets/city_lights.md)",
       "priority": 0,
-      "status": "queued",
-      "agent_id": null,
-      "source_revision": null,
-      "review_status": "pending",
-      "integration_status": "pending",
+      "status": "production_prefab_accepted",
+      "agent_id": "023cbbf5-4ffd-430c-8eec-82b49323197f",
+      "source_revision": "08f3e810",
+      "review_status": "accepted source/export/prefab scope (independent Sol review)",
+      "integration_status": "accepted",
       "placement_status": "pending",
       "blocker": null,
-      "attempts": 0,
+      "attempts": 1,
       "initial_time_cap_minutes": 90,
       "owned_paths": [
         "art/source/models/environment/city_lights_03/",
@@ -3479,8 +3479,20 @@
         "art/textures/environment/city_lights_03/",
         "art/materials/environment/city_lights_03/",
         "docs/assets/production/city_lights_03.md",
-        "docs/assets/production/city_lights_03-evidence/"
-      ]
+        "docs/assets/production/city_lights_03-evidence/",
+        "tools/asset_production/city_lights_03/",
+        "scenes/prefabs/environment/city_lights_03.tscn"
+      ],
+      "launch": {
+        "provider": "portkey/gpt-6-astra",
+        "configured_effort": "medium",
+        "mode": "orchestrator asset lane",
+        "lane": "a-lights"
+      },
+      "producer_manifest": "docs/assets/production/city_lights_03-evidence/manifest.json",
+      "report": "docs/assets/production/city_lights_03.md",
+      "reviewer_id": "98c03a21-b096-474b-bfa8-d76ce24fcd45",
+      "integrated_revision": "08f3e810"
     },
     {
       "id": "city_traffic_fixtures.01",
