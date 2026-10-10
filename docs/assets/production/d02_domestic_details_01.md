@@ -192,8 +192,10 @@ fresh runtime check has no ERROR/WARNING lines. No owner live session was access
 ## Remaining acceptance
 
 - Independent source/technical and art review at the committed candidate.
-- World integrator: fit to chosen home plots, review return junctions, actual gaps,
-  curved streets, shortcut visibility and repetition; do not stretch module scales.
+- World integrator: fit to chosen home plots, review placed return junctions, actual
+  gaps, curved streets, shortcut visibility and repetition; do not stretch module
+  scales. The [wall return delivery](d02_domestic_details_02.md) now supplies matching
+  end profiles and bounded straight/return seam checks; placed junction review remains open.
 - Gameplay/camera owner: native 47 m/42° actor/combat visibility and actual car movement
   around placed boundaries; preserve walking alternatives and clearance.
 - Network owner: actual separate-process transport/admission/prediction/lifecycle

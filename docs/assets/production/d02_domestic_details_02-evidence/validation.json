@@ -1,0 +1,315 @@
+{
+  "asset": "d02_domestic_details.02",
+  "blender": "5.2.2 LTS",
+  "build_hash": "d13f752e3b9c",
+  "vertices": 674,
+  "triangles": 1328,
+  "mesh_count": 1,
+  "surfaces": 3,
+  "glb_vertices": 674,
+  "degenerate_faces": 0,
+  "nonmanifold_edges": 0,
+  "unit_normals": true,
+  "consistent_winding": true,
+  "applied_transforms": true,
+  "source_aabb": {
+    "min": [
+      -0.800000011920929,
+      -0.800000011920929,
+      0.0
+    ],
+    "max": [
+      0.800000011920929,
+      0.800000011920929,
+      0.9399999976158142
+    ]
+  },
+  "godot_aabb": {
+    "min": [
+      -0.800000011920929,
+      0.0,
+      -0.800000011920929
+    ],
+    "max": [
+      0.800000011920929,
+      0.9399999976158142,
+      0.800000011920929
+    ]
+  },
+  "dimensions_godot_m": [
+    1.6,
+    0.94,
+    1.6
+  ],
+  "dimension_tolerance_m": 0.001,
+  "pivot": [
+    0,
+    0,
+    0
+  ],
+  "datum": "ground-centred bounding wall footprint",
+  "dimensions_status": "provisional",
+  "fresh_reexport_byte_identical": true,
+  "glb_sha256": "a8a16137ccdc1ecfbaed43dacbb5dfd0f4725e3ddb38d8e6541992d2673c05df",
+  "glb_bytes": 24992,
+  "materials": [
+    {
+      "name": "crescents_warm_render",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.4125426113605499,
+          0.38132601976394653,
+          0.34191441535949707,
+          1
+        ],
+        "metallicFactor": 0,
+        "roughnessFactor": 0.6499999761581421
+      }
+    },
+    {
+      "name": "crescents_slate_plinth",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.09758734703063965,
+          0.12477181851863861,
+          0.14702726900577545,
+          1
+        ],
+        "metallicFactor": 0,
+        "roughnessFactor": 0.75
+      }
+    },
+    {
+      "name": "crescents_ivory_trim",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.6583748459815979,
+          0.6172065734863281,
+          0.4969329833984375,
+          1
+        ],
+        "metallicFactor": 0,
+        "roughnessFactor": 0.550000011920929
+      }
+    }
+  ],
+  "module_end_centres_godot_m": [
+    [
+      0.8,
+      0,
+      0.62
+    ],
+    [
+      -0.62,
+      0,
+      -0.8
+    ]
+  ],
+  "collision": "Two boxes exactly partition the L cap footprint; empty inner quadrant preserved",
+  "straight_sibling_end_profile_points": 14,
+  "both_end_profiles_match_straight": true,
+  "family_materials_match_straight": true,
+  "status": "PASS source and export",
+  "engine": {
+    "aabb_min": [
+      -0.800000011920929,
+      0.0,
+      -0.800000011920929
+    ],
+    "aabb_size": [
+      1.60000002384186,
+      0.939999997615814,
+      1.60000002384186
+    ],
+    "capsule_queries": [
+      {
+        "case": "elbow_solid",
+        "solid": true
+      },
+      {
+        "case": "south_arm",
+        "solid": true
+      },
+      {
+        "case": "west_arm",
+        "solid": true
+      },
+      {
+        "case": "partition_seam",
+        "solid": true
+      },
+      {
+        "case": "inner_corner_clear",
+        "solid": false
+      },
+      {
+        "case": "east_bypass",
+        "solid": false
+      },
+      {
+        "case": "north_bypass",
+        "solid": false
+      },
+      {
+        "case": "south_clear",
+        "solid": false
+      },
+      {
+        "case": "west_clear",
+        "solid": false
+      }
+    ],
+    "car_box_sweep": {
+      "east_bypass_blocked": false,
+      "front_blocked": true,
+      "size_m": [
+        1.9,
+        1.5,
+        4.3
+      ]
+    },
+    "collision_shape_count": 2,
+    "engine": "4.8-dev7 (official)",
+    "failures": [],
+    "footprint_ray_samples": 56,
+    "front_ray_z": 0.440000057220459,
+    "linked_model_identity": true,
+    "materials": [
+      "crescents_warm_render",
+      "crescents_slate_plinth",
+      "crescents_ivory_trim"
+    ],
+    "model_uid": "uid://dx5bvm1yw4yp1",
+    "ok": true,
+    "prefab_uid": "uid://j0iw30gj13yw",
+    "production_actor_motion": [
+      {
+        "case": "inner_south_stop",
+        "end": [
+          0.0,
+          0.000877899117767811,
+          0.0833335891366005
+        ],
+        "mode": 0
+      },
+      {
+        "case": "outer_south_stop",
+        "end": [
+          0.0,
+          0.000877899117767811,
+          1.16666638851166
+        ],
+        "mode": 0
+      },
+      {
+        "case": "inner_west_stop",
+        "end": [
+          -0.0833335891366005,
+          0.000877899117767811,
+          0.0
+        ],
+        "mode": 0
+      },
+      {
+        "case": "outer_west_stop",
+        "end": [
+          -1.16666638851166,
+          0.000877899117767811,
+          0.0
+        ],
+        "mode": 0
+      },
+      {
+        "case": "east_bypass",
+        "end": [
+          1.20000004768372,
+          0.000877923041116446,
+          2.99999976158142
+        ],
+        "mode": 0
+      },
+      {
+        "case": "inner_south_stop",
+        "end": [
+          0.0,
+          0.000877899117767811,
+          0.0833335891366005
+        ],
+        "mode": 1
+      },
+      {
+        "case": "outer_south_stop",
+        "end": [
+          0.0,
+          0.000877899117767811,
+          1.16666638851166
+        ],
+        "mode": 1
+      },
+      {
+        "case": "inner_west_stop",
+        "end": [
+          -0.0833335891366005,
+          0.000877899117767811,
+          0.0
+        ],
+        "mode": 1
+      },
+      {
+        "case": "outer_west_stop",
+        "end": [
+          -1.16666638851166,
+          0.000877899117767811,
+          0.0
+        ],
+        "mode": 1
+      },
+      {
+        "case": "east_bypass",
+        "end": [
+          1.20000004768372,
+          0.000877923041116446,
+          2.99999976158142
+        ],
+        "mode": 1
+      }
+    ],
+    "straight_connector_roots": [
+      [
+        2.4,
+        0,
+        0.62
+      ],
+      [
+        -0.62,
+        0,
+        -2.4
+      ]
+    ],
+    "straight_connector_seam_rays": 6,
+    "save_reload_byte_stable": true
+  },
+  "visual_self_review": {
+    "images": [
+      "hero.png",
+      "side.png",
+      "detail.png",
+      "overhead_47m_42deg.png"
+    ],
+    "size_px": [
+      1280,
+      720
+    ],
+    "renderer": "Blender Cycles CPU, 32 samples, AgX, six-bit RGB PNG",
+    "gameplay_camera": "Vertical down (0,0,47)m; Blender +Y north/up; vertical FOV42 degrees",
+    "observations": "Pale L coping and the empty inner quadrant remain legible overhead. Three quiet material bands, a continuous corner coping and two end stones match the straight sibling. Close views show a clean mitred elbow, broad highlights and no corner overlap.",
+    "limits": "Isolated Blender self-review, not native gameplay or placed route acceptance"
+  },
+  "diagnostics": {
+    "source": "Passed; Blender 6.0 use_nodes deprecation notices only",
+    "import": "Passed without ERROR/SCRIPT ERROR; existing MCP 4.8 compatibility warning only",
+    "normalization": "Passed stable save/reload with UIDs. Headless editor shutdown emitted existing scan-aborted/RID/ObjectDB diagnostics; exact lines retained in final.log.",
+    "fresh_runtime": "Passed with no ERROR/WARNING lines",
+    "initial_corrections": "Strict lint initially flagged a 52-line motion test. Independent contact cases were extracted into a named helper; format and strict lint then passed."
+  }
+}
