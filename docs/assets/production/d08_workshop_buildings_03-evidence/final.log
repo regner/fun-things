@@ -1,0 +1,32 @@
+D08 LARGER DEPOT - final receipt
+Raw temporary logs: C:/tmp/ft/assets/d08_workshop_buildings_03/ (not committed).
+Pinned Blender source/raw GLB/re-export exited 0; byte-identical, topology/normals PASS.
+Pinned import exited 0, no ERROR/SCRIPT ERROR; editor normalization exited 0, stable saves.
+Known isolated editor diagnostics (not suppressed):
+WARNING: [MCP] Godot 4.8 detected - latest tested version is 4.7.0. The plugin will run normally but some features may behave unexpectedly. Please report issues at https://github.com/NPGameDev/godot-mcp-toolkit/issues
+WARNING: Scan thread aborted...
+ERROR: 5 RID allocations of type 'N16RendererViewport8ViewportE' were leaked at exit.
+ERROR: 8 RID allocations of type 'PN13RendererDummy14TextureStorage12DummyTextureE' were leaked at exit.
+ERROR: 1 RID allocations of type 'N17RendererSceneCull8ScenarioE' were leaked at exit.
+ERROR: 52 RID allocations of type 'PN18TextServerAdvanced22ShapedTextDataAdvancedE' were leaked at exit.
+ERROR: 1 RID allocations of type 'PN18TextServerAdvanced12FontAdvancedE' were leaked at exit.
+WARNING: 5 RIDs of type "Canvas" were leaked.
+WARNING: 31 RIDs of type "CanvasItem" were leaked.
+WARNING: 168 ObjectDB instances were leaked at exit (run with `--verbose` for details).
+
+Fresh headless prefab/production ActorMotion checks (exit 0, no ERROR/WARNING):
+Godot Engine v4.8.dev7.official.c971f93e7 - https://godotengine.org
+
+[MCPRuntimeServer] port: scanning 6570-6585 (default)
+[MCPRuntimeServer] listening on 127.0.0.1:6570
+[MCPRegistry] runtime port 6570 registered for c:/gamedev/git/ft-lanes/a-wshop
+{"aabb_min":[-9.35000038146973,0.0,-7.84999990463257],"aabb_size":[18.7000007629395,6.80000019073486,15.6999998092651],"capsule_queries":[{"case":"interior_solid","solid":true},{"case":"closed_shutter","solid":true},{"case":"second_closed_shutter","solid":true},{"case":"third_closed_shutter","solid":true},{"case":"closed_service_door","solid":true},{"case":"east_bypass_clear","solid":false},{"case":"west_bypass_clear","solid":false},{"case":"rear_route_clear","solid":false},{"case":"front_route_clear","solid":false},{"case":"north_east_corner_solid","solid":true},{"case":"south_west_corner_solid","solid":true}],"car_box_sweep":{"east_bypass_blocked":false,"front_blocked":true,"size_m":[1.9,1.5,4.3]},"collision_shape_count":1,"engine":"4.8-dev7 (official)","failures":[],"front_ray_z":-7.5,"linked_model_identity":true,"materials":["ironreach_worn_brick","ironreach_faded_petrol","ironreach_pale_band","ironreach_local_rust","ironreach_dark_recess","ironreach_roof_petrol","ironreach_replacement_sheet","ironreach_working_amber"],"model_uid":"uid://4mbapcfcv743","ok":true,"prefab_uid":"uid://b733foxnh7usw","production_actor_motion":[{"case":"closed_shutter","end":[-6.0,0.00000769196776673198,-7.85027170181274],"mode":0},{"case":"second_closed_shutter","end":[-1.0,0.00000759668182581663,-7.85027170181274],"mode":0},{"case":"third_closed_shutter","end":[4.0,0.00000764429569244385,-7.85027170181274],"mode":0},{"case":"closed_service_door","end":[7.59999990463257,0.0000076203141361475,-7.85027170181274],"mode":0},{"case":"east_wall","end":[9.35027027130127,0.00000762037234380841,0.0],"mode":0},{"case":"east_bypass","end":[10.0,0.000877922866493464,-6.00000762939453],"mode":0},{"case":"closed_shutter","end":[-6.0,0.00000769196776673198,-7.85027170181274],"mode":1},{"case":"second_closed_shutter","end":[-1.0,0.00000759668182581663,-7.85027170181274],"mode":1},{"case":"third_closed_shutter","end":[4.0,0.00000764429569244385,-7.85027170181274],"mode":1},{"case":"closed_service_door","end":[7.59999990463257,0.0000076203141361475,-7.85027170181274],"mode":1},{"case":"east_wall","end":[9.35027027130127,0.00000762037234380841,0.0],"mode":1},{"case":"east_bypass","end":[10.0,0.000877922866493464,-6.00000762939453],"mode":1}]}
+
+Owned pinned gdstyle formatting/lint (exit 0):
+1 file already formatted.
+
+✓ 1 file checked, no issues found.
+
+No production_checks.py run, per owner decision 52.
+Four compressed images self-reviewed (1152x648 obliques, 1280x720 overhead).
+Placement, populated native visuals, network transport and target-device checks pending.

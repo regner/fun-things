@@ -206,10 +206,11 @@ import does not prove synchronization of a separate open editor, and none is cla
 ## Remaining acceptance
 
 - Independent technical/art review of this exact source/export/prefab candidate.
-- **d08_workshop_buildings.03 (larger depot) and .04 (attached office)** remain unproduced
-  at this handoff. The two unequal shed designs now exist as .01 and .02; the later family
-  composition should instance them with an attached .04 office, rather than duplicate a
-  landmark model. Compare shared datums/finishes and retain a two-exit yard and foot bypass.
+- The [d08_workshop_buildings.03 larger depot](d08_workshop_buildings_03.md) is now delivered
+  with the shared datums/finishes; **.04 (attached office)** remains unproduced. The two
+  unequal shed designs exist as .01 and .02; the later family composition should instance
+  them with an attached .04 office, rather than duplicate a landmark model. Compare the
+  shared datums/finishes and retain a two-exit yard and foot bypass.
 - World integration: district placement, building-to-route clearances, two yard exits,
   foot bypass, production car turning and chain spacing. Nothing is placed here.
 - Native 47m/42° camera with actors/combat, populated-city visibility and occlusion;

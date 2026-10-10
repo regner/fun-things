@@ -212,10 +212,11 @@ open scene, and no such synchronization is claimed.
 ## Remaining acceptance
 
 - Independent technical/art review of this exact source/export/prefab candidate.
-- The [d08_workshop_buildings.02 sawtooth workshop](d08_workshop_buildings_02.md) is now
-  delivered with this datum/finish contract. **.03 (depot) and .04 (office)** remain pending:
-  compare the two unequal shed prefabs with an attached office when available. Retain the
-  shared contract or document coordinated refinement; do not duplicate a landmark model.
+- The [d08_workshop_buildings.02 sawtooth workshop](d08_workshop_buildings_02.md) and
+  [d08_workshop_buildings.03 larger depot](d08_workshop_buildings_03.md) are now delivered
+  with this datum/finish contract. **.04 (office)** remains pending: compare the unequal
+  shed prefabs with an attached office when available. Retain the shared contract or
+  document coordinated refinement; do not duplicate a landmark model.
 - World integration: selected district fit, placement, two yard exits, foot bypass,
   car turning/chain spacing and building-to-route clearances. Nothing is placed here.
 - Actual native 47m/42° camera with actors, combat/aim and populated-city occlusion;
