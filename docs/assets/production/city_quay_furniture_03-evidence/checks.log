@@ -1,0 +1,56 @@
+city_quay_furniture.03 — final production receipts, 10 October 2026
+Working directory: C:/GameDev/git/ft-lanes/a-quay, branch lane/a-quay
+Exact reproduction commands: ../city_quay_furniture_03.md
+Raw scratch logs: C:/tmp/ft/assets/city_quay_furniture_03/ (not delivered)
+
+PASS — Blender 5.2.2 LTS / d13f752e3b9c / glTF exporter 5.2.40.
+Author: isolated CLI, timeout 900, --threads 4, audio-disabled; exit 0.
+Saved editable source, explicit named-collection GLB, four 1280x720 renders.
+Final author log: author-delivery.log.
+Source geometry stayed identical during studio-light refinement.
+
+PASS — validate.py, isolated CLI timeout 180, --threads 4, audio-disabled; exit 0.
+2,352 source vertices; 2,264 faces; 4,576 triangles; 2,480 export vertices.
+One mesh, three opaque back-culled surfaces. Zero degenerate faces/triangles,
+zero non-manifold edges. Unit-length normals pass. Source/export bounds agree.
+Godot AABB min (-0.47,-2.4,-0.3525), max (0.47,0.98,0.39), tolerance 0.001 m.
+Source/export comparison tolerance 0.00001 m.
+89,752-byte fresh GLB is byte-identical, SHA-256:
+8df0496f8e63483bde5b0e6fa9327ecf08724ef39f3bbed9cc5c9dca85f9983d
+Final validator log: validate-delivery.log.
+
+PASS — pinned Godot 4.8.dev7.official.c971f93e7, --headless --path . --import,
+timeout 300, exit 0. Final import log: import-delivery.log.
+PASS — check.gd -- --normalize, timeout 180, exit 0.
+PASS — check.gd fresh-process load/query/movement check, timeout 180, exit 0.
+Wrapper and fixture byte-stable after save/reload; dependency UIDs resolve.
+Visuals/Model is identity-transform linked GLB. One separate static body / 3 boxes.
+Below-quay and both handle rays blocked; upper centre and above-handle rays clear.
+Production ActorMotion radius 0.35 / height 1.8, 48 ticks per case/mode:
+AUTHORITY and REPLAY stop (0.360000014,0.001,0.749999642),
+bypass (1,0.001,-2.000000715). Identical mode outcomes.
+Final engine logs: godot-normalize-delivery.log / godot-check-delivery.log.
+
+PASS — gdstyle 0.3.0 check, timeout 60, exit 0; one file, no issues.
+PASS — timeout 1800 mise exec -- python tools/production_checks.py
+  --output C:/tmp/ft/assets/city_quay_furniture_03/checks
+Exit 0; canonical formatting/style/compilation passed.
+16 Python tests passed; 149 GUT tests / 6,768 assertions passed.
+Intentional GUT failure negative control detected expected exit 1.
+No pre-existing-failure exemption was necessary.
+Full summary retained as production_checks in validation.json.
+
+Diagnostics and corrections (not suppressed):
+- Blender author runs emit only future-6.0 use_nodes deprecation notices.
+- Separate Blender --version call emitted a 23-byte shutdown allocation diagnostic;
+  source/export/validation runs did not emit that diagnostic.
+- Project import emits existing MCP toolkit 4.8-versus-tested-4.7 compatibility warning.
+- Initial local gdstyle warnings corrected by named query helper and formatting.
+- Attempted gdstyle format --check unsupported; no files changed by it.
+  The canonical production formatter check passed using repository tooling.
+- Initial studio fill light crossed the below-ladder floor; final source moves/shrinks
+  that non-exporting light. All four final views inspected; overhead patch removed.
+
+Pending: independent review; actual world/quay/waterline mounting and route checks;
+Godot visual/lighting review; vehicle driving; real multiplayer transport/admission/
+prediction; packaged-device and repeated-placement performance. No climb/swim system.

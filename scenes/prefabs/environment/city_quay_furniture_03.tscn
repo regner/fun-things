@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://bo05h2unh1gtm"]
+
+[ext_resource type="PackedScene" path="res://art/models/environment/city_quay_furniture_03/city_quay_furniture_03.glb" id="1_model"]
+
+[sub_resource type="BoxShape3D" id="Box_lower"]
+size = Vector3(0.9, 2.4, 0.3525)
+
+[sub_resource type="BoxShape3D" id="Box_handle"]
+size = Vector3(0.22, 0.98, 0.7425)
+
+[node name="city_quay_furniture_03" type="Node3D" unique_id=1686946571]
+
+[node name="Visuals" type="Node3D" parent="." unique_id=138274668]
+
+[node name="Model" parent="Visuals" unique_id=1229199110 instance=ExtResource("1_model")]
+
+[node name="Collision" type="Node3D" parent="." unique_id=1838174937]
+
+[node name="LadderBody" type="StaticBody3D" parent="Collision" unique_id=711425055]
+collision_mask = 0
+
+[node name="LowerShape" type="CollisionShape3D" parent="Collision/LadderBody" unique_id=1134742142]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.2, -0.17625)
+shape = SubResource("Box_lower")
+
+[node name="LeftHandleShape" type="CollisionShape3D" parent="Collision/LadderBody" unique_id=1386966124]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.36, 0.49, 0.01875)
+shape = SubResource("Box_handle")
+
+[node name="RightHandleShape" type="CollisionShape3D" parent="Collision/LadderBody" unique_id=1896005811]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.36, 0.49, 0.01875)
+shape = SubResource("Box_handle")
