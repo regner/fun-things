@@ -1553,14 +1553,14 @@
       "input_next_action": "Resolve three landings and deck form",
       "brief": "[Brief](../../assets/d06_harbour_footbridge.md)",
       "priority": 0,
-      "status": "queued",
-      "agent_id": null,
-      "source_revision": null,
-      "review_status": "pending",
-      "integration_status": "pending",
+      "status": "production_prefab_accepted",
+      "agent_id": "0287cd49-be42-4a7f-b82f-bcd54cc27d32",
+      "source_revision": "b46d9bc",
+      "review_status": "accepted source/export/prefab scope (independent Sol review)",
+      "integration_status": "accepted",
       "placement_status": "pending",
       "blocker": null,
-      "attempts": 0,
+      "attempts": 1,
       "initial_time_cap_minutes": 120,
       "owned_paths": [
         "art/source/models/environment/d06_harbour_footbridge_01/",
@@ -1568,8 +1568,20 @@
         "art/textures/environment/d06_harbour_footbridge_01/",
         "art/materials/environment/d06_harbour_footbridge_01/",
         "docs/assets/production/d06_harbour_footbridge_01.md",
-        "docs/assets/production/d06_harbour_footbridge_01-evidence/"
-      ]
+        "docs/assets/production/d06_harbour_footbridge_01-evidence/",
+        "tools/asset_production/d06_harbour_footbridge_01/",
+        "scenes/prefabs/environment/d06_harbour_footbridge_01.tscn"
+      ],
+      "launch": {
+        "provider": "portkey/gpt-6-astra",
+        "configured_effort": "medium",
+        "mode": "orchestrator asset lane",
+        "lane": "a-d06bridge"
+      },
+      "producer_manifest": "docs/assets/production/d06_harbour_footbridge_01-evidence/manifest.json",
+      "report": "docs/assets/production/d06_harbour_footbridge_01.md",
+      "reviewer_id": "3ed56e86-d829-471d-937e-7ca1052fde9d",
+      "integrated_revision": "a4be27e"
     },
     {
       "id": "d06_harbour_footbridge.02",
@@ -1582,14 +1594,14 @@
       "input_next_action": "Resolve three landings and deck form",
       "brief": "[Brief](../../assets/d06_harbour_footbridge.md)",
       "priority": 0,
-      "status": "queued",
-      "agent_id": null,
-      "source_revision": null,
-      "review_status": "pending",
-      "integration_status": "pending",
+      "status": "production_prefab_accepted",
+      "agent_id": "ab375196-7b31-40f4-946b-6b7d78eef7bf",
+      "source_revision": "bd47e82",
+      "review_status": "accepted source/export/prefab scope (independent Sol review)",
+      "integration_status": "accepted",
       "placement_status": "pending",
       "blocker": null,
-      "attempts": 0,
+      "attempts": 1,
       "initial_time_cap_minutes": 120,
       "owned_paths": [
         "art/source/models/environment/d06_harbour_footbridge_02/",
@@ -1597,8 +1609,20 @@
         "art/textures/environment/d06_harbour_footbridge_02/",
         "art/materials/environment/d06_harbour_footbridge_02/",
         "docs/assets/production/d06_harbour_footbridge_02.md",
-        "docs/assets/production/d06_harbour_footbridge_02-evidence/"
-      ]
+        "docs/assets/production/d06_harbour_footbridge_02-evidence/",
+        "tools/asset_production/d06_harbour_footbridge_02/",
+        "scenes/prefabs/environment/d06_harbour_footbridge_02.tscn"
+      ],
+      "launch": {
+        "provider": "portkey/gpt-6-astra",
+        "configured_effort": "medium",
+        "mode": "orchestrator asset lane",
+        "lane": "a-d06bridge"
+      },
+      "producer_manifest": "docs/assets/production/d06_harbour_footbridge_02-evidence/manifest.json",
+      "report": "docs/assets/production/d06_harbour_footbridge_02.md",
+      "reviewer_id": "3ed56e86-d829-471d-937e-7ca1052fde9d",
+      "integrated_revision": "a4be27e"
     },
     {
       "id": "d06_harbour_footbridge.03",
@@ -1611,14 +1635,14 @@
       "input_next_action": "Resolve three landings and deck form",
       "brief": "[Brief](../../assets/d06_harbour_footbridge.md)",
       "priority": 0,
-      "status": "queued",
-      "agent_id": null,
-      "source_revision": null,
-      "review_status": "pending",
-      "integration_status": "pending",
+      "status": "production_prefab_accepted",
+      "agent_id": "91563601-1e3a-41b1-99b4-d9ed7ccf5522",
+      "source_revision": "beff2da",
+      "review_status": "accepted source/export/prefab scope (independent Sol review)",
+      "integration_status": "accepted",
       "placement_status": "pending",
       "blocker": null,
-      "attempts": 0,
+      "attempts": 1,
       "initial_time_cap_minutes": 120,
       "owned_paths": [
         "art/source/models/environment/d06_harbour_footbridge_03/",
@@ -1626,8 +1650,20 @@
         "art/textures/environment/d06_harbour_footbridge_03/",
         "art/materials/environment/d06_harbour_footbridge_03/",
         "docs/assets/production/d06_harbour_footbridge_03.md",
-        "docs/assets/production/d06_harbour_footbridge_03-evidence/"
-      ]
+        "docs/assets/production/d06_harbour_footbridge_03-evidence/",
+        "tools/asset_production/d06_harbour_footbridge_03/",
+        "scenes/prefabs/environment/d06_harbour_footbridge_03.tscn"
+      ],
+      "launch": {
+        "provider": "portkey/gpt-6-astra",
+        "configured_effort": "medium",
+        "mode": "orchestrator asset lane",
+        "lane": "a-d06bridge"
+      },
+      "producer_manifest": "docs/assets/production/d06_harbour_footbridge_03-evidence/manifest.json",
+      "report": "docs/assets/production/d06_harbour_footbridge_03.md",
+      "reviewer_id": "3ed56e86-d829-471d-937e-7ca1052fde9d",
+      "integrated_revision": "a4be27e"
     },
     {
       "id": "d06_harbour_footbridge.04",
@@ -1640,14 +1676,14 @@
       "input_next_action": "Resolve three landings and deck form",
       "brief": "[Brief](../../assets/d06_harbour_footbridge.md)",
       "priority": 0,
-      "status": "queued",
-      "agent_id": null,
-      "source_revision": null,
-      "review_status": "pending",
-      "integration_status": "pending",
+      "status": "production_prefab_accepted",
+      "agent_id": "54872783-3242-461d-bc03-346539cb7609",
+      "source_revision": "a4be27e",
+      "review_status": "accepted source/export/prefab scope (independent Sol review)",
+      "integration_status": "accepted",
       "placement_status": "pending",
       "blocker": null,
-      "attempts": 0,
+      "attempts": 1,
       "initial_time_cap_minutes": 120,
       "owned_paths": [
         "art/source/models/environment/d06_harbour_footbridge_04/",
@@ -1655,8 +1691,20 @@
         "art/textures/environment/d06_harbour_footbridge_04/",
         "art/materials/environment/d06_harbour_footbridge_04/",
         "docs/assets/production/d06_harbour_footbridge_04.md",
-        "docs/assets/production/d06_harbour_footbridge_04-evidence/"
-      ]
+        "docs/assets/production/d06_harbour_footbridge_04-evidence/",
+        "tools/asset_production/d06_harbour_footbridge_04/",
+        "scenes/prefabs/environment/d06_harbour_footbridge_04.tscn"
+      ],
+      "launch": {
+        "provider": "portkey/gpt-6-astra",
+        "configured_effort": "medium",
+        "mode": "orchestrator asset lane",
+        "lane": "a-d06bridge"
+      },
+      "producer_manifest": "docs/assets/production/d06_harbour_footbridge_04-evidence/manifest.json",
+      "report": "docs/assets/production/d06_harbour_footbridge_04.md",
+      "reviewer_id": "3ed56e86-d829-471d-937e-7ca1052fde9d",
+      "integrated_revision": "a4be27e"
     },
     {
       "id": "d06_harbour_footbridge.05",
@@ -1669,14 +1717,14 @@
       "input_next_action": "Resolve three landings and deck form",
       "brief": "[Brief](../../assets/d06_harbour_footbridge.md)",
       "priority": 0,
-      "status": "queued",
-      "agent_id": null,
-      "source_revision": null,
-      "review_status": "pending",
-      "integration_status": "pending",
+      "status": "production_prefab_accepted",
+      "agent_id": "f2c9eb66-7141-427c-979b-320b53ca9581",
+      "source_revision": "969d5e2",
+      "review_status": "accepted source/export/prefab scope (independent Sol review)",
+      "integration_status": "accepted",
       "placement_status": "pending",
       "blocker": null,
-      "attempts": 0,
+      "attempts": 1,
       "initial_time_cap_minutes": 120,
       "owned_paths": [
         "art/source/models/environment/d06_harbour_footbridge_05/",
@@ -1684,8 +1732,20 @@
         "art/textures/environment/d06_harbour_footbridge_05/",
         "art/materials/environment/d06_harbour_footbridge_05/",
         "docs/assets/production/d06_harbour_footbridge_05.md",
-        "docs/assets/production/d06_harbour_footbridge_05-evidence/"
-      ]
+        "docs/assets/production/d06_harbour_footbridge_05-evidence/",
+        "tools/asset_production/d06_harbour_footbridge_05/",
+        "scenes/prefabs/environment/d06_harbour_footbridge_05.tscn"
+      ],
+      "launch": {
+        "provider": "portkey/gpt-6-astra",
+        "configured_effort": "medium",
+        "mode": "orchestrator asset lane",
+        "lane": "a-d06bridge"
+      },
+      "producer_manifest": "docs/assets/production/d06_harbour_footbridge_05-evidence/manifest.json",
+      "report": "docs/assets/production/d06_harbour_footbridge_05.md",
+      "reviewer_id": "3ed56e86-d829-471d-937e-7ca1052fde9d",
+      "integrated_revision": "a4be27e"
     },
     {
       "id": "d06_harbour_footbridge.06",
@@ -1698,14 +1758,14 @@
       "input_next_action": "Resolve three landings and deck form",
       "brief": "[Brief](../../assets/d06_harbour_footbridge.md)",
       "priority": 0,
-      "status": "queued",
-      "agent_id": null,
-      "source_revision": null,
-      "review_status": "pending",
-      "integration_status": "pending",
+      "status": "production_prefab_accepted",
+      "agent_id": "4202bd8f-9531-4553-952c-5d20c3f52128",
+      "source_revision": "85c9305",
+      "review_status": "accepted source/export/prefab scope (independent Sol review)",
+      "integration_status": "accepted",
       "placement_status": "pending",
       "blocker": null,
-      "attempts": 0,
+      "attempts": 1,
       "initial_time_cap_minutes": 120,
       "owned_paths": [
         "art/source/models/environment/d06_harbour_footbridge_06/",
@@ -1713,8 +1773,20 @@
         "art/textures/environment/d06_harbour_footbridge_06/",
         "art/materials/environment/d06_harbour_footbridge_06/",
         "docs/assets/production/d06_harbour_footbridge_06.md",
-        "docs/assets/production/d06_harbour_footbridge_06-evidence/"
-      ]
+        "docs/assets/production/d06_harbour_footbridge_06-evidence/",
+        "tools/asset_production/d06_harbour_footbridge_06/",
+        "scenes/prefabs/environment/d06_harbour_footbridge_06.tscn"
+      ],
+      "launch": {
+        "provider": "portkey/gpt-6-astra",
+        "configured_effort": "medium",
+        "mode": "orchestrator asset lane",
+        "lane": "a-d06bridge"
+      },
+      "producer_manifest": "docs/assets/production/d06_harbour_footbridge_06-evidence/manifest.json",
+      "report": "docs/assets/production/d06_harbour_footbridge_06.md",
+      "reviewer_id": "3ed56e86-d829-471d-937e-7ca1052fde9d",
+      "integrated_revision": "a4be27e"
     },
     {
       "id": "city_marina_docks.01",
