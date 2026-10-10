@@ -69,6 +69,59 @@ Remove mappings on disconnect/closing and reject old operation IDs/tokens. Revis
 obsolete state; they are not authentication secrets. Authentication-ticket bytes and native
 identity objects never enter SessionService, Match, Replication or gameplay records.
 
+## Road authoring contracts
+
+`resources/world/roads/brackett_road_source.tres` is the semantic source catalog for
+Brackett roads. It owns `source_revision`, the accepted Road Generator version, the
+derivation schema revision and source SHA-256, five `RoadTypePreset` resources, and one
+`RoadSectionSpec` for each of the 50 frozen greybox routes. The JSON supplies seed
+coordinates only; `.tres` files must not copy its spline points.
+
+Stable identities use these forms and survive node renames or scene reparenting:
+
+- road: `brackett/roads/<route_slug>`;
+- section: `<road_id>/section_<nn>`;
+- point: `<road_id>/point_<nnnn>`;
+- junction: `brackett/junctions/<junction_slug>`;
+- container: `brackett/containers/<container_slug>`.
+
+`RoadNetworkAdapter` stores those values as `RoadPoint`, `RoadIntersection`, and
+`RoadContainer` metadata named `road_id`, `road_section_id`, `road_point_id`,
+`road_junction_id`, and `road_container_id`. It is the project-owned boundary around
+Road Generator 0.9.4:
+
+- `apply_section_to_point(point)` applies the addon-supported lane directions, lane
+  width, shoulder allocation, and gutter profile without changing the point transform;
+- `validate_network(root)` rejects duplicate or missing identities, preset drift,
+  incomplete sections, invalid local reciprocity, undeclared class transitions,
+  malformed addon edge storage, and unmarked cross-container links;
+- procedural `RoadIntersection` branches must share one `RoadContainer`; district
+  boundaries instead use colocated points with `road_interface_point = true` and reciprocal
+  Road Generator edge records on both containers;
+- a change of section or road class requires `road_transition_section_id` on the source
+  point and its value must equal the connected point's section identity.
+
+`RoadJsonBootstrap.load_plan(path, catalog, service_directions, bridge_profile_id)` is
+an import/bootstrap API, not a second authoring format. It accepts only JSON whose
+SHA-256 matches the catalog and whose shape passes bounded validation, converts `(x, z)` around
+map origin `(630, 355)`
+to Godot `(x, 0, z)`, and emits transient route dictionaries with stable IDs. It
+requires an explicit direction for every service route and requires the Harbour bridge
+profile `harbour_bridge`; it never guesses either choice. After editor-authored spline
+scenes exist, load those scenes directly and use the JSON path only for an intentional
+source-revision migration.
+
+Road presets are strict defaults, with exceptions owned by each section spec. Supported
+section overrides are lane, shoulder, gutter, sidewalk, speed, travel direction, and
+structural profile fields declared by `RoadSectionSpec`; there is no free-form override
+bag. The adapter rejects any saved addon field that differs from the resulting section
+values. Sidewalk allocation, speed, surface materials, lights, and spawn policy remain
+semantic inputs for later infrastructure and derivation lanes. Raise `source_revision`
+when semantic road data or identities change; raise `derivation_schema_revision` when
+the derived-data contract changes. Change the recorded source hash when the accepted JSON
+shape changes. Neither counter changes for scene-only presentation or generated mesh
+refreshes.
+
 ## Session and asynchronous operations
 
 ```text

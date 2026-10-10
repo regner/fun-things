@@ -1,0 +1,373 @@
+[gd_resource type="Resource" script_class="RoadSourceCatalog" format=3 uid="uid://cgf3slntg2c24"]
+
+[ext_resource type="Script" uid="uid://co8eeu6f610wr" path="res://scripts/world/roads/road_junction_spec.gd" id="1_0781i"]
+[ext_resource type="Script" uid="uid://ckr1c5w8my3hb" path="res://scripts/world/roads/road_type_preset.gd" id="2_4ms58"]
+[ext_resource type="Resource" uid="uid://8fg102qutitq" path="res://resources/world/roads/presets/avenue.tres" id="3_8me2l"]
+[ext_resource type="Resource" uid="uid://b87dqh83xtit4" path="res://resources/world/roads/presets/street.tres" id="4_ckogn"]
+[ext_resource type="Resource" uid="uid://dkdhp7cnxna8r" path="res://resources/world/roads/presets/local.tres" id="5_gcnr6"]
+[ext_resource type="Resource" uid="uid://br18f2mcf2yea" path="res://resources/world/roads/presets/freight.tres" id="6_mlosi"]
+[ext_resource type="Resource" uid="uid://b8qvyym1l6g1k" path="res://resources/world/roads/presets/service.tres" id="7_i8ohw"]
+[ext_resource type="Script" uid="uid://dalpdhfn0oedp" path="res://scripts/world/roads/road_source_catalog.gd" id="8_bs4dt"]
+[ext_resource type="Script" uid="uid://dhtnec1ymgbuw" path="res://scripts/world/roads/road_section_spec.gd" id="9_tji0r"]
+
+[sub_resource type="Resource" id="Resource_ffl4q"]
+script = ExtResource("9_tji0r")
+road_id = &"brackett/roads/north_coast"
+section_id = &"brackett/roads/north_coast/section_01"
+source_route_name = "North coast"
+preset = ExtResource("4_ckogn")
+
+[sub_resource type="Resource" id="Resource_eude1"]
+script = ExtResource("9_tji0r")
+road_id = &"brackett/roads/working_coast"
+section_id = &"brackett/roads/working_coast/section_01"
+source_route_name = "Working coast"
+preset = ExtResource("6_mlosi")
+
+[sub_resource type="Resource" id="Resource_261ag"]
+script = ExtResource("9_tji0r")
+road_id = &"brackett/roads/retail_coast"
+section_id = &"brackett/roads/retail_coast/section_01"
+source_route_name = "Retail coast"
+preset = ExtResource("4_ckogn")
+
+[sub_resource type="Resource" id="Resource_165hf"]
+script = ExtResource("9_tji0r")
+road_id = &"brackett/roads/western_coast"
+section_id = &"brackett/roads/western_coast/section_01"
+source_route_name = "Western coast"
+preset = ExtResource("4_ckogn")
+
+[sub_resource type="Resource" id="Resource_p4npt"]
+script = ExtResource("9_tji0r")
+road_id = &"brackett/roads/harbour_bridge"
+section_id = &"brackett/roads/harbour_bridge/section_01"
+source_route_name = "Harbour bridge"
+preset = ExtResource("4_ckogn")
+profile_id = &"harbour_bridge"
+
+[sub_resource type="Resource" id="Resource_8enal"]
+script = ExtResource("9_tji0r")
+road_id = &"brackett/roads/western_neighbourhood_circuit"
+section_id = &"brackett/roads/western_neighbourhood_circuit/section_01"
+source_route_name = "Western neighbourhood circuit"
+preset = ExtResource("4_ckogn")
+
+[sub_resource type="Resource" id="Resource_e2xxy"]
+script = ExtResource("9_tji0r")
+road_id = &"brackett/roads/campus_downtown_link"
+section_id = &"brackett/roads/campus_downtown_link/section_01"
+source_route_name = "Campus-downtown link"
+preset = ExtResource("4_ckogn")
+
+[sub_resource type="Resource" id="Resource_fv03s"]
+script = ExtResource("9_tji0r")
+road_id = &"brackett/roads/central_avenue_downtown_grid"
+section_id = &"brackett/roads/central_avenue_downtown_grid/section_01"
+source_route_name = "Central avenue / downtown grid"
+preset = ExtResource("3_8me2l")
+
+[sub_resource type="Resource" id="Resource_xmgrg"]
+script = ExtResource("9_tji0r")
+road_id = &"brackett/roads/central_avenue_southern_return"
+section_id = &"brackett/roads/central_avenue_southern_return/section_01"
+source_route_name = "Central avenue / southern return"
+preset = ExtResource("3_8me2l")
+
+[sub_resource type="Resource" id="Resource_chs7w"]
+script = ExtResource("9_tji0r")
+road_id = &"brackett/roads/apartment_commercial_link"
+section_id = &"brackett/roads/apartment_commercial_link/section_01"
+source_route_name = "Apartment-commercial link"
+preset = ExtResource("4_ckogn")
+
+[sub_resource type="Resource" id="Resource_pbpsf"]
+script = ExtResource("9_tji0r")
+road_id = &"brackett/roads/downtown_east_link"
+section_id = &"brackett/roads/downtown_east_link/section_01"
+source_route_name = "Downtown east link"
+preset = ExtResource("4_ckogn")
+
+[sub_resource type="Resource" id="Resource_e63wo"]
+script = ExtResource("9_tji0r")
+road_id = &"brackett/roads/working_approach"
+section_id = &"brackett/roads/working_approach/section_01"
+source_route_name = "Working approach"
+preset = ExtResource("6_mlosi")
+
+[sub_resource type="Resource" id="Resource_tmjhv"]
+script = ExtResource("9_tji0r")
+road_id = &"brackett/roads/repair_circuit"
+section_id = &"brackett/roads/repair_circuit/section_01"
+source_route_name = "Repair circuit"
+preset = ExtResource("4_ckogn")
+
+[sub_resource type="Resource" id="Resource_ylhqk"]
+script = ExtResource("9_tji0r")
+road_id = &"brackett/roads/port_retail_link"
+section_id = &"brackett/roads/port_retail_link/section_01"
+source_route_name = "Port-retail link"
+preset = ExtResource("6_mlosi")
+
+[sub_resource type="Resource" id="Resource_pyx3f"]
+script = ExtResource("9_tji0r")
+road_id = &"brackett/roads/quay_inland_return"
+section_id = &"brackett/roads/quay_inland_return/section_01"
+source_route_name = "Quay inland return"
+preset = ExtResource("5_gcnr6")
+
+[sub_resource type="Resource" id="Resource_7r540"]
+script = ExtResource("9_tji0r")
+road_id = &"brackett/roads/commercial_west_approach"
+section_id = &"brackett/roads/commercial_west_approach/section_01"
+source_route_name = "Commercial west approach"
+preset = ExtResource("4_ckogn")
+
+[sub_resource type="Resource" id="Resource_rw2fu"]
+script = ExtResource("9_tji0r")
+road_id = &"brackett/roads/downtown_south_cross_street"
+section_id = &"brackett/roads/downtown_south_cross_street/section_01"
+source_route_name = "Downtown south cross street"
+preset = ExtResource("4_ckogn")
+
+[sub_resource type="Resource" id="Resource_khvtw"]
+script = ExtResource("9_tji0r")
+road_id = &"brackett/roads/downtown_grid_north_south_650"
+section_id = &"brackett/roads/downtown_grid_north_south_650/section_01"
+source_route_name = "Downtown grid north-south 650"
+preset = ExtResource("4_ckogn")
+
+[sub_resource type="Resource" id="Resource_ikcon"]
+script = ExtResource("9_tji0r")
+road_id = &"brackett/roads/downtown_grid_north_south_735"
+section_id = &"brackett/roads/downtown_grid_north_south_735/section_01"
+source_route_name = "Downtown grid north-south 735"
+preset = ExtResource("4_ckogn")
+
+[sub_resource type="Resource" id="Resource_t4t61"]
+script = ExtResource("9_tji0r")
+road_id = &"brackett/roads/downtown_grid_north_south_850"
+section_id = &"brackett/roads/downtown_grid_north_south_850/section_01"
+source_route_name = "Downtown grid north-south 850"
+preset = ExtResource("4_ckogn")
+
+[sub_resource type="Resource" id="Resource_ljucu"]
+script = ExtResource("9_tji0r")
+road_id = &"brackett/roads/downtown_grid_north_south_950"
+section_id = &"brackett/roads/downtown_grid_north_south_950/section_01"
+source_route_name = "Downtown grid north-south 950"
+preset = ExtResource("4_ckogn")
+
+[sub_resource type="Resource" id="Resource_1hfey"]
+script = ExtResource("9_tji0r")
+road_id = &"brackett/roads/downtown_short_eastern_cross_street"
+section_id = &"brackett/roads/downtown_short_eastern_cross_street/section_01"
+source_route_name = "Downtown short eastern cross street"
+preset = ExtResource("4_ckogn")
+
+[sub_resource type="Resource" id="Resource_rttd8"]
+script = ExtResource("9_tji0r")
+road_id = &"brackett/roads/campus_courts"
+section_id = &"brackett/roads/campus_courts/section_01"
+source_route_name = "Campus courts"
+preset = ExtResource("5_gcnr6")
+
+[sub_resource type="Resource" id="Resource_4sgfy"]
+script = ExtResource("9_tji0r")
+road_id = &"brackett/roads/west_crescent"
+section_id = &"brackett/roads/west_crescent/section_01"
+source_route_name = "West crescent"
+preset = ExtResource("5_gcnr6")
+
+[sub_resource type="Resource" id="Resource_i1s27"]
+script = ExtResource("9_tji0r")
+road_id = &"brackett/roads/east_crescent"
+section_id = &"brackett/roads/east_crescent/section_01"
+source_route_name = "East crescent"
+preset = ExtResource("5_gcnr6")
+
+[sub_resource type="Resource" id="Resource_ibr20"]
+script = ExtResource("9_tji0r")
+road_id = &"brackett/roads/housing_north_link"
+section_id = &"brackett/roads/housing_north_link/section_01"
+source_route_name = "Housing north link"
+preset = ExtResource("5_gcnr6")
+
+[sub_resource type="Resource" id="Resource_6a3ht"]
+script = ExtResource("9_tji0r")
+road_id = &"brackett/roads/housing_south_link"
+section_id = &"brackett/roads/housing_south_link/section_01"
+source_route_name = "Housing south link"
+preset = ExtResource("5_gcnr6")
+
+[sub_resource type="Resource" id="Resource_s4ulx"]
+script = ExtResource("9_tji0r")
+road_id = &"brackett/roads/housing_court"
+section_id = &"brackett/roads/housing_court/section_01"
+source_route_name = "Housing court"
+preset = ExtResource("5_gcnr6")
+endpoint_policy = 1
+
+[sub_resource type="Resource" id="Resource_q6hca"]
+script = ExtResource("9_tji0r")
+road_id = &"brackett/roads/quay_neighbourhood"
+section_id = &"brackett/roads/quay_neighbourhood/section_01"
+source_route_name = "Quay neighbourhood"
+preset = ExtResource("5_gcnr6")
+
+[sub_resource type="Resource" id="Resource_erbts"]
+script = ExtResource("9_tji0r")
+road_id = &"brackett/roads/quay_short_link"
+section_id = &"brackett/roads/quay_short_link/section_01"
+source_route_name = "Quay short link"
+preset = ExtResource("5_gcnr6")
+
+[sub_resource type="Resource" id="Resource_7kw66"]
+script = ExtResource("9_tji0r")
+road_id = &"brackett/roads/quay_access_court"
+section_id = &"brackett/roads/quay_access_court/section_01"
+source_route_name = "Quay access court"
+preset = ExtResource("5_gcnr6")
+endpoint_policy = 1
+
+[sub_resource type="Resource" id="Resource_ebum6"]
+script = ExtResource("9_tji0r")
+road_id = &"brackett/roads/apartment_west"
+section_id = &"brackett/roads/apartment_west/section_01"
+source_route_name = "Apartment west"
+preset = ExtResource("5_gcnr6")
+
+[sub_resource type="Resource" id="Resource_o4to8"]
+script = ExtResource("9_tji0r")
+road_id = &"brackett/roads/apartment_court_link"
+section_id = &"brackett/roads/apartment_court_link/section_01"
+source_route_name = "Apartment court link"
+preset = ExtResource("5_gcnr6")
+
+[sub_resource type="Resource" id="Resource_j8q2t"]
+script = ExtResource("9_tji0r")
+road_id = &"brackett/roads/apartment_east"
+section_id = &"brackett/roads/apartment_east/section_01"
+source_route_name = "Apartment east"
+preset = ExtResource("4_ckogn")
+
+[sub_resource type="Resource" id="Resource_o8iq5"]
+script = ExtResource("9_tji0r")
+road_id = &"brackett/roads/apartment_cross_street"
+section_id = &"brackett/roads/apartment_cross_street/section_01"
+source_route_name = "Apartment cross street"
+preset = ExtResource("5_gcnr6")
+
+[sub_resource type="Resource" id="Resource_gcpij"]
+script = ExtResource("9_tji0r")
+road_id = &"brackett/roads/commercial_west_link"
+section_id = &"brackett/roads/commercial_west_link/section_01"
+source_route_name = "Commercial west link"
+preset = ExtResource("4_ckogn")
+
+[sub_resource type="Resource" id="Resource_r13ae"]
+script = ExtResource("9_tji0r")
+road_id = &"brackett/roads/m1_mixed_use_west"
+section_id = &"brackett/roads/m1_mixed_use_west/section_01"
+source_route_name = "M1 mixed-use west"
+preset = ExtResource("5_gcnr6")
+
+[sub_resource type="Resource" id="Resource_utnk1"]
+script = ExtResource("9_tji0r")
+road_id = &"brackett/roads/m1_mixed_use_middle"
+section_id = &"brackett/roads/m1_mixed_use_middle/section_01"
+source_route_name = "M1 mixed-use middle"
+preset = ExtResource("5_gcnr6")
+
+[sub_resource type="Resource" id="Resource_0tpou"]
+script = ExtResource("9_tji0r")
+road_id = &"brackett/roads/m1_mixed_use_east"
+section_id = &"brackett/roads/m1_mixed_use_east/section_01"
+source_route_name = "M1 mixed-use east"
+preset = ExtResource("5_gcnr6")
+
+[sub_resource type="Resource" id="Resource_b4tjy"]
+script = ExtResource("9_tji0r")
+road_id = &"brackett/roads/m1_small_cross_link"
+section_id = &"brackett/roads/m1_small_cross_link/section_01"
+source_route_name = "M1 small cross-link"
+preset = ExtResource("5_gcnr6")
+
+[sub_resource type="Resource" id="Resource_87ph3"]
+script = ExtResource("9_tji0r")
+road_id = &"brackett/roads/hall_and_plaza_return"
+section_id = &"brackett/roads/hall_and_plaza_return/section_01"
+source_route_name = "Hall and plaza return"
+preset = ExtResource("5_gcnr6")
+
+[sub_resource type="Resource" id="Resource_5ihsi"]
+script = ExtResource("9_tji0r")
+road_id = &"brackett/roads/shop_link"
+section_id = &"brackett/roads/shop_link/section_01"
+source_route_name = "Shop link"
+preset = ExtResource("5_gcnr6")
+
+[sub_resource type="Resource" id="Resource_vh17j"]
+script = ExtResource("9_tji0r")
+road_id = &"brackett/roads/harbour_retail_link"
+section_id = &"brackett/roads/harbour_retail_link/section_01"
+source_route_name = "Harbour-retail link"
+preset = ExtResource("5_gcnr6")
+
+[sub_resource type="Resource" id="Resource_nvuoq"]
+script = ExtResource("9_tji0r")
+road_id = &"brackett/roads/retail_access"
+section_id = &"brackett/roads/retail_access/section_01"
+source_route_name = "Retail access"
+preset = ExtResource("4_ckogn")
+
+[sub_resource type="Resource" id="Resource_cisli"]
+script = ExtResource("9_tji0r")
+road_id = &"brackett/roads/retail_rear_return"
+section_id = &"brackett/roads/retail_rear_return/section_01"
+source_route_name = "Retail rear return"
+preset = ExtResource("5_gcnr6")
+
+[sub_resource type="Resource" id="Resource_7d4u6"]
+script = ExtResource("9_tji0r")
+road_id = &"brackett/roads/workshop_west"
+section_id = &"brackett/roads/workshop_west/section_01"
+source_route_name = "Workshop west"
+preset = ExtResource("5_gcnr6")
+
+[sub_resource type="Resource" id="Resource_5oxb5"]
+script = ExtResource("9_tji0r")
+road_id = &"brackett/roads/workshop_cross_link"
+section_id = &"brackett/roads/workshop_cross_link/section_01"
+source_route_name = "Workshop cross-link"
+preset = ExtResource("5_gcnr6")
+
+[sub_resource type="Resource" id="Resource_ray1y"]
+script = ExtResource("9_tji0r")
+road_id = &"brackett/roads/workshop_service_link"
+section_id = &"brackett/roads/workshop_service_link/section_01"
+source_route_name = "Workshop service link"
+preset = ExtResource("7_i8ohw")
+travel_direction = 0
+
+[sub_resource type="Resource" id="Resource_euri1"]
+script = ExtResource("9_tji0r")
+road_id = &"brackett/roads/working_south_court"
+section_id = &"brackett/roads/working_south_court/section_01"
+source_route_name = "Working south court"
+preset = ExtResource("5_gcnr6")
+
+[sub_resource type="Resource" id="Resource_bfuyv"]
+script = ExtResource("9_tji0r")
+road_id = &"brackett/roads/dock_loading_access"
+section_id = &"brackett/roads/dock_loading_access/section_01"
+source_route_name = "Dock loading access"
+preset = ExtResource("6_mlosi")
+endpoint_policy = 1
+
+[resource]
+script = ExtResource("8_bs4dt")
+district_id = &"brackett"
+bootstrap_source_sha256 = "064ddd567a68d9c0bf12ee641f58272292ee0c733d79be65cd42823909436e56"
+presets = Array[ExtResource("2_4ms58")]([ExtResource("3_8me2l"), ExtResource("4_ckogn"), ExtResource("5_gcnr6"), ExtResource("6_mlosi"), ExtResource("7_i8ohw")])
+sections = Array[ExtResource("9_tji0r")]([SubResource("Resource_ffl4q"), SubResource("Resource_eude1"), SubResource("Resource_261ag"), SubResource("Resource_165hf"), SubResource("Resource_p4npt"), SubResource("Resource_8enal"), SubResource("Resource_e2xxy"), SubResource("Resource_fv03s"), SubResource("Resource_xmgrg"), SubResource("Resource_chs7w"), SubResource("Resource_pbpsf"), SubResource("Resource_e63wo"), SubResource("Resource_tmjhv"), SubResource("Resource_ylhqk"), SubResource("Resource_pyx3f"), SubResource("Resource_7r540"), SubResource("Resource_rw2fu"), SubResource("Resource_khvtw"), SubResource("Resource_ikcon"), SubResource("Resource_t4t61"), SubResource("Resource_ljucu"), SubResource("Resource_1hfey"), SubResource("Resource_rttd8"), SubResource("Resource_4sgfy"), SubResource("Resource_i1s27"), SubResource("Resource_ibr20"), SubResource("Resource_6a3ht"), SubResource("Resource_s4ulx"), SubResource("Resource_q6hca"), SubResource("Resource_erbts"), SubResource("Resource_7kw66"), SubResource("Resource_ebum6"), SubResource("Resource_o4to8"), SubResource("Resource_j8q2t"), SubResource("Resource_o8iq5"), SubResource("Resource_gcpij"), SubResource("Resource_r13ae"), SubResource("Resource_utnk1"), SubResource("Resource_0tpou"), SubResource("Resource_b4tjy"), SubResource("Resource_87ph3"), SubResource("Resource_5ihsi"), SubResource("Resource_vh17j"), SubResource("Resource_nvuoq"), SubResource("Resource_cisli"), SubResource("Resource_7d4u6"), SubResource("Resource_5oxb5"), SubResource("Resource_ray1y"), SubResource("Resource_euri1"), SubResource("Resource_bfuyv")])

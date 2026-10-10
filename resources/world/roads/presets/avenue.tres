@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="RoadTypePreset" format=3 uid="uid://8fg102qutitq"]
+
+[ext_resource type="Script" uid="uid://ckr1c5w8my3hb" path="res://scripts/world/roads/road_type_preset.gd" id="1_5vxp4"]
+
+[resource]
+script = ExtResource("1_5vxp4")
+preset_id = &"avenue"
+lane_directions = Array[int]([1, 1, 2, 2])
+lane_width_m = 3.5
+sidewalk_width_left_m = 5.0
+sidewalk_width_right_m = 5.0
+speed_limit_mps = 13.9

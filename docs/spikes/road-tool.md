@@ -24,6 +24,36 @@ independent automatically placed Blender-authored fixtures. The section explicit
 headed **Historical evaluation and rejected bake proposal** preserves the pre-decision
 evidence; the current maintenance and production sections after it own the live plan.
 
+### RT-02 source contract
+
+The production source layer now lives in `scripts/world/roads/` and
+`resources/world/roads/`. `brackett_road_source.tres` records the frozen greybox JSON
+hash and schema, accepted addon version, source revision, five typed class presets, and
+50 stable route/section identities. `RoadJsonBootstrap` reads the source JSON only to
+produce a transient first-pass point plan; it does not serialize a duplicate point list
+into resources.
+
+The five baseline presets preserve the accepted Brackett classification:
+
+| Preset | Lanes | Lane width | Walk allocation per side | Speed |
+| --- | ---: | ---: | ---: | ---: |
+| avenue | 4 | 3.5 m | 5.0 m | 13.9 m/s |
+| street | 2 | 4.5 m | 4.0 m | 11.1 m/s |
+| local | 2 | 3.5 m | 2.5 m | 8.3 m/s |
+| freight | 2 | 5.0 m | 2.0 m | 8.3 m/s |
+| service | 1 | 4.5 m | 1.5 m | 5.6 m/s |
+
+Defaults are applied at the `RoadPoint` boundary by `RoadNetworkAdapter`; intentional
+section exceptions stay explicit in `RoadSectionSpec`. Validation fails rather than
+silently accepting saved lane, width, shoulder/profile, graph, identity, transition, or
+cross-container edge drift. Service direction and the Harbour bridge structural profile
+remain mandatory bootstrap inputs. The JSON's intersection candidates are not promoted
+automatically: stable junction specs are added only when an editor-authored
+`RoadIntersection` is reviewed.
+
+See [API contracts](../api-contracts.md#road-authoring-contracts) for identity forms,
+revision rules, bootstrap behavior, and the cross-container interface contract.
+
 ### RT-01 release hardening results
 
 RT-01 selected tag `0.9.4`, commit
