@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://dfbodilgmskfj"]
+
+[ext_resource type="PackedScene" uid="uid://cx3djln4pgrvi" path="res://art/models/environment/d02_domestic_details_01/d02_domestic_details_01.glb" id="1_model"]
+
+[sub_resource type="BoxShape3D" id="Box_wall"]
+size = Vector3(3.2, 0.94, 0.36)
+
+[node name="D02DomesticDetails01" type="Node3D" unique_id=1316522911]
+
+[node name="Visuals" type="Node3D" parent="." unique_id=1583141097]
+
+[node name="Model" type="Node3D" parent="Visuals" unique_id=354453828 instance=ExtResource("1_model")]
+
+[node name="Collision" type="Node3D" parent="." unique_id=1489952273]
+
+[node name="Body" type="StaticBody3D" parent="Collision" unique_id=2050092621]
+collision_mask = 0
+
+[node name="Wall" type="CollisionShape3D" parent="Collision/Body" unique_id=67345988]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.47, 0)
+shape = SubResource("Box_wall")

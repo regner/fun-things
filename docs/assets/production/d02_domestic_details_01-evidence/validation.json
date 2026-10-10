@@ -1,0 +1,268 @@
+{
+  "asset": "d02_domestic_details.01",
+  "blender": "5.2.2 LTS",
+  "build_hash": "d13f752e3b9c",
+  "vertices": 640,
+  "triangles": 1256,
+  "mesh_count": 1,
+  "surfaces": 3,
+  "glb_vertices": 640,
+  "degenerate_faces": 0,
+  "nonmanifold_edges": 0,
+  "unit_normals": true,
+  "consistent_winding": true,
+  "applied_transforms": true,
+  "source_aabb": {
+    "min": [
+      -1.600000023841858,
+      -0.18000000715255737,
+      0.0
+    ],
+    "max": [
+      1.600000023841858,
+      0.18000000715255737,
+      0.9399999976158142
+    ]
+  },
+  "godot_aabb": {
+    "min": [
+      -1.600000023841858,
+      0.0,
+      -0.18000000715255737
+    ],
+    "max": [
+      1.600000023841858,
+      0.9399999976158142,
+      0.18000000715255737
+    ]
+  },
+  "dimensions_godot_m": [
+    3.2,
+    0.94,
+    0.36
+  ],
+  "dimension_tolerance_m": 0.001,
+  "pivot": [
+    0,
+    0,
+    0
+  ],
+  "datum": "ground-centred bounding wall footprint",
+  "dimensions_status": "provisional",
+  "fresh_reexport_byte_identical": true,
+  "glb_sha256": "19e91ce155a7b0a587ff81be195ac4b4f55271f98b8391c318fc1a5c25231c02",
+  "glb_bytes": 24352,
+  "materials": [
+    {
+      "name": "crescents_warm_render",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.4125426113605499,
+          0.38132601976394653,
+          0.34191441535949707,
+          1
+        ],
+        "metallicFactor": 0,
+        "roughnessFactor": 0.6499999761581421
+      }
+    },
+    {
+      "name": "crescents_slate_plinth",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.09758734703063965,
+          0.12477181851863861,
+          0.14702726900577545,
+          1
+        ],
+        "metallicFactor": 0,
+        "roughnessFactor": 0.75
+      }
+    },
+    {
+      "name": "crescents_ivory_trim",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.6583748459815979,
+          0.6172065734863281,
+          0.4969329833984375,
+          1
+        ],
+        "metallicFactor": 0,
+        "roughnessFactor": 0.550000011920929
+      }
+    }
+  ],
+  "module_end_planes_x_m": [
+    -1.6,
+    1.6
+  ],
+  "collision_box_size_m": [
+    3.2,
+    0.94,
+    0.36
+  ],
+  "status": "PASS source and export",
+  "engine": {
+    "aabb_min": [
+      -1.60000002384186,
+      0.0,
+      -0.180000007152557
+    ],
+    "aabb_size": [
+      3.20000004768372,
+      0.939999997615814,
+      0.360000014305115
+    ],
+    "capsule_queries": [
+      {
+        "case": "wall_solid",
+        "solid": true
+      },
+      {
+        "case": "left_end_solid",
+        "solid": true
+      },
+      {
+        "case": "right_end_solid",
+        "solid": true
+      },
+      {
+        "case": "front_clear",
+        "solid": false
+      },
+      {
+        "case": "rear_clear",
+        "solid": false
+      },
+      {
+        "case": "left_bypass",
+        "solid": false
+      },
+      {
+        "case": "right_bypass",
+        "solid": false
+      }
+    ],
+    "car_box_sweep": {
+      "east_bypass_blocked": false,
+      "front_blocked": true,
+      "size_m": [
+        1.9,
+        1.5,
+        4.3
+      ]
+    },
+    "collision_shape_count": 1,
+    "engine": "4.8-dev7 (official)",
+    "failures": [],
+    "front_ray_z": -0.180000066757202,
+    "linked_model_identity": true,
+    "materials": [
+      "crescents_warm_render",
+      "crescents_slate_plinth",
+      "crescents_ivory_trim"
+    ],
+    "model_uid": "uid://cx3djln4pgrvi",
+    "ok": true,
+    "prefab_uid": "uid://dfbodilgmskfj",
+    "production_actor_motion": [
+      {
+        "case": "front_stop",
+        "end": [
+          0.0,
+          0.000877899117767811,
+          -0.531249821186066
+        ],
+        "mode": 0
+      },
+      {
+        "case": "rear_stop",
+        "end": [
+          0.0,
+          0.000877899117767811,
+          0.531249821186066
+        ],
+        "mode": 0
+      },
+      {
+        "case": "end_stop",
+        "end": [
+          1.9505215883255,
+          0.000877922924701124,
+          0.0
+        ],
+        "mode": 0
+      },
+      {
+        "case": "right_bypass",
+        "end": [
+          2.0,
+          0.000878042192198336,
+          2.99999976158142
+        ],
+        "mode": 0
+      },
+      {
+        "case": "front_stop",
+        "end": [
+          0.0,
+          0.000877899117767811,
+          -0.531249821186066
+        ],
+        "mode": 1
+      },
+      {
+        "case": "rear_stop",
+        "end": [
+          0.0,
+          0.000877899117767811,
+          0.531249821186066
+        ],
+        "mode": 1
+      },
+      {
+        "case": "end_stop",
+        "end": [
+          1.9505215883255,
+          0.000877922924701124,
+          0.0
+        ],
+        "mode": 1
+      },
+      {
+        "case": "right_bypass",
+        "end": [
+          2.0,
+          0.000878042192198336,
+          2.99999976158142
+        ],
+        "mode": 1
+      }
+    ],
+    "save_reload_byte_stable": true
+  },
+  "visual_self_review": {
+    "images": [
+      "hero.png",
+      "side.png",
+      "detail.png",
+      "overhead_47m_42deg.png"
+    ],
+    "size_px": [
+      1280,
+      720
+    ],
+    "renderer": "Blender Cycles CPU, 32 samples, AgX, six-bit RGB PNG",
+    "gameplay_camera": "Vertical down (0,0,47)m; Blender +Y north/up; vertical FOV42 degrees",
+    "observations": "Broad coping and short low silhouette remain legible overhead. Three quiet material bands and four coping stones establish domestic scale in close views. Coplanar end overlap was removed before final export; no black end artifact remains.",
+    "limits": "Isolated Blender self-review, not native gameplay or placed route acceptance"
+  },
+  "diagnostics": {
+    "source": "Passed; Blender 6.0 use_nodes deprecation notices only",
+    "import": "Passed without ERROR/SCRIPT ERROR; existing MCP 4.8 compatibility warning only",
+    "normalization": "Passed stable save/reload with UIDs. Headless editor shutdown emitted existing scan-aborted/RID/ObjectDB diagnostics; exact lines retained in final.log.",
+    "fresh_runtime": "Passed with no ERROR/WARNING lines",
+    "initial_corrections": "Removed coplanar plinth/core end overlap, improved studio overhead fill, compressed evidence images. gdstyle absent from shell PATH; resolved via mise which."
+  }
+}
