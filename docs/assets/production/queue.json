@@ -9015,14 +9015,14 @@
       "input_next_action": "Produce wreck variant from the accepted car source",
       "brief": "[Brief](../../assets/vehicle_wrecks.md)",
       "priority": 0,
-      "status": "queued",
-      "agent_id": null,
-      "source_revision": null,
-      "review_status": "pending",
-      "integration_status": "pending",
+      "status": "production_prefab_accepted",
+      "agent_id": "1f6ece1e-d19f-4eb8-a03e-ae9d19fd8381",
+      "source_revision": "ffa9e561",
+      "review_status": "accepted source/export/prefab scope (independent Sol review)",
+      "integration_status": "accepted",
       "placement_status": "pending",
       "blocker": null,
-      "attempts": 0,
+      "attempts": 1,
       "initial_time_cap_minutes": 120,
       "owned_paths": [
         "art/source/models/vehicles/vehicle_wrecks_01/",
@@ -9030,28 +9030,27 @@
         "art/textures/vehicles/vehicle_wrecks_01/",
         "art/materials/vehicles/vehicle_wrecks_01/",
         "docs/assets/production/vehicle_wrecks_01.md",
-        "docs/assets/production/vehicle_wrecks_01-evidence/"
+        "docs/assets/production/vehicle_wrecks_01-evidence/",
+        "tools/asset_production/vehicle_wrecks_01/",
+        "scenes/prefabs/city_cars/vehicle_wrecks_01.tscn"
       ],
       "launch": {
-        "provider": "codex/gpt-6-astra",
+        "provider": "portkey/gpt-6-astra",
         "configured_effort": "medium",
-        "effective_effort": "medium",
-        "mode": "auto-review",
-        "launched_by": "ROOT",
-        "notification_route": [
-          "ROOT"
-        ]
+        "mode": "orchestrator asset lane",
+        "lane": "a-wrecks"
       },
-      "producer_manifest": "docs/assets/production/city_lights_01-evidence/manifest.json",
+      "producer_manifest": "docs/assets/production/vehicle_wrecks_01-evidence/manifest.json",
       "producer_set_verified": true,
       "integration_record": "docs/assets/production/batch_01-integration.md",
-      "report": "docs/assets/production/city_lights_01.md",
+      "report": "docs/assets/production/vehicle_wrecks_01.md",
       "engine_candidate": "c4067ff3abe1384301471d9a64e94e84201235e2",
       "reviewed_revision": "c4067ff3abe1384301471d9a64e94e84201235e2",
       "review_report": "docs/reviews/asset-production/batch_01/final/report.md",
       "ready": false,
-      "reviewer_id": "88d917ff-a9d8-4faa-b276-007c50bd4f05",
-      "launch_pause_inventory_verified": true
+      "reviewer_id": "d13257ad-73f1-4694-97b1-0cdfac73a992",
+      "launch_pause_inventory_verified": true,
+      "integrated_revision": "85560575"
     },
     {
       "id": "vehicle_wrecks.02",
@@ -9064,14 +9063,14 @@
       "input_next_action": "Produce wreck variant from the accepted car source",
       "brief": "[Brief](../../assets/vehicle_wrecks.md)",
       "priority": 0,
-      "status": "queued",
-      "agent_id": null,
-      "source_revision": null,
-      "review_status": "pending",
-      "integration_status": "pending",
+      "status": "production_prefab_accepted",
+      "agent_id": "bebe5cea-4f38-4fa9-b6e0-e95bb129d856",
+      "source_revision": "85560575",
+      "review_status": "accepted source/export/prefab scope (independent Sol review)",
+      "integration_status": "accepted",
       "placement_status": "pending",
       "blocker": null,
-      "attempts": 0,
+      "attempts": 1,
       "initial_time_cap_minutes": 120,
       "owned_paths": [
         "art/source/models/vehicles/vehicle_wrecks_02/",
@@ -9079,28 +9078,27 @@
         "art/textures/vehicles/vehicle_wrecks_02/",
         "art/materials/vehicles/vehicle_wrecks_02/",
         "docs/assets/production/vehicle_wrecks_02.md",
-        "docs/assets/production/vehicle_wrecks_02-evidence/"
+        "docs/assets/production/vehicle_wrecks_02-evidence/",
+        "tools/asset_production/vehicle_wrecks_02/",
+        "scenes/prefabs/city_cars/vehicle_wrecks_02.tscn"
       ],
       "launch": {
-        "provider": "codex/gpt-6-astra",
+        "provider": "portkey/gpt-6-astra",
         "configured_effort": "medium",
-        "effective_effort": "medium",
-        "mode": "auto-review",
-        "launched_by": "ROOT",
-        "notification_route": [
-          "ROOT"
-        ]
+        "mode": "orchestrator asset lane",
+        "lane": "a-wrecks"
       },
-      "producer_manifest": "docs/assets/production/city_lights_01-evidence/manifest.json",
+      "producer_manifest": "docs/assets/production/vehicle_wrecks_02-evidence/manifest.json",
       "producer_set_verified": true,
       "integration_record": "docs/assets/production/batch_01-integration.md",
-      "report": "docs/assets/production/city_lights_01.md",
+      "report": "docs/assets/production/vehicle_wrecks_02.md",
       "engine_candidate": "c4067ff3abe1384301471d9a64e94e84201235e2",
       "reviewed_revision": "c4067ff3abe1384301471d9a64e94e84201235e2",
       "review_report": "docs/reviews/asset-production/batch_01/final/report.md",
       "ready": false,
-      "reviewer_id": "88d917ff-a9d8-4faa-b276-007c50bd4f05",
-      "launch_pause_inventory_verified": true
+      "reviewer_id": "d13257ad-73f1-4694-97b1-0cdfac73a992",
+      "launch_pause_inventory_verified": true,
+      "integrated_revision": "85560575"
     },
     {
       "id": "vehicle_wrecks.03",
@@ -9113,14 +9111,14 @@
       "input_next_action": "Produce wreck variant from the accepted car source",
       "brief": "[Brief](../../assets/vehicle_wrecks.md)",
       "priority": 0,
-      "status": "queued",
-      "agent_id": null,
-      "source_revision": null,
-      "review_status": "pending",
-      "integration_status": "pending",
+      "status": "production_prefab_accepted",
+      "agent_id": "42e89137-bfe3-4528-87f1-0a217ffcf6fd",
+      "source_revision": "8174b5b3",
+      "review_status": "accepted source/export/prefab scope (independent Sol review)",
+      "integration_status": "accepted",
       "placement_status": "pending",
       "blocker": null,
-      "attempts": 0,
+      "attempts": 1,
       "initial_time_cap_minutes": 120,
       "owned_paths": [
         "art/source/models/vehicles/vehicle_wrecks_03/",
@@ -9128,28 +9126,27 @@
         "art/textures/vehicles/vehicle_wrecks_03/",
         "art/materials/vehicles/vehicle_wrecks_03/",
         "docs/assets/production/vehicle_wrecks_03.md",
-        "docs/assets/production/vehicle_wrecks_03-evidence/"
+        "docs/assets/production/vehicle_wrecks_03-evidence/",
+        "tools/asset_production/vehicle_wrecks_03/",
+        "scenes/prefabs/city_cars/vehicle_wrecks_03.tscn"
       ],
       "launch": {
-        "provider": "codex/gpt-6-astra",
+        "provider": "portkey/gpt-6-astra",
         "configured_effort": "medium",
-        "effective_effort": "medium",
-        "mode": "auto-review",
-        "launched_by": "ROOT",
-        "notification_route": [
-          "ROOT"
-        ]
+        "mode": "orchestrator asset lane",
+        "lane": "a-wrecks"
       },
-      "producer_manifest": "docs/assets/production/city_lights_01-evidence/manifest.json",
+      "producer_manifest": "docs/assets/production/vehicle_wrecks_03-evidence/manifest.json",
       "producer_set_verified": true,
       "integration_record": "docs/assets/production/batch_01-integration.md",
-      "report": "docs/assets/production/city_lights_01.md",
+      "report": "docs/assets/production/vehicle_wrecks_03.md",
       "engine_candidate": "c4067ff3abe1384301471d9a64e94e84201235e2",
       "reviewed_revision": "c4067ff3abe1384301471d9a64e94e84201235e2",
       "review_report": "docs/reviews/asset-production/batch_01/final/report.md",
       "ready": false,
-      "reviewer_id": "88d917ff-a9d8-4faa-b276-007c50bd4f05",
-      "launch_pause_inventory_verified": true
+      "reviewer_id": "d13257ad-73f1-4694-97b1-0cdfac73a992",
+      "launch_pause_inventory_verified": true,
+      "integrated_revision": "85560575"
     }
   ],
   "trailing_tracks": [
