@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://s4q1std8ga1p"]
+
+[ext_resource type="PackedScene" uid="uid://4x4k6qifmxet" path="res://art/models/environment/d01_academic_buildings_02/d01_academic_buildings_02.glb" id="1_model"]
+
+[sub_resource type="BoxShape3D" id="Box_wing"]
+size = Vector3(36.4, 9.5, 10.5)
+
+[node name="D01AcademicBuildings02" type="Node3D" unique_id=1103101343]
+
+[node name="Visuals" type="Node3D" parent="." unique_id=419253519]
+
+[node name="Model" type="Node3D" parent="Visuals" unique_id=1277440433 instance=ExtResource("1_model")]
+
+[node name="Collision" type="Node3D" parent="." unique_id=1424225118]
+
+[node name="Body" type="StaticBody3D" parent="Collision" unique_id=253024047]
+collision_mask = 0
+
+[node name="TeachingWingSolid" type="CollisionShape3D" parent="Collision/Body" unique_id=3142382]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.75, -0.05)
+shape = SubResource("Box_wing")
