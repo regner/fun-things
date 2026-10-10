@@ -1,0 +1,407 @@
+{
+  "status": "PASS: source and GLB; engine/gameplay gates recorded separately",
+  "blender": "5.2.2 LTS",
+  "build_hash": "d13f752e3b9c",
+  "glTF_exporter": "5.2.40",
+  "source_vertices": 4896,
+  "source_triangles": 9588,
+  "source_degenerate_faces": 0,
+  "source_nonmanifold_edges": 0,
+  "source_max_normal_length_error": 1.6391275980964792e-07,
+  "glb_vertices_including_surface_splits": 5810,
+  "glb_triangles": 9588,
+  "glb_degenerate_triangles": 0,
+  "glb_max_normal_length_error": 1.372682070233111e-07,
+  "mesh_count": 1,
+  "surface_count": 7,
+  "identical_sibling_materials": [
+    "d09_warehouses_01",
+    "d09_warehouses_02"
+  ],
+  "aabb_godot": {
+    "min": [
+      -6.180000305175781,
+      0.0,
+      -3.3499999046325684
+    ],
+    "max": [
+      6.180000305175781,
+      5.75,
+      3.1600000858306885
+    ],
+    "size": [
+      12.360000610351562,
+      5.75,
+      6.509999990463257
+    ]
+  },
+  "expected_aabb_godot": {
+    "min": [
+      -6.18,
+      0,
+      -3.35
+    ],
+    "max": [
+      6.18,
+      5.75,
+      3.16
+    ]
+  },
+  "envelope_tolerance_m": 0.001,
+  "ground_contact_pivot": [
+    0,
+    0,
+    0
+  ],
+  "materials": [
+    {
+      "name": "dock_base_slate",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.20000000298023224,
+          0.25,
+          0.2800000011920929,
+          1
+        ],
+        "metallicFactor": 0,
+        "roughnessFactor": 0.6700000166893005
+      }
+    },
+    {
+      "name": "dock_wall_steel",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.11999999731779099,
+          0.1899999976158142,
+          0.23000000417232513,
+          1
+        ],
+        "metallicFactor": 0.30000001192092896,
+        "roughnessFactor": 0.5600000023841858
+      }
+    },
+    {
+      "name": "dock_roof_blue",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.03500000014901161,
+          0.10499999672174454,
+          0.23999999463558197,
+          1
+        ],
+        "metallicFactor": 0.3799999952316284,
+        "roughnessFactor": 0.4300000071525574
+      }
+    },
+    {
+      "name": "dock_frame_navy",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.02500000037252903,
+          0.054999999701976776,
+          0.08500000089406967,
+          1
+        ],
+        "metallicFactor": 0.44999998807907104,
+        "roughnessFactor": 0.41999998688697815
+      }
+    },
+    {
+      "name": "dock_shutter_teal",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.06499999761581421,
+          0.11999999731779099,
+          0.15000000596046448,
+          1
+        ],
+        "metallicFactor": 0.3199999928474426,
+        "roughnessFactor": 0.5299999713897705
+      }
+    },
+    {
+      "name": "dock_loading_amber",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.949999988079071,
+          0.47999998927116394,
+          0.0949999988079071,
+          1
+        ],
+        "metallicFactor": 0.15000000596046448,
+        "roughnessFactor": 0.41999998688697815
+      }
+    },
+    {
+      "name": "dock_glazing_opaque",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.07500000298023224,
+          0.2199999988079071,
+          0.30000001192092896,
+          1
+        ],
+        "metallicFactor": 0.4000000059604645,
+        "roughnessFactor": 0.27000001072883606
+      }
+    }
+  ],
+  "reexport_byte_identical": true,
+  "glb_sha256": "f13df5da5924c16b88a84642c0a00dc63b6dae846a36233cfc422481e6efd3de",
+  "glb_bytes": 250340,
+  "interfaces_godot": {
+    "bay_pitch_m": 6,
+    "rear_attachment_ground_datum": [
+      0,
+      0,
+      3
+    ],
+    "attachment_max_height_m": 5.75,
+    "wall_return_m": 0.16
+  },
+  "engine": {
+    "aabb_min": [
+      -6.18000030517578,
+      0.0,
+      -3.34999990463257
+    ],
+    "aabb_size": [
+      12.3600006103516,
+      5.75,
+      6.51000022888184
+    ],
+    "collision_shape_count": 1,
+    "engine": "4.8-dev7 (official)",
+    "failures": [],
+    "front_ray_hit": [
+      -3.0,
+      1.0,
+      -3.0
+    ],
+    "linked_model_identity": true,
+    "materials": [
+      "dock_base_slate",
+      "dock_wall_steel",
+      "dock_roof_blue",
+      "dock_frame_navy",
+      "dock_shutter_teal",
+      "dock_loading_amber",
+      "dock_glazing_opaque"
+    ],
+    "mesh_count": 1,
+    "model_uid": "uid://c77gv06wsgeg1",
+    "ok": true,
+    "physics_motion_casts": [
+      {
+        "blocked": true,
+        "case": "actor_front",
+        "safe_fraction": 0.5810546875
+      },
+      {
+        "blocked": true,
+        "case": "actor_rear",
+        "safe_fraction": 0.5810546875
+      },
+      {
+        "blocked": true,
+        "case": "actor_end",
+        "safe_fraction": 0.5810546875
+      },
+      {
+        "blocked": false,
+        "case": "actor_bypass",
+        "safe_fraction": 1.0
+      },
+      {
+        "blocked": true,
+        "case": "car_front",
+        "safe_fraction": 0.39990234375
+      },
+      {
+        "blocked": false,
+        "case": "car_bypass",
+        "safe_fraction": 1.0
+      }
+    ],
+    "physics_shape_queries": [
+      {
+        "case": "interior_solid",
+        "solid": true
+      },
+      {
+        "case": "closed_loading_face",
+        "solid": true
+      },
+      {
+        "case": "front_apron_clear",
+        "solid": false
+      },
+      {
+        "case": "rear_annex_wall_solid",
+        "solid": true
+      },
+      {
+        "case": "end_wall_solid",
+        "solid": true
+      },
+      {
+        "case": "west_passage_clear",
+        "solid": false
+      },
+      {
+        "case": "east_passage_clear",
+        "solid": false
+      },
+      {
+        "case": "roof_visual_only",
+        "solid": false
+      }
+    ],
+    "prefab_uid": "uid://p7evfgl6vs8o",
+    "sibling_attachment_checks": [
+      {
+        "attachment_top_m": 5.75,
+        "bearing_z": 9.0,
+        "collider_gap_m": 0.0,
+        "motion_casts": [
+          {
+            "blocked": true,
+            "case": "actor_side_seam",
+            "safe_fraction": 0.2060546875
+          },
+          {
+            "blocked": false,
+            "case": "actor_outer_apron",
+            "safe_fraction": 1.0
+          },
+          {
+            "blocked": false,
+            "case": "car_outer_apron",
+            "safe_fraction": 1.0
+          }
+        ],
+        "return_past_steel_m": 0.0199998474121088,
+        "scene": "res://scenes/prefabs/environment/d09_warehouses_03_fit_ridge.tscn",
+        "shape_queries_passed": 5
+      },
+      {
+        "attachment_top_m": 5.75,
+        "bearing_z": 12.0,
+        "collider_gap_m": 0.0,
+        "motion_casts": [
+          {
+            "blocked": true,
+            "case": "actor_side_seam",
+            "safe_fraction": 0.2060546875
+          },
+          {
+            "blocked": false,
+            "case": "actor_outer_apron",
+            "safe_fraction": 1.0
+          },
+          {
+            "blocked": false,
+            "case": "car_outer_apron",
+            "safe_fraction": 1.0
+          }
+        ],
+        "return_past_steel_m": 0.0199998474121088,
+        "scene": "res://scenes/prefabs/environment/d09_warehouses_03_fit_low.tscn",
+        "shape_queries_passed": 5
+      }
+    ],
+    "save_reload_byte_stable": true,
+    "stable_roundtrip_count": 2,
+    "roundtrip_scene_count": 3
+  },
+  "production_checks": {
+    "overall_ok": true,
+    "results": {
+      "engine": {
+        "ok": true,
+        "version": "4.8.dev7.official.c971f93e7"
+      },
+      "gut_pin": {
+        "ok": true,
+        "version": "9.7.1"
+      },
+      "owned_scripts": {
+        "ok": true,
+        "returncode": 0
+      },
+      "python_tests": {
+        "ok": true,
+        "returncode": 0
+      },
+      "gut_import": {
+        "ok": true,
+        "returncode": 0
+      },
+      "gut_tests": {
+        "ok": true,
+        "returncode": 0
+      },
+      "gut_negative": {
+        "ok": true,
+        "observed_returncode": 1
+      }
+    },
+    "compiled_script_count": 212,
+    "python_tests": 17,
+    "gut_tests": 149,
+    "gut_assertions": 6768,
+    "known_failure_exemptions": []
+  },
+  "visual_review": {
+    "renders_inspected": [
+      "hero.png",
+      "side.png",
+      "loading_detail.png",
+      "overhead_47m_42deg.png"
+    ],
+    "renders": [
+      {
+        "file": "hero.png",
+        "pixels": [
+          1152,
+          648
+        ],
+        "bytes": 246594
+      },
+      {
+        "file": "side.png",
+        "pixels": [
+          1152,
+          648
+        ],
+        "bytes": 318718
+      },
+      {
+        "file": "loading_detail.png",
+        "pixels": [
+          1152,
+          648
+        ],
+        "bytes": 363673
+      },
+      {
+        "file": "overhead_47m_42deg.png",
+        "pixels": [
+          1280,
+          720
+        ],
+        "bytes": 372976
+      }
+    ],
+    "renderer": "Blender Cycles CPU, 32 samples, AgX",
+    "camera": "Vertical down, 47 m height, 42 degree vertical FOV, 1280x720",
+    "lean_packaging": "RGB evidence PNG: 6 bits/channel hero, 7 bits/channel others; optimize=True, compression level 9",
+    "observation": "Compact two-panel lean-to roof stays quiet at gameplay height. Shared shutters and amber accents remain subordinate facade details. Hero and side framing corrected and reinspected. Not an engine capture."
+  },
+  "pending": [
+    "Independent review and final district dimensions; bounded sibling fit checked",
+    "World placement, aprons and actual camera/material/LOD review",
+    "Production actor/car motion and multiplayer collision validation",
+    "Exported-platform, Deck and sustained performance validation"
+  ]
+}

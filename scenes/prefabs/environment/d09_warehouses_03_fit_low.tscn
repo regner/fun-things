@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://d07yokjjgftgp"]
+
+[ext_resource type="PackedScene" path="res://scenes/prefabs/environment/d09_warehouses_02.tscn" id="1_warehouse"]
+[ext_resource type="PackedScene" path="res://scenes/prefabs/environment/d09_warehouses_03.tscn" id="2_annex"]
+
+[node name="AnnexFitLowReference" type="Node3D" unique_id=1132801325]
+
+[node name="Warehouse" parent="." unique_id=216687671 instance=ExtResource("1_warehouse")]
+
+[node name="Annex" parent="." unique_id=1044853854 instance=ExtResource("2_annex")]
+transform = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, -1, 0, 0, 15)
