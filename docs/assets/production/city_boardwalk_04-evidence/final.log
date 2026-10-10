@@ -1,0 +1,48 @@
+city_boardwalk.04 — final bounded production receipt, 10 October 2026
+Producer: commissioned implementation specialist; lane/a-boardwalk.
+Base: eb0a4a09 (city_boardwalk.03). Only city_boardwalk_04 owned paths changed.
+Exact reproduction commands and downstream gates: ../city_boardwalk_04.md.
+Scratch root: C:/tmp/ft/assets/city_boardwalk_04 (raw logs/reexport, not committed).
+
+PASS pinned Blender 5.2.2 LTS d13f752e3b9c / glTF exporter 5.2.40.
+PASS author.py, export.py, fresh-process export.py: exits 0.
+PASS validate.py, final rerun: exits 0; byte-identical 22,892-byte GLB.
+756 triangles; 392 Blender vertices; 504 GLB vertices; one mesh/two surfaces.
+Zero degenerate source/export faces or nonmanifold edges; unit normals; applied transforms.
+Measured Godot bounds (-1.68,0,-.28) to (1.68,2,.28) metres; ground pivot and bearing verified.
+PASS render.py: exit 0; four Cycles CPU renders, 96 samples; 1280x720 maximum.
+Hero, front elevation, head/collar detail and vertical-down 47m/42deg overhead visually inspected.
+Hero/overhead sibling context is transient; source/export contains only this asset.
+
+PASS pinned Godot 4.8.dev7.official.c971f93e7 headless import, exit 0.
+PASS check.gd --normalize in headless editor, initial/final: exits 0.
+Two scenes retain exact bytes over save/load/resave; scene/dependency UIDs resolve.
+PASS check.gd non-editor, initial/final: exits 0; no errors/warnings/leaks.
+Imported ancestry, identity transform, AABB, two opaque surfaces, three-box collider verified.
+18 bearing rays and five structure rays pass.
+14 ActorMotion AUTHORITY/REPLAY runs, 48 ticks each, 672 fixed ticks total; identical outcomes.
+Post contact Z=.630208; low head contact Z=.500000; bypass/deck paths Z=-2.000001.
+Every tick retains floor support. No claim of real multiplayer or vehicle test.
+PASS gdstyle check/fmt --check; final script has no warnings.
+PASS Python recipe byte-compilation.
+
+PARTIAL canonical production_checks.py --output C:/tmp/ft/assets/city_boardwalk_04/checks:
+exit 1. Engine/GUT pins, 162-script style/formatting, 14 Python tests, GUT import,
+137/137 GUT tests (6,523 assertions), and intentional-failure detection all pass.
+Compilation passes 99/162 then hits the shared 120-second deadline; 63 remaining
+records say CHECK DEADLINE EXCEEDED, including this asset checker. Full path list
+retained in validation.json. Rendering was concurrent and may have increased contention.
+No compile syntax error was observed. Aggregate command was not repeated unchanged.
+PASS subsequent targeted Godot --check-only for check.gd in canonical compiler mirror:
+exit 0, clean diagnostics. This scoped pass does not erase incomplete aggregate validation.
+
+Diagnostics retained: Blender version-only probe emits 23-byte allocation notice;
+author/render Material.use_nodes API deprecation notice. Actual Blender jobs exit 0
+without allocation errors. Godot import/editor addon warns about engine 4.8 compatibility.
+Editor normalization exits 0 after saves but emits RID/ObjectDB shutdown leaks, as in siblings.
+No live owner editor/session accessed; no vendor diagnostics suppressed or patched.
+Initial style warnings were corrected before canonical checks. No failed physics/geometry run.
+
+Pending: independent review, final coast/ground fit and dimensions, rail/access integration,
+world placement, native populated gameplay camera, vehicle/combat/navigation/water rules,
+actual network transport/admission, packaged/Deck/performance and aggregate compile completion.

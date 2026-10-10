@@ -1,0 +1,649 @@
+{
+  "asset": "city_boardwalk.04",
+  "blender": "5.2.2 LTS",
+  "build_hash": "d13f752e3b9c",
+  "exports": {
+    "city_boardwalk_04": {
+      "actual_glb_aabb": [
+        [
+          -1.67999994754791,
+          0.0,
+          -0.280000001192093
+        ],
+        [
+          1.67999994754791,
+          2.0,
+          0.280000001192093
+        ]
+      ],
+      "applied_transforms": true,
+      "bearing_datum_m": 2.0,
+      "consistent_winding": true,
+      "degenerate_export_triangles": 0.0,
+      "degenerate_faces": 0.0,
+      "dimensions_xyz_m": [
+        3.35999989509583,
+        2.0,
+        0.560000002384186
+      ],
+      "fresh_reexport_byte_identical": true,
+      "glb_bytes": 22892.0,
+      "glb_sha256": "b98c1f0f7daaf266b48c588ac634eb4f10e10f6959465ce139f0b13526219c64",
+      "glb_vertices": 504.0,
+      "ground_datum_m": 0.0,
+      "materials": [
+        {
+          "name": "boardwalk_support_slate",
+          "pbrMetallicRoughness": {
+            "baseColorFactor": [
+              0.0480000004172325,
+              0.0689999982714653,
+              0.0780000016093254,
+              1.0
+            ],
+            "metallicFactor": 0.150000005960464,
+            "roughnessFactor": 0.579999983310699
+          }
+        },
+        {
+          "name": "boardwalk_support_shoes",
+          "pbrMetallicRoughness": {
+            "baseColorFactor": [
+              0.0900000035762787,
+              0.126000002026558,
+              0.136999994516373,
+              1.0
+            ],
+            "metallicFactor": 0.200000002980232,
+            "roughnessFactor": 0.5
+          }
+        }
+      ],
+      "mesh_count": 1.0,
+      "nominal_bound_tolerance_m": 0.001,
+      "nominal_godot_aabb": [
+        [
+          -1.68,
+          0.0,
+          -0.28
+        ],
+        [
+          1.68,
+          2.0,
+          0.28
+        ]
+      ],
+      "nonmanifold_edges": 0.0,
+      "nonmanifold_export_edges_after_exact_position_weld": 0.0,
+      "pivot_kind": "ground centre between feet",
+      "pivot_m": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "source_glb_tolerance_m": 1e-05,
+      "source_godot_aabb": [
+        [
+          -1.67999994754791,
+          0.0,
+          -0.280000001192093
+        ],
+        [
+          1.67999994754791,
+          2.0,
+          0.280000001192093
+        ]
+      ],
+      "source_vertices": 392.0,
+      "surfaces": 2.0,
+      "triangles": 756.0,
+      "unit_normals": true
+    }
+  },
+  "godot": {
+    "bearing_rays": 18,
+    "engine": "4.8-dev7 (official)",
+    "imported_aabb": [
+      "(-1.68, 0.0, -0.28)",
+      "(1.68, 2.0, 0.28)"
+    ],
+    "linked_models_checked": 1,
+    "physics": {
+      "actor_capsule_height_m": 1.8,
+      "actor_capsule_radius_m": 0.35,
+      "authority_replay_equal": true,
+      "network_transport_vehicle_water_falloff": "not tested",
+      "trajectories": [
+        {
+          "authority_end": [
+            10.6199998855591,
+            2.34375474974513e-05,
+            0.630208015441895
+          ],
+          "on_deck": false,
+          "replay_end": [
+            10.6199998855591,
+            2.34375474974513e-05,
+            0.630208015441895
+          ],
+          "start": [
+            10.6199998855591,
+            0.00100000004749745,
+            2.0
+          ],
+          "ticks_per_mode": 48
+        },
+        {
+          "authority_end": [
+            13.3800001144409,
+            2.34375474974513e-05,
+            0.630208015441895
+          ],
+          "on_deck": false,
+          "replay_end": [
+            13.3800001144409,
+            2.34375474974513e-05,
+            0.630208015441895
+          ],
+          "start": [
+            13.3800001144409,
+            0.00100000004749745,
+            2.0
+          ],
+          "ticks_per_mode": 48
+        },
+        {
+          "authority_end": [
+            12.0,
+            0.00100000004749745,
+            0.499999672174454
+          ],
+          "on_deck": false,
+          "replay_end": [
+            12.0,
+            0.00100000004749745,
+            0.499999672174454
+          ],
+          "start": [
+            12.0,
+            0.00100000004749745,
+            2.0
+          ],
+          "ticks_per_mode": 48
+        },
+        {
+          "authority_end": [
+            14.3999996185303,
+            0.00100000004749745,
+            -2.00000071525574
+          ],
+          "on_deck": false,
+          "replay_end": [
+            14.3999996185303,
+            0.00100000004749745,
+            -2.00000071525574
+          ],
+          "start": [
+            14.3999996185303,
+            0.00100000004749745,
+            2.0
+          ],
+          "ticks_per_mode": 48
+        },
+        {
+          "authority_end": [
+            -1.29999995231628,
+            2.2409999370575,
+            -2.00000071525574
+          ],
+          "on_deck": true,
+          "replay_end": [
+            -1.29999995231628,
+            2.2409999370575,
+            -2.00000071525574
+          ],
+          "start": [
+            -1.29999995231628,
+            2.2409999370575,
+            2.0
+          ],
+          "ticks_per_mode": 48
+        },
+        {
+          "authority_end": [
+            0.0,
+            2.2409999370575,
+            -2.00000071525574
+          ],
+          "on_deck": true,
+          "replay_end": [
+            0.0,
+            2.2409999370575,
+            -2.00000071525574
+          ],
+          "start": [
+            0.0,
+            2.2409999370575,
+            2.0
+          ],
+          "ticks_per_mode": 48
+        },
+        {
+          "authority_end": [
+            1.29999995231628,
+            2.2409999370575,
+            -2.00000071525574
+          ],
+          "on_deck": true,
+          "replay_end": [
+            1.29999995231628,
+            2.2409999370575,
+            -2.00000071525574
+          ],
+          "start": [
+            1.29999995231628,
+            2.2409999370575,
+            2.0
+          ],
+          "ticks_per_mode": 48
+        }
+      ]
+    },
+    "save_reload_byte_stable": true,
+    "saved_scene_and_dependency_uids_present": true,
+    "structure_rays": 5,
+    "three_box_compound_verified": true
+  },
+  "status": "PASS source and binary exports; Godot checked separately",
+  "production_checks": {
+    "engine": {
+      "ok": true,
+      "version": "4.8.dev7.official.c971f93e7"
+    },
+    "gut_pin": {
+      "ok": true,
+      "version": "9.7.1"
+    },
+    "owned_scripts": {
+      "ok": false,
+      "returncode": 1
+    },
+    "python_tests": {
+      "ok": true,
+      "returncode": 0
+    },
+    "gut_import": {
+      "ok": true,
+      "returncode": 0
+    },
+    "gut_tests": {
+      "ok": true,
+      "returncode": 0
+    },
+    "gut_negative": {
+      "ok": true,
+      "observed_returncode": 1
+    }
+  },
+  "production_checks_overall_passed": false,
+  "aggregate_compilation_pass_count": 99,
+  "aggregate_compilation_failures": [
+    {
+      "script": "tests/unit/vehicles/test_vehicle_motion.gd",
+      "ok": false,
+      "deadline_exceeded": true
+    },
+    {
+      "script": "tests/unit/world/test_city_data.gd",
+      "ok": false,
+      "deadline_exceeded": true
+    },
+    {
+      "script": "tools/asset_production/city_boardwalk_01/check.gd",
+      "ok": false,
+      "deadline_exceeded": true
+    },
+    {
+      "script": "tools/asset_production/city_boardwalk_02/check.gd",
+      "ok": false,
+      "deadline_exceeded": true
+    },
+    {
+      "script": "tools/asset_production/city_boardwalk_03/check.gd",
+      "ok": false,
+      "deadline_exceeded": true
+    },
+    {
+      "script": "tools/asset_production/city_boardwalk_04/check.gd",
+      "ok": false,
+      "deadline_exceeded": true
+    },
+    {
+      "script": "tools/asset_production/city_marina_docks_01/check.gd",
+      "ok": false,
+      "deadline_exceeded": true
+    },
+    {
+      "script": "tools/asset_production/city_marina_docks_02/check.gd",
+      "ok": false,
+      "deadline_exceeded": true
+    },
+    {
+      "script": "tools/asset_production/city_marina_docks_03/check.gd",
+      "ok": false,
+      "deadline_exceeded": true
+    },
+    {
+      "script": "tools/asset_production/city_marina_docks_04/check.gd",
+      "ok": false,
+      "deadline_exceeded": true
+    },
+    {
+      "script": "tools/asset_production/city_marina_docks_05/check.gd",
+      "ok": false,
+      "deadline_exceeded": true
+    },
+    {
+      "script": "tools/asset_production/city_moored_yachts_01/check_prefab.gd",
+      "ok": false,
+      "deadline_exceeded": true
+    },
+    {
+      "script": "tools/asset_production/city_moored_yachts_02/check_prefab.gd",
+      "ok": false,
+      "deadline_exceeded": true
+    },
+    {
+      "script": "tools/asset_production/city_seating_01/check.gd",
+      "ok": false,
+      "deadline_exceeded": true
+    },
+    {
+      "script": "tools/asset_production/city_seating_02/check.gd",
+      "ok": false,
+      "deadline_exceeded": true
+    },
+    {
+      "script": "tools/asset_production/city_seating_03/check.gd",
+      "ok": false,
+      "deadline_exceeded": true
+    },
+    {
+      "script": "tools/asset_production/city_sign_supports_02/check_prefab.gd",
+      "ok": false,
+      "deadline_exceeded": true
+    },
+    {
+      "script": "tools/asset_production/city_sign_supports_03/check_prefab.gd",
+      "ok": false,
+      "deadline_exceeded": true
+    },
+    {
+      "script": "tools/asset_production/city_sign_supports_04/check_prefab.gd",
+      "ok": false,
+      "deadline_exceeded": true
+    },
+    {
+      "script": "tools/asset_production/city_small_shop_shells_02/check.gd",
+      "ok": false,
+      "deadline_exceeded": true
+    },
+    {
+      "script": "tools/asset_production/city_small_shop_shells_03/check.gd",
+      "ok": false,
+      "deadline_exceeded": true
+    },
+    {
+      "script": "tools/asset_production/city_small_shop_shells_04/check.gd",
+      "ok": false,
+      "deadline_exceeded": true
+    },
+    {
+      "script": "tools/asset_production/city_waste_01/check.gd",
+      "ok": false,
+      "deadline_exceeded": true
+    },
+    {
+      "script": "tools/asset_production/city_waste_02/check.gd",
+      "ok": false,
+      "deadline_exceeded": true
+    },
+    {
+      "script": "tools/asset_production/city_waste_03/check.gd",
+      "ok": false,
+      "deadline_exceeded": true
+    },
+    {
+      "script": "tools/asset_production/d06_commercial_graphics_01/check_prefab.gd",
+      "ok": false,
+      "deadline_exceeded": true
+    },
+    {
+      "script": "tools/asset_production/d06_commercial_graphics_02/check_prefab.gd",
+      "ok": false,
+      "deadline_exceeded": true
+    },
+    {
+      "script": "tools/asset_production/d06_commercial_graphics_03/check_prefab.gd",
+      "ok": false,
+      "deadline_exceeded": true
+    },
+    {
+      "script": "tools/asset_production/d06_commercial_graphics_04/check_prefab.gd",
+      "ok": false,
+      "deadline_exceeded": true
+    },
+    {
+      "script": "tools/asset_production/d06_entertainment_hall_01/check_prefab.gd",
+      "ok": false,
+      "deadline_exceeded": true
+    },
+    {
+      "script": "tools/asset_production/d06_entertainment_hall_02/check_prefab.gd",
+      "ok": false,
+      "deadline_exceeded": true
+    },
+    {
+      "script": "tools/asset_production/d06_entertainment_hall_03/check_prefab.gd",
+      "ok": false,
+      "deadline_exceeded": true
+    },
+    {
+      "script": "tools/asset_production/d06_harbour_footbridge_01/check_prefab.gd",
+      "ok": false,
+      "deadline_exceeded": true
+    },
+    {
+      "script": "tools/asset_production/d06_harbour_footbridge_02/check_prefab.gd",
+      "ok": false,
+      "deadline_exceeded": true
+    },
+    {
+      "script": "tools/asset_production/d06_harbour_footbridge_03/check_prefab.gd",
+      "ok": false,
+      "deadline_exceeded": true
+    },
+    {
+      "script": "tools/asset_production/d06_harbour_footbridge_04/check_prefab.gd",
+      "ok": false,
+      "deadline_exceeded": true
+    },
+    {
+      "script": "tools/asset_production/d06_harbour_footbridge_05/check_prefab.gd",
+      "ok": false,
+      "deadline_exceeded": true
+    },
+    {
+      "script": "tools/asset_production/d06_harbour_footbridge_06/check_prefab.gd",
+      "ok": false,
+      "deadline_exceeded": true
+    },
+    {
+      "script": "tools/asset_production/d06_poster_drum_01/check_prefab.gd",
+      "ok": false,
+      "deadline_exceeded": true
+    },
+    {
+      "script": "tools/asset_production/d06_poster_drum_02/check_prefab.gd",
+      "ok": false,
+      "deadline_exceeded": true
+    },
+    {
+      "script": "tools/asset_production/d06_southern_shopping_parade_01/check_prefab.gd",
+      "ok": false,
+      "deadline_exceeded": true
+    },
+    {
+      "script": "tools/asset_production/d06_southern_shopping_parade_02/check_prefab.gd",
+      "ok": false,
+      "deadline_exceeded": true
+    },
+    {
+      "script": "tools/asset_production/d06_southern_shopping_parade_03/check_prefab.gd",
+      "ok": false,
+      "deadline_exceeded": true
+    },
+    {
+      "script": "tools/asset_production/integration/batch03_author.gd",
+      "ok": false,
+      "deadline_exceeded": true
+    },
+    {
+      "script": "tools/asset_production/integration/inspector.gd",
+      "ok": false,
+      "deadline_exceeded": true
+    },
+    {
+      "script": "tools/assets/characters/coral_courier/capture_preview.gd",
+      "ok": false,
+      "deadline_exceeded": true
+    },
+    {
+      "script": "tools/assets/characters/coral_courier/check_player_asset.gd",
+      "ok": false,
+      "deadline_exceeded": true
+    },
+    {
+      "script": "tools/assets/characters/coral_courier/check_shared_rig.gd",
+      "ok": false,
+      "deadline_exceeded": true
+    },
+    {
+      "script": "tools/assets/characters/coral_courier/editor_bridge.gd",
+      "ok": false,
+      "deadline_exceeded": true
+    },
+    {
+      "script": "tools/assets/characters/coral_courier/extract_motion.gd",
+      "ok": false,
+      "deadline_exceeded": true
+    },
+    {
+      "script": "tools/assets/characters/coral_courier/measure_run.gd",
+      "ok": false,
+      "deadline_exceeded": true
+    },
+    {
+      "script": "tools/assets/characters/pedestrian_worker/author_scenes.gd",
+      "ok": false,
+      "deadline_exceeded": true
+    },
+    {
+      "script": "tools/assets/characters/pedestrian_worker/capture_motion.gd",
+      "ok": false,
+      "deadline_exceeded": true
+    },
+    {
+      "script": "tools/assets/characters/pedestrian_worker/check_imported_contact.gd",
+      "ok": false,
+      "deadline_exceeded": true
+    },
+    {
+      "script": "tools/assets/characters/pedestrian_worker/check_worker.gd",
+      "ok": false,
+      "deadline_exceeded": true
+    },
+    {
+      "script": "tools/assets/vehicles/city_cars/editor_author.gd",
+      "ok": false,
+      "deadline_exceeded": true
+    },
+    {
+      "script": "tools/assets/weapons/dock_thumper/capture_check.gd",
+      "ok": false,
+      "deadline_exceeded": true
+    },
+    {
+      "script": "tools/assets/weapons/pistol_coral_stub/editor_bridge.gd",
+      "ok": false,
+      "deadline_exceeded": true
+    },
+    {
+      "script": "tools/assets/weapons/smg_wedgewire/check_asset.gd",
+      "ok": false,
+      "deadline_exceeded": true
+    },
+    {
+      "script": "tools/assets/weapons/smg_wedgewire/editor_author.gd",
+      "ok": false,
+      "deadline_exceeded": true
+    },
+    {
+      "script": "tools/assets/world/brackett_greybox/author_editor.gd",
+      "ok": false,
+      "deadline_exceeded": true
+    },
+    {
+      "script": "tools/assets/world/brackett_greybox/capture.gd",
+      "ok": false,
+      "deadline_exceeded": true
+    },
+    {
+      "script": "tools/assets/world/brackett_greybox/check_scene.gd",
+      "ok": false,
+      "deadline_exceeded": true
+    }
+  ],
+  "targeted_compile": {
+    "script": "tools/asset_production/city_boardwalk_04/check.gd",
+    "exit_code": 0,
+    "clean_diagnostics": true,
+    "method": "pinned Godot --check-only in canonical compiler mirror",
+    "log_sha256": "9741d7f5c42aa8f69ac5be46769ae35be017a56a2d14a4cc75eb350889c244f9"
+  },
+  "renders": [
+    {
+      "file": "hero.png",
+      "size_px": [
+        1152,
+        648
+      ],
+      "bytes": 345066
+    },
+    {
+      "file": "side.png",
+      "size_px": [
+        1280,
+        720
+      ],
+      "bytes": 169338
+    },
+    {
+      "file": "detail.png",
+      "size_px": [
+        1024,
+        576
+      ],
+      "bytes": 250998
+    },
+    {
+      "file": "overhead_47m_42deg.png",
+      "size_px": [
+        1280,
+        720
+      ],
+      "bytes": 383382
+    }
+  ],
+  "render_encoding": "RGB 7 significant bits per channel, PNG compression 9"
+}

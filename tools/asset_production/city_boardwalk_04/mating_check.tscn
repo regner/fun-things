@@ -1,0 +1,55 @@
+[gd_scene format=3 uid="uid://djojbkhngbt2c"]
+
+[ext_resource type="PackedScene" uid="uid://6xxfpgmuvqg1" path="res://scenes/prefabs/environment/city_boardwalk_04.tscn" id="1_support"]
+[ext_resource type="PackedScene" uid="uid://btsnym45lcgwn" path="res://scenes/prefabs/environment/city_boardwalk_01.tscn" id="2_deck"]
+[ext_resource type="PackedScene" uid="uid://ejg1agxqo84v" path="res://scenes/prefabs/environment/city_boardwalk_03.tscn" id="3_fascia"]
+[ext_resource type="Script" uid="uid://jthmfio4c27p" path="res://scripts/actors/actor_motion.gd" id="4_motion"]
+[ext_resource type="PackedScene" uid="uid://cws6ebxn7y8iu" path="res://scenes/prefabs/environment/city_boardwalk_02_45.tscn" id="5_bend"]
+
+[sub_resource type="BoxShape3D" id="Box_test_floor"]
+size = Vector3(8, 0.24, 8)
+
+[sub_resource type="CapsuleShape3D" id="Capsule_actor"]
+radius = 0.35
+height = 1.8
+
+[node name="BoardwalkSupportCheck" type="Node3D" unique_id=1847230500]
+
+[node name="Deck" parent="." unique_id=1370314914 instance=ExtResource("2_deck")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.24, 0)
+
+[node name="SupportA" parent="." unique_id=72715411 instance=ExtResource("1_support")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.5)
+
+[node name="SupportB" parent="." unique_id=780096112 instance=ExtResource("1_support")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.5)
+
+[node name="RightFascia" parent="." unique_id=1655974564 instance=ExtResource("3_fascia")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.8, 2.24, 0)
+
+[node name="LeftFascia" parent="." unique_id=1638247200 instance=ExtResource("3_fascia")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -1.8, 2.24, 0)
+
+[node name="ContactSupport" parent="." unique_id=2145092017 instance=ExtResource("1_support")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 0, 0)
+
+[node name="ContactFloor" type="StaticBody3D" parent="." unique_id=679728423]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12, -0.12, 0)
+collision_mask = 0
+
+[node name="Floor" type="CollisionShape3D" parent="ContactFloor" unique_id=1342037720]
+shape = SubResource("Box_test_floor")
+
+[node name="Bend" parent="." unique_id=60617183 instance=ExtResource("5_bend")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24, 2.24, 0)
+
+[node name="BendSupport" parent="." unique_id=1916298475 instance=ExtResource("1_support")]
+transform = Transform3D(0.9238795, 0, -0.38268346, 0, 1, 0, 0.38268346, 0, 0.9238795, 24.456722, 0, -2.296101)
+
+[node name="Actor" type="CharacterBody3D" parent="." unique_id=1976792935]
+collision_layer = 2
+script = ExtResource("4_motion")
+
+[node name="Capsule" type="CollisionShape3D" parent="Actor" unique_id=2107799568]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0)
+shape = SubResource("Capsule_actor")

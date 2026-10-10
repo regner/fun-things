@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://6xxfpgmuvqg1"]
+
+[ext_resource type="PackedScene" uid="uid://q6cn4yn6y3nq" path="res://art/models/environment/city_boardwalk_04/city_boardwalk_04.glb" id="1_model"]
+
+[sub_resource type="BoxShape3D" id="Box_post"]
+size = Vector3(0.5, 1.68, 0.56)
+
+[sub_resource type="BoxShape3D" id="Box_head"]
+size = Vector3(3.36, 0.32, 0.48)
+
+[node name="CityBoardwalk04" type="Node3D" unique_id=868242641]
+
+[node name="Visuals" type="Node3D" parent="." unique_id=527520622]
+
+[node name="Model" parent="Visuals" unique_id=1150945943 instance=ExtResource("1_model")]
+
+[node name="Collision" type="Node3D" parent="." unique_id=1121087239]
+
+[node name="Body" type="StaticBody3D" parent="Collision" unique_id=118710108]
+collision_mask = 0
+
+[node name="LeftPost" type="CollisionShape3D" parent="Collision/Body" unique_id=1924417145]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.38, 0.84, 0)
+shape = SubResource("Box_post")
+
+[node name="RightPost" type="CollisionShape3D" parent="Collision/Body" unique_id=1409866406]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.38, 0.84, 0)
+shape = SubResource("Box_post")
+
+[node name="Crosshead" type="CollisionShape3D" parent="Collision/Body" unique_id=2104222049]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.84, 0)
+shape = SubResource("Box_head")
