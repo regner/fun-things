@@ -71,6 +71,23 @@
   "glb_sha256": "69ee45e57e4736f8ea22f56704307bade352012587b33e1861ec5887ff034c9e",
   "fresh_reexport_byte_identical": true,
   "source_status": "PASS",
+  "review_round_1": {
+    "finding": "P2: missing serialized dependency UIDs",
+    "missing_uid_regression": {
+      "exit_code": 1,
+      "rejected_dependencies": [
+        "res://art/models/environment/d03_court_graphics_01/d03_court_graphics_01.glb",
+        "res://art/textures/environment/d03_court_graphics_01/communal_circle_albedo.png"
+      ]
+    },
+    "mismatched_uid_regression": {
+      "exit_code": 1,
+      "mutated_resource": "art/materials/environment/d03_court_graphics_01/communal_circle.tres",
+      "rejected_uid": "uid://blxebt67ss4g5"
+    },
+    "scope": "Identity metadata only; source, exported geometry, artwork and render bytes unchanged.",
+    "renders_rerun": false
+  },
   "artwork": {
     "ok": true,
     "png_bytes": 176730,
@@ -116,20 +133,36 @@
       "engine": "4.8-dev7 (official)",
       "engine_hash": "c971f93e7e76b0ef919bf6009e7b868bea04db7f",
       "failures": [],
-      "material_sha256": "6042f4d52d0efde02ecd8555743963c8204ea25b393eba0227312ff9b8f0be4b",
+      "material_sha256": "f89c7c1e3364b715af6156d8db79f96392a9c0d44676ccba7a1cc0e7db70d7a4",
       "material_uid": "uid://dj6qc7kwuxkqh",
       "mipmaps": true,
       "ok": true,
-      "prefab_sha256": "3d1d740a19c4c72252abf9689eb102f14eebf4212309e5c9daadc5ba2f67243b",
+      "prefab_sha256": "44c9e2595930243a5d929c71da5e06e8f27eb2a6d19f7ff2e1b4f46eb5117313",
       "prefab_uid": "uid://d1sh0iqp3dq32",
       "roundtrip_1_byte_stable": true,
       "roundtrip_2_byte_stable": true,
+      "serialized_dependency_uids": {
+        "res://art/materials/environment/d03_court_graphics_01/communal_circle.tres": {
+          "res://art/textures/environment/d03_court_graphics_01/communal_circle_albedo.png": "uid://rjorststglqy"
+        },
+        "res://scenes/prefabs/environment/d03_court_graphics_01.tscn": {
+          "res://art/models/environment/d03_court_graphics_01/d03_court_graphics_01.glb": "uid://b1kcgorp01f3s"
+        }
+      },
       "texture_image_bytes_including_mips": 4194303.0,
       "texture_image_format": 4.0,
       "texture_size": [
         1024.0,
         1024.0
       ]
+    },
+    "serialized_dependency_uids": {
+      "res://art/materials/environment/d03_court_graphics_01/communal_circle.tres": {
+        "res://art/textures/environment/d03_court_graphics_01/communal_circle_albedo.png": "uid://rjorststglqy"
+      },
+      "res://scenes/prefabs/environment/d03_court_graphics_01.tscn": {
+        "res://art/models/environment/d03_court_graphics_01/d03_court_graphics_01.glb": "uid://b1kcgorp01f3s"
+      }
     },
     "surface_count": 1,
     "texture_image_bytes_including_mips": 4194303,
@@ -143,14 +176,22 @@
     "engine": "4.8-dev7 (official)",
     "engine_hash": "c971f93e7e76b0ef919bf6009e7b868bea04db7f",
     "failures": [],
-    "material_sha256": "6042f4d52d0efde02ecd8555743963c8204ea25b393eba0227312ff9b8f0be4b",
+    "material_sha256": "f89c7c1e3364b715af6156d8db79f96392a9c0d44676ccba7a1cc0e7db70d7a4",
     "material_uid": "uid://dj6qc7kwuxkqh",
     "mipmaps": true,
     "ok": true,
-    "prefab_sha256": "3d1d740a19c4c72252abf9689eb102f14eebf4212309e5c9daadc5ba2f67243b",
+    "prefab_sha256": "44c9e2595930243a5d929c71da5e06e8f27eb2a6d19f7ff2e1b4f46eb5117313",
     "prefab_uid": "uid://d1sh0iqp3dq32",
     "roundtrip_1_byte_stable": true,
     "roundtrip_2_byte_stable": true,
+    "serialized_dependency_uids": {
+      "res://art/materials/environment/d03_court_graphics_01/communal_circle.tres": {
+        "res://art/textures/environment/d03_court_graphics_01/communal_circle_albedo.png": "uid://rjorststglqy"
+      },
+      "res://scenes/prefabs/environment/d03_court_graphics_01.tscn": {
+        "res://art/models/environment/d03_court_graphics_01/d03_court_graphics_01.glb": "uid://b1kcgorp01f3s"
+      }
+    },
     "texture_image_bytes_including_mips": 4194303,
     "texture_image_format": 4,
     "texture_size": [
