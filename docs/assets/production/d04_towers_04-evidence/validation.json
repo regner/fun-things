@@ -1,0 +1,470 @@
+{
+  "status": "PASS: source and GLB; engine/gameplay gates recorded separately",
+  "blender": "5.2.2 LTS",
+  "build_hash": "d13f752e3b9c",
+  "glTF_exporter": "5.2.40",
+  "sections": {
+    "D04Towers04_Lobby": {
+      "vertices": 1624,
+      "triangles": 3120,
+      "degenerate_faces": 0,
+      "nonmanifold_edges": 0,
+      "normal_length_max_error": 1.590807288120999e-07,
+      "aabb_godot": {
+        "min": [
+          -12.0,
+          0.0,
+          -10.200000762939453
+        ],
+        "max": [
+          12.0,
+          6.0,
+          9.0
+        ],
+        "size": [
+          24.0,
+          6.0,
+          19.200000762939453
+        ]
+      },
+      "materials": [
+        "glassward_lobby_stone",
+        "glassward_indigo",
+        "glassward_frame",
+        "glassward_glazing_opaque",
+        "glassward_accent_magenta"
+      ]
+    },
+    "D04Towers04_Facade": {
+      "vertices": 3752,
+      "triangles": 7236,
+      "degenerate_faces": 0,
+      "nonmanifold_edges": 0,
+      "normal_length_max_error": 1.6741977071355052e-07,
+      "aabb_godot": {
+        "min": [
+          -11.0,
+          5.999999046325684,
+          -8.0
+        ],
+        "max": [
+          11.0,
+          27.599998474121094,
+          8.0
+        ],
+        "size": [
+          22.0,
+          21.59999942779541,
+          16.0
+        ]
+      },
+      "materials": [
+        "glassward_indigo",
+        "glassward_glazing_highlight",
+        "glassward_glazing_opaque",
+        "glassward_frame"
+      ]
+    },
+    "D04Towers04_Crown": {
+      "vertices": 392,
+      "triangles": 772,
+      "degenerate_faces": 0,
+      "nonmanifold_edges": 0,
+      "normal_length_max_error": 1.272207361679989e-07,
+      "aabb_godot": {
+        "min": [
+          -11.399999618530273,
+          27.600000381469727,
+          -8.399999618530273
+        ],
+        "max": [
+          11.399999618530273,
+          32.400001525878906,
+          8.399999618530273
+        ],
+        "size": [
+          22.799999237060547,
+          4.80000114440918,
+          16.799999237060547
+        ]
+      },
+      "materials": [
+        "glassward_frame",
+        "glassward_indigo",
+        "glassward_crown_cyan"
+      ]
+    }
+  },
+  "source_vertices": 5768,
+  "source_triangles": 11128,
+  "source_degenerate_faces": 0,
+  "source_nonmanifold_edges": 0,
+  "glb_vertices_including_surface_splits": 7408,
+  "glb_triangles": 11128,
+  "glb_degenerate_triangles": 0,
+  "glb_max_normal_length_error": 1.3556671318859514e-07,
+  "mesh_count": 3,
+  "surface_count": 12,
+  "material_count": 7,
+  "aabb_godot": {
+    "min": [
+      -12.0,
+      0.0,
+      -10.200000762939453
+    ],
+    "max": [
+      12.0,
+      32.400001525878906,
+      9.0
+    ],
+    "size": [
+      24.0,
+      32.400001525878906,
+      19.200000762939453
+    ]
+  },
+  "envelope_tolerance_m": 0.001,
+  "ground_contact_pivot": [
+    0,
+    0,
+    0
+  ],
+  "materials": [
+    {
+      "name": "glassward_frame",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.11999999731779099,
+          0.18000000715255737,
+          0.2800000011920929,
+          1
+        ],
+        "metallicFactor": 0.3199999928474426,
+        "roughnessFactor": 0.41999998688697815
+      }
+    },
+    {
+      "name": "glassward_indigo",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.032999999821186066,
+          0.052000001072883606,
+          0.15000000596046448,
+          1
+        ],
+        "metallicFactor": 0.2199999988079071,
+        "roughnessFactor": 0.46000000834465027
+      }
+    },
+    {
+      "emissiveFactor": [
+        0.022749998778104796,
+        0.22049999457597735,
+        0.26949998873472225
+      ],
+      "name": "glassward_crown_cyan",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.06499999761581421,
+          0.6299999952316284,
+          0.7699999809265137,
+          1
+        ],
+        "metallicFactor": 0.18000000715255737,
+        "roughnessFactor": 0.3199999928474426
+      }
+    },
+    {
+      "name": "glassward_glazing_highlight",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.09000000357627869,
+          0.2199999988079071,
+          0.3199999928474426,
+          1
+        ],
+        "metallicFactor": 0.3799999952316284,
+        "roughnessFactor": 0.30000001192092896
+      }
+    },
+    {
+      "name": "glassward_glazing_opaque",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.054999999701976776,
+          0.14499999582767487,
+          0.23999999463558197,
+          1
+        ],
+        "metallicFactor": 0.41999998688697815,
+        "roughnessFactor": 0.30000001192092896
+      }
+    },
+    {
+      "name": "glassward_lobby_stone",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.3199999928474426,
+          0.38999998569488525,
+          0.46000000834465027,
+          1
+        ],
+        "metallicFactor": 0,
+        "roughnessFactor": 0.6000000238418579
+      }
+    },
+    {
+      "emissiveFactor": [
+        0.07439999890923499,
+        0.0041999999240040775,
+        0.029999999329447746
+      ],
+      "name": "glassward_accent_magenta",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.6200000047683716,
+          0.03500000014901161,
+          0.25,
+          1
+        ],
+        "metallicFactor": 0.10000000149011612,
+        "roughnessFactor": 0.4000000059604645
+      }
+    }
+  ],
+  "reexport_byte_identical": true,
+  "glb_sha256": "fd716f77780c47b9a692f58b811a14e064360544d12924de20f20625a1371e61",
+  "glb_bytes": 314476,
+  "crown_shape": {
+    "two_stepped_rectangular_tiers_verified": true,
+    "lower_rim_plan_width_depth_m": [
+      22.8,
+      16.8
+    ],
+    "upper_rim_plan_width_depth_m": [
+      16,
+      10
+    ],
+    "upper_tier_setback_each_side_m": 3.4,
+    "rim_width_m": 0.8,
+    "lower_rim_bottom_top_m": [
+      29.1,
+      29.7
+    ],
+    "upper_rim_bottom_top_m": [
+      31.5,
+      32.4
+    ],
+    "collision": "Crown above Y=27.6 is overhead visual-only; no rooftop gameplay"
+  },
+  "interfaces_godot": {
+    "lobby_top_m": 6,
+    "floor_pitch_m": 3.6,
+    "floor_count": 6,
+    "three_floor_group_pitch_m": 10.8,
+    "crown_bottom_m": 27.6,
+    "crown_seat_width_depth_m": [
+      22,
+      16
+    ],
+    "height_m": 32.4
+  },
+  "engine": {
+    "aabb_min": [
+      -12.0,
+      0.0,
+      -10.2000007629395
+    ],
+    "aabb_size": [
+      24.0,
+      32.4000015258789,
+      19.2000007629395
+    ],
+    "collision_shape_count": 2,
+    "engine": "4.8-dev7 (official)",
+    "failures": [],
+    "front_ray_hit": [
+      0.0,
+      1.0,
+      -9.0
+    ],
+    "linked_model_identity": true,
+    "materials": [
+      "glassward_frame",
+      "glassward_indigo",
+      "glassward_crown_cyan",
+      "glassward_glazing_highlight",
+      "glassward_glazing_opaque",
+      "glassward_lobby_stone",
+      "glassward_accent_magenta"
+    ],
+    "mesh_count": 3,
+    "model_uid": "uid://byvko1tlpa8ml",
+    "ok": true,
+    "physics_motion_casts": [
+      {
+        "blocked": true,
+        "case": "actor_front",
+        "safe_fraction": 0.5810546875
+      },
+      {
+        "blocked": true,
+        "case": "actor_rear",
+        "safe_fraction": 0.5810546875
+      },
+      {
+        "blocked": true,
+        "case": "actor_end",
+        "safe_fraction": 0.4560546875
+      },
+      {
+        "blocked": false,
+        "case": "actor_bypass",
+        "safe_fraction": 1.0
+      },
+      {
+        "blocked": false,
+        "case": "canopy_bypass",
+        "safe_fraction": 1.0
+      },
+      {
+        "blocked": true,
+        "case": "car_front",
+        "safe_fraction": 0.39990234375
+      },
+      {
+        "blocked": false,
+        "case": "car_bypass",
+        "safe_fraction": 1.0
+      }
+    ],
+    "physics_shape_queries": [
+      {
+        "case": "interior_solid",
+        "solid": true
+      },
+      {
+        "case": "closed_lobby_door",
+        "solid": true
+      },
+      {
+        "case": "under_canopy_clear",
+        "solid": false
+      },
+      {
+        "case": "rear_wall_solid",
+        "solid": true
+      },
+      {
+        "case": "east_wall_solid",
+        "solid": true
+      },
+      {
+        "case": "west_walk_clear",
+        "solid": false
+      },
+      {
+        "case": "east_walk_clear",
+        "solid": false
+      },
+      {
+        "case": "front_left_corner",
+        "solid": true
+      },
+      {
+        "case": "rear_right_corner",
+        "solid": true
+      },
+      {
+        "case": "lobby_top_solid",
+        "solid": true
+      },
+      {
+        "case": "setback_clear",
+        "solid": false
+      },
+      {
+        "case": "section_join_solid",
+        "solid": true
+      },
+      {
+        "case": "shaft_top_solid",
+        "solid": true
+      },
+      {
+        "case": "overhead_crown_visual_only",
+        "solid": false
+      },
+      {
+        "case": "above_camera_clear",
+        "solid": false
+      },
+      {
+        "case": "crown_trim_nonblocking",
+        "solid": false
+      }
+    ],
+    "prefab_uid": "uid://cmhyqf1gm08il",
+    "surface_count": 12,
+    "save_reload_byte_stable": true,
+    "stable_roundtrip_count": 2
+  },
+  "validation_policy": "Owner decision 52: asset-scoped import, source/export byte-compare, prefab roundtrips and owned GDScript formatting/lint only. No global production suite required or invoked.",
+  "visual_review": {
+    "renders_inspected": [
+      "hero.png",
+      "side.png",
+      "crown_detail.png",
+      "overhead_47m_42deg.png"
+    ],
+    "renders": [
+      {
+        "file": "hero.png",
+        "pixels": [
+          1152,
+          648
+        ],
+        "bytes": 372972
+      },
+      {
+        "file": "side.png",
+        "pixels": [
+          1152,
+          648
+        ],
+        "bytes": 305121
+      },
+      {
+        "file": "crown_detail.png",
+        "pixels": [
+          1152,
+          648
+        ],
+        "bytes": 377829
+      },
+      {
+        "file": "overhead_47m_42deg.png",
+        "pixels": [
+          1280,
+          720
+        ],
+        "bytes": 400892
+      }
+    ],
+    "renderer": "Blender Cycles CPU, 32 samples, AgX",
+    "gameplay_camera_godot_position_m": [
+      14,
+      47,
+      -12
+    ],
+    "gameplay_camera": "Vertical down, north-up, 42 degree vertical FOV, 1280x720",
+    "lean_packaging": "7-bit/channel RGB evidence PNG, optimize=True, compression level 9",
+    "observation": "Two stepped cyan tiers, broad indigo window groups and closed lobby read in supporting views. The off-footprint gameplay view crops the lower crown and facade at the bottom-left edge; the upper tier is outside the frustum. Open ground remains visible. No placement, occlusion acceptance or cutaway."
+  },
+  "pending": [
+    "Independent art/technical review and final dimensions/sibling compatibility",
+    "World placement with important open forecourt; actual engine camera/occlusion/material/LOD review",
+    "Production actor/car controller and multiplayer collision checks",
+    "Exported-platform, Deck and sustained repeated-placement performance"
+  ]
+}
