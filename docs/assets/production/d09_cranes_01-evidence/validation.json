@@ -1,0 +1,257 @@
+{
+  "asset": "d09_cranes.01",
+  "blender": "5.2.2 LTS",
+  "blender_build": "d13f752e3b9c",
+  "bounds_tolerance_m": 0.001,
+  "degenerate_faces": 0.0,
+  "degenerate_triangles": 0.0,
+  "export_normal_max_length_error": 1.20350243326683e-07,
+  "export_vertices": 5924.0,
+  "exporter": "5.2.40",
+  "fresh_export_byte_identical": true,
+  "glb_bytes": 246104.0,
+  "glb_sha256": "3ddc6802513509e0e1ceffe4d58f2f8bddba58927ce49f33fbb7f9fee3d9541f",
+  "godot": {
+    "bounds_min_m": [
+      -2.79999995231628,
+      0.0,
+      -16.5173282623291
+    ],
+    "bounds_size_m": [
+      5.59999990463257,
+      22.065357208252,
+      22.044828414917
+    ],
+    "engine": "4.8-dev7 (official)",
+    "linked_model_identity": true,
+    "physics": {
+      "actor_capsule_height_m": 1.8,
+      "actor_capsule_radius_m": 0.35,
+      "authority_replay_equal": true,
+      "base_and_tower_rays_blocked": true,
+      "bypass_end_m": [
+        3.59999990463257,
+        0.00100000004749745,
+        4.00000095367432
+      ],
+      "contact_stop_m": [
+        0.0,
+        0.00100000004749745,
+        -3.16666388511658
+      ],
+      "overhead_ray_clear": true,
+      "ticks_per_case_per_mode": 120,
+      "vehicle_network_transport_and_placement": "not tested"
+    },
+    "resource_uids": {
+      "res://art/models/environment/d09_cranes_01/d09_cranes_01.glb": "uid://c2ehe7rao5pec",
+      "res://scenes/prefabs/environment/d09_cranes_01.tscn": "uid://3jxsx0uxmojs",
+      "res://scripts/actors/actor_motion.gd": "uid://jthmfio4c27p",
+      "res://tools/asset_production/d09_cranes_01/check_scene.tscn": "uid://i1454je5dhpd"
+    },
+    "save_reload_byte_stable": true,
+    "static_collision": {
+      "bodies": 1,
+      "boxes": 2,
+      "layer": 1,
+      "mask": 0
+    }
+  },
+  "godot_bounds_max_m": [
+    2.79999995231628,
+    22.065357208252,
+    5.52749967575073
+  ],
+  "godot_bounds_min_m": [
+    -2.79999995231628,
+    0.0,
+    -16.5173282623291
+  ],
+  "godot_dimensions_m": [
+    5.59999990463257,
+    22.065357208252,
+    22.0448279380798
+  ],
+  "materials": [
+    {
+      "name": "crane_support_petrol",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.025000000372529,
+          0.0750000029802322,
+          0.0900000035762787,
+          1.0
+        ],
+        "metallicFactor": 0.449999988079071,
+        "roughnessFactor": 0.46000000834465
+      }
+    },
+    {
+      "name": "crane_joint_slate",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.115000002086163,
+          0.165000006556511,
+          0.185000002384186,
+          1.0
+        ],
+        "metallicFactor": 0.550000011920929,
+        "roughnessFactor": 0.400000005960464
+      }
+    },
+    {
+      "name": "crane_working_amber",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          1.0,
+          0.52700001001358,
+          0.101999998092651,
+          1.0
+        ],
+        "metallicFactor": 0.119999997317791,
+        "roughnessFactor": 0.419999986886978
+      }
+    },
+    {
+      "name": "crane_cab_glazing",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.0260000005364418,
+          0.129999995231628,
+          0.170000001788139,
+          1.0
+        ],
+        "metallicFactor": 0.25,
+        "roughnessFactor": 0.230000004172325
+      }
+    },
+    {
+      "name": "crane_safety_ivory",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.9200000166893,
+          0.879999995231628,
+          0.709999978542328,
+          1.0
+        ],
+        "metallicFactor": 0.0500000007450581,
+        "roughnessFactor": 0.479999989271164
+      }
+    }
+  ],
+  "mesh_count": 1.0,
+  "nonmanifold_edges": 0.0,
+  "pivot_m": [
+    0.0,
+    0.0,
+    0.0
+  ],
+  "shell_intersections": "Deliberately seated closed hardware shells, not a watertight Boolean union",
+  "source_export_status": "passed",
+  "source_faces": 4112.0,
+  "source_normal_max_length_error": 1.63101517181019e-07,
+  "source_vertices": 4436.0,
+  "summed_closed_shell_volume_m3": 263.040372288028,
+  "surface_count": 5.0,
+  "triangles": 8588.0,
+  "production_checks": {
+    "ok": true,
+    "results": {
+      "engine": {
+        "ok": true,
+        "version": "4.8.dev7.official.c971f93e7"
+      },
+      "gut_pin": {
+        "ok": true,
+        "version": "9.7.1"
+      },
+      "owned_scripts": {
+        "ok": true,
+        "returncode": 0
+      },
+      "python_tests": {
+        "ok": true,
+        "returncode": 0
+      },
+      "gut_import": {
+        "ok": true,
+        "returncode": 0
+      },
+      "gut_tests": {
+        "ok": true,
+        "returncode": 0
+      },
+      "gut_negative": {
+        "ok": true,
+        "observed_returncode": 1
+      }
+    },
+    "python_tests": 17,
+    "gut_tests": 149,
+    "gut_assertions": 6768
+  },
+  "renders": [
+    {
+      "path": "hero.png",
+      "pixels": [
+        1280,
+        720
+      ],
+      "bytes": 284164
+    },
+    {
+      "path": "side.png",
+      "pixels": [
+        1280,
+        720
+      ],
+      "bytes": 133097
+    },
+    {
+      "path": "detail.png",
+      "pixels": [
+        1280,
+        720
+      ],
+      "bytes": 319204
+    },
+    {
+      "path": "overhead_47m_42deg.png",
+      "pixels": [
+        1280,
+        720
+      ],
+      "bytes": 254487
+    }
+  ],
+  "render_encoding": "RGB, 6 significant bits/channel; PNG compression 9",
+  "overhead_camera": {
+    "renderer": "Blender Cycles CPU, 32 samples, AgX; isolated studio",
+    "blender_position_m": [
+      0,
+      6.7,
+      47
+    ],
+    "rotation_radians": [
+      0,
+      0,
+      0
+    ],
+    "vertical_fov_degrees": 42,
+    "north_up": true
+  },
+  "diagnostics": [
+    "Blender 5.2.2 emits forward-looking Material/World.use_nodes deprecation notices.",
+    "Headless import emits the existing MCP toolkit 4.8-vs-tested-4.7 warning.",
+    "First production-check invocation selected the PATH gdvm shim and failed version discovery (including a cp1252 reader error). PYTHONUTF8 alone did not fix the shim. Final invocation uses explicit mise-pinned Godot/gdstyle paths and passes all layers.",
+    "Initial visual review added boom end posts and removed the studio horizon. Final four renders were inspected after reauthor/export."
+  ],
+  "pending": [
+    "Independent art/technical acceptance",
+    "Actual engine-camera appearance and occlusion",
+    "Unequal crane pair comparison after d09_cranes.02 exists",
+    "Land-only base placement, over-water boom orientation and generous apron spacing",
+    "Vehicle driving/turning; multiplayer transport/admission/prediction",
+    "Packaged-platform, Deck and repeated-placement GPU/frame-time performance"
+  ]
+}
