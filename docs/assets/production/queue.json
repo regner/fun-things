@@ -4592,14 +4592,14 @@
       "input_next_action": "Review collegiate hall design and map fit",
       "brief": "[Brief](../../assets/d01_academic_buildings.md)",
       "priority": 0,
-      "status": "queued",
-      "agent_id": null,
-      "source_revision": null,
-      "review_status": "pending",
-      "integration_status": "pending",
+      "status": "production_prefab_accepted",
+      "agent_id": "19759fbe-909f-45c4-bc5b-b34c39d6b5e3",
+      "source_revision": "7f8ac849",
+      "review_status": "accepted source/export/prefab scope (independent Sol review)",
+      "integration_status": "accepted",
       "placement_status": "pending",
       "blocker": null,
-      "attempts": 0,
+      "attempts": 1,
       "initial_time_cap_minutes": 120,
       "owned_paths": [
         "art/source/models/environment/d01_academic_buildings_01/",
@@ -4607,8 +4607,20 @@
         "art/textures/environment/d01_academic_buildings_01/",
         "art/materials/environment/d01_academic_buildings_01/",
         "docs/assets/production/d01_academic_buildings_01.md",
-        "docs/assets/production/d01_academic_buildings_01-evidence/"
-      ]
+        "docs/assets/production/d01_academic_buildings_01-evidence/",
+        "tools/asset_production/d01_academic_buildings_01/",
+        "scenes/prefabs/environment/d01_academic_buildings_01.tscn"
+      ],
+      "launch": {
+        "provider": "portkey/gpt-6-astra",
+        "configured_effort": "medium",
+        "mode": "orchestrator asset lane",
+        "lane": "a-acad"
+      },
+      "producer_manifest": "docs/assets/production/d01_academic_buildings_01-evidence/manifest.json",
+      "report": "docs/assets/production/d01_academic_buildings_01.md",
+      "reviewer_id": "889f1dc9-7bdf-403a-84c1-93040998ae85",
+      "integrated_revision": "b7a18011"
     },
     {
       "id": "d01_academic_buildings.02",
@@ -4621,14 +4633,14 @@
       "input_next_action": "Refine design from Northpoint breakdown",
       "brief": "[Brief](../../assets/d01_academic_buildings.md)",
       "priority": 0,
-      "status": "queued",
-      "agent_id": null,
-      "source_revision": null,
-      "review_status": "pending",
-      "integration_status": "pending",
+      "status": "production_prefab_accepted",
+      "agent_id": "f9f75001-501b-4dfb-a6d5-9251ce375c5b",
+      "source_revision": "6e378ed6",
+      "review_status": "accepted source/export/prefab scope (independent Sol review)",
+      "integration_status": "accepted",
       "placement_status": "pending",
       "blocker": null,
-      "attempts": 0,
+      "attempts": 1,
       "initial_time_cap_minutes": 120,
       "owned_paths": [
         "art/source/models/environment/d01_academic_buildings_02/",
@@ -4636,8 +4648,20 @@
         "art/textures/environment/d01_academic_buildings_02/",
         "art/materials/environment/d01_academic_buildings_02/",
         "docs/assets/production/d01_academic_buildings_02.md",
-        "docs/assets/production/d01_academic_buildings_02-evidence/"
-      ]
+        "docs/assets/production/d01_academic_buildings_02-evidence/",
+        "tools/asset_production/d01_academic_buildings_02/",
+        "scenes/prefabs/environment/d01_academic_buildings_02.tscn"
+      ],
+      "launch": {
+        "provider": "portkey/gpt-6-astra",
+        "configured_effort": "medium",
+        "mode": "orchestrator asset lane",
+        "lane": "a-acad"
+      },
+      "producer_manifest": "docs/assets/production/d01_academic_buildings_02-evidence/manifest.json",
+      "report": "docs/assets/production/d01_academic_buildings_02.md",
+      "reviewer_id": "889f1dc9-7bdf-403a-84c1-93040998ae85",
+      "integrated_revision": "b7a18011"
     },
     {
       "id": "d01_academic_buildings.03",
@@ -4650,14 +4674,14 @@
       "input_next_action": "Refine design from Northpoint breakdown",
       "brief": "[Brief](../../assets/d01_academic_buildings.md)",
       "priority": 0,
-      "status": "queued",
-      "agent_id": null,
-      "source_revision": null,
-      "review_status": "pending",
-      "integration_status": "pending",
+      "status": "production_prefab_accepted",
+      "agent_id": "2e7ed406-e717-4f0f-9473-4eab7779ba45",
+      "source_revision": "b7a18011",
+      "review_status": "accepted source/export/prefab scope (independent Sol review)",
+      "integration_status": "accepted",
       "placement_status": "pending",
       "blocker": null,
-      "attempts": 0,
+      "attempts": 1,
       "initial_time_cap_minutes": 120,
       "owned_paths": [
         "art/source/models/environment/d01_academic_buildings_03/",
@@ -4665,8 +4689,20 @@
         "art/textures/environment/d01_academic_buildings_03/",
         "art/materials/environment/d01_academic_buildings_03/",
         "docs/assets/production/d01_academic_buildings_03.md",
-        "docs/assets/production/d01_academic_buildings_03-evidence/"
-      ]
+        "docs/assets/production/d01_academic_buildings_03-evidence/",
+        "tools/asset_production/d01_academic_buildings_03/",
+        "scenes/prefabs/environment/d01_academic_buildings_03.tscn"
+      ],
+      "launch": {
+        "provider": "portkey/gpt-6-astra",
+        "configured_effort": "medium",
+        "mode": "orchestrator asset lane",
+        "lane": "a-acad"
+      },
+      "producer_manifest": "docs/assets/production/d01_academic_buildings_03-evidence/manifest.json",
+      "report": "docs/assets/production/d01_academic_buildings_03.md",
+      "reviewer_id": "889f1dc9-7bdf-403a-84c1-93040998ae85",
+      "integrated_revision": "b7a18011"
     },
     {
       "id": "d01_sports_pavilion.01",
