@@ -199,7 +199,8 @@ agreement, and hashes every produced deliverable except its self-referential man
 ## Remaining acceptance
 
 1. Independent art/technical review of this exact candidate.
-2. Separate .02 canopy production and combined mounting/visual checks; separate civic artwork.
+2. Family placement/orientation and separate civic artwork (the `.02` canopy and its mounted
+   preview are delivered; see `d05_harbour_hall_02.md`).
 3. Actual saved district placement, square/route fit, camera occlusion/aim, car movement/turns,
    collision at populated-world seams, multiplayer transport/admission/prediction.
 4. Godot visual/lighting/LOD review, packaged build and sustained GPU/Deck performance.
