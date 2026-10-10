@@ -7,6 +7,8 @@ const HOST_RESULT_GRACE_MSEC: int = 750
 const REMOTE_PARTICIPANT_ID: int = 2
 const REMOTE_START_X: float = -80.0
 const REQUIRED_MOVEMENT_METRES: float = 0.5
+const BOUNDARY_OBSERVATION_TICKS: int = 30
+const POSITION_EPSILON: float = 0.01
 
 var _role: String = ""
 var _port: int = 0
@@ -17,6 +19,10 @@ var _granted: bool = false
 var _sequence: int = 0
 var _receipt_printed: bool = false
 var _host_result_msec: int = 0
+var _boundary_attack_ticks: int = 0
+var _boundary_start_x: float = 0.0
+var _boundary_proved: bool = false
+var _rejections: Dictionary[StringName, int] = {}
 
 @onready var _session: SessionService = $Session
 @onready var _transport: ENetTransport = $Session/ENetTransport
@@ -61,10 +67,15 @@ func _physics_process(_delta: float) -> void:
 		return
 
 	if _role == "client" and _granted:
-		_sequence += 1
-		_replication.submit_local_command(
-			FootCommand.new(_sequence, _sequence, Vector2.RIGHT, 0.0, false, false)
-		)
+		if _boundary_attack_ticks <= BOUNDARY_OBSERVATION_TICKS:
+			_exercise_command_boundary()
+		else:
+			_sequence += 1
+			_replication.submit_local_command(
+				FootCommand.new(_sequence, _sequence, Vector2.RIGHT, 0.0, false, false)
+			)
+	if _role == "host":
+		_check_host_boundary()
 	_check_replication_result()
 
 
@@ -106,7 +117,49 @@ func _on_input_granted(participant_id: int) -> void:
 	_granted = participant_id == REMOTE_PARTICIPANT_ID
 
 
-## Requires both courier bodies and authority movement visible in the local Match.
+## Sends actual-RPC oversize and malformed packets before any valid movement intent.
+func _exercise_command_boundary() -> void:
+	var actor: ActorMotion = _replication.actor_for_participant(REMOTE_PARTICIPANT_ID)
+	if actor == null:
+		return
+	if _boundary_attack_ticks == 0:
+		_boundary_start_x = actor.global_position.x
+		var oversize := PackedByteArray()
+		oversize.resize(MeasuredReplicationCodec.MAX_PACKET_BYTES + 1)
+		_replication._submit_command.rpc_id(1, oversize)
+		var malformed: Dictionary = FootCommandCodec.encode(
+			FootCommand.new(1, 1, Vector2.RIGHT, 0.0, false, false)
+		)
+		var malformed_packet: PackedByteArray = malformed.packet
+		malformed_packet[FootCommandCodec.PACKET_BYTES - 1] = 1
+		_replication._submit_command.rpc_id(1, malformed_packet)
+	_boundary_attack_ticks += 1
+	if absf(actor.global_position.x - _boundary_start_x) > POSITION_EPSILON:
+		_finish(false, "malformed command mutated state")
+		return
+	if _boundary_attack_ticks > BOUNDARY_OBSERVATION_TICKS:
+		_boundary_proved = true
+
+
+## Proves both rejected packets left the authoritative actor unchanged.
+func _check_host_boundary() -> void:
+	_rejections[&"PACKET_SIZE"] = _replication.command_rejection_count(&"PACKET_SIZE")
+	_rejections[&"MALFORMED_COMMAND"] = _replication.command_rejection_count(
+		&"MALFORMED_COMMAND"
+	)
+	if _boundary_proved or _rejections[&"PACKET_SIZE"] == 0:
+		return
+	if _rejections[&"MALFORMED_COMMAND"] == 0:
+		return
+	var actor: ActorMotion = _replication.actor_for_participant(REMOTE_PARTICIPANT_ID)
+	if actor == null:
+		return
+	_boundary_proved = absf(actor.global_position.x - REMOTE_START_X) <= POSITION_EPSILON
+	if not _boundary_proved:
+		_finish(false, "rejected command mutated host state")
+
+
+## Requires bounded-boundary proof, both courier bodies, and visible authority movement.
 func _check_replication_result() -> void:
 	if (
 		_receipt_printed
@@ -115,7 +168,7 @@ func _check_replication_result() -> void:
 	):
 		get_tree().quit(0)
 		return
-	if _replication.player_count() != 2:
+	if not _boundary_proved or _replication.player_count() != 2:
 		return
 	var remote_actor: ActorMotion = _replication.actor_for_participant(REMOTE_PARTICIPANT_ID)
 	if remote_actor == null or remote_actor.global_position.x < (
@@ -133,6 +186,8 @@ func _check_replication_result() -> void:
 				{
 					"match_loaded": is_instance_valid(_match),
 					"ok": true,
+					"boundary_proved": _boundary_proved,
+					"command_rejections": _rejections,
 					"players": _replication.player_count(),
 					"remote_x": remote_actor.global_position.x,
 				}

@@ -18,6 +18,7 @@ var _session_id: String
 var _match_revision: int
 var _durable_revision: int = 0
 var _attempt_by_peer: Dictionary[int, Dictionary] = {}
+var _clock: Callable
 
 
 ## Configures one match-local admission owner with injected transport and sender registry.
@@ -33,6 +34,11 @@ func _init(
 	_identities = identities
 	_session_id = session_id
 	_match_revision = match_revision
+
+
+## Replaces engine monotonic time for deterministic runtime deadline tests.
+func set_clock(clock: Callable) -> void:
+	_clock = clock
 
 
 ## Captures and sends one immutable current-state baseline while input remains closed.
@@ -60,7 +66,7 @@ func start(
 	var metadata: Dictionary = _baseline_metadata(baseline_id, cut_tick, rows.size(), packets)
 	if metadata.is_empty():
 		return _failure(&"STATE_LIMIT")
-	var now_msec: int = Time.get_ticks_msec()
+	var now_msec: int = _now_msec()
 	_attempt_by_peer[native_peer_id] = {
 		"baseline_id": baseline_id,
 		"phase": PHASE_BASELINE,
@@ -112,7 +118,7 @@ func acknowledge_baseline(native_peer_id: int, baseline_id: int) -> Dictionary:
 		return _failure(&"TRANSPORT_FAILED")
 	attempt.phase = PHASE_HANDOFF
 	attempt.commit_revision = _durable_revision
-	attempt.phase_deadline_msec = Time.get_ticks_msec() + HANDOFF_TIMEOUT_MSEC
+	attempt.phase_deadline_msec = _now_msec() + HANDOFF_TIMEOUT_MSEC
 	if not _transport.send_handoff(native_peer_id, baseline_id, _durable_revision):
 		_abort(native_peer_id, &"TRANSPORT_FAILED")
 		return _failure(&"TRANSPORT_FAILED")
@@ -134,7 +140,7 @@ func acknowledge_handoff(
 			_abort(native_peer_id, &"TRANSPORT_FAILED")
 			return _failure(&"TRANSPORT_FAILED")
 		attempt.commit_revision = _durable_revision
-		attempt.phase_deadline_msec = Time.get_ticks_msec() + HANDOFF_TIMEOUT_MSEC
+		attempt.phase_deadline_msec = _now_msec() + HANDOFF_TIMEOUT_MSEC
 		if not _transport.send_handoff(native_peer_id, baseline_id, _durable_revision):
 			_abort(native_peer_id, &"TRANSPORT_FAILED")
 			return _failure(&"TRANSPORT_FAILED")
@@ -182,6 +188,11 @@ func expire_attempts(now_msec: int) -> void:
 func remove_peer(native_peer_id: int) -> void:
 	_attempt_by_peer.erase(native_peer_id)
 	_identities.remove_peer(native_peer_id)
+
+
+## Reads the injected monotonic clock or the engine clock in production.
+func _now_msec() -> int:
+	return int(_clock.call()) if _clock.is_valid() else Time.get_ticks_msec()
 
 
 ## Builds bounded transaction metadata and one checksum over chunks in wire order.

@@ -415,6 +415,14 @@ maximum planar quantization error is 1 cm. The measured row has no Y field, so i
 vertical clamp claim; a later vertical-pose field requires its own measured codec decision
 rather than silently consuming flags or changing this row.
 
+M1-A2.2 foot intent uses one fixed 16-byte big-endian packet: unsigned 32-bit command
+sequence and client tick, signed 16-bit normalized move X/Y, signed 16-bit yaw over
+`[-PI, PI]`, one fire/alternate-held bitfield byte, and one zero reserved byte. Receivers
+reject any size other than 16 before field decoding, reject nonzero reserved bits, then apply
+sender-derived admission, per-participant rate and sequence checks. The larger 1,200-byte
+held-input ceiling remains available only for a future explicitly measured bounded batch;
+it does not permit Variant dictionaries or another unbounded remotely callable shape.
+
 **Split movement decision from S03:** a packet watermark does not imply receipt
 of entities omitted from that packet. Apply freshness per EntityRef/control binding;
 do not discard another entity's row merely because a newer subset arrived. ENet's

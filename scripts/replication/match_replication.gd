@@ -19,7 +19,7 @@ const PHASE_REMOVED: int = 3
 
 var _codec := MeasuredReplicationCodec.new()
 var _identities := PeerIdentityRegistry.new()
-var _transport: SceneReplicationTransport
+var _transport: ReplicationTransport
 var _admission: ReplicationAdmission
 var _assembler := BaselineAssembler.new()
 var _store: ReplicaStateStore
@@ -27,6 +27,8 @@ var _context: Dictionary = {
 	"session_id": "",
 	"local_participant_id": 0,
 	"is_host": false,
+	"clock": Callable(),
+	"command_rejections": {},
 }
 var _configured: bool = false
 var _client: Dictionary = {
@@ -64,6 +66,7 @@ func _physics_process(delta: float) -> void:
 
 	_sequence.physics_tick += 1
 	if _context.is_host:
+		_admission.expire_attempts(_now_msec())
 		_step_remote_players(delta)
 		if _sequence.physics_tick % MOVEMENT_INTERVAL_TICKS == 0:
 			_publish_movement()
@@ -82,6 +85,8 @@ func configure_network(
 	session_id: String,
 	local_participant_id: int,
 	is_host: bool,
+	clock: Callable = Callable(),
+	transport: ReplicationTransport = null,
 ) -> bool:
 	if (
 		_configured
@@ -93,8 +98,9 @@ func configure_network(
 	_context.session_id = session_id
 	_context.local_participant_id = local_participant_id
 	_context.is_host = is_host
+	_context.clock = clock
 	_configured = true
-	_transport = SceneReplicationTransport.new(self)
+	_transport = transport if transport != null else SceneReplicationTransport.new(self)
 	if not _context.is_host:
 		_store = ReplicaStateStore.new(_codec, _context.session_id, MATCH_REVISION)
 		_send_ready.call_deferred()
@@ -108,6 +114,7 @@ func configure_network(
 			_context.session_id,
 			MATCH_REVISION,
 		)
+		_admission.set_clock(clock)
 		var actor: ActorMotion = _spawn_authoritative_player(local_participant_id)
 		if actor == null or not _local_rig().bind_actor(actor):
 			return false
@@ -136,6 +143,9 @@ func remove_peer(native_peer_id: int, participant_id: int) -> void:
 	_player_identity.spawn_slot_by_participant.erase(participant_id)
 	_admission.remove_peer(native_peer_id)
 	var actor: ActorMotion = _actors_by_participant.get(participant_id)
+	var bindings: Dictionary = _player_identity.binding_by_participant
+	if actor == null and not bindings.has(participant_id):
+		return
 	if actor != null:
 		_actors_by_participant.erase(participant_id)
 		actor.queue_free()
@@ -155,20 +165,24 @@ func set_local_input_enabled(enabled: bool) -> void:
 			input.set_focused(false)
 
 
-## Sends one already-validated local intent to the host without applying it locally.
+## Encodes and sends one local intent without applying it on the client.
 func submit_local_command(command: FootCommand) -> bool:
-	if _context.is_host or not _client.input_open or command == null or not command.is_valid():
+	var encoded: Dictionary = FootCommandCodec.encode(command)
+	if not encoded.get("ok", false):
+		return false
+	return send_local_command_packet(encoded.packet)
+
+
+## Sends one exact command packet for alternate bounded input collectors.
+func send_local_command_packet(packet: PackedByteArray) -> bool:
+	if (
+		_context.is_host
+		or not _client.input_open
+		or packet.size() != FootCommandCodec.PACKET_BYTES
+	):
 		return false
 
-	var payload: Dictionary = {
-		"sequence": command.sequence,
-		"client_tick": command.client_tick,
-		"move": command.move,
-		"aim_yaw": command.aim_yaw,
-		"fire_held": command.fire_held,
-		"alt_held": command.alt_held,
-	}
-	_submit_command.rpc_id(1, _context.session_id, MATCH_REVISION, payload)
+	_submit_command.rpc_id(1, packet)
 	return true
 
 
@@ -180,6 +194,12 @@ func actor_for_participant(participant_id: int) -> ActorMotion:
 ## Reports the number of complete player bodies currently materialized in Match.
 func player_count() -> int:
 	return _actors_by_participant.size()
+
+
+## Reports a bounded command-boundary diagnostic count without exposing mutable state.
+func command_rejection_count(code: StringName) -> int:
+	var counts: Dictionary = _context.command_rejections
+	return counts.get(code, 0)
 
 
 ## Sends client readiness only after the saved Match RPC path exists locally.
@@ -198,14 +218,20 @@ func _ready_for_baseline(session_id: String, match_revision: int) -> void:
 			or match_revision != MATCH_REVISION):
 		return
 
-	var sender: int = multiplayer.get_remote_sender_id()
-	var participant_id: int = _identities.resolve_sender(sender)
+	begin_admission_for_peer(multiplayer.get_remote_sender_id())
+
+
+## Starts one sender-derived admission after Session has installed its mapping.
+func begin_admission_for_peer(native_peer_id: int) -> Dictionary:
+	if not _configured or not _context.is_host:
+		return { "ok": false }
+	var participant_id: int = _identities.resolve_sender(native_peer_id)
 	if participant_id == 0:
-		return
+		return { "ok": false }
 	if not _actors_by_participant.has(participant_id):
 		if _spawn_authoritative_player(participant_id) == null:
-			abort_peer(sender, &"SPAWN_FAILED")
-			return
+			abort_peer(native_peer_id, &"SPAWN_FAILED")
+			return { "ok": false }
 		_broadcast_bindings()
 		_sequence.durable_revision += 1
 		_admission.publish_durable(
@@ -213,36 +239,60 @@ func _ready_for_baseline(session_id: String, match_revision: int) -> void:
 		)
 
 	_sequence.baseline_id += 1
-	_admission.start(
-		sender,
+	var started: Dictionary = _admission.start(
+		native_peer_id,
 		_sequence.baseline_id,
 		_sequence.physics_tick,
 		_capture_rows(),
 	)
+	started["baseline_id"] = _sequence.baseline_id
+	return started
+
+
+## Advances one current peer from baseline transfer to reliable handoff.
+func acknowledge_baseline_for_peer(native_peer_id: int, baseline_id: int) -> Dictionary:
+	return _admission.acknowledge_baseline(native_peer_id, baseline_id)
+
+
+## Opens one current peer only after its matching reliable handoff marker.
+func acknowledge_handoff_for_peer(
+	native_peer_id: int,
+	baseline_id: int,
+	commit_revision: int,
+) -> Dictionary:
+	return _admission.acknowledge_handoff(
+		native_peer_id, baseline_id, commit_revision
+	)
+
+
+## Reports command admission for deterministic runtime lifecycle checks.
+func admitted_participant(native_peer_id: int) -> int:
+	return _admission.input_participant(native_peer_id)
 
 
 ## Accepts a baseline acknowledgement only from its native RPC sender.
 @rpc("any_peer", "call_remote", "reliable", 0)
 func _acknowledge_baseline(baseline_id: int) -> void:
 	if _context.is_host:
-		_admission.acknowledge_baseline(multiplayer.get_remote_sender_id(), baseline_id)
+		acknowledge_baseline_for_peer(multiplayer.get_remote_sender_id(), baseline_id)
 
 
 ## Accepts a handoff acknowledgement only from its native RPC sender.
 @rpc("any_peer", "call_remote", "reliable", 0)
 func _acknowledge_handoff(baseline_id: int, commit_revision: int) -> void:
 	if _context.is_host:
-		_admission.acknowledge_handoff(
+		acknowledge_handoff_for_peer(
 			multiplayer.get_remote_sender_id(), baseline_id, commit_revision
 		)
 
 
 ## Validates sender admission and exact FootCommand shape before authority simulation.
-@rpc("any_peer", "call_remote", "unreliable_ordered", 1)
-func _submit_command(session_id: String, match_revision: int, payload: Dictionary) -> void:
-	if (not _context.is_host
-			or session_id != _context.session_id
-			or match_revision != MATCH_REVISION):
+@rpc("any_peer", "call_remote", "unreliable_ordered", 2)
+func _submit_command(packet: PackedByteArray) -> void:
+	if not _context.is_host:
+		return
+	if packet.size() != FootCommandCodec.PACKET_BYTES:
+		_record_command_rejection(&"PACKET_SIZE")
 		return
 
 	var sender: int = multiplayer.get_remote_sender_id()
@@ -251,8 +301,9 @@ func _submit_command(session_id: String, match_revision: int, payload: Dictionar
 		return
 	if not _consume_input_rate(participant_id):
 		return
-	var decoded: Dictionary = FootCommand.decode(payload)
+	var decoded: Dictionary = FootCommandCodec.decode(packet)
 	if not decoded.get("ok", false):
+		_record_command_rejection(decoded.failure.code)
 		return
 	var command: FootCommand = decoded.command
 	var input_state: Dictionary = _input_state_by_participant[participant_id]
@@ -266,12 +317,12 @@ func _submit_command(session_id: String, match_revision: int, payload: Dictionar
 	input_state.last_sequence = command.sequence
 	_latest_command_by_participant[participant_id] = {
 		"command": command,
-		"received_msec": Time.get_ticks_msec(),
+		"received_msec": _now_msec(),
 	}
 
 
 ## Installs Session-to-entity bindings before baseline or lifecycle rows reference them.
-@rpc("authority", "call_remote", "reliable", 0)
+@rpc("authority", "call_remote", "reliable", 1)
 func _receive_player_bindings(
 	session_id: String,
 	match_revision: int,
@@ -301,7 +352,7 @@ func _receive_player_bindings(
 
 
 ## Begins one bounded client baseline transaction from the authoritative host.
-@rpc("authority", "call_remote", "reliable", 0)
+@rpc("authority", "call_remote", "reliable", 1)
 func _receive_baseline_metadata(metadata: Dictionary) -> void:
 	if (
 		_context.is_host
@@ -314,7 +365,7 @@ func _receive_baseline_metadata(metadata: Dictionary) -> void:
 
 
 ## Installs complete baseline rows before acknowledging or enabling local input.
-@rpc("authority", "call_remote", "reliable", 0)
+@rpc("authority", "call_remote", "reliable", 1)
 func _receive_baseline_chunk(packet: PackedByteArray) -> void:
 	if _context.is_host or _sequence.baseline_id <= 0:
 		return
@@ -333,7 +384,7 @@ func _receive_baseline_chunk(packet: PackedByteArray) -> void:
 
 
 ## Applies one reliable lifecycle transition before any dependent movement row.
-@rpc("authority", "call_remote", "reliable", 0)
+@rpc("authority", "call_remote", "reliable", 1)
 func _receive_durable(packet: PackedByteArray) -> void:
 	if _context.is_host or not _client.baseline_installed:
 		return
@@ -350,7 +401,7 @@ func _receive_durable(packet: PackedByteArray) -> void:
 
 
 ## Acknowledges a reliable handoff marker only after all prior durable records applied.
-@rpc("authority", "call_remote", "reliable", 0)
+@rpc("authority", "call_remote", "reliable", 1)
 func _receive_handoff(baseline_id: int, commit_revision: int) -> void:
 	if (
 		_context.is_host
@@ -364,7 +415,7 @@ func _receive_handoff(baseline_id: int, commit_revision: int) -> void:
 
 
 ## Opens client intent only after baseline and reliable handoff completion.
-@rpc("authority", "call_remote", "reliable", 0)
+@rpc("authority", "call_remote", "reliable", 1)
 func _receive_grant(baseline_id: int, commit_revision: int) -> void:
 	if (
 		_context.is_host
@@ -380,7 +431,7 @@ func _receive_grant(baseline_id: int, commit_revision: int) -> void:
 
 
 ## Applies the newest host pose without client prediction or interpolation.
-@rpc("authority", "call_remote", "unreliable_ordered", 2)
+@rpc("authority", "call_remote", "unreliable_ordered", 3)
 func _receive_movement(packet: PackedByteArray) -> void:
 	if _context.is_host or not _client.baseline_installed:
 		return
@@ -456,9 +507,13 @@ func _can_send_to_peer(native_peer_id: int) -> bool:
 	)
 
 
-## Ends one failed peer's replication admission through SceneMultiplayer.
-func abort_peer(native_peer_id: int, _failure_code: StringName) -> void:
-	_admitted_peers.erase(native_peer_id)
+## Removes timed-out provisional state before ending the failed native peer.
+func abort_peer(native_peer_id: int, failure_code: StringName) -> void:
+	var participant_id: int = _identities.resolve_sender(native_peer_id)
+	if failure_code == &"SYNC_TIMEOUT" and participant_id > 0:
+		remove_peer(native_peer_id, participant_id)
+	else:
+		_admitted_peers.erase(native_peer_id)
 	if multiplayer is SceneMultiplayer:
 		(multiplayer as SceneMultiplayer).disconnect_peer(native_peer_id)
 
@@ -539,9 +594,17 @@ func _remove_replica(participant_id: int) -> void:
 	actor.queue_free()
 
 
+## Increments only the fixed malformed-packet diagnostics with saturation.
+func _record_command_rejection(code: StringName) -> void:
+	if code not in [&"PACKET_SIZE", &"MALFORMED_COMMAND", &"COMMAND_OUT_OF_RANGE"]:
+		return
+	var counts: Dictionary = _context.command_rejections
+	counts[code] = mini(counts.get(code, 0) + 1, 0x7fff_ffff)
+
+
 ## Consumes one bounded per-participant token before decoding remote intent.
 func _consume_input_rate(participant_id: int) -> bool:
-	var now_msec: int = Time.get_ticks_msec()
+	var now_msec: int = _now_msec()
 	var state: Dictionary = _input_state_by_participant.get(
 		participant_id,
 		{
@@ -567,7 +630,7 @@ func _consume_input_rate(participant_id: int) -> bool:
 
 ## Applies fresh admitted client commands and neutralizes expired held input.
 func _step_remote_players(delta: float) -> void:
-	var now_msec: int = Time.get_ticks_msec()
+	var now_msec: int = _now_msec()
 	for participant_id: int in _latest_command_by_participant.keys():
 		var actor: ActorMotion = _actors_by_participant.get(participant_id)
 		if actor == null:
@@ -742,6 +805,12 @@ func _follow_local_camera() -> void:
 	var anchor: Node3D = _local_rig().get_node_or_null("CameraAnchor") as Node3D
 	if actor != null and anchor != null:
 		anchor.global_position = actor.global_position
+
+
+## Reads the injected monotonic clock or the engine clock in production.
+func _now_msec() -> int:
+	var clock: Callable = _context.clock
+	return int(clock.call()) if clock.is_valid() else Time.get_ticks_msec()
 
 
 ## Returns the Match runtime entity container authored beside this replication root.

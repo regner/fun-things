@@ -5,6 +5,7 @@ extends ReplicationTransport
 var events: Array[Dictionary] = []
 var fail_next_send: bool = false
 var fail_durable_peer: int = 0
+var abort_callback: Callable
 
 
 ## Records baseline metadata and immutable chunks as one transport operation.
@@ -74,6 +75,8 @@ func send_grant(native_peer_id: int, baseline_id: int, commit_revision: int) -> 
 ## Records one peer-local failure and no grant.
 func abort_admission(native_peer_id: int, failure_code: StringName) -> void:
 	events.append({ "kind": &"abort", "peer": native_peer_id, "code": failure_code })
+	if abort_callback.is_valid():
+		abort_callback.call(native_peer_id)
 
 
 ## Fails exactly one requested send to exercise bounded cleanup.

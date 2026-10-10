@@ -98,13 +98,26 @@ def main():
             stream.close()
 
     diagnostics = []
+    receipts = {}
     for role, _child, stdout_path in children:
         text = stdout_path.read_text(encoding="utf-8", errors="replace")
         engine_text = (output / f"{role}.engine.log").read_text(
             encoding="utf-8", errors="replace"
         )
-        if SUCCESS not in text or '"ok":true' not in text:
+        receipt_lines = [line for line in text.splitlines() if line.startswith(SUCCESS)]
+        try:
+            receipts[role] = json.loads(receipt_lines[-1].split(" ", 2)[2])
+        except (IndexError, json.JSONDecodeError):
             failed.append(f"{role} missing success receipt")
+            receipts[role] = {}
+        if not receipts[role].get("ok") or not receipts[role].get("boundary_proved"):
+            failed.append(f"{role} missing bounded-command proof")
+        if role == "host":
+            rejections = receipts[role].get("command_rejections", {})
+            if rejections.get("PACKET_SIZE", 0) < 1:
+                failed.append("host missing oversize RPC rejection")
+            if rejections.get("MALFORMED_COMMAND", 0) < 1:
+                failed.append("host missing malformed RPC rejection")
         for marker in ("SCRIPT ERROR:", "ERROR:", "WARNING:"):
             if marker in text or marker in engine_text:
                 diagnostics.append(f"{role} emitted {marker}")
@@ -118,6 +131,7 @@ def main():
                 "failures": failed,
                 "ok": ok,
                 "port": port,
+                "receipts": receipts,
             },
             indent=2,
             sort_keys=True,
