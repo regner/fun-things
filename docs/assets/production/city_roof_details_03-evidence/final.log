@@ -1,0 +1,37 @@
+city_roof_details.03 final producer validation — 2026-10-10
+Blender 5.2.2 LTS / d13f752e3b9c; glTF exporter 5.2.40.
+Godot 4.8.dev7.official.c971f93e7; gdstyle 0.3.0.
+
+PASS original author/save/export (exit 0).
+PASS fresh saved-source export (exit 0); GLB byte equality, 69,616 bytes.
+PASS source/binary validation (exit 0): 1,344 source vertices, 1,582 GLB vertices,
+     2,632 triangles, one mesh, three surfaces; zero degenerate/nonmanifold faces/edges.
+PASS four isolated 1280x720 render outputs (exit 0), all visually inspected.
+     Widened final hero framing; overhead includes unmodified 18x15x10 m shop reference.
+PASS pinned headless import (exit 0), only owned files generated.
+PASS prefab + test fixture headless pack/save/load/save byte stability (exit 0).
+PASS imported bounds/identity/dependencies/UIDs/materials and one separate static box.
+PASS two fresh standalone physics processes (both exit 0; no ERROR/WARNING diagnostics).
+     Each: three rays, six ActorMotion movement cases, authority/replay equal.
+     Front Z=-2.17090010643005; rear Z=2.17090010643005; bypass Z=6.00000095367432.
+     Complete process receipts compared exactly by manifest.py.
+PASS owned gdstyle check: one file, no issues.
+PASS canonical production checks with PYTHONUTF8=1 and mise-resolved executables:
+     engine pin, GUT pin, owned scripts, 17 Python tests, 149 GUT tests / 6,768 asserts,
+     intentional GUT negative test detected (expected return code 1). No exemptions.
+
+DIAGNOSTICS (not suppressed):
+- Initial seven-bit PNG hero exceeded the evidence size gate; six-bit evidence encoding
+  passes at 229–274 KB per render. No geometry, material or runtime texture was changed.
+- Initial production-check command failed before engine verification due to Windows cp1252
+  UnicodeDecodeError; changed environment/executable paths corrected that invocation.
+- Blender Material/World.use_nodes deprecations; version-only probe reported one 0.000023 MB
+  unfreed allocation. Actual author/export/validate/render jobs exited normally.
+- Headless editor MCP compatibility warning for Godot 4.8; normalization shutdown reported
+  viewport/texture/scenario/text RID, Canvas/CanvasItem and ObjectDB leaks after checks passed.
+  Standalone checks had no error/warning diagnostics.
+
+Full scratch logs: C:/tmp/ft/assets/city_roof_details_03/ (not committed).
+Exact commands and reproduction order: ../city_roof_details_03.md.
+No district placement, rooftop gameplay, transport multiplayer, car handling, packaged build,
+GPU/device performance or independent review acceptance claimed.

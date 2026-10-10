@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://bol03gr1d68hi"]
+
+[ext_resource type="PackedScene" uid="uid://cesj4cdqa50f5" path="res://scenes/prefabs/environment/city_roof_details_03.tscn" id="1_door"]
+[ext_resource type="Script" uid="uid://jthmfio4c27p" path="res://scripts/actors/actor_motion.gd" id="2_actor"]
+
+[sub_resource type="BoxShape3D" id="Box_floor"]
+size = Vector3(16, 0.2, 16)
+
+[sub_resource type="CapsuleShape3D" id="Capsule_actor"]
+radius = 0.35
+height = 1.8
+
+[node name="HousingPhysicsCheck" type="Node3D" unique_id=1288016232]
+
+[node name="Housing" parent="." unique_id=2004187377 instance=ExtResource("1_door")]
+
+[node name="Floor" type="StaticBody3D" parent="." unique_id=195081394]
+collision_mask = 0
+
+[node name="Shape" type="CollisionShape3D" parent="Floor" unique_id=1864615619]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.1, 0)
+shape = SubResource("Box_floor")
+
+[node name="Actor" type="CharacterBody3D" parent="." unique_id=1923325021]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.001, -4)
+collision_layer = 2
+script = ExtResource("2_actor")
+
+[node name="Capsule" type="CollisionShape3D" parent="Actor" unique_id=538261401]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0)
+shape = SubResource("Capsule_actor")

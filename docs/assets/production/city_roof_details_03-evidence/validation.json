@@ -1,0 +1,240 @@
+{
+  "applied_transforms": true,
+  "asset": "city_roof_details.03",
+  "blender": "5.2.2 LTS",
+  "build_hash": "d13f752e3b9c",
+  "consistent_winding": true,
+  "datum": "level roof-contact flashing centre; front is Godot -Z",
+  "degenerate_faces": 0.0,
+  "dimension_tolerance_m": 0.001,
+  "dimensions_godot_m": [
+    3.2,
+    2.85,
+    3.8
+  ],
+  "fresh_reexport_byte_identical": true,
+  "glb_bytes": 69616.0,
+  "glb_sha256": "79c6bfa44909ea903752f36ff3d8acf34036448746879629e63bf562e294047e",
+  "glb_vertices": 1582.0,
+  "godot": {
+    "bounds_min": [
+      -1.60000002384186,
+      0.0,
+      -1.89999997615814
+    ],
+    "bounds_size": [
+      3.20000004768372,
+      2.8493230342865,
+      3.79999995231628
+    ],
+    "box_shape_count": 1,
+    "engine": "4.8-dev7 (official)",
+    "linked_model_identity": true,
+    "physics": {
+      "actor_height_m": 1.8,
+      "actor_radius_m": 0.35,
+      "authority_replay_equal": true,
+      "bypass_end_z_m": 6.00000095367432,
+      "front_stop_z_m": -2.17090010643005,
+      "movement_cases": 6,
+      "network_transport_and_world_placement": "not tested",
+      "ray_cases": 3,
+      "rear_stop_z_m": 2.17090010643005,
+      "walk_ticks_per_case": 120
+    },
+    "save_reload_byte_stable": true,
+    "static_body_count": 1,
+    "separate_process_results_equal": true,
+    "standalone_process_count": 2
+  },
+  "godot_aabb": {
+    "max": [
+      1.60000002384186,
+      2.8493230342865,
+      1.89999997615814
+    ],
+    "min": [
+      -1.60000002384186,
+      0.0,
+      -1.89999997615814
+    ]
+  },
+  "materials": [
+    {
+      "name": "roof_access_folded_metal",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.0307134445756674,
+          0.0742135718464851,
+          0.0802198201417923,
+          1.0
+        ],
+        "metallicFactor": 0.300000011920929,
+        "roughnessFactor": 0.550000011920929
+      }
+    },
+    {
+      "name": "roof_access_shadow",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.00856812577694654,
+          0.0241576321423054,
+          0.0295568350702524,
+          1.0
+        ],
+        "metallicFactor": 0.0500000007450581,
+        "roughnessFactor": 0.779999971389771
+      }
+    },
+    {
+      "name": "roof_access_dark_petrol",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.0202885624021292,
+          0.0497065670788288,
+          0.0561284907162189,
+          1.0
+        ],
+        "metallicFactor": 0.280000001192093,
+        "roughnessFactor": 0.519999980926514
+      }
+    }
+  ],
+  "mesh_count": 1.0,
+  "nonmanifold_edges": 0.0,
+  "overhead_camera": {
+    "engine_capture": false,
+    "housing_to_roof_footprint_fraction": 0.045037037037037,
+    "housing_translation_blender_m": [
+      3.0,
+      2.0,
+      10.0
+    ],
+    "projection": "perspective",
+    "reference": "art/models/brackett_greybox/shop.glb",
+    "reference_bounds_blender_m": [
+      [
+        -9.0,
+        -7.5,
+        0.0
+      ],
+      [
+        9.0,
+        7.5,
+        10.0
+      ]
+    ],
+    "reference_modified": false,
+    "reference_sha256_before_and_after": "243730bb68daac7c67bce56bdb765f964d075cdd5e909ddb9258e435837b7a06",
+    "resolution_px": [
+      1280.0,
+      720.0
+    ],
+    "roof_height_m": 10.0,
+    "rotation_blender_rad": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "scope": "Temporary Blender comparison; not saved district placement",
+    "vertical_fov_deg": 42.0000016996383,
+    "world_height_m": 47.0
+  },
+  "pivot": [
+    0.0,
+    0.0,
+    0.0
+  ],
+  "source_aabb": {
+    "max": [
+      1.60000002384186,
+      1.89999997615814,
+      2.8493230342865
+    ],
+    "min": [
+      -1.60000002384186,
+      -1.89999997615814,
+      0.0
+    ]
+  },
+  "status": "PASS source and export",
+  "surfaces": 3.0,
+  "triangles": 2632.0,
+  "unit_normals": true,
+  "vertices": 1344.0,
+  "production_checks": {
+    "engine": {
+      "ok": true,
+      "version": "4.8.dev7.official.c971f93e7"
+    },
+    "gut_pin": {
+      "ok": true,
+      "version": "9.7.1"
+    },
+    "owned_scripts": {
+      "ok": true,
+      "returncode": 0
+    },
+    "python_tests": {
+      "ok": true,
+      "returncode": 0
+    },
+    "gut_import": {
+      "ok": true,
+      "returncode": 0
+    },
+    "gut_tests": {
+      "ok": true,
+      "returncode": 0
+    },
+    "gut_negative": {
+      "ok": true,
+      "observed_returncode": 1
+    }
+  },
+  "renders": [
+    {
+      "file": "hero.png",
+      "size_px": [
+        1280,
+        720
+      ],
+      "bytes": 265503
+    },
+    {
+      "file": "side.png",
+      "size_px": [
+        1280,
+        720
+      ],
+      "bytes": 229055
+    },
+    {
+      "file": "detail.png",
+      "size_px": [
+        1280,
+        720
+      ],
+      "bytes": 273998
+    },
+    {
+      "file": "overhead_47m_42deg.png",
+      "size_px": [
+        1280,
+        720
+      ],
+      "bytes": 244035
+    }
+  ],
+  "render_encoding": "RGB 6 significant bits per channel, PNG compression 9",
+  "diagnostics": {
+    "blender": "Material/World.use_nodes deprecation notices; successful source/export/render exits",
+    "version_probe": "Blender --version emitted one 0.000023 MB unfreed allocation",
+    "headless_import": "Passed; existing MCP plugin warning about Godot 4.8",
+    "headless_editor_normalization": "Save/reload assertions passed; editor/plugin shutdown RID/ObjectDB leaks",
+    "standalone_asset_checks": "Two processes passed without error/warning diagnostics",
+    "first_production_attempt": "Windows cp1252 subprocess decoding failed before engine verification",
+    "evidence_size_gate": "Initial 7-bit hero exceeded the 420 KiB cap; final 6-bit PNGs pass",
+    "canonical_production_checks": "Passed after PYTHONUTF8=1 and explicit mise-resolved executables; no exemptions"
+  }
+}
