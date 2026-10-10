@@ -95,7 +95,7 @@ No emission, transparency, illumination behavior or essential copy is implied.
 ### Artwork carrier interface
 
 The graphics consumer can reuse this prefab and override **surface 0 only** on
-`Visuals/Model/D07SignIsland02_Mesh`. This slot consists of exactly **one front source
+`Visuals/Model/D07SignIsland02/D07SignIsland02_Mesh`. This slot consists of exactly **one front source
 quad / two exported triangles / four vertices**, at X=±1.92, Y=0.50..2.34, Z=-0.29.
 The back, thickness, casing, cap and shoe do not share the artwork slot.
 
