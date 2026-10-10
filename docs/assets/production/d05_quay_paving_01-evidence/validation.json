@@ -1,0 +1,161 @@
+{
+  "asset_id": "d05_quay_paving.01",
+  "blender": "5.2.2 LTS",
+  "blender_build": "d13f752e3b9c",
+  "gltf_exporter": "5.2.40",
+  "source_vertices": 4,
+  "glb_vertices": 4,
+  "triangles": 2,
+  "mesh_count": 1,
+  "surface_count": 1,
+  "degenerate_faces": 0,
+  "degenerate_triangles": 0,
+  "unit_normals": true,
+  "upward_winding": true,
+  "non_manifold_edges": 4,
+  "boundary_loop_sizes": [
+    4
+  ],
+  "non_boundary_non_manifold_edges": 0,
+  "boundary_justification": "One intentional open perimeter on a flush, single-sided decal; no sidewalls or deck. World terrain owns all walk/drive collision.",
+  "aabb_min_godot": [
+    -4.0,
+    0.014999999664723873,
+    -0.6000000238418579
+  ],
+  "aabb_max_godot": [
+    4.0,
+    0.014999999664723873,
+    0.6000000238418579
+  ],
+  "dimensions_godot_metres": [
+    8,
+    0,
+    1.2
+  ],
+  "pivot": [
+    0,
+    0,
+    0
+  ],
+  "visual_surface_y": 0.015,
+  "ground_datum_y": 0,
+  "uv_axis": "U east/+X, image V south/+Z",
+  "embedded_images": 0,
+  "source_texture_relative_and_unpacked": true,
+  "material": {
+    "name": "quay_border",
+    "roughness": 0.94,
+    "metallic": 0,
+    "opaque": true
+  },
+  "texture_sha256": "21c3fed0ff7b5944bca3cb065524aef798e678d03155e8ef814857173619f8d7",
+  "glb_bytes": 1400,
+  "glb_sha256": "ccdcae5f9dc5db712a322b1e894d02501ef2cef48a4cf10b2a772d81891db854",
+  "fresh_reexport_byte_identical": true,
+  "source_status": "PASS",
+  "artwork": {
+    "path": "art/textures/environment/d05_quay_paving_01/quay_border_albedo.png",
+    "bytes": 12056,
+    "sha256": "21c3fed0ff7b5944bca3cb065524aef798e678d03155e8ef814857173619f8d7",
+    "size_px": [
+      1280,
+      192
+    ],
+    "mode": "RGB",
+    "exact_quiet_field_fraction": 0.7841227213541667,
+    "tests_passed": 4,
+    "reproduction_byte_identical": true
+  },
+  "engine": {
+    "aabb_min": [
+      -4.0,
+      0.0149999996647239,
+      -0.600000023841858
+    ],
+    "aabb_size": [
+      8.0,
+      9.99999974737875e-06,
+      1.20000004768372
+    ],
+    "collision_objects": 0,
+    "d05_quay_paving_01.glb_uid": "uid://3l20ptibl5sk",
+    "d05_quay_paving_01.tscn_uid": "uid://dfvh1m8beatqt",
+    "engine": "4.8-dev7 (official)",
+    "engine_hash": "c971f93e7e76b0ef919bf6009e7b868bea04db7f",
+    "external_material": "res://art/materials/environment/d05_quay_paving_01/quay_border.tres",
+    "failures": [],
+    "import_normals_uvs_valid": true,
+    "import_triangles": 2,
+    "import_vertices": 4,
+    "linked_identity_model": true,
+    "material_overrides": 0,
+    "material_sha256": "ca77cf80e4ae4c3b9d05d48d7ed38f75d83766ac2da65c669996d61f589c51af",
+    "mesh_count": 1,
+    "mipmaps": true,
+    "ok": true,
+    "prefab_sha256": "2b6b24e2f28917e2917a2f98451f2233de9b1ff3ca3bb93d9d0474bd63cf297a",
+    "quay_border.tres_uid": "uid://cashv8t2rlptk",
+    "quay_border_albedo.png_uid": "uid://ndssu3hn0t2i",
+    "surface_count": 1,
+    "texture_image_bytes_including_mips": 983034,
+    "texture_image_format": 4,
+    "texture_size": [
+      1280,
+      192
+    ]
+  },
+  "two_byte_stable_scene_material_roundtrips": true,
+  "two_fresh_runtime_processes_identical": true,
+  "renders": [
+    {
+      "path": "docs/assets/production/d05_quay_paving_01-evidence/hero.png",
+      "bytes": 214865,
+      "sha256": "543853d6b55af08f5843fb820bedbc2ebbfc118f37f5d75ec71d120a8970369d"
+    },
+    {
+      "path": "docs/assets/production/d05_quay_paving_01-evidence/side.png",
+      "bytes": 211522,
+      "sha256": "d2a5d1aebcfdf2c41095407f4bfc1882b98001082f5e96303263dbff2a7b59bd"
+    },
+    {
+      "path": "docs/assets/production/d05_quay_paving_01-evidence/detail.png",
+      "bytes": 147282,
+      "sha256": "a7343c8a22acc30e2bf8a1e62344d86327b983faf170493ee65d2538403755a6"
+    },
+    {
+      "path": "docs/assets/production/d05_quay_paving_01-evidence/overhead_47m_42deg.png",
+      "bytes": 222479,
+      "sha256": "7a591678fbc8489cba9f8b76e439baa9d441c6546004696caf46890c8cf15df0"
+    }
+  ],
+  "diagnostics": {
+    "final_import": "No ERROR/SCRIPT ERROR; existing plugin version warning",
+    "runtime": "Two processes; no ERROR/WARNING/SCRIPT ERROR",
+    "normalization": "Stable bytes/UIDs; known scan-abort and RID/ObjectDB shutdown leaks",
+    "blender": "Pinned node API deprecation warning; no errors",
+    "production_checks": "Not run (owner decision 52)"
+  },
+  "visual_review": {
+    "inspected": [
+      "hero",
+      "side",
+      "detail",
+      "overhead_47m_42deg"
+    ],
+    "observation": "Restrained paired teal harbour lines on warm grey. End-to-end joins are unbroken, border stays small overhead and nearby actor/car remain distinct.",
+    "camera": {
+      "height_m": 47,
+      "vertical_fov_degrees": 42,
+      "rotation_radians": [
+        0,
+        0,
+        0
+      ],
+      "projection": "perspective"
+    },
+    "renderer": "Blender Cycles CPU, 24 samples, AgX, PNG RGB8 compression 95",
+    "context": "Hero/overhead use three linked repeats, 24 m total. Shared paving, Courier and Latch are read-only studio references, not saved placements.",
+    "godot_visual_acceptance": false
+  }
+}

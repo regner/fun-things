@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://dfvh1m8beatqt"]
+
+[ext_resource type="PackedScene" uid="uid://3l20ptibl5sk" path="res://art/models/environment/d05_quay_paving_01/d05_quay_paving_01.glb" id="1_model"]
+
+[node name="D05QuayPaving01" type="Node3D" unique_id=404824460]
+
+[node name="Visuals" type="Node3D" parent="." unique_id=2021222963]
+
+[node name="Model" type="Node3D" parent="Visuals" unique_id=1693580003 instance=ExtResource("1_model")]

@@ -1,0 +1,162 @@
+{
+  "asset_id": "d05_quay_paving.01",
+  "algorithm": "SHA-256",
+  "exclusions": [
+    "manifest.json (self-hash)",
+    "__pycache__ (uncommitted cache)"
+  ],
+  "shared_dependencies_not_produced": [
+    {
+      "path": "tools/assets/blender/export_settings.json",
+      "bytes": 646,
+      "sha256": "33ded3c83616fba6573848dda1f0ea3fc7ae7f4c98257fc867dca3bbe35ff9ec"
+    },
+    {
+      "path": "tools/asset_production/d01_sports_surface_01/author.py",
+      "bytes": 6785,
+      "sha256": "65297db2a3bbdb1a8b5264156f159888ac6695a3085afaedb68391f564f88415"
+    },
+    {
+      "path": "tools/asset_production/d01_sports_surface_02/validate.py",
+      "bytes": 7591,
+      "sha256": "94fbeb770a28993194e0e8f5d14eec8bcc58bfce249837aa0c661f4ffeb6acd9"
+    },
+    {
+      "path": "tools/asset_production/d05_civic_graphics_01/manifest.py",
+      "bytes": 2408,
+      "sha256": "08ca7e66364c817504a665e54e8736e4ff05f8263aebfdd5e13850d4ef7af184"
+    },
+    {
+      "path": "art/textures/environment/city_ground_finishes_01/plain_plaza_paving_albedo.png",
+      "bytes": 4447,
+      "sha256": "fb09ece65dae0db245493796133b0fe669ec482a8f833232d707450b29726c9d"
+    },
+    {
+      "path": "art/models/characters/coral_courier/coral_courier.glb",
+      "bytes": 468860,
+      "sha256": "35e6c6a6eb1cda01e6409ec1834f8aed544f71b3308ababade3b06f91afb5ae8"
+    },
+    {
+      "path": "art/models/vehicles/car_latch_a/car_latch_a.glb",
+      "bytes": 302368,
+      "sha256": "264cd46c027cce85738f3818ee426aa75346c1024d958351ee67b4c90e7c71f7"
+    }
+  ],
+  "files": [
+    {
+      "path": "art/materials/environment/d05_quay_paving_01/quay_border.tres",
+      "bytes": 350,
+      "sha256": "ca77cf80e4ae4c3b9d05d48d7ed38f75d83766ac2da65c669996d61f589c51af"
+    },
+    {
+      "path": "art/models/environment/d05_quay_paving_01/d05_quay_paving_01.glb",
+      "bytes": 1400,
+      "sha256": "ccdcae5f9dc5db712a322b1e894d02501ef2cef48a4cf10b2a772d81891db854"
+    },
+    {
+      "path": "art/models/environment/d05_quay_paving_01/d05_quay_paving_01.glb.import",
+      "bytes": 1522,
+      "sha256": "6207af70be5964e09baf32a26802b6fab768bda0ef951f85f7d4de819df823d1"
+    },
+    {
+      "path": "art/source/models/environment/d05_quay_paving_01/d05_quay_paving_01.blend",
+      "bytes": 96643,
+      "sha256": "9e60ee02014f62129ab0c470ca989c9dac21a6bd0090d4936c0bf47273fd2f68"
+    },
+    {
+      "path": "art/textures/environment/d05_quay_paving_01/quay_border_albedo.png",
+      "bytes": 12056,
+      "sha256": "21c3fed0ff7b5944bca3cb065524aef798e678d03155e8ef814857173619f8d7"
+    },
+    {
+      "path": "art/textures/environment/d05_quay_paving_01/quay_border_albedo.png.import",
+      "bytes": 1105,
+      "sha256": "ec14251189f23c53adab5960629a5385106ba9218eb47c6472fb9dff7d32b094"
+    },
+    {
+      "path": "docs/assets/production/d05_quay_paving_01-evidence/detail.png",
+      "bytes": 147282,
+      "sha256": "a7343c8a22acc30e2bf8a1e62344d86327b983faf170493ee65d2538403755a6"
+    },
+    {
+      "path": "docs/assets/production/d05_quay_paving_01-evidence/final.log",
+      "bytes": 2059,
+      "sha256": "bb0459a6b89aa5a63aef7cb8041479c0a03640f8e5245bd8f0dc322e7bbf4eac"
+    },
+    {
+      "path": "docs/assets/production/d05_quay_paving_01-evidence/hero.png",
+      "bytes": 214865,
+      "sha256": "543853d6b55af08f5843fb820bedbc2ebbfc118f37f5d75ec71d120a8970369d"
+    },
+    {
+      "path": "docs/assets/production/d05_quay_paving_01-evidence/overhead_47m_42deg.png",
+      "bytes": 222479,
+      "sha256": "7a591678fbc8489cba9f8b76e439baa9d441c6546004696caf46890c8cf15df0"
+    },
+    {
+      "path": "docs/assets/production/d05_quay_paving_01-evidence/side.png",
+      "bytes": 211522,
+      "sha256": "d2a5d1aebcfdf2c41095407f4bfc1882b98001082f5e96303263dbff2a7b59bd"
+    },
+    {
+      "path": "docs/assets/production/d05_quay_paving_01-evidence/validation.json",
+      "bytes": 5051,
+      "sha256": "807792725d16d6016ffe2377189c0ae090a4dd8d10e024538e0d456441f2e3b2"
+    },
+    {
+      "path": "docs/assets/production/d05_quay_paving_01.md",
+      "bytes": 15666,
+      "sha256": "d578df52f19bdb6b76ab60568f6304f676c4abffe7fa1ed19aca00bb52d351e4"
+    },
+    {
+      "path": "scenes/prefabs/environment/d05_quay_paving_01.tscn",
+      "bytes": 436,
+      "sha256": "2b6b24e2f28917e2917a2f98451f2233de9b1ff3ca3bb93d9d0474bd63cf297a"
+    },
+    {
+      "path": "tools/asset_production/d05_quay_paving_01/artwork.py",
+      "bytes": 1631,
+      "sha256": "b8b44235deedde55afc7a22e2bd40961a72b86e0d4ac2783f6271ea1b401b771"
+    },
+    {
+      "path": "tools/asset_production/d05_quay_paving_01/author.py",
+      "bytes": 2833,
+      "sha256": "5cbdfea71720e11b0fe8d397f66d7222fd5be63f811d624b5d932c5dc56e7e8b"
+    },
+    {
+      "path": "tools/asset_production/d05_quay_paving_01/check_prefab.gd",
+      "bytes": 8786,
+      "sha256": "c365f26212f8780f67cbaded24f49571cf69a24c4facae30f9566818b909f4c6"
+    },
+    {
+      "path": "tools/asset_production/d05_quay_paving_01/check_prefab.gd.uid",
+      "bytes": 19,
+      "sha256": "71ca39d8e385ffde3e4060ea94e54aba993cf6cc84f0c01ed9ec122b9797eedf"
+    },
+    {
+      "path": "tools/asset_production/d05_quay_paving_01/export.py",
+      "bytes": 1304,
+      "sha256": "bfd1b65e4d89857a69b0b8e4d0e69048f96f627f55f296dc76da6caa9b0320e9"
+    },
+    {
+      "path": "tools/asset_production/d05_quay_paving_01/preview.py",
+      "bytes": 3311,
+      "sha256": "37936d3b496ad0bc8eee1abe7b1fc3850718765758030c2d7d43598faac97055"
+    },
+    {
+      "path": "tools/asset_production/d05_quay_paving_01/record.py",
+      "bytes": 7974,
+      "sha256": "4fcf3bb30e2bce229a49c2ef8409373433611b0aefb178e99eccfe38c404a366"
+    },
+    {
+      "path": "tools/asset_production/d05_quay_paving_01/test_artwork.py",
+      "bytes": 3206,
+      "sha256": "ae31ab2a54e083475ab14b44c655da841d4b387c26c21bae9ae61f1df937393a"
+    },
+    {
+      "path": "tools/asset_production/d05_quay_paving_01/validate.py",
+      "bytes": 7076,
+      "sha256": "96868cef6c6bab75f4f096eb703603a7583dcd181b57c1512eb37424fe6f5600"
+    }
+  ]
+}
