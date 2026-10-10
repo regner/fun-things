@@ -5496,14 +5496,14 @@
       "input_next_action": "Compose from d03_apartment_family.05–.11; no one-off building",
       "brief": "[Brief](../../assets/d03_apartment_family.md)",
       "priority": 2,
-      "status": "queued",
-      "agent_id": null,
-      "source_revision": null,
-      "review_status": "pending",
-      "integration_status": "pending",
+      "status": "production_prefab_accepted",
+      "agent_id": "24f11950-5be4-4037-9825-673532783b47",
+      "source_revision": "3b2d23f9",
+      "review_status": "accepted source/export/prefab scope (independent Sol review)",
+      "integration_status": "accepted",
       "placement_status": "pending",
       "blocker": null,
-      "attempts": 0,
+      "attempts": 1,
       "initial_time_cap_minutes": 90,
       "owned_paths": [
         "art/source/models/environment/d03_apartment_family_01/",
@@ -5511,8 +5511,20 @@
         "art/textures/environment/d03_apartment_family_01/",
         "art/materials/environment/d03_apartment_family_01/",
         "docs/assets/production/d03_apartment_family_01.md",
-        "docs/assets/production/d03_apartment_family_01-evidence/"
-      ]
+        "docs/assets/production/d03_apartment_family_01-evidence/",
+        "tools/asset_production/d03_apartment_family_01/",
+        "scenes/prefabs/environment/d03_apartment_family_01.tscn"
+      ],
+      "launch": {
+        "provider": "portkey/gpt-6-astra",
+        "configured_effort": "medium",
+        "mode": "orchestrator asset lane",
+        "lane": "a-apart"
+      },
+      "producer_manifest": "docs/assets/production/d03_apartment_family_01-evidence/manifest.json",
+      "report": "docs/assets/production/d03_apartment_family_01.md",
+      "reviewer_id": "dba3eb2f-93c9-42e5-be22-0423b839ec32",
+      "integrated_revision": "ca0f5684"
     },
     {
       "id": "d03_apartment_family.02",
@@ -5525,14 +5537,14 @@
       "input_next_action": "Compose from d03_apartment_family.05–.11; no one-off building",
       "brief": "[Brief](../../assets/d03_apartment_family.md)",
       "priority": 2,
-      "status": "queued",
-      "agent_id": null,
-      "source_revision": null,
-      "review_status": "pending",
-      "integration_status": "pending",
+      "status": "production_prefab_accepted",
+      "agent_id": "db042023-acd8-47bc-8960-35e903faaf62",
+      "source_revision": "ce333337",
+      "review_status": "accepted source/export/prefab scope (independent Sol review)",
+      "integration_status": "accepted",
       "placement_status": "pending",
       "blocker": null,
-      "attempts": 0,
+      "attempts": 1,
       "initial_time_cap_minutes": 90,
       "owned_paths": [
         "art/source/models/environment/d03_apartment_family_02/",
@@ -5540,8 +5552,20 @@
         "art/textures/environment/d03_apartment_family_02/",
         "art/materials/environment/d03_apartment_family_02/",
         "docs/assets/production/d03_apartment_family_02.md",
-        "docs/assets/production/d03_apartment_family_02-evidence/"
-      ]
+        "docs/assets/production/d03_apartment_family_02-evidence/",
+        "tools/asset_production/d03_apartment_family_02/",
+        "scenes/prefabs/environment/d03_apartment_family_02.tscn"
+      ],
+      "launch": {
+        "provider": "portkey/gpt-6-astra",
+        "configured_effort": "medium",
+        "mode": "orchestrator asset lane",
+        "lane": "a-apart"
+      },
+      "producer_manifest": "docs/assets/production/d03_apartment_family_02-evidence/manifest.json",
+      "report": "docs/assets/production/d03_apartment_family_02.md",
+      "reviewer_id": "dba3eb2f-93c9-42e5-be22-0423b839ec32",
+      "integrated_revision": "ca0f5684"
     },
     {
       "id": "d03_apartment_family.03",
@@ -5554,14 +5578,14 @@
       "input_next_action": "Compose from d03_apartment_family.05–.11; no one-off building",
       "brief": "[Brief](../../assets/d03_apartment_family.md)",
       "priority": 2,
-      "status": "queued",
-      "agent_id": null,
-      "source_revision": null,
-      "review_status": "pending",
-      "integration_status": "pending",
+      "status": "production_prefab_accepted",
+      "agent_id": "1ef4558b-8c80-47b8-bf2c-5100c23dcec5",
+      "source_revision": "1124f5c0",
+      "review_status": "accepted source/export/prefab scope (independent Sol review)",
+      "integration_status": "accepted",
       "placement_status": "pending",
       "blocker": null,
-      "attempts": 0,
+      "attempts": 1,
       "initial_time_cap_minutes": 90,
       "owned_paths": [
         "art/source/models/environment/d03_apartment_family_03/",
@@ -5569,8 +5593,20 @@
         "art/textures/environment/d03_apartment_family_03/",
         "art/materials/environment/d03_apartment_family_03/",
         "docs/assets/production/d03_apartment_family_03.md",
-        "docs/assets/production/d03_apartment_family_03-evidence/"
-      ]
+        "docs/assets/production/d03_apartment_family_03-evidence/",
+        "tools/asset_production/d03_apartment_family_03/",
+        "scenes/prefabs/environment/d03_apartment_family_03.tscn"
+      ],
+      "launch": {
+        "provider": "portkey/gpt-6-astra",
+        "configured_effort": "medium",
+        "mode": "orchestrator asset lane",
+        "lane": "a-apart"
+      },
+      "producer_manifest": "docs/assets/production/d03_apartment_family_03-evidence/manifest.json",
+      "report": "docs/assets/production/d03_apartment_family_03.md",
+      "reviewer_id": "dba3eb2f-93c9-42e5-be22-0423b839ec32",
+      "integrated_revision": "ca0f5684"
     },
     {
       "id": "d03_apartment_family.04",
@@ -5583,14 +5619,14 @@
       "input_next_action": "Compose from d03_apartment_family.05–.11; no one-off building",
       "brief": "[Brief](../../assets/d03_apartment_family.md)",
       "priority": 2,
-      "status": "queued",
-      "agent_id": null,
-      "source_revision": null,
-      "review_status": "pending",
-      "integration_status": "pending",
+      "status": "production_prefab_accepted",
+      "agent_id": "12164aa5-9449-4c66-8f7c-838732e59846",
+      "source_revision": "ca0f5684",
+      "review_status": "accepted source/export/prefab scope (independent Sol review)",
+      "integration_status": "accepted",
       "placement_status": "pending",
       "blocker": null,
-      "attempts": 0,
+      "attempts": 1,
       "initial_time_cap_minutes": 90,
       "owned_paths": [
         "art/source/models/environment/d03_apartment_family_04/",
@@ -5598,8 +5634,20 @@
         "art/textures/environment/d03_apartment_family_04/",
         "art/materials/environment/d03_apartment_family_04/",
         "docs/assets/production/d03_apartment_family_04.md",
-        "docs/assets/production/d03_apartment_family_04-evidence/"
-      ]
+        "docs/assets/production/d03_apartment_family_04-evidence/",
+        "tools/asset_production/d03_apartment_family_04/",
+        "scenes/prefabs/environment/d03_apartment_family_04.tscn"
+      ],
+      "launch": {
+        "provider": "portkey/gpt-6-astra",
+        "configured_effort": "medium",
+        "mode": "orchestrator asset lane",
+        "lane": "a-apart"
+      },
+      "producer_manifest": "docs/assets/production/d03_apartment_family_04-evidence/manifest.json",
+      "report": "docs/assets/production/d03_apartment_family_04.md",
+      "reviewer_id": "dba3eb2f-93c9-42e5-be22-0423b839ec32",
+      "integrated_revision": "ca0f5684"
     },
     {
       "id": "d03_laundry_frames.01",
@@ -5844,14 +5892,14 @@
       "input_next_action": "Refine common dimensions, joins and assembly examples",
       "brief": "[Brief](../../assets/d03_apartment_family.md)",
       "priority": 0,
-      "status": "queued",
-      "agent_id": null,
-      "source_revision": null,
-      "review_status": "pending",
-      "integration_status": "pending",
+      "status": "production_prefab_accepted",
+      "agent_id": "ddbcff9e-b58e-454f-bd77-a5d20bc2f5f7",
+      "source_revision": "56a4c8e6",
+      "review_status": "accepted source/export/prefab scope (independent Sol review)",
+      "integration_status": "accepted",
       "placement_status": "pending",
       "blocker": null,
-      "attempts": 0,
+      "attempts": 1,
       "initial_time_cap_minutes": 90,
       "owned_paths": [
         "art/source/models/environment/d03_apartment_family_05/",
@@ -5859,8 +5907,20 @@
         "art/textures/environment/d03_apartment_family_05/",
         "art/materials/environment/d03_apartment_family_05/",
         "docs/assets/production/d03_apartment_family_05.md",
-        "docs/assets/production/d03_apartment_family_05-evidence/"
-      ]
+        "docs/assets/production/d03_apartment_family_05-evidence/",
+        "tools/asset_production/d03_apartment_family_05/",
+        "scenes/prefabs/environment/d03_apartment_family_05.tscn"
+      ],
+      "launch": {
+        "provider": "portkey/gpt-6-astra",
+        "configured_effort": "medium",
+        "mode": "orchestrator asset lane",
+        "lane": "a-apart"
+      },
+      "producer_manifest": "docs/assets/production/d03_apartment_family_05-evidence/manifest.json",
+      "report": "docs/assets/production/d03_apartment_family_05.md",
+      "reviewer_id": "dba3eb2f-93c9-42e5-be22-0423b839ec32",
+      "integrated_revision": "ca0f5684"
     },
     {
       "id": "d03_apartment_family.06",
@@ -5873,14 +5933,14 @@
       "input_next_action": "Refine common dimensions, joins and assembly examples",
       "brief": "[Brief](../../assets/d03_apartment_family.md)",
       "priority": 0,
-      "status": "queued",
-      "agent_id": null,
-      "source_revision": null,
-      "review_status": "pending",
-      "integration_status": "pending",
+      "status": "production_prefab_accepted",
+      "agent_id": "e433d1f9-0e7b-490f-89b9-e9ab0084a5d8",
+      "source_revision": "ef80494d",
+      "review_status": "accepted source/export/prefab scope (independent Sol review)",
+      "integration_status": "accepted",
       "placement_status": "pending",
       "blocker": null,
-      "attempts": 0,
+      "attempts": 1,
       "initial_time_cap_minutes": 90,
       "owned_paths": [
         "art/source/models/environment/d03_apartment_family_06/",
@@ -5888,8 +5948,20 @@
         "art/textures/environment/d03_apartment_family_06/",
         "art/materials/environment/d03_apartment_family_06/",
         "docs/assets/production/d03_apartment_family_06.md",
-        "docs/assets/production/d03_apartment_family_06-evidence/"
-      ]
+        "docs/assets/production/d03_apartment_family_06-evidence/",
+        "tools/asset_production/d03_apartment_family_06/",
+        "scenes/prefabs/environment/d03_apartment_family_06.tscn"
+      ],
+      "launch": {
+        "provider": "portkey/gpt-6-astra",
+        "configured_effort": "medium",
+        "mode": "orchestrator asset lane",
+        "lane": "a-apart"
+      },
+      "producer_manifest": "docs/assets/production/d03_apartment_family_06-evidence/manifest.json",
+      "report": "docs/assets/production/d03_apartment_family_06.md",
+      "reviewer_id": "dba3eb2f-93c9-42e5-be22-0423b839ec32",
+      "integrated_revision": "ca0f5684"
     },
     {
       "id": "d03_apartment_family.07",
@@ -5902,14 +5974,14 @@
       "input_next_action": "Refine common dimensions, joins and assembly examples",
       "brief": "[Brief](../../assets/d03_apartment_family.md)",
       "priority": 0,
-      "status": "queued",
-      "agent_id": null,
-      "source_revision": null,
-      "review_status": "pending",
-      "integration_status": "pending",
+      "status": "production_prefab_accepted",
+      "agent_id": "b25e1e91-1015-4eec-b3e4-5b66c256d183",
+      "source_revision": "a6bbcc62",
+      "review_status": "accepted source/export/prefab scope (independent Sol review)",
+      "integration_status": "accepted",
       "placement_status": "pending",
       "blocker": null,
-      "attempts": 0,
+      "attempts": 1,
       "initial_time_cap_minutes": 90,
       "owned_paths": [
         "art/source/models/environment/d03_apartment_family_07/",
@@ -5917,8 +5989,20 @@
         "art/textures/environment/d03_apartment_family_07/",
         "art/materials/environment/d03_apartment_family_07/",
         "docs/assets/production/d03_apartment_family_07.md",
-        "docs/assets/production/d03_apartment_family_07-evidence/"
-      ]
+        "docs/assets/production/d03_apartment_family_07-evidence/",
+        "tools/asset_production/d03_apartment_family_07/",
+        "scenes/prefabs/environment/d03_apartment_family_07.tscn"
+      ],
+      "launch": {
+        "provider": "portkey/gpt-6-astra",
+        "configured_effort": "medium",
+        "mode": "orchestrator asset lane",
+        "lane": "a-apart"
+      },
+      "producer_manifest": "docs/assets/production/d03_apartment_family_07-evidence/manifest.json",
+      "report": "docs/assets/production/d03_apartment_family_07.md",
+      "reviewer_id": "dba3eb2f-93c9-42e5-be22-0423b839ec32",
+      "integrated_revision": "ca0f5684"
     },
     {
       "id": "d03_apartment_family.08",
@@ -5931,14 +6015,14 @@
       "input_next_action": "Refine common dimensions, joins and assembly examples",
       "brief": "[Brief](../../assets/d03_apartment_family.md)",
       "priority": 0,
-      "status": "queued",
-      "agent_id": null,
-      "source_revision": null,
-      "review_status": "pending",
-      "integration_status": "pending",
+      "status": "production_prefab_accepted",
+      "agent_id": "0bb508e9-d0f4-444f-9b11-8fedab94b46e",
+      "source_revision": "777b3953",
+      "review_status": "accepted source/export/prefab scope (independent Sol review)",
+      "integration_status": "accepted",
       "placement_status": "pending",
       "blocker": null,
-      "attempts": 0,
+      "attempts": 1,
       "initial_time_cap_minutes": 90,
       "owned_paths": [
         "art/source/models/environment/d03_apartment_family_08/",
@@ -5946,8 +6030,20 @@
         "art/textures/environment/d03_apartment_family_08/",
         "art/materials/environment/d03_apartment_family_08/",
         "docs/assets/production/d03_apartment_family_08.md",
-        "docs/assets/production/d03_apartment_family_08-evidence/"
-      ]
+        "docs/assets/production/d03_apartment_family_08-evidence/",
+        "tools/asset_production/d03_apartment_family_08/",
+        "scenes/prefabs/environment/d03_apartment_family_08.tscn"
+      ],
+      "launch": {
+        "provider": "portkey/gpt-6-astra",
+        "configured_effort": "medium",
+        "mode": "orchestrator asset lane",
+        "lane": "a-apart"
+      },
+      "producer_manifest": "docs/assets/production/d03_apartment_family_08-evidence/manifest.json",
+      "report": "docs/assets/production/d03_apartment_family_08.md",
+      "reviewer_id": "dba3eb2f-93c9-42e5-be22-0423b839ec32",
+      "integrated_revision": "ca0f5684"
     },
     {
       "id": "d03_apartment_family.09",
@@ -5960,14 +6056,14 @@
       "input_next_action": "Refine common dimensions, joins and assembly examples",
       "brief": "[Brief](../../assets/d03_apartment_family.md)",
       "priority": 0,
-      "status": "queued",
-      "agent_id": null,
-      "source_revision": null,
-      "review_status": "pending",
-      "integration_status": "pending",
+      "status": "production_prefab_accepted",
+      "agent_id": "4e89ab6c-d3cf-48e1-87cf-bb4bd7e52ceb",
+      "source_revision": "c78ba0ab",
+      "review_status": "accepted source/export/prefab scope (independent Sol review)",
+      "integration_status": "accepted",
       "placement_status": "pending",
       "blocker": null,
-      "attempts": 0,
+      "attempts": 1,
       "initial_time_cap_minutes": 90,
       "owned_paths": [
         "art/source/models/environment/d03_apartment_family_09/",
@@ -5975,8 +6071,20 @@
         "art/textures/environment/d03_apartment_family_09/",
         "art/materials/environment/d03_apartment_family_09/",
         "docs/assets/production/d03_apartment_family_09.md",
-        "docs/assets/production/d03_apartment_family_09-evidence/"
-      ]
+        "docs/assets/production/d03_apartment_family_09-evidence/",
+        "tools/asset_production/d03_apartment_family_09/",
+        "scenes/prefabs/environment/d03_apartment_family_09.tscn"
+      ],
+      "launch": {
+        "provider": "portkey/gpt-6-astra",
+        "configured_effort": "medium",
+        "mode": "orchestrator asset lane",
+        "lane": "a-apart"
+      },
+      "producer_manifest": "docs/assets/production/d03_apartment_family_09-evidence/manifest.json",
+      "report": "docs/assets/production/d03_apartment_family_09.md",
+      "reviewer_id": "dba3eb2f-93c9-42e5-be22-0423b839ec32",
+      "integrated_revision": "ca0f5684"
     },
     {
       "id": "d03_apartment_family.10",
@@ -5989,14 +6097,14 @@
       "input_next_action": "Refine common dimensions, joins and assembly examples",
       "brief": "[Brief](../../assets/d03_apartment_family.md)",
       "priority": 0,
-      "status": "queued",
-      "agent_id": null,
-      "source_revision": null,
-      "review_status": "pending",
-      "integration_status": "pending",
+      "status": "production_prefab_accepted",
+      "agent_id": "e7d8b1ad-6cb3-4b9e-b7d8-8db6bed795af",
+      "source_revision": "fce9d5c8",
+      "review_status": "accepted source/export/prefab scope (independent Sol review)",
+      "integration_status": "accepted",
       "placement_status": "pending",
       "blocker": null,
-      "attempts": 0,
+      "attempts": 1,
       "initial_time_cap_minutes": 90,
       "owned_paths": [
         "art/source/models/environment/d03_apartment_family_10/",
@@ -6004,8 +6112,20 @@
         "art/textures/environment/d03_apartment_family_10/",
         "art/materials/environment/d03_apartment_family_10/",
         "docs/assets/production/d03_apartment_family_10.md",
-        "docs/assets/production/d03_apartment_family_10-evidence/"
-      ]
+        "docs/assets/production/d03_apartment_family_10-evidence/",
+        "tools/asset_production/d03_apartment_family_10/",
+        "scenes/prefabs/environment/d03_apartment_family_10.tscn"
+      ],
+      "launch": {
+        "provider": "portkey/gpt-6-astra",
+        "configured_effort": "medium",
+        "mode": "orchestrator asset lane",
+        "lane": "a-apart"
+      },
+      "producer_manifest": "docs/assets/production/d03_apartment_family_10-evidence/manifest.json",
+      "report": "docs/assets/production/d03_apartment_family_10.md",
+      "reviewer_id": "dba3eb2f-93c9-42e5-be22-0423b839ec32",
+      "integrated_revision": "ca0f5684"
     },
     {
       "id": "d03_apartment_family.11",
@@ -6018,14 +6138,14 @@
       "input_next_action": "Refine common dimensions, joins and assembly examples",
       "brief": "[Brief](../../assets/d03_apartment_family.md)",
       "priority": 0,
-      "status": "queued",
-      "agent_id": null,
-      "source_revision": null,
-      "review_status": "pending",
-      "integration_status": "pending",
+      "status": "production_prefab_accepted",
+      "agent_id": "62ea39bd-93f6-4b38-8b8e-6a6184e42046",
+      "source_revision": "df0f11ca",
+      "review_status": "accepted source/export/prefab scope (independent Sol review)",
+      "integration_status": "accepted",
       "placement_status": "pending",
       "blocker": null,
-      "attempts": 0,
+      "attempts": 1,
       "initial_time_cap_minutes": 90,
       "owned_paths": [
         "art/source/models/environment/d03_apartment_family_11/",
@@ -6033,8 +6153,20 @@
         "art/textures/environment/d03_apartment_family_11/",
         "art/materials/environment/d03_apartment_family_11/",
         "docs/assets/production/d03_apartment_family_11.md",
-        "docs/assets/production/d03_apartment_family_11-evidence/"
-      ]
+        "docs/assets/production/d03_apartment_family_11-evidence/",
+        "tools/asset_production/d03_apartment_family_11/",
+        "scenes/prefabs/environment/d03_apartment_family_11.tscn"
+      ],
+      "launch": {
+        "provider": "portkey/gpt-6-astra",
+        "configured_effort": "medium",
+        "mode": "orchestrator asset lane",
+        "lane": "a-apart"
+      },
+      "producer_manifest": "docs/assets/production/d03_apartment_family_11-evidence/manifest.json",
+      "report": "docs/assets/production/d03_apartment_family_11.md",
+      "reviewer_id": "dba3eb2f-93c9-42e5-be22-0423b839ec32",
+      "integrated_revision": "ca0f5684"
     },
     {
       "id": "d04_towers.01",
