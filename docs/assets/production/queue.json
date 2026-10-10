@@ -4429,13 +4429,13 @@
       "input_next_action": "Confirm district use; not in Signal Row starting set",
       "brief": "[Brief](../../assets/city_parking_furniture.md)",
       "priority": 0,
-      "status": "queued",
-      "agent_id": null,
-      "source_revision": null,
-      "review_status": "pending",
-      "integration_status": "pending",
+      "status": "production_prefab_accepted",
+      "agent_id": "a682e6d4-53ee-4028-9396-c4e293061b15",
+      "source_revision": "d894e1d9",
+      "review_status": "accepted source/export/prefab scope (independent Sol review)",
+      "integration_status": "accepted",
       "placement_status": "pending",
-      "attempts": 0,
+      "attempts": 1,
       "initial_time_cap_minutes": 90,
       "owned_paths": [
         "art/source/models/environment/city_parking_furniture_04/",
@@ -4443,8 +4443,20 @@
         "art/textures/environment/city_parking_furniture_04/",
         "art/materials/environment/city_parking_furniture_04/",
         "docs/assets/production/city_parking_furniture_04.md",
-        "docs/assets/production/city_parking_furniture_04-evidence/"
-      ]
+        "docs/assets/production/city_parking_furniture_04-evidence/",
+        "tools/asset_production/city_parking_furniture_04/",
+        "scenes/prefabs/environment/city_parking_furniture_04.tscn"
+      ],
+      "launch": {
+        "provider": "portkey/gpt-6-astra",
+        "configured_effort": "medium",
+        "mode": "orchestrator asset lane",
+        "lane": "a-park4"
+      },
+      "producer_manifest": "docs/assets/production/city_parking_furniture_04-evidence/manifest.json",
+      "report": "docs/assets/production/city_parking_furniture_04.md",
+      "reviewer_id": "234160ee-0e66-4abc-8852-435f88c9a3e6",
+      "integrated_revision": "d894e1d9"
     },
     {
       "id": "city_small_shop_shells.03",
