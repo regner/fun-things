@@ -11,7 +11,7 @@ import subprocess
 import time
 
 ROOT = Path(__file__).resolve().parents[3]
-SUCCESS = "M1-A2.2 RESULT"
+SUCCESS = "M1-A2.2 "
 
 
 def available_port():
