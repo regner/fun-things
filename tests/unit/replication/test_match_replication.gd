@@ -307,6 +307,61 @@ func test_respawn_lifecycle_hides_replica_until_new_generation_pose() -> void:
 	assert_eq(actor.collision_layer, 2)
 
 
+## Rejects a recovery response for an EntityRef generation retired by respawn.
+func test_recovery_response_requires_current_lifecycle_envelope() -> void:
+	var match: Node3D = MATCH_SCENE.instantiate() as Node3D
+	add_child_autofree(match)
+	var replication: MatchReplication = match.get_node("Replication") as MatchReplication
+	replication._context.session_id = ReplicationIdentity.create_session_id()
+	replication._context.local_participant_id = 2
+	replication._client.input_recovery_pending = true
+	replication._player_identity.binding_by_participant[2] = {
+		"participant_id": 2,
+		"id": 7,
+		"generation": 2,
+	}
+	var response: Dictionary = {
+		"session_id": replication._context.session_id,
+		"match_revision": replication.match_revision(),
+		"entity_id": 7,
+		"generation": 1,
+		"input_epoch": 2,
+	}
+
+	replication._receive_input_recovery(response)
+	assert_eq(replication._client.input_epoch, 1)
+	assert_true(replication._client.input_recovery_pending)
+	response.generation = 2
+	replication._receive_input_recovery(response)
+	assert_eq(replication._client.input_epoch, 2)
+	assert_false(replication._client.input_recovery_pending)
+
+
+## Rejects out-of-codec input without mutating prediction or the local actor.
+func test_prediction_submission_is_atomic_on_encoding_failure() -> void:
+	var match: Node3D = MATCH_SCENE.instantiate() as Node3D
+	add_child_autofree(match)
+	var replication: MatchReplication = match.get_node("Replication") as MatchReplication
+	replication._context.local_participant_id = 2
+	replication._client.input_open = true
+	replication._player_identity.binding_by_participant[2] = {
+		"participant_id": 2,
+		"id": 1,
+		"generation": 1,
+	}
+	var actor: ActorMotion = replication._instantiate_replica(2)
+	await get_tree().physics_frame
+	assert_true(replication._prediction_owner().bind_actor(actor))
+	var before: Dictionary = actor.motion_state()
+	var out_of_range := FootCommand.new(
+		0x1_0000_0000, 1, Vector2.RIGHT, 0.0, false, false
+	)
+
+	assert_false(replication.predict_and_submit_local_command(out_of_range, 1.0 / 60.0))
+	assert_eq(replication._prediction_owner().history_size(), 0)
+	assert_eq(actor.motion_state(), before)
+
+
 ## Protects the four logical streams assigned by the replication contract.
 func test_rpc_channels_match_control_state_input_and_movement_streams() -> void:
 	var match: Node3D = MATCH_SCENE.instantiate() as Node3D
@@ -317,6 +372,8 @@ func test_rpc_channels_match_control_state_input_and_movement_streams() -> void:
 	assert_eq(int(config[&"_ready_for_baseline"].channel), 0)
 	assert_eq(int(config[&"_acknowledge_baseline"].channel), 0)
 	assert_eq(int(config[&"_acknowledge_handoff"].channel), 0)
+	assert_eq(int(config[&"_request_input_recovery"].channel), 0)
+	assert_eq(int(config[&"_receive_input_recovery"].channel), 0)
 	for method: StringName in [
 		&"_receive_player_bindings",
 		&"_receive_lifecycle_hydration",

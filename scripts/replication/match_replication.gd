@@ -3,6 +3,7 @@ extends Node
 ## Coordinates Match-local authoritative players, admission, input, and latest-state replication.
 
 signal input_granted(participant_id: int)
+signal input_recovered(participant_id: int)
 signal movement_applied(participant_id: int)
 
 const PLAYER_SCENE: PackedScene = preload("res://scenes/entities/player.tscn")
@@ -11,16 +12,17 @@ const MOVEMENT_INTERVAL_TICKS: int = 3
 const SPAWN_COLLISION_MASK: int = 7
 const PLAYER_CLEARANCE_RADIUS_M: float = 0.45
 const PLAYER_CLEARANCE_HEIGHT_M: float = 2.0
-const INPUT_INTERVAL_TICKS: int = 2
-const INPUT_STALE_MSEC: int = 250
 const INPUT_RATE_PER_SECOND: float = 60.0
 const INPUT_BURST: float = 8.0
-const MAX_SEQUENCE_ADVANCE: int = 120
 const RESET_ADMISSION_TIMEOUT_MSEC: int = 15_000
 const PHASE_MAPPED: StringName = &"mapped"
 const ENTITY_KIND_PLAYER: int = 1
 const PHASE_LIVE: int = 1
 const PHASE_REMOVED: int = 3
+const MOVEMENT_FLAG_GROUNDED: int = 1 << 0
+
+@export_range(100, 150, 1) var remote_extrapolation_msec: int = 125
+@export_range(1, 250, 1) var remote_authority_blend_msec: int = 150
 
 var _codec := MeasuredReplicationCodec.new()
 var _identities := PeerIdentityRegistry.new()
@@ -28,6 +30,7 @@ var _transport: ReplicationTransport
 var _admission: ReplicationAdmission
 var _assembler := BaselineAssembler.new()
 var _store: ReplicaStateStore
+var _input_authority := FootInputAuthority.new()
 var _context: Dictionary = {
 	"session_id": "",
 	"local_participant_id": 0,
@@ -41,6 +44,12 @@ var _client: Dictionary = {
 	"grant_received": false,
 	"input_open": false,
 	"local_input_enabled": true,
+	"input_epoch": 1,
+	"input_recovery_pending": false,
+	"last_recovery_correction_metres": 0.0,
+	"last_command_packet": PackedByteArray(),
+	"prediction": FootPrediction.new(),
+	"remote_smoothers": {},
 }
 var _sequence: Dictionary = {
 	"physics_tick": 0,
@@ -57,7 +66,6 @@ var _spawn_reservations := SpawnReservations.new()
 var _resetting: bool = false
 var _standalone: bool = false
 var _suppress_lifecycle_publish: bool = false
-var _latest_command_by_participant: Dictionary[int, Dictionary] = {}
 var _input_state_by_participant: Dictionary[int, Dictionary] = {}
 var _admitted_peers: Dictionary[int, bool] = {}
 var _player_identity: Dictionary = {
@@ -91,13 +99,10 @@ func _physics_process(delta: float) -> void:
 			_publish_movement()
 	else:
 		_lifecycle.step(_sequence.physics_tick)
-		_follow_local_camera()
-		if (
-			_client.input_open
-			and _client.local_input_enabled
-			and _sequence.physics_tick % INPUT_INTERVAL_TICKS == 0
-		):
-			_sample_and_submit_local_input()
+		_update_client_presentation(delta)
+		_local_rig().follow_actor_display(actor_for_participant(_context.local_participant_id))
+		if _client.input_open and _client.local_input_enabled:
+			_sample_predict_and_submit_local_input(delta)
 
 
 ## Installs one admitted network identity and starts the appropriate authority role.
@@ -218,7 +223,7 @@ func remove_peer(native_peer_id: int, participant_id: int) -> void:
 	_admitted_peers.erase(native_peer_id)
 	_peer_by_participant.erase(participant_id)
 	_waiting_admission_deadline_by_peer.erase(native_peer_id)
-	_latest_command_by_participant.erase(participant_id)
+	_input_authority.remove(participant_id)
 	_input_state_by_participant.erase(participant_id)
 	_player_identity.spawn_slot_by_participant.erase(participant_id)
 	_admission.remove_peer(native_peer_id)
@@ -248,39 +253,93 @@ func set_local_input_enabled(enabled: bool) -> void:
 			input.set_focused(false)
 
 
-## Encodes and sends one local intent without applying it on the client.
+## Encodes and sends one envelope-fenced local intent without applying prediction.
 func submit_local_command(command: FootCommand) -> bool:
-	var encoded: Dictionary = FootCommandCodec.encode(command)
+	var encoded: Dictionary = _encode_local_command(command)
 	if not encoded.get("ok", false):
 		return false
-	return send_local_command_packet(encoded.packet)
-
-
-## Sends one exact command packet for alternate bounded input collectors.
-func send_local_command_packet(packet: PackedByteArray) -> bool:
-	if (
-		_context.is_host
-		or not _client.input_open
-		or packet.size() != FootCommandCodec.PACKET_BYTES
-	):
-		return false
-
-	var binding: Dictionary = _player_identity.binding_by_participant.get(
-		_context.local_participant_id, {}
-	)
-	if binding.is_empty():
-		return false
-	_submit_command.rpc_id(
-		1,
-		{
-			"session_id": _context.session_id,
-			"match_revision": _match_revision(),
-			"entity_id": int(binding.id),
-			"generation": int(binding.generation),
-			"packet": packet,
-		},
-	)
+	_send_local_command_packet(encoded.packet)
 	return true
+
+
+## Validates wire admission before atomically predicting and sending the same packet.
+func predict_and_submit_local_command(command: FootCommand, delta_seconds: float) -> bool:
+	var encoded: Dictionary = _encode_local_command(command)
+	if not encoded.get("ok", false):
+		return false
+	if not _prediction_owner().predict(command, delta_seconds):
+		return false
+
+	_send_local_command_packet(encoded.packet)
+	return true
+
+
+## Sends one exact pre-encoded command packet for alternate bounded input collectors.
+func send_local_command_packet(packet: PackedByteArray) -> bool:
+	if not _can_submit_local_packet(packet):
+		return false
+	_send_local_command_packet(packet)
+	return true
+
+
+## Builds one fixed packet only while the local lifecycle binding and epoch are current.
+func _encode_local_command(command: FootCommand) -> Dictionary:
+	if not _can_submit_local_packet(PackedByteArray()):
+		return { "ok": false }
+	return FootCommandCodec.encode(command, int(_client.input_epoch))
+
+
+## Checks local state before prediction can mutate movement.
+func _can_submit_local_packet(packet: PackedByteArray) -> bool:
+	if _context.is_host or not _client.input_open or _client.input_recovery_pending:
+		return false
+	if not packet.is_empty() and packet.size() != FootCommandCodec.PACKET_BYTES:
+		return false
+	return not _player_identity.binding_by_participant.get(
+		_context.local_participant_id, {}
+	).is_empty()
+
+
+## Sends one fixed packet through A2.4's current session, match, and EntityRef fence.
+func _send_local_command_packet(packet: PackedByteArray) -> void:
+	_client.last_command_packet = packet.duplicate()
+	_submit_command.rpc_id(1, _command_envelope(packet))
+
+
+## Wraps one packet in the sole lifecycle-owned command fence.
+func _command_envelope(packet: PackedByteArray) -> Dictionary:
+	var binding: Dictionary = _player_identity.binding_by_participant[
+		_context.local_participant_id
+	]
+	return {
+		"session_id": _context.session_id,
+		"match_revision": _match_revision(),
+		"entity_id": int(binding.id),
+		"generation": int(binding.generation),
+		"packet": packet,
+	}
+
+
+## Invalidates replay at life, generation, reset, control, or collision fences.
+func update_client_prediction_context(
+	entity_id: int,
+	generation: int,
+	life_revision: int,
+	control_revision: int,
+	collision_revision: int,
+) -> bool:
+	return _prediction_owner().update_context(
+		entity_id, generation, life_revision, control_revision, collision_revision
+	)
+
+
+## Clears prediction, smoothing, and pending recovery at a non-incremental fence.
+func invalidate_client_motion() -> void:
+	_prediction_owner().invalidate()
+	_client.input_recovery_pending = false
+	_client.last_command_packet = PackedByteArray()
+	for smoother: RemoteMotionSmoother in _remote_smoothers().values():
+		smoother.clear()
 
 
 ## Returns one process-local actor for wiring checks and integration receipts.
@@ -336,7 +395,7 @@ func request_match_reset(requester_participant_id: int) -> bool:
 	var reset_attempts: Array[Dictionary] = _take_reset_attempts(now_msec)
 	_sequence.match_revision = _match_revision() + 1
 	_sequence.durable_revision = 0
-	_latest_command_by_participant.clear()
+	_input_authority.clear()
 	_input_state_by_participant.clear()
 	_admitted_peers.clear()
 	var failed_peers: Array[int] = []
@@ -498,9 +557,11 @@ func acknowledge_handoff_for_peer(
 		lifecycle_revision,
 	)
 	if result.get("admitted", false):
+		var participant_id: int = _identities.resolve_sender(native_peer_id)
 		_admitted_peers[native_peer_id] = true
 		_waiting_admission_deadline_by_peer.erase(native_peer_id)
-		_lifecycle.set_admitted(_identities.resolve_sender(native_peer_id), true)
+		_input_authority.grant(participant_id)
+		_lifecycle.set_admitted(participant_id, true)
 	return result
 
 
@@ -546,9 +607,84 @@ func _acknowledge_handoff(
 		)
 
 
-## Validates sender admission and exact FootCommand shape before authority simulation.
+## Requests one bounded epoch transition through the same lifecycle-owned command fence.
+@rpc("any_peer", "call_remote", "reliable", 0)
+func _request_input_recovery(envelope: Dictionary) -> void:
+	var admitted: Dictionary = _admit_input(envelope)
+	if admitted.is_empty():
+		return
+	var decoded: Dictionary = FootCommandCodec.decode(admitted.packet)
+	if not decoded.get("ok", false):
+		return
+	var next_epoch: int = _input_authority.recover(
+		int(admitted.participant_id),
+		int(decoded.input_epoch),
+		admitted.packet,
+		_now_msec(),
+	)
+	if next_epoch <= 0:
+		return
+	var binding: Dictionary = admitted.binding
+	_receive_input_recovery.rpc_id(
+		int(admitted.sender),
+		{
+			"session_id": _context.session_id,
+			"match_revision": _match_revision(),
+			"entity_id": int(binding.id),
+			"generation": int(binding.generation),
+			"input_epoch": next_epoch,
+		},
+	)
+
+
+## Installs one host-authorized epoch only while its complete lifecycle fence is current.
+@rpc("authority", "call_remote", "reliable", 0)
+func _receive_input_recovery(envelope: Dictionary) -> void:
+	if _context.is_host or not _client.input_recovery_pending or envelope.size() != 5:
+		return
+	var binding: Dictionary = _player_identity.binding_by_participant.get(
+		_context.local_participant_id, {}
+	)
+	if (
+		binding.is_empty()
+		or envelope.get("session_id") != _context.session_id
+		or envelope.get("match_revision") != _match_revision()
+		or envelope.get("entity_id") != int(binding.id)
+		or envelope.get("generation") != int(binding.generation)
+		or envelope.get("input_epoch") is not int
+	):
+		return
+	var input_epoch: int = int(envelope.input_epoch)
+	if input_epoch <= int(_client.input_epoch) or input_epoch > FootCommandCodec.MAX_INPUT_EPOCH:
+		return
+	_client.input_epoch = input_epoch
+	_client.input_recovery_pending = false
+	_client.last_command_packet = PackedByteArray()
+	_reset_local_command_sequence()
+	_prediction_owner().invalidate()
+	_update_local_prediction_context()
+	input_recovered.emit(_context.local_participant_id)
+
+
+## Validates the command envelope before offering its fixed packet to host input state.
 @rpc("any_peer", "call_remote", "unreliable_ordered", 2)
-func _submit_command(envelope: Dictionary) -> void:  # gdstyle:ignore=format/max-line-length,quality/max-function-length,quality/max-returns
+func _submit_command(envelope: Dictionary) -> void:
+	var admitted: Dictionary = _admit_input(envelope)
+	if admitted.is_empty() or not _consume_input_rate(int(admitted.participant_id)):
+		return
+	var decoded: Dictionary = FootCommandCodec.decode(admitted.packet)
+	if not decoded.get("ok", false):
+		_record_command_rejection(decoded.failure.code)
+		return
+	var offered: Dictionary = _input_authority.offer(
+		int(admitted.participant_id), decoded, _now_msec()
+	)
+	if offered.has("failure"):
+		_record_command_rejection(offered.failure)
+
+
+## Resolves one exact current command envelope without decoding its bounded packet.
+func _admit_input(envelope: Dictionary) -> Dictionary:  # gdstyle:ignore=quality/max-returns
 	if (
 		envelope.size() != 5
 		or envelope.get("session_id") is not String
@@ -557,18 +693,17 @@ func _submit_command(envelope: Dictionary) -> void:  # gdstyle:ignore=format/max
 		or envelope.get("generation") is not int
 		or envelope.get("packet") is not PackedByteArray
 	):
-		return
+		return {}
 	if (
 		not _context.is_host
 		or envelope.session_id != _context.session_id
 		or int(envelope.match_revision) != _match_revision()
 	):
-		return
+		return {}
 	var packet: PackedByteArray = envelope.packet
 	if packet.size() != FootCommandCodec.PACKET_BYTES:
 		_record_command_rejection(&"PACKET_SIZE")
-		return
-
+		return {}
 	var sender: int = multiplayer.get_remote_sender_id()
 	var participant_id: int = _admission.input_participant(sender)
 	var binding: Dictionary = _player_identity.binding_by_participant.get(participant_id, {})
@@ -579,27 +714,12 @@ func _submit_command(envelope: Dictionary) -> void:  # gdstyle:ignore=format/max
 		or int(envelope.entity_id) != int(binding.id)
 		or int(envelope.generation) != int(binding.generation)
 	):
-		return
-	if not _consume_input_rate(participant_id):
-		return
-	var decoded: Dictionary = FootCommandCodec.decode(packet)
-	if not decoded.get("ok", false):
-		_record_command_rejection(decoded.failure.code)
-		return
-	var command: FootCommand = decoded.command
-	var input_state: Dictionary = _input_state_by_participant[participant_id]
-	var previous_sequence: int = int(input_state.last_sequence)
-	if bool(input_state.initialized) and (
-		command.sequence <= previous_sequence
-		or command.sequence > previous_sequence + MAX_SEQUENCE_ADVANCE
-	):
-		return
-
-	input_state.initialized = true
-	input_state.last_sequence = command.sequence
-	_latest_command_by_participant[participant_id] = {
-		"command": command,
-		"received_msec": _now_msec(),
+		return {}
+	return {
+		"binding": binding,
+		"packet": packet,
+		"participant_id": participant_id,
+		"sender": sender,
 	}
 
 
@@ -633,8 +753,22 @@ func _receive_player_bindings(
 			return
 	for value: Variant in bindings:
 		var binding: Dictionary = value
-		_player_identity.binding_by_participant[int(binding.participant_id)] = binding.duplicate()
-		_player_identity.participant_by_entity[int(binding.id)] = int(binding.participant_id)
+		var participant_id: int = int(binding.participant_id)
+		var previous: Dictionary = _player_identity.binding_by_participant.get(
+			participant_id, {}
+		)
+		_player_identity.binding_by_participant[participant_id] = binding.duplicate()
+		_player_identity.participant_by_entity[int(binding.id)] = participant_id
+		if participant_id == _context.local_participant_id and (
+			previous.is_empty()
+			or int(previous.id) != int(binding.id)
+			or int(previous.generation) != int(binding.generation)
+		):
+			_client.input_epoch = 1
+			_client.input_recovery_pending = false
+			_client.last_command_packet = PackedByteArray()
+			_reset_local_command_sequence()
+	_update_motion_contexts()
 
 
 ## Installs reliable lifecycle and authoritative roster state before baseline movement.
@@ -661,6 +795,7 @@ func _receive_lifecycle_hydration(
 		return
 
 	_apply_lifecycle_to_actors()
+	_update_motion_contexts()
 
 
 ## Invalidates old-match input, state, and callbacks before reset hydration begins.
@@ -677,7 +812,9 @@ func _receive_reset_begin(session_id: String, match_revision: int) -> void:
 	_client.baseline_installed = false
 	_client.grant_received = false
 	_client.input_open = false
-	_latest_command_by_participant.clear()
+	_client.input_epoch = 1
+	invalidate_client_motion()
+	_reset_local_command_sequence()
 	_input_state_by_participant.clear()
 	_player_identity.binding_by_participant.clear()
 	_player_identity.participant_by_entity.clear()
@@ -822,6 +959,7 @@ func _receive_movement(
 	session_id: String,
 	match_revision: int,
 	packet: PackedByteArray,
+	acknowledged_sequence: int,
 ) -> void:
 	if (
 		_context.is_host
@@ -836,8 +974,8 @@ func _receive_movement(
 	var applied: Dictionary = _store.apply_movement(session_id, match_revision, packet)
 	if not applied.get("ok", false):
 		return
-	for row: Dictionary in decoded.rows:
-		_apply_replica_state(int(row.id))
+	for entity_id: int in applied.get("applied_ids", []):
+		_apply_replica_state(entity_id, acknowledged_sequence)
 
 
 ## Sends immutable baseline framing through reliable RPCs at the saved Match path.
@@ -1130,11 +1268,11 @@ func _materialize_baseline(rows: Array[Dictionary]) -> void:
 		var actor: ActorMotion = _actors_by_participant.get(participant_id)
 		if actor == null:
 			actor = _instantiate_replica(participant_id)
-		_apply_replica_state(int(row.id))
+		_apply_replica_state(int(row.id), 0)
 
 
-## Applies one store-owned latest pose and updates the delivered courier presentation.
-func _apply_replica_state(entity_id: int) -> void:
+## Reconciles local prediction or feeds one passive remote presentation sample.
+func _apply_replica_state(entity_id: int, acknowledged_sequence: int) -> void:
 	var participant_id: int = int(_player_identity.participant_by_entity.get(entity_id, 0))
 	if participant_id == 0:
 		return
@@ -1151,21 +1289,84 @@ func _apply_replica_state(entity_id: int) -> void:
 	var actor: ActorMotion = _actors_by_participant.get(participant_id)
 	if actor == null:
 		actor = _instantiate_replica(participant_id)
-	actor.global_position = Vector3(float(state.x), actor.global_position.y, float(state.z))
+	var position := Vector3(float(state.x), float(state.y), float(state.z))
+	var velocity := Vector3(float(state.vx), float(state.vy), float(state.vz))
+	var alive: bool = _lifecycle.is_alive(participant_id)
+	_replica_pose_generation_by_participant[participant_id] = int(state.generation)
+	_set_actor_alive(participant_id, alive)
+	if participant_id == _context.local_participant_id:
+		_apply_local_replica_state(
+			actor,
+			participant_id,
+			state,
+			{ "position": position, "velocity": velocity, "alive": alive },
+			acknowledged_sequence,
+		)
+		return
+	_apply_remote_replica_state(actor, participant_id, state, position, velocity)
+
+
+## Reconciles one current local row or installs it while input remains closed.
+func _apply_local_replica_state(
+	actor: ActorMotion,
+	participant_id: int,
+	state: Dictionary,
+	motion: Dictionary,
+	acknowledged_sequence: int,
+) -> void:
+	if bool(motion.alive) and _client.grant_received:
+		_client.input_open = true
+		_bind_client_input()
+	if _client.input_open:
+		var reconciliation: Dictionary = _prediction_owner().reconcile_motion(
+			motion.position,
+			motion.velocity,
+			float(state.yaw),
+			(int(state.flags) & MOVEMENT_FLAG_GROUNDED) != 0,
+			acknowledged_sequence,
+		)
+		if reconciliation.get("history_exhausted", false):
+			_request_local_input_recovery(float(reconciliation.correction_metres))
+	else:
+		actor.global_position = motion.position
+		actor.rotation.y = float(state.yaw)
+		actor.velocity = motion.velocity
+	movement_applied.emit(participant_id)
+
+
+## Pushes one current remote row into bounded passive presentation smoothing.
+func _apply_remote_replica_state(
+	actor: ActorMotion,
+	participant_id: int,
+	state: Dictionary,
+	position: Vector3,
+	velocity: Vector3,
+) -> void:
+	actor.global_position = position
 	actor.rotation.y = float(state.yaw)
-	actor.velocity = Vector3(float(state.vx), 0.0, float(state.vz))
+	actor.velocity = velocity
 	var presentation: PlayerMotionPresentation = actor.get_node_or_null(
 		"PresentationAnchor"
 	) as PlayerMotionPresentation
 	if presentation != null:
 		presentation.apply_motion(actor.velocity, actor.rotation.y)
-	_replica_pose_generation_by_participant[participant_id] = int(state.generation)
-	_set_actor_alive(participant_id, _lifecycle.is_alive(participant_id))
-	if participant_id == _context.local_participant_id:
-		if _lifecycle.is_alive(participant_id) and _client.grant_received:
-			_client.input_open = true
-			_bind_client_input()
-		movement_applied.emit(participant_id)
+	var smoother: RemoteMotionSmoother = RemoteMotionSmoother.resolve(
+		_remote_smoothers(),
+		participant_id,
+		_player_identity.binding_by_participant.get(participant_id, {}),
+		remote_extrapolation_msec,
+		remote_authority_blend_msec,
+	)
+	var now_msec: int = _now_msec()
+	smoother.push(
+		{
+			"position": position,
+			"velocity": velocity,
+			"aim_yaw": float(state.yaw),
+		},
+		now_msec,
+	)
+	RemoteMotionSmoother.apply_display(actor, smoother.sample(now_msec))
 
 
 ## Creates one non-simulating courier replica at its authored participant anchor.
@@ -1188,6 +1389,12 @@ func _remove_replica(participant_id: int) -> void:
 		return
 	_actors_by_participant.erase(participant_id)
 	_replica_pose_generation_by_participant.erase(participant_id)
+	var smoother: RemoteMotionSmoother = _remote_smoothers().get(participant_id)
+	if smoother != null:
+		smoother.clear()
+	_remote_smoothers().erase(participant_id)
+	if participant_id == _context.local_participant_id:
+		invalidate_client_motion()
 	actor.queue_free()
 
 
@@ -1226,18 +1433,26 @@ func _consume_input_rate(participant_id: int) -> bool:
 	return true
 
 
-## Applies fresh admitted client commands and neutralizes expired held input.
+## Consumes one bounded queued frame per live remote participant.
 func _step_remote_players(delta: float) -> void:
 	var now_msec: int = _now_msec()
-	for participant_id: int in _latest_command_by_participant.keys():
-		var actor: ActorMotion = _actors_by_participant.get(participant_id)
-		if actor == null or not _lifecycle.is_alive(participant_id):
+	for participant_id: int in _actors_by_participant:
+		if participant_id == _context.local_participant_id:
 			continue
-		var latest: Dictionary = _latest_command_by_participant[participant_id]
-		if now_msec - int(latest.received_msec) > INPUT_STALE_MSEC:
+		var actor: ActorMotion = _actors_by_participant[participant_id]
+		if not _lifecycle.is_alive(participant_id):
 			actor.neutralize()
 			continue
-		actor.step(latest.command, delta, ActorMotion.StepMode.AUTHORITY)
+		var queue: FootInputQueue = _input_authority.queue(participant_id)
+		if queue == null:
+			actor.neutralize()
+			continue
+		var decision: Dictionary = queue.consume(now_msec)
+		var command: FootCommand = decision.command
+		if command == null:
+			actor.neutralize()
+			continue
+		actor.step(command, delta, ActorMotion.StepMode.AUTHORITY)
 
 
 ## Publishes one shared encoded latest-state packet set to every admitted peer.
@@ -1251,12 +1466,15 @@ func _publish_movement() -> void:
 	if not encoded.get("ok", false):
 		return
 	for native_peer_id: int in _admitted_peers.keys():
+		var participant_id: int = _identities.resolve_sender(native_peer_id)
+		var acknowledgement: int = _input_authority.acknowledgement(participant_id)
 		for packet: PackedByteArray in encoded.packets:
 			_receive_movement.rpc_id(
 				native_peer_id,
 				_context.session_id,
 				_match_revision(),
 				packet,
+				acknowledgement,
 			)
 
 
@@ -1283,10 +1501,12 @@ func _capture_rows() -> Array[Dictionary]:
 				"generation": binding.generation,
 				"kind": ENTITY_KIND_PLAYER,
 				"phase": PHASE_LIVE,
-				"flags": 0,
+				"flags": MOVEMENT_FLAG_GROUNDED if bool(state.grounded) else 0,
 				"x": position.x,
+				"y": position.y,
 				"z": position.z,
 				"vx": velocity.x,
+				"vy": velocity.y,
 				"vz": velocity.z,
 				"yaw": actor.rotation.y,
 			}
@@ -1367,9 +1587,18 @@ func _broadcast_bindings() -> void:
 		)
 
 
-## Publishes reliable lifecycle/roster state after its durable dependency was committed.
-func _on_lifecycle_transition(_participant_id: int, _state: Dictionary) -> void:
-	if _resetting or _suppress_lifecycle_publish or not _context.is_host:
+## Clears old-life input before publishing one complete lifecycle transition.
+func _on_lifecycle_transition(participant_id: int, state: Dictionary) -> void:
+	if not _context.is_host:
+		return
+	_input_authority.remove(participant_id)
+	_input_state_by_participant.erase(participant_id)
+	var actor: ActorMotion = _actors_by_participant.get(participant_id)
+	if actor != null:
+		actor.neutralize()
+	if bool(state.get("alive", false)) and bool(state.get("admitted", false)):
+		_input_authority.grant(participant_id)
+	if _resetting or _suppress_lifecycle_publish:
 		return
 	_admission.publish_lifecycle(_lifecycle.revision())
 	_publish_lifecycle_state()
@@ -1390,7 +1619,7 @@ func _commit_player_death(participant_id: int) -> bool:
 	if actor == null:
 		return false
 
-	_latest_command_by_participant.erase(participant_id)
+	_input_authority.remove(participant_id)
 	_input_state_by_participant.erase(participant_id)
 	actor.neutralize()
 	_set_actor_alive(participant_id, false)
@@ -1484,13 +1713,78 @@ func _spawn_for_slot(spawn_slot: int) -> Marker3D:
 	return _player_spawns().get_child(spawn_slot - 1) as Marker3D
 
 
-## Samples the authored desktop collector without applying client-side prediction.
-func _sample_and_submit_local_input() -> void:
+## Samples, predicts, and submits exactly one local frame per fixed physics tick.
+func _sample_predict_and_submit_local_input(delta_seconds: float) -> void:
 	var input: DesktopFootInput = _local_input()
 	if input == null:
 		return
 	var command: FootCommand = input.sample(_sequence.physics_tick)
-	submit_local_command(command)
+	predict_and_submit_local_command(command, delta_seconds)
+
+
+## Updates local correction decay and each passive remote presentation.
+func _update_client_presentation(delta_seconds: float) -> void:
+	_prediction_owner().tick_visual(delta_seconds)
+	var now_msec: int = _now_msec()
+	for participant_id: int in _remote_smoothers():
+		var actor: ActorMotion = _actors_by_participant.get(participant_id)
+		var smoother: RemoteMotionSmoother = _remote_smoothers()[participant_id]
+		RemoteMotionSmoother.apply_display(actor, smoother.sample(now_msec))
+
+
+## Returns the client-local prediction owner retained inside bounded client state.
+func _prediction_owner() -> FootPrediction:
+	return _client.prediction as FootPrediction
+
+
+## Returns participant-keyed remote presentation owners.
+func _remote_smoothers() -> Dictionary:
+	return _client.remote_smoothers as Dictionary
+
+
+## Requests one host-authorized reset after bounded replay history exhaustion.
+func _request_local_input_recovery(correction_metres: float) -> void:
+	if (
+		_context.is_host
+		or _client.input_recovery_pending
+		or (_client.last_command_packet as PackedByteArray).size()
+		!= FootCommandCodec.PACKET_BYTES
+	):
+		return
+	_client.input_recovery_pending = true
+	_client.last_recovery_correction_metres = correction_metres
+	_request_input_recovery.rpc_id(
+		1, _command_envelope((_client.last_command_packet as PackedByteArray).duplicate())
+	)
+
+
+## Restarts only the authored collector sequence after a valid lifecycle or epoch fence.
+func _reset_local_command_sequence() -> void:
+	var input: DesktopFootInput = _local_input()
+	if input != null:
+		input.reset_sequence()
+
+
+## Applies current lifecycle dependencies to local replay and remote smoothing owners.
+func _update_motion_contexts() -> void:
+	var life_revision: int = _lifecycle.revision()
+	for participant_id: int in _player_identity.binding_by_participant:
+		var binding: Dictionary = _player_identity.binding_by_participant[participant_id]
+		if participant_id == _context.local_participant_id:
+			update_client_prediction_context(
+				int(binding.id), int(binding.generation), life_revision, 1, 1
+			)
+			continue
+		var smoother: RemoteMotionSmoother = RemoteMotionSmoother.resolve(
+			_remote_smoothers(),
+			participant_id,
+			binding,
+			remote_extrapolation_msec,
+			remote_authority_blend_msec,
+		)
+		smoother.update_context(
+			int(binding.id), int(binding.generation), life_revision, 1, 1
+		)
 
 
 ## Binds aim collection only after the local baseline actor and grant exist.
@@ -1503,18 +1797,24 @@ func _bind_client_input() -> void:
 	if not _local_rig().bind_replica_actor(actor):
 		return
 	input.bind_aim(camera, actor)
+	_prediction_owner().bind_actor(actor)
+	_update_local_prediction_context()
 	_local_rig().set_replica_input_enabled(
 		_client.input_open and _client.local_input_enabled
 	)
-	_follow_local_camera()
+	_local_rig().follow_actor_display(actor)
 
 
-## Keeps the authored camera centred while client prediction remains disabled.
-func _follow_local_camera() -> void:
-	var actor: ActorMotion = _actors_by_participant.get(_context.local_participant_id)
-	var anchor: Node3D = _local_rig().get_node_or_null("CameraAnchor") as Node3D
-	if actor != null and anchor != null:
-		anchor.global_position = actor.global_position
+## Refreshes local replay dependencies from authoritative binding and lifecycle state.
+func _update_local_prediction_context() -> void:
+	var binding: Dictionary = _player_identity.binding_by_participant.get(
+		_context.local_participant_id, {}
+	)
+	if binding.is_empty():
+		return
+	update_client_prediction_context(
+		int(binding.id), int(binding.generation), _lifecycle.revision(), 1, 1
+	)
 
 
 ## Reads the injected monotonic clock or the engine clock in production.

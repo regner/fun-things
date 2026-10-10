@@ -46,7 +46,8 @@ Gameplay uses +Y up, local
 -Z forward and radians. Minimap maps world XZ to 2D; S02 chooses its display orientation.
 
 Handshake: `{protocol_version: int, content_id: string, district_id: WorldId,
-topology_revision: int, definition_set_id: string}`. Protocol starts at 1; require
+topology_revision: int, definition_set_id: string}`. Protocol version 2 covers the
+A2.4 command envelope plus A2.3 movement-version-2 rows and recovery epoch; require
 exact equality for M1, with no backward-compatible negotiation. Content/definition
 IDs are build-time fingerprints of required gameplay resources/bakes, bounded to
 128 bytes each; their generation is S06/M1 work. ENet admission uses `SceneMultiplayer`
@@ -442,8 +443,11 @@ participant-local input epoch only when that probe or a previously received comm
 its current 120-sequence window, and at most once per 1,000 ms. Host queue, client collector
 sequence, and prediction history reset together, so sequence one resumes without accepting
 prior-epoch input. The eight-bit epoch saturates at 255 and never wraps within one admitted
-lifecycle. The larger 1,200-byte
-held-input ceiling remains available only for a future explicitly measured bounded batch;
+lifecycle. Death, respawn, reset, disconnect, and EntityRef generation changes clear or
+neutralize retained host input before the replacement life can simulate, and invalidate
+client prediction. The recovery RPC uses the same session, match revision, and EntityRef
+fence as ordinary commands. The larger 1,200-byte held-input ceiling remains available
+only for a future explicitly measured bounded batch;
 it does not permit Variant dictionaries or another unbounded remotely callable shape.
 
 **Split movement decision from S03:** a packet watermark does not imply receipt

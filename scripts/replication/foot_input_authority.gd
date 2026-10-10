@@ -31,6 +31,14 @@ func remove(participant_id: int) -> void:
 	_last_recovery_attempt_msec.erase(participant_id)
 
 
+## Clears every queue and recovery fence at an authoritative match reset.
+func clear() -> void:
+	_queues.clear()
+	_epoch_by_participant.clear()
+	_recovery_authorized.clear()
+	_last_recovery_attempt_msec.clear()
+
+
 ## Offers one decoded command and records host evidence when its sequence is out of window.
 func offer(participant_id: int, decoded: Dictionary, receipt_msec: int) -> Dictionary:
 	var queue: FootInputQueue = _queues.get(participant_id)
