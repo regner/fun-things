@@ -4952,14 +4952,14 @@
       "input_next_action": "Refine asset design from Crescents v02",
       "brief": "[Brief](../../assets/d02_house_family.md)",
       "priority": 0,
-      "status": "queued",
-      "agent_id": null,
-      "source_revision": null,
-      "review_status": "pending",
-      "integration_status": "pending",
+      "status": "production_prefab_accepted",
+      "agent_id": "3a97889c-9a8e-499a-87db-3bcbe9fff0e0",
+      "source_revision": "c39a869d",
+      "review_status": "accepted source/export/prefab scope (independent Sol review)",
+      "integration_status": "accepted",
       "placement_status": "pending",
       "blocker": null,
-      "attempts": 0,
+      "attempts": 1,
       "initial_time_cap_minutes": 90,
       "owned_paths": [
         "art/source/models/environment/d02_house_family_01/",
@@ -4967,8 +4967,20 @@
         "art/textures/environment/d02_house_family_01/",
         "art/materials/environment/d02_house_family_01/",
         "docs/assets/production/d02_house_family_01.md",
-        "docs/assets/production/d02_house_family_01-evidence/"
-      ]
+        "docs/assets/production/d02_house_family_01-evidence/",
+        "tools/asset_production/d02_house_family_01/",
+        "scenes/prefabs/environment/d02_house_family_01.tscn"
+      ],
+      "launch": {
+        "provider": "portkey/gpt-6-astra",
+        "configured_effort": "medium",
+        "mode": "orchestrator asset lane",
+        "lane": "a-house"
+      },
+      "producer_manifest": "docs/assets/production/d02_house_family_01-evidence/manifest.json",
+      "report": "docs/assets/production/d02_house_family_01.md",
+      "reviewer_id": "4e11ce37-bf08-49a9-ae71-cdc6718bc7be",
+      "integrated_revision": "b2e2fbaa"
     },
     {
       "id": "d02_house_family.02",
@@ -4981,14 +4993,14 @@
       "input_next_action": "Refine asset design from Crescents v02",
       "brief": "[Brief](../../assets/d02_house_family.md)",
       "priority": 0,
-      "status": "queued",
-      "agent_id": null,
-      "source_revision": null,
-      "review_status": "pending",
-      "integration_status": "pending",
+      "status": "production_prefab_accepted",
+      "agent_id": "269cb062-762f-4656-803d-c5c678f97cb9",
+      "source_revision": "cff28d48",
+      "review_status": "accepted source/export/prefab scope (independent Sol review)",
+      "integration_status": "accepted",
       "placement_status": "pending",
       "blocker": null,
-      "attempts": 0,
+      "attempts": 1,
       "initial_time_cap_minutes": 90,
       "owned_paths": [
         "art/source/models/environment/d02_house_family_02/",
@@ -4996,8 +5008,20 @@
         "art/textures/environment/d02_house_family_02/",
         "art/materials/environment/d02_house_family_02/",
         "docs/assets/production/d02_house_family_02.md",
-        "docs/assets/production/d02_house_family_02-evidence/"
-      ]
+        "docs/assets/production/d02_house_family_02-evidence/",
+        "tools/asset_production/d02_house_family_02/",
+        "scenes/prefabs/environment/d02_house_family_02.tscn"
+      ],
+      "launch": {
+        "provider": "portkey/gpt-6-astra",
+        "configured_effort": "medium",
+        "mode": "orchestrator asset lane",
+        "lane": "a-house"
+      },
+      "producer_manifest": "docs/assets/production/d02_house_family_02-evidence/manifest.json",
+      "report": "docs/assets/production/d02_house_family_02.md",
+      "reviewer_id": "4e11ce37-bf08-49a9-ae71-cdc6718bc7be",
+      "integrated_revision": "b2e2fbaa"
     },
     {
       "id": "d02_house_family.03",
@@ -5010,14 +5034,14 @@
       "input_next_action": "Refine asset design from Crescents v02",
       "brief": "[Brief](../../assets/d02_house_family.md)",
       "priority": 0,
-      "status": "queued",
-      "agent_id": null,
-      "source_revision": null,
-      "review_status": "pending",
-      "integration_status": "pending",
+      "status": "production_prefab_accepted",
+      "agent_id": "39077545-edec-4d51-a357-51ee9128c2a9",
+      "source_revision": "8291ac75",
+      "review_status": "accepted source/export/prefab scope (independent Sol review)",
+      "integration_status": "accepted",
       "placement_status": "pending",
       "blocker": null,
-      "attempts": 0,
+      "attempts": 1,
       "initial_time_cap_minutes": 90,
       "owned_paths": [
         "art/source/models/environment/d02_house_family_03/",
@@ -5025,8 +5049,20 @@
         "art/textures/environment/d02_house_family_03/",
         "art/materials/environment/d02_house_family_03/",
         "docs/assets/production/d02_house_family_03.md",
-        "docs/assets/production/d02_house_family_03-evidence/"
-      ]
+        "docs/assets/production/d02_house_family_03-evidence/",
+        "tools/asset_production/d02_house_family_03/",
+        "scenes/prefabs/environment/d02_house_family_03.tscn"
+      ],
+      "launch": {
+        "provider": "portkey/gpt-6-astra",
+        "configured_effort": "medium",
+        "mode": "orchestrator asset lane",
+        "lane": "a-house"
+      },
+      "producer_manifest": "docs/assets/production/d02_house_family_03-evidence/manifest.json",
+      "report": "docs/assets/production/d02_house_family_03.md",
+      "reviewer_id": "4e11ce37-bf08-49a9-ae71-cdc6718bc7be",
+      "integrated_revision": "b2e2fbaa"
     },
     {
       "id": "d02_house_family.04",
@@ -5039,14 +5075,14 @@
       "input_next_action": "Use core buildings unless a distinct design is selected",
       "brief": "[Brief](../../assets/d02_house_family.md)",
       "priority": 0,
-      "status": "queued",
-      "agent_id": null,
-      "source_revision": null,
-      "review_status": "pending",
-      "integration_status": "pending",
+      "status": "production_prefab_accepted",
+      "agent_id": "0ce64eb4-b040-4c8b-93bb-44387346da9c",
+      "source_revision": "b2e2fbaa",
+      "review_status": "accepted source/export/prefab scope (independent Sol review)",
+      "integration_status": "accepted",
       "placement_status": "pending",
       "blocker": null,
-      "attempts": 0,
+      "attempts": 1,
       "initial_time_cap_minutes": 90,
       "owned_paths": [
         "art/source/models/environment/d02_house_family_04/",
@@ -5054,8 +5090,20 @@
         "art/textures/environment/d02_house_family_04/",
         "art/materials/environment/d02_house_family_04/",
         "docs/assets/production/d02_house_family_04.md",
-        "docs/assets/production/d02_house_family_04-evidence/"
-      ]
+        "docs/assets/production/d02_house_family_04-evidence/",
+        "tools/asset_production/d02_house_family_04/",
+        "scenes/prefabs/environment/d02_house_family_04.tscn"
+      ],
+      "launch": {
+        "provider": "portkey/gpt-6-astra",
+        "configured_effort": "medium",
+        "mode": "orchestrator asset lane",
+        "lane": "a-house"
+      },
+      "producer_manifest": "docs/assets/production/d02_house_family_04-evidence/manifest.json",
+      "report": "docs/assets/production/d02_house_family_04.md",
+      "reviewer_id": "4e11ce37-bf08-49a9-ae71-cdc6718bc7be",
+      "integrated_revision": "b2e2fbaa"
     },
     {
       "id": "d02_corner_shop.01",
