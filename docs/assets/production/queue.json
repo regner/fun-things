@@ -3247,14 +3247,14 @@
       "input_next_action": "Refine shared design for recorded districts",
       "brief": "[Brief](../../assets/city_water_look.md)",
       "priority": 1,
-      "status": "queued",
-      "agent_id": null,
-      "source_revision": null,
-      "review_status": "pending",
-      "integration_status": "pending",
+      "status": "production_prefab_accepted",
+      "agent_id": "4323db97-7a81-42ab-b7a8-8c85dc7355fa",
+      "source_revision": "8ecc99c3",
+      "review_status": "accepted source/export/prefab scope (independent Sol review)",
+      "integration_status": "accepted",
       "placement_status": "pending",
       "blocker": null,
-      "attempts": 0,
+      "attempts": 1,
       "initial_time_cap_minutes": 90,
       "owned_paths": [
         "art/source/models/environment/city_water_look_01/",
@@ -3262,8 +3262,20 @@
         "art/textures/environment/city_water_look_01/",
         "art/materials/environment/city_water_look_01/",
         "docs/assets/production/city_water_look_01.md",
-        "docs/assets/production/city_water_look_01-evidence/"
-      ]
+        "docs/assets/production/city_water_look_01-evidence/",
+        "tools/asset_production/city_water_look_01/",
+        "scenes/prefabs/environment/city_water_look_01.tscn"
+      ],
+      "launch": {
+        "provider": "portkey/gpt-6-astra",
+        "configured_effort": "medium",
+        "mode": "orchestrator asset lane",
+        "lane": "a-water"
+      },
+      "producer_manifest": "docs/assets/production/city_water_look_01-evidence/manifest.json",
+      "report": "docs/assets/production/city_water_look_01.md",
+      "reviewer_id": "fdad30a7-9263-4ec4-b357-8a2f77188b0e",
+      "integrated_revision": "de0211b9"
     },
     {
       "id": "city_water_look.02",
@@ -3276,14 +3288,14 @@
       "input_next_action": "Refine shared design for recorded districts",
       "brief": "[Brief](../../assets/city_water_look.md)",
       "priority": 1,
-      "status": "queued",
-      "agent_id": null,
-      "source_revision": null,
-      "review_status": "pending",
-      "integration_status": "pending",
+      "status": "production_prefab_accepted",
+      "agent_id": "a1842e4b-468c-49d1-ba36-48d9582ebeef",
+      "source_revision": "de0211b9",
+      "review_status": "accepted source/export/prefab scope (independent Sol review)",
+      "integration_status": "accepted",
       "placement_status": "pending",
       "blocker": null,
-      "attempts": 0,
+      "attempts": 1,
       "initial_time_cap_minutes": 90,
       "owned_paths": [
         "art/source/models/environment/city_water_look_02/",
@@ -3291,8 +3303,20 @@
         "art/textures/environment/city_water_look_02/",
         "art/materials/environment/city_water_look_02/",
         "docs/assets/production/city_water_look_02.md",
-        "docs/assets/production/city_water_look_02-evidence/"
-      ]
+        "docs/assets/production/city_water_look_02-evidence/",
+        "tools/asset_production/city_water_look_02/",
+        "scenes/prefabs/environment/city_water_look_02.tscn"
+      ],
+      "launch": {
+        "provider": "portkey/gpt-6-astra",
+        "configured_effort": "medium",
+        "mode": "orchestrator asset lane",
+        "lane": "a-water"
+      },
+      "producer_manifest": "docs/assets/production/city_water_look_02-evidence/manifest.json",
+      "report": "docs/assets/production/city_water_look_02.md",
+      "reviewer_id": "fdad30a7-9263-4ec4-b357-8a2f77188b0e",
+      "integrated_revision": "de0211b9"
     },
     {
       "id": "city_harbour_bridge.01",
