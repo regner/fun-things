@@ -10,6 +10,9 @@ const MATCH_REVISION: int = 1
 const MOVEMENT_INTERVAL_TICKS: int = 3
 const INPUT_INTERVAL_TICKS: int = 2
 const INPUT_STALE_MSEC: int = 250
+const INPUT_RATE_PER_SECOND: float = 60.0
+const INPUT_BURST: float = 8.0
+const MAX_SEQUENCE_ADVANCE: int = 120
 const ENTITY_KIND_PLAYER: int = 1
 const PHASE_LIVE: int = 1
 const PHASE_REMOVED: int = 3
@@ -39,8 +42,9 @@ var _sequence: Dictionary = {
 }
 var _actors_by_participant: Dictionary[int, ActorMotion] = {}
 var _latest_command_by_participant: Dictionary[int, Dictionary] = {}
-var _last_sequence_by_participant: Dictionary[int, int] = {}
+var _input_state_by_participant: Dictionary[int, Dictionary] = {}
 var _admitted_peers: Dictionary[int, bool] = {}
+var _spawn_slot_by_participant: Dictionary[int, int] = {}
 
 
 ## Remains inert in standalone Match composition until Boot supplies a network session.
@@ -123,7 +127,8 @@ func remove_peer(native_peer_id: int, participant_id: int) -> void:
 
 	_admitted_peers.erase(native_peer_id)
 	_latest_command_by_participant.erase(participant_id)
-	_last_sequence_by_participant.erase(participant_id)
+	_input_state_by_participant.erase(participant_id)
+	_spawn_slot_by_participant.erase(participant_id)
 	_admission.remove_peer(native_peer_id)
 	var actor: ActorMotion = _actors_by_participant.get(participant_id)
 	if actor != null:
@@ -237,14 +242,21 @@ func _submit_command(session_id: String, match_revision: int, payload: Dictionar
 	var participant_id: int = _admission.input_participant(sender)
 	if participant_id == 0:
 		return
+	if not _consume_input_rate(participant_id):
+		return
 	var decoded: Dictionary = FootCommand.decode(payload)
 	if not decoded.get("ok", false):
 		return
 	var command: FootCommand = decoded.command
-	if command.sequence <= int(_last_sequence_by_participant.get(participant_id, 0)):
+	var input_state: Dictionary = _input_state_by_participant[participant_id]
+	var previous_sequence: int = int(input_state.last_sequence)
+	if (
+		command.sequence <= previous_sequence
+		or command.sequence > previous_sequence + MAX_SEQUENCE_ADVANCE
+	):
 		return
 
-	_last_sequence_by_participant[participant_id] = command.sequence
+	input_state.last_sequence = command.sequence
 	_latest_command_by_participant[participant_id] = {
 		"command": command,
 		"received_msec": Time.get_ticks_msec(),
@@ -412,7 +424,8 @@ func abort_peer(native_peer_id: int, _failure_code: StringName) -> void:
 func _spawn_authoritative_player(participant_id: int) -> ActorMotion:
 	if _actors_by_participant.has(participant_id):
 		return _actors_by_participant[participant_id]
-	var spawn: Marker3D = _spawn_for_participant(participant_id)
+	var spawn_slot: int = _allocate_spawn_slot(participant_id)
+	var spawn: Marker3D = _spawn_for_slot(spawn_slot)
 	if spawn == null:
 		return null
 	var actor: ActorMotion = PLAYER_SCENE.instantiate() as ActorMotion
@@ -458,9 +471,9 @@ func _instantiate_replica(participant_id: int) -> ActorMotion:
 	var actor: ActorMotion = PLAYER_SCENE.instantiate() as ActorMotion
 	actor.name = "Player%d" % participant_id
 	_runtime_entities().add_child(actor)
-	var spawn: Marker3D = _spawn_for_participant(participant_id)
+	var spawn: Marker3D = _spawn_for_slot(1)
 	if spawn != null:
-		actor.global_transform = spawn.global_transform
+		actor.global_position.y = spawn.global_position.y
 	_actors_by_participant[participant_id] = actor
 	return actor
 
@@ -472,6 +485,32 @@ func _remove_replica(participant_id: int) -> void:
 		return
 	_actors_by_participant.erase(participant_id)
 	actor.queue_free()
+
+
+## Consumes one bounded per-participant token before decoding remote intent.
+func _consume_input_rate(participant_id: int) -> bool:
+	var now_msec: int = Time.get_ticks_msec()
+	var state: Dictionary = _input_state_by_participant.get(
+		participant_id,
+		{
+			"last_sequence": 0,
+			"tokens": INPUT_BURST,
+			"updated_msec": now_msec,
+		},
+	)
+	var elapsed_msec: int = maxi(0, now_msec - int(state.updated_msec))
+	state.tokens = minf(
+		INPUT_BURST,
+		float(state.tokens) + float(elapsed_msec) * INPUT_RATE_PER_SECOND / 1000.0,
+	)
+	state.updated_msec = now_msec
+	_input_state_by_participant[participant_id] = state
+	if float(state.tokens) < 1.0:
+		return false
+
+	state.tokens = float(state.tokens) - 1.0
+	_input_state_by_participant[participant_id] = state
+	return true
 
 
 ## Applies fresh admitted client commands and neutralizes expired held input.
@@ -547,11 +586,22 @@ func _durable_event(
 	}
 
 
-## Maps participant identity deterministically onto one of four saved spawn anchors.
-func _spawn_for_participant(participant_id: int) -> Marker3D:
-	if participant_id <= 0 or participant_id > _player_spawns().get_child_count():
+## Assigns the first free authored spawn slot for this match-local participant lifetime.
+func _allocate_spawn_slot(participant_id: int) -> int:
+	if _spawn_slot_by_participant.has(participant_id):
+		return _spawn_slot_by_participant[participant_id]
+	for slot: int in range(1, _player_spawns().get_child_count() + 1):
+		if slot not in _spawn_slot_by_participant.values():
+			_spawn_slot_by_participant[participant_id] = slot
+			return slot
+	return 0
+
+
+## Resolves one positive one-based slot into the saved PlayerSpawns collection.
+func _spawn_for_slot(spawn_slot: int) -> Marker3D:
+	if spawn_slot <= 0 or spawn_slot > _player_spawns().get_child_count():
 		return null
-	return _player_spawns().get_child(participant_id - 1) as Marker3D
+	return _player_spawns().get_child(spawn_slot - 1) as Marker3D
 
 
 ## Samples the authored desktop collector without applying client-side prediction.
