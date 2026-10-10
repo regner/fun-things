@@ -6875,14 +6875,14 @@
       "input_next_action": "Refine design from district asset breakdown",
       "brief": "[Brief](../../assets/d07_retail_buildings.md)",
       "priority": 0,
-      "status": "queued",
-      "agent_id": null,
-      "source_revision": null,
-      "review_status": "pending",
-      "integration_status": "pending",
+      "status": "production_prefab_accepted",
+      "agent_id": "b38ac8fb-4935-4a4c-8c5d-106807f7ca22",
+      "source_revision": "f8432a1c",
+      "review_status": "accepted source/export/prefab scope (independent Sol review)",
+      "integration_status": "accepted",
       "placement_status": "pending",
       "blocker": null,
-      "attempts": 0,
+      "attempts": 1,
       "initial_time_cap_minutes": 120,
       "owned_paths": [
         "art/source/models/environment/d07_retail_buildings_01/",
@@ -6890,8 +6890,20 @@
         "art/textures/environment/d07_retail_buildings_01/",
         "art/materials/environment/d07_retail_buildings_01/",
         "docs/assets/production/d07_retail_buildings_01.md",
-        "docs/assets/production/d07_retail_buildings_01-evidence/"
-      ]
+        "docs/assets/production/d07_retail_buildings_01-evidence/",
+        "tools/asset_production/d07_retail_buildings_01/",
+        "scenes/prefabs/environment/d07_retail_buildings_01.tscn"
+      ],
+      "launch": {
+        "provider": "portkey/gpt-6-astra",
+        "configured_effort": "medium",
+        "mode": "orchestrator asset lane",
+        "lane": "a-retail"
+      },
+      "producer_manifest": "docs/assets/production/d07_retail_buildings_01-evidence/manifest.json",
+      "report": "docs/assets/production/d07_retail_buildings_01.md",
+      "reviewer_id": "5b77a7b3-3053-4aed-9143-7340d0e7ee51",
+      "integrated_revision": "b1f7927e"
     },
     {
       "id": "d07_retail_buildings.02",
@@ -6904,14 +6916,14 @@
       "input_next_action": "Refine design from district asset breakdown",
       "brief": "[Brief](../../assets/d07_retail_buildings.md)",
       "priority": 0,
-      "status": "queued",
-      "agent_id": null,
-      "source_revision": null,
-      "review_status": "pending",
-      "integration_status": "pending",
+      "status": "production_prefab_accepted",
+      "agent_id": "1010ac40-143f-42c6-b63a-cf3a4d8e7da3",
+      "source_revision": "62ad05a8",
+      "review_status": "accepted source/export/prefab scope (independent Sol review)",
+      "integration_status": "accepted",
       "placement_status": "pending",
       "blocker": null,
-      "attempts": 0,
+      "attempts": 1,
       "initial_time_cap_minutes": 120,
       "owned_paths": [
         "art/source/models/environment/d07_retail_buildings_02/",
@@ -6919,8 +6931,20 @@
         "art/textures/environment/d07_retail_buildings_02/",
         "art/materials/environment/d07_retail_buildings_02/",
         "docs/assets/production/d07_retail_buildings_02.md",
-        "docs/assets/production/d07_retail_buildings_02-evidence/"
-      ]
+        "docs/assets/production/d07_retail_buildings_02-evidence/",
+        "tools/asset_production/d07_retail_buildings_02/",
+        "scenes/prefabs/environment/d07_retail_buildings_02.tscn"
+      ],
+      "launch": {
+        "provider": "portkey/gpt-6-astra",
+        "configured_effort": "medium",
+        "mode": "orchestrator asset lane",
+        "lane": "a-retail"
+      },
+      "producer_manifest": "docs/assets/production/d07_retail_buildings_02-evidence/manifest.json",
+      "report": "docs/assets/production/d07_retail_buildings_02.md",
+      "reviewer_id": "5b77a7b3-3053-4aed-9143-7340d0e7ee51",
+      "integrated_revision": "b1f7927e"
     },
     {
       "id": "d07_retail_buildings.03",
@@ -6933,14 +6957,14 @@
       "input_next_action": "Refine design from district asset breakdown",
       "brief": "[Brief](../../assets/d07_retail_buildings.md)",
       "priority": 0,
-      "status": "queued",
-      "agent_id": null,
-      "source_revision": null,
-      "review_status": "pending",
-      "integration_status": "pending",
+      "status": "production_prefab_accepted",
+      "agent_id": "d30df7fc-4497-475d-9437-0150ada3bbb1",
+      "source_revision": "b1f7927e",
+      "review_status": "accepted source/export/prefab scope (independent Sol review)",
+      "integration_status": "accepted",
       "placement_status": "pending",
       "blocker": null,
-      "attempts": 0,
+      "attempts": 1,
       "initial_time_cap_minutes": 120,
       "owned_paths": [
         "art/source/models/environment/d07_retail_buildings_03/",
@@ -6948,8 +6972,20 @@
         "art/textures/environment/d07_retail_buildings_03/",
         "art/materials/environment/d07_retail_buildings_03/",
         "docs/assets/production/d07_retail_buildings_03.md",
-        "docs/assets/production/d07_retail_buildings_03-evidence/"
-      ]
+        "docs/assets/production/d07_retail_buildings_03-evidence/",
+        "tools/asset_production/d07_retail_buildings_03/",
+        "scenes/prefabs/environment/d07_retail_buildings_03.tscn"
+      ],
+      "launch": {
+        "provider": "portkey/gpt-6-astra",
+        "configured_effort": "medium",
+        "mode": "orchestrator asset lane",
+        "lane": "a-retail"
+      },
+      "producer_manifest": "docs/assets/production/d07_retail_buildings_03-evidence/manifest.json",
+      "report": "docs/assets/production/d07_retail_buildings_03.md",
+      "reviewer_id": "5b77a7b3-3053-4aed-9143-7340d0e7ee51",
+      "integrated_revision": "b1f7927e"
     },
     {
       "id": "d07_sign_island.01",
