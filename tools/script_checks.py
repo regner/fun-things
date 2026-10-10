@@ -14,6 +14,8 @@ ROOT = Path(__file__).resolve().parents[1]
 VENDOR = {"addons/godot_mcp_toolkit", "addons/gut"}
 DIAGNOSTIC = re.compile(r"(?:SCRIPT ERROR:|ERROR:|WARNING:)")
 PIN = "4.8.dev7.official.c971f93e7"
+PROJECT_IMPORT_TIMEOUT_SECONDS = 300
+PROJECT_STYLE_TIMEOUT_SECONDS = 180
 SCRIPT_COMPILE_TIMEOUT_SECONDS = 30
 
 
@@ -98,7 +100,8 @@ def compile_all(godot, directory):
     setup_ok = checked_command([godot, "--headless", "--editor", "--path", str(project),
                                 "--import", "--quit",
                                 "--log-file", str(directory / "compiler-import.engine.log")],
-                               directory / "compiler-import.log", env)
+                               directory / "compiler-import.log", env,
+                               timeout=PROJECT_IMPORT_TIMEOUT_SECONDS)
     (directory / "compiler-setup.json").write_text(json.dumps({"ok": setup_ok}) + "\n")
     results = []
     for index, path in enumerate(scripts):
@@ -129,9 +132,11 @@ def main():
     print(f"Check evidence: {directory}", flush=True)
     scripts = [str(path) for path in owned_scripts()]
     formatting = checked_command([args.gdstyle, "fmt", "--check", *scripts],
-                                 directory / "formatting.log", os.environ.copy())
+                                 directory / "formatting.log", os.environ.copy(),
+                                 timeout=PROJECT_STYLE_TIMEOUT_SECONDS)
     style = checked_command([args.gdstyle, "--max-line-length", "100", "--max-warnings", "0",
-                             *scripts], directory / "style.log", os.environ.copy())
+                             *scripts], directory / "style.log", os.environ.copy(),
+                            timeout=PROJECT_STYLE_TIMEOUT_SECONDS)
     if not style:
         print((directory / "style.log").read_text())
     compilation = None

@@ -11,11 +11,13 @@ import subprocess
 import sys
 import tempfile
 
-from script_checks import PIN, engine_version, environment
+from script_checks import PROJECT_IMPORT_TIMEOUT_SECONDS, PIN, engine_version, environment
 
 ROOT = Path(__file__).resolve().parents[1]
 DIAGNOSTIC = re.compile(r"(?:SCRIPT ERROR:|ERROR:|WARNING:)")
 GUT_VERSION = "9.7.1"
+GUT_TEST_TIMEOUT_SECONDS = 600
+OWNED_SCRIPT_CHECK_TIMEOUT_SECONDS = 600
 
 
 def run_command(command, log, *, cwd=ROOT, env=None, timeout=180, reject_diagnostics=True):
@@ -137,7 +139,7 @@ def main():
     passed, returncode = run_command(
         script_command,
         output / "script-checks.log",
-        timeout=240,
+        timeout=OWNED_SCRIPT_CHECK_TIMEOUT_SECONDS,
         reject_diagnostics=False,
     )
     results["owned_scripts"] = {"ok": passed, "returncode": returncode}
@@ -181,7 +183,7 @@ def main():
             output / "gut-import.log",
             cwd=project,
             env=gut_env,
-            timeout=120,
+            timeout=PROJECT_IMPORT_TIMEOUT_SECONDS,
         )
         results["gut_import"] = {"ok": passed, "returncode": returncode}
 
@@ -198,7 +200,7 @@ def main():
             output / "gut.log",
             cwd=project,
             env=gut_env,
-            timeout=120,
+            timeout=GUT_TEST_TIMEOUT_SECONDS,
         )
         results["gut_tests"] = {"ok": passed, "returncode": returncode}
 

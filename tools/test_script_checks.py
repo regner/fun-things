@@ -28,6 +28,44 @@ class _AdvancingClock:
 
 
 class ScriptChecksTest(unittest.TestCase):
+    def test_hung_setup_import_fails_at_the_project_import_timeout(self):
+        with tempfile.TemporaryDirectory() as temporary:
+            temporary_path = Path(temporary)
+            root = temporary_path / "source"
+            output = temporary_path / "output"
+            root.mkdir()
+            output.mkdir()
+            (root / "project.godot").write_text("[application]\n", encoding="utf-8")
+            scripts = [root / "script.gd"]
+            setup_timeout = None
+            clock = _AdvancingClock()
+
+            def run_engine(command, **kwargs):
+                nonlocal setup_timeout
+                if "--import" in command:
+                    setup_timeout = kwargs["timeout"]
+                    clock.current += setup_timeout
+                    raise subprocess.TimeoutExpired(command, setup_timeout)
+                clock.advance_launch()
+                return subprocess.CompletedProcess(command, 0)
+
+            with (
+                mock.patch.object(time, "monotonic", side_effect=clock.monotonic),
+                mock.patch.object(script_checks, "ROOT", root),
+                mock.patch.object(script_checks, "owned_scripts", return_value=scripts),
+                mock.patch.object(script_checks.subprocess, "run", side_effect=run_engine),
+            ):
+                compiled = script_checks.compile_all("godot", output)
+
+            setup = json.loads((output / "compiler-setup.json").read_text(encoding="utf-8"))
+            timeout_log = (output / "compiler-import.log").read_text(encoding="utf-8")
+
+        self.assertFalse(compiled)
+        self.assertEqual(setup, {"ok": False})
+        self.assertEqual(setup_timeout, script_checks.PROJECT_IMPORT_TIMEOUT_SECONDS)
+        self.assertEqual(clock.current, script_checks.PROJECT_IMPORT_TIMEOUT_SECONDS + 1.0)
+        self.assertIn("CHECK DEADLINE EXCEEDED", timeout_log)
+
     def test_many_scripts_each_receive_the_full_per_script_timeout(self):
         with tempfile.TemporaryDirectory() as temporary:
             temporary_path = Path(temporary)
