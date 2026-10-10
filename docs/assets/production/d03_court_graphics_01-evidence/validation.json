@@ -1,0 +1,230 @@
+{
+  "asset_id": "d03_court_graphics.01",
+  "blender": "5.2.2 LTS",
+  "blender_build": "d13f752e3b9c",
+  "gltf_exporter": "5.2.40",
+  "source_vertices": 256,
+  "glb_vertices": 256,
+  "triangles": 256,
+  "mesh_count": 1,
+  "surface_count": 1,
+  "degenerate_faces": 0,
+  "degenerate_triangles": 0,
+  "unit_normals": true,
+  "upward_winding": true,
+  "non_manifold_edges": 256,
+  "boundary_loop_sizes": [
+    128,
+    128
+  ],
+  "non_boundary_non_manifold_edges": 0,
+  "boundary_justification": "Two intentional open perimeters on a flush, single-sided decal; no sidewalls or deck. World terrain owns all walk/drive collision.",
+  "aabb_min_godot": [
+    -7.0,
+    0.014999999664723873,
+    -7.0
+  ],
+  "aabb_max_godot": [
+    7.0,
+    0.014999999664723873,
+    7.0
+  ],
+  "dimensions_godot_metres": [
+    14,
+    0,
+    14
+  ],
+  "pivot": [
+    0,
+    0,
+    0
+  ],
+  "visual_surface_y": 0.015,
+  "ground_datum_y": 0,
+  "uv_axis": "U east/+X, image V south/+Z",
+  "embedded_images": 0,
+  "source_texture_relative_and_unpacked": true,
+  "material": {
+    "name": "communal_circle",
+    "roughness": 0.94,
+    "metallic": 0,
+    "opaque": true
+  },
+  "source_bytes": 106224,
+  "source_sha256": "c377b10aae64c0d5423f1c500e8684985f9606763a1211c8d2c5f3321aea961c",
+  "studio_dependencies": [
+    {
+      "path": "art/source/models/environment/city_seating_01/city_seating_01.blend",
+      "sha256": "63878d9c913320cac25bcc3422fcc08ee013d142c29f03d314a44c2d4c667c40",
+      "bytes": 120858,
+      "use": "studio-only linked context"
+    },
+    {
+      "path": "art/source/models/characters/coral_courier/coral_courier.blend",
+      "sha256": "f3d8cda6d180ebe66eef12b47f631e74976ac492a13c4bd3b339110b16633b4d",
+      "bytes": 387284,
+      "use": "studio-only linked context"
+    }
+  ],
+  "texture_sha256": "5f15ad788b19eeb9bea65621d1d26d5060f1b579e46dbe3aa8c09d89a70ad71a",
+  "glb_bytes": 10992,
+  "glb_sha256": "69ee45e57e4736f8ea22f56704307bade352012587b33e1861ec5887ff034c9e",
+  "fresh_reexport_byte_identical": true,
+  "source_status": "PASS",
+  "artwork": {
+    "ok": true,
+    "png_bytes": 176730,
+    "png_sha256": "5f15ad788b19eeb9bea65621d1d26d5060f1b579e46dbe3aa8c09d89a70ad71a",
+    "resolution": [
+      1024,
+      1024
+    ],
+    "mode": "RGB",
+    "exact_region_samples": 53,
+    "byte_identical_reproduction": true,
+    "clockwise_coral_sectors": [
+      3,
+      4
+    ],
+    "no_alpha_or_external_fonts": true
+  },
+  "engine": {
+    "aabb_min": [
+      -7.0,
+      0.0149999996647239,
+      -7.0
+    ],
+    "aabb_size": [
+      14.0,
+      9.99999974737875e-06,
+      14.0
+    ],
+    "collision_objects": 0,
+    "communal_circle.tres_uid": "uid://dj6qc7kwuxkqh",
+    "d03_court_graphics_01.glb_uid": "uid://b1kcgorp01f3s",
+    "d03_court_graphics_01.tscn_uid": "uid://d1sh0iqp3dq32",
+    "engine": "4.8-dev7 (official)",
+    "engine_hash": "c971f93e7e76b0ef919bf6009e7b868bea04db7f",
+    "external_material": "res://art/materials/environment/d03_court_graphics_01/communal_circle.tres",
+    "failures": [],
+    "linked_identity_model": true,
+    "material_overrides": 0,
+    "mesh_count": 1,
+    "mipmaps": true,
+    "ok": true,
+    "roundtrip": {
+      "engine": "4.8-dev7 (official)",
+      "engine_hash": "c971f93e7e76b0ef919bf6009e7b868bea04db7f",
+      "failures": [],
+      "material_sha256": "6042f4d52d0efde02ecd8555743963c8204ea25b393eba0227312ff9b8f0be4b",
+      "material_uid": "uid://dj6qc7kwuxkqh",
+      "mipmaps": true,
+      "ok": true,
+      "prefab_sha256": "3d1d740a19c4c72252abf9689eb102f14eebf4212309e5c9daadc5ba2f67243b",
+      "prefab_uid": "uid://d1sh0iqp3dq32",
+      "roundtrip_1_byte_stable": true,
+      "roundtrip_2_byte_stable": true,
+      "texture_image_bytes_including_mips": 4194303.0,
+      "texture_image_format": 4.0,
+      "texture_size": [
+        1024.0,
+        1024.0
+      ]
+    },
+    "surface_count": 1,
+    "texture_image_bytes_including_mips": 4194303,
+    "texture_image_format": 4,
+    "texture_size": [
+      1024,
+      1024
+    ]
+  },
+  "roundtrip": {
+    "engine": "4.8-dev7 (official)",
+    "engine_hash": "c971f93e7e76b0ef919bf6009e7b868bea04db7f",
+    "failures": [],
+    "material_sha256": "6042f4d52d0efde02ecd8555743963c8204ea25b393eba0227312ff9b8f0be4b",
+    "material_uid": "uid://dj6qc7kwuxkqh",
+    "mipmaps": true,
+    "ok": true,
+    "prefab_sha256": "3d1d740a19c4c72252abf9689eb102f14eebf4212309e5c9daadc5ba2f67243b",
+    "prefab_uid": "uid://d1sh0iqp3dq32",
+    "roundtrip_1_byte_stable": true,
+    "roundtrip_2_byte_stable": true,
+    "texture_image_bytes_including_mips": 4194303,
+    "texture_image_format": 4,
+    "texture_size": [
+      1024,
+      1024
+    ]
+  },
+  "second_fresh_runtime_receipt_identical": true,
+  "checks": {
+    "final_import_error_lines": [],
+    "runtime_error_lines": [],
+    "warnings": [
+      "WARNING: [MCP] Godot 4.8 detected - latest tested version is 4.7.0. The plugin will run normally but some features may behave unexpectedly. Please report issues at https://github.com/NPGameDev/godot-mcp-toolkit/issues"
+    ],
+    "gdstyle_format": "PASS",
+    "gdstyle_lint": "PASS: zero warnings",
+    "python_compile": "PASS",
+    "production_checks_run": false
+  },
+  "visual_self_review": {
+    "renders_inspected": [
+      {
+        "file": "hero.png",
+        "dimensions": [
+          1280,
+          720
+        ],
+        "bytes": 214100
+      },
+      {
+        "file": "side.png",
+        "dimensions": [
+          1280,
+          720
+        ],
+        "bytes": 156640
+      },
+      {
+        "file": "detail.png",
+        "dimensions": [
+          1280,
+          720
+        ],
+        "bytes": 269552
+      },
+      {
+        "file": "overhead_47m_42deg.png",
+        "dimensions": [
+          1280,
+          720
+        ],
+        "bytes": 196004
+      }
+    ],
+    "renderer": "Blender Cycles CPU, 24 samples, AgX",
+    "encoding": "RGB8 PNG compression 95; no quantization or overlays",
+    "overhead": {
+      "position_blender_m": [
+        0,
+        0,
+        47
+      ],
+      "vertical_fov_degrees": 42,
+      "projection": "perspective",
+      "north_up": true
+    },
+    "context": "Two unchanged linked city_seating_01 benches and three unchanged linked Coral Courier source-pose figures; studio only, not runtime asset contents.",
+    "observation": "The approximately 280-pixel circle remains complete and recognizable despite local bench/person occlusion. Coral marks one quiet corner; the centre stays open. Side/detail show flush broad inlays, not a curb.",
+    "godot_gameplay_visual_acceptance": false
+  },
+  "remaining_acceptance": [
+    "Independent technical/art review and provisional size approval",
+    "Saved placement over continuous collision-bearing ground",
+    "Godot populated lighting, moving-camera mip/depth/actor review",
+    "Packaged builds, LOD and sustained device/performance checks"
+  ]
+}
