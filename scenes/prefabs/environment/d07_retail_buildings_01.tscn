@@ -1,0 +1,35 @@
+[gd_scene format=3 uid="uid://d2cm3erl8jfjg"]
+
+[ext_resource type="PackedScene" uid="uid://dastl8r660i3u" path="res://art/models/environment/d07_retail_buildings_01/d07_retail_buildings_01.glb" id="1_model"]
+
+[sub_resource type="BoxShape3D" id="Box_main"]
+size = Vector3(48, 9.6, 30)
+
+[sub_resource type="BoxShape3D" id="Box_side"]
+size = Vector3(16, 7.2, 24)
+
+[sub_resource type="BoxShape3D" id="Box_front"]
+size = Vector3(48, 5.4, 8)
+
+[node name="d07_retail_buildings_01" type="Node3D" unique_id=700186723]
+
+[node name="Visuals" type="Node3D" parent="." unique_id=470888048]
+
+[node name="Model" type="Node3D" parent="Visuals" unique_id=971004828 instance=ExtResource("1_model")]
+
+[node name="Collision" type="Node3D" parent="." unique_id=1760605736]
+
+[node name="Body" type="StaticBody3D" parent="Collision" unique_id=185050480]
+collision_mask = 0
+
+[node name="MainSolid" type="CollisionShape3D" parent="Collision/Body" unique_id=1243847749]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 4.8, 4)
+shape = SubResource("Box_main")
+
+[node name="SideSolid" type="CollisionShape3D" parent="Collision/Body" unique_id=980295366]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24, 3.6, 7)
+shape = SubResource("Box_side")
+
+[node name="FrontSolid" type="CollisionShape3D" parent="Collision/Body" unique_id=718421010]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 2.7, -15)
+shape = SubResource("Box_front")

@@ -1,0 +1,34 @@
+FINAL ASSET CHECK RECEIPT — full scratch logs remain outside the checkout
+Asset: d07_retail_buildings.01; Blender 5.2.2 LTS, exporter 5.2.40.
+Final author and source/GLB validator: exit 0; no topology or normal failures.
+6,804 triangles; 3,528 source / 4,536 GLB vertices; 1 mesh / 7 surfaces.
+Fresh source reexport byte-identical; 189,408 bytes.
+Blender use_nodes deprecation notices only.
+All four final renders inspected; original coplanar coral/roof stripe corrected.
+Initial editor normalization: timeout exit 124 while awaiting filesystem signal.
+Corrected bounded polling/deadline: normalization exits 0, saves stable bytes.
+Editor diagnostics retained (not claimed clean):
+WARNING: [MCP] Godot 4.8 detected - latest tested version is 4.7.0. The plugin will run normally but some features may behave unexpectedly. Please report issues at https://github.com/NPGameDev/godot-mcp-toolkit/issues
+ERROR: 5 RID allocations of type 'N16RendererViewport8ViewportE' were leaked at exit.
+ERROR: 8 RID allocations of type 'PN13RendererDummy14TextureStorage12DummyTextureE' were leaked at exit.
+ERROR: 1 RID allocations of type 'N17RendererSceneCull8ScenarioE' were leaked at exit.
+ERROR: 52 RID allocations of type 'PN18TextServerAdvanced22ShapedTextDataAdvancedE' were leaked at exit.
+ERROR: 1 RID allocations of type 'PN18TextServerAdvanced12FontAdvancedE' were leaked at exit.
+WARNING: 5 RIDs of type "Canvas" were leaked.
+WARNING: 31 RIDs of type "CanvasItem" were leaked.
+WARNING: 168 ObjectDB instances were leaked at exit (run with `--verbose` for details).
+
+Final pinned headless import: exit 0; existing MCP 4.8 compatibility warning.
+Fresh non-editor prefab check: exit 0; no ERROR/WARNING:
+Godot Engine v4.8.dev7.official.c971f93e7 - https://godotengine.org
+
+[MCPRuntimeServer] port: scanning 6570-6585 (default)
+[MCPRuntimeServer] listening on 127.0.0.1:6570
+[MCPRegistry] runtime port 6570 registered for c:/gamedev/git/ft-lanes/a-retail
+{"aabb_min":[-32.0,-0.0000000894069671630859,-19.0],"aabb_size":[64.0,9.59999942779541,38.0],"capsule_front_stop_z":-19.35009765625,"capsule_notch_end_z":-6.0,"collision_shape_count":3,"engine":"4.8-dev7 (official)","failures":[],"front_ray_hit":[0.0,1.0,-19.0],"linked_model_identity":true,"materials":["retail_trim_petrol","retail_wall_slate","retail_roof_blue","retail_wall_plum","retail_frame_slate","retail_glazing_opaque","retail_band_coral"],"mesh_count":1,"model_uid":"uid://dastl8r660i3u","ok":true,"physics_shape_queries":[{"case":"interior_solid","solid":true},{"case":"closed_annex_backing","solid":true},{"case":"front_forecourt_clear","solid":false},{"case":"stepped_notch_clear","solid":false},{"case":"side_wing_solid","solid":true},{"case":"west_outside_clear","solid":false},{"case":"east_outside_clear","solid":false},{"case":"above_front_clear","solid":false},{"case":"above_side_clear","solid":false},{"case":"high_hall_solid","solid":true},{"case":"rear_solid","solid":true},{"case":"rear_outside_clear","solid":false}],"prefab_uid":"uid://d2cm3erl8jfjg"}
+
+Intermediate checks-final: owned max-local-variables warning; helper extraction fixed it.
+Final production_checks.py (checks-final2): exit 0; all layers pass with no exclusions.
+218 GDScripts lint/format/compile; Python 17/17; GUT 165/165, 6,918 assertions.
+Negative control exits 1 as expected and is detected.
+Actual ActorMotion/car motion, multiplayer transport, placement and device gates pending.

@@ -1,0 +1,312 @@
+{
+  "status": "PASS: source and GLB; engine/gameplay gates recorded separately",
+  "blender": "5.2.2 LTS",
+  "build_hash": "d13f752e3b9c",
+  "glTF_exporter": "5.2.40",
+  "source_vertices": 3528,
+  "source_triangles": 6804,
+  "source_degenerate_faces": 0,
+  "source_nonmanifold_edges": 0,
+  "source_max_normal_length_error": 1.7804554086620072e-07,
+  "glb_vertices_including_surface_splits": 4536,
+  "glb_triangles": 6804,
+  "glb_degenerate_triangles": 0,
+  "glb_max_normal_length_error": 1.3556671318859514e-07,
+  "mesh_count": 1,
+  "surface_count": 7,
+  "aabb_godot": {
+    "min": [
+      -32.0,
+      -8.940696716308594e-08,
+      -19.0
+    ],
+    "max": [
+      32.0,
+      9.59999942779541,
+      19.0
+    ],
+    "size": [
+      64.0,
+      9.599999517202377,
+      38.0
+    ]
+  },
+  "expected_aabb_godot": {
+    "min": [
+      -32,
+      0,
+      -19
+    ],
+    "max": [
+      32,
+      9.6,
+      19
+    ]
+  },
+  "envelope_tolerance_m": 0.001,
+  "ground_contact_pivot": [
+    0,
+    0,
+    0
+  ],
+  "materials": [
+    {
+      "name": "retail_trim_petrol",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.02800000086426735,
+          0.06700000166893005,
+          0.09200000017881393,
+          1
+        ],
+        "metallicFactor": 0.25,
+        "roughnessFactor": 0.4699999988079071
+      }
+    },
+    {
+      "name": "retail_wall_slate",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.12999999523162842,
+          0.1899999976158142,
+          0.23499999940395355,
+          1
+        ],
+        "metallicFactor": 0.10000000149011612,
+        "roughnessFactor": 0.5
+      }
+    },
+    {
+      "name": "retail_roof_blue",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.03500000014901161,
+          0.11999999731779099,
+          0.30000001192092896,
+          1
+        ],
+        "metallicFactor": 0.18000000715255737,
+        "roughnessFactor": 0.46000000834465027
+      }
+    },
+    {
+      "name": "retail_wall_plum",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.14000000059604645,
+          0.07999999821186066,
+          0.14000000059604645,
+          1
+        ],
+        "metallicFactor": 0.10000000149011612,
+        "roughnessFactor": 0.5
+      }
+    },
+    {
+      "name": "retail_frame_slate",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.23999999463558197,
+          0.3199999928474426,
+          0.36000001430511475,
+          1
+        ],
+        "metallicFactor": 0.30000001192092896,
+        "roughnessFactor": 0.41999998688697815
+      }
+    },
+    {
+      "name": "retail_glazing_opaque",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.02199999988079071,
+          0.06499999761581421,
+          0.09000000357627869,
+          1
+        ],
+        "metallicFactor": 0.3199999928474426,
+        "roughnessFactor": 0.25
+      }
+    },
+    {
+      "name": "retail_band_coral",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.8799999952316284,
+          0.20000000298023224,
+          0.11999999731779099,
+          1
+        ],
+        "metallicFactor": 0.05000000074505806,
+        "roughnessFactor": 0.47999998927116394
+      }
+    }
+  ],
+  "reexport_byte_identical": true,
+  "glb_sha256": "52ff3eee4854f3ccdca8f807630f4483184872c4016ca974e17cfaa65c25a3e5",
+  "glb_bytes": 189408,
+  "interfaces_godot": {
+    "annex_ground_attachment": [
+      0,
+      0,
+      -19
+    ],
+    "annex_maximum_width_height_depth": [
+      12,
+      4.15,
+      6
+    ]
+  },
+  "engine": {
+    "aabb_min": [
+      -32.0,
+      -8.94069671630859e-08,
+      -19.0
+    ],
+    "aabb_size": [
+      64.0,
+      9.59999942779541,
+      38.0
+    ],
+    "capsule_front_stop_z": -19.35009765625,
+    "capsule_notch_end_z": -6.0,
+    "collision_shape_count": 3,
+    "engine": "4.8-dev7 (official)",
+    "failures": [],
+    "front_ray_hit": [
+      0.0,
+      1.0,
+      -19.0
+    ],
+    "linked_model_identity": true,
+    "materials": [
+      "retail_trim_petrol",
+      "retail_wall_slate",
+      "retail_roof_blue",
+      "retail_wall_plum",
+      "retail_frame_slate",
+      "retail_glazing_opaque",
+      "retail_band_coral"
+    ],
+    "mesh_count": 1,
+    "model_uid": "uid://dastl8r660i3u",
+    "ok": true,
+    "physics_shape_queries": [
+      {
+        "case": "interior_solid",
+        "solid": true
+      },
+      {
+        "case": "closed_annex_backing",
+        "solid": true
+      },
+      {
+        "case": "front_forecourt_clear",
+        "solid": false
+      },
+      {
+        "case": "stepped_notch_clear",
+        "solid": false
+      },
+      {
+        "case": "side_wing_solid",
+        "solid": true
+      },
+      {
+        "case": "west_outside_clear",
+        "solid": false
+      },
+      {
+        "case": "east_outside_clear",
+        "solid": false
+      },
+      {
+        "case": "above_front_clear",
+        "solid": false
+      },
+      {
+        "case": "above_side_clear",
+        "solid": false
+      },
+      {
+        "case": "high_hall_solid",
+        "solid": true
+      },
+      {
+        "case": "rear_solid",
+        "solid": true
+      },
+      {
+        "case": "rear_outside_clear",
+        "solid": false
+      }
+    ],
+    "prefab_uid": "uid://d2cm3erl8jfjg",
+    "save_reload_byte_stable": true,
+    "normalization_diagnostics": "Corrected editor normalization exits 0 and saves stable bytes but reports shutdown RID/ObjectDB leaks and the existing MCP compatibility warning. Fresh runtime checks are clean."
+  },
+  "production_checks": {
+    "overall_ok": true,
+    "results": {
+      "engine": {
+        "ok": true,
+        "version": "4.8.dev7.official.c971f93e7"
+      },
+      "gut_pin": {
+        "ok": true,
+        "version": "9.7.1"
+      },
+      "owned_scripts": {
+        "ok": true,
+        "returncode": 0
+      },
+      "python_tests": {
+        "ok": true,
+        "returncode": 0
+      },
+      "gut_import": {
+        "ok": true,
+        "returncode": 0
+      },
+      "gut_tests": {
+        "ok": true,
+        "returncode": 0
+      },
+      "gut_negative": {
+        "ok": true,
+        "observed_returncode": 1
+      }
+    },
+    "compiled_scripts": 218,
+    "owned_script_style_compile_and_format": "PASS",
+    "python_tests": 17,
+    "gut_tests": 165,
+    "gut_assertions": 6918,
+    "failure_exclusions": []
+  },
+  "visual_review": {
+    "renders_inspected": [
+      "hero.png",
+      "side.png",
+      "frontage_detail.png",
+      "overhead_47m_42deg.png"
+    ],
+    "renderer": "Blender Cycles CPU, 24 samples, denoised, AgX; PNG compression 95, no output dither",
+    "viewport": [
+      1280,
+      720
+    ],
+    "gameplay_camera": {
+      "position_godot_m": [
+        0,
+        47,
+        -19
+      ],
+      "vertical_fov_deg": 42,
+      "vertical_down": true,
+      "note": "Entrance-centred actual-scale crop; whole giant building cannot fit at this height"
+    },
+    "findings": "Three roof tiers and coral cue read; initial coplanar stripe corrected in source.",
+    "scope": "Isolated Blender evidence, not engine lighting, world placement or device acceptance"
+  }
+}
