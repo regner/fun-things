@@ -1,0 +1,43 @@
+d04_corporate_graphics.02 - final producer command summary (UTF-8)
+Scope: original low-directory texture/material; inherited city_sign_supports_02 carrier/collision.
+No duplicate Blender source/export, shared edits, world placement or live editor access.
+
+PASS (exit 0): python tools/asset_production/d04_corporate_graphics_02/author.py
+PASS (exit 0): python -m unittest discover -s tools/asset_production/d04_corporate_graphics_02 -p 'test_*.py' -v
+  4 tests: opaque aspect; safe margins; family palette/row hierarchy; PNG byte reproduction.
+PASS (exit 0): pinned Blender validate.py, timeout 900, background/factory-startup/threads 4,
+  python-exit-code 1, ALSOFT_DRIVERS=null SDL_AUDIODRIVER=dummy, -noaudio.
+  Blender 5.2.2 LTS d13f752e3b9c; exporter 5.2.40; existing hardware audit writes only to scratch.
+  2448 triangles, 1244 source vertices, 1596 GLB vertices, 2 meshes, 5 surfaces.
+  Zero nonmanifold edges, degenerate faces/triangles; unit normals; bounds/UVs/winding pass.
+  Shared saved-source reexport byte-identical; 70712 bytes. Dependencies unchanged.
+PASS (exit 0): same pinned Blender flags, preview.py.
+  Four 1280x720 PNGs; hero 138820, side 143837, detail 184361, overhead 6388 bytes.
+  Producer inspected all four and runtime PNG. Close copy reads; overhead copy does not.
+PASS (exit 0): timeout 300 mise-pinned Godot --headless --path . --import.
+  Initial own texture defaults adjusted to mipmaps=true and detect_3d/compress_to=0; reimported.
+PASS assertions (exit 0): timeout 180 pinned Godot --headless --editor --path .
+  --script res://tools/asset_production/d04_corporate_graphics_02/check_prefab.gd -- --normalize.
+  Two byte-stable saved scene/material cycles; exact UIDs and node identities retained.
+  Known shutdown diagnostic: scan aborted, GUI RID leaks and 168 ObjectDB objects leaked.
+  No new empty-editor baseline rerun; not a clean editor-shutdown claim.
+PASS (exit 0): final timeout 300 pinned Godot --headless --path . --import.
+  Godot 4.8.dev7.official.c971f93e7; no ERROR/SCRIPT ERROR lines.
+PASS (exit 0): timeout 180 pinned Godot --headless --path .
+  --script res://tools/asset_production/d04_corporate_graphics_02/check_prefab.gd.
+  Separate non-editor load; no ERROR/SCRIPT ERROR lines.
+  Linked meshes/hierarchy/bounds and one face-only override; mipmaps; inherited full box.
+  Actual physics rays: centre blocked, X=0.9 bypass clear, Y=1.6 overhead clear.
+PASS: pinned gdstyle 0.3.0 fmt --check; --max-line-length 100 --max-warnings 0 (owned checker).
+  One initial 102-character constant warning was fixed by wrapping; final zero warnings.
+PASS: earlier d04_corporate_graphics_01/record.py verifies 23 unchanged payloads.
+PASS: record.py --write then record.py; exact payload inventory and unchanged dependencies.
+
+Known non-failure warnings: Blender future use_nodes deprecation; editor plugin newer-engine warning.
+Global production_checks.py deliberately not run (owner decision 52).
+Final validation.json combines source, decoded binary, engine, normalization, texture and render evidence.
+manifest.json identifies produced payloads and separate unchanged dependencies.
+Scratch exports/full logs: C:/tmp/ft/assets/d04_corporate_graphics_02/ (not committed).
+Exact reproduction: docs/assets/production/d04_corporate_graphics_02.md.
+Remaining: independent review; copy/dimension selection; placement/vehicle/actor/camera/network;
+packaged rendering/filtering, repeated placement profiling, Deck performance.
