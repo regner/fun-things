@@ -1,0 +1,384 @@
+{
+  "status": "PASS",
+  "blender": "5.2.2 LTS",
+  "blender_build": "d13f752e3b9c",
+  "gltf_exporter": "5.2.40",
+  "source_meshes": [
+    {
+      "name": "CitySignSupports02_Hardware",
+      "vertices": 1160,
+      "triangles": 2284,
+      "nonmanifold_edges": 0,
+      "degenerate_faces": 0,
+      "unit_corner_normals": true,
+      "materials": [
+        "support_petrol",
+        "recess_gasket",
+        "mount_metal"
+      ]
+    },
+    {
+      "name": "CitySignSupports02_ArtworkCarrier",
+      "vertices": 84,
+      "triangles": 164,
+      "nonmanifold_edges": 0,
+      "degenerate_faces": 0,
+      "unit_corner_normals": true,
+      "materials": [
+        "sign_face",
+        "mount_metal"
+      ]
+    }
+  ],
+  "source_vertices": 1244,
+  "triangles": 2448,
+  "glb_vertices": 1596,
+  "meshes": 2,
+  "surfaces": 5,
+  "nonmanifold_edges": 0,
+  "degenerate_faces": 0,
+  "degenerate_glb_triangles": 0,
+  "unit_source_and_export_normals": true,
+  "glb_winding_agrees_with_normals": true,
+  "godot_aabb": {
+    "min": [
+      -0.800000011920929,
+      0.0,
+      -0.20000000298023224
+    ],
+    "max": [
+      0.800000011920929,
+      1.350000023841858,
+      0.20000000298023224
+    ]
+  },
+  "dimensions_m": [
+    1.6,
+    1.35,
+    0.4
+  ],
+  "pivot": [
+    0,
+    0,
+    0
+  ],
+  "ground_datum_m": 0,
+  "dimension_tolerance_m": 0.001,
+  "coordinate_tolerance_m": 1e-05,
+  "artwork_interface": {
+    "mesh": "CitySignSupports02_ArtworkCarrier",
+    "slot": "sign_face",
+    "slot_index": 0,
+    "width_m": 1.44,
+    "height_m": 0.39,
+    "aspect_ratio": "48:13",
+    "safe_copy_rectangle_m": [
+      1.38,
+      0.33
+    ],
+    "front_godot_z_m": -0.071,
+    "bottom_m": 0.88,
+    "top_m": 1.27,
+    "uv_min": [
+      0,
+      0
+    ],
+    "uv_max": [
+      1,
+      1
+    ],
+    "glb_v_direction": "0 top / 1 bottom",
+    "u_direction": "front-view left to right (-X)"
+  },
+  "glb_bytes": 70712,
+  "glb_sha256": "022dd559334d79c482182083be775c692ab4adf2a5277d3fb7ca7ec266ec76b7",
+  "fresh_reexport_byte_identical": true,
+  "materials": [
+    {
+      "name": "sign_face",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.3931231200695038,
+          0.4479884207248688,
+          0.4064483046531677,
+          1
+        ],
+        "metallicFactor": 0,
+        "roughnessFactor": 0.5600000023841858
+      }
+    },
+    {
+      "name": "mount_metal",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.07828831672668457,
+          0.1259673833847046,
+          0.1399848908185959,
+          1
+        ],
+        "metallicFactor": 0.6499999761581421,
+        "roughnessFactor": 0.3799999952316284
+      }
+    },
+    {
+      "name": "support_petrol",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.010816383175551891,
+          0.03468407690525055,
+          0.04396536201238632,
+          1
+        ],
+        "metallicFactor": 0.18000000715255737,
+        "roughnessFactor": 0.3199999928474426
+      }
+    },
+    {
+      "name": "recess_gasket",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.0033353136386722326,
+          0.006571403704583645,
+          0.008122432976961136,
+          1
+        ],
+        "metallicFactor": 0,
+        "roughnessFactor": 0.7200000286102295
+      }
+    }
+  ],
+  "asset_id": "d08_repair_graphics.02",
+  "new_geometry": false,
+  "output_type": "Artwork set on unchanged low freestanding panel",
+  "shared_dependency_sha256": {
+    "art/source/models/environment/city_sign_supports_02/city_sign_supports_02.blend": "d1b9a29d684951ea1ef40f88aedb2180297b9be6c7cee58c31d467be07708e6c",
+    "art/models/environment/city_sign_supports_02/city_sign_supports_02.glb": "022dd559334d79c482182083be775c692ab4adf2a5277d3fb7ca7ec266ec76b7",
+    "art/models/environment/city_sign_supports_02/city_sign_supports_02.glb.import": "6c237258815d1ee6a0a8644af1af29d18af74fa84fb40960cba05da96a354fe2",
+    "scenes/prefabs/environment/city_sign_supports_02.tscn": "dd95c4cbf0d0ff3d816290024e1723864817176753628384222f51084a804939",
+    "tools/asset_production/city_sign_supports_02/validate.py": "ee64a3fabf71d6a2afd58a839691c626c28f5e306d44b0f28aeeb793d0c9376e",
+    "tools/asset_production/city_sign_supports_02/export.py": "77f022778898442006f67ca397036e523a95095afb337ec03427e78923aebfb1",
+    "tools/assets/blender/export_settings.json": "33ded3c83616fba6573848dda1f0ea3fc7ae7f4c98257fc867dca3bbe35ff9ec",
+    "tools/asset_production/d08_repair_graphics_01/author.py": "122b25cb72657bd95f5727919f412f36f3657db4c35c672e207aadd1a42d599f",
+    "tools/asset_production/d08_repair_graphics_01/check_prefab.gd": "00c671123dfed03c2e082a22cf8f1386d571327529a4bbacadcfc7260bd0a8ee",
+    "tools/asset_production/d06_commercial_graphics_01/author.py": "84c12c9bffd3a60a6470f37a8d3d7bb38588c31d208ae593193ece81c20316bb",
+    "tools/asset_production/d06_commercial_graphics_02/author.py": "6e1492bc8bbb5afec4b371e1f2f28e875d3c3be8c9fe3b629d20efea473eab50",
+    "tools/asset_production/d06_commercial_graphics_01/manifest.py": "d7e58675faec2dddb75ae049d7bd4c9d7858a07b6627aa064f0fe811891a6df2",
+    "tools/asset_production/d06_commercial_graphics_03/check_prefab.gd": "08d99fe7bbb6ae3d38b07b313b91c95cc11904a494238c9fa4e72192e066d985",
+    "tools/asset_production/d06_commercial_graphics_04/check_prefab.gd": "45f6b870542525efe17dabbc0ca6e79803849679dd812a91420be2e4a6e63324"
+  },
+  "shared_dependencies_unchanged": true,
+  "artwork_variants": [
+    "depot_right",
+    "depot_right_patched"
+  ],
+  "texture_size": [
+    1440,
+    390
+  ],
+  "texture_channels": "RGB sRGB albedo",
+  "godot_normalization": {
+    "engine": "4.8-dev7 (official)",
+    "status": "PASS",
+    "variants": [
+      {
+        "aabb_max": [
+          0.8,
+          1.35,
+          0.2
+        ],
+        "aabb_min": [
+          -0.8,
+          0,
+          -0.2
+        ],
+        "base_prefab": "res://scenes/prefabs/environment/city_sign_supports_02.tscn",
+        "byte_stable_scene_material_roundtrips": 2,
+        "face_only_overrides": 1,
+        "hierarchy_and_mesh_resources_unchanged": true,
+        "identity_transforms": true,
+        "imported_mipmaps": true,
+        "inherited_collision_unchanged": true,
+        "linked_model": "res://art/models/environment/city_sign_supports_02/city_sign_supports_02.glb",
+        "material": "res://art/materials/environment/d08_repair_graphics_02/depot_right.tres",
+        "material_sha256": "a14a2764edb98a77932647299402a4ada7222161dc2a39ca99908697f33517e9",
+        "meshes": 2,
+        "prefab": "res://scenes/prefabs/environment/d08_repair_graphics_02.tscn",
+        "prefab_sha256": "9d611cdfb94ffa0d7cb479453d40a5bb4eec9db068b5ea93f1c89dc3b94dba6c",
+        "ray_queries": {
+          "center_blocked": true,
+          "overhead_clear": true,
+          "side_clear": true
+        },
+        "surfaces": 5,
+        "texture_size": [
+          1440,
+          390
+        ]
+      },
+      {
+        "aabb_max": [
+          0.8,
+          1.35,
+          0.2
+        ],
+        "aabb_min": [
+          -0.8,
+          0,
+          -0.2
+        ],
+        "base_prefab": "res://scenes/prefabs/environment/city_sign_supports_02.tscn",
+        "byte_stable_scene_material_roundtrips": 2,
+        "face_only_overrides": 1,
+        "hierarchy_and_mesh_resources_unchanged": true,
+        "identity_transforms": true,
+        "imported_mipmaps": true,
+        "inherited_collision_unchanged": true,
+        "linked_model": "res://art/models/environment/city_sign_supports_02/city_sign_supports_02.glb",
+        "material": "res://art/materials/environment/d08_repair_graphics_02/depot_right_patched.tres",
+        "material_sha256": "ff5ba60137fb97cfeb287788690ef8fdb6ecf6106f4bc912d08a996750006337",
+        "meshes": 2,
+        "prefab": "res://scenes/prefabs/environment/d08_repair_graphics_02_patched.tscn",
+        "prefab_sha256": "6d66f54b7d9f97fabf917201e0def4fa6e31af7e030f15dcc99535b3b9edc08f",
+        "ray_queries": {
+          "center_blocked": true,
+          "overhead_clear": true,
+          "side_clear": true
+        },
+        "surfaces": 5,
+        "texture_size": [
+          1440,
+          390
+        ]
+      }
+    ]
+  },
+  "godot_load": {
+    "engine": "4.8-dev7 (official)",
+    "status": "PASS",
+    "variants": [
+      {
+        "aabb_max": [
+          0.8,
+          1.35,
+          0.2
+        ],
+        "aabb_min": [
+          -0.8,
+          0,
+          -0.2
+        ],
+        "base_prefab": "res://scenes/prefabs/environment/city_sign_supports_02.tscn",
+        "byte_stable_scene_material_roundtrips": 0,
+        "face_only_overrides": 1,
+        "hierarchy_and_mesh_resources_unchanged": true,
+        "identity_transforms": true,
+        "imported_mipmaps": true,
+        "inherited_collision_unchanged": true,
+        "linked_model": "res://art/models/environment/city_sign_supports_02/city_sign_supports_02.glb",
+        "material": "res://art/materials/environment/d08_repair_graphics_02/depot_right.tres",
+        "material_sha256": "a14a2764edb98a77932647299402a4ada7222161dc2a39ca99908697f33517e9",
+        "meshes": 2,
+        "prefab": "res://scenes/prefabs/environment/d08_repair_graphics_02.tscn",
+        "prefab_sha256": "9d611cdfb94ffa0d7cb479453d40a5bb4eec9db068b5ea93f1c89dc3b94dba6c",
+        "ray_queries": {
+          "center_blocked": true,
+          "overhead_clear": true,
+          "side_clear": true
+        },
+        "surfaces": 5,
+        "texture_size": [
+          1440,
+          390
+        ]
+      },
+      {
+        "aabb_max": [
+          0.8,
+          1.35,
+          0.2
+        ],
+        "aabb_min": [
+          -0.8,
+          0,
+          -0.2
+        ],
+        "base_prefab": "res://scenes/prefabs/environment/city_sign_supports_02.tscn",
+        "byte_stable_scene_material_roundtrips": 0,
+        "face_only_overrides": 1,
+        "hierarchy_and_mesh_resources_unchanged": true,
+        "identity_transforms": true,
+        "imported_mipmaps": true,
+        "inherited_collision_unchanged": true,
+        "linked_model": "res://art/models/environment/city_sign_supports_02/city_sign_supports_02.glb",
+        "material": "res://art/materials/environment/d08_repair_graphics_02/depot_right_patched.tres",
+        "material_sha256": "ff5ba60137fb97cfeb287788690ef8fdb6ecf6106f4bc912d08a996750006337",
+        "meshes": 2,
+        "prefab": "res://scenes/prefabs/environment/d08_repair_graphics_02_patched.tscn",
+        "prefab_sha256": "6d66f54b7d9f97fabf917201e0def4fa6e31af7e030f15dcc99535b3b9edc08f",
+        "ray_queries": {
+          "center_blocked": true,
+          "overhead_clear": true,
+          "side_clear": true
+        },
+        "surfaces": 5,
+        "texture_size": [
+          1440,
+          390
+        ]
+      }
+    ]
+  },
+  "artwork_tests": {
+    "status": "PASS",
+    "tests": 6,
+    "exact_png_reproduction": true,
+    "independent_rightward_arrow_samples": true,
+    "patch_preserves_primary_cues": true,
+    "front_facing_mip_proxy_size": [
+      96,
+      26
+    ],
+    "overhead_readability_claim": false
+  },
+  "evidence_renders": {
+    "detail.png": {
+      "bytes": 189999,
+      "resolution": [
+        1280,
+        720
+      ]
+    },
+    "hero.png": {
+      "bytes": 148016,
+      "resolution": [
+        1280,
+        720
+      ]
+    },
+    "overhead_47m_42deg.png": {
+      "bytes": 6329,
+      "resolution": [
+        1280,
+        720
+      ]
+    },
+    "side.png": {
+      "bytes": 152339,
+      "resolution": [
+        1280,
+        720
+      ]
+    }
+  },
+  "checks": {
+    "full_import_exit": 0,
+    "full_import_error_lines": 0,
+    "gdstyle_version": "0.3.0",
+    "gdstyle_format_check": "PASS",
+    "gdstyle_lint": "PASS, zero warnings",
+    "runtime_load_exit": 0,
+    "runtime_error_or_warning_lines": 0,
+    "editor_normalization_exit": 0,
+    "editor_shutdown_diagnostics": "Existing scan-aborted and RID/ObjectDB leaks; see final_checks.log. Assertions and byte comparisons pass."
+  }
+}
