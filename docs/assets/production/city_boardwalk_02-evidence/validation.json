@@ -1,0 +1,823 @@
+{
+  "asset": "city_boardwalk.02",
+  "blender": "5.2.2 LTS",
+  "build_hash": "d13f752e3b9c",
+  "exports": {
+    "city_boardwalk_02": {
+      "actual_glb_aabb": [
+        [
+          -1.79989802837372,
+          -0.239999994635582,
+          -7.79989767074585
+        ],
+        [
+          6.0,
+          0.0,
+          0.0
+        ]
+      ],
+      "angle_degrees": 90.0,
+      "applied_transforms": true,
+      "centre_radius_m": 6.0,
+      "consistent_winding": true,
+      "deck_surface_datum_m": 0.0,
+      "degenerate_faces": 0.0,
+      "depth_m": 0.24,
+      "exit_centre_m": [
+        6.0,
+        0.0,
+        -6.0
+      ],
+      "fresh_reexport_byte_identical": true,
+      "glb_bytes": 71956.0,
+      "glb_sha256": "948c000d7486ff73951ffd9c780c142ed17015813f49872cafda4875f061bfc1",
+      "glb_vertices": 1924.0,
+      "materials": [
+        {
+          "name": "boardwalk_underdeck_slate",
+          "pbrMetallicRoughness": {
+            "baseColorFactor": [
+              0.0480000004172325,
+              0.0689999982714653,
+              0.0780000016093254,
+              1.0
+            ],
+            "metallicFactor": 0.150000005960464,
+            "roughnessFactor": 0.579999983310699
+          }
+        },
+        {
+          "name": "boardwalk_timber_warm",
+          "pbrMetallicRoughness": {
+            "baseColorFactor": [
+              0.234999999403954,
+              0.144999995827675,
+              0.0850000008940697,
+              1.0
+            ],
+            "metallicFactor": 0.0,
+            "roughnessFactor": 0.680000007152557
+          }
+        },
+        {
+          "name": "boardwalk_timber_light",
+          "pbrMetallicRoughness": {
+            "baseColorFactor": [
+              0.259999990463257,
+              0.165999993681908,
+              0.101000003516674,
+              1.0
+            ],
+            "metallicFactor": 0.0,
+            "roughnessFactor": 0.680000007152557
+          }
+        },
+        {
+          "name": "boardwalk_timber_muted",
+          "pbrMetallicRoughness": {
+            "baseColorFactor": [
+              0.215000003576279,
+              0.136000007390976,
+              0.0850000008940697,
+              1.0
+            ],
+            "metallicFactor": 0.0,
+            "roughnessFactor": 0.680000007152557
+          }
+        }
+      ],
+      "mesh_count": 1.0,
+      "nominal_bound_tolerance_m": 0.012,
+      "nominal_godot_aabb": [
+        [
+          -1.8,
+          -0.24,
+          -7.8
+        ],
+        [
+          6.0,
+          0.0,
+          0.0
+        ]
+      ],
+      "nonmanifold_edges": 0.0,
+      "pivot_entry_m": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "radial_timber_count": 32.0,
+      "source_glb_tolerance_m": 1e-05,
+      "source_godot_aabb": [
+        [
+          -1.79989802837372,
+          -0.239999994635582,
+          -7.79989767074585
+        ],
+        [
+          6.0,
+          0.0,
+          0.0
+        ]
+      ],
+      "source_vertices": 1924.0,
+      "surfaces": 4.0,
+      "triangles": 3716.0,
+      "underside_datum_m": -0.24,
+      "unit_normals": true,
+      "width_m": 3.6
+    },
+    "city_boardwalk_02_22p5": {
+      "actual_glb_aabb": [
+        [
+          -1.79989802837372,
+          -0.239999994635582,
+          -2.97619605064392
+        ],
+        [
+          2.11666107177734,
+          0.0,
+          0.0
+        ]
+      ],
+      "angle_degrees": 22.5,
+      "applied_transforms": true,
+      "centre_radius_m": 6.0,
+      "consistent_winding": true,
+      "deck_surface_datum_m": 0.0,
+      "degenerate_faces": 0.0,
+      "depth_m": 0.24,
+      "exit_centre_m": [
+        0.456722805,
+        0.0,
+        -2.296100594
+      ],
+      "fresh_reexport_byte_identical": true,
+      "glb_bytes": 20712.0,
+      "glb_sha256": "5070b413836ca6a91848d326a32ac0c36152a1a99b910230f80f19ae79faec6c",
+      "glb_vertices": 484.0,
+      "materials": [
+        {
+          "name": "boardwalk_underdeck_slate",
+          "pbrMetallicRoughness": {
+            "baseColorFactor": [
+              0.0480000004172325,
+              0.0689999982714653,
+              0.0780000016093254,
+              1.0
+            ],
+            "metallicFactor": 0.150000005960464,
+            "roughnessFactor": 0.579999983310699
+          }
+        },
+        {
+          "name": "boardwalk_timber_warm",
+          "pbrMetallicRoughness": {
+            "baseColorFactor": [
+              0.234999999403954,
+              0.144999995827675,
+              0.0850000008940697,
+              1.0
+            ],
+            "metallicFactor": 0.0,
+            "roughnessFactor": 0.680000007152557
+          }
+        },
+        {
+          "name": "boardwalk_timber_light",
+          "pbrMetallicRoughness": {
+            "baseColorFactor": [
+              0.259999990463257,
+              0.165999993681908,
+              0.101000003516674,
+              1.0
+            ],
+            "metallicFactor": 0.0,
+            "roughnessFactor": 0.680000007152557
+          }
+        },
+        {
+          "name": "boardwalk_timber_muted",
+          "pbrMetallicRoughness": {
+            "baseColorFactor": [
+              0.215000003576279,
+              0.136000007390976,
+              0.0850000008940697,
+              1.0
+            ],
+            "metallicFactor": 0.0,
+            "roughnessFactor": 0.680000007152557
+          }
+        }
+      ],
+      "mesh_count": 1.0,
+      "nominal_bound_tolerance_m": 0.012,
+      "nominal_godot_aabb": [
+        [
+          -1.8,
+          -0.24,
+          -2.984930772
+        ],
+        [
+          2.119705963,
+          0.0,
+          0.0
+        ]
+      ],
+      "nonmanifold_edges": 0.0,
+      "pivot_entry_m": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "radial_timber_count": 8.0,
+      "source_glb_tolerance_m": 1e-05,
+      "source_godot_aabb": [
+        [
+          -1.79989802837372,
+          -0.239999994635582,
+          -2.97619605064392
+        ],
+        [
+          2.11666107177734,
+          0.0,
+          0.0
+        ]
+      ],
+      "source_vertices": 484.0,
+      "surfaces": 4.0,
+      "triangles": 932.0,
+      "underside_datum_m": -0.24,
+      "unit_normals": true,
+      "width_m": 3.6
+    },
+    "city_boardwalk_02_45": {
+      "actual_glb_aabb": [
+        [
+          -1.79989802837372,
+          -0.239999994635582,
+          -5.50823926925659
+        ],
+        [
+          3.02554631233215,
+          0.0,
+          0.0
+        ]
+      ],
+      "angle_degrees": 45.0,
+      "applied_transforms": true,
+      "centre_radius_m": 6.0,
+      "consistent_winding": true,
+      "deck_surface_datum_m": 0.0,
+      "degenerate_faces": 0.0,
+      "depth_m": 0.24,
+      "exit_centre_m": [
+        1.757359313,
+        0.0,
+        -4.242640687
+      ],
+      "fresh_reexport_byte_identical": true,
+      "glb_bytes": 37800.0,
+      "glb_sha256": "3a65befdd32ae654a937909a08b125bd0ac904c4cedbfb0c6eb7e8811e1d9c28",
+      "glb_vertices": 964.0,
+      "materials": [
+        {
+          "name": "boardwalk_underdeck_slate",
+          "pbrMetallicRoughness": {
+            "baseColorFactor": [
+              0.0480000004172325,
+              0.0689999982714653,
+              0.0780000016093254,
+              1.0
+            ],
+            "metallicFactor": 0.150000005960464,
+            "roughnessFactor": 0.579999983310699
+          }
+        },
+        {
+          "name": "boardwalk_timber_warm",
+          "pbrMetallicRoughness": {
+            "baseColorFactor": [
+              0.234999999403954,
+              0.144999995827675,
+              0.0850000008940697,
+              1.0
+            ],
+            "metallicFactor": 0.0,
+            "roughnessFactor": 0.680000007152557
+          }
+        },
+        {
+          "name": "boardwalk_timber_light",
+          "pbrMetallicRoughness": {
+            "baseColorFactor": [
+              0.259999990463257,
+              0.165999993681908,
+              0.101000003516674,
+              1.0
+            ],
+            "metallicFactor": 0.0,
+            "roughnessFactor": 0.680000007152557
+          }
+        },
+        {
+          "name": "boardwalk_timber_muted",
+          "pbrMetallicRoughness": {
+            "baseColorFactor": [
+              0.215000003576279,
+              0.136000007390976,
+              0.0850000008940697,
+              1.0
+            ],
+            "metallicFactor": 0.0,
+            "roughnessFactor": 0.680000007152557
+          }
+        }
+      ],
+      "mesh_count": 1.0,
+      "nominal_bound_tolerance_m": 0.012,
+      "nominal_godot_aabb": [
+        [
+          -1.8,
+          -0.24,
+          -5.515432893
+        ],
+        [
+          3.030151519,
+          0.0,
+          0.0
+        ]
+      ],
+      "nonmanifold_edges": 0.0,
+      "pivot_entry_m": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "radial_timber_count": 16.0,
+      "source_glb_tolerance_m": 1e-05,
+      "source_godot_aabb": [
+        [
+          -1.79989802837372,
+          -0.239999994635582,
+          -5.50823926925659
+        ],
+        [
+          3.02554631233215,
+          0.0,
+          0.0
+        ]
+      ],
+      "source_vertices": 964.0,
+      "surfaces": 4.0,
+      "triangles": 1860.0,
+      "underside_datum_m": -0.24,
+      "unit_normals": true,
+      "width_m": 3.6
+    }
+  },
+  "godot": {
+    "engine": "4.8-dev7 (official)",
+    "exact_edge_ray_misses": [
+      [
+        0.708472430706024,
+        0.0,
+        -2.82838034629822
+      ],
+      [
+        5.24526786804199,
+        0.0,
+        -7.66292238235474
+      ]
+    ],
+    "linked_models_checked": 3,
+    "outside_rays": 9,
+    "physics": {
+      "actor_capsule_height_m": 1.8,
+      "actor_capsule_radius_m": 0.35,
+      "authority_replay_equal": true,
+      "network_transport_vehicle_water_falloff": "not tested",
+      "support_and_outside_rays_pass": true,
+      "traversals": [
+        {
+          "angle_degrees": 90.0,
+          "authority_end": [
+            7.99999761581421,
+            0.00100000004749745,
+            -4.65000009536743
+          ],
+          "path_radius_m": 4.65,
+          "replay_end": [
+            7.99999761581421,
+            0.00100000004749745,
+            -4.65000009536743
+          ],
+          "reverse": false,
+          "ticks_per_mode": 146
+        },
+        {
+          "angle_degrees": 90.0,
+          "authority_end": [
+            1.35000276565552,
+            0.00100000004749745,
+            2.0
+          ],
+          "path_radius_m": 4.65,
+          "replay_end": [
+            1.35000276565552,
+            0.00100000004749745,
+            2.0
+          ],
+          "reverse": true,
+          "ticks_per_mode": 146
+        },
+        {
+          "angle_degrees": 90.0,
+          "authority_end": [
+            8.0,
+            0.00100000004749745,
+            -6.00000190734863
+          ],
+          "path_radius_m": 6.0,
+          "replay_end": [
+            8.0,
+            0.00100000004749745,
+            -6.00000190734863
+          ],
+          "reverse": false,
+          "ticks_per_mode": 178
+        },
+        {
+          "angle_degrees": 90.0,
+          "authority_end": [
+            3.95812094211578e-08,
+            0.00100000004749745,
+            2.00000214576721
+          ],
+          "path_radius_m": 6.0,
+          "replay_end": [
+            3.95812094211578e-08,
+            0.00100000004749745,
+            2.00000214576721
+          ],
+          "reverse": true,
+          "ticks_per_mode": 178
+        },
+        {
+          "angle_degrees": 90.0,
+          "authority_end": [
+            7.99999618530273,
+            0.00100000004749745,
+            -7.35000228881836
+          ],
+          "path_radius_m": 7.35,
+          "replay_end": [
+            7.99999618530273,
+            0.00100000004749745,
+            -7.35000228881836
+          ],
+          "reverse": false,
+          "ticks_per_mode": 210
+        },
+        {
+          "angle_degrees": 90.0,
+          "authority_end": [
+            -1.3499960899353,
+            0.00100000004749745,
+            2.00000214576721
+          ],
+          "path_radius_m": 7.35,
+          "replay_end": [
+            -1.3499960899353,
+            0.00100000004749745,
+            2.00000214576721
+          ],
+          "reverse": true,
+          "ticks_per_mode": 210
+        },
+        {
+          "angle_degrees": 45.0,
+          "authority_end": [
+            24.1261653900146,
+            0.00100000004749745,
+            -4.70226240158081
+          ],
+          "path_radius_m": 4.65,
+          "replay_end": [
+            24.1261653900146,
+            0.00100000004749745,
+            -4.70226240158081
+          ],
+          "reverse": false,
+          "ticks_per_mode": 98
+        },
+        {
+          "angle_degrees": 45.0,
+          "authority_end": [
+            21.3500022888184,
+            0.00100000004749745,
+            2.00000262260437
+          ],
+          "path_radius_m": 4.65,
+          "replay_end": [
+            21.3500022888184,
+            0.00100000004749745,
+            2.00000262260437
+          ],
+          "reverse": true,
+          "ticks_per_mode": 98
+        },
+        {
+          "angle_degrees": 45.0,
+          "authority_end": [
+            23.1715660095215,
+            0.00100000004749745,
+            -5.65685749053955
+          ],
+          "path_radius_m": 6.0,
+          "replay_end": [
+            23.1715660095215,
+            0.00100000004749745,
+            -5.65685749053955
+          ],
+          "reverse": false,
+          "ticks_per_mode": 114
+        },
+        {
+          "angle_degrees": 45.0,
+          "authority_end": [
+            20.0000057220459,
+            0.00100000004749745,
+            2.00000309944153
+          ],
+          "path_radius_m": 6.0,
+          "replay_end": [
+            20.0000057220459,
+            0.00100000004749745,
+            2.00000309944153
+          ],
+          "reverse": true,
+          "ticks_per_mode": 114
+        },
+        {
+          "angle_degrees": 45.0,
+          "authority_end": [
+            22.2169609069824,
+            0.00100000004749745,
+            -6.61144876480103
+          ],
+          "path_radius_m": 7.35,
+          "replay_end": [
+            22.2169609069824,
+            0.00100000004749745,
+            -6.61144876480103
+          ],
+          "reverse": false,
+          "ticks_per_mode": 130
+        },
+        {
+          "angle_degrees": 45.0,
+          "authority_end": [
+            18.650016784668,
+            0.00100000004749745,
+            2.00000023841858
+          ],
+          "path_radius_m": 7.35,
+          "replay_end": [
+            18.650016784668,
+            0.00100000004749745,
+            2.00000023841858
+          ],
+          "reverse": true,
+          "ticks_per_mode": 130
+        },
+        {
+          "angle_degrees": 22.5,
+          "authority_end": [
+            42.4692878723145,
+            0.00100000004749745,
+            -3.62724018096924
+          ],
+          "path_radius_m": 4.65,
+          "replay_end": [
+            42.4692878723145,
+            0.00100000004749745,
+            -3.62724018096924
+          ],
+          "reverse": false,
+          "ticks_per_mode": 74
+        },
+        {
+          "angle_degrees": 22.5,
+          "authority_end": [
+            41.3500366210938,
+            0.00100000004749745,
+            2.00000333786011
+          ],
+          "path_radius_m": 4.65,
+          "replay_end": [
+            41.3500366210938,
+            0.00100000004749745,
+            2.00000333786011
+          ],
+          "reverse": true,
+          "ticks_per_mode": 74
+        },
+        {
+          "angle_degrees": 22.5,
+          "authority_end": [
+            41.2220649719238,
+            0.00100000004749745,
+            -4.14386224746704
+          ],
+          "path_radius_m": 6.0,
+          "replay_end": [
+            41.2220649719238,
+            0.00100000004749745,
+            -4.14386224746704
+          ],
+          "reverse": false,
+          "ticks_per_mode": 82
+        },
+        {
+          "angle_degrees": 22.5,
+          "authority_end": [
+            40.0000228881836,
+            0.00100000004749745,
+            2.00000238418579
+          ],
+          "path_radius_m": 6.0,
+          "replay_end": [
+            40.0000228881836,
+            0.00100000004749745,
+            2.00000238418579
+          ],
+          "reverse": true,
+          "ticks_per_mode": 82
+        },
+        {
+          "angle_degrees": 22.5,
+          "authority_end": [
+            39.9748077392578,
+            0.00100000004749745,
+            -4.66048336029053
+          ],
+          "path_radius_m": 7.35,
+          "replay_end": [
+            39.9748077392578,
+            0.00100000004749745,
+            -4.66048336029053
+          ],
+          "reverse": false,
+          "ticks_per_mode": 90
+        },
+        {
+          "angle_degrees": 22.5,
+          "authority_end": [
+            38.6500434875488,
+            0.00100000004749745,
+            2.00000095367432
+          ],
+          "path_radius_m": 7.35,
+          "replay_end": [
+            38.6500434875488,
+            0.00100000004749745,
+            2.00000095367432
+          ],
+          "reverse": true,
+          "ticks_per_mode": 90
+        }
+      ],
+      "total_fixed_ticks": 4488
+    },
+    "save_reload_byte_stable": true,
+    "saved_scene_and_dependency_uids_present": true,
+    "support_rays": 213,
+    "ray_edge_witness_tolerance_m": 0.0001,
+    "exact_edge_witness_rays_passed": 8
+  },
+  "saved_collision": {
+    "city_boardwalk_02": {
+      "datum_m": 0.0,
+      "degenerate_triangles": 0.0,
+      "exact_float32_shared_edges": true,
+      "nonmanifold_or_open_edges": 0.0,
+      "top_area_m2": 33.9155769240682,
+      "triangles": 260.0,
+      "underside_m": -0.24,
+      "unique_vertices": 132.0
+    },
+    "city_boardwalk_02_22p5": {
+      "datum_m": 0.0,
+      "degenerate_triangles": 0.0,
+      "exact_float32_shared_edges": true,
+      "nonmanifold_or_open_edges": 0.0,
+      "top_area_m2": 8.47889403325727,
+      "triangles": 68.0,
+      "underside_m": -0.24,
+      "unique_vertices": 36.0
+    },
+    "city_boardwalk_02_45": {
+      "datum_m": 0.0,
+      "degenerate_triangles": 0.0,
+      "exact_float32_shared_edges": true,
+      "nonmanifold_or_open_edges": 0.0,
+      "top_area_m2": 16.9577881375839,
+      "triangles": 132.0,
+      "underside_m": -0.24,
+      "unique_vertices": 68.0
+    }
+  },
+  "status": "PASS source, binary export and saved watertight collision; engine checked separately",
+  "canonical_run_history": {
+    "initial": {
+      "all_passed": true,
+      "gut_tests_passed": 137,
+      "gut_tests_total": 137,
+      "assertions_passed": 6523,
+      "assertions_total": 6523
+    },
+    "final": {
+      "all_passed": false,
+      "gut_tests_passed": 136,
+      "gut_tests_total": 137,
+      "assertions_passed": 6520,
+      "assertions_total": 6523,
+      "failed_test": "tests/unit/audio/test_audio_voice_policy.gd::test_finished_one_shot_releases_voice_for_farther_event",
+      "failed_lines": [
+        113,
+        114,
+        120
+      ],
+      "unchanged_file": true,
+      "cause": "not established; timed audio completion check",
+      "not_ignored": true
+    }
+  },
+  "production_checks": {
+    "engine": {
+      "ok": true,
+      "version": "4.8.dev7.official.c971f93e7"
+    },
+    "gut_pin": {
+      "ok": true,
+      "version": "9.7.1"
+    },
+    "owned_scripts": {
+      "ok": true,
+      "returncode": 0
+    },
+    "python_tests": {
+      "ok": true,
+      "returncode": 0
+    },
+    "gut_import": {
+      "ok": true,
+      "returncode": 0
+    },
+    "gut_tests": {
+      "ok": false,
+      "returncode": 1
+    },
+    "gut_negative": {
+      "ok": true,
+      "observed_returncode": 1
+    }
+  },
+  "production_checks_overall_passed": false,
+  "renders": [
+    {
+      "file": "hero.png",
+      "size_px": [
+        1152,
+        648
+      ],
+      "bytes": 404716
+    },
+    {
+      "file": "side.png",
+      "size_px": [
+        1280,
+        720
+      ],
+      "bytes": 405113
+    },
+    {
+      "file": "detail.png",
+      "size_px": [
+        1024,
+        576
+      ],
+      "bytes": 369553
+    },
+    {
+      "file": "overhead_47m_42deg.png",
+      "size_px": [
+        1280,
+        720
+      ],
+      "bytes": 413488
+    }
+  ],
+  "render_encoding": "RGB 7 significant bits per channel, PNG compression 9"
+}

@@ -1,0 +1,91 @@
+city_boardwalk.02 — concise production receipt, 10 October 2026
+Branch: lane/a-boardwalk. Scope: city_boardwalk_02 only.
+Exact reproduction commands and pending gates: ../city_boardwalk_02.md.
+Raw logs/scratch: C:/tmp/ft/assets/city_boardwalk_02/ (not committed).
+
+TOOLS
+Blender 5.2.2 LTS, build d13f752e3b9c; glTF exporter 5.2.40.
+Godot 4.8.dev7.official.c971f93e7 via mise; gdstyle 0.3.0 via mise.
+Blender invocations use -noaudio --background --factory-startup --threads 4
+--python-exit-code 1, ALSOFT_DRIVERS=null SDL_AUDIODRIVER=dummy, timeout <=900.
+Godot invocations are headless, timeout 300 for import / 180 for checks.
+No owner live session, windowed editor, addon patch or global settings change.
+
+SOURCE / EXPORT / RENDER
+PASS author.py (exit 0): original closed radial timbers and recessed core in three collections.
+PASS export.py (exit 0): 90/45/22.5-degree GLBs, shared export_settings.json.
+PASS export.py -- C:/tmp/ft/assets/city_boardwalk_02/reexport (exit 0).
+PASS validate.py -- same reexport directory (initial and final exit 0).
+90: 3716 triangles, 1924 source/GLB vertices, 71956 GLB bytes.
+45: 1860 triangles, 964 source/GLB vertices, 37800 GLB bytes.
+22.5: 932 triangles, 484 source/GLB vertices, 20712 GLB bytes.
+All: one mesh, four surfaces, zero degenerate faces/nonmanifold edges,
+unit normals, consistent winding, identity transforms, fresh export byte-identical.
+Saved collision: 260/132/68 triangles; 132/68/36 unique vertices respectively.
+Exact float32 closed-edge audit passes, zero degenerate/open/nonmanifold collision faces/edges.
+PASS render.py (exit 0): hero, side, detail, vertical47m/FOV42deg overhead.
+Final native sizes: hero1152x648, detail1024x576, side/overhead1280x720.
+Final Cycles CPU128 samples, AgX, PNG95; inspected by producer.
+Initial hero clipped the smallest bend. Increased orthographic framing and recentered;
+final hero includes all silhouettes. Other final views remain visually coherent with .01.
+A trial6-bit image encoding caused background banding and was rejected. Increased render
+samples32->128 and retained7-bit encoding; smaller native hero/detail sizes preserve smooth
+shading while meeting the approximate400KB evidence target. No post-render resizing.
+Blender author/render emit pinned Material.use_nodes DeprecationWarning only.
+No allocation errors or failed Blender jobs.
+
+PREFABS / ENGINE
+PASS python author_prefabs.py (exit 0): initial text authoring of three linked wrappers
+and one saved fixture using unchanged city_boardwalk_01 entry/exit instances.
+PASS pinned Godot --headless --editor --path . --import --quit (exit 0).
+PASS check.gd --normalize, headless editor (initial/final exit 0): all four scenes
+saved/load/resaved twice, stable bytes, scene/dependency UIDs preserved.
+Import/editor warns addon supports tested4.7 rather than4.8.
+Normalization emits editor RID/ObjectDB shutdown diagnostics after successful checks:
+5 Viewport, 8 DummyTexture, 1 Scenario, 52 ShapedTextData, 1 FontAdvanced,
+5 Canvas, 31 CanvasItem and 168 ObjectDB instances. Retained tooling limitation.
+No editor-warning suppression; no claim that headless saves synchronize another editor.
+
+INITIAL PHYSICS CHECK: exit 1. Two rays exactly on shared coplanar triangle edges missed:
+(0.708472430706024, 0, -2.82838034629822)
+(5.24526786804199, 0, -7.66292238235474)
+All actor trajectory assertions completed without movement/support errors.
+No mesh/collider geometry changed as a response. Added explicit exact float32 watertight
+collision audit and a bounded witness check requiring floor at all four +/-0.0001 m
+X/Z neighbors if an exact-edge ray misses; retained exact misses in validation.json.
+FINAL PHYSICS CHECK: exit 0, CITY_BOARDWALK_02_CHECK_PASS, no warnings/errors/leaks.
+213 nominal floor rays: 211 direct hits, 2 misses with all8 surrounding witnesses passing.
+9 outside/inner-void rays clear. All hit normals point up and surfaces lie at Y=0.
+36 full ActorMotion traversals = 3 angles * 3 lateral offsets * 2 directions * 2 modes.
+4488 fixed ticks total, 74..210 per trajectory/mode; all segment endpoints within2mm,
+every tick floor-supported; authority/replay endpoints equal. Actual movement1mm margin retained.
+Resource ancestry, identity placement, material opacity/backface culling and AABB checks pass.
+These are not vehicle, real transport/multiplayer, water-falloff or world-placement tests.
+
+STYLE / CANONICAL CHECKS
+Initial gdstyle: 3 warnings (function length, local count, await-in-loop). Refactored
+report/collision helpers and explicitly marked awaited simulation loop. Final check/fmt pass.
+PASS pinned gdstyle check check.gd: no issues. PASS fmt --check: already formatted.
+INITIAL timeout1800 mise exec -- python tools/production_checks.py --output .../checks:
+exit0; pins, owned compile/style, 14 Python tests, import, GUT137/137 with6523 assertions,
+and intentional negative-test detection all pass.
+FINAL timeout1800 mise exec -- python tools/production_checks.py --output .../checks-final:
+exit1; pins, owned compile/style, 14 Python tests, import and negative-test detection pass.
+GUT136/137,6520/6523 assertions. Unchanged test:
+res://tests/unit/audio/test_audio_voice_policy.gd
+ test_finished_one_shot_releases_voice_for_farther_event
+ line113: assert_false(is_voice_granted()) failed after a0.4-second timer.
+ line114: active_voice_count1 expected0.
+ line120: active_voice_count2 expected1.
+No audio code changed. Root cause not established by this asset task; final canonical
+suite is NOT fully green. This failure is retained, not ignored under the fixture exception.
+No unchanged failing canonical command was repeated.
+
+RETENTION / OPEN GATES
+Four compact review PNGs, validation.json, manifest.json and this concise log only.
+Source, all exports/import sidecars, three wrappers, source/validation recipes and fixture retained.
+No shared record, sibling, TODO, world scene, island polygon or terrain change.
+Independent technical/art review required. Coast/radius fit, rail/support/fascia/transition
+mating, native gameplay views, vehicle/combat/navigation, real network, packaged platform
+and sustained Deck/performance checks remain pending. Exact-edge Jolt ray precision and
+final timed-audio-test failure remain explicit residual limitations.

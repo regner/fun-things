@@ -1,0 +1,48 @@
+[gd_scene format=3 uid="uid://cbvus166vj0uu"]
+
+[ext_resource type="PackedScene" uid="uid://btsnym45lcgwn" path="res://scenes/prefabs/environment/city_boardwalk_01.tscn" id="1_straight"]
+[ext_resource type="Script" uid="uid://jthmfio4c27p" path="res://scripts/actors/actor_motion.gd" id="2_motion"]
+[ext_resource type="PackedScene" uid="uid://wb60cgl5cnnd" path="res://scenes/prefabs/environment/city_boardwalk_02.tscn" id="bend_0"]
+[ext_resource type="PackedScene" uid="uid://cws6ebxn7y8iu" path="res://scenes/prefabs/environment/city_boardwalk_02_45.tscn" id="bend_1"]
+[ext_resource type="PackedScene" uid="uid://cue2ekfy1nqbv" path="res://scenes/prefabs/environment/city_boardwalk_02_22p5.tscn" id="bend_2"]
+
+[sub_resource type="CapsuleShape3D" id="Actor_capsule"]
+radius = 0.35
+height = 1.8
+
+[node name="BendWalkCheck" type="Node3D" unique_id=660958826]
+
+[node name="Bend0" parent="." unique_id=961190754 instance=ExtResource("bend_0")]
+
+[node name="Entry0" parent="." unique_id=1921429452 instance=ExtResource("1_straight")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3)
+
+[node name="Exit0" parent="." unique_id=1994613825 instance=ExtResource("1_straight")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 9, 0, -6)
+
+[node name="Bend1" parent="." unique_id=261667003 instance=ExtResource("bend_1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20, 0, 0)
+
+[node name="Entry1" parent="." unique_id=715815015 instance=ExtResource("1_straight")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20, 0, 3)
+
+[node name="Exit1" parent="." unique_id=1600616540 instance=ExtResource("1_straight")]
+transform = Transform3D(0.70710677, 0, -0.70710677, 0, 1, 0, 0.70710677, 0, 0.70710677, 23.87868, 0, -6.363961)
+
+[node name="Bend2" parent="." unique_id=253810828 instance=ExtResource("bend_2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 40, 0, 0)
+
+[node name="Entry2" parent="." unique_id=187241735 instance=ExtResource("1_straight")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 40, 0, 3)
+
+[node name="Exit2" parent="." unique_id=2083458963 instance=ExtResource("1_straight")]
+transform = Transform3D(0.9238795, 0, -0.38268346, 0, 1, 0, 0.38268346, 0, 0.9238795, 41.604774, 0, -5.067739)
+
+[node name="Actor" type="CharacterBody3D" parent="." unique_id=1250551]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.001, 2)
+collision_layer = 2
+script = ExtResource("2_motion")
+
+[node name="Capsule" type="CollisionShape3D" parent="Actor" unique_id=1404727606]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0)
+shape = SubResource("Actor_capsule")

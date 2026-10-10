@@ -1,0 +1,86 @@
+"""Render four isolated studio views; studio geometry never enters source or exports."""
+import math
+from pathlib import Path
+
+import bpy
+from mathutils import Vector
+
+ROOT = Path(__file__).resolve().parents[3]
+ASSET = "city_boardwalk_02"
+EVIDENCE = ROOT / f"docs/assets/production/{ASSET}-evidence"
+EVIDENCE.mkdir(parents=True, exist_ok=True)
+assert bpy.app.version_string == "5.2.2 LTS"
+bpy.ops.wm.open_mainfile(filepath=str(
+    ROOT / f"art/source/models/environment/{ASSET}/{ASSET}.blend"))
+# Source collections deliberately overlap at the connector origin. Studio-only
+# offsets display the three variants without changing any saved/exported transform.
+for suffix, offset in (("", (1, 0, 0)), ("_45", (-6, 0, 0)), ("_22p5", (-11, 0, 0))):
+    bpy.data.objects["CityBoardwalk02" + suffix].location = offset
+scene = bpy.context.scene
+scene.render.engine = "CYCLES"
+scene.cycles.device = "CPU"
+scene.cycles.samples = 128
+scene.cycles.use_denoising = True
+scene.render.resolution_x, scene.render.resolution_y = 1280, 720
+scene.render.resolution_percentage = 100
+scene.render.image_settings.file_format = "PNG"
+scene.render.image_settings.compression = 95
+scene.view_settings.view_transform = "AgX"
+scene.world.use_nodes = True
+scene.world.node_tree.nodes["Background"].inputs[0].default_value = (.22, .28, .33, 1)
+scene.world.node_tree.nodes["Background"].inputs[1].default_value = .6
+
+
+def aim(obj, target):
+    """Aim studio camera and lights without changing the component axes."""
+    obj.rotation_euler = (Vector(target) - obj.location).to_track_quat("-Z", "Y").to_euler()
+
+
+# Isolated studio ground below the core; not shoreline or world placement.
+bpy.ops.mesh.primitive_plane_add(size=200, location=(0, 0, -.255))
+ground = bpy.context.object
+mat = bpy.data.materials.new("STUDIO_background")
+mat.use_nodes = True
+mat.node_tree.nodes["Principled BSDF"].inputs["Base Color"].default_value = (.12, .18, .20, 1)
+mat.node_tree.nodes["Principled BSDF"].inputs["Roughness"].default_value = .8
+ground.data.materials.append(mat)
+for name, position, energy, size in (
+    ("key", (2, 5, 10), 1700, 8), ("fill", (-6, -3, 6), 1300, 7),
+    ("rim", (3, -6, 5), 900, 5),
+):
+    data = bpy.data.lights.new("STUDIO_" + name, "AREA")
+    data.energy, data.shape, data.size = energy, "DISK", size
+    obj = bpy.data.objects.new("STUDIO_" + name, data)
+    scene.collection.objects.link(obj)
+    obj.location = position
+    aim(obj, (0, 0, 0))
+data = bpy.data.cameras.new("STUDIO_camera")
+camera = bpy.data.objects.new("STUDIO_camera", data)
+scene.collection.objects.link(camera)
+scene.camera = camera
+for name, position, target, scale in (
+    ("hero", (14, -19, 20), (-2.5, 3, -.1), 26),
+    ("side", (15, -5, 3), (3, 3.5, -.12), 12),
+    ("detail", (4, -3, 3), (1, .8, -.10), 4.5),
+):
+    for suffix in ("_45", "_22p5"):
+        bpy.data.collections["export_city_boardwalk_02" + suffix].hide_render = name != "hero"
+    # Native evidence sizes keep the close views lean without coarse colour banding.
+    scene.render.resolution_x, scene.render.resolution_y = {
+        "hero": (1152, 648), "side": (1280, 720), "detail": (1024, 576),
+    }[name]
+    camera.location = position
+    aim(camera, target)
+    data.type, data.ortho_scale = "ORTHO", scale
+    scene.render.filepath = str(EVIDENCE / (name + ".png"))
+    bpy.ops.render.render(write_still=True)
+for suffix in ("_45", "_22p5"):
+    bpy.data.collections["export_city_boardwalk_02" + suffix].hide_render = False
+scene.render.resolution_x, scene.render.resolution_y = 1280, 720
+camera.location = (-1.5, 3.5, 47)
+camera.rotation_euler = (0, 0, 0)
+data.type, data.sensor_fit = "PERSP", "VERTICAL"
+data.angle = math.radians(42)
+scene.render.filepath = str(EVIDENCE / "overhead_47m_42deg.png")
+bpy.ops.render.render(write_still=True)
+print("FOUR_ISOLATED_VIEWS_RENDERED")
