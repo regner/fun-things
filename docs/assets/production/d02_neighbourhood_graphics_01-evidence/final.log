@@ -1,0 +1,35 @@
+d02_neighbourhood_graphics.01 - final bounded production checks
+All commands run from C:/GameDev/git/ft-lanes/a-d02g. Full commands are in the handoff.
+
+PASS python author.py: original 1220x820 RGB watch_notice_albedo.png.
+PASS pinned Blender validate.py (timeout 180): 1380 source vertices, 1792 GLB vertices,
+2720 triangles, 12 meshes, 13 surfaces. Zero degenerate faces/triangles/nonmanifold edges;
+unit normals, bounds, identity transforms and 36 artwork UV samples pass.
+PASS shared source reexport: 75768 bytes, byte-identical to unchanged production GLB.
+PASS pinned Blender preview.py (timeout 900): four inspected 1280x720 PNGs;
+hero 249293 bytes, side 246654, detail 287338, overhead 173710. No source save.
+PASS python unittest discover: 4 tests, zero failures/errors.
+PASS pinned Godot --headless --path . --import (timeout 300): exit 0;
+no ERROR/SCRIPT ERROR lines.
+PASS pinned Godot --headless --editor check_prefab.gd -- --normalize (timeout 60):
+exit 0; initial normalization followed by TWO byte-identical save/reload roundtrips.
+Known editor plugin-version/scan-aborted warnings and shutdown RID/ObjectDB diagnostics
+remain visible in scratch normalize_fixed.log; not claimed diagnostic-free.
+PASS pinned Godot --headless check_prefab.gd (timeout 60): exit 0;
+no ERROR/SCRIPT ERROR/WARNING lines. Geometry/hierarchy/bounds/face-only override and
+actual imported mipmaps checked. No collider, matching mounted decorative hardware.
+PASS gdstyle 0.3.0 fmt --check: 1 file already formatted.
+PASS gdstyle --max-line-length 100 --max-warnings 0: 1 file checked, no issues found.
+PASS finalize.py: final source/dependency hashes, texture/tests, runtime, 2 roundtrips,
+4 render sizes/hashes combined in validation.json.
+
+Resolved attempts, not counted as successful checks:
+- Explicit material texture_filter=2 was wrong for linear mipmaps. Initial normalize
+  asserted and timed out at 180s, with engine shutdown diagnostics. Removed override;
+  the engine default and final material assertions pass. No own process left alive.
+- Initial dithered evidence PNGs exceeded the 400 KiB target; final display dithering
+  disabled and renders regenerated/inspected. Final largest file is 287338 bytes.
+- Pillow test API deprecation removed by using get_flattened_data; final tests clean.
+
+No production_checks.py, windowed editor, live MCP, world placement, gameplay/network
+or device-performance test was run. Independent review/copy/world acceptance pending.
