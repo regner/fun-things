@@ -153,7 +153,7 @@ command/diagnostic receipt; raw logs stay outside the repository in the scratch 
   not union volume). Source and exported normals unit length within 0.000001.
 - Actual imported dimensions 2.900000 × 3.110000 × 3.600000 m; ground datum zero.
 - Fresh GLB export is byte-identical: 93,848 bytes, SHA-256
-  `6f4951bc04b0aa457f6bb21b29216f40a9acff1c0712e3186577ed5d1413a459`.
+  `bb2b0df6979203e036abc4ac3303267746f68e43b7cf9ee703c22816fc11051a`.
 - Pinned Godot 4.8.dev7.official.c971f93e7: dependency/UID resolution, identity linked
   model, imported materials/bounds, three-box separation and double save/reload pass.
 - Rays block on both outer sides at X ±1.350 and rear at Z +1.400. Front and roof-only
@@ -168,6 +168,22 @@ command/diagnostic receipt; raw logs stay outside the repository in the scratch 
   Initial local lint reported 11 local variables; removing an unnecessary temporary
   fixed it. Import emits the existing MCP plugin's 4.8-versus-4.7 support warning;
   no asset errors were reported and no live sessions were touched.
+
+## Review round 1 — receipt correction
+
+Corrected the stale GLB SHA-256 above and in `final.log` to the digest independently
+measured from the unchanged 93,848-byte payload. Re-ran the saved-source validator
+(including byte-identical scratch re-export), pinned headless import, prefab double
+save/reload and physics checks, and the full production suite. All passed. Regenerated
+`manifest.json` with `record.py` and independently verified every listed size/hash and
+the agreement of the GLB digest across the handoff, final log, validation and manifest.
+No source, GLB, material, prefab, collision or render changes were required; existing
+render evidence is retained unchanged. Independent review disposition remains pending.
+
+Use the commands above without `author.py` (no reauthoring/rerendering was needed),
+setting `S=C:/tmp/ft/assets/d07_trolley_shelter_01/review-round-1` and using `$S/checks`
+for the production suite and recorder. Raw rerun logs and the independent manifest
+verification receipt are retained there, outside the repository.
 
 ## Remaining acceptance
 

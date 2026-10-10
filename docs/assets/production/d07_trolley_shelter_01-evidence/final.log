@@ -16,7 +16,7 @@ PASS PYTHONUTF8=1 timeout 1800 python tools/production_checks.py with explicit m
 Source topology: 3592 triangles, 1836 source / 2159 exported vertices, 1 mesh, 3 surfaces.
 Zero degenerate faces/triangles or non-manifold source edges; unit-length normals pass.
 Bounds: minimum (-1.45, 0, -1.8), size (2.9, 3.11, 3.6) m.
-GLB 93848 bytes; SHA256 6f4951bc04b0aa457f6bb21b29216f40a9acff1c0712e3186577ed5d1413a459.
+GLB 93848 bytes; SHA256 bb2b0df6979203e036abc4ac3303267746f68e43b7cf9ee703c22816fc11051a.
 Godot: all dependencies and UIDs resolve; identity linked model; save/reload stable;
   side/rear barrier rays and actor-sized capsule queries pass; entry and roof queries clear.
 Visual inspection: four isolated Blender images; broad pale roof and open corral read cleanly.
@@ -31,3 +31,14 @@ No asset error diagnostics. No live Blender/Godot editor or MCP session touched.
 Raw command logs: C:/tmp/ft/assets/d07_trolley_shelter_01/ (not committed).
 Full suite results: C:/tmp/ft/assets/d07_trolley_shelter_01/checks-utf8/summary.json.
 Pending: independent review; world placement; actual movement/vehicle/network/weapon/Deck checks.
+
+Review round 1: corrected stale GLB checksum attestation; no model or render change.
+PASS saved-source validate.py and byte-identical scratch re-export with pinned Blender.
+PASS pinned headless import and check.gd -- --normalize, including stable double save/reload.
+PASS full production_checks.py suite with PYTHONUTF8=1 and explicit pinned tools.
+PASS record.py regeneration and independent verification of all 17 manifest payload hashes/sizes;
+  handoff, final log, validation and manifest agree with the actual GLB SHA256.
+Source, GLB, prefab, import sidecar and four render payloads remain unchanged.
+Only the known MCP 4.8-versus-4.7 support warning appeared during import; no asset errors.
+Rerun raw logs: C:/tmp/ft/assets/d07_trolley_shelter_01/review-round-1/.
+Rerun full suite: C:/tmp/ft/assets/d07_trolley_shelter_01/review-round-1/checks/summary.json.
