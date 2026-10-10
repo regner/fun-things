@@ -90,9 +90,10 @@ unchanged. No runtime swapping script or hierarchy builder is added.
 
 This explicitly uses the authorized **static artwork-on-reused-carrier editable-child
 exception** in [assets.md, Prefabs](../../assets.md#prefabs-and-authored-placement).
-Two save/reload cycles after normalization preserved **both prefab and material bytes**;
-three matching SHA-256 entries for each are retained in validation.json. Scene identities,
-ancestry and UIDs therefore remain unchanged across those cycles. The runtime checker also
+Two save/reload cycles after normalization preserved the **prefab bytes**; the material was
+saved repeatedly from memory with byte-identical results but was not reloaded between saves.
+Three matching SHA-256 entries for each are retained in validation.json. Scene identities,
+ancestry and UIDs remain unchanged across the prefab cycles. The runtime checker also
 requires registered UIDs (not text-path fallback), identical hierarchy/transforms/imported
 mesh resources, exactly one face override, and all material/texture settings.
 
