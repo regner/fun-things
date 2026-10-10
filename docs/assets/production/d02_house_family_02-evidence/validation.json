@@ -1,0 +1,417 @@
+{
+  "asset_id": "d02_house_family.02",
+  "blender": "5.2.2 LTS",
+  "build_hash": "d13f752e3b9c",
+  "exporter": "5.2.40",
+  "source_vertices": 6668,
+  "export_vertices": 6668,
+  "triangles": 12848,
+  "mesh_count": 1,
+  "surface_count": 7,
+  "nonmanifold_edges": 0,
+  "degenerate_source_faces": 0,
+  "degenerate_export_triangles": 0,
+  "unit_source_and_export_normals": true,
+  "positive_triangle_normal_alignment": true,
+  "source_bounds": {
+    "min": [
+      -6.800000190734863,
+      -5.199999809265137,
+      0.0
+    ],
+    "max": [
+      6.800000190734863,
+      5.199999809265137,
+      7.949999809265137
+    ]
+  },
+  "godot_bounds": {
+    "min": [
+      -6.800000190734863,
+      0.0,
+      -5.199999809265137
+    ],
+    "max": [
+      6.800000190734863,
+      7.949999809265137,
+      5.199999809265137
+    ]
+  },
+  "godot_dimensions_m": [
+    13.600000381469727,
+    7.949999809265137,
+    10.399999618530273
+  ],
+  "provisional_structural_footprint_m": [
+    12.8,
+    9.6
+  ],
+  "ground_pivot": [
+    0,
+    0,
+    0
+  ],
+  "dimension_tolerance_m": 0.001,
+  "axis_mapping_tolerance_m": 1e-05,
+  "two_setback_door_and_continuous_gable_regressions": true,
+  "east_front_setback_source_ray_clear": true,
+  "materials": [
+    {
+      "name": "crescents_warm_render",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.4125426113605499,
+          0.38132601976394653,
+          0.34191441535949707,
+          1
+        ],
+        "metallicFactor": 0,
+        "roughnessFactor": 0.6499999761581421
+      }
+    },
+    {
+      "name": "crescents_blue_slate_roof",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.04817182570695877,
+          0.08437620848417282,
+          0.14995978772640228,
+          1
+        ],
+        "metallicFactor": 0.07999999821186066,
+        "roughnessFactor": 0.5799999833106995
+      }
+    },
+    {
+      "name": "crescents_ivory_trim",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.6583748459815979,
+          0.6172065734863281,
+          0.4969329833984375,
+          1
+        ],
+        "metallicFactor": 0,
+        "roughnessFactor": 0.550000011920929
+      }
+    },
+    {
+      "name": "crescents_muted_plum_roof",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.1384316086769104,
+          0.09305896610021591,
+          0.14702726900577545,
+          1
+        ],
+        "metallicFactor": 0.05000000074505806,
+        "roughnessFactor": 0.6200000047683716
+      }
+    },
+    {
+      "name": "crescents_slate_plinth",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.09758734703063965,
+          0.12477181851863861,
+          0.14702726900577545,
+          1
+        ],
+        "metallicFactor": 0,
+        "roughnessFactor": 0.75
+      }
+    },
+    {
+      "name": "crescents_petrol_closed_glass",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.019382361322641373,
+          0.04970656707882881,
+          0.07421357184648514,
+          1
+        ],
+        "metallicFactor": 0.11999999731779099,
+        "roughnessFactor": 0.30000001192092896
+      }
+    },
+    {
+      "name": "crescents_warm_entrance",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.6583748459815979,
+          0.35640013217926025,
+          0.14702726900577545,
+          1
+        ],
+        "metallicFactor": 0,
+        "roughnessFactor": 0.550000011920929
+      }
+    }
+  ],
+  "reexport_byte_identical": true,
+  "glb_bytes": 241212,
+  "glb_sha256": "a61de5dce12ffe74045d656dd4dbf623138bea5f07cdc9ac69174e929bb724d6",
+  "status": "PASS source/raw GLB/reexport; engine checks and downstream gates recorded separately",
+  "engine": {
+    "aabb_min": [
+      -6.80000019073486,
+      0.0,
+      -5.19999980926514
+    ],
+    "aabb_size": [
+      13.6000003814697,
+      7.94999980926514,
+      10.3999996185303
+    ],
+    "capsule_queries": [
+      {
+        "case": "west_solid",
+        "solid": true
+      },
+      {
+        "case": "east_solid",
+        "solid": true
+      },
+      {
+        "case": "west_closed_door",
+        "solid": true
+      },
+      {
+        "case": "east_closed_door",
+        "solid": true
+      },
+      {
+        "case": "east_setback_clear",
+        "solid": false
+      },
+      {
+        "case": "east_bypass_clear",
+        "solid": false
+      },
+      {
+        "case": "west_bypass_clear",
+        "solid": false
+      },
+      {
+        "case": "rear_route_clear",
+        "solid": false
+      }
+    ],
+    "car_box_sweep": {
+      "east_bypass_blocked": false,
+      "front_blocked": true,
+      "size_m": [
+        1.9,
+        1.5,
+        4.3
+      ]
+    },
+    "collision_shape_count": 2,
+    "engine": "4.8-dev7 (official)",
+    "failures": [],
+    "front_ray_z": -4.80000019073486,
+    "linked_model_identity": true,
+    "materials": [
+      "crescents_warm_render",
+      "crescents_blue_slate_roof",
+      "crescents_ivory_trim",
+      "crescents_muted_plum_roof",
+      "crescents_slate_plinth",
+      "crescents_petrol_closed_glass",
+      "crescents_warm_entrance"
+    ],
+    "model_uid": "uid://c0c3mf8kmr1y6",
+    "ok": true,
+    "prefab_uid": "uid://d1a7coqdekmp",
+    "production_actor_motion": [
+      {
+        "case": "west_closed_front",
+        "end": [
+          -1.54999995231628,
+          0.000877899001352489,
+          -5.16666126251221
+        ],
+        "mode": 0
+      },
+      {
+        "case": "east_recessed_front",
+        "end": [
+          1.54999995231628,
+          0.000877899175975472,
+          -3.95051527023315
+        ],
+        "mode": 0
+      },
+      {
+        "case": "east_side",
+        "end": [
+          6.75000143051147,
+          7.59662361815572e-06,
+          0.0
+        ],
+        "mode": 0
+      },
+      {
+        "case": "east_bypass",
+        "end": [
+          7.5,
+          0.000877899175975472,
+          -2.99999356269836
+        ],
+        "mode": 0
+      },
+      {
+        "case": "west_closed_front",
+        "end": [
+          -1.54999995231628,
+          0.000877899001352489,
+          -5.16666126251221
+        ],
+        "mode": 1
+      },
+      {
+        "case": "east_recessed_front",
+        "end": [
+          1.54999995231628,
+          0.000877899175975472,
+          -3.95051527023315
+        ],
+        "mode": 1
+      },
+      {
+        "case": "east_side",
+        "end": [
+          6.75000143051147,
+          7.59662361815572e-06,
+          0.0
+        ],
+        "mode": 1
+      },
+      {
+        "case": "east_bypass",
+        "end": [
+          7.5,
+          0.000877899175975472,
+          -2.99999356269836
+        ],
+        "mode": 1
+      }
+    ],
+    "save_reload_byte_stable": true
+  },
+  "production_checks": {
+    "overall_ok": true,
+    "results": {
+      "engine": {
+        "ok": true,
+        "version": "4.8.dev7.official.c971f93e7"
+      },
+      "gut_pin": {
+        "ok": true,
+        "version": "9.7.1"
+      },
+      "owned_scripts": {
+        "ok": true,
+        "returncode": 0
+      },
+      "python_tests": {
+        "ok": true,
+        "returncode": 0
+      },
+      "gut_import": {
+        "ok": true,
+        "returncode": 0
+      },
+      "gut_tests": {
+        "ok": true,
+        "returncode": 0
+      },
+      "gut_negative": {
+        "ok": true,
+        "observed_returncode": 1
+      }
+    },
+    "commands": {
+      "owned_scripts": [
+        "C:\\Users\\regner.blokandersen\\AppData\\Local\\Programs\\Python\\Python314\\python.exe",
+        "C:\\GameDev\\git\\ft-lanes\\a-house\\tools\\script_checks.py",
+        "--godot",
+        "C:\\Users\\regner.blokandersen\\AppData\\Local\\mise\\installs\\github-godotengine-godot-builds\\4.8-dev7\\godot.exe",
+        "--gdstyle",
+        "C:\\Users\\regner.blokandersen\\AppData\\Local\\mise\\installs\\github-atelico-gdstyle\\0.3.0\\gdstyle.exe",
+        "--output",
+        "C:\\tmp\\ft\\assets\\d02_house_family_02\\checks\\script-checks"
+      ],
+      "python_tests": [
+        "C:\\Users\\regner.blokandersen\\AppData\\Local\\Programs\\Python\\Python314\\python.exe",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tools",
+        "-p",
+        "*test*.py"
+      ],
+      "gut_import": [
+        "C:\\Users\\regner.blokandersen\\AppData\\Local\\mise\\installs\\github-godotengine-godot-builds\\4.8-dev7\\godot.exe",
+        "--headless",
+        "--editor",
+        "--path",
+        "C:\\tmp\\ft\\assets\\d02_house_family_02\\checks\\script-checks\\compiler-project",
+        "--import",
+        "--quit",
+        "--log-file",
+        "C:\\tmp\\ft\\assets\\d02_house_family_02\\checks\\gut-import.engine.log"
+      ],
+      "gut_tests": [
+        "C:\\Users\\regner.blokandersen\\AppData\\Local\\mise\\installs\\github-godotengine-godot-builds\\4.8-dev7\\godot.exe",
+        "--log-file",
+        "C:\\tmp\\ft\\assets\\d02_house_family_02\\checks\\gut.engine.log",
+        "--headless",
+        "--path",
+        "C:\\tmp\\ft\\assets\\d02_house_family_02\\checks\\script-checks\\compiler-project",
+        "--script",
+        "res://addons/gut/gut_cmdln.gd",
+        "-gjunit_xml_file=C:/tmp/ft/assets/d02_house_family_02/checks/gut-results.xml"
+      ],
+      "gut_negative": [
+        "C:\\Users\\regner.blokandersen\\AppData\\Local\\mise\\installs\\github-godotengine-godot-builds\\4.8-dev7\\godot.exe",
+        "--log-file",
+        "C:\\tmp\\ft\\assets\\d02_house_family_02\\checks\\gut-negative.engine.log",
+        "--headless",
+        "--path",
+        "C:\\tmp\\ft\\assets\\d02_house_family_02\\checks\\script-checks\\compiler-project",
+        "--script",
+        "res://addons/gut/gut_cmdln.gd",
+        "-gconfig=",
+        "-gdir=res://tests/diagnostic/gut_failure",
+        "-gexit",
+        "-gdisable_colors"
+      ]
+    },
+    "ignored_failures": []
+  },
+  "visual_self_review": {
+    "images": [
+      "hero.png",
+      "side.png",
+      "entrance_detail.png",
+      "overhead_47m_42deg.png"
+    ],
+    "size_px": [
+      1280,
+      720
+    ],
+    "renderer": "Blender Cycles CPU, 32 samples, AgX; RGB PNG, 6-bit channels (overhead 7-bit)",
+    "gameplay_camera": "Vertical down (0,0,47)m; north/+Y up; perspective vertical FOV42 degrees",
+    "observed": "Twin long gabled roofs, unequal ridge heights and the 1.2m front setback read overhead and differ from the detached sibling's hip/low side wing. Two warm grade-level doors and quiet glazing read in detail. Full-height gable solids remove the initial coplanar facade seam.",
+    "limits": "Isolated Blender self-review only; native visuals and city placement remain pending"
+  },
+  "diagnostics": {
+    "source": "Passed; Blender 6.0 API deprecation notices only",
+    "normalization": "Passed stable save/reload; existing toolkit compatibility warning plus scan-aborted/RID/ObjectDB shutdown diagnostics retained in final.log",
+    "fresh_runtime": "Passed without ERROR/WARNING",
+    "initial_corrections": "Replaced overlapping body/gable faces with continuous full-height gable solids; returned plinth around the setback. Formatter applied. Default PATH engine lookup failed with Windows cp1252 decoding; explicit mise-resolved executable paths passed the complete rerun.",
+    "production_checks": "All layers passed, no failures ignored"
+  }
+}
