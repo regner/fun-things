@@ -92,7 +92,8 @@ func publish_durable(event: Dictionary) -> Dictionary:
 	for native_peer_id: int in _attempt_by_peer.keys():
 		var attempt: Dictionary = _attempt_by_peer[native_peer_id]
 		if attempt.phase == PHASE_ADMITTED:
-			_transport.send_durable(native_peer_id, packet)
+			if not _transport.send_durable(native_peer_id, packet):
+				_abort(native_peer_id, &"TRANSPORT_FAILED")
 			continue
 		if not _append_journal(attempt, packet):
 			_abort(native_peer_id, &"STATE_LIMIT")

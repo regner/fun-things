@@ -4,6 +4,7 @@ extends ReplicationTransport
 
 var events: Array[Dictionary] = []
 var fail_next_send: bool = false
+var fail_durable_peer: int = 0
 
 
 ## Records baseline metadata and immutable chunks as one transport operation.
@@ -28,6 +29,9 @@ func send_baseline(
 
 ## Records one reliable durable packet.
 func send_durable(native_peer_id: int, packet: PackedByteArray) -> bool:
+	if native_peer_id == fail_durable_peer:
+		fail_durable_peer = 0
+		return false
 	if _consume_failure():
 		return false
 

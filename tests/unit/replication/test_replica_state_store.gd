@@ -46,8 +46,8 @@ func test_stale_revision_and_movement_cannot_resurrect_lifecycle() -> void:
 	assert_almost_eq(float(_store.entity_state(1).x), 0.00435, 0.011)
 
 
-## Buffers one future generation until reliable spawn installs its dependency.
-func test_future_generation_recovers_from_newest_bounded_row() -> void:
+## Materializes movement that arrived before its reliable spawn authorization.
+func test_movement_before_spawn_recovers_from_newest_bounded_row() -> void:
 	var remove: PackedByteArray = _durable_packet(2, 3, 1, 1, 20)
 	assert_true(_store.apply_durable(_session_id, 1, remove).ok)
 	assert_eq(_store.entity_state(1).phase, 3)
@@ -63,6 +63,33 @@ func test_future_generation_recovers_from_newest_bounded_row() -> void:
 	assert_eq(_store.entity_state(1).phase, 1)
 	assert_almost_eq(float(_store.entity_state(1).x), 25.00435, 0.011)
 	assert_eq(_store.pending_movement_count(), 0)
+
+
+## Advances reliable spawn revision before its first lossy movement row arrives.
+func test_spawn_before_movement_authorizes_then_materializes_entity() -> void:
+	assert_true(_store.apply_durable(_session_id, 1, _durable_packet(2, 3, 1, 1, 20)).ok)
+	var spawn: PackedByteArray = _durable_packet(1, 1, 2, 2, 21)
+	assert_true(_store.apply_durable(_session_id, 1, spawn).ok)
+	assert_eq(_store.durable_revision(), 2)
+	assert_true(_store.entity_state(1).is_empty())
+
+	var movement: Dictionary = _apply_rows(22, [_row(1, 2, 1, 1, 22.0)])
+	assert_eq(movement.applied, 1)
+	assert_eq(_store.entity_state(1).generation, 2)
+	assert_almost_eq(float(_store.entity_state(1).x), 22.00435, 0.011)
+
+
+## Keeps spawn authorization valid across another entity's intervening durable event.
+func test_durable_event_between_spawn_and_movement_does_not_block_pose() -> void:
+	assert_true(_store.apply_durable(_session_id, 1, _durable_packet(2, 3, 1, 1, 20)).ok)
+	assert_true(_store.apply_durable(_session_id, 1, _durable_packet(1, 1, 2, 2, 21)).ok)
+	var other_death: PackedByteArray = _other_durable_packet(3, 2, 1, 3, 22)
+	assert_true(_store.apply_durable(_session_id, 1, other_death).ok)
+	assert_eq(_store.durable_revision(), 3)
+
+	assert_eq(_apply_rows(23, [_row(1, 2, 1, 1, 23.0)]).applied, 1)
+	assert_eq(_store.entity_state(1).generation, 2)
+	assert_eq(_store.entity_state(2).phase, 2)
 
 
 ## Requests resync on a reliable revision gap without partially applying the event.
@@ -99,11 +126,37 @@ func _durable_packet(
 	revision: int,
 	tick: int,
 ) -> PackedByteArray:
+	return _encode_durable_packet(1, event_kind, phase, generation, revision, tick)
+
+
+## Encodes one durable event for the second baseline entity.
+func _other_durable_packet(
+	event_kind: int,
+	phase: int,
+	generation: int,
+	revision: int,
+	tick: int,
+) -> PackedByteArray:
+	return _encode_durable_packet(2, event_kind, phase, generation, revision, tick)
+
+
+## Encodes one reliable lifecycle event for the selected test entity.
+
+
+# gdstyle:ignore=quality/max-parameters
+func _encode_durable_packet(
+	entity_id: int,
+	event_kind: int,
+	phase: int,
+	generation: int,
+	revision: int,
+	tick: int,
+) -> PackedByteArray:
 	var encoded: Dictionary = _codec.encode_durable(
 		{
 			"event_kind": event_kind,
 			"phase": phase,
-			"id": 1,
+			"id": entity_id,
 			"generation": generation,
 			"revision": revision,
 			"tick": tick,

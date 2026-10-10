@@ -2,6 +2,7 @@
 """Run a bounded two-process ENet baseline and state-apply case."""
 
 import argparse
+import json
 import os
 from pathlib import Path
 import shutil
@@ -57,6 +58,7 @@ def main():
     port = available_port()
     children = []
     streams = []
+    exit_codes = {}
     try:
         for role in ("host", "client"):
             stdout_path = output / f"{role}.stdout.log"
@@ -79,10 +81,11 @@ def main():
             except subprocess.TimeoutExpired:
                 child.terminate()
                 returncode = child.wait(timeout=3)
+            exit_codes[role] = returncode
             if returncode != 0:
                 failed.append(f"{role} exit {returncode}")
     finally:
-        for _role, child, _stdout_path in children:
+        for role, child, _stdout_path in children:
             if child.poll() is None:
                 child.terminate()
                 try:
@@ -90,6 +93,7 @@ def main():
                 except subprocess.TimeoutExpired:
                     child.kill()
                     child.wait(timeout=3)
+            exit_codes.setdefault(role, child.returncode)
         for stream in streams:
             stream.close()
 
@@ -105,7 +109,23 @@ def main():
             if marker in text or marker in engine_text:
                 diagnostics.append(f"{role} emitted {marker}")
 
-    if failed or diagnostics:
+    ok = not failed and not diagnostics
+    (output / "result.json").write_text(
+        json.dumps(
+            {
+                "diagnostics": diagnostics,
+                "exit_codes": exit_codes,
+                "failures": failed,
+                "ok": ok,
+                "port": port,
+            },
+            indent=2,
+            sort_keys=True,
+        )
+        + "\n",
+        encoding="utf-8",
+    )
+    if not ok:
         print("; ".join(failed + diagnostics))
         return 1
     print(f"M1-A2.2 ENet integration passed on UDP {port}; evidence: {output}")

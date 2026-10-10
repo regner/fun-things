@@ -9,6 +9,7 @@ var _session_id: String
 var _match_revision: int
 var _durable_revision: int = 0
 var _entities: Dictionary[int, Dictionary] = {}
+var _lifecycle_by_id: Dictionary[int, Dictionary] = {}
 var _pending_movement: Dictionary[String, Dictionary] = {}
 var _resync_required: bool = false
 
@@ -26,13 +27,16 @@ func install_baseline(baseline: Dictionary) -> Dictionary:
 		return _failure(&"MALFORMED_BASELINE")
 
 	var candidate: Dictionary[int, Dictionary] = {}
+	var candidate_lifecycle: Dictionary[int, Dictionary] = {}
 	for row: Dictionary in baseline.rows:
 		var entity_id: int = int(row.id)
 		if candidate.has(entity_id):
 			return _failure(&"MALFORMED_BASELINE")
 		candidate[entity_id] = _baseline_entity(row, int(baseline.cut_tick))
+		candidate_lifecycle[entity_id] = _lifecycle_state(row)
 
 	_entities = candidate
+	_lifecycle_by_id = candidate_lifecycle
 	_durable_revision = int(baseline.cut_durable_revision)
 	_pending_movement.clear()
 	_resync_required = false
@@ -164,67 +168,75 @@ func _baseline_entity(row: Dictionary, tick: int) -> Dictionary:
 	}
 
 
-## Applies the lifecycle owner fields while retaining tombstones after removal.
+## Applies reliable generation and phase authorization independently of lossy pose state.
 func _apply_durable_event(event: Dictionary) -> Dictionary:
 	var entity_id: int = int(event.id)
 	var generation: int = int(event.generation)
 	var event_kind: int = int(event.event_kind)
-	var current: Dictionary = _entities.get(entity_id, {})
-	if not current.is_empty() and generation < int(current.generation):
+	var lifecycle: Dictionary = _lifecycle_by_id.get(entity_id, {})
+	if not lifecycle.is_empty() and generation < int(lifecycle.generation):
 		return _failure(&"STALE_GENERATION")
 	if event_kind == 1:
-		return _apply_spawn(event, current)
-	if current.is_empty() or generation != int(current.generation):
+		return _apply_spawn(event, lifecycle)
+	if lifecycle.is_empty() or generation != int(lifecycle.generation):
 		return _failure(&"STALE_GENERATION")
 
-	# Durable lifecycle is the sole writer of phase; movement only confirms dependencies.
-	current.phase = event.phase
+	# Durable lifecycle is the sole phase writer, even while this generation lacks pose state.
+	lifecycle.phase = event.phase
+	var current: Dictionary = _entities.get(entity_id, {})
+	if not current.is_empty() and int(current.generation) == generation:
+		current.phase = event.phase
+		if event_kind == 2:
+			current.flags = 0
+			current.vx = 0.0
+			current.vz = 0.0
 	if event_kind == 2:
-		current.flags = 0
-		current.vx = 0.0
-		current.vz = 0.0
 		_pending_movement.erase(_pending_key(entity_id, generation))
+	else:
+		_apply_pending_for(entity_id, generation)
 	return { "ok": true }
 
 
-## Installs a generation only from reliable spawn plus its complete pending movement row.
-func _apply_spawn(event: Dictionary, current: Dictionary) -> Dictionary:
+## Authorizes a reliable generation immediately and materializes it when pose is available.
+func _apply_spawn(event: Dictionary, lifecycle: Dictionary) -> Dictionary:
 	var entity_id: int = int(event.id)
 	var generation: int = int(event.generation)
-	if not current.is_empty() and generation <= int(current.generation):
+	if not lifecycle.is_empty() and generation <= int(lifecycle.generation):
 		return _failure(&"STALE_GENERATION")
 
-	var key: String = _pending_key(entity_id, generation)
-	if not _pending_movement.has(key):
-		return _failure(&"MISSING_SPAWN_STATE")
-
-	var pending: Dictionary = _pending_movement[key]
-	var row: Dictionary = pending.row
-	if int(row.phase) != int(event.phase):
-		return _failure(&"DEPENDENCY_MISMATCH")
-
-	_entities[entity_id] = _baseline_entity(row, int(pending.tick))
+	_lifecycle_by_id[entity_id] = {
+		"generation": generation,
+		"phase": int(event.phase),
+	}
+	_entities.erase(entity_id)
+	_apply_pending_for(entity_id, generation)
 	return { "ok": true }
 
 
-## Applies one row only when reliable generation and phase dependencies already match.
+## Applies one row only when reliable generation and phase authorization already match.
 func _apply_movement_row(row: Dictionary, tick: int) -> bool:
 	var entity_id: int = int(row.id)
 	var generation: int = int(row.generation)
-	var current: Dictionary = _entities.get(entity_id, {})
+	var lifecycle: Dictionary = _lifecycle_by_id.get(entity_id, {})
 	if (
-		current.is_empty()
-		or generation > int(current.generation)
-		or int(row.phase) > int(current.phase)
+		lifecycle.is_empty()
+		or generation > int(lifecycle.generation)
+		or int(row.phase) > int(lifecycle.phase)
 	):
 		_queue_pending(row, tick)
 		return false
 	if (
-		generation != int(current.generation)
-		or int(row.phase) != int(current.phase)
-		or int(current.phase) == 3
-		or tick <= int(current.movement_tick)
+		generation != int(lifecycle.generation)
+		or int(row.phase) != int(lifecycle.phase)
+		or int(lifecycle.phase) == 3
 	):
+		return false
+
+	var current: Dictionary = _entities.get(entity_id, {})
+	if current.is_empty() or int(current.generation) != generation:
+		_entities[entity_id] = _baseline_entity(row, tick)
+		return true
+	if tick <= int(current.movement_tick):
 		return false
 
 	current.flags = row.flags
@@ -260,6 +272,14 @@ func _apply_pending_for(entity_id: int, generation: int) -> void:
 	var pending: Dictionary = _pending_movement[key]
 	_pending_movement.erase(key)
 	_apply_movement_row(pending.row, int(pending.tick))
+
+
+## Copies the durable identity fields associated with one baseline pose row.
+func _lifecycle_state(row: Dictionary) -> Dictionary:
+	return {
+		"generation": int(row.generation),
+		"phase": int(row.phase),
+	}
 
 
 ## Maps each accepted durable kind to its frozen S11 lifecycle phase.

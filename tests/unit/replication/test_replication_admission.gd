@@ -111,6 +111,25 @@ func test_baseline_assembler_exposes_only_complete_validated_rows() -> void:
 	assert_eq(finished.cut_durable_revision, 0)
 
 
+## Closes only an admitted peer whose reliable durable send fails.
+func test_admitted_durable_send_failure_closes_input_while_other_peer_continues() -> void:
+	const OTHER_PEER_ID: int = 23
+	assert_true(_identities.bind_peer(OTHER_PEER_ID, 3).ok)
+	assert_true(_admission.start(NATIVE_PEER_ID, BASELINE_ID, 40, [_row(1)]).ok)
+	assert_true(_admission.start(OTHER_PEER_ID, BASELINE_ID + 1, 40, [_row(1)]).ok)
+	assert_true(_admission.acknowledge_baseline(NATIVE_PEER_ID, BASELINE_ID).ok)
+	assert_true(_admission.acknowledge_baseline(OTHER_PEER_ID, BASELINE_ID + 1).ok)
+	assert_true(_admission.acknowledge_handoff(NATIVE_PEER_ID, BASELINE_ID, 0).ok)
+	assert_true(_admission.acknowledge_handoff(OTHER_PEER_ID, BASELINE_ID + 1, 0).ok)
+
+	_transport.fail_durable_peer = NATIVE_PEER_ID
+	assert_true(_admission.publish_durable(_event(1, 41)).ok)
+	assert_eq(_admission.input_participant(NATIVE_PEER_ID), 0)
+	assert_eq(_admission.input_participant(OTHER_PEER_ID), 3)
+	assert_true(_has_event(&"abort", NATIVE_PEER_ID))
+	assert_true(_has_event(&"durable", OTHER_PEER_ID))
+
+
 ## Aborts only one expired admission and never converts timeout into a grant.
 func test_admission_timeout_clears_attempt_and_input() -> void:
 	assert_true(_admission.start(NATIVE_PEER_ID, BASELINE_ID, 40, [_row(1)]).ok)
@@ -134,6 +153,14 @@ func test_handoff_timeout_clears_attempt_without_grant() -> void:
 	assert_eq(_transport.events.back().kind, &"abort")
 	assert_eq(_transport.events.back().code, &"SYNC_TIMEOUT")
 	assert_eq(_admission.input_participant(NATIVE_PEER_ID), 0)
+
+
+## Reports whether the fake transport observed one kind for a specific peer.
+func _has_event(kind: StringName, native_peer_id: int) -> bool:
+	for event: Dictionary in _transport.events:
+		if event.kind == kind and int(event.peer) == native_peer_id:
+			return true
+	return false
 
 
 ## Builds one current baseline row independent of transfer ordering.

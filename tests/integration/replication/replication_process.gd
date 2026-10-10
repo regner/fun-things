@@ -160,6 +160,9 @@ func _receive_client_baseline(kind: int, payload: PackedByteArray) -> void:
 		if value is not Dictionary or not _assembler.begin(_codec, value).ok:
 			_finish(false, "metadata")
 		return
+	if kind != KIND_BASELINE_CHUNK:
+		_finish(false, "baseline dispatch")
+		return
 
 	var received: Dictionary = _assembler.receive(SESSION_ID, 1, BASELINE_ID, payload)
 	if not received.ok:
@@ -178,6 +181,9 @@ func _receive_client_handoff(kind: int, payload: PackedByteArray) -> void:
 	if kind == KIND_DURABLE:
 		if not _baseline_installed or not _store.apply_durable(SESSION_ID, 1, payload).ok:
 			_finish(false, "durable apply")
+		return
+	if kind != KIND_HANDOFF:
+		_finish(false, "handoff dispatch")
 		return
 
 	if _store.durable_revision() != int(payload.decode_u32(0)):
