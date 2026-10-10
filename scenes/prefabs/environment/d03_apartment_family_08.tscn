@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://c2c862t4dwn35"]
+
+[ext_resource type="PackedScene" uid="uid://ccjf5eoqkdwk5" path="res://art/models/environment/d03_apartment_family_08/d03_apartment_family_08.glb" id="1_model"]
+
+[sub_resource type="BoxShape3D" id="Box_core"]
+size = Vector3(6, 3.2, 12)
+
+[node name="D03ApartmentFamily08" type="Node3D" unique_id=662535679]
+
+[node name="Visuals" type="Node3D" parent="." unique_id=562531635]
+
+[node name="Model" type="Node3D" parent="Visuals" unique_id=33912357 instance=ExtResource("1_model")]
+
+[node name="Collision" type="Node3D" parent="." unique_id=107419974]
+
+[node name="Body" type="StaticBody3D" parent="Collision" unique_id=243319141]
+collision_mask = 0
+
+[node name="Core" type="CollisionShape3D" parent="Collision/Body" unique_id=2022504414]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.6, 0)
+shape = SubResource("Box_core")

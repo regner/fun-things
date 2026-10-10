@@ -1,0 +1,357 @@
+{
+  "status": "PASS",
+  "blender": "5.2.2 LTS",
+  "blender_build": "d13f752e3b9c",
+  "gltf_exporter": "5.2.40",
+  "source_vertices": 1424,
+  "triangles": 2724,
+  "export_vertices": 1930,
+  "mesh_count": 1,
+  "surface_count": 5,
+  "source_degenerate_faces": 0,
+  "nonmanifold_edges": 0,
+  "glb_degenerate_triangles": 0,
+  "maximum_source_normal_length_error": 1.6137850988862112e-07,
+  "glb_unit_normals": true,
+  "godot_aabb_min": [
+    -3.0,
+    0.0,
+    -6.179999828338623
+  ],
+  "godot_aabb_max": [
+    3.0,
+    3.200000047683716,
+    6.180000305175781
+  ],
+  "dimensions_m": [
+    6.0,
+    3.200000047683716,
+    12.360000133514404
+  ],
+  "pivot": [
+    0,
+    0,
+    0
+  ],
+  "dimension_tolerance_m": 0.001,
+  "axis_mapping_tolerance_m": 1e-05,
+  "join_corners_exact": true,
+  "module_pitch_m": [
+    6,
+    3.2,
+    12
+  ],
+  "closed_glass_solid_bounds_godot": [
+    [
+      -2.549999952316284,
+      1.0,
+      6.094000339508057,
+      -0.4500000476837158,
+      2.549999952316284,
+      6.105000019073486
+    ],
+    [
+      1.2400000095367432,
+      0.48000001907348633,
+      -6.107999801635742,
+      2.359999895095825,
+      2.9000000953674316,
+      -6.093999862670898
+    ],
+    [
+      -1.9800000190734863,
+      2.390000104904175,
+      -6.116000175476074,
+      0.18000006675720215,
+      2.490000009536743,
+      -6.104000091552734
+    ],
+    [
+      0.4500000476837158,
+      1.0,
+      6.094000339508057,
+      2.549999952316284,
+      2.549999952316284,
+      6.105000019073486
+    ],
+    [
+      -1.9800000190734863,
+      0.034999966621398926,
+      -6.116000175476074,
+      -0.940000057220459,
+      2.3000001907348633,
+      -6.104000091552734
+    ],
+    [
+      -0.8600000143051147,
+      0.034999966621398926,
+      -6.116000175476074,
+      0.17999997735023499,
+      2.3000001907348633,
+      -6.104000091552734
+    ]
+  ],
+  "entrance_core_glazing_bounds_pass": true,
+  "source": {
+    "path": "art/source/models/environment/d03_apartment_family_08/d03_apartment_family_08.blend",
+    "bytes": 153445,
+    "sha256": "8b135aa7ad453005868d37e513d4f7db2d684d63ef47c54ab7f0dfd057cf3d51"
+  },
+  "export": {
+    "path": "art/models/environment/d03_apartment_family_08/d03_apartment_family_08.glb",
+    "bytes": 82996,
+    "sha256": "dd57a82732fba60234593432922760640dc8e52632fdcad19f0dacb020bb5c0b"
+  },
+  "fresh_reexport_byte_identical": true,
+  "materials": [
+    {
+      "name": "terrace_bluegrey_render",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.22322796285152435,
+          0.2917706370353699,
+          0.31398871541023254,
+          1
+        ],
+        "metallicFactor": 0,
+        "roughnessFactor": 0.7599999904632568
+      }
+    },
+    {
+      "name": "terrace_pale_frame",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.5583403706550598,
+          0.5906188488006592,
+          0.520995557308197,
+          1
+        ],
+        "metallicFactor": 0,
+        "roughnessFactor": 0.5299999713897705
+      }
+    },
+    {
+      "name": "terrace_teal_spandrel",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.03071344457566738,
+          0.13013647496700287,
+          0.1441284716129303,
+          1
+        ],
+        "metallicFactor": 0,
+        "roughnessFactor": 0.6499999761581421
+      }
+    },
+    {
+      "name": "terrace_petrol_closed_glass",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.012983032502233982,
+          0.03688944876194,
+          0.05951123684644699,
+          1
+        ],
+        "metallicFactor": 0.11999999731779099,
+        "roughnessFactor": 0.28999999165534973
+      }
+    },
+    {
+      "name": "terrace_warm_entry",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.7991027235984802,
+          0.4564110338687897,
+          0.15592646598815918,
+          1
+        ],
+        "metallicFactor": 0,
+        "roughnessFactor": 0.5799999833106995
+      }
+    }
+  ],
+  "renders": {
+    "resolution": [
+      1280,
+      720
+    ],
+    "compression": 95,
+    "renderer": "Blender Cycles CPU",
+    "samples": 32,
+    "dither_intensity": 0,
+    "overhead_height_m": 47,
+    "vertical_fov_degrees": 42
+  },
+  "godot": {
+    "aabb_min": [
+      -3.0,
+      0.0,
+      -6.17999982833862
+    ],
+    "aabb_size": [
+      6.0,
+      3.20000004768372,
+      12.3600006103516
+    ],
+    "adjacent_and_stacked_seam_rays": [
+      {
+        "hit_z": -6.0,
+        "x": 3.0,
+        "y": 1.0
+      },
+      {
+        "hit_z": -6.0,
+        "x": -0.899999976158142,
+        "y": 3.20000004768372
+      }
+    ],
+    "capsule_queries": [
+      {
+        "case": "core_solid",
+        "solid": true
+      },
+      {
+        "case": "entry_closed",
+        "solid": true
+      },
+      {
+        "case": "stair_core_closed",
+        "solid": true
+      },
+      {
+        "case": "rear_closed",
+        "solid": true
+      },
+      {
+        "case": "front_clear",
+        "solid": false
+      },
+      {
+        "case": "rear_clear",
+        "solid": false
+      },
+      {
+        "case": "east_clear",
+        "solid": false
+      },
+      {
+        "case": "west_clear",
+        "solid": false
+      }
+    ],
+    "car_box_sweep": {
+      "east_bypass_blocked": false,
+      "front_blocked": true,
+      "size_m": [
+        1.9,
+        1.5,
+        4.3
+      ]
+    },
+    "collision_shape_count": 1,
+    "engine": "4.8-dev7 (official)",
+    "failures": [],
+    "family_materials_match": true,
+    "front_ray_z": -6.0,
+    "linked_model_identity": true,
+    "model_uid": "uid://ccjf5eoqkdwk5",
+    "ok": true,
+    "prefab_uid": "uid://c2c862t4dwn35",
+    "production_actor_motion": [
+      {
+        "case": "entry_stop",
+        "end": [
+          -0.899999976158142,
+          7.57281668484211e-06,
+          -6.350257396698
+        ],
+        "mode": 0
+      },
+      {
+        "case": "stair_core_stop",
+        "end": [
+          1.79999995231628,
+          7.62043055146933e-06,
+          -6.350257396698
+        ],
+        "mode": 0
+      },
+      {
+        "case": "rear_stop",
+        "end": [
+          -1.5,
+          7.57270026952028e-06,
+          6.350257396698
+        ],
+        "mode": 0
+      },
+      {
+        "case": "side_stop",
+        "end": [
+          3.350257396698,
+          7.59668182581663e-06,
+          0.0
+        ],
+        "mode": 0
+      },
+      {
+        "case": "east_bypass",
+        "end": [
+          4.0,
+          0.000877875369042158,
+          -2.99999356269836
+        ],
+        "mode": 0
+      },
+      {
+        "case": "entry_stop",
+        "end": [
+          -0.899999976158142,
+          7.57281668484211e-06,
+          -6.350257396698
+        ],
+        "mode": 1
+      },
+      {
+        "case": "stair_core_stop",
+        "end": [
+          1.79999995231628,
+          7.62043055146933e-06,
+          -6.350257396698
+        ],
+        "mode": 1
+      },
+      {
+        "case": "rear_stop",
+        "end": [
+          -1.5,
+          7.57270026952028e-06,
+          6.350257396698
+        ],
+        "mode": 1
+      },
+      {
+        "case": "side_stop",
+        "end": [
+          3.350257396698,
+          7.59668182581663e-06,
+          0.0
+        ],
+        "mode": 1
+      },
+      {
+        "case": "east_bypass",
+        "end": [
+          4.0,
+          0.000877875369042158,
+          -2.99999356269836
+        ],
+        "mode": 1
+      }
+    ],
+    "roundtrip": {
+      "normalized_sha256": "5be01f3621ad5caf3a3d26c7d432296f3bad77c742cfae74c5266dbe67ad8207",
+      "save_reload_byte_stable": true
+    }
+  }
+}
