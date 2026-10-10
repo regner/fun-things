@@ -1,0 +1,32 @@
+d04_corporate_graphics.03 - Entry wordmark: bounded producer verification
+Tools: Blender 5.2.2 LTS d13f752e3b9c; glTF 5.2.40;
+Godot 4.8.dev7.official.c971f93e7; gdstyle 0.3.0; Pillow 12.3.0.
+Commands and exact invocation flags: ../d04_corporate_graphics_03.md#exact-reproduction.
+
+PASS author.py: original deterministic 2000x400 RGB entry_wordmark_albedo.png.
+PASS unittest: 4 tests, committed bytes/aspect/safe margins/family hierarchy.
+PASS pinned Blender validate.py: shared source audit and independent GLB decoder;
+  836 source vertices, 1072 split vertices, 1656 triangles, 7 meshes, 8 surfaces;
+  zero degenerate faces/triangles/nonmanifold edges, unit normals, 28 front UV samples;
+  byte-identical fresh 45616-byte GLB, shared source/export/import/prefab unchanged.
+PASS pinned Blender preview.py: four 1280x720 Cycles CPU evidence renders;
+  hero 138863 bytes; side 139078; detail 177984; overhead 7102.
+PASS pinned Godot first/configured/final ordinary imports: no ERROR/SCRIPT ERROR lines.
+PASS pinned Godot --headless --editor check_prefab.gd -- --normalize: exit 0;
+  two byte-stable scene/material cycles, preserving UIDs and node identities.
+LIMITATION normalization shutdown: scan thread aborted; leaked 5 Viewports, 8 Textures,
+  1 Scenario, 52 ShapedTextData, 1 Font, 5 Canvas, 31 CanvasItem, 168 ObjectDB instances.
+  Same diagnostic shape as earlier siblings; no independent no-asset baseline run.
+PASS pinned Godot non-editor check_prefab.gd: exit 0, no ERROR/SCRIPT ERROR;
+  linked inherited hierarchy/resources/bounds, one front override, no collision, mipmaps.
+PASS gdstyle fmt --check: one file already formatted.
+PASS gdstyle --max-line-length 100 --max-warnings 0: one file, no issues.
+PASS earlier sibling .01/.02 record.py: all payloads and dependencies unchanged.
+PASS git diff --check; only owned paths written; no shared gameplay/register/world edits.
+
+Observed limitations: vertical-face copy is not readable in the 47m/42deg overhead;
+no engine visual, placement/movement/network, packaged or target-device performance claim.
+Original artwork and all four render PNGs personally inspected by producer.
+Addon compatibility warning and Blender use_nodes deprecation remain unsuppressed.
+No global production_checks.py, no windowed editor, no live MCP access.
+Scratch logs/exports: C:/tmp/ft/assets/d04_corporate_graphics_03/.
