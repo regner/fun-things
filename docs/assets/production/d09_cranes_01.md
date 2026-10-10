@@ -193,7 +193,8 @@ existing saved UIDs and is not an instruction to regenerate identities.
 ## Remaining acceptance
 
 - Independent technical and art review; this delivery does not accept itself.
-- Smaller crane completion and equal-camera pair comparison, with generous open apron.
+- Pair placement in the district (the smaller crane `.02` and its equal-camera pair view are
+  delivered; see `d09_cranes_02.md`), city-scale readability and actor-centred occlusion.
 - World-fit measurements: all base corners on existing land; boom toward water; no
   public boardwalk through the working apron; actor/target occlusion and car turning.
 - Actual Godot visual/camera review, populated-city aim/readability and collision driving.
