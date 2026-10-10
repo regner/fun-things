@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://cb6rbyr8vbs2h"]
+
+[ext_resource type="PackedScene" uid="uid://dmk0g4k2a6wby" path="res://art/models/environment/city_service_furniture_02/city_service_furniture_02.glb" id="1_model"]
+
+[node name="city_service_furniture_02" type="Node3D" unique_id=1444468771]
+
+[node name="Visuals" type="Node3D" parent="." unique_id=1536066345]
+
+[node name="Model" parent="Visuals" unique_id=1214407172 instance=ExtResource("1_model")]

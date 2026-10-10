@@ -1,0 +1,197 @@
+{
+  "applied_transforms": true,
+  "asset": "city_service_furniture.02",
+  "blender": "5.2.2 LTS",
+  "build_hash": "d13f752e3b9c",
+  "consistent_winding": true,
+  "datum": "ground-contact footprint centre; sealed overlay relief above existing continuous road collision",
+  "degenerate_faces": 0.0,
+  "diagnostics": {
+    "blender": "Material/World.use_nodes deprecation notices under pinned 5.2.2 LTS",
+    "headless_editor": "Assertions passed; MCP 4.8 warning and shutdown RID/ObjectDB leaks",
+    "standalone_asset_check": "Passed, no error/warning diagnostics",
+    "canonical_production_checks": "All passed; no exemptions",
+    "collision": "Sealed 8 mm visual overlay only; existing continuous road/yard collision remains the sole walk surface",
+    "visual_correction": "Raised the side studio camera to remove a floor-plane clipping band; source and GLB unchanged"
+  },
+  "dimension_tolerance_m": 0.001,
+  "dimensions_godot_m": [
+    0.8,
+    0.008,
+    0.6
+  ],
+  "fresh_reexport_byte_identical": true,
+  "glb_bytes": 41560.0,
+  "glb_sha256": "ddc017191e3463b7edefd099d3738f0a50614b2151539e730e2e40ac0a4dfc3f",
+  "glb_vertices": 912.0,
+  "godot": {
+    "bounds_min": [
+      -0.400000005960464,
+      0.0,
+      -0.300000011920929
+    ],
+    "bounds_size": [
+      0.800000011920929,
+      0.00800000037997961,
+      0.600000023841858
+    ],
+    "collision_shape_count": 0,
+    "engine": "4.8-dev7 (official)",
+    "linked_model_identity": true,
+    "save_reload_byte_stable": true,
+    "static_body_count": 0
+  },
+  "godot_aabb": {
+    "max": [
+      0.400000005960464,
+      0.00800000037997961,
+      0.300000011920929
+    ],
+    "min": [
+      -0.400000005960464,
+      0.0,
+      -0.300000011920929
+    ]
+  },
+  "materials": [
+    {
+      "name": "service_frame",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.0350000001490116,
+          0.0700000002980232,
+          0.0850000008940697,
+          1.0
+        ],
+        "metallicFactor": 0.449999988079071,
+        "roughnessFactor": 0.5
+      }
+    },
+    {
+      "name": "service_recess",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.0120000001043081,
+          0.0230000000447035,
+          0.0270000007003546,
+          1.0
+        ],
+        "metallicFactor": 0.200000002980232,
+        "roughnessFactor": 0.579999983310699
+      }
+    },
+    {
+      "name": "service_enamel",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.0949999988079071,
+          0.159999996423721,
+          0.174999997019768,
+          1.0
+        ],
+        "metallicFactor": 0.349999994039536,
+        "roughnessFactor": 0.479999989271164
+      }
+    }
+  ],
+  "mesh_count": 1.0,
+  "nonmanifold_edges": 0.0,
+  "overhead_camera": {
+    "projection": "perspective",
+    "height_m": 47,
+    "vertical_fov_deg": 42,
+    "direction": "vertical down, Blender +Y at image top",
+    "engine_capture": false
+  },
+  "pivot": [
+    0.0,
+    0.0,
+    0.0
+  ],
+  "production_checks": {
+    "engine": {
+      "ok": true,
+      "version": "4.8.dev7.official.c971f93e7"
+    },
+    "gut_pin": {
+      "ok": true,
+      "version": "9.7.1"
+    },
+    "owned_scripts": {
+      "ok": true,
+      "returncode": 0
+    },
+    "python_tests": {
+      "ok": true,
+      "returncode": 0
+    },
+    "gut_import": {
+      "ok": true,
+      "returncode": 0
+    },
+    "gut_tests": {
+      "ok": true,
+      "returncode": 0
+    },
+    "gut_negative": {
+      "ok": true,
+      "observed_returncode": 1
+    }
+  },
+  "render_encoding": "RGB 6 significant bits hero/detail, 7 side/overhead; PNG compression 9",
+  "renders": [
+    {
+      "file": "hero.png",
+      "size_px": [
+        1280,
+        720
+      ],
+      "bytes": 284953,
+      "significant_bits_per_channel": 6
+    },
+    {
+      "file": "side.png",
+      "size_px": [
+        1280,
+        720
+      ],
+      "bytes": 393653,
+      "significant_bits_per_channel": 7
+    },
+    {
+      "file": "detail.png",
+      "size_px": [
+        1280,
+        720
+      ],
+      "bytes": 401955,
+      "significant_bits_per_channel": 6
+    },
+    {
+      "file": "overhead_47m_42deg.png",
+      "size_px": [
+        1280,
+        720
+      ],
+      "bytes": 375423,
+      "significant_bits_per_channel": 7
+    }
+  ],
+  "source_aabb": {
+    "max": [
+      0.400000005960464,
+      0.300000011920929,
+      0.00800000037997961
+    ],
+    "min": [
+      -0.400000005960464,
+      -0.300000011920929,
+      0.0
+    ]
+  },
+  "status": "PASS source and export",
+  "surfaces": 3.0,
+  "triangles": 1536.0,
+  "unit_normals": true,
+  "vertices": 784.0
+}
