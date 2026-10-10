@@ -44,7 +44,12 @@ var _actors_by_participant: Dictionary[int, ActorMotion] = {}
 var _latest_command_by_participant: Dictionary[int, Dictionary] = {}
 var _input_state_by_participant: Dictionary[int, Dictionary] = {}
 var _admitted_peers: Dictionary[int, bool] = {}
-var _spawn_slot_by_participant: Dictionary[int, int] = {}
+var _player_identity: Dictionary = {
+	"tracker": EntityGenerationTracker.new(),
+	"binding_by_participant": {},
+	"participant_by_entity": {},
+	"spawn_slot_by_participant": {},
+}
 
 
 ## Remains inert in standalone Match composition until Boot supplies a network session.
@@ -128,7 +133,7 @@ func remove_peer(native_peer_id: int, participant_id: int) -> void:
 	_admitted_peers.erase(native_peer_id)
 	_latest_command_by_participant.erase(participant_id)
 	_input_state_by_participant.erase(participant_id)
-	_spawn_slot_by_participant.erase(participant_id)
+	_player_identity.spawn_slot_by_participant.erase(participant_id)
 	_admission.remove_peer(native_peer_id)
 	var actor: ActorMotion = _actors_by_participant.get(participant_id)
 	if actor != null:
@@ -138,6 +143,7 @@ func remove_peer(native_peer_id: int, participant_id: int) -> void:
 	_admission.publish_durable(
 		_durable_event(2, PHASE_REMOVED, participant_id, _sequence.durable_revision)
 	)
+	_retire_player_binding(participant_id)
 
 
 ## Allows deterministic integration drivers to replace desktop collection, not authority.
@@ -200,6 +206,7 @@ func _ready_for_baseline(session_id: String, match_revision: int) -> void:
 		if _spawn_authoritative_player(participant_id) == null:
 			abort_peer(sender, &"SPAWN_FAILED")
 			return
+		_broadcast_bindings()
 		_sequence.durable_revision += 1
 		_admission.publish_durable(
 			_durable_event(1, PHASE_LIVE, participant_id, _sequence.durable_revision)
@@ -263,6 +270,36 @@ func _submit_command(session_id: String, match_revision: int, payload: Dictionar
 	}
 
 
+## Installs Session-to-entity bindings before baseline or lifecycle rows reference them.
+@rpc("authority", "call_remote", "reliable", 0)
+func _receive_player_bindings(
+	session_id: String,
+	match_revision: int,
+	bindings: Array,
+) -> void:
+	if _context.is_host or session_id != _context.session_id or match_revision != MATCH_REVISION:
+		return
+	if bindings.size() > PeerIdentityRegistry.MAX_PARTICIPANTS:
+		return
+
+	for value: Variant in bindings:
+		if value is not Dictionary:
+			return
+		var binding: Dictionary = value
+		if (
+			binding.size() != 3
+			or not binding.has("participant_id")
+			or binding.participant_id is not int
+			or int(binding.participant_id) <= 0
+			or not ReplicationIdentity.has_valid_entity_ref_fields(binding)
+		):
+			return
+	for value: Variant in bindings:
+		var binding: Dictionary = value
+		_player_identity.binding_by_participant[int(binding.participant_id)] = binding.duplicate()
+		_player_identity.participant_by_entity[int(binding.id)] = int(binding.participant_id)
+
+
 ## Begins one bounded client baseline transaction from the authoritative host.
 @rpc("authority", "call_remote", "reliable", 0)
 func _receive_baseline_metadata(metadata: Dictionary) -> void:
@@ -306,7 +343,10 @@ func _receive_durable(packet: PackedByteArray) -> void:
 	if not _store.apply_durable(_context.session_id, MATCH_REVISION, packet).get("ok", false):
 		return
 	if int(decoded.phase) == PHASE_REMOVED:
-		_remove_replica(int(decoded.id))
+		var participant_id: int = int(
+			_player_identity.participant_by_entity.get(int(decoded.id), 0)
+		)
+		_remove_replica(participant_id)
 
 
 ## Acknowledges a reliable handoff marker only after all prior durable records applied.
@@ -364,6 +404,9 @@ func send_baseline_to_peer(
 ) -> bool:
 	if not _can_send_to_peer(native_peer_id):
 		return false
+	_receive_player_bindings.rpc_id(
+		native_peer_id, _context.session_id, MATCH_REVISION, _binding_rows()
+	)
 	_receive_baseline_metadata.rpc_id(native_peer_id, metadata)
 	for packet: PackedByteArray in packets:
 		_receive_baseline_chunk.rpc_id(native_peer_id, packet)
@@ -424,6 +467,8 @@ func abort_peer(native_peer_id: int, _failure_code: StringName) -> void:
 func _spawn_authoritative_player(participant_id: int) -> ActorMotion:
 	if _actors_by_participant.has(participant_id):
 		return _actors_by_participant[participant_id]
+	if _allocate_player_binding(participant_id).is_empty():
+		return null
 	var spawn_slot: int = _allocate_spawn_slot(participant_id)
 	var spawn: Marker3D = _spawn_for_slot(spawn_slot)
 	if spawn == null:
@@ -439,7 +484,11 @@ func _spawn_authoritative_player(participant_id: int) -> ActorMotion:
 ## Instantiates all baseline player rows before local input can be granted.
 func _materialize_baseline(rows: Array[Dictionary]) -> void:
 	for row: Dictionary in rows:
-		var participant_id: int = int(row.id)
+		var participant_id: int = int(
+			_player_identity.participant_by_entity.get(int(row.id), 0)
+		)
+		if participant_id == 0:
+			continue
 		var actor: ActorMotion = _actors_by_participant.get(participant_id)
 		if actor == null:
 			actor = _instantiate_replica(participant_id)
@@ -447,8 +496,11 @@ func _materialize_baseline(rows: Array[Dictionary]) -> void:
 
 
 ## Applies one store-owned latest pose and updates the delivered courier presentation.
-func _apply_replica_state(participant_id: int) -> void:
-	var state: Dictionary = _store.entity_state(participant_id)
+func _apply_replica_state(entity_id: int) -> void:
+	var participant_id: int = int(_player_identity.participant_by_entity.get(entity_id, 0))
+	if participant_id == 0:
+		return
+	var state: Dictionary = _store.entity_state(entity_id)
 	if state.is_empty() or int(state.phase) == PHASE_REMOVED:
 		return
 	var actor: ActorMotion = _actors_by_participant.get(participant_id)
@@ -549,13 +601,18 @@ func _capture_rows() -> Array[Dictionary]:
 	participant_ids.sort()
 	for participant_id: int in participant_ids:
 		var actor: ActorMotion = _actors_by_participant[participant_id]
+		var binding: Dictionary = _player_identity.binding_by_participant.get(
+			participant_id, {}
+		)
+		if binding.is_empty():
+			continue
 		var state: Dictionary = actor.motion_state()
 		var position: Vector3 = state.position
 		var velocity: Vector3 = state.velocity
 		rows.append(
 			{
-				"id": participant_id,
-				"generation": 1,
+				"id": binding.id,
+				"generation": binding.generation,
 				"kind": ENTITY_KIND_PLAYER,
 				"phase": PHASE_LIVE,
 				"flags": 0,
@@ -576,23 +633,77 @@ func _durable_event(
 	participant_id: int,
 	revision: int,
 ) -> Dictionary:
+	var binding: Dictionary = _player_identity.binding_by_participant[participant_id]
 	return {
 		"event_kind": event_kind,
 		"phase": phase,
-		"id": participant_id,
-		"generation": 1,
+		"id": binding.id,
+		"generation": binding.generation,
 		"revision": revision,
 		"tick": _sequence.physics_tick,
 	}
 
 
+## Allocates one EntityRef independently from the Session-owned participant identity.
+func _allocate_player_binding(participant_id: int) -> Dictionary:
+	var bindings: Dictionary = _player_identity.binding_by_participant
+	if bindings.has(participant_id):
+		return bindings[participant_id]
+	var tracker: EntityGenerationTracker = _player_identity.tracker
+	var allocated: Dictionary = tracker.allocate()
+	if not allocated.get("ok", false):
+		return {}
+
+	var entity_ref: Dictionary = allocated.entity_ref
+	var binding: Dictionary = {
+		"participant_id": participant_id,
+		"id": entity_ref.id,
+		"generation": entity_ref.generation,
+	}
+	bindings[participant_id] = binding
+	_player_identity.participant_by_entity[int(entity_ref.id)] = participant_id
+	return binding
+
+
+## Retires one host binding after its reliable removal event has been published.
+func _retire_player_binding(participant_id: int) -> void:
+	var bindings: Dictionary = _player_identity.binding_by_participant
+	var binding: Dictionary = bindings.get(participant_id, {})
+	if binding.is_empty():
+		return
+	var tracker: EntityGenerationTracker = _player_identity.tracker
+	tracker.retire({ "id": binding.id, "generation": binding.generation })
+	_player_identity.participant_by_entity.erase(int(binding.id))
+	bindings.erase(participant_id)
+
+
+## Returns bounded immutable binding rows for reliable delivery before state records.
+func _binding_rows() -> Array[Dictionary]:
+	var rows: Array[Dictionary] = []
+	for participant_id: int in _player_identity.binding_by_participant:
+		rows.append(
+			_player_identity.binding_by_participant[participant_id].duplicate()
+		)
+	return rows
+
+
+## Publishes new binding dependencies before their reliable spawn event.
+func _broadcast_bindings() -> void:
+	var rows: Array[Dictionary] = _binding_rows()
+	for native_peer_id: int in _admitted_peers:
+		_receive_player_bindings.rpc_id(
+			native_peer_id, _context.session_id, MATCH_REVISION, rows
+		)
+
+
 ## Assigns the first free authored spawn slot for this match-local participant lifetime.
 func _allocate_spawn_slot(participant_id: int) -> int:
-	if _spawn_slot_by_participant.has(participant_id):
-		return _spawn_slot_by_participant[participant_id]
+	var slots: Dictionary = _player_identity.spawn_slot_by_participant
+	if slots.has(participant_id):
+		return slots[participant_id]
 	for slot: int in range(1, _player_spawns().get_child_count() + 1):
-		if slot not in _spawn_slot_by_participant.values():
-			_spawn_slot_by_participant[participant_id] = slot
+		if slot not in slots.values():
+			slots[participant_id] = slot
 			return slot
 	return 0
 
