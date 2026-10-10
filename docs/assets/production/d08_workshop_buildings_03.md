@@ -211,7 +211,9 @@ MCP session was accessed; headless import does not synchronize a separate open e
 ## Remaining acceptance
 
 - Independent technical/art review of this exact source/export/prefab candidate.
-- World integration: selected district fit, saved family composition, office joins,
+- The [.04 attached office](d08_workshop_buildings_04.md) now delivers the saved unequal-shed
+  comparison and documented joins, including a source roof-clearance check for this depot.
+  World integration still owns selected district fit, actual placement/office joins,
   two-exit yard and foot bypass, building-to-route clearance, car turning and chain spacing.
   Nothing is placed in a world scene here, and no duplicate landmark is delivered.
 - Native 47m/42° camera with actors/combat, populated-city occlusion and visibility;

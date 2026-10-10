@@ -1,0 +1,33 @@
+D08 ATTACHED OFFICE - final receipt
+Raw temporary logs: C:/tmp/ft/assets/d08_workshop_buildings_04/ (not committed).
+Pinned Blender source/raw GLB/re-export exited 0; byte-identical, topology/normals PASS.
+Pinned import exited 0, no ERROR/SCRIPT ERROR; editor normalization exited 0, stable saves.
+Known isolated editor diagnostics (not suppressed):
+WARNING: [MCP] Godot 4.8 detected - latest tested version is 4.7.0. The plugin will run normally but some features may behave unexpectedly. Please report issues at https://github.com/NPGameDev/godot-mcp-toolkit/issues
+WARNING: Scan thread aborted...
+ERROR: 5 RID allocations of type 'N16RendererViewport8ViewportE' were leaked at exit.
+ERROR: 8 RID allocations of type 'PN13RendererDummy14TextureStorage12DummyTextureE' were leaked at exit.
+ERROR: 1 RID allocations of type 'N17RendererSceneCull8ScenarioE' were leaked at exit.
+ERROR: 52 RID allocations of type 'PN18TextServerAdvanced22ShapedTextDataAdvancedE' were leaked at exit.
+ERROR: 1 RID allocations of type 'PN18TextServerAdvanced12FontAdvancedE' were leaked at exit.
+WARNING: 5 RIDs of type "Canvas" were leaked.
+WARNING: 31 RIDs of type "CanvasItem" were leaked.
+WARNING: 168 ObjectDB instances were leaked at exit (run with `--verbose` for details).
+
+Fresh headless prefab/production ActorMotion checks (exit 0, no ERROR/WARNING):
+Godot Engine v4.8.dev7.official.c971f93e7 - https://godotengine.org
+
+[MCPRuntimeServer] port: scanning 6570-6585 (default)
+[MCPRuntimeServer] listening on 127.0.0.1:6570
+[MCPRegistry] runtime port 6570 registered for c:/gamedev/git/ft-lanes/a-wshop
+{"aabb_min":[-3.07999992370605,0.0,-1.74000000953674],"aabb_size":[6.28000020980835,3.54999995231628,3.44000005722046],"capsule_queries":[{"case":"interior_solid","solid":true},{"case":"closed_door","solid":true},{"case":"closed_counter_window","solid":true},{"case":"east_bypass_clear","solid":false},{"case":"west_bypass_clear","solid":false},{"case":"rear_route_clear","solid":false},{"case":"front_route_clear","solid":false},{"case":"north_east_corner_solid","solid":true},{"case":"south_west_corner_solid","solid":true}],"car_box_sweep":{"east_bypass_blocked":false,"front_blocked":true,"size_m":[1.9,1.5,4.3]},"collision_shape_count":1,"engine":"4.8-dev7 (official)","failures":[],"family":{"capsule_queries":[{"case":"join_front_solid","solid":true},{"case":"join_middle_solid","solid":true},{"case":"join_rear_solid","solid":true},{"case":"front_reentrant_clear","solid":false},{"case":"rear_join_outside_clear","solid":false},{"case":"north_yard_exit_clear","solid":false},{"case":"central_yard_clear","solid":false},{"case":"south_yard_exit_clear","solid":false},{"case":"outer_foot_bypass_clear","solid":false}],"car_sweeps_blocked":[false,false,false],"central_structural_gap_m":9.0,"composition":"Existing .01 at (8,0,-2), .02 at (-13,0,1), .04 at (16,0,2.5)","join_x_m":13.0,"office_host_seam_gap_m":0.0,"office_span_z_m":[1,4]},"front_ray_z":-1.5,"linked_model_identity":true,"materials":["ironreach_worn_brick","ironreach_faded_petrol","ironreach_pale_band","ironreach_local_rust","ironreach_dark_recess","ironreach_replacement_sheet","ironreach_working_amber","ironreach_roof_petrol"],"model_uid":"uid://c2oj8fnpnigbw","ok":true,"prefab_uid":"uid://d12favqhc3yl3","production_actor_motion":[{"case":"closed_door","end":[1.60000002384186,0.00000766816083341837,-1.85026061534882],"mode":0},{"case":"counter_wall","end":[-1.29999995231628,0.00000766810262575746,-1.85026061534882],"mode":0},{"case":"east_wall","end":[3.350257396698,0.00000759668182581663,0.0],"mode":0},{"case":"east_bypass","end":[4.0,0.00087789905956015,0.000000134110450744629],"mode":0},{"case":"closed_door","end":[1.60000002384186,0.00000766816083341837,-1.85026061534882],"mode":1},{"case":"counter_wall","end":[-1.29999995231628,0.00000766810262575746,-1.85026061534882],"mode":1},{"case":"east_wall","end":[3.350257396698,0.00000759668182581663,0.0],"mode":1},{"case":"east_bypass","end":[4.0,0.00087789905956015,0.000000134110450744629],"mode":1}]}
+
+Owned pinned gdstyle formatting/lint (exit 0):
+1 file already formatted.
+
+✓ 1 file checked, no issues found.
+
+No production_checks.py run, per owner decision 52.
+Two saved linked scenes and all three source roof-join clearances checked.
+Four compressed images self-reviewed (1152x648 obliques, 1280x720 overhead).
+Placement, populated native visuals, network transport and target-device checks pending.

@@ -71,10 +71,10 @@ not stretch this entire prefab or produce weathering-only building variants:
   and not imply a passage through the closed wall. This is a documented plane, not a
   runtime socket or public opening API.
 
-The two unequal shed assemblies plus office attachment requested by the family brief require
-the later members. No substitute office, depot, sawtooth or duplicate landmark was invented
-in this record. Family comparison/assembly remains pending those deliveries, not a missing
-second variant of this small-shed record.
+The two unequal shed assemblies plus office attachment requested by the family brief are now
+shown in the [.04 attached-office delivery](d08_workshop_buildings_04.md#saved-unequal-shed-comparison).
+Its saved comparison instances this shed and .02 with the new office; no duplicate landmark
+or substitute sibling geometry is used. World placement remains a separate downstream gate.
 
 ## Source, exports and materials
 
@@ -214,9 +214,9 @@ open scene, and no such synchronization is claimed.
 - Independent technical/art review of this exact source/export/prefab candidate.
 - The [d08_workshop_buildings.02 sawtooth workshop](d08_workshop_buildings_02.md) and
   [d08_workshop_buildings.03 larger depot](d08_workshop_buildings_03.md) are now delivered
-  with this datum/finish contract. **.04 (office)** remains pending: compare the unequal
-  shed prefabs with an attached office when available. Retain the shared contract or
-  document coordinated refinement; do not duplicate a landmark model.
+  with this datum/finish contract. The [.04 attached office](d08_workshop_buildings_04.md)
+  now delivers the saved unequal-shed comparison and office attachment using existing
+  prefabs, without a duplicate landmark. Actual world placement remains pending.
 - World integration: selected district fit, placement, two yard exits, foot bypass,
   car turning/chain spacing and building-to-route clearances. Nothing is placed here.
 - Actual native 47m/42° camera with actors, combat/aim and populated-city occlusion;

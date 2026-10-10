@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://d15hpy5mqnuu1"]
+
+[ext_resource type="PackedScene" uid="uid://b4a0j385hgex5" path="res://scenes/prefabs/environment/d08_workshop_buildings_01.tscn" id="1_shed"]
+[ext_resource type="PackedScene" uid="uid://1fmk413q355u" path="res://scenes/prefabs/environment/d08_workshop_buildings_02.tscn" id="2_workshop"]
+[ext_resource type="PackedScene" uid="uid://d12favqhc3yl3" path="res://scenes/prefabs/environment/d08_workshop_buildings_04.tscn" id="3_office"]
+
+[node name="D08WorkshopBuildings04Family" type="Node3D" unique_id=1774256616]
+metadata/purpose = "Unplaced family comparison: unequal sheds, attached office, open two-ended yard; not district placement."
+
+[node name="PitchedShed" type="Node3D" parent="." unique_id=1960811424 instance=ExtResource("1_shed")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, -2)
+
+[node name="SawtoothWorkshop" type="Node3D" parent="." unique_id=2026446923 instance=ExtResource("2_workshop")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13, 0, 1)
+
+[node name="AttachedOffice" type="Node3D" parent="." unique_id=1625509862 instance=ExtResource("3_office")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16, 0, 2.5)

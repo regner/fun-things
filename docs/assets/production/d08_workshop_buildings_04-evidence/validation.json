@@ -1,0 +1,455 @@
+{
+  "asset_id": "d08_workshop_buildings.04",
+  "blender": "5.2.2 LTS",
+  "build_hash": "d13f752e3b9c",
+  "exporter": "5.2.40",
+  "source_vertices": 2888,
+  "export_vertices": 3608,
+  "triangles": 5412,
+  "mesh_count": 1,
+  "surface_count": 8,
+  "nonmanifold_edges": 0,
+  "degenerate_source_faces": 0,
+  "degenerate_export_triangles": 0,
+  "unit_source_and_export_normals": true,
+  "positive_triangle_normal_alignment": true,
+  "source_bounds": {
+    "min": [
+      -3.0799999237060547,
+      -1.7000000476837158,
+      0.0
+    ],
+    "max": [
+      3.200000047683716,
+      1.7400000095367432,
+      3.549999952316284
+    ]
+  },
+  "godot_bounds": {
+    "min": [
+      -3.0799999237060547,
+      0.0,
+      -1.7400000095367432
+    ],
+    "max": [
+      3.200000047683716,
+      3.549999952316284,
+      1.7000000476837158
+    ]
+  },
+  "godot_dimensions_m": [
+    6.2799999713897705,
+    3.549999952316284,
+    3.440000057220459
+  ],
+  "provisional_structural_footprint_m": [
+    6,
+    3
+  ],
+  "ground_pivot": [
+    0,
+    0,
+    0
+  ],
+  "dimension_tolerance_m": 0.001,
+  "axis_mapping_tolerance_m": 1e-05,
+  "base_rear_door_counter_window_west_plane_flashing_material_rays": true,
+  "same_materials_as_delivered_siblings_01_02_03": true,
+  "actual_sibling_attachment_roof_clearances": [
+    {
+      "host": "d08_workshop_buildings_01",
+      "host_wall_x_m": 5,
+      "host_bay_center_z_m": 4.5,
+      "host_roof_underside_y_m": 4.019439220428467,
+      "office_flashing_top_y_m": 3.5500001907348633,
+      "measured_vertical_clearance_m": 0.4694390296936035,
+      "probe_inset_from_join_m": 0.1
+    },
+    {
+      "host": "d08_workshop_buildings_02",
+      "host_wall_x_m": 7,
+      "host_bay_center_z_m": 4.5,
+      "host_roof_underside_y_m": 3.9200000762939453,
+      "office_flashing_top_y_m": 3.5500001907348633,
+      "measured_vertical_clearance_m": 0.36999988555908203,
+      "probe_inset_from_join_m": 0.1
+    },
+    {
+      "host": "d08_workshop_buildings_03",
+      "host_wall_x_m": 9,
+      "host_bay_center_z_m": 6,
+      "host_roof_underside_y_m": 4.0454421043396,
+      "office_flashing_top_y_m": 3.5500001907348633,
+      "measured_vertical_clearance_m": 0.49544191360473633,
+      "probe_inset_from_join_m": 0.1
+    }
+  ],
+  "materials": [
+    {
+      "name": "ironreach_worn_brick",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.22322796285152435,
+          0.11697066575288773,
+          0.07618538290262222,
+          1
+        ],
+        "metallicFactor": 0,
+        "roughnessFactor": 0.8799999952316284
+      }
+    },
+    {
+      "name": "ironreach_faded_petrol",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.12213877588510513,
+          0.20507873594760895,
+          0.19806931912899017,
+          1
+        ],
+        "metallicFactor": 0.05000000074505806,
+        "roughnessFactor": 0.7599999904632568
+      }
+    },
+    {
+      "name": "ironreach_pale_band",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.5647115111351013,
+          0.5394794940948486,
+          0.4125426113605499,
+          1
+        ],
+        "metallicFactor": 0,
+        "roughnessFactor": 0.7200000286102295
+      }
+    },
+    {
+      "name": "ironreach_local_rust",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.38642942905426025,
+          0.13013647496700287,
+          0.04817182570695877,
+          1
+        ],
+        "metallicFactor": 0,
+        "roughnessFactor": 0.8999999761581421
+      }
+    },
+    {
+      "name": "ironreach_dark_recess",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.014443843625485897,
+          0.03688944876194,
+          0.04970656707882881,
+          1
+        ],
+        "metallicFactor": 0.18000000715255737,
+        "roughnessFactor": 0.4300000071525574
+      }
+    },
+    {
+      "name": "ironreach_replacement_sheet",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.20507873594760895,
+          0.28314873576164246,
+          0.2788942754268646,
+          1
+        ],
+        "metallicFactor": 0.18000000715255737,
+        "roughnessFactor": 0.699999988079071
+      }
+    },
+    {
+      "emissiveFactor": [
+        0.2739296008717851,
+        0.14730626333976815,
+        0.027252514253159887
+      ],
+      "name": "ironreach_working_amber",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.9130986332893372,
+          0.4910208582878113,
+          0.09084171056747437,
+          1
+        ],
+        "metallicFactor": 0,
+        "roughnessFactor": 0.47999998927116394
+      }
+    },
+    {
+      "name": "ironreach_roof_petrol",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.022173885256052017,
+          0.07618538290262222,
+          0.09758734703063965,
+          1
+        ],
+        "metallicFactor": 0.2199999988079071,
+        "roughnessFactor": 0.6600000262260437
+      }
+    }
+  ],
+  "reexport_byte_identical": true,
+  "glb_bytes": 125772,
+  "glb_sha256": "7129a79526dbc7c92b8d3094be0924b9f4d073241aff8ff97a00c1f601649b19",
+  "status": "PASS source/raw GLB/reexport; engine checks and downstream gates recorded separately",
+  "engine": {
+    "aabb_min": [
+      -3.07999992370605,
+      0.0,
+      -1.74000000953674
+    ],
+    "aabb_size": [
+      6.28000020980835,
+      3.54999995231628,
+      3.44000005722046
+    ],
+    "capsule_queries": [
+      {
+        "case": "interior_solid",
+        "solid": true
+      },
+      {
+        "case": "closed_door",
+        "solid": true
+      },
+      {
+        "case": "closed_counter_window",
+        "solid": true
+      },
+      {
+        "case": "east_bypass_clear",
+        "solid": false
+      },
+      {
+        "case": "west_bypass_clear",
+        "solid": false
+      },
+      {
+        "case": "rear_route_clear",
+        "solid": false
+      },
+      {
+        "case": "front_route_clear",
+        "solid": false
+      },
+      {
+        "case": "north_east_corner_solid",
+        "solid": true
+      },
+      {
+        "case": "south_west_corner_solid",
+        "solid": true
+      }
+    ],
+    "car_box_sweep": {
+      "east_bypass_blocked": false,
+      "front_blocked": true,
+      "size_m": [
+        1.9,
+        1.5,
+        4.3
+      ]
+    },
+    "collision_shape_count": 1,
+    "engine": "4.8-dev7 (official)",
+    "failures": [],
+    "family": {
+      "capsule_queries": [
+        {
+          "case": "join_front_solid",
+          "solid": true
+        },
+        {
+          "case": "join_middle_solid",
+          "solid": true
+        },
+        {
+          "case": "join_rear_solid",
+          "solid": true
+        },
+        {
+          "case": "front_reentrant_clear",
+          "solid": false
+        },
+        {
+          "case": "rear_join_outside_clear",
+          "solid": false
+        },
+        {
+          "case": "north_yard_exit_clear",
+          "solid": false
+        },
+        {
+          "case": "central_yard_clear",
+          "solid": false
+        },
+        {
+          "case": "south_yard_exit_clear",
+          "solid": false
+        },
+        {
+          "case": "outer_foot_bypass_clear",
+          "solid": false
+        }
+      ],
+      "car_sweeps_blocked": [
+        false,
+        false,
+        false
+      ],
+      "central_structural_gap_m": 9.0,
+      "composition": "Existing .01 at (8,0,-2), .02 at (-13,0,1), .04 at (16,0,2.5)",
+      "join_x_m": 13.0,
+      "office_host_seam_gap_m": 0.0,
+      "office_span_z_m": [
+        1,
+        4
+      ]
+    },
+    "front_ray_z": -1.5,
+    "linked_model_identity": true,
+    "materials": [
+      "ironreach_worn_brick",
+      "ironreach_faded_petrol",
+      "ironreach_pale_band",
+      "ironreach_local_rust",
+      "ironreach_dark_recess",
+      "ironreach_replacement_sheet",
+      "ironreach_working_amber",
+      "ironreach_roof_petrol"
+    ],
+    "model_uid": "uid://c2oj8fnpnigbw",
+    "ok": true,
+    "prefab_uid": "uid://d12favqhc3yl3",
+    "production_actor_motion": [
+      {
+        "case": "closed_door",
+        "end": [
+          1.60000002384186,
+          7.66816083341837e-06,
+          -1.85026061534882
+        ],
+        "mode": 0
+      },
+      {
+        "case": "counter_wall",
+        "end": [
+          -1.29999995231628,
+          7.66810262575746e-06,
+          -1.85026061534882
+        ],
+        "mode": 0
+      },
+      {
+        "case": "east_wall",
+        "end": [
+          3.350257396698,
+          7.59668182581663e-06,
+          0.0
+        ],
+        "mode": 0
+      },
+      {
+        "case": "east_bypass",
+        "end": [
+          4.0,
+          0.00087789905956015,
+          1.34110450744629e-07
+        ],
+        "mode": 0
+      },
+      {
+        "case": "closed_door",
+        "end": [
+          1.60000002384186,
+          7.66816083341837e-06,
+          -1.85026061534882
+        ],
+        "mode": 1
+      },
+      {
+        "case": "counter_wall",
+        "end": [
+          -1.29999995231628,
+          7.66810262575746e-06,
+          -1.85026061534882
+        ],
+        "mode": 1
+      },
+      {
+        "case": "east_wall",
+        "end": [
+          3.350257396698,
+          7.59668182581663e-06,
+          0.0
+        ],
+        "mode": 1
+      },
+      {
+        "case": "east_bypass",
+        "end": [
+          4.0,
+          0.00087789905956015,
+          1.34110450744629e-07
+        ],
+        "mode": 1
+      }
+    ],
+    "save_reload_byte_stable": true,
+    "stable_scenes": [
+      "d08_workshop_buildings_04.tscn",
+      "d08_workshop_buildings_04_family.tscn"
+    ],
+    "roundtrips": {
+      "res://scenes/prefabs/environment/d08_workshop_buildings_04.tscn": {
+        "save_reload_byte_stable": true,
+        "final_bytes": 903,
+        "final_sha256": "e503534b2946dc1f0379788c7043bfda266c2a2fc3efcc7e83eae72b275311eb"
+      },
+      "res://scenes/prefabs/environment/d08_workshop_buildings_04_family.tscn": {
+        "save_reload_byte_stable": true,
+        "final_bytes": 1198,
+        "final_sha256": "7c243e6f5db5dca298e787b50393a219aa6d3d58d00f4127ede7cf764d2b3b8e"
+      }
+    }
+  },
+  "checks": {
+    "pinned_import_no_errors": true,
+    "prefab_runtime_no_errors_or_warnings": true,
+    "owned_gdstyle_format_and_lint": true,
+    "production_checks": "Not run, per owner decision 52 for unplaced assets"
+  },
+  "visual_self_review": {
+    "images": [
+      "hero.png",
+      "side.png",
+      "office_detail.png",
+      "overhead_47m_42deg.png"
+    ],
+    "oblique_size_px": [
+      1152,
+      648
+    ],
+    "overhead_size_px": [
+      1280,
+      720
+    ],
+    "renderer": "Blender Cycles CPU, 32 samples, AgX; RGB PNG, 6-bit channels",
+    "gameplay_camera": "Vertical down (0,0,47)m; north/+Y up; perspective vertical FOV42 degrees",
+    "observed": "Low lean-to office reads as a subordinate attachment beside the existing pitched shed and sawtooth workshop. Patched petrol roof, restrained amber entry marker and pale high-side flashing survive overhead. Hero/side/detail show the closed glazed door, broad counter window, worn brick and localized rust.",
+    "limits": "Isolated Blender self-review only; native visuals and populated placement pending"
+  },
+  "diagnostics": {
+    "source": "Passed; Blender 6.0 material-API deprecation notices only",
+    "normalization": "Byte-stable; toolkit compatibility warning, aborted scan and editor shutdown RID/ObjectDB leaks retained in final.log; non-editor runtime clean",
+    "import": "Passed; existing toolkit Godot 4.8 compatibility warning, no ERROR/SCRIPT ERROR",
+    "initial_corrections": "Hero/side framing widened after self-review. Sibling roof-ray probe required linking the loaded mesh to the isolated validation scene before evaluating it. A max-local-variable style warning was fixed by extracting the yard-gap measurement helper. An evidence recorder string-literal error was corrected before receipt generation. Overhead evidence was reduced to 6-bit RGB to meet the lean size target."
+  }
+}

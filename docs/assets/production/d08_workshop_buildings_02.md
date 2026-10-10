@@ -70,8 +70,9 @@ The joining office should remain below the shared pale eave band/4m wall datum, 
 at-most-0.05m trim seam and never imply passage through this closed wall. The clerestory
 and roof begin above this interface. This is a documented plane, not a runtime socket.
 The office owner retains attachment dimensions and the saved composition; no substitute
-office or extra landmark is invented here. A family comparison with an attached office
-remains pending .04, and the larger depot remains .03's separate output.
+office or extra landmark is invented here. The [.04 office delivery](d08_workshop_buildings_04.md)
+now supplies a saved family comparison with an attached office, using the existing shed
+prefabs; the [.03 larger depot](d08_workshop_buildings_03.md) is also delivered separately.
 
 ## Source, exports and materials
 
@@ -207,10 +208,10 @@ import does not prove synchronization of a separate open editor, and none is cla
 
 - Independent technical/art review of this exact source/export/prefab candidate.
 - The [d08_workshop_buildings.03 larger depot](d08_workshop_buildings_03.md) is now delivered
-  with the shared datums/finishes; **.04 (attached office)** remains unproduced. The two
-  unequal shed designs exist as .01 and .02; the later family composition should instance
-  them with an attached .04 office, rather than duplicate a landmark model. Compare the
-  shared datums/finishes and retain a two-exit yard and foot bypass.
+  with the shared datums/finishes. The [.04 attached office](d08_workshop_buildings_04.md)
+  now supplies a saved comparison instancing .01 and .02 with the office, without a duplicate
+  landmark. Its bounded checks cover the join and open two-ended yard; actual world routes
+  and the foot bypass remain placement responsibilities.
 - World integration: district placement, building-to-route clearances, two yard exits,
   foot bypass, production car turning and chain spacing. Nothing is placed here.
 - Native 47m/42° camera with actors/combat, populated-city visibility and occlusion;
