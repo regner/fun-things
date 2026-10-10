@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://ygg6kvgvqh28"]
+
+[ext_resource type="PackedScene" uid="uid://dj4p88v4x0hsi" path="res://art/models/environment/city_ground_finishes_01/city_ground_finishes_01.glb" id="1_model"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_swatch"]
+size = Vector3(4, 0.08, 4)
+
+[node name="city_ground_finishes_01" type="Node3D" unique_id=483703738]
+
+[node name="Visuals" type="Node3D" parent="." unique_id=765940997]
+
+[node name="Model" parent="Visuals" unique_id=425881309 instance=ExtResource("1_model")]
+
+[node name="Collision" type="Node3D" parent="." unique_id=56977521]
+
+[node name="SwatchBody" type="StaticBody3D" parent="Collision" unique_id=1559521583]
+collision_mask = 0
+
+[node name="Shape" type="CollisionShape3D" parent="Collision/SwatchBody" unique_id=338568783]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.04, 0)
+shape = SubResource("BoxShape3D_swatch")

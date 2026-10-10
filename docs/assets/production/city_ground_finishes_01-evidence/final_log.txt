@@ -1,0 +1,80 @@
+city_ground_finishes.01 — final producer check receipt — 2026-10-10
+Scope: material + original Blender swatch; no world placement or gameplay changes.
+Raw invocation logs: C:/tmp/ft/assets/city_ground_finishes_01/ (not committed).
+Reproduction commands are in ../city_ground_finishes_01.md.
+
+Tool pins
+  Blender 5.2.2 LTS, d13f752e3b9c; glTF exporter 5.2.40.
+  Godot 4.8.dev7.official.c971f93e7 (mise); gdstyle 0.3.0.
+  Texture authoring: Python + Pillow 12.3.0.
+  All Blender calls used timeout <=300 s, background/factory startup, 4 threads,
+  python-exit-code 1, -noaudio, ALSOFT_DRIVERS=null, SDL_AUDIODRIVER=dummy.
+  Godot import calls <=300 s; checks <=180 s; headless only.
+
+Final command results
+  texture.py: exit 0; 512x512 RGB PNG, 4,447 bytes.
+  author.py: exit 0; original .blend + explicit GLB.
+  preview.py: exit 0; four final PNGs individually 24,313–90,219 bytes.
+  validate.py: exit 0; 8 source / 24 exported vertices, 12 triangles, one mesh/surface;
+    zero degenerate faces and non-manifold edges; unit normals and outward winding;
+    measured AABB (-2,-0.0799999982,-2)..(2,0,2); UV0 top corners 0..1;
+    fresh reexport byte-identical; no embedded textures.
+  unittest discover -s tools/asset_production/city_ground_finishes_01 -p test_*.py:
+    5/5 pass: pixels, border continuity, midtone contrast, sparse rhythm, mip quietness.
+  gdstyle fmt --check: one file already formatted.
+  gdstyle --max-line-length 100 --max-warnings 0: one file, no issues.
+  Godot --check-only check_prefab.gd: exit 0, no warnings/errors.
+  Godot standalone check_prefab.gd: exit 0, no warnings/errors.
+    PLAZA_PREFAB_PASS: linked mesh, external material, stable scene, floor datum.
+    External material remap is active; identity Visuals/Model; five top rays hit Y=0,
+    outside ray misses; one static box matches visual bounds.
+  Godot --headless --editor --import --quit: exit 0; no missing dependencies.
+    Existing toolkit warns that 4.8 is newer than its last tested 4.7.
+  Godot --editor --script check_prefab.gd -- --normalize: exit 0;
+    two roundtrips byte-identical with preserved scene/node/dependency UIDs.
+    NOT a clean-log result: see editor shutdown diagnostic below.
+  Isolated compiler-project normalization: same saved .tscn/.tres bytes as production.
+
+Required whole-project production_checks.py (timeout 1800, via mise exec)
+  Exit 1 — not reported as a passing suite.
+  Engine/GUT pins: PASS.
+  Owned script formatting/style: PASS; 163/163 scripts compile.
+  Repository Python suite: 14/14 PASS.
+  GUT import: PASS. Negative harness: PASS (expected exit 1).
+  GUT: 136/137 PASS, 6520/6523 assertions pass.
+  Failure: tests/unit/audio/test_audio_voice_policy.gd
+    test_finished_one_shot_releases_voice_for_farther_event
+    line 113: voice remains granted after 0.4 s timer
+    line 114: [1] expected to equal [0]
+    line 120: [2] expected to equal [1]
+  Audio files were not changed. This is outside this asset's scope, not silently
+  waived under the historical fixture exceptions. No unchanged full-suite rerun.
+
+Editor shutdown diagnostic isolation
+  --editor --script normalization reports leaked 5 Viewport RIDs, 8 DummyTexture RIDs,
+  1 Scenario RID, 52 ShapedTextData RIDs, 1 Font RID, plus Canvas/CanvasItem/ObjectDB.
+  A plugin-free compiler-project run with an EMPTY SceneTree that only waits five
+  seconds and quits reproduces those same five ERROR counts, 5 Canvas, 30 CanvasItem,
+  166 ObjectDB; it does not load this asset. Full editor-plugin runs add two objects
+  and one canvas item. Thus no clean normalization-log claim is made, but saved-byte
+  roundtrips and the independent clean standalone check are retained separately.
+
+Corrected producer-only first-pass issues
+  Opposite texture border samples initially differed by one quantization level.
+  Slab variation is now suppressed inside the joint, so opposite borders match exactly.
+  Godot texture_filter=2 was nearest/mipmap rather than intended linear/mipmap (3).
+  Fixed external material to 3; clean standalone assertion confirms the named engine enum.
+  Initial GDScript long-function/await-loop lint was fixed with a separate receipt writer
+  and documented editor-only await waiver. Helper completion guards prevent a failed
+  helper assertion from writing a false PASS receipt; final checks reach both guards.
+  First-pass Blender renders used dithering; disabled for clean, compact final evidence.
+
+Visual self-review of all four FINAL renders
+  Slate midtone, quiet large slabs, no sharp repeating grit, no visible tile-boundary jump.
+  Coral Latch and ivory/coral Courier separate in the 47 m/42-degree overhead comparison.
+  Blender comparison only; actual Godot gameplay-camera/motion and device proof pending.
+
+Remaining gates
+  Independent reviewer, surface-tool UV integration (addon absent in this checkout),
+  placement, actor/car traversal and relevant multiplayer if site collision changes,
+  actual gameplay camera, packaged/Deck and sustained performance acceptance.
