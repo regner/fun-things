@@ -2,11 +2,11 @@
 
 [ext_resource type="Script" uid="uid://brbllm3uj5oki" path="res://scripts/boot/boot.gd" id="1_boot"]
 [ext_resource type="Script" uid="uid://nogknm7ojx1p" path="res://scripts/session/session_service.gd" id="2_session"]
-[ext_resource type="PackedScene" path="res://scenes/ui/main_menu.tscn" id="3_menu"]
-[ext_resource type="PackedScene" path="res://scenes/ui/session_status.tscn" id="4_status"]
+[ext_resource type="PackedScene" uid="uid://c2sn6cp4k3smh" path="res://scenes/ui/main_menu.tscn" id="3_menu"]
+[ext_resource type="PackedScene" uid="uid://difhdgwbn3rvm" path="res://scenes/ui/session_status.tscn" id="4_status"]
 [ext_resource type="Script" uid="uid://dwuaavv3gvuhg" path="res://scripts/session/enet_transport.gd" id="5_enet"]
 [ext_resource type="Script" uid="uid://loq0pw8u2aw" path="res://scripts/settings/local_settings.gd" id="6_settings"]
-[ext_resource type="PackedScene" path="res://scenes/ui/settings_menu.tscn" id="7_settings_ui"]
+[ext_resource type="PackedScene" uid="uid://dbutw465qjils" path="res://scenes/ui/settings_menu.tscn" id="7_settings_ui"]
 
 [node name="Boot" type="Node" unique_id=606728560]
 process_mode = 3

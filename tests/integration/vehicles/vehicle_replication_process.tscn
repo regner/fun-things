@@ -1,23 +1,23 @@
-[gd_scene load_steps=5 format=3]
+[gd_scene format=3 uid="uid://bd3fk177xfok8"]
 
-[ext_resource type="Script" path="res://tests/integration/vehicles/vehicle_replication_process.gd" id="1_process"]
-[ext_resource type="Script" path="res://scripts/session/session_service.gd" id="2_session"]
-[ext_resource type="Script" path="res://scripts/session/enet_transport.gd" id="3_enet"]
+[ext_resource type="Script" uid="uid://bdedhoicmacnx" path="res://tests/integration/vehicles/vehicle_replication_process.gd" id="1_process"]
+[ext_resource type="Script" uid="uid://nogknm7ojx1p" path="res://scripts/session/session_service.gd" id="2_session"]
+[ext_resource type="Script" uid="uid://dwuaavv3gvuhg" path="res://scripts/session/enet_transport.gd" id="3_enet"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_wall"]
 size = Vector3(30, 4, 1)
 
-[node name="VehicleReplicationProcess" type="Node"]
+[node name="VehicleReplicationProcess" type="Node" unique_id=1840671320]
 script = ExtResource("1_process")
 
-[node name="ContactWall" type="StaticBody3D" parent="."]
-position = Vector3(-109, 2.05, -14)
+[node name="ContactWall" type="StaticBody3D" parent="." unique_id=913985781]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -109, 2.05, -14)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="ContactWall"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ContactWall" unique_id=30802413]
 shape = SubResource("BoxShape3D_wall")
 
-[node name="Session" type="Node" parent="."]
+[node name="Session" type="Node" parent="." unique_id=589612306]
 script = ExtResource("2_session")
 
-[node name="ENetTransport" type="Node" parent="Session"]
+[node name="ENetTransport" type="Node" parent="Session" unique_id=16461676]
 script = ExtResource("3_enet")

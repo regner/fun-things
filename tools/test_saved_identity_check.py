@@ -5,7 +5,7 @@ import struct
 import tempfile
 import unittest
 
-from saved_identity_check import ALLOWLIST, collect_findings
+from saved_identity_check import collect_findings
 
 
 class SavedIdentityCheckTest(unittest.TestCase):
@@ -160,19 +160,32 @@ class SavedIdentityCheckTest(unittest.TestCase):
 
         self.assertEqual(findings, [])
 
-    def test_excludes_vendor_history_and_temporary_allowlist(self):
+    def test_excludes_vendor_and_history_trees(self):
         with tempfile.TemporaryDirectory() as temporary:
             root = Path(temporary)
             paths = [
                 "addons/vendor/broken.tscn",
                 "docs/history/broken.tscn",
                 "prototypes/old/broken.tscn",
-                next(iter(ALLOWLIST)),
             ]
 
             findings = collect_findings(root, paths)
 
         self.assertEqual(findings, [])
+
+    def test_checks_formerly_allowlisted_project_scene(self):
+        with tempfile.TemporaryDirectory() as temporary:
+            root = Path(temporary)
+            path = "scenes/ui/main_menu.tscn"
+            self._write(root, path, "[gd_scene format=3]\n[node name=\"Root\" type=\"Node\"]\n")
+
+            rendered = [finding.format() for finding in collect_findings(root, [path])]
+
+        self.assertIn(
+            f"{path}:1: missing or invalid saved resource header UID",
+            rendered,
+        )
+        self.assertIn(f"{path}:2: node has no unique_id", rendered)
 
     @staticmethod
     def _write(root: Path, relative_path: str, content: str) -> None:

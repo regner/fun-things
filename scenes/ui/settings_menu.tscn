@@ -1,6 +1,6 @@
-[gd_scene format=3]
+[gd_scene format=3 uid="uid://dbutw465qjils"]
 
-[ext_resource type="Script" path="res://scripts/settings/settings_menu.gd" id="1_settings"]
+[ext_resource type="Script" uid="uid://bc4o3fskbecpb" path="res://scripts/settings/settings_menu.gd" id="1_settings"]
 
 [sub_resource type="StyleBoxFlat" id="StyleFocus"]
 content_margin_left = 17.0
@@ -114,8 +114,8 @@ text = "Settings"
 
 [node name="AudioHeading" type="Label" parent="Center/Panel/Content" unique_id=2116125065]
 layout_mode = 2
-theme_override_font_sizes/font_size = 22
 theme_override_colors/font_color = Color(1, 0.752941, 0.352941, 1)
+theme_override_font_sizes/font_size = 22
 text = "Audio"
 
 [node name="MasterRow" type="HBoxContainer" parent="Center/Panel/Content" unique_id=549005896]
@@ -192,8 +192,8 @@ text = "Mute"
 
 [node name="DisplayHeading" type="Label" parent="Center/Panel/Content" unique_id=307124793]
 layout_mode = 2
-theme_override_font_sizes/font_size = 22
 theme_override_colors/font_color = Color(1, 0.752941, 0.352941, 1)
+theme_override_font_sizes/font_size = 22
 text = "Display"
 
 [node name="DisplayRow" type="HBoxContainer" parent="Center/Panel/Content" unique_id=2062906316]

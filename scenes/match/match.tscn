@@ -4,82 +4,81 @@
 [ext_resource type="Script" uid="uid://e4ilfnx7pn56" path="res://scripts/world/world_anchor.gd" id="2_anchor"]
 [ext_resource type="PackedScene" uid="uid://c6ogmv4d7i8yn" path="res://scenes/world/brackett_greybox/city.tscn" id="3_city"]
 [ext_resource type="PackedScene" uid="uid://bk8hhplahsqnk" path="res://scenes/local/local_rig.tscn" id="4_local_rig"]
-[ext_resource type="Script" path="res://scripts/replication/match_replication.gd" id="5_replication"]
-[ext_resource type="Script" path="res://scripts/match/player_lifecycle.gd" id="6_lifecycle"]
+[ext_resource type="Script" uid="uid://cd4il72g5rlph" path="res://scripts/replication/match_replication.gd" id="5_replication"]
+[ext_resource type="Script" uid="uid://b2s7bo2j3feq7" path="res://scripts/match/player_lifecycle.gd" id="6_lifecycle"]
 
-[node name="Match" type="Node3D"]
+[node name="Match" type="Node3D" unique_id=47674122]
 metadata/world_scope = "whole Brackett island greybox"
 
-[node name="CityData" type="Node" parent="."]
+[node name="CityData" type="Node" parent="." unique_id=2026397841]
 script = ExtResource("1_city_data")
 district_id = &"brackett"
-content_revision = 1
 content_signature = "94b4069831647d410e342cbae0f4285d6636257807aac9ed41aafd59bdfc47cf"
 content_manifest_path = "res://scenes/match/brackett_content_manifest.json"
 world_path = NodePath("../World")
 player_spawns_path = NodePath("../Anchors/PlayerSpawns")
 parked_cars_path = NodePath("../Anchors/ParkedCars")
 
-[node name="World" parent="." instance=ExtResource("3_city")]
+[node name="World" parent="." unique_id=1066252668 instance=ExtResource("3_city")]
 
-[node name="Anchors" type="Node3D" parent="."]
+[node name="Anchors" type="Node3D" parent="." unique_id=470487884]
 metadata/provisional = "pending owner answer to production-plan question 5"
 metadata/area = "Signal Row"
 
-[node name="PlayerSpawns" type="Node3D" parent="Anchors"]
+[node name="PlayerSpawns" type="Node3D" parent="Anchors" unique_id=450024415]
 
-[node name="Spawn01" type="Marker3D" parent="Anchors/PlayerSpawns"]
+[node name="Spawn01" type="Marker3D" parent="Anchors/PlayerSpawns" unique_id=589123103]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -84, 0.05, -5)
 script = ExtResource("2_anchor")
 world_id = &"brackett/district_06/player_spawn_01"
 anchor_kind = &"PLAYER_SPAWN"
 
-[node name="Spawn02" type="Marker3D" parent="Anchors/PlayerSpawns"]
+[node name="Spawn02" type="Marker3D" parent="Anchors/PlayerSpawns" unique_id=615939032]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -80, 0.05, -5)
 script = ExtResource("2_anchor")
 world_id = &"brackett/district_06/player_spawn_02"
 anchor_kind = &"PLAYER_SPAWN"
 
-[node name="Spawn03" type="Marker3D" parent="Anchors/PlayerSpawns"]
+[node name="Spawn03" type="Marker3D" parent="Anchors/PlayerSpawns" unique_id=1296520955]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -76, 0.05, -5)
 script = ExtResource("2_anchor")
 world_id = &"brackett/district_06/player_spawn_03"
 anchor_kind = &"PLAYER_SPAWN"
 
-[node name="Spawn04" type="Marker3D" parent="Anchors/PlayerSpawns"]
+[node name="Spawn04" type="Marker3D" parent="Anchors/PlayerSpawns" unique_id=313227114]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -72, 0.05, -5)
 script = ExtResource("2_anchor")
 world_id = &"brackett/district_06/player_spawn_04"
 anchor_kind = &"PLAYER_SPAWN"
 
-[node name="ParkedCars" type="Node3D" parent="Anchors"]
+[node name="ParkedCars" type="Node3D" parent="Anchors" unique_id=1820165634]
 
-[node name="Sable01" type="Marker3D" parent="Anchors/ParkedCars"]
+[node name="Sable01" type="Marker3D" parent="Anchors/ParkedCars" unique_id=1820494]
 transform = Transform3D(0, 0, 1, 0, 1, 0, -1, 0, 0, -104, 0.05, -10)
 script = ExtResource("2_anchor")
 world_id = &"brackett/district_06/parked_car_sable_01"
 anchor_kind = &"PARKED_CAR"
 
-[node name="Latch01" type="Marker3D" parent="Anchors/ParkedCars"]
+[node name="Latch01" type="Marker3D" parent="Anchors/ParkedCars" unique_id=1426520716]
 transform = Transform3D(0, 0, 1, 0, 1, 0, -1, 0, 0, -98, 0.05, -10)
 script = ExtResource("2_anchor")
 world_id = &"brackett/district_06/parked_car_latch_01"
 anchor_kind = &"PARKED_CAR"
 
-[node name="Crate01" type="Marker3D" parent="Anchors/ParkedCars"]
+[node name="Crate01" type="Marker3D" parent="Anchors/ParkedCars" unique_id=1950623704]
 transform = Transform3D(0, 0, 1, 0, 1, 0, -1, 0, 0, -92, 0.05, -10)
 script = ExtResource("2_anchor")
 world_id = &"brackett/district_06/parked_car_crate_01"
 anchor_kind = &"PARKED_CAR"
 
-[node name="RuntimeEntities" type="Node3D" parent="."]
+[node name="RuntimeEntities" type="Node3D" parent="." unique_id=1560078915]
 
-[node name="RuntimeEffects" type="Node3D" parent="."]
+[node name="RuntimeEffects" type="Node3D" parent="." unique_id=1142210822]
 
-[node name="PlayerLifecycle" type="Node" parent="."]
+[node name="PlayerLifecycle" type="Node" parent="." unique_id=2138530285]
 script = ExtResource("6_lifecycle")
 
-[node name="Replication" type="Node" parent="."]
+[node name="Replication" type="Node" parent="." unique_id=1496409977]
 script = ExtResource("5_replication")
 
-[node name="LocalRig" parent="." instance=ExtResource("4_local_rig")]
+[node name="LocalRig" parent="." unique_id=2119775517 instance=ExtResource("4_local_rig")]

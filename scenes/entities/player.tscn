@@ -8,18 +8,17 @@
 radius = 0.35
 height = 1.8
 
-[node name="Player" type="CharacterBody3D"]
+[node name="Player" type="CharacterBody3D" unique_id=819561273]
 collision_layer = 2
-collision_mask = 1
 script = ExtResource("1_motion")
 
-[node name="PresentationAnchor" type="Node3D" parent="."]
+[node name="PresentationAnchor" type="Node3D" parent="." unique_id=350193368]
 script = ExtResource("2_presentation")
 
-[node name="Visuals" type="Node3D" parent="PresentationAnchor"]
+[node name="Visuals" type="Node3D" parent="PresentationAnchor" unique_id=667191195]
 
-[node name="Model" parent="PresentationAnchor/Visuals" instance=ExtResource("3_courier")]
+[node name="Model" parent="PresentationAnchor/Visuals" unique_id=1632592262 instance=ExtResource("3_courier")]
 
-[node name="Collision" type="CollisionShape3D" parent="."]
-position = Vector3(0, 0.9, 0)
+[node name="Collision" type="CollisionShape3D" parent="." unique_id=1555929410]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0)
 shape = SubResource("CapsuleShape3D_player")

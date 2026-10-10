@@ -1,14 +1,14 @@
-[gd_scene load_steps=4 format=3]
+[gd_scene format=3 uid="uid://duhmf0oqroj6m"]
 
-[ext_resource type="Script" path="res://tests/integration/replication/replication_process.gd" id="1_process"]
-[ext_resource type="Script" path="res://scripts/session/session_service.gd" id="2_session"]
-[ext_resource type="Script" path="res://scripts/session/enet_transport.gd" id="3_enet"]
+[ext_resource type="Script" uid="uid://d04gdt1gnsw4p" path="res://tests/integration/replication/replication_process.gd" id="1_process"]
+[ext_resource type="Script" uid="uid://nogknm7ojx1p" path="res://scripts/session/session_service.gd" id="2_session"]
+[ext_resource type="Script" uid="uid://dwuaavv3gvuhg" path="res://scripts/session/enet_transport.gd" id="3_enet"]
 
-[node name="ReplicationProcess" type="Node"]
+[node name="ReplicationProcess" type="Node" unique_id=541987663]
 script = ExtResource("1_process")
 
-[node name="Session" type="Node" parent="."]
+[node name="Session" type="Node" parent="." unique_id=1264517745]
 script = ExtResource("2_session")
 
-[node name="ENetTransport" type="Node" parent="Session"]
+[node name="ENetTransport" type="Node" parent="Session" unique_id=829651190]
 script = ExtResource("3_enet")

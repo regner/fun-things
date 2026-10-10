@@ -10,20 +10,6 @@ import sys
 
 ROOT = Path(__file__).resolve().parents[1]
 EXCLUDED_PREFIXES = ("addons/", "prototypes/", "docs/")
-# Remove this temporary exception after the m1-p1fix and m1-b12 lanes land.
-ALLOWLIST = frozenset(
-    {
-        "scenes/entities/player.tscn",
-        "scenes/match/match.tscn",
-        "scenes/ui/hud.tscn",
-        "scenes/ui/main_menu.tscn",
-        "scenes/ui/session_status.tscn",
-        "scenes/ui/settings_menu.tscn",
-        "tests/integration/replication/replication_process.tscn",
-        "tests/integration/session/session_process.tscn",
-        "tests/integration/vehicles/vehicle_replication_process.tscn",
-    }
-)
 UID_PATTERN = r"uid://[a-y0-8]+"
 HEADER_PATTERN = re.compile(
     rf'^\[(?:gd_scene|gd_resource)\b[^\]]*\buid="({UID_PATTERN})"[^\]]*\]$'
@@ -63,7 +49,7 @@ def tracked_paths(root: Path = ROOT) -> list[str]:
 
 def is_in_scope(path: str) -> bool:
     """Return whether a tracked path belongs to the project-owned identity scope."""
-    return not path.startswith(EXCLUDED_PREFIXES) and path not in ALLOWLIST
+    return not path.startswith(EXCLUDED_PREFIXES)
 
 
 def _uid_text(value: int) -> str:
@@ -142,8 +128,6 @@ def _resource_findings(
             attributes = dict(ATTRIBUTE_PATTERN.findall(line))
             dependency = attributes.get("path", "")
             dependency_path = dependency.removeprefix("res://")
-            if dependency_path in ALLOWLIST:
-                continue
             actual_uid = attributes.get("uid")
             expected_uid = target_uid(root, dependency_path, tracked)
             if actual_uid is None:

@@ -1,6 +1,6 @@
-[gd_scene format=3]
+[gd_scene format=3 uid="uid://difhdgwbn3rvm"]
 
-[ext_resource type="Script" path="res://scripts/ui/session_status.gd" id="1_status"]
+[ext_resource type="Script" uid="uid://dmfqinymrc5f" path="res://scripts/ui/session_status.gd" id="1_status"]
 
 [sub_resource type="StyleBoxFlat" id="StyleFocus"]
 content_margin_left = 18.0
@@ -59,7 +59,7 @@ Button/styles/hover = SubResource("StyleFocus")
 Button/styles/normal = SubResource("StyleButton")
 PanelContainer/styles/panel = SubResource("StylePanel")
 
-[node name="SessionStatus" type="Control"]
+[node name="SessionStatus" type="Control" unique_id=1199872802]
 visible = false
 layout_mode = 3
 anchors_preset = 15
@@ -70,7 +70,7 @@ grow_vertical = 2
 theme = SubResource("ThemeStatus")
 script = ExtResource("1_status")
 
-[node name="Backdrop" type="ColorRect" parent="."]
+[node name="Backdrop" type="ColorRect" parent="." unique_id=486221503]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -79,7 +79,7 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.0470588, 0.133333, 0.168627, 0.94)
 
-[node name="Center" type="CenterContainer" parent="."]
+[node name="Center" type="CenterContainer" parent="." unique_id=2115522617]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -87,29 +87,29 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Card" type="PanelContainer" parent="Center"]
+[node name="Card" type="PanelContainer" parent="Center" unique_id=1400492113]
 custom_minimum_size = Vector2(760, 380)
 layout_mode = 2
 
-[node name="Content" type="VBoxContainer" parent="Center/Card"]
+[node name="Content" type="VBoxContainer" parent="Center/Card" unique_id=426575502]
 layout_mode = 2
 theme_override_constants/separation = 18
 
-[node name="Eyebrow" type="Label" parent="Center/Card/Content"]
+[node name="Eyebrow" type="Label" parent="Center/Card/Content" unique_id=142958774]
 unique_name_in_owner = true
 layout_mode = 2
 theme_override_colors/font_color = Color(1, 0.447059, 0.364706, 1)
 theme_override_font_sizes/font_size = 15
 text = "SESSION / IDLE"
 
-[node name="Title" type="Label" parent="Center/Card/Content"]
+[node name="Title" type="Label" parent="Center/Card/Content" unique_id=1313664894]
 unique_name_in_owner = true
 layout_mode = 2
 theme_override_colors/font_color = Color(0.964706, 0.945098, 0.862745, 1)
 theme_override_font_sizes/font_size = 44
 text = "Getting you into the city."
 
-[node name="Detail" type="Label" parent="Center/Card/Content"]
+[node name="Detail" type="Label" parent="Center/Card/Content" unique_id=360418849]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 3
@@ -118,16 +118,16 @@ theme_override_font_sizes/font_size = 20
 text = "Current state is installed before controls unlock."
 autowrap_mode = 2
 
-[node name="Actions" type="HBoxContainer" parent="Center/Card/Content"]
+[node name="Actions" type="HBoxContainer" parent="Center/Card/Content" unique_id=102519875]
 layout_mode = 2
 theme_override_constants/separation = 12
 
-[node name="BackButton" type="Button" parent="Center/Card/Content/Actions"]
+[node name="BackButton" type="Button" parent="Center/Card/Content/Actions" unique_id=391143276]
 unique_name_in_owner = true
 layout_mode = 2
 text = "Back"
 
-[node name="PrimaryButton" type="Button" parent="Center/Card/Content/Actions"]
+[node name="PrimaryButton" type="Button" parent="Center/Card/Content/Actions" unique_id=1753262358]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3

@@ -1,6 +1,6 @@
-[gd_scene format=3]
+[gd_scene format=3 uid="uid://c2sn6cp4k3smh"]
 
-[ext_resource type="Script" path="res://scripts/ui/main_menu.gd" id="1_menu"]
+[ext_resource type="Script" uid="uid://cargx3lano5hs" path="res://scripts/ui/main_menu.gd" id="1_menu"]
 
 [sub_resource type="StyleBoxFlat" id="StyleButtonHover"]
 content_margin_left = 19.0
@@ -92,7 +92,7 @@ corner_radius_top_right = 10
 corner_radius_bottom_right = 10
 corner_radius_bottom_left = 10
 
-[node name="MainMenu" type="Control"]
+[node name="MainMenu" type="Control" unique_id=1773644007]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -102,17 +102,17 @@ grow_vertical = 2
 theme = SubResource("ThemeMenu")
 script = ExtResource("1_menu")
 
-[node name="Background" type="ColorRect" parent="."]
+[node name="Background" type="ColorRect" parent="." unique_id=962177134]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.0470588, 0.133333, 0.168627, 1)
 mouse_filter = 2
+color = Color(0.0470588, 0.133333, 0.168627, 1)
 
-[node name="Accent" type="ColorRect" parent="."]
+[node name="Accent" type="ColorRect" parent="." unique_id=1297976997]
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -124,10 +124,10 @@ offset_top = -18.0
 offset_right = 640.0
 grow_horizontal = 2
 grow_vertical = 0
-color = Color(1, 0.447059, 0.364706, 1)
 mouse_filter = 2
+color = Color(1, 0.447059, 0.364706, 1)
 
-[node name="PageMargin" type="MarginContainer" parent="."]
+[node name="PageMargin" type="MarginContainer" parent="." unique_id=1281181088]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -139,40 +139,40 @@ offset_bottom = -38.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Page" type="VBoxContainer" parent="PageMargin"]
+[node name="Page" type="VBoxContainer" parent="PageMargin" unique_id=199179028]
 layout_mode = 2
 theme_override_constants/separation = 18
 
-[node name="Brand" type="Label" parent="PageMargin/Page"]
+[node name="Brand" type="Label" parent="PageMargin/Page" unique_id=299597194]
 layout_mode = 2
 theme_override_colors/font_color = Color(1, 0.447059, 0.364706, 1)
 theme_override_font_sizes/font_size = 16
 text = "FUN THINGS"
 
-[node name="Title" type="Label" parent="PageMargin/Page"]
+[node name="Title" type="Label" parent="PageMargin/Page" unique_id=1856146519]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.964706, 0.945098, 0.862745, 1)
 theme_override_font_sizes/font_size = 58
 text = "A little city. A lot of trouble."
 
-[node name="Subtitle" type="Label" parent="PageMargin/Page"]
+[node name="Subtitle" type="Label" parent="PageMargin/Page" unique_id=456833631]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.682353, 0.764706, 0.776471, 1)
 theme_override_font_sizes/font_size = 20
 text = "Go solo, host a direct game, or meet a friend at their address."
 
-[node name="Body" type="HBoxContainer" parent="PageMargin/Page"]
+[node name="Body" type="HBoxContainer" parent="PageMargin/Page" unique_id=1322308418]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_constants/separation = 28
 
-[node name="MainActions" type="VBoxContainer" parent="PageMargin/Page/Body"]
+[node name="MainActions" type="VBoxContainer" parent="PageMargin/Page/Body" unique_id=505399752]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(420, 0)
 layout_mode = 2
 theme_override_constants/separation = 12
 
-[node name="SoloButton" type="Button" parent="PageMargin/Page/Body/MainActions"]
+[node name="SoloButton" type="Button" parent="PageMargin/Page/Body/MainActions" unique_id=1040992900]
 unique_name_in_owner = true
 layout_mode = 2
 theme_override_colors/font_color = Color(0.0470588, 0.133333, 0.168627, 1)
@@ -180,172 +180,168 @@ theme_override_styles/normal = SubResource("StylePrimary")
 text = "Go solo"
 alignment = 0
 
-[node name="HostButton" type="Button" parent="PageMargin/Page/Body/MainActions"]
+[node name="HostButton" type="Button" parent="PageMargin/Page/Body/MainActions" unique_id=642198291]
 layout_mode = 2
 text = "Host direct ENet"
 alignment = 0
 
-[node name="JoinButton" type="Button" parent="PageMargin/Page/Body/MainActions"]
+[node name="JoinButton" type="Button" parent="PageMargin/Page/Body/MainActions" unique_id=1967712235]
 layout_mode = 2
 text = "Join at an address"
 alignment = 0
 
-[node name="SettingsButton" type="Button" parent="PageMargin/Page/Body/MainActions"]
+[node name="SettingsButton" type="Button" parent="PageMargin/Page/Body/MainActions" unique_id=1551608112]
 unique_name_in_owner = true
 layout_mode = 2
 text = "Settings"
 alignment = 0
 
-[node name="QuitButton" type="Button" parent="PageMargin/Page/Body/MainActions"]
+[node name="QuitButton" type="Button" parent="PageMargin/Page/Body/MainActions" unique_id=854308503]
 layout_mode = 2
 text = "Quit"
 alignment = 0
 
-[node name="HostPanel" type="PanelContainer" parent="PageMargin/Page/Body"]
+[node name="HostPanel" type="PanelContainer" parent="PageMargin/Page/Body" unique_id=331760980]
 unique_name_in_owner = true
 visible = false
 custom_minimum_size = Vector2(700, 0)
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Content" type="VBoxContainer" parent="PageMargin/Page/Body/HostPanel"]
+[node name="Content" type="VBoxContainer" parent="PageMargin/Page/Body/HostPanel" unique_id=636472122]
 layout_mode = 2
 theme_override_constants/separation = 16
 
-[node name="Eyebrow" type="Label" parent="PageMargin/Page/Body/HostPanel/Content"]
+[node name="Eyebrow" type="Label" parent="PageMargin/Page/Body/HostPanel/Content" unique_id=254556078]
 layout_mode = 2
 theme_override_colors/font_color = Color(1, 0.752941, 0.352941, 1)
 text = "DIRECT ENET / CURRENT M1"
 
-[node name="Heading" type="Label" parent="PageMargin/Page/Body/HostPanel/Content"]
+[node name="Heading" type="Label" parent="PageMargin/Page/Body/HostPanel/Content" unique_id=1306476194]
 layout_mode = 2
 theme_override_font_sizes/font_size = 36
 text = "Make some room."
 
-[node name="Copy" type="Label" parent="PageMargin/Page/Body/HostPanel/Content"]
+[node name="Copy" type="Label" parent="PageMargin/Page/Body/HostPanel/Content" unique_id=1372741299]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.682353, 0.764706, 0.776471, 1)
 text = "Room for four. Share your address and port with friends."
 
-[node name="PortLabel" type="Label" parent="PageMargin/Page/Body/HostPanel/Content"]
+[node name="PortLabel" type="Label" parent="PageMargin/Page/Body/HostPanel/Content" unique_id=1515892207]
 layout_mode = 2
 text = "Port"
 
-[node name="HostPort" type="SpinBox" parent="PageMargin/Page/Body/HostPanel/Content"]
+[node name="HostPort" type="SpinBox" parent="PageMargin/Page/Body/HostPanel/Content" unique_id=512562312]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(260, 58)
 layout_mode = 2
 min_value = 1.0
 max_value = 65535.0
 value = 24900.0
-allow_greater = false
-allow_lesser = false
 
-[node name="HostNote" type="Label" parent="PageMargin/Page/Body/HostPanel/Content"]
+[node name="HostNote" type="Label" parent="PageMargin/Page/Body/HostPanel/Content" unique_id=1203984451]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.682353, 0.764706, 0.776471, 1)
 text = "No server browser or automatic internet port forwarding."
 
-[node name="HostActions" type="HBoxContainer" parent="PageMargin/Page/Body/HostPanel/Content"]
+[node name="HostActions" type="HBoxContainer" parent="PageMargin/Page/Body/HostPanel/Content" unique_id=1432657006]
 layout_mode = 2
 theme_override_constants/separation = 12
 
-[node name="HostBackButton" type="Button" parent="PageMargin/Page/Body/HostPanel/Content/HostActions"]
+[node name="HostBackButton" type="Button" parent="PageMargin/Page/Body/HostPanel/Content/HostActions" unique_id=572945071]
 layout_mode = 2
 text = "Back"
 
-[node name="CreateHostButton" type="Button" parent="PageMargin/Page/Body/HostPanel/Content/HostActions"]
+[node name="CreateHostButton" type="Button" parent="PageMargin/Page/Body/HostPanel/Content/HostActions" unique_id=242317931]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_colors/font_color = Color(0.0470588, 0.133333, 0.168627, 1)
 theme_override_styles/normal = SubResource("StylePrimary")
 text = "Create ENet lobby"
 
-[node name="JoinPanel" type="PanelContainer" parent="PageMargin/Page/Body"]
+[node name="JoinPanel" type="PanelContainer" parent="PageMargin/Page/Body" unique_id=1258560248]
 unique_name_in_owner = true
 visible = false
 custom_minimum_size = Vector2(700, 0)
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Content" type="VBoxContainer" parent="PageMargin/Page/Body/JoinPanel"]
+[node name="Content" type="VBoxContainer" parent="PageMargin/Page/Body/JoinPanel" unique_id=1167477890]
 layout_mode = 2
 theme_override_constants/separation = 14
 
-[node name="Eyebrow" type="Label" parent="PageMargin/Page/Body/JoinPanel/Content"]
+[node name="Eyebrow" type="Label" parent="PageMargin/Page/Body/JoinPanel/Content" unique_id=1058602618]
 layout_mode = 2
 theme_override_colors/font_color = Color(1, 0.752941, 0.352941, 1)
 text = "DIRECT ENET / CURRENT M1"
 
-[node name="Heading" type="Label" parent="PageMargin/Page/Body/JoinPanel/Content"]
+[node name="Heading" type="Label" parent="PageMargin/Page/Body/JoinPanel/Content" unique_id=1668384665]
 layout_mode = 2
 theme_override_font_sizes/font_size = 36
 text = "Meet at the address."
 
-[node name="AddressLabel" type="Label" parent="PageMargin/Page/Body/JoinPanel/Content"]
+[node name="AddressLabel" type="Label" parent="PageMargin/Page/Body/JoinPanel/Content" unique_id=497705175]
 layout_mode = 2
 text = "Host address"
 
-[node name="JoinAddress" type="LineEdit" parent="PageMargin/Page/Body/JoinPanel/Content"]
+[node name="JoinAddress" type="LineEdit" parent="PageMargin/Page/Body/JoinPanel/Content" unique_id=235239044]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(0, 62)
 layout_mode = 2
 placeholder_text = "192.168.1.42"
 
-[node name="PortLabel" type="Label" parent="PageMargin/Page/Body/JoinPanel/Content"]
+[node name="PortLabel" type="Label" parent="PageMargin/Page/Body/JoinPanel/Content" unique_id=1329527716]
 layout_mode = 2
 text = "Port"
 
-[node name="JoinPort" type="SpinBox" parent="PageMargin/Page/Body/JoinPanel/Content"]
+[node name="JoinPort" type="SpinBox" parent="PageMargin/Page/Body/JoinPanel/Content" unique_id=78872122]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(260, 58)
 layout_mode = 2
 min_value = 1.0
 max_value = 65535.0
 value = 24900.0
-allow_greater = false
-allow_lesser = false
 
-[node name="JoinNote" type="Label" parent="PageMargin/Page/Body/JoinPanel/Content"]
+[node name="JoinNote" type="Label" parent="PageMargin/Page/Body/JoinPanel/Content" unique_id=2125375560]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.682353, 0.764706, 0.776471, 1)
 text = "Ask your host for both fields. No automatic NAT traversal."
 
-[node name="JoinActions" type="HBoxContainer" parent="PageMargin/Page/Body/JoinPanel/Content"]
+[node name="JoinActions" type="HBoxContainer" parent="PageMargin/Page/Body/JoinPanel/Content" unique_id=486761889]
 layout_mode = 2
 theme_override_constants/separation = 12
 
-[node name="JoinBackButton" type="Button" parent="PageMargin/Page/Body/JoinPanel/Content/JoinActions"]
+[node name="JoinBackButton" type="Button" parent="PageMargin/Page/Body/JoinPanel/Content/JoinActions" unique_id=241839163]
 layout_mode = 2
 text = "Back"
 
-[node name="ConnectButton" type="Button" parent="PageMargin/Page/Body/JoinPanel/Content/JoinActions"]
+[node name="ConnectButton" type="Button" parent="PageMargin/Page/Body/JoinPanel/Content/JoinActions" unique_id=584621511]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_colors/font_color = Color(0.0470588, 0.133333, 0.168627, 1)
 theme_override_styles/normal = SubResource("StylePrimary")
 text = "Connect"
 
-[node name="DirectionCard" type="PanelContainer" parent="PageMargin/Page/Body"]
+[node name="DirectionCard" type="PanelContainer" parent="PageMargin/Page/Body" unique_id=775481356]
 custom_minimum_size = Vector2(360, 0)
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Copy" type="VBoxContainer" parent="PageMargin/Page/Body/DirectionCard"]
+[node name="Copy" type="VBoxContainer" parent="PageMargin/Page/Body/DirectionCard" unique_id=325539226]
 layout_mode = 2
 theme_override_constants/separation = 14
 
-[node name="Label" type="Label" parent="PageMargin/Page/Body/DirectionCard/Copy"]
+[node name="Label" type="Label" parent="PageMargin/Page/Body/DirectionCard/Copy" unique_id=547172729]
 layout_mode = 2
 theme_override_colors/font_color = Color(1, 0.447059, 0.364706, 1)
 text = "QUIET INSTRUMENTS"
 
-[node name="Heading" type="Label" parent="PageMargin/Page/Body/DirectionCard/Copy"]
+[node name="Heading" type="Label" parent="PageMargin/Page/Body/DirectionCard/Copy" unique_id=2061284441]
 layout_mode = 2
 theme_override_font_sizes/font_size = 28
 text = "One city, one session."
 
-[node name="Body" type="Label" parent="PageMargin/Page/Body/DirectionCard/Copy"]
+[node name="Body" type="Label" parent="PageMargin/Page/Body/DirectionCard/Copy" unique_id=1105326179]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_colors/font_color = Color(0.682353, 0.764706, 0.776471, 1)
@@ -356,12 +352,11 @@ Direct ENet hosting and joining use an address and port.
 Steam features are not part of current M1."
 autowrap_mode = 2
 
-[node name="Feedback" type="Label" parent="PageMargin/Page"]
+[node name="Feedback" type="Label" parent="PageMargin/Page" unique_id=1120875211]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(0, 28)
 layout_mode = 2
 theme_override_colors/font_color = Color(1, 0.752941, 0.352941, 1)
-text = ""
 
 [connection signal="pressed" from="PageMargin/Page/Body/MainActions/SoloButton" to="." method="_on_solo_pressed"]
 [connection signal="pressed" from="PageMargin/Page/Body/MainActions/HostButton" to="." method="_on_host_pressed"]
