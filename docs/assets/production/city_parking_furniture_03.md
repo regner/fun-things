@@ -182,3 +182,7 @@ box before placement. Real-process multiplayer/prediction behavior, engine gamep
 views, packaged builds, sustained repeat-placement profiling and Deck LCD/OLED evidence
 remain pending. No register READY status, world placement, bicycle system or completed
 gameplay/performance gate is claimed.
+
+## Saved identity normalization
+
+Identity normalized by the saved-identity pass; geometry/material values unchanged.

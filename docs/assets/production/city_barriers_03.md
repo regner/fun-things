@@ -199,3 +199,7 @@ contact/turning/clearance, real separate-process network admission/prediction,
 packaged target-device behavior, Deck readability and sustained rendering/load
 performance remain **unperformed**. No world scene, road geometry, interaction,
 gameplay rule or shared tracker was changed; no blanket production-ready verdict.
+
+## Saved identity normalization
+
+Identity normalized by the saved-identity pass; geometry/material values unchanged.

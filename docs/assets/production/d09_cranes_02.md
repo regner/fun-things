@@ -207,3 +207,7 @@ python "$TOOL/finalize.py" --checks "$SCRATCH/checks"
   bounded production-API physics test, not separate-process network evidence.
 - Packaged-platform and Deck LCD/OLED review, repeated-placement GPU/frame time,
   shadows/LOD and sustained device performance. No platform budget was inferred.
+
+## Saved identity normalization
+
+Identity normalized by the saved-identity pass; geometry/material values unchanged.

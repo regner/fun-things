@@ -171,3 +171,7 @@ no promise is made that a low prop stops every capsule or vehicle. Real-process 
 collision/prediction behavior, engine gameplay-camera visuals, packaged builds, sustained
 repeat-placement profiling and Deck LCD/OLED evidence remain pending. No register READY
 status, world placement, interaction feature or completed gameplay gate is claimed.
+
+## Saved identity normalization
+
+Identity normalized by the saved-identity pass; geometry/material values unchanged.

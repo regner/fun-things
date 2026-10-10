@@ -1,9 +1,9 @@
 [gd_scene format=3 uid="uid://dt1xxec06brsq"]
 
-[ext_resource type="PackedScene" path="res://scenes/prefabs/environment/d09_storage_04.tscn" id="1_stack"]
-[ext_resource type="Script" path="res://scripts/actors/actor_motion.gd" id="2_motion"]
-[ext_resource type="PackedScene" path="res://scenes/prefabs/environment/d09_storage_04_pair.tscn" id="3_pair"]
-[ext_resource type="PackedScene" path="res://scenes/prefabs/environment/d09_storage_04_crate.tscn" id="4_crate"]
+[ext_resource type="PackedScene" uid="uid://dx7b31suvgbl0" path="res://scenes/prefabs/environment/d09_storage_04.tscn" id="1_stack"]
+[ext_resource type="Script" uid="uid://jthmfio4c27p" path="res://scripts/actors/actor_motion.gd" id="2_motion"]
+[ext_resource type="PackedScene" uid="uid://dwxyov60ys8lr" path="res://scenes/prefabs/environment/d09_storage_04_pair.tscn" id="3_pair"]
+[ext_resource type="PackedScene" uid="uid://bg3h73iyp2x12" path="res://scenes/prefabs/environment/d09_storage_04_crate.tscn" id="4_crate"]
 
 [sub_resource type="BoxShape3D" id="Box_floor"]
 size = Vector3(40, 0.2, 45)

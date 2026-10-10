@@ -201,3 +201,7 @@ readability/aim occlusion, real separate-process transport/prediction behavior a
 Deck performance remain **pending**. Standalone authority/replay equality is not a multiplayer
 transport test. No placement, runtime population or performance acceptance is inferred from
 this source/import handoff, and no queue record or shared progress/TODO was marked complete.
+
+## Saved identity normalization
+
+Identity normalized by the saved-identity pass; geometry/material values unchanged.

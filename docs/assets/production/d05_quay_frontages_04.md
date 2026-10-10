@@ -248,3 +248,7 @@ receipt; regenerate the manifest last after final source/export/evidence/doc cha
 None of the three earlier sibling handoffs listed this delivery as a stale pending
 item, so no sibling doc/manifest or historical receipt needed modification. No queue,
 shared progress/brief, project setting, world or sibling asset was changed.
+
+## Saved identity normalization
+
+Identity normalized by the saved-identity pass; geometry/material values unchanged.

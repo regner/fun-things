@@ -195,3 +195,7 @@ not to generate or alter model geometry. Inspect final images again after reprod
   and transports, packaged dependency checks, repeat-placement cost and sustained Deck tests.
 
 No full production-ready/placement acceptance is claimed by these bounded checks.
+
+## Saved identity normalization
+
+Identity normalized by the saved-identity pass; geometry/material values unchanged.

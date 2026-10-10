@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://c447yqbbixhke"]
 
-[ext_resource type="PackedScene" path="res://tools/asset_production/city_quay_furniture_02/check_scene.tscn" id="1_fixture"]
-[ext_resource type="PackedScene" path="res://scenes/prefabs/environment/city_quay_furniture_02_end_quay.tscn" id="2_end"]
+[ext_resource type="PackedScene" uid="uid://bup76jwv1e50d" path="res://tools/asset_production/city_quay_furniture_02/check_scene.tscn" id="1_fixture"]
+[ext_resource type="PackedScene" uid="uid://c01082hcekflv" path="res://scenes/prefabs/environment/city_quay_furniture_02_end_quay.tscn" id="2_end"]
 
 [node name="RailAccessOpeningCheck" unique_id=584529060 instance=ExtResource("1_fixture")]
 

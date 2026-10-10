@@ -211,3 +211,7 @@ sustained performance/Deck tests. No multiplayer, movement, road-tool, gameplay 
 or collision behavior was changed, so no new network/physics acceptance is claimed.
 No `production_checks.py` run, under owner decision 52. No world placement is authorized
 by this source/material candidate alone.
+
+## Saved identity normalization
+
+Identity normalized; imported-child override ids migrated by Godot 4.8 editor save; override target verified.

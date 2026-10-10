@@ -12,38 +12,38 @@ ambient_light_source = 3
 ambient_light_color = Color(0.62, 0.7, 0.78, 1)
 ambient_light_energy = 0.65
 
-[node name="FootMotionHarness" type="Node3D"]
+[node name="FootMotionHarness" type="Node3D" unique_id=855152219]
 script = ExtResource("1_harness")
 
-[node name="Ground" parent="." instance=ExtResource("4_ground")]
-position = Vector3(140, 0, 0)
+[node name="Ground" parent="." unique_id=358270861 instance=ExtResource("4_ground")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 140, 0, 0)
 
-[node name="Player" parent="." instance=ExtResource("2_player")]
+[node name="Player" parent="." unique_id=1545223845 instance=ExtResource("2_player")]
 
-[node name="DesktopFootInput" type="Node" parent="."]
+[node name="DesktopFootInput" type="Node" parent="." unique_id=1686186831]
 script = ExtResource("3_input")
 
-[node name="CameraRig" type="Node3D" parent="."]
-position = Vector3(0, 20, 0)
+[node name="CameraRig" type="Node3D" parent="." unique_id=381204380]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 20, 0)
 
-[node name="Camera3D" type="Camera3D" parent="CameraRig"]
-rotation = Vector3(-1.5707964, 0, 0)
+[node name="Camera3D" type="Camera3D" parent="CameraRig" unique_id=91174159]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0)
 current = true
 fov = 42.0
 near = 0.1
 far = 160.0
 
-[node name="Sun" type="DirectionalLight3D" parent="."]
-rotation = Vector3(-0.87266463, -0.61086524, 0)
+[node name="Sun" type="DirectionalLight3D" parent="." unique_id=1928217591]
+transform = Transform3D(0.81915206, 0.43938506, -0.36868784, 0, 0.64278764, 0.76604444, 0.57357645, -0.62750685, 0.5265408, 0, 0, 0)
 light_energy = 1.25
 shadow_enabled = true
 
-[node name="Environment" type="WorldEnvironment" parent="."]
+[node name="Environment" type="WorldEnvironment" parent="." unique_id=838265020]
 environment = SubResource("Environment_harness")
 
-[node name="Instructions" type="CanvasLayer" parent="."]
+[node name="Instructions" type="CanvasLayer" parent="." unique_id=193202114]
 
-[node name="Label" type="Label" parent="Instructions"]
+[node name="Label" type="Label" parent="Instructions" unique_id=1046798363]
 offset_left = 20.0
 offset_top = 20.0
 offset_right = 500.0

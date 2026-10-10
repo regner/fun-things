@@ -205,3 +205,7 @@ reproduction; this tool does not replace visual review.
 
 No register, shared brief, TODO, progress, gameplay rule or world scene was changed, and no
 full production-ready/placement acceptance is implied by these bounded checks.
+
+## Saved identity normalization
+
+Identity normalized by the saved-identity pass; geometry/material values unchanged.

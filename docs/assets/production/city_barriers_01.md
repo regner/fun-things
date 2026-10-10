@@ -190,3 +190,7 @@ readability and actual actor/target visibility. Vehicle impacts/turning/clearanc
 real separate-process network admission/prediction, target-device packaged behavior,
 Deck readability and sustained rendering/performance remain **unperformed**. No world
 scene, gameplay rule, runtime destruction state or shared tracking entry changed.
+
+## Saved identity normalization
+
+Identity normalized by the saved-identity pass; geometry/material values unchanged.

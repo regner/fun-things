@@ -238,3 +238,7 @@ the receipt; refresh the manifest after all final source/export/evidence/doc cha
 The earlier .01 current handoff contained no stale pending item resolved by this row,
 so no sibling doc, manifest or historical receipt needed modification. No queue,
 shared progress/brief, project setting, world or sibling asset was changed.
+
+## Saved identity normalization
+
+Identity normalized by the saved-identity pass; geometry/material values unchanged.

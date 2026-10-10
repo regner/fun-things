@@ -227,3 +227,7 @@ timeout 1800 mise exec -- python tools/production_checks.py --output "$SCRATCH/c
 
 No source/dependency/prefab blocker remains. No shared queue, progress, brief,
 project setting, sibling asset or runtime gameplay code was changed.
+
+## Saved identity normalization
+
+Identity normalized by the saved-identity pass; geometry/material values unchanged.

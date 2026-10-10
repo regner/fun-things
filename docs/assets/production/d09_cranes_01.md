@@ -202,3 +202,7 @@ existing saved UIDs and is not an instruction to regenerate identities.
   a bounded production-API physics check, not separate-process networking evidence.
 - Packaged-platform and Deck LCD/OLED review, repeated-placement GPU/frame time,
   shadow/LOD behavior and sustained performance. No hardware budget was inferred.
+
+## Saved identity normalization
+
+Identity normalized by the saved-identity pass; geometry/material values unchanged.

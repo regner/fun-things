@@ -329,6 +329,14 @@ Save/reopen wrappers
 and inherited variants after reexport; compare paths, ancestry, material/component overrides and
 identities. Unexpected embedded mesh data rejects review.
 
+Prefab and material handoffs must retain the saved resource header UID, UID-qualified
+external resources, and every engine-authored scene node `unique_id`. Their scripts
+retain tracked `.gd.uid` sidecars. Before a prefab handoff or identity repair, warm the
+pinned editor UID cache with a bounded headless import, save through an editor-mode
+process, then save a second time and require byte-identical output. Run
+`python tools/saved_identity_check.py`; a successful cold-cache load alone does not
+prove dependency identities were serialized.
+
 District/sector scenes own placements and repeated prefab instances. Plans, layout
 JSON and Blender references guide authoring/testing; they are not a second placement
 writer. Runtime may spawn entities/effects and restore dynamic state, but cannot

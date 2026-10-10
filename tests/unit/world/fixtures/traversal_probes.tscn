@@ -7,22 +7,18 @@ height = 1.8
 [sub_resource type="BoxShape3D" id="BoxShape3D_car"]
 size = Vector3(1.8, 1.5, 3.4)
 
-[node name="TraversalProbes" type="Node3D"]
+[node name="TraversalProbes" type="Node3D" unique_id=2100266870]
 
-[node name="Foot" type="CharacterBody3D" parent="."]
+[node name="Foot" type="CharacterBody3D" parent="." unique_id=1514278210]
 collision_layer = 2
-collision_mask = 1
 floor_snap_length = 0.2
-floor_stop_on_slope = true
 
-[node name="Collision" type="CollisionShape3D" parent="Foot"]
+[node name="Collision" type="CollisionShape3D" parent="Foot" unique_id=1514063026]
 shape = SubResource("CapsuleShape3D_foot")
 
-[node name="Car" type="CharacterBody3D" parent="."]
+[node name="Car" type="CharacterBody3D" parent="." unique_id=935722476]
 collision_layer = 4
-collision_mask = 1
 floor_snap_length = 0.2
-floor_stop_on_slope = true
 
-[node name="Collision" type="CollisionShape3D" parent="Car"]
+[node name="Collision" type="CollisionShape3D" parent="Car" unique_id=1427387758]
 shape = SubResource("BoxShape3D_car")

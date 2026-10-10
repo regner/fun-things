@@ -255,3 +255,7 @@ movement/network gates remain their owners' responsibility. No new gameplay auth
 collision, road-tool, navigation, world identity or multiplayer behavior was introduced.
 No new movement/network acceptance is claimed. No `tools/production_checks.py` run, under
 owner decision 52. No TODO closure or world placement is authorized by this asset alone.
+
+## Saved identity normalization
+
+Identity normalized; imported-child override ids migrated by Godot 4.8 editor save; override target verified.

@@ -213,3 +213,7 @@ No shared asset-generation helper was introduced: the existing shared export set
 production-check runner and production motion API are reused; the required per-ID
 construction, measurement and scene checks stay local. No source/export/prefab work is
 blocked; these downstream acceptance items remain deliberately pending.
+
+## Saved identity normalization
+
+Identity normalized by the saved-identity pass; geometry/material values unchanged.

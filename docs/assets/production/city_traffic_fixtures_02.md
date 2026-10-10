@@ -210,3 +210,7 @@ visual review, populated gameplay-camera/aim occlusion, car swept clearance/impa
 real separate-process transport/prediction, packaged builds and sustained Deck/GPU performance
 remain **pending**. Pole movement checks belong to the sibling handoff and were not rerun or
 represented as new movement evidence here. No shared tracker/TODO was marked complete.
+
+## Saved identity normalization
+
+Identity normalized by the saved-identity pass; geometry/material values unchanged.

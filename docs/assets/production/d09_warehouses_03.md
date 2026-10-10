@@ -227,3 +227,7 @@ actor/car movement; relevant multiplayer collision behavior; exported platforms 
 sustained Deck/performance checks remain **pending**. Bounded sibling fit is checked,
 not accepted whole-city placement. No sibling, shared brief/register/progress file,
 road generation, district boundary, world scene or gameplay implementation changed.
+
+## Saved identity normalization
+
+Identity normalized by the saved-identity pass; geometry/material values unchanged.

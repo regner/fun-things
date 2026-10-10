@@ -215,3 +215,7 @@ manifest last.
 
 No register/progress/shared brief/world scene was changed, no TODO was closed,
 and no whole-city or full game-ready acceptance is claimed.
+
+## Saved identity normalization
+
+Identity normalized by the saved-identity pass; geometry/material values unchanged.

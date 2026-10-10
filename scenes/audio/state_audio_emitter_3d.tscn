@@ -2,12 +2,11 @@
 
 [ext_resource type="Script" uid="uid://dix62j080gmvs" path="res://scripts/audio/state_audio_emitter_3d.gd" id="1_emitter"]
 
-[node name="StateAudioEmitter3D" type="Node3D"]
+[node name="StateAudioEmitter3D" type="Node3D" unique_id=1360225492]
 script = ExtResource("1_emitter")
 
-[node name="Player" type="AudioStreamPlayer3D" parent="."]
+[node name="Player" type="AudioStreamPlayer3D" parent="." unique_id=1393831934]
 unique_name_in_owner = true
-max_polyphony = 1
 unit_size = 8.0
 max_distance = 65.0
 bus = &"SFX"

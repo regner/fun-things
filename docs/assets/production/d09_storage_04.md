@@ -242,3 +242,7 @@ then regenerate the manifest last.
 
 No register, progress, shared brief, world scene or earlier sibling output was changed;
 no TODO or whole-city/full game-ready acceptance is marked complete.
+
+## Saved identity normalization
+
+Identity normalized by the saved-identity pass; geometry/material values unchanged.

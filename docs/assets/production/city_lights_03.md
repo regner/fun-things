@@ -198,3 +198,7 @@ fixture performance remain pending. Real lights, shadow counts, illumination and
 emission calibration require the lighting/performance owner. This handoff does not
 mark the register ready, place yard poles, close shared TODOs or approve dimensions
 for final traffic layouts.
+
+## Saved identity normalization
+
+Identity normalized by the saved-identity pass; geometry/material values unchanged.

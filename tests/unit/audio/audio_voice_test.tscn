@@ -4,47 +4,47 @@
 [ext_resource type="PackedScene" uid="uid://c5vxpmbyvooi5" path="res://scenes/audio/state_audio_emitter_3d.tscn" id="2_emitter"]
 [ext_resource type="AudioStream" uid="uid://0qmurgnpcrdb" path="res://tests/unit/audio/audio/policy_test_tone.wav" id="3_tone"]
 
-[node name="AudioVoiceTest" type="Node3D"]
+[node name="AudioVoiceTest" type="Node3D" unique_id=1859853943]
 
-[node name="VoiceService" parent="." instance=ExtResource("1_service")]
+[node name="VoiceService" parent="." unique_id=1369888076 instance=ExtResource("1_service")]
 unique_name_in_owner = true
 
-[node name="Emitter01" parent="." instance=ExtResource("2_emitter")]
-position = Vector3(1, 0, 0)
+[node name="Emitter01" parent="." unique_id=1740265667 instance=ExtResource("2_emitter")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0)
 stream = ExtResource("3_tone")
 
-[node name="Emitter02" parent="." instance=ExtResource("2_emitter")]
-position = Vector3(2, 0, 0)
+[node name="Emitter02" parent="." unique_id=1605911076 instance=ExtResource("2_emitter")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 0)
 stream = ExtResource("3_tone")
 
-[node name="Emitter03" parent="." instance=ExtResource("2_emitter")]
-position = Vector3(3, 0, 0)
+[node name="Emitter03" parent="." unique_id=1854614807 instance=ExtResource("2_emitter")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, 0)
 stream = ExtResource("3_tone")
 
-[node name="Emitter04" parent="." instance=ExtResource("2_emitter")]
-position = Vector3(4, 0, 0)
+[node name="Emitter04" parent="." unique_id=711502098 instance=ExtResource("2_emitter")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, 0)
 stream = ExtResource("3_tone")
 
-[node name="Emitter05" parent="." instance=ExtResource("2_emitter")]
-position = Vector3(5, 0, 0)
+[node name="Emitter05" parent="." unique_id=2029875921 instance=ExtResource("2_emitter")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, 0)
 stream = ExtResource("3_tone")
 
-[node name="Emitter06" parent="." instance=ExtResource("2_emitter")]
-position = Vector3(6, 0, 0)
+[node name="Emitter06" parent="." unique_id=668913758 instance=ExtResource("2_emitter")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, 0)
 stream = ExtResource("3_tone")
 
-[node name="Emitter07" parent="." instance=ExtResource("2_emitter")]
-position = Vector3(7, 0, 0)
+[node name="Emitter07" parent="." unique_id=355091338 instance=ExtResource("2_emitter")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 0, 0)
 stream = ExtResource("3_tone")
 
-[node name="Emitter08" parent="." instance=ExtResource("2_emitter")]
-position = Vector3(8, 0, 0)
+[node name="Emitter08" parent="." unique_id=1246071375 instance=ExtResource("2_emitter")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, 0)
 stream = ExtResource("3_tone")
 
-[node name="Emitter09" parent="." instance=ExtResource("2_emitter")]
-position = Vector3(9, 0, 0)
+[node name="Emitter09" parent="." unique_id=177347836 instance=ExtResource("2_emitter")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 0, 0)
 stream = ExtResource("3_tone")
 
-[node name="Emitter10" parent="." instance=ExtResource("2_emitter")]
-position = Vector3(10, 0, 0)
+[node name="Emitter10" parent="." unique_id=1227427271 instance=ExtResource("2_emitter")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, 0)
 stream = ExtResource("3_tone")

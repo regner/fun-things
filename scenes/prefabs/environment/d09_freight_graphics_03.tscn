@@ -1,11 +1,11 @@
 [gd_scene format=3 uid="uid://bk7p6d2yyghbc"]
 
-[ext_resource type="PackedScene" path="res://scenes/prefabs/environment/city_sign_supports_01.tscn" id="1_carrier"]
-[ext_resource type="Material" path="res://art/materials/environment/d09_freight_graphics_03/loading_wall.tres" id="2_artwork"]
+[ext_resource type="PackedScene" uid="uid://byqodl735ss1a" path="res://scenes/prefabs/environment/city_sign_supports_01.tscn" id="1_carrier"]
+[ext_resource type="Material" uid="uid://beawdbl265nnn" path="res://art/materials/environment/d09_freight_graphics_03/loading_wall.tres" id="2_artwork"]
 
 [node name="D09FreightGraphics03Wall" unique_id=1254655579 instance=ExtResource("1_carrier")]
 
-[node name="artwork_carrier" parent="Visuals/Model/CitySignSupports01" parent_id_path=PackedInt32Array(728591687, 900653836) index="0" unique_id=1334622756]
+[node name="artwork_carrier" parent="Visuals/Model/CitySignSupports01" parent_id_path=PackedInt32Array(728591687, 1460131609) index="0" unique_id=1777469940]
 surface_material_override/0 = ExtResource("2_artwork")
 
 [editable path="Visuals/Model"]

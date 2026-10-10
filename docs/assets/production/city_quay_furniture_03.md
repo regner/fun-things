@@ -241,3 +241,7 @@ vendor code, diagnostic filter or global tool configuration was changed.
 No source/export/prefab blocker remains. Shared export settings, production-check
 runner and production motion APIs are reused; there is no new shared framework or
 runtime system. These downstream gates are intentionally pending, not claimed ready.
+
+## Saved identity normalization
+
+Identity normalized by the saved-identity pass; geometry/material values unchanged.

@@ -20,6 +20,7 @@ func before_each() -> void:
 		if emitter != null:
 			_emitters.append(emitter)
 	assert_eq(_emitters.size(), 10)
+	assert_eq((_emitters[0].get_node("Player") as AudioStreamPlayer3D).max_polyphony, 1)
 	assert_true(_service.set_listener_position(Vector3.ZERO))
 
 

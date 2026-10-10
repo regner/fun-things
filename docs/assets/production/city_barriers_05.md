@@ -229,3 +229,7 @@ captures. Vehicle contact/turning/clearance, real separate-process network behav
 packaged target-device behavior, Deck readability and sustained rendering/load/LOD
 performance remain **unperformed**. No placement, gameplay rule, world scene,
 road geometry, interaction or shared tracking entry was changed.
+
+## Saved identity normalization
+
+Identity normalized by the saved-identity pass; geometry/material values unchanged.

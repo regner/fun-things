@@ -1,12 +1,12 @@
 [gd_scene format=3 uid="uid://bl0t03e20kb7t"]
 
-[ext_resource type="PackedScene" path="res://scenes/prefabs/environment/city_barriers_07.tscn" id="1_open"]
-[ext_resource type="PackedScene" path="res://scenes/prefabs/environment/city_barriers_07_closed.tscn" id="2_closed"]
-[ext_resource type="PackedScene" path="res://scenes/prefabs/environment/city_barriers_05.tscn" id="3_panel"]
-[ext_resource type="PackedScene" path="res://scenes/prefabs/environment/city_barriers_06.tscn" id="4_line"]
-[ext_resource type="PackedScene" path="res://scenes/prefabs/environment/city_barriers_06_corner.tscn" id="5_corner"]
-[ext_resource type="PackedScene" path="res://scenes/prefabs/environment/city_barriers_06_terminal.tscn" id="6_terminal"]
-[ext_resource type="Script" path="res://scripts/actors/actor_motion.gd" id="7_motion"]
+[ext_resource type="PackedScene" uid="uid://pirflhamo2yp" path="res://scenes/prefabs/environment/city_barriers_07.tscn" id="1_open"]
+[ext_resource type="PackedScene" uid="uid://bu0kklhi8in2u" path="res://scenes/prefabs/environment/city_barriers_07_closed.tscn" id="2_closed"]
+[ext_resource type="PackedScene" uid="uid://do0kyi5smmipf" path="res://scenes/prefabs/environment/city_barriers_05.tscn" id="3_panel"]
+[ext_resource type="PackedScene" uid="uid://d0pw6qm0w13pi" path="res://scenes/prefabs/environment/city_barriers_06.tscn" id="4_line"]
+[ext_resource type="PackedScene" uid="uid://bd7hewksepxje" path="res://scenes/prefabs/environment/city_barriers_06_corner.tscn" id="5_corner"]
+[ext_resource type="PackedScene" uid="uid://dav2qiky7duwa" path="res://scenes/prefabs/environment/city_barriers_06_terminal.tscn" id="6_terminal"]
+[ext_resource type="Script" uid="uid://jthmfio4c27p" path="res://scripts/actors/actor_motion.gd" id="7_motion"]
 
 [sub_resource type="BoxShape3D" id="Box_floor"]
 size = Vector3(40, 0.2, 40)

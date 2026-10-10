@@ -1,17 +1,17 @@
 [gd_scene format=3 uid="uid://1cooj8nqvb1b"]
 
-[ext_resource type="Script" path="res://scripts/actors/actor_motion.gd" id="1_motion"]
+[ext_resource type="Script" uid="uid://jthmfio4c27p" path="res://scripts/actors/actor_motion.gd" id="1_motion"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_tracking"]
 radius = 0.35
 height = 1.8
 
-[node name="TrackingActor" type="CharacterBody3D"]
+[node name="TrackingActor" type="CharacterBody3D" unique_id=1137803740]
 collision_layer = 0
 collision_mask = 0
 motion_mode = 1
 script = ExtResource("1_motion")
 
-[node name="Collision" type="CollisionShape3D" parent="."]
-position = Vector3(0, 0.9, 0)
+[node name="Collision" type="CollisionShape3D" parent="." unique_id=2078579329]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0)
 shape = SubResource("CapsuleShape3D_tracking")

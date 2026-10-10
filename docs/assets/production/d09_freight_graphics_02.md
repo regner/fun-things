@@ -253,3 +253,7 @@ remain their owners' responsibility. No gameplay authority, collision, road tool
 world identity or multiplayer behavior changed. No new movement/network acceptance is claimed.
 No `tools/production_checks.py` run, under owner decision 52. No world placement is authorized
 by this source/material candidate alone.
+
+## Saved identity normalization
+
+Identity normalized; imported-child override ids migrated by Godot 4.8 editor save; override target verified.

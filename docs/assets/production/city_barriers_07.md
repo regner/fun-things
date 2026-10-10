@@ -280,3 +280,7 @@ transport/admission/prediction, packaged target devices, Deck readability and
 sustained GPU/LOD/load performance remain **unperformed**. The global compiler
 needs a complete downstream check within a sufficient execution window. No gate
 interaction or replication behavior is implied by these static configurations.
+
+## Saved identity normalization
+
+Identity normalized by the saved-identity pass; geometry/material values unchanged.

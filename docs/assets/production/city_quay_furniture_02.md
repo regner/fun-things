@@ -298,3 +298,7 @@ broad diagnostic suppression.
 No source/export/prefab blocker remains. Shared export settings, production-check
 runner and production motion APIs are reused; no speculative shared framework or
 new gameplay system was introduced. Downstream acceptance remains deliberately open.
+
+## Saved identity normalization
+
+Identity normalized by the saved-identity pass; geometry/material values unchanged.

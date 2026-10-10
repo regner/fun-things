@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://c80r6p2vdy3ca"]
 
-[ext_resource type="PackedScene" path="res://scenes/prefabs/environment/d09_storage_02.tscn" id="1_container"]
-[ext_resource type="Script" path="res://scripts/actors/actor_motion.gd" id="2_motion"]
+[ext_resource type="PackedScene" uid="uid://dxo4oar28nrqj" path="res://scenes/prefabs/environment/d09_storage_02.tscn" id="1_container"]
+[ext_resource type="Script" uid="uid://jthmfio4c27p" path="res://scripts/actors/actor_motion.gd" id="2_motion"]
 
 [sub_resource type="BoxShape3D" id="Box_floor"]
 size = Vector3(30, 0.2, 45)

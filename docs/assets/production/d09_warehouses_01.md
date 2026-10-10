@@ -219,3 +219,7 @@ materials/LOD views; production actor/car movement and gameplay queries; relevan
 multiplayer collision behavior; exported-platform and sustained Deck/performance
 checks remain **pending**. No world placement, shared brief/register/progress file,
 road generation, district boundary, gameplay code or sibling asset was modified.
+
+## Saved identity normalization
+
+Identity normalized by the saved-identity pass; geometry/material values unchanged.

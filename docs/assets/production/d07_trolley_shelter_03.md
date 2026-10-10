@@ -186,3 +186,7 @@ including under-roof occlusion. ActorMotion movement, real vehicle contact/turni
 weapon queries, authoritative/predicted multiplayer, packaged builds, repeated-placement
 LOD/shadow cost and sustained Deck performance are **not tested** by this delivery.
 No district placement, register-ready status or broader gameplay acceptance is claimed.
+
+## Saved identity normalization
+
+Identity normalized by the saved-identity pass; geometry/material values unchanged.

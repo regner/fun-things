@@ -267,3 +267,7 @@ devices, Deck readability and sustained rendering/LOD/load performance remain
 **unperformed**. The final global compiler deadline needs a complete downstream
 canonical recheck in a sufficient execution window. No gameplay rule, road geometry,
 world scene or shared tracker changed.
+
+## Saved identity normalization
+
+Identity normalized by the saved-identity pass; geometry/material values unchanged.

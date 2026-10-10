@@ -1,9 +1,9 @@
 [gd_scene format=3 uid="uid://cegchwgkmqo3"]
 
-[ext_resource type="PackedScene" path="res://art/models/environment/city_shop_fittings_06/city_shop_fittings_06_single.glb" id="door"]
-[ext_resource type="PackedScene" path="res://art/models/environment/d05_quay_frontages_03/d05_quay_frontages_03.glb" id="shell"]
-[ext_resource type="PackedScene" path="res://scenes/prefabs/environment/city_shop_fittings_03_single.tscn" id="surround"]
-[ext_resource type="PackedScene" path="res://scenes/prefabs/environment/city_shop_fittings_07.tscn" id="window"]
+[ext_resource type="PackedScene" uid="uid://buetb2gv70c1f" path="res://art/models/environment/city_shop_fittings_06/city_shop_fittings_06_single.glb" id="door"]
+[ext_resource type="PackedScene" uid="uid://tyt26cvrnejy" path="res://art/models/environment/d05_quay_frontages_03/d05_quay_frontages_03.glb" id="shell"]
+[ext_resource type="PackedScene" uid="uid://c1d8t0k7tqrw3" path="res://scenes/prefabs/environment/city_shop_fittings_03_single.tscn" id="surround"]
+[ext_resource type="PackedScene" uid="uid://8lks7nm4c64g" path="res://scenes/prefabs/environment/city_shop_fittings_07.tscn" id="window"]
 
 [sub_resource type="BoxShape3D" id="Box_shell"]
 size = Vector3(7.2, 6.85, 7.6)

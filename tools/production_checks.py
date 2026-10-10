@@ -124,6 +124,19 @@ def main():
     }
     commands = {}
 
+    identity_command = [
+        os.fspath(Path(sys.executable)),
+        os.fspath(ROOT / "tools/saved_identity_check.py"),
+    ]
+    commands["saved_identities"] = identity_command
+    passed, returncode = run_command(
+        identity_command,
+        output / "saved-identities.log",
+        timeout=180,
+        reject_diagnostics=False,
+    )
+    results["saved_identities"] = {"ok": passed, "returncode": returncode}
+
     script_output = output / "script-checks"
     script_command = [
         os.fspath(Path(sys.executable)),

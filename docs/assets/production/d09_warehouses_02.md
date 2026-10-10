@@ -216,3 +216,7 @@ shared brief/register/progress file, road generation, district boundary, world
 placement, gameplay implementation or sibling asset was changed. Scene UIDs live
 in the `.tscn` header; the engine-created script `.gd.uid` and model `.import` are
 included. The manifest excludes only itself to avoid a self-referential hash.
+
+## Saved identity normalization
+
+Identity normalized by the saved-identity pass; geometry/material values unchanged.

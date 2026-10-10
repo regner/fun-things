@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://pjt3a6tnxjka"]
 
-[ext_resource type="Script" path="res://tests/performance/host_budget/host_budget_tracking.gd" id="1_tracking"]
+[ext_resource type="Script" uid="uid://di0od5s7n0r0j" path="res://tests/performance/host_budget/host_budget_tracking.gd" id="1_tracking"]
 
-[node name="HostBudgetTracking" type="Node3D"]
+[node name="HostBudgetTracking" type="Node3D" unique_id=1502953645]
 script = ExtResource("1_tracking")

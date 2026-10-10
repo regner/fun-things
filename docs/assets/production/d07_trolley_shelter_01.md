@@ -194,3 +194,7 @@ ActorMotion movement, car turning/contact, weapon queries, authoritative/predict
 multiplayer behavior, repeated-placement LOD/shadows, packaged builds and sustained
 Deck performance are **not tested** by this handoff. No district placement, content
 budget, register-ready status or broader gameplay acceptance is claimed.
+
+## Saved identity normalization
+
+Identity normalized by the saved-identity pass; geometry/material values unchanged.

@@ -145,6 +145,25 @@ when binary asset size/history warrants it rather than introducing it by default
 Editor-authored IDs are meaningful diff content; harmless serialization changes
 still deserve review for unintended property or transform changes.
 
+Every tracked project-owned `.tscn`/`.tres` must save its header UID and every external
+resource UID; every owned scene node must retain Godot's `unique_id`, except an
+`instance_placeholder` declaration for which the engine may omit it. Every tracked
+owned `.gd` has a tracked `.gd.uid`. `python tools/saved_identity_check.py` enforces
+these rules outside `addons/`, `prototypes/`, and `docs/` and reports exact source
+lines; the canonical production checks run it as a required layer.
+
+When normalizing a resource, first warm the UID cache with the pinned engine, then save
+through an editor-mode process and repeat the save to prove stable bytes:
+
+```sh
+timeout 300s godot --headless --editor --path . --import --quit
+timeout 180s godot --headless --editor --path . --script <reviewed-save-tool>
+```
+
+Inspect the resulting header, dependencies, node IDs, and diff. A cold-cache
+`ResourceSaver` run may silently omit dependency UIDs, so it is not an acceptable
+substitute for this sequence.
+
 ## Validation layers
 
 For a requested project-owned GDScript review or focused subsystem audit, use

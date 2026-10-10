@@ -228,3 +228,7 @@ receipt; refresh the manifest after all final source/export/evidence/doc changes
   without inventing tenant identity or essential overhead-readable text.
 
 No queue, shared progress/brief, world, project setting or sibling asset was changed.
+
+## Saved identity normalization
+
+Identity normalized by the saved-identity pass; geometry/material values unchanged.

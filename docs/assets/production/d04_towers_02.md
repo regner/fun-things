@@ -203,3 +203,7 @@ reproduction; packaging does not replace visual review.
 
 No register, shared brief, TODO, progress, gameplay rule or world scene was changed. This
 bounded asset delivery is not a claim that downstream full game-ready acceptance is complete.
+
+## Saved identity normalization
+
+Identity normalized by the saved-identity pass; geometry/material values unchanged.

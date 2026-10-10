@@ -221,3 +221,7 @@ real separate-process transport/admission/prediction, packaged builds and sustai
 performance remain **pending**. Standalone authority/replay equality is not network transport
 proof. The blank support is delivered, not accepted traffic signage or a completed world
 placement. No shared tracker/TODO was marked complete.
+
+## Saved identity normalization
+
+Identity normalized by the saved-identity pass; geometry/material values unchanged.
