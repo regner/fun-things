@@ -1,0 +1,51 @@
+d02_corner_shop.01 — final producer validation receipt, 2026-10-10
+Candidate source/export/prefab evidence; independent acceptance is pending.
+
+TOOLS
+Blender 5.2.2 LTS d13f752e3b9c; glTF 5.2.40.
+Godot 4.8.dev7.official.c971f93e7; gdstyle 0.3.0.
+Only isolated CLI Blender/headless Godot were used; no owner live-session calls.
+Reproduction commands and exact paths are in ../d02_corner_shop_01.md.
+Raw logs/retries: C:/tmp/ft/assets/d02_corner_shop_01/ (not committed).
+
+FINAL OUTCOMES
+Author/source save and explicit export: pass.
+Fresh-process saved-source reexport: byte-identical, 149908 bytes.
+SHA256 80f5d0b905fe2e90778948a7d1b2501171af06ba12353e635a40b890870e096a
+Source/raw binary audit: 6292 triangles, 3192 source vertices, 3290 GLB vertices,
+1 mesh, 7 surfaces; 0 degenerate faces/triangles, 0 non-manifold edges.
+Unit normals, winding, applied transforms, metric bounds/datum: pass.
+Actual shared display/door mesh versus shell intersection checks: 0 intersections.
+Three structural recess rays hit the .650 m rear plane; pier hits facade.
+Four 1280x720 isolated renders self-inspected; original shared fittings reused.
+Pinned import and recursive dependency/UID load checks: pass.
+Prefab/fixture pack-save-reload byte stability: pass.
+Eight authored mounts and exactly one eight-point convex collider: pass.
+ActorMotion AUTHORITY/REPLAY: five cases per mode, 60 ticks each, pass.
+Diagonal contact X=+/-4.720073, Z=.142254; front/rear Z=+/-4.850256.
+Clear corner bypass X=5.4, final Z=3.999998; no rectangular invisible blocker.
+Diagonal rays hit X=+/-4.4; overhead and empty-wedge-corner rays clear.
+Owned gdstyle formatting/lint: pass, zero findings.
+Canonical production_checks.py: all layers pass, no exclusions.
+218 script compile records; 17 Python tests; 165 GUT tests, 6918 assertions.
+Intentional negative GUT test returns 1 as required.
+
+CORRECTIONS AND DIAGNOSTICS
+Initial source-bound assertion used the pre-bevel roof width. Measured bevel tips
+retract 5.9 mm per side; expected measured bounds now explicitly include that bevel.
+No widened tolerance hides this difference: final measured-bound tolerance is 1 mm.
+Initial side preview showed coplanar base-strip artefacts and structural span seams.
+Trim moved outward; one Boolean-cut wall replaces coplanar structural pieces.
+Side/hero studio framing widened to include the complete roof; final views inspected.
+Blender logs Material/World.use_nodes deprecation warnings, with successful exits.
+Pinned editor import/normalize logs the existing MCP plugin 4.8-versus-4.7 warning.
+Editor-normalization exit logs scan-thread-aborted and renderer/text/Canvas/ObjectDB
+shutdown leaks after successful checks. Runtime physics checks have no ERROR,
+SCRIPT ERROR or WARNING diagnostics. These editor diagnostics are not suppressed.
+Project plugins initialize only inside the owned CLI processes; no endpoint called.
+No owner live process or shared configuration modified.
+
+LIMITS
+Dimensions provisional. No interiors or working doors. The convex solid blocks the
+visual entrance recess at the facade. Roof/canopies and thin trim are visual-only.
+Car/world-placement/populated camera/network/device/performance acceptance pending.

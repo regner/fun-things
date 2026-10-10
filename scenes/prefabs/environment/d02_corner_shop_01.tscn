@@ -1,0 +1,51 @@
+[gd_scene format=3 uid="uid://64d2osnmp04f"]
+
+[ext_resource type="PackedScene" uid="uid://rmd1q6w4h5p0" path="res://art/models/environment/d02_corner_shop_01/d02_corner_shop_01.glb" id="1_shell"]
+[ext_resource type="PackedScene" uid="uid://bsh8gy3l470g1" path="res://scenes/prefabs/environment/city_shop_fittings_01.tscn" id="2_canopy"]
+[ext_resource type="PackedScene" uid="uid://fpcm6q4n57qx" path="res://scenes/prefabs/environment/city_shop_fittings_02.tscn" id="3_fascia"]
+[ext_resource type="PackedScene" uid="uid://c1d8t0k7tqrw3" path="res://scenes/prefabs/environment/city_shop_fittings_03_single.tscn" id="4_surround"]
+[ext_resource type="PackedScene" uid="uid://itf20pv3st5l" path="res://art/models/environment/city_shop_fittings_05/city_shop_fittings_05.glb" id="5_display"]
+[ext_resource type="PackedScene" uid="uid://buetb2gv70c1f" path="res://art/models/environment/city_shop_fittings_06/city_shop_fittings_06_single.glb" id="6_door"]
+
+[sub_resource type="ConvexPolygonShape3D" id="Convex_wedge"]
+points = PackedVector3Array(-2.4, 0, 4.5, 2.4, 0, 4.5, 6.4, 0, -4.5, -6.4, 0, -4.5, -2.4, 6.55, 4.5, 2.4, 6.55, 4.5, 6.4, 6.55, -4.5, -6.4, 6.55, -4.5)
+
+[node name="D02CornerShop01" type="Node3D" unique_id=609141952]
+
+[node name="Visuals" type="Node3D" parent="." unique_id=1181884119]
+
+[node name="Model" parent="Visuals" unique_id=1021875681 instance=ExtResource("1_shell")]
+
+[node name="Fittings" type="Node3D" parent="." unique_id=1475868889]
+
+[node name="CanopyLeft" parent="Fittings" unique_id=1268850417 instance=ExtResource("2_canopy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.6, 3, -4.5)
+
+[node name="CanopyEntry" parent="Fittings" unique_id=543295450 instance=ExtResource("2_canopy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, -4.5)
+
+[node name="CanopyRight" parent="Fittings" unique_id=1398051690 instance=ExtResource("2_canopy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.6, 3, -4.5)
+
+[node name="Fascia" parent="Fittings" unique_id=1168255616 instance=ExtResource("3_fascia")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.8, -4.5)
+
+[node name="Surround" parent="Fittings" unique_id=1210876705 instance=ExtResource("4_surround")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -4.5)
+
+[node name="DisplayLeft" parent="Fittings" unique_id=794244177 instance=ExtResource("5_display")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.6, 0.48, -4.5)
+
+[node name="DisplayRight" parent="Fittings" unique_id=1685072797 instance=ExtResource("5_display")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.6, 0.48, -4.5)
+
+[node name="ClosedDoor" parent="Fittings" unique_id=1793817825 instance=ExtResource("6_door")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -4.5)
+
+[node name="Collision" type="Node3D" parent="." unique_id=2001786433]
+
+[node name="Body" type="StaticBody3D" parent="Collision" unique_id=892325348]
+collision_mask = 0
+
+[node name="Wedge" type="CollisionShape3D" parent="Collision/Body" unique_id=752056761]
+shape = SubResource("Convex_wedge")
