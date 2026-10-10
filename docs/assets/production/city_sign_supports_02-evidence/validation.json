@@ -1,0 +1,247 @@
+{
+  "artwork_interface": {
+    "aspect_ratio": "48:13",
+    "bottom_m": 0.88,
+    "front_godot_z_m": -0.071,
+    "glb_v_direction": "0 top / 1 bottom",
+    "height_m": 0.39,
+    "mesh": "CitySignSupports02_ArtworkCarrier",
+    "safe_copy_rectangle_m": [
+      1.38,
+      0.33
+    ],
+    "slot": "sign_face",
+    "slot_index": 0.0,
+    "top_m": 1.27,
+    "u_direction": "front-view left to right (-X)",
+    "uv_max": [
+      1.0,
+      1.0
+    ],
+    "uv_min": [
+      0.0,
+      0.0
+    ],
+    "width_m": 1.44
+  },
+  "blender": "5.2.2 LTS",
+  "blender_build": "d13f752e3b9c",
+  "coordinate_tolerance_m": 1e-05,
+  "degenerate_faces": 0.0,
+  "degenerate_glb_triangles": 0.0,
+  "dimension_tolerance_m": 0.001,
+  "dimensions_m": [
+    1.6,
+    1.35,
+    0.4
+  ],
+  "fresh_reexport_byte_identical": true,
+  "glb_bytes": 70712.0,
+  "glb_sha256": "022dd559334d79c482182083be775c692ab4adf2a5277d3fb7ca7ec266ec76b7",
+  "glb_vertices": 1596.0,
+  "glb_winding_agrees_with_normals": true,
+  "gltf_exporter": "5.2.40",
+  "godot": {
+    "bounds_match": true,
+    "collision": {
+      "layer": 1,
+      "mask": 0,
+      "size_m": [
+        1.6,
+        1.35,
+        0.4
+      ]
+    },
+    "dependency_uids_resolve": true,
+    "linked_model_identity": true,
+    "mesh_count": 2,
+    "production_actor_motion": {
+      "authority_replay_equivalent": true,
+      "authority_stop_z_m": 0.550780951976776,
+      "bypass_end_z_m": -2.99999976158142,
+      "capsule_height_m": 1.8,
+      "capsule_radius_m": 0.35,
+      "replay_stop_z_m": 0.550780951976776,
+      "ticks_per_case": 60
+    },
+    "ray_queries": {
+      "above_clear": true,
+      "center_hit": true,
+      "side_clear": true
+    },
+    "save_reload_byte_stable": true,
+    "surfaces": 5,
+    "version": "4.8-dev7 (official)",
+    "editor_shutdown_diagnostics": "Headless editor SceneTree quit emits GUI RID/ObjectDB leaks; reproduced by asset-free timer/quit in plugin-disabled mirror. Not a clean editor exit.",
+    "runtime_log_error_warning_count": 0,
+    "exact_pin": "4.8.dev7.official.c971f93e7"
+  },
+  "godot_aabb": {
+    "max": [
+      0.800000011920929,
+      1.35000002384186,
+      0.200000002980232
+    ],
+    "min": [
+      -0.800000011920929,
+      0.0,
+      -0.200000002980232
+    ]
+  },
+  "ground_datum_m": 0.0,
+  "materials": [
+    {
+      "name": "sign_face",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.393123120069504,
+          0.447988420724869,
+          0.406448304653168,
+          1.0
+        ],
+        "metallicFactor": 0.0,
+        "roughnessFactor": 0.560000002384186
+      }
+    },
+    {
+      "name": "mount_metal",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.0782883167266846,
+          0.125967383384705,
+          0.139984890818596,
+          1.0
+        ],
+        "metallicFactor": 0.649999976158142,
+        "roughnessFactor": 0.379999995231628
+      }
+    },
+    {
+      "name": "support_petrol",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.0108163831755519,
+          0.0346840769052505,
+          0.0439653620123863,
+          1.0
+        ],
+        "metallicFactor": 0.180000007152557,
+        "roughnessFactor": 0.319999992847443
+      }
+    },
+    {
+      "name": "recess_gasket",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.00333531363867223,
+          0.00657140370458364,
+          0.00812243297696113,
+          1.0
+        ],
+        "metallicFactor": 0.0,
+        "roughnessFactor": 0.720000028610229
+      }
+    }
+  ],
+  "meshes": 2.0,
+  "nonmanifold_edges": 0.0,
+  "pivot": [
+    0.0,
+    0.0,
+    0.0
+  ],
+  "source_meshes": [
+    {
+      "degenerate_faces": 0.0,
+      "materials": [
+        "support_petrol",
+        "recess_gasket",
+        "mount_metal"
+      ],
+      "name": "CitySignSupports02_Hardware",
+      "nonmanifold_edges": 0.0,
+      "triangles": 2284.0,
+      "unit_corner_normals": true,
+      "vertices": 1160.0
+    },
+    {
+      "degenerate_faces": 0.0,
+      "materials": [
+        "sign_face",
+        "mount_metal"
+      ],
+      "name": "CitySignSupports02_ArtworkCarrier",
+      "nonmanifold_edges": 0.0,
+      "triangles": 164.0,
+      "unit_corner_normals": true,
+      "vertices": 84.0
+    }
+  ],
+  "source_vertices": 1244.0,
+  "status": "PASS",
+  "surfaces": 5.0,
+  "triangles": 2448.0,
+  "unit_source_and_export_normals": true,
+  "production_checks": {
+    "command": "timeout 1800 env PYTHONUTF8=1 python tools/production_checks.py --godot \"$(mise which godot)\" --gdstyle \"$(mise which gdstyle)\" --output C:/tmp/ft/assets/city_sign_supports_02/checks-pinned",
+    "results": {
+      "engine": {
+        "ok": true,
+        "version": "4.8.dev7.official.c971f93e7"
+      },
+      "gut_pin": {
+        "ok": true,
+        "version": "9.7.1"
+      },
+      "owned_scripts": {
+        "ok": true,
+        "returncode": 0
+      },
+      "python_tests": {
+        "ok": true,
+        "returncode": 0
+      },
+      "gut_import": {
+        "ok": true,
+        "returncode": 0
+      },
+      "gut_tests": {
+        "ok": true,
+        "returncode": 0
+      },
+      "gut_negative": {
+        "ok": true,
+        "observed_returncode": 1
+      }
+    },
+    "python_tests": 14,
+    "gut_tests": 86,
+    "gut_assertions": 2178
+  },
+  "evidence_renders": {
+    "detail.png": {
+      "width": 1280,
+      "height": 720,
+      "bytes": 199603,
+      "visually_inspected": true
+    },
+    "hero.png": {
+      "width": 1280,
+      "height": 720,
+      "bytes": 240158,
+      "visually_inspected": true
+    },
+    "overhead_47m_42deg.png": {
+      "width": 1280,
+      "height": 720,
+      "bytes": 133128,
+      "visually_inspected": true
+    },
+    "side.png": {
+      "width": 1280,
+      "height": 720,
+      "bytes": 201364,
+      "visually_inspected": true
+    }
+  }
+}

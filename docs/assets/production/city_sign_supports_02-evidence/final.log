@@ -1,0 +1,63 @@
+city_sign_supports.02 — final production receipt, 2026-10-10
+Source/export producer: commissioned implementation worker, lane/a-signs.
+Approved provisional dimensions: 1.60 x 1.35 x 0.40 m; single full static box.
+
+PINNED TOOLS
+Blender 5.2.2 LTS, build d13f752e3b9c, glTF exporter 5.2.40.
+Godot 4.8.dev7.official.c971f93e7 (mise-resolved executable).
+gdstyle 0.3.0 (mise-resolved executable).
+All Blender commands: timeout <=900, noaudio/background/factory-startup/threads4,
+python-exit-code1, ALSOFT_DRIVERS=null and SDL_AUDIODRIVER=dummy.
+All Godot calls: headless, timeout <=300 import / <=180 checks.
+
+FINAL SOURCE/EXPORT
+Author exit 0; validate exit 0, fresh saved-source reexport byte-identical.
+2,448 triangles, 1,244 Blender vertices, 1,596 GLB split vertices.
+Two meshes, five surfaces, four opaque/back-culled materials, no textures.
+Zero degenerate faces/triangles, zero nonmanifold source edges, unit normals.
+Decoded GLB winding, dimensions, axis conversion, ground pivot and face UV pass.
+GLB bytes: 70,712. Complete artifact SHA-256 values are in manifest.json.
+Four inspected Blender renders 1280x720, PNG compression95, dither0:
+hero 240158 bytes; side 201364; detail 199603; overhead 133128.
+
+ENGINE
+Headless import --import --quit: exit 0; no asset dependency errors.
+Saved prefab retains linked identity-transform GLB at Visuals/Model.
+UIDs resolve; measured bounds and 2 meshes/5 surfaces pass.
+Pack/save/reload/resave preserves exact normalized scene bytes.
+Box collider 1.60 x 1.35 x 0.40 at Y0.675, layer1/mask0.
+Physics rays: solid centre below panel; clear side; clear above.
+Runtime production ActorMotion: 60 ticks/case, production player capsule r0.35/h1.8.
+Authority stop Z0.550780951976776; replay stop identical.
+X1.3 bypass ends Z-2.99999976158142. Runtime check exit0, no ERROR/WARNING diagnostics.
+This is not a network transport, vehicle handling, placement or device claim.
+
+CANONICAL CHECKS
+Requested default production command: failed during engine-version preflight;
+Windows PATH shim/subprocess cp1252 decoding, no tests executed in that attempt.
+Successful corrected command:
+timeout 1800 env PYTHONUTF8=1 python tools/production_checks.py --godot "$(mise which godot)" --gdstyle "$(mise which gdstyle)" --output C:/tmp/ft/assets/city_sign_supports_02/checks-pinned
+Exit0. Owned formatting/lint/explicit compilation all true.
+14 Python tests passed; 86 GUT tests passed, 2178 assertions.
+GUT import passed; intentional negative GUT test detected with expected nonzero exit1.
+Direct gdstyle --max-warnings0: 1 file checked, no issues.
+
+FIXES / DIAGNOSTICS
+Initial hero and side crops corrected by widening orthographic scale to3.4.
+Dither disabled to retain smooth evidence below ~400KB/render (no geometry change).
+Initial production motion call in editor failed: ActorMotion is non-tool.
+Now editor mode normalizes the scene; separate runtime executes production motion.
+Initial GDScript formatting warnings fixed; helper checks now return bool and fail closed.
+Final editor save-check assertions pass/exit0, but GUI shutdown RID/ObjectDB diagnostics
+remain, reproduced without this asset by a timer/quit SceneTree in a plugin-disabled
+canonical mirror: 5 viewport, 8 texture, 1 scenario, 52 shaped-text, 1 font RID leaks;
+5 Canvas, 30 CanvasItem, 166 objects (development-plugin run:31 CanvasItem/168 objects).
+No claim of clean editor shutdown. Normal import and runtime checks are diagnostic-clean
+apart from development MCP plugin's unsupported-engine-version warning on direct import.
+Blender Material/World use_nodes future-deprecation warnings retained, no geometry errors.
+Raw process logs and temporary mirrors: C:/tmp/ft/assets/city_sign_supports_02/ (uncommitted).
+
+OPEN
+Independent review, district artwork, actual engine visual/camera acceptance, placement,
+vehicle movement, real multiplayer collision, repeat-placement GPU/Deck/build checks.
+No live owner editor session, shared files, world, queue, progress or TODO were mutated.
