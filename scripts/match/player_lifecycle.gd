@@ -158,6 +158,7 @@ func reset_players(now_tick: int) -> Dictionary:
 		state.search_deadline_tick = now_tick + SEARCH_DEADLINE_TICKS
 		state.candidate_cursor = 0
 		state.spawn_failure = &""
+		_commit(participant_id)
 		if not _attempt_respawn(participant_id, now_tick):
 			failed.append(participant_id)
 

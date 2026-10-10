@@ -17,6 +17,7 @@ var _identities: PeerIdentityRegistry
 var _session_id: String
 var _match_revision: int
 var _durable_revision: int = 0
+var _lifecycle_revision: int = 0
 var _attempt_by_peer: Dictionary[int, Dictionary] = {}
 var _clock: Callable
 
@@ -47,11 +48,14 @@ func start(
 	baseline_id: int,
 	cut_tick: int,
 	rows: Array[Dictionary],
+	options: Dictionary = {},
 ) -> Dictionary:
+	var lifecycle_revision: int = int(options.get("lifecycle_revision", 0))
 	if (
 		_identities.resolve_sender(native_peer_id) == 0
 		or baseline_id <= 0
 		or cut_tick < 0
+		or lifecycle_revision < 0
 		or _attempt_by_peer.has(native_peer_id)
 	):
 		return _failure(&"INVALID_ADMISSION")
@@ -63,26 +67,51 @@ func start(
 	if packets.size() > BaselineAssembler.MAX_BASELINE_CHUNKS:
 		return _failure(&"STATE_LIMIT")
 
-	var metadata: Dictionary = _baseline_metadata(baseline_id, cut_tick, rows.size(), packets)
+	_lifecycle_revision = maxi(_lifecycle_revision, lifecycle_revision)
+	var metadata: Dictionary = _baseline_metadata(
+		baseline_id, cut_tick, rows.size(), packets, lifecycle_revision
+	)
 	if metadata.is_empty():
 		return _failure(&"STATE_LIMIT")
 	var now_msec: int = _now_msec()
-	_attempt_by_peer[native_peer_id] = {
-		"baseline_id": baseline_id,
-		"phase": PHASE_BASELINE,
-		"cut_revision": _durable_revision,
-		"commit_revision": -1,
-		"journal": [],
-		"journal_bytes": 0,
-		"sent_journal_count": 0,
-		"phase_deadline_msec": now_msec + BASELINE_TIMEOUT_MSEC,
-		"attempt_deadline_msec": now_msec + TOTAL_ATTEMPT_TIMEOUT_MSEC,
-	}
+	var attempt_deadline_msec: int = int(
+		options.get("attempt_deadline_msec", now_msec + TOTAL_ATTEMPT_TIMEOUT_MSEC)
+	)
+	if attempt_deadline_msec <= now_msec:
+		return _failure(&"SYNC_TIMEOUT")
+	_attempt_by_peer[native_peer_id] = _new_attempt(
+		baseline_id, lifecycle_revision, now_msec, attempt_deadline_msec
+	)
 	if not _transport.send_baseline(native_peer_id, metadata, packets):
 		_abort(native_peer_id, &"TRANSPORT_FAILED")
 		return _failure(&"TRANSPORT_FAILED")
 
 	return { "ok": true, "metadata": metadata }
+
+
+## Builds one bounded attempt whose phase deadline cannot exceed its total deadline.
+func _new_attempt(
+	baseline_id: int,
+	lifecycle_revision: int,
+	now_msec: int,
+	attempt_deadline_msec: int,
+) -> Dictionary:
+	return {
+		"baseline_id": baseline_id,
+		"phase": PHASE_BASELINE,
+		"cut_revision": _durable_revision,
+		"commit_revision": -1,
+		"sent_lifecycle_revision": lifecycle_revision,
+		"commit_lifecycle_revision": -1,
+		"journal": [],
+		"journal_bytes": 0,
+		"sent_journal_count": 0,
+		"phase_deadline_msec": mini(
+			now_msec + BASELINE_TIMEOUT_MSEC,
+			attempt_deadline_msec,
+		),
+		"attempt_deadline_msec": attempt_deadline_msec,
+	}
 
 
 ## Appends one ordered durable transition and bounds every active admission journal.
@@ -107,6 +136,15 @@ func publish_durable(event: Dictionary) -> Dictionary:
 	return { "ok": true, "revision": _durable_revision }
 
 
+## Advances the complete lifecycle snapshot revision required by every active handoff.
+func publish_lifecycle(lifecycle_revision: int) -> Dictionary:
+	if lifecycle_revision <= _lifecycle_revision:
+		return _failure(&"STALE_REVISION")
+
+	_lifecycle_revision = lifecycle_revision
+	return { "ok": true, "lifecycle_revision": _lifecycle_revision }
+
+
 ## Handles a baseline acknowledgement only from its mapped native sender.
 func acknowledge_baseline(native_peer_id: int, baseline_id: int) -> Dictionary:
 	var attempt: Dictionary = _current_attempt(native_peer_id, baseline_id, PHASE_BASELINE)
@@ -116,14 +154,30 @@ func acknowledge_baseline(native_peer_id: int, baseline_id: int) -> Dictionary:
 	if not _send_unsent_journal(native_peer_id, attempt):
 		_abort(native_peer_id, &"TRANSPORT_FAILED")
 		return _failure(&"TRANSPORT_FAILED")
+	if not _send_current_lifecycle(native_peer_id, attempt):
+		_abort(native_peer_id, &"TRANSPORT_FAILED")
+		return _failure(&"TRANSPORT_FAILED")
 	attempt.phase = PHASE_HANDOFF
 	attempt.commit_revision = _durable_revision
-	attempt.phase_deadline_msec = _now_msec() + HANDOFF_TIMEOUT_MSEC
-	if not _transport.send_handoff(native_peer_id, baseline_id, _durable_revision):
+	attempt.commit_lifecycle_revision = _lifecycle_revision
+	attempt.phase_deadline_msec = mini(
+		_now_msec() + HANDOFF_TIMEOUT_MSEC,
+		int(attempt.attempt_deadline_msec),
+	)
+	if not _transport.send_handoff(
+		native_peer_id,
+		baseline_id,
+		_durable_revision,
+		_lifecycle_revision,
+	):
 		_abort(native_peer_id, &"TRANSPORT_FAILED")
 		return _failure(&"TRANSPORT_FAILED")
 
-	return { "ok": true, "commit_revision": _durable_revision }
+	return {
+		"ok": true,
+		"commit_revision": _durable_revision,
+		"lifecycle_revision": _lifecycle_revision,
+	}
 
 
 ## Opens commands only after the sender acknowledges the current reliable marker.
@@ -131,24 +185,28 @@ func acknowledge_handoff(
 	native_peer_id: int,
 	baseline_id: int,
 	commit_revision: int,
+	lifecycle_revision: int,
 ) -> Dictionary:
 	var attempt: Dictionary = _current_attempt(native_peer_id, baseline_id, PHASE_HANDOFF)
-	if attempt.is_empty() or int(attempt.commit_revision) != commit_revision:
+	if (
+		attempt.is_empty()
+		or int(attempt.commit_revision) != commit_revision
+		or int(attempt.commit_lifecycle_revision) != lifecycle_revision
+	):
 		return _failure(&"STALE_ACK")
-	if int(attempt.sent_journal_count) < attempt.journal.size():
-		if not _send_unsent_journal(native_peer_id, attempt):
-			_abort(native_peer_id, &"TRANSPORT_FAILED")
-			return _failure(&"TRANSPORT_FAILED")
-		attempt.commit_revision = _durable_revision
-		attempt.phase_deadline_msec = _now_msec() + HANDOFF_TIMEOUT_MSEC
-		if not _transport.send_handoff(native_peer_id, baseline_id, _durable_revision):
-			_abort(native_peer_id, &"TRANSPORT_FAILED")
-			return _failure(&"TRANSPORT_FAILED")
-
-		return { "ok": true, "admitted": false, "commit_revision": _durable_revision }
+	if (
+		int(attempt.sent_journal_count) < attempt.journal.size()
+		or int(attempt.sent_lifecycle_revision) < _lifecycle_revision
+	):
+		return _repeat_handoff(native_peer_id, baseline_id, attempt)
 
 	attempt.phase = PHASE_ADMITTED
-	if not _transport.send_grant(native_peer_id, baseline_id, commit_revision):
+	if not _transport.send_grant(
+		native_peer_id,
+		baseline_id,
+		commit_revision,
+		lifecycle_revision,
+	):
 		_abort(native_peer_id, &"TRANSPORT_FAILED")
 		return _failure(&"TRANSPORT_FAILED")
 
@@ -157,6 +215,43 @@ func acknowledge_handoff(
 		"admitted": true,
 		"participant_id": _identities.resolve_sender(native_peer_id),
 		"commit_revision": commit_revision,
+		"lifecycle_revision": lifecycle_revision,
+	}
+
+
+## Repeats one marker after bringing both reliable state dimensions current.
+func _repeat_handoff(
+	native_peer_id: int,
+	baseline_id: int,
+	attempt: Dictionary,
+) -> Dictionary:
+	if (
+		not _send_unsent_journal(native_peer_id, attempt)
+		or not _send_current_lifecycle(native_peer_id, attempt)
+	):
+		_abort(native_peer_id, &"TRANSPORT_FAILED")
+		return _failure(&"TRANSPORT_FAILED")
+
+	attempt.commit_revision = _durable_revision
+	attempt.commit_lifecycle_revision = _lifecycle_revision
+	attempt.phase_deadline_msec = mini(
+		_now_msec() + HANDOFF_TIMEOUT_MSEC,
+		int(attempt.attempt_deadline_msec),
+	)
+	if not _transport.send_handoff(
+		native_peer_id,
+		baseline_id,
+		_durable_revision,
+		_lifecycle_revision,
+	):
+		_abort(native_peer_id, &"TRANSPORT_FAILED")
+		return _failure(&"TRANSPORT_FAILED")
+
+	return {
+		"ok": true,
+		"admitted": false,
+		"commit_revision": _durable_revision,
+		"lifecycle_revision": _lifecycle_revision,
 	}
 
 
@@ -168,6 +263,31 @@ func input_participant(native_peer_id: int) -> int:
 
 	var attempt: Dictionary = _attempt_by_peer[native_peer_id]
 	return participant_id if attempt.phase == PHASE_ADMITTED else 0
+
+
+## Cancels old-revision transfers and returns immutable restart deadlines for reset.
+func take_reset_attempts() -> Array[Dictionary]:
+	var snapshots: Array[Dictionary] = []
+	var native_peer_ids: Array[int] = _attempt_by_peer.keys()
+	native_peer_ids.sort()
+	for native_peer_id: int in native_peer_ids:
+		var attempt: Dictionary = _attempt_by_peer[native_peer_id]
+		snapshots.append(
+			{
+				"native_peer_id": native_peer_id,
+				"participant_id": _identities.resolve_sender(native_peer_id),
+				"phase": attempt.phase,
+				"attempt_deadline_msec": attempt.attempt_deadline_msec,
+			}
+		)
+	_attempt_by_peer.clear()
+	return snapshots
+
+
+## Returns one immutable active attempt for deterministic reset/deadline checks.
+func attempt_view(native_peer_id: int) -> Dictionary:
+	var attempt: Dictionary = _attempt_by_peer.get(native_peer_id, {})
+	return attempt.duplicate(true)
 
 
 ## Aborts only expired attempts without pausing admitted peers or host simulation.
@@ -201,6 +321,7 @@ func _baseline_metadata(
 	cut_tick: int,
 	row_count: int,
 	packets: Array[PackedByteArray],
+	lifecycle_revision: int,
 ) -> Dictionary:
 	var total_bytes: int = 0
 	var checksum_context := HashingContext.new()
@@ -218,6 +339,7 @@ func _baseline_metadata(
 		"baseline_id": baseline_id,
 		"cut_tick": cut_tick,
 		"cut_durable_revision": _durable_revision,
+		"cut_lifecycle_revision": lifecycle_revision,
 		"chunk_count": packets.size(),
 		"total_bytes": total_bytes,
 		"row_count": row_count,
@@ -232,6 +354,17 @@ func _send_unsent_journal(native_peer_id: int, attempt: Dictionary) -> bool:
 		if not _transport.send_durable(native_peer_id, journal[index]):
 			return false
 	attempt.sent_journal_count = journal.size()
+	return true
+
+
+## Sends a complete newer lifecycle snapshot exactly once before the next marker.
+func _send_current_lifecycle(native_peer_id: int, attempt: Dictionary) -> bool:
+	if int(attempt.sent_lifecycle_revision) >= _lifecycle_revision:
+		return true
+	if not _transport.send_lifecycle(native_peer_id, _lifecycle_revision):
+		return false
+
+	attempt.sent_lifecycle_revision = _lifecycle_revision
 	return true
 
 

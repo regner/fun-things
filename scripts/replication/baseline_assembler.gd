@@ -91,6 +91,7 @@ func finish() -> Dictionary:
 		"baseline_id": _metadata.baseline_id,
 		"cut_tick": _metadata.cut_tick,
 		"cut_durable_revision": _metadata.cut_durable_revision,
+		"cut_lifecycle_revision": _metadata.cut_lifecycle_revision,
 		"rows": rows,
 	}
 
@@ -103,6 +104,7 @@ func _valid_metadata(metadata: Dictionary) -> bool:
 		"baseline_id",
 		"cut_tick",
 		"cut_durable_revision",
+		"cut_lifecycle_revision",
 		"chunk_count",
 		"total_bytes",
 		"row_count",
@@ -122,6 +124,8 @@ func _valid_metadata(metadata: Dictionary) -> bool:
 		and metadata.cut_tick >= 0
 		and metadata.cut_durable_revision is int
 		and metadata.cut_durable_revision >= 0
+		and metadata.cut_lifecycle_revision is int
+		and metadata.cut_lifecycle_revision >= 0
 		and metadata.chunk_count is int
 		and metadata.chunk_count > 0
 		and metadata.chunk_count <= MAX_BASELINE_CHUNKS

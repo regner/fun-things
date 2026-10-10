@@ -40,8 +40,28 @@ func send_durable(native_peer_id: int, packet: PackedByteArray) -> bool:
 	return true
 
 
-## Records the reliable handoff marker after its journal.
-func send_handoff(native_peer_id: int, baseline_id: int, commit_revision: int) -> bool:
+## Records one complete lifecycle snapshot revision on the reliable stream.
+func send_lifecycle(native_peer_id: int, lifecycle_revision: int) -> bool:
+	if _consume_failure():
+		return false
+
+	events.append(
+		{
+			"kind": &"lifecycle",
+			"peer": native_peer_id,
+			"lifecycle_revision": lifecycle_revision,
+		}
+	)
+	return true
+
+
+## Records the reliable handoff marker after journal and lifecycle state.
+func send_handoff(
+	native_peer_id: int,
+	baseline_id: int,
+	commit_revision: int,
+	lifecycle_revision: int,
+) -> bool:
 	if _consume_failure():
 		return false
 
@@ -51,13 +71,19 @@ func send_handoff(native_peer_id: int, baseline_id: int, commit_revision: int) -
 			"peer": native_peer_id,
 			"baseline_id": baseline_id,
 			"revision": commit_revision,
+			"lifecycle_revision": lifecycle_revision,
 		}
 	)
 	return true
 
 
-## Records the command grant that follows handoff acknowledgement.
-func send_grant(native_peer_id: int, baseline_id: int, commit_revision: int) -> bool:
+## Records the command grant that follows both handoff acknowledgements.
+func send_grant(
+	native_peer_id: int,
+	baseline_id: int,
+	commit_revision: int,
+	lifecycle_revision: int,
+) -> bool:
 	if _consume_failure():
 		return false
 
@@ -67,6 +93,22 @@ func send_grant(native_peer_id: int, baseline_id: int, commit_revision: int) -> 
 			"peer": native_peer_id,
 			"baseline_id": baseline_id,
 			"revision": commit_revision,
+			"lifecycle_revision": lifecycle_revision,
+		}
+	)
+	return true
+
+
+## Records one reset supersession before the replacement baseline.
+func send_reset_begin(native_peer_id: int, match_revision: int) -> bool:
+	if _consume_failure():
+		return false
+
+	events.append(
+		{
+			"kind": &"reset",
+			"peer": native_peer_id,
+			"match_revision": match_revision,
 		}
 	)
 	return true

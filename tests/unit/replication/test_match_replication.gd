@@ -113,6 +113,129 @@ func test_host_physics_expires_stalled_admissions_with_injected_clock() -> void:
 	assert_false(_has_abort(transport, ADMITTED_PEER))
 
 
+## Gates a joining peer on death and respawn lifecycle changes made during baseline.
+func test_death_and_respawn_during_admission_require_newest_lifecycle_revision() -> void:
+	var scenario: Dictionary = _start_reset_scenario(false)
+	var replication: MatchReplication = scenario.replication
+	var transport: FakeReplicationTransport = scenario.transport
+	var attempt: Dictionary = replication._admission.attempt_view(BASELINE_STALL_PEER)
+
+	assert_true(replication.trigger_test_death(2))
+	for _tick: int in PlayerLifecycle.RESPAWN_DELAY_TICKS:
+		replication._physics_process(1.0 / 60.0)
+	assert_true(replication.lifecycle_view_for(2).alive)
+	var marker: Dictionary = replication.acknowledge_baseline_for_peer(
+		BASELINE_STALL_PEER,
+		int(attempt.baseline_id),
+	)
+	assert_true(marker.ok)
+	assert_eq(_event_count(transport, &"lifecycle", BASELINE_STALL_PEER), 1)
+	var grant: Dictionary = replication.acknowledge_handoff_for_peer(
+		BASELINE_STALL_PEER,
+		int(attempt.baseline_id),
+		int(marker.commit_revision),
+		int(marker.lifecycle_revision),
+	)
+	assert_true(grant.admitted)
+	assert_eq(
+		int(transport.events.back().lifecycle_revision),
+		int(marker.lifecycle_revision),
+	)
+
+
+## Restarts a reset-interrupted baseline without extending its original total deadline.
+func test_reset_restarts_baseline_with_original_deadline() -> void:
+	var scenario: Dictionary = _start_reset_scenario(false)
+	var replication: MatchReplication = scenario.replication
+	var transport: FakeReplicationTransport = scenario.transport
+	var old_attempt: Dictionary = replication._admission.attempt_view(BASELINE_STALL_PEER)
+
+	_now_msec = 1000
+	assert_true(replication.request_match_reset(1))
+	var new_attempt: Dictionary = replication._admission.attempt_view(BASELINE_STALL_PEER)
+	assert_eq(new_attempt.phase, ReplicationAdmission.PHASE_BASELINE)
+	assert_eq(new_attempt.attempt_deadline_msec, old_attempt.attempt_deadline_msec)
+	assert_eq(_event_count(transport, &"reset", BASELINE_STALL_PEER), 1)
+	assert_eq(_event_count(transport, &"baseline", BASELINE_STALL_PEER), 2)
+	assert_eq(replication.player_count(), 2)
+
+
+## Restarts a reset-interrupted handoff without extending its original total deadline.
+func test_reset_restarts_handoff_with_original_deadline() -> void:
+	var scenario: Dictionary = _start_reset_scenario(true)
+	var replication: MatchReplication = scenario.replication
+	var transport: FakeReplicationTransport = scenario.transport
+	var old_attempt: Dictionary = replication._admission.attempt_view(HANDOFF_STALL_PEER)
+
+	_now_msec = 1000
+	assert_true(replication.request_match_reset(1))
+	var new_attempt: Dictionary = replication._admission.attempt_view(HANDOFF_STALL_PEER)
+	assert_eq(new_attempt.phase, ReplicationAdmission.PHASE_BASELINE)
+	assert_eq(new_attempt.attempt_deadline_msec, old_attempt.attempt_deadline_msec)
+	assert_eq(_event_count(transport, &"reset", HANDOFF_STALL_PEER), 1)
+	assert_eq(_event_count(transport, &"baseline", HANDOFF_STALL_PEER), 2)
+	assert_eq(replication.player_count(), 2)
+
+
+## Keeps a blocked reset body dead and hidden until deterministic retries report failure.
+func test_blocked_reset_disables_old_body_and_reports_spawn_failure() -> void:
+	var match: Node3D = MATCH_SCENE.instantiate() as Node3D
+	add_child_autofree(match)
+	var replication: MatchReplication = match.get_node("Replication") as MatchReplication
+	assert_true(replication.configure_standalone())
+	var actor: ActorMotion = replication.actor_for_participant(1)
+	replication._lifecycle._clearance_query = func(
+		_candidate: Dictionary,
+		_participant_id: int,
+	) -> bool:
+		return true
+
+	assert_false(replication.request_match_reset(1))
+	assert_false(replication.lifecycle_view().alive)
+	assert_eq(actor.collision_layer, 0)
+	assert_false((actor.get_node("PresentationAnchor") as Node3D).visible)
+	for _tick: int in PlayerLifecycle.SEARCH_DEADLINE_TICKS:
+		replication._physics_process(1.0 / 60.0)
+	assert_eq(replication.lifecycle_view().spawn_failure, &"SPAWN_BLOCKED")
+	assert_eq(replication.actor_for_participant(1), actor)
+
+
+## Hides a new-generation replica until a matching-generation pose is available.
+func test_respawn_lifecycle_hides_replica_until_new_generation_pose() -> void:
+	var match: Node3D = MATCH_SCENE.instantiate() as Node3D
+	add_child_autofree(match)
+	var replication: MatchReplication = match.get_node("Replication") as MatchReplication
+	assert_true(replication.configure_standalone())
+	var actor: ActorMotion = replication.actor_for_participant(1)
+	var old_ref: Dictionary = replication.lifecycle_view().entity_ref
+	replication._context.is_host = false
+	replication._replica_pose_generation_by_participant[1] = int(old_ref.generation)
+	var next_revision: int = int(replication.lifecycle_view().revision) + 1
+	replication._receive_lifecycle_hydration(
+		replication._context.session_id,
+		1,
+		next_revision,
+		[
+			{
+				"participant_id": 1,
+				"id": int(old_ref.id),
+				"generation": int(old_ref.generation) + 1,
+				"alive": true,
+				"admitted": true,
+				"respawn_ticks_remaining": 0,
+				"spawn_failure": &"",
+			},
+		],
+	)
+	assert_false((actor.get_node("PresentationAnchor") as Node3D).visible)
+	assert_eq(actor.collision_layer, 0)
+
+	replication._replica_pose_generation_by_participant[1] = int(old_ref.generation) + 1
+	replication._apply_lifecycle_to_actors()
+	assert_true((actor.get_node("PresentationAnchor") as Node3D).visible)
+	assert_eq(actor.collision_layer, 2)
+
+
 ## Protects the four logical streams assigned by the replication contract.
 func test_rpc_channels_match_control_state_input_and_movement_streams() -> void:
 	var match: Node3D = MATCH_SCENE.instantiate() as Node3D
@@ -167,13 +290,58 @@ func _start_timeout_scenario() -> FakeReplicationTransport:
 		ADMITTED_PEER, int(admitted.baseline_id)
 	)
 	var grant: Dictionary = _timeout_replication.acknowledge_handoff_for_peer(
-		ADMITTED_PEER, int(admitted.baseline_id), int(marker.commit_revision)
+		ADMITTED_PEER,
+		int(admitted.baseline_id),
+		int(marker.commit_revision),
+		int(marker.lifecycle_revision),
 	)
 	assert_true(grant.admitted)
 	assert_true(baseline_stall.ok)
 	assert_true(handoff.ok)
 	assert_eq(_timeout_replication.player_count(), 4)
 	return transport
+
+
+## Creates one pending baseline or handoff attempt for reset restart coverage.
+func _start_reset_scenario(handoff: bool) -> Dictionary:
+	var match: Node3D = MATCH_SCENE.instantiate() as Node3D
+	add_child_autofree(match)
+	var replication: MatchReplication = match.get_node("Replication") as MatchReplication
+	var transport := FakeReplicationTransport.new()
+	assert_true(
+		replication.configure_network(
+			ReplicationIdentity.create_session_id(),
+			1,
+			true,
+			_clock_msec,
+			transport,
+		)
+	)
+	var native_peer_id: int = HANDOFF_STALL_PEER if handoff else BASELINE_STALL_PEER
+	assert_true(replication.admit_peer(native_peer_id, 2))
+	var started: Dictionary = replication.begin_admission_for_peer(native_peer_id)
+	assert_true(started.ok)
+	if handoff:
+		assert_true(
+			replication.acknowledge_baseline_for_peer(
+				native_peer_id,
+				int(started.baseline_id),
+			).ok
+		)
+	return { "replication": replication, "transport": transport }
+
+
+## Counts peer-local fake transport events without depending on unrelated ordering.
+func _event_count(
+	transport: FakeReplicationTransport,
+	kind: StringName,
+	native_peer_id: int,
+) -> int:
+	var count: int = 0
+	for event: Dictionary in transport.events:
+		if event.kind == kind and int(event.peer) == native_peer_id:
+			count += 1
+	return count
 
 
 ## Returns deterministic monotonic time for runtime admission servicing.

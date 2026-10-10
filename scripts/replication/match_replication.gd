@@ -16,6 +16,7 @@ const INPUT_STALE_MSEC: int = 250
 const INPUT_RATE_PER_SECOND: float = 60.0
 const INPUT_BURST: float = 8.0
 const MAX_SEQUENCE_ADVANCE: int = 120
+const RESET_ADMISSION_TIMEOUT_MSEC: int = 15_000
 const ENTITY_KIND_PLAYER: int = 1
 const PHASE_LIVE: int = 1
 const PHASE_REMOVED: int = 3
@@ -48,6 +49,7 @@ var _sequence: Dictionary = {
 	"match_revision": INITIAL_MATCH_REVISION,
 }
 var _actors_by_participant: Dictionary[int, ActorMotion] = {}
+var _replica_pose_generation_by_participant: Dictionary[int, int] = {}
 var _peer_by_participant: Dictionary[int, int] = {}
 var _spawn_reservations := SpawnReservations.new()
 var _resetting: bool = false
@@ -319,24 +321,43 @@ func request_match_reset(requester_participant_id: int) -> bool:
 		return false
 
 	_resetting = true
-	var retained_peers: Dictionary[int, bool] = _admitted_peers.duplicate()
+	var now_msec: int = _now_msec()
+	var reset_attempts: Array[Dictionary] = _admission.take_reset_attempts()
 	_sequence.match_revision = _match_revision() + 1
 	_sequence.durable_revision = 0
 	_latest_command_by_participant.clear()
 	_input_state_by_participant.clear()
 	_admitted_peers.clear()
-	for native_peer_id: int in retained_peers:
-		_receive_reset_begin.rpc_id(
-			native_peer_id,
-			_context.session_id,
-			_match_revision(),
-		)
+	var failed_peers: Array[int] = []
+	for attempt: Dictionary in reset_attempts:
+		var native_peer_id: int = int(attempt.native_peer_id)
+		if not _transport.send_reset_begin(native_peer_id, _match_revision()):
+			failed_peers.append(native_peer_id)
+	for actor: ActorMotion in _actors_by_participant.values():
+		actor.neutralize()
+	_apply_dead_to_all_actors()
 	_create_admission(_context.clock)
 	var reset_result: Dictionary = _lifecycle.reset_players(_sequence.physics_tick)
-	for native_peer_id: int in retained_peers:
-		begin_admission_for_peer(native_peer_id)
+	_apply_lifecycle_to_actors()
+	for attempt: Dictionary in reset_attempts:
+		var native_peer_id: int = int(attempt.native_peer_id)
+		if native_peer_id in failed_peers:
+			abort_peer(native_peer_id, &"RESET_FAILED")
+			continue
+		var deadline_msec: int = (
+			int(attempt.attempt_deadline_msec)
+			if attempt.phase != ReplicationAdmission.PHASE_ADMITTED
+			else now_msec + RESET_ADMISSION_TIMEOUT_MSEC
+		)
+		var restarted: Dictionary = begin_admission_for_peer(
+			native_peer_id,
+			deadline_msec,
+		)
+		if not restarted.get("ok", false):
+			failed_peers.append(native_peer_id)
+			abort_peer(native_peer_id, &"RESET_FAILED")
 	_resetting = false
-	return reset_result.get("ok", false)
+	return reset_result.get("ok", false) and failed_peers.is_empty()
 
 
 ## Sends client readiness only after the saved Match RPC path exists locally.
@@ -361,7 +382,10 @@ func _ready_for_baseline(session_id: String, match_revision: int) -> void:
 
 
 ## Starts one sender-derived admission after Session has installed its mapping.
-func begin_admission_for_peer(native_peer_id: int) -> Dictionary:
+func begin_admission_for_peer(
+	native_peer_id: int,
+	preserved_attempt_deadline_msec: int = -1,
+) -> Dictionary:
 	if not _configured or not _context.is_host:
 		return { "ok": false }
 	var participant_id: int = _identities.resolve_sender(native_peer_id)
@@ -379,11 +403,15 @@ func begin_admission_for_peer(native_peer_id: int) -> Dictionary:
 		_publish_lifecycle_state()
 
 	_sequence.baseline_id += 1
+	var options: Dictionary = { "lifecycle_revision": _lifecycle.revision() }
+	if preserved_attempt_deadline_msec >= 0:
+		options.attempt_deadline_msec = preserved_attempt_deadline_msec
 	var started: Dictionary = _admission.start(
 		native_peer_id,
 		_sequence.baseline_id,
 		_sequence.physics_tick,
 		_capture_rows(),
+		options,
 	)
 	started["baseline_id"] = _sequence.baseline_id
 	return started
@@ -399,9 +427,13 @@ func acknowledge_handoff_for_peer(
 	native_peer_id: int,
 	baseline_id: int,
 	commit_revision: int,
+	lifecycle_revision: int,
 ) -> Dictionary:
 	return _admission.acknowledge_handoff(
-		native_peer_id, baseline_id, commit_revision
+		native_peer_id,
+		baseline_id,
+		commit_revision,
+		lifecycle_revision,
 	)
 
 
@@ -432,6 +464,7 @@ func _acknowledge_handoff(
 	match_revision: int,
 	baseline_id: int,
 	commit_revision: int,
+	lifecycle_revision: int,
 ) -> void:
 	if (
 		_context.is_host
@@ -439,7 +472,10 @@ func _acknowledge_handoff(
 		and match_revision == _match_revision()
 	):
 		acknowledge_handoff_for_peer(
-			multiplayer.get_remote_sender_id(), baseline_id, commit_revision
+			multiplayer.get_remote_sender_id(),
+			baseline_id,
+			commit_revision,
+			lifecycle_revision,
 		)
 
 
@@ -578,8 +614,10 @@ func _receive_reset_begin(session_id: String, match_revision: int) -> void:
 	_input_state_by_participant.clear()
 	_player_identity.binding_by_participant.clear()
 	_player_identity.participant_by_entity.clear()
+	_replica_pose_generation_by_participant.clear()
 	_store = ReplicaStateStore.new(_codec, _context.session_id, _match_revision())
-	_local_rig().set_actor_control_enabled(false)
+	_apply_dead_to_all_actors()
+	_local_rig().set_replica_input_enabled(false)
 
 
 ## Begins one bounded client baseline transaction from the authoritative host.
@@ -607,7 +645,11 @@ func _receive_baseline_chunk(packet: PackedByteArray) -> void:
 		return
 
 	var baseline: Dictionary = _assembler.finish()
-	if not baseline.get("ok", false) or not _store.install_baseline(baseline).get("ok", false):
+	if (
+		not baseline.get("ok", false)
+		or int(baseline.cut_lifecycle_revision) != _lifecycle.revision()
+		or not _store.install_baseline(baseline).get("ok", false)
+	):
 		return
 	_client.baseline_installed = true
 	_materialize_baseline(baseline.rows)
@@ -654,6 +696,7 @@ func _receive_handoff(
 	match_revision: int,
 	baseline_id: int,
 	commit_revision: int,
+	lifecycle_revision: int,
 ) -> void:
 	if (
 		_context.is_host
@@ -662,6 +705,7 @@ func _receive_handoff(
 		or not _client.baseline_installed
 		or baseline_id != _sequence.baseline_id
 		or _store.durable_revision() != commit_revision
+		or _lifecycle.revision() != lifecycle_revision
 	):
 		return
 
@@ -671,6 +715,7 @@ func _receive_handoff(
 		_match_revision(),
 		baseline_id,
 		commit_revision,
+		lifecycle_revision,
 	)
 
 
@@ -681,6 +726,7 @@ func _receive_grant(
 	match_revision: int,
 	baseline_id: int,
 	commit_revision: int,
+	lifecycle_revision: int,
 ) -> void:
 	if (
 		_context.is_host
@@ -689,11 +735,15 @@ func _receive_grant(
 		or not _client.baseline_installed
 		or baseline_id != _sequence.baseline_id
 		or _store.durable_revision() != commit_revision
+		or _lifecycle.revision() != lifecycle_revision
 	):
 		return
 
 	_client.grant_received = true
-	_client.input_open = _lifecycle.is_alive(_context.local_participant_id)
+	_client.input_open = (
+		_lifecycle.is_alive(_context.local_participant_id)
+		and _replica_has_current_pose(_context.local_participant_id)
+	)
 	_bind_client_input()
 	input_granted.emit(_context.local_participant_id)
 
@@ -762,11 +812,32 @@ func send_durable_to_peer(native_peer_id: int, packet: PackedByteArray) -> bool:
 	return true
 
 
-## Sends one reliable handoff cut to one peer.
+## Sends the current complete lifecycle snapshot for one admission marker.
+func send_lifecycle_to_peer(native_peer_id: int, lifecycle_revision: int) -> bool:
+	if not _can_send_to_peer(native_peer_id) or lifecycle_revision != _lifecycle.revision():
+		return false
+	_receive_player_bindings.rpc_id(
+		native_peer_id,
+		_context.session_id,
+		_match_revision(),
+		_binding_rows(),
+	)
+	_receive_lifecycle_hydration.rpc_id(
+		native_peer_id,
+		_context.session_id,
+		_match_revision(),
+		lifecycle_revision,
+		_lifecycle.hydration_rows(_sequence.physics_tick),
+	)
+	return true
+
+
+## Sends one reliable handoff cut to one peer through both required revisions.
 func send_handoff_to_peer(
 	native_peer_id: int,
 	baseline_id: int,
 	commit_revision: int,
+	lifecycle_revision: int,
 ) -> bool:
 	if not _can_send_to_peer(native_peer_id):
 		return false
@@ -776,6 +847,7 @@ func send_handoff_to_peer(
 		_match_revision(),
 		baseline_id,
 		commit_revision,
+		lifecycle_revision,
 	)
 	return true
 
@@ -785,6 +857,7 @@ func send_grant_to_peer(
 	native_peer_id: int,
 	baseline_id: int,
 	commit_revision: int,
+	lifecycle_revision: int,
 ) -> bool:
 	if not _can_send_to_peer(native_peer_id):
 		return false
@@ -794,10 +867,19 @@ func send_grant_to_peer(
 		_match_revision(),
 		baseline_id,
 		commit_revision,
+		lifecycle_revision,
 	)
 	_admitted_peers[native_peer_id] = true
 	var participant_id: int = _identities.resolve_sender(native_peer_id)
 	_lifecycle.set_admitted(participant_id, true)
+	return true
+
+
+## Sends one reset supersession before starting the replacement admission.
+func send_reset_begin_to_peer(native_peer_id: int, match_revision: int) -> bool:
+	if not _can_send_to_peer(native_peer_id) or match_revision != _match_revision():
+		return false
+	_receive_reset_begin.rpc_id(native_peer_id, _context.session_id, match_revision)
 	return true
 
 
@@ -811,10 +893,10 @@ func _can_send_to_peer(native_peer_id: int) -> bool:
 	)
 
 
-## Removes timed-out provisional state before ending the failed native peer.
-func abort_peer(native_peer_id: int, failure_code: StringName) -> void:
+## Removes every failed provisional life before ending its native peer.
+func abort_peer(native_peer_id: int, _failure_code: StringName) -> void:
 	var participant_id: int = _identities.resolve_sender(native_peer_id)
-	if failure_code == &"SYNC_TIMEOUT" and participant_id > 0:
+	if participant_id > 0:
 		remove_peer(native_peer_id, participant_id)
 	else:
 		_admitted_peers.erase(native_peer_id)
@@ -1004,6 +1086,7 @@ func _apply_replica_state(entity_id: int) -> void:
 	) as PlayerMotionPresentation
 	if presentation != null:
 		presentation.apply_motion(actor.velocity, actor.rotation.y)
+	_replica_pose_generation_by_participant[participant_id] = int(state.generation)
 	_set_actor_alive(participant_id, _lifecycle.is_alive(participant_id))
 	if participant_id == _context.local_participant_id:
 		if _lifecycle.is_alive(participant_id) and _client.grant_received:
@@ -1021,6 +1104,7 @@ func _instantiate_replica(participant_id: int) -> ActorMotion:
 	if spawn != null:
 		actor.global_position.y = spawn.global_position.y
 	_actors_by_participant[participant_id] = actor
+	_set_actor_alive(participant_id, false)
 	return actor
 
 
@@ -1030,6 +1114,7 @@ func _remove_replica(participant_id: int) -> void:
 	if actor == null:
 		return
 	_actors_by_participant.erase(participant_id)
+	_replica_pose_generation_by_participant.erase(participant_id)
 	actor.queue_free()
 
 
@@ -1213,6 +1298,7 @@ func _broadcast_bindings() -> void:
 func _on_lifecycle_transition(_participant_id: int, _state: Dictionary) -> void:
 	if _resetting or _suppress_lifecycle_publish or not _context.is_host:
 		return
+	_admission.publish_lifecycle(_lifecycle.revision())
 	_publish_lifecycle_state()
 	_apply_lifecycle_to_actors()
 
@@ -1255,7 +1341,26 @@ func _commit_player_death(participant_id: int) -> bool:
 ## Applies life-owned collision, visibility, input, and HUD gates without deriving state.
 func _apply_lifecycle_to_actors() -> void:
 	for participant_id: int in _actors_by_participant:
-		_set_actor_alive(participant_id, _lifecycle.is_alive(participant_id))
+		var alive: bool = _lifecycle.is_alive(participant_id)
+		if not _context.is_host:
+			alive = alive and _replica_has_current_pose(participant_id)
+		_set_actor_alive(participant_id, alive)
+
+
+## Disables every retained old body before reset spawn selection begins.
+func _apply_dead_to_all_actors() -> void:
+	for participant_id: int in _actors_by_participant:
+		_set_actor_alive(participant_id, false)
+
+
+## Reports whether a replica has received a pose for its current lifecycle generation.
+func _replica_has_current_pose(participant_id: int) -> bool:
+	var entity_ref: Dictionary = _lifecycle.entity_ref_for(participant_id)
+	return (
+		not entity_ref.is_empty()
+		and int(_replica_pose_generation_by_participant.get(participant_id, 0))
+		== int(entity_ref.generation)
+	)
 
 
 ## Applies one committed alive/dead presentation and collision state atomically.

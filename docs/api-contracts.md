@@ -345,11 +345,14 @@ every hydration attempt, including retries within the same MatchRevision.
    Install collision/lifecycle, seats/control, health/equipment, then poses; bind
    the one local rig with input still disabled. No historical effects are emitted.
 4. On baseline-applied acknowledgement, send the reliable journal through a chosen
-   commit revision and a handoff marker on the same reliable state stream. Following
-   durable records continue on that stream, preserving order with the marker.
-   No unbounded catch-up loop; overflow or deadline aborts this join only.
-5. Client applies the journal/collision fences through the marker and acknowledges
-   that baseline ID/commit revision. Host opens this participant's command admission,
+   commit revision, the newest complete lifecycle snapshot, and a handoff marker naming
+   both revisions on the same reliable state stream. Following durable and lifecycle
+   records continue on that stream, preserving order with the marker. No unbounded
+   catch-up loop; overflow or deadline aborts this join only.
+5. Client applies the journal/collision fences and complete lifecycle snapshot through
+   the marker, then acknowledges that baseline ID, commit revision, and exact lifecycle
+   revision. If either revision advanced, the host repeats snapshot/marker handoff before
+   granting. Host opens this participant's command admission,
    emits admitted, and sends fresh movement with required revisions. Client enables
    input after admitted and its matching movement state (or the committed dead/pending
    life state, which permits only lifecycle retry/menu actions). Future dependent movement
@@ -466,7 +469,13 @@ VehicleInteraction.rebind_commands(participant_id) -> Result<Revision>
 boundary. Capture `multiplayer.get_remote_sender_id()` while handling the RPC and
 resolve its admitted participant; never accept a caller-created source over the wire.
 Check sender admission, SessionId/MatchRevision, live EntityRef, life/control revision
-and controller binding before forwarding. Authority remains with the host even when
+and controller binding before forwarding. The M1-A2.3 network boundary is explicitly
+`submit_command(session_id, match_revision, entity_id, generation, packet)`: sender-derived
+participant identity establishes ownership, while SessionId rejects another connection,
+MatchRevision rejects pre-reset work, and `{entity_id, generation}` rejects a prior life.
+These three fences are independent and are validated before the packet can mutate held
+input state; command sequence is scoped inside the accepted match/generation window and
+starts fresh only for a newly accepted binding. Authority remains with the host even when
 a client drives. Delta is the fixed host physics step, never a client value. `ActorMotion.step`
 accepts a delta only when it approximately matches `1.0 / Engine.physics_ticks_per_second`; it
 rejects the command and neutralizes motion before collision integration on any mismatch.

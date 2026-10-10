@@ -48,12 +48,13 @@ func test_baseline_and_journal_complete_before_input_grant() -> void:
 
 	assert_true(_admission.publish_durable(_event(2, 42)).ok)
 	assert_eq(_transport.events.size(), 3)
-	assert_false(_admission.acknowledge_handoff(NATIVE_PEER_ID, BASELINE_ID, 0).ok)
+	assert_false(_admission.acknowledge_handoff(NATIVE_PEER_ID, BASELINE_ID, 0, 0).ok)
 	assert_eq(_admission.input_participant(NATIVE_PEER_ID), 0)
 	var repeated_handoff: Dictionary = _admission.acknowledge_handoff(
 		NATIVE_PEER_ID,
 		BASELINE_ID,
 		1,
+		0,
 	)
 	assert_true(repeated_handoff.ok)
 	assert_false(repeated_handoff.admitted)
@@ -61,11 +62,105 @@ func test_baseline_and_journal_complete_before_input_grant() -> void:
 	assert_eq(_transport.events[4].kind, &"handoff")
 	assert_eq(_admission.input_participant(NATIVE_PEER_ID), 0)
 
-	var granted: Dictionary = _admission.acknowledge_handoff(NATIVE_PEER_ID, BASELINE_ID, 2)
+	var granted: Dictionary = _admission.acknowledge_handoff(
+		NATIVE_PEER_ID,
+		BASELINE_ID,
+		2,
+		0,
+	)
 	assert_true(granted.ok)
 	assert_true(granted.admitted)
 	assert_eq(_transport.events[5].kind, &"grant")
 	assert_gt(_admission.input_participant(NATIVE_PEER_ID), 0)
+
+
+## Repeats handoff until a joining peer acknowledges the exact newest lifecycle.
+func test_lifecycle_changes_during_admission_gate_grant_on_exact_revision() -> void:
+	assert_true(
+		_admission.start(
+			NATIVE_PEER_ID,
+			BASELINE_ID,
+			40,
+			[_row(1)],
+			{ "lifecycle_revision": 1 },
+		).ok
+	)
+	assert_true(_admission.publish_lifecycle(2).ok)
+	assert_true(_admission.acknowledge_baseline(NATIVE_PEER_ID, BASELINE_ID).ok)
+	assert_eq(_transport.events[1].kind, &"lifecycle")
+	assert_eq(_transport.events[1].lifecycle_revision, 2)
+	assert_eq(_transport.events[2].lifecycle_revision, 2)
+
+	assert_true(_admission.publish_lifecycle(3).ok)
+	var repeated: Dictionary = _admission.acknowledge_handoff(
+		NATIVE_PEER_ID,
+		BASELINE_ID,
+		0,
+		2,
+	)
+	assert_true(repeated.ok)
+	assert_false(repeated.admitted)
+	assert_eq(_transport.events[3].kind, &"lifecycle")
+	assert_eq(_transport.events[3].lifecycle_revision, 3)
+	assert_eq(_transport.events[4].kind, &"handoff")
+
+	var granted: Dictionary = _admission.acknowledge_handoff(
+		NATIVE_PEER_ID,
+		BASELINE_ID,
+		0,
+		3,
+	)
+	assert_true(granted.admitted)
+	assert_eq(_transport.events[5].kind, &"grant")
+	assert_eq(_transport.events[5].lifecycle_revision, 3)
+
+
+## Preserves the original total deadline when reset restarts baseline or handoff.
+func test_reset_attempt_snapshots_preserve_baseline_and_handoff_deadlines() -> void:
+	var now := [100]
+	_admission = ReplicationAdmission.new(
+		_codec,
+		_transport,
+		_identities,
+		_session_id,
+		1,
+	)
+	_admission.set_clock(func() -> int: return now[0])
+	assert_true(
+		_admission.start(
+			NATIVE_PEER_ID,
+			BASELINE_ID,
+			40,
+			[_row(1)],
+			{ "lifecycle_revision": 1, "attempt_deadline_msec": 5000 },
+		).ok
+	)
+	var baseline_snapshot: Dictionary = _admission.take_reset_attempts()[0]
+	assert_eq(baseline_snapshot.phase, ReplicationAdmission.PHASE_BASELINE)
+	assert_eq(baseline_snapshot.attempt_deadline_msec, 5000)
+
+	now[0] = 200
+	_admission = ReplicationAdmission.new(
+		_codec,
+		_transport,
+		_identities,
+		_session_id,
+		2,
+	)
+	_admission.set_clock(func() -> int: return now[0])
+	assert_true(
+		_admission.start(
+			NATIVE_PEER_ID,
+			BASELINE_ID + 1,
+			41,
+			[_row(1)],
+			{ "lifecycle_revision": 2, "attempt_deadline_msec": 5000 },
+		).ok
+	)
+	assert_true(_admission.acknowledge_baseline(NATIVE_PEER_ID, BASELINE_ID + 1).ok)
+	var handoff_snapshot: Dictionary = _admission.take_reset_attempts()[0]
+	assert_eq(handoff_snapshot.phase, ReplicationAdmission.PHASE_HANDOFF)
+	assert_eq(handoff_snapshot.attempt_deadline_msec, 5000)
 
 
 ## Rejects unmapped senders and old acknowledgements without opening input.
@@ -119,8 +214,8 @@ func test_admitted_durable_send_failure_closes_input_while_other_peer_continues(
 	assert_true(_admission.start(OTHER_PEER_ID, BASELINE_ID + 1, 40, [_row(1)]).ok)
 	assert_true(_admission.acknowledge_baseline(NATIVE_PEER_ID, BASELINE_ID).ok)
 	assert_true(_admission.acknowledge_baseline(OTHER_PEER_ID, BASELINE_ID + 1).ok)
-	assert_true(_admission.acknowledge_handoff(NATIVE_PEER_ID, BASELINE_ID, 0).ok)
-	assert_true(_admission.acknowledge_handoff(OTHER_PEER_ID, BASELINE_ID + 1, 0).ok)
+	assert_true(_admission.acknowledge_handoff(NATIVE_PEER_ID, BASELINE_ID, 0, 0).ok)
+	assert_true(_admission.acknowledge_handoff(OTHER_PEER_ID, BASELINE_ID + 1, 0, 0).ok)
 
 	_transport.fail_durable_peer = NATIVE_PEER_ID
 	assert_true(_admission.publish_durable(_event(1, 41)).ok)

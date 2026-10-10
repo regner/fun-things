@@ -24,14 +24,44 @@ func send_durable(native_peer_id: int, packet: PackedByteArray) -> bool:
 	return _root.send_durable_to_peer(native_peer_id, packet)
 
 
-## Sends the reliable cut marker after all journal records through its revision.
-func send_handoff(native_peer_id: int, baseline_id: int, commit_revision: int) -> bool:
-	return _root.send_handoff_to_peer(native_peer_id, baseline_id, commit_revision)
+## Sends one complete lifecycle snapshot before its matching handoff marker.
+func send_lifecycle(native_peer_id: int, lifecycle_revision: int) -> bool:
+	return _root.send_lifecycle_to_peer(native_peer_id, lifecycle_revision)
 
 
-## Opens input only after the current handoff acknowledgement.
-func send_grant(native_peer_id: int, baseline_id: int, commit_revision: int) -> bool:
-	return _root.send_grant_to_peer(native_peer_id, baseline_id, commit_revision)
+## Sends the reliable cut marker after journal and lifecycle state through both revisions.
+func send_handoff(
+	native_peer_id: int,
+	baseline_id: int,
+	commit_revision: int,
+	lifecycle_revision: int,
+) -> bool:
+	return _root.send_handoff_to_peer(
+		native_peer_id,
+		baseline_id,
+		commit_revision,
+		lifecycle_revision,
+	)
+
+
+## Opens input only after the current durable and lifecycle handoff acknowledgement.
+func send_grant(
+	native_peer_id: int,
+	baseline_id: int,
+	commit_revision: int,
+	lifecycle_revision: int,
+) -> bool:
+	return _root.send_grant_to_peer(
+		native_peer_id,
+		baseline_id,
+		commit_revision,
+		lifecycle_revision,
+	)
+
+
+## Supersedes one old-match transfer before a reset baseline begins.
+func send_reset_begin(native_peer_id: int, match_revision: int) -> bool:
+	return _root.send_reset_begin_to_peer(native_peer_id, match_revision)
 
 
 ## Disconnects one failed admission without affecting host simulation or other peers.
