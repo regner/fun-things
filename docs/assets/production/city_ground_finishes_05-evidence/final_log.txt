@@ -1,0 +1,73 @@
+city_ground_finishes.05 — concise producer validation log, 10 October 2026
+Full commands and limitations: ../city_ground_finishes_05.md
+Scratch logs: C:/tmp/ft/assets/city_ground_finishes_05/ (not committed)
+
+Toolchain
+- Blender 5.2.2 LTS, d13f752e3b9c; glTF exporter 5.2.40.
+- Godot 4.8.dev7.official.c971f93e7; gdstyle 0.3.0; Pillow 12.3.0.
+- Every Blender call used background/factory-startup, threads 4, python-exit-code 1,
+  ALSOFT_DRIVERS=null SDL_AUDIODRIVER=dummy and timeout <=300s.
+- Every Godot call was isolated headless with timeout <=300s import / <=180s checks.
+  No live editor connection, windowed editor, shared scene or global setting edits.
+
+Source and artwork
+- texture.py exit 0; 512x512 RGB, 8234 bytes, tile 4x4 m.
+  Measured channel bounds R 101..108, G 87..94, B 75..81.
+- python -m unittest discover -s tools/asset_production/city_ground_finishes_05
+  -p 'test_*.py' -v: exit 0, 5/5 independent tests pass.
+- author.py exit 0; original Blender closed swatch saved and explicit GLB exported.
+- preview.py exit 0; four PNGs, compression 100; inspected all four final images.
+  hero 960x640 / 64675 bytes; side 960x640 / 28810 bytes;
+  soil_detail 960x640 / 29604 bytes; overhead 1280x720 / 72660 bytes.
+- validate.py exit 0; 8 source vertices, 24 exported vertices, 12 triangles,
+  one mesh/surface, zero degenerate faces/non-manifold edges, unit normals,
+  outward winding, exact datum/envelope and top UV orientation checks pass.
+  Fresh re-export is byte-identical to committed GLB. No embedded images.
+
+Godot and scripting
+- Initial headless import exit 0 creates fresh owned .import/.gd.uid identities.
+- After setting external material remap, mipmaps and minimal-swatch LOD exclusion,
+  final headless import exits 0; external material/texture dependencies resolve.
+- --editor --script check_prefab.gd -- --normalize: exit 0 and SOIL_PREFAB_PASS.
+  Two complete load/pack/resave rounds preserve wrapper bytes/IDs.
+  Shutdown RID/ObjectDB diagnostics below mean this is NOT a clean-log pass.
+- Standalone --script check_prefab.gd: exit 0, SOIL_PREFAB_PASS, no warnings/errors.
+  Identity imported model, one mesh/surface, external material, texture/mipmap
+  properties, exact AABB, five Y=0/+Y ray hits and one outside miss all pass.
+- Explicit --check-only --script check_prefab.gd: exit 0, no warnings/errors.
+- Pinned gdstyle fmt --check: 1 file already formatted.
+- Pinned gdstyle --max-line-length 100 --max-warnings 0: no issues found.
+- Initialized plugin-free compiler mirror standalone prefab check: exit 0,
+  SOIL_PREFAB_PASS, no warnings/errors.
+
+Canonical repository checks (executed once)
+- timeout 1800 mise exec -- python tools/production_checks.py
+  --output C:/tmp/ft/assets/city_ground_finishes_05/checks: exit 0, summary ok=true.
+- Formatting, style and compilation true; all 166/166 scripts compile successfully,
+  zero CHECK DEADLINE EXCEEDED logs. Includes the owned check_prefab.gd.
+- Repository Python suite: 14/14 tests pass (asset-specific five tested separately).
+- GUT import passes; GUT 137/137 tests, 6523 assertions, all pass.
+- Negative harness intentionally returns 1, correctly detected as success by runner.
+- No new source compile errors, fixture exemptions, broad suppression or shared
+  deadline/config edits. The sibling runs' historical failures did not recur here.
+
+Diagnostic disposition
+- Full-project headless import/normalization: existing MCP warning that Godot 4.8
+  is newer than plugin's latest tested 4.7.0. Its startup in these own processes
+  is project configuration, not use of the owner's live MCP session.
+- Headless editor normalization emits shutdown leaks after the passing receipt:
+  5 Viewport, 8 DummyTexture, 1 Scenario, 52 ShapedTextData, 1 Font RID allocations;
+  5 Canvas / 31 CanvasItem RIDs and 168 ObjectDB instances.
+  Sibling .01 documented the same class of leak with an empty SceneTree in a
+  plugin-free editor. Retained as an environment/editor diagnostic, not suppressed
+  or counted as clean logs. Standalone worktree and mirror checks are clean.
+- Blender material/world use_nodes calls emit pinned-API deprecation warnings.
+  Standalone --version reports one unfreed 0.000023 MB allocation, exit 0.
+  Author/render/validation processes exit 0 normally.
+- Two initial inspection commands requested nonexistent checks/summary filenames;
+  actual summary.json, script-checks.log, compilation.json and gut.log were then
+  read. No test failure or artifact was hidden by the inspection typo.
+
+Remaining: independent review, live road/site UV adapter, actual engine motion and
+shadow/palette readability, district placement, movement/network checks if site
+collision changes, packaged builds and sustained target-device performance.
