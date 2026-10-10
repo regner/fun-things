@@ -1,0 +1,43 @@
+d03_apartment_family.04 - final bounded producer checks (2026-10-10)
+Commands run from repository root; exact reproduction flags are in ../d03_apartment_family_04.md.
+All Blender processes used 5.2.2 LTS, build d13f752e3b9c, factory startup, background,
+-noaudio, four threads, --python-exit-code 1, null/dummy audio environment and timeout.
+All Godot processes used mise-pinned 4.8.dev7.official.c971f93e7 and timeout.
+
+PASS python tools/asset_production/d03_apartment_family_04/author.py (exit 0)
+  Seeded 33 linked component instances; no new source, GLB, mesh or material.
+PASS timeout 300 <pinned Godot> --headless --path . --import (exit 0)
+  Initial and final imports: no ERROR/SCRIPT ERROR lines or missing dependencies.
+PASS timeout 180 <pinned Godot> --headless --editor --path . --script <check_prefab.gd> -- --normalize (exit 0)
+  Initial normalization plus two subsequent byte-stable reload/save cycles.
+  No assertion failures. Stable scene SHA-256 is retained in validation.json.
+  Known editor shutdown diagnostics: viewport/texture/scenario/text/font RID leaks,
+  Canvas/CanvasItem and ObjectDB leaks; same class observed in earlier sibling checks.
+  These are not suppressed or described as a clean editor log.
+PASS timeout 180 <pinned Godot> --headless --path . --script <check_prefab.gd> (exit 0)
+  No ERROR/SCRIPT ERROR lines. 41 meshes, 137 surfaces, 22 inherited static boxes.
+  21 capsule queries, 17 seam/height-step rays, 50 open-side vertical physics rays.
+  Car-sized box side sweep 20 m clear. Eight ActorMotion runs, 60 ticks each;
+  four cases in authority/replay with equal endpoints. Actual receipts in validation.json.
+PASS timeout 900 <pinned Blender and required flags> --python <render.py> (exit 0)
+  Four final linked-source renders; inspected hero, reverse side, step detail and
+  vertical-down 47 m / 42 degree vertical-FOV overhead. No saved duplicate source.
+  Hero/side reduced to 1152x648 to meet lean evidence target; overhead 1280x720,
+  detail 1024x576. RGB PNG compression 100, 32 samples, no dithering.
+PASS timeout 300 <pinned Blender and required flags> --python <validate.py> (exit 0)
+  55,832 triangles; 29,160 source vertices; 39,308 exported vertices.
+  Seven dependency GLBs byte-identical after fresh original-source export.
+  Zero degenerate source faces/GLB triangles and non-manifold edges; unit normals.
+  26 actual-GLB roof first-hit samples; 144 unroofed visual-link samples.
+  Seven literal ground rectangles: 365.76 square metres. Five literal stack profiles
+  and four one-storey upper-wall envelopes match actual inherited collision.
+PASS mise exec -- gdstyle fmt --check <check_prefab.gd>
+PASS mise exec -- gdstyle --max-line-length 100 --max-warnings 0 <check_prefab.gd>
+  One file already formatted; one file checked, no issues found.
+
+Tool notices: pinned road addon says engine version untested; Blender use_nodes
+notice concerns Blender 6. Final import/runtime logs contain no errors. No live
+owner editor session used. No production_checks.py run (owner decision 52).
+Raw logs and scratch exports: C:/tmp/ft/assets/d03_apartment_family_04/ (not committed).
+Independent review, world placement/actor visibility, contextual vehicle/network
+behavior, packaging and sustained desktop/Deck performance remain pending.
