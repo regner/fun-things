@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://mytrg07lj5ic"]
+
+[ext_resource type="PackedScene" uid="uid://b8o7bop7am8ns" path="res://art/models/environment/city_shop_fittings_04/city_shop_fittings_04.glb" id="1_model"]
+
+[sub_resource type="BoxShape3D" id="Box_shutter"]
+size = Vector3(3.2, 2.48, 0.19)
+
+[node name="CityShopFittings04" type="Node3D" unique_id=1490085854]
+
+[node name="Visuals" type="Node3D" parent="." unique_id=1980260377]
+
+[node name="Model" parent="Visuals" unique_id=1797586291 instance=ExtResource("1_model")]
+
+[node name="Collision" type="Node3D" parent="." unique_id=381468862]
+
+[node name="Body" type="StaticBody3D" parent="Collision" unique_id=1475786433]
+collision_mask = 0
+
+[node name="Shape" type="CollisionShape3D" parent="Collision/Body" unique_id=171970581]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.24, -0.105)
+shape = SubResource("Box_shutter")

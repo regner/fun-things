@@ -1,0 +1,49 @@
+city_shop_fittings.04 — concise producer execution receipt
+Worktree: C:/GameDev/git/ft-lanes/a-fittings; branch lane/a-fittings
+Blender: 5.2.2 LTS / d13f752e3b9c; glTF exporter 5.2.40
+Godot: 4.8.dev7.official.c971f93e7; gdstyle: 0.3.0
+Exact reproduction commands are in ../city_shop_fittings_04.md.
+All Blender calls used isolated background/factory-startup, four threads,
+--python-exit-code 1, disabled audio environment and timeout <=600 seconds.
+All direct Godot calls were headless, with 300-second import / 180-second check bounds.
+
+Final outcomes:
+PASS author.py: saved original .blend and explicit GLB.
+PASS export.py: independent process opened saved source and reexported to scratch.
+PASS validate.py: 2952 triangles; 1502 source vertices; 1674 GLB vertices;
+  1 mesh / 4 surfaces; 0 degenerate faces/triangles; 0 nonmanifold source edges;
+  unit normals, winding, identity transforms, source/export bounds; exact GLB bytes.
+  GLB size 75436; SHA256 8d32d92c187385d612f4c36bde740437826d7f7416e0ef05d5f9e3ceac450648.
+PASS render.py: four 1280x720 isolated views, personally inspected.
+PASS Godot import: own .import/.uid generated; no other tracked/untracked paths changed.
+PASS check.gd --normalize: linked dependencies, UIDs, bounds/materials/collider;
+  prefab and collision fixture stable on second pack/save/reload.
+PASS check.gd runtime (final formatted source): front/side/rear contact, bypass,
+  body-hit and above-header-clear rays, AUTHORITY/REPLAY within 1 mm.
+  Front Z=-0.550781071; side X=1.950521827; rear Z=0.340494454;
+  bypass Z=2.999999762. Both mode runs and all XYZ results are in validation.json.
+PASS gdstyle fmt --check and --max-line-length 100 --max-warnings 0.
+PASS timeout 1800 mise exec -- python tools/production_checks.py
+  --output C:/tmp/ft/assets/city_shop_fittings_04/checks
+  Engine pin/GUT pin/owned scripts/Python/GUT import/GUT tests/negative test all OK.
+  152/152 owned scripts compile; 14 Python tests; 119 GUT tests, 6362 assertions.
+  Intentional negative GUT test returns 1 and is correctly detected.
+
+Corrections / diagnostics (no suppression):
+- First side evidence view cropped the headbox; final orthographic framing widened.
+- Initial runtime's bitwise-like Vector3 equality rejected a 0.878 mm first-contact
+  floor recovery offset after fixture teleports. Final comparison uses the documented
+  1 mm tolerance; all independent contact/bypass expectations and production code unchanged.
+- Initial owned lint flagged two long lines; split and formatted, zero final warnings.
+- Blender emits Material/World.use_nodes deprecation warnings; pin still succeeds.
+- Blender --version exits 0 but reports one 23-byte unfreed block.
+- Godot import exits 0 with the existing MCP plugin's 4.8 versus 4.7 compatibility warning.
+- Editor normalization assertions and exit status pass, but shutdown reports leaked
+  renderer/text/Canvas/ObjectDB allocations. Not claimed diagnostic-clean.
+- Final runtime log contains no ERROR, WARNING or SCRIPT ERROR. Existing project MCP
+  autoload starts in this owned process; no MCP endpoint or owner's live session used.
+- Canonical production checks pass all diagnostic gates without failure waivers.
+
+Raw logs/retries/scratch: C:/tmp/ft/assets/city_shop_fittings_04/ (not committed).
+Source/export/prefab candidate only: independent review, world placement, actual
+camera/blue-hour scene, cars, multiplayer transports, packaging and device performance pending.
