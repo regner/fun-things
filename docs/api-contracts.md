@@ -592,8 +592,9 @@ reopening the already-open LocalRig input gate, but `DesktopFootInput.set_focuse
 all held aliases every time. Thus the first command moved and subsequent snapshots turned a held
 key into neutral intent until a new key-down event. Focus changes now clear only on an actual
 state transition. Reapplying the same replica aim binding also preserves the latest mouse position
-instead of resetting it to viewport centre on every movement snapshot. Aim still uses the same
-camera-to-actor-plane projection and shared `aim_yaw` simulation field. The exported
+instead of resetting it to viewport centre on every movement snapshot. Pointer position is collected
+before GUI dispatch so a full-window passive overlay cannot prevent mouse-facing. Aim still uses the
+same camera-to-actor-plane projection and shared `aim_yaw` simulation field. The exported
 acceptance now holds client intent for ten seconds over direct ENet and the normal 75 ms ±30 ms,
 2% loss profile, activated after admission so the measured interval is unambiguous. It checks
 accumulated presentation travel in every 250 ms window, requires client authority travel to remain

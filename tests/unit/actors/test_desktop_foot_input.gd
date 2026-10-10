@@ -90,7 +90,7 @@ func test_mouse_right_of_actor_faces_world_positive_x() -> void:
 
 	var motion := InputEventMouseMotion.new()
 	motion.position = right_position
-	collector._unhandled_input(motion)
+	collector._input(motion)
 	assert_true(is_equal_approx(collector.sample(1).aim_yaw, -PI * 0.5))
 	collector.bind_aim(camera, actor)
 	assert_true(is_equal_approx(collector.sample(2).aim_yaw, -PI * 0.5))

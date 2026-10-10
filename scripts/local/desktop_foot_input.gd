@@ -31,11 +31,14 @@ func _ready() -> void:
 	_mouse_position = get_viewport().get_visible_rect().size * 0.5
 
 
-## Tracks only unconsumed gameplay bindings so UI can handle its input first.
-func _unhandled_input(event: InputEvent) -> void:
+## Tracks pointer position before GUI dispatch so passive overlays cannot suppress aim.
+func _input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion:
 		_mouse_position = (event as InputEventMouseMotion).position
-		return
+
+
+## Tracks only unconsumed gameplay bindings so UI can handle its input first.
+func _unhandled_input(event: InputEvent) -> void:
 	if not (event is InputEventKey or event is InputEventMouseButton):
 		return
 
