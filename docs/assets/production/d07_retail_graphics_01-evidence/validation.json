@@ -1,0 +1,388 @@
+{
+  "blender": "5.2.2 LTS",
+  "build_hash": "d13f752e3b9c",
+  "gltf_exporter": [
+    5,
+    2,
+    40
+  ],
+  "members": [
+    "city_shop_fittings_02",
+    "formed_fascia_frame",
+    "continuous_face_trim",
+    "folded_back_tray",
+    "artwork_reveal",
+    "fascia_artwork_carrier",
+    "wall_mount_rail_lower",
+    "wall_mount_rail_upper"
+  ],
+  "export_settings": {
+    "export_format": "GLB",
+    "use_selection": true,
+    "export_yup": true,
+    "export_apply": false,
+    "export_texcoords": true,
+    "export_normals": true,
+    "export_tangents": false,
+    "export_materials": "EXPORT",
+    "export_cameras": false,
+    "export_lights": false,
+    "export_extras": false,
+    "export_animations": false,
+    "export_skins": false,
+    "export_morph": false
+  },
+  "objects": [
+    {
+      "name": "formed_fascia_frame",
+      "vertices": 196,
+      "triangles": 392,
+      "volume_m3": 0.045454173661439966,
+      "material_slots": [
+        "fascia_slate_petrol"
+      ],
+      "nonmanifold_edges": 0,
+      "inconsistent_winding_edges": 0,
+      "degenerate_triangles": 0,
+      "applied_transforms": true
+    },
+    {
+      "name": "continuous_face_trim",
+      "vertices": 168,
+      "triangles": 336,
+      "volume_m3": 0.0073969591153363766,
+      "material_slots": [
+        "fascia_warm_trim"
+      ],
+      "nonmanifold_edges": 0,
+      "inconsistent_winding_edges": 0,
+      "degenerate_triangles": 0,
+      "applied_transforms": true
+    },
+    {
+      "name": "folded_back_tray",
+      "vertices": 84,
+      "triangles": 164,
+      "volume_m3": 0.10565693593112108,
+      "material_slots": [
+        "fascia_slate_petrol"
+      ],
+      "nonmanifold_edges": 0,
+      "inconsistent_winding_edges": 0,
+      "degenerate_triangles": 0,
+      "applied_transforms": true
+    },
+    {
+      "name": "artwork_reveal",
+      "vertices": 112,
+      "triangles": 224,
+      "volume_m3": 0.0019423169033959263,
+      "material_slots": [
+        "fascia_recess"
+      ],
+      "nonmanifold_edges": 0,
+      "inconsistent_winding_edges": 0,
+      "degenerate_triangles": 0,
+      "applied_transforms": true
+    },
+    {
+      "name": "fascia_artwork_carrier",
+      "vertices": 84,
+      "triangles": 164,
+      "volume_m3": 0.10383310088116884,
+      "material_slots": [
+        "fascia_artwork_face",
+        "fascia_mount_metal"
+      ],
+      "nonmanifold_edges": 0,
+      "inconsistent_winding_edges": 0,
+      "degenerate_triangles": 0,
+      "applied_transforms": true
+    },
+    {
+      "name": "wall_mount_rail_lower",
+      "vertices": 96,
+      "triangles": 188,
+      "volume_m3": 0.01090800941556869,
+      "material_slots": [
+        "fascia_mount_metal"
+      ],
+      "nonmanifold_edges": 0,
+      "inconsistent_winding_edges": 0,
+      "degenerate_triangles": 0,
+      "applied_transforms": true
+    },
+    {
+      "name": "wall_mount_rail_upper",
+      "vertices": 96,
+      "triangles": 188,
+      "volume_m3": 0.010908009415568692,
+      "material_slots": [
+        "fascia_mount_metal"
+      ],
+      "nonmanifold_edges": 0,
+      "inconsistent_winding_edges": 0,
+      "degenerate_triangles": 0,
+      "applied_transforms": true
+    }
+  ],
+  "material_backface_culling": {
+    "fascia_slate_petrol": true,
+    "fascia_warm_trim": true,
+    "fascia_recess": true,
+    "fascia_artwork_face": true,
+    "fascia_mount_metal": true
+  },
+  "bounds_blender": [
+    [
+      -1.600000023841858,
+      0.0,
+      -0.4000000059604645
+    ],
+    [
+      1.600000023841858,
+      0.14000000059604645,
+      0.4000000059604645
+    ]
+  ],
+  "triangles": 1656,
+  "artwork_front_y": 0.128,
+  "artwork_uv_orientation": "U increases toward Blender -X; V toward +Z; glTF V storage flips",
+  "artwork_material": "fascia_artwork_face",
+  "authoring_reference_dimensions_m": [
+    1.0,
+    1.0,
+    1.0
+  ],
+  "width_to_1m_reference_ratio": 3.200000047683716,
+  "asset_id": "d07_retail_graphics.01",
+  "output_type": "Artwork set reusing unchanged fascia geometry",
+  "new_geometry": false,
+  "shared_source": "art/source/models/environment/city_shop_fittings_02/city_shop_fittings_02.blend",
+  "shared_glb": "art/models/environment/city_shop_fittings_02/city_shop_fittings_02.glb",
+  "shared_dependency_sha256": {
+    "art/source/models/environment/city_shop_fittings_02/city_shop_fittings_02.blend": "44b3165d4d6d9cf4b0f3ef577e0c70fc80dae72726b04ebbe53272581e4454db",
+    "art/models/environment/city_shop_fittings_02/city_shop_fittings_02.glb": "4fd2106f09ef4a35edafbcf3a3a68ea94983e721fd84d852a406e2d26de6552f"
+  },
+  "shared_dependencies_unchanged": true,
+  "fresh_reexport_byte_identical": true,
+  "source_vertices": 836,
+  "glb_vertices": 1072,
+  "glb_triangles": 1656,
+  "mesh_count": 7,
+  "surface_count": 8,
+  "degenerate_faces": 0,
+  "degenerate_triangles": 0,
+  "nonmanifold_edges": 0,
+  "unit_length_corner_normals": true,
+  "godot_aabb_min": [
+    -1.6,
+    -0.4,
+    -0.14
+  ],
+  "godot_aabb_max": [
+    1.6,
+    0.4,
+    0
+  ],
+  "pivot": "Wall contact centre (0,0,0), not ground-mounted",
+  "artwork_plane_godot_z": -0.128,
+  "artwork_dimensions_m": [
+    3.0,
+    0.6
+  ],
+  "artwork_safe_dimensions_m": [
+    2.94,
+    0.54
+  ],
+  "status": "PASS; bounded producer source/export checks, independent review pending",
+  "binary_audit": {
+    "normal_length_max_error": 1.0239512504561787e-07,
+    "front_uv_vertices": 28,
+    "aabb_min": [
+      -1.600000023841858,
+      -0.4000000059604645,
+      -0.14000000059604645
+    ],
+    "aabb_max": [
+      1.600000023841858,
+      0.4000000059604645,
+      -0.0
+    ],
+    "front_uv_unmirrored": true
+  },
+  "shared_glb_bytes": 45616,
+  "shared_glb_sha256": "4fd2106f09ef4a35edafbcf3a3a68ea94983e721fd84d852a406e2d26de6552f",
+  "engine_normalization": {
+    "aabb_max": [
+      1.6,
+      0.4,
+      0.0
+    ],
+    "aabb_min": [
+      -1.6,
+      -0.4,
+      -0.14
+    ],
+    "engine": "4.8-dev7 (official)",
+    "face_only_overrides": 1,
+    "filter": "linear_mipmap",
+    "identity_model_transform": true,
+    "imported_mesh_resources_unchanged": true,
+    "linked_model": "res://art/models/environment/city_shop_fittings_02/city_shop_fittings_02.glb",
+    "meshes": 7,
+    "no_collision": true,
+    "prefab": "res://scenes/prefabs/environment/d07_retail_graphics_01.tscn",
+    "prefab_sha256": "028763e00d50931f1c8b8cd158b5c1d45538a60bc51f0fbb0a2f5d6d67d5d98d",
+    "prefab_uid": "uid://jmsuaxfymftt",
+    "repeat": false,
+    "status": "PASS",
+    "surfaces": 8,
+    "texture_size": [
+      2000,
+      400
+    ],
+    "two_roundtrips_byte_identical": true
+  },
+  "engine_fresh_load": {
+    "aabb_max": [
+      1.6,
+      0.4,
+      0.0
+    ],
+    "aabb_min": [
+      -1.6,
+      -0.4,
+      -0.14
+    ],
+    "engine": "4.8-dev7 (official)",
+    "face_only_overrides": 1,
+    "filter": "linear_mipmap",
+    "identity_model_transform": true,
+    "imported_mesh_resources_unchanged": true,
+    "linked_model": "res://art/models/environment/city_shop_fittings_02/city_shop_fittings_02.glb",
+    "meshes": 7,
+    "no_collision": true,
+    "prefab": "res://scenes/prefabs/environment/d07_retail_graphics_01.tscn",
+    "repeat": false,
+    "status": "PASS",
+    "surfaces": 8,
+    "texture_size": [
+      2000,
+      400
+    ]
+  },
+  "commands": {
+    "author": {
+      "exit_code": 0,
+      "diagnostics": []
+    },
+    "artwork-tests": {
+      "exit_code": 0,
+      "diagnostics": []
+    },
+    "validate": {
+      "exit_code": 0,
+      "diagnostics": []
+    },
+    "preview": {
+      "exit_code": 0,
+      "diagnostics": [
+        "C:\\GameDev\\git\\ft-lanes\\a-d07\\tools\\asset_production\\d07_retail_graphics_01\\preview.py:21: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0",
+        "C:\\GameDev\\git\\ft-lanes\\a-d07\\tools\\asset_production\\d07_retail_graphics_01\\preview.py:33: DeprecationWarning: 'World.use_nodes' is expected to be removed in Blender 6.0"
+      ]
+    },
+    "import": {
+      "exit_code": 0,
+      "diagnostics": [
+        "WARNING: [MCP] Godot 4.8 detected - latest tested version is 4.7.0. The plugin will run normally but some features may behave unexpectedly. Please report issues at https://github.com/NPGameDev/godot-mcp-toolkit/issues"
+      ]
+    },
+    "normalize": {
+      "exit_code": 0,
+      "diagnostics": [
+        "WARNING: [MCP] Godot 4.8 detected - latest tested version is 4.7.0. The plugin will run normally but some features may behave unexpectedly. Please report issues at https://github.com/NPGameDev/godot-mcp-toolkit/issues",
+        "WARNING: Scan thread aborted...",
+        "ERROR: 5 RID allocations of type 'N16RendererViewport8ViewportE' were leaked at exit.",
+        "ERROR: 8 RID allocations of type 'PN13RendererDummy14TextureStorage12DummyTextureE' were leaked at exit.",
+        "ERROR: 1 RID allocations of type 'N17RendererSceneCull8ScenarioE' were leaked at exit.",
+        "ERROR: 52 RID allocations of type 'PN18TextServerAdvanced22ShapedTextDataAdvancedE' were leaked at exit.",
+        "ERROR: 1 RID allocations of type 'PN18TextServerAdvanced12FontAdvancedE' were leaked at exit.",
+        "WARNING: 5 RIDs of type \"Canvas\" were leaked.",
+        "WARNING: 31 RIDs of type \"CanvasItem\" were leaked.",
+        "WARNING: 168 ObjectDB instances were leaked at exit (run with `--verbose` for details)."
+      ]
+    },
+    "import-final": {
+      "exit_code": 0,
+      "diagnostics": [
+        "WARNING: [MCP] Godot 4.8 detected - latest tested version is 4.7.0. The plugin will run normally but some features may behave unexpectedly. Please report issues at https://github.com/NPGameDev/godot-mcp-toolkit/issues"
+      ]
+    },
+    "fresh": {
+      "exit_code": 0,
+      "diagnostics": []
+    },
+    "compile": {
+      "exit_code": 0,
+      "diagnostics": []
+    },
+    "format": {
+      "exit_code": 0,
+      "diagnostics": []
+    },
+    "lint": {
+      "exit_code": 0,
+      "diagnostics": []
+    }
+  },
+  "artwork_tests": {
+    "tests": 3,
+    "status": "PASS",
+    "fresh_png_byte_identical": true
+  },
+  "renders": {
+    "hero": {
+      "bytes": 176158,
+      "sha256": "edcc67e1ca08ca6fff576e85e66475bac3dbc573968c2ce6a826e5b4920388fb",
+      "resolution": [
+        1280,
+        720
+      ]
+    },
+    "side": {
+      "bytes": 174209,
+      "sha256": "e29bcf172f85af9594d4a3b746987fee10c9f0a2fdb7eec456d46a4d2408350e",
+      "resolution": [
+        1280,
+        720
+      ]
+    },
+    "detail": {
+      "bytes": 282200,
+      "sha256": "92bb537714790e74e77d7e56c6424728e62eea067ffc8939447f32ba2ac0671e",
+      "resolution": [
+        1280,
+        720
+      ]
+    },
+    "overhead_47m_42deg": {
+      "bytes": 7200,
+      "sha256": "9f975f18caefe77b5307f28092df5a7c6dcc207fda0558e45ec97edd3253d90d",
+      "resolution": [
+        1280,
+        720
+      ]
+    }
+  },
+  "artwork_texture": {
+    "path": "art/textures/environment/d07_retail_graphics_01/retail_fascia_albedo.png",
+    "resolution": [
+      2000,
+      400
+    ],
+    "mode": "RGB",
+    "bytes": 45471,
+    "sha256": "8d282fcbaacd9f59df2124c35d36143c7441ec7854eba93ced4a82301f1a4e64"
+  }
+}
