@@ -77,7 +77,10 @@ recommendations and do not block P1.
   anchors), provisional Signal Row spawn/parked-car anchors, traversal checks and a capacity
   baseline. C2.2 later replaces greybox districts with production art, keeping `world_id`s;
   any change to city dependencies must regenerate `scenes/match/brackett_content_manifest.json`
-  through `CityData.build_content_manifest()` (stale manifests fail closed).
+  through `CityData.build_content_manifest()` (stale manifests fail closed). C2.2a tooling has
+  landed: the clearance/fit test, manifest regeneration, capture tool, a 2048-row manifest cap and
+  a capacity baseline. District replacement lanes wait for the owner-approved world-architecture
+  plan (scene layers, asset types, directory layout).
 - [ ] **M1-C3 — Implement host-owned pedestrians and traffic (P4).** Decision 14 makes S10
   pedestrian behavior/budget first production work. C3.0, the host-only pedestrian core
   (compact state, spatial grid, bounded threats, crossing reservations and recorded seeded
