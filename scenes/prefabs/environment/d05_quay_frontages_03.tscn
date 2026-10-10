@@ -1,0 +1,44 @@
+[gd_scene format=3 uid="uid://cegchwgkmqo3"]
+
+[ext_resource type="PackedScene" path="res://art/models/environment/city_shop_fittings_06/city_shop_fittings_06_single.glb" id="door"]
+[ext_resource type="PackedScene" path="res://art/models/environment/d05_quay_frontages_03/d05_quay_frontages_03.glb" id="shell"]
+[ext_resource type="PackedScene" path="res://scenes/prefabs/environment/city_shop_fittings_03_single.tscn" id="surround"]
+[ext_resource type="PackedScene" path="res://scenes/prefabs/environment/city_shop_fittings_07.tscn" id="window"]
+
+[sub_resource type="BoxShape3D" id="Box_shell"]
+size = Vector3(7.2, 6.85, 7.6)
+
+[node name="D05QuayFrontages03" type="Node3D" unique_id=377336339]
+
+[node name="Visuals" type="Node3D" parent="." unique_id=231531269]
+
+[node name="Model" parent="Visuals" unique_id=574977999 instance=ExtResource("shell")]
+
+[node name="Fittings" type="Node3D" parent="." unique_id=2102852309]
+
+[node name="Surround" parent="Fittings" unique_id=953561890 instance=ExtResource("surround")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.45, 0, -3.8)
+
+[node name="ClosedDoor" parent="Fittings" unique_id=76835970 instance=ExtResource("door")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.45, 0, -3.8)
+
+[node name="LowerFront" parent="Fittings" unique_id=409389166 instance=ExtResource("window")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0.9, -3.8)
+
+[node name="UpperFront" parent="Fittings" unique_id=1098476438 instance=ExtResource("window")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.65, -3.8)
+
+[node name="LowerRear" parent="Fittings" unique_id=382605223 instance=ExtResource("window")]
+transform = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, -1, 0, 0.9, 3.8)
+
+[node name="UpperRear" parent="Fittings" unique_id=124606157 instance=ExtResource("window")]
+transform = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, -1, 0, 4.65, 3.8)
+
+[node name="Collision" type="Node3D" parent="." unique_id=1075562746]
+
+[node name="Body" type="StaticBody3D" parent="Collision" unique_id=1642596062]
+collision_mask = 0
+
+[node name="Shell" type="CollisionShape3D" parent="Collision/Body" unique_id=1881195742]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.425, 0)
+shape = SubResource("Box_shell")

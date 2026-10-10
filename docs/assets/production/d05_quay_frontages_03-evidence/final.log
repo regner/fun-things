@@ -1,0 +1,33 @@
+d05_quay_frontages.03 — final bounded production checks
+Producer: commissioned implementation specialist, lane/a-qfront, 10 October 2026.
+Exact executable paths, environment and reproduction commands: ../d05_quay_frontages_03.md.
+Scratch stdout/stderr and retries: C:/tmp/ft/assets/d05_quay_frontages_03/ (not committed).
+
+PASS Blender author.py: exit 0, 5.2.2 LTS d13f752e3b9c, glTF exporter 5.2.40.
+PASS saved-source export.py to scratch: exit 0, byte-identical to production GLB.
+PASS validate.py: exit 0; 3108 triangles, 1576 source vertices, 1948 GLB vertices.
+PASS source/export: one mesh, five surfaces; zero degenerate faces/triangles and non-manifold source edges.
+PASS source/export: unit normals, consistent winding, identity transforms, metre units, ground datum and AABB.
+PASS shared fitting validation: five blind-recess rays, intact facade, six mounts with zero shell-surface intersections.
+PASS render.py: exit 0; four isolated 1280x720 Cycles CPU / AgX / 32-sample renders.
+PASS visual self-inspection: four hipped slopes and short ridge read overhead; complete hero/side silhouettes.
+PASS pinned Godot headless import: exit 0; zero ERROR/SCRIPT ERROR lines.
+PASS check.gd --normalize: exit 0; linked import identity, six shared mounts, bounds, opaque surfaces and one collider.
+PASS recursive resource/UID checks and two load-pack-save-reload cycles for prefab and saved collision fixture.
+PASS fresh process scene hash comparison: both pre-normalization SHA-256 hashes unchanged after normalization.
+PASS production ActorMotion/F​​ootCommand: six cases x 60 physics ticks x AUTHORITY/REPLAY.
+PASS wall rays: X=+-3.6, Z=+-3.8; side bypass and above-wall roof ray clear.
+PASS actor: side |X|=3.950517; front/rear |Z|=4.166663; bypass Z=2.9999998 at X=4.4.
+PASS authority/replay within 2 mm; maximum observed difference 0.878 mm initial vertical settling.
+PASS gdstyle fmt --check and --max-line-length 100 --max-warnings 0: zero warnings.
+PASS Python AST parsing: author.py, export.py, validate.py, render.py and manifest.py.
+
+Corrected initial defects: plinth intersected entrance casing; shortened plinth before final source/export.
+Detail framing widened to include the complete entrance. Owned style warnings corrected.
+Initial 3 mm front/rear contact assertion failed: actor stops 16.663 mm outside ideal capsule contact.
+Final assertion requires nonpenetration and <=20 mm stand-off; independent rays still prove exact wall planes.
+No collider or production motion change; no inference of a different actor envelope.
+New scene UIDs imported before final cross-process stability check; no accepted sibling UID changed.
+Known unsuppressed diagnostics: Blender Principled API deprecations; existing Godot MCP 4.8-version warning.
+Not run: production_checks.py (owner decision 52), car impacts, real multiplayer transport, world placement,
+populated/blue-hour engine visibility, packaged or Steam Deck/performance acceptance. Independent review pending.
