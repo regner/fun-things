@@ -1,0 +1,232 @@
+{
+  "artwork_interface": {
+    "centres_godot_m": [
+      [
+        -1.23,
+        1.96,
+        -1.65
+      ],
+      [
+        1.23,
+        1.96,
+        -1.65
+      ]
+    ],
+    "face_count": 2.0,
+    "face_width_height_m": [
+      1.4,
+      0.46
+    ],
+    "outward_normals": true,
+    "surface_index": 3.0,
+    "uv0_unit_square": true
+  },
+  "asset": "d09_storage.02",
+  "blender": "5.2.2 LTS",
+  "blender_build": "d13f752e3b9c",
+  "bounds_tolerance_m": 0.001,
+  "degenerate_faces": 0.0,
+  "degenerate_triangles": 0.0,
+  "export_normal_max_length_error": 1.274344672e-07,
+  "export_vertices": 7762.0,
+  "exporter": "5.2.40",
+  "fresh_export_byte_identical": true,
+  "glb_bytes": 333324.0,
+  "glb_sha256": "590469bcc6db39bda4cf46c131edca349d0f2d357aebe1e26a9c568b242e5be0",
+  "godot": {
+    "bounds_min_m": [
+      -1.25,
+      0.0,
+      -3.0
+    ],
+    "bounds_size_m": [
+      2.5,
+      2.59999990463257,
+      6.0
+    ],
+    "engine": "4.8-dev7 (official)",
+    "fresh_process_roundtrip_byte_stable": true,
+    "linked_model_identity": true,
+    "physics": {
+      "above_roof_ray_clear": true,
+      "actor_capsule_height_m": 1.8,
+      "actor_capsule_radius_m": 0.35,
+      "authority_replay_equal": true,
+      "bypass_end_m": [
+        2.0,
+        0.00100000004749745,
+        8.00001239776611
+      ],
+      "car_box_dimensions_m": [
+        1.8,
+        1.5,
+        4.4
+      ],
+      "car_bypass_safe_fraction": 1.0,
+      "car_front_cast_safe_fraction": 0.23992919921875,
+      "contact_stop_m": [
+        0.0,
+        2.34375474974513e-05,
+        -3.35025358200073
+      ],
+      "three_front_rays_blocked": true,
+      "ticks_per_case_per_mode": 192,
+      "vehicle_driving_network_transport_and_placement": "not tested"
+    },
+    "resource_uids": {
+      "res://art/models/environment/d09_storage_02/d09_storage_02.glb": "uid://cewl65j3t8eug",
+      "res://scenes/prefabs/environment/d09_storage_02.tscn": "uid://dxo4oar28nrqj",
+      "res://scripts/actors/actor_motion.gd": "uid://jthmfio4c27p",
+      "res://tools/asset_production/d09_storage_02/check_scene.tscn": "uid://c80r6p2vdy3ca"
+    },
+    "save_reload_byte_stable": true,
+    "stable_roundtrips": 2.0,
+    "static_collision": {
+      "bodies": 1,
+      "boxes": 1,
+      "layer": 1,
+      "mask": 0
+    }
+  },
+  "godot_bounds_max_m": [
+    1.25,
+    2.59999990463257,
+    3.0
+  ],
+  "godot_bounds_min_m": [
+    -1.25,
+    0.0,
+    -3.0
+  ],
+  "godot_dimensions_m": [
+    2.5,
+    2.59999990463257,
+    6.0
+  ],
+  "materials": [
+    {
+      "name": "storage_body_blue",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.0549999997019768,
+          0.135000005364418,
+          0.234999999403954,
+          1.0
+        ],
+        "metallicFactor": 0.25,
+        "roughnessFactor": 0.479999989271164
+      }
+    },
+    {
+      "name": "storage_frame_slate",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.0549999997019768,
+          0.0850000008940697,
+          0.119999997317791,
+          1.0
+        ],
+        "metallicFactor": 0.449999988079071,
+        "roughnessFactor": 0.430000007152557
+      }
+    },
+    {
+      "name": "storage_hardware_steel",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.239999994635582,
+          0.300000011920929,
+          0.340000003576279,
+          1.0
+        ],
+        "metallicFactor": 0.649999976158142,
+        "roughnessFactor": 0.370000004768372
+      }
+    },
+    {
+      "name": "storage_id_face",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.949999988079071,
+          0.519999980926514,
+          0.150000005960464,
+          1.0
+        ],
+        "metallicFactor": 0.0500000007450581,
+        "roughnessFactor": 0.529999971389771
+      }
+    }
+  ],
+  "mesh_count": 1.0,
+  "nonmanifold_edges": 0.0,
+  "pivot_m": [
+    0.0,
+    0.0,
+    0.0
+  ],
+  "shell_intersections": "Deliberately seated closed hardware shells, not a watertight Boolean union",
+  "source_export_status": "passed",
+  "source_faces": 6706.0,
+  "source_normal_max_length_error": 1.5568592659e-07,
+  "source_vertices": 6856.0,
+  "summed_closed_shell_volume_m3": 35.4826856175411,
+  "surface_count": 4.0,
+  "triangles": 13476.0,
+  "renders": [
+    {
+      "path": "hero.png",
+      "pixels": [
+        1280,
+        720
+      ],
+      "bytes": 309080
+    },
+    {
+      "path": "side.png",
+      "pixels": [
+        1280,
+        720
+      ],
+      "bytes": 250192
+    },
+    {
+      "path": "detail.png",
+      "pixels": [
+        1280,
+        720
+      ],
+      "bytes": 317788
+    },
+    {
+      "path": "overhead_47m_42deg.png",
+      "pixels": [
+        1280,
+        720
+      ],
+      "bytes": 247210
+    }
+  ],
+  "render_encoding": "Evidence only: RGB 6 significant bits/channel, PNG compression 9",
+  "overhead_camera": {
+    "renderer": "Isolated Blender Cycles CPU, 32 samples, AgX",
+    "blender_position_m": [
+      0,
+      0,
+      47
+    ],
+    "rotation_radians": [
+      0,
+      0,
+      0
+    ],
+    "vertical_fov_degrees": 42,
+    "north_up": true,
+    "scope": "Isolated asset appearance, not engine/district-camera acceptance"
+  },
+  "pending": [
+    "Independent art/technical review",
+    "World placement, apron clearances and camera occlusion in context",
+    "Actual vehicle driving and multiplayer transport/admission/prediction",
+    "Engine-camera, LOD transition, packaged-platform and Deck performance checks"
+  ]
+}

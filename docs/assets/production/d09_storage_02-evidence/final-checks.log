@@ -1,0 +1,35 @@
+d09_storage.02 — final bounded production checks
+Source: Blender 5.2.2 LTS / d13f752e3b9c; glTF exporter 5.2.40
+Engine: mise-pinned Godot 4.8.dev7.official.c971f93e7
+All Blender calls: ALSOFT_DRIVERS=null SDL_AUDIODRIVER=dummy, timeout <=900, -noaudio --background --factory-startup --threads 4 --python-exit-code 1.
+All Godot calls: headless, timeout 300 import / 180 checks; no live editor sessions used.
+Exact executable paths and reproduction commands: ../d09_storage_02.md
+
+PASS (exit 0): author.py — original family recipe at 6 m, saved .blend, GLB and four renders.
+PASS (exit 0): validate.py — source topology/GLB normals, dimensions, face-only artwork UV/bounds, fresh export byte comparison.
+Counts: 6856 source vertices; 7762 export vertices; 13476 triangles; 1 mesh / 4 surfaces.
+Zero source degenerate faces/triangles, GLB degenerate triangles, source non-manifold edges.
+Final GLB: 333324 bytes, SHA-256 590469bcc6db39bda4cf46c131edca349d0f2d357aebe1e26a9c568b242e5be0
+PASS: producer visually inspected hero, side, door detail and 47m/42deg overhead (1280x720 each).
+PASS (exit 0): pinned initial/final headless imports; no ERROR or SCRIPT ERROR lines.
+PASS (exit 0): check.gd -- --normalize --verify-stable — two stable roundtrips AND previously saved bytes stable across fresh process.
+PASS (exit 0): fresh-process check.gd after final import — linked model, dependency UIDs, exact box collision, production ActorMotion authority/replay and car-envelope physics.
+
+Godot Engine v4.8.dev7.official.c971f93e7 - https://godotengine.org
+
+[MCPRuntimeServer] port: scanning 6570-6585 (default)
+[MCPRuntimeServer] listening on 127.0.0.1:6570
+[MCPRegistry] runtime port 6570 registered for c:/gamedev/git/ft-lanes/a-storage
+PHYSICS_OBSERVATIONS contact=[(0.0, 0.000023, -3.350254), (0.0, 0.000023, -3.350254)] bypass=[(2.0, 0.001, 8.000012), (2.0, 0.001, 8.000012)]
+D09_STORAGE_02_CHECK_PASS {"bounds_min_m":[-1.25,0.0,-3.0],"bounds_size_m":[2.5,2.59999990463257,6.0],"engine":"4.8-dev7 (official)","fresh_process_roundtrip_byte_stable":true,"linked_model_identity":true,"physics":{"above_roof_ray_clear":true,"actor_capsule_height_m":1.8,"actor_capsule_radius_m":0.35,"authority_replay_equal":true,"bypass_end_m":[2.0,0.00100000004749745,8.00001239776611],"car_box_dimensions_m":[1.8,1.5,4.4],"car_bypass_safe_fraction":1.0,"car_front_cast_safe_fraction":0.23992919921875,"contact_stop_m":[0.0,0.0000234375474974513,-3.35025358200073],"three_front_rays_blocked":true,"ticks_per_case_per_mode":192,"vehicle_driving_network_transport_and_placement":"not tested"},"resource_uids":{"res://art/models/environment/d09_storage_02/d09_storage_02.glb":"uid://cewl65j3t8eug","res://scenes/prefabs/environment/d09_storage_02.tscn":"uid://dxo4oar28nrqj","res://scripts/actors/actor_motion.gd":"uid://jthmfio4c27p","res://tools/asset_production/d09_storage_02/check_scene.tscn":"uid://c80r6p2vdy3ca"},"save_reload_byte_stable":true,"stable_roundtrips":2.0,"static_collision":{"bodies":1,"boxes":1,"layer":1,"mask":0}}
+
+PASS (exit 0): gdstyle fmt --check tools/asset_production/d09_storage_02/check.gd
+1 file already formatted.
+PASS (exit 0): gdstyle --max-line-length 100 --max-warnings 0 tools/asset_production/d09_storage_02/check.gd
+âœ“ 1 file checked, no issues found.
+
+Known diagnostics: Blender use_nodes deprecation notices; existing MCP toolkit warns Godot 4.8 versus tested 4.7. No broad suppression.
+Initial new-scene UID cache refresh changed provisional IDs before commit; final imported identities pass explicit cross-process byte-stability assertion.
+Pending: independent review, district placement/engine-camera/occlusion/LOD, actual vehicle driving, network transport/admission/prediction, packaged/Deck/repetition performance.
+Not run: tools/production_checks.py (owner decision 52).
+Scratch author/retry/raw logs are outside the repository.
