@@ -27,7 +27,7 @@ not measured.
 | --- | --- |
 | World composition | `scenes/world/brackett_greybox/city.tscn` has one `Sectors` node. Under it are 12 ground tiles (`sectors/ground_XX_YY.tscn`) and 9 districts (`sectors/district_0N.tscn`). Each ground tile has one Blender GLB (land, coast, road strokes, walk strokes, field, flat bridge deck) and one concave terrain collider. Each district has a `Geometry` node with `building_NNNN` instances (290 in total) carrying `placement.gd` identity. |
 | Match | `scenes/match/match.tscn` instances `city.tscn` as `World`. It owns `CityData`, the authored `Anchors` (4 player spawns and 3 parked cars, all in district 06), the runtime nodes and `LocalRig`. **It has no `WorldEnvironment` or `DirectionalLight3D`.** Only the review scene `preview.tscn` has lighting, plus a preview-only `water.glb`. `match.tscn` is on the saved-identity allowlist because its nodes lack `unique_id`. |
-| Content identity | `CityData` hashes the dependency closure of `city.tscn` into `scenes/match/brackett_content_manifest.json` (110 rows, keyed by `res://` path). It also hashes the anchor descriptors. The cap is now 2048 rows. `tools/world/regenerate_brackett_content.gd` regenerates the manifest and signature. **Any path change in the closure changes the signature.** |
+| Content identity | `CityData` hashes the dependency closure of `city.tscn` into `scenes/match/brackett_content_manifest.json` (110 rows, keyed by `res://` path). It also hashes the anchor descriptors. The cap is now 2048 rows. `tools/world/regenerate_brackett_content.gd` **writes the manifest and prints the signature**. It does not edit `match.tscn`: the `content_signature` line is copied in by hand, and the tool prints `BRACKETT_CONTENT_SAVED_SIGNATURE_MATCHES true` only when the saved value is current. **Any path change in the closure changes the signature.** |
 | Roads | RT-01 vendored Road Generator 0.9.4. RT-02 landed the source catalog, presets, stable IDs and `RoadNetworkAdapter.validate_network()`. **No road scene exists yet.** Procedural intersections only connect inside one `RoadContainer` (decision 67). RT-02 requires district boundaries to use colocated `road_interface_point` pairs. Prefab intersections (decision 44) are themselves containers joined by container edges. |
 | Clearance gate | The C2.2a tooling test (`tests/unit/world/test_brackett_clearance.gd`) reads road/walk triangles from the `grey_road`/`grey_walk` ground materials. It finds districts under `World/Sectors`. It treats every non-`Geometry` district child as dressing. It counts a `Decal` AABB as a low visual part. It resolves prefabs from the flat `res://scenes/prefabs/environment/` directory. |
 | Register | 226 records: 205 `production_prefab_accepted` and 21 queued (all deferred). None is placed in a world scene yet. |
@@ -144,13 +144,30 @@ ownership unit. Buildings never depend on which container a road is in. Rules fo
 ### Ownership and parallel lanes without `.tscn` conflicts
 
 **One writer per file.** The world integrator edits `city.tscn` once during migration and then
-rarely. Two shared files are never hand-merged:
+rarely. Two shared values are never hand-merged:
 
 - the content manifest;
 - the `content_signature` line in `match.tscn`.
 
-Every lane regenerates both with `tools/world/regenerate_brackett_content.gd`. On a rebase
-conflict, the lane regenerates again.
+This applies only to lanes that change the world's dependency closure (anything instanced under
+`city.tscn`) or the anchor descriptors (spawn and parked-car markers). Those lanes:
+
+1. run `tools/world/regenerate_brackett_content.gd`, which rewrites the manifest and prints the
+   new signature;
+2. copy the printed `BRACKETT_CONTENT_SIGNATURE` value into the `content_signature` line of
+   `match.tscn` by hand;
+3. rerun the tool until it prints `BRACKETT_CONTENT_SAVED_SIGNATURE_MATCHES true`.
+
+On a rebase conflict in either file, take main's version and repeat the three steps. Lanes that
+do not touch the closure or the markers run the tool once to confirm it prints `true` and leave
+both files alone.
+
+**Small tooling follow-up (T-1, recommended before WA-1).** Extend the tool with an opt-in
+`--write-signature` mode. It replaces exactly one `content_signature = "..."` line in
+`match.tscn`, failing if it finds zero or several. It changes nothing else in the file, then
+recomputes and requires the saved value to match. Add a test that runs it on a temporary copy
+of the scene, covering a stale value, an already-current value and a missing line. This removes
+the manual copy step (decision D2).
 
 | Work | Writes | Can run in parallel with |
 | --- | --- | --- |
@@ -176,9 +193,11 @@ decals or ground materials (Part B), not as carrier prefabs. Prefab paths follow
   parked-car IDs. Roads use RT-02 identities. Layer roots, dressing and decals get **no**
   `world_id` (scene contracts: decorative instances need no gameplay ID). A layer move or rename
   never changes a `world_id`, because identity is an explicit property, not a NodePath.
-- **Content manifest.** The manifest is keyed by path, so every moved file changes the
-  signature. Each migration step regenerates the manifest, writes the new signature into
-  `match.tscn` and bumps `content_revision` by 1. The roads layer brings the addon's runtime
+- **Content manifest.** The manifest is keyed by path, so every moved file *inside the world
+  closure* changes the signature. Each step that changes the closure or the markers follows the
+  regeneration steps above (or T-1's write mode once it exists) and bumps `content_revision` by 1.
+  Moving or converting assets that no world scene instances (C-1, B-1, B-2) changes no manifest
+  row. The roads layer brings the addon's runtime
   scripts into the closure. That is correct, because host and client must agree on the addon
   too. The 2048 cap covers it (inferred from the approximately 730-row estimate in the greybox
   plan plus about 100 addon files; measure when RT-03 lands).
@@ -225,13 +244,17 @@ decals or ground materials (Part B), not as carrier prefabs. Prefab paths follow
 ### Migration path (Part A)
 
 Each step is one reviewable lane. Each lane runs full `tools/production_checks.py`, saves through
-the editor, runs the saved-identity check, regenerates the manifest and signature, and keeps
-`git diff -M` showing renames.
+the editor, runs the saved-identity check and keeps `git diff -M` showing renames. Lanes that
+change the world closure or markers also update the manifest and signature as described above.
 
-1. **Rename the world folder and add the layer parents (lane WA-1, world integrator).**
+1. **Rename the world scenes and add the layer parents (lane WA-1, world integrator).**
    - Move `scenes/world/brackett_greybox/{city.tscn, preview.*, sectors/}` to
      `scenes/world/brackett/`. Ground tiles go under `ground/`, districts under `districts/`.
+   - **Leave `scenes/world/brackett_greybox/prefabs/` where it is**, as the legacy greybox kit.
+     The district scenes keep referencing it by UID and unchanged path. The cleanup in step 7
+     deletes it, so moving it now would only add churn to files that are about to go.
    - Move `placement.gd` to `scripts/world/world_placement.gd`, keeping its UID and class name.
+     Its references in the kit prefabs and ground tiles are updated by the move.
    - Use the Godot FileSystem dock, or the scripted move from Part C, so every UID survives.
    - Create `ground.tscn`, instancing the 12 tile scenes unchanged (same node names, world_ids
      and transforms).
@@ -240,12 +263,22 @@ the editor, runs the saved-identity check, regenerates the manifest and signatur
    - Update `test_city_data.gd`, `test_brackett_clearance.gd` (`World/Sectors`),
      `test_measured_replication_codec.gd`, `tools/world/capture_brackett_views.gd` and the
      greybox authoring tools' path constants.
-   - Expected result: identical world transforms, node and collider counts, and captures. A
-     new signature.
+   - Expected result:
+     - The total node count rises by exactly one. The single `Sectors` parent is replaced by
+       two parents, the `Ground` scene root and the `Districts` node. Nothing else is added or
+       removed.
+     - Every leaf placement (each ground tile, each `building_NNNN`) keeps its `world_id`,
+       `asset_id` and global transform. A script compares old and new instance trees.
+     - The collider count and every collision shape's global transform and geometry are
+       unchanged.
+     - Captures from the saved district cameras match.
+     - The manifest paths change, so the signature changes and `content_revision` goes up by 1.
 2. **Extract markers (same lane or WA-2).** Save `Match/Anchors` as `markers.tscn` and instance
    it back at `Match/Anchors`. CityData's `player_spawns_path` and `parked_cars_path` stay the
    same, and so do the anchor descriptors. Normalize `match.tscn` identities and drop it from the
-   allowlist.
+   allowlist. Markers are outside the manifest closure and their descriptors are unchanged, so
+   the expected signature is unchanged. The tool must print `true` without any edit to the
+   `content_signature` line.
 3. **Add Environment (WA-3, owner visual check).** Save the review lighting as
    `environment.tscn`, then instance it in Match and in `preview.tscn`. This is a visible change
    to Match, which is unlit today, so it needs an owner capture review.
@@ -256,8 +289,9 @@ the editor, runs the saved-identity check, regenerates the manifest and signatur
 6. **RT-10 revises the ground tiles** (no road/walk faces; ground-finish regions per Part B).
    It moves the surviving ground and water outputs out of `brackett_greybox` art paths, and
    switches the clearance test's corridor source.
-7. **Greybox cleanup (greybox plan Q7).** Delete unreferenced greybox building wrappers, GLBs,
-   imports and kit `.blend`s.
+7. **Greybox cleanup (greybox plan Q7).** Delete the legacy kit
+   `scenes/world/brackett_greybox/prefabs/` and its building GLBs, imports and kit `.blend`s once
+   no district references them. This removes the last `scenes/world/brackett_greybox` folder.
 
 Do not create empty placeholder scenes. `roads.tscn` and `coast.tscn` appear when their first
 real content lands.
@@ -542,8 +576,11 @@ this, but it is impractical for about 1,000 files. Use one reviewed scripted mov
 6. **Prove nothing changed visually.** Reimport hashes of every moved GLB and texture equal the
    old ones. Prefab captures before and after are identical. `git diff -M` shows 100%-similar
    renames.
-7. **Content identity.** Regenerate the manifest and signature, bump `content_revision`, run full
-   `tools/production_checks.py` and Boot smoke.
+7. **Content identity.** No moved environment asset is in the world closure, so run the
+   regeneration tool only as a check. The manifest diff must be empty and the tool must print
+   `BRACKETT_CONTENT_SAVED_SIGNATURE_MATCHES true`. If either fails, a world-placed file was
+   moved by mistake: stop and fix the move map. Then run full `tools/production_checks.py` and
+   Boot smoke.
 
 ### References to update in the same commit
 
@@ -592,18 +629,32 @@ conversion or C2.2a district lane.
 
 The full order:
 
-1. Owner decisions.
+1. Owner decisions. T-1 (signature write mode) can land any time before WA-1.
 2. Mesh-audit report lands (read-only).
-3. **C-1:** directory move.
-4. **WA-1/WA-2:** world layers and markers.
-5. **B-1:** policy and render layers.
-6. **B-2:** decal pilot.
-7. In parallel: mesh-fix lanes per family, C2.2a d02 pilot then waves, B-3 decals.
-8. WA-3 environment, when the owner can review captures.
-9. B-4/B-5 alongside the RT-10 ground revision and the water lane.
-10. Evidence and spikes cleanup at any quiet point. It touches only `docs/`.
+3. **C-1:** directory move. Every lane below starts after it, because they all edit files it
+   moves or rewrites (prefabs, tool scripts, records, the clearance test's prefab lookup).
+4. Then two chains run in parallel:
+   - **World chain:** WA-1 (world scenes and layers), then WA-2 (markers). These are the steps
+     that change content identity. WA-2 waits for WA-1 because both edit `match.tscn`.
+   - **Asset-type chain:** B-1 (policy and render layers), then B-2 (decal pilot). These touch
+     no world scene, manifest row or signature.
 
-Steps 3–6 are serial because each regenerates the content manifest.
+   The only file both chains edit is `test_brackett_clearance.gd`, and they edit different parts
+   of it (WA-1 the `World/Sectors` lookup, B-1 the decal rules). Whichever lane lands second
+   rebases that text; there is nothing to regenerate.
+5. In parallel, once both chains have landed:
+   - mesh-fix lanes per family;
+   - B-3 decals;
+   - C2.2a: the d02 pilot, then waves. District lanes work in parallel but land one at a time,
+     because each changes the manifest and signature. After rebasing, each repeats the three
+     regeneration steps.
+6. WA-3 environment, when the owner can review captures. It edits `match.tscn`, so it lands
+   between district lanes, not alongside one.
+7. B-4/B-5 alongside the RT-10 ground revision and the water lane.
+8. Evidence and spikes cleanup at any quiet point. It touches only `docs/`.
+
+The serialization rule: lanes wait for each other only when they touch the content manifest,
+`match.tscn`, or the same moved or edited files. Everything else runs in parallel.
 
 ## Owner decisions
 
@@ -664,11 +715,15 @@ capture review.
 *Recommendation: (a).* This is 3.7 km of fixtures with its own capacity question (greybox plan
 Q5). The marina stays in district 05.
 
-**A9. Rename the world folder.**
-(a) Move `scenes/world/brackett_greybox/` to `scenes/world/brackett/` (UIDs preserved) in WA-1.
-(b) Keep the greybox name until greybox cleanup.
-*Recommendation: (a).* It happens once, before district lanes write production content under a
-misleading name.
+**A9. Rename the world scenes.**
+(a) In WA-1, move the world scenes (`city.tscn`, `preview.tscn` and the `sectors/` tiles and
+districts) to `scenes/world/brackett/`, keeping their UIDs. The old greybox building kit stays
+in `scenes/world/brackett_greybox/prefabs/` as a legacy folder until the greybox cleanup
+deletes it.
+(b) Move the kit as well, updating every district reference to it.
+(c) Keep everything under the greybox name until the cleanup.
+*Recommendation: (a).* District lanes write production content under the right name from the
+start. The kit is not moved only to be deleted later.
 
 **B1. Asset-type policy.** Adopt "flat graphics are not models": decals for one-off ground and
 wall graphics, ground materials for large finishes, a water shader for the sea and harbour,
@@ -761,10 +816,18 @@ into `art/environment/terrain/` with RT-10.
 *Recommendation: (a).* This matches greybox plan Q7.
 
 **D1. Releasing C2.2a.**
-(a) Release the district lanes once C-1, WA-1/WA-2, B-1 and the B-2 decal pilot have landed.
+(a) Release the district lanes once C-1 and both parallel chains have landed: WA-1/WA-2 for the
+world scenes and B-1/B-2 for the decal rules.
 (b) Release now, on today's paths and carrier prefabs.
 *Recommendation: (a).* District lanes then write each scene once, on final paths, with the
 final graphic types.
+
+**D2. Writing the content signature.**
+(a) Small follow-up T-1: give the regeneration tool an opt-in mode that safely writes the
+signature line in `match.tscn`, with a test.
+(b) Keep copying the printed signature into `match.tscn` by hand and rerunning until it matches.
+*Recommendation: (a).* The manual step is easy to forget and leaves `match.tscn` stale. Until
+T-1 lands, lanes follow (b) exactly.
 
 ## Sources
 
