@@ -2127,14 +2127,14 @@
       "input_next_action": "Refine shared design for recorded districts",
       "brief": "[Brief](../../assets/city_seating.md)",
       "priority": 0,
-      "status": "queued",
-      "agent_id": null,
-      "source_revision": null,
-      "review_status": "pending",
-      "integration_status": "pending",
+      "status": "production_prefab_accepted",
+      "agent_id": "4e38061f-a1e4-4c65-9946-1c21a6cb3305",
+      "source_revision": "82770b9",
+      "review_status": "accepted source/export/prefab scope (independent Sol review)",
+      "integration_status": "accepted",
       "placement_status": "pending",
       "blocker": null,
-      "attempts": 0,
+      "attempts": 1,
       "initial_time_cap_minutes": 90,
       "owned_paths": [
         "art/source/models/environment/city_seating_01/",
@@ -2142,8 +2142,20 @@
         "art/textures/environment/city_seating_01/",
         "art/materials/environment/city_seating_01/",
         "docs/assets/production/city_seating_01.md",
-        "docs/assets/production/city_seating_01-evidence/"
-      ]
+        "docs/assets/production/city_seating_01-evidence/",
+        "tools/asset_production/city_seating_01/",
+        "scenes/prefabs/environment/city_seating_01.tscn"
+      ],
+      "launch": {
+        "provider": "portkey/gpt-6-astra",
+        "configured_effort": "medium",
+        "mode": "orchestrator asset lane",
+        "lane": "a-seating"
+      },
+      "producer_manifest": "docs/assets/production/city_seating_01-evidence/manifest.json",
+      "report": "docs/assets/production/city_seating_01.md",
+      "reviewer_id": "3c56d7cf-d88f-4c4c-b4fb-7610c657f20b",
+      "integrated_revision": "78180c2"
     },
     {
       "id": "city_seating.02",
@@ -2156,14 +2168,14 @@
       "input_next_action": "Confirm against Signal Row detail concept",
       "brief": "[Brief](../../assets/city_seating.md)",
       "priority": 0,
-      "status": "queued",
-      "agent_id": null,
-      "source_revision": null,
-      "review_status": "pending",
-      "integration_status": "pending",
+      "status": "production_prefab_accepted",
+      "agent_id": "33868ac9-7095-497f-a99f-d18860cc8e28",
+      "source_revision": "38cfb38",
+      "review_status": "accepted source/export/prefab scope (independent Sol review)",
+      "integration_status": "accepted",
       "placement_status": "pending",
       "blocker": null,
-      "attempts": 0,
+      "attempts": 1,
       "initial_time_cap_minutes": 90,
       "owned_paths": [
         "art/source/models/environment/city_seating_02/",
@@ -2171,8 +2183,20 @@
         "art/textures/environment/city_seating_02/",
         "art/materials/environment/city_seating_02/",
         "docs/assets/production/city_seating_02.md",
-        "docs/assets/production/city_seating_02-evidence/"
-      ]
+        "docs/assets/production/city_seating_02-evidence/",
+        "tools/asset_production/city_seating_02/",
+        "scenes/prefabs/environment/city_seating_02.tscn"
+      ],
+      "launch": {
+        "provider": "portkey/gpt-6-astra",
+        "configured_effort": "medium",
+        "mode": "orchestrator asset lane",
+        "lane": "a-seating"
+      },
+      "producer_manifest": "docs/assets/production/city_seating_02-evidence/manifest.json",
+      "report": "docs/assets/production/city_seating_02.md",
+      "reviewer_id": "3c56d7cf-d88f-4c4c-b4fb-7610c657f20b",
+      "integrated_revision": "78180c2"
     },
     {
       "id": "city_waste.01",
@@ -3398,14 +3422,14 @@
       "input_next_action": "Confirm district use; not in Signal Row starting set",
       "brief": "[Brief](../../assets/city_seating.md)",
       "priority": 0,
-      "status": "queued",
-      "agent_id": null,
-      "source_revision": null,
-      "review_status": "pending",
-      "integration_status": "pending",
+      "status": "production_prefab_accepted",
+      "agent_id": "953bdc73-515f-4dff-a3f8-f058ca4a4654",
+      "source_revision": "78180c2",
+      "review_status": "accepted source/export/prefab scope (independent Sol review)",
+      "integration_status": "accepted",
       "placement_status": "pending",
       "blocker": null,
-      "attempts": 0,
+      "attempts": 1,
       "initial_time_cap_minutes": 90,
       "owned_paths": [
         "art/source/models/environment/city_seating_03/",
@@ -3413,8 +3437,20 @@
         "art/textures/environment/city_seating_03/",
         "art/materials/environment/city_seating_03/",
         "docs/assets/production/city_seating_03.md",
-        "docs/assets/production/city_seating_03-evidence/"
-      ]
+        "docs/assets/production/city_seating_03-evidence/",
+        "tools/asset_production/city_seating_03/",
+        "scenes/prefabs/environment/city_seating_03.tscn"
+      ],
+      "launch": {
+        "provider": "portkey/gpt-6-astra",
+        "configured_effort": "medium",
+        "mode": "orchestrator asset lane",
+        "lane": "a-seating"
+      },
+      "producer_manifest": "docs/assets/production/city_seating_03-evidence/manifest.json",
+      "report": "docs/assets/production/city_seating_03.md",
+      "reviewer_id": "3c56d7cf-d88f-4c4c-b4fb-7610c657f20b",
+      "integrated_revision": "78180c2"
     },
     {
       "id": "city_waste.02",
