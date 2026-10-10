@@ -83,6 +83,24 @@
     "front_z_m": -0.071,
     "upright_unmirrored_uv": true
   },
+  "review_round_1": {
+    "finding": "P2: missing serialized dependency UIDs",
+    "missing_uid_regression": {
+      "exit_code": 1,
+      "rejected_dependencies": [
+        "res://scenes/prefabs/environment/city_sign_supports_03.tscn",
+        "res://art/materials/environment/d03_community_graphics_01/community_board.tres",
+        "res://art/textures/environment/d03_community_graphics_01/community_board_albedo.png"
+      ]
+    },
+    "mismatched_uid_regression": {
+      "exit_code": 1,
+      "mutated_resource": "art/materials/environment/d03_community_graphics_01/community_board.tres",
+      "rejected_uid": "uid://blxebt67ss4g5"
+    },
+    "scope": "Identity metadata only; source, exported geometry, artwork and render bytes unchanged.",
+    "renders_rerun": false
+  },
   "artwork": {
     "ok": true,
     "tests": 5,
@@ -120,6 +138,15 @@
     "res://art/textures/environment/d03_community_graphics_01/community_board_albedo.png": "uid://cf7fjom46bmws",
     "res://scenes/prefabs/environment/city_sign_supports_03.tscn": "uid://p0xsrjdmsw2s",
     "res://scenes/prefabs/environment/d03_community_graphics_01.tscn": "uid://mws6iuj22dkq",
+    "serialized_dependency_uids": {
+      "res://art/materials/environment/d03_community_graphics_01/community_board.tres": {
+        "res://art/textures/environment/d03_community_graphics_01/community_board_albedo.png": "uid://cf7fjom46bmws"
+      },
+      "res://scenes/prefabs/environment/d03_community_graphics_01.tscn": {
+        "res://art/materials/environment/d03_community_graphics_01/community_board.tres": "uid://b33v5wamus5cd",
+        "res://scenes/prefabs/environment/city_sign_supports_03.tscn": "uid://p0xsrjdmsw2s"
+      }
+    },
     "surfaces": 5,
     "texture_cpu_bytes_including_mips": 6822117,
     "texture_mipmap_count": 10
@@ -130,10 +157,10 @@
     "failures": [],
     "fresh_process_initial_byte_stable": true,
     "inherited_colliders": 1,
-    "material_sha256": "2771c4d80c740775284c976c5db7c067fcc187c234ec34fb088bc4953b097926",
+    "material_sha256": "383c4dfac12890d2b1fa3e54166c1adea499ae75ffdea5544287f8058118baff",
     "meshes": 2,
     "ok": true,
-    "prefab_sha256": "ae60d2cc2cb30cee1b6165d04188d58356afecea22c436a22832b1af0d64f5c1",
+    "prefab_sha256": "b36ca0c425782d5c0c8d329f472865fa7a7c2567158d6dfbfc3e67ae12ef4cdb",
     "res://art/materials/environment/d03_community_graphics_01/community_board.tres": "uid://b33v5wamus5cd",
     "res://art/models/environment/city_sign_supports_03/city_sign_supports_03.glb": "uid://bubc8cpo6gkqt",
     "res://art/textures/environment/d03_community_graphics_01/community_board_albedo.png": "uid://cf7fjom46bmws",
@@ -141,6 +168,15 @@
     "res://scenes/prefabs/environment/d03_community_graphics_01.tscn": "uid://mws6iuj22dkq",
     "roundtrip_1_byte_stable": true,
     "roundtrip_2_byte_stable": true,
+    "serialized_dependency_uids": {
+      "res://art/materials/environment/d03_community_graphics_01/community_board.tres": {
+        "res://art/textures/environment/d03_community_graphics_01/community_board_albedo.png": "uid://cf7fjom46bmws"
+      },
+      "res://scenes/prefabs/environment/d03_community_graphics_01.tscn": {
+        "res://art/materials/environment/d03_community_graphics_01/community_board.tres": "uid://b33v5wamus5cd",
+        "res://scenes/prefabs/environment/city_sign_supports_03.tscn": "uid://p0xsrjdmsw2s"
+      }
+    },
     "surfaces": 5,
     "texture_cpu_bytes_including_mips": 6822117,
     "texture_mipmap_count": 10

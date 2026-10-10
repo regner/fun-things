@@ -1,3 +1,10 @@
+REVIEW ROUND 1: existing dependency UIDs serialized; no new identities.
+Saved header/dependency/node checks and two supplemented roundtrips pass.
+Missing and mismatched UID negative tests exit 1 as expected.
+Source/re-export, artwork, import/runtime, Python and gdstyle checks rerun.
+Visual inputs unchanged; original reviewed renders retained, not rerendered.
+The production author/render observations below are retained historical evidence.
+
 FINAL CHECKS: d03_community_graphics.01
 Original Pillow artwork: five tests pass; byte-identical PNG reproduction.
 Pinned Blender validator and previews exited 0; reused carrier never saved.

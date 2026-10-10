@@ -27,6 +27,57 @@ func _expect(condition: bool, message: String) -> void:
 		push_error(message)
 
 
+## Retain explicit dependency UIDs even when the headless runtime saver omits them.
+func _write_dependency_uids(path: String) -> void:
+	var lines := FileAccess.get_file_as_string(path).split("\n")
+	for index: int in range(lines.size()):
+		var line := lines[index]
+		if not line.begins_with("[ext_resource"):
+			continue
+
+		var dependency := line.get_slice("path=\"", 1).get_slice("\"", 0)
+		var uid := ResourceLoader.get_resource_uid(dependency)
+		_expect(uid != ResourceUID.INVALID_ID, "Dependency identity: " + dependency)
+		if not line.contains("uid=\""):
+			lines[index] = line.replace(" path=", " uid=\"%s\" path=" % ResourceUID.id_to_text(uid))
+
+	var file := FileAccess.open(path, FileAccess.WRITE)
+	file.store_string("\n".join(lines))
+
+
+## Require serialized identities, not merely successful fallback-path loading.
+func _check_saved_identities(path: String) -> void:
+	var text := FileAccess.get_file_as_string(path)
+	_expect(text.get_slice("
+", 0).contains("uid=\""), "Header UID: " + path)
+	var dependencies: Dictionary = {}
+	for line: String in text.split("
+"):
+		if line.begins_with("[ext_resource"):
+			var dependency := line.get_slice("path=\"", 1).get_slice("\"", 0)
+			_expect(line.contains("uid=\""), "Serialized dependency UID: " + dependency)
+			if not line.contains("uid=\""):
+				continue
+
+			var saved_uid := line.get_slice("uid=\"", 1).get_slice("\"", 0)
+			var uid := ResourceUID.text_to_id(saved_uid)
+			_expect(uid != ResourceUID.INVALID_ID, "Valid dependency UID: " + dependency)
+			_expect(ResourceUID.has_id(uid), "Registered dependency UID: " + dependency)
+			if ResourceUID.has_id(uid):
+				_expect(ResourceUID.get_id_path(uid) == dependency, "UID path: " + dependency)
+
+			_expect(
+				ResourceLoader.get_resource_uid(dependency) == uid,
+				"UID resolves: " + dependency,
+			)
+			dependencies[dependency] = saved_uid
+
+		if line.begins_with("[node"):
+			_expect(line.contains("unique_id="), "Saved node identity: " + path)
+
+	_result.get_or_add("serialized_dependency_uids", {})[path] = dependencies
+
+
 ## Preserve inline resource UIDs, allocating only on first normalization.
 func _saved_uid(path: String) -> int:
 	var header := FileAccess.get_file_as_string(path).get_slice("\n", 0)
@@ -46,6 +97,8 @@ func _save_resources() -> void:
 	var material := ResourceLoader.load(MATERIAL, "", ResourceLoader.CACHE_MODE_IGNORE)
 	_expect(ResourceSaver.save(material, MATERIAL) == OK, "Material save")
 	_expect(ResourceSaver.set_uid(MATERIAL, material_uid) == OK, "Material UID")
+	_write_dependency_uids(MATERIAL)
+	_check_saved_identities(MATERIAL)
 	var scene_uid := _saved_uid(PREFAB)
 	var source := ResourceLoader.load(PREFAB, "PackedScene", ResourceLoader.CACHE_MODE_IGNORE)
 	_expect(source != null, "Prefab source load")
@@ -57,6 +110,8 @@ func _save_resources() -> void:
 	_expect(packed.pack(instance) == OK, "Prefab pack")
 	_expect(ResourceSaver.save(packed, PREFAB) == OK, "Prefab save")
 	_expect(ResourceSaver.set_uid(PREFAB, scene_uid) == OK, "Prefab UID")
+	_write_dependency_uids(PREFAB)
+	_check_saved_identities(PREFAB)
 	instance.free()
 
 
@@ -165,6 +220,14 @@ func _check_collision(instance: Node3D, reference: Node3D) -> void:
 
 ## Resolve final dependencies and write a scratch receipt; no world/gameplay changes.
 func _run() -> void:
+	if not OS.get_cmdline_user_args().has("--normalize"):
+		for path: String in [PREFAB, MATERIAL]:
+			_check_saved_identities(path)
+
+		if not _failures.is_empty():
+			quit(1)
+			return
+
 	var normalize := OS.get_cmdline_user_args().has("--normalize")
 	if normalize:
 		_roundtrip()

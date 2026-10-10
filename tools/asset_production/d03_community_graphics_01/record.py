@@ -30,6 +30,7 @@ def main():
     engine = read_json(SCRATCH / "prefab-check.json")
     roundtrip = read_json(SCRATCH / "roundtrip.json")
     assert engine == read_json(SCRATCH / "prefab-first-process.json")
+    assert engine["serialized_dependency_uids"]
     assert engine["ok"] and roundtrip["ok"] and artwork["ok"]
     assert roundtrip["fresh_process_initial_byte_stable"]
     assert all(roundtrip[f"roundtrip_{i}_byte_stable"] for i in (1,2))
@@ -94,6 +95,12 @@ def main():
     (EVIDENCE / "validation.json").write_text(
         json.dumps(validation,indent=2)+"\n",encoding="utf-8",newline="\n")
     log = (
+        "REVIEW ROUND 1: existing dependency UIDs serialized; no new identities.\n"
+        "Saved header/dependency/node checks and two supplemented roundtrips pass.\n"
+        "Missing and mismatched UID negative tests exit 1 as expected.\n"
+        "Source/re-export, artwork, import/runtime, Python and gdstyle checks rerun.\n"
+        "Visual inputs unchanged; original reviewed renders retained, not rerendered.\n"
+        "The production author/render observations below are retained historical evidence.\n\n"
         "FINAL CHECKS: d03_community_graphics.01\n"
         "Original Pillow artwork: five tests pass; byte-identical PNG reproduction.\n"
         "Pinned Blender validator and previews exited 0; reused carrier never saved.\n"
