@@ -4053,14 +4053,14 @@
       "input_next_action": "Confirm district use; not in Signal Row starting set",
       "brief": "[Brief](../../assets/city_roof_details.md)",
       "priority": 0,
-      "status": "queued",
-      "agent_id": null,
-      "source_revision": null,
-      "review_status": "pending",
-      "integration_status": "pending",
+      "status": "production_prefab_accepted",
+      "agent_id": "cbfd4f93-1080-4d68-88ad-13ba3889c5f7",
+      "source_revision": "eb751e4c",
+      "review_status": "accepted source/export/prefab scope (independent Sol review)",
+      "integration_status": "accepted",
       "placement_status": "pending",
       "blocker": null,
-      "attempts": 0,
+      "attempts": 1,
       "initial_time_cap_minutes": 90,
       "owned_paths": [
         "art/source/models/environment/city_roof_details_03/",
@@ -4068,8 +4068,20 @@
         "art/textures/environment/city_roof_details_03/",
         "art/materials/environment/city_roof_details_03/",
         "docs/assets/production/city_roof_details_03.md",
-        "docs/assets/production/city_roof_details_03-evidence/"
-      ]
+        "docs/assets/production/city_roof_details_03-evidence/",
+        "tools/asset_production/city_roof_details_03/",
+        "scenes/prefabs/environment/city_roof_details_03.tscn"
+      ],
+      "launch": {
+        "provider": "portkey/gpt-6-astra",
+        "configured_effort": "medium",
+        "mode": "orchestrator asset lane",
+        "lane": "a-roof"
+      },
+      "producer_manifest": "docs/assets/production/city_roof_details_03-evidence/manifest.json",
+      "report": "docs/assets/production/city_roof_details_03.md",
+      "reviewer_id": "837547f5-8b08-4e01-8e03-87405e43f11d",
+      "integrated_revision": "c2337778"
     },
     {
       "id": "city_service_furniture.02",
@@ -4427,14 +4439,14 @@
       "input_next_action": "Refine shared design for recorded districts",
       "brief": "[Brief](../../assets/city_roof_details.md)",
       "priority": 0,
-      "status": "queued",
-      "agent_id": null,
-      "source_revision": null,
-      "review_status": "pending",
-      "integration_status": "pending",
+      "status": "production_prefab_accepted",
+      "agent_id": "d5f41533-89b6-4c78-b6da-901c7769d635",
+      "source_revision": "5915b3c4",
+      "review_status": "accepted source/export/prefab scope (independent Sol review)",
+      "integration_status": "accepted",
       "placement_status": "pending",
       "blocker": null,
-      "attempts": 0,
+      "attempts": 1,
       "initial_time_cap_minutes": 90,
       "owned_paths": [
         "art/source/models/environment/city_roof_details_04/",
@@ -4442,8 +4454,20 @@
         "art/textures/environment/city_roof_details_04/",
         "art/materials/environment/city_roof_details_04/",
         "docs/assets/production/city_roof_details_04.md",
-        "docs/assets/production/city_roof_details_04-evidence/"
-      ]
+        "docs/assets/production/city_roof_details_04-evidence/",
+        "tools/asset_production/city_roof_details_04/",
+        "scenes/prefabs/environment/city_roof_details_04.tscn"
+      ],
+      "launch": {
+        "provider": "portkey/gpt-6-astra",
+        "configured_effort": "medium",
+        "mode": "orchestrator asset lane",
+        "lane": "a-roof"
+      },
+      "producer_manifest": "docs/assets/production/city_roof_details_04-evidence/manifest.json",
+      "report": "docs/assets/production/city_roof_details_04.md",
+      "reviewer_id": "837547f5-8b08-4e01-8e03-87405e43f11d",
+      "integrated_revision": "c2337778"
     },
     {
       "id": "city_roof_details.05",
@@ -4456,14 +4480,14 @@
       "input_next_action": "Refine shared design for recorded districts",
       "brief": "[Brief](../../assets/city_roof_details.md)",
       "priority": 0,
-      "status": "queued",
-      "agent_id": null,
-      "source_revision": null,
-      "review_status": "pending",
-      "integration_status": "pending",
+      "status": "production_prefab_accepted",
+      "agent_id": "4aa7dda1-f50d-4286-a72c-8e51a0ceb5fb",
+      "source_revision": "c2337778",
+      "review_status": "accepted source/export/prefab scope (independent Sol review)",
+      "integration_status": "accepted",
       "placement_status": "pending",
       "blocker": null,
-      "attempts": 0,
+      "attempts": 1,
       "initial_time_cap_minutes": 90,
       "owned_paths": [
         "art/source/models/environment/city_roof_details_05/",
@@ -4471,8 +4495,20 @@
         "art/textures/environment/city_roof_details_05/",
         "art/materials/environment/city_roof_details_05/",
         "docs/assets/production/city_roof_details_05.md",
-        "docs/assets/production/city_roof_details_05-evidence/"
-      ]
+        "docs/assets/production/city_roof_details_05-evidence/",
+        "tools/asset_production/city_roof_details_05/",
+        "scenes/prefabs/environment/city_roof_details_05.tscn"
+      ],
+      "launch": {
+        "provider": "portkey/gpt-6-astra",
+        "configured_effort": "medium",
+        "mode": "orchestrator asset lane",
+        "lane": "a-roof"
+      },
+      "producer_manifest": "docs/assets/production/city_roof_details_05-evidence/manifest.json",
+      "report": "docs/assets/production/city_roof_details_05.md",
+      "reviewer_id": "837547f5-8b08-4e01-8e03-87405e43f11d",
+      "integrated_revision": "c2337778"
     },
     {
       "id": "d01_academic_buildings.01",
