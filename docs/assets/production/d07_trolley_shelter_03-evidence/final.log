@@ -1,0 +1,53 @@
+d07_trolley_shelter.03 — final producer receipt, 10 October 2026
+Source base: 8a8b2799fef793fe77dccced9b1c135d64b078d2
+Scope: existing .02 prefab x3; no new model, GLB, texture or runtime hierarchy.
+Exact bounded commands are in ../d07_trolley_shelter_03.md.
+Scratch/raw logs: C:/tmp/ft/assets/d07_trolley_shelter_03/ (not committed).
+
+Pinned Blender 5.2.2 LTS / d13f752e3b9c, exporter 5.2.40 verified.
+Pinned Godot 4.8.dev7.official.c971f93e7 verified via mise.
+Blender calls: isolated background/factory-startup, threads 4, audio disabled,
+python-exit-code 1, timeout 180 for validation / 900 for renders.
+
+PASS validate.py: source topology/normals/dimensions and actual GLB accessors.
+Component 4296 triangles / 2240 source vertices / 3550 export vertices / 4 surfaces.
+Zero degenerate faces/triangles and nonmanifold source edges.
+Source/export normal maximum unit-length errors 1.893e-7 / 1.243e-7.
+Fresh component GLB byte-identical, 143548 bytes, SHA256:
+ce51d11d469a69b0ab9f04ebcda2e10332f8bc4ce24e6872933d796a12434b25
+Group: three instances, one shared mesh; 12888 unsimplified triangles / 12 surface instances.
+Dimensions 0.68 x 1.08 x 2.49 m, zero ground datum; 0.72 m pitch.
+Pairwise source BVH: adjacent 36+36 tangent rubber-sidewall pairs, nonadjacent zero.
+Zero unintended crossing pairs at 1 micrometre contact tolerance.
+
+PASS render.py: four isolated 1280x720 Cycles/AgX views, 32 samples.
+Hero, side, nesting detail and vertical 47 m / 42-degree overhead visually inspected.
+Six-significant-bit RGB compaction follows family evidence convention.
+Fine ribs disappear overhead; pale strip/coral divisions survive. Engine recognition pending.
+
+PASS pinned headless import and check.gd --normalize.
+All group/component/GLB dependency UIDs resolve; Visuals/Model identities retained.
+Normalization followed by two byte-stable roundtrips; imported mesh shared x3.
+One active group box; three inherited component boxes disabled by wrapper overrides.
+Four contact-plane rays hit group body only; above-group ray clear.
+Four capsule bypasses clear; four capsule overlaps block (r0.35 / h1.8 m).
+Shelter optional yaw180/translation(0,0,-0.05): fitting region and six capsule queries pass.
+Region end margins 0.005 m, actual rear stop gap 0.205 m, each side gap 0.79 m.
+PASS final pinned import: owned script UID retained; no sibling import/source/prefab changes.
+
+PASS gdstyle 0.3.0 check/fmt and owned-script compilation.
+PASS production_checks.py with explicit mise executables and PYTHONUTF8=1:
+17 Python tests, 165 GUT tests / 6918 assertions, negative-test detection passed.
+No known-failure exclusions needed.
+
+Resolved trials: 0.45 m pitch crossed frames/baskets; 0.70 m trial still crossed
+upper rails and uprights. Increased pitch to 0.72 m; final validator passed.
+Initial gdstyle reported four line-length warnings; wrapped lines and rechecked cleanly.
+Existing import warning: MCP plugin tested through 4.7 while engine is 4.8.
+No live Blender/Godot sessions accessed, no plugin/project settings changed.
+Only approved sibling amendment: .02 Remaining acceptance delivery link and doc manifest entry.
+Historical receipts and all sibling model/material/prefab/tool payloads unchanged.
+
+Pending: independent review; sparse world placement, fixed-camera recognition/roof occlusion,
+ActorMotion movement, actual car contact, weapon/network authority/prediction, packaged builds,
+repeated-placement cost and sustained Deck performance. Bounded queries do not accept these.

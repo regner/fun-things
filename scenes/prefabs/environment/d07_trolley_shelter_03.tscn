@@ -1,0 +1,40 @@
+[gd_scene format=3 uid="uid://jfhktkayvhng"]
+
+[ext_resource type="PackedScene" path="res://scenes/prefabs/environment/d07_trolley_shelter_02.tscn" id="1_trolley"]
+
+[sub_resource type="BoxShape3D" id="Box_group"]
+size = Vector3(0.68, 1.08, 2.49)
+
+[node name="d07_trolley_shelter_03" type="Node3D" unique_id=598845683]
+
+[node name="Trolleys" type="Node3D" parent="." unique_id=1828861938]
+
+[node name="Front" parent="Trolleys" unique_id=77893099 instance=ExtResource("1_trolley")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.72)
+
+[node name="Envelope" parent="Trolleys/Front/Collision/TrolleyBody" parent_id_path=PackedInt32Array(77893099, 1605325588) index="0" unique_id=1872132182]
+disabled = true
+
+[node name="Middle" parent="Trolleys" unique_id=1196277880 instance=ExtResource("1_trolley")]
+
+[node name="Envelope" parent="Trolleys/Middle/Collision/TrolleyBody" parent_id_path=PackedInt32Array(1196277880, 1605325588) index="0" unique_id=1872132182]
+disabled = true
+
+[node name="Rear" parent="Trolleys" unique_id=1603459441 instance=ExtResource("1_trolley")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.72)
+
+[node name="Envelope" parent="Trolleys/Rear/Collision/TrolleyBody" parent_id_path=PackedInt32Array(1603459441, 1605325588) index="0" unique_id=1872132182]
+disabled = true
+
+[node name="Collision" type="Node3D" parent="." unique_id=1332979860]
+
+[node name="GroupBody" type="StaticBody3D" parent="Collision" unique_id=2136557408]
+collision_mask = 0
+
+[node name="Envelope" type="CollisionShape3D" parent="Collision/GroupBody" unique_id=125120457]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.54, 0)
+shape = SubResource("Box_group")
+
+[editable path="Trolleys/Front"]
+[editable path="Trolleys/Middle"]
+[editable path="Trolleys/Rear"]

@@ -170,8 +170,9 @@ the concise receipt; raw logs and scratch reexports remain outside the repositor
 
 ## Remaining acceptance
 
-Independent art/technical review is pending. `.03` owns final nesting count/fit and group
-collision; the world integrator owns sparse parking-row placement, actor/car bypass widths,
+Independent art/technical review is pending. [The `.03` delivery](d07_trolley_shelter_03.md)
+provides the fitted three-trolley group and group collision; the world integrator owns
+sparse parking-row placement, actor/car bypass widths,
 under-shelter occlusion and retail recognition in the actual fixed gameplay camera.
 ActorMotion movement, car contact, weapon queries, authoritative/predicted multiplayer,
 repeated-placement LOD/shadows, packaged builds and sustained Deck performance are **not
