@@ -1,27 +1,27 @@
-[gd_scene format=3]
+[gd_scene format=3 uid="uid://ckj84uglvex5h"]
 
-[ext_resource type="Script" path="res://scripts/boot/boot.gd" id="1_boot"]
-[ext_resource type="Script" path="res://scripts/session/session_service.gd" id="2_session"]
+[ext_resource type="Script" uid="uid://brbllm3uj5oki" path="res://scripts/boot/boot.gd" id="1_boot"]
+[ext_resource type="Script" uid="uid://nogknm7ojx1p" path="res://scripts/session/session_service.gd" id="2_session"]
 [ext_resource type="PackedScene" path="res://scenes/ui/main_menu.tscn" id="3_menu"]
 [ext_resource type="PackedScene" path="res://scenes/ui/session_status.tscn" id="4_status"]
-[ext_resource type="Script" path="res://scripts/session/enet_transport.gd" id="5_enet"]
-[ext_resource type="Script" path="res://scripts/settings/local_settings.gd" id="6_settings"]
+[ext_resource type="Script" uid="uid://dwuaavv3gvuhg" path="res://scripts/session/enet_transport.gd" id="5_enet"]
+[ext_resource type="Script" uid="uid://loq0pw8u2aw" path="res://scripts/settings/local_settings.gd" id="6_settings"]
 [ext_resource type="PackedScene" path="res://scenes/ui/settings_menu.tscn" id="7_settings_ui"]
 
-[node name="Boot" type="Node"]
+[node name="Boot" type="Node" unique_id=606728560]
 process_mode = 3
 script = ExtResource("1_boot")
 
-[node name="Session" type="Node" parent="."]
+[node name="Session" type="Node" parent="." unique_id=571798993]
 script = ExtResource("2_session")
 
-[node name="ENetTransport" type="Node" parent="Session"]
+[node name="ENetTransport" type="Node" parent="Session" unique_id=93476487]
 script = ExtResource("5_enet")
 
-[node name="LocalSettings" type="Node" parent="."]
+[node name="LocalSettings" type="Node" parent="." unique_id=765411372]
 script = ExtResource("6_settings")
 
-[node name="View" type="Control" parent="."]
+[node name="View" type="Control" parent="." unique_id=1174270820]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -29,8 +29,11 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="MainMenu" parent="View" instance=ExtResource("3_menu")]
+[node name="MainMenu" parent="View" unique_id=2019608540 instance=ExtResource("3_menu")]
+layout_mode = 1
 
-[node name="SessionStatus" parent="View" instance=ExtResource("4_status")]
+[node name="SessionStatus" parent="View" unique_id=2085552307 instance=ExtResource("4_status")]
+layout_mode = 1
 
-[node name="SettingsMenu" parent="View" instance=ExtResource("7_settings_ui")]
+[node name="SettingsMenu" parent="View" unique_id=1000948490 instance=ExtResource("7_settings_ui")]
+layout_mode = 1
