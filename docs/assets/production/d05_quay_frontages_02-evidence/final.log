@@ -1,0 +1,44 @@
+d05_quay_frontages.02 — final bounded delivery checks, 2026-10-10
+Working branch: lane/a-qfront; prior sibling: 17fdd3e2.
+Exact reproduction commands: ../d05_quay_frontages_02.md.
+
+PASS author.py: pinned Blender 5.2.2 LTS d13f752e3b9c, original source and explicit GLB; exit 0.
+PASS export.py: fresh process, saved source, glTF 5.2.40/shared export contract; exit 0.
+PASS validate.py: 4408 triangles; 2232 source / 2715 GLB vertices; one mesh / five surfaces.
+  Zero degenerate source faces/export triangles; zero non-manifold source edges.
+  Unit normals, consistent winding, positive volume, metre units, identity transforms.
+  Ground datum and decoded GLB AABB (-6.69,0,-4.28) to (6.69,9.4,4.28), tolerance .001 m.
+  Eight blind-recess probes plus intact-wall probe; ten actual fitting mounts have zero
+  shell-surface intersections. Full mating dependency hashes retained in validation.json.
+  Byte-identical fresh export: 118360 bytes;
+  SHA256 c72ad57d687d2421c69324cfcd25871c70abedac9b94d88e892b0fb0a8be8f17.
+PASS render.py: four isolated Cycles CPU/AgX 32-sample 1280x720 PNGs; exit 0.
+  Hero, side/rear, frontage detail and vertical 47 m/42-degree perspective overhead inspected.
+  Final compacted sizes: hero 286204; side 268864; detail 271543; overhead 240998 bytes.
+PASS pinned Godot 4.8.dev7.official.c971f93e7 headless import: exit 0; zero ERROR/SCRIPT ERROR lines.
+PASS check.gd --normalize (final after formatting): exit 0; zero ERROR/SCRIPT ERROR lines.
+  Linked identity shell, five opaque/back-culled surfaces, fourteen exact shared mounts.
+  Recursive dependency UIDs resolve; prefab/fixture pack-save-reload bytes and IDs stable.
+  Fitted bounds (-6.69,0,-5.1) to (6.69,9.4,4.28); 97 imported mesh instances.
+  Exactly one box collider, size (12.8,6.85,8), centre (0,3.425,0), layer 1/mask 0.
+  Seven ActorMotion/FootCommand cases x 60 physics ticks in AUTHORITY and REPLAY.
+  Both side contacts, both closed entrances, party pier, rear, clear side bypass pass.
+  Authority/replay positions agree within .002 m; observed max difference .000007573 m.
+  Side-wall rays hit +/-6.4; bypass and above-wall roof rays remain clear.
+PASS pinned gdstyle fmt --check check.gd: one file already formatted; exit 0.
+PASS pinned gdstyle --max-line-length 100 --max-warnings 0 check.gd: no issues; exit 0.
+PASS receipt/doc readback: final GLB SHA256 and byte count match validation.json and actual bytes.
+PASS git diff --check; pre-stage status contains only owned asset paths.
+
+Historical diagnostics: initial version-only Blender probe exited 0 with one tiny shutdown
+memory-block diagnostic; all actual Blender production calls used audio-disabled environments
+and had no such diagnostic. Initial gdstyle long-line/blank-line warnings corrected. Blender
+Principled deprecation warnings and existing addon information remain visible in scratch logs.
+No failing source geometry, export, import, fitting or physics check was hidden or suppressed.
+No owner live Blender/Godot session was used. All editor-managed changes were text-authored then
+normalized through the mandated pinned headless fallback.
+
+Not run: tools/production_checks.py (owner decision 52); whole-city placement, car impacts,
+real network transport/admission/prediction, native populated gameplay/blue-hour rendering,
+packaging, sustained repeated-placement and Steam Deck performance. Independent review pending.
+Raw logs and fresh reexport remain outside Git at C:/tmp/ft/assets/d05_quay_frontages_02/.

@@ -1,0 +1,19 @@
+"""Export only the saved two-bay row collection using the shared pinned contract."""
+import json
+from pathlib import Path
+import sys
+
+import bpy
+import io_scene_gltf2
+
+ROOT = Path(__file__).resolve().parents[3]
+NID = "d05_quay_frontages_02"
+assert bpy.app.version_string == "5.2.2 LTS"
+assert io_scene_gltf2.bl_info["version"] == (5, 2, 40)
+settings = json.loads((ROOT / "tools/assets/blender/export_settings.json").read_text())
+output = (Path(sys.argv[sys.argv.index("--") + 1]) if "--" in sys.argv
+          else ROOT / f"art/models/environment/{NID}")
+output.mkdir(parents=True, exist_ok=True)
+settings.update(collection="export_" + NID, export_animations=False, export_skins=False,
+                filepath=str(output / (NID + ".glb")))
+bpy.ops.export_scene.gltf(**settings)

@@ -1,0 +1,75 @@
+[gd_scene format=3 uid="uid://db5tbal1c87tj"]
+
+[ext_resource type="PackedScene" path="res://scenes/prefabs/environment/city_shop_fittings_01.tscn" id="canopy"]
+[ext_resource type="PackedScene" path="res://art/models/environment/city_shop_fittings_05/city_shop_fittings_05.glb" id="display"]
+[ext_resource type="PackedScene" path="res://art/models/environment/city_shop_fittings_06/city_shop_fittings_06_single.glb" id="door"]
+[ext_resource type="PackedScene" path="res://scenes/prefabs/environment/city_shop_fittings_02.tscn" id="fascia"]
+[ext_resource type="PackedScene" path="res://art/models/environment/d05_quay_frontages_02/d05_quay_frontages_02.glb" id="shell"]
+[ext_resource type="PackedScene" path="res://scenes/prefabs/environment/city_shop_fittings_03_single.tscn" id="surround"]
+[ext_resource type="PackedScene" path="res://scenes/prefabs/environment/city_shop_fittings_07.tscn" id="upper"]
+
+[sub_resource type="BoxShape3D" id="Box_shell"]
+size = Vector3(12.8, 6.85, 8)
+
+[node name="D05QuayFrontages02" type="Node3D" unique_id=506426578]
+
+[node name="Visuals" type="Node3D" parent="." unique_id=1316391572]
+
+[node name="Model" parent="Visuals" unique_id=1901578569 instance=ExtResource("shell")]
+
+[node name="Fittings" type="Node3D" parent="." unique_id=226623878]
+
+[node name="West" type="Node3D" parent="Fittings" unique_id=2139266869]
+
+[node name="Canopy" parent="Fittings/West" unique_id=2141361011 instance=ExtResource("canopy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.15, 3, -4)
+
+[node name="Fascia" parent="Fittings/West" unique_id=1705980127 instance=ExtResource("fascia")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.15, 3.8, -4)
+
+[node name="Surround" parent="Fittings/West" unique_id=251413694 instance=ExtResource("surround")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.25, 0, -4)
+
+[node name="Display" parent="Fittings/West" unique_id=1618383493 instance=ExtResource("display")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.15, 0.48, -4)
+
+[node name="ClosedDoor" parent="Fittings/West" unique_id=448466251 instance=ExtResource("door")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.25, 0, -4)
+
+[node name="UpperFront" parent="Fittings/West" unique_id=345121530 instance=ExtResource("upper")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.2, 4.65, -4)
+
+[node name="UpperRear" parent="Fittings/West" unique_id=1067113151 instance=ExtResource("upper")]
+transform = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, -1, -3.2, 4.65, 4)
+
+[node name="East" type="Node3D" parent="Fittings" unique_id=1885885725]
+
+[node name="Canopy" parent="Fittings/East" unique_id=761504995 instance=ExtResource("canopy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.25, 3, -4)
+
+[node name="Fascia" parent="Fittings/East" unique_id=595729178 instance=ExtResource("fascia")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.25, 3.8, -4)
+
+[node name="Surround" parent="Fittings/East" unique_id=2083876281 instance=ExtResource("surround")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.15, 0, -4)
+
+[node name="Display" parent="Fittings/East" unique_id=786605552 instance=ExtResource("display")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.25, 0.48, -4)
+
+[node name="ClosedDoor" parent="Fittings/East" unique_id=2043584698 instance=ExtResource("door")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.15, 0, -4)
+
+[node name="UpperFront" parent="Fittings/East" unique_id=845391671 instance=ExtResource("upper")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.2, 4.65, -4)
+
+[node name="UpperRear" parent="Fittings/East" unique_id=528345849 instance=ExtResource("upper")]
+transform = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, -1, 3.2, 4.65, 4)
+
+[node name="Collision" type="Node3D" parent="." unique_id=968150783]
+
+[node name="Body" type="StaticBody3D" parent="Collision" unique_id=2034869224]
+collision_mask = 0
+
+[node name="Shell" type="CollisionShape3D" parent="Collision/Body" unique_id=511927045]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.425, 0)
+shape = SubResource("Box_shell")
