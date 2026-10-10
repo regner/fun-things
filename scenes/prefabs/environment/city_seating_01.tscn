@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://c3ailcxgje5bn"]
+
+[ext_resource type="PackedScene" uid="uid://djjt56ofiyf27" path="res://art/models/environment/city_seating_01/city_seating_01.glb" id="1_model"]
+
+[sub_resource type="BoxShape3D" id="Box_seat"]
+size = Vector3(2.4, 0.46, 0.68)
+
+[sub_resource type="BoxShape3D" id="Box_back"]
+size = Vector3(2.4, 0.46, 0.17)
+
+[node name="city_seating_01" type="Node3D" unique_id=1835314692]
+
+[node name="Visuals" type="Node3D" parent="." unique_id=1231133751]
+
+[node name="Model" parent="Visuals" unique_id=628909824 instance=ExtResource("1_model")]
+
+[node name="Collision" type="Node3D" parent="." unique_id=1035695267]
+
+[node name="Body" type="StaticBody3D" parent="Collision" unique_id=337741540]
+collision_mask = 0
+
+[node name="Seat" type="CollisionShape3D" parent="Collision/Body" unique_id=975931172]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.23, 0)
+shape = SubResource("Box_seat")
+
+[node name="Back" type="CollisionShape3D" parent="Collision/Body" unique_id=1722171588]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.69, 0.255)
+shape = SubResource("Box_back")

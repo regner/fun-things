@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://b8kaq5r7aahpb"]
+
+[ext_resource type="PackedScene" uid="uid://c3ailcxgje5bn" path="res://scenes/prefabs/environment/city_seating_01.tscn" id="1_bench"]
+[ext_resource type="Script" uid="uid://jthmfio4c27p" path="res://scripts/actors/actor_motion.gd" id="2_actor"]
+
+[sub_resource type="BoxShape3D" id="Box_floor"]
+size = Vector3(12, 0.2, 12)
+
+[sub_resource type="CapsuleShape3D" id="Capsule_actor"]
+radius = 0.35
+height = 1.8
+
+[node name="BenchPhysicsCheck" type="Node3D" unique_id=1360934205]
+
+[node name="Bench" parent="." unique_id=813904510 instance=ExtResource("1_bench")]
+
+[node name="Floor" type="StaticBody3D" parent="." unique_id=601614840]
+collision_mask = 0
+
+[node name="Shape" type="CollisionShape3D" parent="Floor" unique_id=844350672]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.1, 0)
+shape = SubResource("Box_floor")
+
+[node name="Actor" type="CharacterBody3D" parent="." unique_id=167789803]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.001, -2)
+collision_layer = 2
+script = ExtResource("2_actor")
+
+[node name="Capsule" type="CollisionShape3D" parent="Actor" unique_id=1085494076]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0)
+shape = SubResource("Capsule_actor")
