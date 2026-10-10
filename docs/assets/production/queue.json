@@ -6996,14 +6996,14 @@
       "input_next_action": "Refine design from district asset breakdown",
       "brief": "[Brief](../../assets/d07_trolley_shelter.md)",
       "priority": 0,
-      "status": "queued",
-      "agent_id": null,
-      "source_revision": null,
-      "review_status": "pending",
-      "integration_status": "pending",
+      "status": "production_prefab_accepted",
+      "agent_id": "14273f15-396d-46af-825c-c6950b3af924",
+      "source_revision": "b08ee203",
+      "review_status": "accepted source/export/prefab scope (independent Sol review)",
+      "integration_status": "accepted",
       "placement_status": "pending",
       "blocker": null,
-      "attempts": 0,
+      "attempts": 1,
       "initial_time_cap_minutes": 90,
       "owned_paths": [
         "art/source/models/environment/d07_trolley_shelter_01/",
@@ -7011,8 +7011,20 @@
         "art/textures/environment/d07_trolley_shelter_01/",
         "art/materials/environment/d07_trolley_shelter_01/",
         "docs/assets/production/d07_trolley_shelter_01.md",
-        "docs/assets/production/d07_trolley_shelter_01-evidence/"
-      ]
+        "docs/assets/production/d07_trolley_shelter_01-evidence/",
+        "tools/asset_production/d07_trolley_shelter_01/",
+        "scenes/prefabs/environment/d07_trolley_shelter_01.tscn"
+      ],
+      "launch": {
+        "provider": "portkey/gpt-6-astra",
+        "configured_effort": "medium",
+        "mode": "orchestrator asset lane",
+        "lane": "a-trolley"
+      },
+      "producer_manifest": "docs/assets/production/d07_trolley_shelter_01-evidence/manifest.json",
+      "report": "docs/assets/production/d07_trolley_shelter_01.md",
+      "reviewer_id": "d191dca2-e188-469f-89dd-0787abde41e4",
+      "integrated_revision": "b08ee203"
     },
     {
       "id": "d07_trolley_shelter.02",
@@ -7025,14 +7037,14 @@
       "input_next_action": "Refine design from district asset breakdown",
       "brief": "[Brief](../../assets/d07_trolley_shelter.md)",
       "priority": 0,
-      "status": "queued",
-      "agent_id": null,
-      "source_revision": null,
-      "review_status": "pending",
-      "integration_status": "pending",
+      "status": "production_prefab_accepted",
+      "agent_id": "0c84cdeb-0027-4c8a-b9cd-3d7d07f51a74",
+      "source_revision": "6816f196",
+      "review_status": "accepted source/export/prefab scope (independent Sol review)",
+      "integration_status": "accepted",
       "placement_status": "pending",
       "blocker": null,
-      "attempts": 0,
+      "attempts": 1,
       "initial_time_cap_minutes": 90,
       "owned_paths": [
         "art/source/models/environment/d07_trolley_shelter_02/",
@@ -7040,8 +7052,20 @@
         "art/textures/environment/d07_trolley_shelter_02/",
         "art/materials/environment/d07_trolley_shelter_02/",
         "docs/assets/production/d07_trolley_shelter_02.md",
-        "docs/assets/production/d07_trolley_shelter_02-evidence/"
-      ]
+        "docs/assets/production/d07_trolley_shelter_02-evidence/",
+        "tools/asset_production/d07_trolley_shelter_02/",
+        "scenes/prefabs/environment/d07_trolley_shelter_02.tscn"
+      ],
+      "launch": {
+        "provider": "portkey/gpt-6-astra",
+        "configured_effort": "medium",
+        "mode": "orchestrator asset lane",
+        "lane": "a-trolley"
+      },
+      "producer_manifest": "docs/assets/production/d07_trolley_shelter_02-evidence/manifest.json",
+      "report": "docs/assets/production/d07_trolley_shelter_02.md",
+      "reviewer_id": "d191dca2-e188-469f-89dd-0787abde41e4",
+      "integrated_revision": "b08ee203"
     },
     {
       "id": "d07_trolley_shelter.03",
