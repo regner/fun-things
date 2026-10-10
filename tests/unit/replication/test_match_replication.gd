@@ -137,9 +137,80 @@ func test_death_and_respawn_during_admission_require_newest_lifecycle_revision()
 		int(marker.lifecycle_revision),
 	)
 	assert_true(grant.admitted)
+	var grant_event: Dictionary = transport.events[transport.events.size() - 2]
+	assert_eq(grant_event.kind, &"grant")
+	assert_eq(int(grant_event.lifecycle_revision), int(marker.lifecycle_revision))
+
+
+## Retains a mapped pre-baseline peer across reset under its original bounded deadline.
+func test_reset_coordinates_mapped_peer_before_baseline_attempt_exists() -> void:
+	_now_msec = 100
+	var match: Node3D = MATCH_SCENE.instantiate() as Node3D
+	add_child_autofree(match)
+	var replication: MatchReplication = match.get_node("Replication") as MatchReplication
+	var transport := FakeReplicationTransport.new()
+	assert_true(
+		replication.configure_network(
+			ReplicationIdentity.create_session_id(),
+			1,
+			true,
+			_clock_msec,
+			transport,
+		)
+	)
+	assert_true(replication.admit_peer(BASELINE_STALL_PEER, 2))
+	var original_deadline: int = (
+		_now_msec + ReplicationAdmission.TOTAL_ATTEMPT_TIMEOUT_MSEC
+	)
+
+	_now_msec = 1000
+	assert_true(replication.request_match_reset(1))
+	assert_eq(_event_count(transport, &"reset", BASELINE_STALL_PEER), 1)
+	assert_eq(_event_count(transport, &"baseline", BASELINE_STALL_PEER), 0)
+	var started: Dictionary = replication.begin_admission_for_peer(BASELINE_STALL_PEER)
+	assert_true(started.ok)
+	var attempt: Dictionary = replication._admission.attempt_view(BASELINE_STALL_PEER)
+	assert_eq(attempt.attempt_deadline_msec, original_deadline)
+	assert_eq(int(started.metadata.match_revision), 2)
+
+
+## Republishes the complete roster after a durable two-peer disconnect tombstone.
+func test_disconnect_publishes_lifecycle_after_tombstone_to_remaining_peer() -> void:
+	_now_msec = 0
+	var match: Node3D = MATCH_SCENE.instantiate() as Node3D
+	add_child_autofree(match)
+	var replication: MatchReplication = match.get_node("Replication") as MatchReplication
+	var transport := FakeReplicationTransport.new()
+	assert_true(
+		replication.configure_network(
+			ReplicationIdentity.create_session_id(),
+			1,
+			true,
+			_clock_msec,
+			transport,
+		)
+	)
+	assert_true(replication.admit_peer(BASELINE_STALL_PEER, 2))
+	assert_true(replication.admit_peer(HANDOFF_STALL_PEER, 3))
+	var first: Dictionary = replication.begin_admission_for_peer(BASELINE_STALL_PEER)
+	var second: Dictionary = replication.begin_admission_for_peer(HANDOFF_STALL_PEER)
+	assert_true(first.ok)
+	assert_true(second.ok)
+	_finish_remote_admission(replication, BASELINE_STALL_PEER, first)
+	_finish_remote_admission(replication, HANDOFF_STALL_PEER, second)
+	transport.events.clear()
+
+	replication.remove_peer(BASELINE_STALL_PEER, 2)
+	assert_eq(replication.lifecycle_view().roster.size(), 2)
+	assert_false(replication.lifecycle_view_for(2).has("alive"))
+	assert_eq(transport.events.size(), 2)
+	assert_eq(transport.events[0].kind, &"durable")
+	assert_eq(transport.events[0].peer, HANDOFF_STALL_PEER)
+	assert_eq(transport.events[1].kind, &"lifecycle")
+	assert_eq(transport.events[1].peer, HANDOFF_STALL_PEER)
 	assert_eq(
-		int(transport.events.back().lifecycle_revision),
-		int(marker.lifecycle_revision),
+		int(transport.events[1].lifecycle_revision),
+		int(replication.lifecycle_view().revision),
 	)
 
 
@@ -300,6 +371,26 @@ func _start_timeout_scenario() -> FakeReplicationTransport:
 	assert_true(handoff.ok)
 	assert_eq(_timeout_replication.player_count(), 4)
 	return transport
+
+
+## Finishes one already-started admission through its exact lifecycle marker.
+func _finish_remote_admission(
+	replication: MatchReplication,
+	native_peer_id: int,
+	started: Dictionary,
+) -> void:
+	var marker: Dictionary = replication.acknowledge_baseline_for_peer(
+		native_peer_id,
+		int(started.baseline_id),
+	)
+	assert_true(marker.ok)
+	var granted: Dictionary = replication.acknowledge_handoff_for_peer(
+		native_peer_id,
+		int(started.baseline_id),
+		int(marker.commit_revision),
+		int(marker.lifecycle_revision),
+	)
+	assert_true(granted.admitted)
 
 
 ## Creates one pending baseline or handoff attempt for reset restart coverage.

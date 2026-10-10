@@ -17,6 +17,7 @@ const INPUT_RATE_PER_SECOND: float = 60.0
 const INPUT_BURST: float = 8.0
 const MAX_SEQUENCE_ADVANCE: int = 120
 const RESET_ADMISSION_TIMEOUT_MSEC: int = 15_000
+const PHASE_MAPPED: StringName = &"mapped"
 const ENTITY_KIND_PLAYER: int = 1
 const PHASE_LIVE: int = 1
 const PHASE_REMOVED: int = 3
@@ -51,6 +52,7 @@ var _sequence: Dictionary = {
 var _actors_by_participant: Dictionary[int, ActorMotion] = {}
 var _replica_pose_generation_by_participant: Dictionary[int, int] = {}
 var _peer_by_participant: Dictionary[int, int] = {}
+var _waiting_admission_deadline_by_peer: Dictionary[int, int] = {}
 var _spawn_reservations := SpawnReservations.new()
 var _resetting: bool = false
 var _standalone: bool = false
@@ -80,7 +82,9 @@ func _physics_process(delta: float) -> void:
 
 	_sequence.physics_tick += 1
 	if _context.is_host:
-		_admission.expire_attempts(_now_msec())
+		var now_msec: int = _now_msec()
+		_admission.expire_attempts(now_msec)
+		_expire_waiting_mapped_peers(now_msec)
 		_lifecycle.step(_sequence.physics_tick)
 		_step_remote_players(delta)
 		if _sequence.physics_tick % MOVEMENT_INTERVAL_TICKS == 0:
@@ -199,6 +203,10 @@ func admit_peer(native_peer_id: int, participant_id: int) -> bool:
 		return false
 
 	_peer_by_participant[participant_id] = native_peer_id
+	if not _waiting_admission_deadline_by_peer.has(native_peer_id):
+		_waiting_admission_deadline_by_peer[native_peer_id] = (
+			_now_msec() + ReplicationAdmission.TOTAL_ATTEMPT_TIMEOUT_MSEC
+		)
 	return true
 
 
@@ -209,6 +217,7 @@ func remove_peer(native_peer_id: int, participant_id: int) -> void:
 
 	_admitted_peers.erase(native_peer_id)
 	_peer_by_participant.erase(participant_id)
+	_waiting_admission_deadline_by_peer.erase(native_peer_id)
 	_latest_command_by_participant.erase(participant_id)
 	_input_state_by_participant.erase(participant_id)
 	_player_identity.spawn_slot_by_participant.erase(participant_id)
@@ -226,6 +235,8 @@ func remove_peer(native_peer_id: int, participant_id: int) -> void:
 	)
 	_lifecycle.remove_player(participant_id)
 	_retire_player_binding(participant_id)
+	_admission.publish_lifecycle(_lifecycle.revision())
+	_publish_lifecycle_state()
 
 
 ## Allows deterministic integration drivers to replace desktop collection, not authority.
@@ -322,7 +333,7 @@ func request_match_reset(requester_participant_id: int) -> bool:
 
 	_resetting = true
 	var now_msec: int = _now_msec()
-	var reset_attempts: Array[Dictionary] = _admission.take_reset_attempts()
+	var reset_attempts: Array[Dictionary] = _take_reset_attempts(now_msec)
 	_sequence.match_revision = _match_revision() + 1
 	_sequence.durable_revision = 0
 	_latest_command_by_participant.clear()
@@ -339,25 +350,62 @@ func request_match_reset(requester_participant_id: int) -> bool:
 	_create_admission(_context.clock)
 	var reset_result: Dictionary = _lifecycle.reset_players(_sequence.physics_tick)
 	_apply_lifecycle_to_actors()
-	for attempt: Dictionary in reset_attempts:
+	failed_peers = _restart_reset_attempts(reset_attempts, failed_peers, now_msec)
+	_resetting = false
+	return reset_result.get("ok", false) and failed_peers.is_empty()
+
+
+## Inventories active and mapped waiting peers without extending pending join deadlines.
+func _take_reset_attempts(now_msec: int) -> Array[Dictionary]:
+	var attempts: Array[Dictionary] = _admission.take_reset_attempts()
+	var included_peers: Dictionary[int, bool] = {}
+	for attempt: Dictionary in attempts:
+		included_peers[int(attempt.native_peer_id)] = true
+	for participant_id: int in _peer_by_participant:
+		var native_peer_id: int = int(_peer_by_participant[participant_id])
+		if included_peers.has(native_peer_id):
+			continue
+		var default_deadline: int = now_msec + ReplicationAdmission.TOTAL_ATTEMPT_TIMEOUT_MSEC
+		var deadline_msec: int = int(
+			_waiting_admission_deadline_by_peer.get(native_peer_id, default_deadline)
+		)
+		attempts.append(
+			{
+				"native_peer_id": native_peer_id,
+				"participant_id": participant_id,
+				"phase": PHASE_MAPPED,
+				"attempt_deadline_msec": deadline_msec,
+			}
+		)
+	return attempts
+
+
+## Restarts reset-interrupted transfers while retaining mapped peers until readiness.
+func _restart_reset_attempts(
+	attempts: Array[Dictionary],
+	failed_peers: Array[int],
+	now_msec: int,
+) -> Array[int]:
+	for attempt: Dictionary in attempts:
 		var native_peer_id: int = int(attempt.native_peer_id)
 		if native_peer_id in failed_peers:
 			abort_peer(native_peer_id, &"RESET_FAILED")
+			continue
+		if attempt.phase == PHASE_MAPPED:
+			_waiting_admission_deadline_by_peer[native_peer_id] = int(
+				attempt.attempt_deadline_msec
+			)
 			continue
 		var deadline_msec: int = (
 			int(attempt.attempt_deadline_msec)
 			if attempt.phase != ReplicationAdmission.PHASE_ADMITTED
 			else now_msec + RESET_ADMISSION_TIMEOUT_MSEC
 		)
-		var restarted: Dictionary = begin_admission_for_peer(
-			native_peer_id,
-			deadline_msec,
-		)
+		var restarted: Dictionary = begin_admission_for_peer(native_peer_id, deadline_msec)
 		if not restarted.get("ok", false):
 			failed_peers.append(native_peer_id)
 			abort_peer(native_peer_id, &"RESET_FAILED")
-	_resetting = false
-	return reset_result.get("ok", false) and failed_peers.is_empty()
+	return failed_peers
 
 
 ## Sends client readiness only after the saved Match RPC path exists locally.
@@ -371,14 +419,18 @@ func _send_ready() -> void:
 ## Starts baseline admission only for the sender identity supplied by SessionService.
 @rpc("any_peer", "call_remote", "reliable", 0)
 func _ready_for_baseline(session_id: String, match_revision: int) -> void:
-	if (
-		not _context.is_host
-		or session_id != _context.session_id
-		or match_revision != _match_revision()
-	):
+	if not _context.is_host or session_id != _context.session_id:
+		return
+	var native_peer_id: int = multiplayer.get_remote_sender_id()
+	if match_revision != _match_revision():
+		if (
+			_identities.resolve_sender(native_peer_id) > 0
+			and _waiting_admission_deadline_by_peer.has(native_peer_id)
+		):
+			_transport.send_reset_begin(native_peer_id, _match_revision())
 		return
 
-	begin_admission_for_peer(multiplayer.get_remote_sender_id())
+	begin_admission_for_peer(native_peer_id)
 
 
 ## Starts one sender-derived admission after Session has installed its mapping.
@@ -391,6 +443,14 @@ func begin_admission_for_peer(
 	var participant_id: int = _identities.resolve_sender(native_peer_id)
 	if participant_id == 0:
 		return { "ok": false }
+	var attempt_deadline_msec: int = preserved_attempt_deadline_msec
+	if attempt_deadline_msec < 0:
+		attempt_deadline_msec = int(
+			_waiting_admission_deadline_by_peer.get(native_peer_id, -1)
+		)
+	if attempt_deadline_msec >= 0 and attempt_deadline_msec <= _now_msec():
+		abort_peer(native_peer_id, &"SYNC_TIMEOUT")
+		return { "ok": false, "failure": { "code": &"SYNC_TIMEOUT" } }
 	if not _actors_by_participant.has(participant_id):
 		if _spawn_authoritative_player(participant_id, false) == null:
 			abort_peer(native_peer_id, &"SPAWN_FAILED")
@@ -404,8 +464,8 @@ func begin_admission_for_peer(
 
 	_sequence.baseline_id += 1
 	var options: Dictionary = { "lifecycle_revision": _lifecycle.revision() }
-	if preserved_attempt_deadline_msec >= 0:
-		options.attempt_deadline_msec = preserved_attempt_deadline_msec
+	if attempt_deadline_msec >= 0:
+		options.attempt_deadline_msec = attempt_deadline_msec
 	var started: Dictionary = _admission.start(
 		native_peer_id,
 		_sequence.baseline_id,
@@ -414,6 +474,8 @@ func begin_admission_for_peer(
 		options,
 	)
 	started["baseline_id"] = _sequence.baseline_id
+	if started.get("ok", false):
+		_waiting_admission_deadline_by_peer.erase(native_peer_id)
 	return started
 
 
@@ -429,12 +491,17 @@ func acknowledge_handoff_for_peer(
 	commit_revision: int,
 	lifecycle_revision: int,
 ) -> Dictionary:
-	return _admission.acknowledge_handoff(
+	var result: Dictionary = _admission.acknowledge_handoff(
 		native_peer_id,
 		baseline_id,
 		commit_revision,
 		lifecycle_revision,
 	)
+	if result.get("admitted", false):
+		_admitted_peers[native_peer_id] = true
+		_waiting_admission_deadline_by_peer.erase(native_peer_id)
+		_lifecycle.set_admitted(_identities.resolve_sender(native_peer_id), true)
+	return result
 
 
 ## Reports command admission for deterministic runtime lifecycle checks.
@@ -618,6 +685,7 @@ func _receive_reset_begin(session_id: String, match_revision: int) -> void:
 	_store = ReplicaStateStore.new(_codec, _context.session_id, _match_revision())
 	_apply_dead_to_all_actors()
 	_local_rig().set_replica_input_enabled(false)
+	call_deferred("_send_ready")
 
 
 ## Begins one bounded client baseline transaction from the authoritative host.
@@ -869,9 +937,6 @@ func send_grant_to_peer(
 		commit_revision,
 		lifecycle_revision,
 	)
-	_admitted_peers[native_peer_id] = true
-	var participant_id: int = _identities.resolve_sender(native_peer_id)
-	_lifecycle.set_admitted(participant_id, true)
 	return true
 
 
@@ -891,6 +956,14 @@ func _can_send_to_peer(native_peer_id: int) -> bool:
 		and multiplayer.multiplayer_peer.get_connection_status()
 		== MultiplayerPeer.CONNECTION_CONNECTED
 	)
+
+
+## Ends mapped peers that never start baseline before their original admission deadline.
+func _expire_waiting_mapped_peers(now_msec: int) -> void:
+	for native_peer_id: int in _waiting_admission_deadline_by_peer.keys():
+		if now_msec < int(_waiting_admission_deadline_by_peer[native_peer_id]):
+			continue
+		abort_peer(native_peer_id, &"SYNC_TIMEOUT")
 
 
 ## Removes every failed provisional life before ending its native peer.
@@ -1306,13 +1379,7 @@ func _on_lifecycle_transition(_participant_id: int, _state: Dictionary) -> void:
 ## Sends one complete lifecycle snapshot over the ordered reliable state stream.
 func _publish_lifecycle_state() -> void:
 	for native_peer_id: int in _admitted_peers:
-		_receive_lifecycle_hydration.rpc_id(
-			native_peer_id,
-			_context.session_id,
-			_match_revision(),
-			_lifecycle.revision(),
-			_lifecycle.hydration_rows(_sequence.physics_tick),
-		)
+		_transport.send_lifecycle(native_peer_id, _lifecycle.revision())
 
 
 ## Commits death ordering before notifying lifecycle and presentation observers.

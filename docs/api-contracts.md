@@ -367,14 +367,20 @@ required durable/life/control revisions, and client input waits for those revisi
 Preserving a seat on resync never restores a driver killed while loading.
 Existing-participant RESYNC/RESET hydration gets a fresh maximum 15 s deadline,
 not the expired original join deadline. A superseding reset cannot extend an active
-hydration's deadline. A pending initial join retains its original total deadline.
+hydration's deadline. A pending initial join retains its original total deadline,
+including the authenticated mapping-to-world-ready interval. Reset notifies that mapped
+peer of the new MatchRevision and readiness starts its replacement baseline without
+extending the original deadline; silence reaches bounded disconnect cleanup.
 
 Failure/cancel of INITIAL after player creation removes the provisional player,
 cancels its respawn/actions/callbacks, releases its seat/spawn/capacity reservations
 and publishes removal to peers that saw it. Rollback is idempotent. RESYNC failure
 does not create/remove a replacement life; it ends that participant's connection
 through ordinary disconnect cleanup. RESET failure removes only the timed-out
-participant. Discard the attempt's baseline/journal/acks in every case.
+participant. Discard the attempt's baseline/journal/acks in every case. Ordinary
+disconnect publishes the durable entity tombstone first, then advances lifecycle revision
+and sends a complete roster snapshot on the same ordered reliable stream so remaining
+peers cannot retain a departed admitted participant.
 
 Reset uses this same baseline/handoff process with the new MatchRevision. If reset
 interrupts a join, cancel its old baseline/reservation and restart hydration under
