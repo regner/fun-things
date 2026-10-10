@@ -4919,14 +4919,14 @@
       "input_next_action": "Confirm supporting uses in district detail concepts",
       "brief": "[Brief](../../assets/d01_campus_graphics.md)",
       "priority": 1,
-      "status": "queued",
-      "agent_id": null,
-      "source_revision": null,
-      "review_status": "pending",
-      "integration_status": "pending",
+      "status": "production_prefab_accepted",
+      "agent_id": "18ce349e-8ec1-47dc-a1df-0524f19cb897",
+      "source_revision": "963b6bac",
+      "review_status": "accepted source/export/prefab scope (independent Sol review)",
+      "integration_status": "accepted",
       "placement_status": "pending",
       "blocker": null,
-      "attempts": 0,
+      "attempts": 1,
       "initial_time_cap_minutes": 90,
       "owned_paths": [
         "art/source/models/environment/d01_campus_graphics_01/",
@@ -4934,8 +4934,20 @@
         "art/textures/environment/d01_campus_graphics_01/",
         "art/materials/environment/d01_campus_graphics_01/",
         "docs/assets/production/d01_campus_graphics_01.md",
-        "docs/assets/production/d01_campus_graphics_01-evidence/"
-      ]
+        "docs/assets/production/d01_campus_graphics_01-evidence/",
+        "tools/asset_production/d01_campus_graphics_01/",
+        "scenes/prefabs/environment/d01_campus_graphics_01.tscn"
+      ],
+      "launch": {
+        "provider": "portkey/gpt-6-astra",
+        "configured_effort": "medium",
+        "mode": "orchestrator asset lane",
+        "lane": "a-campus"
+      },
+      "producer_manifest": "docs/assets/production/d01_campus_graphics_01-evidence/manifest.json",
+      "report": "docs/assets/production/d01_campus_graphics_01.md",
+      "reviewer_id": "9fbd2388-ea43-4d81-a3a3-937263a305e3",
+      "integrated_revision": "963b6bac"
     },
     {
       "id": "d01_campus_graphics.02",
@@ -4948,14 +4960,14 @@
       "input_next_action": "Refine design from Northpoint breakdown",
       "brief": "[Brief](../../assets/d01_campus_graphics.md)",
       "priority": 1,
-      "status": "queued",
-      "agent_id": null,
-      "source_revision": null,
-      "review_status": "pending",
-      "integration_status": "pending",
+      "status": "production_prefab_accepted",
+      "agent_id": "de3b40f9-008d-409c-9d54-33f5a6346157",
+      "source_revision": "0f3080cd",
+      "review_status": "accepted source/export/prefab scope (independent Sol review)",
+      "integration_status": "accepted",
       "placement_status": "pending",
       "blocker": null,
-      "attempts": 0,
+      "attempts": 1,
       "initial_time_cap_minutes": 90,
       "owned_paths": [
         "art/source/models/environment/d01_campus_graphics_02/",
@@ -4963,8 +4975,20 @@
         "art/textures/environment/d01_campus_graphics_02/",
         "art/materials/environment/d01_campus_graphics_02/",
         "docs/assets/production/d01_campus_graphics_02.md",
-        "docs/assets/production/d01_campus_graphics_02-evidence/"
-      ]
+        "docs/assets/production/d01_campus_graphics_02-evidence/",
+        "tools/asset_production/d01_campus_graphics_02/",
+        "scenes/prefabs/environment/d01_campus_graphics_02.tscn"
+      ],
+      "launch": {
+        "provider": "portkey/gpt-6-astra",
+        "configured_effort": "medium",
+        "mode": "orchestrator asset lane",
+        "lane": "a-campus"
+      },
+      "producer_manifest": "docs/assets/production/d01_campus_graphics_02-evidence/manifest.json",
+      "report": "docs/assets/production/d01_campus_graphics_02.md",
+      "reviewer_id": "9fbd2388-ea43-4d81-a3a3-937263a305e3",
+      "integrated_revision": "963b6bac"
     },
     {
       "id": "d01_campus_graphics.03",
@@ -4977,14 +5001,14 @@
       "input_next_action": "Confirm supporting uses in district detail concepts",
       "brief": "[Brief](../../assets/d01_campus_graphics.md)",
       "priority": 1,
-      "status": "queued",
-      "agent_id": null,
-      "source_revision": null,
-      "review_status": "pending",
-      "integration_status": "pending",
+      "status": "production_prefab_accepted",
+      "agent_id": "73aa9569-f694-43d7-86d2-004423bd2796",
+      "source_revision": "bb060fed",
+      "review_status": "accepted source/export/prefab scope (independent Sol review)",
+      "integration_status": "accepted",
       "placement_status": "pending",
       "blocker": null,
-      "attempts": 0,
+      "attempts": 1,
       "initial_time_cap_minutes": 90,
       "owned_paths": [
         "art/source/models/environment/d01_campus_graphics_03/",
@@ -4992,8 +5016,20 @@
         "art/textures/environment/d01_campus_graphics_03/",
         "art/materials/environment/d01_campus_graphics_03/",
         "docs/assets/production/d01_campus_graphics_03.md",
-        "docs/assets/production/d01_campus_graphics_03-evidence/"
-      ]
+        "docs/assets/production/d01_campus_graphics_03-evidence/",
+        "tools/asset_production/d01_campus_graphics_03/",
+        "scenes/prefabs/environment/d01_campus_graphics_03.tscn"
+      ],
+      "launch": {
+        "provider": "portkey/gpt-6-astra",
+        "configured_effort": "medium",
+        "mode": "orchestrator asset lane",
+        "lane": "a-campus"
+      },
+      "producer_manifest": "docs/assets/production/d01_campus_graphics_03-evidence/manifest.json",
+      "report": "docs/assets/production/d01_campus_graphics_03.md",
+      "reviewer_id": "9fbd2388-ea43-4d81-a3a3-937263a305e3",
+      "integrated_revision": "963b6bac"
     },
     {
       "id": "d01_lighthouse.01",
