@@ -1,0 +1,339 @@
+{
+  "asset": "d02_domestic_details.03",
+  "blender": "5.2.2 LTS",
+  "build_hash": "d13f752e3b9c",
+  "vertices": 1128,
+  "triangles": 2220,
+  "mesh_count": 1,
+  "surfaces": 4,
+  "glb_vertices": 1248,
+  "degenerate_faces": 0,
+  "nonmanifold_edges": 0,
+  "unit_normals": true,
+  "consistent_winding": true,
+  "applied_transforms": true,
+  "source_aabb": {
+    "min": [
+      -0.23999999463558197,
+      -0.20999999344348907,
+      0.0
+    ],
+    "max": [
+      0.23999999463558197,
+      0.20999999344348907,
+      1.350000023841858
+    ]
+  },
+  "godot_aabb": {
+    "min": [
+      -0.23999999463558197,
+      0.0,
+      -0.20999999344348907
+    ],
+    "max": [
+      0.23999999463558197,
+      1.350000023841858,
+      0.20999999344348907
+    ]
+  },
+  "dimensions_godot_m": [
+    0.48,
+    1.35,
+    0.42
+  ],
+  "dimension_tolerance_m": 0.001,
+  "pivot": [
+    0,
+    0,
+    0
+  ],
+  "datum": "ground-centred mailbox foot and bounding footprint",
+  "dimensions_status": "provisional",
+  "fresh_reexport_byte_identical": true,
+  "glb_sha256": "3534f1614150700cb0744b51c9510bbee2cdf1ba97a683a4ad73ff000821733b",
+  "glb_bytes": 57364,
+  "materials": [
+    {
+      "name": "crescents_sage_enamel",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.08437620848417282,
+          0.14702726900577545,
+          0.13013647496700287,
+          1
+        ],
+        "metallicFactor": 0.25,
+        "roughnessFactor": 0.41999998688697815
+      }
+    },
+    {
+      "name": "crescents_slate_plinth",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.09758734703063965,
+          0.12477181851863861,
+          0.14702726900577545,
+          1
+        ],
+        "metallicFactor": 0,
+        "roughnessFactor": 0.75
+      }
+    },
+    {
+      "name": "mailbox_recess",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.022173885256052017,
+          0.04373503103852272,
+          0.05126945674419403,
+          1
+        ],
+        "metallicFactor": 0,
+        "roughnessFactor": 0.699999988079071
+      }
+    },
+    {
+      "name": "crescents_ivory_trim",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.6583748459815979,
+          0.6172065734863281,
+          0.4969329833984375,
+          1
+        ],
+        "metallicFactor": 0,
+        "roughnessFactor": 0.550000011920929
+      }
+    }
+  ],
+  "collision_boxes": [
+    {
+      "name": "Foot",
+      "size": [
+        0.24,
+        0.06,
+        0.24
+      ],
+      "center": [
+        0,
+        0.03,
+        0
+      ]
+    },
+    {
+      "name": "Post",
+      "size": [
+        0.12,
+        0.81,
+        0.12
+      ],
+      "center": [
+        0,
+        0.455,
+        0
+      ]
+    },
+    {
+      "name": "Mailbox",
+      "size": [
+        0.48,
+        0.5,
+        0.42
+      ],
+      "center": [
+        0,
+        1.1,
+        0
+      ]
+    }
+  ],
+  "status": "PASS source and export",
+  "engine": {
+    "aabb_min": [
+      -0.239999994635582,
+      0.0,
+      -0.209999993443489
+    ],
+    "aabb_size": [
+      0.479999989271164,
+      1.35000002384186,
+      0.419999986886978
+    ],
+    "capsule_queries": [
+      {
+        "case": "mailbox_solid",
+        "solid": true
+      },
+      {
+        "case": "left_edge_solid",
+        "solid": true
+      },
+      {
+        "case": "right_edge_solid",
+        "solid": true
+      },
+      {
+        "case": "front_clear",
+        "solid": false
+      },
+      {
+        "case": "rear_clear",
+        "solid": false
+      },
+      {
+        "case": "left_bypass",
+        "solid": false
+      },
+      {
+        "case": "right_bypass",
+        "solid": false
+      }
+    ],
+    "car_box_sweep": {
+      "east_bypass_blocked": false,
+      "front_blocked": true,
+      "size_m": [
+        1.9,
+        1.5,
+        4.3
+      ]
+    },
+    "collision_shape_count": 3,
+    "component_rays": [
+      {
+        "case": "foot_face",
+        "hit": true
+      },
+      {
+        "case": "post_face",
+        "hit": true
+      },
+      {
+        "case": "head_face",
+        "hit": true
+      },
+      {
+        "case": "under_head_clear",
+        "hit": false
+      },
+      {
+        "case": "foot_post_seam",
+        "hit": true
+      },
+      {
+        "case": "post_head_seam",
+        "hit": true
+      }
+    ],
+    "engine": "4.8-dev7 (official)",
+    "failures": [],
+    "linked_model_identity": true,
+    "materials": [
+      "crescents_sage_enamel",
+      "crescents_slate_plinth",
+      "mailbox_recess",
+      "crescents_ivory_trim"
+    ],
+    "model_uid": "uid://bx8xg8mpvasud",
+    "ok": true,
+    "prefab_uid": "uid://cdpvwkjmgorc4",
+    "production_actor_motion": [
+      {
+        "case": "front_stop",
+        "end": [
+          0.0,
+          0.000877899117767811,
+          -0.561197698116302
+        ],
+        "mode": 0
+      },
+      {
+        "case": "rear_stop",
+        "end": [
+          0.0,
+          0.000877899117767811,
+          0.561197698116302
+        ],
+        "mode": 0
+      },
+      {
+        "case": "end_stop",
+        "end": [
+          0.590495109558105,
+          0.000877922924701124,
+          0.0
+        ],
+        "mode": 0
+      },
+      {
+        "case": "right_bypass",
+        "end": [
+          0.649999976158142,
+          0.000877899175975472,
+          2.99999976158142
+        ],
+        "mode": 0
+      },
+      {
+        "case": "front_stop",
+        "end": [
+          0.0,
+          0.000877899117767811,
+          -0.561197698116302
+        ],
+        "mode": 1
+      },
+      {
+        "case": "rear_stop",
+        "end": [
+          0.0,
+          0.000877899117767811,
+          0.561197698116302
+        ],
+        "mode": 1
+      },
+      {
+        "case": "end_stop",
+        "end": [
+          0.590495109558105,
+          0.000877922924701124,
+          0.0
+        ],
+        "mode": 1
+      },
+      {
+        "case": "right_bypass",
+        "end": [
+          0.649999976158142,
+          0.000877899175975472,
+          2.99999976158142
+        ],
+        "mode": 1
+      }
+    ],
+    "save_reload_byte_stable": true
+  },
+  "visual_self_review": {
+    "images": [
+      "hero.png",
+      "side.png",
+      "detail.png",
+      "overhead_47m_42deg.png"
+    ],
+    "size_px": [
+      1280,
+      720
+    ],
+    "renderer": "Blender Cycles CPU, 32 samples, AgX, six-bit RGB PNG",
+    "gameplay_camera": "Vertical down (0,0,47)m; Blender +Y north/up; vertical FOV42 degrees",
+    "observations": "Quiet arched sage housing, narrow post and sparse ivory slot/pull details read as domestic hardware in close views. The roof is approximately 10 pixels wide overhead; the front details are not readable or used as gameplay information. Studio floor was raised to the datum to remove an artificial floating shadow.",
+    "limits": "Isolated Blender self-review, not native gameplay or placed route acceptance"
+  },
+  "diagnostics": {
+    "source": "Passed; Blender 6.0 use_nodes deprecation notices only",
+    "import": "Passed without ERROR/SCRIPT ERROR; existing MCP 4.8 compatibility warning only",
+    "normalization": "Passed stable save/reload with UIDs. Headless editor shutdown emitted existing scan-aborted/RID/ObjectDB diagnostics; exact lines retained in final.log.",
+    "fresh_runtime": "Passed with no ERROR/WARNING lines",
+    "initial_corrections": "The exact foot/post boundary ray initially missed a floating-point butt seam. Post collider now overlaps foot/head by .01 m; identical seam probes pass. Studio floor moved from -.03 m to -.001 m."
+  }
+}

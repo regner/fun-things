@@ -1,0 +1,35 @@
+[gd_scene format=3 uid="uid://cdpvwkjmgorc4"]
+
+[ext_resource type="PackedScene" uid="uid://bx8xg8mpvasud" path="res://art/models/environment/d02_domestic_details_03/d02_domestic_details_03.glb" id="1_model"]
+
+[sub_resource type="BoxShape3D" id="Box_foot"]
+size = Vector3(0.24, 0.06, 0.24)
+
+[sub_resource type="BoxShape3D" id="Box_post"]
+size = Vector3(0.12, 0.81, 0.12)
+
+[sub_resource type="BoxShape3D" id="Box_mailbox"]
+size = Vector3(0.48, 0.5, 0.42)
+
+[node name="D02DomesticDetails03" type="Node3D" unique_id=926498047]
+
+[node name="Visuals" type="Node3D" parent="." unique_id=475532792]
+
+[node name="Model" type="Node3D" parent="Visuals" unique_id=1583759809 instance=ExtResource("1_model")]
+
+[node name="Collision" type="Node3D" parent="." unique_id=1973339523]
+
+[node name="Body" type="StaticBody3D" parent="Collision" unique_id=932695713]
+collision_mask = 0
+
+[node name="Foot" type="CollisionShape3D" parent="Collision/Body" unique_id=1140088222]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.03, 0)
+shape = SubResource("Box_foot")
+
+[node name="Post" type="CollisionShape3D" parent="Collision/Body" unique_id=427320794]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.455, 0)
+shape = SubResource("Box_post")
+
+[node name="Mailbox" type="CollisionShape3D" parent="Collision/Body" unique_id=1733880488]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.1, 0)
+shape = SubResource("Box_mailbox")
