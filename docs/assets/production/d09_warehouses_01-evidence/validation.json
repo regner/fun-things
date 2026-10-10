@@ -1,0 +1,348 @@
+{
+  "status": "PASS: source and GLB; engine/gameplay gates recorded separately",
+  "blender": "5.2.2 LTS",
+  "build_hash": "d13f752e3b9c",
+  "glTF_exporter": "5.2.40",
+  "source_vertices": 13744,
+  "source_triangles": 26920,
+  "source_degenerate_faces": 0,
+  "source_nonmanifold_edges": 0,
+  "source_max_normal_length_error": 1.7136336838419197e-07,
+  "glb_vertices_including_surface_splits": 16470,
+  "glb_triangles": 26920,
+  "glb_degenerate_triangles": 0,
+  "glb_max_normal_length_error": 1.2141389738040687e-07,
+  "mesh_count": 1,
+  "surface_count": 7,
+  "aabb_godot": {
+    "min": [
+      -24.3799991607666,
+      0.0,
+      -9.489999771118164
+    ],
+    "max": [
+      24.3799991607666,
+      9.265000343322754,
+      9.489999771118164
+    ],
+    "size": [
+      48.7599983215332,
+      9.265000343322754,
+      18.979999542236328
+    ]
+  },
+  "expected_aabb_godot": {
+    "min": [
+      -24.38,
+      0,
+      -9.49
+    ],
+    "max": [
+      24.38,
+      9.265,
+      9.49
+    ]
+  },
+  "envelope_tolerance_m": 0.001,
+  "ground_contact_pivot": [
+    0,
+    0,
+    0
+  ],
+  "materials": [
+    {
+      "name": "dock_base_slate",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.20000000298023224,
+          0.25,
+          0.2800000011920929,
+          1
+        ],
+        "metallicFactor": 0,
+        "roughnessFactor": 0.6700000166893005
+      }
+    },
+    {
+      "name": "dock_wall_steel",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.11999999731779099,
+          0.1899999976158142,
+          0.23000000417232513,
+          1
+        ],
+        "metallicFactor": 0.30000001192092896,
+        "roughnessFactor": 0.5600000023841858
+      }
+    },
+    {
+      "name": "dock_roof_blue",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.03500000014901161,
+          0.10499999672174454,
+          0.23999999463558197,
+          1
+        ],
+        "metallicFactor": 0.3799999952316284,
+        "roughnessFactor": 0.4300000071525574
+      }
+    },
+    {
+      "name": "dock_frame_navy",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.02500000037252903,
+          0.054999999701976776,
+          0.08500000089406967,
+          1
+        ],
+        "metallicFactor": 0.44999998807907104,
+        "roughnessFactor": 0.41999998688697815
+      }
+    },
+    {
+      "name": "dock_glazing_opaque",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.07500000298023224,
+          0.2199999988079071,
+          0.30000001192092896,
+          1
+        ],
+        "metallicFactor": 0.4000000059604645,
+        "roughnessFactor": 0.27000001072883606
+      }
+    },
+    {
+      "name": "dock_shutter_teal",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.06499999761581421,
+          0.11999999731779099,
+          0.15000000596046448,
+          1
+        ],
+        "metallicFactor": 0.3199999928474426,
+        "roughnessFactor": 0.5299999713897705
+      }
+    },
+    {
+      "name": "dock_loading_amber",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.949999988079071,
+          0.47999998927116394,
+          0.0949999988079071,
+          1
+        ],
+        "metallicFactor": 0.15000000596046448,
+        "roughnessFactor": 0.41999998688697815
+      }
+    }
+  ],
+  "reexport_byte_identical": true,
+  "glb_sha256": "ec883db6d672a51b6653036cd95c25bed8cd796d388e6b4df83ce942062f87f1",
+  "glb_bytes": 695480,
+  "interfaces_godot": {
+    "bay_pitch_m": 6,
+    "rear_annex_ground_datum": [
+      0,
+      0,
+      9
+    ]
+  },
+  "engine": {
+    "aabb_min": [
+      -24.3799991607666,
+      0.0,
+      -9.48999977111816
+    ],
+    "aabb_size": [
+      48.7599983215332,
+      9.26500034332275,
+      18.9799995422363
+    ],
+    "collision_shape_count": 1,
+    "engine": "4.8-dev7 (official)",
+    "failures": [],
+    "front_ray_hit": [
+      -9.0,
+      1.0,
+      -9.0
+    ],
+    "linked_model_identity": true,
+    "materials": [
+      "dock_base_slate",
+      "dock_wall_steel",
+      "dock_roof_blue",
+      "dock_frame_navy",
+      "dock_glazing_opaque",
+      "dock_shutter_teal",
+      "dock_loading_amber"
+    ],
+    "mesh_count": 1,
+    "model_uid": "uid://ceauhjdjxgbep",
+    "ok": true,
+    "physics_motion_casts": [
+      {
+        "blocked": true,
+        "case": "actor_front",
+        "safe_fraction": 0.5810546875
+      },
+      {
+        "blocked": true,
+        "case": "actor_rear",
+        "safe_fraction": 0.5810546875
+      },
+      {
+        "blocked": true,
+        "case": "actor_end",
+        "safe_fraction": 0.4560546875
+      },
+      {
+        "blocked": false,
+        "case": "actor_bypass",
+        "safe_fraction": 1.0
+      },
+      {
+        "blocked": true,
+        "case": "car_front",
+        "safe_fraction": 0.39990234375
+      },
+      {
+        "blocked": false,
+        "case": "car_bypass",
+        "safe_fraction": 1.0
+      }
+    ],
+    "physics_shape_queries": [
+      {
+        "case": "interior_solid",
+        "solid": true
+      },
+      {
+        "case": "closed_loading_face",
+        "solid": true
+      },
+      {
+        "case": "front_apron_clear",
+        "solid": false
+      },
+      {
+        "case": "rear_annex_wall_solid",
+        "solid": true
+      },
+      {
+        "case": "end_wall_solid",
+        "solid": true
+      },
+      {
+        "case": "west_passage_clear",
+        "solid": false
+      },
+      {
+        "case": "east_passage_clear",
+        "solid": false
+      },
+      {
+        "case": "roof_visual_only",
+        "solid": false
+      }
+    ],
+    "prefab_uid": "uid://dkunpbured7jv",
+    "save_reload_byte_stable": true,
+    "stable_roundtrip_count": 2
+  },
+  "production_checks": {
+    "overall_ok": true,
+    "results": {
+      "engine": {
+        "ok": true,
+        "version": "4.8.dev7.official.c971f93e7"
+      },
+      "gut_pin": {
+        "ok": true,
+        "version": "9.7.1"
+      },
+      "owned_scripts": {
+        "ok": true,
+        "returncode": 0
+      },
+      "python_tests": {
+        "ok": true,
+        "returncode": 0
+      },
+      "gut_import": {
+        "ok": true,
+        "returncode": 0
+      },
+      "gut_tests": {
+        "ok": true,
+        "returncode": 0
+      },
+      "gut_negative": {
+        "ok": true,
+        "observed_returncode": 1
+      }
+    },
+    "compiled_script_count": 210,
+    "python_tests": 17,
+    "gut_tests": 149,
+    "gut_assertions": 6768,
+    "known_failure_exemptions": []
+  },
+  "visual_review": {
+    "renders_inspected": [
+      "hero.png",
+      "side.png",
+      "loading_detail.png",
+      "overhead_47m_42deg.png"
+    ],
+    "renders": [
+      {
+        "file": "hero.png",
+        "pixels": [
+          1152,
+          648
+        ],
+        "bytes": 394422
+      },
+      {
+        "file": "side.png",
+        "pixels": [
+          1152,
+          648
+        ],
+        "bytes": 318480
+      },
+      {
+        "file": "loading_detail.png",
+        "pixels": [
+          1152,
+          648
+        ],
+        "bytes": 351917
+      },
+      {
+        "file": "overhead_47m_42deg.png",
+        "pixels": [
+          1280,
+          720
+        ],
+        "bytes": 403413
+      }
+    ],
+    "renderer": "Blender Cycles CPU, 32 samples, AgX",
+    "camera": "Vertical down, 47 m height, 42 degree vertical FOV, 1280x720",
+    "lean_packaging": "7-bit/channel RGB evidence PNG, optimize=True, compression level 9",
+    "observation": "Long blue ridge, sparse seams and paired rooflights read clearly; loading details remain subordinate. Not an in-engine capture."
+  },
+  "pending": [
+    "Independent review and final district dimensions/sibling fit",
+    "World placement, aprons and actual camera/material/LOD review",
+    "Production actor/car motion and multiplayer collision validation",
+    "Exported-platform, Deck and sustained performance validation"
+  ]
+}

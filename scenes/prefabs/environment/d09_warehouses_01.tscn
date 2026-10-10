@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://dkunpbured7jv"]
+
+[ext_resource type="PackedScene" path="res://art/models/environment/d09_warehouses_01/d09_warehouses_01.glb" id="1_model"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_shell"]
+size = Vector3(48, 6.4, 18)
+
+[node name="D09Warehouses01" type="Node3D" unique_id=1841562130]
+
+[node name="Visuals" type="Node3D" parent="." unique_id=1471175301]
+
+[node name="Model" parent="Visuals" unique_id=1769769160 instance=ExtResource("1_model")]
+
+[node name="Collision" type="Node3D" parent="." unique_id=685974278]
+
+[node name="Body" type="StaticBody3D" parent="Collision" unique_id=185817677]
+collision_mask = 0
+
+[node name="Shell" type="CollisionShape3D" parent="Collision/Body" unique_id=1459789510]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.2, 0)
+shape = SubResource("BoxShape3D_shell")
