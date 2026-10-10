@@ -1,0 +1,67 @@
+city_ground_finishes.04 — final producer command/log disposition, 10 October 2026
+Working directory: C:/GameDev/git/ft-lanes/a-ground; branch lane/a-ground.
+Exact reproduction commands are in ../city_ground_finishes_04.md.
+Full scratch logs: C:/tmp/ft/assets/city_ground_finishes_04/ (not committed).
+
+Pins: Blender 5.2.2 LTS d13f752e3b9c, glTF exporter 5.2.40;
+Godot 4.8.dev7.official.c971f93e7; gdstyle 0.3.0; Pillow 12.3.0.
+All Blender calls used isolated factory-startup/background, 4 threads,
+python-exit-code 1, noaudio, ALSOFT_DRIVERS=null, SDL_AUDIODRIVER=dummy,
+and timeout <=300 seconds. Godot calls were isolated/headless with timeout
+<=300 seconds (checks <=180). No owner's live editor session was contacted.
+
+PASS texture.py and five independent unittest tests, exit 0.
+PASS author.py, exit 0: original source saved; explicit one-surface GLB exported.
+PASS preview.py, exit 0: four renders at 960x640 / overhead 1280x720.
+PASS headless import, exit 0: only own model/texture/script importer files created.
+PASS saved wrapper/material normalization assertions, exit 0, two roundtrips stable.
+  This is NOT a clean-log pass: known editor shutdown diagnostics listed below.
+PASS standalone prefab load, external material mapping and six floor ray cases,
+  exit 0, no warnings/errors.
+PASS explicit owned-script --check-only, exit 0, no warnings/errors.
+PASS gdstyle fmt --check and lint --max-line-length 100 --max-warnings 0.
+PASS initialized plugin-free compiler-mirror --check-only and prefab load/physics,
+  both exit 0, no warnings/errors.
+PASS validate.py in a fresh Blender process, exit 0: 8 source / 24 exported vertices,
+  12 triangles, one mesh/surface, no degenerate faces/non-manifold edges,
+  unit normals/outward winding, exact 4 x .08 x 4 m envelope, surface Y=0,
+  UV0 orientation/density, zero embedded images, byte-identical fresh reexport.
+
+CANONICAL CHECKS: timeout 1800 mise exec -- python tools/production_checks.py
+--output C:/tmp/ft/assets/city_ground_finishes_04/checks
+Overall exit 1; not presented as full-suite success.
+- Pinned engine and GUT 9.7.1 checks pass.
+- Repository formatting/style pass.
+- Compiler setup ok=true. Aggregate 120-second compilation deadline expires:
+  122/165 scripts pass; 43 logs say CHECK DEADLINE EXCEEDED.
+  This asset's check_prefab.gd passes within the aggregate run, and independently.
+  No source compile defect inferred from unexecuted rows. Deadlines not modified;
+  unchanged failing full suite not repeated.
+- Repository Python tests: 14/14 pass.
+- GUT import passes. GUT: 137/137 tests, 6,523 assertions pass, 27 scripts.
+- Negative-test harness expected exit 1 observed: pass.
+
+DIAGNOSTICS REVIEWED, NOT SUPPRESSED:
+- Full project import and editor normalization: existing MCP warning that 4.8
+  exceeds its last tested 4.7.0 version.
+- Headless editor normalization after GRASS_PREFAB_PASS: leaked RID errors
+  (5 viewport, 8 dummy texture, 1 scenario, 52 shaped text, 1 font), warnings
+  for 5 Canvas / 31 CanvasItem RIDs and 168 ObjectDB instances at shutdown.
+  Sibling .01 retains an empty-editor reproduction; these diagnostics do not
+  establish a clean normalization log. Independent standalone checks are clean.
+- Blender author: Material.use_nodes deprecation warning; preview: World.use_nodes
+  deprecation warning (removal expected in Blender 6.0). Required pinned APIs.
+- Blender --version reports 1 unfreed allocation (0.000023 MB). Actual author,
+  render and validation processes exit normally without that shutdown diagnostic.
+
+VISUAL SELF-REVIEW:
+All four final PNGs opened and inspected, alongside sibling paving overhead,
+concrete hero and accepted street-light hero/district reference.
+Quiet muted green field, broad soft growth pooling, no blade speckle, no hard
+repeat borders, coral car and ivory/coral person distinct at the calibrated camera.
+Periodic pooling and the person's small overhead footprint need actual moving
+engine/shadow/all-palette review; Blender renders do not establish those gates.
+
+No world layout, road generation, gameplay/friction or district collision changes.
+Independent review, live road UV integration, placement, production movement/
+multiplayer and packaged/device/performance acceptance remain pending.

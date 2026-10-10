@@ -1,0 +1,153 @@
+{
+  "asset_id": "city_ground_finishes.04",
+  "blender": "5.2.2 LTS",
+  "blender_build": "d13f752e3b9c",
+  "gltf_exporter": "5.2.40",
+  "source_vertices": 8,
+  "export_vertices": 24,
+  "triangles": 12,
+  "mesh_count": 1,
+  "surface_count": 1,
+  "degenerate_faces": 0,
+  "non_manifold_edges": 0,
+  "unit_normals": true,
+  "outward_winding": true,
+  "aabb_min_godot": [
+    -2.0,
+    -0.07999999821186066,
+    -2.0
+  ],
+  "aabb_max_godot": [
+    2.0,
+    -8.940696516468449e-10,
+    2.0
+  ],
+  "dimensions_godot_metres": [
+    4,
+    0.08,
+    4
+  ],
+  "pivot": [
+    0,
+    0,
+    0
+  ],
+  "surface_datum_y": 0,
+  "top_uv_orientation": "U east/+X, V south/+Z; UV0 unit = 4 metres",
+  "material": {
+    "roughness": 0.96,
+    "metallic": 0,
+    "opaque": true
+  },
+  "texture": {
+    "size": [
+      512,
+      512
+    ],
+    "tile_metres": [
+      4,
+      4
+    ],
+    "channels": "RGB sRGB albedo",
+    "embedded_images": 0
+  },
+  "fresh_reexport_byte_identical": true,
+  "glb_sha256": "688ea5036aede1e00523ffe4050fc3c3e732f269a57e8d237739f39778f5b05b",
+  "source_status": "PASS",
+  "prefab_normalized": {
+    "aabb_max": [
+      2,
+      0,
+      2
+    ],
+    "aabb_min": [
+      -2,
+      -0.08,
+      -2
+    ],
+    "engine": "4.8-dev7 (official)",
+    "external_material": "res://art/materials/environment/city_ground_finishes_04/short_grass.tres",
+    "floor_ray_hits": 5,
+    "identity_linked_model": "res://art/models/environment/city_ground_finishes_04/city_ground_finishes_04.glb",
+    "mesh_count": 1,
+    "normalization_requested": true,
+    "outside_ray_clear": true,
+    "second_roundtrip_byte_identical": true,
+    "status": "PASS",
+    "surface_count": 1,
+    "texture_mipmaps": true,
+    "texture_size": [
+      512,
+      512
+    ],
+    "uv_unit_metres": 4
+  },
+  "prefab": {
+    "aabb_max": [
+      2,
+      0,
+      2
+    ],
+    "aabb_min": [
+      -2,
+      -0.08,
+      -2
+    ],
+    "engine": "4.8-dev7 (official)",
+    "external_material": "res://art/materials/environment/city_ground_finishes_04/short_grass.tres",
+    "floor_ray_hits": 5,
+    "identity_linked_model": "res://art/models/environment/city_ground_finishes_04/city_ground_finishes_04.glb",
+    "mesh_count": 1,
+    "normalization_requested": false,
+    "outside_ray_clear": true,
+    "second_roundtrip_byte_identical": false,
+    "status": "PASS",
+    "surface_count": 1,
+    "texture_mipmaps": true,
+    "texture_size": [
+      512,
+      512
+    ],
+    "uv_unit_metres": 4
+  },
+  "production_checks": {
+    "engine": {
+      "ok": true,
+      "version": "4.8.dev7.official.c971f93e7"
+    },
+    "gut_pin": {
+      "ok": true,
+      "version": "9.7.1"
+    },
+    "owned_scripts": {
+      "ok": false,
+      "returncode": 1
+    },
+    "python_tests": {
+      "ok": true,
+      "returncode": 0
+    },
+    "gut_import": {
+      "ok": true,
+      "returncode": 0
+    },
+    "gut_tests": {
+      "ok": true,
+      "returncode": 0
+    },
+    "gut_negative": {
+      "ok": true,
+      "observed_returncode": 1
+    }
+  },
+  "production_script_compilation": {
+    "passed": 122,
+    "total": 165,
+    "deadline_expired_logs": 43,
+    "note": "See final_log.txt for setup and explicit owned-script check disposition."
+  },
+  "limitations": [
+    "Prefab receipts record assertions, not absence of runtime diagnostics; review final_log.txt and the production record for command/log disposition.",
+    "Road-tool UV adaptation, production-camera motion, placement, actor/car traversal, multiplayer and device/performance acceptance remain pending."
+  ]
+}
