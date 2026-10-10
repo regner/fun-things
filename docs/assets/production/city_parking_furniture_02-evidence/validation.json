@@ -1,0 +1,380 @@
+{
+  "status": "PASS",
+  "blender": "5.2.2 LTS",
+  "blender_build": "d13f752e3b9c",
+  "gltf_exporter": "5.2.40",
+  "source_meshes": [
+    {
+      "name": "CitySignSupports02_Hardware",
+      "vertices": 1160,
+      "triangles": 2284,
+      "nonmanifold_edges": 0,
+      "degenerate_faces": 0,
+      "unit_corner_normals": true,
+      "materials": [
+        "support_petrol",
+        "recess_gasket",
+        "mount_metal"
+      ]
+    },
+    {
+      "name": "CitySignSupports02_ArtworkCarrier",
+      "vertices": 84,
+      "triangles": 164,
+      "nonmanifold_edges": 0,
+      "degenerate_faces": 0,
+      "unit_corner_normals": true,
+      "materials": [
+        "sign_face",
+        "mount_metal"
+      ]
+    }
+  ],
+  "source_vertices": 1244,
+  "triangles": 2448,
+  "glb_vertices": 1596,
+  "meshes": 2,
+  "surfaces": 5,
+  "nonmanifold_edges": 0,
+  "degenerate_faces": 0,
+  "degenerate_glb_triangles": 0,
+  "unit_source_and_export_normals": true,
+  "glb_winding_agrees_with_normals": true,
+  "godot_aabb": {
+    "min": [
+      -0.800000011920929,
+      0.0,
+      -0.20000000298023224
+    ],
+    "max": [
+      0.800000011920929,
+      1.350000023841858,
+      0.20000000298023224
+    ]
+  },
+  "dimensions_m": [
+    1.6,
+    1.35,
+    0.4
+  ],
+  "pivot": [
+    0,
+    0,
+    0
+  ],
+  "ground_datum_m": 0,
+  "dimension_tolerance_m": 0.001,
+  "coordinate_tolerance_m": 1e-05,
+  "artwork_interface": {
+    "mesh": "CitySignSupports02_ArtworkCarrier",
+    "slot": "sign_face",
+    "slot_index": 0,
+    "width_m": 1.44,
+    "height_m": 0.39,
+    "aspect_ratio": "48:13",
+    "safe_copy_rectangle_m": [
+      1.38,
+      0.33
+    ],
+    "front_godot_z_m": -0.071,
+    "bottom_m": 0.88,
+    "top_m": 1.27,
+    "uv_min": [
+      0,
+      0
+    ],
+    "uv_max": [
+      1,
+      1
+    ],
+    "glb_v_direction": "0 top / 1 bottom",
+    "u_direction": "front-view left to right (-X)"
+  },
+  "glb_bytes": 70712,
+  "glb_sha256": "022dd559334d79c482182083be775c692ab4adf2a5277d3fb7ca7ec266ec76b7",
+  "fresh_reexport_byte_identical": true,
+  "materials": [
+    {
+      "name": "sign_face",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.3931231200695038,
+          0.4479884207248688,
+          0.4064483046531677,
+          1
+        ],
+        "metallicFactor": 0,
+        "roughnessFactor": 0.5600000023841858
+      }
+    },
+    {
+      "name": "mount_metal",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.07828831672668457,
+          0.1259673833847046,
+          0.1399848908185959,
+          1
+        ],
+        "metallicFactor": 0.6499999761581421,
+        "roughnessFactor": 0.3799999952316284
+      }
+    },
+    {
+      "name": "support_petrol",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.010816383175551891,
+          0.03468407690525055,
+          0.04396536201238632,
+          1
+        ],
+        "metallicFactor": 0.18000000715255737,
+        "roughnessFactor": 0.3199999928474426
+      }
+    },
+    {
+      "name": "recess_gasket",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.0033353136386722326,
+          0.006571403704583645,
+          0.008122432976961136,
+          1
+        ],
+        "metallicFactor": 0,
+        "roughnessFactor": 0.7200000286102295
+      }
+    }
+  ],
+  "asset_id": "city_parking_furniture.02",
+  "new_geometry": false,
+  "output_type": "Assembly reference with approved derived 48:13 artwork",
+  "unchanged_dependencies": {
+    "art/source/models/environment/city_sign_supports_02/city_sign_supports_02.blend": {
+      "bytes": 140599,
+      "sha256": "d1b9a29d684951ea1ef40f88aedb2180297b9be6c7cee58c31d467be07708e6c"
+    },
+    "art/models/environment/city_sign_supports_02/city_sign_supports_02.glb": {
+      "bytes": 70712,
+      "sha256": "022dd559334d79c482182083be775c692ab4adf2a5277d3fb7ca7ec266ec76b7"
+    },
+    "art/models/environment/city_sign_supports_02/city_sign_supports_02.glb.import": {
+      "bytes": 1275,
+      "sha256": "6c237258815d1ee6a0a8644af1af29d18af74fa84fb40960cba05da96a354fe2"
+    },
+    "scenes/prefabs/environment/city_sign_supports_02.tscn": {
+      "bytes": 898,
+      "sha256": "dd95c4cbf0d0ff3d816290024e1723864817176753628384222f51084a804939"
+    },
+    "tools/asset_production/city_sign_supports_02/validate.py": {
+      "bytes": 8384,
+      "sha256": "ee64a3fabf71d6a2afd58a839691c626c28f5e306d44b0f28aeeb793d0c9376e"
+    },
+    "tools/asset_production/city_sign_supports_02/export.py": {
+      "bytes": 938,
+      "sha256": "77f022778898442006f67ca397036e523a95095afb337ec03427e78923aebfb1"
+    },
+    "tools/asset_production/city_sign_supports_02/check_prefab.gd": {
+      "bytes": 7675,
+      "sha256": "8037f130740fc53d5a8a2530182f0ac2e5e7ccc1ad414a19b65b7e624758fa33"
+    },
+    "tools/assets/blender/export_settings.json": {
+      "bytes": 646,
+      "sha256": "33ded3c83616fba6573848dda1f0ea3fc7ae7f4c98257fc867dca3bbe35ff9ec"
+    },
+    "tools/asset_production/d07_retail_graphics_03/author.py": {
+      "bytes": 2854,
+      "sha256": "b5f52e3c4a22f4a058774852b7d0b00bca263e666a869d8c757d4003e21a0629"
+    },
+    "tools/asset_production/d07_retail_graphics_01/author.py": {
+      "bytes": 3677,
+      "sha256": "4c71a58ed95b76dfd9cf35b5d187ccd03f75a1c1cd2a4a2bf491d3f49f0076b6"
+    },
+    "tools/asset_production/d06_commercial_graphics_03/check_prefab.gd": {
+      "bytes": 6930,
+      "sha256": "08d99fe7bbb6ae3d38b07b313b91c95cc11904a494238c9fa4e72192e066d985"
+    }
+  },
+  "shared_source": "art/source/models/environment/city_sign_supports_02/city_sign_supports_02.blend",
+  "shared_glb": "art/models/environment/city_sign_supports_02/city_sign_supports_02.glb",
+  "engine_normalization": {
+    "aabb_max": [
+      0.8,
+      1.35,
+      0.2
+    ],
+    "aabb_min": [
+      -0.8,
+      0,
+      -0.2
+    ],
+    "base_prefab": "res://scenes/prefabs/environment/city_sign_supports_02.tscn",
+    "engine": "4.8-dev7 (official)",
+    "face_only_overrides": 1,
+    "hierarchy_meshes_and_collision_unchanged": true,
+    "imported_mipmaps": true,
+    "imported_uv_max_error": 3.06765238444473e-05,
+    "linked_model": "res://art/models/environment/city_sign_supports_02/city_sign_supports_02.glb",
+    "material_uid": "uid://sjxrf02ltlcj",
+    "meshes": 2,
+    "prefab": "res://scenes/prefabs/environment/city_parking_furniture_02.tscn",
+    "prefab_sha256": "ea40ac2c9fa4aac1fff9aab106d54580c934898058a68cd503915717ec4c3a8d",
+    "prefab_uid": "uid://op1n8uo08w0l",
+    "ray_center_blocked_side_and_above_clear": true,
+    "status": "PASS",
+    "surfaces": 5,
+    "texture_size": [
+      1440,
+      390
+    ],
+    "texture_uid": "uid://8dsryi6w6y0t",
+    "two_roundtrips_byte_identical": true
+  },
+  "engine_fresh_load": {
+    "aabb_max": [
+      0.8,
+      1.35,
+      0.2
+    ],
+    "aabb_min": [
+      -0.8,
+      0,
+      -0.2
+    ],
+    "base_prefab": "res://scenes/prefabs/environment/city_sign_supports_02.tscn",
+    "engine": "4.8-dev7 (official)",
+    "face_only_overrides": 1,
+    "hierarchy_meshes_and_collision_unchanged": true,
+    "imported_mipmaps": true,
+    "imported_uv_max_error": 3.06765238444473e-05,
+    "linked_model": "res://art/models/environment/city_sign_supports_02/city_sign_supports_02.glb",
+    "material_uid": "uid://sjxrf02ltlcj",
+    "meshes": 2,
+    "prefab": "res://scenes/prefabs/environment/city_parking_furniture_02.tscn",
+    "prefab_sha256": "ea40ac2c9fa4aac1fff9aab106d54580c934898058a68cd503915717ec4c3a8d",
+    "prefab_uid": "uid://op1n8uo08w0l",
+    "ray_center_blocked_side_and_above_clear": true,
+    "status": "PASS",
+    "surfaces": 5,
+    "texture_size": [
+      1440,
+      390
+    ],
+    "texture_uid": "uid://8dsryi6w6y0t",
+    "two_roundtrips_byte_identical": false
+  },
+  "commands": {
+    "author": {
+      "exit_code": 0,
+      "diagnostics": []
+    },
+    "artwork-tests": {
+      "exit_code": 0,
+      "diagnostics": []
+    },
+    "validate": {
+      "exit_code": 0,
+      "diagnostics": []
+    },
+    "preview": {
+      "exit_code": 0,
+      "diagnostics": [
+        "C:\\GameDev\\git\\ft-lanes\\a-park2\\tools\\asset_production\\city_parking_furniture_02\\preview.py:21: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0",
+        "C:\\GameDev\\git\\ft-lanes\\a-park2\\tools\\asset_production\\city_parking_furniture_02\\preview.py:33: DeprecationWarning: 'World.use_nodes' is expected to be removed in Blender 6.0"
+      ]
+    },
+    "import": {
+      "exit_code": 0,
+      "diagnostics": [
+        "WARNING: [MCP] Godot 4.8 detected - latest tested version is 4.7.0. The plugin will run normally but some features may behave unexpectedly. Please report issues at https://github.com/NPGameDev/godot-mcp-toolkit/issues"
+      ]
+    },
+    "normalize": {
+      "exit_code": 0,
+      "diagnostics": [
+        "WARNING: [MCP] Godot 4.8 detected - latest tested version is 4.7.0. The plugin will run normally but some features may behave unexpectedly. Please report issues at https://github.com/NPGameDev/godot-mcp-toolkit/issues",
+        "WARNING: Scan thread aborted...",
+        "ERROR: 5 RID allocations of type 'N16RendererViewport8ViewportE' were leaked at exit.",
+        "ERROR: 8 RID allocations of type 'PN13RendererDummy14TextureStorage12DummyTextureE' were leaked at exit.",
+        "ERROR: 1 RID allocations of type 'N17RendererSceneCull8ScenarioE' were leaked at exit.",
+        "ERROR: 52 RID allocations of type 'PN18TextServerAdvanced22ShapedTextDataAdvancedE' were leaked at exit.",
+        "ERROR: 1 RID allocations of type 'PN18TextServerAdvanced12FontAdvancedE' were leaked at exit.",
+        "WARNING: 5 RIDs of type \"Canvas\" were leaked.",
+        "WARNING: 31 RIDs of type \"CanvasItem\" were leaked.",
+        "WARNING: 168 ObjectDB instances were leaked at exit (run with `--verbose` for details)."
+      ]
+    },
+    "import-final": {
+      "exit_code": 0,
+      "diagnostics": [
+        "WARNING: [MCP] Godot 4.8 detected - latest tested version is 4.7.0. The plugin will run normally but some features may behave unexpectedly. Please report issues at https://github.com/NPGameDev/godot-mcp-toolkit/issues"
+      ]
+    },
+    "fresh": {
+      "exit_code": 0,
+      "diagnostics": []
+    },
+    "compile": {
+      "exit_code": 0,
+      "diagnostics": []
+    },
+    "format": {
+      "exit_code": 0,
+      "diagnostics": []
+    },
+    "lint": {
+      "exit_code": 0,
+      "diagnostics": []
+    }
+  },
+  "artwork_tests": {
+    "tests": 3,
+    "status": "PASS",
+    "fresh_png_byte_identical": true
+  },
+  "renders": {
+    "hero": {
+      "bytes": 143408,
+      "sha256": "89491af6e4ca3845edfb18807b9b5ef27662888dfa3a3d66faefd4f2633b39ca",
+      "resolution": [
+        1280,
+        720
+      ]
+    },
+    "side": {
+      "bytes": 109639,
+      "sha256": "3fc4c06da8604d92c5b3a9ad015e85e2db48a4604aa2eaf2effd1397a081b55a",
+      "resolution": [
+        1280,
+        720
+      ]
+    },
+    "detail": {
+      "bytes": 175977,
+      "sha256": "3985937cc2cbcafbac3877dc723bce561087bf591f11346532ec6e90fe54f7af",
+      "resolution": [
+        1280,
+        720
+      ]
+    },
+    "overhead_47m_42deg": {
+      "bytes": 6559,
+      "sha256": "38eee82fcf4d69834c142233697ebebf9530dc0b6de9c42ebee7d3d16ce26e20",
+      "resolution": [
+        1280,
+        720
+      ]
+    }
+  },
+  "artwork_texture": {
+    "path": "art/textures/environment/city_parking_furniture_02/parking_zone_low_albedo.png",
+    "resolution": [
+      1440,
+      390
+    ],
+    "mode": "RGB",
+    "bytes": 24144,
+    "sha256": "b294ca6b4bd07bfdf168d5a4658203fbc3738c2394f77dccb6bb8573328d1d97"
+  }
+}
