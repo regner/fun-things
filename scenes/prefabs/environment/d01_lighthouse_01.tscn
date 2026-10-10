@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://3fixa20p4v77"]
+
+[ext_resource type="PackedScene" uid="uid://23urexy28hj6" path="res://art/models/environment/d01_lighthouse_01/d01_lighthouse_01.glb" id="1_model"]
+
+[sub_resource type="CylinderShape3D" id="Cylinder_tower"]
+height = 10.8
+radius = 2.05
+
+[node name="d01_lighthouse_01" type="Node3D" unique_id=255878173]
+
+[node name="Visuals" type="Node3D" parent="." unique_id=2138047995]
+
+[node name="Model" parent="Visuals" unique_id=85006935 instance=ExtResource("1_model")]
+
+[node name="Collision" type="Node3D" parent="." unique_id=144736580]
+
+[node name="Body" type="StaticBody3D" parent="Collision" unique_id=656677962]
+collision_mask = 0
+
+[node name="Tower" type="CollisionShape3D" parent="Collision/Body" unique_id=383867715]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.4, 0)
+shape = SubResource("Cylinder_tower")

@@ -1,0 +1,45 @@
+d01_lighthouse.01 — final production receipt, 10 October 2026
+Exact reproduction commands and remaining gates: ../d01_lighthouse_01.md
+Large stdout/stderr and intermediate attempts: C:/tmp/ft/assets/d01_lighthouse_01/ (uncommitted)
+
+PASS Blender 5.2.2 LTS / d13f752e3b9c / glTF 5.2.40 pinned CLI.
+PASS final author.py, export.py, independent export.py to reexport.glb, validate.py: exit 0.
+PASS final render.py: exit 0; four 1280x720 views, inspected by producer.
+PASS source topology: 9374 vertices, 18500 triangles, 1 mesh, 6 surfaces.
+PASS GLB: 11991 vertices, 18500 triangles, 500744 bytes, 2 nodes.
+PASS zero degenerate faces/non-manifold edges; unit normals and binary triangle winding.
+PASS applied transforms; ground-centred pivot; bounds (-2.2,0,-2.2) to (2.2,15,2.2).
+PASS fresh saved-source re-export byte-identical.
+
+PASS pinned Godot 4.8.dev7.official.c971f93e7 final headless import: exit 0.
+DIAGNOSTIC import: installed MCP toolkit warns latest tested version is 4.7.0.
+PASS headless editor normalization: dependency/UID checks, identity instance and two stable saves, exit 0.
+DIAGNOSTIC normalization shutdown: scan-abort warning; 5 viewport, 8 dummy texture, 1 scenario,
+52 shaped-text, 1 font RID errors; 5 Canvas/31 CanvasItem and 168 ObjectDB instance leak warnings.
+Normalization assertions succeeded; this editor invocation is not diagnostic-clean.
+PASS final standalone dependency/model/physics check: exit 0, no errors or warnings.
+PASS one static cylinder r2.05/h10.8, layer1/mask0; four blocking/overhead rays.
+PASS 6 ActorMotion authority/replay movement cases, 120 ticks each, capsule r.35/h1.8.
+Entry stop Z=-2.416668176651; rear stop Z=2.416668176651; bypass Z=6.00000095367432.
+Max authority/replay position difference .000129456864669919 m (<.001).
+
+PASS final canonical production suite: checks-final/summary.json ok=true, exit 0.
+Command: PYTHONUTF8=1 timeout 1800 python tools/production_checks.py --godot "$(mise which godot)" --gdstyle "$(mise which gdstyle)" --output C:/tmp/ft/assets/d01_lighthouse_01/checks-final
+203 script compilations, formatting and gdstyle pass; owned check.gd compilation ok=true.
+17 Python tests pass; 149 GUT tests / 6768 assertions pass; negative diagnostic expected exit1 passes.
+PASS owned Python files parse via ast.parse; pinned gdstyle check and fmt --check pass.
+
+Corrected attempts, not hidden passes:
+- Initial source weighted cap normals inverted a cornice triangle's normal dot product. Fixed radial
+  shading/end caps; all actual binary triangles now pass. Initial raw assertion is outside checkout.
+- Initial production command failed Windows cp1252/shim version capture. Absolute mise paths and
+  PYTHONUTF8=1 corrected the environment; no repository-wide script change.
+- Next suite reported CRLF formatting in owned check.gd. Pinned formatter changed only line endings;
+  complete suite rerun passes. No pre-existing failures need exclusion in the final suite.
+- Initial 7-bit PNG compaction exceeded 400 KiB for hero/detail; final 6-bit compaction keeps
+  all four views below 400 KiB without changing the source/exported materials.
+- Final side studio horizon and detail crop were improved before the four retained image inspections.
+
+Not tested/accepted: actual engine rendering, Northpoint placement/boardwalk fit, university hierarchy,
+car driving, real multiplayer transport, packaged builds, Deck performance and sustained GPU cost.
+No live owner Blender/Godot session, shared brief/queue/progress, world data or other asset was edited.

@@ -1,0 +1,256 @@
+{
+  "applied_transforms": true,
+  "asset": "d01_lighthouse.01",
+  "blender": "5.2.2 LTS",
+  "build_hash": "d13f752e3b9c",
+  "consistent_winding": true,
+  "datum": "ground-centred plinth",
+  "degenerate_faces": 0.0,
+  "dimension_tolerance_m": 0.001,
+  "dimensions_godot_m": [
+    4.4,
+    15.0,
+    4.4
+  ],
+  "fresh_reexport_byte_identical": true,
+  "glb_bytes": 500744.0,
+  "glb_sha256": "bd3ca3a3c55eca2c94631cbd24e430ebbfdd7063f2fec905cd03e691a2118918",
+  "glb_vertices": 11991.0,
+  "godot": {
+    "bounds_min": [
+      -2.20000004768372,
+      0.0,
+      -2.20000004768372
+    ],
+    "bounds_size": [
+      4.40000009536743,
+      15.0,
+      4.40000009536743
+    ],
+    "cylinder_shape_count": 1,
+    "engine": "4.8-dev7 (official)",
+    "linked_model_identity": true,
+    "physics": {
+      "actor_height_m": 1.8,
+      "actor_radius_m": 0.35,
+      "authority_replay_within_tolerance": true,
+      "bypass_end_z_m": 6.00000095367432,
+      "front_stop_z_m": -2.416668176651,
+      "max_authority_replay_error_m": 0.000129456864669919,
+      "movement_cases": 6,
+      "network_transport_driving_and_world_placement": "not tested",
+      "position_tolerance_m": 0.001,
+      "ray_cases": 4,
+      "rear_stop_z_m": 2.416668176651,
+      "walk_ticks_per_case": 120
+    },
+    "save_reload_byte_stable": true,
+    "static_body_count": 1
+  },
+  "godot_aabb": {
+    "max": [
+      2.20000004768372,
+      15.0,
+      2.20000004768372
+    ],
+    "min": [
+      -2.20000004768372,
+      0.0,
+      -2.20000004768372
+    ]
+  },
+  "materials": [
+    {
+      "name": "lighthouse_pale_stone",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.509999990463257,
+          0.550000011920929,
+          0.509999990463257,
+          1.0
+        ],
+        "metallicFactor": 0.0,
+        "roughnessFactor": 0.730000019073486
+      }
+    },
+    {
+      "name": "lighthouse_ivory_masonry",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.819999992847443,
+          0.790000021457672,
+          0.680000007152557,
+          1.0
+        ],
+        "metallicFactor": 0.0,
+        "roughnessFactor": 0.720000028610229
+      }
+    },
+    {
+      "name": "lighthouse_muted_red_band",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.479999989271164,
+          0.0649999976158142,
+          0.0450000017881393,
+          1.0
+        ],
+        "metallicFactor": 0.0,
+        "roughnessFactor": 0.569999992847443
+      }
+    },
+    {
+      "name": "lighthouse_petrol_metal",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.0179999992251396,
+          0.0549999997019768,
+          0.061999998986721,
+          1.0
+        ],
+        "metallicFactor": 0.449999988079071,
+        "roughnessFactor": 0.400000005960464
+      }
+    },
+    {
+      "emissiveFactor": [
+        0.617499969601631,
+        0.318499994516372,
+        0.074749998614192
+      ],
+      "name": "lighthouse_warm_glazing",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.949999988079071,
+          0.490000009536743,
+          0.115000002086163,
+          1.0
+        ],
+        "metallicFactor": 0.100000001490116,
+        "roughnessFactor": 0.25
+      }
+    },
+    {
+      "name": "lighthouse_door_window_recess",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.0130000002682209,
+          0.0320000015199184,
+          0.0370000004768372,
+          1.0
+        ],
+        "metallicFactor": 0.0,
+        "roughnessFactor": 0.579999983310699
+      }
+    }
+  ],
+  "mesh_count": 1.0,
+  "nonmanifold_edges": 0.0,
+  "pivot": [
+    0.0,
+    0.0,
+    0.0
+  ],
+  "source_aabb": {
+    "max": [
+      2.20000004768372,
+      2.20000004768372,
+      15.0
+    ],
+    "min": [
+      -2.20000004768372,
+      -2.20000004768372,
+      0.0
+    ]
+  },
+  "status": "PASS source and export",
+  "surfaces": 6.0,
+  "top_height_m": 15.0,
+  "triangles": 18500.0,
+  "unit_normals": true,
+  "vertices": 9374.0,
+  "production_checks": {
+    "ok": true,
+    "results": {
+      "engine": {
+        "ok": true,
+        "version": "4.8.dev7.official.c971f93e7"
+      },
+      "gut_pin": {
+        "ok": true,
+        "version": "9.7.1"
+      },
+      "owned_scripts": {
+        "ok": true,
+        "returncode": 0
+      },
+      "python_tests": {
+        "ok": true,
+        "returncode": 0
+      },
+      "gut_import": {
+        "ok": true,
+        "returncode": 0
+      },
+      "gut_tests": {
+        "ok": true,
+        "returncode": 0
+      },
+      "gut_negative": {
+        "ok": true,
+        "observed_returncode": 1
+      }
+    },
+    "owned_script": {
+      "script": "tools/asset_production/d01_lighthouse_01/check.gd",
+      "ok": true
+    },
+    "compiled_scripts": 203,
+    "python_tests": 17,
+    "gut_tests": 149,
+    "gut_assertions": 6768
+  },
+  "renders": [
+    {
+      "file": "hero.png",
+      "size_px": [
+        1280,
+        720
+      ],
+      "bytes": 272231
+    },
+    {
+      "file": "side.png",
+      "size_px": [
+        1280,
+        720
+      ],
+      "bytes": 245552
+    },
+    {
+      "file": "detail.png",
+      "size_px": [
+        1280,
+        720
+      ],
+      "bytes": 325865
+    },
+    {
+      "file": "overhead_47m_42deg.png",
+      "size_px": [
+        1280,
+        720
+      ],
+      "bytes": 255702
+    }
+  ],
+  "render_encoding": "RGB 6 significant bits per channel, PNG compression 9",
+  "overhead_camera": {
+    "projection": "perspective",
+    "height_m": 47,
+    "vertical_fov_deg": 42,
+    "direction": "vertical down, Blender +Y at image top",
+    "engine_capture": false,
+    "observation": "Roof and gallery ring remain visible; shaft/band/glazing self-occlude at centre"
+  }
+}
