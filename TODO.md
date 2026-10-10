@@ -32,7 +32,9 @@ recommendations and do not block P1.
   `FootCommand` and production `ActorMotion` on the Coral Courier player) is done. A2.2's replication
   core (`scripts/replication/`: identity, the measured 16-byte codec with decision 51's 2 cm island
   range, baseline/journal admission, durable/subset state apply, real-process ENet proof) is done;
-  its Match/Boot wiring follows A2.5. Use decision 19's
+  its Match/Boot wiring follows A2.5. A2.5 (LocalRig 47 m / 42° camera, Coral Courier presentation with
+  data-driven stride playback, grounded ActorMotion with gravity/floor snap, standalone Boot -> Match
+  walking) is done; the Coral Courier run/strafe clips need re-authoring for a 5 m/s stride. Use decision 19's
   ordered, distance-bounded held-input queue and decision 20's tunable short
   extrapolate→hold→smooth remote-motion policy; present the delivered Coral Courier under the
   47 m / 42° camera in the Brackett greybox; include drawable remote-continuity acceptance from
