@@ -1,0 +1,58 @@
+city_sign_supports.03 — Noticeboard — 10 October 2026
+Producer: commissioned implementation worker, lane/a-signs
+Scope: source/export, linked prefab, isolated render and bounded API validation only.
+Exact reproduction commands: ../city_sign_supports_03.md
+Scratch/raw outputs: C:/tmp/ft/assets/city_sign_supports_03/
+
+Pinned Blender 5.2.2 LTS, build d13f752e3b9c, exporter 5.2.40.
+--version: exit 0; reports one 24-byte allocation at shutdown.
+author.py (timeout 900, isolated audio-disabled CLI): exit 0.
+validate.py (timeout 180, fresh source load/export): exit 0.
+No author/validation topology, dependency or shutdown errors.
+2636 triangles, 1340 source vertices, 1711 split GLB vertices, 2 meshes, 5 surfaces.
+Zero nonmanifold edges, degenerate source faces and degenerate GLB triangles.
+Unit-length source/export normals; outward exported winding.
+Godot AABB (-0.95,0,-0.22) to (0.95,2.1,0.22), tolerances pass.
+Fresh GLB byte-identical: 75520 bytes.
+SHA256 f6ed9b4bd732c2e46104cf52453641e6c6e212483dd27d26d33a683dfefbdd8c
+Face-only material assignment, 0–1 UV mapping and 41:26 aspect verified.
+
+Pinned Godot 4.8.dev7.official.c971f93e7:
+--headless --editor --import --quit (timeout 300): exit 0.
+check_prefab.gd --editor (timeout 180): exit 0, all assertions completed.
+PASS: linked prefab, bounds, collision rays, UIDs and stable save/reload
+Editor startup warning: MCP plugin tested through 4.7, running 4.8.
+Editor shutdown diagnostics (not suppressed):
+ERROR: 5 RendererViewport allocations leaked at exit.
+ERROR: 8 DummyTexture allocations leaked at exit.
+ERROR: 1 RendererSceneCull Scenario allocation leaked at exit.
+ERROR: 52 ShapedTextDataAdvanced allocations leaked at exit.
+ERROR: 1 FontAdvanced allocation leaked at exit.
+WARNING: 5 Canvas / 31 CanvasItem RIDs leaked.
+WARNING: 168 ObjectDB instances leaked at exit.
+These match the sibling .02's documented editor-only baseline; no new baseline run claimed.
+The successful save assertions/exit do not establish a clean editor shutdown.
+
+check_prefab.gd runtime (timeout 180): exit 0, no warning/error diagnostics.
+PASS: linked prefab, bounds, collision rays, UIDs and stable save/reload
+Production ActorMotion capsule r0.35 / h1.8, 60 ticks per case:
+authority stop Z=0.570312201976776; replay same; bypass Z=-2.99999976158142.
+Solid centre ray, clear side ray, clear overhead ray pass.
+This is not network transport, vehicle, placement or performance acceptance.
+
+Pinned gdstyle --max-warnings 0 (timeout 30): exit 0, 1 file, no issues.
+Default tools/production_checks.py (timeout 1800, PYTHONUTF8=1): exit 1 before tests.
+Diagnostic: expected pinned engine 4.8.dev7.official.c971f93e7; got empty version.
+Rerun with explicit --godot and --gdstyle resolved via mise: exit 0.
+Engine pin PASS; GUT 9.7.1 pin PASS.
+Owned script formatting/lint/compilation PASS.
+Python tests: 14 passed.
+GUT import PASS; 86 tests passed, 2178 assertions.
+Intentional-negative GUT probe returned expected exit 1: PASS.
+No pre-existing fixture failures waived. No shared configuration changes.
+
+All four final PNGs inspected: hero, side/rear, cap detail, 47m/42deg overhead.
+1280x720, compression 95, each below 240 KB; no scratch evidence committed.
+Overhead is a quiet strip; vertical copy is not readable and cannot be essential wayfinding.
+Pending: independent review, actual engine views, artwork, placement, vehicle/network,
+packaged/Deck and repeated-load performance checks. No live owner editor session used.

@@ -1,0 +1,182 @@
+{
+  "artwork_interface": {
+    "aspect_ratio": "41:26",
+    "bottom_m": 0.9,
+    "front_godot_z_m": -0.071,
+    "glb_v_direction": "0 top / 1 bottom",
+    "height_m": 1.04,
+    "mesh": "CitySignSupports03_ArtworkCarrier",
+    "safe_copy_rectangle_m": [
+      1.58,
+      0.98
+    ],
+    "slot": "sign_face",
+    "slot_index": 0.0,
+    "top_m": 1.94,
+    "u_direction": "front-view left to right (-X)",
+    "uv_max": [
+      1.0,
+      1.0
+    ],
+    "uv_min": [
+      0.0,
+      0.0
+    ],
+    "width_m": 1.64
+  },
+  "blender": "5.2.2 LTS",
+  "blender_build": "d13f752e3b9c",
+  "coordinate_tolerance_m": 0.00001,
+  "degenerate_faces": 0.0,
+  "degenerate_glb_triangles": 0.0,
+  "dimension_tolerance_m": 0.001,
+  "dimensions_m": [
+    1.9,
+    2.1,
+    0.44
+  ],
+  "fresh_reexport_byte_identical": true,
+  "glb_bytes": 75520.0,
+  "glb_sha256": "f6ed9b4bd732c2e46104cf52453641e6c6e212483dd27d26d33a683dfefbdd8c",
+  "glb_vertices": 1711.0,
+  "glb_winding_agrees_with_normals": true,
+  "gltf_exporter": "5.2.40",
+  "godot": {
+    "bounds_match": true,
+    "collision": {
+      "layer": 1,
+      "mask": 0,
+      "size_m": [
+        1.9,
+        2.1,
+        0.44
+      ]
+    },
+    "dependency_uids_resolve": true,
+    "linked_model_identity": true,
+    "mesh_count": 2,
+    "production_actor_motion": {
+      "authority_replay_equivalent": true,
+      "authority_stop_z_m": 0.570312201976776,
+      "bypass_end_z_m": -2.99999976158142,
+      "capsule_height_m": 1.8,
+      "capsule_radius_m": 0.35,
+      "replay_stop_z_m": 0.570312201976776,
+      "ticks_per_case": 60
+    },
+    "ray_queries": {
+      "above_clear": true,
+      "center_hit": true,
+      "side_clear": true
+    },
+    "save_reload_byte_stable": true,
+    "surfaces": 5,
+    "version": "4.8-dev7 (official)"
+  },
+  "godot_aabb": {
+    "max": [
+      0.949999988079071,
+      2.09999990463257,
+      0.219999998807907
+    ],
+    "min": [
+      -0.949999988079071,
+      0.0,
+      -0.219999998807907
+    ]
+  },
+  "ground_datum_m": 0.0,
+  "materials": [
+    {
+      "name": "sign_face",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.393123120069504,
+          0.447988420724869,
+          0.406448304653168,
+          1.0
+        ],
+        "metallicFactor": 0.0,
+        "roughnessFactor": 0.560000002384186
+      }
+    },
+    {
+      "name": "mount_metal",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.0782883167266846,
+          0.125967383384705,
+          0.139984890818596,
+          1.0
+        ],
+        "metallicFactor": 0.649999976158142,
+        "roughnessFactor": 0.379999995231628
+      }
+    },
+    {
+      "name": "support_petrol",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.0108163831755519,
+          0.0346840769052505,
+          0.0439653620123863,
+          1.0
+        ],
+        "metallicFactor": 0.180000007152557,
+        "roughnessFactor": 0.319999992847443
+      }
+    },
+    {
+      "name": "recess_gasket",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.00333531363867223,
+          0.00657140370458364,
+          0.00812243297696113,
+          1.0
+        ],
+        "metallicFactor": 0.0,
+        "roughnessFactor": 0.720000028610229
+      }
+    }
+  ],
+  "meshes": 2.0,
+  "nonmanifold_edges": 0.0,
+  "pivot": [
+    0.0,
+    0.0,
+    0.0
+  ],
+  "source_meshes": [
+    {
+      "degenerate_faces": 0.0,
+      "materials": [
+        "support_petrol",
+        "recess_gasket",
+        "mount_metal"
+      ],
+      "name": "CitySignSupports03_Hardware",
+      "nonmanifold_edges": 0.0,
+      "triangles": 2472.0,
+      "unit_corner_normals": true,
+      "vertices": 1256.0
+    },
+    {
+      "degenerate_faces": 0.0,
+      "materials": [
+        "sign_face",
+        "mount_metal"
+      ],
+      "name": "CitySignSupports03_ArtworkCarrier",
+      "nonmanifold_edges": 0.0,
+      "triangles": 164.0,
+      "unit_corner_normals": true,
+      "vertices": 84.0
+    }
+  ],
+  "source_vertices": 1340.0,
+  "status": "PASS",
+  "surfaces": 5.0,
+  "triangles": 2636.0,
+  "unit_source_and_export_normals": true
+}

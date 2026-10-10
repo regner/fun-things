@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://p0xsrjdmsw2s"]
+
+[ext_resource type="PackedScene" uid="uid://bubc8cpo6gkqt" path="res://art/models/environment/city_sign_supports_03/city_sign_supports_03.glb" id="1_model"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_board"]
+size = Vector3(1.9, 2.1, 0.44)
+
+[node name="city_sign_supports_03" type="Node3D" unique_id=2089070278]
+
+[node name="Visuals" type="Node3D" parent="." unique_id=1012960868]
+
+[node name="Model" type="Node3D" parent="Visuals" unique_id=126480854 instance=ExtResource("1_model")]
+
+[node name="Collision" type="Node3D" parent="." unique_id=2117080181]
+
+[node name="Body" type="StaticBody3D" parent="Collision" unique_id=800135355]
+collision_mask = 0
+
+[node name="Shape" type="CollisionShape3D" parent="Collision/Body" unique_id=1025240725]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.05, 0)
+shape = SubResource("BoxShape3D_board")
