@@ -39,6 +39,10 @@ def main():
                       "socket_incoming", "socket_outgoing"}
     assert {obj.name for obj in collection.objects} == expected_names
     scene = bpy.context.scene
+    assert (scene.render.resolution_x, scene.render.resolution_y) == (1280, 720)
+    assert scene.render.resolution_percentage == 100
+    assert scene.render.image_settings.compression >= 90
+    assert scene.render.dither_intensity == 0
     assert scene.unit_settings.system == "METRIC" and scene.unit_settings.scale_length == 1
     slab = bpy.data.objects["D06HarbourFootbridge02_Mesh"]
     mesh = slab.data
