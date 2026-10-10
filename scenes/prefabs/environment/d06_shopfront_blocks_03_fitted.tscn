@@ -1,0 +1,109 @@
+[gd_scene format=3 uid="uid://dfbegctttxar8"]
+
+[ext_resource type="PackedScene" uid="uid://1kpas0o5v7kt" path="res://scenes/prefabs/environment/d06_shopfront_blocks_03.tscn" id="1_shell"]
+[ext_resource type="PackedScene" uid="uid://c1d8t0k7tqrw3" path="res://scenes/prefabs/environment/city_shop_fittings_03_single.tscn" id="2_fitting"]
+[ext_resource type="PackedScene" uid="uid://2gvcu7e3yq53" path="res://scenes/prefabs/environment/city_shop_fittings_06_single.tscn" id="3_fitting"]
+[ext_resource type="PackedScene" uid="uid://drtqegqkmfgp2" path="res://scenes/prefabs/environment/city_shop_fittings_05.tscn" id="4_fitting"]
+[ext_resource type="PackedScene" uid="uid://bsh8gy3l470g1" path="res://scenes/prefabs/environment/city_shop_fittings_01.tscn" id="5_fitting"]
+[ext_resource type="PackedScene" uid="uid://fpcm6q4n57qx" path="res://scenes/prefabs/environment/city_shop_fittings_02.tscn" id="6_fitting"]
+
+[node name="d06_shopfront_blocks_03_fitted" unique_id=32304804 instance=ExtResource("1_shell")]
+
+[node name="Fittings" type="Node3D" parent="." index="3" unique_id=366330458]
+
+[node name="FrontEntrance" parent="Fittings" index="0" unique_id=2128489529 instance=ExtResource("2_fitting")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.45000005, 0, -6.4)
+
+[node name="FrontDoor" parent="Fittings" index="1" unique_id=1410557089 instance=ExtResource("3_fitting")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.45000005, 0, -6.4)
+
+[node name="Body" parent="Fittings/FrontDoor/Collision" parent_id_path=PackedInt32Array(1410557089, 1204738581) index="0" unique_id=327082226]
+collision_layer = 0
+
+[node name="Shape0" parent="Fittings/FrontDoor/Collision/Body" index="0" unique_id=2064842678]
+disabled = true
+
+[node name="FrontWindow" parent="Fittings" index="2" unique_id=1880148530 instance=ExtResource("4_fitting")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.3500001, 0.48, -6.4)
+
+[node name="Body" parent="Fittings/FrontWindow/Collision" parent_id_path=PackedInt32Array(1880148530, 1139176319) index="0" unique_id=1620841734]
+collision_layer = 0
+
+[node name="Shape0" parent="Fittings/FrontWindow/Collision/Body" index="0" unique_id=813173883]
+disabled = true
+
+[node name="Shape1" parent="Fittings/FrontWindow/Collision/Body" index="1" unique_id=24745287]
+disabled = true
+
+[node name="FrontCanopy" parent="Fittings" index="3" unique_id=1471490670 instance=ExtResource("5_fitting")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.3500001, 3, -6.4)
+
+[node name="FrontFascia" parent="Fittings" index="4" unique_id=1865938700 instance=ExtResource("6_fitting")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.3500001, 3.8, -6.4)
+
+[node name="CornerEntrance" parent="Fittings" index="5" unique_id=2067065205 instance=ExtResource("2_fitting")]
+transform = Transform3D(0.70710677, 0, -0.70710677, 0, 1, 0, 0.70710677, 0, 0.70710677, 6.978858, 0, -2.621142)
+
+[node name="CornerDoor" parent="Fittings" index="6" unique_id=662308911 instance=ExtResource("3_fitting")]
+transform = Transform3D(0.70710677, 0, -0.70710677, 0, 1, 0, 0.70710677, 0, 0.70710677, 6.978858, 0, -2.621142)
+
+[node name="Body" parent="Fittings/CornerDoor/Collision" parent_id_path=PackedInt32Array(662308911, 1204738581) index="0" unique_id=327082226]
+collision_layer = 0
+
+[node name="Shape0" parent="Fittings/CornerDoor/Collision/Body" index="0" unique_id=2064842678]
+disabled = true
+
+[node name="CornerWindow" parent="Fittings" index="7" unique_id=454030599 instance=ExtResource("4_fitting")]
+transform = Transform3D(0.70710677, 0, -0.70710677, 0, 1, 0, 0.70710677, 0, 0.70710677, 4.9282484, 0.48, -4.6717515)
+
+[node name="Body" parent="Fittings/CornerWindow/Collision" parent_id_path=PackedInt32Array(454030599, 1139176319) index="0" unique_id=1620841734]
+collision_layer = 0
+
+[node name="Shape0" parent="Fittings/CornerWindow/Collision/Body" index="0" unique_id=813173883]
+disabled = true
+
+[node name="Shape1" parent="Fittings/CornerWindow/Collision/Body" index="1" unique_id=24745287]
+disabled = true
+
+[node name="CornerCanopy" parent="Fittings" index="8" unique_id=1087852120 instance=ExtResource("5_fitting")]
+transform = Transform3D(0.70710677, 0, -0.70710677, 0, 1, 0, 0.70710677, 0, 0.70710677, 4.9282484, 3, -4.6717515)
+
+[node name="CornerFascia" parent="Fittings" index="9" unique_id=298275221 instance=ExtResource("6_fitting")]
+transform = Transform3D(0.70710677, 0, -0.70710677, 0, 1, 0, 0.70710677, 0, 0.70710677, 4.9282484, 3.8, -4.6717515)
+
+[node name="EastEntrance" parent="Fittings" index="10" unique_id=1934924824 instance=ExtResource("2_fitting")]
+transform = Transform3D(0, 0, -1, 0, 1, 0, 1, 0, 0, 8, 0, 4.3500004)
+
+[node name="EastDoor" parent="Fittings" index="11" unique_id=1086171251 instance=ExtResource("3_fitting")]
+transform = Transform3D(0, 0, -1, 0, 1, 0, 1, 0, 0, 8, 0, 4.3500004)
+
+[node name="Body" parent="Fittings/EastDoor/Collision" parent_id_path=PackedInt32Array(1086171251, 1204738581) index="0" unique_id=327082226]
+collision_layer = 0
+
+[node name="Shape0" parent="Fittings/EastDoor/Collision/Body" index="0" unique_id=2064842678]
+disabled = true
+
+[node name="EastWindow" parent="Fittings" index="12" unique_id=843047643 instance=ExtResource("4_fitting")]
+transform = Transform3D(0, 0, -1, 0, 1, 0, 1, 0, 0, 8, 0.48, 1.45)
+
+[node name="Body" parent="Fittings/EastWindow/Collision" parent_id_path=PackedInt32Array(843047643, 1139176319) index="0" unique_id=1620841734]
+collision_layer = 0
+
+[node name="Shape0" parent="Fittings/EastWindow/Collision/Body" index="0" unique_id=813173883]
+disabled = true
+
+[node name="Shape1" parent="Fittings/EastWindow/Collision/Body" index="1" unique_id=24745287]
+disabled = true
+
+[node name="EastCanopy" parent="Fittings" index="13" unique_id=2125518397 instance=ExtResource("5_fitting")]
+transform = Transform3D(0, 0, -1, 0, 1, 0, 1, 0, 0, 8, 3, 1.45)
+
+[node name="EastFascia" parent="Fittings" index="14" unique_id=1782350610 instance=ExtResource("6_fitting")]
+transform = Transform3D(0, 0, -1, 0, 1, 0, 1, 0, 0, 8, 3.8, 1.45)
+
+[editable path="Fittings/FrontDoor"]
+[editable path="Fittings/FrontWindow"]
+[editable path="Fittings/CornerDoor"]
+[editable path="Fittings/CornerWindow"]
+[editable path="Fittings/EastDoor"]
+[editable path="Fittings/EastWindow"]
