@@ -63,11 +63,15 @@ NPC motion is separately owned by the pedestrian track, accepted at
 is shipped in this player checkpoint.
 
 `PlayerCharacterVisual.play_clip(name)` selects a full-body clip. `play_layered(lower,
-upper)` uses complementary bone tracks: lower contains root/pelvis/spine/legs, upper
-contains chest/neck/head/clavicles/arms/hands. For example, `walk_left` + `smg_hold`
-allows locomotion relative to the aimed character heading. The integrator owns heading,
-blend timing, movement speed and authoritative state. These are animation assets and
-presentation APIs, not a player controller or a gameplay AnimationTree.
+upper, movement_speed_mps = 0.0)` uses complementary bone tracks: lower contains
+root/pelvis/spine/legs, upper contains chest/neck/head/clavicles/arms/hands. A positive
+movement speed derives lower-body playback from the clip's measured contact travel;
+zero retains authored 1x playback for asset previews. `locomotion_playback_scale(lower,
+movement_speed_mps)` exposes the same presentation calibration. For example,
+`walk_left` + `smg_hold` allows locomotion relative to the aimed character heading. The
+integrator owns heading, blend timing, movement speed and authoritative state. These are
+animation assets and presentation APIs, not a player controller or a gameplay
+AnimationTree.
 
 ## Skins and attachments
 

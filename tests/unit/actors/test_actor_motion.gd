@@ -2,6 +2,7 @@ extends GutTest
 ## Verifies shared production foot motion, collision, scene composition, and presentation.
 
 const FIXED_DELTA: float = 1.0 / 60.0
+const BRIDGE_FIXED_STEPS_PER_FRAME: int = 4
 const RAMP_ANGLE_DEGREES: float = 28.0
 const PLAYER_SCENE: PackedScene = preload("res://scenes/entities/player.tscn")
 const MATCH_SCENE: PackedScene = preload("res://scenes/match/match.tscn")
@@ -140,18 +141,21 @@ func test_actor_crosses_saved_harbour_bridge() -> void:
 	var minimum_y: float = actor.position.y
 	var unsupported_ticks: int = 0
 	var reached_end: bool = false
+	var tick: int = 0
 
-	for tick: int in range(1, 1501):
+	while tick < 1500 and not reached_end:
 		await get_tree().physics_frame  # gdstyle:ignore=quality/await-in-loop
-		var command := FootCommand.new(  # gdstyle:ignore=quality/allocation-in-loop
-			tick, tick, Vector2.RIGHT, -PI * 0.5, false, false
-		)
-		assert_true(actor.step(command, FIXED_DELTA, ActorMotion.StepMode.AUTHORITY))
-		minimum_y = minf(minimum_y, actor.position.y)
-		unsupported_ticks += int(not actor.is_on_floor())
-		if actor.position.x >= -226.0:
-			reached_end = true
-			break
+		for _fixed_step: int in range(BRIDGE_FIXED_STEPS_PER_FRAME):
+			tick += 1
+			var command := FootCommand.new(  # gdstyle:ignore=quality/allocation-in-loop
+				tick, tick, Vector2.RIGHT, -PI * 0.5, false, false
+			)
+			assert_true(actor.step(command, FIXED_DELTA, ActorMotion.StepMode.AUTHORITY))
+			minimum_y = minf(minimum_y, actor.position.y)
+			unsupported_ticks += int(not actor.is_on_floor())
+			if actor.position.x >= -226.0:
+				reached_end = true
+				break
 
 	assert_true(reached_end)
 	assert_gt(minimum_y, -0.1)

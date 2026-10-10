@@ -23,11 +23,21 @@ func test_layered_clip_selection_uses_relative_velocity() -> void:
 	presentation.apply_motion(Vector3.RIGHT * 5.0, 0.0)
 	assert_eq(lower.current_animation, &"run_right")
 	assert_eq(upper.current_animation, &"pistol_hold")
-	assert_true(is_equal_approx(lower.speed_scale, 1.0))
+	_assert_stance_world_velocity(actor, lower, Vector3.RIGHT * 5.0)
 
-	presentation.apply_motion(Vector3.RIGHT * 5.0, -PI * 0.5)
+	actor.rotation.y = -PI * 0.5
+	presentation.apply_motion(Vector3.RIGHT * 5.0, actor.rotation.y)
 	assert_eq(lower.current_animation, &"run")
-	presentation.apply_motion(Vector3.ZERO, -PI * 0.5)
+	_assert_stance_world_velocity(actor, lower, Vector3.RIGHT * 5.0)
+
+	actor.rotation.y = 0.0
+	presentation.apply_motion(Vector3.BACK * 5.0, actor.rotation.y)
+	assert_eq(lower.current_animation, &"run_back")
+	_assert_stance_world_velocity(actor, lower, Vector3.BACK * 5.0)
+	presentation.apply_motion(Vector3.LEFT * 5.0, actor.rotation.y)
+	assert_eq(lower.current_animation, &"run_left")
+	_assert_stance_world_velocity(actor, lower, Vector3.LEFT * 5.0)
+	presentation.apply_motion(Vector3.ZERO, actor.rotation.y)
 	assert_eq(lower.current_animation, &"idle")
 
 
@@ -77,3 +87,26 @@ func test_presentation_removal_does_not_change_motion_state() -> void:
 		assert_true(unpresented.step(command, FIXED_DELTA, ActorMotion.StepMode.AUTHORITY))
 
 	assert_eq(presented.motion_state(), unpresented.motion_state())
+
+
+## Checks actual authored stance endpoints remain approximately fixed in world space.
+func _assert_stance_world_velocity(
+	actor: ActorMotion,
+	lower: AnimationPlayer,
+	world_velocity: Vector3,
+) -> void:
+	var animation: Animation = lower.get_animation(lower.current_animation)
+	var skeleton: Skeleton3D = actor.get_node(
+		"PresentationAnchor/Visuals/Model/PresentationAnchor/Visuals/Model/Rig/Skeleton3D"
+	) as Skeleton3D
+	var foot_index: int = skeleton.find_bone(&"foot_r")
+	lower.seek(animation.length * 0.25, true)
+	var contact_start: Vector3 = skeleton.get_bone_global_pose(foot_index).origin
+	lower.seek(animation.length * 0.75, true)
+	var contact_end: Vector3 = skeleton.get_bone_global_pose(foot_index).origin
+	var world_contact_seconds: float = animation.length * 0.5 / lower.speed_scale
+	var local_contact_delta: Vector3 = contact_end - contact_start
+	var world_contact_delta: Vector3 = (
+		world_velocity * world_contact_seconds + actor.global_basis * local_contact_delta
+	)
+	assert_lt(world_contact_delta.length() / world_contact_seconds, 0.05)

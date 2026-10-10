@@ -6,7 +6,6 @@ const MOVING_SPEED_EPSILON_MPS: float = 0.05
 const FULL_STRIDE_SPEED_MPS: float = 5.0
 const DEFAULT_UPPER_BODY_CLIP: StringName = &"pistol_hold"
 
-var _current_clip: StringName = &""
 var _dead: bool = false
 var _latest_velocity: Vector3 = Vector3.ZERO
 var _latest_facing_yaw: float = 0.0
@@ -21,13 +20,9 @@ func apply_motion(world_velocity: Vector3, facing_yaw: float) -> void:
 	if _dead:
 		return
 
+	var planar_speed: float = Vector2(world_velocity.x, world_velocity.z).length()
 	var clip: StringName = _locomotion_clip(world_velocity, facing_yaw)
-	if clip == _current_clip:
-		return
-
-	# The delivered run cycle is authored at 1x for ActorMotion's five-metre stride.
-	if _visual.play_layered(clip, DEFAULT_UPPER_BODY_CLIP):
-		_current_clip = clip
+	_visual.play_layered(clip, DEFAULT_UPPER_BODY_CLIP, planar_speed)
 
 
 ## Selects or clears the retained full-body death pose without changing motion state.
@@ -36,7 +31,6 @@ func set_dead(dead: bool) -> void:
 		return
 
 	_dead = dead
-	_current_clip = &""
 	if dead:
 		_visual.play_clip(&"death")
 	else:

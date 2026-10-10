@@ -41,3 +41,41 @@ func test_escape_emits_leave_request() -> void:
 
 	rig._unhandled_input(event)
 	assert_signal_emitted(rig, "leave_requested")
+
+
+## Proves the noninteractive help overlay does not consume aim or fire GUI dispatch.
+func test_controls_overlay_ignores_gameplay_mouse_dispatch() -> void:
+	var actor: ActorMotion = PLAYER_SCENE.instantiate() as ActorMotion
+	var rig: LocalRig = LOCAL_RIG_SCENE.instantiate() as LocalRig
+	add_child_autofree(actor)
+	add_child_autofree(rig)
+	await get_tree().process_frame
+	assert_true(rig.bind_actor(actor))
+	rig.set_physics_process(false)
+	var foot_input: DesktopFootInput = rig.get_node("Input") as DesktopFootInput
+	var controls: Label = rig.get_node("UI/Controls") as Label
+	foot_input.set_focused(true)
+	assert_eq(controls.mouse_filter, Control.MOUSE_FILTER_IGNORE)
+	var pointer_position: Vector2 = controls.global_position + controls.size * 0.5
+	var initial_yaw: float = foot_input.sample(1).aim_yaw
+	var motion := InputEventMouseMotion.new()
+	motion.position = pointer_position
+	motion.global_position = pointer_position
+
+	Input.parse_input_event(motion)
+	await get_tree().process_frame
+	assert_false(is_equal_approx(foot_input.sample(2).aim_yaw, initial_yaw))
+
+	var press := InputEventMouseButton.new()
+	press.position = pointer_position
+	press.global_position = pointer_position
+	press.button_index = MOUSE_BUTTON_LEFT
+	press.pressed = true
+	Input.parse_input_event(press)
+	await get_tree().process_frame
+	assert_true(foot_input.sample(3).fire_held)
+
+	press.pressed = false
+	Input.parse_input_event(press)
+	await get_tree().process_frame
+	assert_false(foot_input.sample(4).fire_held)
