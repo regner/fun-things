@@ -1,0 +1,60 @@
+d03_apartment_family.02 - final bounded production checks
+All commands ran from C:/GameDev/git/ft-lanes/a-apart.
+Blender: C:/Program Files/Blender Foundation/Blender 5.2/blender.exe
+  5.2.2 LTS; build d13f752e3b9c; dependency glTF exporters assert 5.2.40.
+Godot: resolved through mise which godot; 4.8.dev7.official.c971f93e7.
+Every engine invocation was headless and bounded by timeout.
+Every Blender invocation used ALSOFT_DRIVERS=null SDL_AUDIODRIVER=dummy,
+  PYTHONIOENCODING=utf-8, -noaudio --background --factory-startup --threads 4
+  --python-exit-code 1. No live Blender/Godot session was used.
+
+PASS exit 0: python tools/asset_production/d03_apartment_family_02/author.py
+  One-time seed: 36 existing prefab instances, no new geometry.
+PASS exit 0: timeout 300 <pinned Godot> --headless --path . --import
+  Initial and final imports; final after all rendered/script outputs.
+  Both logs checked: no ERROR/SCRIPT ERROR lines. No sibling metadata changed.
+PASS exit 0: timeout 180 <pinned Godot> --headless --editor --path .
+  --script tools/asset_production/d03_apartment_family_02/check_prefab.gd -- --normalize
+  Two subsequent byte-stable reload/save cycles; scene UID uid://b2n6vu3s8vvq.
+PASS exit 0: timeout 180 <pinned Godot> --headless --path .
+  --script tools/asset_production/d03_apartment_family_02/check_prefab.gd
+  No ERROR/SCRIPT ERROR lines. 36 direct instances; 40 linked meshes; 144 surfaces.
+  23 inherited static boxes; 16 capsule expectations; 12 seam/step rays;
+  56 clear vertical link rays; 22 m clear car-box sweep.
+  Eight production ActorMotion runs (4 cases x AUTHORITY/REPLAY, 60 ticks each).
+  Matching mode endpoints; all independent literal expectations pass.
+PASS exit 0: timeout 900 <Blender with flags above>
+  --python tools/asset_production/d03_apartment_family_02/render.py
+  Four final isolated renders inspected: complete U, clear mouth/short-arm link,
+  low elbows, mounted balconies, roof joins and raised bay read coherently.
+  Hero/side/overhead 1280x720; detail 1024x576. RGB compression 100.
+PASS exit 0: timeout 300 <Blender with flags above>
+  --python tools/asset_production/d03_apartment_family_02/validate.py
+  68,820 triangles; 35,924 source vertices; 48,282 exported vertices.
+  Zero degenerate source faces/export triangles or non-manifold dependency edges.
+  Unit source/export normals; actual GLB/engine bounds agree within 0.001 m.
+  Nine dependency GLBs freshly re-exported byte-identically from seven sources.
+  19 roof first-hit samples; 90 unroofed-link samples; 725.76 m2 ground union.
+PASS exit 0: mise exec -- gdstyle fmt --check
+  tools/asset_production/d03_apartment_family_02/check_prefab.gd
+PASS exit 0: mise exec -- gdstyle --max-line-length 100 --max-warnings 0
+  tools/asset_production/d03_apartment_family_02/check_prefab.gd
+PASS: Python AST parse of all five owned Python scripts (without pycache writes).
+
+Classified diagnostics and corrected attempts:
+- Editor-only normalization exits 0 with successful stable-save assertions, then
+  emits the same headless renderer/text RID and ObjectDB shutdown-leak diagnostics
+  recorded by earlier siblings. These errors were not suppressed or called clean.
+  The addon also warns this engine version is untested.
+- Initial runtime attempt rejected visual max after an inverted text yaw convention.
+  Saved owned transforms and author seed were corrected, preserving node identities.
+- Next runtime attempt found an exact-edge grazing ray at the rotated elbow/run join.
+  +/-1 mm bracket rays plus independently matched collider rectangles resolve the
+  numerical ambiguity without changing geometry or accepting a seam gap.
+- Final runtime/import and Blender checks pass; no unchanged failing step repeated.
+
+Scope limits: source-linked assembly reference only, not a placed world sector.
+No new source/export mesh, shared asset mutation, navigation, gameplay state,
+production vehicle driving, network transport, windowed engine visual capture,
+packaged dependency proof or Deck/performance acceptance is claimed.
+No production_checks.py invocation (owner decision 52).

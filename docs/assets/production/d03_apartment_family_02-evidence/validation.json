@@ -1,0 +1,2293 @@
+{
+  "asset_id": "d03_apartment_family.02",
+  "output_type": "Assembly reference",
+  "new_meshes": 0,
+  "new_source_or_glb": "Not applicable: existing-prefab composition only",
+  "blender": "5.2.2 LTS",
+  "blender_build": "d13f752e3b9c",
+  "prefab": {
+    "path": "scenes/prefabs/environment/d03_apartment_family_02.tscn",
+    "bytes": 7306,
+    "sha256": "c44973dc68c5a33cd2ad8f9345f5b0f69d91c5ec45efcb9cb36064f7b1cce473"
+  },
+  "dependencies": [
+    {
+      "source": {
+        "path": "art/source/models/environment/d03_apartment_family_05/d03_apartment_family_05.blend",
+        "bytes": 140198,
+        "sha256": "a51e4ee2110bb71d9d82f8daea3f063566764cdd26754b8c87028fcefd44a2bc"
+      },
+      "export": {
+        "path": "art/models/environment/d03_apartment_family_05/d03_apartment_family_05.glb",
+        "bytes": 74984,
+        "sha256": "25cd2902d8d7516d7a88364c2f06d276c0af2460bbc234bedbc461a92a5cb6b6"
+      },
+      "import": {
+        "path": "art/models/environment/d03_apartment_family_05/d03_apartment_family_05.glb.import",
+        "bytes": 1283,
+        "sha256": "5d174be14912839787d23435b24452c572fd79a6d553c79069c8e75a23b84520"
+      },
+      "triangles": 2532,
+      "source_vertices": 1320,
+      "export_vertices": 1744,
+      "meshes": 1,
+      "surfaces": 4,
+      "nonmanifold_edges": 0,
+      "degenerate_faces": 0,
+      "degenerate_glb_triangles": 0,
+      "unit_normals": true,
+      "fresh_reexport_byte_identical": true
+    },
+    {
+      "source": {
+        "path": "art/source/models/environment/d03_apartment_family_06/d03_apartment_family_06.blend",
+        "bytes": 315986,
+        "sha256": "7793bdae44007443dc987fdd69ae6a73e4cdd10f8d10d4fdbc5c6db3e5b976d1"
+      },
+      "export": {
+        "path": "art/models/environment/d03_apartment_family_06/d03_apartment_family_06_outside.glb",
+        "bytes": 146052,
+        "sha256": "bd302c433ef855fd25f41632202aa68a8c0a288b9829020ddc59c85146dc69ad"
+      },
+      "import": {
+        "path": "art/models/environment/d03_apartment_family_06/d03_apartment_family_06_outside.glb.import",
+        "bytes": 1307,
+        "sha256": "9f88cb93358e6bfeedaf5cd7a77c99ee86f56aa246169cbd03d04af5147915a0"
+      },
+      "triangles": 5044,
+      "source_vertices": 2624,
+      "export_vertices": 3464,
+      "meshes": 1,
+      "surfaces": 5,
+      "nonmanifold_edges": 0,
+      "degenerate_faces": 0,
+      "degenerate_glb_triangles": 0,
+      "unit_normals": true,
+      "fresh_reexport_byte_identical": true
+    },
+    {
+      "source": {
+        "path": "art/source/models/environment/d03_apartment_family_07/d03_apartment_family_07.blend",
+        "bytes": 125749,
+        "sha256": "960644f294584dc0b22ea3ca789bcb2cd9fce5d347f68ab81910663024e1fa6e"
+      },
+      "export": {
+        "path": "art/models/environment/d03_apartment_family_07/d03_apartment_family_07.glb",
+        "bytes": 44908,
+        "sha256": "463c81eeacbfe64ce4ff29d830babb1c7228800acca0b14246043da7dd4f9e51"
+      },
+      "import": {
+        "path": "art/models/environment/d03_apartment_family_07/d03_apartment_family_07.glb.import",
+        "bytes": 1283,
+        "sha256": "cc32e120731f293ce6a4b439cc170b491aa8a2654b02e0826815de01dbac2816"
+      },
+      "triangles": 1444,
+      "source_vertices": 752,
+      "export_vertices": 1008,
+      "meshes": 1,
+      "surfaces": 4,
+      "nonmanifold_edges": 0,
+      "degenerate_faces": 0,
+      "degenerate_glb_triangles": 0,
+      "unit_normals": true,
+      "fresh_reexport_byte_identical": true
+    },
+    {
+      "source": {
+        "path": "art/source/models/environment/d03_apartment_family_08/d03_apartment_family_08.blend",
+        "bytes": 153445,
+        "sha256": "8b135aa7ad453005868d37e513d4f7db2d684d63ef47c54ab7f0dfd057cf3d51"
+      },
+      "export": {
+        "path": "art/models/environment/d03_apartment_family_08/d03_apartment_family_08.glb",
+        "bytes": 82996,
+        "sha256": "dd57a82732fba60234593432922760640dc8e52632fdcad19f0dacb020bb5c0b"
+      },
+      "import": {
+        "path": "art/models/environment/d03_apartment_family_08/d03_apartment_family_08.glb.import",
+        "bytes": 1283,
+        "sha256": "ad5e3a371ab0934db15cece5dbba825d86f05e72b6ba6d4a522bcac50741906d"
+      },
+      "triangles": 2724,
+      "source_vertices": 1424,
+      "export_vertices": 1930,
+      "meshes": 1,
+      "surfaces": 5,
+      "nonmanifold_edges": 0,
+      "degenerate_faces": 0,
+      "degenerate_glb_triangles": 0,
+      "unit_normals": true,
+      "fresh_reexport_byte_identical": true
+    },
+    {
+      "source": {
+        "path": "art/source/models/environment/d03_apartment_family_09/d03_apartment_family_09.blend",
+        "bytes": 133955,
+        "sha256": "a73bec9a99c41ca68d2fb7e90d1a3c0b39ffcb522e1a353932a91411218a8da3"
+      },
+      "export": {
+        "path": "art/models/environment/d03_apartment_family_09/d03_apartment_family_09.glb",
+        "bytes": 56252,
+        "sha256": "998ff78484fd85a2f89e375821977ad01492ae19a050ba3fc70eb7ce3ea3c0d0"
+      },
+      "import": {
+        "path": "art/models/environment/d03_apartment_family_09/d03_apartment_family_09.glb.import",
+        "bytes": 1283,
+        "sha256": "01d12bf17659ab1914eede7671be3f2ea4f14d5b8795726668d16dd0f58bcca6"
+      },
+      "triangles": 1944,
+      "source_vertices": 1008,
+      "export_vertices": 1296,
+      "meshes": 1,
+      "surfaces": 3,
+      "nonmanifold_edges": 0,
+      "degenerate_faces": 0,
+      "degenerate_glb_triangles": 0,
+      "unit_normals": true,
+      "fresh_reexport_byte_identical": true
+    },
+    {
+      "source": {
+        "path": "art/source/models/environment/d03_apartment_family_10/d03_apartment_family_10.blend",
+        "bytes": 106813,
+        "sha256": "b77104997ec797bd92db06c6809a8157ca92ff9f9949dc7c879add4a20b9dc16"
+      },
+      "export": {
+        "path": "art/models/environment/d03_apartment_family_10/d03_apartment_family_10_end.glb",
+        "bytes": 2984,
+        "sha256": "d1937b9acc1ef65826dd36467700350904af89ef2b6763ae810ee51f44e74af1"
+      },
+      "import": {
+        "path": "art/models/environment/d03_apartment_family_10/d03_apartment_family_10_end.glb.import",
+        "bytes": 1295,
+        "sha256": "e550bb477bfe7d14dcda189108e09835044224e3c36eb8632a59784e2493ea37"
+      },
+      "triangles": 24,
+      "source_vertices": 16,
+      "export_vertices": 48,
+      "meshes": 1,
+      "surfaces": 2,
+      "nonmanifold_edges": 0,
+      "degenerate_faces": 0,
+      "degenerate_glb_triangles": 0,
+      "unit_normals": true,
+      "fresh_reexport_byte_identical": true
+    },
+    {
+      "source": {
+        "path": "art/source/models/environment/d03_apartment_family_10/d03_apartment_family_10.blend",
+        "bytes": 106813,
+        "sha256": "b77104997ec797bd92db06c6809a8157ca92ff9f9949dc7c879add4a20b9dc16"
+      },
+      "export": {
+        "path": "art/models/environment/d03_apartment_family_10/d03_apartment_family_10_outside.glb",
+        "bytes": 5828,
+        "sha256": "bab39ed0174193b2eb1d7d13959f4331c9320da57cae6c09d3e01c38e457ccad"
+      },
+      "import": {
+        "path": "art/models/environment/d03_apartment_family_10/d03_apartment_family_10_outside.glb.import",
+        "bytes": 1307,
+        "sha256": "5c2ff835c3b7a890efa2dedca06c37be9f4888dd988051148ad8ff38011fac13"
+      },
+      "triangles": 64,
+      "source_vertices": 40,
+      "export_vertices": 120,
+      "meshes": 1,
+      "surfaces": 3,
+      "nonmanifold_edges": 0,
+      "degenerate_faces": 0,
+      "degenerate_glb_triangles": 0,
+      "unit_normals": true,
+      "fresh_reexport_byte_identical": true
+    },
+    {
+      "source": {
+        "path": "art/source/models/environment/d03_apartment_family_10/d03_apartment_family_10.blend",
+        "bytes": 106813,
+        "sha256": "b77104997ec797bd92db06c6809a8157ca92ff9f9949dc7c879add4a20b9dc16"
+      },
+      "export": {
+        "path": "art/models/environment/d03_apartment_family_10/d03_apartment_family_10_straight.glb",
+        "bytes": 4956,
+        "sha256": "14fe74d3ecc526f9340d9002a3f4c3eda4017ab4b6a5fd23cd08b3dd69b10989"
+      },
+      "import": {
+        "path": "art/models/environment/d03_apartment_family_10/d03_apartment_family_10_straight.glb.import",
+        "bytes": 1310,
+        "sha256": "dd8b34b46da77fe4d5f2f0b8150a07e790f565f5ea574b576e5a1f72a37b6378"
+      },
+      "triangles": 48,
+      "source_vertices": 32,
+      "export_vertices": 96,
+      "meshes": 1,
+      "surfaces": 3,
+      "nonmanifold_edges": 0,
+      "degenerate_faces": 0,
+      "degenerate_glb_triangles": 0,
+      "unit_normals": true,
+      "fresh_reexport_byte_identical": true
+    },
+    {
+      "source": {
+        "path": "art/source/models/environment/d03_apartment_family_11/d03_apartment_family_11.blend",
+        "bytes": 102518,
+        "sha256": "8d4ec805889bf7f1f5fecfdd73d6746c4de32f0d66782b8b350c72b472408f3b"
+      },
+      "export": {
+        "path": "art/models/environment/d03_apartment_family_11/d03_apartment_family_11.glb",
+        "bytes": 5400,
+        "sha256": "1586ea07f581022e2a81bcd7fe96968ae6aa7d1d31c8f26ebebe25a8ea4e731e"
+      },
+      "import": {
+        "path": "art/models/environment/d03_apartment_family_11/d03_apartment_family_11.glb.import",
+        "bytes": 1283,
+        "sha256": "3b62c533e976849a24839a701fa3e7d740cc3f39628ce408a38431112aafc1ac"
+      },
+      "triangles": 72,
+      "source_vertices": 42,
+      "export_vertices": 126,
+      "meshes": 1,
+      "surfaces": 2,
+      "nonmanifold_edges": 0,
+      "degenerate_faces": 0,
+      "degenerate_glb_triangles": 0,
+      "unit_normals": true,
+      "fresh_reexport_byte_identical": true
+    }
+  ],
+  "linked_prefabs": [
+    {
+      "path": "scenes/prefabs/environment/d03_apartment_family_05.tscn",
+      "bytes": 878,
+      "sha256": "1bb16fe801f2f7cf86848b353966643d4e9a81ef4784e055d42e05df6dfbb0db"
+    },
+    {
+      "path": "scenes/prefabs/environment/d03_apartment_family_06_outside.tscn",
+      "bytes": 894,
+      "sha256": "9f2172ec68bf33618ea8c0ae21853d05e047344ab45cc538a1863cf078cf6fc8"
+    },
+    {
+      "path": "scenes/prefabs/environment/d03_apartment_family_07.tscn",
+      "bytes": 880,
+      "sha256": "654f9fc799be18dfc7a3c42a60a3be1914c99a8597fcddf93c0d010a8794966a"
+    },
+    {
+      "path": "scenes/prefabs/environment/d03_apartment_family_08.tscn",
+      "bytes": 875,
+      "sha256": "5be01f3621ad5caf3a3d26c7d432296f3bad77c742cfae74c5266dbe67ad8207"
+    },
+    {
+      "path": "scenes/prefabs/environment/d03_apartment_family_09.tscn",
+      "bytes": 453,
+      "sha256": "528fb84af44f38db7d0a5b93ab0ed94188e50e25c4c0d788eff96c75693b8ec7"
+    },
+    {
+      "path": "scenes/prefabs/environment/d03_apartment_family_10_end.tscn",
+      "bytes": 459,
+      "sha256": "77198b2ffdf7359733effe17c6e68da6877dba9c3b956102cfd4c72fb25cd906"
+    },
+    {
+      "path": "scenes/prefabs/environment/d03_apartment_family_10_outside.tscn",
+      "bytes": 466,
+      "sha256": "fda39d316ab1d5467f8aa06bbf85cbab573d6a5a5c9f73fed342a429d1b61c3e"
+    },
+    {
+      "path": "scenes/prefabs/environment/d03_apartment_family_10_straight.tscn",
+      "bytes": 468,
+      "sha256": "1e59d39d1f2507c0c78126fe0e9d172bccf9a055af21a9fd64ce57c00f5f967a"
+    },
+    {
+      "path": "scenes/prefabs/environment/d03_apartment_family_11.tscn",
+      "bytes": 1065,
+      "sha256": "b68972193d24214e1140e8aa5d6fe3b6f1af97cdec33920137443209f432506e"
+    }
+  ],
+  "instance_totals": {
+    "triangles": 68820,
+    "source_vertices": 35924,
+    "export_vertices": 48282,
+    "meshes": 40,
+    "surfaces": 144
+  },
+  "actual_glb_aabb_min": [
+    -6.180000305175781,
+    0.0,
+    -6.1800007820129395
+  ],
+  "actual_glb_aabb_max": [
+    36.18000030517578,
+    9.920000076293945,
+    18.34000015258789
+  ],
+  "ground_footprint_area_m2": 725.76,
+  "ground_solid_rectangles_xz": [
+    [
+      -6,
+      -6,
+      6,
+      6
+    ],
+    [
+      24,
+      -6,
+      36,
+      6
+    ],
+    [
+      6,
+      -6,
+      12,
+      6
+    ],
+    [
+      12,
+      -6,
+      18,
+      6
+    ],
+    [
+      18,
+      -6,
+      24,
+      6
+    ],
+    [
+      -6,
+      6,
+      6,
+      12
+    ],
+    [
+      -6,
+      12,
+      6,
+      18
+    ],
+    [
+      24,
+      6,
+      36,
+      12
+    ],
+    [
+      -6,
+      18,
+      6,
+      18.24
+    ],
+    [
+      24,
+      12,
+      36,
+      12.24
+    ]
+  ],
+  "roof_first_hit_samples": [
+    {
+      "xz": [
+        0,
+        0
+      ],
+      "expected_y": 6.62,
+      "actual_y": 6.619999885559082
+    },
+    {
+      "xz": [
+        30,
+        0
+      ],
+      "expected_y": 6.62,
+      "actual_y": 6.620000839233398
+    },
+    {
+      "xz": [
+        5.999,
+        -4
+      ],
+      "expected_y": 6.62,
+      "actual_y": 6.620000839233398
+    },
+    {
+      "xz": [
+        6.001,
+        -4
+      ],
+      "expected_y": 6.62,
+      "actual_y": 6.619999885559082
+    },
+    {
+      "xz": [
+        23.999,
+        -4
+      ],
+      "expected_y": 6.62,
+      "actual_y": 6.619999885559082
+    },
+    {
+      "xz": [
+        24.001,
+        -4
+      ],
+      "expected_y": 6.62,
+      "actual_y": 6.620000839233398
+    },
+    {
+      "xz": [
+        4,
+        5.999
+      ],
+      "expected_y": 6.62,
+      "actual_y": 6.620000839233398
+    },
+    {
+      "xz": [
+        4,
+        6.001
+      ],
+      "expected_y": 6.62,
+      "actual_y": 6.619999885559082
+    },
+    {
+      "xz": [
+        26,
+        5.999
+      ],
+      "expected_y": 6.62,
+      "actual_y": 6.619998931884766
+    },
+    {
+      "xz": [
+        26,
+        6.001
+      ],
+      "expected_y": 6.62,
+      "actual_y": 6.620000839233398
+    },
+    {
+      "xz": [
+        9,
+        0
+      ],
+      "expected_y": 6.62,
+      "actual_y": 6.619999885559082
+    },
+    {
+      "xz": [
+        15,
+        0
+      ],
+      "expected_y": 9.82,
+      "actual_y": 9.819999694824219
+    },
+    {
+      "xz": [
+        21,
+        0
+      ],
+      "expected_y": 6.62,
+      "actual_y": 6.619999885559082
+    },
+    {
+      "xz": [
+        0,
+        15
+      ],
+      "expected_y": 6.62,
+      "actual_y": 6.619999885559082
+    },
+    {
+      "xz": [
+        30,
+        9
+      ],
+      "expected_y": 6.62,
+      "actual_y": 6.620000839233398
+    },
+    {
+      "xz": [
+        0,
+        18.12
+      ],
+      "expected_y": 6.72,
+      "actual_y": 6.720000267028809
+    },
+    {
+      "xz": [
+        30,
+        12.12
+      ],
+      "expected_y": 6.72,
+      "actual_y": 6.719999313354492
+    },
+    {
+      "xz": [
+        35.9,
+        0
+      ],
+      "expected_y": 6.72,
+      "actual_y": 6.720001220703125
+    },
+    {
+      "xz": [
+        30,
+        -5.9
+      ],
+      "expected_y": 6.72,
+      "actual_y": 6.719999313354492
+    }
+  ],
+  "unroofed_link_samples": [
+    [
+      15,
+      15
+    ],
+    [
+      15,
+      17
+    ],
+    [
+      15,
+      19
+    ],
+    [
+      10,
+      8
+    ],
+    [
+      15,
+      8
+    ],
+    [
+      20,
+      8
+    ],
+    [
+      17,
+      15
+    ],
+    [
+      17,
+      17
+    ],
+    [
+      17,
+      19
+    ],
+    [
+      10,
+      10
+    ],
+    [
+      15,
+      10
+    ],
+    [
+      20,
+      10
+    ],
+    [
+      19,
+      15
+    ],
+    [
+      19,
+      17
+    ],
+    [
+      19,
+      19
+    ],
+    [
+      10,
+      12
+    ],
+    [
+      15,
+      12
+    ],
+    [
+      20,
+      12
+    ],
+    [
+      21,
+      15
+    ],
+    [
+      21,
+      17
+    ],
+    [
+      21,
+      19
+    ],
+    [
+      10,
+      14
+    ],
+    [
+      15,
+      14
+    ],
+    [
+      20,
+      14
+    ],
+    [
+      23,
+      15
+    ],
+    [
+      23,
+      17
+    ],
+    [
+      23,
+      19
+    ],
+    [
+      10,
+      16
+    ],
+    [
+      15,
+      16
+    ],
+    [
+      20,
+      16
+    ],
+    [
+      25,
+      15
+    ],
+    [
+      25,
+      17
+    ],
+    [
+      25,
+      19
+    ],
+    [
+      10,
+      18
+    ],
+    [
+      15,
+      18
+    ],
+    [
+      20,
+      18
+    ],
+    [
+      27,
+      15
+    ],
+    [
+      27,
+      17
+    ],
+    [
+      27,
+      19
+    ],
+    [
+      10,
+      20
+    ],
+    [
+      15,
+      20
+    ],
+    [
+      20,
+      20
+    ],
+    [
+      29,
+      15
+    ],
+    [
+      29,
+      17
+    ],
+    [
+      29,
+      19
+    ],
+    [
+      10,
+      22
+    ],
+    [
+      15,
+      22
+    ],
+    [
+      20,
+      22
+    ],
+    [
+      31,
+      15
+    ],
+    [
+      31,
+      17
+    ],
+    [
+      31,
+      19
+    ],
+    [
+      10,
+      24
+    ],
+    [
+      15,
+      24
+    ],
+    [
+      20,
+      24
+    ],
+    [
+      33,
+      15
+    ],
+    [
+      33,
+      17
+    ],
+    [
+      33,
+      19
+    ],
+    [
+      10,
+      26
+    ],
+    [
+      15,
+      26
+    ],
+    [
+      20,
+      26
+    ],
+    [
+      35,
+      15
+    ],
+    [
+      35,
+      17
+    ],
+    [
+      35,
+      19
+    ],
+    [
+      10,
+      28
+    ],
+    [
+      15,
+      28
+    ],
+    [
+      20,
+      28
+    ],
+    [
+      37,
+      15
+    ],
+    [
+      37,
+      17
+    ],
+    [
+      37,
+      19
+    ],
+    [
+      10,
+      30
+    ],
+    [
+      15,
+      30
+    ],
+    [
+      20,
+      30
+    ],
+    [
+      39,
+      15
+    ],
+    [
+      39,
+      17
+    ],
+    [
+      39,
+      19
+    ],
+    [
+      10,
+      32
+    ],
+    [
+      15,
+      32
+    ],
+    [
+      20,
+      32
+    ],
+    [
+      41,
+      15
+    ],
+    [
+      41,
+      17
+    ],
+    [
+      41,
+      19
+    ],
+    [
+      10,
+      34
+    ],
+    [
+      15,
+      34
+    ],
+    [
+      20,
+      34
+    ],
+    [
+      43,
+      15
+    ],
+    [
+      43,
+      17
+    ],
+    [
+      43,
+      19
+    ],
+    [
+      10,
+      36
+    ],
+    [
+      15,
+      36
+    ],
+    [
+      20,
+      36
+    ]
+  ],
+  "godot": {
+    "aabb_max": [
+      36.1800003051758,
+      9.92000007629395,
+      18.3400001525879
+    ],
+    "aabb_min": [
+      -6.18000078201294,
+      0.0,
+      -6.18000078201294
+    ],
+    "capsule_queries": [
+      {
+        "position": [
+          8.0,
+          0.899999976158142,
+          8.0
+        ],
+        "solid": false
+      },
+      {
+        "position": [
+          15.0,
+          0.899999976158142,
+          12.0
+        ],
+        "solid": false
+      },
+      {
+        "position": [
+          30.0,
+          0.899999976158142,
+          17.0
+        ],
+        "solid": false
+      },
+      {
+        "position": [
+          15.0,
+          0.899999976158142,
+          23.0
+        ],
+        "solid": false
+      },
+      {
+        "position": [
+          6.80000019073486,
+          0.899999976158142,
+          9.0
+        ],
+        "solid": false
+      },
+      {
+        "position": [
+          0.0,
+          0.899999976158142,
+          0.0
+        ],
+        "solid": true
+      },
+      {
+        "position": [
+          6.0,
+          0.899999976158142,
+          0.0
+        ],
+        "solid": true
+      },
+      {
+        "position": [
+          0.0,
+          0.899999976158142,
+          6.0
+        ],
+        "solid": true
+      },
+      {
+        "position": [
+          9.0,
+          0.899999976158142,
+          5.90000009536743
+        ],
+        "solid": true
+      },
+      {
+        "position": [
+          0.0,
+          0.899999976158142,
+          18.2000007629395
+        ],
+        "solid": true
+      },
+      {
+        "position": [
+          30.0,
+          0.899999976158142,
+          12.1999998092651
+        ],
+        "solid": true
+      },
+      {
+        "position": [
+          30.0,
+          0.899999976158142,
+          0.0
+        ],
+        "solid": true
+      },
+      {
+        "position": [
+          24.0,
+          0.899999976158142,
+          0.0
+        ],
+        "solid": true
+      },
+      {
+        "position": [
+          30.0,
+          0.899999976158142,
+          6.0
+        ],
+        "solid": true
+      },
+      {
+        "position": [
+          23.2000007629395,
+          0.899999976158142,
+          9.0
+        ],
+        "solid": false
+      },
+      {
+        "position": [
+          36.7999992370605,
+          0.899999976158142,
+          9.0
+        ],
+        "solid": false
+      }
+    ],
+    "collision_boxes": [
+      {
+        "max": [
+          6.0,
+          3.20000004768372,
+          6.0
+        ],
+        "min": [
+          -6.0,
+          0.0,
+          -6.0
+        ],
+        "path": "WestCornerL0/Collision/Body/Core"
+      },
+      {
+        "max": [
+          6.0,
+          6.40000009536743,
+          6.0
+        ],
+        "min": [
+          -6.0,
+          3.20000028610229,
+          -6.0
+        ],
+        "path": "WestCornerL1/Collision/Body/Core"
+      },
+      {
+        "max": [
+          36.0,
+          3.20000004768372,
+          6.0
+        ],
+        "min": [
+          24.0,
+          0.0,
+          -6.0
+        ],
+        "path": "EastCornerL0/Collision/Body/Core"
+      },
+      {
+        "max": [
+          36.0,
+          6.40000009536743,
+          6.0
+        ],
+        "min": [
+          24.0,
+          3.20000028610229,
+          -6.0
+        ],
+        "path": "EastCornerL1/Collision/Body/Core"
+      },
+      {
+        "max": [
+          12.0,
+          3.20000004768372,
+          6.0
+        ],
+        "min": [
+          6.0,
+          0.0,
+          -6.0
+        ],
+        "path": "NorthAL0/Collision/Body/Core"
+      },
+      {
+        "max": [
+          12.0,
+          6.40000009536743,
+          6.0
+        ],
+        "min": [
+          6.0,
+          3.20000028610229,
+          -6.0
+        ],
+        "path": "NorthAL1/Collision/Body/Core"
+      },
+      {
+        "max": [
+          18.0,
+          3.20000004768372,
+          6.0
+        ],
+        "min": [
+          12.0,
+          0.0,
+          -6.0
+        ],
+        "path": "NorthBL0/Collision/Body/Core"
+      },
+      {
+        "max": [
+          18.0,
+          6.40000009536743,
+          6.0
+        ],
+        "min": [
+          12.0,
+          3.20000028610229,
+          -6.0
+        ],
+        "path": "NorthBL1/Collision/Body/Core"
+      },
+      {
+        "max": [
+          18.0,
+          9.60000038146973,
+          6.0
+        ],
+        "min": [
+          12.0,
+          6.40000009536743,
+          -6.0
+        ],
+        "path": "NorthBL2/Collision/Body/Core"
+      },
+      {
+        "max": [
+          24.0,
+          3.20000004768372,
+          6.0
+        ],
+        "min": [
+          18.0,
+          0.0,
+          -6.0
+        ],
+        "path": "NorthCL0/Collision/Body/Core"
+      },
+      {
+        "max": [
+          24.0,
+          6.40000009536743,
+          6.0
+        ],
+        "min": [
+          18.0,
+          3.20000028610229,
+          -6.0
+        ],
+        "path": "NorthCL1/Collision/Body/Core"
+      },
+      {
+        "max": [
+          6.0,
+          3.20000004768372,
+          12.0
+        ],
+        "min": [
+          -6.0,
+          0.0,
+          6.0
+        ],
+        "path": "WestAL0/Collision/Body/Core"
+      },
+      {
+        "max": [
+          6.0,
+          6.40000009536743,
+          12.0
+        ],
+        "min": [
+          -6.0,
+          3.20000028610229,
+          6.0
+        ],
+        "path": "WestAL1/Collision/Body/Core"
+      },
+      {
+        "max": [
+          6.0,
+          3.20000004768372,
+          18.0
+        ],
+        "min": [
+          -6.0,
+          0.0,
+          12.0
+        ],
+        "path": "WestBL0/Collision/Body/Core"
+      },
+      {
+        "max": [
+          6.0,
+          6.40000009536743,
+          18.0
+        ],
+        "min": [
+          -6.0,
+          3.20000028610229,
+          12.0
+        ],
+        "path": "WestBL1/Collision/Body/Core"
+      },
+      {
+        "max": [
+          36.0,
+          3.20000004768372,
+          12.0
+        ],
+        "min": [
+          24.0,
+          0.0,
+          6.0
+        ],
+        "path": "EastAL0/Collision/Body/Core"
+      },
+      {
+        "max": [
+          36.0,
+          6.40000009536743,
+          12.0
+        ],
+        "min": [
+          24.0,
+          3.20000028610229,
+          6.0
+        ],
+        "path": "EastAL1/Collision/Body/Core"
+      },
+      {
+        "max": [
+          6.0,
+          3.20000004768372,
+          18.2400016784668
+        ],
+        "min": [
+          -6.0,
+          0.0,
+          18.0
+        ],
+        "path": "WestEndL0/Collision/Body/Core"
+      },
+      {
+        "max": [
+          6.0,
+          6.40000009536743,
+          18.2400016784668
+        ],
+        "min": [
+          -6.0,
+          3.20000028610229,
+          18.0
+        ],
+        "path": "WestEndL1/Collision/Body/Core"
+      },
+      {
+        "max": [
+          36.0,
+          3.20000004768372,
+          12.2399997711182
+        ],
+        "min": [
+          24.0,
+          0.0,
+          12.0
+        ],
+        "path": "EastEndL0/Collision/Body/Core"
+      },
+      {
+        "max": [
+          36.0,
+          6.40000009536743,
+          12.2399997711182
+        ],
+        "min": [
+          24.0,
+          3.20000028610229,
+          12.0
+        ],
+        "path": "EastEndL1/Collision/Body/Core"
+      },
+      {
+        "max": [
+          12.0,
+          9.60000038146973,
+          6.0
+        ],
+        "min": [
+          11.7600002288818,
+          6.40000009536743,
+          -6.0
+        ],
+        "path": "RiseWest/UpperWall/Collision/Body/Core"
+      },
+      {
+        "max": [
+          18.2400016784668,
+          9.60000038146973,
+          6.0
+        ],
+        "min": [
+          18.0,
+          6.40000009536743,
+          -6.0
+        ],
+        "path": "FallEast/UpperWall/Collision/Body/Core"
+      }
+    ],
+    "court_car_sweep": [
+      1.0,
+      1.0
+    ],
+    "engine": "4.8-dev7 (official)",
+    "failures": [],
+    "mesh_count": 40,
+    "models": [
+      {
+        "path": "res://art/models/environment/d03_apartment_family_06/d03_apartment_family_06_outside.glb",
+        "position": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "yaw_degrees": 0.0
+      },
+      {
+        "path": "res://art/models/environment/d03_apartment_family_06/d03_apartment_family_06_outside.glb",
+        "position": [
+          0.0,
+          3.20000004768372,
+          0.0
+        ],
+        "yaw_degrees": 0.0
+      },
+      {
+        "path": "res://art/models/environment/d03_apartment_family_10/d03_apartment_family_10_outside.glb",
+        "position": [
+          0.0,
+          3.20000004768372,
+          0.0
+        ],
+        "yaw_degrees": 0.0
+      },
+      {
+        "path": "res://art/models/environment/d03_apartment_family_06/d03_apartment_family_06_outside.glb",
+        "position": [
+          30.0,
+          0.0,
+          0.0
+        ],
+        "yaw_degrees": -90.0000025044782
+      },
+      {
+        "path": "res://art/models/environment/d03_apartment_family_06/d03_apartment_family_06_outside.glb",
+        "position": [
+          30.0,
+          3.20000004768372,
+          0.0
+        ],
+        "yaw_degrees": -90.0000025044782
+      },
+      {
+        "path": "res://art/models/environment/d03_apartment_family_10/d03_apartment_family_10_outside.glb",
+        "position": [
+          30.0,
+          3.20000004768372,
+          0.0
+        ],
+        "yaw_degrees": -90.0000025044782
+      },
+      {
+        "path": "res://art/models/environment/d03_apartment_family_08/d03_apartment_family_08.glb",
+        "position": [
+          9.0,
+          0.0,
+          0.0
+        ],
+        "yaw_degrees": 180.000005008956
+      },
+      {
+        "path": "res://art/models/environment/d03_apartment_family_05/d03_apartment_family_05.glb",
+        "position": [
+          9.0,
+          3.20000004768372,
+          0.0
+        ],
+        "yaw_degrees": 0.0
+      },
+      {
+        "path": "res://art/models/environment/d03_apartment_family_10/d03_apartment_family_10_straight.glb",
+        "position": [
+          9.0,
+          3.20000004768372,
+          0.0
+        ],
+        "yaw_degrees": 0.0
+      },
+      {
+        "path": "res://art/models/environment/d03_apartment_family_05/d03_apartment_family_05.glb",
+        "position": [
+          15.0,
+          0.0,
+          0.0
+        ],
+        "yaw_degrees": 0.0
+      },
+      {
+        "path": "res://art/models/environment/d03_apartment_family_05/d03_apartment_family_05.glb",
+        "position": [
+          15.0,
+          3.20000004768372,
+          0.0
+        ],
+        "yaw_degrees": 0.0
+      },
+      {
+        "path": "res://art/models/environment/d03_apartment_family_05/d03_apartment_family_05.glb",
+        "position": [
+          15.0,
+          6.40000009536743,
+          0.0
+        ],
+        "yaw_degrees": 0.0
+      },
+      {
+        "path": "res://art/models/environment/d03_apartment_family_10/d03_apartment_family_10_straight.glb",
+        "position": [
+          15.0,
+          6.40000009536743,
+          0.0
+        ],
+        "yaw_degrees": 0.0
+      },
+      {
+        "path": "res://art/models/environment/d03_apartment_family_05/d03_apartment_family_05.glb",
+        "position": [
+          21.0,
+          0.0,
+          0.0
+        ],
+        "yaw_degrees": 0.0
+      },
+      {
+        "path": "res://art/models/environment/d03_apartment_family_05/d03_apartment_family_05.glb",
+        "position": [
+          21.0,
+          3.20000004768372,
+          0.0
+        ],
+        "yaw_degrees": 0.0
+      },
+      {
+        "path": "res://art/models/environment/d03_apartment_family_10/d03_apartment_family_10_straight.glb",
+        "position": [
+          21.0,
+          3.20000004768372,
+          0.0
+        ],
+        "yaw_degrees": 0.0
+      },
+      {
+        "path": "res://art/models/environment/d03_apartment_family_05/d03_apartment_family_05.glb",
+        "position": [
+          0.0,
+          0.0,
+          9.0
+        ],
+        "yaw_degrees": 90.0000025044782
+      },
+      {
+        "path": "res://art/models/environment/d03_apartment_family_05/d03_apartment_family_05.glb",
+        "position": [
+          0.0,
+          3.20000004768372,
+          9.0
+        ],
+        "yaw_degrees": 90.0000025044782
+      },
+      {
+        "path": "res://art/models/environment/d03_apartment_family_10/d03_apartment_family_10_straight.glb",
+        "position": [
+          0.0,
+          3.20000004768372,
+          9.0
+        ],
+        "yaw_degrees": 90.0000025044782
+      },
+      {
+        "path": "res://art/models/environment/d03_apartment_family_08/d03_apartment_family_08.glb",
+        "position": [
+          0.0,
+          0.0,
+          15.0
+        ],
+        "yaw_degrees": -90.0000025044782
+      },
+      {
+        "path": "res://art/models/environment/d03_apartment_family_05/d03_apartment_family_05.glb",
+        "position": [
+          0.0,
+          3.20000004768372,
+          15.0
+        ],
+        "yaw_degrees": 90.0000025044782
+      },
+      {
+        "path": "res://art/models/environment/d03_apartment_family_10/d03_apartment_family_10_straight.glb",
+        "position": [
+          0.0,
+          3.20000004768372,
+          15.0
+        ],
+        "yaw_degrees": 90.0000025044782
+      },
+      {
+        "path": "res://art/models/environment/d03_apartment_family_08/d03_apartment_family_08.glb",
+        "position": [
+          30.0,
+          0.0,
+          9.0
+        ],
+        "yaw_degrees": 90.0000025044782
+      },
+      {
+        "path": "res://art/models/environment/d03_apartment_family_05/d03_apartment_family_05.glb",
+        "position": [
+          30.0,
+          3.20000004768372,
+          9.0
+        ],
+        "yaw_degrees": 90.0000025044782
+      },
+      {
+        "path": "res://art/models/environment/d03_apartment_family_10/d03_apartment_family_10_straight.glb",
+        "position": [
+          30.0,
+          3.20000004768372,
+          9.0
+        ],
+        "yaw_degrees": 90.0000025044782
+      },
+      {
+        "path": "res://art/models/environment/d03_apartment_family_07/d03_apartment_family_07.glb",
+        "position": [
+          0.0,
+          0.0,
+          18.1200008392334
+        ],
+        "yaw_degrees": -90.0000025044782
+      },
+      {
+        "path": "res://art/models/environment/d03_apartment_family_07/d03_apartment_family_07.glb",
+        "position": [
+          0.0,
+          3.20000004768372,
+          18.1200008392334
+        ],
+        "yaw_degrees": -90.0000025044782
+      },
+      {
+        "path": "res://art/models/environment/d03_apartment_family_10/d03_apartment_family_10_end.glb",
+        "position": [
+          0.0,
+          3.20000004768372,
+          18.1200008392334
+        ],
+        "yaw_degrees": -90.0000025044782
+      },
+      {
+        "path": "res://art/models/environment/d03_apartment_family_07/d03_apartment_family_07.glb",
+        "position": [
+          30.0,
+          0.0,
+          12.1199998855591
+        ],
+        "yaw_degrees": -90.0000025044782
+      },
+      {
+        "path": "res://art/models/environment/d03_apartment_family_07/d03_apartment_family_07.glb",
+        "position": [
+          30.0,
+          3.20000004768372,
+          12.1199998855591
+        ],
+        "yaw_degrees": -90.0000025044782
+      },
+      {
+        "path": "res://art/models/environment/d03_apartment_family_10/d03_apartment_family_10_end.glb",
+        "position": [
+          30.0,
+          3.20000004768372,
+          12.1199998855591
+        ],
+        "yaw_degrees": -90.0000025044782
+      },
+      {
+        "path": "res://art/models/environment/d03_apartment_family_11/d03_apartment_family_11.glb",
+        "position": [
+          11.8800001144409,
+          3.20000004768372,
+          0.0
+        ],
+        "yaw_degrees": 180.000005008956
+      },
+      {
+        "path": "res://art/models/environment/d03_apartment_family_07/d03_apartment_family_07.glb",
+        "position": [
+          11.8800001144409,
+          6.40000009536743,
+          0.0
+        ],
+        "yaw_degrees": 180.000005008956
+      },
+      {
+        "path": "res://art/models/environment/d03_apartment_family_10/d03_apartment_family_10_end.glb",
+        "position": [
+          11.8800001144409,
+          6.40000009536743,
+          0.0
+        ],
+        "yaw_degrees": 180.000005008956
+      },
+      {
+        "path": "res://art/models/environment/d03_apartment_family_11/d03_apartment_family_11.glb",
+        "position": [
+          18.1200008392334,
+          3.20000004768372,
+          0.0
+        ],
+        "yaw_degrees": 0.0
+      },
+      {
+        "path": "res://art/models/environment/d03_apartment_family_07/d03_apartment_family_07.glb",
+        "position": [
+          18.1200008392334,
+          6.40000009536743,
+          0.0
+        ],
+        "yaw_degrees": 0.0
+      },
+      {
+        "path": "res://art/models/environment/d03_apartment_family_10/d03_apartment_family_10_end.glb",
+        "position": [
+          18.1200008392334,
+          6.40000009536743,
+          0.0
+        ],
+        "yaw_degrees": 0.0
+      },
+      {
+        "path": "res://art/models/environment/d03_apartment_family_09/d03_apartment_family_09.glb",
+        "position": [
+          15.0,
+          0.0,
+          6.0
+        ],
+        "yaw_degrees": 180.000005008956
+      },
+      {
+        "path": "res://art/models/environment/d03_apartment_family_09/d03_apartment_family_09.glb",
+        "position": [
+          15.0,
+          3.20000004768372,
+          6.0
+        ],
+        "yaw_degrees": 180.000005008956
+      },
+      {
+        "path": "res://art/models/environment/d03_apartment_family_09/d03_apartment_family_09.glb",
+        "position": [
+          6.0,
+          0.0,
+          9.0
+        ],
+        "yaw_degrees": -90.0000025044782
+      }
+    ],
+    "ok": true,
+    "open_link_vertical_rays": 56,
+    "placements": [
+      {
+        "name": "WestCornerL0",
+        "position": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "prefab": "res://scenes/prefabs/environment/d03_apartment_family_06_outside.tscn",
+        "yaw_degrees": 0.0
+      },
+      {
+        "name": "WestCornerL1",
+        "position": [
+          0.0,
+          3.20000004768372,
+          0.0
+        ],
+        "prefab": "res://scenes/prefabs/environment/d03_apartment_family_06_outside.tscn",
+        "yaw_degrees": 0.0
+      },
+      {
+        "name": "WestCornerRoof",
+        "position": [
+          0.0,
+          3.20000004768372,
+          0.0
+        ],
+        "prefab": "res://scenes/prefabs/environment/d03_apartment_family_10_outside.tscn",
+        "yaw_degrees": 0.0
+      },
+      {
+        "name": "EastCornerL0",
+        "position": [
+          30.0,
+          0.0,
+          0.0
+        ],
+        "prefab": "res://scenes/prefabs/environment/d03_apartment_family_06_outside.tscn",
+        "yaw_degrees": -90.0000025044782
+      },
+      {
+        "name": "EastCornerL1",
+        "position": [
+          30.0,
+          3.20000004768372,
+          0.0
+        ],
+        "prefab": "res://scenes/prefabs/environment/d03_apartment_family_06_outside.tscn",
+        "yaw_degrees": -90.0000025044782
+      },
+      {
+        "name": "EastCornerRoof",
+        "position": [
+          30.0,
+          3.20000004768372,
+          0.0
+        ],
+        "prefab": "res://scenes/prefabs/environment/d03_apartment_family_10_outside.tscn",
+        "yaw_degrees": -90.0000025044782
+      },
+      {
+        "name": "NorthAL0",
+        "position": [
+          9.0,
+          0.0,
+          0.0
+        ],
+        "prefab": "res://scenes/prefabs/environment/d03_apartment_family_08.tscn",
+        "yaw_degrees": 180.000005008956
+      },
+      {
+        "name": "NorthAL1",
+        "position": [
+          9.0,
+          3.20000004768372,
+          0.0
+        ],
+        "prefab": "res://scenes/prefabs/environment/d03_apartment_family_05.tscn",
+        "yaw_degrees": 0.0
+      },
+      {
+        "name": "NorthARoof",
+        "position": [
+          9.0,
+          3.20000004768372,
+          0.0
+        ],
+        "prefab": "res://scenes/prefabs/environment/d03_apartment_family_10_straight.tscn",
+        "yaw_degrees": 0.0
+      },
+      {
+        "name": "NorthBL0",
+        "position": [
+          15.0,
+          0.0,
+          0.0
+        ],
+        "prefab": "res://scenes/prefabs/environment/d03_apartment_family_05.tscn",
+        "yaw_degrees": 0.0
+      },
+      {
+        "name": "NorthBL1",
+        "position": [
+          15.0,
+          3.20000004768372,
+          0.0
+        ],
+        "prefab": "res://scenes/prefabs/environment/d03_apartment_family_05.tscn",
+        "yaw_degrees": 0.0
+      },
+      {
+        "name": "NorthBL2",
+        "position": [
+          15.0,
+          6.40000009536743,
+          0.0
+        ],
+        "prefab": "res://scenes/prefabs/environment/d03_apartment_family_05.tscn",
+        "yaw_degrees": 0.0
+      },
+      {
+        "name": "NorthBRoof",
+        "position": [
+          15.0,
+          6.40000009536743,
+          0.0
+        ],
+        "prefab": "res://scenes/prefabs/environment/d03_apartment_family_10_straight.tscn",
+        "yaw_degrees": 0.0
+      },
+      {
+        "name": "NorthCL0",
+        "position": [
+          21.0,
+          0.0,
+          0.0
+        ],
+        "prefab": "res://scenes/prefabs/environment/d03_apartment_family_05.tscn",
+        "yaw_degrees": 0.0
+      },
+      {
+        "name": "NorthCL1",
+        "position": [
+          21.0,
+          3.20000004768372,
+          0.0
+        ],
+        "prefab": "res://scenes/prefabs/environment/d03_apartment_family_05.tscn",
+        "yaw_degrees": 0.0
+      },
+      {
+        "name": "NorthCRoof",
+        "position": [
+          21.0,
+          3.20000004768372,
+          0.0
+        ],
+        "prefab": "res://scenes/prefabs/environment/d03_apartment_family_10_straight.tscn",
+        "yaw_degrees": 0.0
+      },
+      {
+        "name": "WestAL0",
+        "position": [
+          0.0,
+          0.0,
+          9.0
+        ],
+        "prefab": "res://scenes/prefabs/environment/d03_apartment_family_05.tscn",
+        "yaw_degrees": 90.0000025044782
+      },
+      {
+        "name": "WestAL1",
+        "position": [
+          0.0,
+          3.20000004768372,
+          9.0
+        ],
+        "prefab": "res://scenes/prefabs/environment/d03_apartment_family_05.tscn",
+        "yaw_degrees": 90.0000025044782
+      },
+      {
+        "name": "WestARoof",
+        "position": [
+          0.0,
+          3.20000004768372,
+          9.0
+        ],
+        "prefab": "res://scenes/prefabs/environment/d03_apartment_family_10_straight.tscn",
+        "yaw_degrees": 90.0000025044782
+      },
+      {
+        "name": "WestBL0",
+        "position": [
+          0.0,
+          0.0,
+          15.0
+        ],
+        "prefab": "res://scenes/prefabs/environment/d03_apartment_family_08.tscn",
+        "yaw_degrees": -90.0000025044782
+      },
+      {
+        "name": "WestBL1",
+        "position": [
+          0.0,
+          3.20000004768372,
+          15.0
+        ],
+        "prefab": "res://scenes/prefabs/environment/d03_apartment_family_05.tscn",
+        "yaw_degrees": 90.0000025044782
+      },
+      {
+        "name": "WestBRoof",
+        "position": [
+          0.0,
+          3.20000004768372,
+          15.0
+        ],
+        "prefab": "res://scenes/prefabs/environment/d03_apartment_family_10_straight.tscn",
+        "yaw_degrees": 90.0000025044782
+      },
+      {
+        "name": "EastAL0",
+        "position": [
+          30.0,
+          0.0,
+          9.0
+        ],
+        "prefab": "res://scenes/prefabs/environment/d03_apartment_family_08.tscn",
+        "yaw_degrees": 90.0000025044782
+      },
+      {
+        "name": "EastAL1",
+        "position": [
+          30.0,
+          3.20000004768372,
+          9.0
+        ],
+        "prefab": "res://scenes/prefabs/environment/d03_apartment_family_05.tscn",
+        "yaw_degrees": 90.0000025044782
+      },
+      {
+        "name": "EastARoof",
+        "position": [
+          30.0,
+          3.20000004768372,
+          9.0
+        ],
+        "prefab": "res://scenes/prefabs/environment/d03_apartment_family_10_straight.tscn",
+        "yaw_degrees": 90.0000025044782
+      },
+      {
+        "name": "WestEndL0",
+        "position": [
+          0.0,
+          0.0,
+          18.1200008392334
+        ],
+        "prefab": "res://scenes/prefabs/environment/d03_apartment_family_07.tscn",
+        "yaw_degrees": -90.0000025044782
+      },
+      {
+        "name": "WestEndL1",
+        "position": [
+          0.0,
+          3.20000004768372,
+          18.1200008392334
+        ],
+        "prefab": "res://scenes/prefabs/environment/d03_apartment_family_07.tscn",
+        "yaw_degrees": -90.0000025044782
+      },
+      {
+        "name": "WestEndRoof",
+        "position": [
+          0.0,
+          3.20000004768372,
+          18.1200008392334
+        ],
+        "prefab": "res://scenes/prefabs/environment/d03_apartment_family_10_end.tscn",
+        "yaw_degrees": -90.0000025044782
+      },
+      {
+        "name": "EastEndL0",
+        "position": [
+          30.0,
+          0.0,
+          12.1199998855591
+        ],
+        "prefab": "res://scenes/prefabs/environment/d03_apartment_family_07.tscn",
+        "yaw_degrees": -90.0000025044782
+      },
+      {
+        "name": "EastEndL1",
+        "position": [
+          30.0,
+          3.20000004768372,
+          12.1199998855591
+        ],
+        "prefab": "res://scenes/prefabs/environment/d03_apartment_family_07.tscn",
+        "yaw_degrees": -90.0000025044782
+      },
+      {
+        "name": "EastEndRoof",
+        "position": [
+          30.0,
+          3.20000004768372,
+          12.1199998855591
+        ],
+        "prefab": "res://scenes/prefabs/environment/d03_apartment_family_10_end.tscn",
+        "yaw_degrees": -90.0000025044782
+      },
+      {
+        "name": "RiseWest",
+        "position": [
+          11.8800001144409,
+          3.20000004768372,
+          0.0
+        ],
+        "prefab": "res://scenes/prefabs/environment/d03_apartment_family_11.tscn",
+        "yaw_degrees": 180.000005008956
+      },
+      {
+        "name": "FallEast",
+        "position": [
+          18.1200008392334,
+          3.20000004768372,
+          0.0
+        ],
+        "prefab": "res://scenes/prefabs/environment/d03_apartment_family_11.tscn",
+        "yaw_degrees": 0.0
+      },
+      {
+        "name": "NorthCourtBalconyLower",
+        "position": [
+          15.0,
+          0.0,
+          6.0
+        ],
+        "prefab": "res://scenes/prefabs/environment/d03_apartment_family_09.tscn",
+        "yaw_degrees": 180.000005008956
+      },
+      {
+        "name": "NorthCourtBalconyUpper",
+        "position": [
+          15.0,
+          3.20000004768372,
+          6.0
+        ],
+        "prefab": "res://scenes/prefabs/environment/d03_apartment_family_09.tscn",
+        "yaw_degrees": 180.000005008956
+      },
+      {
+        "name": "WestCourtBalcony",
+        "position": [
+          6.0,
+          0.0,
+          9.0
+        ],
+        "prefab": "res://scenes/prefabs/environment/d03_apartment_family_09.tscn",
+        "yaw_degrees": -90.0000025044782
+      }
+    ],
+    "prefab_uid": "uid://b2n6vu3s8vvq",
+    "production_actor_motion": [
+      {
+        "case": "court_east_link",
+        "end": [
+          26.0000381469727,
+          0.000877875369042158,
+          17.0
+        ],
+        "mode": 0
+      },
+      {
+        "case": "court_south_link",
+        "end": [
+          15.0,
+          0.000877899175975472,
+          22.0000381469727
+        ],
+        "mode": 0
+      },
+      {
+        "case": "north_connector_seam",
+        "end": [
+          9.00000381469727,
+          0.00087789905956015,
+          -6.80000019073486
+        ],
+        "mode": 0
+      },
+      {
+        "case": "closed_court_entry",
+        "end": [
+          9.0,
+          7.59662361815572e-06,
+          6.35026121139526
+        ],
+        "mode": 0
+      },
+      {
+        "case": "court_east_link",
+        "end": [
+          26.0000381469727,
+          0.000877875369042158,
+          17.0
+        ],
+        "mode": 1
+      },
+      {
+        "case": "court_south_link",
+        "end": [
+          15.0,
+          0.000877899175975472,
+          22.0000381469727
+        ],
+        "mode": 1
+      },
+      {
+        "case": "north_connector_seam",
+        "end": [
+          9.00000381469727,
+          0.00087789905956015,
+          -6.80000019073486
+        ],
+        "mode": 1
+      },
+      {
+        "case": "closed_court_entry",
+        "end": [
+          9.0,
+          7.59662361815572e-06,
+          6.35026121139526
+        ],
+        "mode": 1
+      }
+    ],
+    "roundtrip": {
+      "byte_stable": true,
+      "engine": "4.8-dev7 (official)",
+      "failures": [],
+      "normalized_sha256": "c44973dc68c5a33cd2ad8f9345f5b0f69d91c5ec45efcb9cb36064f7b1cce473",
+      "ok": true,
+      "stable_reload_count": 2.0
+    },
+    "seam_ray_hits": [
+      [
+        6.0,
+        1.5,
+        -6.0
+      ],
+      [
+        24.0,
+        1.5,
+        -6.0
+      ],
+      [
+        6.0,
+        1.5,
+        6.0
+      ],
+      [
+        24.0,
+        1.5,
+        5.99900007247925
+      ],
+      [
+        24.0,
+        1.5,
+        6.00099992752075
+      ],
+      [
+        5.99999952316284,
+        1.5,
+        17.9990005493164
+      ],
+      [
+        5.99999952316284,
+        1.5,
+        18.0009994506836
+      ],
+      [
+        24.0,
+        1.5,
+        11.9989995956421
+      ],
+      [
+        24.0,
+        1.5,
+        12.0010004043579
+      ],
+      [
+        15.0,
+        3.20000004768372,
+        -6.0
+      ],
+      [
+        11.7600002288818,
+        8.0,
+        0.0
+      ],
+      [
+        18.2400016784668,
+        8.0,
+        0.0
+      ]
+    ],
+    "surface_count": 144
+  },
+  "renders": {
+    "blender": "5.2.2 LTS",
+    "resolution": [
+      1280,
+      720
+    ],
+    "detail_resolution": [
+      1024,
+      576
+    ],
+    "samples": 32,
+    "png_compression": 100,
+    "color_mode": "RGB",
+    "views": [
+      {
+        "name": "hero",
+        "blender_position": [
+          52,
+          -48,
+          39
+        ],
+        "target": [
+          15,
+          -4,
+          3.8
+        ],
+        "orthographic_scale": 64
+      },
+      {
+        "name": "side",
+        "blender_position": [
+          -34,
+          38,
+          31
+        ],
+        "target": [
+          15,
+          -4,
+          3.8
+        ],
+        "orthographic_scale": 65
+      },
+      {
+        "name": "assembly_detail",
+        "blender_position": [
+          30,
+          -27,
+          18
+        ],
+        "target": [
+          20,
+          -7,
+          4
+        ],
+        "orthographic_scale": 35
+      },
+      {
+        "name": "overhead_47m_42deg",
+        "blender_position": [
+          15.0,
+          -6.079999923706055,
+          47.0
+        ],
+        "vertical_fov_degrees": 42,
+        "north_up": true
+      }
+    ],
+    "source": "Actual saved-scene model transforms from prefab-check.json; linked Blender collections"
+  },
+  "ok": true
+}
