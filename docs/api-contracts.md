@@ -437,10 +437,12 @@ session, match revision, and controlled EntityRef fence rather than duplicating 
 inside the movement packet. Receivers reject any packet size other than 16 before field
 decoding, reject unknown flag bits, then apply sender-derived admission, command-envelope
 lifecycle/input-epoch, per-participant rate, and sequence checks. Bounded client replay
-exhaustion requests one reliable, idempotent,
-participant-local input-epoch advance; host queue, client collector sequence, and prediction
-history reset together, so
-sequence one resumes without accepting delayed input from the prior epoch. The larger 1,200-byte
+exhaustion sends one fixed-size reliable recovery probe. The host advances a
+participant-local input epoch only when that probe or a previously received command exceeds
+its current 120-sequence window, and at most once per 1,000 ms. Host queue, client collector
+sequence, and prediction history reset together, so sequence one resumes without accepting
+prior-epoch input. The eight-bit epoch saturates at 255 and never wraps within one admitted
+lifecycle. The larger 1,200-byte
 held-input ceiling remains available only for a future explicitly measured bounded batch;
 it does not permit Variant dictionaries or another unbounded remotely callable shape.
 
