@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://btl6dipk8pe68"]
+
+[ext_resource type="PackedScene" uid="uid://byqodl735ss1a" path="res://scenes/prefabs/environment/city_sign_supports_01.tscn" id="1_panel"]
+[ext_resource type="Material" uid="uid://bndcp20ctmf21" path="res://art/materials/environment/d07_retail_graphics_03/parking_zone.tres" id="2_artwork"]
+
+[node name="d07_retail_graphics_03" unique_id=1192226138 instance=ExtResource("1_panel")]
+
+[node name="artwork_carrier" parent="Visuals/Model/CitySignSupports01" parent_id_path=PackedInt32Array(728591687, 815834963) index="0" unique_id=293855946]
+surface_material_override/0 = ExtResource("2_artwork")
+
+[editable path="Visuals/Model"]
