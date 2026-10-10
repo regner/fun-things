@@ -1,0 +1,601 @@
+{
+  "asset_id": "d02_neighbourhood_graphics.02",
+  "new_geometry": false,
+  "source": {
+    "blender": "5.2.2 LTS",
+    "build_hash": "d13f752e3b9c",
+    "gltf_exporter": [
+      5,
+      2,
+      40
+    ],
+    "members": [
+      "CitySignSupports01",
+      "rounded_frame",
+      "rear_shell",
+      "face_gasket",
+      "artwork_carrier",
+      "mount_rail_lower",
+      "mount_rail_upper",
+      "wall_pad_lower_left",
+      "wall_pad_lower_right",
+      "wall_pad_upper_left",
+      "wall_pad_upper_right",
+      "release_tab_left",
+      "release_tab_right"
+    ],
+    "export_settings": {
+      "export_format": "GLB",
+      "use_selection": true,
+      "export_yup": true,
+      "export_apply": false,
+      "export_texcoords": true,
+      "export_normals": true,
+      "export_tangents": false,
+      "export_materials": "EXPORT",
+      "export_cameras": false,
+      "export_lights": false,
+      "export_extras": false,
+      "export_animations": false,
+      "export_skins": false,
+      "export_morph": false
+    },
+    "objects": [
+      {
+        "name": "rounded_frame",
+        "vertices": 252,
+        "triangles": 504,
+        "volume_m3": 0.023093607986843893,
+        "material_slots": [
+          "support_petrol"
+        ],
+        "nonmanifold_edges": 0,
+        "inconsistent_winding_edges": 0,
+        "degenerate_triangles": 0,
+        "applied_transforms": true
+      },
+      {
+        "name": "rear_shell",
+        "vertices": 108,
+        "triangles": 212,
+        "volume_m3": 0.050051261183935075,
+        "material_slots": [
+          "support_petrol"
+        ],
+        "nonmanifold_edges": 0,
+        "inconsistent_winding_edges": 0,
+        "degenerate_triangles": 0,
+        "applied_transforms": true
+      },
+      {
+        "name": "face_gasket",
+        "vertices": 144,
+        "triangles": 288,
+        "volume_m3": 0.0008759191961627455,
+        "material_slots": [
+          "recess_gasket"
+        ],
+        "nonmanifold_edges": 0,
+        "inconsistent_winding_edges": 0,
+        "degenerate_triangles": 0,
+        "applied_transforms": true
+      },
+      {
+        "name": "artwork_carrier",
+        "vertices": 108,
+        "triangles": 212,
+        "volume_m3": 0.009959915123312412,
+        "material_slots": [
+          "sign_face",
+          "mount_metal"
+        ],
+        "nonmanifold_edges": 0,
+        "inconsistent_winding_edges": 0,
+        "degenerate_triangles": 0,
+        "applied_transforms": true
+      },
+      {
+        "name": "mount_rail_lower",
+        "vertices": 96,
+        "triangles": 188,
+        "volume_m3": 0.002360706282386076,
+        "material_slots": [
+          "mount_metal"
+        ],
+        "nonmanifold_edges": 0,
+        "inconsistent_winding_edges": 0,
+        "degenerate_triangles": 0,
+        "applied_transforms": true
+      },
+      {
+        "name": "wall_pad_lower_left",
+        "vertices": 96,
+        "triangles": 188,
+        "volume_m3": 0.00012713776813619434,
+        "material_slots": [
+          "recess_gasket"
+        ],
+        "nonmanifold_edges": 0,
+        "inconsistent_winding_edges": 0,
+        "degenerate_triangles": 0,
+        "applied_transforms": true
+      },
+      {
+        "name": "wall_pad_lower_right",
+        "vertices": 96,
+        "triangles": 188,
+        "volume_m3": 0.00012713776813619434,
+        "material_slots": [
+          "recess_gasket"
+        ],
+        "nonmanifold_edges": 0,
+        "inconsistent_winding_edges": 0,
+        "degenerate_triangles": 0,
+        "applied_transforms": true
+      },
+      {
+        "name": "mount_rail_upper",
+        "vertices": 96,
+        "triangles": 188,
+        "volume_m3": 0.002360706282386076,
+        "material_slots": [
+          "mount_metal"
+        ],
+        "nonmanifold_edges": 0,
+        "inconsistent_winding_edges": 0,
+        "degenerate_triangles": 0,
+        "applied_transforms": true
+      },
+      {
+        "name": "wall_pad_upper_left",
+        "vertices": 96,
+        "triangles": 188,
+        "volume_m3": 0.00012713776813619429,
+        "material_slots": [
+          "recess_gasket"
+        ],
+        "nonmanifold_edges": 0,
+        "inconsistent_winding_edges": 0,
+        "degenerate_triangles": 0,
+        "applied_transforms": true
+      },
+      {
+        "name": "wall_pad_upper_right",
+        "vertices": 96,
+        "triangles": 188,
+        "volume_m3": 0.0001271377681361944,
+        "material_slots": [
+          "recess_gasket"
+        ],
+        "nonmanifold_edges": 0,
+        "inconsistent_winding_edges": 0,
+        "degenerate_triangles": 0,
+        "applied_transforms": true
+      },
+      {
+        "name": "release_tab_left",
+        "vertices": 96,
+        "triangles": 188,
+        "volume_m3": 1.1277961845209017e-05,
+        "material_slots": [
+          "mount_metal"
+        ],
+        "nonmanifold_edges": 0,
+        "inconsistent_winding_edges": 0,
+        "degenerate_triangles": 0,
+        "applied_transforms": true
+      },
+      {
+        "name": "release_tab_right",
+        "vertices": 96,
+        "triangles": 188,
+        "volume_m3": 1.1277961845208983e-05,
+        "material_slots": [
+          "mount_metal"
+        ],
+        "nonmanifold_edges": 0,
+        "inconsistent_winding_edges": 0,
+        "degenerate_triangles": 0,
+        "applied_transforms": true
+      }
+    ],
+    "bounds_blender": [
+      [
+        -0.699999988079071,
+        0.0,
+        -0.5
+      ],
+      [
+        0.699999988079071,
+        0.10000000149011612,
+        0.5
+      ]
+    ],
+    "triangles": 2720,
+    "artwork_front_y": 0.088,
+    "artwork_uv_orientation": "U increases toward Blender -X; V toward +Z; glTF V storage flips",
+    "artwork_material": "sign_face",
+    "output_bytes": 75768,
+    "output_sha256": "5f54105825e00bb73c038bed252910abec548ad1beb81603b2713c2c69796e0b"
+  },
+  "glb": {
+    "status": "PASS",
+    "file": "art\\models\\environment\\city_sign_supports_01\\city_sign_supports_01.glb",
+    "bytes": 75768,
+    "sha256": "5f54105825e00bb73c038bed252910abec548ad1beb81603b2713c2c69796e0b",
+    "decoded_bounds_godot": [
+      [
+        -0.699999988079071,
+        -0.5,
+        -0.10000000149011612
+      ],
+      [
+        0.699999988079071,
+        0.5,
+        -0.0
+      ]
+    ],
+    "total_triangles": 2720,
+    "objects": [
+      {
+        "name": "artwork_carrier",
+        "triangles": 212,
+        "welded_edges": 318,
+        "nonmanifold_edges": 0,
+        "degenerate_triangles": 0,
+        "outward_winding": true,
+        "signed_volume_m3": 0.009959915123312372
+      },
+      {
+        "name": "face_gasket",
+        "triangles": 288,
+        "welded_edges": 432,
+        "nonmanifold_edges": 0,
+        "degenerate_triangles": 0,
+        "outward_winding": true,
+        "signed_volume_m3": 0.0008759191961627403
+      },
+      {
+        "name": "mount_rail_lower",
+        "triangles": 188,
+        "welded_edges": 282,
+        "nonmanifold_edges": 0,
+        "degenerate_triangles": 0,
+        "outward_winding": true,
+        "signed_volume_m3": 0.0023607037234333753
+      },
+      {
+        "name": "mount_rail_upper",
+        "triangles": 188,
+        "welded_edges": 282,
+        "nonmanifold_edges": 0,
+        "degenerate_triangles": 0,
+        "outward_winding": true,
+        "signed_volume_m3": 0.0023607037234333757
+      },
+      {
+        "name": "rear_shell",
+        "triangles": 212,
+        "welded_edges": 318,
+        "nonmanifold_edges": 0,
+        "degenerate_triangles": 0,
+        "outward_winding": true,
+        "signed_volume_m3": 0.050051261183935075
+      },
+      {
+        "name": "release_tab_left",
+        "triangles": 188,
+        "welded_edges": 282,
+        "nonmanifold_edges": 0,
+        "degenerate_triangles": 0,
+        "outward_winding": true,
+        "signed_volume_m3": 1.1277760595517165e-05
+      },
+      {
+        "name": "release_tab_right",
+        "triangles": 188,
+        "welded_edges": 282,
+        "nonmanifold_edges": 0,
+        "degenerate_triangles": 0,
+        "outward_winding": true,
+        "signed_volume_m3": 1.127776059551716e-05
+      },
+      {
+        "name": "rounded_frame",
+        "triangles": 504,
+        "welded_edges": 756,
+        "nonmanifold_edges": 0,
+        "degenerate_triangles": 0,
+        "outward_winding": true,
+        "signed_volume_m3": 0.023093607986843956
+      },
+      {
+        "name": "wall_pad_lower_left",
+        "triangles": 188,
+        "welded_edges": 282,
+        "nonmanifold_edges": 0,
+        "degenerate_triangles": 0,
+        "outward_winding": true,
+        "signed_volume_m3": 0.0001271368354545554
+      },
+      {
+        "name": "wall_pad_lower_right",
+        "triangles": 188,
+        "welded_edges": 282,
+        "nonmanifold_edges": 0,
+        "degenerate_triangles": 0,
+        "outward_winding": true,
+        "signed_volume_m3": 0.00012713683545455533
+      },
+      {
+        "name": "wall_pad_upper_left",
+        "triangles": 188,
+        "welded_edges": 282,
+        "nonmanifold_edges": 0,
+        "degenerate_triangles": 0,
+        "outward_winding": true,
+        "signed_volume_m3": 0.0001271368354545554
+      },
+      {
+        "name": "wall_pad_upper_right",
+        "triangles": 188,
+        "welded_edges": 282,
+        "nonmanifold_edges": 0,
+        "degenerate_triangles": 0,
+        "outward_winding": true,
+        "signed_volume_m3": 0.00012713683545455544
+      }
+    ],
+    "materials": [
+      {
+        "doubleSided": true,
+        "name": "sign_face",
+        "pbrMetallicRoughness": {
+          "baseColorFactor": [
+            0.3931231200695038,
+            0.4479884207248688,
+            0.4064483046531677,
+            1
+          ],
+          "metallicFactor": 0,
+          "roughnessFactor": 0.5600000023841858
+        }
+      },
+      {
+        "doubleSided": true,
+        "name": "mount_metal",
+        "pbrMetallicRoughness": {
+          "baseColorFactor": [
+            0.07828831672668457,
+            0.1259673833847046,
+            0.1399848908185959,
+            1
+          ],
+          "metallicFactor": 0.6499999761581421,
+          "roughnessFactor": 0.3799999952316284
+        }
+      },
+      {
+        "doubleSided": true,
+        "name": "recess_gasket",
+        "pbrMetallicRoughness": {
+          "baseColorFactor": [
+            0.0033353136386722326,
+            0.006571403704583645,
+            0.008122432976961136,
+            1
+          ],
+          "metallicFactor": 0,
+          "roughnessFactor": 0.7200000286102295
+        }
+      },
+      {
+        "doubleSided": true,
+        "name": "support_petrol",
+        "pbrMetallicRoughness": {
+          "baseColorFactor": [
+            0.010816383175551891,
+            0.03468407690525055,
+            0.04396536201238632,
+            1
+          ],
+          "metallicFactor": 0.18000000715255737,
+          "roughnessFactor": 0.3199999928474426
+        }
+      }
+    ],
+    "uv_front_samples": 36,
+    "source_reexport_byte_identical": true,
+    "studio_excluded": true,
+    "no_external_dependencies": true
+  },
+  "source_vertices": 1380,
+  "glb_vertices": 1792,
+  "mesh_count": 12,
+  "surface_count": 13,
+  "zero_degenerate_faces": true,
+  "unit_length_normals": true,
+  "pivot": "Wall attachment centre (0,0,0); mount height remains placement-owned",
+  "dimensions_godot_m": [
+    1.4,
+    1.0,
+    0.1
+  ],
+  "shared_dependencies": {
+    "art/source/models/environment/city_sign_supports_01/city_sign_supports_01.blend": {
+      "sha256": "5f990b38400cb88c695c9b91b1964d166540c153c5d21519b657e94e49e06247",
+      "bytes": 127713
+    },
+    "art/models/environment/city_sign_supports_01/city_sign_supports_01.glb": {
+      "sha256": "5f54105825e00bb73c038bed252910abec548ad1beb81603b2713c2c69796e0b",
+      "bytes": 75768
+    },
+    "art/models/environment/city_sign_supports_01/city_sign_supports_01.glb.import": {
+      "sha256": "e77d8967894c943f02e8805fbdfb3260ea8286f8359a0c98a668fae184c6d175",
+      "bytes": 1275
+    },
+    "scenes/prefabs/environment/city_sign_supports_01.tscn": {
+      "sha256": "ab310f5945a0ef0d8b07fcb2920deb9398359c525d37926202e21b43b974edfe",
+      "bytes": 434
+    },
+    "tools/asset_production/city_sign_supports_01/export.py": {
+      "sha256": "037f40f2d27512615e51a28e60a300b6840e451927cd854116e9d7eb2f146951",
+      "bytes": 4253
+    },
+    "tools/asset_production/city_sign_supports_01/check_glb.py": {
+      "sha256": "0bdd3dcad1d1ae5c14fcd0b83fbd5fa53614a8e27a1359f07abbfe5d1dfd23c4",
+      "bytes": 5259
+    },
+    "tools/asset_production/d06_commercial_graphics_01/author.py": {
+      "sha256": "84c12c9bffd3a60a6470f37a8d3d7bb38588c31d208ae593193ece81c20316bb",
+      "bytes": 4356
+    },
+    "tools/asset_production/d06_commercial_graphics_02/author.py": {
+      "sha256": "6e1492bc8bbb5afec4b371e1f2f28e875d3c3be8c9fe3b629d20efea473eab50",
+      "bytes": 5473
+    },
+    "tools/asset_production/d06_commercial_graphics_01/manifest.py": {
+      "sha256": "d7e58675faec2dddb75ae049d7bd4c9d7858a07b6627aa064f0fe811891a6df2",
+      "bytes": 1871
+    },
+    "tools/asset_production/d02_neighbourhood_graphics_01/export.py": {
+      "sha256": "677b3b4c665d329fbb335aeb4440f3f4fe1d975e4e05a421a6e8be3958d4fe5f",
+      "bytes": 1165
+    },
+    "tools/asset_production/d02_neighbourhood_graphics_01/validate.py": {
+      "sha256": "ea31af466ba8d17ec6a7fe7e76d5055ae24effc3005dfcb22e9e58cd8e114f7f",
+      "bytes": 3506
+    },
+    "tools/asset_production/d02_neighbourhood_graphics_01/preview.py": {
+      "sha256": "e39d0a9d4a7974348c35f7bb671ebc291911b109da82cb4d821d627dccbda339",
+      "bytes": 3833
+    },
+    "tools/asset_production/d02_neighbourhood_graphics_01/finalize.py": {
+      "sha256": "25a13a790536773e39e9f6b2b91071a715489d760a545e71ac30c504033b27a2",
+      "bytes": 2853
+    },
+    "tools/asset_production/d02_neighbourhood_graphics_01/manifest.py": {
+      "sha256": "8ed82de4137b1d259e268add627b6756536b23fb08c3f23f7cdd79c95b1fb1ec",
+      "bytes": 1613
+    },
+    "tools/asset_production/d02_neighbourhood_graphics_01/author.py": {
+      "sha256": "a0acbfab4ab34fedc0aea8b50f29d43d05cb67a4de5c10f3cc13824bf458ec6a",
+      "bytes": 2690
+    },
+    "tools/asset_production/d02_neighbourhood_graphics_01/check_prefab.gd": {
+      "sha256": "f0914353d37a08a0e865d69e070f8c5a874c69535e88d186997c5b833780bfc5",
+      "bytes": 5677
+    }
+  },
+  "shared_dependencies_unchanged": true,
+  "status": "PASS: bounded source/export, artwork tests, linked prefab and stable saves",
+  "engine": {
+    "aabb_max": [
+      0.7,
+      0.5,
+      0
+    ],
+    "aabb_min": [
+      -0.7,
+      -0.5,
+      -0.1
+    ],
+    "collision": "None; mounted decorative face inherits facade-owned blocking",
+    "engine": "4.8-dev7 (official)",
+    "face_only_overrides": 1,
+    "hierarchy_and_geometry_unchanged": true,
+    "identity_model_transform": true,
+    "meshes": 12,
+    "mipmaps_present": true,
+    "prefab": "res://scenes/prefabs/environment/d02_neighbourhood_graphics_02.tscn",
+    "prefab_sha256": "868a11b405d801b01aeff8777c6c9891eb1f285e50e6a99356580c3ce803bac9",
+    "status": "PASS",
+    "surfaces": 13,
+    "texture_dimensions": [
+      1220,
+      820
+    ],
+    "two_stable_roundtrip_sha256": []
+  },
+  "normalization": {
+    "aabb_max": [
+      0.7,
+      0.5,
+      0
+    ],
+    "aabb_min": [
+      -0.7,
+      -0.5,
+      -0.1
+    ],
+    "collision": "None; mounted decorative face inherits facade-owned blocking",
+    "engine": "4.8-dev7 (official)",
+    "face_only_overrides": 1,
+    "hierarchy_and_geometry_unchanged": true,
+    "identity_model_transform": true,
+    "meshes": 12,
+    "mipmaps_present": true,
+    "prefab": "res://scenes/prefabs/environment/d02_neighbourhood_graphics_02.tscn",
+    "prefab_sha256": "868a11b405d801b01aeff8777c6c9891eb1f285e50e6a99356580c3ce803bac9",
+    "status": "PASS",
+    "surfaces": 13,
+    "texture_dimensions": [
+      1220,
+      820
+    ],
+    "two_stable_roundtrip_sha256": [
+      "868a11b405d801b01aeff8777c6c9891eb1f285e50e6a99356580c3ce803bac9",
+      "868a11b405d801b01aeff8777c6c9891eb1f285e50e6a99356580c3ce803bac9"
+    ]
+  },
+  "artwork": {
+    "bytes": 56788,
+    "sha256": "c2d73aa5150379de43637c0a1a73984dd0f6566bd4724c44878cd4ce5a0ebc36",
+    "dimensions": [
+      1220,
+      820
+    ],
+    "mode": "RGB",
+    "colour_space": "sRGB",
+    "mipmaps": true
+  },
+  "artwork_tests": {
+    "count": 4,
+    "status": "PASS",
+    "exit_code": 0
+  },
+  "renders": {
+    "hero": {
+      "bytes": 249768,
+      "sha256": "459aa12bab1c4fe48d5ffdf9021e93a148bf0d342f12f832d71726716aa16abd",
+      "dimensions": [
+        1280,
+        720
+      ]
+    },
+    "side": {
+      "bytes": 248020,
+      "sha256": "ca181abc1314be342921363ac30a8303cd6a4f4b3a65e35e9b0c99bc0dd0514e",
+      "dimensions": [
+        1280,
+        720
+      ]
+    },
+    "detail": {
+      "bytes": 287678,
+      "sha256": "ab5c5f891a09528095bb8d3adb3696418300b6b0af6515e8cf7ea10dc52e1ffd",
+      "dimensions": [
+        1280,
+        720
+      ]
+    },
+    "overhead_47m_42deg": {
+      "bytes": 173766,
+      "sha256": "d48052dad5fe140f290dd33aa1020dd6206ac870400b04c2b399bb946700e4b1",
+      "dimensions": [
+        1280,
+        720
+      ]
+    }
+  }
+}

@@ -1,0 +1,37 @@
+d02_neighbourhood_graphics.02 - Parking-request notice
+Producer: implementation worker, lane/a-d02g
+Full commands: ../d02_neighbourhood_graphics_02.md (Exact reproduction).
+Scratch logs: C:/tmp/ft/assets/d02_neighbourhood_graphics_02/
+
+PASS python author.py: original 1220x820 RGB artwork, 56788 bytes.
+PASS python -m unittest discover: 4 tests, deterministic PNG, safe margin, car/bay/palette,
+     small-texture contrast proxy. Finalize reran all four successfully.
+PASS timeout 180 pinned Blender validate.py: exit 0; 5.2.2 LTS d13f752e3b9c,
+     glTF exporter 5.2.40; unchanged shared panel; 1380 source vertices,
+     1792 exported vertices, 2720 triangles, 12 meshes, 13 surfaces.
+     Zero degenerate/nonmanifold faces/edges; unit normals, outward winding,
+     metre units, bounds/pivot and 36 front UV samples checked.
+     Fresh scratch reexport equals committed 75768-byte shared GLB exactly.
+PASS timeout 900 pinned Blender preview.py: exit 0; four 1280x720 RGB renders,
+     all opened and visually inspected. Close copy/car icon upright/unclipped.
+     Overhead copy and icon unreadable; subordinate decoration, not a gameplay cue.
+PASS timeout 300 pinned Godot --headless --path . --import: exit 0;
+     final import contains no ERROR/SCRIPT ERROR lines; only own import/UID files created.
+PASS timeout 60 pinned Godot headless editor check_prefab.gd -- --normalize:
+     exit 0; two post-normalization byte-stable save/reload roundtrips;
+     retained face-only override, UIDs, ancestry, geometry and identity transforms.
+     Known editor-only plugin-version/scan-aborted and shutdown RID/ObjectDB diagnostics
+     remain in scratch normalize_final.log; not claimed diagnostic-free.
+PASS timeout 60 pinned Godot non-editor check_prefab.gd: exit 0;
+     no ERROR/SCRIPT ERROR/WARNING lines, dependencies and actual mipmaps loaded.
+PASS gdstyle 0.3.0 fmt --check: 1 file already formatted.
+PASS gdstyle --max-line-length 100 --max-warnings 0: 1 file, zero warnings.
+     Initial 104-character constant line corrected before final rerun.
+PASS finalize.py: current source/dependency, engine/roundtrip, artwork-test and render receipts.
+PASS handoff recorded SHA-256 values checked against final validation receipt.
+PASS git diff --check; pre-commit status contains only this asset's allowed paths.
+
+No live editor/MCP requests, new carrier geometry, collision, world placement,
+production_checks.py, registry/progress/shared brief edits or sibling edits.
+Pending independent review, final copy approval, placement/clearance,
+actual gameplay renderer/camera, packaged filtering and repeat-placement/Deck performance.
