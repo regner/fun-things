@@ -9,12 +9,12 @@ import re
 import shutil
 import subprocess
 import tempfile
-import time
 
 ROOT = Path(__file__).resolve().parents[1]
 VENDOR = {"addons/godot_mcp_toolkit", "addons/gut"}
 DIAGNOSTIC = re.compile(r"(?:SCRIPT ERROR:|ERROR:|WARNING:)")
 PIN = "4.8.dev7.official.c971f93e7"
+SCRIPT_COMPILE_TIMEOUT_SECONDS = 30
 
 
 def owned_scripts(root=ROOT):
@@ -81,7 +81,6 @@ def compile_project_settings(settings):
 def compile_all(godot, directory):
     """Import for class discovery, then compile each script in a separate engine invocation."""
     env = environment(directory / "compiler-user")
-    deadline = time.monotonic() + 120
     scripts = owned_scripts()
     manifest = [path.relative_to(ROOT).as_posix() for path in scripts]
     (directory / "scripts.json").write_text(json.dumps(manifest, indent=2) + "\n")
@@ -108,7 +107,7 @@ def compile_all(godot, directory):
                               "--log-file", str(directory / f"compile-{index}.engine.log"),
                               "--check-only", "--script", "res://" + relative],
                              directory / f"compile-{index}.log", env,
-                             timeout=max(0.01, min(30, deadline - time.monotonic())))
+                             timeout=SCRIPT_COMPILE_TIMEOUT_SECONDS)
         results.append({"script": relative, "ok": ok})
     (directory / "compilation.json").write_text(json.dumps(results, indent=2) + "\n")
     return setup_ok and bool(results) and all(row["ok"] for row in results)
