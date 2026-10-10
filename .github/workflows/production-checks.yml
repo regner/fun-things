@@ -1,10 +1,9 @@
 name: Production checks
 
+# Disabled for automatic runs by owner request (10 Oct 2026): not enforced yet.
+# Restore the pull_request and push (main) triggers to re-enable.
 on:
-  pull_request:
-  push:
-    branches:
-      - main
+  workflow_dispatch:
 
 jobs:
   checks:

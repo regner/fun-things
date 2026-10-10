@@ -210,9 +210,10 @@ python tools/production_checks.py --gut-dir tests/unit/session \
 GUT is pinned to v9.7.1 under `addons/gut/`; its editor plugin is not enabled. Vendor scripts
 are excluded by exact path from project-owned style and compile discovery, while production and
 test scripts remain covered. Export presets exclude `addons/gut/**` and `tests/**`, and the
-package inspector rejects either path. The GitHub Actions workflow runs the same entrypoint on
-Windows and Linux through `mise.toml`; local Linux execution remains required when a Linux
-machine is available rather than inferred from Windows.
+package inspector rejects either path. The GitHub Actions workflow can run the same entrypoint on
+Windows and Linux through `mise.toml`; it is currently manual-only (`workflow_dispatch`) and does
+not run on pushes or pull requests. Local Linux execution remains required when a Linux machine is
+available rather than inferred from Windows.
 
 Review function purpose comments, two empty lines between functions, export groups,
 and intent inside functions manually. The preserving formatter wrapper remains
