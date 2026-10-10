@@ -781,6 +781,15 @@ capped GPU wording) are presented when B4.1, A3.2 and D3 respectively reach them
 
 Each question names its consumer and a recommendation; none blocks P1.
 
+**Owner answers (10 October 2026):** (1) relevance-based population placement around the
+players; (2) orchestrator integration ownership stands (decision 35/45); (3) keep the modeled
+Glassward tower heights and judge occlusion in play; (4) M1-GATE reviews the game with whatever
+districts the greybox update has replaced, full district art does not gate M1; (5) spread player
+spawn markers across the whole island for now, moving away from fixed markers later; (6) wreck
+variants of the three cars are commissioned ([vehicle_wrecks](../assets/vehicle_wrecks.md)). The
+greybox is a layout guide: the update may shift, merge or split footprints. The recommendations
+below are kept for context.
+
 1. **Population placement (C3.1/C3.2).** Island-wide uniform versus relevance-based
    placement under the same global 64-pedestrian/32-car caps (section 5.3).
    **Recommendation:** relevance-based placement with full replication and host authority
