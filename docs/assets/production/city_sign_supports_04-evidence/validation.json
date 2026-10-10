@@ -1,0 +1,217 @@
+{
+  "artwork_interface": {
+    "aspect_ratio": "129:23",
+    "front_godot_z_m": -0.184,
+    "glb_v_direction": "0 top / 1 bottom",
+    "height_m": 0.23,
+    "meshes": {
+      "CitySignSupports04_ArtworkLower": [
+        1.375,
+        2.635,
+        2.865
+      ],
+      "CitySignSupports04_ArtworkMiddle": [
+        -0.085,
+        3.085,
+        3.315
+      ],
+      "CitySignSupports04_ArtworkUpper": [
+        1.375,
+        3.535,
+        3.765
+      ]
+    },
+    "safe_copy_rectangle_m": [
+      1.02,
+      0.19
+    ],
+    "slot": "sign_face",
+    "slot_index": 0.0,
+    "u_direction": "front-view left to right (-X)",
+    "uv_max": [
+      1.0,
+      1.0
+    ],
+    "uv_min": [
+      0.0,
+      0.0
+    ],
+    "width_m": 1.29
+  },
+  "blender": "5.2.2 LTS",
+  "blender_build": "d13f752e3b9c",
+  "coordinate_tolerance_m": 0.00001,
+  "degenerate_faces": 0.0,
+  "degenerate_glb_triangles": 0.0,
+  "dimension_tolerance_m": 0.001,
+  "dimensions_m": [
+    2.88,
+    3.92,
+    0.4
+  ],
+  "fresh_reexport_byte_identical": true,
+  "glb_bytes": 80312.0,
+  "glb_sha256": "6635fffeda54231e81db6e69214e82c26d072b5ad157e1930dd1d45ecdd308eb",
+  "glb_vertices": 1773.0,
+  "glb_winding_agrees_with_normals": true,
+  "gltf_exporter": "5.2.40",
+  "godot": {
+    "bounds_match": true,
+    "collision": {
+      "height_m": 2.5,
+      "layer": 1,
+      "mask": 0,
+      "radius_m": 0.2
+    },
+    "dependency_uids_resolve": true,
+    "linked_model_identity": true,
+    "mesh_count": 4,
+    "production_actor_motion": {
+      "authority_replay_equivalent": true,
+      "authority_stop_z_m": 0.550780951976776,
+      "bypass_end_z_m": -2.99999976158142,
+      "capsule_height_m": 1.8,
+      "capsule_radius_m": 0.35,
+      "replay_stop_z_m": 0.550780951976776,
+      "ticks_per_case": 60
+    },
+    "ray_queries": {
+      "above_clear": true,
+      "center_hit": true,
+      "side_clear": true
+    },
+    "save_reload_byte_stable": true,
+    "surfaces": 9,
+    "version": "4.8-dev7 (official)"
+  },
+  "godot_aabb": {
+    "max": [
+      1.44000005722046,
+      3.92000007629395,
+      0.200000002980232
+    ],
+    "min": [
+      -1.44000005722046,
+      0.0,
+      -0.200000002980232
+    ]
+  },
+  "ground_datum_m": 0.0,
+  "materials": [
+    {
+      "name": "sign_face",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.393123120069504,
+          0.447988420724869,
+          0.406448304653168,
+          1.0
+        ],
+        "metallicFactor": 0.0,
+        "roughnessFactor": 0.560000002384186
+      }
+    },
+    {
+      "name": "mount_metal",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.0782883167266846,
+          0.125967383384705,
+          0.139984890818596,
+          1.0
+        ],
+        "metallicFactor": 0.649999976158142,
+        "roughnessFactor": 0.379999995231628
+      }
+    },
+    {
+      "name": "support_petrol",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.0108163831755519,
+          0.0346840769052505,
+          0.0439653620123863,
+          1.0
+        ],
+        "metallicFactor": 0.180000007152557,
+        "roughnessFactor": 0.319999992847443
+      }
+    },
+    {
+      "name": "recess_gasket",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.00333531363867223,
+          0.00657140370458364,
+          0.00812243297696113,
+          1.0
+        ],
+        "metallicFactor": 0.0,
+        "roughnessFactor": 0.720000028610229
+      }
+    }
+  ],
+  "meshes": 4.0,
+  "nonmanifold_edges": 0.0,
+  "pivot": [
+    0.0,
+    0.0,
+    0.0
+  ],
+  "source_meshes": [
+    {
+      "degenerate_faces": 0.0,
+      "materials": [
+        "mount_metal",
+        "support_petrol",
+        "recess_gasket"
+      ],
+      "name": "CitySignSupports04_Hardware",
+      "nonmanifold_edges": 0.0,
+      "triangles": 2590.0,
+      "unit_corner_normals": true,
+      "vertices": 1315.0
+    },
+    {
+      "degenerate_faces": 0.0,
+      "materials": [
+        "sign_face",
+        "mount_metal"
+      ],
+      "name": "CitySignSupports04_ArtworkLower",
+      "nonmanifold_edges": 0.0,
+      "triangles": 26.0,
+      "unit_corner_normals": true,
+      "vertices": 15.0
+    },
+    {
+      "degenerate_faces": 0.0,
+      "materials": [
+        "sign_face",
+        "mount_metal"
+      ],
+      "name": "CitySignSupports04_ArtworkMiddle",
+      "nonmanifold_edges": 0.0,
+      "triangles": 26.0,
+      "unit_corner_normals": true,
+      "vertices": 15.0
+    },
+    {
+      "degenerate_faces": 0.0,
+      "materials": [
+        "sign_face",
+        "mount_metal"
+      ],
+      "name": "CitySignSupports04_ArtworkUpper",
+      "nonmanifold_edges": 0.0,
+      "triangles": 26.0,
+      "unit_corner_normals": true,
+      "vertices": 15.0
+    }
+  ],
+  "source_vertices": 1360.0,
+  "status": "PASS",
+  "surfaces": 9.0,
+  "triangles": 2668.0,
+  "unit_source_and_export_normals": true
+}

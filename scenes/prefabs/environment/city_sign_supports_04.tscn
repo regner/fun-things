@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://6edr6fd4ydkr"]
+
+[ext_resource type="PackedScene" uid="uid://og5v15ucfr7" path="res://art/models/environment/city_sign_supports_04/city_sign_supports_04.glb" id="1_model"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_post"]
+height = 2.5
+radius = 0.2
+
+[node name="city_sign_supports_04" type="Node3D" unique_id=559486752]
+
+[node name="Visuals" type="Node3D" parent="." unique_id=2064519330]
+
+[node name="Model" type="Node3D" parent="Visuals" unique_id=2138539023 instance=ExtResource("1_model")]
+
+[node name="Collision" type="Node3D" parent="." unique_id=2002016689]
+
+[node name="Body" type="StaticBody3D" parent="Collision" unique_id=1905608973]
+collision_mask = 0
+
+[node name="Shape" type="CollisionShape3D" parent="Collision/Body" unique_id=828724251]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.25, 0)
+shape = SubResource("CylinderShape3D_post")

@@ -1,0 +1,63 @@
+city_sign_supports.04 — final producer receipt, 10 October 2026
+Scope: original wayfinding post only; sibling and shared files unchanged.
+Exact reproduction commands are in ../city_sign_supports_04.md.
+Scratch root: C:/tmp/ft/assets/city_sign_supports_04/ (not committed).
+
+Pinned tools
+- Blender 5.2.2 LTS, build d13f752e3b9c; exporter 5.2.40.
+- Godot 4.8.dev7.official.c971f93e7, explicitly resolved with mise.
+- Every Blender call uses timeout <=900, audio-null environment, background/factory
+  startup, threads 4 and python-exit-code 1. No live owner/editor access.
+
+Executed command outcomes
+PASS exit 0: Blender author.py; source saved, explicit GLB exported, four renders.
+PASS exit 0: Blender validate.py; saved-source checks and byte-identical fresh export.
+PASS exit 0: Godot headless editor --import --quit (timeout 300).
+PASS exit 0: Godot headless editor check_prefab.gd (timeout 180), saved UID-normalized
+  prefab, reopened/repacked/resaved, verified byte-stable scene/dependency identities.
+PASS exit 0: Godot headless runtime check_prefab.gd (timeout 180), including final
+  post-format rerun; linked resources, bounds, physics rays and ActorMotion checks.
+PASS exit 0: pinned gdstyle --max-warnings 0 and fmt --check on owned GDScript.
+PASS: Python AST syntax checks on author.py, export.py and validate.py.
+FAIL exit 1 (environment): requested default production_checks.py --output .../checks;
+  PATH shim/version subprocess hit cp1252 UnicodeDecodeError, empty engine version.
+FAIL exit 1 (corrected): explicit pinned production_checks.py --output .../checks-pinned;
+  one owned dictionary wrapping difference. Style/compilation, Python and GUT passed.
+  Pinned gdstyle fmt applied the required wrapping; no behavior changes.
+PASS exit 0: timeout 1800 env PYTHONUTF8=1 python tools/production_checks.py
+  --godot "$(mise which godot)" --gdstyle "$(mise which gdstyle)"
+  --output C:/tmp/ft/assets/city_sign_supports_04/checks-acceptance
+  All owned script formatting/style/compilation pass; 14 Python tests pass;
+  GUT 86 tests / 2178 assertions pass; import and intentional-negative detection pass.
+  No pre-existing fixture errors waived. Final suite rerun followed added imported
+  slot-order assertions for all three artwork meshes; editor/runtime reruns passed.
+
+Measured results
+2668 triangles, 1360 source vertices, 1773 split exported vertices, four meshes,
+nine surfaces, zero nonmanifold source edges, zero degenerate source/export faces.
+Unit normals and exported winding pass. AABB (-1.44,0,-0.20) to (1.44,3.92,0.20) m.
+Three independent artwork front UVs upright/unmirrored, no embedded images.
+GLB 80312 bytes, SHA256 6635fffeda54231e81db6e69214e82c26d072b5ad157e1930dd1d45ecdd308eb.
+Fresh saved-source reexport is byte-identical.
+ActorMotion authority/replay stop Z=0.550780951976776 m; clear X=0.65 bypass
+ends Z=-2.99999976158142 m; production capsule radius .35 / height 1.8.
+Ground-mounted cylinder radius .20 / height 2.50; overhead mast/fingers visual-only.
+
+Visual inspection
+Hero, side/rear, frame/collar detail and calibrated 47m/42deg overhead all inspected.
+1280x720 PNGs, compression 95, each <216 KB. Close silhouettes, mounting joints and
+recessed faces read cleanly. Overhead fingers merge into a thin quiet bar; copy and
+arrow direction are not readable at screen centre and cannot be an essential cue.
+
+Retained diagnostics, not suppressed
+Blender version-only: one 24-byte shutdown allocation; author/validator exit cleanly.
+Author: Material.use_nodes and World.use_nodes future deprecation warnings.
+Godot editor startup: development plugin warns 4.8 is newer than tested 4.7.
+Editor script assertions exit 0, but shutdown reports viewport/texture/scenario/font
+RID leaks and 168 ObjectDB instances, matching sibling editor baseline (not newly
+reproduced here). No clean editor shutdown claim. Import and runtime checks succeed;
+final runtime has no warning/error diagnostics. Canonical isolated suite passes.
+
+Pending: independent review, artwork, engine camera/lighting, approved world placement,
+vehicle clearance, populated actor/target visibility, actual multiplayer processes,
+repeat-placement profiling, packaged builds and Deck. No blanket READY/TODO closure.
