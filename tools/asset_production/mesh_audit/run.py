@@ -81,7 +81,16 @@ def execute(root, output, assets, prefab_paths, policy, jobs, thresholds):
             report['errors'].append({'path': relative, 'error': f'{type(error).__name__}: {error}'})
         print(f'prefab {index+1}/{len(prefab_paths)} {relative}', flush=True)
     dependencies = set(assets) | resolver.dependencies
-    report['inputs'] = {p.relative_to(root).as_posix(): digest(p) for p in sorted(dependencies)}
+    report['inputs'] = {}
+    for path in sorted(dependencies):
+        relative = path.relative_to(root).as_posix()
+        try:
+            report['inputs'][relative] = digest(path)
+        except OSError as error:
+            # Preserve load errors and readable hashes even when a dependency is
+            # missing or becomes unreadable before the manifest is captured.
+            report['errors'].append({'path': relative,
+                                     'error': f'dependency hash: {type(error).__name__}: {error}'})
     report['input_manifest_sha256'] = hashlib.sha256(
         json.dumps(report['inputs'], sort_keys=True).encode()).hexdigest()
     report['elapsed_seconds_contended'] = round(time.monotonic()-start, 2)

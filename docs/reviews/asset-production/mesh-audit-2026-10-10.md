@@ -19,7 +19,7 @@ shader deformation, generated road meshes, engine LODs or gameplay hiding are ru
 The tool is [`tools/asset_production/mesh_audit`](../../../tools/asset_production/mesh_audit/README.md).
 It uses the existing Python 3.14.2 / numpy 2.5.1 installation; no Blender dependency
 or tool installation was added. The full scan is **not** part of the fast canonical
-production check. Its 26 synthetic-GLB tests are, via the approved thin
+production check. Its 28 synthetic-GLB tests are, via the approved thin
 `tools/test_mesh_audit.py` discovery wrapper.
 
 ```sh
@@ -210,8 +210,8 @@ choosing which original surface/material to retain.
   well as check 1's steep-downward subset; a dedicated negative-Z/-0.85 regression
   protects this distinction. Its counts are not the final candidate-savings report.
   The completed final repeat matches every non-policy asset metric and every prefab
-  summary; only exception/candidate totals change on 56 assets. Final module hashes
-  match the current tool files.
+  summary; only exception/candidate totals change on 56 assets. At inventory capture,
+  final module hashes matched the tool files; later review fixes are recorded below.
 - `production-01` passed all canonical layers; final validation and inventory
   receipts are indexed below. No new GDScript, scenes or resources were authored,
   so no editor save/UID migration or visual/gameplay acceptance is claimed.
@@ -809,7 +809,7 @@ Paths are below `art/models/`, with `.glb` omitted for readability. **Keep** is 
 | weapons/pistol_coral_stub/pistol_coral_stub | 2,424 | 1,384 | 0 (0.00%) | 0 | 0 | 38 | 178 | pose hold |
 | weapons/smg_wedgewire/smg_wedgewire_a | 3,748 | 2,989 | 0 (0.00%) | 0 | 0 | 12 | 273 | pose hold |
 
-### Final checks
+### Inventory-capture checks (before Review 1)
 
 - `timeout 1500 python tools/production_checks.py --output C:/tmp/ft/lanes/mesh-audit/production-frozen`: **PASS**, pinned engine `4.8.dev7.official.c971f93e7`, saved identities, formatting, zero-warning lint, explicit owned-script compilation, Python tests, clean mirror import, complete GUT suite and intentional negative GUT diagnostic.
 - Explicit compiler child: `python tools/script_checks.py --godot <mise-pin> --gdstyle <mise-pin> --output .../production-frozen/script-checks`: **350 owned scripts passed**.
@@ -819,3 +819,46 @@ Paths are below `art/models/`, with `.glb` omitted for readability. **Keep** is 
 - `git diff --check`, art/scene unchanged checks, and no-staged-files checks are part of the final handoff. No asset repair or rendered/animation/gameplay acceptance is claimed.
 
 **Remaining work:** independent reviewer acceptance of this audit, rendered/source confirmation of proposed removals and defect sites, owner asset-type decisions, then separately assigned family fix lanes. Sampled visibility is not a deletion oracle. No product or collision change is bundled here.
+
+## Review 1 follow-up — incomplete dependency receipts
+
+Review 1 identified a P2 in manifest hashing: prefab loading recorded a missing
+resource, but hashing that same dependency then raised an uncaught `FileNotFoundError`
+instead of writing the promised incomplete receipt. The new CLI regression reproduced
+exit 1 for both a missing nested GLB and a missing material before the fix; the failure
+log is `C:/tmp/ft/mesh-audit/review-1/regression-before.log`.
+
+Dependency hashing now catches `OSError` per path, retains the existing prefab errors,
+adds the dependency hash error, and keeps every readable fingerprint. `inputs` and
+its SHA-256 describe a partial manifest when `complete=false`; no placeholder hash
+or successful gate is emitted for an unreadable dependency. `audit.json` is written
+and the runner returns 2.
+
+The synthetic suite now has **28 tests** (the earlier 26-test counts are historical).
+The added real-CLI fixture checks missing nested GLBs and materials, exit 2, written
+JSON, `complete=false`, `gate_passed=false`, retained readable hashes and unchanged
+fixture input bytes. A separate portable `PermissionError` injection verifies that a
+resource becoming unreadable after successful prefab loading is also recorded. The
+focused suite passes in **2.832 seconds**, without Blender. The initial permission-test
+mock missed Windows-resolved temporary paths; canonicalizing its comparison fixed the
+test harness without changing production behavior.
+
+Retained evidence:
+
+- `C:/tmp/ft/mesh-audit/review-1/mesh-audit-tests-final.log`: 28 tests passed.
+- `C:/tmp/ft/mesh-audit/review-1/cli-incomplete/audit.json`: actual CLI exit 2,
+  incomplete status, missing dependency error and all three readable input hashes.
+- Reproduction: `timeout 60 python -m tools.asset_production.mesh_audit.run --root
+  C:/tmp/ft/mesh-audit/review-1/cli-fixture --output <fresh-external-output> --jobs 1`.
+- `timeout 1500 python tools/production_checks.py --output
+  C:/tmp/ft/lanes/mesh-audit/production-review-1`: **PASS**. All canonical layers are
+  green: pinned engine, saved identities, formatting/lint, **350 compiled scripts**,
+  **62 Python tests**, clean mirror import, **233 GUT tests / 9,111 assertions**, and
+  the verified intentional negative GUT diagnostic. The Python suite took 3.840 seconds.
+  Exact commands, logs and status are in that directory's `summary.json`.
+
+This fix stays on frozen base `256c2b1b996a4292d73f7776173af2f3f8fe8a32`; no rebase,
+asset or scene edit was made. The numerical predicates and valid-input manifest
+fingerprints are unchanged. The full inventory was not rerun for this failure-path fix;
+`full-05` remains the earlier geometry receipt, and its runner/test module hashes
+predate this revision. Independent reviewer acceptance remains pending.

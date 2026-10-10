@@ -3,8 +3,11 @@
 import json
 from pathlib import Path
 import struct
+import subprocess
+import sys
 import tempfile
 import unittest
+from unittest.mock import patch
 
 import numpy as np
 
@@ -12,7 +15,7 @@ from .audit import analyze, gate_failures, policy_reason
 from .geometry import closed_islands, fully_covered, points_inside
 from .glb import Glb, Z_UP
 from .prefab import Prefabs
-from .run import main
+from .run import ROOT, digest, main
 
 TRIANGLE = np.array([[0., 0., 0.], [1., 0., 0.], [0., 1., 0.]])
 
@@ -389,6 +392,82 @@ transform = Transform3D(1,0,0,0,1,0,0,0,1,2,0,0)
         path = self.write_scene('unsupported.tscn', '[gd_scene format=3]\n[node name="Root" type="Node3D"]\nscale = Vector3(2,2,2)\n')
         with self.assertRaises(ValueError):
             Prefabs(self.root).parts(path)
+
+    def test_cli_missing_prefab_dependencies_write_incomplete_receipt(self):
+        """Missing nested GLBs/materials must produce JSON and exit 2, not a traceback."""
+        write_glb(self.path, [triangle()])
+        original = self.path.read_bytes()
+        wrapper = self.write_scene('wrapper.tscn', '''[gd_scene format=3]
+[ext_resource type="PackedScene" path="res://scenes/prefabs/nested/model.tscn" id="nested"]
+[node name="Root" instance=ExtResource("nested")]
+''')
+        for kind in ('glb', 'material'):
+            with self.subTest(dependency=kind), tempfile.TemporaryDirectory(
+                    prefix='mesh-audit-missing-output-') as destination:
+                missing = 'art/models/missing.glb' if kind == 'glb' else 'missing.tres'
+                model = missing if kind == 'glb' else 'art/models/fixture.glb'
+                material = ('[ext_resource type="Material" path="res://missing.tres" '
+                            'id="material"]' if kind == 'material' else '')
+                scene = f'''[gd_scene format=3]
+[ext_resource type="PackedScene" path="res://{model}" id="model"]
+{material}
+[node name="Root" type="Node3D"]
+[node name="Model" parent="." instance=ExtResource("model")]
+'''
+                if kind == 'material':
+                    scene += '''[node name="part_0" parent="Model"]
+surface_material_override/0 = ExtResource("material")
+'''
+                self.write_scene('nested/model.tscn', scene)
+                result = subprocess.run(
+                    [sys.executable, '-m', 'tools.asset_production.mesh_audit.run',
+                     '--root', str(self.root), '--output', destination, '--jobs', '1'],
+                    cwd=ROOT, capture_output=True, text=True, timeout=30, check=False)
+                self.assertEqual(result.returncode, 2, result.stdout+result.stderr)
+                self.assertNotIn('Traceback', result.stdout+result.stderr)
+                report = json.loads((Path(destination)/'audit.json').read_text())
+                self.assertFalse(report['complete'])
+                self.assertFalse(report['gate_passed'])
+                error_paths = {row['path'] for row in report['errors']}
+                self.assertIn(wrapper.relative_to(self.root).as_posix(), error_paths)
+                self.assertIn(missing, error_paths)
+                self.assertNotIn(missing, report['inputs'])
+                self.assertIn('art/models/fixture.glb', report['inputs'])
+                self.assertIn('scenes/prefabs/nested/model.tscn', report['inputs'])
+                self.assertEqual(self.path.read_bytes(), original)
+
+    def test_unreadable_dependency_hash_writes_incomplete_receipt(self):
+        """A dependency becoming unreadable after prefab loading must fail closed too."""
+        write_glb(self.path, [triangle()])
+        dependency = self.root/'material.tres'
+        dependency.write_text('[gd_resource type="StandardMaterial3D" format=3]\n[resource]\n')
+        self.write_scene('material.tscn', '''[gd_scene format=3]
+[ext_resource type="PackedScene" path="res://art/models/fixture.glb" id="model"]
+[ext_resource type="Material" path="res://material.tres" id="material"]
+[node name="Root" type="Node3D"]
+[node name="Model" parent="." instance=ExtResource("model")]
+[node name="part_0" parent="Model"]
+surface_material_override/0 = ExtResource("material")
+''')
+
+        def digest_except_dependency(path):
+            """Inject a portable permission failure only at the dependency hashing boundary."""
+            if Path(path).resolve() == dependency.resolve():
+                raise PermissionError('fixture dependency became unreadable')
+            return digest(path)
+
+        with tempfile.TemporaryDirectory(prefix='mesh-audit-unreadable-output-') as destination:
+            with patch('tools.asset_production.mesh_audit.run.digest', digest_except_dependency):
+                code = main(['--root', str(self.root), '--output', destination, '--jobs', '1'])
+            self.assertEqual(code, 2)
+            report = json.loads((Path(destination)/'audit.json').read_text())
+            self.assertFalse(report['complete'])
+            self.assertFalse(report['gate_passed'])
+            self.assertEqual(len(report['prefabs']), 1)
+            self.assertNotIn('material.tres', report['inputs'])
+            self.assertIn('art/models/fixture.glb', report['inputs'])
+            self.assertTrue(any(row['path'] == 'material.tres' and
+                                'PermissionError' in row['error'] for row in report['errors']))
 
     def test_gate_positive_negative_and_read_only_cli(self):
         """Audit completion and a clean gate are separate statuses; input bytes never change."""

@@ -27,7 +27,9 @@ production-check layer.
 Exit **0** means the scan completed and no **selected** gate failed; it does not mean
 there are no findings. Exit **1** means at least one `--fail-on` finding, **2** means
 an incomplete scan or invalid CLI use. The JSON always lists per-input errors after
-an attempted scan. No blanket suppressions/baseline exemptions are installed.
+an attempted scan. Missing or unreadable dependencies are retained as hash errors;
+`inputs` contains only readable fingerprints, so its hash is a partial manifest when
+`complete=false`. No blanket suppressions/baseline exemptions are installed.
 
 ## Numerical contract
 
