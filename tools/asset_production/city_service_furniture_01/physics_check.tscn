@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://brw1ndutffxt"]
+
+[ext_resource type="PackedScene" uid="uid://bge2m3enajtvu" path="res://scenes/prefabs/environment/city_service_furniture_01.tscn" id="1_cabinet"]
+[ext_resource type="Script" uid="uid://jthmfio4c27p" path="res://scripts/actors/actor_motion.gd" id="2_actor"]
+
+[sub_resource type="BoxShape3D" id="Box_floor"]
+size = Vector3(12, 0.2, 12)
+
+[sub_resource type="CapsuleShape3D" id="Capsule_actor"]
+radius = 0.35
+height = 1.8
+
+[node name="CabinetPhysicsCheck" type="Node3D" unique_id=1773979476]
+
+[node name="Cabinet" parent="." unique_id=1569094931 instance=ExtResource("1_cabinet")]
+
+[node name="Floor" type="StaticBody3D" parent="." unique_id=1268513716]
+collision_mask = 0
+
+[node name="Shape" type="CollisionShape3D" parent="Floor" unique_id=206842850]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.1, 0)
+shape = SubResource("Box_floor")
+
+[node name="Actor" type="CharacterBody3D" parent="." unique_id=1878058753]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.001, -2)
+collision_layer = 2
+script = ExtResource("2_actor")
+
+[node name="Capsule" type="CollisionShape3D" parent="Actor" unique_id=114650522]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0)
+shape = SubResource("Capsule_actor")

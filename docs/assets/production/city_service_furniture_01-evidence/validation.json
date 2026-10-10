@@ -1,0 +1,217 @@
+{
+  "applied_transforms": true,
+  "asset": "city_service_furniture.01",
+  "blender": "5.2.2 LTS",
+  "build_hash": "d13f752e3b9c",
+  "consistent_winding": true,
+  "datum": "ground-contact plinth",
+  "degenerate_faces": 0.0,
+  "dimension_tolerance_m": 0.001,
+  "dimensions_godot_m": [
+    1.2,
+    1.5,
+    0.55
+  ],
+  "fresh_reexport_byte_identical": true,
+  "glb_bytes": 90344.0,
+  "glb_sha256": "8188a71bf7d3c1440fe3aeb718d5d2dd1154e8b4e1311f6e7a338e6c99f5cede",
+  "glb_vertices": 2067.0,
+  "godot": {
+    "bounds_min": [
+      -0.600000023841858,
+      0.0,
+      -0.275000005960464
+    ],
+    "bounds_size": [
+      1.20000004768372,
+      1.5,
+      0.550000011920929
+    ],
+    "box_shape_count": 1,
+    "engine": "4.8-dev7 (official)",
+    "linked_model_identity": true,
+    "physics": {
+      "actor_height_m": 1.8,
+      "actor_radius_m": 0.35,
+      "authority_replay_equal": true,
+      "bypass_end_z_m": 2.99999976158142,
+      "front_stop_z_m": -0.626301765441895,
+      "movement_cases": 6,
+      "network_transport_and_world_placement": "not tested",
+      "ray_cases": 3,
+      "rear_stop_z_m": 0.626301765441895,
+      "walk_ticks_per_case": 60
+    },
+    "save_reload_byte_stable": true,
+    "static_body_count": 1
+  },
+  "godot_aabb": {
+    "max": [
+      0.600000023841858,
+      1.5,
+      0.275000005960464
+    ],
+    "min": [
+      -0.600000023841858,
+      0.0,
+      -0.275000005960464
+    ]
+  },
+  "materials": [
+    {
+      "name": "service_frame",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.0350000001490116,
+          0.0700000002980232,
+          0.0850000008940697,
+          1.0
+        ],
+        "metallicFactor": 0.449999988079071,
+        "roughnessFactor": 0.5
+      }
+    },
+    {
+      "name": "service_recess",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.0120000001043081,
+          0.0230000000447035,
+          0.0270000007003546,
+          1.0
+        ],
+        "metallicFactor": 0.200000002980232,
+        "roughnessFactor": 0.579999983310699
+      }
+    },
+    {
+      "name": "service_enamel",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.0949999988079071,
+          0.159999996423721,
+          0.174999997019768,
+          1.0
+        ],
+        "metallicFactor": 0.349999994039536,
+        "roughnessFactor": 0.479999989271164
+      }
+    },
+    {
+      "name": "service_warning_amber",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.75,
+          0.389999985694885,
+          0.0949999988079071,
+          1.0
+        ],
+        "metallicFactor": 0.0500000007450581,
+        "roughnessFactor": 0.519999980926514
+      }
+    }
+  ],
+  "mesh_count": 1.0,
+  "nonmanifold_edges": 0.0,
+  "pivot": [
+    0.0,
+    0.0,
+    0.0
+  ],
+  "source_aabb": {
+    "max": [
+      0.600000023841858,
+      0.275000005960464,
+      1.5
+    ],
+    "min": [
+      -0.600000023841858,
+      -0.275000005960464,
+      0.0
+    ]
+  },
+  "status": "PASS source and export",
+  "surfaces": 4.0,
+  "triangles": 3352.0,
+  "unit_normals": true,
+  "vertices": 1712.0,
+  "production_checks": {
+    "engine": {
+      "ok": true,
+      "version": "4.8.dev7.official.c971f93e7"
+    },
+    "gut_pin": {
+      "ok": true,
+      "version": "9.7.1"
+    },
+    "owned_scripts": {
+      "ok": true,
+      "returncode": 0
+    },
+    "python_tests": {
+      "ok": true,
+      "returncode": 0
+    },
+    "gut_import": {
+      "ok": true,
+      "returncode": 0
+    },
+    "gut_tests": {
+      "ok": true,
+      "returncode": 0
+    },
+    "gut_negative": {
+      "ok": true,
+      "observed_returncode": 1
+    }
+  },
+  "renders": [
+    {
+      "file": "hero.png",
+      "size_px": [
+        1280,
+        720
+      ],
+      "bytes": 411713
+    },
+    {
+      "file": "side.png",
+      "size_px": [
+        1280,
+        720
+      ],
+      "bytes": 380330
+    },
+    {
+      "file": "detail.png",
+      "size_px": [
+        1280,
+        720
+      ],
+      "bytes": 389887
+    },
+    {
+      "file": "overhead_47m_42deg.png",
+      "size_px": [
+        1280,
+        720
+      ],
+      "bytes": 376793
+    }
+  ],
+  "render_encoding": "RGB 7 significant bits per channel, PNG compression 9",
+  "overhead_camera": {
+    "projection": "perspective",
+    "height_m": 47,
+    "vertical_fov_deg": 42,
+    "direction": "vertical down, Blender +Y at image top",
+    "engine_capture": false
+  },
+  "diagnostics": {
+    "blender": "Material/World.use_nodes deprecation notices under pinned 5.2.2 LTS",
+    "headless_editor": "Assertions passed; MCP 4.8 warning and shutdown RID/ObjectDB leaks",
+    "standalone_asset_check": "Passed, no error/warning diagnostics",
+    "canonical_production_checks": "All passed; no exemptions",
+    "test_isolation_fix": "Replaced reused actor body with fresh duplicate per case to clear native floor-contact cache; strict mode equality retained"
+  }
+}
