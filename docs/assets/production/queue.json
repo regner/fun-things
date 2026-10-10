@@ -5457,14 +5457,14 @@
       "input_next_action": "Confirm supporting use in district detail concepts",
       "brief": "[Brief](../../assets/d02_neighbourhood_graphics.md)",
       "priority": 1,
-      "status": "queued",
-      "agent_id": null,
-      "source_revision": null,
-      "review_status": "pending",
-      "integration_status": "pending",
+      "status": "production_prefab_accepted",
+      "agent_id": "77d5a0bd-4b5f-4c76-b76a-4f5009157300",
+      "source_revision": "e51b7079",
+      "review_status": "accepted source/export/prefab scope (independent Sol review)",
+      "integration_status": "accepted",
       "placement_status": "pending",
       "blocker": null,
-      "attempts": 0,
+      "attempts": 1,
       "initial_time_cap_minutes": 90,
       "owned_paths": [
         "art/source/models/environment/d02_neighbourhood_graphics_01/",
@@ -5472,8 +5472,20 @@
         "art/textures/environment/d02_neighbourhood_graphics_01/",
         "art/materials/environment/d02_neighbourhood_graphics_01/",
         "docs/assets/production/d02_neighbourhood_graphics_01.md",
-        "docs/assets/production/d02_neighbourhood_graphics_01-evidence/"
-      ]
+        "docs/assets/production/d02_neighbourhood_graphics_01-evidence/",
+        "tools/asset_production/d02_neighbourhood_graphics_01/",
+        "scenes/prefabs/environment/d02_neighbourhood_graphics_01.tscn"
+      ],
+      "launch": {
+        "provider": "portkey/gpt-6-astra",
+        "configured_effort": "medium",
+        "mode": "orchestrator asset lane",
+        "lane": "a-d02g"
+      },
+      "producer_manifest": "docs/assets/production/d02_neighbourhood_graphics_01-evidence/manifest.json",
+      "report": "docs/assets/production/d02_neighbourhood_graphics_01.md",
+      "reviewer_id": "08c8c494-2662-4d57-81c0-593b62cb06ea",
+      "integrated_revision": "6313a75e"
     },
     {
       "id": "d02_neighbourhood_graphics.02",
@@ -5486,14 +5498,14 @@
       "input_next_action": "Confirm supporting use in district detail concepts",
       "brief": "[Brief](../../assets/d02_neighbourhood_graphics.md)",
       "priority": 1,
-      "status": "queued",
-      "agent_id": null,
-      "source_revision": null,
-      "review_status": "pending",
-      "integration_status": "pending",
+      "status": "production_prefab_accepted",
+      "agent_id": "29cb895f-d89b-4d19-8e7d-4fad01098793",
+      "source_revision": "497598c2",
+      "review_status": "accepted source/export/prefab scope (independent Sol review)",
+      "integration_status": "accepted",
       "placement_status": "pending",
       "blocker": null,
-      "attempts": 0,
+      "attempts": 1,
       "initial_time_cap_minutes": 90,
       "owned_paths": [
         "art/source/models/environment/d02_neighbourhood_graphics_02/",
@@ -5501,8 +5513,20 @@
         "art/textures/environment/d02_neighbourhood_graphics_02/",
         "art/materials/environment/d02_neighbourhood_graphics_02/",
         "docs/assets/production/d02_neighbourhood_graphics_02.md",
-        "docs/assets/production/d02_neighbourhood_graphics_02-evidence/"
-      ]
+        "docs/assets/production/d02_neighbourhood_graphics_02-evidence/",
+        "tools/asset_production/d02_neighbourhood_graphics_02/",
+        "scenes/prefabs/environment/d02_neighbourhood_graphics_02.tscn"
+      ],
+      "launch": {
+        "provider": "portkey/gpt-6-astra",
+        "configured_effort": "medium",
+        "mode": "orchestrator asset lane",
+        "lane": "a-d02g"
+      },
+      "producer_manifest": "docs/assets/production/d02_neighbourhood_graphics_02-evidence/manifest.json",
+      "report": "docs/assets/production/d02_neighbourhood_graphics_02.md",
+      "reviewer_id": "08c8c494-2662-4d57-81c0-593b62cb06ea",
+      "integrated_revision": "6313a75e"
     },
     {
       "id": "d02_neighbourhood_graphics.03",
@@ -5515,14 +5539,14 @@
       "input_next_action": "Refine asset design from Crescents v02",
       "brief": "[Brief](../../assets/d02_neighbourhood_graphics.md)",
       "priority": 1,
-      "status": "queued",
-      "agent_id": null,
-      "source_revision": null,
-      "review_status": "pending",
-      "integration_status": "pending",
+      "status": "production_prefab_accepted",
+      "agent_id": "b3fa0c0f-855c-422e-a10b-c08bfd39f92b",
+      "source_revision": "6313a75e",
+      "review_status": "accepted source/export/prefab scope (independent Sol review)",
+      "integration_status": "accepted",
       "placement_status": "pending",
       "blocker": null,
-      "attempts": 0,
+      "attempts": 1,
       "initial_time_cap_minutes": 90,
       "owned_paths": [
         "art/source/models/environment/d02_neighbourhood_graphics_03/",
@@ -5530,8 +5554,20 @@
         "art/textures/environment/d02_neighbourhood_graphics_03/",
         "art/materials/environment/d02_neighbourhood_graphics_03/",
         "docs/assets/production/d02_neighbourhood_graphics_03.md",
-        "docs/assets/production/d02_neighbourhood_graphics_03-evidence/"
-      ]
+        "docs/assets/production/d02_neighbourhood_graphics_03-evidence/",
+        "tools/asset_production/d02_neighbourhood_graphics_03/",
+        "scenes/prefabs/environment/d02_neighbourhood_graphics_03.tscn"
+      ],
+      "launch": {
+        "provider": "portkey/gpt-6-astra",
+        "configured_effort": "medium",
+        "mode": "orchestrator asset lane",
+        "lane": "a-d02g"
+      },
+      "producer_manifest": "docs/assets/production/d02_neighbourhood_graphics_03-evidence/manifest.json",
+      "report": "docs/assets/production/d02_neighbourhood_graphics_03.md",
+      "reviewer_id": "08c8c494-2662-4d57-81c0-593b62cb06ea",
+      "integrated_revision": "6313a75e"
     },
     {
       "id": "d03_apartment_family.01",
