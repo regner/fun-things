@@ -8,7 +8,7 @@ or third-party geometry library is needed. Nothing under `art/` or `scenes/` is 
 python -m unittest tools.test_mesh_audit -v
 # Fresh directory outside every checkout; full inventory, two bounded CPU workers.
 timeout 3600 python -m tools.asset_production.mesh_audit.run \
-  --output C:/tmp/ft/mesh-audit/full-02
+  --output C:/tmp/ft/mesh-audit/full-05
 # A future asset's strict geometry gate; existing assets are NOT all clean.
 timeout 180 python -m tools.asset_production.mesh_audit.run \
   --asset art/models/environment/example/example.glb --no-prefabs \
@@ -65,7 +65,8 @@ and sampled-contained triangles, excluding degenerate, nonopaque, keep-underside
 dynamic-pose cases. It is not the sum of overlapping categories. This is a triage
 upper estimate, **not approved savings or an automatic removal recipe**. Recheck
 silhouette, holes, sun shadows, reflections, and actual placement before fixing.
-`policy.json` holds explicit conservative bridge/water exceptions. Extend it for any
+`policy.json` holds explicit conservative bridge/water exceptions for **all negative-Z
+normals**, including sloping undersides outside check 1's -0.9 threshold. Extend it for any
 new asset with an over-water or walk-below usage; asset-local geometry cannot infer
 future placement. Animated/skinned assets and weapon/vehicle/effect families retain
 all candidate geometry because a static orientation is insufficient for deletion.

@@ -89,7 +89,9 @@ def analyze(parts, *, keep_reason='', dynamic=False, cross_instance=False,
         masks['inside_closed_island'], containers = contained_faces(triangles, opaque)
         # Downward double-sided carriers can be seen from above. Alpha/animated geometry
         # cannot be called removable from its rest mesh or used as a closed occluder.
-        masks['keep_exception'] = downward & bool(keep_reason)
+        # Reflection/walk-below exceptions include sloping undersides, not only the
+        # steep downward faces selected by the separate normal.z < -0.9 check.
+        masks['keep_exception'] = (normals[:, 2] < 0) & bool(keep_reason)
         masks['removable_candidates'] = ((downward & ~double) | sealed |
                                          masks['unseen_sampled'] | masks['inside_closed_island'])
         masks['removable_candidates'] &= ~masks['keep_exception'] & ~masks['zero_area'] & opaque

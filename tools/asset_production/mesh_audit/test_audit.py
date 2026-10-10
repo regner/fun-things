@@ -122,6 +122,16 @@ class MeshAuditTests(unittest.TestCase):
         self.assertEqual(policy_reason('art/models/water/deck.glb', policy), 'water')
         self.assertEqual(policy_reason('art/models/building.glb', policy), '')
 
+    def test_water_exception_keeps_sloping_undersides_outside_downward_threshold(self):
+        """An underside with Z normal -0.85 can reflect even though check 1 selects <-0.9."""
+        slope = np.array([[0,0,0], [0,1,0], [.85,0,.5267827]])
+        bare = self.audit([triangle(slope)])['summary']
+        kept = self.audit([triangle(slope)], keep_reason='keep, exception: water')['summary']
+        self.assertEqual(bare['elevated_undersides'], 0)
+        self.assertEqual(bare['removable_candidates'], 1)
+        self.assertEqual(kept['keep_exception'], 1)
+        self.assertEqual(kept['removable_candidates'], 0)
+
     def test_coplanar_same_facing_and_threshold_negatives(self):
         """Agreement requires plane, area, angle and projected intersection, not AABB alone."""
         for offset, expected in (([0,0,0], 1), ([0,0,.0009], 1), ([0,0,.0011], 0),
