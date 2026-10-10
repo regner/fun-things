@@ -56,3 +56,12 @@ production_checks.py (owner decision 52), graphical Godot gameplay captures,
 world placement, actor/car movement, multiplayer transport, packaged builds,
 repeat-placement GPU/LOD measurements or Deck validation.
 Cloths are visual-only soft hanging decoration; existing frame collision is unchanged.
+
+REVIEW ROUND 1:
+Saved dependency UIDs restored from existing import identities.
+Serialized header/dependency/node checks and two roundtrips pass.
+Missing and mismatched UID negative tests exit 1 as expected.
+Fresh source/re-export, final import and two runtime checks pass.
+Python compile, gdstyle format and zero-warning lint pass.
+No visual changes: original reviewed renders retained, not rerendered.
+Round-1 import attempts: MCP advisory; initial scan-thread shutdown warning.
