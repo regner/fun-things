@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://d1kyjsc8tx4av"]
+
+[ext_resource type="PackedScene" path="res://art/models/environment/d03_court_graphics_02/d03_court_graphics_02.glb" id="1_model"]
+
+[node name="D03CourtGraphics02" type="Node3D" unique_id=731202330]
+
+[node name="Visuals" type="Node3D" parent="." unique_id=880349937]
+
+[node name="Model" type="Node3D" parent="Visuals" unique_id=1785130770 instance=ExtResource("1_model")]
