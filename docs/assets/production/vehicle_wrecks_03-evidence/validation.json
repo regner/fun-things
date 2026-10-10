@@ -1,0 +1,254 @@
+{
+  "asset": "vehicle_wrecks.03",
+  "blender": "5.2.2 LTS",
+  "blender_build": "d13f752e3b9c",
+  "bounds_tolerance_m": 0.002,
+  "degenerate_faces": 0.0,
+  "degenerate_triangles": 0.0,
+  "dimensions_xyz_m": [
+    1.89309006929398,
+    1.41680002212524,
+    3.43199980258942
+  ],
+  "engine": {
+    "aabb_max": [
+      0.946550905704498,
+      1.41680002212524,
+      1.71199977397919
+    ],
+    "aabb_min": [
+      -0.946539103984833,
+      0.0,
+      -1.71999990940094
+    ],
+    "capsule_queries": [
+      {
+        "case": "body blocks",
+        "expected": true,
+        "hit": true
+      },
+      {
+        "case": "rear corner blocks",
+        "expected": true,
+        "hit": true
+      },
+      {
+        "case": "front corner blocks",
+        "expected": true,
+        "hit": true
+      },
+      {
+        "case": "side bypass clear",
+        "expected": false,
+        "hit": false
+      },
+      {
+        "case": "rear bypass clear",
+        "expected": false,
+        "hit": false
+      }
+    ],
+    "failures": [],
+    "identity_linked_model": true,
+    "mesh_count": 1,
+    "model_uid": "uid://dbxpnwlc2sgco",
+    "prefab_sha256": "ad27db946131bd6f4a6425a5b2d4c6cc3f4f9f0f736f14029f88f023177a5c82",
+    "prefab_uid": "uid://w4enlfdse3rn",
+    "runtime_load_checked": true,
+    "saved_dependency_uids": true,
+    "saved_node_unique_ids": true,
+    "stable_roundtrips": 2.0,
+    "status": "PASS",
+    "surface_count": 8,
+    "version": "4.8-dev7 (official)"
+  },
+  "export": {
+    "bytes": 254556.0,
+    "path": "art/models/vehicles/vehicle_wrecks_03/vehicle_wrecks_03.glb",
+    "sha256": "2a8e204a050c646cee5d2df4aadc634c4d61d1441da272b75417ecef57965ffa"
+  },
+  "export_normal_max_error": 1.3411044186e-07,
+  "export_vertices": 6176.0,
+  "exporter": "5.2.40",
+  "fresh_reexport_byte_identical": true,
+  "godot_aabb": {
+    "max": [
+      0.946550965309143,
+      1.41680002212524,
+      1.71199989318848
+    ],
+    "min": [
+      -0.946539103984833,
+      0.0,
+      -1.71999990940094
+    ]
+  },
+  "ground_pivot_m": [
+    0.0,
+    0.0,
+    0.0
+  ],
+  "live_export": {
+    "bytes": 302368.0,
+    "path": "art/models/vehicles/car_latch_a/car_latch_a.glb",
+    "sha256": "264cd46c027cce85738f3818ee426aa75346c1024d958351ee67b4c90e7c71f7"
+  },
+  "live_source": {
+    "bytes": 256325.0,
+    "path": "art/source/models/vehicles/car_latch_a/car_latch_a.blend",
+    "sha256": "15f1acc54486c57e71de40899adc0d25efb1d4c60029d3f922f49479ee931502"
+  },
+  "live_triangle_budget": 10480.0,
+  "materials": [
+    {
+      "name": "wreck_latch_coral",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.319999992847443,
+          0.0649999976158142,
+          0.0439999997615814,
+          1.0
+        ],
+        "metallicFactor": 0.140000000596046,
+        "roughnessFactor": 0.790000021457672
+      }
+    },
+    {
+      "name": "wreck_charcoal",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.0160000007599592,
+          0.0219999998807907,
+          0.0260000005364418,
+          1.0
+        ],
+        "metallicFactor": 0.180000007152557,
+        "roughnessFactor": 0.870000004768372
+      }
+    },
+    {
+      "name": "wreck_latch_ivory",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.319999992847443,
+          0.28999999165535,
+          0.204999998211861,
+          1.0
+        ],
+        "metallicFactor": 0.140000000596046,
+        "roughnessFactor": 0.790000021457672
+      }
+    },
+    {
+      "name": "wreck_dead_lamp",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.170000001788139,
+          0.125,
+          0.0659999996423721,
+          1.0
+        ],
+        "metallicFactor": 0.0,
+        "roughnessFactor": 0.800000011920929
+      }
+    },
+    {
+      "name": "wreck_scorched_rubber",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.00800000037997961,
+          0.00999999977648258,
+          0.0130000002682209,
+          1.0
+        ],
+        "metallicFactor": 0.0,
+        "roughnessFactor": 0.959999978542328
+      }
+    },
+    {
+      "name": "wreck_exposed_metal",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.104999996721745,
+          0.125,
+          0.140000000596046,
+          1.0
+        ],
+        "metallicFactor": 0.550000011920929,
+        "roughnessFactor": 0.699999988079071
+      }
+    },
+    {
+      "name": "wreck_glass_void",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.0040000001899898,
+          0.00800000037997961,
+          0.00999999977648258,
+          1.0
+        ],
+        "metallicFactor": 0.0
+      }
+    },
+    {
+      "name": "wreck_glass_remnant",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.0450000017881393,
+          0.115000002086163,
+          0.140000000596046,
+          1.0
+        ],
+        "metallicFactor": 0.150000005960464,
+        "roughnessFactor": 0.379999995231628
+      }
+    }
+  ],
+  "mesh_count": 1.0,
+  "nonmanifold_edges": 0.0,
+  "source": {
+    "bytes": 357429.0,
+    "path": "art/source/models/vehicles/vehicle_wrecks_03/vehicle_wrecks_03.blend",
+    "sha256": "d090db28fce218f74b51a80028f795f32085c9e8dd2a959a58e01f32f167ebae"
+  },
+  "source_normal_max_error": 1.898006483e-07,
+  "status": "PASS: saved source, actual GLB and fresh byte-identical export",
+  "surface_count": 8.0,
+  "triangles": 8176.0,
+  "vertices": 4176.0,
+  "renders": [
+    {
+      "path": "hero.png",
+      "pixels": [
+        1280,
+        720
+      ],
+      "bytes": 289906
+    },
+    {
+      "path": "side.png",
+      "pixels": [
+        1280,
+        720
+      ],
+      "bytes": 272890
+    },
+    {
+      "path": "detail.png",
+      "pixels": [
+        1280,
+        720
+      ],
+      "bytes": 315067
+    },
+    {
+      "path": "overhead_47m_42deg.png",
+      "pixels": [
+        1280,
+        720
+      ],
+      "bytes": 242475
+    }
+  ],
+  "render_notes": "Isolated Cycles CPU, 32 samples, AgX; review PNGs RGB6/deflate9 only"
+}

@@ -1,0 +1,50 @@
+vehicle_wrecks.03 / Latch wreck / 10 October 2026
+All Blender calls: pinned 5.2.2 LTS d13f752e3b9c, glTF 5.2.40,
+-noaudio --background --factory-startup --threads 4 --python-exit-code 1,
+ALSOFT_DRIVERS=null SDL_AUDIODRIVER=dummy PYTHONIOENCODING=utf-8.
+All calls bounded by timeout: author 900s; validator/checks 180s; imports 300s.
+Exact reproduction commands are in ../vehicle_wrecks_03.md.
+
+AUTHOR: exit 0. Copied accepted Latch source into owned derivative, never wrote live files.
+Original part groups preserved; mechanics, interior and left mirror removed.
+Four isolated Cycles CPU 1280x720 renders completed; producer inspected all four.
+Blender World.use_nodes deprecation warning only; no author failure.
+VALIDATE: exit 0. 4176 source vertices; 6176 exported vertices; 8176 triangles.
+Live GLB budget 10480 triangles. One mesh, eight surfaces, no textures/animations/skins.
+Zero nonmanifold edges, zero degenerate faces/triangles, normals unit within 1e-5.
+Ground zero, live horizontal footprint within .002m. GLB/source bounds within .00001m.
+Saved-source fresh export to scratch byte-identical to committed GLB.
+
+IMPORT: initial and final pinned 4.8.dev7.official.c971f93e7 imports exit 0.
+No ERROR/SCRIPT ERROR lines. Only owned import/UID files created.
+Addon compatibility warning: Godot 4.8 is newer than MCP plugin's tested 4.7.0.
+No connection to the owner's live Blender/Godot sessions.
+
+PREFAB: initial runtime-mode normalization passed assertions but omitted GLB dependency UID.
+Corrected harness: saving requires editor mode and --normalize; read-only checks use runtime.
+Final normalization uses GEN_EDIT_STATE_INSTANCE and waits for editor initialization/scan.
+All assertions pass: 2 byte-stable load/pack/save cycles; scene UID, external GLB UID,
+all 6 authored node unique IDs retained; one linked mesh and eight surfaces at identity.
+Editor normalization exit 0, but NOT a clean diagnostic run. Shutdown diagnostics persist:
+WARNING: Scan thread aborted...
+ERROR: 5 RID allocations of type 'N16RendererViewport8ViewportE' were leaked at exit.
+ERROR: 8 RID allocations of type 'PN13RendererDummy14TextureStorage12DummyTextureE' were leaked at exit.
+ERROR: 1 RID allocations of type 'N17RendererSceneCull8ScenarioE' were leaked at exit.
+ERROR: 52 RID allocations of type 'PN18TextServerAdvanced22ShapedTextDataAdvancedE' were leaked at exit.
+ERROR: 1 RID allocations of type 'PN18TextServerAdvanced12FontAdvancedE' were leaked at exit.
+WARNING: 5 Canvas RIDs, 31 CanvasItem RIDs and 168 ObjectDB instances leaked at exit.
+These are retained editor-harness shutdown limitations, not suppressed or claimed clean.
+
+RUNTIME CHECK: fresh read-only process exit 0, no ERROR/SCRIPT ERROR lines.
+Exact normalized prefab bytes unchanged; source-linked dependency, UIDs and bounds pass.
+Five PhysicsDirectSpaceState3D capsule expectations pass (r .35m, h 1.8m):
+body blocks; front diagonal corner blocks; rear diagonal corner blocks;
+side bypass clear; rear bypass clear.
+Collider: sole grounded static-world box, 1.74 x 1.39 x 3.40m, centre (0,.695,-.004).
+No ActorMotion, driving, body-swap, lifecycle or multiplayer acceptance claimed.
+
+GDSTYLE: initial format check found one 103-character line; reformatted with pinned 0.3.0.
+Final fmt --check: 1 file already formatted.
+Final --max-line-length 100 --max-warnings 0: 1 file checked, no issues found.
+FINALIZE: validates receipt and handoff hashes, RGB6/deflate9 review PNGs, complete payload manifest.
+No production_checks.py, world placement, device performance or live editor synchronization claimed.
