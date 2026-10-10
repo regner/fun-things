@@ -26,6 +26,57 @@ func _expect(condition: bool, message: String) -> void:
 		push_error(message)
 
 
+## Retain explicit dependency UIDs even when the headless runtime saver omits them.
+func _write_dependency_uids(path: String) -> void:
+	var lines := FileAccess.get_file_as_string(path).split("\n")
+	for index: int in range(lines.size()):
+		var line := lines[index]
+		if not line.begins_with("[ext_resource"):
+			continue
+
+		var dependency := line.get_slice("path=\"", 1).get_slice("\"", 0)
+		var uid := ResourceLoader.get_resource_uid(dependency)
+		_expect(uid != ResourceUID.INVALID_ID, "Dependency identity: " + dependency)
+		if not line.contains("uid=\""):
+			lines[index] = line.replace(" path=", " uid=\"%s\" path=" % ResourceUID.id_to_text(uid))
+
+	var file := FileAccess.open(path, FileAccess.WRITE)
+	file.store_string("\n".join(lines))
+
+
+## Require serialized identities, not merely successful fallback-path loading.
+func _check_saved_identities(path: String) -> void:
+	var text := FileAccess.get_file_as_string(path)
+	_expect(text.get_slice("
+", 0).contains("uid=\""), "Header UID: " + path)
+	var dependencies: Dictionary = {}
+	for line: String in text.split("
+"):
+		if line.begins_with("[ext_resource"):
+			var dependency := line.get_slice("path=\"", 1).get_slice("\"", 0)
+			_expect(line.contains("uid=\""), "Serialized dependency UID: " + dependency)
+			if not line.contains("uid=\""):
+				continue
+
+			var saved_uid := line.get_slice("uid=\"", 1).get_slice("\"", 0)
+			var uid := ResourceUID.text_to_id(saved_uid)
+			_expect(uid != ResourceUID.INVALID_ID, "Valid dependency UID: " + dependency)
+			_expect(ResourceUID.has_id(uid), "Registered dependency UID: " + dependency)
+			if ResourceUID.has_id(uid):
+				_expect(ResourceUID.get_id_path(uid) == dependency, "UID path: " + dependency)
+
+			_expect(
+				ResourceLoader.get_resource_uid(dependency) == uid,
+				"UID resolves: " + dependency,
+			)
+			dependencies[dependency] = saved_uid
+
+		if line.begins_with("[node"):
+			_expect(line.contains("unique_id="), "Saved node identity: " + path)
+
+	_receipt.get_or_add("serialized_dependency_uids", {})[path] = dependencies
+
+
 ## Save only the owned wrapper, retaining the external GLB instance and its ancestry.
 func _save_prefab() -> void:
 	var uid: int = ResourceLoader.get_resource_uid(PREFAB)
@@ -43,6 +94,8 @@ func _save_prefab() -> void:
 	_expect(saved.pack(instance) == OK, "Prefab pack")
 	_expect(ResourceSaver.save(saved, PREFAB) == OK, "Prefab save")
 	_expect(ResourceSaver.set_uid(PREFAB, uid) == OK, "Retain scene UID")
+	_write_dependency_uids(PREFAB)
+	_check_saved_identities(PREFAB)
 	instance.free()
 
 
@@ -55,6 +108,8 @@ func _normalize(material: StandardMaterial3D) -> void:
 
 	_expect(ResourceSaver.save(material, MATERIAL) == OK, "Material normalization")
 	_expect(ResourceSaver.set_uid(MATERIAL, uid) == OK, "Retain material UID")
+	_write_dependency_uids(MATERIAL)
+	_check_saved_identities(MATERIAL)
 	_save_prefab()
 	var scene_hash := FileAccess.get_sha256(PREFAB)
 	var material_hash := FileAccess.get_sha256(MATERIAL)
@@ -65,6 +120,8 @@ func _normalize(material: StandardMaterial3D) -> void:
 		)
 		_expect(ResourceSaver.save(fresh, MATERIAL) == OK, "Material resave")
 		_expect(ResourceSaver.set_uid(MATERIAL, uid) == OK, "Retain material UID")
+		_write_dependency_uids(MATERIAL)
+		_check_saved_identities(MATERIAL)
 		_expect(FileAccess.get_sha256(PREFAB) == scene_hash, "Roundtrip scene bytes")
 		_expect(FileAccess.get_sha256(MATERIAL) == material_hash, "Roundtrip material bytes")
 		_receipt["roundtrip_%s_byte_stable" % (pass_index + 1)] = (
@@ -152,8 +209,20 @@ func _inspect(instance: Node3D) -> void:
 	})
 
 
+## Fail before runtime inspection if either owned resource omits serialized identities.
+func _check_owned_identities() -> bool:
+	for path: String in [PREFAB, MATERIAL]:
+		_check_saved_identities(path)
+
+	return _failures.is_empty()
+
+
 ## Load, optionally normalize, check all dependencies and write a fresh bounded receipt.
 func _run() -> void:
+	if not OS.get_cmdline_user_args().has("--normalize") and not _check_owned_identities():
+		quit(1)
+		return
+
 	var version: Dictionary = Engine.get_version_info()
 	_expect(version.string == "4.8-dev7 (official)", "Pinned engine version")
 	_expect(str(version.hash).begins_with("c971f93e7"), "Pinned engine commit")

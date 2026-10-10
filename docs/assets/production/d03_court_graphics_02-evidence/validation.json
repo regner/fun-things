@@ -118,6 +118,23 @@
   "glb_sha256": "3b92565458ab96e5e96a0f33d3a4982e65cbd8f8cf78b02da396e37892736998",
   "fresh_reexport_byte_identical": true,
   "source_status": "PASS",
+  "review_round_1": {
+    "finding": "P2: missing serialized dependency UIDs",
+    "missing_uid_regression": {
+      "exit_code": 1,
+      "rejected_dependencies": [
+        "res://art/models/environment/d03_court_graphics_02/d03_court_graphics_02.glb",
+        "res://art/textures/environment/d03_court_graphics_02/play_steps_albedo.png"
+      ]
+    },
+    "mismatched_uid_regression": {
+      "exit_code": 1,
+      "mutated_resource": "art/materials/environment/d03_court_graphics_02/play_steps.tres",
+      "rejected_uid": "uid://blxebt67ss4g5"
+    },
+    "scope": "Identity metadata only; source, exported geometry, artwork and render bytes unchanged.",
+    "renders_rerun": false
+  },
   "artwork": {
     "ok": true,
     "png_bytes": 31370,
@@ -174,20 +191,36 @@
       "engine": "4.8-dev7 (official)",
       "engine_hash": "c971f93e7e76b0ef919bf6009e7b868bea04db7f",
       "failures": [],
-      "material_sha256": "6a9180e8af13ce12325402de0448d621e62794f4c336aa86b20933e04dd24db1",
+      "material_sha256": "95cd35cead51037d9647a85905f3b9ef4a045fef71ab357a4b9b6966b2c2a78b",
       "material_uid": "uid://dtfpjehw327m3",
       "mipmaps": true,
       "ok": true,
-      "prefab_sha256": "3adb1e5e47644e8cc3a938b6013e91a605ec243c6cc34aaa96594ca0ec1d955c",
+      "prefab_sha256": "013c1d582d9662c40cd4d778333a36f0e3f062feca6b3a8bae843b5a98f554ea",
       "prefab_uid": "uid://d1kyjsc8tx4av",
       "roundtrip_1_byte_stable": true,
       "roundtrip_2_byte_stable": true,
+      "serialized_dependency_uids": {
+        "res://art/materials/environment/d03_court_graphics_02/play_steps.tres": {
+          "res://art/textures/environment/d03_court_graphics_02/play_steps_albedo.png": "uid://pyit1bsa4hoi"
+        },
+        "res://scenes/prefabs/environment/d03_court_graphics_02.tscn": {
+          "res://art/models/environment/d03_court_graphics_02/d03_court_graphics_02.glb": "uid://bmrx817fjl3y7"
+        }
+      },
       "texture_image_bytes_including_mips": 2097153.0,
       "texture_image_format": 4.0,
       "texture_size": [
         512.0,
         1024.0
       ]
+    },
+    "serialized_dependency_uids": {
+      "res://art/materials/environment/d03_court_graphics_02/play_steps.tres": {
+        "res://art/textures/environment/d03_court_graphics_02/play_steps_albedo.png": "uid://pyit1bsa4hoi"
+      },
+      "res://scenes/prefabs/environment/d03_court_graphics_02.tscn": {
+        "res://art/models/environment/d03_court_graphics_02/d03_court_graphics_02.glb": "uid://bmrx817fjl3y7"
+      }
     },
     "surface_count": 1,
     "texture_image_bytes_including_mips": 2097153,
@@ -201,14 +234,22 @@
     "engine": "4.8-dev7 (official)",
     "engine_hash": "c971f93e7e76b0ef919bf6009e7b868bea04db7f",
     "failures": [],
-    "material_sha256": "6a9180e8af13ce12325402de0448d621e62794f4c336aa86b20933e04dd24db1",
+    "material_sha256": "95cd35cead51037d9647a85905f3b9ef4a045fef71ab357a4b9b6966b2c2a78b",
     "material_uid": "uid://dtfpjehw327m3",
     "mipmaps": true,
     "ok": true,
-    "prefab_sha256": "3adb1e5e47644e8cc3a938b6013e91a605ec243c6cc34aaa96594ca0ec1d955c",
+    "prefab_sha256": "013c1d582d9662c40cd4d778333a36f0e3f062feca6b3a8bae843b5a98f554ea",
     "prefab_uid": "uid://d1kyjsc8tx4av",
     "roundtrip_1_byte_stable": true,
     "roundtrip_2_byte_stable": true,
+    "serialized_dependency_uids": {
+      "res://art/materials/environment/d03_court_graphics_02/play_steps.tres": {
+        "res://art/textures/environment/d03_court_graphics_02/play_steps_albedo.png": "uid://pyit1bsa4hoi"
+      },
+      "res://scenes/prefabs/environment/d03_court_graphics_02.tscn": {
+        "res://art/models/environment/d03_court_graphics_02/d03_court_graphics_02.glb": "uid://bmrx817fjl3y7"
+      }
+    },
     "texture_image_bytes_including_mips": 2097153,
     "texture_image_format": 4,
     "texture_size": [
@@ -221,8 +262,7 @@
     "final_import_error_lines": [],
     "runtime_error_lines": [],
     "warnings": [
-      "WARNING: [MCP] Godot 4.8 detected - latest tested version is 4.7.0. The plugin will run normally but some features may behave unexpectedly. Please report issues at https://github.com/NPGameDev/godot-mcp-toolkit/issues",
-      "WARNING: Scan thread aborted..."
+      "WARNING: [MCP] Godot 4.8 detected - latest tested version is 4.7.0. The plugin will run normally but some features may behave unexpectedly. Please report issues at https://github.com/NPGameDev/godot-mcp-toolkit/issues"
     ],
     "gdstyle_format": "PASS",
     "gdstyle_lint": "PASS: zero warnings",

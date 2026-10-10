@@ -1,3 +1,10 @@
+REVIEW ROUND 1: existing dependency UIDs serialized; no new identities.
+Saved header/dependency/node checks and two supplemented roundtrips pass.
+Missing and mismatched UID negative tests exit 1 as expected.
+Source/re-export, artwork, import/runtime, Python and gdstyle checks rerun.
+Visual inputs unchanged; original reviewed renders retained, not rerendered.
+The production author/render observations below are retained historical evidence.
+
 FINAL CHECKS: d03_court_graphics.02
 Original Pillow artwork and Blender eight-face stepping carrier; no downloaded geometry/fonts/art.
 Pinned Blender author and validator exited 0. Saved-source re-export byte-identical.
@@ -18,4 +25,3 @@ Import finished all resources before a shutdown-only scan-thread-aborted warning
 both following runtime resource checks passed. No ERROR lines or warning suppression.
 Final import warnings (toolkit version advisory and shutdown scan notification):
 WARNING: [MCP] Godot 4.8 detected - latest tested version is 4.7.0. The plugin will run normally but some features may behave unexpectedly. Please report issues at https://github.com/NPGameDev/godot-mcp-toolkit/issues
-WARNING: Scan thread aborted...
