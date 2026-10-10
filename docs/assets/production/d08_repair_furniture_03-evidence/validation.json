@@ -1,0 +1,357 @@
+{
+  "asset": "d08_repair_furniture.03",
+  "blender": "5.2.2 LTS",
+  "build_hash": "d13f752e3b9c",
+  "vertices": 5276,
+  "triangles": 10352,
+  "mesh_count": 1,
+  "surfaces": 6,
+  "glb_vertices": 6560,
+  "degenerate_faces": 0,
+  "nonmanifold_edges": 0,
+  "unit_normals": true,
+  "consistent_winding": true,
+  "applied_transforms": true,
+  "source_aabb": {
+    "min": [
+      -0.6804999709129333,
+      -0.3500000238418579,
+      0.0
+    ],
+    "max": [
+      0.6799999475479126,
+      0.3504999876022339,
+      0.8599987030029297
+    ]
+  },
+  "godot_aabb": {
+    "min": [
+      -0.6804999709129333,
+      0.0,
+      -0.3504999876022339
+    ],
+    "max": [
+      0.6799999475479126,
+      0.8599987030029297,
+      0.3500000238418579
+    ]
+  },
+  "dimensions_godot_m": [
+    1.360499918460846,
+    0.8599987030029297,
+    0.7005000114440918
+  ],
+  "nominal_dimensions_godot_m": [
+    1.36,
+    0.86,
+    0.7
+  ],
+  "dimension_tolerance_m": 0.001,
+  "integral_caster_count": 4,
+  "caster_centres_blender_m": [
+    [
+      -0.51,
+      -0.255,
+      0.09
+    ],
+    [
+      -0.51,
+      0.255,
+      0.09
+    ],
+    [
+      0.39,
+      -0.255,
+      0.09
+    ],
+    [
+      0.39,
+      0.255,
+      0.09
+    ]
+  ],
+  "pivot": [
+    0,
+    0,
+    0
+  ],
+  "datum": "four integral caster tyres",
+  "fresh_reexport_byte_identical": true,
+  "glb_sha256": "6b3a435902857ba0f74987ae3de3a8b6c39725a89b640351b8c0407cda5bf44b",
+  "glb_bytes": 278112,
+  "materials": [
+    {
+      "name": "ironreach_tyre_rubber",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.022173885256052017,
+          0.03433980792760849,
+          0.0382043719291687,
+          1
+        ],
+        "metallicFactor": 0,
+        "roughnessFactor": 0.8600000143051147
+      }
+    },
+    {
+      "name": "ironreach_replacement_sheet",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.20507873594760895,
+          0.28314873576164246,
+          0.2788942754268646,
+          1
+        ],
+        "metallicFactor": 0.550000011920929,
+        "roughnessFactor": 0.5199999809265137
+      }
+    },
+    {
+      "name": "ironreach_roof_petrol",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.022173885256052017,
+          0.07618538290262222,
+          0.09758734703063965,
+          1
+        ],
+        "metallicFactor": 0.30000001192092896,
+        "roughnessFactor": 0.6000000238418579
+      }
+    },
+    {
+      "name": "ironreach_faded_petrol",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.12213877588510513,
+          0.20507873594760895,
+          0.19806931912899017,
+          1
+        ],
+        "metallicFactor": 0.25,
+        "roughnessFactor": 0.6399999856948853
+      }
+    },
+    {
+      "name": "ironreach_working_amber",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.9130986332893372,
+          0.4910208582878113,
+          0.09084171056747437,
+          1
+        ],
+        "metallicFactor": 0.10000000149011612,
+        "roughnessFactor": 0.6499999761581421
+      }
+    },
+    {
+      "name": "ironreach_local_rust",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.38642942905426025,
+          0.13013647496700287,
+          0.04817182570695877,
+          1
+        ],
+        "metallicFactor": 0,
+        "roughnessFactor": 0.8999999761581421
+      }
+    }
+  ],
+  "status": "PASS source and export",
+  "godot": {
+    "aabb_min": [
+      -0.680499970912933,
+      0.0,
+      -0.350499987602234
+    ],
+    "aabb_size": [
+      1.3604998588562,
+      0.85999870300293,
+      0.700500011444092
+    ],
+    "capsule_queries": [
+      {
+        "case": "body_solid",
+        "solid": true
+      },
+      {
+        "case": "east_bypass_clear",
+        "solid": false
+      },
+      {
+        "case": "west_bypass_clear",
+        "solid": false
+      },
+      {
+        "case": "rear_route_clear",
+        "solid": false
+      },
+      {
+        "case": "front_route_clear",
+        "solid": false
+      },
+      {
+        "case": "north_east_corner",
+        "solid": true
+      },
+      {
+        "case": "south_west_corner",
+        "solid": true
+      },
+      {
+        "case": "above_trolley_clear",
+        "solid": false
+      }
+    ],
+    "car_box_sweep": {
+      "east_bypass_blocked": false,
+      "front_blocked": true,
+      "size_m": [
+        1.9,
+        1.5,
+        4.3
+      ]
+    },
+    "collision_shape_count": 1,
+    "engine": "4.8-dev7 (official)",
+    "failures": [],
+    "front_ray_z": -0.350000023841858,
+    "linked_model_identity": true,
+    "materials": [
+      "ironreach_tyre_rubber",
+      "ironreach_replacement_sheet",
+      "ironreach_roof_petrol",
+      "ironreach_faded_petrol",
+      "ironreach_working_amber",
+      "ironreach_local_rust"
+    ],
+    "model_uid": "uid://t1m2en3luf61",
+    "ok": true,
+    "prefab_uid": "uid://c3bpjgrs6ccol",
+    "production_actor_motion": [
+      {
+        "case": "front_stop",
+        "end": [
+          0.0,
+          0.000877899117767811,
+          -0.700520575046539
+        ],
+        "mode": 0
+      },
+      {
+        "case": "rear_stop",
+        "end": [
+          0.0,
+          0.000877899117767811,
+          0.700520575046539
+        ],
+        "mode": 0
+      },
+      {
+        "case": "east_stop",
+        "end": [
+          1.03125023841858,
+          0.000877922924701124,
+          0.0
+        ],
+        "mode": 0
+      },
+      {
+        "case": "east_bypass",
+        "end": [
+          1.12999999523163,
+          0.000877922924701124,
+          2.99999976158142
+        ],
+        "mode": 0
+      },
+      {
+        "case": "front_stop",
+        "end": [
+          0.0,
+          0.000877899117767811,
+          -0.700520575046539
+        ],
+        "mode": 1
+      },
+      {
+        "case": "rear_stop",
+        "end": [
+          0.0,
+          0.000877899117767811,
+          0.700520575046539
+        ],
+        "mode": 1
+      },
+      {
+        "case": "east_stop",
+        "end": [
+          1.03125023841858,
+          0.000877922924701124,
+          0.0
+        ],
+        "mode": 1
+      },
+      {
+        "case": "east_bypass",
+        "end": [
+          1.12999999523163,
+          0.000877922924701124,
+          2.99999976158142
+        ],
+        "mode": 1
+      }
+    ],
+    "save_reload_byte_stable": true
+  },
+  "renders": [
+    {
+      "file": "hero.png",
+      "size_px": [
+        1280,
+        720
+      ],
+      "bytes": 243232
+    },
+    {
+      "file": "side.png",
+      "size_px": [
+        1280,
+        720
+      ],
+      "bytes": 210997
+    },
+    {
+      "file": "detail.png",
+      "size_px": [
+        1280,
+        720
+      ],
+      "bytes": 276156
+    },
+    {
+      "file": "overhead_47m_42deg.png",
+      "size_px": [
+        1280,
+        720
+      ],
+      "bytes": 377603
+    }
+  ],
+  "visual_self_review": {
+    "renderer": "Isolated Blender Cycles CPU, 32 samples, AgX",
+    "encoding": "RGB with 6 significant bits per channel (overhead 7); PNG compression 9",
+    "camera": "Vertical down (0,0,47)m, Blender +Y north-up, perspective vertical FOV42 degrees",
+    "observed": "Two low trays, four integral casters, bent push handle, three closed parts containers and sparse rim wear read in close views. At 47m the quiet rectangular footprint shows two pale lids and a restrained warm edge. Casters, lower storage and abrasion are not claimed readable overhead.",
+    "scope": "Self-review of Blender evidence, not native engine/world/device visual acceptance"
+  },
+  "diagnostics": {
+    "source": "Pinned Blender passes; material API deprecation notices only",
+    "editor": "Known toolkit compatibility warning, aborted scan and shutdown RID/ObjectDB leaks; successful normalization assertions, diagnostics retained in final.log",
+    "import": "Exit 0; no ERROR/SCRIPT ERROR lines; existing toolkit compatibility warning",
+    "runtime": "Exit 0; no ERROR/WARNING lines; all resource and physics assertions pass",
+    "production_checks": "Not run, per owner decision 52"
+  }
+}

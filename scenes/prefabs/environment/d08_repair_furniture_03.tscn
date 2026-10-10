@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://c3bpjgrs6ccol"]
+
+[ext_resource type="PackedScene" uid="uid://t1m2en3luf61" path="res://art/models/environment/d08_repair_furniture_03/d08_repair_furniture_03.glb" id="1_model"]
+
+[sub_resource type="BoxShape3D" id="Box_trolley"]
+size = Vector3(1.36, 0.86, 0.7)
+
+[node name="D08RepairFurniture03" type="Node3D" unique_id=1049989168]
+
+[node name="Visuals" type="Node3D" parent="." unique_id=1895571317]
+
+[node name="Model" type="Node3D" parent="Visuals" unique_id=1182232518 instance=ExtResource("1_model")]
+
+[node name="Collision" type="Node3D" parent="." unique_id=842459728]
+
+[node name="Body" type="StaticBody3D" parent="Collision" unique_id=745802634]
+collision_mask = 0
+
+[node name="TrolleySolid" type="CollisionShape3D" parent="Collision/Body" unique_id=1764515002]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.43, 0)
+shape = SubResource("Box_trolley")
