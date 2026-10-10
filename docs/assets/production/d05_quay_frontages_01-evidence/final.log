@@ -1,0 +1,41 @@
+d05_quay_frontages.01 — final bounded production receipt, 10 October 2026
+Producer: commissioned implementation specialist; independent review pending.
+Working branch: lane/a-qfront. Exact reproduction commands: ../d05_quay_frontages_01.md.
+Raw logs/retries (not committed): C:/tmp/ft/assets/d05_quay_frontages_01/
+
+PASS author.py: isolated Blender 5.2.2 LTS d13f752e3b9c; exit 0.
+PASS export.py: glTF 5.2.40; shared export_settings.json; fresh-process saved-source export; exit 0.
+PASS validate.py: source topology/transforms/normals/bounds; decoded binary GLB; exit 0.
+  3,076 triangles; 1,560 source vertices; 1,850 GLB vertices; 1 mesh / 5 surfaces.
+  0 degenerate source faces/export triangles; 0 non-manifold source edges.
+  Fresh GLB byte-identical: 82,668 bytes.
+  SHA256 ec4b885004b8a6fbd427918343fec7fd61542434d85ea6a342202f461decd0db
+  Shared surround/door/display/front+rear upper windows: zero shell-surface intersections.
+PASS render.py: four isolated Cycles CPU/AgX/32-sample renders; exit 0.
+  1280x720; overhead vertical-down, fixed yaw, 47 m, 42-degree vertical FOV.
+  All four visually inspected; source seam, overview framing, rear-preview orientation corrected.
+  PNG compression 95 then RGB six-bit compaction / level 9, no resizing.
+PASS Godot --headless --path . --import: pinned 4.8.dev7.official.c971f93e7; exit 0.
+  No ERROR or SCRIPT ERROR lines. Existing addon 4.8 compatibility warning retained.
+PASS Godot --headless --script check.gd -- --normalize: exit 0; no error/warning lines.
+  Prefab and saved fixture load/pack/save/reload stable; generated scene UIDs retained.
+  Recursive dependencies/UIDs resolve; identity Visuals/Model; seven unchanged shared mounts.
+  Shell bounds 6.960 x 9.350 x 10.620 m; fitted bounds 6.960 x 9.350 x 11.410 m.
+  49 fitted mesh instances; exactly one 6.4 x 6.85 x 10 m static collision box.
+  ActorMotion/FootCommand: 5 cases x 60 physics ticks x AUTHORITY/REPLAY.
+  Side stops X=+/-3.550780; front/rear Z=+/-5.350257; side bypass reaches Z=2.9999998.
+  Modes within 2 mm; side rays hit, side/roof bypass rays clear.
+PASS pinned gdstyle fmt --check check.gd: 1 file already formatted.
+PASS pinned gdstyle --max-line-length 100 --max-warnings 0 check.gd: no issues.
+NOT RUN tools/production_checks.py: resumed common brief / owner decision 52, unplaced asset.
+
+Earlier diagnostics, not final failures:
+- Blender Material/World.use_nodes deprecation warnings (future 6.0 removal); no export errors.
+- Initial headless --editor normalizer exited 0 but emitted editor/plugin teardown RID leaks.
+  Replaced with ordinary headless normalizer and explicit engine UID retention; final run clean.
+- Initial dictionary-spacing and max-local-variable style warnings fixed; final style clean.
+- Provider interruption resumed the same uncommitted asset; no duplicate asset created.
+No owner live Blender/Godot session accessed; no shared project/configuration changes.
+
+Not proven: independent acceptance, district placement, populated blue-hour engine readability,
+car movement/impact, real multiplayer transport/admission/prediction, packaging or sustained Deck cost.

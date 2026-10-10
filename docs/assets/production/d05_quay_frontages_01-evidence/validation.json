@@ -1,0 +1,385 @@
+{
+  "applied_transforms": true,
+  "asset": "d05_quay_frontages.01",
+  "blender": "5.2.2 LTS",
+  "build_hash": "d13f752e3b9c",
+  "consistent_winding": true,
+  "datum": "ground-centred bounding wall footprint",
+  "degenerate_faces": 0.0,
+  "dimension_tolerance_m": 0.001,
+  "dimensions_godot_m": [
+    6.96,
+    9.35,
+    10.62
+  ],
+  "dimensions_status": "provisional",
+  "fresh_reexport_byte_identical": true,
+  "glb_bytes": 82668.0,
+  "glb_sha256": "ec4b885004b8a6fbd427918343fec7fd61542434d85ea6a342202f461decd0db",
+  "glb_vertices": 1850.0,
+  "godot": {
+    "bounds_min": [
+      -3.48000001907349,
+      0.0,
+      -5.30999994277954
+    ],
+    "bounds_size": [
+      6.96000003814697,
+      9.35000038146973,
+      10.6199998855591
+    ],
+    "engine": "4.8-dev7 (official)",
+    "fitted_bounds_min": [
+      -3.48000001907349,
+      0.0,
+      -6.09999990463257
+    ],
+    "fitted_bounds_size": [
+      6.96000003814697,
+      9.35000038146973,
+      11.4099998474121
+    ],
+    "fitted_mesh_count": 49,
+    "linked_model_identity": true,
+    "physics": {
+      "actor_capsule_height_m": 1.8,
+      "actor_capsule_radius_m": 0.35,
+      "all_case_positions": [
+        [
+          3.5507800579071,
+          0.000877899175975472,
+          0.0
+        ],
+        [
+          -3.5507800579071,
+          0.0,
+          0.0
+        ],
+        [
+          1.95000004768372,
+          0.0,
+          -5.350257396698
+        ],
+        [
+          0.0,
+          0.0,
+          5.350257396698
+        ],
+        [
+          4.0,
+          0.0,
+          2.99999976158142
+        ],
+        [
+          3.5507800579071,
+          0.0,
+          0.0
+        ],
+        [
+          -3.5507800579071,
+          0.0,
+          0.0
+        ],
+        [
+          1.95000004768372,
+          0.0,
+          -5.350257396698
+        ],
+        [
+          0.0,
+          0.0,
+          5.350257396698
+        ],
+        [
+          4.0,
+          0.0,
+          2.99999976158142
+        ]
+      ],
+      "authority_replay_within_2mm": true,
+      "car_and_network_transport": "pending downstream; not exercised by these actor checks",
+      "case_order": [
+        "right_wall",
+        "left_wall",
+        "closed_front",
+        "rear",
+        "clear_side_bypass"
+      ],
+      "movement_ticks_per_case_per_mode": 60,
+      "outside_shell_ray_clear": true,
+      "roof_ray_clear": true,
+      "side_rays_hit": true
+    },
+    "resource_uids": {
+      "res://art/models/environment/city_shop_fittings_01/city_shop_fittings_01.glb": "uid://buchm8e38cahk",
+      "res://art/models/environment/city_shop_fittings_02/city_shop_fittings_02.glb": "uid://cdtnvrp3u64wi",
+      "res://art/models/environment/city_shop_fittings_03/city_shop_fittings_03_single.glb": "uid://brebmrdrcgy2f",
+      "res://art/models/environment/city_shop_fittings_05/city_shop_fittings_05.glb": "uid://itf20pv3st5l",
+      "res://art/models/environment/city_shop_fittings_06/city_shop_fittings_06_single.glb": "uid://buetb2gv70c1f",
+      "res://art/models/environment/city_shop_fittings_07/city_shop_fittings_07.glb": "uid://uangmwqvm65p",
+      "res://art/models/environment/d05_quay_frontages_01/d05_quay_frontages_01.glb": "uid://cok7pubma83iw",
+      "res://scenes/prefabs/environment/city_shop_fittings_01.tscn": "uid://bsh8gy3l470g1",
+      "res://scenes/prefabs/environment/city_shop_fittings_02.tscn": "uid://fpcm6q4n57qx",
+      "res://scenes/prefabs/environment/city_shop_fittings_03_single.tscn": "uid://c1d8t0k7tqrw3",
+      "res://scenes/prefabs/environment/city_shop_fittings_07.tscn": "uid://8lks7nm4c64g",
+      "res://scenes/prefabs/environment/d05_quay_frontages_01.tscn": "uid://coe4ooekjuk11",
+      "res://scripts/actors/actor_motion.gd": "uid://jthmfio4c27p",
+      "res://tools/asset_production/d05_quay_frontages_01/collision_check.tscn": "uid://dol4xalj57k6w"
+    },
+    "roundtrip_scenes": [
+      "res://scenes/prefabs/environment/d05_quay_frontages_01.tscn",
+      "res://tools/asset_production/d05_quay_frontages_01/collision_check.tscn"
+    ],
+    "save_reload_byte_stable": true,
+    "shared_mounts": 7
+  },
+  "godot_aabb": {
+    "max": [
+      3.48000001907349,
+      9.35000038146973,
+      5.30999994277954
+    ],
+    "min": [
+      -3.48000001907349,
+      0.0,
+      -5.30999994277954
+    ]
+  },
+  "materials": [
+    {
+      "name": "quay_ochre_render",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.552011430263519,
+          0.32314321398735,
+          0.130136474967003,
+          1.0
+        ],
+        "metallicFactor": 0.0,
+        "roughnessFactor": 0.620000004768372
+      }
+    },
+    {
+      "name": "quay_petrol_plinth",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.051269456744194,
+          0.104616485536098,
+          0.13843160867691,
+          1.0
+        ],
+        "metallicFactor": 0.0500000007450581,
+        "roughnessFactor": 0.639999985694885
+      }
+    },
+    {
+      "name": "quay_amber_frontage",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.723055124282837,
+          0.381326019763947,
+          0.086500458419323,
+          1.0
+        ],
+        "metallicFactor": 0.0500000007450581,
+        "roughnessFactor": 0.5
+      }
+    },
+    {
+      "name": "quay_warm_stone_trim",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.577580451965332,
+          0.539479494094849,
+          0.417885065078735,
+          1.0
+        ],
+        "metallicFactor": 0.0500000007450581,
+        "roughnessFactor": 0.569999992847443
+      }
+    },
+    {
+      "name": "quay_slate_roof",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.0409151986241341,
+          0.0742135718464851,
+          0.122138775885105,
+          1.0
+        ],
+        "metallicFactor": 0.119999997317791,
+        "roughnessFactor": 0.519999980926514
+      }
+    }
+  ],
+  "mesh_count": 1.0,
+  "nonmanifold_edges": 0.0,
+  "pivot": [
+    0.0,
+    0.0,
+    0.0
+  ],
+  "recess_depth_m": 0.65,
+  "shared_fitting_fit": [
+    {
+      "dependency": "art/models/environment/city_shop_fittings_05/city_shop_fittings_05.glb",
+      "mesh_count": 8.0,
+      "mount_blender": [
+        -0.95,
+        5.0,
+        0.48
+      ],
+      "sha256": "a641d067621301435f5a725803290f74dc7c235bac8bdc5d24c1d2170776faed",
+      "shell_surface_intersections": 0.0,
+      "yaw_radians": 0.0
+    },
+    {
+      "dependency": "art/models/environment/city_shop_fittings_06/city_shop_fittings_06_single.glb",
+      "mesh_count": 3.0,
+      "mount_blender": [
+        1.95,
+        5.0,
+        0.0
+      ],
+      "sha256": "37e9ce1667105cc66120edf4d114b3a4228972000ac89c14ed1a2608e9b309c6",
+      "shell_surface_intersections": 0.0,
+      "yaw_radians": 0.0
+    },
+    {
+      "dependency": "art/models/environment/city_shop_fittings_03/city_shop_fittings_03_single.glb",
+      "mesh_count": 4.0,
+      "mount_blender": [
+        1.95,
+        5.0,
+        0.0
+      ],
+      "sha256": "29af0c8b3652b7b400598c75f6f99329cb21e510452547e2e28f3c1115d215b9",
+      "shell_surface_intersections": 0.0,
+      "yaw_radians": 0.0
+    },
+    {
+      "dependency": "art/models/environment/city_shop_fittings_07/city_shop_fittings_07.glb",
+      "mesh_count": 11.0,
+      "mount_blender": [
+        0.0,
+        5.0,
+        4.65
+      ],
+      "sha256": "726af54525323b3f13253052b6fe61d80bafd1601a2ea8845f7238b53b88551b",
+      "shell_surface_intersections": 0.0,
+      "yaw_radians": 0.0
+    },
+    {
+      "dependency": "art/models/environment/city_shop_fittings_07/city_shop_fittings_07.glb",
+      "mesh_count": 11.0,
+      "mount_blender": [
+        0.0,
+        -5.0,
+        4.65
+      ],
+      "sha256": "726af54525323b3f13253052b6fe61d80bafd1601a2ea8845f7238b53b88551b",
+      "shell_surface_intersections": 0.0,
+      "yaw_radians": 3.14159265358979
+    }
+  ],
+  "source_aabb": {
+    "max": [
+      3.48000001907349,
+      5.30999994277954,
+      9.35000038146973
+    ],
+    "min": [
+      -3.48000001907349,
+      -5.30999994277954,
+      0.0
+    ]
+  },
+  "status": "PASS source and export",
+  "structural_recess_probes": [
+    {
+      "height": 1.0,
+      "rear_y_blender": 4.34999990463257,
+      "x": 1.95
+    },
+    {
+      "height": 1.0,
+      "rear_y_blender": 4.34999990463257,
+      "x": -0.95
+    },
+    {
+      "height": 5.4,
+      "rear_y_blender": 4.34999990463257,
+      "x": 0.0
+    },
+    {
+      "height": 5.4,
+      "rear_y_blender": -4.34999990463257,
+      "x": 0.0
+    }
+  ],
+  "surfaces": 5.0,
+  "triangles": 3076.0,
+  "unit_normals": true,
+  "vertices": 1560.0,
+  "renders": [
+    {
+      "file": "hero.png",
+      "size_px": [
+        1280,
+        720
+      ],
+      "bytes": 313767
+    },
+    {
+      "file": "side.png",
+      "size_px": [
+        1280,
+        720
+      ],
+      "bytes": 295392
+    },
+    {
+      "file": "detail.png",
+      "size_px": [
+        1280,
+        720
+      ],
+      "bytes": 283839
+    },
+    {
+      "file": "overhead_47m_42deg.png",
+      "size_px": [
+        1280,
+        720
+      ],
+      "bytes": 241415
+    }
+  ],
+  "render_encoding": "RGB 6 significant bits per channel; PNG compression 9",
+  "gameplay_camera": {
+    "renderer": "Blender Cycles CPU / AgX, 32 samples; not an engine gameplay capture",
+    "position_blender_m": [
+      0,
+      0,
+      47
+    ],
+    "rotation_radians": [
+      0,
+      0,
+      0
+    ],
+    "vertical_fov_degrees": 42,
+    "projection": "perspective",
+    "resolution": [
+      1280,
+      720
+    ]
+  },
+  "validation_scope": {
+    "production_checks": "Not run: common brief / owner decision 52 for unplaced assets",
+    "source_export": "PASS; pinned saved-source fresh-process byte comparison",
+    "headless_prefab": "PASS; registered dependency UIDs, two saves, ActorMotion authority/replay",
+    "style": "PASS; pinned gdstyle fmt --check and --max-line-length 100 --max-warnings 0",
+    "independent_review_world_device": "pending"
+  }
+}
