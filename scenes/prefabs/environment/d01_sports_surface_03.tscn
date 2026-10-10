@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://dkwfdcxd3xj61"]
+
+[ext_resource type="PackedScene" uid="uid://13mat7fuvpjm" path="res://art/models/environment/d01_sports_surface_03/d01_sports_surface_03.glb" id="1_model"]
+
+[node name="D01SportsSurface03" type="Node3D" unique_id=823984332]
+
+[node name="Visuals" type="Node3D" parent="." unique_id=771514015]
+
+[node name="Model" type="Node3D" parent="Visuals" unique_id=1070034018 instance=ExtResource("1_model")]

@@ -1,0 +1,26 @@
+FINAL RECEIPT: d01_sports_surface.03
+Original Pillow artwork and Blender court-face construction. No external fonts/models.
+Pinned Blender author and validator completed normally; fresh export byte-identical.
+2 triangles, 4 source/export vertices, one mesh/surface; upward unit normals.
+Zero degenerates; four justified boundary edges, zero other non-manifold edges.
+PNG regeneration exact; 13 paint, 7 green and 6 apron samples; border/palette/coverage pass.
+Four 1280x720 evidence renders inspected; each below 400 KiB.
+Python syntax and GDScript format/zero-warning lint: PASS.
+Headless normalization exit 0; two byte-stable scene/material rounds and matching UIDs.
+Final pinned import exit 0; no ERROR/SCRIPT ERROR lines.
+Two fresh runtime checks exit 0; identical receipts, no ERROR/SCRIPT ERROR lines.
+Linked identity model, external opaque material, generated mips, no collision.
+No failed asset checks; GDScript formatting already matched the pinned style.
+No production_checks.py or owner live-session access. No world/gameplay changes.
+Editor warnings/shutdown leaks below are retained, not a clean editor-log pass:
+
+WARNING: [MCP] Godot 4.8 detected - latest tested version is 4.7.0. The plugin will run normally but some features may behave unexpectedly. Please report issues at https://github.com/NPGameDev/godot-mcp-toolkit/issues
+WARNING: Scan thread aborted...
+ERROR: 5 RID allocations of type 'N16RendererViewport8ViewportE' were leaked at exit.
+ERROR: 8 RID allocations of type 'PN13RendererDummy14TextureStorage12DummyTextureE' were leaked at exit.
+ERROR: 1 RID allocations of type 'N17RendererSceneCull8ScenarioE' were leaked at exit.
+ERROR: 52 RID allocations of type 'PN18TextServerAdvanced22ShapedTextDataAdvancedE' were leaked at exit.
+ERROR: 1 RID allocations of type 'PN18TextServerAdvanced12FontAdvancedE' were leaked at exit.
+WARNING: 5 RIDs of type "Canvas" were leaked.
+WARNING: 31 RIDs of type "CanvasItem" were leaked.
+WARNING: 168 ObjectDB instances were leaked at exit (run with `--verbose` for details).
