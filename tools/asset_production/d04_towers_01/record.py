@@ -2,7 +2,6 @@
 import argparse
 import hashlib
 import json
-import re
 from pathlib import Path
 
 from PIL import Image, ImageOps
@@ -38,34 +37,24 @@ def main():
     validation = read_json(EVIDENCE / "validation.json")
     engine = read_json(SCRATCH / "prefab-fresh-final.json")
     normalization = read_json(SCRATCH / "prefab-check.json")
-    checks = read_json(SCRATCH / "checks/summary.json")
-    compilation = read_json(SCRATCH / "checks/script-checks/compilation.json")
     assert engine["ok"] and not engine["failures"]
     assert normalization["save_reload_byte_stable"]
     assert normalization["stable_roundtrip_count"] == 2
     assert engine["prefab_uid"] == normalization["prefab_uid"]
     assert engine["model_uid"] == normalization["model_uid"]
-    assert checks["ok"] and all(row["ok"] for row in compilation)
-    assert any(row["script"] == f"tools/asset_production/{NID}/check_prefab.gd"
-               for row in compilation)
     glb = ROOT / f"art/models/environment/{NID}/{NID}.glb"
     assert hashlib.sha256(glb.read_bytes()).hexdigest() == validation["glb_sha256"]
     assert glb.stat().st_size == validation["glb_bytes"]
     assert glb.read_bytes() == (SCRATCH / f"reexport/{NID}.glb").read_bytes()
-    gut_log = (SCRATCH / "checks/gut.log").read_text(encoding="utf-8")
-    python_log = (SCRATCH / "checks/python-tests.log").read_text(encoding="utf-8")
-    gut_tests = int(re.search(r"^Tests\s+(\d+)", gut_log, re.MULTILINE)[1])
-    gut_assertions = int(re.search(r"^Asserts\s+(\d+)", gut_log, re.MULTILINE)[1])
-    python_tests = int(re.search(r"Ran (\d+) tests", python_log)[1])
     validation["engine"] = engine
     validation["engine"]["save_reload_byte_stable"] = True
     validation["engine"]["stable_roundtrip_count"] = 2
-    validation["production_checks"] = {
-        "overall_ok": checks["ok"], "results": checks["results"],
-        "compiled_script_count": len(compilation), "python_tests": python_tests,
-        "gut_tests": gut_tests, "gut_assertions": gut_assertions,
-        "known_failure_exemptions": [],
-    }
+    validation["validation_policy"] = (
+        "Owner decision 52: asset-scoped import, source/export byte-compare, prefab roundtrips "
+        "and owned GDScript formatting/lint only. No global production suite required or invoked."
+    )
+    if "production_checks" in validation:
+        validation["production_checks"]["scope"] = "Historical run before owner decision 52"
     validation["visual_review"] = {
         "renders_inspected": list(RENDERS), "renders": renders,
         "renderer": "Blender Cycles CPU, 32 samples, AgX",
@@ -94,9 +83,7 @@ def main():
         "Pinned Godot import exit 0; existing MCP Godot-4.8 compatibility warning only.\n"
         "Prefab normalization and fresh resource/physics check exit 0; no new diagnostics.\n"
         "Two byte-stable save/reload roundtrips; 14 shape queries, 7 actor/car casts, front ray pass.\n"
-        f"Canonical production checks exit 0: {len(compilation)} scripts compiled, "
-        f"Python {python_tests}/{python_tests}, GUT {gut_tests}/{gut_tests}, "
-        f"{gut_assertions} assertions; negative control detected. No exemptions.\n"
+        "Owner decision 52: global suite not required or rerun; earlier result is historical.\n"
         "gdstyle 0.3.0 owned formatting/lint pass. Initial ambient gdstyle command missing; "
         "resolved through mise pin. Two initial lint findings fixed by separating collision checks.\n"
         "Blender use_nodes deprecation warnings concern Blender 6.0, not pin failure.\n"
@@ -127,7 +114,7 @@ def main():
     }
     (EVIDENCE / "manifest.json").write_text(
         json.dumps(manifest, indent=2) + "\n", encoding="utf-8", newline="\n")
-    print(f"PASS: {len(files)} payload hashes, four lean renders, all production checks green")
+    print(f"PASS: {len(files)} payload hashes, four lean renders, asset-scoped receipts verified")
 
 
 if __name__ == "__main__":

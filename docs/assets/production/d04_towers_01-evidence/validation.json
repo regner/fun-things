@@ -415,7 +415,8 @@
     "python_tests": 17,
     "gut_tests": 165,
     "gut_assertions": 6918,
-    "known_failure_exemptions": []
+    "known_failure_exemptions": [],
+    "scope": "Historical run before owner decision 52"
   },
   "visual_review": {
     "renders_inspected": [
@@ -473,5 +474,6 @@
     "World placement with important open forecourt; actual engine camera/occlusion/material/LOD review",
     "Production actor/car controller and multiplayer collision checks",
     "Exported-platform, Deck and sustained repeated-placement performance"
-  ]
+  ],
+  "validation_policy": "Owner decision 52: asset-scoped import, source/export byte-compare, prefab roundtrips and owned GDScript formatting/lint only. No global production suite required or invoked."
 }

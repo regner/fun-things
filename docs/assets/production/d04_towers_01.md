@@ -153,9 +153,11 @@ Concise command outcomes/diagnostics: [final.log](d04_towers_01-evidence/final.l
   actor side bypass, under-canopy bypass and car bypass clear. Actor capsule r=0.35 m,
   h=1.8 m; test car box 1.8×1.5×4.4 m. Front ray hits Z=-9 m.
   These use Godot physics APIs, **not** production-controller driving or network proof.
-- Canonical production checks: **230 scripts compiled; 17/17 Python tests;
+- Historical check completed before owner decision 52: **230 scripts compiled; 17/17 Python tests;
   165/165 GUT tests, 6,918 assertions; diagnostic negative control detected**.
-  Owned gdstyle formatting/lint pass. No known-failure exemptions were needed.
+  No known-failure exemptions were needed. This global suite is no longer required and must
+  not be rerun for asset work. Current checks are pinned import, asset validation/byte-compare,
+  prefab roundtrips, and owned gdstyle formatting/lint, all already passed.
 
 Toolchain: Blender **5.2.2 LTS**, build `d13f752e3b9c`, glTF exporter **5.2.40**;
 Godot **4.8.dev7.official.c971f93e7**; gdstyle **0.3.0**. Import's existing MCP 4.8
@@ -164,7 +166,8 @@ in the concise log classification, not suppressed. Scratch logs are outside the 
 
 ## Exact reproduction
 
-From the repository root in Git Bash; use a fresh external checks output directory if repeating:
+From the repository root in Git Bash. Owner decision 52 limits reproduction to these
+asset-scoped checks; the earlier global suite result above is historical only:
 
 ```sh
 B='C:/Program Files/Blender Foundation/Blender 5.2/blender.exe'
@@ -177,23 +180,19 @@ timeout 300 "$G" --headless --path . --import
 timeout 180 "$G" --headless --path . --script res://tools/asset_production/d04_towers_01/check_prefab.gd -- --output C:/tmp/ft/assets/d04_towers_01/prefab-fresh-final.json
 timeout 60 "$(mise which gdstyle)" fmt --check tools/asset_production/d04_towers_01/check_prefab.gd
 timeout 60 "$(mise which gdstyle)" --max-line-length 100 --max-warnings 0 tools/asset_production/d04_towers_01/check_prefab.gd
-timeout 1800 mise exec -- python tools/production_checks.py --output C:/tmp/ft/assets/d04_towers_01/checks
 python tools/asset_production/d04_towers_01/record.py --compress-renders
 ```
 
 The validator loads the saved source and invokes `export.py` using the shared
 `tools/assets/blender/export_settings.json`, with this collection and animation/skin export
 explicitly disabled. Fresh comparison output goes to `C:/tmp/ft/assets/d04_towers_01/reexport/`.
-`record.py` verifies final receipts and GLB bytes, packages evidence and regenerates the manifest
-last. Reinspect rendered evidence after reproduction; this tool does not replace visual review.
+`record.py` verifies asset-scoped receipts and GLB bytes, packages evidence and regenerates the
+manifest last. It does not require or invoke the global suite. Reinspect rendered evidence after
+reproduction; this tool does not replace visual review.
 
 ## Remaining acceptance
 
 - Supervising art/technical reviewers: independent exact-commit review remains pending.
-- Family members: [d04_towers.02](../d04_towers.md) chamfered crown,
-  [d04_towers.03](../d04_towers.md) rounded crown and [d04_towers.04](../d04_towers.md)
-  mid-height tower remain pending. Their delivery should reference this baseline and update
-  this current status item plus its manifest entry, not historical receipts.
 - Layout/gameplay owners: confirm provisional dimensions, compose the unequal skyline and
   important open forecourt without occupying routes; check walking/car clearance and
   populated-city sightlines from the **actual** fixed camera. No placement was authored.
